@@ -1590,20 +1590,28 @@ ${endnotes.length ? `<h3>Fußnoten</h3><ol class="fn">${endnotes.map(n => `<li>$
       return (local.has(b.book) - local.has(a.book)) || ((ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib)) || (b.refs.length - a.refs.length);
     });
     if (!list.length) { $('#cmtChips').innerHTML = ''; $('#cmtSum').innerHTML = ''; $('#cmtBody').innerHTML = '<p class="muted">Zu diesem Vers gibt es keine Kommentare in den Verknüpfungen.</p>'; return; }
-    // Auswahl: gemerkte Kommentatoren; beim ersten Mal die bekanntesten lokal vorhandenen
-    let chosen = list.filter(g => cmtSel.has(g.name) && local.has(g.book));
-    if (!cmtTouched) { chosen = list.filter(g => local.has(g.book)).slice(0, 2); }
+    // Nur Kommentatoren zählen als „vorhanden“, die lokal in der gewählten Sprache vorliegen (sonst wirkt die Liste vollständiger, als sie ist)
+    const byTitle = new Map(groups.map(g => [g.title, g]));
+    const LNm = { en: 'Englisch', de: 'Deutsch', he: 'Hebräisch' }[cmtLang];
+    const hasLang = b => { const g = byTitle.get(b) || byTitle.get(String(b).split(', ')[0]); return !!g && g.versions.some(v => v.kind === cmtLang); };
+    const avail = { has: b => local.has(b) && hasLang(b) };
+    // Auswahl: gemerkte Kommentatoren; beim ersten Mal die bekanntesten vorhandenen
+    let chosen = list.filter(g => cmtSel.has(g.name) && avail.has(g.book));
+    if (!cmtTouched) { chosen = list.filter(g => avail.has(g.book)).slice(0, 2); }
     cmtLastChosen = chosen.map(g => g.name);
-    const showAll = !chosen.length; // nichts gewählt -> alle lokal vorhandenen Kommentare zeigen
-    if (showAll) chosen = list.filter(g => local.has(g.book));
+    const showAll = !chosen.length; // nichts gewählt -> alle in dieser Sprache vorhandenen Kommentare zeigen
+    if (showAll) chosen = list.filter(g => avail.has(g.book));
     const chip = g => {
-      const on = !showAll && chosen.includes(g), ok = local.has(g.book);
-      return `<button class="chip ${on ? 'on' : ''} ${ok ? '' : 'off'}" data-n="${esc(g.name)}" title="${ok ? esc(g.book) : esc(g.book) + ' – nicht in deiner Bibliothek'}">${esc(g.name)} ${g.refs.length > 1 ? g.refs.length : ''}</button>`;
+      const on = !showAll && chosen.includes(g), ok = avail.has(g.book);
+      const why = ok ? g.book : local.has(g.book) ? `${g.book} – lokal vorhanden, aber nicht auf ${LNm}` : `${g.book} – nicht in deiner Bibliothek`;
+      return `<button class="chip ${on ? 'on' : ''} ${ok ? '' : 'off'}" data-n="${esc(g.name)}" title="${esc(why)}">${esc(g.name)} ${g.refs.length > 1 ? g.refs.length : ''}</button>`;
     };
-    const localL = list.filter(g => local.has(g.book)), remoteL = list.filter(g => !local.has(g.book));
-    $('#cmtSum').innerHTML = `${cmtChipsOpen ? '▾' : '▸'} <b>Kommentatoren</b> <span class="muted">${showAll ? (chosen.length ? `keiner gewählt – alle ${chosen.length} lokalen werden gezeigt` : 'keine lokal vorhanden') : esc(chosen.map(g => g.name).join(', '))} · ${localL.length} lokal${remoteL.length ? `, ${remoteL.length} weitere` : ''}</span>`;
+    const localL = list.filter(g => avail.has(g.book)), noLangL = list.filter(g => local.has(g.book) && !hasLang(g.book)), remoteL = list.filter(g => !local.has(g.book));
+    $('#cmtSum').innerHTML = `${cmtChipsOpen ? '▾' : '▸'} <b>Kommentatoren</b> <span class="muted">${showAll ? (chosen.length ? `keiner gewählt – alle ${chosen.length} auf ${LNm} werden gezeigt` : `keiner auf ${LNm} vorhanden`) : esc(chosen.map(g => g.name).join(', '))} · ${localL.length} auf ${LNm}${noLangL.length ? `, ${noLangL.length} nur in anderer Sprache` : ''}${remoteL.length ? `, ${remoteL.length} nicht geladen` : ''}</span>`;
     $('#cmtChips').hidden = !cmtChipsOpen;
-    $('#cmtChips').innerHTML = localL.map(chip).join('') + (remoteL.length ? `<details><summary>${remoteL.length} nicht in deiner Bibliothek</summary><div>${remoteL.map(chip).join('')}</div></details>` : '');
+    $('#cmtChips').innerHTML = localL.map(chip).join('')
+      + (noLangL.length ? `<details><summary>${noLangL.length} lokal, aber nicht auf ${LNm}</summary><div>${noLangL.map(chip).join('')}</div></details>` : '')
+      + (remoteL.length ? `<details><summary>${remoteL.length} nicht in deiner Bibliothek</summary><div>${remoteL.map(chip).join('')}</div></details>` : '');
     if (!chosen.length) { $('#cmtBody').innerHTML = '<p class="muted">Wähle oben einen Kommentator. Grau dargestellte Kommentatoren musst du erst im Reiter „Herunterladen“ laden.</p>'; return; }
     $('#cmtBody').innerHTML = '<p class="muted">Lade …</p>';
     const refs = chosen.flatMap(g => g.refs);
