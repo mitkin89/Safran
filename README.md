@@ -16,7 +16,7 @@ An offline library for [Sefaria](https://www.sefaria.org) texts on macOS (Electr
 - **Reading:** Hebrew, English and German side by side, aligned verse by verse. Chapters / Talmud pages (2a, 2b …) via drop-down or arrow keys. Footnotes open inline in the text (click the small marker). Individual versions can be switched on and off.
 - **Tabs, history and sessions:** multiple tabs with back/forward per tab, a "recently opened" list, and open tabs are restored on the next start.
 - **Jump field:** type a location (`3`, `2:5`, `14 2`, `Daf 3a`, `gen. 1:1`, `Kapitel 14 Vers 2`); abbreviated book names work.
-- **Search:** full-text search across all downloaded texts (including footnotes and your own texts), Hebrew vowels and cantillation ignored, optional "whole words with prefixes", category filter. In-page search with Cmd+F.
+- **Search:** full-text search across all downloaded texts (including footnotes and your own texts), Hebrew vowels and cantillation ignored, optional "whole words with prefixes", category filter. Advanced search: up to three words near each other (adjustable distance, optional word order), wildcards (`anf*`, `m?er`) and fuzzy matching for variant spellings (Raschi/Rashi). In-page search with Cmd+F, also in the commentary panel.
 - **Links (Verknüpfungen):** download Sefaria's link data once (~680 MB), then see links per verse, grouped by category and book, with text preview.
 - **Commentary panel (Cmd+K):** shows commentaries on the selected verse (e.g. Rashi and Ibn Ezra one below the other) in the chosen language. If no commentator is selected, all locally available ones are shown.
 - **Your own texts:** import TXT, Word (.docx), CSV, JSON or Sefaria upload CSV files, several at once (drag & drop works). Your text appears as an extra column next to the original and is compared line by line with it.
@@ -74,3 +74,5 @@ The texts are **not** covered by this project's license. Each text version has i
 ## License
 
 The source code of this app is released under the [MIT License](LICENSE).
+- Cmd+F durchsucht auch den geöffneten Kommentar-Bereich; identische, mehrfach verknüpfte Kommentartexte erscheinen nur einmal.
+- **Erweiterte Suche** (Reiter „Suche“): bis zu drei Wörter in der Nähe voneinander (Abstand wählbar, optional in fester Reihenfolge), Platzhalter `*` und `?` (z. B. `anf*`, `erd*`) und **Fuzzy** für ähnliche Schreibweisen (Raschi/Rashi, Avraham/Abraham). Eine Hilfe mit Beispielen steht aufklappbar unter den Eingabefeldern.

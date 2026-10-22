@@ -90,6 +90,37 @@
         <button id="sGo" class="primary">Suchen</button>
         <button id="sCancel" disabled>Abbrechen</button>
       </div>
+      <div class="bar" id="advBar">
+        <input id="sq2" placeholder="Wort 2 (optional), z. B. gott">
+        <input id="sq3" placeholder="Wort 3 (optional), z. B. erd*">
+        <select id="sDist" title="Wie weit dürfen die Wörter höchstens auseinander stehen? Gezählt werden die Wörter dazwischen, innerhalb eines Verses bzw. Absatzes.">
+          <option value="-1">Abstand: beliebig im Vers</option>
+          <option value="0">direkt nebeneinander</option>
+          <option value="1">höchstens 1 Wort dazwischen</option>
+          <option value="2">höchstens 2 Wörter dazwischen</option>
+          <option value="3">höchstens 3 Wörter dazwischen</option>
+          <option value="5">höchstens 5 Wörter dazwischen</option>
+          <option value="10" selected>höchstens 10 Wörter dazwischen</option>
+          <option value="20">höchstens 20 Wörter dazwischen</option>
+        </select>
+        <label title="Die Wörter müssen in der Reihenfolge der Eingabefelder stehen"><input type="checkbox" id="sOrd"> Reihenfolge einhalten</label>
+        <label title="Findet auch ähnlich geschriebene Wörter (siehe Hilfe unten)"><input type="checkbox" id="sFuzzy"> Fuzzy (ähnliche Schreibweise)</label>
+      </div>
+      <details id="sHelp" class="help">
+        <summary>Hilfe: Platzhalter, Fuzzy und Wörter in der Nähe</summary>
+        <p><b>Platzhalter:</b> <code>*</code> steht für beliebig viele Buchstaben, <code>?</code> für genau einen. <code>anf*</code> findet Anfang, Anfänge, anfangen; <code>m?er</code> findet Meer und Mehr. Ohne Platzhalter muss das Wort vollständig übereinstimmen (<code>gott</code> findet „Gott“, aber nicht „Gottes“ – dafür <code>gott*</code>).</p>
+        <p><b>Fuzzy:</b> findet auch ähnlich geschriebene Wörter, z. B. bei Tippfehlern, Umschriften oder alten Schreibweisen. Erlaubt ist bei Wörtern mit 4–6 Buchstaben eine Abweichung, ab 7 Buchstaben zwei; kürzere Wörter müssen genau stimmen. Eine Abweichung ist ein falscher, fehlender oder zusätzlicher Buchstabe. Akzente und Umlaute werden ignoriert. Beispiele:</p>
+        <ul>
+          <li><code>raschi</code> findet auch „Rashi“</li>
+          <li><code>avraham</code> findet auch „Abraham“</li>
+          <li><code>semuel</code> findet auch „Šemuél“ und „Shemuel“</li>
+          <li><code>אלהים</code> findet auch „אלוהים“</li>
+          <li><code>gott</code> findet „Gott“, aber nicht „gold“ (zu kurz für Abweichungen)</li>
+        </ul>
+        <p>Wörter mit Platzhaltern werden nicht zusätzlich unscharf gesucht.</p>
+        <p><b>Wörter in der Nähe:</b> Trage in bis zu drei Feldern Wörter ein. Gefunden werden Verse bzw. Absätze, in denen alle Wörter vorkommen und höchstens so weit auseinander stehen, wie du bei „Abstand“ gewählt hast. Mit „Reihenfolge einhalten“ müssen sie so aufeinander folgen wie in den Feldern. Beispiel: <code>anf*</code> · <code>gott</code> · <code>erd*</code> mit „höchstens 10 Wörter“ und Reihenfolge findet „Am Anfang schuf Gott Himmel und Erde“. Gezählt wird nur innerhalb eines Verses, nicht über Verse hinweg.</p>
+        <p>Sobald mehrere Wörter, ein Platzhalter oder Fuzzy im Spiel sind, gilt: ganze Wörter statt Wortteile. „Ganze Wörter (mit Vorsilben)“ erlaubt dabei hebräische Vorsilben.</p>
+      </details>
       <p id="sInfo" class="muted">Durchsucht alle heruntergeladenen Texte der gewählten Sprachen (auch Fußnoten).</p>
       <div id="sOut"></div>
     </section>

@@ -777,17 +777,17 @@
     $('#sGo').disabled = true; $('#sCancel').disabled = false;
     $('#sInfo').textContent = 'Suche läuft …';
     $('#sOut').innerHTML = '';
-    const res = await O.search({ query: q, kinds, category: $('#sCat').value, prefix: $('#sPre').checked, limit: 300 });
+    const res = await O.search({ query: q, extra: [$('#sq2').value.trim(), $('#sq3').value.trim()].filter(Boolean), distance: +$('#sDist').value, ordered: $('#sOrd').checked, fuzzy: $('#sFuzzy').checked, kinds, category: $('#sCat').value, prefix: $('#sPre').checked, limit: 300 });
     $('#sGo').disabled = false; $('#sCancel').disabled = true;
     sResults = res.results;
     $('#sInfo').textContent = `${res.results.length}${res.truncated ? '+' : ''} Treffer in ${res.scanned} von ${res.total} Dateien${res.cancelled ? ' (abgebrochen)' : ''}${res.truncated ? ' – nur die ersten 300 werden angezeigt, bitte genauer suchen' : ''}.`;
     $('#sOut').innerHTML = sResults.map((r, i) => {
       const sn = r.snippet;
-      return `<div class="sres" data-i="${i}"><span class="t">${esc(r.title)}</span> <span class="muted">${esc(r.where)} · <span class="badge ${r.kind}">${KIND_LABEL[r.kind]}</span>${esc(shortVer(r.versionTitle))}</span><div class="snip" dir="${r.kind === 'he' ? 'rtl' : 'ltr'}">${esc(sn.before)}<mark>${esc(sn.hit)}</mark>${esc(sn.after)}</div></div>`;
+      return `<div class="sres" data-i="${i}"><span class="t">${esc(r.title)}</span> <span class="muted">${esc(r.where)} · <span class="badge ${r.kind}">${KIND_LABEL[r.kind]}</span>${esc(shortVer(r.versionTitle))}</span><div class="snip" dir="${r.kind === 'he' ? 'rtl' : 'ltr'}">${r.parts ? r.parts.map(x => x.m ? `<mark>${esc(x.t)}</mark>` : esc(x.t)).join('') : `${esc(sn.before)}<mark>${esc(sn.hit)}</mark>${esc(sn.after)}`}</div></div>`;
     }).join('');
   }
   $('#sGo').onclick = runSearch;
-  $('#sq').addEventListener('keydown', e => { if (e.key === 'Enter') runSearch(); });
+  ['#sq', '#sq2', '#sq3'].forEach(id => $(id).addEventListener('keydown', e => { if (e.key === 'Enter') runSearch(); }));
   $('#sCancel').onclick = () => O.cancelSearch();
   $('#sOut').addEventListener('click', e => {
     const el = e.target.closest('.sres');

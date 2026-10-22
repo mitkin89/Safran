@@ -211,3 +211,10 @@ body.cmt-open #tab-read .layout { margin-right: 420px; }
 #cmtChips details summary { font-size: 12px; color: var(--muted); cursor: pointer; }
 #cmtChips details > div { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
 #cmtChips[hidden] { display: none; }
+
+/* Erweiterte Suche */
+#advBar input[type=text], #advBar input:not([type]) { min-width: 200px; }
+details.help { margin: 6px 0 10px; padding: 6px 12px; border: 1px solid var(--line, #333); border-radius: 8px; font-size: 13px; max-width: 900px; }
+details.help summary { cursor: pointer; color: var(--muted, #aaa); }
+details.help code { background: rgba(127,127,127,.2); padding: 0 4px; border-radius: 4px; }
+details.help ul { margin: 4px 0 8px 18px; padding: 0; }
