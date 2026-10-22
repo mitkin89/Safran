@@ -6,6 +6,10 @@ An offline library for [Sefaria](https://www.sefaria.org) texts on macOS (Electr
 
 > The user interface is currently in German.
 
+![Reading view with Hebrew, English and German side by side and the commentary panel](screenshots/reading-and-commentary.jpg)
+
+*Sanhedrin 14a: Hebrew, English and German side by side, with the commentary panel on the right.*
+
 ## Features
 
 - **Download:** load the catalog once (~22 MB), tick categories or single books, choose languages (Hebrew, English, German) and download. By default the merged version per language is used; German translations are downloaded in full. Interrupted downloads can be resumed; existing files are skipped.
