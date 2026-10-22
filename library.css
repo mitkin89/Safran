@@ -42,8 +42,9 @@ aside input { width: 100%; margin-bottom: 8px; }
 /* Suche und Auswahl */
 .sres { padding: 8px 0; border-bottom: 1px solid var(--line); cursor: pointer; }
 .sres:hover { background: color-mix(in srgb, var(--accent) 7%, transparent); }
-.sres .t { font-weight: 600; }
-.sres .snip { margin-top: 2px; font-size: 13px; }
+.sres .t { font-weight: 600; font-size: 16px; }
+.sres .snip { margin-top: 3px; font-size: 17px; line-height: 1.55; }
+.sres .snip[dir=rtl] { font-size: 20px; }
 .sres mark { background: color-mix(in srgb, var(--warn) 30%, transparent); color: inherit; }
 #picker, #flat { max-height: 52vh; overflow: auto; border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; }
 #picker details { margin-left: 14px; }
@@ -247,3 +248,18 @@ html.split #tab-search:not([hidden]) { grid-template-columns: minmax(0, 1fr); }
 #sCatPanel h3 { margin: 0 0 8px; font-size: 14px; }
 #sCatPanel .bar { flex-wrap: wrap; }
 @media (max-width: 1150px) { #tab-search:not([hidden]) { grid-template-columns: minmax(0, 1fr); } #sCatPanel { position: static; max-height: 360px; } }
+.catpanel label.book { font-size: 13px; color: var(--muted, #aaa); margin-left: 24px; }
+#sSum { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0; }
+#sSum .chip { font-size: 12px; padding: 1px 9px; border-radius: 999px; border: 1px solid var(--line); background: transparent; cursor: pointer; color: inherit; }
+#sSum .chip.on { background: color-mix(in srgb, var(--accent) 22%, transparent); border-color: var(--accent); font-weight: 600; }
+
+#ctxMenu { position: fixed; z-index: 50; background: var(--bg, #fff); color: var(--fg, #111); border: 1px solid #8884; border-radius: 8px; box-shadow: 0 6px 24px #0003; padding: 4px; min-width: 210px; }
+#ctxMenu button { display: block; width: 100%; text-align: left; border: 0; background: none; padding: 6px 10px; border-radius: 5px; font: inherit; color: inherit; cursor: pointer; }
+#ctxMenu button:hover { background: #8882; }
+ins.wd { background: #2a9d5c33; text-decoration: none; }
+del.wd { background: #d6393933; }
+
+#syncBtn { display: none; }
+html.split #syncBtn { display: inline-block; }
+html.pane2 #syncBtn { display: none !important; }
+#syncBtn[aria-pressed=true] { background: #2a9d5c33; }

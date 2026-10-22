@@ -155,7 +155,7 @@ const O = require('./offline');
 
   // Suche: Kategorie-Filter und hebräische Präfixe
   const srp = await lib2.search({ query: 'ארץ', kinds: ['he'], prefix: true });
-  assert.ok(srp.results.length >= 0);
+  // (leere Prüfung entfernt)
   assert.strictEqual((await lib2.search({ query: 'ברא', kinds: ['he'], category: 'Talmud' })).results.length, 0);
   assert.strictEqual((await lib2.search({ query: 'ברא', kinds: ['he'], category: 'Tanakh/Torah' })).results.length, 1);
   assert.strictEqual((await lib2.search({ query: 'ברא', kinds: ['he'], category: 'Tanak' })).results.length, 0);

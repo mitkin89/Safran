@@ -8,9 +8,10 @@ window.addEventListener('drop', async e => {
   const files = [...((e.dataTransfer && e.dataTransfer.files) || [])];
   if (!files.length || !ownDropCb) return;
   const paths = files.map(f => { try { return webUtils.getPathForFile(f); } catch { return ''; } }).filter(Boolean);
-  if (paths.length) ownDropCb(await ipcRenderer.invoke('off:ownPaths', paths));
+  if (paths.length) { ipcRenderer.send('off:ownDropAllow', paths); ownDropCb(await ipcRenderer.invoke('off:ownPaths', paths)); }
 }, true);
 
+contextBridge.exposeInMainWorld('platform', { isMac: process.platform === 'darwin', mod: process.platform === 'darwin' ? 'Cmd' : 'Strg', files: process.platform === 'darwin' ? 'Finder' : 'Explorer' });
 contextBridge.exposeInMainWorld('lib', {
   parseCSV: lib.parseCSV,
   toCSV: lib.toCSV,
@@ -43,10 +44,8 @@ contextBridge.exposeInMainWorld('offline', {
   ownClear: () => ipcRenderer.invoke('off:ownClear'),
   onOwnDrop: cb => { ownDropCb = cb; },
   ownRemove: rel => ipcRenderer.invoke('off:ownRemove', rel),
-  find: (text, forward, next) => ipcRenderer.send('find:go', text, forward, next),
-  findStop: () => ipcRenderer.send('find:stop'),
+  ownReload: rel => ipcRenderer.invoke('off:ownReload', rel),
   onFindOpen: cb => ipcRenderer.on('find:open', () => cb()),
-  onFindResult: cb => ipcRenderer.on('find:result', (_e, d) => cb(d)),
   chooseDir: () => ipcRenderer.invoke('off:chooseDir'),
   reveal: () => ipcRenderer.invoke('off:reveal'),
   onProgress: cb => ipcRenderer.on('off:progress', (_e, d) => cb(d)),

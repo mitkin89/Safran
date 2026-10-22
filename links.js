@@ -63,6 +63,7 @@ class LinkStore {
       const per = new Map();
       const add = (book, line) => { let a = per.get(book); if (!a) per.set(book, (a = [])); a.push(line); };
       for (let k = 1; k < rows.length; k++) {
+        if (k % 20000 === 0) await new Promise(r => setImmediate(r)); // Hauptprozess nicht blockieren
         const r = rows[k];
         if (r.length < 7 || !r[3] || !r[4]) continue;
         const t1 = r[3], t2 = r[4];

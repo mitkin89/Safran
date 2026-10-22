@@ -80,3 +80,11 @@ The source code of this app is released under the [MIT License](LICENSE).
 - **Reihenfolge wie auf Sefaria**: Hauptkategorien (Tanakh, Mishnah, Talmud, Midrash, Halakhah …), Bücher des Tanach und Traktate in der gewohnten Reihenfolge statt alphabetisch – in der Bücherliste, im Reiter „Herunterladen“ und in der Suche.
 - **Zweites Lesefenster**: Knopf „⧉ Zweites Fenster“ (oben) teilt das Fenster in zwei Hälften. Rechts läuft ein zweiter Leser mit eigenen Tabs, eigenem Verlauf, Kommentar-Bereich und Bücherliste (☰), links bleibt das erste Buch offen. Alt+Klick auf ein Buch in der linken Liste öffnet es direkt rechts. Die Trennlinie lässt sich ziehen; Cmd+F gilt für das Fenster, in dem du zuletzt geklickt hast. Rechts gibt es nur den Reiter „Lesen“; Suche, Herunterladen und eigene Texte bleiben im linken Fenster.
 - „Zuletzt geöffnet“ ist beim Start eingeklappt (Klick auf die Überschrift klappt es auf; die Wahl wird gemerkt).
+
+## New in 1.1
+
+- **Search:** results and book chips follow the Sefaria order (Tanakh, Mishnah, Talmud, …); larger result text; search inside categories *and* single books (e.g. just Genesis); per-book hit chips and CSV export; searches run in a background thread.
+- **Reader:** "🔎 In diesem Buch" searches only the open book; right-click a verse to copy its reference or open it on sefaria.org; "⇅ Gleichlauf" syncs paging with the second window; Cmd/Ctrl+W closes the tab of the window you are working in.
+- **Own texts:** re-importing the same title/version asks before overwriting; ⟳ re-reads the original source file; word-level diff against an existing version; "CSV" saves an own text as a Sefaria upload CSV.
+- **Security:** navigation is locked to local files (including the second pane), stricter CSP, drag-and-drop file paths are allow-listed, PDF export via temp file.
+- **Windows:** `npm run dist:win` builds an installer and a portable exe (Ctrl instead of Cmd, Explorer instead of Finder, Ctrl+Tab for tabs); a GitHub Actions workflow builds macOS and Windows.

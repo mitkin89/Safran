@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Offline-Bibliothek</title>
   <link rel="stylesheet" href="styles.css">
@@ -18,6 +18,7 @@
       <button data-tab="get">Herunterladen</button>
     </nav>
     <button id="togglePanel" title="Bücherliste ein-/ausblenden (Cmd+B)">☰ Bücherliste</button>
+    <button id="syncBtn" title="Gleichlauf: Blättern im ersten Fenster blättert im zweiten mit (für Parallelstellen)" aria-pressed="false">⇅ Gleichlauf</button>
     <button id="splitBtn" title="Zweites Lesefenster rechts ein-/ausblenden – so bleibt das erste Buch offen">⧉ Zweites Fenster</button>
     <button id="closePane" title="Dieses Fenster schließen" hidden>✕ Schließen</button>
     <button id="addOwn" title="Eigenen Text (TXT, Word, CSV, JSON) zum Testen einbinden">＋ Eigener Text…</button>
@@ -58,6 +59,7 @@
                   <summary id="verSummary">Versionen</summary>
                   <div id="verList"></div>
                 </details>
+                <button id="bookSearch" title="Nur in diesem Buch suchen">🔎 In diesem Buch</button>
                 <button id="cmtBtn" title="Kommentare zum gewählten Vers (Cmd+K)">💬 Kommentare</button>
                 <button id="lkBtn" title="Verknüpfungen zu diesem Abschnitt anzeigen" hidden>🔗 Links</button>
                 <span class="spacer"></span>
@@ -72,7 +74,7 @@
                 <button id="fsPlus" title="Schrift größer">A+</button>
               </div>
             </div>
-            <details id="cmpBar" hidden><summary><span id="cmpSum"></span> <button id="cmpClose" title="Hinweis ausblenden">✕</button></summary><div id="cmpList"></div></details>
+            <details id="cmpBar" hidden><summary><span id="cmpSum"></span> <button id="cmpClose" title="Hinweis ausblenden">✕</button></summary><div id="cmpList"></div><div id="cmpDiff"></div></details>
             <div id="rOut"></div>
           </div>
         </div>
@@ -123,6 +125,7 @@
         <p><b>Wörter in der Nähe:</b> Trage in bis zu drei Feldern Wörter ein. Gefunden werden Verse bzw. Absätze, in denen alle Wörter vorkommen und höchstens so weit auseinander stehen, wie du bei „Abstand“ gewählt hast. Mit „Reihenfolge einhalten“ müssen sie so aufeinander folgen wie in den Feldern. Beispiel: <code>anf*</code> · <code>gott</code> · <code>erd*</code> mit „höchstens 10 Wörter“ und Reihenfolge findet „Am Anfang schuf Gott Himmel und Erde“. Gezählt wird nur innerhalb eines Verses, nicht über Verse hinweg.</p>
         <p>Sobald mehrere Wörter, ein Platzhalter oder Fuzzy im Spiel sind, gilt: ganze Wörter statt Wortteile. „Ganze Wörter (mit Vorsilben)“ erlaubt dabei hebräische Vorsilben.</p>
       </details>
+      <div id="sTools"><span id="sSum"></span> <button id="sExport" type="button" hidden title="Alle angezeigten Treffer als CSV-Datei speichern">⤓ Treffer als CSV</button></div>
       <p id="sInfo" class="muted">Durchsucht alle heruntergeladenen Texte der gewählten Sprachen (auch Fußnoten).</p>
       <div id="sOut"></div>
       </div>
@@ -280,6 +283,7 @@
 
   <script src="reader.js"></script>
   <script src="order.js"></script>
+  <script src="diff.js"></script>
   <script src="pane.js"></script>
   <div id="splitter" hidden title="Ziehen, um die Breite zu ändern"></div>
   <iframe id="pane2" hidden title="Zweites Lesefenster"></iframe>

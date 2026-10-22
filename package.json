@@ -5,8 +5,9 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "test": "node test.js && node test2.js && node test3.js && node test4.js && node test5.js",
-    "dist": "electron-builder --mac"
+    "test": "node test.js && node test2.js && node test3.js && node test4.js && node test5.js && node test6.js",
+    "dist": "electron-builder --mac",
+    "dist:win": "electron-builder --win"
   },
   "dependencies": {
     "mammoth": "^1.8.0"
@@ -22,6 +23,8 @@
       "category": "public.app-category.education",
       "target": ["dmg"]
     },
+    "win": { "target": ["nsis", "portable"] },
+    "nsis": { "oneClick": false, "allowToChangeInstallationDirectory": true },
     "files": ["**/*", "!test*.js", "!README.md"]
   }
 }

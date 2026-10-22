@@ -47,6 +47,7 @@ function openTools(tab = 'download', title = '') {
     return { action: 'deny' };
   });
   toolsWin.webContents.on('will-navigate', (e, url) => { if (!url.startsWith('file://')) e.preventDefault(); });
+  toolsWin.webContents.on('will-frame-navigate', e => { if (!e.url.startsWith('file://')) e.preventDefault(); });
   toolsWin.on('closed', () => { toolsWin = null; });
   toolsWin.loadFile('index.html', { hash });
 }
@@ -68,19 +69,19 @@ function openOffline() {
       sandbox: false,
     },
   });
-  offlineWin.webContents.on('found-in-page', (_e, r) => {
-    if (!offlineWin.isDestroyed()) offlineWin.webContents.send('find:result', { matches: r.matches, active: r.activeMatchOrdinal });
-  });
   offlineWin.webContents.setWindowOpenHandler(() => ({ action: 'deny' }));
   offlineWin.webContents.on('will-navigate', (e, url) => { if (!url.startsWith('file://')) e.preventDefault(); });
-  offlineWin.on('closed', () => { offlineWin = null; dlCancel = true; searchCancel = true; });
+  offlineWin.webContents.on('will-frame-navigate', e => { if (!e.url.startsWith('file://')) e.preventDefault(); }); // auch das zweite Lesefenster (iframe) bleibt lokal
+  offlineWin.on('closed', () => { offlineWin = null; dlCancel = true; searchCancel = true; if (searchWorker) searchWorker.terminate(); });
   offlineWin.loadFile('library.html');
 }
 
 // ---------- Menü ----------
+const IS_MAC = process.platform === 'darwin';
 function buildMenu() {
   const template = [
-    { label: 'Sefaria', submenu: [{ role: 'about' }, { type: 'separator' }, { role: 'hide' }, { role: 'hideOthers' }, { role: 'unhide' }, { type: 'separator' }, { role: 'quit' }] },
+    ...(IS_MAC ? [{ label: 'Sefaria', submenu: [{ role: 'about' }, { type: 'separator' }, { role: 'hide' }, { role: 'hideOthers' }, { role: 'unhide' }, { type: 'separator' }, { role: 'quit' }] }]
+      : [{ label: 'Datei', submenu: [{ label: 'Beenden', role: 'quit' }] }]),
     { label: 'Bearbeiten', submenu: [{ role: 'undo' }, { role: 'redo' }, { type: 'separator' }, { role: 'cut' }, { role: 'copy' }, { role: 'paste' }, { role: 'selectAll' }, { type: 'separator' }, { label: 'Im Text suchen…', accelerator: 'CmdOrCtrl+F', click: (_i, w) => { if (w && !w.isDestroyed()) w.webContents.send('find:open'); } }] },
     { label: 'Ansicht', submenu: [{ role: 'reload' }, { role: 'forceReload' }, { type: 'separator' }, { role: 'resetZoom' }, { role: 'zoomIn' }, { role: 'zoomOut' }, { type: 'separator' }, { role: 'togglefullscreen' }] },
     {
@@ -95,10 +96,10 @@ function buildMenu() {
     {
       label: 'Fenster',
       submenu: [
-        { role: 'minimize' }, { role: 'zoom' }, { type: 'separator' },
+        { role: 'minimize' }, ...(IS_MAC ? [{ role: 'zoom' }] : []), { type: 'separator' },
         { label: 'Tab schließen', accelerator: 'CmdOrCtrl+W', click: (_i, w) => { if (w && !w.isDestroyed()) w.webContents.executeJavaScript('window.__closeCurrentTab ? (window.__closeCurrentTab(), true) : false').then(ok => { if (!ok && !w.isDestroyed()) w.close(); }).catch(() => {}); } },
         { label: 'Fenster schließen', accelerator: 'CmdOrCtrl+Shift+W', role: 'close' },
-        { type: 'separator' }, { role: 'front' },
+        ...(IS_MAC ? [{ type: 'separator' }, { role: 'front' }] : []),
       ],
     },
   ];
@@ -143,7 +144,7 @@ ipcMain.handle('open:external', (_e, url) => {
 });
 
 ipcMain.handle('file:save', async (e, name, content) => {
-  const { canceled, filePath } = await dialog.showSaveDialog(winOf(e), { defaultPath: name });
+  const { canceled, filePath } = await dialog.showSaveDialog(winOf(e), { defaultPath: String(name || 'datei').replace(/[\\/:*?"<>|\u0000-\u001f]/g, '_') });
   if (canceled || !filePath) return null;
   await fs.writeFile(filePath, content, 'utf8');
   return filePath;
@@ -183,7 +184,7 @@ ipcMain.on('book:cancel', () => { cancelFlag = true; });
 
 ipcMain.handle('book:download', async (e, o) => {
   const ext = o.format;
-  const { canceled, filePath } = await dialog.showSaveDialog(winOf(e), { defaultPath: `${o.title.replace(/\s+/g, '_')}.${ext}` });
+  const { canceled, filePath } = await dialog.showSaveDialog(winOf(e), { defaultPath: `${o.title.replace(/[\\/:*?"<>|\u0000-\u001f]/g, '_').replace(/\s+/g, '_')}.${ext}` });
   if (canceled || !filePath) return { canceled: true };
   cancelFlag = false;
   const send = d => e.sender.send('book:progress', d);
@@ -217,10 +218,18 @@ ipcMain.handle('book:download', async (e, o) => {
 });
 
 // ---------- Offline-Bibliothek: Daten und Dateizugriff ----------
-async function fetchBuffer(url) {
-  const res = await net.fetch(url);
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  return Buffer.from(await res.arrayBuffer());
+async function fetchBuffer(url, timeoutMs = 120000) {
+  const ac = new AbortController();
+  let timer = setTimeout(() => ac.abort(), timeoutMs); // hängt die Verbindung, wird nach zwei Minuten abgebrochen (und von fetchWithRetry wiederholt)
+  try {
+    const res = await net.fetch(url, { signal: ac.signal });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const buf = Buffer.from(await res.arrayBuffer());
+    return buf;
+  } catch (err) {
+    if (ac.signal.aborted) throw new Error('Zeitüberschreitung beim Laden');
+    throw err;
+  } finally { clearTimeout(timer); }
 }
 
 const configFile = () => path.join(app.getPath('userData'), 'offline-config.json');
@@ -234,11 +243,13 @@ async function libraryDir() {
   return path.join(app.getPath('userData'), 'library');
 }
 
-let library = null;
-async function getLibrary() {
-  if (!library) library = await new OFF.Library(await libraryDir(), fetchBuffer).load();
-  return library;
+const readCache = new Map(); // gelesene Dateien für den Kommentar-Bereich
+let libraryP = null; // Promise: parallele Aufrufe beim Start teilen sich eine Bibliothek
+function getLibrary() {
+  if (!libraryP) libraryP = (async () => new OFF.Library(await libraryDir(), fetchBuffer).load())().catch(err => { libraryP = null; throw err; });
+  return libraryP;
 }
+const invalidateReads = () => { readCache.clear(); }; // gelesene Dateien im Kommentar-Zwischenspeicher verwerfen (nach Änderungen an der Bibliothek)
 
 let catCache = null; // { catalog, groups, summary }
 async function loadCatalog() {
@@ -305,20 +316,38 @@ ipcMain.on('off:cancel', () => { dlCancel = true; });
 
 ipcMain.handle('off:library', async () => {
   const lib = await getLibrary();
-  await lib.pruneMissing();
+  if (!lib._pruned) { lib._pruned = true; await lib.pruneMissing(); } // fehlende Dateien nur beim Start suchen, nicht bei jedem Aufruf
   return lib.list();
 });
 
 ipcMain.handle('off:read', async (_e, rel) => (await getLibrary()).read(rel));
 
-ipcMain.handle('off:search', async (e, { query, extra, fuzzy, distance, ordered, kinds, limit, category, categories, prefix }) => {
+let searchWorker = null;
+ipcMain.handle('off:search', async (e, o) => {
   searchCancel = false;
   const lib = await getLibrary();
-  return lib.search({
-    query, extra: Array.isArray(extra) ? extra.slice(0, 2).map(String) : [], fuzzy: !!fuzzy, distance: Number.isFinite(distance) ? distance : -1, ordered: !!ordered, kinds, category: category || '', categories: Array.isArray(categories) ? categories.map(String) : [], prefix: !!prefix, limit: limit || 300,
-    isCancelled: () => searchCancel,
-    onProgress: p => { if (!e.sender.isDestroyed()) e.sender.send('off:searchProgress', p); },
-  });
+  const str = x => String(x == null ? '' : x);
+  const params = {
+    query: str(o.query), extra: Array.isArray(o.extra) ? o.extra.slice(0, 2).map(str) : [], fuzzy: !!o.fuzzy,
+    distance: Number.isFinite(o.distance) ? o.distance : -1, ordered: !!o.ordered, prefix: !!o.prefix,
+    limit: Math.min(5000, +o.limit || 1000), perFile: Math.min(500, +o.perFile || 25),
+  };
+  const entries = lib.entriesFor({ kinds: Array.isArray(o.kinds) ? o.kinds : [], category: str(o.category), categories: Array.isArray(o.categories) ? o.categories.map(str) : [], titles: Array.isArray(o.titles) ? o.titles.map(str) : [] });
+  const progress = p => { if (!e.sender.isDestroyed()) e.sender.send('off:searchProgress', p); };
+  const inline = () => require('./searchcore').searchFiles({ dir: lib.dir, entries, params, onProgress: progress, isCancelled: () => searchCancel });
+  try {
+    const { Worker } = require('worker_threads');
+    return await new Promise((resolve, reject) => {
+      const w = new Worker(path.join(__dirname, 'searchWorker.js'), { workerData: { dir: lib.dir, entries, params } });
+      searchWorker = w;
+      let finished = false;
+      const timer = setInterval(() => { if (searchCancel) w.postMessage('cancel'); }, 100);
+      const end = fn => v => { if (finished) return; finished = true; clearInterval(timer); if (searchWorker === w) searchWorker = null; fn(v); };
+      w.on('message', m => { if (m.type === 'progress') progress(m.p); else if (m.type === 'done') end(resolve)(m.res); else if (m.type === 'error') end(reject)(new Error(m.error)); });
+      w.on('error', end(reject));
+      w.on('exit', code => end(reject)(new Error('Such-Prozess beendet (' + code + ')')));
+    });
+  } catch { return inline(); } // falls der Hintergrund-Thread nicht startet: direkt suchen
 });
 ipcMain.on('off:cancelSearch', () => { searchCancel = true; });
 
@@ -326,15 +355,18 @@ ipcMain.on('off:cancelSearch', () => { searchCancel = true; });
 // Eigene Texte: Dateien wählen (mehrere möglich) -> prüfen (Vorschau) -> speichern
 const pendingOwn = new Map();
 let ownSeq = 0;
+async function readOwnParsed(file) {
+  const isDocx = file.toLowerCase().endsWith('.docx');
+  const content = isDocx ? (await require('mammoth').extractRawText({ path: file })).value : await fs.readFile(file, 'utf8');
+  // Word-Dateien wie Textdateien behandeln (Zeile = Vers)
+  return OFF.parseOwn(content, isDocx ? 'x.txt' : path.basename(file));
+}
 async function parseOwnFile(file) {
   const name = path.basename(file);
   try {
-    const isDocx = file.toLowerCase().endsWith('.docx');
-    const content = isDocx ? (await require('mammoth').extractRawText({ path: file })).value : await fs.readFile(file, 'utf8');
-    // Word-Dateien wie Textdateien behandeln (Zeile = Vers)
-    const parsed = OFF.parseOwn(content, isDocx ? 'x.txt' : name);
+    const parsed = await readOwnParsed(file);
     const id = 'o' + (++ownSeq);
-    pendingOwn.set(id, parsed);
+    pendingOwn.set(id, { ...parsed, source: file });
     return { id, name, segments: parsed.segments, chapters: parsed.chapters, warnings: parsed.warnings, meta: parsed.meta || {} };
   } catch (err) { return { name, error: err.message }; }
 }
@@ -353,36 +385,54 @@ ipcMain.handle('off:ownPick', async e => {
     filters: [{ name: 'Text, Word, CSV, JSON', extensions: ['txt', 'md', 'docx', 'csv', 'tsv', 'json'] }],
   });
   if (canceled || !filePaths.length) return null;
-  return parseOwnFiles(filePaths);
+  return parseOwnFiles(filePaths); // Dialogpfade sind vertrauenswürdig
 });
-ipcMain.handle('off:ownPaths', (_e, paths) => parseOwnFiles(paths || []));
+// Nur Pfade, die der Preload beim echten Ablegen einer Datei gemeldet hat (oder die der Öffnen-Dialog lieferte), dürfen gelesen werden
+const ownAllowed = new Set();
+ipcMain.on('off:ownDropAllow', (_e, paths) => { for (const f of paths || []) if (typeof f === 'string') ownAllowed.add(f); });
+ipcMain.handle('off:ownPaths', (_e, paths) => {
+  const ok = (paths || []).filter(f => ownAllowed.delete(f));
+  return parseOwnFiles(ok);
+});
 ipcMain.handle('off:ownClear', () => { pendingOwn.clear(); });
 
 ipcMain.handle('off:ownSave', async (_e, items) => {
   const lib = await getLibrary();
-  const entries = [], errors = [];
+  const entries = [], errors = [], exists = [];
   for (const o of items || []) {
     const p = pendingOwn.get(o.id);
     if (!p) { errors.push(`${o.title || o.id}: Datei nicht mehr geladen`); continue; }
     try {
-      entries.push(await lib.addOwn({ ...o, text: p.text, sectionNames: p.sectionNames }));
+      entries.push(await lib.addOwn({ ...o, text: p.text, sectionNames: p.sectionNames, source: p.source, replace: !!o.replace }));
       pendingOwn.delete(o.id);
-    } catch (err) { errors.push(`${o.title || o.id}: ${err.message}`); }
+    } catch (err) {
+      if (err.code === 'EXISTS') exists.push({ id: o.id, title: o.title, versionTitle: o.versionTitle || 'Eigener Text' }); // Rückfrage in der Oberfläche
+      else errors.push(`${o.title || o.id}: ${err.message}`);
+    }
   }
-  return { entries, errors };
+  invalidateReads();
+  return { entries, errors, exists };
+});
+
+// Eigenen Text aus der gemerkten Quelldatei neu einlesen (Titel, Sprache, Version bleiben)
+ipcMain.handle('off:ownReload', async (_e, rel) => {
+  try {
+    const lib = await getLibrary();
+    const en = lib.index.entries[rel];
+    if (!en || !en.own) return { error: 'Das ist kein eigener Text.' };
+    if (!en.source) return { error: 'Zu diesem Text ist die Quelldatei nicht gemerkt – bitte erneut über „Eigener Text…“ einbinden.' };
+    let parsed;
+    try { parsed = await readOwnParsed(en.source); } catch { return { error: 'Die Quelldatei wurde nicht gefunden: ' + en.source }; }
+    const entry = await lib.addOwn({ title: en.title, heTitle: en.heTitle, kind: en.kind, versionTitle: en.versionTitle, categories: en.categories, text: parsed.text, sectionNames: parsed.sectionNames, source: en.source, replace: true });
+    invalidateReads();
+    return { entry, segments: parsed.segments, warnings: parsed.warnings };
+  } catch (err) { return { error: err.message }; }
 });
 
 ipcMain.handle('off:ownRemove', async (_e, rel) => {
-  try { await (await getLibrary()).removeOwn(rel); return {}; } catch (err) { return { error: err.message }; }
+  try { await (await getLibrary()).removeOwn(rel); invalidateReads(); return {}; } catch (err) { return { error: err.message }; }
 });
 
-// Suche im angezeigten Text (Cmd+F)
-ipcMain.on('find:go', (e, text, forward, next) => {
-  if (!text) return;
-  if (next) e.sender.findInPage(text, { forward: forward !== false, findNext: true });
-  else e.sender.findInPage(text, forward === false ? { forward: false } : undefined);
-});
-ipcMain.on('find:stop', e => e.sender.stopFindInPage('clearSelection'));
 
 
 // Lesezeichen und Notizen (liegen als notes.json im Bibliotheksordner)
@@ -433,7 +483,6 @@ ipcMain.handle('links:build', async e => {
 ipcMain.on('links:cancel', () => { linkCancel = true; });
 ipcMain.handle('links:section', async (_e, book, chap) => (await getLinks()).forSection(book, chap));
 // Texte mehrerer Stellen auf einmal holen (Kommentar-Bereich): jede Datei wird nur einmal gelesen
-const readCache = new Map();
 ipcMain.handle('links:texts', async (_e, refs, prefer, strict) => {
   const lib = await getLibrary();
   const list = lib.list();
@@ -493,17 +542,22 @@ ipcMain.handle('links:preview', async (_e, ref) => {
 ipcMain.handle('off:exportSave', async (e, { html, format, name, landscape }) => {
   try {
     const pdf = format === 'pdf';
-    const { canceled, filePath } = await dialog.showSaveDialog(winOf(e), { defaultPath: `${name || 'Export'}.${pdf ? 'pdf' : 'doc'}` });
+    const { canceled, filePath } = await dialog.showSaveDialog(winOf(e), { defaultPath: `${String(name || 'Export').replace(/[\\/:*?"<>|\u0000-\u001f]/g, '_')}.${pdf ? 'pdf' : 'doc'}` });
     if (canceled || !filePath) return {};
     if (!pdf) {
       // Word öffnet HTML-Dateien mit der Endung .doc
       await fs.writeFile(filePath, html.replace('<html>', '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word">'), 'utf8');
       return { path: filePath };
     }
+    // über eine Temp-Datei statt data:-URL (lange Texte sprengen sonst das URL-Limit)
+    const tmp = path.join(app.getPath('temp'), `sefaria-export-${Date.now()}.html`);
+    await fs.writeFile(tmp, html, 'utf8');
     const win = new BrowserWindow({ show: false, webPreferences: { sandbox: true, javascript: false } });
-    await win.loadURL('data:text/html;charset=utf-8,' + encodeURIComponent(html));
-    const buf = await win.webContents.printToPDF({ pageSize: 'A4', landscape: !!landscape, printBackground: true, margins: { marginType: 'default' } });
-    win.destroy();
+    let buf;
+    try {
+      await win.loadFile(tmp);
+      buf = await win.webContents.printToPDF({ pageSize: 'A4', landscape: !!landscape, printBackground: true, margins: { marginType: 'default' } });
+    } finally { win.destroy(); fs.unlink(tmp).catch(() => {}); }
     await fs.writeFile(filePath, buf);
     return { path: filePath };
   } catch (err) { return { error: err.message }; }
@@ -543,6 +597,7 @@ ipcMain.handle('off:updateRun', async e => {
     concurrency: 4, isCancelled: () => dlCancel,
     onProgress: p => { if (!e.sender.isDestroyed()) e.sender.send('off:progress', p); },
   });
+  invalidateReads();
   if (!r.cancelled) lastUpdate = null;
   return r;
 });
@@ -553,8 +608,13 @@ ipcMain.handle('off:chooseDir', async e => {
     properties: ['openDirectory', 'createDirectory'],
   });
   if (!r.canceled && r.filePaths[0]) {
+    // Notizen und Lesezeichen in den neuen Ordner mitnehmen, falls dort noch keine liegen
+    try {
+      const oldNotes = await notesFile(), newNotes = path.join(r.filePaths[0], 'notes.json');
+      if (oldNotes !== newNotes) { try { await fs.access(newNotes); } catch { await fs.copyFile(oldNotes, newNotes); } }
+    } catch {}
     await fs.writeFile(configFile(), JSON.stringify({ dir: r.filePaths[0] }));
-    library = null;
+    libraryP = null; invalidateReads();
   }
   return offState();
 });

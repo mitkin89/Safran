@@ -64,9 +64,9 @@ function makeMatcher({ terms, fuzzy = false, prefix = false, distance = -1, orde
     const rec = (i, chosen) => {
       if (found || budget-- < 0) return;
       if (i === k) {
-        if (!ordered) {
-          const lo = Math.min(...chosen), hi = Math.max(...chosen);
-          if (hi - lo + 1 - k > N * (k - 1)) return;
+        if (!ordered) { // Abstand je benachbartem Paar prüfen (nach Position sortiert), nicht nur die Gesamtspanne
+          const sorted = chosen.slice().sort((a, b) => a - b);
+          for (let j = 1; j < sorted.length; j++) if (sorted[j] - sorted[j - 1] - 1 > N) return;
         }
         found = chosen.slice(); return;
       }

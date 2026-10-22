@@ -27,7 +27,8 @@ function relPathOf(e) {
     let s;
     try { s = decodeURIComponent(seg); } catch { s = seg; }
     s = s.replace(/[\\:*?"<>|\u0000-\u001f]/g, '_').replace(/^\.+$/, '_').replace(/[. ]+$/, '');
-    return s.slice(0, 180) || '_';
+    if (/^(con|prn|aux|nul|com[1-9]|lpt[1-9])(\.|$)/i.test(s)) s = '_' + s; // unter Windows reservierte Namen
+    return s.slice(0, 120) || '_'; // kurz halten: Windows-Pfade sind begrenzt (MAX_PATH)
   }).join('/');
 }
 
@@ -200,6 +201,16 @@ function guessKind(language, text) {
 
 const safeSeg = s => String(s || '_').replace(/[\\:*?"<>|\u0000-\u001f\/]/g, '_').replace(/^\.+$/, '_').replace(/[. ]+$/, '').slice(0, 120) || '_';
 
+// Umbenennen mit kurzem Wiederholen: unter Windows hält manchmal ein Virenscanner die frisch geschriebene Datei fest
+async function renameRetry(from, to, tries = 5) {
+  for (let i = 0; ; i++) {
+    try { return await fs.rename(from, to); } catch (e) {
+      if (i >= tries - 1 || !['EPERM', 'EBUSY', 'EACCES'].includes(e.code)) throw e;
+      await new Promise(r => setTimeout(r, 100 * (i + 1)));
+    }
+  }
+}
+
 class Library {
   constructor(dir, fetchBuffer) {
     this.dir = dir;
@@ -224,7 +235,7 @@ class Library {
       await fs.mkdir(this.dir, { recursive: true });
       const tmp = this.indexFile + '.tmp';
       await fs.writeFile(tmp, JSON.stringify(this.index));
-      await fs.rename(tmp, this.indexFile);
+      await renameRetry(tmp, this.indexFile);
     });
     return this._saving;
   }
@@ -255,7 +266,7 @@ class Library {
     throw err;
   }
 
-  async downloadEntries(entries, { concurrency = 4, onProgress = () => {}, isCancelled = () => false } = {}) {
+  async downloadEntries(entries, { concurrency = 4, onProgress = () => {}, isCancelled = () => false, force = null } = {}) {
     const total = entries.length;
     let done = 0, bytes = 0, next = 0, sinceSave = 0;
     const failed = [];
@@ -269,12 +280,12 @@ class Library {
         const dest = path.join(this.dir, rel);
         try {
           let size = 0, have = false;
-          try { const st = await fs.stat(dest); size = st.size; have = st.size > 0 && !!this.index.entries[rel]; } catch { /* noch nicht da */ }
+          try { const st = await fs.stat(dest); size = st.size; have = st.size > 0 && !!this.index.entries[rel] && !(force && force.has(rel)); } catch { /* noch nicht da */ }
           if (!have) {
             const buf = await this.fetchWithRetry(e.json_url);
             await fs.mkdir(path.dirname(dest), { recursive: true });
             await fs.writeFile(dest + '.part', buf);
-            await fs.rename(dest + '.part', dest);
+            await renameRetry(dest + '.part', dest);
             size = buf.length;
             let heTitle = '';
             try { heTitle = JSON.parse(buf.toString('utf8')).heTitle || ''; } catch { /* Meta optional */ }
@@ -299,19 +310,20 @@ class Library {
 
 
   // Eigenen Text in die Bibliothek aufnehmen (liegt im Unterordner own/, erscheint wie jede andere Version)
-  async addOwn({ title, heTitle = '', kind = 'other', versionTitle, categories, text, sectionNames }) {
+  async addOwn({ title, heTitle = '', kind = 'other', versionTitle, categories, text, sectionNames, source = '', replace = false }) {
     title = String(title || '').trim();
     versionTitle = String(versionTitle || '').trim() || 'Eigener Text';
     if (!title) throw new Error('Bitte einen Titel angeben.');
     if (!['he', 'en', 'de', 'other'].includes(kind)) kind = 'other';
     const rel = ['own', safeSeg(title), kind, safeSeg(versionTitle) + '.json'].join('/');
     const dest = path.join(this.dir, rel);
+    if (this.index.entries[rel] && !replace) { const e = new Error(`„${versionTitle}“ zu „${title}“ gibt es schon`); e.code = 'EXISTS'; throw e; }
     const data = { title, heTitle, language: kind === 'he' ? 'Hebrew' : 'English', versionTitle, versionSource: 'eigener Text', sectionNames, text };
     const buf = Buffer.from(JSON.stringify(data));
     await fs.mkdir(path.dirname(dest), { recursive: true });
     await fs.writeFile(dest, buf);
     const cats = Array.isArray(categories) && categories.length ? categories : ['Eigene Texte'];
-    this.index.entries[rel] = { rel, title, heTitle, language: data.language, versionTitle, categories: cats, kind, bytes: buf.length, own: true };
+    this.index.entries[rel] = { rel, title, heTitle, language: data.language, versionTitle, categories: cats, kind, bytes: buf.length, own: true, source: source || undefined };
     await this.save();
     return this.index.entries[rel];
   }
@@ -378,12 +390,9 @@ class Library {
 
   // geänderte Dateien zum erneuten Laden freigeben und alles laden
   async applyUpdates(changed, added, opts) {
-    for (const ce of changed) {
-      const rel = relPathOf(ce);
-      delete this.index.entries[rel];
-      try { await fs.unlink(path.join(this.dir, rel)); } catch { /* egal */ }
-    }
-    return this.downloadEntries([...changed, ...added], opts);
+    // Die alte Datei bleibt liegen, bis die neue vollständig geladen ist (Download als .part, dann Umbenennen) – so geht bei einem Netzfehler nichts verloren
+    const force = new Set(changed.map(relPathOf));
+    return this.downloadEntries([...changed, ...added], { ...(opts || {}), force });
   }
 
   async read(rel) {
@@ -396,66 +405,17 @@ class Library {
     };
   }
 
-  // Volltextsuche über alle heruntergeladenen Dateien der gewählten Sprachen (kinds: ['he','en','de',…])
-  async search({ query, extra = [], fuzzy = false, distance = -1, ordered = false, kinds, category = '', categories = [], prefix = false, limit = 300, onProgress = () => {}, isCancelled = () => false }) {
-    const q = R.normalize(query);
-    if (!q) return { results: [], scanned: 0, total: 0, truncated: false, cancelled: false };
-    const terms = [query, ...extra].filter(t => String(t || '').trim());
-    const advanced = terms.length > 1 || fuzzy || /[*?]/.test(query);
-    const matcher = advanced ? require('./search').makeMatcher({ terms, fuzzy, prefix, distance, ordered }) : null;
-    const snippetParts = advanced ? require('./search').snippetParts : null;
+  // Volltextsuche über alle heruntergeladenen Dateien der gewählten Sprachen (kinds: ['he','en','de',…]); die eigentliche Arbeit steht in searchcore.js
+  entriesFor({ kinds, category = '', categories = [], titles = [] }) {
     const cats = [...(category ? [category] : []), ...categories];
-    const catOk = e => !cats.length || cats.some(c => (e.categories.join('/') + '/').startsWith(c + '/'));
-    const entries = this.list().filter(e => kinds.includes(e.kind) && catOk(e));
-    // „Ganze Wörter“: Suchwort muss ein ganzes Wort sein, hebräische Präfixe (ו ה ב כ ל מ ש …) davor sind erlaubt
-    const preRe = prefix ? new RegExp('(?:^|\\s)([והבכלמשד]{0,3})' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '(?=\\s|$)') : null;
-    const results = [];
-    let scanned = 0, truncated = false;
-    for (const e of entries) {
-      if (isCancelled()) break;
-      let d = null;
-      try { d = JSON.parse(await fs.readFile(path.join(this.dir, e.rel), 'utf8')); } catch { /* Datei überspringen */ }
-      if (d) {
-        let locator = null; // erst beim ersten Treffer in dieser Datei aufbauen
-        R.walkStrings(d.text, [], (str, p) => {
-          if (truncated) return;
-          const n = R.normalize(str);
-          if (matcher) {
-            const mm = matcher(n);
-            if (!mm) return;
-            locator = locator || R.makeLocator(d.text, d.sectionNames);
-            const loc = locator(p);
-            results.push({
-              rel: e.rel, title: e.title, heTitle: e.heTitle, versionTitle: e.versionTitle, kind: e.kind, path: p,
-              loc: loc ? { path: loc.path, label: loc.label } : null,
-              where: loc ? (loc.label ? `${loc.sectionLabel} · ${loc.label}` : loc.sectionLabel) : '',
-              snippet: { before: '', hit: '', after: '' }, parts: snippetParts(n, mm),
-            });
-            if (results.length >= limit) truncated = true;
-            return;
-          }
-          let pos;
-          if (preRe) { const m = preRe.exec(n); if (!m) return; pos = m.index + m[0].length - q.length; }
-          else pos = n.indexOf(q);
-          if (pos < 0) return;
-          locator = locator || R.makeLocator(d.text, d.sectionNames);
-          const loc = locator(p);
-          results.push({
-            rel: e.rel, title: e.title, heTitle: e.heTitle, versionTitle: e.versionTitle, kind: e.kind, path: p,
-            loc: loc ? { path: loc.path, label: loc.label } : null,
-            where: loc ? (loc.label ? `${loc.sectionLabel} · ${loc.label}` : loc.sectionLabel) : '',
-            snippet: { before: n.slice(Math.max(0, pos - 60), pos), hit: n.slice(pos, pos + q.length), after: n.slice(pos + q.length, pos + q.length + 80) },
-          });
-          if (results.length >= limit) truncated = true;
-        });
-      }
-      scanned++;
-      onProgress({ scanned, total: entries.length, found: results.length });
-      if (truncated) break;
-      await new Promise(r => setImmediate(r)); // Oberfläche nicht blockieren
-    }
-    return { results, scanned, total: entries.length, truncated, cancelled: isCancelled() };
+    const tset = new Set(titles);
+    const ok = e => (!cats.length && !tset.size) || tset.has(e.title) || cats.some(c => (e.categories.join('/') + '/').startsWith(c + '/'));
+    return this.list().filter(e => kinds.includes(e.kind) && ok(e));
+  }
+  async search(opts) {
+    const { onProgress = () => {}, isCancelled = () => false, kinds, category, categories, titles, ...params } = opts;
+    return require('./searchcore').searchFiles({ dir: this.dir, entries: this.entriesFor({ kinds, category, categories, titles }), params, onProgress, isCancelled });
   }
 }
 
-module.exports = { parseOwn, AVG_KB, kindOf, relPathOf, buildGroups, summarize, selectedGroups, pickEntries, planEntries, Library };
+module.exports = { renameRetry, parseOwn, AVG_KB, kindOf, relPathOf, buildGroups, summarize, selectedGroups, pickEntries, planEntries, Library };
