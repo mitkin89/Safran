@@ -814,7 +814,7 @@
       else if (m.type === 'closeTab') { if (tabIdx >= 0) closeTab(tabIdx); }
       else if (m.type === 'sync') { if (view && view.group && m.idx < view.sections.length && m.idx !== view.idx) { view.idx = m.idx; renderSection(); } }
       else if (m.type === 'jump' && typeof m.ref === 'string') jumpTo(m.ref, tabs.some(t => t.group)); // Kommentar aus dem ersten Fenster
-      else if (m.type === 'open' && typeof m.key === 'string') { const g = groupsByKey.get(m.key); if (g) openGroup(g, { sectionPath: m.sectionPath, rowLabel: m.rowLabel }, tabs.some(t => t.group)); } // schon ein Buch offen: neuer Tab
+      else if (m.type === 'open' && typeof m.key === 'string') { const g = groupsByKey.get(m.key); if (g) openGroup(g, { rel: typeof m.rel === 'string' ? m.rel : undefined, sectionPath: m.sectionPath, rowLabel: m.rowLabel }, tabs.some(t => t.group)); } // schon ein Buch offen: neuer Tab
     } else if (e.source === p2Frame.contentWindow) {
       if (m.type === 'ready') p2Ready = true;
       else if (m.type === 'close') setSplit(false);
@@ -1052,7 +1052,7 @@
   // im zweiten Fenster öffnen: Fenster bei Bedarf einblenden; ist dort schon ein Buch offen, entsteht ein neuer Tab
   function openInPane2(key, target = {}) {
     setSplit(true);
-    const msg = target.jump ? { type: 'jump', ref: target.jump } : { type: 'open', key, sectionPath: target.sectionPath, rowLabel: target.rowLabel };
+    const msg = target.jump ? { type: 'jump', ref: target.jump } : { type: 'open', key, rel: target.rel, sectionPath: target.sectionPath, rowLabel: target.rowLabel };
     if (p2Ready) p2Post(msg);
     else { const t = setInterval(() => { if (p2Ready) { clearInterval(t); setTimeout(() => p2Post(msg), 400); } }, 100); setTimeout(() => clearInterval(t), 8000); }
   }
@@ -1112,6 +1112,21 @@
   $('#sGo').onclick = () => runSearch();
   ['#sq', '#sq2', '#sq3'].forEach(id => $(id).addEventListener('keydown', e => { if (e.key === 'Enter') runSearch(); }));
   $('#sCancel').onclick = () => O.cancelSearch();
+  // Rechtsklick auf ein Suchergebnis: hier öffnen, neuer Tab, zweites Fenster
+  $('#sOut').addEventListener('contextmenu', e => {
+    const el = e.target.closest('.sres');
+    if (!el || (window.getSelection() + '')) return; // bei markiertem Text das normale Menü lassen
+    const r = sResults[+el.dataset.i];
+    const entry = r && entries.find(x => x.rel === r.rel);
+    const g = entry && groupsByKey.get(keyOf(entry));
+    if (!g) return;
+    const target = { rel: r.rel, sectionPath: r.loc && r.loc.path, rowLabel: r.loc ? r.loc.label : undefined };
+    ctxShow(e, [
+      { label: 'Öffnen', fn: () => openGroup(g, target, false) },
+      { label: 'Im neuen Tab öffnen', fn: () => openGroup(g, target, true) },
+      { label: 'Im zweiten Fenster öffnen', fn: () => openInPane2(keyOf(entry), target) },
+    ]);
+  });
   $('#sOut').addEventListener('click', e => {
     const el = e.target.closest('.sres');
     if (!el) return;

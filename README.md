@@ -99,6 +99,7 @@ The source code of this app is released under the [MIT License](LICENSE).
 - **Remove own texts:** ✕ on hover in the book list, or right-click → *Eigenen Text entfernen …*. Original files stay untouched.
 - **Embedded images:** inline Base64 images (PNG, JPEG, GIF, WebP) in own texts and commentaries are displayed; all other tags and external images are still stripped.
 - File names with umlauts are matched on macOS and Windows alike.
+- **Search results:** right-click a result for *Open*, *Open in new tab* or *Open in second window* (the exact version and passage are kept).
 
 **Reading**
 - **Suggestions while typing** in the jump field, the new-tab field (e.g. "ge" → Genesis).
