@@ -10,28 +10,6 @@ An offline library for [Sefaria](https://www.sefaria.org) texts on macOS (Electr
 
 *Sanhedrin 14a: Hebrew, English and German side by side, with the commentary panel on the right.*
 
-| # | What it does |
-| --- | --- |
-| 1 | Main sections: **Lesen** (read), **Suche** (full-text search), **Notizen** (notes and bookmarks), **Herunterladen** (download books, links and updates). Also: book list, import your own text, storage location. |
-| 2 | Back / forward through the history of the current tab. |
-| 3 | Current book (Hebrew title next to it) and ◀ section selector ▶ (chapter or Talmud page). |
-| 4 | Jump field: type `14 2`, `2:5`, `Daf 3a` or `gen. 1:1` and press Enter. |
-| 5 | Versions: switch individual text versions (Hebrew, English, German, your own) on and off. |
-| 6 | Commentary panel (Cmd+K) – commentaries on the selected verse, one below the other. |
-| 7 | Links (Verknüpfungen) for the whole section, grouped by category and book. |
-| 8 | Footnote mode: open on click, always show, or hide. |
-| 9 | Export the section (or a range) as PDF or Word, with footnotes and your notes. |
-| 10 | Display options: font sizes per language, hide vowels and cantillation marks. |
-| 11 | Larger / smaller text. |
-| 12 | Column headers show which version is displayed in each column. |
-| 13 | Verse number (click it to choose the verse for the commentary panel; ☆ on hover adds a bookmark) and the number of links to that verse. |
-| 14 | Footnote marker: click it to open the footnote inline; click the number again to close it, so text stays selectable. |
-| 15 | Language of the commentaries (Hebrew, English or German). |
-| 16 | Previous / next verse in the commentary panel. |
-| 17 | Commentator selection (collapsible). With none selected, all locally available commentators are shown. |
-| 18 | Commentary text. |
-| 19 | Commentator name: click to open the book in a new tab. |
-
 ## Features
 
 - **Download:** load the catalog once (~22 MB), tick categories or single books, choose languages (Hebrew, English, German) and download. By default the merged version per language is used; German translations are downloaded in full. Interrupted downloads can be resumed; existing files are skipped.
