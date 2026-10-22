@@ -772,6 +772,7 @@
       if (m.type === 'find') openFind();
       else if (m.type === 'closeTab') { if (tabIdx >= 0) closeTab(tabIdx); }
       else if (m.type === 'sync') { if (view && view.group && m.idx < view.sections.length && m.idx !== view.idx) { view.idx = m.idx; renderSection(); } }
+      else if (m.type === 'jump' && typeof m.ref === 'string') jumpTo(m.ref, tabs.some(t => t.group)); // Kommentar aus dem ersten Fenster
       else if (m.type === 'open' && typeof m.key === 'string') { const g = groupsByKey.get(m.key); if (g) openGroup(g, { sectionPath: m.sectionPath, rowLabel: m.rowLabel }, tabs.some(t => t.group)); } // schon ein Buch offen: neuer Tab
     } else if (e.source === p2Frame.contentWindow) {
       if (m.type === 'ready') p2Ready = true;
@@ -993,7 +994,7 @@
   // im zweiten Fenster öffnen: Fenster bei Bedarf einblenden; ist dort schon ein Buch offen, entsteht ein neuer Tab
   function openInPane2(key, target = {}) {
     setSplit(true);
-    const msg = { type: 'open', key, sectionPath: target.sectionPath, rowLabel: target.rowLabel };
+    const msg = target.jump ? { type: 'jump', ref: target.jump } : { type: 'open', key, sectionPath: target.sectionPath, rowLabel: target.rowLabel };
     if (p2Ready) p2Post(msg);
     else { const t = setInterval(() => { if (p2Ready) { clearInterval(t); setTimeout(() => p2Post(msg), 400); } }, 100); setTimeout(() => clearInterval(t), 8000); }
   }
@@ -1528,6 +1529,18 @@ ${endnotes.length ? `<h3>Fußnoten</h3><ol class="fn">${endnotes.map(n => `<li>$
     if (cmtSel.has(n)) cmtSel.delete(n); else cmtSel.add(n);
     saveCmt(); renderCmt();
   });
+  // Rechtsklick auf einen Kommentatornamen: im Tab, neuen Tab oder zweiten Fenster öffnen
+  $('#cmtBody').addEventListener('contextmenu', e => {
+    const h = e.target.closest('h4[data-ref]');
+    if (!h) return;
+    const ref = h.dataset.ref.replace(/-.*$/, '');
+    const items = [
+      { label: 'Öffnen', fn: () => jumpTo(ref, false) },
+      { label: 'Im neuen Tab öffnen', fn: () => jumpTo(ref, true) },
+    ];
+    if (!IS_PANE2) items.push({ label: 'Im zweiten Fenster öffnen', fn: () => openInPane2(null, { jump: ref }) });
+    ctxShow(e, items);
+  });
   $('#cmtBody').addEventListener('click', e => {
     const h = e.target.closest('h4[data-ref]');
     if (h) jumpTo(h.dataset.ref.replace(/-.*$/, ''), true);
@@ -1590,7 +1603,7 @@ ${endnotes.length ? `<h3>Fußnoten</h3><ol class="fn">${endnotes.map(n => `<li>$
         const sig = t.items.join('\u0001'); if (seenTxt.has(sig)) return ''; seenTxt.add(sig); // gleiche Stelle mehrfach verknüpft: nur einmal zeigen
         return t.items.map(x => `<div class="ct" dir="${he ? 'rtl' : 'ltr'}">${R.cleanHtml(R.splitFootnotes(he ? stripHe(x) : x).main).replace(/<sup[^>]*>.*?<\/sup>/g, '')}</div>`).join('');
       }).join('');
-      return `<div class="cmt"><h4 data-ref="${esc(g.refs[0])}" title="Öffnet ${esc(g.book)} in einem neuen Tab">${esc(g.name)}${g.refs.length > 1 ? ` (${g.refs.length})` : ''}</h4>${parts}</div>`;
+      return `<div class="cmt"><h4 data-ref="${esc(g.refs[0])}" title="Klick: öffnet ${esc(g.book)} in einem neuen Tab · Rechtsklick: weitere Möglichkeiten">${esc(g.name)}${g.refs.length > 1 ? ` (${g.refs.length})` : ''}</h4>${parts}</div>`;
     }).join('') + gapNote;
     if (!fb.hidden && fTerm) runFind(fTerm, true); // Suche im Kommentar-Bereich nach dem Neuaufbau erneuern
   }
