@@ -8,7 +8,7 @@ An offline library for [Sefaria](https://www.sefaria.org) texts on macOS (Electr
 
 ![Annotated reading view](screenshots/reading-and-commentary-annotated.jpg)
 
-*Sanhedrin 14a: Hebrew, English and German side by side, with the commentary panel on the right.*
+*Zephaniah 1: Hebrew, English and German side by side, with the book list and history on the left and the commentary panel on the right.*
 
 ## Features
 
