@@ -182,12 +182,6 @@
     const q = e.target.value.trim();
     if (!q) return;
     let ok = await jumpTo(q);
-    if (!ok && !/\d/.test(q)) { // nur ein Buchname: Buch von vorn öffnen
-      const b = normT(q);
-      const c = groups.filter(g => normT(g.title).startsWith(b) || normT(g.title).split(' ').some(w => w.startsWith(b)))
-        .sort((a, b2) => (normT(a.title) === b ? 0 : 1) - (normT(b2.title) === b ? 0 : 1) || a.title.length - b2.title.length);
-      if (c.length) { await openGroup(c[0]); ok = true; }
-    }
     if (!ok) { const m = $('#ntMsg'); if (m) m.textContent = 'Nicht gefunden – nur Bücher aus deiner Bibliothek sind möglich.'; }
   });
 
@@ -424,7 +418,16 @@
   const normT = x => String(x).toLowerCase().replace(/[.\s]+/g, ' ').trim();
   async function jumpTo(q, inNewTab = false) {
     const m = String(q).trim().match(/^(.*?)\s*(?:\b(?:daf|kapitel|chapter|kap)\s*)?(\d+[ab]?)(?:\s*[:,.\s]\s*(?:(?:vers|verse|v)\.?\s*)?(\d+))?(?::\d+)*$/i);
-    if (!m) return false;
+    if (!m) {
+      // nur ein Buchname ohne Zahl („genesis“ + Enter): Buch von vorn (erstes Kapitel) öffnen
+      const b = normT(q);
+      if (!b || /\d/.test(b)) return false;
+      const c = groups.filter(g => normT(g.title).startsWith(b) || normT(g.title).split(' ').some(w => w.startsWith(b)))
+        .sort((a, b2) => (normT(a.title) === b ? 0 : 1) - (normT(b2.title) === b ? 0 : 1) || (normT(a.title).startsWith(b) ? 0 : 1) - (normT(b2.title).startsWith(b) ? 0 : 1) || a.title.length - b2.title.length);
+      if (!c.length) return false;
+      await openGroup(c[0], {}, inNewTab);
+      return true;
+    }
     const book = normT(m[1]), num = m[2].toLowerCase(), verse = m[3];
     let g = view && view.group;
     if (book) {

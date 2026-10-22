@@ -103,3 +103,4 @@ The source code of this app is released under the [MIT License](LICENSE).
 - Fixed: the link badge next to a verse number could appear twice.
 - The commentator chips only list commentaries that exist locally **in the chosen language**; those available only in another language, and those not downloaded, are collapsed below with a note.
 - Own texts in Sefaria upload format (`Title chapter:verse<TAB>text`, also as `.txt`) are now recognised, including gaps (verses without a note) and the title from the references. Used for own commentaries such as `Hertz on Deuteronomy`.
+- Typing only a book name in the jump field (e.g. `gen` + Enter) opens the book at its first chapter.
