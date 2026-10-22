@@ -292,3 +292,10 @@ img.logo { display: block; margin: 8px auto 14px; opacity: .8; pointer-events: n
 img.logo.small { margin: 6px auto 2px; opacity: .55; }
 @media (prefers-color-scheme: dark) { img.logo { filter: invert(1); } }
 :root[data-theme=dark] img.logo { filter: invert(1); }
+
+#suggest { position: fixed; z-index: 60; background: var(--bg); border: 1px solid var(--line); border-radius: 8px; box-shadow: 0 6px 24px rgba(0,0,0,.35); padding: 4px; max-height: 320px; overflow: auto; }
+#suggest .si { display: flex; gap: 8px; align-items: baseline; padding: 5px 10px; border-radius: 5px; cursor: pointer; font-size: 14px; }
+#suggest .si small { color: var(--muted); }
+#suggest .si .muted { margin-left: auto; font-size: 12px; }
+#suggest .si:hover, #suggest .si.on { background: color-mix(in srgb, var(--accent, #4a7bd0) 18%, transparent); }
+.newtab img.logo { margin: 0 0 18px; }

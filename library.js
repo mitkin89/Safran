@@ -130,9 +130,9 @@
     $('#rMain').hidden = none;
     $('#stick').classList.toggle('emptytab', !none && !view.group);
     if (!none && !view.group) {
-      $('#rOut').innerHTML = `<div class="newtab"><p class="muted">Neuer Tab – Stelle oder Buch eingeben (z. B. <b>Gen. 1</b>, <b>Berakhot 2a</b>, <b>Mishnah Peah 6:6</b>) und Enter drücken, oder links ein Buch wählen.</p>
-        <input id="ntIn" list="ntList" placeholder="Gen. 1:1" autocomplete="off"><datalist id="ntList">${groups.map(g => `<option value="${esc(g.title)}">`).join('')}</datalist><p id="ntMsg" class="muted"></p></div>`;
-      setTimeout(() => { const i = $('#ntIn'); if (i) i.focus(); }, 0);
+      $('#rOut').innerHTML = `<div class="newtab"><img class="logo" src="logo.png" alt="talmud.de" width="130"><p class="muted">Neuer Tab – Stelle oder Buch eingeben (z. B. <b>Gen. 1</b>, <b>Berakhot 2a</b>, <b>Mishnah Peah 6:6</b>) und Enter drücken, oder links ein Buch wählen.</p>
+        <input id="ntIn" placeholder="Gen. 1:1" autocomplete="off"><p id="ntMsg" class="muted"></p></div>`;
+      setTimeout(() => { const i = $('#ntIn'); if (i) { attachSuggest(i); i.focus(); } }, 0);
     }
     renderTabs();
   }
@@ -425,6 +425,50 @@
     renderSection(verse);
     return true;
   }
+  // Vorschläge beim Tippen (Springen-Feld und „Neuer Tab“): Buchname eintippen, z. B. „ge“ → Genesis
+  let suggEl = null;
+  function attachSuggest(input) {
+    if (!suggEl) { suggEl = document.createElement('div'); suggEl.id = 'suggest'; suggEl.hidden = true; document.body.appendChild(suggEl); document.addEventListener('mousedown', e => { if (!e.target.closest('#suggest')) suggEl.hidden = true; }); }
+    let list = [], sel = -1;
+    const hide = () => { suggEl.hidden = true; sel = -1; };
+    const split = v => { const m = v.match(/^(.*?)(\s*(?:\b(?:daf|kapitel|chapter|kap)\s*)?\d.*)?$/i); return { book: (m[1] || '').trim(), rest: m[2] || '' }; };
+    const show = () => {
+      const { book, rest } = split(input.value);
+      const q = normT(book);
+      if (!q || rest.trim()) { hide(); return; } // Vorschläge nur, solange noch kein Kapitel eingegeben ist
+      const hits = groups.filter(g => { const t = normT(g.title); return t.startsWith(q) || t.split(' ').some(w => w.startsWith(q)) || (g.heTitle && g.heTitle.includes(book)); });
+      hits.sort((a, b) => (normT(a.title).startsWith(q) ? 0 : 1) - (normT(b.title).startsWith(q) ? 0 : 1));
+      const first = hits.filter(g => normT(g.title).startsWith(q)), other = hits.filter(g => !normT(g.title).startsWith(q));
+      list = [...SefOrder.sortTitles(first), ...SefOrder.sortTitles(other)].slice(0, 8);
+      if (!list.length) { hide(); return; }
+      sel = -1;
+      suggEl.innerHTML = list.map((g, i) => `<div class="si" data-i="${i}">${esc(g.title)}${g.heTitle ? ` <small dir="rtl">${esc(g.heTitle)}</small>` : ''}<span class="muted">${esc(g.cats.slice(-1)[0] || '')}</span></div>`).join('');
+      const r = input.getBoundingClientRect();
+      suggEl.style.left = r.left + 'px'; suggEl.style.top = (r.bottom + 2) + 'px'; suggEl.style.minWidth = Math.max(240, r.width) + 'px';
+      suggEl.hidden = false;
+    };
+    const pick = i => {
+      const g = list[i]; if (!g) return;
+      input.value = g.title + ' '; hide(); input.focus();
+      input.dispatchEvent(new Event('input', { bubbles: true }));
+      hide();
+    };
+    const mark = () => [...suggEl.children].forEach((c, i) => c.classList.toggle('on', i === sel));
+    input.addEventListener('input', show);
+    input.addEventListener('focus', () => { if (input.value) show(); });
+    input.addEventListener('blur', () => setTimeout(() => { if (document.activeElement !== input) hide(); }, 150));
+    input.addEventListener('keydown', e => {
+      if (suggEl.hidden || !list.length) return;
+      if (e.key === 'ArrowDown') { e.preventDefault(); sel = (sel + 1) % list.length; mark(); }
+      else if (e.key === 'ArrowUp') { e.preventDefault(); sel = (sel - 1 + list.length) % list.length; mark(); }
+      else if (e.key === 'Escape') { hide(); }
+      else if ((e.key === 'Enter' || e.key === 'Tab') && sel >= 0) { e.preventDefault(); e.stopImmediatePropagation(); pick(sel); }
+    }, true);
+    suggEl.addEventListener('mousedown', e => { const d = e.target.closest('.si'); if (d && suggEl._for === input) { e.preventDefault(); pick(+d.dataset.i); } });
+    input.addEventListener('focus', () => { suggEl._for = input; });
+    input.addEventListener('input', () => { suggEl._for = input; });
+  }
+  attachSuggest($('#jump'));
   $('#jump').addEventListener('keydown', async e => {
     if (e.key !== 'Enter') return;
     const ok = await jumpTo($('#jump').value);

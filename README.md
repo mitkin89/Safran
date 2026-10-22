@@ -95,3 +95,4 @@ The source code of this app is released under the [MIT License](LICENSE).
 - **Compact toolbar:** the header and book bar shrank from about 175 px to about 90 px: one row for the app tabs and open books, a ⋯ menu for rarely used items (own text, storage location, show in file manager, statistics), and a ⚙ panel for footnotes, font size and export.
 - **Context menu on books and history:** right-click a book in the list or in the history for *Open*, *Open in new tab* and *Open in second window* (if the second window already has a book open, a new tab is created there). The second window now lays out correctly and no longer cuts off its right side.
 - The talmud.de logo appears on the empty start page and in the ⋯ menu.
+- **Suggestions while typing:** the jump field and the new-tab field suggest book names as you type (e.g. "ge" → Genesis); arrow keys and Enter or a click pick one. The new-tab page shows the logo too.
