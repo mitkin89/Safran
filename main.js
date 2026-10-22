@@ -247,7 +247,11 @@ async function libraryDir() {
 const readCache = new Map(); // gelesene Dateien für den Kommentar-Bereich
 let libraryP = null; // Promise: parallele Aufrufe beim Start teilen sich eine Bibliothek
 function getLibrary() {
-  if (!libraryP) libraryP = (async () => new OFF.Library(await libraryDir(), fetchBuffer).load())().catch(err => { libraryP = null; throw err; });
+  if (!libraryP) libraryP = (async () => {
+    const lib = await new OFF.Library(await libraryDir(), fetchBuffer).load();
+    try { await lib.importBundled(path.join(__dirname, 'bundled')); } catch { /* mitgelieferte Texte sind nur ein Zusatz */ }
+    return lib;
+  })().catch(err => { libraryP = null; throw err; });
   return libraryP;
 }
 const invalidateReads = () => { readCache.clear(); }; // gelesene Dateien im Kommentar-Zwischenspeicher verwerfen (nach Änderungen an der Bibliothek)
@@ -428,6 +432,13 @@ ipcMain.handle('off:ownReload', async (_e, rel) => {
     invalidateReads();
     return { entry, segments: parsed.segments, warnings: parsed.warnings };
   } catch (err) { return { error: err.message }; }
+});
+
+ipcMain.handle('off:ownExportBundle', async e => {
+  const lib = await getLibrary();
+  const r = await dialog.showOpenDialog(winOf(e), { title: 'Ordner „bundled“ im Projekt wählen (oder neuen Ordner anlegen)', properties: ['openDirectory', 'createDirectory'] });
+  if (r.canceled || !r.filePaths[0]) return { cancelled: true };
+  try { return { count: await lib.exportBundled(r.filePaths[0]), dir: r.filePaths[0] }; } catch (err) { return { error: err.message }; }
 });
 
 ipcMain.handle('off:ownRemove', async (_e, rel) => {

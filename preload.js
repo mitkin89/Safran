@@ -43,6 +43,7 @@ contextBridge.exposeInMainWorld('offline', {
   ownSave: o => ipcRenderer.invoke('off:ownSave', o),
   ownClear: () => ipcRenderer.invoke('off:ownClear'),
   onOwnDrop: cb => { ownDropCb = cb; },
+  ownExportBundle: () => ipcRenderer.invoke('off:ownExportBundle'),
   ownRemove: rel => ipcRenderer.invoke('off:ownRemove', rel),
   ownReload: rel => ipcRenderer.invoke('off:ownReload', rel),
   onFindOpen: cb => ipcRenderer.on('find:open', () => cb()),

@@ -1763,6 +1763,12 @@ ${endnotes.length ? `<h3>Fußnoten</h3><ol class="fn">${endnotes.map(n => `<li>$
   $('#moreMenu').addEventListener('click', e => { if (e.target.closest('#moreList button')) $('#moreMenu').open = false; });
   $('#chooseDir').onclick = async () => { await O.chooseDir(); await refreshState(); await loadLibrary(); };
   $('#reveal').onclick = () => O.reveal();
+  $('#ownExport').onclick = async () => {
+    $('#moreMenu').open = false;
+    const r = await O.ownExportBundle();
+    if (r.cancelled) return;
+    alert(r.error ? 'Export fehlgeschlagen: ' + r.error : r.count ? `${r.count} eigene Version(en) exportiert nach:\n${r.dir}\n\nDiesen Ordnerinhalt als „bundled“ ins Projekt legen und zu GitHub hochladen.` : 'Es gibt noch keine eigenen Texte zum Exportieren.');
+  };
 
   // ---------- Start ----------
   (async () => {

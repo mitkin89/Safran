@@ -334,9 +334,51 @@ class Library {
     return this.index.entries[rel];
   }
 
+  // Mitgelieferte Texte (Ordner bundled/ der App): beim Start einbinden, neue oder geänderte Fassungen übernehmen.
+  // Vom Nutzer entfernte Texte (skipBundled) kommen nicht wieder.
+  async importBundled(dir) {
+    let man;
+    try { man = JSON.parse(await fs.readFile(path.join(dir, 'manifest.json'), 'utf8')); } catch { return 0; }
+    const skip = new Set(this.index.skipBundled || []);
+    let n = 0;
+    for (const it of (man && man.items) || []) {
+      const rel = String(it.rel || '');
+      if (!/^own\/[^\\]+\/(he|en|de|other)\/[^/\\]+\.json$/.test(rel) || rel.includes('..') || skip.has(rel)) continue;
+      const cur = this.index.entries[rel];
+      if (cur && (!cur.bundled || cur.bundledHash === it.hash)) continue; // eigene Fassung oder schon aktuell
+      try {
+        const buf = await fs.readFile(path.join(dir, rel));
+        const dest = path.join(this.dir, rel);
+        await fs.mkdir(path.dirname(dest), { recursive: true });
+        await fs.writeFile(dest, buf);
+        this.index.entries[rel] = { rel, title: it.title, heTitle: it.heTitle || '', language: it.language, versionTitle: it.versionTitle, categories: it.categories, kind: it.kind, bytes: buf.length, own: true, bundled: true, bundledHash: it.hash };
+        n++;
+      } catch { /* Datei fehlt im Paket – überspringen */ }
+    }
+    if (n) await this.save();
+    return n;
+  }
+
+  // Alle eigenen Texte in einen Ordner schreiben (manifest.json + own/…), zum Ablegen als bundled/ im Projekt
+  async exportBundled(outDir) {
+    const crypto = require('crypto');
+    await fs.rm(path.join(outDir, 'own'), { recursive: true, force: true });
+    const items = [];
+    for (const e of Object.values(this.index.entries)) {
+      if (!e.own) continue;
+      const buf = await fs.readFile(path.join(this.dir, e.rel));
+      await fs.mkdir(path.dirname(path.join(outDir, e.rel)), { recursive: true });
+      await fs.writeFile(path.join(outDir, e.rel), buf);
+      items.push({ rel: e.rel, title: e.title, heTitle: e.heTitle || '', language: e.language, versionTitle: e.versionTitle, categories: e.categories, kind: e.kind, hash: crypto.createHash('sha1').update(buf).digest('hex') });
+    }
+    await fs.writeFile(path.join(outDir, 'manifest.json'), JSON.stringify({ version: 1, items }, null, 1));
+    return items.length;
+  }
+
   async removeOwn(rel) {
     const e = this.index.entries[rel];
     if (!e || !e.own) throw new Error('Nur eigene Texte können entfernt werden.');
+    if (e.bundled) this.index.skipBundled = [...new Set([...(this.index.skipBundled || []), rel])];
     try { await fs.unlink(path.join(this.dir, rel)); } catch { /* war schon weg */ }
     delete this.index.entries[rel];
     await this.save();

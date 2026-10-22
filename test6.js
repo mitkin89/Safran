@@ -27,3 +27,19 @@ console.log('Zusatz-Tests bestanden.');
   assert.strictEqual(plain.segments, 2);
   console.log('Import-Tests bestanden.');
 }
+// Mitgelieferte Texte: Export -> Import in frischer Bibliothek, Entfernen kommt nicht wieder
+(async () => {
+  const O2 = require('./offline'), fs = require('fs'), os = require('os'), path = require('path');
+  const t = fs.mkdtempSync(path.join(os.tmpdir(), 'bund-'));
+  const a = await new O2.Library(path.join(t, 'a')).load();
+  await a.addOwn({ title: 'Hertz on Exodus', kind: 'de', versionTitle: 'Test', categories: ['Eigene Texte', 'Kommentare'], text: [['x']], sectionNames: ['Kapitel', 'Vers'] });
+  assert.strictEqual(await a.exportBundled(path.join(t, 'b')), 1);
+  const b = await new O2.Library(path.join(t, 'c')).load();
+  assert.strictEqual(await b.importBundled(path.join(t, 'b')), 1);
+  assert.strictEqual(await b.importBundled(path.join(t, 'b')), 0);
+  const rel = Object.keys(b.index.entries)[0];
+  assert.ok(fs.existsSync(path.join(t, 'c', rel)));
+  await b.removeOwn(rel);
+  assert.strictEqual(await b.importBundled(path.join(t, 'b')), 0);
+  console.log('Bundled-Tests bestanden.');
+})().catch(e => { console.error(e); process.exit(1); });
