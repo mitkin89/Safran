@@ -728,7 +728,7 @@
       if (m.type === 'find') openFind();
       else if (m.type === 'closeTab') { if (tabIdx >= 0) closeTab(tabIdx); }
       else if (m.type === 'sync') { if (view && view.group && m.idx < view.sections.length && m.idx !== view.idx) { view.idx = m.idx; renderSection(); } }
-      else if (m.type === 'open' && typeof m.key === 'string') { const g = groupsByKey.get(m.key); if (g) openGroup(g, {}, true); }
+      else if (m.type === 'open' && typeof m.key === 'string') { const g = groupsByKey.get(m.key); if (g) openGroup(g, { sectionPath: m.sectionPath, rowLabel: m.rowLabel }, tabs.some(t => t.group)); } // schon ein Buch offen: neuer Tab
     } else if (e.source === p2Frame.contentWindow) {
       if (m.type === 'ready') p2Ready = true;
       else if (m.type === 'close') setSplit(false);
@@ -762,9 +762,7 @@
       const a = e.target.closest('.lib-item');
       if (!a || !e.altKey) return;
       e.stopImmediatePropagation(); e.preventDefault();
-      setSplit(true);
-      const send = () => p2Post({ type: 'open', key: a.dataset.key });
-      if (p2Ready) send(); else { const t = setInterval(() => { if (p2Ready) { clearInterval(t); setTimeout(send, 400); } }, 100); setTimeout(() => clearInterval(t), 8000); }
+      openInPane2(a.dataset.key);
     }, true);
   }
   fin.addEventListener('input', () => { if (!fin.value) clearFind(false); });
@@ -921,29 +919,58 @@
     if ($('#sq').value.trim()) runSearch();
   };
 
+  // Kontextmenü (Rechtsklick): kleine Liste von Aktionen an der Mausposition
+  let ctxEl = null;
+  function ctxShow(e, items) {
+    if (!ctxEl) {
+      ctxEl = document.createElement('div'); ctxEl.id = 'ctxMenu'; ctxEl.hidden = true; document.body.appendChild(ctxEl);
+      const hide = () => { ctxEl.hidden = true; };
+      document.addEventListener('click', hide); window.addEventListener('blur', hide); document.addEventListener('keydown', ev => { if (ev.key === 'Escape') hide(); });
+      ctxEl.addEventListener('click', ev => { const b = ev.target.closest('button[data-n]'); hide(); if (b && ctxEl._items[+b.dataset.n]) ctxEl._items[+b.dataset.n].fn(); });
+    }
+    e.preventDefault();
+    ctxEl._items = items;
+    ctxEl.innerHTML = items.map((it, i) => `<button data-n="${i}">${esc(it.label)}</button>`).join('');
+    ctxEl.hidden = false;
+    ctxEl.style.left = Math.max(4, Math.min(e.clientX, window.innerWidth - 270)) + 'px';
+    ctxEl.style.top = Math.max(4, Math.min(e.clientY, window.innerHeight - 40 * items.length - 10)) + 'px';
+  }
+  // Menü für ein Buch (Bücherliste, Verlauf): hier öffnen, neuer Tab, zweites Fenster
+  function bookMenu(e, key, target = {}) {
+    const g = groupsByKey.get(key);
+    if (!g) return;
+    const items = [
+      { label: 'Öffnen', fn: () => openGroup(g, target, false) },
+      { label: 'Im neuen Tab öffnen', fn: () => openGroup(g, target, true) },
+    ];
+    if (!IS_PANE2) items.push({ label: 'Im zweiten Fenster öffnen', fn: () => openInPane2(key, target) });
+    ctxShow(e, items);
+  }
+  // im zweiten Fenster öffnen: Fenster bei Bedarf einblenden; ist dort schon ein Buch offen, entsteht ein neuer Tab
+  function openInPane2(key, target = {}) {
+    setSplit(true);
+    const msg = { type: 'open', key, sectionPath: target.sectionPath, rowLabel: target.rowLabel };
+    if (p2Ready) p2Post(msg);
+    else { const t = setInterval(() => { if (p2Ready) { clearInterval(t); setTimeout(() => p2Post(msg), 400); } }, 100); setTimeout(() => clearInterval(t), 8000); }
+  }
+  $('#tree').addEventListener('contextmenu', e => { const a = e.target.closest('.lib-item'); if (a) bookMenu(e, a.dataset.key); });
+  $('#recent').addEventListener('contextmenu', e => {
+    const a = e.target.closest('a[data-i]'); const h = a && history[+a.dataset.i];
+    if (h) bookMenu(e, h.key, { sectionPath: JSON.parse(h.sk), rowLabel: h.row || undefined });
+  });
   // Rechtsklick auf einen Vers: Referenz kopieren / auf sefaria.org öffnen
-  (() => {
-    const menu = document.createElement('div'); menu.id = 'ctxMenu'; menu.hidden = true; document.body.appendChild(menu);
-    const hide = () => { menu.hidden = true; };
-    document.addEventListener('click', hide); window.addEventListener('blur', hide); document.addEventListener('keydown', e => { if (e.key === 'Escape') hide(); });
-    $('#rOut').addEventListener('contextmenu', e => {
-      const row = e.target.closest('.row[data-l]');
-      if (!row || !view || !view.group || (window.getSelection() + '')) return; // bei markiertem Text das normale Menü lassen
-      const sec = view.sections[view.idx];
-      if (!sec) return;
-      e.preventDefault();
-      const ref = `${view.group.title} ${String(sec.label).replace(/^\D+/, '') || sec.label}:${row.dataset.l}`.replace(/\s+/g, ' ');
-      const url = 'https://www.sefaria.org/' + encodeURIComponent(ref.replace(/ /g, '_').replace(/:/g, '.')).replace(/%2C/g, ',').replace(/%2F/g, '/');
-      menu.innerHTML = '<button data-a="copy">Referenz kopieren: ' + esc(ref) + '</button><button data-a="open">Auf sefaria.org öffnen</button>';
-      menu.style.left = Math.min(e.clientX, window.innerWidth - 240) + 'px'; menu.style.top = Math.min(e.clientY, window.innerHeight - 90) + 'px';
-      menu.hidden = false;
-      menu.onclick = ev => {
-        const a = ev.target.dataset.a; hide();
-        if (a === 'copy') navigator.clipboard.writeText(ref).catch(() => {});
-        else if (a === 'open') window.api.openExternal(url);
-      };
-    });
-  })();
+  $('#rOut').addEventListener('contextmenu', e => {
+    const row = e.target.closest('.row[data-l]');
+    if (!row || !view || !view.group || (window.getSelection() + '')) return; // bei markiertem Text das normale Menü lassen
+    const sec = view.sections[view.idx];
+    if (!sec) return;
+    const ref = `${view.group.title} ${String(sec.label).replace(/^\D+/, '') || sec.label}:${row.dataset.l}`.replace(/\s+/g, ' ');
+    const url = 'https://www.sefaria.org/' + encodeURIComponent(ref.replace(/ /g, '_').replace(/:/g, '.')).replace(/%2C/g, ',').replace(/%2F/g, '/');
+    ctxShow(e, [
+      { label: 'Referenz kopieren: ' + ref, fn: () => navigator.clipboard.writeText(ref).catch(() => {}) },
+      { label: 'Auf sefaria.org öffnen', fn: () => window.api.openExternal(url) },
+    ]);
+  });
 
   const plainSnip = r => (r.parts ? r.parts.map(x => x.t).join('') : `${r.snippet.before}${r.snippet.hit}${r.snippet.after}`);
   async function runSearch(only) {

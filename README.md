@@ -93,3 +93,5 @@ The source code of this app is released under the [MIT License](LICENSE).
 - **Security:** navigation is locked to local files (including the second pane), stricter CSP, drag-and-drop file paths are allow-listed, PDF export via temp file.
 - **Windows:** `npm run dist:win` builds an installer and a portable exe (Ctrl instead of Cmd, Explorer instead of Finder, Ctrl+Tab for tabs); a GitHub Actions workflow builds macOS and Windows.
 - **Compact toolbar:** the header and book bar shrank from about 175 px to about 90 px: one row for the app tabs and open books, a ⋯ menu for rarely used items (own text, storage location, show in file manager, statistics), and a ⚙ panel for footnotes, font size and export.
+- **Context menu on books and history:** right-click a book in the list or in the history for *Open*, *Open in new tab* and *Open in second window* (if the second window already has a book open, a new tab is created there). The second window now lays out correctly and no longer cuts off its right side.
+- The talmud.de logo appears on the empty start page and in the ⋯ menu.
