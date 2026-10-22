@@ -397,14 +397,15 @@ class Library {
   }
 
   // Volltextsuche über alle heruntergeladenen Dateien der gewählten Sprachen (kinds: ['he','en','de',…])
-  async search({ query, extra = [], fuzzy = false, distance = -1, ordered = false, kinds, category = '', prefix = false, limit = 300, onProgress = () => {}, isCancelled = () => false }) {
+  async search({ query, extra = [], fuzzy = false, distance = -1, ordered = false, kinds, category = '', categories = [], prefix = false, limit = 300, onProgress = () => {}, isCancelled = () => false }) {
     const q = R.normalize(query);
     if (!q) return { results: [], scanned: 0, total: 0, truncated: false, cancelled: false };
     const terms = [query, ...extra].filter(t => String(t || '').trim());
     const advanced = terms.length > 1 || fuzzy || /[*?]/.test(query);
     const matcher = advanced ? require('./search').makeMatcher({ terms, fuzzy, prefix, distance, ordered }) : null;
     const snippetParts = advanced ? require('./search').snippetParts : null;
-    const catOk = e => !category || (e.categories.join('/') + '/').startsWith(category + '/');
+    const cats = [...(category ? [category] : []), ...categories];
+    const catOk = e => !cats.length || cats.some(c => (e.categories.join('/') + '/').startsWith(c + '/'));
     const entries = this.list().filter(e => kinds.includes(e.kind) && catOk(e));
     // „Ganze Wörter“: Suchwort muss ein ganzes Wort sein, hebräische Präfixe (ו ה ב כ ל מ ש …) davor sind erlaubt
     const preRe = prefix ? new RegExp('(?:^|\\s)([והבכלמשד]{0,3})' + q.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '(?=\\s|$)') : null;

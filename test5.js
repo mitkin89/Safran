@@ -22,3 +22,7 @@ const m = mk({ terms: ['gott', 'erde'], distance: 5 })(t);
 assert.strictEqual(S.snippetParts(t, m).filter(p => p.m).map(p => p.t).join(','), 'gott,erde');
 assert.strictEqual(S.lev('kitten', 'sitting', 5), 3);
 console.log('Such-Tests bestanden.');
+const O = require('./order');
+assert.deepStrictEqual(O.sortCats(['Talmud', 'Halakhah', 'Tanakh', 'Eigene Texte', 'Mishnah', 'Midrash'], ''), ['Eigene Texte', 'Tanakh', 'Mishnah', 'Talmud', 'Midrash', 'Halakhah']);
+assert.deepStrictEqual(O.sortTitles([{ title: 'Exodus' }, { title: 'Genesis' }, { title: 'Zephaniah' }, { title: 'Aaa' }]).map(x => x.title), ['Genesis', 'Exodus', 'Zephaniah', 'Aaa']);
+console.log('Reihenfolge-Tests bestanden.');

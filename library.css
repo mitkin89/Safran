@@ -218,3 +218,8 @@ details.help { margin: 6px 0 10px; padding: 6px 12px; border: 1px solid var(--li
 details.help summary { cursor: pointer; color: var(--muted, #aaa); }
 details.help code { background: rgba(127,127,127,.2); padding: 0 4px; border-radius: 4px; }
 details.help ul { margin: 4px 0 8px 18px; padding: 0; }
+
+.catpanel { border: 1px solid var(--line, #333); border-radius: 8px; padding: 8px 12px; margin: 6px 0; max-height: 360px; overflow: auto; }
+.catpanel details { margin-left: 14px; }
+.catpanel label.t { display: block; margin-left: 20px; padding: 1px 0; }
+.catpanel summary { cursor: pointer; padding: 2px 0; }

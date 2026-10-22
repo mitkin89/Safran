@@ -54,12 +54,7 @@
     groupsByKey.clear();
     groups.forEach(g => groupsByKey.set(g.key, g));
     cache.clear();
-    // Kategorien für die Suche (oberste zwei Ebenen)
-    const paths = new Set();
-    for (const g of groups) for (let n = 1; n <= Math.min(2, g.cats.length); n++) paths.add(g.cats.slice(0, n).join('/'));
-    const cur = $('#sCat').value;
-    $('#sCat').innerHTML = '<option value="">Alle Kategorien</option>' + [...paths].sort().map(p => `<option value="${esc(p)}">${esc(p.split('/').length > 1 ? '\u2003' + p.split('/').slice(1).join(' › ') + ' (' + p.split('/')[0] + ')' : p)}</option>`).join('');
-    $('#sCat').value = [...paths].includes(cur) ? cur : '';
+    renderSCats();
     // geöffnete Tabs auf die neu aufgebauten Buchobjekte umstellen; Bücher, die es nicht mehr gibt, schließen
     for (let i = tabs.length - 1; i >= 0; i--) {
       const t = tabs[i];
@@ -90,8 +85,8 @@
     const match = g => !f || (g.title + ' ' + (g.heTitle || '') + ' ' + g.cats.join(' ')).toLowerCase().includes(f);
     const count = n => n.titles.filter(match).length + [...n.children.values()].reduce((a, c) => a + count(c), 0);
     const node = (n, pth, depth = 0) => {
-      const kids = [...n.children.values()].sort((a, b) => a.name.localeCompare(b.name)).map(c => node(c, pth + '/' + c.name, depth + 1)).join('');
-      const ts = n.titles.filter(match).sort((a, b) => a.title.localeCompare(b.title))
+      const kids = SefOrder.sortCats([...n.children.keys()], n.name).map(k => n.children.get(k)).map(c => node(c, pth + '/' + c.name, depth + 1)).join('');
+      const ts = SefOrder.sortTitles(n.titles.filter(match))
         .map(g => `<a class="lib-item" data-key="${esc(g.key)}">${esc(g.title)}${g.heTitle ? `<small dir="rtl">${esc(g.heTitle)}</small>` : ''}</a>`).join('');
       if (!kids && !ts) return '';
       if (!n.name) return kids + ts;
@@ -769,6 +764,45 @@
   let sResults = [];
   O.onSearchProgress(p => { $('#sInfo').textContent = `Durchsuche … ${p.scanned} von ${p.total} Dateien · ${p.found} Treffer`; });
 
+  // Kategorien für die Suche: ohne Häkchen wird überall gesucht
+  const sCats = new Set();
+  function renderSCats() {
+    const f = $('#sCatFilter').value.trim().toLowerCase();
+    const root = { name: '', path: '', children: new Map(), count: 0 };
+    for (const g of groups) {
+      let n = root, p = '';
+      n.count++;
+      for (const c of g.cats.slice(0, 3)) {
+        p = p ? p + '/' + c : c;
+        if (!n.children.has(c)) n.children.set(c, { name: c, path: p, children: new Map(), count: 0 });
+        n = n.children.get(c); n.count++;
+      }
+    }
+    const covered = p => [...sCats].some(c => c !== p && (p === c || p.startsWith(c + '/')));
+    const show = (n, anc) => !f || anc || n.name.toLowerCase().includes(f) || [...n.children.values()].some(c => show(c, false));
+    const node = (n, parentMatch) => {
+      const m = !f || parentMatch || n.name.toLowerCase().includes(f);
+      if (!show(n, parentMatch)) return '';
+      const kids = SefOrder.sortCats([...n.children.keys()], n.name).map(k => node(n.children.get(k), m && !!f)).join('');
+      const cb = `<input type="checkbox" data-sc="${esc(n.path)}" ${covered(n.path) || sCats.has(n.path) ? 'checked' : ''} ${covered(n.path) ? 'disabled' : ''}> `;
+      if (!kids) return `<label class="t">${cb}${esc(n.name)} <small>(${n.count})</small></label>`;
+      return `<details ${f ? 'open' : ''}><summary>${cb}<span class="catname">${esc(n.name)}</span> <small>(${n.count})</small></summary>${kids}</details>`;
+    };
+    $('#sCatTree').innerHTML = SefOrder.sortCats([...root.children.keys()], '').map(k => node(root.children.get(k), false)).join('') || '<p class="muted">Keine passende Kategorie.</p>';
+    $('#sCatBtn').textContent = sCats.size ? `Kategorien: ${sCats.size} gewählt ▾` : 'Kategorien: alle ▾';
+  }
+  $('#sCatBtn').onclick = () => { $('#sCatPanel').hidden = !$('#sCatPanel').hidden; if (!$('#sCatPanel').hidden) $('#sCatFilter').focus(); };
+  $('#sCatFilter').addEventListener('input', renderSCats);
+  $('#sCatAll').onclick = () => { sCats.clear(); renderSCats(); };
+  $('#sCatTree').addEventListener('change', e => {
+    const p = e.target.dataset && e.target.dataset.sc;
+    if (p === undefined) return;
+    if (e.target.checked) { sCats.add(p); for (const c of [...sCats]) if (c !== p && c.startsWith(p + '/')) sCats.delete(c); } else sCats.delete(p);
+    const keep = new Set([...document.querySelectorAll('#sCatTree details[open]')].map(d => d.querySelector('.catname').textContent));
+    renderSCats();
+    if (!$('#sCatFilter').value) $$('#sCatTree details').forEach(d => { if (keep.has(d.querySelector('.catname').textContent)) d.open = true; });
+  });
+
   async function runSearch() {
     const q = $('#sq').value.trim();
     if (!q) return;
@@ -777,7 +811,7 @@
     $('#sGo').disabled = true; $('#sCancel').disabled = false;
     $('#sInfo').textContent = 'Suche läuft …';
     $('#sOut').innerHTML = '';
-    const res = await O.search({ query: q, extra: [$('#sq2').value.trim(), $('#sq3').value.trim()].filter(Boolean), distance: +$('#sDist').value, ordered: $('#sOrd').checked, fuzzy: $('#sFuzzy').checked, kinds, category: $('#sCat').value, prefix: $('#sPre').checked, limit: 300 });
+    const res = await O.search({ query: q, extra: [$('#sq2').value.trim(), $('#sq3').value.trim()].filter(Boolean), distance: +$('#sDist').value, ordered: $('#sOrd').checked, fuzzy: $('#sFuzzy').checked, kinds, categories: [...sCats], prefix: $('#sPre').checked, limit: 300 });
     $('#sGo').disabled = false; $('#sCancel').disabled = true;
     sResults = res.results;
     $('#sInfo').textContent = `${res.results.length}${res.truncated ? '+' : ''} Treffer in ${res.scanned} von ${res.total} Dateien${res.cancelled ? ' (abgebrochen)' : ''}${res.truncated ? ' – nur die ersten 300 werden angezeigt, bitte genauer suchen' : ''}.`;
@@ -849,8 +883,8 @@
       n.titles.push(s);
     }
     const node = n => {
-      const kids = [...n.children.values()].sort((a, b) => a.name.localeCompare(b.name)).map(node).join('');
-      const ts = n.titles.sort((a, b) => a.title.localeCompare(b.title)).map(s => titleRow(s, false)).join('');
+      const kids = SefOrder.sortCats([...n.children.keys()], n.name).map(k => n.children.get(k)).map(node).join('');
+      const ts = SefOrder.sortTitles(n.titles).map(s => titleRow(s, false)).join('');
       if (!n.name) return kids + ts;
       return `<details><summary><input type="checkbox" data-cat="${esc(n.path)}"> <span class="catname">${esc(n.name)}</span><small>${n.count} Titel</small></summary>${kids}${ts}</details>`;
     };

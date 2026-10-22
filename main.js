@@ -310,11 +310,11 @@ ipcMain.handle('off:library', async () => {
 
 ipcMain.handle('off:read', async (_e, rel) => (await getLibrary()).read(rel));
 
-ipcMain.handle('off:search', async (e, { query, extra, fuzzy, distance, ordered, kinds, limit, category, prefix }) => {
+ipcMain.handle('off:search', async (e, { query, extra, fuzzy, distance, ordered, kinds, limit, category, categories, prefix }) => {
   searchCancel = false;
   const lib = await getLibrary();
   return lib.search({
-    query, extra: Array.isArray(extra) ? extra.slice(0, 2).map(String) : [], fuzzy: !!fuzzy, distance: Number.isFinite(distance) ? distance : -1, ordered: !!ordered, kinds, category: category || '', prefix: !!prefix, limit: limit || 300,
+    query, extra: Array.isArray(extra) ? extra.slice(0, 2).map(String) : [], fuzzy: !!fuzzy, distance: Number.isFinite(distance) ? distance : -1, ordered: !!ordered, kinds, category: category || '', categories: Array.isArray(categories) ? categories.map(String) : [], prefix: !!prefix, limit: limit || 300,
     isCancelled: () => searchCancel,
     onProgress: p => { if (!e.sender.isDestroyed()) e.sender.send('off:searchProgress', p); },
   });

@@ -76,3 +76,5 @@ The texts are **not** covered by this project's license. Each text version has i
 The source code of this app is released under the [MIT License](LICENSE).
 - Cmd+F durchsucht auch den geöffneten Kommentar-Bereich; identische, mehrfach verknüpfte Kommentartexte erscheinen nur einmal.
 - **Erweiterte Suche** (Reiter „Suche“): bis zu drei Wörter in der Nähe voneinander (Abstand wählbar, optional in fester Reihenfolge), Platzhalter `*` und `?` (z. B. `anf*`, `erd*`) und **Fuzzy** für ähnliche Schreibweisen (Raschi/Rashi, Avraham/Abraham). Eine Hilfe mit Beispielen steht aufklappbar unter den Eingabefeldern.
+- **Kategorien in der Suche**: Knopf „Kategorien“ öffnet eine durchsuchbare Liste mit Häkchen (wie die Bücherliste). Ohne Häkchen wird überall gesucht; mit Häkchen nur in den gewählten Kategorien; „Alle Kategorien auswählen“ hebt die Auswahl auf.
+- **Reihenfolge wie auf Sefaria**: Hauptkategorien (Tanakh, Mishnah, Talmud, Midrash, Halakhah …), Bücher des Tanach und Traktate in der gewohnten Reihenfolge statt alphabetisch – in der Bücherliste, im Reiter „Herunterladen“ und in der Suche.
