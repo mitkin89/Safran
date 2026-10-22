@@ -99,3 +99,5 @@ The source code of this app is released under the [MIT License](LICENSE).
 - The same right-click menu (*Open*, *Open in new tab*, *Open in second window*) works on commentator names in the commentary panel.
 - The links panel lists categories in a fixed order: Tanakh, Mishnah, Tosefta, Talmud, Responsa, then everything else (by number of links).
 - The language selection is remembered across books: if you switch English off, other books open without English too (unless a book has no German text, then English is shown as a fallback).
+- **Own commentaries in the commentary panel:** import your own text via "Eigener Text…" and name it `<Commentator> on <Book>` (Sefaria's naming, e.g. `Mein Kommentar on Genesis`), with the same chapter/verse structure as the book (one line per verse). It then appears as a commentator in the commentary panel next to the Sefaria commentaries, for the matching verse and in the language of the own text. No Sefaria links are needed.
+- Fixed: the link badge next to a verse number could appear twice.

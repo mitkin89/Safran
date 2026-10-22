@@ -627,7 +627,9 @@
       const v = verseOf(r.dataset.l);
       if (v == null) return;
       const n = rows.filter(x => v >= x.v1 && v <= x.v2 && x.v1 > 0).length;
-      if (n) r.querySelector('.lab').insertAdjacentHTML('beforeend', `<br><span class="lk" data-v="${v}" title="${n} Verknüpfungen">🔗${n}</span>`);
+      const lab = r.querySelector('.lab');
+      lab.querySelectorAll('.lk').forEach(x => { if (x.previousSibling && x.previousSibling.tagName === 'BR') x.previousSibling.remove(); x.remove(); }); // wurde der Abschnitt zweimal geladen, nicht doppelt anzeigen
+      if (n) lab.insertAdjacentHTML('beforeend', `<br><span class="lk" data-v="${v}" title="${n} Verknüpfungen">🔗${n}</span>`);
     });
     if (!$('#linkPanel').hidden) renderLinkPanel();
     if (cmtOpen) renderCmt();

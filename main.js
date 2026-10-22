@@ -481,7 +481,35 @@ ipcMain.handle('links:build', async e => {
   } catch (err) { return { error: err.message }; }
 });
 ipcMain.on('links:cancel', () => { linkCancel = true; });
-ipcMain.handle('links:section', async (_e, book, chap) => (await getLinks()).forSection(book, chap));
+// Eigene Kommentare: ein eigener Text mit dem Titel „<Name> on <Buch>“ (Sefaria-Schreibweise) erscheint in der Kommentarleiste von <Buch>,
+// ohne dass es dafür Verknüpfungen bei Sefaria geben muss. Jeder nicht leere Vers des Kommentars wird zum Vers des Buches verknüpft.
+async function ownCommentaryLinks(book, chap) {
+  const lib = await getLibrary();
+  const seen = new Set(), out = [];
+  for (const e of lib.list()) {
+    if (!e.own) continue;
+    const m = /^(.+?) on (.+)$/.exec(e.title);
+    if (!m || m[2] !== book || seen.has(e.title)) continue;
+    seen.add(e.title);
+    let d = readCache.get(e.rel);
+    if (!d) { try { d = await lib.read(e.rel); } catch { continue; } readCache.set(e.rel, d); if (readCache.size > 4) readCache.delete(readCache.keys().next().value); }
+    if (!d || !Array.isArray(d.text)) continue;
+    const talmud = d.sectionNames && d.sectionNames[0] === 'Daf';
+    const c = String(chap).toLowerCase();
+    const idx = /[ab]$/.test(c) ? (parseInt(c, 10) - 1) * 2 + (c.endsWith('a') ? 0 : 1) : (talmud ? (parseInt(c, 10) - 1) * 2 : parseInt(c, 10) - 1);
+    const node = d.text[idx];
+    if (!Array.isArray(node)) continue;
+    node.forEach((v, j) => {
+      const filled = Array.isArray(v) ? v.some(x => String(x || '').trim()) : String(v || '').trim();
+      if (filled) out.push({ v1: j + 1, v2: j + 1, other: `${e.title} ${chap}:${j + 1}`, type: 'commentary', cat: 'Commentary' });
+    });
+  }
+  return out;
+}
+ipcMain.handle('links:section', async (_e, book, chap) => {
+  const base = await (await getLinks()).forSection(book, chap);
+  try { return base.concat(await ownCommentaryLinks(book, chap)); } catch { return base; }
+});
 // Texte mehrerer Stellen auf einmal holen (Kommentar-Bereich): jede Datei wird nur einmal gelesen
 ipcMain.handle('links:texts', async (_e, refs, prefer, strict) => {
   const lib = await getLibrary();
