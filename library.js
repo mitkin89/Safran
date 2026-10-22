@@ -876,7 +876,7 @@
     for (const f of r.files) {
       if (f.error) { ownItems.push(f); continue; }
       const m = f.meta || {};
-      ownItems.push({ ...f, title: m.title || baseName(f.name), kind: m.kindGuess || 'de', ver: m.versionTitle || baseName(f.name), on: true });
+      ownItems.push({ ...f, title: m.title || m.titleGuess || baseName(f.name), kind: m.kindGuess || 'de', ver: m.versionTitle || baseName(f.name), on: true });
     }
     openOwnDialog();
     renderOwnList();

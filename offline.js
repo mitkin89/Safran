@@ -108,9 +108,12 @@ function parseOwn(content, filename = '') {
     if (typeof text === 'string') text = [text];
   } else {
     let rows;
-    if (name.endsWith('.csv') || name.endsWith('.tsv')) {
-      rows = L.parseCSV(content);
-      if (name.endsWith('.tsv') && rows.every(r => r.length === 1)) rows = content.split(/\r?\n/).filter(Boolean).map(l => l.split('\t'));
+    // Zeilen der Form „Titel Kapitel:Vers<Tab>Text“ (auch als .txt) sind Sefaria-Upload-Zeilen, keine einfachen Textzeilen
+    const lines = content.split(/\r?\n/).filter(l => l.trim());
+    const tabbed = lines.length > 0 && lines.filter(l => { const i = l.indexOf('\t'); return i > 0 && L.parseRef(l.slice(0, i)); }).length >= lines.length * 0.8;
+    if (tabbed || name.endsWith('.csv') || name.endsWith('.tsv')) {
+      rows = tabbed ? lines.map(l => { const i = l.indexOf('\t'); return i < 0 ? [l, ''] : [l.slice(0, i), l.slice(i + 1)]; }) : L.parseCSV(content);
+      if (!tabbed && name.endsWith('.tsv') && rows.every(r => r.length === 1)) rows = content.split(/\r?\n/).filter(Boolean).map(l => l.split('\t'));
       // Sefaria-Upload-Format: Kopfzeilen „Index Title“, „Version Title“, „Language“ … vor den eigentlichen Zeilen
       const META = { 'index title': 'title', 'version title': 'versionTitle', 'language': 'language', 'version source': 'source', 'version notes': 'notes' };
       let k = 0;
@@ -127,6 +130,9 @@ function parseOwn(content, filename = '') {
       text = buildComplex(rows, meta.title, warnings);
     } else {
       text = [];
+      const titleCount = new Map();
+      rows.forEach(r => { const rf = L.parseRef(r[0]); if (rf) titleCount.set(rf.title, (titleCount.get(rf.title) || 0) + 1); });
+      if (titleCount.size) meta.titleGuess = [...titleCount.entries()].sort((a, b) => b[1] - a[1])[0][0]; // Titel aus den Fundstellen, z. B. „Hertz on Deuteronomy“
       rows.forEach((r, i) => {
         const t = String(r[1] ?? '').trim();
         if (!t) return;
