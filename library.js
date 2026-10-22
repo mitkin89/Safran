@@ -632,6 +632,8 @@
     if (f) list = list.filter(x => (x.other + ' ' + x.cat + ' ' + x.type).toLowerCase().includes(f));
     $('#lkTitle').textContent = `${view.group.title} · ${s ? s.label : ''}${lkVerse != null ? ':' + lkVerse : ''} – ${list.length} Verknüpfungen`;
     const local = localTitles();
+    const LK_FIRST = ['tanakh', 'mishnah', 'tosefta', 'talmud', 'responsa']; // feste Reihenfolge oben, danach der Rest nach Anzahl
+    const lkRank = c => { const i = LK_FIRST.indexOf(String(c).toLowerCase()); return i < 0 ? 99 : i; };
     const cats = new Map();
     for (const x of list) {
       const c = x.cat || 'Andere';
@@ -642,7 +644,7 @@
       m.get(bk).push(x);
     }
     const open = f || lkVerse != null ? 'open' : '';
-    $('#lkBody').innerHTML = [...cats.entries()].sort((a, b) => b[1].size - a[1].size).map(([c, books]) => {
+    $('#lkBody').innerHTML = [...cats.entries()].sort((a, b) => lkRank(a[0]) - lkRank(b[0]) || b[1].size - a[1].size).map(([c, books]) => {
       const total = [...books.values()].reduce((a, v) => a + v.length, 0);
       return `<details ${open}><summary>${esc(c)} (${total})</summary>${[...books.entries()].sort((a, b) => b[1].length - a[1].length).map(([bk, xs]) =>
         `<details ${f ? 'open' : ''}><summary>${esc(bk)} (${xs.length})${local.has(bk) ? '' : ' <span class="muted">· nicht lokal</span>'}</summary>${xs.slice(0, 300).map(x =>

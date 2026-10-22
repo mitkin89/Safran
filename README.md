@@ -97,3 +97,4 @@ The source code of this app is released under the [MIT License](LICENSE).
 - The talmud.de logo appears on the empty start page and in the ⋯ menu.
 - **Suggestions while typing:** the jump field and the new-tab field suggest book names as you type (e.g. "ge" → Genesis); arrow keys and Enter or a click pick one. The new-tab page shows the logo too.
 - The same right-click menu (*Open*, *Open in new tab*, *Open in second window*) works on commentator names in the commentary panel.
+- The links panel lists categories in a fixed order: Tanakh, Mishnah, Tosefta, Talmud, Responsa, then everything else (by number of links).
