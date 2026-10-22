@@ -64,6 +64,7 @@ function openOffline() {
       preload: path.join(__dirname, 'preload.js'),
       contextIsolation: true,
       nodeIntegration: false,
+      nodeIntegrationInSubFrames: true, // das zweite Lesefenster ist ein Rahmen und braucht dasselbe Preload-Skript
       sandbox: false,
     },
   });

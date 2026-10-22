@@ -18,6 +18,8 @@
       <button data-tab="get">Herunterladen</button>
     </nav>
     <button id="togglePanel" title="Bücherliste ein-/ausblenden (Cmd+B)">☰ Bücherliste</button>
+    <button id="splitBtn" title="Zweites Lesefenster rechts ein-/ausblenden – so bleibt das erste Buch offen">⧉ Zweites Fenster</button>
+    <button id="closePane" title="Dieses Fenster schließen" hidden>✕ Schließen</button>
     <button id="addOwn" title="Eigenen Text (TXT, Word, CSV, JSON) zum Testen einbinden">＋ Eigener Text…</button>
     <span class="spacer"></span>
     <span id="stats" class="muted"></span>
@@ -276,6 +278,9 @@
 
   <script src="reader.js"></script>
   <script src="order.js"></script>
+  <script src="pane.js"></script>
+  <div id="splitter" hidden title="Ziehen, um die Breite zu ändern"></div>
+  <iframe id="pane2" hidden title="Zweites Lesefenster"></iframe>
   <script src="library.js"></script>
 </body>
 </html>

@@ -672,7 +672,59 @@
   };
   const openFind = () => { fb.hidden = false; fin.focus(); fin.select(); };
   const closeFind = () => { fb.hidden = true; clearFind(false); };
-  O.onFindOpen(openFind);
+  O.onFindOpen(() => {
+    const p2 = $('#pane2');
+    if (p2 && !p2.hidden && document.activeElement === p2 && p2.contentWindow) p2.contentWindow.postMessage({ type: 'find' }, '*'); // Cmd+F gilt für das Fenster, in dem man gerade arbeitet
+    else openFind();
+  });
+  // Zweites Lesefenster (Rahmen) und Hauptfenster verständigen sich per Nachricht
+  const IS_PANE2 = document.documentElement.classList.contains('pane2');
+  const p2Frame = $('#pane2');
+  let p2Ready = false;
+  const p2Post = m => { if (p2Frame.contentWindow) p2Frame.contentWindow.postMessage(m, '*'); };
+  window.addEventListener('message', e => {
+    const m = e.data || {};
+    if (IS_PANE2) {
+      if (e.source !== window.parent) return;
+      if (m.type === 'find') openFind();
+      else if (m.type === 'open' && typeof m.key === 'string') { const g = groupsByKey.get(m.key); if (g) openGroup(g, {}, true); }
+    } else if (e.source === p2Frame.contentWindow) {
+      if (m.type === 'ready') p2Ready = true;
+      else if (m.type === 'close') setSplit(false);
+    }
+  });
+  if (IS_PANE2) { window.parent.postMessage({ type: 'ready' }, '*'); $('#closePane').onclick = () => window.parent.postMessage({ type: 'close' }, '*'); }
+  let p2w = 50;
+  try { p2w = Math.min(75, Math.max(25, +localStorage.getItem('p2w') || 50)); } catch { /* egal */ }
+  const root = document.documentElement;
+  root.style.setProperty('--p2w', p2w + 'vw');
+  function setSplit(on) {
+    if (IS_PANE2) return;
+    root.classList.toggle('split', on);
+    p2Frame.hidden = !on; $('#splitter').hidden = !on;
+    $('#splitBtn').setAttribute('aria-pressed', String(on));
+    if (on && !p2Frame.getAttribute('src')) { p2Ready = false; p2Frame.src = 'library.html?pane=2'; }
+    try { localStorage.setItem('p2open', on ? '1' : '0'); } catch { /* egal */ }
+  }
+  if (!IS_PANE2) {
+    $('#splitBtn').onclick = () => setSplit(p2Frame.hidden);
+    $('#splitter').addEventListener('mousedown', ev => {
+      ev.preventDefault(); root.classList.add('dragging');
+      const mv = e2 => { p2w = Math.min(75, Math.max(25, ((window.innerWidth - e2.clientX) / window.innerWidth) * 100)); root.style.setProperty('--p2w', p2w + 'vw'); };
+      const up = () => { root.classList.remove('dragging'); document.removeEventListener('mousemove', mv); document.removeEventListener('mouseup', up); try { localStorage.setItem('p2w', String(Math.round(p2w))); } catch { /* egal */ } };
+      document.addEventListener('mousemove', mv); document.addEventListener('mouseup', up);
+    });
+    try { if (localStorage.getItem('p2open') === '1') setSplit(true); } catch { /* egal */ }
+    // Alt-Klick auf ein Buch in der Liste öffnet es im zweiten Fenster
+    $('#tree').addEventListener('click', e => {
+      const a = e.target.closest('.lib-item');
+      if (!a || !e.altKey) return;
+      e.stopImmediatePropagation(); e.preventDefault();
+      setSplit(true);
+      const send = () => p2Post({ type: 'open', key: a.dataset.key });
+      if (p2Ready) send(); else { const t = setInterval(() => { if (p2Ready) { clearInterval(t); setTimeout(send, 400); } }, 100); setTimeout(() => clearInterval(t), 8000); }
+    }, true);
+  }
   fin.addEventListener('input', () => { if (!fin.value) clearFind(false); });
   fin.addEventListener('keydown', e => {
     if (e.key === 'Enter') { e.preventDefault(); stepFind(!e.shiftKey); }
