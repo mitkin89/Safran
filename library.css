@@ -201,8 +201,9 @@ body.cmt-open #tab-read .layout { margin-right: calc(var(--cmt-w, 400px) + 20px)
 .orow { border: 1px solid var(--line); border-radius: 8px; padding: 8px 10px; font-size: 13px; }
 .orow.err { border-color: var(--warn); }
 .orow .oh { display: flex; gap: 8px; align-items: center; margin-bottom: 6px; }
-.orow .oh b { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1; }
-.orow .of { display: grid; grid-template-columns: 2fr 1fr 2fr; gap: 6px; }
+.orow .oh b { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; flex: 1 1 0; min-width: 8ch; }
+.orow .oh .muted { flex: none; white-space: nowrap; }
+.orow .of { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 6px; }
 .orow input[type=text], .orow select { width: 100%; box-sizing: border-box; }
 #ownDlg.drag { outline: 3px dashed var(--accent); }
 
@@ -308,3 +309,9 @@ img.logo.small { margin: 6px auto 2px; opacity: .55; }
 html.cmt-dragging { user-select: none; cursor: col-resize; }
 html.cmt-dragging #pane2 { pointer-events: none; }
 #cmtHead .bar button.cfs { padding: 2px 8px; }
+
+/* Entfernen-Knopf bei eigenen Texten in der Bücherliste */
+#tree .lib-item .treex { float: right; border: 0; background: none; color: var(--muted); cursor: pointer; padding: 0 4px; opacity: 0; font-size: 12px; }
+#tree .lib-item:hover .treex { opacity: 1; }
+#tree .lib-item .treex:hover { color: #d63939; }
+.orow .ohint { font-size: 12px; margin-top: 2px; }

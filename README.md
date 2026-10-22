@@ -107,3 +107,6 @@ The source code of this app is released under the [MIT License](LICENSE).
 - "Herunterladen" moved from the tab row into the ⋯ menu, leaving more room for tabs and buttons in the header.
 - **Commentary panel:** drag its left edge to change the width (double-click resets it); A−/A+ buttons change the text size. Both are remembered.
 - Only the star itself adds a bookmark/note; a click next to it in the verse-number column just selects the verse for the commentary panel.
+- **Import dialog:** choose *Text* or *Kommentar* per file. For a commentary you enter the commentator and the book (suggestions from your library); the title `Commentator on Book` is built for you, and a warning appears if the book is not in your library. Files named like `Hertz on Deuteronomy` are detected as commentaries automatically.
+- **Remove own texts:** hover an entry under *Eigene Texte* and click ✕, or right-click any book that has own versions and choose *Eigenen Text entfernen …*. The original files stay untouched.
+- **App icon:** the talmud.de logo is used as the app icon (`build/icon.png`).

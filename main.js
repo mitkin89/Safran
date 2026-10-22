@@ -58,6 +58,7 @@ function openOffline() {
   offlineWin = new BrowserWindow({
     width: 1250,
     height: 860,
+    icon: path.join(__dirname, 'build', 'icon.png'), // Fenstersymbol unter Windows/Linux
     minWidth: 900,
     minHeight: 600,
     title: 'Sefaria – Offline-Bibliothek',
@@ -653,6 +654,7 @@ ipcMain.handle('off:reveal', async () => {
   return shell.openPath(lib.dir);
 });
 
+app.whenReady().then(() => { try { if (process.platform === 'darwin' && app.dock) app.dock.setIcon(path.join(__dirname, 'build', 'icon.png')); } catch { /* Symbol nur ein Zusatz */ } }).catch(() => {});
 app.whenReady().then(() => {
   session.defaultSession.setUserAgent(cleanUA(session.defaultSession.getUserAgent()));
   buildMenu();

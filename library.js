@@ -89,7 +89,7 @@
     const node = (n, pth, depth = 0) => {
       const kids = SefOrder.sortCats([...n.children.keys()], n.name).map(k => n.children.get(k)).map(c => node(c, pth + '/' + c.name, depth + 1)).join('');
       const ts = SefOrder.sortTitles(n.titles.filter(match))
-        .map(g => `<a class="lib-item" data-key="${esc(g.key)}">${esc(g.title)}${g.heTitle ? `<small dir="rtl">${esc(g.heTitle)}</small>` : ''}</a>`).join('');
+        .map(g => `<a class="lib-item" data-key="${esc(g.key)}">${esc(g.title)}${g.heTitle ? `<small dir="rtl">${esc(g.heTitle)}</small>` : ''}${g.cats[0] === 'Eigene Texte' ? '<button class="treex" title="Eigenen Text entfernen">✕</button>' : ''}</a>`).join('');
       if (!kids && !ts) return '';
       if (!n.name) return kids + ts;
       // Kategorien bleiben zu, bis man sie selbst öffnet (auch beim Filtern); bei aktivem Filter steht die Trefferzahl dabei
@@ -105,6 +105,22 @@
     const auto = !!$('#treeFilter').value.trim() && +d.dataset.d < 3;
     if (auto) { if (d.open) closedCats.delete(d.dataset.p); else closedCats.add(d.dataset.p); }
     else if (d.open) openCats.add(d.dataset.p); else openCats.delete(d.dataset.p);
+  }, true);
+  // Eigene Texte entfernen (alle eigenen Versionen eines Titels); die Originaldateien bleiben unberührt
+  async function removeOwnGroup(g) {
+    const own = g.versions.filter(v => v.own);
+    if (!own.length) return;
+    const names = own.map(v => `„${shortVer(v.versionTitle)}“`).join(', ');
+    if (!confirm(`Eigene Texte zu „${g.title}“ aus der Bibliothek entfernen?\n\n${names}\n\n(Die Originaldateien bleiben unberührt.)`)) return;
+    for (const v of own) { const r = await O.ownRemove(v.rel); if (r.error) { alert(r.error); break; } cache.delete(v.rel); }
+    await loadLibrary();
+    refreshState();
+  }
+  $('#tree').addEventListener('click', e => {
+    const x = e.target.closest('.treex');
+    if (!x) return;
+    e.stopImmediatePropagation(); e.preventDefault();
+    removeOwnGroup(groupsByKey.get(x.closest('.lib-item').dataset.key));
   }, true);
   $('#tree').addEventListener('click', e => {
     const a = e.target.closest('.lib-item');
@@ -862,13 +878,22 @@
     $('#ownTitles').innerHTML = groups.map(g => `<option value="${esc(g.title)}">`).join('');
     if (!dlg.open) { if (dlg.showModal) dlg.showModal(); else dlg.setAttribute('open', ''); }
   }
+  // Titel eines Eintrags: Text = frei wählbar, Kommentar = „<Kommentator> on <Buch>“ (so findet ihn die Kommentarleiste)
+  const ownTitleOf = it => it.type === 'comm' ? `${(it.cmtr || '').trim()} on ${(it.base || '').trim()}`.replace(/^ on | on $/g, '') : (it.title || '').trim();
+  const ownBookOk = it => groups.some(g => g.title === (it.base || '').trim());
+  const ownHint = it => it.type !== 'comm' ? '' : !(it.cmtr || '').trim() || !(it.base || '').trim() ? 'Bitte Kommentator und Buch angeben.'
+    : ownBookOk(it) ? `Wird als „${ownTitleOf(it)}“ gespeichert und erscheint in der Kommentarleiste von ${it.base.trim()}.` : `⚠ „${it.base.trim()}“ ist nicht in deiner Bibliothek – der Kommentar erscheint erst, wenn dieses Buch geladen ist (Schreibweise wie bei Sefaria).`;
   function renderOwnList() {
     $('#ownList').innerHTML = ownItems.map((it, i) => it.error
       ? `<div class="orow err"><div class="oh"><b>${esc(it.name)}</b></div><span class="muted">⚠ ${esc(it.error)}</span></div>`
       : `<div class="orow" data-i="${i}"><div class="oh"><input type="checkbox" data-f="on" ${it.on ? 'checked' : ''}><b title="${esc(it.name)}">${esc(it.name)}</b><span class="muted">${it.chapters} Abschnitt(e) · ${it.segments} Segmente${it.warnings.length ? ` · ⚠ ${it.warnings.length} Hinweis(e)` : ''}</span></div>
-        <div class="of"><label>Titel<input type="text" list="ownTitles" data-f="title" value="${esc(it.title)}"></label>
+        <div class="of"><label>Art<select data-f="type"><option value="text" ${it.type === 'text' ? 'selected' : ''}>Text</option><option value="comm" ${it.type === 'comm' ? 'selected' : ''}>Kommentar</option></select></label>
+        ${it.type === 'comm'
+          ? `<label>Kommentator<input type="text" data-f="cmtr" value="${esc(it.cmtr)}" placeholder="z. B. Hertz"></label><label>Zu Buch<input type="text" list="ownTitles" data-f="base" value="${esc(it.base)}" placeholder="z. B. Deuteronomy"></label>`
+          : `<label>Titel<input type="text" list="ownTitles" data-f="title" value="${esc(it.title)}"></label>`}
         <label>Sprache<select data-f="kind">${[['de', 'Deutsch'], ['en', 'Englisch'], ['he', 'Hebräisch'], ['other', 'Andere']].map(([k, n]) => `<option value="${k}" ${it.kind === k ? 'selected' : ''}>${n}</option>`).join('')}</select></label>
         <label>Name der Version<input type="text" data-f="ver" value="${esc(it.ver)}"></label></div>
+        <div class="muted ohint">${esc(ownHint(it))}</div>
         ${it.warnings.length ? `<div class="muted">${esc(it.warnings.slice(0, 2).join(' · '))}</div>` : ''}</div>`).join('');
     const n = ownItems.filter(i => !i.error && i.on).length;
     $('#ownSave').disabled = !n;
@@ -880,7 +905,9 @@
     for (const f of r.files) {
       if (f.error) { ownItems.push(f); continue; }
       const m = f.meta || {};
-      ownItems.push({ ...f, title: m.title || m.titleGuess || baseName(f.name), kind: m.kindGuess || 'de', ver: m.versionTitle || baseName(f.name), on: true });
+      const title = m.title || m.titleGuess || baseName(f.name);
+      const cm = /^(.+?) on (.+)$/.exec(title); // „Hertz on Deuteronomy“ → Kommentar erkannt
+      ownItems.push({ ...f, title, type: cm ? 'comm' : 'text', cmtr: cm ? cm[1] : '', base: cm ? cm[2] : '', kind: m.kindGuess || 'de', ver: m.versionTitle || baseName(f.name), on: true });
     }
     openOwnDialog();
     renderOwnList();
@@ -893,19 +920,23 @@
     if (!row) return;
     const it = ownItems[+row.dataset.i], f = e.target.dataset.f;
     if (f === 'on') { it.on = e.target.checked; renderOwnList(); return; }
+    if (f === 'type') { it.type = e.target.value; renderOwnList(); return; }
     if (f) it[f] = e.target.value;
+    const h = row.querySelector('.ohint'); if (h) h.textContent = ownHint(it);
   });
   // Dateien ins Fenster ziehen
   document.addEventListener('dragover', e => e.preventDefault());
   document.addEventListener('drop', e => e.preventDefault());
   O.onOwnDrop(r => addOwnFiles(r));
+  try { if (localStorage.getItem('sefTest') === '1') window.__sefTest = { addOwnFiles }; } catch { /* nur für Tests */ }
   $('#ownSave').onclick = async () => {
-    const todo = ownItems.filter(i => !i.error && i.on && i.title.trim());
+    const todo = ownItems.filter(i => !i.error && i.on && (i.type === 'comm' ? (i.cmtr || '').trim() && (i.base || '').trim() : (i.title || '').trim()));
     const items = todo.map(i => {
-      const g = groups.find(x => x.title === i.title.trim());
-      return { id: i.id, title: i.title.trim(), heTitle: (g && g.heTitle) || '', kind: i.kind, versionTitle: i.ver.trim(), categories: g ? g.cats : ['Eigene Texte'] };
+      const title = ownTitleOf(i);
+      const g = groups.find(x => x.title === title);
+      return { id: i.id, title, heTitle: (g && g.heTitle) || '', kind: i.kind, versionTitle: i.ver.trim(), categories: g ? g.cats : i.type === 'comm' ? ['Eigene Texte', 'Kommentare'] : ['Eigene Texte'] };
     });
-    if (!items.length) { $('#ownWarn').textContent = '⚠ Bitte bei jedem Text einen Titel angeben.'; return; }
+    if (!items.length) { $('#ownWarn').textContent = '⚠ Bitte bei jedem Eintrag Titel (bei Kommentaren Kommentator und Buch) angeben.'; return; }
     $('#ownSave').disabled = true;
     let r = await O.ownSave(items);
     if (r.exists && r.exists.length) { // gleicher Titel und Versionsname: nur nach Rückfrage ersetzen
@@ -917,7 +948,7 @@
     }
     if (r.errors && r.errors.length) $('#ownWarn').textContent = '⚠ ' + r.errors.join(' · ');
     const done = new Set(r.entries.map(e => e.rel));
-    ownItems = ownItems.filter(i => !todo.some(t => t.id === i.id) || r.errors.some(er => er.startsWith(i.title)));
+    ownItems = ownItems.filter(i => !todo.some(t => t.id === i.id) || r.errors.some(er => er.startsWith(ownTitleOf(i))));
     await loadLibrary();
     refreshState();
     if (!r.errors.length) { if (dlg.close) dlg.close(); else dlg.removeAttribute('open'); ownItems = []; }
@@ -1014,6 +1045,8 @@
       { label: 'Im neuen Tab öffnen', fn: () => openGroup(g, target, true) },
     ];
     if (!IS_PANE2) items.push({ label: 'Im zweiten Fenster öffnen', fn: () => openInPane2(key, target) });
+    const nOwn = g.versions.filter(v => v.own).length;
+    if (nOwn) items.push({ label: `Eigene${nOwn > 1 ? ` Texte (${nOwn})` : 'n Text'} entfernen …`, fn: () => removeOwnGroup(g) });
     ctxShow(e, items);
   }
   // im zweiten Fenster öffnen: Fenster bei Bedarf einblenden; ist dort schon ein Buch offen, entsteht ein neuer Tab
