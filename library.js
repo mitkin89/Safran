@@ -477,12 +477,12 @@
     const g = groupsByKey.get(h.key);
     if (g) openGroup(g, { sectionPath: JSON.parse(h.sk), rowLabel: h.row || undefined }, e.metaKey || e.ctrlKey || e.shiftKey);
   });
-  let recentOpen = true;
-  try { recentOpen = localStorage.getItem('recentOpen') !== '0'; } catch { /* egal */ }
+  let recentOpen = false;
+  try { recentOpen = localStorage.getItem('recentOpen2') === '1'; } catch { /* egal */ }
   const applyRecent = () => {
     $('#recent').hidden = !recentOpen;
     $('#recentArrow').textContent = recentOpen ? '▾' : '▸';
-    try { localStorage.setItem('recentOpen', recentOpen ? '1' : '0'); } catch { /* egal */ }
+    try { localStorage.setItem('recentOpen2', recentOpen ? '1' : '0'); } catch { /* egal */ }
   };
   $('#recentHead').onclick = () => { recentOpen = !recentOpen; applyRecent(); };
   applyRecent();
