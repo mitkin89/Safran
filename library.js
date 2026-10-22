@@ -25,6 +25,7 @@
     $('#togglePanel').hidden = t !== 'read'; // die Bücherliste gibt es nur im Reiter „Lesen“
   }
   $$('nav button').forEach(b => (b.onclick = () => showTab(b.dataset.tab)));
+  $('#goGet').onclick = () => showTab('get'); // „Herunterladen“ liegt im ⋯-Menü, damit die Kopfzeile Platz für die Tabs lässt
 
   // ---------- Zustand ----------
   let entries = [];            // lokale Dateien (aus dem Index)
