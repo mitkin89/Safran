@@ -10,6 +10,10 @@ An offline library for [Sefaria](https://www.sefaria.org) texts on macOS (Electr
 
 *Zephaniah 1: Hebrew, English and German side by side, with the book list and history on the left and the commentary panel on the right.*
 
+![Annotated split view](screenshots/split-view-commentary-annotated.jpg)
+
+*Two reading windows side by side (Genesis with commentary panel on the left, Sanhedrin on the right), with the compact toolbar.*
+
 ## Features
 
 - **Download:** load the catalog once (~22 MB), tick categories or single books, choose languages (Hebrew, English, German) and download. By default the merged version per language is used; German translations are downloaded in full. Interrupted downloads can be resumed; existing files are skipped.
