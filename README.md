@@ -1,4 +1,4 @@
-# Safran – Mac and Windows offline reader
+# Safran סַפְרָן – Mac and Windows offline reader
 
 **Why "Safran"?** The name is the Hebrew word **סַפְרָן** (*safran*): a scribe, and in modern Hebrew a librarian. It comes from the same root as *sefer* (book) and *sefarim* (books), which fits an app that is a library of texts. The app is built by [talmud.de](https://talmud.de) and is not affiliated with Sefaria.
 
