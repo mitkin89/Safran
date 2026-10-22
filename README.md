@@ -1,4 +1,4 @@
-# Sefaria Mac
+# Sefaria Mac and Windows
 
 An offline library for [Sefaria](https://www.sefaria.org) texts on macOS (Electron). On launch it opens the **Offline Library** directly; a **Werkzeuge** (Tools) menu adds book download and upload-preparation helpers.
 
