@@ -1,4 +1,6 @@
-# talmud.de Reader – Mac and Windows offline reader
+# Safran – Mac and Windows offline reader
+
+The app is called **Safran** (a nod to סַפְרָן, "scribe / librarian"). It is built by [talmud.de](https://talmud.de) and is not affiliated with Sefaria.
 
 An offline library for [Sefaria](https://www.sefaria.org) texts on macOS and Windows (Electron). On launch it opens the **Offline Library** directly; a **Werkzeuge** (Tools) menu adds book download and upload-preparation helpers.
 

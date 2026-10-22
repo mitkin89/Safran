@@ -15,16 +15,16 @@ let dlCancel = false;
 let searchCancel = false;
 
 app.setName('Sefaria');
-// Der Datenordner (Bibliothek, Notizen, Einstellungen) bleibt wie bisher, auch wenn die App jetzt „talmud.de Reader“ heißt
+// Der Datenordner (Bibliothek, Notizen, Einstellungen) bleibt wie bisher, auch wenn die App jetzt „Safran“ heißt
 const keepUserData = app.getPath('userData');
-app.setName('talmud.de Reader');
+app.setName('Safran');
 app.setPath('userData', keepUserData);
 
 const isSefaria = url => {
   try { const h = new URL(url).hostname; return h === 'sefaria.org' || h.endsWith('.sefaria.org'); } catch { return false; }
 };
 // Wie ein normaler Browser auftreten: "Electron/x" und App-Name aus dem User-Agent entfernen
-const cleanUA = ua => ua.replace(/\s?Electron\/[\d.]+/, '').replace(/\s?(?:sefaria-mac|talmud-de-reader)\/[\d.]+/i, '');
+const cleanUA = ua => ua.replace(/\s?Electron\/[\d.]+/, '').replace(/\s?(?:sefaria-mac|talmud-de-reader|safran)\/[\d.]+/i, '');
 
 // ---------- Werkzeug-Fenster: Buch herunterladen, Upload-Vorbereitung ----------
 function openTools(tab = 'download', title = '') {
@@ -65,7 +65,7 @@ function openOffline() {
     icon: path.join(__dirname, 'build', 'icon.png'), // Fenstersymbol unter Windows/Linux
     minWidth: 900,
     minHeight: 600,
-    title: 'talmud.de Reader',
+    title: 'Safran',
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       contextIsolation: true,
@@ -85,7 +85,7 @@ function openOffline() {
 const IS_MAC = process.platform === 'darwin';
 function buildMenu() {
   const template = [
-    ...(IS_MAC ? [{ label: 'talmud.de Reader', submenu: [{ role: 'about' }, { type: 'separator' }, { role: 'hide' }, { role: 'hideOthers' }, { role: 'unhide' }, { type: 'separator' }, { role: 'quit' }] }]
+    ...(IS_MAC ? [{ label: 'Safran', submenu: [{ role: 'about' }, { type: 'separator' }, { role: 'hide' }, { role: 'hideOthers' }, { role: 'unhide' }, { type: 'separator' }, { role: 'quit' }] }]
       : [{ label: 'Datei', submenu: [{ label: 'Beenden', role: 'quit' }] }]),
     { label: 'Bearbeiten', submenu: [{ role: 'undo' }, { role: 'redo' }, { type: 'separator' }, { role: 'cut' }, { role: 'copy' }, { role: 'paste' }, { role: 'selectAll' }, { type: 'separator' }, { label: 'Im Text suchen…', accelerator: 'CmdOrCtrl+F', click: (_i, w) => { if (w && !w.isDestroyed()) w.webContents.send('find:open'); } }] },
     { label: 'Ansicht', submenu: [{ role: 'reload' }, { role: 'forceReload' }, { type: 'separator' }, { role: 'resetZoom' }, { role: 'zoomIn' }, { role: 'zoomOut' }, { type: 'separator' }, { role: 'togglefullscreen' }] },

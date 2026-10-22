@@ -1,7 +1,7 @@
 {
-  "name": "talmud-de-reader",
+  "name": "safran",
   "version": "0.1.0",
-  "description": "talmud.de Reader – Sefaria-Texte offline lesen, durchsuchen, herunterladen und eigene Texte für den Upload prüfen",
+  "description": "Safran – Sefaria-Texte offline lesen, durchsuchen, herunterladen und eigene Texte für den Upload prüfen",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
@@ -17,8 +17,8 @@
     "electron-builder": "^25.0.0"
   },
   "build": {
-    "appId": "de.talmud.reader",
-    "productName": "talmud.de Reader",
+    "appId": "de.talmud.safran",
+    "productName": "Safran",
     "mac": {
       "category": "public.app-category.education",
       "target": [
