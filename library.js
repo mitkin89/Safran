@@ -191,7 +191,7 @@
   try { const k = JSON.parse(localStorage.getItem('prefKinds') || 'null'); if (Array.isArray(k) && k.length) prefKinds = k.filter(x => ['he', 'en', 'de'].includes(x)); } catch { /* egal */ }
   function rememberKinds() {
     if (!view || !view.group) return;
-    const ks = [...new Set(view.group.versions.filter(v => view.selected.has(v.rel) && !v.own && ['he', 'en', 'de'].includes(v.kind)).map(v => v.kind))];
+    const ks = [...new Set(view.group.versions.filter(v => view.selected.has(v.rel) && ['he', 'en', 'de'].includes(v.kind)).map(v => v.kind))];
     if (!ks.length) return;
     // eine Sprache, die dieses Buch gar nicht hat, bleibt in der Auswahl erhalten
     const have = new Set(view.group.versions.map(v => v.kind));
