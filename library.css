@@ -315,3 +315,6 @@ html.cmt-dragging #pane2 { pointer-events: none; }
 #tree .lib-item:hover .treex { opacity: 1; }
 #tree .lib-item .treex:hover { color: #d63939; }
 .orow .ohint { font-size: 12px; margin-top: 2px; }
+
+/* Eingebettete Base64-Bilder in eigenen Texten und Kommentaren */
+#rOut img:not(.logo), #cmtBody img, .sres img { max-width: 100%; height: auto; display: block; margin: 6px 0; border-radius: 4px; }

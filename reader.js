@@ -125,6 +125,11 @@ const ALLOWED_TAGS = ['b', 'i', 'em', 'strong', 'small', 'big', 'sup', 'sub', 'b
 function cleanHtml(s) {
   return String(s ?? '').replace(/<\/?([a-z0-9]+)[^>]*>/gi, (m, t) => {
     t = t.toLowerCase();
+    // Eingebettete Bilder: nur <img src="data:image/png|jpeg|gif|webp;base64,…"> (bis ca. 4 MB), alles andere am Tag fällt weg
+    if (t === 'img') {
+      const im = m.length < 6e6 && m.match(/\ssrc\s*=\s*["']?(data:image\/(?:png|jpeg|jpg|gif|webp);base64,[A-Za-z0-9+\/=\s]+)["']?/i);
+      return im ? `<img src="${im[1].replace(/\s+/g, '')}" alt="">` : '';
+    }
     if (!ALLOWED_TAGS.includes(t)) return '';
     if (m.startsWith('</')) return `</${t}>`;
     // einzige erlaubte Attributform: <sup data-fn="12"> (Fußnotenzeichen, nur Ziffern)
