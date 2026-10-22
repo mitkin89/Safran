@@ -226,7 +226,7 @@ details.help ul { margin: 4px 0 8px 18px; padding: 0; }
 
 /* Zweites Lesefenster */
 html { --p2w: 50vw; }
-#pane2 { position: fixed; top: 0; right: 0; bottom: 0; width: var(--p2w); border: 0; border-left: 1px solid var(--line, #333); z-index: 35; background: var(--bg, #1c1c1e); }
+#pane2 { position: fixed; top: 0; right: 0; height: 100vh; width: var(--p2w); border: 0; border-left: 1px solid var(--line, #333); z-index: 35; background: var(--bg, #1c1c1e); }
 #splitter { position: fixed; top: 0; bottom: 0; right: var(--p2w); width: 8px; margin-right: -4px; cursor: col-resize; z-index: 40; }
 #splitter:hover { background: rgba(120,160,255,.35); }
 html.split body { width: calc(100% - var(--p2w)); overflow-x: hidden; }
@@ -236,3 +236,6 @@ html.dragging #pane2 { pointer-events: none; }
 html.pane2 header > :not(#togglePanel):not(#closePane) { display: none; }
 html.pane2 #closePane { display: inline-block; margin-left: auto; }
 html.pane2 #splitBtn { display: none; }
+html.split header { flex-wrap: wrap; gap: 8px 12px; padding: 8px 12px; }
+html.split header #stats, html.split header #chooseDir, html.split header #reveal { display: none; }
+html.split header .spacer { display: none; }
