@@ -1490,6 +1490,27 @@ ${endnotes.length ? `<h3>Fußnoten</h3><ol class="fn">${endnotes.map(n => `<li>$
   let cmtTimer = null, lastCmtKey = '';
   function applyCmtRowSoon() { clearTimeout(cmtTimer); cmtTimer = setTimeout(() => { if (cmtOpen) applyCmtRow(); }, 0); }
   // ---------- Kommentar-Bereich: Kommentare zum gewählten Vers direkt untereinander ----------
+  // Kommentarleiste: Breite (Strich am linken Rand ziehen) und Textgröße (A−/A+) werden gemerkt
+  {
+    const rt = document.documentElement;
+    let cw = 400, cfs = 14;
+    try { cw = +localStorage.getItem('cmtW') || 400; cfs = +localStorage.getItem('cmtFs') || 14; } catch { /* egal */ }
+    const clampW = w => Math.round(Math.min(Math.max(280, w), window.innerWidth * 0.8));
+    const applyCw = () => { rt.style.setProperty('--cmt-w', clampW(cw) + 'px'); };
+    const applyCfs = () => { rt.style.setProperty('--cmt-fs', cfs + 'px'); try { localStorage.setItem('cmtFs', String(cfs)); } catch { /* egal */ } };
+    applyCw(); applyCfs();
+    $('#cmtFsMinus').onclick = () => { cfs = Math.max(10, cfs - 1); applyCfs(); };
+    $('#cmtFsPlus').onclick = () => { cfs = Math.min(28, cfs + 1); applyCfs(); };
+    $('#cmtResize').addEventListener('mousedown', ev => {
+      ev.preventDefault(); rt.classList.add('cmt-dragging');
+      const off = IS_PANE2 ? 0 : (rt.classList.contains('split') ? window.innerWidth * (parseFloat(getComputedStyle(rt).getPropertyValue('--p2w')) / 100) : 0);
+      const mv = e2 => { cw = clampW(window.innerWidth - off - e2.clientX); applyCw(); };
+      const up = () => { rt.classList.remove('cmt-dragging'); document.removeEventListener('mousemove', mv); document.removeEventListener('mouseup', up); try { localStorage.setItem('cmtW', String(cw)); } catch { /* egal */ } };
+      document.addEventListener('mousemove', mv); document.addEventListener('mouseup', up);
+    });
+    $('#cmtResize').addEventListener('dblclick', () => { cw = 400; applyCw(); try { localStorage.setItem('cmtW', '400'); } catch { /* egal */ } });
+    window.addEventListener('resize', applyCw);
+  }
   let cmtOpen = false, cmtRow = null, cmtToken = 0;
   let cmtTouched = false, cmtLastChosen = [];
   try { cmtTouched = localStorage.getItem('cmtTouched') === '1'; } catch { /* egal */ }
@@ -1518,6 +1539,7 @@ ${endnotes.length ? `<h3>Fußnoten</h3><ol class="fn">${endnotes.map(n => `<li>$
   function toggleCmt(force) {
     cmtOpen = force == null ? !cmtOpen : force;
     $('#cmtPanel').hidden = !cmtOpen;
+    $('#cmtResize').hidden = !cmtOpen;
     document.body.classList.toggle('cmt-open', cmtOpen);
     $('#cmtBtn').classList.toggle('active', cmtOpen);
     if (cmtOpen) applyCmtRow();

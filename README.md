@@ -105,3 +105,4 @@ The source code of this app is released under the [MIT License](LICENSE).
 - Own texts in Sefaria upload format (`Title chapter:verse<TAB>text`, also as `.txt`) are now recognised, including gaps (verses without a note) and the title from the references. Used for own commentaries such as `Hertz on Deuteronomy`.
 - Typing only a book name in the jump field (e.g. `gen` + Enter) opens the book at its first chapter.
 - "Herunterladen" moved from the tab row into the ⋯ menu, leaving more room for tabs and buttons in the header.
+- **Commentary panel:** drag its left edge to change the width (double-click resets it); A−/A+ buttons change the text size. Both are remembered.
