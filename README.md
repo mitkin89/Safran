@@ -4,7 +4,7 @@
 
 An offline library for [Sefaria](https://www.sefaria.org) texts on macOS and Windows (Electron). On launch it opens the **Offline Library** directly; a **Werkzeuge** (Tools) menu adds book download and upload-preparation helpers.
 
-> **Not affiliated with Sefaria.** This is an independent, unofficial project. Sefaria's texts are not part of the app: they are downloaded to your computer from the public Sefaria export. The app never uploads anything to Sefaria. Safran additionally ships texts that are **not yet available on Sefaria**: German translations and commentaries (Zunz, Philippson, Mendelssohn, Herxheimer, Hertz, Midrash Rabbah, More Nevuchim and others) in the `bundled/` folder, which are imported automatically on first start and appear under *Eigene Texte* (see *Bundled texts* below).
+> **Not affiliated with Sefaria.** This is an independent, unofficial project. Sefaria's texts are not part of the app: they are downloaded to your computer from the public Sefaria export. The app never uploads anything to Sefaria. Safran additionally ships texts that are **not yet available on Sefaria**: German translations and commentaries (Zunz, Philippson, Mendelssohn, Herxheimer, Hertz, Rashi (Bamberger), Midrash Rabbah, More Nevuchim and others) in the `bundled/` folder, which are imported automatically on first start and appear under *Eigene Texte* (see *Bundled texts* below).
 
 > The user interface is currently in German.
 
@@ -93,7 +93,7 @@ The source code of this app is released under the [MIT License](LICENSE).
 - The talmud.de logo is the app icon and appears on the empty start page and in the ⋯ menu.
 
 **Own texts and commentaries**
-- **Bundled texts:** the new `bundled/` folder ships texts with the app. The app imports new or changed texts on start; texts a user removes do not come back; a user's own version of the same text is never overwritten. ⋯ → "Eigene Texte für GitHub exportieren …" writes all your own texts into such a folder. The repository now contains 199 bundled versions (Zunz 1838, Philippson, Mendelssohn, Herxheimer, Hertz, Midrash Rabbah, More Nevuchim and others).
+- **Bundled texts:** the new `bundled/` folder ships texts with the app. The app imports new or changed texts on start; texts a user removes do not come back; a user's own version of the same text is never overwritten. ⋯ → "Eigene Texte für GitHub exportieren …" writes all your own texts into such a folder. The repository now contains 203 bundled versions (Zunz 1838, Philippson, Mendelssohn, Herxheimer, Hertz, Rashi (Bamberger), Midrash Rabbah, More Nevuchim and others).
 - **Import dialog:** choose *Text* or *Kommentar* per file. For a commentary you enter commentator and book (with suggestions); the title `Commentator on Book` is built for you and a warning appears if the book is not in your library.
 - **Own commentaries in the commentary panel**, also for files in Sefaria upload format (`Title chapter:verse<TAB>text`, also as `.txt`), including gaps.
 - **Remove own texts:** ✕ on hover in the book list, or right-click → *Eigenen Text entfernen …*. Original files stay untouched.
