@@ -1,0 +1,59 @@
+:root {
+  --bg: #fbfaf7; --fg: #1d1d1f; --muted: #6e6e73; --line: #dcd9d2; --card: #ffffff;
+  --accent: #1f4e8c; --accent-fg: #fff; --bad: #b3261e; --warn: #9a6700; --ok: #1b7a3a; --chip: #eee9df;
+}
+@media (prefers-color-scheme: dark) {
+  :root { --bg: #1c1c1e; --fg: #f2f2f7; --muted: #98989f; --line: #3a3a3c; --card: #2a2a2d; --accent: #6aa0e8; --accent-fg: #101418; --bad: #ff6b60; --warn: #e0b04a; --ok: #5fcf80; --chip: #38383b; }
+}
+* { box-sizing: border-box; }
+body { margin: 0; font: 14px/1.5 -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif; background: var(--bg); color: var(--fg); }
+header { display: flex; align-items: center; gap: 24px; padding: 10px 20px; border-bottom: 1px solid var(--line); position: sticky; top: 0; background: var(--bg); z-index: 5; }
+h1 { font-size: 18px; margin: 0; letter-spacing: .3px; }
+h2 { font-size: 15px; margin: 0 0 8px; }
+nav { display: flex; gap: 4px; }
+nav button { border: none; background: none; padding: 6px 12px; border-radius: 8px; color: var(--muted); cursor: pointer; font-size: 14px; }
+nav button.active { background: var(--chip); color: var(--fg); font-weight: 600; }
+main { padding: 16px 20px 40px; max-width: 1400px; margin: 0 auto; }
+.bar { display: flex; gap: 8px; align-items: center; margin-bottom: 10px; flex-wrap: wrap; }
+.bar.small { font-size: 13px; }
+.spacer { flex: 1; }
+input, select, button { font: inherit; color: inherit; }
+input, select { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px; }
+input[type=checkbox] { padding: 0; }
+#ref, #q, #libFilter { flex: 1; min-width: 220px; }
+#versions { width: 200px; }
+button { background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 6px 12px; cursor: pointer; }
+button:hover:not(:disabled) { border-color: var(--accent); }
+button:disabled { opacity: .45; cursor: default; }
+button.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-fg); font-weight: 600; }
+.muted { color: var(--muted); }
+.err { color: var(--bad); }
+.card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 16px; margin-bottom: 16px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px 14px; margin-bottom: 10px; }
+.grid label { display: flex; flex-direction: column; gap: 3px; font-size: 12px; color: var(--muted); }
+.grid label.check { flex-direction: row; align-items: center; gap: 6px; align-self: end; color: var(--fg); font-size: 14px; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+.chip { background: var(--chip); border: none; border-radius: 999px; padding: 2px 10px; font-size: 12px; }
+.cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 20px; }
+.col h4 { margin: 0 0 8px; font-size: 13px; color: var(--muted); font-weight: 600; }
+.col h4 small { font-weight: 400; }
+.seg { margin: 0 0 8px; }
+.col[dir=rtl] .seg { font-size: 19px; line-height: 1.7; }
+.num { display: inline-block; min-width: 1.8em; font-size: 11px; color: var(--muted); vertical-align: middle; }
+table { border-collapse: collapse; width: 100%; font-size: 13px; }
+th, td { text-align: left; padding: 4px 8px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { color: var(--muted); font-weight: 600; }
+td.num-c { text-align: right; font-variant-numeric: tabular-nums; }
+.lvl-Fehler { color: var(--bad); font-weight: 600; }
+.lvl-Warnung { color: var(--warn); font-weight: 600; }
+.lvl-Hinweis { color: var(--muted); }
+tr.bad td { background: color-mix(in srgb, var(--bad) 12%, transparent); }
+.hit { padding: 10px 0; border-bottom: 1px solid var(--line); }
+.hit a { color: var(--accent); cursor: pointer; font-weight: 600; text-decoration: none; }
+.hit .snip { margin-top: 3px; }
+.hit b { background: color-mix(in srgb, var(--warn) 25%, transparent); font-weight: inherit; }
+details { margin-left: 14px; }
+details > summary { cursor: pointer; padding: 2px 0; }
+.lib-item { display: block; margin-left: 14px; padding: 1px 0; color: var(--accent); cursor: pointer; }
+.lib-item small { color: var(--muted); margin-left: 8px; }
+progress { width: 220px; }

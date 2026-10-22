@@ -1,0 +1,27 @@
+{
+  "name": "sefaria-mac",
+  "version": "0.1.0",
+  "description": "Sefaria lesen, durchsuchen, herunterladen und eigene Texte für den Upload prüfen",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "node test.js && node test2.js && node test3.js && node test4.js",
+    "dist": "electron-builder --mac"
+  },
+  "dependencies": {
+    "mammoth": "^1.8.0"
+  },
+  "devDependencies": {
+    "electron": "^33.0.0",
+    "electron-builder": "^25.0.0"
+  },
+  "build": {
+    "appId": "local.sefaria.mac",
+    "productName": "Sefaria Mac",
+    "mac": {
+      "category": "public.app-category.education",
+      "target": ["dmg"]
+    },
+    "files": ["**/*", "!test*.js", "!README.md"]
+  }
+}

@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sefaria Mac</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Werkzeuge</h1>
+    <nav>
+      <button data-tab="read" class="active">Lesen</button>
+      <button data-tab="search">Suche</button>
+      <button data-tab="library">Bibliothek</button>
+      <button data-tab="download">Buch laden</button>
+      <button data-tab="check">Upload-Vorbereitung</button>
+    </nav>
+  </header>
+
+  <main>
+    <!-- LESEN -->
+    <section id="tab-read">
+      <div class="bar">
+        <input id="ref" list="ref-list" placeholder="Stelle, z. B. Genesis 1 oder Berakhot 2a" autocomplete="off">
+        <datalist id="ref-list"></datalist>
+        <input id="versions" value="hebrew,english" title="Versionen, kommagetrennt: hebrew, english, german oder Sprache|Titel">
+        <button id="go" class="primary">Laden</button>
+        <button id="prev" disabled>◀</button>
+        <button id="next" disabled>▶</button>
+      </div>
+      <div class="bar small">
+        <span id="readerTitle" class="muted">Noch nichts geladen.</span>
+        <span class="spacer"></span>
+        <select id="saveVersion" title="Version zum Speichern"></select>
+        <select id="saveFmt"><option value="csv">CSV</option><option value="txt">TXT</option><option value="json">JSON</option></select>
+        <label><input type="checkbox" id="saveStrip" checked> HTML entfernen</label>
+        <button id="saveRead">Speichern…</button>
+        <button id="openWeb">Auf sefaria.org</button>
+      </div>
+      <div id="chips" class="chips"></div>
+      <div id="readerOut"></div>
+    </section>
+
+    <!-- SUCHE -->
+    <section id="tab-search" hidden>
+      <div class="bar">
+        <input id="q" placeholder="Suchbegriff (Hebräisch, Englisch, Deutsch …)">
+        <select id="qfield"><option value="naive_lemmatizer">Flexibel (Grundformen)</option><option value="exact">Exakt</option></select>
+        <button id="doSearch" class="primary">Suchen</button>
+      </div>
+      <p id="searchInfo" class="muted"></p>
+      <div id="searchOut"></div>
+    </section>
+
+    <!-- BIBLIOTHEK -->
+    <section id="tab-library" hidden>
+      <div class="bar">
+        <input id="libFilter" placeholder="Titel filtern …">
+        <button id="libReload">Neu laden</button>
+      </div>
+      <div id="libOut" class="muted">Wird beim ersten Öffnen geladen.</div>
+    </section>
+
+    <!-- BUCH LADEN -->
+    <section id="tab-download" hidden>
+      <div class="card">
+        <h2>Ganzes Buch (oder Kapitelbereich) herunterladen</h2>
+        <div class="grid">
+          <label>Titel (englischer Sefaria-Titel)<input id="dlTitle" list="dl-list" placeholder="z. B. Genesis oder Devarim Rabbah" autocomplete="off"></label>
+          <datalist id="dl-list"></datalist>
+          <label>Version<input id="dlVersion" value="german" placeholder="hebrew, english, german oder Sprache|Titel"></label>
+          <label>Von Kapitel<input id="dlFrom" type="number" min="1" placeholder="1"></label>
+          <label>Bis Kapitel<input id="dlTo" type="number" min="1" placeholder="Ende"></label>
+          <label>Format<select id="dlFormat"><option value="csv">CSV (Referenz, Text)</option><option value="txt">TXT</option><option value="json">JSON</option></select></label>
+          <label class="check"><input type="checkbox" id="dlStrip" checked> HTML-Tags entfernen</label>
+        </div>
+        <div class="bar">
+          <button id="dlStart" class="primary">Herunterladen…</button>
+          <button id="dlCancel" disabled>Abbrechen</button>
+          <progress id="dlProg" value="0" max="1" hidden></progress>
+          <span id="dlInfo" class="muted"></span>
+        </div>
+        <p class="muted">Funktioniert für Texte mit Kapitel-/Vers-Struktur. Für Talmud-Seiten (2a, 2b …) im Reiter „Lesen“ einzelne Stellen speichern.</p>
+        <div id="dlWarn"></div>
+      </div>
+    </section>
+
+    <!-- UPLOAD-VORBEREITUNG -->
+    <section id="tab-check" hidden>
+      <div class="card">
+        <h2>1 · Text oder Word-Datei in CSV umwandeln</h2>
+        <p class="muted">Eine Zeile bzw. ein Absatz = ein Segment. Zeilen wie „Kapitel 3“ starten ein neues Kapitel.</p>
+        <div class="bar">
+          <button id="openSrc">TXT / DOCX öffnen…</button>
+          <span id="srcName" class="muted"></span>
+        </div>
+        <div class="grid">
+          <label>Sefaria-Titel<input id="t2cTitle" placeholder="z. B. Devarim Rabbah"></label>
+          <label>Startkapitel<input id="t2cStart" type="number" min="1" value="1"></label>
+        </div>
+        <p id="t2cInfo" class="muted"></p>
+        <div id="t2cPreview"></div>
+        <div class="bar">
+          <button id="t2cSave" disabled>Als CSV speichern…</button>
+          <button id="t2cUse" disabled>In Prüfung übernehmen</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>2 · CSV prüfen</h2>
+        <div class="bar">
+          <button id="openCsv" class="primary">CSV öffnen…</button>
+          <span id="csvName" class="muted"></span>
+          <span class="spacer"></span>
+          <button id="saveClean" disabled>Bereinigte CSV speichern…</button>
+        </div>
+        <p id="csvSummary"></p>
+        <div id="csvIssues"></div>
+      </div>
+
+      <div class="card">
+        <h2>3 · Segmentierung mit Sefaria vergleichen</h2>
+        <p class="muted">Vergleicht die Segmentzahl pro Kapitel mit der Struktur eines Sefaria-Textes (z. B. der englischen Vorlage).</p>
+        <div class="grid">
+          <label>Titel in deiner CSV<select id="cmpMine"></select></label>
+          <label>Sefaria-Titel<input id="cmpRef" list="cmp-list" placeholder="z. B. Devarim Rabbah" autocomplete="off"></label>
+          <datalist id="cmp-list"></datalist>
+        </div>
+        <div class="bar"><button id="cmpGo" disabled>Vergleichen</button><span id="cmpInfo" class="muted"></span></div>
+        <div id="cmpOut"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="renderer.js"></script>
+</body>
+</html>

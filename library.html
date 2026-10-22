@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Offline-Bibliothek</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="library.css">
+</head>
+<body>
+  <header>
+    <h1>Offline</h1>
+    <nav>
+      <button data-tab="read" class="active">Lesen</button>
+      <button data-tab="search">Suche</button>
+      <button data-tab="notes">Notizen</button>
+      <button data-tab="get">Herunterladen</button>
+    </nav>
+    <button id="togglePanel" title="Bücherliste ein-/ausblenden (Cmd+B)">☰ Bücherliste</button>
+    <button id="addOwn" title="Eigenen Text (TXT, Word, CSV, JSON) zum Testen einbinden">＋ Eigener Text…</button>
+    <span class="spacer"></span>
+    <span id="stats" class="muted"></span>
+    <button id="chooseDir" title="Ordner wählen, in dem die heruntergeladenen Texte liegen (z. B. externe Festplatte)">Speicherort…</button>
+    <button id="reveal">Im Finder zeigen</button>
+  </header>
+
+  <main>
+    <!-- LESEN -->
+    <section id="tab-read">
+      <div class="layout">
+        <aside>
+          <div id="recentBox" hidden>
+            <div class="rhead"><b id="recentHead" title="Ein-/ausklappen" style="cursor:pointer"><span id="recentArrow">▾</span> Zuletzt geöffnet</b><button id="recentClear" title="Verlauf löschen">✕</button></div>
+            <div id="recent"></div>
+          </div>
+          <input id="treeFilter" placeholder="Titel filtern …">
+          <div id="tree"></div>
+        </aside>
+        <div id="reader">
+          <div id="rEmpty" class="muted">
+            <p>Wähle links ein Buch. Noch nichts heruntergeladen? Im Reiter <b>Herunterladen</b> kannst du Bücher und Sprachen auswählen.</p>
+          </div>
+          <div id="rMain" hidden>
+            <div id="stick">
+              <div id="tabbar"></div>
+              <div class="bar compact">
+                <button id="navBack" title="Zurück im Verlauf (Cmd+[)" disabled>←</button>
+                <button id="navFwd" title="Vorwärts im Verlauf (Cmd+])" disabled>→</button>
+                <h2 id="rTitle"></h2>
+                <button id="prevSec" title="Voriger Abschnitt">◀</button>
+                <select id="rSection"></select>
+                <button id="nextSec" title="Nächster Abschnitt">▶</button>
+                <input id="jump" placeholder="Springen: 1:5 oder gen. 2:3" title="Stelle eingeben, z. B. 3, 3:7, Daf 2a oder gen. 1:1 – mit Enter springen">
+                <details id="verBox">
+                  <summary id="verSummary">Versionen</summary>
+                  <div id="verList"></div>
+                </details>
+                <button id="cmtBtn" title="Kommentare zum gewählten Vers (Cmd+K)">💬 Kommentare</button>
+                <button id="lkBtn" title="Verknüpfungen zu diesem Abschnitt anzeigen" hidden>🔗 Links</button>
+                <span class="spacer"></span>
+                <select id="noteMode" title="Fußnoten">
+                  <option value="click">Fußnoten: Klick</option>
+                  <option value="all">Fußnoten: alle</option>
+                  <option value="off">Fußnoten: aus</option>
+                </select>
+                <button id="expBtn" title="Abschnitt als PDF oder Word exportieren">⤓ Export</button>
+                <button id="dispBtn" title="Anzeige: Schriftgrößen, Vokalzeichen …">⚙</button>
+                <button id="fsMinus" title="Schrift kleiner">A−</button>
+                <button id="fsPlus" title="Schrift größer">A+</button>
+              </div>
+            </div>
+            <details id="cmpBar" hidden><summary><span id="cmpSum"></span> <button id="cmpClose" title="Hinweis ausblenden">✕</button></summary><div id="cmpList"></div></details>
+            <div id="rOut"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SUCHE -->
+    <section id="tab-search" hidden>
+      <div class="bar">
+        <input id="sq" placeholder="Suchbegriff (Hebräische Vokalzeichen werden ignoriert)">
+        <label><input type="checkbox" class="sk" data-k="he" checked> Hebräisch</label>
+        <label><input type="checkbox" class="sk" data-k="en" checked> Englisch</label>
+        <label><input type="checkbox" class="sk" data-k="de" checked> Deutsch</label>
+        <label><input type="checkbox" class="sk" data-k="other"> Andere</label>
+        <select id="sCat" title="Nur in dieser Kategorie suchen"><option value="">Alle Kategorien</option></select>
+        <label title="Das Suchwort muss ein ganzes Wort sein; hebräische Vorsilben (ו ה ב כ ל מ ש) davor sind erlaubt: ארץ findet auch הארץ und בארץ, aber nicht ארצות"><input type="checkbox" id="sPre"> Ganze Wörter (mit Vorsilben)</label>
+        <button id="sGo" class="primary">Suchen</button>
+        <button id="sCancel" disabled>Abbrechen</button>
+      </div>
+      <p id="sInfo" class="muted">Durchsucht alle heruntergeladenen Texte der gewählten Sprachen (auch Fußnoten).</p>
+      <div id="sOut"></div>
+    </section>
+
+    <!-- NOTIZEN -->
+    <section id="tab-notes" hidden>
+      <div class="bar">
+        <input id="nFilter" placeholder="Lesezeichen und Notizen durchsuchen …">
+        <span id="nCount" class="muted"></span>
+      </div>
+      <div id="nOut"></div>
+    </section>
+
+    <!-- HERUNTERLADEN -->
+    <section id="tab-get" hidden>
+      <div class="card">
+        <h2>1 · Katalog</h2>
+        <p class="muted">Der Katalog (ca. 22 MB) listet alle verfügbaren Texte. Er wird einmal geladen und kann danach auch offline benutzt werden.</p>
+        <div class="bar">
+          <button id="catFetch" class="primary">Katalog laden / aktualisieren</button>
+          <span id="catStatus" class="muted"></span>
+        </div>
+      </div>
+
+      <div class="card" id="pickCard" hidden>
+        <h2>2 · Auswahl</h2>
+        <div class="bar">
+          <label><input type="checkbox" id="oHe" checked> Hebräisch</label>
+          <label><input type="checkbox" id="oEn" checked> Englisch</label>
+          <label><input type="checkbox" id="oDe" checked> Deutsch (alle Übersetzungen)</label>
+          <label title="Standard: pro Sprache die zusammengeführte Fassung. Mit dieser Option werden alle einzelnen Versionen geladen (deutlich mehr Daten)."><input type="checkbox" id="oAll"> auch alle Einzelversionen</label>
+        </div>
+        <div class="bar">
+          <input id="pickFilter" placeholder="Titel suchen (z. B. Genesis, Berakhot, Rashi …) – leer lassen für die Kategorie-Ansicht">
+          <button id="pickAllHits" hidden>Alle Treffer auswählen</button>
+          <button id="pickClear">Auswahl leeren</button>
+        </div>
+        <div id="picker"></div>
+        <div id="flat" hidden></div>
+      </div>
+
+      <div class="card" id="goCard" hidden>
+        <h2>3 · Herunterladen</h2>
+        <p id="planInfo" class="muted">Nichts ausgewählt.</p>
+        <div class="bar">
+          <button id="dGo" class="primary" disabled>Herunterladen</button>
+          <button id="dCancel" disabled>Abbrechen</button>
+          <progress id="dProg" value="0" max="1" hidden></progress>
+          <span id="dInfo" class="muted"></span>
+        </div>
+        <p class="muted">Bereits vorhandene Dateien werden übersprungen. Ein abgebrochener Download kann später einfach fortgesetzt werden.</p>
+        <div id="dWarn"></div>
+      </div>
+      <div class="card" id="updCard">
+        <h2>Aktualisieren</h2>
+        <p class="muted">Prüft, ob Sefaria Texte, die du schon heruntergeladen hast, geändert hat oder neue Fassungen dazugekommen sind, und lädt nur diese nach. Eigene Texte bleiben unberührt.</p>
+        <div class="bar">
+          <button id="uCheck">Auf Aktualisierungen prüfen</button>
+          <button id="uRun" class="primary" hidden>Aktualisieren</button>
+          <progress id="uProg" value="0" max="1" hidden></progress>
+          <span id="uInfo" class="muted"></span>
+        </div>
+      </div>
+
+      <div class="card" id="linkCard">
+        <h2>4 · Verknüpfungen (optional)</h2>
+        <p class="muted">Sefaria verknüpft Texte untereinander (Kommentare, Zitate, Parallelstellen). Mit diesen Daten kannst du im Reiter „Lesen“ zu jedem Vers alle Verknüpfungen öffnen – auch offline. Einmaliger Download von ca. 680 MB, danach braucht der Index etwa 0,5–1 GB. Abgebrochene Downloads werden fortgesetzt.</p>
+        <div class="bar">
+          <button id="lkGet" class="primary">Verknüpfungen herunterladen</button>
+          <button id="lkStop" disabled>Abbrechen</button>
+          <progress id="lkProg" value="0" max="17" hidden></progress>
+          <span id="lkInfo" class="muted"></span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+
+  <aside id="cmtPanel" hidden>
+    <div id="cmtHead">
+      <div class="lhead"><b id="cmtTitle">Kommentare</b><button id="cmtClose" title="Schließen">✕</button></div>
+      <div class="bar">
+        <label>Sprache <select id="cmtLang"><option value="en">Englisch</option><option value="de">Deutsch</option><option value="he">Hebräisch</option></select></label>
+        <button id="cmtPrev" title="Voriger Vers">▲</button><button id="cmtNext" title="Nächster Vers">▼</button>
+      </div>
+      <div id="cmtSum" title="Kommentatoren ein-/ausklappen"></div>
+      <div id="cmtChips"></div>
+    </div>
+    <div id="cmtBody"></div>
+  </aside>
+
+  <aside id="linkPanel" hidden>
+    <div id="lkHead">
+      <div class="lhead"><b id="lkTitle">Verknüpfungen</b><button id="lkClose" title="Schließen">✕</button></div>
+      <input id="lkFilter" placeholder="Filtern (z. B. Rashi, Midrash) …">
+    </div>
+    <div id="lkBody"></div>
+  </aside>
+
+  <dialog id="expDlg">
+    <h2>Abschnitt exportieren</h2>
+    <p id="expWhat" class="muted"></p>
+    <label>Format
+      <select id="expFmt"><option value="pdf">PDF</option><option value="doc">Word (.doc)</option></select>
+    </label>
+    <div class="bar"><label>Zeilen von <input id="expFrom" size="4" placeholder="alle"></label><label>bis <input id="expTo" size="4" placeholder="alle"></label></div>
+    <label><input type="checkbox" id="expFn" checked> Fußnoten (nummeriert unter der Tabelle)</label>
+    <label><input type="checkbox" id="expNotes" checked> Meine Notizen</label>
+    <label><input type="checkbox" id="expLinks"> Verknüpfungen (Liste je Zeile, falls vorhanden)</label>
+    <p id="expMsg" class="muted"></p>
+    <div class="bar"><button id="expGo" class="primary">Exportieren …</button><button id="expClose">Abbrechen</button></div>
+  </dialog>
+
+  <dialog id="noteDlg">
+    <h2 id="ndTitle">Notiz</h2>
+    <p id="ndExcerpt" class="muted"></p>
+    <textarea id="ndText" rows="6" placeholder="Eigene Notiz (leer lassen = nur Lesezeichen)"></textarea>
+    <div class="bar"><button id="ndSave" class="primary">Speichern</button><button id="ndDel">Lesezeichen entfernen</button><button id="ndClose">Abbrechen</button></div>
+  </dialog>
+
+  <div id="dispPanel" hidden>
+    <b>Anzeige</b>
+    <label>Hebräisch – Schriftgröße <input type="range" id="dHe" min="0.9" max="2.2" step="0.05"></label>
+    <label>Englisch – Schriftgröße <input type="range" id="dEn" min="0.7" max="1.6" step="0.05"></label>
+    <label>Deutsch – Schriftgröße <input type="range" id="dDe" min="0.7" max="1.6" step="0.05"></label>
+    <label><input type="checkbox" id="dNiq"> Hebräische Vokalzeichen ausblenden</label>
+    <label><input type="checkbox" id="dCan"> Betonungszeichen (Teamim) ausblenden</label>
+    <button id="dReset">Zurücksetzen</button>
+  </div>
+
+  <div id="findBar" hidden>
+    <input id="findIn" placeholder="Im Text suchen …">
+    <span id="findCount" class="muted"></span>
+    <button id="findPrev" title="Vorheriger Treffer">▲</button>
+    <button id="findNext" title="Nächster Treffer">▼</button>
+    <button id="findClose" title="Schließen (Esc)">✕</button>
+  </div>
+
+  <dialog id="ownDlg">
+    <h2>Eigene Texte einbinden</h2>
+    <p class="muted">Du kannst mehrere Dateien auf einmal wählen oder hierher ziehen: TXT/Word (eine Zeile = ein Vers; „Kapitel 2“ als eigene Zeile beginnt ein Kapitel), CSV (<code>Titel 1:1,Text</code> oder Sefaria-Upload-Format) und JSON. Passt der Titel zu einem vorhandenen Buch, erscheint dein Text als weitere Spalte daneben.</p>
+    <div class="bar"><button id="ownPick">Dateien wählen …</button><span id="ownInfo" class="muted"></span></div>
+    <datalist id="ownTitles"></datalist>
+    <div id="ownList"></div>
+    <p id="ownWarn" class="muted"></p>
+    <div class="bar"><button id="ownSave" class="primary" disabled>Einbinden</button><button id="ownClose">Schließen</button></div>
+  </dialog>
+
+  <script src="reader.js"></script>
+  <script src="library.js"></script>
+</body>
+</html>
