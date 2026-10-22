@@ -4,7 +4,7 @@
 
 An offline library for [Sefaria](https://www.sefaria.org) texts on macOS and Windows (Electron). On launch it opens the **Offline Library** directly; a **Werkzeuge** (Tools) menu adds book download and upload-preparation helpers.
 
-> **Not affiliated with Sefaria.** This is an independent, unofficial project. Sefaria's texts are not part of the app: they are downloaded to your computer from the public Sefaria export. The app never uploads anything to Sefaria. The `bundled/` folder contains a set of additional German translations and commentaries that are imported on first start (see *Bundled texts* below).
+> **Not affiliated with Sefaria.** This is an independent, unofficial project. Sefaria's texts are not part of the app: they are downloaded to your computer from the public Sefaria export. The app never uploads anything to Sefaria. Safran additionally ships texts that are **not yet available on Sefaria**: German translations and commentaries (Zunz, Philippson, Mendelssohn, Herxheimer, Hertz, Midrash Rabbah, More Nevuchim and others) in the `bundled/` folder, which are imported automatically on first start and appear under *Eigene Texte* (see *Bundled texts* below).
 
 > The user interface is currently in German.
 
@@ -26,6 +26,7 @@ An offline library for [Sefaria](https://www.sefaria.org) texts on macOS and Win
 - **Links (Verknüpfungen):** download Sefaria's link data once (~680 MB), then see links per verse, grouped by category and book, with text preview.
 - **Commentary panel (Cmd+K):** shows commentaries on the selected verse (e.g. Rashi and Ibn Ezra one below the other) in the chosen language. If no commentator is selected, all locally available ones are shown.
 - **Your own texts and commentaries:** import TXT, Word (.docx), CSV, JSON or Sefaria upload CSV files, several at once (drag & drop works), as a *Text* or as a *Commentary* (`Commentator on Book`, shown in the commentary panel). Your text appears as an extra column next to the original, is compared line by line with it, and can be removed again. Inline Base64 images are displayed.
+- **Additional texts not on Sefaria (yet):** besides the Sefaria texts, Safran includes its own collection of German translations and commentaries that Sefaria does not offer so far. They are shown as extra versions and commentators next to the Sefaria texts.
 - **Bundled texts:** texts in the project's `bundled/` folder are imported automatically on start (new or changed ones also after updates); export your own texts into that folder via ⋯ → "Eigene Texte für GitHub exportieren …".
 - **Two reading windows** side by side with their own tabs, history and commentary panel; **resizable commentary panel** with adjustable text size.
 - **Notes and bookmarks**, **display options** (font sizes, hide vowels/cantillation), **export** to PDF or Word, **update check** against the Sefaria export.
