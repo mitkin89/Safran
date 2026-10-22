@@ -1,6 +1,6 @@
-# Sefaria Mac and Windows offline reader 
+# talmud.de Reader – Mac and Windows offline reader
 
-An offline library for [Sefaria](https://www.sefaria.org) texts on macOS (Electron). On launch it opens the **Offline Library** directly; a **Werkzeuge** (Tools) menu adds book download and upload-preparation helpers.
+An offline library for [Sefaria](https://www.sefaria.org) texts on macOS and Windows (Electron). On launch it opens the **Offline Library** directly; a **Werkzeuge** (Tools) menu adds book download and upload-preparation helpers.
 
 > **Not affiliated with Sefaria.** This is an independent, unofficial project. The app contains **no texts**: they are downloaded to your computer from the public Sefaria export. The app never uploads anything to Sefaria.
 
