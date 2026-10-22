@@ -191,6 +191,18 @@
     if (!ok) { const m = $('#ntMsg'); if (m) m.textContent = 'Nicht gefunden – nur Bücher aus deiner Bibliothek sind möglich.'; }
   });
 
+  // gemerkte Sprachauswahl (he/en/de), wird beim Umschalten der Versionen aktualisiert
+  let prefKinds = ['he', 'en', 'de'];
+  try { const k = JSON.parse(localStorage.getItem('prefKinds') || 'null'); if (Array.isArray(k) && k.length) prefKinds = k.filter(x => ['he', 'en', 'de'].includes(x)); } catch { /* egal */ }
+  function rememberKinds() {
+    if (!view || !view.group) return;
+    const ks = [...new Set(view.group.versions.filter(v => view.selected.has(v.rel) && !v.own && ['he', 'en', 'de'].includes(v.kind)).map(v => v.kind))];
+    if (!ks.length) return;
+    // eine Sprache, die dieses Buch gar nicht hat, bleibt in der Auswahl erhalten
+    const have = new Set(view.group.versions.map(v => v.kind));
+    prefKinds = [...new Set([...ks, ...prefKinds.filter(k => !have.has(k))])];
+    try { localStorage.setItem('prefKinds', JSON.stringify(prefKinds)); } catch { /* egal */ }
+  }
   async function openGroup(g, target = {}, inNewTab = false) {
     if (!g) return;
     saveScroll();
@@ -200,7 +212,11 @@
     view = nv;
     if (target.showCompare) nv.cmpRel = target.rel;
     const first = k => g.versions.find(v => v.kind === k && v.versionTitle === 'merged') || g.versions.find(v => v.kind === k);
-    ['he', 'en', 'de'].forEach(k => { const v = first(k); if (v) view.selected.add(v.rel); });
+    // zuletzt gewählte Sprachen übernehmen (z. B. nur Hebräisch + Deutsch); fehlt Deutsch, hilft Englisch aus
+    const want = new Set(prefKinds);
+    if (want.has('de') && !first('de')) want.add('en');
+    ['he', 'en', 'de'].forEach(k => { if (!want.has(k)) return; const v = first(k); if (v) view.selected.add(v.rel); });
+    if (!view.selected.size) ['he', 'en', 'de'].forEach(k => { const v = first(k); if (v) view.selected.add(v.rel); });
     if (!view.selected.size && g.versions[0]) view.selected.add(g.versions[0].rel);
     if (target.rel) view.selected.add(target.rel);
     showTab('read');
@@ -313,6 +329,7 @@
     if (!rel || !view) return;
     if (e.target.checked) view.selected.add(rel); else view.selected.delete(rel);
     if (!view.selected.size) { view.selected.add(rel); }
+    rememberKinds();
     view.key = view.sections[view.idx] ? view.sections[view.idx].k : null;
     await loadView();
   });

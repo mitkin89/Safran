@@ -98,3 +98,4 @@ The source code of this app is released under the [MIT License](LICENSE).
 - **Suggestions while typing:** the jump field and the new-tab field suggest book names as you type (e.g. "ge" → Genesis); arrow keys and Enter or a click pick one. The new-tab page shows the logo too.
 - The same right-click menu (*Open*, *Open in new tab*, *Open in second window*) works on commentator names in the commentary panel.
 - The links panel lists categories in a fixed order: Tanakh, Mishnah, Tosefta, Talmud, Responsa, then everything else (by number of links).
+- The language selection is remembered across books: if you switch English off, other books open without English too (unless a book has no German text, then English is shown as a fallback).
