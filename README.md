@@ -106,3 +106,4 @@ The source code of this app is released under the [MIT License](LICENSE).
 - Typing only a book name in the jump field (e.g. `gen` + Enter) opens the book at its first chapter.
 - "Herunterladen" moved from the tab row into the ⋯ menu, leaving more room for tabs and buttons in the header.
 - **Commentary panel:** drag its left edge to change the width (double-click resets it); A−/A+ buttons change the text size. Both are remembered.
+- Only the star itself adds a bookmark/note; a click next to it in the verse-number column just selects the verse for the commentary panel.

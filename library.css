@@ -146,7 +146,7 @@ html[data-tab]:not([data-tab=read]) #tabbar { display: none; }
 #dispPanel input[type=range] { width: 100%; }
 
 /* Lesezeichen und Notizen */
-.row .lab .bm { display: block; cursor: pointer; opacity: 0; font-size: 13px; color: var(--muted); line-height: 1.2; }
+.row .lab .bm { display: block; width: fit-content; cursor: pointer; opacity: 0; font-size: 13px; color: var(--muted); line-height: 1.2; }
 .row:hover .lab .bm { opacity: 1; }
 .row .lab .bm.on { opacity: 1; color: var(--warn); }
 .row.noted { background: color-mix(in srgb, var(--warn) 7%, transparent); }
