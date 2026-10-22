@@ -21,6 +21,7 @@
   function showTab(t) {
     $$('nav button').forEach(b => b.classList.toggle('active', b.dataset.tab === t));
     $$('main > section').forEach(s => (s.hidden = s.id !== 'tab-' + t));
+    document.documentElement.dataset.tab = t;
     $('#togglePanel').hidden = t !== 'read'; // die Bücherliste gibt es nur im Reiter „Lesen“
   }
   $$('nav button').forEach(b => (b.onclick = () => showTab(b.dataset.tab)));
@@ -1586,6 +1587,8 @@ ${endnotes.length ? `<h3>Fußnoten</h3><ol class="fn">${endnotes.map(n => `<li>$
   };
 
   // ---------- Kopfzeile ----------
+  document.addEventListener('click', e => { const m = $('#moreMenu'); if (m && m.open && !e.target.closest('#moreMenu')) m.open = false; });
+  $('#moreMenu').addEventListener('click', e => { if (e.target.closest('#moreList button')) $('#moreMenu').open = false; });
   $('#chooseDir').onclick = async () => { await O.chooseDir(); await refreshState(); await loadLibrary(); };
   $('#reveal').onclick = () => O.reveal();
 

@@ -88,3 +88,4 @@ The source code of this app is released under the [MIT License](LICENSE).
 - **Own texts:** re-importing the same title/version asks before overwriting; ⟳ re-reads the original source file; word-level diff against an existing version; "CSV" saves an own text as a Sefaria upload CSV.
 - **Security:** navigation is locked to local files (including the second pane), stricter CSP, drag-and-drop file paths are allow-listed, PDF export via temp file.
 - **Windows:** `npm run dist:win` builds an installer and a portable exe (Ctrl instead of Cmd, Explorer instead of Finder, Ctrl+Tab for tabs); a GitHub Actions workflow builds macOS and Windows.
+- **Compact toolbar:** the header and book bar shrank from about 175 px to about 90 px: one row for the app tabs and open books, a ⋯ menu for rarely used items (own text, storage location, show in file manager, statistics), and a ⚙ panel for footnotes, font size and export.

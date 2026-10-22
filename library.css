@@ -17,7 +17,7 @@ aside input { width: 100%; margin-bottom: 8px; }
 /* Lesebereich: eine Zeile pro Vers, Sprachen nebeneinander */
 #rOut { --fs: 16px; font-size: var(--fs); }
 .row { display: grid; grid-template-columns: 3.2em repeat(var(--n), minmax(0, 1fr)); gap: 0 22px; padding: 8px 0; border-bottom: 1px solid var(--line); }
-.row.head { position: sticky; top: var(--stick-top, 53px); background: var(--bg); z-index: 2; font-size: 12px; color: var(--muted); padding: 4px 0; font-weight: 600; }
+.row.head { position: sticky; top: var(--stick-top, 40px); background: var(--bg); z-index: 2; font-size: 11px; color: var(--muted); padding: 1px 0; font-weight: 600; }
 .row.hit { background: color-mix(in srgb, var(--warn) 18%, transparent); }
 .row .lab { font-size: 11px; color: var(--muted); padding-top: .4em; }
 .cell[dir=rtl] .txt { font-size: 1.25em; line-height: 1.75; }
@@ -63,7 +63,7 @@ aside input { width: 100%; margin-bottom: 8px; }
 .ownx { border: 0; background: none; cursor: pointer; color: var(--muted); }
 
 /* Titel- und Navigationsleiste bleibt beim Scrollen stehen */
-#stick { position: sticky; top: 53px; z-index: 4; background: var(--bg); padding-top: 8px; margin-top: -8px; border-bottom: 1px solid var(--line); }
+#stick { position: sticky; top: 40px; z-index: 4; background: var(--bg); padding-top: 8px; margin-top: -8px; border-bottom: 1px solid var(--line); }
 #stick .bar { margin-bottom: 8px; }
 #verList { max-height: 28vh; }
 /* Suche im Text (Cmd+F) */
@@ -73,11 +73,11 @@ aside input { width: 100%; margin-bottom: 8px; }
 
 /* schlanke Leiste in einer Zeile */
 #stick { padding-top: 4px; margin-top: -4px; }
-#stick .bar.compact { display: flex; align-items: center; gap: 8px; margin: 0 0 6px; flex-wrap: wrap; }
-#stick h2#rTitle { font-size: 15px; white-space: nowrap; max-width: 28ch; overflow: hidden; text-overflow: ellipsis; }
+#stick .bar.compact { display: flex; align-items: center; gap: 6px; margin: 0 0 4px; flex-wrap: nowrap; } /* immer eine Zeile */
+#stick h2#rTitle { font-size: 15px; margin: 0; white-space: nowrap; flex: 0 1 auto; min-width: 6ch; max-width: 28ch; overflow: hidden; text-overflow: ellipsis; }
 #stick button, #stick select, #stick input { padding: 3px 8px; font-size: 13px; }
-#jump { width: 170px; }
-#rSection { min-width: 130px; max-width: 240px; }
+#jump { width: 110px; flex: 0 1 110px; min-width: 60px; }
+#rSection { min-width: 90px; max-width: 240px; flex: 1 1 auto; }
 #verBox { position: relative; margin: 0; }
 #verBox summary { white-space: nowrap; }
 #verList { position: absolute; top: 26px; left: 0; z-index: 10; min-width: 340px; background: var(--bg); border: 1px solid var(--line); border-radius: 8px; box-shadow: 0 4px 18px rgba(0,0,0,.35); padding: 8px 10px; }
@@ -107,10 +107,11 @@ aside input { width: 100%; margin-bottom: 8px; }
 #lkBody .pv { margin: 2px 0 6px 14px; font-size: 12px; color: var(--muted); padding: 4px 8px; border-inline-start: 3px solid var(--line); }
 
 /* Tabs */
-#tabbar { display: flex; gap: 2px; align-items: flex-end; margin-bottom: 6px; border-bottom: 1px solid var(--line); overflow-x: auto; }
-#tabbar .tab { display: flex; align-items: center; gap: 6px; padding: 3px 4px 3px 10px; font-size: 12px; max-width: 220px; border: 1px solid var(--line); border-bottom: 0; border-radius: 8px 8px 0 0; background: color-mix(in srgb, var(--chip) 60%, transparent); color: var(--muted); cursor: pointer; white-space: nowrap; }
+#tabbar { display: flex; gap: 2px; align-items: center; flex: 1; min-width: 0; margin: 0 6px; overflow-x: auto; scrollbar-width: none; }
+html[data-tab]:not([data-tab=read]) #tabbar { display: none; }
+#tabbar .tab { display: flex; align-items: center; gap: 6px; padding: 3px 4px 3px 10px; font-size: 12px; max-width: 220px; border: 1px solid var(--line); border-radius: 8px; background: color-mix(in srgb, var(--chip) 60%, transparent); color: var(--muted); cursor: pointer; white-space: nowrap; }
 #tabbar .tab span { overflow: hidden; text-overflow: ellipsis; }
-#tabbar .tab.active { background: var(--bg); color: inherit; font-weight: 600; margin-bottom: -1px; border-bottom: 1px solid var(--bg); }
+#tabbar .tab.active { background: var(--chip); color: inherit; font-weight: 600; }
 #tabbar .tab button, #tabbar #tabNew { border: 0; background: none; cursor: pointer; color: var(--muted); padding: 0 4px; font-size: 12px; }
 #tabbar .tab button:hover, #tabbar #tabNew:hover { color: inherit; }
 #stick.emptytab .compact { display: none; }
@@ -234,11 +235,10 @@ html.split body { width: calc(100% - var(--p2w)); overflow-x: hidden; }
 html.split #cmtPanel, html.split #linkPanel { right: var(--p2w); }
 html.split #findBar, html.split #dispPanel { right: calc(var(--p2w) + 18px); }
 html.dragging #pane2 { pointer-events: none; }
-html.pane2 header > :not(#togglePanel):not(#closePane) { display: none; }
+html.pane2 header > :not(#togglePanel):not(#closePane):not(#tabbar) { display: none; }
 html.pane2 #closePane { display: inline-block; margin-left: auto; }
 html.pane2 #splitBtn { display: none; }
-html.split header { flex-wrap: wrap; gap: 8px 12px; padding: 8px 12px; }
-html.split header #stats, html.split header #chooseDir, html.split header #reveal { display: none; }
+html.split header { gap: 6px; padding: 4px 10px; }
 html.split header .spacer { display: none; }
 
 /* Kategorien-Liste der Suche: dauerhaft rechts */
@@ -263,3 +263,20 @@ del.wd { background: #d6393933; }
 html.split #syncBtn { display: inline-block; }
 html.pane2 #syncBtn { display: none !important; }
 #syncBtn[aria-pressed=true] { background: #2a9d5c33; }
+
+/* ⋯-Menü in der Kopfzeile */
+#moreMenu { position: relative; margin-left: auto; }
+#moreMenu summary { list-style: none; cursor: pointer; padding: 3px 10px; border-radius: 8px; border: 1px solid var(--line); }
+#moreMenu summary::-webkit-details-marker { display: none; }
+#moreList { position: absolute; right: 0; top: 30px; z-index: 30; min-width: 220px; display: grid; gap: 4px; background: var(--bg); border: 1px solid var(--line); border-radius: 10px; box-shadow: 0 4px 18px rgba(0,0,0,.35); padding: 8px; }
+#moreList button { text-align: left; }
+#moreList #stats { font-size: 12px; padding: 4px 6px 0; }
+header > button { padding: 3px 9px; }
+#dispPanel .pbar { display: flex; gap: 8px; align-items: center; }
+#dispPanel label select { margin-left: 6px; }
+#dispPanel { top: 80px; }
+html.split #stick .bar.compact { flex-wrap: wrap; } /* bei zwei Fenstern darf die Buchzeile umbrechen */
+html.split #jump { width: 80px; flex-basis: 80px; }
+html.split #stick h2#rTitle { max-width: 14ch; }
+html.split #rSection { min-width: 70px; max-width: 150px; }
+html.split #jump, html.split #navBack, html.split #navFwd { display: none; } /* in zwei Fenstern ist wenig Platz */

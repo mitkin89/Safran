@@ -10,22 +10,26 @@
 </head>
 <body>
   <header>
-    <h1>Offline</h1>
     <nav>
       <button data-tab="read" class="active">Lesen</button>
       <button data-tab="search">Suche</button>
       <button data-tab="notes">Notizen</button>
       <button data-tab="get">Herunterladen</button>
     </nav>
-    <button id="togglePanel" title="Bücherliste ein-/ausblenden (Cmd+B)">☰ Bücherliste</button>
-    <button id="syncBtn" title="Gleichlauf: Blättern im ersten Fenster blättert im zweiten mit (für Parallelstellen)" aria-pressed="false">⇅ Gleichlauf</button>
-    <button id="splitBtn" title="Zweites Lesefenster rechts ein-/ausblenden – so bleibt das erste Buch offen">⧉ Zweites Fenster</button>
+    <div id="tabbar"></div>
+    <button id="togglePanel" title="Bücherliste ein-/ausblenden (Cmd+B)">☰</button>
+    <button id="syncBtn" title="Gleichlauf: Blättern im ersten Fenster blättert im zweiten mit (für Parallelstellen)" aria-pressed="false">⇅</button>
+    <button id="splitBtn" title="Zweites Lesefenster rechts ein-/ausblenden – so bleibt das erste Buch offen">⧉</button>
     <button id="closePane" title="Dieses Fenster schließen" hidden>✕ Schließen</button>
-    <button id="addOwn" title="Eigenen Text (TXT, Word, CSV, JSON) zum Testen einbinden">＋ Eigener Text…</button>
-    <span class="spacer"></span>
-    <span id="stats" class="muted"></span>
-    <button id="chooseDir" title="Ordner wählen, in dem die heruntergeladenen Texte liegen (z. B. externe Festplatte)">Speicherort…</button>
-    <button id="reveal">Im Finder zeigen</button>
+    <details id="moreMenu">
+      <summary title="Weitere Funktionen">⋯</summary>
+      <div id="moreList">
+        <button id="addOwn" title="Eigenen Text (TXT, Word, CSV, JSON) zum Testen einbinden">＋ Eigener Text…</button>
+        <button id="chooseDir" title="Ordner wählen, in dem die heruntergeladenen Texte liegen (z. B. externe Festplatte)">Speicherort…</button>
+        <button id="reveal">Im Finder zeigen</button>
+        <span id="stats" class="muted"></span>
+      </div>
+    </details>
   </header>
 
   <main>
@@ -46,7 +50,6 @@
           </div>
           <div id="rMain" hidden>
             <div id="stick">
-              <div id="tabbar"></div>
               <div class="bar compact">
                 <button id="navBack" title="Zurück im Verlauf (Cmd+[)" disabled>←</button>
                 <button id="navFwd" title="Vorwärts im Verlauf (Cmd+])" disabled>→</button>
@@ -56,22 +59,14 @@
                 <button id="nextSec" title="Nächster Abschnitt">▶</button>
                 <input id="jump" placeholder="Springen: 1:5 oder gen. 2:3" title="Stelle eingeben, z. B. 3, 3:7, Daf 2a oder gen. 1:1 – mit Enter springen">
                 <details id="verBox">
-                  <summary id="verSummary">Versionen</summary>
+                  <summary id="verSummary" title="Versionen">Versionen</summary>
                   <div id="verList"></div>
                 </details>
-                <button id="bookSearch" title="Nur in diesem Buch suchen">🔎 In diesem Buch</button>
-                <button id="cmtBtn" title="Kommentare zum gewählten Vers (Cmd+K)">💬 Kommentare</button>
-                <button id="lkBtn" title="Verknüpfungen zu diesem Abschnitt anzeigen" hidden>🔗 Links</button>
+                <button id="bookSearch" title="Nur in diesem Buch suchen">🔎</button>
+                <button id="cmtBtn" title="Kommentare zum gewählten Vers (Cmd+K)">💬</button>
+                <button id="lkBtn" title="Verknüpfungen zu diesem Abschnitt anzeigen" hidden>🔗</button>
                 <span class="spacer"></span>
-                <select id="noteMode" title="Fußnoten">
-                  <option value="click">Fußnoten: Klick</option>
-                  <option value="all">Fußnoten: alle</option>
-                  <option value="off">Fußnoten: aus</option>
-                </select>
-                <button id="expBtn" title="Abschnitt als PDF oder Word exportieren">⤓ Export</button>
-                <button id="dispBtn" title="Anzeige: Schriftgrößen, Vokalzeichen …">⚙</button>
-                <button id="fsMinus" title="Schrift kleiner">A−</button>
-                <button id="fsPlus" title="Schrift größer">A+</button>
+                <button id="dispBtn" title="Anzeige, Fußnoten, Schrift, Export">⚙</button>
               </div>
             </div>
             <details id="cmpBar" hidden><summary><span id="cmpSum"></span> <button id="cmpClose" title="Hinweis ausblenden">✕</button></summary><div id="cmpList"></div><div id="cmpDiff"></div></details>
@@ -260,7 +255,11 @@
     <label>Deutsch – Schriftgröße <input type="range" id="dDe" min="0.7" max="1.6" step="0.05"></label>
     <label><input type="checkbox" id="dNiq"> Hebräische Vokalzeichen ausblenden</label>
     <label><input type="checkbox" id="dCan"> Betonungszeichen (Teamim) ausblenden</label>
-    <button id="dReset">Zurücksetzen</button>
+    <label>Fußnoten
+      <select id="noteMode"><option value="click">Klick</option><option value="all">alle anzeigen</option><option value="off">aus</option></select>
+    </label>
+    <div class="pbar">Grundschrift <button id="fsMinus" title="Schrift kleiner">A−</button><button id="fsPlus" title="Schrift größer">A+</button></div>
+    <div class="pbar"><button id="expBtn" title="Abschnitt als PDF oder Word exportieren">⤓ Exportieren …</button><button id="dReset">Zurücksetzen</button></div>
   </div>
 
   <div id="findBar" hidden>
