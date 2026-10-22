@@ -81,21 +81,16 @@
 
     <!-- SUCHE -->
     <section id="tab-search" hidden>
+      <div class="sleft">
       <div class="bar">
         <input id="sq" placeholder="Suchbegriff (Hebräische Vokalzeichen werden ignoriert)">
         <label><input type="checkbox" class="sk" data-k="he" checked> Hebräisch</label>
         <label><input type="checkbox" class="sk" data-k="en" checked> Englisch</label>
         <label><input type="checkbox" class="sk" data-k="de" checked> Deutsch</label>
         <label><input type="checkbox" class="sk" data-k="other"> Andere</label>
-        <button id="sCatBtn" type="button" title="Suche auf bestimmte Kategorien beschränken">Kategorien: alle ▾</button>
         <label title="Das Suchwort muss ein ganzes Wort sein; hebräische Vorsilben (ו ה ב כ ל מ ש) davor sind erlaubt: ארץ findet auch הארץ und בארץ, aber nicht ארצות"><input type="checkbox" id="sPre"> Ganze Wörter (mit Vorsilben)</label>
         <button id="sGo" class="primary">Suchen</button>
         <button id="sCancel" disabled>Abbrechen</button>
-      </div>
-      <div id="sCatPanel" class="catpanel" hidden>
-        <div class="bar"><input id="sCatFilter" placeholder="Kategorien durchsuchen …"><button id="sCatAll" type="button" title="Alle Häkchen entfernen: es wird in allen Kategorien gesucht">Alle Kategorien auswählen</button></div>
-        <p class="muted">Ohne Häkchen wird überall gesucht. Sobald du Häkchen setzt, wird nur in den gewählten Kategorien gesucht; ein Häkchen bei einer Hauptkategorie gilt für alles darunter.</p>
-        <div id="sCatTree"></div>
       </div>
       <div class="bar" id="advBar">
         <input id="sq2" placeholder="Wort 2 (optional), z. B. gott">
@@ -130,6 +125,13 @@
       </details>
       <p id="sInfo" class="muted">Durchsucht alle heruntergeladenen Texte der gewählten Sprachen (auch Fußnoten).</p>
       <div id="sOut"></div>
+      </div>
+      <div id="sCatPanel" class="catpanel">
+        <h3 id="sCatBtn">Kategorien: alle</h3>
+        <div class="bar"><input id="sCatFilter" placeholder="Kategorien durchsuchen …"><button id="sCatAll" type="button" title="Alle Häkchen entfernen: es wird in allen Kategorien gesucht">Alle Kategorien auswählen</button></div>
+        <p class="muted">Ohne Häkchen wird überall gesucht. Mit Häkchen nur in den gewählten Kategorien; ein Häkchen bei einer Hauptkategorie gilt für alles darunter.</p>
+        <div id="sCatTree"></div>
+      </div>
     </section>
 
     <!-- NOTIZEN -->

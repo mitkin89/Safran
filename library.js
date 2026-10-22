@@ -841,9 +841,8 @@
       return `<details ${f ? 'open' : ''}><summary>${cb}<span class="catname">${esc(n.name)}</span> <small>(${n.count})</small></summary>${kids}</details>`;
     };
     $('#sCatTree').innerHTML = SefOrder.sortCats([...root.children.keys()], '').map(k => node(root.children.get(k), false)).join('') || '<p class="muted">Keine passende Kategorie.</p>';
-    $('#sCatBtn').textContent = sCats.size ? `Kategorien: ${sCats.size} gewählt ▾` : 'Kategorien: alle ▾';
+    $('#sCatBtn').textContent = sCats.size ? `Kategorien: ${sCats.size} gewählt` : 'Kategorien: alle';
   }
-  $('#sCatBtn').onclick = () => { $('#sCatPanel').hidden = !$('#sCatPanel').hidden; if (!$('#sCatPanel').hidden) $('#sCatFilter').focus(); };
   $('#sCatFilter').addEventListener('input', renderSCats);
   $('#sCatAll').onclick = () => { sCats.clear(); renderSCats(); };
   $('#sCatTree').addEventListener('change', e => {

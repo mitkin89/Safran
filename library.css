@@ -219,7 +219,7 @@ details.help summary { cursor: pointer; color: var(--muted, #aaa); }
 details.help code { background: rgba(127,127,127,.2); padding: 0 4px; border-radius: 4px; }
 details.help ul { margin: 4px 0 8px 18px; padding: 0; }
 
-.catpanel { border: 1px solid var(--line, #333); border-radius: 8px; padding: 8px 12px; margin: 6px 0; max-height: 360px; overflow: auto; }
+.catpanel { border: 1px solid var(--line, #333); border-radius: 8px; padding: 8px 12px; }
 .catpanel details { margin-left: 14px; }
 .catpanel label.t { display: block; margin-left: 20px; padding: 1px 0; }
 .catpanel summary { cursor: pointer; padding: 2px 0; }
@@ -239,3 +239,11 @@ html.pane2 #splitBtn { display: none; }
 html.split header { flex-wrap: wrap; gap: 8px 12px; padding: 8px 12px; }
 html.split header #stats, html.split header #chooseDir, html.split header #reveal { display: none; }
 html.split header .spacer { display: none; }
+
+/* Kategorien-Liste der Suche: dauerhaft rechts */
+#tab-search:not([hidden]) { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 20px; align-items: start; }
+html.split #tab-search:not([hidden]) { grid-template-columns: minmax(0, 1fr); }
+#sCatPanel { position: sticky; top: 64px; max-height: calc(100vh - 84px); overflow: auto; margin: 0; }
+#sCatPanel h3 { margin: 0 0 8px; font-size: 14px; }
+#sCatPanel .bar { flex-wrap: wrap; }
+@media (max-width: 1150px) { #tab-search:not([hidden]) { grid-template-columns: minmax(0, 1fr); } #sCatPanel { position: static; max-height: 360px; } }
