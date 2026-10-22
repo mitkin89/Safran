@@ -1,0 +1,2594 @@
+{
+ "version": 1,
+ "items": [
+  {
+   "rel": "own/Devarim Rabbah/de/Devarim_Rabbah_de_Sefaria_korrigiert.json",
+   "title": "Devarim Rabbah",
+   "heTitle": "דברים רבה",
+   "language": "English",
+   "versionTitle": "Devarim_Rabbah_de_Sefaria_korrigiert",
+   "categories": [
+    "Midrash",
+    "Aggadah",
+    "Midrash Rabbah"
+   ],
+   "kind": "de",
+   "hash": "e10a9b22803589f6beacb06e6f563d04b353ded3"
+  },
+  {
+   "rel": "own/Guide for the Perplexed/de/Führer der Unschlüssigen; ins Deutsche übertragen und mit erklärenden Anmerkungen versehen von Dr. Adolf Weiss. Leipzig .json",
+   "title": "Guide for the Perplexed",
+   "heTitle": "מורה נבוכים",
+   "language": "English",
+   "versionTitle": "Führer der Unschlüssigen; ins Deutsche übertragen und mit erklärenden Anmerkungen versehen von Dr. Adolf Weiss. Leipzig 1924.",
+   "categories": [
+    "Jewish Thought",
+    "Rishonim"
+   ],
+   "kind": "de",
+   "hash": "19c3ca60b809c05006cb2fe15c2c4936a5cecbb1"
+  },
+  {
+   "rel": "own/Zephaniah/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung.json",
+   "title": "Zephaniah",
+   "heTitle": "צפניה",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "de",
+   "hash": "e9bc1a83a6bbb402c60f377c2373ea838649c198"
+  },
+  {
+   "rel": "own/Amos/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung.json",
+   "title": "Amos",
+   "heTitle": "עמוס",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "de",
+   "hash": "523bff0b247b0fc4f63597f47e593fdc2827740f"
+  },
+  {
+   "rel": "own/Micah/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung.json",
+   "title": "Micah",
+   "heTitle": "מיכה",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "de",
+   "hash": "455836b181f2aa7af70b6bf9bdbad0fa481e6c17"
+  },
+  {
+   "rel": "own/Zechariah/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung.json",
+   "title": "Zechariah",
+   "heTitle": "זכריה",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "de",
+   "hash": "705a989c3157c6d8c2849017a02fb232991fc683"
+  },
+  {
+   "rel": "own/Obadiah/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung.json",
+   "title": "Obadiah",
+   "heTitle": "עובדיה",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "de",
+   "hash": "9836ae399412262963a9dbfe9dd411407d76c462"
+  },
+  {
+   "rel": "own/Nahum/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung.json",
+   "title": "Nahum",
+   "heTitle": "נחום",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "de",
+   "hash": "0fe49445bfcc2d7f309c0fc7caf63799cbf5845f"
+  },
+  {
+   "rel": "own/Malachi/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung.json",
+   "title": "Malachi",
+   "heTitle": "מלאכי",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "de",
+   "hash": "0a290fde7777273d6bb3becb2fdc6abbb51ea01f"
+  },
+  {
+   "rel": "own/Jonah/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung.json",
+   "title": "Jonah",
+   "heTitle": "יונה",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "de",
+   "hash": "9581e50d4acd73257aaff9549997e0b19bb06fc7"
+  },
+  {
+   "rel": "own/Joel/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung.json",
+   "title": "Joel",
+   "heTitle": "יואל",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "de",
+   "hash": "f35f913fa212b334bc6ace482347d3a86d8ca930"
+  },
+  {
+   "rel": "own/Jeremiah/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung.json",
+   "title": "Jeremiah",
+   "heTitle": "ירמיהו",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "de",
+   "hash": "5b6d486e1463ad969c719b2b12a823afaaf05ed3"
+  },
+  {
+   "rel": "own/Isaiah/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung.json",
+   "title": "Isaiah",
+   "heTitle": "ישעיהו",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "de",
+   "hash": "11013d1f967df91a1fb54098c21193233c1aa2bb"
+  },
+  {
+   "rel": "own/Hosea/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung.json",
+   "title": "Hosea",
+   "heTitle": "הושע",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "de",
+   "hash": "2263168a523a0d3abb479a7e5c723575eceaa223"
+  },
+  {
+   "rel": "own/Haggai/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung.json",
+   "title": "Haggai",
+   "heTitle": "חגי",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "de",
+   "hash": "f9507714c9b681cfe7636778cb87c0ecaf689269"
+  },
+  {
+   "rel": "own/Habakkuk/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung.json",
+   "title": "Habakkuk",
+   "heTitle": "חבקוק",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "de",
+   "hash": "4ac305cace43c31c7970df8d2d86802bcdab31a6"
+  },
+  {
+   "rel": "own/Ezekiel/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung.json",
+   "title": "Ezekiel",
+   "heTitle": "יחזקאל",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "de",
+   "hash": "0e9945b4b0cf3ad2faca3ab12f2d8354096a2ee3"
+  },
+  {
+   "rel": "own/Lamentations/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung.json",
+   "title": "Lamentations",
+   "heTitle": "איכה",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "de",
+   "hash": "5642d16e0d3541b894dae76dc484a69ba1011ba2"
+  },
+  {
+   "rel": "own/Song of Songs/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung.json",
+   "title": "Song of Songs",
+   "heTitle": "שיר השירים",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "de",
+   "hash": "b832dd8a66b14703ab2610c67bef7e6905c80cc2"
+  },
+  {
+   "rel": "own/Ruth/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung.json",
+   "title": "Ruth",
+   "heTitle": "רות",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "de",
+   "hash": "b3f50b5fd5ac5d49dd654b9de46def8556cdc386"
+  },
+  {
+   "rel": "own/Psalms/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung.json",
+   "title": "Psalms",
+   "heTitle": "תהילים",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "de",
+   "hash": "3f705aaf9d740b2a0bed810ceadaa00722b1919e"
+  },
+  {
+   "rel": "own/Proverbs/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung.json",
+   "title": "Proverbs",
+   "heTitle": "משלי",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "de",
+   "hash": "cff279183c14a2c63acbc28fd3c78c390d8ed17b"
+  },
+  {
+   "rel": "own/Nehemiah/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung.json",
+   "title": "Nehemiah",
+   "heTitle": "נחמיה",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "de",
+   "hash": "3bfed90702e6531a83845a6178fa6840dcc68cbb"
+  },
+  {
+   "rel": "own/Job/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung.json",
+   "title": "Job",
+   "heTitle": "איוב",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "de",
+   "hash": "a918ed5f346e75a2a82ae8e364939fad6d2aa539"
+  },
+  {
+   "rel": "own/II Chronicles/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung.json",
+   "title": "II Chronicles",
+   "heTitle": "דברי הימים ב",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "de",
+   "hash": "a216622c83f813c1113a0aad18f92ce716269af8"
+  },
+  {
+   "rel": "own/I Chronicles/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung.json",
+   "title": "I Chronicles",
+   "heTitle": "דברי הימים א",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "de",
+   "hash": "be3dc9bab655d7f0403e921e5db816daab84494e"
+  },
+  {
+   "rel": "own/Ezra/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung.json",
+   "title": "Ezra",
+   "heTitle": "עזרא",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "de",
+   "hash": "40a4374e21b231c38b32899b25a6a679060b1dbc"
+  },
+  {
+   "rel": "own/Esther/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung.json",
+   "title": "Esther",
+   "heTitle": "אסתר",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "de",
+   "hash": "feb63de8f22de47a13a306444165e8a6e2851945"
+  },
+  {
+   "rel": "own/Ecclesiastes/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung.json",
+   "title": "Ecclesiastes",
+   "heTitle": "קהלת",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "de",
+   "hash": "71ffdb0c5c298c24ce6aec209f5f1f04a6245a00"
+  },
+  {
+   "rel": "own/Daniel/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung.json",
+   "title": "Daniel",
+   "heTitle": "דניאל",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "de",
+   "hash": "b84a80cda14ffa91fab2686bea398676a7fec6d9"
+  },
+  {
+   "rel": "own/Deuteronomy/de/Die fünf Bücher Mose, übersetzt von Moses Mendelssohn, für Bibelfreunde aller Konfessionen, und zunächst für Israe.json",
+   "title": "Deuteronomy",
+   "heTitle": "דברים",
+   "language": "English",
+   "versionTitle": "Die fünf Bücher Mose, übersetzt von Moses Mendelssohn, für Bibelfreunde aller Konfessionen, und zunächst für Israeliten bestimmt; herausgegeben von D. Fränkel und von M.H. Bock. Dessau 1815",
+   "categories": [
+    "Tanakh",
+    "Torah"
+   ],
+   "kind": "de",
+   "hash": "3e7e467e0f39a7c92a9c11abe14b8dc645e9c1cc"
+  },
+  {
+   "rel": "own/Exodus/de/Die fünf Bücher Mose, übersetzt von Moses Mendelssohn, für Bibelfreunde aller Konfessionen, und zunächst für Israe.json",
+   "title": "Exodus",
+   "heTitle": "שמות",
+   "language": "English",
+   "versionTitle": "Die fünf Bücher Mose, übersetzt von Moses Mendelssohn, für Bibelfreunde aller Konfessionen, und zunächst für Israeliten bestimmt; herausgegeben von D. Fränkel und von M.H. Bock. Dessau 1815",
+   "categories": [
+    "Tanakh",
+    "Torah"
+   ],
+   "kind": "de",
+   "hash": "2c85c9fb86ab339b2634c8fb2d216a097af0d6b7"
+  },
+  {
+   "rel": "own/Genesis/de/Die fünf Bücher Mose, übersetzt von Moses Mendelssohn, für Bibelfreunde aller Konfessionen, und zunächst für Israe.json",
+   "title": "Genesis",
+   "heTitle": "בראשית",
+   "language": "English",
+   "versionTitle": "Die fünf Bücher Mose, übersetzt von Moses Mendelssohn, für Bibelfreunde aller Konfessionen, und zunächst für Israeliten bestimmt; herausgegeben von D. Fränkel und von M.H. Bock. Dessau 1815",
+   "categories": [
+    "Tanakh",
+    "Torah"
+   ],
+   "kind": "de",
+   "hash": "94628b96f3cf72d75d553204cb4fcd672450509f"
+  },
+  {
+   "rel": "own/Leviticus/de/Die fünf Bücher Mose, übersetzt von Moses Mendelssohn, für Bibelfreunde aller Konfessionen, und zunächst für Israe.json",
+   "title": "Leviticus",
+   "heTitle": "ויקרא",
+   "language": "English",
+   "versionTitle": "Die fünf Bücher Mose, übersetzt von Moses Mendelssohn, für Bibelfreunde aller Konfessionen, und zunächst für Israeliten bestimmt; herausgegeben von D. Fränkel und von M.H. Bock. Dessau 1815",
+   "categories": [
+    "Tanakh",
+    "Torah"
+   ],
+   "kind": "de",
+   "hash": "b5b7ce3ce4021042123a3c05b4cefa1701530406"
+  },
+  {
+   "rel": "own/Numbers/de/Die fünf Bücher Mose, übersetzt von Moses Mendelssohn, für Bibelfreunde aller Konfessionen, und zunächst für Israe.json",
+   "title": "Numbers",
+   "heTitle": "במדבר",
+   "language": "English",
+   "versionTitle": "Die fünf Bücher Mose, übersetzt von Moses Mendelssohn, für Bibelfreunde aller Konfessionen, und zunächst für Israeliten bestimmt; herausgegeben von D. Fränkel und von M.H. Bock. Dessau 1815",
+   "categories": [
+    "Tanakh",
+    "Torah"
+   ],
+   "kind": "de",
+   "hash": "b15ff3dab02864baf8067e310363b047a04e9197"
+  },
+  {
+   "rel": "own/Hertz on Deuteronomy/de/Hertz_on_Deuteronomy_Sefaria.json",
+   "title": "Hertz on Deuteronomy",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Hertz_on_Deuteronomy_Sefaria",
+   "categories": [
+    "Eigene Texte"
+   ],
+   "kind": "de",
+   "hash": "a3af56c2f8b3481084a0a1f0ac4cbdc07d699ffb"
+  },
+  {
+   "rel": "own/Devarim Rabbah/de/Der Midrasch Debarim Rabba; zum ersten Male ins Dt. übertr. von August Wünsche. Leipzig 1882.json",
+   "title": "Devarim Rabbah",
+   "heTitle": "דברים רבה",
+   "language": "English",
+   "versionTitle": "Der Midrasch Debarim Rabba; zum ersten Male ins Dt. übertr. von August Wünsche. Leipzig 1882",
+   "categories": [
+    "Midrash",
+    "Aggadah",
+    "Midrash Rabbah"
+   ],
+   "kind": "de",
+   "hash": "ae5ef964b5c65c0c8e2ce3d1d7ff3a992891a4b9"
+  },
+  {
+   "rel": "own/Joshua/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung, fortlaufender Erklärung und home.json",
+   "title": "Joshua",
+   "heTitle": "יהושע",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung, fortlaufender Erklärung und homelitisch benutzbaren Andeutung von Dr. Salomon Herxheimer. Berlin 1843",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "de",
+   "hash": "4fe8adca1fa18666c9a1c10db81ee87ddce0c4a0"
+  },
+  {
+   "rel": "own/II Kings/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung, fortlaufender Erklärung und home.json",
+   "title": "II Kings",
+   "heTitle": "מלכים ב",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung, fortlaufender Erklärung und homelitisch benutzbaren Andeutung von Dr. Salomon Herxheimer. Berlin 1843",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "de",
+   "hash": "2e1e47af119f828ec2e7d29875ae4d2fe87904c0"
+  },
+  {
+   "rel": "own/Judges/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung, fortlaufender Erklärung und home.json",
+   "title": "Judges",
+   "heTitle": "שופטים",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung, fortlaufender Erklärung und homelitisch benutzbaren Andeutung von Dr. Salomon Herxheimer. Berlin 1843",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "de",
+   "hash": "be9b487b2a1eee844bc00c20210b05eb0ddb7e92"
+  },
+  {
+   "rel": "own/II Samuel/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung, fortlaufender Erklärung und home.json",
+   "title": "II Samuel",
+   "heTitle": "שמואל ב",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung, fortlaufender Erklärung und homelitisch benutzbaren Andeutung von Dr. Salomon Herxheimer. Berlin 1843",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "de",
+   "hash": "82990b4ca7e43805395e4a32c7535a8b92557de5"
+  },
+  {
+   "rel": "own/I Samuel/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung, fortlaufender Erklärung und home.json",
+   "title": "I Samuel",
+   "heTitle": "שמואל א",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung, fortlaufender Erklärung und homelitisch benutzbaren Andeutung von Dr. Salomon Herxheimer. Berlin 1843",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "de",
+   "hash": "0ae3d2d9ca9ad8dfe726cb6df4facf3517be8248"
+  },
+  {
+   "rel": "own/Herxheimer on Zephaniah/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung.json",
+   "title": "Herxheimer on Zephaniah",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "479f72752623924c9c47e63f674a9a160e4fc783"
+  },
+  {
+   "rel": "own/I Kings/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung, fortlaufender Erklärung und home.json",
+   "title": "I Kings",
+   "heTitle": "מלכים א",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung, fortlaufender Erklärung und homelitisch benutzbaren Andeutung von Dr. Salomon Herxheimer. Berlin 1843",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "de",
+   "hash": "df2936befe59d9bbe819bdc34e867cfc1e980f9d"
+  },
+  {
+   "rel": "own/Herxheimer on Amos/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung.json",
+   "title": "Herxheimer on Amos",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "e06889cacdac667c8ceca729fdd1202575981bba"
+  },
+  {
+   "rel": "own/Herxheimer on Ezekiel/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung.json",
+   "title": "Herxheimer on Ezekiel",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "b25b795a47ead92092cd11b49525f224cf9ee3af"
+  },
+  {
+   "rel": "own/Herxheimer on Habakkuk/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung.json",
+   "title": "Herxheimer on Habakkuk",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "06856bb870a164279e55e9a1b6731aa78b1e6197"
+  },
+  {
+   "rel": "own/Herxheimer on Haggai/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung.json",
+   "title": "Herxheimer on Haggai",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "2c3269c727da94c5abf9612a996e637c3d2d262d"
+  },
+  {
+   "rel": "own/Herxheimer on Hosea/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung.json",
+   "title": "Herxheimer on Hosea",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "351726252b334be23e8e7498df04a15259156ab2"
+  },
+  {
+   "rel": "own/Herxheimer on I Kings/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung, fortlaufender Erklärung und home.json",
+   "title": "Herxheimer on I Kings",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung, fortlaufender Erklärung und homelitisch benutzbaren Andeutung von Dr. Salomon Herxheimer. Berlin 1843 [nur Anmerkungen]",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "0a1ebf8a67f9e88e895335ef95bb1d1cf7f463c0"
+  },
+  {
+   "rel": "own/Herxheimer on I Samuel/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung, fortlaufender Erklärung und home.json",
+   "title": "Herxheimer on I Samuel",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung, fortlaufender Erklärung und homelitisch benutzbaren Andeutung von Dr. Salomon Herxheimer. Berlin 1843 [nur Anmerkungen]",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "c5b49e758d47c2bdb1d35fe22cf7cbbc1ee04868"
+  },
+  {
+   "rel": "own/Herxheimer on II Kings/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung, fortlaufender Erklärung und home.json",
+   "title": "Herxheimer on II Kings",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung, fortlaufender Erklärung und homelitisch benutzbaren Andeutung von Dr. Salomon Herxheimer. Berlin 1843 [nur Anmerkungen]",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "fa1b86eaa038b3f36650ccaea01d6eea1f069517"
+  },
+  {
+   "rel": "own/Herxheimer on II Samuel/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung, fortlaufender Erklärung und home.json",
+   "title": "Herxheimer on II Samuel",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung, fortlaufender Erklärung und homelitisch benutzbaren Andeutung von Dr. Salomon Herxheimer. Berlin 1843 [nur Anmerkungen]",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "7117fe746200240cb4ef326f3c4515e228059b42"
+  },
+  {
+   "rel": "own/Herxheimer on Isaiah/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung.json",
+   "title": "Herxheimer on Isaiah",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "a59929a47552e58939046b5c6e9a0cd651b2ef54"
+  },
+  {
+   "rel": "own/Herxheimer on Jeremiah/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung.json",
+   "title": "Herxheimer on Jeremiah",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "da5424563dc13775467aa43305a1b581c39dde3f"
+  },
+  {
+   "rel": "own/Herxheimer on Joel/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung.json",
+   "title": "Herxheimer on Joel",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "bd41ba8915f37e8dd916fe04278f584cea392dc2"
+  },
+  {
+   "rel": "own/Herxheimer on Jonah/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung.json",
+   "title": "Herxheimer on Jonah",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "c997ff22ff9cb59dadf72983526d3dacb274fd11"
+  },
+  {
+   "rel": "own/Herxheimer on Joshua/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung, fortlaufender Erklärung und home.json",
+   "title": "Herxheimer on Joshua",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung, fortlaufender Erklärung und homelitisch benutzbaren Andeutung von Dr. Salomon Herxheimer. Berlin 1843 [nur Anmerkungen]",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "ba01da88ce706f62d660ac96ecb713e521866ad1"
+  },
+  {
+   "rel": "own/Herxheimer on Judges/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung, fortlaufender Erklärung und home.json",
+   "title": "Herxheimer on Judges",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung, fortlaufender Erklärung und homelitisch benutzbaren Andeutung von Dr. Salomon Herxheimer. Berlin 1843 [nur Anmerkungen]",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "a333c591ffc1fe8daa49f6f664f1a9ced63c6017"
+  },
+  {
+   "rel": "own/Herxheimer on Malachi/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung.json",
+   "title": "Herxheimer on Malachi",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "a7841995611e0e185faf8c034ceb55f9b877192b"
+  },
+  {
+   "rel": "own/Herxheimer on Micah/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung.json",
+   "title": "Herxheimer on Micah",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "0c6e8344b64a03d21aa3a3e472de78aea376701c"
+  },
+  {
+   "rel": "own/Herxheimer on Nahum/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung.json",
+   "title": "Herxheimer on Nahum",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "cf0a328f377e76f94686fedeaa3e6fc3c6dd6176"
+  },
+  {
+   "rel": "own/Herxheimer on Obadiah/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung.json",
+   "title": "Herxheimer on Obadiah",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "ef9c9ec23ad020979bf4bf709556939666d9be01"
+  },
+  {
+   "rel": "own/Hertz on Exodus/de/Hertz_on_Exodus_Sefaria (3).json",
+   "title": "Hertz on Exodus",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Hertz_on_Exodus_Sefaria (3)",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "0b5ae0f4d623518916ea5d14f828a1819aeda2bc"
+  },
+  {
+   "rel": "own/Hertz on Numbers/de/Hertz_on_Numbers_Sefaria.json",
+   "title": "Hertz on Numbers",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Hertz_on_Numbers_Sefaria",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "8201807a8bb8a0f4d7120ca405e9a5c174931e5c"
+  },
+  {
+   "rel": "own/Deuteronomy/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung.json",
+   "title": "Deuteronomy",
+   "heTitle": "דברים",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Torah"
+   ],
+   "kind": "de",
+   "hash": "5a40d6dceec2ee3034b1abae5bb23bde473c61a9"
+  },
+  {
+   "rel": "own/Exodus/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung.json",
+   "title": "Exodus",
+   "heTitle": "שמות",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Torah"
+   ],
+   "kind": "de",
+   "hash": "2783d5a05308a04af3139aef3a5a79da3995c617"
+  },
+  {
+   "rel": "own/Genesis/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung.json",
+   "title": "Genesis",
+   "heTitle": "בראשית",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Torah"
+   ],
+   "kind": "de",
+   "hash": "7f364932c70280599a3ee4a22b55872f76ca306e"
+  },
+  {
+   "rel": "own/Leviticus/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung.json",
+   "title": "Leviticus",
+   "heTitle": "ויקרא",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Torah"
+   ],
+   "kind": "de",
+   "hash": "40ac99b22ef04b76a76696138d162641a127a3c8"
+  },
+  {
+   "rel": "own/Numbers/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung.json",
+   "title": "Numbers",
+   "heTitle": "במדבר",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Torah"
+   ],
+   "kind": "de",
+   "hash": "0493a153ae2a1a09ce1777fd2b213a3d160e65c0"
+  },
+  {
+   "rel": "own/Amos/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung.json",
+   "title": "Amos",
+   "heTitle": "עמוס",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "de",
+   "hash": "1d55e910e989c47bc6eb0900485be2268e639b3a"
+  },
+  {
+   "rel": "own/Ezekiel/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung.json",
+   "title": "Ezekiel",
+   "heTitle": "יחזקאל",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "de",
+   "hash": "12195aac4950a96884d5c3b0beed2e6bd1c0073b"
+  },
+  {
+   "rel": "own/Habakkuk/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung.json",
+   "title": "Habakkuk",
+   "heTitle": "חבקוק",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "de",
+   "hash": "95482aca3e4b5043406759be51494d55ebe04637"
+  },
+  {
+   "rel": "own/Haggai/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung.json",
+   "title": "Haggai",
+   "heTitle": "חגי",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "de",
+   "hash": "c000a3d03fc7975334a214fc79081f42e52c5ad1"
+  },
+  {
+   "rel": "own/Hosea/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung.json",
+   "title": "Hosea",
+   "heTitle": "הושע",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "de",
+   "hash": "4785cb8b675fa3dacaf3e4b754dfa64977ae4466"
+  },
+  {
+   "rel": "own/I Kings/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung.json",
+   "title": "I Kings",
+   "heTitle": "מלכים א",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "de",
+   "hash": "0b463f27bc092bc0ae3ac879606ee5bf8583c29a"
+  },
+  {
+   "rel": "own/I Samuel/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung.json",
+   "title": "I Samuel",
+   "heTitle": "שמואל א",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "de",
+   "hash": "9a416ff858e13fecc7f8276769ef195c76abe390"
+  },
+  {
+   "rel": "own/II Kings/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung.json",
+   "title": "II Kings",
+   "heTitle": "מלכים ב",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "de",
+   "hash": "43de0a691a2d27ec3ee2897c6aed551fc8d28fbf"
+  },
+  {
+   "rel": "own/II Samuel/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung.json",
+   "title": "II Samuel",
+   "heTitle": "שמואל ב",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "de",
+   "hash": "7c2f451778badb63ba32035b6ec4bf041ca9aae9"
+  },
+  {
+   "rel": "own/Isaiah/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung.json",
+   "title": "Isaiah",
+   "heTitle": "ישעיהו",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "de",
+   "hash": "771bbb26fe368d40c36dc92b46901ec41b85f8ac"
+  },
+  {
+   "rel": "own/Jeremiah/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung.json",
+   "title": "Jeremiah",
+   "heTitle": "ירמיהו",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "de",
+   "hash": "04d15f6aec6d66665937356b4326bb3bb873811c"
+  },
+  {
+   "rel": "own/Joel/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung.json",
+   "title": "Joel",
+   "heTitle": "יואל",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "de",
+   "hash": "af53829f01bd0c7ab801b5b3760acdc448825658"
+  },
+  {
+   "rel": "own/Jonah/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung.json",
+   "title": "Jonah",
+   "heTitle": "יונה",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "de",
+   "hash": "d09f66167b8fd04d599c2738b67e01330fe7b448"
+  },
+  {
+   "rel": "own/Joshua/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung.json",
+   "title": "Joshua",
+   "heTitle": "יהושע",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "de",
+   "hash": "6926b6a8768f2540486ceb0ff6b9f6d3d44a0359"
+  },
+  {
+   "rel": "own/Judges/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung.json",
+   "title": "Judges",
+   "heTitle": "שופטים",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "de",
+   "hash": "2e73afb0d27a319369f4a5e3b8d4fe4d4bb803b1"
+  },
+  {
+   "rel": "own/Malachi/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung.json",
+   "title": "Malachi",
+   "heTitle": "מלאכי",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "de",
+   "hash": "32d10996cd0c9b16f6adacbdec23e217eba67ed9"
+  },
+  {
+   "rel": "own/Micah/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung.json",
+   "title": "Micah",
+   "heTitle": "מיכה",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "de",
+   "hash": "d6182f390d5061dbcacbc5a54591576d50c22021"
+  },
+  {
+   "rel": "own/Nahum/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung.json",
+   "title": "Nahum",
+   "heTitle": "נחום",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "de",
+   "hash": "9216f1f0dc33af49f816ef3af66f17a5fffd1d12"
+  },
+  {
+   "rel": "own/Obadiah/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung.json",
+   "title": "Obadiah",
+   "heTitle": "עובדיה",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "de",
+   "hash": "3c35394a5370766c4fe36b65fe88a5ab6a290e5e"
+  },
+  {
+   "rel": "own/Zechariah/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung.json",
+   "title": "Zechariah",
+   "heTitle": "זכריה",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "de",
+   "hash": "a0c026f77157cce965fdd2cb92e8821872388735"
+  },
+  {
+   "rel": "own/Zephaniah/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung.json",
+   "title": "Zephaniah",
+   "heTitle": "צפניה",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "de",
+   "hash": "480129c0d603e3b4597b7cc3c5ff561be9d2905f"
+  },
+  {
+   "rel": "own/Daniel/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung.json",
+   "title": "Daniel",
+   "heTitle": "דניאל",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "de",
+   "hash": "503c39682d4a9e667d00bb0be7a6c7e59e31f029"
+  },
+  {
+   "rel": "own/Ecclesiastes/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung.json",
+   "title": "Ecclesiastes",
+   "heTitle": "קהלת",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "de",
+   "hash": "fc49220797f8a2a663919e1f23a74caa8f27215c"
+  },
+  {
+   "rel": "own/Esther/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung.json",
+   "title": "Esther",
+   "heTitle": "אסתר",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "de",
+   "hash": "a271b66e72c9f2ec092cf53031df30b33ca1e828"
+  },
+  {
+   "rel": "own/Ezra/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung.json",
+   "title": "Ezra",
+   "heTitle": "עזרא",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "de",
+   "hash": "006fac859c6a68259ac12891ac2282f62f5be0a4"
+  },
+  {
+   "rel": "own/I Chronicles/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung.json",
+   "title": "I Chronicles",
+   "heTitle": "דברי הימים א",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "de",
+   "hash": "60bc704c7a30f9d1379ec4f4c011d35ef4c3183f"
+  },
+  {
+   "rel": "own/II Chronicles/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung.json",
+   "title": "II Chronicles",
+   "heTitle": "דברי הימים ב",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "de",
+   "hash": "2105b4665d2faa24b56e839c92c4ccc186676212"
+  },
+  {
+   "rel": "own/Job/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung.json",
+   "title": "Job",
+   "heTitle": "איוב",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "de",
+   "hash": "700282b2e809083f88e924d4c06d8b10b44b5e2c"
+  },
+  {
+   "rel": "own/Lamentations/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung.json",
+   "title": "Lamentations",
+   "heTitle": "איכה",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "de",
+   "hash": "848c333cf065d1b35e75eefb000457ae46ee9337"
+  },
+  {
+   "rel": "own/Nehemiah/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung.json",
+   "title": "Nehemiah",
+   "heTitle": "נחמיה",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "de",
+   "hash": "7df5fb2140a41777054bed085f7d733c63c23323"
+  },
+  {
+   "rel": "own/Proverbs/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung.json",
+   "title": "Proverbs",
+   "heTitle": "משלי",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "de",
+   "hash": "81ead20a0ecc73223dd7a68c6ae8961594f94570"
+  },
+  {
+   "rel": "own/Psalms/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung.json",
+   "title": "Psalms",
+   "heTitle": "תהילים",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "de",
+   "hash": "28946c4776fdcad24c0dbdd94bd3a6a75f745138"
+  },
+  {
+   "rel": "own/Ruth/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung.json",
+   "title": "Ruth",
+   "heTitle": "רות",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "de",
+   "hash": "21dcac4ec77d8690c351a73a5bb87cdb4f154d49"
+  },
+  {
+   "rel": "own/Song of Songs/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung.json",
+   "title": "Song of Songs",
+   "heTitle": "שיר השירים",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "de",
+   "hash": "ee27192c0ec88e402e3e399f074626370a3d5db4"
+  },
+  {
+   "rel": "own/Philippson on Leviticus/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar.json",
+   "title": "Philippson on Leviticus",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "acd98ee28c0c512b25241aa8990af31b33836848"
+  },
+  {
+   "rel": "own/Philippson on Deuteronomy/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar.json",
+   "title": "Philippson on Deuteronomy",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "48dd856feef8baacb0559f003e59246e449a4ceb"
+  },
+  {
+   "rel": "own/Philippson on Exodus/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar.json",
+   "title": "Philippson on Exodus",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "c242b370e3b931d60afcdf929b9b2c1f7c0c2d8b"
+  },
+  {
+   "rel": "own/Philippson on Genesis/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar.json",
+   "title": "Philippson on Genesis",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "7f179b6472e343bfba5fdb45c290af64746ba33b"
+  },
+  {
+   "rel": "own/Philippson on Numbers/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar.json",
+   "title": "Philippson on Numbers",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "b54969da5fc6bddb37579e70d148e831e7a51c33"
+  },
+  {
+   "rel": "own/Philippson on Haggai/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar.json",
+   "title": "Philippson on Haggai",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "7c3614ff6d24acfc834a1fd7eded8d7c08e81024"
+  },
+  {
+   "rel": "own/Philippson on Amos/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar.json",
+   "title": "Philippson on Amos",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "250ceb8bd1613d44b0da414126c26a8fca26ba4c"
+  },
+  {
+   "rel": "own/Philippson on Ezekiel/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar.json",
+   "title": "Philippson on Ezekiel",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "de3fae2e88119fb3d993cf7ce7e2a0885b6bddfc"
+  },
+  {
+   "rel": "own/Philippson on Habakkuk/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar.json",
+   "title": "Philippson on Habakkuk",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "4074831d9c03741a3cf7160be8c9d2ac073a5f0b"
+  },
+  {
+   "rel": "own/Philippson on Hosea/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar.json",
+   "title": "Philippson on Hosea",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "62e751ed8a8b801f75ab12fc3f545d64de5cedc4"
+  },
+  {
+   "rel": "own/Philippson on I Kings/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar.json",
+   "title": "Philippson on I Kings",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "188558eef411a708bc19f24382eb96026746be79"
+  },
+  {
+   "rel": "own/Philippson on I Samuel/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar.json",
+   "title": "Philippson on I Samuel",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "b3cf5e0855605cefb82e5a53f8b82c29c9caf7a3"
+  },
+  {
+   "rel": "own/Philippson on II Kings/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar.json",
+   "title": "Philippson on II Kings",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "de15f6fd8973358584d7bd9f8c27a08d829fc6de"
+  },
+  {
+   "rel": "own/Philippson on II Samuel/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar.json",
+   "title": "Philippson on II Samuel",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "7da8493c7e30f8fd9d47b9650636435be615b7e8"
+  },
+  {
+   "rel": "own/Philippson on Isaiah/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar.json",
+   "title": "Philippson on Isaiah",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "d5cc54108b7c838bd84c5d93ea7cd2a40ce93f25"
+  },
+  {
+   "rel": "own/Philippson on Jeremiah/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar.json",
+   "title": "Philippson on Jeremiah",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "6dc8604d11decd6f3b4484b1cbfa057797227219"
+  },
+  {
+   "rel": "own/Philippson on Joel/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar.json",
+   "title": "Philippson on Joel",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "8e64d0d06552f28ad76dd280b8961837ad38c71f"
+  },
+  {
+   "rel": "own/Philippson on Jonah/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar.json",
+   "title": "Philippson on Jonah",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "a43df122462a7a3f3a2dc30cb69ebacdbe284955"
+  },
+  {
+   "rel": "own/Philippson on Joshua/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar.json",
+   "title": "Philippson on Joshua",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "e495cffb5fc3d2cbad2e0f8e3b434a74401af757"
+  },
+  {
+   "rel": "own/Philippson on Judges/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar.json",
+   "title": "Philippson on Judges",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "fe60a66538c35ec7203f586fcaa07f9deaf0af92"
+  },
+  {
+   "rel": "own/Philippson on Malachi/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar.json",
+   "title": "Philippson on Malachi",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "6f334d46ba281b3cf147a2aab9a02b8337b80c65"
+  },
+  {
+   "rel": "own/Philippson on Micah/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar.json",
+   "title": "Philippson on Micah",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "2a77533acabf9a08a1d092411ac7d8d85d86c016"
+  },
+  {
+   "rel": "own/Philippson on Nahum/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar.json",
+   "title": "Philippson on Nahum",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "729e2b81ab88dab713c501bd71e0afdf9f04230d"
+  },
+  {
+   "rel": "own/Philippson on Obadiah/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar.json",
+   "title": "Philippson on Obadiah",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "5ef431cf2885f72b467aa46fc73c0458b1b72f62"
+  },
+  {
+   "rel": "own/Philippson on Zechariah/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar.json",
+   "title": "Philippson on Zechariah",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "c658d6aa89ee0a5a2b4b3feaf05165ef8d52fa9a"
+  },
+  {
+   "rel": "own/Philippson on Zephaniah/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar.json",
+   "title": "Philippson on Zephaniah",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "63df0a994ac6a6967e80b5f53809442a3cfce9df"
+  },
+  {
+   "rel": "own/Philippson on Ecclesiastes/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar.json",
+   "title": "Philippson on Ecclesiastes",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "c9dec75b3367b5ca6aa79f1a1e89c553eaa2aae2"
+  },
+  {
+   "rel": "own/Philippson on Daniel/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar.json",
+   "title": "Philippson on Daniel",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "dc979a2465ad4992f0018604191921e6eb3ff00c"
+  },
+  {
+   "rel": "own/Philippson on Esther/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar.json",
+   "title": "Philippson on Esther",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "a1b673c8887b7c3f642c169ba629911a289e83d6"
+  },
+  {
+   "rel": "own/Philippson on Ezra/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar.json",
+   "title": "Philippson on Ezra",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "48359dc3ef69f94253fcf650daf57c4d3a58995b"
+  },
+  {
+   "rel": "own/Philippson on I Chronicles/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar.json",
+   "title": "Philippson on I Chronicles",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "63f025c942280271123741c7e97d32bcc35a629a"
+  },
+  {
+   "rel": "own/Philippson on II Chronicles/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar.json",
+   "title": "Philippson on II Chronicles",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "10c098c2dff2ce5f66af9de5dd8b365b0fe85d34"
+  },
+  {
+   "rel": "own/Philippson on Job/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar.json",
+   "title": "Philippson on Job",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "516ec3dde24734c4585184817d4151f5deffb189"
+  },
+  {
+   "rel": "own/Philippson on Lamentations/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar.json",
+   "title": "Philippson on Lamentations",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "032029506c689c1d8ae450464e2c310ae0bbefda"
+  },
+  {
+   "rel": "own/Philippson on Nehemiah/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar.json",
+   "title": "Philippson on Nehemiah",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "f6fb24bb09cb280d4a34fcffd32169537168b980"
+  },
+  {
+   "rel": "own/Philippson on Proverbs/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar.json",
+   "title": "Philippson on Proverbs",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "574b9cd602a4925099c7e933777d561895751290"
+  },
+  {
+   "rel": "own/Philippson on Psalms/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar.json",
+   "title": "Philippson on Psalms",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "582557f271c0b5b9b0244f39539a3ec9ea51725d"
+  },
+  {
+   "rel": "own/Philippson on Ruth/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar.json",
+   "title": "Philippson on Ruth",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "1119dff1cc383cd5226f08b36e359058004acf7c"
+  },
+  {
+   "rel": "own/Philippson on Song of Songs/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar.json",
+   "title": "Philippson on Song of Songs",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Kommentar",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "5af766534f1db57d222434348b59685c194ce6d3"
+  },
+  {
+   "rel": "own/Herxheimer on Esther/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung.json",
+   "title": "Herxheimer on Esther",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "cfaf8083e911c2561a760c6ee8d720f876749d56"
+  },
+  {
+   "rel": "own/Herxheimer on Daniel/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung.json",
+   "title": "Herxheimer on Daniel",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "61dfc6d774d3e40352244f6c53e7e0d135349aab"
+  },
+  {
+   "rel": "own/Herxheimer on Ecclesiastes/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung.json",
+   "title": "Herxheimer on Ecclesiastes",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "b6d0a02cd86eb575cde3ddf4cc5d577d1492bcd7"
+  },
+  {
+   "rel": "own/Herxheimer on Ezra/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung.json",
+   "title": "Herxheimer on Ezra",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "b9cd3284d01371f4030c50399ad2d141f62dfd3d"
+  },
+  {
+   "rel": "own/Herxheimer on I Chronicles/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung.json",
+   "title": "Herxheimer on I Chronicles",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "8a47f8acf76e237d51df85c6163113fce6511d60"
+  },
+  {
+   "rel": "own/Herxheimer on II Chronicles/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung.json",
+   "title": "Herxheimer on II Chronicles",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "12c6bea62287fb1c0cf880d80adabd884492ee77"
+  },
+  {
+   "rel": "own/Herxheimer on Job/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung.json",
+   "title": "Herxheimer on Job",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "95689322eabbddbe0e7e35b9be26b07320f71298"
+  },
+  {
+   "rel": "own/Herxheimer on Lamentations/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung.json",
+   "title": "Herxheimer on Lamentations",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "29b5fb814b283a84357d0b40048936c6d1ef08bf"
+  },
+  {
+   "rel": "own/Herxheimer on Nehemiah/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung.json",
+   "title": "Herxheimer on Nehemiah",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "8ee8f21faefc24fe1f9c95a8a8c35d89b5068e3b"
+  },
+  {
+   "rel": "own/Herxheimer on Proverbs/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung.json",
+   "title": "Herxheimer on Proverbs",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "5491fff5d2037d12c11eb67bb11b997d081b45e3"
+  },
+  {
+   "rel": "own/Herxheimer on Psalms/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung.json",
+   "title": "Herxheimer on Psalms",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "71b93eecd7130f4f60d69de432a85869bf9e8bd5"
+  },
+  {
+   "rel": "own/Herxheimer on Ruth/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung.json",
+   "title": "Herxheimer on Ruth",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "1fb93cd07e2ed4edcdb50f1232b836f6d3feb811"
+  },
+  {
+   "rel": "own/Herxheimer on Song of Songs/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung.json",
+   "title": "Herxheimer on Song of Songs",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "62d7ebbd32ee641b1459d64ee1b7915ee4ddc1c7"
+  },
+  {
+   "rel": "own/Guide for the Perplexed/de/More_Nevuchim_Band1-3_Sefaria (1).json",
+   "title": "Guide for the Perplexed",
+   "heTitle": "מורה נבוכים",
+   "language": "English",
+   "versionTitle": "More_Nevuchim_Band1-3_Sefaria (1)",
+   "categories": [
+    "Jewish Thought",
+    "Rishonim"
+   ],
+   "kind": "de",
+   "hash": "db10bbfb4f438e0ce7e3223c1ea72c70f093b5fc"
+  },
+  {
+   "rel": "own/Rav Hirsch on Psalms/de/Die Psalmen, übersetzt und erläutert von Samson Raphael Hirsch. Frankfurt am Main 1882.json",
+   "title": "Rav Hirsch on Psalms",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Die Psalmen, übersetzt und erläutert von Samson Raphael Hirsch. Frankfurt am Main 1882",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "28f16d8d8bc28bb4e43a1fa3a764d02d33562f82"
+  },
+  {
+   "rel": "own/Psalms/de/Die Psalmen, übersetzt und erläutert von Samson Raphael Hirsch. Frankfurt am Main 1882.json",
+   "title": "Psalms",
+   "heTitle": "תהילים",
+   "language": "English",
+   "versionTitle": "Die Psalmen, übersetzt und erläutert von Samson Raphael Hirsch. Frankfurt am Main 1882",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "de",
+   "hash": "be6b848ec3c9b1d503a0761ec7849d4c54e32dac"
+  },
+  {
+   "rel": "own/Bamidbar Rabbah/de/Der Midrasch Bemidbar Rabba. Zum ersten Male ins Deutsche uebertragen von Dr. August Wünsche. Leizig 1885 [de].json",
+   "title": "Bamidbar Rabbah",
+   "heTitle": "במדבר רבה",
+   "language": "English",
+   "versionTitle": "Der Midrasch Bemidbar Rabba. Zum ersten Male ins Deutsche uebertragen von Dr. August Wünsche. Leizig 1885 [de]",
+   "categories": [
+    "Midrash",
+    "Aggadah",
+    "Midrash Rabbah"
+   ],
+   "kind": "de",
+   "hash": "3f5c00e7acb8693d63b5afdc0ceb4544cfaab6ce"
+  },
+  {
+   "rel": "own/I Chronicles/de/I_Chronicles.json",
+   "title": "I Chronicles",
+   "heTitle": "דברי הימים א",
+   "language": "English",
+   "versionTitle": "I_Chronicles",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "de",
+   "hash": "3f72d0acabe08b8747bf3d9702e122680785febc"
+  },
+  {
+   "rel": "own/II Chronicles/de/Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius .json",
+   "title": "II Chronicles",
+   "heTitle": "דברי הימים ב",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius Fürst, Dr. M. Sachs. Berlin 1838",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "de",
+   "hash": "46a763b2eeba058239ed2dabbab3ca633b978c4b"
+  },
+  {
+   "rel": "own/Nehemiah/de/Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius .json",
+   "title": "Nehemiah",
+   "heTitle": "נחמיה",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius Fürst, Dr. M. Sachs. Berlin 1838",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "de",
+   "hash": "a258efbbd1f73c88333a2d059152b72e47aef84c"
+  },
+  {
+   "rel": "own/Psalms/de/Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius .json",
+   "title": "Psalms",
+   "heTitle": "תהילים",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius Fürst, Dr. M. Sachs. Berlin 1838",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "de",
+   "hash": "a19d8c2a62fc45a8e386690be9733342e3d7ceac"
+  },
+  {
+   "rel": "own/Daniel/de/Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius .json",
+   "title": "Daniel",
+   "heTitle": "דניאל",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius Fürst, Dr. M. Sachs. Berlin 1838",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "de",
+   "hash": "3becf018bec9744b37cf5f3c0249cd769d9aef91"
+  },
+  {
+   "rel": "own/Esther/de/Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius .json",
+   "title": "Esther",
+   "heTitle": "אסתר",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius Fürst, Dr. M. Sachs. Berlin 1838",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "de",
+   "hash": "96e7eafbeffcd5e9a830a2613310aa2c9205a85e"
+  },
+  {
+   "rel": "own/Ezra/de/Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius .json",
+   "title": "Ezra",
+   "heTitle": "עזרא",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius Fürst, Dr. M. Sachs. Berlin 1838",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "de",
+   "hash": "54f9bbd712300f150de4e996e312ef27ebaeb9cd"
+  },
+  {
+   "rel": "own/Ecclesiastes/de/Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius .json",
+   "title": "Ecclesiastes",
+   "heTitle": "קהלת",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius Fürst, Dr. M. Sachs. Berlin 1838",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "de",
+   "hash": "ab178eff6b92da2083dd735a046747aa3c8d5d14"
+  },
+  {
+   "rel": "own/Job/de/Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius .json",
+   "title": "Job",
+   "heTitle": "איוב",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius Fürst, Dr. M. Sachs. Berlin 1838",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "de",
+   "hash": "19bce7d06b2a82cac599a14f65043af2ae2274dc"
+  },
+  {
+   "rel": "own/Lamentations/de/Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius .json",
+   "title": "Lamentations",
+   "heTitle": "איכה",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius Fürst, Dr. M. Sachs. Berlin 1838",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "de",
+   "hash": "f97efc0700f7de7ec1babad8a11747dd568137a3"
+  },
+  {
+   "rel": "own/Ruth/de/Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius .json",
+   "title": "Ruth",
+   "heTitle": "רות",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius Fürst, Dr. M. Sachs. Berlin 1838",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "de",
+   "hash": "c4e3dbb57072d8b41d35dc87649e52a00a973b03"
+  },
+  {
+   "rel": "own/Song of Songs/de/Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius .json",
+   "title": "Song of Songs",
+   "heTitle": "שיר השירים",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius Fürst, Dr. M. Sachs. Berlin 1838",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "de",
+   "hash": "e66ca6b0c2c0bc7042d043e9222ffe9868ed1fa7"
+  },
+  {
+   "rel": "own/Proverbs/de/Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius .json",
+   "title": "Proverbs",
+   "heTitle": "משלי",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius Fürst, Dr. M. Sachs. Berlin 1838",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "de",
+   "hash": "607af1a22697e460af364ad633f8c03c17715468"
+  },
+  {
+   "rel": "own/Malachi/de/Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius .json",
+   "title": "Malachi",
+   "heTitle": "מלאכי",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius Fürst, Dr. M. Sachs. Berlin 1838",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "de",
+   "hash": "4c07c8a36468aeea348dcc43deca46828164a944"
+  },
+  {
+   "rel": "own/Habakkuk/de/Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius .json",
+   "title": "Habakkuk",
+   "heTitle": "חבקוק",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius Fürst, Dr. M. Sachs. Berlin 1838",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "de",
+   "hash": "10890d2bcc75b9d5b88da549fbe0db20d40624d5"
+  },
+  {
+   "rel": "own/Haggai/de/Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius .json",
+   "title": "Haggai",
+   "heTitle": "חגי",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius Fürst, Dr. M. Sachs. Berlin 1838",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "de",
+   "hash": "044ad4062efba5d6862c513c2548997a60870a92"
+  },
+  {
+   "rel": "own/Zechariah/de/Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius .json",
+   "title": "Zechariah",
+   "heTitle": "זכריה",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius Fürst, Dr. M. Sachs. Berlin 1838",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "de",
+   "hash": "838918f18291726033bcaf4e0f356ad234bdf176"
+  },
+  {
+   "rel": "own/Zephaniah/de/Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius .json",
+   "title": "Zephaniah",
+   "heTitle": "צפניה",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius Fürst, Dr. M. Sachs. Berlin 1838",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "de",
+   "hash": "b02ecc5ecf1d2f090893e16dc60f74ce8db12079"
+  },
+  {
+   "rel": "own/Amos/de/Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius .json",
+   "title": "Amos",
+   "heTitle": "עמוס",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius Fürst, Dr. M. Sachs. Berlin 1838",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "de",
+   "hash": "58e3f14393ab16f5031b3f31e4a906a5a45429a6"
+  },
+  {
+   "rel": "own/Jonah/de/Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius .json",
+   "title": "Jonah",
+   "heTitle": "יונה",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius Fürst, Dr. M. Sachs. Berlin 1838",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "de",
+   "hash": "0207958b02d3b85c1a288adc0bc6404d01bfbdac"
+  },
+  {
+   "rel": "own/Micah/de/Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius .json",
+   "title": "Micah",
+   "heTitle": "מיכה",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius Fürst, Dr. M. Sachs. Berlin 1838",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "de",
+   "hash": "5b206e68e853a91cadcb8b00f36b112669c559df"
+  },
+  {
+   "rel": "own/Nahum/de/Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius .json",
+   "title": "Nahum",
+   "heTitle": "נחום",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius Fürst, Dr. M. Sachs. Berlin 1838",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "de",
+   "hash": "dece1608f9e7a2f95713ff4c6847acf82f619cd4"
+  },
+  {
+   "rel": "own/Obadiah/de/Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius .json",
+   "title": "Obadiah",
+   "heTitle": "עובדיה",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius Fürst, Dr. M. Sachs. Berlin 1838",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "de",
+   "hash": "5ce96ea0eb1470000cb276ac720d52f9442835d3"
+  },
+  {
+   "rel": "own/Ezekiel/de/Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius .json",
+   "title": "Ezekiel",
+   "heTitle": "יחזקאל",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius Fürst, Dr. M. Sachs. Berlin 1838",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "de",
+   "hash": "7b307a8c49f4f435b8fdee078a417008df474f54"
+  },
+  {
+   "rel": "own/Hosea/de/Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius .json",
+   "title": "Hosea",
+   "heTitle": "הושע",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius Fürst, Dr. M. Sachs. Berlin 1838",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "de",
+   "hash": "3671258ef5f7ea5c0a4c62dce41ddd40911a12b6"
+  },
+  {
+   "rel": "own/Jeremiah/de/Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius .json",
+   "title": "Jeremiah",
+   "heTitle": "ירמיהו",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius Fürst, Dr. M. Sachs. Berlin 1838",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "de",
+   "hash": "4d9c943a418fe5303d2221f75873d65ce3c6ab5f"
+  },
+  {
+   "rel": "own/Joel/de/Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius .json",
+   "title": "Joel",
+   "heTitle": "יואל",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius Fürst, Dr. M. Sachs. Berlin 1838",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "de",
+   "hash": "3472fd7b26f25e713931da06b440b6eb94f4de92"
+  },
+  {
+   "rel": "own/I Kings/de/Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius .json",
+   "title": "I Kings",
+   "heTitle": "מלכים א",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius Fürst, Dr. M. Sachs. Berlin 1838",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "de",
+   "hash": "ec7d134d31ba87fc12f7c7685b4cc70b658c1021"
+  },
+  {
+   "rel": "own/II Kings/de/Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius .json",
+   "title": "II Kings",
+   "heTitle": "מלכים ב",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius Fürst, Dr. M. Sachs. Berlin 1838",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "de",
+   "hash": "9e6666a0c24144b2074020beb10e981fc1db5440"
+  },
+  {
+   "rel": "own/Isaiah/de/Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius .json",
+   "title": "Isaiah",
+   "heTitle": "ישעיהו",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius Fürst, Dr. M. Sachs. Berlin 1838",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "de",
+   "hash": "6c8d305d30fdc3d0fe0c6ca685a704aa33f625cc"
+  },
+  {
+   "rel": "own/I Samuel/de/Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius .json",
+   "title": "I Samuel",
+   "heTitle": "שמואל א",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius Fürst, Dr. M. Sachs. Berlin 1838",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "de",
+   "hash": "331e14c1720bbefb8f3dafdebab7d4c55c340139"
+  },
+  {
+   "rel": "own/II Samuel/de/Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius .json",
+   "title": "II Samuel",
+   "heTitle": "שמואל ב",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius Fürst, Dr. M. Sachs. Berlin 1838",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "de",
+   "hash": "7485fca18c431780fbfbc24be4336b4dcd0eab42"
+  },
+  {
+   "rel": "own/Judges/de/Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius .json",
+   "title": "Judges",
+   "heTitle": "שופטים",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius Fürst, Dr. M. Sachs. Berlin 1838",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "de",
+   "hash": "3a18635422e879c37dbfbb02a5840fba7bd3263a"
+  },
+  {
+   "rel": "own/Deuteronomy/de/Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius .json",
+   "title": "Deuteronomy",
+   "heTitle": "דברים",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius Fürst, Dr. M. Sachs. Berlin 1838",
+   "categories": [
+    "Tanakh",
+    "Torah"
+   ],
+   "kind": "de",
+   "hash": "d9c7f89b7048c5fc70cefc606ac629aad8e79dd4"
+  },
+  {
+   "rel": "own/Joshua/de/Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius .json",
+   "title": "Joshua",
+   "heTitle": "יהושע",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius Fürst, Dr. M. Sachs. Berlin 1838",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "de",
+   "hash": "cf698579485db57bd7b54b66b65e77b2082439fb"
+  },
+  {
+   "rel": "own/Numbers/de/Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius .json",
+   "title": "Numbers",
+   "heTitle": "במדבר",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius Fürst, Dr. M. Sachs. Berlin 1838",
+   "categories": [
+    "Tanakh",
+    "Torah"
+   ],
+   "kind": "de",
+   "hash": "9d6f5f87eaf6cb6c43dc37ecca1540e9f63720d1"
+  },
+  {
+   "rel": "own/Exodus/de/Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius .json",
+   "title": "Exodus",
+   "heTitle": "שמות",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius Fürst, Dr. M. Sachs. Berlin 1838",
+   "categories": [
+    "Tanakh",
+    "Torah"
+   ],
+   "kind": "de",
+   "hash": "9df2107cc852d6c19ea6c1d58e6aef27f8aa31a7"
+  },
+  {
+   "rel": "own/Leviticus/de/Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius .json",
+   "title": "Leviticus",
+   "heTitle": "ויקרא",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius Fürst, Dr. M. Sachs. Berlin 1838",
+   "categories": [
+    "Tanakh",
+    "Torah"
+   ],
+   "kind": "de",
+   "hash": "ec8bcbc6d85f73d6b55ac46fb434354da4078dc2"
+  },
+  {
+   "rel": "own/Genesis/de/Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius .json",
+   "title": "Genesis",
+   "heTitle": "בראשית",
+   "language": "English",
+   "versionTitle": "Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius Fürst, Dr. M. Sachs. Berlin 1838",
+   "categories": [
+    "Tanakh",
+    "Torah"
+   ],
+   "kind": "de",
+   "hash": "4f064cddd80546d67a0ba6f1c9cb293c42e49f18"
+  }
+ ]
+}

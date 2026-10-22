@@ -339,15 +339,18 @@ class Library {
   async importBundled(dir) {
     let man;
     try { man = JSON.parse(await fs.readFile(path.join(dir, 'manifest.json'), 'utf8')); } catch { return 0; }
-    const skip = new Set(this.index.skipBundled || []);
+    const skip = new Set((this.index.skipBundled || []).map(x => x.normalize('NFC')));
+    const have = new Map(Object.keys(this.index.entries).map(k => [k.normalize('NFC'), k])); // Umlaute: gleiche Datei, unterschiedlich geschrieben
     let n = 0;
     for (const it of (man && man.items) || []) {
       const rel = String(it.rel || '');
       if (!/^own\/[^\\]+\/(he|en|de|other)\/[^/\\]+\.json$/.test(rel) || rel.includes('..') || skip.has(rel)) continue;
-      const cur = this.index.entries[rel];
+      const cur = this.index.entries[have.get(rel) || rel];
       if (cur && (!cur.bundled || cur.bundledHash === it.hash)) continue; // eigene Fassung oder schon aktuell
       try {
-        const buf = await fs.readFile(path.join(dir, rel));
+        let buf;
+        try { buf = await fs.readFile(path.join(dir, rel)); }
+        catch { buf = await fs.readFile(path.join(dir, rel.normalize(rel === rel.normalize('NFC') ? 'NFD' : 'NFC'))); } // Umlaute: macOS speichert Dateinamen zerlegt (NFD), Windows/Linux nicht
         const dest = path.join(this.dir, rel);
         await fs.mkdir(path.dirname(dest), { recursive: true });
         await fs.writeFile(dest, buf);
@@ -367,9 +370,9 @@ class Library {
     for (const e of Object.values(this.index.entries)) {
       if (!e.own) continue;
       const buf = await fs.readFile(path.join(this.dir, e.rel));
-      await fs.mkdir(path.dirname(path.join(outDir, e.rel)), { recursive: true });
-      await fs.writeFile(path.join(outDir, e.rel), buf);
-      items.push({ rel: e.rel, title: e.title, heTitle: e.heTitle || '', language: e.language, versionTitle: e.versionTitle, categories: e.categories, kind: e.kind, hash: crypto.createHash('sha1').update(buf).digest('hex') });
+      await fs.mkdir(path.dirname(path.join(outDir, e.rel.normalize('NFC'))), { recursive: true });
+      await fs.writeFile(path.join(outDir, e.rel.normalize('NFC')), buf);
+      items.push({ rel: e.rel.normalize('NFC'), title: e.title, heTitle: e.heTitle || '', language: e.language, versionTitle: e.versionTitle, categories: e.categories, kind: e.kind, hash: crypto.createHash('sha1').update(buf).digest('hex') });
     }
     await fs.writeFile(path.join(outDir, 'manifest.json'), JSON.stringify({ version: 1, items }, null, 1));
     return items.length;
