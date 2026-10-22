@@ -622,15 +622,19 @@
     $('#findCount').textContent = '';
     if (!keepTerm) fTerm = '';
   }
-  function runFind(term) {
+  function runFind(term, keepIdx) {
+    const prevIdx = fIdx;
     clearFind(true);
     fTerm = term;
     const q = normF(term).trim();
     if (!q) return;
     // geschlossene Fußnoten, die den Begriff enthalten, aufklappen, damit sie sichtbar und markierbar sind
     $$('#rOut .note').forEach(n => { if (normF(n.textContent).includes(q)) n.classList.add('fnd'); });
-    const walker = document.createTreeWalker($('#rOut'), NodeFilter.SHOW_TEXT);
+    const roots = [$('#rOut')];
+    if (!$('#cmtPanel').hidden) roots.push($('#cmtBody')); // auch der Kommentar-Bereich wird durchsucht
     const ranges = [];
+    for (const root of roots) {
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
     for (let node = walker.nextNode(); node; node = walker.nextNode()) {
       const el = node.parentElement;
       if (!el || el.offsetParent === null && getComputedStyle(el).display === 'none') continue;
@@ -652,17 +656,18 @@
         pos += q.length;
       }
     }
+    }
     fRanges = ranges;
     hl('find', ranges);
-    if (ranges.length) goFind(0); else $('#findCount').textContent = 'keine Treffer';
+    if (ranges.length) goFind(keepIdx && prevIdx >= 0 ? Math.min(prevIdx, ranges.length - 1) : 0, !keepIdx); else $('#findCount').textContent = 'keine Treffer';
   }
-  function goFind(i) {
+  function goFind(i, scroll = true) {
     if (!fRanges.length) return;
     fIdx = (i + fRanges.length) % fRanges.length;
     const r = fRanges[fIdx];
     hl('find-active', [r]);
     const el = r.startContainer.parentElement;
-    if (el) el.scrollIntoView({ block: 'center', inline: 'nearest' });
+    if (el && scroll) el.scrollIntoView({ block: 'center', inline: 'nearest' });
     $('#findCount').textContent = `${fIdx + 1} / ${fRanges.length}`;
   }
   const stepFind = fwd => {
@@ -1295,14 +1300,17 @@ ${endnotes.length ? `<h3>Fußnoten</h3><ol class="fn">${endnotes.map(n => `<li>$
     const gapNote = gaps.length ? `<p class="muted">Kein ${LN}er Text zu diesem Vers: ${gaps.map(g => esc(g.name) + (g.refs.every(r => res[r] && res[r].missing) ? ' (keine Fassung in dieser Sprache geladen)' : ' (Vers fehlt in der Fassung)')).join(', ')}</p>` : '';
     if (!chosen.length) { $('#cmtBody').innerHTML = gapNote || `<p class="muted">Keine lokalen Kommentare in der Sprache ${LN} zu diesem Vers.</p>`; return; }
     $('#cmtBody').innerHTML = chosen.map(g => {
+      const seenTxt = new Set();
       const parts = g.refs.map(r => {
         const t = res[r];
         if (!t || !t.items) return `<div class="none">${esc(r)} – ${t && t.missing ? `keine Fassung auf ${LN} geladen` : `Vers fehlt in der ${LN}en Fassung`}</div>`;
         const he = t.kind === 'he';
+        const sig = t.items.join('\u0001'); if (seenTxt.has(sig)) return ''; seenTxt.add(sig); // gleiche Stelle mehrfach verknüpft: nur einmal zeigen
         return t.items.map(x => `<div class="ct" dir="${he ? 'rtl' : 'ltr'}">${R.cleanHtml(R.splitFootnotes(he ? stripHe(x) : x).main).replace(/<sup[^>]*>.*?<\/sup>/g, '')}</div>`).join('');
       }).join('');
       return `<div class="cmt"><h4 data-ref="${esc(g.refs[0])}" title="Öffnet ${esc(g.book)} in einem neuen Tab">${esc(g.name)}${g.refs.length > 1 ? ` (${g.refs.length})` : ''}</h4>${parts}</div>`;
     }).join('') + gapNote;
+    if (!fb.hidden && fTerm) runFind(fTerm, true); // Suche im Kommentar-Bereich nach dem Neuaufbau erneuern
   }
 
   // ---------- Sitzung merken und beim Start wiederherstellen ----------
