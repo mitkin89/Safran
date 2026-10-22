@@ -4,7 +4,7 @@
 
 An offline library for [Sefaria](https://www.sefaria.org) texts on macOS and Windows (Electron). On launch it opens the **Offline Library** directly; a **Werkzeuge** (Tools) menu adds book download and upload-preparation helpers.
 
-> **Not affiliated with Sefaria.** This is an independent, unofficial project. The app contains **no texts**: they are downloaded to your computer from the public Sefaria export. The app never uploads anything to Sefaria.
+> **Not affiliated with Sefaria.** This is an independent, unofficial project. Sefaria's texts are not part of the app: they are downloaded to your computer from the public Sefaria export. The app never uploads anything to Sefaria. The `bundled/` folder contains a set of additional German translations and commentaries that are imported on first start (see *Bundled texts* below).
 
 > The user interface is currently in German.
 
@@ -25,7 +25,9 @@ An offline library for [Sefaria](https://www.sefaria.org) texts on macOS and Win
 - **Search:** full-text search across all downloaded texts (including footnotes and your own texts), Hebrew vowels and cantillation ignored, optional "whole words with prefixes", category filter. Advanced search: up to three words near each other (adjustable distance, optional word order), wildcards (`anf*`, `m?er`) and fuzzy matching for variant spellings (Raschi/Rashi). In-page search with Cmd+F, also in the commentary panel.
 - **Links (Verknüpfungen):** download Sefaria's link data once (~680 MB), then see links per verse, grouped by category and book, with text preview.
 - **Commentary panel (Cmd+K):** shows commentaries on the selected verse (e.g. Rashi and Ibn Ezra one below the other) in the chosen language. If no commentator is selected, all locally available ones are shown.
-- **Your own texts:** import TXT, Word (.docx), CSV, JSON or Sefaria upload CSV files, several at once (drag & drop works). Your text appears as an extra column next to the original and is compared line by line with it.
+- **Your own texts and commentaries:** import TXT, Word (.docx), CSV, JSON or Sefaria upload CSV files, several at once (drag & drop works), as a *Text* or as a *Commentary* (`Commentator on Book`, shown in the commentary panel). Your text appears as an extra column next to the original, is compared line by line with it, and can be removed again. Inline Base64 images are displayed.
+- **Bundled texts:** texts in the project's `bundled/` folder are imported automatically on start (new or changed ones also after updates); export your own texts into that folder via ⋯ → "Eigene Texte für GitHub exportieren …".
+- **Two reading windows** side by side with their own tabs, history and commentary panel; **resizable commentary panel** with adjustable text size.
 - **Notes and bookmarks**, **display options** (font sizes, hide vowels/cantillation), **export** to PDF or Word, **update check** against the Sefaria export.
 - **Tools menu:** download a book or chapter range as CSV/TXT/JSON; prepare and check CSV files for Sefaria upload (duplicates, gaps, order, HTML, control characters, segment counts compared to an existing Sefaria text).
 - Hebrew text is set in **SBL Hebrew** if it is installed (free from the Society of Biblical Literature), otherwise a fallback font is used.
@@ -80,37 +82,52 @@ The texts are **not** covered by this project's license. Each text version has i
 ## License
 
 The source code of this app is released under the [MIT License](LICENSE).
-- Cmd+F durchsucht auch den geöffneten Kommentar-Bereich; identische, mehrfach verknüpfte Kommentartexte erscheinen nur einmal.
-- **Erweiterte Suche** (Reiter „Suche“): bis zu drei Wörter in der Nähe voneinander (Abstand wählbar, optional in fester Reihenfolge), Platzhalter `*` und `?` (z. B. `anf*`, `erd*`) und **Fuzzy** für ähnliche Schreibweisen (Raschi/Rashi, Avraham/Abraham). Eine Hilfe mit Beispielen steht aufklappbar unter den Eingabefeldern.
-- **Kategorien in der Suche**: Rechts steht dauerhaft eine durchsuchbare Liste mit Häkchen (wie die Bücherliste). Ohne Häkchen wird überall gesucht; mit Häkchen nur in den gewählten Kategorien; „Alle Kategorien auswählen“ hebt die Auswahl auf.
-- **Reihenfolge wie auf Sefaria**: Hauptkategorien (Tanakh, Mishnah, Talmud, Midrash, Halakhah …), Bücher des Tanach und Traktate in der gewohnten Reihenfolge statt alphabetisch – in der Bücherliste, im Reiter „Herunterladen“ und in der Suche.
-- **Zweites Lesefenster**: Knopf „⧉ Zweites Fenster“ (oben) teilt das Fenster in zwei Hälften. Rechts läuft ein zweiter Leser mit eigenen Tabs, eigenem Verlauf, Kommentar-Bereich und Bücherliste (☰), links bleibt das erste Buch offen. Alt+Klick auf ein Buch in der linken Liste öffnet es direkt rechts. Die Trennlinie lässt sich ziehen; Cmd+F gilt für das Fenster, in dem du zuletzt geklickt hast. Rechts gibt es nur den Reiter „Lesen“; Suche, Herunterladen und eigene Texte bleiben im linken Fenster.
-- „Zuletzt geöffnet“ ist beim Start eingeklappt (Klick auf die Überschrift klappt es auf; die Wahl wird gemerkt).
 
-## New in 1.1
+## Changelog
 
-- **Search:** results and book chips follow the Sefaria order (Tanakh, Mishnah, Talmud, …); larger result text; search inside categories *and* single books (e.g. just Genesis); per-book hit chips and CSV export; searches run in a background thread.
-- **Reader:** "🔎 In diesem Buch" searches only the open book; right-click a verse to copy its reference or open it on sefaria.org; "⇅ Gleichlauf" syncs paging with the second window; Cmd/Ctrl+W closes the tab of the window you are working in.
-- **Own texts:** re-importing the same title/version asks before overwriting; ⟳ re-reads the original source file; word-level diff against an existing version; "CSV" saves an own text as a Sefaria upload CSV.
-- **Security:** navigation is locked to local files (including the second pane), stricter CSP, drag-and-drop file paths are allow-listed, PDF export via temp file.
-- **Windows:** `npm run dist:win` builds an installer and a portable exe (Ctrl instead of Cmd, Explorer instead of Finder, Ctrl+Tab for tabs); a GitHub Actions workflow builds macOS and Windows.
-- **Compact toolbar:** the header and book bar shrank from about 175 px to about 90 px: one row for the app tabs and open books, a ⋯ menu for rarely used items (own text, storage location, show in file manager, statistics), and a ⚙ panel for footnotes, font size and export.
-- **Context menu on books and history:** right-click a book in the list or in the history for *Open*, *Open in new tab* and *Open in second window* (if the second window already has a book open, a new tab is created there). The second window now lays out correctly and no longer cuts off its right side.
-- The talmud.de logo appears on the empty start page and in the ⋯ menu.
-- **Suggestions while typing:** the jump field and the new-tab field suggest book names as you type (e.g. "ge" → Genesis); arrow keys and Enter or a click pick one. The new-tab page shows the logo too.
-- The same right-click menu (*Open*, *Open in new tab*, *Open in second window*) works on commentator names in the commentary panel.
-- The links panel lists categories in a fixed order: Tanakh, Mishnah, Tosefta, Talmud, Responsa, then everything else (by number of links).
-- The language selection is remembered across books: if you switch English off, other books open without English too (unless a book has no German text, then English is shown as a fallback).
-- **Own commentaries in the commentary panel:** import your own text via "Eigener Text…" and name it `<Commentator> on <Book>` (Sefaria's naming, e.g. `Mein Kommentar on Genesis`), with the same chapter/verse structure as the book (one line per verse). It then appears as a commentator in the commentary panel next to the Sefaria commentaries, for the matching verse and in the language of the own text. No Sefaria links are needed.
-- Fixed: the link badge next to a verse number could appear twice.
-- The commentator chips only list commentaries that exist locally **in the chosen language**; those available only in another language, and those not downloaded, are collapsed below with a note.
-- Own texts in Sefaria upload format (`Title chapter:verse<TAB>text`, also as `.txt`) are now recognised, including gaps (verses without a note) and the title from the references. Used for own commentaries such as `Hertz on Deuteronomy`.
-- Typing only a book name in the jump field (e.g. `gen` + Enter) opens the book at its first chapter.
-- "Herunterladen" moved from the tab row into the ⋯ menu, leaving more room for tabs and buttons in the header.
-- **Commentary panel:** drag its left edge to change the width (double-click resets it); A−/A+ buttons change the text size. Both are remembered.
-- Only the star itself adds a bookmark/note; a click next to it in the verse-number column just selects the verse for the commentary panel.
-- **Import dialog:** choose *Text* or *Kommentar* per file. For a commentary you enter the commentator and the book (suggestions from your library); the title `Commentator on Book` is built for you, and a warning appears if the book is not in your library. Files named like `Hertz on Deuteronomy` are detected as commentaries automatically.
-- **Remove own texts:** hover an entry under *Eigene Texte* and click ✕, or right-click any book that has own versions and choose *Eigenen Text entfernen …*. The original files stay untouched.
-- **App icon:** the talmud.de logo is used as the app icon (`build/icon.png`).
-- **Bundled texts:** put your own texts into the app so they ship via GitHub. In ⋯ choose "Eigene Texte für GitHub exportieren …" and select the `bundled` folder of the project (it is created if needed). Commit and push it; the built .dmg/.exe contains it, and on start (and after updates) the app imports new or changed texts automatically. Texts a user removes do not come back.
-- **Embedded images:** own texts and commentaries may contain inline Base64 images (`<img src="data:image/png|jpeg|gif|webp;base64,…">`). Only these are shown (scaled to the column width); all other tags/attributes and external images are still stripped.
+### New in 1.3
+
+**Name and look**
+- The app is now called **Safran** (סַפְרָן, "scribe / librarian"). The data folder is unchanged, so your library, notes and settings carry over.
+- The talmud.de logo is the app icon and appears on the empty start page and in the ⋯ menu.
+
+**Own texts and commentaries**
+- **Bundled texts:** the new `bundled/` folder ships texts with the app. The app imports new or changed texts on start; texts a user removes do not come back; a user's own version of the same text is never overwritten. ⋯ → "Eigene Texte für GitHub exportieren …" writes all your own texts into such a folder. The repository now contains 199 bundled versions (Zunz 1838, Philippson, Mendelssohn, Herxheimer, Hertz, Midrash Rabbah, More Nevuchim and others).
+- **Import dialog:** choose *Text* or *Kommentar* per file. For a commentary you enter commentator and book (with suggestions); the title `Commentator on Book` is built for you and a warning appears if the book is not in your library.
+- **Own commentaries in the commentary panel**, also for files in Sefaria upload format (`Title chapter:verse<TAB>text`, also as `.txt`), including gaps.
+- **Remove own texts:** ✕ on hover in the book list, or right-click → *Eigenen Text entfernen …*. Original files stay untouched.
+- **Embedded images:** inline Base64 images (PNG, JPEG, GIF, WebP) in own texts and commentaries are displayed; all other tags and external images are still stripped.
+- File names with umlauts are matched on macOS and Windows alike.
+
+**Reading**
+- **Suggestions while typing** in the jump field, the new-tab field (e.g. "ge" → Genesis).
+- Typing only a book name and pressing Enter opens the first chapter.
+- The language selection is remembered across books (English only as a fallback when no German text exists).
+- **Resizable commentary panel** (drag the edge, double-click resets) and A−/A+ text size, both remembered.
+- The commentator list only shows commentaries that exist locally in the chosen language.
+- Links panel: fixed category order (Tanakh, Mishnah, Tosefta, Talmud, Responsa, then the rest).
+- Only the star itself creates a bookmark; clicking next to it selects the verse for the commentary panel.
+
+**Menus and layout**
+- Right-click menu (*Open*, *Open in new tab*, *Open in second window*) on books, history entries and commentator names; a new tab opens automatically if the second window already has one.
+- Second window: layout fixed (right text no longer covered, jump field stays visible).
+- "Herunterladen" moved into the ⋯ menu for more room in the header.
+
+**Fixes**
+- The link badge next to a verse number is no longer shown twice.
+- Several layout and language-selection bugs (see commit history).
+
+### New in 1.2
+- **Compact toolbar:** the header and book bar shrank from about 175 px to about 90 px: app tabs and open books share one row, a ⋯ menu holds rarely used items (own text, storage location, show in file manager, statistics), and a ⚙ panel holds footnotes, font and export.
+- Code review fixes: security hardening, bug fixes, Windows support.
+
+### New in 1.1
+- **Search:** results and book chips follow the Sefaria order (Tanakh, Mishnah, Talmud, …); larger result text; search inside categories *and* single books; per-book hit chips and CSV export; searches run in a background thread.
+- **Advanced search:** up to three words near each other (adjustable distance, optional fixed order), wildcards `*` and `?`, and **fuzzy** matching for similar spellings (Raschi/Rashi). A help box with examples sits below the inputs.
+- **Categories in search:** a permanent, searchable checklist on the right (like the book list).
+- **Sefaria order** of categories, books and tractates everywhere (book list, download tab, search).
+- **Second reading window:** "⧉ Zweites Fenster" splits the window; the right side has its own tabs, history, commentary panel and book list. Alt+click on a book opens it on the right; "⇅ Gleichlauf" syncs paging.
+- **Reader:** "🔎 In diesem Buch" searches only the open book; right-click a verse to copy its reference or open it on sefaria.org; Cmd/Ctrl+F also searches the open commentary panel.
+- **Own texts:** re-importing asks before overwriting; ⟳ re-reads the source file; word-level diff against an existing version; "CSV" saves an own text as a Sefaria upload CSV.
+- **Security:** navigation locked to local files, stricter CSP, allow-listed drag-and-drop paths, PDF export via temp file.
+- **Windows:** `npm run dist:win` builds an installer and a portable exe; a GitHub Actions workflow builds macOS and Windows.
