@@ -2,18 +2,18 @@
  "version": 1,
  "items": [
   {
-   "rel": "own/Devarim Rabbah/de/Devarim_Rabbah_de_Sefaria_korrigiert.json",
+   "rel": "own/Devarim Rabbah/de/Der Midrasch Debarim Rabba; zum ersten Male ins Dt. übertr. von August Wünsche. Leipzig 1882.json",
    "title": "Devarim Rabbah",
    "heTitle": "דברים רבה",
    "language": "English",
-   "versionTitle": "Devarim_Rabbah_de_Sefaria_korrigiert",
+   "versionTitle": "Der Midrasch Debarim Rabba; zum ersten Male ins Dt. übertr. von August Wünsche. Leipzig 1882",
    "categories": [
     "Midrash",
     "Aggadah",
     "Midrash Rabbah"
    ],
    "kind": "de",
-   "hash": "e10a9b22803589f6beacb06e6f563d04b353ded3"
+   "hash": "ae5ef964b5c65c0c8e2ce3d1d7ff3a992891a4b9"
   },
   {
    "rel": "own/Guide for the Perplexed/de/Führer der Unschlüssigen; ins Deutsche übertragen und mit erklärenden Anmerkungen versehen von Dr. Adolf Weiss. Leipzig .json",
@@ -458,30 +458,17 @@
    "hash": "b15ff3dab02864baf8067e310363b047a04e9197"
   },
   {
-   "rel": "own/Hertz on Deuteronomy/de/Hertz_on_Deuteronomy_Sefaria.json",
+   "rel": "own/Hertz on Deuteronomy/de/Hertz, Pentateuch-Kommentar (deutsche Ausgabe).json",
    "title": "Hertz on Deuteronomy",
    "heTitle": "",
    "language": "English",
-   "versionTitle": "Hertz_on_Deuteronomy_Sefaria",
+   "versionTitle": "Hertz, Pentateuch-Kommentar (deutsche Ausgabe)",
    "categories": [
-    "Eigene Texte"
+    "Eigene Texte",
+    "Kommentare"
    ],
    "kind": "de",
-   "hash": "a3af56c2f8b3481084a0a1f0ac4cbdc07d699ffb"
-  },
-  {
-   "rel": "own/Devarim Rabbah/de/Der Midrasch Debarim Rabba; zum ersten Male ins Dt. übertr. von August Wünsche. Leipzig 1882.json",
-   "title": "Devarim Rabbah",
-   "heTitle": "דברים רבה",
-   "language": "English",
-   "versionTitle": "Der Midrasch Debarim Rabba; zum ersten Male ins Dt. übertr. von August Wünsche. Leipzig 1882",
-   "categories": [
-    "Midrash",
-    "Aggadah",
-    "Midrash Rabbah"
-   ],
-   "kind": "de",
-   "hash": "ae5ef964b5c65c0c8e2ce3d1d7ff3a992891a4b9"
+   "hash": "6ec8953583307fa9fab3225271b8a021a3079f92"
   },
   {
    "rel": "own/Joshua/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung, fortlaufender Erklärung und home.json",
@@ -822,30 +809,30 @@
    "hash": "ef9c9ec23ad020979bf4bf709556939666d9be01"
   },
   {
-   "rel": "own/Hertz on Exodus/de/Hertz_on_Exodus_Sefaria (3).json",
+   "rel": "own/Hertz on Exodus/de/Hertz, Pentateuch-Kommentar (deutsche Ausgabe).json",
    "title": "Hertz on Exodus",
    "heTitle": "",
    "language": "English",
-   "versionTitle": "Hertz_on_Exodus_Sefaria (3)",
+   "versionTitle": "Hertz, Pentateuch-Kommentar (deutsche Ausgabe)",
    "categories": [
     "Eigene Texte",
     "Kommentare"
    ],
    "kind": "de",
-   "hash": "0b5ae0f4d623518916ea5d14f828a1819aeda2bc"
+   "hash": "caeb66e374ec16e2798e1bb057ce0086d809f29d"
   },
   {
-   "rel": "own/Hertz on Numbers/de/Hertz_on_Numbers_Sefaria.json",
+   "rel": "own/Hertz on Numbers/de/Hertz, Pentateuch-Kommentar (deutsche Ausgabe).json",
    "title": "Hertz on Numbers",
    "heTitle": "",
    "language": "English",
-   "versionTitle": "Hertz_on_Numbers_Sefaria",
+   "versionTitle": "Hertz, Pentateuch-Kommentar (deutsche Ausgabe)",
    "categories": [
     "Eigene Texte",
     "Kommentare"
    ],
    "kind": "de",
-   "hash": "8201807a8bb8a0f4d7120ca405e9a5c174931e5c"
+   "hash": "6b90cd0d8f4b1d1640eae8c1258761f7ca828f51"
   },
   {
    "rel": "own/Deuteronomy/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung.json",
@@ -2031,19 +2018,6 @@
    "hash": "62d7ebbd32ee641b1459d64ee1b7915ee4ddc1c7"
   },
   {
-   "rel": "own/Guide for the Perplexed/de/More_Nevuchim_Band1-3_Sefaria (1).json",
-   "title": "Guide for the Perplexed",
-   "heTitle": "מורה נבוכים",
-   "language": "English",
-   "versionTitle": "More_Nevuchim_Band1-3_Sefaria (1)",
-   "categories": [
-    "Jewish Thought",
-    "Rishonim"
-   ],
-   "kind": "de",
-   "hash": "db10bbfb4f438e0ce7e3223c1ea72c70f093b5fc"
-  },
-  {
    "rel": "own/Rav Hirsch on Psalms/de/Die Psalmen, übersetzt und erläutert von Samson Raphael Hirsch. Frankfurt am Main 1882.json",
    "title": "Rav Hirsch on Psalms",
    "heTitle": "",
@@ -2578,17 +2552,17 @@
    "hash": "4f064cddd80546d67a0ba6f1c9cb293c42e49f18"
   },
   {
-   "rel": "own/I Chronicles/de/I_Chronicles.json",
+   "rel": "own/I Chronicles/de/Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius .json",
    "title": "I Chronicles",
    "heTitle": "דברי הימים א",
    "language": "English",
-   "versionTitle": "I_Chronicles",
+   "versionTitle": "Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius Fürst, Dr. M. Sachs. Berlin 1838",
    "categories": [
     "Tanakh",
     "Writings"
    ],
    "kind": "de",
-   "hash": "3f72d0acabe08b8747bf3d9702e122680785febc"
+   "hash": "a7c167f30f2e01c09a4afa0c02d9fa9d36eb7491"
   },
   {
    "rel": "own/Rashi on Exodus/de/Raschis Pentateuchkommentar; vollständig ins Deutsche übertragen und mit einer Einleitung versehen von Rabb. Dr. Selig B.json",

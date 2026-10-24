@@ -358,7 +358,15 @@ class Library {
         n++;
       } catch { /* Datei fehlt im Paket – überspringen */ }
     }
-    if (n) await this.save();
+    // Mitgelieferte Texte, die es im Paket nicht mehr gibt (umbenannt oder entfernt), auch hier entfernen
+    const inPack = new Set(((man && man.items) || []).map(it => String(it.rel || '').normalize('NFC')));
+    let gone = 0;
+    for (const [k, e] of Object.entries(this.index.entries)) {
+      if (!e.bundled || inPack.has(k.normalize('NFC'))) continue;
+      try { await fs.unlink(path.join(this.dir, k)); } catch { /* war schon weg */ }
+      delete this.index.entries[k]; gone++;
+    }
+    if (n || gone) await this.save();
     return n;
   }
 
