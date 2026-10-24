@@ -397,7 +397,7 @@
    "title": "Deuteronomy",
    "heTitle": "דברים",
    "language": "English",
-   "versionTitle": "Die fünf Bücher Mose, übersetzt von Moses Mendelssohn, für Bibelfreunde aller Konfessionen, und zunächst für Israeliten bestimmt; herausgegeben von D. Fränkel und von M.H. Bock. Dessau 1815",
+   "versionTitle": "Die fünf Bücher Mose, übersetzt von Moses Mendelssohn, für Bibelfreunde aller Konfessionen, und zunächst für Israeliten bestimmt; herausgegeben von D. Fränkel und von M.H. Bock. Dessau 1815",
    "categories": [
     "Tanakh",
     "Torah"
@@ -410,7 +410,7 @@
    "title": "Exodus",
    "heTitle": "שמות",
    "language": "English",
-   "versionTitle": "Die fünf Bücher Mose, übersetzt von Moses Mendelssohn, für Bibelfreunde aller Konfessionen, und zunächst für Israeliten bestimmt; herausgegeben von D. Fränkel und von M.H. Bock. Dessau 1815",
+   "versionTitle": "Die fünf Bücher Mose, übersetzt von Moses Mendelssohn, für Bibelfreunde aller Konfessionen, und zunächst für Israeliten bestimmt; herausgegeben von D. Fränkel und von M.H. Bock. Dessau 1815",
    "categories": [
     "Tanakh",
     "Torah"
@@ -423,7 +423,7 @@
    "title": "Genesis",
    "heTitle": "בראשית",
    "language": "English",
-   "versionTitle": "Die fünf Bücher Mose, übersetzt von Moses Mendelssohn, für Bibelfreunde aller Konfessionen, und zunächst für Israeliten bestimmt; herausgegeben von D. Fränkel und von M.H. Bock. Dessau 1815",
+   "versionTitle": "Die fünf Bücher Mose, übersetzt von Moses Mendelssohn, für Bibelfreunde aller Konfessionen, und zunächst für Israeliten bestimmt; herausgegeben von D. Fränkel und von M.H. Bock. Dessau 1815",
    "categories": [
     "Tanakh",
     "Torah"
@@ -436,7 +436,7 @@
    "title": "Leviticus",
    "heTitle": "ויקרא",
    "language": "English",
-   "versionTitle": "Die fünf Bücher Mose, übersetzt von Moses Mendelssohn, für Bibelfreunde aller Konfessionen, und zunächst für Israeliten bestimmt; herausgegeben von D. Fränkel und von M.H. Bock. Dessau 1815",
+   "versionTitle": "Die fünf Bücher Mose, übersetzt von Moses Mendelssohn, für Bibelfreunde aller Konfessionen, und zunächst für Israeliten bestimmt; herausgegeben von D. Fränkel und von M.H. Bock. Dessau 1815",
    "categories": [
     "Tanakh",
     "Torah"
@@ -449,7 +449,7 @@
    "title": "Numbers",
    "heTitle": "במדבר",
    "language": "English",
-   "versionTitle": "Die fünf Bücher Mose, übersetzt von Moses Mendelssohn, für Bibelfreunde aller Konfessionen, und zunächst für Israeliten bestimmt; herausgegeben von D. Fränkel und von M.H. Bock. Dessau 1815",
+   "versionTitle": "Die fünf Bücher Mose, übersetzt von Moses Mendelssohn, für Bibelfreunde aller Konfessionen, und zunächst für Israeliten bestimmt; herausgegeben von D. Fränkel und von M.H. Bock. Dessau 1815",
    "categories": [
     "Tanakh",
     "Torah"
@@ -2084,19 +2084,6 @@
    "hash": "3f5c00e7acb8693d63b5afdc0ceb4544cfaab6ce"
   },
   {
-   "rel": "own/I Chronicles/de/I_Chronicles.json",
-   "title": "I Chronicles",
-   "heTitle": "דברי הימים א",
-   "language": "English",
-   "versionTitle": "I_Chronicles",
-   "categories": [
-    "Tanakh",
-    "Writings"
-   ],
-   "kind": "de",
-   "hash": "3f72d0acabe08b8747bf3d9702e122680785febc"
-  },
-  {
    "rel": "own/II Chronicles/de/Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius .json",
    "title": "II Chronicles",
    "heTitle": "דברי הימים ב",
@@ -2591,6 +2578,19 @@
    "hash": "4f064cddd80546d67a0ba6f1c9cb293c42e49f18"
   },
   {
+   "rel": "own/I Chronicles/de/I_Chronicles.json",
+   "title": "I Chronicles",
+   "heTitle": "דברי הימים א",
+   "language": "English",
+   "versionTitle": "I_Chronicles",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "de",
+   "hash": "3f72d0acabe08b8747bf3d9702e122680785febc"
+  },
+  {
    "rel": "own/Rashi on Exodus/de/Raschis Pentateuchkommentar; vollständig ins Deutsche übertragen und mit einer Einleitung versehen von Rabb. Dr. Selig B.json",
    "title": "Rashi on Exodus",
    "heTitle": "רש\"י על שמות",
@@ -2660,7 +2660,137 @@
     "Halakhah"
    ],
    "kind": "de",
-   "hash": "e7be6641956321cd341553b1a8fe878293401ba0"
+   "hash": "bd35320aa23b2dc7ccbcf3c32f1ab09caeb8ae79"
+  },
+  {
+   "rel": "own/Genesis/he/תרגום אשכנזי מאת משה מדעסויא. Wien 1795.json",
+   "title": "Genesis",
+   "heTitle": "בראשית",
+   "language": "Hebrew",
+   "versionTitle": "תרגום אשכנזי מאת משה מדעסויא. Wien 1795",
+   "categories": [
+    "Tanakh",
+    "Torah"
+   ],
+   "kind": "he",
+   "hash": "013fbf15e272cbab2fff571396f2d70f5cd3fa33"
+  },
+  {
+   "rel": "own/Mendelssohn on Genesis/he/ספר נתיבות השלום עם תרגום אשכנזי ובאור מאת משה מדעסויא. Wien 1795.json",
+   "title": "Mendelssohn on Genesis",
+   "heTitle": "",
+   "language": "Hebrew",
+   "versionTitle": "ספר נתיבות השלום עם תרגום אשכנזי ובאור מאת משה מדעסויא. Wien 1795",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "he",
+   "hash": "5a29b77dd7258c9011817d90941ec79059ec3d61"
+  },
+  {
+   "rel": "own/Exodus/he/תרגום אשכנזי מאת משה מדעסויא. Wien 1795.json",
+   "title": "Exodus",
+   "heTitle": "שמות",
+   "language": "Hebrew",
+   "versionTitle": "תרגום אשכנזי מאת משה מדעסויא. Wien 1795",
+   "categories": [
+    "Tanakh",
+    "Torah"
+   ],
+   "kind": "he",
+   "hash": "22db3e2bf2691ffbf08289ac6fec60405827ecc9"
+  },
+  {
+   "rel": "own/Mendelssohn on Exodus/he/ספר נתיבות השלום עם תרגום אשכנזי ובאור מאת משה מדעסויא. Wien 1795.json",
+   "title": "Mendelssohn on Exodus",
+   "heTitle": "",
+   "language": "Hebrew",
+   "versionTitle": "ספר נתיבות השלום עם תרגום אשכנזי ובאור מאת משה מדעסויא. Wien 1795",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "he",
+   "hash": "fd93d7b9b6f5abb9ebf135fde78e804e338e2667"
+  },
+  {
+   "rel": "own/Mendelssohn on Leviticus/he/ספר נתיבות השלום עם תרגום אשכנזי ובאור מאת משה מדעסויא. Wien 1795.json",
+   "title": "Mendelssohn on Leviticus",
+   "heTitle": "",
+   "language": "Hebrew",
+   "versionTitle": "ספר נתיבות השלום עם תרגום אשכנזי ובאור מאת משה מדעסויא. Wien 1795",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "he",
+   "hash": "e9b7ba6466e887efc3feba62947ace80706ad627"
+  },
+  {
+   "rel": "own/Leviticus/he/תרגום אשכנזי מאת משה מדעסויא. Wien 1795.json",
+   "title": "Leviticus",
+   "heTitle": "ויקרא",
+   "language": "Hebrew",
+   "versionTitle": "תרגום אשכנזי מאת משה מדעסויא. Wien 1795",
+   "categories": [
+    "Tanakh",
+    "Torah"
+   ],
+   "kind": "he",
+   "hash": "deea0602dec59425eb51ffe3e9ee9d509e9de121"
+  },
+  {
+   "rel": "own/Numbers/he/תרגום אשכנזי מאת משה מדעסויא. Wien 1795.json",
+   "title": "Numbers",
+   "heTitle": "במדבר",
+   "language": "Hebrew",
+   "versionTitle": "תרגום אשכנזי מאת משה מדעסויא. Wien 1795",
+   "categories": [
+    "Tanakh",
+    "Torah"
+   ],
+   "kind": "he",
+   "hash": "ca22de31c0add6abc0e6963357de6a4ab96d7e93"
+  },
+  {
+   "rel": "own/Mendelssohn on Numbers/he/ספר נתיבות השלום עם תרגום אשכנזי ובאור מאת משה מדעסויא. Wien 1795.json",
+   "title": "Mendelssohn on Numbers",
+   "heTitle": "",
+   "language": "Hebrew",
+   "versionTitle": "ספר נתיבות השלום עם תרגום אשכנזי ובאור מאת משה מדעסויא. Wien 1795",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "he",
+   "hash": "ff6e6379bf484fee1be52fdcc79ef7a6ada30b46"
+  },
+  {
+   "rel": "own/Mendelssohn on Deuteronomy/he/ספר נתיבות השלום עם תרגום אשכנזי ובאור מאת משה מדעסויא. Wien 1795.json",
+   "title": "Mendelssohn on Deuteronomy",
+   "heTitle": "",
+   "language": "Hebrew",
+   "versionTitle": "ספר נתיבות השלום עם תרגום אשכנזי ובאור מאת משה מדעסויא. Wien 1795",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "he",
+   "hash": "00235ac3d1d15760c441bc6e3f64681599e898df"
+  },
+  {
+   "rel": "own/Deuteronomy/he/תרגום אשכנזי מאת משה מדעסויא. Wien 1795.json",
+   "title": "Deuteronomy",
+   "heTitle": "דברים",
+   "language": "Hebrew",
+   "versionTitle": "תרגום אשכנזי מאת משה מדעסויא. Wien 1795",
+   "categories": [
+    "Tanakh",
+    "Torah"
+   ],
+   "kind": "he",
+   "hash": "a245cc21b48c4bb378bd548f5a49a8b6b7ccf86a"
   }
  ]
 }
