@@ -224,6 +224,28 @@ class Dictionaries {
     m.ship = m.ship.filter(x => x !== id);
     await this.saveMeta(m);
   }
+  // Wortvorschläge beim Tippen: Stichwörter, die mit der Eingabe beginnen (Vokalzeichen egal), je Wörterbuch in dessen Reihenfolge
+  async suggest(query, limit = 12) {
+    const q = norm(query);
+    if (!q) return [];
+    const out = [], seen = new Set();
+    for (const d of (await this.list())) {
+      const data = await this.load(d.id);
+      let lo = 0, hi = data.idx.length;
+      while (lo < hi) { const m = (lo + hi) >> 1; if (data.idx[m][0] < q) lo = m + 1; else hi = m; }
+      let taken = 0;
+      for (let i = lo; i < data.idx.length && taken < limit; i++) {
+        if (!data.idx[i][0].startsWith(q)) break;
+        const head = data.heads[data.idx[i][1]][0];
+        const key = norm(head);
+        if (!key || seen.has(key)) continue;
+        seen.add(key); taken++;
+        out.push({ head, key, dict: data.name });
+      }
+    }
+    // kürzere (näher an der Eingabe liegende) Wörter zuerst, bei Gleichstand die Wörterbuch-Reihenfolge behalten
+    return out.map((x, i) => [x, i]).sort((a, b) => a[0].key.length - b[0].key.length || a[1] - b[1]).map(a => a[0]).slice(0, limit);
+  }
   // Nachschlagen: genau, dann Wortanfang, dann ohne hebräische Vorsilben (ה ו ב כ ל מ ש)
   async lookup(query, { limit = 40, only = '' } = {}) {
     const q = norm(query);

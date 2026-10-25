@@ -5,7 +5,7 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "test": "node test.js && node test2.js && node test3.js && node test4.js && node test5.js && node test6.js && node test7.js",
+    "test": "node test.js && node test2.js && node test3.js && node test4.js && node test5.js && node test6.js && node test7.js && node test9.js",
     "dist": "electron-builder --mac",
     "dist:win": "electron-builder --win"
   },
@@ -40,6 +40,7 @@
     "files": [
       "**/*",
       "!test*.js",
+      "!tools/**",
       "!README.md"
     ],
     "icon": "build/icon.png",

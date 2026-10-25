@@ -2765,6 +2765,513 @@
    ],
    "kind": "de",
    "hash": "b02ecc5ecf1d2f090893e16dc60f74ce8db12079"
+  },
+  {
+   "rel": "own/Genesis/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+   "title": "Genesis",
+   "heTitle": "בראשית",
+   "language": "Hebrew",
+   "versionTitle": "Westminster Leningrad Codex (OSHB, mit Morphologie)",
+   "categories": [
+    "Tanakh",
+    "Torah"
+   ],
+   "kind": "he",
+   "hash": "e010e49d2898c32ba081051745ed3391de691665"
+  },
+  {
+   "rel": "own/Exodus/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+   "title": "Exodus",
+   "heTitle": "שמות",
+   "language": "Hebrew",
+   "versionTitle": "Westminster Leningrad Codex (OSHB, mit Morphologie)",
+   "categories": [
+    "Tanakh",
+    "Torah"
+   ],
+   "kind": "he",
+   "hash": "0c4ee5ebe78cb0a7017f8c6b11428b49b8db4ee8"
+  },
+  {
+   "rel": "own/Leviticus/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+   "title": "Leviticus",
+   "heTitle": "ויקרא",
+   "language": "Hebrew",
+   "versionTitle": "Westminster Leningrad Codex (OSHB, mit Morphologie)",
+   "categories": [
+    "Tanakh",
+    "Torah"
+   ],
+   "kind": "he",
+   "hash": "ce475c975a19af79959c808b0ab2daab82bb2b65"
+  },
+  {
+   "rel": "own/Numbers/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+   "title": "Numbers",
+   "heTitle": "במדבר",
+   "language": "Hebrew",
+   "versionTitle": "Westminster Leningrad Codex (OSHB, mit Morphologie)",
+   "categories": [
+    "Tanakh",
+    "Torah"
+   ],
+   "kind": "he",
+   "hash": "ce1c2b055074d10a254d17a1b85b42e5c5297079"
+  },
+  {
+   "rel": "own/Deuteronomy/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+   "title": "Deuteronomy",
+   "heTitle": "דברים",
+   "language": "Hebrew",
+   "versionTitle": "Westminster Leningrad Codex (OSHB, mit Morphologie)",
+   "categories": [
+    "Tanakh",
+    "Torah"
+   ],
+   "kind": "he",
+   "hash": "b1b74e845c76f1756f1eed098133c6ed5f5826a6"
+  },
+  {
+   "rel": "own/Joshua/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+   "title": "Joshua",
+   "heTitle": "יהושע",
+   "language": "Hebrew",
+   "versionTitle": "Westminster Leningrad Codex (OSHB, mit Morphologie)",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "he",
+   "hash": "95aeff2d790c9562a29d78a0777623cfd2ee6e00"
+  },
+  {
+   "rel": "own/Judges/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+   "title": "Judges",
+   "heTitle": "שופטים",
+   "language": "Hebrew",
+   "versionTitle": "Westminster Leningrad Codex (OSHB, mit Morphologie)",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "he",
+   "hash": "fa2e3e8649f0ff8335fd171766d14352cce2397d"
+  },
+  {
+   "rel": "own/I Samuel/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+   "title": "I Samuel",
+   "heTitle": "שמואל א",
+   "language": "Hebrew",
+   "versionTitle": "Westminster Leningrad Codex (OSHB, mit Morphologie)",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "he",
+   "hash": "093b7994a6e81344d8bb888e702b468ba1d18016"
+  },
+  {
+   "rel": "own/II Samuel/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+   "title": "II Samuel",
+   "heTitle": "שמואל ב",
+   "language": "Hebrew",
+   "versionTitle": "Westminster Leningrad Codex (OSHB, mit Morphologie)",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "he",
+   "hash": "9ad7a86d1bf3caeae5441f36643a77fa4a1bef12"
+  },
+  {
+   "rel": "own/I Kings/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+   "title": "I Kings",
+   "heTitle": "מלכים א",
+   "language": "Hebrew",
+   "versionTitle": "Westminster Leningrad Codex (OSHB, mit Morphologie)",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "he",
+   "hash": "a01012409716506128f6ef991ebf006b904f46e4"
+  },
+  {
+   "rel": "own/II Kings/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+   "title": "II Kings",
+   "heTitle": "מלכים ב",
+   "language": "Hebrew",
+   "versionTitle": "Westminster Leningrad Codex (OSHB, mit Morphologie)",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "he",
+   "hash": "c230493b4f46937000608546363de537f63cf9e2"
+  },
+  {
+   "rel": "own/Isaiah/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+   "title": "Isaiah",
+   "heTitle": "ישעיהו",
+   "language": "Hebrew",
+   "versionTitle": "Westminster Leningrad Codex (OSHB, mit Morphologie)",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "he",
+   "hash": "90cc0a6b84c01ea6fadfb9a868e592ee717c98ae"
+  },
+  {
+   "rel": "own/Jeremiah/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+   "title": "Jeremiah",
+   "heTitle": "ירמיהו",
+   "language": "Hebrew",
+   "versionTitle": "Westminster Leningrad Codex (OSHB, mit Morphologie)",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "he",
+   "hash": "38ea875864867443d273c41adf1de6ca1eb88f84"
+  },
+  {
+   "rel": "own/Ezekiel/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+   "title": "Ezekiel",
+   "heTitle": "יחזקאל",
+   "language": "Hebrew",
+   "versionTitle": "Westminster Leningrad Codex (OSHB, mit Morphologie)",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "he",
+   "hash": "97df94f374ccdc2227ebbff934f8204336a2bd26"
+  },
+  {
+   "rel": "own/Hosea/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+   "title": "Hosea",
+   "heTitle": "הושע",
+   "language": "Hebrew",
+   "versionTitle": "Westminster Leningrad Codex (OSHB, mit Morphologie)",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "he",
+   "hash": "d736eb336f889856396045b34415b6bed4832ce7"
+  },
+  {
+   "rel": "own/Joel/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+   "title": "Joel",
+   "heTitle": "יואל",
+   "language": "Hebrew",
+   "versionTitle": "Westminster Leningrad Codex (OSHB, mit Morphologie)",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "he",
+   "hash": "01e57289f317ab6befd0a6f977346ef584ffaf99"
+  },
+  {
+   "rel": "own/Amos/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+   "title": "Amos",
+   "heTitle": "עמוס",
+   "language": "Hebrew",
+   "versionTitle": "Westminster Leningrad Codex (OSHB, mit Morphologie)",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "he",
+   "hash": "5af903bfe9aab9a1f9f8494091e04b4fbc174562"
+  },
+  {
+   "rel": "own/Obadiah/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+   "title": "Obadiah",
+   "heTitle": "עובדיה",
+   "language": "Hebrew",
+   "versionTitle": "Westminster Leningrad Codex (OSHB, mit Morphologie)",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "he",
+   "hash": "c648483d248546336b4ed4e281b4d8eeb3669ec1"
+  },
+  {
+   "rel": "own/Jonah/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+   "title": "Jonah",
+   "heTitle": "יונה",
+   "language": "Hebrew",
+   "versionTitle": "Westminster Leningrad Codex (OSHB, mit Morphologie)",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "he",
+   "hash": "d8cabdcbeff578fd16440228d60bb31f66360e85"
+  },
+  {
+   "rel": "own/Micah/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+   "title": "Micah",
+   "heTitle": "מיכה",
+   "language": "Hebrew",
+   "versionTitle": "Westminster Leningrad Codex (OSHB, mit Morphologie)",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "he",
+   "hash": "56a4478ccde18e0631b9f96ee9abb8d598565ebc"
+  },
+  {
+   "rel": "own/Nahum/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+   "title": "Nahum",
+   "heTitle": "נחום",
+   "language": "Hebrew",
+   "versionTitle": "Westminster Leningrad Codex (OSHB, mit Morphologie)",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "he",
+   "hash": "d366c5fe94e83b7bd24284ab081be1270ce439d5"
+  },
+  {
+   "rel": "own/Habakkuk/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+   "title": "Habakkuk",
+   "heTitle": "חבקוק",
+   "language": "Hebrew",
+   "versionTitle": "Westminster Leningrad Codex (OSHB, mit Morphologie)",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "he",
+   "hash": "50410de5f39ab07764362005628f735854adc5a4"
+  },
+  {
+   "rel": "own/Zephaniah/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+   "title": "Zephaniah",
+   "heTitle": "צפניה",
+   "language": "Hebrew",
+   "versionTitle": "Westminster Leningrad Codex (OSHB, mit Morphologie)",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "he",
+   "hash": "d745ba396c532377fb7ceba2c670179169a1fd8a"
+  },
+  {
+   "rel": "own/Haggai/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+   "title": "Haggai",
+   "heTitle": "חגי",
+   "language": "Hebrew",
+   "versionTitle": "Westminster Leningrad Codex (OSHB, mit Morphologie)",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "he",
+   "hash": "406bd6ae0a86a6f6e9c23bc72b4ea78eef4c6b27"
+  },
+  {
+   "rel": "own/Zechariah/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+   "title": "Zechariah",
+   "heTitle": "זכריה",
+   "language": "Hebrew",
+   "versionTitle": "Westminster Leningrad Codex (OSHB, mit Morphologie)",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "he",
+   "hash": "2c628f44cf8bec726ff5241ae9f50d1cb1fa4e6d"
+  },
+  {
+   "rel": "own/Malachi/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+   "title": "Malachi",
+   "heTitle": "מלאכי",
+   "language": "Hebrew",
+   "versionTitle": "Westminster Leningrad Codex (OSHB, mit Morphologie)",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "he",
+   "hash": "8dbfbb14a2b584320fa431d7b8ded159452a61e2"
+  },
+  {
+   "rel": "own/Psalms/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+   "title": "Psalms",
+   "heTitle": "תהילים",
+   "language": "Hebrew",
+   "versionTitle": "Westminster Leningrad Codex (OSHB, mit Morphologie)",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "he",
+   "hash": "514559fac60789eec926584672563f42c2db2226"
+  },
+  {
+   "rel": "own/Proverbs/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+   "title": "Proverbs",
+   "heTitle": "משלי",
+   "language": "Hebrew",
+   "versionTitle": "Westminster Leningrad Codex (OSHB, mit Morphologie)",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "he",
+   "hash": "74c7b6eb506717aeeeec78795c8195bf0df0bbe9"
+  },
+  {
+   "rel": "own/Job/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+   "title": "Job",
+   "heTitle": "איוב",
+   "language": "Hebrew",
+   "versionTitle": "Westminster Leningrad Codex (OSHB, mit Morphologie)",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "he",
+   "hash": "b6fe2b872f6f8abaa2f96b51e7f868ce4aaa04b6"
+  },
+  {
+   "rel": "own/Song of Songs/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+   "title": "Song of Songs",
+   "heTitle": "שיר השירים",
+   "language": "Hebrew",
+   "versionTitle": "Westminster Leningrad Codex (OSHB, mit Morphologie)",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "he",
+   "hash": "5f2bd73fb68e7ec462a607c010e87ad26e6c19c9"
+  },
+  {
+   "rel": "own/Ruth/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+   "title": "Ruth",
+   "heTitle": "רות",
+   "language": "Hebrew",
+   "versionTitle": "Westminster Leningrad Codex (OSHB, mit Morphologie)",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "he",
+   "hash": "6782f3bfaaec6ca18e177565b1c46f7487a8e238"
+  },
+  {
+   "rel": "own/Lamentations/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+   "title": "Lamentations",
+   "heTitle": "איכה",
+   "language": "Hebrew",
+   "versionTitle": "Westminster Leningrad Codex (OSHB, mit Morphologie)",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "he",
+   "hash": "b7ff1d51472ed28ee53263b1112e790210affd51"
+  },
+  {
+   "rel": "own/Ecclesiastes/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+   "title": "Ecclesiastes",
+   "heTitle": "קהלת",
+   "language": "Hebrew",
+   "versionTitle": "Westminster Leningrad Codex (OSHB, mit Morphologie)",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "he",
+   "hash": "e1cc1630e6c37865b76ede20a5d381ea0e5b051d"
+  },
+  {
+   "rel": "own/Esther/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+   "title": "Esther",
+   "heTitle": "אסתר",
+   "language": "Hebrew",
+   "versionTitle": "Westminster Leningrad Codex (OSHB, mit Morphologie)",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "he",
+   "hash": "6127635914e2f1aea2d1e354589da707c57f0d7c"
+  },
+  {
+   "rel": "own/Daniel/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+   "title": "Daniel",
+   "heTitle": "דניאל",
+   "language": "Hebrew",
+   "versionTitle": "Westminster Leningrad Codex (OSHB, mit Morphologie)",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "he",
+   "hash": "5588a23e74fd530ef9352b45f2ac614e7d6880a5"
+  },
+  {
+   "rel": "own/Ezra/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+   "title": "Ezra",
+   "heTitle": "עזרא",
+   "language": "Hebrew",
+   "versionTitle": "Westminster Leningrad Codex (OSHB, mit Morphologie)",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "he",
+   "hash": "5dc326344c7c7a2e936217bb2e75ed2f612654c2"
+  },
+  {
+   "rel": "own/Nehemiah/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+   "title": "Nehemiah",
+   "heTitle": "נחמיה",
+   "language": "Hebrew",
+   "versionTitle": "Westminster Leningrad Codex (OSHB, mit Morphologie)",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "he",
+   "hash": "3d47cd22cfa7cdcd2d43e2dbfece0328a371deb7"
+  },
+  {
+   "rel": "own/I Chronicles/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+   "title": "I Chronicles",
+   "heTitle": "דברי הימים א",
+   "language": "Hebrew",
+   "versionTitle": "Westminster Leningrad Codex (OSHB, mit Morphologie)",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "he",
+   "hash": "e43d645ea79b14f01d4bc6e2abd755d04949a0da"
+  },
+  {
+   "rel": "own/II Chronicles/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+   "title": "II Chronicles",
+   "heTitle": "דברי הימים ב",
+   "language": "Hebrew",
+   "versionTitle": "Westminster Leningrad Codex (OSHB, mit Morphologie)",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "he",
+   "hash": "9abfa3dcac90351c7dc51b42ab55fbdd7f1bdc00"
   }
  ]
 }

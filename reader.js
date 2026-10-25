@@ -120,9 +120,10 @@ function splitFootnotes(html) {
   return { main, notes };
 }
 
-const ALLOWED_TAGS = ['b', 'i', 'em', 'strong', 'small', 'big', 'sup', 'sub', 'br', 'u'];
+const ALLOWED_TAGS = ['b', 'i', 'em', 'strong', 'small', 'big', 'sup', 'sub', 'br', 'u', 'span'];
 // Nur einfache Formatierungs-Tags durchlassen; alle anderen Tags und alle Attribute entfernen
 function cleanHtml(s) {
+  let spans = 0; // offene, erlaubte <span class="w">; fremde <span> fallen weg, und ihr </span> darf dann nicht übrig bleiben
   return String(s ?? '').replace(/<\/?([a-z0-9]+)[^>]*>/gi, (m, t) => {
     t = t.toLowerCase();
     // Eingebettete Bilder: nur <img src="data:image/png|jpeg|gif|webp;base64,…"> (bis ca. 4 MB), alles andere am Tag fällt weg
@@ -131,8 +132,15 @@ function cleanHtml(s) {
       return im ? `<img src="${im[1].replace(/\s+/g, '')}" alt="">` : '';
     }
     if (!ALLOWED_TAGS.includes(t)) return '';
-    if (m.startsWith('</')) return `</${t}>`;
+    if (m.startsWith('</')) return t === 'span' ? (spans > 0 ? (spans--, '</span>') : '') : `</${t}>`;
     // einzige erlaubte Attributform: <sup data-fn="12"> (Fußnotenzeichen, nur Ziffern)
+    // OSHB-Wörter: <span class="w" data-l="1254 a" data-m="HVqp3ms"> (Lemma-Nummer und Morphologiecode, nur Ziffern/Buchstaben)
+    if (t === 'span') {
+      const w = m.match(/^<span class="w" data-l="([0-9a-z\/+ ]{0,40})" data-m="([A-Za-z0-9\/]{0,40})">$/);
+      if (!w) return '';
+      spans++;
+      return `<span class="w" data-l="${w[1]}" data-m="${w[2]}">`;
+    }
     const fn = t === 'sup' && m.match(/^<sup\s+data-fn="(\d{1,4})"\s*>$/);
     return fn ? `<sup data-fn="${fn[1]}">` : `<${t}>`;
   });

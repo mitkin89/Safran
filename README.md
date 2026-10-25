@@ -121,7 +121,7 @@ The source code of this app is released under the [MIT License](LICENSE).
 - **Dictionaries (DSL):** ⋯ → "📖 Wörterbuch …" opens a lookup panel on the right (below the commentary panel if that is open); add ABBYY-Lingvo `.dsl` / `.dsl.dz` dictionaries under "Wörterbücher verwalten" (UTF-16/UTF-8, tags like `[b]`, `[i]`, `[c]`, `[ref]` are rendered; images and sound are skipped). Lookup ignores vowel points and final-letter forms, tries to strip the prefixes ו ה ב כ ל מ ש, and also lists entries that start with your word. Right-click a Hebrew word (or a selection) in the text → *Im Wörterbuch nachschlagen*. Cross-references in an entry are clickable.
 - **Dictionary button:** 📖 next to the commentary button toggles the panel; double-click any word in the text or commentary to look it up. The panel has back/forward arrows and A−/A+ text size (remembered). Right-click (like GoldenDict) for *Select current article*, *Select all* and a list of the dictionaries that have an entry for the current word, to jump to that article.
 - **Clickable sources:** dictionaries may mark citations (`{{ref:Shabbat 105a}}Schabb. 105ᵃ{{/ref}}` – an ordinary DSL comment for other programs); in Safran a click opens that place in the reader (Cmd/Ctrl-click: new tab), provided the text is in your library.
-- **Bundled dictionaries:** under "Wörterbücher verwalten" tick *mitliefern* for each dictionary you are allowed to distribute; "Mitgelieferte Texte exportieren" then also writes them (gzip-compressed) to `bundled/dict/`. The app installs them on first start (and updates them when they change); a dictionary a user removes stays removed.
+- **Bundled dictionaries:** dictionaries in `bundled/dict/` (gzip-compressed, with a manifest) are installed on first start and updated when they change; a dictionary a user removes stays removed.
 - Dialogs have a ✕; clicking outside closes the *Versionen* list and the ⋯ menu.
 - **Search results:** right-click a result for *Open*, *Open in new tab* or *Open in second window* (the exact version and passage are kept).
 
@@ -157,3 +157,9 @@ The source code of this app is released under the [MIT License](LICENSE).
 - **Own texts:** re-importing asks before overwriting; ⟳ re-reads the source file; word-level diff against an existing version; "CSV" saves an own text as a Sefaria upload CSV.
 - **Security:** navigation locked to local files, stricter CSP, allow-listed drag-and-drop paths, PDF export via temp file.
 - **Windows:** `npm run dist:win` builds an installer and a portable exe; a GitHub Actions workflow builds macOS and Windows.
+
+## Hebräischer Tanach mit Morphologie (OSHB)
+
+Alle 39 Bücher liegen als zusätzliche hebräische Version „Westminster Leningrad Codex (OSHB, mit Morphologie)“ unter `bundled/own/…/he/`. Jedes Wort trägt Lemma (Strong-Nummer) und Morphologiecode; ein Klick im Leser zeigt Stamm, Zeit/Form, Person, Genus und Numerus und schlägt das Lemma im Wörterbuch nach.
+
+Quelle und Lizenz: Original work of the Open Scriptures Hebrew Bible available at https://github.com/openscriptures/morphhb – Text (WLC) gemeinfrei, Lemma und Morphologie CC BY 4.0. Lemma-Tabelle aus https://github.com/openscriptures/HebrewLexicon (`oshb-lemmas.js`). Konverter: `tools/oshb/`.

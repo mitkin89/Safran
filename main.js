@@ -454,15 +454,28 @@ ipcMain.handle('dict:add', async e => {
   return { added, errors };
 });
 ipcMain.handle('dict:order', async (_e, ids) => { try { await (await getDicts()).setOrder((Array.isArray(ids) ? ids : []).map(String).filter(x => /^[0-9a-f]{12}$/.test(x))); return {}; } catch (err) { return { error: err.message }; } });
-ipcMain.handle('dict:ship', async (_e, id, on) => { try { await (await getDicts()).setShip(String(id), !!on); return {}; } catch (err) { return { error: err.message }; } });
 ipcMain.handle('dict:remove', async (_e, id) => { try { await (await getDicts()).remove(String(id)); return {}; } catch (err) { return { error: err.message }; } });
 ipcMain.handle('dict:lookup', async (_e, q, only) => { try { return { results: await (await getDicts()).lookup(String(q || '').slice(0, 100), { only: /^[0-9a-f]{12}$/.test(String(only || '')) ? String(only) : '' }) }; } catch (err) { return { results: [], error: err.message }; } });
+
+// Eigenes Wörterbuch-Fenster (dieselbe Oberfläche, nur der Reiter „Wörterbuch“)
+ipcMain.handle('dict:window', (_e, q) => {
+  const w = new BrowserWindow({
+    width: 900, height: 780, minWidth: 560, minHeight: 400, title: 'Safran – Wörterbuch',
+    icon: path.join(__dirname, 'build', 'icon.png'),
+    webPreferences: { preload: path.join(__dirname, 'preload.js'), contextIsolation: true, nodeIntegration: false, sandbox: false },
+  });
+  w.webContents.setWindowOpenHandler(() => ({ action: 'deny' }));
+  w.webContents.on('will-navigate', (ev, url) => { if (!url.startsWith('file://')) ev.preventDefault(); });
+  w.loadFile('library.html', { hash: 'dictwin=' + encodeURIComponent(String(q || '').slice(0, 100)) });
+  return true;
+});
+ipcMain.handle('dict:suggest', async (_e, q) => { try { return { list: await (await getDicts()).suggest(String(q || '').slice(0, 60)) }; } catch { return { list: [] }; } });
 
 ipcMain.handle('off:ownExportBundle', async e => {
   const lib = await getLibrary();
   const r = await dialog.showOpenDialog(winOf(e), { title: 'Ordner „bundled“ im Projekt wählen (oder neuen Ordner anlegen)', properties: ['openDirectory', 'createDirectory'] });
   if (r.canceled || !r.filePaths[0]) return { cancelled: true };
-  try { const count = await lib.exportBundled(r.filePaths[0]); const dicts = await (await getDicts()).exportBundled(r.filePaths[0]); return { count, dicts, dir: r.filePaths[0] }; } catch (err) { return { error: err.message }; }
+  try { return { count: await lib.exportBundled(r.filePaths[0]), dir: r.filePaths[0] }; } catch (err) { return { error: err.message }; }
 });
 
 ipcMain.handle('off:ownRemove', async (_e, rel) => {

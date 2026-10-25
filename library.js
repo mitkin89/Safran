@@ -1,3 +1,9 @@
+const DICTWIN = location.hash.startsWith('#dictwin'); // eigenes Wörterbuch-Fenster (Rechtsklick → „In neuem Fenster“)
+if (DICTWIN) { // Verlauf und Sitzung der Hauptfenster nicht überschreiben
+  const si = Storage.prototype.setItem;
+  Storage.prototype.setItem = function (k, v) { if (k === 'session' || k === 'history') return; return si.call(this, k, v); };
+  document.documentElement.classList.add('dictwin');
+}
 (() => {
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
@@ -18,11 +24,14 @@
   const keyOf = e => e.categories.join('/') + '¦' + e.title;
 
   // ---------- Reiter ----------
+  let onTabChange = null; // wird weiter unten für den Reiter „Wörterbuch“ gesetzt
   function showTab(t) {
+    const prevTab = document.documentElement.dataset.tab;
     $$('nav button').forEach(b => b.classList.toggle('active', b.dataset.tab === t));
     $$('main > section').forEach(s => (s.hidden = s.id !== 'tab-' + t));
     document.documentElement.dataset.tab = t;
     $('#togglePanel').hidden = t !== 'read'; // die Bücherliste gibt es nur im Reiter „Lesen“
+    if (onTabChange) onTabChange(t, prevTab);
   }
   $$('nav button').forEach(b => (b.onclick = () => showTab(b.dataset.tab)));
   $('#goGet').onclick = () => showTab('get'); // „Herunterladen“ liegt im ⋯-Menü, damit die Kopfzeile Platz für die Tabs lässt
@@ -408,6 +417,48 @@
     // Klick in den Fußnotentext schließt nichts – so lässt sich der Text markieren und kopieren
   });
 
+  // OSHB-Texte: Klick auf ein Wort zeigt Lemma, Stamm, Zeit und Form; „Im Wörterbuch“ schlägt das Lemma nach
+  let wpop = null;
+  const closeWpop = () => { if (wpop) { wpop.remove(); wpop = null; } $$('#rOut .w.sel').forEach(x => x.classList.remove('sel')); };
+  $('#rOut').addEventListener('click', e => {
+    const w = e.target.closest('.w[data-m]');
+    if (!w) { if (!e.target.closest('#wpop')) closeWpop(); return; }
+    if (window.getSelection && String(window.getSelection())) return; // beim Markieren nicht stören
+    const same = w.classList.contains('sel');
+    closeWpop();
+    if (same) return;
+    const d = window.Morph.decode(w.dataset.m, w.dataset.l);
+    if (!d) return;
+    const LEM = window.OSHB_LEMMAS || {};
+    w.classList.add('sel');
+    const rows = d.segs.map((s, i) => {
+      const lem = s.lemma && LEM[s.lemma] ? LEM[s.lemma] : null;
+      const parts = [`<b>${esc(s.pos)}</b>`];
+      if (s.stem) parts.push(`Stamm: <b>${esc(s.stem)}</b>`);
+      if (s.tense) parts.push(`Zeit/Form: <b>${esc(s.tense)}</b>`);
+      if (s.info) parts.push(esc(s.info));
+      let h = `<div class="wseg${i === d.main ? ' main' : ''}">`;
+      if (s.prefix) h += `<span class="wpre">${esc(s.prefix)}</span> `;
+      if (lem) h += `<span class="wlem" dir="rtl" lang="he">${esc(lem[0])}</span> <span class="muted">${esc(lem[1])}</span><br>`;
+      return h + parts.join(' · ') + '</div>';
+    }).join('');
+    const mainSeg = d.segs[d.main], lem = mainSeg && mainSeg.lemma && LEM[mainSeg.lemma];
+    wpop = document.createElement('div');
+    wpop.id = 'wpop';
+    wpop.innerHTML = `<div class="wtop"><span dir="rtl" lang="he" class="wword">${esc(w.textContent)}</span><button class="wx" title="Schließen">✕</button></div>${rows}${lem ? `<button class="wdict" data-q="${esc(lem[0])}">Im Wörterbuch nachschlagen</button>` : ''}`;
+    document.body.appendChild(wpop);
+    const r = w.getBoundingClientRect(), pw = wpop.offsetWidth, ph = wpop.offsetHeight;
+    let x = Math.max(8, Math.min(window.innerWidth - pw - 8, r.left + r.width / 2 - pw / 2));
+    let y = r.bottom + 6; if (y + ph > window.innerHeight - 8) y = Math.max(8, r.top - ph - 6);
+    wpop.style.left = x + 'px'; wpop.style.top = y + 'px';
+    wpop.onclick = ev => {
+      if (ev.target.closest('.wx')) closeWpop();
+      const b = ev.target.closest('.wdict'); if (b) openDict(b.dataset.q);
+    };
+  });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeWpop(); });
+  window.addEventListener('scroll', closeWpop, { passive: true, capture: true });
+
   // Fußnoten-Modus (per Klick / immer / aus), wird gemerkt
   let noteMode = 'click';
   try { noteMode = localStorage.getItem('noteMode') || 'click'; } catch { /* egal */ }
@@ -745,6 +796,7 @@
     $$('#rOut .note').forEach(n => { if (normF(n.textContent).includes(q)) n.classList.add('fnd'); });
     const roots = [$('#rOut')];
     if (!$('#cmtPanel').hidden) roots.push($('#cmtBody')); // auch der Kommentar-Bereich wird durchsucht
+    if (!$('#dictPanel').hidden) roots.push($('#dictOut')); // ebenso die Wörterbuch-Treffer
     const ranges = [];
     for (const root of roots) {
     const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
@@ -1127,6 +1179,8 @@
     q = String(q || '').trim();
     if (!q) return;
     dictOnly = only;
+    dtabs[dcur].title = q;
+    renderDtabs();
     if (!fromHist) {
       if (!(dictPos >= 0 && dictHist[dictPos].q === q)) { dictHist = dictHist.slice(0, dictPos + 1); dictHist.push({ q, only }); dictPos = dictHist.length - 1; }
     }
@@ -1154,6 +1208,95 @@
     $('#dictPanel').scrollTop = 0;
   }
   const dictGoHist = d => { const k = dictPos + d; if (k < 0 || k >= dictHist.length) return; dictPos = k; dictLookup(dictHist[k].q, dictHist[k].only, true); };
+  // Mehrere Wörterbuch-Tabs – nur im Reiter „Wörterbuch“ sichtbar (die Seitenleiste beim Lesen hat immer nur eine Suche)
+  const dtabs = [{ title: 'Neu' }];
+  let dcur = 0;
+  const dtabSave = () => {
+    const t = dtabs[dcur];
+    Object.assign(t, { q: $('#dictQ').value, only: dictOnly, hist: dictHist, pos: dictPos, shown: dictShown, html: $('#dictOut').innerHTML, scroll: $('#dictPanel').scrollTop });
+  };
+  const dtabLoad = () => {
+    const t = dtabs[dcur];
+    dictOnly = t.only || null; dictHist = t.hist || []; dictPos = t.pos == null ? -1 : t.pos; dictShown = t.shown || [];
+    $('#dictQ').value = t.q || '';
+    $('#dictOut').innerHTML = t.html || '<p class="muted">Gib ein hebräisches oder deutsches Wort ein.</p>';
+    $('#dictPanel').scrollTop = t.scroll || 0;
+    dictNavButtons();
+    renderDtabs();
+  };
+  function renderDtabs() {
+    $('#dictTabs').innerHTML = dtabs.map((t, i) => `<span class="dtab${i === dcur ? ' active' : ''}" data-i="${i}" title="${esc(t.title)}"><span class="dtt">${esc(t.title)}</span>${dtabs.length > 1 ? '<button class="dtx" title="Tab schließen">✕</button>' : ''}</span>`).join('') + '<button id="dtabNew" title="Neuer Wörterbuch-Tab">+</button>';
+  }
+  const dtabGo = i => { if (i === dcur || !dtabs[i]) return; dtabSave(); dcur = i; dtabLoad(); };
+  const dtabAdd = () => { dtabSave(); dtabs.push({ title: 'Neu' }); dcur = dtabs.length - 1; dtabLoad(); $('#dictQ').focus(); };
+  const dtabClose = i => { if (dtabs.length < 2) return; if (i === dcur) { dtabs.splice(i, 1); dcur = Math.min(i, dtabs.length - 1); dtabLoad(); } else { dtabSave(); dtabs.splice(i, 1); if (i < dcur) dcur--; renderDtabs(); } };
+  $('#dictTabs').addEventListener('click', e => {
+    if (e.target.closest('#dtabNew')) return dtabAdd();
+    const t = e.target.closest('.dtab'); if (!t) return;
+    if (e.target.closest('.dtx')) return dtabClose(+t.dataset.i);
+    dtabGo(+t.dataset.i);
+  });
+  $('#dictTabs').addEventListener('auxclick', e => { const t = e.target.closest('.dtab'); if (t && e.button === 1) dtabClose(+t.dataset.i); });
+  // Im Wörterbuch-Reiter öffnet Cmd/Strg/Umschalt + Klick auf einen Verweis (oder Cmd+Enter beim Suchen) einen neuen Tab
+  $('#dictOut').addEventListener('click', e => {
+    const a = e.target.closest('a.dref[data-q]');
+    if (a && document.documentElement.dataset.tab === 'dict' && (e.metaKey || e.ctrlKey || e.shiftKey)) { e.preventDefault(); e.stopImmediatePropagation(); const q = a.dataset.q; dtabAdd(); dictLookup(q); }
+  }, true);
+  renderDtabs();
+  // Wortvorschläge beim Tippen
+  { let sugTimer = 0, sugSeq = 0, sugItems = [], sugSel = -1;
+    const box = $('#dictSug');
+    const hideSug = () => { box.hidden = true; sugItems = []; sugSel = -1; };
+    const paint = () => { box.innerHTML = sugItems.map((x, i) => `<div class="sg${i === sugSel ? ' on' : ''}" data-i="${i}"><b dir="auto">${esc(x.head)}</b><small>${esc(x.dict)}</small></div>`).join(''); box.hidden = !sugItems.length; };
+    const pick = i => { const x = sugItems[i]; if (!x) return; hideSug(); $('#dictQ').value = x.head; dictLookup(x.head); };
+    $('#dictQ').addEventListener('input', () => {
+      clearTimeout(sugTimer);
+      const v = $('#dictQ').value.trim();
+      if (!v) { hideSug(); return; }
+      sugTimer = setTimeout(async () => {
+        const my = ++sugSeq;
+        const r = await O.dictSuggest(v);
+        if (my !== sugSeq || $('#dictQ').value.trim() !== v) return; // veraltete Antwort
+        sugItems = r.list || []; sugSel = -1; paint();
+      }, 80);
+    });
+    $('#dictQ').addEventListener('keydown', e => {
+      if (box.hidden) return;
+      if (e.key === 'ArrowDown' || e.key === 'ArrowUp') { e.preventDefault(); sugSel = (sugSel + (e.key === 'ArrowDown' ? 1 : -1) + sugItems.length + 1) % (sugItems.length + 1); if (sugSel === sugItems.length) sugSel = -1; paint(); }
+      else if (e.key === 'Enter' && sugSel >= 0) { e.preventDefault(); e.stopImmediatePropagation(); pick(sugSel); }
+      else if (e.key === 'Escape') { hideSug(); }
+    }, true);
+    box.addEventListener('mousedown', e => { const r = e.target.closest('.sg'); if (r) { e.preventDefault(); pick(+r.dataset.i); } });
+    $('#dictQ').addEventListener('blur', () => setTimeout(hideSug, 120));
+    $('#dictGo').addEventListener('click', hideSug);
+  }
+  // Rechtsklick im Wörterbuch: in neuem Tab oder neuem Fenster nachschlagen
+  $('#dictOut').addEventListener('contextmenu', e => {
+    if (e.target.closest('input, textarea')) return;
+    const a = e.target.closest('a.dref[data-q]');
+    const sel = (window.getSelection() + '').trim();
+    const word = a ? a.dataset.q : (sel && sel.length <= 60 && !/\n/.test(sel) ? sel : (sel ? '' : wordAt(e)));
+    const items = [];
+    if (word) {
+      items.push({ label: `Im neuen Tab nachschlagen: „${word}“`, fn: () => { if (document.documentElement.dataset.tab !== 'dict') showTab('dict'); dtabAdd(); dictLookup(word); } });
+      items.push({ label: `In neuem Fenster nachschlagen: „${word}“`, fn: () => O.dictWindow(word) });
+      items.push({ label: `Hier nachschlagen: „${word}“`, fn: () => dictLookup(word) });
+    }
+    if (sel) items.push({ label: 'Kopieren', fn: () => navigator.clipboard.writeText(sel).catch(() => {}) });
+    if (items.length) ctxShow(e, items);
+  });
+  // „Erster Buchstabe weg“: Präfix (בְּ, וְ, הַ …) abschneiden und neu nachschlagen, beliebig oft
+  $('#dictCut').onclick = () => {
+    const q = $('#dictQ').value.trim().replace(/^[^\p{L}]*\p{L}\p{M}*/u, '');
+    if (q) dictLookup(q); 
+  };
+  // Reiter „Wörterbuch“: das Wörterbuch füllt die ganze Seite
+  { let dictBefore = false;
+    onTabChange = (t, prev) => {
+      if (t === 'dict' && prev !== 'dict') { dictBefore = dictOpen; toggleDict(true); }
+      else if (t !== 'dict' && prev === 'dict') toggleDict(dictBefore);
+    };
+  }
   $('#dictBack').onclick = () => dictGoHist(-1);
   $('#dictFwd').onclick = () => dictGoHist(1);
   // Schriftgröße des Wörterbuchs (wird gemerkt)
@@ -1172,14 +1315,14 @@
   }
   async function renderDictList() {
     const r = await O.dictList();
-    $('#dictList').innerHTML = r.list.length ? r.list.map((d, i) => `<div class="dli"><span>${esc(d.name)} <span class="muted">· ${d.count.toLocaleString('de-DE')} Einträge</span></span><span class="dbtns"><label class="dship" title="Beim Export für GitHub mit ausliefern (nur, wenn du die Rechte hast)"><input type="checkbox" data-ship="${esc(d.id)}"${d.ship ? ' checked' : ''}> mitliefern</label><button data-mv="-1" data-id="${esc(d.id)}" title="Nach oben (wird zuerst angezeigt)"${i === 0 ? ' disabled' : ''}>▲</button><button data-mv="1" data-id="${esc(d.id)}" title="Nach unten"${i === r.list.length - 1 ? ' disabled' : ''}>▼</button><button data-id="${esc(d.id)}" title="Wörterbuch entfernen">✕</button></span></div>`).join('') : '<p class="muted">Noch keine Wörterbücher.</p>';
+    $('#dictList').innerHTML = r.list.length ? r.list.map((d, i) => `<div class="dli"><span>${esc(d.name)} <span class="muted">· ${d.count.toLocaleString('de-DE')} Einträge</span></span><span class="dbtns"><button data-mv="-1" data-id="${esc(d.id)}" title="Nach oben (wird zuerst angezeigt)"${i === 0 ? ' disabled' : ''}>▲</button><button data-mv="1" data-id="${esc(d.id)}" title="Nach unten"${i === r.list.length - 1 ? ' disabled' : ''}>▼</button><button data-id="${esc(d.id)}" title="Wörterbuch entfernen">✕</button></span></div>`).join('') : '<p class="muted">Noch keine Wörterbücher.</p>';
   }
   async function openDict(q) {
     if (!dictOpen) toggleDict(true); else renderDictList();
     if (q) dictLookup(q); else $('#dictQ').focus();
   }
   $('#openDict').onclick = () => { $('#moreMenu').open = false; toggleDict(); };
-  $('#dictClose').onclick = () => toggleDict(false);
+  $('#dictClose').onclick = () => { if (document.documentElement.dataset.tab === 'dict') showTab('read'); else toggleDict(false); };
   $('#dictGo').onclick = () => dictLookup($('#dictQ').value);
   $('#dictQ').addEventListener('keydown', e => { if (e.key === 'Enter') dictLookup($('#dictQ').value); });
   $('#dictOut').addEventListener('click', e => {
@@ -1222,10 +1365,6 @@
     if (r.errors && r.errors.length) alert(r.errors.join('\n'));
     else if (r.added && r.added.length) $('#dictOut').innerHTML = `<p class="muted">Eingebunden: ${r.added.map(a => `${esc(a.name)} (${a.count.toLocaleString('de-DE')} Einträge)`).join(', ')}.</p>`;
   };
-  $('#dictList').addEventListener('change', async e => {
-    const c = e.target.closest('input[data-ship]');
-    if (c) { const r = await O.dictShip(c.dataset.ship, c.checked); if (r.error) alert(r.error); }
-  });
   $('#dictList').addEventListener('click', async e => {
     const mv = e.target.closest('button[data-mv]');
     if (mv) {   // Reihenfolge ändern
@@ -1963,7 +2102,7 @@ ${endnotes.length ? `<h3>Fußnoten</h3><ol class="fn">${endnotes.map(n => `<li>$
     $('#moreMenu').open = false;
     const r = await O.ownExportBundle();
     if (r.cancelled) return;
-    alert(r.error ? 'Export fehlgeschlagen: ' + r.error : (r.count || r.dicts) ? `${r.count} eigene Version(en) und ${r.dicts || 0} Wörterbuch/Wörterbücher exportiert nach:\n${r.dir}\n\nDiesen Ordnerinhalt als „bundled“ ins Projekt legen und zu GitHub hochladen.\n(Wörterbücher gehen nur mit, wenn „mitliefern“ angehakt ist.)` : 'Es gibt noch keine eigenen Texte zum Exportieren (und kein Wörterbuch mit „mitliefern“).');
+    alert(r.error ? 'Export fehlgeschlagen: ' + r.error : r.count ? `${r.count} eigene Version(en) exportiert nach:\n${r.dir}\n\nDiesen Ordnerinhalt als „bundled“ ins Projekt legen und zu GitHub hochladen.` : 'Es gibt noch keine eigenen Texte zum Exportieren.');
   };
 
   // ---------- Start ----------
@@ -1972,8 +2111,14 @@ ${endnotes.length ? `<h3>Fußnoten</h3><ol class="fn">${endnotes.map(n => `<li>$
     await loadLibrary();
     applyDisp(false);
     await loadNotes();
-    await restoreSession();
+    if (!DICTWIN) await restoreSession();
     await refreshCatalog();
+    if (DICTWIN) {
+      showTab('dict');
+      let q = ''; try { q = decodeURIComponent(location.hash.replace(/^#dictwin=?/, '')); } catch { /* egal */ }
+      if (q) dictLookup(q); else $('#dictQ').focus();
+      return;
+    }
     if (!groups.length) showTab('get');
   })();
 })();

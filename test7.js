@@ -46,6 +46,7 @@ assert.throws(() => D.parseDsl(Buffer.from('nur ein Satz', 'utf8'), 'z.dsl'));
   assert.ok((await ds.lookup('ובית'))[0].note.includes('Vorsilbe'));
   assert.strictEqual((await ds.lookup('א')).length, 2);                    // Wortanfang: אב/אבא-Eintrag und אם
   assert.strictEqual((await ds.lookup('xyz')).length, 0);
+  { const sg = await ds.suggest('א'); assert.ok(sg.length >= 2 && sg.every(x => D.norm(x.head).startsWith('א'))); assert.strictEqual((await ds.suggest('xyz')).length, 0); }
   await ds.remove(r.id);
   assert.strictEqual((await ds.list()).length, 0);
   console.log('DSL-Tests bestanden.');
