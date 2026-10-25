@@ -440,3 +440,6 @@ html.split[data-tab=dict] #dictPanel { right: var(--p2w); padding: 0 max(14px, 3
 .cell[dir=rtl] .txt:has(b, strong) { color: color-mix(in srgb, var(--fg) 88%, var(--bg)); }
 .cell[dir=rtl] .txt b, .cell[dir=rtl] .txt strong { font-weight: 700; color: var(--fg); -webkit-text-stroke: var(--he-bold, .005em) currentColor; paint-order: stroke fill; }
 .cmt .ct[dir=rtl] b, .cmt .ct[dir=rtl] strong { font-weight: 700; -webkit-text-stroke: var(--he-bold, .005em) currentColor; }
+
+/* Fettdruck ohne Vokalzeichen etwas kräftiger */
+.cell[dir=rtl] .txt b.nn, .cell[dir=rtl] .txt strong.nn, .cmt .ct[dir=rtl] b.nn, .cmt .ct[dir=rtl] strong.nn { -webkit-text-stroke: var(--he-bold-nn, .02em) currentColor; }

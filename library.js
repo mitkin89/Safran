@@ -2144,6 +2144,17 @@ ${endnotes.length ? `<h3>Fußnoten</h3><ol class="fn">${endnotes.map(n => `<li>$
     dlg.showModal();
   }
 
+  // Hebräischer Fettdruck: Wörter ohne Vokalzeichen bekommen die Klasse „nn“ (etwas kräftiger, siehe library.css)
+  { const NIQ = /[\u05B0-\u05BC\u05C1\u05C2\u05C7]/;
+    const mark = root => root.querySelectorAll('b:not([data-nn]), strong:not([data-nn])').forEach(b => {
+      b.dataset.nn = '1';
+      if (/[\u0590-\u05FF]/.test(b.textContent) && !NIQ.test(b.textContent)) b.classList.add('nn');
+    });
+    const obs = new MutationObserver(() => { obs.disconnect(); mark(document.body); watch(); });
+    const watch = () => ['#rOut', '#cmtBody'].forEach(s => { const el = $(s); if (el) obs.observe(el, { childList: true, subtree: true }); });
+    watch();
+  }
+
   // ---------- Start ----------
   (async () => {
     await refreshState();
