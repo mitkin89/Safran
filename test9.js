@@ -35,3 +35,8 @@ const g = JSON.parse(fs.readFileSync(__dirname + '/bundled/own/Genesis/he/Westmi
 assert.strictEqual(g.text.length, 50); assert.strictEqual(g.text[0].length, 31);
 assert(g.text[0][0].startsWith('<span class="w" data-l="b/7225"'));
 console.log('OSHB ok');
+// Versionsvergleich für den Update-Hinweis
+{ const U = require('./update.js');
+  assert(U.newer('1.5.0', '1.4.0') && U.newer('v1.10.0', '1.9.2') && U.newer('2.0', '1.9.9'));
+  assert(!U.newer('1.4.0', '1.4.0') && !U.newer('1.3.9', '1.4.0') && !U.newer('', '1.0.0'));
+  console.log('Update-Vergleich ok'); }

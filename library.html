@@ -29,12 +29,15 @@
         <button id="addOwn" title="Eigenen Text (TXT, Word, CSV, JSON) zum Testen einbinden">＋ Eigener Text…</button>
         <button id="chooseDir" title="Ordner wählen, in dem die heruntergeladenen Texte liegen (z. B. externe Festplatte)">Speicherort…</button>
         <button id="ownExport" title="Schreibt alle eigenen Texte in einen Ordner, den du ins Projekt (bundled/) legst, damit sie mit der App auf GitHub verteilt werden">Eigene Texte für GitHub exportieren …</button>
+        <button id="updNow" title="Prüft, ob eine neuere Version von Safran auf GitHub veröffentlicht ist">Nach Updates suchen</button>
+        <label class="chk" title="Safran fragt beim Start einmal bei GitHub nach einer neuen Version"><input type="checkbox" id="updAuto"> Beim Start nach Updates suchen</label>
         <button id="reveal">Im Finder zeigen</button>
         <span id="stats" class="muted"></span>
         <img class="logo small" src="logo.png" alt="talmud.de" title="talmud.de" width="46">
       </div>
     </details>
   </header>
+  <div id="updBanner" hidden><span id="updMsg"></span> <button id="updOpen" class="primary">Neuerungen &amp; Download</button> <button id="updLater">Später</button></div>
 
   <main>
     <!-- LESEN -->
@@ -235,6 +238,14 @@
     <div id="lkBody"></div>
   </aside>
 
+  <dialog id="welcomeDlg">
+    <h2>Willkommen bei Safran</h2>
+    <p>Safran enthält schon einige Texte, Wörterbücher und den hebräischen Tanach mit Morphologie. Die <b>Sefaria-Bibliothek</b> mit Tanach, Talmud, Mischna, Midrasch und Kommentaren ist noch nicht heruntergeladen.</p>
+    <p class="muted">Du wählst selbst, welche Bücher und Sprachen du brauchst. Der Katalog hat etwa 22 MB, die Texte kommen danach einzeln dazu. Das geht auch später im Reiter „Herunterladen“ (Menü ⋯).</p>
+    <label><input type="checkbox" id="welcomeNever"> Nicht mehr fragen</label>
+    <div class="bar"><button id="welcomeGo" class="primary">Bibliothek jetzt auswählen …</button><button id="welcomeLater">Später</button></div>
+  </dialog>
+
   <dialog id="expDlg">
     <h2>Abschnitt exportieren</h2>
     <p id="expWhat" class="muted"></p>
@@ -303,6 +314,7 @@
 
   <script src="reader.js"></script>
   <script src="morph.js"></script>
+  <script src="update.js"></script>
   <script src="oshb-lemmas.js"></script>
   <script src="order.js"></script>
   <script src="diff.js"></script>

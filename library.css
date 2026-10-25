@@ -67,7 +67,7 @@ aside input { width: 100%; margin-bottom: 8px; }
 #stick .bar { margin-bottom: 8px; }
 #verList { max-height: 28vh; }
 /* Suche im Text (Cmd+F) */
-#findBar { position: fixed; right: 18px; bottom: 18px; z-index: 20; display: flex; align-items: center; gap: 6px; padding: 8px 10px; background: var(--bg); border: 1px solid var(--line); border-radius: 10px; box-shadow: 0 4px 18px rgba(0,0,0,.35); }
+#findBar { position: fixed; right: 18px; bottom: 18px; z-index: 45; display: flex; align-items: center; gap: 6px; padding: 8px 10px; background: var(--bg); border: 1px solid var(--line); border-radius: 10px; box-shadow: 0 4px 18px rgba(0,0,0,.35); }
 #findBar[hidden] { display: none; }
 #findIn { width: 220px; }
 
@@ -427,3 +427,11 @@ html[data-tab=dict] #dictTabs { display: flex; gap: 4px; flex-wrap: wrap; margin
 
 /* Reiter „Wörterbuch“ bei geöffnetem zweiten Fenster: nur die linke Hälfte füllen */
 html.split[data-tab=dict] #dictPanel { right: var(--p2w); padding: 0 max(14px, 3vw) 14px; }
+
+/* Update-Hinweis */
+#updBanner { display: flex; align-items: center; gap: 10px; padding: 6px 14px; background: color-mix(in srgb, var(--accent) 18%, var(--bg)); border-bottom: 1px solid var(--accent); font-size: 13px; }
+#updBanner[hidden] { display: none; }
+#moreList .chk { display: flex; align-items: center; gap: 6px; padding: 4px 10px; font-size: 13px; }
+
+#welcomeDlg { max-width: 480px; width: 90vw; border: 1px solid var(--line); border-radius: 12px; background: var(--bg); color: inherit; }
+#welcomeDlg label { display: block; margin: 10px 0; font-size: 13px; }

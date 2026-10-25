@@ -66,5 +66,5 @@ function decode(morph, lemma) {
   return { lang, segs, main };
 }
 
-const exp = { decode, segment, PREFIX };
-if (typeof module !== 'undefined' && module.exports) module.exports = exp; else window.Morph = exp;
+const morphExports = { decode, segment, PREFIX };
+if (typeof module !== 'undefined' && module.exports) module.exports = morphExports; else window.Morph = morphExports;

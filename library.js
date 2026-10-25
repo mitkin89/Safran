@@ -2109,6 +2109,41 @@ ${endnotes.length ? `<h3>Fußnoten</h3><ol class="fn">${endnotes.map(n => `<li>$
     alert(r.error ? 'Export fehlgeschlagen: ' + r.error : r.count ? `${r.count} eigene Version(en) exportiert nach:\n${r.dir}\n\nDiesen Ordnerinhalt als „bundled“ ins Projekt legen und zu GitHub hochladen.` : 'Es gibt noch keine eigenen Texte zum Exportieren.');
   };
 
+  // ---------- Update-Hinweis ----------
+  { const banner = $('#updBanner'), msg = $('#updMsg');
+    let rel = null;
+    const get = k => { try { return localStorage.getItem(k); } catch { return null; } };
+    const set = (k, v) => { try { localStorage.setItem(k, v); } catch { /* egal */ } };
+    $('#updAuto').checked = get('updCheck') !== '0';
+    $('#updAuto').onchange = () => set('updCheck', $('#updAuto').checked ? '1' : '0');
+    async function check(manual) {
+      const r = await O.checkUpdate();
+      if (r.error) { if (manual) { msg.textContent = 'Update-Suche fehlgeschlagen: ' + r.error; $('#updOpen').hidden = true; banner.hidden = false; } return; }
+      if (r.latest && window.Update.newer(r.latest, r.current)) {
+        if (!manual && get('updSkip') === r.latest) return; // „Später“ wurde für diese Version schon gewählt
+        rel = r; msg.textContent = `Safran ${r.latest} ist verfügbar (installiert: ${r.current}).`; $('#updOpen').hidden = false; banner.hidden = false;
+      } else if (manual) { msg.textContent = `Du hast die neueste Version (${r.current}).`; $('#updOpen').hidden = true; banner.hidden = false; setTimeout(() => { banner.hidden = true; }, 4000); }
+    }
+    $('#updOpen').onclick = () => { if (rel) O.openRelease(rel.url); banner.hidden = true; };
+    $('#updLater').onclick = () => { if (rel) set('updSkip', rel.latest); banner.hidden = true; };
+    $('#updNow').onclick = () => { $('#moreMenu').open = false; check(true); };
+    if (!document.documentElement.classList.contains('pane2') && get('updCheck') !== '0') setTimeout(() => check(false), 4000);
+  }
+
+  // Erster Start: ohne heruntergeladene Sefaria-Texte fragen, ob die Bibliothek ausgewählt werden soll
+  function maybeWelcome() {
+    if (document.documentElement.classList.contains('pane2')) return;
+    if (entries.some(e => !e.own)) return; // Sefaria-Texte sind schon da
+    let never = false; try { never = localStorage.getItem('welcomeNever') === '1'; } catch { /* egal */ }
+    if (never) { if (!groups.length) showTab('get'); return; }
+    const dlg = $('#welcomeDlg');
+    $('#welcomeNever').checked = false;
+    const done = () => { try { if ($('#welcomeNever').checked) localStorage.setItem('welcomeNever', '1'); } catch { /* egal */ } dlg.close(); };
+    $('#welcomeLater').onclick = done;
+    $('#welcomeGo').onclick = () => { done(); showTab('get'); if ($('#pickCard').hidden) $('#catFetch').click(); };
+    dlg.showModal();
+  }
+
   // ---------- Start ----------
   (async () => {
     await refreshState();
@@ -2117,6 +2152,6 @@ ${endnotes.length ? `<h3>Fußnoten</h3><ol class="fn">${endnotes.map(n => `<li>$
     await loadNotes();
     await restoreSession();
     await refreshCatalog();
-    if (!groups.length) showTab('get');
+    maybeWelcome();
   })();
 })();

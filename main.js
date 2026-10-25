@@ -149,6 +149,20 @@ ipcMain.handle('open:external', (_e, url) => {
   if (isSefaria(url)) return shell.openExternal(url);
 });
 
+// Update-Hinweis: neueste veröffentlichte Version auf GitHub abfragen (die App installiert nichts selbst)
+ipcMain.handle('app:checkUpdate', async () => {
+  try {
+    const r = await net.fetch('https://api.github.com/repos/mitkin89/Safran/releases/latest', { headers: { Accept: 'application/vnd.github+json', 'User-Agent': 'Safran' } });
+    if (r.status === 404) return { current: app.getVersion(), latest: '', url: '' }; // noch kein Release veröffentlicht
+    if (!r.ok) return { error: 'GitHub antwortet mit ' + r.status };
+    const j = await r.json();
+    return { current: app.getVersion(), latest: String(j.tag_name || '').replace(/^v/i, ''), url: String(j.html_url || '') };
+  } catch (err) { return { error: err.message }; }
+});
+ipcMain.handle('app:openRelease', (_e, url) => {
+  if (/^https:\/\/github\.com\/mitkin89\/(Safran|sefaria-mac)\/releases(\/|$)/.test(String(url))) return shell.openExternal(String(url));
+});
+
 ipcMain.handle('file:save', async (e, name, content) => {
   const { canceled, filePath } = await dialog.showSaveDialog(winOf(e), { defaultPath: String(name || 'datei').replace(/[\\/:*?"<>|\u0000-\u001f]/g, '_') });
   if (canceled || !filePath) return null;

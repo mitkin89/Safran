@@ -48,6 +48,8 @@ contextBridge.exposeInMainWorld('offline', {
   dictAdd: () => ipcRenderer.invoke('dict:add'),
   dictOrder: ids => ipcRenderer.invoke('dict:order', ids),
   dictRemove: id => ipcRenderer.invoke('dict:remove', id),
+  checkUpdate: () => ipcRenderer.invoke('app:checkUpdate'),
+  openRelease: u => ipcRenderer.invoke('app:openRelease', u),
   dictSuggest: q => ipcRenderer.invoke('dict:suggest', q),
   dictLookup: (q, only) => ipcRenderer.invoke('dict:lookup', q, only),
   ownRemove: rel => ipcRenderer.invoke('off:ownRemove', rel),
