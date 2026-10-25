@@ -351,3 +351,9 @@ body.cmt-open.dict-open #cmtPanel { bottom: 42%; }
 
 #ctxMenu hr { border: 0; border-top: 1px solid #8884; margin: 4px 2px; }
 .donly { font-size: 12px; margin: 0 0 6px; } .donly .dall { cursor: pointer; color: var(--accent, #2c6fbb); text-decoration: underline dotted; }
+
+#dictHead .lhead .dtools { display: flex; gap: 4px; align-items: center; }
+#dictHead .dtools button { min-width: 30px; }
+#dictPanel .dbody { font-size: var(--dict-fs, 15px); }
+.dentry { scroll-margin-top: 112px; }
+.dentry.flash { background: color-mix(in srgb, var(--accent, #2c6fbb) 14%, transparent); transition: background .4s; }

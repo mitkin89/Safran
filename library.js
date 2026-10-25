@@ -1119,22 +1119,47 @@
   };
   $('#rOut').addEventListener('dblclick', dblWord);
   $('#cmtBody').addEventListener('dblclick', dblWord);
-  let dictOnly = null; // { id, name }: Suche nur in diesem Wörterbuch
-  async function dictLookup(q, only = null) {
+  let dictOnly = null; // { id, name }: Suche nur in diesem Wörterbuch (wird nicht mehr über das Menü gesetzt)
+  let dictHist = [], dictPos = -1, dictShown = [];
+  function dictNavButtons() { $('#dictBack').disabled = dictPos <= 0; $('#dictFwd').disabled = dictPos >= dictHist.length - 1; }
+  async function dictLookup(q, only = null, fromHist = false) {
     q = String(q || '').trim();
     if (!q) return;
     dictOnly = only;
+    if (!fromHist) {
+      if (!(dictPos >= 0 && dictHist[dictPos].q === q)) { dictHist = dictHist.slice(0, dictPos + 1); dictHist.push({ q, only }); dictPos = dictHist.length - 1; }
+    }
+    dictNavButtons();
     $('#dictQ').value = q;
     $('#dictOut').innerHTML = '<p class="muted">Suche …</p>';
     const r = await O.dictLookup(q, only && only.id);
     if (r.error) { $('#dictOut').innerHTML = `<p class="muted">⚠ ${esc(r.error)}</p>`; return; }
+    dictShown = r.results;
     if (!r.results.length) {
       const n = (await O.dictList()).list.length;
       $('#dictOut').innerHTML = n ? `<p class="muted">Kein Eintrag für „${esc(q)}“ gefunden.</p>` : '<p class="muted">Es ist noch kein Wörterbuch eingebunden. Öffne unten „Wörterbücher verwalten“ und füge eine DSL-Datei hinzu.</p>';
       return;
     }
     const onlyBar = dictOnly ? `<div class="donly muted">Nur in: <b>${esc(dictOnly.name)}</b> · <a class="dall">alle Wörterbücher</a></div>` : '';
-    $('#dictOut').innerHTML = onlyBar + r.results.map(x => `<div class="dentry"><div class="dhead"><b dir="auto">${esc(x.head)}</b> <span class="muted">${esc(x.dict)}${x.note ? ' · ' + esc(x.note) : ''}</span></div><div class="dbody" dir="ltr">${x.html}</div></div>`).join('');
+    $('#dictOut').innerHTML = onlyBar + r.results.map((x, i) => `<div class="dentry" id="dentry${i}"><div class="dhead"><b dir="auto">${esc(x.head)}</b> <span class="muted">${esc(x.dict)}${x.note ? ' · ' + esc(x.note) : ''}</span></div><div class="dbody" dir="ltr">${x.html}</div></div>`).join('');
+    $('#dictPanel').scrollTop = 0;
+  }
+  const dictGoHist = d => { const k = dictPos + d; if (k < 0 || k >= dictHist.length) return; dictPos = k; dictLookup(dictHist[k].q, dictHist[k].only, true); };
+  $('#dictBack').onclick = () => dictGoHist(-1);
+  $('#dictFwd').onclick = () => dictGoHist(1);
+  // Schriftgröße des Wörterbuchs (wird gemerkt)
+  let dfs = 15;
+  try { dfs = Math.min(26, Math.max(10, +localStorage.getItem('dictFs') || 15)); } catch { /* egal */ }
+  const applyDfs = () => { $('#dictPanel').style.setProperty('--dict-fs', dfs + 'px'); try { localStorage.setItem('dictFs', String(dfs)); } catch { /* egal */ } };
+  applyDfs();
+  $('#dictFsMinus').onclick = () => { dfs = Math.max(10, dfs - 1); applyDfs(); };
+  $('#dictFsPlus').onclick = () => { dfs = Math.min(26, dfs + 1); applyDfs(); };
+  // zu einem Artikel der aktuellen Trefferliste springen
+  function dictJump(i) {
+    const el = $('#dentry' + i);
+    if (!el) return;
+    el.scrollIntoView({ block: 'start', behavior: 'smooth' });
+    el.classList.add('flash'); setTimeout(() => el.classList.remove('flash'), 1200);
   }
   async function renderDictList() {
     const r = await O.dictList();
@@ -1153,21 +1178,19 @@
     if (a) dictLookup(a.dataset.q);
     else if (e.target.closest('.dall')) dictLookup($('#dictQ').value);
   });
-  // Rechtsklick in der Wörterbuch-Leiste (wie GoldenDict): Artikel/alles markieren und das markierte Wort in einem bestimmten Wörterbuch nachschlagen
-  $('#dictOut').addEventListener('contextmenu', async e => {
+  // Rechtsklick in der Wörterbuch-Leiste (wie GoldenDict): Artikel/alles markieren und zu einem der gefundenen Artikel springen
+  $('#dictOut').addEventListener('contextmenu', e => {
     e.preventDefault();
     const selTxt = (window.getSelection() + '').trim();
-    const word = selTxt && selTxt.length <= 60 && !/\n/.test(selTxt) ? selTxt : (selTxt ? '' : wordAt(e));
     const art = e.target.closest('.dentry');
-    const list = (await O.dictList()).list;
     const items = [];
     if (selTxt) items.push({ label: 'Kopieren', fn: () => navigator.clipboard.writeText(selTxt).catch(() => {}) });
     if (art) items.push({ label: 'Aktuellen Artikel auswählen', fn: () => { const r = document.createRange(); r.selectNodeContents(art); const s2 = window.getSelection(); s2.removeAllRanges(); s2.addRange(r); } });
     items.push({ label: 'Alles auswählen', fn: () => { const r = document.createRange(); r.selectNodeContents($('#dictOut')); const s2 = window.getSelection(); s2.removeAllRanges(); s2.addRange(r); } });
-    if (word && list.length) {
+    if (dictShown.length > 1) {
       items.push({ sep: true });
-      items.push({ label: `Nachschlagen: „${word}“ in allen Wörterbüchern`, fn: () => dictLookup(word) });
-      for (const d of list) items.push({ label: d.name, fn: () => dictLookup(word, { id: d.id, name: d.name }) });
+      const names = dictShown.map(x => x.dict), dup = n => names.filter(x => x === n).length > 1;
+      dictShown.forEach((x, i) => items.push({ label: dup(x.dict) ? `${x.dict} – ${x.head}` : x.dict, fn: () => dictJump(i) }));
     }
     ctxShow(e, items);
   });
