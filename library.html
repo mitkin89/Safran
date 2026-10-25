@@ -24,6 +24,7 @@
       <summary title="Weitere Funktionen">⋯</summary>
       <div id="moreList">
         <button id="goGet" title="Bücher, Verknüpfungen und Updates herunterladen">⬇ Herunterladen…</button>
+        <button id="openDict" title="Wörterbuch aufschlagen und DSL-Wörterbücher verwalten">📖 Wörterbuch …</button>
         <button id="addOwn" title="Eigenen Text (TXT, Word, CSV, JSON) zum Testen einbinden">＋ Eigener Text…</button>
         <button id="chooseDir" title="Ordner wählen, in dem die heruntergeladenen Texte liegen (z. B. externe Festplatte)">Speicherort…</button>
         <button id="ownExport" title="Schreibt alle eigenen Texte in einen Ordner, den du ins Projekt (bundled/) legst, damit sie mit der App auf GitHub verteilt werden">Eigene Texte für GitHub exportieren …</button>
@@ -283,6 +284,16 @@
     <div id="ownList"></div>
     <p id="ownWarn" class="muted"></p>
     <div class="bar"><button id="ownSave" class="primary" disabled>Einbinden</button><button id="ownClose">Schließen</button></div>
+  </dialog>
+
+  <dialog id="dictDlg">
+    <h2>Wörterbuch</h2>
+    <div class="bar"><input id="dictQ" placeholder="Wort eingeben (mit oder ohne Vokalzeichen) …" size="34"><button id="dictGo" class="primary">Nachschlagen</button></div>
+    <div id="dictOut" class="dictout"><p class="muted">Gib ein hebräisches oder deutsches Wort ein, oder markiere ein Wort im Text und wähle mit Rechtsklick „Im Wörterbuch nachschlagen“.</p></div>
+    <details id="dictMan"><summary>Wörterbücher verwalten</summary>
+      <div id="dictList"></div>
+      <div class="bar"><button id="dictAdd">DSL-Datei hinzufügen …</button><span class="muted">Formate: .dsl, .dsl.dz (ABBYY Lingvo)</span></div>
+    </details>
   </dialog>
 
   <script src="reader.js"></script>

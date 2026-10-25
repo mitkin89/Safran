@@ -318,3 +318,25 @@ html.cmt-dragging #pane2 { pointer-events: none; }
 
 /* Eingebettete Base64-Bilder in eigenen Texten und Kommentaren */
 #rOut img:not(.logo), #cmtBody img, .sres img { max-width: 100%; height: auto; display: block; margin: 6px 0; border-radius: 4px; }
+
+/* ✕ oben rechts in Dialogen */
+dialog .dclose { position: absolute; top: 8px; right: 10px; border: 0; background: transparent; font-size: 16px; line-height: 1; padding: 4px 8px; cursor: pointer; color: var(--muted); border-radius: 6px; }
+dialog .dclose:focus { outline: none; }
+dialog .dclose:hover { background: color-mix(in srgb, var(--text, #888) 14%, transparent); color: var(--text, inherit); }
+
+/* Wörterbuch */
+#dictDlg { width: min(720px, 94vw); max-height: 86vh; overflow: auto; }
+#dictDlg .bar { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin: 8px 0; }
+.dictout { margin: 8px 0; }
+.dentry { border-top: 1px solid var(--line, #8884); padding: 8px 0; }
+.dentry .dhead { margin-bottom: 4px; }
+.dentry .dhead b { font-size: 1.15em; }
+.dbody { line-height: 1.55; }
+.dbody .dl { margin: 1px 0; }
+.dbody .dex { color: var(--muted); font-style: italic; }
+.dbody .dcom, .dbody .dp, .dbody .dt { color: var(--muted); }
+.dbody .dc-green { color: #2e8b57; } .dbody .dc-red { color: #c0392b; } .dbody .dc-blue { color: #2c6fbb; } .dbody .dc-brown { color: #8b5a2b; } .dbody .dc-gray, .dbody .dc-grey { color: var(--muted); }
+.dbody .dref { color: var(--accent, #2c6fbb); cursor: pointer; text-decoration: underline dotted; }
+#dictMan { margin-top: 10px; } #dictMan summary { cursor: pointer; color: var(--muted); }
+.dli { display: flex; justify-content: space-between; align-items: center; padding: 4px 0; }
+.dli button { border: 0; background: none; cursor: pointer; color: var(--muted); }

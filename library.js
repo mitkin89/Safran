@@ -1064,15 +1064,82 @@
   // Rechtsklick auf einen Vers: Referenz kopieren / auf sefaria.org öffnen
   $('#rOut').addEventListener('contextmenu', e => {
     const row = e.target.closest('.row[data-l]');
-    if (!row || !view || !view.group || (window.getSelection() + '')) return; // bei markiertem Text das normale Menü lassen
+    const selTxt = (window.getSelection() + '').trim();
+    const word = selTxt && selTxt.length <= 60 && !/\n/.test(selTxt) ? selTxt : (selTxt ? '' : wordAt(e));
+    if (selTxt) { // markierter Text: Nachschlagen und Kopieren anbieten
+      const items = [];
+      if (word) items.push({ label: `Im Wörterbuch nachschlagen: „${word}“`, fn: () => openDict(word) });
+      items.push({ label: 'Kopieren', fn: () => navigator.clipboard.writeText(selTxt).catch(() => {}) });
+      ctxShow(e, items); return;
+    }
+    if (!row || !view || !view.group) return;
     const sec = view.sections[view.idx];
     if (!sec) return;
     const ref = `${view.group.title} ${String(sec.label).replace(/^\D+/, '') || sec.label}:${row.dataset.l}`.replace(/\s+/g, ' ');
     const url = 'https://www.sefaria.org/' + encodeURIComponent(ref.replace(/ /g, '_').replace(/:/g, '.')).replace(/%2C/g, ',').replace(/%2F/g, '/');
     ctxShow(e, [
+      ...(word ? [{ label: `Im Wörterbuch nachschlagen: „${word}“`, fn: () => openDict(word) }] : []),
       { label: 'Referenz kopieren: ' + ref, fn: () => navigator.clipboard.writeText(ref).catch(() => {}) },
       { label: 'Auf sefaria.org öffnen', fn: () => window.api.openExternal(url) },
     ]);
+  });
+
+  // ---------- Wörterbuch (DSL) ----------
+  // Wort unter dem Mauszeiger (für Rechtsklick ohne Markierung)
+  function wordAt(e) {
+    try {
+      const r = document.caretRangeFromPoint ? document.caretRangeFromPoint(e.clientX, e.clientY) : null;
+      if (!r || r.startContainer.nodeType !== 3) return '';
+      const t = r.startContainer.textContent, i = r.startOffset, ok = c => /[\p{L}\p{M}]/u.test(c);
+      let a = i, b = i;
+      while (a > 0 && ok(t[a - 1])) a--;
+      while (b < t.length && ok(t[b])) b++;
+      const w = t.slice(a, b);
+      return w.length >= 2 ? w : '';
+    } catch { return ''; }
+  }
+  const dictDlg = $('#dictDlg');
+  async function dictLookup(q) {
+    q = String(q || '').trim();
+    if (!q) return;
+    $('#dictQ').value = q;
+    $('#dictOut').innerHTML = '<p class="muted">Suche …</p>';
+    const r = await O.dictLookup(q);
+    if (r.error) { $('#dictOut').innerHTML = `<p class="muted">⚠ ${esc(r.error)}</p>`; return; }
+    if (!r.results.length) {
+      const n = (await O.dictList()).list.length;
+      $('#dictOut').innerHTML = n ? `<p class="muted">Kein Eintrag für „${esc(q)}“ gefunden.</p>` : '<p class="muted">Es ist noch kein Wörterbuch eingebunden. Öffne unten „Wörterbücher verwalten“ und füge eine DSL-Datei hinzu.</p>';
+      return;
+    }
+    $('#dictOut').innerHTML = r.results.map(x => `<div class="dentry"><div class="dhead"><b dir="auto">${esc(x.head)}</b> <span class="muted">${esc(x.dict)}${x.note ? ' · ' + esc(x.note) : ''}</span></div><div class="dbody" dir="ltr">${x.html}</div></div>`).join('');
+  }
+  async function renderDictList() {
+    const r = await O.dictList();
+    $('#dictList').innerHTML = r.list.length ? r.list.map(d => `<div class="dli"><span>${esc(d.name)} <span class="muted">· ${d.count.toLocaleString('de-DE')} Einträge</span></span><button data-id="${esc(d.id)}" title="Wörterbuch entfernen">✕</button></div>`).join('') : '<p class="muted">Noch keine Wörterbücher.</p>';
+  }
+  async function openDict(q) {
+    if (!dictDlg.open) { if (dictDlg.showModal) dictDlg.showModal(); else dictDlg.setAttribute('open', ''); }
+    await renderDictList();
+    if (q) dictLookup(q); else $('#dictQ').focus();
+  }
+  $('#openDict').onclick = () => { $('#moreMenu').open = false; openDict(); };
+  $('#dictGo').onclick = () => dictLookup($('#dictQ').value);
+  $('#dictQ').addEventListener('keydown', e => { if (e.key === 'Enter') dictLookup($('#dictQ').value); });
+  $('#dictOut').addEventListener('click', e => { const a = e.target.closest('.dref[data-q]'); if (a) dictLookup(a.dataset.q); });
+  $('#dictAdd').onclick = async () => {
+    const r = await O.dictAdd();
+    if (r.cancelled) return;
+    await renderDictList();
+    $('#dictMan').open = true;
+    if (r.errors && r.errors.length) alert(r.errors.join('\n'));
+    else if (r.added && r.added.length) $('#dictOut').innerHTML = `<p class="muted">Eingebunden: ${r.added.map(a => `${esc(a.name)} (${a.count.toLocaleString('de-DE')} Einträge)`).join(', ')}.</p>`;
+  };
+  $('#dictList').addEventListener('click', async e => {
+    const b = e.target.closest('button[data-id]');
+    if (!b || !confirm('Dieses Wörterbuch aus Safran entfernen? Deine DSL-Datei bleibt unberührt.')) return;
+    const r = await O.dictRemove(b.dataset.id);
+    if (r.error) alert(r.error);
+    await renderDictList();
   });
 
   const plainSnip = r => (r.parts ? r.parts.map(x => x.t).join('') : `${r.snippet.before}${r.snippet.hit}${r.snippet.after}`);
@@ -1331,6 +1398,18 @@
   document.addEventListener('click', e => {
     if (!$('#dispPanel').hidden && !e.target.closest('#dispPanel') && e.target.id !== 'dispBtn') $('#dispPanel').hidden = true;
   });
+  // Klick außerhalb schließt aufgeklappte Menüs (Versionen, ⋯)
+  document.addEventListener('click', e => {
+    for (const id of ['#verBox', '#moreMenu']) { const d = $(id); if (d && d.open && !e.target.closest(id)) d.open = false; }
+  });
+  // Dialoge: ✕ oben rechts; Klick auf den Hintergrund außerhalb schließt Export- und Notizfenster
+  for (const dlg of document.querySelectorAll('dialog')) {
+    const x = document.createElement('button');
+    x.className = 'dclose'; x.type = 'button'; x.textContent = '✕'; x.title = 'Schließen (Esc)';
+    x.onclick = () => { if (dlg.id === 'ownDlg') { O.ownClear(); } dlg.close ? dlg.close() : dlg.removeAttribute('open'); };
+    dlg.prepend(x);
+    if (dlg.id !== 'ownDlg') dlg.addEventListener('mousedown', e => { if (e.target === dlg) dlg.close(); });
+  }
 
 
 

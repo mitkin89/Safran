@@ -1,0 +1,38 @@
+SAFRAN – ERSTER START AUF DEM MAC
+
+1. Ziehe "Safran" in den Ordner "Programme" (Applications).
+
+2. Öffne Safran. Wenn macOS meldet, die App sei "beschädigt" oder der
+   Entwickler könne nicht überprüft werden, ist die App NICHT kaputt:
+   Sie ist nur nicht bei Apple signiert (das kostet 99 USD pro Jahr).
+
+3. So schaltest du sie frei (einmalig):
+
+   Variante A – ohne Terminal:
+     Rechtsklick auf "Safran freischalten.command" -> "Öffnen" -> "Öffnen".
+     Danach startet Safran ganz normal.
+
+   Variante B – mit Terminal:
+     xattr -cr /Applications/Safran.app
+
+   Variante C – bei der Meldung "Entwickler nicht überprüft":
+     Rechtsklick auf Safran -> "Öffnen" -> "Öffnen",
+     oder: Systemeinstellungen -> Datenschutz & Sicherheit -> "Trotzdem öffnen".
+
+------------------------------------------------------------------
+
+SAFRAN – FIRST START ON THE MAC
+
+1. Drag "Safran" into the "Applications" folder.
+
+2. If macOS says the app is "damaged" or the developer cannot be verified,
+   the app is NOT broken: it is just not signed with Apple (USD 99 a year).
+
+3. Unlock it once:
+
+   A) Without Terminal: right-click "Safran freischalten.command" -> Open -> Open.
+   B) With Terminal:    xattr -cr /Applications/Safran.app
+   C) For "developer cannot be verified": right-click Safran -> Open -> Open,
+      or System Settings -> Privacy & Security -> "Open Anyway".
+
+talmud.de

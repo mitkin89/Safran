@@ -1,11 +1,11 @@
 {
   "name": "safran",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Safran – Sefaria-Texte offline lesen, durchsuchen, herunterladen und eigene Texte für den Upload prüfen",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "test": "node test.js && node test2.js && node test3.js && node test4.js && node test5.js && node test6.js",
+    "test": "node test.js && node test2.js && node test3.js && node test4.js && node test5.js && node test6.js && node test7.js",
     "dist": "electron-builder --mac",
     "dist:win": "electron-builder --win"
   },
@@ -42,6 +42,37 @@
       "!test*.js",
       "!README.md"
     ],
-    "icon": "build/icon.png"
+    "icon": "build/icon.png",
+    "dmg": {
+      "window": {
+        "width": 560,
+        "height": 430
+      },
+      "contents": [
+        {
+          "x": 150,
+          "y": 150,
+          "type": "file"
+        },
+        {
+          "x": 410,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        },
+        {
+          "x": 150,
+          "y": 320,
+          "type": "file",
+          "path": "build/dmg/Safran freischalten.command"
+        },
+        {
+          "x": 410,
+          "y": 320,
+          "type": "file",
+          "path": "build/dmg/Zuerst lesen.txt"
+        }
+      ]
+    }
   }
 }

@@ -5,6 +5,7 @@ const S = require('./sefaria');
 const L = require('./lib');
 const OFF = require('./offline');
 const LK = require('./links');
+const DSL = require('./dsl');
 
 const BASE = 'https://www.sefaria.org';
 const CATALOG_URL = 'https://raw.githubusercontent.com/Sefaria/Sefaria-Export/master/books.json';
@@ -437,6 +438,23 @@ ipcMain.handle('off:ownReload', async (_e, rel) => {
     return { entry, segments: parsed.segments, warnings: parsed.warnings };
   } catch (err) { return { error: err.message }; }
 });
+
+// DSL-Wörterbücher (liegen im Unterordner dict/ der Bibliothek)
+let dictsP = null;
+const getDicts = () => dictsP || (dictsP = getLibrary().then(lib => new DSL.Dictionaries(path.join(lib.dir, 'dict'))).catch(err => { dictsP = null; throw err; }));
+ipcMain.handle('dict:list', async () => { try { return { list: await (await getDicts()).list() }; } catch (err) { return { list: [], error: err.message }; } });
+ipcMain.handle('dict:add', async e => {
+  const r = await dialog.showOpenDialog(winOf(e), { title: 'DSL-Wörterbuch wählen (mehrere möglich)', properties: ['openFile', 'multiSelections'], filters: [{ name: 'DSL-Wörterbuch', extensions: ['dsl', 'dz'] }, { name: 'Alle Dateien', extensions: ['*'] }] });
+  if (r.canceled) return { cancelled: true };
+  const d = await getDicts(), added = [], errors = [];
+  for (const f of r.filePaths) {
+    try { added.push(await d.add(await fs.readFile(f), f)); } catch (err) { errors.push(`${path.basename(f)}: ${err.message}`); }
+  }
+  dictsP = null; // Index neu laden
+  return { added, errors };
+});
+ipcMain.handle('dict:remove', async (_e, id) => { try { await (await getDicts()).remove(String(id)); return {}; } catch (err) { return { error: err.message }; } });
+ipcMain.handle('dict:lookup', async (_e, q) => { try { return { results: await (await getDicts()).lookup(String(q || '').slice(0, 100)) }; } catch (err) { return { results: [], error: err.message }; } });
 
 ipcMain.handle('off:ownExportBundle', async e => {
   const lib = await getLibrary();
