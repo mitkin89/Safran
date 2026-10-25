@@ -437,6 +437,6 @@ html.split[data-tab=dict] #dictPanel { right: var(--p2w); padding: 0 max(14px, 3
 #welcomeDlg label { display: block; margin: 10px 0; font-size: 13px; }
 
 /* Hebräisch: Fettdruck besser erkennbar (SBL Hebrew hat keinen echten Fettschnitt) – z. B. Bibeltext fett, Kommentar normal */
-.cell[dir=rtl] .txt:has(b, strong) { color: color-mix(in srgb, var(--fg) 78%, var(--bg)); }
-.cell[dir=rtl] .txt b, .cell[dir=rtl] .txt strong { font-weight: 700; color: var(--fg); -webkit-text-stroke: .04em currentColor; paint-order: stroke fill; }
-.cmt .ct[dir=rtl] b, .cmt .ct[dir=rtl] strong { font-weight: 700; -webkit-text-stroke: .04em currentColor; }
+.cell[dir=rtl] .txt:has(b, strong) { color: color-mix(in srgb, var(--fg) 85%, var(--bg)); }
+.cell[dir=rtl] .txt b, .cell[dir=rtl] .txt strong { font-weight: 700; color: var(--fg); -webkit-text-stroke: .012em currentColor; paint-order: stroke fill; }
+.cmt .ct[dir=rtl] b, .cmt .ct[dir=rtl] strong { font-weight: 700; -webkit-text-stroke: .012em currentColor; }
