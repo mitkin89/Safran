@@ -50,3 +50,54 @@ assert.throws(() => D.parseDsl(Buffer.from('nur ein Satz', 'utf8'), 'z.dsl'));
   assert.strictEqual((await ds.list()).length, 0);
   console.log('DSL-Tests bestanden.');
 })().catch(e => { console.error(e); process.exit(1); });
+
+// Quellenangaben: {{ref:Ort}}Text{{/ref}} wird in Safran zum Link, in anderen Programmen bleibt nur der Text
+{
+  const h = D.bodyToHtml(['\t[m1]siehe {{ref:Rosh Hashanah 18b}}Ib. 18b{{/ref}} und <<wort>>.[/m]']);
+  assert(/<a class="dsrc" data-sref="Rosh Hashanah 18b">Ib\. 18b<\/a>/.test(h), h);
+  assert(/data-q="wort"/.test(h));
+  console.log('DSL-Quellenlinks ok');
+}
+
+// Reihenfolge der Wörterbücher
+(async () => {
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'dsl-ord-'));
+  const ds = new D.Dictionaries(dir);
+  const mk = n => Buffer.from(`#NAME "${n}"\n#INDEX_LANGUAGE "Hebrew"\n\nשלום\n\t[m1]${n} Eintrag[/m]\n`, 'utf8');
+  const a = await ds.add(mk('Anton'), 'a.dsl'), b = await ds.add(mk('Berta'), 'b.dsl');
+  let l = (await ds.list()).map(x => x.name);
+  assert.deepStrictEqual(l, ['Anton', 'Berta']);
+  await ds.setOrder([b.id, a.id]);
+  l = (await ds.list()).map(x => x.name);
+  assert.deepStrictEqual(l, ['Berta', 'Anton']);
+  assert.strictEqual((await ds.lookup('שלום'))[0].dict, 'Berta');
+  console.log('DSL-Reihenfolge ok');
+})().catch(e => { console.error(e); process.exit(1); });
+
+// Mitgelieferte Wörterbücher: Export → Einspielen → Entfernen bleibt entfernt → Änderung wird übernommen
+(async () => {
+  const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'dsl-bun-'));
+  const src = new D.Dictionaries(path.join(tmp, 'a'));
+  const mk = (n, w) => Buffer.from(`#NAME "${n}"\n#INDEX_LANGUAGE "Hebrew"\n\n${w}\n\t[m1]${n} Eintrag[/m]\n`, 'utf8');
+  const a = await src.add(mk('Mit', 'שלום'), 'a.dsl'), b = await src.add(mk('Ohne', 'שלום'), 'b.dsl');
+  await src.setShip(a.id, true);
+  const out = path.join(tmp, 'bundled');
+  assert.strictEqual(await src.exportBundled(out), 1);
+  const dst = new D.Dictionaries(path.join(tmp, 'b'));
+  assert.strictEqual(await dst.importBundled(out), 1);
+  let l = await dst.list();
+  assert.deepStrictEqual(l.map(x => x.name), ['Mit']); assert(l[0].bundled && l[0].ship);
+  assert.strictEqual(await dst.importBundled(out), 0, 'unverändert: nichts zu tun');
+  await dst.remove(a.id);
+  assert.strictEqual(await dst.importBundled(out), 0, 'entfernt bleibt entfernt');
+  assert.strictEqual((await dst.list()).length, 0);
+  // neue Fassung (anderer Inhalt, gleiche Kennung) wird bei einem anderen Nutzer übernommen
+  const dst2 = new D.Dictionaries(path.join(tmp, 'c'));
+  await dst2.importBundled(out);
+  fs.writeFileSync(path.join(tmp, 'a', a.id + '.json'), JSON.stringify({ name: 'Mit', indexLang: 'Hebrew', contentsLang: '', heads: [['שלום']], html: ['<p>neu</p>'] }));
+  src.cache.clear();
+  assert.strictEqual(await src.exportBundled(out), 1);
+  assert.strictEqual(await dst2.importBundled(out), 1);
+  assert.strictEqual((await dst2.lookup('שלום'))[0].html, '<p>neu</p>');
+  console.log('DSL-Mitliefern ok');
+})().catch(e => { console.error(e); process.exit(1); });

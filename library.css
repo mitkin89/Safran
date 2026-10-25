@@ -326,7 +326,7 @@ dialog .dclose:hover { background: color-mix(in srgb, var(--text, #888) 14%, tra
 
 /* Wörterbuch */
 .dictout { margin: 8px 0; }
-.dentry { border-top: 1px solid var(--line, #8884); padding: 8px 0; }
+.dentry { border: 1px solid var(--line, #8884); border-left: 4px solid hsl(var(--dh, 210) 55% 55%); border-radius: 6px; padding: 8px 10px; margin: 6px 0; background: color-mix(in srgb, hsl(var(--dh, 210) 55% 55%) 6%, transparent); }
 .dentry .dhead { margin-bottom: 4px; }
 .dentry .dhead b { font-size: 1.15em; }
 .dbody { line-height: 1.55; }
@@ -359,3 +359,23 @@ body.cmt-open.dict-open #cmtPanel { bottom: 42%; }
 .dentry.flash { background: color-mix(in srgb, var(--accent, #2c6fbb) 14%, transparent); transition: background .4s; }
 
 #ctxMenu button { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 420px; }
+
+.dlk{color:inherit;opacity:.85}
+
+.treehead{display:flex;gap:6px;align-items:center;margin-bottom:8px}
+.treehead input{margin-bottom:0;flex:1}
+#treeClose{flex:none}
+
+.dsrc{color:var(--accent);cursor:pointer;text-decoration:underline dotted}
+.dsrc:hover{text-decoration:underline}
+.dsrc.dmiss{opacity:.5;text-decoration:line-through;cursor:help}
+
+.dbtns{white-space:nowrap}
+.dli button[disabled]{opacity:.25;cursor:default}
+
+/* Wörterbuch-Abschnitte: klare Trennung zwischen den Wörterbüchern */
+.dsec { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; margin: 18px 0 6px; padding: 6px 10px; border-radius: 6px; font-weight: 700; color: #fff; background: hsl(var(--dh, 210) 45% 40%); }
+.dsec:first-child, .donly + .dsec { margin-top: 4px; }
+.dsec small { font-weight: 400; opacity: .85; }
+
+.dship{font-size:.85em;color:var(--muted);margin-right:8px;cursor:pointer}

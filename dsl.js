@@ -40,7 +40,7 @@ const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&
 function bodyToHtml(lines) {
   const out = [];
   for (const raw of lines) {
-    let line = raw.replace(/\{\{[\s\S]*?\}\}/g, '');
+    let line = raw.replace(/\{\{ref:([^}]*)\}\}/g, (m, r) => `[sref ${r.replace(/[\[\]]/g, '')}]`).replace(/\{\{\/ref\}\}/g, '[/sref]').replace(/\{\{[\s\S]*?\}\}/g, '');
     const m = /^[ \t]*\[m(\d)\]/.exec(line);
     const indent = m ? +m[1] : 0;
     const stack = []; // { tag, el }
@@ -60,6 +60,7 @@ function bodyToHtml(lines) {
           continue;
         }
         if (skip) continue;
+        if (tag === 'sref') { html += `<a class="dsrc" data-sref="${esc(arg)}">`; stack.push({ tag, el: 'a' }); continue; }
         if (tag === 'c') { const col = /^[a-z]+$/i.test(arg) ? arg.toLowerCase() : 'x'; html += `<span class="dc dc-${col}">`; stack.push({ tag, el: 'span' }); continue; }
         const o = OPEN[tag];
         if (o) { html += `<${o[0]}${o[1] ? ` class="${o[1]}"` : ''}>`; stack.push({ tag, el: o[0] }); }
@@ -116,16 +117,27 @@ class Dictionaries {
   constructor(dir) { this.dir = dir; this.cache = new Map(); }
   file(id) { return path.join(this.dir, id + '.json'); }
   async list() {
+    const meta = await this.meta();
     let names = [];
     try { names = (await fs.readdir(this.dir)).filter(n => n.endsWith('.json')); } catch { return []; }
     const out = [];
     for (const n of names) {
       try {
         const d = await this.load(n.slice(0, -5));
-        out.push({ id: n.slice(0, -5), name: d.name, count: d.heads.length, lang: d.indexLang, bytes: d.bytes || 0 });
+        out.push({ id: n.slice(0, -5), name: d.name, count: d.heads.length, lang: d.indexLang, bytes: d.bytes || 0, ship: meta.ship.includes(n.slice(0, -5)), bundled: meta.bundled.includes(n.slice(0, -5)) });
       } catch { /* defekte Datei ignorieren */ }
     }
-    return out.sort((a, b) => a.name.localeCompare(b.name));
+    // eigene Reihenfolge (Datei _order.txt, eine Kennung pro Zeile); Neue ohne Platz kommen ans Ende, alphabetisch
+    let order = [];
+    try { order = (await fs.readFile(path.join(this.dir, '_order.txt'), 'utf8')).split(/\r?\n/).filter(Boolean); } catch { /* keine */ }
+    const pos = id => { const k = order.indexOf(id); return k < 0 ? 1e9 : k; };
+    return out.sort((a, b) => pos(a.id) - pos(b.id) || a.name.localeCompare(b.name));
+  }
+  async setOrder(ids) {
+    const have = new Set((await this.list()).map(d => d.id));
+    const clean = ids.filter(id => have.has(id));
+    await fs.mkdir(this.dir, { recursive: true });
+    await fs.writeFile(path.join(this.dir, '_order.txt'), clean.join('\n'), 'utf8');
   }
   async load(id) {
     if (this.cache.has(id)) return this.cache.get(id);
@@ -134,7 +146,7 @@ class Dictionaries {
     j.bytes = buf.length;
     // Suchindex: sortierte Liste (normalisiertes Stichwort, Eintragsnummer)
     const idx = [];
-    j.heads.forEach((hs, k) => hs.forEach(h => { const n = norm(h); if (n) idx.push([n, k]); }));
+    j.heads.forEach((hs, k) => (j.keys && j.keys[k] ? j.keys[k] : hs).forEach(h => { const n = norm(h); if (n) idx.push([n, k]); }));
     idx.sort((a, b) => a[0] < b[0] ? -1 : a[0] > b[0] ? 1 : a[1] - b[1]);
     j.idx = idx;
     this.cache.set(id, j);
@@ -147,12 +159,70 @@ class Dictionaries {
     await fs.mkdir(this.dir, { recursive: true });
     await fs.writeFile(this.file(id), JSON.stringify(data));
     this.cache.delete(id);
+    const m = await this.meta();
+    if (m.removed.includes(id)) { m.removed = m.removed.filter(x => x !== id); await this.saveMeta(m); }
     return { id, name: p.name, count: data.heads.length };
+  }
+  // Mitgelieferte Wörterbücher: Merkdatei _bundled.txt (JSON) im Wörterbuchordner
+  //   ship: Kennungen, die beim Export für GitHub mitgehen · bundled: Kennungen aus dem Programm · removed: vom Nutzer entfernte mitgelieferte · hash: Stand je Kennung
+  async meta() {
+    try { const j = JSON.parse(await fs.readFile(path.join(this.dir, '_bundled.txt'), 'utf8')); return { ship: j.ship || [], bundled: j.bundled || [], removed: j.removed || [], hash: j.hash || {} }; } catch { return { ship: [], bundled: [], removed: [], hash: {} }; }
+  }
+  async saveMeta(m) { await fs.mkdir(this.dir, { recursive: true }); await fs.writeFile(path.join(this.dir, '_bundled.txt'), JSON.stringify(m), 'utf8'); }
+  async setShip(id, on) {
+    if (!/^[0-9a-f]{12}$/.test(id)) throw new Error('Ungültige Kennung.');
+    const m = await this.meta();
+    m.ship = m.ship.filter(x => x !== id); if (on) m.ship.push(id);
+    await this.saveMeta(m);
+  }
+  // Für GitHub: markierte Wörterbücher gzip-komprimiert nach <outDir>/dict/
+  async exportBundled(outDir) {
+    const m = await this.meta(), have = new Set((await this.list()).map(d => d.id));
+    const dir = path.join(outDir, 'dict');
+    await fs.rm(dir, { recursive: true, force: true });
+    const items = [];
+    for (const id of m.ship.filter(x => have.has(x))) {
+      const buf = await fs.readFile(this.file(id));
+      const d = await this.load(id);
+      await fs.mkdir(dir, { recursive: true });
+      await fs.writeFile(path.join(dir, id + '.json.gz'), zlib.gzipSync(buf, { level: 9 }));
+      items.push({ id, name: d.name, count: d.heads.length, hash: crypto.createHash('sha1').update(buf).digest('hex') });
+    }
+    if (items.length) await fs.writeFile(path.join(dir, 'manifest.json'), JSON.stringify({ version: 1, items }, null, 1));
+    return items.length;
+  }
+  // Beim Start: mitgelieferte Wörterbücher einspielen (neu oder geändert); vom Nutzer entfernte bleiben entfernt
+  async importBundled(srcDir) {
+    let man;
+    try { man = JSON.parse(await fs.readFile(path.join(srcDir, 'dict', 'manifest.json'), 'utf8')); } catch { return 0; }
+    const m = await this.meta();
+    let n = 0;
+    for (const it of man.items || []) {
+      if (!/^[0-9a-f]{12}$/.test(String(it.id))) continue;
+      if (m.removed.includes(it.id)) continue;
+      const has = await fs.access(this.file(it.id)).then(() => true, () => false);
+      if (has && m.hash[it.id] === it.hash) continue;
+      try {
+        const buf = zlib.gunzipSync(await fs.readFile(path.join(srcDir, 'dict', it.id + '.json.gz')));
+        if (crypto.createHash('sha1').update(buf).digest('hex') !== it.hash) continue; // beschädigt
+        await fs.mkdir(this.dir, { recursive: true });
+        await fs.writeFile(this.file(it.id), buf);
+        this.cache.delete(it.id);
+        m.hash[it.id] = it.hash; if (!m.bundled.includes(it.id)) m.bundled.push(it.id); if (!m.ship.includes(it.id)) m.ship.push(it.id);
+        n++;
+      } catch { /* nächstes */ }
+    }
+    if (n) await this.saveMeta(m);
+    return n;
   }
   async remove(id) {
     if (!/^[0-9a-f]{12}$/.test(id)) throw new Error('Ungültige Kennung.');
     await fs.unlink(this.file(id)).catch(() => {});
     this.cache.delete(id);
+    const m = await this.meta();
+    if (m.bundled.includes(id) && !m.removed.includes(id)) m.removed.push(id);
+    m.ship = m.ship.filter(x => x !== id);
+    await this.saveMeta(m);
   }
   // Nachschlagen: genau, dann Wortanfang, dann ohne hebräische Vorsilben (ה ו ב כ ל מ ש)
   async lookup(query, { limit = 40, only = '' } = {}) {
@@ -177,8 +247,9 @@ class Dictionaries {
         if (exact.length) break;
       }
     }
-    // genaue Treffer zuerst
-    return res.sort((a, b) => (a.kind === b.kind ? 0 : a.kind === 'exact' ? -1 : 1)).slice(0, limit * 2);
+    // Reihenfolge der Wörterbücher bleibt maßgeblich; innerhalb eines Wörterbuchs kommen genaue Treffer zuerst
+    const rank = new Map(); res.forEach(x => { if (!rank.has(x.dictId)) rank.set(x.dictId, rank.size); });
+    return res.sort((a, b) => rank.get(a.dictId) - rank.get(b.dictId) || (a.kind === b.kind ? 0 : a.kind === 'exact' ? -1 : 1)).slice(0, limit * 2);
   }
 }
 function range(idx, q, exact) {

@@ -441,7 +441,7 @@ ipcMain.handle('off:ownReload', async (_e, rel) => {
 
 // DSL-Wörterbücher (liegen im Unterordner dict/ der Bibliothek)
 let dictsP = null;
-const getDicts = () => dictsP || (dictsP = getLibrary().then(lib => new DSL.Dictionaries(path.join(lib.dir, 'dict'))).catch(err => { dictsP = null; throw err; }));
+const getDicts = () => dictsP || (dictsP = getLibrary().then(async lib => { const d = new DSL.Dictionaries(path.join(lib.dir, 'dict')); try { await d.importBundled(path.join(__dirname, 'bundled')); } catch { /* mitgelieferte Wörterbücher sind nur ein Zusatz */ } return d; }).catch(err => { dictsP = null; throw err; }));
 ipcMain.handle('dict:list', async () => { try { return { list: await (await getDicts()).list() }; } catch (err) { return { list: [], error: err.message }; } });
 ipcMain.handle('dict:add', async e => {
   const r = await dialog.showOpenDialog(winOf(e), { title: 'DSL-Wörterbuch wählen (mehrere möglich)', properties: ['openFile', 'multiSelections'], filters: [{ name: 'DSL-Wörterbuch', extensions: ['dsl', 'dz'] }, { name: 'Alle Dateien', extensions: ['*'] }] });
@@ -453,6 +453,8 @@ ipcMain.handle('dict:add', async e => {
   dictsP = null; // Index neu laden
   return { added, errors };
 });
+ipcMain.handle('dict:order', async (_e, ids) => { try { await (await getDicts()).setOrder((Array.isArray(ids) ? ids : []).map(String).filter(x => /^[0-9a-f]{12}$/.test(x))); return {}; } catch (err) { return { error: err.message }; } });
+ipcMain.handle('dict:ship', async (_e, id, on) => { try { await (await getDicts()).setShip(String(id), !!on); return {}; } catch (err) { return { error: err.message }; } });
 ipcMain.handle('dict:remove', async (_e, id) => { try { await (await getDicts()).remove(String(id)); return {}; } catch (err) { return { error: err.message }; } });
 ipcMain.handle('dict:lookup', async (_e, q, only) => { try { return { results: await (await getDicts()).lookup(String(q || '').slice(0, 100), { only: /^[0-9a-f]{12}$/.test(String(only || '')) ? String(only) : '' }) }; } catch (err) { return { results: [], error: err.message }; } });
 
@@ -460,7 +462,7 @@ ipcMain.handle('off:ownExportBundle', async e => {
   const lib = await getLibrary();
   const r = await dialog.showOpenDialog(winOf(e), { title: 'Ordner „bundled“ im Projekt wählen (oder neuen Ordner anlegen)', properties: ['openDirectory', 'createDirectory'] });
   if (r.canceled || !r.filePaths[0]) return { cancelled: true };
-  try { return { count: await lib.exportBundled(r.filePaths[0]), dir: r.filePaths[0] }; } catch (err) { return { error: err.message }; }
+  try { const count = await lib.exportBundled(r.filePaths[0]); const dicts = await (await getDicts()).exportBundled(r.filePaths[0]); return { count, dicts, dir: r.filePaths[0] }; } catch (err) { return { error: err.message }; }
 });
 
 ipcMain.handle('off:ownRemove', async (_e, rel) => {

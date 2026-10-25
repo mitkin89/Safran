@@ -2,20 +2,6 @@
  "version": 1,
  "items": [
   {
-   "rel": "own/Devarim Rabbah/de/Der Midrasch Debarim Rabba; zum ersten Male ins Dt. übertr. von August Wünsche. Leipzig 1882.json",
-   "title": "Devarim Rabbah",
-   "heTitle": "דברים רבה",
-   "language": "English",
-   "versionTitle": "Der Midrasch Debarim Rabba; zum ersten Male ins Dt. übertr. von August Wünsche. Leipzig 1882",
-   "categories": [
-    "Midrash",
-    "Aggadah",
-    "Midrash Rabbah"
-   ],
-   "kind": "de",
-   "hash": "ae5ef964b5c65c0c8e2ce3d1d7ff3a992891a4b9"
-  },
-  {
    "rel": "own/Guide for the Perplexed/de/Führer der Unschlüssigen; ins Deutsche übertragen und mit erklärenden Anmerkungen versehen von Dr. Adolf Weiss. Leipzig .json",
    "title": "Guide for the Perplexed",
    "heTitle": "מורה נבוכים",
@@ -458,17 +444,18 @@
    "hash": "b15ff3dab02864baf8067e310363b047a04e9197"
   },
   {
-   "rel": "own/Hertz on Deuteronomy/de/Hertz, Pentateuch-Kommentar (deutsche Ausgabe).json",
-   "title": "Hertz on Deuteronomy",
-   "heTitle": "",
+   "rel": "own/Devarim Rabbah/de/Der Midrasch Debarim Rabba; zum ersten Male ins Dt. übertr. von August Wünsche. Leipzig 1882.json",
+   "title": "Devarim Rabbah",
+   "heTitle": "דברים רבה",
    "language": "English",
-   "versionTitle": "Hertz, Pentateuch-Kommentar (deutsche Ausgabe)",
+   "versionTitle": "Der Midrasch Debarim Rabba; zum ersten Male ins Dt. übertr. von August Wünsche. Leipzig 1882",
    "categories": [
-    "Eigene Texte",
-    "Kommentare"
+    "Midrash",
+    "Aggadah",
+    "Midrash Rabbah"
    ],
    "kind": "de",
-   "hash": "6ec8953583307fa9fab3225271b8a021a3079f92"
+   "hash": "ae5ef964b5c65c0c8e2ce3d1d7ff3a992891a4b9"
   },
   {
    "rel": "own/Joshua/de/Die vier und zwanzig Bücher der Bibel im ebräischen Texte mit wortgetreuer Übersetzung, fortlaufender Erklärung und home.json",
@@ -807,32 +794,6 @@
    ],
    "kind": "de",
    "hash": "ef9c9ec23ad020979bf4bf709556939666d9be01"
-  },
-  {
-   "rel": "own/Hertz on Exodus/de/Hertz, Pentateuch-Kommentar (deutsche Ausgabe).json",
-   "title": "Hertz on Exodus",
-   "heTitle": "",
-   "language": "English",
-   "versionTitle": "Hertz, Pentateuch-Kommentar (deutsche Ausgabe)",
-   "categories": [
-    "Eigene Texte",
-    "Kommentare"
-   ],
-   "kind": "de",
-   "hash": "caeb66e374ec16e2798e1bb057ce0086d809f29d"
-  },
-  {
-   "rel": "own/Hertz on Numbers/de/Hertz, Pentateuch-Kommentar (deutsche Ausgabe).json",
-   "title": "Hertz on Numbers",
-   "heTitle": "",
-   "language": "English",
-   "versionTitle": "Hertz, Pentateuch-Kommentar (deutsche Ausgabe)",
-   "categories": [
-    "Eigene Texte",
-    "Kommentare"
-   ],
-   "kind": "de",
-   "hash": "6b90cd0d8f4b1d1640eae8c1258761f7ca828f51"
   },
   {
    "rel": "own/Deuteronomy/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung.json",
@@ -2550,19 +2511,6 @@
    ],
    "kind": "de",
    "hash": "4f064cddd80546d67a0ba6f1c9cb293c42e49f18"
-  },
-  {
-   "rel": "own/I Chronicles/de/Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius .json",
-   "title": "I Chronicles",
-   "heTitle": "דברי הימים א",
-   "language": "English",
-   "versionTitle": "Die vier und zwanzig Bücher der Heiligen Schrift. Unter der Redaction von Dr. Zunz übersetzt von H. Arnheim, Dr. Julius Fürst, Dr. M. Sachs. Berlin 1838",
-   "categories": [
-    "Tanakh",
-    "Writings"
-   ],
-   "kind": "de",
-   "hash": "a7c167f30f2e01c09a4afa0c02d9fa9d36eb7491"
   },
   {
    "rel": "own/Rashi on Exodus/de/Raschis Pentateuchkommentar; vollständig ins Deutsche übertragen und mit einer Einleitung versehen von Rabb. Dr. Selig B.json",

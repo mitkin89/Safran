@@ -46,6 +46,8 @@ contextBridge.exposeInMainWorld('offline', {
   ownExportBundle: () => ipcRenderer.invoke('off:ownExportBundle'),
   dictList: () => ipcRenderer.invoke('dict:list'),
   dictAdd: () => ipcRenderer.invoke('dict:add'),
+  dictShip: (id, on) => ipcRenderer.invoke('dict:ship', id, on),
+  dictOrder: ids => ipcRenderer.invoke('dict:order', ids),
   dictRemove: id => ipcRenderer.invoke('dict:remove', id),
   dictLookup: (q, only) => ipcRenderer.invoke('dict:lookup', q, only),
   ownRemove: rel => ipcRenderer.invoke('off:ownRemove', rel),

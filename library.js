@@ -426,6 +426,7 @@
   };
   const togglePanel = () => { panelOpen = !panelOpen; applyPanel(); };
   $('#togglePanel').onclick = togglePanel;
+  $('#treeClose').onclick = togglePanel;
   document.addEventListener('keydown', e => {
     if ((e.metaKey || e.ctrlKey) && !e.shiftKey && !e.altKey && e.key.toLowerCase() === 'b') { e.preventDefault(); togglePanel(); }
   });
@@ -1141,7 +1142,15 @@
       return;
     }
     const onlyBar = dictOnly ? `<div class="donly muted">Nur in: <b>${esc(dictOnly.name)}</b> · <a class="dall">alle Wörterbücher</a></div>` : '';
-    $('#dictOut').innerHTML = onlyBar + r.results.map((x, i) => `<div class="dentry" id="dentry${i}"><div class="dhead"><b dir="auto">${esc(x.head)}</b> <span class="muted">${esc(x.dict)}${x.note ? ' · ' + esc(x.note) : ''}</span></div><div class="dbody" dir="ltr">${x.html}</div></div>`).join('');
+    // pro Wörterbuch ein eigener Abschnitt mit Titelleiste und Farbe; jeder Treffer als eigene Karte
+    const hue = id => { let h = 0; for (const c of String(id)) h = (h * 31 + c.charCodeAt(0)) % 360; return h; };
+    const cnt = {}; r.results.forEach(x => { cnt[x.dictId] = (cnt[x.dictId] || 0) + 1; });
+    let last = null;
+    $('#dictOut').innerHTML = onlyBar + r.results.map((x, i) => {
+      let sec = '';
+      if (x.dictId !== last) { last = x.dictId; sec = `<div class="dsec" style="--dh:${hue(x.dictId)}"><span>${esc(x.dict)}</span><small>${cnt[x.dictId]} Treffer</small></div>`; }
+      return `${sec}<div class="dentry" id="dentry${i}" style="--dh:${hue(x.dictId)}"><div class="dhead"><b dir="auto">${esc(x.head)}</b>${x.note ? ` <span class="muted">${esc(x.note)}</span>` : ''}</div><div class="dbody" dir="ltr">${x.html}</div></div>`;
+    }).join('');
     $('#dictPanel').scrollTop = 0;
   }
   const dictGoHist = d => { const k = dictPos + d; if (k < 0 || k >= dictHist.length) return; dictPos = k; dictLookup(dictHist[k].q, dictHist[k].only, true); };
@@ -1163,7 +1172,7 @@
   }
   async function renderDictList() {
     const r = await O.dictList();
-    $('#dictList').innerHTML = r.list.length ? r.list.map(d => `<div class="dli"><span>${esc(d.name)} <span class="muted">· ${d.count.toLocaleString('de-DE')} Einträge</span></span><button data-id="${esc(d.id)}" title="Wörterbuch entfernen">✕</button></div>`).join('') : '<p class="muted">Noch keine Wörterbücher.</p>';
+    $('#dictList').innerHTML = r.list.length ? r.list.map((d, i) => `<div class="dli"><span>${esc(d.name)} <span class="muted">· ${d.count.toLocaleString('de-DE')} Einträge</span></span><span class="dbtns"><label class="dship" title="Beim Export für GitHub mit ausliefern (nur, wenn du die Rechte hast)"><input type="checkbox" data-ship="${esc(d.id)}"${d.ship ? ' checked' : ''}> mitliefern</label><button data-mv="-1" data-id="${esc(d.id)}" title="Nach oben (wird zuerst angezeigt)"${i === 0 ? ' disabled' : ''}>▲</button><button data-mv="1" data-id="${esc(d.id)}" title="Nach unten"${i === r.list.length - 1 ? ' disabled' : ''}>▼</button><button data-id="${esc(d.id)}" title="Wörterbuch entfernen">✕</button></span></div>`).join('') : '<p class="muted">Noch keine Wörterbücher.</p>';
   }
   async function openDict(q) {
     if (!dictOpen) toggleDict(true); else renderDictList();
@@ -1174,6 +1183,15 @@
   $('#dictGo').onclick = () => dictLookup($('#dictQ').value);
   $('#dictQ').addEventListener('keydown', e => { if (e.key === 'Enter') dictLookup($('#dictQ').value); });
   $('#dictOut').addEventListener('click', e => {
+    const s = e.target.closest('.dsrc[data-sref]');
+    if (s) {   // Quellenangabe im Artikel (z. B. „Rosh Hashanah 18b“): im Reader öffnen, Cmd/Strg/Umschalt = neuer Tab
+      e.preventDefault();
+      jumpTo(s.dataset.sref, e.metaKey || e.ctrlKey || e.shiftKey).then(ok => {
+        s.classList.toggle('dmiss', !ok);
+        s.title = ok ? '' : 'Dieser Text ist nicht in deiner Bibliothek (Reiter „Herunterladen“).';
+      });
+      return;
+    }
     const a = e.target.closest('.dref[data-q]');
     if (a) dictLookup(a.dataset.q);
     else if (e.target.closest('.dall')) dictLookup($('#dictQ').value);
@@ -1204,7 +1222,21 @@
     if (r.errors && r.errors.length) alert(r.errors.join('\n'));
     else if (r.added && r.added.length) $('#dictOut').innerHTML = `<p class="muted">Eingebunden: ${r.added.map(a => `${esc(a.name)} (${a.count.toLocaleString('de-DE')} Einträge)`).join(', ')}.</p>`;
   };
+  $('#dictList').addEventListener('change', async e => {
+    const c = e.target.closest('input[data-ship]');
+    if (c) { const r = await O.dictShip(c.dataset.ship, c.checked); if (r.error) alert(r.error); }
+  });
   $('#dictList').addEventListener('click', async e => {
+    const mv = e.target.closest('button[data-mv]');
+    if (mv) {   // Reihenfolge ändern
+      const ids = (await O.dictList()).list.map(d => d.id), i = ids.indexOf(mv.dataset.id), k = i + +mv.dataset.mv;
+      if (i < 0 || k < 0 || k >= ids.length) return;
+      [ids[i], ids[k]] = [ids[k], ids[i]];
+      await O.dictOrder(ids);
+      await renderDictList();
+      if (dictHist[dictPos]) dictLookup(dictHist[dictPos].q, dictHist[dictPos].only, true);
+      return;
+    }
     const b = e.target.closest('button[data-id]');
     if (!b || !confirm('Dieses Wörterbuch aus Safran entfernen? Deine DSL-Datei bleibt unberührt.')) return;
     const r = await O.dictRemove(b.dataset.id);
@@ -1931,7 +1963,7 @@ ${endnotes.length ? `<h3>Fußnoten</h3><ol class="fn">${endnotes.map(n => `<li>$
     $('#moreMenu').open = false;
     const r = await O.ownExportBundle();
     if (r.cancelled) return;
-    alert(r.error ? 'Export fehlgeschlagen: ' + r.error : r.count ? `${r.count} eigene Version(en) exportiert nach:\n${r.dir}\n\nDiesen Ordnerinhalt als „bundled“ ins Projekt legen und zu GitHub hochladen.` : 'Es gibt noch keine eigenen Texte zum Exportieren.');
+    alert(r.error ? 'Export fehlgeschlagen: ' + r.error : (r.count || r.dicts) ? `${r.count} eigene Version(en) und ${r.dicts || 0} Wörterbuch/Wörterbücher exportiert nach:\n${r.dir}\n\nDiesen Ordnerinhalt als „bundled“ ins Projekt legen und zu GitHub hochladen.\n(Wörterbücher gehen nur mit, wenn „mitliefern“ angehakt ist.)` : 'Es gibt noch keine eigenen Texte zum Exportieren (und kein Wörterbuch mit „mitliefern“).');
   };
 
   // ---------- Start ----------
