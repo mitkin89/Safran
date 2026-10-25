@@ -1107,8 +1107,19 @@
     dictOpen = force == null ? !dictOpen : force;
     $('#dictPanel').hidden = !dictOpen;
     syncDock();
+    $('#dictBtn').classList.toggle('active', dictOpen);
     if (dictOpen) { renderDictList(); $('#dictQ').focus(); }
   }
+  $('#dictBtn').onclick = () => toggleDict();
+  // Doppelklick auf ein Wort im Text oder in den Kommentaren schlägt es nach
+  const dblWord = e => {
+    if (e.target.closest('a, button, select, input, textarea, .lab, .bm')) return;
+    const w = (window.getSelection() + '').trim().replace(/^[^\p{L}\p{M}]+|[^\p{L}\p{M}]+$/gu, '');
+    if (w.length >= 2 && w.length <= 40 && !/\s/.test(w)) openDict(w);
+  };
+  $('#rOut').addEventListener('dblclick', dblWord);
+  $('#cmtBody').addEventListener('dblclick', dblWord);
+  $('#dictOut').addEventListener('dblclick', dblWord);
   async function dictLookup(q) {
     q = String(q || '').trim();
     if (!q) return;
