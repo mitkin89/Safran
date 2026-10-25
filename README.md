@@ -99,7 +99,7 @@ The source code of this app is released under the [MIT License](LICENSE).
 ## Changelog
 
 ### New in 1.4
-- **DSL dictionaries:** ⋯ → "📖 Wörterbuch …". Add ABBYY-Lingvo `.dsl` / `.dsl.dz` files, look up words (vowel points, final letters and Hebrew prefixes are handled), and right-click any Hebrew word in the text → *Im Wörterbuch nachschlagen*. Cross-references are clickable; dictionaries can be removed again.
+- **DSL dictionaries:** ⋯ → "📖 Wörterbuch …". Add ABBYY-Lingvo `.dsl` / `.dsl.dz` files, look up words (vowel points, final letters and Hebrew prefixes are handled), and right-click any Hebrew word in the text → *Im Wörterbuch nachschlagen*. The panel opens on the right like the commentary panel and shares the column with it. Cross-references are clickable; dictionaries can be removed again.
 - **Search results:** right-click for *Open*, *Open in new tab*, *Open in second window*.
 - **Bundled texts:** Rashi (Bamberger), Kitzur Shulchan Arukh, Mendelssohn (Taitsch and Biur) and Hirsch's Psalms added; Devarim Rabbah and the Guide of the Perplexed are now included once; version names unified (212 versions). Bundled texts that disappear from the package are removed on the next start.
 - **First start on macOS/Windows:** a new README section, plus *Zuerst lesen.txt* and *Safran freischalten.command* inside the `.dmg` that explain and perform the one-time unlock for the unsigned app.
@@ -118,7 +118,7 @@ The source code of this app is released under the [MIT License](LICENSE).
 - **Remove own texts:** ✕ on hover in the book list, or right-click → *Eigenen Text entfernen …*. Original files stay untouched.
 - **Embedded images:** inline Base64 images (PNG, JPEG, GIF, WebP) in own texts and commentaries are displayed; all other tags and external images are still stripped.
 - File names with umlauts are matched on macOS and Windows alike.
-- **Dictionaries (DSL):** ⋯ → "📖 Wörterbuch …" opens a lookup window; add ABBYY-Lingvo `.dsl` / `.dsl.dz` dictionaries under "Wörterbücher verwalten" (UTF-16/UTF-8, tags like `[b]`, `[i]`, `[c]`, `[ref]` are rendered; images and sound are skipped). Lookup ignores vowel points and final-letter forms, tries to strip the prefixes ו ה ב כ ל מ ש, and also lists entries that start with your word. Right-click a Hebrew word (or a selection) in the text → *Im Wörterbuch nachschlagen*. Cross-references in an entry are clickable.
+- **Dictionaries (DSL):** ⋯ → "📖 Wörterbuch …" opens a lookup panel on the right (below the commentary panel if that is open); add ABBYY-Lingvo `.dsl` / `.dsl.dz` dictionaries under "Wörterbücher verwalten" (UTF-16/UTF-8, tags like `[b]`, `[i]`, `[c]`, `[ref]` are rendered; images and sound are skipped). Lookup ignores vowel points and final-letter forms, tries to strip the prefixes ו ה ב כ ל מ ש, and also lists entries that start with your word. Right-click a Hebrew word (or a selection) in the text → *Im Wörterbuch nachschlagen*. Cross-references in an entry are clickable.
 - Dialogs have a ✕; clicking outside closes the *Versionen* list and the ⋯ menu.
 - **Search results:** right-click a result for *Open*, *Open in new tab* or *Open in second window* (the exact version and passage are kept).
 

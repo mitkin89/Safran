@@ -181,7 +181,7 @@ html[data-tab]:not([data-tab=read]) #tabbar { display: none; }
 /* Kommentar-Bereich (rechts angedockt, schiebt den Text zur Seite) */
 #cmtPanel { position: fixed; top: 57px; right: var(--cmt-off, 0px); bottom: 0; width: var(--cmt-w, 400px); max-width: 90vw; z-index: 20; background: var(--bg); border-left: 1px solid var(--line); padding: 0 14px 14px; overflow: auto; max-height: none; }
 #cmtPanel[hidden] { display: none; }
-body.cmt-open #tab-read .layout { margin-right: calc(var(--cmt-w, 400px) + 20px); }
+body.cmt-open #tab-read .layout, body.dict-open #tab-read .layout { margin-right: calc(var(--cmt-w, 400px) + 20px); }
 #cmtHead { position: sticky; top: 0; z-index: 3; background: var(--bg); padding: 10px 0 8px; border-bottom: 1px solid var(--line); margin-bottom: 8px; }
 #cmtHead .lhead { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
 #cmtHead .bar { margin: 0 0 6px; }
@@ -325,8 +325,6 @@ dialog .dclose:focus { outline: none; }
 dialog .dclose:hover { background: color-mix(in srgb, var(--text, #888) 14%, transparent); color: var(--text, inherit); }
 
 /* Wörterbuch */
-#dictDlg { width: min(720px, 94vw); max-height: 86vh; overflow: auto; }
-#dictDlg .bar { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin: 8px 0; }
 .dictout { margin: 8px 0; }
 .dentry { border-top: 1px solid var(--line, #8884); padding: 8px 0; }
 .dentry .dhead { margin-bottom: 4px; }
@@ -340,3 +338,13 @@ dialog .dclose:hover { background: color-mix(in srgb, var(--text, #888) 14%, tra
 #dictMan { margin-top: 10px; } #dictMan summary { cursor: pointer; color: var(--muted); }
 .dli { display: flex; justify-content: space-between; align-items: center; padding: 4px 0; }
 .dli button { border: 0; background: none; cursor: pointer; color: var(--muted); }
+
+/* Wörterbuch-Leiste: rechts wie die Kommentarleiste; ist sie offen, teilen sich beide die Spalte (Kommentare oben, Wörterbuch unten) */
+#dictPanel { position: fixed; top: 57px; right: var(--cmt-off, 0px); bottom: 0; width: var(--cmt-w, 400px); max-width: 90vw; z-index: 20; background: var(--bg); border-left: 1px solid var(--line); padding: 0 14px 14px; overflow: auto; }
+#dictPanel[hidden] { display: none; }
+#dictHead { position: sticky; top: 0; z-index: 3; background: var(--bg); padding: 10px 0 8px; border-bottom: 1px solid var(--line); margin-bottom: 8px; }
+#dictHead .lhead { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
+#dictHead .bar { display: flex; gap: 6px; margin: 0; }
+#dictHead input { flex: 1; min-width: 0; }
+body.cmt-open.dict-open #dictPanel { top: auto; height: 42%; border-top: 2px solid var(--line); }
+body.cmt-open.dict-open #cmtPanel { bottom: 42%; }

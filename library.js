@@ -1098,7 +1098,17 @@
       return w.length >= 2 ? w : '';
     } catch { return ''; }
   }
-  const dictDlg = $('#dictDlg');
+  let dictOpen = false;
+  const syncDock = () => { // Wörterbuch und Kommentare teilen sich die rechte Spalte
+    document.body.classList.toggle('dict-open', dictOpen);
+    $('#cmtResize').hidden = !(cmtOpen || dictOpen);
+  };
+  function toggleDict(force) {
+    dictOpen = force == null ? !dictOpen : force;
+    $('#dictPanel').hidden = !dictOpen;
+    syncDock();
+    if (dictOpen) { renderDictList(); $('#dictQ').focus(); }
+  }
   async function dictLookup(q) {
     q = String(q || '').trim();
     if (!q) return;
@@ -1118,11 +1128,11 @@
     $('#dictList').innerHTML = r.list.length ? r.list.map(d => `<div class="dli"><span>${esc(d.name)} <span class="muted">· ${d.count.toLocaleString('de-DE')} Einträge</span></span><button data-id="${esc(d.id)}" title="Wörterbuch entfernen">✕</button></div>`).join('') : '<p class="muted">Noch keine Wörterbücher.</p>';
   }
   async function openDict(q) {
-    if (!dictDlg.open) { if (dictDlg.showModal) dictDlg.showModal(); else dictDlg.setAttribute('open', ''); }
-    await renderDictList();
+    if (!dictOpen) toggleDict(true); else renderDictList();
     if (q) dictLookup(q); else $('#dictQ').focus();
   }
-  $('#openDict').onclick = () => { $('#moreMenu').open = false; openDict(); };
+  $('#openDict').onclick = () => { $('#moreMenu').open = false; toggleDict(); };
+  $('#dictClose').onclick = () => toggleDict(false);
   $('#dictGo').onclick = () => dictLookup($('#dictQ').value);
   $('#dictQ').addEventListener('keydown', e => { if (e.key === 'Enter') dictLookup($('#dictQ').value); });
   $('#dictOut').addEventListener('click', e => { const a = e.target.closest('.dref[data-q]'); if (a) dictLookup(a.dataset.q); });
@@ -1666,8 +1676,8 @@ ${endnotes.length ? `<h3>Fußnoten</h3><ol class="fn">${endnotes.map(n => `<li>$
   function toggleCmt(force) {
     cmtOpen = force == null ? !cmtOpen : force;
     $('#cmtPanel').hidden = !cmtOpen;
-    $('#cmtResize').hidden = !cmtOpen;
     document.body.classList.toggle('cmt-open', cmtOpen);
+    $('#cmtResize').hidden = !(cmtOpen || (typeof dictOpen !== 'undefined' && dictOpen));
     $('#cmtBtn').classList.toggle('active', cmtOpen);
     if (cmtOpen) applyCmtRow();
   }

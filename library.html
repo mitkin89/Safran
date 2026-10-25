@@ -286,15 +286,17 @@
     <div class="bar"><button id="ownSave" class="primary" disabled>Einbinden</button><button id="ownClose">Schließen</button></div>
   </dialog>
 
-  <dialog id="dictDlg">
-    <h2>Wörterbuch</h2>
-    <div class="bar"><input id="dictQ" placeholder="Wort eingeben (mit oder ohne Vokalzeichen) …" size="34"><button id="dictGo" class="primary">Nachschlagen</button></div>
+  <aside id="dictPanel" hidden>
+    <div id="dictHead">
+      <div class="lhead"><b>Wörterbuch</b><button id="dictClose" title="Schließen">✕</button></div>
+      <div class="bar"><input id="dictQ" placeholder="Wort eingeben (mit oder ohne Vokalzeichen) …"><button id="dictGo" class="primary">Nachschlagen</button></div>
+    </div>
     <div id="dictOut" class="dictout"><p class="muted">Gib ein hebräisches oder deutsches Wort ein, oder markiere ein Wort im Text und wähle mit Rechtsklick „Im Wörterbuch nachschlagen“.</p></div>
     <details id="dictMan"><summary>Wörterbücher verwalten</summary>
       <div id="dictList"></div>
       <div class="bar"><button id="dictAdd">DSL-Datei hinzufügen …</button><span class="muted">Formate: .dsl, .dsl.dz (ABBYY Lingvo)</span></div>
     </details>
-  </dialog>
+  </aside>
 
   <script src="reader.js"></script>
   <script src="order.js"></script>
