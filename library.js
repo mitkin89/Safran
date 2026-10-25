@@ -1,9 +1,3 @@
-const DICTWIN = location.hash.startsWith('#dictwin'); // eigenes Wörterbuch-Fenster (Rechtsklick → „In neuem Fenster“)
-if (DICTWIN) { // Verlauf und Sitzung der Hauptfenster nicht überschreiben
-  const si = Storage.prototype.setItem;
-  Storage.prototype.setItem = function (k, v) { if (k === 'session' || k === 'history') return; return si.call(this, k, v); };
-  document.documentElement.classList.add('dictwin');
-}
 (() => {
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
@@ -866,6 +860,7 @@ if (DICTWIN) { // Verlauf und Sitzung der Hauptfenster nicht überschreiben
       if (m.type === 'find') openFind();
       else if (m.type === 'closeTab') { if (tabIdx >= 0) closeTab(tabIdx); }
       else if (m.type === 'sync') { if (view && view.group && m.idx < view.sections.length && m.idx !== view.idx) { view.idx = m.idx; renderSection(); } }
+      else if (m.type === 'dict' && typeof m.q === 'string') openDict(m.q.slice(0, 100)); // Nachschlagen aus dem ersten Fenster
       else if (m.type === 'jump' && typeof m.ref === 'string') jumpTo(m.ref, tabs.some(t => t.group)); // Kommentar aus dem ersten Fenster
       else if (m.type === 'open' && typeof m.key === 'string') { const g = groupsByKey.get(m.key); if (g) openGroup(g, { rel: typeof m.rel === 'string' ? m.rel : undefined, sectionPath: m.sectionPath, rowLabel: m.rowLabel }, tabs.some(t => t.group)); } // schon ein Buch offen: neuer Tab
     } else if (e.source === p2Frame.contentWindow) {
@@ -1106,6 +1101,10 @@ if (DICTWIN) { // Verlauf und Sitzung der Hauptfenster nicht überschreiben
   function openInPane2(key, target = {}) {
     setSplit(true);
     const msg = target.jump ? { type: 'jump', ref: target.jump } : { type: 'open', key, rel: target.rel, sectionPath: target.sectionPath, rowLabel: target.rowLabel };
+    toPane2(msg);
+  }
+  function toPane2(msg) {
+    setSplit(true);
     if (p2Ready) p2Post(msg);
     else { const t = setInterval(() => { if (p2Ready) { clearInterval(t); setTimeout(() => p2Post(msg), 400); } }, 100); setTimeout(() => clearInterval(t), 8000); }
   }
@@ -1270,21 +1269,6 @@ if (DICTWIN) { // Verlauf und Sitzung der Hauptfenster nicht überschreiben
     $('#dictQ').addEventListener('blur', () => setTimeout(hideSug, 120));
     $('#dictGo').addEventListener('click', hideSug);
   }
-  // Rechtsklick im Wörterbuch: in neuem Tab oder neuem Fenster nachschlagen
-  $('#dictOut').addEventListener('contextmenu', e => {
-    if (e.target.closest('input, textarea')) return;
-    const a = e.target.closest('a.dref[data-q]');
-    const sel = (window.getSelection() + '').trim();
-    const word = a ? a.dataset.q : (sel && sel.length <= 60 && !/\n/.test(sel) ? sel : (sel ? '' : wordAt(e)));
-    const items = [];
-    if (word) {
-      items.push({ label: `Im neuen Tab nachschlagen: „${word}“`, fn: () => { if (document.documentElement.dataset.tab !== 'dict') showTab('dict'); dtabAdd(); dictLookup(word); } });
-      items.push({ label: `In neuem Fenster nachschlagen: „${word}“`, fn: () => O.dictWindow(word) });
-      items.push({ label: `Hier nachschlagen: „${word}“`, fn: () => dictLookup(word) });
-    }
-    if (sel) items.push({ label: 'Kopieren', fn: () => navigator.clipboard.writeText(sel).catch(() => {}) });
-    if (items.length) ctxShow(e, items);
-  });
   // „Erster Buchstabe weg“: Präfix (בְּ, וְ, הַ …) abschneiden und neu nachschlagen, beliebig oft
   $('#dictCut').onclick = () => {
     const q = $('#dictQ').value.trim().replace(/^[^\p{L}]*\p{L}\p{M}*/u, '');
@@ -1327,8 +1311,9 @@ if (DICTWIN) { // Verlauf und Sitzung der Hauptfenster nicht überschreiben
   $('#dictQ').addEventListener('keydown', e => { if (e.key === 'Enter') dictLookup($('#dictQ').value); });
   $('#dictOut').addEventListener('click', e => {
     const s = e.target.closest('.dsrc[data-sref]');
-    if (s) {   // Quellenangabe im Artikel (z. B. „Rosh Hashanah 18b“): im Reader öffnen, Cmd/Strg/Umschalt = neuer Tab
+    if (s) {   // Quellenangabe im Artikel (z. B. „Rosh Hashanah 18b“): im Reader öffnen; Cmd/Strg + Klick = im zweiten Fenster rechts, Umschalt = neuer Tab
       e.preventDefault();
+      if ((e.metaKey || e.ctrlKey) && !IS_PANE2) { toPane2({ type: 'jump', ref: s.dataset.sref.replace(/-.*$/, '') }); return; }
       jumpTo(s.dataset.sref, e.metaKey || e.ctrlKey || e.shiftKey).then(ok => {
         s.classList.toggle('dmiss', !ok);
         s.title = ok ? '' : 'Dieser Text ist nicht in deiner Bibliothek (Reiter „Herunterladen“).';
@@ -1345,6 +1330,25 @@ if (DICTWIN) { // Verlauf und Sitzung der Hauptfenster nicht überschreiben
     const selTxt = (window.getSelection() + '').trim();
     const art = e.target.closest('.dentry');
     const items = [];
+    // Quellenlink (z. B. „Ned. 41ᵃ“): öffnen, im neuen Tab oder im zweiten Fenster rechts
+    const src = e.target.closest('.dsrc[data-sref]');
+    if (src) {
+      const ref = src.dataset.sref.replace(/-.*$/, '');
+      items.push({ label: `Öffnen: ${src.textContent.trim()}`, fn: () => jumpTo(ref, false) });
+      items.push({ label: 'Im neuen Tab öffnen', fn: () => jumpTo(ref, true) });
+      if (!IS_PANE2) items.push({ label: 'Im zweiten Fenster (rechts) öffnen', fn: () => toPane2({ type: 'jump', ref }) });
+      items.push({ sep: true });
+    }
+    // Wort unter dem Zeiger (Verweis, Markierung oder Wort) nachschlagen
+    if (!src) { const ref = e.target.closest('a.dref[data-q]');
+      const word = ref ? ref.dataset.q : (selTxt && selTxt.length <= 60 && !/\n/.test(selTxt) ? selTxt : (selTxt ? '' : wordAt(e)));
+      if (word) {
+        if (!IS_PANE2) {
+          items.push({ label: `Im neuen Tab nachschlagen: „${word}“`, fn: () => { if (document.documentElement.dataset.tab !== 'dict') showTab('dict'); dtabAdd(); dictLookup(word); } });
+        }
+        items.push({ label: `Hier nachschlagen: „${word}“`, fn: () => dictLookup(word) });
+        items.push({ sep: true });
+      } }
     if (selTxt) items.push({ label: 'Kopieren', fn: () => navigator.clipboard.writeText(selTxt).catch(() => {}) });
     if (art) items.push({ label: 'Aktuellen Artikel auswählen', fn: () => { const r = document.createRange(); r.selectNodeContents(art); const s2 = window.getSelection(); s2.removeAllRanges(); s2.addRange(r); } });
     items.push({ label: 'Alles auswählen', fn: () => { const r = document.createRange(); r.selectNodeContents($('#dictOut')); const s2 = window.getSelection(); s2.removeAllRanges(); s2.addRange(r); } });
@@ -2111,14 +2115,8 @@ ${endnotes.length ? `<h3>Fußnoten</h3><ol class="fn">${endnotes.map(n => `<li>$
     await loadLibrary();
     applyDisp(false);
     await loadNotes();
-    if (!DICTWIN) await restoreSession();
+    await restoreSession();
     await refreshCatalog();
-    if (DICTWIN) {
-      showTab('dict');
-      let q = ''; try { q = decodeURIComponent(location.hash.replace(/^#dictwin=?/, '')); } catch { /* egal */ }
-      if (q) dictLookup(q); else $('#dictQ').focus();
-      return;
-    }
     if (!groups.length) showTab('get');
   })();
 })();

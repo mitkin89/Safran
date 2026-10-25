@@ -425,7 +425,5 @@ html[data-tab=dict] #dictTabs { display: flex; gap: 4px; flex-wrap: wrap; margin
 #dictSug .sg small { font: 11px -apple-system, sans-serif; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 #dictSug .sg:hover, #dictSug .sg.on { background: color-mix(in srgb, var(--accent) 22%, transparent); }
 
-/* Eigenes Wörterbuch-Fenster: nur das Wörterbuch */
-html.dictwin header, html.dictwin #tabbar { display: none; }
-html.dictwin #dictPanel { top: 0; }
-html.dictwin #dictClose { display: none; }
+/* Reiter „Wörterbuch“ bei geöffnetem zweiten Fenster: nur die linke Hälfte füllen */
+html.split[data-tab=dict] #dictPanel { right: var(--p2w); padding: 0 max(14px, 3vw) 14px; }
