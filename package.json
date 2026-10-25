@@ -74,6 +74,7 @@
           "path": "build/dmg/Zuerst lesen.txt"
         }
       ]
-    }
+    },
+    "afterPack": "build/adhoc-sign.js"
   }
 }

@@ -19,4 +19,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: sefaria-${{ matrix.os }}
-          path: dist/*.{dmg,exe}
+          path: |
+            dist/*.dmg
+            dist/*.exe
+          if-no-files-found: warn

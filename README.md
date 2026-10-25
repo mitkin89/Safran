@@ -52,13 +52,13 @@ All merged Hebrew texts ≈ 2.8 GB, English ≈ 0.5 GB, German translations (288
 
 ## First start on macOS and Windows
 
-The app is **not code-signed** (Apple's and Microsoft's certificates cost money), so the first start needs one extra step. The app is not broken.
+The app has no paid developer certificate (Apple's and Microsoft's certificates cost money), so the first start needs one extra step. The app is not broken. On macOS it is signed locally (ad-hoc), so you normally get the *"developer cannot be verified"* message with an **Open Anyway** button.
 
 **macOS** – if you see *"Safran is damaged and can't be opened"* or *"the developer cannot be verified"*:
 
 1. Drag **Safran** into the **Applications** folder.
 2. Easiest: open the `.dmg` again and right-click **Safran freischalten.command** → *Open* → *Open*. Or run in the Terminal: `xattr -cr /Applications/Safran.app`
-3. For the message *"developer cannot be verified"* you can also right-click the app → *Open* → *Open*, or use *System Settings → Privacy & Security → Open Anyway*.
+3. For the message *"developer cannot be verified"* use *System Settings → Privacy & Security → Open Anyway* (scroll down), or right-click the app → *Open* → *Open*.
 
 **Windows** – SmartScreen may show *"Windows protected your PC"*: click **More info** → **Run anyway**.
 
