@@ -357,3 +357,5 @@ body.cmt-open.dict-open #cmtPanel { bottom: 42%; }
 #dictPanel .dbody { font-size: var(--dict-fs, 15px); }
 .dentry { scroll-margin-top: 112px; }
 .dentry.flash { background: color-mix(in srgb, var(--accent, #2c6fbb) 14%, transparent); transition: background .4s; }
+
+#ctxMenu button { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 420px; }

@@ -1187,10 +1187,12 @@
     if (selTxt) items.push({ label: 'Kopieren', fn: () => navigator.clipboard.writeText(selTxt).catch(() => {}) });
     if (art) items.push({ label: 'Aktuellen Artikel auswählen', fn: () => { const r = document.createRange(); r.selectNodeContents(art); const s2 = window.getSelection(); s2.removeAllRanges(); s2.addRange(r); } });
     items.push({ label: 'Alles auswählen', fn: () => { const r = document.createRange(); r.selectNodeContents($('#dictOut')); const s2 = window.getSelection(); s2.removeAllRanges(); s2.addRange(r); } });
-    if (dictShown.length > 1) {
+    // eine Zeile pro Wörterbuch (springt zum ersten Artikel dieses Wörterbuchs)
+    const byDict = [];
+    dictShown.forEach((x, i) => { let g = byDict.find(b => b.dictId === x.dictId); if (!g) byDict.push(g = { dictId: x.dictId, name: x.dict, first: i, n: 0 }); g.n++; });
+    if (byDict.length > 1 || (byDict.length === 1 && byDict[0].n > 1)) {
       items.push({ sep: true });
-      const names = dictShown.map(x => x.dict), dup = n => names.filter(x => x === n).length > 1;
-      dictShown.forEach((x, i) => items.push({ label: dup(x.dict) ? `${x.dict} – ${x.head}` : x.dict, fn: () => dictJump(i) }));
+      byDict.forEach(g => items.push({ label: g.n > 1 ? `${g.name} (${g.n} Artikel)` : g.name, fn: () => dictJump(g.first) }));
     }
     ctxShow(e, items);
   });
