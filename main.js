@@ -454,7 +454,7 @@ ipcMain.handle('dict:add', async e => {
   return { added, errors };
 });
 ipcMain.handle('dict:remove', async (_e, id) => { try { await (await getDicts()).remove(String(id)); return {}; } catch (err) { return { error: err.message }; } });
-ipcMain.handle('dict:lookup', async (_e, q) => { try { return { results: await (await getDicts()).lookup(String(q || '').slice(0, 100)) }; } catch (err) { return { results: [], error: err.message }; } });
+ipcMain.handle('dict:lookup', async (_e, q, only) => { try { return { results: await (await getDicts()).lookup(String(q || '').slice(0, 100), { only: /^[0-9a-f]{12}$/.test(String(only || '')) ? String(only) : '' }) }; } catch (err) { return { results: [], error: err.message }; } });
 
 ipcMain.handle('off:ownExportBundle', async e => {
   const lib = await getLibrary();

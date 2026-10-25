@@ -155,7 +155,7 @@ class Dictionaries {
     this.cache.delete(id);
   }
   // Nachschlagen: genau, dann Wortanfang, dann ohne hebräische Vorsilben (ה ו ב כ ל מ ש)
-  async lookup(query, { limit = 40 } = {}) {
+  async lookup(query, { limit = 40, only = '' } = {}) {
     const q = norm(query);
     if (!q) return [];
     const res = [];
@@ -166,6 +166,7 @@ class Dictionaries {
       if ([...head].every(c => prefixes.includes(c))) variants.push({ q: q.slice(k), note: `ohne Vorsilbe „${head}“` });
     }
     for (const d of (await this.list())) {
+      if (only && d.id !== only) continue;
       const data = await this.load(d.id);
       const seen = new Set();
       const add = (k, kind, note) => { if (seen.has(k)) return; seen.add(k); res.push({ dict: data.name, dictId: d.id, head: data.heads[k].join(' · '), html: data.html[k], kind, note }); };

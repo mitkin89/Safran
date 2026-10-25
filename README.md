@@ -119,7 +119,7 @@ The source code of this app is released under the [MIT License](LICENSE).
 - **Embedded images:** inline Base64 images (PNG, JPEG, GIF, WebP) in own texts and commentaries are displayed; all other tags and external images are still stripped.
 - File names with umlauts are matched on macOS and Windows alike.
 - **Dictionaries (DSL):** ⋯ → "📖 Wörterbuch …" opens a lookup panel on the right (below the commentary panel if that is open); add ABBYY-Lingvo `.dsl` / `.dsl.dz` dictionaries under "Wörterbücher verwalten" (UTF-16/UTF-8, tags like `[b]`, `[i]`, `[c]`, `[ref]` are rendered; images and sound are skipped). Lookup ignores vowel points and final-letter forms, tries to strip the prefixes ו ה ב כ ל מ ש, and also lists entries that start with your word. Right-click a Hebrew word (or a selection) in the text → *Im Wörterbuch nachschlagen*. Cross-references in an entry are clickable.
-- **Dictionary button:** 📖 next to the commentary button toggles the panel; double-click any word in the text or commentary to look it up.
+- **Dictionary button:** 📖 next to the commentary button toggles the panel; double-click any word in the text or commentary to look it up. In the panel, right-click (like GoldenDict) for *Select current article*, *Select all* and a list of your dictionaries to look up the selected (or clicked) word in just one of them.
 - Dialogs have a ✕; clicking outside closes the *Versionen* list and the ⋯ menu.
 - **Search results:** right-click a result for *Open*, *Open in new tab* or *Open in second window* (the exact version and passage are kept).
 

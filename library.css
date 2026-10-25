@@ -348,3 +348,6 @@ dialog .dclose:hover { background: color-mix(in srgb, var(--text, #888) 14%, tra
 #dictHead input { flex: 1; min-width: 0; }
 body.cmt-open.dict-open #dictPanel { top: auto; height: 42%; border-top: 2px solid var(--line); }
 body.cmt-open.dict-open #cmtPanel { bottom: 42%; }
+
+#ctxMenu hr { border: 0; border-top: 1px solid #8884; margin: 4px 2px; }
+.donly { font-size: 12px; margin: 0 0 6px; } .donly .dall { cursor: pointer; color: var(--accent, #2c6fbb); text-decoration: underline dotted; }

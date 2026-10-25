@@ -47,7 +47,7 @@ contextBridge.exposeInMainWorld('offline', {
   dictList: () => ipcRenderer.invoke('dict:list'),
   dictAdd: () => ipcRenderer.invoke('dict:add'),
   dictRemove: id => ipcRenderer.invoke('dict:remove', id),
-  dictLookup: q => ipcRenderer.invoke('dict:lookup', q),
+  dictLookup: (q, only) => ipcRenderer.invoke('dict:lookup', q, only),
   ownRemove: rel => ipcRenderer.invoke('off:ownRemove', rel),
   ownReload: rel => ipcRenderer.invoke('off:ownReload', rel),
   onFindOpen: cb => ipcRenderer.on('find:open', () => cb()),

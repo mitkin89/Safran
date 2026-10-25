@@ -1031,10 +1031,10 @@
     }
     e.preventDefault();
     ctxEl._items = items;
-    ctxEl.innerHTML = items.map((it, i) => `<button data-n="${i}">${esc(it.label)}</button>`).join('');
+    ctxEl.innerHTML = items.map((it, i) => it.sep ? '<hr>' : `<button data-n="${i}">${esc(it.label)}</button>`).join('');
     ctxEl.hidden = false;
     ctxEl.style.left = Math.max(4, Math.min(e.clientX, window.innerWidth - 270)) + 'px';
-    ctxEl.style.top = Math.max(4, Math.min(e.clientY, window.innerHeight - 40 * items.length - 10)) + 'px';
+    ctxEl.style.top = Math.max(4, Math.min(e.clientY, window.innerHeight - 34 * items.length - 10)) + 'px';
   }
   // Menü für ein Buch (Bücherliste, Verlauf): hier öffnen, neuer Tab, zweites Fenster
   function bookMenu(e, key, target = {}) {
@@ -1119,20 +1119,22 @@
   };
   $('#rOut').addEventListener('dblclick', dblWord);
   $('#cmtBody').addEventListener('dblclick', dblWord);
-  $('#dictOut').addEventListener('dblclick', dblWord);
-  async function dictLookup(q) {
+  let dictOnly = null; // { id, name }: Suche nur in diesem Wörterbuch
+  async function dictLookup(q, only = null) {
     q = String(q || '').trim();
     if (!q) return;
+    dictOnly = only;
     $('#dictQ').value = q;
     $('#dictOut').innerHTML = '<p class="muted">Suche …</p>';
-    const r = await O.dictLookup(q);
+    const r = await O.dictLookup(q, only && only.id);
     if (r.error) { $('#dictOut').innerHTML = `<p class="muted">⚠ ${esc(r.error)}</p>`; return; }
     if (!r.results.length) {
       const n = (await O.dictList()).list.length;
       $('#dictOut').innerHTML = n ? `<p class="muted">Kein Eintrag für „${esc(q)}“ gefunden.</p>` : '<p class="muted">Es ist noch kein Wörterbuch eingebunden. Öffne unten „Wörterbücher verwalten“ und füge eine DSL-Datei hinzu.</p>';
       return;
     }
-    $('#dictOut').innerHTML = r.results.map(x => `<div class="dentry"><div class="dhead"><b dir="auto">${esc(x.head)}</b> <span class="muted">${esc(x.dict)}${x.note ? ' · ' + esc(x.note) : ''}</span></div><div class="dbody" dir="ltr">${x.html}</div></div>`).join('');
+    const onlyBar = dictOnly ? `<div class="donly muted">Nur in: <b>${esc(dictOnly.name)}</b> · <a class="dall">alle Wörterbücher</a></div>` : '';
+    $('#dictOut').innerHTML = onlyBar + r.results.map(x => `<div class="dentry"><div class="dhead"><b dir="auto">${esc(x.head)}</b> <span class="muted">${esc(x.dict)}${x.note ? ' · ' + esc(x.note) : ''}</span></div><div class="dbody" dir="ltr">${x.html}</div></div>`).join('');
   }
   async function renderDictList() {
     const r = await O.dictList();
@@ -1146,7 +1148,29 @@
   $('#dictClose').onclick = () => toggleDict(false);
   $('#dictGo').onclick = () => dictLookup($('#dictQ').value);
   $('#dictQ').addEventListener('keydown', e => { if (e.key === 'Enter') dictLookup($('#dictQ').value); });
-  $('#dictOut').addEventListener('click', e => { const a = e.target.closest('.dref[data-q]'); if (a) dictLookup(a.dataset.q); });
+  $('#dictOut').addEventListener('click', e => {
+    const a = e.target.closest('.dref[data-q]');
+    if (a) dictLookup(a.dataset.q);
+    else if (e.target.closest('.dall')) dictLookup($('#dictQ').value);
+  });
+  // Rechtsklick in der Wörterbuch-Leiste (wie GoldenDict): Artikel/alles markieren und das markierte Wort in einem bestimmten Wörterbuch nachschlagen
+  $('#dictOut').addEventListener('contextmenu', async e => {
+    e.preventDefault();
+    const selTxt = (window.getSelection() + '').trim();
+    const word = selTxt && selTxt.length <= 60 && !/\n/.test(selTxt) ? selTxt : (selTxt ? '' : wordAt(e));
+    const art = e.target.closest('.dentry');
+    const list = (await O.dictList()).list;
+    const items = [];
+    if (selTxt) items.push({ label: 'Kopieren', fn: () => navigator.clipboard.writeText(selTxt).catch(() => {}) });
+    if (art) items.push({ label: 'Aktuellen Artikel auswählen', fn: () => { const r = document.createRange(); r.selectNodeContents(art); const s2 = window.getSelection(); s2.removeAllRanges(); s2.addRange(r); } });
+    items.push({ label: 'Alles auswählen', fn: () => { const r = document.createRange(); r.selectNodeContents($('#dictOut')); const s2 = window.getSelection(); s2.removeAllRanges(); s2.addRange(r); } });
+    if (word && list.length) {
+      items.push({ sep: true });
+      items.push({ label: `Nachschlagen: „${word}“ in allen Wörterbüchern`, fn: () => dictLookup(word) });
+      for (const d of list) items.push({ label: d.name, fn: () => dictLookup(word, { id: d.id, name: d.name }) });
+    }
+    ctxShow(e, items);
+  });
   $('#dictAdd').onclick = async () => {
     const r = await O.dictAdd();
     if (r.cancelled) return;
