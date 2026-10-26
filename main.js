@@ -82,29 +82,42 @@ function openOffline() {
   offlineWin.loadFile('library.html');
 }
 
+// ---------- Oberflächensprache (die Oberfläche meldet ihre Wahl; wird für Menü und Dialoge gemerkt) ----------
+const langFile = () => path.join(app.getPath('userData'), 'ui-lang.txt');
+let UI_LANG = 'de';
+try { const l = require('fs').readFileSync(langFile(), 'utf8').trim(); if (l === 'en' || l === 'de') UI_LANG = l; else if (!/^de/i.test(app.getLocale())) UI_LANG = 'en'; } catch { if (!/^de/i.test(app.getLocale())) UI_LANG = 'en'; }
+const M = (de, en) => (UI_LANG === 'en' ? en : de);
+ipcMain.handle('app:setLang', (_e, l) => {
+  if (l !== 'de' && l !== 'en') return false;
+  const changed = l !== UI_LANG; UI_LANG = l;
+  try { require('fs').writeFileSync(langFile(), l); } catch { /* egal */ }
+  if (changed) buildMenu();
+  return true;
+});
+
 // ---------- Menü ----------
 const IS_MAC = process.platform === 'darwin';
 function buildMenu() {
   const template = [
     ...(IS_MAC ? [{ label: 'Safran', submenu: [{ role: 'about' }, { type: 'separator' }, { role: 'hide' }, { role: 'hideOthers' }, { role: 'unhide' }, { type: 'separator' }, { role: 'quit' }] }]
-      : [{ label: 'Datei', submenu: [{ label: 'Beenden', role: 'quit' }] }]),
-    { label: 'Bearbeiten', submenu: [{ role: 'undo' }, { role: 'redo' }, { type: 'separator' }, { role: 'cut' }, { role: 'copy' }, { role: 'paste' }, { role: 'selectAll' }, { type: 'separator' }, { label: 'Im Text suchen…', accelerator: 'CmdOrCtrl+F', click: (_i, w) => { if (w && !w.isDestroyed()) w.webContents.send('find:open'); } }] },
-    { label: 'Ansicht', submenu: [{ role: 'reload' }, { role: 'forceReload' }, { type: 'separator' }, { role: 'resetZoom' }, { role: 'zoomIn' }, { role: 'zoomOut' }, { type: 'separator' }, { role: 'togglefullscreen' }] },
+      : [{ label: M('Datei', 'File'), submenu: [{ label: M('Beenden', 'Quit'), role: 'quit' }] }]),
+    { label: M('Bearbeiten', 'Edit'), submenu: [{ role: 'undo' }, { role: 'redo' }, { type: 'separator' }, { role: 'cut' }, { role: 'copy' }, { role: 'paste' }, { role: 'selectAll' }, { type: 'separator' }, { label: M('Im Text suchen…', 'Find in text…'), accelerator: 'CmdOrCtrl+F', click: (_i, w) => { if (w && !w.isDestroyed()) w.webContents.send('find:open'); } }] },
+    { label: M('Ansicht', 'View'), submenu: [{ role: 'reload' }, { role: 'forceReload' }, { type: 'separator' }, { role: 'resetZoom' }, { role: 'zoomIn' }, { role: 'zoomOut' }, { type: 'separator' }, { role: 'togglefullscreen' }] },
     {
-      label: 'Werkzeuge',
+      label: M('Werkzeuge', 'Tools'),
       submenu: [
-        { label: 'Offline-Bibliothek…', accelerator: 'CmdOrCtrl+Shift+O', click: () => openOffline() },
+        { label: M('Offline-Bibliothek…', 'Offline library…'), accelerator: 'CmdOrCtrl+Shift+O', click: () => openOffline() },
         { type: 'separator' },
-        { label: 'Buch herunterladen…', click: () => openTools('download') },
-        { label: 'Upload-Vorbereitung (CSV prüfen)…', click: () => openTools('check') },
+        { label: M('Buch herunterladen…', 'Download book…'), click: () => openTools('download') },
+        { label: M('Upload-Vorbereitung (CSV prüfen)…', 'Upload preparation (check CSV)…'), click: () => openTools('check') },
       ],
     },
     {
-      label: 'Fenster',
+      label: M('Fenster', 'Window'),
       submenu: [
         { role: 'minimize' }, ...(IS_MAC ? [{ role: 'zoom' }] : []), { type: 'separator' },
-        { label: 'Tab schließen', accelerator: 'CmdOrCtrl+W', click: (_i, w) => { if (w && !w.isDestroyed()) w.webContents.executeJavaScript('window.__closeCurrentTab ? (window.__closeCurrentTab(), true) : false').then(ok => { if (!ok && !w.isDestroyed()) w.close(); }).catch(() => {}); } },
-        { label: 'Fenster schließen', accelerator: 'CmdOrCtrl+Shift+W', role: 'close' },
+        { label: M('Tab schließen', 'Close tab'), accelerator: 'CmdOrCtrl+W', click: (_i, w) => { if (w && !w.isDestroyed()) w.webContents.executeJavaScript('window.__closeCurrentTab ? (window.__closeCurrentTab(), true) : false').then(ok => { if (!ok && !w.isDestroyed()) w.close(); }).catch(() => {}); } },
+        { label: M('Fenster schließen', 'Close window'), accelerator: 'CmdOrCtrl+Shift+W', role: 'close' },
         ...(IS_MAC ? [{ type: 'separator' }, { role: 'front' }] : []),
       ],
     },
@@ -405,7 +418,7 @@ async function parseOwnFiles(paths) {
 }
 ipcMain.handle('off:ownPick', async e => {
   const { canceled, filePaths } = await dialog.showOpenDialog(winOf(e), {
-    title: 'Eigene Texte wählen (mehrere möglich)', properties: ['openFile', 'multiSelections'],
+    title: M('Eigene Texte wählen (mehrere möglich)', 'Choose own texts (several possible)'), properties: ['openFile', 'multiSelections'],
     filters: [{ name: 'Text, Word, CSV, JSON', extensions: ['txt', 'md', 'docx', 'csv', 'tsv', 'json'] }],
   });
   if (canceled || !filePaths.length) return null;
@@ -458,7 +471,7 @@ let dictsP = null;
 const getDicts = () => dictsP || (dictsP = getLibrary().then(async lib => { const d = new DSL.Dictionaries(path.join(lib.dir, 'dict')); try { await d.importBundled(path.join(__dirname, 'bundled')); } catch { /* mitgelieferte Wörterbücher sind nur ein Zusatz */ } return d; }).catch(err => { dictsP = null; throw err; }));
 ipcMain.handle('dict:list', async () => { try { return { list: await (await getDicts()).list() }; } catch (err) { return { list: [], error: err.message }; } });
 ipcMain.handle('dict:add', async e => {
-  const r = await dialog.showOpenDialog(winOf(e), { title: 'DSL-Wörterbuch wählen (mehrere möglich)', properties: ['openFile', 'multiSelections'], filters: [{ name: 'DSL-Wörterbuch', extensions: ['dsl', 'dz'] }, { name: 'Alle Dateien', extensions: ['*'] }] });
+  const r = await dialog.showOpenDialog(winOf(e), { title: M('DSL-Wörterbuch wählen (mehrere möglich)', 'Choose DSL dictionary (several possible)'), properties: ['openFile', 'multiSelections'], filters: [{ name: 'DSL-Wörterbuch', extensions: ['dsl', 'dz'] }, { name: 'Alle Dateien', extensions: ['*'] }] });
   if (r.canceled) return { cancelled: true };
   const d = await getDicts(), added = [], errors = [];
   for (const f of r.filePaths) {
@@ -475,7 +488,7 @@ ipcMain.handle('dict:suggest', async (_e, q) => { try { return { list: await (aw
 
 ipcMain.handle('off:ownExportBundle', async e => {
   const lib = await getLibrary();
-  const r = await dialog.showOpenDialog(winOf(e), { title: 'Ordner „bundled“ im Projekt wählen (oder neuen Ordner anlegen)', properties: ['openDirectory', 'createDirectory'] });
+  const r = await dialog.showOpenDialog(winOf(e), { title: M('Ordner „bundled“ im Projekt wählen (oder neuen Ordner anlegen)', 'Choose the “bundled” folder in the project (or create a new folder)'), properties: ['openDirectory', 'createDirectory'] });
   if (r.canceled || !r.filePaths[0]) return { cancelled: true };
   try { return { count: await lib.exportBundled(r.filePaths[0]), dir: r.filePaths[0] }; } catch (err) { return { error: err.message }; }
 });
@@ -507,8 +520,15 @@ function writeNotes(fn) {
 ipcMain.handle('notes:list', () => readNotes());
 ipcMain.handle('notes:save', (_e, item) => writeNotes(items => {
   const i = items.findIndex(x => x.id === item.id);
-  const rec = { ...item, ts: Date.now() };
+  const { keepTs, ...rest } = item;
+  const rec = { ...rest, ts: keepTs && item.ts ? item.ts : Date.now() };
   if (i >= 0) items[i] = rec; else items.push(rec);
+  return items;
+}));
+ipcMain.handle('notes:reorder', (_e, ids) => writeNotes(items => {
+  if (!Array.isArray(ids)) return items;
+  const pos = new Map(ids.map((id, i) => [id, i]));
+  for (const it of items) if (pos.has(it.id)) it.order = pos.get(it.id);
   return items;
 }));
 ipcMain.handle('notes:delete', (_e, id) => writeNotes(items => items.filter(x => x.id !== id)));
@@ -683,7 +703,7 @@ ipcMain.handle('off:updateRun', async e => {
 
 ipcMain.handle('off:chooseDir', async e => {
   const r = await dialog.showOpenDialog(winOf(e), {
-    title: 'Speicherort der Offline-Bibliothek',
+    title: M('Speicherort der Offline-Bibliothek', 'Storage location of the offline library'),
     properties: ['openDirectory', 'createDirectory'],
   });
   if (!r.canceled && r.filePaths[0]) {

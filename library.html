@@ -5,21 +5,22 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; script-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Offline-Bibliothek</title>
+  <script src="theme.js"></script>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="library.css">
 </head>
 <body>
   <header>
     <nav>
-      <button data-tab="read" class="active">Lesen</button>
+      <button data-tab="read" class="active" title="Lesen – ein weiterer Klick blendet die Bücherliste ein oder aus (Cmd+B)">Lesen<span class="tabIcon">☰</span></button>
       <button data-tab="search">Suche</button>
-      <button data-tab="dict">Wörterbuch</button>
+      <button data-tab="dict" id="dictTabBtn" title="Wörterbuch (Doppelklick auf ein Wort schlägt es nach)">Wörterbuch</button>
       <button data-tab="notes">Notizen</button>
     </nav>
     <div id="tabbar"></div>
-    <button id="togglePanel" title="Bücherliste ein-/ausblenden (Cmd+B)">☰</button>
-    <button id="syncBtn" title="Gleichlauf: Blättern im ersten Fenster blättert im zweiten mit (für Parallelstellen)" aria-pressed="false">⇅</button>
-    <button id="splitBtn" title="Zweites Lesefenster rechts ein-/ausblenden – so bleibt das erste Buch offen">⧉</button>
+    <button id="togglePanel" title="Bücherliste ein-/ausblenden (Cmd+B)">☰<span class="bl">Bücher</span></button>
+    <button id="syncBtn" title="Gleichlauf: Blättern im ersten Fenster blättert im zweiten mit (für Parallelstellen)" aria-pressed="false">⇅<span class="bl">Gleichlauf</span></button>
+    <button id="splitBtn" title="Zweites Lesefenster rechts ein-/ausblenden – so bleibt das erste Buch offen">⧉<span class="bl">Zweites Fenster</span></button>
     <button id="closePane" title="Dieses Fenster schließen" hidden>✕ Schließen</button>
     <details id="moreMenu">
       <summary title="Weitere Funktionen">⋯</summary>
@@ -31,9 +32,13 @@
         <button id="ownExport" title="Schreibt alle eigenen Texte in einen Ordner, den du ins Projekt (bundled/) legst, damit sie mit der App auf GitHub verteilt werden">Eigene Texte für GitHub exportieren …</button>
         <button id="updNow" title="Prüft, ob eine neuere Version von Safran auf GitHub veröffentlicht ist">Nach Updates suchen</button>
         <label class="chk" title="Safran fragt beim Start einmal bei GitHub nach einer neuen Version"><input type="checkbox" id="updAuto"> Beim Start nach Updates suchen</label>
+        <div class="chk zoomrow" title="Größe der gesamten Oberfläche (Schrift und Bedienelemente)">Größe <input id="zoomRange" type="range" min="70" max="180" step="5" value="100"><span id="zoomVal">100%</span></div>
+        <label class="chk" title="Erscheinungsbild: automatisch (System), hell oder dunkel">Darstellung <select id="uiTheme"><option value="auto">Automatisch</option><option value="light">Hell</option><option value="dark">Dunkel</option></select></label>
+        <label class="chk" title="Oberflächensprache">Sprache <select id="uiLang"><option value="de">Deutsch</option><option value="en">English</option></select></label>
         <button id="reveal">Im Finder zeigen</button>
         <span id="stats" class="muted"></span>
         <img class="logo small" src="logo.png" alt="talmud.de" title="talmud.de" width="46">
+        <div class="credit">talmud.de<b>made with Sonnet 5.5</b></div>
       </div>
     </details>
   </header>
@@ -44,38 +49,36 @@
     <section id="tab-read">
       <div class="layout">
         <aside>
+          <div class="treehead"><input id="treeFilter" placeholder="Titel filtern …"><button id="treeOpenAll" title="Alle Unterpunkte öffnen">⊞</button><button id="treeShutAll" title="Alle Unterpunkte schließen">⊟</button><button id="treeClose" title="Bücherliste schließen (Cmd+B)">✕</button></div>
+          <div id="tree"></div>
           <div id="recentBox" hidden>
             <div class="rhead"><b id="recentHead" title="Ein-/ausklappen" style="cursor:pointer"><span id="recentArrow">▾</span> Zuletzt geöffnet</b><button id="recentClear" title="Liste „Zuletzt geöffnet“ leeren">Liste leeren</button></div>
             <div id="recent"></div>
           </div>
-          <div class="treehead"><input id="treeFilter" placeholder="Titel filtern …"><button id="treeClose" title="Bücherliste schließen (Cmd+B)">✕</button></div>
-          <div id="tree"></div>
         </aside>
         <div id="reader">
           <div id="rEmpty" class="muted">
             <img class="logo" src="logo.png" alt="talmud.de" width="150">
-            <p>Wähle links ein Buch. Noch nichts heruntergeladen? Im Reiter <b>Herunterladen</b> kannst du Bücher und Sprachen auswählen.</p>
+            <p data-i18n="h1">Wähle links ein Buch. Noch nichts heruntergeladen? Im Reiter <b>Herunterladen</b> kannst du Bücher und Sprachen auswählen.</p>
           </div>
           <div id="rMain" hidden>
             <div id="stick">
               <div class="bar compact">
                 <button id="navBack" title="Zurück im Verlauf (Cmd+[)" disabled>←</button>
                 <button id="navFwd" title="Vorwärts im Verlauf (Cmd+])" disabled>→</button>
-                <h2 id="rTitle"></h2>
+                <div id="titleBox"><h2 id="rTitle" tabindex="0"></h2><input id="jump" hidden placeholder="Buch oder Stelle, z. B. gen. 2:3" title="Stelle eingeben, z. B. 3, 3:7, Daf 2a oder gen. 1:1 – mit Enter springen"></div>
                 <button id="prevSec" title="Voriger Abschnitt">◀</button>
                 <select id="rSection"></select>
                 <button id="nextSec" title="Nächster Abschnitt">▶</button>
-                <input id="jump" placeholder="Springen: 1:5 oder gen. 2:3" title="Stelle eingeben, z. B. 3, 3:7, Daf 2a oder gen. 1:1 – mit Enter springen">
                 <details id="verBox">
-                  <summary id="verSummary" title="Versionen">Versionen</summary>
+                  <summary id="verSummary" title="Versionen"><span class="vi">📚</span> Versionen</summary>
                   <div id="verList"></div>
                 </details>
-                <button id="bookSearch" title="Nur in diesem Buch suchen">🔎</button>
-                <button id="dictBtn" title="Wörterbuch (Doppelklick auf ein Wort schlägt es nach)">📖</button>
-                <button id="cmtBtn" title="Kommentare zum gewählten Vers (Cmd+K)">💬</button>
+                <button id="bookSearch" title="Nur in diesem Buch suchen">🔎<span class="bl">Im Buch</span></button>
+                <button id="cmtBtn" title="Kommentare zum gewählten Vers (Cmd+K)">💬<span class="bl">Kommentare</span></button>
                 <button id="lkBtn" title="Verknüpfungen zu diesem Abschnitt anzeigen" hidden>🔗</button>
                 <span class="spacer"></span>
-                <button id="dispBtn" title="Anzeige, Fußnoten, Schrift, Export">⚙</button>
+                <button id="dispBtn" title="Anzeige, Fußnoten, Schrift, Export">⚙<span class="bl">Anzeige</span></button>
               </div>
             </div>
             <details id="cmpBar" hidden><summary><span id="cmpSum"></span> <button id="cmpClose" title="Hinweis ausblenden">✕</button></summary><div id="cmpList"></div><div id="cmpDiff"></div></details>
@@ -116,17 +119,17 @@
       </div>
       <details id="sHelp" class="help">
         <summary>Hilfe: Platzhalter, Fuzzy und Wörter in der Nähe</summary>
-        <p><b>Platzhalter:</b> <code>*</code> steht für beliebig viele Buchstaben, <code>?</code> für genau einen. <code>anf*</code> findet Anfang, Anfänge, anfangen; <code>m?er</code> findet Meer und Mehr. Ohne Platzhalter muss das Wort vollständig übereinstimmen (<code>gott</code> findet „Gott“, aber nicht „Gottes“ – dafür <code>gott*</code>).</p>
-        <p><b>Fuzzy:</b> findet auch ähnlich geschriebene Wörter, z. B. bei Tippfehlern, Umschriften oder alten Schreibweisen. Erlaubt ist bei Wörtern mit 4–6 Buchstaben eine Abweichung, ab 7 Buchstaben zwei; kürzere Wörter müssen genau stimmen. Eine Abweichung ist ein falscher, fehlender oder zusätzlicher Buchstabe. Akzente und Umlaute werden ignoriert. Beispiele:</p>
+        <p data-i18n="h2"><b>Platzhalter:</b> <code>*</code> steht für beliebig viele Buchstaben, <code>?</code> für genau einen. <code>anf*</code> findet Anfang, Anfänge, anfangen; <code>m?er</code> findet Meer und Mehr. Ohne Platzhalter muss das Wort vollständig übereinstimmen (<code>gott</code> findet „Gott“, aber nicht „Gottes“ – dafür <code>gott*</code>).</p>
+        <p data-i18n="h3"><b>Fuzzy:</b> findet auch ähnlich geschriebene Wörter, z. B. bei Tippfehlern, Umschriften oder alten Schreibweisen. Erlaubt ist bei Wörtern mit 4–6 Buchstaben eine Abweichung, ab 7 Buchstaben zwei; kürzere Wörter müssen genau stimmen. Eine Abweichung ist ein falscher, fehlender oder zusätzlicher Buchstabe. Akzente und Umlaute werden ignoriert. Beispiele:</p>
         <ul>
-          <li><code>raschi</code> findet auch „Rashi“</li>
-          <li><code>avraham</code> findet auch „Abraham“</li>
-          <li><code>semuel</code> findet auch „Šemuél“ und „Shemuel“</li>
-          <li><code>אלהים</code> findet auch „אלוהים“</li>
-          <li><code>gott</code> findet „Gott“, aber nicht „gold“ (zu kurz für Abweichungen)</li>
+          <li data-i18n="h4"><code>raschi</code> findet auch „Rashi“</li>
+          <li data-i18n="h5"><code>avraham</code> findet auch „Abraham“</li>
+          <li data-i18n="h6"><code>semuel</code> findet auch „Šemuél“ und „Shemuel“</li>
+          <li data-i18n="h7"><code>אלהים</code> findet auch „אלוהים“</li>
+          <li data-i18n="h8"><code>gott</code> findet „Gott“, aber nicht „gold“ (zu kurz für Abweichungen)</li>
         </ul>
         <p>Wörter mit Platzhaltern werden nicht zusätzlich unscharf gesucht.</p>
-        <p><b>Wörter in der Nähe:</b> Trage in bis zu drei Feldern Wörter ein. Gefunden werden Verse bzw. Absätze, in denen alle Wörter vorkommen und höchstens so weit auseinander stehen, wie du bei „Abstand“ gewählt hast. Mit „Reihenfolge einhalten“ müssen sie so aufeinander folgen wie in den Feldern. Beispiel: <code>anf*</code> · <code>gott</code> · <code>erd*</code> mit „höchstens 10 Wörter“ und Reihenfolge findet „Am Anfang schuf Gott Himmel und Erde“. Gezählt wird nur innerhalb eines Verses, nicht über Verse hinweg.</p>
+        <p data-i18n="h9"><b>Wörter in der Nähe:</b> Trage in bis zu drei Feldern Wörter ein. Gefunden werden Verse bzw. Absätze, in denen alle Wörter vorkommen und höchstens so weit auseinander stehen, wie du bei „Abstand“ gewählt hast. Mit „Reihenfolge einhalten“ müssen sie so aufeinander folgen wie in den Feldern. Beispiel: <code>anf*</code> · <code>gott</code> · <code>erd*</code> mit „höchstens 10 Wörter“ und Reihenfolge findet „Am Anfang schuf Gott Himmel und Erde“. Gezählt wird nur innerhalb eines Verses, nicht über Verse hinweg.</p>
         <p>Sobald mehrere Wörter, ein Platzhalter oder Fuzzy im Spiel sind, gilt: ganze Wörter statt Wortteile. „Ganze Wörter (mit Vorsilben)“ erlaubt dabei hebräische Vorsilben.</p>
       </details>
       <div id="sTools"><span id="sSum"></span> <button id="sExport" type="button" hidden title="Alle angezeigten Treffer als CSV-Datei speichern">⤓ Treffer als CSV</button></div>
@@ -145,7 +148,10 @@
     <section id="tab-notes" hidden>
       <div class="bar">
         <input id="nFilter" placeholder="Lesezeichen und Notizen durchsuchen …">
+        <select id="nSort" title="Reihenfolge der Notizen"><option value="manual">Reihenfolge: manuell</option><option value="new">Neueste zuerst</option><option value="book">Nach Buch</option></select>
+        <button id="nNew" title="Eine Notiz ohne Textstelle anlegen">＋ Neue Notiz</button>
         <span id="nCount" class="muted"></span>
+        <button id="nFsMinus" title="Schrift kleiner">A−</button><button id="nFsPlus" title="Schrift größer">A+</button>
       </div>
       <div id="nOut"></div>
     </section>
@@ -240,7 +246,7 @@
 
   <dialog id="welcomeDlg">
     <h2>Willkommen bei Safran</h2>
-    <p>Safran enthält schon einige Texte, Wörterbücher und den hebräischen Tanach mit Morphologie. Die <b>Sefaria-Bibliothek</b> mit Tanach, Talmud, Mischna, Midrasch und Kommentaren ist noch nicht heruntergeladen.</p>
+    <p data-i18n="h10">Safran enthält schon einige Texte, Wörterbücher und den hebräischen Tanach mit Morphologie. Die <b>Sefaria-Bibliothek</b> mit Tanach, Talmud, Mischna, Midrasch und Kommentaren ist noch nicht heruntergeladen.</p>
     <p class="muted">Du wählst selbst, welche Bücher und Sprachen du brauchst. Der Katalog hat etwa 22 MB, die Texte kommen danach einzeln dazu. Das geht auch später im Reiter „Herunterladen“ (Menü ⋯).</p>
     <label><input type="checkbox" id="welcomeNever"> Nicht mehr fragen</label>
     <div class="bar"><button id="welcomeGo" class="primary">Bibliothek jetzt auswählen …</button><button id="welcomeLater">Später</button></div>
@@ -263,6 +269,7 @@
   <dialog id="noteDlg">
     <h2 id="ndTitle">Notiz</h2>
     <p id="ndExcerpt" class="muted"></p>
+    <input id="ndTitleIn" placeholder="Titel (optional)" hidden>
     <textarea id="ndText" rows="6" placeholder="Eigene Notiz (leer lassen = nur Lesezeichen)"></textarea>
     <div class="bar"><button id="ndSave" class="primary">Speichern</button><button id="ndDel">Lesezeichen entfernen</button><button id="ndClose">Abbrechen</button></div>
   </dialog>
@@ -291,7 +298,7 @@
 
   <dialog id="ownDlg">
     <h2>Eigene Texte einbinden</h2>
-    <p class="muted">Du kannst mehrere Dateien auf einmal wählen oder hierher ziehen: TXT/Word (eine Zeile = ein Vers; „Kapitel 2“ als eigene Zeile beginnt ein Kapitel), CSV (<code>Titel 1:1,Text</code> oder Sefaria-Upload-Format) und JSON. Passt der Titel zu einem vorhandenen Buch, erscheint dein Text als weitere Spalte daneben.</p>
+    <p class="muted" data-i18n="h11">Du kannst mehrere Dateien auf einmal wählen oder hierher ziehen: TXT/Word (eine Zeile = ein Vers; „Kapitel 2“ als eigene Zeile beginnt ein Kapitel), CSV (<code>Titel 1:1,Text</code> oder Sefaria-Upload-Format) und JSON. Passt der Titel zu einem vorhandenen Buch, erscheint dein Text als weitere Spalte daneben.</p>
     <div class="bar"><button id="ownPick">Dateien wählen …</button><span id="ownInfo" class="muted"></span></div>
     <datalist id="ownTitles"></datalist>
     <div id="ownList"></div>
@@ -303,7 +310,11 @@
     <div id="dictHead">
       <div id="dictTabs"></div>
       <div class="lhead"><b>Wörterbuch</b><span class="dtools"><button id="dictBack" title="Zurück" disabled>◀</button><button id="dictFwd" title="Vor" disabled>▶</button><button id="dictFsMinus" title="Schrift kleiner">A−</button><button id="dictFsPlus" title="Schrift größer">A+</button><button id="dictClose" title="Schließen">✕</button></span></div>
-      <div class="bar" style="position:relative"><input id="dictQ" autocomplete="off" placeholder="Wort eingeben (mit oder ohne Vokalzeichen) …"><button id="dictGo" class="primary">Nachschlagen</button><div id="dictSug" hidden></div><button id="dictCut" title="Ersten Buchstaben entfernen und neu nachschlagen (z. B. בִדְגַת → דְגַת)">⌫ 1. Buchstabe</button></div>
+      <div class="bar" id="dictBar"><input id="dictQ" autocomplete="off" placeholder="Wort eingeben (mit oder ohne Vokalzeichen) …"><button id="dictGo" class="primary">Nachschlagen</button><button id="dictStar" type="button" title="Wort zu den Favoriten hinzufügen / entfernen">☆</button><div id="dictSug" hidden></div><button id="dictCut" title="Ersten Buchstaben entfernen und neu nachschlagen (z. B. בִדְגַת → דְגַת)">⌫ 1. Buchstabe</button></div>
+      <div id="dictSaved">
+        <div class="dsv"><div class="dsvh"><b>Letzte Suchen</b><button id="dictRecentClear" type="button" title="Liste leeren">✕</button></div><div id="dictRecentL" class="dchips"></div></div>
+        <div class="dsv"><div class="dsvh"><b>Favoriten</b></div><div id="dictFavL" class="dchips"></div></div>
+      </div>
     </div>
     <div id="dictOut" class="dictout"><p class="muted">Gib ein hebräisches oder deutsches Wort ein, oder markiere ein Wort im Text und wähle mit Rechtsklick „Im Wörterbuch nachschlagen“.</p></div>
     <details id="dictMan"><summary>Wörterbücher verwalten</summary>
@@ -312,6 +323,7 @@
     </details>
   </aside>
 
+  <script src="i18n.js"></script>
   <script src="reader.js"></script>
   <script src="morph.js"></script>
   <script src="update.js"></script>

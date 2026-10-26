@@ -163,3 +163,7 @@ The source code of this app is released under the [MIT License](LICENSE).
 Alle 39 Bücher liegen als zusätzliche hebräische Version „Westminster Leningrad Codex (OSHB, mit Morphologie)“ unter `bundled/own/…/he/`. Jedes Wort trägt Lemma (Strong-Nummer) und Morphologiecode; ein Klick im Leser zeigt Stamm, Zeit/Form, Person, Genus und Numerus und schlägt das Lemma im Wörterbuch nach.
 
 Quelle und Lizenz: Original work of the Open Scriptures Hebrew Bible available at https://github.com/openscriptures/morphhb – Text (WLC) gemeinfrei, Lemma und Morphologie CC BY 4.0. Lemma-Tabelle aus https://github.com/openscriptures/HebrewLexicon (`oshb-lemmas.js`). Konverter: `tools/oshb/`.
+
+## Oberflächensprache
+
+Die Oberfläche gibt es auf Deutsch und Englisch (Menü ⋯ → Sprache). Die englischen Texte stehen in `i18n.js`: links der deutsche Originaltext, rechts die Übersetzung; `{}` und `{#}` (Zahl) sind Platzhalter. Neue Oberflächentexte im Code bleiben deutsch und bekommen dort einen Eintrag. `test10.js` prüft die Tabelle.

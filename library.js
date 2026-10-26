@@ -19,15 +19,19 @@
 
   // ---------- Reiter ----------
   let onTabChange = null; // wird weiter unten für den Reiter „Wörterbuch“ gesetzt
+  const tabScroll = {}; // Scrollposition von Notizen/Suche, damit man nach einem Sprung ins Lesen an derselben Stelle zurückkommt
   function showTab(t) {
-    const prevTab = document.documentElement.dataset.tab;
+    const prevTab = document.documentElement.dataset.tab || 'read'; // vor dem ersten Wechsel steht noch kein data-tab, die Seite zeigt aber „Lesen“
+    if (prevTab === 'notes' || prevTab === 'search') tabScroll[prevTab] = window.scrollY;
     $$('nav button').forEach(b => b.classList.toggle('active', b.dataset.tab === t));
     $$('main > section').forEach(s => (s.hidden = s.id !== 'tab-' + t));
     document.documentElement.dataset.tab = t;
     $('#togglePanel').hidden = t !== 'read'; // die Bücherliste gibt es nur im Reiter „Lesen“
+    if (prevTab && prevTab !== t && (prevTab === 'read' || t === 'read') && panelOpen) { panelOpen = false; applyPanel(); } // beim Verlassen und Zurückkehren ist die Bücherliste zu
     if (onTabChange) onTabChange(t, prevTab);
+    if ((t === 'notes' || t === 'search') && prevTab !== t && tabScroll[t]) { const y = tabScroll[t]; requestAnimationFrame(() => window.scrollTo(0, y)); setTimeout(() => window.scrollTo(0, y), 150); }
   }
-  $$('nav button').forEach(b => (b.onclick = () => showTab(b.dataset.tab)));
+  $$('nav button').forEach(b => (b.onclick = () => { if (b.dataset.tab === 'read' && b.classList.contains('active')) togglePanel(); else showTab(b.dataset.tab); })); // erneuter Klick auf „Lesen“ blendet die Bücherliste ein/aus
   $('#goGet').onclick = () => showTab('get'); // „Herunterladen“ liegt im ⋯-Menü, damit die Kopfzeile Platz für die Tabs lässt
 
   // ---------- Zustand ----------
@@ -97,11 +101,21 @@
       if (!n.name) return kids + ts;
       // Kategorien bleiben zu, bis man sie selbst öffnet (auch beim Filtern); bei aktivem Filter steht die Trefferzahl dabei
       const auto = !!f && depth < 3 && !closedCats.has(pth); // beim Filtern: die obersten zwei Ebenen offen
-      return `<details data-p="${esc(pth)}" data-d="${depth}" ${openCats.has(pth) || auto ? 'open' : ''}><summary>${esc(n.name)}${f ? ` <span class="muted">(${count(n)})</span>` : ''}</summary>${kids}${ts}</details>`;
+      return `<details data-p="${esc(pth)}" data-d="${depth}" ${openCats.has(pth) || auto ? 'open' : ''}><summary>${esc(n.name)}${f ? ` <span class="muted">(${count(n)})</span>` : ''}${kids ? '<button class="catall" title="Alle Unterpunkte öffnen/schließen">⊞</button>' : ''}</summary>${kids}${ts}</details>`;
     };
     $('#tree').innerHTML = node(root, '') || `<p class="muted">${groups.length ? 'Keine Treffer.' : 'Noch keine Texte heruntergeladen.'}</p>`;
   }
   $('#treeFilter').addEventListener('input', renderTree);
+  $('#tree').addEventListener('click', e => {
+    const b = e.target.closest('.catall'); if (!b) return;
+    e.preventDefault(); e.stopPropagation();
+    const d = b.closest('details'), subs = [...d.querySelectorAll('details')];
+    const open = subs.some(x => !x.open);
+    d.open = true; subs.forEach(x => (x.open = open));
+  }, true);
+  const allCatPaths = () => $$('#tree details[data-p]').map(d => d.dataset.p);
+  $('#treeOpenAll').onclick = () => { for (const p of allCatPaths()) { openCats.add(p); closedCats.delete(p); } renderTree(); };
+  $('#treeShutAll').onclick = () => { for (const p of allCatPaths()) closedCats.add(p); openCats.clear(); renderTree(); };
   $('#tree').addEventListener('toggle', e => {
     const d = e.target;
     if (!d.dataset || d.dataset.p == null) return;
@@ -165,7 +179,8 @@
   }
   function saveScroll() { if (view) { view.scroll = window.scrollY; saveSession(); } }
   async function switchTab(i) {
-    if (i === tabIdx || !tabs[i]) return;
+    if (!tabs[i]) return;
+    if (i === tabIdx) { if (document.documentElement.dataset.tab !== 'read') showTab('read'); return; }
     saveScroll();
     tabIdx = i; view = tabs[i];
     showTab('read');
@@ -290,7 +305,7 @@
 
     const g = V.group;
     $('#rTitle').innerHTML = `${esc(g.title)}${g.heTitle ? ` <small dir="rtl" class="muted">${esc(g.heTitle)}</small>` : ''}`;
-    $('#rTitle').title = g.title;
+    $('#rTitle').title = `${g.title} – ${I18N.t('Klicken, um zu einem Buch oder einer Stelle zu springen')}`;
     $('#rSection').innerHTML = secs.map((s, i) => `<option value="${i}">${esc(s.label)}</option>`).join('');
     renderVersions();
     renderCompare();
@@ -299,9 +314,13 @@
 
   function renderVersions() {
     const g = view.group;
-    $('#verSummary').textContent = `Versionen ${view.selected.size}/${g.versions.length}`;
-    $('#verList').innerHTML = g.versions.map(v =>
-      `<label><input type="checkbox" data-rel="${esc(v.rel)}" ${view.selected.has(v.rel) ? 'checked' : ''}> <span class="badge ${v.kind}">${KIND_LABEL[v.kind]}</span>${v.own ? '<span class="badge own">eigen</span>' : ''}${esc(shortVer(v.versionTitle))}${v.own ? ` <button class="ownc" data-csv="${esc(v.rel)}" title="Als Upload-CSV für Sefaria speichern (Ref,Text)">CSV</button>` : ''}${v.own && v.source ? ` <button class="ownr" data-rl="${esc(v.rel)}" title="Quelldatei neu einlesen (${esc(v.source)})">⟳</button>` : ''}${v.own ? ` <button class="ownx" data-rm="${esc(v.rel)}" title="Diesen eigenen Text entfernen">✕</button>` : ''}</label>`).join('');
+    $('#verSummary').innerHTML = `<span class="vi">📚</span> Versionen ${view.selected.size}/${g.versions.length}`;
+    const KN = { he: 'Hebräisch', en: 'Englisch', de: 'Deutsch', other: 'Andere' };
+    const itemH = v => `<label><input type="checkbox" data-rel="${esc(v.rel)}" ${view.selected.has(v.rel) ? 'checked' : ''}>${v.own ? '<span class="badge own">eigen</span>' : ''}${esc(shortVer(v.versionTitle))}${v.own ? ` <button class="ownc" data-csv="${esc(v.rel)}" title="Als Upload-CSV für Sefaria speichern (Ref,Text)">CSV</button>` : ''}${v.own && v.source ? ` <button class="ownr" data-rl="${esc(v.rel)}" title="Quelldatei neu einlesen (${esc(v.source)})">⟳</button>` : ''}${v.own ? ` <button class="ownx" data-rm="${esc(v.rel)}" title="Diesen eigenen Text entfernen">✕</button>` : ''}</label>`;
+    $('#verList').innerHTML = ['he', 'en', 'de', 'other'].map(k => {
+      const vs = g.versions.filter(v => (KN[v.kind] ? v.kind : 'other') === k);
+      return vs.length ? `<div class="vgrp ${k}">${KN[k]}</div>` + vs.map(itemH).join('') : '';
+    }).join('');
   }
   $('#verList').addEventListener('click', async e => {
     const csvRel = e.target.dataset && e.target.dataset.csv;
@@ -467,10 +486,17 @@
   const applyPanel = () => {
     $('.layout').classList.toggle('collapsed', !panelOpen);
     $('#togglePanel').setAttribute('aria-pressed', String(panelOpen));
+    $('nav [data-tab=read]').classList.toggle('listoff', !panelOpen);
     try { localStorage.setItem('panel', panelOpen ? '1' : '0'); } catch { /* egal */ }
   };
   const togglePanel = () => { panelOpen = !panelOpen; applyPanel(); };
   $('#togglePanel').onclick = togglePanel;
+  const closeListOutside = e => { // Klick außerhalb der Bücherliste schließt sie
+    if (!panelOpen || (document.documentElement.dataset.tab || 'read') !== 'read') return;
+    if (e.target.closest('aside:not(#dictPanel):not(#cmtPanel):not(#linkPanel), nav, #togglePanel, #suggest, #ctxMenu, #tip, dialog')) return;
+    panelOpen = false; applyPanel();
+  };
+  ['pointerdown', 'mousedown', 'click'].forEach(ev => document.addEventListener(ev, closeListOutside, true));
   $('#treeClose').onclick = togglePanel;
   document.addEventListener('keydown', e => {
     if ((e.metaKey || e.ctrlKey) && !e.shiftKey && !e.altKey && e.key.toLowerCase() === 'b') { e.preventDefault(); togglePanel(); }
@@ -558,6 +584,26 @@
     $('#jump').classList.toggle('bad', !ok);
   });
   $('#jump').addEventListener('input', () => $('#jump').classList.remove('bad'));
+  // Der Titel links ist zugleich das Sprungfeld: ein Klick macht daraus ein Eingabefeld (alles markiert, Tippen ersetzt es)
+  { let startVal = '';
+    const open = () => {
+      if (!view || !view.group) return;
+      startVal = $('#rTitle').textContent.replace(/\s+/g, ' ').trim();
+      $('#rTitle').hidden = true; $('#jump').hidden = false; $('#jump').value = startVal; $('#jump').classList.remove('bad');
+      $('#jump').focus(); $('#jump').select();
+    };
+    const close = () => { $('#jump').hidden = true; $('#rTitle').hidden = false; };
+    $('#rTitle').addEventListener('click', open);
+    $('#rTitle').addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(); } });
+    $('#jump').addEventListener('keydown', async e => {
+      if (e.key === 'Escape') { close(); return; }
+      if (e.key !== 'Enter') return;
+      if ($('#jump').value.trim() === startVal) { close(); return; } // nichts geändert
+      await new Promise(r => setTimeout(r, 0)); // erst die eigene Auswertung oben abwarten
+      if (!$('#jump').classList.contains('bad')) close();
+    });
+    $('#jump').addEventListener('blur', () => setTimeout(() => { if (document.activeElement !== $('#jump')) close(); }, 150));
+  }
 
 
 
@@ -636,12 +682,12 @@
     const g = groupsByKey.get(h.key);
     if (g) openGroup(g, { sectionPath: JSON.parse(h.sk), rowLabel: h.row || undefined }, e.metaKey || e.ctrlKey || e.shiftKey);
   });
-  let recentOpen = false;
-  try { recentOpen = localStorage.getItem('recentOpen2') === '1'; } catch { /* egal */ }
+  let recentOpen = true;
+  try { recentOpen = localStorage.getItem('recentOpen3') !== '0'; } catch { /* egal */ }
   const applyRecent = () => {
     $('#recent').hidden = !recentOpen;
     $('#recentArrow').textContent = recentOpen ? '▾' : '▸';
-    try { localStorage.setItem('recentOpen2', recentOpen ? '1' : '0'); } catch { /* egal */ }
+    try { localStorage.setItem('recentOpen3', recentOpen ? '1' : '0'); } catch { /* egal */ }
   };
   $('#recentHead').onclick = () => { recentOpen = !recentOpen; applyRecent(); };
   applyRecent();
@@ -695,7 +741,7 @@
       const n = rows.filter(x => v >= x.v1 && v <= x.v2 && x.v1 > 0).length;
       const lab = r.querySelector('.lab');
       lab.querySelectorAll('.lk').forEach(x => { if (x.previousSibling && x.previousSibling.tagName === 'BR') x.previousSibling.remove(); x.remove(); }); // wurde der Abschnitt zweimal geladen, nicht doppelt anzeigen
-      if (n) lab.insertAdjacentHTML('beforeend', `<br><span class="lk" data-v="${v}" title="${n} Verknüpfungen">🔗${n}</span>`);
+      if (n) lab.insertAdjacentHTML('beforeend', `<br><span class="lk" data-v="${v}" title="${n} Verknüpfungen">🔗</span>`);
     });
     if (!$('#linkPanel').hidden) renderLinkPanel();
     if (cmtOpen) renderCmt();
@@ -1028,6 +1074,7 @@
       if (!n.titles.includes(g.title)) n.titles.push(g.title);
     }
     const covered = p => [...sCats].some(c => c !== p && (p === c || p.startsWith(c + '/')));
+    const anySel = n => n.titles.some(t => sTitles.has(t)) || [...sCats].some(c => c.startsWith(n.path + '/')) || [...n.children.values()].some(anySel);
     const hit = (t) => t.toLowerCase().includes(f);
     const show = (n, anc) => !f || anc || hit(n.name) || n.titles.some(hit) || [...n.children.values()].some(c => show(c, false));
     const node = (n, parentMatch) => {
@@ -1037,11 +1084,13 @@
       const cov = covered(n.path);
       const books = SefOrder.sortTitles(n.titles.filter(t => !f || m || hit(t)), t => t).map(t =>
         `<label class="t book"><input type="checkbox" data-st="${esc(t)}" ${cov || sCats.has(n.path) || sTitles.has(t) ? 'checked' : ''} ${cov || sCats.has(n.path) ? 'disabled' : ''}> ${esc(t)}</label>`).join('');
-      const cb = `<input type="checkbox" data-sc="${esc(n.path)}" ${cov || sCats.has(n.path) ? 'checked' : ''} ${cov ? 'disabled' : ''}> `;
+      const part = !cov && !sCats.has(n.path) && anySel(n); // nur ein Teil darunter gewählt: Teilmarkierung (Strich) statt Häkchen, sonst würde alles darunter durchsucht
+      const cb = `<input type="checkbox" data-sc="${esc(n.path)}" ${cov || sCats.has(n.path) ? 'checked' : ''} ${cov ? 'disabled' : ''} ${part ? 'data-part="1"' : ''}> `;
       return `<details data-p="${esc(n.path)}" ${f || sOpen.has(n.path) ? 'open' : ''}><summary>${cb}<span class="catname">${esc(n.name)}</span> <small>(${n.count})</small></summary>${kids}${books}</details>`;
     };
     $('#sCatTree').innerHTML = SefOrder.sortCats([...root.children.keys()], '').map(k => node(root.children.get(k), false)).join('') || '<p class="muted">Nichts gefunden.</p>';
-    const parts = [sCats.size ? `${sCats.size} Kategorie${sCats.size === 1 ? '' : 'n'}` : '', sTitles.size ? `${sTitles.size} Buch${sTitles.size === 1 ? '' : 'er'}` : ''].filter(Boolean);
+    $$('#sCatTree input[data-part]').forEach(i => { i.indeterminate = true; });
+    const parts = [sCats.size ? `${sCats.size} Kategorie${sCats.size === 1 ? '' : 'n'}` : '', sTitles.size ? (sTitles.size === 1 ? '1 Buch' : `${sTitles.size} Bücher`) : ''].filter(Boolean);
     $('#sCatBtn').textContent = parts.length ? `Auswahl: ${parts.join(', ')}` : 'Kategorien: alle';
   }
   const sOpen = new Set(); // vom Nutzer aufgeklappte Kategorien in der Suchliste
@@ -1062,8 +1111,14 @@
   // „Nur in diesem Buch suchen“: Suchmaske mit genau diesem Buch vorbelegen
   $('#bookSearch').onclick = () => {
     if (!view || !view.group) return;
+    if (dictOpen) toggleDict(false); // Seitenleisten würden den Kategorienbaum rechts verdecken
+    if (cmtOpen) toggleCmt(false);
+    $('#linkPanel').hidden = true;
     showTab('search');
-    sCats.clear(); sTitles.clear(); sTitles.add(view.group.title); renderSCats();
+    sCats.clear(); sTitles.clear(); sTitles.add(view.group.title);
+    { let p = ''; for (const c of view.group.cats.slice(0, 3)) { p = p ? p + '/' + c : c; sOpen.add(p); } } // Pfad bis zum Buch aufklappen (Tanach › Tora › Genesis)
+    renderSCats();
+    { const b = $('#sCatTree input[data-st]:checked'); if (b) b.scrollIntoView({ block: 'center' }); }
     $('#sq').focus(); $('#sq').select();
     if ($('#sq').value.trim()) runSearch();
   };
@@ -1094,7 +1149,7 @@
     ];
     if (!IS_PANE2) items.push({ label: 'Im zweiten Fenster öffnen', fn: () => openInPane2(key, target) });
     const nOwn = g.versions.filter(v => v.own).length;
-    if (nOwn) items.push({ label: `Eigene${nOwn > 1 ? ` Texte (${nOwn})` : 'n Text'} entfernen …`, fn: () => removeOwnGroup(g) });
+    if (nOwn) items.push({ label: nOwn > 1 ? I18N.t('Eigene Texte ({#}) entfernen …', nOwn) : I18N.t('Eigenen Text entfernen …'), fn: () => removeOwnGroup(g) });
     ctxShow(e, items);
   }
   // im zweiten Fenster öffnen: Fenster bei Bedarf einblenden; ist dort schon ein Buch offen, entsteht ein neuer Tab
@@ -1159,16 +1214,36 @@
     dictOpen = force == null ? !dictOpen : force;
     $('#dictPanel').hidden = !dictOpen;
     syncDock();
-    $('#dictBtn').classList.toggle('active', dictOpen);
+    $('#dictTabBtn').classList.toggle('sideopen', dictOpen);
     if (dictOpen) { renderDictList(); $('#dictQ').focus(); }
   }
-  $('#dictBtn').onclick = () => toggleDict();
   // Doppelklick auf ein Wort im Text oder in den Kommentaren schlägt es nach
   const dblWord = e => {
     if (e.target.closest('a, button, select, input, textarea, .lab, .bm')) return;
     const w = (window.getSelection() + '').trim().replace(/^[^\p{L}\p{M}]+|[^\p{L}\p{M}]+$/gu, '');
     if (w.length >= 2 && w.length <= 40 && !/\s/.test(w)) openDict(w);
   };
+  // Einfacher Klick auf ein Wort (nicht hebräisch-morphologisch) markiert es wie bei den hebräischen Wörtern
+  const clickMark = e => {
+    if (!window.Highlight || !CSS.highlights) return;
+    CSS.highlights.delete('wsel');
+    if (e.target.closest('a, button, select, input, textarea, .lab, .bm, .w[data-m], #wpop, .head')) return;
+    if (String(window.getSelection())) return;
+    try {
+      const r = document.caretRangeFromPoint(e.clientX, e.clientY);
+      if (!r || r.startContainer.nodeType !== 3) return;
+      const t = r.startContainer.textContent, ok = c => /[\p{L}\p{M}\p{N}]/u.test(c || '');
+      let a = r.startOffset, b = a;
+      if (!ok(t[a]) && !ok(t[a - 1])) return;
+      while (a > 0 && ok(t[a - 1])) a--;
+      while (b < t.length && ok(t[b])) b++;
+      if (b - a < 1) return;
+      const rg = document.createRange(); rg.setStart(r.startContainer, a); rg.setEnd(r.startContainer, b);
+      CSS.highlights.set('wsel', new Highlight(rg));
+    } catch { /* egal */ }
+  };
+  $('#rOut').addEventListener('click', clickMark);
+  $('#cmtBody').addEventListener('click', clickMark);
   $('#rOut').addEventListener('dblclick', dblWord);
   $('#cmtBody').addEventListener('dblclick', dblWord);
   let dictOnly = null; // { id, name }: Suche nur in diesem Wörterbuch (wird nicht mehr über das Menü gesetzt)
@@ -1185,6 +1260,7 @@
     }
     dictNavButtons();
     $('#dictQ').value = q;
+    if (typeof renderSaved === 'function') renderSaved();
     $('#dictOut').innerHTML = '<p class="muted">Suche …</p>';
     const r = await O.dictLookup(q, only && only.id);
     if (r.error) { $('#dictOut').innerHTML = `<p class="muted">⚠ ${esc(r.error)}</p>`; return; }
@@ -1247,7 +1323,7 @@
     const box = $('#dictSug');
     const hideSug = () => { box.hidden = true; sugItems = []; sugSel = -1; };
     const paint = () => { box.innerHTML = sugItems.map((x, i) => `<div class="sg${i === sugSel ? ' on' : ''}" data-i="${i}"><b dir="auto">${esc(x.head)}</b><small>${esc(x.dict)}</small></div>`).join(''); box.hidden = !sugItems.length; };
-    const pick = i => { const x = sugItems[i]; if (!x) return; hideSug(); $('#dictQ').value = x.head; dictLookup(x.head); };
+    const pick = i => { const x = sugItems[i]; if (!x) return; hideSug(); $('#dictQ').value = x.head; manualSearch(x.head); };
     $('#dictQ').addEventListener('input', () => {
       clearTimeout(sugTimer);
       const v = $('#dictQ').value.trim();
@@ -1299,7 +1375,7 @@
   }
   async function renderDictList() {
     const r = await O.dictList();
-    $('#dictList').innerHTML = r.list.length ? r.list.map((d, i) => `<div class="dli"><span>${esc(d.name)} <span class="muted">· ${d.count.toLocaleString('de-DE')} Einträge</span></span><span class="dbtns"><button data-mv="-1" data-id="${esc(d.id)}" title="Nach oben (wird zuerst angezeigt)"${i === 0 ? ' disabled' : ''}>▲</button><button data-mv="1" data-id="${esc(d.id)}" title="Nach unten"${i === r.list.length - 1 ? ' disabled' : ''}>▼</button><button data-id="${esc(d.id)}" title="Wörterbuch entfernen">✕</button></span></div>`).join('') : '<p class="muted">Noch keine Wörterbücher.</p>';
+    $('#dictList').innerHTML = r.list.length ? r.list.map((d, i) => `<div class="dli"><span>${esc(d.name)} <span class="muted">· ${d.count.toLocaleString(I18N.loc)} Einträge</span></span><span class="dbtns"><button data-mv="-1" data-id="${esc(d.id)}" title="Nach oben (wird zuerst angezeigt)"${i === 0 ? ' disabled' : ''}>▲</button><button data-mv="1" data-id="${esc(d.id)}" title="Nach unten"${i === r.list.length - 1 ? ' disabled' : ''}>▼</button><button data-id="${esc(d.id)}" title="Wörterbuch entfernen">✕</button></span></div>`).join('') : '<p class="muted">Noch keine Wörterbücher.</p>';
   }
   async function openDict(q) {
     if (!dictOpen) toggleDict(true); else renderDictList();
@@ -1307,8 +1383,37 @@
   }
   $('#openDict').onclick = () => { $('#moreMenu').open = false; toggleDict(); };
   $('#dictClose').onclick = () => { if (document.documentElement.dataset.tab === 'dict') showTab('read'); else toggleDict(false); };
-  $('#dictGo').onclick = () => dictLookup($('#dictQ').value);
-  $('#dictQ').addEventListener('keydown', e => { if (e.key === 'Enter') dictLookup($('#dictQ').value); });
+  // Letzte Suchen (nur selbst eingegebene/ausgewählte, nicht Doppelklick oder Links) und Favoriten
+  const lsGet = k => { try { const a = JSON.parse(localStorage.getItem(k) || '[]'); return Array.isArray(a) ? a : []; } catch { return []; } };
+  const lsSet = (k, a) => { try { localStorage.setItem(k, JSON.stringify(a)); } catch { /* egal */ } };
+  let dRecent = lsGet('dictRecent'), dFavs = lsGet('dictFavs');
+  const chips = (a, fav) => a.length ? a.map((w, i) => `<span class="dchip"><a data-w="${esc(w)}" dir="auto">${esc(w)}</a><button data-rm="${i}" title="Entfernen">✕</button></span>`).join('') : `<span class="muted">${fav ? 'Noch keine Favoriten' : 'Noch keine Suchen'}</span>`;
+  function renderSaved() {
+    $('#dictRecentL').innerHTML = chips(dRecent, false);
+    $('#dictFavL').innerHTML = chips(dFavs, true);
+    const q = $('#dictQ').value.trim(), on = !!q && dFavs.includes(q);
+    $('#dictStar').textContent = on ? '★' : '☆'; $('#dictStar').classList.toggle('on', on);
+  }
+  const manualSearch = q => {
+    q = String(q || '').trim();
+    if (q) { dRecent = [q, ...dRecent.filter(x => x !== q)].slice(0, 30); lsSet('dictRecent', dRecent); }
+    dictLookup(q); renderSaved();
+  };
+  $('#dictStar').onclick = () => {
+    const q = $('#dictQ').value.trim(); if (!q) return;
+    dFavs = dFavs.includes(q) ? dFavs.filter(x => x !== q) : [q, ...dFavs];
+    lsSet('dictFavs', dFavs); renderSaved();
+  };
+  $('#dictRecentClear').onclick = () => { dRecent = []; lsSet('dictRecent', dRecent); renderSaved(); };
+  $('#dictSaved').addEventListener('click', e => {
+    const rm = e.target.closest('button[data-rm]');
+    if (rm) { const fav = !!rm.closest('#dictFavL'); const a = fav ? dFavs : dRecent; a.splice(+rm.dataset.rm, 1); lsSet(fav ? 'dictFavs' : 'dictRecent', a); renderSaved(); return; }
+    const a = e.target.closest('a[data-w]'); if (a) dictLookup(a.dataset.w);
+  });
+  $('#dictQ').addEventListener('input', renderSaved);
+  renderSaved();
+  $('#dictGo').onclick = () => manualSearch($('#dictQ').value);
+  $('#dictQ').addEventListener('keydown', e => { if (e.key === 'Enter') manualSearch($('#dictQ').value); });
   $('#dictOut').addEventListener('click', e => {
     const s = e.target.closest('.dsrc[data-sref]');
     if (s) {   // Quellenangabe im Artikel (z. B. „Rosh Hashanah 18b“): im Reader öffnen; Cmd/Strg + Klick = im zweiten Fenster rechts, Umschalt = neuer Tab
@@ -1357,7 +1462,7 @@
     dictShown.forEach((x, i) => { let g = byDict.find(b => b.dictId === x.dictId); if (!g) byDict.push(g = { dictId: x.dictId, name: x.dict, first: i, n: 0 }); g.n++; });
     if (byDict.length > 1 || (byDict.length === 1 && byDict[0].n > 1)) {
       items.push({ sep: true });
-      byDict.forEach(g => items.push({ label: g.n > 1 ? `${g.name} (${g.n} Artikel)` : g.name, fn: () => dictJump(g.first) }));
+      byDict.forEach(g => items.push({ label: g.n > 1 ? I18N.t('{} ({#} Artikel)', g.name, g.n) : g.name, fn: () => dictJump(g.first) }));
     }
     ctxShow(e, items);
   });
@@ -1367,7 +1472,7 @@
     await renderDictList();
     $('#dictMan').open = true;
     if (r.errors && r.errors.length) alert(r.errors.join('\n'));
-    else if (r.added && r.added.length) $('#dictOut').innerHTML = `<p class="muted">Eingebunden: ${r.added.map(a => `${esc(a.name)} (${a.count.toLocaleString('de-DE')} Einträge)`).join(', ')}.</p>`;
+    else if (r.added && r.added.length) $('#dictOut').innerHTML = `<p class="muted">Eingebunden: ${r.added.map(a => `${esc(a.name)} (${a.count.toLocaleString(I18N.loc)} Einträge)`).join(', ')}.</p>`;
   };
   $('#dictList').addEventListener('click', async e => {
     const mv = e.target.closest('button[data-mv]');
@@ -1405,7 +1510,7 @@
     $('#sGo').disabled = false; $('#sCancel').disabled = true;
     sResults = res.results;
     const totalHits = res.stats.reduce((a, x) => a + x.n, 0);
-    $('#sInfo').textContent = `${totalHits}${res.truncated ? '+' : ''} Treffer in ${res.stats.length} ${res.stats.length === 1 ? 'Buch' : 'Büchern'} (${res.scanned} von ${res.total} Dateien durchsucht)${res.cancelled ? ' – abgebrochen' : ''}${res.truncated ? ' – bei 1000 angezeigten Treffern gestoppt, bitte genauer suchen' : ''}${res.capped && !onlyTitle ? ' – je Buch werden die ersten 25 gezeigt; ein Klick auf den Buchnamen oben zeigt alle' : ''}.`;
+    $('#sInfo').textContent = I18N.t('{#} Treffer in {#} {} ({#} von {#} Dateien durchsucht)', totalHits + (res.truncated ? '+' : ''), res.stats.length, res.stats.length === 1 ? 'Buch' : 'Büchern', res.scanned, res.total) + (res.cancelled ? ' ' + I18N.t('– abgebrochen') : '') + (res.truncated ? ' ' + I18N.t('– bei 1000 angezeigten Treffern gestoppt, bitte genauer suchen') : '') + (res.capped && !onlyTitle ? ' ' + I18N.t('– je Buch werden die ersten 25 gezeigt; ein Klick auf den Buchnamen oben zeigt alle') : '') + '.';
     $('#sSum').innerHTML = res.stats.length > 1 || onlyTitle
       ? (onlyTitle ? `<button class="chip" data-t="">← alle Bücher</button> ` : '') + res.stats.slice(0, 40).map(x => `<button class="chip${x.title === onlyTitle ? ' on' : ''}" data-t="${esc(x.title)}" title="Nur in diesem Buch, alle Treffer">${esc(x.title)} (${x.n})</button>`).join(' ') + (res.stats.length > 40 ? ` <span class="muted">… und ${res.stats.length - 40} weitere</span>` : '')
       : '';
@@ -1627,7 +1732,14 @@
     $('#dHe').value = disp.he; $('#dEn').value = disp.en; $('#dDe').value = disp.de;
     $('#dNiq').checked = disp.niq; $('#dCan').checked = disp.can;
     try { localStorage.setItem('disp', JSON.stringify(disp)); } catch { /* egal */ }
-    if (rerender && view && view.group) { const y = window.scrollY; renderSection(); window.scrollTo(0, y); } // Position beim Umschalten behalten
+    if (rerender && view && view.group) { // Position beim Umschalten behalten: dieselbe Zeile bleibt an derselben Stelle (ohne Vokale sind die Zeilen niedriger, die reine Pixelposition würde springen)
+      const top = $('#stick') ? $('#stick').getBoundingClientRect().bottom : 0;
+      const row = $$('#rOut .row[data-l]').find(r => r.getBoundingClientRect().bottom > top + 4);
+      const label = row ? row.dataset.l : null, off = row ? row.getBoundingClientRect().top : 0, y = window.scrollY;
+      renderSection();
+      const again = label != null ? $$('#rOut .row[data-l]').find(r => r.dataset.l === label) : null;
+      if (again) window.scrollTo(0, window.scrollY + again.getBoundingClientRect().top - off); else window.scrollTo(0, y);
+    }
   }
   $('#dispBtn').onclick = () => { $('#dispPanel').hidden = !$('#dispPanel').hidden; };
   $('#dispPanel').addEventListener('input', e => {
@@ -1695,9 +1807,9 @@
     bar.classList.toggle('bad', diffs.length > 0);
     const short = arr => arr.length > 12 ? arr.slice(0, 12).join(', ') + ` … (+${arr.length - 12})` : arr.join(', ');
     $('#cmpSum').textContent = diffs.length
-      ? `⚠ Eigener Text „${shortVer(o.versionTitle)}“ vs. ${KIND_LABEL[ref.entry.kind]} ${shortVer(ref.versionTitle)}: ${diffs.length} von ${total} Abschnitten weichen ab${absent ? ` · ${absent} Abschnitte fehlen ganz` : ''}`
-      : `✓ Eigener Text „${shortVer(o.versionTitle)}“: alle ${total} vorhandenen Abschnitte stimmen mit der Zeilenzahl der Vorlage überein${absent ? ` · ${absent} Abschnitte fehlen ganz` : ''}`;
-    $('#cmpList').innerHTML = diffs.map(d => `<div><a data-i="${d.i}">${esc(d.label)}</a>: eigen ${d.own} / Vorlage ${d.ref}${d.missing.length ? ` · fehlt: ${esc(short(d.missing))}` : ''}${d.extra.length ? ` · zusätzlich: ${esc(short(d.extra))}` : ''}</div>`).join('');
+      ? `${I18N.t('⚠ Eigener Text „{}“ vs. {} {}: {#} von {#} Abschnitten weichen ab', shortVer(o.versionTitle), KIND_LABEL[ref.entry.kind], shortVer(ref.versionTitle), diffs.length, total)}${absent ? ' · ' + I18N.t('{#} Abschnitte fehlen ganz', absent) : ''}`
+      : `${I18N.t('✓ Eigener Text „{}“: alle {#} vorhandenen Abschnitte stimmen mit der Zeilenzahl der Vorlage überein', shortVer(o.versionTitle), total)}${absent ? ' · ' + I18N.t('{#} Abschnitte fehlen ganz', absent) : ''}`;
+    $('#cmpList').innerHTML = diffs.map(d => `<div><a data-i="${d.i}">${esc(d.label)}</a>: ${I18N.t('eigen {#} / Vorlage {#}', d.own, d.ref)}${d.missing.length ? ` · ${I18N.t('fehlt:')} ${esc(short(d.missing))}` : ''}${d.extra.length ? ` · ${I18N.t('zusätzlich:')} ${esc(short(d.extra))}` : ''}</div>`).join('');
     view.cmp = { ownRel: o.entry.rel, diffs: new Map(diffs.map(d => [d.i, d])) };
     renderWordDiff(o);
   }
@@ -1733,13 +1845,67 @@
   const NT = window.notes;
   let notesAll = [];
   const noteId = (g, sk, row) => `${g.key}|${sk}|${row}`;
+  const kindOf = n => n.kind || 'row'; // 'row' = Lesezeichen an einer Zeile, 'free' = freie Notiz ('hl' = frühere Farbmarkierungen: bleiben in der Datei, werden aber nicht mehr angezeigt)
+  const newId = p => p + '|' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+  const topOrder = () => Math.min(0, ...notesAll.map(n => (n.order == null ? 0 : n.order))) - 1;
   const plain = h => R.cleanHtml(R.splitFootnotes(h).main).replace(/<sup[^>]*>.*?<\/sup>/g, '').replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
-  async function loadNotes() { notesAll = await NT.list(); renderNotes(); }
+  // Ältere Notizen ohne hebräischen Text: einmal aus der hebräischen Version nachtragen
+  const heTried = new Set();
+  async function backfillHe() {
+    let changed = false;
+    for (const n of notesAll) {
+      if (kindOf(n) !== 'row' || n.he || heTried.has(n.id)) continue;
+      heTried.add(n.id);
+      try {
+        const g = groupsByKey.get(n.key); const v = g && g.versions.find(x => x.kind === 'he');
+        if (!v) continue;
+        let d = cache.get(v.rel); if (!d) { d = await O.read(v.rel); d.__b = v.bytes || 2e6; cache.set(v.rel, d); }
+        const row = R.flattenNode(R.getByPath(d.text, JSON.parse(n.sk))).find(r => r.label === n.row);
+        const he = row ? plain(row.html).slice(0, 200) : '';
+        if (/[\u0590-\u05FF]/.test(he)) { await NT.save({ ...n, he, keepTs: true }); changed = true; }
+      } catch { /* egal */ }
+    }
+    if (changed) { notesAll = await NT.list(); renderNotes(); }
+  }
+  // Anzeige je Favorit: welche Versionen des Buchs gezeigt werden (Chips, ein Klick schaltet um)
+  const ntTxt = new Map(); let ntTimer = null;
+  const NV = ['he', 'en', 'de'];
+  const noteVers = g => (g ? g.versions.filter(v => NV.includes(v.kind)) : []);
+  const defaultVr = vers => { const f = k => vers.find(v => v.kind === k); return [f('he'), f('en') || f('de')].filter(Boolean).map(v => v.rel); };
+  async function ensureNoteText(n, rel) {
+    const key = n.id + '|' + rel;
+    if (ntTxt.has(key)) return;
+    ntTxt.set(key, null);
+    let txt = '';
+    try {
+      const v = groupsByKey.get(n.key).versions.find(x => x.rel === rel);
+      let d = cache.get(rel); if (!d) { d = await O.read(rel); d.__b = (v && v.bytes) || 2e6; cache.set(rel, d); }
+      const row = R.flattenNode(R.getByPath(d.text, JSON.parse(n.sk))).find(r => r.label === n.row);
+      txt = row ? plain(row.html).slice(0, 400) : '';
+    } catch { /* egal */ }
+    ntTxt.set(key, txt);
+    clearTimeout(ntTimer); ntTimer = setTimeout(renderNotes, 60);
+  }
+  function noteBody(n) {
+    const g = groupsByKey.get(n.key), vers = noteVers(g);
+    if (!vers.length) return `${n.he ? `<div class="ex he" dir="rtl">${esc(n.he)}</div>` : ''}${n.excerpt ? `<div class="ex">${esc(n.excerpt)}</div>` : ''}`;
+    const sel = n.vr || defaultVr(vers);
+    const chips = vers.map(v => `<button class="vchip ${v.kind}${sel.includes(v.rel) ? ' on' : ''}" data-vr="${esc(v.rel)}" title="${esc(shortVer(v.versionTitle))}">${KIND_LABEL[v.kind]}<span class="ut"> ${esc(shortVer(v.versionTitle).slice(0, 22))}</span></button>`).join('');
+    const body = vers.filter(v => sel.includes(v.rel)).map(v => {
+      ensureNoteText(n, v.rel);
+      const t = ntTxt.get(n.id + '|' + v.rel);
+      if (!t) return '';
+      const he = /[\u0590-\u05FF]/.test(t);
+      return `<div class="ex${he ? ' he' : ''}" dir="${he ? 'rtl' : 'ltr'}">${esc(t)}</div>`;
+    }).join('');
+    return `<div class="vchips">${chips}</div>${body}`;
+  }
+  async function loadNotes() { notesAll = await NT.list(); renderNotes(); markNotes(); backfillHe(); }
   function markNotes() {
     if (!view || !view.group) return;
     const s = view.sections[view.idx];
     if (!s) return;
-    const ids = new Set(notesAll.map(n => n.id));
+    const ids = new Set(notesAll.filter(n => kindOf(n) === 'row').map(n => n.id));
     $$('#rOut .row[data-l]').forEach(r => {
       const on = ids.has(noteId(view.group, s.k, r.dataset.l));
       r.classList.toggle('noted', on);
@@ -1750,7 +1916,25 @@
       b.textContent = on ? '★' : '☆';
     });
   }
+
+  // Notiz-Fenster für alle drei Arten
   let editing = null;
+  function openNoteDlg(it, o = {}) {
+    editing = it;
+    const k = kindOf(it);
+    $('#ndTitle').textContent = k === 'free' ? I18N.t('Eigene Notiz') : `${it.title} · ${it.secLabel} · ${it.row}`;
+    $('#ndExcerpt').textContent = k === 'free' ? '' : [it.he, it.excerpt].filter(Boolean).join('\n');
+    $('#ndTitleIn').hidden = k !== 'free';
+    $('#ndTitleIn').value = it.title || '';
+    $('#ndText').value = it.note || '';
+    $('#ndText').placeholder = I18N.t(k === 'row' ? 'Eigene Notiz (leer lassen = nur Lesezeichen)' : 'Notiz');
+    $('#ndDel').hidden = !o.canDelete;
+    $('#ndDel').textContent = I18N.t(k === 'free' ? 'Notiz entfernen' : 'Lesezeichen entfernen');
+    $('#ndClose').textContent = I18N.t(o.optional ? 'Ohne Notiz' : 'Abbrechen');
+    $('#noteDlg').showModal();
+    (k === 'free' ? $('#ndTitleIn') : $('#ndText')).focus();
+  }
+  const refreshNotes = () => { markNotes(); renderNotes(); };
   $('#rOut').addEventListener('click', e => {
     const b = e.target.closest('.bm');
     if (!b || !view || !view.group) return;
@@ -1761,33 +1945,100 @@
     const old = notesAll.find(n => n.id === id);
     const cells = [...row.querySelectorAll('.cell .txt')];
     const excerpt = cells.length ? plain(cells[Math.min(1, cells.length - 1)].innerHTML.replace(/<span class="note"[\s\S]*?<\/span><\/span>/g, '')).slice(0, 200) : '';
-    editing = old || { id, key: view.group.key, title: view.group.title, sk: s.k, secLabel: s.label, row: label, excerpt, note: '' };
-    $('#ndTitle').textContent = `${editing.title} · ${editing.secLabel} · ${editing.row}`;
-    $('#ndExcerpt').textContent = editing.excerpt;
-    $('#ndText').value = editing.note || '';
-    $('#ndDel').hidden = !old;
-    $('#noteDlg').showModal();
-    $('#ndText').focus();
+    const clean = c => plain(c.innerHTML.replace(/<span class="note"[\s\S]*?<\/span><\/span>/g, '')).slice(0, 200);
+    const heCell = cells.find(c => /[\u0590-\u05FF]/.test(c.textContent));
+    const he = heCell ? clean(heCell) : '';
+    if (old && !old.he && he) old.he = he;
+    openNoteDlg(old || { id, key: view.group.key, title: view.group.title, sk: s.k, secLabel: s.label, row: label, excerpt, he: he && he !== excerpt ? he : '', note: '', order: topOrder() }, { canDelete: !!old });
   });
-  $('#ndSave').onclick = async () => { editing.note = $('#ndText').value.trim(); notesAll = await NT.save(editing); $('#noteDlg').close(); markNotes(); renderNotes(); };
-  $('#ndDel').onclick = async () => { notesAll = await NT.remove(editing.id); $('#noteDlg').close(); markNotes(); renderNotes(); };
+  $('#ndSave').onclick = async () => {
+    editing.note = $('#ndText').value.trim();
+    if (kindOf(editing) === 'free') {
+      editing.title = $('#ndTitleIn').value.trim();
+      if (!editing.note && !editing.title) { $('#noteDlg').close(); return; }
+    }
+    notesAll = await NT.save(editing); $('#noteDlg').close(); refreshNotes();
+  };
+  $('#ndDel').onclick = async () => { notesAll = await NT.remove(editing.id); $('#noteDlg').close(); refreshNotes(); };
   $('#ndClose').onclick = () => $('#noteDlg').close();
+  // Enter bestätigt die Notiz (Umschalt+Enter = neue Zeile)
+  $('#ndText').addEventListener('keydown', e => { if (e.key === 'Enter' && !e.shiftKey && !e.isComposing) { e.preventDefault(); $('#ndSave').click(); } });
+  $('#ndTitleIn').addEventListener('keydown', e => { if (e.key === 'Enter' && !e.isComposing) { e.preventDefault(); $('#ndText').focus(); } });
+  { const th = $('#uiTheme'); th.value = window.Theme.get(); th.onchange = () => window.Theme.set(th.value); }
+  $('#nNew').onclick = () => openNoteDlg({ id: newId('free'), kind: 'free', title: '', note: '', order: topOrder() }, {});
+
+  // Notizen-Reiter: Reihenfolge (manuell per Ziehen oder ▲▼, neueste, nach Farbe, nach Buch) und Farbfilter
+  let nfs = 15;
+  try { nfs = Math.min(28, Math.max(10, +localStorage.getItem('noteFs') || 15)); } catch { /* egal */ }
+  const applyNfs = () => { $('#nOut').style.setProperty('--nfs', nfs + 'px'); try { localStorage.setItem('noteFs', String(nfs)); } catch { /* egal */ } };
+  applyNfs();
+  $('#nFsMinus').onclick = () => { nfs = Math.max(10, nfs - 1); applyNfs(); };
+  $('#nFsPlus').onclick = () => { nfs = Math.min(28, nfs + 1); applyNfs(); };
+  let nSort = 'manual';
+  try { nSort = localStorage.getItem('nSort') || 'manual'; } catch { /* egal */ }
+  $('#nSort').value = nSort;
+  $('#nSort').onchange = () => { nSort = $('#nSort').value; try { localStorage.setItem('nSort', nSort); } catch { /* egal */ } renderNotes(); };
+  const byManual = (a, b) => ((a.order == null ? Infinity : a.order) - (b.order == null ? Infinity : b.order)) || ((b.ts || 0) - (a.ts || 0));
+  const manualAll = () => [...notesAll].sort(byManual);
   function renderNotes() {
     const f = $('#nFilter').value.trim().toLowerCase();
-    const list = notesAll.filter(n => !f || (n.title + ' ' + n.secLabel + ' ' + n.row + ' ' + n.excerpt + ' ' + n.note).toLowerCase().includes(f)).sort((a, b) => b.ts - a.ts);
-    $('#nCount').textContent = `${list.length} von ${notesAll.length}`;
-    $('#nOut').innerHTML = list.map(n => `<div class="nitem" data-id="${esc(n.id)}"><button data-del="${esc(n.id)}" title="Entfernen">✕</button><div class="t">${esc(n.title)} · ${esc(n.secLabel)} · ${esc(n.row)}</div><div class="ex">${esc(n.excerpt)}</div>${n.note ? `<div class="nt">${esc(n.note)}</div>` : ''}</div>`).join('') || '<p class="muted">Noch keine Lesezeichen. Im Lesen-Reiter erscheint beim Überfahren einer Zeile links ein ☆.</p>';
+    const shown = notesAll.filter(n => kindOf(n) !== 'hl');
+    let list = shown.filter(n => !f || [n.title, n.secLabel, n.row, n.he, n.excerpt, n.note].join(' ').toLowerCase().includes(f));
+    if (nSort === 'new') list.sort((a, b) => (b.ts || 0) - (a.ts || 0));
+    else if (nSort === 'book') list.sort((a, b) => String(a.title || '~').localeCompare(String(b.title || '~')) || byManual(a, b));
+    else list.sort(byManual);
+    $('#nCount').textContent = I18N.t('{#} von {#}', list.length, shown.length);
+    const man = nSort === 'manual';
+    const item = n => {
+      const k = kindOf(n);
+      const head = k === 'free' ? esc(n.title || I18N.t('Eigene Notiz')) : `${esc(n.title)} · ${esc(n.secLabel)} · ${esc(n.row)}`;
+      return `<div class="nitem" data-id="${esc(n.id)}"${man ? ' draggable="true"' : ''}><span class="nbtns">${man ? `<button data-mv="-1" title="Nach oben schieben">▲</button><button data-mv="1" title="Nach unten schieben">▼</button>` : ''}<button data-edit="${esc(n.id)}" title="Notiz bearbeiten">✎</button><button data-del="${esc(n.id)}" title="Entfernen">✕</button></span><div class="t">${k === 'row' ? '☆ ' : k === 'free' ? '✎ ' : ''}<span class="ut">${head}</span></div>${k === 'row' ? noteBody(n) : ''}${n.note ? `<div class="nt">${esc(n.note)}</div>` : ''}</div>`;
+    };
+    const html = list.map(item).join('');
+    $('#nOut').innerHTML = html || `<p class="muted">${I18N.t('Noch keine Lesezeichen. Im Lesen-Reiter erscheint beim Überfahren einer Zeile links ein ☆.')}</p>`;
   }
   $('#nFilter').addEventListener('input', renderNotes);
+  async function moveNote(id, dir, beforeId) {
+    const ids = manualAll().map(n => n.id);
+    const i = ids.indexOf(id); if (i < 0) return;
+    ids.splice(i, 1);
+    if (beforeId !== undefined) { const j = beforeId ? ids.indexOf(beforeId) : ids.length; ids.splice(j < 0 ? ids.length : j, 0, id); }
+    else ids.splice(Math.max(0, Math.min(ids.length, i + dir)), 0, id);
+    notesAll = await NT.reorder(ids); renderNotes();
+  }
   $('#nOut').addEventListener('click', async e => {
-    const d = e.target.closest('button[data-del]');
-    if (d) { notesAll = await NT.remove(d.dataset.del); renderNotes(); markNotes(); return; }
     const it = e.target.closest('.nitem');
     const n = it && notesAll.find(x => x.id === it.dataset.id);
-    const g = n && groupsByKey.get(n.key);
+    const d = e.target.closest('button[data-del]');
+    if (d) { notesAll = await NT.remove(d.dataset.del); refreshNotes(); return; }
+    const mv = e.target.closest('button[data-mv]');
+    if (mv && n) { await moveNote(n.id, +mv.dataset.mv); return; }
+    const vb = e.target.closest('button[data-vr]');
+    if (vb && n) {
+      const vers = noteVers(groupsByKey.get(n.key));
+      const cur = new Set(n.vr || defaultVr(vers)); const rel = vb.dataset.vr;
+      if (cur.has(rel)) cur.delete(rel); else cur.add(rel);
+      n.vr = vers.filter(v => cur.has(v.rel)).map(v => v.rel);
+      notesAll = await NT.save({ ...n, keepTs: true }); renderNotes(); return;
+    }
+    if (e.target.closest('button[data-edit]') && n) { openNoteDlg(n, { canDelete: true }); return; }
+    if (!n) return;
+    if (e.target.closest('.ex, .nt')) return; // Text anklicken/markieren springt nicht; nur Titel und Rand öffnen die Stelle
+    if (kindOf(n) === 'free') { openNoteDlg(n, { canDelete: true }); return; }
+    const g = groupsByKey.get(n.key);
     if (g) openGroup(g, { sectionPath: JSON.parse(n.sk), rowLabel: n.row }, e.metaKey || e.ctrlKey || e.shiftKey);
   });
-
+  let dragId = null;
+  $('#nOut').addEventListener('mousedown', e => { const it = e.target.closest('.nitem[draggable]'); if (it) it.draggable = !e.target.closest('.ex, .nt'); }); // Text lässt sich markieren, ohne dass die Karte gezogen wird
+  $('#nOut').addEventListener('dragstart', e => { const it = e.target.closest('.nitem'); if (!it) return; dragId = it.dataset.id; it.classList.add('dragging'); e.dataTransfer.effectAllowed = 'move'; try { e.dataTransfer.setData('text/plain', dragId); } catch { /* egal */ } });
+  $('#nOut').addEventListener('dragend', () => { dragId = null; $$('#nOut .dragging, #nOut .dragover').forEach(x => x.classList.remove('dragging', 'dragover')); });
+  $('#nOut').addEventListener('dragover', e => { if (!dragId) return; e.preventDefault(); $$('#nOut .dragover').forEach(x => x.classList.remove('dragover')); const it = e.target.closest('.nitem'); if (it && it.dataset.id !== dragId) it.classList.add('dragover'); });
+  $('#nOut').addEventListener('drop', async e => {
+    if (!dragId) return; e.preventDefault();
+    const it = e.target.closest('.nitem'); const id = dragId; dragId = null;
+    await moveNote(id, 0, it ? it.dataset.id : null);
+  });
+  window.addEventListener('focus', () => { loadNotes().catch(() => {}); }); // Änderungen aus dem anderen Fenster übernehmen
 
   // ---------- Export (PDF / Word) ----------
   $('#expBtn').onclick = () => {
@@ -1836,15 +2087,15 @@
     const body = rows.map(r => {
       let extra = '';
       const v = verseOf(r.label);
-      if (o.notes) { const n = notesById.get(noteId(view.group, s.k, r.label)); if (n && n.note) extra += `<div class="nt">Notiz: ${esc(n.note)}</div>`; }
+      if (o.notes) { const n = notesById.get(noteId(view.group, s.k, r.label)); if (n && n.note) extra += `<div class="nt">${I18N.t('Notiz:')} ${esc(n.note)}</div>`; }
       if (o.links && v != null) {
         const ls = secLinks.filter(x => x.v1 > 0 && v >= x.v1 && v <= x.v2).map(x => x.other);
-        if (ls.length) extra += `<div class="lk">Verknüpfungen: ${esc(ls.slice(0, 30).join('; '))}${ls.length > 30 ? ` … (+${ls.length - 30})` : ''}</div>`;
+        if (ls.length) extra += `<div class="lk">${I18N.t('Verknüpfungen:')} ${esc(ls.slice(0, 30).join('; '))}${ls.length > 30 ? ` … (+${ls.length - 30})` : ''}</div>`;
       }
       return `<tr><td class="lab">${esc(r.label)}</td>${r.cells.map((c, i) => cell(c, view.loaded[i])).join('')}</tr>${extra ? `<tr><td></td><td colspan="${view.loaded.length}">${extra}</td></tr>` : ''}`;
     }).join('');
-    const head = `<tr><th></th>${view.loaded.map(d => `<th>${esc(KIND_LABEL[d.entry.kind])} · ${esc(shortVer(d.versionTitle))}</th>`).join('')}</tr>`;
-    const src = view.loaded.map(d => `<li>${esc(KIND_LABEL[d.entry.kind])}: ${esc(d.versionTitle === 'merged' ? 'zusammengeführte Fassung' : d.versionTitle)}${d.versionSource ? ' – ' + esc(d.versionSource) : ''}</li>`).join('');
+    const head = `<tr><th></th>${view.loaded.map(d => `<th>${esc(I18N.tr(KIND_LABEL[d.entry.kind]))} · ${esc(shortVer(d.versionTitle))}</th>`).join('')}</tr>`;
+    const src = view.loaded.map(d => `<li>${esc(I18N.tr(KIND_LABEL[d.entry.kind]))}: ${esc(d.versionTitle === 'merged' ? I18N.tr('zusammengeführte Fassung') : d.versionTitle)}${d.versionSource ? ' – ' + esc(d.versionSource) : ''}</li>`).join('');
     const css = `body{font-family:"SBL Hebrew","Times New Roman",serif;font-size:11pt;line-height:1.5;color:#000}
 h1{font-size:16pt;margin:0 0 4pt}h1 small{font-size:12pt;color:#555}
 table{border-collapse:collapse;width:100%;table-layout:fixed}th{font-size:9pt;text-align:left;color:#555;border-bottom:1px solid #999;padding:3pt}
@@ -1854,8 +2105,8 @@ ol.fn{font-size:9pt}ul.src{font-size:8pt;color:#555}tr{page-break-inside:avoid}`
     return `<!doctype html><html><head><meta charset="utf-8"><title>${esc(view.group.title)}</title><style>${css}</style></head><body>
 <h1>${esc(view.group.title)}${view.group.heTitle ? ` <small dir="rtl">${esc(view.group.heTitle)}</small>` : ''} · ${esc(s.label)}</h1>
 <table><thead>${head}</thead><tbody>${body}</tbody></table>
-${endnotes.length ? `<h3>Fußnoten</h3><ol class="fn">${endnotes.map(n => `<li>${n}</li>`).join('')}</ol>` : ''}
-<ul class="src">${src}</ul><p class="src" style="font-size:8pt;color:#777">Quelle: Sefaria (sefaria.org), Export vom ${new Date().toLocaleDateString('de-DE')}</p></body></html>`;
+${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.map(n => `<li>${n}</li>`).join('')}</ol>` : ''}
+<ul class="src">${src}</ul><p class="src" style="font-size:8pt;color:#777">${I18N.t('Quelle: Sefaria (sefaria.org), Export vom {}', new Date().toLocaleDateString(I18N.loc))}</p></body></html>`;
   }
 
 
@@ -2001,11 +2252,11 @@ ${endnotes.length ? `<h3>Fußnoten</h3><ol class="fn">${endnotes.map(n => `<li>$
     if (showAll) chosen = list.filter(g => avail.has(g.book));
     const chip = g => {
       const on = !showAll && chosen.includes(g), ok = avail.has(g.book);
-      const why = ok ? g.book : local.has(g.book) ? `${g.book} – lokal vorhanden, aber nicht auf ${LNm}` : `${g.book} – nicht in deiner Bibliothek`;
+      const why = ok ? g.book : local.has(g.book) ? I18N.t('{} – lokal vorhanden, aber nicht auf {}', g.book, LNm) : I18N.t('{} – nicht in deiner Bibliothek', g.book);
       return `<button class="chip ${on ? 'on' : ''} ${ok ? '' : 'off'}" data-n="${esc(g.name)}" title="${esc(why)}">${esc(g.name)} ${g.refs.length > 1 ? g.refs.length : ''}</button>`;
     };
     const localL = list.filter(g => avail.has(g.book)), noLangL = list.filter(g => local.has(g.book) && !hasLang(g.book)), remoteL = list.filter(g => !local.has(g.book));
-    $('#cmtSum').innerHTML = `${cmtChipsOpen ? '▾' : '▸'} <b>Kommentatoren</b> <span class="muted">${showAll ? (chosen.length ? `keiner gewählt – alle ${chosen.length} auf ${LNm} werden gezeigt` : `keiner auf ${LNm} vorhanden`) : esc(chosen.map(g => g.name).join(', '))} · ${localL.length} auf ${LNm}${noLangL.length ? `, ${noLangL.length} nur in anderer Sprache` : ''}${remoteL.length ? `, ${remoteL.length} nicht geladen` : ''}</span>`;
+    $('#cmtSum').innerHTML = `${cmtChipsOpen ? '▾' : '▸'} <b>Kommentatoren</b> <span class="muted">${showAll ? (chosen.length ? I18N.t('keiner gewählt – alle {#} auf {} werden gezeigt', chosen.length, LNm) : I18N.t('keiner auf {} vorhanden', LNm)) : esc(chosen.map(g => g.name).join(', '))} · ${I18N.t('{#} auf {}', localL.length, LNm)}${noLangL.length ? ', ' + I18N.t('{#} nur in anderer Sprache', noLangL.length) : ''}${remoteL.length ? ', ' + I18N.t('{#} nicht geladen', remoteL.length) : ''}</span>`;
     $('#cmtChips').hidden = !cmtChipsOpen;
     $('#cmtChips').innerHTML = localL.map(chip).join('')
       + (noLangL.length ? `<details><summary>${noLangL.length} lokal, aber nicht auf ${LNm}</summary><div>${noLangL.map(chip).join('')}</div></details>` : '')
@@ -2019,13 +2270,13 @@ ${endnotes.length ? `<h3>Fußnoten</h3><ol class="fn">${endnotes.map(n => `<li>$
     const hasTxt = g => g.refs.some(r => res[r] && res[r].items);
     const gaps = showAll ? chosen.filter(g => !hasTxt(g)) : []; // ohne Auswahl: Kommentatoren ohne Text in dieser Sprache nur als Hinweis
     if (showAll) chosen = chosen.filter(hasTxt);
-    const gapNote = gaps.length ? `<p class="muted">Kein ${LN}er Text zu diesem Vers: ${gaps.map(g => esc(g.name) + (g.refs.every(r => res[r] && res[r].missing) ? ' (keine Fassung in dieser Sprache geladen)' : ' (Vers fehlt in der Fassung)')).join(', ')}</p>` : '';
-    if (!chosen.length) { $('#cmtBody').innerHTML = gapNote || `<p class="muted">Keine lokalen Kommentare in der Sprache ${LN} zu diesem Vers.</p>`; return; }
+    const gapNote = gaps.length ? `<p class="muted">${I18N.t('Kein ' + { en: 'Englischer', de: 'Deutscher', he: 'Hebräischer' }[cmtLang] + ' Text zu diesem Vers:')} ${gaps.map(g => esc(g.name) + ' ' + (g.refs.every(r => res[r] && res[r].missing) ? I18N.t('(keine Fassung in dieser Sprache geladen)') : I18N.t('(Vers fehlt in der Fassung)'))).join(', ')}</p>` : '';
+    if (!chosen.length) { $('#cmtBody').innerHTML = gapNote || `<p class="muted">${I18N.t('Keine lokalen Kommentare in der Sprache {} zu diesem Vers.', LN)}</p>`; return; }
     $('#cmtBody').innerHTML = chosen.map(g => {
       const seenTxt = new Set();
       const parts = g.refs.map(r => {
         const t = res[r];
-        if (!t || !t.items) return `<div class="none">${esc(r)} – ${t && t.missing ? `keine Fassung auf ${LN} geladen` : `Vers fehlt in der ${LN}en Fassung`}</div>`;
+        if (!t || !t.items) return `<div class="none">${esc(r)} – ${t && t.missing ? I18N.t('keine Fassung auf {} geladen', LN) : I18N.t('Vers fehlt in der ' + { en: 'Englischen', de: 'Deutschen', he: 'Hebräischen' }[cmtLang] + ' Fassung')}</div>`;
         const he = t.kind === 'he';
         const sig = t.items.join('\u0001'); if (seenTxt.has(sig)) return ''; seenTxt.add(sig); // gleiche Stelle mehrfach verknüpft: nur einmal zeigen
         return t.items.map(x => `<div class="ct" dir="${he ? 'rtl' : 'ltr'}">${R.cleanHtml(R.splitFootnotes(he ? stripHe(x) : x).main).replace(/<sup[^>]*>.*?<\/sup>/g, '')}</div>`).join('');
@@ -2142,6 +2393,58 @@ ${endnotes.length ? `<h3>Fußnoten</h3><ol class="fn">${endnotes.map(n => `<li>$
     $('#welcomeLater').onclick = done;
     $('#welcomeGo').onclick = () => { done(); showTab('get'); if ($('#pickCard').hidden) $('#catFetch').click(); };
     dlg.showModal();
+  }
+
+  // Sofort-Hinweise: der Titel eines Symbols erscheint ohne Verzögerung (statt des trägen Standard-Tooltips)
+  { const tip = document.createElement('div'); tip.id = 'tip'; tip.hidden = true; document.body.appendChild(tip);
+    let cur = null;
+    const restore = () => { if (cur) { if (cur.dataset.tip != null && !cur.hasAttribute('title')) cur.setAttribute('title', cur.dataset.tip); delete cur.dataset.tip; cur = null; } tip.hidden = true; };
+    document.addEventListener('mouseover', e => {
+      const el = e.target.closest ? e.target.closest('[title],[data-tip]') : null;
+      if (el === cur) return;
+      restore();
+      if (!el) return;
+      const text = el.getAttribute('title') || el.dataset.tip;
+      if (!text) return;
+      el.dataset.tip = text; el.removeAttribute('title'); cur = el;
+      tip.textContent = text; tip.hidden = false;
+      const r = el.getBoundingClientRect(), w = tip.offsetWidth, h = tip.offsetHeight;
+      let top = r.bottom + 6; if (top + h > window.innerHeight - 4) top = r.top - h - 6;
+      tip.style.top = Math.max(4, top) + 'px';
+      tip.style.left = Math.max(4, Math.min(window.innerWidth - w - 4, r.left)) + 'px';
+    }, true);
+    document.addEventListener('mouseout', e => { if (cur && !cur.contains(e.relatedTarget)) restore(); }, true);
+    ['mousedown', 'keydown', 'wheel'].forEach(ev => document.addEventListener(ev, () => { tip.hidden = true; }, true));
+  }
+
+  // Esc schließt die zuletzt geöffnete Seitenleiste (Wörterbuch, Kommentare, Verknüpfungen), jedes weitere Esc die davor
+  { const panels = [['#dictPanel', () => toggleDict(false)], ['#cmtPanel', () => toggleCmt(false)], ['#linkPanel', () => { $('#linkPanel').hidden = true; }]];
+    const since = new Map();
+    panels.forEach(([sel]) => { const el = $(sel); new MutationObserver(() => { if (!el.hidden) since.set(sel, Date.now()); }).observe(el, { attributes: true, attributeFilter: ['hidden'] }); });
+    document.addEventListener('keydown', e => {
+      if (e.key !== 'Escape' || e.defaultPrevented || e.isComposing) return;
+      if (document.querySelector('dialog[open]') || !$('#findBar').hidden || !$('#dispPanel').hidden || !$('#dictSug').hidden || document.querySelector('#wpop')) return;
+      const open = panels.filter(([sel]) => !$(sel).hidden && !(sel === '#dictPanel' && document.documentElement.dataset.tab === 'dict'));
+      if (!open.length) return;
+      open.sort((a, b) => (since.get(b[0]) || 0) - (since.get(a[0]) || 0));
+      e.preventDefault(); open[0][1]();
+    });
+  }
+
+  // Größe der ganzen Oberfläche (Menü ⋯), wird gemerkt; das rechte Fenster folgt dem Hauptfenster
+  { const R = $('#zoomRange');
+    let p = 100; try { p = +localStorage.getItem('uiZoomPct') || 100; } catch { /* egal */ }
+    R.value = p;
+    const show = () => { $('#zoomVal').textContent = R.value + '%'; };
+    const apply = () => { const v = +R.value; try { if (!IS_PANE2 && window.uiZoom) window.uiZoom.set(v / 100); localStorage.setItem('uiZoomPct', String(v)); } catch { /* egal */ } show(); };
+    R.oninput = show; R.onchange = apply; R.ondblclick = () => { R.value = 100; apply(); }; // skaliert erst beim Loslassen
+    apply();
+  }
+
+  // Oberflächensprache (Menü ⋯): Wahl merken, dem Hauptprozess für Menüleiste und Dialoge mitteilen, Seite neu laden
+  { const sel = $('#uiLang'); sel.value = I18N.lang;
+    try { O.setLang(I18N.lang); } catch { /* ältere Vorschau ohne Schnittstelle */ }
+    sel.onchange = async () => { try { await O.setLang(sel.value); } catch { /* egal */ } I18N.set(sel.value); };
   }
 
   // Hebräischer Fettdruck: Wörter ohne Vokalzeichen bekommen die Klasse „nn“ (etwas kräftiger, siehe library.css)

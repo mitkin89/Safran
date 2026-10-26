@@ -1,4 +1,4 @@
-const { contextBridge, ipcRenderer, webUtils } = require('electron');
+const { contextBridge, ipcRenderer, webUtils, webFrame } = require('electron');
 const lib = require('./lib');
 const sef = require('./sefaria');
 
@@ -49,6 +49,7 @@ contextBridge.exposeInMainWorld('offline', {
   dictOrder: ids => ipcRenderer.invoke('dict:order', ids),
   dictRemove: id => ipcRenderer.invoke('dict:remove', id),
   checkUpdate: () => ipcRenderer.invoke('app:checkUpdate'),
+  setLang: l => ipcRenderer.invoke('app:setLang', l),
   openRelease: u => ipcRenderer.invoke('app:openRelease', u),
   dictSuggest: q => ipcRenderer.invoke('dict:suggest', q),
   dictLookup: (q, only) => ipcRenderer.invoke('dict:lookup', q, only),
@@ -61,10 +62,12 @@ contextBridge.exposeInMainWorld('offline', {
   onSearchProgress: cb => ipcRenderer.on('off:searchProgress', (_e, d) => cb(d)),
 });
 
+contextBridge.exposeInMainWorld('uiZoom', { set: f => { const z = Math.min(2, Math.max(0.6, +f || 1)); webFrame.setZoomFactor(z); return z; } });
 contextBridge.exposeInMainWorld('notes', {
   list: () => ipcRenderer.invoke('notes:list'),
   save: i => ipcRenderer.invoke('notes:save', i),
   remove: id => ipcRenderer.invoke('notes:delete', id),
+  reorder: ids => ipcRenderer.invoke('notes:reorder', ids),
 });
 
 contextBridge.exposeInMainWorld('links', {
