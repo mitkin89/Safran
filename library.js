@@ -232,6 +232,19 @@
     prefKinds = [...new Set([...ks, ...prefKinds.filter(k => !have.has(k))])];
     try { localStorage.setItem('prefKinds', JSON.stringify(prefKinds)); } catch { /* egal */ }
   }
+  // Voreinstellung der Versionen eines Buchs (Hebräisch immer, dazu die Sprache der Oberfläche)
+  function pickVersions(g) {
+    const sel = new Set();
+    // Hebräisch: der Westminster-Text (OSHB) hat Vorrang, sonst die zusammengeführte Fassung
+    const first = k => (k === 'he' && g.versions.find(v => v.kind === 'he' && /westminster/i.test(v.versionTitle))) || g.versions.find(v => v.kind === k && v.versionTitle === 'merged') || g.versions.find(v => v.kind === k);
+    // Voreinstellung nach Oberflächensprache: Hebräisch immer, dazu Englisch bzw. Deutsch (Hebräisch-Oberfläche: nur Hebräisch); fehlt Deutsch, hilft Englisch aus
+    const want = new Set(['he']);
+    if (I18N.lang === 'en') want.add('en'); else if (I18N.lang === 'de') { want.add('de'); if (!first('de')) want.add('en'); }
+    ['he', 'en', 'de'].forEach(k => { if (!want.has(k)) return; const v = first(k); if (v) sel.add(v.rel); });
+    if (!sel.size) ['he', 'en', 'de'].forEach(k => { const v = first(k); if (v) sel.add(v.rel); });
+    if (!sel.size && g.versions[0]) sel.add(g.versions[0].rel);
+    return sel;
+  }
   async function openGroup(g, target = {}, inNewTab = false) {
     if (!g) return;
     saveScroll();
@@ -240,13 +253,7 @@
     else { nv.nav = tabs[tabIdx] && tabs[tabIdx].nav; tabs[tabIdx] = nv; } // Verlauf des Tabs bleibt beim Buchwechsel erhalten
     view = nv;
     if (target.showCompare) nv.cmpRel = target.rel;
-    const first = k => g.versions.find(v => v.kind === k && v.versionTitle === 'merged') || g.versions.find(v => v.kind === k);
-    // zuletzt gewählte Sprachen übernehmen (z. B. nur Hebräisch + Deutsch); fehlt Deutsch, hilft Englisch aus
-    const want = new Set(prefKinds);
-    if (want.has('de') && !first('de')) want.add('en');
-    ['he', 'en', 'de'].forEach(k => { if (!want.has(k)) return; const v = first(k); if (v) view.selected.add(v.rel); });
-    if (!view.selected.size) ['he', 'en', 'de'].forEach(k => { const v = first(k); if (v) view.selected.add(v.rel); });
-    if (!view.selected.size && g.versions[0]) view.selected.add(g.versions[0].rel);
+    pickVersions(g).forEach(r => view.selected.add(r));
     if (target.rel) view.selected.add(target.rel);
     showTab('read');
     showView();
@@ -367,6 +374,37 @@
     await loadView();
   });
 
+  // Klick auf eine Spaltenüberschrift: Liste mit den verfügbaren Texten dieser Sprache (anhaken = zeigen) und Schnellauswahlen
+  const HEAD_ALL = {
+    he: 'Alle hebräischen Texte anzeigen', de: 'Alle deutschen Texte anzeigen', en: 'Alle englischen Texte anzeigen', other: 'Alle anderen Texte anzeigen',
+    hede: 'Alle hebräischen und deutschen Texte anzeigen', heen: 'Alle hebräischen und englischen Texte anzeigen', heother: 'Alle hebräischen und anderen Texte anzeigen'
+  };
+  $('#rOut').addEventListener('click', e => {
+    const h = e.target.closest('.row.head > div:not(.lab)');
+    if (!h || !view || h.closest('#passDlg')) return;
+    const g = view.group, kn = v => (['he', 'en', 'de'].includes(v.kind) ? v.kind : 'other');
+    const ci = [...h.parentNode.children].indexOf(h) - 1; // erste Kindzelle ist das Label
+    const d = view.loaded[ci]; if (!d) return;
+    const k = (['he', 'en', 'de'].includes(d.entry.kind) ? d.entry.kind : 'other');
+    const apply = async rels => {
+      if (!rels.size) return;
+      view.selected = rels; rememberKinds();
+      view.key = view.sections[view.idx] ? view.sections[view.idx].k : null;
+      await loadView();
+    };
+    const ofKinds = ks => new Set(g.versions.filter(v => ks.includes(kn(v))).map(v => v.rel));
+    const items = [];
+    if (k !== 'he' && g.versions.some(v => kn(v) === 'he')) items.push({ label: HEAD_ALL['he' + k], fn: () => apply(ofKinds(['he', k])) });
+    items.push({ label: HEAD_ALL[k], fn: () => apply(new Set([...[...view.selected].filter(r => { const v = g.versions.find(x => x.rel === r); return !v || kn(v) !== k; }), ...ofKinds([k])])) });
+    items.push({ sep: true });
+    for (const v of g.versions.filter(v => kn(v) === k)) {
+      const cur = v.rel === d.entry.rel;
+      items.push({ label: (cur ? '✓ ' : '\u2003 ') + shortVer(v.versionTitle), fn: () => { if (cur) return; const n = new Set(view.selected); n.delete(d.entry.rel); n.add(v.rel); apply(n); } }); // ersetzt die Version dieser Spalte
+    }
+    const r = h.getBoundingClientRect();
+    setTimeout(() => ctxShow({ clientX: r.left, clientY: r.bottom + 2, preventDefault() {} }, items), 0); // erst nach dem Klick, sonst schließt ihn der Dokument-Klick sofort wieder
+  });
+
   // Fußnoten werden immer mitgerendert; ob sie sichtbar sind, steuert der Modus (data-notes) per CSS
   function cellHtml(html, d) {
     if (html == null) return '<div class="cell empty"></div>';
@@ -383,25 +421,31 @@
 
   let syncPane = false; // Gleichlauf: Blättern im Hauptfenster blättert im zweiten Fenster mit
   function renderSection(rowLabel) {
-    if (!IS_PANE2 && syncPane && view && p2Frame && !p2Frame.hidden && p2Frame.contentWindow) p2Frame.contentWindow.postMessage({ type: 'sync', idx: view.idx }, '*');
+    if (!IS_PANE2 && syncPane && view && p2Frame && !p2Frame.hidden && p2Frame.contentWindow) p2Frame.contentWindow.postMessage({ type: 'sync', idx: view.idx, title: view.group ? view.group.title : '' }, '*');
     const s = view.sections[view.idx];
     $('#rSection').value = String(view.idx);
+    fitSection();
     $('#prevSec').disabled = view.idx <= 0;
     $('#nextSec').disabled = view.idx >= view.sections.length - 1;
     if (!s) { $('#rOut').innerHTML = '<p class="muted">In den gewählten Versionen ist kein Text vorhanden.</p>'; return; }
     view.key = s.k;
     const cols = view.loaded.map(d => R.flattenNode(R.getByPath(d.text, s.path)));
     const rows = R.alignRows(cols);
-    const n = view.loaded.length;
-    const head = `<div class="row head" style="--n:${n}"><div class="lab"></div>${view.loaded.map(d =>
-      `<div>${esc(KIND_LABEL[d.entry.kind])} · ${esc(shortVer(d.versionTitle))}</div>`).join('')}</div>`;
+    const vis = view.loaded.map((_, i) => i); // alle gewählten Versionen bleiben als Spalten stehen, auch wenn eine im Abschnitt leer ist
+    const n = vis.length;
+    const head = `<div class="row head" style="--n:${n}"><div class="lab"></div>${vis.map(i => view.loaded[i]).map(d =>
+      `<div title="${esc(I18N.t('Klicken: verfügbare Texte dieser Sprache auswählen'))}">${esc(KIND_LABEL[d.entry.kind])} · ${esc(shortVer(d.versionTitle))}</div>`).join('')}</div>`;
     if (rowLabel != null && !rows.some(r => r.label === rowLabel)) { // „2“ trifft bei Kommentaren die erste Zeile „2:1“
       const f = rows.find(r => r.label.startsWith(rowLabel + ':'));
       if (f) rowLabel = f.label;
     }
-    const body = rows.map(r =>
-      `<div class="row${rowLabel != null && r.label === rowLabel ? ' hit' : ''}" data-l="${esc(r.label)}" style="--n:${n}"><div class="lab">${esc(r.label)}</div>${r.cells.map((c, i) => cellHtml(c, view.loaded[i])).join('')}</div>`).join('');
-    $('#rOut').innerHTML = head + body;
+    if (view.vf && view.vf.k !== s.k) view.vf = null; // die Versauswahl gilt nur für den Abschnitt, in den gesprungen wurde
+    const shownRows = view.vf ? rows.filter(r => { const v = rowVerse(r.label); return v != null && view.vf.set.has(v); }) : rows;
+    if (view.vf && shownRows.length) view.vf.set = new Set(shownRows.map(r => rowVerse(r.label))); // „1-40“ in einem Kapitel mit 31 Versen gilt als 1–31, damit der Favorit überall dieselbe ID hat
+    const vfBar = view.vf ? `<div class="vfbar">${esc(I18N.t('Ausgewählte Verse: {}', view.vf.text))} <button id="vfStar" type="button" title="${esc(I18N.t('Als Favorit speichern / entfernen'))}">☆</button> <button id="vfClear" type="button">${esc(I18N.t('Alle Verse zeigen'))}</button></div>` : '';
+    const body = shownRows.map(r =>
+      `<div class="row${rowLabel != null && r.label === rowLabel ? ' hit' : ''}" data-l="${esc(r.label)}" style="--n:${n}"><div class="lab">${esc(r.label)}</div>${vis.map(i => cellHtml(r.cells[i], view.loaded[i])).join('')}</div>`).join('');
+    $('#rOut').innerHTML = vfBar + head + body;
     recordNav(s, rowLabel);
     pushHistory(s, rowLabel);
     renderTabs();
@@ -416,6 +460,16 @@
     if (hit) hit.scrollIntoView({ block: 'center' }); else window.scrollTo(0, 0);
   }
 
+  // Die Kapitel-Auswahl ist nur so breit wie der gewählte Eintrag
+  let fitSpan = null;
+  function fitSection() {
+    const sel = $('#rSection'); if (!sel || !sel.selectedOptions[0]) return;
+    if (!fitSpan) { fitSpan = document.createElement('span'); fitSpan.style.cssText = 'position:absolute;visibility:hidden;white-space:nowrap;left:-9999px;top:0'; document.body.appendChild(fitSpan); }
+    const cs = getComputedStyle(sel);
+    fitSpan.style.font = cs.font; fitSpan.style.letterSpacing = cs.letterSpacing;
+    fitSpan.textContent = sel.selectedOptions[0].textContent;
+    sel.style.width = Math.ceil(fitSpan.getBoundingClientRect().width + parseFloat(cs.paddingLeft) + parseFloat(cs.paddingRight) + 34) + 'px';
+  }
   $('#rSection').onchange = () => { view.idx = +$('#rSection').value; renderSection(); };
   $('#prevSec').onclick = () => { if (view.idx > 0) { view.idx--; renderSection(); } };
   $('#nextSec').onclick = () => { if (view.idx < view.sections.length - 1) { view.idx++; renderSection(); } };
@@ -452,7 +506,7 @@
       if (s.info) parts.push(esc(s.info));
       let h = `<div class="wseg${i === d.main ? ' main' : ''}">`;
       if (s.prefix) h += `<span class="wpre">${esc(s.prefix)}</span> `;
-      if (lem) h += `<span class="wlem" dir="rtl" lang="he">${esc(lem[0])}</span> <span class="muted">${esc(lem[1])}</span><br>`;
+      if (lem) h += `<span class="wlem" dir="rtl" lang="he">${esc(lem[0])}</span> <span class="muted">${esc(I18N.lang === 'de' && lem[2] ? lem[2] : lem[1])}</span><br>`;
       return h + parts.join(' · ') + '</div>';
     }).join('');
     const mainSeg = d.segs[d.main], lem = mainSeg && mainSeg.lemma && LEM[mainSeg.lemma];
@@ -504,13 +558,134 @@
   applyPanel();
 
   // Zu einer Stelle springen: "3", "3:7", "Daf 2a", "gen. 1:1" (Buchname optional, Anfang genügt)
-  const normT = x => String(x).toLowerCase().replace(/[.\s]+/g, ' ').trim();
+  // ---------- Mehrere Stellen in einem Fenster: „gen 1:3, ex 7:9“, „gen 1:30-2:3“, „gen 1-3“ ----------
+  const { normT, rowVerse, noteId, parseVerseList, fmtVerses, relatedTitles, sefariaUrl, noteUrl } = window.Refs;
+  const bestGroup = book => {
+    const b = normT(book);
+    const c = groups.filter(x => normT(x.title).startsWith(b) || normT(x.title).split(' ').some(w => w.startsWith(b)));
+    c.sort((x, y) => (normT(x.title) === b ? 0 : 1) - (normT(y.title) === b ? 0 : 1) || (normT(x.title).startsWith(b) ? 0 : 1) - (normT(y.title).startsWith(b) ? 0 : 1) || x.title.length - y.title.length);
+    return c[0] || null;
+  };
+  function parseMulti(q) {
+    // Aufteilen: „;“ trennt immer. „,“ trennt, wenn danach ein Buchname („gen“, „1 Kings 2:1“) oder Kapitel:Vers („2:5“) folgt;
+    // eine bloße Zahl gehört zur Versliste („gen 1:1-5, 9“), außer die Stelle davor hat noch kein „:“ („Psalms 23, 24“ = zwei Kapitel)
+    const segs = [];
+    for (const chunk of String(q).split(';')) {
+      let cur = null;
+      for (const t of chunk.split(',')) {
+        const tt = t.trim(); if (!tt) continue;
+        if (cur === null) { cur = tt; continue; }
+        const startsNew = /^\p{L}/u.test(tt) || /^\d+\s*:/.test(tt) || /^\d+\s+\p{L}/u.test(tt) || !cur.includes(':');
+        if (startsNew) { segs.push(cur); cur = tt; } else cur += ', ' + tt;
+      }
+      if (cur !== null) segs.push(cur);
+    }
+    const units = [], bad = [];
+    let multi = segs.length > 1, lastBook = '';
+    const NUM = '\\d+', RNG = '(?:\\d+(?:\\s*[-–]\\s*\\d+)?)';
+    for (const seg of segs) {
+      let m;
+      if ((m = seg.match(new RegExp('^(.*?)\\s*(' + NUM + ')\\s*:\\s*(' + NUM + ')\\s*[-–]\\s*(' + NUM + ')\\s*:\\s*(' + NUM + ')$')))) {
+        multi = true; const book = m[1].trim() || lastBook; lastBook = book;
+        const c1 = +m[2], v1 = +m[3], c2 = +m[4], v2 = +m[5];
+        if (c2 < c1 || c2 - c1 > 60) { bad.push(seg); continue; }
+        for (let c = c1; c <= c2; c++) units.push({ book, chap: String(c), vs: (c === c1 ? `${v1}–` : '1–') + (c === c2 ? v2 : '…'), pred: v => (c !== c1 || v >= v1) && (c !== c2 || v <= v2) });
+      } else if ((m = seg.match(new RegExp('^(.*?)\\s*(?<![:\\d])(' + NUM + ')\\s*[-–]\\s*(' + NUM + ')$')))) {
+        multi = true; const book = m[1].trim() || lastBook; lastBook = book;
+        const c1 = +m[2], c2 = +m[3];
+        if (c2 < c1 || c2 - c1 > 60) { bad.push(seg); continue; }
+        for (let c = c1; c <= c2; c++) units.push({ book, chap: String(c), vs: '', pred: null, ab: true }); // ab: beim Talmud beide Seiten (2a und 2b)
+      } else if ((m = seg.match(new RegExp('^(.*?)\\s*(?:\\b(?:daf|kapitel|chapter|kap)\\s*)?(\\d+[ab]?)(?:\\s*:\\s*(' + RNG + '(?:\\s*,\\s*' + RNG + ')*))?$', 'i')))) {
+        const book = m[1].trim() || lastBook || (view && view.group ? view.group.title : ''); lastBook = book;
+        let set = null, vs = '';
+        if (m[3]) {
+          set = new Set(); const parts = [];
+          for (const part of m[3].split(',')) { const [a, b] = part.split(/[-–]/).map(x => parseInt(x, 10)); const lo = Number.isFinite(b) ? Math.min(a, b) : a, hi = Number.isFinite(b) ? Math.min(Math.max(a, b), lo + 500) : a; for (let v = lo; v <= hi; v++) set.add(v); parts.push(lo === hi ? String(lo) : lo + '–' + hi); }
+          vs = parts.join(', ');
+        }
+        units.push({ book, chap: m[2].toLowerCase(), vs, pred: set ? (v => set.has(v)) : null });
+      } else if (/\p{L}/u.test(seg) && bestGroup(seg)) { // nur ein Buchname („1 Samuel“): erstes Kapitel
+        multi = true; lastBook = seg; units.push({ book: seg, chap: '1', vs: '', pred: null });
+      } else bad.push(seg);
+    }
+    return multi ? { units, bad } : null;
+  }
+  function toggleBlock(b) { // b: { key, title, sk, secLabel, set: [Verse], vs }
+    const id = noteId({ key: b.key }, b.sk, 'blk:' + b.vs);
+    const old = notesAll.find(n => n.id === id);
+    openNoteDlg(old || { id, kind: 'block', key: b.key, title: b.title, sk: b.sk, secLabel: b.secLabel, row: String(b.set.length ? Math.min(...b.set) : ''), vs: b.vs, set: b.set, excerpt: '', note: '', order: topOrder() }, { canDelete: !!old });
+  }
+  async function openPassages(pm) {
+    const gcache = new Map(), blocks = [], missing = [...pm.bad];
+    for (const u of pm.units) {
+      const g = bestGroup(u.book);
+      if (!g) { missing.push(`${u.book} ${u.chap}`); continue; }
+      let G = gcache.get(g.key);
+      if (!G) {
+        const loaded = [];
+        for (const rel of pickVersions(g)) {
+          let d = cache.get(rel);
+          if (!d) { try { d = await O.read(rel); const ver = g.versions.find(x => x.rel === rel); d.__b = (ver && ver.bytes) || 2e6; cache.set(rel, d); } catch { continue; } }
+          loaded.push(d);
+        }
+        loaded.sort((a, b) => KIND_RANK[a.entry.kind] - KIND_RANK[b.entry.kind]);
+        const seen = new Set(), secs = [];
+        for (const d of loaded) for (const s0 of R.sectionsOf(d.text, d.sectionNames)) {
+          const fi = s0.path.findIndex(p => typeof p === 'number');
+          const path = fi >= 0 ? s0.path.slice(0, fi + 1) : s0.path;
+          const label = fi >= 0 && fi + 1 < s0.path.length ? R.pathLabel(path, d.sectionNames) : s0.label;
+          const k = JSON.stringify(path);
+          if (!seen.has(k)) { seen.add(k); secs.push({ path, label, k }); }
+        }
+        G = { g, loaded, secs }; gcache.set(g.key, G);
+      }
+      const find = n => G.secs.findIndex(x => x.label.toLowerCase().endsWith(' ' + n) || x.label.toLowerCase() === n);
+      const idxs = [], i0 = find(u.chap);
+      if (i0 >= 0) idxs.push(i0);
+      else if (/^\d+$/.test(u.chap)) { const a = find(u.chap + 'a'); if (a >= 0) idxs.push(a); if (u.ab) { const b2 = find(u.chap + 'b'); if (b2 >= 0) idxs.push(b2); } }
+      if (!idxs.length) { missing.push(`${g.title} ${u.chap}`); continue; }
+      for (const i of idxs) {
+      const sec = G.secs[i];
+      const cols = G.loaded.map(d => R.flattenNode(R.getByPath(d.text, sec.path)));
+      let rows = R.alignRows(cols);
+      if (u.pred) rows = rows.filter(r => { const v = rowVerse(r.label); return v != null && u.pred(v); });
+      if (!rows.length) { missing.push(`${g.title} ${u.chap}${u.vs ? ':' + u.vs : ''}`); continue; }
+      const n = G.loaded.length;
+      const head = `<div class="row head" style="--n:${n}"><div class="lab"></div>${G.loaded.map(d => `<div>${esc(KIND_LABEL[d.entry.kind])} · ${esc(shortVer(d.versionTitle))}</div>`).join('')}</div>`;
+      const body = rows.map(r => `<div class="row" data-l="${esc(r.label)}" style="--n:${n}"><div class="lab">${esc(r.label)}</div>${G.loaded.map((d, k) => cellHtml(r.cells[k], d)).join('')}</div>`).join('');
+      const vset = u.pred ? rows.map(r => rowVerse(r.label)).filter(v => v != null) : [], vtxt = vset.length ? fmtVerses(vset) : '';
+      blocks.push(`<section class="pgb"><h3 class="pgh" data-key="${esc(g.key)}" data-sk="${esc(sec.k)}" data-row="${esc(rows[0].label)}" data-set="${esc(JSON.stringify(vset))}" data-vs="${esc(vtxt)}" data-title="${esc(g.title)}" data-sec="${esc(sec.label)}" title="Zum Lesen öffnen"><button class="pstar" type="button" title="Als Favorit speichern / entfernen" data-id="${esc(noteId(g, sec.k, 'blk:' + vtxt))}">☆</button> ${esc(g.title)} · ${esc(sec.label)}${vtxt ? ' · ' + esc(vtxt) : ''}</h3>${head}${body}</section>`);
+      }
+    }
+    if (!blocks.length) return false;
+    $('#passOut').innerHTML = blocks.join('') + (missing.length ? `<p class="muted">${esc(I18N.t('Nicht gefunden: {}', missing.join(', ')))}</p>` : '');
+    markNotes();
+    if (!$('#passDlg').open) $('#passDlg').showModal();
+    $('#passOut').scrollTop = 0; $('#passOut').focus(); // Fokus nicht auf den ✕-Knopf, sonst schließt das Enter-Loslassen das Fenster sofort
+    return true;
+  }
+  $('#passOut').addEventListener('click', e => {
+    const h = e.target.closest('.pgh'); if (!h) return;
+    if (e.target.closest('.pstar')) { toggleBlock({ key: h.dataset.key, title: h.dataset.title, sk: h.dataset.sk, secLabel: h.dataset.sec, set: JSON.parse(h.dataset.set || '[]'), vs: h.dataset.vs }); return; }
+    const g = groupsByKey.get(h.dataset.key); if (!g) return;
+    $('#passDlg').close();
+    openGroup(g, { sectionPath: JSON.parse(h.dataset.sk), rowLabel: h.dataset.row }, e.metaKey || e.ctrlKey || e.shiftKey);
+  });
   async function jumpTo(q, inNewTab = false) {
+    { const pm = parseMulti(q); if (pm) return openPassages(pm); }
+    // Versauswahl wie „gen 1:1-5,9“: springt zum Kapitel und zeigt nur diese Verse
+    let vsel = null;
+    { const rg = String(q).trim().match(/^(.*?)\s*(?:\b(?:daf|kapitel|chapter|kap)\s*)?(\d+[ab]?)\s*:\s*(\d+(?:\s*[-–]\s*\d+)?(?:\s*,\s*\d+(?:\s*[-–]\s*\d+)?)*)$/i);
+      if (rg && /[-–,]/.test(rg[3])) {
+        const pv = parseVerseList(rg[3]), set = pv.set;
+        vsel = { set, text: rg[2] + ':' + pv.vs };
+        q = rg[1] + ' ' + rg[2] + ':' + Math.min(...set);
+      } }
     const m = String(q).trim().match(/^(.*?)\s*(?:\b(?:daf|kapitel|chapter|kap)\s*)?(\d+[ab]?)(?:\s*[:,.\s]\s*(?:(?:vers|verse|v)\.?\s*)?(\d+))?(?::\d+)*$/i);
     if (!m) {
       // nur ein Buchname ohne Zahl („genesis“ + Enter): Buch von vorn (erstes Kapitel) öffnen
       const b = normT(q);
-      if (!b || /\d/.test(b)) return false;
+      if (!b || !/\p{L}/u.test(b)) return false;
       const c = groups.filter(g => normT(g.title).startsWith(b) || normT(g.title).split(' ').some(w => w.startsWith(b)))
         .sort((a, b2) => (normT(a.title) === b ? 0 : 1) - (normT(b2.title) === b ? 0 : 1) || (normT(a.title).startsWith(b) ? 0 : 1) - (normT(b2.title).startsWith(b) ? 0 : 1) || a.title.length - b2.title.length);
       if (!c.length) return false;
@@ -531,6 +706,7 @@
     if (idx < 0 && /^\d+$/.test(num)) idx = find(num + 'a'); // Talmud: „3“ = Daf 3a
     if (idx < 0) return false;
     view.idx = idx;
+    view.vf = vsel ? { k: view.sections[idx].k, set: vsel.set, text: vsel.text } : null;
     renderSection(verse);
     return true;
   }
@@ -806,8 +982,9 @@
   const fixStick = () => {
     const st = $('#stick'), hd = $('header');
     if (!st || !hd) return;
-    $('#rOut').style.setProperty('--stick-top', (hd.offsetHeight + st.offsetHeight - 4) + 'px');
-    st.style.top = hd.offsetHeight + 'px';
+    const hh = hd.offsetHeight;
+    $('#rOut').style.setProperty('--stick-top', (hh + st.offsetHeight - 4) + 'px');
+    st.style.top = hh + 'px';
   };
   new ResizeObserver(fixStick).observe($('#stick'));
   new ResizeObserver(fixStick).observe($('header'));
@@ -838,29 +1015,47 @@
     if (!$('#cmtPanel').hidden) roots.push($('#cmtBody')); // auch der Kommentar-Bereich wird durchsucht
     if (!$('#dictPanel').hidden) roots.push($('#dictOut')); // ebenso die Wörterbuch-Treffer
     const ranges = [];
+    // Textknoten je Absatz/Zelle sammeln und zusammenhängend durchsuchen, damit auch Wortfolgen über mehrere
+    // Wort-Elemente hinweg gefunden werden (Westminster-Text: jedes Wort steckt in einem eigenen <span class="w">)
     for (const root of roots) {
-    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
-    for (let node = walker.nextNode(); node; node = walker.nextNode()) {
-      const el = node.parentElement;
-      if (!el || el.offsetParent === null && getComputedStyle(el).display === 'none') continue;
-      if (el.closest('.note') && !el.closest('.note').offsetParent) continue;
-      const txt = node.nodeValue;
-      let n = '', map = [];
-      for (let i = 0; i < txt.length; i++) {
-        const lower = txt[i].toLowerCase();
-        const c = stripF(lower);
-        if (!c) continue;
-        n += c === '\u05BE' ? ' ' : c; map.push(i);
+      const groups = new Map();
+      const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+      for (let node = walker.nextNode(); node; node = walker.nextNode()) {
+        const el = node.parentElement;
+        if (!el || el.offsetParent === null && getComputedStyle(el).display === 'none') continue;
+        if (el.closest('.note') && !el.closest('.note').offsetParent) continue;
+        const key = el.closest('.note, .txt, .dbody, .dhead, p, li, td, div') || root;
+        if (!groups.has(key)) groups.set(key, []);
+        groups.get(key).push(node);
       }
-      let pos = 0;
-      while ((pos = n.indexOf(q, pos)) >= 0) {
-        const r = document.createRange();
-        r.setStart(node, map[pos]);
-        r.setEnd(node, map[pos + q.length - 1] + 1);
-        ranges.push(r);
-        pos += q.length;
+      for (const nodes of groups.values()) {
+        let n = ''; const map = []; // map[i] = [Textknoten, Position] zu jedem Zeichen von n
+        let prevW = null, first = true;
+        for (const node of nodes) {
+          const w = node.parentElement.closest('.w');
+          if (!first && w !== prevW && (w || prevW) && n && !/\s$/.test(n) && !/^\s/.test(node.nodeValue)) { n += ' '; map.push(null); } // Wörter ohne Leerzeichen dazwischen trennen
+          first = false; prevW = w;
+          const txt = node.nodeValue;
+          for (let i = 0; i < txt.length; i++) {
+            const c = stripF(txt[i].toLowerCase());
+            if (!c) continue;
+            n += c === '־' ? ' ' : c; map.push([node, i]);
+          }
+        }
+        let pos = 0;
+        while ((pos = n.indexOf(q, pos)) >= 0) {
+          let s0 = pos, e0 = pos + q.length - 1;
+          while (s0 <= e0 && !map[s0]) s0++;
+          while (e0 >= s0 && !map[e0]) e0--;
+          if (s0 <= e0) {
+            const r = document.createRange();
+            r.setStart(map[s0][0], map[s0][1]);
+            r.setEnd(map[e0][0], map[e0][1] + 1);
+            ranges.push(r);
+          }
+          pos += q.length;
+        }
       }
-    }
     }
     fRanges = ranges;
     hl('find', ranges);
@@ -905,12 +1100,15 @@
       if (e.source !== window.parent) return;
       if (m.type === 'find') openFind();
       else if (m.type === 'closeTab') { if (tabIdx >= 0) closeTab(tabIdx); }
-      else if (m.type === 'sync') { if (view && view.group && m.idx < view.sections.length && m.idx !== view.idx) { view.idx = m.idx; renderSection(); } }
+      else if (m.type === 'syncState') p2SyncOn = !!m.on;
+      else if (m.type === 'syncScroll') applySyncScroll(m);
+      else if (m.type === 'sync') { if (view && view.group && relatedTitles(view.group.title, m.title) && m.idx < view.sections.length && m.idx !== view.idx) { view.idx = m.idx; renderSection(); } }
       else if (m.type === 'dict' && typeof m.q === 'string') openDict(m.q.slice(0, 100)); // Nachschlagen aus dem ersten Fenster
       else if (m.type === 'jump' && typeof m.ref === 'string') jumpTo(m.ref, tabs.some(t => t.group)); // Kommentar aus dem ersten Fenster
       else if (m.type === 'open' && typeof m.key === 'string') { const g = groupsByKey.get(m.key); if (g) openGroup(g, { rel: typeof m.rel === 'string' ? m.rel : undefined, sectionPath: m.sectionPath, rowLabel: m.rowLabel }, tabs.some(t => t.group)); } // schon ein Buch offen: neuer Tab
     } else if (e.source === p2Frame.contentWindow) {
-      if (m.type === 'ready') p2Ready = true;
+      if (m.type === 'ready') { p2Ready = true; p2Post({ type: 'syncState', on: syncPane }); }
+      else if (m.type === 'syncScroll') { if (syncPane) applySyncScroll(m); }
       else if (m.type === 'close') setSplit(false);
     }
   });
@@ -929,7 +1127,7 @@
   }
   if (!IS_PANE2) {
     $('#splitBtn').onclick = () => setSplit(p2Frame.hidden);
-    $('#syncBtn').onclick = () => { syncPane = !syncPane; $('#syncBtn').setAttribute('aria-pressed', String(syncPane)); if (syncPane) renderSection(); };
+    $('#syncBtn').onclick = () => { syncPane = !syncPane; $('#syncBtn').setAttribute('aria-pressed', String(syncPane)); p2Post({ type: 'syncState', on: syncPane }); if (syncPane) renderSection(); };
     $('#splitter').addEventListener('mousedown', ev => {
       ev.preventDefault(); root.classList.add('dragging');
       const mv = e2 => { p2w = Math.min(75, Math.max(25, ((window.innerWidth - e2.clientX) / window.innerWidth) * 100)); root.style.setProperty('--p2w', p2w + 'vw'); };
@@ -945,6 +1143,35 @@
       openInPane2(a.dataset.key);
     }, true);
   }
+  // Gleichlauf beim Scrollen (in beide Richtungen): die oberste sichtbare Zeile wird im anderen Fenster an dieselbe Stelle gebracht
+  let p2SyncOn = false, syncQuiet = 0, syncTimer = null;
+  const syncTop = () => (parseFloat(getComputedStyle($('#rOut')).getPropertyValue('--stick-top')) || 100) + 6;
+  // Gleichlauf nur bei Texten, die sich auf dieselbe Stelle beziehen: gleiches Buch oder ein Titel enthält den anderen (z. B. „Rashi on Genesis“ und „Genesis“)
+  function applySyncScroll(m) {
+    if (!view || !view.group || !relatedTitles(view.group.title, m.title)) return;
+    syncQuiet = Date.now() + 500;
+    if (view.sections.length) {
+      let j = view.sections.findIndex(x => x.label === m.slabel);
+      if (j < 0 && m.idx < view.sections.length) j = m.idx;
+      if (j >= 0 && j !== view.idx) { view.idx = j; renderSection(); }
+    }
+    const rows = $$('#rOut .row[data-l]'), v = rowVerse(m.label);
+    const r = rows.find(x => x.dataset.l === m.label) || (v != null ? (rows.find(x => rowVerse(x.dataset.l) === v) || rows.find(x => (rowVerse(x.dataset.l) || 0) > v)) : null);
+    if (!r) return;
+    window.scrollBy(0, r.getBoundingClientRect().top - syncTop() - m.off);
+  }
+  window.addEventListener('scroll', () => {
+    if (!(IS_PANE2 ? p2SyncOn : syncPane) || Date.now() < syncQuiet || !view || !view.group) return;
+    clearTimeout(syncTimer);
+    syncTimer = setTimeout(() => {
+      const top = syncTop();
+      const r = $$('#rOut .row[data-l]').find(x => x.getBoundingClientRect().bottom > top + 4);
+      if (!r) return;
+      const s = view.sections[view.idx];
+      const msg = { type: 'syncScroll', title: view.group.title, label: r.dataset.l, off: r.getBoundingClientRect().top - top, idx: view.idx, slabel: s ? s.label : '' };
+      if (IS_PANE2) window.parent.postMessage(msg, '*'); else p2Post(msg);
+    }, 80);
+  }, { passive: true });
   fin.addEventListener('input', () => { if (!fin.value) clearFind(false); });
   fin.addEventListener('keydown', e => {
     if (e.key === 'Enter') { e.preventDefault(); stepFind(!e.shiftKey); }
@@ -1136,8 +1363,10 @@
     ctxEl._items = items;
     ctxEl.innerHTML = items.map((it, i) => it.sep ? '<hr>' : `<button data-n="${i}">${esc(it.label)}</button>`).join('');
     ctxEl.hidden = false;
-    ctxEl.style.left = Math.max(4, Math.min(e.clientX, window.innerWidth - 270)) + 'px';
-    ctxEl.style.top = Math.max(4, Math.min(e.clientY, window.innerHeight - 34 * items.length - 10)) + 'px';
+    ctxEl.style.left = '0px'; ctxEl.style.top = '0px';
+    const mw = ctxEl.offsetWidth, mh = ctxEl.offsetHeight; // erst messen, dann so setzen, dass das Menü ganz im Fenster bleibt
+    ctxEl.style.left = Math.max(4, Math.min(e.clientX, window.innerWidth - mw - 8)) + 'px';
+    ctxEl.style.top = Math.max(4, Math.min(e.clientY, window.innerHeight - mh - 8)) + 'px';
   }
   // Menü für ein Buch (Bücherliste, Verlauf): hier öffnen, neuer Tab, zweites Fenster
   function bookMenu(e, key, target = {}) {
@@ -1183,7 +1412,7 @@
     const sec = view.sections[view.idx];
     if (!sec) return;
     const ref = `${view.group.title} ${String(sec.label).replace(/^\D+/, '') || sec.label}:${row.dataset.l}`.replace(/\s+/g, ' ');
-    const url = 'https://www.sefaria.org/' + encodeURIComponent(ref.replace(/ /g, '_').replace(/:/g, '.')).replace(/%2C/g, ',').replace(/%2F/g, '/');
+    const url = sefariaUrl(ref);
     ctxShow(e, [
       ...(word ? [{ label: `Im Wörterbuch nachschlagen: „${word}“`, fn: () => openDict(word) }] : []),
       { label: 'Referenz kopieren: ' + ref, fn: () => navigator.clipboard.writeText(ref).catch(() => {}) },
@@ -1221,8 +1450,17 @@
   const dblWord = e => {
     if (e.target.closest('a, button, select, input, textarea, .lab, .bm')) return;
     const w = (window.getSelection() + '').trim().replace(/^[^\p{L}\p{M}]+|[^\p{L}\p{M}]+$/gu, '');
-    if (w.length >= 2 && w.length <= 40 && !/\s/.test(w)) openDict(w);
+    if (w.length >= 2 && w.length <= 40 && !/\s/.test(w)) {
+      // erneuter Doppelklick auf dasselbe Wort an derselben Stelle schließt das Wörterbuch wieder
+      let pos = null;
+      try { const r = window.getSelection().getRangeAt(0); pos = { node: r.startContainer, off: r.startOffset, w }; } catch { /* egal */ }
+      const same = pos && lastDictDbl && lastDictDbl.node === pos.node && lastDictDbl.off === pos.off && lastDictDbl.w === pos.w;
+      if (same && dictOpen && document.documentElement.dataset.tab !== 'dict') { toggleDict(false); lastDictDbl = null; return; }
+      lastDictDbl = pos;
+      openDict(w);
+    }
   };
+  let lastDictDbl = null;
   // Einfacher Klick auf ein Wort (nicht hebräisch-morphologisch) markiert es wie bei den hebräischen Wörtern
   const clickMark = e => {
     if (!window.Highlight || !CSS.highlights) return;
@@ -1388,7 +1626,9 @@
   const lsSet = (k, a) => { try { localStorage.setItem(k, JSON.stringify(a)); } catch { /* egal */ } };
   let dRecent = lsGet('dictRecent'), dFavs = lsGet('dictFavs');
   const chips = (a, fav) => a.length ? a.map((w, i) => `<span class="dchip"><a data-w="${esc(w)}" dir="auto">${esc(w)}</a><button data-rm="${i}" title="Entfernen">✕</button></span>`).join('') : `<span class="muted">${fav ? 'Noch keine Favoriten' : 'Noch keine Suchen'}</span>`;
+  const syncSaved = () => { dRecent = lsGet('dictRecent'); dFavs = lsGet('dictFavs'); }; // beide Fenster teilen den Speicher: vor jeder Änderung frisch lesen
   function renderSaved() {
+    syncSaved();
     $('#dictRecentL').innerHTML = chips(dRecent, false);
     $('#dictFavL').innerHTML = chips(dFavs, true);
     const q = $('#dictQ').value.trim(), on = !!q && dFavs.includes(q);
@@ -1396,18 +1636,20 @@
   }
   const manualSearch = q => {
     q = String(q || '').trim();
+    syncSaved();
     if (q) { dRecent = [q, ...dRecent.filter(x => x !== q)].slice(0, 30); lsSet('dictRecent', dRecent); }
     dictLookup(q); renderSaved();
   };
   $('#dictStar').onclick = () => {
     const q = $('#dictQ').value.trim(); if (!q) return;
+    syncSaved();
     dFavs = dFavs.includes(q) ? dFavs.filter(x => x !== q) : [q, ...dFavs];
     lsSet('dictFavs', dFavs); renderSaved();
   };
-  $('#dictRecentClear').onclick = () => { dRecent = []; lsSet('dictRecent', dRecent); renderSaved(); };
+  $('#dictRecentClear').onclick = () => { syncSaved(); dRecent = []; lsSet('dictRecent', dRecent); renderSaved(); };
   $('#dictSaved').addEventListener('click', e => {
     const rm = e.target.closest('button[data-rm]');
-    if (rm) { const fav = !!rm.closest('#dictFavL'); const a = fav ? dFavs : dRecent; a.splice(+rm.dataset.rm, 1); lsSet(fav ? 'dictFavs' : 'dictRecent', a); renderSaved(); return; }
+    if (rm) { syncSaved(); const fav = !!rm.closest('#dictFavL'); const a = fav ? dFavs : dRecent; a.splice(+rm.dataset.rm, 1); lsSet(fav ? 'dictFavs' : 'dictRecent', a); renderSaved(); return; }
     const a = e.target.closest('a[data-w]'); if (a) dictLookup(a.dataset.w);
   });
   $('#dictQ').addEventListener('input', renderSaved);
@@ -1526,8 +1768,37 @@
     const r = await window.api.saveFile(`Suche – ${$('#sq').value.trim().slice(0, 40).replace(/[\\/:*?"<>|]/g, '_')}.csv`, '\ufeff' + csv.join('\r\n'));
     if (r && r.error) alert(r.error);
   };
-  $('#sGo').onclick = () => runSearch();
-  ['#sq', '#sq2', '#sq3'].forEach(id => $(id).addEventListener('keydown', e => { if (e.key === 'Enter') runSearch(); }));
+  // Verlauf (nur selbst abgeschickte Suchen) und Favoriten der Volltextsuche
+  let sRecent = lsGet('searchRecent'), sFavs = lsGet('searchFavs');
+  const syncSS = () => { sRecent = lsGet('searchRecent'); sFavs = lsGet('searchFavs'); };
+  function renderSearchSaved() {
+    syncSS();
+    const chips2 = (a, fav) => a.length ? a.map((w, i) => `<span class="dchip"><a data-w="${esc(w)}" dir="auto">${esc(w)}</a><button data-rm="${i}" title="Entfernen">✕</button></span>`).join('') : `<span class="muted">${fav ? 'Noch keine Favoriten' : 'Noch keine Suchen'}</span>`;
+    $('#sRecentL').innerHTML = chips2(sRecent, false);
+    $('#sFavL').innerHTML = chips2(sFavs, true);
+    const q = $('#sq').value.trim(), on = !!q && sFavs.includes(q);
+    $('#sStar').textContent = on ? '★' : '☆'; $('#sStar').classList.toggle('on', on);
+  }
+  const manualFind = () => {
+    const q = $('#sq').value.trim();
+    if (q) { syncSS(); sRecent = [q, ...sRecent.filter(x => x !== q)].slice(0, 30); lsSet('searchRecent', sRecent); }
+    renderSearchSaved(); runSearch();
+  };
+  $('#sStar').onclick = () => {
+    const q = $('#sq').value.trim(); if (!q) return;
+    syncSS(); sFavs = sFavs.includes(q) ? sFavs.filter(x => x !== q) : [q, ...sFavs];
+    lsSet('searchFavs', sFavs); renderSearchSaved();
+  };
+  $('#sRecentClear').onclick = () => { syncSS(); sRecent = []; lsSet('searchRecent', sRecent); renderSearchSaved(); };
+  $('#sSaved').addEventListener('click', e => {
+    const rm = e.target.closest('button[data-rm]');
+    if (rm) { syncSS(); const fav = !!rm.closest('#sFavL'); const a = fav ? sFavs : sRecent; a.splice(+rm.dataset.rm, 1); lsSet(fav ? 'searchFavs' : 'searchRecent', a); renderSearchSaved(); return; }
+    const a = e.target.closest('a[data-w]'); if (a) { $('#sq').value = a.dataset.w; renderSearchSaved(); runSearch(); }
+  });
+  $('#sq').addEventListener('input', renderSearchSaved);
+  renderSearchSaved();
+  $('#sGo').onclick = manualFind;
+  ['#sq', '#sq2', '#sq3'].forEach(id => $(id).addEventListener('keydown', e => { if (e.key === 'Enter') manualFind(); }));
   $('#sCancel').onclick = () => O.cancelSearch();
   // Rechtsklick auf ein Suchergebnis: hier öffnen, neuer Tab, zweites Fenster
   $('#sOut').addEventListener('contextmenu', e => {
@@ -1844,7 +2115,6 @@
   // ---------- Lesezeichen und Notizen ----------
   const NT = window.notes;
   let notesAll = [];
-  const noteId = (g, sk, row) => `${g.key}|${sk}|${row}`;
   const kindOf = n => n.kind || 'row'; // 'row' = Lesezeichen an einer Zeile, 'free' = freie Notiz ('hl' = frühere Farbmarkierungen: bleiben in der Datei, werden aber nicht mehr angezeigt)
   const newId = p => p + '|' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
   const topOrder = () => Math.min(0, ...notesAll.map(n => (n.order == null ? 0 : n.order))) - 1;
@@ -1880,8 +2150,11 @@
     try {
       const v = groupsByKey.get(n.key).versions.find(x => x.rel === rel);
       let d = cache.get(rel); if (!d) { d = await O.read(rel); d.__b = (v && v.bytes) || 2e6; cache.set(rel, d); }
-      const row = R.flattenNode(R.getByPath(d.text, JSON.parse(n.sk))).find(r => r.label === n.row);
-      txt = row ? plain(row.html).slice(0, 400) : '';
+      const all = R.flattenNode(R.getByPath(d.text, JSON.parse(n.sk)));
+      if (kindOf(n) === 'block') {
+        const want = new Set(n.set || []);
+        txt = all.filter(r => { const v = rowVerse(r.label); return !want.size || (v != null && want.has(v)); }).map(r => `${r.label} ${plain(r.html)}`).join('\n').slice(0, 1500);
+      } else { const row = all.find(r => r.label === n.row); txt = row ? plain(row.html).slice(0, 400) : ''; }
     } catch { /* egal */ }
     ntTxt.set(key, txt);
     clearTimeout(ntTimer); ntTimer = setTimeout(renderNotes, 60);
@@ -1896,15 +2169,46 @@
       const t = ntTxt.get(n.id + '|' + v.rel);
       if (!t) return '';
       const he = /[\u0590-\u05FF]/.test(t);
-      return `<div class="ex${he ? ' he' : ''}" dir="${he ? 'rtl' : 'ltr'}">${esc(t)}</div>`;
+      return `<div class="ex${he ? ' he' : ''}" dir="${he ? 'rtl' : 'ltr'}" style="white-space:pre-line">${esc(t)}</div>`;
     }).join('');
     return `<div class="vchips">${chips}</div>${body}`;
   }
+  // Notizen-Aufrufe absichern: bei einem Fehler (z. B. beschädigte Datei) wird gemeldet statt still nichts zu tun
+  async function ntDo(fn) {
+    try { return await fn(); } catch (e) {
+      const m = String((e && e.message) || e).replace(/^Error invoking remote method '[^']*': (Error: )?/, '');
+      alert(I18N.t('Die Notizen konnten nicht gespeichert werden:') + '\n' + m);
+      return null;
+    }
+  }
+  // Gelöscht-Hinweis mit „Rückgängig“
+  let undoT = null;
+  function showUndo(n) {
+    let bar = $('#undoBar');
+    if (!bar) { bar = document.createElement('div'); bar.id = 'undoBar'; document.body.appendChild(bar); }
+    bar.innerHTML = `<span>${esc(I18N.t('Notiz gelöscht'))}</span> <button type="button">${esc(I18N.t('Rückgängig'))}</button>`;
+    bar.classList.add('on');
+    clearTimeout(undoT); undoT = setTimeout(() => bar.classList.remove('on'), 10000);
+    bar.querySelector('button').onclick = async () => {
+      bar.classList.remove('on'); clearTimeout(undoT);
+      const r = await ntDo(() => NT.save({ ...n, keepTs: true }));
+      if (r) { notesAll = r; refreshNotes(); }
+    };
+  }
+  async function removeNote(id) {
+    const n = notesAll.find(x => x.id === id);
+    const r = await ntDo(() => NT.remove(id));
+    if (r) { notesAll = r; refreshNotes(); if (n) showUndo(n); }
+  }
   async function loadNotes() { notesAll = await NT.list(); renderNotes(); markNotes(); backfillHe(); }
   function markNotes() {
+    { const bl = new Set(notesAll.filter(n => kindOf(n) === 'block').map(n => n.id)); $$('#passOut .pstar').forEach(b => { const on = bl.has(b.dataset.id); b.textContent = on ? '★' : '☆'; b.classList.toggle('on', on); }); }
     if (!view || !view.group) return;
     const s = view.sections[view.idx];
     if (!s) return;
+    const blk = new Set(notesAll.filter(n => kindOf(n) === 'block').map(n => n.id));
+    const vfs = $('#vfStar');
+    if (vfs && view.vf) { const on = blk.has(noteId(view.group, s.k, 'blk:' + fmtVerses([...view.vf.set]))); vfs.textContent = on ? '★' : '☆'; vfs.classList.toggle('on', on); }
     const ids = new Set(notesAll.filter(n => kindOf(n) === 'row').map(n => n.id));
     $$('#rOut .row[data-l]').forEach(r => {
       const on = ids.has(noteId(view.group, s.k, r.dataset.l));
@@ -1922,7 +2226,7 @@
   function openNoteDlg(it, o = {}) {
     editing = it;
     const k = kindOf(it);
-    $('#ndTitle').textContent = k === 'free' ? I18N.t('Eigene Notiz') : `${it.title} · ${it.secLabel} · ${it.row}`;
+    $('#ndTitle').textContent = k === 'free' ? I18N.t('Eigene Notiz') : `${it.title} · ${it.secLabel} · ${k === 'block' ? (it.vs || I18N.t('ganzes Kapitel')) : it.row}`;
     $('#ndExcerpt').textContent = k === 'free' ? '' : [it.he, it.excerpt].filter(Boolean).join('\n');
     $('#ndTitleIn').hidden = k !== 'free';
     $('#ndTitleIn').value = it.title || '';
@@ -1957,9 +2261,9 @@
       editing.title = $('#ndTitleIn').value.trim();
       if (!editing.note && !editing.title) { $('#noteDlg').close(); return; }
     }
-    notesAll = await NT.save(editing); $('#noteDlg').close(); refreshNotes();
+    const r = await ntDo(() => NT.save(editing)); if (!r) return; notesAll = r; $('#noteDlg').close(); refreshNotes();
   };
-  $('#ndDel').onclick = async () => { notesAll = await NT.remove(editing.id); $('#noteDlg').close(); refreshNotes(); };
+  $('#ndDel').onclick = async () => { const id = editing.id; $('#noteDlg').close(); await removeNote(id); };
   $('#ndClose').onclick = () => $('#noteDlg').close();
   // Enter bestätigt die Notiz (Umschalt+Enter = neue Zeile)
   $('#ndText').addEventListener('keydown', e => { if (e.key === 'Enter' && !e.shiftKey && !e.isComposing) { e.preventDefault(); $('#ndSave').click(); } });
@@ -1973,6 +2277,68 @@
   const applyNfs = () => { $('#nOut').style.setProperty('--nfs', nfs + 'px'); try { localStorage.setItem('noteFs', String(nfs)); } catch { /* egal */ } };
   applyNfs();
   $('#nFsMinus').onclick = () => { nfs = Math.max(10, nfs - 1); applyNfs(); };
+
+  // Sichern / Exportieren / Importieren der Notizen und Favoriten
+  $('#nIO').onclick = e => {
+    const r = e.currentTarget.getBoundingClientRect();
+    const items = [
+      { label: 'Sicherung speichern (JSON)', fn: () => exportNotes('json') },
+      { label: 'Als Markdown speichern', fn: () => exportNotes('md') },
+      { label: 'Als Word-Datei speichern', fn: () => exportNotes('doc') },
+      { label: 'Als PDF speichern', fn: () => exportNotes('pdf') },
+      { sep: true },
+      { label: 'Sicherung einlesen …', fn: importNotes },
+    ];
+    e.stopPropagation();
+    ctxShow({ clientX: r.left, clientY: r.bottom + 2, preventDefault() {} }, items);
+  };
+  const lsArr = k => { try { const a = JSON.parse(localStorage.getItem(k) || '[]'); return Array.isArray(a) ? a.filter(x => typeof x === 'string') : []; } catch { return []; } };
+  async function exportNotes(fmt) {
+    const list = notesAll.slice().sort((a, b) => (a.order ?? 1e9) - (b.order ?? 1e9) || (b.ts || 0) - (a.ts || 0));
+    const day = new Date().toISOString().slice(0, 10);
+    if (fmt === 'json') {
+      await window.api.saveFile(`Safran-Notizen-${day}.json`, JSON.stringify({ app: 'Safran', kind: 'notes', version: 1, exported: new Date().toISOString(), items: list, dictFavs: lsArr('dictFavs'), dictRecent: lsArr('dictRecent'), searchFavs: lsArr('searchFavs'), searchRecent: lsArr('searchRecent') }, null, 1));
+      return;
+    }
+    const day2 = new Date().toLocaleDateString(I18N.loc);
+    const whereOf = n => { const k = kindOf(n); return k === 'free' ? '' : [n.title, n.secLabel, k === 'block' ? (n.vs || 'ganzes Kapitel') : n.row].filter(Boolean).join(' · '); };
+    if (fmt === 'md') {
+      const md = ['# Safran – Notizen und Favoriten', '', `Exportiert am ${day}`, ''];
+      for (const n of list) {
+        const where = whereOf(n), url = noteUrl(n);
+        md.push('## ' + (where ? (url ? `[${where}](${url})` : where) : 'Notiz'), '');
+        if (n.he) md.push('> ' + String(n.he).replace(/\n+/g, ' '), '');
+        if (n.excerpt) md.push('> ' + String(n.excerpt).replace(/\n+/g, ' '), '');
+        if (n.note) md.push(String(n.note), '');
+        if (n.ts) md.push(`*${new Date(n.ts).toLocaleDateString('de-DE')}*`, '');
+      }
+      await window.api.saveFile(`Safran-Notizen-${day}.md`, md.join('\n'));
+      return;
+    }
+    // Word / PDF
+    const body = list.map(n => {
+      const where = whereOf(n), url = noteUrl(n);
+      return `<div class="n"><h2>${url ? `<a href="${esc(url)}">${esc(where)}</a>` : esc(where || 'Notiz')}</h2>${n.he ? `<p class="he" dir="rtl">${esc(n.he)}</p>` : ''}${n.excerpt ? `<p class="ex">${esc(n.excerpt)}</p>` : ''}${n.note ? `<p class="nt">${esc(n.note).replace(/\n/g, '<br>')}</p>` : ''}</div>`;
+    }).join('');
+    const css = `body{font-family:"Times New Roman",serif;font-size:11pt;line-height:1.45;color:#000}h1{font-size:16pt}h2{font-size:12pt;margin:14pt 0 3pt}h2 a{color:#1a4f9c;text-decoration:none}.he{font-family:"SBL Hebrew","Times New Roman",serif;font-size:14pt;line-height:1.7;margin:2pt 0}.ex{color:#333;margin:2pt 0}.nt{background:#fff6d6;padding:3pt 6pt;margin:3pt 0}.n{page-break-inside:avoid}`;
+    const html = `<!doctype html><html><head><meta charset="utf-8"><title>Safran – Notizen</title><style>${css}</style></head><body><h1>Safran – Notizen und Favoriten</h1><p style="font-size:9pt;color:#666">${esc(I18N.t('Exportiert am {}', day2))}</p>${body}</body></html>`;
+    const r = await O.exportSave({ html, format: fmt === 'pdf' ? 'pdf' : 'doc', name: `Safran-Notizen-${day}` });
+    if (r && r.error) alert(r.error);
+  }
+  async function importNotes() {
+    const f = await window.api.openFile('json'); if (!f) return;
+    let j; try { j = JSON.parse(f.text); } catch { j = null; }
+    const items = j && Array.isArray(j.items) ? j.items.filter(x => x && typeof x.id === 'string') : null;
+    const extra = j && typeof j === 'object' ? ['dictFavs', 'dictRecent', 'searchFavs', 'searchRecent'].filter(k => Array.isArray(j[k]) && j[k].length) : [];
+    if ((!items || !items.length) && !extra.length) return alert(I18N.t('Diese Datei ist keine Notizsicherung.'));
+    if (!confirm(I18N.t('{#} Notizen aus der Sicherung zusammenführen? Vorhandene bleiben erhalten, nur ältere Fassungen werden ersetzt.', (items || []).length))) return;
+    // gespeicherte Wörter und Suchen: Einträge der Sicherung kommen dazu (ohne Doppelte), die vorhandenen bleiben vorn
+    for (const k of extra) { try { const have = lsArr(k), add = j[k].filter(x => typeof x === 'string' && !have.includes(x)); localStorage.setItem(k, JSON.stringify([...have, ...add].slice(0, 200))); } catch { /* egal */ } }
+    const r = items && items.length ? await ntDo(() => NT.merge(items)) : { items: notesAll, stat: { added: 0, updated: 0, same: 0 } };
+    if (!r) return;
+    notesAll = r.items; refreshNotes(); if (typeof renderSaved === 'function') try { renderSaved(); } catch { /* egal */ } if (typeof renderSearchSaved === 'function') try { renderSearchSaved(); } catch { /* egal */ }
+    alert(I18N.t('Eingelesen: {#} neu, {#} aktualisiert, {#} unverändert.', r.stat.added, r.stat.updated, r.stat.same));
+  }
   $('#nFsPlus').onclick = () => { nfs = Math.min(28, nfs + 1); applyNfs(); };
   let nSort = 'manual';
   try { nSort = localStorage.getItem('nSort') || 'manual'; } catch { /* egal */ }
@@ -1983,7 +2349,7 @@
   function renderNotes() {
     const f = $('#nFilter').value.trim().toLowerCase();
     const shown = notesAll.filter(n => kindOf(n) !== 'hl');
-    let list = shown.filter(n => !f || [n.title, n.secLabel, n.row, n.he, n.excerpt, n.note].join(' ').toLowerCase().includes(f));
+    let list = shown.filter(n => !f || [n.title, n.secLabel, n.row, n.vs, n.he, n.excerpt, n.note].join(' ').toLowerCase().includes(f));
     if (nSort === 'new') list.sort((a, b) => (b.ts || 0) - (a.ts || 0));
     else if (nSort === 'book') list.sort((a, b) => String(a.title || '~').localeCompare(String(b.title || '~')) || byManual(a, b));
     else list.sort(byManual);
@@ -1991,8 +2357,8 @@
     const man = nSort === 'manual';
     const item = n => {
       const k = kindOf(n);
-      const head = k === 'free' ? esc(n.title || I18N.t('Eigene Notiz')) : `${esc(n.title)} · ${esc(n.secLabel)} · ${esc(n.row)}`;
-      return `<div class="nitem" data-id="${esc(n.id)}"${man ? ' draggable="true"' : ''}><span class="nbtns">${man ? `<button data-mv="-1" title="Nach oben schieben">▲</button><button data-mv="1" title="Nach unten schieben">▼</button>` : ''}<button data-edit="${esc(n.id)}" title="Notiz bearbeiten">✎</button><button data-del="${esc(n.id)}" title="Entfernen">✕</button></span><div class="t">${k === 'row' ? '☆ ' : k === 'free' ? '✎ ' : ''}<span class="ut">${head}</span></div>${k === 'row' ? noteBody(n) : ''}${n.note ? `<div class="nt">${esc(n.note)}</div>` : ''}</div>`;
+      const head = k === 'free' ? esc(n.title || I18N.t('Eigene Notiz')) : `${esc(n.title)} · ${esc(n.secLabel)} · ${esc(k === 'block' ? (n.vs || I18N.t('ganzes Kapitel')) : n.row)}`;
+      return `<div class="nitem" data-id="${esc(n.id)}"${man ? ' draggable="true"' : ''}><span class="nbtns">${man ? `<button data-mv="-1" title="Nach oben schieben">▲</button><button data-mv="1" title="Nach unten schieben">▼</button>` : ''}<button data-edit="${esc(n.id)}" title="Notiz bearbeiten">✎</button><button data-del="${esc(n.id)}" title="Entfernen">✕</button></span><div class="t">${k === 'row' || k === 'block' ? '☆ ' : k === 'free' ? '✎ ' : ''}<span class="ut">${head}</span></div>${k === 'row' || k === 'block' ? noteBody(n) : ''}${n.note ? `<div class="nt">${esc(n.note)}</div>` : ''}</div>`;
     };
     const html = list.map(item).join('');
     $('#nOut').innerHTML = html || `<p class="muted">${I18N.t('Noch keine Lesezeichen. Im Lesen-Reiter erscheint beim Überfahren einer Zeile links ein ☆.')}</p>`;
@@ -2004,13 +2370,13 @@
     ids.splice(i, 1);
     if (beforeId !== undefined) { const j = beforeId ? ids.indexOf(beforeId) : ids.length; ids.splice(j < 0 ? ids.length : j, 0, id); }
     else ids.splice(Math.max(0, Math.min(ids.length, i + dir)), 0, id);
-    notesAll = await NT.reorder(ids); renderNotes();
+    { const r = await ntDo(() => NT.reorder(ids)); if (r) notesAll = r; } renderNotes();
   }
   $('#nOut').addEventListener('click', async e => {
     const it = e.target.closest('.nitem');
     const n = it && notesAll.find(x => x.id === it.dataset.id);
     const d = e.target.closest('button[data-del]');
-    if (d) { notesAll = await NT.remove(d.dataset.del); refreshNotes(); return; }
+    if (d) { await removeNote(d.dataset.del); return; }
     const mv = e.target.closest('button[data-mv]');
     if (mv && n) { await moveNote(n.id, +mv.dataset.mv); return; }
     const vb = e.target.closest('button[data-vr]');
@@ -2019,14 +2385,17 @@
       const cur = new Set(n.vr || defaultVr(vers)); const rel = vb.dataset.vr;
       if (cur.has(rel)) cur.delete(rel); else cur.add(rel);
       n.vr = vers.filter(v => cur.has(v.rel)).map(v => v.rel);
-      notesAll = await NT.save({ ...n, keepTs: true }); renderNotes(); return;
+      { const r = await ntDo(() => NT.save({ ...n, keepTs: true })); if (r) notesAll = r; } renderNotes(); return;
     }
     if (e.target.closest('button[data-edit]') && n) { openNoteDlg(n, { canDelete: true }); return; }
     if (!n) return;
     if (e.target.closest('.ex, .nt')) return; // Text anklicken/markieren springt nicht; nur Titel und Rand öffnen die Stelle
     if (kindOf(n) === 'free') { openNoteDlg(n, { canDelete: true }); return; }
     const g = groupsByKey.get(n.key);
-    if (g) openGroup(g, { sectionPath: JSON.parse(n.sk), rowLabel: n.row }, e.metaKey || e.ctrlKey || e.shiftKey);
+    if (g) {
+      await openGroup(g, { sectionPath: JSON.parse(n.sk), rowLabel: n.row }, e.metaKey || e.ctrlKey || e.shiftKey);
+      if (kindOf(n) === 'block' && n.set && n.set.length && view && view.group === g) { view.vf = { k: view.sections[view.idx].k, set: new Set(n.set), text: String(view.sections[view.idx].label || '').replace(/^\D+/, '') + ':' + n.vs }; renderSection(n.row); }
+    }
   });
   let dragId = null;
   $('#nOut').addEventListener('mousedown', e => { const it = e.target.closest('.nitem[draggable]'); if (it) it.draggable = !e.target.closest('.ex, .nt'); }); // Text lässt sich markieren, ohne dass die Karte gezogen wird
@@ -2146,7 +2515,6 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
   $('#cmtLang').value = cmtLang;
   const CMT_PRIO = ['Rashi', 'Ibn Ezra', 'Ramban', 'Rashbam', 'Sforno', 'Or HaChaim', 'Chizkuni', 'Radak', 'Kli Yakar', 'Bekhor Shor', 'Onkelos'];
   const saveCmt = () => { try { localStorage.setItem('cmtSel', JSON.stringify([...cmtSel])); localStorage.setItem('cmtLang', cmtLang); } catch { /* egal */ } };
-  const rowVerse = lab => { const m = String(lab || '').match(/^(\d+)/); return m ? +m[1] : null; };
   function setCmtRow(label) {
     cmtRow = label;
     $$('#rOut .row.cmtrow').forEach(r => r.classList.remove('cmtrow'));
@@ -2185,6 +2553,27 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
     if (!lab || e.target.closest('.bm') || e.target.closest('.lk')) return;
     const row = lab.closest('.row[data-l]');
     if (row) setCmtRow(row.dataset.l);
+  });
+  // Doppelklick auf die Versnummer öffnet den Kommentar-Bereich, derselbe Vers noch einmal schließt ihn
+  let lastCmtDbl = null;
+  $('#rOut').addEventListener('dblclick', e => {
+    const lab = e.target.closest('.lab');
+    if (!lab || e.target.closest('.bm') || e.target.closest('.lk')) return;
+    const row = lab.closest('.row[data-l]');
+    if (!row) return;
+    const key = (view && view.group ? view.group.key : '') + '|' + (view ? view.key : '') + '|' + row.dataset.l;
+    if (cmtOpen && lastCmtDbl === key) { toggleCmt(false); lastCmtDbl = null; return; }
+    lastCmtDbl = key;
+    setCmtRow(row.dataset.l);
+    if (!cmtOpen) toggleCmt(true);
+  });
+  $('#rOut').addEventListener('click', e => {
+    if (!view) return;
+    if (e.target.id === 'vfClear') { view.vf = null; renderSection(); }
+    else if (e.target.id === 'vfStar' && view.vf) {
+      const sc = view.sections[view.idx];
+      toggleBlock({ key: view.group.key, title: view.group.title, sk: sc.k, secLabel: sc.label, set: [...view.vf.set].sort((a, b) => a - b), vs: fmtVerses([...view.vf.set]) });
+    }
   });
   $('#cmtSum').onclick = () => {
     cmtChipsOpen = !cmtChipsOpen;

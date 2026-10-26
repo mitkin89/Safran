@@ -237,7 +237,7 @@ class Library {
 
   save() {
     // Speichern nacheinander ausführen, damit parallele Aufrufe sich nicht überschreiben
-    this._saving = this._saving.then(async () => {
+    this._saving = this._saving.catch(() => {}).then(async () => {
       await fs.mkdir(this.dir, { recursive: true });
       const tmp = this.indexFile + '.tmp';
       await fs.writeFile(tmp, JSON.stringify(this.index));

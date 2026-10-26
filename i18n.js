@@ -7,9 +7,9 @@
   'use strict';
   let lang = 'de';
   try { lang = localStorage.getItem('uiLang') || (/^de\b/i.test(navigator.language || '') ? 'de' : 'en'); } catch { /* egal */ }
-  if (lang !== 'de' && lang !== 'en') lang = 'de';
+  if (lang !== 'de' && lang !== 'en' && lang !== 'he') lang = 'de';
   const fill = (s, args) => { let i = 0; return String(s).replace(/\{#?\}/g, () => (i < args.length ? args[i++] : '')); };
-  const api = { lang, loc: lang === 'de' ? 'de-DE' : 'en-US', t: (s, ...a) => fill(s, a), tr: s => s, set(l) { try { localStorage.setItem('uiLang', l); } catch { /* egal */ } location.reload(); } };
+  const api = { lang, loc: lang === 'de' ? 'de-DE' : lang === 'he' ? 'he-IL' : 'en-US', t: (s, ...a) => fill(s, a), tr: s => s, set(l) { try { localStorage.setItem('uiLang', l); } catch { /* egal */ } location.reload(); } };
   window.I18N = api;
   if (lang === 'de') return;
 
@@ -217,7 +217,10 @@
     'Darstellung': 'Appearance', 'Erscheinungsbild: automatisch (System), hell oder dunkel': 'Appearance: automatic (system), light or dark', 'Automatisch': 'Automatic', 'Hell': 'Light', 'Dunkel': 'Dark',
         'Klicken, um zu einem Buch oder einer Stelle zu springen': 'Click to jump to a book or passage', 'Buch oder Stelle, z. B. gen. 2:3': 'Book or passage, e.g. gen. 2:3',
     'Alle Unterpunkte öffnen/schließen': 'Open/close all subcategories',
-    'Letzte Suchen': 'Recent searches', 'Favoriten': 'Favorites', 'Wort zu den Favoriten hinzufügen / entfernen': 'Add / remove word from favorites', 'Noch keine Favoriten': 'No favorites yet', 'Noch keine Suchen': 'No searches yet', 'Entfernen': 'Remove',
+    'Ausgewählte Verse: {}': 'Selected verses: {}', 'Alle Verse zeigen': 'Show all verses',
+    'Ausgewählte Stellen': 'Selected passages', 'Nicht gefunden: {}': 'Not found: {}', 'Zum Lesen öffnen': 'Open in reader',
+    'Als Favorit speichern / entfernen': 'Save / remove as favorite', 'ganzes Kapitel': 'whole chapter',
+    'Letzte Suchen': 'Recent searches', 'Favoriten': 'Favorites', 'Wort zu den Favoriten hinzufügen / entfernen': 'Add / remove word from favorites', 'Noch keine Favoriten': 'No favorites yet', 'Notiz gelöscht': 'Note deleted', 'Als Word-Datei speichern': 'Save as Word file', 'Als PDF speichern': 'Save as PDF', 'Exportiert am {}': 'Exported on {}', 'Suchbegriff zu den Favoriten hinzufügen / entfernen': 'Add / remove search term from favorites', 'Notizen sichern, exportieren oder eine Sicherung einlesen': 'Back up, export or import notes', 'Sicherung speichern (JSON)': 'Save backup (JSON)', 'Als Markdown speichern': 'Save as Markdown', 'Sicherung einlesen …': 'Import backup …', 'Diese Datei ist keine Notizsicherung.': 'This file is not a notes backup.', '{#} Notizen aus der Sicherung zusammenführen? Vorhandene bleiben erhalten, nur ältere Fassungen werden ersetzt.': 'Merge {} notes from the backup? Existing notes are kept; only older versions are replaced.', 'Eingelesen: {#} neu, {#} aktualisiert, {#} unverändert.': 'Imported: {} new, {} updated, {} unchanged.', 'Klicken: verfügbare Texte dieser Sprache auswählen': 'Click: choose from the available texts in this language', 'Alle hebräischen Texte anzeigen': 'Show all Hebrew texts', 'Alle deutschen Texte anzeigen': 'Show all German texts', 'Alle englischen Texte anzeigen': 'Show all English texts', 'Alle anderen Texte anzeigen': 'Show all other texts', 'Alle hebräischen und deutschen Texte anzeigen': 'Show all Hebrew and German texts', 'Alle hebräischen und englischen Texte anzeigen': 'Show all Hebrew and English texts', 'Alle hebräischen und anderen Texte anzeigen': 'Show all Hebrew and other texts', 'Rückgängig': 'Undo', 'Die Notizen konnten nicht gespeichert werden:': 'The notes could not be saved:', 'Noch keine Suchen': 'No searches yet', 'Entfernen': 'Remove',
     'Alle Unterpunkte öffnen': 'Open all subcategories', 'Alle Unterpunkte schließen': 'Close all subcategories',
     'Größe': 'Size', 'Größe der gesamten Oberfläche (Schrift und Bedienelemente)': 'Size of the whole interface (text and controls)',
     // ----- Im Text suchen -----
@@ -242,6 +245,11 @@
   };
 
   // ----- Nachschlagen -----
+  if (lang === 'he' && window.I18N_HE) { // Hebräisch: wo vorhanden, ersetzt die hebräische Tabelle die englische
+    const H = window.I18N_HE;
+    for (const k of Object.keys(EN)) if (H.exact[k]) EN[k] = H.exact[k];
+    for (const k of Object.keys(HTML)) if (H.html[k]) HTML[k] = H.html[k];
+  }
   const exact = new Map(Object.entries(EN).map(([k, v]) => [k.replace(/\s+/g, ' ').trim(), v]));
   const tpl = [];
   for (const [k, v] of exact) {
@@ -297,7 +305,7 @@
     }
   });
   const start = () => {
-    document.documentElement.lang = 'en';
+    document.documentElement.lang = lang;
     document.title = tr(document.title);
     walk(document.body);
     obs.observe(document.body, { childList: true, subtree: true, characterData: true, attributes: true, attributeFilter: ATTRS });

@@ -68,6 +68,7 @@ contextBridge.exposeInMainWorld('notes', {
   save: i => ipcRenderer.invoke('notes:save', i),
   remove: id => ipcRenderer.invoke('notes:delete', id),
   reorder: ids => ipcRenderer.invoke('notes:reorder', ids),
+  merge: items => ipcRenderer.invoke('notes:merge', items),
 });
 
 contextBridge.exposeInMainWorld('links', {

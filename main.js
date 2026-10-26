@@ -85,10 +85,10 @@ function openOffline() {
 // ---------- Oberflächensprache (die Oberfläche meldet ihre Wahl; wird für Menü und Dialoge gemerkt) ----------
 const langFile = () => path.join(app.getPath('userData'), 'ui-lang.txt');
 let UI_LANG = 'de';
-try { const l = require('fs').readFileSync(langFile(), 'utf8').trim(); if (l === 'en' || l === 'de') UI_LANG = l; else if (!/^de/i.test(app.getLocale())) UI_LANG = 'en'; } catch { if (!/^de/i.test(app.getLocale())) UI_LANG = 'en'; }
-const M = (de, en) => (UI_LANG === 'en' ? en : de);
+try { const l = require('fs').readFileSync(langFile(), 'utf8').trim(); if (l === 'en' || l === 'de' || l === 'he') UI_LANG = l; else if (!/^de/i.test(app.getLocale())) UI_LANG = 'en'; } catch { if (!/^de/i.test(app.getLocale())) UI_LANG = 'en'; }
+const M = (de, en) => (UI_LANG === 'de' ? de : en);
 ipcMain.handle('app:setLang', (_e, l) => {
-  if (l !== 'de' && l !== 'en') return false;
+  if (l !== 'de' && l !== 'en' && l !== 'he') return false;
   const changed = l !== UI_LANG; UI_LANG = l;
   try { require('fs').writeFileSync(langFile(), l); } catch { /* egal */ }
   if (changed) buildMenu();
@@ -184,7 +184,9 @@ ipcMain.handle('file:save', async (e, name, content) => {
 });
 
 ipcMain.handle('file:open', async (e, kind) => {
-  const filters = kind === 'csv'
+  const filters = kind === 'json'
+    ? [{ name: 'Notizsicherung (JSON)', extensions: ['json'] }]
+    : kind === 'csv'
     ? [{ name: 'CSV / Text', extensions: ['csv', 'tsv', 'txt'] }]
     : [{ name: 'Text / Word', extensions: ['txt', 'md', 'docx'] }];
   const { canceled, filePaths } = await dialog.showOpenDialog(winOf(e), { properties: ['openFile'], filters });
@@ -502,22 +504,46 @@ ipcMain.handle('off:ownRemove', async (_e, rel) => {
 // Lesezeichen und Notizen (liegen als notes.json im Bibliotheksordner)
 let notesChain = Promise.resolve();
 async function notesFile() { return path.join((await getLibrary()).dir, 'notes.json'); }
+const NOTE_BAKS = 5;
+// Liest die Notizen. Fehlt die Datei, ist die Liste leer. Ist sie unlesbar oder beschädigt, wird die
+// neueste brauchbare Sicherung genommen; gibt es keine, wird ein Fehler geworfen (nie stillschweigend „leer“),
+// damit ein späteres Speichern die vorhandenen Notizen nicht überschreibt.
 async function readNotes() {
-  try { const j = JSON.parse(await fs.readFile(await notesFile(), 'utf8')); return Array.isArray(j.items) ? j.items : []; } catch { return []; }
+  const f = await notesFile();
+  const parse = async file => { const j = JSON.parse(await fs.readFile(file, 'utf8')); if (!j || !Array.isArray(j.items)) throw new Error('notes.json hat kein Feld "items"'); return j.items; };
+  try { return await parse(f); } catch (e) {
+    if (e && e.code === 'ENOENT') return [];
+    for (let i = 1; i <= NOTE_BAKS; i++) { try { const items = await parse(`${f}.bak${i}`); items._restored = i; return items; } catch { /* nächste Sicherung */ } }
+    const err = new Error('Die Notizdatei ist beschädigt und es gibt keine Sicherung: ' + (e && e.message)); err.corrupt = true; throw err;
+  }
+}
+// Vor dem Schreiben eine Sicherung anlegen (höchstens alle 10 Minuten, die letzten 5 bleiben erhalten)
+async function backupNotes(f) {
+  try {
+    let st; try { st = await fs.stat(f); } catch { return; }
+    try { const b = await fs.stat(f + '.bak1'); if (Date.now() - b.mtimeMs < 10 * 60 * 1000) return; } catch { /* noch keine */ }
+    JSON.parse(await fs.readFile(f, 'utf8')); // nur gültige Dateien sichern
+    for (let i = NOTE_BAKS; i > 1; i--) { try { await fs.rename(`${f}.bak${i - 1}`, `${f}.bak${i}`); } catch { /* Lücke */ } }
+    await fs.copyFile(f, f + '.bak1');
+  } catch { /* Sicherung ist nur ein Zusatz */ }
 }
 function writeNotes(fn) {
-  notesChain = notesChain.then(async () => {
+  // .catch: ein früherer Fehler darf spätere Speichervorgänge nicht dauerhaft blockieren
+  const p = notesChain.catch(() => {}).then(async () => {
     const items = await readNotes();
+    const restored = items._restored;
     const out = fn(items) || items;
     const f = await notesFile();
     await fs.mkdir(path.dirname(f), { recursive: true });
+    if (restored) { try { await fs.copyFile(f, `${f}.broken-${Date.now()}`); } catch { /* war nicht da */ } } else await backupNotes(f);
     await fs.writeFile(f + '.tmp', JSON.stringify({ version: 1, items: out }));
-    await fs.rename(f + '.tmp', f);
+    await OFF.renameRetry(f + '.tmp', f);
     return out;
   });
-  return notesChain;
+  notesChain = p;
+  return p;
 }
-ipcMain.handle('notes:list', () => readNotes());
+ipcMain.handle('notes:list', async () => { try { return await readNotes(); } catch { return []; } });
 ipcMain.handle('notes:save', (_e, item) => writeNotes(items => {
   const i = items.findIndex(x => x.id === item.id);
   const { keepTs, ...rest } = item;
@@ -531,6 +557,23 @@ ipcMain.handle('notes:reorder', (_e, ids) => writeNotes(items => {
   for (const it of items) if (pos.has(it.id)) it.order = pos.get(it.id);
   return items;
 }));
+// Import einer Sicherung: neue Notizen kommen dazu, vorhandene (gleiche id) werden nur ersetzt, wenn die importierte jünger ist
+ipcMain.handle('notes:merge', async (_e, incoming) => {
+  if (!Array.isArray(incoming)) throw new Error('Keine Notizliste');
+  const stat = { added: 0, updated: 0, same: 0 };
+  const items = await writeNotes(items => {
+    const byId = new Map(items.map((x, i) => [x.id, i]));
+    for (const n of incoming) {
+      if (!n || typeof n.id !== 'string' || !n.id || JSON.stringify(n).length > 200000) continue;
+      const i = byId.get(n.id);
+      if (i === undefined) { items.push(n); byId.set(n.id, items.length - 1); stat.added++; }
+      else if ((n.ts || 0) > (items[i].ts || 0)) { items[i] = n; stat.updated++; }
+      else stat.same++;
+    }
+    return items;
+  });
+  return { items, stat };
+});
 ipcMain.handle('notes:delete', (_e, id) => writeNotes(items => items.filter(x => x.id !== id)));
 
 // Verknüpfungen (Links zwischen Texten)

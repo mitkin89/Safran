@@ -34,7 +34,7 @@
         <label class="chk" title="Safran fragt beim Start einmal bei GitHub nach einer neuen Version"><input type="checkbox" id="updAuto"> Beim Start nach Updates suchen</label>
         <div class="chk zoomrow" title="Größe der gesamten Oberfläche (Schrift und Bedienelemente)">Größe <input id="zoomRange" type="range" min="70" max="180" step="5" value="100"><span id="zoomVal">100%</span></div>
         <label class="chk" title="Erscheinungsbild: automatisch (System), hell oder dunkel">Darstellung <select id="uiTheme"><option value="auto">Automatisch</option><option value="light">Hell</option><option value="dark">Dunkel</option></select></label>
-        <label class="chk" title="Oberflächensprache">Sprache <select id="uiLang"><option value="de">Deutsch</option><option value="en">English</option></select></label>
+        <label class="chk" title="Oberflächensprache">Sprache <select id="uiLang"><option value="de">Deutsch</option><option value="en">English</option><option value="he">עברית</option></select></label>
         <button id="reveal">Im Finder zeigen</button>
         <span id="stats" class="muted"></span>
         <img class="logo small" src="logo.png" alt="talmud.de" title="talmud.de" width="46">
@@ -92,7 +92,7 @@
     <section id="tab-search" hidden>
       <div class="sleft">
       <div class="bar">
-        <input id="sq" placeholder="Suchbegriff (Hebräische Vokalzeichen werden ignoriert)">
+        <input id="sq" placeholder="Suchbegriff (Hebräische Vokalzeichen werden ignoriert)"><button id="sStar" type="button" title="Suchbegriff zu den Favoriten hinzufügen / entfernen">☆</button>
         <label><input type="checkbox" class="sk" data-k="he" checked> Hebräisch</label>
         <label><input type="checkbox" class="sk" data-k="en" checked> Englisch</label>
         <label><input type="checkbox" class="sk" data-k="de" checked> Deutsch</label>
@@ -100,6 +100,10 @@
         <label title="Das Suchwort muss ein ganzes Wort sein; hebräische Vorsilben (ו ה ב כ ל מ ש) davor sind erlaubt: ארץ findet auch הארץ und בארץ, aber nicht ארצות"><input type="checkbox" id="sPre"> Ganze Wörter (mit Vorsilben)</label>
         <button id="sGo" class="primary">Suchen</button>
         <button id="sCancel" disabled>Abbrechen</button>
+      </div>
+      <div id="sSaved" class="ssaved">
+        <div class="dsv"><div class="dsvh"><b>Letzte Suchen</b><button id="sRecentClear" type="button" title="Liste leeren">✕</button></div><div id="sRecentL" class="dchips"></div></div>
+        <div class="dsv"><div class="dsvh"><b>Favoriten</b></div><div id="sFavL" class="dchips"></div></div>
       </div>
       <div class="bar" id="advBar">
         <input id="sq2" placeholder="Wort 2 (optional), z. B. gott">
@@ -150,6 +154,7 @@
         <input id="nFilter" placeholder="Lesezeichen und Notizen durchsuchen …">
         <select id="nSort" title="Reihenfolge der Notizen"><option value="manual">Reihenfolge: manuell</option><option value="new">Neueste zuerst</option><option value="book">Nach Buch</option></select>
         <button id="nNew" title="Eine Notiz ohne Textstelle anlegen">＋ Neue Notiz</button>
+        <button id="nIO" title="Notizen sichern, exportieren oder eine Sicherung einlesen">⇅</button>
         <span id="nCount" class="muted"></span>
         <button id="nFsMinus" title="Schrift kleiner">A−</button><button id="nFsPlus" title="Schrift größer">A+</button>
       </div>
@@ -266,6 +271,10 @@
     <div class="bar"><button id="expGo" class="primary">Exportieren …</button><button id="expClose">Abbrechen</button></div>
   </dialog>
 
+  <dialog id="passDlg">
+    <div class="pdhead"><b>Ausgewählte Stellen</b></div>
+    <div id="passOut" tabindex="-1"></div>
+  </dialog>
   <dialog id="noteDlg">
     <h2 id="ndTitle">Notiz</h2>
     <p id="ndExcerpt" class="muted"></p>
@@ -323,8 +332,10 @@
     </details>
   </aside>
 
+  <script src="i18n-he.js"></script>
   <script src="i18n.js"></script>
   <script src="reader.js"></script>
+  <script src="refs.js"></script>
   <script src="morph.js"></script>
   <script src="update.js"></script>
   <script src="oshb-lemmas.js"></script>

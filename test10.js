@@ -28,4 +28,11 @@ const html = fs.readFileSync(__dirname + '/library.html', 'utf8');
 const ids = [...html.matchAll(/data-i18n="(h\d+)"/g)].map(m => m[1]);
 const H = (() => { const m = /const HTML = (\{[\s\S]*?\n  \});/.exec(src); return eval('(' + m[1] + ')'); })();
 for (const id of ids) assert.ok(H[id], 'fehlt: ' + id);
-console.log(`i18n ok (${n} Einträge, ${ids.length} Absätze)`);
+// Hebräisch: gleiche Platzhalter wie Englisch
+const HEsrc = fs.readFileSync(__dirname + '/i18n-he.js', 'utf8');
+const HE = (() => { const w = {}; new Function('window', HEsrc)(w); return w.I18N_HE; })();
+const cnt = x => (String(x).match(/\{#?\}/g) || []).length;
+let nh = 0;
+for (const [k, v] of Object.entries(HE.exact)) { assert.ok(k in EN, 'unbekannter Schlüssel: ' + k); assert.strictEqual(cnt(v), cnt(EN[k]), 'Platzhalter in Hebräisch: ' + k); nh++; }
+for (const id of Object.keys(HE.html)) assert.ok(H[id], 'unbekannter Absatz: ' + id);
+console.log(`i18n ok (${n} Einträge, ${ids.length} Absätze, Hebräisch ${nh})`);
