@@ -185,7 +185,7 @@
     tabIdx = i; view = tabs[i];
     showTab('read');
     showView();
-    if (view.group) { const sc = view.scroll || 0; await loadView(); window.scrollTo(0, sc); }
+    if (view.group) { const sc = view.scroll || 0; await loadView({ noKeep: true }); window.scrollTo(0, sc); }
   }
   async function closeTab(i) {
     if (!tabs[i]) return;
@@ -197,7 +197,7 @@
       tabIdx = Math.min(i, tabs.length - 1);
       view = tabs[tabIdx];
       showView();
-      if (view.group) { const sc = view.scroll || 0; await loadView(); window.scrollTo(0, sc); }
+      if (view.group) { const sc = view.scroll || 0; await loadView({ noKeep: true }); window.scrollTo(0, sc); }
     } else renderTabs();
   }
   $('#tabbar').addEventListener('click', e => {
@@ -223,8 +223,21 @@
   // gemerkte Sprachauswahl (he/en/de), wird beim Umschalten der Versionen aktualisiert
   let prefKinds = ['he', 'en', 'de'];
   try { const k = JSON.parse(localStorage.getItem('prefKinds') || 'null'); if (Array.isArray(k) && k.length) prefKinds = k.filter(x => ['he', 'en', 'de'].includes(x)); } catch { /* egal */ }
+  // gemerkte Fassungen: je Sprache die Titel der Versionen, die man zuletzt ausgewählt hat; sie werden in jedem Buch, das sie hat, wieder geöffnet
+  let prefVer = {};
+  try { const p = JSON.parse(localStorage.getItem('prefVer') || '{}'); if (p && typeof p === 'object' && !Array.isArray(p)) prefVer = p; } catch { /* egal */ }
+  const kindKey = v => (['he', 'en', 'de'].includes(v.kind) ? v.kind : 'other');
+  function rememberVersions() {
+    if (!view || !view.group) return;
+    for (const k of new Set(view.group.versions.map(kindKey))) {
+      const titles = [...new Set(view.group.versions.filter(v => kindKey(v) === k && view.selected.has(v.rel)).map(v => v.versionTitle))];
+      if (titles.length) prefVer[k] = titles; else delete prefVer[k];
+    }
+    try { localStorage.setItem('prefVer', JSON.stringify(prefVer)); } catch { /* egal */ }
+  }
   function rememberKinds() {
     if (!view || !view.group) return;
+    rememberVersions();
     const ks = [...new Set(view.group.versions.filter(v => view.selected.has(v.rel) && ['he', 'en', 'de'].includes(v.kind)).map(v => v.kind))];
     if (!ks.length) return;
     // eine Sprache, die dieses Buch gar nicht hat, bleibt in der Auswahl erhalten
@@ -240,7 +253,13 @@
     // Voreinstellung nach Oberflächensprache: Hebräisch immer, dazu Englisch bzw. Deutsch (Hebräisch-Oberfläche: nur Hebräisch); fehlt Deutsch, hilft Englisch aus
     const want = new Set(['he']);
     if (I18N.lang === 'en') want.add('en'); else if (I18N.lang === 'de') { want.add('de'); if (!first('de')) want.add('en'); }
-    ['he', 'en', 'de'].forEach(k => { if (!want.has(k)) return; const v = first(k); if (v) sel.add(v.rel); });
+    // Zuletzt gewählte Versionen gelten in jedem Buch weiter, das sie hat; sonst die Voreinstellung der Sprache
+    for (const k of ['he', 'en', 'de', 'other']) {
+      const titles = Array.isArray(prefVer[k]) ? prefVer[k] : [];
+      const mine = g.versions.filter(v => kindKey(v) === k && titles.includes(v.versionTitle));
+      if (mine.length) mine.forEach(v => sel.add(v.rel));
+      else if (want.has(k)) { const v = first(k); if (v) sel.add(v.rel); }
+    }
     if (!sel.size) ['he', 'en', 'de'].forEach(k => { const v = first(k); if (v) sel.add(v.rel); });
     if (!sel.size && g.versions[0]) sel.add(g.versions[0].rel);
     return sel;
@@ -263,6 +282,15 @@
   async function loadView(target = {}) {
     const V = view; // Tab, für den geladen wird (der Nutzer kann inzwischen woanders sein)
     const tok = V.loadTok = (V.loadTok || 0) + 1;
+    // Versionen ändern: an derselben Stelle bleiben (markierter Vers, sonst der oberste sichtbare), statt zu Vers 1 zurückzuspringen
+    let keepRow = null;
+    if (view === V && !target.noKeep && !target.sectionPath && target.rowLabel == null && V.key) {
+      const rowsEl = [...$$('#rOut .row[data-l]')];
+      const hitEl = rowsEl.find(x => x.classList.contains('hit'));
+      const topEl = rowsEl.find(x => x.getBoundingClientRect().bottom > 90);
+      keepRow = (hitEl || topEl || {}).dataset ? (hitEl || topEl).dataset.l : null;
+      V.keepQuiet = !hitEl;
+    }
     if (view === V) $('#rOut').innerHTML = '<p class="muted">Lade …</p>';
     const loaded = [];
     for (const rel of [...V.selected]) {
@@ -316,7 +344,7 @@
     $('#rSection').innerHTML = secs.map((s, i) => `<option value="${i}">${esc(s.label)}</option>`).join('');
     renderVersions();
     renderCompare();
-    renderSection(target.rowLabel);
+    renderSection(target.rowLabel != null ? target.rowLabel : keepRow, target.rowLabel == null && keepRow != null && V.keepQuiet);
   }
 
   function renderVersions() {
@@ -394,9 +422,7 @@
     };
     const ofKinds = ks => new Set(g.versions.filter(v => ks.includes(kn(v))).map(v => v.rel));
     const items = [];
-    if (k !== 'he' && g.versions.some(v => kn(v) === 'he')) items.push({ label: HEAD_ALL['he' + k], fn: () => apply(ofKinds(['he', k])) });
-    items.push({ label: HEAD_ALL[k], fn: () => apply(new Set([...[...view.selected].filter(r => { const v = g.versions.find(x => x.rel === r); return !v || kn(v) !== k; }), ...ofKinds([k])])) });
-    items.push({ sep: true });
+    if (view.selected.size > 1) { items.push({ label: 'Diese Version aus der Anzeige entfernen', fn: () => { const n = new Set(view.selected); n.delete(d.entry.rel); apply(n); } }); items.push({ sep: true }); }
     for (const v of g.versions.filter(v => kn(v) === k)) {
       const cur = v.rel === d.entry.rel;
       items.push({ label: (cur ? '✓ ' : '\u2003 ') + shortVer(v.versionTitle), fn: () => { if (cur) return; const n = new Set(view.selected); n.delete(d.entry.rel); n.add(v.rel); apply(n); } }); // ersetzt die Version dieser Spalte
@@ -420,7 +446,7 @@
   }
 
   let syncPane = false; // Gleichlauf: Blättern im Hauptfenster blättert im zweiten Fenster mit
-  function renderSection(rowLabel) {
+  function renderSection(rowLabel, quiet) {
     if (!IS_PANE2 && syncPane && view && p2Frame && !p2Frame.hidden && p2Frame.contentWindow) p2Frame.contentWindow.postMessage({ type: 'sync', idx: view.idx, title: view.group ? view.group.title : '' }, '*');
     const s = view.sections[view.idx];
     $('#rSection').value = String(view.idx);
@@ -439,12 +465,15 @@
       const f = rows.find(r => r.label.startsWith(rowLabel + ':'));
       if (f) rowLabel = f.label;
     }
+    // der gesuchte Vers bleibt markiert (auch nach Tab-Wechseln), bis man das Kapitel wechselt
+    if (rowLabel != null && !quiet) view.hit = { k: s.k, label: rowLabel };
+    else if (rowLabel == null) { if (view.hit && view.hit.k === s.k && rows.some(r => r.label === view.hit.label)) rowLabel = view.hit.label; else view.hit = null; }
     if (view.vf && view.vf.k !== s.k) view.vf = null; // die Versauswahl gilt nur für den Abschnitt, in den gesprungen wurde
     const shownRows = view.vf ? rows.filter(r => { const v = rowVerse(r.label); return v != null && view.vf.set.has(v); }) : rows;
     if (view.vf && shownRows.length) view.vf.set = new Set(shownRows.map(r => rowVerse(r.label))); // „1-40“ in einem Kapitel mit 31 Versen gilt als 1–31, damit der Favorit überall dieselbe ID hat
     const vfBar = view.vf ? `<div class="vfbar">${esc(I18N.t('Ausgewählte Verse: {}', view.vf.text))} <button id="vfStar" type="button" title="${esc(I18N.t('Als Favorit speichern / entfernen'))}">☆</button> <button id="vfClear" type="button">${esc(I18N.t('Alle Verse zeigen'))}</button></div>` : '';
     const body = shownRows.map(r =>
-      `<div class="row${rowLabel != null && r.label === rowLabel ? ' hit' : ''}" data-l="${esc(r.label)}" style="--n:${n}"><div class="lab">${esc(r.label)}</div>${vis.map(i => cellHtml(r.cells[i], view.loaded[i])).join('')}</div>`).join('');
+      `<div class="row${rowLabel != null && !quiet && r.label === rowLabel ? ' hit' : ''}" data-l="${esc(r.label)}" style="--n:${n}"><div class="lab">${esc(r.label)}</div>${vis.map(i => cellHtml(r.cells[i], view.loaded[i])).join('')}</div>`).join('');
     $('#rOut').innerHTML = vfBar + head + body;
     recordNav(s, rowLabel);
     pushHistory(s, rowLabel);
@@ -456,8 +485,8 @@
     if (window.__refind) setTimeout(window.__refind, 0);
     { const ck = view.group.key + '|' + s.k; if (ck !== lastCmtKey) { cmtRow = null; lastCmtKey = ck; } }
     applyCmtRowSoon();
-    const hit = $('#rOut .row.hit');
-    if (hit) hit.scrollIntoView({ block: 'center' }); else window.scrollTo(0, 0);
+    const hit = $('#rOut .row.hit') || (quiet && rowLabel != null ? [...$$('#rOut .row[data-l]')].find(x => x.dataset.l === rowLabel) : null);
+    if (hit) hit.scrollIntoView({ block: quiet ? 'start' : 'center' }); else window.scrollTo(0, 0);
   }
 
   // Die Kapitel-Auswahl ist nur so breit wie der gewählte Eintrag
@@ -518,6 +547,13 @@
     let x = Math.max(8, Math.min(window.innerWidth - pw - 8, r.left + r.width / 2 - pw / 2));
     let y = r.bottom + 6; if (y + ph > window.innerHeight - 8) y = Math.max(8, r.top - ph - 6);
     wpop.style.left = x + 'px'; wpop.style.top = y + 'px';
+    wpop.ondblclick = ev => { // Doppelklick auf ein Wort im Popup schlägt es im Wörterbuch nach (das Lemma als Ganzes mit seinen Zeichen)
+      if (ev.target.closest('button')) return;
+      const lw = ev.target.closest('.wlem');
+      const sel = (window.getSelection() + '').trim().replace(/^[^\p{L}\p{M}]+|[^\p{L}\p{M}]+$/gu, '');
+      const q = lw ? lw.textContent.trim() : sel;
+      if (q && q.length <= 40 && !/\s/.test(q)) openDict(q);
+    };
     wpop.onclick = ev => {
       if (ev.target.closest('.wx')) closeWpop();
       const b = ev.target.closest('.wdict'); if (b) openDict(b.dataset.q);
@@ -560,9 +596,11 @@
   // Zu einer Stelle springen: "3", "3:7", "Daf 2a", "gen. 1:1" (Buchname optional, Anfang genügt)
   // ---------- Mehrere Stellen in einem Fenster: „gen 1:3, ex 7:9“, „gen 1:30-2:3“, „gen 1-3“ ----------
   const { normT, rowVerse, noteId, parseVerseList, fmtVerses, relatedTitles, sefariaUrl, noteUrl } = window.Refs;
+  // Titel passt zur Eingabe: Anfang des Titels, Anfang eines Titelworts oder – bei mehreren Wörtern („rashi genesis“) – jedes Eingabewort beginnt ein Titelwort
+  const titleHit = (title, b) => { const t = normT(title); return t.startsWith(b) || t.split(' ').some(w => w.startsWith(b)) || (b.includes(' ') && b.split(' ').every(k => t.split(' ').some(w => w.startsWith(k)))); };
   const bestGroup = book => {
     const b = normT(book);
-    const c = groups.filter(x => normT(x.title).startsWith(b) || normT(x.title).split(' ').some(w => w.startsWith(b)));
+    const c = groups.filter(x => titleHit(x.title, b));
     c.sort((x, y) => (normT(x.title) === b ? 0 : 1) - (normT(y.title) === b ? 0 : 1) || (normT(x.title).startsWith(b) ? 0 : 1) - (normT(y.title).startsWith(b) ? 0 : 1) || x.title.length - y.title.length);
     return c[0] || null;
   };
@@ -605,7 +643,7 @@
         }
         units.push({ book, chap: m[2].toLowerCase(), vs, pred: set ? (v => set.has(v)) : null });
       } else if (/\p{L}/u.test(seg) && bestGroup(seg)) { // nur ein Buchname („1 Samuel“): erstes Kapitel
-        multi = true; lastBook = seg; units.push({ book: seg, chap: '1', vs: '', pred: null });
+        lastBook = seg; units.push({ book: seg, chap: '1', vs: '', pred: null }); // ein einzelner Buchname ist keine Stellenliste (jumpTo öffnet das Buch selbst)
       } else bad.push(seg);
     }
     return multi ? { units, bad } : null;
@@ -686,7 +724,7 @@
       // nur ein Buchname ohne Zahl („genesis“ + Enter): Buch von vorn (erstes Kapitel) öffnen
       const b = normT(q);
       if (!b || !/\p{L}/u.test(b)) return false;
-      const c = groups.filter(g => normT(g.title).startsWith(b) || normT(g.title).split(' ').some(w => w.startsWith(b)))
+      const c = groups.filter(g => titleHit(g.title, b))
         .sort((a, b2) => (normT(a.title) === b ? 0 : 1) - (normT(b2.title) === b ? 0 : 1) || (normT(a.title).startsWith(b) ? 0 : 1) - (normT(b2.title).startsWith(b) ? 0 : 1) || a.title.length - b2.title.length);
       if (!c.length) return false;
       await openGroup(c[0], {}, inNewTab);
@@ -695,7 +733,7 @@
     const book = normT(m[1]), num = m[2].toLowerCase(), verse = m[3];
     let g = view && view.group;
     if (book) {
-      const cands = groups.filter(x => normT(x.title).startsWith(book) || normT(x.title).split(' ').some(w => w.startsWith(book)));
+      const cands = groups.filter(x => titleHit(x.title, book));
       cands.sort((a, b) => (normT(a.title) === book ? 0 : 1) - (normT(b.title) === book ? 0 : 1) || (normT(a.title).startsWith(book) ? 0 : 1) - (normT(b.title).startsWith(book) ? 0 : 1) || a.title.length - b.title.length);
       if (!cands.length) return false;
       if (!g || cands[0] !== g || inNewTab) { g = cands[0]; await openGroup(g, {}, inNewTab); }
@@ -721,7 +759,7 @@
       const { book, rest } = split(input.value);
       const q = normT(book);
       if (!q || rest.trim()) { hide(); return; } // Vorschläge nur, solange noch kein Kapitel eingegeben ist
-      const hits = groups.filter(g => { const t = normT(g.title); return t.startsWith(q) || t.split(' ').some(w => w.startsWith(q)) || (g.heTitle && g.heTitle.includes(book)); });
+      const hits = groups.filter(g => titleHit(g.title, q) || (g.heTitle && g.heTitle.includes(book)));
       hits.sort((a, b) => (normT(a.title).startsWith(q) ? 0 : 1) - (normT(b.title).startsWith(q) ? 0 : 1));
       const first = hits.filter(g => normT(g.title).startsWith(q)), other = hits.filter(g => !normT(g.title).startsWith(q));
       list = [...SefOrder.sortTitles(first), ...SefOrder.sortTitles(other)].slice(0, 8);
@@ -928,9 +966,27 @@
   });
   $('#lkBtn').onclick = () => { lkVerse = null; renderLinkPanel(); };
   $('#lkClose').onclick = () => { $('#linkPanel').hidden = true; };
+  // Klick außerhalb des Verknüpfungen-Fensters schließt es (Klick auf die Verknüpfungs-Knöpfe, Menüs und Vorschau zählt nicht)
+  document.addEventListener('mousedown', e => {
+    if ($('#linkPanel').hidden || !e.target.closest) return;
+    if (e.target.closest('#linkPanel, #lkBtn, .lk, #ctxMenu, #lkHover, #suggest, #tip, #undoBar, dialog')) return;
+    $('#linkPanel').hidden = true;
+  }, true);
   $('#lkFilter').addEventListener('input', () => renderLinkPanel());
   const localTitles = () => new Set(groups.map(g => g.title));
   const splitOther = ref => { const m = String(ref).match(/^(.*?)\s+\d+[ab]?(?::\d+)*(?:-.*)?$/i); return m ? m[1] : ref; };
+  // Reihenfolge wie in der Bibliotheksliste links: Kategorien und Buchtitel in derselben Sortierung
+  const catCmp = (x, y, parent) => x === y ? 0 : (SefOrder.sortCats([x, y], parent)[0] === x ? -1 : 1);
+  const titleCmp = (x, y) => x === y ? 0 : (SefOrder.sortTitles([x, y], t => t)[0] === x ? -1 : 1);
+  function libCmpGroups(ga, gb) { // ga, gb: Bibliotheksbücher (oder null, wenn nicht in der Bibliothek)
+    if (ga && !gb) return -1; if (!ga && gb) return 1; if (!ga) return 0;
+    const pa = ga.categories || [], pb = gb.categories || [];
+    for (let i = 0; i < Math.min(pa.length, pb.length); i++) { const c = catCmp(pa[i], pb[i], i ? pa[i - 1] : ''); if (c) return c; }
+    if (pa.length !== pb.length) return pa.length < pb.length ? -1 : 1; // Bücher vor Unterkategorien
+    return titleCmp(ga.title, gb.title);
+  }
+  // nur die 39 Bücher des Tanach selbst klappen im Verknüpfungen-Fenster auf; Kommentare, Targumim und alles andere bleiben zu
+  const TANAKH_BOOKS = new Set('Genesis,Exodus,Leviticus,Numbers,Deuteronomy,Joshua,Judges,I Samuel,II Samuel,I Kings,II Kings,Isaiah,Jeremiah,Ezekiel,Hosea,Joel,Amos,Obadiah,Jonah,Micah,Nahum,Habakkuk,Zephaniah,Haggai,Zechariah,Malachi,Psalms,Proverbs,Job,Song of Songs,Ruth,Lamentations,Ecclesiastes,Esther,Daniel,Ezra,Nehemiah,I Chronicles,II Chronicles'.split(','));
   function renderLinkPanel() {
     if (!view) return;
     const s = view.sections[view.idx];
@@ -938,6 +994,8 @@
     let list = secLinks.filter(x => lkVerse == null ? true : (x.v1 === 0 || (lkVerse >= x.v1 && lkVerse <= x.v2)));
     if (f) list = list.filter(x => (x.other + ' ' + x.cat + ' ' + x.type).toLowerCase().includes(f));
     $('#lkTitle').textContent = `${view.group.title} · ${s ? s.label : ''}${lkVerse != null ? ':' + lkVerse : ''} – ${list.length} Verknüpfungen`;
+    const byT = new Map(groups.map(g => [g.title, g]));
+    const titleToGroup = t => byT.get(t) || byT.get(String(t).split(', ')[0]) || null;
     const local = localTitles();
     const LK_FIRST = ['tanakh', 'mishnah', 'tosefta', 'talmud', 'responsa']; // feste Reihenfolge oben, danach der Rest nach Anzahl
     const lkRank = c => { const i = LK_FIRST.indexOf(String(c).toLowerCase()); return i < 0 ? 99 : i; };
@@ -951,10 +1009,10 @@
       m.get(bk).push(x);
     }
     const open = f || lkVerse != null ? 'open' : '';
-    $('#lkBody').innerHTML = [...cats.entries()].sort((a, b) => lkRank(a[0]) - lkRank(b[0]) || b[1].size - a[1].size).map(([c, books]) => {
+    $('#lkBody').innerHTML = (() => { const order = SefOrder.sortCats([...cats.keys()], ''); return [...cats.entries()].sort((a, b) => order.indexOf(a[0]) - order.indexOf(b[0])); })().map(([c, books]) => {
       const total = [...books.values()].reduce((a, v) => a + v.length, 0);
-      return `<details ${open}><summary>${esc(c)} (${total})</summary>${[...books.entries()].sort((a, b) => b[1].length - a[1].length).map(([bk, xs]) =>
-        `<details ${f ? 'open' : ''}><summary>${esc(bk)} (${xs.length})${local.has(bk) ? '' : ' <span class="muted">· nicht lokal</span>'}</summary>${xs.slice(0, 300).map(x =>
+      return `<details ${open}><summary>${esc(c)} (${total})</summary>${[...books.entries()].sort((a, b) => { const ga = titleToGroup(a[0]), gb = titleToGroup(b[0]); return libCmpGroups(ga, gb) || titleCmp(a[0], b[0]); }).map(([bk, xs]) =>
+        `<details ${f || (String(c).toLowerCase() === 'tanakh' && TANAKH_BOOKS.has(bk)) ? 'open' : ''}><summary>${esc(bk)} (${xs.length})${local.has(bk) ? '' : ' <span class="muted">· nicht lokal</span>'}</summary>${xs.slice(0, 300).map(x =>
           `<div class="ent${local.has(bk) ? '' : ' off'}"><a data-ref="${esc(x.other)}">${esc(x.other)}</a>${local.has(bk) ? ` <button data-pv="${esc(x.other)}" title="Vorschau">▸</button>` : ''}${x.type ? ` <small class="muted">${esc(x.type)}</small>` : ''}</div>`).join('')}${xs.length > 300 ? `<div class="muted ent">… ${xs.length - 300} weitere (Filter benutzen)</div>` : ''}</details>`).join('')}</details>`;
     }).join('') || '<p class="muted">Keine Verknüpfungen.</p>';
     $('#linkPanel').hidden = false;
@@ -976,6 +1034,30 @@
       b.parentElement.insertAdjacentHTML('afterend', `<div class="pv">${html}</div>`);
     }
   });
+  // Vorschau beim Überfahren eines Querverweises (nur bei lokal vorhandenen Büchern)
+  { let hov = null, hovT = null, hovRef = null; const pvCache = new Map();
+    const hideHov = () => { clearTimeout(hovT); hovRef = null; if (hov) hov.hidden = true; };
+    $('#lkBody').addEventListener('mouseover', e => {
+      const a = e.target.closest('a[data-ref]');
+      if (!a || a.parentElement.classList.contains('off') || a.dataset.ref === hovRef) return;
+      hideHov(); const ref = a.dataset.ref; hovRef = ref;
+      hovT = setTimeout(async () => {
+        let r = pvCache.get(ref);
+        if (!r) { try { r = await LK.preview(ref, ['he', I18N.lang === 'de' ? 'de' : 'en']); } catch { r = {}; } pvCache.set(ref, r); if (pvCache.size > 200) pvCache.delete(pvCache.keys().next().value); }
+        if (hovRef !== ref) return; // Maus ist inzwischen woanders
+        if (!hov) { hov = document.createElement('div'); hov.id = 'lkHover'; document.body.appendChild(hov); }
+        const partHtml = p => p.items.map(t => `<div dir="${p.he ? 'rtl' : 'ltr'}"${p.he ? ' lang="he" class="phe"' : ''}>${R.cleanHtml(R.splitFootnotes(p.he ? stripHe(t) : t).main.replace(/<sup[^>]*>.*?<\/sup>/g, ''))}</div>`).join('');
+        const html = r.parts && r.parts.length ? r.parts.map((p, i) => (i ? '<hr>' : '') + partHtml(p)).join('') : r.items && r.items.length ? partHtml({ items: r.items, he: r.he }) : `<i>${esc(I18N.t('Keine Vorschau möglich.'))}</i>`;
+        hov.innerHTML = `<b>${esc(ref)}</b>${html}`; hov.hidden = false;
+        const rc = a.getBoundingClientRect(), w = hov.offsetWidth, h = hov.offsetHeight;
+        hov.style.left = Math.max(8, Math.min(window.innerWidth - w - 8, rc.left - w - 10 > 8 ? rc.left - w - 10 : rc.right + 10)) + 'px'; // bevorzugt links vom Panel
+        hov.style.top = Math.max(8, Math.min(window.innerHeight - h - 8, rc.top - 8)) + 'px';
+      }, 350);
+    });
+    $('#lkBody').addEventListener('mouseout', e => { const a = e.target.closest('a[data-ref]'); if (a && !a.contains(e.relatedTarget)) hideHov(); });
+    $('#linkPanel').addEventListener('scroll', hideHov, { passive: true });
+    $('#lkBody').addEventListener('click', hideHov);
+  }
   refreshLinkStatus().then(() => { if (view) renderSection(); });
 
   // Höhe der festen Leiste messen, damit die Spaltenköpfe direkt darunter haften
@@ -1075,7 +1157,7 @@
     if (!t) return;
     if (t !== fTerm || !fRanges.length) runFind(t); else goFind(fIdx + (fwd ? 1 : -1));
   };
-  const openFind = () => { fb.hidden = false; fin.focus(); fin.select(); };
+  const openFind = () => { if (document.documentElement.dataset.tab === 'notes') { const f = $('#nFilter'); f.focus(); f.select(); return; } fb.hidden = false; fin.focus(); fin.select(); }; // im Notizen-Reiter: Cmd+F = Notizen filtern
   const closeFind = () => { fb.hidden = true; clearFind(false); };
   O.onFindOpen(() => {
     const p2 = $('#pane2');
@@ -1439,7 +1521,19 @@
     document.body.classList.toggle('dict-open', dictOpen);
     $('#cmtResize').hidden = !(cmtOpen || dictOpen);
   };
+  // Seitenleisten ändern die Breite des Lesebereichs: die Stelle, an der man gerade liest (markierter Vers, sonst oberster sichtbarer), bleibt dabei auf dem Bildschirm stehen
+  function withAnchor(fn) {
+    const vis = x => { const r = x.getBoundingClientRect(); return r.bottom > 110 && r.top < window.innerHeight; };
+    const rows = $$('#rOut .row[data-l]');
+    const a = rows.find(x => (x.classList.contains('hit') || x.classList.contains('cmtrow')) && vis(x)) || rows.find(vis);
+    const t0 = a ? a.getBoundingClientRect().top : 0;
+    fn();
+    if (a && a.isConnected) { const d = a.getBoundingClientRect().top - t0; if (Math.abs(d) > 1) window.scrollBy(0, d); }
+  }
   function toggleDict(force) {
+    withAnchor(() => toggleDict0(force));
+  }
+  function toggleDict0(force) {
     dictOpen = force == null ? !dictOpen : force;
     $('#dictPanel').hidden = !dictOpen;
     syncDock();
@@ -2115,6 +2209,7 @@
   // ---------- Lesezeichen und Notizen ----------
   const NT = window.notes;
   let notesAll = [];
+  const noteTags = n => (Array.isArray(n.tags) ? n.tags : []);
   const kindOf = n => n.kind || 'row'; // 'row' = Lesezeichen an einer Zeile, 'free' = freie Notiz ('hl' = frühere Farbmarkierungen: bleiben in der Datei, werden aber nicht mehr angezeigt)
   const newId = p => p + '|' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
   const topOrder = () => Math.min(0, ...notesAll.map(n => (n.order == null ? 0 : n.order))) - 1;
@@ -2183,10 +2278,10 @@
   }
   // Gelöscht-Hinweis mit „Rückgängig“
   let undoT = null;
-  function showUndo(n) {
+  function showUndo(n, msg) {
     let bar = $('#undoBar');
     if (!bar) { bar = document.createElement('div'); bar.id = 'undoBar'; document.body.appendChild(bar); }
-    bar.innerHTML = `<span>${esc(I18N.t('Notiz gelöscht'))}</span> <button type="button">${esc(I18N.t('Rückgängig'))}</button>`;
+    bar.innerHTML = `<span>${esc(I18N.t(msg || 'Notiz gelöscht'))}</span> <button type="button">${esc(I18N.t('Rückgängig'))}</button>`;
     bar.classList.add('on');
     clearTimeout(undoT); undoT = setTimeout(() => bar.classList.remove('on'), 10000);
     bar.querySelector('button').onclick = async () => {
@@ -2200,6 +2295,13 @@
     const r = await ntDo(() => NT.remove(id));
     if (r) { notesAll = r; refreshNotes(); if (n) showUndo(n); }
   }
+  // Cmd/Strg+Z, solange die Rückgängig-Leiste zu sehen ist
+  document.addEventListener('keydown', e => {
+    const bar = $('#undoBar');
+    if (!(e.metaKey || e.ctrlKey) || e.shiftKey || e.altKey || e.key.toLowerCase() !== 'z' || !bar || !bar.classList.contains('on')) return;
+    if (/^(INPUT|TEXTAREA)$/.test(document.activeElement.tagName)) return;
+    e.preventDefault(); bar.querySelector('button').click();
+  });
   async function loadNotes() { notesAll = await NT.list(); renderNotes(); markNotes(); backfillHe(); }
   function markNotes() {
     { const bl = new Set(notesAll.filter(n => kindOf(n) === 'block').map(n => n.id)); $$('#passOut .pstar').forEach(b => { const on = bl.has(b.dataset.id); b.textContent = on ? '★' : '☆'; b.classList.toggle('on', on); }); }
@@ -2209,28 +2311,36 @@
     const blk = new Set(notesAll.filter(n => kindOf(n) === 'block').map(n => n.id));
     const vfs = $('#vfStar');
     if (vfs && view.vf) { const on = blk.has(noteId(view.group, s.k, 'blk:' + fmtVerses([...view.vf.set]))); vfs.textContent = on ? '★' : '☆'; vfs.classList.toggle('on', on); }
-    const ids = new Set(notesAll.filter(n => kindOf(n) === 'row').map(n => n.id));
+    const rowNotes = new Map(notesAll.filter(n => kindOf(n) === 'row').map(n => [n.id, n]));
     $$('#rOut .row[data-l]').forEach(r => {
-      const on = ids.has(noteId(view.group, s.k, r.dataset.l));
+      const nid = noteId(view.group, s.k, r.dataset.l), nn = rowNotes.get(nid);
+      const on = !!nn;
+      // der Notiztext steht unter der Zeile (Klick öffnet die Notiz) und als Tooltip am Stern
+      let st = r.querySelector(':scope > .rnote');
+      if (nn && nn.note) { if (!st) { st = document.createElement('div'); st.className = 'rnote'; r.appendChild(st); } st.textContent = nn.note; st.dataset.id = nid; st.title = I18N.t('Klicken: Notiz bearbeiten'); }
+      else if (st) st.remove();
       r.classList.toggle('noted', on);
       const lab = r.querySelector('.lab');
       if (!lab.querySelector('.bm')) lab.insertAdjacentHTML('afterbegin', '<span class="bm" title="Lesezeichen / Notiz">☆</span>');
       const b = lab.querySelector('.bm');
+      b.title = nn && nn.note ? nn.note : I18N.t('Lesezeichen / Notiz');
       b.classList.toggle('on', on);
       b.textContent = on ? '★' : '☆';
     });
   }
 
   // Notiz-Fenster für alle drei Arten
-  let editing = null;
+  let editing = null, editingOld = null;
   function openNoteDlg(it, o = {}) {
     editing = it;
+    editingOld = notesAll.some(x => x.id === it.id) ? JSON.parse(JSON.stringify(it)) : null; // für „Rückgängig“ beim Überschreiben
     const k = kindOf(it);
     $('#ndTitle').textContent = k === 'free' ? I18N.t('Eigene Notiz') : `${it.title} · ${it.secLabel} · ${k === 'block' ? (it.vs || I18N.t('ganzes Kapitel')) : it.row}`;
     $('#ndExcerpt').textContent = k === 'free' ? '' : [it.he, it.excerpt].filter(Boolean).join('\n');
     $('#ndTitleIn').hidden = k !== 'free';
     $('#ndTitleIn').value = it.title || '';
     $('#ndText').value = it.note || '';
+    $('#ndTags').value = noteTags(it).join(', ');
     $('#ndText').placeholder = I18N.t(k === 'row' ? 'Eigene Notiz (leer lassen = nur Lesezeichen)' : 'Notiz');
     $('#ndDel').hidden = !o.canDelete;
     $('#ndDel').textContent = I18N.t(k === 'free' ? 'Notiz entfernen' : 'Lesezeichen entfernen');
@@ -2240,6 +2350,8 @@
   }
   const refreshNotes = () => { markNotes(); renderNotes(); };
   $('#rOut').addEventListener('click', e => {
+    const rn = e.target.closest('.rnote');
+    if (rn && !window.getSelection().toString()) { const nn = notesAll.find(x => x.id === rn.dataset.id); if (nn) openNoteDlg(nn, { canDelete: true }); return; }
     const b = e.target.closest('.bm');
     if (!b || !view || !view.group) return;
     const row = b.closest('.row');
@@ -2255,13 +2367,28 @@
     if (old && !old.he && he) old.he = he;
     openNoteDlg(old || { id, key: view.group.key, title: view.group.title, sk: s.k, secLabel: s.label, row: label, excerpt, he: he && he !== excerpt ? he : '', note: '', order: topOrder() }, { canDelete: !!old });
   });
+  // N im Lesetext: Notiz zur Zeile unter dem Zeiger (oder zur zuletzt gewählten Zeile)
+  { let lastRow = null;
+    $('#rOut').addEventListener('mouseover', e => { const r = e.target.closest('.row[data-l]'); if (r) lastRow = r; });
+    document.addEventListener('keydown', e => {
+      if (e.key.toLowerCase() !== 'n' || e.metaKey || e.ctrlKey || e.altKey || e.shiftKey || e.isComposing) return;
+      if (/^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement.tagName) || document.activeElement.isContentEditable || document.querySelector('dialog[open]')) return;
+      if (document.documentElement.dataset.tab !== 'read' || !view || !view.group) return;
+      const row = lastRow && lastRow.isConnected ? lastRow : $$('#rOut .row[data-l]').find(x => x.dataset.l === cmtRow);
+      const b = row && row.querySelector('.lab .bm');
+      if (b) { e.preventDefault(); b.click(); }
+    });
+  }
   $('#ndSave').onclick = async () => {
     editing.note = $('#ndText').value.trim();
+    { const tg = [...new Set($('#ndTags').value.split(/[,;]/).map(x => x.trim()).filter(Boolean))]; if (tg.length) editing.tags = tg; else delete editing.tags; }
     if (kindOf(editing) === 'free') {
       editing.title = $('#ndTitleIn').value.trim();
       if (!editing.note && !editing.title) { $('#noteDlg').close(); return; }
     }
+    const old = editingOld;
     const r = await ntDo(() => NT.save(editing)); if (!r) return; notesAll = r; $('#noteDlg').close(); refreshNotes();
+    if (old && old.note && old.note !== editing.note) showUndo(old, 'Notiz geändert');
   };
   $('#ndDel').onclick = async () => { const id = editing.id; $('#noteDlg').close(); await removeNote(id); };
   $('#ndClose').onclick = () => $('#noteDlg').close();
@@ -2287,15 +2414,25 @@
       { label: 'Als Word-Datei speichern', fn: () => exportNotes('doc') },
       { label: 'Als PDF speichern', fn: () => exportNotes('pdf') },
       { sep: true },
+      ...[['filtered', 'Nur die angezeigten (gefilterten) Notizen exportieren'], ['noNote', 'Ohne meine Notizen exportieren (Arbeitsblatt)'], ['heOnly', 'Nur Stelle und Hebräisch, ohne Übersetzung']].map(([k, t]) => ({ label: (nExp[k] ? '✓ ' : '\u2003 ') + t, fn: () => { nExp[k] = !nExp[k]; try { localStorage.setItem('nExp', JSON.stringify(nExp)); } catch { /* egal */ } } })),
+      { sep: true },
       { label: 'Sicherung einlesen …', fn: importNotes },
     ];
     e.stopPropagation();
     ctxShow({ clientX: r.left, clientY: r.bottom + 2, preventDefault() {} }, items);
   };
+  let nExp = {}; // Export-Optionen für Markdown/Word/PDF (nicht für die JSON-Sicherung)
+  try { nExp = JSON.parse(localStorage.getItem('nExp') || '{}') || {}; } catch { nExp = {}; }
   const lsArr = k => { try { const a = JSON.parse(localStorage.getItem(k) || '[]'); return Array.isArray(a) ? a.filter(x => typeof x === 'string') : []; } catch { return []; } };
   async function exportNotes(fmt) {
-    const list = notesAll.slice().sort((a, b) => (a.order ?? 1e9) - (b.order ?? 1e9) || (b.ts || 0) - (a.ts || 0));
+    let list = notesAll.slice().sort((a, b) => (a.order ?? 1e9) - (b.order ?? 1e9) || (b.ts || 0) - (a.ts || 0));
     const day = new Date().toISOString().slice(0, 10);
+    if (fmt !== 'json') {
+      if (nExp.filtered) list = filteredNotes().list;
+      if (nExp.noNote) list = list.filter(n => kindOf(n) !== 'free').map(n => ({ ...n, note: '' }));
+      if (nExp.heOnly) list = list.map(n => ({ ...n, excerpt: n.he ? '' : n.excerpt }));
+      list = list.filter(n => kindOf(n) !== 'hl');
+    }
     if (fmt === 'json') {
       await window.api.saveFile(`Safran-Notizen-${day}.json`, JSON.stringify({ app: 'Safran', kind: 'notes', version: 1, exported: new Date().toISOString(), items: list, dictFavs: lsArr('dictFavs'), dictRecent: lsArr('dictRecent'), searchFavs: lsArr('searchFavs'), searchRecent: lsArr('searchRecent') }, null, 1));
       return;
@@ -2310,6 +2447,7 @@
         if (n.he) md.push('> ' + String(n.he).replace(/\n+/g, ' '), '');
         if (n.excerpt) md.push('> ' + String(n.excerpt).replace(/\n+/g, ' '), '');
         if (n.note) md.push(String(n.note), '');
+        if (noteTags(n).length) md.push('Tags: ' + noteTags(n).join(', '), '');
         if (n.ts) md.push(`*${new Date(n.ts).toLocaleDateString('de-DE')}*`, '');
       }
       await window.api.saveFile(`Safran-Notizen-${day}.md`, md.join('\n'));
@@ -2318,7 +2456,7 @@
     // Word / PDF
     const body = list.map(n => {
       const where = whereOf(n), url = noteUrl(n);
-      return `<div class="n"><h2>${url ? `<a href="${esc(url)}">${esc(where)}</a>` : esc(where || 'Notiz')}</h2>${n.he ? `<p class="he" dir="rtl">${esc(n.he)}</p>` : ''}${n.excerpt ? `<p class="ex">${esc(n.excerpt)}</p>` : ''}${n.note ? `<p class="nt">${esc(n.note).replace(/\n/g, '<br>')}</p>` : ''}</div>`;
+      return `<div class="n"><h2>${url ? `<a href="${esc(url)}">${esc(where)}</a>` : esc(where || 'Notiz')}</h2>${n.he ? `<p class="he" dir="rtl">${esc(n.he)}</p>` : ''}${n.excerpt ? `<p class="ex">${esc(n.excerpt)}</p>` : ''}${n.note ? `<p class="nt">${esc(n.note).replace(/\n/g, '<br>')}</p>` : ''}${noteTags(n).length ? `<p class="ex">Tags: ${esc(noteTags(n).join(', '))}</p>` : ''}</div>`;
     }).join('');
     const css = `body{font-family:"Times New Roman",serif;font-size:11pt;line-height:1.45;color:#000}h1{font-size:16pt}h2{font-size:12pt;margin:14pt 0 3pt}h2 a{color:#1a4f9c;text-decoration:none}.he{font-family:"SBL Hebrew","Times New Roman",serif;font-size:14pt;line-height:1.7;margin:2pt 0}.ex{color:#333;margin:2pt 0}.nt{background:#fff6d6;padding:3pt 6pt;margin:3pt 0}.n{page-break-inside:avoid}`;
     const html = `<!doctype html><html><head><meta charset="utf-8"><title>Safran – Notizen</title><style>${css}</style></head><body><h1>Safran – Notizen und Favoriten</h1><p style="font-size:9pt;color:#666">${esc(I18N.t('Exportiert am {}', day2))}</p>${body}</body></html>`;
@@ -2331,7 +2469,12 @@
     const items = j && Array.isArray(j.items) ? j.items.filter(x => x && typeof x.id === 'string') : null;
     const extra = j && typeof j === 'object' ? ['dictFavs', 'dictRecent', 'searchFavs', 'searchRecent'].filter(k => Array.isArray(j[k]) && j[k].length) : [];
     if ((!items || !items.length) && !extra.length) return alert(I18N.t('Diese Datei ist keine Notizsicherung.'));
-    if (!confirm(I18N.t('{#} Notizen aus der Sicherung zusammenführen? Vorhandene bleiben erhalten, nur ältere Fassungen werden ersetzt.', (items || []).length))) return;
+    // Vorschau: was würde neu, aktualisiert oder bliebe gleich?
+    { const have = new Map(notesAll.map(n => [n.id, n])); let nn = 0, nu = 0, ns = 0; const names = [];
+      for (const it of items || []) { const c = have.get(it.id); if (!c) { nn++; if (names.length < 6) names.push([it.title, it.secLabel, it.vs || it.row].filter(Boolean).join(' · ') || I18N.t('Eigene Notiz')); } else if ((it.ts || 0) > (c.ts || 0)) nu++; else ns++; }
+      const warn = j && j.app && j.app !== 'Safran' ? I18N.t('Achtung: Die Datei stammt nicht aus Safran.') + '\n\n' : '';
+      const msg = warn + I18N.t('Aus der Sicherung: {#} neu, {#} aktualisiert, {#} unverändert.', nn, nu, ns) + (names.length ? '\n\n' + I18N.t('Neu zum Beispiel:') + '\n• ' + names.join('\n• ') : '') + '\n\n' + I18N.t('Zusammenführen? Vorhandene bleiben erhalten, nur ältere Fassungen werden ersetzt.');
+      if (!confirm(msg)) return; }
     // gespeicherte Wörter und Suchen: Einträge der Sicherung kommen dazu (ohne Doppelte), die vorhandenen bleiben vorn
     for (const k of extra) { try { const have = lsArr(k), add = j[k].filter(x => typeof x === 'string' && !have.includes(x)); localStorage.setItem(k, JSON.stringify([...have, ...add].slice(0, 200))); } catch { /* egal */ } }
     const r = items && items.length ? await ntDo(() => NT.merge(items)) : { items: notesAll, stat: { added: 0, updated: 0, same: 0 } };
@@ -2346,23 +2489,75 @@
   $('#nSort').onchange = () => { nSort = $('#nSort').value; try { localStorage.setItem('nSort', nSort); } catch { /* egal */ } renderNotes(); };
   const byManual = (a, b) => ((a.order == null ? Infinity : a.order) - (b.order == null ? Infinity : b.order)) || ((b.ts || 0) - (a.ts || 0));
   const manualAll = () => [...notesAll].sort(byManual);
-  function renderNotes() {
+  // Filter: Text, Art, Tag, „nur mit Notiz“
+  let nKind = 'all', nOnly = false, nTag = '';
+  const secNum = n => { const m = String(n.secLabel || '').match(/(\d+)([ab])?/); return m ? +m[1] * 2 + (m[2] === 'b' ? 1 : 0) : 0; };
+  const noteFilterOn = () => !!($('#nFilter').value.trim() || nKind !== 'all' || nOnly || nTag);
+  function filteredNotes() {
     const f = $('#nFilter').value.trim().toLowerCase();
     const shown = notesAll.filter(n => kindOf(n) !== 'hl');
-    let list = shown.filter(n => !f || [n.title, n.secLabel, n.row, n.vs, n.he, n.excerpt, n.note].join(' ').toLowerCase().includes(f));
+    let list = shown.filter(n => (!f || [n.title, n.secLabel, n.row, n.vs, n.he, n.excerpt, n.note, noteTags(n).join(' ')].join(' ').toLowerCase().includes(f))
+      && (nKind === 'all' || kindOf(n) === nKind) && (!nOnly || n.note) && (!nTag || noteTags(n).includes(nTag)));
     if (nSort === 'new') list.sort((a, b) => (b.ts || 0) - (a.ts || 0));
-    else if (nSort === 'book') list.sort((a, b) => String(a.title || '~').localeCompare(String(b.title || '~')) || byManual(a, b));
+    else if (nSort === 'book') list.sort((a, b) => ((kindOf(a) === 'free') - (kindOf(b) === 'free')) || libCmpGroups(groupsByKey.get(a.key) || null, groupsByKey.get(b.key) || null) || String(a.title || '~').localeCompare(String(b.title || '~')) || secNum(a) - secNum(b) || ((rowVerse(a.row) || 0) - (rowVerse(b.row) || 0)) || byManual(a, b));
     else list.sort(byManual);
-    $('#nCount').textContent = I18N.t('{#} von {#}', list.length, shown.length);
+    return { f, shown, list };
+  }
+  const escRe = x => x.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  // Text mit hervorgehobenem Suchwort
+  const hlTxt = (t, f) => { t = String(t ?? ''); if (!f) return esc(t); return t.split(new RegExp('(' + escRe(f) + ')', 'gi')).map((p, i) => i % 2 ? `<mark>${esc(p)}</mark>` : esc(p)).join(''); };
+  // Notiztext: **fett**, *kursiv*, Aufzählungen („- …“) und Stellenangaben („Gen 3:5“, „Psalms 23“) als Link
+  const REF_RE = /\b((?:[1-3]\s?)?[A-Z][a-z]+(?:\sof\s[A-Z][a-z]+)?)\.?\s(\d+[ab]?)(?::(\d+(?:\s?[-–]\s?\d+)?(?:,\s?\d+)*))?/;
+  const noteRefOk = book => { const b = normT(book); if (b.length < 2) return false; const g = groups.find(x => normT(x.title).startsWith(b) && !/ on /.test(x.title)); return !!g; };
+  function ntHtml(text, f) {
+    const tok = /(\*\*[^*\n]+\*\*)|(\*[^*\s][^*\n]*\*)|((?:[1-3]\s?)?[A-Z][a-z]+(?:\sof\s[A-Z][a-z]+)?\.?\s\d+[ab]?(?::\d+(?:\s?[-–]\s?\d+)?(?:,\s?\d+)*)?)/g;
+    return String(text ?? '').split('\n').map(line => {
+      let bullet = '';
+      const m = line.match(/^\s*[-•]\s+(.*)$/); if (m) { bullet = '• '; line = m[1]; }
+      let out = '', last = 0, x;
+      tok.lastIndex = 0;
+      while ((x = tok.exec(line))) {
+        out += hlTxt(line.slice(last, x.index), f); last = tok.lastIndex;
+        if (x[1]) out += `<b>${hlTxt(x[1].slice(2, -2), f)}</b>`;
+        else if (x[2]) out += `<i>${hlTxt(x[2].slice(1, -1), f)}</i>`;
+        else { const r = x[3].match(REF_RE); out += r && noteRefOk(r[1]) ? `<a class="nref" data-q="${esc(x[3].replace(/\.\s/, ' '))}">${hlTxt(x[3], f)}</a>` : hlTxt(x[3], f); }
+      }
+      return bullet + out + hlTxt(line.slice(last), f);
+    }).join('\n');
+  }
+  function renderNotes() {
+    const { f, shown, list } = filteredNotes();
+    const book = nSort === 'book';
+    { const nb = new Set(list.filter(n => kindOf(n) !== 'free').map(n => n.title)).size;
+      $('#nCount').textContent = book && nb ? I18N.t('{#} von {#} · {#} Bücher', list.length, shown.length, nb) : I18N.t('{#} von {#}', list.length, shown.length); }
+    // Tags: Auswahlleiste und Vorschläge im Dialog
+    { const cnt = new Map(); shown.forEach(n => noteTags(n).forEach(t => cnt.set(t, (cnt.get(t) || 0) + 1)));
+      if (nTag && !cnt.has(nTag)) nTag = '';
+      $('#nTags').hidden = !cnt.size;
+      $('#nTags').innerHTML = [...cnt.entries()].sort((a, b) => a[0].localeCompare(b[0])).map(([t, c]) => `<button class="ntag${t === nTag ? ' on' : ''}" data-tag="${esc(t)}">${esc(t)} <small>${c}</small></button>`).join('');
+      $('#ndTagList').innerHTML = [...cnt.keys()].map(t => `<option value="${esc(t)}">`).join(''); }
     const man = nSort === 'manual';
+    const dFmt = ts => ts ? new Date(ts).toLocaleDateString(I18N.loc, { day: 'numeric', month: 'short', year: 'numeric' }) : '';
     const item = n => {
       const k = kindOf(n);
-      const head = k === 'free' ? esc(n.title || I18N.t('Eigene Notiz')) : `${esc(n.title)} · ${esc(n.secLabel)} · ${esc(k === 'block' ? (n.vs || I18N.t('ganzes Kapitel')) : n.row)}`;
-      return `<div class="nitem" data-id="${esc(n.id)}"${man ? ' draggable="true"' : ''}><span class="nbtns">${man ? `<button data-mv="-1" title="Nach oben schieben">▲</button><button data-mv="1" title="Nach unten schieben">▼</button>` : ''}<button data-edit="${esc(n.id)}" title="Notiz bearbeiten">✎</button><button data-del="${esc(n.id)}" title="Entfernen">✕</button></span><div class="t">${k === 'row' || k === 'block' ? '☆ ' : k === 'free' ? '✎ ' : ''}<span class="ut">${head}</span></div>${k === 'row' || k === 'block' ? noteBody(n) : ''}${n.note ? `<div class="nt">${esc(n.note)}</div>` : ''}</div>`;
+      const head = k === 'free' ? hlTxt(n.title || I18N.t('Eigene Notiz'), f) : `${hlTxt(n.title, f)} · ${hlTxt(n.secLabel, f)} · ${hlTxt(k === 'block' ? (n.vs || I18N.t('ganzes Kapitel')) : n.row, f)}`;
+      const g = groupsByKey.get(n.key);
+      const tags = noteTags(n);
+      const orphan = (k === 'row' || k === 'block') && !noteVers(g).length;
+      return `<div class="nitem" data-id="${esc(n.id)}"${man ? ' draggable="true"' : ''}><span class="nbtns">${man ? `<button data-mv="-1" title="Nach oben schieben">▲</button><button data-mv="1" title="Nach unten schieben">▼</button>` : ''}${g && (k === 'row' || k === 'block') ? `<button data-cmt="${esc(n.id)}" title="Kommentare zu dieser Stelle">💬</button>` : ''}<button data-edit="${esc(n.id)}" title="Notiz bearbeiten">✎</button><button data-del="${esc(n.id)}" title="Entfernen">✕</button></span><div class="t">${k === 'row' || k === 'block' ? '☆ ' : k === 'free' ? '✎ ' : ''}<span class="ut">${head}</span>${n.ts ? ` <span class="nts" title="${esc(I18N.t('zuletzt geändert'))}">${esc(dFmt(n.ts))}</span>` : ''}</div>${tags.length ? `<div class="ntags">${tags.map(t => `<button class="ntag${t === nTag ? ' on' : ''}" data-tag="${esc(t)}">${hlTxt(t, f)}</button>`).join('')}</div>` : ''}${k === 'row' || k === 'block' ? noteBody(n) : ''}${orphan ? `<div class="orph muted">${esc(I18N.t('Text nicht geladen – im Reiter „Herunterladen“ laden.'))} <a data-dl="1">${esc(I18N.t('Zum Herunterladen'))}</a></div>` : ''}${n.note ? `<div class="nt">${ntHtml(n.note, f)}</div>` : ''}</div>`;
     };
-    const html = list.map(item).join('');
-    $('#nOut').innerHTML = html || `<p class="muted">${I18N.t('Noch keine Lesezeichen. Im Lesen-Reiter erscheint beim Überfahren einer Zeile links ein ☆.')}</p>`;
+    let html = '', lastHead = null;
+    for (const n of list) {
+      if (book) { const h = kindOf(n) === 'free' ? '\u0000free' : `${n.title} · ${n.secLabel}`; if (h !== lastHead) { lastHead = h; html += `<div class="nhead">${h === '\u0000free' ? esc(I18N.t('Eigene Notizen')) : esc(h)}</div>`; } }
+      html += item(n);
+    }
+    $('#nOut').innerHTML = html || (shown.length && noteFilterOn()
+      ? `<p class="muted">${esc(I18N.t('Keine Treffer.'))} <button id="nClear">${esc(I18N.t('Filter löschen'))}</button></p>`
+      : `<p class="muted">${I18N.t('Noch keine Lesezeichen. Im Lesen-Reiter erscheint beim Überfahren einer Zeile links ein ☆.')}</p>`);
   }
+  $('#nKind').onchange = () => { nKind = $('#nKind').value; renderNotes(); };
+  $('#nOnly').onchange = () => { nOnly = $('#nOnly').checked; renderNotes(); };
+  $('#nTags').addEventListener('click', e => { const b = e.target.closest('button[data-tag]'); if (b) { nTag = nTag === b.dataset.tag ? '' : b.dataset.tag; renderNotes(); } });
   $('#nFilter').addEventListener('input', renderNotes);
   async function moveNote(id, dir, beforeId) {
     const ids = manualAll().map(n => n.id);
@@ -2375,6 +2570,18 @@
   $('#nOut').addEventListener('click', async e => {
     const it = e.target.closest('.nitem');
     const n = it && notesAll.find(x => x.id === it.dataset.id);
+    if (e.target.id === 'nClear') { $('#nFilter').value = ''; nKind = 'all'; $('#nKind').value = 'all'; nOnly = false; $('#nOnly').checked = false; nTag = ''; renderNotes(); return; }
+    const tg = e.target.closest('button[data-tag]');
+    if (tg) { nTag = nTag === tg.dataset.tag ? '' : tg.dataset.tag; renderNotes(); return; }
+    const rf = e.target.closest('a.nref');
+    if (rf) { e.preventDefault(); showTab('read'); await jumpTo(rf.dataset.q, e.metaKey || e.ctrlKey || e.shiftKey); return; }
+    if (e.target.closest('a[data-dl]')) { showTab('get'); return; }
+    const cm = e.target.closest('button[data-cmt]');
+    if (cm) {
+      const nn = notesAll.find(x => x.id === cm.dataset.cmt), gg = nn && groupsByKey.get(nn.key);
+      if (gg) { await openGroup(gg, { sectionPath: JSON.parse(nn.sk), rowLabel: nn.row }); setCmtRow(nn.row); toggleCmt(true); }
+      return;
+    }
     const d = e.target.closest('button[data-del]');
     if (d) { await removeNote(d.dataset.del); return; }
     const mv = e.target.closest('button[data-mv]');
@@ -2513,8 +2720,14 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
   try { cmtSel = new Set(JSON.parse(localStorage.getItem('cmtSel') || '[]')); cmtLang = localStorage.getItem('cmtLang') || 'en'; } catch { /* egal */ }
   if (!['en', 'de', 'he'].includes(cmtLang)) cmtLang = 'en';
   $('#cmtLang').value = cmtLang;
+  // „Alle“ ist jetzt ein eigener Zustand (früher bedeutete eine leere Auswahl „alle“); ältere Einstellungen werden übernommen
+  let cmtAll = false;
+  try { const a = localStorage.getItem('cmtAll'); cmtAll = a === '1' || (a == null && cmtTouched && cmtSel.size === 0); } catch { /* egal */ }
+  let cmtFilterV = '', cmtAvailNames = [];
+  const cmtClosed = new Set(); // eingeklappte Kommentare (nur in dieser Sitzung)
+  const dispName = n => String(n).replace(/, [^,]+$/, ''); // „Bekhor Shor, Genesis“ → „Bekhor Shor“
   const CMT_PRIO = ['Rashi', 'Ibn Ezra', 'Ramban', 'Rashbam', 'Sforno', 'Or HaChaim', 'Chizkuni', 'Radak', 'Kli Yakar', 'Bekhor Shor', 'Onkelos'];
-  const saveCmt = () => { try { localStorage.setItem('cmtSel', JSON.stringify([...cmtSel])); localStorage.setItem('cmtLang', cmtLang); } catch { /* egal */ } };
+  const saveCmt = () => { try { localStorage.setItem('cmtSel', JSON.stringify([...cmtSel])); localStorage.setItem('cmtLang', cmtLang); localStorage.setItem('cmtAll', cmtAll ? '1' : '0'); } catch { /* egal */ } };
   function setCmtRow(label) {
     cmtRow = label;
     $$('#rOut .row.cmtrow').forEach(r => r.classList.remove('cmtrow'));
@@ -2528,6 +2741,9 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
     if (r) setCmtRow(r.dataset.l); else if (cmtOpen) renderCmt();
   }
   function toggleCmt(force) {
+    withAnchor(() => toggleCmt0(force));
+  }
+  function toggleCmt0(force) {
     cmtOpen = force == null ? !cmtOpen : force;
     $('#cmtPanel').hidden = !cmtOpen;
     document.body.classList.toggle('cmt-open', cmtOpen);
@@ -2584,25 +2800,59 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
     const c = e.target.closest('.chip');
     if (!c || c.classList.contains('off')) return;
     const n = c.dataset.n;
-    if (!cmtTouched) { cmtTouched = true; cmtSel = new Set(cmtLastChosen); try { localStorage.setItem('cmtTouched', '1'); } catch { /* egal */ } }
+    cmtTouch();
+    if (cmtAll) { cmtAll = false; cmtSel = new Set(cmtAvailNames); }
     if (cmtSel.has(n)) cmtSel.delete(n); else cmtSel.add(n);
     saveCmt(); renderCmt();
   });
+  function cmtTouch() { if (!cmtTouched) { cmtTouched = true; cmtSel = new Set(cmtLastChosen); try { localStorage.setItem('cmtTouched', '1'); } catch { /* egal */ } } }
+  // Schnellauswahl: Alle / Keine / Klassische; Filterfeld für die Namen
+  $('#cmtChips').addEventListener('click', e => {
+    const q = e.target.closest('button[data-q]');
+    if (!q) return;
+    cmtTouch();
+    if (q.dataset.q === 'all') { cmtAll = true; cmtSel = new Set(); }
+    else if (q.dataset.q === 'none') { cmtAll = false; cmtSel = new Set(); }
+    else { cmtAll = false; cmtSel = new Set(cmtAvailNames.filter(n => CMT_PRIO.includes(n))); }
+    saveCmt(); renderCmt();
+  });
+  const applyCmtFilter = () => {
+    const f = cmtFilterV.trim().toLowerCase();
+    $$('#cmtChips .chip').forEach(c => { c.hidden = !!f && !c.dataset.n.toLowerCase().includes(f); });
+  };
+  $('#cmtChips').addEventListener('input', e => { if (e.target.id === 'cmtFilter') { cmtFilterV = e.target.value; applyCmtFilter(); } });
+  // Höhe des festen Kopfes merken, damit die Kommentatornamen darunter hängen bleiben
+  try { new ResizeObserver(() => $('#cmtPanel').style.setProperty('--cmt-head-h', $('#cmtHead').offsetHeight + 'px')).observe($('#cmtHead')); } catch { /* egal */ }
   // Rechtsklick auf einen Kommentatornamen: im Tab, neuen Tab oder zweiten Fenster öffnen
   $('#cmtBody').addEventListener('contextmenu', e => {
     const h = e.target.closest('h4[data-ref]');
-    if (!h) return;
-    const ref = h.dataset.ref.replace(/-.*$/, '');
-    const items = [
-      { label: 'Öffnen', fn: () => jumpTo(ref, false) },
-      { label: 'Im neuen Tab öffnen', fn: () => jumpTo(ref, true) },
-    ];
-    if (!IS_PANE2) items.push({ label: 'Im zweiten Fenster öffnen', fn: () => openInPane2(null, { jump: ref }) });
+    const items = [];
+    const selTxt = (window.getSelection() + '').trim();
+    if (h) {
+      const ref = h.dataset.ref.replace(/-.*$/, '');
+      items.push({ label: 'Öffnen', fn: () => jumpTo(ref, false) }, { label: 'Im neuen Tab öffnen', fn: () => jumpTo(ref, true) });
+      if (!IS_PANE2) items.push({ label: 'Im zweiten Fenster öffnen', fn: () => openInPane2(null, { jump: ref }) });
+    }
+    if (selTxt) items.push({ label: 'Kopieren', fn: () => navigator.clipboard.writeText(selTxt).catch(() => {}) });
+    // eine Zeile pro angezeigtem Kommentar: springt dorthin (klappt ihn bei Bedarf auf)
+    const cs = [...$$('#cmtBody .cmt')];
+    if (cs.length) {
+      if (items.length) items.push({ sep: true });
+      cs.forEach(c => items.push({ label: (c.classList.contains('closed') ? '▸ ' : '') + c.querySelector('h4').textContent.replace(/[▾▸↗]/g, '').trim(), fn: () => { c.classList.remove('closed'); cmtClosed.delete(c.dataset.n); const t = c.querySelector('.tg'); if (t) t.textContent = '▾'; c.scrollIntoView({ block: 'start', behavior: 'smooth' }); } }));
+    }
+    if (!items.length) return;
     ctxShow(e, items);
   });
   $('#cmtBody').addEventListener('click', e => {
+    const jl = e.target.closest('a.jl');
+    if (jl) { const t = [...$$('#cmtBody .cmt')].find(x => x.dataset.n === jl.dataset.n); if (t) { t.classList.remove('closed'); cmtClosed.delete(jl.dataset.n); t.scrollIntoView({ block: 'start', behavior: 'smooth' }); } return; }
     const h = e.target.closest('h4[data-ref]');
-    if (h) jumpTo(h.dataset.ref.replace(/-.*$/, ''), true);
+    if (!h) return;
+    if (e.target.closest('.go')) return jumpTo(h.dataset.ref.replace(/-.*$/, ''), true);
+    const c = h.closest('.cmt'); if (!c) return; // Klick auf den Namen klappt diesen Kommentar ein/aus
+    const closed = c.classList.toggle('closed');
+    if (closed) cmtClosed.add(c.dataset.n); else cmtClosed.delete(c.dataset.n);
+    h.querySelector('.tg').textContent = closed ? '▸' : '▾';
   });
   async function renderCmt() {
     if (!cmtOpen) return;
@@ -2623,33 +2873,45 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
       groupsC.get(name).refs.push(x.other);
     }
     const local0 = localTitles(); const local = { has: b => local0.has(b) || local0.has(String(b).split(', ')[0]) };
-    const list = [...groupsC.values()].sort((a, b) => {
+    const listPrio = [...groupsC.values()].sort((a, b) => {
       const ia = CMT_PRIO.indexOf(a.name), ib = CMT_PRIO.indexOf(b.name);
       return (local.has(b.book) - local.has(a.book)) || ((ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib)) || (b.refs.length - a.refs.length);
     });
+    // Anzeige in der Reihenfolge der Bibliotheksliste links; die Rangfolge oben gilt nur für die Vorauswahl
+    const byT = new Map(groups.map(g => [g.title, g]));
+    const titleToGroup = t => byT.get(t) || byT.get(String(t).split(', ')[0]) || null;
+    const list = [...listPrio].sort((a, b) => libCmpGroups(titleToGroup(a.book), titleToGroup(b.book)) || titleCmp(a.book, b.book) || String(a.name).localeCompare(String(b.name)));
     if (!list.length) { $('#cmtChips').innerHTML = ''; $('#cmtSum').innerHTML = ''; $('#cmtBody').innerHTML = '<p class="muted">Zu diesem Vers gibt es keine Kommentare in den Verknüpfungen.</p>'; return; }
     // Nur Kommentatoren zählen als „vorhanden“, die lokal in der gewählten Sprache vorliegen (sonst wirkt die Liste vollständiger, als sie ist)
-    const byTitle = new Map(groups.map(g => [g.title, g]));
+    const byTitle = byT;
     const LNm = { en: 'Englisch', de: 'Deutsch', he: 'Hebräisch' }[cmtLang];
     const hasLang = b => { const g = byTitle.get(b) || byTitle.get(String(b).split(', ')[0]); return !!g && g.versions.some(v => v.kind === cmtLang); };
     const avail = { has: b => local.has(b) && hasLang(b) };
     // Auswahl: gemerkte Kommentatoren; beim ersten Mal die bekanntesten vorhandenen
-    let chosen = list.filter(g => cmtSel.has(g.name) && avail.has(g.book));
-    if (!cmtTouched) { chosen = list.filter(g => avail.has(g.book)).slice(0, 2); }
+    cmtAvailNames = list.filter(g => avail.has(g.book)).map(g => g.name);
+    let chosen = cmtAll ? list.filter(g => avail.has(g.book)) : list.filter(g => cmtSel.has(g.name) && avail.has(g.book));
+    if (!cmtTouched) { const pre = new Set(listPrio.filter(g => avail.has(g.book)).slice(0, 2)); chosen = list.filter(g => pre.has(g)); }
     cmtLastChosen = chosen.map(g => g.name);
-    const showAll = !chosen.length; // nichts gewählt -> alle in dieser Sprache vorhandenen Kommentare zeigen
+    const showAll = (cmtTouched && cmtAll) || (!cmtTouched && !chosen.length); // „Alle“ (oder nichts Vorausgewähltes): alle in dieser Sprache vorhandenen Kommentare zeigen
     if (showAll) chosen = list.filter(g => avail.has(g.book));
+    const ok0 = g => avail.has(g.book);
     const chip = g => {
-      const on = !showAll && chosen.includes(g), ok = avail.has(g.book);
+      const on = chosen.includes(g) && ok0(g), ok = avail.has(g.book);
       const why = ok ? g.book : local.has(g.book) ? I18N.t('{} – lokal vorhanden, aber nicht auf {}', g.book, LNm) : I18N.t('{} – nicht in deiner Bibliothek', g.book);
-      return `<button class="chip ${on ? 'on' : ''} ${ok ? '' : 'off'}" data-n="${esc(g.name)}" title="${esc(why)}">${esc(g.name)} ${g.refs.length > 1 ? g.refs.length : ''}</button>`;
+      return `<button class="chip ${on ? 'on' : ''} ${ok ? '' : 'off'}" data-n="${esc(g.name)}" title="${esc(why)}${g.refs.length > 1 ? ' · ' + I18N.t('{#} Stellen zu diesem Vers', g.refs.length) : ''}">${esc(dispName(g.name))}${g.refs.length > 1 ? ` <small class="cx">×${g.refs.length}</small>` : ''}</button>`;
     };
     const localL = list.filter(g => avail.has(g.book)), noLangL = list.filter(g => local.has(g.book) && !hasLang(g.book)), remoteL = list.filter(g => !local.has(g.book));
-    $('#cmtSum').innerHTML = `${cmtChipsOpen ? '▾' : '▸'} <b>Kommentatoren</b> <span class="muted">${showAll ? (chosen.length ? I18N.t('keiner gewählt – alle {#} auf {} werden gezeigt', chosen.length, LNm) : I18N.t('keiner auf {} vorhanden', LNm)) : esc(chosen.map(g => g.name).join(', '))} · ${I18N.t('{#} auf {}', localL.length, LNm)}${noLangL.length ? ', ' + I18N.t('{#} nur in anderer Sprache', noLangL.length) : ''}${remoteL.length ? ', ' + I18N.t('{#} nicht geladen', remoteL.length) : ''}</span>`;
+    const sumTxt = !localL.length ? I18N.t('keiner auf {} vorhanden', LNm)
+      : showAll ? I18N.t('Alle {#} ({})', localL.length, LNm)
+      : chosen.length ? I18N.t('{#} von {#} gewählt', chosen.length, localL.length) + ': ' + esc(chosen.slice(0, 4).map(g => dispName(g.name)).join(', ')) + (chosen.length > 4 ? ' …' : '')
+      : I18N.t('keiner gewählt');
+    $('#cmtSum').innerHTML = `${cmtChipsOpen ? '▾' : '▸'} <b>Kommentatoren</b> <span class="muted">${sumTxt}</span>`;
     $('#cmtChips').hidden = !cmtChipsOpen;
-    $('#cmtChips').innerHTML = localL.map(chip).join('')
+    $('#cmtChips').innerHTML = `<div class="cq"><button data-q="all">Alle</button><button data-q="none">Keine</button><button data-q="classic" title="Rashi, Ibn Ezra, Ramban …">Klassische</button><input id="cmtFilter" type="search" placeholder="Name filtern …" value="${esc(cmtFilterV)}" autocomplete="off"></div>`
+      + localL.map(chip).join('')
       + (noLangL.length ? `<details><summary>${noLangL.length} lokal, aber nicht auf ${LNm}</summary><div>${noLangL.map(chip).join('')}</div></details>` : '')
       + (remoteL.length ? `<details><summary>${remoteL.length} nicht in deiner Bibliothek</summary><div>${remoteL.map(chip).join('')}</div></details>` : '');
+    applyCmtFilter();
     if (!chosen.length) { $('#cmtBody').innerHTML = '<p class="muted">Wähle oben einen Kommentator. Grau dargestellte Kommentatoren musst du erst im Reiter „Herunterladen“ laden.</p>'; return; }
     $('#cmtBody').innerHTML = '<p class="muted">Lade …</p>';
     const refs = chosen.flatMap(g => g.refs);
@@ -2661,7 +2923,8 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
     if (showAll) chosen = chosen.filter(hasTxt);
     const gapNote = gaps.length ? `<p class="muted">${I18N.t('Kein ' + { en: 'Englischer', de: 'Deutscher', he: 'Hebräischer' }[cmtLang] + ' Text zu diesem Vers:')} ${gaps.map(g => esc(g.name) + ' ' + (g.refs.every(r => res[r] && res[r].missing) ? I18N.t('(keine Fassung in dieser Sprache geladen)') : I18N.t('(Vers fehlt in der Fassung)'))).join(', ')}</p>` : '';
     if (!chosen.length) { $('#cmtBody').innerHTML = gapNote || `<p class="muted">${I18N.t('Keine lokalen Kommentare in der Sprache {} zu diesem Vers.', LN)}</p>`; return; }
-    $('#cmtBody').innerHTML = chosen.map(g => {
+    const jumpBar = chosen.length >= 3 ? `<div class="jbar">${chosen.map(g => `<a class="jl" data-n="${esc(g.name)}">${esc(dispName(g.name))}</a>`).join('')}</div>` : '';
+    $('#cmtBody').innerHTML = jumpBar + chosen.map(g => {
       const seenTxt = new Set();
       const parts = g.refs.map(r => {
         const t = res[r];
@@ -2670,7 +2933,8 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
         const sig = t.items.join('\u0001'); if (seenTxt.has(sig)) return ''; seenTxt.add(sig); // gleiche Stelle mehrfach verknüpft: nur einmal zeigen
         return t.items.map(x => `<div class="ct" dir="${he ? 'rtl' : 'ltr'}">${R.cleanHtml(R.splitFootnotes(he ? stripHe(x) : x).main).replace(/<sup[^>]*>.*?<\/sup>/g, '')}</div>`).join('');
       }).join('');
-      return `<div class="cmt"><h4 data-ref="${esc(g.refs[0])}" title="Klick: öffnet ${esc(g.book)} in einem neuen Tab · Rechtsklick: weitere Möglichkeiten">${esc(g.name)}${g.refs.length > 1 ? ` (${g.refs.length})` : ''}</h4>${parts}</div>`;
+      const cl = cmtClosed.has(g.name);
+      return `<div class="cmt${cl ? ' closed' : ''}" data-n="${esc(g.name)}"><h4 data-ref="${esc(g.refs[0])}" title="Klick: Kommentar ein-/ausklappen · ↗: öffnet ${esc(g.book)} in einem neuen Tab · Rechtsklick: weitere Möglichkeiten"><span class="tg">${cl ? '▸' : '▾'}</span> ${esc(dispName(g.name))}${g.refs.length > 1 ? ` <small class="cx">×${g.refs.length}</small>` : ''}<span class="go" title="Buch im neuen Tab öffnen">↗</span></h4>${parts}</div>`;
     }).join('') + gapNote;
     if (!fb.hidden && fTerm) runFind(fTerm, true); // Suche im Kommentar-Bereich nach dem Neuaufbau erneuern
   }
@@ -2683,7 +2947,7 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
       try {
         localStorage.setItem('session', JSON.stringify({
           idx: tabIdx,
-          tabs: tabs.map(t => t.group ? { key: t.group.key, rels: [...t.selected], sk: t.key, label: t.label || '', scroll: t.scroll || 0 } : { empty: true }),
+          tabs: tabs.map(t => t.group ? { key: t.group.key, rels: [...t.selected], sk: t.key, label: t.label || '', scroll: t.scroll || 0, hit: t.hit || null } : { empty: true }),
         }));
       } catch { /* egal */ }
     }, 300);
@@ -2698,13 +2962,13 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
       if (!g) continue;
       const sel = new Set((t.rels || []).filter(r => g.versions.some(v => v.rel === r)));
       if (!sel.size && g.versions[0]) sel.add(g.versions[0].rel);
-      tabs.push({ group: g, selected: sel, loaded: [], sections: [], idx: 0, key: t.sk || null, label: t.label || '', scroll: t.scroll || 0, lazy: true });
+      tabs.push({ group: g, selected: sel, loaded: [], sections: [], idx: 0, key: t.sk || null, label: t.label || '', scroll: t.scroll || 0, hit: t.hit && typeof t.hit.k === 'string' ? t.hit : null, lazy: true });
     }
     if (!tabs.length) return;
     tabIdx = Math.min(Math.max(0, ses.idx | 0), tabs.length - 1);
     view = tabs[tabIdx];
     showView();
-    if (view.group) { const sc = view.scroll || 0; await loadView(); window.scrollTo(0, sc); }
+    if (view.group) { const sc = view.scroll || 0; await loadView({ noKeep: true }); window.scrollTo(0, sc); }
   }
 
   // ---------- Tastatur ----------

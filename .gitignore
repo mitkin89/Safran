@@ -5,3 +5,11 @@ dist/
 ud/
 .DS_Store
 *.log
+
+# Urheberrechtlich geschützte deutsche Bibeln (nur lokal, nicht veröffentlichen)
+bundled/own/*/de/Zürcher Bibel (2007).json
+bundled/own/*/de/Elberfelder Bibel (2006).json
+bundled/own/*/de/Die Schrift, verdeutscht von Martin Buber*.json
+bundled/own/*/de/Die Heilige Schrift, übersetzt von Naftali Herz Tur-Sinai*.json
+tools/xref/bibeln-xref.json
+__pycache__/

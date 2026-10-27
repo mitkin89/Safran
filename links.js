@@ -93,9 +93,28 @@ class LinkStore {
       let a = map.get(p.chap); if (!a) map.set(p.chap, (a = []));
       a.push([p.v1, p.v2, other, type, cat]);
     }
+    if (this.xref === undefined) { try { this.xref = JSON.parse(await fs.readFile(path.join(__dirname, 'xref.json'), 'utf8')); } catch { this.xref = null; } }
+    this.mergeXref(book, map);
     this.cache.set(book, map);
     if (this.cache.size > 3) this.cache.delete(this.cache.keys().next().value);
     return map;
+  }
+
+  // Bibel-Querverweise (OpenBible, CC BY 4.0; nur Tanach) unter die Sefaria-Links mischen; was Sefaria schon hat, bleibt unverändert
+  mergeXref(book, map) {
+    const bk = this.xref && this.xref[book];
+    if (!bk) return;
+    for (const chap of Object.keys(bk)) {
+      let a = map.get(chap); if (!a) map.set(chap, (a = []));
+      const have = new Map(); // Start der Zielstelle -> Verse, auf die Sefaria schon verweist (nur Sefaria-Links prüfen)
+      for (const h of a) { const k = h[2].replace(/-.*/, ''); let l = have.get(k); if (!l) have.set(k, (l = [])); l.push(h); }
+      for (const [v1, v2, other, votes] of bk[chap]) {
+        const lo = v1, hi = v2 >= 99999 ? Infinity : v2;
+        const hs = have.get(other.replace(/-.*/, ''));
+        if (hs && hs.some(h => h[0] === 0 || (h[0] <= hi && h[1] >= lo))) continue;
+        a.push([v1, v2, other, 'reference', 'Tanakh']);
+      }
+    }
   }
 
   // alle Links eines Abschnitts (Kapitel/Daf) als [{v1,v2,other,type,cat}]

@@ -92,6 +92,8 @@ All texts, the catalog and the link data come from the public **Sefaria export**
 
 The texts are **not** covered by this project's license. Each text version has its own license (mostly Creative Commons, some public domain, some restricted); it is listed in the version information on Sefaria and in the exported files. If you reuse or redistribute texts, please follow those licenses and credit Sefaria and the original sources. Texts you import yourself stay on your computer.
 
+The Bible cross-references in `xref.json` (Tanakh only, shown among the Sefaria links) come from [OpenBible.info](https://www.openbible.info/labs/cross-references/) (mostly the Treasury of Scripture Knowledge), licensed CC BY 4.0. Converter: `tools/xref/`.
+
 ## License
 
 The source code of this app is released under the [MIT License](LICENSE).

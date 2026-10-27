@@ -152,12 +152,15 @@
     <section id="tab-notes" hidden>
       <div class="bar">
         <input id="nFilter" placeholder="Lesezeichen und Notizen durchsuchen …">
+        <select id="nKind" title="Art der Notiz"><option value="all">Alle Arten</option><option value="row">Zeilen</option><option value="block">Versblöcke</option><option value="free">Freie Notizen</option></select>
+        <label class="nonly"><input type="checkbox" id="nOnly"> nur mit Notiz</label>
         <select id="nSort" title="Reihenfolge der Notizen"><option value="manual">Reihenfolge: manuell</option><option value="new">Neueste zuerst</option><option value="book">Nach Buch</option></select>
         <button id="nNew" title="Eine Notiz ohne Textstelle anlegen">＋ Neue Notiz</button>
         <button id="nIO" title="Notizen sichern, exportieren oder eine Sicherung einlesen">⇅</button>
         <span id="nCount" class="muted"></span>
         <button id="nFsMinus" title="Schrift kleiner">A−</button><button id="nFsPlus" title="Schrift größer">A+</button>
       </div>
+      <div id="nTags" hidden></div>
       <div id="nOut"></div>
     </section>
 
@@ -232,7 +235,7 @@
       <div class="lhead"><b id="cmtTitle">Kommentare</b><button id="cmtClose" title="Schließen">✕</button></div>
       <div class="bar">
         <label>Sprache <select id="cmtLang"><option value="en">Englisch</option><option value="de">Deutsch</option><option value="he">Hebräisch</option></select></label>
-        <button id="cmtPrev" title="Voriger Vers">▲</button><button id="cmtNext" title="Nächster Vers">▼</button>
+        <button id="cmtPrev" title="Voriger Vers">▲ Vers</button><button id="cmtNext" title="Nächster Vers">▼ Vers</button>
         <button id="cmtFsMinus" class="cfs" title="Kommentartext kleiner">A−</button><button id="cmtFsPlus" class="cfs" title="Kommentartext größer">A+</button>
       </div>
       <div id="cmtSum" title="Kommentatoren ein-/ausklappen"></div>
@@ -280,6 +283,7 @@
     <p id="ndExcerpt" class="muted"></p>
     <input id="ndTitleIn" placeholder="Titel (optional)" hidden>
     <textarea id="ndText" rows="6" placeholder="Eigene Notiz (leer lassen = nur Lesezeichen)"></textarea>
+    <input id="ndTags" list="ndTagList" placeholder="Tags, mit Komma getrennt (z. B. Klasse 5, Predigt)" autocomplete="off"><datalist id="ndTagList"></datalist>
     <div class="bar"><button id="ndSave" class="primary">Speichern</button><button id="ndDel">Lesezeichen entfernen</button><button id="ndClose">Abbrechen</button></div>
   </dialog>
 

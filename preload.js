@@ -77,7 +77,7 @@ contextBridge.exposeInMainWorld('links', {
   cancel: () => ipcRenderer.send('links:cancel'),
   section: (book, chap) => ipcRenderer.invoke('links:section', book, chap),
   texts: (refs, prefer, strict) => ipcRenderer.invoke('links:texts', refs, prefer, !!strict),
-  preview: ref => ipcRenderer.invoke('links:preview', ref),
+  preview: (ref, langs) => ipcRenderer.invoke('links:preview', ref, langs),
   onProgress: cb => ipcRenderer.on('links:progress', (_e, d) => cb(d)),
 });
 

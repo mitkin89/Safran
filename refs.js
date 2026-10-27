@@ -74,7 +74,7 @@ function parseMulti(q, bestGroup, defaultBook) {
       }
       units.push({ book, chap: m[2].toLowerCase(), vs, pred: set ? (v => set.has(v)) : null });
     } else if (/\p{L}/u.test(seg) && bestGroup(seg)) { // nur ein Buchname („1 Samuel“): erstes Kapitel
-      multi = true; lastBook = seg; units.push({ book: seg, chap: '1', vs: '', pred: null });
+      lastBook = seg; units.push({ book: seg, chap: '1', vs: '', pred: null }); // ein einzelner Buchname ist keine Stellenliste (jumpTo öffnet das Buch selbst)
     } else bad.push(seg);
   }
   return multi ? { units, bad } : null;

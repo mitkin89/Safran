@@ -666,13 +666,28 @@ ipcMain.handle('links:texts', async (_e, refs, prefer, strict) => {
   return out;
 });
 
-ipcMain.handle('links:preview', async (_e, ref) => {
+ipcMain.handle('links:preview', async (_e, ref, langs) => {
   const { book, tail } = LK.splitRef(ref);
   const lib = await getLibrary();
   const cand = lib.list().filter(x => x.title === book);
   if (!cand.length) return { missing: true };
+  const merged = x => (x.versionTitle === 'merged' ? 0 : 1);
+  // mehrere Sprachen: [hebräisch, zweite Sprache]; fehlt die zweite, nimmt die Vorschau eine andere vorhandene (en/de)
+  if (Array.isArray(langs) && langs.length) {
+    const parts = [];
+    const tryKind = async kind => {
+      for (const c of cand.filter(x => x.kind === kind).sort((a, b) => merged(a) - merged(b))) {
+        try { const d = await lib.read(c.rel); const items = LK.resolveText(d, tail); if (items) { parts.push({ kind, he: kind === 'he', items: items.slice(0, 6), versionTitle: c.versionTitle }); return true; } } catch { /* nächste Fassung */ }
+      }
+      return false;
+    };
+    const wanted = langs.filter(k => ['he', 'en', 'de', 'other'].includes(k));
+    for (const k of wanted) await tryKind(k);
+    if (parts.length < wanted.length) for (const k of ['en', 'de']) { if (parts.length >= wanted.length) break; if (!wanted.includes(k) && !parts.some(p => p.kind === k)) await tryKind(k); }
+    return parts.length ? { parts, items: parts[0].items, kind: parts[0].kind, he: parts[0].he } : { nopreview: true };
+  }
   const rank = { en: 0, de: 1, he: 2, other: 3 };
-  cand.sort((a, b) => (rank[a.kind] - rank[b.kind]) || ((a.versionTitle === 'merged' ? 0 : 1) - (b.versionTitle === 'merged' ? 0 : 1)));
+  cand.sort((a, b) => (rank[a.kind] - rank[b.kind]) || (merged(a) - merged(b)));
   try {
     const d = await lib.read(cand[0].rel);
     const items = LK.resolveText(d, tail);
