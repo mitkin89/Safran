@@ -14,7 +14,7 @@ const K = require('./links');
     '"Rashi on Genesis 1:1:1",Genesis 1:1,commentary,Rashi on Genesis,Genesis,Commentary,Tanakh\n' +
     'Genesis 1:2-3,"Bereshit Rabbah 1:2",,Genesis,Bereshit Rabbah,Tanakh,Midrash\n';
   const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'lk-'));
-  const st = new K.LinkStore(dir, async url => Buffer.from(url.endsWith('/links0.csv') ? csv : csv.split('\n')[0] + '\n'));
+  const st = new K.LinkStore(dir, async url => Buffer.from(url.endsWith('/links0.csv') ? csv : csv.split('\n')[0] + '\n'), { xref: false });
   const r = await st.build();
   assert.strictEqual(r.complete, true);
   const g1 = await st.forSection('Genesis', 1);

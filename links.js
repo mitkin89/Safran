@@ -31,7 +31,8 @@ function splitRef(ref) {
 }
 
 class LinkStore {
-  constructor(baseDir, fetchBuffer) {
+  constructor(baseDir, fetchBuffer, opts = {}) {
+    this.opts = opts; // { xref: false } schaltet die mitgelieferten Bibel-Querverweise ab (Tests)
     this.dir = path.join(baseDir, 'links');
     this.fetchBuffer = fetchBuffer;
     this.cache = new Map(); // book -> Map(chap -> rows)
@@ -93,7 +94,7 @@ class LinkStore {
       let a = map.get(p.chap); if (!a) map.set(p.chap, (a = []));
       a.push([p.v1, p.v2, other, type, cat]);
     }
-    if (this.xref === undefined) { try { this.xref = JSON.parse(await fs.readFile(path.join(__dirname, 'xref.json'), 'utf8')); } catch { this.xref = null; } }
+    if (this.opts.xref !== false && this.xref === undefined) { try { this.xref = JSON.parse(await fs.readFile(path.join(__dirname, 'xref.json'), 'utf8')); } catch { this.xref = null; } }
     this.mergeXref(book, map);
     this.cache.set(book, map);
     if (this.cache.size > 3) this.cache.delete(this.cache.keys().next().value);
@@ -102,7 +103,7 @@ class LinkStore {
 
   // Bibel-Querverweise (OpenBible, CC BY 4.0; nur Tanach) unter die Sefaria-Links mischen; was Sefaria schon hat, bleibt unverändert
   mergeXref(book, map) {
-    const bk = this.xref && this.xref[book];
+    const bk = this.opts.xref !== false && this.xref && this.xref[book];
     if (!bk) return;
     for (const chap of Object.keys(bk)) {
       let a = map.get(chap); if (!a) map.set(chap, (a = []));
