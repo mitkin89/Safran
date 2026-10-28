@@ -412,9 +412,9 @@ body.cmt-open.dict-open #cmtPanel { bottom: 42%; }
 #dictPanel .dbody, #dictPanel .dhead, #dictPanel .dsec, #dictPanel #dictQ { font-family: "HeDict", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", sans-serif; }
 
 /* OSHB-Wörter und Analyse-Popup */
-#rOut .w { cursor: pointer; border-radius: 3px; }
-#rOut .w:hover { background: color-mix(in srgb, var(--accent) 18%, transparent); }
-#rOut .w.sel { background: color-mix(in srgb, var(--accent) 32%, transparent); }
+#rOut .w, #rOut .wt { cursor: pointer; border-radius: 3px; }
+#rOut .w:hover, #rOut .wt:hover { background: color-mix(in srgb, var(--accent) 18%, transparent); }
+#rOut .w.sel, #rOut .wt.sel { background: color-mix(in srgb, var(--accent) 32%, transparent); }
 #wpop { position: fixed; z-index: 60; width: 300px; max-width: calc(100vw - 16px); background: var(--card); color: var(--fg); border: 1px solid var(--accent); border-radius: 8px; box-shadow: 0 6px 24px rgba(0,0,0,.25); padding: 8px 10px; font-size: 13px; line-height: 1.45; }
 #wpop .wtop { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
 #wpop .wword { font-family: "HeDict", serif; font-size: 22px; }
@@ -586,3 +586,37 @@ header { z-index: 50; }
 .nitem mark, #nOut mark { background: color-mix(in srgb, var(--warn) 45%, transparent); color: inherit; border-radius: 2px; }
 .nitem a.nref { color: var(--accent); cursor: pointer; text-decoration: underline; }
 .row > .rnote { grid-column: 1 / -1; margin: 6px 0 0 56px; padding: 4px 10px; border-left: 3px solid var(--warn); border-radius: 0 6px 6px 0; background: color-mix(in srgb, var(--warn) 12%, transparent); font-size: 13px; cursor: pointer; white-space: pre-line; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+
+/* Suchtreffer als Lesetext */
+.sread .sbook { margin: 18px 0 2px; font-size: 18px; }
+.sread .sbook small { color: var(--muted); font-weight: 400; margin-inline-start: 8px; }
+.sread .ssec { margin: 10px 0 0; font-size: 12px; color: var(--muted); font-weight: 600; }
+.sread .row.head { position: static; }
+.sread .row.sh { background: none; cursor: pointer; }
+.sread .row.sh:hover { background: color-mix(in srgb, var(--accent) 7%, transparent); }
+.sread .note, .sread .txt sup { display: none; }
+#sReadBtn.on { background: color-mix(in srgb, var(--accent) 22%, transparent); }
+
+.sread .w.hl, .sread mark { background: color-mix(in srgb, var(--warn) 38%, transparent); color: inherit; border-radius: 3px; }
+.sread .row.sh.cmtrow { box-shadow: inset 3px 0 0 var(--accent); }
+.sread .lab .scm, .sread .lab .slk { cursor: pointer; font-size: 12px; opacity: .6; }
+.sread .lab .scm:hover, .sread .lab .slk:hover { opacity: 1; }
+#sOut .lab .scm, #sOut .lab .slk, #sOut .ssec .sgo { display: none; }
+.sread .ssec .sgo { cursor: pointer; margin-inline-start: 6px; color: var(--accent); }
+.sresHead { margin: 6px 0 4px; font-size: 15px; display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+
+.sresBooks { display: flex; flex-wrap: wrap; gap: 6px; margin: 4px 0 10px; }
+.sread .sbook { scroll-margin-top: calc(var(--stick-top, 40px) + 8px); }
+.sread .sbook .sup { cursor: pointer; font-size: 13px; color: var(--accent); margin-inline-start: 8px; }
+
+/* Kleine eingebettete Bilder im Fließtext (z. B. hebräische Wörter in Kommentaren) */
+img.g, #rOut img.g, #cmtBody img.g, .sres img.g { display: inline; height: 1.35em; width: auto; max-width: none; margin: 0 .1em; vertical-align: -.35em; border-radius: 0; }
+:root[data-theme=dark] img.g { filter: invert(1); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme=light]) img.g { filter: invert(1); } }
+
+/* Grammatik-Suche */
+#gramBox { margin: 0 0 8px; font-size: 12.5px; }
+#gramBox > summary { cursor: pointer; color: var(--muted); user-select: none; }
+#gramBox .gramRow { display: flex; flex-wrap: wrap; gap: 6px 12px; padding: 6px 0 2px; align-items: center; }
+#gramBox label { display: inline-flex; gap: 4px; align-items: center; white-space: nowrap; }
+#gramBox select { font-size: 12.5px; max-width: 150px; }

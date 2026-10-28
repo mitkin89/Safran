@@ -69,7 +69,7 @@
       const t = tabs[i];
       if (!t.group) continue;
       const ng = groupsByKey.get(t.group.key);
-      if (ng) t.group = ng; else { tabs.splice(i, 1); if (i < tabIdx) tabIdx--; }
+      if (ng) { t.group = ng; if (t.selected) { t.selected = new Set([...t.selected].filter(r => ng.versions.some(v => v.rel === r))); if (!t.selected.size && ng.versions[0]) t.selected.add(ng.versions[0].rel); } } else { tabs.splice(i, 1); if (i < tabIdx) tabIdx--; }
     }
     if (!tabs.length) tabIdx = -1; else tabIdx = Math.min(Math.max(0, tabIdx), tabs.length - 1);
     view = tabs[tabIdx] || null; // view zeigt immer auf den aktiven Tab
@@ -105,7 +105,7 @@
     };
     $('#tree').innerHTML = node(root, '') || `<p class="muted">${groups.length ? 'Keine Treffer.' : 'Noch keine Texte heruntergeladen.'}</p>`;
   }
-  $('#treeFilter').addEventListener('input', renderTree);
+  { let tft = null; $('#treeFilter').addEventListener('input', () => { clearTimeout(tft); tft = setTimeout(renderTree, 80); }); }
   $('#tree').addEventListener('click', e => {
     const b = e.target.closest('.catall'); if (!b) return;
     e.preventDefault(); e.stopPropagation();
@@ -141,7 +141,7 @@
   }, true);
   $('#tree').addEventListener('click', e => {
     const a = e.target.closest('.lib-item');
-    if (a) openGroup(groupsByKey.get(a.dataset.key), {}, e.metaKey || e.ctrlKey || e.shiftKey);
+    if (a) openGroup(groupsByKey.get(a.dataset.key), {}, e.metaKey || e.ctrlKey);
   });
 
   // ---------- Lesen: Buch öffnen und anzeigen ----------
@@ -152,7 +152,7 @@
     $('#tabbar').innerHTML = tabs.map((t, i) => {
       const s = t.group && t.sections && t.sections[t.idx];
       if (s) t.label = s.label;
-      const name = t.group ? t.group.title + (t.label ? ' · ' + t.label : '') : 'Neuer Tab';
+      const name = t.group ? t.group.title + (t.label ? ' · ' + t.label : '') : t.sres ? I18N.t('Suche') + ': ' + t.sres.q : 'Neuer Tab';
       return `<div class="tab${i === tabIdx ? ' active' : ''}" data-i="${i}" title="${esc(name)}"><span>${esc(name)}</span><button data-x="${i}" title="Tab schließen">✕</button></div>`;
     }).join('') + '<button id="tabNew" title="Neuer Tab (Cmd+T)">＋</button>';
   }
@@ -163,7 +163,8 @@
     $('#rEmpty').hidden = !none;
     $('#rMain').hidden = none;
     $('#stick').classList.toggle('emptytab', !none && !view.group);
-    if (!none && !view.group) {
+    if (!none && view.sres) { if (view.sres.html) $('#rOut').innerHTML = view.sres.html; else if (!view.sres.running) runSres(view); }
+    else if (!none && !view.group) {
       $('#rOut').innerHTML = `<div class="newtab"><img class="logo" src="logo.png" alt="talmud.de" width="130"><p class="muted">Neuer Tab – Stelle oder Buch eingeben (z. B. <b>Gen. 1</b>, <b>Berakhot 2a</b>, <b>Mishnah Peah 6:6</b>) und Enter drücken, oder links ein Buch wählen.</p>
         <input id="ntIn" placeholder="Gen. 1:1" autocomplete="off"><p id="ntMsg" class="muted"></p></div>`;
       setTimeout(() => { const i = $('#ntIn'); if (i) { attachSuggest(i); i.focus(); } }, 0);
@@ -268,7 +269,7 @@
     if (!g) return;
     saveScroll();
     const nv = { group: g, selected: new Set(), loaded: [], sections: [], idx: 0, key: null };
-    if (!tabs.length || (inNewTab && tabs[tabIdx] && tabs[tabIdx].group)) { tabs.push(nv); tabIdx = tabs.length - 1; }
+    if (!tabs.length || (tabs[tabIdx] && tabs[tabIdx].sres) || (inNewTab && tabs[tabIdx] && tabs[tabIdx].group)) { tabs.push(nv); tabIdx = tabs.length - 1; }
     else { nv.nav = tabs[tabIdx] && tabs[tabIdx].nav; tabs[tabIdx] = nv; } // Verlauf des Tabs bleibt beim Buchwechsel erhalten
     view = nv;
     if (target.showCompare) nv.cmpRel = target.rel;
@@ -422,7 +423,7 @@
     };
     const ofKinds = ks => new Set(g.versions.filter(v => ks.includes(kn(v))).map(v => v.rel));
     const items = [];
-    if (view.selected.size > 1) { items.push({ label: 'Diese Version aus der Anzeige entfernen', fn: () => { const n = new Set(view.selected); n.delete(d.entry.rel); apply(n); } }); items.push({ sep: true }); }
+    if (view.selected.size > 1) { items.push({ label: 'Diese Version aus der Anzeige entfernen', fn: () => { const n = new Set(view.selected); n.delete(d.entry.rel); apply(n); } }); items.push({ label: 'Nur diese Version anzeigen', fn: () => apply(new Set([d.entry.rel])) }); items.push({ sep: true }); }
     for (const v of g.versions.filter(v => kn(v) === k)) {
       const cur = v.rel === d.entry.rel;
       items.push({ label: (cur ? '✓ ' : '\u2003 ') + shortVer(v.versionTitle), fn: () => { if (cur) return; const n = new Set(view.selected); n.delete(d.entry.rel); n.add(v.rel); apply(n); } }); // ersetzt die Version dieser Spalte
@@ -432,9 +433,9 @@
   });
 
   // Fußnoten werden immer mitgerendert; ob sie sichtbar sind, steuert der Modus (data-notes) per CSS
-  function cellHtml(html, d) {
+  function cellHtml(html, d, hit) {
     if (html == null) return '<div class="cell empty"></div>';
-    const rtl = d.entry.language === 'Hebrew';
+    const rtl = d.entry.language === 'Hebrew' || d.entry.language === 'Aramaic';
     if (d.entry.kind === 'he') html = stripHe(html);
     const { main, notes } = R.splitFootnotes(html);
     // Fußnote steht direkt hinter ihrem Zeichen im Text (nicht darunter)
@@ -442,7 +443,7 @@
       const n = notes[+i];
       return n ? `${m}<span class="note" data-fn="${i}"><span class="nm">${esc(n.marker)}</span> ${R.cleanHtml(n.html)}</span>` : m;
     });
-    return `<div class="cell" data-k="${d.entry.kind}" dir="${rtl ? 'rtl' : 'ltr'}"><div class="txt">${inline}</div></div>`;
+    return `<div class="cell" data-k="${d.entry.kind}" dir="${rtl ? 'rtl' : 'ltr'}"><div class="txt">${hit ? markHits(inline, hit) : inline}</div></div>`;
   }
 
   let syncPane = false; // Gleichlauf: Blättern im Hauptfenster blättert im zweiten Fenster mit
@@ -515,14 +516,48 @@
 
   // OSHB-Texte: Klick auf ein Wort zeigt Lemma, Stamm, Zeit und Form; „Im Wörterbuch“ schlägt das Lemma nach
   let wpop = null;
-  const closeWpop = () => { if (wpop) { wpop.remove(); wpop = null; } $$('#rOut .w.sel').forEach(x => x.classList.remove('sel')); };
+  const closeWpop = () => { if (wpop) { wpop.remove(); wpop = null; } $$('#rOut .w.sel, #rOut .wt.sel').forEach(x => x.classList.remove('sel')); };
+  // Targum-Wörter (ETCBC): Lexem, Wurzel, Bedeutung, Wortart, Stamm, Genus/Numerus/Status
+  const T_SP = { subs: 'Substantiv', verb: 'Verb', prep: 'Präposition', conj: 'Konjunktion', pron: 'Pronomen', advb: 'Adverb', adjv: 'Adjektiv', intj: 'Interjektion', nmpr: 'Eigenname', art: 'Artikel', unknown: 'unbekannt' };
+  const T_VS = { G: 'Peal (G)', D: 'Pael (D)', C: 'Aphel (C)', Gt: 'Ethpeel (Gt)', Dt: 'Ethpaal (Dt)', Ct: 'Ittaphal (Ct)', DD: 'Pael-Variante (DD)', PO: 'Pol (PO)', POT: 'Ethpol (POT)' };
+  const T_ST = { e: 'Emphaticus', a: 'Absolutus', c: 'Constructus', x: 'Absolutus oder Constructus' };
+  const T_NU = { s: 'Singular', pl: 'Plural' }, T_GN = { m: 'maskulin', f: 'feminin' };
+  function showTargumWord(w) {
+    const [sp, vs, st, nu, gn] = w.dataset.m.split('.');
+    const lx = (window.TARGUM_LEX || {})[w.dataset.l] || ['', '', ''];
+    w.classList.add('sel');
+    const parts = [];
+    if (sp !== '-') parts.push(`<b>${esc(T_SP[sp] || sp)}</b>`);
+    if (vs !== '-') parts.push(`Stamm: <b>${esc(T_VS[vs] || vs)}</b>`);
+    if (gn !== '-') parts.push(esc(T_GN[gn] || gn));
+    if (nu !== '-') parts.push(esc(T_NU[nu] || nu));
+    if (st !== '-') parts.push(esc(T_ST[st] || st));
+    let h = '<div class="wseg main">';
+    if (lx[0]) h += `<span class="wlem" dir="rtl" lang="he">${esc(lx[0])}</span> `;
+    if (lx[2]) h += `<span class="muted">${esc(lx[2])}</span><br>`;
+    if (lx[1] && lx[1] !== lx[0]) h += `Wurzel: <span dir="rtl" lang="he" class="wlem">${esc(lx[1])}</span><br>`;
+    h += parts.join(' · ') + '</div>';
+    wpop = document.createElement('div');
+    wpop.id = 'wpop';
+    wpop.innerHTML = `<div class="wtop"><span dir="rtl" lang="he" class="wword">${esc(w.textContent)}</span><button class="wx" title="Schließen">✕</button></div>${h}${lx[0] ? `<button class="wdict" data-q="${esc(lx[0])}">Im Wörterbuch nachschlagen</button>` : ''}`;
+    document.body.appendChild(wpop);
+    const r = w.getBoundingClientRect(), pw = wpop.offsetWidth, ph = wpop.offsetHeight;
+    const x = Math.max(8, Math.min(window.innerWidth - pw - 8, r.left + r.width / 2 - pw / 2));
+    let y = r.bottom + 6; if (y + ph > window.innerHeight - 8) y = Math.max(8, r.top - ph - 6);
+    wpop.style.left = x + 'px'; wpop.style.top = y + 'px';
+    wpop.onclick = ev => {
+      if (ev.target.closest('.wx')) closeWpop();
+      const b = ev.target.closest('.wdict'); if (b) openDict(b.dataset.q);
+    };
+  }
   $('#rOut').addEventListener('click', e => {
-    const w = e.target.closest('.w[data-m]');
+    const w = e.target.closest('.w[data-m], .wt[data-m]');
     if (!w) { if (!e.target.closest('#wpop')) closeWpop(); return; }
     if (window.getSelection && String(window.getSelection())) return; // beim Markieren nicht stören
     const same = w.classList.contains('sel');
     closeWpop();
     if (same) return;
+    if (w.classList.contains('wt')) { showTargumWord(w); return; }
     const d = window.Morph.decode(w.dataset.m, w.dataset.l);
     if (!d) return;
     const LEM = window.OSHB_LEMMAS || {};
@@ -707,9 +742,10 @@
     if (e.target.closest('.pstar')) { toggleBlock({ key: h.dataset.key, title: h.dataset.title, sk: h.dataset.sk, secLabel: h.dataset.sec, set: JSON.parse(h.dataset.set || '[]'), vs: h.dataset.vs }); return; }
     const g = groupsByKey.get(h.dataset.key); if (!g) return;
     $('#passDlg').close();
-    openGroup(g, { sectionPath: JSON.parse(h.dataset.sk), rowLabel: h.dataset.row }, e.metaKey || e.ctrlKey || e.shiftKey);
+    openGroup(g, { sectionPath: JSON.parse(h.dataset.sk), rowLabel: h.dataset.row }, e.metaKey || e.ctrlKey);
   });
   async function jumpTo(q, inNewTab = false) {
+    { const ps = window.Parashot && window.Parashot.find(q); if (ps) return jumpTo(window.Parashot.ref(ps), inNewTab); } // Wochenabschnitt: „Noach“, „Parascha Lech Lecha“, „פרשת ויחי“
     { const pm = parseMulti(q); if (pm) return openPassages(pm); }
     // Versauswahl wie „gen 1:1-5,9“: springt zum Kapitel und zeigt nur diese Verse
     let vsel = null;
@@ -748,6 +784,72 @@
     renderSection(verse);
     return true;
   }
+  // Springen-Feld als Suche: Wörter (hebräisch: mit allen Formen) im Tanach suchen; die Fundstellen stehen als Lesetext in einem eigenen Tab
+  function jumpSearch(q) {
+    q = String(q || '').trim();
+    if (!q || !/\p{L}/u.test(q)) return false;
+    const he = /[֐-׿]/.test(q);
+    saveScroll();
+    const nv = { group: null, sres: { q, he, limit: 300, html: null, params: { query: q, extra: [], distance: -1, ordered: false, fuzzy: false, prefix: false, kinds: he ? ['he'] : ['de', 'en'], categories: [], titles: [...TANAKH_BOOKS], wlc: true, lemma: he } } };
+    if (view && !view.group && tabs[tabIdx] === view) tabs[tabIdx] = nv; // „Neuer Tab“ oder alte Suche wird ersetzt
+    else { tabs.push(nv); tabIdx = tabs.length - 1; }
+    view = nv;
+    showTab('read');
+    showView();
+    return true;
+  }
+  async function runSres(V) {
+    const S = V.sres;
+    S.running = true;
+    $('#rOut').innerHTML = `<p class="muted">${esc(I18N.t('Suche läuft …'))}</p>`;
+    let res;
+    try {
+      res = await O.search({ ...S.params, limit: S.limit, perFile: 5000 });
+    } catch { res = null; }
+    if (!res) { S.running = false; if (view === V) $('#rOut').innerHTML = '<p class="muted">Die Suche ist fehlgeschlagen.</p>'; return; }
+    S.res = res;
+    const body = await buildReadHtml(res.results, () => tabs.includes(V));
+    S.running = false;
+    if (body == null) return;
+    const books = res.stats.length, hits = res.results.length;
+    const chips = res.stats.map(x => `<button class="chip" data-jb="${esc(x.title)}" title="${esc(I18N.t('Zu diesem Buch springen'))}">${esc(x.title)} (${x.n})</button>`).join(' ');
+    S.html = `<div class="sread sresv"><div class="sresHead" id="sresTop"><b>${esc(I18N.t('Suche'))}: <span dir="auto">${esc(S.q)}</span></b> · ${esc(I18N.t('{#} Verse in {#} Büchern', hits + (res.truncated ? '+' : ''), books))}${S.params.lemma ? ' · ' + esc(I18N.t('alle Formen des Wortes')) : ''}${res.truncated ? ` <button id="sresMore">${esc(I18N.t('Weitere laden'))}</button>` : ''}</div>${books > 1 ? `<div class="sresBooks">${chips}</div>` : ''}${body || `<p class="muted">${esc(I18N.t('Nichts gefunden.'))}</p>`}</div>`;
+    if (view === V) { $('#rOut').innerHTML = S.html; ['he', 'en', 'de'].forEach(k => $('#rOut').style.setProperty('--' + k + 'f', disp[k])); }
+  }
+  // Klicks im Suchtab: Vers wählen (Kommentare, Verknüpfungen), Kapitel öffnen, weitere laden
+  let cmtVirt = null; // Fundstelle, zu der das Kommentar-Panel im Suchtab gerade Kommentare zeigt
+  async function sresSelect(row, what) {
+    const v = /^\d+$/.test(row.dataset.sl) ? +row.dataset.sl : null;
+    if (v == null || !view || !view.sres) return;
+    cmtVirt = { title: row.dataset.t, ch: row.dataset.ch, label: row.dataset.sec };
+    cmtRow = String(v);
+    secLinks = [];
+    if (linksReady) { try { secLinks = await LK.section(cmtVirt.title, cmtVirt.ch); } catch { secLinks = []; } }
+    secLinks = secLinks.concat(parRows(cmtVirt.title, cmtVirt.ch));
+    $$('#rOut .row.cmtrow').forEach(r => r.classList.remove('cmtrow'));
+    row.classList.add('cmtrow');
+    if (what === 'lk') { lkVerse = v; renderLinkPanel(); }
+    else if (!cmtOpen) toggleCmt(true); else renderCmt();
+  }
+  $('#rOut').addEventListener('click', e => {
+    if (!view || !view.sres) return;
+    if (e.target.id === 'sresMore') { view.sres.limit += 300; view.sres.html = null; view.sres.running = false; runSres(view); return; }
+    const jb = e.target.closest('[data-jb]');
+    if (jb) { const h = [...$$('#rOut .sbook')].find(x => x.dataset.t === jb.dataset.jb); if (h) h.scrollIntoView({ block: 'start' }); return; }
+    if (e.target.closest('.sup')) { $('#sresTop').scrollIntoView({ block: 'start' }); return; }
+    const go = e.target.closest('.sgo');
+    if (go) { const g = [...groupsByKey.values()].find(x => x.title === go.dataset.t); const nx = go.closest('.ssec').nextElementSibling; const first = nx && nx.dataset && nx.dataset.sl; if (g) openGroup(g, { sectionPath: JSON.parse(go.dataset.sp), rowLabel: first || undefined }, true); return; }
+    const row = e.target.closest('.row[data-sp]');
+    if (!row) return;
+    if (e.target.closest('.slk')) return sresSelect(row, 'lk');
+    if (e.target.closest('.scm')) return sresSelect(row, 'cmt');
+    if (e.target.closest('.lab')) { if (cmtOpen) sresSelect(row, 'cmt'); else { $$('#rOut .row.cmtrow').forEach(r => r.classList.remove('cmtrow')); row.classList.add('cmtrow'); } }
+  });
+  $('#rOut').addEventListener('dblclick', e => { // Doppelklick auf die Versnummer: Kommentare dieses Verses
+    if (!view || !view.sres) return;
+    const row = e.target.closest('.row[data-sp]');
+    if (row && e.target.closest('.lab') && !e.target.closest('.slk')) sresSelect(row, 'cmt');
+  });
   // Vorschläge beim Tippen (Springen-Feld und „Neuer Tab“): Buchname eintippen, z. B. „ge“ → Genesis
   let suggEl = null;
   function attachSuggest(input) {
@@ -759,19 +861,21 @@
       const { book, rest } = split(input.value);
       const q = normT(book);
       if (!q || rest.trim()) { hide(); return; } // Vorschläge nur, solange noch kein Kapitel eingegeben ist
+      const pars = input.id === 'jump' && window.Parashot ? window.Parashot.suggest(input.value, 4).map(p => ({ parasha: p })) : [];
       const hits = groups.filter(g => titleHit(g.title, q) || (g.heTitle && g.heTitle.includes(book)));
       hits.sort((a, b) => (normT(a.title).startsWith(q) ? 0 : 1) - (normT(b.title).startsWith(q) ? 0 : 1));
       const first = hits.filter(g => normT(g.title).startsWith(q)), other = hits.filter(g => !normT(g.title).startsWith(q));
-      list = [...SefOrder.sortTitles(first), ...SefOrder.sortTitles(other)].slice(0, 8);
+      list = [...pars, ...SefOrder.sortTitles(first), ...SefOrder.sortTitles(other)].slice(0, 8 + pars.length);
       if (!list.length) { hide(); return; }
       sel = -1;
-      suggEl.innerHTML = list.map((g, i) => `<div class="si" data-i="${i}">${esc(g.title)}${g.heTitle ? ` <small dir="rtl">${esc(g.heTitle)}</small>` : ''}<span class="muted">${esc(g.cats.slice(-1)[0] || '')}</span></div>`).join('');
+      suggEl.innerHTML = list.map((g, i) => g.parasha ? `<div class="si" data-i="${i}">${esc(I18N.t('Parascha'))} ${esc(g.parasha.name)} <small dir="rtl">${esc(g.parasha.he)}</small><span class="muted">${esc(window.Parashot.label(g.parasha))}</span></div>` : `<div class="si" data-i="${i}">${esc(g.title)}${g.heTitle ? ` <small dir="rtl">${esc(g.heTitle)}</small>` : ''}<span class="muted">${esc(g.cats.slice(-1)[0] || '')}</span></div>`).join('');
       const r = input.getBoundingClientRect();
       suggEl.style.left = r.left + 'px'; suggEl.style.top = (r.bottom + 2) + 'px'; suggEl.style.minWidth = Math.max(240, r.width) + 'px';
       suggEl.hidden = false;
     };
     const pick = i => {
       const g = list[i]; if (!g) return;
+      if (g.parasha) { input.value = g.parasha.name; hide(); input.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true })); return; }
       input.value = g.title + ' '; hide(); input.focus();
       input.dispatchEvent(new Event('input', { bubbles: true }));
       hide();
@@ -794,7 +898,8 @@
   attachSuggest($('#jump'));
   $('#jump').addEventListener('keydown', async e => {
     if (e.key !== 'Enter') return;
-    const ok = await jumpTo($('#jump').value);
+    let ok = await jumpTo($('#jump').value);
+    if (!ok) ok = jumpSearch($('#jump').value); // kein Buch und keine Stelle: die Wörter im Tanach suchen
     $('#jump').classList.toggle('bad', !ok);
   });
   $('#jump').addEventListener('input', () => $('#jump').classList.remove('bad'));
@@ -894,7 +999,7 @@
     const h = a && history[+a.dataset.i];
     if (!h) return;
     const g = groupsByKey.get(h.key);
-    if (g) openGroup(g, { sectionPath: JSON.parse(h.sk), rowLabel: h.row || undefined }, e.metaKey || e.ctrlKey || e.shiftKey);
+    if (g) openGroup(g, { sectionPath: JSON.parse(h.sk), rowLabel: h.row || undefined }, e.metaKey || e.ctrlKey);
   });
   let recentOpen = true;
   try { recentOpen = localStorage.getItem('recentOpen3') !== '0'; } catch { /* egal */ }
@@ -933,17 +1038,24 @@
   $('#lkStop').onclick = () => LK.cancel();
   LK.onProgress(p => { $('#lkProg').value = p.file - (/fertig/.test(p.phase) ? 0 : 1); $('#lkInfo').textContent = `${p.phase} (${p.file}/${p.total})`; });
 
+  // Parallelstellen (ETCBC Parallels, ab 75 % Ähnlichkeit) als zusätzliche Verknüpfungen
+  const parRows = (title, ch) => {
+    const P = (window.PARALLELS || {})[title + ' ' + ch], rows = [];
+    if (P) for (const v of Object.keys(P)) for (const s of P[v]) { const [ref, sim] = s.split('~'); rows.push({ v1: +v, v2: +v, other: ref, type: sim + ' %', cat: 'Parallelstellen' }); }
+    return rows;
+  };
   const verseOf = lab => (/^\d+$/.test(lab) ? +lab : null);
   async function loadLinks(s) {
     secLinks = [];
     $('#lkBtn').hidden = true;
-    if (!linksReady || !view) return;
+    if (!view) return;
     const first = s.label.split(' › ')[0];
     const m = s.path.length === 1 && !s.label.includes('›') && first.match(/(\d+[ab]?)$/i);
     if (!m) return;
     const token = view.idx + ':' + view.group.key;
     let rows;
-    try { rows = await LK.section(view.group.title, m[1]); } catch { return; }
+    try { rows = linksReady ? await LK.section(view.group.title, m[1]) : []; } catch { rows = []; }
+    rows = (Array.isArray(rows) ? rows : []).concat(parRows(view.group.title, m[1]));
     if (!view || token !== view.idx + ':' + view.group.key) return; // inzwischen woanders
     secLinks = rows;
     if (!rows.length) return;
@@ -969,7 +1081,7 @@
   // Klick außerhalb des Verknüpfungen-Fensters schließt es (Klick auf die Verknüpfungs-Knöpfe, Menüs und Vorschau zählt nicht)
   document.addEventListener('mousedown', e => {
     if ($('#linkPanel').hidden || !e.target.closest) return;
-    if (e.target.closest('#linkPanel, #lkBtn, .lk, #ctxMenu, #lkHover, #suggest, #tip, #undoBar, dialog')) return;
+    if (e.target.closest('#linkPanel, #lkBtn, .lk, .slk, #ctxMenu, #lkHover, #suggest, #tip, #undoBar, dialog')) return;
     $('#linkPanel').hidden = true;
   }, true);
   $('#lkFilter').addEventListener('input', () => renderLinkPanel());
@@ -989,11 +1101,13 @@
   const TANAKH_BOOKS = new Set('Genesis,Exodus,Leviticus,Numbers,Deuteronomy,Joshua,Judges,I Samuel,II Samuel,I Kings,II Kings,Isaiah,Jeremiah,Ezekiel,Hosea,Joel,Amos,Obadiah,Jonah,Micah,Nahum,Habakkuk,Zephaniah,Haggai,Zechariah,Malachi,Psalms,Proverbs,Job,Song of Songs,Ruth,Lamentations,Ecclesiastes,Esther,Daniel,Ezra,Nehemiah,I Chronicles,II Chronicles'.split(','));
   function renderLinkPanel() {
     if (!view) return;
-    const s = view.sections[view.idx];
+    const virt = view.sres ? cmtVirt : null;
+    if (view.sres && !virt) return;
+    const s = virt ? { label: virt.label } : view.sections[view.idx];
     const f = $('#lkFilter').value.trim().toLowerCase();
     let list = secLinks.filter(x => lkVerse == null ? true : (x.v1 === 0 || (lkVerse >= x.v1 && lkVerse <= x.v2)));
     if (f) list = list.filter(x => (x.other + ' ' + x.cat + ' ' + x.type).toLowerCase().includes(f));
-    $('#lkTitle').textContent = `${view.group.title} · ${s ? s.label : ''}${lkVerse != null ? ':' + lkVerse : ''} – ${list.length} Verknüpfungen`;
+    $('#lkTitle').textContent = `${virt ? virt.title : view.group.title} · ${s ? s.label : ''}${lkVerse != null ? ':' + lkVerse : ''} – ${list.length} Verknüpfungen`;
     const byT = new Map(groups.map(g => [g.title, g]));
     const titleToGroup = t => byT.get(t) || byT.get(String(t).split(', ')[0]) || null;
     const local = localTitles();
@@ -1021,7 +1135,7 @@
     const a = e.target.closest('a[data-ref]');
     if (a) {
       if (a.parentElement.classList.contains('off')) return;
-      await jumpTo(a.dataset.ref.replace(/-.*$/, ''), e.metaKey || e.ctrlKey || e.shiftKey);
+      await jumpTo(a.dataset.ref.replace(/-.*$/, ''), e.metaKey || e.ctrlKey);
       return;
     }
     const b = e.target.closest('button[data-pv]');
@@ -1365,6 +1479,7 @@
 
   // ---------- Suche ----------
   let sResults = [];
+  let lastSearch = null; // Parameter der letzten Suche (für „Als Lesetext“ im eigenen Tab)
   O.onSearchProgress(p => { $('#sInfo').textContent = `Durchsuche … ${p.scanned} von ${p.total} Dateien · ${p.found} Treffer`; });
 
   // Kategorien und einzelne Bücher für die Suche: ohne Häkchen wird überall gesucht
@@ -1404,7 +1519,7 @@
   }
   const sOpen = new Set(); // vom Nutzer aufgeklappte Kategorien in der Suchliste
   $('#sCatTree').addEventListener('toggle', e => { const d = e.target; if (d.dataset && d.dataset.p != null && !$('#sCatFilter').value.trim()) { if (d.open) sOpen.add(d.dataset.p); else sOpen.delete(d.dataset.p); } }, true);
-  $('#sCatFilter').addEventListener('input', renderSCats);
+  { let sct = null; $('#sCatFilter').addEventListener('input', () => { clearTimeout(sct); sct = setTimeout(renderSCats, 80); }); }
   $('#sCatAll').onclick = () => { sCats.clear(); sTitles.clear(); renderSCats(); };
   $('#sCatTree').addEventListener('change', e => {
     const d = e.target.dataset || {};
@@ -1524,7 +1639,7 @@
   // Seitenleisten ändern die Breite des Lesebereichs: die Stelle, an der man gerade liest (markierter Vers, sonst oberster sichtbarer), bleibt dabei auf dem Bildschirm stehen
   function withAnchor(fn) {
     const vis = x => { const r = x.getBoundingClientRect(); return r.bottom > 110 && r.top < window.innerHeight; };
-    const rows = $$('#rOut .row[data-l]');
+    const rows = $$('#rOut .row[data-l], #rOut .row[data-sp]'); // auch die Trefferzeilen im Suchtab
     const a = rows.find(x => (x.classList.contains('hit') || x.classList.contains('cmtrow')) && vis(x)) || rows.find(vis);
     const t0 = a ? a.getBoundingClientRect().top : 0;
     fn();
@@ -1538,7 +1653,7 @@
     $('#dictPanel').hidden = !dictOpen;
     syncDock();
     $('#dictTabBtn').classList.toggle('sideopen', dictOpen);
-    if (dictOpen) { renderDictList(); $('#dictQ').focus(); }
+    if (dictOpen) { renderDictList(); $('#dictQ').focus({ preventScroll: true }); }
   }
   // Doppelklick auf ein Wort im Text oder in den Kommentaren schlägt es nach
   const dblWord = e => {
@@ -1559,7 +1674,7 @@
   const clickMark = e => {
     if (!window.Highlight || !CSS.highlights) return;
     CSS.highlights.delete('wsel');
-    if (e.target.closest('a, button, select, input, textarea, .lab, .bm, .w[data-m], #wpop, .head')) return;
+    if (e.target.closest('a, button, select, input, textarea, .lab, .bm, .w[data-m], .wt[data-m], #wpop, .head')) return;
     if (String(window.getSelection())) return;
     try {
       const r = document.caretRangeFromPoint(e.clientX, e.clientY);
@@ -1647,7 +1762,7 @@
   // Im Wörterbuch-Reiter öffnet Cmd/Strg/Umschalt + Klick auf einen Verweis (oder Cmd+Enter beim Suchen) einen neuen Tab
   $('#dictOut').addEventListener('click', e => {
     const a = e.target.closest('a.dref[data-q]');
-    if (a && document.documentElement.dataset.tab === 'dict' && (e.metaKey || e.ctrlKey || e.shiftKey)) { e.preventDefault(); e.stopImmediatePropagation(); const q = a.dataset.q; dtabAdd(); dictLookup(q); }
+    if (a && document.documentElement.dataset.tab === 'dict' && (e.metaKey || e.ctrlKey)) { e.preventDefault(); e.stopImmediatePropagation(); const q = a.dataset.q; dtabAdd(); dictLookup(q); }
   }, true);
   renderDtabs();
   // Wortvorschläge beim Tippen
@@ -1698,11 +1813,20 @@
   applyDfs();
   $('#dictFsMinus').onclick = () => { dfs = Math.max(10, dfs - 1); applyDfs(); };
   $('#dictFsPlus').onclick = () => { dfs = Math.min(26, dfs + 1); applyDfs(); };
+  // Scrollt nur den umgebenden Panel-Container (nicht das Dokument), damit das Fenster nicht springt
+  function panelScrollTo(el, block) {
+    let p = el.parentElement;
+    while (p && p !== document.body && !(p.scrollHeight > p.clientHeight + 1 && /(auto|scroll)/.test(getComputedStyle(p).overflowY))) p = p.parentElement;
+    if (!p || p === document.body) return;
+    const r = el.getBoundingClientRect(), pr = p.getBoundingClientRect();
+    const top = r.top - pr.top + p.scrollTop - (block === 'center' ? (p.clientHeight - r.height) / 2 : 0);
+    p.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+  }
   // zu einem Artikel der aktuellen Trefferliste springen
   function dictJump(i) {
     const el = $('#dentry' + i);
     if (!el) return;
-    el.scrollIntoView({ block: 'start', behavior: 'smooth' });
+    panelScrollTo(el, 'start');
     el.classList.add('flash'); setTimeout(() => el.classList.remove('flash'), 1200);
   }
   async function renderDictList() {
@@ -1711,7 +1835,7 @@
   }
   async function openDict(q) {
     if (!dictOpen) toggleDict(true); else renderDictList();
-    if (q) dictLookup(q); else $('#dictQ').focus();
+    if (q) dictLookup(q); else $('#dictQ').focus({ preventScroll: true });
   }
   $('#openDict').onclick = () => { $('#moreMenu').open = false; toggleDict(); };
   $('#dictClose').onclick = () => { if (document.documentElement.dataset.tab === 'dict') showTab('read'); else toggleDict(false); };
@@ -1755,7 +1879,7 @@
     if (s) {   // Quellenangabe im Artikel (z. B. „Rosh Hashanah 18b“): im Reader öffnen; Cmd/Strg + Klick = im zweiten Fenster rechts, Umschalt = neuer Tab
       e.preventDefault();
       if ((e.metaKey || e.ctrlKey) && !IS_PANE2) { toPane2({ type: 'jump', ref: s.dataset.sref.replace(/-.*$/, '') }); return; }
-      jumpTo(s.dataset.sref, e.metaKey || e.ctrlKey || e.shiftKey).then(ok => {
+      jumpTo(s.dataset.sref, e.metaKey || e.ctrlKey).then(ok => {
         s.classList.toggle('dmiss', !ok);
         s.title = ok ? '' : 'Dieser Text ist nicht in deiner Bibliothek (Reiter „Herunterladen“).';
       });
@@ -1829,20 +1953,32 @@
   });
 
   const plainSnip = r => (r.parts ? r.parts.map(x => x.t).join('') : `${r.snippet.before}${r.snippet.hit}${r.snippet.after}`);
+  // Grammatik-Auswahl der Suche -> { pos, stem, … } oder null, wenn nichts gewählt ist
+  const GRAM_IDS = { pos: 'gPos', stem: 'gStem', tense: 'gTense', person: 'gPerson', gender: 'gGender', number: 'gNumber', state: 'gState', suffix: 'gSuffix', article: 'gArticle' };
+  function gramParams() {
+    const g = {}; let any = false;
+    for (const [k, id] of Object.entries(GRAM_IDS)) { const el = $('#' + id); const v = el ? el.value : ''; g[k] = v; if (v) any = true; }
+    return any ? g : null;
+  }
+  $('#gClear').onclick = () => { for (const id of Object.values(GRAM_IDS)) $('#' + id).value = ''; $('#gramBox').open = false; };
+  $('#gramBox').addEventListener('keydown', e => { if (e.key === 'Enter' && e.target.tagName === 'SELECT') { e.preventDefault(); $('#sGo').click(); } });
   async function runSearch(only) {
     const onlyTitle = typeof only === 'string' ? only : null; // Klick auf einen Buchnamen: nur dieses Buch, mit allen Treffern
     const q = $('#sq').value.trim();
-    if (!q) return;
-    const kinds = $$('.sk').filter(c => c.checked).map(c => c.dataset.k);
+    const gram = gramParams();
+    if (!q && !gram) return;
+    const kinds = gram ? ['he'] : $$('.sk').filter(c => c.checked).map(c => c.dataset.k); // Grammatik-Suche: nur hebräischer Westminster-Text
     if (!kinds.length) { $('#sInfo').textContent = 'Bitte mindestens eine Sprache wählen.'; return; }
     $('#sGo').disabled = true; $('#sCancel').disabled = false;
     $('#sInfo').textContent = 'Suche läuft …';
     $('#sOut').innerHTML = ''; $('#sSum').innerHTML = ''; $('#sExport').hidden = true;
-    const res = await O.search({
+    const sp = {
       query: q, extra: [$('#sq2').value.trim(), $('#sq3').value.trim()].filter(Boolean), distance: +$('#sDist').value, ordered: $('#sOrd').checked, fuzzy: $('#sFuzzy').checked, kinds,
-      categories: onlyTitle ? [] : [...sCats], titles: onlyTitle ? [onlyTitle] : [...sTitles], prefix: $('#sPre').checked,
+      categories: onlyTitle ? [] : [...sCats], titles: onlyTitle ? [onlyTitle] : [...sTitles], prefix: $('#sPre').checked, wlc: $('#sWlc').checked, lemma: $('#sLem').checked, gram,
       limit: 1000, perFile: onlyTitle ? 1000 : 25,
-    });
+    };
+    lastSearch = { ...sp };
+    const res = await O.search(sp);
     $('#sGo').disabled = false; $('#sCancel').disabled = true;
     sResults = res.results;
     const totalHits = res.stats.reduce((a, x) => a + x.n, 0);
@@ -1851,11 +1987,96 @@
       ? (onlyTitle ? `<button class="chip" data-t="">← alle Bücher</button> ` : '') + res.stats.slice(0, 40).map(x => `<button class="chip${x.title === onlyTitle ? ' on' : ''}" data-t="${esc(x.title)}" title="Nur in diesem Buch, alle Treffer">${esc(x.title)} (${x.n})</button>`).join(' ') + (res.stats.length > 40 ? ` <span class="muted">… und ${res.stats.length - 40} weitere</span>` : '')
       : '';
     $('#sExport').hidden = !sResults.length;
+    $('#sReadBtn').hidden = !sResults.length;
+    showSearchResults();
+  }
+  function renderSearchList() {
+    $('#sOut').classList.remove('sread');
     $('#sOut').innerHTML = sResults.map((r, i) => {
       const sn = r.snippet;
       return `<div class="sres" data-i="${i}"><span class="t">${esc(r.title)}</span> <span class="muted">${esc(r.where)} · <span class="badge ${r.kind}">${KIND_LABEL[r.kind]}</span>${esc(shortVer(r.versionTitle))}</span><div class="snip" dir="${r.kind === 'he' ? 'rtl' : 'ltr'}">${r.parts ? r.parts.map(x => x.m ? `<mark>${esc(x.t)}</mark>` : esc(x.t)).join('') : `${esc(sn.before)}<mark>${esc(sn.hit)}</mark>${esc(sn.after)}`}</div></div>`;
     }).join('');
   }
+  // Treffer als Lesetext: wie beim Lesen, jede Fundstelle als Zeile mit den gewählten Versionen nebeneinander, geordnet nach Buch und Kapitel
+  let sRead = false; try { sRead = localStorage.getItem('searchRead') === '1'; } catch { /* egal */ }
+  let sReadTok = 0;
+  function showSearchResults() { renderSearchList(); }
+  // Gefundene Wörter im Vers markieren: Westminster-Wörter (span.w) exakt, übrige Texte als Textstelle
+  function markHits(html, h) {
+    if (html == null || !h || !h.words.size) return html;
+    const norm = x => R.normalize(x).replace(/[^\p{L}]/gu, '');
+    const ws = [...h.words];
+    if (/<span class="w"/.test(html)) {
+      return html.replace(/<span class="w"( data-l="[^"]*" data-m="[^"]*")>(.*?)<\/span>/g, (m, at, inner) => {
+        const f = norm(inner);
+        return ws.some(x => f === norm(x) || (h.sub && f.includes(norm(x)))) ? `<span class="w hl"${at}>${inner}</span>` : m;
+      });
+    }
+    const re = new RegExp('(' + ws.map(x => x.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|') + ')', 'giu');
+    return html.replace(/(<[^>]+>)|([^<]+)/g, (m, tag, txt) => tag ? tag : txt.replace(re, '<mark>$1</mark>'));
+  }
+  // Fundstellen als Lesetext-HTML: nach Buch und Kapitel geordnet, je Zeile die gewählten Versionen nebeneinander
+  async function buildReadHtml(res, stillWanted) {
+    const books = new Map();
+    for (const r of res) {
+      if (!r.loc) continue;
+      const b = books.get(r.title) || books.set(r.title, { rel: r.rel, secs: new Map(), rels: new Set() }).get(r.title);
+      b.rels.add(r.rel);
+      const k = JSON.stringify(r.loc.path);
+      const sc = b.secs.get(k) || b.secs.set(k, { path: r.loc.path, labels: new Set(), hl: new Map() }).get(k);
+      sc.labels.add(r.loc.label);
+      if (r.words) {
+        const hk = r.loc.label + '|' + r.rel;
+        const h = sc.hl.get(hk) || sc.hl.set(hk, { words: new Set(), sub: false }).get(hk);
+        r.words.forEach(w => h.words.add(w)); h.sub = h.sub || !!r.sub;
+      }
+    }
+    let html = '';
+    for (const [title, b] of books) {
+      const entry = entries.find(x => x.rel === b.rel), g = entry && groupsByKey.get(keyOf(entry));
+      if (!g) continue;
+      const rels = [...new Set([...pickVersions(g), ...b.rels])].filter(r => g.versions.some(v => v.rel === r));
+      const ds = [];
+      for (const rel of rels) { try { const d = cache.get(rel) || await O.read(rel); if (d) ds.push(d); } catch { /* Version überspringen */ } if (!stillWanted()) return null; }
+      ds.sort((a, c) => KIND_RANK[a.entry.kind] - KIND_RANK[c.entry.kind]);
+      if (!ds.length) continue;
+      const nc = ds.length;
+      html += `<h3 class="sbook" data-t="${esc(title)}">${esc(title)}${g.heTitle ? ` <small dir="rtl">${esc(g.heTitle)}</small>` : ''} <span class="sup" title="${esc(I18N.t('Zur Übersicht'))}">↑</span></h3><div class="row head" style="--n:${nc}"><div class="lab"></div>${ds.map(d => `<div>${esc(KIND_LABEL[d.entry.kind])} · ${esc(shortVer(d.versionTitle))}</div>`).join('')}</div>`;
+      const secs = [...b.secs.values()].sort((x, y) => { for (let i = 0; i < Math.max(x.path.length, y.path.length); i++) { const a = x.path[i], c = y.path[i]; if (a === c) continue; return typeof a === 'number' && typeof c === 'number' ? a - c : String(a).localeCompare(String(c)); } return 0; });
+      for (const sc of secs) {
+        const cols = ds.map(d => R.flattenNode(R.getByPath(d.text, sc.path)));
+        const rows = R.alignRows(cols).filter(r => sc.labels.has(r.label));
+        const lab = R.pathLabel(sc.path, ds[0].sectionNames);
+        const chm = lab.match(/(\d+[ab]?)$/i), ch = chm ? chm[1] : '';
+        const sp = esc(JSON.stringify(sc.path));
+        html += `<div class="ssec" data-t="${esc(title)}" data-sp="${sp}">${esc(lab)} <span class="sgo" data-t="${esc(title)}" data-sp="${sp}" title="Dieses Kapitel am ersten Treffer im Lesen öffnen (neuer Tab)">↗</span></div>`
+          + rows.map(r => `<div class="row sh" data-t="${esc(title)}" data-sp="${sp}" data-sl="${esc(r.label)}" data-sec="${esc(lab)}" data-ch="${esc(ch)}" style="--n:${nc}"><div class="lab" title="Im Lesen öffnen">${esc(r.label)}${ch && /^\d+$/.test(r.label) ? '<br><span class="scm" title="Kommentare zu diesem Vers">💬</span> <span class="slk" title="Verknüpfungen zu diesem Vers">🔗</span>' : ''}</div>${ds.map((d, i) => cellHtml(r.cells[i], d, sc.hl.get(r.label + '|' + d.entry.rel))).join('')}</div>`).join('');
+      }
+    }
+    return html;
+  }
+  async function renderSearchRead() {
+    const tok = ++sReadTok, out = $('#sOut');
+    out.classList.add('sread');
+    ['he', 'en', 'de'].forEach(k => out.style.setProperty('--' + k + 'f', disp[k]));
+    out.innerHTML = '<p class="muted">Lade Lesetext …</p>';
+    const html = await buildReadHtml(sResults, () => tok === sReadTok);
+    if (html == null || tok !== sReadTok) return;
+    out.innerHTML = html || '<p class="muted">Keine Fundstellen mit Kapitelangabe.</p>';
+  }
+  $('#sReadBtn').onclick = () => { // alle Treffer als Lesetext in einem neuen Tab im Lesen-Reiter
+    if (!lastSearch) return;
+    saveScroll();
+    const nv = { group: null, sres: { q: lastSearch.query || I18N.t('Grammatik'), limit: 300, html: null, params: { ...lastSearch, limit: undefined, perFile: undefined } } };
+    tabs.push(nv); tabIdx = tabs.length - 1; view = nv;
+    showTab('read'); showView();
+  };
+  $('#sOut').addEventListener('click', e => {
+    const row = e.target.closest('.row[data-sp]');
+    if (!row || e.target.closest('.w, sup, .note, .scm, .slk') || (window.getSelection() + '')) return;
+    const g = [...groupsByKey.values()].find(x => x.title === row.dataset.t);
+    if (g) openGroup(g, { sectionPath: JSON.parse(row.dataset.sp), rowLabel: row.dataset.sl }, e.metaKey || e.ctrlKey);
+  });
   $('#sSum').addEventListener('click', e => { const c = e.target.closest('.chip'); if (c) runSearch(c.dataset.t || undefined); });
   $('#sExport').onclick = async () => {
     const csv = ['Titel;Version;Sprache;Stelle;Text'].concat(sResults.map(r => [r.title, r.versionTitle, KIND_LABEL[r.kind], r.where, plainSnip(r)].map(x => '"' + String(x == null ? '' : x).replace(/"/g, '""') + '"').join(';')));
@@ -1915,7 +2136,7 @@
     const r = sResults[+el.dataset.i];
     const entry = entries.find(x => x.rel === r.rel);
     if (!entry) return;
-    openGroup(groupsByKey.get(keyOf(entry)), { rel: r.rel, sectionPath: r.loc && r.loc.path, rowLabel: r.loc ? r.loc.label : undefined }, e.metaKey || e.ctrlKey || e.shiftKey);
+    openGroup(groupsByKey.get(keyOf(entry)), { rel: r.rel, sectionPath: r.loc && r.loc.path, rowLabel: r.loc ? r.loc.label : undefined }, e.metaKey || e.ctrlKey);
   });
 
   // ---------- Herunterladen ----------
@@ -2118,7 +2339,7 @@
   });
   $('#dReset').onclick = () => { disp = { ...DISP0 }; applyDisp(true); };
   document.addEventListener('click', e => {
-    if (!$('#dispPanel').hidden && !e.target.closest('#dispPanel') && e.target.id !== 'dispBtn') $('#dispPanel').hidden = true;
+    if (!$('#dispPanel').hidden && !e.target.closest('#dispPanel') && !e.target.closest('#dispBtn')) $('#dispPanel').hidden = true;
   });
   // Klick außerhalb schließt aufgeklappte Menüs (Versionen, ⋯)
   document.addEventListener('click', e => {
@@ -2574,7 +2795,7 @@
     const tg = e.target.closest('button[data-tag]');
     if (tg) { nTag = nTag === tg.dataset.tag ? '' : tg.dataset.tag; renderNotes(); return; }
     const rf = e.target.closest('a.nref');
-    if (rf) { e.preventDefault(); showTab('read'); await jumpTo(rf.dataset.q, e.metaKey || e.ctrlKey || e.shiftKey); return; }
+    if (rf) { e.preventDefault(); showTab('read'); await jumpTo(rf.dataset.q, e.metaKey || e.ctrlKey); return; }
     if (e.target.closest('a[data-dl]')) { showTab('get'); return; }
     const cm = e.target.closest('button[data-cmt]');
     if (cm) {
@@ -2600,7 +2821,7 @@
     if (kindOf(n) === 'free') { openNoteDlg(n, { canDelete: true }); return; }
     const g = groupsByKey.get(n.key);
     if (g) {
-      await openGroup(g, { sectionPath: JSON.parse(n.sk), rowLabel: n.row }, e.metaKey || e.ctrlKey || e.shiftKey);
+      await openGroup(g, { sectionPath: JSON.parse(n.sk), rowLabel: n.row }, e.metaKey || e.ctrlKey);
       if (kindOf(n) === 'block' && n.set && n.set.length && view && view.group === g) { view.vf = { k: view.sections[view.idx].k, set: new Set(n.set), text: String(view.sections[view.idx].label || '').replace(/^\D+/, '') + ':' + n.vs }; renderSection(n.row); }
     }
   });
@@ -2658,7 +2879,7 @@
         endnotes.push(R.cleanHtml(sp.notes[+i].html));
         return `<sup>${endnotes.length}</sup>`;
       });
-      return `<td dir="${d.entry.language === 'Hebrew' ? 'rtl' : 'ltr'}" class="k-${d.entry.kind}">${main}</td>`;
+      return `<td dir="${d.entry.language === 'Hebrew' || d.entry.language === 'Aramaic' ? 'rtl' : 'ltr'}" class="k-${d.entry.kind}">${main}</td>`;
     };
     const body = rows.map(r => {
       let extra = '';
@@ -2727,7 +2948,16 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
   const cmtClosed = new Set(); // eingeklappte Kommentare (nur in dieser Sitzung)
   const dispName = n => String(n).replace(/, [^,]+$/, ''); // „Bekhor Shor, Genesis“ → „Bekhor Shor“
   const CMT_PRIO = ['Rashi', 'Ibn Ezra', 'Ramban', 'Rashbam', 'Sforno', 'Or HaChaim', 'Chizkuni', 'Radak', 'Kli Yakar', 'Bekhor Shor', 'Onkelos'];
-  const saveCmt = () => { try { localStorage.setItem('cmtSel', JSON.stringify([...cmtSel])); localStorage.setItem('cmtLang', cmtLang); localStorage.setItem('cmtAll', cmtAll ? '1' : '0'); } catch { /* egal */ } };
+  // Die Kommentar-Auswahl wird pro Sprache gemerkt (z. B. Deutsch: Hirsch, Englisch: etwas anderes) und beim Umschalten der Sprache wiederhergestellt
+  let cmtByLang = {};
+  try { cmtByLang = JSON.parse(localStorage.getItem('cmtByLang') || '{}') || {}; } catch { cmtByLang = {}; }
+  if (!cmtByLang[cmtLang]) cmtByLang[cmtLang] = { sel: [...cmtSel], all: cmtAll, touched: cmtTouched }; // bisherige Einstellung gilt für die zuletzt benutzte Sprache
+  else { const s0 = cmtByLang[cmtLang]; cmtSel = new Set(s0.sel || []); cmtAll = !!s0.all; cmtTouched = !!s0.touched; }
+  const saveCmt = () => { try {
+    cmtByLang[cmtLang] = { sel: [...cmtSel], all: cmtAll, touched: cmtTouched };
+    localStorage.setItem('cmtByLang', JSON.stringify(cmtByLang));
+    localStorage.setItem('cmtSel', JSON.stringify([...cmtSel])); localStorage.setItem('cmtLang', cmtLang); localStorage.setItem('cmtAll', cmtAll ? '1' : '0');
+  } catch { /* egal */ } };
   function setCmtRow(label) {
     cmtRow = label;
     $$('#rOut .row.cmtrow').forEach(r => r.classList.remove('cmtrow'));
@@ -2753,14 +2983,27 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
   }
   $('#cmtBtn').onclick = () => toggleCmt();
   $('#cmtClose').onclick = () => toggleCmt(false);
-  $('#cmtLang').onchange = () => { cmtLang = $('#cmtLang').value; saveCmt(); renderCmt(); };
+  $('#cmtLang').onchange = () => {
+    saveCmt(); // Auswahl der bisherigen Sprache sichern
+    cmtLang = $('#cmtLang').value;
+    const s0 = cmtByLang[cmtLang] || { sel: [], all: false, touched: false };
+    cmtSel = new Set(s0.sel || []); cmtAll = !!s0.all; cmtTouched = !!s0.touched; cmtLastChosen = [];
+    saveCmt(); renderCmt();
+  };
   document.addEventListener('keydown', e => { if ((e.metaKey || e.ctrlKey) && !e.shiftKey && !e.altKey && e.key.toLowerCase() === 'k') { e.preventDefault(); toggleCmt(); } });
   function stepCmt(d) {
     const rows = $$('#rOut .row[data-l]').filter(x => rowVerse(x.dataset.l) != null);
     const i = rows.findIndex(x => x.dataset.l === cmtRow);
     const n = rows[Math.min(rows.length - 1, Math.max(0, (i < 0 ? 0 : i) + d))];
-    if (n) { setCmtRow(n.dataset.l); n.scrollIntoView({ block: 'center' }); }
+    if (n) { setCmtRow(n.dataset.l); panelScrollTo(n, 'center'); }
   }
+  // j / k: nächster / vorheriger Vers im Kommentar-Bereich (nur wenn kein Eingabefeld den Fokus hat)
+  document.addEventListener('keydown', e => {
+    if (!cmtOpen || e.metaKey || e.ctrlKey || e.altKey || e.isComposing) return;
+    const tg = (e.target.tagName || '').toLowerCase();
+    if (tg === 'input' || tg === 'textarea' || tg === 'select' || e.target.isContentEditable) return;
+    if (e.key === 'j') stepCmt(1); else if (e.key === 'k') stepCmt(-1);
+  });
   $('#cmtPrev').onclick = () => stepCmt(-1);
   $('#cmtNext').onclick = () => stepCmt(1);
   // Klick auf die Versnummer wählt den Vers für den Kommentar-Bereich
@@ -2838,14 +3081,14 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
     const cs = [...$$('#cmtBody .cmt')];
     if (cs.length) {
       if (items.length) items.push({ sep: true });
-      cs.forEach(c => items.push({ label: (c.classList.contains('closed') ? '▸ ' : '') + c.querySelector('h4').textContent.replace(/[▾▸↗]/g, '').trim(), fn: () => { c.classList.remove('closed'); cmtClosed.delete(c.dataset.n); const t = c.querySelector('.tg'); if (t) t.textContent = '▾'; c.scrollIntoView({ block: 'start', behavior: 'smooth' }); } }));
+      cs.forEach(c => items.push({ label: (c.classList.contains('closed') ? '▸ ' : '') + c.querySelector('h4').textContent.replace(/[▾▸↗]/g, '').trim(), fn: () => { c.classList.remove('closed'); cmtClosed.delete(c.dataset.n); const t = c.querySelector('.tg'); if (t) t.textContent = '▾'; panelScrollTo(c, 'start'); } }));
     }
     if (!items.length) return;
     ctxShow(e, items);
   });
   $('#cmtBody').addEventListener('click', e => {
     const jl = e.target.closest('a.jl');
-    if (jl) { const t = [...$$('#cmtBody .cmt')].find(x => x.dataset.n === jl.dataset.n); if (t) { t.classList.remove('closed'); cmtClosed.delete(jl.dataset.n); t.scrollIntoView({ block: 'start', behavior: 'smooth' }); } return; }
+    if (jl) { const t = [...$$('#cmtBody .cmt')].find(x => x.dataset.n === jl.dataset.n); if (t) { t.classList.remove('closed'); cmtClosed.delete(jl.dataset.n); panelScrollTo(t, 'start'); } return; }
     const h = e.target.closest('h4[data-ref]');
     if (!h) return;
     if (e.target.closest('.go')) return jumpTo(h.dataset.ref.replace(/-.*$/, ''), true);
@@ -2857,9 +3100,10 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
   async function renderCmt() {
     if (!cmtOpen) return;
     const token = ++cmtToken;
-    const s = view && view.group && view.sections[view.idx];
+    const virt = view && view.sres ? cmtVirt : null; // Suchtab: Stelle kommt aus der angeklickten Trefferzeile
+    const s = virt ? { label: virt.label } : (view && view.group && view.sections[view.idx]);
     const v = rowVerse(cmtRow);
-    $('#cmtTitle').textContent = s && v != null ? `Kommentare zu ${view.group.title} ${s.label.replace(/^\D+/, '')}:${cmtRow}` : 'Kommentare';
+    $('#cmtTitle').textContent = s && v != null ? `Kommentare zu ${virt ? virt.title : view.group.title} ${s.label.replace(/^\D+/, '')}:${cmtRow}` : 'Kommentare';
     if (!s) { $('#cmtChips').innerHTML = ''; $('#cmtSum').innerHTML = ''; $('#cmtBody').innerHTML = '<p class="muted">Öffne ein Buch.</p>'; return; }
     if (!linksReady) { $('#cmtChips').innerHTML = ''; $('#cmtSum').innerHTML = ''; $('#cmtBody').innerHTML = '<p class="muted">Dafür werden die Verknüpfungen gebraucht: Reiter „Herunterladen“ → Karte „4 · Verknüpfungen“.</p>'; return; }
     if (v == null) { $('#cmtChips').innerHTML = ''; $('#cmtSum').innerHTML = ''; $('#cmtBody').innerHTML = '<p class="muted">Klicke links bei einer Zeile auf die Versnummer.</p>'; return; }
@@ -2942,21 +3186,24 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
   // ---------- Sitzung merken und beim Start wiederherstellen ----------
   let saveTimer = null;
   function saveSession() {
+    if (document.documentElement.classList.contains('pane2')) return; // das zweite Fenster darf die Sitzung des Hauptfensters nicht überschreiben
     clearTimeout(saveTimer);
     saveTimer = setTimeout(() => {
       try {
         localStorage.setItem('session', JSON.stringify({
           idx: tabIdx,
-          tabs: tabs.map(t => t.group ? { key: t.group.key, rels: [...t.selected], sk: t.key, label: t.label || '', scroll: t.scroll || 0, hit: t.hit || null } : { empty: true }),
+          tabs: tabs.map(t => t.group ? { key: t.group.key, rels: [...t.selected], sk: t.key, label: t.label || '', scroll: t.scroll || 0, hit: t.hit || null } : t.sres ? { sres: { q: t.sres.q, he: !!t.sres.he, limit: t.sres.limit || 300, params: t.sres.params } } : { empty: true }),
         }));
       } catch { /* egal */ }
     }, 300);
   }
   async function restoreSession() {
+    if (document.documentElement.classList.contains('pane2')) return;
     let ses = null;
     try { ses = JSON.parse(localStorage.getItem('session') || 'null'); } catch { ses = null; }
     if (!ses || !Array.isArray(ses.tabs) || !ses.tabs.length) return;
     for (const t of ses.tabs) {
+      if (t.sres && typeof t.sres.q === 'string' && t.sres.params && typeof t.sres.params === 'object') { tabs.push({ group: null, sres: { q: t.sres.q.slice(0, 200), he: !!t.sres.he, limit: Math.min(3000, t.sres.limit | 0 || 300), html: null, params: t.sres.params } }); continue; }
       if (t.empty) { tabs.push({ group: null }); continue; }
       const g = groupsByKey.get(t.key);
       if (!g) continue;

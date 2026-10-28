@@ -13,3 +13,10 @@ bundled/own/*/de/Die Schrift, verdeutscht von Martin Buber*.json
 bundled/own/*/de/Die Heilige Schrift, übersetzt von Naftali Herz Tur-Sinai*.json
 tools/xref/bibeln-xref.json
 __pycache__/
+# Privat: geschützte Texte nur für den eigenen Gebrauch (nicht hochladen)
+bundled/manifest.private.json
+bundled/own/Rational Bible on */
+tools/epub/*.epub
+bundled/own/Alter on */
+tools/epub/*.epub
+bundled/own/Cassuto on */

@@ -51,3 +51,9 @@ eq('gen 1:1-2:3', ['gen|1|1–…', 'gen|2|1–3']);
 eq('gen 1:3, nirgendwo 4', ['gen|1|3', 'nirgendwo|4|']); // unbekanntes Buch wird erst beim Öffnen gemeldet
 assert.strictEqual(pm('gen 1:3, ???'), null); // unlesbarer Rest: kein Mehrfach-Dialog
 console.log('refs ok');
+{
+  const R = require('./reader.js'), assert = require('assert');
+  assert(!/<img|<a /i.test(R.cleanHtml('x <img src=x onerror=alert(1)//')));
+  assert.strictEqual(R.cleanHtml('1 < 2 <b>x</b>'), '1 &lt; 2 <b>x</b>');
+  console.log('cleanHtml-Härtung ok');
+}

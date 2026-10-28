@@ -1,11 +1,11 @@
 {
   "name": "safran",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "description": "Safran – Sefaria-Texte offline lesen, durchsuchen, herunterladen und eigene Texte für den Upload prüfen",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "test": "node test.js && node test2.js && node test3.js && node test4.js && node test5.js && node test6.js && node test7.js && node test9.js && node test10.js",
+    "test": "node test.js && node test2.js && node test3.js && node test4.js && node test5.js && node test6.js && node test7.js && node test9.js && node test10.js && node test11.js && node test12.js && node test13.js",
     "dist": "electron-builder --mac",
     "dist:win": "electron-builder --win"
   },
@@ -41,7 +41,16 @@
       "**/*",
       "!test*.js",
       "!tools/**",
-      "!README.md"
+      "!README.md",
+      "!screenshots/**",
+      "!ud/**",
+      "!bundled/manifest.private.json",
+      "!bundled/own/Alter on */**",
+      "!bundled/own/Rational Bible on */**",
+      "!bundled/own/*/de/Zürcher Bibel (2007).json",
+      "!bundled/own/*/de/Elberfelder Bibel (2006).json",
+      "!bundled/own/*/de/Die Schrift, verdeutscht von Martin Buber*.json",
+      "!bundled/own/*/de/Die Heilige Schrift, übersetzt von Naftali Herz Tur-Sinai*.json"
     ],
     "icon": "build/icon.png",
     "dmg": {

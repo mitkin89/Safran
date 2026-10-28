@@ -124,18 +124,21 @@ const ALLOWED_TAGS = ['b', 'i', 'em', 'strong', 'small', 'big', 'sup', 'sub', 'b
 // Nur einfache Formatierungs-Tags durchlassen; alle anderen Tags und alle Attribute entfernen
 function cleanHtml(s) {
   let spans = 0; // offene, erlaubte <span class="w">; fremde <span> fallen weg, und ihr </span> darf dann nicht übrig bleiben
-  return String(s ?? '').replace(/<\/?([a-z0-9]+)[^>]*>/gi, (m, t) => {
+  s = String(s ?? '').replace(/<(?![a-z\/])/gi, '&lt;').replace(/<[^>]*$/, m => m.replace(/</g, '&lt;'));
+  return s.replace(/<\/?([a-z0-9]+)[^>]*>/gi, (m, t) => {
     t = t.toLowerCase();
     // Eingebettete Bilder: nur <img src="data:image/png|jpeg|gif|webp;base64,…"> (bis ca. 4 MB), alles andere am Tag fällt weg
     if (t === 'img') {
       const im = m.length < 6e6 && m.match(/\ssrc\s*=\s*["']?(data:image\/(?:png|jpeg|jpg|gif|webp);base64,[A-Za-z0-9+\/=\s]+)["']?/i);
-      return im ? `<img src="${im[1].replace(/\s+/g, '')}" alt="">` : '';
+      return im ? `<img${/\sclass\s*=\s*["']?g["'\s>\/]/i.test(m) ? ' class="g"' : ''} src="${im[1].replace(/\s+/g, '')}" alt="">` : '';
     }
     if (!ALLOWED_TAGS.includes(t)) return '';
     if (m.startsWith('</')) return t === 'span' ? (spans > 0 ? (spans--, '</span>') : '') : `</${t}>`;
     // einzige erlaubte Attributform: <sup data-fn="12"> (Fußnotenzeichen, nur Ziffern)
     // OSHB-Wörter: <span class="w" data-l="1254 a" data-m="HVqp3ms"> (Lemma-Nummer und Morphologiecode, nur Ziffern/Buchstaben)
     if (t === 'span') {
+      const tg = m.match(/^<span class="wt" data-l="([0-9a-f]{1,6})" data-m="([a-z-]{1,8}(?:\.[A-Za-z-]{1,4}){4})">$/);
+      if (tg) { spans++; return `<span class="wt" data-l="${tg[1]}" data-m="${tg[2]}">`; }
       const w = m.match(/^<span class="w" data-l="([0-9a-z\/+ ]{0,40})" data-m="([A-Za-z0-9\/]{0,40})">$/);
       if (!w) return '';
       spans++;

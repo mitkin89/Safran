@@ -127,6 +127,7 @@ function buildMenu() {
 
 // ---------- API-Zugriff für die Werkzeuge ----------
 async function request(method, apiPath, body) {
+  if (typeof apiPath !== 'string' || !/^\/(?!\/)[^\s\\@]*$/.test(apiPath) || new URL(BASE + apiPath).origin !== BASE) return { ok: false, status: 0, data: null, error: 'Ungültiger Pfad' };
   const ctrl = new AbortController();
   const timer = setTimeout(() => ctrl.abort(), 30000);
   try {
@@ -284,6 +285,7 @@ function getLibrary() {
   if (!libraryP) libraryP = (async () => {
     const lib = await new OFF.Library(await libraryDir(), fetchBuffer).load();
     try { await lib.importBundled(path.join(__dirname, 'bundled')); } catch { /* mitgelieferte Texte sind nur ein Zusatz */ }
+    setTimeout(() => warmSearchCache(lib), 5000); // Such-Cache im Hintergrund vorbauen
     return lib;
   })().catch(err => { libraryP = null; throw err; });
   return libraryP;
@@ -362,22 +364,35 @@ ipcMain.handle('off:library', async () => {
 ipcMain.handle('off:read', async (_e, rel) => (await getLibrary()).read(rel));
 
 let searchWorker = null;
+const cacheDirOf = lib => path.join(lib.dir, '.searchcache');
+let warming = null;
+function warmSearchCache(lib) {
+  if (warming) return;
+  try {
+    const { Worker } = require('worker_threads');
+    const w = new Worker(path.join(__dirname, 'cacheWorker.js'), { workerData: { dir: lib.dir, entries: lib.list().filter(e => e.kind === 'he' || e.kind === 'de' || e.kind === 'en'), cacheDir: cacheDirOf(lib) } });
+    warming = w;
+    const done = () => { if (warming === w) warming = null; };
+    w.on('message', done); w.on('error', done); w.on('exit', done);
+    w.unref && w.unref();
+  } catch { /* ohne Cache geht es auch */ }
+}
 ipcMain.handle('off:search', async (e, o) => {
   searchCancel = false;
   const lib = await getLibrary();
   const str = x => String(x == null ? '' : x);
   const params = {
     query: str(o.query), extra: Array.isArray(o.extra) ? o.extra.slice(0, 2).map(str) : [], fuzzy: !!o.fuzzy,
-    distance: Number.isFinite(o.distance) ? o.distance : -1, ordered: !!o.ordered, prefix: !!o.prefix,
+    distance: Number.isFinite(o.distance) ? o.distance : -1, ordered: !!o.ordered, prefix: !!o.prefix, wlc: !!o.wlc, lemma: !!o.lemma, gram: o.gram && typeof o.gram === 'object' ? Object.fromEntries(['pos', 'stem', 'tense', 'person', 'gender', 'number', 'state', 'suffix', 'article'].map(k => [k, String(o.gram[k] == null ? '' : o.gram[k]).slice(0, 3)])) : null,
     limit: Math.min(5000, +o.limit || 1000), perFile: Math.min(500, +o.perFile || 25),
   };
   const entries = lib.entriesFor({ kinds: Array.isArray(o.kinds) ? o.kinds : [], category: str(o.category), categories: Array.isArray(o.categories) ? o.categories.map(str) : [], titles: Array.isArray(o.titles) ? o.titles.map(str) : [] });
   const progress = p => { if (!e.sender.isDestroyed()) e.sender.send('off:searchProgress', p); };
-  const inline = () => require('./searchcore').searchFiles({ dir: lib.dir, entries, params, onProgress: progress, isCancelled: () => searchCancel });
+  const inline = () => require('./searchcore').searchFiles({ dir: lib.dir, entries, params, cacheDir: cacheDirOf(lib), onProgress: progress, isCancelled: () => searchCancel });
   try {
     const { Worker } = require('worker_threads');
     return await new Promise((resolve, reject) => {
-      const w = new Worker(path.join(__dirname, 'searchWorker.js'), { workerData: { dir: lib.dir, entries, params } });
+      const w = new Worker(path.join(__dirname, 'searchWorker.js'), { workerData: { dir: lib.dir, entries, params, cacheDir: cacheDirOf(lib) } });
       searchWorker = w;
       let finished = false;
       const timer = setInterval(() => { if (searchCancel) w.postMessage('cancel'); }, 100);
@@ -606,12 +621,13 @@ async function ownCommentaryLinks(book, chap) {
     if (!m || m[2] !== book || seen.has(e.title)) continue;
     seen.add(e.title);
     let d = readCache.get(e.rel);
-    if (!d) { try { d = await lib.read(e.rel); } catch { continue; } readCache.set(e.rel, d); if (readCache.size > 4) readCache.delete(readCache.keys().next().value); }
-    if (!d || !Array.isArray(d.text)) continue;
+    if (!d) { try { d = await lib.read(e.rel); } catch { continue; } readCache.set(e.rel, d); if (readCache.size > 12) readCache.delete(readCache.keys().next().value); }
+    const arr = d && (Array.isArray(d.text) ? d.text : (d.text && Array.isArray(d.text['']) ? d.text[''] : null)); // Werk mit Einleitung o. ä.: die Kapitel stehen im Standardteil
+    if (!arr) continue;
     const talmud = d.sectionNames && d.sectionNames[0] === 'Daf';
     const c = String(chap).toLowerCase();
     const idx = /[ab]$/.test(c) ? (parseInt(c, 10) - 1) * 2 + (c.endsWith('a') ? 0 : 1) : (talmud ? (parseInt(c, 10) - 1) * 2 : parseInt(c, 10) - 1);
-    const node = d.text[idx];
+    const node = arr[idx];
     if (!Array.isArray(node)) continue;
     node.forEach((v, j) => {
       const filled = Array.isArray(v) ? v.some(x => String(x || '').trim()) : String(v || '').trim();
@@ -646,7 +662,7 @@ ipcMain.handle('links:texts', async (_e, refs, prefer, strict) => {
       if (!d) {
         try { d = await lib.read(c.rel); } catch { return null; }
         readCache.set(c.rel, d);
-        if (readCache.size > 4) readCache.delete(readCache.keys().next().value);
+        if (readCache.size > 12) readCache.delete(readCache.keys().next().value);
       }
       return d;
     };

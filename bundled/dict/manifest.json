@@ -2,10 +2,10 @@
  "version": 1,
  "items": [
   {
-   "id": "e8d290b744f6",
-   "name": "Levy, Wörterbuch (Bd. 1–4)",
-   "count": 19503,
-   "hash": "4ee3d6afe336a6404b1cfcac76bc625c0aaa0419"
+   "id": "8e758bfb9dc6",
+   "name": "Gesenius HWB 1915",
+   "count": 10118,
+   "hash": "3dd0b58e95d9b70db0b0a8a24a6722e12ebdef46"
   },
   {
    "id": "d895bc1c727b",
@@ -14,10 +14,16 @@
    "hash": "c1b20bc21a43cec7c7dd1346dee152a13ac4d5b4"
   },
   {
-   "id": "8e758bfb9dc6",
-   "name": "Gesenius HWB 1915",
-   "count": 10118,
-   "hash": "3dd0b58e95d9b70db0b0a8a24a6722e12ebdef46"
+   "id": "e8d290b744f6",
+   "name": "Levy, Wörterbuch (Bd. 1–4)",
+   "count": 19503,
+   "hash": "4ee3d6afe336a6404b1cfcac76bc625c0aaa0419"
+  },
+  {
+   "id": "ccf02860614e",
+   "name": "BDB – Brown-Driver-Briggs (ungekürzt)",
+   "count": 10022,
+   "hash": "ac0391f1772102dac8d1eeb2f2faf85deab923d3"
   }
  ]
 }

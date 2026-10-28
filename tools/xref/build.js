@@ -2,7 +2,7 @@
 // Nur Tanach (kein Neues Testament), beide Richtungen, Schwelle: Stimmen >= MIN.
 // Aufruf: node tools/xref/build.js [MIN]
 const fs = require('fs'), path = require('path');
-const MIN = +(process.argv[2] || 2);
+const MIN = +(process.argv.slice(2).find(a => /^\d+$/.test(a)) || 2);
 const N = { Gen: 'Genesis', Exod: 'Exodus', Lev: 'Leviticus', Num: 'Numbers', Deut: 'Deuteronomy', Josh: 'Joshua', Judg: 'Judges', '1Sam': 'I Samuel', '2Sam': 'II Samuel', '1Kgs': 'I Kings', '2Kgs': 'II Kings', Isa: 'Isaiah', Jer: 'Jeremiah', Ezek: 'Ezekiel', Hos: 'Hosea', Joel: 'Joel', Amos: 'Amos', Obad: 'Obadiah', Jonah: 'Jonah', Mic: 'Micah', Nah: 'Nahum', Hab: 'Habakkuk', Zeph: 'Zephaniah', Hag: 'Haggai', Zech: 'Zechariah', Mal: 'Malachi', Ps: 'Psalms', Prov: 'Proverbs', Job: 'Job', Song: 'Song of Songs', Ruth: 'Ruth', Lam: 'Lamentations', Eccl: 'Ecclesiastes', Esth: 'Esther', Dan: 'Daniel', Ezra: 'Ezra', Neh: 'Nehemiah', '1Chr': 'I Chronicles', '2Chr': 'II Chronicles' };
 const pr = s => { const m = /^(\w+)\.(\d+)\.(\d+)$/.exec(s); return m && N[m[1]] ? { b: N[m[1]], c: +m[2], v: +m[3] } : null; };
 const out = {}, seen = new Set();
@@ -24,6 +24,7 @@ for (const l of fs.readFileSync(path.join(__dirname, 'cross_references.txt'), 'u
 }
 // Querverweis-Fußnoten (℘) aus Bibelausgaben, von tools/bibeln/build.py erzeugt: [Quellbuch, Kap, v1, v2, Zielbuch, Kap, v1, Kap2, v2]; v1 = 0: ganzes Kapitel
 try {
+  if (process.argv.includes('--no-bibeln')) throw new Error('übersprungen (--no-bibeln: Verweise aus geschützten Bibelausgaben nicht in xref.json)');
   let m = 0;
   for (const [sb, sc, sv1, sv2, tb, tc, tv1, tc2, tv2] of JSON.parse(fs.readFileSync(path.join(__dirname, 'bibeln-xref.json'), 'utf8'))) {
     if (!N[sb] || !N[tb]) continue;

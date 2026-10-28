@@ -339,6 +339,8 @@ class Library {
   async importBundled(dir) {
     let man;
     try { man = JSON.parse(await fs.readFile(path.join(dir, 'manifest.json'), 'utf8')); } catch { return 0; }
+    // manifest.private.json (nicht im Repository): zusätzliche eigene Texte, z. B. urheberrechtlich geschützte, nur für den eigenen Gebrauch
+    try { const pm = JSON.parse(await fs.readFile(path.join(dir, 'manifest.private.json'), 'utf8')); if (pm && Array.isArray(pm.items)) man = { ...man, items: [...(man.items || []), ...pm.items] }; } catch { /* gibt es nicht – normal */ }
     const skip = new Set((this.index.skipBundled || []).map(x => x.normalize('NFC')));
     const have = new Map(Object.keys(this.index.entries).map(k => [k.normalize('NFC'), k])); // Umlaute: gleiche Datei, unterschiedlich geschrieben
     let n = 0;
@@ -373,10 +375,18 @@ class Library {
   // Alle eigenen Texte in einen Ordner schreiben (manifest.json + own/…), zum Ablegen als bundled/ im Projekt
   async exportBundled(outDir) {
     const crypto = require('crypto');
+    // Private Texte (manifest.private.json) bleiben unberührt und kommen nie in das öffentliche manifest.json
+    let privRels = new Set(), keep = [];
+    try {
+      const pm = JSON.parse(await fs.readFile(path.join(outDir, 'manifest.private.json'), 'utf8'));
+      privRels = new Set((pm.items || []).map(i => i.rel.normalize('NFC')));
+      for (const r of privRels) { try { keep.push([r, await fs.readFile(path.join(outDir, r))]); } catch { /* fehlt */ } }
+    } catch { /* keine privaten Texte */ }
     await fs.rm(path.join(outDir, 'own'), { recursive: true, force: true });
+    for (const [r, buf] of keep) { await fs.mkdir(path.dirname(path.join(outDir, r)), { recursive: true }); await fs.writeFile(path.join(outDir, r), buf); }
     const items = [];
     for (const e of Object.values(this.index.entries)) {
-      if (!e.own) continue;
+      if (!e.own || privRels.has(e.rel.normalize('NFC'))) continue;
       const buf = await fs.readFile(path.join(this.dir, e.rel));
       await fs.mkdir(path.dirname(path.join(outDir, e.rel.normalize('NFC'))), { recursive: true });
       await fs.writeFile(path.join(outDir, e.rel.normalize('NFC')), buf);

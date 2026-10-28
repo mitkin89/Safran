@@ -166,6 +166,15 @@ Alle 39 Bücher liegen als zusätzliche hebräische Version „Westminster Lenin
 
 Quelle und Lizenz: Original work of the Open Scriptures Hebrew Bible available at https://github.com/openscriptures/morphhb – Text (WLC) gemeinfrei, Lemma und Morphologie CC BY 4.0. Lemma-Tabelle aus https://github.com/openscriptures/HebrewLexicon (`oshb-lemmas.js`). Konverter: `tools/oshb/`.
 
+
+## Aleppo-Kodex, Targumim und Parallelstellen (ETCBC / CACCHT)
+
+- **Aleppo-Kodex** – alle 39 Bücher als hebräische Version „Aleppo-Kodex (מקרא על פי המסורה, ETCBC-CACCHT)“. Text: „מקרא על פי המסורה“, he.wikisource.org, Datensatz von Martijn Naaijer ([MartijnNaaijer/aleppo](https://github.com/MartijnNaaijer/aleppo)), Lizenz **CC BY-SA 4.0** (https://creativecommons.org/licenses/by-sa/4.0/). Änderungen: Umwandlung in Kapitel/Verse, im Lesetext steht das Qere statt des Ketiv. Dieser Text bleibt unter CC BY-SA. Konverter: `tools/aleppo/`.
+- **Targum Pseudo-Jonathan und Targum Neofiti 1** (Genesis–Deuteronomium) mit Wortmorphologie (`targum-lex.js`) – [ETCBC Targum Corpus](https://github.com/ETCBC/targum), MIT-Lizenz, Version 0.0.1-alpha. Konverter: `tools/targum/`.
+- **Qumran-Rollen** – Bibelhandschriften vom Toten Meer als hebräische Version „Qumran-Rollen (ETCBC DSS)“ für 36 Bücher; je Vers alle Rollen mit Sigle. Quelle: [ETCBC/dss](https://github.com/ETCBC/dss) (CACCHT Dead Sea Scrolls dataset), Daten von Martin G. Abegg Jr., James E. Bowley und Edward M. Cook, Konversion Jarod Jacobs, Martijn Naaijer und Dirk Roorda; Lizenz **CC BY-NC 4.0** (https://creativecommons.org/licenses/by-nc/4.0/) – nur nicht-kommerzielle Nutzung. Änderungen: Gruppierung nach Buch, Kapitel und Vers, vereinfachte Zeichen. Konverter: `tools/dss/`.
+- **BDB (Brown-Driver-Briggs, ungekürzt)** – Wörterbuch mit 10.022 Einträgen, auch über Strong-Nummer (H3) und BDB-Nummer auffindbar. Gemeinfrei (1906); Textgrundlage von Tim Morton (Bible Analyzer), Bibelstellen von Stephen Ku u. a., Aufbereitung von Eliran Wong: [eliranwong/unabridged-BDB-Hebrew-lexicon](https://github.com/eliranwong/unabridged-BDB-Hebrew-lexicon). Konverter: `tools/bdb/`.
+- **Parallelstellen** (`parallels.js`) – [ETCBC/parallels](https://github.com/ETCBC/parallels), MIT-Lizenz, auf Basis der BHSA (CC BY-NC 4.0, nur als Ausgangsdaten der Ähnlichkeitsberechnung). Konverter: `tools/parallels/`.
+
 ## Oberflächensprache
 
 Die Oberfläche gibt es auf Deutsch und Englisch (Menü ⋯ → Sprache). Die englischen Texte stehen in `i18n.js`: links der deutsche Originaltext, rechts die Übersetzung; `{}` und `{#}` (Zahl) sind Platzhalter. Neue Oberflächentexte im Code bleiben deutsch und bekommen dort einen Eintrag. `test10.js` prüft die Tabelle.
