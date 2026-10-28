@@ -639,3 +639,5 @@ img.g, #rOut img.g, #cmtBody img.g, .sres img.g { display: inline; height: 1.35e
 #rOut .wg[data-f*="d"], #rOut .wg[data-f*="i"], #rOut .wg[data-f*="t"], #rOut .wg[data-f*="v"], #rOut .wg[data-f*="s"] { text-decoration: underline dotted; text-underline-offset: 3px; }
 #rOut small { color: var(--muted, #8a8a8a); }
 #wpop .gfl { margin: 4px 0 0; padding-left: 18px; font-size: .85em; }
+.grk { font-family: "SBL Greek", "SBL BibLit", "Cardo", "Gentium Plus", "Palatino Linotype", serif; }
+.gstar { color: inherit; }

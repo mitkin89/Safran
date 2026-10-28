@@ -1183,23 +1183,44 @@
   // Vorschau beim Überfahren eines Querverweises (nur bei lokal vorhandenen Büchern)
   { let hov = null, hovT = null, hovRef = null; const pvCache = new Map();
     const hideHov = () => { clearTimeout(hovT); hovRef = null; if (hov) hov.hidden = true; };
-    $('#lkBody').addEventListener('mouseover', e => {
-      const a = e.target.closest('a[data-ref]');
-      if (!a || a.parentElement.classList.contains('off') || a.dataset.ref === hovRef) return;
-      hideHov(); const ref = a.dataset.ref; hovRef = ref;
+    const startHov = (a, ref, quiet, below) => {
+      hideHov(); hovRef = ref;
       hovT = setTimeout(async () => {
         let r = pvCache.get(ref);
         if (!r) { try { r = await LK.preview(ref, ['he', I18N.lang === 'de' ? 'de' : 'en']); } catch { r = {}; } pvCache.set(ref, r); if (pvCache.size > 200) pvCache.delete(pvCache.keys().next().value); }
         if (hovRef !== ref) return; // Maus ist inzwischen woanders
+        const none = !(r.parts && r.parts.length) && !(r.items && r.items.length);
+        if (none && quiet) return; // Wörterbuch: ohne Text keine leere Blase
         if (!hov) { hov = document.createElement('div'); hov.id = 'lkHover'; document.body.appendChild(hov); }
         const partHtml = p => p.items.map(t => `<div dir="${p.he ? 'rtl' : 'ltr'}"${p.he ? ' lang="he" class="phe"' : ''}>${R.cleanHtml(R.splitFootnotes(p.he ? stripHe(t) : t).main.replace(/<sup[^>]*>.*?<\/sup>/g, ''))}</div>`).join('');
         const html = r.parts && r.parts.length ? r.parts.map((p, i) => (i ? '<hr>' : '') + partHtml(p)).join('') : r.items && r.items.length ? partHtml({ items: r.items, he: r.he }) : `<i>${esc(I18N.t('Keine Vorschau möglich.'))}</i>`;
         hov.innerHTML = `<b>${esc(ref)}</b>${html}`; hov.hidden = false;
         const rc = a.getBoundingClientRect(), w = hov.offsetWidth, h = hov.offsetHeight;
-        hov.style.left = Math.max(8, Math.min(window.innerWidth - w - 8, rc.left - w - 10 > 8 ? rc.left - w - 10 : rc.right + 10)) + 'px'; // bevorzugt links vom Panel
-        hov.style.top = Math.max(8, Math.min(window.innerHeight - h - 8, rc.top - 8)) + 'px';
+        if (below) { // Wörterbuch-Leiste: unter dem Link, sonst darüber
+          hov.style.left = Math.max(8, Math.min(window.innerWidth - w - 8, rc.left)) + 'px';
+          hov.style.top = Math.max(8, rc.bottom + 6 + h > window.innerHeight - 8 ? rc.top - h - 6 : rc.bottom + 6) + 'px';
+        } else {
+          hov.style.left = Math.max(8, Math.min(window.innerWidth - w - 8, rc.left - w - 10 > 8 ? rc.left - w - 10 : rc.right + 10)) + 'px'; // bevorzugt links vom Panel
+          hov.style.top = Math.max(8, Math.min(window.innerHeight - h - 8, rc.top - 8)) + 'px';
+        }
       }, 350);
+    };
+    $('#lkBody').addEventListener('mouseover', e => {
+      const a = e.target.closest('a[data-ref]');
+      if (!a || a.parentElement.classList.contains('off') || a.dataset.ref === hovRef) return;
+      startHov(a, a.dataset.ref, false, false);
     });
+    // Wörterbuch: Vorschau beim Überfahren einer Bibelstelle oder Quellenangabe (nur wenn der Text lokal vorliegt)
+    $('#dictOut').addEventListener('mouseover', e => {
+      const a = e.target.closest('.dsrc[data-sref]');
+      if (!a) return;
+      const ref = a.dataset.sref.replace(/-.*$/, '');
+      if (ref === hovRef) return;
+      startHov(a, ref, true, true);
+    });
+    $('#dictOut').addEventListener('mouseout', e => { const a = e.target.closest('.dsrc[data-sref]'); if (a && !a.contains(e.relatedTarget)) hideHov(); });
+    $('#dictOut').addEventListener('click', hideHov);
+    $('#dictPanel').addEventListener('scroll', hideHov, { passive: true });
     $('#lkBody').addEventListener('mouseout', e => { const a = e.target.closest('a[data-ref]'); if (a && !a.contains(e.relatedTarget)) hideHov(); });
     $('#linkPanel').addEventListener('scroll', hideHov, { passive: true });
     $('#lkBody').addEventListener('click', hideHov);
