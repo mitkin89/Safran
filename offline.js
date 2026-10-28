@@ -358,6 +358,7 @@ class Library {
         await fs.writeFile(dest, buf);
         this.index.entries[rel] = { rel, title: it.title, heTitle: it.heTitle || '', language: it.language, versionTitle: it.versionTitle, categories: it.categories, kind: it.kind, bytes: buf.length, own: true, bundled: true, bundledHash: it.hash };
         n++;
+        if (n % 8 === 0) await this.save().catch(() => {}); // zwischendurch sichern: Abbruch beim ersten Start verliert nichts
       } catch { /* Datei fehlt im Paket – überspringen */ }
     }
     // Mitgelieferte Texte, die es im Paket nicht mehr gibt (umbenannt oder entfernt), auch hier entfernen

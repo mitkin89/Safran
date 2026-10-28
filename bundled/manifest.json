@@ -4377,6 +4377,526 @@
    ],
    "kind": "he",
    "hash": "14a2410445e1ce71621d0b72be15f0fe575b5370"
+  },
+  {
+   "rel": "own/Genesis/other/Septuaginta (CATSS).json",
+   "title": "Genesis",
+   "heTitle": "בראשית",
+   "language": "Greek",
+   "versionTitle": "Septuaginta (CATSS)",
+   "categories": [
+    "Tanakh",
+    "Torah"
+   ],
+   "kind": "other",
+   "hash": "ce4953dd512b059f572f1ee252b2a5983b7e2228"
+  },
+  {
+   "rel": "own/Exodus/other/Septuaginta (CATSS).json",
+   "title": "Exodus",
+   "heTitle": "שמות",
+   "language": "Greek",
+   "versionTitle": "Septuaginta (CATSS)",
+   "categories": [
+    "Tanakh",
+    "Torah"
+   ],
+   "kind": "other",
+   "hash": "96fd2bcdc4a5f8524257567a21f5209255c0fd39"
+  },
+  {
+   "rel": "own/Leviticus/other/Septuaginta (CATSS).json",
+   "title": "Leviticus",
+   "heTitle": "ויקרא",
+   "language": "Greek",
+   "versionTitle": "Septuaginta (CATSS)",
+   "categories": [
+    "Tanakh",
+    "Torah"
+   ],
+   "kind": "other",
+   "hash": "4950cb27396cc6b73de04a92a9799fd3afb9a3cd"
+  },
+  {
+   "rel": "own/Numbers/other/Septuaginta (CATSS).json",
+   "title": "Numbers",
+   "heTitle": "במדבר",
+   "language": "Greek",
+   "versionTitle": "Septuaginta (CATSS)",
+   "categories": [
+    "Tanakh",
+    "Torah"
+   ],
+   "kind": "other",
+   "hash": "a923627998fa87cefa66f6e708275c2a3fdae0b2"
+  },
+  {
+   "rel": "own/Deuteronomy/other/Septuaginta (CATSS).json",
+   "title": "Deuteronomy",
+   "heTitle": "דברים",
+   "language": "Greek",
+   "versionTitle": "Septuaginta (CATSS)",
+   "categories": [
+    "Tanakh",
+    "Torah"
+   ],
+   "kind": "other",
+   "hash": "71887d536d32725d1b70f77de3c69ebf547a10e2"
+  },
+  {
+   "rel": "own/Joshua/other/Septuaginta (CATSS).json",
+   "title": "Joshua",
+   "heTitle": "יהושע",
+   "language": "Greek",
+   "versionTitle": "Septuaginta (CATSS)",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "other",
+   "hash": "3f3f3f6cfe12c2c47dce0edf07e8ba2d13dc5624"
+  },
+  {
+   "rel": "own/Judges/other/Septuaginta (CATSS, Judges A (Codex Alexandrinus)).json",
+   "title": "Judges",
+   "heTitle": "שופטים",
+   "language": "Greek",
+   "versionTitle": "Septuaginta (CATSS, Judges A (Codex Alexandrinus))",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "other",
+   "hash": "25ce343a198d28843cf37a6fcfd8605ad4550347"
+  },
+  {
+   "rel": "own/Judges/other/Septuaginta (CATSS, Judges B (Codex Vaticanus)).json",
+   "title": "Judges",
+   "heTitle": "שופטים",
+   "language": "Greek",
+   "versionTitle": "Septuaginta (CATSS, Judges B (Codex Vaticanus))",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "other",
+   "hash": "a2eea9dfc505052a27fa685aebd7518a6c03ebb4"
+  },
+  {
+   "rel": "own/I Samuel/other/Septuaginta (CATSS).json",
+   "title": "I Samuel",
+   "heTitle": "שמואל א",
+   "language": "Greek",
+   "versionTitle": "Septuaginta (CATSS)",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "other",
+   "hash": "1e24a8761a6a97ec8909a5567bf37b68fbc47d6a"
+  },
+  {
+   "rel": "own/II Samuel/other/Septuaginta (CATSS).json",
+   "title": "II Samuel",
+   "heTitle": "שמואל ב",
+   "language": "Greek",
+   "versionTitle": "Septuaginta (CATSS)",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "other",
+   "hash": "2d3dfc7ec4e68c7a678f9bfe0083c4c593cc3666"
+  },
+  {
+   "rel": "own/I Kings/other/Septuaginta (CATSS).json",
+   "title": "I Kings",
+   "heTitle": "מלכים א",
+   "language": "Greek",
+   "versionTitle": "Septuaginta (CATSS)",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "other",
+   "hash": "3aacd4b4d6be7e9af9ab65ca0ffea335fc8c8f6e"
+  },
+  {
+   "rel": "own/II Kings/other/Septuaginta (CATSS).json",
+   "title": "II Kings",
+   "heTitle": "מלכים ב",
+   "language": "Greek",
+   "versionTitle": "Septuaginta (CATSS)",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "other",
+   "hash": "8da5f332204353e4cc72d0f3a4d5d155597d3955"
+  },
+  {
+   "rel": "own/Isaiah/other/Septuaginta (CATSS).json",
+   "title": "Isaiah",
+   "heTitle": "ישעיהו",
+   "language": "Greek",
+   "versionTitle": "Septuaginta (CATSS)",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "other",
+   "hash": "49d15891a86d1a4f66ce798872451d7dac436604"
+  },
+  {
+   "rel": "own/Jeremiah/other/Septuaginta (CATSS).json",
+   "title": "Jeremiah",
+   "heTitle": "ירמיהו",
+   "language": "Greek",
+   "versionTitle": "Septuaginta (CATSS)",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "other",
+   "hash": "3f8ab54f96ffb2e3148f8519d24743daa2fbc03a"
+  },
+  {
+   "rel": "own/Ezekiel/other/Septuaginta (CATSS).json",
+   "title": "Ezekiel",
+   "heTitle": "יחזקאל",
+   "language": "Greek",
+   "versionTitle": "Septuaginta (CATSS)",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "other",
+   "hash": "e6fd1d3096fd19613be3ab1576a0abd697359f2b"
+  },
+  {
+   "rel": "own/Joel/other/Septuaginta (CATSS).json",
+   "title": "Joel",
+   "heTitle": "יואל",
+   "language": "Greek",
+   "versionTitle": "Septuaginta (CATSS)",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "other",
+   "hash": "00bf4ac594f1a21fcd23429deb60858dc90f7307"
+  },
+  {
+   "rel": "own/Amos/other/Septuaginta (CATSS).json",
+   "title": "Amos",
+   "heTitle": "עמוס",
+   "language": "Greek",
+   "versionTitle": "Septuaginta (CATSS)",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "other",
+   "hash": "dc4171ccb4d83251d31ad63f8cef36c9caf08130"
+  },
+  {
+   "rel": "own/Obadiah/other/Septuaginta (CATSS).json",
+   "title": "Obadiah",
+   "heTitle": "עובדיה",
+   "language": "Greek",
+   "versionTitle": "Septuaginta (CATSS)",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "other",
+   "hash": "39116cb92f2a4bdb4a8e8cc7f359691eb5a94e4d"
+  },
+  {
+   "rel": "own/Jonah/other/Septuaginta (CATSS).json",
+   "title": "Jonah",
+   "heTitle": "יונה",
+   "language": "Greek",
+   "versionTitle": "Septuaginta (CATSS)",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "other",
+   "hash": "13bd86386dd8e8961b0801d17d5b9e223bbe3ed2"
+  },
+  {
+   "rel": "own/Micah/other/Septuaginta (CATSS).json",
+   "title": "Micah",
+   "heTitle": "מיכה",
+   "language": "Greek",
+   "versionTitle": "Septuaginta (CATSS)",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "other",
+   "hash": "9ed44102b773d42a2612e3c9ee79a06f98b70d02"
+  },
+  {
+   "rel": "own/Nahum/other/Septuaginta (CATSS).json",
+   "title": "Nahum",
+   "heTitle": "נחום",
+   "language": "Greek",
+   "versionTitle": "Septuaginta (CATSS)",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "other",
+   "hash": "981123700855d43af907b2056a07925dfc8e7dcc"
+  },
+  {
+   "rel": "own/Habakkuk/other/Septuaginta (CATSS).json",
+   "title": "Habakkuk",
+   "heTitle": "חבקוק",
+   "language": "Greek",
+   "versionTitle": "Septuaginta (CATSS)",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "other",
+   "hash": "56b710db6627bea0503455899b85f8f5d488e29f"
+  },
+  {
+   "rel": "own/Zephaniah/other/Septuaginta (CATSS).json",
+   "title": "Zephaniah",
+   "heTitle": "צפניה",
+   "language": "Greek",
+   "versionTitle": "Septuaginta (CATSS)",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "other",
+   "hash": "c4eda4ae62562695c736aaed592a00ed0ddd7668"
+  },
+  {
+   "rel": "own/Haggai/other/Septuaginta (CATSS).json",
+   "title": "Haggai",
+   "heTitle": "חגי",
+   "language": "Greek",
+   "versionTitle": "Septuaginta (CATSS)",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "other",
+   "hash": "ad4349fba5b5b365b7692cef4fc38dcfba5c00d2"
+  },
+  {
+   "rel": "own/Zechariah/other/Septuaginta (CATSS).json",
+   "title": "Zechariah",
+   "heTitle": "זכריה",
+   "language": "Greek",
+   "versionTitle": "Septuaginta (CATSS)",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "other",
+   "hash": "2708567dacc07458077f9f1b580c0e7b47ee7e8f"
+  },
+  {
+   "rel": "own/Malachi/other/Septuaginta (CATSS).json",
+   "title": "Malachi",
+   "heTitle": "מלאכי",
+   "language": "Greek",
+   "versionTitle": "Septuaginta (CATSS)",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "other",
+   "hash": "1d0c8a12c18cc097120cf00e26e48ea1994c06f7"
+  },
+  {
+   "rel": "own/Ruth/other/Septuaginta (CATSS).json",
+   "title": "Ruth",
+   "heTitle": "רות",
+   "language": "Greek",
+   "versionTitle": "Septuaginta (CATSS)",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "other",
+   "hash": "2725f44d83503e82888af00ae07bf5560da51a03"
+  },
+  {
+   "rel": "own/Song of Songs/other/Septuaginta (CATSS).json",
+   "title": "Song of Songs",
+   "heTitle": "שיר השירים",
+   "language": "Greek",
+   "versionTitle": "Septuaginta (CATSS)",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "other",
+   "hash": "e0cd5e2fa4c23f4ec80a6f340a5347c2ca89b913"
+  },
+  {
+   "rel": "own/Ecclesiastes/other/Septuaginta (CATSS).json",
+   "title": "Ecclesiastes",
+   "heTitle": "קהלת",
+   "language": "Greek",
+   "versionTitle": "Septuaginta (CATSS)",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "other",
+   "hash": "8936b3d81bf2308c144ff509a7735a3f02f77d52"
+  },
+  {
+   "rel": "own/Lamentations/other/Septuaginta (CATSS).json",
+   "title": "Lamentations",
+   "heTitle": "איכה",
+   "language": "Greek",
+   "versionTitle": "Septuaginta (CATSS)",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "other",
+   "hash": "f75777149c4841b9bacdef5be3421df57d4e8715"
+  },
+  {
+   "rel": "own/Esther/other/Septuaginta (CATSS).json",
+   "title": "Esther",
+   "heTitle": "אסתר",
+   "language": "Greek",
+   "versionTitle": "Septuaginta (CATSS)",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "other",
+   "hash": "99429b080a7ba5f749f708ef1091866ec95b1124"
+  },
+  {
+   "rel": "own/Daniel/other/Septuaginta (CATSS).json",
+   "title": "Daniel",
+   "heTitle": "דניאל",
+   "language": "Greek",
+   "versionTitle": "Septuaginta (CATSS)",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "other",
+   "hash": "2e175ec8fde724cb3ec754665f31844f8c559677"
+  },
+  {
+   "rel": "own/Daniel/other/Septuaginta (CATSS, Theodotion).json",
+   "title": "Daniel",
+   "heTitle": "דניאל",
+   "language": "Greek",
+   "versionTitle": "Septuaginta (CATSS, Theodotion)",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "other",
+   "hash": "3b53b4e2ea2a1ab5becaa273237720c05dac447d"
+  },
+  {
+   "rel": "own/Ezra/other/Septuaginta (CATSS).json",
+   "title": "Ezra",
+   "heTitle": "עזרא",
+   "language": "Greek",
+   "versionTitle": "Septuaginta (CATSS)",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "other",
+   "hash": "a68b30f8869ca8d1b052e7a464854aaf74f7c62c"
+  },
+  {
+   "rel": "own/Nehemiah/other/Septuaginta (CATSS).json",
+   "title": "Nehemiah",
+   "heTitle": "נחמיה",
+   "language": "Greek",
+   "versionTitle": "Septuaginta (CATSS)",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "other",
+   "hash": "86d26f5e925519a61db8d49b591209b56fc3dfed"
+  },
+  {
+   "rel": "own/I Chronicles/other/Septuaginta (CATSS).json",
+   "title": "I Chronicles",
+   "heTitle": "דברי הימים א",
+   "language": "Greek",
+   "versionTitle": "Septuaginta (CATSS)",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "other",
+   "hash": "f1c600de04ccc02704d56e0e8a59df27c6a966b9"
+  },
+  {
+   "rel": "own/II Chronicles/other/Septuaginta (CATSS).json",
+   "title": "II Chronicles",
+   "heTitle": "דברי הימים ב",
+   "language": "Greek",
+   "versionTitle": "Septuaginta (CATSS)",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "other",
+   "hash": "a72eca943f1679aa66960e09a91786be4d5c9362"
+  },
+  {
+   "rel": "own/Psalms/other/Septuaginta (CATSS).json",
+   "title": "Psalms",
+   "heTitle": "תהילים",
+   "language": "Greek",
+   "versionTitle": "Septuaginta (CATSS)",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "other",
+   "hash": "28e7564fc2f8eea2ad38a1dbff27ef3015112735"
+  },
+  {
+   "rel": "own/Proverbs/other/Septuaginta (CATSS).json",
+   "title": "Proverbs",
+   "heTitle": "משלי",
+   "language": "Greek",
+   "versionTitle": "Septuaginta (CATSS)",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "other",
+   "hash": "20cd615c8136f06e23b9f5f38b9d09fdd57ccf56"
+  },
+  {
+   "rel": "own/Job/other/Septuaginta (CATSS).json",
+   "title": "Job",
+   "heTitle": "איוב",
+   "language": "Greek",
+   "versionTitle": "Septuaginta (CATSS)",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "other",
+   "hash": "b55efaa642ef464c622ae49f3474cc0119bbd937"
   }
  ]
 }

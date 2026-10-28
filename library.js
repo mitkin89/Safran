@@ -516,7 +516,32 @@
 
   // OSHB-Texte: Klick auf ein Wort zeigt Lemma, Stamm, Zeit und Form; „Im Wörterbuch“ schlägt das Lemma nach
   let wpop = null;
-  const closeWpop = () => { if (wpop) { wpop.remove(); wpop = null; } $$('#rOut .w.sel, #rOut .wt.sel').forEach(x => x.classList.remove('sel')); };
+  const closeWpop = () => { if (wpop) { wpop.remove(); wpop = null; } $$('#rOut .w.sel, #rOut .wt.sel, #rOut .wg.sel').forEach(x => x.classList.remove('sel')); };
+  // Septuaginta (CATSS): Klick auf eine griechische Wortgruppe zeigt die hebräischen Wörter, denen sie zugeordnet ist
+  const GFLAG = { z: 'Zusatz der Septuaginta (kein hebräisches Gegenstück)', m: 'Minus der Septuaginta (hebräisches Wort ohne griechisches Gegenstück)', d: 'Doublette: ein hebräisches Wort ist doppelt übersetzt', i: 'Infinitivus absolutus im Hebräischen', t: 'Transliteriertes hebräisches Wort', v: 'Griechisches Präverb für eine hebräische Präposition', s: 'Komparativ/Superlativ (hebr. מ)', u: 'Gegenstück steht an anderer Stelle im Vers (Umstellung oder Verteilung)' };
+  function showGreekUnit(w) {
+    const hs = (w.dataset.h || '').split(' ').filter(Boolean), rs = (w.dataset.r || '').split(' ').filter(Boolean), fl = (w.dataset.f || '').split('').filter(c => GFLAG[c]);
+    w.classList.add('sel');
+    wpop = document.createElement('div');
+    wpop.id = 'wpop';
+    const btns = a => `<div class="wgh">${a.map(h => `<button class="wdict" dir="rtl" lang="he" data-q="${esc(h)}" title="Im Wörterbuch nachschlagen">${esc(h)}</button>`).join(' ')}</div>`;
+    let body = hs.length ? `<div class="wseg main">${fl.includes('m') ? 'Hebräisches Wort (CATSS)' : 'Hebräisches Gegenstück (CATSS)'}</div>${btns(hs)}`
+      : (fl.includes('m') ? '' : '<div class="wseg main">Kein hebräisches Gegenstück (Zusatz der Septuaginta)</div>');
+    if (rs.length) body += `<div class="wseg">Rückübersetzung (vermutliche hebräische Vorlage)</div>${btns(rs)}`;
+    const notes = fl;
+    if (notes.length) body += `<div class="wseg">Besonderheiten</div><ul class="gfl">${notes.map(c => `<li>${GFLAG[c]}</li>`).join('')}</ul>`;
+    const word = fl.includes('m') ? hs.join(' ') : w.textContent;
+    wpop.innerHTML = `<div class="wtop"><span dir="${fl.includes('m') ? 'rtl' : 'ltr'}" lang="${fl.includes('m') ? 'he' : 'grc'}" class="wword">${esc(word)}</span><button class="wx" title="Schließen">✕</button></div>${body}`;
+    document.body.appendChild(wpop);
+    const r = w.getBoundingClientRect(), pw = wpop.offsetWidth, ph = wpop.offsetHeight;
+    const x = Math.max(8, Math.min(window.innerWidth - pw - 8, r.left + r.width / 2 - pw / 2));
+    let y = r.bottom + 6; if (y + ph > window.innerHeight - 8) y = Math.max(8, r.top - ph - 6);
+    wpop.style.left = x + 'px'; wpop.style.top = y + 'px';
+    wpop.onclick = ev => {
+      if (ev.target.closest('.wx')) closeWpop();
+      const b = ev.target.closest('.wdict'); if (b) openDict(b.dataset.q);
+    };
+  }
   // Targum-Wörter (ETCBC): Lexem, Wurzel, Bedeutung, Wortart, Stamm, Genus/Numerus/Status
   const T_SP = { subs: 'Substantiv', verb: 'Verb', prep: 'Präposition', conj: 'Konjunktion', pron: 'Pronomen', advb: 'Adverb', adjv: 'Adjektiv', intj: 'Interjektion', nmpr: 'Eigenname', art: 'Artikel', unknown: 'unbekannt' };
   const T_VS = { G: 'Peal (G)', D: 'Pael (D)', C: 'Aphel (C)', Gt: 'Ethpeel (Gt)', Dt: 'Ethpaal (Dt)', Ct: 'Ittaphal (Ct)', DD: 'Pael-Variante (DD)', PO: 'Pol (PO)', POT: 'Ethpol (POT)' };
@@ -551,13 +576,14 @@
     };
   }
   $('#rOut').addEventListener('click', e => {
-    const w = e.target.closest('.w[data-m], .wt[data-m]');
+    const w = e.target.closest('.w[data-m], .wt[data-m], .wg');
     if (!w) { if (!e.target.closest('#wpop')) closeWpop(); return; }
     if (window.getSelection && String(window.getSelection())) return; // beim Markieren nicht stören
     const same = w.classList.contains('sel');
     closeWpop();
     if (same) return;
     if (w.classList.contains('wt')) { showTargumWord(w); return; }
+    if (w.classList.contains('wg')) { showGreekUnit(w); return; }
     const d = window.Morph.decode(w.dataset.m, w.dataset.l);
     if (!d) return;
     const LEM = window.OSHB_LEMMAS || {};
@@ -604,6 +630,12 @@
   const applyNoteMode = () => { $('#rOut').dataset.notes = noteMode; $('#noteMode').value = noteMode; try { localStorage.setItem('noteMode', noteMode); } catch { /* egal */ } };
   $('#noteMode').onchange = () => { noteMode = $('#noteMode').value; applyNoteMode(); };
   applyNoteMode();
+  // Septuaginta interlinear: hebräisches Wort über der griechischen Wortgruppe (Standard: an)
+  let gIlin = true;
+  try { gIlin = localStorage.getItem('gIlin') !== '0'; } catch { /* egal */ }
+  const applyIlin = () => { $('#rOut').dataset.ilin = gIlin ? '1' : '0'; $('#gIlin').checked = gIlin; try { localStorage.setItem('gIlin', gIlin ? '1' : '0'); } catch { /* egal */ } };
+  $('#gIlin').onchange = () => { gIlin = $('#gIlin').checked; applyIlin(); };
+  applyIlin();
 
   // Bücherliste links ein-/ausklappen (Knopf oder Cmd+B), wird gemerkt
   let panelOpen = true;
@@ -1674,7 +1706,7 @@
   const clickMark = e => {
     if (!window.Highlight || !CSS.highlights) return;
     CSS.highlights.delete('wsel');
-    if (e.target.closest('a, button, select, input, textarea, .lab, .bm, .w[data-m], .wt[data-m], #wpop, .head')) return;
+    if (e.target.closest('a, button, select, input, textarea, .lab, .bm, .w[data-m], .wt[data-m], .wg, #wpop, .head')) return;
     if (String(window.getSelection())) return;
     try {
       const r = document.caretRangeFromPoint(e.clientX, e.clientY);

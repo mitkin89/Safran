@@ -95,6 +95,12 @@
     'Aktuellen Artikel auswählen': 'Select current article', 'Alles auswählen': 'Select all',
     'Eigene Texte ({#}) entfernen …': 'Remove own texts ({}) …', 'Eigenen Text entfernen …': 'Remove own text …',
     // ----- OSHB-Popup -----
+    'Zusatz der Septuaginta (kein hebräisches Gegenstück)': 'Plus in the Septuagint (no Hebrew counterpart)', 'Minus der Septuaginta (hebräisches Wort ohne griechisches Gegenstück)': 'Minus in the Septuagint (Hebrew word without Greek counterpart)',
+    'Doublette: ein hebräisches Wort ist doppelt übersetzt': 'Doublet: one Hebrew word is translated twice', 'Infinitivus absolutus im Hebräischen': 'Infinitive absolute in the Hebrew', 'Transliteriertes hebräisches Wort': 'Transliterated Hebrew word',
+    'Griechisches Präverb für eine hebräische Präposition': 'Greek preverb for a Hebrew preposition', 'Komparativ/Superlativ (hebr. מ)': 'Comparative/superlative (Hebrew מ)', 'Gegenstück steht an anderer Stelle im Vers (Umstellung oder Verteilung)': 'Counterpart appears elsewhere in the verse (transposition or distribution)',
+    'Rückübersetzung (vermutliche hebräische Vorlage)': 'Retroversion (presumed Hebrew Vorlage)', 'Besonderheiten': 'Special features',
+    'Hebräisches Wort (CATSS)': 'Hebrew word (CATSS)', 'Hebräisches Gegenstück (CATSS)': 'Hebrew counterpart (CATSS)', 'Kein hebräisches Gegenstück (Zusatz der Septuaginta)': 'No Hebrew counterpart (plus in the Septuagint)',
+    'Septuaginta interlinear (Hebräisch über Griechisch)': 'Septuagint interlinear (Hebrew above Greek)', 'Bei der Septuaginta (CATSS): hebräisches Wort über der griechischen Wortgruppe': 'Septuagint (CATSS): Hebrew word above its Greek word group',
     'Parallelstellen': 'Parallel passages', 'Wurzel: ': 'Root: ', 'Substantiv': 'Noun', 'Verb': 'Verb', 'Präposition': 'Preposition', 'Konjunktion': 'Conjunction', 'Pronomen': 'Pronoun', 'Adverb': 'Adverb', 'Adjektiv': 'Adjective', 'Interjektion': 'Interjection', 'Eigenname': 'Proper noun', 'unbekannt': 'unknown',
     'Singular': 'Singular', 'Plural': 'Plural', 'maskulin': 'masculine', 'feminin': 'feminine', 'Emphaticus': 'Emphatic', 'Absolutus': 'Absolute', 'Constructus': 'Construct', 'Absolutus oder Constructus': 'Absolute or construct',
     'Im Wörterbuch nachschlagen': 'Look up in dictionary', 'Stamm: ': 'Stem: ', 'Zeit/Form: ': 'Tense/form: ',

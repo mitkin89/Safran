@@ -412,9 +412,9 @@ body.cmt-open.dict-open #cmtPanel { bottom: 42%; }
 #dictPanel .dbody, #dictPanel .dhead, #dictPanel .dsec, #dictPanel #dictQ { font-family: "HeDict", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", sans-serif; }
 
 /* OSHB-Wörter und Analyse-Popup */
-#rOut .w, #rOut .wt { cursor: pointer; border-radius: 3px; }
-#rOut .w:hover, #rOut .wt:hover { background: color-mix(in srgb, var(--accent) 18%, transparent); }
-#rOut .w.sel, #rOut .wt.sel { background: color-mix(in srgb, var(--accent) 32%, transparent); }
+#rOut .w, #rOut .wt, #rOut .wg { cursor: pointer; border-radius: 3px; }
+#rOut .w:hover, #rOut .wt:hover, #rOut .wg:hover { background: color-mix(in srgb, var(--accent) 18%, transparent); }
+#rOut .w.sel, #rOut .wt.sel, #rOut .wg.sel { background: color-mix(in srgb, var(--accent) 32%, transparent); }
 #wpop { position: fixed; z-index: 60; width: 300px; max-width: calc(100vw - 16px); background: var(--card); color: var(--fg); border: 1px solid var(--accent); border-radius: 8px; box-shadow: 0 6px 24px rgba(0,0,0,.25); padding: 8px 10px; font-size: 13px; line-height: 1.45; }
 #wpop .wtop { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
 #wpop .wword { font-family: "HeDict", serif; font-size: 22px; }
@@ -620,3 +620,22 @@ img.g, #rOut img.g, #cmtBody img.g, .sres img.g { display: inline; height: 1.35e
 #gramBox .gramRow { display: flex; flex-wrap: wrap; gap: 6px 12px; padding: 6px 0 2px; align-items: center; }
 #gramBox label { display: inline-flex; gap: 4px; align-items: center; white-space: nowrap; }
 #gramBox select { font-size: 12.5px; max-width: 150px; }
+
+#wpop .wgh { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+#wpop .wgh .wdict { font-family: var(--he-font); font-size: 1.15em; margin: 0; width: auto; padding: 3px 10px; }
+
+/* Septuaginta (CATSS) interlinear: das hebräische Wort steht über seiner griechischen Wortgruppe */
+#rOut[data-ilin="1"] .wg { display: inline-block; vertical-align: top; margin: 0 .3em .5em 0; text-align: center; }
+#rOut[data-ilin="1"] .wg::before { content: attr(data-h); display: block; direction: rtl; unicode-bidi: isolate; text-align: center; font-family: var(--he-font); font-size: .9em; color: var(--muted, #8a8a8a); min-height: 1.3em; line-height: 1.3; }
+
+/* Septuaginta (CATSS): Abweichungen zwischen Hebräisch und Griechisch */
+#rOut .wg.wm { display: none; }
+#rOut[data-ilin="1"] .wg.wm { display: inline-block; opacity: .6; }
+#rOut[data-ilin="1"] .wg.wm::after { content: "\2014"; display: block; color: var(--muted, #8a8a8a); }
+#rOut[data-ilin="1"] .wg.wm::before { text-decoration: line-through; text-decoration-color: color-mix(in srgb, var(--accent) 55%, transparent); }
+#rOut[data-ilin="1"] .wg[data-f*="z"]::before { content: "+"; color: var(--accent); font-weight: 700; }
+#rOut[data-ilin="1"] .wg[data-f*="z"][data-r]::before { content: attr(data-r); font-style: italic; color: var(--accent); font-weight: 400; }
+#rOut .wg[data-f*="z"] { border-bottom: 1px solid color-mix(in srgb, var(--accent) 45%, transparent); }
+#rOut .wg[data-f*="d"], #rOut .wg[data-f*="i"], #rOut .wg[data-f*="t"], #rOut .wg[data-f*="v"], #rOut .wg[data-f*="s"] { text-decoration: underline dotted; text-underline-offset: 3px; }
+#rOut small { color: var(--muted, #8a8a8a); }
+#wpop .gfl { margin: 4px 0 0; padding-left: 18px; font-size: .85em; }
