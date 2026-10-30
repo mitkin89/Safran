@@ -1,0 +1,796 @@
+{
+ "book": "Jeremiah",
+ "title": "תוכן ספר ירמיהו",
+ "note": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt.",
+ "sections": [
+  {
+   "head": "פתיחה",
+   "items": [
+    {
+     "ref": "1:1-12",
+     "text": "נבואתו הראשונה",
+     "time": "ג'רצ\"ח",
+     "text_de": "Seine erste Prophezeiung",
+     "text_en": "His first prophecy",
+     "time_de": "3298",
+     "time_en": "3298"
+    }
+   ],
+   "head_de": "Einleitung",
+   "head_en": "Introduction"
+  },
+  {
+   "head": "נבואות תוכחה ופורענות",
+   "items": [
+    {
+     "ref": "1:13-19",
+     "text": "פורענות ירושלים",
+     "text_de": "Unheil über Jerusalem",
+     "text_en": "Calamity upon Jerusalem"
+    },
+    {
+     "ref": "2:1-3:5",
+     "text": "תוכחה לישראל על ע\"ז ובטחון באומות",
+     "text_de": "Zurechtweisung Israels wegen Götzendienst und Vertrauen auf die Völker",
+     "text_en": "Rebuke of Israel for idolatry and reliance on the nations"
+    },
+    {
+     "ref": "3:6-10",
+     "text": "תוכחה לאנשי יהודה",
+     "text_de": "Zurechtweisung der Leute von Juda",
+     "text_en": "Rebuke of the people of Judah"
+    },
+    {
+     "ref": "3:11-17",
+     "text": "תוכחה לאנשי יהודה / לעשרת השבטים",
+     "text_de": "Zurechtweisung der Leute von Juda / der zehn Stämme",
+     "text_en": "Rebuke of the people of Judah / the ten tribes"
+    },
+    {
+     "ref": "3:18-4:2",
+     "text": "חזרת ישראל בתשובה לעתיד לבוא",
+     "text_de": "Umkehr Israels in der kommenden Zukunft",
+     "text_en": "Israel's repentance in the future to come"
+    },
+    {
+     "ref": "4:3-18",
+     "text": "התעוררות לתשובה להגן מהפורענות",
+     "text_de": "Aufruf zur Umkehr, um sich vor dem Unheil zu schützen",
+     "text_en": "Call to repentance in order to be protected from the calamity"
+    },
+    {
+     "ref": "4:19-22",
+     "text": "צעקת ירמיהו לה' ותשובתו",
+     "text_de": "Jeremias Klageruf zu Gott und die Antwort",
+     "text_en": "Jeremiah's outcry to the LORD and the answer"
+    },
+    {
+     "ref": "4:23-31",
+     "text": "נבואה על הפורענות העתידה לבוא",
+     "text_de": "Prophezeiung über das kommende Unheil",
+     "text_en": "Prophecy about the calamity to come"
+    },
+    {
+     "ref": "5:1-9",
+     "text": "תוכחה לישראל על חטאיהם",
+     "text_de": "Zurechtweisung Israels wegen ihrer Sünden",
+     "text_en": "Rebuke of Israel for their sins"
+    },
+    {
+     "ref": "5:10-31",
+     "text": "העונש לבוגדים בה' ובנביאיו ע\"י האומות",
+     "text_de": "Strafe für die an Gott und seinen Propheten Treulosen durch die Völker",
+     "text_en": "Punishment through the nations for those faithless to God and His prophets"
+    },
+    {
+     "ref": "6:1-8",
+     "text": "חטאי ירושלים וחורבנה",
+     "text_de": "Sünden Jerusalems und seine Zerstörung",
+     "text_en": "The sins of Jerusalem and its destruction"
+    },
+    {
+     "ref": "6:9-21",
+     "text": "תוכחה - עזיבת הנביאים ושמיעה לנביאי השקר",
+     "par": "נכפל: להלן ח י-יב",
+     "text_de": "Zurechtweisung: Verlassen der Propheten und Hören auf falsche Propheten",
+     "text_en": "Rebuke: abandoning the prophets and heeding false prophets",
+     "par_de": "Wiederholt: unten 8:10–12",
+     "par_en": "Repeated: below 8:10–12"
+    },
+    {
+     "ref": "6:22-30",
+     "text": "נבואה - ביאת בבל על ישראל",
+     "text_de": "Prophezeiung: Babels Kommen über Israel",
+     "text_en": "Prophecy: Babylon's coming against Israel"
+    },
+    {
+     "ref": "7:1-15",
+     "text": "תוכחה - אזהרה לעם להיטיב דרכיהם, שלא ייענשו",
+     "text_de": "Zurechtweisung: Warnung an das Volk, seine Wege zu bessern, damit es nicht bestraft wird",
+     "text_en": "Rebuke: warning the people to mend their ways so that they not be punished"
+    },
+    {
+     "ref": "7:16-20",
+     "text": "דברי ה' לירמיהו",
+     "text_de": "Worte Gottes an Jeremia",
+     "text_en": "God's words to Jeremiah"
+    },
+    {
+     "ref": "7:21-28",
+     "text": "תוכחה - חטאות הדורות הקודמים",
+     "text_de": "Zurechtweisung: Sünden der früheren Generationen",
+     "text_en": "Rebuke: sins of the earlier generations"
+    },
+    {
+     "ref": "7:29-34",
+     "text": "תוכחה - חטאות הדור ועונשו",
+     "text_de": "Zurechtweisung: Sünden der Generation und ihre Strafe",
+     "text_en": "Rebuke: sins of the generation and its punishment"
+    },
+    {
+     "ref": "8:1-3",
+     "text": "נבואה - העונש הצפוי למתים ולחיים",
+     "text_de": "Prophezeiung: die zu erwartende Strafe für Tote und Lebende",
+     "text_en": "Prophecy: the expected punishment for the dead and the living"
+    },
+    {
+     "ref": "8:4-9",
+     "text": "תוכחה - עמידת העם במרדו",
+     "text_de": "Zurechtweisung: das Beharren des Volkes in seiner Rebellion",
+     "text_en": "Rebuke: the people's persistence in their rebellion"
+    },
+    {
+     "ref": "8:10-12",
+     "text": "תוכחה - עזיבת הנביאים ושמיעה לנביאי השקר",
+     "par": "נכפל: לעיל ו יב-טו",
+     "text_de": "Zurechtweisung: Verlassen der Propheten und Hören auf falsche Propheten",
+     "text_en": "Rebuke: abandoning the prophets and heeding false prophets",
+     "par_de": "Wiederholt: oben 6:12–15",
+     "par_en": "Repeated: above 6:12–15"
+    },
+    {
+     "ref": "8:13-9:10",
+     "text": "קינה - התאוננות על החורבן וצרות הגלות",
+     "text_de": "Klagelied: Klage über die Zerstörung und die Leiden des Exils",
+     "text_en": "Lament: mourning over the destruction and the sufferings of exile"
+    },
+    {
+     "ref": "9:11-25",
+     "text": "טעם הגלות והתיקון לזה, קינה על הגלות",
+     "text_de": "Grund des Exils und Abhilfe dafür, Klagelied über das Exil",
+     "text_en": "Reason for the exile and its remedy, lament over the exile"
+    },
+    {
+     "ref": "10:1-10",
+     "text": "תוכחת ע\"ז - גדלות ה' ושפלות הפסילים",
+     "text_de": "Zurechtweisung wegen Götzendienst: Größe Gottes und Nichtigkeit der Götzenbilder",
+     "text_en": "Rebuke for idolatry: the greatness of God and the worthlessness of idols"
+    },
+    {
+     "ref": "10:11-16",
+     "text": "איגרת ירמיהו ליהודים בבבל - תשובה לכשדים",
+     "text_de": "Brief Jeremias an die Juden in Babel: Antwort an die Chaldäer",
+     "text_en": "Jeremiah's letter to the Jews in Babylon: answer to the Chaldeans"
+    },
+    {
+     "ref": "10:17-25",
+     "text": "פורענות ירושלים וערי יהודה ותפילה ע\"ז",
+     "text_de": "Unheil über Jerusalem und die Städte Judas und Gebet gegen den Götzendienst",
+     "text_en": "Calamity upon Jerusalem and the cities of Judah, and prayer against idolatry"
+    },
+    {
+     "ref": "11:1-15",
+     "text": "תוכחה - התראת ה' בעם על חטאם ומרידתם",
+     "text_de": "Zurechtweisung: Gottes Warnung an das Volk wegen ihrer Sünde und Rebellion",
+     "text_en": "Rebuke: God's warning to the people for their sin and rebellion"
+    },
+    {
+     "ref": "11:16-23",
+     "text": "דברי ירמיהו לעם, עונש הזוממים להורגו",
+     "text_de": "Worte Jeremias an das Volk, Strafe für die, die ihn zu töten planten",
+     "text_en": "Jeremiah's words to the people, punishment of those plotting to kill him"
+    },
+    {
+     "ref": "12:1-13",
+     "text": "שאלת ירמיהו לה' על דרכיו ותשובתו",
+     "par": "עוד בענין זה: שמות לג יג - לד ז (י\"מ), תהלים עג, ספר איוב, קהלת ח יד - טו",
+     "text_de": "Jeremias Frage an Gott zu seinen Wegen und die Antwort",
+     "text_en": "Jeremiah's question to God about His ways, and the answer",
+     "par_de": "Weiteres zu diesem Thema: 2. Mose 33:13–34:7 (nach manchen), Psalm 73, Buch Hiob, Kohelet 8:14–15",
+     "par_en": "More on this topic: Exodus 33:13–34:7 (according to some), Psalms 73, the Book of Job, Ecclesiastes 8:14–15"
+    },
+    {
+     "ref": "12:14-17",
+     "text": "נבואה - פורענות האומות",
+     "text_de": "Prophezeiung: Unheil über die Völker",
+     "text_en": "Prophecy: calamity upon the nations"
+    },
+    {
+     "ref": "13:1-14",
+     "text": "נבואה ותוכחה - החורבן כעונש על עוון ע\"ז",
+     "text_de": "Prophezeiung und Zurechtweisung: die Zerstörung als Strafe für die Sünde des Götzendienstes",
+     "text_en": "Prophecy and rebuke: the destruction as punishment for the sin of idolatry"
+    },
+    {
+     "ref": "13:15-27",
+     "text": "נבואה ותוכחה - גלות יהויכין וסיבתה",
+     "text_de": "Prophezeiung und Zurechtweisung: Exil Jojachins und sein Grund",
+     "text_en": "Prophecy and rebuke: the exile of Jehoiachin and its cause"
+    },
+    {
+     "ref": "14:1-15:9",
+     "text": "נבואה ותוכחה - רעב בארץ, תפילות ירמיהו ותשובת ה'",
+     "text_de": "Prophezeiung und Zurechtweisung: Hunger im Land, Gebete Jeremias und Gottes Antwort",
+     "text_en": "Prophecy and rebuke: famine in the land, Jeremiah's prayers and God's answer"
+    },
+    {
+     "ref": "15:10-16:13",
+     "text": "תלונת ירמיהו לה' על המתנכלים לו ותשובתו",
+     "text_de": "Klage Jeremias vor Gott über seine Widersacher und die Antwort",
+     "text_en": "Jeremiah's complaint to God about those plotting against him, and the answer"
+    },
+    {
+     "ref": "16:14-15",
+     "text": "נבואה על הגאולה העתידה",
+     "text_de": "Prophezeiung über die kommende Erlösung",
+     "text_en": "Prophecy about the future redemption"
+    },
+    {
+     "ref": "16:16-21",
+     "text": "נבואה על ענישת החוטאים",
+     "text_de": "Prophezeiung über die Bestrafung der Sünder",
+     "text_en": "Prophecy about the punishment of sinners"
+    },
+    {
+     "ref": "17:1-11",
+     "text": "תוכחה על ביטול השמיטה וחוסר בטחון בה'",
+     "text_de": "Zurechtweisung wegen der Missachtung des Brachjahrs und mangelnden Gottvertrauens",
+     "text_en": "Rebuke for neglecting the Sabbatical year and lack of trust in God"
+    },
+    {
+     "ref": "17:12-18",
+     "text": "דברי ירמיהו ותפילתו לה'",
+     "text_de": "Worte Jeremias und sein Gebet zu Gott",
+     "text_en": "Jeremiah's words and his prayer to God"
+    },
+    {
+     "ref": "17:19-27",
+     "text": "תוכחה - חיזוק בשמירת שבת למניעת החורבן",
+     "par": "מצות שבת: שמות לא יב-יז, ישעיה נח יג-יד, נחמיה י לב, יג יד-כב ועוד",
+     "text_de": "Zurechtweisung: Stärkung in der Sabbatbeachtung zur Abwendung der Zerstörung",
+     "text_en": "Rebuke: encouragement to keep the Sabbath in order to prevent the destruction",
+     "par_de": "Gebot des Sabbats: 2. Mose 31:12–17, Jesaja 58:13–14, Nehemia 10:32, 13:14–22 u. a.",
+     "par_en": "The commandment of the Sabbath: Exodus 31:12–17, Isaiah 58:13–14, Nehemiah 10:32, 13:14–22, and others"
+    },
+    {
+     "ref": "18:1-17",
+     "text": "תוכחה - בגידת ישראל בה' ומיאונם לשוב",
+     "text_de": "Zurechtweisung: Verrat Israels an Gott und ihre Weigerung umzukehren",
+     "text_en": "Rebuke: Israel's betrayal of God and their refusal to repent"
+    },
+    {
+     "ref": "18:18-23",
+     "text": "תפילת ירמיהו לה' לענישת המתנכלים לו",
+     "text_de": "Gebet Jeremias zu Gott um Bestrafung seiner Widersacher",
+     "text_en": "Jeremiah's prayer to God for the punishment of those plotting against him"
+    },
+    {
+     "ref": "19:1-13",
+     "text": "פורענות ירושלים כעונש על ע\"ז שעשו בה",
+     "text_de": "Unheil über Jerusalem als Strafe für den dort begangenen Götzendienst",
+     "text_en": "Calamity upon Jerusalem as punishment for the idolatry practiced there"
+    },
+    {
+     "ref": "19:14-20:6",
+     "text": "כליאת פשחור לירמיהו ונבואת ירמיהו עליו",
+     "text_de": "Jeremias Inhaftierung durch Paschhur und Jeremias Prophezeiung über ihn",
+     "text_en": "Pashhur's imprisonment of Jeremiah and Jeremiah's prophecy about him"
+    },
+    {
+     "ref": "20:7-18",
+     "text": "התאוננות ירמיהו על מצבו וקללתו לשונאיו",
+     "text_de": "Jeremias Klage über seine Lage und seine Verfluchung seiner Feinde",
+     "text_en": "Jeremiah's lament over his situation and his cursing of his enemies"
+    },
+    {
+     "ref": "21",
+     "text": "נבואה - נפילת ירושלים בידי נבוכדנצר",
+     "text_de": "Prophezeiung: der Fall Jerusalems durch Nebukadnezar",
+     "text_en": "Prophecy: the fall of Jerusalem to Nebuchadnezzar"
+    },
+    {
+     "ref": "22:1-12",
+     "text": "נבואת ירמיהו לצדקיהו מלך יהודה",
+     "text_de": "Jeremias Prophezeiung an Zidkija, den König von Juda",
+     "text_en": "Jeremiah's prophecy to Zedekiah, king of Judah"
+    },
+    {
+     "ref": "22:13-19",
+     "text": "נבואת תוכחה ליהויקים מלך יהודה",
+     "text_de": "Zurechtweisungsprophezeiung an Jojakim, den König von Juda",
+     "text_en": "Prophecy of rebuke to Jehoiakim, king of Judah"
+    },
+    {
+     "ref": "22:20-30",
+     "text": "נבואה - עונש העם והמלך יהויקים",
+     "text_de": "Prophezeiung: Strafe für das Volk und den König Jojakim",
+     "text_en": "Prophecy: punishment of the people and of King Jehoiakim"
+    },
+    {
+     "ref": "23:1-4",
+     "text": "תוכחה למלכי יהודה",
+     "text_de": "Zurechtweisung der Könige von Juda",
+     "text_en": "Rebuke of the kings of Judah"
+    },
+    {
+     "ref": "23:5-8",
+     "text": "נבואה על הגאולה וביאת המשיח",
+     "text_de": "Prophezeiung über die Erlösung und das Kommen des Messias",
+     "text_en": "Prophecy about the redemption and the coming of the Messiah"
+    },
+    {
+     "ref": "23:9-32",
+     "text": "תוכחה - חסרון נביאי שקר ועונשם",
+     "text_de": "Zurechtweisung: Mangel durch falsche Propheten und ihre Strafe",
+     "text_en": "Rebuke: the deficiency caused by false prophets and their punishment"
+    },
+    {
+     "ref": "23:33-40",
+     "text": "נבואה לישראל בענין נבואות ה'",
+     "text_de": "Prophezeiung an Israel über die Prophezeiungen Gottes",
+     "text_en": "Prophecy to Israel concerning the prophecies of the LORD"
+    },
+    {
+     "ref": "24",
+     "text": "נבואה - משל התאנים",
+     "text_de": "Prophezeiung: das Gleichnis von den Feigen",
+     "text_en": "Prophecy: the parable of the figs"
+    }
+   ],
+   "head_de": "Mahn- und Unheilsprophetien",
+   "head_en": "Prophecies of Rebuke and Calamity"
+  },
+  {
+   "head": "מאורעות ירמיהו",
+   "items": [
+    {
+     "ref": "25:1-11",
+     "text": "תוכחה - נבואת פורענות לאנשי יהודה ע\"י בבל",
+     "time": "ג'ש\"כ",
+     "par": "חזרה והרחבה: להלן נ-נא; גאולה לסוף שבעים שנה: להלן כט י, דניאל ט ב, דברי הימים ב' לו כא",
+     "text_de": "Zurechtweisung: Unheilsprophezeiung an die Leute von Juda durch Babel",
+     "text_en": "Rebuke: prophecy of calamity to the people of Judah through Babylon",
+     "par_de": "Wiederholt und erweitert: unten 50–51; Erlösung nach siebzig Jahren: unten 29:10, Daniel 9:2, 2 Chronik 36:21",
+     "par_en": "Repeated and expanded: below 50–51; redemption at the end of seventy years: below 29:10, Daniel 9:2, II Chronicles 36:21",
+     "time_de": "3320",
+     "time_en": "3320"
+    },
+    {
+     "ref": "25:12-14",
+     "text": "פורענות בבל",
+     "text_de": "Unheil über Babel",
+     "text_en": "Calamity upon Babylon"
+    },
+    {
+     "ref": "25:15-31",
+     "text": "כוס חמת ה' - ענישת ה' לישראל ולגויים",
+     "text_de": "Der Becher des Zornes Gottes: Gottes Bestrafung Israels und der Völker",
+     "text_en": "The cup of God's wrath: God's punishment of Israel and the nations"
+    },
+    {
+     "ref": "25:32-38",
+     "text": "נבואה על החורבן ופורענות הגויים",
+     "text_de": "Prophezeiung über die Zerstörung und das Unheil über die Völker",
+     "text_en": "Prophecy about the destruction and calamity upon the nations"
+    },
+    {
+     "ref": "26:1-6",
+     "text": "נבואה - התראה בעם לחזור בתשובה מפני החורבן",
+     "text_de": "Prophezeiung: Warnung an das Volk, wegen der Zerstörung umzukehren",
+     "text_en": "Prophecy: warning the people to repent because of the destruction"
+    },
+    {
+     "ref": "26:7-24",
+     "text": "נסיון הריגת ירמיהו והצלתו",
+     "time": "ג'שט\"ז",
+     "text_de": "Versuch, Jeremia zu töten, und seine Rettung",
+     "text_en": "Attempt to kill Jeremiah and his rescue",
+     "time_de": "3316",
+     "time_en": "3316"
+    },
+    {
+     "ref": "27:1-11",
+     "text": "ציווי למלכי העמים להשתעבד לנבוכדנצר",
+     "text_de": "Gebot an die Könige der Völker, sich Nebukadnezar zu unterwerfen",
+     "text_en": "Command to the kings of the nations to submit to Nebuchadnezzar"
+    },
+    {
+     "ref": "27:12-22",
+     "text": "ציווי לצדקיהו להשתעבד לנבוכדנצר, הגליית כלי המקדש לבבל",
+     "par": "קיום הנבואה: להלן נב יז-כג; המתת נביא שקר: דברים יח יד-כב",
+     "text_de": "Gebot an Zidkija, sich Nebukadnezar zu unterwerfen; Wegführung der Tempelgeräte nach Babel",
+     "text_en": "Command to Zedekiah to submit to Nebuchadnezzar; exile of the Temple vessels to Babylon",
+     "par_de": "Erfüllung der Prophezeiung: unten 52:17–23; Tötung eines falschen Propheten: 5. Mose 18:14–22",
+     "par_en": "Fulfillment of the prophecy: below 52:17–23; putting a false prophet to death: Deuteronomy 18:14–22"
+    },
+    {
+     "ref": "28",
+     "text": "נבואת השקר של חנניה ועונשו",
+     "text_de": "Falsche Prophezeiung Hananjas und seine Strafe",
+     "text_en": "Hananiah's false prophecy and his punishment"
+    },
+    {
+     "ref": "29",
+     "text": "איגרת ירמיהו לגולים בבבל",
+     "par": "ראה לעיל כה יב-יד",
+     "text_de": "Brief Jeremias an die Verbannten in Babel",
+     "text_en": "Jeremiah's letter to the exiles in Babylon",
+     "par_de": "Siehe oben 25:12–14",
+     "par_en": "See above 25:12–14"
+    }
+   ],
+   "head_de": "Ereignisse um Jeremia",
+   "head_en": "Events in Jeremiah's Life"
+  },
+  {
+   "head": "נבואות נחמה",
+   "items": [
+    {
+     "ref": "30",
+     "text": "נבואה - תשועת ישראל לעתיד, עונש האומות",
+     "text_de": "Prophezeiung: Rettung Israels in der Zukunft, Strafe für die Völker",
+     "text_en": "Prophecy: Israel's future salvation, punishment of the nations"
+    },
+    {
+     "ref": "31:1-13",
+     "text": "נבואה - שמחת ישראל בשובם מהגלות",
+     "text_de": "Prophezeiung: Freude Israels bei der Rückkehr aus dem Exil",
+     "text_en": "Prophecy: Israel's joy upon returning from exile"
+    },
+    {
+     "ref": "31:14-16",
+     "text": "דברי ה' לרחל",
+     "text_de": "Worte Gottes an Rahel",
+     "text_en": "God's words to Rachel"
+    },
+    {
+     "ref": "31:17-28",
+     "text": "נבואה - חביבות ישראל, בשורת קץ הגלות",
+     "text_de": "Prophezeiung: Israels Liebenswürdigkeit, Botschaft vom Ende des Exils",
+     "text_en": "Prophecy: Israel's belovedness, tidings of the end of the exile"
+    },
+    {
+     "ref": "31:29-38",
+     "text": "נבואה - ברית חדשה לישראל, בניית ירושלים",
+     "text_de": "Prophezeiung: neuer Bund mit Israel, Aufbau Jerusalems",
+     "text_en": "Prophecy: a new covenant with Israel, the building of Jerusalem"
+    },
+    {
+     "ref": "32:1-15",
+     "text": "קניית ירמיהו לשדה חנמאל בדבר ה'",
+     "time": "ג'שכ\"ז",
+     "text_de": "Jeremias Kauf des Feldes Hanamels auf Gottes Wort",
+     "text_en": "Jeremiah's purchase of Hanamel's field at God's word",
+     "time_de": "3327",
+     "time_en": "3327"
+    },
+    {
+     "ref": "32:16-44",
+     "text": "תפילת ירמיהו ותשובת ה'",
+     "text_de": "Gebet Jeremias und Gottes Antwort",
+     "text_en": "Jeremiah's prayer and God's answer"
+    },
+    {
+     "ref": "33",
+     "text": "הגאולה העתידה ובנין ירושלים וערי הארץ",
+     "text_de": "Die künftige Erlösung und der Wiederaufbau Jerusalems und der Städte des Landes",
+     "text_en": "The future redemption and the rebuilding of Jerusalem and the cities of the land"
+    }
+   ],
+   "head_de": "Trostprophetien",
+   "head_en": "Prophecies of Consolation"
+  },
+  {
+   "head": "מאורעות ירמיהו",
+   "items": [
+    {
+     "ref": "34:1-7",
+     "text": "נבואה על ירושלים והמלך צדקיהו",
+     "text_de": "Prophezeiung über Jerusalem und König Zidkija",
+     "text_en": "Prophecy about Jerusalem and King Zedekiah"
+    },
+    {
+     "ref": "34:8-22",
+     "text": "הפרת מצות שילוח עבדים והעונש על כך",
+     "par": "דיני עבדים: שמות כא א-יא, ויקרא כה לט-מג, דברים טו יב-יח",
+     "text_de": "Bruch des Gebots der Freilassung der Sklaven und die Strafe dafür",
+     "text_en": "Violation of the commandment to release slaves and the punishment for it",
+     "par_de": "Sklavenrecht: 2. Mose 21:1–11, 3. Mose 25:39–43, 5. Mose 15:12–18",
+     "par_en": "Laws of slaves: Exodus 21:1–11, Leviticus 25:39–43, Deuteronomy 15:12–18"
+    },
+    {
+     "ref": "35",
+     "text": "תוכחה - דימוי ישראל לבני רכב",
+     "text_de": "Zurechtweisung: Israel im Vergleich mit den Rechabitern",
+     "text_en": "Rebuke: Israel compared to the Rechabites"
+    },
+    {
+     "ref": "36:1-8",
+     "text": "כתיבת מגילת איכה",
+     "time": "ג'ש\"כ",
+     "text_de": "Niederschrift der Schriftrolle der Klagelieder",
+     "text_en": "Writing of the scroll of Lamentations",
+     "time_de": "3320",
+     "time_en": "3320"
+    },
+    {
+     "ref": "36:9-26",
+     "text": "שריפת המגילה ע\"י המלך יהויקים",
+     "time": "ז' בכסליו ג'שכ\"א",
+     "text_de": "Verbrennung der Schriftrolle durch König Jojakim",
+     "text_en": "Burning of the scroll by King Jehoiakim",
+     "time_de": "7. Kislew 3321",
+     "time_en": "7 Kislev 3321"
+    },
+    {
+     "ref": "36:27-32",
+     "text": "כתיבתה מחדש בתוספת דברים",
+     "text_de": "Ihre erneute Niederschrift mit Zusätzen",
+     "text_en": "Its rewriting with additions"
+    },
+    {
+     "ref": "37:1-11",
+     "text": "נבואה - כיבוש הכשדים את ירושלים",
+     "text_de": "Prophezeiung: Eroberung Jerusalems durch die Chaldäer",
+     "text_en": "Prophecy: the Chaldeans' conquest of Jerusalem"
+    },
+    {
+     "ref": "37:12-21",
+     "text": "כליאת ירמיהו בבית כלא",
+     "text_de": "Inhaftierung Jeremias im Gefängnis",
+     "text_en": "Jeremiah's imprisonment in the prison"
+    },
+    {
+     "ref": "38:1-13",
+     "text": "נסיון הריגת ירמיהו והצלתו",
+     "text_de": "Versuch, Jeremia zu töten, und seine Rettung",
+     "text_en": "Attempt to kill Jeremiah and his rescue"
+    },
+    {
+     "ref": "38:14-28",
+     "text": "נבואת ירמיהו לצדקיהו להכנע לכשדים",
+     "text_de": "Jeremias Prophezeiung an Zidkija, sich den Chaldäern zu unterwerfen",
+     "text_en": "Jeremiah's prophecy to Zedekiah to submit to the Chaldeans"
+    }
+   ],
+   "head_de": "Ereignisse um Jeremia",
+   "head_en": "Events in Jeremiah's Life"
+  },
+  {
+   "head": "פרקי החורבן",
+   "items": [
+    {
+     "ref": "39:1-14",
+     "text": "כיבוש ירושלים ע\"י נבוכדנצר",
+     "time": "ג'שלו - ג'שלח",
+     "par": "ראה להלן פרק נב",
+     "text_de": "Eroberung Jerusalems durch Nebukadnezar",
+     "text_en": "Nebuchadnezzar's conquest of Jerusalem",
+     "par_de": "Siehe unten Kapitel 52",
+     "par_en": "See below chapter 52",
+     "time_de": "3336–3338",
+     "time_en": "3336–3338"
+    },
+    {
+     "ref": "39:15-18",
+     "text": "נבואה - הצלת עבד מלך הכושי",
+     "text_de": "Prophezeiung: Rettung des Kuschiters Ebed-Melech",
+     "text_en": "Prophecy: the rescue of Ebed-melech the Cushite"
+    },
+    {
+     "ref": "40:1-12",
+     "text": "חזרת ירמיהו ועוד יהודים לא\"י, בראשות גדליה",
+     "text_de": "Rückkehr Jeremias und weiterer Juden ins Land Israel unter Gedalja",
+     "text_en": "Return of Jeremiah and other Jews to the Land of Israel under Gedaliah"
+    },
+    {
+     "ref": "40:13-41:10",
+     "text": "הריגת גדליה בן אחיקם ע\"י ישמעאל בן נתניה",
+     "time": "א'/ג' בתשרי ג'שלט",
+     "par": "חזרה: מלכים ב' כה כב-כו",
+     "text_de": "Ermordung Gedaljas, des Sohnes Achikams, durch Jischmael, den Sohn Netanjas",
+     "text_en": "Murder of Gedaliah son of Ahikam by Ishmael son of Nethaniah",
+     "par_de": "Wiederholung: 2 Könige 25:22–26",
+     "par_en": "Repetition: II Kings 25:22–26",
+     "time_de": "1./3. Tischri 3339",
+     "time_en": "1/3 Tishrei 3339"
+    },
+    {
+     "ref": "41:11-18",
+     "text": "מלחמת יוחנן בן קרח וישמעאל",
+     "text_de": "Kampf Johanans, des Sohnes Kareachs, und Jischmaels",
+     "text_en": "The battle of Johanan son of Kareah and Ishmael"
+    },
+    {
+     "ref": "42",
+     "text": "ציווי ה' לשארית העם להשאר בא\"י",
+     "text_de": "Gebot Gottes an den Rest des Volkes, im Land Israel zu bleiben",
+     "text_en": "God's command to the remnant of the people to remain in the Land of Israel"
+    },
+    {
+     "ref": "43:1-7",
+     "text": "ירידת העם למצרים - נגד דבר ה'",
+     "text_de": "Zug des Volkes nach Ägypten gegen das Wort Gottes",
+     "text_en": "The people's descent to Egypt, against God's word"
+    },
+    {
+     "ref": "43:8-13",
+     "text": "נבואה - כיבוש נבוכדנצר את מצרים",
+     "text_de": "Prophezeiung: Eroberung Ägyptens durch Nebukadnezar",
+     "text_en": "Prophecy: Nebuchadnezzar's conquest of Egypt"
+    },
+    {
+     "ref": "44:1-14",
+     "text": "תוכחה לעם על ירידתם למצרים",
+     "text_de": "Zurechtweisung des Volkes wegen ihres Zuges nach Ägypten",
+     "text_en": "Rebuke of the people for their descent to Egypt"
+    },
+    {
+     "ref": "44:15-30",
+     "text": "תשובת העם לירמיהו על תוכחתו ותשובתו להם",
+     "text_de": "Antwort des Volkes an Jeremia auf seine Zurechtweisung und seine Antwort an sie",
+     "text_en": "The people's reply to Jeremiah regarding his rebuke, and his reply to them"
+    },
+    {
+     "ref": "45",
+     "text": "נבואה על ברוך בן נריה",
+     "time": "ג'ש\"כ",
+     "text_de": "Prophezeiung über Baruch, den Sohn Nerijas",
+     "text_en": "Prophecy about Baruch son of Neriah",
+     "time_de": "3320",
+     "time_en": "3320"
+    }
+   ],
+   "head_de": "Kapitel der Zerstörung",
+   "head_en": "Chapters of the Destruction"
+  },
+  {
+   "head": "נבואות על האומות",
+   "items": [
+    {
+     "ref": "46",
+     "text": "פורענות - מפלות מצרים בידי בבל",
+     "time": "ג'ש\"כ",
+     "par": "עוד נבואות על מצרים: ישעיה יט א-יז, כ, יחזקאל כט-לב",
+     "text_de": "Unheil: Niederlage Ägyptens durch Babel",
+     "text_en": "Calamity: Egypt's defeat by Babylon",
+     "par_de": "Weitere Prophezeiungen über Ägypten: Jesaja 19:1–17, 20, Ezechiel 29–32",
+     "par_en": "More prophecies about Egypt: Isaiah 19:1–17, 20, Ezekiel 29–32",
+     "time_de": "3320",
+     "time_en": "3320"
+    },
+    {
+     "ref": "47",
+     "text": "פורענות - מפלת פלשתים בידי בבל",
+     "par": "עוד נבואות על פלשתים: ישעיה יד כח-לב, יחזקאל כה טו-יז",
+     "text_de": "Unheil: Niederlage der Philister durch Babel",
+     "text_en": "Calamity: the defeat of the Philistines by Babylon",
+     "par_de": "Weitere Prophezeiungen über die Philister: Jesaja 14:28–32, Ezechiel 25:15–17",
+     "par_en": "More prophecies about the Philistines: Isaiah 14:28–32, Ezekiel 25:15–17"
+    },
+    {
+     "ref": "48",
+     "text": "פורענות - מפלת מואב",
+     "par": "נבואה דומה: במדבר כא כח-ל; עוד נבואות על מואב: ישעיה טו-טז, יחזקאל כה ח-יא",
+     "text_de": "Unheil: Niederlage Moabs",
+     "text_en": "Calamity: the defeat of Moab",
+     "par_de": "Ähnliche Prophezeiung: 4. Mose 21:28–30; weitere Prophezeiungen über Moab: Jesaja 15–16, Ezechiel 25:8–11",
+     "par_en": "Similar prophecy: Numbers 21:28–30; more prophecies about Moab: Isaiah 15–16, Ezekiel 25:8–11"
+    },
+    {
+     "ref": "49:1-6",
+     "text": "פורענות - מפלת עמון",
+     "text_de": "Unheil: Niederlage Ammons",
+     "text_en": "Calamity: the defeat of Ammon"
+    },
+    {
+     "ref": "49:7-22",
+     "text": "פורענות - מפלת אדום",
+     "par": "עוד נבואות על אדום: ישעיה לד, סג א-ו, יחזקאל כה יב-יד, עובדיה א",
+     "text_de": "Unheil: Niederlage Edoms",
+     "text_en": "Calamity: the defeat of Edom",
+     "par_de": "Weitere Prophezeiungen über Edom: Jesaja 34, 63:1–6, Ezechiel 25:12–14, Obadja 1",
+     "par_en": "More prophecies about Edom: Isaiah 34, 63:1–6, Ezekiel 25:12–14, Obadiah 1"
+    },
+    {
+     "ref": "49:23-27",
+     "text": "פורענות - חורבן דמשק [ממלכות ארם]",
+     "text_de": "Unheil: Zerstörung von Damaskus [der Reiche Arams]",
+     "text_en": "Calamity: the destruction of Damascus [of the kingdoms of Aram]"
+    },
+    {
+     "ref": "49:28-33",
+     "text": "פורענות - מפלת קדר בידי בבל",
+     "text_de": "Unheil: Niederlage Kedars durch Babel",
+     "text_en": "Calamity: the defeat of Kedar by Babylon"
+    },
+    {
+     "ref": "49:34-39",
+     "text": "פורענות - מפלת עילם",
+     "time": "ג'שכ\"ז",
+     "text_de": "Unheil: Niederlage Elams",
+     "text_en": "Calamity: the defeat of Elam",
+     "time_de": "3327",
+     "time_en": "3327"
+    },
+    {
+     "ref": "50:1-51:58",
+     "text": "פורענות - מפלת בבל בידי פרס ומדי, קץ גלות ישראל",
+     "par": "ראה לעיל כה יב-יד; עוד נבואות על בבל: ישעיה יג א - יד כז, כא א-י",
+     "text_de": "Unheil: Niederlage Babels durch Persien und Medien, Ende des Exils Israels",
+     "text_en": "Calamity: the defeat of Babylon by Persia and Media, end of Israel's exile",
+     "par_de": "Siehe oben 25:12–14; weitere Prophezeiungen über Babel: Jesaja 13:1–14:27, 21:1–10",
+     "par_en": "See above 25:12–14; more prophecies about Babylon: Isaiah 13:1–14:27, 21:1–10"
+    },
+    {
+     "ref": "51:59-64",
+     "text": "כתיבת נבואות מפלת בבל בספר",
+     "time": "ג'שלא",
+     "text_de": "Niederschrift der Prophezeiungen über den Fall Babels in einem Buch",
+     "text_en": "Writing down the prophecies of Babylon's fall in a book",
+     "time_de": "3331",
+     "time_en": "3331"
+    }
+   ],
+   "head_de": "Prophezeiungen über die Völker",
+   "head_en": "Prophecies about the Nations"
+  },
+  {
+   "head": "פרקי החורבן",
+   "items": [
+    {
+     "ref": "52:1-11",
+     "text": "כיבוש ירושלים ע\"י נבוכדנצר",
+     "time": "ג'שלו - ג'שלח",
+     "par": "חזרה והרחבה: מלכים ב' כד יח - כה כא, לעיל לט א-יד, דברי הימים ב' לו יא-כא",
+     "text_de": "Eroberung Jerusalems durch Nebukadnezar",
+     "text_en": "Nebuchadnezzar's conquest of Jerusalem",
+     "par_de": "Wiederholung und Erweiterung: 2 Könige 24:18–25:21, oben 39:1–14, 2 Chronik 36:11–21",
+     "par_en": "Repetition and expansion: II Kings 24:18–25:21, above 39:1–14, II Chronicles 36:11–21",
+     "time_de": "3336–3338",
+     "time_en": "3336–3338"
+    },
+    {
+     "ref": "52:12-30",
+     "text": "שריפת ביהמ\"ק והגלית הנשארים לבבל",
+     "time": "ט' באב ג'שלח",
+     "par": "כלי המקדש: שמות כה י-מ, כז א-ח, ל א-י, מלכים א' ז יג-נ, דברי הימים ב' ג א - ה א; נבואות ע\"ז: ויקרא כו יד-מו, דברים כח טו-סח, תהלים עט (י\"מ), קלז; קינות על החורבן: מגילת איכה",
+     "text_de": "Verbrennung des Tempels und Wegführung der Übriggebliebenen nach Babel",
+     "text_en": "Burning of the Temple and exile of the remaining ones to Babylon",
+     "par_de": "Tempelgeräte: 2. Mose 25:10–40, 27:1–8, 30:1–10, 1 Könige 7:13–50, 2 Chronik 3:1–5:1; Prophezeiungen über den Götzendienst: 3. Mose 26:14–46, 5. Mose 28:15–68, Psalm 79 (nach manchen), 137; Klagelieder über die Zerstörung: Buch der Klagelieder",
+     "par_en": "Temple vessels: Exodus 25:10–40, 27:1–8, 30:1–10, I Kings 7:13–50, II Chronicles 3:1–5:1; prophecies about idolatry: Leviticus 26:14–46, Deuteronomy 28:15–68, Psalms 79 (according to some), 137; laments over the destruction: the Book of Lamentations",
+     "time_de": "9. Aw 3338",
+     "time_en": "9 Av 3338"
+    },
+    {
+     "ref": "52:31-34",
+     "text": "שחרור יהויכין מכלאו",
+     "time": "ג'שס\"ד",
+     "par": "חזרה: מלכים ב' כה כז-ל",
+     "text_de": "Freilassung Jojachins aus seinem Gefängnis",
+     "text_en": "Release of Jehoiachin from his prison",
+     "par_de": "Wiederholung: 2 Könige 25:27–30",
+     "par_en": "Repetition: II Kings 25:27–30",
+     "time_de": "3364",
+     "time_en": "3364"
+    }
+   ],
+   "head_de": "Kapitel der Zerstörung",
+   "head_en": "Chapters of the Destruction"
+  }
+ ],
+ "title_de": "Inhalt des Buches Jeremia",
+ "title_en": "Contents of the Book of Jeremiah",
+ "note_de": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt.",
+ "note_en": "Transcribed from photos of an overview table. Chapter and verse numbering as well as dates (Jewish reckoning) as printed in the source."
+}

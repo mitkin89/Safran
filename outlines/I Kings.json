@@ -1,0 +1,692 @@
+{
+ "book": "I Kings",
+ "title": "תוכן ספר מלכים א",
+ "note": "Abgeschrieben aus einer Übersichtstabelle (SifreiKodesh). Jahre/Daten nach der jüdischen Zählung, wie in der Vorlage gedruckt.",
+ "sections": [
+  {
+   "head": "שלמה [בן דוד] המלך",
+   "items": [
+    {
+     "ref": "1",
+     "text": "המלכתו ע\"י דוד",
+     "time": "ב'תתקכ\"ד",
+     "place": "ירושלים [עין רוגל, גיחון]",
+     "text_de": "Seine Einsetzung zum König durch David",
+     "text_en": "His enthronement by David",
+     "place_de": "Jerusalem [En-Rogel, Gihon]",
+     "place_en": "Jerusalem [En-rogel, Gihon]",
+     "time_de": "2924",
+     "time_en": "2924"
+    },
+    {
+     "ref": "2:1-10",
+     "text": "צוואת דוד אליו, פטירתו וקבורתו",
+     "time": "ב'תתקכ\"ד",
+     "place": "ירושלים",
+     "par": "המשך מ: שמואל ב' ג כו-כז, טז ה-יג, יט טז-כד, כ ט-י, לעיל א ז · חזרה והרחבה: דברי הימים א' כח-כט · קללת בני עלי: שמואל א' ב כז-לו",
+     "text_de": "Davids Vermächtnis an ihn, sein Tod und sein Begräbnis",
+     "text_en": "David's charge to him, his death and burial",
+     "place_de": "Jerusalem",
+     "place_en": "Jerusalem",
+     "par_de": "Fortsetzung von: 2. Samuel 3:26–27; 16:5–13; 19:16–24; 20:9–10; oben 1:7 · Wiederholung und Erweiterung: 1. Chronik 28–29 · Fluch über Elis Söhne: 1. Samuel 2:27–36",
+     "par_en": "Continuation of: 2 Samuel 3:26–27; 16:5–13; 19:16–24; 20:9–10; above 1:7 · Repeated and expanded: 1 Chronicles 28–29 · Curse on Eli's sons: 1 Samuel 2:27–36",
+     "time_de": "2924",
+     "time_en": "2924"
+    },
+    {
+     "ref": "2:11-46",
+     "text": "הריגתו למורדים בו ובאביו",
+     "place": "ירושלים",
+     "par": "המשך מ: שמואל ב' ג כו-כז, טז ה-יג, יט טז-כד, כ ט-י, לעיל א ז · חזרה והרחבה: דברי הימים א' כח-כט · קללת בני עלי: שמואל א' ב כז-לו",
+     "text_de": "Seine Hinrichtung derer, die sich gegen ihn und seinen Vater aufgelehnt hatten",
+     "text_en": "His execution of those who had rebelled against him and his father",
+     "place_de": "Jerusalem",
+     "place_en": "Jerusalem",
+     "par_de": "Fortsetzung von: 2. Samuel 3:26–27; 16:5–13; 19:16–24; 20:9–10; oben 1:7 · Wiederholung und Erweiterung: 1. Chronik 28–29 · Fluch über Elis Söhne: 1. Samuel 2:27–36",
+     "par_en": "Continuation of: 2 Samuel 3:26–27; 16:5–13; 19:16–24; 20:9–10; above 1:7 · Repeated and expanded: 1 Chronicles 28–29 · Curse on Eli's sons: 1 Samuel 2:27–36"
+    },
+    {
+     "ref": "3:1-15",
+     "text": "דברי ה' אליו בחלום",
+     "time": "ב'תתקכ\"ד",
+     "place": "גבעון",
+     "par": "חזרה: דברי הימים ב' א א-יג",
+     "text_de": "Worte des Herrn an ihn im Traum",
+     "text_en": "The Lord's words to him in a dream",
+     "place_de": "Gibeon",
+     "place_en": "Gibeon",
+     "par_de": "Wiederholung: 2. Chronik 1:1–13",
+     "par_en": "Repeated: 2 Chronicles 1:1–13",
+     "time_de": "2924",
+     "time_en": "2924"
+    },
+    {
+     "ref": "3:16-28",
+     "text": "משפט שלמה",
+     "place": "ירושלים",
+     "text_de": "Das Urteil Salomos",
+     "text_en": "The judgment of Solomon",
+     "place_de": "Jerusalem",
+     "place_en": "Jerusalem"
+    },
+    {
+     "ref": "4:1-5:14",
+     "text": "שריו, ניצביו, עושרו וחכמתו",
+     "text_de": "Seine Beamten, seine Statthalter, sein Reichtum und seine Weisheit",
+     "text_en": "His officials, his prefects, his wealth and his wisdom"
+    },
+    {
+     "ref": "5:15-32",
+     "text": "סיוע חירם לבנין המקדש",
+     "place": "ירושלים, לבנון",
+     "par": "חזרה: דברי הימים ב' א יח - ב יז",
+     "text_de": "Hirams Hilfe beim Bau des Tempels",
+     "text_en": "Hiram's help with building the Temple",
+     "place_de": "Jerusalem, Libanon",
+     "place_en": "Jerusalem, Lebanon",
+     "par_de": "Wiederholung: 2. Chronik 1:18–2:17",
+     "par_en": "Repeated: 2 Chronicles 1:18–2:17"
+    },
+    {
+     "ref": "6",
+     "text": "בניית המקדש וכליו ותיאורו",
+     "time": "אייר ב'תתקכ\"ח - חשוון ב'תתקל\"ה",
+     "place": "ירושלים",
+     "par": "הציווי: שמות כה ט (י\"מ), דברים יב ד-יד (י\"מ) · בנין וכלי המקדש: שמות כה י-מ, כז א-ח, ל א-י, מלכים ב' כה יג-יז, ירמיה נב יז-כג, דברי הימים ב' ג א - ה א · איסור הנפת גזית: שמות כ כב",
+     "text_de": "Bau des Tempels und seiner Geräte und ihre Beschreibung",
+     "text_en": "Building of the Temple and its vessels, and their description",
+     "place_de": "Jerusalem",
+     "place_en": "Jerusalem",
+     "par_de": "Gebot: Exodus 25:9 (nach einigen Auslegern); Deuteronomium 12:4–14 (nach einigen Auslegern) · Bau und Geräte des Tempels: Exodus 25:10–40; 27:1–8; 30:1–10; 2. Könige 25:13–17; Jeremia 52:17–23; 2. Chronik 3:1–5:1 · Verbot behauener Steine: Exodus 20:22",
+     "par_en": "The command: Exodus 25:9 (according to some commentators); Deuteronomy 12:4–14 (according to some commentators) · Construction and vessels of the Temple: Exodus 25:10–40; 27:1–8; 30:1–10; 2 Kings 25:13–17; Jeremiah 52:17–23; 2 Chronicles 3:1–5:1 · Prohibition of hewn stones: Exodus 20:22",
+     "time_de": "Ijar 2928 – Cheschwan 2935",
+     "time_en": "Iyar 2928 – Cheshvan 2935"
+    },
+    {
+     "ref": "7:1-12",
+     "text": "בניית ביתו",
+     "time": "ב'תתקל\"ה - ב'תתקמ\"ח",
+     "place": "ירושלים",
+     "text_de": "Bau seines Palastes",
+     "text_en": "Building of his palace",
+     "place_de": "Jerusalem",
+     "place_en": "Jerusalem",
+     "time_de": "2935–2948",
+     "time_en": "2935–2948"
+    },
+    {
+     "ref": "7:13-51",
+     "text": "בניית המקדש וכליו ותיאורו",
+     "time": "אייר ב'תתקכ\"ח - חשוון ב'תתקל\"ה",
+     "place": "ירושלים",
+     "par": "הציווי: שמות כה ט (י\"מ), דברים יב ד-יד (י\"מ) · בנין וכלי המקדש: שמות כה י-מ, כז א-ח, ל א-י, מלכים ב' כה יג-יז, ירמיה נב יז-כג, דברי הימים ב' ג א - ה א · איסור הנפת גזית: שמות כ כב",
+     "text_de": "Bau des Tempels und seiner Geräte und ihre Beschreibung",
+     "text_en": "Building of the Temple and its vessels, and their description",
+     "place_de": "Jerusalem",
+     "place_en": "Jerusalem",
+     "par_de": "Gebot: Exodus 25:9 (nach einigen Auslegern); Deuteronomium 12:4–14 (nach einigen Auslegern) · Bau und Geräte des Tempels: Exodus 25:10–40; 27:1–8; 30:1–10; 2. Könige 25:13–17; Jeremia 52:17–23; 2. Chronik 3:1–5:1 · Verbot behauener Steine: Exodus 20:22",
+     "par_en": "The command: Exodus 25:9 (according to some commentators); Deuteronomy 12:4–14 (according to some commentators) · Construction and vessels of the Temple: Exodus 25:10–40; 27:1–8; 30:1–10; 2 Kings 25:13–17; Jeremiah 52:17–23; 2 Chronicles 3:1–5:1 · Prohibition of hewn stones: Exodus 20:22",
+     "time_de": "Ijar 2928 – Cheschwan 2935",
+     "time_en": "Iyar 2928 – Cheshvan 2935"
+    },
+    {
+     "ref": "8",
+     "text": "חנוכת המקדש",
+     "time": "תשרי ב'תתקל\"ו",
+     "place": "ירושלים",
+     "par": "חזרה: דברי הימים ב' ה א - ז יא · שירה ע\"ז: תהלים ל (י\"מ) · חנוכת המשכן: ויקרא ח-ט · חנוכות המקדש: יחזקאל מג יח-כז, מה יח-כה (י\"מ), עזרא ו טז-יח",
+     "text_de": "Einweihung des Tempels",
+     "text_en": "Dedication of the Temple",
+     "place_de": "Jerusalem",
+     "place_en": "Jerusalem",
+     "par_de": "Wiederholung: 2. Chronik 5:1–7:11 · Lied dazu: Psalm 30 (nach einigen Auslegern) · Einweihung des Zeltheiligtums: Levitikus 8–9 · Einweihungen des Tempels: Ezechiel 43:18–27; 45:18–25 (nach einigen Auslegern); Esra 6:16–18",
+     "par_en": "Repeated: 2 Chronicles 5:1–7:11 · Song about it: Psalms 30 (according to some commentators) · Dedication of the Tabernacle: Leviticus 8–9 · Dedications of the Temple: Ezekiel 43:18–27; 45:18–25 (according to some commentators); Ezra 6:16–18",
+     "time_de": "Tischri 2936",
+     "time_en": "Tishri 2936"
+    },
+    {
+     "ref": "9:1-9",
+     "text": "דברי ה' אליו שנית",
+     "time": "תשרי ב'תתקל\"ו",
+     "place": "ירושלים",
+     "par": "חזרה: דברי הימים ב' ז יב-כב",
+     "text_de": "Worte des Herrn an ihn ein zweites Mal",
+     "text_en": "The Lord's words to him a second time",
+     "place_de": "Jerusalem",
+     "place_en": "Jerusalem",
+     "par_de": "Wiederholung: 2. Chronik 7:12–22",
+     "par_en": "Repeated: 2 Chronicles 7:12–22",
+     "time_de": "Tischri 2936",
+     "time_en": "Tishri 2936"
+    },
+    {
+     "ref": "9:10-28",
+     "text": "עסקיו עם חירם",
+     "time": "ב'תתקמ\"ח",
+     "place": "גליל, ערי הארץ, אופיר",
+     "par": "חזרה והרחבה: דברי הימים ב' ח",
+     "text_de": "Seine Geschäfte mit Hiram",
+     "text_en": "His dealings with Hiram",
+     "place_de": "Galiläa, Städte des Landes, Ofir",
+     "place_en": "Galilee, cities of the land, Ophir",
+     "par_de": "Wiederholung und Erweiterung: 2. Chronik 8",
+     "par_en": "Repeated and expanded: 2 Chronicles 8",
+     "time_de": "2948",
+     "time_en": "2948"
+    },
+    {
+     "ref": "10:1-13",
+     "text": "ענין מלכת שבא ושלמה",
+     "place": "ירושלים",
+     "par": "חזרה: דברי הימים ב' ט א-יב",
+     "text_de": "Die Königin von Saba und Salomo",
+     "text_en": "The Queen of Sheba and Solomon",
+     "place_de": "Jerusalem",
+     "place_en": "Jerusalem",
+     "par_de": "Wiederholung: 2. Chronik 9:1–12",
+     "par_en": "Repeated: 2 Chronicles 9:1–12"
+    },
+    {
+     "ref": "10:14-29",
+     "text": "כסאו ורוב עשרו",
+     "place": "ירושלים",
+     "par": "חזרה: דברי הימים ב' ט יג-כח",
+     "text_de": "Sein Thron und sein großer Reichtum",
+     "text_en": "His throne and his great wealth",
+     "place_de": "Jerusalem",
+     "place_en": "Jerusalem",
+     "par_de": "Wiederholung: 2. Chronik 9:13–28",
+     "par_en": "Repeated: 2 Chronicles 9:13–28"
+    },
+    {
+     "ref": "11:1-25",
+     "text": "נשותיו",
+     "place": "ירושלים",
+     "par": "תחילת הענין וחזרה: שמואל ב' ח יג, דברי הימים א' יח א-יד · הזכרה: נחמיה יג כו · המלכות לזרע דוד: שמואל ב' ז יב-כט, תהלים פט, קלב יא-יב",
+     "text_de": "Seine Frauen",
+     "text_en": "His wives",
+     "place_de": "Jerusalem",
+     "place_en": "Jerusalem",
+     "par_de": "Beginn der Sache und Wiederholung: 2. Samuel 8:13; 1. Chronik 18:1–14 · Erwähnung: Nehemia 13:26 · Königtum für Davids Nachkommen: 2. Samuel 7:12–29; Psalm 89; 132:11–12",
+     "par_en": "Beginning of the matter, and repetition: 2 Samuel 8:13; 1 Chronicles 18:1–14 · Mention: Nehemiah 13:26 · Kingship for David's descendants: 2 Samuel 7:12–29; Psalms 89; 132:11–12"
+    },
+    {
+     "ref": "11:26-40",
+     "text": "מרד ירבעם",
+     "place": "ירושלים, מצרים",
+     "par": "נבואה ע\"ז: בראשית מט י (י\"מ)",
+     "text_de": "Jerobeams Aufstand",
+     "text_en": "Jeroboam's rebellion",
+     "place_de": "Jerusalem, Ägypten",
+     "place_en": "Jerusalem, Egypt",
+     "par_de": "Prophezeiung darüber: Genesis 49:10 (nach einigen Auslegern)",
+     "par_en": "Prophecy about it: Genesis 49:10 (according to some commentators)"
+    },
+    {
+     "ref": "11:41-43",
+     "text": "מיתתו וקבורתו, המלכת רחבעם",
+     "time": "ב'תתקס\"ד",
+     "place": "ירושלים, מצרים",
+     "par": "חזרה: דברי הימים ב' ט כט-לא",
+     "text_de": "Sein Tod und sein Begräbnis, die Einsetzung Rehabeams zum König",
+     "text_en": "His death and burial; the enthronement of Rehoboam",
+     "place_de": "Jerusalem, Ägypten",
+     "place_en": "Jerusalem, Egypt",
+     "par_de": "Wiederholung: 2. Chronik 9:29–31",
+     "par_en": "Repeated: 2 Chronicles 9:29–31",
+     "time_de": "2964",
+     "time_en": "2964"
+    }
+   ],
+   "head_de": "König Salomo [Sohn Davids]",
+   "head_en": "King Solomon [son of David]"
+  },
+  {
+   "head": "רחבעם בן שלמה מלך יהודה / ירבעם בן נבט מלך ישראל",
+   "items": [
+    {
+     "ref": "12:1-19",
+     "text": "עצות הזקנים והילדים לרחבעם",
+     "time": "ב'תתקס\"ד",
+     "place": "שכם",
+     "par": "חזרה: דברי הימים ב' י",
+     "text_de": "Der Rat der Ältesten und der jungen Männer an Rehabeam",
+     "text_en": "The counsel of the elders and the young men to Rehoboam",
+     "place_de": "Sichem",
+     "place_en": "Shechem",
+     "par_de": "Wiederholung: 2. Chronik 10",
+     "par_en": "Repeated: 2 Chronicles 10",
+     "time_de": "2964",
+     "time_en": "2964"
+    },
+    {
+     "ref": "12:20-24",
+     "text": "המלכת ירבעם",
+     "time": "ב'תתקס\"ד",
+     "place": "ירושלים",
+     "par": "חזרה: דברי הימים ב' יא א-ד",
+     "text_de": "Jerobeams Einsetzung zum König",
+     "text_en": "The enthronement of Jeroboam",
+     "place_de": "Jerusalem",
+     "place_en": "Jerusalem",
+     "par_de": "Wiederholung: 2. Chronik 11:1–4",
+     "par_en": "Repeated: 2 Chronicles 11:1–4",
+     "time_de": "2964",
+     "time_en": "2964"
+    },
+    {
+     "ref": "12:25-33",
+     "text": "עגלי ירבעם",
+     "time": "ט\"ו חשון",
+     "place": "שכם, בית אל, דן",
+     "par": "הזכרה: דברי הימים ב' יא יד-טו",
+     "text_de": "Jerobeams Kälber",
+     "text_en": "Jeroboam's calves",
+     "place_de": "Sichem, Bet-El, Dan",
+     "place_en": "Shechem, Bethel, Dan",
+     "par_de": "Erwähnung: 2. Chronik 11:14–15",
+     "par_en": "Mention: 2 Chronicles 11:14–15",
+     "time_de": "15. Cheschwan",
+     "time_en": "15 Cheshvan"
+    },
+    {
+     "ref": "13:1-10",
+     "text": "נבואת איש האלהים על ירבעם",
+     "time": "ט\"ו חשון",
+     "place": "בית אל",
+     "text_de": "Die Prophezeiung des Gottesmannes über Jerobeam",
+     "text_en": "The prophecy of the man of God concerning Jeroboam",
+     "place_de": "Bet-El",
+     "place_en": "Bethel",
+     "time_de": "15. Cheschwan",
+     "time_en": "15 Cheshvan"
+    },
+    {
+     "ref": "13:11-34",
+     "text": "מיתת איש האלהים",
+     "place": "בית אל",
+     "text_de": "Tod des Gottesmannes",
+     "text_en": "Death of the man of God",
+     "place_de": "Bet-El",
+     "place_en": "Bethel"
+    },
+    {
+     "ref": "14:1-20",
+     "text": "מיתת ירבעם ואביה בנו",
+     "time": "ב'תתקפ\"ו",
+     "place": "שילה, תרצה",
+     "text_de": "Tod Jerobeams und seines Sohnes Abija",
+     "text_en": "Death of Jeroboam and of his son Abijah",
+     "place_de": "Schilo, Tirza",
+     "place_en": "Shiloh, Tirzah",
+     "time_de": "2986",
+     "time_en": "2986"
+    },
+    {
+     "ref": "14:21-30",
+     "text": "חטאי העם, עליית שישק לירושלים",
+     "time": "ב'תתקס\"ט",
+     "place": "ירושלים",
+     "par": "חזרה והרחבה: דברי הימים ב' יב א-יד",
+     "text_de": "Sünden des Volkes, Schischaks Zug hinauf nach Jerusalem",
+     "text_en": "The people's sins; Shishak's march on Jerusalem",
+     "place_de": "Jerusalem",
+     "place_en": "Jerusalem",
+     "par_de": "Wiederholung und Erweiterung: 2. Chronik 12:1–14",
+     "par_en": "Repeated and expanded: 2 Chronicles 12:1–14",
+     "time_de": "2969",
+     "time_en": "2969"
+    },
+    {
+     "ref": "14:31",
+     "text": "מיתת רחבעם",
+     "time": "ב'תתקפ\"א",
+     "place": "ירושלים",
+     "par": "חזרה: דברי הימים ב' יב טו-טז",
+     "text_de": "Tod Rehabeams",
+     "text_en": "Death of Rehoboam",
+     "place_de": "Jerusalem",
+     "place_en": "Jerusalem",
+     "par_de": "Wiederholung: 2. Chronik 12:15–16",
+     "par_en": "Repeated: 2 Chronicles 12:15–16",
+     "time_de": "2981",
+     "time_en": "2981"
+    }
+   ],
+   "head_de": "Rehabeam, Sohn Salomos, König von Juda / Jerobeam, Sohn Nebats, König von Israel",
+   "head_en": "Rehoboam son of Solomon, king of Judah / Jeroboam son of Nebat, king of Israel"
+  },
+  {
+   "head": "אבים בן רחבעם מלך יהודה",
+   "items": [
+    {
+     "ref": "15:1-8",
+     "text": "מינויו, דרכיו ומיתתו",
+     "time": "ב'תתקפ\"ב - ב'תתקפ\"ד",
+     "place": "ירושלים",
+     "par": "חזרה והרחבה: דברי הימים ב' יג · מעשה אוריה: שמואל ב' יא",
+     "text_de": "Seine Einsetzung, seine Wege und sein Tod",
+     "text_en": "His accession, his ways and his death",
+     "place_de": "Jerusalem",
+     "place_en": "Jerusalem",
+     "par_de": "Wiederholung und Erweiterung: 2. Chronik 13 · Die Sache mit Urija: 2. Samuel 11",
+     "par_en": "Repeated and expanded: 2 Chronicles 13 · The affair of Uriah: 2 Samuel 11",
+     "time_de": "2982–2984",
+     "time_en": "2982–2984"
+    }
+   ],
+   "head_de": "Abijam, Sohn Rehabeams, König von Juda",
+   "head_en": "Abijam son of Rehoboam, king of Judah"
+  },
+  {
+   "head": "אסא בן אבים מלך יהודה",
+   "items": [
+    {
+     "ref": "15:9-15",
+     "text": "מינויו ודרכיו",
+     "time": "ב'תתקפ\"ד",
+     "place": "ירושלים, נחל קדרון",
+     "par": "חזרה והרחבה: דברי הימים ב' יד-טו",
+     "text_de": "Seine Einsetzung und seine Wege",
+     "text_en": "His accession and his ways",
+     "place_de": "Jerusalem, Kidrontal",
+     "place_en": "Jerusalem, Kidron Valley",
+     "par_de": "Wiederholung und Erweiterung: 2. Chronik 14–15",
+     "par_en": "Repeated and expanded: 2 Chronicles 14–15",
+     "time_de": "2984",
+     "time_en": "2984"
+    },
+    {
+     "ref": "15:16-24",
+     "text": "מלחמתו בבעשא ומיתתו",
+     "time": "ג'-ג'כ\"ה",
+     "place": "תרצה, רמה, דמשק, גבע בנימין, מצפה",
+     "par": "חזרה והרחבה: ירמיה מא ט, דברי הימים ב' טז",
+     "text_de": "Sein Krieg gegen Bascha und sein Tod",
+     "text_en": "His war with Baasha and his death",
+     "place_de": "Tirza, Rama, Damaskus, Geba in Benjamin, Mizpa",
+     "place_en": "Tirzah, Ramah, Damascus, Geba of Benjamin, Mizpah",
+     "par_de": "Wiederholung und Erweiterung: Jeremia 41:9; 2. Chronik 16",
+     "par_en": "Repeated and expanded: Jeremiah 41:9; 2 Chronicles 16",
+     "time_de": "3000–3025",
+     "time_en": "3000–3025"
+    }
+   ],
+   "head_de": "Asa, Sohn Abijams, König von Juda",
+   "head_en": "Asa son of Abijam, king of Judah"
+  },
+  {
+   "head": "נדב בן ירבעם מלך ישראל",
+   "items": [
+    {
+     "ref": "15:25-32",
+     "text": "מינויו ודרכיו, הריגתו ע\"י בעשא",
+     "time": "ב'תתקפ\"ו - ב'תתקפ\"ז",
+     "place": "גבתון",
+     "text_de": "Seine Einsetzung und seine Wege, seine Tötung durch Bascha",
+     "text_en": "His accession and his ways; his killing by Baasha",
+     "place_de": "Gibbeton",
+     "place_en": "Gibbethon",
+     "time_de": "2986–2987",
+     "time_en": "2986–2987"
+    }
+   ],
+   "head_de": "Nadab, Sohn Jerobeams, König von Israel",
+   "head_en": "Nadab son of Jeroboam, king of Israel"
+  },
+  {
+   "head": "בעשא בן אחיה מלך ישראל",
+   "items": [
+    {
+     "ref": "15:33-16:7",
+     "text": "מינויו ודרכיו, נבואה על בעשא, מיתתו",
+     "time": "ב'תתקפ\"ז - ג'י'",
+     "place": "תרצה",
+     "text_de": "Seine Einsetzung und seine Wege, Prophezeiung über Bascha, sein Tod",
+     "text_en": "His accession and his ways; prophecy about Baasha; his death",
+     "place_de": "Tirza",
+     "place_en": "Tirzah",
+     "time_de": "2987–3010",
+     "time_en": "2987–3010"
+    }
+   ],
+   "head_de": "Bascha, Sohn Ahijas, König von Israel",
+   "head_en": "Baasha son of Ahijah, king of Israel"
+  },
+  {
+   "head": "אלה בן בעשא מלך ישראל",
+   "items": [
+    {
+     "ref": "16:8-14",
+     "text": "מינויו והריגתו ע\"י זמרי",
+     "time": "ג'י' - ג'י\"א",
+     "place": "תרצה",
+     "text_de": "Seine Einsetzung und seine Tötung durch Simri",
+     "text_en": "His accession and his killing by Zimri",
+     "place_de": "Tirza",
+     "place_en": "Tirzah",
+     "time_de": "3010–3011",
+     "time_en": "3010–3011"
+    }
+   ],
+   "head_de": "Ela, Sohn Baschas, König von Israel",
+   "head_en": "Elah son of Baasha, king of Israel"
+  },
+  {
+   "head": "זמרי מלך ישראל",
+   "items": [
+    {
+     "ref": "16:15-20",
+     "text": "מינויו, דרכיו ומיתתו",
+     "time": "ג'י\"א",
+     "place": "תרצה",
+     "text_de": "Seine Einsetzung, seine Wege und sein Tod",
+     "text_en": "His accession, his ways and his death",
+     "place_de": "Tirza",
+     "place_en": "Tirzah",
+     "time_de": "3011",
+     "time_en": "3011"
+    }
+   ],
+   "head_de": "Simri, König von Israel",
+   "head_en": "Zimri, king of Israel"
+  },
+  {
+   "head": "תבני בן גינת ועמרי מלכי ישראל",
+   "items": [
+    {
+     "ref": "16:21-22",
+     "text": "מחלוקתם על המלוכה, הריגת תבני",
+     "time": "ג'י\"א - ג'ט\"ו",
+     "place": "תרצה",
+     "text_de": "Ihr Streit um die Königsherrschaft, Tötung Tibnis",
+     "text_en": "Their dispute over the kingship; the killing of Tibni",
+     "place_de": "Tirza",
+     "place_en": "Tirzah",
+     "time_de": "3011–3015",
+     "time_en": "3011–3015"
+    },
+    {
+     "ref": "16:23-28",
+     "text": "מינוי עמרי, דרכיו ומיתתו",
+     "time": "ג'ט\"ו - ג'כ\"ב",
+     "place": "תרצה",
+     "text_de": "Omris Einsetzung, seine Wege und sein Tod",
+     "text_en": "Omri's accession, his ways and his death",
+     "place_de": "Tirza",
+     "place_en": "Tirzah",
+     "time_de": "3015–3022",
+     "time_en": "3015–3022"
+    }
+   ],
+   "head_de": "Tibni, Sohn Ginats, und Omri, Könige von Israel",
+   "head_en": "Tibni son of Ginath, and Omri, kings of Israel"
+  },
+  {
+   "head": "אחאב בן עמרי מלך ישראל * מופתי אליהו",
+   "items": [
+    {
+     "ref": "16:29-34",
+     "text": "מינויו ודרכיו",
+     "time": "ג'כ\"ב",
+     "place": "שומרון, יריחו",
+     "par": "נבואה ע\"ז: מיכה ו ט-טז · קללת בונה יריחו: יהושע ו כו",
+     "text_de": "Seine Einsetzung und seine Wege",
+     "text_en": "His accession and his ways",
+     "place_de": "Samaria, Jericho",
+     "place_en": "Samaria, Jericho",
+     "par_de": "Prophezeiung darüber: Micha 6:9–16 · Fluch über den Wiederaufbauer Jerichos: Josua 6:26",
+     "par_en": "Prophecy about it: Micah 6:9–16 · Curse on the rebuilder of Jericho: Joshua 6:26",
+     "time_de": "3022",
+     "time_en": "3022"
+    },
+    {
+     "ref": "17:1-7",
+     "text": "רעב בארץ וכלכלת העורבים לאליהו",
+     "place": "שומרון, נחל כרית",
+     "text_de": "Hungersnot im Land und Elijas Versorgung durch die Raben",
+     "text_en": "Famine in the land and the ravens' provision for Elijah",
+     "place_de": "Samaria, Bach Kerit",
+     "place_en": "Samaria, Wadi Cherith"
+    },
+    {
+     "ref": "17:8-24",
+     "text": "מופתי אליהו לאשה הצרפית",
+     "place": "צרפת",
+     "par": "הזכרה: משלי לא כ (י\"מ)",
+     "text_de": "Elijas Wundertaten an der Frau von Sarepta",
+     "text_en": "Elijah's miracles for the woman of Zarephath",
+     "place_de": "Sarepta",
+     "place_en": "Zarephath",
+     "par_de": "Erwähnung: Sprüche 31:20 (nach einigen Auslegern)",
+     "par_en": "Mention: Proverbs 31:20 (according to some commentators)"
+    },
+    {
+     "ref": "18",
+     "text": "אליהו בהר הכרמל",
+     "place": "שומרון, הר הכרמל, יזרעאל",
+     "par": "ציווי הריגת נביאי הבעל: דברים יח כ · נבואה ע\"ז: בראשית לה יא (י\"מ)",
+     "text_de": "Elija auf dem Karmel",
+     "text_en": "Elijah on Mount Carmel",
+     "place_de": "Samaria, Karmel, Jesreel",
+     "place_en": "Samaria, Mount Carmel, Jezreel",
+     "par_de": "Gebot, die Baalspropheten zu töten: Deuteronomium 18:20 · Prophezeiung darüber: Genesis 35:11 (nach einigen Auslegern)",
+     "par_en": "Command to kill the prophets of Baal: Deuteronomy 18:20 · Prophecy about it: Genesis 35:11 (according to some commentators)"
+    },
+    {
+     "ref": "19",
+     "text": "נבואה לאליהו בחורב",
+     "place": "באר שבע, חורב, דמשק",
+     "text_de": "Prophetische Offenbarung an Elija am Horeb",
+     "text_en": "Prophetic revelation to Elijah at Horeb",
+     "place_de": "Beerscheba, Horeb, Damaskus",
+     "place_en": "Beersheba, Horeb, Damascus"
+    },
+    {
+     "ref": "20",
+     "text": "מלחמותיו עם ארם",
+     "place": "שומרון, אפק",
+     "text_de": "Seine Kriege mit Aram",
+     "text_en": "His wars with Aram",
+     "place_de": "Samaria, Afek",
+     "place_en": "Samaria, Aphek"
+    },
+    {
+     "ref": "21",
+     "text": "כרם נבות",
+     "place": "יזרעאל",
+     "text_de": "Nabots Weinberg",
+     "text_en": "Naboth's vineyard",
+     "place_de": "Jesreel",
+     "place_en": "Jezreel"
+    },
+    {
+     "ref": "22:1-4",
+     "text": "קריאתו ליהושפט להלחם עמו בארם",
+     "place": "שומרון",
+     "par": "חזרה: דברי הימים ב' יח א-ג",
+     "text_de": "Seine Aufforderung an Joschafat, mit ihm gegen Aram zu kämpfen",
+     "text_en": "His call to Jehoshaphat to fight with him against Aram",
+     "place_de": "Samaria",
+     "place_en": "Samaria",
+     "par_de": "Wiederholung: 2. Chronik 18:1–3",
+     "par_en": "Repeated: 2 Chronicles 18:1–3"
+    },
+    {
+     "ref": "22:5-28",
+     "text": "מחלוקת הנביאים עם מיכיהו",
+     "place": "שומרון",
+     "par": "חזרה: דברי הימים ב' יח ד-כז",
+     "text_de": "Der Streit der Propheten mit Micha",
+     "text_en": "The dispute of the prophets with Micaiah",
+     "place_de": "Samaria",
+     "place_en": "Samaria",
+     "par_de": "Wiederholung: 2. Chronik 18:4–27",
+     "par_en": "Repeated: 2 Chronicles 18:4–27"
+    },
+    {
+     "ref": "22:29-40",
+     "text": "הריגתו במלחמת רמות גלעד",
+     "time": "ג'מ\"ג",
+     "place": "רמות גלעד, שומרון",
+     "par": "חזרה: דברי הימים ב' יח כח-לד · הזכרה: זכריה יב יא (י\"מ)",
+     "text_de": "Sein Tod im Krieg bei Ramot in Gilead",
+     "text_en": "His death in the battle of Ramoth-gilead",
+     "place_de": "Ramot in Gilead, Samaria",
+     "place_en": "Ramoth-gilead, Samaria",
+     "par_de": "Wiederholung: 2. Chronik 18:28–34 · Erwähnung: Sacharja 12:11 (nach einigen Auslegern)",
+     "par_en": "Repeated: 2 Chronicles 18:28–34 · Mention: Zechariah 12:11 (according to some commentators)",
+     "time_de": "3043",
+     "time_en": "3043"
+    }
+   ],
+   "head_de": "Ahab, Sohn Omris, König von Israel * Wundertaten Elijas",
+   "head_en": "Ahab son of Omri, king of Israel * Elijah's miracles"
+  },
+  {
+   "head": "יהושפט בן אסא מלך יהודה",
+   "items": [
+    {
+     "ref": "22:41-51",
+     "text": "מינויו, דרכיו ומיתתו",
+     "time": "ג'כ\"ו - ג'נ'",
+     "place": "ירושלים",
+     "par": "חזרה והרחבה: דברי הימים ב' יז א - כא ג",
+     "text_de": "Seine Einsetzung, seine Wege und sein Tod",
+     "text_en": "His accession, his ways and his death",
+     "place_de": "Jerusalem",
+     "place_en": "Jerusalem",
+     "par_de": "Wiederholung und Erweiterung: 2. Chronik 17:1–21:3",
+     "par_en": "Repeated and expanded: 2 Chronicles 17:1–21:3",
+     "time_de": "3026–3050",
+     "time_en": "3026–3050"
+    }
+   ],
+   "head_de": "Joschafat, Sohn Asas, König von Juda",
+   "head_en": "Jehoshaphat son of Asa, king of Judah"
+  },
+  {
+   "head": "אחזיהו בן אחאב מלך ישראל",
+   "items": [
+    {
+     "ref": "22:52-54",
+     "text": "מינויו, דרכיו ומיתתו",
+     "time": "ג'מ\"ג - ג'מ\"ד",
+     "place": "שומרון",
+     "text_de": "Seine Einsetzung, seine Wege und sein Tod",
+     "text_en": "His accession, his ways and his death",
+     "place_de": "Samaria",
+     "place_en": "Samaria",
+     "time_de": "3043–3044",
+     "time_en": "3043–3044"
+    }
+   ],
+   "head_de": "Ahasja, Sohn Ahabs, König von Israel",
+   "head_en": "Ahaziah son of Ahab, king of Israel"
+  }
+ ],
+ "title_de": "Inhalt des Ersten Buches der Könige",
+ "title_en": "Contents of the First Book of Kings",
+ "note_de": "Abgeschrieben aus einer Übersichtstabelle (SifreiKodesh) und übersetzt. Jahre/Daten nach der jüdischen Zählung, wie in der Vorlage gedruckt.",
+ "note_en": "Transcribed from an overview table (SifreiKodesh) and translated. Years/dates follow the Jewish count (from the creation of the world) as printed in the source."
+}

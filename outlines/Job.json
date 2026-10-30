@@ -1,0 +1,381 @@
+{
+ "book": "Job",
+ "title": "תוכן ספר איוב",
+ "note": "Abgeschrieben aus einer Übersichtstabelle (SifreiKodesh).",
+ "sections": [
+  {
+   "head": "מאורעות איוב הראשונים",
+   "items": [
+    {
+     "ref": "1:1-5",
+     "text": "איוב ומשפחתו, עושרו וצדקותו",
+     "text_de": "Hiob und seine Familie, sein Reichtum und seine Rechtschaffenheit",
+     "text_en": "Job and his family, his wealth and his righteousness"
+    },
+    {
+     "ref": "1:6-12",
+     "text": "קטרוג השטן על איוב",
+     "text_de": "Die Anklage des Satans gegen Hiob",
+     "text_en": "Satan's accusation against Job"
+    },
+    {
+     "ref": "1:13-22",
+     "text": "מות בני איוב ואיבוד כל רכושו",
+     "text_de": "Der Tod der Söhne Hiobs und der Verlust seines ganzen Besitzes",
+     "text_en": "The death of Job's sons and the loss of all his property"
+    },
+    {
+     "ref": "2:1-10",
+     "text": "קטרוג השטן על איוב שנית והכאתו בשחין",
+     "text_de": "Zweite Anklage des Satans gegen Hiob, und Hiob wird mit Geschwüren geschlagen",
+     "text_en": "Satan's second accusation against Job, and his being struck with boils"
+    },
+    {
+     "ref": "2:11-13",
+     "text": "ביאת רעי איוב לנחמו",
+     "text_de": "Die Freunde Hiobs kommen, um ihn zu trösten",
+     "text_en": "Job's friends come to comfort him"
+    }
+   ],
+   "head_de": "Die ersten Ereignisse um Hiob",
+   "head_en": "The first events of Job"
+  },
+  {
+   "head": "מענות איוב ורעיו – א'",
+   "items": [
+    {
+     "ref": "3",
+     "text": "התאוננות על בואו לעולם לרוב יסוריו",
+     "speaker": "איוב",
+     "text_de": "Klage darüber, dass er auf die Welt gekommen ist, wegen seiner vielen Leiden",
+     "text_en": "Lament that he came into the world, because of his many sufferings",
+     "speaker_de": "Hiob",
+     "speaker_en": "Job"
+    },
+    {
+     "ref": "4-5",
+     "text": "הרשעת איוב, ענישת ה' לרשעים, שכר קבלת היסורים באהבה (פרקים ד-ה)",
+     "speaker": "אליפז לאיוב",
+     "text_de": "Hiob wird als Frevler beschuldigt; die Strafe des Herrn für die Frevler; Lohn dafür, Leiden in Liebe anzunehmen (Kapitel 4–5)",
+     "text_en": "Job is accused of wickedness; the Lord's punishment of the wicked; the reward for accepting suffering with love (chapters 4–5)",
+     "speaker_de": "Elifas zu Hiob",
+     "speaker_en": "Eliphaz to Job"
+    },
+    {
+     "ref": "6:1-7:6",
+     "text": "גודל צערו וחולשתו, רצונו למות, תוכחה לרעיו על דבריהם השקריים (ו א - ז ו)",
+     "speaker": "איוב לרעיו",
+     "text_de": "Größe seines Kummers und seiner Schwäche, sein Wunsch zu sterben, Rüge an seine Freunde wegen ihrer falschen Worte (6:1–7:6)",
+     "text_en": "The greatness of his anguish and weakness, his wish to die, rebuke of his friends for their false words (6:1–7:6)",
+     "speaker_de": "Hiob zu seinen Freunden",
+     "speaker_en": "Job to his friends"
+    },
+    {
+     "ref": "7:7-21",
+     "text": "בקשתו להרפא מיסוריו כי טוב מותו מחייו (ז ז-כא)",
+     "speaker": "איוב לה'",
+     "text_de": "Bitte, von seinen Leiden geheilt zu werden, denn sein Tod sei besser als sein Leben (7:7–21)",
+     "text_en": "Plea to be healed of his sufferings, for his death is better than his life (7:7–21)",
+     "speaker_de": "Hiob zum Herrn",
+     "speaker_en": "Job to the Lord"
+    },
+    {
+     "ref": "8",
+     "text": "צדקת ה', רשעת בני איוב, אם ישוב לה' יקבלו ויגדל כבראשונה (פרק ח)",
+     "speaker": "בלדד לאיוב",
+     "text_de": "Die Gerechtigkeit des Herrn, die Bosheit der Söhne Hiobs; wenn er zum Herrn umkehrt, wird dieser ihn annehmen, und er wird groß werden wie zuvor (Kapitel 8)",
+     "text_en": "The righteousness of the Lord, the wickedness of Job's sons; if he returns to the Lord, He will accept him and he will become great as before (chapter 8)",
+     "speaker_de": "Bildad zu Hiob",
+     "speaker_en": "Bildad to Job"
+    },
+    {
+     "ref": "9-10",
+     "text": "האדם לא יכול לדון עם ה' לרוב גדולתו, ה' נוהג בצדיק ורשע בשווה (ט א-כז) טענותיו על ה': דקדוק ה' במשפטו, התאוננות על לידתו, בקשתו מה' שיניח לו בעודו חי (ט כח - י כב)",
+     "speaker": "איוב לבלדד",
+     "text_de": "Der Mensch kann wegen der Größe des Herrn nicht mit ihm rechten; der Herr behandelt Gerechten und Frevler gleich (9:1–27). Seine Klagen gegen den Herrn: die Genauigkeit des Herrn in seinem Gericht, Klage über seine Geburt, Bitte an den Herrn, ihn in Ruhe zu lassen, solange er lebt (9:28–10:22)",
+     "text_en": "Man cannot contend with the Lord because of His greatness; the Lord treats the righteous and the wicked alike (9:1–27). His complaints against the Lord: the Lord's exactness in His judgment, lament over his birth, his plea that the Lord leave him alone while he is still alive (9:28–10:22)",
+     "speaker_de": "Hiob zu Bildad",
+     "speaker_en": "Job to Bildad"
+    },
+    {
+     "ref": "11",
+     "text": "הרשעת איוב, אי אפשר להשיג מחשבות ה', קורא לאיוב לשוב לה' (פרק יא)",
+     "speaker": "צופר לאיוב",
+     "text_de": "Hiob wird als Frevler beschuldigt; die Gedanken des Herrn sind nicht zu erfassen; Aufruf an Hiob, zum Herrn umzukehren (Kapitel 11)",
+     "text_en": "Job is accused of wickedness; the Lord's thoughts cannot be grasped; a call to Job to return to the Lord (chapter 11)",
+     "speaker_de": "Zofar zu Hiob",
+     "speaker_en": "Zophar to Job"
+    },
+    {
+     "ref": "12:1-13:19",
+     "text": "שכר הצדיקים והרשעים, גדולת ה', רצונו לדבר לה', תוכחה לרעיו (יב א - יג יט)",
+     "speaker": "איוב לרעיו",
+     "text_de": "Lohn der Gerechten und der Frevler, die Größe des Herrn, sein Wunsch, zum Herrn zu sprechen, Rüge an seine Freunde (12:1–13:19)",
+     "text_en": "The reward of the righteous and the wicked, the greatness of the Lord, his wish to speak to the Lord, rebuke of his friends (12:1–13:19)",
+     "speaker_de": "Hiob zu seinen Freunden",
+     "speaker_en": "Job to his friends"
+    },
+    {
+     "ref": "13:20-14:22",
+     "text": "במה חטא ומדוע נענש, שפלות האדם בחייו ובמותו, איך לא ירחמנו ה' (יג כ - יד כב)",
+     "speaker": "איוב לה'",
+     "text_de": "Womit hat er gesündigt und warum wurde er bestraft, die Niedrigkeit des Menschen in Leben und Tod, wie sollte der Herr sich nicht über ihn erbarmen (13:20–14:22)",
+     "text_en": "How did he sin and why was he punished, man's lowliness in life and in death, how could the Lord not have mercy on him (13:20–14:22)",
+     "speaker_de": "Hiob zum Herrn",
+     "speaker_en": "Job to the Lord"
+    }
+   ],
+   "head_de": "Reden Hiobs und seiner Freunde – I",
+   "head_en": "Speeches of Job and his friends – I"
+  },
+  {
+   "head": "מענות איוב ורעיו – ב'",
+   "items": [
+    {
+     "ref": "15",
+     "text": "תוכחה לאיוב - אינו חכם מכולם, מי יצדק לפני ה', אם לא ישוב לה' יענש (פרק טו)",
+     "speaker": "אליפז לאיוב",
+     "text_de": "Zurechtweisung Hiobs: Er ist nicht weiser als alle; wer ist gerecht vor dem Herrn; wenn er nicht zum Herrn umkehrt, wird er bestraft (Kapitel 15)",
+     "text_en": "Rebuke of Job: he is not wiser than everyone; who is righteous before the Lord; if he does not return to the Lord he will be punished (chapter 15)",
+     "speaker_de": "Elifas zu Hiob",
+     "speaker_en": "Eliphaz to Job"
+    },
+    {
+     "ref": "16:1-17:2",
+     "text": "תנחומי רעיו הבל, התאוננות על יסוריו ועל דברי רעיו, רצונו להתווכח עם ה' ורעיו על צדקתו (טז א - יז ב)",
+     "speaker": "איוב לרעיו",
+     "text_de": "Die Tröstungen seiner Freunde sind nichtig, Klage über seine Leiden und über die Worte seiner Freunde, sein Wunsch, mit dem Herrn und seinen Freunden über seine Gerechtigkeit zu streiten (16:1–17:2)",
+     "text_en": "His friends' consolations are worthless, lament over his sufferings and his friends' words, his wish to contend with the Lord and his friends about his righteousness (16:1–17:2)",
+     "speaker_de": "Hiob zu seinen Freunden",
+     "speaker_en": "Job to his friends"
+    },
+    {
+     "ref": "17:3-16",
+     "text": "רצונו לדון עם ה', תלונה על רשעת רעיו, ציפייתו למות לרוב צערו (יז ג-טז)",
+     "speaker": "איוב לה'",
+     "text_de": "Sein Wunsch, mit dem Herrn zu rechten, Klage über die Bosheit seiner Freunde, sein Warten auf den Tod wegen seines großen Kummers (17:3–16)",
+     "text_en": "His wish to plead with the Lord, complaint about his friends' wickedness, his longing for death because of his great anguish (17:3–16)",
+     "speaker_de": "Hiob zum Herrn",
+     "speaker_en": "Job to the Lord"
+    },
+    {
+     "ref": "18:1-3",
+     "text": "פתיחה - דבריו לאליפז וצופר (יח א-ג)",
+     "speaker": "בלדד לאליפז וצופר",
+     "text_de": "Einleitung: seine Worte an Elifas und Zofar (18:1–3)",
+     "text_en": "Introduction: his words to Eliphaz and Zophar (18:1–3)",
+     "speaker_de": "Bildad zu Elifas und Zofar",
+     "speaker_en": "Bildad to Eliphaz and Zophar"
+    },
+    {
+     "ref": "18:4-21",
+     "text": "פורענות הרשעים, יסורי איוב מוכיחים שחטא (יח ד-כא)",
+     "speaker": "בלדד לאיוב",
+     "text_de": "Das Unheil der Frevler; Hiobs Leiden beweisen, dass er gesündigt hat (18:4–21)",
+     "text_en": "The calamity of the wicked; Job's sufferings prove that he has sinned (18:4–21)",
+     "speaker_de": "Bildad zu Hiob",
+     "speaker_en": "Bildad to Job"
+    },
+    {
+     "ref": "19",
+     "text": "תוכחה לרעיו על דבריהם והתראה כי ייענשו, התאוננות על מצבו (פרק יט)",
+     "speaker": "איוב לרעיו",
+     "text_de": "Rüge an seine Freunde wegen ihrer Worte und Warnung, dass sie bestraft werden; Klage über seine Lage (Kapitel 19)",
+     "text_en": "Rebuke of his friends for their words and a warning that they will be punished; lament over his condition (chapter 19)",
+     "speaker_de": "Hiob zu seinen Freunden",
+     "speaker_en": "Job to his friends"
+    },
+    {
+     "ref": "20",
+     "text": "פורענות הרשעים, אנשי סדום ועונשם, יסורי איוב מוכיחים שחטא (פרק כ)",
+     "speaker": "צופר לאיוב",
+     "text_de": "Das Unheil der Frevler, die Leute von Sodom und ihre Strafe; Hiobs Leiden beweisen, dass er gesündigt hat (Kapitel 20)",
+     "text_en": "The calamity of the wicked, the people of Sodom and their punishment; Job's sufferings prove that he has sinned (chapter 20)",
+     "speaker_de": "Zofar zu Hiob",
+     "speaker_en": "Zophar to Job"
+    },
+    {
+     "ref": "21",
+     "text": "טובת דור המבול, תקוותו לענישת הרשעים, יסורי הצדיקים, תוכחה לרעיו על הרשעתו (פרק כא)",
+     "speaker": "איוב לרעיו",
+     "text_de": "Das Wohlergehen der Generation der Sintflut, seine Hoffnung auf die Bestrafung der Frevler, die Leiden der Gerechten, Rüge an seine Freunde, weil sie ihn als Frevler hinstellen (Kapitel 21)",
+     "text_en": "The prosperity of the generation of the Flood, his hope that the wicked will be punished, the sufferings of the righteous, rebuke of his friends for portraying him as wicked (chapter 21)",
+     "speaker_de": "Hiob zu seinen Freunden",
+     "speaker_en": "Job to his friends"
+    }
+   ],
+   "head_de": "Reden Hiobs und seiner Freunde – II",
+   "head_en": "Speeches of Job and his friends – II"
+  },
+  {
+   "head": "מענות איוב ורעיו – ג'",
+   "items": [
+    {
+     "ref": "22",
+     "text": "חטא איוב שהתעלם מדלים ומסכנים, פורענות הדורות הקודמים, קורא לו לשוב לה' ויקבלו (פרק כב)",
+     "speaker": "אליפז לאיוב",
+     "text_de": "Hiobs Sünde, dass er die Armen und Bedürftigen übersehen hat, die Strafe der früheren Generationen; Aufruf an ihn, zum Herrn umzukehren, dann werde dieser ihn annehmen (Kapitel 22)",
+     "text_en": "Job's sin of ignoring the poor and needy, the punishment of earlier generations; a call to him to return to the Lord, and He will accept him (chapter 22)",
+     "speaker_de": "Elifas zu Hiob",
+     "speaker_en": "Eliphaz to Job"
+    },
+    {
+     "ref": "23-24",
+     "text": "רצונו להתווכח עם ה', יראתו מה', חטאי הגולנים ודור המבול, תלונה על הארכת אף ה' לרשעים (פרקים כג-כד)",
+     "speaker": "איוב לאליפז",
+     "text_de": "Sein Wunsch, mit dem Herrn zu rechten, seine Ehrfurcht vor dem Herrn, die Sünden der Räuber und der Generation der Sintflut, Klage über die Langmut des Herrn gegenüber den Frevlern (Kapitel 23–24)",
+     "text_en": "His wish to contend with the Lord, his awe of the Lord, the sins of the robbers and of the generation of the Flood, complaint about the Lord's forbearance toward the wicked (chapters 23–24)",
+     "speaker_de": "Hiob zu Elifas",
+     "speaker_en": "Job to Eliphaz"
+    },
+    {
+     "ref": "25",
+     "text": "גדולת ה', מי יצדק לפניו (פרק כה)",
+     "speaker": "בלדד לאיוב",
+     "text_de": "Die Größe des Herrn; wer ist gerecht vor ihm (Kapitel 25)",
+     "text_en": "The greatness of the Lord; who is righteous before Him (chapter 25)",
+     "speaker_de": "Bildad zu Hiob",
+     "speaker_en": "Bildad to Job"
+    },
+    {
+     "ref": "26:1-30:19",
+     "text": "רוממות ה', גדולתו ונפלאותיו, טענת איוב על צדקותו, גנות הרשעים ופורענותם, מעלת התורה, אנשי סדום ועונשם, זכרון כבודו הראשון, צדקותיו וחסדיו, התאוננות על מצבו ויסוריו (כו א - ל יט)",
+     "speaker": "איוב לרעיו",
+     "text_de": "Die Erhabenheit des Herrn, seine Größe und seine Wunder, Hiobs Behauptung seiner Gerechtigkeit, die Schande der Frevler und ihr Unheil, der Vorzug der Tora, die Leute von Sodom und ihre Strafe, Erinnerung an seine frühere Ehre, seine Gerechtigkeit und Wohltaten, Klage über seine Lage und seine Leiden (26:1–30:19)",
+     "text_en": "The exaltedness of the Lord, His greatness and wonders, Job's claim of his righteousness, the disgrace of the wicked and their calamity, the merit of the Torah, the people of Sodom and their punishment, remembrance of his former honor, his righteousness and kindnesses, lament over his condition and sufferings (26:1–30:19)",
+     "speaker_de": "Hiob zu seinen Freunden",
+     "speaker_en": "Job to his friends"
+    },
+    {
+     "ref": "30:20-31:40",
+     "text": "למה מייסרו ה' כ\"כ ואוטם אזנו לשועתו, צדקותו במצוות ה' וחסדיו לבריות, רצונו לדון עם ה' (ל כ - לא מ)",
+     "speaker": "איוב לה'",
+     "text_de": "Warum der Herr ihn so sehr peinigt und sein Ohr vor seinem Schreien verschließt, seine Gerechtigkeit im Halten der Gebote des Herrn und seine Wohltaten an den Geschöpfen, sein Wunsch, mit dem Herrn zu rechten (30:20–31:40)",
+     "text_en": "Why the Lord torments him so much and closes His ear to his cry, his righteousness in keeping the Lord's commandments and his kindnesses to people, his wish to plead with the Lord (30:20–31:40)",
+     "speaker_de": "Hiob zum Herrn",
+     "speaker_en": "Job to the Lord"
+    }
+   ],
+   "head_de": "Reden Hiobs und seiner Freunde – III",
+   "head_en": "Speeches of Job and his friends – III"
+  },
+  {
+   "head": "תוכחות אליהוא",
+   "items": [
+    {
+     "ref": "32",
+     "text": "תוכחה לרעי איוב על הודאתם לטענותיו (פרק לב)",
+     "speaker": "אליהוא לרעי איוב",
+     "text_de": "Zurechtweisung der Freunde Hiobs, weil sie seinen Behauptungen nachgegeben haben (Kapitel 32)",
+     "text_en": "Rebuke of Job's friends for yielding to his claims (chapter 32)",
+     "speaker_de": "Elihu zu den Freunden Hiobs",
+     "speaker_en": "Elihu to Job's friends"
+    },
+    {
+     "ref": "33",
+     "text": "קורא לאיוב לדון עמו במקום עם ה', הרשעת איוב, יסורי ה' לבריות כדי להצילם ממיתה (פרק לג)",
+     "speaker": "אליהוא לאיוב",
+     "text_de": "Er ruft Hiob auf, mit ihm statt mit dem Herrn zu rechten; Hiob wird als Frevler beschuldigt; die Leiden, die der Herr den Menschen schickt, um sie vor dem Tod zu retten (Kapitel 33)",
+     "text_en": "He calls Job to contend with him instead of with the Lord; Job is accused of wickedness; the sufferings the Lord sends people in order to save them from death (chapter 33)",
+     "speaker_de": "Elihu zu Hiob",
+     "speaker_en": "Elihu to Job"
+    },
+    {
+     "ref": "34",
+     "text": "צדקת דיני ה' - היפך דברי איוב, פורענות הרשעים, קבלת היסורים וצידוק הדין, חטא איוב בדבריו (פרק לד)",
+     "speaker": "אליהוא לרעי איוב",
+     "text_de": "Die Gerechtigkeit der Urteile des Herrn, das Gegenteil von Hiobs Worten, das Unheil der Frevler, das Annehmen der Leiden und das Anerkennen des Urteils, Hiobs Sünde in seinen Worten (Kapitel 34)",
+     "text_en": "The righteousness of the Lord's judgments, the opposite of Job's words, the calamity of the wicked, accepting suffering and justifying the verdict, Job's sin in his words (chapter 34)",
+     "speaker_de": "Elihu zu den Freunden Hiobs",
+     "speaker_en": "Elihu to Job's friends"
+    },
+    {
+     "ref": "35",
+     "text": "גמול מעשי האדם לעצמו הם, הארכת אף ה' לרשעים, חטאי איוב גדולים מעונשו (פרק לה)",
+     "speaker": "אליהוא לאיוב ורעיו",
+     "text_de": "Der Lohn der Taten des Menschen gilt ihm selbst, die Langmut des Herrn gegenüber den Frevlern, Hiobs Sünden sind größer als seine Strafe (Kapitel 35)",
+     "text_en": "The recompense of a person's deeds is his own, the Lord's forbearance toward the wicked, Job's sins are greater than his punishment (chapter 35)",
+     "speaker_de": "Elihu zu Hiob und seinen Freunden",
+     "speaker_en": "Elihu to Job and his friends"
+    },
+    {
+     "ref": "36-37",
+     "text": "מטרת היסורים, גדולת ה' וגבורתו, נפלאות ה' במערכת השמים, צדקת ה' ורחמיו (פרקים לו-לז)",
+     "speaker": "אליהוא לאיוב ורעיו",
+     "text_de": "Der Zweck der Leiden, die Größe und Macht des Herrn, die Wunder des Herrn in der Ordnung des Himmels, die Gerechtigkeit und das Erbarmen des Herrn (Kapitel 36–37)",
+     "text_en": "The purpose of suffering, the greatness and might of the Lord, the Lord's wonders in the order of the heavens, the Lord's righteousness and mercy (chapters 36–37)",
+     "speaker_de": "Elihu zu Hiob und seinen Freunden",
+     "speaker_en": "Elihu to Job and his friends"
+    }
+   ],
+   "head_de": "Die Zurechtweisungen Elihus",
+   "head_en": "Elihu's rebukes"
+  },
+  {
+   "head": "תוכחות ה'",
+   "items": [
+    {
+     "ref": "38:1-40:2",
+     "text": "החכמה הטמונה בבריאת העולם ובהנהגתו, תוכחה על דבריו",
+     "speaker": "ה' לאיוב",
+     "text_de": "Die Weisheit in der Erschaffung der Welt und in ihrer Lenkung, Zurechtweisung wegen seiner Worte",
+     "text_en": "The wisdom in the creation of the world and its governance, rebuke for his words",
+     "speaker_de": "Der Herr zu Hiob",
+     "speaker_en": "The Lord to Job"
+    },
+    {
+     "ref": "40:3-5",
+     "text": "צדיק הוא ה' ולא יתלונן עליו עוד",
+     "speaker": "איוב לה'",
+     "text_de": "Der Herr ist gerecht, und er wird nicht mehr gegen ihn klagen",
+     "text_en": "The Lord is righteous, and he will no longer complain against Him",
+     "speaker_de": "Hiob zum Herrn",
+     "speaker_en": "Job to the Lord"
+    },
+    {
+     "ref": "40:6-41:26",
+     "text": "תוכחה על דבריו, אפסותו כנגד גבורות ה' ונפלאותיו",
+     "speaker": "ה' לאיוב",
+     "text_de": "Zurechtweisung wegen seiner Worte, seine Nichtigkeit gegenüber den Machttaten und Wundern des Herrn",
+     "text_en": "Rebuke for his words, his insignificance compared to the Lord's mighty deeds and wonders",
+     "speaker_de": "Der Herr zu Hiob",
+     "speaker_en": "The Lord to Job"
+    },
+    {
+     "ref": "42:1-6",
+     "text": "הודאה שלא הכיר בגדולת ה' עד עתה כראוי",
+     "speaker": "איוב לה'",
+     "text_de": "Bekenntnis, dass er die Größe des Herrn bisher nicht recht erkannt hat",
+     "text_en": "Admission that until now he had not properly recognized the Lord's greatness",
+     "speaker_de": "Hiob zum Herrn",
+     "speaker_en": "Job to the Lord"
+    }
+   ],
+   "head_de": "Die Zurechtweisungen des Herrn",
+   "head_en": "The Lord's rebukes"
+  },
+  {
+   "head": "מאורעות איוב האחרונים",
+   "items": [
+    {
+     "ref": "42:7-9",
+     "text": "תוכחת ה' לרעי איוב",
+     "text_de": "Die Zurechtweisung der Freunde Hiobs durch den Herrn",
+     "text_en": "The Lord's rebuke of Job's friends"
+    },
+    {
+     "ref": "42:10-17",
+     "text": "גדולת איוב ומשפחתו כבראשונה ומותו",
+     "text_de": "Hiobs Größe und seine Familie wie zuvor, und sein Tod",
+     "text_en": "Job's greatness and his family as before, and his death"
+    }
+   ],
+   "head_de": "Die letzten Ereignisse um Hiob",
+   "head_en": "The last events of Job"
+  }
+ ],
+ "title_de": "Inhalt des Buches Hiob",
+ "title_en": "Contents of the Book of Job",
+ "note_de": "Abgeschrieben aus einer Übersichtstabelle (SifreiKodesh) und übersetzt.",
+ "note_en": "Transcribed from an overview table (SifreiKodesh) and translated."
+}

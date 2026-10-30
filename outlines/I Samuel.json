@@ -1,0 +1,538 @@
+{
+ "book": "I Samuel",
+ "title": "תוכן ספר שמואל א",
+ "note": "Abgeschrieben aus einer Übersichtstabelle (SifreiKodesh). Jahre nach der jüdischen Zählung (Anno Mundi), wie in der Vorlage gedruckt.",
+ "sections": [
+  {
+   "head": "סוף תקופת השופטים",
+   "items": [
+    {
+     "ref": "1",
+     "text": "לידת שמואל",
+     "time": "ב'תתל\"ב",
+     "place": "שילה, רמתים צופים",
+     "text_de": "Geburt Samuels",
+     "text_en": "Birth of Samuel",
+     "place_de": "Schilo, Ramatajim-Zofim",
+     "place_en": "Shiloh, Ramathaim-zophim",
+     "time_de": "2832",
+     "time_en": "2832"
+    },
+    {
+     "ref": "2:1-10",
+     "text": "תפילת חנה",
+     "time": "ב'תתל\"ב",
+     "place": "שילה, רמתים צופים",
+     "text_de": "Hannas Gebet",
+     "text_en": "Hannah's prayer",
+     "place_de": "Schilo, Ramatajim-Zofim",
+     "place_en": "Shiloh, Ramathaim-zophim",
+     "time_de": "2832",
+     "time_en": "2832"
+    },
+    {
+     "ref": "2:11-36",
+     "text": "מעשי בני עלי",
+     "place": "שילה, רמתים צופים",
+     "par": "קיום הקללה: מלכים א' ב כו-כז",
+     "text_de": "Die Taten der Söhne Elis",
+     "text_en": "The deeds of Eli's sons",
+     "place_de": "Schilo, Ramatajim-Zofim",
+     "place_en": "Shiloh, Ramathaim-zophim",
+     "par_de": "Erfüllung des Fluchs: 1. Könige 2:26–27",
+     "par_en": "Fulfillment of the curse: 1 Kings 2:26–27"
+    },
+    {
+     "ref": "3",
+     "text": "תחילת נבואת שמואל",
+     "place": "שילה",
+     "text_de": "Beginn der Prophetie Samuels",
+     "text_en": "Beginning of Samuel's prophecy",
+     "place_de": "Schilo",
+     "place_en": "Shiloh"
+    },
+    {
+     "ref": "4:1-12",
+     "text": "מלחמה בפלשתים ושבי הארון",
+     "time": "י' אייר ב'תתע\"א",
+     "place": "אבן העזר",
+     "text_de": "Krieg gegen die Philister und Gefangennahme der Lade",
+     "text_en": "War against the Philistines and capture of the Ark",
+     "place_de": "Eben-Eser",
+     "place_en": "Ebenezer",
+     "time_de": "10. Ijar 2871",
+     "time_en": "10 Iyar 2871"
+    },
+    {
+     "ref": "4:13-22",
+     "text": "הבשורה לעלי ומיתתו",
+     "time": "י' אייר ב'תתע\"א",
+     "place": "שילה",
+     "text_de": "Die Nachricht an Eli und sein Tod",
+     "text_en": "The news to Eli and his death",
+     "place_de": "Schilo",
+     "place_en": "Shiloh",
+     "time_de": "10. Ijar 2871",
+     "time_en": "10 Iyar 2871"
+    },
+    {
+     "ref": "5",
+     "text": "טלטול הארון בערי פלשתים",
+     "time": "ב'תתע\"א",
+     "place": "אבן העזר, ערי פלשתים",
+     "text_de": "Die Lade wird durch die Philisterstädte weitergereicht",
+     "text_en": "The Ark is passed from city to city among the Philistines",
+     "place_de": "Eben-Eser, Philisterstädte",
+     "place_en": "Ebenezer, Philistine cities",
+     "time_de": "2871",
+     "time_en": "2871"
+    },
+    {
+     "ref": "6",
+     "text": "הבאת הארון לבית שמש",
+     "time": "ב'תתע\"א",
+     "place": "עקרון, בית שמש",
+     "text_de": "Rückführung der Lade nach Bet-Schemesch",
+     "text_en": "Bringing the Ark back to Beth-shemesh",
+     "place_de": "Ekron, Bet-Schemesch",
+     "place_en": "Ekron, Beth-shemesh",
+     "time_de": "2871",
+     "time_en": "2871"
+    },
+    {
+     "ref": "7:1-2",
+     "text": "הבאת הארון לקרית יערים",
+     "time": "ב'תתע\"א",
+     "place": "בית שמש, קרית יערים",
+     "par": "המשך הענין: שמואל ב' ו",
+     "text_de": "Überführung der Lade nach Kirjat-Jearim",
+     "text_en": "Bringing the Ark to Kiriath-jearim",
+     "place_de": "Bet-Schemesch, Kirjat-Jearim",
+     "place_en": "Beth-shemesh, Kiriath-jearim",
+     "par_de": "Fortsetzung des Themas: 2. Samuel 6",
+     "par_en": "Continuation of the topic: 2 Samuel 6",
+     "time_de": "2871",
+     "time_en": "2871"
+    },
+    {
+     "ref": "7:3-17",
+     "text": "מלחמה שנית בפלשתים",
+     "place": "מצפה, אבן העזר",
+     "text_de": "Zweiter Krieg gegen die Philister",
+     "text_en": "Second war against the Philistines",
+     "place_de": "Mizpa, Eben-Eser",
+     "place_en": "Mizpah, Ebenezer"
+    }
+   ],
+   "head_de": "Ende der Richterzeit",
+   "head_en": "End of the period of the Judges"
+  },
+  {
+   "head": "מלכות שאול",
+   "items": [
+    {
+     "ref": "8",
+     "text": "בקשת ישראל מלך",
+     "time": "ב'תתפ\"א",
+     "place": "רמה",
+     "par": "הציווי: דברים יז יד-כ",
+     "text_de": "Israel verlangt einen König",
+     "text_en": "Israel asks for a king",
+     "place_de": "Rama",
+     "place_en": "Ramah",
+     "par_de": "Das Gebot: Deuteronomium 17:14–20",
+     "par_en": "The commandment: Deuteronomy 17:14–20",
+     "time_de": "2881",
+     "time_en": "2881"
+    },
+    {
+     "ref": "9-10",
+     "text": "המלכת שאול",
+     "time": "ב'תתפ\"א",
+     "place": "ערי ישראל, רמה, מצפה",
+     "par": "ברכה ע\"ז: בראשית לה יא",
+     "text_de": "Saul wird zum König gemacht",
+     "text_en": "Saul is made king",
+     "place_de": "Städte Israels, Rama, Mizpa",
+     "place_en": "cities of Israel, Ramah, Mizpah",
+     "par_de": "Segen darüber: Genesis 35:11",
+     "par_en": "Blessing about it: Genesis 35:11",
+     "time_de": "2881",
+     "time_en": "2881"
+    },
+    {
+     "ref": "11",
+     "text": "מלחמה בעמון",
+     "time": "ב'תתפ\"א",
+     "place": "יביש גלעד, בזק, גלגל",
+     "text_de": "Krieg gegen Ammon",
+     "text_en": "War against Ammon",
+     "place_de": "Jabesch in Gilead, Besek, Gilgal",
+     "place_en": "Jabesh-gilead, Bezek, Gilgal",
+     "time_de": "2881",
+     "time_en": "2881"
+    },
+    {
+     "ref": "12",
+     "text": "דברי שמואל האחרונים",
+     "time": "ב'תתפ\"א",
+     "place": "גלגל",
+     "text_de": "Samuels letzte Worte",
+     "text_en": "Samuel's last words",
+     "place_de": "Gilgal",
+     "place_en": "Gilgal",
+     "time_de": "2881",
+     "time_en": "2881"
+    },
+    {
+     "ref": "13-14",
+     "text": "מלחמה בפלשתים",
+     "time": "ב'תתפ\"ב",
+     "place": "גבע, מכמש, גלגל, ועוד",
+     "par": "נבואה ע\"ז: בראשית מט כו",
+     "text_de": "Krieg gegen die Philister",
+     "text_en": "War against the Philistines",
+     "place_de": "Geba, Michmas, Gilgal, und weitere Orte",
+     "place_en": "Geba, Michmash, Gilgal, and others",
+     "par_de": "Prophezeiung darüber: Genesis 49:26",
+     "par_en": "Prophecy about it: Genesis 49:26",
+     "time_de": "2882",
+     "time_en": "2882"
+    },
+    {
+     "ref": "15:1-9",
+     "text": "מלחמתו בעמלק",
+     "time": "ניסן ב'תתפ\"ב",
+     "place": "נוב / טלאים",
+     "par": "הזכרה: להלן כח יז-יח · מחיית עמלק: שמות יז ח-טז, דברים כה יז-יט",
+     "text_de": "Sauls Krieg gegen Amalek",
+     "text_en": "Saul's war against Amalek",
+     "place_de": "Nob / Telaim",
+     "place_en": "Nob / Telaim",
+     "par_de": "Erwähnung: 1. Samuel 28:17–18 · Auslöschung Amaleks: Exodus 17:8–16; Deuteronomium 25:17–19",
+     "par_en": "Mention: 1 Samuel 28:17–18 · Blotting out of Amalek: Exodus 17:8–16; Deuteronomy 25:17–19",
+     "time_de": "Nisan 2882",
+     "time_en": "Nisan 2882"
+    },
+    {
+     "ref": "15:10-35",
+     "text": "פסילתו מהמלוכה",
+     "time": "ניסן ב'תתפ\"ב",
+     "place": "גלגל",
+     "par": "הזכרה: להלן כח יז-יח · מחיית עמלק: שמות יז ח-טז, דברים כה יז-יט",
+     "text_de": "Seine Verwerfung als König",
+     "text_en": "His rejection as king",
+     "place_de": "Gilgal",
+     "place_en": "Gilgal",
+     "par_de": "Erwähnung: 1. Samuel 28:17–18 · Auslöschung Amaleks: Exodus 17:8–16; Deuteronomium 25:17–19",
+     "par_en": "Mention: 1 Samuel 28:17–18 · Blotting out of Amalek: Exodus 17:8–16; Deuteronomy 25:17–19",
+     "time_de": "Nisan 2882",
+     "time_en": "Nisan 2882"
+    }
+   ],
+   "head_de": "Das Königtum Sauls",
+   "head_en": "The reign of Saul"
+  },
+  {
+   "head": "משיחת דוד",
+   "items": [
+    {
+     "ref": "16:1-13",
+     "text": "משיחת דוד",
+     "time": "ב'תתפ\"ב",
+     "place": "בית לחם",
+     "text_de": "Davids Salbung",
+     "text_en": "Anointing of David",
+     "place_de": "Betlehem",
+     "place_en": "Bethlehem",
+     "time_de": "2882",
+     "time_en": "2882"
+    },
+    {
+     "ref": "16:14-23",
+     "text": "בחירתו למנגן לשאול",
+     "place": "גבעת שאול",
+     "text_de": "Seine Berufung als Spielmann für Saul",
+     "text_en": "His appointment as Saul's musician",
+     "place_de": "Gibea-Schaul",
+     "place_en": "Gibeah of Saul"
+    },
+    {
+     "ref": "17",
+     "text": "מלחמת דוד וגלית",
+     "place": "עמק האלה, גבעת שאול, ערי ישראל, ירושלים",
+     "par": "ברכה ע\"ז: בראשית מט ח (י\"מ) · תפילתו בעת ההיא: תהלים ט (י\"מ)",
+     "text_de": "Davids Kampf mit Goliat",
+     "text_en": "David's fight with Goliath",
+     "place_de": "Terebinthental, Gibea-Schaul, Städte Israels, Jerusalem",
+     "place_en": "Valley of Elah, Gibeah of Saul, cities of Israel, Jerusalem",
+     "par_de": "Segen darüber: Genesis 49:8 (nach einigen Auslegern) · Sein Gebet zu jener Zeit: Psalm 9 (nach einigen Auslegern)",
+     "par_en": "Blessing about it: Genesis 49:8 (according to some commentators) · His prayer at that time: Psalm 9 (according to some commentators)"
+    },
+    {
+     "ref": "18:1-5",
+     "text": "אהבת יהונתן לדוד",
+     "text_de": "Jonatans Liebe zu David",
+     "text_en": "Jonathan's love for David"
+    },
+    {
+     "ref": "18:6-16",
+     "text": "שבחי הנשים לדוד",
+     "text_de": "Der Lobpreis der Frauen für David",
+     "text_en": "The women's praise of David"
+    },
+    {
+     "ref": "18:17-30",
+     "text": "נישואי דוד למיכל",
+     "place": "גבעת שאול",
+     "par": "המשך הענין: להלן כה מד, שמואל ב' ג יג-טז",
+     "text_de": "Davids Heirat mit Michal",
+     "text_en": "David's marriage to Michal",
+     "place_de": "Gibea-Schaul",
+     "place_en": "Gibeah of Saul",
+     "par_de": "Fortsetzung des Themas: 1. Samuel 25:44; 2. Samuel 3:13–16",
+     "par_en": "Continuation of the topic: 1 Samuel 25:44; 2 Samuel 3:13–16"
+    }
+   ],
+   "head_de": "Die Salbung Davids",
+   "head_en": "The anointing of David"
+  },
+  {
+   "head": "מאורעות שאול ודוד",
+   "items": [
+    {
+     "ref": "19-20",
+     "text": "נסיונות להמית את דוד",
+     "place": "רמה, ניות, גבעת שאול",
+     "par": "תפילתו כשהסתתר בביתו: תהלים נט",
+     "text_de": "Anschläge auf Davids Leben",
+     "text_en": "Attempts on David's life",
+     "place_de": "Rama, Najot, Gibea-Schaul",
+     "place_en": "Ramah, Naioth, Gibeah of Saul",
+     "par_de": "Sein Gebet, als er sich in seinem Haus versteckte: Psalm 59",
+     "par_en": "His prayer when he hid in his house: Psalm 59"
+    },
+    {
+     "ref": "21:1-10",
+     "text": "סיוע אחימלך לדוד בנוב",
+     "place": "נוב",
+     "par": "הזכרה: תהלים נב",
+     "text_de": "Ahimelechs Hilfe für David in Nob",
+     "text_en": "Ahimelech's help to David at Nob",
+     "place_de": "Nob",
+     "place_en": "Nob",
+     "par_de": "Erwähnung: Psalm 52",
+     "par_en": "Mention: Psalm 52"
+    },
+    {
+     "ref": "21:11-16",
+     "text": "בריחת דוד לגת ויציאתו",
+     "place": "גת",
+     "par": "תפילותיו בעת ההיא: תהלים לד, נו",
+     "text_de": "Davids Flucht nach Gat und sein Weggang von dort",
+     "text_en": "David's flight to Gath and his departure",
+     "place_de": "Gat",
+     "place_en": "Gath",
+     "par_de": "Seine Gebete zu jener Zeit: Psalm 34; 56",
+     "par_en": "His prayers at that time: Psalms 34; 56"
+    },
+    {
+     "ref": "22",
+     "text": "הריגת שאול לכהני נוב",
+     "place": "[מערת עדולם, יער חרת], רמה, נוב",
+     "par": "דברי דוד על דואג: תהלים נב · המשך הענין: שמואל ב' כא א-יד",
+     "text_de": "Sauls Tötung der Priester von Nob",
+     "text_en": "Saul's killing of the priests of Nob",
+     "place_de": "[Höhle von Adullam, Wald Heret], Rama, Nob",
+     "place_en": "[cave of Adullam, forest of Hereth], Ramah, Nob",
+     "par_de": "Davids Worte über Doëg: Psalm 52 · Fortsetzung des Themas: 2. Samuel 21:1–14",
+     "par_en": "David's words about Doeg: Psalm 52 · Continuation of the topic: 2 Samuel 21:1–14"
+    },
+    {
+     "ref": "23:1-6",
+     "text": "הכאת דוד לפלשתים בקעילה",
+     "place": "קעילה",
+     "text_de": "Davids Schlag gegen die Philister bei Keïla",
+     "text_en": "David's attack on the Philistines at Keilah",
+     "place_de": "Keïla",
+     "place_en": "Keilah"
+    },
+    {
+     "ref": "23:7-29",
+     "text": "בריחת דוד לזיף ויציאתו",
+     "place": "מדבר זיף, מדבר מעון, מצדות עין גדי",
+     "par": "תפילתו בעת ההיא: תהלים נד, סג (י\"מ)",
+     "text_de": "Davids Flucht nach Sif und sein Weggang von dort",
+     "text_en": "David's flight to Ziph and his departure",
+     "place_de": "Wüste Sif, Wüste Maon, Bergfestungen von En-Gedi",
+     "place_en": "Wilderness of Ziph, Wilderness of Maon, strongholds of En-gedi",
+     "par_de": "Sein Gebet zu jener Zeit: Psalm 54; 63 (nach einigen Auslegern)",
+     "par_en": "His prayer at that time: Psalms 54; 63 (according to some commentators)"
+    },
+    {
+     "ref": "24:1-15",
+     "text": "כריתת דוד כנף מעיל שאול",
+     "place": "מדבר עין גדי",
+     "par": "תפילותיו בעת ההיא: תהלים ז (י\"מ), נז, קמב",
+     "text_de": "Davids Abschneiden des Zipfels von Sauls Mantel",
+     "text_en": "David cuts off the corner of Saul's robe",
+     "place_de": "Wüste En-Gedi",
+     "place_en": "Wilderness of En-gedi",
+     "par_de": "Seine Gebete zu jener Zeit: Psalm 7 (nach einigen Auslegern); 57; 142",
+     "par_en": "His prayers at that time: Psalms 7 (according to some commentators); 57; 142"
+    },
+    {
+     "ref": "24:16-22",
+     "text": "שבועת דוד לשאול",
+     "place": "מדבר עין גדי",
+     "par": "תפילותיו בעת ההיא: תהלים ז (י\"מ), נז, קמב",
+     "text_de": "Davids Schwur an Saul",
+     "text_en": "David's oath to Saul",
+     "place_de": "Wüste En-Gedi",
+     "place_en": "Wilderness of En-gedi",
+     "par_de": "Seine Gebete zu jener Zeit: Psalm 7 (nach einigen Auslegern); 57; 142",
+     "par_en": "His prayers at that time: Psalms 7 (according to some commentators); 57; 142"
+    },
+    {
+     "ref": "25:1",
+     "text": "מיתת שמואל וקבורתו",
+     "time": "כ\"ח/כ\"ט אייר ב'תתפ\"ד",
+     "place": "מדבר פארן",
+     "text_de": "Samuels Tod und Begräbnis",
+     "text_en": "Samuel's death and burial",
+     "place_de": "Wüste Paran",
+     "place_en": "Wilderness of Paran",
+     "time_de": "28./29. Ijar 2884",
+     "time_en": "28/29 Iyar 2884"
+    },
+    {
+     "ref": "25:2-44",
+     "text": "ענין נבל ונישואי דוד לאביגיל",
+     "place": "מדבר פארן, כרמל",
+     "par": "תפילתו בעת ההיא: תהלים ט (י\"מ)",
+     "text_de": "Die Sache mit Nabal und Davids Heirat mit Abigajil",
+     "text_en": "The affair of Nabal and David's marriage to Abigail",
+     "place_de": "Wüste Paran, Karmel",
+     "place_en": "Wilderness of Paran, Carmel",
+     "par_de": "Sein Gebet zu jener Zeit: Psalm 9 (nach einigen Auslegern)",
+     "par_en": "His prayer at that time: Psalm 9 (according to some commentators)"
+    },
+    {
+     "ref": "26:1-4",
+     "text": "בריחת דוד לזיף שנית",
+     "place": "מדבר זיף",
+     "par": "תפילתו בעת ההיא: תהלים נד, סג (י\"מ)",
+     "text_de": "Davids zweite Flucht nach Sif",
+     "text_en": "David's second flight to Ziph",
+     "place_de": "Wüste Sif",
+     "place_en": "Wilderness of Ziph",
+     "par_de": "Sein Gebet zu jener Zeit: Psalm 54; 63 (nach einigen Auslegern)",
+     "par_en": "His prayer at that time: Psalms 54; 63 (according to some commentators)"
+    },
+    {
+     "ref": "26:5-25",
+     "text": "לקיחת דוד חנית וצפחת שאול",
+     "place": "מדבר זיף",
+     "par": "תפילתו בעת ההיא: תהלים נח (י\"מ)",
+     "text_de": "Davids Wegnahme von Sauls Speer und Wasserkrug",
+     "text_en": "David takes Saul's spear and water jug",
+     "place_de": "Wüste Sif",
+     "place_en": "Wilderness of Ziph",
+     "par_de": "Sein Gebet zu jener Zeit: Psalm 58 (nach einigen Auslegern)",
+     "par_en": "His prayer at that time: Psalm 58 (according to some commentators)"
+    },
+    {
+     "ref": "27",
+     "text": "בריחת דוד לגת שנית",
+     "time": "ב'תתפ\"ד",
+     "place": "גת, צקלג, ועוד",
+     "text_de": "Davids zweite Flucht nach Gat",
+     "text_en": "David's second flight to Gath",
+     "place_de": "Gat, Ziklag, und weitere Orte",
+     "place_en": "Gath, Ziklag, and others",
+     "time_de": "2884",
+     "time_en": "2884"
+    }
+   ],
+   "head_de": "Ereignisse um Saul und David",
+   "head_en": "Events of Saul and David"
+  },
+  {
+   "head": "מיתת שאול",
+   "items": [
+    {
+     "ref": "28:1-4",
+     "text": "ביאת פלשתים למלחמה",
+     "time": "ב'תתפ\"ד",
+     "place": "גת, שונם, גלבוע",
+     "text_de": "Die Philister rücken zum Krieg an",
+     "text_en": "The Philistines come up to battle",
+     "place_de": "Gat, Schunem, Gilboa",
+     "place_en": "Gath, Shunem, Gilboa",
+     "time_de": "2884",
+     "time_en": "2884"
+    },
+    {
+     "ref": "28:5-25",
+     "text": "שאילת שאול באוב",
+     "time": "ב'תתפ\"ד",
+     "place": "עין דור",
+     "text_de": "Sauls Befragung der Totenbeschwörerin",
+     "text_en": "Saul consults the medium",
+     "place_de": "En-Dor",
+     "place_en": "Endor",
+     "time_de": "2884",
+     "time_en": "2884"
+    },
+    {
+     "ref": "29",
+     "text": "שילוח אכיש לדוד",
+     "time": "ב'תתפ\"ד",
+     "place": "אפקה",
+     "text_de": "Achisch schickt David fort",
+     "text_en": "Achish sends David away",
+     "place_de": "Afek",
+     "place_en": "Aphek",
+     "time_de": "2884",
+     "time_en": "2884"
+    },
+    {
+     "ref": "30",
+     "text": "מלחמת ישראל ועמלק",
+     "time": "ב'תתפ\"ד",
+     "place": "צקלג, נחל הבשור",
+     "par": "חלוקת השלל: בראשית יד כד",
+     "text_de": "Krieg zwischen Israel und Amalek",
+     "text_en": "War between Israel and Amalek",
+     "place_de": "Ziklag, Bach Besor",
+     "place_en": "Ziklag, Brook Besor",
+     "par_de": "Verteilung der Beute: Genesis 14:24",
+     "par_en": "Division of the spoil: Genesis 14:24",
+     "time_de": "2884",
+     "time_en": "2884"
+    },
+    {
+     "ref": "31",
+     "text": "מיתת שאול במלחמה",
+     "time": "כ\"ח אלול ב'תתפ\"ד",
+     "place": "הר הגלבוע, יביש גלעד",
+     "par": "חזרה: דברי הימים א' י",
+     "text_de": "Sauls Tod im Krieg",
+     "text_en": "Saul's death in battle",
+     "place_de": "Berg Gilboa, Jabesch in Gilead",
+     "place_en": "Mount Gilboa, Jabesh-gilead",
+     "par_de": "Wiederholung: 1. Chronik 10",
+     "par_en": "Repeat: 1 Chronicles 10",
+     "time_de": "28. Elul 2884",
+     "time_en": "28 Elul 2884"
+    }
+   ],
+   "head_de": "Sauls Tod",
+   "head_en": "The death of Saul"
+  }
+ ],
+ "title_de": "Inhalt des 1. Buches Samuel",
+ "title_en": "Contents of the First Book of Samuel",
+ "note_de": "Abgeschrieben aus einer Übersichtstabelle (SifreiKodesh) und übersetzt. Jahre nach der jüdischen Zählung (Anno Mundi), wie in der Vorlage gedruckt.",
+ "note_en": "Transcribed from an overview table (SifreiKodesh) and translated. Years follow the Jewish count (from the creation of the world), as printed in the source."
+}

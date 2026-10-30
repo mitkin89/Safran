@@ -1,0 +1,134 @@
+{
+ "book": "Micah",
+ "title": "תוכן ספר מיכה",
+ "note": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt.",
+ "sections": [
+  {
+   "head": "נבואות תוכחה",
+   "items": [
+    {
+     "ref": "1:1-9",
+     "text": "פורענות שומרון וירושלים",
+     "text_de": "Strafe für Samaria und Jerusalem",
+     "text_en": "Punishment of Samaria and Jerusalem"
+    },
+    {
+     "ref": "1:10-16",
+     "text": "קינה על מפלת ערי ישראל",
+     "text_de": "Klage über den Fall der Städte Israels",
+     "text_en": "Lament over the fall of the cities of Israel"
+    },
+    {
+     "ref": "2:1-5",
+     "text": "תוכחה ועונש לרשעי ישראל",
+     "text_de": "Mahnung und Strafe für die Frevler in Israel",
+     "text_en": "Rebuke and punishment of the wicked in Israel"
+    },
+    {
+     "ref": "2:6-11",
+     "text": "תוכחה - ריבם עם נביאי ה' והתשובה לזה",
+     "text_de": "Mahnung – ihr Streit mit den Propheten Gottes und die Antwort darauf",
+     "text_en": "Rebuke – their quarrel with the prophets of God and the answer to it"
+    },
+    {
+     "ref": "2:12-13",
+     "text": "נחמה - הישועה לעתיד",
+     "text_de": "Trost – die Rettung in der Zukunft",
+     "text_en": "Consolation – the salvation in the future"
+    },
+    {
+     "ref": "3:1-4,3:9-12",
+     "text": "נבואות תוכחה ופורענות למנהיגים הרעים",
+     "par": "הזכרה: ירמיה כו טז-כד בענין נביאי שקר: ירמיה כג ט-לב, יחזקאל יג, יד ט-יא, זכריה יג א-ו",
+     "text_de": "Mahnungs- und Unheilsprophezeiungen gegen die schlechten Führer",
+     "text_en": "Prophecies of rebuke and calamity against the wicked leaders",
+     "par_de": "Erwähnt: Jeremia 26:16–24. Zu falschen Propheten: Jeremia 23:9–32, Ezechiel 13, 14:9–11, Sacharja 13:1–6",
+     "par_en": "Mentioned: Jeremiah 26:16–24. On false prophets: Jeremiah 23:9–32, Ezekiel 13, 14:9–11, Zechariah 13:1–6"
+    },
+    {
+     "ref": "3:5-8",
+     "text": "בושת נביאי השקר לעתיד",
+     "text_de": "Beschämung der falschen Propheten in der Zukunft",
+     "text_en": "The future shaming of the false prophets"
+    }
+   ],
+   "head_de": "Mahnprophezeiungen",
+   "head_en": "Prophecies of rebuke"
+  },
+  {
+   "head": "נבואות נחמה",
+   "items": [
+    {
+     "ref": "4:1-7",
+     "text": "נחמה - ביאת המשיח ובניית ביהמ\"ק",
+     "par": "נבואה דומה: ישעיה ב א-ד",
+     "text_de": "Trost – das Kommen des Messias und der Bau des Tempels",
+     "text_en": "Consolation – the coming of the Messiah and the building of the Temple",
+     "par_de": "Ähnliche Prophezeiung: Jesaja 2:1–4",
+     "par_en": "Similar prophecy: Isaiah 2:1–4"
+    },
+    {
+     "ref": "4:8-14",
+     "text": "גלות בבל, עונש האומות לעתיד",
+     "text_de": "Das Exil in Babel, die Strafe der Völker in der Zukunft",
+     "text_en": "The Babylonian exile, the future punishment of the nations"
+    },
+    {
+     "ref": "5:1-8",
+     "text": "נחמה - ביאת המשיח והכנעתו לאויבים",
+     "text_de": "Trost – das Kommen des Messias und seine Unterwerfung der Feinde",
+     "text_en": "Consolation – the coming of the Messiah and his subduing of the enemies"
+    },
+    {
+     "ref": "5:9-14",
+     "text": "ביעור הע\"ז והתחזקות בה'",
+     "text_de": "Beseitigung des Götzendienstes und Erstarken in Gott",
+     "text_en": "Eradication of idolatry and strengthening in God"
+    }
+   ],
+   "head_de": "Trostprophezeiungen",
+   "head_en": "Prophecies of consolation"
+  },
+  {
+   "head": "תוכחות, קינה",
+   "items": [
+    {
+     "ref": "6:1-8",
+     "text": "ויכוח ה' עם ישראל",
+     "text_de": "Gottes Rechtsstreit mit Israel",
+     "text_en": "God's lawsuit with Israel"
+    },
+    {
+     "ref": "6:9-16",
+     "text": "תוכחה לרשעים על גזל וחמס",
+     "text_de": "Mahnung an die Frevler wegen Raub und Gewalttat",
+     "text_en": "Rebuke of the wicked for robbery and violence"
+    },
+    {
+     "ref": "7:1-7",
+     "text": "קינה על שפלות וחטאי ישראל",
+     "text_de": "Klage über die Niedrigkeit und die Sünden Israels",
+     "text_en": "Lament over the lowliness and the sins of Israel"
+    },
+    {
+     "ref": "7:8-13",
+     "text": "דברי הנביא לאומות",
+     "text_de": "Worte des Propheten an die Völker",
+     "text_en": "The prophet's words to the nations"
+    },
+    {
+     "ref": "7:14-20",
+     "text": "תפילה ושבח לה'",
+     "text_de": "Gebet und Lobpreis Gottes",
+     "text_en": "Prayer and praise of God"
+    }
+   ],
+   "head_de": "Mahnungen, Klage",
+   "head_en": "Rebukes, lament"
+  }
+ ],
+ "title_de": "Inhalt des Buches Micha",
+ "title_en": "Contents of the Book of Micah",
+ "note_de": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt.",
+ "note_en": "Transcribed from photos of an overview table. Chapter and verse numbering as well as dates (Jewish reckoning) as printed in the source."
+}

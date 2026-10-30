@@ -1,0 +1,565 @@
+{
+ "book": "I Chronicles",
+ "title": "תוכן ספר דברי הימים א",
+ "note": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt.",
+ "sections": [
+  {
+   "head": "תולדות ויחוסים",
+   "items": [
+    {
+     "ref": "1:1-3",
+     "text": "אדם ותולדותיו",
+     "time": "א' - תתע\"ד",
+     "par": "חזרה על: בראשית ה א-כז",
+     "text_de": "Adam und seine Nachkommen",
+     "text_en": "Adam and his descendants",
+     "par_de": "Wiederholung von: 1. Mose 5:1–27",
+     "par_en": "Repeats: Genesis 5:1–27",
+     "time_de": "1–874",
+     "time_en": "1–874"
+    },
+    {
+     "ref": "1:4-27",
+     "text": "תולדות נח",
+     "time": "א'נ\"ו - א'תתקמ\"ח",
+     "par": "חזרה על: בראשית פרק י, יא י-כז",
+     "text_de": "Nachkommen Noachs",
+     "text_en": "Descendants of Noah",
+     "par_de": "Wiederholung von: 1. Mose 10, 1. Mose 11:10–27",
+     "par_en": "Repeats: Genesis 10, Genesis 11:10–27",
+     "time_de": "1056–1948",
+     "time_en": "1056–1948"
+    },
+    {
+     "ref": "1:28-34",
+     "text": "תולדות אברהם",
+     "time": "ב'ל\"ד - ב'ק\"ח",
+     "par": "חזרה על: בראשית טז טו, כא א-ג, כה א-ד, יב-טו, כד-כו",
+     "text_de": "Nachkommen Abrahams",
+     "text_en": "Descendants of Abraham",
+     "par_de": "Wiederholung von: 1. Mose 16:15, 1. Mose 21:1–3, 1. Mose 25:1–4, 1. Mose 25:12–15, 1. Mose 25:24–26",
+     "par_en": "Repeats: Genesis 16:15, Genesis 21:1–3, Genesis 25:1–4, Genesis 25:12–15, Genesis 25:24–26",
+     "time_de": "2034–2108",
+     "time_en": "2034–2108"
+    },
+    {
+     "ref": "1:35-54",
+     "text": "תולדות עשו, מלכי ואלופי אדום",
+     "par": "חזרה על: בראשית לו ט-מג",
+     "text_de": "Nachkommen Esaus, Könige und Stammesfürsten Edoms",
+     "text_en": "Descendants of Esau, kings and chiefs of Edom",
+     "par_de": "Wiederholung von: 1. Mose 36:9–43",
+     "par_en": "Repeats: Genesis 36:9–43"
+    },
+    {
+     "ref": "2:1-2",
+     "text": "יעקב ובניו",
+     "time": "ב'קצ\"ב - ב'ר\"ז",
+     "par": "חזרה על: בראשית לו ט-מג",
+     "text_de": "Jakob und seine Söhne",
+     "text_en": "Jacob and his sons",
+     "par_de": "Wiederholung von: 1. Mose 36:9–43",
+     "par_en": "Repeats: Genesis 36:9–43",
+     "time_de": "2192–2207",
+     "time_en": "2192–2207"
+    },
+    {
+     "ref": "2:3-55",
+     "text": "תולדות יהודה - יחוס דוד ומשפחתו",
+     "time": "ב'רט\"ז - ב'תתנ\"ד",
+     "par": "חזרה על: בראשית פרק לח, מו יב, רות ד יח-כב",
+     "text_de": "Nachkommen Judas – Abstammung Davids und seiner Familie",
+     "text_en": "Descendants of Judah – lineage of David and his family",
+     "par_de": "Wiederholung von: 1. Mose 38, 1. Mose 46:12, Rut 4:18–22",
+     "par_en": "Repeats: Genesis 38, Genesis 46:12, Ruth 4:18–22",
+     "time_de": "2216–2854",
+     "time_en": "2216–2854"
+    },
+    {
+     "ref": "3",
+     "text": "תולדות דוד",
+     "par": "חזרה על: שמואל ב' ג ב-ה, ה יג-טז\nנכפל: להלן יד ג-ז",
+     "text_de": "Nachkommen Davids",
+     "text_en": "Descendants of David",
+     "par_de": "Wiederholung von: 2 Samuel 3:2–5, 2 Samuel 5:13–16\nwiederholt: 1 Chronik 14:3–7 (unten)",
+     "par_en": "Repeats: II Samuel 3:2–5, II Samuel 5:13–16\nRepeated: I Chronicles 14:3–7 (below)"
+    },
+    {
+     "ref": "4:1-23",
+     "text": "תולדות יהודה ומעשיהם",
+     "text_de": "Nachkommen Judas und ihre Taten",
+     "text_en": "Descendants of Judah and their deeds"
+    },
+    {
+     "ref": "4:24-43",
+     "text": "תולדות שמעון ומעשיהם",
+     "par": "חזרה והרחבה מ: יהושע יט א-ט",
+     "text_de": "Nachkommen Simeons und ihre Taten",
+     "text_en": "Descendants of Simeon and their deeds",
+     "par_de": "Wiederholung und Erweiterung von: Josua 19:1–9",
+     "par_en": "Repeats and expands on: Joshua 19:1–9"
+    },
+    {
+     "ref": "5:1-26",
+     "text": "ראובן וגד וחצי מנשה [שבטי עבר הירדן] - תולדותם ומעשיהם",
+     "text_de": "Ruben, Gad und der halbe Stamm Manasse [Stämme jenseits des Jordan] – ihre Nachkommen und Taten",
+     "text_en": "Reuben, Gad and half of Manasseh [the tribes east of the Jordan] – their descendants and deeds"
+    },
+    {
+     "ref": "5:27-6:15",
+     "text": "תולדות בני לוי - גרשון קהת ומררי",
+     "par": "חזרה על: שמות ו טז-כה",
+     "text_de": "Nachkommen der Söhne Levis – Gerschon, Kehat und Merari",
+     "text_en": "Descendants of the sons of Levi – Gershon, Kohath and Merari",
+     "par_de": "Wiederholung von: 2. Mose 6:16–25",
+     "par_en": "Repeats: Exodus 6:16–25"
+    },
+    {
+     "ref": "6:16-33",
+     "text": "הלויים המשוררים",
+     "text_de": "Die levitischen Sänger",
+     "text_en": "The Levite singers"
+    },
+    {
+     "ref": "6:34-38",
+     "text": "הכהנים המשמשים במזבח",
+     "text_de": "Die am Altar dienenden Priester",
+     "text_en": "The priests serving at the altar"
+    },
+    {
+     "ref": "6:39-66",
+     "text": "הערים שניתנו לשבט לוי",
+     "time": "ב'תק\"ג",
+     "par": "הציווי: במדבר לה א-ח\nחזרה על: יהושע כא א-מ",
+     "text_de": "Die dem Stamm Levi gegebenen Städte",
+     "text_en": "The cities given to the tribe of Levi",
+     "par_de": "Gebot: 4. Mose 35:1–8\nWiederholung von: Josua 21:1–40",
+     "par_en": "Commandment: Numbers 35:1–8\nRepeats: Joshua 21:1–40",
+     "time_de": "2503",
+     "time_en": "2503"
+    },
+    {
+     "ref": "7:1-5",
+     "text": "תולדות יששכר",
+     "text_de": "Nachkommen Issachars",
+     "text_en": "Descendants of Issachar"
+    },
+    {
+     "ref": "7:6-12",
+     "text": "תולדות בנימין",
+     "text_de": "Nachkommen Benjamins",
+     "text_en": "Descendants of Benjamin"
+    },
+    {
+     "ref": "7:13",
+     "text": "תולדות נפתלי",
+     "text_de": "Nachkommen Naftalis",
+     "text_en": "Descendants of Naphtali"
+    },
+    {
+     "ref": "7:14-29",
+     "text": "תולדות מנשה ואפרים ומעשיהם",
+     "par": "בני אפרים שנהרגו, תחייתם: יחזקאל לז (י\"מ)",
+     "text_de": "Nachkommen Manasses und Ephraims und ihre Taten",
+     "text_en": "Descendants of Manasseh and Ephraim and their deeds",
+     "par_de": "Die getöteten Söhne Ephraims, ihre Auferweckung: Ezechiel 37 (nach manchen)",
+     "par_en": "The slain sons of Ephraim, their revival: Ezekiel 37 (according to some)"
+    },
+    {
+     "ref": "7:30-40",
+     "text": "תולדות אשר",
+     "text_de": "Nachkommen Ascher",
+     "text_en": "Descendants of Asher"
+    },
+    {
+     "ref": "8:1-9:1",
+     "text": "תולדות בנימין ומעשיהם",
+     "par": "נכפל (יחוס שאול המלך): להלן ט לה-מד",
+     "text_de": "Nachkommen Benjamins und ihre Taten",
+     "text_en": "Descendants of Benjamin and their deeds",
+     "par_de": "wiederholt (Stammbaum König Sauls): 1 Chronik 9:35–44 (unten)",
+     "par_en": "Repeated (genealogy of King Saul): I Chronicles 9:35–44 (below)"
+    },
+    {
+     "ref": "9:2-34",
+     "text": "היושבים בירושלים בעלייתם מהגלות",
+     "place": "ירושלים",
+     "par": "חזרה על: נחמיה יא א-כד",
+     "text_de": "Die bei ihrer Rückkehr aus dem Exil in Jerusalem Wohnenden",
+     "text_en": "Those who dwelt in Jerusalem upon their return from the exile",
+     "place_de": "Jerusalem",
+     "place_en": "Jerusalem",
+     "par_de": "Wiederholung von: Nehemia 11:1–24",
+     "par_en": "Repeats: Nehemiah 11:1–24"
+    },
+    {
+     "ref": "9:35-44",
+     "text": "תולדות בנימין",
+     "par": "נכפל (יחוס שאול המלך): לעיל ח כט-מ",
+     "text_de": "Nachkommen Benjamins",
+     "text_en": "Descendants of Benjamin",
+     "par_de": "wiederholt (Stammbaum König Sauls): 1 Chronik 8:29–40 (oben)",
+     "par_en": "Repeated (genealogy of King Saul): I Chronicles 8:29–40 (above)"
+    }
+   ],
+   "head_de": "Genealogien",
+   "head_en": "Genealogies"
+  },
+  {
+   "head": "מלכות דוד",
+   "items": [
+    {
+     "ref": "10",
+     "text": "מיתת שאול במלחמה עם פלשתים",
+     "time": "כ\"ח אלול ב'תתפ\"ד",
+     "place": "הר הגלבוע, יביש גלעד",
+     "par": "חזרה על: שמואל א' לא",
+     "text_de": "Sauls Tod im Krieg mit den Philistern",
+     "text_en": "Death of Saul in the war with the Philistines",
+     "place_de": "Gilboa-Gebirge, Jabesch in Gilead",
+     "place_en": "Mount Gilboa, Jabesh-gilead",
+     "par_de": "Wiederholung von: 1 Samuel 31",
+     "par_en": "Repeats: I Samuel 31",
+     "time_de": "28. Elul 2884",
+     "time_en": "28 Elul 2884"
+    },
+    {
+     "ref": "11:1-9",
+     "text": "המלכת דוד על ישראל, כיבוש המצודה",
+     "place": "חברון, ירושלים, מצודת ציון",
+     "par": "חזרה על: שמואל ב' ה א-י",
+     "text_de": "Davids Krönung zum König über Israel, Eroberung der Burg",
+     "text_en": "David crowned king over Israel, conquest of the stronghold",
+     "place_de": "Hebron, Jerusalem, Burg Zion",
+     "place_en": "Hebron, Jerusalem, Stronghold of Zion",
+     "par_de": "Wiederholung von: 2 Samuel 5:1–10",
+     "par_en": "Repeats: II Samuel 5:1–10"
+    },
+    {
+     "ref": "11:10-47",
+     "text": "גיבורי בית דוד",
+     "par": "חזרה על: שמואל ב' כג ח-לט",
+     "text_de": "Die Helden des Hauses Davids",
+     "text_en": "The warriors of David's house",
+     "par_de": "Wiederholung von: 2 Samuel 23:8–39",
+     "par_en": "Repeats: II Samuel 23:8–39"
+    },
+    {
+     "ref": "12",
+     "text": "גיבורים מכמה שבטים שסייעו לו במלחמותיו",
+     "par": "ראה עוד לעיל יא י-מז",
+     "text_de": "Helden aus mehreren Stämmen, die ihm in seinen Kriegen halfen",
+     "text_en": "Warriors from several tribes who helped him in his wars",
+     "par_de": "Siehe auch oben: 1 Chronik 11:10–47",
+     "par_en": "See also above: I Chronicles 11:10–47"
+    },
+    {
+     "ref": "13",
+     "text": "הבאת הארון לבית עובד אדום",
+     "time": "ב'תתצ\"א",
+     "place": "קרית יערים, גורן כידון, גת",
+     "par": "חזרה על: שמואל ב' ו א-יא",
+     "text_de": "Überführung der Lade ins Haus Obed-Edoms",
+     "text_en": "Bringing the Ark to the house of Obed-edom",
+     "place_de": "Kirjat-Jearim, Tenne Kidon, Gat",
+     "place_en": "Kiriath-jearim, Threshing floor of Chidon, Gath",
+     "par_de": "Wiederholung von: 2 Samuel 6:1–11",
+     "par_en": "Repeats: II Samuel 6:1–11",
+     "time_de": "2891",
+     "time_en": "2891"
+    },
+    {
+     "ref": "14:1-7",
+     "text": "בנין ביתו, לידת בניו",
+     "place": "ירושלים",
+     "par": "חזרה על: שמואל ב' ה יא-טז\nהרחבה: לעיל פרק ג",
+     "text_de": "Bau seines Hauses, Geburt seiner Söhne",
+     "text_en": "Building his house, birth of his sons",
+     "place_de": "Jerusalem",
+     "place_en": "Jerusalem",
+     "par_de": "Wiederholung von: 2 Samuel 5:11–16\nErweiterung: 1 Chronik 3 (oben)",
+     "par_en": "Repeats: II Samuel 5:11–16\nExpansion: I Chronicles 3 (above)"
+    },
+    {
+     "ref": "14:8-17",
+     "text": "מלחמות ישראל ופלשתים",
+     "place": "עמק רפאים",
+     "par": "חזרה על: שמואל ב' ה יז-כה",
+     "text_de": "Kriege Israels mit den Philistern",
+     "text_en": "Wars of Israel and the Philistines",
+     "place_de": "Tal Refaim",
+     "place_en": "Valley of Rephaim",
+     "par_de": "Wiederholung von: 2 Samuel 5:17–25",
+     "par_en": "Repeats: II Samuel 5:17–25"
+    }
+   ],
+   "head_de": "Das Königtum Davids",
+   "head_en": "The Reign of David"
+  },
+  {
+   "head": "העלאת הארון לירושלים",
+   "items": [
+    {
+     "ref": "15:1-16:3",
+     "text": "העלאת הארון לירושלים בשירה וקרבנות",
+     "time": "ב'תתצ\"א",
+     "place": "גת, עיר דוד, ירושלים",
+     "par": "המשך מ: לעיל פרק יג\nחזרה והרחבה מ: שמואל ב' ו יב-כג",
+     "text_de": "Heraufführung der Lade nach Jerusalem mit Gesang und Opfern",
+     "text_en": "Bringing the Ark up to Jerusalem with song and sacrifices",
+     "place_de": "Gat, Stadt Davids, Jerusalem",
+     "place_en": "Gath, City of David, Jerusalem",
+     "par_de": "Fortsetzung von: 1 Chronik 13 (oben)\nWiederholung und Erweiterung von: 2 Samuel 6:12–23",
+     "par_en": "Continuation of: I Chronicles 13 (above)\nRepeats and expands on: II Samuel 6:12–23",
+     "time_de": "2891",
+     "time_en": "2891"
+    },
+    {
+     "ref": "16:4-7",
+     "text": "מינוי משוררים",
+     "text_de": "Ernennung von Sängern",
+     "text_en": "Appointment of singers"
+    },
+    {
+     "ref": "16:8-36",
+     "text": "המזמור ששרו לפני ה'",
+     "par": "נכפל: תהלים קה א-טו, פרק צו, קו מז-מח",
+     "text_de": "Der Psalm, den sie vor dem Herrn sangen",
+     "text_en": "The psalm they sang before the Lord",
+     "par_de": "wiederholt: Psalmen 105:1–15, Psalmen 96, Psalmen 106:47–48",
+     "par_en": "Repeated: Psalms 105:1–15, Psalms 96, Psalms 106:47–48"
+    },
+    {
+     "ref": "16:37-43",
+     "text": "מינוי כהנים ולוויים לשרת לפני הארון",
+     "text_de": "Ernennung von Priestern und Leviten für den Dienst vor der Lade",
+     "text_en": "Appointment of priests and Levites to serve before the Ark"
+    },
+    {
+     "ref": "17:1-6",
+     "text": "בקשת דוד לבנות את ביהמ\"ק",
+     "place": "ירושלים",
+     "par": "חזרה על: שמואל ב' ז א-ז\nהציווי: דברים יב ד-יד (י\"מ)\nתפילתו בעת ההיא: תהלים ל (י\"מ)",
+     "text_de": "Davids Wunsch, den Tempel zu bauen",
+     "text_en": "David's request to build the Temple",
+     "place_de": "Jerusalem",
+     "place_en": "Jerusalem",
+     "par_de": "Wiederholung von: 2 Samuel 7:1–7\nGebot: 5. Mose 12:4–14 (nach manchen)\nSein Gebet aus jener Zeit: Psalmen 30 (nach manchen)",
+     "par_en": "Repeats: II Samuel 7:1–7\nCommandment: Deuteronomy 12:4–14 (according to some)\nHis prayer at that time: Psalms 30 (according to some)"
+    },
+    {
+     "ref": "17:7-27",
+     "text": "תשובת ה', הבטחת המלוכה לזרעו לעולם",
+     "par": "חזרה על: שמואל ב' ז ח-כט\nהזכרה: מלכים א' יא לד-לו, תהלים פט, קלב יא-יב\nברכה ע\"ז: בראשית מט י",
+     "text_de": "Antwort des Herrn, Verheißung des Königtums für seine Nachkommen auf ewig",
+     "text_en": "The Lord's reply, the promise of kingship to his descendants forever",
+     "par_de": "Wiederholung von: 2 Samuel 7:8–29\nerwähnt: 1 Könige 11:34–36, Psalmen 89, Psalmen 132:11–12\nSegen darüber: 1. Mose 49:10",
+     "par_en": "Repeats: II Samuel 7:8–29\nMentioned: I Kings 11:34–36, Psalms 89, Psalms 132:11–12\nBlessing about this: Genesis 49:10"
+    }
+   ],
+   "head_de": "Die Heraufführung der Lade nach Jerusalem",
+   "head_en": "Bringing the Ark Up to Jerusalem"
+  },
+  {
+   "head": "מלחמות דוד בגויים",
+   "items": [
+    {
+     "ref": "18:1-13",
+     "text": "כיבוש האויבים מסביב לא\"י",
+     "place": "המקומות הנכבשים",
+     "par": "חזרה על: שמואל ב' ח א-יד\nהמשך הענין: מלכים א' יא יד-כב",
+     "text_de": "Unterwerfung der Feinde rings um das Land Israel",
+     "text_en": "Conquest of the enemies surrounding the Land of Israel",
+     "place_de": "die eroberten Orte",
+     "place_en": "the conquered places",
+     "par_de": "Wiederholung von: 2 Samuel 8:1–14\nFortsetzung des Themas: 1 Könige 11:14–22",
+     "par_en": "Repeats: II Samuel 8:1–14\nContinuation of the topic: I Kings 11:14–22"
+    },
+    {
+     "ref": "18:14-17",
+     "text": "שרי דוד",
+     "par": "חזרה על: שמואל ב' ח טו-יח\nראה עוד: שמואל ב' כ כג-כו, להלן פרק כז",
+     "text_de": "Davids Oberste",
+     "text_en": "David's officers",
+     "par_de": "Wiederholung von: 2 Samuel 8:15–18\nSiehe auch: 2 Samuel 20:23–26, 1 Chronik 27 (unten)",
+     "par_en": "Repeats: II Samuel 8:15–18\nSee also: II Samuel 20:23–26, I Chronicles 27 (below)"
+    },
+    {
+     "ref": "19:1-20:3",
+     "text": "מלחמת ישראל עם עמון וארם",
+     "time": "ז' סיון / ט\"ו אייר",
+     "place": "עמון, חילם",
+     "par": "חזרה על: שמואל ב' י א - יא א, יב כו-לא",
+     "text_de": "Krieg Israels mit Ammon und Aram",
+     "text_en": "Israel's war with Ammon and Aram",
+     "place_de": "Ammon, Helam",
+     "place_en": "Ammon, Helam",
+     "par_de": "Wiederholung von: 2 Samuel 10:1–11:1, 2 Samuel 12:26–31",
+     "par_en": "Repeats: II Samuel 10:1–11:1, II Samuel 12:26–31",
+     "time_de": "7. Siwan / 15. Ijjar",
+     "time_en": "7 Sivan / 15 Iyar"
+    },
+    {
+     "ref": "20:4-8",
+     "text": "מלחמות ישראל בפלשתים",
+     "place": "נוב, גוב-גזר, גת",
+     "par": "חזרה על: שמואל ב' כא יח-כב",
+     "text_de": "Kriege Israels gegen die Philister",
+     "text_en": "Israel's wars against the Philistines",
+     "place_de": "Nob, Gob-Geser, Gat",
+     "place_en": "Nob, Gob-Gezer, Gath",
+     "par_de": "Wiederholung von: 2 Samuel 21:18–22",
+     "par_en": "Repeats: II Samuel 21:18–22"
+    }
+   ],
+   "head_de": "Davids Kriege gegen die Völker",
+   "head_en": "David's Wars against the Nations"
+  },
+  {
+   "head": "ימי דוד האחרונים",
+   "items": [
+    {
+     "ref": "21:1-17",
+     "text": "מנין העם והעונש",
+     "time": "ב'תתקכ\"ג",
+     "place": "ירושלים, ערי הארץ",
+     "par": "חזרה על: שמואל ב' כד א-יז\nהזכרה: להלן כז כג-כד\nהאזהרה: שמות ל יב",
+     "text_de": "Volkszählung und Strafe",
+     "text_en": "The census of the people and the punishment",
+     "place_de": "Jerusalem, Städte des Landes",
+     "place_en": "Jerusalem, Cities of the Land",
+     "par_de": "Wiederholung von: 2 Samuel 24:1–17\nerwähnt: 1 Chronik 27:23–24 (unten)\nWarnung: 2. Mose 30:12",
+     "par_en": "Repeats: II Samuel 24:1–17\nMentioned: I Chronicles 27:23–24 (below)\nWarning: Exodus 30:12",
+     "time_de": "2923",
+     "time_en": "2923"
+    },
+    {
+     "ref": "21:18-22:1",
+     "text": "בניית המזבח בגורן ארונה",
+     "place": "ירושלים",
+     "par": "חזרה על: שמואל ב' כד יח-כה\nמקום המקדש: דברים יב יד, לג יב\nתפילתו בעת ההיא: תהלים קלב (י\"מ)",
+     "text_de": "Bau des Altars auf der Tenne Araunas",
+     "text_en": "Building the altar at the threshing floor of Araunah",
+     "place_de": "Jerusalem",
+     "place_en": "Jerusalem",
+     "par_de": "Wiederholung von: 2 Samuel 24:18–25\nOrt des Heiligtums: 5. Mose 12:14, 5. Mose 33:12\nSein Gebet aus jener Zeit: Psalmen 132 (nach manchen)",
+     "par_en": "Repeats: II Samuel 24:18–25\nPlace of the Sanctuary: Deuteronomy 12:14, Deuteronomy 33:12\nHis prayer at that time: Psalms 132 (according to some)"
+    },
+    {
+     "ref": "22:2-5",
+     "text": "הכנותיו לבנין המקדש",
+     "text_de": "Seine Vorbereitungen für den Tempelbau",
+     "text_en": "His preparations for building the Temple"
+    },
+    {
+     "ref": "22:6-19",
+     "text": "ציווי לשלמה ולעם על בנין המקדש",
+     "par": "הרחבה: להלן כח א-כא",
+     "text_de": "Gebot an Salomo und das Volk zum Tempelbau",
+     "text_en": "Charge to Solomon and the people concerning the building of the Temple",
+     "par_de": "Erweiterung: 1 Chronik 28:1–21 (unten)",
+     "par_en": "Expansion: I Chronicles 28:1–21 (below)"
+    },
+    {
+     "ref": "23;24:20-31",
+     "text": "מנין הלויים וחלוקתם למשמרות",
+     "time": "ב'תתקכ\"ד",
+     "text_de": "Zählung der Leviten und ihre Einteilung in Abteilungen",
+     "text_en": "Counting of the Levites and their division into divisions",
+     "time_de": "2924",
+     "time_en": "2924"
+    },
+    {
+     "ref": "24:1-19",
+     "text": "משמרות הכהנים",
+     "text_de": "Abteilungen der Priester",
+     "text_en": "Divisions of the priests"
+    },
+    {
+     "ref": "25",
+     "text": "משמרות המשוררים",
+     "text_de": "Abteilungen der Sänger",
+     "text_en": "Divisions of the singers"
+    },
+    {
+     "ref": "26:1-19",
+     "text": "משמרות השוערים",
+     "text_de": "Abteilungen der Torhüter",
+     "text_en": "Divisions of the gatekeepers"
+    },
+    {
+     "ref": "26:20-32",
+     "text": "מינויים נוספים ללויים",
+     "text_de": "Weitere Ernennungen für die Leviten",
+     "text_en": "Further appointments for the Levites"
+    },
+    {
+     "ref": "27:1-24",
+     "text": "הממונים על סיפוק צרכי המלך",
+     "par": "ראה עוד לעיל יח יד-יז",
+     "text_de": "Die für die Versorgung des Königs Zuständigen",
+     "text_en": "Those in charge of supplying the king's needs",
+     "par_de": "Siehe auch oben: 1 Chronik 18:14–17",
+     "par_en": "See also above: I Chronicles 18:14–17"
+    },
+    {
+     "ref": "27:25-34",
+     "text": "ממוני אוצרות המלך ושריו",
+     "text_de": "Verwalter der königlichen Schätze und seine Obersten",
+     "text_en": "Overseers of the king's treasuries and his officers"
+    },
+    {
+     "ref": "28:1-10",
+     "text": "צוואותיו לעם ולשלמה",
+     "time": "ב'תתקכ\"ד",
+     "par": "הרחבה מ: מלכים א' ב א-ד, לעיל כב ו-יט",
+     "text_de": "Seine Vermächtnisse an das Volk und an Salomo",
+     "text_en": "His charges to the people and to Solomon",
+     "par_de": "Erweiterung von: 1 Könige 2:1–4, 1 Chronik 22:6–19 (oben)",
+     "par_en": "Expands on: I Kings 2:1–4, I Chronicles 22:6–19 (above)",
+     "time_de": "2924",
+     "time_en": "2924"
+    },
+    {
+     "ref": "28:11-21",
+     "text": "ציוויו לשלמה על בנין המקדש",
+     "text_de": "Sein Gebot an Salomo zum Tempelbau",
+     "text_en": "His charge to Solomon concerning the building of the Temple"
+    },
+    {
+     "ref": "29:1-19",
+     "text": "נדבות העם לבנין המקדש",
+     "par": "נדבת המשכן: שמות כה א-ז, לה כא-כט",
+     "text_de": "Spenden des Volkes für den Tempelbau",
+     "text_en": "Donations of the people for the building of the Temple",
+     "par_de": "Spenden für die Stiftshütte: 2. Mose 25:1–7, 2. Mose 35:21–29",
+     "par_en": "Donations for the Tabernacle: Exodus 25:1–7, Exodus 35:21–29"
+    },
+    {
+     "ref": "29:20-25",
+     "text": "מינוי שלמה למלך על כל ישראל",
+     "par": "הרחבה: מלכים א' א",
+     "text_de": "Einsetzung Salomos zum König über ganz Israel",
+     "text_en": "Appointment of Solomon as king over all Israel",
+     "par_de": "Erweiterung: 1 Könige 1",
+     "par_en": "Expansion: I Kings 1"
+    },
+    {
+     "ref": "29:26-30",
+     "text": "מיתת דוד",
+     "par": "חזרה על: מלכים א' ב י-יא",
+     "text_de": "Davids Tod",
+     "text_en": "Death of David",
+     "par_de": "Wiederholung von: 1 Könige 2:10–11",
+     "par_en": "Repeats: I Kings 2:10–11"
+    }
+   ],
+   "head_de": "Davids letzte Tage",
+   "head_en": "David's Final Days"
+  }
+ ],
+ "title_de": "Inhalt des Buches 1 Chronik",
+ "title_en": "Contents of the Book of I Chronicles",
+ "note_de": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt.",
+ "note_en": "Transcribed from photos of a summary table. Chapter and verse numbering and dates (Jewish reckoning) as printed in the source."
+}

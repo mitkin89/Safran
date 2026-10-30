@@ -1,0 +1,175 @@
+{
+ "book": "Esther",
+ "title": "תוכן ספר אסתר",
+ "note": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt.",
+ "sections": [
+  {
+   "head": "גדולת אחשורוש",
+   "items": [
+    {
+     "ref": "1:1-9",
+     "text": "עושרו ותפארתו והמשתאות",
+     "time": "ניסן ג'שצ\"ה - תשרי ג'שצ\"ו",
+     "text_de": "Reichtum und Pracht des Königs und die Gelage",
+     "text_en": "His wealth and splendor, and the banquets",
+     "time_de": "Nisan 3395 – Tischri 3396",
+     "time_en": "Nisan 3395 – Tishrei 3396"
+    }
+   ],
+   "head_de": "Größe des Ahasveros",
+   "head_en": "The Greatness of Ahasuerus"
+  },
+  {
+   "head": "הריגת ושתי",
+   "items": [
+    {
+     "ref": "1:10-2:4",
+     "text": "הריגת ושתי וחיפוש מלכה",
+     "time": "תשרי ג'שצ\"ו - ג'שצ\"ח",
+     "text_de": "Tötung Waschtis und Suche nach einer Königin",
+     "text_en": "The execution of Vashti and the search for a queen",
+     "time_de": "Tischri 3396–3398",
+     "time_en": "Tishrei 3396–3398"
+    }
+   ],
+   "head_de": "Tötung Waschtis",
+   "head_en": "The Execution of Vashti"
+  },
+  {
+   "head": "גדולת מרדכי והמלכת אסתר",
+   "items": [
+    {
+     "ref": "2:5-23",
+     "text": "לקיחת אסתר מבית מרדכי והמלכתה",
+     "time": "המלכת אסתר: טבת ג'שצ\"ט",
+     "par": "מרדכי מזרע שאול ומלחמתו בהמן - מלחמת שאול בעמלק (שמואל א' טו)",
+     "text_de": "Esthers Wegführung aus dem Haus Mordechais und ihre Krönung",
+     "text_en": "Esther taken from Mordecai's house and crowned queen",
+     "par_de": "Mordechai aus dem Geschlecht Sauls und sein Kampf gegen Haman – Sauls Krieg gegen Amalek (1 Samuel 15)",
+     "par_en": "Mordecai, a descendant of Saul, and his war against Haman – Saul's war against Amalek (I Samuel 15)",
+     "time_de": "Krönung Esthers: Tewet 3399",
+     "time_en": "Coronation of Esther: Tevet 3399"
+    }
+   ],
+   "head_de": "Aufstieg Mordechais und Krönung Esthers",
+   "head_en": "Mordecai's Rise and the Crowning of Esther"
+  },
+  {
+   "head": "המן וגזירותיו",
+   "items": [
+    {
+     "ref": "3",
+     "text": "עלייתו לגדולה וגזירת השמד",
+     "time": "גדולת המן: ג'שצ\"ט\nהגזירה: ניסן ג'ת\"ד,\nהאגרות נכתבו בי\"ג בו",
+     "text_de": "Hamans Aufstieg und das Vernichtungsdekret",
+     "text_en": "Haman's rise to power and the decree of annihilation",
+     "time_de": "Hamans Aufstieg: 3399\nDekret: Nisan 3404,\nDie Briefe wurden am 13. desselben Monats geschrieben",
+     "time_en": "Haman's rise: 3399\nThe decree: Nisan 3404,\nThe letters were written on the 13th of that month"
+    }
+   ],
+   "head_de": "Haman und seine Dekrete",
+   "head_en": "Haman and His Decrees"
+  },
+  {
+   "head": "ההצלה ע\"י מרדכי ואסתר",
+   "items": [
+    {
+     "ref": "4:1-3",
+     "text": "האבל, הצום והתפילה",
+     "time": "י\"ג-ט\"ו ניסן ג'ת\"ד",
+     "text_de": "Trauer, Fasten und Gebet",
+     "text_en": "Mourning, fasting and prayer",
+     "time_de": "13.–15. Nisan 3404",
+     "time_en": "13–15 Nisan 3404"
+    },
+    {
+     "ref": "4:4-5:14",
+     "text": "שתדלנות אסתר והסעודה",
+     "time": "ט\"ו-ט\"ז ניסן ג'ת\"ד",
+     "par": "תפילתה בעת ההיא: תהלים כב\nהזכרה: משלי ט ב (י\"מ), כה כא-כב (י\"מ)",
+     "text_de": "Esthers Fürsprache und das Mahl",
+     "text_en": "Esther's intercession and the banquet",
+     "par_de": "Ihr Gebet aus jener Zeit: Psalmen 22\nerwähnt: Sprüche 9:2 (nach manchen), Sprüche 25:21–22 (nach manchen)",
+     "par_en": "Her prayer at that time: Psalms 22\nMentioned: Proverbs 9:2 (according to some), Proverbs 25:21–22 (according to some)",
+     "time_de": "15.–16. Nisan 3404",
+     "time_en": "15–16 Nisan 3404"
+    },
+    {
+     "ref": "6-7",
+     "text": "השפלת המן, הסעודה השנייה ותליית המן",
+     "time": "ט\"ו-י\"ז ניסן ג'ת\"ד",
+     "text_de": "Hamans Demütigung, das zweite Mahl und Hamans Erhängung",
+     "text_en": "Haman's humiliation, the second banquet and Haman's hanging",
+     "time_de": "15.–17. Nisan 3404",
+     "time_en": "15–17 Nisan 3404"
+    },
+    {
+     "ref": "8",
+     "text": "ביטול גזירת המן",
+     "time": "כתיבת אגרות שניות:\nכ\"ג סיון ג'ת\"ד",
+     "par": "גדולת מרדכי - גדולת יוסף (בראשית לט-מא)",
+     "text_de": "Aufhebung von Hamans Dekret",
+     "text_en": "Annulment of Haman's decree",
+     "par_de": "Größe Mordechais – Größe Josefs (1. Mose 39–41)",
+     "par_en": "Mordecai's greatness – Joseph's greatness (Genesis 39–41)",
+     "time_de": "Abfassung der zweiten Briefe:\n23. Siwan 3404",
+     "time_en": "Writing of the second letters:\n23 Sivan 3404"
+    }
+   ],
+   "head_de": "Die Rettung durch Mordechai und Esther",
+   "head_en": "The Deliverance through Mordecai and Esther"
+  },
+  {
+   "head": "הרג האויבים",
+   "items": [
+    {
+     "ref": "9:1-19",
+     "text": "הריגת בני המן ואויבי היהודים",
+     "time": "הריגת האויבים:\nי\"ג אדר ג'ת\"ה\nמנוחת הפרזים, הריגת האויבים בשושן:\nי\"ד אדר ג'ת\"ה\nמנוחת היהודים בשושן:\nט\"ו אדר ג'ת\"ה",
+     "text_de": "Tötung der Söhne Hamans und der Feinde der Juden",
+     "text_en": "Killing of Haman's sons and the enemies of the Jews",
+     "time_de": "Tötung der Feinde:\n13. Adar 3405\nRuhe der Landbewohner, Tötung der Feinde in Schuschan:\n14. Adar 3405\nRuhe der Juden in Schuschan:\n15. Adar 3405",
+     "time_en": "Killing of the enemies:\n13 Adar 3405\nRest of the villagers, killing of the enemies in Shushan:\n14 Adar 3405\nRest of the Jews in Shushan:\n15 Adar 3405"
+    }
+   ],
+   "head_de": "Tötung der Feinde",
+   "head_en": "The Killing of the Enemies"
+  },
+  {
+   "head": "תקנת ימי הפורים",
+   "items": [
+    {
+     "ref": "9:20-32",
+     "text": "קביעת ימי הפורים לדורות",
+     "time": "ג'ת\"ו",
+     "par": "מחיית המן וזכרה לדורות - מלחמת עמלק לדורות (שמות יז ח-יג, דברים כה יז-יט)",
+     "text_de": "Einsetzung der Purimtage für alle Generationen",
+     "text_en": "Establishment of the days of Purim for all generations",
+     "par_de": "Auslöschung Hamans und seines Andenkens für alle Generationen – Krieg gegen Amalek für alle Generationen (2. Mose 17:8–13, 5. Mose 25:17–19)",
+     "par_en": "The blotting out of Haman and his memory for all generations – the war against Amalek for all generations (Exodus 17:8–13, Deuteronomy 25:17–19)",
+     "time_de": "3406",
+     "time_en": "3406"
+    }
+   ],
+   "head_de": "Einsetzung der Purimtage",
+   "head_en": "The Institution of the Days of Purim"
+  },
+  {
+   "head": "חיתום",
+   "items": [
+    {
+     "ref": "10",
+     "text": "חתימת הספר",
+     "text_de": "Abschluss des Buches",
+     "text_en": "Conclusion of the book"
+    }
+   ],
+   "head_de": "Abschluss",
+   "head_en": "Conclusion"
+  }
+ ],
+ "title_de": "Inhalt des Buches Esther",
+ "title_en": "Contents of the Book of Esther",
+ "note_de": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt.",
+ "note_en": "Transcribed from photos of a summary table. Chapter and verse numbering and dates (Jewish reckoning) as printed in the source."
+}

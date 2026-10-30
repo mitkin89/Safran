@@ -1,0 +1,2704 @@
+{
+ "book": "Leviticus",
+ "title": "נושאי הפרשיות ומנין המצוות",
+ "title_de": "Themen der Wochenabschnitte und Zählung der Mizwot",
+ "title_en": "Topics of the weekly portions and count of the commandments",
+ "note": "נכתב מצילומי ספר: «נושאי הפרשיות» ו«מנין המצוות» (מספר המצוות כבמקור).",
+ "note_de": "Aus Fotos eines Buches abgeschrieben („Themen der Paraschot“ und „Zählung der Mizwot“); Kapitel-/Verszählung und Mizwa-Nummern wie in der Vorlage. Mizwot lassen sich oben zuschalten.",
+ "note_en": "Transcribed from photos of a book (“Topics of the Portions” and “Count of the Commandments”); chapter/verse references and mitzvah numbers as printed. Commandments can be switched on above.",
+ "sections": [
+  {
+   "head": "פרשת ויקרא",
+   "head_de": "Paraschat Wajikra",
+   "head_en": "Parashat Vayikra",
+   "items": [
+    {
+     "ref": "1",
+     "text": "דיני קרבן עולה",
+     "text_de": "Gesetze des Ganzopfers",
+     "text_en": "Laws of the burnt offering"
+    },
+    {
+     "ref": "1",
+     "text": "מעשה העולה",
+     "mz": 115,
+     "text_de": "Darbringung des Ganzopfers",
+     "text_en": "The procedure of the burnt offering"
+    },
+    {
+     "ref": "2",
+     "text": "דיני מנחות",
+     "text_de": "Gesetze der Speiseopfer",
+     "text_en": "Laws of the meal offerings"
+    },
+    {
+     "ref": "2",
+     "text": "קרבן מנחה",
+     "mz": 116,
+     "text_de": "Das Speiseopfer",
+     "text_en": "The meal offering"
+    },
+    {
+     "ref": "2:11",
+     "text": "לא להקריב שאור או דבש",
+     "mz": 117,
+     "text_de": "Verbot, Sauerteig oder Honig darzubringen",
+     "text_en": "Prohibition: offering leaven or honey"
+    },
+    {
+     "ref": "2:13",
+     "text": "לא להקריב קרבן בלא מלח",
+     "mz": 118,
+     "text_de": "Verbot, ein Opfer ohne Salz darzubringen",
+     "text_en": "Prohibition: offering a sacrifice without salt"
+    },
+    {
+     "ref": "2:13",
+     "text": "מליחת הקרבן",
+     "mz": 119,
+     "text_de": "Salzen des Opfers",
+     "text_en": "Salting the sacrifice"
+    },
+    {
+     "ref": "3",
+     "text": "דיני קרבן שלמים",
+     "text_de": "Gesetze des Heilsopfers",
+     "text_en": "Laws of the peace offering"
+    },
+    {
+     "ref": "4:1-12",
+     "text": "דיני חטאת כהן משיח",
+     "text_de": "Gesetze des Sündopfers des gesalbten Priesters",
+     "text_en": "Laws of the sin offering of the anointed priest"
+    },
+    {
+     "ref": "4:13-21",
+     "text": "דיני חטאת העלם דבר של ציבור",
+     "text_de": "Gesetze des Sündopfers bei Verborgenbleiben einer Sache seitens der Gemeinde",
+     "text_en": "Laws of the sin offering for the community's unwitting error"
+    },
+    {
+     "ref": "4:13-21",
+     "text": "קרבן בית דין אם טעו בהוראה",
+     "mz": 120,
+     "text_de": "Opfer des Gerichtshofs bei irrtümlicher Rechtsentscheidung",
+     "text_en": "Offering of the court when it erred in its ruling"
+    },
+    {
+     "ref": "4:22-26",
+     "text": "דיני חטאת נשיא",
+     "text_de": "Gesetze des Sündopfers des Fürsten",
+     "text_en": "Laws of the sin offering of the prince"
+    },
+    {
+     "ref": "4:27-35",
+     "text": "דיני חטאת יחיד",
+     "text_de": "Gesetze des Sündopfers des Einzelnen",
+     "text_en": "Laws of the sin offering of an individual"
+    },
+    {
+     "ref": "4:27-31",
+     "text": "קרבן חטאת לשוגג בל\"ת שיש בה כרת",
+     "mz": 121,
+     "text_de": "Sündopfer für das unabsichtliche Begehen eines Verbots, auf dem Karet steht",
+     "text_en": "Sin offering for the unintentional transgression of a prohibition punishable by karet"
+    },
+    {
+     "ref": "5:1-13",
+     "text": "דיני קרבן עולה ויורד",
+     "text_de": "Gesetze des Opfers nach Vermögen (steigend und fallend)",
+     "text_en": "Laws of the sliding-scale offering"
+    },
+    {
+     "ref": "5:1",
+     "text": "מצות עדות",
+     "mz": 122,
+     "text_de": "Gebot der Zeugenaussage",
+     "text_en": "Commandment: giving testimony"
+    },
+    {
+     "ref": "5:1-13",
+     "text": "קרבן עולה ויורד",
+     "mz": 123,
+     "text_de": "Opfer nach Vermögen (steigend und fallend)",
+     "text_en": "The sliding-scale offering"
+    },
+    {
+     "ref": "5:8",
+     "text": "לא להבדיל הראש בחטאת העוף",
+     "mz": 124,
+     "text_de": "Verbot, den Kopf beim Vogel-Sündopfer abzutrennen",
+     "text_en": "Prohibition: severing the head in the bird sin offering"
+    },
+    {
+     "ref": "5:11",
+     "text": "לא ליתן שמן במנחת חוטא",
+     "mz": 125,
+     "text_de": "Verbot, Öl auf das Speiseopfer des Sünders zu geben",
+     "text_en": "Prohibition: putting oil on the meal offering of a sinner"
+    },
+    {
+     "ref": "5:11",
+     "text": "לא ליתן לבונה במנחת חוטא",
+     "mz": 126,
+     "text_de": "Verbot, Weihrauch auf das Speiseopfer des Sünders zu geben",
+     "text_en": "Prohibition: putting frankincense on the meal offering of a sinner"
+    },
+    {
+     "ref": "5:14-16",
+     "text": "דיני אשם מעילות",
+     "text_de": "Gesetze des Schuldopfers für Veruntreuung",
+     "text_en": "Laws of the guilt offering for misappropriation"
+    },
+    {
+     "ref": "5:14-16",
+     "text": "תוספת חומש לאוכל או מועל בהקדש",
+     "mz": 127,
+     "text_de": "Zusatz eines Fünftels für den, der Geweihtes isst oder veruntreut",
+     "text_en": "Added fifth for one who eats or misappropriates sacred property"
+    },
+    {
+     "ref": "5:17-19",
+     "text": "דיני אשם תלוי",
+     "text_de": "Gesetze des Schwebe-Schuldopfers",
+     "text_en": "Laws of the suspensive guilt offering"
+    },
+    {
+     "ref": "5:17-19",
+     "text": "קרבן אשם תלוי",
+     "mz": 128,
+     "text_de": "Schwebe-Schuldopfer",
+     "text_en": "The suspensive guilt offering"
+    },
+    {
+     "ref": "5:20-26",
+     "text": "דיני אשם גזילות",
+     "text_de": "Gesetze des Schuldopfers für Raub",
+     "text_en": "Laws of the guilt offering for robbery"
+    },
+    {
+     "ref": "5:20-26",
+     "text": "קרבן אשם ודאי",
+     "mz": 129,
+     "text_de": "Gewisses Schuldopfer",
+     "text_en": "The certain guilt offering"
+    },
+    {
+     "ref": "5:23",
+     "text": "השבת גזל",
+     "mz": 130,
+     "text_de": "Rückgabe des Geraubten",
+     "text_en": "Returning stolen property"
+    }
+   ]
+  },
+  {
+   "head": "פרשת צו",
+   "head_de": "Paraschat Zaw",
+   "head_en": "Parashat Tzav",
+   "items": [
+    {
+     "ref": "6:1-2",
+     "text": "דיני קרבן עולה",
+     "text_de": "Gesetze des Ganzopfers",
+     "text_en": "Laws of the burnt offering"
+    },
+    {
+     "ref": "6:1-4",
+     "text": "הרמת הדשן",
+     "mz": 131,
+     "text_de": "Abheben der Asche",
+     "text_en": "Removing the ashes"
+    },
+    {
+     "ref": "6:3-4",
+     "text": "מצות תרומת הדשן והוצאתה",
+     "text_de": "Gebot der Aschenabhebung und ihrer Hinausschaffung",
+     "text_en": "Commandment of removing the ashes and carrying them out"
+    },
+    {
+     "ref": "6:5-6",
+     "text": "מצות אש תמיד",
+     "text_de": "Gebot des beständigen Feuers",
+     "text_en": "Commandment of the perpetual fire"
+    },
+    {
+     "ref": "6:6",
+     "text": "הדלקת אש על המזבח בכל יום",
+     "mz": 132,
+     "text_de": "Entzünden des Feuers auf dem Altar an jedem Tag",
+     "text_en": "Kindling the fire on the altar every day"
+    },
+    {
+     "ref": "6:6",
+     "text": "לא לכבות אש מעל המזבח",
+     "mz": 133,
+     "text_de": "Verbot, das Feuer auf dem Altar zu löschen",
+     "text_en": "Prohibition: extinguishing the fire on the altar"
+    },
+    {
+     "ref": "6:7-11",
+     "text": "דיני מנחות",
+     "text_de": "Gesetze der Speiseopfer",
+     "text_en": "Laws of the meal offerings"
+    },
+    {
+     "ref": "6:9",
+     "text": "אכילת שיירי מנחות",
+     "mz": 134,
+     "text_de": "Verzehr der Überreste der Speiseopfer",
+     "text_en": "Eating the remainder of the meal offerings"
+    },
+    {
+     "ref": "6:10",
+     "text": "לא לעשות שיירי מנחות חמץ",
+     "mz": 135,
+     "text_de": "Verbot, die Überreste der Speiseopfer gesäuert zu backen",
+     "text_en": "Prohibition: baking the remainder of the meal offerings leavened"
+    },
+    {
+     "ref": "6:12-16",
+     "text": "דיני מנחת חינוך וחביתין",
+     "text_de": "Gesetze des Einweihungs-Speiseopfers und der Pfannenkuchen",
+     "text_en": "Laws of the inauguration meal offering and the griddle cakes"
+    },
+    {
+     "ref": "6:12-15",
+     "text": "קרבן מנחה של כהן גדול בכל יום",
+     "mz": 136,
+     "text_de": "Tägliches Speiseopfer des Hohepriesters",
+     "text_en": "The daily meal offering of the high priest"
+    },
+    {
+     "ref": "6:16",
+     "text": "לא לאכול מנחת כהן",
+     "mz": 137,
+     "text_de": "Verbot, das Speiseopfer eines Priesters zu essen",
+     "text_en": "Prohibition: eating the meal offering of a priest"
+    },
+    {
+     "ref": "6:17-23",
+     "text": "דיני קרבן חטאת",
+     "text_de": "Gesetze des Sündopfers",
+     "text_en": "Laws of the sin offering"
+    },
+    {
+     "ref": "6:17-23",
+     "text": "מעשה החטאת",
+     "mz": 138,
+     "text_de": "Darbringung des Sündopfers",
+     "text_en": "The procedure of the sin offering"
+    },
+    {
+     "ref": "6:23",
+     "text": "לא לאכול מבשר חטאת פנימית",
+     "mz": 139,
+     "text_de": "Verbot, vom Fleisch des inneren Sündopfers zu essen",
+     "text_en": "Prohibition: eating the flesh of an inner sin offering"
+    },
+    {
+     "ref": "7:1-7",
+     "text": "דיני קרבן אשם",
+     "text_de": "Gesetze des Schuldopfers",
+     "text_en": "Laws of the guilt offering"
+    },
+    {
+     "ref": "7:1-7",
+     "text": "מעשה האשם",
+     "mz": 140,
+     "text_de": "Darbringung des Schuldopfers",
+     "text_en": "The procedure of the guilt offering"
+    },
+    {
+     "ref": "7:8-10",
+     "text": "חלוקת עור עולה ומנחות",
+     "text_de": "Verteilung der Haut des Ganzopfers und der Speiseopfer",
+     "text_en": "Distribution of the hide of the burnt offering and of the meal offerings"
+    },
+    {
+     "ref": "7:11-15",
+     "text": "דיני שלמי תודה ולחמיהם",
+     "text_de": "Gesetze des Dankopfers und seiner Brote",
+     "text_en": "Laws of the thanksgiving offering and its breads"
+    },
+    {
+     "ref": "7:11-21",
+     "text": "מעשה זבח השלמים",
+     "mz": 141,
+     "text_de": "Darbringung des Heilsopfers",
+     "text_en": "The procedure of the peace offering"
+    },
+    {
+     "ref": "7:15",
+     "text": "לא להותיר מבשר קרבן תודה",
+     "mz": 142,
+     "text_de": "Verbot, vom Fleisch des Dankopfers etwas übrig zu lassen",
+     "text_en": "Prohibition: leaving over any of the flesh of the thanksgiving offering"
+    },
+    {
+     "ref": "7:16-17",
+     "text": "דיני שלמי נדר ונדבה",
+     "text_de": "Gesetze der Heilsopfer aus Gelübde und freiwilliger Gabe",
+     "text_en": "Laws of peace offerings brought as a vow or a freewill offering"
+    },
+    {
+     "ref": "7:17",
+     "text": "שריפת נותר הקדשים",
+     "mz": 143,
+     "text_de": "Verbrennen des Übriggebliebenen von den Opfern",
+     "text_en": "Burning the remainder of the sacrificial portions"
+    },
+    {
+     "ref": "7:18",
+     "text": "דיני פיגול",
+     "text_de": "Gesetze des Pigul (untauglich gemachtes Opfer)",
+     "text_en": "Laws of piggul (a sacrifice rendered invalid by improper intent)"
+    },
+    {
+     "ref": "7:18",
+     "text": "לא לאכול פיגול",
+     "mz": 144,
+     "text_de": "Verbot, Pigul zu essen",
+     "text_en": "Prohibition: eating piggul"
+    },
+    {
+     "ref": "7:19-21",
+     "text": "איסור אכילת קודש טמא או ע\"י אדם טמא",
+     "text_de": "Verbot, unreines Heiliges oder Heiliges durch einen unreinen Menschen zu essen",
+     "text_en": "Prohibition on eating unclean sacred food or eating sacred food while unclean"
+    },
+    {
+     "ref": "7:19",
+     "text": "לא לאכול בשר קדשים שנטמא",
+     "mz": 145,
+     "text_de": "Verbot, Opferfleisch zu essen, das unrein geworden ist",
+     "text_en": "Prohibition: eating sacrificial flesh that has become unclean"
+    },
+    {
+     "ref": "7:19",
+     "text": "שריפת בשר קדש שנטמא",
+     "mz": 146,
+     "text_de": "Verbrennen von Opferfleisch, das unrein geworden ist",
+     "text_en": "Burning sacrificial flesh that has become unclean"
+    },
+    {
+     "ref": "7:22-27",
+     "text": "איסור אכילת חלב ודם",
+     "text_de": "Verbot des Essens von Fett und Blut",
+     "text_en": "Prohibition on eating fat and blood"
+    },
+    {
+     "ref": "7:22-25",
+     "text": "לא לאכול חלב",
+     "mz": 147,
+     "text_de": "Verbot, Fett zu essen",
+     "text_en": "Prohibition: eating forbidden fat"
+    },
+    {
+     "ref": "7:26-27",
+     "text": "לא לאכול דם בהמה חיה ועוף",
+     "mz": 148,
+     "text_de": "Verbot, das Blut von Vieh, Wild und Geflügel zu essen",
+     "text_en": "Prohibition: eating the blood of cattle, wild animals and birds"
+    },
+    {
+     "ref": "7:28-30",
+     "text": "מצות תנופה בשלמים",
+     "text_de": "Gebot des Schwingens beim Heilsopfer",
+     "text_en": "Commandment of waving the peace offering"
+    },
+    {
+     "ref": "7:31-38",
+     "text": "מתנות כהונה מהשלמים",
+     "text_de": "Priestergaben vom Heilsopfer",
+     "text_en": "Priestly portions from the peace offering"
+    },
+    {
+     "ref": "8",
+     "text": "עבודת שבעת ימי המילואים",
+     "text_de": "Der Dienst während der sieben Einweihungstage",
+     "text_en": "The service during the seven days of inauguration"
+    }
+   ]
+  },
+  {
+   "head": "פרשת שמיני",
+   "head_de": "Paraschat Schemini",
+   "head_en": "Parashat Shemini",
+   "items": [
+    {
+     "ref": "9",
+     "text": "קרבנות אהרן ביום השמיני",
+     "text_de": "Die Opfer Aharons am achten Tag",
+     "text_en": "Aaron's sacrifices on the eighth day"
+    },
+    {
+     "ref": "10:1-7",
+     "text": "מיתת בני אהרן והוצאתם מהמחנה והתאבלות עליהם",
+     "text_de": "Tod der Söhne Aharons, ihre Fortschaffung aus dem Lager und die Trauer um sie",
+     "text_en": "Death of Aaron's sons, their removal from the camp and mourning for them"
+    },
+    {
+     "ref": "10:6",
+     "text": "לא יכנסו הכהנים למקדש מגודלי שער",
+     "mz": 149,
+     "text_de": "Verbot für Priester, mit ungeschnittenem Haar das Heiligtum zu betreten",
+     "text_en": "Prohibition: priests entering the Sanctuary with overgrown hair"
+    },
+    {
+     "ref": "10:6",
+     "text": "לא יכנסו הכהנים למקדש קרועי בגדים",
+     "mz": 150,
+     "text_de": "Verbot für Priester, mit zerrissenen Kleidern das Heiligtum zu betreten",
+     "text_en": "Prohibition: priests entering the Sanctuary with torn garments"
+    },
+    {
+     "ref": "10:7",
+     "text": "לא יצאו הכהנים מהמקדש בשעת עבודה",
+     "mz": 151,
+     "text_de": "Verbot für Priester, während des Dienstes das Heiligtum zu verlassen",
+     "text_en": "Prohibition: priests leaving the Sanctuary during the service"
+    },
+    {
+     "ref": "10:8-11",
+     "text": "איסור שתויי יין",
+     "text_de": "Verbot für Weintrunkene",
+     "text_en": "Prohibition on the intoxicated"
+    },
+    {
+     "ref": "10:8-11",
+     "text": "לא להכנס שתוי יין במקדש ולא יורה שתוי",
+     "mz": 152,
+     "text_de": "Verbot, weintrunken das Heiligtum zu betreten oder Weisung zu erteilen",
+     "text_en": "Prohibition: entering the Sanctuary or giving rulings while intoxicated"
+    },
+    {
+     "ref": "10:12-20",
+     "text": "אכילת אהרן ובניו חלק מהקרבנות",
+     "text_de": "Aharon und seine Söhne essen einen Teil der Opfer",
+     "text_en": "Aaron and his sons eat a portion of the sacrifices"
+    },
+    {
+     "ref": "11:1-8",
+     "text": "איסור אכילת בהמה טמאה וסימניה",
+     "text_de": "Verbot, unreines Vieh zu essen, und dessen Kennzeichen",
+     "text_en": "Prohibition on eating unclean animals and their signs"
+    },
+    {
+     "ref": "11:1-3",
+     "text": "בדיקת סימני בהמה וחיה",
+     "mz": 153,
+     "text_de": "Prüfung der Kennzeichen von Vieh und Wild",
+     "text_en": "Examining the signs of domestic and wild animals"
+    },
+    {
+     "ref": "11:4-8",
+     "text": "לא לאכול בהמה וחיה טמאה",
+     "mz": 154,
+     "text_de": "Verbot, unreines Vieh und Wild zu essen",
+     "text_en": "Prohibition: eating unclean domestic and wild animals"
+    },
+    {
+     "ref": "11:9-12",
+     "text": "איסור אכילת דגים טמאים וסימניהם",
+     "text_de": "Verbot, unreine Fische zu essen, und deren Kennzeichen",
+     "text_en": "Prohibition on eating unclean fish and their signs"
+    },
+    {
+     "ref": "11:9",
+     "text": "בדיקת סימני דגים",
+     "mz": 155,
+     "text_de": "Prüfung der Kennzeichen von Fischen",
+     "text_en": "Examining the signs of fish"
+    },
+    {
+     "ref": "11:10-11",
+     "text": "לא לאכול דג טמא",
+     "mz": 156,
+     "text_de": "Verbot, unreine Fische zu essen",
+     "text_en": "Prohibition: eating unclean fish"
+    },
+    {
+     "ref": "11:13-23",
+     "text": "איסור אכילת עופות טמאים וסימניהם",
+     "text_de": "Verbot, unreine Vögel zu essen, und deren Kennzeichen",
+     "text_en": "Prohibition on eating unclean birds and their signs"
+    },
+    {
+     "ref": "11:13-20",
+     "text": "לא לאכול עוף טמא",
+     "mz": 157,
+     "text_de": "Verbot, unreine Vögel zu essen",
+     "text_en": "Prohibition: eating unclean birds"
+    },
+    {
+     "ref": "11:21",
+     "text": "בדיקת סימני חגבים",
+     "mz": 158,
+     "text_de": "Prüfung der Kennzeichen von Heuschrecken",
+     "text_en": "Examining the signs of locusts"
+    },
+    {
+     "ref": "11:24-28",
+     "text": "טומאת נבלה",
+     "text_de": "Unreinheit des Aases",
+     "text_en": "Impurity of a carcass"
+    },
+    {
+     "ref": "11:29-38",
+     "text": "טומאת שרצים וכלים",
+     "text_de": "Unreinheit des kriechenden Getiers und der Gefäße",
+     "text_en": "Impurity of creeping creatures and of vessels"
+    },
+    {
+     "ref": "11:29-33",
+     "text": "טומאת שמונה שרצים",
+     "mz": 159,
+     "text_de": "Unreinheit der acht kriechenden Tiere",
+     "text_en": "Impurity of the eight creeping creatures"
+    },
+    {
+     "ref": "11:34-38",
+     "text": "טומאת אוכלים",
+     "mz": 160,
+     "text_de": "Unreinheit von Speisen",
+     "text_en": "Impurity of foodstuffs"
+    },
+    {
+     "ref": "11:39-40",
+     "text": "טומאת נבלה",
+     "text_de": "Unreinheit des Aases",
+     "text_en": "Impurity of a carcass"
+    },
+    {
+     "ref": "11:39-40",
+     "text": "טומאת נבילה",
+     "mz": 161,
+     "text_de": "Unreinheit eines Kadavers",
+     "text_en": "Impurity of a carrion animal"
+    },
+    {
+     "ref": "11:41-47",
+     "text": "איסור אכילת שרצים",
+     "text_de": "Verbot, kriechendes Getier zu essen",
+     "text_en": "Prohibition on eating creeping creatures"
+    },
+    {
+     "ref": "11:41",
+     "text": "לא לאכול שרץ הארץ",
+     "mz": 162,
+     "text_de": "Verbot, Kriechtiere der Erde zu essen",
+     "text_en": "Prohibition: eating land creeping creatures"
+    },
+    {
+     "ref": "11:42",
+     "text": "לא לאכול שרץ הנולד בזרעים ובפירות",
+     "mz": 163,
+     "text_de": "Verbot, Gewürm zu essen, das sich in Getreide und Früchten entwickelt",
+     "text_en": "Prohibition: eating worms that develop in grain and fruit"
+    },
+    {
+     "ref": "11:43",
+     "text": "לא לאכול משרץ המים",
+     "mz": 164,
+     "text_de": "Verbot, Wassergewürm zu essen",
+     "text_en": "Prohibition: eating aquatic creeping creatures"
+    },
+    {
+     "ref": "11:44",
+     "text": "לא לאכול משרץ המתהווה מעיפוש",
+     "mz": 165,
+     "text_de": "Verbot, Gewürm zu essen, das aus Fäulnis entsteht",
+     "text_en": "Prohibition: eating creatures that develop from decay"
+    }
+   ]
+  },
+  {
+   "head": "פרשת תזריע",
+   "head_de": "Paraschat Tasria",
+   "head_en": "Parashat Tazria",
+   "items": [
+    {
+     "ref": "12",
+     "text": "טומאת יולדת וטהרתה",
+     "text_de": "Unreinheit der Gebärenden und ihre Reinigung",
+     "text_en": "Impurity of a woman after childbirth and her purification"
+    },
+    {
+     "ref": "12:1-2, 12:5",
+     "text": "טומאת יולדת",
+     "mz": 166,
+     "text_de": "Unreinheit der Gebärenden",
+     "text_en": "Impurity of a woman after childbirth"
+    },
+    {
+     "ref": "12:4",
+     "text": "לא יאכל טמא מן הקדשים",
+     "mz": 167,
+     "text_de": "Ein Unreiner darf nichts vom Geheiligten essen",
+     "text_en": "An unclean person shall not eat of sacred food"
+    },
+    {
+     "ref": "12:6-8",
+     "text": "קרבן יולדת",
+     "mz": 168,
+     "text_de": "Opfer der Gebärenden",
+     "text_en": "The offering of a woman after childbirth"
+    },
+    {
+     "ref": "13:1-46",
+     "text": "דיני נגעי אדם",
+     "text_de": "Gesetze der Hautmale beim Menschen",
+     "text_en": "Laws of skin afflictions of a person"
+    },
+    {
+     "ref": "13:1-44",
+     "text": "טומאת מצורע",
+     "mz": 169,
+     "text_de": "Unreinheit des Aussätzigen",
+     "text_en": "Impurity of the leper"
+    },
+    {
+     "ref": "13:33",
+     "text": "לא לגלח שער הנתק",
+     "mz": 170,
+     "text_de": "Verbot, das Haar des Schorfs abzuscheren",
+     "text_en": "Prohibition: shaving the hair of a scall"
+    },
+    {
+     "ref": "13:45-46",
+     "text": "הנהגת המצורע",
+     "mz": 171,
+     "text_de": "Verhalten des Aussätzigen",
+     "text_en": "Conduct of the leper"
+    },
+    {
+     "ref": "13:47-59",
+     "text": "דיני נגעי בגדים",
+     "text_de": "Gesetze der Male an Kleidern",
+     "text_en": "Laws of afflictions of garments"
+    },
+    {
+     "ref": "13:47-59",
+     "text": "נגעי בגדים",
+     "mz": 172,
+     "text_de": "Male an Kleidern",
+     "text_en": "Afflictions of garments"
+    }
+   ]
+  },
+  {
+   "head": "פרשת מצורע",
+   "head_de": "Paraschat Mezora",
+   "head_en": "Parashat Metzora",
+   "items": [
+    {
+     "ref": "14:1-32",
+     "text": "סדר טהרת מצורע וקרבנותיו",
+     "text_de": "Ordnung der Reinigung des Aussätzigen und seiner Opfer",
+     "text_en": "Procedure for the purification of the leper and his offerings"
+    },
+    {
+     "ref": "14:1-5",
+     "text": "טהרה מצרעת שתהיה במינים ידועים",
+     "mz": 173,
+     "text_de": "Reinigung vom Aussatz mit bestimmten Gegenständen",
+     "text_en": "Purification from leprosy with specified materials"
+    },
+    {
+     "ref": "14:9",
+     "text": "תגלחת מצורע ביום השביעי",
+     "mz": 174,
+     "text_de": "Haarschur des Aussätzigen am siebten Tag",
+     "text_en": "The leper's shaving on the seventh day"
+    },
+    {
+     "ref": "14:9",
+     "text": "טבילה לטמאים",
+     "mz": 175,
+     "text_de": "Tauchbad für Unreine",
+     "text_en": "Immersion of unclean persons"
+    },
+    {
+     "ref": "14:10-32",
+     "text": "קרבן מצורע כשיתרפא מצרעתו",
+     "mz": 176,
+     "text_de": "Opfer des Aussätzigen nach seiner Heilung vom Aussatz",
+     "text_en": "The offering of the leper once healed of his leprosy"
+    },
+    {
+     "ref": "14:33-57",
+     "text": "דיני נגעי בתים וסדר טהרתם",
+     "text_de": "Gesetze der Male an Häusern und die Ordnung ihrer Reinigung",
+     "text_en": "Laws of afflictions of houses and the procedure of their purification"
+    },
+    {
+     "ref": "14:33-53",
+     "text": "טומאת בית שיהיה בו נגע",
+     "mz": 177,
+     "text_de": "Unreinheit eines Hauses, an dem sich ein Mal befindet",
+     "text_en": "Impurity of a house afflicted with a plague"
+    },
+    {
+     "ref": "15:1-15",
+     "text": "טומאת זב",
+     "text_de": "Unreinheit des Flussbehafteten",
+     "text_en": "Impurity of a man with a discharge"
+    },
+    {
+     "ref": "15:1-12",
+     "text": "טומאת זב להיות טמא ומטמא",
+     "mz": 178,
+     "text_de": "Unreinheit des Flussbehafteten, der unrein ist und verunreinigt",
+     "text_en": "A man with a discharge: unclean and defiling others"
+    },
+    {
+     "ref": "15:13-15",
+     "text": "קרבן זב כשיתרפא מזובו",
+     "mz": 179,
+     "text_de": "Opfer des Flussbehafteten nach seiner Heilung vom Fluss",
+     "text_en": "The offering of a man with a discharge once healed"
+    },
+    {
+     "ref": "15:16-18",
+     "text": "טומאת שכבת זרע",
+     "text_de": "Unreinheit durch Samenerguss",
+     "text_en": "Impurity of a seminal emission"
+    },
+    {
+     "ref": "15:16-18",
+     "text": "טומאת שכבת זרע שהוא טמא ומטמא",
+     "mz": 180,
+     "text_de": "Unreinheit durch Samenerguss, der unrein macht und verunreinigt",
+     "text_en": "Seminal emission: unclean and defiling others"
+    },
+    {
+     "ref": "15:19-24",
+     "text": "טומאת נדה",
+     "text_de": "Unreinheit der Menstruierenden",
+     "text_en": "Impurity of a menstruating woman"
+    },
+    {
+     "ref": "15:19-24",
+     "text": "טומאת נדה שטמאה ומטמאה",
+     "mz": 181,
+     "text_de": "Unreinheit der Menstruierenden, die unrein ist und verunreinigt",
+     "text_en": "A menstruating woman: unclean and defiling others"
+    },
+    {
+     "ref": "15:25-33",
+     "text": "טומאת זבה וטהרתה",
+     "text_de": "Unreinheit der Flussbehafteten und ihre Reinigung",
+     "text_en": "Impurity of a woman with a discharge and her purification"
+    },
+    {
+     "ref": "15:25-27",
+     "text": "טומאת זבה שטמאה ומטמאה",
+     "mz": 182,
+     "text_de": "Unreinheit der Flussbehafteten, die unrein ist und verunreinigt",
+     "text_en": "A woman with a discharge: unclean and defiling others"
+    },
+    {
+     "ref": "15:29-30",
+     "text": "קרבן זבה כשתתרפא מזובה",
+     "mz": 183,
+     "text_de": "Opfer der Flussbehafteten nach ihrer Heilung vom Fluss",
+     "text_en": "The offering of a woman with a discharge once healed"
+    }
+   ]
+  },
+  {
+   "head": "פרשת אחרי מות",
+   "head_de": "Paraschat Acharei Mot",
+   "head_en": "Parashat Acharei Mot",
+   "items": [
+    {
+     "ref": "16:1-2",
+     "text": "איסור כניסה לקודש הקדשים בכל עת",
+     "text_de": "Verbot, das Allerheiligste zu jeder Zeit zu betreten",
+     "text_en": "Prohibition against entering the Holy of Holies at any time"
+    },
+    {
+     "ref": "16:2",
+     "text": "לא יכנסו הכהנים בכל עת במקדש וק\"ו זרים",
+     "mz": 184,
+     "text_de": "Verbot: Priester dürfen das Heiligtum nicht zu jeder Zeit betreten, erst recht keine Fremden",
+     "text_en": "Prohibition: priests may not enter the Sanctuary at any time, all the more so non-priests"
+    },
+    {
+     "ref": "16:3-28",
+     "text": "סדר קרבנות וקטורת ביום הכיפורים",
+     "text_de": "Ordnung der Opfer und des Räucherwerks am Jom Kippur",
+     "text_en": "Order of the sacrifices and incense on Yom Kippur"
+    },
+    {
+     "ref": "16:3-34",
+     "text": "עבודת יום הכיפורים",
+     "mz": 185,
+     "text_de": "Der Dienst am Jom Kippur",
+     "text_en": "The Yom Kippur service"
+    },
+    {
+     "ref": "16:29-31",
+     "text": "דיני עינוי ביום הכיפורים",
+     "text_de": "Gesetze der Selbstkasteiung am Jom Kippur",
+     "text_en": "Laws of self-affliction on Yom Kippur"
+    },
+    {
+     "ref": "16:32-34",
+     "text": "ציווי עבודת יום הכיפורים לדורות",
+     "text_de": "Gebot des Jom-Kippur-Dienstes für alle Generationen",
+     "text_en": "Commandment of the Yom Kippur service for all generations"
+    },
+    {
+     "ref": "17:1-9",
+     "text": "איסור שחוטי חוץ",
+     "text_de": "Verbot des Schlachtens außerhalb des Heiligtums",
+     "text_en": "Prohibition of slaughtering outside the Sanctuary"
+    },
+    {
+     "ref": "17:1-4",
+     "text": "לא לשחוט קדשים חוץ לעזרה",
+     "mz": 186,
+     "text_de": "Verbot: Heiliges nicht außerhalb des Tempelhofs schlachten",
+     "text_en": "Prohibition: slaughtering sacrificial animals outside the Temple court"
+    },
+    {
+     "ref": "17:10-14",
+     "text": "איסור אכילת דם וציווי כיסויו",
+     "text_de": "Verbot des Blutgenusses und Gebot, das Blut zu bedecken",
+     "text_en": "Prohibition of eating blood and the commandment to cover it"
+    },
+    {
+     "ref": "17:13",
+     "text": "כיסוי הדם",
+     "mz": 187,
+     "text_de": "Bedecken des Blutes",
+     "text_en": "Covering the blood"
+    },
+    {
+     "ref": "17:15-16",
+     "text": "טומאת אוכל נבלה",
+     "text_de": "Unreinheit durch den Genuss von Aas",
+     "text_en": "Impurity from eating carrion"
+    },
+    {
+     "ref": "18",
+     "text": "איסורי עריות",
+     "text_de": "Verbotene Geschlechtsbeziehungen (Arajot)",
+     "text_en": "Forbidden sexual relations (arayot)"
+    },
+    {
+     "ref": "18:6",
+     "text": "לא להתעדן באחת מהעריות",
+     "mz": 188,
+     "text_de": "Verbot, sich an einer der verbotenen Personen zu ergötzen",
+     "text_en": "Prohibition: deriving pleasure from any of the forbidden relations"
+    },
+    {
+     "ref": "18:7",
+     "text": "לא לגלות ערות אב",
+     "mz": 189,
+     "text_de": "Verbot, die Blöße des Vaters aufzudecken",
+     "text_en": "Prohibition: uncovering the nakedness of one's father"
+    },
+    {
+     "ref": "18:7",
+     "text": "לא לגלות ערות אם",
+     "mz": 190,
+     "text_de": "Verbot, die Blöße der Mutter aufzudecken",
+     "text_en": "Prohibition: uncovering the nakedness of one's mother"
+    },
+    {
+     "ref": "18:8",
+     "text": "לא לגלות ערות אשת אב ואף שאינה אמו",
+     "mz": 191,
+     "text_de": "Verbot, die Blöße der Frau des Vaters aufzudecken, auch wenn sie nicht die eigene Mutter ist",
+     "text_en": "Prohibition: uncovering the nakedness of one's father's wife, even if she is not one's mother"
+    },
+    {
+     "ref": "18:9",
+     "text": "לא לגלות ערות אחות בכל צד שהיא אחות",
+     "mz": 192,
+     "text_de": "Verbot, die Blöße der Schwester aufzudecken, von welcher Seite auch immer sie Schwester ist",
+     "text_en": "Prohibition: uncovering the nakedness of a sister, whichever parent she shares"
+    },
+    {
+     "ref": "18:10",
+     "text": "לא לגלות ערות בת הבן",
+     "mz": 193,
+     "text_de": "Verbot, die Blöße der Tochter des Sohnes aufzudecken",
+     "text_en": "Prohibition: uncovering the nakedness of one's son's daughter"
+    },
+    {
+     "ref": "18:10",
+     "text": "לא לגלות ערות בת הבת",
+     "mz": 194,
+     "text_de": "Verbot, die Blöße der Tochter der Tochter aufzudecken",
+     "text_en": "Prohibition: uncovering the nakedness of one's daughter's daughter"
+    },
+    {
+     "ref": "18:10",
+     "text": "לא לגלות ערות הבת",
+     "mz": 195,
+     "text_de": "Verbot, die Blöße der Tochter aufzudecken",
+     "text_en": "Prohibition: uncovering the nakedness of one's daughter"
+    },
+    {
+     "ref": "18:11",
+     "text": "לא לגלות ערות אחות מן האב והיא בת אשת אביו",
+     "mz": 196,
+     "text_de": "Verbot, die Blöße der Halbschwester väterlicherseits aufzudecken, der Tochter der Frau des Vaters",
+     "text_en": "Prohibition: uncovering the nakedness of a paternal half-sister, the daughter of one's father's wife"
+    },
+    {
+     "ref": "18:12",
+     "text": "לא לגלות ערות אחות אב",
+     "mz": 197,
+     "text_de": "Verbot, die Blöße der Schwester des Vaters aufzudecken",
+     "text_en": "Prohibition: uncovering the nakedness of one's father's sister"
+    },
+    {
+     "ref": "18:13",
+     "text": "לא לגלות ערות אחות אם",
+     "mz": 198,
+     "text_de": "Verbot, die Blöße der Schwester der Mutter aufzudecken",
+     "text_en": "Prohibition: uncovering the nakedness of one's mother's sister"
+    },
+    {
+     "ref": "18:14",
+     "text": "לא לבוא על אחי האב",
+     "mz": 199,
+     "text_de": "Verbot, dem Bruder des Vaters beizuwohnen",
+     "text_en": "Prohibition: lying with one's father's brother"
+    },
+    {
+     "ref": "18:14",
+     "text": "לא לבוא על אשת אחי האב",
+     "mz": 200,
+     "text_de": "Verbot, der Frau des Bruders des Vaters beizuwohnen",
+     "text_en": "Prohibition: lying with the wife of one's father's brother"
+    },
+    {
+     "ref": "18:15",
+     "text": "לא לבוא על אשת הבן",
+     "mz": 201,
+     "text_de": "Verbot, der Frau des Sohnes beizuwohnen",
+     "text_en": "Prohibition: lying with one's son's wife"
+    },
+    {
+     "ref": "18:16",
+     "text": "לא לבוא על אשת אח",
+     "mz": 202,
+     "text_de": "Verbot, der Frau des Bruders beizuwohnen",
+     "text_en": "Prohibition: lying with one's brother's wife"
+    },
+    {
+     "ref": "18:17",
+     "text": "לא לבוא על אשה ובתה",
+     "mz": 203,
+     "text_de": "Verbot, einer Frau und ihrer Tochter beizuwohnen",
+     "text_en": "Prohibition: lying with a woman and her daughter"
+    },
+    {
+     "ref": "18:17",
+     "text": "לא לגלות ערות אשה ובת בנה",
+     "mz": 204,
+     "text_de": "Verbot, die Blöße einer Frau und der Tochter ihres Sohnes aufzudecken",
+     "text_en": "Prohibition: uncovering the nakedness of a woman and her son's daughter"
+    },
+    {
+     "ref": "18:17",
+     "text": "לא לגלות ערות אשה ובת בתה",
+     "mz": 205,
+     "text_de": "Verbot, die Blöße einer Frau und der Tochter ihrer Tochter aufzudecken",
+     "text_en": "Prohibition: uncovering the nakedness of a woman and her daughter's daughter"
+    },
+    {
+     "ref": "18:18",
+     "text": "לא לבוא על שתי אחיות מחיים",
+     "mz": 206,
+     "text_de": "Verbot, zu Lebzeiten der einen deren Schwester beizuwohnen",
+     "text_en": "Prohibition: lying with two sisters during their lifetimes"
+    },
+    {
+     "ref": "18:19",
+     "text": "לא לבוא על אשה נדה",
+     "mz": 207,
+     "text_de": "Verbot, einer menstruierenden Frau beizuwohnen",
+     "text_en": "Prohibition: lying with a menstruating woman"
+    },
+    {
+     "ref": "18:21",
+     "text": "לא ליתן מזרעו למולך",
+     "mz": 208,
+     "text_de": "Verbot, von seinen Nachkommen dem Molech zu geben",
+     "text_en": "Prohibition: giving of one's offspring to Molech"
+    },
+    {
+     "ref": "18:22",
+     "text": "לא לבוא על זכרים",
+     "mz": 209,
+     "text_de": "Verbot, Männern beizuwohnen",
+     "text_en": "Prohibition: lying with males"
+    },
+    {
+     "ref": "18:23",
+     "text": "לא לשכב עם בהמות",
+     "mz": 210,
+     "text_de": "Verbot, mit Tieren zu verkehren",
+     "text_en": "Prohibition: lying with animals"
+    },
+    {
+     "ref": "18:23",
+     "text": "לא תשכבנה נשים עם בהמות",
+     "mz": 211,
+     "text_de": "Verbot für Frauen, sich mit Tieren zu paaren",
+     "text_en": "Prohibition: women may not lie with animals"
+    }
+   ]
+  },
+  {
+   "head": "פרשת קדושים",
+   "head_de": "Paraschat Kedoschim",
+   "head_en": "Parashat Kedoshim",
+   "items": [
+    {
+     "ref": "19:1-2",
+     "text": "ציווי להיות קדושים",
+     "text_de": "Gebot, heilig zu sein",
+     "text_en": "Commandment to be holy"
+    },
+    {
+     "ref": "19:3",
+     "text": "מצות כיבוד אב ואם ושמירת שבת",
+     "text_de": "Gebot der Elternehrung und der Sabbatbeachtung",
+     "text_en": "Commandment of honoring parents and observing the Sabbath"
+    },
+    {
+     "ref": "19:3",
+     "text": "יראת אב ואם",
+     "mz": 212,
+     "text_de": "Ehrfurcht vor Vater und Mutter",
+     "text_en": "Reverence for father and mother"
+    },
+    {
+     "ref": "19:4",
+     "text": "איסור עבודה זרה",
+     "text_de": "Verbot des Götzendienstes",
+     "text_en": "Prohibition of idolatry"
+    },
+    {
+     "ref": "19:4",
+     "text": "לא לפנות אחר עבודה זרה במחשבה בדבור ובהבטה",
+     "mz": 213,
+     "text_de": "Verbot, sich in Gedanken, Worten und Blicken dem Götzendienst zuzuwenden",
+     "text_en": "Prohibition: turning to idolatry in thought, speech or gaze"
+    },
+    {
+     "ref": "19:4",
+     "text": "לא לעשות עבודה זרה לעצמו ולזולתו",
+     "mz": 214,
+     "text_de": "Verbot, Götzenbilder für sich oder für andere herzustellen",
+     "text_en": "Prohibition: making idols for oneself or for others"
+    },
+    {
+     "ref": "19:5-8",
+     "text": "דיני קרבן שלמים",
+     "text_de": "Gesetze des Heilsopfers",
+     "text_en": "Laws of the peace offering"
+    },
+    {
+     "ref": "19:8",
+     "text": "לא לאכול נותר",
+     "mz": 215,
+     "text_de": "Verbot, Übriggebliebenes (Notar) zu essen",
+     "text_en": "Prohibition: eating leftover sacrificial meat (notar)"
+    },
+    {
+     "ref": "19:9",
+     "text": "מצות פאה ולקט",
+     "text_de": "Gebot von Pea (Feldecke) und Leket (Nachlese)",
+     "text_en": "Commandment of pe'ah (field corner) and leket (gleanings)"
+    },
+    {
+     "ref": "19:9",
+     "text": "מצות פאה",
+     "mz": 216,
+     "text_de": "Gebot der Pea (Feldecke)",
+     "text_en": "Commandment of pe'ah (field corner)"
+    },
+    {
+     "ref": "19:9",
+     "text": "לא לכלות הפאה בשדה",
+     "mz": 217,
+     "text_de": "Verbot, die Feldecke im Feld abzuernten",
+     "text_en": "Prohibition: harvesting the corner of the field"
+    },
+    {
+     "ref": "19:9",
+     "text": "לא לקחת שבלים הנופלים בשעת הקציר",
+     "mz": 219,
+     "text_de": "Verbot, bei der Ernte herabfallende Ähren aufzuheben",
+     "text_en": "Prohibition: picking up ears that fall during the harvest"
+    },
+    {
+     "ref": "19:10",
+     "text": "מצות פרט ועוללות",
+     "text_de": "Gebot von Peret und Olelot (abgefallene und einzelne Beeren)",
+     "text_en": "Commandment of peret and olelot (fallen and single grapes)"
+    },
+    {
+     "ref": "19:10",
+     "text": "מצות לקט",
+     "mz": 218,
+     "text_de": "Gebot der Leket (Nachlese)",
+     "text_en": "Commandment of leket (gleanings)"
+    },
+    {
+     "ref": "19:10",
+     "text": "הנחת פאת הכרם",
+     "mz": 220,
+     "text_de": "Überlassen der Weinbergecke",
+     "text_en": "Leaving the corner of the vineyard"
+    },
+    {
+     "ref": "19:10",
+     "text": "לא לכלות פאת הכרם",
+     "mz": 221,
+     "text_de": "Verbot, die Weinbergecke abzuernten",
+     "text_en": "Prohibition: harvesting the corner of the vineyard"
+    },
+    {
+     "ref": "19:10",
+     "text": "הנחת פרט הכרם",
+     "mz": 222,
+     "text_de": "Überlassen der abgefallenen Beeren des Weinbergs (Peret)",
+     "text_en": "Leaving the fallen grapes of the vineyard (peret)"
+    },
+    {
+     "ref": "19:10",
+     "text": "לא ללקוט פרט הכרם",
+     "mz": 223,
+     "text_de": "Verbot, die abgefallenen Beeren des Weinbergs aufzulesen",
+     "text_en": "Prohibition: gathering the fallen grapes of the vineyard"
+    },
+    {
+     "ref": "19:11",
+     "text": "איסור גניבה כחש ושקר",
+     "text_de": "Verbot von Diebstahl, Leugnen und Lüge",
+     "text_en": "Prohibition of theft, denial and lying"
+    },
+    {
+     "ref": "19:11",
+     "text": "לא לגנוב שום ממון",
+     "mz": 224,
+     "text_de": "Verbot, irgendeinen Besitz zu stehlen",
+     "text_en": "Prohibition: stealing any property"
+    },
+    {
+     "ref": "19:11",
+     "text": "לא לכחש בממון שיש לאחר בידינו",
+     "mz": 225,
+     "text_de": "Verbot, fremdes Vermögen, das bei uns liegt, abzuleugnen",
+     "text_en": "Prohibition: denying another's property that is in our hands"
+    },
+    {
+     "ref": "19:11",
+     "text": "לא להשבע על כפירת ממון",
+     "mz": 226,
+     "text_de": "Verbot, einen Eid auf das Leugnen von Vermögen zu schwören",
+     "text_en": "Prohibition: swearing falsely to deny a monetary claim"
+    },
+    {
+     "ref": "19:12",
+     "text": "איסור שבועת שקר",
+     "text_de": "Verbot des Falscheids",
+     "text_en": "Prohibition of false oaths"
+    },
+    {
+     "ref": "19:12",
+     "text": "לא להישבע לשקר",
+     "mz": 227,
+     "text_de": "Verbot, falsch zu schwören",
+     "text_en": "Prohibition: swearing falsely"
+    },
+    {
+     "ref": "19:13",
+     "text": "איסור עושק גזילה והלנת שכר שכיר",
+     "text_de": "Verbot von Unterdrückung, Raub und Zurückhalten des Lohns eines Tagelöhners",
+     "text_en": "Prohibition of oppression, robbery and withholding a hired worker's wages"
+    },
+    {
+     "ref": "19:13",
+     "text": "לא לעשוק",
+     "mz": 228,
+     "text_de": "Verbot, zu bedrücken",
+     "text_en": "Prohibition: oppressing"
+    },
+    {
+     "ref": "19:13",
+     "text": "לא לגזול",
+     "mz": 229,
+     "text_de": "Verbot, zu rauben",
+     "text_en": "Prohibition: robbing"
+    },
+    {
+     "ref": "19:13",
+     "text": "לא לאחר שכר שכיר",
+     "mz": 230,
+     "text_de": "Verbot, den Lohn eines Tagelöhners zurückzuhalten",
+     "text_en": "Prohibition: delaying a hired worker's wages"
+    },
+    {
+     "ref": "19:14",
+     "text": "איסור קללה ונתינת מכשול לאדם",
+     "text_de": "Verbot des Fluchens und des Legens eines Hindernisses vor Menschen",
+     "text_en": "Prohibition of cursing and of placing a stumbling block before people"
+    },
+    {
+     "ref": "19:14",
+     "text": "לא לקלל ישראל",
+     "mz": 231,
+     "text_de": "Verbot, einen Israeliten zu verfluchen",
+     "text_en": "Prohibition: cursing an Israelite"
+    },
+    {
+     "ref": "19:14",
+     "text": "לא להכשיל תם בדרך",
+     "mz": 232,
+     "text_de": "Verbot, einen Arglosen auf dem Weg zu Fall zu bringen",
+     "text_en": "Prohibition: causing an innocent person to stumble on the way"
+    },
+    {
+     "ref": "19:15",
+     "text": "ציווי לעשות משפט צדק",
+     "text_de": "Gebot, gerecht zu richten",
+     "text_en": "Commandment to judge justly"
+    },
+    {
+     "ref": "19:15",
+     "text": "לא לעוול המשפט",
+     "mz": 233,
+     "text_de": "Verbot, das Recht zu beugen",
+     "text_en": "Prohibition: perverting justice"
+    },
+    {
+     "ref": "19:15",
+     "text": "לא לכבד גדול בדין",
+     "mz": 234,
+     "text_de": "Verbot, einen Großen im Gericht zu bevorzugen",
+     "text_en": "Prohibition: favoring a prominent person in judgment"
+    },
+    {
+     "ref": "19:15",
+     "text": "השופט שישפוט בצדק",
+     "mz": 235,
+     "text_de": "Gebot: Der Richter soll gerecht urteilen",
+     "text_en": "Commandment: the judge shall judge justly"
+    },
+    {
+     "ref": "19:16",
+     "text": "איסור הליכת רכיל ועמידה על דם רעך",
+     "text_de": "Verbot, als Verleumder umherzugehen und tatenlos beim Blut des Nächsten zu stehen",
+     "text_en": "Prohibition of going about as a talebearer and of standing idly by the blood of one's neighbor"
+    },
+    {
+     "ref": "19:16",
+     "text": "לא לרגל",
+     "mz": 236,
+     "text_de": "Verbot, Verleumdung zu verbreiten",
+     "text_en": "Prohibition: spreading gossip"
+    },
+    {
+     "ref": "19:16",
+     "text": "לא לעמוד על דם רעים",
+     "mz": 237,
+     "text_de": "Verbot, untätig beim Blut des Nächsten zu stehen",
+     "text_en": "Prohibition: standing idly by the blood of one's neighbor"
+    },
+    {
+     "ref": "19:17",
+     "text": "מצות תוכחה",
+     "text_de": "Gebot der Zurechtweisung",
+     "text_en": "Commandment of rebuke"
+    },
+    {
+     "ref": "19:17",
+     "text": "לא לשנוא אחים",
+     "mz": 238,
+     "text_de": "Verbot, Brüder zu hassen",
+     "text_en": "Prohibition: hating one's brethren"
+    },
+    {
+     "ref": "19:17",
+     "text": "תוכחה לישראל שאינו נוהג כשורה",
+     "mz": 239,
+     "text_de": "Zurechtweisung eines Israeliten, der sich nicht richtig verhält",
+     "text_en": "Rebuking an Israelite who does not behave properly"
+    },
+    {
+     "ref": "19:17",
+     "text": "לא להלבין פני ישראל",
+     "mz": 240,
+     "text_de": "Verbot, einen Israeliten zu beschämen",
+     "text_en": "Prohibition: shaming an Israelite"
+    },
+    {
+     "ref": "19:18",
+     "text": "איסור נקמה ונטירה ומצות אהבת רעך",
+     "text_de": "Verbot von Rache und Groll und Gebot der Nächstenliebe",
+     "text_en": "Prohibition of vengeance and grudge-bearing and the commandment to love one's neighbor"
+    },
+    {
+     "ref": "19:18",
+     "text": "לא לנקום",
+     "mz": 241,
+     "text_de": "Verbot, Rache zu nehmen",
+     "text_en": "Prohibition: taking revenge"
+    },
+    {
+     "ref": "19:18",
+     "text": "לא לנטור",
+     "mz": 242,
+     "text_de": "Verbot, nachtragend zu sein",
+     "text_en": "Prohibition: bearing a grudge"
+    },
+    {
+     "ref": "19:18",
+     "text": "אהבת ישראל",
+     "mz": 243,
+     "text_de": "Liebe zum Mitisraeliten",
+     "text_en": "Love of one's fellow Israelite"
+    },
+    {
+     "ref": "19:19",
+     "text": "איסור כלאי בהמה שדה ובגדים",
+     "text_de": "Verbot der Mischzucht bei Tieren, der Mischsaat auf dem Feld und der Mischgewebe bei Kleidern",
+     "text_en": "Prohibition of mixed breeding of animals, mixed sowing of fields and mixed fabrics in garments"
+    },
+    {
+     "ref": "19:19",
+     "text": "לא להרביע בהמה עם מין אחר",
+     "mz": 244,
+     "text_de": "Verbot, ein Tier mit einer anderen Art zu paaren",
+     "text_en": "Prohibition: crossbreeding an animal with another species"
+    },
+    {
+     "ref": "19:19",
+     "text": "לא לזרוע כלאי זרעים ולא להרכיב אילן בארץ",
+     "mz": 245,
+     "text_de": "Verbot, Mischsaaten zu säen und im Land Israel Bäume verschiedener Arten zu veredeln",
+     "text_en": "Prohibition: sowing mixed seeds and grafting trees of different kinds in the Land"
+    },
+    {
+     "ref": "19:20-22",
+     "text": "דין שפחה חרופה",
+     "text_de": "Gesetz der verlobten Magd",
+     "text_en": "Law of the betrothed bondmaid"
+    },
+    {
+     "ref": "19:23-25",
+     "text": "דיני ערלה ורבעי",
+     "text_de": "Gesetze über Orla (Vorhaut-Früchte) und die Vierjahresfrucht",
+     "text_en": "Laws of orlah (forbidden fruit of the first three years) and fourth-year fruit"
+    },
+    {
+     "ref": "19:23",
+     "text": "לא לאכול ערלה",
+     "mz": 246,
+     "text_de": "Verbot, Orla zu essen",
+     "text_en": "Prohibition: eating orlah"
+    },
+    {
+     "ref": "19:24",
+     "text": "נטע רבעי",
+     "mz": 247,
+     "text_de": "Vierjahresfrucht (Neta revai)",
+     "text_en": "Fourth-year planting (neta revai)"
+    },
+    {
+     "ref": "19:26",
+     "text": "איסור אכילה על הדם וניחוש ועינון",
+     "text_de": "Verbot, auf das Blut zu essen, sowie von Wahrsagerei und Zeichendeuterei",
+     "text_en": "Prohibition of eating over the blood, of divination and of soothsaying"
+    },
+    {
+     "ref": "19:26",
+     "text": "לא לאכול ולשתות כדרך זולל וסובא",
+     "mz": 248,
+     "text_de": "Verbot, wie ein Schlemmer und Säufer zu essen und zu trinken",
+     "text_en": "Prohibition: eating and drinking like a glutton and drunkard"
+    },
+    {
+     "ref": "19:26",
+     "text": "לא לנחש",
+     "mz": 249,
+     "text_de": "Verbot, Wahrsagerei zu betreiben",
+     "text_en": "Prohibition: practicing divination"
+    },
+    {
+     "ref": "19:26",
+     "text": "לא לעונן",
+     "mz": 250,
+     "text_de": "Verbot, Zeichen zu deuten",
+     "text_en": "Prohibition: practicing soothsaying"
+    },
+    {
+     "ref": "19:27",
+     "text": "איסור הקפת הראש והשחתת הזקן",
+     "text_de": "Verbot, den Kopf rundum zu scheren und den Bart zu verderben",
+     "text_en": "Prohibition of rounding the corners of the head and marring the beard"
+    },
+    {
+     "ref": "19:27",
+     "text": "לא להקיף פאתי הראש",
+     "mz": 251,
+     "text_de": "Verbot, die Schläfenhaare rundum abzuschneiden",
+     "text_en": "Prohibition: rounding the corners of the head"
+    },
+    {
+     "ref": "19:27",
+     "text": "לא להשחית פאת זקן",
+     "mz": 252,
+     "text_de": "Verbot, die Bartecken zu zerstören",
+     "text_en": "Prohibition: marring the corners of the beard"
+    },
+    {
+     "ref": "19:28",
+     "text": "איסור שרט וכתובת קעקע",
+     "text_de": "Verbot des Einritzens und der Tätowierung",
+     "text_en": "Prohibition of cutting the flesh and tattooing"
+    },
+    {
+     "ref": "19:28",
+     "text": "לא לכתוב בבשרנו כתובת קעקע",
+     "mz": 253,
+     "text_de": "Verbot, sich eine Tätowierung auf den Körper zu schreiben",
+     "text_en": "Prohibition: tattooing one's flesh"
+    },
+    {
+     "ref": "19:29",
+     "text": "איסור מסירת הבת לזנות",
+     "text_de": "Verbot, die Tochter der Unzucht preiszugeben",
+     "text_en": "Prohibition of surrendering one's daughter to prostitution"
+    },
+    {
+     "ref": "19:30",
+     "text": "ציווי שמירת השבת ומורא המקדש",
+     "text_de": "Gebot der Sabbatbeachtung und der Ehrfurcht vor dem Heiligtum",
+     "text_en": "Commandment of Sabbath observance and reverence for the Sanctuary"
+    },
+    {
+     "ref": "19:30",
+     "text": "יראה מהמקדש",
+     "mz": 254,
+     "text_de": "Ehrfurcht vor dem Heiligtum",
+     "text_en": "Reverence for the Sanctuary"
+    },
+    {
+     "ref": "19:31",
+     "text": "איסור פניה לאובות ולידעונים",
+     "text_de": "Verbot, sich an Totenbeschwörer und Wahrsager zu wenden",
+     "text_en": "Prohibition of turning to necromancers and diviners"
+    },
+    {
+     "ref": "19:31",
+     "text": "לא לעשות מעשה אוב",
+     "mz": 255,
+     "text_de": "Verbot, Totenbeschwörung (Ov) auszuüben",
+     "text_en": "Prohibition: practicing necromancy (ov)"
+    },
+    {
+     "ref": "19:31",
+     "text": "לא לעשות מעשה ידעוני",
+     "mz": 256,
+     "text_de": "Verbot, Wahrsagerei (Jidoni) auszuüben",
+     "text_en": "Prohibition: practicing divination by a familiar spirit (yidoni)"
+    },
+    {
+     "ref": "19:32",
+     "text": "מצות קימה מפני שיבה והדרת הזקן",
+     "text_de": "Gebot, vor grauem Haar aufzustehen und den Greis zu ehren",
+     "text_en": "Commandment to rise before the aged and honor the elder"
+    },
+    {
+     "ref": "19:32",
+     "text": "כבוד חכמים",
+     "mz": 257,
+     "text_de": "Ehrung der Weisen",
+     "text_en": "Honoring the sages"
+    },
+    {
+     "ref": "19:33-34",
+     "text": "איסור אונאת הגר",
+     "text_de": "Verbot, den Fremden zu kränken",
+     "text_en": "Prohibition of wronging the convert"
+    },
+    {
+     "ref": "19:35-37",
+     "text": "מצות שמירת המשקלות",
+     "text_de": "Gebot, richtige Gewichte einzuhalten",
+     "text_en": "Commandment to maintain honest weights"
+    },
+    {
+     "ref": "19:35",
+     "text": "לא להונות בכל סוגי המדות",
+     "mz": 258,
+     "text_de": "Verbot, bei allen Arten von Maßen zu betrügen",
+     "text_en": "Prohibition: cheating with any kind of measures"
+    },
+    {
+     "ref": "19:36",
+     "text": "צידוק כל סוגי המדות",
+     "mz": 259,
+     "text_de": "Richtigkeit aller Arten von Maßen",
+     "text_en": "Ensuring the accuracy of all kinds of measures"
+    },
+    {
+     "ref": "20:1-5",
+     "text": "איסור מסירה למולך ועונשו",
+     "text_de": "Verbot, (Kinder) dem Molech zu übergeben, und seine Strafe",
+     "text_en": "Prohibition of giving (children) to Molech, and its punishment"
+    },
+    {
+     "ref": "20:6-8",
+     "text": "עונש הפניה לאובות ולידעונים",
+     "text_de": "Strafe für das Sichwenden an Totenbeschwörer und Wahrsager",
+     "text_en": "Punishment for turning to necromancers and diviners"
+    },
+    {
+     "ref": "20:9",
+     "text": "עונש מקלל אביו ואמו",
+     "text_de": "Strafe dessen, der Vater und Mutter verflucht",
+     "text_en": "Punishment of one who curses his father and mother"
+    },
+    {
+     "ref": "20:9",
+     "text": "לא לקלל אב ואם",
+     "mz": 260,
+     "text_de": "Verbot, Vater und Mutter zu verfluchen",
+     "text_en": "Prohibition: cursing father and mother"
+    },
+    {
+     "ref": "20:10-21",
+     "text": "עונשי עריות",
+     "text_de": "Strafen für verbotene Geschlechtsbeziehungen",
+     "text_en": "Punishments for forbidden sexual relations"
+    },
+    {
+     "ref": "20:14",
+     "text": "מצוה לשרוף החייב שריפה",
+     "mz": 261,
+     "text_de": "Gebot, den zur Verbrennung Verurteilten zu verbrennen",
+     "text_en": "Commandment to burn one who is liable to burning"
+    },
+    {
+     "ref": "20:22-24",
+     "text": "איסור חוקות הגוים",
+     "text_de": "Verbot der Satzungen der Völker",
+     "text_en": "Prohibition of the statutes of the nations"
+    },
+    {
+     "ref": "20:23",
+     "text": "לא ללכת בחוקות הגוים",
+     "mz": 262,
+     "text_de": "Verbot, nach den Satzungen der Völker zu leben",
+     "text_en": "Prohibition: following the statutes of the nations"
+    },
+    {
+     "ref": "20:25-26",
+     "text": "הבדלה בין טמא לטהור",
+     "text_de": "Unterscheidung zwischen Unreinem und Reinem",
+     "text_en": "Distinguishing between the impure and the pure"
+    },
+    {
+     "ref": "20:27",
+     "text": "עונש אוב וידעוני",
+     "text_de": "Strafe für Totenbeschwörer und Wahrsager",
+     "text_en": "Punishment for necromancers and diviners"
+    }
+   ]
+  },
+  {
+   "head": "פרשת אמור",
+   "head_de": "Paraschat Emor",
+   "head_en": "Parashat Emor",
+   "items": [
+    {
+     "ref": "21:1-6",
+     "text": "איסור טומאה קרחה ושרטת לכהנים",
+     "text_de": "Verbot der Verunreinigung, der Glatzenbildung und des Einritzens für Priester",
+     "text_en": "Prohibition of defilement, baldness and cutting the flesh for priests"
+    },
+    {
+     "ref": "21:1-3",
+     "text": "לא יטמא כהן למת מלבד למי שהותרו",
+     "mz": 263,
+     "text_de": "Verbot: Ein Priester darf sich nicht an einem Toten verunreinigen, außer an den dafür Erlaubten",
+     "text_en": "Prohibition: a priest may not defile himself for the dead, except for those permitted"
+    },
+    {
+     "ref": "21:3",
+     "text": "טומאת כהנים לקרובים ובכללה אבלות ישראל על קרוביים",
+     "mz": 264,
+     "text_de": "Verunreinigung der Priester an Verwandten, einschließlich der Trauer der Israeliten um ihre Verwandten",
+     "text_en": "Defilement of priests for relatives, including mourning by Israelites for their relatives"
+    },
+    {
+     "ref": "21:6",
+     "text": "לא ישמש כהן טבול יום עד שיעריב שמשו",
+     "mz": 265,
+     "text_de": "Verbot: Ein Priester, der am selben Tag untergetaucht ist, darf nicht dienen, bis seine Sonne untergegangen ist",
+     "text_en": "Prohibition: a priest who immersed that day may not serve until sunset"
+    },
+    {
+     "ref": "21:7-8",
+     "text": "נשים הפסולות לכהנים",
+     "text_de": "Für Priester ungeeignete Frauen",
+     "text_en": "Women unfit for priests"
+    },
+    {
+     "ref": "21:7",
+     "text": "לא ישא כהן אשה זונה",
+     "mz": 266,
+     "text_de": "Verbot: Ein Priester darf keine Hure heiraten",
+     "text_en": "Prohibition: a priest may not marry a harlot"
+    },
+    {
+     "ref": "21:7",
+     "text": "לא ישא כהן אשה חללה",
+     "mz": 267,
+     "text_de": "Verbot: Ein Priester darf keine Chalala (entweihte Frau) heiraten",
+     "text_en": "Prohibition: a priest may not marry a challalah (disqualified woman)"
+    },
+    {
+     "ref": "21:7",
+     "text": "לא ישא כהן אשה גרושה",
+     "mz": 268,
+     "text_de": "Verbot: Ein Priester darf keine Geschiedene heiraten",
+     "text_en": "Prohibition: a priest may not marry a divorcée"
+    },
+    {
+     "ref": "21:8",
+     "text": "קידוש זרע אהרן",
+     "mz": 269,
+     "text_de": "Heiligung der Nachkommen Aarons",
+     "text_en": "Sanctification of the seed of Aaron"
+    },
+    {
+     "ref": "21:9",
+     "text": "עונש בת כהן שזנתה",
+     "text_de": "Strafe der Priestertochter, die Unzucht getrieben hat",
+     "text_en": "Punishment of a priest's daughter who has committed harlotry"
+    },
+    {
+     "ref": "21:10-12",
+     "text": "איסור טומאה פריעת ראש ופרימת בגדים לכהן גדול",
+     "text_de": "Verbot der Verunreinigung, des Entblößens des Hauptes und des Zerreißens der Kleider für den Hohepriester",
+     "text_en": "Prohibition of defilement, uncovering the head and tearing garments for the high priest"
+    },
+    {
+     "ref": "21:11",
+     "text": "לא יכנס כהן גדול באהל המת",
+     "mz": 270,
+     "text_de": "Verbot: Der Hohepriester darf kein Zelt eines Toten betreten",
+     "text_en": "Prohibition: the high priest may not enter a tent containing a corpse"
+    },
+    {
+     "ref": "21:11",
+     "text": "לא יטמא כהן גדול בשום טומאת מת",
+     "mz": 271,
+     "text_de": "Verbot: Der Hohepriester darf sich an keinem Toten verunreinigen",
+     "text_en": "Prohibition: the high priest may not defile himself for any dead person"
+    },
+    {
+     "ref": "21:13-15",
+     "text": "ציווי כהן גדול שלא ישא אלא בתולה",
+     "text_de": "Gebot für den Hohepriester, nur eine Jungfrau zu heiraten",
+     "text_en": "Commandment that the high priest marry only a virgin"
+    },
+    {
+     "ref": "21:13",
+     "text": "כהן גדול ישא נערה בתולה",
+     "mz": 272,
+     "text_de": "Gebot: Der Hohepriester heiratet ein Mädchen, eine Jungfrau",
+     "text_en": "Commandment: the high priest shall marry a young virgin"
+    },
+    {
+     "ref": "21:14",
+     "text": "לא ישא כהן גדול אלמנה",
+     "mz": 273,
+     "text_de": "Verbot: Der Hohepriester darf keine Witwe heiraten",
+     "text_en": "Prohibition: the high priest may not marry a widow"
+    },
+    {
+     "ref": "21:15",
+     "text": "לא יבעול כהן גדול אלמנה",
+     "mz": 274,
+     "text_de": "Verbot: Der Hohepriester darf einer Witwe nicht beiwohnen",
+     "text_en": "Prohibition: the high priest may not have relations with a widow"
+    },
+    {
+     "ref": "21:16-24",
+     "text": "דיני כהנים בעלי מום",
+     "text_de": "Gesetze über Priester mit Makel",
+     "text_en": "Laws of priests with blemishes"
+    },
+    {
+     "ref": "21:16-21",
+     "text": "לא יעבוד כהן בעל מום",
+     "mz": 275,
+     "text_de": "Verbot: Ein Priester mit Makel darf nicht dienen",
+     "text_en": "Prohibition: a blemished priest may not serve"
+    },
+    {
+     "ref": "21:21",
+     "text": "לא יעבוד כהן בעל מום עובר",
+     "mz": 276,
+     "text_de": "Verbot: Ein Priester mit vorübergehendem Makel darf nicht dienen",
+     "text_en": "Prohibition: a priest with a temporary blemish may not serve"
+    },
+    {
+     "ref": "21:23",
+     "text": "לא יכנס בעל מום בהיכל",
+     "mz": 277,
+     "text_de": "Verbot: Ein Makelbehafteter darf die Halle (Heichal) nicht betreten",
+     "text_en": "Prohibition: a blemished person may not enter the Sanctuary hall"
+    },
+    {
+     "ref": "22:1-9",
+     "text": "דיני כהנים טמאים בקרבנות",
+     "text_de": "Gesetze über unreine Priester in Bezug auf Opfer",
+     "text_en": "Laws of impure priests regarding sacrifices"
+    },
+    {
+     "ref": "22:2",
+     "text": "לא יעבוד כהן טמא",
+     "mz": 278,
+     "text_de": "Verbot: Ein unreiner Priester darf nicht dienen",
+     "text_en": "Prohibition: an impure priest may not serve"
+    },
+    {
+     "ref": "22:4",
+     "text": "לא יאכל כהן טמא תרומה",
+     "mz": 279,
+     "text_de": "Verbot: Ein unreiner Priester darf keine Teruma essen",
+     "text_en": "Prohibition: an impure priest may not eat terumah"
+    },
+    {
+     "ref": "22:10",
+     "text": "איסור זר בקדשים",
+     "text_de": "Verbot des Fremden bei Heiligem",
+     "text_en": "Prohibition of a non-priest partaking of sacred food"
+    },
+    {
+     "ref": "22:10",
+     "text": "לא יאכל שום זר תרומה",
+     "mz": 280,
+     "text_de": "Verbot: Kein Fremder darf Teruma essen",
+     "text_en": "Prohibition: no non-priest may eat terumah"
+    },
+    {
+     "ref": "22:10",
+     "text": "לא יאכל תושב כהן ושכיר תרומה",
+     "mz": 281,
+     "text_de": "Verbot: Ein Beisasse des Priesters und ein Tagelöhner dürfen keine Teruma essen",
+     "text_en": "Prohibition: a priest's resident hireling and a hired worker may not eat terumah"
+    },
+    {
+     "ref": "22:10",
+     "text": "לא יאכל ערל תרומה",
+     "mz": 282,
+     "text_de": "Verbot: Ein Unbeschnittener darf keine Teruma essen",
+     "text_en": "Prohibition: an uncircumcised person may not eat terumah"
+    },
+    {
+     "ref": "22:11",
+     "text": "היתר עבד כהן בקדשים",
+     "text_de": "Erlaubnis für den Sklaven eines Priesters bei Heiligem",
+     "text_en": "Permission for a priest's slave regarding sacred food"
+    },
+    {
+     "ref": "22:12-13",
+     "text": "דין בת כהן בקדשים",
+     "text_de": "Gesetz der Priestertochter bei Heiligem",
+     "text_en": "Law of a priest's daughter regarding sacred food"
+    },
+    {
+     "ref": "22:12",
+     "text": "לא תאכל חללה קודש",
+     "mz": 283,
+     "text_de": "Verbot: Eine Chalala darf Heiliges nicht essen",
+     "text_en": "Prohibition: a challalah may not eat sacred food"
+    },
+    {
+     "ref": "22:14-16",
+     "text": "דין זר שאכל קודש",
+     "text_de": "Gesetz des Fremden, der Heiliges gegessen hat",
+     "text_en": "Law of a non-priest who ate sacred food"
+    },
+    {
+     "ref": "22:15",
+     "text": "לא לאכול טבל",
+     "mz": 284,
+     "text_de": "Verbot, Tevel (nicht verzehntetes Getreide) zu essen",
+     "text_en": "Prohibition: eating tevel (untithed produce)"
+    },
+    {
+     "ref": "22:17-25",
+     "text": "איסור הקרבת בעל מום",
+     "text_de": "Verbot, Tiere mit Makel zu opfern",
+     "text_en": "Prohibition of offering blemished animals"
+    },
+    {
+     "ref": "22:20",
+     "text": "לא להקדיש בעלי מומים למזבח",
+     "mz": 285,
+     "text_de": "Verbot, makelbehaftete Tiere für den Altar zu weihen",
+     "text_en": "Prohibition: consecrating blemished animals for the altar"
+    },
+    {
+     "ref": "22:21",
+     "text": "שהקרבן יהיה תמים",
+     "mz": 286,
+     "text_de": "Gebot: Das Opfer muss makellos sein",
+     "text_en": "Commandment: the offering must be unblemished"
+    },
+    {
+     "ref": "22:21",
+     "text": "לא ליתן מום בקדשים",
+     "mz": 287,
+     "text_de": "Verbot, Opfertieren einen Makel zuzufügen",
+     "text_en": "Prohibition: inflicting a blemish on sacrificial animals"
+    },
+    {
+     "ref": "22:22",
+     "text": "לא לזרוק דם בעל מום על המזבח",
+     "mz": 288,
+     "text_de": "Verbot, das Blut makelbehafteter Tiere auf den Altar zu sprengen",
+     "text_en": "Prohibition: throwing the blood of blemished animals on the altar"
+    },
+    {
+     "ref": "22:22",
+     "text": "לא לשחוט בעלי מומים לשם קרבן",
+     "mz": 289,
+     "text_de": "Verbot, makelbehaftete Tiere als Opfer zu schlachten",
+     "text_en": "Prohibition: slaughtering blemished animals as sacrifices"
+    },
+    {
+     "ref": "22:22",
+     "text": "לא להקטיר אימורי בעלי מומים",
+     "mz": 290,
+     "text_de": "Verbot, die Fettstücke (Emurim) makelbehafteter Tiere zu verbrennen",
+     "text_en": "Prohibition: burning the sacrificial portions (emurim) of blemished animals"
+    },
+    {
+     "ref": "22:24",
+     "text": "לא לסרס אחד מכל המינין",
+     "mz": 291,
+     "text_de": "Verbot, ein Tier irgendeiner Art zu kastrieren",
+     "text_en": "Prohibition: castrating any species of animal"
+    },
+    {
+     "ref": "22:25",
+     "text": "לא להקריב קרבן בעל מום מיד הגוים",
+     "mz": 292,
+     "text_de": "Verbot, ein makelbehaftetes Opfer aus der Hand von Nichtjuden darzubringen",
+     "text_en": "Prohibition: offering a blemished sacrifice received from non-Jews"
+    },
+    {
+     "ref": "22:26-27",
+     "text": "גיל הבהמה להקרבה",
+     "text_de": "Alter des Opfertiers",
+     "text_en": "Age of the sacrificial animal"
+    },
+    {
+     "ref": "22:27",
+     "text": "שהקרבן יהיה משמונה ימים ומעלה",
+     "mz": 293,
+     "text_de": "Gebot: Das Opfer muss mindestens acht Tage alt sein",
+     "text_en": "Commandment: the offering must be at least eight days old"
+    },
+    {
+     "ref": "22:28",
+     "text": "איסור אותו ואת בנו",
+     "text_de": "Verbot: Ein Tier und sein Junges",
+     "text_en": "Prohibition of slaughtering it and its young"
+    },
+    {
+     "ref": "22:28",
+     "text": "לא לשחוט בהמה ובנה ביום אחד",
+     "mz": 294,
+     "text_de": "Verbot, ein Tier und sein Junges am selben Tag zu schlachten",
+     "text_en": "Prohibition: slaughtering an animal and its young on the same day"
+    },
+    {
+     "ref": "22:29-30",
+     "text": "דיני קרבן תודה",
+     "text_de": "Gesetze des Dankopfers",
+     "text_en": "Laws of the thanksgiving offering"
+    },
+    {
+     "ref": "22:31-33",
+     "text": "איסור חילול ה' ומצות קידושו",
+     "text_de": "Verbot der Entweihung des Namens des Ewigen und Gebot seiner Heiligung",
+     "text_en": "Prohibition of profaning the name of the Lord and the commandment to sanctify it"
+    },
+    {
+     "ref": "22:32",
+     "text": "לא לעשות דבר שיתחלל בו שם ה'",
+     "mz": 295,
+     "text_de": "Verbot, etwas zu tun, wodurch der Name des Ewigen entweiht wird",
+     "text_en": "Prohibition: doing anything that profanes the name of the Lord"
+    },
+    {
+     "ref": "22:32",
+     "text": "קידוש השם",
+     "mz": 296,
+     "text_de": "Heiligung des Namens",
+     "text_en": "Sanctification of the Name"
+    },
+    {
+     "ref": "23:1-3",
+     "text": "מצות שמירת שבת",
+     "text_de": "Gebot der Sabbatbeachtung",
+     "text_en": "Commandment of Sabbath observance"
+    },
+    {
+     "ref": "23:4-8",
+     "text": "מצות חג הפסח",
+     "text_de": "Gebot des Pessachfestes",
+     "text_en": "Commandment of the festival of Passover"
+    },
+    {
+     "ref": "23:7",
+     "text": "שביתה ביום ראשון של פסח",
+     "mz": 297,
+     "text_de": "Arbeitsruhe am ersten Tag von Pessach",
+     "text_en": "Rest on the first day of Passover"
+    },
+    {
+     "ref": "23:7",
+     "text": "לא לעשות מלאכה בראשון של פסח",
+     "mz": 298,
+     "text_de": "Verbot, am ersten Tag von Pessach Arbeit zu verrichten",
+     "text_en": "Prohibition: working on the first day of Passover"
+    },
+    {
+     "ref": "23:8",
+     "text": "קרבן מוסף כל שבעת ימי פסח",
+     "mz": 299,
+     "text_de": "Zusatzopfer an allen sieben Tagen von Pessach",
+     "text_en": "Additional offering on each of the seven days of Passover"
+    },
+    {
+     "ref": "23:8",
+     "text": "שביתה בשביעי של פסח",
+     "mz": 300,
+     "text_de": "Arbeitsruhe am siebten Tag von Pessach",
+     "text_en": "Rest on the seventh day of Passover"
+    },
+    {
+     "ref": "23:8",
+     "text": "לא לעשות מלאכה בשביעי של פסח",
+     "mz": 301,
+     "text_de": "Verbot, am siebten Tag von Pessach Arbeit zu verrichten",
+     "text_en": "Prohibition: working on the seventh day of Passover"
+    },
+    {
+     "ref": "23:9-14",
+     "text": "מצות העומר",
+     "text_de": "Gebot des Omers",
+     "text_en": "Commandment of the omer"
+    },
+    {
+     "ref": "23:9-11",
+     "text": "קרבן העומר בשני של פסח",
+     "mz": 302,
+     "text_de": "Omer-Opfer am zweiten Tag von Pessach",
+     "text_en": "The omer offering on the second day of Passover"
+    },
+    {
+     "ref": "23:14",
+     "text": "לא לאכול מתבואה חדשה קודם כלות ט\"ז ניסן",
+     "mz": 303,
+     "text_de": "Verbot, vor Ablauf des 16. Nissan neues Getreide zu essen",
+     "text_en": "Prohibition: eating new grain before the end of the 16th of Nissan"
+    },
+    {
+     "ref": "23:14",
+     "text": "לא לאכול קלי מתבואה חדשה קודם כלות ט\"ז ניסן",
+     "mz": 304,
+     "text_de": "Verbot, vor Ablauf des 16. Nissan geröstete Körner von neuem Getreide zu essen",
+     "text_en": "Prohibition: eating roasted grain of the new crop before the end of the 16th of Nissan"
+    },
+    {
+     "ref": "23:14",
+     "text": "לא לאכול כרמל מתבואה חדשה קודם כלות ט\"ז ניסן",
+     "mz": 305,
+     "text_de": "Verbot, vor Ablauf des 16. Nissan frische Ähren (Karmel) von neuem Getreide zu essen",
+     "text_en": "Prohibition: eating fresh ears (carmel) of the new crop before the end of the 16th of Nissan"
+    },
+    {
+     "ref": "23:15-20",
+     "text": "מצות ספירת העומר והקרבת המנחה",
+     "text_de": "Gebot der Omerzählung und der Darbringung des Speiseopfers",
+     "text_en": "Commandment of counting the omer and bringing the meal offering"
+    },
+    {
+     "ref": "23:15-16",
+     "text": "ספירת העומר",
+     "mz": 306,
+     "text_de": "Omerzählung",
+     "text_en": "Counting of the omer"
+    },
+    {
+     "ref": "23:16-17",
+     "text": "קרבן מנחה חדשה בעצרת",
+     "mz": 307,
+     "text_de": "Opfer des neuen Speiseopfers an Schawuot",
+     "text_en": "The new meal offering on Shavuot"
+    },
+    {
+     "ref": "23:21",
+     "text": "מצות חג השבועות",
+     "text_de": "Gebot des Wochenfestes (Schawuot)",
+     "text_en": "Commandment of the festival of Shavuot"
+    },
+    {
+     "ref": "23:21",
+     "text": "שביתה ממלאכה בעצרת",
+     "mz": 308,
+     "text_de": "Arbeitsruhe an Schawuot",
+     "text_en": "Rest from work on Shavuot"
+    },
+    {
+     "ref": "23:21",
+     "text": "לא לעשות מלאכה בעצרת",
+     "mz": 309,
+     "text_de": "Verbot, an Schawuot Arbeit zu verrichten",
+     "text_en": "Prohibition: working on Shavuot"
+    },
+    {
+     "ref": "23:22",
+     "text": "מצות פאה ולקט",
+     "text_de": "Gebot von Pea (Feldecke) und Leket (Nachlese)",
+     "text_en": "Commandment of pe'ah (field corner) and leket (gleanings)"
+    },
+    {
+     "ref": "23:23-25",
+     "text": "מצות ראש השנה",
+     "text_de": "Gebot von Rosch Haschana",
+     "text_en": "Commandment of Rosh Hashanah"
+    },
+    {
+     "ref": "23:24",
+     "text": "שביתה בראש השנה",
+     "mz": 310,
+     "text_de": "Arbeitsruhe an Rosch Haschana",
+     "text_en": "Rest on Rosh Hashanah"
+    },
+    {
+     "ref": "23:25",
+     "text": "לא לעשות מלאכה בראש השנה",
+     "mz": 311,
+     "text_de": "Verbot, an Rosch Haschana Arbeit zu verrichten",
+     "text_en": "Prohibition: working on Rosh Hashanah"
+    },
+    {
+     "ref": "23:25",
+     "text": "קרבן מוסף בראש השנה",
+     "mz": 312,
+     "text_de": "Zusatzopfer an Rosch Haschana",
+     "text_en": "Additional offering on Rosh Hashanah"
+    },
+    {
+     "ref": "23:26-32",
+     "text": "מצות יום הכיפורים",
+     "text_de": "Gebot des Jom Kippur",
+     "text_en": "Commandment of Yom Kippur"
+    },
+    {
+     "ref": "23:26-27",
+     "text": "תענית ביום הכיפורים",
+     "mz": 313,
+     "text_de": "Fasten am Jom Kippur",
+     "text_en": "Fasting on Yom Kippur"
+    },
+    {
+     "ref": "23:27",
+     "text": "קרבן מוסף ביום הכיפורים",
+     "mz": 314,
+     "text_de": "Zusatzopfer am Jom Kippur",
+     "text_en": "Additional offering on Yom Kippur"
+    },
+    {
+     "ref": "23:27, 23:29",
+     "text": "לא לאכול ולשתות ביום הכיפורים",
+     "mz": 316,
+     "text_de": "Verbot, am Jom Kippur zu essen und zu trinken",
+     "text_en": "Prohibition: eating and drinking on Yom Kippur"
+    },
+    {
+     "ref": "23:28",
+     "text": "לא לעשות מלאכה ביום הכיפורים",
+     "mz": 315,
+     "text_de": "Verbot, am Jom Kippur Arbeit zu verrichten",
+     "text_en": "Prohibition: working on Yom Kippur"
+    },
+    {
+     "ref": "23:32",
+     "text": "שביתה ממלאכה ביום הכיפורים",
+     "mz": 317,
+     "text_de": "Arbeitsruhe am Jom Kippur",
+     "text_en": "Rest from work on Yom Kippur"
+    },
+    {
+     "ref": "23:33-44",
+     "text": "מצות חג הסוכות ושמיני עצרת",
+     "text_de": "Gebot des Laubhüttenfestes und des Schemini Azeret",
+     "text_en": "Commandment of the festival of Sukkot and Shemini Atzeret"
+    },
+    {
+     "ref": "23:33-34",
+     "text": "שביתה ממלאכה בראשון של סוכות",
+     "mz": 318,
+     "text_de": "Arbeitsruhe am ersten Tag von Sukkot",
+     "text_en": "Rest from work on the first day of Sukkot"
+    },
+    {
+     "ref": "23:35",
+     "text": "לא לעשות מלאכה בראשון של סוכות",
+     "mz": 319,
+     "text_de": "Verbot, am ersten Tag von Sukkot Arbeit zu verrichten",
+     "text_en": "Prohibition: working on the first day of Sukkot"
+    },
+    {
+     "ref": "23:36",
+     "text": "קרבן מוסף בכל יום משבעת ימי סוכות",
+     "mz": 320,
+     "text_de": "Zusatzopfer an jedem der sieben Tage von Sukkot",
+     "text_en": "Additional offering on each of the seven days of Sukkot"
+    },
+    {
+     "ref": "23:36",
+     "text": "שביתה ממלאכה בשמיני של סוכות",
+     "mz": 321,
+     "text_de": "Arbeitsruhe am achten Tag von Sukkot",
+     "text_en": "Rest from work on the eighth day of Sukkot"
+    },
+    {
+     "ref": "23:36",
+     "text": "קרבן מוסף בשמיני של סוכות",
+     "mz": 322,
+     "text_de": "Zusatzopfer am achten Tag von Sukkot",
+     "text_en": "Additional offering on the eighth day of Sukkot"
+    },
+    {
+     "ref": "23:36",
+     "text": "לא לעשות מלאכה בשמיני של סוכות",
+     "mz": 323,
+     "text_de": "Verbot, am achten Tag von Sukkot Arbeit zu verrichten",
+     "text_en": "Prohibition: working on the eighth day of Sukkot"
+    },
+    {
+     "ref": "23:40",
+     "text": "נטילת לולב",
+     "mz": 324,
+     "text_de": "Nehmen des Lulav",
+     "text_en": "Taking the lulav"
+    },
+    {
+     "ref": "23:42-43",
+     "text": "ישיבת סוכה",
+     "mz": 325,
+     "text_de": "Wohnen in der Sukka",
+     "text_en": "Dwelling in the sukkah"
+    },
+    {
+     "ref": "24:1-4",
+     "text": "מצות הדלקת המנורה",
+     "text_de": "Gebot des Anzündens der Menora",
+     "text_en": "Commandment of kindling the menorah"
+    },
+    {
+     "ref": "24:5-9",
+     "text": "מצות לחם הפנים",
+     "text_de": "Gebot des Schaubrots",
+     "text_en": "Commandment of the showbread"
+    },
+    {
+     "ref": "24:10-12",
+     "text": "פרשת מקלל שם ה'",
+     "text_de": "Abschnitt über den, der den Namen des Ewigen verflucht",
+     "text_en": "The passage on the one who blasphemes the name of the Lord"
+    },
+    {
+     "ref": "24:13-16",
+     "text": "דין מקלל ה' במיתה",
+     "text_de": "Gesetz: Wer den Ewigen verflucht, wird mit dem Tod bestraft",
+     "text_en": "Law: one who curses the Lord is put to death"
+    },
+    {
+     "ref": "24:17",
+     "text": "עונש מכה נפש",
+     "text_de": "Strafe für den Totschläger",
+     "text_en": "Punishment for one who kills a person"
+    },
+    {
+     "ref": "24:18-22",
+     "text": "תשלומי מזיק אדם וממון",
+     "text_de": "Ersatzleistungen für Schädigung von Mensch und Vermögen",
+     "text_en": "Compensation for injury to a person and to property"
+    },
+    {
+     "ref": "24:23",
+     "text": "מיתת המקלל",
+     "text_de": "Hinrichtung des Fluchenden",
+     "text_en": "Execution of the blasphemer"
+    }
+   ]
+  },
+  {
+   "head": "פרשת בהר",
+   "head_de": "Paraschat Behar",
+   "head_en": "Parashat Behar",
+   "items": [
+    {
+     "ref": "25:1-7",
+     "text": "מצות שמיטה",
+     "text_de": "Gebot des Brachjahres (Schmitta)",
+     "text_en": "Commandment of the sabbatical year (shemittah)"
+    },
+    {
+     "ref": "25:4",
+     "text": "לא לעבוד האדמה בשביעית",
+     "mz": 326,
+     "text_de": "Verbot, im siebten Jahr den Boden zu bearbeiten",
+     "text_en": "Prohibition: working the land in the seventh year"
+    },
+    {
+     "ref": "25:4",
+     "text": "לא לעבוד עבודה גם באילנות בשביעית",
+     "mz": 327,
+     "text_de": "Verbot, im siebten Jahr auch Bäume zu bearbeiten",
+     "text_en": "Prohibition: working trees as well in the seventh year"
+    },
+    {
+     "ref": "25:5",
+     "text": "לא לקצור ספיחים בשביעית",
+     "mz": 328,
+     "text_de": "Verbot, im siebten Jahr Nachwuchs (Spichim) zu ernten",
+     "text_en": "Prohibition: reaping aftergrowth in the seventh year"
+    },
+    {
+     "ref": "25:5",
+     "text": "לא לאסוף מאילן בשביעית כדרך שאוספים תמיד",
+     "mz": 329,
+     "text_de": "Verbot, im siebten Jahr vom Baum so zu sammeln, wie man es sonst immer tut",
+     "text_en": "Prohibition: gathering fruit from trees in the seventh year as is done in other years"
+    },
+    {
+     "ref": "25:8-13",
+     "text": "מצות יובל ושחרור העבדים",
+     "text_de": "Gebot des Jubeljahres und der Freilassung der Sklaven",
+     "text_en": "Commandment of the jubilee and the release of slaves"
+    },
+    {
+     "ref": "25:8",
+     "text": "ספירת שבע שבתות שנים",
+     "mz": 330,
+     "text_de": "Zählen von sieben Jahrwochen",
+     "text_en": "Counting seven sabbatical cycles"
+    },
+    {
+     "ref": "25:9-10",
+     "text": "תקיעת שופר ביום הכיפורים של יובל",
+     "mz": 331,
+     "text_de": "Blasen des Schofars am Jom Kippur des Jubeljahres",
+     "text_en": "Sounding the shofar on Yom Kippur of the jubilee"
+    },
+    {
+     "ref": "25:10-12",
+     "text": "קידוש שנת היובל",
+     "mz": 332,
+     "text_de": "Heiligung des Jubeljahres",
+     "text_en": "Sanctification of the jubilee year"
+    },
+    {
+     "ref": "25:11",
+     "text": "לא לעבוד הארץ בשנת היובל",
+     "mz": 333,
+     "text_de": "Verbot, im Jubeljahr das Land zu bearbeiten",
+     "text_en": "Prohibition: working the land in the jubilee year"
+    },
+    {
+     "ref": "25:11",
+     "text": "לא לקצור ספיחי תבואות של שנת היובל",
+     "mz": 334,
+     "text_de": "Verbot, im Jubeljahr den Nachwuchs des Getreides zu ernten",
+     "text_en": "Prohibition: reaping the aftergrowth of grain in the jubilee year"
+    },
+    {
+     "ref": "25:11",
+     "text": "לא לאסוף מאילן ביובל כדרך שאוספים תמיד",
+     "mz": 335,
+     "text_de": "Verbot, im Jubeljahr vom Baum so zu sammeln, wie man es sonst immer tut",
+     "text_en": "Prohibition: gathering fruit from trees in the jubilee as is done in other years"
+    },
+    {
+     "ref": "25:14-17",
+     "text": "איסורי אונאה",
+     "text_de": "Verbote der Übervorteilung",
+     "text_en": "Prohibitions of wronging and overreaching"
+    },
+    {
+     "ref": "25:14",
+     "text": "עשיית דין בין לוקח ומוכר",
+     "mz": 336,
+     "text_de": "Rechtsprechung zwischen Käufer und Verkäufer",
+     "text_en": "Judgment between buyer and seller"
+    },
+    {
+     "ref": "25:14",
+     "text": "לא להונות במקח וממכר",
+     "mz": 337,
+     "text_de": "Verbot, beim Kauf und Verkauf zu übervorteilen",
+     "text_en": "Prohibition: overreaching in buying and selling"
+    },
+    {
+     "ref": "25:17",
+     "text": "לא להונות אחד מישראל בדברים",
+     "mz": 338,
+     "text_de": "Verbot, einen Israeliten mit Worten zu kränken",
+     "text_en": "Prohibition: wronging an Israelite with words"
+    },
+    {
+     "ref": "25:18-22",
+     "text": "הבטחה שתיתן הארץ פריה",
+     "text_de": "Verheißung, dass das Land seine Frucht geben wird",
+     "text_en": "Promise that the land will yield its fruit"
+    },
+    {
+     "ref": "25:23-24",
+     "text": "מצות חזרת קרקעות ביובל",
+     "text_de": "Gebot der Rückgabe der Grundstücke im Jubeljahr",
+     "text_en": "Commandment of the return of lands in the jubilee"
+    },
+    {
+     "ref": "25:23",
+     "text": "לא למכור שדה בארץ ישראל לצמיתות",
+     "mz": 339,
+     "text_de": "Verbot, ein Feld im Land Israel endgültig zu verkaufen",
+     "text_en": "Prohibition: selling a field in the Land of Israel permanently"
+    },
+    {
+     "ref": "25:25-28",
+     "text": "דיני גאולת אחוזות וחזרתם ביובל",
+     "text_de": "Gesetze über die Auslösung von Besitztümern und ihre Rückkehr im Jubeljahr",
+     "text_en": "Laws of redeeming ancestral holdings and their return in the jubilee"
+    },
+    {
+     "ref": "25:27",
+     "text": "השבת קרקע לבעליהן ביובל",
+     "mz": 340,
+     "text_de": "Rückgabe des Grundstücks an die Eigentümer im Jubeljahr",
+     "text_en": "Returning land to its owners in the jubilee"
+    },
+    {
+     "ref": "25:29-30",
+     "text": "דיני חזרת בתי ערי חומה ביובל",
+     "text_de": "Gesetze über die Rückkehr der Häuser in ummauerten Städten im Jubeljahr",
+     "text_en": "Laws of the return of houses in walled cities in the jubilee"
+    },
+    {
+     "ref": "25:29",
+     "text": "פדיון הנחלות שבתוך העיר עד השלמת שנה",
+     "mz": 341,
+     "text_de": "Auslösung von Besitz innerhalb der Stadt bis zum Ablauf eines Jahres",
+     "text_en": "Redemption of property within the city until a full year has passed"
+    },
+    {
+     "ref": "25:31",
+     "text": "דיני חזרת שדה חצרים ביובל",
+     "text_de": "Gesetze über die Rückkehr der Felder der Dörfer im Jubeljahr",
+     "text_en": "Laws of the return of village fields in the jubilee"
+    },
+    {
+     "ref": "25:32-34",
+     "text": "דיני ערי הלוים ביובל",
+     "text_de": "Gesetze über die Levitenstädte im Jubeljahr",
+     "text_en": "Laws of the Levite cities in the jubilee"
+    },
+    {
+     "ref": "25:34",
+     "text": "לא לשנות מגרשי ערי הלוים ושדותיהם",
+     "mz": 342,
+     "text_de": "Verbot, die Weideplätze der Levitenstädte und ihre Felder zu verändern",
+     "text_en": "Prohibition: altering the pasture lands and fields of the Levite cities"
+    },
+    {
+     "ref": "25:35",
+     "text": "מצות החזקת יד עני",
+     "text_de": "Gebot, dem Armen unter die Arme zu greifen",
+     "text_en": "Commandment to support the poor"
+    },
+    {
+     "ref": "25:36-37",
+     "text": "איסור נשך ותרבית",
+     "text_de": "Verbot von Zins und Aufschlag",
+     "text_en": "Prohibition of interest and increase"
+    },
+    {
+     "ref": "25:37",
+     "text": "לא להלוות ברבית לישראל",
+     "mz": 343,
+     "text_de": "Verbot, einem Israeliten gegen Zins zu leihen",
+     "text_en": "Prohibition: lending to an Israelite at interest"
+    },
+    {
+     "ref": "25:38-43",
+     "text": "יציאת עבד ביובל ואיסור העבדתו בפרך",
+     "text_de": "Auszug des Sklaven im Jubeljahr und Verbot, ihn mit Härte arbeiten zu lassen",
+     "text_en": "Release of the slave in the jubilee and the prohibition of making him work with rigor"
+    },
+    {
+     "ref": "25:39",
+     "text": "לא לעבוד בעבד עברי בבזיון שעובדים בכנעני",
+     "mz": 344,
+     "text_de": "Verbot, einen hebräischen Sklaven in erniedrigender Weise arbeiten zu lassen, wie man einen Kanaaniter arbeiten lässt",
+     "text_en": "Prohibition: making a Hebrew slave work in a degrading manner, as a Canaanite slave is made to work"
+    },
+    {
+     "ref": "25:42",
+     "text": "לא למכור עבד עברי על אבן המקח",
+     "mz": 345,
+     "text_de": "Verbot, einen hebräischen Sklaven auf dem Verkaufsstein zu verkaufen",
+     "text_en": "Prohibition: selling a Hebrew slave on the auction block"
+    },
+    {
+     "ref": "25:43",
+     "text": "לא לעבוד בעבד עברי בפרך",
+     "mz": 346,
+     "text_de": "Verbot, einen hebräischen Sklaven mit Härte arbeiten zu lassen",
+     "text_en": "Prohibition: making a Hebrew slave work with rigor"
+    },
+    {
+     "ref": "25:44-46",
+     "text": "דיני עבד כנעני",
+     "text_de": "Gesetze über den kanaanitischen Sklaven",
+     "text_en": "Laws of the Canaanite slave"
+    },
+    {
+     "ref": "25:46",
+     "text": "עבודה בעבד כנעני לעולם",
+     "mz": 347,
+     "text_de": "Dauerhafte Dienstverpflichtung eines kanaanitischen Sklaven",
+     "text_en": "Permanent service of a Canaanite slave"
+    },
+    {
+     "ref": "25:47-55",
+     "text": "דיני גאולת עבד עברי ויציאתו ביובל",
+     "text_de": "Gesetze über die Auslösung des hebräischen Sklaven und seinen Auszug im Jubeljahr",
+     "text_en": "Laws of redeeming a Hebrew slave and his release in the jubilee"
+    },
+    {
+     "ref": "25:53",
+     "text": "לא להניח לגוי לעבוד בעבד עברי הנמכר לו",
+     "mz": 348,
+     "text_de": "Verbot, zuzulassen, dass ein Nichtjude einen an ihn verkauften hebräischen Sklaven mit Härte arbeiten lässt",
+     "text_en": "Prohibition: allowing a non-Jew to work a Hebrew slave sold to him with rigor"
+    },
+    {
+     "ref": "26:1",
+     "text": "איסורי עשיית עבודה זרה",
+     "text_de": "Verbote, Götzendienstliches herzustellen",
+     "text_en": "Prohibitions of making objects of idolatry"
+    },
+    {
+     "ref": "26:1",
+     "text": "לא להשתחוות על אבן משכית אפילו לה'",
+     "mz": 349,
+     "text_de": "Verbot, sich auf einem Steinbelag niederzuwerfen, selbst für den Ewigen",
+     "text_en": "Prohibition: bowing down upon a stone pavement, even to the Lord"
+    },
+    {
+     "ref": "26:2",
+     "text": "מצות שמירת שבת ומורא מקדש",
+     "text_de": "Gebot der Sabbatbeachtung und der Ehrfurcht vor dem Heiligtum",
+     "text_en": "Commandment of Sabbath observance and reverence for the Sanctuary"
+    }
+   ]
+  },
+  {
+   "head": "פרשת בחוקותי",
+   "head_de": "Paraschat Bechukotai",
+   "head_en": "Parashat Bechukotai",
+   "items": [
+    {
+     "ref": "26:3-13",
+     "text": "ברכות אם ישמרו המצוות",
+     "text_de": "Segnungen, wenn sie die Gebote halten",
+     "text_en": "Blessings if they keep the commandments"
+    },
+    {
+     "ref": "26:14-41",
+     "text": "קללות אם לא ישמרו המצוות",
+     "text_de": "Flüche, wenn sie die Gebote nicht halten",
+     "text_en": "Curses if they do not keep the commandments"
+    },
+    {
+     "ref": "26:42-45",
+     "text": "גם בקללתם יזכרם ה'",
+     "text_de": "Auch in ihrer Verfluchung gedenkt der Ewige ihrer",
+     "text_en": "Even amid their curse, the Lord remembers them"
+    },
+    {
+     "ref": "27:1-8",
+     "text": "דיני ערכין",
+     "text_de": "Gesetze der Schätzgelübde (Arachin)",
+     "text_en": "Laws of valuation vows (arachin)"
+    },
+    {
+     "ref": "27:1-8",
+     "text": "מעריך אדם שיתן דמיו הקצובים בתורה",
+     "mz": 350,
+     "text_de": "Gebot: Wer einen Menschen schätzt, gibt den in der Tora festgesetzten Betrag",
+     "text_en": "Commandment: one who vows a person's valuation gives the amount set in the Torah"
+    },
+    {
+     "ref": "27:9-10",
+     "text": "דיני הקדשת בהמה ותמורה",
+     "text_de": "Gesetze über die Weihung von Vieh und den Tausch",
+     "text_en": "Laws of consecrating an animal and of substitution"
+    },
+    {
+     "ref": "27:10",
+     "text": "לא להמיר קדשים",
+     "mz": 351,
+     "text_de": "Verbot, Geweihtes auszutauschen",
+     "text_en": "Prohibition: substituting consecrated animals"
+    },
+    {
+     "ref": "27:10",
+     "text": "ממיר בהמת קרבן שתיהן קודש",
+     "mz": 352,
+     "text_de": "Wer ein Opfertier austauscht: beide sind heilig",
+     "text_en": "One who substitutes a sacrificial animal: both are holy"
+    },
+    {
+     "ref": "27:11-13",
+     "text": "דיני בהמת קודש שהוממה",
+     "text_de": "Gesetze über ein geweihtes Tier, das einen Makel bekam",
+     "text_en": "Laws of a consecrated animal that became blemished"
+    },
+    {
+     "ref": "27:11-12",
+     "text": "מעריך בהמה שיתן כפי שיעריכנה הכהן",
+     "mz": 353,
+     "text_de": "Gebot: Wer ein Tier schätzt, gibt, wie der Priester es schätzt",
+     "text_en": "Commandment: one who vows the valuation of an animal gives as the priest values it"
+    },
+    {
+     "ref": "27:14-24",
+     "text": "דיני מקדיש ביתו ושדהו וגאולתם",
+     "text_de": "Gesetze über die Weihung von Haus und Feld und deren Auslösung",
+     "text_en": "Laws of consecrating a house and a field and redeeming them"
+    },
+    {
+     "ref": "27:14-15",
+     "text": "מעריך בתים שיתן כפי שיעריכם הכהן ויוסיף חומש",
+     "mz": 354,
+     "text_de": "Gebot: Wer Häuser schätzt, gibt, wie der Priester sie schätzt, und fügt ein Fünftel hinzu",
+     "text_en": "Commandment: one who vows the valuation of houses gives as the priest values them and adds a fifth"
+    },
+    {
+     "ref": "27:16-25",
+     "text": "מעריך שדה שיתן בערך הקצוב בפרשה",
+     "mz": 355,
+     "text_de": "Gebot: Wer ein Feld schätzt, gibt den im Abschnitt festgesetzten Betrag",
+     "text_en": "Commandment: one who vows the valuation of a field gives the amount set in the passage"
+    },
+    {
+     "ref": "27:25",
+     "text": "דמי ערכין בשקל הקודש",
+     "text_de": "Schätzbeträge nach dem heiligen Schekel",
+     "text_en": "Valuation amounts in the sanctuary shekel"
+    },
+    {
+     "ref": "27:26",
+     "text": "דיני בכור",
+     "text_de": "Gesetze über den Erstgeborenen",
+     "text_en": "Laws of the firstborn"
+    },
+    {
+     "ref": "27:26",
+     "text": "לא לשנות הקדשים מקרבן לקרבן",
+     "mz": 356,
+     "text_de": "Verbot, Geweihtes von einem Opfer in ein anderes zu ändern",
+     "text_en": "Prohibition: changing consecrated animals from one offering to another"
+    },
+    {
+     "ref": "27:27",
+     "text": "דיני מקדיש בהמה טמאה",
+     "text_de": "Gesetze über die Weihung eines unreinen Tieres",
+     "text_en": "Laws of consecrating an impure animal"
+    },
+    {
+     "ref": "27:28-29",
+     "text": "דיני חרמות",
+     "text_de": "Gesetze über den Bann (Cherem)",
+     "text_en": "Laws of devoted property (cherem)"
+    },
+    {
+     "ref": "27:28",
+     "text": "דין מחרמים מנכסיו שהוא לכהנים",
+     "mz": 357,
+     "text_de": "Gesetz: Was jemand von seinem Besitz zum Bann erklärt, gehört den Priestern",
+     "text_en": "Law: property one devotes as cherem belongs to the priests"
+    },
+    {
+     "ref": "27:28",
+     "text": "לא תמכר קרקע שהחרימה בעליה אלא תנתן לכהנים",
+     "mz": 358,
+     "text_de": "Verbot: Ein vom Eigentümer gebanntes Land darf nicht verkauft werden, sondern wird den Priestern gegeben",
+     "text_en": "Prohibition: land devoted by its owner may not be sold but is given to the priests"
+    },
+    {
+     "ref": "27:28",
+     "text": "לא יגאל שדה החרם",
+     "mz": 359,
+     "text_de": "Verbot: Ein gebanntes Feld darf nicht ausgelöst werden",
+     "text_en": "Prohibition: a devoted field may not be redeemed"
+    },
+    {
+     "ref": "27:30-31",
+     "text": "דיני מעשר שני",
+     "text_de": "Gesetze des zweiten Zehnten",
+     "text_en": "Laws of the second tithe"
+    },
+    {
+     "ref": "27:32-34",
+     "text": "דיני מעשר בהמה",
+     "text_de": "Gesetze des Viehzehnten",
+     "text_en": "Laws of the animal tithe"
+    },
+    {
+     "ref": "27:32",
+     "text": "מעשר בהמה טהורה",
+     "mz": 360,
+     "text_de": "Zehnt vom reinen Vieh",
+     "text_en": "Tithe of pure animals"
+    },
+    {
+     "ref": "27:33",
+     "text": "לא למכור מעשר בהמה",
+     "mz": 361,
+     "text_de": "Verbot, den Viehzehnten zu verkaufen",
+     "text_en": "Prohibition: selling the animal tithe"
+    }
+   ]
+  }
+ ]
+}

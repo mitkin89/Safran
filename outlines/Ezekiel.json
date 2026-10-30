@@ -1,0 +1,634 @@
+{
+ "book": "Ezekiel",
+ "title": "תוכן ספר יחזקאל",
+ "note": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt.",
+ "sections": [
+  {
+   "head": "נבואות תוכחה",
+   "items": [
+    {
+     "ref": "1",
+     "text": "מראה מרכבת ה'",
+     "time": "ה' בתמוז ג'של\"ב",
+     "par": "חזרה: להלן י ט-כב; נבואה דומה: ישעיה ו",
+     "text_de": "Vision des göttlichen Thronwagens",
+     "text_en": "Vision of the divine chariot",
+     "par_de": "Wiederholung: Ezechiel 10:9–22 (unten); ähnliche Prophezeiung: Jesaja 6",
+     "par_en": "Repeat: Ezekiel 10:9–22 (below); Similar prophecy: Isaiah 6",
+     "time_de": "5. Tammus 3332",
+     "time_en": "5 Tammuz 3332"
+    },
+    {
+     "ref": "2-3",
+     "text": "תפקידו להוכיח העם, ואף כשאינם נשמעים",
+     "time": "ג'של\"ב",
+     "par": "ראה להלן לג א-ט",
+     "text_de": "Seine Aufgabe, das Volk zurechtzuweisen, auch wenn sie nicht hören",
+     "text_en": "His task to rebuke the people, even when they do not listen",
+     "par_de": "Siehe Ezechiel 33:1–9 (unten)",
+     "par_en": "See Ezekiel 33:1–9 (below)",
+     "time_de": "3332",
+     "time_en": "3332"
+    },
+    {
+     "ref": "4",
+     "text": "יסורי הנביא לכפר עוונות העם",
+     "text_de": "Leiden des Propheten zur Sühne der Sünden des Volkes",
+     "text_en": "The prophet's suffering to atone for the sins of the people"
+    },
+    {
+     "ref": "5",
+     "text": "נבואה - פורענות ירושלים [בדרך משל]",
+     "text_de": "Prophezeiung – Unheil über Jerusalem [als Gleichnis]",
+     "text_en": "Prophecy – calamity for Jerusalem [in parable form]"
+    },
+    {
+     "ref": "6",
+     "text": "הפורענות שתבוא על עובדי ע\"ז",
+     "text_de": "Das Unheil, das über die Götzendiener kommen wird",
+     "text_en": "The calamity that will come upon the idol worshippers"
+    },
+    {
+     "ref": "7",
+     "text": "נבואה על חורבן ביהמ\"ק והגלות הקרבים לבוא",
+     "text_de": "Prophezeiung über die Zerstörung des Tempels und das nahe bevorstehende Exil",
+     "text_en": "Prophecy about the destruction of the Temple and the imminent exile"
+    },
+    {
+     "ref": "8",
+     "text": "מחזה - חטאי העם בירושלים",
+     "time": "ה' באלול ג'של\"ג",
+     "text_de": "Schauung – die Sünden des Volkes in Jerusalem",
+     "text_en": "Vision – the sins of the people in Jerusalem",
+     "time_de": "5. Elul 3333",
+     "time_en": "5 Elul 3333"
+    },
+    {
+     "ref": "9",
+     "text": "מחזה - פורענות המשחיתים ביושבי ירושלים",
+     "text_de": "Schauung – Unheil der Verderber unter den Bewohnern Jerusalems",
+     "text_en": "Vision – calamity of the destroyers among the inhabitants of Jerusalem"
+    },
+    {
+     "ref": "10:1-8",
+     "text": "מחזה - השלכת המלאכים גחלים על ירושלים",
+     "text_de": "Schauung – Engel werfen Glühkohlen auf Jerusalem",
+     "text_en": "Vision – the angels cast burning coals upon Jerusalem"
+    },
+    {
+     "ref": "10:9-22",
+     "text": "מראה מרכבת ה'",
+     "par": "חזרה על: לעיל פרק א",
+     "text_de": "Vision des göttlichen Thronwagens",
+     "text_en": "Vision of the divine chariot",
+     "par_de": "Wiederholung von: Ezechiel 1 (oben)",
+     "par_en": "Repeat of: Ezekiel 1 (above)"
+    },
+    {
+     "ref": "11:1-13",
+     "text": "נבואה לשרים על הפורענות והגלות הקרבים לבוא",
+     "text_de": "Prophezeiung an die Fürsten über das nahe bevorstehende Unheil und Exil",
+     "text_en": "Prophecy to the princes about the imminent calamity and exile"
+    },
+    {
+     "ref": "11:14-25",
+     "text": "נבואה על הגאולה וקיבוץ הגלויות",
+     "text_de": "Prophezeiung über die Erlösung und die Sammlung der Verbannten",
+     "text_en": "Prophecy about the redemption and the ingathering of the exiles"
+    },
+    {
+     "ref": "12:1-16",
+     "text": "נבואה על מנוסת צדקיהו ושאר העם מירושלים",
+     "par": "קיום הדברים: מלכים ב' כה א-ז, ירמיה נב ד-יא",
+     "text_de": "Prophezeiung über die Flucht Zidkijas und des übrigen Volkes aus Jerusalem",
+     "text_en": "Prophecy about the flight of Zedekiah and the rest of the people from Jerusalem",
+     "par_de": "Erfüllung der Worte: 2 Könige 25:1–7; Jeremia 52:4–11",
+     "par_en": "Fulfillment of the words: II Kings 25:1–7; Jeremiah 52:4–11"
+    },
+    {
+     "ref": "12:17-28",
+     "text": "נבואותיו על הגלות שתבוא יתקיימו בקרוב",
+     "text_de": "Seine Prophezeiungen über das kommende Exil werden bald eintreffen",
+     "text_en": "His prophecies about the coming exile will soon be fulfilled"
+    },
+    {
+     "ref": "13",
+     "text": "עונשם של נביאי ונביאות השקר",
+     "par": "אזהרת נביאי שקר: דברים יח יד-כב; בענין נביאי שקר: ירמיה כג ט-לב, מיכה ג ה-ח, זכריה יג א-ו",
+     "text_de": "Strafe der falschen Propheten und Prophetinnen",
+     "text_en": "Punishment of the false prophets and prophetesses",
+     "par_de": "Warnung vor falschen Propheten: 5. Mose 18:14–22; Zum Thema falsche Propheten: Jeremia 23:9–32; Micha 3:5–8; Sacharja 13:1–6",
+     "par_en": "Warning against false prophets: Deuteronomy 18:14–22; On the subject of false prophets: Jeremiah 23:9–32; Micah 3:5–8; Zechariah 13:1–6"
+    },
+    {
+     "ref": "14:1-8",
+     "text": "נבואה לעובדי ע\"ז וקריאתו להם לחזור בתשובה",
+     "text_de": "Prophezeiung an die Götzendiener und sein Aufruf zur Umkehr",
+     "text_en": "Prophecy to the idol worshippers and his call to repent"
+    },
+    {
+     "ref": "14:9-11",
+     "text": "עונש נביאי השקר והשומעים להם",
+     "text_de": "Strafe der falschen Propheten und derer, die auf sie hören",
+     "text_en": "Punishment of the false prophets and those who listen to them"
+    },
+    {
+     "ref": "14:12-23",
+     "text": "הצלת פליטה מיושבי ירושלים",
+     "par": "ראה לעיל פרק יג",
+     "text_de": "Rettung von Überlebenden unter den Bewohnern Jerusalems",
+     "text_en": "Rescue of survivors among the inhabitants of Jerusalem",
+     "par_de": "Siehe Ezechiel 13 (oben)",
+     "par_en": "See Ezekiel 13 (above)"
+    },
+    {
+     "ref": "15",
+     "text": "פורענות ירושלים [בדרך משל]",
+     "text_de": "Unheil über Jerusalem [als Gleichnis]",
+     "text_en": "Calamity for Jerusalem [in parable form]"
+    },
+    {
+     "ref": "16:1-35",
+     "text": "תוכחה ליושבי ירושלים על חטאיהם [בדרך משל]",
+     "text_de": "Zurechtweisung der Bewohner Jerusalems wegen ihrer Sünden [als Gleichnis]",
+     "text_en": "Rebuke of the inhabitants of Jerusalem for their sins [in parable form]"
+    },
+    {
+     "ref": "16:36-63",
+     "text": "העונש שיבוא עליהם בעבור חטאיהם",
+     "text_de": "Die Strafe, die wegen ihrer Sünden über sie kommen wird",
+     "text_en": "The punishment that will come upon them because of their sins"
+    },
+    {
+     "ref": "17",
+     "text": "נבואת תוכחה על מלכי יהודה [בדרך משל]",
+     "text_de": "Prophezeiung der Zurechtweisung über die Könige von Juda [als Gleichnis]",
+     "text_en": "Prophecy of rebuke concerning the kings of Judah [in parable form]"
+    },
+    {
+     "ref": "18",
+     "text": "אזהרה - כל איש יענש על חטאיו",
+     "par": "חטא אבות לבנים: דברים כד טז, מלכים ב' יד ו, ירמיה לא כח-כט, דברי הימים ב' כה ד",
+     "text_de": "Warnung – jeder Mensch wird für seine Sünden bestraft",
+     "text_en": "Warning – every person will be punished for his own sins",
+     "par_de": "Sünde der Väter und Söhne: 5. Mose 24:16; 2 Könige 14:6; Jeremia 31:28–29; 2 Chronik 25:4",
+     "par_en": "Sin of fathers and sons: Deuteronomy 24:16; II Kings 14:6; Jeremiah 31:28–29; II Chronicles 25:4"
+    },
+    {
+     "ref": "19",
+     "text": "קינה על מלכי יהודה בני יאשיהו",
+     "text_de": "Klagelied über die Könige von Juda, die Söhne Joschijas",
+     "text_en": "Lament over the kings of Judah, the sons of Josiah"
+    },
+    {
+     "ref": "20:1-26",
+     "text": "תוכחה - חטאי ישראל במצרים ובמדבר",
+     "time": "י' באב ג'של\"ד",
+     "text_de": "Zurechtweisung – Sünden Israels in Ägypten und in der Wüste",
+     "text_en": "Rebuke – the sins of Israel in Egypt and in the wilderness",
+     "time_de": "10. Aw 3334",
+     "time_en": "10 Av 3334"
+    },
+    {
+     "ref": "20:27-29",
+     "text": "תוכחה - חטא עבודה זרה בא\"י",
+     "text_de": "Zurechtweisung – Sünde des Götzendienstes im Land Israel",
+     "text_en": "Rebuke – the sin of idolatry in the Land of Israel"
+    },
+    {
+     "ref": "20:30-44",
+     "text": "מלכות ה' עליהם בע\"כ, הבאתם לא\"י לעתיד",
+     "text_de": "Gottes Königsherrschaft über sie gegen ihren Willen, ihre Heimführung ins Land Israel in der Zukunft",
+     "text_en": "God's kingship over them against their will, their being brought to the Land of Israel in the future"
+    },
+    {
+     "ref": "21:1-22",
+     "text": "נבואה על החורבן והגלות [בדרך משל]",
+     "text_de": "Prophezeiung über Zerstörung und Exil [als Gleichnis]",
+     "text_en": "Prophecy about destruction and exile [in parable form]"
+    },
+    {
+     "ref": "21:23-37",
+     "text": "נבואה - ביאת נבוכדנצר על ירושלים",
+     "text_de": "Prophezeiung – Nebukadnezzars Zug gegen Jerusalem",
+     "text_en": "Prophecy – Nebuchadnezzar's coming against Jerusalem"
+    },
+    {
+     "ref": "22",
+     "text": "תוכחה - התועבות שנעשו בירושלים והעונש ע\"ז",
+     "text_de": "Zurechtweisung – die in Jerusalem begangenen Gräuel und die Strafe dafür",
+     "text_en": "Rebuke – the abominations committed in Jerusalem and the punishment for them"
+    },
+    {
+     "ref": "23",
+     "text": "תוכחה למלכי ישראל ויהודה [בדרך משל]",
+     "text_de": "Zurechtweisung der Könige von Israel und Juda [als Gleichnis]",
+     "text_en": "Rebuke of the kings of Israel and Judah [in parable form]"
+    },
+    {
+     "ref": "24",
+     "text": "נבואה - פורענות ירושלים וביהמ\"ק [בדרך משל]",
+     "time": "י' בטבת ג'של\"ז",
+     "text_de": "Prophezeiung – Unheil über Jerusalem und den Tempel [als Gleichnis]",
+     "text_en": "Prophecy – calamity for Jerusalem and the Temple [in parable form]",
+     "time_de": "10. Tewet 3337",
+     "time_en": "10 Tevet 3337"
+    }
+   ],
+   "head_de": "Prophezeiungen der Zurechtweisung",
+   "head_en": "Prophecies of Rebuke"
+  },
+  {
+   "head": "נבואות על האומות",
+   "items": [
+    {
+     "ref": "25:1-7",
+     "text": "פורענות - מפלת עמון",
+     "par": "עוד נבואות על עמון: לעיל כא לג-לז, ירמיה מט א-ו, עמוס א יג-טו, צפניה ב ח-יא",
+     "text_de": "Unheil – Untergang Ammons",
+     "text_en": "Calamity – the fall of Ammon",
+     "par_de": "Weitere Prophezeiungen über Ammon: Ezechiel 21:33–37 (oben); Jeremia 49:1–6; Amos 1:13–15; Zefanja 2:8–11",
+     "par_en": "More prophecies about Ammon: Ezekiel 21:33–37 (above); Jeremiah 49:1–6; Amos 1:13–15; Zephaniah 2:8–11"
+    },
+    {
+     "ref": "25:8-11",
+     "text": "פורענות - מפלת מואב [עמון]",
+     "par": "עוד נבואות על מואב: ישעיה טו-טז, כה י-יב, ירמיה מח, עמוס ב א-ג, צפניה ב ח-יא",
+     "text_de": "Unheil – Untergang Moabs [Ammons]",
+     "text_en": "Calamity – the fall of Moab [Ammon]",
+     "par_de": "Weitere Prophezeiungen über Moab: Jesaja 15–16, 25:10–12; Jeremia 48; Amos 2:1–3; Zefanja 2:8–11",
+     "par_en": "More prophecies about Moab: Isaiah 15–16, 25:10–12; Jeremiah 48; Amos 2:1–3; Zephaniah 2:8–11"
+    },
+    {
+     "ref": "25:12-14",
+     "text": "פורענות - מפלת אדום",
+     "par": "עוד נבואות על אדום: ישעיה לד, סג א-ו, ירמיה מט ז-כב, להלן לה, עמוס א יא-יב, ספר עובדיה, מלאכי א א-ה",
+     "text_de": "Unheil – Untergang Edoms",
+     "text_en": "Calamity – the fall of Edom",
+     "par_de": "Weitere Prophezeiungen über Edom: Jesaja 34, 63:1–6; Jeremia 49:7–22; Ezechiel 35 (unten); Amos 1:11–12; Buch Obadja; Maleachi 1:1–5",
+     "par_en": "More prophecies about Edom: Isaiah 34, 63:1–6; Jeremiah 49:7–22; Ezekiel 35 (below); Amos 1:11–12; Book of Obadiah; Malachi 1:1–5"
+    },
+    {
+     "ref": "25:15-17",
+     "text": "פורענות - מפלת פלשתים",
+     "par": "עוד נבואות על פלשתים: ישעיה יד כה-לב, ירמיה מז, עמוס א ו-ח, צפניה ב ד-ז, זכריה ט ה-ז",
+     "text_de": "Unheil – Untergang der Philister",
+     "text_en": "Calamity – the fall of the Philistines",
+     "par_de": "Weitere Prophezeiungen über die Philister: Jesaja 14:25–32; Jeremia 47; Amos 1:6–8; Zefanja 2:4–7; Sacharja 9:5–7",
+     "par_en": "More prophecies about the Philistines: Isaiah 14:25–32; Jeremiah 47; Amos 1:6–8; Zephaniah 2:4–7; Zechariah 9:5–7"
+    },
+    {
+     "ref": "26",
+     "text": "פורענות - מפלת צור [ע\"י בבל]",
+     "time": "א' באב ג'של\"ח",
+     "par": "עוד נבואות על צור וצידון: ישעיה כג, עמוס א ט-י, זכריה ט ב-ד",
+     "text_de": "Unheil – Untergang von Tyrus [durch Babel]",
+     "text_en": "Calamity – the fall of Tyre [by Babylon]",
+     "par_de": "Weitere Prophezeiungen über Tyrus und Sidon: Jesaja 23; Amos 1:9–10; Sacharja 9:2–4",
+     "par_en": "More prophecies about Tyre and Sidon: Isaiah 23; Amos 1:9–10; Zechariah 9:2–4",
+     "time_de": "1. Aw 3338",
+     "time_en": "1 Av 3338"
+    },
+    {
+     "ref": "27",
+     "text": "קינה על מפלת צור",
+     "text_de": "Klagelied über den Untergang von Tyrus",
+     "text_en": "Lament over the fall of Tyre"
+    },
+    {
+     "ref": "28:1-19",
+     "text": "נבואה למלך צור",
+     "text_de": "Prophezeiung an den König von Tyrus",
+     "text_en": "Prophecy to the king of Tyre"
+    },
+    {
+     "ref": "28:20-24",
+     "text": "פורענות - מפלת צידון",
+     "text_de": "Unheil – Untergang Sidons",
+     "text_en": "Calamity – the fall of Sidon"
+    },
+    {
+     "ref": "28:25-26",
+     "text": "ישיבת ישראל בארצם בבטחון ובהשקט",
+     "text_de": "Israel wohnt in seinem Land in Sicherheit und Ruhe",
+     "text_en": "Israel dwells in its land in security and tranquility"
+    },
+    {
+     "ref": "29-30",
+     "text": "פורענות - מפלת מצרים [ע\"י בבל]",
+     "time": "י\"ב בטבת ג'של\"ז; א' בניסן ג'שמ\"ז; ז' בניסן ג'של\"ח",
+     "par": "עוד נבואות על מצרים: ישעיה יט-כ, מג ג-יג, ירמיה מו",
+     "text_de": "Unheil – Untergang Ägyptens [durch Babel]",
+     "text_en": "Calamity – the fall of Egypt [by Babylon]",
+     "par_de": "Weitere Prophezeiungen über Ägypten: Jesaja 19–20, 43:3–13; Jeremia 46",
+     "par_en": "More prophecies about Egypt: Isaiah 19–20, 43:3–13; Jeremiah 46",
+     "time_de": "12. Tewet 3337; 1. Nisan 3347; 7. Nisan 3338",
+     "time_en": "12 Tevet 3337; 1 Nisan 3347; 7 Nisan 3338"
+    },
+    {
+     "ref": "31",
+     "text": "נבואה למלך מצרים - תיאור מפלת אשור",
+     "time": "א' בסיון ג'של\"ח",
+     "text_de": "Prophezeiung an den König von Ägypten – Schilderung des Untergangs Assurs",
+     "text_en": "Prophecy to the king of Egypt – description of the fall of Assyria",
+     "time_de": "1. Siwan 3338",
+     "time_en": "1 Sivan 3338"
+    },
+    {
+     "ref": "32:1-16",
+     "text": "קינה על מלך מצרים",
+     "time": "א' באדר ג'של\"ט",
+     "text_de": "Klagelied über den König von Ägypten",
+     "text_en": "Lament over the king of Egypt",
+     "time_de": "1. Adar 3339",
+     "time_en": "1 Adar 3339"
+    },
+    {
+     "ref": "32:17-32",
+     "text": "נבואת פורענות - מצרים ושאר אומות",
+     "time": "ט\"ו באדר ג'של\"ט",
+     "par": "עוד נבואות על מצרים: ישעיה יט-כ, מג ג-יג, ירמיה מו",
+     "text_de": "Prophezeiung des Unheils – Ägypten und die übrigen Völker",
+     "text_en": "Prophecy of calamity – Egypt and the other nations",
+     "par_de": "Weitere Prophezeiungen über Ägypten: Jesaja 19–20, 43:3–13; Jeremia 46",
+     "par_en": "More prophecies about Egypt: Isaiah 19–20, 43:3–13; Jeremiah 46",
+     "time_de": "15. Adar 3339",
+     "time_en": "15 Adar 3339"
+    }
+   ],
+   "head_de": "Prophezeiungen über die Völker",
+   "head_en": "Prophecies Concerning the Nations"
+  },
+  {
+   "head": "תוכחות",
+   "items": [
+    {
+     "ref": "33:1-9",
+     "text": "תפקיד הנביא להזהיר ולהוכיח את העם",
+     "par": "ראה לעיל ב-ג",
+     "text_de": "Aufgabe des Propheten, das Volk zu warnen und zurechtzuweisen",
+     "text_en": "The prophet's task to warn and rebuke the people",
+     "par_de": "Siehe Ezechiel 2–3 (oben)",
+     "par_en": "See Ezekiel 2–3 (above)"
+    },
+    {
+     "ref": "33:10-20",
+     "text": "דרכי ה', שכר ועונש",
+     "par": "ראה לעיל יח כא-לב",
+     "text_de": "Wege Gottes, Lohn und Strafe",
+     "text_en": "God's ways, reward and punishment",
+     "par_de": "Siehe Ezechiel 18:21–32 (oben)",
+     "par_en": "See Ezekiel 18:21–32 (above)"
+    },
+    {
+     "ref": "33:21-22",
+     "text": "בשורת חורבן ירושלים",
+     "time": "ה' בטבת ג'של\"ט",
+     "text_de": "Botschaft von der Zerstörung Jerusalems",
+     "text_en": "Report of the destruction of Jerusalem",
+     "time_de": "5. Tewet 3339",
+     "time_en": "5 Tevet 3339"
+    },
+    {
+     "ref": "33:23-33",
+     "text": "תוכחה - טענת הבריות לירושת הארץ ותשובת ה'",
+     "text_de": "Zurechtweisung – Anspruch der Leute auf den Besitz des Landes und Gottes Antwort",
+     "text_en": "Rebuke – the people's claim to inherit the land and God's reply"
+    },
+    {
+     "ref": "34",
+     "text": "תוכחה לפרנסים/למלכים",
+     "text_de": "Zurechtweisung der Vorsteher/Könige",
+     "text_en": "Rebuke of the leaders/kings"
+    }
+   ],
+   "head_de": "Zurechtweisungen",
+   "head_en": "Rebukes"
+  },
+  {
+   "head": "נבואות נחמה",
+   "items": [
+    {
+     "ref": "35",
+     "text": "פורענות - מפלת אדום",
+     "par": "ראה לעיל כה יב-יד",
+     "text_de": "Unheil – Untergang Edoms",
+     "text_en": "Calamity – the fall of Edom",
+     "par_de": "Siehe Ezechiel 25:12–14 (oben)",
+     "par_en": "See Ezekiel 25:12–14 (above)"
+    },
+    {
+     "ref": "36",
+     "text": "נחמה - גאולת ישראל ויישובם בארץ בעת הגאולה",
+     "text_de": "Trost – Erlösung Israels und seine Ansiedlung im Land zur Zeit der Erlösung",
+     "text_en": "Consolation – the redemption of Israel and its settlement in the land at the time of redemption"
+    },
+    {
+     "ref": "37:1-14",
+     "text": "נחמה - תחיית העצמות היבשות",
+     "text_de": "Trost – Auferweckung der verdorrten Gebeine",
+     "text_en": "Consolation – the revival of the dry bones"
+    },
+    {
+     "ref": "37:15-28",
+     "text": "קיבוץ הגלויות ואחדות ישראל בגאולתם",
+     "par": "התחברות יהודה וישראל לעתיד: ישעיה יא יא-יג, ירמיה ג יח, נ ד-ה",
+     "text_de": "Sammlung der Verbannten und Einheit Israels bei ihrer Erlösung",
+     "text_en": "Ingathering of the exiles and the unity of Israel at their redemption",
+     "par_de": "Vereinigung von Juda und Israel in der Zukunft: Jesaja 11:11–13; Jeremia 3:18, 50:4–5",
+     "par_en": "Union of Judah and Israel in the future: Isaiah 11:11–13; Jeremiah 3:18, 50:4–5"
+    },
+    {
+     "ref": "38:1-16",
+     "text": "נבואה - ביאת גוג למלחמה על ישראל",
+     "par": "עוד נבואות על גוג: ישעיה יח (י\"מ), כד-כז (י\"מ), ל יט-כו (י\"מ), לג א-ו (י\"מ), סו ה-כד, ירמיה ל (י\"מ), יואל ג א-ד (י\"מ), מיכה ד יא-יד (י\"מ), זכריה יב-יג (י\"מ), יד, תהלים ב (י\"מ), מה-מח, עו (י\"מ), צז (י\"מ), צט (י\"מ)",
+     "text_de": "Prophezeiung – Gogs Kriegszug gegen Israel",
+     "text_en": "Prophecy – Gog's coming to wage war against Israel",
+     "par_de": "Weitere Prophezeiungen über Gog: Jesaja 18 (nach manchen), 24–27 (nach manchen), 30:19–26 (nach manchen), 33:1–6 (nach manchen), 66:5–24; Jeremia 30 (nach manchen); Joel 3:1–4 (nach manchen); Micha 4:11–14 (nach manchen); Sacharja 12–13 (nach manchen), 14; Psalmen 2 (nach manchen), 45–48, 76 (nach manchen), 97 (nach manchen), 99 (nach manchen)",
+     "par_en": "More prophecies about Gog: Isaiah 18 (according to some), 24–27 (according to some), 30:19–26 (according to some), 33:1–6 (according to some), 66:5–24; Jeremiah 30 (according to some); Joel 3:1–4 (according to some); Micah 4:11–14 (according to some); Zechariah 12–13 (according to some), 14; Psalms 2 (according to some), 45–48, 76 (according to some), 97 (according to some), 99 (according to some)"
+    },
+    {
+     "ref": "38:17-39:24",
+     "text": "נקמת ה' בגוג ובאומות שבאו עמו",
+     "text_de": "Gottes Vergeltung an Gog und den Völkern, die mit ihm kamen",
+     "text_en": "God's vengeance on Gog and the nations that came with him"
+    },
+    {
+     "ref": "39:25-29",
+     "text": "קיבוץ הגלויות לעתיד",
+     "text_de": "Sammlung der Verbannten in der Zukunft",
+     "text_en": "Ingathering of the exiles in the future"
+    }
+   ],
+   "head_de": "Prophezeiungen des Trostes",
+   "head_en": "Prophecies of Consolation"
+  },
+  {
+   "head": "נבואות לעתיד",
+   "items": [
+    {
+     "ref": "40-42",
+     "text": "מחזה - תיאור ביהמ\"ק השלישי בפרוטרוט",
+     "time": "י' בתשרי ג'שנ\"ב",
+     "par": "בנין וכלי המקדש: מלכים א' ו-ז, דברי הימים ב' ג א - ה א",
+     "text_de": "Schauung – ausführliche Beschreibung des dritten Tempels",
+     "text_en": "Vision – detailed description of the Third Temple",
+     "par_de": "Bau und Geräte des Heiligtums: 1 Könige 6–7; 2 Chronik 3:1–5:1",
+     "par_en": "Construction and vessels of the Sanctuary: I Kings 6–7; II Chronicles 3:1–5:1",
+     "time_de": "10. Tischri 3352",
+     "time_en": "10 Tishrei 3352"
+    },
+    {
+     "ref": "43:1-9",
+     "text": "מראה כבוד ה', אזהרה מע\"ז",
+     "text_de": "Erscheinen der Herrlichkeit Gottes, Warnung vor Götzendienst",
+     "text_en": "Appearance of the glory of God, warning against idolatry"
+    },
+    {
+     "ref": "43:10-17",
+     "text": "ציווי מידות הבית והמזבח",
+     "text_de": "Gebot der Maße des Hauses und des Altars",
+     "text_en": "Command regarding the measurements of the House and the altar"
+    },
+    {
+     "ref": "43:18-27",
+     "text": "ציווי סדר חנוכת המזבח",
+     "par": "הרחבה: להלן מה יח-כה; חנוכת המשכן: שמות מ, ויקרא ט; חנוכת ביהמ\"ק: מלכים א' ח נד-סו, עזרא ו טז-יח, דברי הימים ב' ז א-יא",
+     "text_de": "Gebot der Ordnung der Altarweihe",
+     "text_en": "Command regarding the order of the altar's dedication",
+     "par_de": "Erweiterung: Ezechiel 45:18–25 (unten); Einweihung der Stiftshütte: 2. Mose 40; 3. Mose 9; Einweihung des Tempels: 1 Könige 8:54–66; Esra 6:16–18; 2 Chronik 7:1–11",
+     "par_en": "Elaboration: Ezekiel 45:18–25 (below); Dedication of the Tabernacle: Exodus 40; Leviticus 9; Dedication of the Temple: I Kings 8:54–66; Ezra 6:16–18; II Chronicles 7:1–11"
+    },
+    {
+     "ref": "44:1-4",
+     "text": "השער המזרחי לנשיא",
+     "text_de": "Das Osttor für den Fürsten",
+     "text_en": "The eastern gate for the prince"
+    },
+    {
+     "ref": "44:5-14",
+     "text": "הכשרים והפסולים לשמש במקדש",
+     "text_de": "Die Tauglichen und Untauglichen für den Dienst im Heiligtum",
+     "text_en": "Those fit and unfit to serve in the Sanctuary"
+    },
+    {
+     "ref": "44:15-31",
+     "text": "דיני הכהנים",
+     "par": "חזרה על והרחבה: שמות כח מ-מג, ויקרא ו יב-טז, י ח-יא, יז טו-יז (י\"מ), כא א-טו, כב א-ט (י\"מ), דברים יד כא; עוד מתנות כהונה: ראה במדבר יח כא-לב",
+     "text_de": "Gesetze für die Priester",
+     "text_en": "Laws for the priests",
+     "par_de": "Wiederholung und Erweiterung von: 2. Mose 28:40–43; 3. Mose 6:12–16, 10:8–11, 17:15–17 (nach manchen), 21:1–15, 22:1–9 (nach manchen); 5. Mose 14:21; Weitere Priestergaben: siehe 4. Mose 18:21–32",
+     "par_en": "Repeat and elaboration of: Exodus 28:40–43; Leviticus 6:12–16, 10:8–11, 17:15–17 (according to some), 21:1–15, 22:1–9 (according to some); Deuteronomy 14:21; More priestly gifts: see Numbers 18:21–32"
+    },
+    {
+     "ref": "45:1-8",
+     "text": "נחלות לביהמ\"ק, שבט לוי, לעיר ולנשיא",
+     "par": "ראה להלן מח ח-לה",
+     "text_de": "Landanteile für den Tempel, den Stamm Levi, die Stadt und den Fürsten",
+     "text_en": "Land allotments for the Temple, the tribe of Levi, the city and the prince",
+     "par_de": "Siehe Ezechiel 48:8–35 (unten)",
+     "par_en": "See Ezekiel 48:8–35 (below)"
+    },
+    {
+     "ref": "45:9-12",
+     "text": "איסור רמאות במידות ובמשקלים",
+     "par": "חזרה על: ויקרא יט לה-לו, דברים כה יג-טז; חזרה: משלי יא א, טז יא, כ י, כג",
+     "text_de": "Verbot des Betrugs bei Maßen und Gewichten",
+     "text_en": "Prohibition of cheating in measures and weights",
+     "par_de": "Wiederholung von: 3. Mose 19:35–36; 5. Mose 25:13–16; Wiederholung: Sprüche 11:1, 16:11, 20:10, 23",
+     "par_en": "Repeat of: Leviticus 19:35–36; Deuteronomy 25:13–16; Repeat: Proverbs 11:1, 16:11, 20:10, 23"
+    },
+    {
+     "ref": "45:13-17",
+     "text": "דיני המעשרות / הנדבות לחינוך ביהמ\"ק",
+     "par": "דיני מעשרות: ראה במדבר יח כא-לב",
+     "text_de": "Gesetze der Zehnten / Spenden für die Einweihung des Tempels",
+     "text_en": "Laws of tithes / donations for the dedication of the Temple",
+     "par_de": "Gesetze der Zehnten: siehe 4. Mose 18:21–32",
+     "par_en": "Laws of tithes: see Numbers 18:21–32"
+    },
+    {
+     "ref": "45:18-25",
+     "text": "סדר חנוכת המזבח והחגים",
+     "par": "ראה לעיל מג יח-כז; מוספי פסח וסוכות: במדבר כח טז-כה, כט יב-לט",
+     "text_de": "Ordnung der Altarweihe und der Feste",
+     "text_en": "Order of the altar's dedication and of the festivals",
+     "par_de": "Siehe Ezechiel 43:18–27 (oben); Zusatzopfer an Pessach und Sukkot: 4. Mose 28:16–25, 29:12–39",
+     "par_en": "See Ezekiel 43:18–27 (above); Additional offerings of Passover and Sukkot: Numbers 28:16–25, 29:12–39"
+    },
+    {
+     "ref": "46:1-15",
+     "text": "סדרי ההקרבה לעם ולנשיא",
+     "par": "מוספי שבת ור\"ח: במדבר כח ט-טו; קרבן התמיד: שמות כט לח-מב, במדבר כח א-ח; קרבנות כהן גדול: ויקרא ד א-יב, ו יב-טז",
+     "text_de": "Opferordnungen für das Volk und den Fürsten",
+     "text_en": "Offering procedures for the people and the prince",
+     "par_de": "Zusatzopfer an Schabbat und Neumond: 4. Mose 28:9–15; tägliches Opfer: 2. Mose 29:38–42; 4. Mose 28:1–8; Opfer des Hohenpriesters: 3. Mose 4:1–12, 6:12–16",
+     "par_en": "Additional offerings of Sabbath and New Moon: Numbers 28:9–15; daily offering: Exodus 29:38–42; Numbers 28:1–8; Offerings of the High Priest: Leviticus 4:1–12, 6:12–16"
+    },
+    {
+     "ref": "46:16-18",
+     "text": "נחלות הנשיא",
+     "par": "דמיון: במדבר לו",
+     "text_de": "Erbbesitz des Fürsten",
+     "text_en": "The prince's inheritance",
+     "par_de": "Ähnlichkeit: 4. Mose 36",
+     "par_en": "Similarity: Numbers 36"
+    },
+    {
+     "ref": "46:19-24",
+     "text": "מחזה - לשכות בישול הקדשים",
+     "text_de": "Schauung – Kammern zum Kochen der heiligen Opfer",
+     "text_en": "Vision – chambers for cooking the sacred offerings"
+    },
+    {
+     "ref": "47:1-12",
+     "text": "מחזה - מעין בית ה'",
+     "text_de": "Schauung – die Quelle des Hauses Gottes",
+     "text_en": "Vision – the spring of the House of God"
+    },
+    {
+     "ref": "47:13-20",
+     "text": "גבולות הארץ לעתיד",
+     "par": "גבולות נוספים: בראשית טו יח, שמות כג לא, במדבר לד א-יב, דברים יא כד, יהושע א ד, יג א-ו",
+     "text_de": "Grenzen des Landes in der Zukunft",
+     "text_en": "Borders of the land in the future",
+     "par_de": "Weitere Grenzen: 1. Mose 15:18; 2. Mose 23:31; 4. Mose 34:1–12; 5. Mose 11:24; Josua 1:4, 13:1–6",
+     "par_en": "Other borders: Genesis 15:18; Exodus 23:31; Numbers 34:1–12; Deuteronomy 11:24; Joshua 1:4, 13:1–6"
+    },
+    {
+     "ref": "47:21-23",
+     "text": "נחלות הגרים",
+     "text_de": "Erbbesitz der Fremdlinge",
+     "text_en": "Inheritance of the strangers"
+    },
+    {
+     "ref": "48:1-7,23-29",
+     "text": "חלוקת הארץ לשבטים",
+     "par": "החלוקה בימי יהושע: יהושע יג-כא",
+     "text_de": "Aufteilung des Landes an die Stämme",
+     "text_en": "Division of the land among the tribes",
+     "par_de": "Aufteilung zur Zeit Josuas: Josua 13–21",
+     "par_en": "The division in the days of Joshua: Joshua 13–21"
+    },
+    {
+     "ref": "48:8-14",
+     "text": "נחלות לביהמ\"ק, לכהנים וללויים",
+     "text_de": "Landanteile für den Tempel, die Priester und die Leviten",
+     "text_en": "Land allotments for the Temple, the priests and the Levites"
+    },
+    {
+     "ref": "48:15-22,30-35",
+     "text": "שטח העיר ושעריה, נחלת הנשיא",
+     "text_de": "Fläche der Stadt und ihre Tore, Erbbesitz des Fürsten",
+     "text_en": "Area of the city and its gates, the prince's inheritance"
+    }
+   ],
+   "head_de": "Prophezeiungen für die Zukunft",
+   "head_en": "Prophecies for the Future"
+  }
+ ],
+ "title_de": "Inhalt des Buches Ezechiel",
+ "title_en": "Contents of the Book of Ezekiel",
+ "note_de": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt.",
+ "note_en": "Transcribed from photos of an overview table. Chapter and verse numbering as well as dates (Jewish reckoning) as printed in the source."
+}

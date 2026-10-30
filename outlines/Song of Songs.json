@@ -1,0 +1,291 @@
+{
+ "book": "Song of Songs",
+ "title": "תוכן שיר השירים",
+ "note": "Abgeschrieben aus einer Übersichtstabelle (SifreiKodesh). Daten nach der jüdischen Zählung, wie in der Vorlage gedruckt.",
+ "sections": [
+  {
+   "head": "פתיחה",
+   "items": [
+    {
+     "ref": "1:1",
+     "text": "שיר רעיה לדודה",
+     "desc": "נמשל: שיר בני ישראל לה'",
+     "text_de": "Lied der Geliebten an ihren Geliebten",
+     "text_en": "Song of the beloved to her lover",
+     "desc_de": "Deutung: Lied der Kinder Israels an Gott",
+     "desc_en": "Meaning: Song of the children of Israel to God"
+    }
+   ],
+   "head_de": "Eröffnung",
+   "head_en": "Opening"
+  },
+  {
+   "head": "יציאת מצרים, דור המדבר והכניסה לארץ ישראל",
+   "items": [
+    {
+     "ref": "1:2-4",
+     "text": "תשוקת הרעיה לדודה",
+     "desc": "נמשל: דברי כנסת ישראל לה'",
+     "text_de": "Sehnsucht der Geliebten nach ihrem Geliebten",
+     "text_en": "The beloved's longing for her lover",
+     "desc_de": "Deutung: Worte der Gemeinde Israels an Gott",
+     "desc_en": "Meaning: Words of the Community of Israel to God"
+    },
+    {
+     "ref": "1:5-6",
+     "text": "דבריה לרעותיה הלועגות לה",
+     "desc": "נמשל: דברי כנס\"י לאומות",
+     "text_de": "Ihre Worte an ihre Gefährtinnen, die sie verspotten",
+     "text_en": "Her words to her companions who mock her",
+     "desc_de": "Deutung: Worte der Gemeinde Israels an die Völker",
+     "desc_en": "Meaning: Words of the Community of Israel to the nations"
+    },
+    {
+     "ref": "1:7-8",
+     "text": "בקשתה מדודה ותשובתו על אהבתו לה",
+     "desc": "נמשל: בקשת כנס\"י ותשובת ה'",
+     "text_de": "Ihre Bitte an den Geliebten und seine Antwort über seine Liebe zu ihr",
+     "text_en": "Her request to her lover and his reply about his love for her",
+     "desc_de": "Deutung: Bitte der Gemeinde Israels und Antwort Gottes",
+     "desc_en": "Meaning: Request of the Community of Israel and God's reply"
+    },
+    {
+     "ref": "1:9-11",
+     "text": "בקשתה מדודה ותשובתו על אהבתו לה",
+     "desc": "נמשל: טובות ה' לישראל ביציאת מצרים",
+     "text_de": "Ihre Bitte an den Geliebten und seine Antwort über seine Liebe zu ihr",
+     "text_en": "Her request to her lover and his reply about his love for her",
+     "desc_de": "Deutung: Gottes Wohltaten an Israel beim Auszug aus Ägypten",
+     "desc_en": "Meaning: God's kindnesses to Israel at the Exodus from Egypt"
+    },
+    {
+     "ref": "1:12-14",
+     "text": "דברי הרעיה והתנצלותה",
+     "desc": "נמשל: הודאת כנס\"י שגמלה לה' רע",
+     "text_de": "Worte der Geliebten und ihre Rechtfertigung",
+     "text_en": "The beloved's words and her self-defense",
+     "desc_de": "Deutung: Bekenntnis der Gemeinde Israels, dass sie Gott mit Bösem vergolten hat",
+     "desc_en": "Meaning: Confession of the Community of Israel that it repaid God with evil"
+    },
+    {
+     "ref": "1:15-17",
+     "text": "שבחה מפי הדוד, שבח הדוד מפיה",
+     "desc": "נמשל: נחמת ה' ועשיית המשכן",
+     "text_de": "Ihr Lob aus dem Mund des Geliebten, das Lob des Geliebten aus ihrem Mund",
+     "text_en": "Her praise from the lover's mouth, the lover's praise from her mouth",
+     "desc_de": "Deutung: Gottes Trost und der Bau der Stiftshütte",
+     "desc_en": "Meaning: God's consolation and the building of the Tabernacle"
+    },
+    {
+     "ref": "2:1-3",
+     "text": "משבחת את עצמה ואת דודה",
+     "desc": "נמשל: שבח ה' וכנס\"י",
+     "text_de": "Sie rühmt sich selbst und ihren Geliebten",
+     "text_en": "She praises herself and her lover",
+     "desc_de": "Deutung: Lob Gottes und der Gemeinde Israels",
+     "desc_en": "Meaning: Praise of God and of the Community of Israel"
+    },
+    {
+     "ref": "2:4-6",
+     "text": "משבחת את דודה ומשתוקקת אליו",
+     "desc": "נמשל: געגועי כנס\"י לה'",
+     "text_de": "Sie rühmt ihren Geliebten und sehnt sich nach ihm",
+     "text_en": "She praises her lover and longs for him",
+     "desc_de": "Deutung: Sehnsucht der Gemeinde Israels nach Gott",
+     "desc_en": "Meaning: Longing of the Community of Israel for God"
+    },
+    {
+     "ref": "2:7",
+     "text": "השבעתה לרעותיה בענין אהבתה",
+     "desc": "נמשל: אזהרת כנס\"י לאומות",
+     "text_de": "Ihre Beschwörung ihrer Gefährtinnen im Hinblick auf ihre Liebe",
+     "text_en": "Her adjuration of her companions concerning her love",
+     "desc_de": "Deutung: Mahnung der Gemeinde Israels an die Völker",
+     "desc_en": "Meaning: Warning of the Community of Israel to the nations"
+    },
+    {
+     "ref": "2:8-17",
+     "text": "קרבת דודה והגנתו עליה, עד שחטאה לו והלך",
+     "desc": "נמשל: יציאת מצרים, קריעת ים סוף והסתלקות השכינה בחטאי ישראל",
+     "text_de": "Die Nähe ihres Geliebten und sein Schutz für sie, bis sie sich an ihm versündigte und er fortging",
+     "text_en": "The nearness of her lover and his protection of her, until she sinned against him and he went away",
+     "desc_de": "Deutung: Auszug aus Ägypten, Spaltung des Schilfmeeres und Weggang der Gegenwart Gottes wegen der Sünden Israels",
+     "desc_en": "Meaning: The Exodus from Egypt, the splitting of the Red Sea and the departure of the Divine Presence because of Israel's sins"
+    },
+    {
+     "ref": "3",
+     "text": "געגועיה עד שמצאתהו, השבעתה לרעותיה, תמיהתן על קרבתה וכבודה",
+     "desc": "נמשל: געגועי כנס\"י לה' במדבר ובניית המשכן",
+     "text_de": "Ihre Sehnsucht, bis sie ihn gefunden hat, ihre Beschwörung ihrer Gefährtinnen, deren Staunen über ihre Nähe zu ihm und ihre Würde",
+     "text_en": "Her longing until she found him, her adjuration of her companions, their amazement at her closeness and honor",
+     "desc_de": "Deutung: Sehnsucht der Gemeinde Israels nach Gott in der Wüste und der Bau der Stiftshütte",
+     "desc_en": "Meaning: Longing of the Community of Israel for God in the wilderness and the building of the Tabernacle"
+    },
+    {
+     "ref": "4:1-12",
+     "text": "שבחה מפי הדוד, עזיבתו אותה, וחזרתו אליה",
+     "desc": "נמשל: שבח בני ובנות ישראל והתלוות השכינה אליהם",
+     "text_de": "Ihr Lob aus dem Mund des Geliebten, sein Verlassen von ihr und seine Rückkehr zu ihr",
+     "text_en": "Her praise from the lover's mouth, his leaving her and his return to her",
+     "desc_de": "Deutung: Lob der Söhne und Töchter Israels und die Begleitung der Gegenwart Gottes bei ihnen",
+     "desc_en": "Meaning: Praise of the sons and daughters of Israel and the Divine Presence accompanying them"
+    },
+    {
+     "ref": "4:13-16",
+     "text": "שבחה מפי הדוד, עזיבתו אותה, וחזרתו אליה",
+     "desc": "נמשל: משל כנס\"י לפרדס מלא ריח טוב",
+     "text_de": "Ihr Lob aus dem Mund des Geliebten, sein Verlassen von ihr und seine Rückkehr zu ihr",
+     "text_en": "Her praise from the lover's mouth, his leaving her and his return to her",
+     "desc_de": "Deutung: Gleichnis der Gemeinde Israels mit einem Garten voll wohlriechender Düfte",
+     "desc_en": "Meaning: Parable of the Community of Israel as an orchard full of fragrance"
+    }
+   ],
+   "head_de": "Auszug aus Ägypten, Wüstengeneration und Einzug in das Land Israel",
+   "head_en": "The Exodus from Egypt, the generation of the wilderness and the entry into the Land of Israel"
+  },
+  {
+   "head": "בנין הבית וחורבנו",
+   "items": [
+    {
+     "ref": "5:1-7",
+     "text": "ביאת הדוד לרעיה וסירובה לקבלו, שובה אליו וסירוב הדוד לקבלה",
+     "desc": "נמשל: ביאת ה' לביהמ\"ק, חיפוש ישראל את ה' וחורבן הבית",
+     "text_de": "Kommen des Geliebten zur Geliebten und ihre Weigerung, ihn aufzunehmen, ihre Rückkehr zu ihm und seine Weigerung, sie aufzunehmen",
+     "text_en": "The lover's coming to the beloved and her refusal to receive him, her return to him and his refusal to receive her",
+     "desc_de": "Deutung: Kommen Gottes zum Tempel, Israels Suche nach Gott und die Zerstörung des Tempels",
+     "desc_en": "Meaning: God's coming to the Temple, Israel's search for God and the destruction of the Temple"
+    },
+    {
+     "ref": "5:8-9",
+     "text": "השבעתה לרעותיה, תמיהת רעותיה",
+     "desc": "נמשל: השבעת ישראל את האומות",
+     "text_de": "Ihre Beschwörung ihrer Gefährtinnen, das Staunen ihrer Gefährtinnen",
+     "text_en": "Her adjuration of her companions, the amazement of her companions",
+     "desc_de": "Deutung: Israels Beschwörung der Völker",
+     "desc_en": "Meaning: Israel's adjuration of the nations"
+    },
+    {
+     "ref": "5:10-16",
+     "text": "תשובתה להן במעלת דודה",
+     "desc": "נמשל: תיאור כנס\"י את מעלת ה'",
+     "text_de": "Ihre Antwort an sie über die Vorzüge ihres Geliebten",
+     "text_en": "Her answer to them about the merits of her lover",
+     "desc_de": "Deutung: Beschreibung der Vorzüge Gottes durch die Gemeinde Israels",
+     "desc_en": "Meaning: The Community of Israel's description of God's merits"
+    },
+    {
+     "ref": "6:1-3",
+     "text": "הקנטת רעותיה ותשובתה",
+     "desc": "נמשל: דחיית האומות מלהשתתף בבנין הבית",
+     "text_de": "Das Necken ihrer Gefährtinnen und ihre Antwort",
+     "text_en": "The teasing of her companions and her reply",
+     "desc_de": "Deutung: Abweisung der Völker von der Beteiligung am Bau des Hauses",
+     "desc_en": "Meaning: Rejection of the nations' participation in the building of the Temple"
+    }
+   ],
+   "head_de": "Bau und Zerstörung des Tempels",
+   "head_en": "The building and destruction of the Temple"
+  },
+  {
+   "head": "מעלת ישראל ואהבתם לה'",
+   "items": [
+    {
+     "ref": "6:4-12",
+     "text": "שבחה מפי הדוד, התנצלות הרעיה",
+     "desc": "נמשל: מעלת ישראל על פני האומות, וענייני בית שני",
+     "text_de": "Ihr Lob aus dem Mund des Geliebten, Rechtfertigung der Geliebten",
+     "text_en": "Her praise from the lover's mouth, the beloved's self-defense",
+     "desc_de": "Deutung: Vorzug Israels vor den Völkern und die Angelegenheiten des Zweiten Tempels",
+     "desc_en": "Meaning: Israel's excellence over the nations, and matters of the Second Temple"
+    },
+    {
+     "ref": "7:1",
+     "text": "פיתוי רעותיה לבוא עמן בדברי שבחה, וסירובה",
+     "desc": "נמשל: הפצרת האומות בישראל וסירובה להם",
+     "text_de": "Verlockung durch ihre Gefährtinnen, mit ihnen zu kommen, mit Worten ihres Lobes, und ihre Weigerung",
+     "text_en": "Her companions' enticement to come with them, with words of her praise, and her refusal",
+     "desc_de": "Deutung: Drängen der Völker auf Israel und dessen Weigerung ihnen gegenüber",
+     "desc_en": "Meaning: The nations' urging of Israel and its refusal of them"
+    },
+    {
+     "ref": "7:2-8",
+     "text": "פיתוי רעותיה לבוא עמן בדברי שבחה, וסירובה",
+     "desc": "נמשל: קילוס האומות את ישראל",
+     "text_de": "Verlockung durch ihre Gefährtinnen, mit ihnen zu kommen, mit Worten ihres Lobes, und ihre Weigerung",
+     "text_en": "Her companions' enticement to come with them, with words of her praise, and her refusal",
+     "desc_de": "Deutung: Lobpreis Israels durch die Völker",
+     "desc_en": "Meaning: The nations' praise of Israel"
+    },
+    {
+     "ref": "7:9-14",
+     "text": "רצון הדוד בקרבתה, הצעתה לצאת לשדה והסכמתו",
+     "desc": "נמשל: פניית ה' לישראל לאמת דבריו ותשובתם",
+     "text_de": "Der Wunsch des Geliebten nach ihrer Nähe, ihr Vorschlag, aufs Feld hinauszugehen, und seine Zustimmung",
+     "text_en": "The lover's desire for her closeness, her proposal to go out to the field, and his consent",
+     "desc_de": "Deutung: Gottes Hinwendung zu Israel, um seine Worte zu bekräftigen, und deren Antwort",
+     "desc_en": "Meaning: God's turning to Israel to confirm his words, and their reply"
+    },
+    {
+     "ref": "8:1-2",
+     "text": "תשוקתה לחזור אליו בגלוי",
+     "desc": "נמשל: בקשת ישראל לקרבת ה'",
+     "text_de": "Ihre Sehnsucht, offen zu ihm zurückzukehren",
+     "text_en": "Her longing to return to him openly",
+     "desc_de": "Deutung: Israels Bitte um Nähe zu Gott",
+     "desc_en": "Meaning: Israel's request for closeness to God"
+    },
+    {
+     "ref": "8:3-4",
+     "text": "השבעתה לרעותיה בענין אהבתה",
+     "desc": "נמשל: השבעת ישראל את האומות",
+     "text_de": "Ihre Beschwörung ihrer Gefährtinnen im Hinblick auf ihre Liebe",
+     "text_en": "Her adjuration of her companions concerning her love",
+     "desc_de": "Deutung: Israels Beschwörung der Völker",
+     "desc_en": "Meaning: Israel's adjuration of the nations"
+    },
+    {
+     "ref": "8:5-7",
+     "text": "שבחה מפי הדוד, שאלתו אותה ותשובתה",
+     "desc": "נמשל: התעוררות אהבת ישראל והתגברותה",
+     "text_de": "Ihr Lob aus dem Mund des Geliebten, seine Frage an sie und ihre Antwort",
+     "text_en": "Her praise from the lover's mouth, his question to her and her answer",
+     "desc_de": "Deutung: Erwachen und Erstarken der Liebe Israels",
+     "desc_en": "Meaning: The awakening and strengthening of Israel's love"
+    },
+    {
+     "ref": "8:8-10",
+     "text": "שבחה מפי הדוד, שאלתו אותה ותשובתה",
+     "desc": "נמשל: שאלת ה' ותשובתו אודות ישראל",
+     "text_de": "Ihr Lob aus dem Mund des Geliebten, seine Frage an sie und ihre Antwort",
+     "text_en": "Her praise from the lover's mouth, his question to her and her answer",
+     "desc_de": "Deutung: Gottes Frage und Antwort über Israel",
+     "desc_en": "Meaning: God's question and answer concerning Israel"
+    },
+    {
+     "ref": "8:11-12",
+     "text": "תלונת הרעיה על מצבה במשל לכרם שנבזז",
+     "desc": "נמשל: ענישת האומות ששיעבדו בישראל",
+     "text_de": "Klage der Geliebten über ihre Lage im Gleichnis vom geplünderten Weinberg",
+     "text_en": "The beloved's complaint about her condition in the parable of the plundered vineyard",
+     "desc_de": "Deutung: Bestrafung der Völker, die Israel unterjocht haben",
+     "desc_en": "Meaning: Punishment of the nations that subjugated Israel"
+    },
+    {
+     "ref": "8:13-14",
+     "text": "בקשת דודה ובקשתה לקרבת דודה",
+     "desc": "נמשל: תשוקת הקב\"ה לישראל ובקשתם לגאולה",
+     "text_de": "Bitte ihres Geliebten und ihre Bitte um Nähe zu ihrem Geliebten",
+     "text_en": "Her lover's request and her request for closeness to her lover",
+     "desc_de": "Deutung: Sehnsucht Gottes nach Israel und dessen Bitte um Erlösung",
+     "desc_en": "Meaning: God's longing for Israel and their plea for redemption"
+    }
+   ],
+   "head_de": "Vorzug Israels und seine Liebe zu Gott",
+   "head_en": "Israel's excellence and its love for God"
+  }
+ ],
+ "title_de": "Inhalt des Hohelieds",
+ "title_en": "Contents of the Song of Songs",
+ "note_de": "Abgeschrieben aus einer Übersichtstabelle (SifreiKodesh) und übersetzt. Daten nach der jüdischen Zählung, wie in der Vorlage gedruckt.",
+ "note_en": "Transcribed from an overview table (SifreiKodesh) and translated. Dates follow the Jewish count, as printed in the source."
+}

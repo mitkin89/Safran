@@ -1,0 +1,112 @@
+{
+ "book": "Ruth",
+ "title": "תוכן מגילת רות",
+ "note": "Abgeschrieben aus einer Übersichtstabelle (SifreiKodesh). Daten nach der jüdischen Zählung, wie in der Vorlage gedruckt.",
+ "sections": [
+  {
+   "head": "יציאת אלימלך למואב",
+   "items": [
+    {
+     "ref": "1:1-5",
+     "text": "ירידת אלימלך ומשפחתו למואב מפני הרעב",
+     "time": "לפני ב'תשפ\"ו-ב'תשצ\"ז",
+     "text_de": "Elimelech und seine Familie ziehen wegen der Hungersnot nach Moab",
+     "text_en": "Elimelech and his family go down to Moab because of the famine",
+     "time_de": "von vor 2786 bis 2797",
+     "time_en": "from before 2786 to 2797"
+    }
+   ],
+   "head_de": "Auszug Elimelechs nach Moab",
+   "head_en": "Elimelech's departure to Moab"
+  },
+  {
+   "head": "חזרת נעמי ורות לא\"י",
+   "items": [
+    {
+     "ref": "1:6-22",
+     "text": "שיבת נעמי לא\"י והליכת רות עמה",
+     "time": "י\"ד / ט\"ו ניסן ב'תשצ\"ז",
+     "par": "הזכרה: משלי לא כט-לא (י\"מ)",
+     "text_de": "Noomis Rückkehr nach Erez Israel und Ruts Weggang mit ihr",
+     "text_en": "Naomi's return to the Land of Israel and Ruth's going with her",
+     "par_de": "Erwähnt: Sprüche 31:29–31 (nach manchen)",
+     "par_en": "Mentioned: Proverbs 31:29–31 (according to some)",
+     "time_de": "14. / 15. Nisan 2797",
+     "time_en": "14 / 15 Nisan 2797"
+    }
+   ],
+   "head_de": "Rückkehr von Noomi und Rut nach Erez Israel",
+   "head_en": "Return of Naomi and Ruth to the Land of Israel"
+  },
+  {
+   "head": "ביאת רות לבועז",
+   "items": [
+    {
+     "ref": "2",
+     "text": "לקיטת רות תבואה בשדה בועז",
+     "time": "אמצע ניסן - אמצע תמוז ב'תשצ\"ז",
+     "par": "מתנות עניים: ויקרא יט ט-י, דברים כד יט-כא",
+     "text_de": "Rut liest Getreide auf dem Feld des Boas auf",
+     "text_en": "Ruth gleans grain in Boaz's field",
+     "par_de": "Gaben für die Armen: Levitikus 19:9–10, Deuteronomium 24:19–21",
+     "par_en": "Gifts for the poor: Leviticus 19:9–10, Deuteronomy 24:19–21",
+     "time_de": "Mitte Nisan bis Mitte Tammus 2797",
+     "time_en": "Mid-Nisan to mid-Tammuz 2797"
+    },
+    {
+     "ref": "3",
+     "text": "מעשה הגורן בלילה והבטחת בועז",
+     "time": "ליל י\"ז בתמוז ב'תשצ\"ז",
+     "text_de": "Das Geschehen auf der Tenne in der Nacht und Boas' Zusage",
+     "text_en": "The night scene on the threshing floor and Boaz's promise",
+     "time_de": "Nacht des 17. Tammus 2797",
+     "time_en": "Night of 17 Tammuz 2797"
+    }
+   ],
+   "head_de": "Rut kommt zu Boas",
+   "head_en": "Ruth comes to Boaz"
+  },
+  {
+   "head": "גאולת בועז",
+   "items": [
+    {
+     "ref": "4:1-17",
+     "text": "גאולת בועז השדה ונישואיו לרות",
+     "time": "י\"ז בתמוז ב'תשצ\"ז",
+     "par": "הקמת שם ויבום: דברים כה ו-ז · גאולת שדה בקרובים: ויקרא כה כה · השחתת נחלה בעמוני ומואבי: דברים כג ד-ז · הזכרה: דברי הימים א' ח ח-ט (י\"מ)",
+     "text_de": "Boas löst das Feld aus und heiratet Rut",
+     "text_en": "Boaz redeems the field and marries Ruth",
+     "par_de": "Erhaltung des Namens und Leviratsehe: Deuteronomium 25:6–7 · Auslösung des Feldes durch Verwandte: Levitikus 25:25 · Schädigung des Erbes bei Ammoniter und Moabiter: Deuteronomium 23:4–7 · Erwähnt: 1 Chronik 8:8–9 (nach manchen)",
+     "par_en": "Preserving the name and levirate marriage: Deuteronomy 25:6–7 · Redemption of a field by relatives: Leviticus 25:25 · Damage to the inheritance regarding the Ammonite and Moabite: Deuteronomy 23:4–7 · Mentioned: 1 Chronicles 8:8–9 (according to some)",
+     "time_de": "17. Tammus 2797",
+     "time_en": "17 Tammuz 2797"
+    }
+   ],
+   "head_de": "Die Lösung durch Boas",
+   "head_en": "Boaz's redemption"
+  },
+  {
+   "head": "ייחוס דוד",
+   "items": [
+    {
+     "ref": "4:18-22",
+     "text": "ייחוס דוד המלך עד פרץ בן יהודה",
+     "time": "לידת דוד המלך: ב'תתנ\"ד",
+     "par": "חזרה: דברי הימים א' ב ה-טו",
+     "text_de": "Stammbaum König Davids bis Perez, dem Sohn Judas",
+     "text_en": "Genealogy of King David back to Perez son of Judah",
+     "par_de": "Wiederholung: 1 Chronik 2:5–15",
+     "par_en": "Repeat: 1 Chronicles 2:5–15",
+     "time_de": "Geburt König Davids: 2854",
+     "time_en": "Birth of King David: 2854"
+    }
+   ],
+   "head_de": "Stammbaum Davids",
+   "head_en": "Genealogy of David"
+  }
+ ],
+ "title_de": "Inhalt des Buches Rut",
+ "title_en": "Contents of the Book of Ruth",
+ "note_de": "Abgeschrieben aus einer Übersichtstabelle (SifreiKodesh) und übersetzt. Daten nach der jüdischen Zählung, wie in der Vorlage gedruckt.",
+ "note_en": "Transcribed from an overview table (SifreiKodesh) and translated. Dates follow the Jewish count, as printed in the source."
+}
