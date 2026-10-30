@@ -1,12 +1,14 @@
 # Safran סַפְרָן – Mac and Windows offline reader
 
+**English** · [Deutsch](README.de.md)
+
 **Why "Safran"?** The name is the Hebrew word **סַפְרָן** (*safran*): a scribe, and in modern Hebrew a librarian. It comes from the same root as *sefer* (book) and *sefarim* (books), which fits an app that is a library of texts. The app is built by [talmud.de](https://talmud.de) and is not affiliated with Sefaria.
 
 An offline library for [Sefaria](https://www.sefaria.org) texts on macOS and Windows (Electron). On launch it opens the **Offline Library** directly; a **Werkzeuge** (Tools) menu adds book download and upload-preparation helpers.
 
 > **Not affiliated with Sefaria.** This is an independent, unofficial project. Sefaria's texts are not part of the app: they are downloaded to your computer from the public Sefaria export. The app never uploads anything to Sefaria. Safran additionally ships texts that are **not yet available on Sefaria**: German translations and commentaries (Zunz, Philippson, Mendelssohn, Herxheimer, Hertz, Rashi and Kitzur Shulchan Arukh (Bamberger), Mendelssohn (Netivot ha-Shalom, Biur), Midrash Rabbah, More Nevuchim and others) in the `bundled/` folder, which are imported automatically on first start and appear under *Eigene Texte* (see *Bundled texts* below).
 
-> The user interface is currently in German.
+> The user interface is available in German and English (⋯ menu → Sprache / Language).
 
 ![Annotated reading view](screenshots/reading-and-commentary-annotated.jpg)
 
@@ -100,6 +102,14 @@ The source code of this app is released under the [MIT License](LICENSE).
 
 ## Changelog
 
+### New in 1.8
+- **Maps:** Bible map of Israel and detailed Jerusalem map; the places of a chapter, with a back button to the outline.
+- **Topics** and **outlines** for 39 books (Hebrew/German/English), Torah outlines with a **613 Mitzvot** switch.
+- **Audio:** Hebrew reading with verse markers; download per book from the GitHub release.
+- **Pinning:** six windows can be pinned beside the text; unpinned ones close on an outside click; a click on a verse number opens the commentary.
+- **Labelled buttons** with counts, the open tab always visible, more English interface strings.
+- BDB: verses linked, Greek in SBL Greek; Gesenius ✡; hover preview in dictionaries.
+
 ### New in 1.4
 - **DSL dictionaries:** ⋯ → "📖 Wörterbuch …". Add ABBYY-Lingvo `.dsl` / `.dsl.dz` files, look up words (vowel points, final letters and Hebrew prefixes are handled), and right-click any Hebrew word in the text → *Im Wörterbuch nachschlagen*. The panel opens on the right like the commentary panel and shares the column with it. Cross-references are clickable; dictionaries can be removed again.
 - **Search results:** right-click for *Open*, *Open in new tab*, *Open in second window*.
@@ -160,30 +170,35 @@ The source code of this app is released under the [MIT License](LICENSE).
 - **Security:** navigation locked to local files, stricter CSP, allow-listed drag-and-drop paths, PDF export via temp file.
 - **Windows:** `npm run dist:win` builds an installer and a portable exe; a GitHub Actions workflow builds macOS and Windows.
 
-## Hebräischer Tanach mit Morphologie (OSHB)
+## Hebrew Tanakh with morphology (OSHB)
 
-Alle 39 Bücher liegen als zusätzliche hebräische Version „Westminster Leningrad Codex (OSHB, mit Morphologie)“ unter `bundled/own/…/he/`. Jedes Wort trägt Lemma (Strong-Nummer) und Morphologiecode; ein Klick im Leser zeigt Stamm, Zeit/Form, Person, Genus und Numerus und schlägt das Lemma im Wörterbuch nach.
+All 39 books are included as an additional Hebrew version “Westminster Leningrad Codex (OSHB, with morphology)” under `bundled/own/…/he/`. Every word carries a lemma (Strong number) and a morphology code; a click in the reader shows stem, tense/form, person, gender and number and looks the lemma up in the dictionary.
 
-Quelle und Lizenz: Original work of the Open Scriptures Hebrew Bible available at https://github.com/openscriptures/morphhb – Text (WLC) gemeinfrei, Lemma und Morphologie CC BY 4.0. Lemma-Tabelle aus https://github.com/openscriptures/HebrewLexicon (`oshb-lemmas.js`). Konverter: `tools/oshb/`.
+Source and license: Original work of the Open Scriptures Hebrew Bible, <https://github.com/openscriptures/morphhb> – text (WLC) public domain, lemma and morphology CC BY 4.0. Lemma table from <https://github.com/openscriptures/HebrewLexicon> (`oshb-lemmas.js`). Converter: `tools/oshb/`.
 
+## Aleppo Codex, Targumim and parallels (ETCBC / CACCHT)
 
-## Aleppo-Kodex, Targumim und Parallelstellen (ETCBC / CACCHT)
+- **Aleppo Codex** – all 39 books as the Hebrew version “Aleppo Codex (מקרא על פי המסורה, ETCBC-CACCHT)”. Text: “מקרא על פי המסורה”, he.wikisource.org, dataset by Martijn Naaijer ([MartijnNaaijer/aleppo](https://github.com/MartijnNaaijer/aleppo)), license **CC BY-SA 4.0** (<https://creativecommons.org/licenses/by-sa/4.0/>). Changes: converted to chapters/verses; the reading text shows the Qere instead of the Ketiv. This text stays under CC BY-SA. Converter: `tools/aleppo/`.
+- **Targum Pseudo-Jonathan and Targum Neofiti 1** (Genesis–Deuteronomy) with word morphology (`targum-lex.js`) – [ETCBC Targum Corpus](https://github.com/ETCBC/targum), MIT license, version 0.0.1-alpha. Converter: `tools/targum/`.
+- **Qumran scrolls** – biblical manuscripts from the Dead Sea as the Hebrew version “Qumran scrolls (ETCBC DSS)” for 36 books; per verse all scrolls with their sigla. Source: [ETCBC/dss](https://github.com/ETCBC/dss) (CACCHT Dead Sea Scrolls dataset), data by Martin G. Abegg Jr., James E. Bowley and Edward M. Cook, conversion by Jarod Jacobs, Martijn Naaijer and Dirk Roorda; license **CC BY-NC 4.0** (<https://creativecommons.org/licenses/by-nc/4.0/>) – non-commercial use only. Changes: grouped by book, chapter and verse, simplified characters. Converter: `tools/dss/`.
+- **BDB (Brown-Driver-Briggs, unabridged)** – dictionary with 10,022 entries, also searchable by Strong number (H3) and BDB number. Public domain (1906); text base by Tim Morton (Bible Analyzer), Bible references by Stephen Ku et al., processing by Eliran Wong: [eliranwong/unabridged-BDB-Hebrew-lexicon](https://github.com/eliranwong/unabridged-BDB-Hebrew-lexicon). Converter: `tools/bdb/`.
+- **Parallel passages** (`parallels.js`) – [ETCBC/parallels](https://github.com/ETCBC/parallels), MIT license, based on the BHSA (CC BY-NC 4.0, only as the starting data of the similarity computation). Converter: `tools/parallels/`.
+- **Septuagint (CATSS)** – Greek version with the Hebrew counterpart per word group (interlinear switchable), 40 versions (Tanakh; Judges as Codex A and B, Daniel additionally after Theodotion); plus, minus and alignment tags are marked. Source: CATSS (Tov/Kraft), [Oxford Text Archive 1111](https://ota.bodleian.ox.ac.uk/repository/xmlui/handle/20.500.12024/1111), **CC BY-NC-SA 3.0**, non-commercial only – see `LICENSE-CATSS.md`. Converter: `tools/catss/`.
 
-- **Aleppo-Kodex** – alle 39 Bücher als hebräische Version „Aleppo-Kodex (מקרא על פי המסורה, ETCBC-CACCHT)“. Text: „מקרא על פי המסורה“, he.wikisource.org, Datensatz von Martijn Naaijer ([MartijnNaaijer/aleppo](https://github.com/MartijnNaaijer/aleppo)), Lizenz **CC BY-SA 4.0** (https://creativecommons.org/licenses/by-sa/4.0/). Änderungen: Umwandlung in Kapitel/Verse, im Lesetext steht das Qere statt des Ketiv. Dieser Text bleibt unter CC BY-SA. Konverter: `tools/aleppo/`.
-- **Targum Pseudo-Jonathan und Targum Neofiti 1** (Genesis–Deuteronomium) mit Wortmorphologie (`targum-lex.js`) – [ETCBC Targum Corpus](https://github.com/ETCBC/targum), MIT-Lizenz, Version 0.0.1-alpha. Konverter: `tools/targum/`.
-- **Qumran-Rollen** – Bibelhandschriften vom Toten Meer als hebräische Version „Qumran-Rollen (ETCBC DSS)“ für 36 Bücher; je Vers alle Rollen mit Sigle. Quelle: [ETCBC/dss](https://github.com/ETCBC/dss) (CACCHT Dead Sea Scrolls dataset), Daten von Martin G. Abegg Jr., James E. Bowley und Edward M. Cook, Konversion Jarod Jacobs, Martijn Naaijer und Dirk Roorda; Lizenz **CC BY-NC 4.0** (https://creativecommons.org/licenses/by-nc/4.0/) – nur nicht-kommerzielle Nutzung. Änderungen: Gruppierung nach Buch, Kapitel und Vers, vereinfachte Zeichen. Konverter: `tools/dss/`.
-- **BDB (Brown-Driver-Briggs, ungekürzt)** – Wörterbuch mit 10.022 Einträgen, auch über Strong-Nummer (H3) und BDB-Nummer auffindbar. Gemeinfrei (1906); Textgrundlage von Tim Morton (Bible Analyzer), Bibelstellen von Stephen Ku u. a., Aufbereitung von Eliran Wong: [eliranwong/unabridged-BDB-Hebrew-lexicon](https://github.com/eliranwong/unabridged-BDB-Hebrew-lexicon). Konverter: `tools/bdb/`.
-- **Parallelstellen** (`parallels.js`) – [ETCBC/parallels](https://github.com/ETCBC/parallels), MIT-Lizenz, auf Basis der BHSA (CC BY-NC 4.0, nur als Ausgangsdaten der Ähnlichkeitsberechnung). Konverter: `tools/parallels/`.
-- **Septuaginta (CATSS)** – griechische Version mit hebräischem Gegenstück je Wortgruppe (Interlinear schaltbar), 40 Fassungen (Tanach; Richter als Codex A und B, Daniel zusätzlich nach Theodotion); Plus, Minus und Tags der Ausrichtung werden gekennzeichnet. Quelle: CATSS (Tov/Kraft), [Oxford Text Archive 1111](https://ota.bodleian.ox.ac.uk/repository/xmlui/handle/20.500.12024/1111), **CC BY-NC-SA 3.0**, nur nicht kommerziell – siehe `LICENSE-CATSS.md`. Konverter: `tools/catss/`.
+## Interface language
 
-## Oberflächensprache
+The interface is available in German and English (⋯ menu → Sprache). The English strings live in `i18n.js`: German original on the left, translation on the right; `{}` and `{#}` (number) are placeholders. New interface strings in the code stay German and get an entry there. `test10.js` checks the table.
 
-Die Oberfläche gibt es auf Deutsch und Englisch (Menü ⋯ → Sprache). Die englischen Texte stehen in `i18n.js`: links der deutsche Originaltext, rechts die Übersetzung; `{}` und `{#}` (Zahl) sind Platzhalter. Neue Oberflächentexte im Code bleiben deutsch und bekommen dort einen Eintrag. `test10.js` prüft die Tabelle.
+## Bible map
 
-## Bibelkarte
-Karte der Orte eines Kapitels (🗺 in der Leseleiste, auch aus der Gliederung), mit Entfernungsmessung, Höhenprofil, Notizen an Orten und Routen. Quellen:
-- Orte, Bibelstellen, Lagesicherheit: [OpenBible.info Bible Geocoding Data](https://github.com/openbibleinfo/Bible-Geocoding-Data) (CC BY 4.0).
-- Gelände: Copernicus DEM GLO-30 (© DLR/ESA/Copernicus, frei nutzbar mit Quellenangabe); Küsten, Flüsse, Seen und heutige Grenzen: Natural Earth (gemeinfrei). Konverter: `tools/map/`.
-- Routen: [UBS Bible Routes](https://github.com/ubsicap/ubs-open-license) (MARBLE, nach Leen Ritmeyer, © United Bible Societies 2023, **CC BY-SA 4.0**) – `map/routes.js` steht daher unter derselben Lizenz; Bibelstellen und deutsche Titel sind unsere Zuordnung.
-- Orte bei Josephus (Jüdischer Krieg, Altertümer 11–20) und in den Makkabäerbüchern: [ToposText](https://topostext.org) (Brady Kiesling, Aikaterini Laskaridis Foundation; Open Data Commons Attribution). Die Zuordnung zu den Sefaria-Kapiteln entsteht über den Whiston-Text (`tools/map/extract_topostext.py`, `tools/map/build_josephus.py`) und wird in `map/josephus.js` abgelegt.
-- Jerusalem im Detail (Knopf 🏛 in der Karte, ab starkem Zoom): [Ordnance Survey of Jerusalem](https://commons.wikimedia.org/wiki/File:1865_Ordnance_Survey_of_Jerusalem_Old_City_full_map.jpg) (Charles W. Wilson, 1864/65, gemeinfrei, Wikimedia Commons), Schummerung aus Copernicus DEM GLO-30, heutige Straßen und Mauer aus [OpenStreetMap](https://www.openstreetmap.org/copyright) (© OpenStreetMap-Mitwirkende, ODbL). Aufbau: `tools/map/build_jerusalem.py`, `tools/map/build_jer_meta.py`.
+Map of the places of a chapter (🗺 in the reading bar, also from the outline), with distance measurement, elevation profile, notes on places and routes. Sources:
+- Places, references, location confidence: [OpenBible.info Bible Geocoding Data](https://github.com/openbibleinfo/Bible-Geocoding-Data) (CC BY 4.0).
+- Terrain: Copernicus DEM GLO-30 (© DLR/ESA/Copernicus, free to use with attribution); coasts, rivers, lakes and current borders: Natural Earth (public domain). Converter: `tools/map/`.
+- Routes: [UBS Bible Routes](https://github.com/ubsicap/ubs-open-license) (MARBLE, after Leen Ritmeyer, © United Bible Societies 2023, **CC BY-SA 4.0**) – `map/routes.js` is therefore under the same license; Bible references and German titles are our own assignment.
+- Places in Josephus (Jewish War, Antiquities 11–20) and in the books of the Maccabees: [ToposText](https://topostext.org) (Brady Kiesling, Aikaterini Laskaridis Foundation; Open Data Commons Attribution). The assignment to Sefaria chapters is derived from the Whiston text (`tools/map/extract_topostext.py`, `tools/map/build_josephus.py`) and stored in `map/josephus.js`.
+- Jerusalem in detail (🏛 button in the map, at high zoom): [Ordnance Survey of Jerusalem](https://commons.wikimedia.org/wiki/File:1865_Ordnance_Survey_of_Jerusalem_Old_City_full_map.jpg) (Charles W. Wilson, 1864/65, public domain, Wikimedia Commons), hillshade from Copernicus DEM GLO-30, today's streets and wall from [OpenStreetMap](https://www.openstreetmap.org/copyright) (© OpenStreetMap contributors, ODbL). Build: `tools/map/build_jerusalem.py`, `tools/map/build_jer_meta.py`.
+
+## Audio and outlines
+
+- **Audio:** Hebrew reading of the Tanakh by Abraham Schmueloff, source: [archive.org](https://archive.org/details/HebrewOldTestamentReadByAbrahamSchmueloff) (Talking Bibles International). Split into chapters; verse markers in `audio-markers/`. The audio files are not part of the repository but of the GitHub release `audio` (one `Audio_<Book>.zip` per book). The licence information is being clarified with Talking Bibles International.
+- **Outlines (`outlines/`):** outlines of 39 books transcribed from a printed edition; German and English translations are machine-generated and not proofread. Tools: `tools/assemble_outline_photos.py`, `tools/merge_outline_tr.py`.
