@@ -4048,7 +4048,7 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
     const lab = e.target.closest('.lab');
     if (!lab || e.target.closest('.bm') || e.target.closest('.lk')) return;
     const row = lab.closest('.row[data-l]');
-    if (row) { setCmtRow(row.dataset.l); if (!cmtOpen && !pins.cmt) toggleCmt(true); } // nicht angepinnt: ein Klick auf den Vers öffnet die Kommentare
+    if (row) { setCmtRow(row.dataset.l); if (!cmtOpen) toggleCmt(true); } // ein Klick auf den Vers öffnet die Kommentare
   });
   // Doppelklick auf die Versnummer öffnet den Kommentar-Bereich, derselbe Vers noch einmal schließt ihn
   let lastCmtDbl = null;
