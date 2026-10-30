@@ -156,13 +156,14 @@
     document.title = onRead && name && name !== 'Neuer Tab' ? name : base;
   }
   function renderTabs() {
-    updateTitle(tabs[tabIdx] && (tabs[tabIdx].group ? tabs[tabIdx].group.title + (tabs[tabIdx].label ? ' · ' + tabs[tabIdx].label : '') : tabs[tabIdx].sres ? I18N.t('Suche') + ': ' + tabs[tabIdx].sres.q : ''));
     $('#tabbar').innerHTML = tabs.map((t, i) => {
       const s = t.group && t.sections && t.sections[t.idx];
       if (s) t.label = s.label;
       const name = t.group ? t.group.title + (t.label ? ' · ' + t.label : '') : t.sres ? I18N.t('Suche') + ': ' + t.sres.q : 'Neuer Tab';
+      if (i === tabIdx) updateTitle(t.group || t.sres ? name : ''); // erst hier: t.label ist oben gerade aktualisiert worden
       return `<div class="tab${i === tabIdx ? ' active' : ''}" data-i="${i}" title="${esc(name)}"><span>${esc(name)}</span><button data-x="${i}" title="Tab schließen">✕</button></div>`;
     }).join('') + '<button id="tabNew" title="Neuer Tab (Cmd+T)">＋</button>';
+    if (!tabs.length) updateTitle('');
     const act = $('#tabbar .tab.active'); if (act) act.scrollIntoView({ inline: 'nearest', block: 'nearest' }); // bei vielen Tabs immer den geöffneten zeigen
   }
   function showView() {
