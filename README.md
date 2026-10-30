@@ -179,3 +179,11 @@ Quelle und Lizenz: Original work of the Open Scriptures Hebrew Bible available a
 ## Oberflächensprache
 
 Die Oberfläche gibt es auf Deutsch und Englisch (Menü ⋯ → Sprache). Die englischen Texte stehen in `i18n.js`: links der deutsche Originaltext, rechts die Übersetzung; `{}` und `{#}` (Zahl) sind Platzhalter. Neue Oberflächentexte im Code bleiben deutsch und bekommen dort einen Eintrag. `test10.js` prüft die Tabelle.
+
+## Bibelkarte
+Karte der Orte eines Kapitels (🗺 in der Leseleiste, auch aus der Gliederung), mit Entfernungsmessung, Höhenprofil, Notizen an Orten und Routen. Quellen:
+- Orte, Bibelstellen, Lagesicherheit: [OpenBible.info Bible Geocoding Data](https://github.com/openbibleinfo/Bible-Geocoding-Data) (CC BY 4.0).
+- Gelände: Copernicus DEM GLO-30 (© DLR/ESA/Copernicus, frei nutzbar mit Quellenangabe); Küsten, Flüsse, Seen und heutige Grenzen: Natural Earth (gemeinfrei). Konverter: `tools/map/`.
+- Routen: [UBS Bible Routes](https://github.com/ubsicap/ubs-open-license) (MARBLE, nach Leen Ritmeyer, © United Bible Societies 2023, **CC BY-SA 4.0**) – `map/routes.js` steht daher unter derselben Lizenz; Bibelstellen und deutsche Titel sind unsere Zuordnung.
+- Orte bei Josephus (Jüdischer Krieg, Altertümer 11–20) und in den Makkabäerbüchern: [ToposText](https://topostext.org) (Brady Kiesling, Aikaterini Laskaridis Foundation; Open Data Commons Attribution). Die Zuordnung zu den Sefaria-Kapiteln entsteht über den Whiston-Text (`tools/map/extract_topostext.py`, `tools/map/build_josephus.py`) und wird in `map/josephus.js` abgelegt.
+- Jerusalem im Detail (Knopf 🏛 in der Karte, ab starkem Zoom): [Ordnance Survey of Jerusalem](https://commons.wikimedia.org/wiki/File:1865_Ordnance_Survey_of_Jerusalem_Old_City_full_map.jpg) (Charles W. Wilson, 1864/65, gemeinfrei, Wikimedia Commons), Schummerung aus Copernicus DEM GLO-30, heutige Straßen und Mauer aus [OpenStreetMap](https://www.openstreetmap.org/copyright) (© OpenStreetMap-Mitwirkende, ODbL). Aufbau: `tools/map/build_jerusalem.py`, `tools/map/build_jer_meta.py`.

@@ -132,22 +132,23 @@ const cleanGram = g => { const o = {}; if (g && typeof g === 'object') for (cons
 const escRe = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
 async function searchFiles({ dir, entries, params, cacheDir = null, onProgress = () => {}, isCancelled = () => false }) {
-  const { query, extra = [], fuzzy = false, distance = -1, ordered = false, prefix = false, limit = 1000, perFile = 25, wlc = false, lemma = false } = params;
+  const { query, extra = [], fuzzy = false, distance = -1, ordered = false, prefix = false, exact = false, limit = 1000, perFile = 25, wlc = false, lemma = false, countAll = false } = params;
   const q = R.normalize(query);
   const G = cleanGram(params.gram), gramOn = !!G;
   if (!q && !gramOn) return { results: [], scanned: 0, total: 0, truncated: false, capped: false, cancelled: false, stats: [] };
   const terms = [query, ...extra].filter(t => String(t || '').trim());
-  const advanced = terms.length > 1 || fuzzy || /[*?]/.test(query);
-  const matcher = advanced ? S.makeMatcher({ terms, fuzzy, prefix, distance, ordered }) : null;
+  const advanced = terms.length > 1 || fuzzy || exact || /[*?]/.test(query); // exact: genau dieses Wort (Wortvergleich, keine Vorsilben, keine anderen Formen)
+  const matcher = advanced ? S.makeMatcher({ terms, fuzzy, prefix: exact ? false : prefix, distance, ordered }) : null;
   // „Ganze Wörter“: Suchwort muss ein ganzes Wort sein (Satzzeichen davor/danach sind erlaubt), hebräische Vorsilben (ו ה ב כ ל מ ש …) davor ebenfalls
   const preRe = !advanced && prefix ? new RegExp('(?:^|[\\s\\p{P}\\p{S}])([והבכלמשד]{0,3})' + escRe(q) + '(?=[\\s\\p{P}\\p{S}]|$)', 'u') : null;
   // Tanach hebräisch nur im Westminster-Text (sonst käme jeder Vers mehrfach, und die Morphologie fehlt)
   const wlcTitles = new Set(wlc ? entries.filter(isWlc).map(e => e.title) : []);
   const skip = e => wlc && e.kind === 'he' && wlcTitles.has(e.title) && !isWlc(e) && /^Tanakh/.test((e.categories || [])[0] || '');
-  const lemMatcher = lemma ? S.makeMatcher({ terms, fuzzy, prefix, distance, ordered }) : null;
+  const lemMatcher = lemma && !exact ? S.makeMatcher({ terms, fuzzy, prefix, distance, ordered }) : null;
   const list = SefOrder.sortTitles(entries.filter(e => (gramOn ? isWlc(e) : !skip(e))), e => e.title); // Treffer in der Reihenfolge wie auf Sefaria
 
   const results = [];
+  const dist = new Map(); // Titel \u0000 Version -> { h: Verse mit Treffer, o: Vorkommen } (für die Verteilung auf die Bücher)
   const stats = new Map(); // Titel -> Gesamtzahl der Treffer (auch über die Anzeigegrenze hinaus)
   let scanned = 0, truncated = false, capped = false, lastProg = 0;
   for (const e of list) {
@@ -183,13 +184,13 @@ async function searchFiles({ dir, entries, params, cacheDir = null, onProgress =
     const needW = !!(lemMatcher && isWlc(e));
     try { src = await loadSource(dir, e, cacheDir, needW); } catch { /* Datei überspringen */ }
     if (src && !(!matcher && !needW && !src.n.includes(q))) { // einfache Suche: Datei ohne den Suchtext sofort überspringen
-      let locator = null, shown = 0, hits = 0;
+      let locator = null, shown = 0, hits = 0, occ = 0;
       const N = src.n.split('\n'), WN = needW ? src.wn.split('\n') : null, WL = needW ? src.wl.split('\n') : null;
       const ensure = () => { // Pfade/Struktur erst bei einem Treffer nachladen (bei Cache-Treffer ohne Parsen vorher)
         if (!src.d) { src.d = JSON.parse(require('fs').readFileSync(path.join(dir, e.rel), 'utf8')); src.paths = []; R.walkStrings(src.d.text, [], (_s, p) => src.paths.push(p)); }
       };
       for (let i = 0; i < N.length; i++) {
-        if (truncated) break;
+        if (truncated && !countAll) break;
         let n = N[i];
         let mm = null, pos = -1;
         const wt = needW && WN[i] ? { n: WN[i], nl: WL[i] } : null;
@@ -203,6 +204,8 @@ async function searchFiles({ dir, entries, params, cacheDir = null, onProgress =
         else if (preRe) { const m = preRe.exec(n); if (!m) continue; pos = m.index + m[0].length - q.length; }
         else { pos = n.indexOf(q); if (pos < 0) continue; }
         hits++;
+        occ += mm ? Math.max(1, mm.idx.length) : preRe ? Math.max(1, [...n.matchAll(new RegExp(preRe.source, 'gu'))].length) : Math.max(1, n.split(q).length - 1);
+        if (truncated) continue; // nur noch zählen (Verteilung auf die Bücher)
         if (shown >= perFile) { capped = true; continue; }
         ensure();
         const p = src.paths[i];
@@ -220,16 +223,17 @@ async function searchFiles({ dir, entries, params, cacheDir = null, onProgress =
         results.push(r); shown++;
         if (results.length >= limit) truncated = true;
       }
-      if (hits) stats.set(e.title, (stats.get(e.title) || 0) + hits);
+      if (hits) { stats.set(e.title, (stats.get(e.title) || 0) + hits); dist.set(e.title + '\u0000' + (e.versionTitle || '') + '\u0000' + e.kind, { t: e.title, v: e.versionTitle || '', k: e.kind, h: hits, o: occ }); }
     }
     scanned++;
     const now = Date.now();
     if (now - lastProg > 150 || scanned === list.length) { lastProg = now; onProgress({ scanned, total: list.length, found: results.length }); }
-    if (truncated) break;
+    if (truncated && !countAll) break;
     await new Promise(r => setImmediate(r)); // andere Aufgaben (z. B. Abbrechen) dürfen dazwischen
   }
   return {
     results, scanned, total: list.length, truncated, capped, cancelled: isCancelled(),
+    dist: [...dist.values()],
     stats: SefOrder.sortTitles([...stats.entries()].map(([title, n]) => ({ title, n })), x => x.title),
   };
 }

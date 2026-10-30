@@ -57,3 +57,13 @@ console.log('refs ok');
   assert.strictEqual(R.cleanHtml('1 < 2 <b>x</b>'), '1 &lt; 2 <b>x</b>');
   console.log('cleanHtml-Härtung ok');
 }
+// deutsche Buchnamen
+{ const a = require('assert'); a(R.deHit('I Kings', 'kön') && R.deHit('II Kings', 'kön') && R.deHit('I Kings', '1 kön') && !R.deHit('II Kings', '1 kön'));
+  a(R.deHit('Judges', 'richter') && R.deHit('Genesis', '1 mose') && R.deHit('Job', 'hiob') && R.deHit('Psalms', 'ps') && !R.deHit('Genesis', 'kön')); console.log('deutsche Buchnamen ok'); }
+{ const a = require('assert'); a.strictEqual(R.canonBook('1_Samuel'), 'I Samuel'); a.strictEqual(R.canonBook('2_Kings'), 'II Kings'); a.strictEqual(R.canonBook('Richter'), 'Judges'); a.strictEqual(R.canonBook('Isaiah'), 'Isaiah'); a.strictEqual(R.canonBook('xyz'), ''); console.log('Audio-Buchnamen ok'); }
+// Gesenius-Abkürzungen
+{ const a = require('assert'), G = require('./gabk.js');
+  const m = G.mark('<b>אֵב</b> (vgl. <a class="dsrc" data-sref="x">Ps 37</a>) m. <i>pl. cstr.</i> Ges. § 23; E. Meyer, EdJ 196; 139 f.; Ps 37; Am Anfang; V. 30');
+  a(/<abbr class="gab" data-t="vergleiche">vgl\.<\/abbr>/.test(m)); a(/data-t="status constructus">cstr\./.test(m)); a(/data-t="folgende">f\./.test(m)); a(/data-t="Vers">V\./.test(m));
+  a(/data-t="Psalmen">Ps<\/abbr> 37/.test(m)); a(!/>Ps<\/abbr><\/a>/.test(m)); a(!/>Am<\/abbr>/.test(m)); a(!/data-t="Elohist"/.test(m)); a(/>Ges\. §<\/abbr>/.test(m)); a(/>Meyer, EdJ<\/abbr>/.test(m));
+  a(G.mark('<b>x</b>') === '<b>x</b>'); console.log('Gesenius-Abkürzungen ok'); }

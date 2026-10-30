@@ -37,6 +37,32 @@ function noteUrl(n) {
   const ref = (v.includes(':') ? `${n.title} ${v}` : `${n.title} ${chap}${v ? ':' + v : ''}`).replace(/\s+/g, ' ').trim();
   return sefariaUrl(ref);
 }
+// Deutsche Buchnamen und Kürzel (Luther/Einheitsübersetzung/Gesenius) -> Sefaria-Titel; für „Springen zu“ und Buchvorschläge
+const DE_BOOKS = {
+  'Genesis': ['1 Mose', 'Genesis', 'Gn'], 'Exodus': ['2 Mose', 'Exodus', 'Ex'], 'Leviticus': ['3 Mose', 'Levitikus', 'Lv'],
+  'Numbers': ['4 Mose', 'Numeri', 'Nu'], 'Deuteronomy': ['5 Mose', 'Deuteronomium', 'Dtn', 'Dt'],
+  'Joshua': ['Josua', 'Jos'], 'Judges': ['Richter', 'Ri'], 'I Samuel': ['1 Samuel', '1 Sam', '1 S'], 'II Samuel': ['2 Samuel', '2 Sam', '2 S'],
+  'I Kings': ['1 Könige', '1 Kön', '1 Kg', '1 K'], 'II Kings': ['2 Könige', '2 Kön', '2 Kg', '2 K'],
+  'Isaiah': ['Jesaja', 'Jes'], 'Jeremiah': ['Jeremia', 'Jer'], 'Ezekiel': ['Ezechiel', 'Hesekiel', 'Hes', 'Ez'],
+  'Hosea': ['Hosea', 'Hos'], 'Joel': ['Joel'], 'Amos': ['Amos'], 'Obadiah': ['Obadja', 'Ob'], 'Jonah': ['Jona', 'Jon'], 'Micah': ['Micha', 'Mi'],
+  'Nahum': ['Nahum', 'Nah'], 'Habakkuk': ['Habakuk', 'Hab'], 'Zephaniah': ['Zefanja', 'Zephanja', 'Zef'], 'Haggai': ['Haggai', 'Hag'],
+  'Zechariah': ['Sacharja', 'Sach'], 'Malachi': ['Maleachi', 'Mal'],
+  'Psalms': ['Psalmen', 'Psalm', 'Ps'], 'Proverbs': ['Sprüche', 'Sprichwörter', 'Spr'], 'Job': ['Hiob', 'Ijob', 'Hi'],
+  'Song of Songs': ['Hohelied', 'Hoheslied', 'Hld'], 'Ruth': ['Ruth', 'Rut'], 'Lamentations': ['Klagelieder', 'Klgl'],
+  'Ecclesiastes': ['Kohelet', 'Prediger', 'Koh'], 'Esther': ['Ester', 'Esther', 'Est'], 'Daniel': ['Daniel', 'Dn'], 'Ezra': ['Esra', 'Esr'],
+  'Nehemiah': ['Nehemia', 'Neh'], 'I Chronicles': ['1 Chronik', '1 Chr', '1 Chron'], 'II Chronicles': ['2 Chronik', '2 Chr', '2 Chron']
+};
+const fold = x => String(x).toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/ß/g, 'ss').replace(/[^\p{L}\p{N}]+/gu, ' ').trim();
+const DE_BY_TITLE = new Map(Object.entries(DE_BOOKS).map(([t, l]) => [fold(t), l.map(fold)]));
+const wordHit = (t, b) => t.startsWith(b) || t.split(' ').some(w => w.startsWith(b)) || (b.includes(' ') && b.split(' ').every(k => t.split(' ').some(w => w.startsWith(k))));
+// passt die Eingabe b (Anfang eines deutschen Namens/Kürzels) zum Sefaria-Titel?
+const deHit = (title, b) => { const l = DE_BY_TITLE.get(fold(title)), q = fold(b); return !!(l && q && l.some(a => wordHit(a, q))); };
+// deutsche Namen zu einem Titel, für die Anzeige
+const deNames = title => { const l = DE_BOOKS[title]; return l ? l.filter(x => x.length > 3).slice(0, 2).join(' / ') : ''; };
+// Buchname aus Dateinamen („1_Samuel“, „Richter“, „2 Kön“) -> Sefaria-Titel („I Samuel“, „Judges“) oder ''
+const nkBook = x => { let f = fold(x); const m = f.match(/^([123])\s*(?=[a-z])|^(i{1,3})\s+/); if (m) f = ({ '1': 'i', '2': 'ii', '3': 'iii' }[m[1]] || m[2]) + ' ' + f.slice(m[0].length); return f; };
+const BOOK_BY_NAME = new Map(); for (const [t, l] of Object.entries(DE_BOOKS)) { BOOK_BY_NAME.set(nkBook(t), t); for (const a of l) if (!BOOK_BY_NAME.has(nkBook(a))) BOOK_BY_NAME.set(nkBook(a), t); }
+const canonBook = x => BOOK_BY_NAME.get(nkBook(String(x).replace(/[_]+/g, ' '))) || '';
 function parseMulti(q, bestGroup, defaultBook) {
   // Aufteilen: „;“ trennt immer. „,“ trennt, wenn danach ein Buchname („gen“, „1 Kings 2:1“) oder Kapitel:Vers („2:5“) folgt;
   // eine bloße Zahl gehört zur Versliste („gen 1:1-5, 9“), außer die Stelle davor hat noch kein „:“ („Psalms 23, 24“ = zwei Kapitel)
@@ -79,6 +105,6 @@ function parseMulti(q, bestGroup, defaultBook) {
   }
   return multi ? { units, bad } : null;
 }
-const api = { normT, rowVerse, noteId, parseVerseList, fmtVerses, relatedTitles, sefariaUrl, noteUrl, parseMulti };
+const api = { normT, rowVerse, noteId, parseVerseList, fmtVerses, relatedTitles, sefariaUrl, noteUrl, parseMulti, deHit, deNames, canonBook };
 if (typeof module !== 'undefined' && module.exports) module.exports = api; else window.Refs = api;
 })();

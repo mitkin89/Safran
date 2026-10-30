@@ -48,6 +48,13 @@ class LinkStore {
     await fs.mkdir(path.join(this.dir, 'by_book'), { recursive: true });
     const st = await this.status();
     const done = new Set(st.done);
+    // Wiederaufnahme: Dateien auf den Stand der letzten vollständig verarbeiteten CSV zurücksetzen (sonst doppelte Zeilen)
+    let sizes = {};
+    try { sizes = JSON.parse(await fs.readFile(this.stateFile, 'utf8')).sizes || {}; } catch {}
+    for (const f of await fs.readdir(path.join(this.dir, 'by_book')).catch(() => [])) {
+      const p = path.join(this.dir, 'by_book', f);
+      if (sizes[f] === undefined) await fs.rm(p, { force: true }); else await fs.truncate(p, sizes[f]).catch(() => {});
+    }
     const failed = [];
     for (let i = 0; i < FILES.length; i++) {
       if (isCancelled()) break;
@@ -72,9 +79,13 @@ class LinkStore {
         add(t1, `${a}\t${r[1]}\t${r[2]}\t${r[6]}`);
         add(t2, `${b}\t${r[0]}\t${r[2]}\t${r[5]}`);
       }
-      for (const [book, lines] of per) await fs.appendFile(path.join(this.dir, 'by_book', safe(book) + '.tsv'), lines.join('\n') + '\n');
+      for (const [book, lines] of per) {
+        const fn = safe(book) + '.tsv', p = path.join(this.dir, 'by_book', fn);
+        await fs.appendFile(p, lines.join('\n') + '\n');
+        sizes[fn] = (await fs.stat(p)).size;
+      }
       done.add(i);
-      await fs.writeFile(this.stateFile, JSON.stringify({ done: [...done] }));
+      await fs.writeFile(this.stateFile, JSON.stringify({ done: [...done], sizes }));
       onProgress({ file: i + 1, total: FILES.length, phase: FILES[i] + ' fertig' });
     }
     this.cache.clear();

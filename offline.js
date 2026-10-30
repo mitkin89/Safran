@@ -26,7 +26,7 @@ function relPathOf(e) {
   return p.split('/').map(seg => {
     let s;
     try { s = decodeURIComponent(seg); } catch { s = seg; }
-    s = s.replace(/[\\:*?"<>|\u0000-\u001f]/g, '_').replace(/^\.+$/, '_').replace(/[. ]+$/, '');
+    s = s.replace(/[\\/:*?"<>|\u0000-\u001f]/g, '_').replace(/^\.+$/, '_').replace(/[. ]+$/, '');
     if (/^(con|prn|aux|nul|com[1-9]|lpt[1-9])(\.|$)/i.test(s)) s = '_' + s; // unter Windows reservierte Namen
     return s.slice(0, 120) || '_'; // kurz halten: Windows-Pfade sind begrenzt (MAX_PATH)
   }).join('/');
@@ -327,7 +327,7 @@ class Library {
     const data = { title, heTitle, language: kind === 'he' ? 'Hebrew' : 'English', versionTitle, versionSource: 'eigener Text', sectionNames, text };
     const buf = Buffer.from(JSON.stringify(data));
     await fs.mkdir(path.dirname(dest), { recursive: true });
-    await fs.writeFile(dest, buf);
+    const tmp = dest + '.tmp'; await fs.writeFile(tmp, buf); await fs.rename(tmp, dest); // atomar: kein halbes JSON bei Absturz
     const cats = Array.isArray(categories) && categories.length ? categories : ['Eigene Texte'];
     this.index.entries[rel] = { rel, title, heTitle, language: data.language, versionTitle, categories: cats, kind, bytes: buf.length, own: true, source: source || undefined };
     await this.save();
@@ -383,6 +383,8 @@ class Library {
       privRels = new Set((pm.items || []).map(i => i.rel.normalize('NFC')));
       for (const r of privRels) { try { keep.push([r, await fs.readFile(path.join(outDir, r))]); } catch { /* fehlt */ } }
     } catch { /* keine privaten Texte */ }
+    { const a = path.resolve(outDir), b = path.resolve(this.dir), sep = path.sep;
+      if (a === b || (b + sep).startsWith(a + sep) || (a + sep).startsWith(b + sep)) throw new Error('Bitte nicht den Bibliotheksordner selbst (oder einen Ordner darüber/darin) wählen, sondern den Ordner „bundled“ im Projekt.'); }
     await fs.rm(path.join(outDir, 'own'), { recursive: true, force: true });
     for (const [r, buf] of keep) { await fs.mkdir(path.dirname(path.join(outDir, r)), { recursive: true }); await fs.writeFile(path.join(outDir, r), buf); }
     const items = [];

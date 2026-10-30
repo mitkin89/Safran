@@ -2,7 +2,7 @@
 <html lang="de">
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; script-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; media-src 'self' file: blob:; script-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Offline-Bibliothek</title>
   <script src="theme.js"></script>
@@ -76,7 +76,10 @@
                 </details>
                 <button id="bookSearch" title="Nur in diesem Buch suchen">🔎<span class="bl">Im Buch</span></button>
                 <button id="cmtBtn" title="Kommentare zum gewählten Vers (Cmd+K)">💬<span class="bl">Kommentare</span></button>
-                <button id="lkBtn" title="Verknüpfungen zu diesem Abschnitt anzeigen" hidden>🔗</button>
+                <button id="lkBtn" title="Verknüpfungen zu diesem Abschnitt anzeigen" hidden>🔗<span class="bl">Verknüpfungen</span></button>
+                <button id="olBtn" title="Gliederung dieses Buches (Wochenabschnitte, Kapitel, Absätze)">☰ <span class="bl">Gliederung</span></button>
+                <button id="tpBtn" title="Themen (Sefaria Topics) zu diesem Abschnitt" hidden>🏷<span class="bl">Themen</span></button>
+                <button id="mapBtn" title="Karte: Orte in diesem Kapitel" hidden>🗺<span class="bl">Karte</span></button>
                 <span class="spacer"></span>
                 <button id="dispBtn" title="Anzeige, Fußnoten, Schrift, Export">⚙<span class="bl">Anzeige</span></button>
               </div>
@@ -99,6 +102,7 @@
         <label><input type="checkbox" class="sk" data-k="other"> Andere</label>
         <label title="Das Suchwort muss ein ganzes Wort sein; hebräische Vorsilben (ו ה ב כ ל מ ש) davor sind erlaubt: ארץ findet auch הארץ und בארץ, aber nicht ארצות"><input type="checkbox" id="sPre"> Ganze Wörter (mit Vorsilben)</label>
         <label title="Im Tanach wird hebräisch nur der Westminster-Text durchsucht (jeder Vers nur einmal, mit Morphologie)"><input type="checkbox" id="sWlc" checked> Tanach: nur Westminster</label>
+        <label title="Nur genau dieses Wort: ohne Vorsilben und ohne andere Formen. רבה findet dann nicht mehr הרבה (hebräisch und andere Sprachen; schaltet „Ganze Wörter“ und „Alle Formen“ ab)"><input type="checkbox" id="sExact"> Genau dieses Wort</label>
         <label title="Findet alle Formen eines Wortes: כאב findet auch כאבים und תכאבו (über das Lemma der Westminster-Morphologie; gilt nur für den hebräischen Tanach)"><input type="checkbox" id="sLem" checked> Alle Formen (Lemma)</label>
         <button id="sGo" class="primary">Suchen</button>
         <button id="sCancel" disabled>Abbrechen</button>
@@ -153,15 +157,19 @@
         <p data-i18n="h9"><b>Wörter in der Nähe:</b> Trage in bis zu drei Feldern Wörter ein. Gefunden werden Verse bzw. Absätze, in denen alle Wörter vorkommen und höchstens so weit auseinander stehen, wie du bei „Abstand“ gewählt hast. Mit „Reihenfolge einhalten“ müssen sie so aufeinander folgen wie in den Feldern. Beispiel: <code>anf*</code> · <code>gott</code> · <code>erd*</code> mit „höchstens 10 Wörter“ und Reihenfolge findet „Am Anfang schuf Gott Himmel und Erde“. Gezählt wird nur innerhalb eines Verses, nicht über Verse hinweg.</p>
         <p>Sobald mehrere Wörter, ein Platzhalter oder Fuzzy im Spiel sind, gilt: ganze Wörter statt Wortteile. „Ganze Wörter (mit Vorsilben)“ erlaubt dabei hebräische Vorsilben.</p>
       </details>
-      <div id="sTools"><span id="sSum"></span> <button id="sReadBtn" type="button" hidden title="Alle Fundstellen wie beim Lesen untereinander in einem neuen Tab zeigen, nach Buch und Kapitel geordnet, mit den gewählten Versionen nebeneinander und einer Übersicht der Bücher">📖 Alle als Lesetext öffnen</button> <button id="sExport" type="button" hidden title="Alle angezeigten Treffer als CSV-Datei speichern">⤓ Treffer als CSV</button></div>
+      <div id="sChart" hidden></div>
+      <div id="sTools"><button id="sReadBtn" type="button" hidden title="Alle Fundstellen wie beim Lesen untereinander in einem neuen Tab zeigen, nach Buch und Kapitel geordnet, mit den gewählten Versionen nebeneinander und einer Übersicht der Bücher">📖 Alle als Lesetext öffnen</button> <button id="sExport" type="button" hidden title="Alle angezeigten Treffer als CSV-Datei speichern">⤓ Treffer als CSV</button></div>
       <p id="sInfo" class="muted">Durchsucht alle heruntergeladenen Texte der gewählten Sprachen (auch Fußnoten).</p>
       <div id="sOut"></div>
       </div>
+      <div id="sRight">
       <div id="sCatPanel" class="catpanel">
         <h3 id="sCatBtn">Kategorien: alle</h3>
         <div class="bar"><input id="sCatFilter" placeholder="Kategorien durchsuchen …"><button id="sCatAll" type="button" title="Alle Häkchen entfernen: es wird in allen Kategorien gesucht">Alle Kategorien auswählen</button></div>
         <p class="muted">Ohne Häkchen wird überall gesucht. Mit Häkchen nur in den gewählten Kategorien; ein Häkchen bei einer Hauptkategorie gilt für alles darunter.</p>
         <div id="sCatTree"></div>
+      </div>
+      <div id="sSumPanel" class="catpanel" hidden><h3>Treffer nach Buch</h3><div id="sSum"></div></div>
       </div>
     </section>
 
@@ -242,6 +250,36 @@
           <span id="lkInfo" class="muted"></span>
         </div>
       </div>
+
+      <div class="card" id="audioCard">
+        <h2>6 · Audio (optional)</h2>
+        <p class="muted">Ordner mit Audiodateien pro Vers, benannt wie <code>Genesis_001_001.mp3</code> (Buchname wie in Safran, Kapitel, Vers). Zu jedem Vers mit Datei erscheint im Reiter „Lesen“ ein ▶. Danach läuft es fortlaufend weiter, auch ins nächste Kapitel.</p>
+        <div class="bar">
+          <button id="auPick" class="primary">Audio-Ordner wählen …</button>
+          <button id="auClear">Entfernen</button>
+          <span id="auInfo" class="muted"></span>
+        </div>
+        <p class="muted" style="margin-top:10px">Oder die Aufnahme aus dem Internet laden (Hebräisches Alten Testament, gelesen von Abraham Schmueloff; Download von GitHub, pro Buch ein Paket):</p>
+        <div class="bar">
+          <button id="auNetList">Verfügbare Bücher anzeigen</button>
+          <button id="auNetGo" class="primary" hidden>Auswahl herunterladen</button>
+          <button id="auNetStop" hidden>Abbrechen</button>
+          <progress id="auNetProg" value="0" max="1" hidden></progress>
+          <span id="auNetInfo" class="muted"></span>
+        </div>
+        <div id="auNetBooks" hidden></div>
+      </div>
+
+      <div class="card" id="topicCard">
+        <h2>5 · Themen (optional)</h2>
+        <p class="muted">Sefaria ordnet Stellen Themen zu (Personen, Orte, Begriffe, Feiertage), mit Beschreibung und „Notable Sources“. Mit diesen Daten zeigt der Reiter „Lesen“ zu jedem Abschnitt die passenden Themen und eine Themenübersicht. Die Daten werden bei dir aus Sefarias Schnittstelle geladen (einige Minuten, ca. 60 MB).</p>
+        <div class="bar">
+          <button id="tpGet" class="primary">Themen herunterladen</button>
+          <button id="tpStop" disabled>Abbrechen</button>
+          <progress id="tpProg" value="0" max="1" hidden></progress>
+          <span id="tpInfo" class="muted"></span>
+        </div>
+      </div>
     </section>
   </main>
 
@@ -268,6 +306,30 @@
     </div>
     <div id="lkBody"></div>
   </aside>
+
+  <aside id="outlinePanel" hidden>
+    <div class="lhead"><b id="olTitle">Gliederung</b><button id="olClose" title="Schließen">✕</button></div>
+    <div id="olMzW" class="olTabs" hidden><button id="olTabT">Themen</button><button id="olTabM">613 Mizwot</button></div>
+    <div id="olBody"></div>
+  </aside>
+
+  <aside id="mapPanel" hidden>
+    <div id="mapResize" title="Ziehen, um die Breite zu ändern (Doppelklick: Standard)"></div>
+    <div class="lhead"><b>Karte</b><button id="mapOl" hidden title="Zurück zur Gliederung">☰ Gliederung</button><select id="mapRoute" title="Routen"></select><label class="mapAllL"><input type="checkbox" id="mapAll"> alle Orte</label><label class="mapAllL" id="mapBordL"><input type="checkbox" id="mapBord"> heutige Grenzen</label><button id="mapClose" title="Schließen">✕</button></div>
+    <div id="mapWrap"><canvas id="mapCv"></canvas><div id="mapZoomB"><button id="mapZin" title="Vergrößern">+</button><button id="mapZout" title="Verkleinern">−</button><button id="mapRulB" title="Entfernung messen">📏</button><button id="mapJerB" title="Jerusalem im Detail">🏛</button><button id="mapZfit" title="Auf die Orte des Kapitels einpassen">⌂</button></div><div id="mapRuler" hidden></div><div id="mapJer" hidden><b>Jerusalem</b><label><input type="checkbox" id="jerWil"> Wilson 1865</label><input type="range" id="jerOp" min="0" max="100" step="5" title="Deckkraft der Wilson-Karte"><label><input type="checkbox" id="jerOsm"> heutige Stadt</label><label><input type="checkbox" id="jerRel"> Gelände</label><label><input type="checkbox" id="jerLab"> Namen</label></div><div id="mapHint"></div></div>
+    <div id="mapSplit" title="Ziehen, um die Höhe der Karte zu ändern (Doppelklick: Standard)"></div>
+    <div id="mapInfo"></div>
+    <div id="mapCredit">Gelände: Copernicus DEM (Copernicus-Programm der EU) · Küsten und Flüsse: Natural Earth · Orte: OpenBible.info (CC BY 4.0)</div>
+  </aside>
+
+  <div id="tpResize" hidden title="Ziehen, um die Breite zu ändern (Doppelklick: Standard)"></div>
+  <aside id="topicPanel" hidden>
+    <div class="lhead"><b id="tpTitle">Themen</b><button id="tpClose" title="Schließen">✕</button></div>
+    <input id="tpFilter" placeholder="Thema suchen (z. B. Abraham, Pessach) …">
+    <div id="tpBody"></div>
+  </aside>
+
+  <div id="audioBar" hidden><div class="auSeekRow"><span id="auCur" class="muted">0:00</span><input type="range" id="auSeek" min="0" max="1000" value="0" step="1" title="Vor- und zurückspulen"><span id="auDur" class="muted">0:00</span></div><div class="auCtl"><span id="auTitle"></span> <button id="auPrev" title="Vorheriger Vers">⏮</button><button id="auPlay" title="Pause / Weiter">⏸</button><button id="auNext" title="Nächster Vers">⏭</button><button id="auStop" title="Beenden">⏹</button> <select id="auSpeed" title="Geschwindigkeit"><option value="0.75">0,75×</option><option value="1" selected>1×</option><option value="1.25">1,25×</option><option value="1.5">1,5×</option></select></div></div>
 
   <dialog id="welcomeDlg">
     <h2>Willkommen bei Safran</h2>
@@ -358,6 +420,11 @@
   <script src="i18n.js"></script>
   <script src="reader.js"></script>
   <script src="refs.js"></script>
+  <script src="map/places.js"></script><script src="map/borders.js"></script>
+<script src="map/elev.js"></script>
+<script src="map/routes.js"></script>
+<script src="map/josephus.js"></script><script src="gabk-data.js"></script>
+  <script src="gabk.js"></script>
   <script src="parashot.js"></script>
   <script src="morph.js"></script>
   <script src="update.js"></script>

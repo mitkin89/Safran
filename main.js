@@ -5,6 +5,7 @@ const S = require('./sefaria');
 const L = require('./lib');
 const OFF = require('./offline');
 const LK = require('./links');
+const TP = require('./topics');
 const DSL = require('./dsl');
 
 const BASE = 'https://www.sefaria.org';
@@ -383,7 +384,7 @@ ipcMain.handle('off:search', async (e, o) => {
   const str = x => String(x == null ? '' : x);
   const params = {
     query: str(o.query), extra: Array.isArray(o.extra) ? o.extra.slice(0, 2).map(str) : [], fuzzy: !!o.fuzzy,
-    distance: Number.isFinite(o.distance) ? o.distance : -1, ordered: !!o.ordered, prefix: !!o.prefix, wlc: !!o.wlc, lemma: !!o.lemma, gram: o.gram && typeof o.gram === 'object' ? Object.fromEntries(['pos', 'stem', 'tense', 'person', 'gender', 'number', 'state', 'suffix', 'article'].map(k => [k, String(o.gram[k] == null ? '' : o.gram[k]).slice(0, 3)])) : null,
+    distance: Number.isFinite(o.distance) ? o.distance : -1, ordered: !!o.ordered, prefix: !!o.prefix, exact: !!o.exact, wlc: !!o.wlc, lemma: !!o.lemma, countAll: !!o.countAll, gram: o.gram && typeof o.gram === 'object' ? Object.fromEntries(['pos', 'stem', 'tense', 'person', 'gender', 'number', 'state', 'suffix', 'article'].map(k => [k, String(o.gram[k] == null ? '' : o.gram[k]).slice(0, 3)])) : null,
     limit: Math.min(5000, +o.limit || 1000), perFile: Math.min(500, +o.perFile || 25),
   };
   const entries = lib.entriesFor({ kinds: Array.isArray(o.kinds) ? o.kinds : [], category: str(o.category), categories: Array.isArray(o.categories) ? o.categories.map(str) : [], titles: Array.isArray(o.titles) ? o.titles.map(str) : [] });
@@ -610,6 +611,93 @@ ipcMain.handle('links:build', async e => {
   } catch (err) { return { error: err.message }; }
 });
 ipcMain.on('links:cancel', () => { linkCancel = true; });
+// Themen (Sefaria Topics)
+let topicStore = null, topicCancel = false;
+async function getTopics() {
+  const lib = await getLibrary();
+  if (!topicStore || topicStore.dir !== path.join(lib.dir, 'topics')) topicStore = new TP.TopicStore(lib.dir, fetchBuffer);
+  return topicStore;
+}
+// Eigene Gliederungen (Inhaltsübersichten) je Buch: outlines/<Buch>.json im Projekt oder im Benutzerordner
+ipcMain.handle('outline:get', async (_e, book) => {
+  const name = String(book || '').replace(/[^\w .-]/g, '_'); if (!name) return null;
+  for (const dir of [path.join(app.getPath('userData'), 'outlines'), path.join(__dirname, 'outlines')]) {
+    try { const d = JSON.parse(await fs.readFile(path.join(dir, name + '.json'), 'utf8')); if (d && Array.isArray(d.sections)) return d; } catch { /* nächster Ort */ }
+  }
+  return null;
+});
+// Audio: eigener Ordner mit Versdateien „Genesis_001_001.mp3“ (Buch_Kapitel_Vers)
+const audioFile = () => path.join(app.getPath('userData'), 'audio-dir.txt');
+async function audioIndex() {
+  let dir = ''; try { dir = (await fs.readFile(audioFile(), 'utf8')).trim(); } catch { /* noch keiner gewählt */ }
+  if (!dir) return { dir: '', files: [], chapters: [], books: [], markers: [] };
+  try {
+    // Ordner und eine Ebene darunter: Versdateien „Buch_001_002.mp3“, Kapiteldateien „1_Samuel_01.mp3“, Markerlisten *.csv (datei,buch,kapitel,vers,start_ms,dauer_ms)
+    const AUD = /\.(mp3|m4a|wav|ogg|aac)$/i, VERSE = /^.+_\d{3}_\d{3}\.[a-z0-9]+$/i, CHAP = /^.+_\d{1,3}\.[a-z0-9]+$/i;
+    const files = [], chapters = [], books = [], csv = [];
+    const walk = async (rel, depth) => {
+      let ents = []; try { ents = await fs.readdir(path.join(dir, rel), { withFileTypes: true }); } catch { return; }
+      for (const e of ents) {
+        if (e.name.startsWith('.')) continue;
+        const r = rel ? rel + '/' + e.name : e.name;
+        if (e.isDirectory()) { if (depth < 1 && !/^(node_modules|__MACOSX)$/.test(e.name)) await walk(r, depth + 1); continue; }
+        if (AUD.test(e.name)) { if (VERSE.test(e.name)) files.push(r); else if (CHAP.test(e.name)) chapters.push(r); else books.push(r); }
+        else if (/\.csv$/i.test(e.name)) csv.push(r);
+      }
+    };
+    await walk('', 0);
+    const markers = [];
+    let csvPaths = csv.map(c => path.join(dir, c));
+    if (!csvPaths.length) { // keine eigene Markerliste: die mitgelieferten Versmarken (audio-markers/) für die Schmueloff-Kapiteldateien
+      try { csvPaths = (await fs.readdir(path.join(__dirname, 'audio-markers'))).filter(n => /\.csv$/i.test(n)).map(n => path.join(__dirname, 'audio-markers', n)); } catch { /* keine vorhanden */ }
+    }
+    if (chapters.length || books.length) for (const c of csvPaths) {
+      let txt = ''; try { txt = await fs.readFile(c, 'utf8'); } catch { continue; }
+      const lines = txt.replace(/^\uFEFF/, '').split(/\r?\n/); const h = (lines[0] || '').split(',').map(x => x.trim().toLowerCase());
+      const ix = k => h.indexOf(k); const [iD, iB, iK, iV, iS] = ['datei', 'buch', 'kapitel', 'vers', 'start_ms'].map(ix);
+      if (iV < 0 || iS < 0 || (iD < 0 && (iB < 0 || iK < 0))) continue; // ohne „datei“: ein Marker pro Vers für eine Datei mit dem ganzen Buch (buch,kapitel,vers,start_ms)
+      for (let i = 1; i < lines.length; i++) { const p = lines[i].split(','); if (p.length < h.length - 1) continue; const v = +p[iV], st = +p[iS]; if (Number.isFinite(v) && Number.isFinite(st)) markers.push([iD >= 0 ? p[iD].trim().split('/').pop() : '', iB >= 0 ? p[iB].trim() : '', iK >= 0 ? +p[iK] : 0, v, st]); }
+    }
+    return { dir, files, chapters, books, markers };
+  } catch { return { dir, files: [], chapters: [], markers: [], error: true }; }
+}
+ipcMain.handle('audio:index', () => audioIndex());
+ipcMain.handle('audio:pick', async e => {
+  const r = await dialog.showOpenDialog(winOf(e), { title: M('Ordner mit den Audiodateien wählen', 'Choose the folder with the audio files'), properties: ['openDirectory'] });
+  if (!r.canceled && r.filePaths[0]) await fs.writeFile(audioFile(), r.filePaths[0]);
+  return audioIndex();
+});
+// Audio aus dem GitHub-Release „audio“ laden (Zip pro Buch), in <Benutzerordner>/audio entpacken
+const AUD = require('./audiodl');
+let audioCancel = false;
+ipcMain.handle('audio:list', async () => { try { return await AUD.listAssets((u, o) => net.fetch(u, o)); } catch (err) { return { items: [], error: err.message }; } });
+ipcMain.handle('audio:get', async (e, items) => {
+  audioCancel = false;
+  const dir = path.join(app.getPath('userData'), 'audio');
+  const list = (Array.isArray(items) ? items : []).filter(i => i && /^Audio_.+\.zip$/i.test(i.name) && /^https:\/\/(github\.com|objects\.githubusercontent\.com)\//.test(String(i.url)));
+  try {
+    const n = await AUD.fetchBooks({ fetchFn: (u, o) => net.fetch(u, o), items: list, dir, isCancelled: () => audioCancel, onProgress: p => { if (!e.sender.isDestroyed()) e.sender.send('audio:progress', p); } });
+    await fs.writeFile(audioFile(), dir);
+    return { ...(await audioIndex()), downloaded: n };
+  } catch (err) { return { ...(await audioIndex()), error: err.message }; }
+});
+ipcMain.handle('audio:stop', () => { audioCancel = true; });
+ipcMain.handle('audio:clear', async () => { try { await fs.unlink(audioFile()); } catch { /* egal */ } return audioIndex(); });
+ipcMain.handle('topics:status', async () => (await getTopics()).status());
+ipcMain.handle('topics:build', async e => {
+  topicCancel = false;
+  const st = await getTopics();
+  try {
+    return await st.build({
+      isCancelled: () => topicCancel,
+      onProgress: p => { if (!e.sender.isDestroyed()) e.sender.send('topics:progress', p); },
+    });
+  } catch (err) { return { error: err.message }; }
+});
+ipcMain.on('topics:cancel', () => { topicCancel = true; });
+ipcMain.handle('topics:list', async () => { try { return await (await getTopics()).list(); } catch { return []; } });
+ipcMain.handle('topics:get', async (_e, slug) => { try { return await (await getTopics()).topic(String(slug || '').slice(0, 200)); } catch { return null; } });
+ipcMain.handle('topics:section', async (_e, book, chap, verse) => { try { return await (await getTopics()).forSection(String(book || ''), String(chap || ''), verse ? +verse : 0); } catch { return []; } });
 // Eigene Kommentare: ein eigener Text mit dem Titel „<Name> on <Buch>“ (Sefaria-Schreibweise) erscheint in der Kommentarleiste von <Buch>,
 // ohne dass es dafür Verknüpfungen bei Sefaria geben muss. Jeder nicht leere Vers des Kommentars wird zum Vers des Buches verknüpft.
 async function ownCommentaryLinks(book, chap) {
@@ -787,7 +875,7 @@ ipcMain.handle('off:chooseDir', async e => {
       if (oldNotes !== newNotes) { try { await fs.access(newNotes); } catch { await fs.copyFile(oldNotes, newNotes); } }
     } catch {}
     await fs.writeFile(configFile(), JSON.stringify({ dir: r.filePaths[0] }));
-    libraryP = null; invalidateReads();
+    libraryP = null; dictsP = null; warming = null; invalidateReads();
   }
   return offState();
 });

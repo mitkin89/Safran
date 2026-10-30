@@ -81,6 +81,26 @@ contextBridge.exposeInMainWorld('links', {
   onProgress: cb => ipcRenderer.on('links:progress', (_e, d) => cb(d)),
 });
 
+contextBridge.exposeInMainWorld('topics', {
+  status: () => ipcRenderer.invoke('topics:status'),
+  build: () => ipcRenderer.invoke('topics:build'),
+  cancel: () => ipcRenderer.send('topics:cancel'),
+  list: () => ipcRenderer.invoke('topics:list'),
+  get: slug => ipcRenderer.invoke('topics:get', slug),
+  section: (book, chap, verse) => ipcRenderer.invoke('topics:section', book, chap, verse),
+  onProgress: cb => ipcRenderer.on('topics:progress', (_e, d) => cb(d)),
+});
+
+contextBridge.exposeInMainWorld('outline', { get: book => ipcRenderer.invoke('outline:get', book) });
+contextBridge.exposeInMainWorld('audio', {
+  index: () => ipcRenderer.invoke('audio:index'),
+  pick: () => ipcRenderer.invoke('audio:pick'),
+  clear: () => ipcRenderer.invoke('audio:clear'),
+  list: () => ipcRenderer.invoke('audio:list'),
+  get: items => ipcRenderer.invoke('audio:get', items),
+  stop: () => ipcRenderer.invoke('audio:stop'),
+  onProgress: cb => ipcRenderer.on('audio:progress', (_e, d) => cb(d)),
+});
 contextBridge.exposeInMainWorld('api', {
   get: p => ipcRenderer.invoke('api:get', p),
   post: (p, b) => ipcRenderer.invoke('api:post', p, b),

@@ -155,6 +155,7 @@
       const name = t.group ? t.group.title + (t.label ? ' · ' + t.label : '') : t.sres ? I18N.t('Suche') + ': ' + t.sres.q : 'Neuer Tab';
       return `<div class="tab${i === tabIdx ? ' active' : ''}" data-i="${i}" title="${esc(name)}"><span>${esc(name)}</span><button data-x="${i}" title="Tab schließen">✕</button></div>`;
     }).join('') + '<button id="tabNew" title="Neuer Tab (Cmd+T)">＋</button>';
+    const act = $('#tabbar .tab.active'); if (act) act.scrollIntoView({ inline: 'nearest', block: 'nearest' }); // bei vielen Tabs immer den geöffneten zeigen
   }
   function showView() {
     saveSession();
@@ -481,6 +482,8 @@
     renderTabs();
     saveSession();
     markNotes();
+    markAudio();
+    if (!$('#outlinePanel').hidden) renderOutline();
     markMismatch();
     loadLinks(s);
     if (window.__refind) setTimeout(window.__refind, 0);
@@ -651,6 +654,8 @@
   const closeListOutside = e => { // Klick außerhalb der Bücherliste schließt sie
     if (!panelOpen || (document.documentElement.dataset.tab || 'read') !== 'read') return;
     if (e.target.closest('aside:not(#dictPanel):not(#cmtPanel):not(#linkPanel), nav, #togglePanel, #suggest, #ctxMenu, #tip, dialog')) return;
+    // Knöpfe, Links, Auswahlfelder: erst beim Klick schließen – sonst verschiebt sich das Layout schon beim Drücken und der Klick geht ins Leere
+    if (e.type !== 'click' && e.target.closest('button, a, select, label, input, [role=button], .chip, [data-ref]')) return;
     panelOpen = false; applyPanel();
   };
   ['pointerdown', 'mousedown', 'click'].forEach(ev => document.addEventListener(ev, closeListOutside, true));
@@ -662,9 +667,9 @@
 
   // Zu einer Stelle springen: "3", "3:7", "Daf 2a", "gen. 1:1" (Buchname optional, Anfang genügt)
   // ---------- Mehrere Stellen in einem Fenster: „gen 1:3, ex 7:9“, „gen 1:30-2:3“, „gen 1-3“ ----------
-  const { normT, rowVerse, noteId, parseVerseList, fmtVerses, relatedTitles, sefariaUrl, noteUrl } = window.Refs;
+  const { normT, rowVerse, noteId, parseVerseList, fmtVerses, relatedTitles, sefariaUrl, noteUrl, deHit, deNames } = window.Refs;
   // Titel passt zur Eingabe: Anfang des Titels, Anfang eines Titelworts oder – bei mehreren Wörtern („rashi genesis“) – jedes Eingabewort beginnt ein Titelwort
-  const titleHit = (title, b) => { const t = normT(title); return t.startsWith(b) || t.split(' ').some(w => w.startsWith(b)) || (b.includes(' ') && b.split(' ').every(k => t.split(' ').some(w => w.startsWith(k)))); };
+  const titleHit = (title, b) => { const t = normT(title); return deHit(title, b) || t.startsWith(b) || t.split(' ').some(w => w.startsWith(b)) || (b.includes(' ') && b.split(' ').every(k => t.split(' ').some(w => w.startsWith(k)))); };
   const bestGroup = book => {
     const b = normT(book);
     const c = groups.filter(x => titleHit(x.title, b));
@@ -803,6 +808,8 @@
     if (book) {
       const cands = groups.filter(x => titleHit(x.title, book));
       cands.sort((a, b) => (normT(a.title) === book ? 0 : 1) - (normT(b.title) === book ? 0 : 1) || (normT(a.title).startsWith(book) ? 0 : 1) - (normT(b.title).startsWith(book) ? 0 : 1) || a.title.length - b.title.length);
+      // Kein Treffer auf den Buchnamen selbst, nur Kommentare „X on <Buch>“: nicht den falschen Kommentar öffnen
+      if (cands.length && normT(cands[0].title) !== book && !/\bon\b/.test(book) && cands.every(x => /\bon\b/.test(normT(x.title)))) return false;
       if (!cands.length) return false;
       if (!g || cands[0] !== g || inNewTab) { g = cands[0]; await openGroup(g, {}, inNewTab); }
     }
@@ -838,14 +845,32 @@
     try {
       res = await O.search({ ...S.params, limit: S.limit, perFile: 5000 });
     } catch { res = null; }
-    if (!res) { S.running = false; if (view === V) $('#rOut').innerHTML = '<p class="muted">Die Suche ist fehlgeschlagen.</p>'; return; }
+    if (!res) { S.running = false; if (view === V) $('#rOut').innerHTML = '<p class="muted">' + esc(I18N.t('Die Suche ist fehlgeschlagen.')) + '</p>'; return; }
     S.res = res;
-    const body = await buildReadHtml(res.results, () => tabs.includes(V));
+    return renderSres(V);
+  }
+  // Fassung wählen: bei nichthebräischer Suche immer nur eine Übersetzung (plus hebräischer Text), nicht alle Fassungen gleichzeitig
+  async function renderSres(V) {
+    const S = V.sres, res0 = S.res;
+    S.running = true;
+    let res = res0, verSel = '';
+    if (!S.he) {
+      const cnt = new Map();
+      res0.results.forEach(r => { if (r.kind === 'he') return; const k = (r.versionTitle || '') + '\u0000' + r.kind; cnt.set(k, (cnt.get(k) || 0) + 1); });
+      const keys = [...cnt.entries()].sort((a, b) => b[1] - a[1]);
+      if (keys.length) {
+        if (!S.ver || !cnt.has(S.ver)) S.ver = keys[0][0];
+        res = { ...res0, results: res0.results.filter(r => r.kind !== 'he' && (r.versionTitle || '') + '\u0000' + r.kind === S.ver) };
+        res.stats = []; const sm = new Map(); res.results.forEach(r => sm.set(r.title, (sm.get(r.title) || 0) + 1)); sm.forEach((n, title) => res.stats.push({ title, n }));
+        verSel = `<select id="sresVer" title="${esc(I18N.t('Fassungen'))}">${keys.map(([k, n]) => { const [v, kind] = k.split('\u0000'); return `<option value="${esc(k)}"${k === S.ver ? ' selected' : ''}>${esc(KIND_LABEL[kind] + ' · ' + (v ? shortVer(v) : '') + ' (' + n + ')')}</option>`; }).join('')}</select>`;
+      }
+    }
+    const body = await buildReadHtml(res.results, () => tabs.includes(V), !S.he && !!verSel);
     S.running = false;
     if (body == null) return;
     const books = res.stats.length, hits = res.results.length;
     const chips = res.stats.map(x => `<button class="chip" data-jb="${esc(x.title)}" title="${esc(I18N.t('Zu diesem Buch springen'))}">${esc(x.title)} (${x.n})</button>`).join(' ');
-    S.html = `<div class="sread sresv"><div class="sresHead" id="sresTop"><b>${esc(I18N.t('Suche'))}: <span dir="auto">${esc(S.q)}</span></b> · ${esc(I18N.t('{#} Verse in {#} Büchern', hits + (res.truncated ? '+' : ''), books))}${S.params.lemma ? ' · ' + esc(I18N.t('alle Formen des Wortes')) : ''}${res.truncated ? ` <button id="sresMore">${esc(I18N.t('Weitere laden'))}</button>` : ''}</div>${books > 1 ? `<div class="sresBooks">${chips}</div>` : ''}${body || `<p class="muted">${esc(I18N.t('Nichts gefunden.'))}</p>`}</div>`;
+    S.html = `<div class="sread sresv"><div class="sresHead" id="sresTop"><b>${esc(I18N.t('Suche'))}: <span dir="auto">${esc(S.q)}</span></b> · ${esc(I18N.t('{#} Verse in {#} Büchern', hits + (res.truncated ? '+' : ''), books))}${S.params.lemma ? ' · ' + esc(I18N.t('alle Formen des Wortes')) : ''} ${verSel}${res.truncated ? ` <button id="sresMore">${esc(I18N.t('Weitere laden'))}</button>` : ''}</div>${books > 1 ? `<div class="sresBooks">${chips}</div>` : ''}${body || `<p class="muted">${esc(I18N.t('Nichts gefunden.'))}</p>`}</div>`;
     if (view === V) { $('#rOut').innerHTML = S.html; ['he', 'en', 'de'].forEach(k => $('#rOut').style.setProperty('--' + k + 'f', disp[k])); }
   }
   // Klicks im Suchtab: Vers wählen (Kommentare, Verknüpfungen), Kapitel öffnen, weitere laden
@@ -863,6 +888,7 @@
     if (what === 'lk') { lkVerse = v; renderLinkPanel(); }
     else if (!cmtOpen) toggleCmt(true); else renderCmt();
   }
+  $('#rOut').addEventListener('change', e => { if (e.target.id !== 'sresVer' || !view || !view.sres || !view.sres.res) return; view.sres.ver = e.target.value; view.sres.html = null; renderSres(view); });
   $('#rOut').addEventListener('click', e => {
     if (!view || !view.sres) return;
     if (e.target.id === 'sresMore') { view.sres.limit += 300; view.sres.html = null; view.sres.running = false; runSres(view); return; }
@@ -888,7 +914,8 @@
     if (!suggEl) { suggEl = document.createElement('div'); suggEl.id = 'suggest'; suggEl.hidden = true; document.body.appendChild(suggEl); document.addEventListener('mousedown', e => { if (!e.target.closest('#suggest')) suggEl.hidden = true; }); }
     let list = [], sel = -1;
     const hide = () => { suggEl.hidden = true; sel = -1; };
-    const split = v => { const m = v.match(/^(.*?)(\s*(?:\b(?:daf|kapitel|chapter|kap)\s*)?\d.*)?$/i); return { book: (m[1] || '').trim(), rest: m[2] || '' }; };
+    const split = v => { const ld = v.match(/^\s*([1-5]|i{1,3})\.?\s*(?=\p{L})/iu); if (ld) { const r = split0(v.slice(ld[0].length)); return { book: (ld[1] + ' ' + r.book).trim(), rest: r.rest }; } return split0(v); };
+    const split0 = v => { const m = v.match(/^(.*?)(\s*(?:\b(?:daf|kapitel|chapter|kap)\s*)?\d.*)?$/i); return { book: (m[1] || '').trim(), rest: m[2] || '' }; };
     const show = () => {
       const { book, rest } = split(input.value);
       const q = normT(book);
@@ -898,15 +925,17 @@
       hits.sort((a, b) => (normT(a.title).startsWith(q) ? 0 : 1) - (normT(b.title).startsWith(q) ? 0 : 1));
       const first = hits.filter(g => normT(g.title).startsWith(q)), other = hits.filter(g => !normT(g.title).startsWith(q));
       list = [...pars, ...SefOrder.sortTitles(first), ...SefOrder.sortTitles(other)].slice(0, 8 + pars.length);
+      if (input.id === 'jump' && /\p{L}/u.test(book)) list.push({ search: book }); // immer wählbar: das Wort im Tanach suchen
       if (!list.length) { hide(); return; }
       sel = -1;
-      suggEl.innerHTML = list.map((g, i) => g.parasha ? `<div class="si" data-i="${i}">${esc(I18N.t('Parascha'))} ${esc(g.parasha.name)} <small dir="rtl">${esc(g.parasha.he)}</small><span class="muted">${esc(window.Parashot.label(g.parasha))}</span></div>` : `<div class="si" data-i="${i}">${esc(g.title)}${g.heTitle ? ` <small dir="rtl">${esc(g.heTitle)}</small>` : ''}<span class="muted">${esc(g.cats.slice(-1)[0] || '')}</span></div>`).join('');
+      suggEl.innerHTML = list.map((g, i) => g.search ? `<div class="si" data-i="${i}">🔍 ${esc(I18N.t('Suche nach'))} „<span dir="auto">${esc(g.search)}</span>“ ${esc(I18N.t('im Tanach'))}</div>` : g.parasha ? `<div class="si" data-i="${i}">${esc(I18N.t('Parascha'))} ${esc(g.parasha.name)} <small dir="rtl">${esc(g.parasha.he)}</small><span class="muted">${esc(window.Parashot.label(g.parasha))}</span></div>` : `<div class="si" data-i="${i}">${esc(g.title)}${deNames(g.title) ? ` <small>(${esc(deNames(g.title))})</small>` : ''}${g.heTitle ? ` <small dir="rtl">${esc(g.heTitle)}</small>` : ''}<span class="muted">${esc(g.cats.slice(-1)[0] || '')}</span></div>`).join('');
       const r = input.getBoundingClientRect();
       suggEl.style.left = r.left + 'px'; suggEl.style.top = (r.bottom + 2) + 'px'; suggEl.style.minWidth = Math.max(240, r.width) + 'px';
       suggEl.hidden = false;
     };
     const pick = i => {
       const g = list[i]; if (!g) return;
+      if (g.search) { hide(); const ok = jumpSearch(g.search); input.classList.toggle('bad', !ok); if (ok && input.id === 'jump') input.dispatchEvent(new Event('blur')); return; }
       if (g.parasha) { input.value = g.parasha.name; hide(); input.dispatchEvent(new KeyboardEvent('keydown', { key: 'Enter', bubbles: true })); return; }
       input.value = g.title + ' '; hide(); input.focus();
       input.dispatchEvent(new Event('input', { bubbles: true }));
@@ -930,6 +959,7 @@
   attachSuggest($('#jump'));
   $('#jump').addEventListener('keydown', async e => {
     if (e.key !== 'Enter') return;
+    if ((e.shiftKey || e.metaKey || e.ctrlKey) && jumpSearch($('#jump').value)) { $('#jump').classList.remove('bad'); return; } // Umschalt/Cmd+Enter: immer suchen
     let ok = await jumpTo($('#jump').value);
     if (!ok) ok = jumpSearch($('#jump').value); // kein Buch und keine Stelle: die Wörter im Tanach suchen
     $('#jump').classList.toggle('bad', !ok);
@@ -1078,6 +1108,7 @@
   };
   const verseOf = lab => (/^\d+$/.test(lab) ? +lab : null);
   async function loadLinks(s) {
+    loadTopics(s).catch(() => {}); try { mapRefresh(); } catch { /* Karte noch nicht bereit */ }
     secLinks = [];
     $('#lkBtn').hidden = true;
     if (!view) return;
@@ -1092,7 +1123,7 @@
     secLinks = rows;
     if (!rows.length) return;
     $('#lkBtn').hidden = false;
-    $('#lkBtn').textContent = `🔗 ${rows.length}`;
+    btnLbl('#lkBtn', '🔗', 'Verknüpfungen', rows.length);
     $$('#rOut .row[data-l]').forEach(r => {
       const v = verseOf(r.dataset.l);
       if (v == null) return;
@@ -1112,7 +1143,7 @@
   $('#lkClose').onclick = () => { $('#linkPanel').hidden = true; };
   // Klick außerhalb des Verknüpfungen-Fensters schließt es (Klick auf die Verknüpfungs-Knöpfe, Menüs und Vorschau zählt nicht)
   document.addEventListener('mousedown', e => {
-    if ($('#linkPanel').hidden || !e.target.closest) return;
+    if ($('#linkPanel').hidden || $('#linkPanel').classList.contains('docked') || !e.target.closest) return;
     if (e.target.closest('#linkPanel, #lkBtn, .lk, .slk, #ctxMenu, #lkHover, #suggest, #tip, #undoBar, dialog')) return;
     $('#linkPanel').hidden = true;
   }, true);
@@ -1181,6 +1212,7 @@
     }
   });
   // Vorschau beim Überfahren eines Querverweises (nur bei lokal vorhandenen Büchern)
+  let hovApi = null; // Vorschau-Blase auch für das Themenfenster
   { let hov = null, hovT = null, hovRef = null; const pvCache = new Map();
     const hideHov = () => { clearTimeout(hovT); hovRef = null; if (hov) hov.hidden = true; };
     const startHov = (a, ref, quiet, below) => {
@@ -1205,6 +1237,7 @@
         }
       }, 350);
     };
+    hovApi = { start: startHov, hide: hideHov, current: () => hovRef };
     $('#lkBody').addEventListener('mouseover', e => {
       const a = e.target.closest('a[data-ref]');
       if (!a || a.parentElement.classList.contains('off') || a.dataset.ref === hovRef) return;
@@ -1218,6 +1251,20 @@
       if (ref === hovRef) return;
       startHov(a, ref, true, true);
     });
+    { // Abkürzungen (Gesenius): sofortige Erklärung beim Überfahren
+      let tip = null;
+      const hideTip = () => { if (tip) tip.hidden = true; };
+      $('#dictOut').addEventListener('mouseover', e => {
+        const a = e.target.closest('.gab'); if (!a) return;
+        if (!tip) { tip = document.createElement('div'); tip.id = 'gabTip'; tip.hidden = true; document.body.appendChild(tip); }
+        tip.textContent = a.dataset.t; tip.hidden = false;
+        const r = a.getBoundingClientRect(), w = tip.offsetWidth, h = tip.offsetHeight;
+        tip.style.left = Math.max(6, Math.min(innerWidth - w - 6, r.left + r.width / 2 - w / 2)) + 'px';
+        tip.style.top = (r.top - h - 6 < 4 ? r.bottom + 6 : r.top - h - 6) + 'px';
+      });
+      $('#dictOut').addEventListener('mouseout', e => { const a = e.target.closest('.gab'); if (a && !a.contains(e.relatedTarget)) hideTip(); });
+      $('#dictOut').addEventListener('scroll', hideTip, true); $('#dictPanel').addEventListener('scroll', hideTip);
+    }
     $('#dictOut').addEventListener('mouseout', e => { const a = e.target.closest('.dsrc[data-sref]'); if (a && !a.contains(e.relatedTarget)) hideHov(); });
     $('#dictOut').addEventListener('click', hideHov);
     $('#dictPanel').addEventListener('scroll', hideHov, { passive: true });
@@ -1226,6 +1273,808 @@
     $('#lkBody').addEventListener('click', hideHov);
   }
   refreshLinkStatus().then(() => { if (view) renderSection(); });
+
+  // ---------- Themen (Sefaria Topics) ----------
+
+  // ---------- Audio: eigener Ordner mit Versdateien (Buch_Kapitel_Vers.mp3), ▶ in der Zeilenbeschriftung, fortlaufendes Abspielen ----------
+  const AU = { dir: '', map: new Map(), chap: new Map(), chapRel: '', pendingSeek: null, el: new Audio(), cur: null, speed: 1, paused: false };
+  const auKey = (book, ch, v) => `${String(book).replace(/ /g, '_')}_${String(ch).padStart(3, '0')}_${String(v).padStart(3, '0')}`;
+  const auSrc = rel => 'file://' + AU.dir.split('/').map(encodeURIComponent).join('/') + '/' + String(rel).split('/').map(encodeURIComponent).join('/');
+  // Gibt es zu dieser Stelle Audio? Versdatei oder Kapiteldatei mit Marker (ohne Markerliste nur Vers 1 = Kapitelanfang)
+  const auHas = (book, ch, v) => { if (AU.map.has(auKey(book, ch, v))) return true; const e = AU.chap.get(book + '|' + ch); return !!e && (e.marks.some(m => m.v === v) || (!e.marks.length && v === 1)); };
+  function auChapter() { const s = view && view.sections && view.sections[view.idx]; const m = s && String(s.label || '').match(/(\d+)\s*$/); return m ? +m[1] : null; }
+  async function auRefresh(st) {
+    if (!window.audio) return;
+    st = st || await window.audio.index();
+    AU.dir = st.dir || ''; AU.map = new Map(); AU.chap = new Map(); AU.chapRel = ''; AU.bk = new Map();
+    for (const n of st.files || []) { // Dateinamen wie „Genesis_001_001“, „1_Samuel_001_002“ oder „Richter_003_004“ -> Schlüssel mit Sefaria-Titel („I_Samuel_001_002“)
+      const base = n.split('/').pop().replace(/\.[^.]+$/, ''); AU.map.set(base, n);
+      const m = base.match(/^(.+?)[_ -](\d{1,3})[_ -](\d{1,3})$/), t = m && window.Refs.canonBook(m[1]);
+      if (t) AU.map.set(auKey(t, +m[2], +m[3]), n);
+    }
+    const byName = new Map(); // ganze Kapitel („1_Samuel_01.mp3“) mit Markerliste (Vers -> Startzeit)
+    for (const n of st.chapters || []) {
+      const name = n.split('/').pop(), base = name.replace(/\.[^.]+$/, ''), m = base.match(/^(.+?)[_ -](\d{1,3})$/), t = m && window.Refs.canonBook(m[1]);
+      if (!t) continue; const e = { rel: n, marks: [] }; AU.chap.set(t + '|' + (+m[2]), e); byName.set(name, e);
+    }
+    const bookFile = new Map(); // eine Datei für das ganze Buch („Isaiah.mp3“, „Jesaja.mp3“) + Marker ohne Dateiname (Zeiten im ganzen Buch)
+    for (const n of st.books || []) { const t = window.Refs.canonBook(n.split('/').pop().replace(/\.[^.]+$/, '')); if (t) bookFile.set(t, n); }
+    for (const [datei, buch, kap, v, ms] of st.markers || []) {
+      const t = window.Refs.canonBook(buch);
+      let e = datei ? byName.get(datei) : null;
+      if (!e && t) { e = AU.chap.get(t + '|' + kap); if (!e && !datei && bookFile.has(t)) { e = { rel: bookFile.get(t), marks: [], bk: true }; AU.chap.set(t + '|' + kap, e); } }
+      if (e) { e.marks.push({ v, ms }); if (e.bk) { if (!AU.bk.has(e.rel)) AU.bk.set(e.rel, []); AU.bk.get(e.rel).push({ book: t, ch: +kap, v, ms }); } }
+    }
+    AU.chap.forEach(e => e.marks.sort((a, b) => a.v - b.v));
+    AU.bk.forEach(l => { l.sort((a, b) => a.ms - b.ms); l.forEach((x, i) => { const e = AU.chap.get(x.book + '|' + x.ch), nx = l.slice(i + 1).find(y => y.ch !== x.ch); if (e && !e.end) e.end = nx ? nx.ms / 1000 : Infinity; }); });
+    const total = AU.map.size + AU.chap.size;
+    const el = $('#auInfo'); if (el) el.textContent = !AU.dir ? I18N.t('Kein Audio-Ordner gewählt.') : st.error ? I18N.t('Ordner nicht lesbar.') : AU.dir + ' · ' + I18N.t('{#} Audiodateien gefunden', total);
+    markAudio();
+  }
+  function markAudio() {
+    if ((!AU.map.size && !AU.chap.size) || !view || !view.group) return;
+    const ch = auChapter(); if (ch == null) return;
+    $$('#rOut .row[data-l]').forEach(r => {
+      const l = r.dataset.l; if (!/^\d+$/.test(l)) return;
+      const lab = r.querySelector('.lab'); if (!lab || lab.querySelector('.aud') || !auHas(view.group.title, ch, +l)) return;
+      lab.insertAdjacentHTML('afterbegin', `<span class="aud" data-v="${l}" title="${esc(I18N.t('Vers anhören'))}">▶</span>`);
+    });
+    auHighlight();
+  }
+  function auHighlight() {
+    $$('#rOut .row.playing').forEach(r => r.classList.remove('playing'));
+    const c = AU.cur; if (!c || !view || !view.group || view.group.title !== c.book || auChapter() !== c.ch) return;
+    const r = [...$$('#rOut .row[data-l]')].find(x => x.dataset.l === String(c.v));
+    if (r) { r.classList.add('playing'); r.scrollIntoView({ block: 'center', behavior: 'smooth' }); }
+    olMark();
+  }
+  function auBar() {
+    const c = AU.cur; $('#audioBar').hidden = !c; if (!c) return;
+    $('#auTitle').textContent = `${c.book} ${c.ch}:${c.v}`; $('#auPlay').textContent = AU.el.paused ? '▶' : '⏸';
+  }
+  async function auPlay(book, ch, v) {
+    const key = auKey(book, ch, v);
+    if (AU.map.has(key)) { AU.cur = { book, ch, v }; AU.chapRel = ''; AU.el.src = auSrc(AU.map.get(key)); AU.el.playbackRate = AU.speed; try { await AU.el.play(); } catch { /* abgebrochen */ } auHighlight(); auBar(); return true; }
+    const e = AU.chap.get(book + '|' + ch); if (!e) return false;
+    const mk = e.marks.find(m => m.v === v); if (!mk && !(v === 1 && !e.marks.length)) return false;
+    AU.cur = { book, ch, v, chap: true }; const t = (mk ? mk.ms : 0) / 1000; // ganzes Kapitel: ab dem Marker des Verses, die Anzeige folgt den Markern
+    if (AU.chapRel === e.rel && AU.el.src) AU.el.currentTime = t; else { AU.chapRel = e.rel; AU.pendingSeek = t; AU.el.src = auSrc(e.rel); }
+    AU.el.playbackRate = AU.speed; try { await AU.el.play(); } catch { /* abgebrochen */ }
+    auHighlight(); auBar(); return true;
+  }
+  function auNextRef(c, dir) {
+    if (dir > 0) { if (AU.map.has(auKey(c.book, c.ch, c.v + 1))) return { ...c, v: c.v + 1 }; if (AU.map.has(auKey(c.book, c.ch + 1, 1))) return { book: c.book, ch: c.ch + 1, v: 1 }; return null; }
+    if (c.v > 1 && AU.map.has(auKey(c.book, c.ch, c.v - 1))) return { ...c, v: c.v - 1 };
+    for (let v = 200; v >= 1 && c.ch > 1; v--) if (AU.map.has(auKey(c.book, c.ch - 1, v))) return { book: c.book, ch: c.ch - 1, v };
+    return null;
+  }
+  function auChapNext(c, dir) { // Kapiteldatei: nächster/vorheriger Marker, am Kapitelende das nächste/vorherige Kapitel
+    const e = AU.chap.get(c.book + '|' + c.ch); const mk = e ? e.marks : [];
+    if (dir > 0) {
+      const nx = mk.find(m => m.v > c.v); if (nx) return { ...c, v: nx.v };
+      const ne = AU.chap.get(c.book + '|' + (c.ch + 1)); return ne ? { book: c.book, ch: c.ch + 1, v: ne.marks.length ? ne.marks[0].v : 1 } : null;
+    }
+    const cur = mk.find(m => m.v === c.v);
+    if (cur && AU.el.currentTime * 1000 - cur.ms > 2000) return { ...c }; // erst an den Versanfang, dann zum vorigen Vers
+    const pv = [...mk].reverse().find(m => m.v < c.v); if (pv) return { ...c, v: pv.v };
+    const pe = AU.chap.get(c.book + '|' + (c.ch - 1)); return pe && pe.marks.length ? { book: c.book, ch: c.ch - 1, v: pe.marks[pe.marks.length - 1].v } : null;
+  }
+  async function auStep(dir) { // nächster/vorheriger Vers; bei Kapitelwechsel springt die Leseansicht mit
+    if (!AU.cur) return;
+    const n = AU.cur.chap ? auChapNext(AU.cur, dir) : auNextRef(AU.cur, dir); if (!n) { auStop(); return; }
+    if (view && view.group && (view.group.title !== n.book || auChapter() !== n.ch)) await jumpTo(`${n.book} ${n.ch}:${n.v}`);
+    auPlay(n.book, n.ch, n.v);
+  }
+  function auStop() { AU.el.pause(); AU.cur = null; auHighlight(); auBar(); }
+  AU.el.addEventListener('ended', () => auStep(1));
+  const auFmt = t => isFinite(t) ? Math.floor(t / 60) + ':' + String(Math.floor(t % 60)).padStart(2, '0') : '0:00';
+  let auDrag = false;
+  // Kapiteldatei: Zeitleiste nur für den aktuellen Vers (Marker bis zum nächsten Marker bzw. Dateiende)
+  function auSpan() {
+    const c = AU.cur; if (!c || !c.chap) return null; const e = AU.chap.get(c.book + '|' + c.ch); if (!e || !e.marks.length) return null;
+    const i = e.marks.findIndex(m => m.v === c.v); if (i < 0) return null;
+    const s = e.marks[i].ms / 1000, d = AU.el.duration, en = i + 1 < e.marks.length ? e.marks[i + 1].ms / 1000 : (e.end != null && isFinite(e.end) ? e.end : (isFinite(d) ? d : s));
+    return en > s ? { s, e: en } : null;
+  }
+  function auTimes() {
+    const sp = auSpan(), t = AU.el.currentTime;
+    if (!sp) { $('#auCur').textContent = auFmt(t); $('#auDur').textContent = auFmt(AU.el.duration); if (!auDrag && AU.el.duration) $('#auSeek').value = Math.round(1000 * t / AU.el.duration); return; }
+    const x = Math.min(Math.max(t - sp.s, 0), sp.e - sp.s);
+    $('#auCur').textContent = auFmt(x); $('#auDur').textContent = auFmt(sp.e - sp.s);
+    if (!auDrag) $('#auSeek').value = Math.round(1000 * x / (sp.e - sp.s));
+  }
+  AU.el.addEventListener('timeupdate', () => {
+    auTimes();
+    const c = AU.cur; if (c && c.chap && AU.pendingSeek == null) { // Kapiteldatei: aktuellen Vers aus den Markern bestimmen
+      let e = AU.chap.get(c.book + '|' + c.ch); if (!e || !e.marks.length) return;
+      if (e.bk) { // Datei mit dem ganzen Buch: ins nächste Kapitel gelaufen? Dann wechselt die Leseansicht mit
+        const l = AU.bk.get(e.rel), t = AU.el.currentTime * 1000 + 30; let h = null;
+        for (const x of l || []) { if (x.ms <= t) h = x; else break; }
+        if (h && h.ch !== c.ch) { const follow = view && view.group && view.group.title === c.book && auChapter() === c.ch; c.ch = h.ch; c.v = h.v; e = AU.chap.get(c.book + '|' + c.ch); if (follow) jumpTo(`${c.book} ${h.ch}:${h.v}`); auHighlight(); auBar(); auTimes(); }
+      }
+      const ms = AU.el.currentTime * 1000 + 30; let v = e.marks[0].v; for (const m of e.marks) { if (m.ms <= ms) v = m.v; else break; }
+      if (v !== c.v) { c.v = v; auHighlight(); auBar(); auTimes(); }
+    } });
+  AU.el.addEventListener('loadedmetadata', () => { auTimes(); if (AU.pendingSeek != null) { AU.el.currentTime = AU.pendingSeek; AU.pendingSeek = null; } });
+  $('#auSeek').addEventListener('input', e => { auDrag = true; const sp = auSpan(); if (sp) { AU.el.currentTime = sp.s + (sp.e - sp.s) * e.target.value / 1000; $('#auCur').textContent = auFmt((sp.e - sp.s) * e.target.value / 1000); } else if (AU.el.duration) { AU.el.currentTime = AU.el.duration * e.target.value / 1000; $('#auCur').textContent = auFmt(AU.el.currentTime); } });
+  $('#auSeek').addEventListener('change', () => { auDrag = false; });
+  AU.el.addEventListener('pause', auBar); AU.el.addEventListener('play', auBar);
+  $('#rOut').addEventListener('click', e => {
+    const a = e.target.closest('.aud'); if (!a) return;
+    e.stopPropagation(); e.preventDefault();
+    const book = view.group.title, ch = auChapter(), v = +a.dataset.v;
+    auPlay(book, ch, v); // auch beim erneuten Klick auf denselben Vers: von vorne (Pause über die Leiste unten)
+  }, true);
+  $('#auPlay').onclick = () => { if (AU.el.paused) AU.el.play(); else AU.el.pause(); };
+  $('#auStop').onclick = auStop; $('#auPrev').onclick = () => auStep(-1); $('#auNext').onclick = () => auStep(1);
+  $('#auSpeed').onchange = e => { AU.speed = +e.target.value; AU.el.playbackRate = AU.speed; };
+  if (window.audio) {
+    $('#auPick').onclick = async () => auRefresh(await window.audio.pick());
+    $('#auClear').onclick = async () => { auStop(); auRefresh(await window.audio.clear()); };
+    auRefresh();
+  }
+  if (window.audio && window.audio.list) { // Aufnahme aus dem GitHub-Release „audio“ laden
+    let auItems = [], auBusy = false;
+    const mb = n => (n / 1048576).toFixed(n > 1e8 ? 0 : 1) + ' MB';
+    const info = t => { $('#auNetInfo').textContent = t; };
+    window.audio.onProgress(p => {
+      const pr = $('#auNetProg'); pr.hidden = false; pr.max = p.total || 1; pr.value = p.phase === 'Lade' ? (p.got || 0) : (p.total || 1);
+      info(`${p.book} (${p.i + 1}/${p.n}) · ` + (p.phase === 'Lade' ? `${I18N.t('lade')} ${mb(p.got || 0)} / ${mb(p.total || 0)}` : `${I18N.t('entpacke')} ${p.d || 0}/${p.nf || '…'}`));
+    });
+    $('#auNetList').onclick = async () => {
+      if (auBusy) return; info(I18N.t('Suche …'));
+      const r = await window.audio.list();
+      if (r.error) { info(I18N.t('Fehler') + ': ' + r.error); return; }
+      if (!r.items.length) { info(I18N.t('Noch keine Audio-Pakete veröffentlicht.')); return; }
+      auItems = r.items; info(`${auItems.length} ${I18N.t('Bücher')}, ${mb(auItems.reduce((a, b) => a + b.size, 0))}`);
+      const box = $('#auNetBooks'); box.hidden = false; $('#auNetGo').hidden = false;
+      box.innerHTML = `<label><input type="checkbox" id="auNetAll"> <b>${esc(I18N.t('Alle'))}</b></label> ` + auItems.map((it, k) => `<label style="display:inline-block;margin:2px 10px 2px 0"><input type="checkbox" class="auNetB" data-k="${k}"> ${esc(it.book)} <small class="muted">${mb(it.size)}</small></label>`).join('');
+      $('#auNetAll').onchange = e => box.querySelectorAll('.auNetB').forEach(c => { c.checked = e.target.checked; });
+    };
+    $('#auNetGo').onclick = async () => {
+      const sel = [...document.querySelectorAll('.auNetB:checked')].map(c => auItems[+c.dataset.k]);
+      if (!sel.length || auBusy) { if (!sel.length) info(I18N.t('Nichts ausgewählt.')); return; }
+      auBusy = true; $('#auNetGo').disabled = true; $('#auNetList').disabled = true; $('#auNetStop').hidden = false;
+      const r = await window.audio.get(sel);
+      auBusy = false; $('#auNetGo').disabled = false; $('#auNetList').disabled = false; $('#auNetStop').hidden = true; $('#auNetProg').hidden = true;
+      info(r.error ? I18N.t('Fehler') + ': ' + r.error : `${I18N.t('Fertig')}: ${r.downloaded} ${I18N.t('Dateien')}`);
+      auRefresh(r);
+    };
+    $('#auNetStop').onclick = () => window.audio.stop();
+  }
+
+  // ---------- Gliederung: Wochenabschnitte, Kapitel und Absätze (offen/geschlossen: פ ס) des gewählten Buches ----------
+  const olOwnCache = new Map();
+  const olMz = () => { try { return localStorage.getItem('olMz') === '1'; } catch { return false; } };
+  async function olOwn(book) { if (!window.outline) return null; if (!olOwnCache.has(book)) olOwnCache.set(book, await window.outline.get(book)); return olOwnCache.get(book); }
+  function olContentHtml(g, ol) {
+    const cur = olPos(g), L = I18N.lang;
+    const T = (o, k) => (L !== 'he' && o[k + '_' + L]) || o[k]; // Text in der Oberflächensprache, sonst Hebräisch
+    const heUi = L === 'he' || !ol.sections[0] || !ol.sections[0]['head_' + L];
+    const first = r => { const m = String(r).match(/^(\d+)(?::(\d+))?/); return m ? { ch: +m[1], v: m[2] ? +m[2] : 1 } : null; };
+    const mzOn = olMz() && ol.sections.some(x => x.items.some(i => i.mz));
+    return (T(ol, 'title') ? `<p class="${heUi ? 'he' : ''}" ${heUi ? 'lang="he"' : ''}><b>${esc(T(ol, 'title'))}</b></p>` : '') + ol.sections.filter(s => s.items.some(it => !!it.mz === mzOn)).map(s => {
+      return `<details open><summary>${heUi ? `<span class="he" lang="he">${esc(s.head)}</span>` : `${esc(T(s, 'head'))} <small class="he" lang="he">${esc(s.head)}</small>`}</summary>${s.desc ? `<p class="he olnote" lang="he">${esc(s.desc)}</p>` : ''}${s.items.filter(it => !!it.mz === mzOn).map(it => { const f = first(it.ref); const ih = heUi || (!it['text_' + L] && /[\u0590-\u05FF]/.test(it.text)); const meta = [T(it, 'speaker'), T(it, 'author'), T(it, 'kind'), T(it, 'place'), T(it, 'time'), T(it, 'par'), T(it, 'desc'), it.seg ? (L === 'he' ? 'סגולה: ' : L === 'de' ? 'Segula: ' : 'Segula: ') + T(it, 'seg') : ''].filter(Boolean).map(esc).join(' · '); const np = window.__mapCount ? window.__mapCount(g.title, it.ref) : 0; return `<div class="olp olc${ih ? '' : ' lt'}${it.mz ? ' olmz' : ''}${olIn(it.ref, cur, !olPlaying(g)) ? ' cur' : ''}" data-r="${esc(it.ref)}" data-ref="${esc(g.title + ' ' + (f ? f.ch + ':' + f.v : it.ref))}"><span class="ref">${esc(String(it.ref).replace(/-/g, '–'))}</span><span class="${ih ? 'he' : 'tx'}"${ih ? ' lang="he"' : ''}>${it.mz ? `<b class="mzn">${it.mz}</b> ` : ''}${esc(T(it, 'text'))}${meta ? `<small class="olm"${ih ? '' : ' style="direction:ltr"'}>${meta}</small>` : ''}</span>${np ? `<span class="olmap" data-n="${np}" title="${esc(I18N.t('Karte: Orte dieses Abschnitts'))}">🗺 ${np}</span>` : ''}</div>`; }).join('')}</details>`;
+    }).join('') + (T(ol, 'note') ? `<p class="muted olnote">${esc(T(ol, 'note'))}</p>` : '');
+  }
+  async function renderOutline() {
+    const body = $('#olBody'); const g = view && view.group;
+    if (!g) { body.innerHTML = ''; return; }
+    $('#olTitle').textContent = I18N.t('Gliederung') + ' · ' + g.title;
+    const ol = await olOwn(g.title);
+    const hasMz = !!(ol && ol.sections.some(x => x.items.some(i => i.mz))); $('#olMzW').hidden = !hasMz; $('#olTabT').classList.toggle('on', !olMz() || !hasMz); $('#olTabM').classList.toggle('on', olMz() && hasMz);
+    body.innerHTML = ol ? olContentHtml(g, ol) : `<p class="muted">${esc(I18N.t('Keine Gliederung verfügbar.'))}</p>`;
+    olMark(true);
+    if (window.__olLast) { const el = [...body.querySelectorAll('.olp')].find(x => x.dataset.r === window.__olLast); window.__olLast = null; if (el) el.scrollIntoView({ block: 'center' }); }
+  }
+  // aktuelle Stelle: der gerade gespielte Vers, sonst der Vers in der Leseansicht
+  function olPos(g) { const c = AU.cur; if (c && g && c.book === g.title) return { ch: c.ch, v: c.v }; return auChapterSafe(); }
+  // liegt die Stelle (Kapitel, Vers) im ref der Gliederung? („1:27-2:5“, „4-5“, „3“, „15:32-37, 16:14-19“)
+  const olPlaying = g => !!(AU.cur && g && AU.cur.book === g.title);
+  function olIn(ref, pos, wholeCh) { // wholeCh: alle Punkte, die das Kapitel berühren; sonst nur der Punkt mit dem Vers
+    if (!pos) return false;
+    return String(ref).split(',').some(part => {
+      const m = part.trim().match(/^(\d+)(?::(\d+))?(?:\s*[-–]\s*(\d+)(?::(\d+))?)?$/); if (!m) return false;
+      let a, b;
+      if (m[2]) { a = [+m[1], +m[2]]; b = m[4] ? [+m[3], +m[4]] : m[3] ? [+m[1], +m[3]] : a; } else { a = [+m[1], 0]; b = [m[3] ? +m[3] : +m[1], 9999]; }
+      const lo = pos.ch * 10000 + (wholeCh ? 0 : pos.v), hi = pos.ch * 10000 + (wholeCh ? 9999 : pos.v);
+      return hi >= a[0] * 10000 + a[1] && lo <= b[0] * 10000 + b[1];
+    });
+  }
+  function olMark(scroll) {
+    const pnl = $('#outlinePanel'); if (!pnl || pnl.hidden) return;
+    const g = view && view.group, pos = olPos(g), whole = !olPlaying(g); let first = null;
+    $$('#olBody .olc').forEach(el => { const on = olIn(el.dataset.r, pos, whole); el.classList.toggle('cur', on); if (on && !first) first = el; });
+    if (first && (scroll || AU.cur)) first.scrollIntoView({ block: 'center' });
+  }
+  function auChapterSafe() { const ch = typeof auChapter === 'function' ? auChapter() : null; if (ch == null || !view) return null; const l = $('#rOut .row.hit, #rOut .row[data-l]'); return { ch, v: l && /^\d+$/.test(l.dataset.l) ? +l.dataset.l : 1 }; }
+  const olPlace = () => { const h = document.querySelector('header'); const t = (h ? h.getBoundingClientRect().bottom : 44) + 'px'; $('#outlinePanel').style.top = t; $('#tpResize').style.top = t; };
+  $('#olBtn').onclick = () => { if (!$('#outlinePanel').hidden) { $('#outlinePanel').hidden = true; return; } $('#topicPanel').hidden = true; $('#mapPanel').hidden = true; olPlace(); $('#outlinePanel').hidden = false; renderOutline(); };
+  $('#olClose').onclick = () => { $('#outlinePanel').hidden = true; };
+  // Klick außerhalb oder Esc schließt die Gliederung
+  document.addEventListener('mousedown', e => { const p = $('#outlinePanel'); if (p.hidden || p.classList.contains('docked') || e.target.closest('#outlinePanel, #olBtn, #tpResize, #suggest, #audioBar')) return; p.hidden = true; });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('#outlinePanel').hidden) { $('#outlinePanel').hidden = true; e.stopPropagation(); } }, true);
+  new MutationObserver(() => { $('#tpResize').hidden = $('#topicPanel').hidden && $('#outlinePanel').hidden; }).observe($('#outlinePanel'), { attributes: true, attributeFilter: ['hidden'] });
+  const olSetMz = on => { try { localStorage.setItem('olMz', on ? '1' : '0'); } catch { /* ohne Speicher */ } renderOutline(); };
+  $('#olTabT').onclick = () => olSetMz(false); $('#olTabM').onclick = () => olSetMz(true);
+  $('#mapOl').onclick = () => { $('#mapPanel').hidden = true; $('#olBtn').click(); };
+  $('#olBody').addEventListener('click', e => {
+    const mp = e.target.closest('.olmap'); if (mp) { const q = mp.closest('.olp'); e.stopPropagation(); window.__olLast = q.dataset.r; window.__mapOpenFor && window.__mapOpenFor(view.group.title, q.dataset.r, q.querySelector('.ref').textContent + ' ' + (q.querySelector('.tx, .he')?.firstChild?.textContent || '')); return; }
+    const p = e.target.closest('.olp'); if (!p) return;
+    jumpTo(p.dataset.ref, e.metaKey || e.ctrlKey);
+  });
+  const TPS = window.topics;
+  let topicsReady = false, tpIdx = null, tpSec = [], tpSecKey = '';
+  const tpS = { slug: null, data: null, tab: 'notable', sort: 'rel', n: 60, q: '', sq: '', books: new Set(), booksOpen: false, stack: [] };
+  const tpBookOf = ref => ref.replace(/\s+[\dIVXLC][\dabIVXLC:.,\- ]*$/, '').split(', ')[0];
+  const tpLang = () => (I18N.lang === 'he' ? 'he' : 'en');
+  const tpName = t => (I18N.lang === 'he' && t.he) ? t.he : (t.en || t.slug || t.s);
+  async function refreshTopicStatus() {
+    const st = await TPS.status();
+    topicsReady = st.complete;
+    $('#tpInfo').textContent = st.complete ? I18N.t('✓ vollständig vorhanden') : st.count ? `${st.count} / ${st.total}` : I18N.t('noch nicht heruntergeladen');
+    $('#tpGet').textContent = st.complete ? I18N.t('Erneut laden') : st.count ? I18N.t('Fortsetzen') : I18N.t('Themen herunterladen');
+    return st;
+  }
+  $('#tpGet').onclick = async () => {
+    $('#tpGet').disabled = true; $('#tpStop').disabled = false; $('#tpProg').hidden = false;
+    const r = await TPS.build();
+    $('#tpStop').disabled = true; $('#tpProg').hidden = true; $('#tpGet').disabled = false; tpIdx = null;
+    await refreshTopicStatus();
+    if (r.error) $('#tpInfo').textContent = '⚠ ' + r.error;
+    else if (r.failed) $('#tpInfo').textContent += ' · ' + I18N.t('{} Fehler (erneut starten zum Fortsetzen)', r.failed);
+    if (view) loadTopics(view.sections[view.idx]);
+  };
+  $('#tpStop').onclick = () => TPS.cancel();
+  TPS.onProgress(p => { $('#tpProg').max = p.total || 1; $('#tpProg').value = p.file; $('#tpInfo').textContent = `${I18N.t(p.phase)} (${p.file}/${p.total})`; });
+
+  function btnLbl(sel, icon, key, n) { const el = $(sel); if (el) el.innerHTML = `${icon}<span class="bl">${esc(I18N.t(key))}</span>${n ? ' ' + n : ''}`; }
+  async function loadTopics(s) {
+    $('#tpBtn').hidden = !topicsReady; tpSec = []; tpSecKey = '';
+    if (!topicsReady || !view || !s) return;
+    const first = s.label.split(' › ')[0];
+    const m = s.path.length === 1 && !s.label.includes('›') && first.match(/(\d+[ab]?)$/i);
+    if (!m) { btnLbl('#tpBtn', '🏷', 'Themen', 0); return; }
+    const token = view.idx + ':' + view.group.key;
+    let rows = []; try { rows = await TPS.section(view.group.title, m[1]); } catch { rows = []; }
+    if (!view || token !== view.idx + ':' + view.group.key) return;
+    tpSec = rows; tpSecKey = view.group.title + ' ' + m[1];
+    btnLbl('#tpBtn', '🏷', 'Themen', rows.length);
+    if (!$('#topicPanel').hidden && !tpS.slug) renderTopicPanel();
+  }
+  const tpSort = (a, b) => {
+    const A = a.o, B = b.o, lang = tpLang();
+    if (!A && !B) return 0;
+    if (!A !== !B) return A ? -1 : 1;
+    if (tpS.sort === 'chrono') return A.d === B.d ? (A.id < B.id ? -1 : A.id > B.id ? 1 : 0) : A.d - B.d;
+    const i = lang === 'he' ? 1 : 0;
+    if (A.cp[i] > 0 || B.cp[i] > 0) return B.cp[i] - A.cp[i];
+    if (lang === 'en' && A.al.length !== B.al.length) return A.al.includes('en') ? -1 : B.al.includes('en') ? 1 : 0;
+    if (A.pr !== B.pr) return B.pr - A.pr;
+    return B.s - A.s;
+  };
+  const tpPara = s => esc(s || '').trim().replace(/\n\s*\n/g, '<br><br>');
+  const REL = { 'is-a': 'Ist ein', 'parent-of': 'Übergeordnet zu', 'child-of': 'Untergeordnet zu', 'related-to': 'Verwandt', 'member-of': 'Gehört zu', 'has-role': 'Rolle', 'participates-in': 'Beteiligt an', 'person-participates-in-event': 'Beteiligte', 'spouse-of': 'Ehepartner', 'sibling-of': 'Geschwister', 'opposed': 'Gegensatz', 'has-relationship': 'Beziehungen' };
+  async function renderTopicPanel() {
+    const body = $('#tpBody'); const fl = $('#tpFilter'); fl.hidden = !!tpS.slug; fl.placeholder = I18N.t('Thema suchen (z. B. Abraham, Pessach) …'); if (fl.value !== tpS.q) fl.value = tpS.q;
+    if (!tpS.slug) {
+      $('#tpTitle').textContent = I18N.t('Themen');
+      let rows, head = '';
+      if (tpS.q) {
+        if (!tpIdx) tpIdx = await TPS.list();
+        const q = tpS.q.toLowerCase();
+        rows = tpIdx.filter(x => (x.en || '').toLowerCase().includes(q) || (x.he || '').includes(tpS.q)).sort((a, b) => (b.n - a.n)).slice(0, 80).map(x => ({ slug: x.s, en: x.en, he: x.he, n: x.n }));
+        head = `<p class="muted">${esc(I18N.t('{} Treffer', rows.length))}</p>`;
+      } else {
+        rows = tpSec; head = `<p class="muted">${esc(tpSecKey ? I18N.t('Themen in {}', tpSecKey) : I18N.t('Gib einen Namen ein, um ein Thema zu suchen.'))}</p>`;
+        if (tpSecKey && !rows.length) head += `<p class="muted">${esc(I18N.t('Keine Themen zu diesem Abschnitt.'))}</p>`;
+      }
+      body.innerHTML = head + rows.map(r => `<button class="tpItem" data-slug="${esc(r.slug)}"><b>${esc(tpName(r))}</b>${r.he && I18N.lang !== 'he' ? ` <span class="he muted" lang="he">${esc(r.he)}</span>` : ''}${r.verses ? ` <span class="muted">· ${esc(I18N.t('V. {}', r.verses.slice(0, 6).join(', ') + (r.verses.length > 6 ? ' …' : '')))}</span>` : ''}</button>`).join('');
+      return;
+    }
+    if (!tpS.data || tpS.data.slug !== tpS.slug) { body.innerHTML = `<p class="muted">…</p>`; tpS.data = await TPS.get(tpS.slug); }
+    const d = tpS.data;
+    if (!d) { body.innerHTML = `<p class="muted">${esc(I18N.t('Thema nicht gefunden.'))}</p><button data-act="back">←</button>`; return; }
+    $('#tpTitle').textContent = tpName(d);
+    const lang = tpLang(), allN = d.notable, allO = d.sources;
+    const bookCount = new Map(); allN.concat(allO).forEach(x => { const b = tpBookOf(x.r); bookCount.set(b, (bookCount.get(b) || 0) + 1); });
+    const bookList = [...bookCount.entries()].sort((a, b) => b[1] - a[1] || (a[0] < b[0] ? -1 : 1));
+    tpS.bookList = bookList.map(x => x[0]);
+    const sqq = tpS.sq.toLowerCase();
+    const keep = x => (!tpS.books.size || tpS.books.has(tpBookOf(x.r))) && (!sqq || x.r.toLowerCase().includes(sqq) || JSON.stringify(x.d || '').toLowerCase().includes(sqq));
+    const notable = allN.filter(keep), others = allO.filter(keep);
+    const tab = tpS.tab === 'notable' && !allN.length ? 'sources' : tpS.tab;
+    if (tpS.auto !== d.slug + '|' + tab) { tpS.auto = d.slug + '|' + tab; tpS.sort = tab === 'sources' ? 'chrono' : 'rel'; } // „Alle Quellen“ zuerst chronologisch, „Notable Sources“ nach Relevanz
+    const notableSorted = notable.slice().sort(tpSort), othersSorted = others.slice().sort(tpSort);
+    const list = tab === 'notable' ? notableSorted : notable.concat(others).sort(tpSort);
+    const text = d.desc && (d.desc[lang] || d.desc.en || d.desc.he);
+    const chips = Object.entries(d.links || {}).map(([k, arr]) => `<div><span class="muted">${esc(I18N.t(REL[k] || k))}:</span> <span class="tpChips">${arr.slice(0, 14).map(x => `<button data-slug="${esc(x.t)}">${esc(I18N.lang === 'he' && x.he ? x.he : x.en)}</button>`).join('')}</span></div>`).join('');
+    body.innerHTML = `<button data-act="back">←</button>
+      ${d.he && I18N.lang !== 'he' ? `<div class="he" lang="he"><b>${esc(d.he)}</b></div>` : ''}
+      ${text ? `<p>${tpPara(text)}</p>` : ''}
+      ${chips}
+      <input id="tpSq" class="tpSq" value="${esc(tpS.sq)}" placeholder="${esc(I18N.t('Quellen filtern (z. B. Rashi, Genesis) …'))}">
+      <div class="tpTabs">
+        ${allN.length ? `<button data-tab="notable" class="${tab === 'notable' ? 'on' : ''}">${esc(I18N.t('Notable Sources'))} (${notable.length})</button>` : ''}
+        <button data-tab="sources" class="${tab === 'sources' ? 'on' : ''}">${esc(I18N.t(allN.length ? 'Alle Quellen' : 'Quellen'))} (${notable.length + others.length})</button>
+        <span class="spacer"></span>
+        <select data-act="sort"><option value="rel"${tpS.sort === 'rel' ? ' selected' : ''}>${esc(I18N.t('Relevanz'))}</option><option value="chrono"${tpS.sort === 'chrono' ? ' selected' : ''}>${esc(I18N.t('Chronologisch'))}</option></select>
+      </div>` + list.slice(0, tpS.n).map(x => {
+        const de = x.d && (x.d[lang] || x.d.en || x.d.he);
+        return `<div class="tpSrc"><a data-ref="${esc(x.r)}">${esc(x.r)}</a>${de ? `<div class="tpD">${de.t ? `<b>${esc(de.t)}</b><br>` : ''}${tpPara(de.p)}</div>` : ''}</div>`;
+      }).join('') + (!list.length ? `<p class="muted">${esc(I18N.t('Keine Quellen für diesen Filter.'))}</p>` : '') + (list.length > tpS.n ? `<button data-act="more">${esc(I18N.t('Mehr anzeigen'))} (${list.length - tpS.n})</button>` : '');
+  }
+  function openTopic(slug, push = true) {
+    if (push && tpS.slug) tpS.stack.push(tpS.slug);
+    tpS.slug = slug; tpS.data = null; tpS.n = 60; tpS.tab = 'notable'; tpS.sq = ''; tpS.books = new Set();
+    placeTp(); $('#topicPanel').hidden = false; renderTopicPanel(); $('#topicPanel').scrollTop = 0;
+  }
+  const placeTp = () => { const h = document.querySelector('header'); const t = (h ? h.getBoundingClientRect().bottom : 44) + 'px'; $('#topicPanel').style.top = t; $('#tpResize').style.top = t; };
+  // Breite per Ziehen am linken Rand (gemeinsam mit Kommentar- und Wörterbuchleiste)
+  new MutationObserver(() => { $('#tpResize').hidden = $('#topicPanel').hidden && $('#outlinePanel').hidden; }).observe($('#topicPanel'), { attributes: true, attributeFilter: ['hidden'] });
+  $('#tpResize').addEventListener('mousedown', ev => {
+    ev.preventDefault(); const rt = document.documentElement; rt.classList.add('cmt-dragging');
+    const off = IS_PANE2 ? 0 : (rt.classList.contains('split') ? window.innerWidth * (parseFloat(getComputedStyle(rt).getPropertyValue('--p2w')) / 100) : 0);
+    const mv = e2 => window.setPanelW(window.innerWidth - off - e2.clientX);
+    const up = () => { rt.classList.remove('cmt-dragging'); document.removeEventListener('mousemove', mv); document.removeEventListener('mouseup', up); };
+    document.addEventListener('mousemove', mv); document.addEventListener('mouseup', up);
+  });
+  $('#tpResize').addEventListener('dblclick', () => window.setPanelW(400));
+  $('#tpBtn').onclick = () => { $('#outlinePanel').hidden = true; $('#mapPanel').hidden = true; placeTp(); tpS.slug = null; tpS.stack = []; tpS.q = ''; $('#tpFilter').value = ''; $('#topicPanel').hidden = false; renderTopicPanel(); };
+  $('#tpClose').onclick = () => { $('#topicPanel').hidden = true; };
+
+  // ---------- Karte: Orte des Kapitels (OpenBible.info) auf einem Relief aus dem Copernicus-Höhenmodell ----------
+  const BM = window.BMAP, BB = window.BBORD;
+  // Orte der Werke des Josephus (ToposText, ODC-BY) werden zu den Bibelorten hinzugefügt; „Kapitel“ = Buch*1000+Kapitel (0 = Vorwort)
+  if (BM && window.BMJOS) {
+    BM.nOrig = BM.books.length; BM.j3 = new Set(); const km = (a, b) => Math.hypot((a[0] - b[0]) * 95, (a[1] - b[1]) * 111), nn = s => String(s).replace(/\(.*?\)/g, '').split('/')[0].toLowerCase().replace(/[^a-z]/g, ''), seen = new Map();
+    window.BMJOS.forEach(w => {
+      const bi = BM.books.push(w.title) - 1; if (w.depth3) BM.j3.add(bi); const map = w.places.map(pl => {
+        const key = pl[0] + '|' + pl[2] + '|' + pl[3]; if (seen.has(key)) return seen.get(key);
+        let ix = BM.places.findIndex(p => !p[7] && nn(p[0]) === nn(pl[0]) && km([p[2], p[3]], [pl[2], pl[3]]) < 25); // gleicher Ort schon aus OpenBible?
+        if (ix < 0) { ix = BM.places.push([pl[0], pl[1], pl[2], pl[3], [], '', []]) - 1; }
+        if (!BM.places[ix][7]) BM.places[ix][7] = { g: pl[4], pl: pl[5], wd: pl[6] };
+        seen.set(key, ix); return ix;
+      });
+      Object.entries(w.by).forEach(([k, l]) => l.forEach(n => BM.places[map[n]][4].push(w.depth3 ? [bi, +k, 0] : [bi, Math.floor(k / 1000), k % 1000])));
+    });
+  }
+  // Jerusalem: OpenBible kennt für Tore, Türme, Teiche und Paläste nur den Stadtmittelpunkt. Hier sind Lagen nach Neh 3 und der Forschung gesetzt (vermutet, teils umstritten).
+  const JERPOS = { 'Sheep Gate': [35.2364, 31.7808], 'Fish Gate': [35.2305, 31.7815], 'Gate of Yeshanah': [35.2290, 31.7800], 'Valley Gate': [35.2263, 31.7720], 'Dung Gate': [35.2325, 31.7690], 'Fountain Gate': [35.2352, 31.7698], 'Water Gate': [35.2370, 31.7728], 'Horse Gate': [35.2368, 31.7770], 'East Gate': [35.2374, 31.7788], 'Muster Gate': [35.2368, 31.7798], 'Corner Gate': [35.2282, 31.7774], 'Ephraim Gate': [35.2275, 31.7790], 'Benjamin Gate': [35.2318, 31.7822], 'Potsherd Gate': [35.2312, 31.7686], 'Shallecheth': [35.2337, 31.7777],
+    'Tower of the Ovens': [35.2303, 31.7766], 'Tower of Hananel': [35.2360, 31.7803], 'Tower of the Hundred': [35.2364, 31.7804], 'Millo': [35.2362, 31.7752], 'Jebus': [35.2362, 31.7738], 'Lower Pool': [35.2348, 31.7692],
+    'House of the Forest of Lebanon': [35.2363, 31.7764], 'Hall of the Throne': [35.2363, 31.7764], 'Hall of Pillars': [35.2363, 31.7764], 'Hall of Judgment': [35.2363, 31.7764] };
+  BM.places.forEach(p => { const q = JERPOS[p[0]]; if (q && !p[7] && Math.abs(p[2] - 35.234) < 0.003 && p[3] > 31.776 && p[3] < 31.781) { p[2] = q[0]; p[3] = q[1]; p[8] = 1; } });
+  const mapJosKey = () => { const s = view && view.sections && view.sections[view.idx], p = s && s.path; if (!p) return null; if (p[0] === 'Preface') return 0; const nums = p.filter(x => typeof x === 'number'); return nums.length >= 1 ? nums[0] + 1 : null; }; // Seitenabschnitt = Buch (Kapitel stehen darin)
+  const MP = { img: null, ok: false, s: 1, tx: 0, ty: 0, cur: [], sel: -1, alt: -1, byChap: null, byBook: null, over: null, drag: null, lay: [], rul: null };
+  const mapPx = p => [(p[2] - BM.W0) * BM.ppd * BM.k, (BM.N0 - p[3]) * BM.ppd];
+  const mapHe = p => p[5] || '';
+  const mapXY = (lon, lat) => [(lon - BM.W0) * BM.ppd * BM.k, (BM.N0 - lat) * BM.ppd];
+  const mapConf = p => p[8] ? 400 : (p[6] && p[6][0] ? p[6][0][3] : 1000);   // Sicherheit der wahrscheinlichsten Zuordnung (Promille, neuestes Jahrzehnt)
+  // Orte, deren Verse in einem Gliederungs-ref liegen („1:27-2:5“, „15:32-37, 16:14-19“)
+  function mapRanges(ref) {
+    return String(ref).split(',').map(part => {
+      const m = part.trim().match(/^(\d+)(?::(\d+))?(?:\s*[-–]\s*(\d+)(?::(\d+))?)?$/); if (!m) return null; let a, b;
+      if (m[2]) { a = +m[1] * 10000 + +m[2]; b = m[4] ? +m[3] * 10000 + +m[4] : m[3] ? +m[1] * 10000 + +m[3] : a; } else { a = +m[1] * 10000; b = (m[3] ? +m[3] : +m[1]) * 10000 + 9999; }
+      return [a, b];
+    }).filter(Boolean);
+  }
+  function mapByBook() { if (MP.byBook) return MP.byBook; MP.byBook = new Map(); BM.places.forEach((p, i) => p[4].forEach(([b, c, v]) => { if (!MP.byBook.has(b)) MP.byBook.set(b, []); MP.byBook.get(b).push([i, c * 10000 + v, c * 10000 + (v ? v : 9999)]); })); return MP.byBook; }
+  function mapForRef(title, ref) { // -> [{i, vs}]
+    const bi = BM.books.indexOf(title); if (bi < 0) return []; const rg = mapRanges(ref); if (!rg.length) return []; const out = new Map();
+    (mapByBook().get(bi) || []).forEach(([i, lo, hi]) => { if (rg.some(([a, b]) => hi >= a && lo <= b)) { if (!out.has(i)) out.set(i, []); out.get(i).push(lo % 10000); } });
+    return [...out].map(([i, vs]) => ({ i, vs }));
+  }
+  function mapChapPlaces() {
+    if (MP.over) return MP.over.list;
+    if (!BM || !view || !view.group) return [];
+    const bi = BM.books.indexOf(view.group.title); const jos = bi >= 0 && !!BM.j3 && BM.j3.has(bi), ch = jos ? mapJosKey() : auChapter(); if (bi < 0 || ch == null) return [];
+    if (!MP.byChap) { MP.byChap = new Map(); BM.places.forEach((p, i) => p[4].forEach(([b, c, v]) => { const k = b + '|' + c; let m = MP.byChap.get(k); if (!m) MP.byChap.set(k, m = new Map()); if (!m.has(i)) m.set(i, []); m.get(i).push(v); })); }
+    if (jos) { // Josephus: alle Kapitel des Buches (bzw. Vorwort)
+      const u = new Map(); MP.byChap.forEach((mm, k) => { const [b, c] = k.split('|').map(Number); if (b !== bi || (ch === 0 ? c !== 0 : Math.floor(c / 1000) !== ch)) return; mm.forEach((vs, i) => { if (!u.has(i)) u.set(i, []); u.get(i).push(...vs); }); });
+      return [...u].map(([i, vs]) => ({ i, vs }));
+    }
+    const m = MP.byChap.get(bi + '|' + ch); return m ? [...m].map(([i, vs]) => ({ i, vs })) : [];
+  }
+  function mapRefresh() {
+    if (!BM) return; MP.over = null; MP.cur = mapChapPlaces(); $('#mapBtn').hidden = !MP.cur.length && $('#mapPanel').hidden; btnLbl('#mapBtn', '🗺', 'Karte', MP.cur.length);
+    if (!$('#mapPanel').hidden) { MP.sel = -1; mapFit(); mapInfo(); mapDraw(); }
+  }
+  function mapSize() { const cv = $('#mapCv'), r = cv.getBoundingClientRect(), d = window.devicePixelRatio || 1; const w = Math.max(50, Math.round(r.width * d)), h = Math.max(50, Math.round(r.height * d)); if (cv.width !== w || cv.height !== h) { cv.width = w; cv.height = h; } return { w, h, d }; }
+  function mapFit() {
+    const { w, h } = mapSize(); const pts = MP.cur.map(c => mapPx(BM.places[c.i]));
+    const all = Math.min(w / BM.w, h / BM.h);
+    if (!pts.length) { MP.s = all; MP.tx = (w - BM.w * all) / 2; MP.ty = (h - BM.h * all) / 2; return; }
+    let x0 = Math.min(...pts.map(p => p[0])), x1 = Math.max(...pts.map(p => p[0])), y0 = Math.min(...pts.map(p => p[1])), y1 = Math.max(...pts.map(p => p[1]));
+    const pad = 90, sx = w / (x1 - x0 + 2 * pad), sy = h / (y1 - y0 + 2 * pad);
+    MP.s = Math.min(Math.max(Math.min(sx, sy), all), 1.6); MP.tx = w / 2 - (x0 + x1) / 2 * MP.s; MP.ty = h / 2 - (y0 + y1) / 2 * MP.s;
+  }
+  // Bildschirmpositionen; dicht beieinanderliegende Orte des Kapitels werden zu einem kleinen Kreis auseinandergezogen
+  function mapLayout() {
+    const { d } = mapSize(), lay = [], inCh = new Set(MP.cur.map(c => c.i));
+    const pts = MP.cur.map(c => { const [x, y] = mapPx(BM.places[c.i]); return { i: c.i, x: x * MP.s + MP.tx, y: y * MP.s + MP.ty, chap: true }; });
+    const near = 17 * d, seen = new Array(pts.length).fill(false);
+    pts.forEach((a, ai) => {
+      if (seen[ai]) return; const grp = [ai]; seen[ai] = true;
+      for (let k = 0; k < grp.length; k++) pts.forEach((b, bi) => { if (!seen[bi] && Math.hypot(pts[grp[k]].x - b.x, pts[grp[k]].y - b.y) < near) { seen[bi] = true; grp.push(bi); } });
+      if (grp.length === 1) { lay.push(a); return; }
+      const cx = grp.reduce((t, g) => t + pts[g].x, 0) / grp.length, cy = grp.reduce((t, g) => t + pts[g].y, 0) / grp.length, R = (grp.length === 2 ? 15 : 12 + grp.length * 2) * d;
+      grp.sort((p, q) => BM.places[pts[p].i][0].localeCompare(BM.places[pts[q].i][0])).forEach((g, k) => { const an = -Math.PI / 2 + k * 2 * Math.PI / grp.length + (grp.length === 2 ? Math.PI / 2 : 0); lay.push({ i: pts[g].i, x: cx + R * Math.cos(an), y: cy + R * Math.sin(an), chap: true, spread: true, cx, cy }); });
+    });
+    if ($('#mapAll').checked) BM.places.forEach((p, i) => { if (inCh.has(i)) return; const [x, y] = mapPx(p); lay.push({ i, x: x * MP.s + MP.tx, y: y * MP.s + MP.ty, chap: false }); });
+    return lay;
+  }
+  function mapDraw() {
+    if ($('#mapPanel').hidden || !MP.ok) return; const cv = $('#mapCv'), { w, h, d } = mapSize(), g = cv.getContext('2d');
+    g.setTransform(1, 0, 0, 1, 0, 0); g.fillStyle = '#7aa0be'; g.fillRect(0, 0, w, h);
+    g.imageSmoothingQuality = 'high'; g.drawImage(MP.img, MP.tx, MP.ty, BM.w * MP.s, BM.h * MP.s);
+    const r = d, ll = I18N.lang;
+    mapJerDraw(g, r);
+    if (BB && $('#mapBord').checked) {
+      g.save(); g.lineJoin = 'round'; g.setLineDash([6 * r, 4 * r]); g.strokeStyle = 'rgba(120,20,60,.85)'; g.lineWidth = 1.6 * r;
+      BB.lines.forEach(l => { g.beginPath(); l.forEach(([x, y], k) => { const X = x * MP.s + MP.tx, Y = y * MP.s + MP.ty; if (k) g.lineTo(X, Y); else g.moveTo(X, Y); }); g.stroke(); });
+      g.restore(); g.font = `italic 600 ${13 * r}px -apple-system, system-ui, sans-serif`; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillStyle = 'rgba(100,15,50,.9)'; g.strokeStyle = 'rgba(255,255,255,.75)'; g.lineWidth = 3 * r; g.lineJoin = 'round';
+      BB.names.forEach(n => { const t = (ll === 'de' ? n[1] : ll === 'he' && n[2] ? n[2] : n[0]).toUpperCase(), X = n[3] * MP.s + MP.tx, Y = n[4] * MP.s + MP.ty; if (X < 0 || Y < 0 || X > w || Y > h) return; g.strokeText(t, X, Y); g.fillText(t, X, Y); });
+      g.textAlign = 'start';
+    }
+    MP.lay = mapLayout();
+    g.fillStyle = 'rgba(40,40,40,.55)'; MP.lay.forEach(o => { if (o.chap) return; g.beginPath(); g.arc(o.x, o.y, 2.6 * r, 0, 7); g.fill(); });
+    g.font = `${12 * r}px -apple-system, system-ui, sans-serif`; g.textBaseline = 'middle'; g.lineJoin = 'round';
+    const boxes = [], hit = (a, b) => boxes.some(q => a.x < q.x + q.w && a.x + a.w > q.x && a.y < q.y + q.h && a.y + a.h > q.y);
+    const chap = MP.lay.filter(o => o.chap).sort((a, b) => (a.i === MP.sel) - (b.i === MP.sel) || a.y - b.y);
+    chap.filter(o => o.spread).forEach(o => { g.strokeStyle = 'rgba(255,255,255,.8)'; g.lineWidth = 1.5 * r; g.beginPath(); g.moveTo(o.cx, o.cy); g.lineTo(o.x, o.y); g.stroke(); });
+    chap.forEach(o => {
+      const on = o.i === MP.sel; g.beginPath(); g.arc(o.x, o.y, (on ? 8 : 6) * r, 0, 7); g.fillStyle = on ? '#ffcc00' : mapConf(BM.places[o.i]) < 500 ? '#ee9a94' : '#d6382f'; g.fill(); g.lineWidth = 2 * r; g.strokeStyle = '#fff'; if (!on && mapConf(BM.places[o.i]) < 500) g.setLineDash([3 * r, 2 * r]); g.stroke(); g.setLineDash([]);
+    });
+    if (MP.sel >= 0) { // andere mögliche Lagen des gewählten Ortes
+      const me = MP.lay.find(o => o.i === MP.sel), al = BM.places[MP.sel][6] || [];
+      al.forEach((a, k) => { if (k === 0) return; const [x0, y0] = mapXY(a[1], a[2]), X = x0 * MP.s + MP.tx, Y = y0 * MP.s + MP.ty, on = k === MP.alt;
+        if (me) { g.save(); g.setLineDash([4 * r, 3 * r]); g.strokeStyle = 'rgba(30,30,30,.7)'; g.lineWidth = 1.2 * r; g.beginPath(); g.moveTo(me.x, me.y); g.lineTo(X, Y); g.stroke(); g.restore(); }
+        g.beginPath(); g.arc(X, Y, (5 + a[3] / 1000 * 5) * r, 0, 7); g.fillStyle = on ? '#ffcc00' : 'rgba(255,255,255,.55)'; g.fill(); g.lineWidth = 2 * r; g.strokeStyle = '#222'; g.stroke();
+        const t = a[0] + ' · ' + Math.round(a[3] / 10) + ' %'; g.font = `${11 * r}px -apple-system, system-ui, sans-serif`; g.lineWidth = 3 * r; g.strokeStyle = 'rgba(255,255,255,.9)'; g.strokeText(t, X + 9 * r, Y); g.fillStyle = '#222'; g.fillText(t, X + 9 * r, Y); });
+    }
+    chap.forEach(o => boxes.push({ x: o.x - 8 * r, y: o.y - 8 * r, w: 16 * r, h: 16 * r })); // Marker selbst sind auch Hindernisse für Namen
+    chap.forEach(o => { // Beschriftung: erst rechts, dann links, oben, unten; was nirgends frei ist, bleibt ohne Namen (Hover/Klick zeigt ihn)
+      const name = BM.places[o.i][0], tw = g.measureText(name).width, th = 14 * r, on = o.i === MP.sel, off = 10 * r;
+      const opts = [[o.x + off, o.y - th / 2, 'start'], [o.x - off - tw, o.y - th / 2, 'start'], [o.x - tw / 2, o.y - off - th, 'start'], [o.x - tw / 2, o.y + off, 'start']];
+      for (const [bx, by] of opts) { const bb = { x: bx - 2, y: by, w: tw + 4, h: th }; if (!hit(bb) || (on && opts.indexOf(opts.find(q => q[0] === bx)) === 3)) { boxes.push(bb); g.lineWidth = 3.5 * r; g.strokeStyle = 'rgba(255,255,255,.9)'; g.strokeText(name, bx, by + th / 2); g.fillStyle = '#222'; g.fillText(name, bx, by + th / 2); break; } }
+    });
+    try { const noted = new Set(notesAll.filter(n => n.place).map(n => n.place)); if (noted.size) { g.font = `${12 * r}px -apple-system, sans-serif`; g.textAlign = 'left'; g.textBaseline = 'alphabetic'; MP.lay.forEach(o => { if (noted.has(BM.places[o.i][0])) { g.lineWidth = 3 * r; g.strokeStyle = 'rgba(255,255,255,.95)'; g.strokeText('✎', o.x + 5 * r, o.y - 5 * r); g.fillStyle = '#b8570a'; g.fillText('✎', o.x + 5 * r, o.y - 5 * r); } }); } } catch { /* Notizen noch nicht geladen */ }
+    mapRouteDraw(g, r);
+    mapRulDraw(g, r);
+  }
+  // Entfernungsmessung: Klicks setzen Punkte (rasten auf Orte ein), Luftlinie in km
+  // Höhenraster (map/elev.js, zlib+Base64) wird beim ersten Öffnen der Karte entpackt
+  let ELV = null;
+  async function mapElevLoad() {
+    if (ELV !== null || !window.BELEV) return; ELV = false;
+    try { const E = window.BELEV, bin = Uint8Array.from(atob(E.z), c => c.charCodeAt(0)), ds = new DecompressionStream('deflate'); const buf = await new Response(new Blob([bin]).stream().pipeThrough(ds)).arrayBuffer(); ELV = { E, a: new Uint8Array(buf) }; if (!$('#mapPanel').hidden) { mapInfo(); mapRulInfo(); } } catch { ELV = false; }
+  }
+  function mapElev(lon, lat) { // Höhe in m (bilinear), null wenn nicht geladen/außerhalb
+    if (!ELV) return null;
+    const { E, a } = ELV, x = (lon - E.W0) * E.ppd - 0.5, y = (E.N0 - lat) * E.ppd - 0.5; if (x < 0 || y < 0 || x >= E.w - 1 || y >= E.h - 1) return null;
+    const x0 = Math.floor(x), y0 = Math.floor(y), fx = x - x0, fy = y - y0, g = (i, j) => a[(y0 + j) * E.w + x0 + i];
+    const v = g(0, 0) * (1 - fx) * (1 - fy) + g(1, 0) * fx * (1 - fy) + g(0, 1) * (1 - fx) * fy + g(1, 1) * fx * fy; return Math.round(v * E.step + E.off);
+  }
+  const mapM = m => m === null ? '' : (m < 0 ? '−' : '') + Math.abs(m).toLocaleString(I18N.lang === 'de' ? 'de-DE' : 'en-US') + ' m';
+  const mapLL = (x, y) => [BM.W0 + x / (BM.ppd * BM.k), BM.N0 - y / BM.ppd];
+  function mapKm(a, b) { const R = 6371, t = Math.PI / 180, dl = (b[1] - a[1]) * t, dn = (b[0] - a[0]) * t, s = Math.sin(dl / 2) ** 2 + Math.cos(a[1] * t) * Math.cos(b[1] * t) * Math.sin(dn / 2) ** 2; return 2 * R * Math.asin(Math.sqrt(s)); }
+  function mapRulDraw(g, r) {
+    const R = MP.rul; if (!R || !R.pts.length) return; const sc = p => { const [x, y] = mapXY(p[0], p[1]); return [x * MP.s + MP.tx, y * MP.s + MP.ty]; };
+    const P = R.pts.map(sc); g.save(); g.lineJoin = 'round'; g.lineCap = 'round';
+    const line = (pts, dash) => { g.beginPath(); pts.forEach((q, k) => k ? g.lineTo(q[0], q[1]) : g.moveTo(q[0], q[1])); g.setLineDash(dash); g.stroke(); };
+    g.lineWidth = 5 * r; g.strokeStyle = 'rgba(255,255,255,.9)'; if (P.length > 1) line(P, []);
+    g.lineWidth = 2.5 * r; g.strokeStyle = '#1f4fd8'; if (P.length > 1) line(P, [7 * r, 4 * r]);
+    if (R.cur) { const q = [R.cur[0], R.cur[1]], a = P[P.length - 1]; g.lineWidth = 2 * r; g.strokeStyle = 'rgba(31,79,216,.6)'; line([a, q], [3 * r, 4 * r]); const km = mapKm(R.pts[R.pts.length - 1], mapLL((q[0] - MP.tx) / MP.s, (q[1] - MP.ty) / MP.s)); g.setLineDash([]); g.font = `600 ${12 * r}px -apple-system, sans-serif`; const tx = Math.round(km) + ' km'; g.lineWidth = 3.5 * r; g.strokeStyle = 'rgba(255,255,255,.95)'; g.strokeText(tx, q[0] + 10 * r, q[1] - 8 * r); g.fillStyle = '#1f4fd8'; g.fillText(tx, q[0] + 10 * r, q[1] - 8 * r); }
+    g.setLineDash([]); g.font = `600 ${12 * r}px -apple-system, sans-serif`;
+    const many = P.length > 12;
+    for (let k = 1; !many && k < P.length; k++) { const km = Math.round(mapKm(R.pts[k - 1], R.pts[k])) + ' km', mx = (P[k - 1][0] + P[k][0]) / 2, my = (P[k - 1][1] + P[k][1]) / 2; g.lineWidth = 3.5 * r; g.strokeStyle = 'rgba(255,255,255,.95)'; g.strokeText(km, mx + 4 * r, my - 5 * r); g.fillStyle = '#1f4fd8'; g.fillText(km, mx + 4 * r, my - 5 * r); }
+    P.forEach((q, k) => { if (many && k && k < P.length - 1) return; g.beginPath(); g.arc(q[0], q[1], 5 * r, 0, 7); g.fillStyle = k ? '#fff' : '#1f4fd8'; g.fill(); g.lineWidth = 2.5 * r; g.strokeStyle = '#1f4fd8'; g.stroke(); });
+    if (R.hov) { const q = sc([R.hov.lon, R.hov.lat]); g.beginPath(); g.arc(q[0], q[1], 7 * r, 0, 7); g.fillStyle = 'rgba(31,79,216,.3)'; g.fill(); g.lineWidth = 2 * r; g.strokeStyle = '#1f4fd8'; g.stroke(); }
+    g.restore();
+  }
+  function mapProfile(pts) { // Stützpunkte alle ~2 km entlang der Linie
+    const out = []; let km = 0;
+    for (let k = 1; k < pts.length; k++) { const a = pts[k - 1], b = pts[k], L = mapKm(a, b), n = Math.max(1, Math.min(400, Math.ceil(L / 2)));
+      for (let s = k === 1 ? 0 : 1; s <= n; s++) { const t = s / n, lon = a[0] + (b[0] - a[0]) * t, lat = a[1] + (b[1] - a[1]) * t; out.push({ km: km + L * t, lon, lat, e: mapElev(lon, lat) }); } km += L; }
+    return out;
+  }
+  function mapProfDraw(hov) {
+    const R = MP.rul, cv = $('#mapRulProf'); if (!R || !cv || !R.prof) return; const d = window.devicePixelRatio || 1, W = cv.clientWidth, H = cv.clientHeight; cv.width = W * d; cv.height = H * d; const g = cv.getContext('2d'); g.scale(d, d);
+    const P = R.prof.filter(p => p.e !== null); if (P.length < 2) return; const tot = R.prof[R.prof.length - 1].km || 1; let lo = Math.min(...P.map(p => p.e)), hi = Math.max(...P.map(p => p.e)); lo = Math.min(lo, 0); hi = Math.max(hi, lo + 100); const padL = 34, padB = 12, X = km => padL + (km / tot) * (W - padL - 4), Y = e => 4 + (1 - (e - lo) / (hi - lo)) * (H - 4 - padB);
+    g.fillStyle = '#9db8d6'; g.fillRect(padL, Y(0), W - padL - 4, H - padB - Y(0) + 0.5); // unter dem Meeresspiegel
+    g.beginPath(); g.moveTo(X(P[0].km), Y(lo)); P.forEach(p => g.lineTo(X(p.km), Y(p.e))); g.lineTo(X(P[P.length - 1].km), Y(lo)); g.closePath(); g.fillStyle = 'rgba(150,120,70,.55)'; g.fill();
+    g.beginPath(); P.forEach((p, k) => k ? g.lineTo(X(p.km), Y(p.e)) : g.moveTo(X(p.km), Y(p.e))); g.lineWidth = 1.5; g.strokeStyle = '#6b4a1e'; g.stroke();
+    g.font = '10px -apple-system, sans-serif'; g.fillStyle = '#444'; g.textAlign = 'right'; g.fillText(Math.round(hi) + '', padL - 3, 10); g.fillText(Math.round(lo) + '', padL - 3, H - padB); if (lo < 0 && hi > 0) g.fillText('0', padL - 3, Y(0) + 3);
+    g.textAlign = 'left'; g.fillText('0', padL, H - 1); g.textAlign = 'right'; g.fillText(Math.round(tot) + ' km', W - 4, H - 1);
+    R.hov = null; if (hov !== undefined && hov !== null) { const p = R.prof[hov]; if (p && p.e !== null) { R.hov = p; g.strokeStyle = '#1f4fd8'; g.lineWidth = 1; g.beginPath(); g.moveTo(X(p.km), 2); g.lineTo(X(p.km), H - padB); g.stroke(); g.beginPath(); g.arc(X(p.km), Y(p.e), 3, 0, 7); g.fillStyle = '#1f4fd8'; g.fill(); const t = Math.round(p.km) + ' km · ' + mapM(p.e); g.textAlign = X(p.km) > W / 2 ? 'right' : 'left'; g.fillStyle = '#1f4fd8'; g.fillText(t, X(p.km) + (X(p.km) > W / 2 ? -4 : 4), 11); } }
+    R.profX = X;
+  }
+  function mapRulInfo() {
+    const R = MP.rul, b = $('#mapRuler'); if (!R || !R.on) { b.hidden = true; return; } b.hidden = false; const t = I18N.t.bind(I18N); let tot = 0, rows = '';
+    for (let k = 1; k < R.pts.length; k++) { const km = mapKm(R.pts[k - 1], R.pts[k]); tot += km; if (R.pts.length <= 12) rows += `<div>${esc(R.pts[k - 1][2] || t('Punkt') + ' ' + k)} → ${esc(R.pts[k][2] || t('Punkt') + ' ' + (k + 1))}: <b>${Math.round(km)} km</b></div>`; }
+    b.innerHTML = R.pts.length < 2 ? `<div class="rh">${esc(t('Entfernung messen'))}</div><div class="rs">${esc(t('Klicke Orte oder Punkte auf der Karte an. Esc beendet.'))}</div>`
+      : `<div class="rh">${esc(t('Luftlinie'))}: <b>${Math.round(tot)} km</b></div>${rows}<div class="rs">≈ ${(tot / 30).toFixed(1)} ${esc(t('Tagesreisen zu Fuß (je 30 km, grob; echte Wege sind länger)'))}</div>`;
+    R.prof = null;
+    if (R.pts.length >= 2 && ELV) { R.prof = mapProfile(R.pts); const P = R.prof.filter(p => p.e !== null); if (P.length > 1) { let up = 0, dn = 0, ref = P[0].e; P.forEach(p => { if (p.e - ref > 30) { up += p.e - ref; ref = p.e; } else if (ref - p.e > 30) { dn += ref - p.e; ref = p.e; } });
+        b.innerHTML += `<canvas id="mapRulProf"></canvas><div class="rs">${esc(t('Höhenprofil'))}: ↑ ${Math.round(up)} m · ↓ ${Math.round(dn)} m · ${esc(t('höchster Punkt'))} ${mapM(Math.max(...P.map(p => p.e)))} · ${esc(t('tiefster Punkt'))} ${mapM(Math.min(...P.map(p => p.e)))}</div>`; } }
+    b.innerHTML += `<div class="rb"><button data-x="undo">${esc(t('Letzter Punkt zurück'))}</button><button data-x="clr">${esc(t('Neu'))}</button></div>`;
+    if (R.prof) mapProfDraw(null);
+  }
+  function mapRulToggle(on) { if (on) mapElevLoad(); if (on === undefined) on = !(MP.rul && MP.rul.on); MP.rul = on ? { on: true, pts: [], cur: null } : null; $('#mapRulB').classList.toggle('on', on); $('#mapCv').style.cursor = on ? 'crosshair' : ''; mapRulInfo(); mapDraw(); }
+  function mapPick(ev, all) {
+    const cv = $('#mapCv'), b = cv.getBoundingClientRect(), d = window.devicePixelRatio || 1, mx = (ev.clientX - b.left) * d, my = (ev.clientY - b.top) * d; const out = [];
+    MP.lay.forEach(o => { const dd = Math.hypot(o.x - mx, o.y - my); if (dd < 11 * d) out.push([dd - (o.chap ? 4 * d : 0), o.i]); });
+    out.sort((a, b2) => a[0] - b[0]); return all ? out.map(o => o[1]) : (out.length ? out[0][1] : -1);
+  }
+  const mapRefLink = (bi, c, v) => { const t = BM.books[bi]; if (BM.j3 && BM.j3.has(bi)) return c ? `<a data-ref="${esc(t + ' ' + Math.floor(c / 1000) + ':' + (c % 1000))}">${Math.floor(c / 1000)}.${c % 1000}</a>` : `<a data-ref="${esc(t + ', Preface')}">${esc(I18N.t('Vorwort'))}</a>`; return `<a data-ref="${esc(t + ' ' + c + (v ? ':' + v : ''))}">${esc(c + (v ? ':' + v : ''))}</a>`; };
+  const mapName = i => { const p = BM.places[i], he = mapHe(p); return esc(p[0]) + (he ? ` <span class="he" dir="rtl">${esc(he)}</span>` : (p[7] && p[7].g ? ` <span class="he" lang="grc">${esc(p[7].g)}</span>` : '')); };
+  // Routen (UBS MARBLE, CC BY-SA 4.0): ausgewählte Route wird als Linie gezeichnet
+  const BR = window.BROUTES || [];
+  const TANAKH_ORD = ['Genesis', 'Exodus', 'Leviticus', 'Numbers', 'Deuteronomy', 'Joshua', 'Judges', 'I Samuel', 'II Samuel', 'I Kings', 'II Kings', 'Isaiah', 'Jeremiah', 'Ezekiel', 'Hosea', 'Joel', 'Amos', 'Obadiah', 'Jonah', 'Micah', 'Nahum', 'Habakkuk', 'Zephaniah', 'Haggai', 'Zechariah', 'Malachi', 'Psalms', 'Proverbs', 'Job', 'Song of Songs', 'Ruth', 'Lamentations', 'Ecclesiastes', 'Esther', 'Daniel', 'Ezra', 'Nehemiah', 'I Chronicles', 'II Chronicles']; // Rückfallebene, falls ein Buch nicht in der Bibliothek ist
+  const mapRouteTitle = r => I18N.lang === 'de' ? r.de : r.en;
+  const mapLen = ln => { let s = 0; for (let k = 1; k < ln.length; k++) s += mapKm(ln[k - 1], ln[k]); return s; };
+  function mapRouteFill() {
+    const sel = $('#mapRoute'), keep = MP.route ? MP.route.id : ''; let h = `<option value="">${esc(I18N.t('Routen …'))}</option>`, cur = null;
+    const bk = r => r.ref.replace(/ \d.*$/, ''), ord = BR.map((r, i) => [r, i]).sort((a, b) => { try { return libCmpGroups(groups.find(g => g.title === bk(a[0])) || null, groups.find(g => g.title === bk(b[0])) || null) || (TANAKH_ORD.indexOf(bk(a[0])) - TANAKH_ORD.indexOf(bk(b[0]))) || a[1] - b[1]; } catch { return a[1] - b[1]; } }).map(x => x[0]); // gleiche Reihenfolge wie die Bücher in der Bibliothek
+    ord.forEach(r => { const b = bk(r); if (b !== cur) { if (cur) h += '</optgroup>'; h += `<optgroup label="${esc(b)}">`; cur = b; } h += `<option value="${esc(r.id)}">${esc(mapRouteTitle(r))}</option>`; });
+    sel.innerHTML = h + '</optgroup>'; sel.value = keep;
+  }
+  function mapRouteSet(id) {
+    if (MP.rul && MP.rul.fromRoute) mapRulToggle(false);
+    MP.route = BR.find(r => r.id === id) || null; $('#mapRoute').value = MP.route ? MP.route.id : ''; MP.sel = -1;
+    if (MP.route) { const pts = MP.route.lines.flat().map(c => mapXY(c[0], c[1])), { w, h } = mapSize(); const x0 = Math.min(...pts.map(p => p[0])), x1 = Math.max(...pts.map(p => p[0])), y0 = Math.min(...pts.map(p => p[1])), y1 = Math.max(...pts.map(p => p[1])), pad = 60; MP.s = Math.min(Math.max(Math.min(w / (x1 - x0 + 2 * pad), h / (y1 - y0 + 2 * pad)), Math.min(w / BM.w, h / BM.h)), 3); MP.tx = w / 2 - (x0 + x1) / 2 * MP.s; MP.ty = h / 2 - (y0 + y1) / 2 * MP.s; }
+    mapDraw(); mapInfo();
+  }
+  function mapRouteDraw(g, r) {
+    const R = MP.route; if (!R) return; g.save(); g.lineJoin = 'round'; g.lineCap = 'round';
+    R.lines.forEach(ln => { const P = ln.map(c => { const [x, y] = mapXY(c[0], c[1]); return [x * MP.s + MP.tx, y * MP.s + MP.ty]; });
+      const path = () => { g.beginPath(); P.forEach((q, k) => k ? g.lineTo(q[0], q[1]) : g.moveTo(q[0], q[1])); };
+      path(); g.lineWidth = 6 * r; g.strokeStyle = 'rgba(255,255,255,.85)'; g.stroke(); path(); g.lineWidth = 3 * r; g.strokeStyle = '#a4161a'; g.stroke();
+      let acc = 0; for (let k = 1; k < P.length; k++) { const dx = P[k][0] - P[k - 1][0], dy = P[k][1] - P[k - 1][1], L = Math.hypot(dx, dy); acc += L; if (acc > 90 * r && L > 0) { acc = 0; const a = Math.atan2(dy, dx), cx = P[k][0], cy = P[k][1]; g.beginPath(); g.moveTo(cx + Math.cos(a) * 5 * r, cy + Math.sin(a) * 5 * r); g.lineTo(cx + Math.cos(a + 2.5) * 5 * r, cy + Math.sin(a + 2.5) * 5 * r); g.lineTo(cx + Math.cos(a - 2.5) * 5 * r, cy + Math.sin(a - 2.5) * 5 * r); g.closePath(); g.fillStyle = '#a4161a'; g.fill(); g.lineWidth = 1 * r; g.strokeStyle = '#fff'; g.stroke(); } }
+      const s = P[0], e = P[P.length - 1]; g.beginPath(); g.arc(s[0], s[1], 5 * r, 0, 7); g.fillStyle = '#2e7d32'; g.fill(); g.lineWidth = 2 * r; g.strokeStyle = '#fff'; g.stroke(); g.beginPath(); g.arc(e[0], e[1], 5 * r, 0, 7); g.fillStyle = '#222'; g.fill(); g.stroke(); });
+    g.restore();
+  }
+  function mapRoutesHere() { // Routen, deren Anfangsstelle im gerade gelesenen Kapitel liegt
+    if (!view || !view.group) return []; const ch = auChapter(); if (ch == null) return [];
+    return BR.filter(r => { const m = r.ref.match(/^(.*) (\d+):/); return m && m[1] === view.group.title && +m[2] === ch; });
+  }
+  function mapRouteBox() {
+    const R = MP.route, t = I18N.t.bind(I18N); let h = '';
+    if (R) { const tot = R.lines.map(mapLen); h += `<div class="rt"><h4>${esc(mapRouteTitle(R))}${I18N.lang === 'de' ? '' : ''} <span class="chip" data-rt="">✕ ${esc(t('Route ausblenden'))}</span></h4><div class="sub">${mapRefLinkTxt(R.ref)} · ${R.lines.length} ${esc(t(R.lines.length > 1 ? 'Linien' : 'Linie'))} · ≈ ${Math.round(tot.reduce((a, b) => a + b, 0))} km (${esc(t('Luftlinie'))})<br>${R.lines.map((l, k) => `<span class="chip" data-rl="${k}" title="${esc(t('Als Messung übernehmen (Länge, Höhenprofil)'))}">📏 ${k + 1} · ${Math.round(tot[k])} km</span>`).join(' ')}</div><div class="sub rcred">${esc(t('Routen: UBS MARBLE / Leen Ritmeyer (CC BY-SA 4.0). Bibelstelle von Safran zugeordnet, ungefähr.'))}</div></div>`; }
+    const here = mapRoutesHere().filter(r => !R || r.id !== R.id);
+    if (here.length) h += `<div class="sub">${esc(t('Routen in diesem Kapitel'))}: ${here.map(r => `<span class="chip" data-rt="${esc(r.id)}">🧭 ${esc(mapRouteTitle(r))}</span>`).join(' ')}</div>`;
+    return h;
+  }
+  const mapRefLinkTxt = ref => `<a data-ref="${esc(ref)}">${esc(ref)}</a>`;
+  function mapInfo() { mapInfo0(); if (MP.sel < 0) $('#mapInfo').insertAdjacentHTML('afterbegin', mapRouteBox()); }
+  function mapInfo0() {
+    const el = $('#mapInfo'), here = view && view.group ? view.group.title : '';
+    if (MP.sel < 0) {
+      el.innerHTML = MP.cur.length ? `<div class="sub">${MP.over ? esc(I18N.t('Orte dieses Abschnitts')) + ': ' + esc(MP.over.label) + ' · <span class="chip" data-i="-2">← ' + esc(I18N.t('Kapitel')) + '</span>' : esc(I18N.t('Orte in diesem Kapitel')) + ' (' + MP.cur.length + ')'}</div><div class="chips">${MP.cur.map(c => `<span class="chip" data-i="${c.i}">${mapName(c.i)}</span>`).join('')}</div>` : `<div class="sub">${esc(I18N.t('Zu diesem Kapitel sind keine Orte verzeichnet. „Alle Orte“ zeigt die ganze Karte.'))}</div>`;
+      return;
+    }
+    const p = BM.places[MP.sel], by = new Map(); p[4].forEach(([b, c, v]) => { if (!by.has(b)) by.set(b, []); by.get(b).push([c, v]); });
+    const me = MP.lay.find(o => o.i === MP.sel), nb = me ? MP.lay.filter(o => o.i !== MP.sel && Math.hypot(o.x - me.x, o.y - me.y) < 26 * (window.devicePixelRatio || 1)).slice(0, 8) : [];
+    el.innerHTML = `<h4>${mapName(MP.sel)}</h4><div class="sub">${esc(p[1])} · ${p[4].length} ${esc(I18N.t('Stellen'))}${ELV ? ' · ' + esc(I18N.t('Höhe')) + ' ≈ ' + mapM(mapElev(...mapLL(...mapPx(p)))) : ''} · <span class="chip" data-i="-1">← ${esc(I18N.t('Liste'))}</span></div>` +
+      (nb.length ? `<div class="sub">${esc(I18N.t('Daneben'))}: ${nb.map(o => `<span class="chip" data-i="${o.i}">${mapName(o.i)}</span>`).join(' ')}</div>` : '') +
+      mapAlts(p) + mapOutRows(MP.sel) + mapNoteRows(p) +
+      [...by].sort((a, b) => (BM.books[a[0]] === here ? -1 : 0) - (BM.books[b[0]] === here ? -1 : 0) || a[0] - b[0]).map(([b, l]) => `<div class="vs"><b>${esc(BM.books[b])}</b> ${l.slice(0, 40).map(([c, v]) => mapRefLink(b, c, v)).join(' ')}${l.length > 40 ? '…' : ''}</div>`).join('');
+  }
+  // Notizen zu Orten: freie Notizen mit Feld „place“ (= Ortsname), erscheinen auch im Reiter Notizen
+  const mapNotesOf = p => { try { return notesAll.filter(n => n.place === p[0]); } catch { return []; } };
+  function mapNoteRows(p) {
+    const ns = mapNotesOf(p); return `<div class="pn"><div class="sub"><b>${esc(I18N.t('Notizen'))}</b> <span class="chip pnadd">＋ ${esc(I18N.t('Notiz zu diesem Ort'))}</span></div>` + ns.map(n => `<div class="pnote" data-id="${esc(n.id)}">${n.title && n.title !== p[0] ? '<b>' + esc(n.title) + '</b> ' : ''}${esc((n.note || '').slice(0, 200))}</div>`).join('') + '</div>';
+  }
+  function mapOutRows(i) { // Punkte der Gliederung dieses Buches, in denen der Ort vorkommt
+    const g = view && view.group; if (!g || !BM.books.includes(g.title) || typeof olOwnCache === 'undefined') return '';
+    const ol = olOwnCache.get(g.title); if (ol === undefined) { olOwn(g.title).then(() => { if (MP.sel === i) mapInfo(); }).catch(() => {}); return ''; } if (!ol) return '';
+    const L = I18N.lang, T = (o, k) => (L !== 'he' && o[k + '_' + L]) || o[k], rows = [];
+    ol.sections.forEach(sec => sec.items.forEach(it => { if (mapForRef(g.title, it.ref).some(c => c.i === i)) rows.push(`<div class="olr" data-ref="${esc(g.title + ' ' + String(it.ref).split(/[-–,]/)[0])}"><span class="rf">${esc(String(it.ref).replace('-', '–'))}</span> ${esc(T(it, 'text') || '')}</div>`); }));
+    return rows.length ? `<div class="sub">${esc(I18N.t('In der Gliederung'))}</div><div class="olrs">${rows.slice(0, 12).join('')}</div>` : '';
+  }
+  function mapAlts(p) {
+    if (p[8]) return `<div class="sub">${esc(I18N.t('Lage vermutet'))}</div><div class="alts"><div class="muted" style="font-size:12px">${esc(I18N.t('Die Quelle kennt hier nur den Stadtmittelpunkt von Jerusalem. Die Lage ist nach Nehemia 3 und der Forschung gesetzt und teils umstritten.'))}</div></div>`;
+    const al = p[6] || []; if (!al.length) return '';
+    const rows = al.map((a, k) => `<div class="alt${k === MP.alt ? ' on' : ''}" data-a="${k}"><span class="nm">${esc(a[0] || '?')}${k === 0 && al.length > 1 ? ' ★' : ''}</span><span class="bar"><i style="width:${Math.min(100, Math.round(a[3] / 10))}%"></i></span><span class="pc">${Math.round(a[3] / 10)} %</span></div>`).join('');
+    return `<div class="sub" title="${esc(I18N.t('Sicherheit der Zuordnung nach der Forschung des neuesten Jahrzehnts (OpenBible.info)'))}">${esc(I18N.t('Mögliche Lage'))}${mapConf(p) < 500 ? ' · ' + esc(I18N.t('Zuordnung unsicher')) : ''}</div><div class="alts">${rows}</div>`;
+  }
+  function mapSelect(i, center) {
+    MP.sel = i; MP.alt = -1;
+    if (i >= 0 && center) { // auf den Ort und seine möglichen Lagen einpassen
+      const pl = BM.places[i], { w, h } = mapSize(), pts = [mapPx(pl), ...(pl[6] || []).slice(1).map(a => mapXY(a[1], a[2]))];
+      const x0 = Math.min(...pts.map(q => q[0])), x1 = Math.max(...pts.map(q => q[0])), y0 = Math.min(...pts.map(q => q[1])), y1 = Math.max(...pts.map(q => q[1]));
+      const pad = 110, sx = w / (x1 - x0 + 2 * pad / Math.max(MP.s, 0.5)), sy = h / (y1 - y0 + 2 * pad / Math.max(MP.s, 0.5));
+      MP.s = pts.length > 1 ? Math.min(300, Math.max(Math.min(sx, sy), 1.5)) : Math.max(MP.s, 1.5); if (Math.abs(pl[2] - 35.234) < 0.03 && Math.abs(pl[3] - 31.774) < 0.03 && MP.s < 60) MP.s = 60; /* Jerusalem: so weit hinein, dass Gelände und Wilson-Karte erscheinen */ MP.tx = w / 2 - (x0 + x1) / 2 * MP.s; MP.ty = h / 2 - (y0 + y1) / 2 * MP.s;
+    }
+    mapDraw(); mapInfo();
+  }
+  // ===== Jerusalem-Detailkarte: Gelände (Copernicus), Wilson 1865, heutiges OSM, Namen =====
+  const JER = { st: 0, rel: null, osm: null, wil: null, meta: null, opt: { wil: 1, osm: 1, rel: 1, lab: 1, op: 80 } };
+  try { Object.assign(JER.opt, JSON.parse(localStorage.getItem('jerOpt') || '{}')); } catch { /* egal */ }
+  const JER_T = 22, JER_BOX = [35.19, 31.74, 35.28, 31.81]; // ab diesem Zoom setzen die Detailebenen ein; Ausschnitt des Höhenrasters
+  const jerInfl = async z => { const bin = Uint8Array.from(atob(z), c => c.charCodeAt(0)); return new Uint8Array(await new Response(new Blob([bin]).stream().pipeThrough(new DecompressionStream('deflate'))).arrayBuffer()); };
+  const jerScript = src => new Promise(ok => { const s = document.createElement('script'); s.src = src; s.onload = () => ok(true); s.onerror = () => ok(false); document.head.appendChild(s); });
+  async function jerLoad() {
+    if (JER.st) return; JER.st = 1;
+    try {
+      await Promise.all([jerScript('map/jer/dem.js'), jerScript('map/jer/osm.js'), jerScript('map/jer/meta.js')]);
+      if (window.BJERDEM) JER.rel = await jerRelief(window.BJERDEM);
+      if (window.BJEROSM) JER.osm = await jerOsm(window.BJEROSM);
+      JER.meta = window.BJERMETA || null;
+      if (JER.meta && JER.meta.wil) { const im = new Image(); im.onload = () => { JER.wil = im; mapDraw(); }; im.src = 'map/jer/' + JER.meta.wil.file; }
+    } catch { /* ohne Detailebenen weiter */ }
+    JER.st = 2; mapDraw();
+  }
+  // Schummerung + Höhenlinien aus dem 30-m-Raster (geglättet, bikubisch auf das Sechsfache vergrößert)
+  async function jerRelief(D) {
+    const by = await jerInfl(D.z), u = new Uint16Array(by.buffer, by.byteOffset, by.length >> 1), w = D.w, h = D.h, F = 6, cw = w * F, ch = h * F;
+    let e = new Float32Array(w * h); for (let i = 0; i < e.length; i++) e[i] = D.off + u[i] * D.step;
+    const K = [0.054, 0.244, 0.403, 0.244, 0.054], blur = (src, dx, dy) => { const o = new Float32Array(src.length); for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) { let t = 0; for (let k = -2; k <= 2; k++) { const xx = Math.min(w - 1, Math.max(0, x + k * dx)), yy = Math.min(h - 1, Math.max(0, y + k * dy)); t += K[k + 2] * src[yy * w + xx]; } o[y * w + x] = t; } return o; };
+    e = blur(blur(e, 1, 0), 0, 1);
+    const cr = (p0, p1, p2, p3, t) => p1 + 0.5 * t * (p2 - p0 + t * (2 * p0 - 5 * p1 + 4 * p2 - p3 + t * (3 * (p1 - p2) + p3 - p0)));
+    const g = (x, y) => e[Math.min(h - 1, Math.max(0, y)) * w + Math.min(w - 1, Math.max(0, x))];
+    const Z = new Float32Array(cw * ch);
+    for (let Y = 0; Y < ch; Y++) { const sy = (Y + 0.5) / F - 0.5, y0 = Math.floor(sy), ty = sy - y0; for (let X = 0; X < cw; X++) { const sx = (X + 0.5) / F - 0.5, x0 = Math.floor(sx), tx = sx - x0; const r = [-1, 0, 1, 2].map(j => cr(g(x0 - 1, y0 + j), g(x0, y0 + j), g(x0 + 1, y0 + j), g(x0 + 2, y0 + j), tx)); Z[Y * cw + X] = cr(r[0], r[1], r[2], r[3], ty); } }
+    const mx = (D.E - D.W) / cw * 111320 * Math.cos(31.77 * Math.PI / 180), my = (D.N - D.S) / ch * 110574, zen = 50 * Math.PI / 180, az = 315 * Math.PI / 180, zf = 2.2;
+    const cv = document.createElement('canvas'); cv.width = cw; cv.height = ch; const c = cv.getContext('2d'), im = c.createImageData(cw, ch), P = im.data, f = Math.round(Math.min(cw, ch) * 0.05);
+    for (let Y = 0; Y < ch; Y++) for (let X = 0; X < cw; X++) {
+      const x1 = Math.max(0, X - 1), x2 = Math.min(cw - 1, X + 1), y1 = Math.max(0, Y - 1), y2 = Math.min(ch - 1, Y + 1), q = (xx, yy) => Z[yy * cw + xx];
+      const dzx = ((q(x2, y1) + 2 * q(x2, Y) + q(x2, y2)) - (q(x1, y1) + 2 * q(x1, Y) + q(x1, y2))) / (8 * mx) * zf, dzy = ((q(x1, y2) + 2 * q(X, y2) + q(x2, y2)) - (q(x1, y1) + 2 * q(X, y1) + q(x2, y1))) / (8 * my) * zf;
+      const sl = Math.atan(Math.hypot(dzx, dzy)), as = Math.atan2(dzy, -dzx), hs = Math.max(0, Math.cos(zen) * Math.cos(sl) + Math.sin(zen) * Math.sin(sl) * Math.cos(az - as));
+      const z = Z[Y * cw + X], t = Math.min(1, Math.max(0, (z - 420) / 400)), sh = 0.38 + 0.9 * hs;
+      let R = (226 + 24 * t) * sh, Gc = (222 + 24 * t) * sh, B = (190 + 36 * t) * sh;
+      const zr = Z[Y * cw + Math.min(cw - 1, X + 1)], zb = Z[Math.min(ch - 1, Y + 1) * cw + X]; // Höhenlinien alle 10 m (alle 50 m kräftiger)
+      const c10 = Math.floor(z / 10), a10 = c10 !== Math.floor(zr / 10) || c10 !== Math.floor(zb / 10);
+      if (a10) { const k = (Math.floor(z / 50) !== Math.floor(Math.min(z, Math.max(zr, zb)) / 50) || Math.floor(Math.max(z, zr, zb) / 50) !== Math.floor(Math.min(z, zr, zb) / 50)) ? 0.34 : 0.14; R = R * (1 - k) + 120 * k; Gc = Gc * (1 - k) + 85 * k; B = B * (1 - k) + 45 * k; }
+      const o = (Y * cw + X) * 4, ed = Math.min(1, Math.min(X, Y, cw - 1 - X, ch - 1 - Y) / f); P[o] = R; P[o + 1] = Gc; P[o + 2] = B; P[o + 3] = 255 * ed * ed * (3 - 2 * ed);
+    }
+    c.putImageData(im, 0, 0); return cv;
+  }
+  async function jerOsm(D) {
+    const j = JSON.parse(new TextDecoder().decode(await jerInfl(D.z))), O = j.o, out = {};
+    const dec = (a, c0) => { const n = (a.length - c0) >> 1, x = new Int32Array(n), y = new Int32Array(n); let px = 0, py = 0, x0 = 1e9, y0 = 1e9, x1 = -1e9, y1 = -1e9; for (let i = 0; i < n; i++) { px += a[c0 + 2 * i]; py += a[c0 + 2 * i + 1]; x[i] = px; y[i] = py; if (px < x0) x0 = px; if (px > x1) x1 = px; if (py < y0) y0 = py; if (py > y1) y1 = py; } return { x, y, b: [x0, y0, x1, y1] }; };
+    out.o = O; ['bld', 'wall', 'water', 'cem', 'park'].forEach(k => { out[k] = j[k].map(a => dec(a, 0)); }); out.hw = j.hw.map(a => Object.assign(dec(a, 1), { c: a[0] }));
+    return out;
+  }
+  const jerOn = () => MP.s >= JER_T * 0.6 && JER.st !== 3;
+  function jerVisible() { const { w, h } = mapSize(), [x0, y0] = mapXY(JER_BOX[0], JER_BOX[3]), [x1, y1] = mapXY(JER_BOX[2], JER_BOX[1]); return MP.s >= JER_T * 0.6 && x1 * MP.s + MP.tx > 0 && x0 * MP.s + MP.tx < w && y1 * MP.s + MP.ty > 0 && y0 * MP.s + MP.ty < h; }
+  function mapJerDraw(g, r) {
+    const box = $('#mapJer'); const vis = jerVisible(); if (box) box.hidden = !vis; if (!vis) return; if (!JER.st) jerLoad();
+    const a = Math.min(1, Math.max(0, (MP.s - JER_T * 0.6) / (JER_T * 0.8))), kx = BM.ppd * BM.k * MP.s, ky = BM.ppd * MP.s, X = lon => (lon - BM.W0) * kx + MP.tx, Y = lat => (BM.N0 - lat) * ky + MP.ty, ppm = ky / 110574, { w, h } = mapSize(), o = JER.opt;
+    g.save(); g.globalAlpha = a;
+    if (JER.rel && o.rel) { const [W, S, E, N] = JER_BOX; g.imageSmoothingEnabled = true; g.drawImage(JER.rel, X(W), Y(N), X(E) - X(W), Y(S) - Y(N)); }
+    const M = JER.meta && JER.meta.wil;
+    if (JER.wil && M && o.wil) { const A = M.A, B = M.B; g.save(); g.globalAlpha = a * o.op / 100; g.setTransform(kx * A[1], -ky * B[1], kx * A[2], -ky * B[2], kx * (A[0] - BM.W0) + MP.tx, ky * (BM.N0 - B[0]) + MP.ty); g.imageSmoothingQuality = 'high'; g.drawImage(JER.wil, 0, 0); g.restore(); }
+    const S = JER.osm; if (S && o.osm) {
+      const ax = kx / S.o[2], bx = (S.o[0] - BM.W0) * kx + MP.tx, ay = -ky / S.o[2], by = (BM.N0 - S.o[1]) * ky + MP.ty, vis = f => { const x0 = ax * f.b[0] + bx, x1 = ax * f.b[2] + bx, y1 = ay * f.b[1] + by, y0 = ay * f.b[3] + by; return x1 > 0 && x0 < w && y1 > 0 && y0 < h; };
+      const path = (f, close) => { g.beginPath(); for (let i = 0; i < f.x.length; i++) { const px = ax * f.x[i] + bx, py = ay * f.y[i] + by; if (i) g.lineTo(px, py); else g.moveTo(px, py); } if (close) g.closePath(); };
+      g.lineJoin = 'round'; g.lineCap = 'round';
+      if (ppm > 0.05) { g.fillStyle = 'rgba(120,160,90,.22)'; S.park.forEach(f => { if (vis(f)) { path(f, true); g.fill(); } }); g.fillStyle = 'rgba(110,110,110,.2)'; S.cem.forEach(f => { if (vis(f)) { path(f, true); g.fill(); } }); }
+      const ov = !!(JER.wil && M && o.wil && o.op > 25); // über der Wilson-Karte nur die heutigen Hauptstraßen in Blau (Gebäude und Gassen stehen schon auf Wilsons Karte)
+      if (ppm > 0.45 && !ov) { g.fillStyle = 'rgba(176,150,118,.5)'; g.strokeStyle = 'rgba(110,85,55,.7)'; g.lineWidth = 0.8 * r; S.bld.forEach(f => { if (vis(f)) { path(f, true); g.fill(); g.stroke(); } }); }
+      const minC = ov ? 3 : ppm > 0.25 ? 1 : ppm > 0.08 ? 3 : 4; g.strokeStyle = ov ? 'rgba(30,80,170,.6)' : 'rgba(95,80,65,.75)';
+      S.hw.forEach(f => { if (f.c < minC || !vis(f)) return; g.lineWidth = (f.c >= 4 ? 2.6 : f.c === 3 ? 1.8 : 1) * r * Math.min(2.2, Math.max(0.8, ppm * 2)); path(f, false); g.stroke(); });
+      g.strokeStyle = 'rgba(75,25,20,.9)'; g.lineWidth = 3 * r; S.wall.forEach(f => { if (vis(f)) { path(f, false); g.stroke(); } });
+      g.strokeStyle = 'rgba(40,110,190,.8)'; g.lineWidth = 2 * r; S.water.forEach(f => { if (vis(f)) { path(f, false); g.stroke(); } });
+    }
+    if (o.lab && JER.meta && JER.meta.labels) { const ll = I18N.lang; g.textAlign = 'center'; g.textBaseline = 'middle'; g.lineJoin = 'round';
+      JER.meta.labels.forEach(L => { if (L.z && MP.s < L.z) return; const t = (ll === 'de' ? L.n[1] : ll === 'he' && L.n[2] ? L.n[2] : L.n[0]) || L.n[0], px = X(L.p[0]), py = Y(L.p[1]); if (px < -80 || py < -30 || px > w + 80 || py > h + 30) return;
+        const big = L.t === 'hill' || L.t === 'val', sz = (big ? 13 : 11) * r; g.font = `${big ? 'italic ' : ''}600 ${sz}px -apple-system, system-ui, sans-serif`; g.save(); g.translate(px, py); if (L.a) g.rotate(L.a * Math.PI / 180);
+        const tx = big ? t.toUpperCase() : L.t === 'gate' ? t + (ll === 'de' ? ' (heute)' : ll === 'he' ? ' (כיום)' : ' (today)') : t; if (big && g.letterSpacing !== undefined) g.letterSpacing = (3 * r) + 'px'; g.lineWidth = 3.5 * r; g.strokeStyle = 'rgba(255,255,255,.85)'; g.strokeText(tx, 0, 0); g.fillStyle = L.t === 'val' ? '#2d5f8f' : L.t === 'hill' ? '#5a4524' : L.t === 'wall' ? '#6b1f18' : '#222'; g.fillText(tx, 0, 0); g.restore(); });
+      g.textAlign = 'start'; }
+    g.restore();
+  }
+  function mapJerGo() { const { w, h } = mapSize(), s = Math.min(w, h) / 2.44, [x, y] = mapXY(35.2345, 31.7770); MP.s = Math.min(900, s); MP.tx = w / 2 - x * MP.s; MP.ty = h / 2 - y * MP.s; mapDraw(); }
+  function mapZoom(f, mx, my) { const ns = Math.min(900, Math.max(0.12, MP.s * f)); MP.tx = mx - (mx - MP.tx) * ns / MP.s; MP.ty = my - (my - MP.ty) * ns / MP.s; MP.s = ns; mapDraw(); }
+  function mapOpenFor(title, ref, label) { // aus der Gliederung: nur die Orte dieses Punktes
+    if (!BM) return; const list = mapForRef(title, ref); if (!list.length) return;
+    MP.over = { label, list }; mapOpen(); MP.over = { label, list }; MP.cur = list; MP.sel = -1; $('#mapOl').hidden = false;
+    requestAnimationFrame(() => { mapFit(); mapInfo(); mapDraw(); });
+  }
+  window.__mapOpenFor = mapOpenFor; window.__mapCount = (t, r) => mapForRef(t, r).length;
+  function mapOpen() {
+    if (!BM) return; $('#topicPanel').hidden = true; $('#outlinePanel').hidden = true; $('#mapPanel').hidden = false; $('#mapOl').hidden = true; mapElevLoad();
+    if (!MP.img) { MP.img = new Image(); MP.img.onload = () => { MP.ok = true; mapFit(); mapDraw(); }; MP.img.src = 'map/relief.jpg'; }
+    MP.cur = mapChapPlaces(); MP.sel = -1; mapRouteFill(); requestAnimationFrame(() => { mapFit(); mapDraw(); mapInfo(); });
+  }
+  if (BM) {
+    if (!BB) $('#mapBordL').hidden = true;
+    try { $('#mapBord').checked = localStorage.getItem('mapBord') === '1'; } catch { /* egal */ }
+    $('#mapBtn').onclick = () => { if (!$('#mapPanel').hidden) { $('#mapPanel').hidden = true; return; } mapOpen(); };
+    $('#mapClose').onclick = () => { $('#mapPanel').hidden = true; };
+    $('#mapAll').onchange = mapDraw;
+    $('#mapBord').onchange = () => { try { localStorage.setItem('mapBord', $('#mapBord').checked ? '1' : '0'); } catch { /* egal */ } mapDraw(); };
+    document.addEventListener('mousedown', e => { const p = $('#mapPanel'); if (p.hidden || p.classList.contains('docked') || !e.target.closest || e.target.closest('#mapPanel, #mapBtn, #suggest, #audioBar, #ctxMenu, #lkHover, #tip, #undoBar, dialog')) return; p.hidden = true; });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('#mapPanel').hidden && !document.querySelector('dialog[open]')) { if (MP.rul) { mapRulToggle(false); e.stopPropagation(); return; } $('#mapPanel').hidden = true; e.stopPropagation(); } }, true);
+    window.addEventListener('resize', () => { if (!$('#mapPanel').hidden) mapDraw(); });
+    const cv = $('#mapCv'), mc = (e) => { const b = cv.getBoundingClientRect(), d = window.devicePixelRatio || 1; return [(e.clientX - b.left) * d, (e.clientY - b.top) * d]; };
+    cv.addEventListener('wheel', e => { e.preventDefault(); const [mx, my] = mc(e);
+      if (!(e.ctrlKey || e.metaKey || e.altKey || e.deltaMode === 1)) { const d = window.devicePixelRatio || 1; MP.tx -= e.deltaX * d; MP.ty -= e.deltaY * d; mapDraw(); return; } // Zwei-Finger-Wischen auf dem Trackpad = Verschieben; Pinch (Strg) bzw. Cmd/Alt + Rad = Zoomen
+      const dy = e.deltaY * (e.deltaMode === 1 ? 16 : e.deltaMode === 2 ? 400 : 1); mapZoom(Math.exp(-Math.max(-300, Math.min(300, dy)) * (e.ctrlKey ? 0.012 : 0.0055)), mx, my); }, { passive: false });
+    $('#mapZin').onclick = () => { const { w, h } = mapSize(); mapZoom(1.8, w / 2, h / 2); };
+    $('#mapZout').onclick = () => { const { w, h } = mapSize(); mapZoom(1 / 1.8, w / 2, h / 2); };
+    $('#mapZfit').onclick = () => { mapFit(); mapDraw(); };
+    $('#mapRulB').onclick = () => mapRulToggle();
+    $('#mapJerB').onclick = mapJerGo;
+    { const sv = () => { try { localStorage.setItem('jerOpt', JSON.stringify(JER.opt)); } catch { /* egal */ } }, bind = (id, k) => { const el = $(id); el.checked = !!JER.opt[k]; el.onchange = () => { JER.opt[k] = el.checked ? 1 : 0; sv(); mapDraw(); }; };
+      bind('#jerWil', 'wil'); bind('#jerOsm', 'osm'); bind('#jerRel', 'rel'); bind('#jerLab', 'lab'); $('#jerOp').value = JER.opt.op; $('#jerOp').oninput = () => { JER.opt.op = +$('#jerOp').value; sv(); mapDraw(); }; }
+    $('#mapRoute').onchange = () => mapRouteSet($('#mapRoute').value);
+    if (BM.nOrig && BM.nOrig < BM.books.length) $('#mapCredit').textContent += ' · Orte bei Josephus und in den Makkabäerbüchern: ToposText (topostext.org, ODC-BY)';
+    $('#mapCredit').textContent += ' · Jerusalem: Ordnance Survey of Jerusalem (Wilson 1865, gemeinfrei, Wikimedia Commons) · heutige Stadt: © OpenStreetMap-Mitwirkende (ODbL)';
+    // Vorschau der Verse beim Überfahren: Verslinks in der Info und Orte auf der Karte
+    $('#mapInfo').addEventListener('mouseover', e => { const a = e.target.closest('a[data-ref], .olr[data-ref]'); if (!a || !hovApi || a.dataset.ref === hovApi.current()) return; hovApi.start(a, a.dataset.ref, false, false); });
+    $('#mapInfo').addEventListener('mouseout', e => { if (hovApi && e.target.closest('a[data-ref], .olr[data-ref]')) hovApi.hide(); });
+    $('#mapPanel').addEventListener('mouseleave', () => { if (hovApi) hovApi.hide(); });
+    // Größe: Breite am linken Rand, Höhe der Karte an der Trennleiste (wird gemerkt)
+    { const P = $('#mapPanel'), W = $('#mapWrap'); let mw = 0, mh = 0; try { mw = +localStorage.getItem('mapW') || 0; mh = +localStorage.getItem('mapH') || 0; } catch { /* egal */ }
+      const setW = w => { if (!w) { P.style.width = ''; return; } P.style.width = Math.max(360, Math.min(window.innerWidth - 120, w)) + 'px'; };
+      const setH = h => { if (!h) { W.style.flex = ''; return; } W.style.flex = `0 0 ${Math.max(140, Math.min(P.clientHeight - 160, h))}px`; };
+      setW(mw); setH(mh);
+      const drag = (el, move, done) => el.addEventListener('mousedown', ev => { ev.preventDefault(); const rt = document.documentElement; rt.classList.add('cmt-dragging'); const mv = e2 => move(e2), up = () => { rt.classList.remove('cmt-dragging'); document.removeEventListener('mousemove', mv); document.removeEventListener('mouseup', up); done(); }; document.addEventListener('mousemove', mv); document.addEventListener('mouseup', up); });
+      drag($('#mapResize'), e2 => { const r = P.getBoundingClientRect(); setW(r.right - e2.clientX); mapDraw(); }, () => { try { localStorage.setItem('mapW', String(parseInt(P.style.width) || 0)); } catch { /* egal */ } });
+      drag($('#mapSplit'), e2 => { setH(e2.clientY - W.getBoundingClientRect().top); mapDraw(); }, () => { try { localStorage.setItem('mapH', String(parseInt(W.style.flex.split(' ')[2]) || 0)); } catch { /* egal */ } });
+      $('#mapResize').addEventListener('dblclick', () => { setW(0); try { localStorage.removeItem('mapW'); } catch { /* egal */ } mapDraw(); });
+      $('#mapSplit').addEventListener('dblclick', () => { setH(0); try { localStorage.removeItem('mapH'); } catch { /* egal */ } mapDraw(); });
+      if (window.ResizeObserver) new ResizeObserver(() => { if (!P.hidden) mapDraw(); }).observe(W); }
+    if (!BR.length) $('#mapRoute').hidden = true;
+    $('#mapRuler').addEventListener('mousemove', e => { const c = e.target.closest && e.target.closest('#mapRulProf'), R = MP.rul; if (!c || !R || !R.prof || !R.profX) return; const bx = c.getBoundingClientRect(), x = e.clientX - bx.left, tot = R.prof[R.prof.length - 1].km || 1, km = Math.max(0, Math.min(tot, (x - 34) / (bx.width - 38) * tot)); let k = R.prof.findIndex(p => p.km >= km); if (k < 0) k = R.prof.length - 1; mapProfDraw(k); mapDraw(); });
+    $('#mapRuler').addEventListener('mouseleave', () => { const R = MP.rul; if (R && R.hov) { R.hov = null; mapProfDraw(null); mapDraw(); } });
+    $('#mapRuler').addEventListener('click', e => { const x = e.target.dataset && e.target.dataset.x; if (x === 'undo' && MP.rul) MP.rul.pts.pop(); else if (x === 'clr' && MP.rul) MP.rul.pts = []; else return; MP.rul.cur = null; mapRulInfo(); mapDraw(); });
+    cv.addEventListener('mousedown', e => { MP.drag = { x: e.clientX, y: e.clientY, tx: MP.tx, ty: MP.ty, moved: false }; cv.classList.add('drag'); });
+    window.addEventListener('mousemove', e => { if (!MP.drag) return; const d = window.devicePixelRatio || 1; if (Math.abs(e.clientX - MP.drag.x) + Math.abs(e.clientY - MP.drag.y) > 3) MP.drag.moved = true; MP.tx = MP.drag.tx + (e.clientX - MP.drag.x) * d; MP.ty = MP.drag.ty + (e.clientY - MP.drag.y) * d; mapDraw(); });
+    window.addEventListener('mouseup', e => { if (!MP.drag) return; const mv = MP.drag.moved; MP.drag = null; cv.classList.remove('drag'); if (!mv && e.target === cv) { if (MP.rul && MP.rul.on) { const i = mapPick(e), [mx, my] = mc(e); let pt; if (i >= 0) { const [x, y] = mapPx(BM.places[i]); pt = [...mapLL(x, y), BM.places[i][0]]; } else pt = [...mapLL((mx - MP.tx) / MP.s, (my - MP.ty) / MP.s), null]; MP.rul.pts.push(pt); mapRulInfo(); mapDraw(); } else mapSelect(mapPick(e), false); } });
+    cv.addEventListener('mousemove', e => { if (MP.drag) return;
+      if (MP.rul && MP.rul.on && MP.rul.pts.length) { MP.rul.cur = mc(e); mapDraw(); } const l = mapPick(e, true), h = $('#mapHint'); if (l.length) { h.textContent = l.slice(0, 4).map(i => BM.places[i][0] + (mapHe(BM.places[i]) ? ' ' + mapHe(BM.places[i]) : '')).join(' · '); h.style.display = 'block'; } else h.style.display = 'none'; });
+    cv.addEventListener('mouseleave', () => { $('#mapHint').style.display = 'none'; });
+    cv.addEventListener('dblclick', e => { const [mx, my] = mc(e); mapZoom(2, mx, my); });
+    $('#mapInfo').addEventListener('click', e => {
+      const rt = e.target.closest('[data-rt]'); if (rt) { mapRouteSet(rt.dataset.rt); return; }
+      const rl = e.target.closest('[data-rl]'); if (rl && MP.route) { const ln = MP.route.lines[+rl.dataset.rl]; mapElevLoad(); MP.rul = { on: true, pts: ln.map(c => [c[0], c[1], null]), cur: null, fromRoute: true }; $('#mapRulB').classList.add('on'); $('#mapCv').style.cursor = 'crosshair'; mapRulInfo(); mapDraw(); return; }
+      if (e.target.closest('.pnadd') && MP.sel >= 0) { const p = BM.places[MP.sel]; openNoteDlg({ id: newId('free'), kind: 'free', title: p[0], place: p[0], note: '', order: topOrder() }, {}); return; }
+      const pn = e.target.closest('.pnote'); if (pn) { const n = notesAll.find(x => x.id === pn.dataset.id); if (n) openNoteDlg(n, { canDelete: true }); return; }
+      const c = e.target.closest('.chip'); if (c) { if (+c.dataset.i === -2) { MP.over = null; MP.cur = mapChapPlaces(); MP.sel = -1; mapFit(); mapDraw(); mapInfo(); return; } mapSelect(+c.dataset.i, +c.dataset.i >= 0); return; }
+      const orow = e.target.closest('.olr'); if (orow) { jumpTo(orow.dataset.ref, e.metaKey || e.ctrlKey); return; }
+      const al = e.target.closest('.alt'); if (al && MP.sel >= 0) { const k = +al.dataset.a, a = (BM.places[MP.sel][6] || [])[k]; if (a) { MP.alt = k; const [x, y] = mapXY(a[1], a[2]), { w, h } = mapSize(); MP.tx = w / 2 - x * MP.s; MP.ty = h / 2 - y * MP.s; mapDraw(); mapInfo(); } return; }
+      const a = e.target.closest('a[data-ref]'); if (a) jumpTo(a.dataset.ref, e.metaKey || e.ctrlKey);
+    });
+  }
+
+  // Klick außerhalb oder Esc schließt das Themen-Fenster
+  document.addEventListener('mousedown', e => { const p = $('#topicPanel'); if (p.hidden || p.classList.contains('docked') || !e.target.closest || e.target.closest('#topicPanel, #tpBtn, #tpResize, #suggest, #audioBar, #ctxMenu, #lkHover, #tip, #undoBar, dialog')) return; p.hidden = true; });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('#topicPanel').hidden && !document.querySelector('dialog[open]')) { $('#topicPanel').hidden = true; e.stopPropagation(); } }, true);
+  $('#tpFilter').oninput = e => { tpS.q = e.target.value.trim(); renderTopicPanel(); };
+  $('#tpBody').addEventListener('input', async e => { if (e.target.id !== 'tpSq') return; const p = e.target.selectionStart; tpS.sq = e.target.value.trim(); tpS.n = 60; await renderTopicPanel(); const n = $('#tpSq'); if (n) { n.focus(); n.setSelectionRange(p, p); } });
+  $('#tpBody').addEventListener('click', e => {
+    const t = e.target.closest('button, a'); if (!t) return;
+    if (t.dataset.slug) return openTopic(t.dataset.slug);
+    if (t.dataset.ref) { hovApi && hovApi.hide(); return jumpTo(t.dataset.ref.replace(/-.*$/, ''), e.metaKey || e.ctrlKey); }
+    if (t.dataset.tab) { tpS.tab = t.dataset.tab; tpS.n = 60; return renderTopicPanel(); }
+    if (t.dataset.act === 'allbooks') { tpS.books = new Set(); tpS.n = 60; return renderTopicPanel(); }
+    if (t.dataset.act === 'more') { tpS.n += 100; return renderTopicPanel(); }
+    if (t.dataset.act === 'back') { tpS.slug = tpS.stack.pop() || null; tpS.data = null; return renderTopicPanel(); }
+  });
+  // Vorschau beim Überfahren einer Quelle (nur wenn der Text lokal vorliegt), Rechtsklick wie bei den Kommentaren
+  $('#tpBody').addEventListener('mouseover', e => {
+    const a = e.target.closest('a[data-ref]');
+    if (!a || !hovApi || a.dataset.ref === hovApi.current()) return;
+    hovApi.start(a, a.dataset.ref, true, false);
+  });
+  $('#tpBody').addEventListener('mouseout', e => { const a = e.target.closest('a[data-ref]'); if (a && hovApi && !a.contains(e.relatedTarget)) hovApi.hide(); });
+  $('#topicPanel').addEventListener('scroll', () => hovApi && hovApi.hide(), { passive: true });
+  $('#tpBody').addEventListener('contextmenu', e => {
+    const a = e.target.closest('a[data-ref]');
+    if (!a || (window.getSelection() + '')) return;
+    const ref = a.dataset.ref.replace(/-.*$/, '');
+    hovApi && hovApi.hide();
+    const items = [{ label: 'Öffnen', fn: () => jumpTo(ref, false) }, { label: 'Im neuen Tab öffnen', fn: () => jumpTo(ref, true) }];
+    if (!IS_PANE2) items.push({ label: 'Im zweiten Fenster öffnen', fn: () => openInPane2(null, { jump: ref }) });
+    ctxShow(e, items);
+  });
+  $('#tpBody').addEventListener('toggle', e => { if (e.target.id === 'tpBooks') tpS.booksOpen = e.target.open; }, true);
+  $('#tpBody').addEventListener('change', e => {
+    if (e.target.dataset.bk != null) { const b = tpS.bookList[+e.target.dataset.bk]; if (e.target.checked) tpS.books.add(b); else tpS.books.delete(b); tpS.n = 60; return renderTopicPanel(); }
+    if (e.target.dataset.act === 'sort') { tpS.sort = e.target.value; renderTopicPanel(); } });
+  refreshTopicStatus().then(() => { if (view) loadTopics(view.sections[view.idx]); });
 
   // Höhe der festen Leiste messen, damit die Spaltenköpfe direkt darunter haften
   const fixStick = () => {
@@ -1532,6 +2381,7 @@
 
   // ---------- Suche ----------
   let sResults = [];
+  let fullCache = null; // Ergebnis der letzten Suche über alle Bücher
   let lastSearch = null; // Parameter der letzten Suche (für „Als Lesetext“ im eigenen Tab)
   O.onSearchProgress(p => { $('#sInfo').textContent = `Durchsuche … ${p.scanned} von ${p.total} Dateien · ${p.found} Treffer`; });
 
@@ -1655,7 +2505,7 @@
     if (selTxt) { // markierter Text: Nachschlagen und Kopieren anbieten
       const items = [];
       if (word) items.push({ label: `Im Wörterbuch nachschlagen: „${word}“`, fn: () => openDict(word) });
-      items.push({ label: 'Kopieren', fn: () => navigator.clipboard.writeText(selTxt).catch(() => {}) });
+      items.push({ label: I18N.t('Kopieren'), fn: () => navigator.clipboard.writeText(selTxt).catch(() => {}) });
       ctxShow(e, items); return;
     }
     if (!row || !view || !view.group) return;
@@ -1665,7 +2515,7 @@
     const url = sefariaUrl(ref);
     ctxShow(e, [
       ...(word ? [{ label: `Im Wörterbuch nachschlagen: „${word}“`, fn: () => openDict(word) }] : []),
-      { label: 'Referenz kopieren: ' + ref, fn: () => navigator.clipboard.writeText(ref).catch(() => {}) },
+      { label: I18N.t('Referenz kopieren: {}', ref), fn: () => navigator.clipboard.writeText(ref).catch(() => {}) },
       { label: 'Auf sefaria.org öffnen', fn: () => window.api.openExternal(url) },
     ]);
   });
@@ -1778,7 +2628,7 @@
     $('#dictOut').innerHTML = onlyBar + r.results.map((x, i) => {
       let sec = '';
       if (x.dictId !== last) { last = x.dictId; sec = `<div class="dsec" style="--dh:${hue(x.dictId)}"><span>${esc(x.dict)}</span><small>${cnt[x.dictId]} Treffer</small></div>`; }
-      return `${sec}<div class="dentry" id="dentry${i}" style="--dh:${hue(x.dictId)}"><div class="dhead"><b dir="auto">${esc(x.head)}</b>${x.note ? ` <span class="muted">${esc(x.note)}</span>` : ''}</div><div class="dbody" dir="ltr">${x.html}</div></div>`;
+      return `${sec}<div class="dentry" id="dentry${i}" style="--dh:${hue(x.dictId)}"><div class="dhead"><b dir="auto">${esc(x.head)}</b>${x.note ? ` <span class="muted">${esc(x.note)}</span>` : ''}</div><div class="dbody" dir="ltr">${/Gesenius/.test(x.dict || '') && window.GAbk ? window.GAbk.mark(x.html) : x.html}</div></div>`;
     }).join('');
     $('#dictPanel').scrollTop = 0;
   }
@@ -1929,9 +2779,9 @@
   $('#dictQ').addEventListener('keydown', e => { if (e.key === 'Enter') manualSearch($('#dictQ').value); });
   $('#dictOut').addEventListener('click', e => {
     const s = e.target.closest('.dsrc[data-sref]');
-    if (s) {   // Quellenangabe im Artikel (z. B. „Rosh Hashanah 18b“): im Reader öffnen; Cmd/Strg + Klick = im zweiten Fenster rechts, Umschalt = neuer Tab
+    if (s) {   // Quellenangabe im Artikel (z. B. „Rosh Hashanah 18b“): im Reader öffnen; Cmd/Strg + Klick = neuer Tab, Umschalt + Klick = im zweiten Fenster rechts
       e.preventDefault();
-      if ((e.metaKey || e.ctrlKey) && !IS_PANE2) { toPane2({ type: 'jump', ref: s.dataset.sref.replace(/-.*$/, '') }); return; }
+      if (e.shiftKey && !IS_PANE2) { toPane2({ type: 'jump', ref: s.dataset.sref.replace(/-.*$/, '') }); return; }
       jumpTo(s.dataset.sref, e.metaKey || e.ctrlKey).then(ok => {
         s.classList.toggle('dmiss', !ok);
         s.title = ok ? '' : 'Dieser Text ist nicht in deiner Bibliothek (Reiter „Herunterladen“).';
@@ -1967,7 +2817,7 @@
         items.push({ label: `Hier nachschlagen: „${word}“`, fn: () => dictLookup(word) });
         items.push({ sep: true });
       } }
-    if (selTxt) items.push({ label: 'Kopieren', fn: () => navigator.clipboard.writeText(selTxt).catch(() => {}) });
+    if (selTxt) items.push({ label: I18N.t('Kopieren'), fn: () => navigator.clipboard.writeText(selTxt).catch(() => {}) });
     if (art) items.push({ label: 'Aktuellen Artikel auswählen', fn: () => { const r = document.createRange(); r.selectNodeContents(art); const s2 = window.getSelection(); s2.removeAllRanges(); s2.addRange(r); } });
     items.push({ label: 'Alles auswählen', fn: () => { const r = document.createRange(); r.selectNodeContents($('#dictOut')); const s2 = window.getSelection(); s2.removeAllRanges(); s2.addRange(r); } });
     // eine Zeile pro Wörterbuch (springt zum ersten Artikel dieses Wörterbuchs)
@@ -2015,8 +2865,84 @@
   }
   $('#gClear').onclick = () => { for (const id of Object.values(GRAM_IDS)) $('#' + id).value = ''; $('#gramBox').open = false; };
   $('#gramBox').addEventListener('keydown', e => { if (e.key === 'Enter' && e.target.tagName === 'SELECT') { e.preventDefault(); $('#sGo').click(); } });
+  // Verteilung des Suchworts auf die Bücher (Balkendiagramm, je Fassung eine Farbe)
+  const DIST_COLORS = ['#4c78db', '#e8863a', '#e0b84a', '#5fb3a8', '#8a93a6', '#b86bc4', '#d9534f', '#6aa84f'];
+  let distZoom = 1, distMode = 'o', distScale = null, distSel = null, distOpen = false; // distSel: gewählte Fassungen (null = die häufigsten)
+  // distScale: null = automatisch (logarithmisch, wenn einzelne Bücher alles überragen)
+  function renderDist(res) {
+    const box = $('#sChart');
+    const rows = (res.dist || []);
+    const books = res.stats.map(x => x.title);
+    if (!rows.length || books.length < 2) { box.hidden = true; return; }
+    const val = r => (distMode === 'o' ? r.o : r.h);
+    const serKey = r => (r.v || '') + '\u0000' + r.k;
+    const tot = new Map(); rows.forEach(r => tot.set(serKey(r), (tot.get(serKey(r)) || 0) + val(r)));
+    const allSers = [...tot.entries()].sort((a, b) => b[1] - a[1]).map(x => x[0]);
+    let sers = distSel ? allSers.filter(k => distSel.has(k)) : allSers.slice(); // von Anfang an alle Fassungen
+    const colOf = i => DIST_COLORS[i % DIST_COLORS.length];
+    const label = k => { const [v, kind] = k.split('\u0000'); return (v ? shortVer(v) : KIND_LABEL[kind] || kind) + (v ? '' : ''); };
+    const cell = new Map(rows.map(r => [r.t + '\u0001' + serKey(r), val(r)]));
+    const vals = rows.map(val).filter(v => v > 0).sort((a, b) => a - b), max = Math.max(1, ...vals);
+    const log = distScale ? distScale === 'log' : max > 30 * Math.max(1, vals[Math.floor(vals.length / 2)] || 1);
+    const nice = m => { const p = Math.pow(10, Math.floor(Math.log10(m))), f = m / p; return (f <= 1 ? 1 : f <= 2 ? 2 : f <= 5 ? 5 : 10) * p; };
+    const step = nice(max / 5), top = log ? Math.ceil(Math.log10(max)) + 1 : Math.ceil(max / step) * step;
+    const shown = b => (b.length > 30 ? b.slice(0, 29) + '…' : b), maxLen = Math.max(...books.map(b => shown(b).length)), PB = Math.min(170, Math.max(60, Math.round(20 + 4.3 * maxLen)));
+    const L = Math.max(46, Math.round(3.5 * shown(books[0]).length)), bw = Math.round((sers.length > 12 ? 4 : sers.length > 6 ? 6 : 9) * distZoom);
+    const present = b => sers.map((k, si) => ({ k, si })).filter(x => (cell.get(b + '\u0001' + x.k) || 0) > 0); // pro Buch nur Fassungen mit Treffern, ohne Lücken
+    const gws = books.map(b => Math.max(1, present(b).length) * bw + Math.round(10 * Math.max(1, distZoom))), gx = []; gws.reduce((a, w, i) => (gx[i] = a, a + w), L);
+    const W = L + gws.reduce((a, w) => a + w, 0) + 14, H = 150 + PB, PT = 10, ih = H - PT - PB;
+    const y = v => PT + ih - ((log ? (v > 0 ? Math.log10(v) + 1 : 0) : v) / top) * ih;
+    let svg = `<svg width="${W}" height="${H}" role="img" aria-label="${esc(I18N.t('Verteilung auf die Bücher'))}">`;
+    const tickVals = log ? Array.from({ length: top }, (_, k) => Math.pow(10, k)) : Array.from({ length: Math.round(top / step) + 1 }, (_, k) => k * step);
+    if (log) tickVals.unshift(0);
+    tickVals.forEach(v => { svg += `<line class="ax" x1="${L - 4}" x2="${W - 6}" y1="${y(v)}" y2="${y(v)}" opacity=".5"/><text x="${L - 8}" y="${y(v) + 4}" text-anchor="end">${v}</text>`; });
+    books.forEach((b, bi) => {
+      const x0 = gx[bi], gw = gws[bi];
+      present(b).forEach(({ k, si }, pi) => {
+        const v = cell.get(b + '\u0001' + k) || 0;
+        svg += `<rect class="bar" data-t="${esc(b)}" x="${x0 + pi * bw}" y="${y(v)}" width="${bw - 1}" height="${Math.max(1, y(0) - y(v))}" fill="${colOf(si)}" data-tip="${esc(b)} · ${esc(label(k))}: ${v}"></rect>`;
+      });
+      svg += `<text transform="translate(${x0 + (gw - 6) / 2},${H - PB + 8}) rotate(-50)" text-anchor="end"><title>${esc(b)}</title>${esc(shown(b))}</text>`;
+    });
+    svg += '</svg>';
+    box.innerHTML = `<div class="chead"><b>${esc(I18N.t('Verteilung auf die Bücher'))}</b>
+      <select id="distScale" title="${esc(I18N.t('Skala'))}"><option value="lin"${!log ? ' selected' : ''}>${esc(I18N.t('Linear'))}</option><option value="log"${log ? ' selected' : ''}>${esc(I18N.t('Logarithmisch'))}</option></select>
+      <select id="distMode"><option value="o"${distMode === 'o' ? ' selected' : ''}>${esc(I18N.t('Vorkommen'))}</option><option value="h"${distMode === 'h' ? ' selected' : ''}>${esc(I18N.t('Verse mit Treffer'))}</option></select>
+      <span class="dzoom"><button data-act="zout" title="${esc(I18N.t('Verkleinern'))}">−</button><span class="muted">${Math.round(distZoom * 100)}%</span><button data-act="zin" title="${esc(I18N.t('Vergrößern'))}">+</button></span>
+      <details id="distVer"${distOpen ? ' open' : ''}><summary>${esc(I18N.t('Fassungen'))} (${sers.length}/${allSers.length})</summary><div class="verlist"><button data-act="serall">${esc(I18N.t('Alle Fassungen'))}</button> <button data-act="sernone">${esc(I18N.t('Keine'))}</button>${allSers.map((k, ai) => { const i = sers.indexOf(k), nm = label(k); return `<label class="cleg" title="${esc(nm)}"><input type="checkbox" data-ser="${ai}"${i >= 0 ? ' checked' : ''}><i style="background:${i >= 0 ? colOf(i) : 'transparent'};border:1px solid ${i >= 0 ? colOf(i) : 'var(--line)'}"></i>${esc(nm.length > 48 ? nm.slice(0, 47) + '…' : nm)}</label>`; }).join('')}</div></details>
+      ${(sers.length > 12 ? [] : sers).map((k, i) => `<span class="cleg" title="${esc(label(k))}"><i style="background:${colOf(i)}"></i>${esc(label(k).length > 38 ? label(k).slice(0, 37) + '…' : label(k))}</span>`).join('')}</div><div class="cwrap">${svg}</div>`;
+    box.hidden = false;
+    box._res = res; box._allSers = allSers;
+  }
+  $('#sChart').addEventListener('toggle', e => { if (e.target.id === 'distVer') distOpen = e.target.open; }, true);
+  $('#sChart').addEventListener('change', e => {
+    const cb = e.target.closest && e.target.closest('input[data-ser]');
+    if (cb) { // Fassungen ein-/ausblenden
+      const all = $('#sChart')._allSers, cur = new Set([...$$('#sChart input[data-ser]')].filter(x => x.checked).map(x => all[+x.dataset.ser]));
+      distSel = cur; renderDist($('#sChart')._res);
+      return;
+    }
+    if (e.target.id === 'distMode') distMode = e.target.value; else if (e.target.id === 'distScale') distScale = e.target.value; else return; renderDist($('#sChart')._res); });
+  // Die Zahl beim Überfahren zeigt die allgemeine Hilfeblase der App (data-tip am Balken)
+  function distSetZoom(nz, ax) { // ax: Mausposition im sichtbaren Ausschnitt (Zoom um diesen Punkt)
+    nz = Math.max(0.5, Math.min(6, nz)); if (nz === distZoom) return;
+    const w = $('#sChart .cwrap'), old = distZoom, x = ax == null ? (w ? w.clientWidth / 2 : 0) : ax, c = w ? (w.scrollLeft + x) / old : 0;
+    distZoom = nz; renderDist($('#sChart')._res);
+    const w2 = $('#sChart .cwrap'); if (w2) w2.scrollLeft = Math.max(0, c * nz - x);
+  }
+  $('#sChart').addEventListener('wheel', e => { const w = e.target.closest && e.target.closest('.cwrap'); if (!w || !(e.ctrlKey || e.metaKey)) return; e.preventDefault(); distSetZoom(distZoom * (e.deltaY < 0 ? 1.15 : 1 / 1.15), e.clientX - w.getBoundingClientRect().left); }, { passive: false });
+  $('#sChart').addEventListener('click', e => { const z = e.target.dataset && e.target.dataset.act; if (z === 'zin') return distSetZoom(distZoom * 1.4); if (z === 'zout') return distSetZoom(distZoom / 1.4); });
+  $('#sChart').addEventListener('click', e => { if (e.target.dataset && e.target.dataset.act === 'serall') { distSel = null; return renderDist($('#sChart')._res); } if (e.target.dataset && e.target.dataset.act === 'sernone') { distSel = new Set(); return renderDist($('#sChart')._res); } const b = e.target.closest('.bar'); if (b) runSearch(b.dataset.t); });
+  let sSumState = null; // zuletzt gezeigte Buchliste (für „… weitere anzeigen“)
+  function renderSum() {
+    const { res, onlyTitle, n } = sSumState;
+    $('#sSum').innerHTML = res.stats.length > 1 || onlyTitle
+      ? (onlyTitle ? `<button class="chip" data-t="">← alle Bücher</button> ` : '') + res.stats.slice(0, n).map(x => `<button class="chip${x.title === onlyTitle ? ' on' : ''}" data-t="${esc(x.title)}" title="Nur in diesem Buch, alle Treffer">${esc(x.title)} (${x.n})</button>`).join(' ') + (res.stats.length > n ? ` <button class="chip more" data-more="1" title="${esc(I18N.t('Weitere Bücher anzeigen'))}">${esc(I18N.t('… und {#} weitere', res.stats.length - n))}</button>` : '')
+      : '';
+    $('#sSumPanel').hidden = !$('#sSum').innerHTML.trim();
+  }
   async function runSearch(only) {
-    const onlyTitle = typeof only === 'string' ? only : null; // Klick auf einen Buchnamen: nur dieses Buch, mit allen Treffern
+    const onlyTitle = typeof only === 'string' && only !== 'restore' ? only : null; // Klick auf einen Buchnamen: nur dieses Buch, mit allen Treffern
     const q = $('#sq').value.trim();
     const gram = gramParams();
     if (!q && !gram) return;
@@ -2024,21 +2950,25 @@
     if (!kinds.length) { $('#sInfo').textContent = 'Bitte mindestens eine Sprache wählen.'; return; }
     $('#sGo').disabled = true; $('#sCancel').disabled = false;
     $('#sInfo').textContent = 'Suche läuft …';
-    $('#sOut').innerHTML = ''; $('#sSum').innerHTML = ''; $('#sExport').hidden = true;
+    $('#sOut').innerHTML = ''; $('#sSum').innerHTML = ''; $('#sSumPanel').hidden = true; $('#sExport').hidden = true; if (!only || typeof only !== 'string' || only === 'restore') $('#sChart').hidden = true;
     const sp = {
       query: q, extra: [$('#sq2').value.trim(), $('#sq3').value.trim()].filter(Boolean), distance: +$('#sDist').value, ordered: $('#sOrd').checked, fuzzy: $('#sFuzzy').checked, kinds,
-      categories: onlyTitle ? [] : [...sCats], titles: onlyTitle ? [onlyTitle] : [...sTitles], prefix: $('#sPre').checked, wlc: $('#sWlc').checked, lemma: $('#sLem').checked, gram,
-      limit: 1000, perFile: onlyTitle ? 1000 : 25,
+      categories: onlyTitle ? [] : [...sCats], titles: onlyTitle ? [onlyTitle] : [...sTitles], prefix: $('#sPre').checked, exact: $('#sExact').checked, wlc: $('#sWlc').checked, lemma: $('#sLem').checked, gram,
+      limit: 1000, perFile: onlyTitle ? 1000 : 25, countAll: !onlyTitle,
     };
     lastSearch = { ...sp };
-    const res = await O.search(sp);
+    const fkey = JSON.stringify({ ...sp, titles: 0, perFile: 0, limit: 0, countAll: 0 });
+    let res;
+    if (only === 'restore' && fullCache && fullCache.key === fkey) res = fullCache.res; // Rückkehr zu „alle Bücher“: gespeichertes Ergebnis, keine neue Suche
+    else res = await O.search(sp);
+    if (!onlyTitle && !res.cancelled) fullCache = { key: fkey, res };
     $('#sGo').disabled = false; $('#sCancel').disabled = true;
     sResults = res.results;
     const totalHits = res.stats.reduce((a, x) => a + x.n, 0);
     $('#sInfo').textContent = I18N.t('{#} Treffer in {#} {} ({#} von {#} Dateien durchsucht)', totalHits + (res.truncated ? '+' : ''), res.stats.length, res.stats.length === 1 ? 'Buch' : 'Büchern', res.scanned, res.total) + (res.cancelled ? ' ' + I18N.t('– abgebrochen') : '') + (res.truncated ? ' ' + I18N.t('– bei 1000 angezeigten Treffern gestoppt, bitte genauer suchen') : '') + (res.capped && !onlyTitle ? ' ' + I18N.t('– je Buch werden die ersten 25 gezeigt; ein Klick auf den Buchnamen oben zeigt alle') : '') + '.';
-    $('#sSum').innerHTML = res.stats.length > 1 || onlyTitle
-      ? (onlyTitle ? `<button class="chip" data-t="">← alle Bücher</button> ` : '') + res.stats.slice(0, 40).map(x => `<button class="chip${x.title === onlyTitle ? ' on' : ''}" data-t="${esc(x.title)}" title="Nur in diesem Buch, alle Treffer">${esc(x.title)} (${x.n})</button>`).join(' ') + (res.stats.length > 40 ? ` <span class="muted">… und ${res.stats.length - 40} weitere</span>` : '')
-      : '';
+    sSumState = { res, onlyTitle, n: 40 };
+    renderSum();
+    if (!onlyTitle) renderDist(res);
     $('#sExport').hidden = !sResults.length;
     $('#sReadBtn').hidden = !sResults.length;
     showSearchResults();
@@ -2069,7 +2999,7 @@
     return html.replace(/(<[^>]+>)|([^<]+)/g, (m, tag, txt) => tag ? tag : txt.replace(re, '<mark>$1</mark>'));
   }
   // Fundstellen als Lesetext-HTML: nach Buch und Kapitel geordnet, je Zeile die gewählten Versionen nebeneinander
-  async function buildReadHtml(res, stillWanted) {
+  async function buildReadHtml(res, stillWanted, heAlso) {
     const books = new Map();
     for (const r of res) {
       if (!r.loc) continue;
@@ -2088,7 +3018,7 @@
     for (const [title, b] of books) {
       const entry = entries.find(x => x.rel === b.rel), g = entry && groupsByKey.get(keyOf(entry));
       if (!g) continue;
-      const rels = [...new Set([...pickVersions(g), ...b.rels])].filter(r => g.versions.some(v => v.rel === r));
+      const rels = [...new Set([...(heAlso ? [...pickVersions(g)].filter(r => { const v = g.versions.find(x => x.rel === r); return v && v.kind === 'he'; }) : pickVersions(g)), ...b.rels])].filter(r => g.versions.some(v => v.rel === r));
       const ds = [];
       for (const rel of rels) { try { const d = cache.get(rel) || await O.read(rel); if (d) ds.push(d); } catch { /* Version überspringen */ } if (!stillWanted()) return null; }
       ds.sort((a, c) => KIND_RANK[a.entry.kind] - KIND_RANK[c.entry.kind]);
@@ -2130,7 +3060,7 @@
     const g = [...groupsByKey.values()].find(x => x.title === row.dataset.t);
     if (g) openGroup(g, { sectionPath: JSON.parse(row.dataset.sp), rowLabel: row.dataset.sl }, e.metaKey || e.ctrlKey);
   });
-  $('#sSum').addEventListener('click', e => { const c = e.target.closest('.chip'); if (c) runSearch(c.dataset.t || undefined); });
+  $('#sSum').addEventListener('click', e => { const c = e.target.closest('.chip'); if (c && c.dataset.more) { sSumState.n += 100; renderSum(); return; } if (c) runSearch(c.dataset.t || 'restore'); });
   $('#sExport').onclick = async () => {
     const csv = ['Titel;Version;Sprache;Stelle;Text'].concat(sResults.map(r => [r.title, r.versionTitle, KIND_LABEL[r.kind], r.where, plainSnip(r)].map(x => '"' + String(x == null ? '' : x).replace(/"/g, '""') + '"').join(';')));
     const r = await window.api.saveFile(`Suche – ${$('#sq').value.trim().slice(0, 40).replace(/[\\/:*?"<>|]/g, '_')}.csv`, '\ufeff' + csv.join('\r\n'));
@@ -2164,6 +3094,16 @@
     const a = e.target.closest('a[data-w]'); if (a) { $('#sq').value = a.dataset.w; renderSearchSaved(); runSearch(); }
   });
   $('#sq').addEventListener('input', renderSearchSaved);
+  // Sprachvorwahl aus der Schrift der Eingabe (nur solange der Nutzer die Haken nicht selbst geändert hat)
+  let sKindsManual = false;
+  $$('.sk').forEach(c => c.addEventListener('change', e => { if (e.isTrusted) sKindsManual = true; }));
+  $('#sq').addEventListener('input', () => {
+    if (sKindsManual) return;
+    const v = $('#sq').value; if (!/\p{L}/u.test(v)) return;
+    const he = /[\u0590-\u05FF]/.test(v), K = k => $(`.sk[data-k="${k}"]`);
+    if (he) { K('he').checked = true; ['en', 'de', 'other'].forEach(k => K(k).checked = false); }
+    else { K('he').checked = false; if (!['en', 'de', 'other'].some(k => K(k).checked)) { K('en').checked = true; K('de').checked = true; } }
+  });
   renderSearchSaved();
   $('#sGo').onclick = manualFind;
   ['#sq', '#sq2', '#sq3'].forEach(id => $(id).addEventListener('keydown', e => { if (e.key === 'Enter') manualFind(); }));
@@ -2622,7 +3562,7 @@
     $('#noteDlg').showModal();
     (k === 'free' ? $('#ndTitleIn') : $('#ndText')).focus();
   }
-  const refreshNotes = () => { markNotes(); renderNotes(); };
+  const refreshNotes = () => { markNotes(); renderNotes(); try { if (!$('#mapPanel').hidden) { mapInfo(); mapDraw(); } } catch { /* Karte nicht bereit */ } };
   $('#rOut').addEventListener('click', e => {
     const rn = e.target.closest('.rnote');
     if (rn && !window.getSelection().toString()) { const nn = notesAll.find(x => x.id === rn.dataset.id); if (nn) openNoteDlg(nn, { canDelete: true }); return; }
@@ -2982,6 +3922,7 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
       document.addEventListener('mousemove', mv); document.addEventListener('mouseup', up);
     });
     $('#cmtResize').addEventListener('dblclick', () => { cw = 400; applyCw(); try { localStorage.setItem('cmtW', '400'); } catch { /* egal */ } });
+    window.setPanelW = w => { cw = clampW(w); applyCw(); try { localStorage.setItem('cmtW', String(cw)); } catch { /* egal */ } };
     window.addEventListener('resize', applyCw);
   }
   let cmtOpen = false, cmtRow = null, cmtToken = 0;
@@ -3036,6 +3977,49 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
   }
   $('#cmtBtn').onclick = () => toggleCmt();
   $('#cmtClose').onclick = () => toggleCmt(false);
+  // ---------- Fenster anpinnen: neben dem Text festhalten statt darüber zu schweben ----------
+  // Je Fenster wird gemerkt, ob es angepinnt ist. Ein angepinntes Fenster steht rechts neben dem Haupttext; öffnet ein zweites angepinntes Fenster, tritt es an die Stelle des ersten
+  // (Ausnahme: Kommentare und Wörterbuch dürfen untereinander stehen). Nicht angepinnte Fenster schweben wie bisher über dem Text.
+  const PINS = { link: ['#linkPanel', '#lkClose'], topic: ['#topicPanel', '#tpClose'], outline: ['#outlinePanel', '#olClose'], map: ['#mapPanel', '#mapClose'], cmt: ['#cmtPanel', '#cmtClose'], dict: ['#dictPanel', '#dictClose'] };
+  const pins = { link: false, topic: false, outline: false, map: false, cmt: true, dict: true };
+  try { const o = JSON.parse(localStorage.getItem('pins') || '{}'); for (const k in pins) if (typeof o[k] === 'boolean') pins[k] = o[k]; } catch { /* egal */ }
+  const pinPair = (a, b) => (a === 'cmt' || a === 'dict') && (b === 'cmt' || b === 'dict');
+  let pinBusy = false;
+  function pinSync(anchor) {
+    if (pinBusy) return; pinBusy = true;
+    try {
+      const was = {}, now = {};
+      for (const k in PINS) { const el = $(PINS[k][0]); was[k] = el.classList.contains('docked'); now[k] = !el.hidden && pins[k]; }
+      const fresh = Object.keys(PINS).filter(k => now[k] && !was[k]);
+      for (const k of fresh) for (const o in PINS) if (o !== k && now[o] && !pinPair(k, o) && !fresh.includes(o)) { now[o] = false; $(PINS[o][1]).click(); } // das bisherige angepinnte Fenster schließen
+      const apply = () => {
+        for (const k in PINS) { const el = $(PINS[k][0]); el.classList.toggle('docked', now[k] && !el.hidden); const b = el.querySelector('.pinB'); if (b) { b.classList.toggle('on', pins[k]); b.title = I18N.t(pins[k] ? 'Lösen: über dem Text schweben' : 'Anpinnen: neben dem Text festhalten'); } }
+        const any = Object.keys(PINS).some(k => $(PINS[k][0]).classList.contains('docked'));
+        document.body.classList.toggle('dock-open', any);
+        let w = 0; for (const k in PINS) { const el = $(PINS[k][0]); if (el.classList.contains('docked')) w = Math.max(w, el.getBoundingClientRect().width); }
+        document.documentElement.style.setProperty('--dock-w', w ? w + 'px' : '');
+      };
+      const changed = Object.keys(PINS).some(k => (now[k] && !$(PINS[k][0]).hidden) !== was[k]);
+      if (changed && anchor !== false) withAnchor(apply); else apply();
+      window.dispatchEvent(new Event('resize'));
+    } finally { pinBusy = false; }
+  }
+  for (const k in PINS) {
+    const el = $(PINS[k][0]), cl = $(PINS[k][1]); if (!el || !cl) continue;
+    const b = document.createElement('button'); b.className = 'pinB'; b.type = 'button'; b.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16v6" fill="none"/><path d="M9 3h6l-1 6.5 3.2 3.2V15H6.8v-2.3L10 9.5z"/></svg>';
+    b.onclick = e => { e.stopPropagation(); pins[k] = !pins[k]; try { localStorage.setItem('pins', JSON.stringify(pins)); } catch { /* egal */ } pinSync(); };
+    cl.before(b);
+    el.classList.add('pinp');
+    new MutationObserver(() => pinSync()).observe(el, { attributes: true, attributeFilter: ['hidden'] });
+    if (window.ResizeObserver) new ResizeObserver(() => { if (el.classList.contains('docked')) { let w = 0; for (const o in PINS) { const e2 = $(PINS[o][0]); if (e2.classList.contains('docked')) w = Math.max(w, e2.getBoundingClientRect().width); } document.documentElement.style.setProperty('--dock-w', w ? w + 'px' : ''); } }).observe(el);
+  }
+  pinSync(false);
+  // nicht angepinnte Kommentare/Wörterbuch schließen beim Klick außerhalb (wie die anderen schwebenden Fenster)
+  document.addEventListener('mousedown', e => {
+    if (!e.target.closest || document.documentElement.dataset.tab === 'dict') return;
+    if (e.target.closest('#cmtPanel, #dictPanel, #cmtBtn, #cmtResize, #rOut .lab, #suggest, #audioBar, #ctxMenu, #lkHover, #tip, #undoBar, dialog')) return;
+    for (const k of ['cmt', 'dict']) { const el = $(PINS[k][0]); if (!el.hidden && !el.classList.contains('docked')) $(PINS[k][1]).click(); }
+  });
   $('#cmtLang').onchange = () => {
     saveCmt(); // Auswahl der bisherigen Sprache sichern
     cmtLang = $('#cmtLang').value;
@@ -3064,7 +4048,7 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
     const lab = e.target.closest('.lab');
     if (!lab || e.target.closest('.bm') || e.target.closest('.lk')) return;
     const row = lab.closest('.row[data-l]');
-    if (row) setCmtRow(row.dataset.l);
+    if (row) { setCmtRow(row.dataset.l); if (!cmtOpen && !pins.cmt) toggleCmt(true); } // nicht angepinnt: ein Klick auf den Vers öffnet die Kommentare
   });
   // Doppelklick auf die Versnummer öffnet den Kommentar-Bereich, derselbe Vers noch einmal schließt ihn
   let lastCmtDbl = null;
@@ -3129,7 +4113,7 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
       items.push({ label: 'Öffnen', fn: () => jumpTo(ref, false) }, { label: 'Im neuen Tab öffnen', fn: () => jumpTo(ref, true) });
       if (!IS_PANE2) items.push({ label: 'Im zweiten Fenster öffnen', fn: () => openInPane2(null, { jump: ref }) });
     }
-    if (selTxt) items.push({ label: 'Kopieren', fn: () => navigator.clipboard.writeText(selTxt).catch(() => {}) });
+    if (selTxt) items.push({ label: I18N.t('Kopieren'), fn: () => navigator.clipboard.writeText(selTxt).catch(() => {}) });
     // eine Zeile pro angezeigtem Kommentar: springt dorthin (klappt ihn bei Bedarf auf)
     const cs = [...$$('#cmtBody .cmt')];
     if (cs.length) {
@@ -3413,12 +4397,17 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
 
   // ---------- Start ----------
   (async () => {
-    await refreshState();
-    await loadLibrary();
-    applyDisp(false);
-    await loadNotes();
-    await restoreSession();
-    await refreshCatalog();
-    maybeWelcome();
+    try {
+      await refreshState();
+      await loadLibrary();
+      applyDisp(false);
+      await loadNotes();
+      await restoreSession();
+      await refreshCatalog();
+      maybeWelcome();
+    } catch (err) {
+      const o = $('#rOut'); // sichtbar statt leerer Oberfläche
+      if (o) o.innerHTML = '<p class="muted">' + esc(I18N.t('Die Bibliothek konnte nicht geladen werden: {}', String(err && err.message || err))) + '</p>';
+    }
   })();
 })();
