@@ -26,6 +26,7 @@
     $$('nav button').forEach(b => b.classList.toggle('active', b.dataset.tab === t));
     $$('main > section').forEach(s => (s.hidden = s.id !== 'tab-' + t));
     document.documentElement.dataset.tab = t;
+    try { renderTabs(); } catch { /* beim ersten Aufruf sind die Tabs noch nicht angelegt */ } // Fenstertitel neu setzen
     $('#togglePanel').hidden = t !== 'read'; // die Bücherliste gibt es nur im Reiter „Lesen“
     if (prevTab && prevTab !== t && (prevTab === 'read' || t === 'read') && panelOpen) { panelOpen = false; applyPanel(); } // beim Verlassen und Zurückkehren ist die Bücherliste zu
     if (onTabChange) onTabChange(t, prevTab);
@@ -148,7 +149,14 @@
   // ---------- Tabs ----------
   const tabs = [];
   let tabIdx = -1;
+  // Fenstertitel: zeigt, wo man gerade liest („Mishneh Torah, Foundations of the Torah · Kapitel 1“); in den anderen Reitern der App-Name
+  function updateTitle(name) {
+    if (IS_PANE2) return;
+    const base = 'Offline-Bibliothek', onRead = (document.documentElement.dataset.tab || 'read') === 'read';
+    document.title = onRead && name && name !== 'Neuer Tab' ? name : base;
+  }
   function renderTabs() {
+    updateTitle(tabs[tabIdx] && (tabs[tabIdx].group ? tabs[tabIdx].group.title + (tabs[tabIdx].label ? ' · ' + tabs[tabIdx].label : '') : tabs[tabIdx].sres ? I18N.t('Suche') + ': ' + tabs[tabIdx].sres.q : ''));
     $('#tabbar').innerHTML = tabs.map((t, i) => {
       const s = t.group && t.sections && t.sections[t.idx];
       if (s) t.label = s.label;
@@ -444,7 +452,8 @@
       const n = notes[+i];
       return n ? `${m}<span class="note" data-fn="${i}"><span class="nm">${esc(n.marker)}</span> ${R.cleanHtml(n.html)}</span>` : m;
     });
-    return `<div class="cell" data-k="${d.entry.kind}" dir="${rtl ? 'rtl' : 'ltr'}"><div class="txt">${hit ? markHits(inline, hit) : inline}</div></div>`;
+    const linked = d.entry.kind === 'he' && /Tanakh/.test((d.entry.categories || []).join()) ? inline : window.AutoRef.link(inline); // Stellenangaben im Text anklickbar (nicht im Bibeltext selbst)
+    return `<div class="cell" data-k="${d.entry.kind}" dir="${rtl ? 'rtl' : 'ltr'}"><div class="txt">${hit ? markHits(linked, hit) : linked}</div></div>`;
   }
 
   let syncPane = false; // Gleichlauf: Blättern im Hauptfenster blättert im zweiten Fenster mit
@@ -680,7 +689,11 @@
     // Aufteilen: „;“ trennt immer. „,“ trennt, wenn danach ein Buchname („gen“, „1 Kings 2:1“) oder Kapitel:Vers („2:5“) folgt;
     // eine bloße Zahl gehört zur Versliste („gen 1:1-5, 9“), außer die Stelle davor hat noch kein „:“ („Psalms 23, 24“ = zwei Kapitel)
     const segs = [];
-    for (const chunk of String(q).split(';')) {
+    // Buchtitel mit Komma („Mishneh Torah, Vows“, „Pesikta d'Rav Kahana, …“) dürfen nicht an diesem Komma zerteilt werden
+    let q0 = String(q);
+    { const lo = q0.toLowerCase();
+      for (const g of groups) { if (!g.title.includes(',')) continue; const t = g.title.toLowerCase(), i = lo.indexOf(t); if (i >= 0) q0 = q0.slice(0, i) + g.title.replace(/,/g, '\u0001') + q0.slice(i + t.length); } }
+    for (const chunk of q0.split(';')) {
       let cur = null;
       for (const t of chunk.split(',')) {
         const tt = t.trim(); if (!tt) continue;
@@ -690,6 +703,7 @@
       }
       if (cur !== null) segs.push(cur);
     }
+    for (let i = 0; i < segs.length; i++) segs[i] = segs[i].replace(/\u0001/g, ',');
     const units = [], bad = [];
     let multi = segs.length > 1, lastBook = '';
     const NUM = '\\d+', RNG = '(?:\\d+(?:\\s*[-–]\\s*\\d+)?)';
@@ -2777,6 +2791,17 @@
   renderSaved();
   $('#dictGo').onclick = () => manualSearch($('#dictQ').value);
   $('#dictQ').addEventListener('keydown', e => { if (e.key === 'Enter') manualSearch($('#dictQ').value); });
+  // Stellenangaben im Lesetext und in den Kommentaren (Klasse „aref“): im Reader öffnen; Cmd/Strg + Klick = neuer Tab, Umschalt + Klick = im zweiten Fenster rechts
+  document.addEventListener('click', e => {
+    const a = e.target.closest && e.target.closest('a.aref[data-sref]');
+    if (!a || !a.closest('#rOut, #cmtBody, #linkPanel')) return;
+    e.preventDefault(); e.stopPropagation();
+    if (e.shiftKey && !IS_PANE2) { toPane2({ type: 'jump', ref: a.dataset.sref.replace(/-.*$/, '') }); return; }
+    jumpTo(a.dataset.sref, e.metaKey || e.ctrlKey).then(ok => {
+      a.classList.toggle('dmiss', !ok);
+      a.title = ok ? a.dataset.sref : I18N.t('Dieser Text ist nicht in deiner Bibliothek (Reiter „Herunterladen“).');
+    });
+  }, true);
   $('#dictOut').addEventListener('click', e => {
     const s = e.target.closest('.dsrc[data-sref]');
     if (s) {   // Quellenangabe im Artikel (z. B. „Rosh Hashanah 18b“): im Reader öffnen; Cmd/Strg + Klick = neuer Tab, Umschalt + Klick = im zweiten Fenster rechts
@@ -4212,7 +4237,7 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
         if (!t || !t.items) return `<div class="none">${esc(r)} – ${t && t.missing ? I18N.t('keine Fassung auf {} geladen', LN) : I18N.t('Vers fehlt in der ' + { en: 'Englischen', de: 'Deutschen', he: 'Hebräischen' }[cmtLang] + ' Fassung')}</div>`;
         const he = t.kind === 'he';
         const sig = t.items.join('\u0001'); if (seenTxt.has(sig)) return ''; seenTxt.add(sig); // gleiche Stelle mehrfach verknüpft: nur einmal zeigen
-        return t.items.map(x => `<div class="ct" dir="${he ? 'rtl' : 'ltr'}">${R.cleanHtml(R.splitFootnotes(he ? stripHe(x) : x).main).replace(/<sup[^>]*>.*?<\/sup>/g, '')}</div>`).join('');
+        return t.items.map(x => `<div class="ct" dir="${he ? 'rtl' : 'ltr'}">${window.AutoRef.link(R.cleanHtml(R.splitFootnotes(he ? stripHe(x) : x).main).replace(/<sup[^>]*>.*?<\/sup>/g, ''))}</div>`).join('');
       }).join('');
       const cl = cmtClosed.has(g.name);
       return `<div class="cmt${cl ? ' closed' : ''}" data-n="${esc(g.name)}"><h4 data-ref="${esc(g.refs[0])}" title="Klick: Kommentar ein-/ausklappen · ↗: öffnet ${esc(g.book)} in einem neuen Tab · Rechtsklick: weitere Möglichkeiten"><span class="tg">${cl ? '▸' : '▾'}</span> ${esc(dispName(g.name))}${g.refs.length > 1 ? ` <small class="cx">×${g.refs.length}</small>` : ''}<span class="go" title="Buch im neuen Tab öffnen">↗</span></h4>${parts}</div>`;

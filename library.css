@@ -81,7 +81,7 @@ aside input { width: 100%; margin-bottom: 8px; }
 #stick #rTitle small { font-weight: 500; }
 #jump { width: 230px; flex: 0 1 230px; min-width: 120px; }
 .vi { font-size: 12px; }
-#rSection { min-width: 0; max-width: 340px; flex: 0 1 auto; }
+#rSection { min-width: 6em; max-width: 340px; flex: 0 0 auto; } /* Kapitelzahl wird nie vom Buchtitel oder den Knöpfen verdrängt */
 #verBox { position: relative; margin: 0; }
 #verBox summary { white-space: nowrap; }
 #verList { position: absolute; top: 26px; left: 0; z-index: 10; min-width: 340px; background: var(--bg); border: 1px solid var(--line); border-radius: 8px; box-shadow: 0 4px 18px rgba(0,0,0,.35); padding: 8px 10px; }
@@ -335,12 +335,12 @@ header > button { padding: 3px 9px; }
 html.split #stick .bar.compact { flex-wrap: wrap; } /* bei zwei Fenstern darf die Buchzeile umbrechen */
 html.split #jump { width: 80px; flex-basis: 80px; }
 html.split #stick h2#rTitle { max-width: 14ch; }
-html.split #rSection { min-width: 0; max-width: 150px; }
+html.split #rSection { min-width: 6em; max-width: 150px; }
 html.split #navBack, html.split #navFwd, html.pane2 #navBack, html.pane2 #navFwd { display: none; } /* in zwei Fenstern ist wenig Platz */
 html.pane2 #stick .bar.compact { flex-wrap: wrap; }
 html.pane2 #jump { width: 80px; flex-basis: 80px; }
 html.pane2 #stick h2#rTitle { max-width: 14ch; }
-html.pane2 #rSection { min-width: 0; max-width: 150px; }
+html.pane2 #rSection { min-width: 6em; max-width: 150px; }
 html.pane2 { overflow-x: hidden; }
 #stick .bar.compact { min-width: 0; }
 
@@ -805,3 +805,8 @@ html.split #mapPanel { right: var(--p2w); }
 .pinB.on, .pinB.on:hover { background: var(--accent, #2f6df6); color: #fff; }
 html[data-tab=dict] #dictPanel.pinp:not(.docked) { box-shadow: none; }
 #tabbar .tab { flex: 0 0 auto; }
+
+/* Stellenangaben im Text (automatisch erkannt) */
+.aref{color:var(--accent);cursor:pointer;text-decoration:underline dotted;text-underline-offset:3px}
+.aref:hover{text-decoration:underline}
+.aref.dmiss{opacity:.55;text-decoration:line-through;cursor:help}
