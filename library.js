@@ -59,6 +59,10 @@
       g.versions.push(e);
     }
     groups = [...map.values()];
+    { // eigene Fassungen (z. B. deutsche Übersetzung) in einer anderen Kategorie als das Sefaria-Buch: zum Buch gleichen Titels stellen
+      const base = new Map(); groups.forEach(g => { if (g.versions.some(v => !v.own) && !base.has(g.title)) base.set(g.title, g); });
+      groups = groups.filter(g => { const b = base.get(g.title); if (b && b !== g && g.versions.every(v => v.own)) { b.versions.push(...g.versions); return false; } return true; });
+    }
     groups.forEach(g => g.versions.sort((a, b) =>
       (KIND_RANK[a.kind] - KIND_RANK[b.kind]) || ((a.versionTitle === 'merged' ? 0 : 1) - (b.versionTitle === 'merged' ? 0 : 1)) || a.versionTitle.localeCompare(b.versionTitle)));
     groupsByKey.clear();
@@ -1467,6 +1471,10 @@
   // ---------- Gliederung: Wochenabschnitte, Kapitel und Absätze (offen/geschlossen: פ ס) des gewählten Buches ----------
   const olOwnCache = new Map();
   const olMz = () => { try { return localStorage.getItem('olMz') === '1'; } catch { return false; } };
+  // Komplexe Texte (z. B. Testamente der zwölf Patriarchen): die Gliederung gehört zum gerade geöffneten Teil („Titel, Teil“)
+  const olNode = g => { const sc = view && view.sections && view.sections[view.idx]; return g && sc && sc.path && typeof sc.path[0] === 'string' && sc.path[0] ? g.title + ', ' + sc.path[0] : null; };
+  const olOwnCached = g => { const n = olNode(g); if (n && olOwnCache.get(n)) return olOwnCache.get(n); return g ? olOwnCache.get(g.title) : undefined; };
+  async function olOwnFor(g) { const n = olNode(g); if (n) { const o = await olOwn(n); if (o) return o; } return olOwn(g.title); }
   async function olOwn(book) { if (!window.outline) return null; if (!olOwnCache.has(book)) olOwnCache.set(book, await window.outline.get(book)); return olOwnCache.get(book); }
   function olContentHtml(g, ol) {
     const lv2 = ol.levels === 2; // Gliederung nach Buch:Kapitel (z. B. Josephus), nicht nach Kapitel:Vers
@@ -1485,17 +1493,17 @@
   async function olBtnRefresh() {
     const g = view && view.group, b = $('#olBtn'); if (!b) return;
     if (!g) { b.hidden = true; return; }
-    const ol = await olOwn(g.title);
+    const ol = await olOwnFor(g);
     if (view && view.group === g) b.hidden = !ol && $('#outlinePanel').hidden;
   }
   async function renderOutline() {
     const body = $('#olBody'); const g = view && view.group;
     if (!g) { body.innerHTML = ''; return; }
     $('#olTitle').textContent = I18N.t('Gliederung') + ' · ' + g.title;
-    const ol = await olOwn(g.title);
+    const ol = await olOwnFor(g);
     if (!view || view.group !== g) return; // inzwischen anderes Buch
     const hasMz = !!(ol && ol.sections.some(x => x.items.some(i => i.mz))); $('#olMzW').hidden = !hasMz; $('#olTabT').classList.toggle('on', !olMz() || !hasMz); $('#olTabM').classList.toggle('on', olMz() && hasMz);
-    const key = g.title + '|' + I18N.lang + '|' + olMz();
+    const key = g.title + '|' + (olNode(g) || '') + '|' + I18N.lang + '|' + olMz();
     if (body.dataset.key === key && ol && body.firstElementChild) olMark(true); // unverändert: nicht neu aufbauen (Zustand der Unterpunkte bleibt)
     else {
       if (body.dataset.book !== g.title) window.__olClicked = null;
@@ -1541,7 +1549,7 @@
   function olToggle(w, open, silent, how) { w.hidden = !open; if (how) w.dataset.how = how; if (!silent) olChips(); const t = w.previousElementSibling && w.previousElementSibling.querySelector('.oltg'); if (t) { t.textContent = open ? '▾' : '▸'; t.setAttribute('aria-expanded', open ? 'true' : 'false'); } }
   function olMark(scroll) {
     const pnl = $('#outlinePanel'); if (!pnl || pnl.hidden) return;
-    const g = view && view.group, ol = g && olOwnCache.get(g.title), lv2 = !!(ol && ol.levels === 2), pos = olPos(g, lv2), whole = !lv2 && !olPlaying(g); let first = null;
+    const g = view && view.group, ol = g && olOwnCached(g), lv2 = !!(ol && ol.levels === 2), pos = olPos(g, lv2), whole = !lv2 && !olPlaying(g); let first = null;
     const hr = !lv2 && !olPlaying(g) ? $('#rOut .row.hit[data-l]') : null, tr = !lv2 && !olPlaying(g) ? (hr && hr.getBoundingClientRect().bottom > 0 && hr.getBoundingClientRect().top < innerHeight ? hr : olTopRow()) : null, tv = tr && /^\d+$/.test(tr.dataset.l) ? +tr.dataset.l : null, vpos = pos && tv ? { ch: pos.ch, v: tv } : pos; // Unterpunkte: nur der Punkt mit dem Vers am oberen Rand
     $$('#olBody .olc').forEach(el => { const sub = el.classList.contains('olsub'), on = olIn(el.dataset.r, sub || tv ? vpos : pos, whole && !sub && !tv); el.classList.toggle('cur', on); if (on && !first) first = el; });
     { // überlappende Unterpunkte (z. B. 1:10–20 und 1:12–14): nur den genauesten (schmalsten) markieren
@@ -1567,7 +1575,7 @@
       if ($('#outlinePanel').hidden) return;
       clearTimeout(olScrollT);
       olScrollT = setTimeout(() => {
-        const g = view && view.group, ol = g && olOwnCache.get(g.title); if (!ol) return;
+        const g = view && view.group, ol = g && olOwnCached(g); if (!ol) return;
         let k; if (ol.levels === 2) { const p = olSecPos(); k = p ? p.ch + ':' + p.v : ''; } else { const r = olTopRow(); k = (view.idx) + '|' + (r ? r.dataset.l : ''); } if (k === olLastPos) return; olLastPos = k; olMark(false);
       }, 120);
     }, { passive: true });
@@ -1597,6 +1605,18 @@
       return;
     }
     window.__olClicked = p.dataset.r; // der angeklickte Punkt bleibt bei überlappenden Unterpunkten markiert
+    { // komplexer Text (Teile): Kapitel im geöffneten Teil öffnen und zum Vers scrollen
+      const nd = olNode(view && view.group), m = nd && String(p.dataset.r).match(/^(\d+)(?::(\d+))?/);
+      if (nd && m && view.sections) {
+        const key = nd.slice(view.group.title.length + 2), ch = +m[1] - 1, vs = m[2] || '1';
+        const idx = view.sections.findIndex(s => s.path && s.path[0] === key && (s.path.length < 2 || s.path[1] === ch));
+        if (idx >= 0) {
+          const goVerse = () => { const r = $$('#rOut .row[data-l]').find(x => String(x.dataset.l).split(':').pop() === vs); if (r) window.scrollBy(0, r.getBoundingClientRect().top - syncTop()); olMark(false); };
+          if (idx !== view.idx || view.vf) { view.idx = idx; view.vf = null; renderSection(); requestAnimationFrame(goVerse); } else goVerse();
+          return;
+        }
+      }
+    }
     jumpTo(p.dataset.ref, e.metaKey || e.ctrlKey);
   });
   const TPS = window.topics;
