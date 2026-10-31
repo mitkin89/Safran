@@ -827,7 +827,7 @@ html[data-tab=dict] #dictPanel.pinp:not(.docked) { box-shadow: none; }
 .dsr { display: inline-flex; align-items: baseline; gap: 12px; }
 .dsr .dlist { font-size: 12px; font-weight: 600; color: #fff; background: rgba(255,255,255,.18); border: 1px solid rgba(255,255,255,.45); border-radius: 5px; padding: 2px 9px; cursor: pointer; }
 .dsr .dlist:hover { background: rgba(255,255,255,.32); }
-#dheadPop { position: fixed; z-index: 60; width: min(900px, 94vw); max-height: 70vh; display: flex; flex-direction: column; gap: 6px; background: var(--card); color: var(--fg, inherit); border: 1px solid var(--accent); border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,.45); padding: 10px; }
+#dheadPop { position: fixed; z-index: 60; top: 7vh; left: 50%; transform: translateX(-50%); width: min(900px, 94vw); height: 82vh; max-height: 82vh; display: flex; flex-direction: column; gap: 6px; background: var(--card); color: var(--fg, inherit); border: 1px solid var(--accent); border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,.45); padding: 10px; }
 #dheadPop[hidden] { display: none; }
 #dheadPop .dht { display: flex; justify-content: space-between; align-items: center; gap: 8px; font-size: 13px; }
 #dheadPop .dhx { background: none; border: none; color: inherit; cursor: pointer; font-size: 15px; }

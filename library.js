@@ -2847,7 +2847,7 @@
       cur = { id: b.dataset.id, name: b.dataset.name };
       pop.querySelector('.dht b').textContent = cur.name; pop.querySelector('input').value = '';
       pop.querySelector('.dhl').innerHTML = '<p class="muted">Lade …</p>'; pop.hidden = false;
-      const r = b.getBoundingClientRect(); const top = Math.min(innerHeight - 260, r.bottom + 6); pop.style.top = top + 'px'; pop.style.maxHeight = (innerHeight - top - 16) + 'px'; pop.style.right = Math.max(8, innerWidth - r.right) + 'px';
+      /* feste Größe und Lage (unabhängig vom Knopf) – siehe CSS */
       all = (await O.dictHeads(cur.id)).list || []; refilter(); pop.querySelector('input').focus();
     }, true);
   }
