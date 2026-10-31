@@ -275,6 +275,7 @@
     'Ersten Buchstaben entfernen und neu nachschlagen (z. B. בִדְגַת → דְגַת)': 'Remove the first letter and look up again (e.g. בִדְגַת → דְגַת)', '⌫ 1. Buchstabe': '⌫ 1st letter',
     'Gib ein hebräisches oder deutsches Wort ein, oder markiere ein Wort im Text und wähle mit Rechtsklick „Im Wörterbuch nachschlagen“.': 'Enter a Hebrew or German word, or select a word in the text and choose “Look up in dictionary” from the right-click menu.',
     'Gib ein hebräisches oder deutsches Wort ein.': 'Enter a Hebrew or German word.',
+    'Durchsuchte Wörterbücher': 'Dictionaries searched', 'Alle auswählen': 'Select all', 'Alle abwählen': 'Deselect all', 'Alle Wörterbücher sind abgewählt – wähle oben unter „Durchsuchte Wörterbücher“ mindestens eines aus.': 'All dictionaries are deselected – tick at least one under “Dictionaries searched” above.',
     'Wörterbücher verwalten': 'Manage dictionaries', 'DSL-Datei hinzufügen …': 'Add DSL file …', 'Formate: .dsl, .dsl.dz (ABBYY Lingvo)': 'Formats: .dsl, .dsl.dz (ABBYY Lingvo)',
     'Zurück': 'Back', 'Vor': 'Forward', 'Neuer Wörterbuch-Tab': 'New dictionary tab', 'Noch keine Wörterbücher.': 'No dictionaries yet.',
     'Kein Eintrag für „{}“ gefunden.': 'No entry found for “{}”.', 'Es ist noch kein Wörterbuch eingebunden. Öffne unten „Wörterbücher verwalten“ und füge eine DSL-Datei hinzu.': 'No dictionary has been added yet. Open “Manage dictionaries” below and add a DSL file.',

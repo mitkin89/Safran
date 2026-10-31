@@ -1476,7 +1476,7 @@
     const first = r => { const m = String(r).match(/^(\d+)(?::(\d+))?/); return m ? { ch: +m[1], v: m[2] ? +m[2] : 1 } : null; };
     const mzOn = olMz() && ol.sections.some(x => x.items.some(i => i.mz));
     const anySub = ol.sections.some(x => x.items.some(i => i.sub));
-    const olRows = (list, lvl) => { let pb = null; return list.map(it => { const f = first(it.ref); const ih = (heUi || !it['text_' + L]) && /[\u0590-\u05FF]/.test(it.text); const meta = [T(it, 'speaker'), T(it, 'author'), T(it, 'kind'), T(it, 'place'), T(it, 'time'), T(it, 'par'), T(it, 'desc'), it.seg ? (L === 'he' ? 'סגולה: ' : L === 'de' ? 'Segula: ' : 'Segula: ') + T(it, 'seg') : ''].filter(Boolean).map(esc).join(' · '); const np = !lvl && window.__mapCount ? window.__mapCount(g.title, it.ref) : 0; const bk = lvl && it.blk ? T(it, 'blk') : null; const chip = bk && bk !== pb ? `<div class="olchip" data-blk="${esc(bk)}">${esc(bk.replace(/(\d)-(?=\d)/g, '$1–'))}</div>` : ''; if (bk) pb = bk; return chip + `<div class="olp olc${ih ? '' : ' lt'}${it.mz ? ' olmz' : ''}${lvl ? ' olsub olsub1' : ''}${it.orph ? ' olorph' : ''}${olIn(it.ref, cur, lv2 || lvl ? false : !olPlaying(g)) ? ' cur' : ''}" data-r="${esc(it.ref)}"${lv2 ? ` data-sec="${esc(it.ref)}"` : ''} data-ref="${esc(g.title + ' ' + (f ? f.ch + ':' + f.v : it.ref))}">${!lvl && anySub ? `<span class="oltg"${it.sub ? ` title="${esc(I18N.t('Unterpunkte'))}" role="button" tabindex="0" aria-expanded="false"` : ' style="visibility:hidden" aria-hidden="true"'}>${it.sub ? '▸' : ''}</span>` : ''}<span class="ref">${esc(String(it.ref).replace(/-/g, '–'))}</span><span class="${ih ? 'he' : 'tx'}"${ih ? ' lang="he"' : ''}>${it.mz ? `<b class="mzn">${it.mz}</b> ` : ''}${esc(T(it, 'text'))}${meta ? `<small class="olm"${ih ? '' : ' style="direction:ltr"'}>${meta}</small>` : ''}</span>${np ? `<span class="olmap" data-n="${np}" title="${esc(I18N.t('Karte: Orte dieses Abschnitts'))}">🗺 ${np}</span>` : ''}</div>` + (it.sub ? `<div class="olsubs" hidden>${olRows(it.sub, lvl + 1)}</div>` : ''); }).join(''); };
+    const olRows = (list, lvl) => { let pb = null; if (lvl && list.some(x => x.blk)) { const ks = []; list.forEach(x => { const k = T(x, 'blk') || ''; if (!ks.includes(k)) ks.push(k); }); list = [...list].sort((a, b) => ks.indexOf(T(a, 'blk') || '') - ks.indexOf(T(b, 'blk') || '')); } /* nach Überschrift gruppieren */ return list.map(it => { const f = first(it.ref); const ih = (heUi || !it['text_' + L]) && /[\u0590-\u05FF]/.test(it.text); const meta = [T(it, 'speaker'), T(it, 'author'), T(it, 'kind'), T(it, 'place'), T(it, 'time'), T(it, 'par'), T(it, 'desc'), it.seg ? (L === 'he' ? 'סגולה: ' : L === 'de' ? 'Segula: ' : 'Segula: ') + T(it, 'seg') : ''].filter(Boolean).map(esc).join(' · '); const np = !lvl && window.__mapCount ? window.__mapCount(g.title, it.ref) : 0; const bk = lvl && it.blk ? T(it, 'blk') : null; const chip = bk && bk !== pb ? `<div class="olchip" data-blk="${esc(bk)}">${esc(bk.replace(/(\d)-(?=\d)/g, '$1–'))}</div>` : ''; if (bk) pb = bk; return chip + `<div class="olp olc${ih ? '' : ' lt'}${it.mz ? ' olmz' : ''}${lvl ? ' olsub olsub1' : ''}${it.orph ? ' olorph' : ''}${olIn(it.ref, cur, lv2 || lvl ? false : !olPlaying(g)) ? ' cur' : ''}" data-r="${esc(it.ref)}"${lv2 ? ` data-sec="${esc(it.ref)}"` : ''} data-ref="${esc(g.title + ' ' + (f ? f.ch + ':' + f.v : it.ref))}">${!lvl && anySub ? `<span class="oltg"${it.sub ? ` title="${esc(I18N.t('Unterpunkte'))}" role="button" tabindex="0" aria-expanded="false"` : ' style="visibility:hidden" aria-hidden="true"'}>${it.sub ? '▸' : ''}</span>` : ''}<span class="ref">${esc(String(it.ref).replace(/-/g, '–'))}</span><span class="${ih ? 'he' : 'tx'}"${ih ? ' lang="he"' : ''}>${it.mz ? `<b class="mzn">${it.mz}</b> ` : ''}${esc(T(it, 'text'))}${meta ? `<small class="olm"${ih ? '' : ' style="direction:ltr"'}>${meta}</small>` : ''}</span>${np ? `<span class="olmap" data-n="${np}" title="${esc(I18N.t('Karte: Orte dieses Abschnitts'))}">🗺 ${np}</span>` : ''}</div>` + (it.sub ? `<div class="olsubs" hidden>${olRows(it.sub, lvl + 1)}</div>` : ''); }).join(''); };
     return (T(ol, 'title') ? `<p class="${heUi ? 'he' : ''}" ${heUi ? 'lang="he"' : ''}><b>${esc(T(ol, 'title'))}</b></p>` : '') + ol.sections.filter(s => s.items.some(it => !!it.mz === mzOn)).map(s => {
       return `<details open><summary>${heUi ? `<span class="he" lang="he">${esc(s.head)}</span>` : `${esc(T(s, 'head'))} <small class="he" lang="he">${esc(s.head)}</small>`}</summary>${s.desc ? `<p class="he olnote" lang="he">${esc(s.desc)}</p>` : ''}${olRows(s.items.filter(it => !!it.mz === mzOn), 0)}</details>`;
     }).join('') + (T(ol, 'note') ? `<p class="muted olnote">${esc(T(ol, 'note'))}</p>` : '');
@@ -1535,8 +1535,12 @@
   function olMark(scroll) {
     const pnl = $('#outlinePanel'); if (!pnl || pnl.hidden) return;
     const g = view && view.group, ol = g && olOwnCache.get(g.title), lv2 = !!(ol && ol.levels === 2), pos = olPos(g, lv2), whole = !lv2 && !olPlaying(g); let first = null;
-    const tr = !lv2 && !olPlaying(g) ? olTopRow() : null, tv = tr && /^\d+$/.test(tr.dataset.l) ? +tr.dataset.l : null, vpos = pos && tv ? { ch: pos.ch, v: tv } : pos; // Unterpunkte: nur der Punkt mit dem Vers am oberen Rand
-    $$('#olBody .olc').forEach(el => { const sub = el.classList.contains('olsub'), on = olIn(el.dataset.r, sub ? vpos : pos, whole && !sub); el.classList.toggle('cur', on); if (on && !first) first = el; });
+    const hr = !lv2 && !olPlaying(g) ? $('#rOut .row.hit[data-l]') : null, tr = !lv2 && !olPlaying(g) ? (hr && hr.getBoundingClientRect().bottom > 0 && hr.getBoundingClientRect().top < innerHeight ? hr : olTopRow()) : null, tv = tr && /^\d+$/.test(tr.dataset.l) ? +tr.dataset.l : null, vpos = pos && tv ? { ch: pos.ch, v: tv } : pos; // Unterpunkte: nur der Punkt mit dem Vers am oberen Rand
+    $$('#olBody .olc').forEach(el => { const sub = el.classList.contains('olsub'), on = olIn(el.dataset.r, sub || tv ? vpos : pos, whole && !sub && !tv); el.classList.toggle('cur', on); if (on && !first) first = el; });
+    { // überlappende Unterpunkte (z. B. 1:10–20 und 1:12–14): nur den genauesten (schmalsten) markieren
+      const wd = el => olSpans(el.dataset.r).reduce((a, [x, y]) => a + (y - x), 0), cs = $$('#olBody .olc.cur.olsub');
+      if (cs.length > 1) { const pk = cs.find(el => el.dataset.r === window.__olClicked), mn = Math.min(...cs.map(wd)); cs.forEach(el => { if (pk ? el !== pk : wd(el) > mn) el.classList.remove('cur'); }); first = $('#olBody .olc.cur'); }
+    }
     $$('#olBody .olc.cur').forEach(el => { const w = el.classList.contains('olsub') ? el.closest('.olsubs') : (el.nextElementSibling && el.nextElementSibling.classList.contains('olsubs') ? el.nextElementSibling : null); if (w && w.hidden) olToggle(w, true, true); });
     olChips();
     if (first) olKeepVisible(first, scroll); // nur das Gliederungs-Panel scrollen, nie das Lesefenster
@@ -1583,6 +1587,7 @@
       if (idx !== view.idx || view.vf) { view.idx = idx; view.vf = null; renderSection(); requestAnimationFrame(goRow); } else goRow();
       return;
     }
+    window.__olClicked = p.dataset.r; // der angeklickte Punkt bleibt bei überlappenden Unterpunkten markiert
     jumpTo(p.dataset.ref, e.metaKey || e.ctrlKey);
   });
   const TPS = window.topics;
@@ -2694,6 +2699,22 @@
   $('#cmtBody').addEventListener('click', clickMark);
   $('#rOut').addEventListener('dblclick', dblWord);
   $('#cmtBody').addEventListener('dblclick', dblWord);
+  // Welche Wörterbücher durchsucht werden: gespeichert wird, was abgewählt ist (neue Wörterbücher sind automatisch angehakt)
+  const dictOffGet = () => { try { const a = JSON.parse(localStorage.getItem('dictOff') || '[]'); return new Set(Array.isArray(a) ? a : []); } catch { return new Set(); } };
+  const dictOffSet = set => { try { localStorage.setItem('dictOff', JSON.stringify([...set])); } catch { /* egal */ } };
+  async function renderDictSel() {
+    const box = $('#dictSelList'); if (!box) return;
+    const r = await O.dictList(), off = dictOffGet(), list = r.list || [];
+    box.innerHTML = list.length ? list.map(d => `<label class="dsel"><input type="checkbox" data-id="${esc(d.id)}"${off.has(d.id) ? '' : ' checked'}> ${esc(d.name)}</label>`).join('') : '<p class="muted">Noch keine Wörterbücher.</p>';
+    const n = list.filter(d => !off.has(d.id)).length;
+    $('#dictSelSum').textContent = `${I18N.t('Durchsuchte Wörterbücher')} (${n} / ${list.length})`;
+    $('#dictSel').hidden = !list.length;
+  }
+  const dictSelChanged = () => { renderDictSel(); if (dictHist[dictPos]) dictLookup(dictHist[dictPos].q, dictHist[dictPos].only, true); };
+  $('#dictSelList').addEventListener('change', e => { const c = e.target.closest('input[data-id]'); if (!c) return; const off = dictOffGet(); if (c.checked) off.delete(c.dataset.id); else off.add(c.dataset.id); dictOffSet(off); dictSelChanged(); });
+  $('#dictSelAll').onclick = () => { dictOffSet(new Set()); dictSelChanged(); };
+  $('#dictSelNone').onclick = async () => { dictOffSet(new Set((await O.dictList()).list.map(d => d.id))); dictSelChanged(); };
+  renderDictSel().catch(() => {});
   let dictOnly = null; // { id, name }: Suche nur in diesem Wörterbuch (wird nicht mehr über das Menü gesetzt)
   let dictHist = [], dictPos = -1, dictShown = [];
   function dictNavButtons() { $('#dictBack').disabled = dictPos <= 0; $('#dictFwd').disabled = dictPos >= dictHist.length - 1; }
@@ -2712,10 +2733,11 @@
     $('#dictOut').innerHTML = '<p class="muted">Suche …</p>';
     const r = await O.dictLookup(q, only && only.id);
     if (r.error) { $('#dictOut').innerHTML = `<p class="muted">⚠ ${esc(r.error)}</p>`; return; }
+    if (!only) { const off = dictOffGet(); if (off.size) r.results = r.results.filter(x => !off.has(x.dictId)); } // nur die angehakten Wörterbücher
     dictShown = r.results;
     if (!r.results.length) {
       const n = (await O.dictList()).list.length;
-      $('#dictOut').innerHTML = n ? `<p class="muted">Kein Eintrag für „${esc(q)}“ gefunden.</p>` : '<p class="muted">Es ist noch kein Wörterbuch eingebunden. Öffne unten „Wörterbücher verwalten“ und füge eine DSL-Datei hinzu.</p>';
+      const offN = dictOffGet().size; $('#dictOut').innerHTML = n && offN >= n ? `<p class="muted">${esc(I18N.t('Alle Wörterbücher sind abgewählt – wähle oben unter „Durchsuchte Wörterbücher“ mindestens eines aus.'))}</p>` : n ? `<p class="muted">Kein Eintrag für „${esc(q)}“ gefunden.</p>` : '<p class="muted">Es ist noch kein Wörterbuch eingebunden. Öffne unten „Wörterbücher verwalten“ und füge eine DSL-Datei hinzu.</p>';
       return;
     }
     const onlyBar = dictOnly ? `<div class="donly muted">Nur in: <b>${esc(dictOnly.name)}</b> · <a class="dall">alle Wörterbücher</a></div>` : '';
@@ -2831,6 +2853,7 @@
     el.classList.add('flash'); setTimeout(() => el.classList.remove('flash'), 1200);
   }
   async function renderDictList() {
+    renderDictSel();
     const r = await O.dictList();
     $('#dictList').innerHTML = r.list.length ? r.list.map((d, i) => `<div class="dli"><span>${esc(d.name)} <span class="muted">· ${d.count.toLocaleString(I18N.loc)} Einträge</span></span><span class="dbtns"><button data-mv="-1" data-id="${esc(d.id)}" title="Nach oben (wird zuerst angezeigt)"${i === 0 ? ' disabled' : ''}>▲</button><button data-mv="1" data-id="${esc(d.id)}" title="Nach unten"${i === r.list.length - 1 ? ' disabled' : ''}>▼</button><button data-id="${esc(d.id)}" title="Wörterbuch entfernen">✕</button></span></div>`).join('') : '<p class="muted">Noch keine Wörterbücher.</p>';
   }

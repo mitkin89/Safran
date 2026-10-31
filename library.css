@@ -821,3 +821,12 @@ body:has(#findBar:not([hidden])) #olBody { padding-bottom: 56px; }
 #olBody .olchip { margin: 5px 0 1px 34px; padding: 1px 8px; font-size: 11px; color: var(--muted, #999); border-inline-start: 3px solid color-mix(in srgb, var(--accent) 55%, transparent); background: color-mix(in srgb, var(--accent) 7%, transparent); border-radius: 0 6px 6px 0; }
 #olBody .olp .oltg { flex: none; width: 22px; margin-inline-end: -2px; font-size: 18px; line-height: 1; text-align: center; cursor: pointer; user-select: none; color: var(--muted, #999); }
 #olBody .olp .oltg:hover { color: var(--accent); }
+
+/* Wörterbuch: Auswahl der durchsuchten Wörterbücher */
+#dictSel { margin: 6px 0 4px; font-size: 13px; }
+#dictSel summary { cursor: pointer; color: var(--muted); }
+#dictSel .dselbar { display: flex; gap: 6px; margin: 6px 0 4px; }
+#dictSel .dselbar button { font-size: 12px; padding: 2px 8px; }
+#dictSelList { display: flex; flex-direction: column; gap: 2px; max-height: 180px; overflow: auto; }
+#dictSelList .dsel { display: flex; justify-content: flex-start; align-items: center; gap: 6px; cursor: pointer; text-align: start; }
+#dictSelList .dsel input { flex: none; width: auto; margin: 0; }
