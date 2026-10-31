@@ -2801,7 +2801,7 @@
     const paint = async () => {
       const list = (await O.dictList()).list || [];
       if (dictSel) dictSel = dictSel.filter(id => list.some(d => d.id === id)); if (dictSel && !dictSel.length) dictSel = null;
-      Pn.innerHTML = `<div class="dsa"><a data-a="all">alle</a> · <a data-a="none">keins</a></div>` + list.map(d => `<label><input type="checkbox" data-id="${esc(d.id)}"${!dictSel || dictSel.includes(d.id) ? ' checked' : ''}> ${esc(d.name)} <small>${d.count.toLocaleString(I18N.loc)}</small></label>`).join('');
+      Pn.innerHTML = `<div class="dsa"><a data-a="all">alle</a> · <a data-a="none">keins</a></div>` + list.map(d => `<label class="dsl"><input type="checkbox" data-id="${esc(d.id)}"${!dictSel || dictSel.includes(d.id) ? ' checked' : ''}><span class="dsn">${esc(d.name)}</span><small>${d.count.toLocaleString(I18N.loc)}</small></label>`).join('');
       label(list.length);
     };
     const save = () => { try { localStorage.setItem('dictSel', JSON.stringify(dictSel || null)); } catch { /* egal */ } };
