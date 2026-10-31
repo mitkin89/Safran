@@ -663,7 +663,7 @@
   $('#togglePanel').onclick = togglePanel;
   const closeListOutside = e => { // Klick außerhalb der Bücherliste schließt sie
     if (!panelOpen || (document.documentElement.dataset.tab || 'read') !== 'read') return;
-    if (e.target.closest('aside:not(#dictPanel):not(#cmtPanel):not(#linkPanel), nav, #togglePanel, #suggest, #ctxMenu, #tip, dialog')) return;
+    if (e.target.closest('aside:not(#dictPanel):not(#cmtPanel):not(#linkPanel), nav, #togglePanel, #suggest, #ctxMenu, #tip, #dheadPop, #dictSelP, dialog')) return;
     // Knöpfe, Links, Auswahlfelder: erst beim Klick schließen – sonst verschiebt sich das Layout schon beim Drücken und der Klick geht ins Leere
     if (e.type !== 'click' && e.target.closest('button, a, select, label, input, [role=button], .chip, [data-ref]')) return;
     panelOpen = false; applyPanel();
@@ -4104,7 +4104,7 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
   // nicht angepinnte Kommentare/Wörterbuch schließen beim Klick außerhalb (wie die anderen schwebenden Fenster)
   document.addEventListener('mousedown', e => {
     if (!e.target.closest || document.documentElement.dataset.tab === 'dict') return;
-    if (e.target.closest('#cmtPanel, #dictPanel, #cmtBtn, #cmtResize, #rOut .lab, #suggest, #audioBar, #ctxMenu, #lkHover, #tip, #undoBar, dialog')) return;
+    if (e.target.closest('#cmtPanel, #dictPanel, #cmtBtn, #cmtResize, #rOut .lab, #suggest, #audioBar, #ctxMenu, #lkHover, #tip, #undoBar, #dheadPop, #dictSelP, dialog')) return;
     for (const k of ['cmt', 'dict']) { const el = $(PINS[k][0]); if (!el.hidden && !el.classList.contains('docked')) $(PINS[k][1]).click(); }
   });
   $('#cmtLang').onchange = () => {
