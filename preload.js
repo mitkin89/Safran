@@ -51,6 +51,7 @@ contextBridge.exposeInMainWorld('offline', {
   checkUpdate: () => ipcRenderer.invoke('app:checkUpdate'),
   setLang: l => ipcRenderer.invoke('app:setLang', l),
   openRelease: u => ipcRenderer.invoke('app:openRelease', u),
+  dictHeads: id => ipcRenderer.invoke('dict:heads', id),
   dictSuggest: q => ipcRenderer.invoke('dict:suggest', q),
   dictLookup: (q, only, full) => ipcRenderer.invoke('dict:lookup', q, only, full),
   ownRemove: rel => ipcRenderer.invoke('off:ownRemove', rel),

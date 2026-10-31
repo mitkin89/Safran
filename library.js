@@ -2644,7 +2644,7 @@
     let last = null;
     $('#dictOut').innerHTML = onlyBar + r.results.map((x, i) => {
       let sec = '';
-      if (x.dictId !== last) { last = x.dictId; sec = `<div class="dsec" style="--dh:${hue(x.dictId)}"><span>${esc(x.dict)}</span><small>${cnt[x.dictId]} Treffer</small></div>`; }
+      if (x.dictId !== last) { last = x.dictId; sec = `<div class="dsec" style="--dh:${hue(x.dictId)}"><span>${esc(x.dict)}</span><span class="dsr"><button type="button" class="dlist" data-id="${esc(x.dictId)}" data-name="${esc(x.dict)}" title="Alle Stichwörter dieses Wörterbuchs als Liste">☰ Stichwörter</button><small>${cnt[x.dictId]} Treffer</small></span></div>`; }
       return `${sec}<div class="dentry" id="dentry${i}" style="--dh:${hue(x.dictId)}"><div class="dhead"><b dir="auto">${esc(x.head)}</b>${x.note ? ` <span class="muted">${esc(x.note)}</span>` : ''}</div><div class="dbody" dir="ltr">${/Gesenius/.test(x.dict || '') && window.GAbk ? window.GAbk.mark(x.html) : x.html}</div></div>`;
     }).join('');
     $('#dictPanel').scrollTop = 0;
@@ -2772,11 +2772,11 @@
     const q = $('#dictQ').value.trim(), on = !!q && dFavs.includes(q);
     $('#dictStar').textContent = on ? '★' : '☆'; $('#dictStar').classList.toggle('on', on);
   }
-  const manualSearch = q => {
+  const manualSearch = (q, only = null) => {
     q = String(q || '').trim();
     syncSaved();
     if (q) { dRecent = [q, ...dRecent.filter(x => x !== q)].slice(0, 30); lsSet('dictRecent', dRecent); }
-    dictLookup(q); renderSaved();
+    dictLookup(q, only); renderSaved();
   };
   $('#dictStar').onclick = () => {
     const q = $('#dictQ').value.trim(); if (!q) return;
@@ -2817,6 +2817,39 @@
       const q = $('#dictQ').value.trim(); if (q) dictLookup(q, dictOnly);
     });
     paint();
+  }
+
+  { // Stichwortliste eines Wörterbuchs (Knopf in der farbigen Titelleiste): filtern, Klick = nur in diesem Wörterbuch nachschlagen
+    let pop = null, cur = null, all = [], shown = [], pos = 0;
+    const CH = 300;
+    const close = () => { if (pop) pop.hidden = true; };
+    const more = () => { const box = pop.querySelector('.dhl'); const end = Math.min(shown.length, pos + CH); let h = ''; for (let i = pos; i < end; i++) h += `<div class="dhi" dir="auto" data-w="${esc(shown[i])}">${esc(shown[i])}</div>`; box.insertAdjacentHTML('beforeend', h); pos = end; pop.querySelector('.dhc').textContent = `${shown.length.toLocaleString(I18N.loc)} von ${all.length.toLocaleString(I18N.loc)}`; };
+    const refilter = () => {
+      const q = pop.querySelector('input').value.trim().normalize('NFD').replace(/[\u0591-\u05c7\u0300-\u036f]/g, '').replace(/[ךםןףץ]/g, c => ({ 'ך': 'כ', 'ם': 'מ', 'ן': 'נ', 'ף': 'פ', 'ץ': 'צ' }[c])).toLowerCase();
+      shown = q ? all.filter(h => h.normalize('NFD').replace(/[\u0591-\u05c7\u0300-\u036f]/g, '').replace(/[ךםןףץ]/g, c => ({ 'ך': 'כ', 'ם': 'מ', 'ן': 'נ', 'ף': 'פ', 'ץ': 'צ' }[c])).toLowerCase().includes(q)) : all;
+      pos = 0; pop.querySelector('.dhl').innerHTML = ''; pop.querySelector('.dhl').scrollTop = 0; more();
+    };
+    $('#dictOut').addEventListener('click', async e => {
+      const b = e.target.closest('.dlist'); if (!b) return;
+      e.stopPropagation();
+      if (!pop) {
+        pop = document.createElement('div'); pop.id = 'dheadPop'; pop.hidden = true;
+        pop.innerHTML = '<div class="dht"><b></b><button type="button" class="dhx" title="Schließen">✕</button></div><input type="search" placeholder="Stichwörter filtern …" autocomplete="off"><div class="dhc muted"></div><div class="dhl"></div>';
+        document.body.appendChild(pop);
+        pop.querySelector('.dhx').onclick = close;
+        pop.querySelector('input').addEventListener('input', refilter);
+        pop.querySelector('.dhl').addEventListener('scroll', ev => { const l = ev.target; if (pos < shown.length && l.scrollTop + l.clientHeight > l.scrollHeight - 200) more(); });
+        pop.querySelector('.dhl').addEventListener('click', ev => { const it = ev.target.closest('.dhi'); if (!it || !cur) return; const w = it.dataset.w; close(); manualSearch(w, cur); });
+        document.addEventListener('click', ev => { if (pop && !pop.hidden && !pop.contains(ev.target) && !ev.target.closest('.dlist')) close(); });
+        document.addEventListener('keydown', ev => { if (ev.key === 'Escape') close(); });
+      }
+      if (!pop.hidden && cur && cur.id === b.dataset.id) { close(); return; }
+      cur = { id: b.dataset.id, name: b.dataset.name };
+      pop.querySelector('.dht b').textContent = cur.name; pop.querySelector('input').value = '';
+      pop.querySelector('.dhl').innerHTML = '<p class="muted">Lade …</p>'; pop.hidden = false;
+      const r = b.getBoundingClientRect(); pop.style.top = Math.min(innerHeight - 200, r.bottom + 6) + 'px'; pop.style.right = Math.max(8, innerWidth - r.right) + 'px';
+      all = (await O.dictHeads(cur.id)).list || []; refilter(); pop.querySelector('input').focus();
+    }, true);
   }
   $('#dictGo').onclick = () => manualSearch($('#dictQ').value);
   $('#dictQ').addEventListener('keydown', e => { if (e.key === 'Enter') manualSearch($('#dictQ').value); });

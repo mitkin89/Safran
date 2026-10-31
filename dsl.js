@@ -249,6 +249,17 @@ class Dictionaries {
     // kürzere (näher an der Eingabe liegende) Wörter zuerst, bei Gleichstand die Wörterbuch-Reihenfolge behalten
     return out.map((x, i) => [x, i]).sort((a, b) => a[0].key.length - b[0].key.length || a[1] - b[1]).map(a => a[0]).slice(0, limit);
   }
+  // Alle Stichwörter eines Wörterbuchs (sortiert, ohne Doppelte) für die Stichwortliste
+  async headList(id) {
+    const j = await this.load(id);
+    if (!j.hlist) {
+      const seen = new Set(), arr = [];
+      j.heads.forEach(hs => hs.forEach(h => { const c = cleanHead(h), n = norm(c); if (!n || seen.has(c)) return; seen.add(c); arr.push([n, c]); }));
+      arr.sort((a, b) => a[0] < b[0] ? -1 : a[0] > b[0] ? 1 : 0);
+      j.hlist = arr.map(a => a[1]);
+    }
+    return j.hlist;
+  }
   // Volltext: Suchwörter (alle müssen vorkommen, ohne Vokalzeichen/Endbuchstaben/Groß-Klein) im Artikeltext; skip = schon als Stichwort-Treffer gezeigte (dictId:k)
   async fulltext(query, { limit = 80, only = '', skip = new Set() } = {}) {
     const terms = norm(query).split(' ').filter(Boolean);

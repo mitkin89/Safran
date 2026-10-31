@@ -502,6 +502,7 @@ ipcMain.handle('dict:order', async (_e, ids) => { try { await (await getDicts())
 ipcMain.handle('dict:remove', async (_e, id) => { try { await (await getDicts()).remove(String(id)); return {}; } catch (err) { return { error: err.message }; } });
 ipcMain.handle('dict:lookup', async (_e, q, only, full) => { try { return { results: await (await getDicts()).search(String(q || '').slice(0, 100), { only: Array.isArray(only) ? only.filter(x => /^[0-9a-f]{12}$/.test(String(x))).map(String) : (/^[0-9a-f]{12}$/.test(String(only || '')) ? String(only) : ''), full: !!full }) }; } catch (err) { return { results: [], error: err.message }; } });
 
+ipcMain.handle('dict:heads', async (_e, id) => { try { return { list: /^[0-9a-f]{12}$/.test(String(id || '')) ? await (await getDicts()).headList(String(id)) : [] }; } catch (err) { return { list: [], error: err.message }; } });
 ipcMain.handle('dict:suggest', async (_e, q) => { try { return { list: await (await getDicts()).suggest(String(q || '').slice(0, 60)) }; } catch { return { list: [] }; } });
 
 ipcMain.handle('off:ownExportBundle', async e => {
