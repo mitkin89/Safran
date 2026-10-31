@@ -2839,7 +2839,7 @@
         pop.querySelector('.dhx').onclick = close;
         pop.querySelector('input').addEventListener('input', refilter);
         pop.querySelector('.dhl').addEventListener('scroll', ev => { const l = ev.target; if (pos < shown.length && l.scrollTop + l.clientHeight > l.scrollHeight - 200) more(); });
-        pop.querySelector('.dhl').addEventListener('click', ev => { const it = ev.target.closest('.dhi'); if (!it || !cur) return; const w = it.dataset.w; close(); manualSearch(w, cur); });
+        pop.querySelector('.dhl').addEventListener('click', ev => { const it = ev.target.closest('.dhi'); if (!it || !cur) return; const w = it.dataset.w; close(); manualSearch(w); });
         document.addEventListener('click', ev => { if (pop && !pop.hidden && !pop.contains(ev.target) && !ev.target.closest('.dlist')) close(); });
         document.addEventListener('keydown', ev => { if (ev.key === 'Escape') close(); });
       }
@@ -2847,7 +2847,7 @@
       cur = { id: b.dataset.id, name: b.dataset.name };
       pop.querySelector('.dht b').textContent = cur.name; pop.querySelector('input').value = '';
       pop.querySelector('.dhl').innerHTML = '<p class="muted">Lade …</p>'; pop.hidden = false;
-      const r = b.getBoundingClientRect(); pop.style.top = Math.min(innerHeight - 200, r.bottom + 6) + 'px'; pop.style.right = Math.max(8, innerWidth - r.right) + 'px';
+      const r = b.getBoundingClientRect(); const top = Math.min(innerHeight - 260, r.bottom + 6); pop.style.top = top + 'px'; pop.style.maxHeight = (innerHeight - top - 16) + 'px'; pop.style.right = Math.max(8, innerWidth - r.right) + 'px';
       all = (await O.dictHeads(cur.id)).list || []; refilter(); pop.querySelector('input').focus();
     }, true);
   }
