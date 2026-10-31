@@ -75,7 +75,7 @@ aside input { width: 100%; margin-bottom: 8px; }
 #stick .bar.compact { display: flex; align-items: center; gap: 6px; margin: 0 0 4px; flex-wrap: nowrap; } /* immer eine Zeile */
 #stick h2#rTitle { font-size: 15px; margin: 0; white-space: nowrap; flex: 0 1 auto; min-width: 10ch; max-width: 28ch; overflow: hidden; text-overflow: ellipsis; }
 #stick button, #stick select, #stick input { padding: 3px 8px; font-size: 13px; }
-#titleBox { display: flex; align-items: center; flex: 0 1 auto; min-width: 0; }
+#titleBox { display: flex; align-items: center; flex: 0 1 auto; min-width: 10ch; overflow: hidden; }
 #titleBox #rTitle { cursor: text; border-radius: 6px; padding: 1px 4px; }
 #titleBox #rTitle:hover { background: var(--chip); }
 #stick #rTitle small { font-weight: 500; }
@@ -703,10 +703,10 @@ img.g, #rOut img.g, #cmtBody img.g, .sres img.g { display: inline; height: 1.35e
 #olBody summary small { font-weight: 400; color: var(--muted, #999); margin-left: 6px; }
 #olBody .olp { display: flex; gap: 8px; align-items: baseline; padding: 3px 6px; margin-left: 14px; border-radius: 6px; cursor: pointer; font-size: 14px; }
 #olBody .olp:hover { background: color-mix(in srgb, var(--accent) 14%, transparent); }
-#olBody .olp .ref { color: var(--muted, #999); font-size: 12px; min-width: 42px; }
+#olBody .olp .ref { color: var(--muted, #999); font-size: 12px; min-width: 6ch; font-variant-numeric: tabular-nums; }
 #olBody .olp .he { direction: rtl; flex: 1; text-align: right; }
 #olBody .olp .mk { font-size: 11px; opacity: .6; }
-#olBody .olp.cur { background: color-mix(in srgb, var(--accent) 24%, transparent); box-shadow: inset 3px 0 0 var(--accent); font-weight: 600; }
+#olBody .olp.cur { background: color-mix(in srgb, var(--accent) 18%, transparent); box-shadow: inset 3px 0 0 var(--accent); font-weight: 600; }
 
 #olBody .olTabs { display: flex; gap: 6px; margin-bottom: 8px; }
 #olBody .olTabs button.on { background: color-mix(in srgb, var(--accent) 22%, transparent); border-color: var(--accent); }
@@ -811,9 +811,13 @@ html[data-tab=dict] #dictPanel.pinp:not(.docked) { box-shadow: none; }
 .aref:hover{text-decoration:underline}
 .aref.dmiss{opacity:.55;text-decoration:line-through;cursor:help}
 /* Gliederung: Überpunkte mit Unterpunkten (z. B. Da'at Mikra) */
+#olBody .olp.olsub .ref { min-width: 7ch; }
+#olBody .olp.olsub.cur { background: color-mix(in srgb, var(--accent) 12%, transparent); font-weight: 500; box-shadow: none; }
+body:has(#findBar:not([hidden])) #olBody { padding-bottom: 56px; }
+#olBody .olchip[hidden] { display: none; }
 #olBody .olp.olsub { font-size: 13px; margin-inline-start: 34px; border-inline-start: 1px solid color-mix(in srgb, var(--accent) 35%, transparent); }
 #olBody .olp .oln { color: var(--muted, #999); font-weight: 500; }
 #olBody .olp.olorph { font-style: italic; }
 #olBody .olchip { margin: 5px 0 1px 34px; padding: 1px 8px; font-size: 11px; color: var(--muted, #999); border-inline-start: 3px solid color-mix(in srgb, var(--accent) 55%, transparent); background: color-mix(in srgb, var(--accent) 7%, transparent); border-radius: 0 6px 6px 0; }
-#olBody .olp .oltg { flex: none; width: 14px; margin-inline-end: -2px; font-size: 12px; text-align: center; cursor: pointer; user-select: none; color: var(--muted, #999); }
+#olBody .olp .oltg { flex: none; width: 22px; margin-inline-end: -2px; font-size: 18px; line-height: 1; text-align: center; cursor: pointer; user-select: none; color: var(--muted, #999); }
 #olBody .olp .oltg:hover { color: var(--accent); }

@@ -1476,7 +1476,7 @@
     const first = r => { const m = String(r).match(/^(\d+)(?::(\d+))?/); return m ? { ch: +m[1], v: m[2] ? +m[2] : 1 } : null; };
     const mzOn = olMz() && ol.sections.some(x => x.items.some(i => i.mz));
     const anySub = ol.sections.some(x => x.items.some(i => i.sub));
-    const olRows = (list, lvl) => { let pb = null; return list.map(it => { const f = first(it.ref); const ih = (heUi || !it['text_' + L]) && /[\u0590-\u05FF]/.test(it.text); const meta = [T(it, 'speaker'), T(it, 'author'), T(it, 'kind'), T(it, 'place'), T(it, 'time'), T(it, 'par'), T(it, 'desc'), it.seg ? (L === 'he' ? 'סגולה: ' : L === 'de' ? 'Segula: ' : 'Segula: ') + T(it, 'seg') : ''].filter(Boolean).map(esc).join(' · '); const np = !lvl && window.__mapCount ? window.__mapCount(g.title, it.ref) : 0; const bk = lvl && it.blk ? T(it, 'blk') : null; const chip = bk && bk !== pb ? `<div class="olchip">${esc(bk.replace(/(\d)-(?=\d)/g, '$1–'))}</div>` : ''; if (bk) pb = bk; return chip + `<div class="olp olc${ih ? '' : ' lt'}${it.mz ? ' olmz' : ''}${lvl ? ' olsub olsub1' : ''}${it.orph ? ' olorph' : ''}${olIn(it.ref, cur, lv2 ? false : !olPlaying(g)) ? ' cur' : ''}" data-r="${esc(it.ref)}"${lv2 ? ` data-sec="${esc(it.ref)}"` : ''} data-ref="${esc(g.title + ' ' + (f ? f.ch + ':' + f.v : it.ref))}">${!lvl && anySub ? `<span class="oltg"${it.sub ? ` title="${esc(I18N.t('Unterpunkte'))}"` : ' style="visibility:hidden"'}>${it.sub ? '▸' : ''}</span>` : ''}<span class="ref">${esc(String(it.ref).replace(/-/g, '–'))}</span><span class="${ih ? 'he' : 'tx'}"${ih ? ' lang="he"' : ''}>${it.mz ? `<b class="mzn">${it.mz}</b> ` : ''}${esc(T(it, 'text'))}${meta ? `<small class="olm"${ih ? '' : ' style="direction:ltr"'}>${meta}</small>` : ''}</span>${np ? `<span class="olmap" data-n="${np}" title="${esc(I18N.t('Karte: Orte dieses Abschnitts'))}">🗺 ${np}</span>` : ''}</div>` + (it.sub ? `<div class="olsubs" hidden>${olRows(it.sub, lvl + 1)}</div>` : ''); }).join(''); };
+    const olRows = (list, lvl) => { let pb = null; return list.map(it => { const f = first(it.ref); const ih = (heUi || !it['text_' + L]) && /[\u0590-\u05FF]/.test(it.text); const meta = [T(it, 'speaker'), T(it, 'author'), T(it, 'kind'), T(it, 'place'), T(it, 'time'), T(it, 'par'), T(it, 'desc'), it.seg ? (L === 'he' ? 'סגולה: ' : L === 'de' ? 'Segula: ' : 'Segula: ') + T(it, 'seg') : ''].filter(Boolean).map(esc).join(' · '); const np = !lvl && window.__mapCount ? window.__mapCount(g.title, it.ref) : 0; const bk = lvl && it.blk ? T(it, 'blk') : null; const chip = bk && bk !== pb ? `<div class="olchip" data-blk="${esc(bk)}">${esc(bk.replace(/(\d)-(?=\d)/g, '$1–'))}</div>` : ''; if (bk) pb = bk; return chip + `<div class="olp olc${ih ? '' : ' lt'}${it.mz ? ' olmz' : ''}${lvl ? ' olsub olsub1' : ''}${it.orph ? ' olorph' : ''}${olIn(it.ref, cur, lv2 || lvl ? false : !olPlaying(g)) ? ' cur' : ''}" data-r="${esc(it.ref)}"${lv2 ? ` data-sec="${esc(it.ref)}"` : ''} data-ref="${esc(g.title + ' ' + (f ? f.ch + ':' + f.v : it.ref))}">${!lvl && anySub ? `<span class="oltg"${it.sub ? ` title="${esc(I18N.t('Unterpunkte'))}" role="button" tabindex="0" aria-expanded="false"` : ' style="visibility:hidden" aria-hidden="true"'}>${it.sub ? '▸' : ''}</span>` : ''}<span class="ref">${esc(String(it.ref).replace(/-/g, '–'))}</span><span class="${ih ? 'he' : 'tx'}"${ih ? ' lang="he"' : ''}>${it.mz ? `<b class="mzn">${it.mz}</b> ` : ''}${esc(T(it, 'text'))}${meta ? `<small class="olm"${ih ? '' : ' style="direction:ltr"'}>${meta}</small>` : ''}</span>${np ? `<span class="olmap" data-n="${np}" title="${esc(I18N.t('Karte: Orte dieses Abschnitts'))}">🗺 ${np}</span>` : ''}</div>` + (it.sub ? `<div class="olsubs" hidden>${olRows(it.sub, lvl + 1)}</div>` : ''); }).join(''); };
     return (T(ol, 'title') ? `<p class="${heUi ? 'he' : ''}" ${heUi ? 'lang="he"' : ''}><b>${esc(T(ol, 'title'))}</b></p>` : '') + ol.sections.filter(s => s.items.some(it => !!it.mz === mzOn)).map(s => {
       return `<details open><summary>${heUi ? `<span class="he" lang="he">${esc(s.head)}</span>` : `${esc(T(s, 'head'))} <small class="he" lang="he">${esc(s.head)}</small>`}</summary>${s.desc ? `<p class="he olnote" lang="he">${esc(s.desc)}</p>` : ''}${olRows(s.items.filter(it => !!it.mz === mzOn), 0)}</details>`;
     }).join('') + (T(ol, 'note') ? `<p class="muted olnote">${esc(T(ol, 'note'))}</p>` : '');
@@ -1511,31 +1511,42 @@
   function olPos(g, lv2) { if (lv2) return olSecPos(); const c = AU.cur; if (c && g && c.book === g.title) return { ch: c.ch, v: c.v }; return auChapterSafe(); }
   // liegt die Stelle (Kapitel, Vers) im ref der Gliederung? („1:27-2:5“, „4-5“, „3“, „15:32-37, 16:14-19“)
   const olPlaying = g => !!(AU.cur && g && AU.cur.book === g.title);
-  function olIn(ref, pos, wholeCh) { // wholeCh: alle Punkte, die das Kapitel berühren; sonst nur der Punkt mit dem Vers
-    if (!pos) return false;
-    return String(ref).split(',').some(part => {
-      const m = part.trim().match(/^(\d+)(?::(\d+))?(?:\s*[-–]\s*(\d+)(?::(\d+))?)?$/); if (!m) return false;
+  const olSpanCache = new Map(); // ref-Text → Liste von [von, bis] als Kapitel*10000+Vers (einmal geparst)
+  function olSpans(ref) {
+    ref = String(ref); let r = olSpanCache.get(ref); if (r) return r; r = [];
+    for (const part of ref.split(/[;,]/)) {
+      const m = part.trim().match(/^(\d+)(?::(\d+))?(?:\s*[-–]\s*(\d+)(?::(\d+))?)?$/); if (!m) continue;
       let a, b;
       if (m[2]) { a = [+m[1], +m[2]]; b = m[4] ? [+m[3], +m[4]] : m[3] ? [+m[1], +m[3]] : a; } else { a = [+m[1], 0]; b = [m[3] ? +m[3] : +m[1], 9999]; }
-      const lo = pos.ch * 10000 + (wholeCh ? 0 : pos.v), hi = pos.ch * 10000 + (wholeCh ? 9999 : pos.v);
-      return hi >= a[0] * 10000 + a[1] && lo <= b[0] * 10000 + b[1];
-    });
+      r.push([a[0] * 10000 + a[1], b[0] * 10000 + b[1]]);
+    }
+    olSpanCache.set(ref, r); return r;
   }
-  function olToggle(w, open) { w.hidden = !open; const t = w.previousElementSibling && w.previousElementSibling.querySelector('.oltg'); if (t) t.textContent = open ? '▾' : '▸'; }
+  function olIn(ref, pos, wholeCh) { // wholeCh: alle Punkte, die das Kapitel berühren; sonst nur der Punkt mit dem Vers
+    if (!pos) return false;
+    const lo = pos.ch * 10000 + (wholeCh ? 0 : pos.v), hi = pos.ch * 10000 + (wholeCh ? 9999 : pos.v);
+    return olSpans(ref).some(([x, y]) => hi >= x && lo <= y);
+  }
+  function olChips() { // gleiche Überschriftzeile nicht in direkt aufeinanderfolgenden, aufgeklappten Gruppen wiederholen
+    let last = null;
+    $$('#olBody .olsubs').forEach(w => { const cs = [...w.querySelectorAll(':scope > .olchip')]; cs.forEach(c => { c.hidden = false; }); if (w.hidden) return; if (cs[0] && cs[0].dataset.blk === last) cs[0].hidden = true; if (cs.length) last = cs[cs.length - 1].dataset.blk; });
+  }
+  function olToggle(w, open, silent) { w.hidden = !open; if (!silent) olChips(); const t = w.previousElementSibling && w.previousElementSibling.querySelector('.oltg'); if (t) { t.textContent = open ? '▾' : '▸'; t.setAttribute('aria-expanded', open ? 'true' : 'false'); } }
   function olMark(scroll) {
     const pnl = $('#outlinePanel'); if (!pnl || pnl.hidden) return;
     const g = view && view.group, ol = g && olOwnCache.get(g.title), lv2 = !!(ol && ol.levels === 2), pos = olPos(g, lv2), whole = !lv2 && !olPlaying(g); let first = null;
-    $$('#olBody .olc').forEach(el => { const on = olIn(el.dataset.r, pos, whole); el.classList.toggle('cur', on); if (on && !first) first = el; });
-    $$('#olBody .olc.cur').forEach(el => { const w = el.classList.contains('olsub') ? el.closest('.olsubs') : (el.nextElementSibling && el.nextElementSibling.classList.contains('olsubs') ? el.nextElementSibling : null); if (w && w.hidden) olToggle(w, true); });
-    if (first && (scroll || AU.cur)) first.scrollIntoView({ block: 'center' });
-    else if (first && lv2) olKeepVisible(first);
+    const tr = !lv2 && !olPlaying(g) ? olTopRow() : null, tv = tr && /^\d+$/.test(tr.dataset.l) ? +tr.dataset.l : null, vpos = pos && tv ? { ch: pos.ch, v: tv } : pos; // Unterpunkte: nur der Punkt mit dem Vers am oberen Rand
+    $$('#olBody .olc').forEach(el => { const sub = el.classList.contains('olsub'), on = olIn(el.dataset.r, sub ? vpos : pos, whole && !sub); el.classList.toggle('cur', on); if (on && !first) first = el; });
+    $$('#olBody .olc.cur').forEach(el => { const w = el.classList.contains('olsub') ? el.closest('.olsubs') : (el.nextElementSibling && el.nextElementSibling.classList.contains('olsubs') ? el.nextElementSibling : null); if (w && w.hidden) olToggle(w, true, true); });
+    olChips();
+    if (first) olKeepVisible(first, scroll); // nur das Gliederungs-Panel scrollen, nie das Lesefenster
   }
   // markierten Eintrag in der Gliederung sichtbar halten, ohne die Leseansicht zu verschieben
-  function olKeepVisible(el) {
+  function olKeepVisible(el, center) {
     let box = el.parentElement; while (box && box !== document.body && !(box.scrollHeight > box.clientHeight + 2 && /auto|scroll/.test(getComputedStyle(box).overflowY))) box = box.parentElement;
     if (!box || box === document.body) return;
     const r = el.getBoundingClientRect(), b = box.getBoundingClientRect();
-    if (r.top < b.top || r.bottom > b.bottom) box.scrollTop += r.top - b.top - (b.height - r.height) / 2;
+    if (center || r.top < b.top || r.bottom > b.bottom) box.scrollTop += r.top - b.top - (b.height - r.height) / 2;
   }
   // beim Lesen (Scrollen) die Markierung in Buch:Kapitel-Gliederungen mitführen
   { let olScrollT = null, olLastPos = '';
@@ -1543,8 +1554,8 @@
       if ($('#outlinePanel').hidden) return;
       clearTimeout(olScrollT);
       olScrollT = setTimeout(() => {
-        const g = view && view.group, ol = g && olOwnCache.get(g.title); if (!ol || ol.levels !== 2) return;
-        const p = olSecPos(), k = p ? p.ch + ':' + p.v : ''; if (k === olLastPos) return; olLastPos = k; olMark(false);
+        const g = view && view.group, ol = g && olOwnCache.get(g.title); if (!ol) return;
+        let k; if (ol.levels === 2) { const p = olSecPos(); k = p ? p.ch + ':' + p.v : ''; } else { const r = olTopRow(); k = (view.idx) + '|' + (r ? r.dataset.l : ''); } if (k === olLastPos) return; olLastPos = k; olMark(false);
       }, 120);
     }, { passive: true });
   }
@@ -1559,6 +1570,7 @@
   const olSetMz = on => { try { localStorage.setItem('olMz', on ? '1' : '0'); } catch { /* ohne Speicher */ } renderOutline(); };
   $('#olTabT').onclick = () => olSetMz(false); $('#olTabM').onclick = () => olSetMz(true);
   $('#mapOl').onclick = () => { $('#mapPanel').hidden = true; $('#olBtn').click(); };
+  $('#olBody').addEventListener('keydown', e => { if ((e.key === 'Enter' || e.key === ' ') && e.target.closest && e.target.closest('.oltg, .olp')) { e.preventDefault(); e.target.click(); } });
   $('#olBody').addEventListener('click', e => {
     const mp = e.target.closest('.olmap'); if (mp) { const q = mp.closest('.olp'); e.stopPropagation(); window.__olLast = q.dataset.r; window.__mapOpenFor && window.__mapOpenFor(view.group.title, q.dataset.r, q.querySelector('.ref').textContent + ' ' + (q.querySelector('.tx, .he')?.firstChild?.textContent || '')); return; }
     const tg = e.target.closest('.oltg'); if (tg) { const w = tg.closest('.olp').nextElementSibling; if (w && w.classList.contains('olsubs')) { e.stopPropagation(); olToggle(w, w.hidden); } return; }
@@ -2183,6 +2195,7 @@
     if (!$('#cmtPanel').hidden) roots.push($('#cmtBody')); // auch der Kommentar-Bereich wird durchsucht
     if (!$('#dictPanel').hidden) roots.push($('#dictOut')); // ebenso die Wörterbuch-Treffer
     if (!$('#outlinePanel').hidden) roots.push($('#olBody')); // und die geöffnete Gliederung
+    if (!$('#outlinePanel').hidden) $$('#olBody .olsubs[hidden]').forEach(w => { if (normF(w.textContent).includes(q)) olToggle(w, true, true); }); olChips(); // zugeklappte Unterpunkte mit Treffer aufklappen
     const ranges = [];
     // Textknoten je Absatz/Zelle sammeln und zusammenhängend durchsuchen, damit auch Wortfolgen über mehrere
     // Wort-Elemente hinweg gefunden werden (Westminster-Text: jedes Wort steckt in einem eigenen <span class="w">)
@@ -2229,7 +2242,19 @@
     }
     fRanges = ranges;
     hl('find', ranges);
-    if (ranges.length) goFind(keepIdx && prevIdx >= 0 ? Math.min(prevIdx, ranges.length - 1) : 0, !keepIdx); else $('#findCount').textContent = 'keine Treffer';
+    if (ranges.length) goFind(keepIdx && prevIdx >= 0 ? Math.min(prevIdx, ranges.length - 1) : 0, !keepIdx); else $('#findCount').textContent = I18N.t('keine Treffer');
+  }
+  // Treffer in der Gliederung: der größte markierte Hauptpunkt steht oben, solange der Treffer darunter noch sichtbar ist
+  function olScrollHit(el) {
+    const hit = el.closest('.olp') || el; let sc = hit.parentElement;
+    while (sc && !(sc.scrollHeight > sc.clientHeight + 2 && /(auto|scroll)/.test(getComputedStyle(sc).overflowY))) sc = sc.parentElement;
+    if (!sc) { hit.scrollIntoView({ block: 'center' }); return; }
+    const top = n => n.getBoundingClientRect().top, st = top(sc);
+    const owner = hit.classList.contains('olsub') ? (hit.closest('.olsubs') || {}).previousElementSibling || hit : hit;
+    let anchor = $('#olBody .olp.cur:not(.olsub)') || owner;
+    const dy = top(hit) - top(anchor);
+    if (dy < 0 || dy > sc.clientHeight - 100) anchor = owner; // Treffer läge sonst außerhalb: Hauptpunkt des Treffers nach oben
+    const hd = sc.querySelector('.lhead'); sc.scrollTop += top(anchor) - st - (hd ? hd.offsetHeight + 12 : 8); // unter die feste Kopfzeile
   }
   function goFind(i, scroll = true) {
     if (!fRanges.length) return;
@@ -2237,7 +2262,8 @@
     const r = fRanges[fIdx];
     hl('find-active', [r]);
     const el = r.startContainer.parentElement;
-    if (el && scroll) el.scrollIntoView({ block: 'center', inline: 'nearest' });
+    if (el && scroll && el.closest('#olBody')) olScrollHit(el);
+    else if (el && scroll) el.scrollIntoView({ block: 'center', inline: 'nearest' });
     $('#findCount').textContent = `${fIdx + 1} / ${fRanges.length}`;
   }
   const stepFind = fwd => {
