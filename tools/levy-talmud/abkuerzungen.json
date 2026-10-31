@@ -1,0 +1,658 @@
+{
+ "titel": "Abkürzungen zu Levy, Neuhebräisches und Chaldäisches Wörterbuch",
+ "quelle": "Abkürzungsverzeichnis in Levys Wörterbuch (Leipzig 1876–1889), abgeschrieben von der Verzeichnisseite",
+ "hinweis": "quelle=\"levy\": im Verzeichnis bei Levy; quelle=\"ergaenzt\": nicht bei Levy, nachträglich ergänzt und noch zu prüfen. tooltip=false: wird in der Wörterbuchseite nicht bei jedem Vorkommen markiert.",
+ "eintraege": [
+  {
+   "abk": "Ab. sar.",
+   "aufloesung": "Aboda sara",
+   "kategorie": "Traktat",
+   "quelle": "levy",
+   "tooltip": true
+  },
+  {
+   "abk": "Ag.",
+   "aufloesung": "Ausgabe",
+   "kategorie": "Ausgabe/Handschrift",
+   "quelle": "levy",
+   "tooltip": true
+  },
+  {
+   "abk": "Agg.",
+   "aufloesung": "Ausgaben",
+   "kategorie": "Ausgabe/Handschrift",
+   "quelle": "levy",
+   "tooltip": true
+  },
+  {
+   "abk": "Ar.",
+   "aufloesung": "Aruch",
+   "kategorie": "Werk",
+   "quelle": "levy",
+   "tooltip": true
+  },
+  {
+   "abk": "B. bath.",
+   "aufloesung": "Baba bathra",
+   "kategorie": "Traktat",
+   "quelle": "levy",
+   "tooltip": true
+  },
+  {
+   "abk": "B. kam.",
+   "aufloesung": "Baba kamma",
+   "kategorie": "Traktat",
+   "quelle": "levy",
+   "tooltip": true
+  },
+  {
+   "abk": "B. mez.",
+   "aufloesung": "Baba mezia",
+   "kategorie": "Traktat",
+   "quelle": "levy",
+   "tooltip": true
+  },
+  {
+   "abk": "Bech.",
+   "aufloesung": "Bechoroth",
+   "kategorie": "Traktat",
+   "quelle": "levy",
+   "tooltip": true
+  },
+  {
+   "abk": "Ber.",
+   "aufloesung": "Berachoth",
+   "kategorie": "Traktat",
+   "quelle": "levy",
+   "tooltip": true
+  },
+  {
+   "abk": "bh.",
+   "aufloesung": "biblisch-hebräisch",
+   "kategorie": "Sprache",
+   "quelle": "levy",
+   "tooltip": true
+  },
+  {
+   "abk": "Bic.",
+   "aufloesung": "Biccurim",
+   "kategorie": "Traktat",
+   "quelle": "levy",
+   "tooltip": true
+  },
+  {
+   "abk": "ch.",
+   "aufloesung": "chaldäisch",
+   "kategorie": "Sprache",
+   "quelle": "levy",
+   "tooltip": true
+  },
+  {
+   "abk": "Chag.",
+   "aufloesung": "Chagiga",
+   "kategorie": "Traktat",
+   "quelle": "levy",
+   "tooltip": true
+  },
+  {
+   "abk": "Chal.",
+   "aufloesung": "Challa",
+   "kategorie": "Traktat",
+   "quelle": "levy",
+   "tooltip": true
+  },
+  {
+   "abk": "Chull.",
+   "aufloesung": "Chullin",
+   "kategorie": "Traktat",
+   "quelle": "levy",
+   "tooltip": true
+  },
+  {
+   "abk": "das.",
+   "aufloesung": "daselbst",
+   "kategorie": "Verweis",
+   "quelle": "levy",
+   "tooltip": true
+  },
+  {
+   "abk": "dass.",
+   "aufloesung": "dasselbe",
+   "kategorie": "Verweis",
+   "quelle": "levy",
+   "tooltip": true
+  },
+  {
+   "abk": "Dem.",
+   "aufloesung": "Demai",
+   "kategorie": "Traktat",
+   "quelle": "levy",
+   "tooltip": true
+  },
+  {
+   "abk": "Eduj.",
+   "aufloesung": "Edujoth",
+   "kategorie": "Traktat",
+   "quelle": "levy",
+   "tooltip": true
+  },
+  {
+   "abk": "Erub.",
+   "aufloesung": "Erubin",
+   "kategorie": "Traktat",
+   "quelle": "levy",
+   "tooltip": true
+  },
+  {
+   "abk": "Git.",
+   "aufloesung": "Gittin",
+   "kategorie": "Traktat",
+   "quelle": "levy",
+   "tooltip": true
+  },
+  {
+   "abk": "Horaj.",
+   "aufloesung": "Horajoth",
+   "kategorie": "Traktat",
+   "quelle": "levy",
+   "tooltip": true
+  },
+  {
+   "abk": "j.",
+   "aufloesung": "jerusalemisch",
+   "kategorie": "Sonstiges",
+   "quelle": "levy",
+   "tooltip": true
+  },
+  {
+   "abk": "Jeb.",
+   "aufloesung": "Jebamoth",
+   "kategorie": "Traktat",
+   "quelle": "levy",
+   "tooltip": true
+  },
+  {
+   "abk": "Kel.",
+   "aufloesung": "Kelim",
+   "kategorie": "Traktat",
+   "quelle": "levy",
+   "tooltip": true
+  },
+  {
+   "abk": "Ker.",
+   "aufloesung": "Kerithoth",
+   "kategorie": "Traktat",
+   "quelle": "levy",
+   "tooltip": true
+  },
+  {
+   "abk": "Keth.",
+   "aufloesung": "Kethuboth",
+   "kategorie": "Traktat",
+   "quelle": "levy",
+   "tooltip": true
+  },
+  {
+   "abk": "Kidd.",
+   "aufloesung": "Kidduschin",
+   "kategorie": "Traktat",
+   "quelle": "levy",
+   "tooltip": true
+  },
+  {
+   "abk": "Kil.",
+   "aufloesung": "Kilajim",
+   "kategorie": "Traktat",
+   "quelle": "levy",
+   "tooltip": true
+  },
+  {
+   "abk": "M. kat.",
+   "aufloesung": "Moëd katan",
+   "kategorie": "Traktat",
+   "quelle": "levy",
+   "tooltip": true
+  },
+  {
+   "abk": "Maasr.",
+   "aufloesung": "Maasroth",
+   "kategorie": "Traktat",
+   "quelle": "levy",
+   "tooltip": true
+  },
+  {
+   "abk": "Mac.",
+   "aufloesung": "Maccoth",
+   "kategorie": "Traktat",
+   "quelle": "levy",
+   "tooltip": true
+  },
+  {
+   "abk": "Mechil.",
+   "aufloesung": "Mechilta",
+   "kategorie": "Werk",
+   "quelle": "levy",
+   "tooltip": true
+  },
+  {
+   "abk": "Meg.",
+   "aufloesung": "Megilla",
+   "kategorie": "Traktat",
+   "quelle": "levy",
+   "tooltip": true
+  },
+  {
+   "abk": "Midd.",
+   "aufloesung": "Middoth",
+   "kategorie": "Traktat",
+   "quelle": "levy",
+   "tooltip": true
+  },
+  {
+   "abk": "Ms. M.",
+   "aufloesung": "Manuscript München",
+   "kategorie": "Ausgabe/Handschrift",
+   "quelle": "levy",
+   "tooltip": true
+  },
+  {
+   "abk": "N. a.",
+   "aufloesung": "Nomen actionis",
+   "kategorie": "Sprache",
+   "quelle": "levy",
+   "tooltip": true
+  },
+  {
+   "abk": "Ned.",
+   "aufloesung": "Nedarim",
+   "kategorie": "Traktat",
+   "quelle": "levy",
+   "tooltip": true
+  },
+  {
+   "abk": "nh.",
+   "aufloesung": "neuhebräisch",
+   "kategorie": "Sprache",
+   "quelle": "levy",
+   "tooltip": true
+  },
+  {
+   "abk": "Nid.",
+   "aufloesung": "Nidda",
+   "kategorie": "Traktat",
+   "quelle": "levy",
+   "tooltip": true
+  },
+  {
+   "abk": "Pes.",
+   "aufloesung": "Pesachim",
+   "kategorie": "Traktat",
+   "quelle": "levy",
+   "tooltip": true
+  },
+  {
+   "abk": "Pesik.",
+   "aufloesung": "Pesikta",
+   "kategorie": "Werk",
+   "quelle": "levy",
+   "tooltip": true
+  },
+  {
+   "abk": "r.",
+   "aufloesung": "rabba",
+   "kategorie": "Werk",
+   "quelle": "levy",
+   "tooltip": true
+  },
+  {
+   "abk": "R.",
+   "aufloesung": "Rab oder Rabbi (Titel)",
+   "kategorie": "Sonstiges",
+   "quelle": "levy",
+   "tooltip": false
+  },
+  {
+   "abk": "R. hasch.",
+   "aufloesung": "Rosch haschana",
+   "kategorie": "Traktat",
+   "quelle": "levy",
+   "tooltip": true
+  },
+  {
+   "abk": "s.",
+   "aufloesung": "sectio (eines Midrasch) / siehe",
+   "kategorie": "Verweis",
+   "quelle": "levy",
+   "tooltip": false
+  },
+  {
+   "abk": "Sab.",
+   "aufloesung": "Sabim",
+   "kategorie": "Traktat",
+   "quelle": "levy",
+   "tooltip": true
+  },
+  {
+   "abk": "Schabb.",
+   "aufloesung": "Schabbath",
+   "kategorie": "Traktat",
+   "quelle": "levy",
+   "tooltip": true
+  },
+  {
+   "abk": "Schebi.",
+   "aufloesung": "Schebiith",
+   "kategorie": "Traktat",
+   "quelle": "levy",
+   "tooltip": true
+  },
+  {
+   "abk": "Schebu.",
+   "aufloesung": "Schebuoth",
+   "kategorie": "Traktat",
+   "quelle": "levy",
+   "tooltip": true
+  },
+  {
+   "abk": "Schek.",
+   "aufloesung": "Schekalim",
+   "kategorie": "Traktat",
+   "quelle": "levy",
+   "tooltip": true
+  },
+  {
+   "abk": "Seb.",
+   "aufloesung": "Sebachim",
+   "kategorie": "Traktat",
+   "quelle": "levy",
+   "tooltip": true
+  },
+  {
+   "abk": "Snh.",
+   "aufloesung": "Sanhedrin",
+   "kategorie": "Traktat",
+   "quelle": "levy",
+   "tooltip": true
+  },
+  {
+   "abk": "Suc.",
+   "aufloesung": "Succa",
+   "kategorie": "Traktat",
+   "quelle": "levy",
+   "tooltip": true
+  },
+  {
+   "abk": "Taan.",
+   "aufloesung": "Taanith",
+   "kategorie": "Traktat",
+   "quelle": "levy",
+   "tooltip": true
+  },
+  {
+   "abk": "Tam.",
+   "aufloesung": "Tamid",
+   "kategorie": "Traktat",
+   "quelle": "levy",
+   "tooltip": true
+  },
+  {
+   "abk": "Ter.",
+   "aufloesung": "Teruma",
+   "kategorie": "Traktat",
+   "quelle": "levy",
+   "tooltip": true
+  },
+  {
+   "abk": "Thr.",
+   "aufloesung": "Threni",
+   "kategorie": "Werk",
+   "quelle": "levy",
+   "tooltip": true
+  },
+  {
+   "abk": "Tohar.",
+   "aufloesung": "Toharoth",
+   "kategorie": "Traktat",
+   "quelle": "levy",
+   "tooltip": true
+  },
+  {
+   "abk": "Tosaf.",
+   "aufloesung": "Tosafoth",
+   "kategorie": "Werk",
+   "quelle": "levy",
+   "tooltip": true
+  },
+  {
+   "abk": "Tosef.",
+   "aufloesung": "Tosefta",
+   "kategorie": "Werk",
+   "quelle": "levy",
+   "tooltip": true
+  },
+  {
+   "abk": "TW.",
+   "aufloesung": "Targumisches Wörterbuch",
+   "kategorie": "Werk",
+   "quelle": "levy",
+   "tooltip": true
+  },
+  {
+   "abk": "s. d. W.",
+   "aufloesung": "siehe dieses Wort",
+   "kategorie": "Verweis",
+   "quelle": "ergaenzt",
+   "tooltip": true
+  },
+  {
+   "abk": "vgl.",
+   "aufloesung": "vergleiche",
+   "kategorie": "Verweis",
+   "quelle": "ergaenzt",
+   "tooltip": true
+  },
+  {
+   "abk": "u. m. a.",
+   "aufloesung": "und mehrere andere",
+   "kategorie": "Sonstiges",
+   "quelle": "ergaenzt",
+   "tooltip": true
+  },
+  {
+   "abk": "u. zw.",
+   "aufloesung": "und zwar",
+   "kategorie": "Sonstiges",
+   "quelle": "ergaenzt",
+   "tooltip": true
+  },
+  {
+   "abk": "z. B.",
+   "aufloesung": "zum Beispiel",
+   "kategorie": "Sonstiges",
+   "quelle": "ergaenzt",
+   "tooltip": true
+  },
+  {
+   "abk": "d. h.",
+   "aufloesung": "das heißt",
+   "kategorie": "Sonstiges",
+   "quelle": "ergaenzt",
+   "tooltip": true
+  },
+  {
+   "abk": "u. s. w.",
+   "aufloesung": "und so weiter",
+   "kategorie": "Sonstiges",
+   "quelle": "ergaenzt",
+   "tooltip": true
+  },
+  {
+   "abk": "zuw.",
+   "aufloesung": "zuweilen",
+   "kategorie": "Sonstiges",
+   "quelle": "ergaenzt",
+   "tooltip": true
+  },
+  {
+   "abk": "gew.",
+   "aufloesung": "gewöhnlich",
+   "kategorie": "Sonstiges",
+   "quelle": "ergaenzt",
+   "tooltip": true
+  },
+  {
+   "abk": "übrtr.",
+   "aufloesung": "übertragen",
+   "kategorie": "Sonstiges",
+   "quelle": "ergaenzt",
+   "tooltip": true
+  },
+  {
+   "abk": "Uebrtr.",
+   "aufloesung": "übertragen",
+   "kategorie": "Sonstiges",
+   "quelle": "ergaenzt",
+   "tooltip": true
+  },
+  {
+   "abk": "Uebertr.",
+   "aufloesung": "übertragen",
+   "kategorie": "Sonstiges",
+   "quelle": "ergaenzt",
+   "tooltip": true
+  },
+  {
+   "abk": "Pl.",
+   "aufloesung": "Plural",
+   "kategorie": "Grammatik",
+   "quelle": "ergaenzt",
+   "tooltip": true
+  },
+  {
+   "abk": "St. c.",
+   "aufloesung": "status constructus",
+   "kategorie": "Grammatik",
+   "quelle": "ergaenzt",
+   "tooltip": true
+  },
+  {
+   "abk": "ob.",
+   "aufloesung": "oben (auf der Seite)",
+   "kategorie": "Verweis",
+   "quelle": "ergaenzt",
+   "tooltip": true
+  },
+  {
+   "abk": "un.",
+   "aufloesung": "unten (auf der Seite)",
+   "kategorie": "Verweis",
+   "quelle": "ergaenzt",
+   "tooltip": true
+  },
+  {
+   "abk": "wahrsch.",
+   "aufloesung": "wahrscheinlich",
+   "kategorie": "Sonstiges",
+   "quelle": "ergaenzt",
+   "tooltip": true
+  },
+  {
+   "abk": "viell.",
+   "aufloesung": "vielleicht",
+   "kategorie": "Sonstiges",
+   "quelle": "ergaenzt",
+   "tooltip": true
+  },
+  {
+   "abk": "näml.",
+   "aufloesung": "nämlich",
+   "kategorie": "Sonstiges",
+   "quelle": "ergaenzt",
+   "tooltip": true
+  },
+  {
+   "abk": "Ggs.",
+   "aufloesung": "Gegensatz",
+   "kategorie": "Sonstiges",
+   "quelle": "ergaenzt",
+   "tooltip": true
+  },
+  {
+   "abk": "eig.",
+   "aufloesung": "eigentlich",
+   "kategorie": "Sonstiges",
+   "quelle": "ergaenzt",
+   "tooltip": true
+  },
+  {
+   "abk": "namentl.",
+   "aufloesung": "namentlich",
+   "kategorie": "Sonstiges",
+   "quelle": "ergaenzt",
+   "tooltip": true
+  },
+  {
+   "abk": "ungef.",
+   "aufloesung": "ungefähr",
+   "kategorie": "Sonstiges",
+   "quelle": "ergaenzt",
+   "tooltip": true
+  },
+  {
+   "abk": "syr.",
+   "aufloesung": "syrisch",
+   "kategorie": "Sprache",
+   "quelle": "ergaenzt",
+   "tooltip": true
+  },
+  {
+   "abk": "gr.",
+   "aufloesung": "griechisch",
+   "kategorie": "Sprache",
+   "quelle": "ergaenzt",
+   "tooltip": true
+  },
+  {
+   "abk": "sv.",
+   "aufloesung": "sub voce",
+   "kategorie": "Verweis",
+   "quelle": "ergaenzt",
+   "tooltip": true
+  },
+  {
+   "abk": "N. pr.",
+   "aufloesung": "nomen proprium (Eigenname)",
+   "kategorie": "Grammatik",
+   "quelle": "ergaenzt",
+   "tooltip": true
+  },
+  {
+   "abk": "LA.",
+   "aufloesung": "Lesart",
+   "kategorie": "Ausgabe/Handschrift",
+   "quelle": "ergaenzt",
+   "tooltip": true
+  },
+  {
+   "abk": "ed. pr.",
+   "aufloesung": "editio princeps (Erstdruck)",
+   "kategorie": "Ausgabe/Handschrift",
+   "quelle": "ergaenzt",
+   "tooltip": true
+  },
+  {
+   "abk": "Ms.",
+   "aufloesung": "Manuskript",
+   "kategorie": "Ausgabe/Handschrift",
+   "quelle": "ergaenzt",
+   "tooltip": true
+  },
+  {
+   "abk": "Musaf.",
+   "aufloesung": "Musaf he-Aruch (Benjamin Musafia)",
+   "kategorie": "Werk",
+   "quelle": "ergaenzt",
+   "tooltip": true
+  }
+ ]
+}
