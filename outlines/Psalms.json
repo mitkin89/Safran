@@ -1,7 +1,7 @@
 {
  "book": "Psalms",
  "title": "תוכן ספר תהלים",
- "note": "Abgeschrieben aus einer Übersichtstabelle (SifreiKodesh).",
+ "note": "Abgeschrieben aus einer Übersichtstabelle (SifreiKodesh). · הורחב בחלוקת דעת מקרא (פסקאות עם מראי מקום).",
  "sections": [
   {
    "head": "ספר ראשון",
@@ -16,7 +16,24 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "gegen Fehlgeburt",
-     "seg_en": "against miscarriage"
+     "seg_en": "against miscarriage",
+     "sub": [
+      {
+       "ref": "1:1-2",
+       "text": "מדבר על ההבדל בין מעשי הצדיקים למעשי הרשעים",
+       "text_de": "Handelt vom Unterschied zwischen den Taten der Gerechten und der Frevler"
+      },
+      {
+       "ref": "1:3-4",
+       "text": "מתאר הנגוד בין צדיק לרשע במשל של עץ כנגד מץ",
+       "text_de": "Schildert den Gegensatz zwischen Gerechtem und Frevler im Gleichnis vom Baum und der Spreu"
+      },
+      {
+       "ref": "1:5-6",
+       "text": "מדבר על גמולם של הצדיקים והרשעים",
+       "text_de": "Handelt vom Lohn der Gerechten und der Frevler"
+      }
+     ]
     },
     {
      "ref": "2",
@@ -28,7 +45,29 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "bei Seesturm",
-     "seg_en": "for a storm at sea"
+     "seg_en": "for a storm at sea",
+     "sub": [
+      {
+       "ref": "2:1-3",
+       "text": "מדברים הגויים כנגד ה' ומשיחו",
+       "text_de": "Die Völker reden gegen den HERRN und seinen Gesalbten"
+      },
+      {
+       "ref": "2:4-6",
+       "text": "מדבר ה' אל הגוים",
+       "text_de": "Der HERR spricht zu den Völkern"
+      },
+      {
+       "ref": "2:7-9",
+       "text": "מדבר המלך ומספר את דברי ה' אליו",
+       "text_de": "Der König spricht und berichtet die Worte des HERRN an ihn"
+      },
+      {
+       "ref": "2:10-12",
+       "text": "מדבר המלך (או המשורר) אל הגויים",
+       "text_de": "Der König (oder der Dichter) spricht zu den Völkern"
+      }
+     ]
     },
     {
      "ref": "3",
@@ -43,7 +82,24 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "bei Kopf- und Schulterschmerzen",
-     "seg_en": "for headache and shoulder pain"
+     "seg_en": "for headache and shoulder pain",
+     "sub": [
+      {
+       "ref": "3:2-3",
+       "text": "תאור הצרה",
+       "text_de": "Schilderung der Not"
+      },
+      {
+       "ref": "3:4-7",
+       "text": "תאור הבטחון בה'",
+       "text_de": "Schilderung des Vertrauens auf den HERRN"
+      },
+      {
+       "ref": "3:8-9",
+       "text": "הבקשה לה'",
+       "text_de": "Die Bitte an den HERRN"
+      }
+     ]
     },
     {
      "ref": "4",
@@ -55,7 +111,24 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "für Erfolg in allem, für den, der bei der Obrigkeit etwas erbittet",
-     "seg_en": "for success in everything, for one who seeks something from the authorities"
+     "seg_en": "for success in everything, for one who seeks something from the authorities",
+     "sub": [
+      {
+       "ref": "4:2",
+       "text": "פונה המשורר אל ה'",
+       "text_de": "Der Dichter wendet sich an den HERRN"
+      },
+      {
+       "ref": "4:3-6",
+       "text": "פונה המשורר אל 'בני איש'",
+       "text_de": "Der Dichter wendet sich an die „Menschenkinder“"
+      },
+      {
+       "ref": "4:7-9",
+       "text": "פונה המשורר שוב אל ה' וכל הפניות בלשון נוכח",
+       "text_de": "Der Dichter wendet sich erneut an den HERRN; alle Anreden stehen in der zweiten Person"
+      }
+     ]
     },
     {
      "ref": "5",
@@ -67,7 +140,24 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "gegen einen bösen Geist, um Gunst bei der Obrigkeit zu finden",
-     "seg_en": "against an evil spirit, to find favor with the authorities"
+     "seg_en": "against an evil spirit, to find favor with the authorities",
+     "sub": [
+      {
+       "ref": "5:2-4",
+       "text": "פתיחה בקבלת ה' למלך ולאלהים ובקשה שהתפלה תקבל",
+       "text_de": "Einleitung: Anrufung des HERRN als König und Gott und Bitte um Erhörung des Gebets"
+      },
+      {
+       "ref": "5:5-8",
+       "text": "שבח לה', המרחיק מעליו את הרשעים ומקרב אליו את יראיו",
+       "text_de": "Lob des HERRN, der die Frevler von sich fernhält und seine Gottesfürchtigen in seine Nähe bringt"
+      },
+      {
+       "ref": "5:9-13",
+       "text": "גוף הבקשה",
+       "text_de": "Hauptteil der Bitte"
+      }
+     ]
     },
     {
      "ref": "6",
@@ -79,7 +169,24 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "bei Augenleiden",
-     "seg_en": "for eye ailments"
+     "seg_en": "for eye ailments",
+     "sub": [
+      {
+       "ref": "6:2-6",
+       "text": "המתפלל פונה אל ה' בלשון נוכח",
+       "text_de": "Der Betende wendet sich in der zweiten Person an den HERRN"
+      },
+      {
+       "ref": "6:7-8",
+       "text": "הוא מתאר את אנחתו ובכיו בלי לפרש אל מי הוא מדבר",
+       "text_de": "Er schildert sein Seufzen und Weinen, ohne zu sagen, zu wem er spricht"
+      },
+      {
+       "ref": "6:9-11",
+       "text": "מדבר כנגד אויביו",
+       "text_de": "Rede gegen seine Feinde"
+      }
+     ]
     },
     {
      "ref": "7",
@@ -94,7 +201,44 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "um Feinde zu vertreiben, um im Rechtsstreit gerettet zu werden",
-     "seg_en": "to drive away enemies, to be saved in a lawsuit"
+     "seg_en": "to drive away enemies, to be saved in a lawsuit",
+     "sub": [
+      {
+       "ref": "7:2-3",
+       "text": "פניה לה' בבקשת הצלה",
+       "text_de": "Anrufung des HERRN mit der Bitte um Rettung"
+      },
+      {
+       "ref": "7:4-6",
+       "text": "שבועה שלא עשה את הרע שאויביו טופלים עליו",
+       "text_de": "Schwur, dass er das Böse nicht getan hat, das seine Feinde ihm anhängen"
+      },
+      {
+       "ref": "7:7-8",
+       "text": "קריאה לה' לקום כנגד אויביו בסגנון תפלת משה בנסוע הארון",
+       "text_de": "Aufruf an den HERRN, sich gegen seine Feinde zu erheben, im Stil des Gebets des Mose beim Aufbruch der Lade"
+      },
+      {
+       "ref": "7:9-10",
+       "text": "קריאה לה' שיוציא לאור צדקו",
+       "text_de": "Aufruf an den HERRN, seine Gerechtigkeit ans Licht zu bringen"
+      },
+      {
+       "ref": "7:11-14",
+       "text": "הבעת בטחון בצדקת משפטו של ה'",
+       "text_de": "Ausdruck des Vertrauens in die Gerechtigkeit des Gerichts des HERRN"
+      },
+      {
+       "ref": "7:15-17",
+       "text": "בטחון, שהרשע יפל ברשעו",
+       "text_de": "Zuversicht, dass der Frevler durch seine Bosheit zu Fall kommt"
+      },
+      {
+       "ref": "7:18",
+       "text": "קבלה להודות לה' על התשועה",
+       "text_de": "Gelübde, dem HERRN für die Rettung zu danken"
+      }
+     ]
     },
     {
      "ref": "8",
@@ -106,7 +250,29 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "um Gunst zu finden, für ein weinendes Kind",
-     "seg_en": "to find favor, for a crying child"
+     "seg_en": "to find favor, for a crying child",
+     "sub": [
+      {
+       "ref": "8:2-3",
+       "text": "גדלת ה' מתגלה בכל והרשעים עתידים להשמד",
+       "text_de": "Die Größe des HERRN offenbart sich in allem, und die Frevler werden dereinst vernichtet"
+      },
+      {
+       "ref": "8:4-5",
+       "text": "אפסות האדם מול השמים וכוכביהם",
+       "text_de": "Die Nichtigkeit des Menschen angesichts des Himmels und seiner Sterne"
+      },
+      {
+       "ref": "8:6-9",
+       "text": "גדלתו של האדם ושלטונו בעולם",
+       "text_de": "Die Größe des Menschen und seine Herrschaft über die Welt"
+      },
+      {
+       "ref": "8:10",
+       "text": "סיום מעין הפתיחה בשבח ה'",
+       "text_de": "Schluss, gleichsam eine Wiederaufnahme der Einleitung im Lobpreis des HERRN"
+      }
+     ]
     },
     {
      "ref": "9",
@@ -133,7 +299,24 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "für den, in den ein Dämon gefahren ist",
-     "seg_en": "for one possessed by a demon"
+     "seg_en": "for one possessed by a demon",
+     "sub": [
+      {
+       "ref": "10:1",
+       "text": "פתיחה בשאלת-תלונה",
+       "text_de": "Einleitung mit einer klagenden Frage"
+      },
+      {
+       "ref": "10:2-11",
+       "text": "מחשבות הרשע ומעשיו",
+       "text_de": "Die Gedanken und Taten des Frevlers"
+      },
+      {
+       "ref": "10:12-18",
+       "text": "תפלה לאבדן הרשע ולגלויי מלכות שמים",
+       "text_de": "Gebet um den Untergang des Frevlers und um die Offenbarung der Königsherrschaft Gottes"
+      }
+     ]
     },
     {
      "ref": "11",
@@ -148,7 +331,19 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "gegen Geister, böse Menschen und Gefahren",
-     "seg_en": "against spirits, evil people and dangers"
+     "seg_en": "against spirits, evil people and dangers",
+     "sub": [
+      {
+       "ref": "11:1-3",
+       "text": "צטוט דברי היועצים למשורר לברח, מן 'איך תאמרו לנפשי' עד 'צדיק מה פעל'. חלק זה פותח בשאלה ('איך') ומסים בשאלה ('מה').",
+       "text_de": "Zitat der Worte der Ratgeber an den Dichter, er solle fliehen, von „Wie könnt ihr zu meiner Seele sagen“ bis „was hat der Gerechte getan“. Dieser Teil beginnt mit einer Frage („Wie“) und endet mit einer Frage („was“)."
+      },
+      {
+       "ref": "11:4-7",
+       "text": "באור העקרים של ההשגחה והגמול. חלק זה פותח 'עיניו יחזו' ומסים 'יחזו פנימו'.",
+       "text_de": "Erläuterung der Grundsätze von Vorsehung und Vergeltung. Dieser Teil beginnt mit „Seine Augen schauen“ und endet mit „sie schauen sein Angesicht“."
+      }
+     ]
     },
     {
      "ref": "12",
@@ -172,7 +367,24 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "um vor unnatürlichem Tod und Unheil bewahrt zu werden, bei Augenleiden",
-     "seg_en": "to be saved from an unnatural death and calamities, for eye ailments"
+     "seg_en": "to be saved from an unnatural death and calamities, for eye ailments",
+     "sub": [
+      {
+       "ref": "13:2-3",
+       "text": "זעקת התלונה",
+       "text_de": "Klageruf"
+      },
+      {
+       "ref": "13:4-5",
+       "text": "הבקשה והתחנה",
+       "text_de": "Bitte und Flehen"
+      },
+      {
+       "ref": "13:6",
+       "text": "התקוה והבטחון",
+       "text_de": "Hoffnung und Vertrauen"
+      }
+     ]
     },
     {
      "ref": "14",
@@ -187,7 +399,24 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "damit man nichts Übles über ihn rede",
-     "seg_en": "that no slander be spoken about him"
+     "seg_en": "that no slander be spoken about him",
+     "sub": [
+      {
+       "ref": "14:1-3",
+       "text": "התלונה על השחתת המדות",
+       "text_de": "Klage über den Verfall der Sitten"
+      },
+      {
+       "ref": "14:4-6",
+       "text": "תוכחה לרשעים על דבר הענש הצפוי להם",
+       "text_de": "Mahnrede an die Frevler wegen der ihnen drohenden Strafe"
+      },
+      {
+       "ref": "14:7",
+       "text": "הבעת התקוה לישועת ישראל",
+       "text_de": "Ausdruck der Hoffnung auf die Rettung Israels"
+      }
+     ]
     },
     {
      "ref": "15",
@@ -199,7 +428,24 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "um bei den Menschen beliebt zu sein, um den Dämon zu vertreiben",
-     "seg_en": "to be well received by people, to drive away the demon"
+     "seg_en": "to be well received by people, to drive away the demon",
+     "sub": [
+      {
+       "ref": "15:1",
+       "text": "כתבת",
+       "text_de": "Überschrift"
+      },
+      {
+       "ref": "15:1",
+       "text": "השאלה",
+       "text_de": "Die Frage"
+      },
+      {
+       "ref": "15:2-5",
+       "text": "ותשובתה",
+       "text_de": "Und ihre Antwort"
+      }
+     ]
     },
     {
      "ref": "16",
@@ -211,7 +457,24 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "um einen Dieb zu finden, und anderes",
-     "seg_en": "to find a thief, and more"
+     "seg_en": "to find a thief, and more",
+     "sub": [
+      {
+       "ref": "16:2-4",
+       "text": "פרישת המשורר מעבודה זרה",
+       "text_de": "Der Dichter sagt sich vom Götzendienst los"
+      },
+      {
+       "ref": "16:5-8",
+       "text": "הודיה על חלקו הטוב",
+       "text_de": "Dank für sein gutes Los"
+      },
+      {
+       "ref": "16:9-11",
+       "text": "שמחה בבטחון בהגנת ה'",
+       "text_de": "Freude im Vertrauen auf den Schutz des HERRN"
+      }
+     ]
     },
     {
      "ref": "17",
@@ -226,7 +489,24 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "für den, der sich auf den Weg macht",
-     "seg_en": "for one setting out on a journey"
+     "seg_en": "for one setting out on a journey",
+     "sub": [
+      {
+       "ref": "17:1-5",
+       "text": "בקשה לקבלת התפלה משום שעוונותיו נתמרקו",
+       "text_de": "Bitte um Erhörung des Gebets, weil seine Sünden getilgt sind"
+      },
+      {
+       "ref": "17:6-12",
+       "text": "פותח שנית בבקשה לקבלת התפלה, ועובר לספר את רשעת האויבים",
+       "text_de": "Er beginnt erneut mit der Bitte um Erhörung des Gebets und geht dann über zur Schilderung der Bosheit der Feinde"
+      },
+      {
+       "ref": "17:13-15",
+       "text": "שלש בקשותיו של המשורר: בקשה ראשונה - הצלה מהאויבים (יג), בקשה שניה - חלק טוב בעולם הזה (יד), בקשה שלישית - חלק טוב בעולם הבא (טו).",
+       "text_de": "die drei Bitten des Dichters: erste Bitte – Rettung vor den Feinden (V. 13); zweite Bitte – ein gutes Los in dieser Welt (V. 14); dritte Bitte – ein gutes Los in der kommenden Welt (V. 15)."
+      }
+     ]
     },
     {
      "ref": "18",
@@ -241,7 +521,19 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "um herannahende Räuber zu vertreiben, für einen Kranken",
-     "seg_en": "to drive away approaching robbers, for a sick person"
+     "seg_en": "to drive away approaching robbers, for a sick person",
+     "sub": [
+      {
+       "ref": "18:2-31",
+       "text": "ההצלה (ב-לא): התפלה בעת צרה (ב-ז); ה' בא לעזרה ומציל את דוד (ח-כ); צדקת דוד וגמולה (כא-לא);",
+       "text_de": "Die Rettung (V. 2–31): das Gebet in der Not (V. 2–7); der HERR kommt zu Hilfe und rettet David (V. 8–20); Davids Gerechtigkeit und ihr Lohn (V. 21–31);"
+      },
+      {
+       "ref": "18:32-51",
+       "text": "נצחונות דוד ובסוס מלכותו (לב-נא): תאור הקרב והנצחון (לב-מג); בסוס שלטון דוד על הגוים (מד-מו); סיום בשבח ותהלה לה' (מז-נא).",
+       "text_de": "Davids Siege und die Festigung seines Königtums (V. 32–51): Schilderung von Kampf und Sieg (V. 32–43); Festigung der Herrschaft Davids über die Völker (V. 44–46); Schluss mit Lob und Preis für den HERRN (V. 47–51)."
+      }
+     ]
     },
     {
      "ref": "19",
@@ -253,7 +545,19 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "gegen einen bösen Geist, bei schwerer Geburt, und anderes",
-     "seg_en": "against an evil spirit, for a difficult childbirth, and more"
+     "seg_en": "against an evil spirit, for a difficult childbirth, and more",
+     "sub": [
+      {
+       "ref": "19:2-7",
+       "text": "תהלת ה' על נפלאות השמים",
+       "text_de": "Lob des HERRN für die Wunder des Himmels"
+      },
+      {
+       "ref": "19:8-15",
+       "text": "שבחי התורה והתשוקה לקימה",
+       "text_de": "Lob der Tora und Sehnsucht, sie zu bewahren"
+      }
+     ]
     },
     {
      "ref": "20",
@@ -265,7 +569,24 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "für einen Rechtsstreit – um aus jeder Not gerettet zu werden",
-     "seg_en": "for a lawsuit – to be saved from every trouble"
+     "seg_en": "for a lawsuit – to be saved from every trouble",
+     "sub": [
+      {
+       "ref": "20:2-6",
+       "text": "ברכות למלך",
+       "text_de": "Segenswünsche für den König"
+      },
+      {
+       "ref": "20:7-9",
+       "text": "הבעת בטחון בישועת ה'",
+       "text_de": "Ausdruck des Vertrauens in die Hilfe des HERRN"
+      },
+      {
+       "ref": "20:10",
+       "text": "קריאה אל ה' להושיע",
+       "text_de": "Ruf zum HERRN, zu helfen"
+      }
+     ]
     },
     {
      "ref": "21",
@@ -277,7 +598,24 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "für den, der vor die Obrigkeit tritt, bei Seesturm",
-     "seg_en": "for one who appears before the authorities, for a storm at sea"
+     "seg_en": "for one who appears before the authorities, for a storm at sea",
+     "sub": [
+      {
+       "ref": "21:2-7",
+       "text": "תאור אשרו של המלך אשר ה' מברכו",
+       "text_de": "Schilderung des Glücks des Königs, den der HERR segnet"
+      },
+      {
+       "ref": "21:8-13",
+       "text": "ברכות למלך שינצח את אויביו",
+       "text_de": "Segenswünsche für den König, dass er seine Feinde besiegt"
+      },
+      {
+       "ref": "21:14",
+       "text": "בקשת העם לראות בעז ה' ולזכות לשיר את גבורתו",
+       "text_de": "Bitte des Volkes, die Macht des HERRN zu sehen und seine Stärke besingen zu dürfen"
+      }
+     ]
     },
     {
      "ref": "22",
@@ -289,7 +627,19 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "für den, der einen Fluss überquert, und anderes",
-     "seg_en": "for one crossing a river, and more"
+     "seg_en": "for one crossing a river, and more",
+     "sub": [
+      {
+       "ref": "22:2-22",
+       "text": "זעקה על הצרה",
+       "text_de": "Klageruf in der Not"
+      },
+      {
+       "ref": "22:23-32",
+       "text": "נדר ההודיה",
+       "text_de": "Gelübde des Dankes"
+      }
+     ]
     },
     {
      "ref": "23",
@@ -301,7 +651,19 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "um eine Antwort im Traum zu erbitten",
-     "seg_en": "to seek an answer through a dream"
+     "seg_en": "to seek an answer through a dream",
+     "sub": [
+      {
+       "ref": "23:1-4",
+       "text": "המשורר מדמה עצמו לשה וה' רועהו",
+       "text_de": "Der Dichter vergleicht sich mit einem Schaf und den HERRN mit seinem Hirten"
+      },
+      {
+       "ref": "23:5-6",
+       "text": "המשורר מדמה עצמו לאורח בבית ה'",
+       "text_de": "Der Dichter vergleicht sich mit einem Gast im Haus des HERRN"
+      }
+     ]
     },
     {
      "ref": "24",
@@ -313,7 +675,24 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "um vor einer Wasserflut gerettet zu werden",
-     "seg_en": "to be saved from a flood"
+     "seg_en": "to be saved from a flood",
+     "sub": [
+      {
+       "ref": "24:1-2",
+       "text": "תהלת ה' בורא עולם",
+       "text_de": "Lob des HERRN, des Schöpfers der Welt"
+      },
+      {
+       "ref": "24:3-6",
+       "text": "שאלה ותשובה בענין 'מי יעלה בהר ה''",
+       "text_de": "Frage und Antwort zu „Wer darf auf den Berg des HERRN steigen“"
+      },
+      {
+       "ref": "24:7-10",
+       "text": "קריאות אל השערים שיפתחו למען יבוא בהם מלך הכבוד",
+       "text_de": "Aufrufe an die Tore, sich zu öffnen, damit der König der Herrlichkeit einziehe"
+      }
+     ]
     },
     {
      "ref": "25",
@@ -325,7 +704,64 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "um aus jeder Not gerettet zu werden",
-     "seg_en": "to be saved from every trouble"
+     "seg_en": "to be saved from every trouble",
+     "sub": [
+      {
+       "ref": "25:1",
+       "text": "פתיחה המכריזה כי משאת נפש המתפלל היא אל ה'",
+       "text_de": "Einleitung mit dem Bekenntnis, dass die Sehnsucht des Betenden auf den HERRN gerichtet ist"
+      },
+      {
+       "ref": "25:2-3",
+       "text": "הבעת בטחון גמור בה'",
+       "text_de": "Ausdruck vollkommenen Vertrauens auf den HERRN"
+      },
+      {
+       "ref": "25:4-5",
+       "text": "בקשה לדעת את דרכי ה'",
+       "text_de": "Bitte, die Wege des HERRN zu erkennen"
+      },
+      {
+       "ref": "25:6-7",
+       "text": "בקשת רחמים",
+       "text_de": "Bitte um Erbarmen"
+      },
+      {
+       "ref": "25:8-10",
+       "text": "הזכרת מדות טובו וחסדיו של ה'",
+       "text_de": "Erinnerung an die gütigen Eigenschaften und die Gnade des HERRN"
+      },
+      {
+       "ref": "25:11",
+       "text": "בקשת סליחה",
+       "text_de": "Bitte um Vergebung"
+      },
+      {
+       "ref": "25:12-14",
+       "text": "אשרו של ירא ה'",
+       "text_de": "Das Glück dessen, der den HERRN fürchtet"
+      },
+      {
+       "ref": "25:15",
+       "text": "הבעת צפיה מתמדת לתשועת ה'",
+       "text_de": "Ausdruck beständigen Wartens auf die Hilfe des HERRN"
+      },
+      {
+       "ref": "25:16-20",
+       "text": "בקשת ישועה מהצרות ומהאויבים",
+       "text_de": "Bitte um Rettung aus den Nöten und vor den Feinden"
+      },
+      {
+       "ref": "25:21",
+       "text": "בקשת סיוע ללכת בדרך התם והישר",
+       "text_de": "Bitte um Beistand, auf dem Weg der Lauterkeit und Rechtschaffenheit zu gehen"
+      },
+      {
+       "ref": "25:22",
+       "text": "בקשת ישועה לכל ישראל",
+       "text_de": "Bitte um Rettung für ganz Israel"
+      }
+     ]
     },
     {
      "ref": "26",
@@ -337,7 +773,19 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "in Notzeit, für einen Gefangenen",
-     "seg_en": "in time of trouble, for a captive"
+     "seg_en": "in time of trouble, for a captive",
+     "sub": [
+      {
+       "ref": "26:2-10",
+       "text": "תשעת הפסוקים הבאים (ב-י) - גוף המזמור;",
+       "text_de": "Die neun folgenden Verse (V. 2–10) – Hauptteil des Psalms;"
+      },
+      {
+       "ref": "26:11-12",
+       "text": "שני הפסוקים האחרונים (יא-יב) - סיום.",
+       "text_de": "die beiden letzten Verse (V. 11–12) – Schluss."
+      }
+     ]
     },
     {
      "ref": "27",
@@ -349,7 +797,24 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "um sein Reittier unter sich zu bezwingen",
-     "seg_en": "to subdue his animal beneath him"
+     "seg_en": "to subdue his animal beneath him",
+     "sub": [
+      {
+       "ref": "27:1-3",
+       "text": "הבטחון הגדול בה'",
+       "text_de": "Das große Vertrauen auf den HERRN"
+      },
+      {
+       "ref": "27:4-6",
+       "text": "הבקשה האחת: 'לחזות בנעם ה''",
+       "text_de": "Die eine Bitte: „zu schauen die Freundlichkeit des HERRN“"
+      },
+      {
+       "ref": "27:7-14",
+       "text": "פרוט הבקשה הנזכרת",
+       "text_de": "Ausführung der genannten Bitte"
+      }
+     ]
     },
     {
      "ref": "28",
@@ -361,7 +826,24 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "um sich mit dem Feind zu versöhnen",
-     "seg_en": "to make peace with an enemy"
+     "seg_en": "to make peace with an enemy",
+     "sub": [
+      {
+       "ref": "28:1-2",
+       "text": "בקשה לקבלת התפלה",
+       "text_de": "Bitte um Erhörung des Gebets"
+      },
+      {
+       "ref": "28:3-5",
+       "text": "גוף התפלה כנגד האויבים",
+       "text_de": "Hauptteil des Gebets gegen die Feinde"
+      },
+      {
+       "ref": "28:6-9",
+       "text": "הודיה על שהתפלה נשמעה",
+       "text_de": "Dank dafür, dass das Gebet erhört wurde"
+      }
+     ]
     },
     {
      "ref": "29",
@@ -373,7 +855,24 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "gegen einen bösen Geist",
-     "seg_en": "against an evil spirit"
+     "seg_en": "against an evil spirit",
+     "sub": [
+      {
+       "ref": "29:1-2",
+       "text": "שני הפסוקים הראשונים (א-ב) הם פתיחה: פניה אל המלאכים להלל את ה'.",
+       "text_de": "Die beiden ersten Verse (V. 1–2) bilden die Einleitung: Aufruf an die Engel, den HERRN zu loben."
+      },
+      {
+       "ref": "29:3-9",
+       "text": "שבעת הפסוקים שלאחר מכן (ג-ט) הם עקר המזמור: נוראות קול ה';",
+       "text_de": "Die sieben folgenden Verse (V. 3–9) sind der Kern des Psalms: die Furcht erregende Stimme des HERRN;"
+      },
+      {
+       "ref": "29:10-11",
+       "text": "ושני הפסוקים האחרונים (י-יא) הם כעין סיום למזמור: מלכות ה' וברכתו על עמו.",
+       "text_de": "und die beiden letzten Verse (V. 10–11) sind gleichsam der Schluss des Psalms: die Königsherrschaft des HERRN und sein Segen über sein Volk."
+      }
+     ]
     },
     {
      "ref": "30",
@@ -388,7 +887,29 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "gegen alles Böse",
-     "seg_en": "against everything evil"
+     "seg_en": "against everything evil",
+     "sub": [
+      {
+       "ref": "30:2-4",
+       "text": "קריאות הודיה לה'. שלש קריאות הן, ובכל קריאה נזכר שם ה' (ב-ד) בלשון נוכח;",
+       "text_de": "Dankrufe an den HERRN. Es sind drei Rufe, und in jedem wird der Name des HERRN (V. 2–4) in der zweiten Person genannt;"
+      },
+      {
+       "ref": "30:5-6",
+       "text": "קריאה ל'חסידים' להודות לה' על שדרכו להיות קשה לכעס ונוח לרצות (ה-ו), בחלק זה נזכר ה' בלשון נסתר;",
+       "text_de": "Aufruf an die „Frommen“, dem HERRN zu danken, weil es seine Art ist, langsam zum Zorn und leicht zu besänftigen zu sein (V. 5–6); in diesem Teil wird der HERR in der dritten Person genannt;"
+      },
+      {
+       "ref": "30:7-10",
+       "text": "תאור הצרה של המתפלל, שהיה תחלה שלו והגיע עד עפר",
+       "text_de": "Schilderung der Not des Betenden, die anfangs sein Wohlergehen war und ihn bis in den Staub führte"
+      },
+      {
+       "ref": "30:11-13",
+       "text": "התשועה וההודיה (יא-יג), בחלק השלישי ובחלק הרביעי שוב נזכר שם ה' בלשון נוכח.",
+       "text_de": "Rettung und Dank (V. 11–13); im dritten und im vierten Teil wird der Name des HERRN wieder in der zweiten Person genannt."
+      }
+     ]
     },
     {
      "ref": "31",
@@ -400,7 +921,19 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "gegen den bösen Blick",
-     "seg_en": "against the evil eye"
+     "seg_en": "against the evil eye",
+     "sub": [
+      {
+       "ref": "31:2-9",
+       "text": "בחלק הראשון שתי פסקאות: א) תחנה להצלה (ב-ז); ב) הודיה על ההצלה (ח-ט).",
+       "text_de": "Der erste Teil hat zwei Abschnitte: a) Flehen um Rettung (V. 2–7); b) Dank für die Rettung (V. 8–9)."
+      },
+      {
+       "ref": "31:10-25",
+       "text": "בחלק השני חמש פסקאות: א) תלונה על המצוקה (י-יד); ב) תחנה להצלה ולמפלת הרשעים (טו-יט); ג) הכרזה על הגמול הטוב הצפון לצדיקים (כ-כא); ד) הודיה על ההצלה שבאה לאחר יאוש (כב-כג); ה) קריאה לכל יראי ה' לאהבו ולבטח בו (כד-כה).",
+       "text_de": "Der zweite Teil hat fünf Abschnitte: a) Klage über die Bedrängnis (V. 10–14); b) Flehen um Rettung und um den Sturz der Frevler (V. 15–19); c) Verkündigung des guten Lohns, der den Gerechten bevorsteht (V. 20–21); d) Dank für die Rettung, die nach der Verzweiflung kam (V. 22–23); e) Aufruf an alle, die den HERRN fürchten, ihn zu lieben und auf ihn zu vertrauen (V. 24–25)."
+      }
+     ]
     },
     {
      "ref": "32",
@@ -412,7 +945,24 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "um Erbarmen zu erbitten",
-     "seg_en": "to plead for mercy"
+     "seg_en": "to plead for mercy",
+     "sub": [
+      {
+       "ref": "32:1-2",
+       "text": "בהכרזות 'אשרי'.",
+       "text_de": "in den Seligpreisungen („Glücklich“)"
+      },
+      {
+       "ref": "32:3-8",
+       "text": "היסורים (ג-ד); הודוי (ה); ההצלה (ו-ח).",
+       "text_de": "Die Leiden (V. 3-4); das Bekenntnis (V. 5); die Rettung (V. 6-8)"
+      },
+      {
+       "ref": "32:9-11",
+       "text": "בלקח (ט-יא): מותר האדם מן הבהמה (ט); הפרש בין הרשע ובין הבוטח בה' (י); קריאה לשמח בה' (יא).",
+       "text_de": "Zur Lehre (V. 9-11): Der Vorzug des Menschen vor dem Vieh (V. 9); der Unterschied zwischen dem Frevler und dem, der auf den HERRN vertraut (V. 10); Aufruf, sich am HERRN zu freuen (V. 11)"
+      }
+     ]
     },
     {
      "ref": "33",
@@ -424,7 +974,59 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "für eine Frau, deren Kinder sterben, für einen Ort, an dem Not herrscht",
-     "seg_en": "for a woman whose children die, for a place in distress"
+     "seg_en": "for a woman whose children die, for a place in distress",
+     "sub": [
+      {
+       "ref": "33:1-3",
+       "text": "קריאה לשבח את ה'",
+       "text_de": "Aufruf, den HERRN zu loben"
+      },
+      {
+       "ref": "33:4-5",
+       "text": "מדותיו צדק ומשפט",
+       "text_de": "Seine Eigenschaften sind Gerechtigkeit und Recht"
+      },
+      {
+       "ref": "33:4-19",
+       "text": "ובו שבע פסקאות:",
+       "text_de": "Er enthält sieben Abschnitte:"
+      },
+      {
+       "ref": "33:6-7",
+       "text": "בורא עולם במאמר",
+       "text_de": "Der Schöpfer der Welt durch das Wort"
+      },
+      {
+       "ref": "33:8-11",
+       "text": "עצתו עומדת לעולם",
+       "text_de": "Sein Ratschluss besteht ewig"
+      },
+      {
+       "ref": "33:12",
+       "text": "בחר בעמו לנחלה",
+       "text_de": "Er erwählte sein Volk zum Erbteil"
+      },
+      {
+       "ref": "33:13-15",
+       "text": "רואה את כל בני האדם",
+       "text_de": "Er sieht alle Menschenkinder"
+      },
+      {
+       "ref": "33:16-17",
+       "text": "גבורת האדם - שקר",
+       "text_de": "Die Kraft des Menschen ist trügerisch"
+      },
+      {
+       "ref": "33:18-19",
+       "text": "ה' מושיע את יראיו",
+       "text_de": "Der HERR rettet, die ihn fürchten"
+      },
+      {
+       "ref": "33:20-22",
+       "text": "הבעת בטחון בה' ובקשה לחסדו",
+       "text_de": "Ausdruck des Vertrauens auf den HERRN und Bitte um seine Gnade"
+      }
+     ]
     },
     {
      "ref": "34",
@@ -454,7 +1056,24 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "um Prozessgegner zu besiegen",
-     "seg_en": "to defeat opponents in a lawsuit"
+     "seg_en": "to defeat opponents in a lawsuit",
+     "sub": [
+      {
+       "ref": "35:1-10",
+       "text": "החלק הראשון - תפלה למפלת האויבים הנלחמים בו",
+       "text_de": "Erster Teil: Gebet um den Sturz der Feinde, die ihn bekämpfen"
+      },
+      {
+       "ref": "35:11-18",
+       "text": "החלק השני - תלונה על בגידת אויביו ובקשה להצלה",
+       "text_de": "Zweiter Teil: Klage über den Verrat seiner Feinde und Bitte um Rettung"
+      },
+      {
+       "ref": "35:19-28",
+       "text": "החלק השלישי - תפלה, שתחת דברי הלעג של האויבים על הצרה, ישמעו דברי שבח של האוהבים על התשועה",
+       "text_de": "Dritter Teil: Gebet, dass statt der Spottreden der Feinde über die Not die Lobreden der Freunde über die Rettung zu hören sind"
+      }
+     ]
     },
     {
      "ref": "36",
@@ -466,7 +1085,24 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "gegen alles Böse",
-     "seg_en": "against everything evil"
+     "seg_en": "against everything evil",
+     "sub": [
+      {
+       "ref": "36:2-5",
+       "text": "החלק הראשון - מחשבות הרשע ודרכיו",
+       "text_de": "Erster Teil: Die Gedanken und Wege des Frevlers"
+      },
+      {
+       "ref": "36:6-10",
+       "text": "החלק השני - חסד ה' וצדקתו מלאים עולם",
+       "text_de": "Zweiter Teil: Die Güte und Gerechtigkeit des HERRN erfüllen die Welt"
+      },
+      {
+       "ref": "36:11-13",
+       "text": "החלק השלישי - בקשה להגנה מפני הרשעים",
+       "text_de": "Dritter Teil: Bitte um Schutz vor den Frevlern"
+      }
+     ]
     },
     {
      "ref": "37",
@@ -478,7 +1114,34 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "damit der Rausch eines Betrunkenen vergeht",
-     "seg_en": "to sober up a drunkard"
+     "seg_en": "to sober up a drunkard",
+     "sub": [
+      {
+       "ref": "37:1-11",
+       "text": "החלק הראשון - פתיחה: יש לבטח בה' שיאבד את הרשעים וייטיב לצדיקים",
+       "text_de": "Erster Teil: Einleitung: Man soll auf den HERRN vertrauen, der die Frevler vernichtet und den Gerechten Gutes tut"
+      },
+      {
+       "ref": "37:12-17",
+       "text": "החלק השני - הצדיק נצול מחרב הרשעים",
+       "text_de": "Zweiter Teil: Der Gerechte wird vor dem Schwert der Frevler gerettet"
+      },
+      {
+       "ref": "37:18-29",
+       "text": "החלק השלישי - הצדיק נצול מרעב",
+       "text_de": "Dritter Teil: Der Gerechte wird vor Hunger gerettet"
+      },
+      {
+       "ref": "37:30-33",
+       "text": "החלק הרביעי - הצדיק נצול ממשפט עלילה שהרשעים טופלים עליו",
+       "text_de": "Vierter Teil: Der Gerechte wird vor einem Prozess mit falscher Anklage gerettet, den die Frevler ihm anhängen"
+      },
+      {
+       "ref": "37:34-40",
+       "text": "החלק החמישי - סיום: אזהרה וזרוז לקוות לה' ולחסות בו",
+       "text_de": "Fünfter Teil: Schluss: Warnung und Mahnung, auf den HERRN zu hoffen und bei ihm Zuflucht zu suchen"
+      }
+     ]
     },
     {
      "ref": "38",
@@ -490,7 +1153,34 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "um vor übler Nachrede bewahrt zu werden, die man über ihn gesprochen hat",
-     "seg_en": "to be saved from the slander spoken about him"
+     "seg_en": "to be saved from the slander spoken about him",
+     "sub": [
+      {
+       "ref": "38:2-8",
+       "text": "החלק הראשון - תאור החלי",
+       "text_de": "Erster Teil: Beschreibung der Krankheit"
+      },
+      {
+       "ref": "38:9-13",
+       "text": "החלק השני - תאור הבדידות",
+       "text_de": "Zweiter Teil: Beschreibung der Einsamkeit"
+      },
+      {
+       "ref": "38:14-16",
+       "text": "החלק השלישי - תאור השתיקה והתקוה",
+       "text_de": "Dritter Teil: Beschreibung des Schweigens und der Hoffnung"
+      },
+      {
+       "ref": "38:17-21",
+       "text": "החלק הרביעי - הפחד",
+       "text_de": "Vierter Teil: Die Furcht"
+      },
+      {
+       "ref": "38:22-23",
+       "text": "החלק החמישי - התחנה לישועה",
+       "text_de": "Fünfter Teil: Flehen um Rettung"
+      }
+     ]
     },
     {
      "ref": "39",
@@ -502,7 +1192,24 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "bei Tagesanbruch aufstehen und ihn fastend sprechen",
-     "seg_en": "rise at dawn and recite it while fasting"
+     "seg_en": "rise at dawn and recite it while fasting",
+     "sub": [
+      {
+       "ref": "39:2-4",
+       "text": "החלק הראשון - פתיחה: התנצלות על שידבר קשות",
+       "text_de": "Erster Teil: Einleitung: Entschuldigung für harte Worte"
+      },
+      {
+       "ref": "39:5-7",
+       "text": "החלק השני - ההבל שבחיי האדם",
+       "text_de": "Zweiter Teil: Die Nichtigkeit des menschlichen Lebens"
+      },
+      {
+       "ref": "39:8-14",
+       "text": "החלק השלישי - תקוה ותפלה לה'",
+       "text_de": "Dritter Teil: Hoffnung und Gebet zum HERRN"
+      }
+     ]
     },
     {
      "ref": "40",
@@ -517,7 +1224,49 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "gegen böse Geister",
-     "seg_en": "against evil spirits"
+     "seg_en": "against evil spirits",
+     "sub": [
+      {
+       "ref": "40:2-4",
+       "text": "ספור התשועה",
+       "text_de": "Bericht von der Rettung"
+      },
+      {
+       "ref": "40:2-11",
+       "text": "חלק ראשון - הודיה על התשועה שהיתה לפנים",
+       "text_de": "Erster Teil: Dank für die Rettung in früherer Zeit"
+      },
+      {
+       "ref": "40:5-6",
+       "text": "שיר תהלה",
+       "text_de": "Loblied"
+      },
+      {
+       "ref": "40:7-11",
+       "text": "התודה מבעת לא בזבח אלא בשמירת התורה",
+       "text_de": "Der Dank äußert sich nicht im Opfer, sondern im Halten der Tora"
+      },
+      {
+       "ref": "40:12",
+       "text": "בקשה לגלוי מדות הרחמים",
+       "text_de": "Bitte um Offenbarung der Eigenschaften der Barmherzigkeit"
+      },
+      {
+       "ref": "40:12-18",
+       "text": "חלק שני - תפלה לתשועה מהמצוקה שבהוה",
+       "text_de": "Zweiter Teil: Gebet um Rettung aus der gegenwärtigen Not"
+      },
+      {
+       "ref": "40:13",
+       "text": "תאור המצוקה",
+       "text_de": "Beschreibung der Not"
+      },
+      {
+       "ref": "40:14-18",
+       "text": "תחנה לישועה",
+       "text_de": "Flehen um Rettung"
+      }
+     ]
     },
     {
      "ref": "41",
@@ -529,7 +1278,29 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "für den, den man aus seiner Stellung verdrängt hat und an dessen Stelle ein anderer getreten ist",
-     "seg_en": "for one removed from his position whose place another has taken"
+     "seg_en": "for one removed from his position whose place another has taken",
+     "sub": [
+      {
+       "ref": "41:2-4",
+       "text": "החלק הראשון - ה' סועד וממלט את החולה",
+       "text_de": "Erster Teil: Der HERR stützt den Kranken und lässt ihn entkommen"
+      },
+      {
+       "ref": "41:5-11",
+       "text": "החלק השני - תלונת החולה על הבוגדים בו",
+       "text_de": "Zweiter Teil: Klage des Kranken über die, die ihn verraten"
+      },
+      {
+       "ref": "41:12-13",
+       "text": "החלק השלישי - הבעת בטחון שהתפלה נתקבלה",
+       "text_de": "Dritter Teil: Ausdruck des Vertrauens, dass das Gebet erhört wurde"
+      },
+      {
+       "ref": "41:14",
+       "text": "ופסוק הסיום",
+       "text_de": "Und der Schlussvers"
+      }
+     ]
     }
    ],
    "head_de": "Erstes Buch",
@@ -548,7 +1319,29 @@
      "author_de": "Korachiter",
      "author_en": "Sons of Korah",
      "seg_de": "für den, den man aus seiner Stellung verdrängt hat und an dessen Stelle ein anderer getreten ist, um eine Antwort im Traum zu erbitten",
-     "seg_en": "for one removed from his position whose place another has taken, to seek an answer through a dream"
+     "seg_en": "for one removed from his position whose place another has taken, to seek an answer through a dream",
+     "sub": [
+      {
+       "ref": "42:2-5",
+       "text": "החלק הראשון - הצמאון לאל חי",
+       "text_de": "Erster Teil: Der Durst nach dem lebendigen Gott"
+      },
+      {
+       "ref": "42:6",
+       "text": "פזמון: דברי הרגעה ונחמה",
+       "text_de": "Kehrvers: Worte der Beruhigung und des Trostes"
+      },
+      {
+       "ref": "42:7-11",
+       "text": "החלק השני - תלונה על המצוקה",
+       "text_de": "Zweiter Teil: Klage über die Not"
+      },
+      {
+       "ref": "42:12",
+       "text": "ופזמון כנ״ל",
+       "text_de": "Und der genannte Kehrvers"
+      }
+     ]
     },
     {
      "ref": "43",
@@ -560,7 +1353,19 @@
      "author_de": "Korachiter",
      "author_en": "Sons of Korah",
      "seg_de": "für den, den man aus seiner Stellung verdrängt hat und an dessen Stelle ein anderer getreten ist",
-     "seg_en": "for one removed from his position whose place another has taken"
+     "seg_en": "for one removed from his position whose place another has taken",
+     "sub": [
+      {
+       "ref": "43:1-4",
+       "text": "החלק השלישי - תפלה להצלה וישועה",
+       "text_de": "Dritter Teil: Gebet um Rettung und Hilfe"
+      },
+      {
+       "ref": "43:5",
+       "text": "ופזמון כנ״ל",
+       "text_de": "Und der genannte Kehrvers"
+      }
+     ]
     },
     {
      "ref": "44",
@@ -572,7 +1377,44 @@
      "author_de": "Korachiter",
      "author_en": "Sons of Korah",
      "seg_de": "um vor Feinden gerettet zu werden",
-     "seg_en": "to be saved from enemies"
+     "seg_en": "to be saved from enemies",
+     "sub": [
+      {
+       "ref": "44:2-4",
+       "text": "הנפלאות בימי קדם",
+       "text_de": "Die Wunder in alter Zeit"
+      },
+      {
+       "ref": "44:2-9",
+       "text": "החלק הראשון - שבח לה'",
+       "text_de": "Erster Teil: Lob des HERRN"
+      },
+      {
+       "ref": "44:5-9",
+       "text": "הישועות בימינו",
+       "text_de": "Die Rettungen in unseren Tagen"
+      },
+      {
+       "ref": "44:10-17",
+       "text": "מפלתנו וכלמתנו",
+       "text_de": "Unser Sturz und unsere Schmach"
+      },
+      {
+       "ref": "44:10-27",
+       "text": "החלק השני - תלונה לה'",
+       "text_de": "Zweiter Teil: Klage vor dem HERRN"
+      },
+      {
+       "ref": "44:18-23",
+       "text": "נאמנותנו לברית ה'",
+       "text_de": "Unsere Treue zum Bund des HERRN"
+      },
+      {
+       "ref": "44:24-27",
+       "text": "תחנה לה' שיושיענו",
+       "text_de": "Flehen zum HERRN, dass er uns rette"
+      }
+     ]
     },
     {
      "ref": "45",
@@ -584,7 +1426,19 @@
      "author_de": "Korachiter",
      "author_en": "Sons of Korah",
      "seg_de": "gegen eine böse Frau",
-     "seg_en": "against a wicked wife"
+     "seg_en": "against a wicked wife",
+     "sub": [
+      {
+       "ref": "45:3-8",
+       "text": "החלק הראשון - שבחי המלך ומעלותיו",
+       "text_de": "Erster Teil: Lob des Königs und seiner Vorzüge"
+      },
+      {
+       "ref": "45:9-17",
+       "text": "החלק השני - החתנה ושבחי הכלה",
+       "text_de": "Zweiter Teil: Die Hochzeit und das Lob der Braut"
+      }
+     ]
     },
     {
      "ref": "46",
@@ -596,7 +1450,24 @@
      "author_de": "Korachiter",
      "author_en": "Sons of Korah",
      "seg_de": "für den, der seine Frau hasst",
-     "seg_en": "for one who hates his wife"
+     "seg_en": "for one who hates his wife",
+     "sub": [
+      {
+       "ref": "46:2-7",
+       "text": "החלק הראשון - רעש הארץ",
+       "text_de": "Erster Teil: Das Beben der Erde"
+      },
+      {
+       "ref": "46:8",
+       "text": "בראש המזמור באה כתבת (א) ולאחר כל חלק וחלק בא פזמון",
+       "text_de": "Am Anfang des Psalms steht die Überschrift (V. 1), und nach jedem Teil folgt ein Kehrvers"
+      },
+      {
+       "ref": "46:9-11",
+       "text": "החלק השני - השבתת המלחמות",
+       "text_de": "Zweiter Teil: Das Ende der Kriege"
+      }
+     ]
     },
     {
      "ref": "47",
@@ -608,7 +1479,24 @@
      "author_de": "Korachiter",
      "author_en": "Sons of Korah",
      "seg_de": "damit man ihn freundlich aufnimmt",
-     "seg_en": "that he be received with a friendly countenance"
+     "seg_en": "that he be received with a friendly countenance",
+     "sub": [
+      {
+       "ref": "47:2-5",
+       "text": "החלק הראשון - קריאה לעמים להריע לה'",
+       "text_de": "Erster Teil: Aufruf an die Völker, dem HERRN zuzujubeln"
+      },
+      {
+       "ref": "47:6-8",
+       "text": "החלק השני - קריאה לנוכחים בתפלה להריע ולזמר לכבוד מלכות ה'",
+       "text_de": "Zweiter Teil: Aufruf an die im Gebet Anwesenden, zur Ehre der Königsherrschaft des HERRN zu jubeln und zu singen"
+      },
+      {
+       "ref": "47:9-10",
+       "text": "החלק השלישי - ה' מלך וכל הגוים נאספו לקבל עליהם את מלכותו",
+       "text_de": "Dritter Teil: Der HERR ist König, und alle Völker haben sich versammelt, um seine Herrschaft anzunehmen"
+      }
+     ]
     },
     {
      "ref": "48",
@@ -620,7 +1508,34 @@
      "author_de": "Korachiter",
      "author_en": "Sons of Korah",
      "seg_de": "um die Feinde zu erschrecken",
-     "seg_en": "to frighten enemies"
+     "seg_en": "to frighten enemies",
+     "sub": [
+      {
+       "ref": "48:2-4",
+       "text": "החלק הראשון - תפארת ציון מקום השכינה",
+       "text_de": "Erster Teil: Die Pracht Zions, des Ortes der Einwohnung Gottes"
+      },
+      {
+       "ref": "48:5-8",
+       "text": "החלק השני - המלכים נבהלו ממראה עיניהם",
+       "text_de": "Zweiter Teil: Die Könige erschraken bei seinem Anblick"
+      },
+      {
+       "ref": "48:9-11",
+       "text": "החלק השלישי - שבחי ה' השוכן בעירו",
+       "text_de": "Dritter Teil: Lob des HERRN, der in seiner Stadt wohnt"
+      },
+      {
+       "ref": "48:12-14",
+       "text": "החלק הרביעי - קריאה לחוגגים לשמח ולהקיף את ציון",
+       "text_de": "Vierter Teil: Aufruf an die Festteilnehmer, sich zu freuen und Zion zu umkreisen"
+      },
+      {
+       "ref": "48:15",
+       "text": "פסוק הסיום: אלהים אלהינו עולם ועד",
+       "text_de": "Schlussvers: Gott, unser Gott, für immer und ewig"
+      }
+     ]
     },
     {
      "ref": "49",
@@ -632,7 +1547,39 @@
      "author_de": "Korachiter",
      "author_en": "Sons of Korah",
      "seg_de": "gegen Fieber",
-     "seg_en": "for fever"
+     "seg_en": "for fever",
+     "sub": [
+      {
+       "ref": "49:6",
+       "text": "החלק הראשון: מבוא - הכרזת הבטחון הראשונה",
+       "text_de": "Erster Teil: Einleitung: Die erste Bekundung des Vertrauens"
+      },
+      {
+       "ref": "49:7-11",
+       "text": "אין ממון פודה ממות",
+       "text_de": "Kein Reichtum kauft vom Tod frei"
+      },
+      {
+       "ref": "49:12",
+       "text": "החלק השני: מבוא - מחשבת העשירים",
+       "text_de": "Zweiter Teil: Einleitung: Der Gedanke der Reichen"
+      },
+      {
+       "ref": "49:13-15",
+       "text": "אדם במותו שוה לבהמה",
+       "text_de": "Der Mensch ist im Tod dem Vieh gleich"
+      },
+      {
+       "ref": "49:16",
+       "text": "החלק השלישי: מבוא: הכרזת הבטחון השניה",
+       "text_de": "Dritter Teil: Einleitung: Die zweite Bekundung des Vertrauens"
+      },
+      {
+       "ref": "49:17-21",
+       "text": "אין העשר מועיל לאדם לאחר מותו",
+       "text_de": "Der Reichtum nützt dem Menschen nach seinem Tod nichts"
+      }
+     ]
     },
     {
      "ref": "50",
@@ -647,7 +1594,39 @@
      "author_de": "Asaf",
      "author_en": "Asaph",
      "seg_de": "um vor Feinden und Räubern gerettet zu werden",
-     "seg_en": "to be saved from enemies and robbers"
+     "seg_en": "to be saved from enemies and robbers",
+     "sub": [
+      {
+       "ref": "50:1-6",
+       "text": "דברי פתיחה: התגלות האלהים הבא לדין",
+       "text_de": "Einleitende Worte: Die Offenbarung Gottes, der zum Gericht kommt"
+      },
+      {
+       "ref": "50:7",
+       "text": "דברי המוסר: קריאה לישראל לשמע את דברי ה'",
+       "text_de": "Mahnworte: Aufruf an Israel, auf die Worte des HERRN zu hören"
+      },
+      {
+       "ref": "50:8-15",
+       "text": "טיבם של הקרבנות",
+       "text_de": "Das Wesen der Opfer"
+      },
+      {
+       "ref": "50:16-21",
+       "text": "תוכחה לרשע",
+       "text_de": "Zurechtweisung des Frevlers"
+      },
+      {
+       "ref": "50:22",
+       "text": "דברי סיום: גזר דינו של הרשע",
+       "text_de": "Schlussworte: Das Urteil über den Frevler"
+      },
+      {
+       "ref": "50:23",
+       "text": "גזר דינו של הצדיק",
+       "text_de": "Das Urteil über den Gerechten"
+      }
+     ]
     },
     {
      "ref": "51",
@@ -662,7 +1641,29 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "um umzukehren – damit seine Umkehr angenommen wird",
-     "seg_en": "to repent – that his repentance be accepted"
+     "seg_en": "to repent – that his repentance be accepted",
+     "sub": [
+      {
+       "ref": "51:3-7",
+       "text": "החלק הראשון - ודוי ובקשת רחמים",
+       "text_de": "Erster Teil: Bekenntnis und Bitte um Erbarmen"
+      },
+      {
+       "ref": "51:8-14",
+       "text": "החלק השני - בקשת מחילה והתחדשות הלב",
+       "text_de": "Zweiter Teil: Bitte um Vergebung und um Erneuerung des Herzens"
+      },
+      {
+       "ref": "51:15-19",
+       "text": "החלק השלישי - נדר ללמד את דרכי ה' ולספר תהלתו",
+       "text_de": "Dritter Teil: Gelübde, die Wege des HERRN zu lehren und sein Lob zu verkünden"
+      },
+      {
+       "ref": "51:19-21",
+       "text": "וסיום: בקשה לבנין ירושלים ואז יהיו הקרבנות רצויים",
+       "text_de": "Und Schluss: Bitte um den Aufbau Jerusalems, dann werden die Opfer wohlgefällig sein"
+      }
+     ]
     },
     {
      "ref": "52",
@@ -677,7 +1678,19 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "um sich die Gewohnheit übler Nachrede abzugewöhnen",
-     "seg_en": "to break the habit of speaking slander"
+     "seg_en": "to break the habit of speaking slander",
+     "sub": [
+      {
+       "ref": "52:3-7",
+       "text": "החלק הראשון - תוכחה ל'גבור' הרשע",
+       "text_de": "Erster Teil: Zurechtweisung des frevlerischen „Helden“"
+      },
+      {
+       "ref": "52:8-11",
+       "text": "החלק השני - תגובת הצדיקים על מפלת הרשע",
+       "text_de": "Zweiter Teil: Reaktion der Gerechten auf den Sturz des Frevlers"
+      }
+     ]
     },
     {
      "ref": "53",
@@ -692,7 +1705,19 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "um die Feinde zu erschrecken",
-     "seg_en": "to frighten enemies"
+     "seg_en": "to frighten enemies",
+     "sub": [
+      {
+       "ref": "53:2-4",
+       "text": "החלק הראשון - הנבלים השחיתו",
+       "text_de": "Erster Teil: Die Toren haben Verderbtes getan"
+      },
+      {
+       "ref": "53:5-6",
+       "text": "החלק השני - תוכחה לפועלי האון",
+       "text_de": "Zweiter Teil: Zurechtweisung der Übeltäter"
+      }
+     ]
     },
     {
      "ref": "54",
@@ -707,7 +1732,19 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "um an den Feinden Rache zu sehen",
-     "seg_en": "to see vengeance on enemies"
+     "seg_en": "to see vengeance on enemies",
+     "sub": [
+      {
+       "ref": "54:3-5",
+       "text": "החלק הראשון - התפלה לישועה",
+       "text_de": "Erster Teil: Das Gebet um Rettung"
+      },
+      {
+       "ref": "54:6-9",
+       "text": "החלק השני - הבטחון בישועה",
+       "text_de": "Zweiter Teil: Das Vertrauen auf Rettung"
+      }
+     ]
     },
     {
      "ref": "55",
@@ -719,7 +1756,74 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "um den Feinden Vergeltung heimzuzahlen",
-     "seg_en": "to repay enemies in kind"
+     "seg_en": "to repay enemies in kind",
+     "sub": [
+      {
+       "ref": "55:2-3",
+       "text": "בקשה שתשמע תפלתו",
+       "text_de": "Bitte, dass sein Gebet erhört werde"
+      },
+      {
+       "ref": "55:2-16",
+       "text": "חלק ראשון",
+       "text_de": "Erster Teil"
+      },
+      {
+       "ref": "55:4-6",
+       "text": "אימת האויבים",
+       "text_de": "Die Furcht vor den Feinden"
+      },
+      {
+       "ref": "55:7-9",
+       "text": "תשוקה לברח למרחקים",
+       "text_de": "Sehnsucht, in die Ferne zu fliehen"
+      },
+      {
+       "ref": "55:10-11",
+       "text": "רשעות האויבים בכלל",
+       "text_de": "Die Bosheit der Feinde im Allgemeinen"
+      },
+      {
+       "ref": "55:12-15",
+       "text": "תלונה על בגידת רע נאמן",
+       "text_de": "Klage über den Verrat eines treuen Freundes"
+      },
+      {
+       "ref": "55:16",
+       "text": "סיום החלק הראשון: בקשה שיענשו האויבים כראוי להם",
+       "text_de": "Schluss des ersten Teils: Bitte, dass die Feinde angemessen bestraft werden"
+      },
+      {
+       "ref": "55:17-18",
+       "text": "בטחון שתשמע תפלתו",
+       "text_de": "Vertrauen, dass sein Gebet erhört wird"
+      },
+      {
+       "ref": "55:17-24",
+       "text": "חלק שני",
+       "text_de": "Zweiter Teil"
+      },
+      {
+       "ref": "55:19-20",
+       "text": "בקשה ובטחון בישועה",
+       "text_de": "Bitte und Vertrauen auf Rettung"
+      },
+      {
+       "ref": "55:20",
+       "text": "רשעות האויבים בדרך כלל",
+       "text_de": "Die Bosheit der Feinde im Allgemeinen"
+      },
+      {
+       "ref": "55:21-22",
+       "text": "תלונה על הבוגד",
+       "text_de": "Klage über den Verräter"
+      },
+      {
+       "ref": "55:23-24",
+       "text": "סיום: דברי בטחון בעזרת ה' לצדיק ובמפלת הרשעים והכרזת המשורר כי הוא בוטח בה'",
+       "text_de": "Schluss: Worte des Vertrauens auf die Hilfe des HERRN für den Gerechten und auf den Sturz der Frevler, und Bekenntnis des Dichters, dass er auf den HERRN vertraut"
+      }
+     ]
     },
     {
      "ref": "56",
@@ -734,7 +1838,44 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "für einen im Gefängnis Eingesperrten, um vor dem bösen Trieb bewahrt zu werden",
-     "seg_en": "for one confined in prison, to be saved from the evil inclination"
+     "seg_en": "for one confined in prison, to be saved from the evil inclination",
+     "sub": [
+      {
+       "ref": "56:2-3",
+       "text": "קריאה לעזרה",
+       "text_de": "Aufruf um Hilfe"
+      },
+      {
+       "ref": "56:4-5",
+       "text": "הבעת בטחון בראשונה",
+       "text_de": "Erster Ausdruck des Vertrauens"
+      },
+      {
+       "ref": "56:6-7",
+       "text": "מעשה הרשעים",
+       "text_de": "Das Treiben der Frevler"
+      },
+      {
+       "ref": "56:8",
+       "text": "בקשה להכנעת הרשעים",
+       "text_de": "Bitte um die Demütigung der Frevler"
+      },
+      {
+       "ref": "56:9",
+       "text": "בקשה לקבלת התפלה",
+       "text_de": "Bitte um Erhörung des Gebets"
+      },
+      {
+       "ref": "56:10-12",
+       "text": "הבעת בטחון בשניה",
+       "text_de": "Zweiter Ausdruck des Vertrauens"
+      },
+      {
+       "ref": "56:13-14",
+       "text": "נדר להודות לה' על התשועה",
+       "text_de": "Gelübde, dem HERRN für die Rettung zu danken"
+      }
+     ]
     },
     {
      "ref": "57",
@@ -749,7 +1890,19 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "für Erfolg",
-     "seg_en": "for success"
+     "seg_en": "for success",
+     "sub": [
+      {
+       "ref": "57:2-5",
+       "text": "חלק ראשון - קריאה לה' שיושיע את המתפלל מאויביו",
+       "text_de": "Erster Teil: Aufruf an den HERRN, den Beter vor seinen Feinden zu retten"
+      },
+      {
+       "ref": "57:6-12",
+       "text": "חלק שני - הודיה על התשועה",
+       "text_de": "Zweiter Teil: Dank für die Rettung"
+      }
+     ]
     },
     {
      "ref": "58",
@@ -764,7 +1917,49 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "gegen einen bösen Hund, damit er keinen Schaden anrichtet",
-     "seg_en": "against a vicious dog, that it do no harm"
+     "seg_en": "against a vicious dog, that it do no harm",
+     "sub": [
+      {
+       "ref": "58:2-3",
+       "text": "הכוללת דבור על הרשעים בלשון נוכחים",
+       "text_de": "Sie enthält eine Rede über die Frevler in der zweiten Person"
+      },
+      {
+       "ref": "58:2-6",
+       "text": "חלק ראשון - תלונה על הרשעים וגדל רשעתם",
+       "text_de": "Erster Teil: Klage über die Frevler und das Ausmaß ihrer Bosheit"
+      },
+      {
+       "ref": "58:4-6",
+       "text": "ודבור על הרשעים בלשון נסתרים",
+       "text_de": "Und eine Rede über die Frevler in der dritten Person"
+      },
+      {
+       "ref": "58:7",
+       "text": "הכוללת פניה ישירה אל ה'",
+       "text_de": "Sie enthält eine unmittelbare Anrede an den HERRN"
+      },
+      {
+       "ref": "58:7-10",
+       "text": "חלק שני - תפלה לה' שישבר את הרשעים",
+       "text_de": "Zweiter Teil: Gebet zum HERRN, dass er die Frevler zerschmettere"
+      },
+      {
+       "ref": "58:8-9",
+       "text": "קללה לרשעים בלשון נסתרים",
+       "text_de": "Fluch über die Frevler in der dritten Person"
+      },
+      {
+       "ref": "58:10",
+       "text": "וקללה לרשעים בלשון נוכחים",
+       "text_de": "Und Fluch über die Frevler in der zweiten Person"
+      },
+      {
+       "ref": "58:11-12",
+       "text": "וסיום המזמור: שמחת הצדיק באבדן הרשעים",
+       "text_de": "Und Schluss des Psalms: Die Freude des Gerechten über den Untergang der Frevler"
+      }
+     ]
     },
     {
      "ref": "59",
@@ -779,7 +1974,74 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "um vor dem bösen Trieb bewahrt zu werden",
-     "seg_en": "to be saved from the evil inclination"
+     "seg_en": "to be saved from the evil inclination",
+     "sub": [
+      {
+       "ref": "59:2-3",
+       "text": "פניות אל ה' שיציל ויושיע",
+       "text_de": "Flehen zum HERRN, dass er errette und helfe"
+      },
+      {
+       "ref": "59:2-10",
+       "text": "חלק ראשון - בקשה לתשועה מן האויבים",
+       "text_de": "Erster Teil: Bitte um Rettung vor den Feinden"
+      },
+      {
+       "ref": "59:4-5",
+       "text": "המתפלל מכריז כי הוא חף מפשע",
+       "text_de": "Der Beter erklärt seine Unschuld"
+      },
+      {
+       "ref": "59:5-6",
+       "text": "פניות אל ה' שיעור ויעזר",
+       "text_de": "Flehen zum HERRN, dass er erwecke und beistehe"
+      },
+      {
+       "ref": "59:7-8",
+       "text": "מעשיהם הרעים של האויבים",
+       "text_de": "Die bösen Taten der Feinde"
+      },
+      {
+       "ref": "59:9-10",
+       "text": "בטחון בה' שיושיע",
+       "text_de": "Vertrauen auf den HERRN, dass er helfen wird"
+      },
+      {
+       "ref": "59:11",
+       "text": "בטחון בה' שיראה את המתפלל במפלת אויביו",
+       "text_de": "Vertrauen darauf, dass der HERR den Beter den Sturz seiner Feinde sehen lässt"
+      },
+      {
+       "ref": "59:11-18",
+       "text": "חלק שני - תפלה למפלת הרשעים ושירת הנצחון",
+       "text_de": "Zweiter Teil: Gebet um den Sturz der Frevler und Siegeslied"
+      },
+      {
+       "ref": "59:12",
+       "text": "הענש הראוי להם הוא גלות ולא מיתה",
+       "text_de": "Die ihnen gebührende Strafe ist die Verbannung, nicht der Tod"
+      },
+      {
+       "ref": "59:13",
+       "text": "החטא בדבור ובגאוה גורם לענש",
+       "text_de": "Die Sünde in Rede und Hochmut führt zur Strafe"
+      },
+      {
+       "ref": "59:14",
+       "text": "ענשם יפרסם את ממשלת ה'",
+       "text_de": "Ihre Strafe wird die Herrschaft des HERRN bekannt machen"
+      },
+      {
+       "ref": "59:15-16",
+       "text": "שפלות הרשעים במפלתם",
+       "text_de": "Die Erniedrigung der Frevler in ihrem Sturz"
+      },
+      {
+       "ref": "59:17-18",
+       "text": "שיר הנצחון וההודיה",
+       "text_de": "Lied des Sieges und des Dankes"
+      }
+     ]
     },
     {
      "ref": "60",
@@ -794,7 +2056,24 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "um im Krieg zu siegen",
-     "seg_en": "to be victorious in war"
+     "seg_en": "to be victorious in war",
+     "sub": [
+      {
+       "ref": "60:3-6",
+       "text": "תלונה על התבוסה",
+       "text_de": "Klage über die Niederlage"
+      },
+      {
+       "ref": "60:7-10",
+       "text": "תפלה לקיום ההבטחה הנבואית (ז-י): בקשה למען ישראל ידידי ה' (ז); גוף דברי ההבטחה (ח-י)",
+       "text_de": "Gebet um die Erfüllung der prophetischen Verheißung (V. 7-10): Bitte um Israels willen, die Freunde des HERRN (V. 7); der Inhalt der Verheißung (V. 8-10)"
+      },
+      {
+       "ref": "60:11-14",
+       "text": "הבעת בטחון בתשועת ה'",
+       "text_de": "Ausdruck des Vertrauens auf die Hilfe des HERRN"
+      }
+     ]
     },
     {
      "ref": "61",
@@ -806,7 +2085,19 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "für den, der sich fürchtet, in seinem Haus zu wohnen",
-     "seg_en": "for one who is afraid to live in his house"
+     "seg_en": "for one who is afraid to live in his house",
+     "sub": [
+      {
+       "ref": "61:2-5",
+       "text": "תפלה להגנה מפני האויבים",
+       "text_de": "Gebet um Schutz vor den Feinden"
+      },
+      {
+       "ref": "61:6-9",
+       "text": "תפלה בעד המלך",
+       "text_de": "Gebet für den König"
+      }
+     ]
     },
     {
      "ref": "62",
@@ -818,7 +2109,19 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "zur Sühne für Sünden",
-     "seg_en": "for atonement of sins"
+     "seg_en": "for atonement of sins",
+     "sub": [
+      {
+       "ref": "62:4-5",
+       "text": "מכון כנגד האויבים הרשעים ובו תוכחה בלשון נוכח (ד), ותלונה על מעשיהם בלשון נסתרים (ה)",
+       "text_de": "Zurüstung gegen die bösen Feinde, darin eine Zurechtweisung in der zweiten Person (V. 4) und eine Klage über ihre Taten in der dritten Person (V. 5)"
+      },
+      {
+       "ref": "62:9-13",
+       "text": "מטיף לבטח באלהים. הוא פותח בפניה אל קהל השומעים הבוטח באלהים (ט), מבאר שבני אדם הבל וממונם הבל (י-יא) וחותם בדבר אלהים: העז והחסד לאלהים המה (יב-יג)",
+       "text_de": "Mahnt zum Gottvertrauen. Er beginnt mit einer Anrede an die Zuhörergemeinde, die auf Gott vertraut (V. 9), legt dar, dass die Menschen ein Hauch und ihr Besitz ein Hauch sind (V. 10-11), und schließt mit einem Wort Gottes: Macht und Gnade gehören Gott (V. 12-13)"
+      }
+     ]
     },
     {
      "ref": "63",
@@ -833,7 +2136,29 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "um bei einer Teilung einen guten Anteil zu erhalten, um im Handel Erfolg zu haben",
-     "seg_en": "to receive a good share in a division, to succeed in trade"
+     "seg_en": "to receive a good share in a division, to succeed in trade",
+     "sub": [
+      {
+       "ref": "63:2-6",
+       "text": "הכסופים לקרבת אלהים",
+       "text_de": "Die nach der Nähe Gottes Verlangenden"
+      },
+      {
+       "ref": "63:7-9",
+       "text": "הבטחון שבדבקות באלהים",
+       "text_de": "Die Zuversicht, die in der Anhänglichkeit an Gott liegt"
+      },
+      {
+       "ref": "63:10-11",
+       "text": "קללה לרשעים",
+       "text_de": "Fluch über die Frevler"
+      },
+      {
+       "ref": "63:12",
+       "text": "ברכה למלך ולנשבעים באמת, וקללה לדוברי שקר",
+       "text_de": "Segen für den König und für die, die bei der Wahrheit schwören, und Fluch über die Lügner"
+      }
+     ]
     },
     {
      "ref": "64",
@@ -845,7 +2170,34 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "für den, der einen Fluss überquert",
-     "seg_en": "for one crossing a river"
+     "seg_en": "for one crossing a river",
+     "sub": [
+      {
+       "ref": "64:2-3",
+       "text": "פניה לה' שישמרנו מאויביו",
+       "text_de": "Bitte an den HERRN, dass er uns vor unseren Feinden bewahre"
+      },
+      {
+       "ref": "64:4-7",
+       "text": "תאור מעשי הרשעים",
+       "text_de": "Beschreibung der Taten der Frevler"
+      },
+      {
+       "ref": "64:8-9",
+       "text": "תאור ענשם של הרשעים",
+       "text_de": "Beschreibung der Strafe der Frevler"
+      },
+      {
+       "ref": "64:10",
+       "text": "מעשה אלהים מתפרסם בעולם",
+       "text_de": "Gottes Werk wird in der Welt bekannt"
+      },
+      {
+       "ref": "64:11",
+       "text": "פניה לצדיקים לשמח בה'",
+       "text_de": "Aufruf an die Gerechten, sich am HERRN zu freuen"
+      }
+     ]
     },
     {
      "ref": "65",
@@ -857,7 +2209,24 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "für den, der etwas von seinem Nächsten braucht",
-     "seg_en": "for one who needs something from his fellow"
+     "seg_en": "for one who needs something from his fellow",
+     "sub": [
+      {
+       "ref": "65:2-5",
+       "text": "פתיחה (ב-ה) ועניינה: לה' ראוי להלל ולשלם נדרים (ב); ה' שומע תפלה (ג); ה' סולח עונות (ד); אשרי הזוכה לקרבת אלהים (ה)",
+       "text_de": "Einleitung (V. 2-5) und ihr Inhalt: Dem HERRN gebührt Lob und die Erfüllung der Gelübde (V. 2); der HERR erhört das Gebet (V. 3); der HERR vergibt Verschuldungen (V. 4); wohl dem, der Gottes Nähe erlangt (V. 5)"
+      },
+      {
+       "ref": "65:6-9",
+       "text": "שבח לה' בורא העולם ומושל בו",
+       "text_de": "Lobpreis des HERRN, des Schöpfers und Herrschers der Welt"
+      },
+      {
+       "ref": "65:10-14",
+       "text": "הודיה על ירידת גשמים ושנת שבע",
+       "text_de": "Dank für den Regen und das Jahr der Fülle"
+      }
+     ]
     },
     {
      "ref": "66",
@@ -869,7 +2238,34 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "für den, in den ein Geist gefahren ist",
-     "seg_en": "for one possessed by a spirit"
+     "seg_en": "for one possessed by a spirit",
+     "sub": [
+      {
+       "ref": "66:1-4",
+       "text": "קריאה לכל הארץ להלל את ה'",
+       "text_de": "Aufruf an die ganze Erde, den HERRN zu loben"
+      },
+      {
+       "ref": "66:5-7",
+       "text": "ספור נפלאות ה' לעמו בימי קדם",
+       "text_de": "Erzählung von den Wundern des HERRN an seinem Volk in alter Zeit"
+      },
+      {
+       "ref": "66:8-12",
+       "text": "ספור המצוקה שנושעו ממנה",
+       "text_de": "Erzählung von der Not, aus der sie gerettet wurden"
+      },
+      {
+       "ref": "66:13-15",
+       "text": "הכרזה על שלום הנדר",
+       "text_de": "Verkündigung der Erfüllung des Gelübdes"
+      },
+      {
+       "ref": "66:16-20",
+       "text": "דברי תודה על קבלת התפלה",
+       "text_de": "Dankesworte für die Erhörung des Gebets"
+      }
+     ]
     },
     {
      "ref": "67",
@@ -881,7 +2277,29 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "bei ständigem Fieber, für den, der ins Gefängnis geraten ist",
-     "seg_en": "for constant fever, for one who has been imprisoned"
+     "seg_en": "for constant fever, for one who has been imprisoned",
+     "sub": [
+      {
+       "ref": "67:2",
+       "text": "ברכת אלהים לישראל",
+       "text_de": "Gottes Segen für Israel"
+      },
+      {
+       "ref": "67:3",
+       "text": "ישועת אלהים מתפרסמת בכל הארץ",
+       "text_de": "Gottes Hilfe wird auf der ganzen Erde bekannt"
+      },
+      {
+       "ref": "67:5",
+       "text": "אלהים שופט ומנהיג את כל העמים",
+       "text_de": "Gott richtet und leitet alle Völker"
+      },
+      {
+       "ref": "67:7",
+       "text": "הודיה על ברכת היבול",
+       "text_de": "Dank für den Segen der Ernte"
+      }
+     ]
     },
     {
      "ref": "68",
@@ -893,7 +2311,24 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "gegen einen bösen Geist",
-     "seg_en": "against an evil spirit"
+     "seg_en": "against an evil spirit",
+     "sub": [
+      {
+       "ref": "68:2-7",
+       "text": "הקריאות 'בנסע הארון'",
+       "text_de": "Die Rufe „Wenn die Lade aufbricht“"
+      },
+      {
+       "ref": "68:8-24",
+       "text": "גלוי השכינה והנצחון על האויבים",
+       "text_de": "Offenbarung der Schechina und Sieg über die Feinde"
+      },
+      {
+       "ref": "68:25-36",
+       "text": "תאור התהלוכה החגיגית",
+       "text_de": "Beschreibung des festlichen Zuges"
+      }
+     ]
     },
     {
      "ref": "69",
@@ -905,7 +2340,24 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "für einen Sünder",
-     "seg_en": "for a transgressor"
+     "seg_en": "for a transgressor",
+     "sub": [
+      {
+       "ref": "69:2-22",
+       "text": "תאור הצרה ותפלה לישועה",
+       "text_de": "Beschreibung der Not und Gebet um Rettung"
+      },
+      {
+       "ref": "69:23-29",
+       "text": "קללות על האויבים",
+       "text_de": "Flüche über die Feinde"
+      },
+      {
+       "ref": "69:30-37",
+       "text": "שיר התודה",
+       "text_de": "Danklied"
+      }
+     ]
     },
     {
      "ref": "70",
@@ -920,7 +2372,14 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "um im Krieg zu siegen",
-     "seg_en": "to be victorious in war"
+     "seg_en": "to be victorious in war",
+     "sub": [
+      {
+       "ref": "70:2-71:13",
+       "text": "תפלה לישועה (ע ב-עא יג): ההצלה בושה לאויבים ושמחה לצדיקים (ע ב-ו); ה' מחסה ומצודה (עא א-ג); ה' אשר היה עם יראיו מבטן יושיעם גם בימי זקנתם (ד-יג)",
+       "text_de": "Gebet um Rettung (Ps 70,2 - 71,13): Die Rettung ist Schande für die Feinde und Freude für die Gerechten (70,2-6); der HERR ist Zuflucht und Burg (71,1-3); der HERR, der von Mutterleib an bei denen war, die ihn fürchten, wird sie auch im Alter retten (V. 4-13)"
+      }
+     ]
     },
     {
      "ref": "71",
@@ -932,7 +2391,14 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "um aus dem Gefängnis gerettet zu werden",
-     "seg_en": "to be saved from prison"
+     "seg_en": "to be saved from prison",
+     "sub": [
+      {
+       "ref": "71:14-24",
+       "text": "ההודיה על הישועה (עא יד-כד): נדר להלל את ה' (יד-טז); נדר לספר נפלאות ה' לדורות הבאים (יז-יח); נפלאות ה' גדולות מאד (יט-כא); נדר להלל את ה' בשירה בפה ובנגינה בכלים (כב-כד)",
+       "text_de": "Dank für die Rettung (Ps 71,14-24): Gelübde, den HERRN zu loben (V. 14-16); Gelübde, den kommenden Generationen die Wunder des HERRN zu erzählen (V. 17-18); die Wunder des HERRN sind überaus groß (V. 19-21); Gelübde, den HERRN mit Gesang des Mundes und Saitenspiel zu loben (V. 22-24)"
+      }
+     ]
     },
     {
      "ref": "72",
@@ -944,7 +2410,29 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "um bei den Menschen Gunst zu finden, damit er sein Vermögen nicht verliert",
-     "seg_en": "to find favor with people, that he not lose his property"
+     "seg_en": "to find favor with people, that he not lose his property",
+     "sub": [
+      {
+       "ref": "72:1-7",
+       "text": "צדקתו של המלך",
+       "text_de": "Die Gerechtigkeit des Königs"
+      },
+      {
+       "ref": "72:8-11",
+       "text": "גדלתו של המלך",
+       "text_de": "Die Größe des Königs"
+      },
+      {
+       "ref": "72:12-15",
+       "text": "עזרתו של המלך לאביונים",
+       "text_de": "Die Hilfe des Königs für die Armen"
+      },
+      {
+       "ref": "72:16-17",
+       "text": "ברכות לארץ ולמלך",
+       "text_de": "Segenswünsche für das Land und den König"
+      }
+     ]
     }
    ],
    "head_de": "Zweites Buch",
@@ -966,7 +2454,19 @@
      "author_de": "Asaf",
      "author_en": "Asaph",
      "seg_de": "um vor Glaubensverfolgung bewahrt zu werden",
-     "seg_en": "to be saved from religious persecution"
+     "seg_en": "to be saved from religious persecution",
+     "sub": [
+      {
+       "ref": "73:2-16",
+       "text": "המבוכה בענין שלות הרשעים: המשורר היה קרוב לכשלון (ב-ג); הצלחת הרשעים וחצפתם (ד-ט); הדעות הנפסדות הנפוצות בעם (י-טז)",
+       "text_de": "Die Verwirrung angesichts der Sorglosigkeit der Frevler: Der Dichter war nahe am Scheitern (V. 2-3); Erfolg und Frechheit der Frevler (V. 4-9); die verderblichen Ansichten, die im Volk verbreitet sind (V. 10-16)"
+      },
+      {
+       "ref": "73:17-28",
+       "text": "האמת בענין ההבדל בין צדיק לרשע: המשורר זכה להבין (יז); הצלחת הרשעים אשליה וסופם לאבדון (יח-כ); המשורר זכה להשגחת אלהים ולקרבתו ולדבקות בו (כא-כו)",
+       "text_de": "Die Wahrheit über den Unterschied zwischen Gerechtem und Frevler: Dem Dichter wurde Einsicht geschenkt (V. 17); der Erfolg der Frevler ist Täuschung, und ihr Ende ist der Untergang (V. 18-20); dem Dichter wurde Gottes Fürsorge, seine Nähe und die Verbundenheit mit ihm zuteil (V. 21-26)"
+      }
+     ]
     },
     {
      "ref": "74",
@@ -978,7 +2478,24 @@
      "author_de": "Asaf",
      "author_en": "Asaph",
      "seg_de": "gegen Feinde oder Geister, die ihn quälen",
-     "seg_en": "against enemies or spirits that torment him"
+     "seg_en": "against enemies or spirits that torment him",
+     "sub": [
+      {
+       "ref": "74:1-11",
+       "text": "תלונה על חלול הקדש ושם ה' (א-יא), ובו: תלונה כלפי ה' (א-ב); תאור מעשי האויבים (ג-ח); ושוב תלונה כלפי ה' (ט-יא)",
+       "text_de": "Klage über die Entweihung des Heiligtums und des Namens des HERRN (V. 1-11), darin: Klage an den HERRN (V. 1-2); Beschreibung der Taten der Feinde (V. 3-8); und wieder Klage an den HERRN (V. 9-11)"
+      },
+      {
+       "ref": "74:12-17",
+       "text": "שבחי ה' במעשי גבורותיו בימי קדם",
+       "text_de": "Lob des HERRN für seine Machttaten in alter Zeit"
+      },
+      {
+       "ref": "74:18-23",
+       "text": "בקשת רחמים",
+       "text_de": "Bitte um Erbarmen"
+      }
+     ]
     },
     {
      "ref": "75",
@@ -990,7 +2507,24 @@
      "author_de": "Asaf",
      "author_en": "Asaph",
      "seg_de": "zur Vergebung der Schuld",
-     "seg_en": "for forgiveness of sin"
+     "seg_en": "for forgiveness of sin",
+     "sub": [
+      {
+       "ref": "75:3-4",
+       "text": "הבטחת ה' לשפט מישרים ולהעמיד את הארץ על מכונה",
+       "text_de": "Verheißung des HERRN, gerecht zu richten und die Erde auf ihrem Fundament zu festigen"
+      },
+      {
+       "ref": "75:5-9",
+       "text": "דברי מוסר של המשורר אל הרשעים (ה-ט): אזהרות לרשעים (ה-ו), ההצלחה באה רק מאלהים (ז-ח), ה' משקה את הרשעים כוס התרעלה (ט)",
+       "text_de": "Mahnworte des Dichters an die Frevler (V. 5-9): Warnungen an die Frevler (V. 5-6); Erfolg kommt allein von Gott (V. 7-8); der HERR lässt die Frevler den Taumelbecher trinken (V. 9)"
+      },
+      {
+       "ref": "75:10-11",
+       "text": "הבעת תשוקה והבטחה לזמר לה', המשפיל רשעים ומרומם צדיקים",
+       "text_de": "Ausdruck des Verlangens und Zusage, dem HERRN zu singen, der die Frevler erniedrigt und die Gerechten erhöht"
+      }
+     ]
     },
     {
      "ref": "76",
@@ -1005,7 +2539,24 @@
      "author_de": "Asaf",
      "author_en": "Asaph",
      "seg_de": "um vor Feuer und Wasser bewahrt zu werden",
-     "seg_en": "to be saved from fire and water"
+     "seg_en": "to be saved from fire and water",
+     "sub": [
+      {
+       "ref": "76:2-4",
+       "text": "ה' גדול בישראל ושוכן בציון",
+       "text_de": "Der HERR ist groß in Israel und wohnt in Zion"
+      },
+      {
+       "ref": "76:5-10",
+       "text": "ה' הטיל את מוראו על אויביו והושיע את הענוים",
+       "text_de": "Der HERR hat seine Furcht auf seine Feinde gelegt und die Demütigen gerettet"
+      },
+      {
+       "ref": "76:11-13",
+       "text": "בני אדם מודים לה', נודרים לו ויראים אותו",
+       "text_de": "Die Menschen danken dem HERRN, geloben ihm und fürchten ihn"
+      }
+     ]
     },
     {
      "ref": "77",
@@ -1017,7 +2568,19 @@
      "author_de": "Asaf",
      "author_en": "Asaph",
      "seg_de": "damit er in keine Not gerät",
-     "seg_en": "that he not fall into any trouble"
+     "seg_en": "that he not fall into any trouble",
+     "sub": [
+      {
+       "ref": "77:2-10",
+       "text": "תלונה מתוך צרה (ב-י), ובו: תאור דרכי התפלה והזעקה וההרהורים (ב-ז); תלונה ששכח ה' את בריתו (ח-י)",
+       "text_de": "Klage aus der Not (V. 2-10), darin: Beschreibung der Weise des Betens, Schreiens und Grübelns (V. 2-7); Klage, dass der HERR seinen Bund vergessen habe (V. 8-10)"
+      },
+      {
+       "ref": "77:11-21",
+       "text": "ספור נפלאות ה' בימי קדם (יא-כא), ובו: בקשה שיתגלו הנפלאות שנית (יא); זרוז והכנה לספר את הנפלאות (יב-יג); בכל העמים נתפרסם כי גדול ה' על כל אלהים (יד-טו); ה' גאל את ישראל (טז); היקום כלו הזדעזע מפני התגלות כבוד ה' (יז-כ); ה' רועה ישראל (כא)",
+       "text_de": "Erzählung von den Wundern des HERRN in alter Zeit (V. 11-21), darin: Bitte, dass die Wunder sich erneut offenbaren (V. 11); Ermunterung und Vorbereitung, die Wunder zu erzählen (V. 12-13); unter allen Völkern wurde bekannt, dass der HERR größer ist als alle Götter (V. 14-15); der HERR hat Israel erlöst (V. 16); das ganze Weltall erbebte vor der Offenbarung der Herrlichkeit des HERRN (V. 17-20); der HERR ist der Hirte Israels (V. 21)"
+      }
+     ]
     },
     {
      "ref": "78",
@@ -1029,7 +2592,29 @@
      "author_de": "Asaf",
      "author_en": "Asaph",
      "seg_de": "um Gunst bei der Obrigkeit zu finden",
-     "seg_en": "to find favor with the authorities"
+     "seg_en": "to find favor with the authorities",
+     "sub": [
+      {
+       "ref": "78:1-8",
+       "text": "המצוה לספר נפלאות ה'",
+       "text_de": "Das Gebot, die Wunder des HERRN zu erzählen"
+      },
+      {
+       "ref": "78:9-39",
+       "text": "ספור בקיעת הים והנסים שבמדבר (ט-לט) ובו: חטאות בני אפרים (ט-יא); בקיעת הים ובקיעת הצורים (יב-טז); תלונות העם ומריים (יז-כ); חרון אף ה' עלה בעם (כא-כב); פלאי המן והשלו (כג-כט); ענשם של המתאוים (ל-לא); מרי דור המדבר וענשו (לב-לז); רחמי ה' (לח-לט)",
+       "text_de": "Erzählung von der Teilung des Meeres und den Wundern in der Wüste (V. 9-39), darin: die Sünden der Efraimiter (V. 9-11); die Spaltung des Meeres und die Spaltung der Felsen (V. 12-16); Klagen und Widerspenstigkeit des Volkes (V. 17-20); der Zorn des HERRN entbrannte gegen das Volk (V. 21-22); die Wunder von Manna und Wachteln (V. 23-29); die Strafe der Gierigen (V. 30-31); Widerspenstigkeit und Strafe der Wüstengeneration (V. 32-37); das Erbarmen des HERRN (V. 38-39)"
+      },
+      {
+       "ref": "78:40-55",
+       "text": "ספור מכות מצרים וכבוש הארץ (מ-נה) ובו: שוב על מרי דור המדבר (מ-מב); מכות מצרים (מג-נא); המסעות בים ובמדבר וכבוש הארץ (נב-נה)",
+       "text_de": "Erzählung von den Plagen Ägyptens und der Landnahme (V. 40-55), darin: nochmals zur Widerspenstigkeit der Wüstengeneration (V. 40-42); die Plagen Ägyptens (V. 43-51); die Züge durch Meer und Wüste und die Landnahme (V. 52-55)"
+      },
+      {
+       "ref": "78:56-72",
+       "text": "קורות תשועת ישראל בארץ עד בחירת דוד (נו-עב) ובו: חטאות דורות ימי השופטים (נו-נח); חרבן שילו (נט-סד); ישראל, בחירת ציון ודוד (סה-עב)",
+       "text_de": "Geschichte der Rettung Israels im Land bis zur Erwählung Davids (V. 56-72), darin: die Sünden der Generationen in der Zeit der Richter (V. 56-58); die Zerstörung Schilos (V. 59-64); Israel, die Erwählung Zions und Davids (V. 65-72)"
+      }
+     ]
     },
     {
      "ref": "79",
@@ -1041,7 +2626,19 @@
      "author_de": "Asaf",
      "author_en": "Asaph",
      "seg_de": "um Feinde zu töten",
-     "seg_en": "to kill enemies"
+     "seg_en": "to kill enemies",
+     "sub": [
+      {
+       "ref": "79:1-4",
+       "text": "זעקה על מוראות החרבן",
+       "text_de": "Klageruf über die Schrecken der Zerstörung"
+      },
+      {
+       "ref": "79:5-13",
+       "text": "תפלה לסליחה, לישועה ולנקמה באויבים (ה-יג), ובה: בקשה לנקמה באויבים (ה-ז); בקשה לסליחה וישועה (ח-ט); ושוב בקשה לנקמה באויבים (י); ושוב בקשה לישועה (יא); ושוב בקשה לנקמה באויבים (יב); סיום בנדר לספר תהלות ה' (יג)",
+       "text_de": "Gebet um Vergebung, Rettung und Rache an den Feinden (V. 5-13), darin: Bitte um Rache an den Feinden (V. 5-7); Bitte um Vergebung und Rettung (V. 8-9); und wieder Bitte um Rache an den Feinden (V. 10); und wieder Bitte um Rettung (V. 11); und wieder Bitte um Rache an den Feinden (V. 12); Schluss mit dem Gelübde, das Lob des HERRN zu erzählen (V. 13)"
+      }
+     ]
     },
     {
      "ref": "80",
@@ -1053,7 +2650,29 @@
      "author_de": "Asaf",
      "author_en": "Asaph",
      "seg_de": "damit er nicht Götzen diene",
-     "seg_en": "that he not serve idols"
+     "seg_en": "that he not serve idols",
+     "sub": [
+      {
+       "ref": "80:2-3",
+       "text": "קריאה לה' להופיע (ב-ג) ופזמון: אלהים השיבנו (ד)",
+       "text_de": "Aufruf an den HERRN, zu erscheinen (V. 2-3), und Kehrvers: Gott, bring uns zurück (V. 4)"
+      },
+      {
+       "ref": "80:5-7",
+       "text": "תלונה: עד מתי! (ה-ז) ופזמון: אלהים צבאות השיבנו (ח)",
+       "text_de": "Klage: Wie lange noch! (V. 5-7), und Kehrvers: Gott der Heerscharen, bring uns zurück (V. 8)"
+      },
+      {
+       "ref": "80:8-19",
+       "text": "תפלה בלשון משל לגפן (ח-יט) - ספור הצלחת הגפן בעבר (ח-יב), תאור המצב הרע בהוה (יג-יד), בקשה מה' שיפקד את הגפן (טו-טז)",
+       "text_de": "Gebet im Gleichnis vom Weinstock (V. 8-19) - Erzählung vom früheren Gedeihen des Weinstocks (V. 8-12), Beschreibung der schlimmen Lage in der Gegenwart (V. 13-14), Bitte an den HERRN, nach dem Weinstock zu sehen (V. 15-16)"
+      },
+      {
+       "ref": "80:17-19",
+       "text": "בקשה בלשון המפרשת את הנמשל לבן אדם (יז-יט), ופזמון: ה' אלהים צבאות השיבנו (כ)",
+       "text_de": "Bitte in einer Sprache, die das Gleichnis auf den Menschen deutet (V. 17-19), und Kehrvers: HERR, Gott der Heerscharen, bring uns zurück (V. 20)"
+      }
+     ]
     },
     {
      "ref": "81",
@@ -1065,7 +2684,19 @@
      "author_de": "Asaf",
      "author_en": "Asaph",
      "seg_de": "damit er nicht Götzen diene",
-     "seg_en": "that he not serve idols"
+     "seg_en": "that he not serve idols",
+     "sub": [
+      {
+       "ref": "81:2-6",
+       "text": "קריאה להריע לה' על פי החק הקדום (ב-ו), צווי לרנן ולזמר בכל הכלים ובשופר (ב-ד), חק הוא מימי יציאת מצרים (ה-ו)",
+       "text_de": "Aufruf, dem HERRN zuzujubeln nach der uralten Satzung (V. 2-6), Aufforderung zu Jubel und Gesang mit allen Instrumenten und dem Schofar (V. 2-4); es ist eine Satzung seit den Tagen des Auszugs aus Ägypten (V. 5-6)"
+      },
+      {
+       "ref": "81:7-17",
+       "text": "תוכחת ה' לישראל (ז-יז), ה' הושיע את ישראל ממצרים ובחנו במי מריבה (ז-ח), הזהרה שלא לעבד עבודה זרה (ט-יא), מרי העם (יב-יג), אם ישמע ישראל בקול ה' יזכה לישועה ולשבע (יד-יז)",
+       "text_de": "Zurechtweisung Israels durch den HERRN (V. 7-17): Der HERR rettete Israel aus Ägypten und prüfte es am Wasser von Meriba (V. 7-8); Warnung vor dem Götzendienst (V. 9-11); Widerspenstigkeit des Volkes (V. 12-13); wenn Israel auf die Stimme des HERRN hört, wird es Rettung und Sättigung erlangen (V. 14-17)"
+      }
+     ]
     },
     {
      "ref": "82",
@@ -1080,7 +2711,24 @@
      "author_de": "Asaf",
      "author_en": "Asaph",
      "seg_de": "um bei einer Sendung erfolgreich zu sein und schnell zurückzukehren",
-     "seg_en": "to succeed on a mission and return quickly"
+     "seg_en": "to succeed on a mission and return quickly",
+     "sub": [
+      {
+       "ref": "82:1",
+       "text": "דברי המשורר על אלהים הנצב למשפט",
+       "text_de": "Worte des Dichters über Gott, der zum Gericht dasteht"
+      },
+      {
+       "ref": "82:2-7",
+       "text": "(ב-ז) - דברי המשורר אל השופטים (ב-ד): אזהרה בלשון שאלה (ב); אזהרה בלשון צווי (ג-ד); דברי המשורר על השופטים שאינם מבינים את חובתם (ה); דברי לעג של המשורר אל השופטים (ו-ז)",
+       "text_de": "(V. 2-7) - Worte des Dichters an die Richter (V. 2-4): Warnung in Frageform (V. 2); Warnung in Befehlsform (V. 3-4); Worte des Dichters über die Richter, die ihre Pflicht nicht verstehen (V. 5); Spottworte des Dichters an die Richter (V. 6-7)"
+      },
+      {
+       "ref": "82:8",
+       "text": "דברי המשורר אל אלהים שיקום לשפט הארץ",
+       "text_de": "Worte des Dichters an Gott, er möge sich erheben, die Erde zu richten"
+      }
+     ]
     },
     {
      "ref": "83",
@@ -1092,7 +2740,19 @@
      "author_de": "Asaf",
      "author_en": "Asaph",
      "seg_de": "damit er im Krieg siegt, und selbst wenn man ihn besiegt, ihm nichts Böses geschieht",
-     "seg_en": "that he be victorious in war, and even if he is defeated, no harm befall him"
+     "seg_en": "that he be victorious in war, and even if he is defeated, no harm befall him",
+     "sub": [
+      {
+       "ref": "83:3-9",
+       "text": "האויבים זוממים להשמיד את ישראל (ג-ט): - מעשי האויבים ומחשבותיהם (ג-ו); שמות העמים האויבים (ז-ט)",
+       "text_de": "Die Feinde planen, Israel zu vernichten (V. 3-9): die Taten und Gedanken der Feinde (V. 3-6); die Namen der feindlichen Völker (V. 7-9)"
+      },
+      {
+       "ref": "83:10-19",
+       "text": "תפלה למפלת האויבים (י-יט): יפלו האויבים כבימי השופטים (י-יג); יפלו האויבים ברוח ובאש וברעש (יד-טז); יבושו האויבים ויכנעו לפני ה' (יז-יט)",
+       "text_de": "Gebet um den Sturz der Feinde (V. 10-19): Die Feinde sollen fallen wie in den Tagen der Richter (V. 10-13); die Feinde sollen fallen durch Wind, Feuer und Beben (V. 14-16); die Feinde sollen beschämt werden und sich vor dem HERRN beugen (V. 17-19)"
+      }
+     ]
     },
     {
      "ref": "84",
@@ -1104,7 +2764,29 @@
      "author_de": "Korachiter",
      "author_en": "Sons of Korah",
      "seg_de": "für den, dessen Körper vor lauter Krankheit abgemagert ist",
-     "seg_en": "for one whose body has become emaciated from illness"
+     "seg_en": "for one whose body has become emaciated from illness",
+     "sub": [
+      {
+       "ref": "84:2-4",
+       "text": "געגועים אל המקדש",
+       "text_de": "Sehnsucht nach dem Heiligtum"
+      },
+      {
+       "ref": "84:5-8",
+       "text": "אשרי היושבים בבית ה' ואשרי העולים אליו",
+       "text_de": "Wohl denen, die im Haus des HERRN wohnen, und wohl denen, die zu ihm hinaufziehen"
+      },
+      {
+       "ref": "84:9-10",
+       "text": "תחנה (ט-י) - בקשה על קבלת התפלה (ט), בקשה על מלך ישראל (י)",
+       "text_de": "Flehen (V. 9-10) - Bitte um Erhörung des Gebets (V. 9), Bitte für den König Israels (V. 10)"
+      },
+      {
+       "ref": "84:11-13",
+       "text": "טוב להיות בבית ה' וטוב לבטח בה'",
+       "text_de": "Gut ist es, im Haus des HERRN zu sein, und gut ist es, auf den HERRN zu vertrauen"
+      }
+     ]
     },
     {
      "ref": "85",
@@ -1116,7 +2798,19 @@
      "author_de": "Korachiter",
      "author_en": "Sons of Korah",
      "seg_de": "um seinen Nächsten zu besänftigen",
-     "seg_en": "to appease one's fellow"
+     "seg_en": "to appease one's fellow",
+     "sub": [
+      {
+       "ref": "85:2-8",
+       "text": "התפלה (ב-ח) - הודיה לשעבר (ב-ד), בקשה לעתיד (ה-ח)",
+       "text_de": "Das Gebet (V. 2-8) - Dank für die Vergangenheit (V. 2-4), Bitte für die Zukunft (V. 5-8)"
+      },
+      {
+       "ref": "85:9-14",
+       "text": "מענה ה' על התפלה (ט-יד) - ה' מדבר שלום (ט), פרוט ברכות השלום (י-יד)",
+       "text_de": "Die Antwort des HERRN auf das Gebet (V. 9-14) - der HERR redet Frieden (V. 9), Aufzählung der Segnungen des Friedens (V. 10-14)"
+      }
+     ]
     },
     {
      "ref": "86",
@@ -1128,7 +2822,29 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "um vor einem bösen Geist bewahrt zu werden",
-     "seg_en": "to be saved from an evil spirit"
+     "seg_en": "to be saved from an evil spirit",
+     "sub": [
+      {
+       "ref": "86:1-7",
+       "text": "בקשה לקבלת התפלה",
+       "text_de": "Bitte um Erhörung des Gebets"
+      },
+      {
+       "ref": "86:8-10",
+       "text": "שבחי ה'",
+       "text_de": "Lobpreis des HERRN"
+      },
+      {
+       "ref": "86:11-13",
+       "text": "בקשה ליחוד הלב ונדר להודות לה'",
+       "text_de": "Bitte um Einheit des Herzens und Gelübde, dem HERRN zu danken"
+      },
+      {
+       "ref": "86:14-17",
+       "text": "תחנונים לישועה מהאויבים",
+       "text_de": "Flehen um Rettung vor den Feinden"
+      }
+     ]
     },
     {
      "ref": "87",
@@ -1140,7 +2856,24 @@
      "author_de": "Korachiter",
      "author_en": "Sons of Korah",
      "seg_de": "um die Stadt oder die Gemeinde aus Not zu retten",
-     "seg_en": "to deliver the city or the community from distress"
+     "seg_en": "to deliver the city or the community from distress",
+     "sub": [
+      {
+       "ref": "87:1-3",
+       "text": "ציון אהובה, קדושה ונכבדת",
+       "text_de": "Zion, die Geliebte, Heilige und Hochgeehrte"
+      },
+      {
+       "ref": "87:4-6",
+       "text": "לכל האנשים זכות להחשב כילידי ציון",
+       "text_de": "Alle Menschen haben das Recht, als in Zion geboren zu gelten"
+      },
+      {
+       "ref": "87:7",
+       "text": "דברי השרים",
+       "text_de": "Worte der Fürsten"
+      }
+     ]
     },
     {
      "ref": "88",
@@ -1152,7 +2885,24 @@
      "author_de": "Korachiter",
      "author_en": "Sons of Korah",
      "seg_de": "um die Stadt oder die Gemeinde aus Not zu retten",
-     "seg_en": "to deliver the city or the community from distress"
+     "seg_en": "to deliver the city or the community from distress",
+     "sub": [
+      {
+       "ref": "88:2-9",
+       "text": "בקשה לקבלת התפלה (ב-ג); תלונת המשורר כי הוא חשוב כמת (ד-ט)",
+       "text_de": "Bitte um Erhörung des Gebets (V. 2-3); Klage des Dichters, dass er wie ein Toter gilt (V. 4-9)"
+      },
+      {
+       "ref": "88:10-13",
+       "text": "זעקת המשורר בכל יום (י), תשועת ה' לחיים ולא למתים (יא-יג)",
+       "text_de": "Das Schreien des Dichters an jedem Tag (V. 10), die Hilfe des HERRN gilt den Lebenden und nicht den Toten (V. 11-13)"
+      },
+      {
+       "ref": "88:14-19",
+       "text": "זעקת המשורר בכל בקר (יד), תלונת המשורר על יסוריו ועל בדידותו (טו-יט)",
+       "text_de": "Das Schreien des Dichters an jedem Morgen (V. 14), Klage des Dichters über seine Leiden und seine Einsamkeit (V. 15-19)"
+      }
+     ]
     },
     {
      "ref": "89",
@@ -1164,7 +2914,39 @@
      "author_de": "Etan",
      "author_en": "Ethan",
      "seg_de": "für den, dessen Körper von Krankheiten verfällt, um einen Mann aus dem Gefängnis zu befreien",
-     "seg_en": "for one whose body deteriorates from illnesses, to free a man from prison"
+     "seg_en": "for one whose body deteriorates from illnesses, to free a man from prison",
+     "sub": [
+      {
+       "ref": "89:2-5",
+       "text": "החסד לעולם - המשורר מקבל על עצמו שישיר לעולם את חסדי ה' (ב), הברית עם דוד היתה לעולם (ג-ה)",
+       "text_de": "Die Gnade währt ewig - Der Dichter nimmt sich vor, die Gnadenerweise des HERRN ewig zu besingen (V. 2); der Bund mit David galt auf ewig (V. 3-5)"
+      },
+      {
+       "ref": "89:6-19",
+       "text": "שבחי ה' - מלאכי מעלה מהללים ומעריצים את ה' (ו-ט), ה' מושל בים, דכא את רהב, ברא את העולם ומושל בצדק (י-טו), אשרי העם הממליכים את ה' (טז-יט)",
+       "text_de": "Lobpreis des HERRN - Die himmlischen Engel loben und preisen den HERRN (V. 6-9); der HERR herrscht über das Meer, hat Rahab zerschmettert, die Welt erschaffen und herrscht in Gerechtigkeit (V. 10-15); wohl dem Volk, das den HERRN zum König erhebt (V. 16-19)"
+      },
+      {
+       "ref": "89:20-38",
+       "text": "ההבטחה לדוד - דוד נבחר למלכות עולם (כ-ל), המלכות לא תבטל אף אם מלכי בית דוד ירבו לפשע (לא-לח)",
+       "text_de": "Die Verheißung an David - David wurde zum ewigen Königtum erwählt (V. 20-30); das Königtum wird nicht aufgehoben, auch wenn die Könige aus dem Haus Davids viel sündigen (V. 31-38)"
+      },
+      {
+       "ref": "89:39-46",
+       "text": "ההבטחה לדוד לא נתקימה כפשוטה",
+       "text_de": "Die Verheißung an David hat sich nicht dem Wortsinn nach erfüllt"
+      },
+      {
+       "ref": "89:47-52",
+       "text": "זעקה אל ה' - עד מתי תבער חמת ה' (מז), חיי האדם קצרים ובריאתו לשוא (מח-מט), היכן ההבטחות הקדומות לדוד (נ), האויבים מחרפים את עבדי ה', את ה' ואת משיחו (נא-נב)",
+       "text_de": "Schreien zum HERRN - Wie lange noch brennt der Zorn des HERRN (V. 47); das Leben des Menschen ist kurz und seine Erschaffung umsonst (V. 48-49); wo sind die früheren Verheißungen an David (V. 50); die Feinde schmähen die Knechte des HERRN, den HERRN und seinen Gesalbten (V. 51-52)"
+      },
+      {
+       "ref": "89:53",
+       "text": "ברכה לה'",
+       "text_de": "Lobpreis des HERRN"
+      }
+     ]
     }
    ],
    "head_de": "Drittes Buch",
@@ -1183,7 +2965,19 @@
      "author_de": "Mose",
      "author_en": "Moses",
      "seg_de": "um einen Löwen oder einen bösen Geist zu vertreiben, um vor allem Übel bewahrt zu werden",
-     "seg_en": "to drive away a lion or an evil spirit, to be saved from all evil"
+     "seg_en": "to drive away a lion or an evil spirit, to be saved from all evil",
+     "sub": [
+      {
+       "ref": "90:1-10",
+       "text": "האלהים נצחי וחיי האדם חולפים מהר וביסורים (א-י) - (א) האלהים נצחי (א-ב); (ב) האדם קצר ימים (ג-ו); (ג) ה' שופך חרון אפו על האדם (ז-י)",
+       "text_de": "Gott ist ewig, und das Leben des Menschen vergeht schnell und in Leiden (V. 1-10) - (1) Gott ist ewig (V. 1-2); (2) der Mensch hat kurze Tage (V. 3-6); (3) der HERR gießt seinen glühenden Zorn über den Menschen aus (V. 7-10)"
+      },
+      {
+       "ref": "90:11-17",
+       "text": "תפלה לחיים של אשר ושמחה (יא-יז) - (א) בקשה להשגת חכמה (יא-יב); (ב) תפלה על כל עבדי ה' שיזכו לחסד ה' ולנעמו (יג-יז)",
+       "text_de": "Gebet um ein Leben in Glück und Freude (V. 11-17) - (1) Bitte um den Erwerb von Weisheit (V. 11-12); (2) Gebet, dass alle Knechte des HERRN seine Gnade und Huld erfahren (V. 13-17)"
+      }
+     ]
     },
     {
      "ref": "91",
@@ -1195,7 +2989,19 @@
      "author_de": "Mose",
      "author_en": "Moses",
      "seg_de": "um einen Löwen oder einen bösen Geist zu vertreiben, um vor allem Übel bewahrt zu werden",
-     "seg_en": "to drive away a lion or an evil spirit, to be saved from all evil"
+     "seg_en": "to drive away a lion or an evil spirit, to be saved from all evil",
+     "sub": [
+      {
+       "ref": "91:1-8",
+       "text": "דברי הבוטח בה' כי הוא מחסהו (א-ב); ברכה לבוטח בה' בלשון נוכח שה' יצילנו מכל נזק (ג-ח)",
+       "text_de": "Worte dessen, der auf den HERRN vertraut, dass er seine Zuflucht ist (V. 1-2); Segenswort an den, der auf den HERRN vertraut, in der zweiten Person: Der HERR wird ihn vor jedem Schaden bewahren (V. 3-8)"
+      },
+      {
+       "ref": "91:9-16",
+       "text": "דברי הבוטח בה' כי ה' מחסהו (ט), ברכה לבוטח בה' בלשון נוכח שה' יצילנו מכל נזק (י-יג), ברכה לבוטח בה' בלשון נסתר מפי ה' בלשון מדבר בעדו (יד-טז)",
+       "text_de": "Worte dessen, der auf den HERRN vertraut, dass der HERR seine Zuflucht ist (V. 9), Segenswort an den, der auf den HERRN vertraut, in der zweiten Person: Der HERR wird ihn vor jedem Schaden bewahren (V. 10-13), Segenswort an den, der auf den HERRN vertraut, in der dritten Person, aus dem Mund des HERRN, der für ihn spricht (V. 14-16)"
+      }
+     ]
     },
     {
      "ref": "92",
@@ -1207,7 +3013,24 @@
      "author_de": "Mose",
      "author_en": "Moses",
      "seg_de": "um zu Größe aufzusteigen – diesen Psalm und die Psalmen 20, 23–24, 94 und 100 sprechen",
-     "seg_en": "to rise to greatness – recite this psalm and Psalms 20, 23–24, 94 and 100"
+     "seg_en": "to rise to greatness – recite this psalm and Psalms 20, 23–24, 94 and 100",
+     "sub": [
+      {
+       "ref": "92:2-6",
+       "text": "טוב להודות לה' כי מעשיו גדולים ועמקים",
+       "text_de": "Gut ist es, dem HERRN zu danken, denn seine Werke sind groß und tief"
+      },
+      {
+       "ref": "92:7-15",
+       "text": "הרשעים והצלחתם מול הצדיקים והצלחתם (ז-טו); אין הכסילים מבינים את פשר הצלחת הרשעים (ז), הצלחת הרשעים חולפת מהר וה' משמידם (ח-י); הצדיק זוכה לראות במפלת הרשעים (יא-יב); הצדיק מאריך ימים בטובה ובשלום (יג-טו)",
+       "text_de": "Die Frevler und ihr Erfolg im Gegensatz zu den Gerechten und ihrem Erfolg (V. 7-15); die Toren verstehen nicht den Sinn des Erfolgs der Frevler (V. 7); der Erfolg der Frevler vergeht schnell, und der HERR vernichtet sie (V. 8-10); der Gerechte darf den Sturz der Frevler sehen (V. 11-12); der Gerechte wird alt in Wohlergehen und Frieden (V. 13-15)"
+      },
+      {
+       "ref": "92:16",
+       "text": "ה' צדיק וישר",
+       "text_de": "Der HERR ist gerecht und aufrichtig"
+      }
+     ]
     },
     {
      "ref": "93",
@@ -1219,7 +3042,24 @@
      "author_de": "Mose",
      "author_en": "Moses",
      "seg_de": "um seinen Prozessgegner zu besiegen",
-     "seg_en": "to defeat one's opponent in a lawsuit"
+     "seg_en": "to defeat one's opponent in a lawsuit",
+     "sub": [
+      {
+       "ref": "93:1-2",
+       "text": "מלכות ה' קימת מעולם",
+       "text_de": "Das Königtum des HERRN besteht seit jeher"
+      },
+      {
+       "ref": "93:3-4",
+       "text": "ה' אדיר מאויביו",
+       "text_de": "Der HERR ist mächtiger als seine Feinde"
+      },
+      {
+       "ref": "93:5",
+       "text": "ה' שוכן במקדשו לארך ימים",
+       "text_de": "Der HERR wohnt in seinem Heiligtum für alle Zeit"
+      }
+     ]
     },
     {
      "ref": "94",
@@ -1231,7 +3071,24 @@
      "author_de": "Mose",
      "author_en": "Moses",
      "seg_de": "um einen quälenden Feind loszuwerden – diesen Psalm und Psalm 92 sprechen",
-     "seg_en": "to be rid of a tormenting enemy – recite this psalm and Psalm 92"
+     "seg_en": "to be rid of a tormenting enemy – recite this psalm and Psalm 92",
+     "sub": [
+      {
+       "ref": "94:1-7",
+       "text": "תלונה על מעשי הרשעים (א-ז): קריאה לה' שינקם ברשעים (א-ב), הרשעים שמחים בהצלחתם זמן רב (ג), הם מתפארים ומדברים דברי שחצנות (ד), הם עושקים ומדכאים את ישראל (ה), הם אף רוצחים חסרי מגן (ו), הם מחרפים ומגדפים כלפי מעלה (ז)",
+       "text_de": "Klage über die Taten der Frevler (V. 1-7): Ruf an den HERRN, an den Frevlern Rache zu nehmen (V. 1-2); die Frevler freuen sich lange über ihren Erfolg (V. 3); sie prahlen und reden anmaßende Worte (V. 4); sie unterdrücken und bedrücken Israel (V. 5); sie ermorden sogar Wehrlose (V. 6); sie lästern und schmähen gegen den Himmel (V. 7)"
+      },
+      {
+       "ref": "94:8-15",
+       "text": "דברי חכמה ומוסר (ח-טו): ה' יודע כל מעשי בני אדם ומחשבותיהם (ח-יא), אשרי מי שמקבל את היסורים באהבה, לומד מהם לקח ומצפה בבטחון לתשועת ה' (יב-טו)",
+       "text_de": "Worte der Weisheit und der Unterweisung (V. 8-15): Der HERR kennt alle Taten und Gedanken der Menschen (V. 8-11); wohl dem, der die Leiden in Liebe annimmt, daraus eine Lehre zieht und vertrauensvoll auf die Hilfe des HERRN wartet (V. 12-15)"
+      },
+      {
+       "ref": "94:16-23",
+       "text": "ה' עוזר לבוטח בו ומצילו מיד הרשעים",
+       "text_de": "Der HERR hilft dem, der auf ihn vertraut, und rettet ihn aus der Hand der Frevler"
+      }
+     ]
     },
     {
      "ref": "95",
@@ -1243,7 +3100,19 @@
      "author_de": "Mose",
      "author_en": "Moses",
      "seg_de": "damit die Leute seiner Stadt ihn nicht vom Weg des Herrn abbringen",
-     "seg_en": "that the people of his city not lead him astray from the way of the Lord"
+     "seg_en": "that the people of his city not lead him astray from the way of the Lord",
+     "sub": [
+      {
+       "ref": "95:1-7",
+       "text": "קריאה לשבח את ה' (א-ז עד האתנח): יש להריע ולזמר לה' (א-ג), ה' מושל בכל היקום (ד-ה), יש לכרע ולהשתחוות לה' (ו), ה' רועה ישראל (ז עד האתנח)",
+       "text_de": "Aufruf zum Lobpreis des HERRN (V. 1-7 bis zum Atnach): Man soll dem HERRN zujubeln und singen (V. 1-3); der HERR herrscht über das ganze Weltall (V. 4-5); man soll sich vor dem HERRN niederwerfen und beugen (V. 6); der HERR ist der Hirte Israels (V. 7 bis zum Atnach)"
+      },
+      {
+       "ref": "95:7-11",
+       "text": "תוכחה לקהל עובדי ה' (ז מן האתנח - יא): יש לשמע בקול ה' (חציו השני של פסוק ז), יש להזהר שלא לעשות כמעשי דור המדבר (ח-ט), יש לזכר את ענשם של דור המדבר שלא באו אל המנוחה (י-יא)",
+       "text_de": "Zurechtweisung an die Gemeinde der Verehrer des HERRN (V. 7 ab dem Atnach - 11): Man soll auf die Stimme des HERRN hören (zweite Hälfte von V. 7); man soll sich hüten, so zu handeln wie die Wüstengeneration (V. 8-9); man soll an die Strafe der Wüstengeneration denken, die nicht zur Ruhe gelangte (V. 10-11)"
+      }
+     ]
     },
     {
      "ref": "96",
@@ -1258,7 +3127,29 @@
      "author_de": "Mose/David",
      "author_en": "Moses/David",
      "seg_de": "um seine Familie zu erfreuen",
-     "seg_en": "to gladden his family"
+     "seg_en": "to gladden his family",
+     "sub": [
+      {
+       "ref": "96:1-3",
+       "text": "קריאה לשיר לה'",
+       "text_de": "Aufruf, dem HERRN zu singen"
+      },
+      {
+       "ref": "96:4-6",
+       "text": "ה' גדול ונורא",
+       "text_de": "Der HERR ist groß und furchterregend"
+      },
+      {
+       "ref": "96:7-10",
+       "text": "קריאה לכל העמים לירא את ה'",
+       "text_de": "Aufruf an alle Völker, den HERRN zu fürchten"
+      },
+      {
+       "ref": "96:11-13",
+       "text": "כל הבריאה כלה שמחה בבוא ה' לשפט את הארץ",
+       "text_de": "Die ganze Schöpfung freut sich, wenn der HERR kommt, die Erde zu richten"
+      }
+     ]
     },
     {
      "ref": "97",
@@ -1270,7 +3161,24 @@
      "author_de": "Mose",
      "author_en": "Moses",
      "seg_de": "um seine Familie zu erfreuen",
-     "seg_en": "to gladden his family"
+     "seg_en": "to gladden his family",
+     "sub": [
+      {
+       "ref": "97:1-6",
+       "text": "התגלות מלכות ה'",
+       "text_de": "Offenbarung der Königsherrschaft des HERRN"
+      },
+      {
+       "ref": "97:7-9",
+       "text": "בשת לעובדי האלילים ושמחה לעובדי ה'",
+       "text_de": "Schande für die Götzendiener und Freude für die Diener des HERRN"
+      },
+      {
+       "ref": "97:10-12",
+       "text": "אוהבי ה' חיבים לשנא רע ולשמח בה'",
+       "text_de": "Die den HERRN lieben, sollen das Böse hassen und sich am HERRN freuen"
+      }
+     ]
     },
     {
      "ref": "98",
@@ -1282,7 +3190,24 @@
      "author_de": "Mose",
      "author_en": "Moses",
      "seg_de": "um Frieden zwischen den Menschen zu stiften",
-     "seg_en": "to bring peace between people"
+     "seg_en": "to bring peace between people",
+     "sub": [
+      {
+       "ref": "98:1-3",
+       "text": "ישועת ה' נתגלתה",
+       "text_de": "Die Rettung des HERRN ist offenbar geworden"
+      },
+      {
+       "ref": "98:4-6",
+       "text": "יש להריע לה'",
+       "text_de": "Man soll dem HERRN zujubeln"
+      },
+      {
+       "ref": "98:7-9",
+       "text": "איתני הבריאה מרננים לה'",
+       "text_de": "Die Urgewalten der Schöpfung jubeln dem HERRN zu"
+      }
+     ]
     },
     {
      "ref": "99",
@@ -1294,7 +3219,24 @@
      "author_de": "Mose",
      "author_en": "Moses",
      "seg_de": "um fromm zu werden",
-     "seg_en": "to become pious"
+     "seg_en": "to become pious",
+     "sub": [
+      {
+       "ref": "99:1-3",
+       "text": "ה' מלך על כל העמים ומקום מושבו בציון",
+       "text_de": "Der HERR ist König über alle Völker, und sein Wohnsitz ist auf dem Zion"
+      },
+      {
+       "ref": "99:4-5",
+       "text": "ה' עושה משפט וצדקה ביעקב",
+       "text_de": "Der HERR übt Recht und Gerechtigkeit in Jakob"
+      },
+      {
+       "ref": "99:6-9",
+       "text": "ה' עונה לקוראיו הקרובים אליו",
+       "text_de": "Der HERR antwortet denen, die ihn anrufen und ihm nahe sind"
+      }
+     ]
     },
     {
      "ref": "100",
@@ -1306,7 +3248,24 @@
      "author_de": "Mose",
      "author_en": "Moses",
      "seg_de": "um die Feinde zu besiegen",
-     "seg_en": "to defeat enemies"
+     "seg_en": "to defeat enemies",
+     "sub": [
+      {
+       "ref": "100:1-2",
+       "text": "עבודת ה' בשמחה",
+       "text_de": "Dienst des HERRN in Freude"
+      },
+      {
+       "ref": "100:3",
+       "text": "ידיעת ה'",
+       "text_de": "Erkenntnis des HERRN"
+      },
+      {
+       "ref": "100:4-5",
+       "text": "הודיה לה'",
+       "text_de": "Dank an den HERRN"
+      }
+     ]
     },
     {
      "ref": "101",
@@ -1318,7 +3277,24 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "gegen einen bösen Geist – auf Pergament zusammen mit Psalm 68 schreiben",
-     "seg_en": "against an evil spirit – write it on parchment together with Psalm 68"
+     "seg_en": "against an evil spirit – write it on parchment together with Psalm 68",
+     "sub": [
+      {
+       "ref": "101:1",
+       "text": "המזמור הוא שיר על החסד והמשפט",
+       "text_de": "Der Psalm ist ein Lied über Gnade und Recht"
+      },
+      {
+       "ref": "101:2-4",
+       "text": "המשורר מכון את עיניו ולבו לדרך הטובה",
+       "text_de": "Der Dichter richtet Augen und Herz auf den guten Weg"
+      },
+      {
+       "ref": "101:5-8",
+       "text": "המשורר מרחיק את הרשעים ומקרב אליו את הצדיקים",
+       "text_de": "Der Dichter hält die Frevler fern und zieht die Gerechten zu sich"
+      }
+     ]
     },
     {
      "ref": "102",
@@ -1330,7 +3306,29 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "um Erbarmen für eine unfruchtbare Frau zu erbitten",
-     "seg_en": "to plead for mercy for a barren woman"
+     "seg_en": "to plead for mercy for a barren woman",
+     "sub": [
+      {
+       "ref": "102:2-3",
+       "text": "בקשה לקבלת התפלה",
+       "text_de": "Bitte um Erhörung des Gebets"
+      },
+      {
+       "ref": "102:4-12",
+       "text": "המתפלל נתון במצוקה ובאבל",
+       "text_de": "Der Betende ist in Not und Trauer"
+      },
+      {
+       "ref": "102:13-23",
+       "text": "תפלה על בנין ציון (יג-כג), בקשת רחמים על ציון (יג-יח), נדר לספר תהלת ה' (יט-כג)",
+       "text_de": "Gebet um den Wiederaufbau Zions (V. 13-23), Bitte um Erbarmen für Zion (V. 13-18), Gelübde, das Lob des HERRN zu verkünden (V. 19-23)"
+      },
+      {
+       "ref": "102:24-29",
+       "text": "קצר חיי האדם לעמת נצחיות ה'",
+       "text_de": "Die Kürze des Menschenlebens im Gegensatz zur Ewigkeit des HERRN"
+      }
+     ]
     },
     {
      "ref": "103",
@@ -1342,7 +3340,34 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "um Erbarmen für eine unfruchtbare Frau zu erbitten",
-     "seg_en": "to plead for mercy for a barren woman"
+     "seg_en": "to plead for mercy for a barren woman",
+     "sub": [
+      {
+       "ref": "103:1-5",
+       "text": "קריאת המשורר אל נפשו לברך את ה' על טובותיו עמה (א-ה): המשורר מצוה לנפשו לברך את ה' (א-ב), טובות ה' עם הנפש (ג-ה)",
+       "text_de": "Der Dichter fordert seine Seele auf, den HERRN für seine Wohltaten an ihr zu preisen (V. 1-5): Der Dichter befiehlt seiner Seele, den HERRN zu preisen (V. 1-2), die Wohltaten des HERRN an der Seele (V. 3-5)"
+      },
+      {
+       "ref": "103:6-9",
+       "text": "מדות הרחמים של ה'",
+       "text_de": "Die Eigenschaften des Erbarmens des HERRN"
+      },
+      {
+       "ref": "103:10-14",
+       "text": "הנהגת ה' עם יראיו",
+       "text_de": "Das Walten des HERRN über denen, die ihn fürchten"
+      },
+      {
+       "ref": "103:15-19",
+       "text": "קצר חיי אנוש לעמת נצחיות חסד ה'",
+       "text_de": "Die Kürze des Menschenlebens im Gegensatz zur Ewigkeit der Gnade des HERRN"
+      },
+      {
+       "ref": "103:20",
+       "text": "קריאה לכל היצורים כלם לברך את ה'",
+       "text_de": "Aufruf an alle Geschöpfe, den HERRN zu preisen"
+      }
+     ]
     },
     {
      "ref": "104",
@@ -1354,7 +3379,44 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "um einen Schadgeist zu töten",
-     "seg_en": "to kill a harmful spirit"
+     "seg_en": "to kill a harmful spirit",
+     "sub": [
+      {
+       "ref": "104:1-6",
+       "text": "האור, השמים, המים, העבים, הרוח, האש, הארץ",
+       "text_de": "Das Licht, der Himmel, das Wasser, die Wolken, der Wind, das Feuer, die Erde"
+      },
+      {
+       "ref": "104:7-12",
+       "text": "היבשה, הים והנהרות",
+       "text_de": "Das trockene Land, das Meer und die Flüsse"
+      },
+      {
+       "ref": "104:13-18",
+       "text": "פרי האדמה, האילנות, הצפרים, היעלים, השפנים בהרים והסלעים",
+       "text_de": "Die Frucht der Erde, die Bäume, die Vögel, die Steinböcke, die Klippdachse in den Bergen und die Felsen"
+      },
+      {
+       "ref": "104:19-24",
+       "text": "השמש והירח והיום והלילה",
+       "text_de": "Sonne und Mond, Tag und Nacht"
+      },
+      {
+       "ref": "104:25-26",
+       "text": "הים וכל אשר בו",
+       "text_de": "Das Meer und alles, was darin ist"
+      },
+      {
+       "ref": "104:27-30",
+       "text": "המחזורים של כליה והתחדשות אצל בעלי חיים",
+       "text_de": "Die Kreisläufe von Vergehen und Erneuerung bei den Lebewesen"
+      },
+      {
+       "ref": "104:31-35",
+       "text": "שמחת הבורא בעולמו כנגד שמחת המשורר באלהיו",
+       "text_de": "Die Freude des Schöpfers an seiner Welt im Gegensatz zur Freude des Dichters an seinem Gott"
+      }
+     ]
     },
     {
      "ref": "105",
@@ -1369,7 +3431,19 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "gegen Viertagefieber",
-     "seg_en": "for quartan fever"
+     "seg_en": "for quartan fever",
+     "sub": [
+      {
+       "ref": "105:1-6",
+       "text": "קריאה להודות לה' ולספר נפלאותיו",
+       "text_de": "Aufruf, dem HERRN zu danken und seine Wunder zu erzählen"
+      },
+      {
+       "ref": "105:7-45",
+       "text": "וספור שבחי ה' בקיום בריתו עם האבות (ז-מה): תכן הברית (ז-יא); האבות בכנען (יב-טו); יוסף במצרים (טז-כב); בני ישראל במצרים (כג-כה); מכות מצרים (כו-לו); יציאת מצרים וההליכה במדבר (לז-מג); ירשת הארץ (מד-מה)",
+       "text_de": "Und Erzählung vom Lob des HERRN in der Einhaltung seines Bundes mit den Vätern (V. 7-45): Inhalt des Bundes (V. 7-11); die Väter in Kanaan (V. 12-15); Josef in Ägypten (V. 16-22); die Israeliten in Ägypten (V. 23-25); die Plagen Ägyptens (V. 26-36); der Auszug aus Ägypten und der Zug durch die Wüste (V. 37-43); die Inbesitznahme des Landes (V. 44-45)"
+      }
+     ]
     },
     {
      "ref": "106",
@@ -1381,7 +3455,19 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "gegen Dreitagefieber",
-     "seg_en": "for tertian fever"
+     "seg_en": "for tertian fever",
+     "sub": [
+      {
+       "ref": "106:1-5",
+       "text": "שבח ה': חסדו לעולם על שומרי משפט (א-ג); תחנה לה': זכני לראות בישועת ישראל (ד-ה)",
+       "text_de": "Lob des HERRN: Seine Gnade währt ewig für die, die das Recht wahren (V. 1-3); Bitte an den HERRN: Lass mich die Rettung Israels sehen (V. 4-5)"
+      },
+      {
+       "ref": "106:6-46",
+       "text": "מבוא: בני ישראל חטאו המה ואבותיהם (פסוק ו). שבעת חטאי דור המדבר (ז-לג) - המרי על ים סוף (ז-יב); קברות התאוה (יג-טו); דתן ואבירם (טז-יח); מעשה העגל (יט-כג); הסרוב להכנס אל הארץ (כד-כז); בעל פעור (כח-לא); מי מריבה (לב-לג). שלשת פשעי ישראל בארץ כנען (לד-לט) - לא השמידו את הכנענים אלא התערבו בהם (לד-לה); עבדו לאלילי הכנענים (לו); הקריבו קרבנות אדם (לז-לט). נעילת הודוי (מ-מו) - בני ישראל נענשו ונושעו וחזרו וחטאו (מ-מג); ה' זכר בריתו לישראל (מד-מו)",
+       "text_de": "Einleitung: Die Israeliten haben gesündigt, sie und ihre Väter (V. 6). Die sieben Sünden der Wüstengeneration (V. 7-33) - die Auflehnung am Schilfmeer (V. 7-12); Kibrot-Hattaawa (V. 13-15); Datan und Abiram (V. 16-18); die Geschichte vom Kalb (V. 19-23); die Weigerung, in das Land zu ziehen (V. 24-27); Baal-Pegor (V. 28-31); das Wasser von Meriba (V. 32-33). Die drei Vergehen Israels im Land Kanaan (V. 34-39) - sie vertilgten die Kanaaniter nicht, sondern vermischten sich mit ihnen (V. 34-35); sie dienten den Götzen der Kanaaniter (V. 36); sie brachten Menschenopfer dar (V. 37-39). Schluss des Bekenntnisses (V. 40-46) - die Israeliten wurden bestraft, gerettet, und sündigten wieder (V. 40-43); der HERR gedachte seines Bundes mit Israel (V. 44-46)"
+      }
+     ]
     }
    ],
    "head_de": "Viertes Buch",
@@ -1400,7 +3486,29 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "gegen ständiges Fieber",
-     "seg_en": "for constant fever"
+     "seg_en": "for constant fever",
+     "sub": [
+      {
+       "ref": "107:1-3",
+       "text": "מטבע קריאת ההודיה (א), פניה כללית אל כל גאולי ה' להודות לו (ב-ג)",
+       "text_de": "Form des Dankaufrufs (V. 1), allgemeine Hinwendung an alle Erlösten des HERRN, ihm zu danken (V. 2-3)"
+      },
+      {
+       "ref": "107:4-32",
+       "text": "הארבעה שצריכים להודות על הישועה: התועים במדבר (ד-ט, פזמונים: ו, ח), האסירים (י-טז, פזמונים: יג, טו), החולים (יז-כב, פזמונים: יט, כא), יורדי הים (כג-לג, פזמונים: כח, לא)",
+       "text_de": "Die vier, die für die Rettung danken müssen: die in der Wüste Umherirrenden (V. 4-9, Kehrverse: V. 6, 8), die Gefangenen (V. 10-16, Kehrverse: V. 13, 15), die Kranken (V. 17-22, Kehrverse: V. 19, 21), die Seefahrer (V. 23-33, Kehrverse: V. 28, 31)"
+      },
+      {
+       "ref": "107:33-41",
+       "text": "חסדי ה' נראים בתהפוכות הגלגל החוזר בעולם: הישוב נהפך למדבר (לג-לד), המדבר נהפך לישוב (לה-לז), בני אדם מתרבים וחוזרים ומתמעטים (לח-לט), הנכבדים הופכים בזויים (מ), השפלים מתרוממים (מא)",
+       "text_de": "Die Gnade des HERRN zeigt sich im steten Wandel der Welt: Bewohntes Land wird zur Wüste (V. 33-34), die Wüste wird zu bewohntem Land (V. 35-37), Menschen vermehren sich und werden wieder weniger (V. 38-39), Angesehene werden verachtet (V. 40), Niedrige werden erhöht (V. 41)"
+      },
+      {
+       "ref": "107:42-43",
+       "text": "הצדיקים שמחים והרשעים משתתקים (מב), קריאה להתבונן בחסדי ה' (מג)",
+       "text_de": "Die Gerechten freuen sich, und die Frevler verstummen (V. 42), Aufruf, die Gnadenerweise des HERRN zu bedenken (V. 43)"
+      }
+     ]
     },
     {
      "ref": "108",
@@ -1415,7 +3523,24 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "für Erfolg",
-     "seg_en": "for success"
+     "seg_en": "for success",
+     "sub": [
+      {
+       "ref": "108:2-6",
+       "text": "שבחי ה'",
+       "text_de": "Lobpreis des HERRN"
+      },
+      {
+       "ref": "108:7-10",
+       "text": "תפלה לישועה ולקיום ההבטחה האלהית (ז-י) - בקשה למען ישראל ידידי ה' (ז), גוף דברי ההבטחה (ח-י)",
+       "text_de": "Gebet um Rettung und um die Erfüllung der göttlichen Verheißung (V. 7-10) - Bitte um Israels willen, des Geliebten des HERRN (V. 7), der Wortlaut der Verheißung (V. 8-10)"
+      },
+      {
+       "ref": "108:11-14",
+       "text": "הבעת בטחון בתשועת ה'",
+       "text_de": "Ausdruck des Vertrauens auf die Hilfe des HERRN"
+      }
+     ]
     },
     {
      "ref": "109",
@@ -1427,7 +3552,34 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "gegen einen quälenden Feind",
-     "seg_en": "against a tormenting enemy"
+     "seg_en": "against a tormenting enemy",
+     "sub": [
+      {
+       "ref": "109:1",
+       "text": "פניה בקריאה אל ה'",
+       "text_de": "Anrufung des HERRN"
+      },
+      {
+       "ref": "109:2-5",
+       "text": "תלונה על האויבים כפויי הטובה",
+       "text_de": "Klage über die undankbaren Feinde"
+      },
+      {
+       "ref": "109:6-20",
+       "text": "קללת האויב הרשע",
+       "text_de": "Fluch über den frevlerischen Feind"
+      },
+      {
+       "ref": "109:21-29",
+       "text": "תפלה לעזרת ה'",
+       "text_de": "Gebet um die Hilfe des HERRN"
+      },
+      {
+       "ref": "109:30-31",
+       "text": "נדר להודות לה'",
+       "text_de": "Gelübde, dem HERRN zu danken"
+      }
+     ]
     },
     {
      "ref": "110",
@@ -1454,7 +3606,29 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "um Freunde zu gewinnen",
-     "seg_en": "to gain many friends"
+     "seg_en": "to gain many friends",
+     "sub": [
+      {
+       "ref": "111:3-8",
+       "text": "מעשי ה' גדולים ויפים וצדיקים",
+       "text_de": "Die Taten des HERRN sind groß, schön und gerecht"
+      },
+      {
+       "ref": "111:9-30",
+       "text": "ה' מספק ליראיו את פרנסתם והנחיל לעמו את הארץ",
+       "text_de": "Der HERR versorgt die, die ihn fürchten, mit ihrem Unterhalt und gab seinem Volk das Land zum Erbe"
+      },
+      {
+       "ref": "111:40-70",
+       "text": "מעשי ה' וגזרותיו אמת וצדק",
+       "text_de": "Die Taten und Gebote des HERRN sind Wahrheit und Gerechtigkeit"
+      },
+      {
+       "ref": "111:80-100",
+       "text": "ברית ה' עם עמו קימת לעולם",
+       "text_de": "Der Bund des HERRN mit seinem Volk besteht ewig"
+      }
+     ]
     },
     {
      "ref": "112",
@@ -1466,7 +3640,19 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "um sich mit Tapferkeit zu stärken",
-     "seg_en": "to grow strong in valor"
+     "seg_en": "to grow strong in valor",
+     "sub": [
+      {
+       "ref": "112:3-6",
+       "text": "ירא ה' מברך בגבורה, בבנים ובעשר",
+       "text_de": "Wer den HERRN fürchtet, wird gesegnet mit Kraft, Kindern und Reichtum"
+      },
+      {
+       "ref": "112:7-50",
+       "text": "ירא ה' מיטיב לבריות ובוטח בה'",
+       "text_de": "Wer den HERRN fürchtet, tut den Menschen Gutes und vertraut auf den HERRN"
+      }
+     ]
     },
     {
      "ref": "113",
@@ -1478,7 +3664,24 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "um den Götzendienst zu vernichten",
-     "seg_en": "to destroy idolatry"
+     "seg_en": "to destroy idolatry",
+     "sub": [
+      {
+       "ref": "113:1-3",
+       "text": "ה' מברך בכל הזמנים ובכל המקומות",
+       "text_de": "Der HERR wird gepriesen zu allen Zeiten und an allen Orten"
+      },
+      {
+       "ref": "113:4-6",
+       "text": "ה' יושב במרומים, רואה הכל ומושל בכל",
+       "text_de": "Der HERR thront in der Höhe, sieht alles und herrscht über alles"
+      },
+      {
+       "ref": "113:7-9",
+       "text": "ה' מרים את המדכאים ממצבם השפל",
+       "text_de": "Der HERR richtet die Niedergedrückten aus ihrer niedrigen Lage auf"
+      }
+     ]
     },
     {
      "ref": "114",
@@ -1490,7 +3693,29 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "für den, der kauft und verkauft – er schreibe ihn im Laden auf, dann hat er Erfolg",
-     "seg_en": "for one who buys and sells – let him write it in the shop and he will succeed"
+     "seg_en": "for one who buys and sells – let him write it in the shop and he will succeed",
+     "sub": [
+      {
+       "ref": "114:1-2",
+       "text": "ישראל יצא משעבוד להיות ממשלת קדש לה'",
+       "text_de": "Israel zog aus der Knechtschaft aus, um ein dem HERRN geweihtes Reich zu werden"
+      },
+      {
+       "ref": "114:3-4",
+       "text": "בריות בראשית חרדו",
+       "text_de": "Die Geschöpfe der Urzeit erbebten"
+      },
+      {
+       "ref": "114:5-6",
+       "text": "המשורר שואל: על-מה חרדו בריות בראשית",
+       "text_de": "Der Dichter fragt: Weshalb erbebten die Geschöpfe der Urzeit"
+      },
+      {
+       "ref": "114:7-8",
+       "text": "המשורר משיב: מפני אלוה יעקב",
+       "text_de": "Der Dichter antwortet: vor dem Gott Jakobs"
+      }
+     ]
     },
     {
      "ref": "115",
@@ -1502,7 +3727,34 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "für den, der geht, um mit Götzendienern zu disputieren",
-     "seg_en": "for one going to dispute with idol worshippers"
+     "seg_en": "for one going to dispute with idol worshippers",
+     "sub": [
+      {
+       "ref": "115:1-2",
+       "text": "לא למעננו עשה אלא למען שמך",
+       "text_de": "Nicht für uns hat er gehandelt, sondern um deines Namens willen"
+      },
+      {
+       "ref": "115:3-8",
+       "text": "אלהי ישראל כל יכול ואלהי הגוים הבל",
+       "text_de": "Der Gott Israels ist allmächtig, die Götter der Völker sind nichtig"
+      },
+      {
+       "ref": "115:9-11",
+       "text": "ישראל בוטחים בה'",
+       "text_de": "Israel vertraut auf den HERRN"
+      },
+      {
+       "ref": "115:12-15",
+       "text": "ה' מברך את-ישראל",
+       "text_de": "Der HERR segnet Israel"
+      },
+      {
+       "ref": "115:15-18",
+       "text": "ישראל מברכים את ה'",
+       "text_de": "Israel preist den HERRN"
+      }
+     ]
     },
     {
      "ref": "116",
@@ -1514,7 +3766,24 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "um vor einem unnatürlichen, plötzlichen Tod bewahrt zu werden",
-     "seg_en": "to be saved from an unnatural or sudden death"
+     "seg_en": "to be saved from an unnatural or sudden death",
+     "sub": [
+      {
+       "ref": "116:1-4",
+       "text": "הקריאה לה' מתוך הצרה",
+       "text_de": "Der Ruf zum HERRN aus der Not"
+      },
+      {
+       "ref": "116:5-11",
+       "text": "רחמי ה' ותשועתו",
+       "text_de": "Das Erbarmen und die Hilfe des HERRN"
+      },
+      {
+       "ref": "116:12-19",
+       "text": "שלום הנדר וזבח התודה",
+       "text_de": "Erfüllung des Gelübdes und Dankopfer"
+      }
+     ]
     },
     {
      "ref": "117",
@@ -1538,7 +3807,29 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "um einem Ketzer zu antworten; „Gesegnet, der da kommt“ usw. (Vers 26): für den, der vor den Richter tritt",
-     "seg_en": "to answer a heretic; “Blessed is he who comes” etc. (verse 26): for one who appears before the judge"
+     "seg_en": "to answer a heretic; “Blessed is he who comes” etc. (verse 26): for one who appears before the judge",
+     "sub": [
+      {
+       "ref": "118:1-4",
+       "text": "קריאות להלל ולהודות לה': קריאה לכל הגוים להלל את ה' (מזמור קיז), קריאות להודות לה'",
+       "text_de": "Aufrufe zu Lob und Dank an den HERRN: Aufruf an alle Völker, den HERRN zu loben (Psalm 117), Aufrufe, dem HERRN zu danken"
+      },
+      {
+       "ref": "118:5-14",
+       "text": "ספור הישועה",
+       "text_de": "Bericht von der Rettung"
+      },
+      {
+       "ref": "118:15-18",
+       "text": "קולות רנת הצדיקים",
+       "text_de": "Jubelrufe der Gerechten"
+      },
+      {
+       "ref": "118:19-29",
+       "text": "חלופי קריאות ומענות בשערי העיר ובמקדש",
+       "text_de": "Wechselnde Rufe und Antworten in den Toren der Stadt und im Heiligtum"
+      }
+     ]
     },
     {
      "ref": "119",
@@ -1562,7 +3853,24 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "für den, der eine Schlange oder einen Skorpion sieht",
-     "seg_en": "for one who sees a snake or a scorpion"
+     "seg_en": "for one who sees a snake or a scorpion",
+     "sub": [
+      {
+       "ref": "120:1",
+       "text": "קריאה אל ה' בעת צרה",
+       "text_de": "Ruf zum HERRN in der Not"
+      },
+      {
+       "ref": "120:2-4",
+       "text": "זעקה להצלה מלשון רמיה",
+       "text_de": "Schrei nach Rettung vor der trügerischen Zunge"
+      },
+      {
+       "ref": "120:5-7",
+       "text": "תלונה על שונא שלום",
+       "text_de": "Klage über den Friedenshasser"
+      }
+     ]
     },
     {
      "ref": "121",
@@ -1574,7 +3882,29 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "für den, der nachts allein hinausgeht",
-     "seg_en": "for one going out alone at night"
+     "seg_en": "for one going out alone at night",
+     "sub": [
+      {
+       "ref": "121:1-2",
+       "text": "דברי היוצא לדרך",
+       "text_de": "Worte dessen, der sich auf den Weg macht"
+      },
+      {
+       "ref": "121:3",
+       "text": "דברי המברך",
+       "text_de": "Worte des Segnenden"
+      },
+      {
+       "ref": "121:4",
+       "text": "דברי היוצא לדרך",
+       "text_de": "Worte dessen, der sich auf den Weg macht"
+      },
+      {
+       "ref": "121:5-8",
+       "text": "דברי המברך",
+       "text_de": "Worte des Segnenden"
+      }
+     ]
     },
     {
      "ref": "122",
@@ -1586,7 +3916,24 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "für den, der zu einem großen Mann geht; für Segen – in der Synagoge sprechen",
-     "seg_en": "for one going to a great man; for blessing – recite in the synagogue"
+     "seg_en": "for one going to a great man; for blessing – recite in the synagogue",
+     "sub": [
+      {
+       "ref": "122:1-3",
+       "text": "השמחה בעליה אל ירושלים הבנויה",
+       "text_de": "Die Freude über den Aufstieg nach dem erbauten Jerusalem"
+      },
+      {
+       "ref": "122:4-5",
+       "text": "ירושלים מקום עבודת ה' לישראל ומקום המשפט לבית דוד",
+       "text_de": "Jerusalem, Ort des Gottesdienstes für Israel und Ort des Gerichts für das Haus David"
+      },
+      {
+       "ref": "122:6-9",
+       "text": "ברכת השלום לירושלים",
+       "text_de": "Friedenssegen für Jerusalem"
+      }
+     ]
     },
     {
      "ref": "123",
@@ -1598,7 +3945,19 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "um einen entlaufenen Sklaven zurückzubringen",
-     "seg_en": "to bring back a runaway slave"
+     "seg_en": "to bring back a runaway slave",
+     "sub": [
+      {
+       "ref": "123:1-2",
+       "text": "המתפלל נושא עיניו אל ה' ומצפה לחנינתו",
+       "text_de": "Der Betende erhebt seine Augen zum HERRN und erwartet seine Gnade"
+      },
+      {
+       "ref": "123:3-4",
+       "text": "גוף בקשת החנינה ונמוקה",
+       "text_de": "Hauptteil der Bitte um Gnade und ihre Begründung"
+      }
+     ]
     },
     {
      "ref": "124",
@@ -1610,7 +3969,19 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "für den, der einen Fluss überquert oder mit dem Schiff fährt",
-     "seg_en": "for one crossing a river or traveling on a ship"
+     "seg_en": "for one crossing a river or traveling on a ship",
+     "sub": [
+      {
+       "ref": "124:1-5",
+       "text": "תאור הסכנה",
+       "text_de": "Schilderung der Gefahr"
+      },
+      {
+       "ref": "124:6-8",
+       "text": "ברכה לה' על ההצלה",
+       "text_de": "Lobpreis des HERRN für die Rettung"
+      }
+     ]
     },
     {
      "ref": "125",
@@ -1622,7 +3993,24 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "gegen Feinde, die sich auf dem Weg erheben",
-     "seg_en": "against enemies who rise up on the road"
+     "seg_en": "against enemies who rise up on the road",
+     "sub": [
+      {
+       "ref": "125:1-2",
+       "text": "ה' שומר את הבוטחים בו",
+       "text_de": "Der HERR beschützt, die auf ihn vertrauen"
+      },
+      {
+       "ref": "125:3",
+       "text": "לא יהיו הצדיקים משעבדים לרשעים",
+       "text_de": "Die Gerechten sollen nicht von den Frevlern unterjocht werden"
+      },
+      {
+       "ref": "125:4-5",
+       "text": "הטובים יזכו לגמול טוב והרשעים יאבדו, ושלום על ישראל",
+       "text_de": "Die Guten erhalten guten Lohn, die Frevler gehen zugrunde, und Friede über Israel"
+      }
+     ]
     },
     {
      "ref": "126",
@@ -1634,7 +4022,19 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "für eine Frau, deren Kinder sterben",
-     "seg_en": "for a woman whose children die"
+     "seg_en": "for a woman whose children die",
+     "sub": [
+      {
+       "ref": "126:1-3",
+       "text": "הודיה לשעבר",
+       "text_de": "Dank für Vergangenes"
+      },
+      {
+       "ref": "126:4-6",
+       "text": "ותפלה להבא",
+       "text_de": "Und Gebet für die Zukunft"
+      }
+     ]
     },
     {
      "ref": "127",
@@ -1646,7 +4046,19 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "zum Schutz – einem neugeborenen Kind umhängen",
-     "seg_en": "for protection – to hang on a newborn child"
+     "seg_en": "for protection – to hang on a newborn child",
+     "sub": [
+      {
+       "ref": "127:1-2",
+       "text": "עזרת ה' דרושה להצלחת האדם במעשיו",
+       "text_de": "Die Hilfe des HERRN ist für das Gelingen des menschlichen Tuns nötig"
+      },
+      {
+       "ref": "127:3-5",
+       "text": "בניו של אדם הם הברכה הבאה לו מאת ה'",
+       "text_de": "Die Kinder eines Menschen sind der Segen, der ihm vom HERRN zukommt"
+      }
+     ]
     },
     {
      "ref": "128",
@@ -1658,7 +4070,19 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "einer schwangeren Frau umhängen",
-     "seg_en": "to hang on a pregnant woman"
+     "seg_en": "to hang on a pregnant woman",
+     "sub": [
+      {
+       "ref": "128:1-3",
+       "text": "אשרו של ירא ה'",
+       "text_de": "Das Glück dessen, der den HERRN fürchtet"
+      },
+      {
+       "ref": "128:4-6",
+       "text": "ברכותיו מאת ה'",
+       "text_de": "Seine Segnungen vom HERRN"
+      }
+     ]
     },
     {
      "ref": "129",
@@ -1670,7 +4094,19 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "um ihn vor der Erfüllung eines Gebots zu sprechen",
-     "seg_en": "to recite before performing a commandment"
+     "seg_en": "to recite before performing a commandment",
+     "sub": [
+      {
+       "ref": "129:1-4",
+       "text": "ספור הסבל והתשועה",
+       "text_de": "Bericht von Leiden und Rettung"
+      },
+      {
+       "ref": "129:5-8",
+       "text": "קללת שונאי ציון",
+       "text_de": "Fluch über die Feinde Zions"
+      }
+     ]
     },
     {
      "ref": "130",
@@ -1682,7 +4118,19 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "um den Stadtwächtern zu entgehen, damit sie ihn nicht sehen",
-     "seg_en": "to slip past the city guards so that they do not see him"
+     "seg_en": "to slip past the city guards so that they do not see him",
+     "sub": [
+      {
+       "ref": "130:1-4",
+       "text": "קריאה אל ה' בלשון נוכח (א-ד) - בקשה לשמיעת התחנה (א-ב), בקשה לסליחה (ג-ד);",
+       "text_de": "Anrufung des HERRN in der zweiten Person (V. 1-4) - Bitte um Erhörung des Flehens (V. 1-2), Bitte um Vergebung (V. 3-4);"
+      },
+      {
+       "ref": "130:5-8",
+       "text": "דבור על ה' בלשון נסתר (ה-ח) - התקוה אל ה' (ה-ו), ה' פודה את ישראל (ז-ח).",
+       "text_de": "Rede über den HERRN in der dritten Person (V. 5-8) - die Hoffnung auf den HERRN (V. 5-6), der HERR erlöst Israel (V. 7-8)."
+      }
+     ]
     },
     {
      "ref": "131",
@@ -1694,7 +4142,24 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "um vor Hochmut bewahrt zu werden",
-     "seg_en": "to be saved from arrogance"
+     "seg_en": "to be saved from arrogance",
+     "sub": [
+      {
+       "ref": "131:1",
+       "text": "שלילת דרך הגאוה האנושית",
+       "text_de": "Absage an den Weg des menschlichen Hochmuts"
+      },
+      {
+       "ref": "131:2",
+       "text": "דרך הכניעה וההתמסרות לאלהים",
+       "text_de": "Der Weg der Demut und der Hingabe an Gott"
+      },
+      {
+       "ref": "131:3",
+       "text": "קריאה לישראל לקוות אל ה'",
+       "text_de": "Aufruf an Israel, auf den HERRN zu hoffen"
+      }
+     ]
     },
     {
      "ref": "132",
@@ -1709,7 +4174,24 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "für den, der leichtfertig schwört – damit er seinen Schwur hält",
-     "seg_en": "for one who swears rashly – that he keep his oath"
+     "seg_en": "for one who swears rashly – that he keep his oath",
+     "sub": [
+      {
+       "ref": "132:1-5",
+       "text": "שבועת דוד למצא את-מקום השכינה",
+       "text_de": "Davids Schwur, den Ort der Gegenwart Gottes zu finden"
+      },
+      {
+       "ref": "132:6-10",
+       "text": "שירת העולים אל המקדש עם הארון",
+       "text_de": "Lied der Pilger zum Heiligtum mit der Lade"
+      },
+      {
+       "ref": "132:11-18",
+       "text": "שבועת ה' לדוד ובחירת ירושלים (יא-יח) - השבועה לדוד ולבניו (יא-יב), בחירת ירושלים (יג-טז), קרן לדוד בירושלים (יז-יח).",
+       "text_de": "Der Schwur des HERRN an David und die Erwählung Jerusalems (V. 11-18) - der Schwur an David und seine Söhne (V. 11-12), die Erwählung Jerusalems (V. 13-16), ein Horn für David in Jerusalem (V. 17-18)."
+      }
+     ]
     },
     {
      "ref": "133",
@@ -1745,7 +4227,24 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "um vollständig umzukehren",
-     "seg_en": "to repent fully"
+     "seg_en": "to repent fully",
+     "sub": [
+      {
+       "ref": "135:1-3",
+       "text": "קריאה להלל את-ה'",
+       "text_de": "Aufruf, den HERRN zu loben"
+      },
+      {
+       "ref": "135:4-18",
+       "text": "ה' בחר בישראל וישראל יודע את-ה' (ד-ה), נפלאות ה' במעשה בראשית ובהורדת גשמים (ו-ז), נפלאות ה' במכות מצרים ובכבוש הארץ (ח-יב), ה' קים לעד ומושיע את-עמו (יג-יד), אין ממש באלילים (טו-יח)",
+       "text_de": "Der HERR erwählte Israel, und Israel kennt den HERRN (V. 4-5), die Wunder des HERRN bei der Schöpfung und beim Regen (V. 6-7), die Wunder des HERRN bei den Plagen Ägyptens und der Eroberung des Landes (V. 8-12), der HERR besteht ewig und rettet sein Volk (V. 13-14), die Götzen sind nichts (V. 15-18)"
+      },
+      {
+       "ref": "135:19-21",
+       "text": "קריאה לברך את ה'",
+       "text_de": "Aufruf, den HERRN zu preisen"
+      }
+     ]
     },
     {
      "ref": "136",
@@ -1757,7 +4256,39 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "um vorsätzliche Sünden zu bekennen",
-     "seg_en": "to confess intentional sins"
+     "seg_en": "to confess intentional sins",
+     "sub": [
+      {
+       "ref": "136:1-3",
+       "text": "קריאות להודות לה'",
+       "text_de": "Aufrufe, dem HERRN zu danken"
+      },
+      {
+       "ref": "136:4-9",
+       "text": "נפלאות ה' במעשה בראשית",
+       "text_de": "Die Wunder des HERRN bei der Schöpfung"
+      },
+      {
+       "ref": "136:10-22",
+       "text": "נפלאות ה' ביציאת מצרים ובכבוש הארץ",
+       "text_de": "Die Wunder des HERRN beim Auszug aus Ägypten und bei der Eroberung des Landes"
+      },
+      {
+       "ref": "136:23-24",
+       "text": "ה' זוכר את עמו ומושיעו",
+       "text_de": "Der HERR gedenkt seines Volkes und rettet es"
+      },
+      {
+       "ref": "136:25",
+       "text": "ה' מפרנס את-כל-בריותיו",
+       "text_de": "Der HERR versorgt alle seine Geschöpfe"
+      },
+      {
+       "ref": "136:26",
+       "text": "קריאה להודות לה'",
+       "text_de": "Aufruf, dem HERRN zu danken"
+      }
+     ]
     },
     {
      "ref": "137",
@@ -1769,7 +4300,24 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "um Hass aus seinem Herzen oder aus dem Herzen anderer zu entfernen",
-     "seg_en": "to remove hatred from one's own heart or from the hearts of others"
+     "seg_en": "to remove hatred from one's own heart or from the hearts of others",
+     "sub": [
+      {
+       "ref": "137:1-3",
+       "text": "הבכי על נהרות בבל",
+       "text_de": "Das Weinen an den Strömen Babels"
+      },
+      {
+       "ref": "137:4-6",
+       "text": "השבועה לזכר את-ירושלים",
+       "text_de": "Der Schwur, Jerusalems zu gedenken"
+      },
+      {
+       "ref": "137:7-9",
+       "text": "הקללה לאויבים המחריבים",
+       "text_de": "Der Fluch über die zerstörerischen Feinde"
+      }
+     ]
     },
     {
      "ref": "138",
@@ -1781,7 +4329,24 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "gut für die Liebe",
-     "seg_en": "good for love"
+     "seg_en": "good for love",
+     "sub": [
+      {
+       "ref": "138:1-3",
+       "text": "שבח ה' מפי המשורר",
+       "text_de": "Lob des HERRN aus dem Mund des Dichters"
+      },
+      {
+       "ref": "138:4-6",
+       "text": "שבח ה' מפי כל-מלכי ארץ",
+       "text_de": "Lob des HERRN aus dem Mund aller Könige der Erde"
+      },
+      {
+       "ref": "138:7-8",
+       "text": "תפלה לישועה",
+       "text_de": "Gebet um Rettung"
+      }
+     ]
     },
     {
      "ref": "139",
@@ -1793,7 +4358,19 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "um Liebe zwischen Mann und Frau zu stiften",
-     "seg_en": "to instill love between husband and wife"
+     "seg_en": "to instill love between husband and wife",
+     "sub": [
+      {
+       "ref": "139:1-18",
+       "text": "שבחי הבורא - ה' יודע כל-עניני האדם (א-ו), ה' משיג את-האדם בכל-מקום (ז-יב), ה' בורא האדם (יג-יח)",
+       "text_de": "Lob des Schöpfers: Der HERR kennt alle Angelegenheiten des Menschen (V. 1-6), der HERR erreicht den Menschen überall (V. 7-12), der HERR erschafft den Menschen (V. 13-18)"
+      },
+      {
+       "ref": "139:19-24",
+       "text": "תחנה - דברים כנגד הרשעים (יט-כב), בקשת המתפלל על עצמו (כג-כד)",
+       "text_de": "Flehen: Worte gegen die Frevler (V. 19-22), Bitte des Beters für sich selbst (V. 23-24)"
+      }
+     ]
     },
     {
      "ref": "140",
@@ -1805,7 +4382,19 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "um Hass zwischen Mann und Frau zu beseitigen",
-     "seg_en": "to remove hatred between husband and wife"
+     "seg_en": "to remove hatred between husband and wife",
+     "sub": [
+      {
+       "ref": "140:2-9",
+       "text": "תפלה להצלה ממזמות הרשעים - הרשעים משולים כנחש (ב-ד), הרשעים משולים כציידים (ה-ו), ה' שומע תפלה, מושיע ומגן (ז-ח), ה' מונע את הרשעים מלעשות זממם (ט)",
+       "text_de": "Gebet um Rettung vor den Plänen der Frevler: Die Frevler gleichen einer Schlange (V. 2-4), die Frevler gleichen Jägern (V. 5-6), der HERR erhört das Gebet, rettet und schützt (V. 7-8), der HERR hindert die Frevler an der Ausführung ihrer Pläne (V. 9)"
+      },
+      {
+       "ref": "140:10-14",
+       "text": "אחרית הרשעים מול אחרית הצדיקים - אבדן הרשעים (י-יב), תשועת הצדיקים (יג-יד)",
+       "text_de": "Das Ende der Frevler im Gegensatz zum Ende der Gerechten: Untergang der Frevler (V. 10-12), Rettung der Gerechten (V. 13-14)"
+      }
+     ]
     },
     {
      "ref": "141",
@@ -1817,7 +4406,19 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "bei Herzschmerzen",
-     "seg_en": "for heart pain"
+     "seg_en": "for heart pain",
+     "sub": [
+      {
+       "ref": "141:3-7",
+       "text": "בקשה לשמירה מפני הפתויים להתחבר עם הרשעים ולעשות כמעשיהם",
+       "text_de": "Bitte um Bewahrung vor denen, die verführen, sich den Frevlern anzuschließen und zu tun, was sie tun"
+      },
+      {
+       "ref": "141:8-10",
+       "text": "בקשה להצלה ממוקשי הרשעים",
+       "text_de": "Bitte um Rettung aus den Fallen der Frevler"
+      }
+     ]
     },
     {
      "ref": "142",
@@ -1832,7 +4433,19 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "bei Beinleiden",
-     "seg_en": "for ailments of the shins"
+     "seg_en": "for ailments of the shins",
+     "sub": [
+      {
+       "ref": "142:4-5",
+       "text": "תאור הצרה",
+       "text_de": "Schilderung der Not"
+      },
+      {
+       "ref": "142:6-8",
+       "text": "התחנה להצלה",
+       "text_de": "Flehen um Rettung"
+      }
+     ]
     },
     {
      "ref": "143",
@@ -1844,7 +4457,19 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "bei Armleiden",
-     "seg_en": "for ailments of the arm"
+     "seg_en": "for ailments of the arm",
+     "sub": [
+      {
+       "ref": "143:1-6",
+       "text": "זעקה מתוך מצוקה - בקשת מענה מאת ה' (א-ב), תאור המצוקה (ג-ד), תאור ההרהורים של המתפלל (ה-ו)",
+       "text_de": "Schrei aus der Not: Bitte um Antwort vom HERRN (V. 1-2), Beschreibung der Not (V. 3-4), Beschreibung der Gedanken des Beters (V. 5-6)"
+      },
+      {
+       "ref": "143:7-12",
+       "text": "תפלה לישועה - בקשה לשמע את בשורת הישועה (ז-ח), בקשה להצלה מהאויבים ולהדרכה בדרך הישרה (ט-י), בקשה לאבדן האויבים וחיים למתפלל (יא-יב)",
+       "text_de": "Gebet um Rettung: Bitte, die Botschaft der Rettung zu hören (V. 7-8), Bitte um Rettung vor den Feinden und um Leitung auf dem geraden Weg (V. 9-10), Bitte um den Untergang der Feinde und um Leben für den Beter (V. 11-12)"
+      }
+     ]
     },
     {
      "ref": "144",
@@ -1856,7 +4481,19 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "bei einem Handbruch, zum Schutz vor Schadgeistern und Dämonen",
-     "seg_en": "for a broken hand, for protection from harmful spirits and demons"
+     "seg_en": "for a broken hand, for protection from harmful spirits and demons",
+     "sub": [
+      {
+       "ref": "144:1-11",
+       "text": "תפלה להצלה מן האויבים הבוגדים - ברכה לה' המגן ומנחיל נצחון (א-ב), הרהורים על אפסות האדם (ג-ד), תפלה לגלוי כבוד ה' בהשמדת האויבים הבוגדים (ה-ח), התפלה להצלה מן האויבים הבוגדים תהיה לשיר חדש (ט-יא)",
+       "text_de": "Gebet um Rettung vor den treulosen Feinden: Segenspruch auf den HERRN, der schützt und Sieg verleiht (V. 1-2), Gedanken über die Nichtigkeit des Menschen (V. 3-4), Gebet um die Offenbarung der Herrlichkeit des HERRN durch die Vernichtung der treulosen Feinde (V. 5-8), das Gebet um Rettung vor den treulosen Feinden soll zu einem neuen Lied werden (V. 9-11)"
+      },
+      {
+       "ref": "144:12-15",
+       "text": "ברכות השלום והשבע",
+       "text_de": "Segenswünsche für Frieden und Überfluss"
+      }
+     ]
     },
     {
      "ref": "145",
@@ -1868,7 +4505,24 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "für den, den Furcht befallen hat",
-     "seg_en": "for one overcome by fear"
+     "seg_en": "for one overcome by fear",
+     "sub": [
+      {
+       "ref": "145:1-7",
+       "text": "תהלת ה' עולה מפי המשורר ומפי כל הדורות",
+       "text_de": "Das Lob des HERRN steigt auf aus dem Mund des Dichters und aus dem Mund aller Generationen"
+      },
+      {
+       "ref": "145:8-14",
+       "text": "מלכות ה' בגבורה והדר ובחסד וברחמים",
+       "text_de": "Die Königsherrschaft des HERRN in Macht und Pracht, in Gnade und Erbarmen"
+      },
+      {
+       "ref": "145:15-21",
+       "text": "הבריות קוראים אל ה' והוא עונה להם",
+       "text_de": "Die Geschöpfe rufen zum HERRN, und er antwortet ihnen"
+      }
+     ]
     },
     {
      "ref": "146",
@@ -1880,7 +4534,19 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "gegen Schwertschläge",
-     "seg_en": "against sword strikes"
+     "seg_en": "against sword strikes",
+     "sub": [
+      {
+       "ref": "146:1-5",
+       "text": "תהלת ה' לעמת חלשת האדם - קריאות להלל את ה' (א-ב), אין תועלת בבטחון באדם (ג-ד), אשרי הבוטח בה' (ה)",
+       "text_de": "Lob des HERRN im Gegensatz zur Schwäche des Menschen: Aufrufe, den HERRN zu loben (V. 1-2), es nützt nichts, auf Menschen zu vertrauen (V. 3-4), Wohl dem, der auf den HERRN vertraut (V. 5)"
+      },
+      {
+       "ref": "146:6-10",
+       "text": "שבחי ה' - בורא הכל ונאמן לעד (ו), מושיע את המדכאים ומדכא את הרשעים (ז-ט), מלכות ה' לעולם בציון (י)",
+       "text_de": "Lob des HERRN: Schöpfer von allem und auf ewig treu (V. 6), Retter der Unterdrückten, der die Frevler niederdrückt (V. 7-9), die Königsherrschaft des HERRN in Ewigkeit in Zion (V. 10)"
+      }
+     ]
     },
     {
      "ref": "147",
@@ -1892,7 +4558,24 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "für den, den eine Schlange gebissen hat",
-     "seg_en": "for one bitten by a snake"
+     "seg_en": "for one bitten by a snake",
+     "sub": [
+      {
+       "ref": "147:1-6",
+       "text": "תהלת ה' בכחו ובצדקתו - פתיחה: קריאה להלל את ה' (א), תהלת ה' בצדקתו: ה' בונה ירושלים ורופא לשבורי לב (ב-ג), תהלת ה' בכחו: אין גבול לגדלת ה', לכחו וחכמתו (ד-ה), תהלת ה' בצדקתו: ה' עוזר לצדיקים ומכניע את הרשעים (ו)",
+       "text_de": "Lob des HERRN für seine Kraft und seine Gerechtigkeit: Einleitung: Aufruf, den HERRN zu loben (V. 1), Lob des HERRN für seine Gerechtigkeit: Der HERR baut Jerusalem auf und heilt die gebrochenen Herzens sind (V. 2-3), Lob des HERRN für seine Kraft: Die Größe des HERRN, seine Kraft und seine Weisheit kennen keine Grenze (V. 4-5), Lob des HERRN für seine Gerechtigkeit: Der HERR hilft den Gerechten und demütigt die Frevler (V. 6)"
+      },
+      {
+       "ref": "147:7-11",
+       "text": "תהלת ה' בהשגחתו על כל בריותיו ובחסדו על יראיו - פתיחה: קריאה להודות לה' (ז), תהלת ה' בהורדת גשמים ובכלכלת בריותיו (ח-ט), תהלת ה' ברצותו את יראיו המקוים לו (י-יא)",
+       "text_de": "Lob des HERRN für seine Fürsorge für alle seine Geschöpfe und für seine Gnade gegenüber denen, die ihn fürchten: Einleitung: Aufruf, dem HERRN zu danken (V. 7), Lob des HERRN für den Regen und die Versorgung seiner Geschöpfe (V. 8-9), Lob des HERRN für sein Wohlgefallen an denen, die ihn fürchten und auf ihn hoffen (V. 10-11)"
+      },
+      {
+       "ref": "147:12-20",
+       "text": "תהלת ה' בברכתו את ירושלים, בהורדת משקעים, ומתן תורה לישראל - קריאה להלל את ה' (יב), ברכת ירושלים (יג-יד), הורדת משקעים (טו-יח), מתן תורה (יט-כ)",
+       "text_de": "Lob des HERRN, der Jerusalem segnet, Niederschläge sendet und Israel die Tora gibt: Aufruf, den HERRN zu loben (V. 12), Segen für Jerusalem (V. 13-14), Senden der Niederschläge (V. 15-18), Gabe der Tora (V. 19-20)"
+      }
+     ]
     },
     {
      "ref": "148",
@@ -1904,7 +4587,19 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "damit ein Brand nicht wächst und sich ausbreitet",
-     "seg_en": "that a fire not grow and spread"
+     "seg_en": "that a fire not grow and spread",
+     "sub": [
+      {
+       "ref": "148:1-6",
+       "text": "על הבריות שלמעלה להלל את ה'",
+       "text_de": "Aufruf an die Geschöpfe in der Höhe, den HERRN zu loben"
+      },
+      {
+       "ref": "148:7-14",
+       "text": "על הבריות שלמטה להלל את ה'",
+       "text_de": "Aufruf an die Geschöpfe in der Tiefe, den HERRN zu loben"
+      }
+     ]
     },
     {
      "ref": "149",
@@ -1916,7 +4611,19 @@
      "author_de": "David",
      "author_en": "David",
      "seg_de": "damit ein Brand nicht wächst und sich ausbreitet",
-     "seg_en": "that a fire not grow and spread"
+     "seg_en": "that a fire not grow and spread",
+     "sub": [
+      {
+       "ref": "149:1-4",
+       "text": "התהלה לה' על ישועתו לעמו",
+       "text_de": "Lob des HERRN für seine Rettung seines Volkes"
+      },
+      {
+       "ref": "149:5-9",
+       "text": "השמחה על נצחון החסידים על הגוים",
+       "text_de": "Freude über den Sieg der Frommen über die Völker"
+      }
+     ]
     },
     {
      "ref": "150",
@@ -1937,6 +4644,6 @@
  ],
  "title_de": "Inhalt des Buches der Psalmen",
  "title_en": "Contents of the Book of Psalms",
- "note_de": "Abgeschrieben aus einer Übersichtstabelle (SifreiKodesh) und übersetzt.",
- "note_en": "Transcribed from an overview table (SifreiKodesh) and translated."
+ "note_de": "Abgeschrieben aus einer Übersichtstabelle (SifreiKodesh) und übersetzt. Unterpunkte aus der Gliederung von „Da'at Mikra“ (Teilpunkte mit Versangaben, mit Hinweis auf den jeweiligen Abschnitt) ergänzt und ins Deutsche übersetzt.",
+ "note_en": "Transcribed from an overview table (SifreiKodesh) and translated. Sub-points from the Da'at Mikra outlines (parts with verse references, labelled with their section) added; German translation."
 }

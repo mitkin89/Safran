@@ -1,7 +1,7 @@
 {
  "book": "II Chronicles",
  "title": "תוכן ספר דברי הימים ב",
- "note": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt.",
+ "note": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt. · הורחב בחלוקת דעת מקרא (פסקאות עם מראי מקום).",
  "sections": [
   {
    "head": "שלמה [בן דוד] המלך",
@@ -16,7 +16,93 @@
      "place_de": "Gibeon, Jerusalem",
      "place_en": "Gibeon, Jerusalem",
      "par_de": "Wiederholung von: 1 Könige 3:1–15",
-     "par_en": "Repeats: I Kings 3:1–15"
+     "par_en": "Repeats: I Kings 3:1–15",
+     "sub": [
+      {
+       "ref": "1:1-2",
+       "text": "פתיחה: יואש עשה את הישר בעיני ה' כל-ימי יהוידע",
+       "text_de": "Einleitung: Joasch tat, was recht war in den Augen des HERRN, solange Jojada lebte",
+       "blk": "דִּבְרֵי (=מַעֲשֵׂי) שְׁלֹמֹה 1:1-9:31 › דִּבְרֵי (=עִנְיָנֵי, מַעֲשֵׂי) יוֹאָשׁ בֶּן אֲחַזְיָהוּ 1:1-27",
+       "blk_de": "Die Geschichte (Taten) Salomos 1:1-9:31 › Die Geschichte (Angelegenheiten, Taten) des Joasch, des Sohnes Ahasjas 1:1-27"
+      },
+      {
+       "ref": "1:1-2",
+       "text": "פתיחה",
+       "text_de": "Einleitung",
+       "blk": "דִּבְרֵי (=מַעֲשֵׂי) שְׁלֹמֹה 1:1-9:31 › דִּבְרֵי (עִנְיָנֵי, מַעֲשֵׂי) יוֹתָם בֶּן עֻזִּיָּהוּ 1:1-9",
+       "blk_de": "Die Geschichte (Taten) Salomos 1:1-9:31 › Die Geschichte (Angelegenheiten, Taten) Jotams, des Sohnes Usijas 1:1-9"
+      },
+      {
+       "ref": "1:1-4",
+       "text": "פתיחה: רשעת אחז",
+       "text_de": "Einleitung: Die Bosheit des Ahas",
+       "blk": "דִּבְרֵי (=מַעֲשֵׂי) שְׁלֹמֹה 1:1-9:31 › דִּבְרֵי (עִנְיָנֵי, מַעֲשֵׂי) אָחָז בֶּן יוֹתָם 1:1-27",
+       "blk_de": "Die Geschichte (Taten) Salomos 1:1-9:31 › Die Geschichte (Angelegenheiten, Taten) des Ahas, des Sohnes Jotams 1:1-27"
+      },
+      {
+       "ref": "1:1-4",
+       "text": "'דברי' יהואחז בן יאשיהו",
+       "text_de": "Die Geschichte Joahas', des Sohnes Josias",
+       "blk": "דִּבְרֵי (=מַעֲשֵׂי) שְׁלֹמֹה 1:1-9:31 › 'דִּבְרֵי' (עִנְיָנֵי, מַעֲשֵׂי) בְּנֵי יֹאשִׁיָּהוּ 1:1-21",
+       "blk_de": "Die Geschichte (Taten) Salomos 1:1-9:31 › Die Geschichte (Angelegenheiten, Taten) der Söhne Josias 1:1-21"
+      },
+      {
+       "ref": "1:3-6",
+       "text": "עקר מעשי יותם",
+       "text_de": "Die wesentlichen Taten Jotams",
+       "blk": "דִּבְרֵי (=מַעֲשֵׂי) שְׁלֹמֹה 1:1-9:31 › דִּבְרֵי (עִנְיָנֵי, מַעֲשֵׂי) יוֹתָם בֶּן עֻזִּיָּהוּ 1:1-9",
+       "blk_de": "Die Geschichte (Taten) Salomos 1:1-9:31 › Die Geschichte (Angelegenheiten, Taten) Jotams, des Sohnes Usijas 1:1-9"
+      },
+      {
+       "ref": "1:3-14",
+       "text": "בנין בית דוד וחדוש בית ה'",
+       "text_de": "Die Instandsetzung des Hauses Davids und die Erneuerung des Hauses des HERRN",
+       "blk": "דִּבְרֵי (=מַעֲשֵׂי) שְׁלֹמֹה 1:1-9:31 › דִּבְרֵי (=עִנְיָנֵי, מַעֲשֵׂי) יוֹאָשׁ בֶּן אֲחַזְיָהוּ 1:1-27",
+       "blk_de": "Die Geschichte (Taten) Salomos 1:1-9:31 › Die Geschichte (Angelegenheiten, Taten) des Joasch, des Sohnes Ahasjas 1:1-27"
+      },
+      {
+       "ref": "1:5-8",
+       "text": "העונש: המכה והשבי",
+       "text_de": "Die Strafe: Niederlage und Gefangenschaft",
+       "blk": "דִּבְרֵי (=מַעֲשֵׂי) שְׁלֹמֹה 1:1-9:31 › דִּבְרֵי (עִנְיָנֵי, מַעֲשֵׂי) אָחָז בֶּן יוֹתָם 1:1-27",
+       "blk_de": "Die Geschichte (Taten) Salomos 1:1-9:31 › Die Geschichte (Angelegenheiten, Taten) des Ahas, des Sohnes Jotams 1:1-27"
+      },
+      {
+       "ref": "1:5-8",
+       "text": "'דברי' יהויקים בן יאשיהו",
+       "text_de": "Die Geschichte Jojakims, des Sohnes Josias",
+       "blk": "דִּבְרֵי (=מַעֲשֵׂי) שְׁלֹמֹה 1:1-9:31 › 'דִּבְרֵי' (עִנְיָנֵי, מַעֲשֵׂי) בְּנֵי יֹאשִׁיָּהוּ 1:1-21",
+       "blk_de": "Die Geschichte (Taten) Salomos 1:1-9:31 › Die Geschichte (Angelegenheiten, Taten) der Söhne Josias 1:1-21"
+      },
+      {
+       "ref": "1:7-9",
+       "text": "חתימה",
+       "text_de": "Schluss",
+       "blk": "דִּבְרֵי (=מַעֲשֵׂי) שְׁלֹמֹה 1:1-9:31 › דִּבְרֵי (עִנְיָנֵי, מַעֲשֵׂי) יוֹתָם בֶּן עֻזִּיָּהוּ 1:1-9",
+       "blk_de": "Die Geschichte (Taten) Salomos 1:1-9:31 › Die Geschichte (Angelegenheiten, Taten) Jotams, des Sohnes Usijas 1:1-9"
+      },
+      {
+       "ref": "1:9-10",
+       "text": "'דברי' יהויכין בן יהויקים",
+       "text_de": "Die Geschichte Jojachins, des Sohnes Jojakims",
+       "blk": "דִּבְרֵי (=מַעֲשֵׂי) שְׁלֹמֹה 1:1-9:31 › 'דִּבְרֵי' (עִנְיָנֵי, מַעֲשֵׂי) בְּנֵי יֹאשִׁיָּהוּ 1:1-21",
+       "blk_de": "Die Geschichte (Taten) Salomos 1:1-9:31 › Die Geschichte (Angelegenheiten, Taten) der Söhne Josias 1:1-21"
+      },
+      {
+       "ref": "1:9-15",
+       "text": "תוכחת עודד והחזרת השבויים לעריהם",
+       "text_de": "Die Mahnrede Odeds und die Rückführung der Gefangenen in ihre Städte",
+       "blk": "דִּבְרֵי (=מַעֲשֵׂי) שְׁלֹמֹה 1:1-9:31 › דִּבְרֵי (עִנְיָנֵי, מַעֲשֵׂי) אָחָז בֶּן יוֹתָם 1:1-27",
+       "blk_de": "Die Geschichte (Taten) Salomos 1:1-9:31 › Die Geschichte (Angelegenheiten, Taten) des Ahas, des Sohnes Jotams 1:1-27"
+      },
+      {
+       "ref": "1:11-13",
+       "text": "'דברי' צדקיהו בן יאשיהו",
+       "text_de": "Die Geschichte Zidkijas, des Sohnes Josias",
+       "blk": "דִּבְרֵי (=מַעֲשֵׂי) שְׁלֹמֹה 1:1-9:31 › 'דִּבְרֵי' (עִנְיָנֵי, מַעֲשֵׂי) בְּנֵי יֹאשִׁיָּהוּ 1:1-21",
+       "blk_de": "Die Geschichte (Taten) Salomos 1:1-9:31 › Die Geschichte (Angelegenheiten, Taten) der Söhne Josias 1:1-21"
+      }
+     ]
     },
     {
      "ref": "1:14-17",
@@ -25,7 +111,51 @@
      "text_de": "Salomos Reichtum",
      "text_en": "Solomon's wealth",
      "par_de": "Wiederholung von: 1 Könige 10:26–29\nSiehe unten: 2 Chronik 9:13–31",
-     "par_en": "Repeats: I Kings 10:26–29\nSee below: II Chronicles 9:13–31"
+     "par_en": "Repeats: I Kings 10:26–29\nSee below: II Chronicles 9:13–31",
+     "sub": [
+      {
+       "ref": "1:14",
+       "text": "שלמה שוקד על בטחון הממלכה",
+       "text_de": "Salomo sorgt eifrig für die Sicherheit des Reiches",
+       "blk": "דִּבְרֵי (=מַעֲשֵׂי) שְׁלֹמֹה 1:1-9:31 › הַהֲכָנוֹת לְבִנְיַן הַמִּקְדָּשׁ 1:14-2:17",
+       "blk_de": "Die Geschichte (Taten) Salomos 1:1-9:31 › Die Vorbereitungen für den Bau des Tempels 1:14-2:17"
+      },
+      {
+       "ref": "1:14-21",
+       "text": "סכום דברי החטא והענש",
+       "text_de": "Zusammenfassung der Geschichte von Sünde und Strafe",
+       "blk": "דִּבְרֵי (=מַעֲשֵׂי) שְׁלֹמֹה 1:1-9:31 › 'דִּבְרֵי' (עִנְיָנֵי, מַעֲשֵׂי) בְּנֵי יֹאשִׁיָּהוּ 1:1-21",
+       "blk_de": "Die Geschichte (Taten) Salomos 1:1-9:31 › Die Geschichte (Angelegenheiten, Taten) der Söhne Josias 1:1-21"
+      },
+      {
+       "ref": "1:15-16",
+       "text": "מות יהוידע והערכת פעלו",
+       "text_de": "Der Tod Jojadas und die Würdigung seines Wirkens",
+       "blk": "דִּבְרֵי (=מַעֲשֵׂי) שְׁלֹמֹה 1:1-9:31 › דִּבְרֵי (=עִנְיָנֵי, מַעֲשֵׂי) יוֹאָשׁ בֶּן אֲחַזְיָהוּ 1:1-27",
+       "blk_de": "Die Geschichte (Taten) Salomos 1:1-9:31 › Die Geschichte (Angelegenheiten, Taten) des Joasch, des Sohnes Ahasjas 1:1-27"
+      },
+      {
+       "ref": "1:15-17",
+       "text": "עצם עשרו של שלמה ומקורו",
+       "text_de": "Salomos Reichtum selbst und seine Herkunft",
+       "blk": "דִּבְרֵי (=מַעֲשֵׂי) שְׁלֹמֹה 1:1-9:31 › הַהֲכָנוֹת לְבִנְיַן הַמִּקְדָּשׁ 1:14-2:17",
+       "blk_de": "Die Geschichte (Taten) Salomos 1:1-9:31 › Die Vorbereitungen für den Bau des Tempels 1:14-2:17"
+      },
+      {
+       "ref": "1:16-21",
+       "text": "'ארם מקדם ופלשתים מאחור' תוקפים את ממלכת יהודה, ואחז מבקש סיוע ממלכי אשור",
+       "text_de": "„Aram von Osten und die Philister von Westen“ greifen das Königreich Juda an, und Ahas bittet die Könige von Assur um Hilfe",
+       "blk": "דִּבְרֵי (=מַעֲשֵׂי) שְׁלֹמֹה 1:1-9:31 › דִּבְרֵי (עִנְיָנֵי, מַעֲשֵׂי) אָחָז בֶּן יוֹתָם 1:1-27",
+       "blk_de": "Die Geschichte (Taten) Salomos 1:1-9:31 › Die Geschichte (Angelegenheiten, Taten) des Ahas, des Sohnes Jotams 1:1-27"
+      },
+      {
+       "ref": "1:17-19",
+       "text": "החטא",
+       "text_de": "Die Sünde",
+       "blk": "דִּבְרֵי (=מַעֲשֵׂי) שְׁלֹמֹה 1:1-9:31 › דִּבְרֵי (=עִנְיָנֵי, מַעֲשֵׂי) יוֹאָשׁ בֶּן אֲחַזְיָהוּ 1:1-27",
+       "blk_de": "Die Geschichte (Taten) Salomos 1:1-9:31 › Die Geschichte (Angelegenheiten, Taten) des Joasch, des Sohnes Ahasjas 1:1-27"
+      }
+     ]
     },
     {
      "ref": "1:18-2:17",
@@ -37,7 +167,65 @@
      "place_de": "Jerusalem",
      "place_en": "Jerusalem",
      "par_de": "Wiederholung und Erweiterung von: 1 Könige 5:9–32",
-     "par_en": "Repeats and expands on: I Kings 5:9–32"
+     "par_en": "Repeats and expands on: I Kings 5:9–32",
+     "sub": [
+      {
+       "ref": "1:18-2:1",
+       "text": "ספר האמנים",
+       "text_de": "Die Zählung der Handwerker",
+       "blk": "דִּבְרֵי (=מַעֲשֵׂי) שְׁלֹמֹה 1:1-9:31 › הַהֲכָנוֹת לְבִנְיַן הַמִּקְדָּשׁ 1:14-2:17",
+       "blk_de": "Die Geschichte (Taten) Salomos 1:1-9:31 › Die Vorbereitungen für den Bau des Tempels 1:14-2:17"
+      },
+      {
+       "ref": "1:20-22",
+       "text": "תוכחת זכריה בן יהוידע ומותו בחצר בית ה'",
+       "text_de": "Die Mahnrede Secharjas, des Sohnes Jojadas, und sein Tod im Vorhof des Hauses des HERRN",
+       "blk": "דִּבְרֵי (=מַעֲשֵׂי) שְׁלֹמֹה 1:1-9:31 › דִּבְרֵי (=עִנְיָנֵי, מַעֲשֵׂי) יוֹאָשׁ בֶּן אֲחַזְיָהוּ 1:1-27",
+       "blk_de": "Die Geschichte (Taten) Salomos 1:1-9:31 › Die Geschichte (Angelegenheiten, Taten) des Joasch, des Sohnes Ahasjas 1:1-27"
+      },
+      {
+       "ref": "1:22-25",
+       "text": "אחז מוסיף חטאים על פשעיו הקודמים",
+       "text_de": "Ahas fügt seinen früheren Vergehen weitere Sünden hinzu",
+       "blk": "דִּבְרֵי (=מַעֲשֵׂי) שְׁלֹמֹה 1:1-9:31 › דִּבְרֵי (עִנְיָנֵי, מַעֲשֵׂי) אָחָז בֶּן יוֹתָם 1:1-27",
+       "blk_de": "Die Geschichte (Taten) Salomos 1:1-9:31 › Die Geschichte (Angelegenheiten, Taten) des Ahas, des Sohnes Jotams 1:1-27"
+      },
+      {
+       "ref": "1:23-24",
+       "text": "הענש: עלית ארם על יהודה וירושלים",
+       "text_de": "Die Strafe: Der Angriff Arams auf Juda und Jerusalem",
+       "blk": "דִּבְרֵי (=מַעֲשֵׂי) שְׁלֹמֹה 1:1-9:31 › דִּבְרֵי (=עִנְיָנֵי, מַעֲשֵׂי) יוֹאָשׁ בֶּן אֲחַזְיָהוּ 1:1-27",
+       "blk_de": "Die Geschichte (Taten) Salomos 1:1-9:31 › Die Geschichte (Angelegenheiten, Taten) des Joasch, des Sohnes Ahasjas 1:1-27"
+      },
+      {
+       "ref": "1:25-27",
+       "text": "חתימה: מות יואש",
+       "text_de": "Abschluss: Der Tod des Joasch",
+       "blk": "דִּבְרֵי (=מַעֲשֵׂי) שְׁלֹמֹה 1:1-9:31 › דִּבְרֵי (=עִנְיָנֵי, מַעֲשֵׂי) יוֹאָשׁ בֶּן אֲחַזְיָהוּ 1:1-27",
+       "blk_de": "Die Geschichte (Taten) Salomos 1:1-9:31 › Die Geschichte (Angelegenheiten, Taten) des Joasch, des Sohnes Ahasjas 1:1-27"
+      },
+      {
+       "ref": "1:26-27",
+       "text": "חתימה",
+       "text_de": "Schluss",
+       "blk": "דִּבְרֵי (=מַעֲשֵׂי) שְׁלֹמֹה 1:1-9:31 › דִּבְרֵי (עִנְיָנֵי, מַעֲשֵׂי) אָחָז בֶּן יוֹתָם 1:1-27",
+       "blk_de": "Die Geschichte (Taten) Salomos 1:1-9:31 › Die Geschichte (Angelegenheiten, Taten) des Ahas, des Sohnes Jotams 1:1-27"
+      },
+      {
+       "ref": "2:2-15",
+       "text": "שלמה מבקש מחירם איש ממחה ועצים נוספים לבנין ותשובת חירם על בקשה זו",
+       "text_de": "Salomo bittet Hiram um einen geschickten Mann und weitere Hölzer für den Bau, und Hirams Antwort auf diese Bitte",
+       "blk": "דִּבְרֵי (=מַעֲשֵׂי) שְׁלֹמֹה 1:1-9:31 › הַהֲכָנוֹת לְבִנְיַן הַמִּקְדָּשׁ 1:14-2:17",
+       "blk_de": "Die Geschichte (Taten) Salomos 1:1-9:31 › Die Vorbereitungen für den Bau des Tempels 1:14-2:17"
+      },
+      {
+       "ref": "2:16-17",
+       "text": "ספר 'הגירים'",
+       "text_de": "Die Zählung der „Fremdlinge“",
+       "blk": "דִּבְרֵי (=מַעֲשֵׂי) שְׁלֹמֹה 1:1-9:31 › הַהֲכָנוֹת לְבִנְיַן הַמִּקְדָּשׁ 1:14-2:17",
+       "blk_de": "Die Geschichte (Taten) Salomos 1:1-9:31 › Die Vorbereitungen für den Bau des Tempels 1:14-2:17"
+      }
+     ]
     },
     {
      "ref": "3-4",
@@ -49,7 +237,79 @@
      "par_de": "Wiederholung von: 1 Könige 6–7\nBau und Geräte des Heiligtums: 2. Mose 25:10–40, 2. Mose 27:1–8, 2. Mose 30:1–10, 2 Könige 25:13–17, Jeremia 52:17–23",
      "par_en": "Repeats: I Kings 6–7\nStructure and vessels of the Sanctuary: Exodus 25:10–40, Exodus 27:1–8, Exodus 30:1–10, II Kings 25:13–17, Jeremiah 52:17–23",
      "time_de": "Ijjar 2928 – Cheschwan 2935",
-     "time_en": "Iyar 2928 – Cheshvan 2935"
+     "time_en": "Iyar 2928 – Cheshvan 2935",
+     "sub": [
+      {
+       "ref": "3:1-2",
+       "text": "מקום הבית ותחלת זמן בנינו",
+       "text_de": "Der Ort des Hauses und der Beginn seines Baus",
+       "blk": "דִּבְרֵי (=מַעֲשֵׂי) שְׁלֹמֹה 1:1-9:31 › בִּנְיַן הַמִּקְדָּשׁ 3:1-5:1",
+       "blk_de": "Die Geschichte (Taten) Salomos 1:1-9:31 › Der Bau des Tempels 3:1-5:1"
+      },
+      {
+       "ref": "3:3-7",
+       "text": "האולם וההיכל",
+       "text_de": "Die Vorhalle und die Haupthalle",
+       "blk": "דִּבְרֵי (=מַעֲשֵׂי) שְׁלֹמֹה 1:1-9:31 › בִּנְיַן הַמִּקְדָּשׁ 3:1-5:1",
+       "blk_de": "Die Geschichte (Taten) Salomos 1:1-9:31 › Der Bau des Tempels 3:1-5:1"
+      },
+      {
+       "ref": "3:8-14",
+       "text": "בית-קדש הקדשים",
+       "text_de": "Das Haus des Allerheiligsten",
+       "blk": "דִּבְרֵי (=מַעֲשֵׂי) שְׁלֹמֹה 1:1-9:31 › בִּנְיַן הַמִּקְדָּשׁ 3:1-5:1",
+       "blk_de": "Die Geschichte (Taten) Salomos 1:1-9:31 › Der Bau des Tempels 3:1-5:1"
+      },
+      {
+       "ref": "3:15-17",
+       "text": "שני העמודים",
+       "text_de": "Die beiden Säulen",
+       "blk": "דִּבְרֵי (=מַעֲשֵׂי) שְׁלֹמֹה 1:1-9:31 › בִּנְיַן הַמִּקְדָּשׁ 3:1-5:1",
+       "blk_de": "Die Geschichte (Taten) Salomos 1:1-9:31 › Der Bau des Tempels 3:1-5:1"
+      },
+      {
+       "ref": "4:1",
+       "text": "המזבח",
+       "text_de": "Der Altar",
+       "blk": "דִּבְרֵי (=מַעֲשֵׂי) שְׁלֹמֹה 1:1-9:31 › בִּנְיַן הַמִּקְדָּשׁ 3:1-5:1",
+       "blk_de": "Die Geschichte (Taten) Salomos 1:1-9:31 › Der Bau des Tempels 3:1-5:1"
+      },
+      {
+       "ref": "4:2-6",
+       "text": "הים' והכיורים",
+       "text_de": "Das Meer und die Becken",
+       "blk": "דִּבְרֵי (=מַעֲשֵׂי) שְׁלֹמֹה 1:1-9:31 › בִּנְיַן הַמִּקְדָּשׁ 3:1-5:1",
+       "blk_de": "Die Geschichte (Taten) Salomos 1:1-9:31 › Der Bau des Tempels 3:1-5:1"
+      },
+      {
+       "ref": "4:7-8",
+       "text": "המנורות והשלחנות",
+       "text_de": "Die Leuchter und die Tische",
+       "blk": "דִּבְרֵי (=מַעֲשֵׂי) שְׁלֹמֹה 1:1-9:31 › בִּנְיַן הַמִּקְדָּשׁ 3:1-5:1",
+       "blk_de": "Die Geschichte (Taten) Salomos 1:1-9:31 › Der Bau des Tempels 3:1-5:1"
+      },
+      {
+       "ref": "4:9-10",
+       "text": "העזרות",
+       "text_de": "Die Vorhöfe",
+       "blk": "דִּבְרֵי (=מַעֲשֵׂי) שְׁלֹמֹה 1:1-9:31 › בִּנְיַן הַמִּקְדָּשׁ 3:1-5:1",
+       "blk_de": "Die Geschichte (Taten) Salomos 1:1-9:31 › Der Bau des Tempels 3:1-5:1"
+      },
+      {
+       "ref": "4:11-18",
+       "text": "כלי הנחשת ומקום עשיתם",
+       "text_de": "Die Geräte aus Bronze und der Ort ihrer Herstellung",
+       "blk": "דִּבְרֵי (=מַעֲשֵׂי) שְׁלֹמֹה 1:1-9:31 › בִּנְיַן הַמִּקְדָּשׁ 3:1-5:1",
+       "blk_de": "Die Geschichte (Taten) Salomos 1:1-9:31 › Der Bau des Tempels 3:1-5:1"
+      },
+      {
+       "ref": "4:19-5:1",
+       "text": "כלי הזהב",
+       "text_de": "Die Geräte aus Gold",
+       "blk": "דִּבְרֵי (=מַעֲשֵׂי) שְׁלֹמֹה 1:1-9:31 › בִּנְיַן הַמִּקְדָּשׁ 3:1-5:1",
+       "blk_de": "Die Geschichte (Taten) Salomos 1:1-9:31 › Der Bau des Tempels 3:1-5:1"
+      }
+     ]
     },
     {
      "ref": "5:1-7:11",
@@ -61,7 +321,51 @@
      "par_de": "Wiederholung von: 1 Könige 8\nLied darüber: Psalmen 30 (nach manchen)\nEinweihung der Stiftshütte: 3. Mose 8–9, 4. Mose 7\nEinweihungen des Tempels: Ezechiel 43:18–26, Ezechiel 45:18–25 (nach manchen), Esra 6:16–18",
      "par_en": "Repeats: I Kings 8\nSong about this: Psalms 30 (according to some)\nDedication of the Tabernacle: Leviticus 8–9, Numbers 7\nDedications of the Temple: Ezekiel 43:18–26, Ezekiel 45:18–25 (according to some), Ezra 6:16–18",
      "time_de": "Tischri 2936",
-     "time_en": "Tishrei 2936"
+     "time_en": "Tishrei 2936",
+     "sub": [
+      {
+       "ref": "5:2-10",
+       "text": "העלאת הארון מעיר דוד והכנסתו אל קדש הקדשים",
+       "text_de": "Die Überführung der Lade aus der Davidsstadt und ihre Bringung in das Allerheiligste",
+       "blk": "דִּבְרֵי (=מַעֲשֵׂי) שְׁלֹמֹה 1:1-9:31 › חֲנֻכַּת הַמִּקְדָּשׁ וַחֲנֻכַּת הַמִּזְבֵּחַ 5:2-7:10",
+       "blk_de": "Die Geschichte (Taten) Salomos 1:1-9:31 › Die Einweihung des Tempels und die Einweihung des Altars 5:2-7:10"
+      },
+      {
+       "ref": "5:11-14",
+       "text": "הבית מלא כבוד-ה'",
+       "text_de": "Das Haus ist erfüllt von der Herrlichkeit des HERRN",
+       "blk": "דִּבְרֵי (=מַעֲשֵׂי) שְׁלֹמֹה 1:1-9:31 › חֲנֻכַּת הַמִּקְדָּשׁ וַחֲנֻכַּת הַמִּזְבֵּחַ 5:2-7:10",
+       "blk_de": "Die Geschichte (Taten) Salomos 1:1-9:31 › Die Einweihung des Tempels und die Einweihung des Altars 5:2-7:10"
+      },
+      {
+       "ref": "6:1-11",
+       "text": "ברכת שלמה",
+       "text_de": "Salomos Segensspruch",
+       "blk": "דִּבְרֵי (=מַעֲשֵׂי) שְׁלֹמֹה 1:1-9:31 › חֲנֻכַּת הַמִּקְדָּשׁ וַחֲנֻכַּת הַמִּזְבֵּחַ 5:2-7:10",
+       "blk_de": "Die Geschichte (Taten) Salomos 1:1-9:31 › Die Einweihung des Tempels und die Einweihung des Altars 5:2-7:10"
+      },
+      {
+       "ref": "6:12-42",
+       "text": "תפלת שלמה",
+       "text_de": "Salomos Gebet",
+       "blk": "דִּבְרֵי (=מַעֲשֵׂי) שְׁלֹמֹה 1:1-9:31 › חֲנֻכַּת הַמִּקְדָּשׁ וַחֲנֻכַּת הַמִּזְבֵּחַ 5:2-7:10",
+       "blk_de": "Die Geschichte (Taten) Salomos 1:1-9:31 › Die Einweihung des Tempels und die Einweihung des Altars 5:2-7:10"
+      },
+      {
+       "ref": "7:1-6",
+       "text": "האש מגבה וחנכת הבית",
+       "text_de": "Das Feuer vom Himmel und die Einweihung des Hauses",
+       "blk": "דִּבְרֵי (=מַעֲשֵׂי) שְׁלֹמֹה 1:1-9:31 › חֲנֻכַּת הַמִּקְדָּשׁ וַחֲנֻכַּת הַמִּזְבֵּחַ 5:2-7:10",
+       "blk_de": "Die Geschichte (Taten) Salomos 1:1-9:31 › Die Einweihung des Tempels und die Einweihung des Altars 5:2-7:10"
+      },
+      {
+       "ref": "7:7-10",
+       "text": "חנכת המזבח",
+       "text_de": "Die Einweihung des Altars",
+       "blk": "דִּבְרֵי (=מַעֲשֵׂי) שְׁלֹמֹה 1:1-9:31 › חֲנֻכַּת הַמִּקְדָּשׁ וַחֲנֻכַּת הַמִּזְבֵּחַ 5:2-7:10",
+       "blk_de": "Die Geschichte (Taten) Salomos 1:1-9:31 › Die Einweihung des Tempels und die Einweihung des Altars 5:2-7:10"
+      }
+     ]
     },
     {
      "ref": "7:12-22",
@@ -85,7 +389,51 @@
      "par_de": "Wiederholung von: 1 Könige 9:11–28",
      "par_en": "Repeats: I Kings 9:11–28",
      "time_de": "2948",
-     "time_en": "2948"
+     "time_en": "2948",
+     "sub": [
+      {
+       "ref": "8:1-2",
+       "text": "ישובן של הערים הכנעניות בבני ישראל",
+       "text_de": "Die Ansiedlung der kanaanitischen Städte mit Israeliten",
+       "blk": "דִּבְרֵי (=מַעֲשֵׂי) שְׁלֹמֹה 1:1-9:31 › שְׁאָר מַעֲשֵׂי שְׁלֹמֹה 8",
+       "blk_de": "Die Geschichte (Taten) Salomos 1:1-9:31 › Die übrigen Taten Salomos 8"
+      },
+      {
+       "ref": "8:3-4",
+       "text": "מלחמת שלמה בחמת צובה וכבושה",
+       "text_de": "Salomos Krieg gegen Hamat-Zoba und dessen Eroberung",
+       "blk": "דִּבְרֵי (=מַעֲשֵׂי) שְׁלֹמֹה 1:1-9:31 › שְׁאָר מַעֲשֵׂי שְׁלֹמֹה 8",
+       "blk_de": "Die Geschichte (Taten) Salomos 1:1-9:31 › Die übrigen Taten Salomos 8"
+      },
+      {
+       "ref": "8:5-6",
+       "text": "בנין ערים ברחבי הממלכה",
+       "text_de": "Städtebau im ganzen Reich",
+       "blk": "דִּבְרֵי (=מַעֲשֵׂי) שְׁלֹמֹה 1:1-9:31 › שְׁאָר מַעֲשֵׂי שְׁלֹמֹה 8",
+       "blk_de": "Die Geschichte (Taten) Salomos 1:1-9:31 › Die übrigen Taten Salomos 8"
+      },
+      {
+       "ref": "8:7-10",
+       "text": "עובדי המס",
+       "text_de": "Die Fronarbeiter",
+       "blk": "דִּבְרֵי (=מַעֲשֵׂי) שְׁלֹמֹה 1:1-9:31 › שְׁאָר מַעֲשֵׂי שְׁלֹמֹה 8",
+       "blk_de": "Die Geschichte (Taten) Salomos 1:1-9:31 › Die übrigen Taten Salomos 8"
+      },
+      {
+       "ref": "8:11",
+       "text": "הבית לבת-פרעה",
+       "text_de": "Das Haus für die Tochter des Pharao",
+       "blk": "דִּבְרֵי (=מַעֲשֵׂי) שְׁלֹמֹה 1:1-9:31 › שְׁאָר מַעֲשֵׂי שְׁלֹמֹה 8",
+       "blk_de": "Die Geschichte (Taten) Salomos 1:1-9:31 › Die übrigen Taten Salomos 8"
+      },
+      {
+       "ref": "8:17-18",
+       "text": "כבוש עציון-גבר ואילות והסחר עם אופיר",
+       "text_de": "Die Eroberung von Ezjon-Geber und Elat und der Handel mit Ofir",
+       "blk": "דִּבְרֵי (=מַעֲשֵׂי) שְׁלֹמֹה 1:1-9:31 › שְׁאָר מַעֲשֵׂי שְׁלֹמֹה 8",
+       "blk_de": "Die Geschichte (Taten) Salomos 1:1-9:31 › Die übrigen Taten Salomos 8"
+      }
+     ]
     },
     {
      "ref": "8:12-16",
@@ -97,7 +445,16 @@
      "place_de": "Jerusalem",
      "place_en": "Jerusalem",
      "par_de": "Ordnungen durch David: 1 Chronik 23–26",
-     "par_en": "Arrangements by David: I Chronicles 23–26"
+     "par_en": "Arrangements by David: I Chronicles 23–26",
+     "sub": [
+      {
+       "ref": "8:12-16",
+       "text": "עבודת התמיד בבית המקדש",
+       "text_de": "Der tägliche Dienst im Tempel",
+       "blk": "דִּבְרֵי (=מַעֲשֵׂי) שְׁלֹמֹה 1:1-9:31 › שְׁאָר מַעֲשֵׂי שְׁלֹמֹה 8",
+       "blk_de": "Die Geschichte (Taten) Salomos 1:1-9:31 › Die übrigen Taten Salomos 8"
+      }
+     ]
     },
     {
      "ref": "9:1-12",
@@ -106,7 +463,16 @@
      "text_de": "Die Begegnung der Königin von Saba mit Salomo",
      "text_en": "The matter of the Queen of Sheba and Solomon",
      "par_de": "Wiederholung von: 1 Könige 10:1–13",
-     "par_en": "Repeats: I Kings 10:1–13"
+     "par_en": "Repeats: I Kings 10:1–13",
+     "sub": [
+      {
+       "ref": "9:1-12",
+       "text": "מעשה מלכת-שבא",
+       "text_de": "Die Geschichte von der Königin von Saba",
+       "blk": "חָכְמַת שְׁלֹמֹה, עָשְׁרוֹ, גְּדֻלָּתוֹ וְתָקְפּוֹ 9",
+       "blk_de": "Salomos Weisheit, Reichtum, Größe und Macht 9"
+      }
+     ]
     },
     {
      "ref": "9:13-31",
@@ -118,7 +484,30 @@
      "par_de": "Wiederholung von: 1 Könige 5:1–8, 1 Könige 10:14–29",
      "par_en": "Repeats: I Kings 5:1–8, I Kings 10:14–29",
      "time_de": "2964",
-     "time_en": "2964"
+     "time_en": "2964",
+     "sub": [
+      {
+       "ref": "9:13-21",
+       "text": "עשרו של שלמה",
+       "text_de": "Salomos Reichtum",
+       "blk": "חָכְמַת שְׁלֹמֹה, עָשְׁרוֹ, גְּדֻלָּתוֹ וְתָקְפּוֹ 9",
+       "blk_de": "Salomos Weisheit, Reichtum, Größe und Macht 9"
+      },
+      {
+       "ref": "9:22-28",
+       "text": "גדלת שלמה, תקפו והקף ממלכתו",
+       "text_de": "Salomos Größe, seine Macht und die Ausdehnung seines Reiches",
+       "blk": "חָכְמַת שְׁלֹמֹה, עָשְׁרוֹ, גְּדֻלָּתוֹ וְתָקְפּוֹ 9",
+       "blk_de": "Salomos Weisheit, Reichtum, Größe und Macht 9"
+      },
+      {
+       "ref": "9:29-31",
+       "text": "חתימה: מות שלמה ושמות הנביאים שכתבו את דבריו על הספר",
+       "text_de": "Abschluss: Salomos Tod und die Namen der Propheten, die seine Geschichte aufgezeichnet haben",
+       "blk": "חָכְמַת שְׁלֹמֹה, עָשְׁרוֹ, גְּדֻלָּתוֹ וְתָקְפּוֹ 9",
+       "blk_de": "Salomos Weisheit, Reichtum, Größe und Macht 9"
+      }
+     ]
     }
    ],
    "head_de": "König Salomo [Sohn Davids]",
@@ -140,7 +529,16 @@
      "par_de": "Wiederholung von: 1 Könige 12:1–19",
      "par_en": "Repeats: I Kings 12:1–19",
      "time_de": "2964",
-     "time_en": "2964"
+     "time_en": "2964",
+     "sub": [
+      {
+       "ref": "10",
+       "text": "פתיחה: המרד בבית דוד והתפלגות ישראל לשתי ממלכות",
+       "text_de": "Einleitung: Der Aufstand gegen das Haus David und die Teilung Israels in zwei Reiche",
+       "blk": "דִּבְרֵי (=מַעֲשֵׂי, עִנְיְנֵי) רְחַבְעָם 10-12",
+       "blk_de": "Die Geschichte (Taten, Angelegenheiten) Rehabeams 10-12"
+      }
+     ]
     },
     {
      "ref": "11:1-4",
@@ -152,25 +550,61 @@
      "place_de": "Jerusalem",
      "place_en": "Jerusalem",
      "par_de": "Wiederholung von: 1 Könige 12:20–24",
-     "par_en": "Repeats: I Kings 12:20–24"
+     "par_en": "Repeats: I Kings 12:20–24",
+     "sub": [
+      {
+       "ref": "11:1-4",
+       "text": "רחבעם נשמע לדבר ה' ונמנע מלהלחם במתמרדים",
+       "text_de": "Rehabeam gehorcht dem Wort des HERRN und verzichtet darauf, gegen die Aufständischen zu kämpfen",
+       "blk": "דִּבְרֵי (=מַעֲשֵׂי, עִנְיְנֵי) רְחַבְעָם 10-12",
+       "blk_de": "Die Geschichte (Taten, Angelegenheiten) Rehabeams 10-12"
+      }
+     ]
     },
     {
      "ref": "11:5-12",
      "text": "בנייתו ערי מבצר",
      "text_de": "Bau von Festungsstädten",
-     "text_en": "Building fortified cities"
+     "text_en": "Building fortified cities",
+     "sub": [
+      {
+       "ref": "11:5-12",
+       "text": "רחבעם מבצר ערים בממלכתו",
+       "text_de": "Rehabeam befestigt Städte in seinem Reich",
+       "blk": "דִּבְרֵי (=מַעֲשֵׂי, עִנְיְנֵי) רְחַבְעָם 10-12",
+       "blk_de": "Die Geschichte (Taten, Angelegenheiten) Rehabeams 10-12"
+      }
+     ]
     },
     {
      "ref": "11:13-17",
      "text": "התומכים במלכות רחבעם",
      "text_de": "Die Unterstützer von Rehabeams Königtum",
-     "text_en": "The supporters of Rehoboam's kingship"
+     "text_en": "The supporters of Rehoboam's kingship",
+     "sub": [
+      {
+       "ref": "11:13-17",
+       "text": "כל בית הלוי ואנשים משאר שבטי ישראל מסתפחים לממלכת רחבעם",
+       "text_de": "Das ganze Haus Levi und Menschen aus den übrigen Stämmen Israels schließen sich dem Reich Rehabeams an",
+       "blk": "דִּבְרֵי (=מַעֲשֵׂי, עִנְיְנֵי) רְחַבְעָם 10-12",
+       "blk_de": "Die Geschichte (Taten, Angelegenheiten) Rehabeams 10-12"
+      }
+     ]
     },
     {
      "ref": "11:18-23",
      "text": "נשותיו ובניו",
      "text_de": "Seine Frauen und Söhne",
-     "text_en": "His wives and sons"
+     "text_en": "His wives and sons",
+     "sub": [
+      {
+       "ref": "11:18-23",
+       "text": "בני בית רחבעם",
+       "text_de": "Die Söhne und das Haus Rehabeams",
+       "blk": "דִּבְרֵי (=מַעֲשֵׂי, עִנְיְנֵי) רְחַבְעָם 10-12",
+       "blk_de": "Die Geschichte (Taten, Angelegenheiten) Rehabeams 10-12"
+      }
+     ]
     },
     {
      "ref": "12:1-12",
@@ -185,7 +619,16 @@
      "par_de": "Wiederholung und Erweiterung von: 1 Könige 14:21–25",
      "par_en": "Repeats and expands on: I Kings 14:21–25",
      "time_de": "2969",
-     "time_en": "2969"
+     "time_en": "2969",
+     "sub": [
+      {
+       "ref": "12:1-12",
+       "text": "החטא וענשו: פלישת שישק מלך מצרים",
+       "text_de": "Die Sünde und ihre Strafe: Der Einfall Schischaks, des Königs von Ägypten",
+       "blk": "דִּבְרֵי (=מַעֲשֵׂי, עִנְיְנֵי) רְחַבְעָם 10-12",
+       "blk_de": "Die Geschichte (Taten, Angelegenheiten) Rehabeams 10-12"
+      }
+     ]
     },
     {
      "ref": "12:13-16",
@@ -197,7 +640,16 @@
      "par_de": "Wiederholung von: 1 Könige 14:29–31",
      "par_en": "Repeats: I Kings 14:29–31",
      "time_de": "2981",
-     "time_en": "2981"
+     "time_en": "2981",
+     "sub": [
+      {
+       "ref": "12:13-16",
+       "text": "חתימה: סכום דברי ימיו ומעשיו של רחבעם",
+       "text_de": "Abschluss: Zusammenfassung der Geschichte und Taten Rehabeams",
+       "blk": "דִּבְרֵי (=מַעֲשֵׂי, עִנְיְנֵי) רְחַבְעָם 10-12",
+       "blk_de": "Die Geschichte (Taten, Angelegenheiten) Rehabeams 10-12"
+      }
+     ]
     }
    ],
    "head_de": "Rehabeam, Sohn Salomos",
@@ -219,7 +671,30 @@
      "par_de": "Wiederholung und Erweiterung von: 1 Könige 15:1–6",
      "par_en": "Repeats and expands on: I Kings 15:1–6",
      "time_de": "2982",
-     "time_en": "2982"
+     "time_en": "2982",
+     "sub": [
+      {
+       "ref": "13:1-2",
+       "text": "פתיחה",
+       "text_de": "Einleitung",
+       "blk": "דִּבְרֵי (=עִנְיְנֵי, מַעֲשֵׂי) אֲבִיָּה 13",
+       "blk_de": "Die Geschichte (Angelegenheiten, Taten) Abijas 13"
+      },
+      {
+       "ref": "13:3-14",
+       "text": "מלחמת אביה וירבעם ונאום אביה",
+       "text_de": "Der Krieg zwischen Abija und Jerobeam und Abijas Rede",
+       "blk": "דִּבְרֵי (=עִנְיְנֵי, מַעֲשֵׂי) אֲבִיָּה 13",
+       "blk_de": "Die Geschichte (Angelegenheiten, Taten) Abijas 13"
+      },
+      {
+       "ref": "13:15-20",
+       "text": "המכה בירבעם",
+       "text_de": "Die Niederlage Jerobeams",
+       "blk": "דִּבְרֵי (=עִנְיְנֵי, מַעֲשֵׂי) אֲבִיָּה 13",
+       "blk_de": "Die Geschichte (Angelegenheiten, Taten) Abijas 13"
+      }
+     ]
     },
     {
      "ref": "13:21-23",
@@ -234,7 +709,16 @@
      "par_de": "Wiederholung von: 1 Könige 15:7–8",
      "par_en": "Repeats: I Kings 15:7–8",
      "time_de": "2984",
-     "time_en": "2984"
+     "time_en": "2984",
+     "sub": [
+      {
+       "ref": "13:21-23",
+       "text": "חתימה",
+       "text_de": "Schluss",
+       "blk": "דִּבְרֵי (=עִנְיְנֵי, מַעֲשֵׂי) אֲבִיָּה 13",
+       "blk_de": "Die Geschichte (Angelegenheiten, Taten) Abijas 13"
+      }
+     ]
     }
    ],
    "head_de": "Abija, Sohn Rehabeams",
@@ -256,7 +740,23 @@
      "par_de": "Wiederholung von: 1 Könige 15:9–15",
      "par_en": "Repeats: I Kings 15:9–15",
      "time_de": "2984",
-     "time_en": "2984"
+     "time_en": "2984",
+     "sub": [
+      {
+       "ref": "14:1-4",
+       "text": "פתיחה: צדקתו וחסידותו של אסא",
+       "text_de": "Einleitung: Asas Gerechtigkeit und Frömmigkeit",
+       "blk": "דִּבְרֵי (=עִנְיָנֵי, מַעֲשֵׂי) אָסָא בֶּן אֲבִיָּה 14-16",
+       "blk_de": "Die Geschichte (Angelegenheiten, Taten) Asas, des Sohnes Abijas 14-16"
+      },
+      {
+       "ref": "14:5-7",
+       "text": "מבצריו וחילותיו",
+       "text_de": "Seine Festungen und Heere",
+       "blk": "דִּבְרֵי (=עִנְיָנֵי, מַעֲשֵׂי) אָסָא בֶּן אֲבִיָּה 14-16",
+       "blk_de": "Die Geschichte (Angelegenheiten, Taten) Asas, des Sohnes Abijas 14-16"
+      }
+     ]
     },
     {
      "ref": "14:7-14",
@@ -268,7 +768,16 @@
      "place_de": "Marescha, Gerar",
      "place_en": "Mareshah, Gerar",
      "time_de": "Siwan 2999",
-     "time_en": "Sivan 2999"
+     "time_en": "Sivan 2999",
+     "sub": [
+      {
+       "ref": "14:8-14",
+       "text": "המלחמה עם זרח הכושי",
+       "text_de": "Der Krieg gegen Serach, den Kuschiter",
+       "blk": "דִּבְרֵי (=עִנְיָנֵי, מַעֲשֵׂי) אָסָא בֶּן אֲבִיָּה 14-16",
+       "blk_de": "Die Geschichte (Angelegenheiten, Taten) Asas, des Sohnes Abijas 14-16"
+      }
+     ]
     },
     {
      "ref": "15",
@@ -277,7 +786,30 @@
      "text_de": "Beseitigung des Götzendienstes, Schwur des Volkes, dem Herrn zu dienen",
      "text_en": "Eradication of idolatry, the people's oath to serve the Lord",
      "place_de": "Jerusalem",
-     "place_en": "Jerusalem"
+     "place_en": "Jerusalem",
+     "sub": [
+      {
+       "ref": "15:1-7",
+       "text": "נבואת עזריהו בן-עודד",
+       "text_de": "Die Weissagung Asarjas, des Sohnes Odeds",
+       "blk": "דִּבְרֵי (=עִנְיָנֵי, מַעֲשֵׂי) אָסָא בֶּן אֲבִיָּה 14-16",
+       "blk_de": "Die Geschichte (Angelegenheiten, Taten) Asas, des Sohnes Abijas 14-16"
+      },
+      {
+       "ref": "15:8-15",
+       "text": "בעור כל עבודה זרה ואבזריה וחדוש הברית עם ה'",
+       "text_de": "Die Beseitigung aller Götzendienste und ihrer Geräte und die Erneuerung des Bundes mit dem HERRN",
+       "blk": "דִּבְרֵי (=עִנְיָנֵי, מַעֲשֵׂי) אָסָא בֶּן אֲבִיָּה 14-16",
+       "blk_de": "Die Geschichte (Angelegenheiten, Taten) Asas, des Sohnes Abijas 14-16"
+      },
+      {
+       "ref": "15:16-19",
+       "text": "עוד ממעשי אסא",
+       "text_de": "Weitere Taten Asas",
+       "blk": "דִּבְרֵי (=עִנְיָנֵי, מַעֲשֵׂי) אָסָא בֶּן אֲבִיָּה 14-16",
+       "blk_de": "Die Geschichte (Angelegenheiten, Taten) Asas, des Sohnes Abijas 14-16"
+      }
+     ]
     },
     {
      "ref": "16:1-10",
@@ -292,7 +824,23 @@
      "par_de": "Wiederholung von: 1 Könige 15:16–22",
      "par_en": "Repeats: I Kings 15:16–22",
      "time_de": "3000",
-     "time_en": "3000"
+     "time_en": "3000",
+     "sub": [
+      {
+       "ref": "16:1-6",
+       "text": "המלחמה עם בעשא והברית עם ארם",
+       "text_de": "Der Krieg mit Bascha und das Bündnis mit Aram",
+       "blk": "דִּבְרֵי (=עִנְיָנֵי, מַעֲשֵׂי) אָסָא בֶּן אֲבִיָּה 14-16",
+       "blk_de": "Die Geschichte (Angelegenheiten, Taten) Asas, des Sohnes Abijas 14-16"
+      },
+      {
+       "ref": "16:7-10",
+       "text": "תוכחת חנני הראה",
+       "text_de": "Die Zurechtweisung durch Hanani, den Seher",
+       "blk": "דִּבְרֵי (=עִנְיָנֵי, מַעֲשֵׂי) אָסָא בֶּן אֲבִיָּה 14-16",
+       "blk_de": "Die Geschichte (Angelegenheiten, Taten) Asas, des Sohnes Abijas 14-16"
+      }
+     ]
     },
     {
      "ref": "16:11-14",
@@ -307,7 +855,16 @@
      "par_de": "Wiederholung von: 1 Könige 15:23–24",
      "par_en": "Repeats: I Kings 15:23–24",
      "time_de": "3025",
-     "time_en": "3025"
+     "time_en": "3025",
+     "sub": [
+      {
+       "ref": "16:11-14",
+       "text": "חתימה לדברי אסא",
+       "text_de": "Abschluss der Geschichte Asas",
+       "blk": "דִּבְרֵי (=עִנְיָנֵי, מַעֲשֵׂי) אָסָא בֶּן אֲבִיָּה 14-16",
+       "blk_de": "Die Geschichte (Angelegenheiten, Taten) Asas, des Sohnes Abijas 14-16"
+      }
+     ]
     }
    ],
    "head_de": "Asa, Sohn Abijas",
@@ -326,13 +883,38 @@
      "place_de": "Jerusalem, Städte Judas",
      "place_en": "Jerusalem, Cities of Judah",
      "time_de": "3026",
-     "time_en": "3026"
+     "time_en": "3026",
+     "sub": [
+      {
+       "ref": "17:1-6",
+       "text": "פתיחה: צדקתו וחסידותו של יהושפט",
+       "text_de": "Einleitung: Joschafats Gerechtigkeit und Frömmigkeit",
+       "blk": "דִּבְרֵי (=עִנְיָנֵי, מַעֲשֵׂי) יְהוֹשָׁפָט 17:1-21:3",
+       "blk_de": "Die Geschichte (Angelegenheiten, Taten) Joschafats 17:1-21:3"
+      },
+      {
+       "ref": "17:7-9",
+       "text": "יהושפט עושה ללמוד תורה ברבים",
+       "text_de": "Joschafat lässt die Tora öffentlich lehren",
+       "blk": "דִּבְרֵי (=עִנְיָנֵי, מַעֲשֵׂי) יְהוֹשָׁפָט 17:1-21:3",
+       "blk_de": "Die Geschichte (Angelegenheiten, Taten) Joschafats 17:1-21:3"
+      }
+     ]
     },
     {
      "ref": "17:10-19",
      "text": "כבודו וגבורתו, שמות גיבוריו",
      "text_de": "Sein Ansehen und seine Macht, Namen seiner Helden",
-     "text_en": "His honor and might, names of his warriors"
+     "text_en": "His honor and might, names of his warriors",
+     "sub": [
+      {
+       "ref": "17:10-19",
+       "text": "תקפו של יהושפט וחילותיו",
+       "text_de": "Joschafats Macht und seine Heere",
+       "blk": "דִּבְרֵי (=עִנְיָנֵי, מַעֲשֵׂי) יְהוֹשָׁפָט 17:1-21:3",
+       "blk_de": "Die Geschichte (Angelegenheiten, Taten) Joschafats 17:1-21:3"
+      }
+     ]
     },
     {
      "ref": "18",
@@ -347,7 +929,44 @@
      "par_de": "Wiederholung von: 1 Könige 22:1–35",
      "par_en": "Repeats: I Kings 22:1–35",
      "time_de": "3043",
-     "time_en": "3043"
+     "time_en": "3043",
+     "sub": [
+      {
+       "ref": "18:1-3",
+       "text": "יהושפט מתחתן עם אחאב ומתחבר אליו",
+       "text_de": "Joschafat verschwägert sich mit Ahab und verbündet sich mit ihm",
+       "blk": "דִּבְרֵי (=עִנְיָנֵי, מַעֲשֵׂי) יְהוֹשָׁפָט 17:1-21:3",
+       "blk_de": "Die Geschichte (Angelegenheiten, Taten) Joschafats 17:1-21:3"
+      },
+      {
+       "ref": "18:4-11",
+       "text": "המלחמה המשתפת בארם והדרישה בה'",
+       "text_de": "Der gemeinsame Krieg gegen Aram und die Befragung des HERRN",
+       "blk": "דִּבְרֵי (=עִנְיָנֵי, מַעֲשֵׂי) יְהוֹשָׁפָט 17:1-21:3",
+       "blk_de": "Die Geschichte (Angelegenheiten, Taten) Joschafats 17:1-21:3"
+      },
+      {
+       "ref": "18:12-22",
+       "text": "נבואת מיכיהו בן-ימלא",
+       "text_de": "Die Weissagung Micha ben Jimlas",
+       "blk": "דִּבְרֵי (=עִנְיָנֵי, מַעֲשֵׂי) יְהוֹשָׁפָט 17:1-21:3",
+       "blk_de": "Die Geschichte (Angelegenheiten, Taten) Joschafats 17:1-21:3"
+      },
+      {
+       "ref": "18:23-27",
+       "text": "בין צדקיהו בן-כנענה למיכיהו בן-ימלא",
+       "text_de": "Zwischen Zidkija ben Kenaana und Micha ben Jimla",
+       "blk": "דִּבְרֵי (=עִנְיָנֵי, מַעֲשֵׂי) יְהוֹשָׁפָט 17:1-21:3",
+       "blk_de": "Die Geschichte (Angelegenheiten, Taten) Joschafats 17:1-21:3"
+      },
+      {
+       "ref": "18:28-19:1",
+       "text": "מות אחאב",
+       "text_de": "Der Tod Ahabs",
+       "blk": "דִּבְרֵי (=עִנְיָנֵי, מַעֲשֵׂי) יְהוֹשָׁפָט 17:1-21:3",
+       "blk_de": "Die Geschichte (Angelegenheiten, Taten) Joschafats 17:1-21:3"
+      }
+     ]
     },
     {
      "ref": "19:1-3",
@@ -356,7 +975,16 @@
      "text_de": "Zurechtweisung Joschafats durch den Propheten",
      "text_en": "The prophet's rebuke of Jehoshaphat",
      "place_de": "Jerusalem",
-     "place_en": "Jerusalem"
+     "place_en": "Jerusalem",
+     "sub": [
+      {
+       "ref": "19:2-3",
+       "text": "תוכחת יהוא בן-חנני על ההתחברות עם בית עמרי",
+       "text_de": "Die Zurechtweisung durch Jehu ben Hanani wegen des Bündnisses mit dem Haus Omri",
+       "blk": "דִּבְרֵי (=עִנְיָנֵי, מַעֲשֵׂי) יְהוֹשָׁפָט 17:1-21:3",
+       "blk_de": "Die Geschichte (Angelegenheiten, Taten) Joschafats 17:1-21:3"
+      }
+     ]
     },
     {
      "ref": "19:4-11",
@@ -365,7 +993,16 @@
      "text_de": "Seine Bemühungen, gerechte Rechtsprechung in Israel einzuführen",
      "text_en": "His efforts to establish righteous judgment in Israel",
      "par_de": "Mahnungen an die Richter: 2. Mose 23:1–3, 6–8, 3. Mose 19:15, 5. Mose 1:16–17, Psalmen 82",
-     "par_en": "Warnings to the judges: Exodus 23:1–3, 6–8, Leviticus 19:15, Deuteronomy 1:16–17, Psalms 82"
+     "par_en": "Warnings to the judges: Exodus 23:1–3, 6–8, Leviticus 19:15, Deuteronomy 1:16–17, Psalms 82",
+     "sub": [
+      {
+       "ref": "19:4-11",
+       "text": "יהושפט מעמיד שופטים בכל הארץ",
+       "text_de": "Joschafat setzt Richter im ganzen Land ein",
+       "blk": "דִּבְרֵי (=עִנְיָנֵי, מַעֲשֵׂי) יְהוֹשָׁפָט 17:1-21:3",
+       "blk_de": "Die Geschichte (Angelegenheiten, Taten) Joschafats 17:1-21:3"
+      }
+     ]
     },
     {
      "ref": "20:1-30",
@@ -374,7 +1011,37 @@
      "text_de": "Sein Krieg gegen Ammon und Moab",
      "text_en": "His war against Ammon and Moab",
      "par_de": "Prophezeiung darüber: Joel 4 (nach manchen)",
-     "par_en": "Prophecy about this: Joel 4 (according to some)"
+     "par_en": "Prophecy about this: Joel 4 (according to some)",
+     "sub": [
+      {
+       "ref": "20:1-2",
+       "text": "פלישת בני לוט והנספחים עליהם",
+       "text_de": "Der Einfall der Söhne Lots und die Angriffe auf sie",
+       "blk": "דִּבְרֵי (=עִנְיָנֵי, מַעֲשֵׂי) יְהוֹשָׁפָט 17:1-21:3",
+       "blk_de": "Die Geschichte (Angelegenheiten, Taten) Joschafats 17:1-21:3"
+      },
+      {
+       "ref": "20:3-13",
+       "text": "הצום ותפלת יהושפט",
+       "text_de": "Das Fasten und das Gebet Joschafats",
+       "blk": "דִּבְרֵי (=עִנְיָנֵי, מַעֲשֵׂי) יְהוֹשָׁפָט 17:1-21:3",
+       "blk_de": "Die Geschichte (Angelegenheiten, Taten) Joschafats 17:1-21:3"
+      },
+      {
+       "ref": "20:14-15",
+       "text": "נבואת יחזיאל מן-בני אסף",
+       "text_de": "Die Weissagung Jachasiëls aus den Söhnen Asafs",
+       "blk": "דִּבְרֵי (=עִנְיָנֵי, מַעֲשֵׂי) יְהוֹשָׁפָט 17:1-21:3",
+       "blk_de": "Die Geschichte (Angelegenheiten, Taten) Joschafats 17:1-21:3"
+      },
+      {
+       "ref": "20:20-30",
+       "text": "המכה באויב והבזה",
+       "text_de": "Der Schlag gegen den Feind und die Beute",
+       "blk": "דִּבְרֵי (=עִנְיָנֵי, מַעֲשֵׂי) יְהוֹשָׁפָט 17:1-21:3",
+       "blk_de": "Die Geschichte (Angelegenheiten, Taten) Joschafats 17:1-21:3"
+      }
+     ]
     },
     {
      "ref": "20:31-37",
@@ -389,7 +1056,16 @@
      "par_de": "Wiederholung und Erweiterung von: 1 Könige 22:41–51",
      "par_en": "Repeats and expands on: I Kings 22:41–51",
      "time_de": "3050",
-     "time_en": "3050"
+     "time_en": "3050",
+     "sub": [
+      {
+       "ref": "20:31-21:3",
+       "text": "חתימה: סכום מעשי יהושפט",
+       "text_de": "Abschluss: Zusammenfassung der Taten Joschafats",
+       "blk": "דִּבְרֵי (=עִנְיָנֵי, מַעֲשֵׂי) יְהוֹשָׁפָט 17:1-21:3",
+       "blk_de": "Die Geschichte (Angelegenheiten, Taten) Joschafats 17:1-21:3"
+      }
+     ]
     }
    ],
    "head_de": "Joschafat, Sohn Asas",
@@ -411,7 +1087,16 @@
      "par_de": "Wiederholung und Erweiterung von: 2 Könige 8:16–19",
      "par_en": "Repeats and expands on: II Kings 8:16–19",
      "time_de": "3048",
-     "time_en": "3048"
+     "time_en": "3048",
+     "sub": [
+      {
+       "ref": "21:4-7",
+       "text": "פתיחה: רשעת יהורם",
+       "text_de": "Einleitung: Die Bosheit Jehorams",
+       "blk": "דִּבְרֵי (=מַעֲשֵׂי, עִנְיְנֵי) יְהוֹרָם בֶּן יְהוֹשָׁפָט 21:4-22:1",
+       "blk_de": "Die Geschichte (Taten, Angelegenheiten) Jehorams, des Sohnes Joschafats 21:4-22:1"
+      }
+     ]
     },
     {
      "ref": "21:8-10",
@@ -423,7 +1108,16 @@
      "place_de": "Jerusalem, Edom",
      "place_en": "Jerusalem, Edom",
      "par_de": "Wiederholung von: 2 Könige 8:20–22",
-     "par_en": "Repeats: II Kings 8:20–22"
+     "par_en": "Repeats: II Kings 8:20–22",
+     "sub": [
+      {
+       "ref": "21:8-11",
+       "text": "מרידת אדום ולבנה",
+       "text_de": "Der Abfall Edoms und Libnas",
+       "blk": "דִּבְרֵי (=מַעֲשֵׂי, עִנְיְנֵי) יְהוֹרָם בֶּן יְהוֹשָׁפָט 21:4-22:1",
+       "blk_de": "Die Geschichte (Taten, Angelegenheiten) Jehorams, des Sohnes Joschafats 21:4-22:1"
+      }
+     ]
     },
     {
      "ref": "21:11-20",
@@ -438,7 +1132,37 @@
      "par_de": "Wiederholung und Erweiterung von: 2 Könige 8:23–24",
      "par_en": "Repeats and expands on: II Kings 8:23–24",
      "time_de": "3055",
-     "time_en": "3055"
+     "time_en": "3055",
+     "sub": [
+      {
+       "ref": "21:12-15",
+       "text": "מכתב מאליהו הנביא",
+       "text_de": "Der Brief des Propheten Elija",
+       "blk": "דִּבְרֵי (=מַעֲשֵׂי, עִנְיְנֵי) יְהוֹרָם בֶּן יְהוֹשָׁפָט 21:4-22:1",
+       "blk_de": "Die Geschichte (Taten, Angelegenheiten) Jehorams, des Sohnes Joschafats 21:4-22:1"
+      },
+      {
+       "ref": "21:16-17",
+       "text": "פשיטת הפלשתים והערבים",
+       "text_de": "Der Einfall der Philister und Araber",
+       "blk": "דִּבְרֵי (=מַעֲשֵׂי, עִנְיְנֵי) יְהוֹרָם בֶּן יְהוֹשָׁפָט 21:4-22:1",
+       "blk_de": "Die Geschichte (Taten, Angelegenheiten) Jehorams, des Sohnes Joschafats 21:4-22:1"
+      },
+      {
+       "ref": "21:18-19",
+       "text": "מחלת יהורם ומותו",
+       "text_de": "Jehorams Krankheit und Tod",
+       "blk": "דִּבְרֵי (=מַעֲשֵׂי, עִנְיְנֵי) יְהוֹרָם בֶּן יְהוֹשָׁפָט 21:4-22:1",
+       "blk_de": "Die Geschichte (Taten, Angelegenheiten) Jehorams, des Sohnes Joschafats 21:4-22:1"
+      },
+      {
+       "ref": "21:20-22:1",
+       "text": "חתימה: קבורת יהורם והמלכת בנו אחזיהו",
+       "text_de": "Abschluss: Begräbnis Jehorams und Einsetzung seines Sohnes Ahasja als König",
+       "blk": "דִּבְרֵי (=מַעֲשֵׂי, עִנְיְנֵי) יְהוֹרָם בֶּן יְהוֹשָׁפָט 21:4-22:1",
+       "blk_de": "Die Geschichte (Taten, Angelegenheiten) Jehorams, des Sohnes Joschafats 21:4-22:1"
+      }
+     ]
     }
    ],
    "head_de": "Joram, Sohn Joschafats",
@@ -482,7 +1206,24 @@
      "par_de": "Wiederholung von: 2 Könige 11:1–3",
      "par_en": "Repeats: II Kings 11:1–3",
      "time_de": "3056",
-     "time_en": "3056"
+     "time_en": "3056",
+     "sub": [
+      {
+       "ref": "22:10-12",
+       "text": "עתליהו, אשת יהורם, תופסת את השלטון ביהודה, ויהושבעת מסתירה את היונק יואש בן אחזיהו",
+       "text_de": "Atalja, die Frau Jehorams, ergreift die Macht in Juda, und Joscheba verbirgt den kleinen Joasch, den Sohn Ahasjas",
+       "blk": "מַלְכוּת עֲתַלְיָהוּ וְהַקֶּשֶׁר שֶׁל יְהוֹיָדָע הַכֹּהֵן 22:10-23:21",
+       "blk_de": "Die Herrschaft Ataljas und die Verschwörung des Priesters Jojada 22:10-23:21"
+      }
+     ]
+    },
+    {
+     "ref": "22:21-23:7",
+     "text": "ההכנות שעשה יהוידע 'הכהן הראש' לקשר",
+     "text_de": "Die Vorbereitungen des Oberpriesters Jojada für die Verschwörung",
+     "blk": "מַלְכוּת עֲתַלְיָהוּ וְהַקֶּשֶׁר שֶׁל יְהוֹיָדָע הַכֹּהֵן 22:10-23:21",
+     "blk_de": "Die Herrschaft Ataljas und die Verschwörung des Priesters Jojada 22:10-23:21",
+     "orph": 1
     }
    ],
    "head_de": "Atalja, Mutter Ahasjas",
@@ -504,7 +1245,30 @@
      "par_de": "Wiederholung von: 2 Könige 11:4–20",
      "par_en": "Repeats: II Kings 11:4–20",
      "time_de": "3061",
-     "time_en": "3061"
+     "time_en": "3061",
+     "sub": [
+      {
+       "ref": "23:8-11",
+       "text": "יואש נמשח למלך בידי יהוידע ובניו",
+       "text_de": "Joasch wird von Jojada und seinen Söhnen zum König gesalbt",
+       "blk": "מַלְכוּת עֲתַלְיָהוּ וְהַקֶּשֶׁר שֶׁל יְהוֹיָדָע הַכֹּהֵן 22:10-23:21",
+       "blk_de": "Die Herrschaft Ataljas und die Verschwörung des Priesters Jojada 22:10-23:21"
+      },
+      {
+       "ref": "23:12-15",
+       "text": "מיתת עתליהו",
+       "text_de": "Der Tod Ataljas",
+       "blk": "מַלְכוּת עֲתַלְיָהוּ וְהַקֶּשֶׁר שֶׁל יְהוֹיָדָע הַכֹּהֵן 22:10-23:21",
+       "blk_de": "Die Herrschaft Ataljas und die Verschwörung des Priesters Jojada 22:10-23:21"
+      },
+      {
+       "ref": "23:16-21",
+       "text": "מעשה הברית",
+       "text_de": "Der Bundesschluss",
+       "blk": "מַלְכוּת עֲתַלְיָהוּ וְהַקֶּשֶׁר שֶׁל יְהוֹיָדָע הַכֹּהֵן 22:10-23:21",
+       "blk_de": "Die Herrschaft Ataljas und die Verschwörung des Priesters Jojada 22:10-23:21"
+      }
+     ]
     },
     {
      "ref": "24:1-14",
@@ -568,7 +1332,16 @@
      "par_de": "Wiederholung von: 2 Könige 14:1–6\nSünde von Vätern und Söhnen: 5. Mose 24:16, Jeremia 31:28–29",
      "par_en": "Repeats: II Kings 14:1–6\nSin of fathers and sons: Deuteronomy 24:16, Jeremiah 31:28–29",
      "time_de": "3101",
-     "time_en": "3101"
+     "time_en": "3101",
+     "sub": [
+      {
+       "ref": "25:1-4",
+       "text": "פתיחה: מעשי אמציהו הראשונים",
+       "text_de": "Einleitung: Die ersten Taten Amazjas",
+       "blk": "דִּבְרֵי (עִנְיָנֵי, מַעֲשֵׂי) אֲמַצְיָהוּ בֶּן יוֹאָשׁ 25:1-26:2",
+       "blk_de": "Die Geschichte (Angelegenheiten, Taten) Amazjas, des Sohnes des Joasch 25:1-26:2"
+      }
+     ]
     },
     {
      "ref": "25:5-16",
@@ -583,7 +1356,30 @@
      "par_de": "Erweiterung von: 2 Könige 14:7",
      "par_en": "Expands on: II Kings 14:7",
      "time_de": "3113",
-     "time_en": "3113"
+     "time_en": "3113",
+     "sub": [
+      {
+       "ref": "25:5-10",
+       "text": "אמציהו מגיס את צבאו ושוכר חילים נוספים מישראל; תוכחת הנביא",
+       "text_de": "Amazja mustert sein Heer und wirbt weitere Truppen aus Israel an; die Mahnrede des Propheten",
+       "blk": "דִּבְרֵי (עִנְיָנֵי, מַעֲשֵׂי) אֲמַצְיָהוּ בֶּן יוֹאָשׁ 25:1-26:2",
+       "blk_de": "Die Geschichte (Angelegenheiten, Taten) Amazjas, des Sohnes des Joasch 25:1-26:2"
+      },
+      {
+       "ref": "25:11-13",
+       "text": "נצחון אמציהו באדום ופשיטת 'הגדוד' ביהודה",
+       "text_de": "Amazjas Sieg über Edom und der Streifzug der Räuberschar in Juda",
+       "blk": "דִּבְרֵי (עִנְיָנֵי, מַעֲשֵׂי) אֲמַצְיָהוּ בֶּן יוֹאָשׁ 25:1-26:2",
+       "blk_de": "Die Geschichte (Angelegenheiten, Taten) Amazjas, des Sohnes des Joasch 25:1-26:2"
+      },
+      {
+       "ref": "25:14-16",
+       "text": "אמציהו דורש לאלילי אדום; תוכחת הנביא",
+       "text_de": "Amazja wendet sich den Götzen Edoms zu; die Mahnrede des Propheten",
+       "blk": "דִּבְרֵי (עִנְיָנֵי, מַעֲשֵׂי) אֲמַצְיָהוּ בֶּן יוֹאָשׁ 25:1-26:2",
+       "blk_de": "Die Geschichte (Angelegenheiten, Taten) Amazjas, des Sohnes des Joasch 25:1-26:2"
+      }
+     ]
     },
     {
      "ref": "25:17-24",
@@ -595,7 +1391,16 @@
      "place_de": "Bet-Schemesch",
      "place_en": "Beth-shemesh",
      "par_de": "Wiederholung von: 2 Könige 14:8–14",
-     "par_en": "Repeats: II Kings 14:8–14"
+     "par_en": "Repeats: II Kings 14:8–14",
+     "sub": [
+      {
+       "ref": "25:17-24",
+       "text": "מלחמת אמציהו ביואש מלך ישראל וכשלונו",
+       "text_de": "Amazjas Krieg gegen Joasch, den König von Israel, und seine Niederlage",
+       "blk": "דִּבְרֵי (עִנְיָנֵי, מַעֲשֵׂי) אֲמַצְיָהוּ בֶּן יוֹאָשׁ 25:1-26:2",
+       "blk_de": "Die Geschichte (Angelegenheiten, Taten) Amazjas, des Sohnes des Joasch 25:1-26:2"
+      }
+     ]
     },
     {
      "ref": "25:25-28",
@@ -610,7 +1415,16 @@
      "par_de": "Wiederholung von: 2 Könige 14:17–20",
      "par_en": "Repeats: II Kings 14:17–20",
      "time_de": "3130",
-     "time_en": "3130"
+     "time_en": "3130",
+     "sub": [
+      {
+       "ref": "25:25-26:2",
+       "text": "חתימה: מעשי אמציהו האחרונים",
+       "text_de": "Abschluss: Die letzten Taten Amazjas",
+       "blk": "דִּבְרֵי (עִנְיָנֵי, מַעֲשֵׂי) אֲמַצְיָהוּ בֶּן יוֹאָשׁ 25:1-26:2",
+       "blk_de": "Die Geschichte (Angelegenheiten, Taten) Amazjas, des Sohnes des Joasch 25:1-26:2"
+      }
+     ]
     }
    ],
    "head_de": "Amazja, Sohn Joaschs",
@@ -632,7 +1446,16 @@
      "par_de": "Wiederholung von: 2 Könige 14:21–22, 2 Könige 15:1–4",
      "par_en": "Repeats: II Kings 14:21–22, II Kings 15:1–4",
      "time_de": "3115",
-     "time_en": "3115"
+     "time_en": "3115",
+     "sub": [
+      {
+       "ref": "26:3-5",
+       "text": "פתיחה",
+       "text_de": "Einleitung",
+       "blk": "דִּבְרֵי (עִנְיָנֵי, מַעֲשֵׂי) עֻזִּיָּהוּ בֶּן אֲמַצְיָה 26:3-23",
+       "blk_de": "Die Geschichte (Angelegenheiten, Taten) Usijas, des Sohnes Amazjas 26:3-23"
+      }
+     ]
     },
     {
      "ref": "26:6-15",
@@ -641,7 +1464,23 @@
      "text_de": "Seine Größe, Macht und Kriege",
      "text_en": "His greatness, might and wars",
      "place_de": "Jerusalem und die Städte des Landes",
-     "place_en": "Jerusalem and the cities of the Land"
+     "place_en": "Jerusalem and the cities of the Land",
+     "sub": [
+      {
+       "ref": "26:6-10",
+       "text": "עזיהו מרחיב את תחומי הממלכה ועוסק בישובה",
+       "text_de": "Usija erweitert die Grenzen des Reiches und widmet sich seiner Besiedlung",
+       "blk": "דִּבְרֵי (עִנְיָנֵי, מַעֲשֵׂי) עֻזִּיָּהוּ בֶּן אֲמַצְיָה 26:3-23",
+       "blk_de": "Die Geschichte (Angelegenheiten, Taten) Usijas, des Sohnes Amazjas 26:3-23"
+      },
+      {
+       "ref": "26:11-15",
+       "text": "חילותיו ותחמשתם",
+       "text_de": "Seine Heere und ihre Bewaffnung",
+       "blk": "דִּבְרֵי (עִנְיָנֵי, מַעֲשֵׂי) עֻזִּיָּהוּ בֶּן אֲמַצְיָה 26:3-23",
+       "blk_de": "Die Geschichte (Angelegenheiten, Taten) Usijas, des Sohnes Amazjas 26:3-23"
+      }
+     ]
     },
     {
      "ref": "26:16-23",
@@ -656,7 +1495,23 @@
      "par_de": "Wiederholung von: 2 Könige 15:5–7",
      "par_en": "Repeats: II Kings 15:5–7",
      "time_de": "3142–3167",
-     "time_en": "3142–3167"
+     "time_en": "3142–3167",
+     "sub": [
+      {
+       "ref": "26:16-20",
+       "text": "החטא וענשו",
+       "text_de": "Die Sünde und ihre Strafe",
+       "blk": "דִּבְרֵי (עִנְיָנֵי, מַעֲשֵׂי) עֻזִּיָּהוּ בֶּן אֲמַצְיָה 26:3-23",
+       "blk_de": "Die Geschichte (Angelegenheiten, Taten) Usijas, des Sohnes Amazjas 26:3-23"
+      },
+      {
+       "ref": "26:21-23",
+       "text": "חתימה",
+       "text_de": "Schluss",
+       "blk": "דִּבְרֵי (עִנְיָנֵי, מַעֲשֵׂי) עֻזִּיָּהוּ בֶּן אֲמַצְיָה 26:3-23",
+       "blk_de": "Die Geschichte (Angelegenheiten, Taten) Usijas, des Sohnes Amazjas 26:3-23"
+      }
+     ]
     }
    ],
    "head_de": "Usija, Sohn Amazjas",
@@ -749,19 +1604,53 @@
      "par_de": "Wiederholung und Erweiterung von: 2 Könige 18:1–8",
      "par_en": "Repeats and expands on: II Kings 18:1–8",
      "time_de": "3198",
-     "time_en": "3198"
+     "time_en": "3198",
+     "sub": [
+      {
+       "ref": "29:1-2",
+       "text": "פתיחה",
+       "text_de": "Einleitung",
+       "blk": "דִּבְרֵי (עִנְיָנֵי, מַעֲשֵׂי) יְחִזְקִיָּהוּ בֶּן אָחָז 29-32",
+       "blk_de": "Die Geschichte (Angelegenheiten, Taten) Hiskias, des Sohnes des Ahas 29-32"
+      }
+     ]
     },
     {
      "ref": "29:3-19",
      "text": "טיהור המקדש",
      "text_de": "Reinigung des Tempels",
-     "text_en": "Purification of the Temple"
+     "text_en": "Purification of the Temple",
+     "sub": [
+      {
+       "ref": "29:3-11",
+       "text": "יחזקיהו מדבר על לב הכהנים והלויים לטהר את הבית ולחדש בו את עבודת התמיד",
+       "text_de": "Hiskia redet den Priestern und Leviten zu, das Haus zu reinigen und darin den täglichen Dienst zu erneuern",
+       "blk": "דִּבְרֵי (עִנְיָנֵי, מַעֲשֵׂי) יְחִזְקִיָּהוּ בֶּן אָחָז 29-32",
+       "blk_de": "Die Geschichte (Angelegenheiten, Taten) Hiskias, des Sohnes des Ahas 29-32"
+      },
+      {
+       "ref": "29:12-19",
+       "text": "טהור הבית מכל טמאה",
+       "text_de": "Die Reinigung des Hauses von aller Unreinheit",
+       "blk": "דִּבְרֵי (עִנְיָנֵי, מַעֲשֵׂי) יְחִזְקִיָּהוּ בֶּן אָחָז 29-32",
+       "blk_de": "Die Geschichte (Angelegenheiten, Taten) Hiskias, des Sohnes des Ahas 29-32"
+      }
+     ]
     },
     {
      "ref": "29:20-36",
      "text": "הקרבת קרבנות בשמחה ובשירה",
      "text_de": "Darbringung von Opfern mit Freude und Gesang",
-     "text_en": "Offering sacrifices with joy and song"
+     "text_en": "Offering sacrifices with joy and song",
+     "sub": [
+      {
+       "ref": "29:20-36",
+       "text": "מעשה המלואים וחנכת הבית והשבת העבודה כתקנה וכסדרה",
+       "text_de": "Die Einsetzung der Priester, die Einweihung des Hauses und die Wiederherstellung des Dienstes nach Vorschrift und Ordnung",
+       "blk": "דִּבְרֵי (עִנְיָנֵי, מַעֲשֵׂי) יְחִזְקִיָּהוּ בֶּן אָחָז 29-32",
+       "blk_de": "Die Geschichte (Angelegenheiten, Taten) Hiskias, des Sohnes des Ahas 29-32"
+      }
+     ]
     },
     {
      "ref": "30:1-31:1",
@@ -773,13 +1662,59 @@
      "place_de": "Jerusalem, Städte des Landes",
      "place_en": "Jerusalem, Cities of the Land",
      "par_de": "Gebot: 2. Mose 12:14–20, 3. Mose 23:4–8, 5. Mose 16:1–8\nSiehe auch: Josua 5:10, Esra 6:19–22, 2 Chronik 35:1–18 (unten)",
-     "par_en": "Commandment: Exodus 12:14–20, Leviticus 23:4–8, Deuteronomy 16:1–8\nSee also: Joshua 5:10, Ezra 6:19–22, II Chronicles 35:1–18 (below)"
+     "par_en": "Commandment: Exodus 12:14–20, Leviticus 23:4–8, Deuteronomy 16:1–8\nSee also: Joshua 5:10, Ezra 6:19–22, II Chronicles 35:1–18 (below)",
+     "sub": [
+      {
+       "ref": "30:1-12",
+       "text": "יחזקיהו מדבר על לב כל שבטי ישראל לעשות את הפסח בירושלים",
+       "text_de": "Hiskia ruft alle Stämme Israels auf, das Passa in Jerusalem zu feiern",
+       "blk": "דִּבְרֵי (עִנְיָנֵי, מַעֲשֵׂי) יְחִזְקִיָּהוּ בֶּן אָחָז 29-32",
+       "blk_de": "Die Geschichte (Angelegenheiten, Taten) Hiskias, des Sohnes des Ahas 29-32"
+      },
+      {
+       "ref": "30:13-21",
+       "text": "פסח יחזקיהו",
+       "text_de": "Das Passa Hiskias",
+       "blk": "דִּבְרֵי (עִנְיָנֵי, מַעֲשֵׂי) יְחִזְקִיָּהוּ בֶּן אָחָז 29-32",
+       "blk_de": "Die Geschichte (Angelegenheiten, Taten) Hiskias, des Sohnes des Ahas 29-32"
+      },
+      {
+       "ref": "30:22-27",
+       "text": "יחזקיהו מדבר על לב הלויים שישכילו את העם ועושה שבעה ימי שמחה נוספים",
+       "text_de": "Hiskia redet den Leviten zu, das Volk zu unterweisen, und hält weitere sieben Freudentage",
+       "blk": "דִּבְרֵי (עִנְיָנֵי, מַעֲשֵׂי) יְחִזְקִיָּהוּ בֶּן אָחָז 29-32",
+       "blk_de": "Die Geschichte (Angelegenheiten, Taten) Hiskias, des Sohnes des Ahas 29-32"
+      },
+      {
+       "ref": "31:1",
+       "text": "עקירת עבודה זרה מיהודה ומישראל",
+       "text_de": "Die Beseitigung des Götzendienstes aus Juda und aus Israel",
+       "blk": "דִּבְרֵי (עִנְיָנֵי, מַעֲשֵׂי) יְחִזְקִיָּהוּ בֶּן אָחָז 29-32",
+       "blk_de": "Die Geschichte (Angelegenheiten, Taten) Hiskias, des Sohnes des Ahas 29-32"
+      }
+     ]
     },
     {
      "ref": "31:2-21",
      "text": "תקנות לחיזוק התרומות והמעשרות",
      "text_de": "Anordnungen zur Stärkung der Abgaben und Zehnten",
-     "text_en": "Ordinances to reinforce the contributions and tithes"
+     "text_en": "Ordinances to reinforce the contributions and tithes",
+     "sub": [
+      {
+       "ref": "31:2-19",
+       "text": "יחזקיהו מעמיד את מחלקות הלויים על תקנן ומתקין תקנות חדשות לחלקת מתנות כהנה ולויה",
+       "text_de": "Hiskia stellt die Abteilungen der Leviten wieder ordnungsgemäß auf und erlässt neue Bestimmungen zur Verteilung der Abgaben für Priester und Leviten",
+       "blk": "דִּבְרֵי (עִנְיָנֵי, מַעֲשֵׂי) יְחִזְקִיָּהוּ בֶּן אָחָז 29-32",
+       "blk_de": "Die Geschichte (Angelegenheiten, Taten) Hiskias, des Sohnes des Ahas 29-32"
+      },
+      {
+       "ref": "31:20-21",
+       "text": "צדקת יחזקיהו",
+       "text_de": "Die Frömmigkeit Hiskias",
+       "blk": "דִּבְרֵי (עִנְיָנֵי, מַעֲשֵׂי) יְחִזְקִיָּהוּ בֶּן אָחָז 29-32",
+       "blk_de": "Die Geschichte (Angelegenheiten, Taten) Hiskias, des Sohnes des Ahas 29-32"
+      }
+     ]
     },
     {
      "ref": "32:1-23",
@@ -794,7 +1729,30 @@
      "par_de": "Wiederholung und Erweiterung von: 2 Könige 18:13–20:21, Jesaja 36–39",
      "par_en": "Repeats and expands on: II Kings 18:13–20:21, Isaiah 36–39",
      "time_de": "15. Nisan 3211",
-     "time_en": "15 Nisan 3211"
+     "time_en": "15 Nisan 3211",
+     "sub": [
+      {
+       "ref": "32:1-8",
+       "text": "יחזקיהו מבצר את ירושלים ואת שאר ערי הממלכה מפני סנחריב",
+       "text_de": "Hiskia befestigt Jerusalem und die übrigen Städte des Reiches gegen Sanherib",
+       "blk": "דִּבְרֵי (עִנְיָנֵי, מַעֲשֵׂי) יְחִזְקִיָּהוּ בֶּן אָחָז 29-32",
+       "blk_de": "Die Geschichte (Angelegenheiten, Taten) Hiskias, des Sohnes des Ahas 29-32"
+      },
+      {
+       "ref": "32:9-19",
+       "text": "שלוחי סנחריב ודברי הגדוף שהשמיעו",
+       "text_de": "Die Gesandten Sanheribs und die Lästerreden, die sie führten",
+       "blk": "דִּבְרֵי (עִנְיָנֵי, מַעֲשֵׂי) יְחִזְקִיָּהוּ בֶּן אָחָז 29-32",
+       "blk_de": "Die Geschichte (Angelegenheiten, Taten) Hiskias, des Sohnes des Ahas 29-32"
+      },
+      {
+       "ref": "32:20-23",
+       "text": "תפלת יחזקיהו וישעיהו ומפלת סנחריב",
+       "text_de": "Das Gebet Hiskias und Jesajas und der Untergang Sanheribs",
+       "blk": "דִּבְרֵי (עִנְיָנֵי, מַעֲשֵׂי) יְחִזְקִיָּהוּ בֶּן אָחָז 29-32",
+       "blk_de": "Die Geschichte (Angelegenheiten, Taten) Hiskias, des Sohnes des Ahas 29-32"
+      }
+     ]
     },
     {
      "ref": "32:24-33",
@@ -809,7 +1767,37 @@
      "par_de": "Prophezeiungen darüber: Jesaja 7:18–9:6, Jesaja 10:5–34, Jesaja 29:1–5, Jesaja 30:27–33, Jesaja 31:4–32:8, Jesaja 45:14–17, Psalmen 68 (nach manchen)",
      "par_en": "Prophecies about this: Isaiah 7:18–9:6, Isaiah 10:5–34, Isaiah 29:1–5, Isaiah 30:27–33, Isaiah 31:4–32:8, Isaiah 45:14–17, Psalms 68 (according to some)",
      "time_de": "Erkrankte am 13. Nisan 3211, starb im Jahr 3226",
-     "time_en": "Fell ill on 13 Nisan 3211, died in the year 3226"
+     "time_en": "Fell ill on 13 Nisan 3211, died in the year 3226",
+     "sub": [
+      {
+       "ref": "32:24",
+       "text": "מחלת יחזקיהו ורפויו",
+       "text_de": "Die Krankheit Hiskias und seine Genesung",
+       "blk": "דִּבְרֵי (עִנְיָנֵי, מַעֲשֵׂי) יְחִזְקִיָּהוּ בֶּן אָחָז 29-32",
+       "blk_de": "Die Geschichte (Angelegenheiten, Taten) Hiskias, des Sohnes des Ahas 29-32"
+      },
+      {
+       "ref": "32:25-26",
+       "text": "החטא וענשו",
+       "text_de": "Die Sünde und ihre Strafe",
+       "blk": "דִּבְרֵי (עִנְיָנֵי, מַעֲשֵׂי) יְחִזְקִיָּהוּ בֶּן אָחָז 29-32",
+       "blk_de": "Die Geschichte (Angelegenheiten, Taten) Hiskias, des Sohnes des Ahas 29-32"
+      },
+      {
+       "ref": "32:27-31",
+       "text": "עשרו של יחזקיהו ומעשיו האחרים",
+       "text_de": "Der Reichtum Hiskias und seine übrigen Taten",
+       "blk": "דִּבְרֵי (עִנְיָנֵי, מַעֲשֵׂי) יְחִזְקִיָּהוּ בֶּן אָחָז 29-32",
+       "blk_de": "Die Geschichte (Angelegenheiten, Taten) Hiskias, des Sohnes des Ahas 29-32"
+      },
+      {
+       "ref": "32:32-33",
+       "text": "חתימה",
+       "text_de": "Schluss",
+       "blk": "דִּבְרֵי (עִנְיָנֵי, מַעֲשֵׂי) יְחִזְקִיָּהוּ בֶּן אָחָז 29-32",
+       "blk_de": "Die Geschichte (Angelegenheiten, Taten) Hiskias, des Sohnes des Ahas 29-32"
+      }
+     ]
     }
    ],
    "head_de": "Hiskia, Sohn des Ahas",
@@ -831,7 +1819,23 @@
      "par_de": "Wiederholung und Erweiterung: 2 Könige 21:1–16",
      "par_en": "Repeats and expands: II Kings 21:1–16",
      "time_de": "3227",
-     "time_en": "3227"
+     "time_en": "3227",
+     "sub": [
+      {
+       "ref": "33:1",
+       "text": "פתיחה",
+       "text_de": "Einleitung",
+       "blk": "דִּבְרֵי (עִנְיָנֵי, מַעֲשֵׂי) מְנַשֶּׁה בֶּן־יְחִזְקִיָּהוּ 33:1-20",
+       "blk_de": "Die Geschichte (Angelegenheiten, Taten) Manasses, des Sohnes Hiskias 33:1-20"
+      },
+      {
+       "ref": "33:2-9",
+       "text": "חטאות מנשה",
+       "text_de": "Die Sünden Manasses",
+       "blk": "דִּבְרֵי (עִנְיָנֵי, מַעֲשֵׂי) מְנַשֶּׁה בֶּן־יְחִזְקִיָּהוּ 33:1-20",
+       "blk_de": "Die Geschichte (Angelegenheiten, Taten) Manasses, des Sohnes Hiskias 33:1-20"
+      }
+     ]
     },
     {
      "ref": "33:10-20",
@@ -846,7 +1850,30 @@
      "par_de": "Wiederholung und Erweiterung von: 2 Könige 21:17–18\nProphezeiungen über ihn: Jeremia 15:2–4, Ezechiel 5:8–17 (nach manchen), Ezechiel 22:1–16 (nach manchen)",
      "par_en": "Repeats and expands on: II Kings 21:17–18\nProphecies about him: Jeremiah 15:2–4, Ezekiel 5:8–17 (according to some), Ezekiel 22:1–16 (according to some)",
      "time_de": "3239, 3282",
-     "time_en": "3239, 3282"
+     "time_en": "3239, 3282",
+     "sub": [
+      {
+       "ref": "33:10-13",
+       "text": "ענשו ותשובתו",
+       "text_de": "Seine Strafe und seine Umkehr",
+       "blk": "דִּבְרֵי (עִנְיָנֵי, מַעֲשֵׂי) מְנַשֶּׁה בֶּן־יְחִזְקִיָּהוּ 33:1-20",
+       "blk_de": "Die Geschichte (Angelegenheiten, Taten) Manasses, des Sohnes Hiskias 33:1-20"
+      },
+      {
+       "ref": "33:14-17",
+       "text": "מעשי מנשה לאחר שחזר בתשובה",
+       "text_de": "Die Taten Manasses nach seiner Umkehr",
+       "blk": "דִּבְרֵי (עִנְיָנֵי, מַעֲשֵׂי) מְנַשֶּׁה בֶּן־יְחִזְקִיָּהוּ 33:1-20",
+       "blk_de": "Die Geschichte (Angelegenheiten, Taten) Manasses, des Sohnes Hiskias 33:1-20"
+      },
+      {
+       "ref": "33:18-20",
+       "text": "חתימה",
+       "text_de": "Schluss",
+       "blk": "דִּבְרֵי (עִנְיָנֵי, מַעֲשֵׂי) מְנַשֶּׁה בֶּן־יְחִזְקִיָּהוּ 33:1-20",
+       "blk_de": "Die Geschichte (Angelegenheiten, Taten) Manasses, des Sohnes Hiskias 33:1-20"
+      }
+     ]
     }
    ],
    "head_de": "Manasse, Sohn Hiskias",
@@ -890,7 +1917,16 @@
      "par_de": "Wiederholung von: 2 Könige 22:1–2",
      "par_en": "Repeats: II Kings 22:1–2",
      "time_de": "3285",
-     "time_en": "3285"
+     "time_en": "3285",
+     "sub": [
+      {
+       "ref": "34:1-2",
+       "text": "פתיחה",
+       "text_de": "Einleitung",
+       "blk": "'דִּבְרֵי' (מַעֲשֵׂי, עִנְיָנֵי) יֹאשִׁיָּהוּ בֶּן אָמוֹן 34-35",
+       "blk_de": "Die Geschichte (Taten, Angelegenheiten) Josias, des Sohnes Amons 34-35"
+      }
+     ]
     },
     {
      "ref": "34:3-7",
@@ -905,7 +1941,23 @@
      "par_de": "Wiederholung und Erweiterung: 2 Könige 23:4–20, 24",
      "par_en": "Repeats and expands: II Kings 23:4–20, 24",
      "time_de": "3297",
-     "time_en": "3297"
+     "time_en": "3297",
+     "sub": [
+      {
+       "ref": "34:3-5",
+       "text": "טהור יהודה וירושלים מעבודה זרה",
+       "text_de": "Die Reinigung Judas und Jerusalems vom Götzendienst",
+       "blk": "'דִּבְרֵי' (מַעֲשֵׂי, עִנְיָנֵי) יֹאשִׁיָּהוּ בֶּן אָמוֹן 34-35",
+       "blk_de": "Die Geschichte (Taten, Angelegenheiten) Josias, des Sohnes Amons 34-35"
+      },
+      {
+       "ref": "34:6-7",
+       "text": "טהור כל ארץ ישראל מעבודה זרה",
+       "text_de": "Die Reinigung des ganzen Landes Israel vom Götzendienst",
+       "blk": "'דִּבְרֵי' (מַעֲשֵׂי, עִנְיָנֵי) יֹאשִׁיָּהוּ בֶּן אָמוֹן 34-35",
+       "blk_de": "Die Geschichte (Taten, Angelegenheiten) Josias, des Sohnes Amons 34-35"
+      }
+     ]
     },
     {
      "ref": "34:8-19",
@@ -920,7 +1972,23 @@
      "par_de": "Wiederholung von: 2 Könige 22:3–11",
      "par_en": "Repeats: II Kings 22:3–11",
      "time_de": "3303",
-     "time_en": "3303"
+     "time_en": "3303",
+     "sub": [
+      {
+       "ref": "34:8-13",
+       "text": "חזוק בדקי בית המקדש",
+       "text_de": "Die Verstärkung der Instandsetzungsarbeiten am Tempel",
+       "blk": "'דִּבְרֵי' (מַעֲשֵׂי, עִנְיָנֵי) יֹאשִׁיָּהוּ בֶּן אָמוֹן 34-35",
+       "blk_de": "Die Geschichte (Taten, Angelegenheiten) Josias, des Sohnes Amons 34-35"
+      },
+      {
+       "ref": "34:14-19",
+       "text": "מציאת ספר התורה הכתוב 'ביד משה'",
+       "text_de": "Die Auffindung des Buches der Tora, geschrieben „durch Mose“",
+       "blk": "'דִּבְרֵי' (מַעֲשֵׂי, עִנְיָנֵי) יֹאשִׁיָּהוּ בֶּן אָמוֹן 34-35",
+       "blk_de": "Die Geschichte (Taten, Angelegenheiten) Josias, des Sohnes Amons 34-35"
+      }
+     ]
     },
     {
      "ref": "34:20-33",
@@ -929,7 +1997,30 @@
      "text_de": "Prophezeiung der Hulda, Schließung des Bundes",
      "text_en": "Huldah's prophecy, making of a covenant",
      "par_de": "Wiederholung von: 2 Könige 22:12–23:3",
-     "par_en": "Repeats: II Kings 22:12–23:3"
+     "par_en": "Repeats: II Kings 22:12–23:3",
+     "sub": [
+      {
+       "ref": "34:20-21",
+       "text": "יאשיהו שולח את שריו לדרש בה' בעדו 'ובעד הנשאר בישראל וביהודה'",
+       "text_de": "Josia schickt seine Beamten, um den HERRN für ihn zu befragen, „und für den Rest in Israel und Juda“",
+       "blk": "'דִּבְרֵי' (מַעֲשֵׂי, עִנְיָנֵי) יֹאשִׁיָּהוּ בֶּן אָמוֹן 34-35",
+       "blk_de": "Die Geschichte (Taten, Angelegenheiten) Josias, des Sohnes Amons 34-35"
+      },
+      {
+       "ref": "34:22-28",
+       "text": "נבואת חלדה",
+       "text_de": "Die Weissagung der Hulda",
+       "blk": "'דִּבְרֵי' (מַעֲשֵׂי, עִנְיָנֵי) יֹאשִׁיָּהוּ בֶּן אָמוֹן 34-35",
+       "blk_de": "Die Geschichte (Taten, Angelegenheiten) Josias, des Sohnes Amons 34-35"
+      },
+      {
+       "ref": "34:29-33",
+       "text": "מעשי כריתת הברית וגמר טהור הארץ מכל עבודה זרה",
+       "text_de": "Der Bundesschluss und die Vollendung der Reinigung des Landes von allem Götzendienst",
+       "blk": "'דִּבְרֵי' (מַעֲשֵׂי, עִנְיָנֵי) יֹאשִׁיָּהוּ בֶּן אָמוֹן 34-35",
+       "blk_de": "Die Geschichte (Taten, Angelegenheiten) Josias, des Sohnes Amons 34-35"
+      }
+     ]
     },
     {
      "ref": "35:1-19",
@@ -938,7 +2029,16 @@
      "text_de": "Darbringung des Pessachopfers",
      "text_en": "Offering the Passover sacrifice",
      "par_de": "Wiederholung und Erweiterung von: 2 Könige 23:21–23",
-     "par_en": "Repeats and expands on: II Kings 23:21–23"
+     "par_en": "Repeats and expands on: II Kings 23:21–23",
+     "sub": [
+      {
+       "ref": "35:1-19",
+       "text": "פסח יאשיהו",
+       "text_de": "Das Passa Josias",
+       "blk": "'דִּבְרֵי' (מַעֲשֵׂי, עִנְיָנֵי) יֹאשִׁיָּהוּ בֶּן אָמוֹן 34-35",
+       "blk_de": "Die Geschichte (Taten, Angelegenheiten) Josias, des Sohnes Amons 34-35"
+      }
+     ]
     },
     {
      "ref": "35:20-27",
@@ -953,7 +2053,23 @@
      "par_de": "Wiederholung und Erweiterung von: 2 Könige 23:25–30\nerwähnt: Sacharja 12:11 (nach manchen), Klagelieder 4:20 (nach manchen)",
      "par_en": "Repeats and expands on: II Kings 23:25–30\nMentioned: Zechariah 12:11 (according to some), Lamentations 4:20 (according to some)",
      "time_de": "3316",
-     "time_en": "3316"
+     "time_en": "3316",
+     "sub": [
+      {
+       "ref": "35:20-24",
+       "text": "מות יאשיהו",
+       "text_de": "Der Tod Josias",
+       "blk": "'דִּבְרֵי' (מַעֲשֵׂי, עִנְיָנֵי) יֹאשִׁיָּהוּ בֶּן אָמוֹן 34-35",
+       "blk_de": "Die Geschichte (Taten, Angelegenheiten) Josias, des Sohnes Amons 34-35"
+      },
+      {
+       "ref": "35:25-27",
+       "text": "חתימה",
+       "text_de": "Schluss",
+       "blk": "'דִּבְרֵי' (מַעֲשֵׂי, עִנְיָנֵי) יֹאשִׁיָּהוּ בֶּן אָמוֹן 34-35",
+       "blk_de": "Die Geschichte (Taten, Angelegenheiten) Josias, des Sohnes Amons 34-35"
+      }
+     ]
     }
    ],
    "head_de": "Josia, Sohn Amons",
@@ -1087,6 +2203,6 @@
  ],
  "title_de": "Inhalt des Buches 2 Chronik",
  "title_en": "Contents of the Book of II Chronicles",
- "note_de": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt.",
- "note_en": "Transcribed from photos of a summary table. Chapter and verse numbering and dates (Jewish reckoning) as printed in the source."
+ "note_de": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt. Unterpunkte aus der Gliederung von „Da'at Mikra“ (Teilpunkte mit Versangaben, mit Hinweis auf den jeweiligen Abschnitt) ergänzt und ins Deutsche übersetzt.",
+ "note_en": "Transcribed from photos of a summary table. Chapter and verse numbering and dates (Jewish reckoning) as printed in the source. Sub-points from the Da'at Mikra outlines (parts with verse references, labelled with their section) added; German translation."
 }

@@ -1,7 +1,7 @@
 {
  "book": "Esther",
  "title": "תוכן ספר אסתר",
- "note": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt.",
+ "note": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt. · הורחב בחלוקת דעת מקרא (פסקאות עם מראי מקום).",
  "sections": [
   {
    "head": "גדולת אחשורוש",
@@ -13,7 +13,16 @@
      "text_de": "Reichtum und Pracht des Königs und die Gelage",
      "text_en": "His wealth and splendor, and the banquets",
      "time_de": "Nisan 3395 – Tischri 3396",
-     "time_en": "Nisan 3395 – Tishrei 3396"
+     "time_en": "Nisan 3395 – Tishrei 3396",
+     "sub": [
+      {
+       "ref": "1",
+       "text": "משתה אחשורוש ואשר ארע בו",
+       "text_de": "Das Gelage des Ahasveros und was dabei geschah",
+       "blk": "כֵּיצַד נִהְיְתָה אֶסְתֵּר לְמַלְכָּה 1:1-2:23",
+       "blk_de": "Wie Ester Königin wurde 1:1-2:23"
+      }
+     ]
     }
    ],
    "head_de": "Größe des Ahasveros",
@@ -29,7 +38,16 @@
      "text_de": "Tötung Waschtis und Suche nach einer Königin",
      "text_en": "The execution of Vashti and the search for a queen",
      "time_de": "Tischri 3396–3398",
-     "time_en": "Tishrei 3396–3398"
+     "time_en": "Tishrei 3396–3398",
+     "sub": [
+      {
+       "ref": "2",
+       "text": "אסתר נבחרת למלכה",
+       "text_de": "Ester wird zur Königin erwählt",
+       "blk": "כֵּיצַד נִהְיְתָה אֶסְתֵּר לְמַלְכָּה 1:1-2:23",
+       "blk_de": "Wie Ester Königin wurde 1:1-2:23"
+      }
+     ]
     }
    ],
    "head_de": "Tötung Waschtis",
@@ -113,7 +131,37 @@
      "par_de": "Größe Mordechais – Größe Josefs (1. Mose 39–41)",
      "par_en": "Mordecai's greatness – Joseph's greatness (Genesis 39–41)",
      "time_de": "Abfassung der zweiten Briefe:\n23. Siwan 3404",
-     "time_en": "Writing of the second letters:\n23 Sivan 3404"
+     "time_en": "Writing of the second letters:\n23 Sivan 3404",
+     "sub": [
+      {
+       "ref": "8:3-6",
+       "text": "אסתר מוסיפה להתחנן לפני המלך",
+       "text_de": "Ester fährt fort, den König anzuflehen",
+       "blk": "'וְנַהֲפוֹךְ הוּא' בִּטּוּל מַחֲשֶׁבֶת הָמָן וְנִצְחוֹן הַיְּהוּדִים עַל שׂוֹנְאֵיהֶם 8:3-9:18",
+       "blk_de": "„Es wendete sich vielmehr“: Die Vereitelung von Hamans Plan und der Sieg der Juden über ihre Feinde 8:3-9:18"
+      },
+      {
+       "ref": "8:7-8",
+       "text": "אחשורוש נותן רשות לכתב על היהודים כטוב בעיני מרדכי ואסתר",
+       "text_de": "Ahasveros erlaubt, über die Juden zu schreiben, wie es Mordechai und Ester gefällt",
+       "blk": "'וְנַהֲפוֹךְ הוּא' בִּטּוּל מַחֲשֶׁבֶת הָמָן וְנִצְחוֹן הַיְּהוּדִים עַל שׂוֹנְאֵיהֶם 8:3-9:18",
+       "blk_de": "„Es wendete sich vielmehr“: Die Vereitelung von Hamans Plan und der Sieg der Juden über ihre Feinde 8:3-9:18"
+      },
+      {
+       "ref": "8:9-14",
+       "text": "הספרים של מרדכי מבטלים את־הסכנה שבגזרת המן",
+       "text_de": "Die Schreiben Mordechais heben die Gefahr von Hamans Erlass auf",
+       "blk": "'וְנַהֲפוֹךְ הוּא' בִּטּוּל מַחֲשֶׁבֶת הָמָן וְנִצְחוֹן הַיְּהוּדִים עַל שׂוֹנְאֵיהֶם 8:3-9:18",
+       "blk_de": "„Es wendete sich vielmehr“: Die Vereitelung von Hamans Plan und der Sieg der Juden über ihre Feinde 8:3-9:18"
+      },
+      {
+       "ref": "8:15-17",
+       "text": "ליהודים היתה אורה ושמחה",
+       "text_de": "Die Juden hatten Licht und Freude",
+       "blk": "'וְנַהֲפוֹךְ הוּא' בִּטּוּל מַחֲשֶׁבֶת הָמָן וְנִצְחוֹן הַיְּהוּדִים עַל שׂוֹנְאֵיהֶם 8:3-9:18",
+       "blk_de": "„Es wendete sich vielmehr“: Die Vereitelung von Hamans Plan und der Sieg der Juden über ihre Feinde 8:3-9:18"
+      }
+     ]
     }
    ],
    "head_de": "Die Rettung durch Mordechai und Esther",
@@ -129,7 +177,16 @@
      "text_de": "Tötung der Söhne Hamans und der Feinde der Juden",
      "text_en": "Killing of Haman's sons and the enemies of the Jews",
      "time_de": "Tötung der Feinde:\n13. Adar 3405\nRuhe der Landbewohner, Tötung der Feinde in Schuschan:\n14. Adar 3405\nRuhe der Juden in Schuschan:\n15. Adar 3405",
-     "time_en": "Killing of the enemies:\n13 Adar 3405\nRest of the villagers, killing of the enemies in Shushan:\n14 Adar 3405\nRest of the Jews in Shushan:\n15 Adar 3405"
+     "time_en": "Killing of the enemies:\n13 Adar 3405\nRest of the villagers, killing of the enemies in Shushan:\n14 Adar 3405\nRest of the Jews in Shushan:\n15 Adar 3405",
+     "sub": [
+      {
+       "ref": "9:19",
+       "text": "פורים של יושבי הפרזים",
+       "text_de": "Purim der Bewohner der offenen Landstädte",
+       "blk": "תַּקָּנַת יְמֵי הַפּוּרִים 9:19-32",
+       "blk_de": "Die Einsetzung der Purimtage 9:19-32"
+      }
+     ]
     }
    ],
    "head_de": "Tötung der Feinde",
@@ -148,7 +205,23 @@
      "par_de": "Auslöschung Hamans und seines Andenkens für alle Generationen – Krieg gegen Amalek für alle Generationen (2. Mose 17:8–13, 5. Mose 25:17–19)",
      "par_en": "The blotting out of Haman and his memory for all generations – the war against Amalek for all generations (Exodus 17:8–13, Deuteronomy 25:17–19)",
      "time_de": "3406",
-     "time_en": "3406"
+     "time_en": "3406",
+     "sub": [
+      {
+       "ref": "9:20-32",
+       "text": "מכתב מרדכי שיקבלו היהודים את חג הפורים",
+       "text_de": "Mordechais Brief, dass die Juden das Purimfest annehmen sollen",
+       "blk": "תַּקָּנַת יְמֵי הַפּוּרִים 9:19-32",
+       "blk_de": "Die Einsetzung der Purimtage 9:19-32"
+      },
+      {
+       "ref": "9:29-32",
+       "text": "אסתר מצטרפת אל מרדכי בקביעת חג הפורים",
+       "text_de": "Ester schließt sich Mordechai bei der Festsetzung des Purimfestes an",
+       "blk": "תַּקָּנַת יְמֵי הַפּוּרִים 9:19-32",
+       "blk_de": "Die Einsetzung der Purimtage 9:19-32"
+      }
+     ]
     }
    ],
    "head_de": "Einsetzung der Purimtage",
@@ -170,6 +243,6 @@
  ],
  "title_de": "Inhalt des Buches Esther",
  "title_en": "Contents of the Book of Esther",
- "note_de": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt.",
- "note_en": "Transcribed from photos of a summary table. Chapter and verse numbering and dates (Jewish reckoning) as printed in the source."
+ "note_de": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt. Unterpunkte aus der Gliederung von „Da'at Mikra“ (Teilpunkte mit Versangaben, mit Hinweis auf den jeweiligen Abschnitt) ergänzt und ins Deutsche übersetzt.",
+ "note_en": "Transcribed from photos of a summary table. Chapter and verse numbering and dates (Jewish reckoning) as printed in the source. Sub-points from the Da'at Mikra outlines (parts with verse references, labelled with their section) added; German translation."
 }

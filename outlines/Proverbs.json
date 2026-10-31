@@ -1,7 +1,7 @@
 {
  "book": "Proverbs",
  "title": "תוכן ספר משלי",
- "note": "Abgeschrieben aus einer Übersichtstabelle (SifreiKodesh).",
+ "note": "Abgeschrieben aus einer Übersichtstabelle (SifreiKodesh). · הורחב בחלוקת דעת מקרא (פסקאות עם מראי מקום).",
  "sections": [
   {
    "head": "משלי שלמה בן דוד",
@@ -17,73 +17,356 @@
      "ref": "1:8-19",
      "text": "מוסר האב לבנו להתרחק מחטאים",
      "text_de": "Ermahnung des Vaters an seinen Sohn, sich von Sünden fernzuhalten",
-     "text_en": "A father's admonition to his son to keep away from sins"
+     "text_en": "A father's admonition to his son to keep away from sins",
+     "sub": [
+      {
+       "ref": "1:8-9",
+       "text": "פְּנִיָּה לַתַּלְמִיד",
+       "text_de": "Anrede an den Schüler",
+       "blk": "קְרִיאַת הֶחָכָם וְאַזְהָרָתוֹ 1:8-33",
+       "blk_de": "Der Ruf des Weisen und seine Mahnung 1:8-33"
+      },
+      {
+       "ref": "1:10-19",
+       "text": "אַזְהָרָה מִפְּנֵי חֶבְרַת פּוֹשְׁעִים",
+       "text_de": "Warnung vor der Gesellschaft von Frevlern",
+       "blk": "קְרִיאַת הֶחָכָם וְאַזְהָרָתוֹ 1:8-33",
+       "blk_de": "Der Ruf des Weisen und seine Mahnung 1:8-33"
+      }
+     ]
     },
     {
      "ref": "1:20-33",
      "text": "דברי 'חכמות' לפתאים, הלצים והכסילים",
      "text_de": "Worte der „Weisheit“ an die Einfältigen, Spötter und Toren",
-     "text_en": "Words of “Wisdom” to the simple, the scoffers and the fools"
+     "text_en": "Words of “Wisdom” to the simple, the scoffers and the fools",
+     "sub": [
+      {
+       "ref": "1:20-23",
+       "text": "הַחָכְמָה קוֹרֵאת לַפְּתָיִים",
+       "text_de": "Die Weisheit ruft die Einfältigen",
+       "blk": "קְרִיאַת הֶחָכָם וְאַזְהָרָתוֹ 1:8-33",
+       "blk_de": "Der Ruf des Weisen und seine Mahnung 1:8-33"
+      },
+      {
+       "ref": "1:24-31",
+       "text": "אַזְהָרָה לַמְמָאֲנִים וְאֵינָם נַעֲנִים לַקְּרִיאָה",
+       "text_de": "Warnung an die Widerspenstigen, die dem Ruf nicht folgen",
+       "blk": "קְרִיאַת הֶחָכָם וְאַזְהָרָתוֹ 1:8-33",
+       "blk_de": "Der Ruf des Weisen und seine Mahnung 1:8-33"
+      },
+      {
+       "ref": "1:32-33",
+       "text": "מוּסַר הַשְׂכֵּל",
+       "text_de": "Lehre der Einsicht",
+       "blk": "קְרִיאַת הֶחָכָם וְאַזְהָרָתוֹ 1:8-33",
+       "blk_de": "Der Ruf des Weisen und seine Mahnung 1:8-33"
+      }
+     ]
     },
     {
      "ref": "2",
      "text": "מוסר האב לבן לשמוע לחכמה",
      "text_de": "Ermahnung des Vaters an den Sohn, auf die Weisheit zu hören",
-     "text_en": "A father's admonition to his son to heed wisdom"
+     "text_en": "A father's admonition to his son to heed wisdom",
+     "sub": [
+      {
+       "ref": "2:1-11",
+       "text": "הַתְּנַאי וְהַתּוֹצָאָה; הַפִּסְקָה פּוֹתַחַת בִּשְׁלוֹשָׁה מִשְׁפְּטֵי תְנַאי (׳אִם׳) (א, ג, ד) וְחוֹתֶמֶת בִּשְׁנֵי מִשְׁפְּטֵי הַתּוֹצָאָה (׳אָז׳) (ה, ט)",
+       "text_de": "Bedingung und Folge; der Abschnitt beginnt mit drei Bedingungssätzen („wenn“) (V. 1, 3, 4) und schließt mit zwei Folgesätzen („dann“) (V. 5, 9)",
+       "blk": "בְּשֶׁבַח הַחָכְמָה וְתוֹעַלְתָּהּ לִמְבַקְשֶׁיהָ 2",
+       "blk_de": "Lob der Weisheit und ihr Nutzen für die, die sie suchen 2"
+      },
+      {
+       "ref": "2:12-22",
+       "text": "הַתּוֹעָלוֹת הַבָּאוֹת בְּעִקְּבוֹת בַּקָּשַׁת הַחָכְמָה — תַּצִּיל אוֹתוֹ מֵאִישׁ רָע (יב-טו); וְתַצִּיל אוֹתוֹ מִסַּכָּנוֹת אִשָּׁה רָעָה (טז-יט) וְתַדְרִיךְ אוֹתוֹ בְּדֶרֶךְ טוֹבִים וִישָׁרִים (כ-כב).",
+       "text_de": "Der Nutzen, der aus dem Streben nach Weisheit folgt: Sie bewahrt vor dem bösen Menschen (V. 12–15), bewahrt vor den Gefahren einer bösen Frau (V. 16–19) und leitet auf dem Weg der Guten und Rechtschaffenen (V. 20–22)",
+       "blk": "בְּשֶׁבַח הַחָכְמָה וְתוֹעַלְתָּהּ לִמְבַקְשֶׁיהָ 2",
+       "blk_de": "Lob der Weisheit und ihr Nutzen für die, die sie suchen 2"
+      }
+     ]
     },
     {
      "ref": "3",
      "text": "מציאת חן בעיני אלהים ואדם",
      "text_de": "Gunst bei Gott und den Menschen finden",
-     "text_en": "Finding favor in the eyes of God and man"
+     "text_en": "Finding favor in the eyes of God and man",
+     "sub": [
+      {
+       "ref": "3:1-12",
+       "text": "הַבְּרָכָה וְהַתּוֹעֶלֶת בְּתוֹרַת הֶחָכָם וּבְמִצְוֹתָיו: הַבְּרָכָה (א-ב), מִדּוֹת טוֹבוֹת, חֶסֶד וֶאֱמֶת (ג), בִּטָּחוֹן בַּה׳ (ה), דַּעַת ה׳ (ו), יִרְאַת ה׳ (ז), כִּבּוּד ה׳ (ט), מוּסַר ה׳ (יא-יב). הַפִּסְקָה פּוֹתַחַת בַּמִּלָּה ׳בְּנִי׳ וְחוֹתֶמֶת בַּמִּלָּה ׳בֵּן׳;",
+       "text_de": "Der Segen und der Nutzen der Lehre des Weisen und seiner Gebote: der Segen (V. 1–2), gute Eigenschaften, Güte und Treue (V. 3), Vertrauen auf den HERRN (V. 5), Erkenntnis des HERRN (V. 6), Furcht des HERRN (V. 7), Ehrung des HERRN (V. 9), Zucht des HERRN (V. 11–12); der Abschnitt beginnt mit dem Wort „mein Sohn“ und schließt mit dem Wort „Sohn“",
+       "blk": "הַדְרָכוֹת, עֵצוֹת וְאַזְהָרוֹת 3",
+       "blk_de": "Anweisungen, Ratschläge und Warnungen 3"
+      },
+      {
+       "ref": "3:13-18",
+       "text": "בְּשֶׁבַח הַחָכְמָה וְהַתְּבוּנָה וּמַתְּנוֹתֶיהָ: אֹרֶךְ יָמִים, עֹשֶׁר וְכָבוֹד, נֹעַם וְשָׁלוֹם — אֹשֶׁר (טו-יח). הַפִּסְקָה פּוֹתַחַת בַּמִּלָּה ׳אַשְׁרֵי׳ וְחוֹתֶמֶת בַּמִּלָּה ׳מְאֻשָּׁר׳;",
+       "text_de": "Lob der Weisheit und der Einsicht und ihrer Gaben: langes Leben, Reichtum und Ehre, Anmut und Frieden, Glück (V. 15–18); der Abschnitt beginnt mit dem Wort „Glücklich“ und schließt mit dem Wort „glücklich gepriesen“",
+       "blk": "הַדְרָכוֹת, עֵצוֹת וְאַזְהָרוֹת 3",
+       "blk_de": "Anweisungen, Ratschläge und Warnungen 3"
+      },
+      {
+       "ref": "3:19-26",
+       "text": "גְּדוֹלָה מַעֲלַת הַחָכְמָה, שֶׁבָּהּ יָסַד ה׳ שָׁמַיִם וָאָרֶץ וְיַמִּים, וְהִיא מְטִיבָה עִם אָדָם הַשּׁוֹמֵר אוֹתָהּ, הִיא מְבִיאָה לוֹ בִּטָּחוֹן בַּיּוֹם וּבַלַּיְלָה, וְגַם ה׳ שׁוֹמֵר עָלָיו (כג-כו). הַפִּסְקָה פּוֹתַחַת בְּשֵׁם הֲוָיָה וְחוֹתֶמֶת: כִּי ה׳ וגו׳;",
+       "text_de": "Groß ist der Vorzug der Weisheit: Durch sie hat der HERR Himmel, Erde und Meere gegründet; sie erweist dem Menschen Gutes, der sie bewahrt, bringt ihm Sicherheit bei Tag und bei Nacht, und auch der HERR behütet ihn (V. 23–26); der Abschnitt beginnt mit dem Gottesnamen und schließt: „denn der HERR …“ usw.",
+       "blk": "הַדְרָכוֹת, עֵצוֹת וְאַזְהָרוֹת 3",
+       "blk_de": "Anweisungen, Ratschläge und Warnungen 3"
+      },
+      {
+       "ref": "3:27-31",
+       "text": "חֲמִשָּׁה לָאוִין כְּדֻגְמָה לְאִישׁ חֶסֶד, כָּל אַחַת מֵחָמֵשׁ הָאַזְהָרוֹת פּוֹתַחַת בַּמִּלָּה ׳אַל׳.",
+       "text_de": "Fünf Verbote als Beispiel für einen gütigen Menschen; jede der fünf Warnungen beginnt mit dem Wort „nicht“",
+       "blk": "הַדְרָכוֹת, עֵצוֹת וְאַזְהָרוֹת 3",
+       "blk_de": "Anweisungen, Ratschläge und Warnungen 3"
+      },
+      {
+       "ref": "3:32-35",
+       "text": "הַחֲתִימָה: גּוֹרַל הָרְשָׁעִים לְעֻמַּת גּוֹרַל הַצַּדִּיקִים (נְלוֹזִים וִישָׁרִים, מְאֵרָה וּבְרָכָה, לֵצִים וַעֲנָוִים, חֲכָמִים וּכְסִילִים).",
+       "text_de": "Der Schluss: das Los der Frevler im Gegensatz zum Los der Gerechten (Verkehrte und Rechtschaffene, Fluch und Segen, Spötter und Demütige, Weise und Toren)",
+       "blk": "הַדְרָכוֹת, עֵצוֹת וְאַזְהָרוֹת 3",
+       "blk_de": "Anweisungen, Ratschläge und Warnungen 3"
+      }
+     ]
     },
     {
      "ref": "4",
      "text": "מוסר לבנים לקנות חכמה וללכת בדרך הנכונה",
      "text_de": "Ermahnung an die Söhne, Weisheit zu erwerben und den rechten Weg zu gehen",
-     "text_en": "Admonition to sons to acquire wisdom and to walk the right path"
+     "text_en": "Admonition to sons to acquire wisdom and to walk the right path",
+     "sub": [
+      {
+       "ref": "4:1-9",
+       "text": "הָאָב־הֶחָכָם מְזָרֵז אֶת בָּנָיו לִרְכֹּשׁ חָכְמָה וְהוּא מְסַפֵּר, שֶׁהַמּוּסָר וְהַלֶּקַח שֶׁהוּא קִבֵּל מֵאָבִיו מוֹרֵהוּ. הַפִּסְקָה פּוֹתַחַת בִּפְנִיָּה שֶׁל הֶחָכָם לַחֲנִיכָיו: שִׁמְעוּ בָנִים... וְהַקְשִׁיבוּ",
+       "text_de": "Der weise Vater spornt seine Söhne an, Weisheit zu erwerben, und erzählt, dass er Zucht und Lehre von seinem Vater, seinem Lehrer, empfangen hat; der Abschnitt beginnt mit der Anrede des Weisen an seine Schüler: „Hört, Söhne … und merkt auf“",
+       "blk": "מוּסַר אָב 4",
+       "blk_de": "Zucht des Vaters 4"
+      },
+      {
+       "ref": "4:10-19",
+       "text": "הוּא מַזְהִירוֹ מִפְּנֵי חֲבוּרַת רְשָׁעִים, וְהַפִּסְקָה פּוֹתַחַת, דֻּגְמַת הַפִּסְקָה הָרִאשׁוֹנָה, בִּלְשׁוֹן ׳שְׁמַע בְּנִי׳",
+       "text_de": "Er warnt ihn vor der Gesellschaft von Frevlern; der Abschnitt beginnt, wie der erste Abschnitt, mit den Worten „Höre, mein Sohn“",
+       "blk": "מוּסַר אָב 4",
+       "blk_de": "Zucht des Vaters 4"
+      },
+      {
+       "ref": "4:20-27",
+       "text": "הוּא מְצַוֶּה עַל שְׁמִירָה מוּסָרִית שֶׁל הַלֵּב (—הַמַּחֲשָׁבָה), שֶׁל הַפֶּה (—הַדִּבּוּר), שֶׁל הָעֵינַיִם (—הַבּוֹחֲנוֹת אֶת הַדֶּרֶךְ) וְהָרַגְלַיִם (—הַמְסַלְּלוֹת אֶת הַהֲלִיכָה בַּדֶּרֶךְ שֶׁבָּחַר). גַּם פִּסְקָה זוֹ פּוֹתַחַת בִּלְשׁוֹן: בְּנִי... הַקְשִׁיבָה",
+       "text_de": "Er gebietet sittliche Behütung des Herzens (= des Denkens), des Mundes (= des Redens), der Augen (= die den Weg prüfen) und der Füße (= die den gewählten Weg bahnen); auch dieser Abschnitt beginnt mit den Worten: „Mein Sohn … merke auf“",
+       "blk": "מוּסַר אָב 4",
+       "blk_de": "Zucht des Vaters 4"
+      }
+     ]
     },
     {
      "ref": "5",
      "text": "מוסר לבן להתרחק מאשה זרה",
      "text_de": "Ermahnung an den Sohn, sich von der fremden Frau fernzuhalten",
-     "text_en": "Admonition to the son to keep away from the strange woman"
+     "text_en": "Admonition to the son to keep away from the strange woman",
+     "sub": [
+      {
+       "ref": "5:1-6",
+       "text": "פְּתִיחָה וּבָהּ פְּנִיָּה לְיָחִיד",
+       "text_de": "Einleitung mit Anrede an den Einzelnen",
+       "blk": "אַזְהָרָה מִפְּנֵי הַזָּרָה וּבְשֶׁבַח הַנֶּאֱמָנוּת לְאֵשֶׁת נְעוּרִים 5",
+       "blk_de": "Warnung vor der fremden Frau und Lob der Treue zur Frau der Jugend 5"
+      },
+      {
+       "ref": "5:7-11",
+       "text": "תֵּאוּר הַסַּכָּנָה הַצְּפוּיָה לַמִּתְפַּתֶּה לְזָרָה, אָבְדַן חֵרוּתוֹ וּבְרִיאוּתוֹ",
+       "text_de": "Schilderung der Gefahr, die dem droht, der sich von einer fremden Frau verführen lässt: Verlust seiner Freiheit und seiner Gesundheit",
+       "blk": "אַזְהָרָה מִפְּנֵי הַזָּרָה וּבְשֶׁבַח הַנֶּאֱמָנוּת לְאֵשֶׁת נְעוּרִים 5",
+       "blk_de": "Warnung vor der fremden Frau und Lob der Treue zur Frau der Jugend 5"
+      },
+      {
+       "ref": "5:12-14",
+       "text": "וִדּוּיוֹ שֶׁל הַמִּתְחָרֵט בְּעוֹד מוֹעֵד",
+       "text_de": "Das Bekenntnis dessen, der noch rechtzeitig Reue empfindet",
+       "blk": "אַזְהָרָה מִפְּנֵי הַזָּרָה וּבְשֶׁבַח הַנֶּאֱמָנוּת לְאֵשֶׁת נְעוּרִים 5",
+       "blk_de": "Warnung vor der fremden Frau und Lob der Treue zur Frau der Jugend 5"
+      },
+      {
+       "ref": "5:15-19",
+       "text": "בְּשֶׁבַח הַנֶּאֱמָנוּת לְאֵשֶׁת הַנְּעוּרִים",
+       "text_de": "Lob der Treue zur Frau der Jugend",
+       "blk": "אַזְהָרָה מִפְּנֵי הַזָּרָה וּבְשֶׁבַח הַנֶּאֱמָנוּת לְאֵשֶׁת נְעוּרִים 5",
+       "blk_de": "Warnung vor der fremden Frau und Lob der Treue zur Frau der Jugend 5"
+      },
+      {
+       "ref": "5:20-23",
+       "text": "חֲתִימָה — מוּסַר הַשֵּׂכֶל עַל הַחֵטְא וְעָנְשׁוֹ",
+       "text_de": "Schluss – Lehre der Einsicht über die Sünde und ihre Strafe",
+       "blk": "אַזְהָרָה מִפְּנֵי הַזָּרָה וּבְשֶׁבַח הַנֶּאֱמָנוּת לְאֵשֶׁת נְעוּרִים 5",
+       "blk_de": "Warnung vor der fremden Frau und Lob der Treue zur Frau der Jugend 5"
+      }
+     ]
     },
     {
      "ref": "6:1-5",
      "text": "נגד מתן ערבות",
      "text_de": "Gegen das Bürgen",
-     "text_en": "Against standing surety"
+     "text_en": "Against standing surety",
+     "sub": [
+      {
+       "ref": "6:1-5",
+       "text": "אַזְהָרָה מִפְּנֵי עַרְבוּת לְזָר (א-ה), וְהִיא מְחֻבֶּרֶת לַפָּרָשָׁה שֶׁקְּדָמָה לָהּ עַל יְדֵי הַנּוֹשֵׂא ׳זָר׳;",
+       "text_de": "Warnung vor der Bürgschaft für einen Fremden (V. 1–5); er ist mit dem vorangehenden Abschnitt durch das Stichwort „fremd“ verbunden",
+       "blk": "אַזְהָרָה מִפְּנֵי עַרְבוּת לְזָר, בִּגְנוּת הֶעָצֵל וּבֶן־הַבְּלִיַּעַל, וְעַל דְּבָרִים שֶׁהֵם תּוֹעֲבַת ה׳ 6:1-19",
+       "blk_de": "Warnung vor der Bürgschaft für einen Fremden, Tadel des Faulen und des Nichtswürdigen und Dinge, die dem HERRN ein Gräuel sind 6:1-19"
+      }
+     ]
     },
     {
      "ref": "6:6-11",
      "text": "נגד עצלות",
      "text_de": "Gegen die Faulheit",
-     "text_en": "Against laziness"
+     "text_en": "Against laziness",
+     "sub": [
+      {
+       "ref": "6:6-11",
+       "text": "בִּגְנוּת הֶעָצֵל וְהָעַצְלוּת (ו-יא), הִיא מְחֻבֶּרֶת לַקּוֹדֶמֶת עַל־יְדֵי הַמִּלִּים: ׳לֵךְ׳ (ג, ו), ׳שֵׁנָה׳ (ד, ט) וְעַל יְדֵי הַנּוֹשֵׂא ׳זְרִיזוּת בַּעֲלֵי הַחַיִּים׳;",
+       "text_de": "Tadel des Faulen und der Faulheit (V. 6–11); er ist mit dem vorangehenden durch die Wörter „geh“ (3, 6) und „Schlaf“ (4, 9) sowie durch das Thema „Fleiß der Lebewesen“ verbunden",
+       "blk": "אַזְהָרָה מִפְּנֵי עַרְבוּת לְזָר, בִּגְנוּת הֶעָצֵל וּבֶן־הַבְּלִיַּעַל, וְעַל דְּבָרִים שֶׁהֵם תּוֹעֲבַת ה׳ 6:1-19",
+       "blk_de": "Warnung vor der Bürgschaft für einen Fremden, Tadel des Faulen und des Nichtswürdigen und Dinge, die dem HERRN ein Gräuel sind 6:1-19"
+      }
+     ]
     },
     {
      "ref": "6:12-19",
      "text": "רשעת איש בליעל",
      "text_de": "Die Bosheit des nichtswürdigen Menschen",
-     "text_en": "The wickedness of the worthless man"
+     "text_en": "The wickedness of the worthless man",
+     "sub": [
+      {
+       "ref": "6:12-15",
+       "text": "בִּגְנוּת אָדָם בְּלִיַּעַל, הַגָּרוּעַ מִן הֶעָצֵל (יב-טו);",
+       "text_de": "Tadel des nichtswürdigen Menschen, der schlimmer ist als der Faule (V. 12–15)",
+       "blk": "אַזְהָרָה מִפְּנֵי עַרְבוּת לְזָר, בִּגְנוּת הֶעָצֵל וּבֶן־הַבְּלִיַּעַל, וְעַל דְּבָרִים שֶׁהֵם תּוֹעֲבַת ה׳ 6:1-19",
+       "blk_de": "Warnung vor der Bürgschaft für einen Fremden, Tadel des Faulen und des Nichtswürdigen und Dinge, die dem HERRN ein Gräuel sind 6:1-19"
+      },
+      {
+       "ref": "6:16-19",
+       "text": "דְּבָרִים שֶׁהֵם תּוֹעֲבַת ה׳ (טז-יט) וְהַמְאַפְיְנִים אָדָם בְּלִיַּעַל.",
+       "text_de": "Dinge, die dem HERRN ein Gräuel sind (V. 16–19) und den nichtswürdigen Menschen kennzeichnen",
+       "blk": "אַזְהָרָה מִפְּנֵי עַרְבוּת לְזָר, בִּגְנוּת הֶעָצֵל וּבֶן־הַבְּלִיַּעַל, וְעַל דְּבָרִים שֶׁהֵם תּוֹעֲבַת ה׳ 6:1-19",
+       "blk_de": "Warnung vor der Bürgschaft für einen Fremden, Tadel des Faulen und des Nichtswürdigen und Dinge, die dem HERRN ein Gräuel sind 6:1-19"
+      }
+     ]
     },
     {
      "ref": "6:20-7:27",
      "text": "הרחקה מאשת איש",
      "text_de": "Warnung vor der Frau eines anderen",
-     "text_en": "Keeping away from another man's wife"
+     "text_en": "Keeping away from another man's wife",
+     "sub": [
+      {
+       "ref": "7:1-5",
+       "text": "הַפְּתִיחָה: שְׁמֹר מִצְוֹתַי",
+       "text_de": "Die Einleitung: Bewahre meine Gebote",
+       "blk": "אַזְהָרָה מִפְּנֵי הָאִשָּׁה הַזָּרָה 7",
+       "blk_de": "Warnung vor der fremden Frau 7"
+      },
+      {
+       "ref": "7:6-13",
+       "text": "הֲלִיכוֹתֶיהָ שֶׁל הַזָּרָה",
+       "text_de": "Die Wege der fremden Frau",
+       "blk": "אַזְהָרָה מִפְּנֵי הָאִשָּׁה הַזָּרָה 7",
+       "blk_de": "Warnung vor der fremden Frau 7"
+      },
+      {
+       "ref": "7:14-20",
+       "text": "דִּבְרֵי פִתּוּיֶיהָ",
+       "text_de": "Ihre verführerischen Worte",
+       "blk": "אַזְהָרָה מִפְּנֵי הָאִשָּׁה הַזָּרָה 7",
+       "blk_de": "Warnung vor der fremden Frau 7"
+      },
+      {
+       "ref": "7:21-23",
+       "text": "סוֹפוֹ שֶׁל הַפֶּתִי הַמְפֻתֶּה",
+       "text_de": "Das Ende des verführten Einfältigen",
+       "blk": "אַזְהָרָה מִפְּנֵי הָאִשָּׁה הַזָּרָה 7",
+       "blk_de": "Warnung vor der fremden Frau 7"
+      },
+      {
+       "ref": "7:24-27",
+       "text": "הַחֲתִימָה: מוּסַר הַשֵּׂכֶל",
+       "text_de": "Der Schluss: Lehre der Einsicht",
+       "blk": "אַזְהָרָה מִפְּנֵי הָאִשָּׁה הַזָּרָה 7",
+       "blk_de": "Warnung vor der fremden Frau 7"
+      }
+     ]
     },
     {
      "ref": "8",
      "text": "קריאת ה'חכמה' לחפשה",
      "text_de": "Der Ruf der „Weisheit“, sie zu suchen",
-     "text_en": "The call of “Wisdom” to seek her"
+     "text_en": "The call of “Wisdom” to seek her",
+     "sub": [
+      {
+       "ref": "8:1-3",
+       "text": "הפתיחה",
+       "text_de": "Die Einleitung",
+       "blk": "עַל מַעֲלוֹת הַחָכְמָה וּקְרִיאָתָהּ 8",
+       "blk_de": "Über die Vorzüge der Weisheit und ihren Ruf 8"
+      },
+      {
+       "ref": "8:4-11",
+       "text": "הפניה",
+       "text_de": "Die Anrede",
+       "blk": "עַל מַעֲלוֹת הַחָכְמָה וּקְרִיאָתָהּ 8",
+       "blk_de": "Über die Vorzüge der Weisheit und ihren Ruf 8"
+      },
+      {
+       "ref": "8:12-21",
+       "text": "מעלות החכמה",
+       "text_de": "Die Vorzüge der Weisheit",
+       "blk": "עַל מַעֲלוֹת הַחָכְמָה וּקְרִיאָתָהּ 8",
+       "blk_de": "Über die Vorzüge der Weisheit und ihren Ruf 8"
+      },
+      {
+       "ref": "8:22-31",
+       "text": "קדמות החכמה",
+       "text_de": "Das Alter der Weisheit",
+       "blk": "עַל מַעֲלוֹת הַחָכְמָה וּקְרִיאָתָהּ 8",
+       "blk_de": "Über die Vorzüge der Weisheit und ihren Ruf 8"
+      },
+      {
+       "ref": "8:32-36",
+       "text": "החתימה",
+       "text_de": "Der Schluss",
+       "blk": "עַל מַעֲלוֹת הַחָכְמָה וּקְרִיאָתָהּ 8",
+       "blk_de": "Über die Vorzüge der Weisheit und ihren Ruf 8"
+      }
+     ]
     },
     {
      "ref": "9",
      "text": "הזמנת 'חכמות' ו'אשת כסילות' לסעודה",
      "text_de": "Einladung der „Weisheit“ und der „Frau Torheit“ zum Mahl",
-     "text_en": "The invitation of “Wisdom” and the “woman of folly” to a feast"
+     "text_en": "The invitation of “Wisdom” and the “woman of folly” to a feast",
+     "sub": [
+      {
+       "ref": "9:1-6",
+       "text": "החכמה מזמינה את קרואיה לביתה",
+       "text_de": "Die Weisheit lädt ihre Gäste in ihr Haus ein",
+       "blk": "בֵּין חָכְמָה לִכְסִילוּת 9",
+       "blk_de": "Zwischen Weisheit und Torheit 9"
+      },
+      {
+       "ref": "9:7-12",
+       "text": "אלה שאינם ראויים לבוא בשעריה",
+       "text_de": "Diejenigen, die nicht würdig sind, ihre Tore zu betreten",
+       "blk": "בֵּין חָכְמָה לִכְסִילוּת 9",
+       "blk_de": "Zwischen Weisheit und Torheit 9"
+      },
+      {
+       "ref": "9:13-18",
+       "text": "הכסילות מזמינה אורחים",
+       "text_de": "Die Torheit lädt Gäste ein",
+       "blk": "בֵּין חָכְמָה לִכְסִילוּת 9",
+       "blk_de": "Zwischen Weisheit und Torheit 9"
+      }
+     ]
     }
    ],
    "head_de": "Sprüche Salomos, des Sohnes Davids",
@@ -129,13 +412,94 @@
      "ref": "15",
      "text": "ענייני דיבור, תוכחה, השגחת ה', לב טוב, עצלות, שמחה, עניינים שונים",
      "text_de": "Reden, Zurechtweisung, Vorsehung des Herrn, ein gutes Herz, Faulheit, Freude, verschiedene Themen",
-     "text_en": "Speech, reproof, the providence of the Lord, a good heart, laziness, joy, various subjects"
+     "text_en": "Speech, reproof, the providence of the Lord, a good heart, laziness, joy, various subjects",
+     "sub": [
+      {
+       "ref": "15:15-16",
+       "text": "ארבעה שאינם שבעים",
+       "text_de": "Vier, die nie satt werden",
+       "blk": "דִּבְרֵי עֲלוּקָה וְחִידוֹתָיו 15-33",
+       "blk_de": "Die Worte der Egel und ihre Rätsel 15-33"
+      },
+      {
+       "ref": "15:17",
+       "text": "ענשו של מקלה אביו ואמו",
+       "text_de": "Strafe für den, der Vater und Mutter verflucht",
+       "blk": "דִּבְרֵי עֲלוּקָה וְחִידוֹתָיו 15-33",
+       "blk_de": "Die Worte der Egel und ihre Rätsel 15-33"
+      },
+      {
+       "ref": "15:18-20",
+       "text": "ארבעה נפלאים",
+       "text_de": "Vier wunderbare Dinge",
+       "blk": "דִּבְרֵי עֲלוּקָה וְחִידוֹתָיו 15-33",
+       "blk_de": "Die Worte der Egel und ihre Rätsel 15-33"
+      },
+      {
+       "ref": "15:21-23",
+       "text": "ארבעה שאינם נסבלים",
+       "text_de": "Vier unerträgliche Dinge",
+       "blk": "דִּבְרֵי עֲלוּקָה וְחִידוֹתָיו 15-33",
+       "blk_de": "Die Worte der Egel und ihre Rätsel 15-33"
+      },
+      {
+       "ref": "15:24-28",
+       "text": "חכמת הממשל של ארבעה קטני ארץ",
+       "text_de": "Die Regierungsweisheit der vier Kleinen der Erde",
+       "blk": "דִּבְרֵי עֲלוּקָה וְחִידוֹתָיו 15-33",
+       "blk_de": "Die Worte der Egel und ihre Rätsel 15-33"
+      },
+      {
+       "ref": "15:29-31",
+       "text": "ארבעה מיטיבי לכת",
+       "text_de": "Vier mit stattlichem Gang",
+       "blk": "דִּבְרֵי עֲלוּקָה וְחִידוֹתָיו 15-33",
+       "blk_de": "Die Worte der Egel und ihre Rätsel 15-33"
+      },
+      {
+       "ref": "15:32-33",
+       "text": "בגנותה של גסות־רוח ושל הריב הבא בעקבותיה",
+       "text_de": "Gegen Hochmut und den Streit, der daraus folgt",
+       "blk": "דִּבְרֵי עֲלוּקָה וְחִידוֹתָיו 15-33",
+       "blk_de": "Die Worte der Egel und ihre Rätsel 15-33"
+      }
+     ]
     },
     {
      "ref": "16",
      "text": "פועל ה', משפטי המלך, משפט וצדקה, מעלת החכמה, דרכי ישרים, רשעים ודבריהם, ועניינים שונים",
      "text_de": "Das Wirken des Herrn, Urteile des Königs, Recht und Gerechtigkeit, Vorzug der Weisheit, Wege der Redlichen, Frevler und ihre Worte, und verschiedene Themen",
-     "text_en": "The work of the Lord, the king's judgments, justice and righteousness, the merit of wisdom, the ways of the upright, the wicked and their words, and various subjects"
+     "text_en": "The work of the Lord, the king's judgments, justice and righteousness, the merit of wisdom, the ways of the upright, the wicked and their words, and various subjects",
+     "sub": [
+      {
+       "ref": "16:1-9",
+       "text": "הנושא הוא ה' ואדם. בשמונה מהם נזכר שם הוי\"ה. יוצא מכלל זה פסוק ח, שאינו שיך לנושא, והוא מקשר חטיבה זו לבאה אחריה על ידי המלה 'משפט';",
+       "text_de": "Das Thema ist der HERR und der Mensch. In acht davon wird der Gottesname genannt. Ausgenommen ist V. 8, der nicht zum Thema gehört und diese Gruppe durch das Wort „Recht“ mit der folgenden verbindet",
+       "blk": "טז 16",
+       "blk_de": "Kap. 16 16"
+      },
+      {
+       "ref": "16:10-15",
+       "text": "הנושא הוא מלך. בכל פסוק נזכר השם 'מלך' - מלכים', חוץ מפסוק יא, השיך לנושא של פסוק שלפניו ומשלים אותו. הוא גם מקשר את שתי החטיבות על ידי המלה 'משפט';",
+       "text_de": "Das Thema ist der König. In jedem Vers kommt das Wort „König“ bzw. „Könige“ vor, außer in V. 11, der zum Thema des vorangehenden Verses gehört und ihn ergänzt. Er verbindet auch die beiden Gruppen durch das Wort „Recht“",
+       "blk": "טז 16",
+       "blk_de": "Kap. 16 16"
+      },
+      {
+       "ref": "16:16",
+       "text": "הנושא: חכמה; היא נפסקת על ידי הפסוקים יז-כ, שהם משלימים לפסוקים שונים;",
+       "text_de": "Das Thema: Weisheit; sie wird durch V. 17–20 unterbrochen, die verschiedene andere Verse ergänzen",
+       "blk": "טז 16",
+       "blk_de": "Kap. 16 16"
+      },
+      {
+       "ref": "16:25-30",
+       "text": "הנושא: דרך שאחריתה מות. פסוקים כד-ל מונים דגמאות לסיסמה זאת.",
+       "text_de": "Das Thema: ein Weg, dessen Ende der Tod ist. V. 24–30 zählen Beispiele für diesen Leitsatz auf",
+       "blk": "טז 16",
+       "blk_de": "Kap. 16 16"
+      }
+     ]
     },
     {
      "ref": "17",
@@ -153,25 +517,117 @@
      "ref": "18:23-20:1",
      "text": "רש ורע, עניינים שונים, כעס וקרובים, הנפש, עונש וקבלת עצה, עצלות, יראת ה', הלץ והבן",
      "text_de": "Der Arme und der Freund, verschiedene Themen, Zorn und Verwandte, die Seele, Strafe und Rat annehmen, Faulheit, Furcht des Herrn, der Spötter und der Verständige",
-     "text_en": "The poor man and the friend, various subjects, anger and relatives, the soul, punishment and accepting counsel, laziness, fear of the Lord, the scoffer and the discerning"
+     "text_en": "The poor man and the friend, various subjects, anger and relatives, the soul, punishment and accepting counsel, laziness, fear of the Lord, the scoffer and the discerning",
+     "sub": [
+      {
+       "ref": "19:1-5",
+       "text": "רעות וטפוסי רעים",
+       "text_de": "Böse Freunde und Arten von Freunden",
+       "blk": "יט א-כ א 19:1-20:1",
+       "blk_de": "Kap. 19,1 – 20,1 19:1-20:1"
+      },
+      {
+       "ref": "19:6-9",
+       "text": "נדיב - ורש ורעיהם",
+       "text_de": "Der Freigebige – und der Arme und ihre Freunde",
+       "blk": "יט א-כ א 19:1-20:1",
+       "blk_de": "Kap. 19,1 – 20,1 19:1-20:1"
+      },
+      {
+       "ref": "19:10-12",
+       "text": "בשבח המתינות וההעברה על מדות",
+       "text_de": "Lob der Langmut und des Hinwegsehens über Verfehlungen",
+       "blk": "יט א-כ א 19:1-20:1",
+       "blk_de": "Kap. 19,1 – 20,1 19:1-20:1"
+      },
+      {
+       "ref": "19:13-14",
+       "text": "אשה ואשה",
+       "text_de": "Frau und Frau",
+       "blk": "יט א-כ א 19:1-20:1",
+       "blk_de": "Kap. 19,1 – 20,1 19:1-20:1"
+      },
+      {
+       "ref": "19:15-17",
+       "text": "שומר מצוה ושכרו",
+       "text_de": "Wer das Gebot hält, und sein Lohn",
+       "blk": "יט א-כ א 19:1-20:1",
+       "blk_de": "Kap. 19,1 – 20,1 19:1-20:1"
+      },
+      {
+       "ref": "19:18-20:1",
+       "text": "טפוסי בנים שונים ודרכי חנוכם",
+       "text_de": "Verschiedene Arten von Söhnen und Wege ihrer Erziehung",
+       "blk": "יט א-כ א 19:1-20:1",
+       "blk_de": "Kap. 19,1 – 20,1 19:1-20:1"
+      }
+     ]
     },
     {
      "ref": "20:2-30",
      "text": "כעס המלך, איש, תמים, משפט המלך, ערך החפצים, ערבות וחבלה, נחלת אבות, השגחת ה'",
      "text_de": "Zorn des Königs, der Mensch, der Lautere, Urteil des Königs, Wert der Dinge, Bürgschaft und Pfand, väterliches Erbe, Vorsehung des Herrn",
-     "text_en": "The king's wrath, man, the blameless, the king's judgment, the value of things, surety and pledge, ancestral inheritance, the providence of the Lord"
+     "text_en": "The king's wrath, man, the blameless, the king's judgment, the value of things, surety and pledge, ancestral inheritance, the providence of the Lord",
+     "sub": [
+      {
+       "ref": "20:2-7",
+       "text": "פותחת בלשון 'נהם ככפיר אימת מלך' וגו' (ב) וחותמת: מתהלך בתמו צדיק אשרי בניו אחריו (ז).",
+       "text_de": "Beginnt mit den Worten „Das Drohen des Königs ist wie das Brüllen des Löwen“ usw. (V. 2) und schließt: „Wer in seiner Lauterkeit wandelt als Gerechter, glücklich seine Söhne nach ihm“ (V. 7)",
+       "blk": "מִשְׁלֵי מֶלֶךְ וּמַלְכוּת 20:2-22:16",
+       "blk_de": "Sprüche über König und Königtum 20:2-22:16"
+      },
+      {
+       "ref": "20:8-27",
+       "text": "פותחת בלשון 'מלך יושב על-כסא-דין מזרה בעיניו כל-רע (ח), וחותמת במעין פתיחתה: מזרה רשעים מלך חכם וישב עליהם אופן (כו).",
+       "text_de": "Beginnt mit den Worten „Ein König, der auf dem Richterstuhl sitzt, zerstreut mit seinen Augen alles Böse“ (V. 8) und schließt in Anlehnung an den Anfang: „Ein weiser König zerstreut die Frevler und lässt das Rad über sie kommen“ (V. 26)",
+       "blk": "מִשְׁלֵי מֶלֶךְ וּמַלְכוּת 20:2-22:16",
+       "blk_de": "Sprüche über König und Königtum 20:2-22:16"
+      },
+      {
+       "ref": "20:28-30",
+       "text": "פותחת בלשון 'חסד ואמת יצרו-מלך וסעד בחסד כסאו' (כח). והיא מעין הפתיחה של הפסקה שלפניה: מלך יושב על-כסא-דין וגו' (ח). והיא חותמת בלשון המזכירה את הפסקה שלפניה: ומכות חדרי-בטן (ל) = חפש כל-חדרי-בטן (כז).",
+       "text_de": "Beginnt mit den Worten „Güte und Treue behüten den König, und durch Güte stützt er seinen Thron“ (V. 28). Das ist gewissermaßen der Anfang des vorangehenden Abschnitts: „Ein König, der auf dem Richterstuhl sitzt“ usw. (V. 8). Er schließt mit Worten, die an den vorangehenden Abschnitt erinnern: „und Schläge, die das Innerste treffen“ (V. 30) = „durchforscht alle Kammern des Leibes“ (V. 27)",
+       "blk": "מִשְׁלֵי מֶלֶךְ וּמַלְכוּת 20:2-22:16",
+       "blk_de": "Sprüche über König und Königtum 20:2-22:16"
+      }
+     ]
     },
     {
      "ref": "21",
      "text": "מחשבות ה' ומעשי האדם, רכוש, הרשעים ופורענותם, השכלה, צדיק וצדקה, שמירת הלשון, תאוות העצל, עדות אמת, תשועת ה'",
      "text_de": "Gedanken des Herrn und Taten des Menschen, Besitz, die Frevler und ihr Unheil, Einsicht, der Gerechte und die Gerechtigkeit, die Zunge hüten, Begierde des Faulen, wahres Zeugnis, Hilfe des Herrn",
-     "text_en": "The thoughts of the Lord and the deeds of man, possessions, the wicked and their calamity, understanding, the righteous and righteousness, guarding the tongue, the craving of the lazy, true testimony, the Lord's deliverance"
+     "text_en": "The thoughts of the Lord and the deeds of man, possessions, the wicked and their calamity, understanding, the righteous and righteousness, guarding the tongue, the craving of the lazy, true testimony, the Lord's deliverance",
+     "sub": [
+      {
+       "ref": "21:1-21",
+       "text": "פותחת בלשון 'פלגי-מים לב-מלך ביד-ה'' וגו' (כא א), וחותמת בלשון המזכירה את חובת המלך: רדף צדקה וחסד ימצא חיים צדקה וכבוד (להלן פסוק כא והשווהו לפתיחת הפסקה שלפניה, כ כח).",
+       "text_de": "Beginnt mit den Worten „Wie Wasserbäche ist das Herz des Königs in der Hand des HERRN“ usw. (21,1) und schließt mit Worten, die an die Pflicht des Königs erinnern: „Wer Gerechtigkeit und Güte nachjagt, findet Leben, Gerechtigkeit und Ehre“ (unten V. 21; vergleiche den Anfang des vorangehenden Abschnitts, 20,28)",
+       "blk": "מִשְׁלֵי מֶלֶךְ וּמַלְכוּת 20:2-22:16",
+       "blk_de": "Sprüche über König und Königtum 20:2-22:16"
+      },
+      {
+       "ref": "21:22-31",
+       "text": "פותחת בלשון 'עיר גברים עלה חכם' (כא כב) וחותמת במעין הפתיחה: סוס מוכן ליום מלחמה ולה' התשועה (שם לא).",
+       "text_de": "Beginnt mit den Worten „Eine Stadt von Helden erstieg der Weise“ (21,22) und schließt gewissermaßen mit dem Anfang: „Das Ross wird gerüstet für den Tag der Schlacht, doch beim HERRN ist der Sieg“ (ebd. 31)",
+       "blk": "מִשְׁלֵי מֶלֶךְ וּמַלְכוּת 20:2-22:16",
+       "blk_de": "Sprüche über König und Königtum 20:2-22:16"
+      }
+     ]
     },
     {
      "ref": "22:1-16",
      "text": "עושר וזהירות ממכשולים, זרע עוולה, צדקה, כסילות, שכר הצדיקים והרשעים",
      "text_de": "Reichtum und Vorsicht vor Stolpersteinen, Saat des Unrechts, Wohltätigkeit, Torheit, Lohn der Gerechten und der Frevler",
-     "text_en": "Wealth and caution against pitfalls, the seed of injustice, charity, folly, the reward of the righteous and the wicked"
+     "text_en": "Wealth and caution against pitfalls, the seed of injustice, charity, folly, the reward of the righteous and the wicked",
+     "sub": [
+      {
+       "ref": "22:1-16",
+       "text": "פותחת: נבחר שם (השווה ש\"ב ז ט) וחותמת מעין הענין והלשון של הפתיחה: עשק דל להרבות לו נתן לעשיר אך-למחסור (טז).",
+       "text_de": "Beginnt mit „Ein guter Name ist erwählt“ (vergleiche 2 Sam 7,9) und schließt mit einem Gedanken und einer Wendung, die dem Anfang ähneln: „Wer den Geringen bedrückt, um sein Gut zu mehren, gibt dem Reichen nur zum Mangel“ (V. 16)",
+       "blk": "מִשְׁלֵי מֶלֶךְ וּמַלְכוּת 20:2-22:16",
+       "blk_de": "Sprüche über König und Königtum 20:2-22:16"
+      }
+     ]
     }
    ],
    "head_de": "Sprüche Salomos: „Ein weiser Sohn erfreut den Vater“",
@@ -187,7 +643,37 @@
      "ref": "22:17-24:22",
      "text": "עצות החכמים ואזהרותיהם לתלמידיהם בעניינים שבין אדם לחבירו ובינו לבין עצמו",
      "text_de": "Ratschläge und Warnungen der Weisen an ihre Schüler in Angelegenheiten zwischen Mensch und Mitmensch und zwischen dem Menschen und sich selbst",
-     "text_en": "Counsels and warnings of the sages to their students concerning matters between man and his fellow and between man and himself"
+     "text_en": "Counsels and warnings of the sages to their students concerning matters between man and his fellow and between man and himself",
+     "sub": [
+      {
+       "ref": "22:17-21",
+       "text": "פונה בקריאה, שיש בה הבעת חשיבות: 'הט אזנך ושמע דברי חכמים ולבך תשית לדעתי'; ועקרה הלקח האמוני: להיות בה' מבטחך (פסוק יט).",
+       "text_de": "Wendet sich mit einem Aufruf an den Leser, der Gewicht ausdrückt: „Neige dein Ohr und höre die Worte der Weisen und richte dein Herz auf meine Erkenntnis“; ihr Kern ist die Lehre des Glaubens: dass dein Vertrauen auf dem HERRN ruhe (V. 19)",
+       "blk": "'דִּבְרֵי חֲכָמִים' 22:17-24:34",
+       "blk_de": "„Worte der Weisen“ 22:17-24:34"
+      },
+      {
+       "ref": "22:22-23:11",
+       "text": "באו עשרה ענינים, ומהם תשעה בצורה של אזהרות.",
+       "text_de": "Es kommen zehn Themen vor, davon neun in Form von Warnungen",
+       "blk": "'דִּבְרֵי חֲכָמִים' 22:17-24:34",
+       "blk_de": "„Worte der Weisen“ 22:17-24:34"
+      },
+      {
+       "ref": "23:12-24:14",
+       "text": "באו שנים-עשר ענינים, המדברים ברבם בעניני חנוך ובשבח החכמה.",
+       "text_de": "Es kommen zwölf Themen vor, die größtenteils von Erziehung und vom Lob der Weisheit handeln",
+       "blk": "'דִּבְרֵי חֲכָמִים' 22:17-24:34",
+       "blk_de": "„Worte der Weisen“ 22:17-24:34"
+      },
+      {
+       "ref": "24:15-22",
+       "text": "באו ארבע אזהרות.",
+       "text_de": "Es kommen vier Warnungen vor",
+       "blk": "'דִּבְרֵי חֲכָמִים' 22:17-24:34",
+       "blk_de": "„Worte der Weisen“ 22:17-24:34"
+      }
+     ]
     }
    ],
    "head_de": "Worte der Weisen",
@@ -203,7 +689,16 @@
      "ref": "24:23-34",
      "text": "משפט ועדים, עבודת השדה, הכרם והבית, עצלות",
      "text_de": "Recht und Zeugen, Feldarbeit, Weinberg und Haus, Faulheit",
-     "text_en": "Justice and witnesses, work in the field, the vineyard and the house, laziness"
+     "text_en": "Justice and witnesses, work in the field, the vineyard and the house, laziness",
+     "sub": [
+      {
+       "ref": "24:23-34",
+       "text": "פותחת בלשון 'גם-אלה לחכמים', ויש לה דמיון ללשון הפתיחה של הפרשה: הט אזנך ושמע דברי חכמים (כב יז).",
+       "text_de": "Beginnt mit den Worten „Auch diese sind von den Weisen“ und ähnelt in der Wendung dem Anfang des Abschnitts: „Neige dein Ohr und höre die Worte der Weisen“ (22,17)",
+       "blk": "'דִּבְרֵי חֲכָמִים' 22:17-24:34",
+       "blk_de": "„Worte der Weisen“ 22:17-24:34"
+      }
+     ]
     }
    ],
    "head_de": "Auch diese sind von Weisen",
@@ -259,7 +754,30 @@
      "ref": "30",
      "text": "ענוות האדם נוכח המופלא והנסתר ממנו, דברי משל ומליצה על עלוקה, ועל כמה 'שלשה... וארבעה...'",
      "text_de": "Demut des Menschen vor dem Wunderbaren und dem Verborgenen, Worte in Gleichnis und Redefigur über den Blutegel und über mehrere „Drei … und vier …“",
-     "text_en": "Man's humility before the wondrous and the hidden, words in parable and figure of speech about the leech and about several “three … and four …” sayings"
+     "text_en": "Man's humility before the wondrous and the hidden, words in parable and figure of speech about the leech and about several “three … and four …” sayings",
+     "sub": [
+      {
+       "ref": "30:2-6",
+       "text": "במפלא ממך אל תדרש ואל תוסיף על דברי ה'",
+       "text_de": "Was dir zu wunderbar ist, erforsche nicht, und füge nichts zu den Worten des HERRN hinzu",
+       "blk": "הַחֲתִימָה לַסֵּפֶר 30-31 › דִּבְרֵי אָגוּר בִּן־יָקֶה 30:1-14",
+       "blk_de": "Der Schluss des Buches 30-31 › Die Worte Agurs, des Sohnes Jakes 30:1-14"
+      },
+      {
+       "ref": "30:7-9",
+       "text": "בקשה־תפלה על פרנסה בהתר",
+       "text_de": "Bitte und Gebet um rechtmäßigen Lebensunterhalt",
+       "blk": "הַחֲתִימָה לַסֵּפֶר 30-31 › דִּבְרֵי אָגוּר בִּן־יָקֶה 30:1-14",
+       "blk_de": "Der Schluss des Buches 30-31 › Die Worte Agurs, des Sohnes Jakes 30:1-14"
+      },
+      {
+       "ref": "30:10-14",
+       "text": "ארבעה סוגי רשעים",
+       "text_de": "Vier Arten von Frevlern",
+       "blk": "הַחֲתִימָה לַסֵּפֶר 30-31 › דִּבְרֵי אָגוּר בִּן־יָקֶה 30:1-14",
+       "blk_de": "Der Schluss des Buches 30-31 › Die Worte Agurs, des Sohnes Jakes 30:1-14"
+      }
+     ]
     }
    ],
    "head_de": "Worte Agurs, des Sohnes des Jake",
@@ -275,7 +793,79 @@
      "ref": "31",
      "text": "ענייני מלכים ומשפט, מעלות אשת חיל לפי סדר א-ב",
      "text_de": "Angelegenheiten von Königen und Recht, Vorzüge der tüchtigen Frau, nach der Reihenfolge des Alphabets",
-     "text_en": "Matters of kings and justice, the virtues of the woman of valor, in alphabetical order"
+     "text_en": "Matters of kings and justice, the virtues of the woman of valor, in alphabetical order",
+     "sub": [
+      {
+       "ref": "31:2-5",
+       "text": "אל למלך להיות שטוף באהבת נשים ובשתית יין",
+       "text_de": "Ein König soll sich nicht der Liebe zu Frauen und dem Weingenuss hingeben",
+       "blk": "הַחֲתִימָה לַסֵּפֶר 30-31 › דִּבְרֵי לְמוּאֵל 31:1-9",
+       "blk_de": "Der Schluss des Buches 30-31 › Die Worte Lemuëls 31:1-9"
+      },
+      {
+       "ref": "31:6-7",
+       "text": "החובה לעודד כל אובד ומר נפש",
+       "text_de": "Die Pflicht, jeden Verlorenen und Verbitterten aufzurichten",
+       "blk": "הַחֲתִימָה לַסֵּפֶר 30-31 › דִּבְרֵי לְמוּאֵל 31:1-9",
+       "blk_de": "Der Schluss des Buches 30-31 › Die Worte Lemuëls 31:1-9"
+      },
+      {
+       "ref": "31:8-9",
+       "text": "החובה לדון בצדק ולריב ריב כל עני ואביון",
+       "text_de": "Die Pflicht, gerecht zu richten und für jeden Armen und Bedürftigen einzutreten",
+       "blk": "הַחֲתִימָה לַסֵּפֶר 30-31 › דִּבְרֵי לְמוּאֵל 31:1-9",
+       "blk_de": "Der Schluss des Buches 30-31 › Die Worte Lemuëls 31:1-9"
+      },
+      {
+       "ref": "31:10-12",
+       "text": "פתיחה: אשרי האיש, שמצא לו אשה, אשת חיל",
+       "text_de": "Einleitung: Glücklich der Mann, der eine Frau gefunden hat, eine tüchtige Frau",
+       "blk": "הַחֲתִימָה לַסֵּפֶר 30-31 › שִׁיר שֶׁבַח לְאֵשֶׁת-חָיִל 31:10-31",
+       "blk_de": "Der Schluss des Buches 30-31 › Lobgesang auf die tüchtige Frau 31:10-31"
+      },
+      {
+       "ref": "31:13-14",
+       "text": "פעלתנותה וחריצותה בימי עניה",
+       "text_de": "Ihre Betriebsamkeit und ihr Fleiß in den Tagen der Armut",
+       "blk": "הַחֲתִימָה לַסֵּפֶר 30-31 › שִׁיר שֶׁבַח לְאֵשֶׁת-חָיִל 31:10-31",
+       "blk_de": "Der Schluss des Buches 30-31 › Lobgesang auf die tüchtige Frau 31:10-31"
+      },
+      {
+       "ref": "31:15-18",
+       "text": "פעלתנותה וחריצותה בימי עשרה",
+       "text_de": "Ihre Betriebsamkeit und ihr Fleiß in den Tagen des Reichtums",
+       "blk": "הַחֲתִימָה לַסֵּפֶר 30-31 › שִׁיר שֶׁבַח לְאֵשֶׁת-חָיִל 31:10-31",
+       "blk_de": "Der Schluss des Buches 30-31 › Lobgesang auf die tüchtige Frau 31:10-31"
+      },
+      {
+       "ref": "31:19-20",
+       "text": "מעשי החסד שלה",
+       "text_de": "Ihre Wohltaten",
+       "blk": "הַחֲתִימָה לַסֵּפֶר 30-31 › שִׁיר שֶׁבַח לְאֵשֶׁת-חָיִל 31:10-31",
+       "blk_de": "Der Schluss des Buches 30-31 › Lobgesang auf die tüchtige Frau 31:10-31"
+      },
+      {
+       "ref": "31:21-25",
+       "text": "דאגתה לבעלה ולבניה",
+       "text_de": "Ihre Sorge für ihren Mann und ihre Kinder",
+       "blk": "הַחֲתִימָה לַסֵּפֶר 30-31 › שִׁיר שֶׁבַח לְאֵשֶׁת-חָיִל 31:10-31",
+       "blk_de": "Der Schluss des Buches 30-31 › Lobgesang auf die tüchtige Frau 31:10-31"
+      },
+      {
+       "ref": "31:26-27",
+       "text": "תורת החסד שבפיה והליכותיה",
+       "text_de": "Die Lehre der Güte auf ihren Lippen und ihr Wandel",
+       "blk": "הַחֲתִימָה לַסֵּפֶר 30-31 › שִׁיר שֶׁבַח לְאֵשֶׁת-חָיִל 31:10-31",
+       "blk_de": "Der Schluss des Buches 30-31 › Lobgesang auf die tüchtige Frau 31:10-31"
+      },
+      {
+       "ref": "31:28-31",
+       "text": "חתימה: אשרי אשת החיל",
+       "text_de": "Schluss: Glücklich die tüchtige Frau",
+       "blk": "הַחֲתִימָה לַסֵּפֶר 30-31 › שִׁיר שֶׁבַח לְאֵשֶׁת-חָיִל 31:10-31",
+       "blk_de": "Der Schluss des Buches 30-31 › Lobgesang auf die tüchtige Frau 31:10-31"
+      }
+     ]
     }
    ],
    "head_de": "Abschluss des Buches: Worte Lemuëls",
@@ -286,6 +876,6 @@
  ],
  "title_de": "Inhalt des Buches der Sprüche",
  "title_en": "Contents of the Book of Proverbs",
- "note_de": "Abgeschrieben aus einer Übersichtstabelle (SifreiKodesh) und übersetzt.",
- "note_en": "Transcribed from an overview table (SifreiKodesh) and translated."
+ "note_de": "Abgeschrieben aus einer Übersichtstabelle (SifreiKodesh) und übersetzt. Unterpunkte aus der Gliederung von „Da'at Mikra“ (Teilpunkte mit Versangaben, mit Hinweis auf den jeweiligen Abschnitt) ergänzt und ins Deutsche übersetzt.",
+ "note_en": "Transcribed from an overview table (SifreiKodesh) and translated. Sub-points from the Da'at Mikra outlines (parts with verse references, labelled with their section) added; German translation."
 }

@@ -1,7 +1,7 @@
 {
  "book": "I Chronicles",
  "title": "תוכן ספר דברי הימים א",
- "note": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt.",
+ "note": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt. · הורחב בחלוקת דעת מקרא (פסקאות עם מראי מקום).",
  "sections": [
   {
    "head": "תולדות ויחוסים",
@@ -16,7 +16,16 @@
      "par_de": "Wiederholung von: 1. Mose 5:1–27",
      "par_en": "Repeats: Genesis 5:1–27",
      "time_de": "1–874",
-     "time_en": "1–874"
+     "time_en": "1–874",
+     "sub": [
+      {
+       "ref": "1:1-4",
+       "text": "עשרת ראשי הדורות מאדם ועד נח",
+       "text_de": "Die zehn Häupter der Generationen von Adam bis Noach",
+       "blk": "מֵאָדָם וְעַד בְּנֵי יִשְׂרָאֵל 1:1-2:2",
+       "blk_de": "Von Adam bis zu den Kindern Israels 1:1-2:2"
+      }
+     ]
     },
     {
      "ref": "1:4-27",
@@ -28,7 +37,23 @@
      "par_de": "Wiederholung von: 1. Mose 10, 1. Mose 11:10–27",
      "par_en": "Repeats: Genesis 10, Genesis 11:10–27",
      "time_de": "1056–1948",
-     "time_en": "1056–1948"
+     "time_en": "1056–1948",
+     "sub": [
+      {
+       "ref": "1:5-23",
+       "text": "יחוסי בני נח",
+       "text_de": "Die Geschlechtsregister der Söhne Noachs",
+       "blk": "מֵאָדָם וְעַד בְּנֵי יִשְׂרָאֵל 1:1-2:2",
+       "blk_de": "Von Adam bis zu den Kindern Israels 1:1-2:2"
+      },
+      {
+       "ref": "1:24-28",
+       "text": "שמות עשרת ראשי הדורות משם ועד אברהם",
+       "text_de": "Die Namen der zehn Häupter der Generationen von Sem bis Abraham",
+       "blk": "מֵאָדָם וְעַד בְּנֵי יִשְׂרָאֵל 1:1-2:2",
+       "blk_de": "Von Adam bis zu den Kindern Israels 1:1-2:2"
+      }
+     ]
     },
     {
      "ref": "1:28-34",
@@ -40,7 +65,16 @@
      "par_de": "Wiederholung von: 1. Mose 16:15, 1. Mose 21:1–3, 1. Mose 25:1–4, 1. Mose 25:12–15, 1. Mose 25:24–26",
      "par_en": "Repeats: Genesis 16:15, Genesis 21:1–3, Genesis 25:1–4, Genesis 25:12–15, Genesis 25:24–26",
      "time_de": "2034–2108",
-     "time_en": "2034–2108"
+     "time_en": "2034–2108",
+     "sub": [
+      {
+       "ref": "1:29-2:2",
+       "text": "יחוסי בני אברהם",
+       "text_de": "Die Geschlechtsregister der Söhne Abrahams",
+       "blk": "מֵאָדָם וְעַד בְּנֵי יִשְׂרָאֵל 1:1-2:2",
+       "blk_de": "Von Adam bis zu den Kindern Israels 1:1-2:2"
+      }
+     ]
     },
     {
      "ref": "1:35-54",
@@ -73,7 +107,72 @@
      "par_de": "Wiederholung von: 1. Mose 38, 1. Mose 46:12, Rut 4:18–22",
      "par_en": "Repeats: Genesis 38, Genesis 46:12, Ruth 4:18–22",
      "time_de": "2216–2854",
-     "time_en": "2216–2854"
+     "time_en": "2216–2854",
+     "sub": [
+      {
+       "ref": "2:3-5",
+       "text": "יחוסי בני יהודה ובני פרץ בנו",
+       "text_de": "Die Geschlechtsregister der Söhne Judas und seines Sohnes Perez",
+       "blk": "יְחוּסֵיהֶם שֶׁל בְּנֵי יְהוּדָה וְשֶׁל מַלְכֵי בֵּית דָּוִד 2:3-4:23",
+       "blk_de": "Die Geschlechtsregister der Söhne Judas und der Könige des Hauses David 2:3-4:23"
+      },
+      {
+       "ref": "2:6-8",
+       "text": "יחוסי בני זרח בן יהודה",
+       "text_de": "Die Geschlechtsregister der Söhne Serachs, des Sohnes Judas",
+       "blk": "יְחוּסֵיהֶם שֶׁל בְּנֵי יְהוּדָה וְשֶׁל מַלְכֵי בֵּית דָּוִד 2:3-4:23",
+       "blk_de": "Die Geschlechtsregister der Söhne Judas und der Könige des Hauses David 2:3-4:23"
+      },
+      {
+       "ref": "2:9-17",
+       "text": "יחוסי בני חצרון בן פרץ ויחוסי דוד בן ישי",
+       "text_de": "Die Geschlechtsregister der Söhne Hezrons, des Sohnes des Perez, und die Geschlechtsregister Davids, des Sohnes Isais",
+       "blk": "יְחוּסֵיהֶם שֶׁל בְּנֵי יְהוּדָה וְשֶׁל מַלְכֵי בֵּית דָּוִד 2:3-4:23",
+       "blk_de": "Die Geschlechtsregister der Söhne Judas und der Könige des Hauses David 2:3-4:23"
+      },
+      {
+       "ref": "2:18-20",
+       "text": "יחוסי כלב בן חצרון",
+       "text_de": "Die Geschlechtsregister Kalebs, des Sohnes Hezrons",
+       "blk": "יְחוּסֵיהֶם שֶׁל בְּנֵי יְהוּדָה וְשֶׁל מַלְכֵי בֵּית דָּוִד 2:3-4:23",
+       "blk_de": "Die Geschlechtsregister der Söhne Judas und der Könige des Hauses David 2:3-4:23"
+      },
+      {
+       "ref": "2:21-24",
+       "text": "יחוסי בני חצרון ו'בני מכיר'",
+       "text_de": "Die Geschlechtsregister der Söhne Hezrons und der „Söhne Machirs“",
+       "blk": "יְחוּסֵיהֶם שֶׁל בְּנֵי יְהוּדָה וְשֶׁל מַלְכֵי בֵּית דָּוִד 2:3-4:23",
+       "blk_de": "Die Geschlechtsregister der Söhne Judas und der Könige des Hauses David 2:3-4:23"
+      },
+      {
+       "ref": "2:25-33",
+       "text": "יחוסי בני ירחמאל בכור חצרון",
+       "text_de": "Die Geschlechtsregister der Söhne Jerachmeëls, des Erstgeborenen Hezrons",
+       "blk": "יְחוּסֵיהֶם שֶׁל בְּנֵי יְהוּדָה וְשֶׁל מַלְכֵי בֵּית דָּוִד 2:3-4:23",
+       "blk_de": "Die Geschlechtsregister der Söhne Judas und der Könige des Hauses David 2:3-4:23"
+      },
+      {
+       "ref": "2:34-41",
+       "text": "יחוסי אלישמע",
+       "text_de": "Die Geschlechtsregister Elischamas",
+       "blk": "יְחוּסֵיהֶם שֶׁל בְּנֵי יְהוּדָה וְשֶׁל מַלְכֵי בֵּית דָּוִד 2:3-4:23",
+       "blk_de": "Die Geschlechtsregister der Söhne Judas und der Könige des Hauses David 2:3-4:23"
+      },
+      {
+       "ref": "2:42-49",
+       "text": "יחוסי כלב בן חצרון אחי ירחמאל",
+       "text_de": "Die Geschlechtsregister Kalebs, des Sohnes Hezrons, des Bruders Jerachmeëls",
+       "blk": "יְחוּסֵיהֶם שֶׁל בְּנֵי יְהוּדָה וְשֶׁל מַלְכֵי בֵּית דָּוִד 2:3-4:23",
+       "blk_de": "Die Geschlechtsregister der Söhne Judas und der Könige des Hauses David 2:3-4:23"
+      },
+      {
+       "ref": "2:50-55",
+       "text": "יחוסי בני כלב בן חור 'בכור אפרתה'",
+       "text_de": "Die Geschlechtsregister der Söhne Kalebs, des Sohnes Hurs, „des Erstgeborenen von Efrata“",
+       "blk": "יְחוּסֵיהֶם שֶׁל בְּנֵי יְהוּדָה וְשֶׁל מַלְכֵי בֵּית דָּוִד 2:3-4:23",
+       "blk_de": "Die Geschlechtsregister der Söhne Judas und der Könige des Hauses David 2:3-4:23"
+      }
+     ]
     },
     {
      "ref": "3",
@@ -82,13 +181,66 @@
      "text_de": "Nachkommen Davids",
      "text_en": "Descendants of David",
      "par_de": "Wiederholung von: 2 Samuel 3:2–5, 2 Samuel 5:13–16\nwiederholt: 1 Chronik 14:3–7 (unten)",
-     "par_en": "Repeats: II Samuel 3:2–5, II Samuel 5:13–16\nRepeated: I Chronicles 14:3–7 (below)"
+     "par_en": "Repeats: II Samuel 3:2–5, II Samuel 5:13–16\nRepeated: I Chronicles 14:3–7 (below)",
+     "sub": [
+      {
+       "ref": "3",
+       "text": "יחוסי בית דוד ומלכי בית דוד",
+       "text_de": "Die Geschlechtsregister des Hauses David und der Könige des Hauses David",
+       "blk": "יְחוּסֵיהֶם שֶׁל בְּנֵי יְהוּדָה וְשֶׁל מַלְכֵי בֵּית דָּוִד 2:3-4:23",
+       "blk_de": "Die Geschlechtsregister der Söhne Judas und der Könige des Hauses David 2:3-4:23"
+      }
+     ]
     },
     {
      "ref": "4:1-23",
      "text": "תולדות יהודה ומעשיהם",
      "text_de": "Nachkommen Judas und ihre Taten",
-     "text_en": "Descendants of Judah and their deeds"
+     "text_en": "Descendants of Judah and their deeds",
+     "sub": [
+      {
+       "ref": "4:1-4",
+       "text": "המשך יחוסי בני כלב בן חור",
+       "text_de": "Fortsetzung der Geschlechtsregister der Söhne Kalebs, des Sohnes Hurs",
+       "blk": "יְחוּסֵיהֶם שֶׁל בְּנֵי יְהוּדָה וְשֶׁל מַלְכֵי בֵּית דָּוִד 2:3-4:23",
+       "blk_de": "Die Geschlechtsregister der Söhne Judas und der Könige des Hauses David 2:3-4:23"
+      },
+      {
+       "ref": "4:5-8",
+       "text": "יחוסי אשחור בן חצרון, אבי תקוע",
+       "text_de": "Die Geschlechtsregister Aschhurs, des Sohnes Hezrons, des Vaters von Tekoa",
+       "blk": "יְחוּסֵיהֶם שֶׁל בְּנֵי יְהוּדָה וְשֶׁל מַלְכֵי בֵּית דָּוִד 2:3-4:23",
+       "blk_de": "Die Geschlechtsregister der Söhne Judas und der Könige des Hauses David 2:3-4:23"
+      },
+      {
+       "ref": "4:9-10",
+       "text": "מעשה יעבץ",
+       "text_de": "Die Geschichte Jabez'",
+       "blk": "יְחוּסֵיהֶם שֶׁל בְּנֵי יְהוּדָה וְשֶׁל מַלְכֵי בֵּית דָּוִד 2:3-4:23",
+       "blk_de": "Die Geschlechtsregister der Söhne Judas und der Könige des Hauses David 2:3-4:23"
+      },
+      {
+       "ref": "4:11-12",
+       "text": "יחוסי אנשי רכה",
+       "text_de": "Die Geschlechtsregister der Männer von Recha",
+       "blk": "יְחוּסֵיהֶם שֶׁל בְּנֵי יְהוּדָה וְשֶׁל מַלְכֵי בֵּית דָּוִד 2:3-4:23",
+       "blk_de": "Die Geschlechtsregister der Söhne Judas und der Könige des Hauses David 2:3-4:23"
+      },
+      {
+       "ref": "4:13-20",
+       "text": "יחוסי בני קנז",
+       "text_de": "Die Geschlechtsregister der Söhne Kenas'",
+       "blk": "יְחוּסֵיהֶם שֶׁל בְּנֵי יְהוּדָה וְשֶׁל מַלְכֵי בֵּית דָּוִד 2:3-4:23",
+       "blk_de": "Die Geschlechtsregister der Söhne Judas und der Könige des Hauses David 2:3-4:23"
+      },
+      {
+       "ref": "4:21-23",
+       "text": "יחוסי בני שלה בן יהודה",
+       "text_de": "Die Geschlechtsregister der Söhne Schelas, des Sohnes Judas",
+       "blk": "יְחוּסֵיהֶם שֶׁל בְּנֵי יְהוּדָה וְשֶׁל מַלְכֵי בֵּית דָּוִד 2:3-4:23",
+       "blk_de": "Die Geschlechtsregister der Söhne Judas und der Könige des Hauses David 2:3-4:23"
+      }
+     ]
     },
     {
      "ref": "4:24-43",
@@ -103,7 +255,44 @@
      "ref": "5:1-26",
      "text": "ראובן וגד וחצי מנשה [שבטי עבר הירדן] - תולדותם ומעשיהם",
      "text_de": "Ruben, Gad und der halbe Stamm Manasse [Stämme jenseits des Jordan] – ihre Nachkommen und Taten",
-     "text_en": "Reuben, Gad and half of Manasseh [the tribes east of the Jordan] – their descendants and deeds"
+     "text_en": "Reuben, Gad and half of Manasseh [the tribes east of the Jordan] – their descendants and deeds",
+     "sub": [
+      {
+       "ref": "5:1-10",
+       "text": "יחוסי ראובן ונחלותיו",
+       "text_de": "Die Geschlechtsregister Rubens und sein Erbbesitz",
+       "blk": "יְחוּסֵי שִׁבְטֵי עֵבֶר הַיַּרְדֵּן וְנַחֲלוֹתֵיהֶם 5:1-26",
+       "blk_de": "Die Geschlechtsregister der Stämme jenseits des Jordan und ihre Erbbesitze 5:1-26"
+      },
+      {
+       "ref": "5:11-17",
+       "text": "יחוסי גד ונחלותיו",
+       "text_de": "Die Geschlechtsregister Gads und sein Erbbesitz",
+       "blk": "יְחוּסֵי שִׁבְטֵי עֵבֶר הַיַּרְדֵּן וְנַחֲלוֹתֵיהֶם 5:1-26",
+       "blk_de": "Die Geschlechtsregister der Stämme jenseits des Jordan und ihre Erbbesitze 5:1-26"
+      },
+      {
+       "ref": "5:18-22",
+       "text": "המלחמה המשתפת של שבטי עבר־הירדן בשכניהם",
+       "text_de": "Der gemeinsame Krieg der Stämme jenseits des Jordan gegen ihre Nachbarn",
+       "blk": "יְחוּסֵי שִׁבְטֵי עֵבֶר הַיַּרְדֵּן וְנַחֲלוֹתֵיהֶם 5:1-26",
+       "blk_de": "Die Geschlechtsregister der Stämme jenseits des Jordan und ihre Erbbesitze 5:1-26"
+      },
+      {
+       "ref": "5:23-25",
+       "text": "חצי שבט המנשה, ראשיו ונחלותיו",
+       "text_de": "Der halbe Stamm Manasse, seine Häupter und Erbbesitze",
+       "blk": "יְחוּסֵי שִׁבְטֵי עֵבֶר הַיַּרְדֵּן וְנַחֲלוֹתֵיהֶם 5:1-26",
+       "blk_de": "Die Geschlechtsregister der Stämme jenseits des Jordan und ihre Erbbesitze 5:1-26"
+      },
+      {
+       "ref": "5:25-26",
+       "text": "גלות שבטי עבר הירדן",
+       "text_de": "Die Verbannung der Stämme jenseits des Jordan",
+       "blk": "יְחוּסֵי שִׁבְטֵי עֵבֶר הַיַּרְדֵּן וְנַחֲלוֹתֵיהֶם 5:1-26",
+       "blk_de": "Die Geschlechtsregister der Stämme jenseits des Jordan und ihre Erbbesitze 5:1-26"
+      }
+     ]
     },
     {
      "ref": "5:27-6:15",
@@ -112,19 +301,60 @@
      "text_de": "Nachkommen der Söhne Levis – Gerschon, Kehat und Merari",
      "text_en": "Descendants of the sons of Levi – Gershon, Kohath and Merari",
      "par_de": "Wiederholung von: 2. Mose 6:16–25",
-     "par_en": "Repeats: Exodus 6:16–25"
+     "par_en": "Repeats: Exodus 6:16–25",
+     "sub": [
+      {
+       "ref": "5:27-41",
+       "text": "יחוסי הכהנים מבית פינחס בן אלעזר עד לאחרית ימי הבית הראשון",
+       "text_de": "Die Geschlechtsregister der Priester aus dem Haus des Pinhas, des Sohnes Eleasars, bis zum Ende der Zeit des Ersten Tempels",
+       "blk": "יְחוּסֵי הַלֵּוִי וְעָרָיו 5:27-6:66",
+       "blk_de": "Die Geschlechtsregister Levis und seine Städte 5:27-6:66"
+      },
+      {
+       "ref": "6:1-15",
+       "text": "יחוסי בני לוי למשפחותיהם",
+       "text_de": "Die Geschlechtsregister der Söhne Levis nach ihren Familien",
+       "blk": "יְחוּסֵי הַלֵּוִי וְעָרָיו 5:27-6:66",
+       "blk_de": "Die Geschlechtsregister Levis und seine Städte 5:27-6:66"
+      }
+     ]
     },
     {
      "ref": "6:16-33",
      "text": "הלויים המשוררים",
      "text_de": "Die levitischen Sänger",
-     "text_en": "The Levite singers"
+     "text_en": "The Levite singers",
+     "sub": [
+      {
+       "ref": "6:16-32",
+       "text": "מנוי המשוררים בני לוי לפני 'משכן אהל־מועד'",
+       "text_de": "Die Einsetzung der Sänger aus den Söhnen Levis vor der „Wohnung des Zeltes der Begegnung“",
+       "blk": "יְחוּסֵי הַלֵּוִי וְעָרָיו 5:27-6:66",
+       "blk_de": "Die Geschlechtsregister Levis und seine Städte 5:27-6:66"
+      },
+      {
+       "ref": "6:33-34",
+       "text": "עבודת שאר הלויים ועבודת הכהנים",
+       "text_de": "Der Dienst der übrigen Leviten und der Dienst der Priester",
+       "blk": "יְחוּסֵי הַלֵּוִי וְעָרָיו 5:27-6:66",
+       "blk_de": "Die Geschlechtsregister Levis und seine Städte 5:27-6:66"
+      }
+     ]
     },
     {
      "ref": "6:34-38",
      "text": "הכהנים המשמשים במזבח",
      "text_de": "Die am Altar dienenden Priester",
-     "text_en": "The priests serving at the altar"
+     "text_en": "The priests serving at the altar",
+     "sub": [
+      {
+       "ref": "6:35-38",
+       "text": "יחוסי הכהנים מבית אלעזר מימי המדבר עד לבנין הבית",
+       "text_de": "Die Geschlechtsregister der Priester aus dem Haus Eleasars von der Zeit der Wüste bis zum Bau des Tempels",
+       "blk": "יְחוּסֵי הַלֵּוִי וְעָרָיו 5:27-6:66",
+       "blk_de": "Die Geschlechtsregister Levis und seine Städte 5:27-6:66"
+      }
+     ]
     },
     {
      "ref": "6:39-66",
@@ -136,7 +366,23 @@
      "par_de": "Gebot: 4. Mose 35:1–8\nWiederholung von: Josua 21:1–40",
      "par_en": "Commandment: Numbers 35:1–8\nRepeats: Joshua 21:1–40",
      "time_de": "2503",
-     "time_en": "2503"
+     "time_en": "2503",
+     "sub": [
+      {
+       "ref": "6:39-45",
+       "text": "ערי הכהנים",
+       "text_de": "Die Städte der Priester",
+       "blk": "יְחוּסֵי הַלֵּוִי וְעָרָיו 5:27-6:66",
+       "blk_de": "Die Geschlechtsregister Levis und seine Städte 5:27-6:66"
+      },
+      {
+       "ref": "6:46-66",
+       "text": "מנין ערי הלויים למשפחותיהם",
+       "text_de": "Verzeichnis der Levitenstädte nach ihren Familien",
+       "blk": "יְחוּסֵי הַלֵּוִי וְעָרָיו 5:27-6:66",
+       "blk_de": "Die Geschlechtsregister Levis und seine Städte 5:27-6:66"
+      }
+     ]
     },
     {
      "ref": "7:1-5",
@@ -163,7 +409,37 @@
      "text_de": "Nachkommen Manasses und Ephraims und ihre Taten",
      "text_en": "Descendants of Manasseh and Ephraim and their deeds",
      "par_de": "Die getöteten Söhne Ephraims, ihre Auferweckung: Ezechiel 37 (nach manchen)",
-     "par_en": "The slain sons of Ephraim, their revival: Ezekiel 37 (according to some)"
+     "par_en": "The slain sons of Ephraim, their revival: Ezekiel 37 (according to some)",
+     "sub": [
+      {
+       "ref": "7:14-19",
+       "text": "יחוסי בני מנשה",
+       "text_de": "Die Geschlechtsregister der Söhne Manasses",
+       "blk": "יְחוּסֵי בְּנֵי יוֹסֵף וְיִשּׁוּבֵיהֶם 7:14-29",
+       "blk_de": "Die Geschlechtsregister der Söhne Josefs und ihre Wohnsitze 7:14-29"
+      },
+      {
+       "ref": "7:20-24",
+       "text": "יחוסי בני אפרים",
+       "text_de": "Die Geschlechtsregister der Söhne Efraïms",
+       "blk": "יְחוּסֵי בְּנֵי יוֹסֵף וְיִשּׁוּבֵיהֶם 7:14-29",
+       "blk_de": "Die Geschlechtsregister der Söhne Josefs und ihre Wohnsitze 7:14-29"
+      },
+      {
+       "ref": "7:25-27",
+       "text": "יחוסי יהושע בן נון",
+       "text_de": "Die Geschlechtsregister Josuas, des Sohnes Nuns",
+       "blk": "יְחוּסֵי בְּנֵי יוֹסֵף וְיִשּׁוּבֵיהֶם 7:14-29",
+       "blk_de": "Die Geschlechtsregister der Söhne Josefs und ihre Wohnsitze 7:14-29"
+      },
+      {
+       "ref": "7:28-29",
+       "text": "תחומי נחלות אפרים ומנשה",
+       "text_de": "Die Grenzen der Erbbesitze Efraïms und Manasses",
+       "blk": "יְחוּסֵי בְּנֵי יוֹסֵף וְיִשּׁוּבֵיהֶם 7:14-29",
+       "blk_de": "Die Geschlechtsregister der Söhne Josefs und ihre Wohnsitze 7:14-29"
+      }
+     ]
     },
     {
      "ref": "7:30-40",
@@ -178,7 +454,79 @@
      "text_de": "Nachkommen Benjamins und ihre Taten",
      "text_en": "Descendants of Benjamin and their deeds",
      "par_de": "wiederholt (Stammbaum König Sauls): 1 Chronik 9:35–44 (unten)",
-     "par_en": "Repeated (genealogy of King Saul): I Chronicles 9:35–44 (below)"
+     "par_en": "Repeated (genealogy of King Saul): I Chronicles 9:35–44 (below)",
+     "sub": [
+      {
+       "ref": "8:1-2",
+       "text": "שמות ראשי המשפחות לבנימין",
+       "text_de": "Die Namen der Familienhäupter Benjamins",
+       "blk": "פָּרָשָׁה שְׁנִיָּה שֶׁל יְחוּסֵי בִנְיָמִין וּפָרָשָׁה רִאשׁוֹנָה שֶׁל יְחוּסֵי בֵּית שָׁאוּל 8:1-9:1",
+       "blk_de": "Zweiter Abschnitt der Geschlechtsregister Benjamins und erster Abschnitt der Geschlechtsregister des Hauses Saul 8:1-9:1"
+      },
+      {
+       "ref": "8:3",
+       "text": "בני בלע בכור בנימין",
+       "text_de": "Die Söhne Belas, des Erstgeborenen Benjamins",
+       "blk": "פָּרָשָׁה שְׁנִיָּה שֶׁל יְחוּסֵי בִנְיָמִין וּפָרָשָׁה רִאשׁוֹנָה שֶׁל יְחוּסֵי בֵּית שָׁאוּל 8:1-9:1",
+       "blk_de": "Zweiter Abschnitt der Geschlechtsregister Benjamins und erster Abschnitt der Geschlechtsregister des Hauses Saul 8:1-9:1"
+      },
+      {
+       "ref": "8:4-7",
+       "text": "בני אביהוד (=אחוד) בן בלע ומעשיהם",
+       "text_de": "Die Söhne Abihuds (= Echuds), des Sohnes Belas, und ihre Taten",
+       "blk": "פָּרָשָׁה שְׁנִיָּה שֶׁל יְחוּסֵי בִנְיָמִין וּפָרָשָׁה רִאשׁוֹנָה שֶׁל יְחוּסֵי בֵּית שָׁאוּל 8:1-9:1",
+       "blk_de": "Zweiter Abschnitt der Geschlechtsregister Benjamins und erster Abschnitt der Geschlechtsregister des Hauses Saul 8:1-9:1"
+      },
+      {
+       "ref": "8:8-13",
+       "text": "יחוסי בני שחרים ומעשיהם",
+       "text_de": "Die Geschlechtsregister der Söhne Schacharajims und ihre Taten",
+       "blk": "פָּרָשָׁה שְׁנִיָּה שֶׁל יְחוּסֵי בִנְיָמִין וּפָרָשָׁה רִאשׁוֹנָה שֶׁל יְחוּסֵי בֵּית שָׁאוּל 8:1-9:1",
+       "blk_de": "Zweiter Abschnitt der Geschlechtsregister Benjamins und erster Abschnitt der Geschlechtsregister des Hauses Saul 8:1-9:1"
+      },
+      {
+       "ref": "8:14-16",
+       "text": "בני בריעה",
+       "text_de": "Die Söhne Berias",
+       "blk": "פָּרָשָׁה שְׁנִיָּה שֶׁל יְחוּסֵי בִנְיָמִין וּפָרָשָׁה רִאשׁוֹנָה שֶׁל יְחוּסֵי בֵּית שָׁאוּל 8:1-9:1",
+       "blk_de": "Zweiter Abschnitt der Geschlechtsregister Benjamins und erster Abschnitt der Geschlechtsregister des Hauses Saul 8:1-9:1"
+      },
+      {
+       "ref": "8:17-18",
+       "text": "הרשימה השניה של בני אלפעל",
+       "text_de": "Die zweite Liste der Söhne Elpaals",
+       "blk": "פָּרָשָׁה שְׁנִיָּה שֶׁל יְחוּסֵי בִנְיָמִין וּפָרָשָׁה רִאשׁוֹנָה שֶׁל יְחוּסֵי בֵּית שָׁאוּל 8:1-9:1",
+       "blk_de": "Zweiter Abschnitt der Geschlechtsregister Benjamins und erster Abschnitt der Geschlechtsregister des Hauses Saul 8:1-9:1"
+      },
+      {
+       "ref": "8:19-21",
+       "text": "בני שמעי",
+       "text_de": "Die Söhne Schimis",
+       "blk": "פָּרָשָׁה שְׁנִיָּה שֶׁל יְחוּסֵי בִנְיָמִין וּפָרָשָׁה רִאשׁוֹנָה שֶׁל יְחוּסֵי בֵּית שָׁאוּל 8:1-9:1",
+       "blk_de": "Zweiter Abschnitt der Geschlechtsregister Benjamins und erster Abschnitt der Geschlechtsregister des Hauses Saul 8:1-9:1"
+      },
+      {
+       "ref": "8:22-25",
+       "text": "בני ששק",
+       "text_de": "Die Söhne Schaschaks",
+       "blk": "פָּרָשָׁה שְׁנִיָּה שֶׁל יְחוּסֵי בִנְיָמִין וּפָרָשָׁה רִאשׁוֹנָה שֶׁל יְחוּסֵי בֵּית שָׁאוּל 8:1-9:1",
+       "blk_de": "Zweiter Abschnitt der Geschlechtsregister Benjamins und erster Abschnitt der Geschlechtsregister des Hauses Saul 8:1-9:1"
+      },
+      {
+       "ref": "8:26-27",
+       "text": "בני ירחם",
+       "text_de": "Die Söhne Jerochams",
+       "blk": "פָּרָשָׁה שְׁנִיָּה שֶׁל יְחוּסֵי בִנְיָמִין וּפָרָשָׁה רִאשׁוֹנָה שֶׁל יְחוּסֵי בֵּית שָׁאוּל 8:1-9:1",
+       "blk_de": "Zweiter Abschnitt der Geschlechtsregister Benjamins und erster Abschnitt der Geschlechtsregister des Hauses Saul 8:1-9:1"
+      },
+      {
+       "ref": "9:1",
+       "text": "יחוסי בית שאול (כט-מ) וחתימה לפרקי היוחסין",
+       "text_de": "Die Geschlechtsregister des Hauses Saul (V. 29-40) und Schluss der Geschlechtsregister",
+       "blk": "פָּרָשָׁה שְׁנִיָּה שֶׁל יְחוּסֵי בִנְיָמִין וּפָרָשָׁה רִאשׁוֹנָה שֶׁל יְחוּסֵי בֵּית שָׁאוּל 8:1-9:1",
+       "blk_de": "Zweiter Abschnitt der Geschlechtsregister Benjamins und erster Abschnitt der Geschlechtsregister des Hauses Saul 8:1-9:1"
+      }
+     ]
     },
     {
      "ref": "9:2-34",
@@ -190,7 +538,58 @@
      "place_de": "Jerusalem",
      "place_en": "Jerusalem",
      "par_de": "Wiederholung von: Nehemia 11:1–24",
-     "par_en": "Repeats: Nehemiah 11:1–24"
+     "par_en": "Repeats: Nehemiah 11:1–24",
+     "sub": [
+      {
+       "ref": "9:4-6",
+       "text": "יושבי ירושלים מבני יהודה",
+       "text_de": "Die Einwohner Jerusalems aus den Söhnen Judas",
+       "blk": "יוֹשְׁבֵי יְרוּשָׁלַיִם הָרִאשׁוֹנִים 9:2-34",
+       "blk_de": "Die ersten Einwohner Jerusalems 9:2-34"
+      },
+      {
+       "ref": "9:7-9",
+       "text": "יושבי ירושלים מבין בני בנימין",
+       "text_de": "Die Einwohner Jerusalems aus den Söhnen Benjamins",
+       "blk": "יוֹשְׁבֵי יְרוּשָׁלַיִם הָרִאשׁוֹנִים 9:2-34",
+       "blk_de": "Die ersten Einwohner Jerusalems 9:2-34"
+      },
+      {
+       "ref": "9:10-13",
+       "text": "יושבי ירושלים מן הכהנים",
+       "text_de": "Die Einwohner Jerusalems aus den Priestern",
+       "blk": "יוֹשְׁבֵי יְרוּשָׁלַיִם הָרִאשׁוֹנִים 9:2-34",
+       "blk_de": "Die ersten Einwohner Jerusalems 9:2-34"
+      },
+      {
+       "ref": "9:14-16",
+       "text": "יושבי ירושלים מן הלויים המשוררים",
+       "text_de": "Die Einwohner Jerusalems aus den levitischen Sängern",
+       "blk": "יוֹשְׁבֵי יְרוּשָׁלַיִם הָרִאשׁוֹנִים 9:2-34",
+       "blk_de": "Die ersten Einwohner Jerusalems 9:2-34"
+      },
+      {
+       "ref": "9:17-18",
+       "text": "יושבי ירושלים מן הלויים השוערים",
+       "text_de": "Die Einwohner Jerusalems aus den levitischen Torhütern",
+       "blk": "יוֹשְׁבֵי יְרוּשָׁלַיִם הָרִאשׁוֹנִים 9:2-34",
+       "blk_de": "Die ersten Einwohner Jerusalems 9:2-34"
+      },
+      {
+       "ref": "9:19-27",
+       "text": "עבודת השוערים ודרכי ארגונם",
+       "text_de": "Der Dienst der Torhüter und die Art ihrer Ordnung",
+       "blk": "יוֹשְׁבֵי יְרוּשָׁלַיִם הָרִאשׁוֹנִים 9:2-34",
+       "blk_de": "Die ersten Einwohner Jerusalems 9:2-34"
+      },
+      {
+       "ref": "9:28-33",
+       "text": "עבודת שאר הלויים",
+       "text_de": "Der Dienst der übrigen Leviten",
+       "blk": "יוֹשְׁבֵי יְרוּשָׁלַיִם הָרִאשׁוֹנִים 9:2-34",
+       "blk_de": "Die ersten Einwohner Jerusalems 9:2-34"
+      }
+     ]
     },
     {
      "ref": "9:35-44",
@@ -199,7 +598,16 @@
      "text_de": "Nachkommen Benjamins",
      "text_en": "Descendants of Benjamin",
      "par_de": "wiederholt (Stammbaum König Sauls): 1 Chronik 8:29–40 (oben)",
-     "par_en": "Repeated (genealogy of King Saul): I Chronicles 8:29–40 (above)"
+     "par_en": "Repeated (genealogy of King Saul): I Chronicles 8:29–40 (above)",
+     "sub": [
+      {
+       "ref": "9:35-44",
+       "text": "יחוסי בית שאול",
+       "text_de": "Die Geschlechtsregister des Hauses Saul",
+       "blk": "יְחוּסֵי בֵית שָׁאוּל וּמוֹת שָׁאוּל וּבָנָיו 9:35-10:14",
+       "blk_de": "Die Geschlechtsregister des Hauses Saul sowie der Tod Sauls und seiner Söhne 9:35-10:14"
+      }
+     ]
     }
    ],
    "head_de": "Genealogien",
@@ -221,7 +629,37 @@
      "par_de": "Wiederholung von: 1 Samuel 31",
      "par_en": "Repeats: I Samuel 31",
      "time_de": "28. Elul 2884",
-     "time_en": "28 Elul 2884"
+     "time_en": "28 Elul 2884",
+     "sub": [
+      {
+       "ref": "10:1-7",
+       "text": "מנוסת ישראל ומות שאול ובניו",
+       "text_de": "Die Flucht Israels und der Tod Sauls und seiner Söhne",
+       "blk": "יְחוּסֵי בֵית שָׁאוּל וּמוֹת שָׁאוּל וּבָנָיו 9:35-10:14",
+       "blk_de": "Die Geschlechtsregister des Hauses Saul sowie der Tod Sauls und seiner Söhne 9:35-10:14"
+      },
+      {
+       "ref": "10:8-10",
+       "text": "הפלשתים מבשרים על נצחונם לבני עמם",
+       "text_de": "Die Philister verkünden ihrem Volk ihren Sieg",
+       "blk": "יְחוּסֵי בֵית שָׁאוּל וּמוֹת שָׁאוּל וּבָנָיו 9:35-10:14",
+       "blk_de": "Die Geschlechtsregister des Hauses Saul sowie der Tod Sauls und seiner Söhne 9:35-10:14"
+      },
+      {
+       "ref": "10:11-12",
+       "text": "אנשי יבש גלעד קוברים את עצמות שאול ובניו בעירם",
+       "text_de": "Die Männer von Jabesch in Gilead begraben die Gebeine Sauls und seiner Söhne in ihrer Stadt",
+       "blk": "יְחוּסֵי בֵית שָׁאוּל וּמוֹת שָׁאוּל וּבָנָיו 9:35-10:14",
+       "blk_de": "Die Geschlechtsregister des Hauses Saul sowie der Tod Sauls und seiner Söhne 9:35-10:14"
+      },
+      {
+       "ref": "10:13-14",
+       "text": "על מה ולמה הוסבה המלוכה משאול",
+       "text_de": "Warum und weshalb das Königtum von Saul weggenommen wurde",
+       "blk": "יְחוּסֵי בֵית שָׁאוּל וּמוֹת שָׁאוּל וּבָנָיו 9:35-10:14",
+       "blk_de": "Die Geschlechtsregister des Hauses Saul sowie der Tod Sauls und seiner Söhne 9:35-10:14"
+      }
+     ]
     },
     {
      "ref": "11:1-9",
@@ -233,7 +671,23 @@
      "place_de": "Hebron, Jerusalem, Burg Zion",
      "place_en": "Hebron, Jerusalem, Stronghold of Zion",
      "par_de": "Wiederholung von: 2 Samuel 5:1–10",
-     "par_en": "Repeats: II Samuel 5:1–10"
+     "par_en": "Repeats: II Samuel 5:1–10",
+     "sub": [
+      {
+       "ref": "11:1-3",
+       "text": "משיחת דוד למלך על כל ישראל",
+       "text_de": "Die Salbung Davids zum König über ganz Israel",
+       "blk": "מַלְכוּת דָּוִד עַל כָּל יִשְׂרָאֵל וְכִבּוּשׁ יְרוּשָׁלַיִם וּבִנְיָנָהּ 11:1-9",
+       "blk_de": "Das Königtum Davids über ganz Israel sowie die Eroberung und der Ausbau Jerusalems 11:1-9"
+      },
+      {
+       "ref": "11:4-9",
+       "text": "כבוש ירושלים מידי היבוסי ובנינה",
+       "text_de": "Die Eroberung Jerusalems von den Jebusitern und sein Ausbau",
+       "blk": "מַלְכוּת דָּוִד עַל כָּל יִשְׂרָאֵל וְכִבּוּשׁ יְרוּשָׁלַיִם וּבִנְיָנָהּ 11:1-9",
+       "blk_de": "Das Königtum Davids über ganz Israel sowie die Eroberung und der Ausbau Jerusalems 11:1-9"
+      }
+     ]
     },
     {
      "ref": "11:10-47",
@@ -242,7 +696,51 @@
      "text_de": "Die Helden des Hauses Davids",
      "text_en": "The warriors of David's house",
      "par_de": "Wiederholung von: 2 Samuel 23:8–39",
-     "par_en": "Repeats: II Samuel 23:8–39"
+     "par_en": "Repeats: II Samuel 23:8–39",
+     "sub": [
+      {
+       "ref": "11:11",
+       "text": "'השלושה' הראשונים ומעשי גבורתם",
+       "text_de": "Die ersten „Drei“ und ihre Heldentaten",
+       "blk": "רָאשֵׁי הַגִּבּוֹרִים אֲשֶׁר לְדָוִד 11:10-47",
+       "blk_de": "Die Häupter der Helden Davids 11:10-47"
+      },
+      {
+       "ref": "11:15-20",
+       "text": "מעשה השלושה מביאי המים",
+       "text_de": "Die Geschichte der drei Wasserholer",
+       "blk": "רָאשֵׁי הַגִּבּוֹרִים אֲשֶׁר לְדָוִד 11:10-47",
+       "blk_de": "Die Häupter der Helden Davids 11:10-47"
+      },
+      {
+       "ref": "11:20-21",
+       "text": "מעשה אבשי אחי-יואב",
+       "text_de": "Die Geschichte Abischais, des Bruders Joabs",
+       "blk": "רָאשֵׁי הַגִּבּוֹרִים אֲשֶׁר לְדָוִד 11:10-47",
+       "blk_de": "Die Häupter der Helden Davids 11:10-47"
+      },
+      {
+       "ref": "11:22-25",
+       "text": "מעשה בניה בן-יהוידע",
+       "text_de": "Die Geschichte Benajas, des Sohnes Jojadas",
+       "blk": "רָאשֵׁי הַגִּבּוֹרִים אֲשֶׁר לְדָוִד 11:10-47",
+       "blk_de": "Die Häupter der Helden Davids 11:10-47"
+      },
+      {
+       "ref": "11:26-41",
+       "text": "שמות גבורי החילים, שנמנו עם 'השלושים' הראשונים",
+       "text_de": "Die Namen der tapferen Krieger, die zu den ersten „Dreißig“ gezählt wurden",
+       "blk": "רָאשֵׁי הַגִּבּוֹרִים אֲשֶׁר לְדָוִד 11:10-47",
+       "blk_de": "Die Häupter der Helden Davids 11:10-47"
+      },
+      {
+       "ref": "11:41-47",
+       "text": "שמות הגבורים הנוספים",
+       "text_de": "Die Namen der weiteren Helden",
+       "blk": "רָאשֵׁי הַגִּבּוֹרִים אֲשֶׁר לְדָוִד 11:10-47",
+       "blk_de": "Die Häupter der Helden Davids 11:10-47"
+      }
+     ]
     },
     {
      "ref": "12",
@@ -251,7 +749,37 @@
      "text_de": "Helden aus mehreren Stämmen, die ihm in seinen Kriegen halfen",
      "text_en": "Warriors from several tribes who helped him in his wars",
      "par_de": "Siehe auch oben: 1 Chronik 11:10–47",
-     "par_en": "See also above: I Chronicles 11:10–47"
+     "par_en": "See also above: I Chronicles 11:10–47",
+     "sub": [
+      {
+       "ref": "12:2-8",
+       "text": "הגבורים 'מאחי שאול' שנספחו אל דוד בהיותו בציקלג",
+       "text_de": "Die Helden „aus den Brüdern Sauls“, die sich David anschlossen, als er in Ziklag war",
+       "blk": "הַגִּבּוֹרִים הַנִּסְפָּחִים לְדָוִד בִּהְיוֹתוֹ עָצוּר מִפְּנֵי שָׁאוּל 12:1-23",
+       "blk_de": "Die Helden, die sich David anschlossen, als er vor Saul eingeschlossen war 12:1-23"
+      },
+      {
+       "ref": "12:9-16",
+       "text": "הגבורים מבני גד שנספחו אל דוד בהיותו 'במצד מדברה'",
+       "text_de": "Die Helden aus den Söhnen Gads, die sich David anschlossen, als er „in der Bergfeste in der Wüste“ war",
+       "blk": "הַגִּבּוֹרִים הַנִּסְפָּחִים לְדָוִד בִּהְיוֹתוֹ עָצוּר מִפְּנֵי שָׁאוּל 12:1-23",
+       "blk_de": "Die Helden, die sich David anschlossen, als er vor Saul eingeschlossen war 12:1-23"
+      },
+      {
+       "ref": "12:17-19",
+       "text": "הגבורים מן בני בנימין ויהודה שנספחו אל דוד בהיותו 'במצד'",
+       "text_de": "Die Helden aus den Söhnen Benjamins und Judas, die sich David anschlossen, als er „in der Bergfeste“ war",
+       "blk": "הַגִּבּוֹרִים הַנִּסְפָּחִים לְדָוִד בִּהְיוֹתוֹ עָצוּר מִפְּנֵי שָׁאוּל 12:1-23",
+       "blk_de": "Die Helden, die sich David anschlossen, als er vor Saul eingeschlossen war 12:1-23"
+      },
+      {
+       "ref": "12:20-22",
+       "text": "הנספחים אל דוד מן בני מנשה בלכתו חזרה אל ציקלג",
+       "text_de": "Die aus den Söhnen Manasses, die sich David anschlossen, als er nach Ziklag zurückkehrte",
+       "blk": "הַגִּבּוֹרִים הַנִּסְפָּחִים לְדָוִד בִּהְיוֹתוֹ עָצוּר מִפְּנֵי שָׁאוּל 12:1-23",
+       "blk_de": "Die Helden, die sich David anschlossen, als er vor Saul eingeschlossen war 12:1-23"
+      }
+     ]
     },
     {
      "ref": "13",
@@ -266,7 +794,16 @@
      "par_de": "Wiederholung von: 2 Samuel 6:1–11",
      "par_en": "Repeats: II Samuel 6:1–11",
      "time_de": "2891",
-     "time_en": "2891"
+     "time_en": "2891",
+     "sub": [
+      {
+       "ref": "13",
+       "text": "העלאתו הראשונה של הארון לירושלים",
+       "text_de": "Die erste Heraufführung der Lade nach Jerusalem",
+       "blk": "עִיר הַקֹּדֶשׁ וְהַמִּקְדָּשׁ וּמַלְכוּת בֵּית דָּוִיד 13-17",
+       "blk_de": "Die heilige Stadt, das Heiligtum und das Königtum des Hauses David 13-17"
+      }
+     ]
     },
     {
      "ref": "14:1-7",
@@ -278,7 +815,23 @@
      "place_de": "Jerusalem",
      "place_en": "Jerusalem",
      "par_de": "Wiederholung von: 2 Samuel 5:11–16\nErweiterung: 1 Chronik 3 (oben)",
-     "par_en": "Repeats: II Samuel 5:11–16\nExpansion: I Chronicles 3 (above)"
+     "par_en": "Repeats: II Samuel 5:11–16\nExpansion: I Chronicles 3 (above)",
+     "sub": [
+      {
+       "ref": "14:1-2",
+       "text": "חירם מלך צור בונה בית ארזים לדוד בירושלים",
+       "text_de": "Hiram, der König von Tyrus, baut David in Jerusalem ein Haus aus Zedernholz",
+       "blk": "עִיר הַקֹּדֶשׁ וְהַמִּקְדָּשׁ וּמַלְכוּת בֵּית דָּוִיד 13-17",
+       "blk_de": "Die heilige Stadt, das Heiligtum und das Königtum des Hauses David 13-17"
+      },
+      {
+       "ref": "14:3-7",
+       "text": "שמות הבנים הילודים לדוד בירושלים",
+       "text_de": "Die Namen der David in Jerusalem geborenen Söhne",
+       "blk": "עִיר הַקֹּדֶשׁ וְהַמִּקְדָּשׁ וּמַלְכוּת בֵּית דָּוִיד 13-17",
+       "blk_de": "Die heilige Stadt, das Heiligtum und das Königtum des Hauses David 13-17"
+      }
+     ]
     },
     {
      "ref": "14:8-17",
@@ -290,7 +843,16 @@
      "place_de": "Tal Refaim",
      "place_en": "Valley of Rephaim",
      "par_de": "Wiederholung von: 2 Samuel 5:17–25",
-     "par_en": "Repeats: II Samuel 5:17–25"
+     "par_en": "Repeats: II Samuel 5:17–25",
+     "sub": [
+      {
+       "ref": "14:8-15:2",
+       "text": "מלחמות דוד המלך עם הפלשתים והכנת מקום לארון ה'",
+       "text_de": "Die Kriege König Davids mit den Philistern und die Bereitung eines Ortes für die Lade des HERRN",
+       "blk": "עִיר הַקֹּדֶשׁ וְהַמִּקְדָּשׁ וּמַלְכוּת בֵּית דָּוִיד 13-17",
+       "blk_de": "Die heilige Stadt, das Heiligtum und das Königtum des Hauses David 13-17"
+      }
+     ]
     }
    ],
    "head_de": "Das Königtum Davids",
@@ -312,13 +874,31 @@
      "par_de": "Fortsetzung von: 1 Chronik 13 (oben)\nWiederholung und Erweiterung von: 2 Samuel 6:12–23",
      "par_en": "Continuation of: I Chronicles 13 (above)\nRepeats and expands on: II Samuel 6:12–23",
      "time_de": "2891",
-     "time_en": "2891"
+     "time_en": "2891",
+     "sub": [
+      {
+       "ref": "15:3-16:4",
+       "text": "העלאתו השניה של הארון לעיר דוד",
+       "text_de": "Die zweite Heraufführung der Lade in die Stadt Davids",
+       "blk": "עִיר הַקֹּדֶשׁ וְהַמִּקְדָּשׁ וּמַלְכוּת בֵּית דָּוִיד 13-17",
+       "blk_de": "Die heilige Stadt, das Heiligtum und das Königtum des Hauses David 13-17"
+      }
+     ]
     },
     {
      "ref": "16:4-7",
      "text": "מינוי משוררים",
      "text_de": "Ernennung von Sängern",
-     "text_en": "Appointment of singers"
+     "text_en": "Appointment of singers",
+     "sub": [
+      {
+       "ref": "16:5-43",
+       "text": "סדרי העבודה - ובכללם שיר של תמיד - ליד הארון בירושלים וליד המשכן בגבעון",
+       "text_de": "Die Ordnung des Dienstes, einschließlich des beständigen Gesangs, bei der Lade in Jerusalem und bei der Wohnung in Gibeon",
+       "blk": "עִיר הַקֹּדֶשׁ וְהַמִּקְדָּשׁ וּמַלְכוּת בֵּית דָּוִיד 13-17",
+       "blk_de": "Die heilige Stadt, das Heiligtum und das Königtum des Hauses David 13-17"
+      }
+     ]
     },
     {
      "ref": "16:8-36",
@@ -345,7 +925,30 @@
      "place_de": "Jerusalem",
      "place_en": "Jerusalem",
      "par_de": "Wiederholung von: 2 Samuel 7:1–7\nGebot: 5. Mose 12:4–14 (nach manchen)\nSein Gebet aus jener Zeit: Psalmen 30 (nach manchen)",
-     "par_en": "Repeats: II Samuel 7:1–7\nCommandment: Deuteronomy 12:4–14 (according to some)\nHis prayer at that time: Psalms 30 (according to some)"
+     "par_en": "Repeats: II Samuel 7:1–7\nCommandment: Deuteronomy 12:4–14 (according to some)\nHis prayer at that time: Psalms 30 (according to some)",
+     "sub": [
+      {
+       "ref": "17:1-2",
+       "text": "דוד מבקש לבנות בית לה'",
+       "text_de": "David möchte dem HERRN ein Haus bauen",
+       "blk": "מִשְׁאֶלֶת דָּוִד לִבְנוֹת בֵּית עוֹלָמִים לַה' וְהַבְטָחַת ה' לְכוֹנֵן אֶת מַלְכוּת בֵּית דָּוִד לְעוֹלָם 17",
+       "blk_de": "Davids Wunsch, dem HERRN ein ewiges Haus zu bauen, und die Verheißung des HERRN, das Königtum des Hauses David für immer zu festigen 17"
+      },
+      {
+       "ref": "17",
+       "text": "משאלת דוד לבנות בית עולמים לה' בירושלים והבטחת ה' לכונן את מלכות בית דוד לעולם",
+       "text_de": "Davids Wunsch, dem HERRN in Jerusalem ein ewiges Haus zu bauen, und die Verheißung des HERRN, das Königtum des Hauses David für immer zu festigen",
+       "blk": "עִיר הַקֹּדֶשׁ וְהַמִּקְדָּשׁ וּמַלְכוּת בֵּית דָּוִיד 13-17",
+       "blk_de": "Die heilige Stadt, das Heiligtum und das Königtum des Hauses David 13-17"
+      },
+      {
+       "ref": "17:3-15",
+       "text": "חזון נתן",
+       "text_de": "Die Vision Natans",
+       "blk": "מִשְׁאֶלֶת דָּוִד לִבְנוֹת בֵּית עוֹלָמִים לַה' וְהַבְטָחַת ה' לְכוֹנֵן אֶת מַלְכוּת בֵּית דָּוִד לְעוֹלָם 17",
+       "blk_de": "Davids Wunsch, dem HERRN ein ewiges Haus zu bauen, und die Verheißung des HERRN, das Königtum des Hauses David für immer zu festigen 17"
+      }
+     ]
     },
     {
      "ref": "17:7-27",
@@ -354,7 +957,16 @@
      "text_de": "Antwort des Herrn, Verheißung des Königtums für seine Nachkommen auf ewig",
      "text_en": "The Lord's reply, the promise of kingship to his descendants forever",
      "par_de": "Wiederholung von: 2 Samuel 7:8–29\nerwähnt: 1 Könige 11:34–36, Psalmen 89, Psalmen 132:11–12\nSegen darüber: 1. Mose 49:10",
-     "par_en": "Repeats: II Samuel 7:8–29\nMentioned: I Kings 11:34–36, Psalms 89, Psalms 132:11–12\nBlessing about this: Genesis 49:10"
+     "par_en": "Repeats: II Samuel 7:8–29\nMentioned: I Kings 11:34–36, Psalms 89, Psalms 132:11–12\nBlessing about this: Genesis 49:10",
+     "sub": [
+      {
+       "ref": "17:16-27",
+       "text": "תפלת דוד",
+       "text_de": "Davids Gebet",
+       "blk": "מִשְׁאֶלֶת דָּוִד לִבְנוֹת בֵּית עוֹלָמִים לַה' וְהַבְטָחַת ה' לְכוֹנֵן אֶת מַלְכוּת בֵּית דָּוִד לְעוֹלָם 17",
+       "blk_de": "Davids Wunsch, dem HERRN ein ewiges Haus zu bauen, und die Verheißung des HERRN, das Königtum des Hauses David für immer zu festigen 17"
+      }
+     ]
     }
    ],
    "head_de": "Die Heraufführung der Lade nach Jerusalem",
@@ -373,7 +985,44 @@
      "place_de": "die eroberten Orte",
      "place_en": "the conquered places",
      "par_de": "Wiederholung von: 2 Samuel 8:1–14\nFortsetzung des Themas: 1 Könige 11:14–22",
-     "par_en": "Repeats: II Samuel 8:1–14\nContinuation of the topic: I Kings 11:14–22"
+     "par_en": "Repeats: II Samuel 8:1–14\nContinuation of the topic: I Kings 11:14–22",
+     "sub": [
+      {
+       "ref": "18:1",
+       "text": "הכנעת הפלשתים, וכבוש גת ובנותיה",
+       "text_de": "Die Unterwerfung der Philister und die Eroberung von Gat und seinen Tochterstädten",
+       "blk": "דָּוִד מַרְחִיב אֶת תְּחוּמֵי הַמַּמְלָכָה וּמְאַרְגְּנָהּ 18-20",
+       "blk_de": "David erweitert die Grenzen des Reiches und ordnet es 18-20"
+      },
+      {
+       "ref": "18:2-8",
+       "text": "כבוש מואב וארם",
+       "text_de": "Die Eroberung Moabs und Arams",
+       "blk": "דָּוִד מַרְחִיב אֶת תְּחוּמֵי הַמַּמְלָכָה וּמְאַרְגְּנָהּ 18-20",
+       "blk_de": "David erweitert die Grenzen des Reiches und ordnet es 18-20"
+      },
+      {
+       "ref": "18:9-10",
+       "text": "תעו מלך חמת שואל בשלום דוד",
+       "text_de": "Toï, der König von Hamat, erkundigt sich nach Davids Wohlergehen",
+       "blk": "דָּוִד מַרְחִיב אֶת תְּחוּמֵי הַמַּמְלָכָה וּמְאַרְגְּנָהּ 18-20",
+       "blk_de": "David erweitert die Grenzen des Reiches und ordnet es 18-20"
+      },
+      {
+       "ref": "18:11",
+       "text": "הקדשת שלל המלחמות לה'",
+       "text_de": "Die Weihung der Kriegsbeute für den HERRN",
+       "blk": "דָּוִד מַרְחִיב אֶת תְּחוּמֵי הַמַּמְלָכָה וּמְאַרְגְּנָהּ 18-20",
+       "blk_de": "David erweitert die Grenzen des Reiches und ordnet es 18-20"
+      },
+      {
+       "ref": "18:12-13",
+       "text": "כבוש אדום",
+       "text_de": "Die Eroberung Edoms",
+       "blk": "דָּוִד מַרְחִיב אֶת תְּחוּמֵי הַמַּמְלָכָה וּמְאַרְגְּנָהּ 18-20",
+       "blk_de": "David erweitert die Grenzen des Reiches und ordnet es 18-20"
+      }
+     ]
     },
     {
      "ref": "18:14-17",
@@ -382,7 +1031,16 @@
      "text_de": "Davids Oberste",
      "text_en": "David's officers",
      "par_de": "Wiederholung von: 2 Samuel 8:15–18\nSiehe auch: 2 Samuel 20:23–26, 1 Chronik 27 (unten)",
-     "par_en": "Repeats: II Samuel 8:15–18\nSee also: II Samuel 20:23–26, I Chronicles 27 (below)"
+     "par_en": "Repeats: II Samuel 8:15–18\nSee also: II Samuel 20:23–26, I Chronicles 27 (below)",
+     "sub": [
+      {
+       "ref": "18:14-17",
+       "text": "סדר הממלכה ושריה",
+       "text_de": "Die Ordnung des Reiches und seiner Obersten",
+       "blk": "דָּוִד מַרְחִיב אֶת תְּחוּמֵי הַמַּמְלָכָה וּמְאַרְגְּנָהּ 18-20",
+       "blk_de": "David erweitert die Grenzen des Reiches und ordnet es 18-20"
+      }
+     ]
     },
     {
      "ref": "19:1-20:3",
@@ -397,7 +1055,30 @@
      "par_de": "Wiederholung von: 2 Samuel 10:1–11:1, 2 Samuel 12:26–31",
      "par_en": "Repeats: II Samuel 10:1–11:1, II Samuel 12:26–31",
      "time_de": "7. Siwan / 15. Ijjar",
-     "time_en": "7 Sivan / 15 Iyar"
+     "time_en": "7 Sivan / 15 Iyar",
+     "sub": [
+      {
+       "ref": "19:1-15",
+       "text": "המלחמה הראשונה עם בני עמון ועם בעלי בריתם הארמים",
+       "text_de": "Der erste Krieg mit den Ammonitern und ihren aramäischen Verbündeten",
+       "blk": "דָּוִד מַרְחִיב אֶת תְּחוּמֵי הַמַּמְלָכָה וּמְאַרְגְּנָהּ 18-20",
+       "blk_de": "David erweitert die Grenzen des Reiches und ordnet es 18-20"
+      },
+      {
+       "ref": "19:16-19",
+       "text": "המלחמה עם ממלכות ארם ושעבודן לישראל",
+       "text_de": "Der Krieg mit den aramäischen Königreichen und ihre Unterwerfung unter Israel",
+       "blk": "דָּוִד מַרְחִיב אֶת תְּחוּמֵי הַמַּמְלָכָה וּמְאַרְגְּנָהּ 18-20",
+       "blk_de": "David erweitert die Grenzen des Reiches und ordnet es 18-20"
+      },
+      {
+       "ref": "20:1-3",
+       "text": "המלחמה האחרונה עם בני עמון",
+       "text_de": "Der letzte Krieg mit den Ammonitern",
+       "blk": "דָּוִד מַרְחִיב אֶת תְּחוּמֵי הַמַּמְלָכָה וּמְאַרְגְּנָהּ 18-20",
+       "blk_de": "David erweitert die Grenzen des Reiches und ordnet es 18-20"
+      }
+     ]
     },
     {
      "ref": "20:4-8",
@@ -409,7 +1090,37 @@
      "place_de": "Nob, Gob-Geser, Gat",
      "place_en": "Nob, Gob-Gezer, Gath",
      "par_de": "Wiederholung von: 2 Samuel 21:18–22",
-     "par_en": "Repeats: II Samuel 21:18–22"
+     "par_en": "Repeats: II Samuel 21:18–22",
+     "sub": [
+      {
+       "ref": "20:4",
+       "text": "מעשה סבכי",
+       "text_de": "Die Geschichte Sibbechais",
+       "blk": "מִלְחֲמוֹת דָּוִד וַאֲנָשָׁיו בִּילִידֵי הָרָפָה מִגַּת 20:4-8",
+       "blk_de": "Die Kriege Davids und seiner Männer gegen die Nachkommen der Rafa aus Gat 20:4-8"
+      },
+      {
+       "ref": "20:4-8",
+       "text": "מלחמת דוד ואנשיו בילידי הרפא בגת",
+       "text_de": "Der Krieg Davids und seiner Männer gegen die Nachkommen der Rafa in Gat",
+       "blk": "דָּוִד מַרְחִיב אֶת תְּחוּמֵי הַמַּמְלָכָה וּמְאַרְגְּנָהּ 18-20",
+       "blk_de": "David erweitert die Grenzen des Reiches und ordnet es 18-20"
+      },
+      {
+       "ref": "20:5",
+       "text": "מעשה אלחנן",
+       "text_de": "Die Geschichte Elhanans",
+       "blk": "מִלְחֲמוֹת דָּוִד וַאֲנָשָׁיו בִּילִידֵי הָרָפָה מִגַּת 20:4-8",
+       "blk_de": "Die Kriege Davids und seiner Männer gegen die Nachkommen der Rafa aus Gat 20:4-8"
+      },
+      {
+       "ref": "20:6-8",
+       "text": "מעשה יהונתן בן-שמעא",
+       "text_de": "Die Geschichte Jonatans, des Sohnes Schimeas",
+       "blk": "מִלְחֲמוֹת דָּוִד וַאֲנָשָׁיו בִּילִידֵי הָרָפָה מִגַּת 20:4-8",
+       "blk_de": "Die Kriege Davids und seiner Männer gegen die Nachkommen der Rafa aus Gat 20:4-8"
+      }
+     ]
     }
    ],
    "head_de": "Davids Kriege gegen die Völker",
@@ -431,7 +1142,30 @@
      "par_de": "Wiederholung von: 2 Samuel 24:1–17\nerwähnt: 1 Chronik 27:23–24 (unten)\nWarnung: 2. Mose 30:12",
      "par_en": "Repeats: II Samuel 24:1–17\nMentioned: I Chronicles 27:23–24 (below)\nWarning: Exodus 30:12",
      "time_de": "2923",
-     "time_en": "2923"
+     "time_en": "2923",
+     "sub": [
+      {
+       "ref": "21:1-7",
+       "text": "דוד נכשל ומצוה ליואב לספר את העם",
+       "text_de": "David versündigt sich und befiehlt Joab, das Volk zu zählen",
+       "blk": "דָּוִד מֵקִים עֲלֵה שֶׁל תְּשׁוּבָה וּמְצַוֶּה לְהָקִים מִזְבֵּחַ לַה' בְּהַר הַמּוֹרִיָּה 21:1-22:1",
+       "blk_de": "David richtet einen Bußaltar auf und gebietet, dem HERRN auf dem Berg Moria einen Altar zu errichten 21:1-22:1"
+      },
+      {
+       "ref": "21:8-14",
+       "text": "דוד מודה בחטאו ובוחר בענש",
+       "text_de": "David bekennt seine Sünde und wählt die Strafe",
+       "blk": "דָּוִד מֵקִים עֲלֵה שֶׁל תְּשׁוּבָה וּמְצַוֶּה לְהָקִים מִזְבֵּחַ לַה' בְּהַר הַמּוֹרִיָּה 21:1-22:1",
+       "blk_de": "David richtet einen Bußaltar auf und gebietet, dem HERRN auf dem Berg Moria einen Altar zu errichten 21:1-22:1"
+      },
+      {
+       "ref": "21:15-17",
+       "text": "דוד חוזר ומודה בחטאו, ומבקש שהענש יפגע רק בו ובבית אביו בלבד",
+       "text_de": "David bekennt erneut seine Sünde und bittet, dass die Strafe nur ihn und das Haus seines Vaters treffe",
+       "blk": "דָּוִד מֵקִים עֲלֵה שֶׁל תְּשׁוּבָה וּמְצַוֶּה לְהָקִים מִזְבֵּחַ לַה' בְּהַר הַמּוֹרִיָּה 21:1-22:1",
+       "blk_de": "David richtet einen Bußaltar auf und gebietet, dem HERRN auf dem Berg Moria einen Altar zu errichten 21:1-22:1"
+      }
+     ]
     },
     {
      "ref": "21:18-22:1",
@@ -443,13 +1177,38 @@
      "place_de": "Jerusalem",
      "place_en": "Jerusalem",
      "par_de": "Wiederholung von: 2 Samuel 24:18–25\nOrt des Heiligtums: 5. Mose 12:14, 5. Mose 33:12\nSein Gebet aus jener Zeit: Psalmen 132 (nach manchen)",
-     "par_en": "Repeats: II Samuel 24:18–25\nPlace of the Sanctuary: Deuteronomy 12:14, Deuteronomy 33:12\nHis prayer at that time: Psalms 132 (according to some)"
+     "par_en": "Repeats: II Samuel 24:18–25\nPlace of the Sanctuary: Deuteronomy 12:14, Deuteronomy 33:12\nHis prayer at that time: Psalms 132 (according to some)",
+     "sub": [
+      {
+       "ref": "21:18-22:1",
+       "text": "דוד בונה במצות ה' מזבח בגרן ארנן ומניח את היסוד לבית ה'",
+       "text_de": "David baut auf Geheiß des HERRN einen Altar auf der Tenne Ornans und legt den Grund für das Haus des HERRN",
+       "blk": "דָּוִד מֵקִים עֲלֵה שֶׁל תְּשׁוּבָה וּמְצַוֶּה לְהָקִים מִזְבֵּחַ לַה' בְּהַר הַמּוֹרִיָּה 21:1-22:1",
+       "blk_de": "David richtet einen Bußaltar auf und gebietet, dem HERRN auf dem Berg Moria einen Altar zu errichten 21:1-22:1"
+      }
+     ]
     },
     {
      "ref": "22:2-5",
      "text": "הכנותיו לבנין המקדש",
      "text_de": "Seine Vorbereitungen für den Tempelbau",
-     "text_en": "His preparations for building the Temple"
+     "text_en": "His preparations for building the Temple",
+     "sub": [
+      {
+       "ref": "22:2-4",
+       "text": "פתיחה: גיוס הגרים והצבת אמנים להכנת חמרי בניה לבנין המקדש",
+       "text_de": "Einleitung: Aufbietung der Fremdlinge und Einsetzung von Handwerkern zur Herstellung des Baumaterials für den Tempel",
+       "blk": "מַעֲשֵׂי דָּוִד הָאַחֲרוֹנִים 22:2-29:30 › הַהֲכָנוֹת שֶׁעָשָׂה דָּוִד לְבִנְיַן הַמִּקְדָּשׁ וְצַוָּאָתוֹ הָרִאשׁוֹנָה לִשְׁלֹמֹה וּלְשָׂרֵי יִשְׂרָאֵל 22:2-23:2",
+       "blk_de": "Die letzten Taten Davids 22:2-29:30 › Davids Vorbereitungen für den Bau des Tempels und sein erstes Vermächtnis an Salomo und die Obersten Israels 22:2-23:2"
+      },
+      {
+       "ref": "22:5-6",
+       "text": "טעמו ונמוקו של דוד להכנותיו המדקדקות ועקר צואתו לשלמה בנו",
+       "text_de": "Davids Begründung für seine sorgfältigen Vorbereitungen und der Kern seines Vermächtnisses an seinen Sohn Salomo",
+       "blk": "מַעֲשֵׂי דָּוִד הָאַחֲרוֹנִים 22:2-29:30 › הַהֲכָנוֹת שֶׁעָשָׂה דָּוִד לְבִנְיַן הַמִּקְדָּשׁ וְצַוָּאָתוֹ הָרִאשׁוֹנָה לִשְׁלֹמֹה וּלְשָׂרֵי יִשְׂרָאֵל 22:2-23:2",
+       "blk_de": "Die letzten Taten Davids 22:2-29:30 › Davids Vorbereitungen für den Bau des Tempels und sein erstes Vermächtnis an Salomo und die Obersten Israels 22:2-23:2"
+      }
+     ]
     },
     {
      "ref": "22:6-19",
@@ -458,7 +1217,30 @@
      "text_de": "Gebot an Salomo und das Volk zum Tempelbau",
      "text_en": "Charge to Solomon and the people concerning the building of the Temple",
      "par_de": "Erweiterung: 1 Chronik 28:1–21 (unten)",
-     "par_en": "Expansion: I Chronicles 28:1–21 (below)"
+     "par_en": "Expansion: I Chronicles 28:1–21 (below)",
+     "sub": [
+      {
+       "ref": "22:7-10",
+       "text": "הנבואה על האיש הראוי לבנות את הבית",
+       "text_de": "Die Weissagung über den Mann, der würdig ist, das Haus zu bauen",
+       "blk": "מַעֲשֵׂי דָּוִד הָאַחֲרוֹנִים 22:2-29:30 › הַהֲכָנוֹת שֶׁעָשָׂה דָּוִד לְבִנְיַן הַמִּקְדָּשׁ וְצַוָּאָתוֹ הָרִאשׁוֹנָה לִשְׁלֹמֹה וּלְשָׂרֵי יִשְׂרָאֵל 22:2-23:2",
+       "blk_de": "Die letzten Taten Davids 22:2-29:30 › Davids Vorbereitungen für den Bau des Tempels und sein erstes Vermächtnis an Salomo und die Obersten Israels 22:2-23:2"
+      },
+      {
+       "ref": "22:11-16",
+       "text": "צואת דוד הראשונה לשלמה",
+       "text_de": "Davids erstes Vermächtnis an Salomo",
+       "blk": "מַעֲשֵׂי דָּוִד הָאַחֲרוֹנִים 22:2-29:30 › הַהֲכָנוֹת שֶׁעָשָׂה דָּוִד לְבִנְיַן הַמִּקְדָּשׁ וְצַוָּאָתוֹ הָרִאשׁוֹנָה לִשְׁלֹמֹה וּלְשָׂרֵי יִשְׂרָאֵל 22:2-23:2",
+       "blk_de": "Die letzten Taten Davids 22:2-29:30 › Davids Vorbereitungen für den Bau des Tempels und sein erstes Vermächtnis an Salomo und die Obersten Israels 22:2-23:2"
+      },
+      {
+       "ref": "22:17-19",
+       "text": "צואת דוד לשרי ישראל לסיע בידי שלמה בבנין הבית",
+       "text_de": "Davids Vermächtnis an die Obersten Israels, Salomo beim Bau des Hauses zu unterstützen",
+       "blk": "מַעֲשֵׂי דָּוִד הָאַחֲרוֹנִים 22:2-29:30 › הַהֲכָנוֹת שֶׁעָשָׂה דָּוִד לְבִנְיַן הַמִּקְדָּשׁ וְצַוָּאָתוֹ הָרִאשׁוֹנָה לִשְׁלֹמֹה וּלְשָׂרֵי יִשְׂרָאֵל 22:2-23:2",
+       "blk_de": "Die letzten Taten Davids 22:2-29:30 › Davids Vorbereitungen für den Bau des Tempels und sein erstes Vermächtnis an Salomo und die Obersten Israels 22:2-23:2"
+      }
+     ]
     },
     {
      "ref": "23;24:20-31",
@@ -470,22 +1252,148 @@
      "time_en": "2924"
     },
     {
+     "ref": "23:1-2",
+     "text": "חתימה: המלכתו הראשונה של שלמה וזמון כל ישראל להמלכתו השניה",
+     "text_de": "Abschluss: Die erste Königserhebung Salomos und die Einberufung ganz Israels zu seiner zweiten Königserhebung",
+     "blk": "מַעֲשֵׂי דָּוִד הָאַחֲרוֹנִים 22:2-29:30 › הַהֲכָנוֹת שֶׁעָשָׂה דָּוִד לְבִנְיַן הַמִּקְדָּשׁ וְצַוָּאָתוֹ הָרִאשׁוֹנָה לִשְׁלֹמֹה וּלְשָׂרֵי יִשְׂרָאֵל 22:2-23:2",
+     "blk_de": "Die letzten Taten Davids 22:2-29:30 › Davids Vorbereitungen für den Bau des Tempels und sein erstes Vermächtnis an Salomo und die Obersten Israels 22:2-23:2",
+     "orph": 1
+    },
+    {
+     "ref": "23:3-6",
+     "text": "מפקד הלויים (מבני שלשים ומעלה) וחלקתם למחלקות",
+     "text_de": "Die Zählung der Leviten (ab dreißig Jahren) und ihre Einteilung in Abteilungen",
+     "blk": "מַעֲשֵׂי דָּוִד הָאַחֲרוֹנִים 22:2-29:30 › מִפְקְדֵי הַלְוִיִּם, תַּפְקִידֵיהֶם וַחֲלֻקָּתָם לְמַחְלְקוֹת 23:3-32",
+     "blk_de": "Die letzten Taten Davids 22:2-29:30 › Die Zählung der Leviten, ihre Aufgaben und ihre Einteilung in Abteilungen 23:3-32",
+     "orph": 1
+    },
+    {
+     "ref": "23:7-11",
+     "text": "מחלקות משפחות הגרשני",
+     "text_de": "Die Abteilungen der gerschonitischen Familien",
+     "blk": "מַעֲשֵׂי דָּוִד הָאַחֲרוֹנִים 22:2-29:30 › מִפְקְדֵי הַלְוִיִּם, תַּפְקִידֵיהֶם וַחֲלֻקָּתָם לְמַחְלְקוֹת 23:3-32",
+     "blk_de": "Die letzten Taten Davids 22:2-29:30 › Die Zählung der Leviten, ihre Aufgaben und ihre Einteilung in Abteilungen 23:3-32",
+     "orph": 1
+    },
+    {
+     "ref": "23:12-20",
+     "text": "מחלקות משפחות הקהתי",
+     "text_de": "Die Abteilungen der kehatitischen Familien",
+     "blk": "מַעֲשֵׂי דָּוִד הָאַחֲרוֹנִים 22:2-29:30 › מִפְקְדֵי הַלְוִיִּם, תַּפְקִידֵיהֶם וַחֲלֻקָּתָם לְמַחְלְקוֹת 23:3-32",
+     "blk_de": "Die letzten Taten Davids 22:2-29:30 › Die Zählung der Leviten, ihre Aufgaben und ihre Einteilung in Abteilungen 23:3-32",
+     "orph": 1
+    },
+    {
+     "ref": "23:21-23",
+     "text": "מחלקות בני מררי",
+     "text_de": "Die Abteilungen der Söhne Meraris",
+     "blk": "מַעֲשֵׂי דָּוִד הָאַחֲרוֹנִים 22:2-29:30 › מִפְקְדֵי הַלְוִיִּם, תַּפְקִידֵיהֶם וַחֲלֻקָּתָם לְמַחְלְקוֹת 23:3-32",
+     "blk_de": "Die letzten Taten Davids 22:2-29:30 › Die Zählung der Leviten, ihre Aufgaben und ihre Einteilung in Abteilungen 23:3-32",
+     "orph": 1
+    },
+    {
+     "ref": "23:24-27",
+     "text": "גיל שרותם של הלויים והמפקד השני של בני עשרים ומעלה",
+     "text_de": "Das Dienstalter der Leviten und die zweite Zählung der Zwanzigjährigen und Älteren",
+     "blk": "מַעֲשֵׂי דָּוִד הָאַחֲרוֹנִים 22:2-29:30 › מִפְקְדֵי הַלְוִיִּם, תַּפְקִידֵיהֶם וַחֲלֻקָּתָם לְמַחְלְקוֹת 23:3-32",
+     "blk_de": "Die letzten Taten Davids 22:2-29:30 › Die Zählung der Leviten, ihre Aufgaben und ihre Einteilung in Abteilungen 23:3-32",
+     "orph": 1
+    },
+    {
+     "ref": "23:28-32",
+     "text": "מעמדם של הלויים ותפקידם במקדש",
+     "text_de": "Stellung und Aufgabe der Leviten im Heiligtum",
+     "blk": "מַעֲשֵׂי דָּוִד הָאַחֲרוֹנִים 22:2-29:30 › מִפְקְדֵי הַלְוִיִּם, תַּפְקִידֵיהֶם וַחֲלֻקָּתָם לְמַחְלְקוֹת 23:3-32",
+     "blk_de": "Die letzten Taten Davids 22:2-29:30 › Die Zählung der Leviten, ihre Aufgaben und ihre Einteilung in Abteilungen 23:3-32",
+     "orph": 1
+    },
+    {
      "ref": "24:1-19",
      "text": "משמרות הכהנים",
      "text_de": "Abteilungen der Priester",
-     "text_en": "Divisions of the priests"
+     "text_en": "Divisions of the priests",
+     "sub": [
+      {
+       "ref": "24:1-5",
+       "text": "החלקה בגורל",
+       "text_de": "Die Einteilung durch das Los",
+       "blk": "מַעֲשֵׂי דָּוִד הָאַחֲרוֹנִים 22:2-29:30 › מַחְלְקוֹת הַכֹּהֲנִים 24:1-19",
+       "blk_de": "Die letzten Taten Davids 22:2-29:30 › Die Abteilungen der Priester 24:1-19"
+      },
+      {
+       "ref": "24:6",
+       "text": "הכתיבה לדורות",
+       "text_de": "Die schriftliche Aufzeichnung für die kommenden Generationen",
+       "blk": "מַעֲשֵׂי דָּוִד הָאַחֲרוֹנִים 22:2-29:30 › מַחְלְקוֹת הַכֹּהֲנִים 24:1-19",
+       "blk_de": "Die letzten Taten Davids 22:2-29:30 › Die Abteilungen der Priester 24:1-19"
+      },
+      {
+       "ref": "24:7-18",
+       "text": "סדר מועדי השרות של המחלקות, כפי שעלה בגורל",
+       "text_de": "Die Reihenfolge der Dienstzeiten der Abteilungen, wie sie durch das Los festgelegt wurde",
+       "blk": "מַעֲשֵׂי דָּוִד הָאַחֲרוֹנִים 22:2-29:30 › מַחְלְקוֹת הַכֹּהֲנִים 24:1-19",
+       "blk_de": "Die letzten Taten Davids 22:2-29:30 › Die Abteilungen der Priester 24:1-19"
+      },
+      {
+       "ref": "24:19",
+       "text": "חתימה לפרשה",
+       "text_de": "Abschluss des Abschnitts",
+       "blk": "מַעֲשֵׂי דָּוִד הָאַחֲרוֹנִים 22:2-29:30 › מַחְלְקוֹת הַכֹּהֲנִים 24:1-19",
+       "blk_de": "Die letzten Taten Davids 22:2-29:30 › Die Abteilungen der Priester 24:1-19"
+      }
+     ]
+    },
+    {
+     "ref": "24:31",
+     "text": "הפלת גורלות בין מחלקות הלויים",
+     "text_de": "Das Losen unter den Abteilungen der Leviten",
+     "blk": "מַעֲשֵׂי דָּוִד הָאַחֲרוֹנִים 22:2-29:30 › מַחְלְקוֹת הַלְוִיִּם 'הַנּוֹתָרִים' 24:20-31",
+     "blk_de": "Die letzten Taten Davids 22:2-29:30 › Die Abteilungen der übrigen Leviten 24:20-31",
+     "orph": 1
     },
     {
      "ref": "25",
      "text": "משמרות המשוררים",
      "text_de": "Abteilungen der Sänger",
-     "text_en": "Divisions of the singers"
+     "text_en": "Divisions of the singers",
+     "sub": [
+      {
+       "ref": "25:1-8",
+       "text": "אבות המשוררים בכלי שיר למשפחותיהם",
+       "text_de": "Die Familienhäupter der Sänger mit Musikinstrumenten nach ihren Familien",
+       "blk": "מַעֲשֵׂי דָּוִד הָאַחֲרוֹנִים 22:2-29:30 › מִשְׁמְרוֹת הַמְשׁוֹרְרִים בִּכְלֵי שִׁיר 25",
+       "blk_de": "Die letzten Taten Davids 22:2-29:30 › Die Dienstabteilungen der Sänger mit Musikinstrumenten 25"
+      },
+      {
+       "ref": "25:9-31",
+       "text": "החלקה בגורל בין כ\"ד המשמרות",
+       "text_de": "Die Einteilung durch das Los unter den 24 Dienstabteilungen",
+       "blk": "מַעֲשֵׂי דָּוִד הָאַחֲרוֹנִים 22:2-29:30 › מִשְׁמְרוֹת הַמְשׁוֹרְרִים בִּכְלֵי שִׁיר 25",
+       "blk_de": "Die letzten Taten Davids 22:2-29:30 › Die Dienstabteilungen der Sänger mit Musikinstrumenten 25"
+      }
+     ]
     },
     {
      "ref": "26:1-19",
      "text": "משמרות השוערים",
      "text_de": "Abteilungen der Torhüter",
-     "text_en": "Divisions of the gatekeepers"
+     "text_en": "Divisions of the gatekeepers",
+     "sub": [
+      {
+       "ref": "26:1-13",
+       "text": "שמות ראשי המחלקות",
+       "text_de": "Die Namen der Abteilungsoberhäupter",
+       "blk": "מַעֲשֵׂי דָּוִד הָאַחֲרוֹנִים 22:2-29:30 › מַחְלְקוֹת הַלְוִיִּם הַשּׁוֹעֲרִים 26:1-19",
+       "blk_de": "Die letzten Taten Davids 22:2-29:30 › Die Abteilungen der levitischen Torhüter 26:1-19"
+      },
+      {
+       "ref": "26:14-15",
+       "text": "החלקה בגורל ביניהם",
+       "text_de": "Die Einteilung durch das Los unter ihnen",
+       "blk": "מַעֲשֵׂי דָּוִד הָאַחֲרוֹנִים 22:2-29:30 › מַחְלְקוֹת הַלְוִיִּם הַשּׁוֹעֲרִים 26:1-19",
+       "blk_de": "Die letzten Taten Davids 22:2-29:30 › Die Abteilungen der levitischen Torhüter 26:1-19"
+      }
+     ]
     },
     {
      "ref": "26:20-32",
@@ -500,7 +1408,37 @@
      "text_de": "Die für die Versorgung des Königs Zuständigen",
      "text_en": "Those in charge of supplying the king's needs",
      "par_de": "Siehe auch oben: 1 Chronik 18:14–17",
-     "par_en": "See also above: I Chronicles 18:14–17"
+     "par_en": "See also above: I Chronicles 18:14–17",
+     "sub": [
+      {
+       "ref": "27:1",
+       "text": "פתיחה",
+       "text_de": "Einleitung",
+       "blk": "מַעֲשֵׂי דָּוִד הָאַחֲרוֹנִים 22:2-29:30 › מַחְלְקוֹת יִשְׂרָאֵל וְשָׂרֵי הַשְּׁבָטִים 27:1-24",
+       "blk_de": "Die letzten Taten Davids 22:2-29:30 › Die Abteilungen Israels und die Obersten der Stämme 27:1-24"
+      },
+      {
+       "ref": "27:2-15",
+       "text": "המחלקות ושריהן",
+       "text_de": "Die Abteilungen und ihre Obersten",
+       "blk": "מַעֲשֵׂי דָּוִד הָאַחֲרוֹנִים 22:2-29:30 › מַחְלְקוֹת יִשְׂרָאֵל וְשָׂרֵי הַשְּׁבָטִים 27:1-24",
+       "blk_de": "Die letzten Taten Davids 22:2-29:30 › Die Abteilungen Israels und die Obersten der Stämme 27:1-24"
+      },
+      {
+       "ref": "27:16-22",
+       "text": "שרי (או: נגידי) שבטי ישראל",
+       "text_de": "Die Obersten (oder: Fürsten) der Stämme Israels",
+       "blk": "מַעֲשֵׂי דָּוִד הָאַחֲרוֹנִים 22:2-29:30 › מַחְלְקוֹת יִשְׂרָאֵל וְשָׂרֵי הַשְּׁבָטִים 27:1-24",
+       "blk_de": "Die letzten Taten Davids 22:2-29:30 › Die Abteilungen Israels und die Obersten der Stämme 27:1-24"
+      },
+      {
+       "ref": "27:23-24",
+       "text": "חתימה",
+       "text_de": "Schluss",
+       "blk": "מַעֲשֵׂי דָּוִד הָאַחֲרוֹנִים 22:2-29:30 › מַחְלְקוֹת יִשְׂרָאֵל וְשָׂרֵי הַשְּׁבָטִים 27:1-24",
+       "blk_de": "Die letzten Taten Davids 22:2-29:30 › Die Abteilungen Israels und die Obersten der Stämme 27:1-24"
+      }
+     ]
     },
     {
      "ref": "27:25-34",
@@ -518,13 +1456,38 @@
      "par_de": "Erweiterung von: 1 Könige 2:1–4, 1 Chronik 22:6–19 (oben)",
      "par_en": "Expands on: I Kings 2:1–4, I Chronicles 22:6–19 (above)",
      "time_de": "2924",
-     "time_en": "2924"
+     "time_en": "2924",
+     "sub": [
+      {
+       "ref": "28:2-10",
+       "text": "דוד חוזר ומודיע ברבים על בחירת שלמה למלך ועל שהועד בידי שמים לבנות את הבית למקדש",
+       "text_de": "David gibt vor aller Öffentlichkeit erneut die Wahl Salomos zum König bekannt und dass dieser vom Himmel dazu bestimmt wurde, das Haus als Heiligtum zu bauen",
+       "blk": "מַעֲשֵׂי דָוִד הָאַחֲרוֹנִים וְצַוָּאוֹתָיו לִשְׁלֹמֹה בְנוֹ וּלְיִשְׂרָאֵל 28-29",
+       "blk_de": "Die letzten Taten Davids und seine Vermächtnisse an seinen Sohn Salomo und an Israel 28-29"
+      }
+     ]
     },
     {
      "ref": "28:11-21",
      "text": "ציוויו לשלמה על בנין המקדש",
      "text_de": "Sein Gebot an Salomo zum Tempelbau",
-     "text_en": "His charge to Solomon concerning the building of the Temple"
+     "text_en": "His charge to Solomon concerning the building of the Temple",
+     "sub": [
+      {
+       "ref": "28:11-19",
+       "text": "דוד מוסר בידי שלמה את תבניות הבית וכליו 'בכתב מיד ה''",
+       "text_de": "David übergibt Salomo die Baupläne des Hauses und seiner Geräte „schriftlich von der Hand des HERRN“",
+       "blk": "מַעֲשֵׂי דָוִד הָאַחֲרוֹנִים וְצַוָּאוֹתָיו לִשְׁלֹמֹה בְנוֹ וּלְיִשְׂרָאֵל 28-29",
+       "blk_de": "Die letzten Taten Davids und seine Vermächtnisse an seinen Sohn Salomo und an Israel 28-29"
+      },
+      {
+       "ref": "28:20-21",
+       "text": "דוד חוזר ומעודד את שלמה ומחזקו",
+       "text_de": "David ermutigt und stärkt Salomo erneut",
+       "blk": "מַעֲשֵׂי דָוִד הָאַחֲרוֹנִים וְצַוָּאוֹתָיו לִשְׁלֹמֹה בְנוֹ וּלְיִשְׂרָאֵל 28-29",
+       "blk_de": "Die letzten Taten Davids und seine Vermächtnisse an seinen Sohn Salomo und an Israel 28-29"
+      }
+     ]
     },
     {
      "ref": "29:1-19",
@@ -533,7 +1496,23 @@
      "text_de": "Spenden des Volkes für den Tempelbau",
      "text_en": "Donations of the people for the building of the Temple",
      "par_de": "Spenden für die Stiftshütte: 2. Mose 25:1–7, 2. Mose 35:21–29",
-     "par_en": "Donations for the Tabernacle: Exodus 25:1–7, Exodus 35:21–29"
+     "par_en": "Donations for the Tabernacle: Exodus 25:1–7, Exodus 35:21–29",
+     "sub": [
+      {
+       "ref": "29:1-9",
+       "text": "דוד מבקש מאת קהל הנוכחים להתנדב לבנין בית ה'",
+       "text_de": "David bittet die versammelte Gemeinde, freiwillig für den Bau des Hauses des HERRN zu spenden",
+       "blk": "מַעֲשֵׂי דָוִד הָאַחֲרוֹנִים וְצַוָּאוֹתָיו לִשְׁלֹמֹה בְנוֹ וּלְיִשְׂרָאֵל 28-29",
+       "blk_de": "Die letzten Taten Davids und seine Vermächtnisse an seinen Sohn Salomo und an Israel 28-29"
+      },
+      {
+       "ref": "29:10-19",
+       "text": "ברכת (=תפלת) דוד",
+       "text_de": "Davids Segensspruch (Gebet)",
+       "blk": "מַעֲשֵׂי דָוִד הָאַחֲרוֹנִים וְצַוָּאוֹתָיו לִשְׁלֹמֹה בְנוֹ וּלְיִשְׂרָאֵל 28-29",
+       "blk_de": "Die letzten Taten Davids und seine Vermächtnisse an seinen Sohn Salomo und an Israel 28-29"
+      }
+     ]
     },
     {
      "ref": "29:20-25",
@@ -542,7 +1521,16 @@
      "text_de": "Einsetzung Salomos zum König über ganz Israel",
      "text_en": "Appointment of Solomon as king over all Israel",
      "par_de": "Erweiterung: 1 Könige 1",
-     "par_en": "Expansion: I Kings 1"
+     "par_en": "Expansion: I Kings 1",
+     "sub": [
+      {
+       "ref": "29:20-25",
+       "text": "ברכת (=הודית) העם והמלכתו השניה של שלמה",
+       "text_de": "Der Segensspruch (Dank) des Volkes und die zweite Königserhebung Salomos",
+       "blk": "מַעֲשֵׂי דָוִד הָאַחֲרוֹנִים וְצַוָּאוֹתָיו לִשְׁלֹמֹה בְנוֹ וּלְיִשְׂרָאֵל 28-29",
+       "blk_de": "Die letzten Taten Davids und seine Vermächtnisse an seinen Sohn Salomo und an Israel 28-29"
+      }
+     ]
     },
     {
      "ref": "29:26-30",
@@ -551,7 +1539,16 @@
      "text_de": "Davids Tod",
      "text_en": "Death of David",
      "par_de": "Wiederholung von: 1 Könige 2:10–11",
-     "par_en": "Repeats: I Kings 2:10–11"
+     "par_en": "Repeats: I Kings 2:10–11",
+     "sub": [
+      {
+       "ref": "29:26-30",
+       "text": "חתימה למלכות דוד וכתיבת דבריו ומעשיו",
+       "text_de": "Abschluss der Regierung Davids und die Aufzeichnung seiner Worte und Taten",
+       "blk": "מַעֲשֵׂי דָוִד הָאַחֲרוֹנִים וְצַוָּאוֹתָיו לִשְׁלֹמֹה בְנוֹ וּלְיִשְׂרָאֵל 28-29",
+       "blk_de": "Die letzten Taten Davids und seine Vermächtnisse an seinen Sohn Salomo und an Israel 28-29"
+      }
+     ]
     }
    ],
    "head_de": "Davids letzte Tage",
@@ -560,6 +1557,6 @@
  ],
  "title_de": "Inhalt des Buches 1 Chronik",
  "title_en": "Contents of the Book of I Chronicles",
- "note_de": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt.",
- "note_en": "Transcribed from photos of a summary table. Chapter and verse numbering and dates (Jewish reckoning) as printed in the source."
+ "note_de": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt. Unterpunkte aus der Gliederung von „Da'at Mikra“ (Teilpunkte mit Versangaben, mit Hinweis auf den jeweiligen Abschnitt) ergänzt und ins Deutsche übersetzt.",
+ "note_en": "Transcribed from photos of a summary table. Chapter and verse numbering and dates (Jewish reckoning) as printed in the source. Sub-points from the Da'at Mikra outlines (parts with verse references, labelled with their section) added; German translation."
 }

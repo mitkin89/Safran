@@ -1,7 +1,7 @@
 {
  "book": "Ezra",
  "title": "תוכן ספר עזרא",
- "note": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt.",
+ "note": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt. · הורחב בחלוקת דעת מקרא (פסקאות עם מראי מקום).",
  "sections": [
   {
    "head": "עליית זרובבל",
@@ -16,7 +16,23 @@
      "par_de": "Wiederholung: 2 Chronik 36:22–23\nProphezeiung darüber: Jesaja 45:1–13",
      "par_en": "Repeat: II Chronicles 36:22–23\nProphecy about this: Isaiah 45:1–13",
      "time_de": "3390",
-     "time_en": "3390"
+     "time_en": "3390",
+     "sub": [
+      {
+       "ref": "1:1-4",
+       "text": "הכרזת כורש",
+       "text_de": "Der Aufruf des Kyrus",
+       "blk": "הַכְרָזַת כּוֹרֶשׁ וַעֲלִיַּת שֵׁשְׁבַּצַּר 1",
+       "blk_de": "Der Aufruf des Kyrus und der Zug des Scheschbazzar 1"
+      },
+      {
+       "ref": "1:5-6",
+       "text": "עלית בני הגולה לבנות בית ה' בירושלים",
+       "text_de": "Der Zug der Heimkehrer aus der Gola, um das Haus des HERRN in Jerusalem zu bauen",
+       "blk": "הַכְרָזַת כּוֹרֶשׁ וַעֲלִיַּת שֵׁשְׁבַּצַּר 1",
+       "blk_de": "Der Aufruf des Kyrus und der Zug des Scheschbazzar 1"
+      }
+     ]
     },
     {
      "ref": "1:7-11",
@@ -25,7 +41,16 @@
      "text_de": "Kyros übergibt die Tempelgeräte",
      "text_en": "Cyrus hands over the Temple vessels",
      "par_de": "Wegführung der Tempelgeräte: 2 Könige 24:11–13, 2 Könige 25:13–20, Jeremia 52:12–30, Daniel 1:1–2",
-     "par_en": "Exile of the Temple vessels: II Kings 24:11–13, II Kings 25:13–20, Jeremiah 52:12–30, Daniel 1:1–2"
+     "par_en": "Exile of the Temple vessels: II Kings 24:11–13, II Kings 25:13–20, Jeremiah 52:12–30, Daniel 1:1–2",
+     "sub": [
+      {
+       "ref": "1:7-11",
+       "text": "החזרת כלי בית ה' בידי ששבצר",
+       "text_de": "Die Rückgabe der Geräte des Hauses des HERRN durch Scheschbazzar",
+       "blk": "הַכְרָזַת כּוֹרֶשׁ וַעֲלִיַּת שֵׁשְׁבַּצַּר 1",
+       "blk_de": "Der Aufruf des Kyrus und der Zug des Scheschbazzar 1"
+      }
+     ]
     },
     {
      "ref": "2:1-67",
@@ -34,13 +59,80 @@
      "text_de": "Namen der mit Serubbabel aus dem babylonischen Exil Heraufgezogenen",
      "text_en": "Names of those who went up with Zerubbabel from the Babylonian exile",
      "par_de": "wiederholt: Nehemia 7:6–72",
-     "par_en": "Repeated: Nehemiah 7:6–72"
+     "par_en": "Repeated: Nehemiah 7:6–72",
+     "sub": [
+      {
+       "ref": "2:3-35",
+       "text": "ישראלים",
+       "text_de": "Israeliten",
+       "blk": "עֲלִיַּת זְרֻבָּבֶל וְיֵשׁוּעַ 2",
+       "blk_de": "Der Zug Serubbabels und Jeschuas 2"
+      },
+      {
+       "ref": "2:36-39",
+       "text": "כהנים",
+       "text_de": "Priester",
+       "blk": "עֲלִיַּת זְרֻבָּבֶל וְיֵשׁוּעַ 2",
+       "blk_de": "Der Zug Serubbabels und Jeschuas 2"
+      },
+      {
+       "ref": "2:40-42",
+       "text": "לויים - משוררים ושוערים",
+       "text_de": "Leviten – Sänger und Torhüter",
+       "blk": "עֲלִיַּת זְרֻבָּבֶל וְיֵשׁוּעַ 2",
+       "blk_de": "Der Zug Serubbabels und Jeschuas 2"
+      },
+      {
+       "ref": "2:43-54",
+       "text": "כל אלה מיחסים; נתינים",
+       "text_de": "Alle diese sind in den Geschlechtsregistern verzeichnet; Tempelsklaven",
+       "blk": "עֲלִיַּת זְרֻבָּבֶל וְיֵשׁוּעַ 2",
+       "blk_de": "Der Zug Serubbabels und Jeschuas 2"
+      },
+      {
+       "ref": "2:55-58",
+       "text": "ועבדי שלמה",
+       "text_de": "Und die Knechte Salomos",
+       "blk": "עֲלִיַּת זְרֻבָּבֶל וְיֵשׁוּעַ 2",
+       "blk_de": "Der Zug Serubbabels und Jeschuas 2"
+      },
+      {
+       "ref": "2:59-63",
+       "text": "ישראלים וכהנים בלתי מיחסים",
+       "text_de": "Israeliten und Priester ohne Eintrag in den Geschlechtsregistern",
+       "blk": "עֲלִיַּת זְרֻבָּבֶל וְיֵשׁוּעַ 2",
+       "blk_de": "Der Zug Serubbabels und Jeschuas 2"
+      },
+      {
+       "ref": "2:64-67",
+       "text": "בסוף הפרשה באים סכומי כלל העולים ורכושם",
+       "text_de": "Am Ende des Abschnitts folgen die Gesamtsummen der Heimkehrer und ihres Besitzes",
+       "blk": "עֲלִיַּת זְרֻבָּבֶל וְיֵשׁוּעַ 2",
+       "blk_de": "Der Zug Serubbabels und Jeschuas 2"
+      }
+     ]
     },
     {
      "ref": "2:68-70",
      "text": "הנדבות לבנין ביהמ\"ק",
      "text_de": "Spenden für den Bau des Tempels",
-     "text_en": "Donations for the building of the Temple"
+     "text_en": "Donations for the building of the Temple",
+     "sub": [
+      {
+       "ref": "2:68-69",
+       "text": "וסך התרומות שהרימו למקדש",
+       "text_de": "Und die Summe der Gaben, die sie für den Tempel spendeten",
+       "blk": "עֲלִיַּת זְרֻבָּבֶל וְיֵשׁוּעַ 2",
+       "blk_de": "Der Zug Serubbabels und Jeschuas 2"
+      },
+      {
+       "ref": "2:70",
+       "text": "החתימה",
+       "text_de": "Der Schluss",
+       "blk": "עֲלִיַּת זְרֻבָּבֶל וְיֵשׁוּעַ 2",
+       "blk_de": "Der Zug Serubbabels und Jeschuas 2"
+      }
+     ]
     }
    ],
    "head_de": "Hinaufzug unter Serubbabel",
@@ -56,7 +148,16 @@
      "text_de": "Bau des Altars und Darbringung von Opfern",
      "text_en": "Building the altar and offering sacrifices",
      "time_de": "Tischri 3390 / 3391",
-     "time_en": "Tishrei 3390 / 3391"
+     "time_en": "Tishrei 3390 / 3391",
+     "sub": [
+      {
+       "ref": "3:1-6",
+       "text": "בנין המזבח (א-ו), וחתומה של הפסקה היא מעין פתיחתה: ויגע החדש השביעי ... ויבנו את־מזבח אלהי ישראל להעלות עליו עלות (א-ב) - מיום אחד לחדש השביעי החלו להעלות עלות לה' וגו' (ו);",
+       "text_de": "Der Bau des Altars (V. 1–6); der Abschluss des Abschnitts ist gleichsam seine Einleitung: „Als der siebte Monat herankam ... bauten sie den Altar des Gottes Israels, um darauf Brandopfer darzubringen“ (V. 1–2) – vom ersten Tag des siebten Monats an begann man, dem HERRN Brandopfer darzubringen usw. (V. 6)",
+       "blk": "בִּנְיַן הַמִּזְבֵּחַ וִיסוּד הַהֵיכָל 3",
+       "blk_de": "Der Bau des Altars und die Grundlegung des Tempels 3"
+      }
+     ]
     },
     {
      "ref": "3:7-13",
@@ -65,13 +166,38 @@
      "text_de": "Legung der Tempelfundamente mit Gesang und Freude",
      "text_en": "Laying the foundations of the Temple with song and joy",
      "time_de": "Ijjar 3391",
-     "time_en": "Iyar 3391"
+     "time_en": "Iyar 3391",
+     "sub": [
+      {
+       "ref": "3:7-13",
+       "text": "יסוד ההיכל (ז-יג), ובפסקה זו חוזרות הרבה פעמים הלשונות: יסד, בית ה' (או אלהים), היכל ה', הלול, תרועה וקול.",
+       "text_de": "Die Grundlegung des Tempels (V. 7–13); in diesem Abschnitt kehren die Ausdrücke wiederholt wieder: gründen, Haus des HERRN (oder Gottes), Tempel des HERRN, Lobpreis, Jubelruf und Stimme",
+       "blk": "בִּנְיַן הַמִּזְבֵּחַ וִיסוּד הַהֵיכָל 3",
+       "blk_de": "Der Bau des Altars und die Grundlegung des Tempels 3"
+      }
+     ]
     },
     {
      "ref": "4:1-16",
      "text": "נסיונות הגויים להפריע לבנין הבית, שליחת איגרות למלכות",
      "text_de": "Versuche der Völker, den Bau des Hauses zu behindern, Absendung von Briefen an den Königshof",
-     "text_en": "Attempts by the nations to hinder the building of the Temple, sending letters to the royal court"
+     "text_en": "Attempts by the nations to hinder the building of the Temple, sending letters to the royal court",
+     "sub": [
+      {
+       "ref": "4:6-8",
+       "text": "פתיחה",
+       "text_de": "Einleitung",
+       "blk": "אִגֶּרֶת הַשִּׂטְנָה לְאַרְתַּחְשַׁשְׂתָּא וְהַפְסָקַת בִּנְיַן יְרוּשָׁלַיִם 4:6-23",
+       "blk_de": "Der Anklagebrief an Artaxerxes und die Einstellung des Baus Jerusalems 4:6-23"
+      },
+      {
+       "ref": "4:9-16",
+       "text": "אגרת הצרים",
+       "text_de": "Der Brief der Widersacher",
+       "blk": "אִגֶּרֶת הַשִּׂטְנָה לְאַרְתַּחְשַׁשְׂתָּא וְהַפְסָקַת בִּנְיַן יְרוּשָׁלַיִם 4:6-23",
+       "blk_de": "Der Anklagebrief an Artaxerxes und die Einstellung des Baus Jerusalems 4:6-23"
+      }
+     ]
     },
     {
      "ref": "4:17-24",
@@ -80,7 +206,30 @@
      "text_de": "Einstellung des Baus durch Kyros",
      "text_en": "Halting of the construction by Cyrus",
      "par_de": "Erweiterung: Daniel 10:1–3",
-     "par_en": "Expansion: Daniel 10:1–3"
+     "par_en": "Expansion: Daniel 10:1–3",
+     "sub": [
+      {
+       "ref": "4:17-22",
+       "text": "תשובת המלך והצו להפסקת הבניה",
+       "text_de": "Die Antwort des Königs und der Befehl zur Einstellung des Baus",
+       "blk": "אִגֶּרֶת הַשִּׂטְנָה לְאַרְתַּחְשַׁשְׂתָּא וְהַפְסָקַת בִּנְיַן יְרוּשָׁלַיִם 4:6-23",
+       "blk_de": "Der Anklagebrief an Artaxerxes und die Einstellung des Baus Jerusalems 4:6-23"
+      },
+      {
+       "ref": "4:23",
+       "text": "בצוע הצו 'בזרע ובחיל'",
+       "text_de": "Die Ausführung des Befehls „mit Gewalt und Macht“",
+       "blk": "אִגֶּרֶת הַשִּׂטְנָה לְאַרְתַּחְשַׁשְׂתָּא וְהַפְסָקַת בִּנְיַן יְרוּשָׁלַיִם 4:6-23",
+       "blk_de": "Der Anklagebrief an Artaxerxes und die Einstellung des Baus Jerusalems 4:6-23"
+      },
+      {
+       "ref": "4:24",
+       "text": "פתיחה",
+       "text_de": "Einleitung",
+       "blk": "גְּמַר בִּנְיַן הַמִּקְדָּשׁ וַחֲנֻכָּתוֹ בִּימֵי דָרְיָוֶשׁ 4:24-6:22",
+       "blk_de": "Die Vollendung des Tempelbaus und seine Einweihung in den Tagen des Darius 4:24-6:22"
+      }
+     ]
     },
     {
      "ref": "5:1-2",
@@ -92,19 +241,60 @@
      "par_de": "Wiederholung und Erweiterung von: Haggai 1:1–2, 9",
      "par_en": "Repeats and expands on: Haggai 1:1–2, 9",
      "time_de": "1. Elul 3408",
-     "time_en": "1 Elul 3408"
+     "time_en": "1 Elul 3408",
+     "sub": [
+      {
+       "ref": "5:1-2",
+       "text": "חגי וזכריה מזרזים להמשיך ולבנות את המקדש",
+       "text_de": "Haggai und Sacharja drängen dazu, den Bau des Tempels fortzusetzen",
+       "blk": "גְּמַר בִּנְיַן הַמִּקְדָּשׁ וַחֲנֻכָּתוֹ בִּימֵי דָרְיָוֶשׁ 4:24-6:22",
+       "blk_de": "Die Vollendung des Tempelbaus und seine Einweihung in den Tagen des Darius 4:24-6:22"
+      }
+     ]
     },
     {
      "ref": "5:3-17",
      "text": "רצון הגויים לעכב הבניה - שליחת איגרת לדריוש",
      "text_de": "Wunsch der Völker, den Bau aufzuhalten – Absendung eines Briefes an Darius",
-     "text_en": "The nations' wish to delay the building – sending a letter to Darius"
+     "text_en": "The nations' wish to delay the building – sending a letter to Darius",
+     "sub": [
+      {
+       "ref": "5:3-5",
+       "text": "דין ודברים בין תתני הפחה של עבר הנהר לבין ראשי הבונים",
+       "text_de": "Wortwechsel zwischen Tattenai, dem Statthalter jenseits des Stromes, und den Anführern der Bauleute",
+       "blk": "גְּמַר בִּנְיַן הַמִּקְדָּשׁ וַחֲנֻכָּתוֹ בִּימֵי דָרְיָוֶשׁ 4:24-6:22",
+       "blk_de": "Die Vollendung des Tempelbaus und seine Einweihung in den Tagen des Darius 4:24-6:22"
+      },
+      {
+       "ref": "5:6-17",
+       "text": "אגרת תתני אל דריוש",
+       "text_de": "Der Brief Tattenais an Darius",
+       "blk": "גְּמַר בִּנְיַן הַמִּקְדָּשׁ וַחֲנֻכָּתוֹ בִּימֵי דָרְיָוֶשׁ 4:24-6:22",
+       "blk_de": "Die Vollendung des Tempelbaus und seine Einweihung in den Tagen des Darius 4:24-6:22"
+      }
+     ]
     },
     {
      "ref": "6:1-12",
      "text": "פקודת דריוש להמשיך הבניה",
      "text_de": "Befehl des Darius, den Bau fortzusetzen",
-     "text_en": "Darius's decree to continue the building"
+     "text_en": "Darius's decree to continue the building",
+     "sub": [
+      {
+       "ref": "6:1-5",
+       "text": "הדכרונה של כורש שנמצאה באחמתא",
+       "text_de": "Die Denkschrift des Kyrus, die in Achmeta gefunden wurde",
+       "blk": "גְּמַר בִּנְיַן הַמִּקְדָּשׁ וַחֲנֻכָּתוֹ בִּימֵי דָרְיָוֶשׁ 4:24-6:22",
+       "blk_de": "Die Vollendung des Tempelbaus und seine Einweihung in den Tagen des Darius 4:24-6:22"
+      },
+      {
+       "ref": "6:6-12",
+       "text": "פקדת דריוש לסיע בבנין המקדש ובהחזקתו",
+       "text_de": "Der Befehl des Darius, beim Bau des Tempels und seiner Unterhaltung zu helfen",
+       "blk": "גְּמַר בִּנְיַן הַמִּקְדָּשׁ וַחֲנֻכָּתוֹ בִּימֵי דָרְיָוֶשׁ 4:24-6:22",
+       "blk_de": "Die Vollendung des Tempelbaus und seine Einweihung in den Tagen des Darius 4:24-6:22"
+      }
+     ]
     },
     {
      "ref": "6:13-18",
@@ -116,7 +306,23 @@
      "par_de": "Einweihung der Stiftshütte: 3. Mose 8–9, 4. Mose 7\nEinweihung des ersten Tempels: 1 Könige 8:54–66, 2 Chronik 7:1–11",
      "par_en": "Dedication of the Tabernacle: Leviticus 8–9, Numbers 7\nDedication of the First Temple: I Kings 8:54–66, II Chronicles 7:1–11",
      "time_de": "3. Adar 3412",
-     "time_en": "3 Adar 3412"
+     "time_en": "3 Adar 3412",
+     "sub": [
+      {
+       "ref": "6:13-15",
+       "text": "גמר בנין הבית",
+       "text_de": "Die Vollendung des Hausbaus",
+       "blk": "גְּמַר בִּנְיַן הַמִּקְדָּשׁ וַחֲנֻכָּתוֹ בִּימֵי דָרְיָוֶשׁ 4:24-6:22",
+       "blk_de": "Die Vollendung des Tempelbaus und seine Einweihung in den Tagen des Darius 4:24-6:22"
+      },
+      {
+       "ref": "6:16-18",
+       "text": "חנכת הבית",
+       "text_de": "Die Einweihung des Hauses",
+       "blk": "גְּמַר בִּנְיַן הַמִּקְדָּשׁ וַחֲנֻכָּתוֹ בִּימֵי דָרְיָוֶשׁ 4:24-6:22",
+       "blk_de": "Die Vollendung des Tempelbaus und seine Einweihung in den Tagen des Darius 4:24-6:22"
+      }
+     ]
     },
     {
      "ref": "6:19-22",
@@ -128,7 +334,16 @@
      "par_de": "Gebot: 2. Mose 12:14–20, 3. Mose 23:4–8, 5. Mose 16:1–8",
      "par_en": "Commandment: Exodus 12:14–20, Leviticus 23:4–8, Deuteronomy 16:1–8",
      "time_de": "14.–21. Nisan 3412",
-     "time_en": "14–21 Nisan 3412"
+     "time_en": "14–21 Nisan 3412",
+     "sub": [
+      {
+       "ref": "6:19-22",
+       "text": "החתימה: עשית הפסח",
+       "text_de": "Schluss: die Feier des Passafestes",
+       "blk": "גְּמַר בִּנְיַן הַמִּקְדָּשׁ וַחֲנֻכָּתוֹ בִּימֵי דָרְיָוֶשׁ 4:24-6:22",
+       "blk_de": "Die Vollendung des Tempelbaus und seine Einweihung in den Tagen des Darius 4:24-6:22"
+      }
+     ]
     }
    ],
    "head_de": "Bau des Zweiten Tempels",
@@ -144,7 +359,23 @@
      "text_de": "Esras Hinaufzug nach Jerusalem",
      "text_en": "Ezra's ascent to Jerusalem",
      "time_de": "1. Nisan – 1. Aw 3413",
-     "time_en": "1 Nisan – 1 Av 3413"
+     "time_en": "1 Nisan – 1 Av 3413",
+     "sub": [
+      {
+       "ref": "7:1-6",
+       "text": "פתיחה - עזרא ויחוסו",
+       "text_de": "Einleitung – Esra und seine Abstammung",
+       "blk": "עֲלִיַּת עֶזְרָא וְרִשְׁיוֹן אַרְתַּחְשַׁשְׂתָּא 7-8",
+       "blk_de": "Der Zug Esras und die Genehmigung des Artaxerxes 7-8"
+      },
+      {
+       "ref": "7:7-10",
+       "text": "עלית עזרא, מגמתה ותכליתה",
+       "text_de": "Der Zug Esras, seine Ausrichtung und sein Ziel",
+       "blk": "עֲלִיַּת עֶזְרָא וְרִשְׁיוֹן אַרְתַּחְשַׁשְׂתָּא 7-8",
+       "blk_de": "Der Zug Esras und die Genehmigung des Artaxerxes 7-8"
+      }
+     ]
     },
     {
      "ref": "7:11-26",
@@ -153,43 +384,113 @@
      "text_de": "Brief des Artaxerxes – Unterstützung für den Tempel und Ernennung Esras",
      "text_en": "Letter of Artaxerxes – support for the Temple and Ezra's appointment",
      "time_de": "Aw 3413",
-     "time_en": "Av 3413"
+     "time_en": "Av 3413",
+     "sub": [
+      {
+       "ref": "7:11-26",
+       "text": "רשיון ארתחששתא",
+       "text_de": "Die Genehmigung des Artaxerxes",
+       "blk": "עֲלִיַּת עֶזְרָא וְרִשְׁיוֹן אַרְתַּחְשַׁשְׂתָּא 7-8",
+       "blk_de": "Der Zug Esras und die Genehmigung des Artaxerxes 7-8"
+      }
+     ]
     },
     {
      "ref": "7:27-28",
      "text": "דברי עזרא - שבח והודאה לה'",
      "text_de": "Worte Esras – Lob und Dank an den Herrn",
-     "text_en": "Ezra's words – praise and thanksgiving to the Lord"
+     "text_en": "Ezra's words – praise and thanksgiving to the Lord",
+     "sub": [
+      {
+       "ref": "7:27-28",
+       "text": "הודאת עזרא לה'",
+       "text_de": "Esras Dank an den HERRN",
+       "blk": "עֲלִיַּת עֶזְרָא וְרִשְׁיוֹן אַרְתַּחְשַׁשְׂתָּא 7-8",
+       "blk_de": "Der Zug Esras und die Genehmigung des Artaxerxes 7-8"
+      }
+     ]
     },
     {
      "ref": "8:1-14",
      "text": "שמות העולים עם עזרא לירושלים ויחוסם",
      "text_de": "Namen der mit Esra nach Jerusalem Hinaufziehenden und ihre Abstammung",
-     "text_en": "Names of those who went up to Jerusalem with Ezra, and their lineage"
+     "text_en": "Names of those who went up to Jerusalem with Ezra, and their lineage",
+     "sub": [
+      {
+       "ref": "8:1-14",
+       "text": "רשימת ראשי האבות העולים עם עזרא",
+       "text_de": "Verzeichnis der Familienhäupter, die mit Esra heraufzogen",
+       "blk": "עֲלִיַּת עֶזְרָא וְרִשְׁיוֹן אַרְתַּחְשַׁשְׂתָּא 7-8",
+       "blk_de": "Der Zug Esras und die Genehmigung des Artaxerxes 7-8"
+      }
+     ]
     },
     {
      "ref": "8:15-20",
      "text": "קריאת עזרא ללויים לעלות עמו",
      "text_de": "Esras Aufruf an die Leviten, mit ihm hinaufzuziehen",
-     "text_en": "Ezra's call to the Levites to go up with him"
+     "text_en": "Ezra's call to the Levites to go up with him",
+     "sub": [
+      {
+       "ref": "8:15-20",
+       "text": "הבאת לויים ונתינים",
+       "text_de": "Die Gewinnung von Leviten und Tempelsklaven",
+       "blk": "עֲלִיַּת עֶזְרָא וְרִשְׁיוֹן אַרְתַּחְשַׁשְׂתָּא 7-8",
+       "blk_de": "Der Zug Esras und die Genehmigung des Artaxerxes 7-8"
+      }
+     ]
     },
     {
      "ref": "8:21-23",
      "text": "צום ותפילה לה' לשמרם בדרך",
      "text_de": "Fasten und Gebet zum Herrn um Schutz auf dem Weg",
-     "text_en": "Fasting and prayer to the Lord to protect them on the way"
+     "text_en": "Fasting and prayer to the Lord to protect them on the way",
+     "sub": [
+      {
+       "ref": "8:21-23",
+       "text": "הצום על נהר אהוא",
+       "text_de": "Das Fasten am Fluss Ahawa",
+       "blk": "עֲלִיַּת עֶזְרָא וְרִשְׁיוֹן אַרְתַּחְשַׁשְׂתָּא 7-8",
+       "blk_de": "Der Zug Esras und die Genehmigung des Artaxerxes 7-8"
+      }
+     ]
     },
     {
      "ref": "8:24-30",
      "text": "שמירת הנדבות בדרך",
      "text_de": "Bewachung der Spenden unterwegs",
-     "text_en": "Safeguarding the donations on the way"
+     "text_en": "Safeguarding the donations on the way",
+     "sub": [
+      {
+       "ref": "8:24-34",
+       "text": "הכהנים מעלים את התרומות לבית ה' בירושלים",
+       "text_de": "Die Priester bringen die Abgaben in das Haus des HERRN in Jerusalem",
+       "blk": "עֲלִיַּת עֶזְרָא וְרִשְׁיוֹן אַרְתַּחְשַׁשְׂתָּא 7-8",
+       "blk_de": "Der Zug Esras und die Genehmigung des Artaxerxes 7-8"
+      }
+     ]
     },
     {
      "ref": "8:31-36",
      "text": "ביאתם לירושלים והקרבת קרבנות",
      "text_de": "Ankunft in Jerusalem und Darbringung von Opfern",
-     "text_en": "Arrival in Jerusalem and offering of sacrifices"
+     "text_en": "Arrival in Jerusalem and offering of sacrifices",
+     "sub": [
+      {
+       "ref": "8:34-35",
+       "text": "העולים מקריבים קרבנות 'על כל ישראל'",
+       "text_de": "Die Heimkehrer bringen Opfer dar „für ganz Israel“",
+       "blk": "עֲלִיַּת עֶזְרָא וְרִשְׁיוֹן אַרְתַּחְשַׁשְׂתָּא 7-8",
+       "blk_de": "Der Zug Esras und die Genehmigung des Artaxerxes 7-8"
+      },
+      {
+       "ref": "8:36",
+       "text": "חתימה - דתי המלך נתנים לאחשדרפנים ולפחוות",
+       "text_de": "Schluss – die Erlasse des Königs werden den Satrapen und Statthaltern übergeben",
+       "blk": "עֲלִיַּת עֶזְרָא וְרִשְׁיוֹן אַרְתַּחְשַׁשְׂתָּא 7-8",
+       "blk_de": "Der Zug Esras und die Genehmigung des Artaxerxes 7-8"
+      }
+     ]
     },
     {
      "ref": "9",
@@ -201,13 +502,59 @@
      "par_de": "Gebot: 5. Mose 7:1–4\nZurechtweisung wegen dieser Sünde: Maleachi 2:10–16",
      "par_en": "Commandment: Deuteronomy 7:1–4\nRebuke for this sin: Malachi 2:10–16",
      "time_de": "Kislew-Nisan 3414",
-     "time_en": "Kislev-Nisan 3414"
+     "time_en": "Kislev-Nisan 3414",
+     "sub": [
+      {
+       "ref": "9:1-2",
+       "text": "מעל הגולה",
+       "text_de": "Die Untreue der Gola",
+       "blk": "פְּעֻלּוֹת עֶזְרָא לְטַהוֹר בֵּית יִשְׂרָאֵל 9-10",
+       "blk_de": "Esras Maßnahmen zur Reinigung des Hauses Israel 9-10"
+      },
+      {
+       "ref": "9:3-15",
+       "text": "תפלת עזרא",
+       "text_de": "Esras Gebet",
+       "blk": "פְּעֻלּוֹת עֶזְרָא לְטַהוֹר בֵּית יִשְׂרָאֵל 9-10",
+       "blk_de": "Esras Maßnahmen zur Reinigung des Hauses Israel 9-10"
+      }
+     ]
     },
     {
      "ref": "10",
      "text": "הפרשת העם מהנשים הנכריות",
      "text_de": "Trennung des Volkes von den fremden Frauen",
-     "text_en": "Separation of the people from the foreign women"
+     "text_en": "Separation of the people from the foreign women",
+     "sub": [
+      {
+       "ref": "10:1-6",
+       "text": "השבועה להוציא את הנשים הנכריות ובניהן",
+       "text_de": "Der Schwur, die fremden Frauen und ihre Söhne zu entlassen",
+       "blk": "פְּעֻלּוֹת עֶזְרָא לְטַהוֹר בֵּית יִשְׂרָאֵל 9-10",
+       "blk_de": "Esras Maßnahmen zur Reinigung des Hauses Israel 9-10"
+      },
+      {
+       "ref": "10:7-9",
+       "text": "אספת העם",
+       "text_de": "Die Volksversammlung",
+       "blk": "פְּעֻלּוֹת עֶזְרָא לְטַהוֹר בֵּית יִשְׂרָאֵל 9-10",
+       "blk_de": "Esras Maßnahmen zur Reinigung des Hauses Israel 9-10"
+      },
+      {
+       "ref": "10:10-17",
+       "text": "ההחלטה להבדל מן הנשים הנכריות",
+       "text_de": "Der Beschluss, sich von den fremden Frauen zu trennen",
+       "blk": "פְּעֻלּוֹת עֶזְרָא לְטַהוֹר בֵּית יִשְׂרָאֵל 9-10",
+       "blk_de": "Esras Maßnahmen zur Reinigung des Hauses Israel 9-10"
+      },
+      {
+       "ref": "10:18-43",
+       "text": "שמות מוציאי הנשים הנכריות (יח-מג): הכהנים - יח-כב; הלוים - כג-כד; ישראל - כה-מג.",
+       "text_de": "Namen derer, die die fremden Frauen entließen (V. 18–43): die Priester – V. 18–22; die Leviten – V. 23–24; Israel – V. 25–43",
+       "blk": "פְּעֻלּוֹת עֶזְרָא לְטַהוֹר בֵּית יִשְׂרָאֵל 9-10",
+       "blk_de": "Esras Maßnahmen zur Reinigung des Hauses Israel 9-10"
+      }
+     ]
     }
    ],
    "head_de": "Esras Hinaufzug",
@@ -216,6 +563,6 @@
  ],
  "title_de": "Inhalt des Buches Esra",
  "title_en": "Contents of the Book of Ezra",
- "note_de": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt.",
- "note_en": "Transcribed from photos of a summary table. Chapter and verse numbering and dates (Jewish reckoning) as printed in the source."
+ "note_de": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt. Unterpunkte aus der Gliederung von „Da'at Mikra“ (Teilpunkte mit Versangaben, mit Hinweis auf den jeweiligen Abschnitt) ergänzt und ins Deutsche übersetzt.",
+ "note_en": "Transcribed from photos of a summary table. Chapter and verse numbering and dates (Jewish reckoning) as printed in the source. Sub-points from the Da'at Mikra outlines (parts with verse references, labelled with their section) added; German translation."
 }

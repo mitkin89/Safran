@@ -1,7 +1,7 @@
 {
  "book": "Ecclesiastes",
  "title": "תוכן ספר קהלת",
- "note": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt.",
+ "note": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt. · הורחב בחלוקת דעת מקרא (פסקאות עם מראי מקום).",
  "sections": [
   {
    "head": "פתיחה והקדמה",
@@ -13,7 +13,37 @@
      "text_de": "Name des Verfassers, seine Bedeutung und Zusammenfassung der Schrift",
      "text_en": "The author's name, his importance, and a summary of the scroll",
      "par_de": "Worte der Zurechtweisung: 5. Mose 1; 5. Mose 32; Jeremia 1, 36; Amos 1, und weitere",
-     "par_en": "Words of rebuke: Deuteronomy 1; Deuteronomy 32; Jeremiah 1, 36; Amos 1, and others"
+     "par_en": "Words of rebuke: Deuteronomy 1; Deuteronomy 32; Jeremiah 1, 36; Amos 1, and others",
+     "sub": [
+      {
+       "ref": "1:1",
+       "text": "הכותרת לספר",
+       "text_de": "Der Titel des Buches",
+       "blk": "פְּתִיחַת הַסֵּפֶר 1:1-11",
+       "blk_de": "Einleitung zum Buch 1:1-11"
+      },
+      {
+       "ref": "1:2-3",
+       "text": "הנושאים הראשיים שבספר: הכל הבל; מה־יתרון לאדם בעולם הזה",
+       "text_de": "Die Hauptthemen des Buches: Alles ist nichtig; welchen Gewinn hat der Mensch in dieser Welt",
+       "blk": "פְּתִיחַת הַסֵּפֶר 1:1-11",
+       "blk_de": "Einleitung zum Buch 1:1-11"
+      },
+      {
+       "ref": "1:4-7",
+       "text": "חקות שמים וארץ, הקבועים מימות עולם שרבו מספר",
+       "text_de": "Die Gesetze von Himmel und Erde, seit unvordenklichen Zeiten festgelegt",
+       "blk": "פְּתִיחַת הַסֵּפֶר 1:1-11",
+       "blk_de": "Einleitung zum Buch 1:1-11"
+      },
+      {
+       "ref": "1:8-11",
+       "text": "אין כל־חדש בעולם הזה גם בחברת בני אדם",
+       "text_de": "Nichts ist neu in dieser Welt, auch nicht in der menschlichen Gesellschaft",
+       "blk": "פְּתִיחַת הַסֵּפֶר 1:1-11",
+       "blk_de": "Einleitung zum Buch 1:1-11"
+      }
+     ]
     }
    ],
    "head_de": "Eröffnung und Einleitung",
@@ -29,19 +59,81 @@
      "text_de": "Die Wahl in dieser Welt – eine Prüfung, die Gott den Menschen auferlegt hat",
      "text_en": "Choice in this world – a test that God gave to humankind",
      "par_de": "Die Welt ist der Wahl überlassen: 5. Mose 30:15–20",
-     "par_en": "The world was given over to choice: Deuteronomy 30:15–20"
+     "par_en": "The world was given over to choice: Deuteronomy 30:15–20",
+     "sub": [
+      {
+       "ref": "1:12-15",
+       "text": "מעמדו, שאיפתו והתבוננותו בעולם המעשים, ומסקנותיו",
+       "text_de": "Seine Stellung, sein Streben und seine Betrachtung der Welt des Tuns und seine Schlussfolgerungen",
+       "blk": "נִסּוּיָיו, אַכְזְבוֹתָיו וּמַסְקָנָתוֹ 1:12-2:26",
+       "blk_de": "Seine Versuche, Enttäuschungen und Schlussfolgerung 1:12-2:26"
+      }
+     ]
     },
     {
      "ref": "1:16-2:12",
      "text": "התנסות בהתעסקות בענייני עוה\"ז",
      "text_de": "Erfahrungen mit der Beschäftigung mit den Dingen dieser Welt",
-     "text_en": "Experience in occupying oneself with the affairs of this world"
+     "text_en": "Experience in occupying oneself with the affairs of this world",
+     "sub": [
+      {
+       "ref": "1:16-18",
+       "text": "ראשית אכזבתו מן החכמה",
+       "text_de": "Die erste Enttäuschung über die Weisheit",
+       "blk": "נִסּוּיָיו, אַכְזְבוֹתָיו וּמַסְקָנָתוֹ 1:12-2:26",
+       "blk_de": "Seine Versuche, Enttäuschungen und Schlussfolgerung 1:12-2:26"
+      },
+      {
+       "ref": "2:1-3",
+       "text": "נסויו במשתה ושמחה, ואכזבתו",
+       "text_de": "Sein Versuch mit Gelage und Freude und seine Enttäuschung",
+       "blk": "נִסּוּיָיו, אַכְזְבוֹתָיו וּמַסְקָנָתוֹ 1:12-2:26",
+       "blk_de": "Seine Versuche, Enttäuschungen und Schlussfolgerung 1:12-2:26"
+      },
+      {
+       "ref": "2:4-11",
+       "text": "נסויו בבנין וקנין ואכזבתו",
+       "text_de": "Sein Versuch mit Bauen und Besitzen und seine Enttäuschung",
+       "blk": "נִסּוּיָיו, אַכְזְבוֹתָיו וּמַסְקָנָתוֹ 1:12-2:26",
+       "blk_de": "Seine Versuche, Enttäuschungen und Schlussfolgerung 1:12-2:26"
+      },
+      {
+       "ref": "2:12-16",
+       "text": "האמנם יש יתרון לחכמה מן הסכלות",
+       "text_de": "Hat die Weisheit wirklich einen Vorzug vor der Torheit",
+       "blk": "נִסּוּיָיו, אַכְזְבוֹתָיו וּמַסְקָנָתוֹ 1:12-2:26",
+       "blk_de": "Seine Versuche, Enttäuschungen und Schlussfolgerung 1:12-2:26"
+      }
+     ]
     },
     {
      "ref": "2:13-26",
      "text": "הבל הכונס ממון ומניחו לאחרים",
      "text_de": "Nichtigkeit dessen, der Vermögen anhäuft und es anderen hinterlässt",
-     "text_en": "The vanity of one who amasses wealth and leaves it to others"
+     "text_en": "The vanity of one who amasses wealth and leaves it to others",
+     "sub": [
+      {
+       "ref": "2:17-19",
+       "text": "מחקרו גרם לשנאת הבריות",
+       "text_de": "Seine Forschung führte zum Hass auf die Menschen",
+       "blk": "נִסּוּיָיו, אַכְזְבוֹתָיו וּמַסְקָנָתוֹ 1:12-2:26",
+       "blk_de": "Seine Versuche, Enttäuschungen und Schlussfolgerung 1:12-2:26"
+      },
+      {
+       "ref": "2:20-23",
+       "text": "יאושו מעמלו ומאמציו",
+       "text_de": "Seine Verzweiflung über seine Mühe und Anstrengung",
+       "blk": "נִסּוּיָיו, אַכְזְבוֹתָיו וּמַסְקָנָתוֹ 1:12-2:26",
+       "blk_de": "Seine Versuche, Enttäuschungen und Schlussfolgerung 1:12-2:26"
+      },
+      {
+       "ref": "2:24-26",
+       "text": "מסקנה: הטוב ביותר הוא שישמח אדם בעמלו, במדה שנתן לו מאת אלהים",
+       "text_de": "Schlussfolgerung: Das Beste ist, dass der Mensch sich an seiner Mühe freut, in dem Maß, wie Gott es ihm gegeben hat",
+       "blk": "נִסּוּיָיו, אַכְזְבוֹתָיו וּמַסְקָנָתוֹ 1:12-2:26",
+       "blk_de": "Seine Versuche, Enttäuschungen und Schlussfolgerung 1:12-2:26"
+      }
+     ]
     }
    ],
    "head_de": "Untersuchung der Nichtigkeiten, die in der Welt herrschen",
@@ -54,19 +146,60 @@
      "ref": "3:1-9",
      "text": "כ\"ד עתים - עת לכל דבר",
      "text_de": "24 Zeiten – eine Zeit für jedes Ding",
-     "text_en": "24 times – a time for everything"
+     "text_en": "24 times – a time for everything",
+     "sub": [
+      {
+       "ref": "3:1-9",
+       "text": "שיר על העתים בחיי האדם",
+       "text_de": "Gedicht über die Zeiten im Leben des Menschen",
+       "blk": "הָאָדָם בְּיַחֲסוֹ כְּלַפֵּי מַעְלָה וּכְלַפֵּי מַטָּה 3:1-22",
+       "blk_de": "Der Mensch in seinem Verhältnis nach oben und nach unten 3:1-22"
+      }
+     ]
     },
     {
      "ref": "3:10-13",
      "text": "הכל עשה ה' יפה בעתו",
      "text_de": "Alles hat Gott schön gemacht zu seiner Zeit",
-     "text_en": "God made everything beautiful in its time"
+     "text_en": "God made everything beautiful in its time",
+     "sub": [
+      {
+       "ref": "3:10-13",
+       "text": "היחס שבין אלהים לאדם",
+       "text_de": "Das Verhältnis zwischen Gott und Mensch",
+       "blk": "הָאָדָם בְּיַחֲסוֹ כְּלַפֵּי מַעְלָה וּכְלַפֵּי מַטָּה 3:1-22",
+       "blk_de": "Der Mensch in seinem Verhältnis nach oben und nach unten 3:1-22"
+      }
+     ]
     },
     {
      "ref": "3:14-22",
      "text": "יראת ה' ויראת העונש שיבוא לחוטאים",
      "text_de": "Gottesfurcht und Furcht vor der Strafe, die über die Sünder kommen wird",
-     "text_en": "Fear of God and fear of the punishment that will come upon sinners"
+     "text_en": "Fear of God and fear of the punishment that will come upon sinners",
+     "sub": [
+      {
+       "ref": "3:14-15",
+       "text": "מעשי אלהים קימים לעד",
+       "text_de": "Die Werke Gottes bestehen für ewig",
+       "blk": "הָאָדָם בְּיַחֲסוֹ כְּלַפֵּי מַעְלָה וּכְלַפֵּי מַטָּה 3:1-22",
+       "blk_de": "Der Mensch in seinem Verhältnis nach oben und nach unten 3:1-22"
+      },
+      {
+       "ref": "3:16-17",
+       "text": "המשפט לאלהים הוא, השופט צדק",
+       "text_de": "Das Gericht gehört Gott, dem gerechten Richter",
+       "blk": "הָאָדָם בְּיַחֲסוֹ כְּלַפֵּי מַעְלָה וּכְלַפֵּי מַטָּה 3:1-22",
+       "blk_de": "Der Mensch in seinem Verhältnis nach oben und nach unten 3:1-22"
+      },
+      {
+       "ref": "3:18-22",
+       "text": "מה בין אדם לבהמה",
+       "text_de": "Was ist der Unterschied zwischen Mensch und Tier",
+       "blk": "הָאָדָם בְּיַחֲסוֹ כְּלַפֵּי מַעְלָה וּכְלַפֵּי מַטָּה 3:1-22",
+       "blk_de": "Der Mensch in seinem Verhältnis nach oben und nach unten 3:1-22"
+      }
+     ]
     }
    ],
    "head_de": "Zeit und Vorsehung für jede Sache",
@@ -82,25 +215,68 @@
      "text_de": "Besser sind die gestorbenen Gerechten als die lebenden Frevler",
      "text_en": "Better are the righteous who have died than the wicked who are alive",
      "par_de": "Ähnlich: unten 9:4–6\nDavids Vorzug nach seinem Tod: 2 Chronik 6:41–42",
-     "par_en": "Similar: below 9:4–6\nDavid's merit after his death: II Chronicles 6:41–42"
+     "par_en": "Similar: below 9:4–6\nDavid's merit after his death: II Chronicles 6:41–42",
+     "sub": [
+      {
+       "ref": "4:1-3",
+       "text": "העשק שבחברה",
+       "text_de": "Die Unterdrückung in der Gesellschaft",
+       "blk": "עִוּותִים בְּחֶבְרַת בְּנֵי אָדָם 4:1-16",
+       "blk_de": "Verkehrtheiten in der menschlichen Gesellschaft 4:1-16"
+      }
+     ]
     },
     {
      "ref": "4:4-6",
      "text": "גנות הקנאה ושבח קנין הנכסים ביושר",
      "text_de": "Verwerflichkeit des Neides und Lob des redlichen Erwerbs von Besitz",
-     "text_en": "The disgrace of envy and praise of acquiring property honestly"
+     "text_en": "The disgrace of envy and praise of acquiring property honestly",
+     "sub": [
+      {
+       "ref": "4:4-6",
+       "text": "התחרות מחמת קנאה",
+       "text_de": "Wetteifer aus Neid",
+       "blk": "עִוּותִים בְּחֶבְרַת בְּנֵי אָדָם 4:1-16",
+       "blk_de": "Verkehrtheiten in der menschlichen Gesellschaft 4:1-16"
+      }
+     ]
     },
     {
      "ref": "4:7-12",
      "text": "מעלת השותפות וההתחברות",
      "text_de": "Vorzug der Partnerschaft und Verbundenheit",
-     "text_en": "The merit of partnership and companionship"
+     "text_en": "The merit of partnership and companionship",
+     "sub": [
+      {
+       "ref": "4:7-8",
+       "text": "הרדיפה אחר עשר",
+       "text_de": "Das Streben nach Reichtum",
+       "blk": "עִוּותִים בְּחֶבְרַת בְּנֵי אָדָם 4:1-16",
+       "blk_de": "Verkehrtheiten in der menschlichen Gesellschaft 4:1-16"
+      },
+      {
+       "ref": "4:9-12",
+       "text": "בשבח העזרה ההדדית",
+       "text_de": "Zum Lob gegenseitiger Hilfe",
+       "blk": "עִוּותִים בְּחֶבְרַת בְּנֵי אָדָם 4:1-16",
+       "blk_de": "Verkehrtheiten in der menschlichen Gesellschaft 4:1-16"
+      }
+     ]
     },
     {
      "ref": "4:13-16",
      "text": "ילד מסכן וחכם",
      "text_de": "Ein armer, weiser Knabe",
-     "text_en": "A poor and wise child"
+     "text_en": "A poor and wise child",
+     "sub": [
+      {
+       "ref": "4:13-16",
+       "text": "תקות שוא לגבי העתיד",
+       "text_de": "Trügerische Hoffnung auf die Zukunft",
+       "blk": "עִוּותִים בְּחֶבְרַת בְּנֵי אָדָם 4:1-16",
+       "blk_de": "Verkehrtheiten in der menschlichen Gesellschaft 4:1-16"
+      }
+     ]
     },
     {
      "ref": "4:17-5:8",
@@ -109,7 +285,44 @@
      "text_de": "Gottesfurcht, Hüten der Rede",
      "text_en": "Fear of God, guarding one's speech",
      "par_de": "Besser, du gelobst nicht: 4. Mose 30:2–3; 5. Mose 23:22–24; Psalmen 76:12; Sprüche 20:25, 22:27",
-     "par_en": "Better that you do not vow: Numbers 30:2–3; Deuteronomy 23:22–24; Psalms 76:12; Proverbs 20:25, 22:27"
+     "par_en": "Better that you do not vow: Numbers 30:2–3; Deuteronomy 23:22–24; Psalms 76:12; Proverbs 20:25, 22:27",
+     "sub": [
+      {
+       "ref": "4:17",
+       "text": "שלא ינהג כדרך הכסילים",
+       "text_de": "Er soll nicht nach Art der Toren handeln",
+       "blk": "אֶת־הָאֱלֹהִים יְרָא 4:17-5:7",
+       "blk_de": "Gott sollst du fürchten 4:17-5:7"
+      },
+      {
+       "ref": "5:1-2",
+       "text": "שיזהר בדבוריו על אלהים",
+       "text_de": "Er soll sich in seinen Worten über Gott in Acht nehmen",
+       "blk": "אֶת־הָאֱלֹהִים יְרָא 4:17-5:7",
+       "blk_de": "Gott sollst du fürchten 4:17-5:7"
+      },
+      {
+       "ref": "5:3-5",
+       "text": "שיזהר בנדרים",
+       "text_de": "Er soll sich bei Gelübden in Acht nehmen",
+       "blk": "אֶת־הָאֱלֹהִים יְרָא 4:17-5:7",
+       "blk_de": "Gott sollst du fürchten 4:17-5:7"
+      },
+      {
+       "ref": "5:6-7",
+       "text": "שיירא את האלהים ולא יפקפק בהשגחתו",
+       "text_de": "Er soll Gott fürchten und nicht an seiner Vorsehung zweifeln",
+       "blk": "אֶת־הָאֱלֹהִים יְרָא 4:17-5:7",
+       "blk_de": "Gott sollst du fürchten 4:17-5:7"
+      },
+      {
+       "ref": "5:8-11",
+       "text": "העובד בשדהו לעמת אוהב כסף",
+       "text_de": "Wer sein Feld bestellt im Gegensatz zum Geldliebenden",
+       "blk": "בִּגְנוּת הָרְדִיפָה אַחַר הָעֹשֶׁר 5:8-6:9",
+       "blk_de": "Zur Verwerfung des Strebens nach Reichtum 5:8-6:9"
+      }
+     ]
     }
    ],
    "head_de": "Einhaltung der Gebote und Vorzug der Redlichkeit",
@@ -125,13 +338,59 @@
      "text_de": "Vorteil des Gebotserfüllens gegenüber dem Anhäufen von Besitz",
      "text_en": "The advantage of performing commandments over amassing possessions",
      "par_de": "Reichtum, der zum Schaden seines Besitzers bewahrt wird: 4. Mose 16:32",
-     "par_en": "Wealth kept by its owner to his harm: Numbers 16:32"
+     "par_en": "Wealth kept by its owner to his harm: Numbers 16:32",
+     "sub": [
+      {
+       "ref": "5:12-16",
+       "text": "עשר שמור לבעליו לרעתו",
+       "text_de": "Reichtum, der zum Schaden seines Besitzers aufbewahrt wird",
+       "blk": "בִּגְנוּת הָרְדִיפָה אַחַר הָעֹשֶׁר 5:8-6:9",
+       "blk_de": "Zur Verwerfung des Strebens nach Reichtum 5:8-6:9"
+      },
+      {
+       "ref": "5:17-19",
+       "text": "בשבח השמח בחלקו",
+       "text_de": "Zum Lob dessen, der sich an seinem Anteil freut",
+       "blk": "בִּגְנוּת הָרְדִיפָה אַחַר הָעֹשֶׁר 5:8-6:9",
+       "blk_de": "Zur Verwerfung des Strebens nach Reichtum 5:8-6:9"
+      }
+     ]
     },
     {
      "ref": "6",
      "text": "גנות צבירת הון ואי קיומו ביד האדם",
      "text_de": "Verwerflichkeit des Anhäufens von Vermögen und dass es nicht in der Hand des Menschen bleibt",
-     "text_en": "The disgrace of hoarding wealth, and that it does not stay in a person's hand"
+     "text_en": "The disgrace of hoarding wealth, and that it does not stay in a person's hand",
+     "sub": [
+      {
+       "ref": "6:1-2",
+       "text": "גורל עשיר בודד וקמצן",
+       "text_de": "Das Los eines einsamen und geizigen Reichen",
+       "blk": "בִּגְנוּת הָרְדִיפָה אַחַר הָעֹשֶׁר 5:8-6:9",
+       "blk_de": "Zur Verwerfung des Strebens nach Reichtum 5:8-6:9"
+      },
+      {
+       "ref": "6:3-6",
+       "text": "גורל עשיר שהפך לעני",
+       "text_de": "Das Los eines Reichen, der arm geworden ist",
+       "blk": "בִּגְנוּת הָרְדִיפָה אַחַר הָעֹשֶׁר 5:8-6:9",
+       "blk_de": "Zur Verwerfung des Strebens nach Reichtum 5:8-6:9"
+      },
+      {
+       "ref": "6:7-9",
+       "text": "כל עמל אדם לפיהו",
+       "text_de": "Alle Mühe des Menschen ist für seinen Mund",
+       "blk": "בִּגְנוּת הָרְדִיפָה אַחַר הָעֹשֶׁר 5:8-6:9",
+       "blk_de": "Zur Verwerfung des Strebens nach Reichtum 5:8-6:9"
+      },
+      {
+       "ref": "6:10-12",
+       "text": "מה טוב לאדם בחיים",
+       "text_de": "Was ist gut für den Menschen im Leben",
+       "blk": "אִמְרֵי חָכְמָה עַל הַנּוֹשֵׂא: מַה טּוֹב לָאָדָם 6:10-7:12",
+       "blk_de": "Weisheitssprüche über den Satz: Was ist gut für den Menschen 6:10-7:12"
+      }
+     ]
     }
    ],
    "head_de": "Das richtige Verhalten im Umgang mit Geld",
@@ -144,13 +403,52 @@
      "ref": "7:1-7",
      "text": "הנהגות טובות והיפוכן",
      "text_de": "Gutes Verhalten und sein Gegenteil",
-     "text_en": "Good conduct and its opposite"
+     "text_en": "Good conduct and its opposite",
+     "sub": [
+      {
+       "ref": "7:1-4",
+       "text": "מות ואבל",
+       "text_de": "Tod und Trauer",
+       "blk": "אִמְרֵי חָכְמָה עַל הַנּוֹשֵׂא: מַה טּוֹב לָאָדָם 6:10-7:12",
+       "blk_de": "Weisheitssprüche über den Satz: Was ist gut für den Menschen 6:10-7:12"
+      },
+      {
+       "ref": "7:5-7",
+       "text": "גערת חכם",
+       "text_de": "Der Tadel des Weisen",
+       "blk": "אִמְרֵי חָכְמָה עַל הַנּוֹשֵׂא: מַה טּוֹב לָאָדָם 6:10-7:12",
+       "blk_de": "Weisheitssprüche über den Satz: Was ist gut für den Menschen 6:10-7:12"
+      }
+     ]
     },
     {
      "ref": "7:8-12",
      "text": "גנות הכעס, וקבלת דין שמים באהבה",
      "text_de": "Verwerflichkeit des Zorns und liebevolles Annehmen des himmlischen Urteils",
-     "text_en": "The disgrace of anger, and accepting Heaven's judgment with love"
+     "text_en": "The disgrace of anger, and accepting Heaven's judgment with love",
+     "sub": [
+      {
+       "ref": "7:8-9",
+       "text": "אחרית דבר וארך רוח",
+       "text_de": "Das Ende einer Sache und Langmut",
+       "blk": "אִמְרֵי חָכְמָה עַל הַנּוֹשֵׂא: מַה טּוֹב לָאָדָם 6:10-7:12",
+       "blk_de": "Weisheitssprüche über den Satz: Was ist gut für den Menschen 6:10-7:12"
+      },
+      {
+       "ref": "7:10",
+       "text": "הימים הטובים",
+       "text_de": "Die guten Tage",
+       "blk": "אִמְרֵי חָכְמָה עַל הַנּוֹשֵׂא: מַה טּוֹב לָאָדָם 6:10-7:12",
+       "blk_de": "Weisheitssprüche über den Satz: Was ist gut für den Menschen 6:10-7:12"
+      },
+      {
+       "ref": "7:11-12",
+       "text": "חכמה עם נחלה",
+       "text_de": "Weisheit mit Erbbesitz",
+       "blk": "אִמְרֵי חָכְמָה עַל הַנּוֹשֵׂא: מַה טּוֹב לָאָדָם 6:10-7:12",
+       "blk_de": "Weisheitssprüche über den Satz: Was ist gut für den Menschen 6:10-7:12"
+      }
+     ]
     }
    ],
    "head_de": "Gute Charaktereigenschaften und Verhaltensweisen",
@@ -163,25 +461,96 @@
      "ref": "7:13-15",
      "text": "שכר ועונש",
      "text_de": "Lohn und Strafe",
-     "text_en": "Reward and punishment"
+     "text_en": "Reward and punishment",
+     "sub": [
+      {
+       "ref": "7:13-14",
+       "text": "את זה לעמת זה",
+       "text_de": "Das eine im Gegensatz zum anderen",
+       "blk": "הַבְּעָיָה שֶׁל צַדִּיק וְרַע לוֹ רָשָׁע וְטוֹב לוֹ 7:13-8:17",
+       "blk_de": "Das Problem des Gerechten, dem es schlecht geht, und des Frevlers, dem es gut geht 7:13-8:17"
+      },
+      {
+       "ref": "7:15-20",
+       "text": "על צדיק חכם ורשע סכל",
+       "text_de": "Über den weisen Gerechten und den törichten Frevler",
+       "blk": "הַבְּעָיָה שֶׁל צַדִּיק וְרַע לוֹ רָשָׁע וְטוֹב לוֹ 7:13-8:17",
+       "blk_de": "Das Problem des Gerechten, dem es schlecht geht, und des Frevlers, dem es gut geht 7:13-8:17"
+      }
+     ]
     },
     {
      "ref": "7:16-22",
      "text": "בשבח ההליכה בדרך האמצעית",
      "text_de": "Lob des Mittelwegs",
-     "text_en": "In praise of walking the middle path"
+     "text_en": "In praise of walking the middle path",
+     "sub": [
+      {
+       "ref": "7:21-22",
+       "text": "גם אתה חטאת",
+       "text_de": "Auch du hast gesündigt",
+       "blk": "הַבְּעָיָה שֶׁל צַדִּיק וְרַע לוֹ רָשָׁע וְטוֹב לוֹ 7:13-8:17",
+       "blk_de": "Das Problem des Gerechten, dem es schlecht geht, und des Frevlers, dem es gut geht 7:13-8:17"
+      }
+     ]
     },
     {
      "ref": "7:23-29",
      "text": "אמרתי אחכמה והיא רחוקה",
      "text_de": "Ich sprach: Ich will weise werden, doch sie blieb mir fern",
-     "text_en": "I said: I will be wise, but it was far from me"
+     "text_en": "I said: I will be wise, but it was far from me",
+     "sub": [
+      {
+       "ref": "7:23-25",
+       "text": "אמרתי אחכמה - והיא רחוקה",
+       "text_de": "Ich sagte: Ich will weise werden, doch sie blieb fern von mir",
+       "blk": "הַבְּעָיָה שֶׁל צַדִּיק וְרַע לוֹ רָשָׁע וְטוֹב לוֹ 7:13-8:17",
+       "blk_de": "Das Problem des Gerechten, dem es schlecht geht, und des Frevlers, dem es gut geht 7:13-8:17"
+      },
+      {
+       "ref": "7:26-29",
+       "text": "האשה הרעה",
+       "text_de": "Die böse Frau",
+       "blk": "הַבְּעָיָה שֶׁל צַדִּיק וְרַע לוֹ רָשָׁע וְטוֹב לוֹ 7:13-8:17",
+       "blk_de": "Das Problem des Gerechten, dem es schlecht geht, und des Frevlers, dem es gut geht 7:13-8:17"
+      }
+     ]
     },
     {
      "ref": "8:1-13",
      "text": "גדולת ה', קיום המצוות גם כשהרשעים מצליחים",
      "text_de": "Größe Gottes, Einhaltung der Gebote auch wenn die Frevler Erfolg haben",
-     "text_en": "God's greatness, observing the commandments even when the wicked prosper"
+     "text_en": "God's greatness, observing the commandments even when the wicked prosper",
+     "sub": [
+      {
+       "ref": "8:1",
+       "text": "תהלת החכם והחכמה",
+       "text_de": "Lob des Weisen und der Weisheit",
+       "blk": "הַבְּעָיָה שֶׁל צַדִּיק וְרַע לוֹ רָשָׁע וְטוֹב לוֹ 7:13-8:17",
+       "blk_de": "Das Problem des Gerechten, dem es schlecht geht, und des Frevlers, dem es gut geht 7:13-8:17"
+      },
+      {
+       "ref": "8:2-4",
+       "text": "פי־מלך שמר",
+       "text_de": "Den Befehl des Königs halte",
+       "blk": "הַבְּעָיָה שֶׁל צַדִּיק וְרַע לוֹ רָשָׁע וְטוֹב לוֹ 7:13-8:17",
+       "blk_de": "Das Problem des Gerechten, dem es schlecht geht, und des Frevlers, dem es gut geht 7:13-8:17"
+      },
+      {
+       "ref": "8:5-8",
+       "text": "מה יודע לב חכם",
+       "text_de": "Was weiß das Herz eines Weisen",
+       "blk": "הַבְּעָיָה שֶׁל צַדִּיק וְרַע לוֹ רָשָׁע וְטוֹב לוֹ 7:13-8:17",
+       "blk_de": "Das Problem des Gerechten, dem es schlecht geht, und des Frevlers, dem es gut geht 7:13-8:17"
+      },
+      {
+       "ref": "8:9-14",
+       "text": "מעשי הרשעים ומעשי הצדיקים",
+       "text_de": "Die Taten der Frevler und die Taten der Gerechten",
+       "blk": "הַבְּעָיָה שֶׁל צַדִּיק וְרַע לוֹ רָשָׁע וְטוֹב לוֹ 7:13-8:17",
+       "blk_de": "Das Problem des Gerechten, dem es schlecht geht, und des Frevlers, dem es gut geht 7:13-8:17"
+      }
+     ]
     },
     {
      "ref": "8:14-15",
@@ -190,7 +559,16 @@
      "text_de": "Ein Gerechter, dem es schlecht geht, ein Frevler, dem es gut geht",
      "text_en": "A righteous person who suffers, a wicked person who prospers",
      "par_de": "Mehr zu diesem Thema: 2. Mose 33:13–34:7 (nach manchen); Jeremia 12:1–3; Psalmen 73; Buch Hiob",
-     "par_en": "More on this subject: Exodus 33:13–34:7 (according to some); Jeremiah 12:1–3; Psalms 73; Book of Job"
+     "par_en": "More on this subject: Exodus 33:13–34:7 (according to some); Jeremiah 12:1–3; Psalms 73; Book of Job",
+     "sub": [
+      {
+       "ref": "8:15-17",
+       "text": "גם החכם לא יוכל לדעת הכל",
+       "text_de": "Auch der Weise kann nicht alles erkennen",
+       "blk": "הַבְּעָיָה שֶׁל צַדִּיק וְרַע לוֹ רָשָׁע וְטוֹב לוֹ 7:13-8:17",
+       "blk_de": "Das Problem des Gerechten, dem es schlecht geht, und des Frevlers, dem es gut geht 7:13-8:17"
+      }
+     ]
     }
    ],
    "head_de": "Wege des Verhaltens und die Gerechtigkeit Gottes",
@@ -203,55 +581,206 @@
      "ref": "9:1-10",
      "text": "ההנהגה הראויה לצדיק",
      "text_de": "Das richtige Verhalten des Gerechten",
-     "text_en": "The proper conduct of the righteous"
+     "text_en": "The proper conduct of the righteous",
+     "sub": [
+      {
+       "ref": "9:1-2",
+       "text": "כלם ביד אלהים ומקרה אחד להם",
+       "text_de": "Alle sind in Gottes Hand, und alle trifft dasselbe Geschick",
+       "blk": "אֵין יוֹדֵעַ הָאָדָם 9:1-18",
+       "blk_de": "Der Mensch weiß es nicht 9:1-18"
+      },
+      {
+       "ref": "9:3-6",
+       "text": "דעות החיים על המתים",
+       "text_de": "Die Ansichten der Lebenden über die Toten",
+       "blk": "אֵין יוֹדֵעַ הָאָדָם 9:1-18",
+       "blk_de": "Der Mensch weiß es nicht 9:1-18"
+      },
+      {
+       "ref": "9:7-10",
+       "text": "עצות איך להנות מן החיים",
+       "text_de": "Ratschläge, wie man das Leben genießen kann",
+       "blk": "אֵין יוֹדֵעַ הָאָדָם 9:1-18",
+       "blk_de": "Der Mensch weiß es nicht 9:1-18"
+      }
+     ]
     },
     {
      "ref": "9:11-12",
      "text": "אין האדם ניצול מגזירת ה' עליו",
      "text_de": "Der Mensch entgeht nicht dem über ihn verhängten Beschluss Gottes",
-     "text_en": "A person does not escape God's decree upon him"
+     "text_en": "A person does not escape God's decree upon him",
+     "sub": [
+      {
+       "ref": "9:11-12",
+       "text": "הצלחתו של אדם אינה בידו",
+       "text_de": "Der Erfolg des Menschen liegt nicht in seiner Hand",
+       "blk": "אֵין יוֹדֵעַ הָאָדָם 9:1-18",
+       "blk_de": "Der Mensch weiß es nicht 9:1-18"
+      }
+     ]
     },
     {
      "ref": "9:13-10:3",
      "text": "עיר קטנה",
      "text_de": "Die kleine Stadt",
-     "text_en": "The small city"
+     "text_en": "The small city",
+     "sub": [
+      {
+       "ref": "9:13-18",
+       "text": "דגמה על פי מעשה שהיה והמסקנות ממנו",
+       "text_de": "Ein Beispiel nach einer wahren Begebenheit und die Schlussfolgerungen daraus",
+       "blk": "אֵין יוֹדֵעַ הָאָדָם 9:1-18",
+       "blk_de": "Der Mensch weiß es nicht 9:1-18"
+      },
+      {
+       "ref": "10:1-3",
+       "text": "על הסכלות והסכל",
+       "text_de": "Über die Torheit und den Toren",
+       "blk": "דֶּרֶךְ הַסָּכָל 10:1-20",
+       "blk_de": "Der Weg des Toren 10:1-20"
+      }
+     ]
     },
     {
      "ref": "10:4-10",
      "text": "התחזקות בשמירת המצוות בכל מצב",
      "text_de": "Standhaftigkeit in der Gebotstreue in jeder Lage",
-     "text_en": "Perseverance in observing the commandments in every situation"
+     "text_en": "Perseverance in observing the commandments in every situation",
+     "sub": [
+      {
+       "ref": "10:4-7",
+       "text": "הסכל במרומים",
+       "text_de": "Der Tor in der Höhe",
+       "blk": "דֶּרֶךְ הַסָּכָל 10:1-20",
+       "blk_de": "Der Weg des Toren 10:1-20"
+      },
+      {
+       "ref": "10:8-10",
+       "text": "הסכל אינו יודע להזהר",
+       "text_de": "Der Tor weiß sich nicht in Acht zu nehmen",
+       "blk": "דֶּרֶךְ הַסָּכָל 10:1-20",
+       "blk_de": "Der Weg des Toren 10:1-20"
+      }
+     ]
     },
     {
      "ref": "10:11-15",
      "text": "מעלת התוכחה",
      "text_de": "Vorzug der Zurechtweisung",
-     "text_en": "The merit of rebuke"
+     "text_en": "The merit of rebuke",
+     "sub": [
+      {
+       "ref": "10:11-15",
+       "text": "דברי חכם ודברי סכל",
+       "text_de": "Worte des Weisen und Worte des Toren",
+       "blk": "דֶּרֶךְ הַסָּכָל 10:1-20",
+       "blk_de": "Der Weg des Toren 10:1-20"
+      }
+     ]
     },
     {
      "ref": "10:16-19",
      "text": "שבח הזריזות וגנות העצלות",
      "text_de": "Lob der Eifrigkeit und Tadel der Faulheit",
-     "text_en": "Praise of diligence and censure of laziness"
+     "text_en": "Praise of diligence and censure of laziness",
+     "sub": [
+      {
+       "ref": "10:16-17",
+       "text": "על מלך ושרים סכלים",
+       "text_de": "Über törichte Könige und Fürsten",
+       "blk": "דֶּרֶךְ הַסָּכָל 10:1-20",
+       "blk_de": "Der Weg des Toren 10:1-20"
+      },
+      {
+       "ref": "10:18-20",
+       "text": "עצלות ובזבוז",
+       "text_de": "Faulheit und Verschwendung",
+       "blk": "דֶּרֶךְ הַסָּכָל 10:1-20",
+       "blk_de": "Der Weg des Toren 10:1-20"
+      }
+     ]
     },
     {
      "ref": "10:20-11:6",
      "text": "הנגלות והנסתרות",
      "text_de": "Das Offenbare und das Verborgene",
-     "text_en": "The revealed and the hidden"
+     "text_en": "The revealed and the hidden",
+     "sub": [
+      {
+       "ref": "11:1",
+       "text": "שלח - תמצאנו",
+       "text_de": "Wirf aus - du wirst es finden",
+       "blk": "בְּכֹחֲךָ עֲשֵׂה! 11:1-6",
+       "blk_de": "Mit deiner ganzen Kraft tu es! 11:1-6"
+      },
+      {
+       "ref": "11:2",
+       "text": "תן - הארץ",
+       "text_de": "Gib - die Erde",
+       "blk": "בְּכֹחֲךָ עֲשֵׂה! 11:1-6",
+       "blk_de": "Mit deiner ganzen Kraft tu es! 11:1-6"
+      },
+      {
+       "ref": "11:3",
+       "text": "אם - יריקו",
+       "text_de": "Wenn - sie ergießen",
+       "blk": "בְּכֹחֲךָ עֲשֵׂה! 11:1-6",
+       "blk_de": "Mit deiner ganzen Kraft tu es! 11:1-6"
+      },
+      {
+       "ref": "11:3",
+       "text": "ואם - יהוא",
+       "text_de": "Und wenn - er liegt",
+       "blk": "בְּכֹחֲךָ עֲשֵׂה! 11:1-6",
+       "blk_de": "Mit deiner ganzen Kraft tu es! 11:1-6"
+      },
+      {
+       "ref": "11:4",
+       "text": "שמר - יקצור",
+       "text_de": "Wer beobachtet - wird ernten",
+       "blk": "בְּכֹחֲךָ עֲשֵׂה! 11:1-6",
+       "blk_de": "Mit deiner ganzen Kraft tu es! 11:1-6"
+      },
+      {
+       "ref": "11:6",
+       "text": "בבקר - ידך",
+       "text_de": "Am Morgen - deine Hand",
+       "blk": "בְּכֹחֲךָ עֲשֵׂה! 11:1-6",
+       "blk_de": "Mit deiner ganzen Kraft tu es! 11:1-6"
+      }
+     ]
     },
     {
      "ref": "11:7-10",
      "text": "טובו של העולם",
      "text_de": "Die Güte der Welt",
-     "text_en": "The goodness of the world"
+     "text_en": "The goodness of the world",
+     "sub": [
+      {
+       "ref": "11:7-12:1",
+       "text": "תקופת הפריחה",
+       "text_de": "Die Zeit der Blüte",
+       "blk": "אוֹר וְחֹשֶׁךְ - בַּחֲרוּת וְזִקְנָה 11:7-12:7",
+       "blk_de": "Licht und Finsternis: Jugend und Alter 11:7-12:7"
+      }
+     ]
     },
     {
      "ref": "12:1-7",
      "text": "הנהגת האדם בבחרותו והולשתו בזקנתו",
      "text_de": "Verhalten des Menschen in seiner Jugend und sein Schwächerwerden im Alter",
-     "text_en": "A person's conduct in his youth and his weakening in old age"
+     "text_en": "A person's conduct in his youth and his weakening in old age",
+     "sub": [
+      {
+       "ref": "12:2-7",
+       "text": "תקופת הכמישה",
+       "text_de": "Die Zeit des Verwelkens",
+       "blk": "אוֹר וְחֹשֶׁךְ - בַּחֲרוּת וְזִקְנָה 11:7-12:7",
+       "blk_de": "Licht und Finsternis: Jugend und Alter 11:7-12:7"
+      }
+     ]
     }
    ],
    "head_de": "Ermunterung zur Einhaltung der Gebote im Leben",
@@ -264,7 +793,23 @@
      "ref": "12:8-14",
      "text": "מעשי קהלת, מסקנתו שאין יתרון אלא ביראת ה' ובמצוותיו",
      "text_de": "Taten Kohelets, seine Schlussfolgerung, dass es keinen Vorteil gibt außer in der Gottesfurcht und in seinen Geboten",
-     "text_en": "The deeds of Kohelet; his conclusion that there is no advantage except in fear of God and in His commandments"
+     "text_en": "The deeds of Kohelet; his conclusion that there is no advantage except in fear of God and in His commandments",
+     "sub": [
+      {
+       "ref": "12:8-11",
+       "text": "סמכותו של קהלת ותדמיתו",
+       "text_de": "Die Autorität Kohelets und sein Bild",
+       "blk": "חֲתִימַת הַסֵּפֶר 12:8-14",
+       "blk_de": "Der Schluss des Buches 12:8-14"
+      },
+      {
+       "ref": "12:12-14",
+       "text": "פניה לקורא ותמצית תורות קהלת",
+       "text_de": "Wendung an den Leser und Zusammenfassung der Lehren Kohelets",
+       "blk": "חֲתִימַת הַסֵּפֶר 12:8-14",
+       "blk_de": "Der Schluss des Buches 12:8-14"
+      }
+     ]
     }
    ],
    "head_de": "Abschluss des Buches",
@@ -273,6 +818,6 @@
  ],
  "title_de": "Inhalt des Buches Kohelet",
  "title_en": "Contents of the Book of Ecclesiastes",
- "note_de": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt.",
- "note_en": "Transcribed from photos of an overview table. Chapter and verse numbering as well as dates (Jewish reckoning) as printed in the source."
+ "note_de": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt. Unterpunkte aus der Gliederung von „Da'at Mikra“ (Teilpunkte mit Versangaben, mit Hinweis auf den jeweiligen Abschnitt) ergänzt und ins Deutsche übersetzt.",
+ "note_en": "Transcribed from photos of an overview table. Chapter and verse numbering as well as dates (Jewish reckoning) as printed in the source. Sub-points from the Da'at Mikra outlines (parts with verse references, labelled with their section) added; German translation."
 }

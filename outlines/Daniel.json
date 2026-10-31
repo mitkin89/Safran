@@ -1,7 +1,7 @@
 {
  "book": "Daniel",
  "title": "תוכן ספר דניאל",
- "note": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt.",
+ "note": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt. · הורחב בחלוקת דעת מקרא (פסקאות עם מראי מקום).",
  "sections": [
   {
    "head": "מאורעות דניאל ורעיו",
@@ -16,7 +16,16 @@
      "par_de": "Wiederholung von: 2 Könige 24:1–2\nWiederholung: 2 Chronik 36:5–8\nRückgabe der Tempelgeräte: Esra 1:7–11\nProphezeiungen dazu: Jeremia 22:13–19 (nach manchen); Ezechiel 19:5–9 (nach manchen)",
      "par_en": "Repeat of: II Kings 24:1–2\nRepeat: II Chronicles 36:5–8\nReturn of the Temple vessels: Ezra 1:7–11\nProphecies about this: Jeremiah 22:13–19 (according to some); Ezekiel 19:5–9 (according to some)",
      "time_de": "3327",
-     "time_en": "3327"
+     "time_en": "3327",
+     "sub": [
+      {
+       "ref": "1:1-2",
+       "text": "גלות יהויקים",
+       "text_de": "Die Verbannung Jojakims",
+       "blk": "דָּנִיֵּאל וַחֲבֵרָיו בִּשְׁבִי מֶלֶךְ בָּבֶל 1",
+       "blk_de": "Daniel und seine Gefährten in der Gefangenschaft des Königs von Babel 1"
+      }
+     ]
     },
     {
      "ref": "1:3-21",
@@ -25,7 +34,30 @@
      "text_de": "Daniel, Hananja, Mischael und Asarja werden ins Haus Nebukadnezzars gebracht",
      "text_en": "Daniel, Hananiah, Mishael and Azariah are brought to Nebuchadnezzar's house",
      "par_de": "Prophezeiung dazu: 2 Könige 20:16–18; Jesaja 39:5–7",
-     "par_en": "Prophecy about this: II Kings 20:16–18; Isaiah 39:5–7"
+     "par_en": "Prophecy about this: II Kings 20:16–18; Isaiah 39:5–7",
+     "sub": [
+      {
+       "ref": "1:3-7",
+       "text": "הבאת ילדים מבית מלכות דוד ומאצילי יהודה כדי לחנכם בהיכל מלך בבל",
+       "text_de": "Kinder aus dem Königshaus Davids und dem Adel Judas werden gebracht, um im Palast des Königs von Babel erzogen zu werden",
+       "blk": "דָּנִיֵּאל וַחֲבֵרָיו בִּשְׁבִי מֶלֶךְ בָּבֶל 1",
+       "blk_de": "Daniel und seine Gefährten in der Gefangenschaft des Königs von Babel 1"
+      },
+      {
+       "ref": "1:8-16",
+       "text": "דניאל ושלשת חבריו עומדים בנסיון ואינם מתגאלים בפת־בג המלך",
+       "text_de": "Daniel und seine drei Gefährten bestehen die Probe und verunreinigen sich nicht mit der Tafelkost des Königs",
+       "blk": "דָּנִיֵּאל וַחֲבֵרָיו בִּשְׁבִי מֶלֶךְ בָּבֶל 1",
+       "blk_de": "Daniel und seine Gefährten in der Gefangenschaft des Königs von Babel 1"
+      },
+      {
+       "ref": "1:17-21",
+       "text": "דניאל וחבריו עולים בחכמתם על כל חכמי בבל",
+       "text_de": "Daniel und seine Gefährten übertreffen an Weisheit alle Weisen Babels",
+       "blk": "דָּנִיֵּאל וַחֲבֵרָיו בִּשְׁבִי מֶלֶךְ בָּבֶל 1",
+       "blk_de": "Daniel und seine Gefährten in der Gefangenschaft des Königs von Babel 1"
+      }
+     ]
     },
     {
      "ref": "2",
@@ -34,7 +66,72 @@
      "text_de": "Traum Nebukadnezzars und seine Deutung durch Daniel",
      "text_en": "Nebuchadnezzar's dream and its interpretation by Daniel",
      "time_de": "3340",
-     "time_en": "3340"
+     "time_en": "3340",
+     "sub": [
+      {
+       "ref": "2:1-13",
+       "text": "מבוכת נבוכדנצר אחר שחלם חלום שהסעיר את רוחו ותביעתו התקיפה מחכמיו לפתר לו את חלומו, והוא מאיים עליהם, שאם לא יעשו כן - יוצאו להורג",
+       "text_de": "Nebukadnezzars Verwirrung nach einem Traum, der seinen Geist erschüttert hat, und seine strenge Forderung an seine Weisen, ihm den Traum zu deuten; er droht ihnen mit der Hinrichtung, falls sie es nicht tun",
+       "blk": "חֲלוֹם נְבוּכַדְנֶצַּר וּפִתְרוֹנוֹ 2",
+       "blk_de": "Nebukadnezzars Traum und seine Deutung 2"
+      },
+      {
+       "ref": "2:14-16",
+       "text": "פנית דניאל - באמצעות אריוך רב הטבחים - למלך, שיתן לו ארכה קצרה לפתרון החלום",
+       "text_de": "Daniels Bitte an den König durch Arioch, den Obersten der Leibwache, ihm eine kurze Frist zur Deutung des Traums zu gewähren",
+       "blk": "חֲלוֹם נְבוּכַדְנֶצַּר וּפִתְרוֹנוֹ 2",
+       "blk_de": "Nebukadnezzars Traum und seine Deutung 2"
+      },
+      {
+       "ref": "2:17-23",
+       "text": "התפלה, ההתגלות ותפלת ההודיה",
+       "text_de": "Gebet, Offenbarung und Dankgebet",
+       "blk": "חֲלוֹם נְבוּכַדְנֶצַּר וּפִתְרוֹנוֹ 2",
+       "blk_de": "Nebukadnezzars Traum und seine Deutung 2"
+      },
+      {
+       "ref": "2:24",
+       "text": "דניאל פונה שנית לאריוך ומבקשו להביאו לפני המלך",
+       "text_de": "Daniel wendet sich ein zweites Mal an Arioch und bittet ihn, ihn vor den König zu führen",
+       "blk": "חֲלוֹם נְבוּכַדְנֶצַּר וּפִתְרוֹנוֹ 2",
+       "blk_de": "Nebukadnezzars Traum und seine Deutung 2"
+      },
+      {
+       "ref": "2:25-28",
+       "text": "החלום ופתרונו מאת ה'",
+       "text_de": "Der Traum und seine Deutung vom HERRN",
+       "blk": "חֲלוֹם נְבוּכַדְנֶצַּר וּפִתְרוֹנוֹ 2",
+       "blk_de": "Nebukadnezzars Traum und seine Deutung 2"
+      },
+      {
+       "ref": "2:29-36",
+       "text": "המראות שבחלום",
+       "text_de": "Die Gesichte des Traums",
+       "blk": "חֲלוֹם נְבוּכַדְנֶצַּר וּפִתְרוֹנוֹ 2",
+       "blk_de": "Nebukadnezzars Traum und seine Deutung 2"
+      },
+      {
+       "ref": "2:37-43",
+       "text": "פשר מראות החלום: ארבע המלכיות",
+       "text_de": "Die Bedeutung der Traumgesichte: die vier Reiche",
+       "blk": "חֲלוֹם נְבוּכַדְנֶצַּר וּפִתְרוֹנוֹ 2",
+       "blk_de": "Nebukadnezzars Traum und seine Deutung 2"
+      },
+      {
+       "ref": "2:44-45",
+       "text": "מלכות שמים בישראל",
+       "text_de": "Das Reich des Himmels in Israel",
+       "blk": "חֲלוֹם נְבוּכַדְנֶצַּר וּפִתְרוֹנוֹ 2",
+       "blk_de": "Nebukadnezzars Traum und seine Deutung 2"
+      },
+      {
+       "ref": "2:46-49",
+       "text": "כבודו של דניאל",
+       "text_de": "Daniels Ehre",
+       "blk": "חֲלוֹם נְבוּכַדְנֶצַּר וּפִתְרוֹנוֹ 2",
+       "blk_de": "Nebukadnezzars Traum und seine Deutung 2"
+      }
+     ]
     },
     {
      "ref": "3:1-18",
@@ -43,25 +140,117 @@
      "text_de": "Weigerung Hananjas, Mischaels und Asarjas, sich vor dem Standbild niederzuwerfen",
      "text_en": "Refusal of Hananiah, Mishael and Azariah to bow down to the image",
      "par_de": "Verbot, sich vor einem Standbild niederzuwerfen: 2. Mose 20:4–5; 5. Mose 5:8–9\nProphezeiung dazu: Habakuk 1:3–4 (nach manchen)",
-     "par_en": "Prohibition of bowing down to an image: Exodus 20:4–5; Deuteronomy 5:8–9\nProphecy about this: Habakkuk 1:3–4 (according to some)"
+     "par_en": "Prohibition of bowing down to an image: Exodus 20:4–5; Deuteronomy 5:8–9\nProphecy about this: Habakkuk 1:3–4 (according to some)",
+     "sub": [
+      {
+       "ref": "3:1-7",
+       "text": "מעשה הצלם וגזרת נבוכדנצר",
+       "text_de": "Die Geschichte vom Standbild und Nebukadnezzars Erlass",
+       "blk": "חֲנַנְיָה מִישָׁאֵל וַעֲזַרְיָה מוֹסְרִים אֶת נַפְשָׁם וּמְקַדְּשִׁים שֵׁם שָׁמַיִם 3:1-30",
+       "blk_de": "Hananja, Mischael und Asarja geben ihr Leben hin und heiligen den Namen des Himmels 3:1-30"
+      },
+      {
+       "ref": "3:8-12",
+       "text": "המלשינות",
+       "text_de": "Die Anzeige",
+       "blk": "חֲנַנְיָה מִישָׁאֵל וַעֲזַרְיָה מוֹסְרִים אֶת נַפְשָׁם וּמְקַדְּשִׁים שֵׁם שָׁמַיִם 3:1-30",
+       "blk_de": "Hananja, Mischael und Asarja geben ihr Leben hin und heiligen den Namen des Himmels 3:1-30"
+      },
+      {
+       "ref": "3:13-18",
+       "text": "שיחת המלך עם השלשה ותשובתם ההחלטית",
+       "text_de": "Das Gespräch des Königs mit den dreien und ihre entschiedene Antwort",
+       "blk": "חֲנַנְיָה מִישָׁאֵל וַעֲזַרְיָה מוֹסְרִים אֶת נַפְשָׁם וּמְקַדְּשִׁים שֵׁם שָׁמַיִם 3:1-30",
+       "blk_de": "Hananja, Mischael und Asarja geben ihr Leben hin und heiligen den Namen des Himmels 3:1-30"
+      }
+     ]
     },
     {
      "ref": "3:19-30",
      "text": "השלכת חמו\"ע לכבשן האש והצלתם",
      "text_de": "Hananja, Mischael und Asarja werden in den Feuerofen geworfen und gerettet",
-     "text_en": "Hananiah, Mishael and Azariah are thrown into the fiery furnace and saved"
+     "text_en": "Hananiah, Mishael and Azariah are thrown into the fiery furnace and saved",
+     "sub": [
+      {
+       "ref": "3:19-23",
+       "text": "השלשה משלכים לתוך כבשן האש",
+       "text_de": "Die drei werden in den Feuerofen geworfen",
+       "blk": "חֲנַנְיָה מִישָׁאֵל וַעֲזַרְיָה מוֹסְרִים אֶת נַפְשָׁם וּמְקַדְּשִׁים שֵׁם שָׁמַיִם 3:1-30",
+       "blk_de": "Hananja, Mischael und Asarja geben ihr Leben hin und heiligen den Namen des Himmels 3:1-30"
+      },
+      {
+       "ref": "3:24-27",
+       "text": "השלשה יוצאים שלמים מתוך כבשן האש",
+       "text_de": "Die drei kommen unversehrt aus dem Feuerofen heraus",
+       "blk": "חֲנַנְיָה מִישָׁאֵל וַעֲזַרְיָה מוֹסְרִים אֶת נַפְשָׁם וּמְקַדְּשִׁים שֵׁם שָׁמַיִם 3:1-30",
+       "blk_de": "Hananja, Mischael und Asarja geben ihr Leben hin und heiligen den Namen des Himmels 3:1-30"
+      },
+      {
+       "ref": "3:28-29",
+       "text": "נבוכדנצר נותן כבוד לאלהי ישראל",
+       "text_de": "Nebukadnezzar erweist dem Gott Israels die Ehre",
+       "blk": "חֲנַנְיָה מִישָׁאֵל וַעֲזַרְיָה מוֹסְרִים אֶת נַפְשָׁם וּמְקַדְּשִׁים שֵׁם שָׁמַיִם 3:1-30",
+       "blk_de": "Hananja, Mischael und Asarja geben ihr Leben hin und heiligen den Namen des Himmels 3:1-30"
+      },
+      {
+       "ref": "3:30",
+       "text": "נבוכדנצר מעלה לגדלה את חנניה מישאל ועזריה",
+       "text_de": "Nebukadnezzar erhebt Hananja, Mischael und Asarja zu hohen Ehren",
+       "blk": "חֲנַנְיָה מִישָׁאֵל וַעֲזַרְיָה מוֹסְרִים אֶת נַפְשָׁם וּמְקַדְּשִׁים שֵׁם שָׁמַיִם 3:1-30",
+       "blk_de": "Hananja, Mischael und Asarja geben ihr Leben hin und heiligen den Namen des Himmels 3:1-30"
+      }
+     ]
     },
     {
      "ref": "3:31-4:24",
      "text": "איגרת נבוכדנצר - חלומו ופתרון דניאל",
      "text_de": "Brief Nebukadnezzars – sein Traum und Daniels Deutung",
-     "text_en": "Nebuchadnezzar's letter – his dream and Daniel's interpretation"
+     "text_en": "Nebuchadnezzar's letter – his dream and Daniel's interpretation",
+     "sub": [
+      {
+       "ref": "4:1-6",
+       "text": "נבוכדנצר חולם שוב חלום מבהיל ומבקש את פתרונו מדניאל",
+       "text_de": "Nebukadnezzar träumt erneut einen erschreckenden Traum und bittet Daniel um dessen Deutung",
+       "blk": "הָאִגֶּרֶת: חֲלוֹמוֹ הַשֵּׁנִי שֶׁל נְבוּכַדְנֶצַּר, פִּתְרוֹנוֹ וְקִיּוּמוֹ 3:31-4:34",
+       "blk_de": "Der Rundbrief: Nebukadnezzars zweiter Traum, seine Deutung und seine Erfüllung 3:31-4:34"
+      },
+      {
+       "ref": "4:7-15",
+       "text": "גוף מראה החלום",
+       "text_de": "Der Inhalt des Traumgesichts",
+       "blk": "הָאִגֶּרֶת: חֲלוֹמוֹ הַשֵּׁנִי שֶׁל נְבוּכַדְנֶצַּר, פִּתְרוֹנוֹ וְקִיּוּמוֹ 3:31-4:34",
+       "blk_de": "Der Rundbrief: Nebukadnezzars zweiter Traum, seine Deutung und seine Erfüllung 3:31-4:34"
+      },
+      {
+       "ref": "4:16-24",
+       "text": "פתרון החלום מפי דניאל",
+       "text_de": "Die Deutung des Traums durch Daniel",
+       "blk": "הָאִגֶּרֶת: חֲלוֹמוֹ הַשֵּׁנִי שֶׁל נְבוּכַדְנֶצַּר, פִּתְרוֹנוֹ וְקִיּוּמוֹ 3:31-4:34",
+       "blk_de": "Der Rundbrief: Nebukadnezzars zweiter Traum, seine Deutung und seine Erfüllung 3:31-4:34"
+      }
+     ]
     },
     {
      "ref": "4:25-34",
      "text": "איגרת נבוכדנצר - קיום הפתרון",
      "text_de": "Brief Nebukadnezzars – Erfüllung der Deutung",
-     "text_en": "Nebuchadnezzar's letter – fulfillment of the interpretation"
+     "text_en": "Nebuchadnezzar's letter – fulfillment of the interpretation",
+     "sub": [
+      {
+       "ref": "4:25-30",
+       "text": "קיום החלום: נבוכדנצר נטרד ממלכותו ומחברת האדם ונעשה (-ונהפך) לחיה",
+       "text_de": "Die Erfüllung des Traums: Nebukadnezzar wird von seiner Herrschaft und aus der Gemeinschaft der Menschen vertrieben und in ein Tier verwandelt",
+       "blk": "הָאִגֶּרֶת: חֲלוֹמוֹ הַשֵּׁנִי שֶׁל נְבוּכַדְנֶצַּר, פִּתְרוֹנוֹ וְקִיּוּמוֹ 3:31-4:34",
+       "blk_de": "Der Rundbrief: Nebukadnezzars zweiter Traum, seine Deutung und seine Erfüllung 3:31-4:34"
+      },
+      {
+       "ref": "4:31-34",
+       "text": "בתום 'שבעה עדנין' מתפלל נבוכדנצר תפלה שהיא שבח ל'מלך שמיא' שהוא 'חי עלמא' (=חי העולם), ותפלתו מתקבלת, וה' מחזירו למלכותו ולכבודו הראשון",
+       "text_de": "Nach Ablauf der „sieben Zeiten“ betet Nebukadnezzar ein Lobgebet an den „König des Himmels“, den „Lebendigen der Welt“; sein Gebet wird erhört, und der HERR setzt ihn wieder in seine Herrschaft und seine frühere Würde ein",
+       "blk": "הָאִגֶּרֶת: חֲלוֹמוֹ הַשֵּׁנִי שֶׁל נְבוּכַדְנֶצַּר, פִּתְרוֹנוֹ וְקִיּוּמוֹ 3:31-4:34",
+       "blk_de": "Der Rundbrief: Nebukadnezzars zweiter Traum, seine Deutung und seine Erfüllung 3:31-4:34"
+      }
+     ]
     },
     {
      "ref": "5",
@@ -73,7 +262,72 @@
      "par_de": "Prophezeiung dazu: Jesaja 13 (nach manchen), 21:1–10; Jeremia 51:36–57; Habakuk 2:1–8, 15–17 (nach manchen)",
      "par_en": "Prophecy about this: Isaiah 13 (according to some), 21:1–10; Jeremiah 51:36–57; Habakkuk 2:1–8, 15–17 (according to some)",
      "time_de": "3389",
-     "time_en": "3389"
+     "time_en": "3389",
+     "sub": [
+      {
+       "ref": "5:1-4",
+       "text": "חלול כלי המקדש בידי בלשאצר",
+       "text_de": "Belschazzars Entweihung der Tempelgeräte",
+       "blk": "הַמִּשְׁתֶּה, הַכְּתֹבֶת עַל הַקִּיר וּבִטּוּל מַלְכוּת בָּבֶל = מַלְכוּת הַכַּשְׂדִּים 5",
+       "blk_de": "Das Gastmahl, die Schrift an der Wand und das Ende des Reiches Babel, des Reiches der Chaldäer 5"
+      },
+      {
+       "ref": "5:5-7",
+       "text": "הכתבת על הקיר שהבהילה את בלשאצר",
+       "text_de": "Die Schrift an der Wand, die Belschazzar erschreckte",
+       "blk": "הַמִּשְׁתֶּה, הַכְּתֹבֶת עַל הַקִּיר וּבִטּוּל מַלְכוּת בָּבֶל = מַלְכוּת הַכַּשְׂדִּים 5",
+       "blk_de": "Das Gastmahl, die Schrift an der Wand und das Ende des Reiches Babel, des Reiches der Chaldäer 5"
+      },
+      {
+       "ref": "5:8-9",
+       "text": "חכמי המלך אינם יכולים לקרא את הכתבת",
+       "text_de": "Die Weisen des Königs können die Schrift nicht lesen",
+       "blk": "הַמִּשְׁתֶּה, הַכְּתֹבֶת עַל הַקִּיר וּבִטּוּל מַלְכוּת בָּבֶל = מַלְכוּת הַכַּשְׂדִּים 5",
+       "blk_de": "Das Gastmahl, die Schrift an der Wand und das Ende des Reiches Babel, des Reiches der Chaldäer 5"
+      },
+      {
+       "ref": "5:10-12",
+       "text": "עצת המלכה־הגבירה לקרא לדניאל",
+       "text_de": "Der Rat der Königinmutter, Daniel zu rufen",
+       "blk": "הַמִּשְׁתֶּה, הַכְּתֹבֶת עַל הַקִּיר וּבִטּוּל מַלְכוּת בָּבֶל = מַלְכוּת הַכַּשְׂדִּים 5",
+       "blk_de": "Das Gastmahl, die Schrift an der Wand und das Ende des Reiches Babel, des Reiches der Chaldäer 5"
+      },
+      {
+       "ref": "5:13-16",
+       "text": "בלשאצר מבקש מדניאל שיפתר לו את הכתוב על הקיר",
+       "text_de": "Belschazzar bittet Daniel, ihm die Schrift an der Wand zu deuten",
+       "blk": "הַמִּשְׁתֶּה, הַכְּתֹבֶת עַל הַקִּיר וּבִטּוּל מַלְכוּת בָּבֶל = מַלְכוּת הַכַּשְׂדִּים 5",
+       "blk_de": "Das Gastmahl, die Schrift an der Wand und das Ende des Reiches Babel, des Reiches der Chaldäer 5"
+      },
+      {
+       "ref": "5:17-23",
+       "text": "תוכחת דניאל לבלשאצר",
+       "text_de": "Daniels Mahnrede an Belschazzar",
+       "blk": "הַמִּשְׁתֶּה, הַכְּתֹבֶת עַל הַקִּיר וּבִטּוּל מַלְכוּת בָּבֶל = מַלְכוּת הַכַּשְׂדִּים 5",
+       "blk_de": "Das Gastmahl, die Schrift an der Wand und das Ende des Reiches Babel, des Reiches der Chaldäer 5"
+      },
+      {
+       "ref": "5:24-28",
+       "text": "פתרון הכתב",
+       "text_de": "Die Deutung der Schrift",
+       "blk": "הַמִּשְׁתֶּה, הַכְּתֹבֶת עַל הַקִּיר וּבִטּוּל מַלְכוּת בָּבֶל = מַלְכוּת הַכַּשְׂדִּים 5",
+       "blk_de": "Das Gastmahl, die Schrift an der Wand und das Ende des Reiches Babel, des Reiches der Chaldäer 5"
+      },
+      {
+       "ref": "5:29",
+       "text": "כבוד דניאל",
+       "text_de": "Daniels Ehrung",
+       "blk": "הַמִּשְׁתֶּה, הַכְּתֹבֶת עַל הַקִּיר וּבִטּוּל מַלְכוּת בָּבֶל = מַלְכוּת הַכַּשְׂדִּים 5",
+       "blk_de": "Das Gastmahl, die Schrift an der Wand und das Ende des Reiches Babel, des Reiches der Chaldäer 5"
+      },
+      {
+       "ref": "5:30",
+       "text": "הריגת בלשאצר ובטול מלכות הכשדים",
+       "text_de": "Die Tötung Belschazzars und das Ende des Reiches der Chaldäer",
+       "blk": "הַמִּשְׁתֶּה, הַכְּתֹבֶת עַל הַקִּיר וּבִטּוּל מַלְכוּת בָּבֶל = מַלְכוּת הַכַּשְׂדִּים 5",
+       "blk_de": "Das Gastmahl, die Schrift an der Wand und das Ende des Reiches Babel, des Reiches der Chaldäer 5"
+      }
+     ]
     },
     {
      "ref": "6:1-4",
@@ -82,7 +336,23 @@
      "text_de": "Herrschaft des Darius, Ernennung Daniels zum obersten der Fürsten",
      "text_en": "The reign of Darius, appointment of Daniel as chief of the officials",
      "time_de": "3389",
-     "time_en": "3389"
+     "time_en": "3389",
+     "sub": [
+      {
+       "ref": "6:1-3",
+       "text": "פתיחה: מלכות דריוש המדי ומנהל הממלכה",
+       "text_de": "Einleitung: die Herrschaft des Meders Darius und die Verwaltung des Reiches",
+       "blk": "דָּנִיֵּאל מוֹסֵר אֶת נַפְשׁוֹ עַל הַתְּפִלָּה וְנִצַּל מִשִּׁנֵּי הָאֲרָיוֹת בַּגֹּב 6",
+       "blk_de": "Daniel gibt sein Leben für das Gebet hin und wird in der Löwengrube vor den Löwen gerettet 6"
+      },
+      {
+       "ref": "6:4-6",
+       "text": "הצלחת דניאל מעוררת את קנאת ראשי המלכות ושריה",
+       "text_de": "Daniels Erfolg weckt den Neid der Vorsteher und Satrapen des Reiches",
+       "blk": "דָּנִיֵּאל מוֹסֵר אֶת נַפְשׁוֹ עַל הַתְּפִלָּה וְנִצַּל מִשִּׁנֵּי הָאֲרָיוֹת בַּגֹּב 6",
+       "blk_de": "Daniel gibt sein Leben für das Gebet hin und wird in der Löwengrube vor den Löwen gerettet 6"
+      }
+     ]
     },
     {
      "ref": "6:5-25",
@@ -91,13 +361,52 @@
      "text_de": "Daniel wird in die Löwengrube geworfen und gerettet",
      "text_en": "Daniel is thrown into the lions' den and saved",
      "par_de": "Prophezeiung dazu: Psalmen 64 (nach manchen)\nerwähnt: Ezechiel 14:14",
-     "par_en": "Prophecy about this: Psalms 64 (according to some)\nmentioned: Ezekiel 14:14"
+     "par_en": "Prophecy about this: Psalms 64 (according to some)\nmentioned: Ezekiel 14:14",
+     "sub": [
+      {
+       "ref": "6:7-10",
+       "text": "ראשי המלכות ושריה מתקשרים על דניאל ומשפיעים על דריוש להוציא 'כתב' ו'אסר' על תפלה ובקשה לאלהים",
+       "text_de": "Die Vorsteher und Satrapen verschwören sich gegen Daniel und bewegen Darius, ein „Schreiben“ und ein „Verbot“ gegen Gebet und Bitte an einen Gott zu erlassen",
+       "blk": "דָּנִיֵּאל מוֹסֵר אֶת נַפְשׁוֹ עַל הַתְּפִלָּה וְנִצַּל מִשִּׁנֵּי הָאֲרָיוֹת בַּגֹּב 6",
+       "blk_de": "Daniel gibt sein Leben für das Gebet hin und wird in der Löwengrube vor den Löwen gerettet 6"
+      },
+      {
+       "ref": "6:11",
+       "text": "דניאל אינו שועה אל הכתב ואל האסר, והוא ממשיך להתפלל לאלהיו ומשלך לגב האריות",
+       "text_de": "Daniel kehrt sich nicht an Schreiben und Verbot, betet weiter zu seinem Gott und wird in die Löwengrube geworfen",
+       "blk": "דָּנִיֵּאל מוֹסֵר אֶת נַפְשׁוֹ עַל הַתְּפִלָּה וְנִצַּל מִשִּׁנֵּי הָאֲרָיוֹת בַּגֹּב 6",
+       "blk_de": "Daniel gibt sein Leben für das Gebet hin und wird in der Löwengrube vor den Löwen gerettet 6"
+      },
+      {
+       "ref": "6:25",
+       "text": "הנס",
+       "text_de": "Das Wunder",
+       "blk": "דָּנִיֵּאל מוֹסֵר אֶת נַפְשׁוֹ עַל הַתְּפִלָּה וְנִצַּל מִשִּׁנֵּי הָאֲרָיוֹת בַּגֹּב 6",
+       "blk_de": "Daniel gibt sein Leben für das Gebet hin und wird in der Löwengrube vor den Löwen gerettet 6"
+      }
+     ]
     },
     {
      "ref": "6:26-29",
      "text": "איגרת דריוש",
      "text_de": "Brief des Darius",
-     "text_en": "Letter of Darius"
+     "text_en": "Letter of Darius",
+     "sub": [
+      {
+       "ref": "6:26-28",
+       "text": "דריוש מצוה ב'כתב' מיחד על כל אזרחי הממלכה לתת כבוד לאלהי דניאל",
+       "text_de": "Darius befiehlt in einem besonderen „Schreiben“ allen Bewohnern des Reiches, den Gott Daniels zu ehren",
+       "blk": "דָּנִיֵּאל מוֹסֵר אֶת נַפְשׁוֹ עַל הַתְּפִלָּה וְנִצַּל מִשִּׁנֵּי הָאֲרָיוֹת בַּגֹּב 6",
+       "blk_de": "Daniel gibt sein Leben für das Gebet hin und wird in der Löwengrube vor den Löwen gerettet 6"
+      },
+      {
+       "ref": "6:29",
+       "text": "חתימה: הצלחת דניאל במלכות דריוש המדי ובמלכות כורש הפרסי",
+       "text_de": "Schluss: Daniels Erfolg unter der Herrschaft des Meders Darius und des Persers Kyrus",
+       "blk": "דָּנִיֵּאל מוֹסֵר אֶת נַפְשׁוֹ עַל הַתְּפִלָּה וְנִצַּל מִשִּׁנֵּי הָאֲרָיוֹת בַּגֹּב 6",
+       "blk_de": "Daniel gibt sein Leben für das Gebet hin und wird in der Löwengrube vor den Löwen gerettet 6"
+      }
+     ]
     }
    ],
    "head_de": "Ereignisse um Daniel und seine Gefährten",
@@ -116,13 +425,108 @@
      "par_de": "ähnliche Prophezeiung: Sacharja 2:1–4 (nach manchen), 6:1–8",
      "par_en": "Similar prophecy: Zechariah 2:1–4 (according to some), 6:1–8",
      "time_de": "3386",
-     "time_en": "3386"
+     "time_en": "3386",
+     "sub": [
+      {
+       "ref": "7:1",
+       "text": "פתיחה",
+       "text_de": "Einleitung",
+       "blk": "חֲזוֹן אַרְבַּע הַמַּלְכֻיּוֹת דְּמוּיוֹת חַיּוֹת טֶרֶף וַחֲזוֹן מַלְכוּת אָדָם הַמַּעֲלָה - מַלְכוּת 'עַם קַדִּישֵׁי עֶלְיוֹנִין' 7",
+       "blk_de": "Das Gesicht von den vier Reichen in Gestalt von Raubtieren und das Gesicht vom Reich des Menschensohns, das höher steht – das Reich des „Volkes der Heiligen des Höchsten“ 7"
+      },
+      {
+       "ref": "7:2-3",
+       "text": "ארבע רוחות וארבע חיות - שונות זו מזו - עולות מן הים",
+       "text_de": "Vier Winde und vier verschiedene Tiere steigen aus dem Meer auf",
+       "blk": "חֲזוֹן אַרְבַּע הַמַּלְכֻיּוֹת דְּמוּיוֹת חַיּוֹת טֶרֶף וַחֲזוֹן מַלְכוּת אָדָם הַמַּעֲלָה - מַלְכוּת 'עַם קַדִּישֵׁי עֶלְיוֹנִין' 7",
+       "blk_de": "Das Gesicht von den vier Reichen in Gestalt von Raubtieren und das Gesicht vom Reich des Menschensohns, das höher steht – das Reich des „Volkes der Heiligen des Höchsten“ 7"
+      },
+      {
+       "ref": "7:4-6",
+       "text": "שלש החיות הראשונות",
+       "text_de": "Die ersten drei Tiere",
+       "blk": "חֲזוֹן אַרְבַּע הַמַּלְכֻיּוֹת דְּמוּיוֹת חַיּוֹת טֶרֶף וַחֲזוֹן מַלְכוּת אָדָם הַמַּעֲלָה - מַלְכוּת 'עַם קַדִּישֵׁי עֶלְיוֹנִין' 7",
+       "blk_de": "Das Gesicht von den vier Reichen in Gestalt von Raubtieren und das Gesicht vom Reich des Menschensohns, das höher steht – das Reich des „Volkes der Heiligen des Höchsten“ 7"
+      },
+      {
+       "ref": "7:7-8",
+       "text": "החיה הרביעית האימתנית",
+       "text_de": "Das furchtbare vierte Tier",
+       "blk": "חֲזוֹן אַרְבַּע הַמַּלְכֻיּוֹת דְּמוּיוֹת חַיּוֹת טֶרֶף וַחֲזוֹן מַלְכוּת אָדָם הַמַּעֲלָה - מַלְכוּת 'עַם קַדִּישֵׁי עֶלְיוֹנִין' 7",
+       "blk_de": "Das Gesicht von den vier Reichen in Gestalt von Raubtieren und das Gesicht vom Reich des Menschensohns, das höher steht – das Reich des „Volkes der Heiligen des Höchsten“ 7"
+      },
+      {
+       "ref": "7:9-10",
+       "text": "'עתיק יומין' ובית דינו יושבים בדין",
+       "text_de": "Der „Hochbetagte“ und sein Gericht halten Gericht",
+       "blk": "חֲזוֹן אַרְבַּע הַמַּלְכֻיּוֹת דְּמוּיוֹת חַיּוֹת טֶרֶף וַחֲזוֹן מַלְכוּת אָדָם הַמַּעֲלָה - מַלְכוּת 'עַם קַדִּישֵׁי עֶלְיוֹנִין' 7",
+       "blk_de": "Das Gesicht von den vier Reichen in Gestalt von Raubtieren und das Gesicht vom Reich des Menschensohns, das höher steht – das Reich des „Volkes der Heiligen des Höchsten“ 7"
+      },
+      {
+       "ref": "7:11-12",
+       "text": "גזר־הדין שנגזר על ארבע המלכיות",
+       "text_de": "Das Urteil über die vier Reiche",
+       "blk": "חֲזוֹן אַרְבַּע הַמַּלְכֻיּוֹת דְּמוּיוֹת חַיּוֹת טֶרֶף וַחֲזוֹן מַלְכוּת אָדָם הַמַּעֲלָה - מַלְכוּת 'עַם קַדִּישֵׁי עֶלְיוֹנִין' 7",
+       "blk_de": "Das Gesicht von den vier Reichen in Gestalt von Raubtieren und das Gesicht vom Reich des Menschensohns, das höher steht – das Reich des „Volkes der Heiligen des Höchsten“ 7"
+      },
+      {
+       "ref": "7:13-14",
+       "text": "מלכות עולם נתנת 'לעם קדישי עליונין'",
+       "text_de": "Das ewige Reich wird dem „Volk der Heiligen des Höchsten“ gegeben",
+       "blk": "חֲזוֹן אַרְבַּע הַמַּלְכֻיּוֹת דְּמוּיוֹת חַיּוֹת טֶרֶף וַחֲזוֹן מַלְכוּת אָדָם הַמַּעֲלָה - מַלְכוּת 'עַם קַדִּישֵׁי עֶלְיוֹנִין' 7",
+       "blk_de": "Das Gesicht von den vier Reichen in Gestalt von Raubtieren und das Gesicht vom Reich des Menschensohns, das höher steht – das Reich des „Volkes der Heiligen des Höchsten“ 7"
+      },
+      {
+       "ref": "7:15-16",
+       "text": "דניאל מבקש פתרון המראות מן 'חד מן־קאמיא'",
+       "text_de": "Daniel bittet „einen der Umstehenden“ um die Deutung der Gesichte",
+       "blk": "חֲזוֹן אַרְבַּע הַמַּלְכֻיּוֹת דְּמוּיוֹת חַיּוֹת טֶרֶף וַחֲזוֹן מַלְכוּת אָדָם הַמַּעֲלָה - מַלְכוּת 'עַם קַדִּישֵׁי עֶלְיוֹנִין' 7",
+       "blk_de": "Das Gesicht von den vier Reichen in Gestalt von Raubtieren und das Gesicht vom Reich des Menschensohns, das höher steht – das Reich des „Volkes der Heiligen des Höchsten“ 7"
+      }
+     ]
     },
     {
      "ref": "7:16-28",
      "text": "פתרון המראה ע\"י המלאך",
      "text_de": "Deutung der Vision durch den Engel",
-     "text_en": "Interpretation of the vision by the angel"
+     "text_en": "Interpretation of the vision by the angel",
+     "sub": [
+      {
+       "ref": "7:17-18",
+       "text": "הפתרון",
+       "text_de": "Die Deutung",
+       "blk": "חֲזוֹן אַרְבַּע הַמַּלְכֻיּוֹת דְּמוּיוֹת חַיּוֹת טֶרֶף וַחֲזוֹן מַלְכוּת אָדָם הַמַּעֲלָה - מַלְכוּת 'עַם קַדִּישֵׁי עֶלְיוֹנִין' 7",
+       "blk_de": "Das Gesicht von den vier Reichen in Gestalt von Raubtieren und das Gesicht vom Reich des Menschensohns, das höher steht – das Reich des „Volkes der Heiligen des Höchsten“ 7"
+      },
+      {
+       "ref": "7:19-22",
+       "text": "יחודה של החיה הרביעית ומלחמתה ב'קדישין'",
+       "text_de": "Die Besonderheit des vierten Tiers und sein Krieg gegen die „Heiligen“",
+       "blk": "חֲזוֹן אַרְבַּע הַמַּלְכֻיּוֹת דְּמוּיוֹת חַיּוֹת טֶרֶף וַחֲזוֹן מַלְכוּת אָדָם הַמַּעֲלָה - מַלְכוּת 'עַם קַדִּישֵׁי עֶלְיוֹנִין' 7",
+       "blk_de": "Das Gesicht von den vier Reichen in Gestalt von Raubtieren und das Gesicht vom Reich des Menschensohns, das höher steht – das Reich des „Volkes der Heiligen des Höchsten“ 7"
+      },
+      {
+       "ref": "7:23-26",
+       "text": "פתרון מראה החיה הרביעית וגזר דינה",
+       "text_de": "Deutung des Gesichts vom vierten Tier und sein Urteil",
+       "blk": "חֲזוֹן אַרְבַּע הַמַּלְכֻיּוֹת דְּמוּיוֹת חַיּוֹת טֶרֶף וַחֲזוֹן מַלְכוּת אָדָם הַמַּעֲלָה - מַלְכוּת 'עַם קַדִּישֵׁי עֶלְיוֹנִין' 7",
+       "blk_de": "Das Gesicht von den vier Reichen in Gestalt von Raubtieren und das Gesicht vom Reich des Menschensohns, das höher steht – das Reich des „Volkes der Heiligen des Höchsten“ 7"
+      },
+      {
+       "ref": "7:27",
+       "text": "מתן מלכות עולם לעם קדישי עליונין",
+       "text_de": "Die Übergabe des ewigen Reiches an das Volk der Heiligen des Höchsten",
+       "blk": "חֲזוֹן אַרְבַּע הַמַּלְכֻיּוֹת דְּמוּיוֹת חַיּוֹת טֶרֶף וַחֲזוֹן מַלְכוּת אָדָם הַמַּעֲלָה - מַלְכוּת 'עַם קַדִּישֵׁי עֶלְיוֹנִין' 7",
+       "blk_de": "Das Gesicht von den vier Reichen in Gestalt von Raubtieren und das Gesicht vom Reich des Menschensohns, das höher steht – das Reich des „Volkes der Heiligen des Höchsten“ 7"
+      },
+      {
+       "ref": "7:28",
+       "text": "חתימה",
+       "text_de": "Schluss",
+       "blk": "חֲזוֹן אַרְבַּע הַמַּלְכֻיּוֹת דְּמוּיוֹת חַיּוֹת טֶרֶף וַחֲזוֹן מַלְכוּת אָדָם הַמַּעֲלָה - מַלְכוּת 'עַם קַדִּישֵׁי עֶלְיוֹנִין' 7",
+       "blk_de": "Das Gesicht von den vier Reichen in Gestalt von Raubtieren und das Gesicht vom Reich des Menschensohns, das höher steht – das Reich des „Volkes der Heiligen des Höchsten“ 7"
+      }
+     ]
     },
     {
      "ref": "8:1-14",
@@ -131,13 +535,73 @@
      "text_de": "Vision von den Nationen und ihrer Herrschaft in Gestalt kämpfender Tiere",
      "text_en": "Vision of the nations and their dominion in the form of fighting beasts",
      "time_de": "3389",
-     "time_en": "3389"
+     "time_en": "3389",
+     "sub": [
+      {
+       "ref": "8:1-2",
+       "text": "פתיחה",
+       "text_de": "Einleitung",
+       "blk": "חֲזוֹן מַלְכוּת מָדַי וּפָרַס וַחֲזוֹן מַלְכֻיּוֹת יָוָן 8",
+       "blk_de": "Das Gesicht vom Reich Medien und Persien und das Gesicht von den Reichen Jawans 8"
+      },
+      {
+       "ref": "8:3-4",
+       "text": "האיל מדביר את כל החיות שבמרחב כלו",
+       "text_de": "Der Widder unterwirft alle Tiere im ganzen Umkreis",
+       "blk": "חֲזוֹן מַלְכוּת מָדַי וּפָרַס וַחֲזוֹן מַלְכֻיּוֹת יָוָן 8",
+       "blk_de": "Das Gesicht vom Reich Medien und Persien und das Gesicht von den Reichen Jawans 8"
+      },
+      {
+       "ref": "8:5-7",
+       "text": "צפיר העזים הבא מן המערב מכה ורומס את האיל",
+       "text_de": "Der Ziegenbock kommt von Westen, schlägt den Widder und zertrampelt ihn",
+       "blk": "חֲזוֹן מַלְכוּת מָדַי וּפָרַס וַחֲזוֹן מַלְכֻיּוֹת יָוָן 8",
+       "blk_de": "Das Gesicht vom Reich Medien und Persien und das Gesicht von den Reichen Jawans 8"
+      },
+      {
+       "ref": "8:8",
+       "text": "הקרן הגדולה של צפיר העזים נשברת ותחתיה עולות ארבע קרנים",
+       "text_de": "Das große Horn des Ziegenbocks wird zerbrochen, und an seiner Stelle wachsen vier Hörner empor",
+       "blk": "חֲזוֹן מַלְכוּת מָדַי וּפָרַס וַחֲזוֹן מַלְכֻיּוֹת יָוָן 8",
+       "blk_de": "Das Gesicht vom Reich Medien und Persien und das Gesicht von den Reichen Jawans 8"
+      },
+      {
+       "ref": "8:9-12",
+       "text": "קרן מצעירה של צפיר העזים מתעצמת ומבטלת את 'התמיד' במקדש",
+       "text_de": "Ein kleines Horn des Ziegenbocks wird mächtig und hebt das „tägliche Opfer“ im Heiligtum auf",
+       "blk": "חֲזוֹן מַלְכוּת מָדַי וּפָרַס וַחֲזוֹן מַלְכֻיּוֹת יָוָן 8",
+       "blk_de": "Das Gesicht vom Reich Medien und Persien und das Gesicht von den Reichen Jawans 8"
+      },
+      {
+       "ref": "8:13-14",
+       "text": "דו־שיח בין מלאכים עלומי שם על 'עד־מתי החזון'",
+       "text_de": "Gespräch zwischen zwei ungenannten Engeln über das „Wie lange noch gilt das Gesicht?“",
+       "blk": "חֲזוֹן מַלְכוּת מָדַי וּפָרַס וַחֲזוֹן מַלְכֻיּוֹת יָוָן 8",
+       "blk_de": "Das Gesicht vom Reich Medien und Persien und das Gesicht von den Reichen Jawans 8"
+      }
+     ]
     },
     {
      "ref": "8:15-27",
      "text": "פתרון המראה ע\"י המלאך גבריאל",
      "text_de": "Deutung der Vision durch den Engel Gabriel",
-     "text_en": "Interpretation of the vision by the angel Gabriel"
+     "text_en": "Interpretation of the vision by the angel Gabriel",
+     "sub": [
+      {
+       "ref": "8:15-26",
+       "text": "דניאל מבקש להבין את החזון והמלאך גבריאל מתבקש להבין לדניאל את המראה על פרטיו והוא אכן מבארו לו",
+       "text_de": "Daniel bittet um das Verständnis des Gesichts; der Engel Gabriel wird beauftragt, Daniel das Gesicht samt Einzelheiten verständlich zu machen, und er erklärt es ihm",
+       "blk": "חֲזוֹן מַלְכוּת מָדַי וּפָרַס וַחֲזוֹן מַלְכֻיּוֹת יָוָן 8",
+       "blk_de": "Das Gesicht vom Reich Medien und Persien und das Gesicht von den Reichen Jawans 8"
+      },
+      {
+       "ref": "8:27",
+       "text": "חתימה",
+       "text_de": "Schluss",
+       "blk": "חֲזוֹן מַלְכוּת מָדַי וּפָרַס וַחֲזוֹן מַלְכֻיּוֹת יָוָן 8",
+       "blk_de": "Das Gesicht vom Reich Medien und Persien und das Gesicht von den Reichen Jawans 8"
+      }
+     ]
     },
     {
      "ref": "9:1-20",
@@ -149,13 +613,59 @@
      "par_de": "Erlösung nach siebzig Jahren: Jeremia 29:10; 2 Chronik 36:21",
      "par_en": "Redemption after seventy years: Jeremiah 29:10; II Chronicles 36:21",
      "time_de": "3389",
-     "time_en": "3389"
+     "time_en": "3389",
+     "sub": [
+      {
+       "ref": "9:1",
+       "text": "פתיחה",
+       "text_de": "Einleitung",
+       "blk": "תְּפִלָּה, וִדּוּי וּבִינָה בְּעִתּוֹת 'קֵץ' הֶחָזוֹן 9",
+       "blk_de": "Gebet, Bekenntnis und Einsicht in den Zeiten des „Endes“ des Gesichts 9"
+      },
+      {
+       "ref": "9:2",
+       "text": "בינה במספר השנים שנתפרש בנבואות ירמיהו",
+       "text_de": "Einsicht in die Zahl der Jahre, die in den Weissagungen Jeremias genannt ist",
+       "blk": "תְּפִלָּה, וִדּוּי וּבִינָה בְּעִתּוֹת 'קֵץ' הֶחָזוֹן 9",
+       "blk_de": "Gebet, Bekenntnis und Einsicht in den Zeiten des „Endes“ des Gesichts 9"
+      },
+      {
+       "ref": "9:3-15",
+       "text": "התפלה והודוי",
+       "text_de": "Gebet und Bekenntnis",
+       "blk": "תְּפִלָּה, וִדּוּי וּבִינָה בְּעִתּוֹת 'קֵץ' הֶחָזוֹן 9",
+       "blk_de": "Gebet, Bekenntnis und Einsicht in den Zeiten des „Endes“ des Gesichts 9"
+      },
+      {
+       "ref": "9:16-19",
+       "text": "התחנה",
+       "text_de": "Das Flehen",
+       "blk": "תְּפִלָּה, וִדּוּי וּבִינָה בְּעִתּוֹת 'קֵץ' הֶחָזוֹן 9",
+       "blk_de": "Gebet, Bekenntnis und Einsicht in den Zeiten des „Endes“ des Gesichts 9"
+      },
+      {
+       "ref": "9:20-23",
+       "text": "גבריאל נשלח להבין את דניאל ולהשכילו",
+       "text_de": "Gabriel wird gesandt, um Daniel zu unterweisen und ihm Einsicht zu geben",
+       "blk": "תְּפִלָּה, וִדּוּי וּבִינָה בְּעִתּוֹת 'קֵץ' הֶחָזוֹן 9",
+       "blk_de": "Gebet, Bekenntnis und Einsicht in den Zeiten des „Endes“ des Gesichts 9"
+      }
+     ]
     },
     {
      "ref": "9:21-27",
      "text": "דברי המלאך לדניאל - רמזי הקץ",
      "text_de": "Worte des Engels an Daniel – Andeutungen auf das Ende",
-     "text_en": "The angel's words to Daniel – hints of the end"
+     "text_en": "The angel's words to Daniel – hints of the end",
+     "sub": [
+      {
+       "ref": "9:24-27",
+       "text": "פשר ה'שבעים שבעים'",
+       "text_de": "Die Bedeutung der „siebzig Wochen“",
+       "blk": "תְּפִלָּה, וִדּוּי וּבִינָה בְּעִתּוֹת 'קֵץ' הֶחָזוֹן 9",
+       "blk_de": "Gebet, Bekenntnis und Einsicht in den Zeiten des „Endes“ des Gesichts 9"
+      }
+     ]
     },
     {
      "ref": "10:1-3",
@@ -167,43 +677,197 @@
      "par_de": "Grund seiner Trauer: Esra 4:17–24",
      "par_en": "Reason for his grief: Ezra 4:17–24",
      "time_de": "4.–24. Nisan 3392",
-     "time_en": "4–24 Nisan 3392"
+     "time_en": "4–24 Nisan 3392",
+     "sub": [
+      {
+       "ref": "10:1-3",
+       "text": "פתיחה",
+       "text_de": "Einleitung",
+       "blk": "הַמַּרְאֶה עַל נְהַר חִדֶּקֶל: הַמַּאֲבָק בֵּין הַמַּלְאָכִים 'שָׂרֵי' הַמַּמְלָכוֹת 10",
+       "blk_de": "Das Gesicht am Fluss Tigris: der Kampf zwischen den Engeln, den „Fürsten“ der Reiche 10"
+      }
+     ]
     },
     {
      "ref": "10:4-11:1",
      "text": "דברי המלאך - חיזוק לדניאל",
      "text_de": "Worte des Engels – Stärkung Daniels",
-     "text_en": "The angel's words – strengthening Daniel"
+     "text_en": "The angel's words – strengthening Daniel",
+     "sub": [
+      {
+       "ref": "10:4-6",
+       "text": "מראה האיש לבוש הבדים",
+       "text_de": "Das Gesicht vom Mann in Leinen gekleidet",
+       "blk": "הַמַּרְאֶה עַל נְהַר חִדֶּקֶל: הַמַּאֲבָק בֵּין הַמַּלְאָכִים 'שָׂרֵי' הַמַּמְלָכוֹת 10",
+       "blk_de": "Das Gesicht am Fluss Tigris: der Kampf zwischen den Engeln, den „Fürsten“ der Reiche 10"
+      },
+      {
+       "ref": "10:7-8",
+       "text": "החרדה שאחזה את הנוכחים במעמד",
+       "text_de": "Der Schrecken, der die Anwesenden bei dem Ereignis ergriff",
+       "blk": "הַמַּרְאֶה עַל נְהַר חִדֶּקֶל: הַמַּאֲבָק בֵּין הַמַּלְאָכִים 'שָׂרֵי' הַמַּמְלָכוֹת 10",
+       "blk_de": "Das Gesicht am Fluss Tigris: der Kampf zwischen den Engeln, den „Fürsten“ der Reiche 10"
+      },
+      {
+       "ref": "10:9-14",
+       "text": "דבריו הראשונים של האיש לבוש הבדים לדניאל",
+       "text_de": "Die ersten Worte des in Leinen gekleideten Mannes an Daniel",
+       "blk": "הַמַּרְאֶה עַל נְהַר חִדֶּקֶל: הַמַּאֲבָק בֵּין הַמַּלְאָכִים 'שָׂרֵי' הַמַּמְלָכוֹת 10",
+       "blk_de": "Das Gesicht am Fluss Tigris: der Kampf zwischen den Engeln, den „Fürsten“ der Reiche 10"
+      },
+      {
+       "ref": "10:15-21",
+       "text": "דו־שיח בין דניאל לבין האיש לבוש הבדים",
+       "text_de": "Gespräch zwischen Daniel und dem in Leinen gekleideten Mann",
+       "blk": "הַמַּרְאֶה עַל נְהַר חִדֶּקֶל: הַמַּאֲבָק בֵּין הַמַּלְאָכִים 'שָׂרֵי' הַמַּמְלָכוֹת 10",
+       "blk_de": "Das Gesicht am Fluss Tigris: der Kampf zwischen den Engeln, den „Fürsten“ der Reiche 10"
+      },
+      {
+       "ref": "11:1",
+       "text": "דריוש המדי",
+       "text_de": "Darius der Meder",
+       "blk": "חֲזוֹן מַלְכוּת יָוָן הַגְּדוֹלָה וַחֲזוֹן קֵץ הַפְּלָאוֹת 11-12",
+       "blk_de": "Das Gesicht vom großen Reich Jawans und das Gesicht vom Ende der Wunder 11-12"
+      }
+     ]
     },
     {
      "ref": "11:2-4",
      "text": "מלכי פרס, ראשית מלכות יוון",
      "text_de": "Könige von Persien, Anfang der Herrschaft Griechenlands",
-     "text_en": "Kings of Persia, beginning of the dominion of Greece"
+     "text_en": "Kings of Persia, beginning of the dominion of Greece",
+     "sub": [
+      {
+       "ref": "11:2",
+       "text": "מלכות פרס ומלכיה",
+       "text_de": "Das Reich Persien und seine Könige",
+       "blk": "חֲזוֹן מַלְכוּת יָוָן הַגְּדוֹלָה וַחֲזוֹן קֵץ הַפְּלָאוֹת 11-12",
+       "blk_de": "Das Gesicht vom großen Reich Jawans und das Gesicht vom Ende der Wunder 11-12"
+      },
+      {
+       "ref": "11:3-4",
+       "text": "מלכות יון: המלך הגבור ויורשי מלכותו",
+       "text_de": "Das Reich Jawans: der mächtige König und die Erben seiner Herrschaft",
+       "blk": "חֲזוֹן מַלְכוּת יָוָן הַגְּדוֹלָה וַחֲזוֹן קֵץ הַפְּלָאוֹת 11-12",
+       "blk_de": "Das Gesicht vom großen Reich Jawans und das Gesicht vom Ende der Wunder 11-12"
+      }
+     ]
     },
     {
      "ref": "11:5-20",
      "text": "מלחמות מלכי הדרום (מצרים) והצפון (רומי-יוון)",
      "text_de": "Kriege der Könige des Südens (Ägypten) und des Nordens (Rom-Griechenland)",
-     "text_en": "Wars of the kings of the South (Egypt) and the North (Rome-Greece)"
+     "text_en": "Wars of the kings of the South (Egypt) and the North (Rome-Greece)",
+     "sub": [
+      {
+       "ref": "11:5",
+       "text": "מלך הנגב מתחזק ומושל",
+       "text_de": "Der König des Südens erstarkt und herrscht",
+       "blk": "חֲזוֹן מַלְכוּת יָוָן הַגְּדוֹלָה וַחֲזוֹן קֵץ הַפְּלָאוֹת 11-12",
+       "blk_de": "Das Gesicht vom großen Reich Jawans und das Gesicht vom Ende der Wunder 11-12"
+      },
+      {
+       "ref": "11:6-9",
+       "text": "שלום ומלחמה בין שני בתי המלכות: מלכות הנגב ומלכות הצפון",
+       "text_de": "Frieden und Krieg zwischen den beiden Königshäusern: dem Reich des Südens und dem Reich des Nordens",
+       "blk": "חֲזוֹן מַלְכוּת יָוָן הַגְּדוֹלָה וַחֲזוֹן קֵץ הַפְּלָאוֹת 11-12",
+       "blk_de": "Das Gesicht vom großen Reich Jawans und das Gesicht vom Ende der Wunder 11-12"
+      },
+      {
+       "ref": "11:10-16",
+       "text": "המשך המלחמות בין שני בתי המלכות",
+       "text_de": "Fortsetzung der Kriege zwischen den beiden Königshäusern",
+       "blk": "חֲזוֹן מַלְכוּת יָוָן הַגְּדוֹלָה וַחֲזוֹן קֵץ הַפְּלָאוֹת 11-12",
+       "blk_de": "Das Gesicht vom großen Reich Jawans und das Gesicht vom Ende der Wunder 11-12"
+      },
+      {
+       "ref": "11:17-19",
+       "text": "כשלונו ומפלתו של מלך הצפון",
+       "text_de": "Scheitern und Sturz des Königs des Nordens",
+       "blk": "חֲזוֹן מַלְכוּת יָוָן הַגְּדוֹלָה וַחֲזוֹן קֵץ הַפְּלָאוֹת 11-12",
+       "blk_de": "Das Gesicht vom großen Reich Jawans und das Gesicht vom Ende der Wunder 11-12"
+      },
+      {
+       "ref": "11:20",
+       "text": "הבן היורש והנוגש",
+       "text_de": "Der Sohn als Erbe und Eintreiber",
+       "blk": "חֲזוֹן מַלְכוּת יָוָן הַגְּדוֹלָה וַחֲזוֹן קֵץ הַפְּלָאוֹת 11-12",
+       "blk_de": "Das Gesicht vom großen Reich Jawans und das Gesicht vom Ende der Wunder 11-12"
+      }
+     ]
     },
     {
      "ref": "11:21-45",
      "text": "מלכות רומי, החרבתם לביהמ\"ק, סוף מלכותם",
      "text_de": "Herrschaft Roms, Zerstörung des Tempels durch sie, Ende ihrer Herrschaft",
-     "text_en": "The dominion of Rome, their destruction of the Temple, the end of their dominion"
+     "text_en": "The dominion of Rome, their destruction of the Temple, the end of their dominion",
+     "sub": [
+      {
+       "ref": "11:21-28",
+       "text": "המלך הנבזה",
+       "text_de": "Der verächtliche König",
+       "blk": "חֲזוֹן מַלְכוּת יָוָן הַגְּדוֹלָה וַחֲזוֹן קֵץ הַפְּלָאוֹת 11-12",
+       "blk_de": "Das Gesicht vom großen Reich Jawans und das Gesicht vom Ende der Wunder 11-12"
+      },
+      {
+       "ref": "11:29-35",
+       "text": "מלחמתו השניה במצרים וגזרות השמד שגזר על ישראל",
+       "text_de": "Sein zweiter Krieg gegen Ägypten und die Vernichtungserlasse, die er gegen Israel erließ",
+       "blk": "חֲזוֹן מַלְכוּת יָוָן הַגְּדוֹלָה וַחֲזוֹן קֵץ הַפְּלָאוֹת 11-12",
+       "blk_de": "Das Gesicht vom großen Reich Jawans und das Gesicht vom Ende der Wunder 11-12"
+      },
+      {
+       "ref": "11:36-39",
+       "text": "התנשאותו של מלך הצפון ומעשיו",
+       "text_de": "Die Überhebung des Königs des Nordens und seine Taten",
+       "blk": "חֲזוֹן מַלְכוּת יָוָן הַגְּדוֹלָה וַחֲזוֹן קֵץ הַפְּלָאוֹת 11-12",
+       "blk_de": "Das Gesicht vom großen Reich Jawans und das Gesicht vom Ende der Wunder 11-12"
+      },
+      {
+       "ref": "11:40-45",
+       "text": "מלחמתו האחרונה של מלך הצפון וחזון קץ הימים",
+       "text_de": "Der letzte Krieg des Königs des Nordens und das Gesicht vom Ende der Tage",
+       "blk": "חֲזוֹן מַלְכוּת יָוָן הַגְּדוֹלָה וַחֲזוֹן קֵץ הַפְּלָאוֹת 11-12",
+       "blk_de": "Das Gesicht vom großen Reich Jawans und das Gesicht vom Ende der Wunder 11-12"
+      }
+     ]
     },
     {
      "ref": "12:1-4",
      "text": "תחיית המתים, מעלת הצדיקים לעתיד לבוא",
      "text_de": "Auferstehung der Toten, Rang der Gerechten in der zukünftigen Welt",
-     "text_en": "Resurrection of the dead, the standing of the righteous in the World to Come"
+     "text_en": "Resurrection of the dead, the standing of the righteous in the World to Come",
+     "sub": [
+      {
+       "ref": "12:1-3",
+       "text": "עת הצרה ותחית המתים",
+       "text_de": "Die Zeit der Not und die Auferstehung der Toten",
+       "blk": "חֲזוֹן מַלְכוּת יָוָן הַגְּדוֹלָה וַחֲזוֹן קֵץ הַפְּלָאוֹת 11-12",
+       "blk_de": "Das Gesicht vom großen Reich Jawans und das Gesicht vom Ende der Wunder 11-12"
+      },
+      {
+       "ref": "12:4-8",
+       "text": "עד מתי קץ הפלאות",
+       "text_de": "Wie lange noch bis zum Ende der Wunder",
+       "blk": "חֲזוֹן מַלְכוּת יָוָן הַגְּדוֹלָה וַחֲזוֹן קֵץ הַפְּלָאוֹת 11-12",
+       "blk_de": "Das Gesicht vom großen Reich Jawans und das Gesicht vom Ende der Wunder 11-12"
+      }
+     ]
     },
     {
      "ref": "12:5-13",
      "text": "מועד הקץ",
      "text_de": "Zeitpunkt des Endes",
-     "text_en": "The time of the end"
+     "text_en": "The time of the end",
+     "sub": [
+      {
+       "ref": "12:9-13",
+       "text": "חתימה לספר",
+       "text_de": "Schluss des Buches",
+       "blk": "חֲזוֹן מַלְכוּת יָוָן הַגְּדוֹלָה וַחֲזוֹן קֵץ הַפְּלָאוֹת 11-12",
+       "blk_de": "Das Gesicht vom großen Reich Jawans und das Gesicht vom Ende der Wunder 11-12"
+      }
+     ]
     }
    ],
    "head_de": "Visionen Daniels",
@@ -212,6 +876,6 @@
  ],
  "title_de": "Inhalt des Buches Daniel",
  "title_en": "Contents of the Book of Daniel",
- "note_de": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt.",
- "note_en": "Transcribed from photos of an overview table. Chapter and verse numbering as well as dates (Jewish reckoning) as printed in the source."
+ "note_de": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt. Unterpunkte aus der Gliederung von „Da'at Mikra“ (Teilpunkte mit Versangaben, mit Hinweis auf den jeweiligen Abschnitt) ergänzt und ins Deutsche übersetzt.",
+ "note_en": "Transcribed from photos of an overview table. Chapter and verse numbering as well as dates (Jewish reckoning) as printed in the source. Sub-points from the Da'at Mikra outlines (parts with verse references, labelled with their section) added; German translation."
 }

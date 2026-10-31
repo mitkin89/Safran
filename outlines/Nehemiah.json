@@ -1,7 +1,7 @@
 {
  "book": "Nehemiah",
  "title": "תוכן ספר נחמיה",
- "note": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt.",
+ "note": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt. · הורחב בחלוקת דעת מקרא (פסקאות עם מראי מקום).",
  "sections": [
   {
    "head": "בניית חומות ירושלים",
@@ -13,13 +13,31 @@
      "text_de": "Bericht über die Schmach Jerusalems vor Nehemia",
      "text_en": "Report before Nehemiah on the disgrace of Jerusalem",
      "time_de": "Kislew 3426",
-     "time_en": "Kislev 3426"
+     "time_en": "Kislev 3426",
+     "sub": [
+      {
+       "ref": "1:1-3",
+       "text": "הבשורה הרעה שהביא חנני",
+       "text_de": "Die schlechte Nachricht, die Hanani brachte",
+       "blk": "עֲלִיַּת נְחֶמְיָה 1:1-2:9",
+       "blk_de": "Der Zug Nehemias 1:1-2:9"
+      }
+     ]
     },
     {
      "ref": "1:4-11",
      "text": "תפילת נחמיה ואבלו",
      "text_de": "Nehemias Gebet und Trauer",
-     "text_en": "Nehemiah's prayer and mourning"
+     "text_en": "Nehemiah's prayer and mourning",
+     "sub": [
+      {
+       "ref": "1:4-11",
+       "text": "תפלת נחמיה",
+       "text_de": "Nehemias Gebet",
+       "blk": "עֲלִיַּת נְחֶמְיָה 1:1-2:9",
+       "blk_de": "Der Zug Nehemias 1:1-2:9"
+      }
+     ]
     },
     {
      "ref": "2:1-9",
@@ -28,13 +46,45 @@
      "text_de": "Seine Bitte an den König, nach Jerusalem hinaufzuziehen und seine Mauern zu bauen",
      "text_en": "His request of the king to go up to Jerusalem and build its walls",
      "time_de": "Nisan 3426",
-     "time_en": "Nisan 3426"
+     "time_en": "Nisan 3426",
+     "sub": [
+      {
+       "ref": "2:1-9",
+       "text": "שליחות נחמיה",
+       "text_de": "Nehemias Sendung",
+       "blk": "עֲלִיַּת נְחֶמְיָה 1:1-2:9",
+       "blk_de": "Der Zug Nehemias 1:1-2:9"
+      }
+     ]
     },
     {
      "ref": "2:10-20",
      "text": "ההכנות לבניית החומות, לעג הגויים",
      "text_de": "Vorbereitungen zum Mauerbau, Spott der Völker",
-     "text_en": "Preparations for building the walls, mockery by the nations"
+     "text_en": "Preparations for building the walls, mockery by the nations",
+     "sub": [
+      {
+       "ref": "2:12-15",
+       "text": "הסיור הלילי של נחמיה מסביב לחומה המפרצת של ירושלים משער הגיא ועד שער הגיא",
+       "text_de": "Nehemias nächtlicher Rundgang um die eingerissene Mauer Jerusalems, vom Taltor bis zum Taltor",
+       "blk": "בְּנִיַּת חוֹמַת יְרוּשָׁלַיִם וְחִזּוּקָהּ 2:10-4:17",
+       "blk_de": "Der Bau der Mauer Jerusalems und ihre Befestigung 2:10-4:17"
+      },
+      {
+       "ref": "2:16-18",
+       "text": "ראשי העם מסכימים לבנות בחומה",
+       "text_de": "Die Führer des Volkes stimmen dem Bau der Mauer zu",
+       "blk": "בְּנִיַּת חוֹמַת יְרוּשָׁלַיִם וְחִזּוּקָהּ 2:10-4:17",
+       "blk_de": "Der Bau der Mauer Jerusalems und ihre Befestigung 2:10-4:17"
+      },
+      {
+       "ref": "2:19-20",
+       "text": "לעג הצרים ותשובת נחמיה",
+       "text_de": "Der Spott der Feinde und Nehemias Antwort",
+       "blk": "בְּנִיַּת חוֹמַת יְרוּשָׁלַיִם וְחִזּוּקָהּ 2:10-4:17",
+       "blk_de": "Der Bau der Mauer Jerusalems und ihre Befestigung 2:10-4:17"
+      }
+     ]
     },
     {
      "ref": "3:1-32",
@@ -43,37 +93,168 @@
      "text_de": "Bau der Mauern Jerusalems – Namen der Bauenden",
      "text_en": "Building the walls of Jerusalem – names of the builders",
      "time_de": "4. Aw 3426",
-     "time_en": "4 Av 3426"
+     "time_en": "4 Av 3426",
+     "sub": [
+      {
+       "ref": "3:1-2",
+       "text": "משער הצאן ועד שער הדגים",
+       "text_de": "Vom Schafttor bis zum Fischtor",
+       "blk": "בְּנִיַּת חוֹמַת יְרוּשָׁלַיִם וְחִזּוּקָהּ 2:10-4:17",
+       "blk_de": "Der Bau der Mauer Jerusalems und ihre Befestigung 2:10-4:17"
+      },
+      {
+       "ref": "3:3-5",
+       "text": "משער הדגים ועד שער הישנה",
+       "text_de": "Vom Fischtor bis zum Alten Tor",
+       "blk": "בְּנִיַּת חוֹמַת יְרוּשָׁלַיִם וְחִזּוּקָהּ 2:10-4:17",
+       "blk_de": "Der Bau der Mauer Jerusalems und ihre Befestigung 2:10-4:17"
+      },
+      {
+       "ref": "3:6-12",
+       "text": "משער הישנה ועד שער הגיא",
+       "text_de": "Vom Alten Tor bis zum Taltor",
+       "blk": "בְּנִיַּת חוֹמַת יְרוּשָׁלַיִם וְחִזּוּקָהּ 2:10-4:17",
+       "blk_de": "Der Bau der Mauer Jerusalems und ihre Befestigung 2:10-4:17"
+      },
+      {
+       "ref": "3:13-14",
+       "text": "משער הגיא ועד שער האשפות",
+       "text_de": "Vom Taltor bis zum Misttor",
+       "blk": "בְּנִיַּת חוֹמַת יְרוּשָׁלַיִם וְחִזּוּקָהּ 2:10-4:17",
+       "blk_de": "Der Bau der Mauer Jerusalems und ihre Befestigung 2:10-4:17"
+      },
+      {
+       "ref": "3:15-26",
+       "text": "משער העין ועד שער המים",
+       "text_de": "Vom Quelltor bis zum Wassertor",
+       "blk": "בְּנִיַּת חוֹמַת יְרוּשָׁלַיִם וְחִזּוּקָהּ 2:10-4:17",
+       "blk_de": "Der Bau der Mauer Jerusalems und ihre Befestigung 2:10-4:17"
+      },
+      {
+       "ref": "3:26-27",
+       "text": "משער המים ועד שער הסוסים",
+       "text_de": "Vom Wassertor bis zum Rosstor",
+       "blk": "בְּנִיַּת חוֹמַת יְרוּשָׁלַיִם וְחִזּוּקָהּ 2:10-4:17",
+       "blk_de": "Der Bau der Mauer Jerusalems und ihre Befestigung 2:10-4:17"
+      },
+      {
+       "ref": "3:28-32",
+       "text": "משער הסוסים ועד שער הצאן",
+       "text_de": "Vom Rosstor bis zum Schaftor",
+       "blk": "בְּנִיַּת חוֹמַת יְרוּשָׁלַיִם וְחִזּוּקָהּ 2:10-4:17",
+       "blk_de": "Der Bau der Mauer Jerusalems und ihre Befestigung 2:10-4:17"
+      }
+     ]
     },
     {
      "ref": "3:33-38",
      "text": "לעג הגויים",
      "text_de": "Spott der Völker",
-     "text_en": "Mockery by the nations"
+     "text_en": "Mockery by the nations",
+     "sub": [
+      {
+       "ref": "3:33-35",
+       "text": "לעג סנבלט וטוביה",
+       "text_de": "Der Spott Sanballats und Tobijas",
+       "blk": "בְּנִיַּת חוֹמַת יְרוּשָׁלַיִם וְחִזּוּקָהּ 2:10-4:17",
+       "blk_de": "Der Bau der Mauer Jerusalems und ihre Befestigung 2:10-4:17"
+      },
+      {
+       "ref": "3:36-38",
+       "text": "תפלת נחמיה",
+       "text_de": "Nehemias Gebet",
+       "blk": "בְּנִיַּת חוֹמַת יְרוּשָׁלַיִם וְחִזּוּקָהּ 2:10-4:17",
+       "blk_de": "Der Bau der Mauer Jerusalems und ihre Befestigung 2:10-4:17"
+      }
+     ]
     },
     {
      "ref": "4",
      "text": "נסיונות הגויים להפריע לבניה",
      "text_de": "Versuche der Völker, den Bau zu behindern",
-     "text_en": "Attempts by the nations to hinder the building"
+     "text_en": "Attempts by the nations to hinder the building",
+     "sub": [
+      {
+       "ref": "4:1-5",
+       "text": "קשר הצרים",
+       "text_de": "Die Verschwörung der Feinde",
+       "blk": "בְּנִיַּת חוֹמַת יְרוּשָׁלַיִם וְחִזּוּקָהּ 2:10-4:17",
+       "blk_de": "Der Bau der Mauer Jerusalems und ihre Befestigung 2:10-4:17"
+      },
+      {
+       "ref": "4:6-17",
+       "text": "נחמיה שוקד על הגנת העיר ועל גמר מלאכת בנין חומתה",
+       "text_de": "Nehemia wacht über den Schutz der Stadt und die Vollendung des Mauerbaus",
+       "blk": "בְּנִיַּת חוֹמַת יְרוּשָׁלַיִם וְחִזּוּקָהּ 2:10-4:17",
+       "blk_de": "Der Bau der Mauer Jerusalems und ihre Befestigung 2:10-4:17"
+      }
+     ]
     },
     {
      "ref": "5:1-13",
      "text": "תקנת העניים - מחילת החובות",
      "text_de": "Regelung für die Armen – Erlass der Schulden",
-     "text_en": "Ordinance for the poor – remission of debts"
+     "text_en": "Ordinance for the poor – remission of debts",
+     "sub": [
+      {
+       "ref": "5:1-5",
+       "text": "צַעֲקַת הָעָם",
+       "text_de": "Der Aufschrei des Volkes",
+       "blk": "תַּקָּנוֹת נְחֶמְיָה לְטוֹבַת הָעֲנִיִּים 5",
+       "blk_de": "Nehemias Verordnungen zugunsten der Armen 5"
+      },
+      {
+       "ref": "5:6-13",
+       "text": "מַעֲשֵׂי נְחֶמְיָה לְתִקּוּן הַמְּעֻוָּת וְלִשְׁמִיטַת הַחוֹבוֹת",
+       "text_de": "Nehemias Maßnahmen zur Behebung der Missstände und zum Erlass der Schulden",
+       "blk": "תַּקָּנוֹת נְחֶמְיָה לְטוֹבַת הָעֲנִיִּים 5",
+       "blk_de": "Nehemias Verordnungen zugunsten der Armen 5"
+      }
+     ]
     },
     {
      "ref": "5:14-19",
      "text": "צדקת נחמיה ועזרתו לאחיו",
      "text_de": "Nehemias Wohltätigkeit und seine Hilfe für seine Brüder",
-     "text_en": "Nehemiah's righteousness and his help to his brethren"
+     "text_en": "Nehemiah's righteousness and his help to his brethren",
+     "sub": [
+      {
+       "ref": "5:14-19",
+       "text": "נְחֶמְיָה נָאֶה מְקַיֵּם",
+       "text_de": "Nehemia geht mit gutem Beispiel voran",
+       "blk": "תַּקָּנוֹת נְחֶמְיָה לְטוֹבַת הָעֲנִיִּים 5",
+       "blk_de": "Nehemias Verordnungen zugunsten der Armen 5"
+      }
+     ]
     },
     {
      "ref": "6:1-14",
      "text": "הפרעות הגויים לנחמיה בבניית החומה",
      "text_de": "Störungen Nehemias durch die Völker beim Mauerbau",
-     "text_en": "Interference by the nations with Nehemiah in building the wall"
+     "text_en": "Interference by the nations with Nehemiah in building the wall",
+     "sub": [
+      {
+       "ref": "6:1-4",
+       "text": "נְחֶמְיָה מְסָרֵב לְהִוָּעֵד עִם סַנְבַלַּט וָגֶשֶׁם",
+       "text_de": "Nehemia weigert sich, mit Sanballat und Geschem zusammenzukommen",
+       "blk": "תְּגוּבַת הַצָּרִים וְתַכְכֵיהֶם 6",
+       "blk_de": "Die Reaktion der Feinde und ihre Ränke 6"
+      },
+      {
+       "ref": "6:5-9",
+       "text": "הָאִגֶּרֶת 'הַפְּתוּחָה' שֶׁל סַנְבַלַּט וּתְשׁוּבַת נְחֶמְיָה",
+       "text_de": "Der „offene“ Brief Sanballats und Nehemias Antwort",
+       "blk": "תְּגוּבַת הַצָּרִים וְתַכְכֵיהֶם 6",
+       "blk_de": "Die Reaktion der Feinde und ihre Ränke 6"
+      },
+      {
+       "ref": "6:10-14",
+       "text": "נְבִיאֵי שֶׁקֶר שְׂכוּרִים",
+       "text_de": "Gedungene falsche Propheten",
+       "blk": "תְּגוּבַת הַצָּרִים וְתַכְכֵיהֶם 6",
+       "blk_de": "Die Reaktion der Feinde und ihre Ränke 6"
+      }
+     ]
     },
     {
      "ref": "6:15-19",
@@ -85,13 +266,38 @@
      "par_de": "Fortsetzung des Themas: Nehemia 12:27–43 (unten)",
      "par_en": "Continuation of the topic: Nehemiah 12:27–43 (below)",
      "time_de": "25. Elul 3426",
-     "time_en": "25 Elul 3426"
+     "time_en": "25 Elul 3426",
+     "sub": [
+      {
+       "ref": "6:15-16",
+       "text": "גְּמַר בִּנְיַן הַחוֹמָה וְרִשְׁמָהּ",
+       "text_de": "Die Vollendung des Mauerbaus und ihre Aufzeichnung",
+       "blk": "תְּגוּבַת הַצָּרִים וְתַכְכֵיהֶם 6",
+       "blk_de": "Die Reaktion der Feinde und ihre Ränke 6"
+      },
+      {
+       "ref": "6:17-19",
+       "text": "תְּכָכֵי חוֹרֵי יְהוּדָה",
+       "text_de": "Die Ränke der Edlen Judas",
+       "blk": "תְּגוּבַת הַצָּרִים וְתַכְכֵיהֶם 6",
+       "blk_de": "Die Reaktion der Feinde und ihre Ränke 6"
+      }
+     ]
     },
     {
      "ref": "7:1-3",
      "text": "העמדת שערי ירושלים ומינוי שומרים",
      "text_de": "Einsetzen der Tore Jerusalems und Ernennung von Wächtern",
-     "text_en": "Setting up the gates of Jerusalem and appointing guards"
+     "text_en": "Setting up the gates of Jerusalem and appointing guards",
+     "sub": [
+      {
+       "ref": "7:1-3",
+       "text": "תַּקָּנוֹת נְחֶמְיָה לְבִטְחוֹן יְרוּשָׁלַיִם",
+       "text_de": "Nehemias Verordnungen zur Sicherung Jerusalems",
+       "blk": "תַּקָּנוֹת נְחֶמְיָה לְבִטְחוֹן יְרוּשָׁלַיִם וּלְיִשּׁוּבָהּ 7",
+       "blk_de": "Nehemias Verordnungen zur Sicherung Jerusalems und zu seiner Besiedlung 7"
+      }
+     ]
     },
     {
      "ref": "7:4-5",
@@ -100,7 +306,16 @@
      "text_de": "Besiedlung Jerusalems mit Menschen",
      "text_en": "Populating Jerusalem with people",
      "par_de": "Fortsetzung des Themas: Nehemia 11:1–24 (unten)",
-     "par_en": "Continuation of the topic: Nehemiah 11:1–24 (below)"
+     "par_en": "Continuation of the topic: Nehemiah 11:1–24 (below)",
+     "sub": [
+      {
+       "ref": "7:4-73",
+       "text": "דַּאֲגַת נְחֶמְיָה לְיִשּׁוּבָהּ שֶׁל יְרוּשָׁלַיִם",
+       "text_de": "Nehemias Sorge um die Besiedlung Jerusalems",
+       "blk": "תַּקָּנוֹת נְחֶמְיָה לְבִטְחוֹן יְרוּשָׁלַיִם וּלְיִשּׁוּבָהּ 7",
+       "blk_de": "Nehemias Verordnungen zur Sicherung Jerusalems und zu seiner Besiedlung 7"
+      }
+     ]
     },
     {
      "ref": "7:6-68",
@@ -131,13 +346,31 @@
      "text_de": "Toralesung im Vorhof und Lobpreis des Herrn",
      "text_en": "Reading of the Torah in the court and blessing of the Lord",
      "time_de": "1. Tag von Rosch Haschana",
-     "time_en": "Day 1 of Rosh Hashanah"
+     "time_en": "Day 1 of Rosh Hashanah",
+     "sub": [
+      {
+       "ref": "8:1-8",
+       "text": "הַקְּרִיאָה בַּתּוֹרָה וּפֵרוּשָׁהּ בְּצִבּוּר",
+       "text_de": "Die Lesung der Tora und ihre Auslegung vor der Gemeinde",
+       "blk": "תַּקָּנוֹת עֶזְרָא 8",
+       "blk_de": "Esras Verordnungen 8"
+      }
+     ]
     },
     {
      "ref": "8:9-12",
      "text": "שמחת החג",
      "text_de": "Festfreude",
-     "text_en": "Joy of the festival"
+     "text_en": "Joy of the festival",
+     "sub": [
+      {
+       "ref": "8:9-12",
+       "text": "מִצְוַת שִׂמְחַת רֹאשׁ־הַשָּׁנָה",
+       "text_de": "Das Gebot der Freude am Neujahrstag",
+       "blk": "תַּקָּנוֹת עֶזְרָא 8",
+       "blk_de": "Esras Verordnungen 8"
+      }
+     ]
     },
     {
      "ref": "8:13-18",
@@ -149,7 +382,16 @@
      "par_de": "Gebot: 3. Mose 23:33–43",
      "par_en": "Commandment: Leviticus 23:33–43",
      "time_de": "2. Tag von Rosch Haschana – 22. Tischri",
-     "time_en": "Day 2 of Rosh Hashanah – 22 Tishrei"
+     "time_en": "Day 2 of Rosh Hashanah – 22 Tishrei",
+     "sub": [
+      {
+       "ref": "8:13-18",
+       "text": "עֲשִׂיַּת חַג הַסֻּכּוֹת בְּעֵסֶק רַב בִּירוּשָׁלָיִם",
+       "text_de": "Das Laubhüttenfest wird mit großem Eifer in Jerusalem gefeiert",
+       "blk": "תַּקָּנוֹת עֶזְרָא 8",
+       "blk_de": "Esras Verordnungen 8"
+      }
+     ]
     },
     {
      "ref": "9:1-3",
@@ -158,31 +400,132 @@
      "text_de": "Trennung von den fremden Frauen, Bekenntnis und Fasten",
      "text_en": "Separation from the foreign women, confession and fasting",
      "time_de": "23. Tischri",
-     "time_en": "23 Tishrei"
+     "time_en": "23 Tishrei",
+     "sub": [
+      {
+       "ref": "9:1-5",
+       "text": "הַצּוֹם וְהַוִּדּוּי",
+       "text_de": "Das Fasten und das Bekenntnis",
+       "blk": "הַוִּדּוּי הַגָּדוֹל וּמִזְמוֹר הַתְּפִלָּה 9",
+       "blk_de": "Das große Sündenbekenntnis und das Bittgebet 9"
+      }
+     ]
     },
     {
      "ref": "9:4-31",
      "text": "הוידוי - שבחי ה' על חסדיו לישראל בעבר",
      "text_de": "Das Bekenntnis – Lob des Herrn für seine Gnadenerweise an Israel in der Vergangenheit",
-     "text_en": "The confession – praises of the Lord for His past kindnesses to Israel"
+     "text_en": "The confession – praises of the Lord for His past kindnesses to Israel",
+     "sub": [
+      {
+       "ref": "9:6-8",
+       "text": "בְּרִיאַת הָעוֹלָם וּבְחִירַת אַבְרָהָם",
+       "text_de": "Die Erschaffung der Welt und die Erwählung Abrahams",
+       "blk": "הַוִּדּוּי הַגָּדוֹל וּמִזְמוֹר הַתְּפִלָּה 9",
+       "blk_de": "Das große Sündenbekenntnis und das Bittgebet 9"
+      },
+      {
+       "ref": "9:9-12",
+       "text": "גְּאֻלַּת מִצְרַיִם",
+       "text_de": "Die Erlösung aus Ägypten",
+       "blk": "הַוִּדּוּי הַגָּדוֹל וּמִזְמוֹר הַתְּפִלָּה 9",
+       "blk_de": "Das große Sündenbekenntnis und das Bittgebet 9"
+      },
+      {
+       "ref": "9:13-21",
+       "text": "מַתַּן תּוֹרָה וְהַהֲלִיכָה בַּמִּדְבָּר",
+       "text_de": "Die Gabe der Tora und die Wüstenwanderung",
+       "blk": "הַוִּדּוּי הַגָּדוֹל וּמִזְמוֹר הַתְּפִלָּה 9",
+       "blk_de": "Das große Sündenbekenntnis und das Bittgebet 9"
+      },
+      {
+       "ref": "9:22-25",
+       "text": "כִּבּוּשׁ הָאָרֶץ",
+       "text_de": "Die Eroberung des Landes",
+       "blk": "הַוִּדּוּי הַגָּדוֹל וּמִזְמוֹר הַתְּפִלָּה 9",
+       "blk_de": "Das große Sündenbekenntnis und das Bittgebet 9"
+      },
+      {
+       "ref": "9:26-31",
+       "text": "מְרִי הַבָּנִים וְעָנְשָׁם",
+       "text_de": "Der Ungehorsam der Söhne und ihre Strafe",
+       "blk": "הַוִּדּוּי הַגָּדוֹל וּמִזְמוֹר הַתְּפִלָּה 9",
+       "blk_de": "Das große Sündenbekenntnis und das Bittgebet 9"
+      }
+     ]
     },
     {
      "ref": "9:32-37",
      "text": "הוידוי - התאוננות על סבלם מהאומות",
      "text_de": "Das Bekenntnis – Klage über ihr Leiden unter den Völkern",
-     "text_en": "The confession – lament over their suffering at the hands of the nations"
+     "text_en": "The confession – lament over their suffering at the hands of the nations",
+     "sub": [
+      {
+       "ref": "9:32-37",
+       "text": "צִדּוּק הַדִּין וְהַתְּחִנָּה",
+       "text_de": "Rechtfertigung des Gerichts und Flehen um Erbarmen",
+       "blk": "הַוִּדּוּי הַגָּדוֹל וּמִזְמוֹר הַתְּפִלָּה 9",
+       "blk_de": "Das große Sündenbekenntnis und das Bittgebet 9"
+      }
+     ]
     },
     {
      "ref": "10:1-28",
      "text": "הוידוי - החותמים על כריתת ברית לקיום הדת",
      "text_de": "Das Bekenntnis – die Unterzeichner des Bundes zur Einhaltung der Religion",
-     "text_en": "The confession – the signatories of the covenant to uphold the faith"
+     "text_en": "The confession – the signatories of the covenant to uphold the faith",
+     "sub": [
+      {
+       "ref": "10:1-2",
+       "text": "הַפְּתִיחָה וְרָאשֵׁי הַחוֹתְמִים",
+       "text_de": "Einleitung und die Häupter der Unterzeichner",
+       "blk": "הָאֲמָנָה 10",
+       "blk_de": "Die Verpflichtung 10"
+      },
+      {
+       "ref": "10:3-9",
+       "text": "בָּתֵּי הָאָבוֹת לַכֹּהֲנִים",
+       "text_de": "Die Vaterhäuser der Priester",
+       "blk": "הָאֲמָנָה 10",
+       "blk_de": "Die Verpflichtung 10"
+      },
+      {
+       "ref": "10:10-14",
+       "text": "בָּתֵּי הָאָבוֹת לַלְוִיִּם",
+       "text_de": "Die Vaterhäuser der Leviten",
+       "blk": "הָאֲמָנָה 10",
+       "blk_de": "Die Verpflichtung 10"
+      },
+      {
+       "ref": "10:15-28",
+       "text": "רָאשֵׁי הָעָם",
+       "text_de": "Die Häupter des Volkes",
+       "blk": "הָאֲמָנָה 10",
+       "blk_de": "Die Verpflichtung 10"
+      }
+     ]
     },
     {
      "ref": "10:29-40",
      "text": "הוידוי - פירוט המצוות שקיבלו עליהם בברית",
      "text_de": "Das Bekenntnis – die Gebote, die sie im Bund auf sich nahmen",
-     "text_en": "The confession – the commandments they took upon themselves in the covenant"
+     "text_en": "The confession – the commandments they took upon themselves in the covenant",
+     "sub": [
+      {
+       "ref": "10:29-30",
+       "text": "קַבָּלַת עֹל תּוֹרָה וּמִצְוֹת",
+       "text_de": "Die Übernahme des Jochs der Tora und der Gebote",
+       "blk": "הָאֲמָנָה 10",
+       "blk_de": "Die Verpflichtung 10"
+      },
+      {
+       "ref": "10:31-40",
+       "text": "עִקְּרֵי הָאֲמָנָה",
+       "text_de": "Die Hauptpunkte der Verpflichtung",
+       "blk": "הָאֲמָנָה 10",
+       "blk_de": "Die Verpflichtung 10"
+      }
+     ]
     }
    ],
    "head_de": "Die Versammlung im Vorhof",
@@ -210,7 +553,44 @@
      "ref": "12:1-26",
      "text": "משמרות הכהנים והלויים",
      "text_de": "Abteilungen der Priester und Leviten",
-     "text_en": "Divisions of the priests and Levites"
+     "text_en": "Divisions of the priests and Levites",
+     "sub": [
+      {
+       "ref": "12:1-7",
+       "text": "רְשִׁימַת רָאשֵׁי הַכֹּהֲנִים בִּימֵי זְרֻבָּבֶל וְיֵשׁוּעַ כֹּהֵן גָּדוֹל",
+       "text_de": "Verzeichnis der Priesterhäupter zur Zeit Serubbabels und des Hohenpriesters Jeschua",
+       "blk": "מִשְׁמְרוֹת הַכְּהֻנָּה וְהַלְוִיָּה 12:1-26",
+       "blk_de": "Die Abteilungen der Priester und Leviten 12:1-26"
+      },
+      {
+       "ref": "12:8-9",
+       "text": "מִשְׁמְרוֹת הַלְוִיָּה הָרִאשׁוֹנִים",
+       "text_de": "Die ersten Abteilungen der Leviten",
+       "blk": "מִשְׁמְרוֹת הַכְּהֻנָּה וְהַלְוִיָּה 12:1-26",
+       "blk_de": "Die Abteilungen der Priester und Leviten 12:1-26"
+      },
+      {
+       "ref": "12:10-11",
+       "text": "יִחוּסֵי הַכֹּהֲנִים הַגְּדוֹלִים",
+       "text_de": "Die Geschlechtsregister der Hohenpriester",
+       "blk": "מִשְׁמְרוֹת הַכְּהֻנָּה וְהַלְוִיָּה 12:1-26",
+       "blk_de": "Die Abteilungen der Priester und Leviten 12:1-26"
+      },
+      {
+       "ref": "12:12-21",
+       "text": "רָאשֵׁי אֲבוֹת הַכֹּהֲנִים בִּימֵי יוֹיָקִים כֹּהֵן גָּדוֹל",
+       "text_de": "Die Häupter der Priestergeschlechter zur Zeit des Hohenpriesters Jojakim",
+       "blk": "מִשְׁמְרוֹת הַכְּהֻנָּה וְהַלְוִיָּה 12:1-26",
+       "blk_de": "Die Abteilungen der Priester und Leviten 12:1-26"
+      },
+      {
+       "ref": "12:22-26",
+       "text": "רָאשֵׁי הָאָבוֹת לַלְוִיִּם",
+       "text_de": "Die Häupter der Vaterhäuser der Leviten",
+       "blk": "מִשְׁמְרוֹת הַכְּהֻנָּה וְהַלְוִיָּה 12:1-26",
+       "blk_de": "Die Abteilungen der Priester und Leviten 12:1-26"
+      }
+     ]
     },
     {
      "ref": "12:27-43",
@@ -225,7 +605,16 @@
      "ref": "12:44-47",
      "text": "מינוי ממונים על התרומות והמעשרות",
      "text_de": "Ernennung von Verantwortlichen für die Abgaben und Zehnten",
-     "text_en": "Appointment of officials over the contributions and tithes"
+     "text_en": "Appointment of officials over the contributions and tithes",
+     "sub": [
+      {
+       "ref": "12:44-47",
+       "text": "סִדּוּר הַמַּתָּנוֹת לְמִשְׁמְרוֹת הַכְּהֻנָּה וְהַלְוִיָּה",
+       "text_de": "Die Ordnung der Abgaben für die Abteilungen der Priester und Leviten",
+       "blk": "תַּקָּנוֹת נְחֶמְיָה 12:44-13:31",
+       "blk_de": "Nehemias Verordnungen 12:44-13:31"
+      }
+     ]
     },
     {
      "ref": "13:1-3",
@@ -234,7 +623,16 @@
      "text_de": "Trennung Israels von Ammon und Moab",
      "text_en": "Separation of Israel from Ammon and Moab",
      "par_de": "Gebot: 5. Mose 23:4–7",
-     "par_en": "Commandment: Deuteronomy 23:4–7"
+     "par_en": "Commandment: Deuteronomy 23:4–7",
+     "sub": [
+      {
+       "ref": "13:1-9",
+       "text": "הַבְדָּלַת כָּל עֵרֶב מִיִּשְׂרָאֵל",
+       "text_de": "Die Aussonderung alles Fremdstämmigen aus Israel",
+       "blk": "תַּקָּנוֹת נְחֶמְיָה 12:44-13:31",
+       "blk_de": "Nehemias Verordnungen 12:44-13:31"
+      }
+     ]
     },
     {
      "ref": "13:4-9",
@@ -246,7 +644,16 @@
      "ref": "13:10-14",
      "text": "חיזוק מתנות הלויים",
      "text_de": "Sicherung der Gaben für die Leviten",
-     "text_en": "Reinforcing the gifts to the Levites"
+     "text_en": "Reinforcing the gifts to the Levites",
+     "sub": [
+      {
+       "ref": "13:10-14",
+       "text": "סִדּוּר מַתְּנוֹת לְוִיָּה",
+       "text_de": "Die Ordnung der Abgaben für die Leviten",
+       "blk": "תַּקָּנוֹת נְחֶמְיָה 12:44-13:31",
+       "blk_de": "Nehemias Verordnungen 12:44-13:31"
+      }
+     ]
     },
     {
      "ref": "13:15-22",
@@ -255,13 +662,38 @@
      "text_de": "Stärkung der Sabbatbeachtung in Jerusalem",
      "text_en": "Strengthening Sabbath observance in Jerusalem",
      "par_de": "Ähnliches Ereignis: Jeremia 17:19–27",
-     "par_en": "Similar event: Jeremiah 17:19–27"
+     "par_en": "Similar event: Jeremiah 17:19–27",
+     "sub": [
+      {
+       "ref": "13:15-22",
+       "text": "תַּקָּנוֹת לִשְׁמִירַת שַׁבָּת",
+       "text_de": "Verordnungen zur Wahrung des Sabbats",
+       "blk": "תַּקָּנוֹת נְחֶמְיָה 12:44-13:31",
+       "blk_de": "Nehemias Verordnungen 12:44-13:31"
+      }
+     ]
     },
     {
      "ref": "13:23-30",
      "text": "הפרשת העם מהנשים הנכריות",
      "text_de": "Trennung des Volkes von den fremden Frauen",
-     "text_en": "Separation of the people from the foreign women"
+     "text_en": "Separation of the people from the foreign women",
+     "sub": [
+      {
+       "ref": "13:23-28",
+       "text": "הַפְּעֻלָּה נֶגֶד נְשׂוּאֵי תַעֲרֹבֶת",
+       "text_de": "Das Vorgehen gegen die Mischehen",
+       "blk": "תַּקָּנוֹת נְחֶמְיָה 12:44-13:31",
+       "blk_de": "Nehemias Verordnungen 12:44-13:31"
+      },
+      {
+       "ref": "13:29-31",
+       "text": "חֲתִימָה",
+       "text_de": "Abschluss",
+       "blk": "תַּקָּנוֹת נְחֶמְיָה 12:44-13:31",
+       "blk_de": "Nehemias Verordnungen 12:44-13:31"
+      }
+     ]
     }
    ],
    "head_de": "Nehemias Taten",
@@ -270,6 +702,6 @@
  ],
  "title_de": "Inhalt des Buches Nehemia",
  "title_en": "Contents of the Book of Nehemiah",
- "note_de": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt.",
- "note_en": "Transcribed from photos of a summary table. Chapter and verse numbering and dates (Jewish reckoning) as printed in the source."
+ "note_de": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt. Unterpunkte aus der Gliederung von „Da'at Mikra“ (Teilpunkte mit Versangaben, mit Hinweis auf den jeweiligen Abschnitt) ergänzt und ins Deutsche übersetzt.",
+ "note_en": "Transcribed from photos of a summary table. Chapter and verse numbering and dates (Jewish reckoning) as printed in the source. Sub-points from the Da'at Mikra outlines (parts with verse references, labelled with their section) added; German translation."
 }
