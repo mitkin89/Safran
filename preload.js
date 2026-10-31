@@ -52,7 +52,7 @@ contextBridge.exposeInMainWorld('offline', {
   setLang: l => ipcRenderer.invoke('app:setLang', l),
   openRelease: u => ipcRenderer.invoke('app:openRelease', u),
   dictSuggest: q => ipcRenderer.invoke('dict:suggest', q),
-  dictLookup: (q, only) => ipcRenderer.invoke('dict:lookup', q, only),
+  dictLookup: (q, only, full) => ipcRenderer.invoke('dict:lookup', q, only, full),
   ownRemove: rel => ipcRenderer.invoke('off:ownRemove', rel),
   ownReload: rel => ipcRenderer.invoke('off:ownReload', rel),
   onFindOpen: cb => ipcRenderer.on('find:open', () => cb()),

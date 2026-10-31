@@ -810,3 +810,7 @@ html[data-tab=dict] #dictPanel.pinp:not(.docked) { box-shadow: none; }
 .aref{color:var(--accent);cursor:pointer;text-decoration:underline dotted;text-underline-offset:3px}
 .aref:hover{text-decoration:underline}
 .aref.dmiss{opacity:.55;text-decoration:line-through;cursor:help}
+
+/* Wörterbuch: Volltextsuche */
+.dfull { display: inline-flex; align-items: center; gap: 4px; margin-left: 6px; font-size: 12px; color: var(--muted, #888); white-space: nowrap; cursor: pointer; }
+.dhit { background: rgba(255, 200, 0, .45); color: inherit; border-radius: 2px; padding: 0 1px; }

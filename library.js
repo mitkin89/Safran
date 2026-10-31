@@ -2627,7 +2627,7 @@
     $('#dictQ').value = q;
     if (typeof renderSaved === 'function') renderSaved();
     $('#dictOut').innerHTML = '<p class="muted">Suche …</p>';
-    const r = await O.dictLookup(q, only && only.id);
+    const r = await O.dictLookup(q, only && only.id, $('#dictFull') && $('#dictFull').checked);
     if (r.error) { $('#dictOut').innerHTML = `<p class="muted">⚠ ${esc(r.error)}</p>`; return; }
     dictShown = r.results;
     if (!r.results.length) {
@@ -2790,6 +2790,9 @@
   });
   $('#dictQ').addEventListener('input', renderSaved);
   renderSaved();
+  { const fb = $('#dictFull'); // Volltextsuche (Artikeltext) ein/aus, wird gemerkt
+    try { fb.checked = localStorage.getItem('dictFull') === '1'; } catch { /* egal */ }
+    fb.addEventListener('change', () => { try { localStorage.setItem('dictFull', fb.checked ? '1' : '0'); } catch { /* egal */ } const q = $('#dictQ').value.trim(); if (q) dictLookup(q, dictOnly); }); }
   $('#dictGo').onclick = () => manualSearch($('#dictQ').value);
   $('#dictQ').addEventListener('keydown', e => { if (e.key === 'Enter') manualSearch($('#dictQ').value); });
   // Stellenangaben im Lesetext und in den Kommentaren (Klasse „aref“): im Reader öffnen; Cmd/Strg + Klick = neuer Tab, Umschalt + Klick = im zweiten Fenster rechts
