@@ -113,6 +113,9 @@ function parseDsl(buf, filename = '') {
 }
 
 // ---------- Speicher: ein Ordner mit je einer JSON-Datei pro Wörterbuch ----------
+// only: leer = alle Wörterbücher; sonst Kennung oder Liste von Kennungen
+const allowed = (only, id) => !only || (Array.isArray(only) ? !only.length || only.includes(id) : only === id);
+
 class Dictionaries {
   constructor(dir) { this.dir = dir; this.cache = new Map(); }
   file(id) { return path.join(this.dir, id + '.json'); }
@@ -252,7 +255,7 @@ class Dictionaries {
     if (!terms.length) return [];
     const res = [];
     for (const d of (await this.list())) {
-      if (only && d.id !== only) continue;
+      if (!allowed(only, d.id)) continue;
       const data = await this.load(d.id);
       if (!data.plain) data.plain = data.html.map((h, k) => norm(htmlText(h) + ' ' + data.heads[k].join(' ')));
       const hits = [];
@@ -288,7 +291,7 @@ class Dictionaries {
       if ([...head].every(c => prefixes.includes(c))) variants.push({ q: q.slice(k), note: `ohne Vorsilbe „${head}“` });
     }
     for (const d of (await this.list())) {
-      if (only && d.id !== only) continue;
+      if (!allowed(only, d.id)) continue;
       const data = await this.load(d.id);
       const seen = new Set();
       const add = (k, kind, note) => { if (seen.has(k)) return; seen.add(k); res.push({ dict: data.name, dictId: d.id, k, head: data.heads[k].join(' · '), html: data.html[k], kind, note }); };

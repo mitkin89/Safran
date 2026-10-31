@@ -2611,6 +2611,8 @@
   $('#cmtBody').addEventListener('click', clickMark);
   $('#rOut').addEventListener('dblclick', dblWord);
   $('#cmtBody').addEventListener('dblclick', dblWord);
+  let dictSel = null; // Auswahl der durchsuchten Wörterbücher (Liste von Kennungen) oder null = alle
+  try { const a = JSON.parse(localStorage.getItem('dictSel') || 'null'); if (Array.isArray(a) && a.length) dictSel = a; } catch { /* egal */ }
   let dictOnly = null; // { id, name }: Suche nur in diesem Wörterbuch (wird nicht mehr über das Menü gesetzt)
   let dictHist = [], dictPos = -1, dictShown = [];
   function dictNavButtons() { $('#dictBack').disabled = dictPos <= 0; $('#dictFwd').disabled = dictPos >= dictHist.length - 1; }
@@ -2627,7 +2629,7 @@
     $('#dictQ').value = q;
     if (typeof renderSaved === 'function') renderSaved();
     $('#dictOut').innerHTML = '<p class="muted">Suche …</p>';
-    const r = await O.dictLookup(q, only && only.id, $('#dictFull') && $('#dictFull').checked);
+    const r = await O.dictLookup(q, only ? only.id : (dictSel && dictSel.length ? dictSel : null), $('#dictFull') && $('#dictFull').checked);
     if (r.error) { $('#dictOut').innerHTML = `<p class="muted">⚠ ${esc(r.error)}</p>`; return; }
     dictShown = r.results;
     if (!r.results.length) {
@@ -2793,6 +2795,29 @@
   { const fb = $('#dictFull'); // Volltextsuche (Artikeltext) ein/aus, wird gemerkt
     try { fb.checked = localStorage.getItem('dictFull') === '1'; } catch { /* egal */ }
     fb.addEventListener('change', () => { try { localStorage.setItem('dictFull', fb.checked ? '1' : '0'); } catch { /* egal */ } const q = $('#dictQ').value.trim(); if (q) dictLookup(q, dictOnly); }); }
+  { // Auswahl der Wörterbücher: Häkchen je Wörterbuch, wird gemerkt
+    const B = $('#dictSelB'), Pn = $('#dictSelP');
+    const label = n => { B.textContent = (dictSel ? `📚 ${dictSel.length} von ${n}` : '📚 Alle Wörterbücher') + ' ▾'; };
+    const paint = async () => {
+      const list = (await O.dictList()).list || [];
+      if (dictSel) dictSel = dictSel.filter(id => list.some(d => d.id === id)); if (dictSel && !dictSel.length) dictSel = null;
+      Pn.innerHTML = `<div class="dsa"><a data-a="all">alle</a> · <a data-a="none">keins</a></div>` + list.map(d => `<label><input type="checkbox" data-id="${esc(d.id)}"${!dictSel || dictSel.includes(d.id) ? ' checked' : ''}> ${esc(d.name)} <small>${d.count.toLocaleString(I18N.loc)}</small></label>`).join('');
+      label(list.length);
+    };
+    const save = () => { try { localStorage.setItem('dictSel', JSON.stringify(dictSel || null)); } catch { /* egal */ } };
+    B.onclick = async e => { e.stopPropagation(); if (Pn.hidden) { await paint(); Pn.hidden = false; } else Pn.hidden = true; };
+    document.addEventListener('click', e => { if (!Pn.hidden && !Pn.contains(e.target) && e.target !== B) Pn.hidden = true; });
+    Pn.addEventListener('click', async e => {
+      const a = e.target.closest('a[data-a]');
+      if (a) { dictSel = null; if (a.dataset.a === 'none') { Pn.querySelectorAll('input').forEach(i => { i.checked = false; }); return; } save(); await paint(); const q = $('#dictQ').value.trim(); if (q) dictLookup(q, dictOnly); }
+    });
+    Pn.addEventListener('change', async e => {
+      const ids = [...Pn.querySelectorAll('input')].filter(i => i.checked).map(i => i.dataset.id), all = Pn.querySelectorAll('input').length;
+      dictSel = ids.length && ids.length < all ? ids : null; save(); label(all);
+      const q = $('#dictQ').value.trim(); if (q) dictLookup(q, dictOnly);
+    });
+    paint();
+  }
   $('#dictGo').onclick = () => manualSearch($('#dictQ').value);
   $('#dictQ').addEventListener('keydown', e => { if (e.key === 'Enter') manualSearch($('#dictQ').value); });
   // Stellenangaben im Lesetext und in den Kommentaren (Klasse „aref“): im Reader öffnen; Cmd/Strg + Klick = neuer Tab, Umschalt + Klick = im zweiten Fenster rechts
