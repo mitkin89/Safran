@@ -1,7 +1,7 @@
 {
  "book": "Joshua",
  "title": "תוכן ספר יהושע",
- "note": "Abgeschrieben aus einer Übersichtstabelle (SifreiKodesh). Jahre/Daten nach der jüdischen Zählung, wie in der Vorlage gedruckt.",
+ "note": "Abgeschrieben aus einer Übersichtstabelle (SifreiKodesh). Jahre/Daten nach der jüdischen Zählung, wie in der Vorlage gedruckt. · הורחב בחלוקת דעת מקרא (פסקאות עם מראי מקום).",
  "sections": [
   {
    "head": "כניסת בני ישראל לארץ",
@@ -19,7 +19,16 @@
      "par_de": "Fortsetzung von: Deuteronomium 34 · Einsetzung Josuas: Numeri 27:15–23; Deuteronomium 31",
      "par_en": "Continuation of: Deuteronomy 34 · Appointment of Joshua: Numbers 27:15–23; Deuteronomy 31",
      "time_de": "Adar 2488",
-     "time_en": "Adar 2488"
+     "time_en": "Adar 2488",
+     "sub": [
+      {
+       "ref": "1:1-9",
+       "text": "דבר ה' ליהושע",
+       "text_de": "Das Wort des HERRN an Josua",
+       "blk": "כְּנִיסַת יִשְׂרָאֵל לָאָרֶץ 1-4",
+       "blk_de": "Der Einzug Israels in das Land 1-4"
+      }
+     ]
     },
     {
      "ref": "1:4",
@@ -43,7 +52,23 @@
      "place_de": "Steppen Moabs, jenseits des Jordan im Osten",
      "place_en": "Plains of Moab, east of the Jordan",
      "time_de": "Nisan 2488",
-     "time_en": "Nisan 2488"
+     "time_en": "Nisan 2488",
+     "sub": [
+      {
+       "ref": "1:10-11",
+       "text": "דברי יהושע לשוטרי העם",
+       "text_de": "Josuas Worte an die Beamten des Volkes",
+       "blk": "כְּנִיסַת יִשְׂרָאֵל לָאָרֶץ 1-4",
+       "blk_de": "Der Einzug Israels in das Land 1-4"
+      },
+      {
+       "ref": "1:12-18",
+       "text": "דברי יהושע לשבטי עבר-הירדן ותשובתם",
+       "text_de": "Josuas Worte an die ostjordanischen Stämme und ihre Antwort",
+       "blk": "כְּנִיסַת יִשְׂרָאֵל לָאָרֶץ 1-4",
+       "blk_de": "Der Einzug Israels in das Land 1-4"
+      }
+     ]
     },
     {
      "ref": "2",
@@ -58,7 +83,16 @@
      "par_de": "Erwähnung: Sprüche 31:21 (nach einigen Auslegern)",
      "par_en": "Mention: Proverbs 31:21 (according to some commentators)",
      "time_de": "5. Nisan 2488",
-     "time_en": "5 Nisan 2488"
+     "time_en": "5 Nisan 2488",
+     "sub": [
+      {
+       "ref": "2",
+       "text": "שליחת המרגלים ליריחו",
+       "text_de": "Die Entsendung der Kundschafter nach Jericho",
+       "blk": "כְּנִיסַת יִשְׂרָאֵל לָאָרֶץ 1-4",
+       "blk_de": "Der Einzug Israels in das Land 1-4"
+      }
+     ]
     },
     {
      "ref": "3:1-5:1",
@@ -73,7 +107,58 @@
      "par_de": "Das Gebot: Josua 1:2 · Erwähnung: Habakuk 3:8–10 (nach einigen Auslegern); Psalm 66:6; 74:15; 114",
      "par_en": "The commandment: Joshua 1:2 · Mention: Habakkuk 3:8–10 (according to some commentators); Psalms 66:6; 74:15; 114",
      "time_de": "10. Nisan 2488",
-     "time_en": "10 Nisan 2488"
+     "time_en": "10 Nisan 2488",
+     "sub": [
+      {
+       "ref": "3:1-4",
+       "text": "המסע מן השטים לירדן",
+       "text_de": "Der Zug von Schittim zum Jordan",
+       "blk": "כְּנִיסַת יִשְׂרָאֵל לָאָרֶץ 1-4",
+       "blk_de": "Der Einzug Israels in das Land 1-4"
+      },
+      {
+       "ref": "3:5-6",
+       "text": "דברי יהושע לעם ולכהנים",
+       "text_de": "Josuas Worte an das Volk und an die Priester",
+       "blk": "כְּנִיסַת יִשְׂרָאֵל לָאָרֶץ 1-4",
+       "blk_de": "Der Einzug Israels in das Land 1-4"
+      },
+      {
+       "ref": "3:7-8",
+       "text": "ה' מבטיח ליהושע 'אחל גדלך'",
+       "text_de": "Der HERR verheißt Josua: „Heute beginne ich, dich groß zu machen“",
+       "blk": "כְּנִיסַת יִשְׂרָאֵל לָאָרֶץ 1-4",
+       "blk_de": "Der Einzug Israels in das Land 1-4"
+      },
+      {
+       "ref": "3:9-17",
+       "text": "כריתת הירדן אות לירשת הארץ",
+       "text_de": "Die Teilung des Jordan als Zeichen für die Einnahme des Landes",
+       "blk": "כְּנִיסַת יִשְׂרָאֵל לָאָרֶץ 1-4",
+       "blk_de": "Der Einzug Israels in das Land 1-4"
+      },
+      {
+       "ref": "4:14",
+       "text": "קיום הבטחת ה' ליהושע",
+       "text_de": "Die Erfüllung der Verheißung des HERRN an Josua",
+       "blk": "כְּנִיסַת יִשְׂרָאֵל לָאָרֶץ 1-4",
+       "blk_de": "Der Einzug Israels in das Land 1-4"
+      },
+      {
+       "ref": "4:15-24",
+       "text": "עלות הכהנים מן הירדן ושיבת המים למקומם",
+       "text_de": "Der Aufstieg der Priester aus dem Jordan und die Rückkehr des Wassers an seinen Ort",
+       "blk": "כְּנִיסַת יִשְׂרָאֵל לָאָרֶץ 1-4",
+       "blk_de": "Der Einzug Israels in das Land 1-4"
+      },
+      {
+       "ref": "5:1",
+       "text": "רשם נס כריתת הירדן על מלכי הארץ",
+       "text_de": "Das Wunder der Teilung des Jordan wird unter den Königen des Landes bekannt",
+       "blk": "כִּבּוּשׁ יְרִיחוֹ 5:1-6:26",
+       "blk_de": "Die Eroberung Jerichos 5:1-6:26"
+      }
+     ]
     },
     {
      "ref": "4:1-9",
@@ -88,7 +173,23 @@
      "par_de": "Das Gebot: Deuteronomium 27:1–8 · Fortsetzung des Themas: Josua 8:30–32",
      "par_en": "The commandment: Deuteronomy 27:1–8 · Continuation of the topic: Joshua 8:30–32",
      "time_de": "Nisan 2488",
-     "time_en": "Nisan 2488"
+     "time_en": "Nisan 2488",
+     "sub": [
+      {
+       "ref": "4:1-3",
+       "text": "מצות ה' ליהושע על הנחת האבנים לאות",
+       "text_de": "Das Gebot des HERRN an Josua zur Aufstellung der Steine als Zeichen",
+       "blk": "כְּנִיסַת יִשְׂרָאֵל לָאָרֶץ 1-4",
+       "blk_de": "Der Einzug Israels in das Land 1-4"
+      },
+      {
+       "ref": "4:4-13",
+       "text": "קיום המצוה ותכליתה",
+       "text_de": "Die Ausführung des Gebots und sein Zweck",
+       "blk": "כְּנִיסַת יִשְׂרָאֵל לָאָרֶץ 1-4",
+       "blk_de": "Der Einzug Israels in das Land 1-4"
+      }
+     ]
     },
     {
      "ref": "4:20-24",
@@ -125,7 +226,30 @@
      "par_de": "Beginn des Mannafalls: Exodus 16 · Verbot, neues Getreide zu essen: Levitikus 23:14",
      "par_en": "Beginning of the manna: Exodus 16 · Prohibition of eating new grain: Leviticus 23:14",
      "time_de": "11. und 14. Nisan 2488",
-     "time_en": "11 and 14 Nisan 2488"
+     "time_en": "11 and 14 Nisan 2488",
+     "sub": [
+      {
+       "ref": "5:2-8",
+       "text": "דבר ה' ליהושע על מילת העם",
+       "text_de": "Das Wort des HERRN an Josua über die Beschneidung des Volkes",
+       "blk": "כִּבּוּשׁ יְרִיחוֹ 5:1-6:26",
+       "blk_de": "Die Eroberung Jerichos 5:1-6:26"
+      },
+      {
+       "ref": "5:5-6:26",
+       "text": "כבוש יריחו",
+       "text_de": "Die Eroberung Jerichos",
+       "blk": "כִּבּוּשׁ הָאָרֶץ 5-12",
+       "blk_de": "Die Eroberung des Landes 5-12"
+      },
+      {
+       "ref": "5:9-12",
+       "text": "דבר ה' על קץ 'חרפת מצרים' ומצות הפסח",
+       "text_de": "Das Wort des HERRN über das Ende der „Schande Ägyptens“ und das Gebot des Pessach",
+       "blk": "כִּבּוּשׁ יְרִיחוֹ 5:1-6:26",
+       "blk_de": "Die Eroberung Jerichos 5:1-6:26"
+      }
+     ]
     },
     {
      "ref": "5:13-15",
@@ -137,7 +261,16 @@
      "place_de": "an der Grenze von Jericho",
      "place_en": "on the border of Jericho",
      "time_de": "Nisan 2488",
-     "time_en": "Nisan 2488"
+     "time_en": "Nisan 2488",
+     "sub": [
+      {
+       "ref": "5:13-6:1",
+       "text": "בוא שר צבא ה'",
+       "text_de": "Das Erscheinen des Obersten des Heeres des HERRN",
+       "blk": "כִּבּוּשׁ יְרִיחוֹ 5:1-6:26",
+       "blk_de": "Die Eroberung Jerichos 5:1-6:26"
+      }
+     ]
     },
     {
      "ref": "6",
@@ -152,7 +285,44 @@
      "par_de": "Erfüllung des Fluchs über den Erbauer Jerichos: 1. Könige 16:34",
      "par_en": "Fulfillment of the curse on the builder of Jericho: 1 Kings 16:34",
      "time_de": "Ijar 2488",
-     "time_en": "Iyar 2488"
+     "time_en": "Iyar 2488",
+     "sub": [
+      {
+       "ref": "6:2-11",
+       "text": "דבר ה' על הקפת יריחו",
+       "text_de": "Das Wort des HERRN über die Umkreisung Jerichos",
+       "blk": "כִּבּוּשׁ יְרִיחוֹ 5:1-6:26",
+       "blk_de": "Die Eroberung Jerichos 5:1-6:26"
+      },
+      {
+       "ref": "6:12-25",
+       "text": "כבוש יריחו, החרמתה והצלת רחב וביתה",
+       "text_de": "Die Eroberung Jerichos, ihre Bannung und die Rettung Rahabs und ihres Hauses",
+       "blk": "כִּבּוּשׁ יְרִיחוֹ 5:1-6:26",
+       "blk_de": "Die Eroberung Jerichos 5:1-6:26"
+      },
+      {
+       "ref": "6:26",
+       "text": "ארירת בונה יריחו",
+       "text_de": "Der Fluch über den Erbauer Jerichos",
+       "blk": "כִּבּוּשׁ יְרִיחוֹ 5:1-6:26",
+       "blk_de": "Die Eroberung Jerichos 5:1-6:26"
+      },
+      {
+       "ref": "6:27-7:1",
+       "text": "מעל עכן",
+       "text_de": "Die Veruntreuung Achans",
+       "blk": "מִלְחֶמֶת הָעַי 6:27-8:35",
+       "blk_de": "Der Krieg gegen Ai 6:27-8:35"
+      },
+      {
+       "ref": "6:27-8:35",
+       "text": "מלחמת העי",
+       "text_de": "Der Krieg gegen Ai",
+       "blk": "כִּבּוּשׁ הָאָרֶץ 5-12",
+       "blk_de": "Die Eroberung des Landes 5-12"
+      }
+     ]
     },
     {
      "ref": "7",
@@ -167,7 +337,16 @@
      "par_de": "Erwähnung: 1. Chronik 2:7",
      "par_en": "Mention: 1 Chronicles 2:7",
      "time_de": "2488–2494",
-     "time_en": "2488–2494"
+     "time_en": "2488–2494",
+     "sub": [
+      {
+       "ref": "7:2-26",
+       "text": "כשלון המערכה ותפלת יהושע; מענה ה' ומשפט עכן",
+       "text_de": "Das Scheitern des Feldzugs und das Gebet Josuas; die Antwort des HERRN und das Gericht über Achan",
+       "blk": "מִלְחֶמֶת הָעַי 6:27-8:35",
+       "blk_de": "Der Krieg gegen Ai 6:27-8:35"
+      }
+     ]
     },
     {
      "ref": "8:1-29",
@@ -179,7 +358,51 @@
      "place_de": "Ai, Tal Achor",
      "place_en": "Ai, Valley of Achor",
      "time_de": "2488–2494",
-     "time_en": "2488–2494"
+     "time_en": "2488–2494",
+     "sub": [
+      {
+       "ref": "8:1-17",
+       "text": "מלחמת העי השניה",
+       "text_de": "Der zweite Krieg gegen Ai",
+       "blk": "מִלְחֶמֶת הָעַי 6:27-8:35",
+       "blk_de": "Der Krieg gegen Ai 6:27-8:35"
+      },
+      {
+       "ref": "8:9",
+       "text": "הגבעונים וכניעתם",
+       "text_de": "Die Gibeoniter und ihre Unterwerfung",
+       "blk": "כִּבּוּשׁ הָאָרֶץ 5-12",
+       "blk_de": "Die Eroberung des Landes 5-12"
+      },
+      {
+       "ref": "8:10",
+       "text": "כבוש ממלכות הדרום",
+       "text_de": "Die Eroberung der Königreiche des Südens",
+       "blk": "כִּבּוּשׁ הָאָרֶץ 5-12",
+       "blk_de": "Die Eroberung des Landes 5-12"
+      },
+      {
+       "ref": "8:11",
+       "text": "כבוש ממלכות הצפון",
+       "text_de": "Die Eroberung der Königreiche des Nordens",
+       "blk": "כִּבּוּשׁ הָאָרֶץ 5-12",
+       "blk_de": "Die Eroberung des Landes 5-12"
+      },
+      {
+       "ref": "8:12",
+       "text": "סכומי הכבושים",
+       "text_de": "Zusammenfassung der Eroberungen",
+       "blk": "כִּבּוּשׁ הָאָרֶץ 5-12",
+       "blk_de": "Die Eroberung des Landes 5-12"
+      },
+      {
+       "ref": "8:18-29",
+       "text": "כבוש העי",
+       "text_de": "Die Eroberung von Ai",
+       "blk": "מִלְחֶמֶת הָעַי 6:27-8:35",
+       "blk_de": "Der Krieg gegen Ai 6:27-8:35"
+      }
+     ]
     },
     {
      "ref": "8:30-32",
@@ -194,7 +417,16 @@
      "par_de": "Das Gebot: Deuteronomium 27:1–8 · Fortsetzung von: Josua 4:1–9; 4:20–24",
      "par_en": "The commandment: Deuteronomy 27:1–8 · Continuation of: Joshua 4:1–9; 4:20–24",
      "time_de": "10. Nisan 2488",
-     "time_en": "10 Nisan 2488"
+     "time_en": "10 Nisan 2488",
+     "sub": [
+      {
+       "ref": "8:30-35",
+       "text": "הברכה והקללה",
+       "text_de": "Segen und Fluch",
+       "blk": "מִלְחֶמֶת הָעַי 6:27-8:35",
+       "blk_de": "Der Krieg gegen Ai 6:27-8:35"
+      }
+     ]
     },
     {
      "ref": "8:33-35",
@@ -224,7 +456,23 @@
      "par_de": "Fortsetzung der Themen: 2. Samuel 21",
      "par_en": "Continuation of the topics: 2 Samuel 21",
      "time_de": "2488–2494",
-     "time_en": "2488–2494"
+     "time_en": "2488–2494",
+     "sub": [
+      {
+       "ref": "9:1-2",
+       "text": "התקבצותם של מלכי כנען",
+       "text_de": "Die Versammlung der Könige Kanaans",
+       "blk": "הַגִּבְעוֹנִים וּכְנִיעָתָם 9",
+       "blk_de": "Die Gibeoniter und ihre Unterwerfung 9"
+      },
+      {
+       "ref": "9:3-27",
+       "text": "ערמת הגבעונים וכריתת הברית. כבוש עריהם ונתינתם לחטבי עצים ושאבי מים",
+       "text_de": "Die List der Gibeoniter und der Bundesschluss; die Eroberung ihrer Städte und ihre Bestimmung zu Holzhauern und Wasserschöpfern",
+       "blk": "הַגִּבְעוֹנִים וּכְנִיעָתָם 9",
+       "blk_de": "Die Gibeoniter und ihre Unterwerfung 9"
+      }
+     ]
     },
     {
      "ref": "10",
@@ -239,7 +487,79 @@
      "par_de": "Erwähnungen: Jesaja 28:21; Habakuk 3:11; Hiob 38:22–23 (nach einigen Auslegern) · Prophezeiung darüber: Genesis 48:19",
      "par_en": "Mentions: Isaiah 28:21; Habakkuk 3:11; Job 38:22–23 (according to some commentators) · Prophecy about it: Genesis 48:19",
      "time_de": "2488–2494",
-     "time_en": "2488–2494"
+     "time_en": "2488–2494",
+     "sub": [
+      {
+       "ref": "10:1-7",
+       "text": "אדני־צדק מלך ירושלם ובעלי בריתו צרים על גבעון",
+       "text_de": "Adoni-Zedek, der König von Jerusalem, und seine Verbündeten belagern Gibeon",
+       "blk": "כִּבּוּשׁ מַמְלְכוֹת הַדָּרוֹם 10",
+       "blk_de": "Die Eroberung der Königreiche des Südens 10"
+      },
+      {
+       "ref": "10:8-11",
+       "text": "דבר ה' ליהושע",
+       "text_de": "Das Wort des HERRN an Josua",
+       "blk": "כִּבּוּשׁ מַמְלְכוֹת הַדָּרוֹם 10",
+       "blk_de": "Die Eroberung der Königreiche des Südens 10"
+      },
+      {
+       "ref": "10:12-14",
+       "text": "שירת יהושע על ישועת ה'",
+       "text_de": "Das Lied Josuas über die Rettung durch den HERRN",
+       "blk": "כִּבּוּשׁ מַמְלְכוֹת הַדָּרוֹם 10",
+       "blk_de": "Die Eroberung der Königreiche des Südens 10"
+      },
+      {
+       "ref": "10:15-27",
+       "text": "תפיסת מלכי האמרי",
+       "text_de": "Die Gefangennahme der Könige der Amoriter",
+       "blk": "כִּבּוּשׁ מַמְלְכוֹת הַדָּרוֹם 10",
+       "blk_de": "Die Eroberung der Königreiche des Südens 10"
+      },
+      {
+       "ref": "10:28",
+       "text": "לכידת מקדה",
+       "text_de": "Die Einnahme von Makkeda",
+       "blk": "כִּבּוּשׁ מַמְלְכוֹת הַדָּרוֹם 10",
+       "blk_de": "Die Eroberung der Königreiche des Südens 10"
+      },
+      {
+       "ref": "10:29-30",
+       "text": "לכידת לבנה",
+       "text_de": "Die Einnahme von Libna",
+       "blk": "כִּבּוּשׁ מַמְלְכוֹת הַדָּרוֹם 10",
+       "blk_de": "Die Eroberung der Königreiche des Südens 10"
+      },
+      {
+       "ref": "10:31-32",
+       "text": "לכידת לכיש",
+       "text_de": "Die Einnahme von Lachisch",
+       "blk": "כִּבּוּשׁ מַמְלְכוֹת הַדָּרוֹם 10",
+       "blk_de": "Die Eroberung der Königreiche des Südens 10"
+      },
+      {
+       "ref": "10:33-35",
+       "text": "השמדת מלך גזר ועמו ולכידת עגלון",
+       "text_de": "Die Vernichtung des Königs von Geser und seines Volkes und die Einnahme von Eglon",
+       "blk": "כִּבּוּשׁ מַמְלְכוֹת הַדָּרוֹם 10",
+       "blk_de": "Die Eroberung der Königreiche des Südens 10"
+      },
+      {
+       "ref": "10:36-37",
+       "text": "לכידת חברון ו'עריה'",
+       "text_de": "Die Einnahme von Hebron und seiner „Städte“",
+       "blk": "כִּבּוּשׁ מַמְלְכוֹת הַדָּרוֹם 10",
+       "blk_de": "Die Eroberung der Königreiche des Südens 10"
+      },
+      {
+       "ref": "10:38-43",
+       "text": "לכידת דבר, וסכום כבוש ממלכות הדרום",
+       "text_de": "Die Einnahme von Debir und Zusammenfassung der Eroberung der Königreiche des Südens",
+       "blk": "כִּבּוּשׁ מַמְלְכוֹת הַדָּרוֹם 10",
+       "blk_de": "Die Eroberung der Königreiche des Südens 10"
+      }
+     ]
     },
     {
      "ref": "11:1-15",
@@ -251,7 +571,30 @@
      "place_de": "von Gilgal zum Wasser von Merom, und Verfolgung in den Städten des Nordens",
      "place_en": "from Gilgal to the waters of Merom, and pursuit in the cities of the north",
      "time_de": "2488–2494",
-     "time_en": "2488–2494"
+     "time_en": "2488–2494",
+     "sub": [
+      {
+       "ref": "11:1-5",
+       "text": "מלכי הצפון באים יחדו להלחם בישראל",
+       "text_de": "Die Könige des Nordens kommen zusammen, um gegen Israel zu kämpfen",
+       "blk": "כִּבּוּשׁ מַמְלְכוֹת הַצָּפוֹן 11",
+       "blk_de": "Die Eroberung der Königreiche des Nordens 11"
+      },
+      {
+       "ref": "11:6-9",
+       "text": "יהושע מכה את־המלכים כדבר ה' אליו",
+       "text_de": "Josua schlägt die Könige, wie der HERR ihm geboten hat",
+       "blk": "כִּבּוּשׁ מַמְלְכוֹת הַצָּפוֹן 11",
+       "blk_de": "Die Eroberung der Königreiche des Nordens 11"
+      },
+      {
+       "ref": "11:10-20",
+       "text": "לכידת חצור וסכום כבוש כל־הארץ",
+       "text_de": "Die Einnahme von Hazor und Zusammenfassung der Eroberung des ganzen Landes",
+       "blk": "כִּבּוּשׁ מַמְלְכוֹת הַצָּפוֹן 11",
+       "blk_de": "Die Eroberung der Königreiche des Nordens 11"
+      }
+     ]
     },
     {
      "ref": "11:16-23",
@@ -263,7 +606,16 @@
      "place_de": "Gilgal und die eroberten Orte",
      "place_en": "Gilgal and the conquered places",
      "time_de": "2488–2494",
-     "time_en": "2488–2494"
+     "time_en": "2488–2494",
+     "sub": [
+      {
+       "ref": "11:21-23",
+       "text": "הכרתת הענקים והנחלת הארץ",
+       "text_de": "Die Ausrottung der Enakiter und die Zuteilung des Landes",
+       "blk": "כִּבּוּשׁ מַמְלְכוֹת הַצָּפוֹן 11",
+       "blk_de": "Die Eroberung der Königreiche des Nordens 11"
+      }
+     ]
     },
     {
      "ref": "12:1-6",
@@ -278,7 +630,16 @@
      "par_de": "Wiederholung von: Numeri 21; Deuteronomium 2; 3:1–22 · Siehe auch: Josua 13:7–32",
      "par_en": "Repeat of: Numbers 21; Deuteronomy 2; 3:1–22 · See also: Joshua 13:7–32",
      "time_de": "2488–2494",
-     "time_en": "2488–2494"
+     "time_en": "2488–2494",
+     "sub": [
+      {
+       "ref": "12:1-6",
+       "text": "סכום כבושי משה בעבה״י מזרחה",
+       "text_de": "Zusammenfassung der Eroberungen des Mose im Ostjordanland, im Osten",
+       "blk": "סִכּוּמֵי הַכִּבּוּשִׁים 12",
+       "blk_de": "Zusammenfassung der Eroberungen 12"
+      }
+     ]
     },
     {
      "ref": "12:7-24",
@@ -290,7 +651,23 @@
      "place_de": "Gilgal und die eroberten Orte",
      "place_en": "Gilgal and the conquered places",
      "time_de": "2488–2494",
-     "time_en": "2488–2494"
+     "time_en": "2488–2494",
+     "sub": [
+      {
+       "ref": "12:7-8",
+       "text": "סכום כבושי יהושע בעבה״י ימה",
+       "text_de": "Zusammenfassung der Eroberungen Josuas im Ostjordanland, im Westen",
+       "blk": "סִכּוּמֵי הַכִּבּוּשִׁים 12",
+       "blk_de": "Zusammenfassung der Eroberungen 12"
+      },
+      {
+       "ref": "12:9-24",
+       "text": "רשימת ל״א מלכי כנען",
+       "text_de": "Verzeichnis der 31 Könige Kanaans",
+       "blk": "סִכּוּמֵי הַכִּבּוּשִׁים 12",
+       "blk_de": "Zusammenfassung der Eroberungen 12"
+      }
+     ]
     },
     {
      "ref": "13:1-6",
@@ -305,7 +682,16 @@
      "par_de": "Grenzen: siehe Josua 1:4 · Wiederholung: Richter 3:1–4 · Fortsetzung der Eroberung: Richter 1",
      "par_en": "Borders: see Joshua 1:4 · Repeat: Judges 3:1–4 · Continued conquest: Judges 1",
      "time_de": "2488–2494",
-     "time_en": "2488–2494"
+     "time_en": "2488–2494",
+     "sub": [
+      {
+       "ref": "13:1-14",
+       "text": "'הארץ הנשארת' וגבולות עבר־הירדן",
+       "text_de": "„Das übrige Land“ und die Grenzen des Ostjordanlandes",
+       "blk": "חֲלֻקַּת הָאָרֶץ 13-19 › 'הָאָרֶץ הַנִּשְׁאֶרֶת' וְנַחֲלוֹת שִׁבְטֵי עֵבֶר־הַיַּרְדֵּן 13",
+       "blk_de": "Die Verteilung des Landes 13-19 › „Das übrige Land“ und die Erbteile der ostjordanischen Stämme 13"
+      }
+     ]
     }
    ],
    "head_de": "Eroberung des Landes",
@@ -321,7 +707,30 @@
      "text_de": "Erbteil der Stämme jenseits des Jordan: Ruben, Gad und der halbe Stamm Manasse",
      "text_en": "Inheritance of the Transjordanian tribes: Reuben, Gad and half of Manasseh",
      "par_de": "Wiederholungen: Numeri 32:33–42; 34:14–15; Deuteronomium 3:1–22; 1. Chronik 5:3–22 · Siehe auch: Josua 12:1–6 · Segen darüber (Gad): Genesis 49:19; Deuteronomium 33:20–21",
-     "par_en": "Repeats: Numbers 32:33–42; 34:14–15; Deuteronomy 3:1–22; 1 Chronicles 5:3–22 · See also: Joshua 12:1–6 · Blessing about it (Gad): Genesis 49:19; Deuteronomy 33:20–21"
+     "par_en": "Repeats: Numbers 32:33–42; 34:14–15; Deuteronomy 3:1–22; 1 Chronicles 5:3–22 · See also: Joshua 12:1–6 · Blessing about it (Gad): Genesis 49:19; Deuteronomy 33:20–21",
+     "sub": [
+      {
+       "ref": "13:15-23",
+       "text": "רשימת ערי ראובן וגבול נחלתו",
+       "text_de": "Verzeichnis der Städte Rubens und die Grenze seines Erbteils",
+       "blk": "חֲלֻקַּת הָאָרֶץ 13-19 › 'הָאָרֶץ הַנִּשְׁאֶרֶת' וְנַחֲלוֹת שִׁבְטֵי עֵבֶר־הַיַּרְדֵּן 13",
+       "blk_de": "Die Verteilung des Landes 13-19 › „Das übrige Land“ und die Erbteile der ostjordanischen Stämme 13"
+      },
+      {
+       "ref": "13:24-28",
+       "text": "רשימת ערי גד וגבול נחלתו",
+       "text_de": "Verzeichnis der Städte Gads und die Grenze seines Erbteils",
+       "blk": "חֲלֻקַּת הָאָרֶץ 13-19 › 'הָאָרֶץ הַנִּשְׁאֶרֶת' וְנַחֲלוֹת שִׁבְטֵי עֵבֶר־הַיַּרְדֵּן 13",
+       "blk_de": "Die Verteilung des Landes 13-19 › „Das übrige Land“ und die Erbteile der ostjordanischen Stämme 13"
+      },
+      {
+       "ref": "13:29-32",
+       "text": "רשימת ערי חצי שבט המנשה וגבול נחלתו",
+       "text_de": "Verzeichnis der Städte des halben Stammes Manasse und die Grenze seines Erbteils",
+       "blk": "חֲלֻקַּת הָאָרֶץ 13-19 › 'הָאָרֶץ הַנִּשְׁאֶרֶת' וְנַחֲלוֹת שִׁבְטֵי עֵבֶר־הַיַּרְדֵּן 13",
+       "blk_de": "Die Verteilung des Landes 13-19 › „Das übrige Land“ und die Erbteile der ostjordanischen Stämme 13"
+      }
+     ]
     },
     {
      "ref": "14:1-5",
@@ -330,7 +739,16 @@
      "text_de": "Einleitung zum Abschnitt über die Erbteile",
      "text_en": "Introduction to the section on the inheritances",
      "par_de": "Verteilung des Landes in der Zukunft: Ezechiel 47:21–48:35",
-     "par_en": "Division of the land in the future: Ezekiel 47:21–48:35"
+     "par_en": "Division of the land in the future: Ezekiel 47:21–48:35",
+     "sub": [
+      {
+       "ref": "14:1-5",
+       "text": "פתיחה לחלקת ארץ כנען",
+       "text_de": "Einleitung zur Verteilung des Landes Kanaan",
+       "blk": "חֲלֻקַּת הָאָרֶץ 13-19 › חֲלֻקַּת כְּנַעַן וּמַתַּן נַחֲלָה לְכָלֵב 14",
+       "blk_de": "Die Verteilung des Landes 13-19 › Die Verteilung Kanaans und die Übergabe des Erbteils an Kaleb 14"
+      }
+     ]
     },
     {
      "ref": "14:6-15",
@@ -345,7 +763,16 @@
      "par_de": "Erwähnungen: Numeri 14:24; Josua 15:13–14; Richter 1:20",
      "par_en": "Mentions: Numbers 14:24; Joshua 15:13–14; Judges 1:20",
      "time_de": "2495–2501",
-     "time_en": "2495–2501"
+     "time_en": "2495–2501",
+     "sub": [
+      {
+       "ref": "14:6-15",
+       "text": "נחלת כלב",
+       "text_de": "Das Erbteil Kalebs",
+       "blk": "חֲלֻקַּת הָאָרֶץ 13-19 › חֲלֻקַּת כְּנַעַן וּמַתַּן נַחֲלָה לְכָלֵב 14",
+       "blk_de": "Die Verteilung des Landes 13-19 › Die Verteilung Kanaans und die Übergabe des Erbteils an Kaleb 14"
+      }
+     ]
     },
     {
      "ref": "15",
@@ -360,7 +787,58 @@
      "par_de": "Gebot zur Südgrenze des Landes Israel: Numeri 34 · Eroberung von Kirjat-Sefer (Wiederholung): Richter 1:11–15 · Fortsetzung der Eroberung: Richter 1:1–21 · Segen darüber (Juda): Genesis 49:11–12",
      "par_en": "Command concerning the southern border of the Land of Israel: Numbers 34 · Conquest of Kiriath-sepher (repeat): Judges 1:11–15 · Continued conquest: Judges 1:1–21 · Blessing about it (Judah): Genesis 49:11–12",
      "time_de": "2495–2501",
-     "time_en": "2495–2501"
+     "time_en": "2495–2501",
+     "sub": [
+      {
+       "ref": "15:1-19",
+       "text": "מתארת את־גבול יהודה וכוללת אגב זה את־מעשה ירשת כלב ומעשה עכסה בתו (יג-יט)",
+       "text_de": "Beschreibt die Grenze Judas und schließt dabei die Geschichte vom Erbe Kalebs und von Achsa, seiner Tochter, ein (V. 13-19)",
+       "blk": "חֲלֻקַּת הָאָרֶץ 13-19 › נַחֲלַת יְהוּדָה 15",
+       "blk_de": "Die Verteilung des Landes 13-19 › Das Erbteil Judas 15"
+      },
+      {
+       "ref": "15:20",
+       "text": "הנגב",
+       "text_de": "Der Negev",
+       "blk": "חֲלֻקַּת הָאָרֶץ 13-19 › נַחֲלַת יְהוּדָה 15",
+       "blk_de": "Die Verteilung des Landes 13-19 › Das Erbteil Judas 15"
+      },
+      {
+       "ref": "15:20-63",
+       "text": "מונות את־ערי יהודה לאזוריהם הגיאוגרפיים, ואלה הם:",
+       "text_de": "Zählt die Städte Judas nach ihren geografischen Gebieten auf, und zwar:",
+       "blk": "חֲלֻקַּת הָאָרֶץ 13-19 › נַחֲלַת יְהוּדָה 15",
+       "blk_de": "Die Verteilung des Landes 13-19 › Das Erbteil Judas 15"
+      },
+      {
+       "ref": "15:33",
+       "text": "השפלה",
+       "text_de": "Die Schefela (das Hügelland)",
+       "blk": "חֲלֻקַּת הָאָרֶץ 13-19 › נַחֲלַת יְהוּדָה 15",
+       "blk_de": "Die Verteilung des Landes 13-19 › Das Erbteil Judas 15"
+      },
+      {
+       "ref": "15:45-47",
+       "text": "'חוף הים'",
+       "text_de": "„Die Küste des Meeres“",
+       "blk": "חֲלֻקַּת הָאָרֶץ 13-19 › נַחֲלַת יְהוּדָה 15",
+       "blk_de": "Die Verteilung des Landes 13-19 › Das Erbteil Judas 15"
+      },
+      {
+       "ref": "15:48",
+       "text": "ההר",
+       "text_de": "Das Gebirge",
+       "blk": "חֲלֻקַּת הָאָרֶץ 13-19 › נַחֲלַת יְהוּדָה 15",
+       "blk_de": "Die Verteilung des Landes 13-19 › Das Erbteil Judas 15"
+      },
+      {
+       "ref": "15:61",
+       "text": "המדבר",
+       "text_de": "Die Wüste",
+       "blk": "חֲלֻקַּת הָאָרֶץ 13-19 › נַחֲלַת יְהוּדָה 15",
+       "blk_de": "Die Verteilung des Landes 13-19 › Das Erbteil Judas 15"
+      }
+     ]
     },
     {
      "ref": "16:1-17:18",
@@ -375,7 +853,30 @@
      "par_de": "Fortsetzung der Eroberung: Richter 1:22–29 · Wiederholungen: Numeri 27:1–11; 1. Chronik 7:28–29 · Siehe auch: Richter 1:27–29 · Segen darüber: Genesis 48:5; 48:22 (nach einigen Auslegern); 49:22 (nach einigen Auslegern); 49:25 (nach einigen Auslegern); Deuteronomium 33:13–17",
      "par_en": "Continued conquest: Judges 1:22–29 · Repeats: Numbers 27:1–11; 1 Chronicles 7:28–29 · See also: Judges 1:27–29 · Blessing about it: Genesis 48:5; 48:22 (according to some commentators); 49:22 (according to some commentators); 49:25 (according to some commentators); Deuteronomy 33:13–17",
      "time_de": "2495–2501",
-     "time_en": "2495–2501"
+     "time_en": "2495–2501",
+     "sub": [
+      {
+       "ref": "16",
+       "text": "תאור נחלת אפרים",
+       "text_de": "Beschreibung des Erbteils Ephraims",
+       "blk": "חֲלֻקַּת הָאָרֶץ 13-19 › נַחֲלַת בְּנֵי יוֹסֵף 16-17",
+       "blk_de": "Die Verteilung des Landes 13-19 › Das Erbteil der Josefsöhne 16-17"
+      },
+      {
+       "ref": "17:1-13",
+       "text": "נחלת מנשה",
+       "text_de": "Das Erbteil Manasses",
+       "blk": "חֲלֻקַּת הָאָרֶץ 13-19 › נַחֲלַת בְּנֵי יוֹסֵף 16-17",
+       "blk_de": "Die Verteilung des Landes 13-19 › Das Erbteil der Josefsöhne 16-17"
+      },
+      {
+       "ref": "17:14-18",
+       "text": "תביעת בני יוסף לנחלה נוספת ותשובת יהושע",
+       "text_de": "Die Forderung der Josefsöhne nach einem weiteren Erbteil und die Antwort Josuas",
+       "blk": "חֲלֻקַּת הָאָרֶץ 13-19 › נַחֲלַת בְּנֵי יוֹסֵף 16-17",
+       "blk_de": "Die Verteilung des Landes 13-19 › Das Erbteil der Josefsöhne 16-17"
+      }
+     ]
     },
     {
      "ref": "18:1",
@@ -387,7 +888,16 @@
      "place_de": "Schilo und die zu verteilenden Orte",
      "place_en": "Shiloh and the places being divided",
      "time_de": "2502",
-     "time_en": "2502"
+     "time_en": "2502",
+     "sub": [
+      {
+       "ref": "18:1-10",
+       "text": "השכנת האהל בשלה. כתיבת הארץ וחלקתה",
+       "text_de": "Das Aufstellen des Zeltes in Schilo. Die Aufnahme und Verteilung des Landes",
+       "blk": "חֲלֻקַּת הָאָרֶץ 13-19 › נַחֲלַת שִׁבְעַת הַשְּׁבָטִים 18-19",
+       "blk_de": "Die Verteilung des Landes 13-19 › Das Erbteil der sieben Stämme 18-19"
+      }
+     ]
     },
     {
      "ref": "18:2-10",
@@ -417,7 +927,23 @@
      "par_de": "Segen darüber: Deuteronomium 33:12",
      "par_en": "Blessing about it: Deuteronomy 33:12",
      "time_de": "2502",
-     "time_en": "2502"
+     "time_en": "2502",
+     "sub": [
+      {
+       "ref": "18:11-20",
+       "text": "גבול נחלת בנימין",
+       "text_de": "Die Grenze des Erbteils Benjamins",
+       "blk": "חֲלֻקַּת הָאָרֶץ 13-19 › נַחֲלַת שִׁבְעַת הַשְּׁבָטִים 18-19",
+       "blk_de": "Die Verteilung des Landes 13-19 › Das Erbteil der sieben Stämme 18-19"
+      },
+      {
+       "ref": "18:21-28",
+       "text": "ערי בנימין",
+       "text_de": "Die Städte Benjamins",
+       "blk": "חֲלֻקַּת הָאָרֶץ 13-19 › נַחֲלַת שִׁבְעַת הַשְּׁבָטִים 18-19",
+       "blk_de": "Die Verteilung des Landes 13-19 › Das Erbteil der sieben Stämme 18-19"
+      }
+     ]
     },
     {
      "ref": "19:1-9",
@@ -432,7 +958,16 @@
      "par_de": "Fortsetzung der Eroberung: Richter 1:17 · Wiederholung der Städtenamen: 1. Chronik 4:28–33 · Prophezeiung darüber: Genesis 49:7 (nach einigen Auslegern)",
      "par_en": "Continued conquest: Judges 1:17 · Repeat of the city names: 1 Chronicles 4:28–33 · Prophecy about it: Genesis 49:7 (according to some commentators)",
      "time_de": "2502",
-     "time_en": "2502"
+     "time_en": "2502",
+     "sub": [
+      {
+       "ref": "19:1-9",
+       "text": "נחלת שמעון",
+       "text_de": "Das Erbteil Simeons",
+       "blk": "חֲלֻקַּת הָאָרֶץ 13-19 › נַחֲלַת שִׁבְעַת הַשְּׁבָטִים 18-19",
+       "blk_de": "Die Verteilung des Landes 13-19 › Das Erbteil der sieben Stämme 18-19"
+      }
+     ]
     },
     {
      "ref": "19:10-16",
@@ -447,7 +982,16 @@
      "par_de": "Segen darüber: Genesis 49:13; Deuteronomium 33:18–19",
      "par_en": "Blessing about it: Genesis 49:13; Deuteronomy 33:18–19",
      "time_de": "2502",
-     "time_en": "2502"
+     "time_en": "2502",
+     "sub": [
+      {
+       "ref": "19:10-16",
+       "text": "נחלת זבלון",
+       "text_de": "Das Erbteil Sebulons",
+       "blk": "חֲלֻקַּת הָאָרֶץ 13-19 › נַחֲלַת שִׁבְעַת הַשְּׁבָטִים 18-19",
+       "blk_de": "Die Verteilung des Landes 13-19 › Das Erbteil der sieben Stämme 18-19"
+      }
+     ]
     },
     {
      "ref": "19:17-23",
@@ -462,7 +1006,16 @@
      "par_de": "Segen darüber: Genesis 49:14–15; Deuteronomium 33:18–19",
      "par_en": "Blessing about it: Genesis 49:14–15; Deuteronomy 33:18–19",
      "time_de": "2502",
-     "time_en": "2502"
+     "time_en": "2502",
+     "sub": [
+      {
+       "ref": "19:17-23",
+       "text": "נחלת יששכר",
+       "text_de": "Das Erbteil Issachars",
+       "blk": "חֲלֻקַּת הָאָרֶץ 13-19 › נַחֲלַת שִׁבְעַת הַשְּׁבָטִים 18-19",
+       "blk_de": "Die Verteilung des Landes 13-19 › Das Erbteil der sieben Stämme 18-19"
+      }
+     ]
     },
     {
      "ref": "19:24-31",
@@ -477,7 +1030,16 @@
      "par_de": "Segen darüber: Genesis 49:20; Deuteronomium 33:24",
      "par_en": "Blessing about it: Genesis 49:20; Deuteronomy 33:24",
      "time_de": "2502",
-     "time_en": "2502"
+     "time_en": "2502",
+     "sub": [
+      {
+       "ref": "19:24-31",
+       "text": "נחלת אשר",
+       "text_de": "Das Erbteil Ascher",
+       "blk": "חֲלֻקַּת הָאָרֶץ 13-19 › נַחֲלַת שִׁבְעַת הַשְּׁבָטִים 18-19",
+       "blk_de": "Die Verteilung des Landes 13-19 › Das Erbteil der sieben Stämme 18-19"
+      }
+     ]
     },
     {
      "ref": "19:32-39",
@@ -492,7 +1054,16 @@
      "par_de": "Segen darüber: Genesis 49:21; Deuteronomium 33:23",
      "par_en": "Blessing about it: Genesis 49:21; Deuteronomy 33:23",
      "time_de": "2502",
-     "time_en": "2502"
+     "time_en": "2502",
+     "sub": [
+      {
+       "ref": "19:32-39",
+       "text": "נחלת נפתלי",
+       "text_de": "Das Erbteil Naftalis",
+       "blk": "חֲלֻקַּת הָאָרֶץ 13-19 › נַחֲלַת שִׁבְעַת הַשְּׁבָטִים 18-19",
+       "blk_de": "Die Verteilung des Landes 13-19 › Das Erbteil der sieben Stämme 18-19"
+      }
+     ]
     },
     {
      "ref": "19:40-48",
@@ -507,7 +1078,16 @@
      "par_de": "Ausführliche Darstellung der weiteren Eroberung: Richter 18 · Segen darüber: Deuteronomium 33:22",
      "par_en": "Detailed account of the continued conquest: Judges 18 · Blessing about it: Deuteronomy 33:22",
      "time_de": "2502",
-     "time_en": "2502"
+     "time_en": "2502",
+     "sub": [
+      {
+       "ref": "19:40-48",
+       "text": "נחלת דן",
+       "text_de": "Das Erbteil Dans",
+       "blk": "חֲלֻקַּת הָאָרֶץ 13-19 › נַחֲלַת שִׁבְעַת הַשְּׁבָטִים 18-19",
+       "blk_de": "Die Verteilung des Landes 13-19 › Das Erbteil der sieben Stämme 18-19"
+      }
+     ]
     },
     {
      "ref": "19:49-51",
@@ -519,7 +1099,16 @@
      "place_de": "Schilo und die zu verteilenden Orte",
      "place_en": "Shiloh and the places being divided",
      "time_de": "2502",
-     "time_en": "2502"
+     "time_en": "2502",
+     "sub": [
+      {
+       "ref": "19:49-51",
+       "text": "נחלת יהושע וחתימה",
+       "text_de": "Das Erbteil Josuas und Abschluss",
+       "blk": "חֲלֻקַּת הָאָרֶץ 13-19 › נַחֲלַת שִׁבְעַת הַשְּׁבָטִים 18-19",
+       "blk_de": "Die Verteilung des Landes 13-19 › Das Erbteil der sieben Stämme 18-19"
+      }
+     ]
     }
    ],
    "head_de": "Verteilung des Landes",
@@ -541,7 +1130,16 @@
      "par_de": "Das Gebot: Numeri 35:9–34; Deuteronomium 4:41–43; 19:1–13",
      "par_en": "The commandment: Numbers 35:9–34; Deuteronomy 4:41–43; 19:1–13",
      "time_de": "2503",
-     "time_en": "2503"
+     "time_en": "2503",
+     "sub": [
+      {
+       "ref": "20:20",
+       "text": "הפרשת ערי המקלט",
+       "text_de": "Die Aussonderung der Asylstädte",
+       "blk": "עָרֵי הַמִּקְלָט וְהַלְוִיִּם 20-21",
+       "blk_de": "Die Asylstädte und die Levitenstädte 20-21"
+      }
+     ]
     },
     {
      "ref": "21:1-40",
@@ -556,7 +1154,51 @@
      "par_de": "Das Gebot: Numeri 35:1–8 · Wiederholung: 1. Chronik 6:39–66 · Prophezeiung darüber: Genesis 49:7 (nach einigen Auslegern)",
      "par_en": "The commandment: Numbers 35:1–8 · Repeat: 1 Chronicles 6:39–66 · Prophecy about it: Genesis 49:7 (according to some commentators)",
      "time_de": "2503",
-     "time_en": "2503"
+     "time_en": "2503",
+     "sub": [
+      {
+       "ref": "21:1-3",
+       "text": "בקשת ראשי אבות הלוים",
+       "text_de": "Die Bitte der Familienoberhäupter der Leviten",
+       "blk": "עָרֵי הַמִּקְלָט וְהַלְוִיִּם 20-21",
+       "blk_de": "Die Asylstädte und die Levitenstädte 20-21"
+      },
+      {
+       "ref": "21:4-8",
+       "text": "מנין ערי הלוים למשפחותיהם",
+       "text_de": "Verzeichnis der Levitenstädte nach ihren Geschlechtern",
+       "blk": "עָרֵי הַמִּקְלָט וְהַלְוִיִּם 20-21",
+       "blk_de": "Die Asylstädte und die Levitenstädte 20-21"
+      },
+      {
+       "ref": "21:9-19",
+       "text": "ערי הכהנים",
+       "text_de": "Die Städte der Priester",
+       "blk": "עָרֵי הַמִּקְלָט וְהַלְוִיִּם 20-21",
+       "blk_de": "Die Asylstädte und die Levitenstädte 20-21"
+      },
+      {
+       "ref": "21:20-26",
+       "text": "ערי בני קהת ('הנותרים')",
+       "text_de": "Die Städte der Kehatiter („der Übrigen“)",
+       "blk": "עָרֵי הַמִּקְלָט וְהַלְוִיִּם 20-21",
+       "blk_de": "Die Asylstädte und die Levitenstädte 20-21"
+      },
+      {
+       "ref": "21:27-33",
+       "text": "ערי הגרשני",
+       "text_de": "Die Städte der Gerschoniter",
+       "blk": "עָרֵי הַמִּקְלָט וְהַלְוִיִּם 20-21",
+       "blk_de": "Die Asylstädte und die Levitenstädte 20-21"
+      },
+      {
+       "ref": "21:34-40",
+       "text": "ערי מררי וסכום כל-ערי הלוים",
+       "text_de": "Die Städte der Merariter und Gesamtzahl aller Levitenstädte",
+       "blk": "עָרֵי הַמִּקְלָט וְהַלְוִיִּם 20-21",
+       "blk_de": "Die Asylstädte und die Levitenstädte 20-21"
+      }
+     ]
     }
    ],
    "head_de": "Aussonderung der Städte",
@@ -578,7 +1220,30 @@
      "par_de": "Die Bedingung: Numeri 32; Deuteronomium 3:12–20",
      "par_en": "The condition: Numbers 32; Deuteronomy 3:12–20",
      "time_de": "2503",
-     "time_en": "2503"
+     "time_en": "2503",
+     "sub": [
+      {
+       "ref": "21:41-43",
+       "text": "חתימה: הכל בא!",
+       "text_de": "Abschluss: Alles ist eingetroffen!",
+       "blk": "עָרֵי הַמִּקְלָט וְהַלְוִיִּם 20-21",
+       "blk_de": "Die Asylstädte und die Levitenstädte 20-21"
+      },
+      {
+       "ref": "22:1-6",
+       "text": "ברכת יהושע לחלוצי עבה\"י",
+       "text_de": "Josuas Segen für die ostjordanischen Kämpfer",
+       "blk": "שִׁיבַת חֲלוּצֵי עבה\"י לְאֶרֶץ אֲחֻזָּתָם וְהַמִּזְבֵּחַ בִּגְלִילוֹת הַיַּרְדֵּן 22",
+       "blk_de": "Die Rückkehr der ostjordanischen Kämpfer in ihr Besitzland und der Altar in den Bezirken des Jordan 22"
+      },
+      {
+       "ref": "22:7-8",
+       "text": "ברכת יהושע לחצי שבט המנשה אשר בבשן",
+       "text_de": "Josuas Segen für den halben Stamm Manasse in Baschan",
+       "blk": "שִׁיבַת חֲלוּצֵי עבה\"י לְאֶרֶץ אֲחֻזָּתָם וְהַמִּזְבֵּחַ בִּגְלִילוֹת הַיַּרְדֵּן 22",
+       "blk_de": "Die Rückkehr der ostjordanischen Kämpfer in ihr Besitzland und der Altar in den Bezirken des Jordan 22"
+      }
+     ]
     },
     {
      "ref": "22:9-34",
@@ -590,7 +1255,37 @@
      "place_de": "Schilo, Ostjordanland",
      "place_en": "Shiloh, Transjordan",
      "time_de": "2503",
-     "time_en": "2503"
+     "time_en": "2503",
+     "sub": [
+      {
+       "ref": "22:9-12",
+       "text": "בנין המזבח בגלילות הירדן",
+       "text_de": "Der Bau des Altars in den Bezirken des Jordan",
+       "blk": "שִׁיבַת חֲלוּצֵי עבה\"י לְאֶרֶץ אֲחֻזָּתָם וְהַמִּזְבֵּחַ בִּגְלִילוֹת הַיַּרְדֵּן 22",
+       "blk_de": "Die Rückkehr der ostjordanischen Kämpfer in ihr Besitzland und der Altar in den Bezirken des Jordan 22"
+      },
+      {
+       "ref": "22:13-20",
+       "text": "דברי משלחת עדת בני ישראל לשבטי עבה\"י",
+       "text_de": "Die Worte der Gesandtschaft der Gemeinde der Israeliten an die ostjordanischen Stämme",
+       "blk": "שִׁיבַת חֲלוּצֵי עבה\"י לְאֶרֶץ אֲחֻזָּתָם וְהַמִּזְבֵּחַ בִּגְלִילוֹת הַיַּרְדֵּן 22",
+       "blk_de": "Die Rückkehr der ostjordanischen Kämpfer in ihr Besitzland und der Altar in den Bezirken des Jordan 22"
+      },
+      {
+       "ref": "22:21-29",
+       "text": "תשובת שבטי עבה\"י",
+       "text_de": "Die Antwort der ostjordanischen Stämme",
+       "blk": "שִׁיבַת חֲלוּצֵי עבה\"י לְאֶרֶץ אֲחֻזָּתָם וְהַמִּזְבֵּחַ בִּגְלִילוֹת הַיַּרְדֵּן 22",
+       "blk_de": "Die Rückkehr der ostjordanischen Kämpfer in ihr Besitzland und der Altar in den Bezirken des Jordan 22"
+      },
+      {
+       "ref": "22:30-34",
+       "text": "דברי פינחס ושיבת המשלחת",
+       "text_de": "Die Worte des Pinhas und die Rückkehr der Gesandtschaft",
+       "blk": "שִׁיבַת חֲלוּצֵי עבה\"י לְאֶרֶץ אֲחֻזָּתָם וְהַמִּזְבֵּחַ בִּגְלִילוֹת הַיַּרְדֵּן 22",
+       "blk_de": "Die Rückkehr der ostjordanischen Kämpfer in ihr Besitzland und der Altar in den Bezirken des Jordan 22"
+      }
+     ]
     }
    ],
    "head_de": "Die Stämme jenseits des Jordan",
@@ -606,7 +1301,16 @@
      "text_de": "Josuas letzte Worte",
      "text_en": "Joshua's last words",
      "time_de": "2503 / 2514",
-     "time_en": "2503 / 2514"
+     "time_en": "2503 / 2514",
+     "sub": [
+      {
+       "ref": "23",
+       "text": "הנאום הראשון: על ישראל לשמר את-התורה ולדבק בה' כדי שלא יאבדו",
+       "text_de": "Die erste Rede: Israel soll die Tora bewahren und dem HERRN anhangen, damit es nicht zugrunde geht",
+       "blk": "דִּבְרֵי יְהוֹשֻׁעַ הָאַחֲרוֹנִים 23:1-24:28",
+       "blk_de": "Die letzten Worte Josuas 23:1-24:28"
+      }
+     ]
     },
     {
      "ref": "24:1-28",
@@ -618,7 +1322,30 @@
      "place_de": "Sichem",
      "place_en": "Shechem",
      "time_de": "2503 / 2514",
-     "time_en": "2503 / 2514"
+     "time_en": "2503 / 2514",
+     "sub": [
+      {
+       "ref": "24:1-15",
+       "text": "הנאום השני: סקירה מתולדות העם המסתימת בדרישה: עבדו את-ה' בתמים ובאמת",
+       "text_de": "Die zweite Rede: Rückblick auf die Geschichte des Volkes, der in der Forderung endet: Dient dem HERRN aufrichtig und in Treue",
+       "blk": "דִּבְרֵי יְהוֹשֻׁעַ הָאַחֲרוֹנִים 23:1-24:28",
+       "blk_de": "Die letzten Worte Josuas 23:1-24:28"
+      },
+      {
+       "ref": "24:16-26",
+       "text": "כריתת 'ברית לעם' ומתן חק ומשפט",
+       "text_de": "Der Bundesschluss „für das Volk“ und die Setzung von Satzung und Recht",
+       "blk": "דִּבְרֵי יְהוֹשֻׁעַ הָאַחֲרוֹנִים 23:1-24:28",
+       "blk_de": "Die letzten Worte Josuas 23:1-24:28"
+      },
+      {
+       "ref": "24:27-28",
+       "text": "שימת האבן לעדה, ושלוח העם איש לנחלתו",
+       "text_de": "Das Aufrichten des Steins als Zeuge und die Entlassung des Volkes, jeder zu seinem Erbteil",
+       "blk": "דִּבְרֵי יְהוֹשֻׁעַ הָאַחֲרוֹנִים 23:1-24:28",
+       "blk_de": "Die letzten Worte Josuas 23:1-24:28"
+      }
+     ]
     },
     {
      "ref": "24:29-31",
@@ -657,6 +1384,6 @@
  ],
  "title_de": "Inhalt des Buches Josua",
  "title_en": "Contents of the Book of Joshua",
- "note_de": "Abgeschrieben aus einer Übersichtstabelle (SifreiKodesh) und übersetzt. Jahre/Daten nach der jüdischen Zählung, wie in der Vorlage gedruckt.",
- "note_en": "Transcribed from an overview table (SifreiKodesh) and translated. Years/dates follow the Jewish count, as printed in the source."
+ "note_de": "Abgeschrieben aus einer Übersichtstabelle (SifreiKodesh) und übersetzt. Jahre/Daten nach der jüdischen Zählung, wie in der Vorlage gedruckt. Unterpunkte aus der Gliederung von „Da'at Mikra“ (Teilpunkte mit Versangaben, mit Hinweis auf den jeweiligen Abschnitt) ergänzt und ins Deutsche übersetzt.",
+ "note_en": "Transcribed from an overview table (SifreiKodesh) and translated. Years/dates follow the Jewish count, as printed in the source. Sub-points from the Da'at Mikra outlines (parts with verse references, labelled with their section) added; German translation."
 }

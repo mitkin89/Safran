@@ -1,7 +1,7 @@
 {
  "book": "I Samuel",
  "title": "תוכן ספר שמואל א",
- "note": "Abgeschrieben aus einer Übersichtstabelle (SifreiKodesh). Jahre nach der jüdischen Zählung (Anno Mundi), wie in der Vorlage gedruckt.",
+ "note": "Abgeschrieben aus einer Übersichtstabelle (SifreiKodesh). Jahre nach der jüdischen Zählung (Anno Mundi), wie in der Vorlage gedruckt. · הורחב בחלוקת דעת מקרא (פסקאות עם מראי מקום).",
  "sections": [
   {
    "head": "סוף תקופת השופטים",
@@ -16,7 +16,51 @@
      "place_de": "Schilo, Ramatajim-Zofim",
      "place_en": "Shiloh, Ramathaim-zophim",
      "time_de": "2832",
-     "time_en": "2832"
+     "time_en": "2832",
+     "sub": [
+      {
+       "ref": "1:1-3",
+       "text": "העליה לרגל לשילה",
+       "text_de": "Die Wallfahrt nach Silo",
+       "blk": "עֵלִי וּשְׁמוּאֵל 1-8 › פָּרָשַׁת חַנָּה 1:1-2:10",
+       "blk_de": "Eli und Samuel 1-8 › Die Geschichte von Hanna 1:1-2:10"
+      },
+      {
+       "ref": "1:4-8",
+       "text": "צערה של חנה",
+       "text_de": "Hannas Kummer",
+       "blk": "עֵלִי וּשְׁמוּאֵל 1-8 › פָּרָשַׁת חַנָּה 1:1-2:10",
+       "blk_de": "Eli und Samuel 1-8 › Die Geschichte von Hanna 1:1-2:10"
+      },
+      {
+       "ref": "1:9-11",
+       "text": "נדרה של חנה",
+       "text_de": "Hannas Gelübde",
+       "blk": "עֵלִי וּשְׁמוּאֵל 1-8 › פָּרָשַׁת חַנָּה 1:1-2:10",
+       "blk_de": "Eli und Samuel 1-8 › Die Geschichte von Hanna 1:1-2:10"
+      },
+      {
+       "ref": "1:12-19",
+       "text": "עלי וחנה",
+       "text_de": "Eli und Hanna",
+       "blk": "עֵלִי וּשְׁמוּאֵל 1-8 › פָּרָשַׁת חַנָּה 1:1-2:10",
+       "blk_de": "Eli und Samuel 1-8 › Die Geschichte von Hanna 1:1-2:10"
+      },
+      {
+       "ref": "1:20-23",
+       "text": "לדת שמואל והגמלו",
+       "text_de": "Samuels Geburt und Entwöhnung",
+       "blk": "עֵלִי וּשְׁמוּאֵל 1-8 › פָּרָשַׁת חַנָּה 1:1-2:10",
+       "blk_de": "Eli und Samuel 1-8 › Die Geschichte von Hanna 1:1-2:10"
+      },
+      {
+       "ref": "1:24-25",
+       "text": "שמואל 'שאול לה''",
+       "text_de": "Samuel – „von Gott erbeten“",
+       "blk": "עֵלִי וּשְׁמוּאֵל 1-8 › פָּרָשַׁת חַנָּה 1:1-2:10",
+       "blk_de": "Eli und Samuel 1-8 › Die Geschichte von Hanna 1:1-2:10"
+      }
+     ]
     },
     {
      "ref": "2:1-10",
@@ -28,7 +72,16 @@
      "place_de": "Schilo, Ramatajim-Zofim",
      "place_en": "Shiloh, Ramathaim-zophim",
      "time_de": "2832",
-     "time_en": "2832"
+     "time_en": "2832",
+     "sub": [
+      {
+       "ref": "2:1-10",
+       "text": "תפלת חנה",
+       "text_de": "Hannas Gebet",
+       "blk": "עֵלִי וּשְׁמוּאֵל 1-8 › פָּרָשַׁת חַנָּה 1:1-2:10",
+       "blk_de": "Eli und Samuel 1-8 › Die Geschichte von Hanna 1:1-2:10"
+      }
+     ]
     },
     {
      "ref": "2:11-36",
@@ -40,7 +93,30 @@
      "place_de": "Schilo, Ramatajim-Zofim",
      "place_en": "Shiloh, Ramathaim-zophim",
      "par_de": "Erfüllung des Fluchs: 1. Könige 2:26–27",
-     "par_en": "Fulfillment of the curse: 1 Kings 2:26–27"
+     "par_en": "Fulfillment of the curse: 1 Kings 2:26–27",
+     "sub": [
+      {
+       "ref": "2:11-21",
+       "text": "בני עלי אינם יראים את ה'",
+       "text_de": "Elis Söhne fürchten den HERRN nicht",
+       "blk": "עֵלִי וּשְׁמוּאֵל 1-8 › עַל מָה חָרְבָה שִׁילֹה 2:11-3:18",
+       "blk_de": "Eli und Samuel 1-8 › Weshalb Silo zerstört wurde 2:11-3:18"
+      },
+      {
+       "ref": "2:22-26",
+       "text": "אינם שומעים לתוכחת אביהם",
+       "text_de": "Sie hören nicht auf die Mahnung ihres Vaters",
+       "blk": "עֵלִי וּשְׁמוּאֵל 1-8 › עַל מָה חָרְבָה שִׁילֹה 2:11-3:18",
+       "blk_de": "Eli und Samuel 1-8 › Weshalb Silo zerstört wurde 2:11-3:18"
+      },
+      {
+       "ref": "2:27-36",
+       "text": "נבואת הפרענות שנבא איש אלהים לעלי",
+       "text_de": "Die Unheilsweissagung, die ein Gottesmann Eli verkündete",
+       "blk": "עֵלִי וּשְׁמוּאֵל 1-8 › עַל מָה חָרְבָה שִׁילֹה 2:11-3:18",
+       "blk_de": "Eli und Samuel 1-8 › Weshalb Silo zerstört wurde 2:11-3:18"
+      }
+     ]
     },
     {
      "ref": "3",
@@ -49,7 +125,37 @@
      "text_de": "Beginn der Prophetie Samuels",
      "text_en": "Beginning of Samuel's prophecy",
      "place_de": "Schilo",
-     "place_en": "Shiloh"
+     "place_en": "Shiloh",
+     "sub": [
+      {
+       "ref": "3:1-10",
+       "text": "ה' קורא לשמואל כדי להועידו לנביא",
+       "text_de": "Der HERR ruft Samuel, um ihn zum Propheten zu bestimmen",
+       "blk": "עֵלִי וּשְׁמוּאֵל 1-8 › עַל מָה חָרְבָה שִׁילֹה 2:11-3:18",
+       "blk_de": "Eli und Samuel 1-8 › Weshalb Silo zerstört wurde 2:11-3:18"
+      },
+      {
+       "ref": "3:11-18",
+       "text": "ה' מגלה לשמואל את הפרענות העתידה לבוא על בית עלי",
+       "text_de": "Der HERR offenbart Samuel das künftige Unheil über das Haus Elis",
+       "blk": "עֵלִי וּשְׁמוּאֵל 1-8 › עַל מָה חָרְבָה שִׁילֹה 2:11-3:18",
+       "blk_de": "Eli und Samuel 1-8 › Weshalb Silo zerstört wurde 2:11-3:18"
+      },
+      {
+       "ref": "3:19-20",
+       "text": "כל ישראל יודע ששמואל נאמן לנביא לה'",
+       "text_de": "Ganz Israel weiß, dass Samuel als Prophet des HERRN beglaubigt ist",
+       "blk": "עֵלִי וּשְׁמוּאֵל 1-8 › הַכָּבוֹד גּוֹלֶה מִיִּשְׂרָאֵל 3:19-4:22",
+       "blk_de": "Eli und Samuel 1-8 › Die Herrlichkeit weicht aus Israel 3:19-4:22"
+      },
+      {
+       "ref": "3:21",
+       "text": "גלוי נבואה בשלהי ימי שלה",
+       "text_de": "Offenbarung der Prophetie am Ende der Zeit von Silo",
+       "blk": "עֵלִי וּשְׁמוּאֵל 1-8 › הַכָּבוֹד גּוֹלֶה מִיִּשְׂרָאֵל 3:19-4:22",
+       "blk_de": "Eli und Samuel 1-8 › Die Herrlichkeit weicht aus Israel 3:19-4:22"
+      }
+     ]
     },
     {
      "ref": "4:1-12",
@@ -61,7 +167,23 @@
      "place_de": "Eben-Eser",
      "place_en": "Ebenezer",
      "time_de": "10. Ijar 2871",
-     "time_en": "10 Iyar 2871"
+     "time_en": "10 Iyar 2871",
+     "sub": [
+      {
+       "ref": "4:1-11",
+       "text": "אבן העזר שהפכה לצור מכשול",
+       "text_de": "Der Ebenezer, der zum Stein des Anstoßes wurde",
+       "blk": "עֵלִי וּשְׁמוּאֵל 1-8 › הַכָּבוֹד גּוֹלֶה מִיִּשְׂרָאֵל 3:19-4:22",
+       "blk_de": "Eli und Samuel 1-8 › Die Herrlichkeit weicht aus Israel 3:19-4:22"
+      },
+      {
+       "ref": "4:12-17",
+       "text": "הידיעה שהובאה מן המערכה על מות שני בני עלי ועל שבית הארון",
+       "text_de": "Die Nachricht vom Schlachtfeld über den Tod der beiden Söhne Elis und die Wegführung der Lade",
+       "blk": "עֵלִי וּשְׁמוּאֵל 1-8 › הַכָּבוֹד גּוֹלֶה מִיִּשְׂרָאֵל 3:19-4:22",
+       "blk_de": "Eli und Samuel 1-8 › Die Herrlichkeit weicht aus Israel 3:19-4:22"
+      }
+     ]
     },
     {
      "ref": "4:13-22",
@@ -73,7 +195,16 @@
      "place_de": "Schilo",
      "place_en": "Shiloh",
      "time_de": "10. Ijar 2871",
-     "time_en": "10 Iyar 2871"
+     "time_en": "10 Iyar 2871",
+     "sub": [
+      {
+       "ref": "4:18-22",
+       "text": "מות עלי וכלתו",
+       "text_de": "Der Tod Elis und seiner Schwiegertochter",
+       "blk": "עֵלִי וּשְׁמוּאֵל 1-8 › הַכָּבוֹד גּוֹלֶה מִיִּשְׂרָאֵל 3:19-4:22",
+       "blk_de": "Eli und Samuel 1-8 › Die Herrlichkeit weicht aus Israel 3:19-4:22"
+      }
+     ]
     },
     {
      "ref": "5",
@@ -85,7 +216,30 @@
      "place_de": "Eben-Eser, Philisterstädte",
      "place_en": "Ebenezer, Philistine cities",
      "time_de": "2871",
-     "time_en": "2871"
+     "time_en": "2871",
+     "sub": [
+      {
+       "ref": "5:1-5",
+       "text": "ה' עושה שפטים באלהי פלשתים",
+       "text_de": "Der HERR hält Gericht über den Gott der Philister",
+       "blk": "עֵלִי וּשְׁמוּאֵל 1-8 › עֲלִילוֹת ה' וְנִפְלְאוֹתָיו 5:1-7:1",
+       "blk_de": "Eli und Samuel 1-8 › Die Taten und Wunder des HERRN 5:1-7:1"
+      },
+      {
+       "ref": "5:6-8",
+       "text": "המכות באנשי אשדוד",
+       "text_de": "Die Plagen unter den Leuten von Aschdod",
+       "blk": "עֵלִי וּשְׁמוּאֵל 1-8 › עֲלִילוֹת ה' וְנִפְלְאוֹתָיו 5:1-7:1",
+       "blk_de": "Eli und Samuel 1-8 › Die Taten und Wunder des HERRN 5:1-7:1"
+      },
+      {
+       "ref": "5:9-12",
+       "text": "המכות בגת ובעקרון",
+       "text_de": "Die Plagen in Gat und Ekron",
+       "blk": "עֵלִי וּשְׁמוּאֵל 1-8 › עֲלִילוֹת ה' וְנִפְלְאוֹתָיו 5:1-7:1",
+       "blk_de": "Eli und Samuel 1-8 › Die Taten und Wunder des HERRN 5:1-7:1"
+      }
+     ]
     },
     {
      "ref": "6",
@@ -97,7 +251,23 @@
      "place_de": "Ekron, Bet-Schemesch",
      "place_en": "Ekron, Beth-shemesh",
      "time_de": "2871",
-     "time_en": "2871"
+     "time_en": "2871",
+     "sub": [
+      {
+       "ref": "6:1-14",
+       "text": "הארון מושב לגבול ישראל",
+       "text_de": "Die Lade wird zum Gebiet Israels zurückgebracht",
+       "blk": "עֵלִי וּשְׁמוּאֵל 1-8 › עֲלִילוֹת ה' וְנִפְלְאוֹתָיו 5:1-7:1",
+       "blk_de": "Eli und Samuel 1-8 › Die Taten und Wunder des HERRN 5:1-7:1"
+      },
+      {
+       "ref": "6:15-7:1",
+       "text": "ארון ה' בא לגבעת קרית יערים",
+       "text_de": "Die Lade des HERRN kommt nach Gibea von Kirjat-Jearim",
+       "blk": "עֵלִי וּשְׁמוּאֵל 1-8 › עֲלִילוֹת ה' וְנִפְלְאוֹתָיו 5:1-7:1",
+       "blk_de": "Eli und Samuel 1-8 › Die Taten und Wunder des HERRN 5:1-7:1"
+      }
+     ]
     },
     {
      "ref": "7:1-2",
@@ -112,7 +282,16 @@
      "par_de": "Fortsetzung des Themas: 2. Samuel 6",
      "par_en": "Continuation of the topic: 2 Samuel 6",
      "time_de": "2871",
-     "time_en": "2871"
+     "time_en": "2871",
+     "sub": [
+      {
+       "ref": "7:2-4",
+       "text": "העם שב בהשפעת שמואל אל ה'",
+       "text_de": "Das Volk kehrt unter Samuels Einfluss zum HERRN zurück",
+       "blk": "עֵלִי וּשְׁמוּאֵל 1-8 › שְׁמוּאֵל שׁוֹפֵט אֶת הָעָם וְדַרְכֵי שְׁפִיטָתוֹ 7:2-12",
+       "blk_de": "Eli und Samuel 1-8 › Samuel richtet das Volk und die Art seiner Rechtsprechung 7:2-12"
+      }
+     ]
     },
     {
      "ref": "7:3-17",
@@ -121,7 +300,16 @@
      "text_de": "Zweiter Krieg gegen die Philister",
      "text_en": "Second war against the Philistines",
      "place_de": "Mizpa, Eben-Eser",
-     "place_en": "Mizpah, Ebenezer"
+     "place_en": "Mizpah, Ebenezer",
+     "sub": [
+      {
+       "ref": "7:5-17",
+       "text": "שמואל שופט את העם ודרכי שפיטתו",
+       "text_de": "Samuel richtet das Volk und die Art seiner Rechtsprechung",
+       "blk": "עֵלִי וּשְׁמוּאֵל 1-8 › שְׁמוּאֵל שׁוֹפֵט אֶת הָעָם וְדַרְכֵי שְׁפִיטָתוֹ 7:2-12",
+       "blk_de": "Eli und Samuel 1-8 › Samuel richtet das Volk und die Art seiner Rechtsprechung 7:2-12"
+      }
+     ]
     }
    ],
    "head_de": "Ende der Richterzeit",
@@ -143,7 +331,44 @@
      "par_de": "Das Gebot: Deuteronomium 17:14–20",
      "par_en": "The commandment: Deuteronomy 17:14–20",
      "time_de": "2881",
-     "time_en": "2881"
+     "time_en": "2881",
+     "sub": [
+      {
+       "ref": "8:1-3",
+       "text": "בני שמואל אינם הולכים בדרכיו",
+       "text_de": "Samuels Söhne wandeln nicht auf seinen Wegen",
+       "blk": "עֵלִי וּשְׁמוּאֵל 1-8 › בַּקָּשַׁת הָעָם מִשְּׁמוּאֵל לְמַנּוֹת לָהֶם מֶלֶךְ 8",
+       "blk_de": "Eli und Samuel 1-8 › Die Bitte des Volkes an Samuel, ihnen einen König einzusetzen 8"
+      },
+      {
+       "ref": "8:4-6",
+       "text": "זקני ישראל מבקשים משמואל שימנה מלך עליהם",
+       "text_de": "Die Ältesten Israels bitten Samuel, einen König über sie einzusetzen",
+       "blk": "עֵלִי וּשְׁמוּאֵל 1-8 › בַּקָּשַׁת הָעָם מִשְּׁמוּאֵל לְמַנּוֹת לָהֶם מֶלֶךְ 8",
+       "blk_de": "Eli und Samuel 1-8 › Die Bitte des Volkes an Samuel, ihnen einen König einzusetzen 8"
+      },
+      {
+       "ref": "8:7-10",
+       "text": "יש לשמע בקול העם",
+       "text_de": "Man soll auf die Stimme des Volkes hören",
+       "blk": "עֵלִי וּשְׁמוּאֵל 1-8 › בַּקָּשַׁת הָעָם מִשְּׁמוּאֵל לְמַנּוֹת לָהֶם מֶלֶךְ 8",
+       "blk_de": "Eli und Samuel 1-8 › Die Bitte des Volkes an Samuel, ihnen einen König einzusetzen 8"
+      },
+      {
+       "ref": "8:11-21",
+       "text": "משפט המלך",
+       "text_de": "Das Recht des Königs",
+       "blk": "עֵלִי וּשְׁמוּאֵל 1-8 › בַּקָּשַׁת הָעָם מִשְּׁמוּאֵל לְמַנּוֹת לָהֶם מֶלֶךְ 8",
+       "blk_de": "Eli und Samuel 1-8 › Die Bitte des Volkes an Samuel, ihnen einen König einzusetzen 8"
+      },
+      {
+       "ref": "8:22",
+       "text": "יש להמליך להם מלך",
+       "text_de": "Man soll ihnen einen König geben",
+       "blk": "עֵלִי וּשְׁמוּאֵל 1-8 › בַּקָּשַׁת הָעָם מִשְּׁמוּאֵל לְמַנּוֹת לָהֶם מֶלֶךְ 8",
+       "blk_de": "Eli und Samuel 1-8 › Die Bitte des Volkes an Samuel, ihnen einen König einzusetzen 8"
+      }
+     ]
     },
     {
      "ref": "9-10",
@@ -158,7 +383,100 @@
      "par_de": "Segen darüber: Genesis 35:11",
      "par_en": "Blessing about it: Genesis 35:11",
      "time_de": "2881",
-     "time_en": "2881"
+     "time_en": "2881",
+     "sub": [
+      {
+       "ref": "9:1-2",
+       "text": "שאול ויחוסו",
+       "text_de": "Saul und seine Abstammung",
+       "blk": "שָׁאוּל נִמְשַׁח וּמוֹלֵךְ עַל יִשְׂרָאֵל 9-12 › כֵּיצַד הִגִּיעַ שָׁאוּל לַמַּלְכוּת 9:1-10:24",
+       "blk_de": "Saul wird gesalbt und regiert als König über Israel 9-12 › Wie Saul zum Königtum kam 9:1-10:24"
+      },
+      {
+       "ref": "9:3-4",
+       "text": "החפוש אחר האתונות האובדות",
+       "text_de": "Die Suche nach den verlorenen Eselinnen",
+       "blk": "שָׁאוּל נִמְשַׁח וּמוֹלֵךְ עַל יִשְׂרָאֵל 9-12 › כֵּיצַד הִגִּיעַ שָׁאוּל לַמַּלְכוּת 9:1-10:24",
+       "blk_de": "Saul wird gesalbt und regiert als König über Israel 9-12 › Wie Saul zum Königtum kam 9:1-10:24"
+      },
+      {
+       "ref": "9:5-10",
+       "text": "שיחת שאול עם נערו",
+       "text_de": "Sauls Gespräch mit seinem Knecht",
+       "blk": "שָׁאוּל נִמְשַׁח וּמוֹלֵךְ עַל יִשְׂרָאֵל 9-12 › כֵּיצַד הִגִּיעַ שָׁאוּל לַמַּלְכוּת 9:1-10:24",
+       "blk_de": "Saul wird gesalbt und regiert als König über Israel 9-12 › Wie Saul zum Königtum kam 9:1-10:24"
+      },
+      {
+       "ref": "9:11-13",
+       "text": "פגישת שאול בנערות השואבות ושיחתן",
+       "text_de": "Sauls Begegnung mit den Mädchen beim Wasserschöpfen und ihr Gespräch",
+       "blk": "שָׁאוּל נִמְשַׁח וּמוֹלֵךְ עַל יִשְׂרָאֵל 9-12 › כֵּיצַד הִגִּיעַ שָׁאוּל לַמַּלְכוּת 9:1-10:24",
+       "blk_de": "Saul wird gesalbt und regiert als König über Israel 9-12 › Wie Saul zum Königtum kam 9:1-10:24"
+      },
+      {
+       "ref": "9:14-21",
+       "text": "פגישת שאול ושמואל בשער העיר",
+       "text_de": "Die Begegnung zwischen Saul und Samuel am Stadttor",
+       "blk": "שָׁאוּל נִמְשַׁח וּמוֹלֵךְ עַל יִשְׂרָאֵל 9-12 › כֵּיצַד הִגִּיעַ שָׁאוּל לַמַּלְכוּת 9:1-10:24",
+       "blk_de": "Saul wird gesalbt und regiert als König über Israel 9-12 › Wie Saul zum Königtum kam 9:1-10:24"
+      },
+      {
+       "ref": "9:22-24",
+       "text": "שאול בראש הקרואים בסעדת הזבח בבמה",
+       "text_de": "Saul als Ehrengast an der Spitze der Geladenen beim Opfermahl auf der Höhe",
+       "blk": "שָׁאוּל נִמְשַׁח וּמוֹלֵךְ עַל יִשְׂרָאֵל 9-12 › כֵּיצַד הִגִּיעַ שָׁאוּל לַמַּלְכוּת 9:1-10:24",
+       "blk_de": "Saul wird gesalbt und regiert als König über Israel 9-12 › Wie Saul zum Königtum kam 9:1-10:24"
+      },
+      {
+       "ref": "9:25-27",
+       "text": "שמואל מכין בסתר את שאול למלכות",
+       "text_de": "Samuel bereitet Saul im Verborgenen auf das Königtum vor",
+       "blk": "שָׁאוּל נִמְשַׁח וּמוֹלֵךְ עַל יִשְׂרָאֵל 9-12 › כֵּיצַד הִגִּיעַ שָׁאוּל לַמַּלְכוּת 9:1-10:24",
+       "blk_de": "Saul wird gesalbt und regiert als König über Israel 9-12 › Wie Saul zum Königtum kam 9:1-10:24"
+      },
+      {
+       "ref": "10:1-9",
+       "text": "משיחת שאול ביחידות על ידי שמואל בעלות השחר ומתן האותות",
+       "text_de": "Sauls Salbung durch Samuel unter vier Augen bei Anbruch der Morgenröte und die Zeichen",
+       "blk": "שָׁאוּל נִמְשַׁח וּמוֹלֵךְ עַל יִשְׂרָאֵל 9-12 › כֵּיצַד הִגִּיעַ שָׁאוּל לַמַּלְכוּת 9:1-10:24",
+       "blk_de": "Saul wird gesalbt und regiert als König über Israel 9-12 › Wie Saul zum Königtum kam 9:1-10:24"
+      },
+      {
+       "ref": "10:10-13",
+       "text": "שאול נבא עם נביאים",
+       "text_de": "Saul gerät unter Propheten in prophetische Verzückung",
+       "blk": "שָׁאוּל נִמְשַׁח וּמוֹלֵךְ עַל יִשְׂרָאֵל 9-12 › כֵּיצַד הִגִּיעַ שָׁאוּל לַמַּלְכוּת 9:1-10:24",
+       "blk_de": "Saul wird gesalbt und regiert als König über Israel 9-12 › Wie Saul zum Königtum kam 9:1-10:24"
+      },
+      {
+       "ref": "10:14-16",
+       "text": "צניעותו של שאול",
+       "text_de": "Sauls Bescheidenheit",
+       "blk": "שָׁאוּל נִמְשַׁח וּמוֹלֵךְ עַל יִשְׂרָאֵל 9-12 › כֵּיצַד הִגִּיעַ שָׁאוּל לַמַּלְכוּת 9:1-10:24",
+       "blk_de": "Saul wird gesalbt und regiert als König über Israel 9-12 › Wie Saul zum Königtum kam 9:1-10:24"
+      },
+      {
+       "ref": "10:17-19",
+       "text": "תוכחת שמואל לעם במצפה",
+       "text_de": "Samuels Mahnrede an das Volk in Mizpa",
+       "blk": "שָׁאוּל נִמְשַׁח וּמוֹלֵךְ עַל יִשְׂרָאֵל 9-12 › כֵּיצַד הִגִּיעַ שָׁאוּל לַמַּלְכוּת 9:1-10:24",
+       "blk_de": "Saul wird gesalbt und regiert als König über Israel 9-12 › Wie Saul zum Königtum kam 9:1-10:24"
+      },
+      {
+       "ref": "10:20-24",
+       "text": "שאול הבורח מן השררה, ממליכים אותו, והעם מריע לו",
+       "text_de": "Saul flieht vor der Herrschaft, man setzt ihn zum König ein, und das Volk jubelt ihm zu",
+       "blk": "שָׁאוּל נִמְשַׁח וּמוֹלֵךְ עַל יִשְׂרָאֵל 9-12 › כֵּיצַד הִגִּיעַ שָׁאוּל לַמַּלְכוּת 9:1-10:24",
+       "blk_de": "Saul wird gesalbt und regiert als König über Israel 9-12 › Wie Saul zum Königtum kam 9:1-10:24"
+      },
+      {
+       "ref": "10:25-27",
+       "text": "שמואל כתב את משפט המלוכה, ושאול מוחל על כבודו",
+       "text_de": "Samuel schrieb das Recht des Königtums nieder, und Saul verzichtet auf seine Ehre",
+       "blk": "שָׁאוּל נִמְשַׁח וּמוֹלֵךְ עַל יִשְׂרָאֵל 9-12 › מַעֲשֵׂי שָׁאוּל הָרִאשׁוֹנִים וְדִבְרֵי שְׁמוּאֵל הָאַחֲרוֹנִים 10:25-12:25",
+       "blk_de": "Saul wird gesalbt und regiert als König über Israel 9-12 › Sauls erste Taten und Samuels letzte Worte 10:25-12:25"
+      }
+     ]
     },
     {
      "ref": "11",
@@ -170,7 +488,30 @@
      "place_de": "Jabesch in Gilead, Besek, Gilgal",
      "place_en": "Jabesh-gilead, Bezek, Gilgal",
      "time_de": "2881",
-     "time_en": "2881"
+     "time_en": "2881",
+     "sub": [
+      {
+       "ref": "11:1-10",
+       "text": "שאול מזעיק את כל העם לעזרת יבש גלעד",
+       "text_de": "Saul ruft das ganze Volk zur Hilfe für Jabesch in Gilead auf",
+       "blk": "שָׁאוּל נִמְשַׁח וּמוֹלֵךְ עַל יִשְׂרָאֵל 9-12 › מַעֲשֵׂי שָׁאוּל הָרִאשׁוֹנִים וְדִבְרֵי שְׁמוּאֵל הָאַחֲרוֹנִים 10:25-12:25",
+       "blk_de": "Saul wird gesalbt und regiert als König über Israel 9-12 › Sauls erste Taten und Samuels letzte Worte 10:25-12:25"
+      },
+      {
+       "ref": "11:11-13",
+       "text": "שאול מכה את בני עמון",
+       "text_de": "Saul schlägt die Ammoniter",
+       "blk": "שָׁאוּל נִמְשַׁח וּמוֹלֵךְ עַל יִשְׂרָאֵל 9-12 › מַעֲשֵׂי שָׁאוּל הָרִאשׁוֹנִים וְדִבְרֵי שְׁמוּאֵל הָאַחֲרוֹנִים 10:25-12:25",
+       "blk_de": "Saul wird gesalbt und regiert als König über Israel 9-12 › Sauls erste Taten und Samuels letzte Worte 10:25-12:25"
+      },
+      {
+       "ref": "11:14-15",
+       "text": "חדוש המלוכה בגלגל ושמחת שאול והעם",
+       "text_de": "Die Erneuerung des Königtums in Gilgal und die Freude Sauls und des Volkes",
+       "blk": "שָׁאוּל נִמְשַׁח וּמוֹלֵךְ עַל יִשְׂרָאֵל 9-12 › מַעֲשֵׂי שָׁאוּל הָרִאשׁוֹנִים וְדִבְרֵי שְׁמוּאֵל הָאַחֲרוֹנִים 10:25-12:25",
+       "blk_de": "Saul wird gesalbt und regiert als König über Israel 9-12 › Sauls erste Taten und Samuels letzte Worte 10:25-12:25"
+      }
+     ]
     },
     {
      "ref": "12",
@@ -182,7 +523,37 @@
      "place_de": "Gilgal",
      "place_en": "Gilgal",
      "time_de": "2881",
-     "time_en": "2881"
+     "time_en": "2881",
+     "sub": [
+      {
+       "ref": "12:1-5",
+       "text": "העם מעיד על צדקת שמואל",
+       "text_de": "Das Volk bezeugt Samuels Gerechtigkeit",
+       "blk": "שָׁאוּל נִמְשַׁח וּמוֹלֵךְ עַל יִשְׂרָאֵל 9-12 › מַעֲשֵׂי שָׁאוּל הָרִאשׁוֹנִים וְדִבְרֵי שְׁמוּאֵל הָאַחֲרוֹנִים 10:25-12:25",
+       "blk_de": "Saul wird gesalbt und regiert als König über Israel 9-12 › Sauls erste Taten und Samuels letzte Worte 10:25-12:25"
+      },
+      {
+       "ref": "12:6-17",
+       "text": "תוכחת שמואל",
+       "text_de": "Samuels Mahnrede",
+       "blk": "שָׁאוּל נִמְשַׁח וּמוֹלֵךְ עַל יִשְׂרָאֵל 9-12 › מַעֲשֵׂי שָׁאוּל הָרִאשׁוֹנִים וְדִבְרֵי שְׁמוּאֵל הָאַחֲרוֹנִים 10:25-12:25",
+       "blk_de": "Saul wird gesalbt und regiert als König über Israel 9-12 › Sauls erste Taten und Samuels letzte Worte 10:25-12:25"
+      },
+      {
+       "ref": "12:18-19",
+       "text": "אות מן השמים שתביעתם למנות להם מלך לא היתה בעתה",
+       "text_de": "Ein Zeichen vom Himmel, dass ihre Forderung nach einem König nicht zur rechten Zeit kam",
+       "blk": "שָׁאוּל נִמְשַׁח וּמוֹלֵךְ עַל יִשְׂרָאֵל 9-12 › מַעֲשֵׂי שָׁאוּל הָרִאשׁוֹנִים וְדִבְרֵי שְׁמוּאֵל הָאַחֲרוֹנִים 10:25-12:25",
+       "blk_de": "Saul wird gesalbt und regiert als König über Israel 9-12 › Sauls erste Taten und Samuels letzte Worte 10:25-12:25"
+      },
+      {
+       "ref": "12:20-25",
+       "text": "אזהרת שמואל",
+       "text_de": "Samuels Warnung",
+       "blk": "שָׁאוּל נִמְשַׁח וּמוֹלֵךְ עַל יִשְׂרָאֵל 9-12 › מַעֲשֵׂי שָׁאוּל הָרִאשׁוֹנִים וְדִבְרֵי שְׁמוּאֵל הָאַחֲרוֹנִים 10:25-12:25",
+       "blk_de": "Saul wird gesalbt und regiert als König über Israel 9-12 › Sauls erste Taten und Samuels letzte Worte 10:25-12:25"
+      }
+     ]
     },
     {
      "ref": "13-14",
@@ -197,7 +568,163 @@
      "par_de": "Prophezeiung darüber: Genesis 49:26",
      "par_en": "Prophecy about it: Genesis 49:26",
      "time_de": "2882",
-     "time_en": "2882"
+     "time_en": "2882",
+     "sub": [
+      {
+       "ref": "13:1",
+       "text": "פתיחה: ימי מלכות שאול",
+       "text_de": "Einleitung: die Regierungszeit Sauls",
+       "blk": "שָׁאוּל לוֹכֵד אֶת הַמְּלוּכָה 13-14",
+       "blk_de": "Saul sichert sich das Königtum 13-14"
+      },
+      {
+       "ref": "13:2-4",
+       "text": "שאול מכונן צבא קבוע ויהונתן מתקוממ נגד שלטון הפלשתים",
+       "text_de": "Saul stellt ein stehendes Heer auf, und Jonatan erhebt sich gegen die Herrschaft der Philister",
+       "blk": "שָׁאוּל לוֹכֵד אֶת הַמְּלוּכָה 13-14",
+       "blk_de": "Saul sichert sich das Königtum 13-14"
+      },
+      {
+       "ref": "13:5-7",
+       "text": "הפלשתים עולים למלחמה על ישראל",
+       "text_de": "Die Philister ziehen zum Krieg gegen Israel herauf",
+       "blk": "שָׁאוּל לוֹכֵד אֶת הַמְּלוּכָה 13-14",
+       "blk_de": "Saul sichert sich das Königtum 13-14"
+      },
+      {
+       "ref": "13:8-12",
+       "text": "אין שאול עומד במצוה שנצטוה על ידי הנביא",
+       "text_de": "Saul hält das ihm vom Propheten aufgetragene Gebot nicht ein",
+       "blk": "שָׁאוּל לוֹכֵד אֶת הַמְּלוּכָה 13-14",
+       "blk_de": "Saul sichert sich das Königtum 13-14"
+      },
+      {
+       "ref": "13:13-14",
+       "text": "תוכחת שמואל לשאול",
+       "text_de": "Samuels Zurechtweisung Sauls",
+       "blk": "שָׁאוּל לוֹכֵד אֶת הַמְּלוּכָה 13-14",
+       "blk_de": "Saul sichert sich das Königtum 13-14"
+      },
+      {
+       "ref": "13:15-18",
+       "text": "ה'משחית' בגבול ישראל",
+       "text_de": "Die „Verwüster“ im Gebiet Israels",
+       "blk": "שָׁאוּל לוֹכֵד אֶת הַמְּלוּכָה 13-14",
+       "blk_de": "Saul sichert sich das Königtum 13-14"
+      },
+      {
+       "ref": "13:19-23",
+       "text": "העדר נשק מתכת בישראל",
+       "text_de": "Das Fehlen von Metallwaffen in Israel",
+       "blk": "שָׁאוּל לוֹכֵד אֶת הַמְּלוּכָה 13-14",
+       "blk_de": "Saul sichert sich das Königtum 13-14"
+      },
+      {
+       "ref": "14:1-5",
+       "text": "יהונתן מחליט לתקף את מצב הפלשתים",
+       "text_de": "Jonatan beschließt, die Lage der Philister anzugreifen",
+       "blk": "שָׁאוּל לוֹכֵד אֶת הַמְּלוּכָה 13-14",
+       "blk_de": "Saul sichert sich das Königtum 13-14"
+      },
+      {
+       "ref": "14:6-7",
+       "text": "אין לה' מעצור להושיע",
+       "text_de": "Dem HERRN ist es nicht verwehrt zu helfen",
+       "blk": "שָׁאוּל לוֹכֵד אֶת הַמְּלוּכָה 13-14",
+       "blk_de": "Saul sichert sich das Königtum 13-14"
+      },
+      {
+       "ref": "14:8-10",
+       "text": "האות של יהונתן",
+       "text_de": "Jonatans Zeichen",
+       "blk": "שָׁאוּל לוֹכֵד אֶת הַמְּלוּכָה 13-14",
+       "blk_de": "Saul sichert sich das Königtum 13-14"
+      },
+      {
+       "ref": "14:11-16",
+       "text": "המכה הראשונה וחרדת אלהים הבאה בעקבותיה",
+       "text_de": "Der erste Schlag und der darauf folgende Gottesschrecken",
+       "blk": "שָׁאוּל לוֹכֵד אֶת הַמְּלוּכָה 13-14",
+       "blk_de": "Saul sichert sich das Königtum 13-14"
+      },
+      {
+       "ref": "14:17-19",
+       "text": "שאול מכיר בהעדרו של יהונתן ונושא כליו מהמחנה",
+       "text_de": "Saul bemerkt die Abwesenheit Jonatans und seines Waffenträgers im Lager",
+       "blk": "שָׁאוּל לוֹכֵד אֶת הַמְּלוּכָה 13-14",
+       "blk_de": "Saul sichert sich das Königtum 13-14"
+      },
+      {
+       "ref": "14:20-24",
+       "text": "שאול וכל העם תוקפים את הפלשתים. שבועת שאול",
+       "text_de": "Saul und das ganze Volk greifen die Philister an; Sauls Schwur",
+       "blk": "שָׁאוּל לוֹכֵד אֶת הַמְּלוּכָה 13-14",
+       "blk_de": "Saul sichert sich das Königtum 13-14"
+      },
+      {
+       "ref": "14:25-30",
+       "text": "יהונתן עובר על שבועת אביו",
+       "text_de": "Jonatan übertritt den Schwur seines Vaters",
+       "blk": "שָׁאוּל לוֹכֵד אֶת הַמְּלוּכָה 13-14",
+       "blk_de": "Saul sichert sich das Königtum 13-14"
+      },
+      {
+       "ref": "14:31-35",
+       "text": "שאול מונע מן העם לאכל על הדם",
+       "text_de": "Saul hindert das Volk daran, mit dem Blut zu essen",
+       "blk": "שָׁאוּל לוֹכֵד אֶת הַמְּלוּכָה 13-14",
+       "blk_de": "Saul sichert sich das Königtum 13-14"
+      },
+      {
+       "ref": "14:36-37",
+       "text": "אין ה' עונה לשאול",
+       "text_de": "Der HERR antwortet Saul nicht",
+       "blk": "שָׁאוּל לוֹכֵד אֶת הַמְּלוּכָה 13-14",
+       "blk_de": "Saul sichert sich das Königtum 13-14"
+      },
+      {
+       "ref": "14:38-40",
+       "text": "שאול חוקר במה היתה החטאת",
+       "text_de": "Saul forscht nach, worin die Sünde bestand",
+       "blk": "שָׁאוּל לוֹכֵד אֶת הַמְּלוּכָה 13-14",
+       "blk_de": "Saul sichert sich das Königtum 13-14"
+      },
+      {
+       "ref": "14:41-43",
+       "text": "יונתן נלכד במשפט ה'תמים'",
+       "text_de": "Jonatan wird im Gottesurteil durch „Tamim“ getroffen",
+       "blk": "שָׁאוּל לוֹכֵד אֶת הַמְּלוּכָה 13-14",
+       "blk_de": "Saul sichert sich das Königtum 13-14"
+      },
+      {
+       "ref": "14:44-46",
+       "text": "העם פודה את יונתן",
+       "text_de": "Das Volk löst Jonatan aus",
+       "blk": "שָׁאוּל לוֹכֵד אֶת הַמְּלוּכָה 13-14",
+       "blk_de": "Saul sichert sich das Königtum 13-14"
+      },
+      {
+       "ref": "14:46-48",
+       "text": "סכום מלחמות שאול",
+       "text_de": "Zusammenfassung der Kriege Sauls",
+       "blk": "שָׁאוּל לוֹכֵד אֶת הַמְּלוּכָה 13-14",
+       "blk_de": "Saul sichert sich das Königtum 13-14"
+      },
+      {
+       "ref": "14:49-51",
+       "text": "משפחת שאול ויחוס שר צבאו אבנר",
+       "text_de": "Sauls Familie und die Abstammung seines Heerobersten Abner",
+       "blk": "שָׁאוּל לוֹכֵד אֶת הַמְּלוּכָה 13-14",
+       "blk_de": "Saul sichert sich das Königtum 13-14"
+      },
+      {
+       "ref": "14:52",
+       "text": "חתימה: סכום פעלו הממלכתי של שאול",
+       "text_de": "Abschluss: Zusammenfassung von Sauls Wirken als König",
+       "blk": "שָׁאוּל לוֹכֵד אֶת הַמְּלוּכָה 13-14",
+       "blk_de": "Saul sichert sich das Königtum 13-14"
+      }
+     ]
     },
     {
      "ref": "15:1-9",
@@ -212,7 +739,23 @@
      "par_de": "Erwähnung: 1. Samuel 28:17–18 · Auslöschung Amaleks: Exodus 17:8–16; Deuteronomium 25:17–19",
      "par_en": "Mention: 1 Samuel 28:17–18 · Blotting out of Amalek: Exodus 17:8–16; Deuteronomy 25:17–19",
      "time_de": "Nisan 2882",
-     "time_en": "Nisan 2882"
+     "time_en": "Nisan 2882",
+     "sub": [
+      {
+       "ref": "15:1-3",
+       "text": "שָׁאוּל מְצֻוֶּה לְהַחֲרִים אֶת עֲמָלֵק",
+       "text_de": "Saul erhält den Auftrag, Amalek mit dem Bann zu belegen",
+       "blk": "הַמְּלוּכָה נִקְרְעָה מֵעַל שָׁאוּל, וְדָוִד יוֹצֵא וָבָא לִפְנֵי הָעָם 15:1-18:13 › הַחֵטְא שֶׁמֵּחֲמָתוֹ נִקְרְעָה הַמַּלְכוּת מֵעַל שָׁאוּל 15",
+       "blk_de": "Das Königtum wird Saul entrissen, und David zieht vor dem Volk aus und ein 15:1-18:13 › Die Sünde, derentwegen das Königtum Saul entrissen wurde 15"
+      },
+      {
+       "ref": "15:4-9",
+       "text": "שָׁאוּל מַכֶּה אֶת עֲמָלֵק, אֲבָל חוֹמֵל עַל מַלְכָּם וְעַל צֹאנָם",
+       "text_de": "Saul schlägt Amalek, verschont aber deren König und ihr Kleinvieh",
+       "blk": "הַמְּלוּכָה נִקְרְעָה מֵעַל שָׁאוּל, וְדָוִד יוֹצֵא וָבָא לִפְנֵי הָעָם 15:1-18:13 › הַחֵטְא שֶׁמֵּחֲמָתוֹ נִקְרְעָה הַמַּלְכוּת מֵעַל שָׁאוּל 15",
+       "blk_de": "Das Königtum wird Saul entrissen, und David zieht vor dem Volk aus und ein 15:1-18:13 › Die Sünde, derentwegen das Königtum Saul entrissen wurde 15"
+      }
+     ]
     },
     {
      "ref": "15:10-35",
@@ -227,7 +770,65 @@
      "par_de": "Erwähnung: 1. Samuel 28:17–18 · Auslöschung Amaleks: Exodus 17:8–16; Deuteronomium 25:17–19",
      "par_en": "Mention: 1 Samuel 28:17–18 · Blotting out of Amalek: Exodus 17:8–16; Deuteronomy 25:17–19",
      "time_de": "Nisan 2882",
-     "time_en": "Nisan 2882"
+     "time_en": "Nisan 2882",
+     "sub": [
+      {
+       "ref": "15:10-11",
+       "text": "ה' נִחָם כִּי הִמְלִיךְ אֶת שָׁאוּל וְצַעֲרוֹ שֶׁל שְׁמוּאֵל",
+       "text_de": "Den HERRN reut es, Saul zum König gemacht zu haben, und Samuels Kummer",
+       "blk": "הַמְּלוּכָה נִקְרְעָה מֵעַל שָׁאוּל, וְדָוִד יוֹצֵא וָבָא לִפְנֵי הָעָם 15:1-18:13 › הַחֵטְא שֶׁמֵּחֲמָתוֹ נִקְרְעָה הַמַּלְכוּת מֵעַל שָׁאוּל 15",
+       "blk_de": "Das Königtum wird Saul entrissen, und David zieht vor dem Volk aus und ein 15:1-18:13 › Die Sünde, derentwegen das Königtum Saul entrissen wurde 15"
+      },
+      {
+       "ref": "15:12-15",
+       "text": "דִּין וּדְבָרִים בֵּין שְׁמוּאֵל לְבֵין שָׁאוּל",
+       "text_de": "Auseinandersetzung zwischen Samuel und Saul",
+       "blk": "הַמְּלוּכָה נִקְרְעָה מֵעַל שָׁאוּל, וְדָוִד יוֹצֵא וָבָא לִפְנֵי הָעָם 15:1-18:13 › הַחֵטְא שֶׁמֵּחֲמָתוֹ נִקְרְעָה הַמַּלְכוּת מֵעַל שָׁאוּל 15",
+       "blk_de": "Das Königtum wird Saul entrissen, und David zieht vor dem Volk aus und ein 15:1-18:13 › Die Sünde, derentwegen das Königtum Saul entrissen wurde 15"
+      },
+      {
+       "ref": "15:16-19",
+       "text": "תּוֹכַחַת שְׁמוּאֵל",
+       "text_de": "Samuels Zurechtweisung",
+       "blk": "הַמְּלוּכָה נִקְרְעָה מֵעַל שָׁאוּל, וְדָוִד יוֹצֵא וָבָא לִפְנֵי הָעָם 15:1-18:13 › הַחֵטְא שֶׁמֵּחֲמָתוֹ נִקְרְעָה הַמַּלְכוּת מֵעַל שָׁאוּל 15",
+       "blk_de": "Das Königtum wird Saul entrissen, und David zieht vor dem Volk aus und ein 15:1-18:13 › Die Sünde, derentwegen das Königtum Saul entrissen wurde 15"
+      },
+      {
+       "ref": "15:20-21",
+       "text": "שָׁאוּל תּוֹלֶה אֶת הָאַשְׁמָה בָּעָם",
+       "text_de": "Saul schiebt die Schuld auf das Volk",
+       "blk": "הַמְּלוּכָה נִקְרְעָה מֵעַל שָׁאוּל, וְדָוִד יוֹצֵא וָבָא לִפְנֵי הָעָם 15:1-18:13 › הַחֵטְא שֶׁמֵּחֲמָתוֹ נִקְרְעָה הַמַּלְכוּת מֵעַל שָׁאוּל 15",
+       "blk_de": "Das Königtum wird Saul entrissen, und David zieht vor dem Volk aus und ein 15:1-18:13 › Die Sünde, derentwegen das Königtum Saul entrissen wurde 15"
+      },
+      {
+       "ref": "15:22-23",
+       "text": "עִקַּר חֵפֶץ ה' כִּי יִשְׁמְעוּ בְקוֹלוֹ",
+       "text_de": "Das Hauptanliegen des HERRN ist, dass man auf seine Stimme hört",
+       "blk": "הַמְּלוּכָה נִקְרְעָה מֵעַל שָׁאוּל, וְדָוִד יוֹצֵא וָבָא לִפְנֵי הָעָם 15:1-18:13 › הַחֵטְא שֶׁמֵּחֲמָתוֹ נִקְרְעָה הַמַּלְכוּת מֵעַל שָׁאוּל 15",
+       "blk_de": "Das Königtum wird Saul entrissen, und David zieht vor dem Volk aus und ein 15:1-18:13 › Die Sünde, derentwegen das Königtum Saul entrissen wurde 15"
+      },
+      {
+       "ref": "15:24-31",
+       "text": "שָׁאוּל מוֹדֶה כִּי מִתּוֹךְ יִרְאָה נִשְׁמַע לְקוֹל הָעָם וּשְׁמוּאֵל מְכַבְּדוֹ לִפְנֵי זִקְנֵי־הָעָם",
+       "text_de": "Saul gesteht, dass er aus Furcht auf die Stimme des Volkes gehört hat, und Samuel ehrt ihn vor den Ältesten des Volkes",
+       "blk": "הַמְּלוּכָה נִקְרְעָה מֵעַל שָׁאוּל, וְדָוִד יוֹצֵא וָבָא לִפְנֵי הָעָם 15:1-18:13 › הַחֵטְא שֶׁמֵּחֲמָתוֹ נִקְרְעָה הַמַּלְכוּת מֵעַל שָׁאוּל 15",
+       "blk_de": "Das Königtum wird Saul entrissen, und David zieht vor dem Volk aus und ein 15:1-18:13 › Die Sünde, derentwegen das Königtum Saul entrissen wurde 15"
+      },
+      {
+       "ref": "15:32-33",
+       "text": "שְׁמוּאֵל מְקַיֵּם מִצְוַת הַחֵרֶם בַּאֲגָג",
+       "text_de": "Samuel vollzieht das Gebot des Banns an Agag",
+       "blk": "הַמְּלוּכָה נִקְרְעָה מֵעַל שָׁאוּל, וְדָוִד יוֹצֵא וָבָא לִפְנֵי הָעָם 15:1-18:13 › הַחֵטְא שֶׁמֵּחֲמָתוֹ נִקְרְעָה הַמַּלְכוּת מֵעַל שָׁאוּל 15",
+       "blk_de": "Das Königtum wird Saul entrissen, und David zieht vor dem Volk aus und ein 15:1-18:13 › Die Sünde, derentwegen das Königtum Saul entrissen wurde 15"
+      },
+      {
+       "ref": "15:34-38",
+       "text": "שְׁמוּאֵל מִתְאַבֵּל עַל קְרִיעַת הַמַּלְכוּת מִשָּׁאוּל",
+       "text_de": "Samuel trauert darüber, dass Saul das Königtum entrissen wird",
+       "blk": "הַמְּלוּכָה נִקְרְעָה מֵעַל שָׁאוּל, וְדָוִד יוֹצֵא וָבָא לִפְנֵי הָעָם 15:1-18:13 › הַחֵטְא שֶׁמֵּחֲמָתוֹ נִקְרְעָה הַמַּלְכוּת מֵעַל שָׁאוּל 15",
+       "blk_de": "Das Königtum wird Saul entrissen, und David zieht vor dem Volk aus und ein 15:1-18:13 › Die Sünde, derentwegen das Königtum Saul entrissen wurde 15"
+      }
+     ]
     }
    ],
    "head_de": "Das Königtum Sauls",
@@ -246,7 +847,30 @@
      "place_de": "Betlehem",
      "place_en": "Bethlehem",
      "time_de": "2882",
-     "time_en": "2882"
+     "time_en": "2882",
+     "sub": [
+      {
+       "ref": "16:1-6",
+       "text": "שְׁמוּאֵל מְצֻוֶּה לִמְשֹׁחַ מֶלֶךְ אַחֵר בִּמְקוֹם שָׁאוּל",
+       "text_de": "Samuel erhält den Auftrag, anstelle Sauls einen anderen König zu salben",
+       "blk": "הַמְּלוּכָה נִקְרְעָה מֵעַל שָׁאוּל, וְדָוִד יוֹצֵא וָבָא לִפְנֵי הָעָם 15:1-18:13 › מְשִׁיחַת דָּוִד וְסִלּוּק רוּחַ ה' מֵעִם שָׁאוּל 16",
+       "blk_de": "Das Königtum wird Saul entrissen, und David zieht vor dem Volk aus und ein 15:1-18:13 › Davids Salbung und das Weichen des Geistes des HERRN von Saul 16"
+      },
+      {
+       "ref": "16:7-12",
+       "text": "ה' רוֹאֶה לַלֵּבָב וְלֹא לַמַּרְאֶה הַחִיצוֹנִי",
+       "text_de": "Der HERR sieht auf das Herz und nicht auf das äußere Aussehen",
+       "blk": "הַמְּלוּכָה נִקְרְעָה מֵעַל שָׁאוּל, וְדָוִד יוֹצֵא וָבָא לִפְנֵי הָעָם 15:1-18:13 › מְשִׁיחַת דָּוִד וְסִלּוּק רוּחַ ה' מֵעִם שָׁאוּל 16",
+       "blk_de": "Das Königtum wird Saul entrissen, und David zieht vor dem Volk aus und ein 15:1-18:13 › Davids Salbung und das Weichen des Geistes des HERRN von Saul 16"
+      },
+      {
+       "ref": "16:12-16",
+       "text": "דָּוִד נִמְשַׁח וְרוּחַ ה' צָלְחָה עָלָיו",
+       "text_de": "David wird gesalbt, und der Geist des HERRN kommt über ihn",
+       "blk": "הַמְּלוּכָה נִקְרְעָה מֵעַל שָׁאוּל, וְדָוִד יוֹצֵא וָבָא לִפְנֵי הָעָם 15:1-18:13 › מְשִׁיחַת דָּוִד וְסִלּוּק רוּחַ ה' מֵעִם שָׁאוּל 16",
+       "blk_de": "Das Königtum wird Saul entrissen, und David zieht vor dem Volk aus und ein 15:1-18:13 › Davids Salbung und das Weichen des Geistes des HERRN von Saul 16"
+      }
+     ]
     },
     {
      "ref": "16:14-23",
@@ -255,7 +879,16 @@
      "text_de": "Seine Berufung als Spielmann für Saul",
      "text_en": "His appointment as Saul's musician",
      "place_de": "Gibea-Schaul",
-     "place_en": "Gibeah of Saul"
+     "place_en": "Gibeah of Saul",
+     "sub": [
+      {
+       "ref": "16:17-23",
+       "text": "דָּוִד מֵבִיא בִנְגִינָתוֹ רְוָחָה לְשָׁאוּל",
+       "text_de": "David bringt Saul durch sein Spiel Erleichterung",
+       "blk": "הַמְּלוּכָה נִקְרְעָה מֵעַל שָׁאוּל, וְדָוִד יוֹצֵא וָבָא לִפְנֵי הָעָם 15:1-18:13 › מְשִׁיחַת דָּוִד וְסִלּוּק רוּחַ ה' מֵעִם שָׁאוּל 16",
+       "blk_de": "Das Königtum wird Saul entrissen, und David zieht vor dem Volk aus und ein 15:1-18:13 › Davids Salbung und das Weichen des Geistes des HERRN von Saul 16"
+      }
+     ]
     },
     {
      "ref": "17",
@@ -267,7 +900,72 @@
      "place_de": "Terebinthental, Gibea-Schaul, Städte Israels, Jerusalem",
      "place_en": "Valley of Elah, Gibeah of Saul, cities of Israel, Jerusalem",
      "par_de": "Segen darüber: Genesis 49:8 (nach einigen Auslegern) · Sein Gebet zu jener Zeit: Psalm 9 (nach einigen Auslegern)",
-     "par_en": "Blessing about it: Genesis 49:8 (according to some commentators) · His prayer at that time: Psalm 9 (according to some commentators)"
+     "par_en": "Blessing about it: Genesis 49:8 (according to some commentators) · His prayer at that time: Psalm 9 (according to some commentators)",
+     "sub": [
+      {
+       "ref": "17:1-11",
+       "text": "רוּחַ הַגְּבוּרָה מִסְתַּלֶּקֶת מֵעִם שָׁאוּל",
+       "text_de": "Der Geist der Tapferkeit weicht von Saul",
+       "blk": "הַמְּלוּכָה נִקְרְעָה מֵעַל שָׁאוּל, וְדָוִד יוֹצֵא וָבָא לִפְנֵי הָעָם 15:1-18:13 › דָּוִד מַכֶּה אֶת גָּלְיָת וְיוֹצֵא וָבָא לִפְנֵי הָעָם 17:1-18:5",
+       "blk_de": "Das Königtum wird Saul entrissen, und David zieht vor dem Volk aus und ein 15:1-18:13 › David schlägt Goliat und zieht vor dem Volk aus und ein 17:1-18:5"
+      },
+      {
+       "ref": "17:12-16",
+       "text": "דָּוִד הוֹלֵךְ וָשָׁב מֵעַל שָׁאוּל לִרְעוֹת אֶת צֹאן אָבִיו",
+       "text_de": "David geht von Saul weg und kehrt zurück, um die Schafe seines Vaters zu weiden",
+       "blk": "הַמְּלוּכָה נִקְרְעָה מֵעַל שָׁאוּל, וְדָוִד יוֹצֵא וָבָא לִפְנֵי הָעָם 15:1-18:13 › דָּוִד מַכֶּה אֶת גָּלְיָת וְיוֹצֵא וָבָא לִפְנֵי הָעָם 17:1-18:5",
+       "blk_de": "Das Königtum wird Saul entrissen, und David zieht vor dem Volk aus und ein 15:1-18:13 › David schlägt Goliat und zieht vor dem Volk aus und ein 17:1-18:5"
+      },
+      {
+       "ref": "17:17-25",
+       "text": "דָּוִד שׁוֹמֵעַ אֶת גִּדּוּפֵי גָלְיָת",
+       "text_de": "David hört Goliats Schmähungen",
+       "blk": "הַמְּלוּכָה נִקְרְעָה מֵעַל שָׁאוּל, וְדָוִד יוֹצֵא וָבָא לִפְנֵי הָעָם 15:1-18:13 › דָּוִד מַכֶּה אֶת גָּלְיָת וְיוֹצֵא וָבָא לִפְנֵי הָעָם 17:1-18:5",
+       "blk_de": "Das Königtum wird Saul entrissen, und David zieht vor dem Volk aus und ein 15:1-18:13 › David schlägt Goliat und zieht vor dem Volk aus und ein 17:1-18:5"
+      },
+      {
+       "ref": "17:26-31",
+       "text": "דָּוִד מְזֻמָּן לְשָׁאוּל",
+       "text_de": "David wird zu Saul gebracht",
+       "blk": "הַמְּלוּכָה נִקְרְעָה מֵעַל שָׁאוּל, וְדָוִד יוֹצֵא וָבָא לִפְנֵי הָעָם 15:1-18:13 › דָּוִד מַכֶּה אֶת גָּלְיָת וְיוֹצֵא וָבָא לִפְנֵי הָעָם 17:1-18:5",
+       "blk_de": "Das Königtum wird Saul entrissen, und David zieht vor dem Volk aus und ein 15:1-18:13 › David schlägt Goliat und zieht vor dem Volk aus und ein 17:1-18:5"
+      },
+      {
+       "ref": "17:32-37",
+       "text": "דָּוִד שָׂם בִּטְחוֹנוֹ בַּה'",
+       "text_de": "David setzt sein Vertrauen auf den HERRN",
+       "blk": "הַמְּלוּכָה נִקְרְעָה מֵעַל שָׁאוּל, וְדָוִד יוֹצֵא וָבָא לִפְנֵי הָעָם 15:1-18:13 › דָּוִד מַכֶּה אֶת גָּלְיָת וְיוֹצֵא וָבָא לִפְנֵי הָעָם 17:1-18:5",
+       "blk_de": "Das Königtum wird Saul entrissen, und David zieht vor dem Volk aus und ein 15:1-18:13 › David schlägt Goliat und zieht vor dem Volk aus und ein 17:1-18:5"
+      },
+      {
+       "ref": "17:37-44",
+       "text": "בִּרְכַּת שָׁאוּל לְדָוִד וְקִלְלַת גָּלְיָת",
+       "text_de": "Sauls Segenswunsch für David und Goliats Fluch",
+       "blk": "הַמְּלוּכָה נִקְרְעָה מֵעַל שָׁאוּל, וְדָוִד יוֹצֵא וָבָא לִפְנֵי הָעָם 15:1-18:13 › דָּוִד מַכֶּה אֶת גָּלְיָת וְיוֹצֵא וָבָא לִפְנֵי הָעָם 17:1-18:5",
+       "blk_de": "Das Königtum wird Saul entrissen, und David zieht vor dem Volk aus und ein 15:1-18:13 › David schlägt Goliat und zieht vor dem Volk aus und ein 17:1-18:5"
+      },
+      {
+       "ref": "17:45-47",
+       "text": "לַה' הַמִּלְחָמָה",
+       "text_de": "Dem HERRN gehört der Krieg",
+       "blk": "הַמְּלוּכָה נִקְרְעָה מֵעַל שָׁאוּל, וְדָוִד יוֹצֵא וָבָא לִפְנֵי הָעָם 15:1-18:13 › דָּוִד מַכֶּה אֶת גָּלְיָת וְיוֹצֵא וָבָא לִפְנֵי הָעָם 17:1-18:5",
+       "blk_de": "Das Königtum wird Saul entrissen, und David zieht vor dem Volk aus und ein 15:1-18:13 › David schlägt Goliat und zieht vor dem Volk aus und ein 17:1-18:5"
+      },
+      {
+       "ref": "17:48-54",
+       "text": "דָּוִד מַכֶּה אֶת גָּלְיָת וְהַפְּלִשְׁתִּים נָסִים לִגְבוּלָם",
+       "text_de": "David schlägt Goliat, und die Philister fliehen zu ihrem Gebiet",
+       "blk": "הַמְּלוּכָה נִקְרְעָה מֵעַל שָׁאוּל, וְדָוִד יוֹצֵא וָבָא לִפְנֵי הָעָם 15:1-18:13 › דָּוִד מַכֶּה אֶת גָּלְיָת וְיוֹצֵא וָבָא לִפְנֵי הָעָם 17:1-18:5",
+       "blk_de": "Das Königtum wird Saul entrissen, und David zieht vor dem Volk aus und ein 15:1-18:13 › David schlägt Goliat und zieht vor dem Volk aus und ein 17:1-18:5"
+      },
+      {
+       "ref": "17:55-18:5",
+       "text": "יִחוּסוֹ שֶׁל דָּוִד וּבְרִית אַהֲבָתוֹ עִם יוֹנָתָן",
+       "text_de": "Davids Abstammung und sein Liebesbund mit Jonatan",
+       "blk": "הַמְּלוּכָה נִקְרְעָה מֵעַל שָׁאוּל, וְדָוִד יוֹצֵא וָבָא לִפְנֵי הָעָם 15:1-18:13 › דָּוִד מַכֶּה אֶת גָּלְיָת וְיוֹצֵא וָבָא לִפְנֵי הָעָם 17:1-18:5",
+       "blk_de": "Das Königtum wird Saul entrissen, und David zieht vor dem Volk aus und ein 15:1-18:13 › David schlägt Goliat und zieht vor dem Volk aus und ein 17:1-18:5"
+      }
+     ]
     },
     {
      "ref": "18:1-5",
@@ -279,7 +977,30 @@
      "ref": "18:6-16",
      "text": "שבחי הנשים לדוד",
      "text_de": "Der Lobpreis der Frauen für David",
-     "text_en": "The women's praise of David"
+     "text_en": "The women's praise of David",
+     "sub": [
+      {
+       "ref": "18:6-9",
+       "text": "שָׁאוּל עוֹיֵן אֶת דָּוִד",
+       "text_de": "Saul beäugt David argwöhnisch",
+       "blk": "שָׁאוּל עוֹיֵן אֶת דָּוִד וּבְקִנְאָתוֹ מְבַקֵּשׁ אֶת נַפְשׁוֹ 18:6-20:42",
+       "blk_de": "Saul beäugt David argwöhnisch und trachtet ihm in seiner Eifersucht nach dem Leben 18:6-20:42"
+      },
+      {
+       "ref": "18:10-13",
+       "text": "דָּוִד יוֹצֵא וָבָא לִפְנֵי הָעָם",
+       "text_de": "David zieht vor dem Volk aus und ein",
+       "blk": "שָׁאוּל עוֹיֵן אֶת דָּוִד וּבְקִנְאָתוֹ מְבַקֵּשׁ אֶת נַפְשׁוֹ 18:6-20:42",
+       "blk_de": "Saul beäugt David argwöhnisch und trachtet ihm in seiner Eifersucht nach dem Leben 18:6-20:42"
+      },
+      {
+       "ref": "18:14-16",
+       "text": "הַצְלָחַת דָּוִד מְעוֹרֶרֶת קִנְאָה בְּלֵב שָׁאוּל",
+       "text_de": "Davids Erfolg weckt Eifersucht in Sauls Herzen",
+       "blk": "שָׁאוּל עוֹיֵן אֶת דָּוִד וּבְקִנְאָתוֹ מְבַקֵּשׁ אֶת נַפְשׁוֹ 18:6-20:42",
+       "blk_de": "Saul beäugt David argwöhnisch und trachtet ihm in seiner Eifersucht nach dem Leben 18:6-20:42"
+      }
+     ]
     },
     {
      "ref": "18:17-30",
@@ -291,7 +1012,30 @@
      "place_de": "Gibea-Schaul",
      "place_en": "Gibeah of Saul",
      "par_de": "Fortsetzung des Themas: 1. Samuel 25:44; 2. Samuel 3:13–16",
-     "par_en": "Continuation of the topic: 1 Samuel 25:44; 2 Samuel 3:13–16"
+     "par_en": "Continuation of the topic: 1 Samuel 25:44; 2 Samuel 3:13–16",
+     "sub": [
+      {
+       "ref": "18:17-19",
+       "text": "שָׁאוּל מַצִּיעַ לְדָוִד לָשֵׂאת אֶת מֵרַב בִּתּוֹ",
+       "text_de": "Saul bietet David seine Tochter Merab zur Frau an",
+       "blk": "שָׁאוּל עוֹיֵן אֶת דָּוִד וּבְקִנְאָתוֹ מְבַקֵּשׁ אֶת נַפְשׁוֹ 18:6-20:42",
+       "blk_de": "Saul beäugt David argwöhnisch und trachtet ihm in seiner Eifersucht nach dem Leben 18:6-20:42"
+      },
+      {
+       "ref": "18:20-29",
+       "text": "דָּוִד נוֹשֵׂא אֶת מִיכַל",
+       "text_de": "David heiratet Michal",
+       "blk": "שָׁאוּל עוֹיֵן אֶת דָּוִד וּבְקִנְאָתוֹ מְבַקֵּשׁ אֶת נַפְשׁוֹ 18:6-20:42",
+       "blk_de": "Saul beäugt David argwöhnisch und trachtet ihm in seiner Eifersucht nach dem Leben 18:6-20:42"
+      },
+      {
+       "ref": "18:30-19:3",
+       "text": "שָׁאוּל מְבַקֵּשׁ לְהָמִית אֶת דָּוִד",
+       "text_de": "Saul trachtet danach, David zu töten",
+       "blk": "שָׁאוּל עוֹיֵן אֶת דָּוִד וּבְקִנְאָתוֹ מְבַקֵּשׁ אֶת נַפְשׁוֹ 18:6-20:42",
+       "blk_de": "Saul beäugt David argwöhnisch und trachtet ihm in seiner Eifersucht nach dem Leben 18:6-20:42"
+      }
+     ]
     }
    ],
    "head_de": "Die Salbung Davids",
@@ -310,7 +1054,86 @@
      "place_de": "Rama, Najot, Gibea-Schaul",
      "place_en": "Ramah, Naioth, Gibeah of Saul",
      "par_de": "Sein Gebet, als er sich in seinem Haus versteckte: Psalm 59",
-     "par_en": "His prayer when he hid in his house: Psalm 59"
+     "par_en": "His prayer when he hid in his house: Psalm 59",
+     "sub": [
+      {
+       "ref": "19:4-7",
+       "text": "שָׁאוּל נִשְׁבַּע לִיהוֹנָתָן שֶׁלֹּא יָמִית אֶת דָּוִד",
+       "text_de": "Saul schwört Jonatan, David nicht zu töten",
+       "blk": "שָׁאוּל עוֹיֵן אֶת דָּוִד וּבְקִנְאָתוֹ מְבַקֵּשׁ אֶת נַפְשׁוֹ 18:6-20:42",
+       "blk_de": "Saul beäugt David argwöhnisch und trachtet ihm in seiner Eifersucht nach dem Leben 18:6-20:42"
+      },
+      {
+       "ref": "19:8-10",
+       "text": "שָׁאוּל מְבַקֵּשׁ שֵׁנִית לְהָמִית אֶת דָּוִד",
+       "text_de": "Saul trachtet zum zweiten Mal danach, David zu töten",
+       "blk": "שָׁאוּל עוֹיֵן אֶת דָּוִד וּבְקִנְאָתוֹ מְבַקֵּשׁ אֶת נַפְשׁוֹ 18:6-20:42",
+       "blk_de": "Saul beäugt David argwöhnisch und trachtet ihm in seiner Eifersucht nach dem Leben 18:6-20:42"
+      },
+      {
+       "ref": "19:11-17",
+       "text": "מִיכַל מְמַלֶּטֶת אֶת דָּוִד",
+       "text_de": "Michal rettet David",
+       "blk": "שָׁאוּל עוֹיֵן אֶת דָּוִד וּבְקִנְאָתוֹ מְבַקֵּשׁ אֶת נַפְשׁוֹ 18:6-20:42",
+       "blk_de": "Saul beäugt David argwöhnisch und trachtet ihm in seiner Eifersucht nach dem Leben 18:6-20:42"
+      },
+      {
+       "ref": "19:18-24",
+       "text": "דָּוִד וְשָׁאוּל אֵצֶל שְׁמוּאֵל",
+       "text_de": "David und Saul bei Samuel",
+       "blk": "שָׁאוּל עוֹיֵן אֶת דָּוִד וּבְקִנְאָתוֹ מְבַקֵּשׁ אֶת נַפְשׁוֹ 18:6-20:42",
+       "blk_de": "Saul beäugt David argwöhnisch und trachtet ihm in seiner Eifersucht nach dem Leben 18:6-20:42"
+      },
+      {
+       "ref": "20:1-4",
+       "text": "דָּוִד מִתְחַנֵּן עַל נַפְשׁוֹ בִּפְנֵי יְהוֹנָתָן",
+       "text_de": "David fleht Jonatan um sein Leben an",
+       "blk": "שָׁאוּל עוֹיֵן אֶת דָּוִד וּבְקִנְאָתוֹ מְבַקֵּשׁ אֶת נַפְשׁוֹ 18:6-20:42",
+       "blk_de": "Saul beäugt David argwöhnisch und trachtet ihm in seiner Eifersucht nach dem Leben 18:6-20:42"
+      },
+      {
+       "ref": "20:5-8",
+       "text": "דָּוִד מְבַקֵּשׁ מִיהוֹנָתָן שֶׁיַּחְקֹר אֶת אָבִיו",
+       "text_de": "David bittet Jonatan, seinen Vater zu erforschen",
+       "blk": "שָׁאוּל עוֹיֵן אֶת דָּוִד וּבְקִנְאָתוֹ מְבַקֵּשׁ אֶת נַפְשׁוֹ 18:6-20:42",
+       "blk_de": "Saul beäugt David argwöhnisch und trachtet ihm in seiner Eifersucht nach dem Leben 18:6-20:42"
+      },
+      {
+       "ref": "20:9-17",
+       "text": "יְהוֹנָתָן כּוֹרֵת בְּרִית עִם דָּוִד וּבֵיתוֹ",
+       "text_de": "Jonatan schließt einen Bund mit David und seinem Haus",
+       "blk": "שָׁאוּל עוֹיֵן אֶת דָּוִד וּבְקִנְאָתוֹ מְבַקֵּשׁ אֶת נַפְשׁוֹ 18:6-20:42",
+       "blk_de": "Saul beäugt David argwöhnisch und trachtet ihm in seiner Eifersucht nach dem Leben 18:6-20:42"
+      },
+      {
+       "ref": "20:18-23",
+       "text": "סִימַן הַחִצִּים",
+       "text_de": "Das Zeichen mit den Pfeilen",
+       "blk": "שָׁאוּל עוֹיֵן אֶת דָּוִד וּבְקִנְאָתוֹ מְבַקֵּשׁ אֶת נַפְשׁוֹ 18:6-20:42",
+       "blk_de": "Saul beäugt David argwöhnisch und trachtet ihm in seiner Eifersucht nach dem Leben 18:6-20:42"
+      },
+      {
+       "ref": "20:24-34",
+       "text": "שאול מגלה רצונו להמית את דוד",
+       "text_de": "Saul offenbart seine Absicht, David zu töten",
+       "blk": "שָׁאוּל עוֹיֵן אֶת דָּוִד וּבְקִנְאָתוֹ מְבַקֵּשׁ אֶת נַפְשׁוֹ 18:6-20:42",
+       "blk_de": "Saul beäugt David argwöhnisch und trachtet ihm in seiner Eifersucht nach dem Leben 18:6-20:42"
+      },
+      {
+       "ref": "20:35-39",
+       "text": "יְהוֹנָתָן מוֹדִיעַ לְדָוִד מַה בְּלֵב אָבִיו עָלָיו",
+       "text_de": "Jonatan teilt David mit, was sein Vater gegen ihn im Sinn hat",
+       "blk": "שָׁאוּל עוֹיֵן אֶת דָּוִד וּבְקִנְאָתוֹ מְבַקֵּשׁ אֶת נַפְשׁוֹ 18:6-20:42",
+       "blk_de": "Saul beäugt David argwöhnisch und trachtet ihm in seiner Eifersucht nach dem Leben 18:6-20:42"
+      },
+      {
+       "ref": "20:40-42",
+       "text": "דָּוִד וִיהוֹנָתָן נִפְרָדִים זֶה מִזֶּה",
+       "text_de": "David und Jonatan nehmen voneinander Abschied",
+       "blk": "שָׁאוּל עוֹיֵן אֶת דָּוִד וּבְקִנְאָתוֹ מְבַקֵּשׁ אֶת נַפְשׁוֹ 18:6-20:42",
+       "blk_de": "Saul beäugt David argwöhnisch und trachtet ihm in seiner Eifersucht nach dem Leben 18:6-20:42"
+      }
+     ]
     },
     {
      "ref": "21:1-10",
@@ -322,7 +1145,30 @@
      "place_de": "Nob",
      "place_en": "Nob",
      "par_de": "Erwähnung: Psalm 52",
-     "par_en": "Mention: Psalm 52"
+     "par_en": "Mention: Psalm 52",
+     "sub": [
+      {
+       "ref": "21:1-5",
+       "text": "דָּוִד מְבַקֵּשׁ לֶחֶם",
+       "text_de": "David bittet um Brot",
+       "blk": "דָּוִד בִּנְדוּדָיו 21:1-28:2 › דָּוִד בּוֹרֵחַ אֶל אָכִישׁ מֶלֶךְ גַּת 21:1-16",
+       "blk_de": "Davids Wanderungen 21:1-28:2 › David flieht zu Achisch, dem König von Gat 21:1-16"
+      },
+      {
+       "ref": "21:6-8",
+       "text": "אֲחִימֶלֶךְ נוֹתֵן לוֹ מִלֶּחֶם הַפָּנִים",
+       "text_de": "Ahimelech gibt ihm von den Schaubroten",
+       "blk": "דָּוִד בִּנְדוּדָיו 21:1-28:2 › דָּוִד בּוֹרֵחַ אֶל אָכִישׁ מֶלֶךְ גַּת 21:1-16",
+       "blk_de": "Davids Wanderungen 21:1-28:2 › David flieht zu Achisch, dem König von Gat 21:1-16"
+      },
+      {
+       "ref": "21:9-10",
+       "text": "דָּוִד מְבַקֵּשׁ גַּם חֶרֶב",
+       "text_de": "David bittet auch um ein Schwert",
+       "blk": "דָּוִד בִּנְדוּדָיו 21:1-28:2 › דָּוִד בּוֹרֵחַ אֶל אָכִישׁ מֶלֶךְ גַּת 21:1-16",
+       "blk_de": "Davids Wanderungen 21:1-28:2 › David flieht zu Achisch, dem König von Gat 21:1-16"
+      }
+     ]
     },
     {
      "ref": "21:11-16",
@@ -334,7 +1180,23 @@
      "place_de": "Gat",
      "place_en": "Gath",
      "par_de": "Seine Gebete zu jener Zeit: Psalm 34; 56",
-     "par_en": "His prayers at that time: Psalms 34; 56"
+     "par_en": "His prayers at that time: Psalms 34; 56",
+     "sub": [
+      {
+       "ref": "21:11-14",
+       "text": "דָּוִד מְשַׁנֶּה אֶת טַעְמוֹ",
+       "text_de": "David verstellt sein Benehmen",
+       "blk": "דָּוִד בִּנְדוּדָיו 21:1-28:2 › דָּוִד בּוֹרֵחַ אֶל אָכִישׁ מֶלֶךְ גַּת 21:1-16",
+       "blk_de": "Davids Wanderungen 21:1-28:2 › David flieht zu Achisch, dem König von Gat 21:1-16"
+      },
+      {
+       "ref": "21:15-16",
+       "text": "אָכִישׁ מְגָרֵשׁ אֶת דָּוִד",
+       "text_de": "Achisch vertreibt David",
+       "blk": "דָּוִד בִּנְדוּדָיו 21:1-28:2 › דָּוִד בּוֹרֵחַ אֶל אָכִישׁ מֶלֶךְ גַּת 21:1-16",
+       "blk_de": "Davids Wanderungen 21:1-28:2 › David flieht zu Achisch, dem König von Gat 21:1-16"
+      }
+     ]
     },
     {
      "ref": "22",
@@ -346,7 +1208,58 @@
      "place_de": "[Höhle von Adullam, Wald Heret], Rama, Nob",
      "place_en": "[cave of Adullam, forest of Hereth], Ramah, Nob",
      "par_de": "Davids Worte über Doëg: Psalm 52 · Fortsetzung des Themas: 2. Samuel 21:1–14",
-     "par_en": "David's words about Doeg: Psalm 52 · Continuation of the topic: 2 Samuel 21:1–14"
+     "par_en": "David's words about Doeg: Psalm 52 · Continuation of the topic: 2 Samuel 21:1–14",
+     "sub": [
+      {
+       "ref": "22:1-5",
+       "text": "דָּוִד מְכוֹנֵן לוֹ גְדוּד בַּעֲדֻלָּם",
+       "text_de": "David sammelt eine Schar bei Adullam",
+       "blk": "דָּוִד בִּנְדוּדָיו 21:1-28:2 › שָׁאוּל מוֹצִיא לַהוֹרֵג אֶת כֹּהֲנֵי נֹב 22:1-23",
+       "blk_de": "Davids Wanderungen 21:1-28:2 › Saul lässt die Priester von Nob töten 22:1-23"
+      },
+      {
+       "ref": "22:6-8",
+       "text": "שָׁאוּל מוֹכִיחַ אֶת שָׂרָיו עַל כִּי אֵינָם נֶאֱמָנִים לוֹ",
+       "text_de": "Saul tadelt seine Obersten, weil sie ihm nicht treu sind",
+       "blk": "דָּוִד בִּנְדוּדָיו 21:1-28:2 › שָׁאוּל מוֹצִיא לַהוֹרֵג אֶת כֹּהֲנֵי נֹב 22:1-23",
+       "blk_de": "Davids Wanderungen 21:1-28:2 › Saul lässt die Priester von Nob töten 22:1-23"
+      },
+      {
+       "ref": "22:9-11",
+       "text": "דֹּאֵג מַלְשִׁין עַל אֲחִימֶלֶךְ בֶּן־אֲחִיטוּב",
+       "text_de": "Doëg verrät Ahimelech, den Sohn Ahitubs",
+       "blk": "דָּוִד בִּנְדוּדָיו 21:1-28:2 › שָׁאוּל מוֹצִיא לַהוֹרֵג אֶת כֹּהֲנֵי נֹב 22:1-23",
+       "blk_de": "Davids Wanderungen 21:1-28:2 › Saul lässt die Priester von Nob töten 22:1-23"
+      },
+      {
+       "ref": "22:12-13",
+       "text": "שָׁאוּל מַאֲשִׁים אֶת אֲחִימֶלֶךְ וּבֵיתוֹ בִּקְשִׁירַת קֶשֶׁר עָלָיו",
+       "text_de": "Saul beschuldigt Ahimelech und sein Haus der Verschwörung gegen ihn",
+       "blk": "דָּוִד בִּנְדוּדָיו 21:1-28:2 › שָׁאוּל מוֹצִיא לַהוֹרֵג אֶת כֹּהֲנֵי נֹב 22:1-23",
+       "blk_de": "Davids Wanderungen 21:1-28:2 › Saul lässt die Priester von Nob töten 22:1-23"
+      },
+      {
+       "ref": "22:14-17",
+       "text": "שָׁאוּל דָּן אֶת אֲחִימֶלֶךְ וְאֶת בֵּיתוֹ לְמָוֶת",
+       "text_de": "Saul verurteilt Ahimelech und sein Haus zum Tod",
+       "blk": "דָּוִד בִּנְדוּדָיו 21:1-28:2 › שָׁאוּל מוֹצִיא לַהוֹרֵג אֶת כֹּהֲנֵי נֹב 22:1-23",
+       "blk_de": "Davids Wanderungen 21:1-28:2 › Saul lässt die Priester von Nob töten 22:1-23"
+      },
+      {
+       "ref": "22:18-19",
+       "text": "דֹּאֵג הוֹרֵג אֶת הַכֹּהֲנִים וּמַחֲרִיב אֶת עִירָם - נֹב",
+       "text_de": "Doëg tötet die Priester und zerstört ihre Stadt Nob",
+       "blk": "דָּוִד בִּנְדוּדָיו 21:1-28:2 › שָׁאוּל מוֹצִיא לַהוֹרֵג אֶת כֹּהֲנֵי נֹב 22:1-23",
+       "blk_de": "Davids Wanderungen 21:1-28:2 › Saul lässt die Priester von Nob töten 22:1-23"
+      },
+      {
+       "ref": "22:20-23",
+       "text": "דָּוִד רוֹאֶה אֶת עַצְמוֹ כְּמִי שֶׁגָּרַם לְמַעֲשֶׂה נוֹרָא זֶה",
+       "text_de": "David sieht sich als Ursache dieser furchtbaren Tat",
+       "blk": "דָּוִד בִּנְדוּדָיו 21:1-28:2 › שָׁאוּל מוֹצִיא לַהוֹרֵג אֶת כֹּהֲנֵי נֹב 22:1-23",
+       "blk_de": "Davids Wanderungen 21:1-28:2 › Saul lässt die Priester von Nob töten 22:1-23"
+      }
+     ]
     },
     {
      "ref": "23:1-6",
@@ -355,7 +1268,23 @@
      "text_de": "Davids Schlag gegen die Philister bei Keïla",
      "text_en": "David's attack on the Philistines at Keilah",
      "place_de": "Keïla",
-     "place_en": "Keilah"
+     "place_en": "Keilah",
+     "sub": [
+      {
+       "ref": "23:1-5",
+       "text": "דָּוִד מוֹשִׁיעַ אֶת יוֹשְׁבֵי קְעִילָה מִיַּד הַפְּלִשְׁתִּים",
+       "text_de": "David rettet die Einwohner von Keïla aus der Hand der Philister",
+       "blk": "דָּוִד בִּנְדוּדָיו 21:1-28:2 › שָׁאוּל מְגַיֵּס אֶת כָּל צְבָאוֹ לִתְפֹּס אֶת דָּוִד 23:1-29",
+       "blk_de": "Davids Wanderungen 21:1-28:2 › Saul bietet sein ganzes Heer auf, um David zu ergreifen 23:1-29"
+      },
+      {
+       "ref": "23:6-12",
+       "text": "שָׁאוּל מְבַקֵּשׁ לָצוּר עַל קְעִילָה",
+       "text_de": "Saul will Keïla belagern",
+       "blk": "דָּוִד בִּנְדוּדָיו 21:1-28:2 › שָׁאוּל מְגַיֵּס אֶת כָּל צְבָאוֹ לִתְפֹּס אֶת דָּוִד 23:1-29",
+       "blk_de": "Davids Wanderungen 21:1-28:2 › Saul bietet sein ganzes Heer auf, um David zu ergreifen 23:1-29"
+      }
+     ]
     },
     {
      "ref": "23:7-29",
@@ -367,7 +1296,37 @@
      "place_de": "Wüste Sif, Wüste Maon, Bergfestungen von En-Gedi",
      "place_en": "Wilderness of Ziph, Wilderness of Maon, strongholds of En-gedi",
      "par_de": "Sein Gebet zu jener Zeit: Psalm 54; 63 (nach einigen Auslegern)",
-     "par_en": "His prayer at that time: Psalms 54; 63 (according to some commentators)"
+     "par_en": "His prayer at that time: Psalms 54; 63 (according to some commentators)",
+     "sub": [
+      {
+       "ref": "23:13-15",
+       "text": "הַמְּקוֹמוֹת שֶׁנָּדַד בָּהֶם דָּוִד לְאַחַר שֶׁנִּמְלַט מִקְּעִילָה",
+       "text_de": "Die Orte, an denen David nach seiner Flucht aus Keïla umherzog",
+       "blk": "דָּוִד בִּנְדוּדָיו 21:1-28:2 › שָׁאוּל מְגַיֵּס אֶת כָּל צְבָאוֹ לִתְפֹּס אֶת דָּוִד 23:1-29",
+       "blk_de": "Davids Wanderungen 21:1-28:2 › Saul bietet sein ganzes Heer auf, um David zu ergreifen 23:1-29"
+      },
+      {
+       "ref": "23:16-18",
+       "text": "יְהוֹנָתָן בָּא וּמְחַזֵּק אֶת יְדֵי דָוִד",
+       "text_de": "Jonatan kommt und stärkt Davids Hände",
+       "blk": "דָּוִד בִּנְדוּדָיו 21:1-28:2 › שָׁאוּל מְגַיֵּס אֶת כָּל צְבָאוֹ לִתְפֹּס אֶת דָּוִד 23:1-29",
+       "blk_de": "Davids Wanderungen 21:1-28:2 › Saul bietet sein ganzes Heer auf, um David zu ergreifen 23:1-29"
+      },
+      {
+       "ref": "23:19-24",
+       "text": "הַזִּיפִים מוֹדִיעִים לְשָׁאוּל אֶת הַמְּקוֹמוֹת שֶׁבָּהֶם דָּוִד מִסְתַּתֵּר",
+       "text_de": "Die Sifiter melden Saul die Orte, an denen David sich verbirgt",
+       "blk": "דָּוִד בִּנְדוּדָיו 21:1-28:2 › שָׁאוּל מְגַיֵּס אֶת כָּל צְבָאוֹ לִתְפֹּס אֶת דָּוִד 23:1-29",
+       "blk_de": "Davids Wanderungen 21:1-28:2 › Saul bietet sein ganzes Heer auf, um David zu ergreifen 23:1-29"
+      },
+      {
+       "ref": "23:25-29",
+       "text": "דָּוִד נִצַּל בְּדֶרֶךְ נֵס מִידֵי שָׁאוּל הָרוֹדֵף אַחֲרָיו",
+       "text_de": "David wird auf wunderbare Weise vor dem ihn verfolgenden Saul gerettet",
+       "blk": "דָּוִד בִּנְדוּדָיו 21:1-28:2 › שָׁאוּל מְגַיֵּס אֶת כָּל צְבָאוֹ לִתְפֹּס אֶת דָּוִד 23:1-29",
+       "blk_de": "Davids Wanderungen 21:1-28:2 › Saul bietet sein ganzes Heer auf, um David zu ergreifen 23:1-29"
+      }
+     ]
     },
     {
      "ref": "24:1-15",
@@ -379,7 +1338,23 @@
      "place_de": "Wüste En-Gedi",
      "place_en": "Wilderness of En-gedi",
      "par_de": "Seine Gebete zu jener Zeit: Psalm 7 (nach einigen Auslegern); 57; 142",
-     "par_en": "His prayers at that time: Psalms 7 (according to some commentators); 57; 142"
+     "par_en": "His prayers at that time: Psalms 7 (according to some commentators); 57; 142",
+     "sub": [
+      {
+       "ref": "24:1-7",
+       "text": "שָׁאוּל נוֹפֵל בִּידֵי דָוִד",
+       "text_de": "Saul fällt David in die Hände",
+       "blk": "דָּוִד בִּנְדוּדָיו 21:1-28:2 › דָּוִד חָס עַל שָׁאוּל הַנּוֹפֵל בְּיָדָיו 24:1-25:1",
+       "blk_de": "Davids Wanderungen 21:1-28:2 › David verschont Saul, der ihm in die Hände gefallen ist 24:1-25:1"
+      },
+      {
+       "ref": "24:8-15",
+       "text": "תּוֹכַחַת דָּוִד לְשָׁאוּל",
+       "text_de": "Davids Mahnrede an Saul",
+       "blk": "דָּוִד בִּנְדוּדָיו 21:1-28:2 › דָּוִד חָס עַל שָׁאוּל הַנּוֹפֵל בְּיָדָיו 24:1-25:1",
+       "blk_de": "Davids Wanderungen 21:1-28:2 › David verschont Saul, der ihm in die Hände gefallen ist 24:1-25:1"
+      }
+     ]
     },
     {
      "ref": "24:16-22",
@@ -391,7 +1366,16 @@
      "place_de": "Wüste En-Gedi",
      "place_en": "Wilderness of En-gedi",
      "par_de": "Seine Gebete zu jener Zeit: Psalm 7 (nach einigen Auslegern); 57; 142",
-     "par_en": "His prayers at that time: Psalms 7 (according to some commentators); 57; 142"
+     "par_en": "His prayers at that time: Psalms 7 (according to some commentators); 57; 142",
+     "sub": [
+      {
+       "ref": "24:16-22",
+       "text": "דִּבְרֵי חֲרָטָתוֹ שֶׁל שָׁאוּל וּבַקָּשָׁתוֹ",
+       "text_de": "Sauls Worte der Reue und seine Bitte",
+       "blk": "דָּוִד בִּנְדוּדָיו 21:1-28:2 › דָּוִד חָס עַל שָׁאוּל הַנּוֹפֵל בְּיָדָיו 24:1-25:1",
+       "blk_de": "Davids Wanderungen 21:1-28:2 › David verschont Saul, der ihm in die Hände gefallen ist 24:1-25:1"
+      }
+     ]
     },
     {
      "ref": "25:1",
@@ -403,7 +1387,16 @@
      "place_de": "Wüste Paran",
      "place_en": "Wilderness of Paran",
      "time_de": "28./29. Ijar 2884",
-     "time_en": "28/29 Iyar 2884"
+     "time_en": "28/29 Iyar 2884",
+     "sub": [
+      {
+       "ref": "25:1",
+       "text": "מוֹת שְׁמוּאֵל",
+       "text_de": "Samuels Tod",
+       "blk": "דָּוִד בִּנְדוּדָיו 21:1-28:2 › דָּוִד חָס עַל שָׁאוּל הַנּוֹפֵל בְּיָדָיו 24:1-25:1",
+       "blk_de": "Davids Wanderungen 21:1-28:2 › David verschont Saul, der ihm in die Hände gefallen ist 24:1-25:1"
+      }
+     ]
     },
     {
      "ref": "25:2-44",
@@ -415,7 +1408,58 @@
      "place_de": "Wüste Paran, Karmel",
      "place_en": "Wilderness of Paran, Carmel",
      "par_de": "Sein Gebet zu jener Zeit: Psalm 9 (nach einigen Auslegern)",
-     "par_en": "His prayer at that time: Psalm 9 (according to some commentators)"
+     "par_en": "His prayer at that time: Psalm 9 (according to some commentators)",
+     "sub": [
+      {
+       "ref": "25:2-3",
+       "text": "נָבָל וַאֲבִיגַיִל אִשְׁתּוֹ",
+       "text_de": "Nabal und seine Frau Abigajil",
+       "blk": "דָּוִד בִּנְדוּדָיו 21:1-28:2 › מַעֲשֵׂה נָבָל וַאֲבִיגַיִל 25:2-43",
+       "blk_de": "Davids Wanderungen 21:1-28:2 › Die Geschichte von Nabal und Abigajil 25:2-43"
+      },
+      {
+       "ref": "25:4-12",
+       "text": "דָּוִד שׁוֹלֵחַ מִשְׁלַחַת שָׁלוֹם אֶל נָבָל וּתְשׁוּבַת נָבָל הַשַּׁחְצָנִית",
+       "text_de": "David sendet eine Friedensgesandtschaft zu Nabal, und Nabals überhebliche Antwort",
+       "blk": "דָּוִד בִּנְדוּדָיו 21:1-28:2 › מַעֲשֵׂה נָבָל וַאֲבִיגַיִל 25:2-43",
+       "blk_de": "Davids Wanderungen 21:1-28:2 › Die Geschichte von Nabal und Abigajil 25:2-43"
+      },
+      {
+       "ref": "25:13-22",
+       "text": "דָּוִד מְבַקֵּשׁ לִנְקֹם בְּנָבָל, וַאֲבִיגַיִל מְמַהֶרֶת לְפַיְּסוֹ",
+       "text_de": "David will sich an Nabal rächen, und Abigajil eilt, ihn zu besänftigen",
+       "blk": "דָּוִד בִּנְדוּדָיו 21:1-28:2 › מַעֲשֵׂה נָבָל וַאֲבִיגַיִל 25:2-43",
+       "blk_de": "Davids Wanderungen 21:1-28:2 › Die Geschichte von Nabal und Abigajil 25:2-43"
+      },
+      {
+       "ref": "25:23-35",
+       "text": "דִּבְרֵי אֲבִיגַיִל וּתְשׁוּבַת דָּוִד",
+       "text_de": "Abigajils Rede und Davids Antwort",
+       "blk": "דָּוִד בִּנְדוּדָיו 21:1-28:2 › מַעֲשֵׂה נָבָל וַאֲבִיגַיִל 25:2-43",
+       "blk_de": "Davids Wanderungen 21:1-28:2 › Die Geschichte von Nabal und Abigajil 25:2-43"
+      },
+      {
+       "ref": "25:36-38",
+       "text": "מוֹת נָבָל",
+       "text_de": "Nabals Tod",
+       "blk": "דָּוִד בִּנְדוּדָיו 21:1-28:2 › מַעֲשֵׂה נָבָל וַאֲבִיגַיִל 25:2-43",
+       "blk_de": "Davids Wanderungen 21:1-28:2 › Die Geschichte von Nabal und Abigajil 25:2-43"
+      },
+      {
+       "ref": "25:39-43",
+       "text": "דָּוִד נוֹשֵׂא אֶת אֲבִיגַיִל לְאִשָּׁה",
+       "text_de": "David nimmt Abigajil zur Frau",
+       "blk": "דָּוִד בִּנְדוּדָיו 21:1-28:2 › מַעֲשֵׂה נָבָל וַאֲבִיגַיִל 25:2-43",
+       "blk_de": "Davids Wanderungen 21:1-28:2 › Die Geschichte von Nabal und Abigajil 25:2-43"
+      },
+      {
+       "ref": "25:44",
+       "text": "שָׁאוּל נוֹתֵן אֶת מִיכַל בִּתּוֹ לְפַלְטִי",
+       "text_de": "Saul gibt seine Tochter Michal dem Palti",
+       "blk": "דָּוִד בִּנְדוּדָיו 21:1-28:2 › דָּוִד חָס שֵׁנִית עַל נַפְשׁוֹ שֶׁל שָׁאוּל וְשָׁאוּל מְבָרְכוֹ 25:44-26:25",
+       "blk_de": "Davids Wanderungen 21:1-28:2 › David verschont Saul zum zweiten Mal, und Saul segnet ihn 25:44-26:25"
+      }
+     ]
     },
     {
      "ref": "26:1-4",
@@ -427,7 +1471,16 @@
      "place_de": "Wüste Sif",
      "place_en": "Wilderness of Ziph",
      "par_de": "Sein Gebet zu jener Zeit: Psalm 54; 63 (nach einigen Auslegern)",
-     "par_en": "His prayer at that time: Psalms 54; 63 (according to some commentators)"
+     "par_en": "His prayer at that time: Psalms 54; 63 (according to some commentators)",
+     "sub": [
+      {
+       "ref": "26:1-7",
+       "text": "דָּוִד חוֹקֵר וּבָא אֶל מְקוֹם מַחֲנֵהוּ שֶׁל שָׁאוּל",
+       "text_de": "David erkundet Sauls Lagerplatz und gelangt dorthin",
+       "blk": "דָּוִד בִּנְדוּדָיו 21:1-28:2 › דָּוִד חָס שֵׁנִית עַל נַפְשׁוֹ שֶׁל שָׁאוּל וְשָׁאוּל מְבָרְכוֹ 25:44-26:25",
+       "blk_de": "Davids Wanderungen 21:1-28:2 › David verschont Saul zum zweiten Mal, und Saul segnet ihn 25:44-26:25"
+      }
+     ]
     },
     {
      "ref": "26:5-25",
@@ -439,7 +1492,37 @@
      "place_de": "Wüste Sif",
      "place_en": "Wilderness of Ziph",
      "par_de": "Sein Gebet zu jener Zeit: Psalm 58 (nach einigen Auslegern)",
-     "par_en": "His prayer at that time: Psalm 58 (according to some commentators)"
+     "par_en": "His prayer at that time: Psalm 58 (according to some commentators)",
+     "sub": [
+      {
+       "ref": "26:8-9",
+       "text": "אֲבִישַׁי מְבַקֵּשׁ רְשׁוּת לְהַכּוֹת אֶת שָׁאוּל",
+       "text_de": "Abischai bittet um Erlaubnis, Saul zu erschlagen",
+       "blk": "דָּוִד בִּנְדוּדָיו 21:1-28:2 › דָּוִד חָס שֵׁנִית עַל נַפְשׁוֹ שֶׁל שָׁאוּל וְשָׁאוּל מְבָרְכוֹ 25:44-26:25",
+       "blk_de": "Davids Wanderungen 21:1-28:2 › David verschont Saul zum zweiten Mal, und Saul segnet ihn 25:44-26:25"
+      },
+      {
+       "ref": "26:10-14",
+       "text": "דָּוִד חָס שֵׁנִית עַל נַפְשׁוֹ שֶׁל שָׁאוּל",
+       "text_de": "David verschont Saul zum zweiten Mal",
+       "blk": "דָּוִד בִּנְדוּדָיו 21:1-28:2 › דָּוִד חָס שֵׁנִית עַל נַפְשׁוֹ שֶׁל שָׁאוּל וְשָׁאוּל מְבָרְכוֹ 25:44-26:25",
+       "blk_de": "Davids Wanderungen 21:1-28:2 › David verschont Saul zum zweiten Mal, und Saul segnet ihn 25:44-26:25"
+      },
+      {
+       "ref": "26:15-24",
+       "text": "תּוֹכַחַת דָּוִד לְאַבְנֵר וּלְשָׁאוּל וּתְשׁוּבַת שָׁאוּל",
+       "text_de": "Davids Mahnrede an Abner und Saul und Sauls Antwort",
+       "blk": "דָּוִד בִּנְדוּדָיו 21:1-28:2 › דָּוִד חָס שֵׁנִית עַל נַפְשׁוֹ שֶׁל שָׁאוּל וְשָׁאוּל מְבָרְכוֹ 25:44-26:25",
+       "blk_de": "Davids Wanderungen 21:1-28:2 › David verschont Saul zum zweiten Mal, und Saul segnet ihn 25:44-26:25"
+      },
+      {
+       "ref": "26:25",
+       "text": "בִּרְכַּת שָׁאוּל לְדָוִד",
+       "text_de": "Sauls Segen für David",
+       "blk": "דָּוִד בִּנְדוּדָיו 21:1-28:2 › דָּוִד חָס שֵׁנִית עַל נַפְשׁוֹ שֶׁל שָׁאוּל וְשָׁאוּל מְבָרְכוֹ 25:44-26:25",
+       "blk_de": "Davids Wanderungen 21:1-28:2 › David verschont Saul zum zweiten Mal, und Saul segnet ihn 25:44-26:25"
+      }
+     ]
     },
     {
      "ref": "27",
@@ -451,7 +1534,30 @@
      "place_de": "Gat, Ziklag, und weitere Orte",
      "place_en": "Gath, Ziklag, and others",
      "time_de": "2884",
-     "time_en": "2884"
+     "time_en": "2884",
+     "sub": [
+      {
+       "ref": "27:1-4",
+       "text": "דָּוִד נִמְלַט לְאֶרֶץ פְּלִשְׁתִּים",
+       "text_de": "David flieht ins Land der Philister",
+       "blk": "דָּוִד בִּנְדוּדָיו 21:1-28:2 › דָּוִד מְבַקֵּשׁ לוֹ מִקְלָט בְּאֶרֶץ פְּלִשְׁתִּים 27:1-28:2",
+       "blk_de": "Davids Wanderungen 21:1-28:2 › David sucht sich Zuflucht im Land der Philister 27:1-28:2"
+      },
+      {
+       "ref": "27:5-6",
+       "text": "דָּוִד מִתְיַשֵּׁב בְּצִקְלָג",
+       "text_de": "David lässt sich in Ziklag nieder",
+       "blk": "דָּוִד בִּנְדוּדָיו 21:1-28:2 › דָּוִד מְבַקֵּשׁ לוֹ מִקְלָט בְּאֶרֶץ פְּלִשְׁתִּים 27:1-28:2",
+       "blk_de": "Davids Wanderungen 21:1-28:2 › David sucht sich Zuflucht im Land der Philister 27:1-28:2"
+      },
+      {
+       "ref": "27:7-12",
+       "text": "פְּשִׁיטוֹת דָּוִד בַּדָּרוֹם מְסַיְּעוֹת לְיִשְׂרָאֵל",
+       "text_de": "Davids Raubzüge im Süden kommen Israel zugute",
+       "blk": "דָּוִד בִּנְדוּדָיו 21:1-28:2 › דָּוִד מְבַקֵּשׁ לוֹ מִקְלָט בְּאֶרֶץ פְּלִשְׁתִּים 27:1-28:2",
+       "blk_de": "Davids Wanderungen 21:1-28:2 › David sucht sich Zuflucht im Land der Philister 27:1-28:2"
+      }
+     ]
     }
    ],
    "head_de": "Ereignisse um Saul und David",
@@ -470,7 +1576,23 @@
      "place_de": "Gat, Schunem, Gilboa",
      "place_en": "Gath, Shunem, Gilboa",
      "time_de": "2884",
-     "time_en": "2884"
+     "time_en": "2884",
+     "sub": [
+      {
+       "ref": "28:1-2",
+       "text": "דָּוִד מִתְבַּקֵּשׁ לָצֵאת עִם אָכִישׁ לְמִלְחָמָה בְּיִשְׂרָאֵל",
+       "text_de": "David wird aufgefordert, mit Achisch gegen Israel in den Krieg zu ziehen",
+       "blk": "דָּוִד בִּנְדוּדָיו 21:1-28:2 › דָּוִד מְבַקֵּשׁ לוֹ מִקְלָט בְּאֶרֶץ פְּלִשְׁתִּים 27:1-28:2",
+       "blk_de": "Davids Wanderungen 21:1-28:2 › David sucht sich Zuflucht im Land der Philister 27:1-28:2"
+      },
+      {
+       "ref": "28:3-4",
+       "text": "פְּתִיחָה לַפָּרָשָׁה: מוֹת שְׁמוּאֵל וַעֲקִירַת הָאֹבוֹת וְהַיִּדְּעוֹנִים עַל יְדֵי שָׁאוּל",
+       "text_de": "Einleitung zum Abschnitt: Samuels Tod und Sauls Beseitigung der Totenbeschwörer und Wahrsager",
+       "blk": "אַחֲרִית יְמֵי שָׁאוּל 28:3-31:99 › שָׁאוּל שׁוֹמֵעַ בְּקוֹל שְׁמוּאֵל הַמֵּת 28:3-25",
+       "blk_de": "Sauls letzte Tage 28:3-31:99 › Saul hört auf die Stimme des toten Samuel 28:3-25"
+      }
+     ]
     },
     {
      "ref": "28:5-25",
@@ -482,7 +1604,37 @@
      "place_de": "En-Dor",
      "place_en": "Endor",
      "time_de": "2884",
-     "time_en": "2884"
+     "time_en": "2884",
+     "sub": [
+      {
+       "ref": "28:5-6",
+       "text": "שָׁאוּל יָרֵא מִפְּנֵי הַפְּלִשְׁתִּים",
+       "text_de": "Saul fürchtet sich vor den Philistern",
+       "blk": "אַחֲרִית יְמֵי שָׁאוּל 28:3-31:99 › שָׁאוּל שׁוֹמֵעַ בְּקוֹל שְׁמוּאֵל הַמֵּת 28:3-25",
+       "blk_de": "Sauls letzte Tage 28:3-31:99 › Saul hört auf die Stimme des toten Samuel 28:3-25"
+      },
+      {
+       "ref": "28:7-14",
+       "text": "שָׁאוּל מְבַקֵּשׁ בַּעֲלַת־אוֹב שֶׁתַּעֲלֶה לוֹ אֶת שְׁמוּאֵל",
+       "text_de": "Saul sucht eine Totenbeschwörerin, die ihm Samuel heraufholen soll",
+       "blk": "אַחֲרִית יְמֵי שָׁאוּל 28:3-31:99 › שָׁאוּל שׁוֹמֵעַ בְּקוֹל שְׁמוּאֵל הַמֵּת 28:3-25",
+       "blk_de": "Sauls letzte Tage 28:3-31:99 › Saul hört auf die Stimme des toten Samuel 28:3-25"
+      },
+      {
+       "ref": "28:15-20",
+       "text": "תּוֹכַחַת שְׁמוּאֵל לְשָׁאוּל",
+       "text_de": "Samuels Mahnrede an Saul",
+       "blk": "אַחֲרִית יְמֵי שָׁאוּל 28:3-31:99 › שָׁאוּל שׁוֹמֵעַ בְּקוֹל שְׁמוּאֵל הַמֵּת 28:3-25",
+       "blk_de": "Sauls letzte Tage 28:3-31:99 › Saul hört auf die Stimme des toten Samuel 28:3-25"
+      },
+      {
+       "ref": "28:21-25",
+       "text": "בַּעֲלַת הָאוֹב סוֹעֶדֶת אֶת שָׁאוּל",
+       "text_de": "Die Totenbeschwörerin stärkt Saul",
+       "blk": "אַחֲרִית יְמֵי שָׁאוּל 28:3-31:99 › שָׁאוּל שׁוֹמֵעַ בְּקוֹל שְׁמוּאֵל הַמֵּת 28:3-25",
+       "blk_de": "Sauls letzte Tage 28:3-31:99 › Saul hört auf die Stimme des toten Samuel 28:3-25"
+      }
+     ]
     },
     {
      "ref": "29",
@@ -494,7 +1646,23 @@
      "place_de": "Afek",
      "place_en": "Aphek",
      "time_de": "2884",
-     "time_en": "2884"
+     "time_en": "2884",
+     "sub": [
+      {
+       "ref": "29:1-5",
+       "text": "שָׂרֵי הַפְּלִשְׁתִּים מִתְנַגְּדִים לִכְלֹל אֶת דָּוִד בִּצְבָאָם",
+       "text_de": "Die Fürsten der Philister widersprechen, David in ihr Heer aufzunehmen",
+       "blk": "אַחֲרִית יְמֵי שָׁאוּל 28:3-31:99 › שָׂרֵי הַפְּלִשְׁתִּים מִתְנַגְּדִים שֶׁיִּלָּחֵם דָּוִד יַחַד עִמָּהֶם בְּיִשְׂרָאֵל 29",
+       "blk_de": "Sauls letzte Tage 28:3-31:99 › Die Fürsten der Philister widersprechen, dass David mit ihnen gegen Israel kämpft 29"
+      },
+      {
+       "ref": "29:6-11",
+       "text": "אָכִישׁ מְשַׁלֵּחַ אֶת דָּוִד מִן הַמַּעֲרָכָה",
+       "text_de": "Achisch entlässt David aus der Schlachtordnung",
+       "blk": "אַחֲרִית יְמֵי שָׁאוּל 28:3-31:99 › שָׂרֵי הַפְּלִשְׁתִּים מִתְנַגְּדִים שֶׁיִּלָּחֵם דָּוִד יַחַד עִמָּהֶם בְּיִשְׂרָאֵל 29",
+       "blk_de": "Sauls letzte Tage 28:3-31:99 › Die Fürsten der Philister widersprechen, dass David mit ihnen gegen Israel kämpft 29"
+      }
+     ]
     },
     {
      "ref": "30",
@@ -509,7 +1677,37 @@
      "par_de": "Verteilung der Beute: Genesis 14:24",
      "par_en": "Division of the spoil: Genesis 14:24",
      "time_de": "2884",
-     "time_en": "2884"
+     "time_en": "2884",
+     "sub": [
+      {
+       "ref": "30:1-6",
+       "text": "פשיטת העמלקי על צקלג",
+       "text_de": "Der Überfall der Amalekiter auf Ziklag",
+       "blk": "אַחֲרִית יְמֵי שָׁאוּל 28:3-31:99 › מִלְחֶמֶת דָּוִד בָּעֲמָלֵקִי 30",
+       "blk_de": "Sauls letzte Tage 28:3-31:99 › Davids Krieg gegen die Amalekiter 30"
+      },
+      {
+       "ref": "30:7-20",
+       "text": "דוד רודף אחרי העמלקי ומציל את השבוים",
+       "text_de": "David verfolgt die Amalekiter und rettet die Gefangenen",
+       "blk": "אַחֲרִית יְמֵי שָׁאוּל 28:3-31:99 › מִלְחֶמֶת דָּוִד בָּעֲמָלֵקִי 30",
+       "blk_de": "Sauls letzte Tage 28:3-31:99 › Davids Krieg gegen die Amalekiter 30"
+      },
+      {
+       "ref": "30:21-28",
+       "text": "תקנת דוד לחלוקת השלל",
+       "text_de": "Davids Verordnung über die Verteilung der Beute",
+       "blk": "אַחֲרִית יְמֵי שָׁאוּל 28:3-31:99 › מִלְחֶמֶת דָּוִד בָּעֲמָלֵקִי 30",
+       "blk_de": "Sauls letzte Tage 28:3-31:99 › Davids Krieg gegen die Amalekiter 30"
+      },
+      {
+       "ref": "30:26-31",
+       "text": "הברכה לזקני יהודה",
+       "text_de": "Der Segensgruß an die Ältesten Judas",
+       "blk": "אַחֲרִית יְמֵי שָׁאוּל 28:3-31:99 › מִלְחֶמֶת דָּוִד בָּעֲמָלֵקִי 30",
+       "blk_de": "Sauls letzte Tage 28:3-31:99 › Davids Krieg gegen die Amalekiter 30"
+      }
+     ]
     },
     {
      "ref": "31",
@@ -524,7 +1722,23 @@
      "par_de": "Wiederholung: 1. Chronik 10",
      "par_en": "Repeat: 1 Chronicles 10",
      "time_de": "28. Elul 2884",
-     "time_en": "28 Elul 2884"
+     "time_en": "28 Elul 2884",
+     "sub": [
+      {
+       "ref": "31:1-7",
+       "text": "מנוסת ישראל ומות שאול ובניו",
+       "text_de": "Die Flucht Israels und der Tod Sauls und seiner Söhne",
+       "blk": "אַחֲרִית יְמֵי שָׁאוּל 28:3-31:99 › מוֹת שָׁאוּל וּבָנָיו 31",
+       "blk_de": "Sauls letzte Tage 28:3-31:99 › Tod Sauls und seiner Söhne 31"
+      },
+      {
+       "ref": "31:8-13",
+       "text": "אנשי יבש גלעד קוברים את עצמות שאול ובניו",
+       "text_de": "Die Männer von Jabesch in Gilead begraben die Gebeine Sauls und seiner Söhne",
+       "blk": "אַחֲרִית יְמֵי שָׁאוּל 28:3-31:99 › מוֹת שָׁאוּל וּבָנָיו 31",
+       "blk_de": "Sauls letzte Tage 28:3-31:99 › Tod Sauls und seiner Söhne 31"
+      }
+     ]
     }
    ],
    "head_de": "Sauls Tod",
@@ -533,6 +1747,6 @@
  ],
  "title_de": "Inhalt des 1. Buches Samuel",
  "title_en": "Contents of the First Book of Samuel",
- "note_de": "Abgeschrieben aus einer Übersichtstabelle (SifreiKodesh) und übersetzt. Jahre nach der jüdischen Zählung (Anno Mundi), wie in der Vorlage gedruckt.",
- "note_en": "Transcribed from an overview table (SifreiKodesh) and translated. Years follow the Jewish count (from the creation of the world), as printed in the source."
+ "note_de": "Abgeschrieben aus einer Übersichtstabelle (SifreiKodesh) und übersetzt. Jahre nach der jüdischen Zählung (Anno Mundi), wie in der Vorlage gedruckt. Unterpunkte aus der Gliederung von „Da'at Mikra“ (Teilpunkte mit Versangaben, mit Hinweis auf den jeweiligen Abschnitt) ergänzt und ins Deutsche übersetzt.",
+ "note_en": "Transcribed from an overview table (SifreiKodesh) and translated. Years follow the Jewish count (from the creation of the world), as printed in the source. Sub-points from the Da'at Mikra outlines (parts with verse references, labelled with their section) added; German translation."
 }

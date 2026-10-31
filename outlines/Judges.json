@@ -1,7 +1,7 @@
 {
  "book": "Judges",
  "title": "תוכן ספר שופטים",
- "note": "Abgeschrieben aus einer Übersichtstabelle (SifreiKodesh). Jahre nach der jüdischen Zählung (Anno Mundi), wie in der Vorlage gedruckt; die Vorlage rechnet teils nach Seder Olam, Raschi u. a.",
+ "note": "Abgeschrieben aus einer Übersichtstabelle (SifreiKodesh). Jahre nach der jüdischen Zählung (Anno Mundi), wie in der Vorlage gedruckt; die Vorlage rechnet teils nach Seder Olam, Raschi u. a. · הורחב בחלוקת דעת מקרא (פסקאות עם מראי מקום).",
  "sections": [
   {
    "head": "סיום הנהגת יהושע",
@@ -19,7 +19,23 @@
      "par_de": "Fortsetzung von: Josua 13:1–6; 14:6–15; 15–17; 19:1–9 · Eroberung von Kirjat-Sefer (Wiederholung): Josua 15",
      "par_en": "Continuation of: Joshua 13:1–6; 14:6–15; 15–17; 19:1–9 · Conquest of Kiriath-sepher (repeated): Joshua 15",
      "time_de": "2516",
-     "time_en": "2516"
+     "time_en": "2516",
+     "sub": [
+      {
+       "ref": "1:1-20",
+       "text": "יהודה ושמעון ממשיכים בכבוש הארץ.",
+       "text_de": "Juda und Simeon setzen die Eroberung des Landes fort.",
+       "blk": "הַחֵלֶק הָרִאשׁוֹן: עֲוֹון הַבְּרִית עִם הַכְּנַעֲנִי 1:1-2:5",
+       "blk_de": "Der erste Teil: Die Schuld des Bundes mit dem Kanaaniter 1:1-2:5"
+      },
+      {
+       "ref": "1:22-26",
+       "text": "כבוש בית-אל בידי בית-יוסף.",
+       "text_de": "Die Eroberung von Bet-El durch das Haus Josef.",
+       "blk": "הַחֵלֶק הָרִאשׁוֹן: עֲוֹון הַבְּרִית עִם הַכְּנַעֲנִי 1:1-2:5",
+       "blk_de": "Der erste Teil: Die Schuld des Bundes mit dem Kanaaniter 1:1-2:5"
+      }
+     ]
     },
     {
      "ref": "1:27-2:5",
@@ -28,7 +44,23 @@
      "text_de": "Aufzählung der Städte, die nicht erobert wurden",
      "text_en": "The cities that were not conquered",
      "par_de": "Wiederholung: Josua 16:10; 17:12–13 · Warnung dazu: Numeri 33:50–56",
-     "par_en": "Repeated: Joshua 16:10; 17:12–13 · Warning about it: Numbers 33:50–56"
+     "par_en": "Repeated: Joshua 16:10; 17:12–13 · Warning about it: Numbers 33:50–56",
+     "sub": [
+      {
+       "ref": "1:27-36",
+       "text": "יתר כל המבלעות הכנעניות נשארות ושבטי ישראל (פרט ליהודה ושמעון) כורתים ברית עם יושביהן.",
+       "text_de": "Alle übrigen kanaanäischen Enklaven bleiben bestehen, und die Stämme Israels (außer Juda und Simeon) schließen einen Bund mit ihren Bewohnern.",
+       "blk": "הַחֵלֶק הָרִאשׁוֹן: עֲוֹון הַבְּרִית עִם הַכְּנַעֲנִי 1:1-2:5",
+       "blk_de": "Der erste Teil: Die Schuld des Bundes mit dem Kanaaniter 1:1-2:5"
+      },
+      {
+       "ref": "2:1-5",
+       "text": "תוכחת הנביא בבוכים.",
+       "text_de": "Die Mahnrede des Propheten in Bochim.",
+       "blk": "הַחֵלֶק הָרִאשׁוֹן: עֲוֹון הַבְּרִית עִם הַכְּנַעֲנִי 1:1-2:5",
+       "blk_de": "Der erste Teil: Die Schuld des Bundes mit dem Kanaaniter 1:1-2:5"
+      }
+     ]
     },
     {
      "ref": "2:6-10",
@@ -558,7 +590,16 @@
      "par_de": "Erwähnung: Hosea 10:9–10 (nach einigen Auslegern)",
      "par_en": "Mention: Hosea 10:9–10 (according to some commentators)",
      "time_de": "2524–2556",
-     "time_en": "2524–2556"
+     "time_en": "2524–2556",
+     "sub": [
+      {
+       "ref": "17-18",
+       "text": "פרשת פסל מיכה (ומשלבות בה קורות התנחלותו של שבט דן בצפון) - נאמרה בנעימה של תוכחה עטופה בלגלוג נוגה. במרכז העלילה 'בית אלהים' (יז ה) שעבודת ה' ומנהגי כנען משמשים בו בערבוביה. רוממות דברי קדש בפיהם של האנשים, ומעשי גנבה, גזלה ואמונה תפלה בידיהם.",
+       "text_de": "Die Geschichte vom Götterbild Michas (mit eingeflochtenen Berichten über die Landnahme des Stammes Dan im Norden) - vorgetragen im Ton einer Zurechtweisung, die in wehmütigen Spott gehüllt ist. Im Mittelpunkt der Handlung steht das „Gotteshaus“ (17,5), in dem der Dienst des HERRN und kanaanäische Bräuche durcheinander gehen. Erhabene heilige Worte im Mund der Menschen, doch Diebstahl, Raub und Aberglaube in ihren Händen.",
+       "blk": "הַחֵלֶק הַשְּׁלִישִׁי: פֶּסֶל מִיכָה וּפִילֶגֶשׁ בַּגִּבְעָה 17-21",
+       "blk_de": "Der dritte Teil: Das Götterbild Michas und die Nebenfrau in Gibea 17-21"
+      }
+     ]
     },
     {
      "ref": "18",
@@ -592,7 +633,16 @@
      "place_de": "Betlehem in Juda, Gibea in Benjamin",
      "place_en": "Bethlehem in Judah, Gibeah of Benjamin",
      "par_de": "Erwähnung: Hosea 9:9 und 10:9 (nach einigen Auslegern)",
-     "par_en": "Mention: Hosea 9:9 and 10:9 (according to some commentators)"
+     "par_en": "Mention: Hosea 9:9 and 10:9 (according to some commentators)",
+     "sub": [
+      {
+       "ref": "19-21",
+       "text": "מעשה פילגש בגבעה - כלה חרדה ותוכחה מרה. תחלת המעשה גלוי עריות אכזרי בנוסח אנשי סדום המקלקלין שבכנענים, וסופה שפיכות דמים נוראה במלחמת אחים.",
+       "text_de": "Die Geschichte von der Nebenfrau in Gibea - eine Braut voller Schrecken und bittere Zurechtweisung. Der Anfang der Geschichte ist eine grausame Schändung nach Art der Leute von Sodom, der verdorbensten unter den Kanaanitern, ihr Ende ein furchtbares Blutvergießen im Bruderkrieg.",
+       "blk": "הַחֵלֶק הַשְּׁלִישִׁי: פֶּסֶל מִיכָה וּפִילֶגֶשׁ בַּגִּבְעָה 17-21",
+       "blk_de": "Der dritte Teil: Das Götterbild Michas und die Nebenfrau in Gibea 17-21"
+      }
+     ]
     },
     {
      "ref": "20:1-21:5",
@@ -625,6 +675,6 @@
  ],
  "title_de": "Inhalt des Buches der Richter",
  "title_en": "Contents of the Book of Judges",
- "note_de": "Abgeschrieben aus einer Übersichtstabelle (SifreiKodesh) und übersetzt. Jahre nach der jüdischen Zählung (seit der Erschaffung der Welt), wie in der Vorlage gedruckt; die Vorlage rechnet teils nach Seder Olam, Raschi u. a.",
- "note_en": "Transcribed from an overview table (SifreiKodesh) and translated. Years follow the Jewish count (from the creation of the world) as printed in the source; the source partly follows Seder Olam, Rashi and others."
+ "note_de": "Abgeschrieben aus einer Übersichtstabelle (SifreiKodesh) und übersetzt. Jahre nach der jüdischen Zählung (seit der Erschaffung der Welt), wie in der Vorlage gedruckt; die Vorlage rechnet teils nach Seder Olam, Raschi u. a. Unterpunkte aus der Gliederung von „Da'at Mikra“ (Teilpunkte mit Versangaben, mit Hinweis auf den jeweiligen Abschnitt) ergänzt und ins Deutsche übersetzt.",
+ "note_en": "Transcribed from an overview table (SifreiKodesh) and translated. Years follow the Jewish count (from the creation of the world) as printed in the source; the source partly follows Seder Olam, Rashi and others. Sub-points from the Da'at Mikra outlines (parts with verse references, labelled with their section) added; German translation."
 }

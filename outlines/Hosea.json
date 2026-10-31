@@ -1,7 +1,7 @@
 {
  "book": "Hosea",
  "title": "תוכן ספר הושע",
- "note": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt.",
+ "note": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt. · הורחב בחלוקת דעת מקרא (פסקאות עם מראי מקום).",
  "sections": [
   {
    "head": "ציווי ה' להושע",
@@ -10,31 +10,90 @@
      "ref": "1",
      "text": "נבואת תוכחה - עונשם של עשרת השבטים",
      "text_de": "Mahnprophezeiung – Strafe der zehn Stämme",
-     "text_en": "Prophecy of rebuke – punishment of the ten tribes"
+     "text_en": "Prophecy of rebuke – punishment of the ten tribes",
+     "sub": [
+      {
+       "ref": "1:2-9",
+       "text": "נִשּׂוּאֵי הוֹשֵׁעַ וּמַשְׁמָעוּתָם כְּסֵמֶל לִכְנֶסֶת יִשְׂרָאֵל",
+       "text_de": "Die Ehen Hoseas und ihre Bedeutung als Sinnbild für die Gemeinde Israels",
+       "blk": "הַנְּבוּאָה הַפּוֹתַחַת 1:2-3:5",
+       "blk_de": "Die einleitende Weissagung 1:2-3:5"
+      }
+     ]
     },
     {
      "ref": "2:1-3",
      "text": "נחמה - גאולתם מגלותם לעתיד",
      "text_de": "Trost – ihre künftige Erlösung aus dem Exil",
-     "text_en": "Consolation – their future redemption from exile"
+     "text_en": "Consolation – their future redemption from exile",
+     "sub": [
+      {
+       "ref": "2:1-3",
+       "text": "חֲזוֹן הַגְּאֻלָּה",
+       "text_de": "Die Vision der Erlösung",
+       "blk": "הַנְּבוּאָה הַפּוֹתַחַת 1:2-3:5",
+       "blk_de": "Die einleitende Weissagung 1:2-3:5"
+      }
+     ]
     },
     {
      "ref": "2:4-15",
      "text": "תוכחה והתראה מהעונש שיבוא לישראל",
      "text_de": "Mahnung und Warnung vor der Strafe, die über Israel kommen wird",
-     "text_en": "Rebuke and warning of the punishment that will come upon Israel"
+     "text_en": "Rebuke and warning of the punishment that will come upon Israel",
+     "sub": [
+      {
+       "ref": "2:4-15",
+       "text": "הַחֵטְא וְעָנְשׁוֹ",
+       "text_de": "Die Sünde und ihre Strafe",
+       "blk": "הַנְּבוּאָה הַפּוֹתַחַת 1:2-3:5",
+       "blk_de": "Die einleitende Weissagung 1:2-3:5"
+      }
+     ]
     },
     {
      "ref": "2:16-25",
      "text": "נחמה - שובם לה' לעתיד והטובות שישפיע להם אז",
      "text_de": "Trost – ihre künftige Rückkehr zu Gott und das Gute, das er ihnen dann zuteilwerden lässt",
-     "text_en": "Consolation – their future return to God and the blessings He will then bestow on them"
+     "text_en": "Consolation – their future return to God and the blessings He will then bestow on them",
+     "sub": [
+      {
+       "ref": "2:16-17",
+       "text": "פִּיּוּסִין",
+       "text_de": "Versöhnungen",
+       "blk": "הַנְּבוּאָה הַפּוֹתַחַת 1:2-3:5",
+       "blk_de": "Die einleitende Weissagung 1:2-3:5"
+      },
+      {
+       "ref": "2:18-23",
+       "text": "הָאֵרוּשִׂין ׳לְעוֹלָם׳",
+       "text_de": "Die Verlobung „für ewig“",
+       "blk": "הַנְּבוּאָה הַפּוֹתַחַת 1:2-3:5",
+       "blk_de": "Die einleitende Weissagung 1:2-3:5"
+      },
+      {
+       "ref": "2:23-25",
+       "text": "חֲזוֹן הַגְּאֻלָּה",
+       "text_de": "Die Vision der Erlösung",
+       "blk": "הַנְּבוּאָה הַפּוֹתַחַת 1:2-3:5",
+       "blk_de": "Die einleitende Weissagung 1:2-3:5"
+      }
+     ]
     },
     {
      "ref": "3",
      "text": "נבואה על ימי הגלות ועל הגאולה העתידה",
      "text_de": "Prophezeiung über die Zeit des Exils und die künftige Erlösung",
-     "text_en": "Prophecy about the time of exile and the future redemption"
+     "text_en": "Prophecy about the time of exile and the future redemption",
+     "sub": [
+      {
+       "ref": "3",
+       "text": "מִצְוַת ה׳ לְהוֹשֵׁעַ לֶאֱהֹב עוֹד אִשָּׁה",
+       "text_de": "Das Gebot des HERRN an Hosea, noch einmal eine Frau zu lieben",
+       "blk": "הַנְּבוּאָה הַפּוֹתַחַת 1:2-3:5",
+       "blk_de": "Die einleitende Weissagung 1:2-3:5"
+      }
+     ]
     }
    ],
    "head_de": "Gottes Gebot an Hosea",
@@ -47,43 +106,183 @@
      "ref": "4-5",
      "text": "תוכחה - חטאי העם ועונשם הצפוי",
      "text_de": "Mahnung – Sünden des Volkes und ihre zu erwartende Strafe",
-     "text_en": "Rebuke – the sins of the people and their expected punishment"
+     "text_en": "Rebuke – the sins of the people and their expected punishment",
+     "sub": [
+      {
+       "ref": "4:1-3",
+       "text": "הַחֵטְא וְעָנְשׁוֹ",
+       "text_de": "Die Sünde und ihre Strafe",
+       "blk": "׳רִיב לַה׳׳ עִם יִשְׂרָאֵל וּמוֹרָיו 4",
+       "blk_de": "Der „Rechtsstreit des HERRN“ mit Israel und seinen Lehrern 4"
+      },
+      {
+       "ref": "4:4-10",
+       "text": "אַשְׁמַת מוֹרֵי הָעָם וּמַדְרִיכָיו",
+       "text_de": "Die Schuld der Lehrer und Führer des Volkes",
+       "blk": "׳רִיב לַה׳׳ עִם יִשְׂרָאֵל וּמוֹרָיו 4",
+       "blk_de": "Der „Rechtsstreit des HERRN“ mit Israel und seinen Lehrern 4"
+      },
+      {
+       "ref": "4:11-14",
+       "text": "׳רוּחַ הַזְּנוּנִים׳ הַמַּתְעָה",
+       "text_de": "Der verführerische „Geist der Hurerei“",
+       "blk": "׳רִיב לַה׳׳ עִם יִשְׂרָאֵל וּמוֹרָיו 4",
+       "blk_de": "Der „Rechtsstreit des HERRN“ mit Israel und seinen Lehrern 4"
+      },
+      {
+       "ref": "4:15-19",
+       "text": "אַזְהָרָה לִיהוּדָה לְבַל יִגָּרֵר אַחֲרֵי מַעֲשֵׂי יִשְׂרָאֵל",
+       "text_de": "Warnung an Juda, sich nicht dem Tun Israels anzuschließen",
+       "blk": "׳רִיב לַה׳׳ עִם יִשְׂרָאֵל וּמוֹרָיו 4",
+       "blk_de": "Der „Rechtsstreit des HERRN“ mit Israel und seinen Lehrern 4"
+      },
+      {
+       "ref": "5:1-4",
+       "text": "הַהַאֲשָׁמָה",
+       "text_de": "Die Anklage",
+       "blk": "מַעַלְלֵי אֶפְרַיִם וּמִשְׁפָּטוֹ 5-6",
+       "blk_de": "Die Missetaten Ephraims und sein Gericht 5-6"
+      },
+      {
+       "ref": "5:8-11",
+       "text": "אַזְהָרָה מִפְּנֵי דָעֹנֶשׁ",
+       "text_de": "Warnung vor der Strafe",
+       "blk": "מַעַלְלֵי אֶפְרַיִם וּמִשְׁפָּטוֹ 5-6",
+       "blk_de": "Die Missetaten Ephraims und sein Gericht 5-6"
+      },
+      {
+       "ref": "5:12-15",
+       "text": "סִלּוּק הַשְּׁכִינָה מִיִּשְׂרָאֵל",
+       "text_de": "Der Rückzug der Schechina aus Israel",
+       "blk": "מַעַלְלֵי אֶפְרַיִם וּמִשְׁפָּטוֹ 5-6",
+       "blk_de": "Die Missetaten Ephraims und sein Gericht 5-6"
+      }
+     ]
     },
     {
      "ref": "6:1-3",
      "text": "נבואה - רצון ישראל לשוב לה'",
      "text_de": "Prophezeiung – Israels Wunsch, zu Gott zurückzukehren",
-     "text_en": "Prophecy – Israel's desire to return to God"
+     "text_en": "Prophecy – Israel's desire to return to God",
+     "sub": [
+      {
+       "ref": "6:1-6",
+       "text": "הַקְּרִיאָה לִתְשׁוּבָה שְׁלֵמָה",
+       "text_de": "Der Aufruf zu vollständiger Umkehr",
+       "blk": "מַעַלְלֵי אֶפְרַיִם וּמִשְׁפָּטוֹ 5-6",
+       "blk_de": "Die Missetaten Ephraims und sein Gericht 5-6"
+      }
+     ]
     },
     {
      "ref": "6:4-11",
      "text": "תוכחה - תשובתם לא תתקבל לפי שאינה שלימה",
      "text_de": "Mahnung – ihre Umkehr wird nicht angenommen, weil sie nicht vollständig ist",
-     "text_en": "Rebuke – their repentance will not be accepted because it is not complete"
+     "text_en": "Rebuke – their repentance will not be accepted because it is not complete",
+     "sub": [
+      {
+       "ref": "6:7-11",
+       "text": "הַשַּׁעֲרוּרִיָּה בְּיִשְׂרָאֵל",
+       "text_de": "Der Skandal in Israel",
+       "blk": "מַעַלְלֵי אֶפְרַיִם וּמִשְׁפָּטוֹ 5-6",
+       "blk_de": "Die Missetaten Ephraims und sein Gericht 5-6"
+      }
+     ]
     },
     {
      "ref": "7:1-12",
      "text": "תוכחה על חטאיהם ועל בטחונם באומות",
      "text_de": "Mahnung wegen ihrer Sünden und ihres Vertrauens auf die Völker",
-     "text_en": "Rebuke for their sins and their trust in the nations"
+     "text_en": "Rebuke for their sins and their trust in the nations",
+     "sub": [
+      {
+       "ref": "7:1-3",
+       "text": "הַשְּׁחִיתוּת בִּדְבָרִים שֶׁבֵּין אָדָם לַחֲבֵרוֹ",
+       "text_de": "Die Verdorbenheit im zwischenmenschlichen Bereich",
+       "blk": "תּוֹכֵחָה עַל דַּרְכֵי הַהַנְהָגָה שֶׁל מַמְלֶכֶת יִשְׂרָאֵל 7-8",
+       "blk_de": "Zurechtweisung wegen der Regierungsweise des Königreichs Israel 7-8"
+      },
+      {
+       "ref": "7:4-7",
+       "text": "הַשְּׁחִיתוּת שֶׁל גְּדוֹלֵי הַמַּלְכוּת",
+       "text_de": "Die Verdorbenheit der Großen des Königreichs",
+       "blk": "תּוֹכֵחָה עַל דַּרְכֵי הַהַנְהָגָה שֶׁל מַמְלֶכֶת יִשְׂרָאֵל 7-8",
+       "blk_de": "Zurechtweisung wegen der Regierungsweise des Königreichs Israel 7-8"
+      },
+      {
+       "ref": "7:8-12",
+       "text": "הַשְּׁחִיתוּת בְּהַנְהָגַת הַמַּמְלָכָה בְּעִנְיְנֵי חוּץ",
+       "text_de": "Die Verdorbenheit in der Außenpolitik des Königreichs",
+       "blk": "תּוֹכֵחָה עַל דַּרְכֵי הַהַנְהָגָה שֶׁל מַמְלֶכֶת יִשְׂרָאֵל 7-8",
+       "blk_de": "Zurechtweisung wegen der Regierungsweise des Königreichs Israel 7-8"
+      }
+     ]
     },
     {
      "ref": "7:13-16",
      "text": "תוכחה על בגידתם בה' החפץ בטובתם",
      "text_de": "Mahnung wegen ihres Verrats an Gott, der ihr Wohl will",
-     "text_en": "Rebuke for their betrayal of God, who desires their welfare"
+     "text_en": "Rebuke for their betrayal of God, who desires their welfare",
+     "sub": [
+      {
+       "ref": "7:13-16",
+       "text": "נְבוּאַת פֻּרְעָנוּת",
+       "text_de": "Weissagung des Unheils",
+       "blk": "תּוֹכֵחָה עַל דַּרְכֵי הַהַנְהָגָה שֶׁל מַמְלֶכֶת יִשְׂרָאֵל 7-8",
+       "blk_de": "Zurechtweisung wegen der Regierungsweise des Königreichs Israel 7-8"
+      }
+     ]
     },
     {
      "ref": "8",
      "text": "תוכחה על חטאי ישראל ומלכיהם ובפרט על ע\"ז",
      "text_de": "Mahnung wegen der Sünden Israels und seiner Könige, besonders des Götzendienstes",
-     "text_en": "Rebuke for the sins of Israel and its kings, especially idolatry"
+     "text_en": "Rebuke for the sins of Israel and its kings, especially idolatry",
+     "sub": [
+      {
+       "ref": "8:1-3",
+       "text": "בּוֹא הָאוֹיֵב",
+       "text_de": "Das Kommen des Feindes",
+       "blk": "תּוֹכֵחָה עַל דַּרְכֵי הַהַנְהָגָה שֶׁל מַמְלֶכֶת יִשְׂרָאֵל 7-8",
+       "blk_de": "Zurechtweisung wegen der Regierungsweise des Königreichs Israel 7-8"
+      },
+      {
+       "ref": "8:4-6",
+       "text": "הַחֵטְא בְּמַעֲשֵׂה הָעֲגָלִים",
+       "text_de": "Die Sünde mit den Kälbern",
+       "blk": "תּוֹכֵחָה עַל דַּרְכֵי הַהַנְהָגָה שֶׁל מַמְלֶכֶת יִשְׂרָאֵל 7-8",
+       "blk_de": "Zurechtweisung wegen der Regierungsweise des Königreichs Israel 7-8"
+      },
+      {
+       "ref": "8:7-14",
+       "text": "שִׁכְחַת ה׳ וְתוֹרָתוֹ, וְהָעֹנֶשׁ עַל כָּךְ",
+       "text_de": "Das Vergessen des HERRN und seiner Weisung und die Strafe dafür",
+       "blk": "תּוֹכֵחָה עַל דַּרְכֵי הַהַנְהָגָה שֶׁל מַמְלֶכֶת יִשְׂרָאֵל 7-8",
+       "blk_de": "Zurechtweisung wegen der Regierungsweise des Königreichs Israel 7-8"
+      }
+     ]
     },
     {
      "ref": "9:1-10",
      "text": "תוכחה - הגלות העתידה לבוא וסיבתה",
      "text_de": "Mahnung – das kommende Exil und sein Grund",
-     "text_en": "Rebuke – the coming exile and its cause"
+     "text_en": "Rebuke – the coming exile and its cause",
+     "sub": [
+      {
+       "ref": "9:1-9",
+       "text": "הָעֹנֶשׁ שֶׁבַּגָּלוּת",
+       "text_de": "Die Strafe des Exils",
+       "blk": "גָּלוּת וְחֻרְבָּן 9:1-10:8",
+       "blk_de": "Exil und Zerstörung 9:1-10:8"
+      },
+      {
+       "ref": "9:10-17",
+       "text": "בִּינָה בְּמַעֲשֵׂי הַדּוֹרוֹת הַקּוֹדְמִים",
+       "text_de": "Einsicht aus dem Tun der früheren Generationen",
+       "blk": "גָּלוּת וְחֻרְבָּן 9:1-10:8",
+       "blk_de": "Exil und Zerstörung 9:1-10:8"
+      }
+     ]
     },
     {
      "ref": "9:11-17",
@@ -92,16 +291,99 @@
      "text_en": "The prophet's prayer to God and his response"
     },
     {
+     "ref": "10:1-8",
+     "text": "הַשְׁמָדַת הַבָּמוֹת וְחֻרְבַּן הַמַּמְלָכָה",
+     "text_de": "Die Vernichtung der Höhen und der Untergang des Königreichs",
+     "blk": "גָּלוּת וְחֻרְבָּן 9:1-10:8",
+     "blk_de": "Exil und Zerstörung 9:1-10:8",
+     "orph": 1
+    },
+    {
+     "ref": "10:9-15",
+     "text": "בְּגִידַת יִשְׂרָאֵל בְּיִעוּדוֹ כְּעַם ה׳",
+     "text_de": "Israels Verrat an seiner Bestimmung als Volk des HERRN",
+     "blk": "הָאוֹהֵב וַאֲהוּבוֹ 10:9-11:11",
+     "blk_de": "Der Liebende und sein Geliebter 10:9-11:11",
+     "orph": 1
+    },
+    {
      "ref": "11",
      "text": "רחמי ה' על ישראל",
      "text_de": "Gottes Erbarmen mit Israel",
-     "text_en": "God's compassion for Israel"
+     "text_en": "God's compassion for Israel",
+     "sub": [
+      {
+       "ref": "11:1-7",
+       "text": "אַהֲבַת ה׳ לְיִשְׂרָאֵל וּלְאֶפְרַיִם",
+       "text_de": "Die Liebe des HERRN zu Israel und zu Ephraim",
+       "blk": "הָאוֹהֵב וַאֲהוּבוֹ 10:9-11:11",
+       "blk_de": "Der Liebende und sein Geliebter 10:9-11:11"
+      },
+      {
+       "ref": "11:8-11",
+       "text": "מִדַּת הָרַחֲמִים גּוֹבֶרֶת עַל מִדַּת הַדִּין וְגַם יִשְׂרָאֵל מֵשִׁיב אַהֲבָה לְאוֹהֲבוֹ",
+       "text_de": "Die Barmherzigkeit überwiegt die Strenge, und auch Israel erwidert die Liebe seines Liebenden",
+       "blk": "הָאוֹהֵב וַאֲהוּבוֹ 10:9-11:11",
+       "blk_de": "Der Liebende und sein Geliebter 10:9-11:11"
+      }
+     ]
     },
     {
      "ref": "12:1-14:1",
      "text": "תוכחה - חטאי י' השבטים לה' שהיטיב להם",
      "text_de": "Mahnung – Sünden der zehn Stämme gegenüber Gott, der ihnen Gutes getan hat",
-     "text_en": "Rebuke – the sins of the ten tribes toward God, who has been good to them"
+     "text_en": "Rebuke – the sins of the ten tribes toward God, who has been good to them",
+     "sub": [
+      {
+       "ref": "12:1-3",
+       "text": "תּוֹכֵחָה לְאֶפְרַיִם עַל שֶׁמִּתְנַהֵג בְּכַחַשׁ עִם הַמַּמְלָכוֹת",
+       "text_de": "Zurechtweisung Ephraims, weil es sich im Umgang mit den Großmächten falsch verhält",
+       "blk": "הַחֵטְא וְעָנְשׁוֹ 12:1-13:11",
+       "blk_de": "Die Sünde und ihre Strafe 12:1-13:11"
+      },
+      {
+       "ref": "12:4-7",
+       "text": "הַכַּחַשׁ בַּיְחָסִים שֶׁבֵּין יְהוּדָה וְאֶפְרַיִם",
+       "text_de": "Die Falschheit im Verhältnis zwischen Juda und Ephraim",
+       "blk": "הַחֵטְא וְעָנְשׁוֹ 12:1-13:11",
+       "blk_de": "Die Sünde und ihre Strafe 12:1-13:11"
+      },
+      {
+       "ref": "12:8-12",
+       "text": "הַכַּחַשׁ וְהַמִּרְמָה בַּיְחָסִים שֶׁבֵּין אָדָם לַחֲבֵרוֹ וּבֵין אָדָם לַמָּקוֹם",
+       "text_de": "Falschheit und Betrug im Verhältnis der Menschen untereinander und zwischen Mensch und Gott",
+       "blk": "הַחֵטְא וְעָנְשׁוֹ 12:1-13:11",
+       "blk_de": "Die Sünde und ihre Strafe 12:1-13:11"
+      },
+      {
+       "ref": "12:13-15",
+       "text": "כְּפִיַּת הַטּוֹבָה וְעָנְשָׁהּ",
+       "text_de": "Undankbarkeit und ihre Strafe",
+       "blk": "הַחֵטְא וְעָנְשׁוֹ 12:1-13:11",
+       "blk_de": "Die Sünde und ihre Strafe 12:1-13:11"
+      },
+      {
+       "ref": "13:1-3",
+       "text": "עִקַּר הַחֵטְא וְעָנְשׁוֹ",
+       "text_de": "Die Hauptsünde und ihre Strafe",
+       "blk": "הַחֵטְא וְעָנְשׁוֹ 12:1-13:11",
+       "blk_de": "Die Sünde und ihre Strafe 12:1-13:11"
+      },
+      {
+       "ref": "13:4-8",
+       "text": "תְּהִיָּה עַל סִבּוֹת הַחֵטְא",
+       "text_de": "Betrachtung über die Ursachen der Sünde",
+       "blk": "הַחֵטְא וְעָנְשׁוֹ 12:1-13:11",
+       "blk_de": "Die Sünde und ihre Strafe 12:1-13:11"
+      },
+      {
+       "ref": "13:9-11",
+       "text": "יִשְׂרָאֵל אָשֵׁם בְּחֻרְבָּנוֹ",
+       "text_de": "Israel ist an seinem Untergang selbst schuld",
+       "blk": "הַחֵטְא וְעָנְשׁוֹ 12:1-13:11",
+       "blk_de": "Die Sünde und ihre Strafe 12:1-13:11"
+      }
+     ]
     },
     {
      "ref": "14:2-10",
@@ -116,6 +398,6 @@
  ],
  "title_de": "Inhalt des Buches Hosea",
  "title_en": "Contents of the Book of Hosea",
- "note_de": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt.",
- "note_en": "Transcribed from photos of an overview table. Chapter and verse numbering as well as dates (Jewish reckoning) as printed in the source."
+ "note_de": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt. Unterpunkte aus der Gliederung von „Da'at Mikra“ (Teilpunkte mit Versangaben, mit Hinweis auf den jeweiligen Abschnitt) ergänzt und ins Deutsche übersetzt.",
+ "note_en": "Transcribed from photos of an overview table. Chapter and verse numbering as well as dates (Jewish reckoning) as printed in the source. Sub-points from the Da'at Mikra outlines (parts with verse references, labelled with their section) added; German translation."
 }

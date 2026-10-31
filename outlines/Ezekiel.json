@@ -1,7 +1,7 @@
 {
  "book": "Ezekiel",
  "title": "תוכן ספר יחזקאל",
- "note": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt.",
+ "note": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt. · הורחב בחלוקת דעת מקרא (פסקאות עם מראי מקום).",
  "sections": [
   {
    "head": "נבואות תוכחה",
@@ -16,7 +16,79 @@
      "par_de": "Wiederholung: Ezechiel 10:9–22 (unten); ähnliche Prophezeiung: Jesaja 6",
      "par_en": "Repeat: Ezekiel 10:9–22 (below); Similar prophecy: Isaiah 6",
      "time_de": "5. Tammus 3332",
-     "time_en": "5 Tammuz 3332"
+     "time_en": "5 Tammuz 3332",
+     "sub": [
+      {
+       "ref": "1:1-3",
+       "text": "הַכְּתֹבֶת, תַּאֲרִיךְ הַנְּבוּאָה וְשֵׁם הַנָּבִיא",
+       "text_de": "Überschrift, Datum der Weissagung und Name des Propheten",
+       "blk": "מַעֲשֵׂה מֶרְכָּבָה 1",
+       "blk_de": "Die Wagenvision (Merkawa) 1"
+      },
+      {
+       "ref": "1:1-4",
+       "text": "שְׁתֵּי נָשִׁים בְּנוֹת אֵם אַחַת",
+       "text_de": "Zwei Frauen, Töchter einer Mutter",
+       "blk": "אָהֳלָה וְאָהֳלִיבָה · חֵלֶק א — חֲטָאֵי אָהֳלָה וְאָהֳלִיבָה בְּתַזְנוּתֵיהֶן וְעָנְשָׁן 1-35",
+       "blk_de": "Ohola und Oholiba · Teil 1 - Die Sünden Oholas und Oholibas in ihrer Hurerei und ihre Strafe 1-35"
+      },
+      {
+       "ref": "1:5-10",
+       "text": "מַעֲשֵׂי אָהֳלָה",
+       "text_de": "Die Taten Oholas",
+       "blk": "אָהֳלָה וְאָהֳלִיבָה · חֵלֶק א — חֲטָאֵי אָהֳלָה וְאָהֳלִיבָה בְּתַזְנוּתֵיהֶן וְעָנְשָׁן 1-35",
+       "blk_de": "Ohola und Oholiba · Teil 1 - Die Sünden Oholas und Oholibas in ihrer Hurerei und ihre Strafe 1-35"
+      },
+      {
+       "ref": "1:10-12",
+       "text": "תֵּאוּר מְפֹרָט שֶׁל פְּנֵי הַחַיּוֹת וְכַנְפֵיהֶן",
+       "text_de": "Ausführliche Beschreibung der Gesichter der Lebewesen und ihrer Flügel",
+       "blk": "מַעֲשֵׂה מֶרְכָּבָה 1",
+       "blk_de": "Die Wagenvision (Merkawa) 1"
+      },
+      {
+       "ref": "1:11-21",
+       "text": "אָהֳלִיבָה",
+       "text_de": "Oholiba",
+       "blk": "אָהֳלָה וְאָהֳלִיבָה · חֵלֶק א — חֲטָאֵי אָהֳלָה וְאָהֳלִיבָה בְּתַזְנוּתֵיהֶן וְעָנְשָׁן 1-35",
+       "blk_de": "Ohola und Oholiba · Teil 1 - Die Sünden Oholas und Oholibas in ihrer Hurerei und ihre Strafe 1-35"
+      },
+      {
+       "ref": "1:13-21",
+       "text": "דְּמוּת הַחַיּוֹת וְהָאוֹפַנִּים וּתְנוּעוֹתֵיהֶם",
+       "text_de": "Gestalt der Wesen und der Räder und ihre Bewegungen",
+       "blk": "מַעֲשֵׂה מֶרְכָּבָה 1",
+       "blk_de": "Die Wagenvision (Merkawa) 1"
+      },
+      {
+       "ref": "1:22-25",
+       "text": "הָרָקִיעַ שֶׁל כִּסֵּא הַכָּבוֹד",
+       "text_de": "Das Gewölbe über dem Thron der Herrlichkeit",
+       "blk": "מַעֲשֵׂה מֶרְכָּבָה 1",
+       "blk_de": "Die Wagenvision (Merkawa) 1"
+      },
+      {
+       "ref": "1:22-31",
+       "text": "עָנְשָׁהּ שֶׁל אָהֳלִיבָה",
+       "text_de": "Die Strafe Oholibas",
+       "blk": "אָהֳלָה וְאָהֳלִיבָה · חֵלֶק א — חֲטָאֵי אָהֳלָה וְאָהֳלִיבָה בְּתַזְנוּתֵיהֶן וְעָנְשָׁן 1-35",
+       "blk_de": "Ohola und Oholiba · Teil 1 - Die Sünden Oholas und Oholibas in ihrer Hurerei und ihre Strafe 1-35"
+      },
+      {
+       "ref": "1:26-28",
+       "text": "הַכִּסֵּא וּכְבוֹד ה'",
+       "text_de": "Der Thron und die Herrlichkeit des HERRN",
+       "blk": "מַעֲשֵׂה מֶרְכָּבָה 1",
+       "blk_de": "Die Wagenvision (Merkawa) 1"
+      },
+      {
+       "ref": "1:32-35",
+       "text": "כּוֹס אָהֳלָה לְאָהֳלִיבָה",
+       "text_de": "Der Becher Oholas für Oholiba",
+       "blk": "אָהֳלָה וְאָהֳלִיבָה · חֵלֶק א — חֲטָאֵי אָהֳלָה וְאָהֳלִיבָה בְּתַזְנוּתֵיהֶן וְעָנְשָׁן 1-35",
+       "blk_de": "Ohola und Oholiba · Teil 1 - Die Sünden Oholas und Oholibas in ihrer Hurerei und ihre Strafe 1-35"
+      }
+     ]
     },
     {
      "ref": "2-3",
@@ -28,31 +100,188 @@
      "par_de": "Siehe Ezechiel 33:1–9 (unten)",
      "par_en": "See Ezekiel 33:1–9 (below)",
      "time_de": "3332",
-     "time_en": "3332"
+     "time_en": "3332",
+     "sub": [
+      {
+       "ref": "2:1-2",
+       "text": "יְחֶזְקֵאל מְצֻוֶּה לַעֲמֹד עַל רַגְלָיו, לְאַחַר שֶׁנָּפַל עַל פָּנָיו מֵרְאִיַּת מַרְאוֹת אֱלֹהִים",
+       "text_de": "Ezechiel wird aufgetragen, sich auf seine Füße zu stellen, nachdem er bei der Schau der Gesichte Gottes auf sein Angesicht gefallen war",
+       "blk": "הַטָּלַת הַשְּׁלִיחוּת עַל יְחֶזְקֵאל 2:1-3:15",
+       "blk_de": "Die Übertragung der Sendung an Ezechiel 2:1-3:15"
+      },
+      {
+       "ref": "2:3-5",
+       "text": "יְחֶזְקֵאל נִשְׁלַח אֶל בֵּית הַמֶּרִי",
+       "text_de": "Ezechiel wird zum Haus des Widerspruchs gesandt",
+       "blk": "הַטָּלַת הַשְּׁלִיחוּת עַל יְחֶזְקֵאל 2:1-3:15",
+       "blk_de": "Die Übertragung der Sendung an Ezechiel 2:1-3:15"
+      },
+      {
+       "ref": "2:6-7",
+       "text": "דִּבְרֵי עִדּוּד וְצִוּוּי לִיחֶזְקֵאל 'אַל-תִּירָא מֵהֶם'",
+       "text_de": "Worte der Ermutigung und der Auftrag an Ezechiel: „Fürchte dich nicht vor ihnen“",
+       "blk": "הַטָּלַת הַשְּׁלִיחוּת עַל יְחֶזְקֵאל 2:1-3:15",
+       "blk_de": "Die Übertragung der Sendung an Ezechiel 2:1-3:15"
+      },
+      {
+       "ref": "2:8-3:3",
+       "text": "אֲכִילַת הַמְּגִלָּה",
+       "text_de": "Das Essen der Schriftrolle",
+       "blk": "הַטָּלַת הַשְּׁלִיחוּת עַל יְחֶזְקֵאל 2:1-3:15",
+       "blk_de": "Die Übertragung der Sendung an Ezechiel 2:1-3:15"
+      },
+      {
+       "ref": "3:4-9",
+       "text": "תֵּאוּר נוֹסָף שֶׁל בֵּית יִשְׂרָאֵל",
+       "text_de": "Weitere Beschreibung des Hauses Israel",
+       "blk": "הַטָּלַת הַשְּׁלִיחוּת עַל יְחֶזְקֵאל 2:1-3:15",
+       "blk_de": "Die Übertragung der Sendung an Ezechiel 2:1-3:15"
+      },
+      {
+       "ref": "3:10-15",
+       "text": "סִיּוּם הַנְּבוּאָה וְשִׁיבָה אֶל הַגּוֹלִים",
+       "text_de": "Abschluss der Prophetie und Rückkehr zu den Verbannten",
+       "blk": "הַטָּלַת הַשְּׁלִיחוּת עַל יְחֶזְקֵאל 2:1-3:15",
+       "blk_de": "Die Übertragung der Sendung an Ezechiel 2:1-3:15"
+      },
+      {
+       "ref": "3:17-19",
+       "text": "תַּפְקִידוֹ שֶׁל הַנָּבִיא-הַצּוֹפֶה כְּלַפֵּי הָרָשָׁע וְגוֹרָלוֹ שֶׁל הָרָשָׁע",
+       "text_de": "Aufgabe des Propheten als Wächter gegenüber dem Frevler und das Schicksal des Frevlers",
+       "blk": "'צֹפֶה נְתַתִּיךָ לְבֵית יִשְׂרָאֵל' 3:16-21",
+       "blk_de": "„Zum Wächter habe ich dich gesetzt für das Haus Israel“ 3:16-21"
+      },
+      {
+       "ref": "3:20-21",
+       "text": "תַּפְקִידוֹ שֶׁל הַנָּבִיא-הַצּוֹפֶה כְּלַפֵּי הַצַּדִּיק",
+       "text_de": "Aufgabe des Propheten als Wächter gegenüber dem Gerechten",
+       "blk": "'צֹפֶה נְתַתִּיךָ לְבֵית יִשְׂרָאֵל' 3:16-21",
+       "blk_de": "„Zum Wächter habe ich dich gesetzt für das Haus Israel“ 3:16-21"
+      },
+      {
+       "ref": "3:22-24",
+       "text": "הַנָּבִיא בַּבִּקְעָה",
+       "text_de": "Der Prophet in der Ebene",
+       "blk": "מַעֲשִׂים סְמָלִיִּים וּפִשְׁרָם 3:22-5:17",
+       "blk_de": "Zeichenhandlungen und ihre Deutung 3:22-5:17"
+      },
+      {
+       "ref": "3:25-27",
+       "text": "הַגְבָּלַת פְּעִילוּתוֹ שֶׁל הַנָּבִיא",
+       "text_de": "Einschränkung der Tätigkeit des Propheten",
+       "blk": "מַעֲשִׂים סְמָלִיִּים וּפִשְׁרָם 3:22-5:17",
+       "blk_de": "Zeichenhandlungen und ihre Deutung 3:22-5:17"
+      }
+     ]
     },
     {
      "ref": "4",
      "text": "יסורי הנביא לכפר עוונות העם",
      "text_de": "Leiden des Propheten zur Sühne der Sünden des Volkes",
-     "text_en": "The prophet's suffering to atone for the sins of the people"
+     "text_en": "The prophet's suffering to atone for the sins of the people",
+     "sub": [
+      {
+       "ref": "4:1-3",
+       "text": "מָצוֹר יְרוּשָׁלַיִם חָקוּק עַל הַלְּבֵנָה",
+       "text_de": "Die Belagerung Jerusalems, eingeritzt in den Lehmziegel",
+       "blk": "מַעֲשִׂים סְמָלִיִּים וּפִשְׁרָם 3:22-5:17",
+       "blk_de": "Zeichenhandlungen und ihre Deutung 3:22-5:17"
+      },
+      {
+       "ref": "4:4-17",
+       "text": "שְׁכִיבָה עַל הַצַּד, אֲכִילַת לֶחֶם בְּמִשְׁקָל וּשְׁתִיַּת מַיִם בִּמְשׂוּרָה",
+       "text_de": "Auf der Seite liegen, Brot nach Gewicht essen und Wasser nach Maß trinken",
+       "blk": "מַעֲשִׂים סְמָלִיִּים וּפִשְׁרָם 3:22-5:17",
+       "blk_de": "Zeichenhandlungen und ihre Deutung 3:22-5:17"
+      }
+     ]
     },
     {
      "ref": "5",
      "text": "נבואה - פורענות ירושלים [בדרך משל]",
      "text_de": "Prophezeiung – Unheil über Jerusalem [als Gleichnis]",
-     "text_en": "Prophecy – calamity for Jerusalem [in parable form]"
+     "text_en": "Prophecy – calamity for Jerusalem [in parable form]",
+     "sub": [
+      {
+       "ref": "5:1-17",
+       "text": "תַּעַר הַגַּלָּבִים",
+       "text_de": "Das Schermesser des Barbiers",
+       "blk": "מַעֲשִׂים סְמָלִיִּים וּפִשְׁרָם 3:22-5:17",
+       "blk_de": "Zeichenhandlungen und ihre Deutung 3:22-5:17"
+      }
+     ]
     },
     {
      "ref": "6",
      "text": "הפורענות שתבוא על עובדי ע\"ז",
      "text_de": "Das Unheil, das über die Götzendiener kommen wird",
-     "text_en": "The calamity that will come upon the idol worshippers"
+     "text_en": "The calamity that will come upon the idol worshippers",
+     "sub": [
+      {
+       "ref": "6:1-8",
+       "text": "נְבוּאָה עַל הַשְׁמָדַת הַגִּלּוּלִים שֶׁעַל הָרֵי יִשְׂרָאֵל",
+       "text_de": "Weissagung über die Vernichtung der Götzen auf den Bergen Israels",
+       "blk": "נְבוּאַת פֻּרְעָנוּת אֶל-הָרֵי יִשְׂרָאֵל 6",
+       "blk_de": "Unheilsweissagung an die Berge Israels 6"
+      },
+      {
+       "ref": "6:9-10",
+       "text": "הַפְּלִיטִים שֶׁיִּשָּׁאֲרוּ בַּגּוֹיִם",
+       "text_de": "Die Entronnenen, die unter den Völkern übrig bleiben werden",
+       "blk": "נְבוּאַת פֻּרְעָנוּת אֶל-הָרֵי יִשְׂרָאֵל 6",
+       "blk_de": "Unheilsweissagung an die Berge Israels 6"
+      },
+      {
+       "ref": "6:11-12",
+       "text": "קִינָה עַל גּוֹרָלָם שֶׁל הַנִּשְׁאָרִים",
+       "text_de": "Klage über das Schicksal der Übriggebliebenen",
+       "blk": "נְבוּאַת פֻּרְעָנוּת אֶל-הָרֵי יִשְׂרָאֵל 6",
+       "blk_de": "Unheilsweissagung an die Berge Israels 6"
+      },
+      {
+       "ref": "6:13-14",
+       "text": "חֻרְבַּן הָאָרֶץ בַּעֲוֹן הַגִּלּוּלִים שֶׁבְּרָאשֵׁי הֶהָרִים",
+       "text_de": "Verwüstung des Landes wegen der Sünde der Götzen auf den Berggipfeln",
+       "blk": "נְבוּאַת פֻּרְעָנוּת אֶל-הָרֵי יִשְׂרָאֵל 6",
+       "blk_de": "Unheilsweissagung an die Berge Israels 6"
+      }
+     ]
     },
     {
      "ref": "7",
      "text": "נבואה על חורבן ביהמ\"ק והגלות הקרבים לבוא",
      "text_de": "Prophezeiung über die Zerstörung des Tempels und das nahe bevorstehende Exil",
-     "text_en": "Prophecy about the destruction of the Temple and the imminent exile"
+     "text_en": "Prophecy about the destruction of the Temple and the imminent exile",
+     "sub": [
+      {
+       "ref": "7:1-13",
+       "text": "תֵּאוּר כְּלָלִי שֶׁל הַקֵּץ וְהֶחָרוֹן",
+       "text_de": "Allgemeine Beschreibung des Endes und des Zorns",
+       "blk": "הַקֵּץ 7",
+       "blk_de": "Das Ende 7"
+      },
+      {
+       "ref": "7:14-19",
+       "text": "הַמַּפָּלָה בַּמִּלְחָמָה",
+       "text_de": "Die Niederlage im Krieg",
+       "blk": "הַקֵּץ 7",
+       "blk_de": "Das Ende 7"
+      },
+      {
+       "ref": "7:20-24",
+       "text": "חִלּוּל הַמִּקְדָּשׁ",
+       "text_de": "Entweihung des Heiligtums",
+       "blk": "הַקֵּץ 7",
+       "blk_de": "Das Ende 7"
+      },
+      {
+       "ref": "7:25-27",
+       "text": "קְפָדָה",
+       "text_de": "Kefada (Schrecken/Angst)",
+       "blk": "הַקֵּץ 7",
+       "blk_de": "Das Ende 7"
+      }
+     ]
     },
     {
      "ref": "8",
@@ -61,19 +290,95 @@
      "text_de": "Schauung – die Sünden des Volkes in Jerusalem",
      "text_en": "Vision – the sins of the people in Jerusalem",
      "time_de": "5. Elul 3333",
-     "time_en": "5 Elul 3333"
+     "time_en": "5 Elul 3333",
+     "sub": [
+      {
+       "ref": "8:1-4",
+       "text": "הַעֲבָרַת הַנָּבִיא יְרוּשָׁלַיְמָה בְּמַרְאוֹת אֱלֹהִים",
+       "text_de": "Der Prophet wird in Gesichten Gottes nach Jerusalem geführt",
+       "blk": "הַמַּסָּע הַנְּבוּאִי יְרוּשָׁלַיְמָה ('בְּמַרְאוֹת אֱלֹהִים') · הַמַּסָּע הַנְּבוּאִי יְרוּשָׁלַיְמָה ('בְּמַרְאוֹת אֱלֹהִים') 8-11 › פָּרָשָׁה א: הַתּוֹעֵבוֹת בְּבֵית הַמִּקְדָּשׁ 8:1-18",
+       "blk_de": "Die prophetische Reise nach Jerusalem („in Gesichten Gottes“) · Die prophetische Reise nach Jerusalem („in Gesichten Gottes“) 8-11 › Abschnitt 1: Die Gräuel im Tempel 8:1-18"
+      },
+      {
+       "ref": "8:5-6",
+       "text": "סֵמֶל הַקִּנְאָה הַמַּקְנֶה",
+       "text_de": "Das Götzenbild der Eifersucht, das Eifersucht erregt",
+       "blk": "הַמַּסָּע הַנְּבוּאִי יְרוּשָׁלַיְמָה ('בְּמַרְאוֹת אֱלֹהִים') · הַמַּסָּע הַנְּבוּאִי יְרוּשָׁלַיְמָה ('בְּמַרְאוֹת אֱלֹהִים') 8-11 › פָּרָשָׁה א: הַתּוֹעֵבוֹת בְּבֵית הַמִּקְדָּשׁ 8:1-18",
+       "blk_de": "Die prophetische Reise nach Jerusalem („in Gesichten Gottes“) · Die prophetische Reise nach Jerusalem („in Gesichten Gottes“) 8-11 › Abschnitt 1: Die Gräuel im Tempel 8:1-18"
+      },
+      {
+       "ref": "8:7-12",
+       "text": "תּוֹעֲבוֹת זִקְנֵי בֵית יִשְׂרָאֵל",
+       "text_de": "Gräuel der Ältesten des Hauses Israel",
+       "blk": "הַמַּסָּע הַנְּבוּאִי יְרוּשָׁלַיְמָה ('בְּמַרְאוֹת אֱלֹהִים') · הַמַּסָּע הַנְּבוּאִי יְרוּשָׁלַיְמָה ('בְּמַרְאוֹת אֱלֹהִים') 8-11 › פָּרָשָׁה א: הַתּוֹעֵבוֹת בְּבֵית הַמִּקְדָּשׁ 8:1-18",
+       "blk_de": "Die prophetische Reise nach Jerusalem („in Gesichten Gottes“) · Die prophetische Reise nach Jerusalem („in Gesichten Gottes“) 8-11 › Abschnitt 1: Die Gräuel im Tempel 8:1-18"
+      },
+      {
+       "ref": "8:13-15",
+       "text": "הַנָּשִׁים הַמְבַכּוֹת אֶת הַתַּמּוּז",
+       "text_de": "Die Frauen, die den Tammus beweinen",
+       "blk": "הַמַּסָּע הַנְּבוּאִי יְרוּשָׁלַיְמָה ('בְּמַרְאוֹת אֱלֹהִים') · הַמַּסָּע הַנְּבוּאִי יְרוּשָׁלַיְמָה ('בְּמַרְאוֹת אֱלֹהִים') 8-11 › פָּרָשָׁה א: הַתּוֹעֵבוֹת בְּבֵית הַמִּקְדָּשׁ 8:1-18",
+       "blk_de": "Die prophetische Reise nach Jerusalem („in Gesichten Gottes“) · Die prophetische Reise nach Jerusalem („in Gesichten Gottes“) 8-11 › Abschnitt 1: Die Gräuel im Tempel 8:1-18"
+      },
+      {
+       "ref": "8:16-18",
+       "text": "שְׁלִיחַת הַזְּמוֹרָה אֶל הָאַף",
+       "text_de": "Das Strecken des Zweigs zur Nase",
+       "blk": "הַמַּסָּע הַנְּבוּאִי יְרוּשָׁלַיְמָה ('בְּמַרְאוֹת אֱלֹהִים') · הַמַּסָּע הַנְּבוּאִי יְרוּשָׁלַיְמָה ('בְּמַרְאוֹת אֱלֹהִים') 8-11 › פָּרָשָׁה א: הַתּוֹעֵבוֹת בְּבֵית הַמִּקְדָּשׁ 8:1-18",
+       "blk_de": "Die prophetische Reise nach Jerusalem („in Gesichten Gottes“) · Die prophetische Reise nach Jerusalem („in Gesichten Gottes“) 8-11 › Abschnitt 1: Die Gräuel im Tempel 8:1-18"
+      }
+     ]
     },
     {
      "ref": "9",
      "text": "מחזה - פורענות המשחיתים ביושבי ירושלים",
      "text_de": "Schauung – Unheil der Verderber unter den Bewohnern Jerusalems",
-     "text_en": "Vision – calamity of the destroyers among the inhabitants of Jerusalem"
+     "text_en": "Vision – calamity of the destroyers among the inhabitants of Jerusalem",
+     "sub": [
+      {
+       "ref": "9:1-3",
+       "text": "קְרִיאָה לִ'פְקֻדּוֹת הָעִיר' וְלָאִישׁ לְבוּשׁ הַבַּדִּים",
+       "text_de": "Aufruf an die „Aufseher der Stadt“ und an den in Leinen gekleideten Mann",
+       "blk": "הַמַּסָּע הַנְּבוּאִי יְרוּשָׁלַיְמָה ('בְּמַרְאוֹת אֱלֹהִים') · הַמַּסָּע הַנְּבוּאִי יְרוּשָׁלַיְמָה ('בְּמַרְאוֹת אֱלֹהִים') 8-11 › פָּרָשָׁה ב: הַשְׁחָתַת הָעִיר וְהַמִּקְדָּשׁ 9:1-10:22",
+       "blk_de": "Die prophetische Reise nach Jerusalem („in Gesichten Gottes“) · Die prophetische Reise nach Jerusalem („in Gesichten Gottes“) 8-11 › Abschnitt 2: Die Verheerung der Stadt und des Tempels 9:1-10:22"
+      },
+      {
+       "ref": "9:4-7",
+       "text": "תָּו הַהַצָּלָה וְהַהֲרֵיגָה",
+       "text_de": "Das Zeichen der Rettung und der Tötung",
+       "blk": "הַמַּסָּע הַנְּבוּאִי יְרוּשָׁלַיְמָה ('בְּמַרְאוֹת אֱלֹהִים') · הַמַּסָּע הַנְּבוּאִי יְרוּשָׁלַיְמָה ('בְּמַרְאוֹת אֱלֹהִים') 8-11 › פָּרָשָׁה ב: הַשְׁחָתַת הָעִיר וְהַמִּקְדָּשׁ 9:1-10:22",
+       "blk_de": "Die prophetische Reise nach Jerusalem („in Gesichten Gottes“) · Die prophetische Reise nach Jerusalem („in Gesichten Gottes“) 8-11 › Abschnitt 2: Die Verheerung der Stadt und des Tempels 9:1-10:22"
+      },
+      {
+       "ref": "9:8-10",
+       "text": "זַעֲקַת הַנָּבִיא וּתְשׁוּבַת ה'",
+       "text_de": "Der Aufschrei des Propheten und die Antwort des HERRN",
+       "blk": "הַמַּסָּע הַנְּבוּאִי יְרוּשָׁלַיְמָה ('בְּמַרְאוֹת אֱלֹהִים') · הַמַּסָּע הַנְּבוּאִי יְרוּשָׁלַיְמָה ('בְּמַרְאוֹת אֱלֹהִים') 8-11 › פָּרָשָׁה ב: הַשְׁחָתַת הָעִיר וְהַמִּקְדָּשׁ 9:1-10:22",
+       "blk_de": "Die prophetische Reise nach Jerusalem („in Gesichten Gottes“) · Die prophetische Reise nach Jerusalem („in Gesichten Gottes“) 8-11 › Abschnitt 2: Die Verheerung der Stadt und des Tempels 9:1-10:22"
+      },
+      {
+       "ref": "9:11",
+       "text": "מִלּוּי הַצַּו עַל יְדֵי הָאִישׁ לְבוּשׁ הַבַּדִּים",
+       "text_de": "Ausführung des Befehls durch den in Leinen gekleideten Mann",
+       "blk": "הַמַּסָּע הַנְּבוּאִי יְרוּשָׁלַיְמָה ('בְּמַרְאוֹת אֱלֹהִים') · הַמַּסָּע הַנְּבוּאִי יְרוּשָׁלַיְמָה ('בְּמַרְאוֹת אֱלֹהִים') 8-11 › פָּרָשָׁה ב: הַשְׁחָתַת הָעִיר וְהַמִּקְדָּשׁ 9:1-10:22",
+       "blk_de": "Die prophetische Reise nach Jerusalem („in Gesichten Gottes“) · Die prophetische Reise nach Jerusalem („in Gesichten Gottes“) 8-11 › Abschnitt 2: Die Verheerung der Stadt und des Tempels 9:1-10:22"
+      }
+     ]
     },
     {
      "ref": "10:1-8",
      "text": "מחזה - השלכת המלאכים גחלים על ירושלים",
      "text_de": "Schauung – Engel werfen Glühkohlen auf Jerusalem",
-     "text_en": "Vision – the angels cast burning coals upon Jerusalem"
+     "text_en": "Vision – the angels cast burning coals upon Jerusalem",
+     "sub": [
+      {
+       "ref": "10:1-17",
+       "text": "כִּסֵּא הַכָּבוֹד וּמְסִירַת הָאֵשׁ לָאִישׁ לְבוּשׁ הַבַּדִּים",
+       "text_de": "Der Thron der Herrlichkeit und die Übergabe des Feuers an den in Leinen gekleideten Mann",
+       "blk": "הַמַּסָּע הַנְּבוּאִי יְרוּשָׁלַיְמָה ('בְּמַרְאוֹת אֱלֹהִים') · הַמַּסָּע הַנְּבוּאִי יְרוּשָׁלַיְמָה ('בְּמַרְאוֹת אֱלֹהִים') 8-11 › פָּרָשָׁה ב: הַשְׁחָתַת הָעִיר וְהַמִּקְדָּשׁ 9:1-10:22",
+       "blk_de": "Die prophetische Reise nach Jerusalem („in Gesichten Gottes“) · Die prophetische Reise nach Jerusalem („in Gesichten Gottes“) 8-11 › Abschnitt 2: Die Verheerung der Stadt und des Tempels 9:1-10:22"
+      }
+     ]
     },
     {
      "ref": "10:9-22",
@@ -82,19 +387,53 @@
      "text_de": "Vision des göttlichen Thronwagens",
      "text_en": "Vision of the divine chariot",
      "par_de": "Wiederholung von: Ezechiel 1 (oben)",
-     "par_en": "Repeat of: Ezekiel 1 (above)"
+     "par_en": "Repeat of: Ezekiel 1 (above)",
+     "sub": [
+      {
+       "ref": "10:18-22",
+       "text": "יְצִיאַת כְּבוֹד ה' מֵעַל מִפְתַּן הַבַּיִת אֶל פֶּתַח שַׁעַר בֵּית ה' הַקַּדְמוֹנִי",
+       "text_de": "Auszug der Herrlichkeit des HERRN von der Schwelle des Hauses zum Eingang des östlichen Tores des Hauses des HERRN",
+       "blk": "הַמַּסָּע הַנְּבוּאִי יְרוּשָׁלַיְמָה ('בְּמַרְאוֹת אֱלֹהִים') · הַמַּסָּע הַנְּבוּאִי יְרוּשָׁלַיְמָה ('בְּמַרְאוֹת אֱלֹהִים') 8-11 › פָּרָשָׁה ב: הַשְׁחָתַת הָעִיר וְהַמִּקְדָּשׁ 9:1-10:22",
+       "blk_de": "Die prophetische Reise nach Jerusalem („in Gesichten Gottes“) · Die prophetische Reise nach Jerusalem („in Gesichten Gottes“) 8-11 › Abschnitt 2: Die Verheerung der Stadt und des Tempels 9:1-10:22"
+      }
+     ]
     },
     {
      "ref": "11:1-13",
      "text": "נבואה לשרים על הפורענות והגלות הקרבים לבוא",
      "text_de": "Prophezeiung an die Fürsten über das nahe bevorstehende Unheil und Exil",
-     "text_en": "Prophecy to the princes about the imminent calamity and exile"
+     "text_en": "Prophecy to the princes about the imminent calamity and exile",
+     "sub": [
+      {
+       "ref": "11:1-13",
+       "text": "הַסִּסְמָה 'לֹא בְקָרוֹב בְּנוֹת בָּתִּים, הִיא הַסִּיר וַאֲנַחְנוּ הַבָּשָׂר' וְהַפְרָכָתָהּ",
+       "text_de": "Das Sprichwort „Es ist nicht nahe, Häuser zu bauen; sie ist der Topf und wir das Fleisch“ und seine Widerlegung",
+       "blk": "הַמַּסָּע הַנְּבוּאִי יְרוּשָׁלַיְמָה ('בְּמַרְאוֹת אֱלֹהִים') · הַמַּסָּע הַנְּבוּאִי יְרוּשָׁלַיְמָה ('בְּמַרְאוֹת אֱלֹהִים') 8-11 › פָּרָשָׁה ג: הַפְרָכַת שְׁתֵּי סִסְמָאוֹת, הִסְתַּלְּקוּת כְּבוֹד ה' מִן הָעִיר וְשִׁיבַת הַנָּבִיא כַּשְׂדִּימָה 11:1-25",
+       "blk_de": "Die prophetische Reise nach Jerusalem („in Gesichten Gottes“) · Die prophetische Reise nach Jerusalem („in Gesichten Gottes“) 8-11 › Abschnitt 3: Widerlegung zweier Sprichwörter, Weggang der Herrlichkeit des HERRN aus der Stadt und Rückkehr des Propheten nach Chaldäa 11:1-25"
+      }
+     ]
     },
     {
      "ref": "11:14-25",
      "text": "נבואה על הגאולה וקיבוץ הגלויות",
      "text_de": "Prophezeiung über die Erlösung und die Sammlung der Verbannten",
-     "text_en": "Prophecy about the redemption and the ingathering of the exiles"
+     "text_en": "Prophecy about the redemption and the ingathering of the exiles",
+     "sub": [
+      {
+       "ref": "11:14-21",
+       "text": "הַסִּסְמָה 'לָנוּ הִיא נִתְּנָה הָאָרֶץ לְמוֹרָשָׁה' וְהַפְרָכָתָהּ",
+       "text_de": "Das Sprichwort „Uns ist das Land zum Besitz gegeben“ und seine Widerlegung",
+       "blk": "הַמַּסָּע הַנְּבוּאִי יְרוּשָׁלַיְמָה ('בְּמַרְאוֹת אֱלֹהִים') · הַמַּסָּע הַנְּבוּאִי יְרוּשָׁלַיְמָה ('בְּמַרְאוֹת אֱלֹהִים') 8-11 › פָּרָשָׁה ג: הַפְרָכַת שְׁתֵּי סִסְמָאוֹת, הִסְתַּלְּקוּת כְּבוֹד ה' מִן הָעִיר וְשִׁיבַת הַנָּבִיא כַּשְׂדִּימָה 11:1-25",
+       "blk_de": "Die prophetische Reise nach Jerusalem („in Gesichten Gottes“) · Die prophetische Reise nach Jerusalem („in Gesichten Gottes“) 8-11 › Abschnitt 3: Widerlegung zweier Sprichwörter, Weggang der Herrlichkeit des HERRN aus der Stadt und Rückkehr des Propheten nach Chaldäa 11:1-25"
+      },
+      {
+       "ref": "11:22-25",
+       "text": "הִסְתַּלְּקוּת כְּבוֹד ה' וְשִׁיבַת הַנָּבִיא כַּשְׂדִּימָה",
+       "text_de": "Weggang der Herrlichkeit des HERRN und Rückkehr des Propheten nach Chaldäa",
+       "blk": "הַמַּסָּע הַנְּבוּאִי יְרוּשָׁלַיְמָה ('בְּמַרְאוֹת אֱלֹהִים') · הַמַּסָּע הַנְּבוּאִי יְרוּשָׁלַיְמָה ('בְּמַרְאוֹת אֱלֹהִים') 8-11 › פָּרָשָׁה ג: הַפְרָכַת שְׁתֵּי סִסְמָאוֹת, הִסְתַּלְּקוּת כְּבוֹד ה' מִן הָעִיר וְשִׁיבַת הַנָּבִיא כַּשְׂדִּימָה 11:1-25",
+       "blk_de": "Die prophetische Reise nach Jerusalem („in Gesichten Gottes“) · Die prophetische Reise nach Jerusalem („in Gesichten Gottes“) 8-11 › Abschnitt 3: Widerlegung zweier Sprichwörter, Weggang der Herrlichkeit des HERRN aus der Stadt und Rückkehr des Propheten nach Chaldäa 11:1-25"
+      }
+     ]
     },
     {
      "ref": "12:1-16",
@@ -103,13 +442,59 @@
      "text_de": "Prophezeiung über die Flucht Zidkijas und des übrigen Volkes aus Jerusalem",
      "text_en": "Prophecy about the flight of Zedekiah and the rest of the people from Jerusalem",
      "par_de": "Erfüllung der Worte: 2 Könige 25:1–7; Jeremia 52:4–11",
-     "par_en": "Fulfillment of the words: II Kings 25:1–7; Jeremiah 52:4–11"
+     "par_en": "Fulfillment of the words: II Kings 25:1–7; Jeremiah 52:4–11",
+     "sub": [
+      {
+       "ref": "12:1-2",
+       "text": "מָבוֹא",
+       "text_de": "Einleitung",
+       "blk": "מַעֲשִׂים סְמָלִיִּים לְהַמְחָשַׁת הַחֻרְבָּן 12:1-20",
+       "blk_de": "Zeichenhandlungen zur Veranschaulichung der Zerstörung 12:1-20"
+      },
+      {
+       "ref": "12:3-7",
+       "text": "עֲשִׂיַּת כְּלֵי גוֹלָה וִיצִיאָה מִן הָעִיר",
+       "text_de": "Anfertigung des Verbannungsgepäcks und Auszug aus der Stadt",
+       "blk": "מַעֲשִׂים סְמָלִיִּים לְהַמְחָשַׁת הַחֻרְבָּן 12:1-20",
+       "blk_de": "Zeichenhandlungen zur Veranschaulichung der Zerstörung 12:1-20"
+      },
+      {
+       "ref": "12:8-16",
+       "text": "פֵּשֶׁר הַמַּעֲשֶׂה הַסִּמְלִי",
+       "text_de": "Deutung der Zeichenhandlung",
+       "blk": "מַעֲשִׂים סְמָלִיִּים לְהַמְחָשַׁת הַחֻרְבָּן 12:1-20",
+       "blk_de": "Zeichenhandlungen zur Veranschaulichung der Zerstörung 12:1-20"
+      }
+     ]
     },
     {
      "ref": "12:17-28",
      "text": "נבואותיו על הגלות שתבוא יתקיימו בקרוב",
      "text_de": "Seine Prophezeiungen über das kommende Exil werden bald eintreffen",
-     "text_en": "His prophecies about the coming exile will soon be fulfilled"
+     "text_en": "His prophecies about the coming exile will soon be fulfilled",
+     "sub": [
+      {
+       "ref": "12:17-20",
+       "text": "אֲכִילַת הַלֶּחֶם בְּרַעַשׁ וּשְׁתִיַּת הַמַּיִם בְּרָגְזָה וּפֵשֶׁר הַמַּעֲשִׂים",
+       "text_de": "Das Essen des Brotes mit Zittern und das Trinken des Wassers mit Beben und die Deutung der Handlungen",
+       "blk": "מַעֲשִׂים סְמָלִיִּים לְהַמְחָשַׁת הַחֻרְבָּן 12:1-20",
+       "blk_de": "Zeichenhandlungen zur Veranschaulichung der Zerstörung 12:1-20"
+      },
+      {
+       "ref": "12:21-25",
+       "text": "נֶגֶד הַמָּשָׁל 'יַאַרְכוּ הַיָּמִים וגו''",
+       "text_de": "Gegen das Sprichwort „Die Tage ziehen sich hin usw.“",
+       "blk": "עַל מְשָׁלִים וַחֲזוֹנוֹת וְעַל 'נְבִיאִים' וּ'מִתְנַבְּאוֹת' 12:21-13:23",
+       "blk_de": "Über Gleichnisse und Gesichte und über „Propheten“ und „Prophetinnen“ 12:21-13:23"
+      },
+      {
+       "ref": "12:26-28",
+       "text": "נֶגֶד הָאֲמִרָה ('בֵית יִשְׂרָאֵל אֹמְרִים') 'הֶחָזוֹן אֲשֶׁר-הוּא חֹזֶה לְיָמִים רַבִּים וּלְעִתִּים רְחוֹקוֹת הוּא נִבָּא'",
+       "text_de": "Gegen die Redensart („das Haus Israel sagt“): „Das Gesicht, das er schaut, gilt für viele Tage, und für ferne Zeiten weissagt er“",
+       "blk": "עַל מְשָׁלִים וַחֲזוֹנוֹת וְעַל 'נְבִיאִים' וּ'מִתְנַבְּאוֹת' 12:21-13:23",
+       "blk_de": "Über Gleichnisse und Gesichte und über „Propheten“ und „Prophetinnen“ 12:21-13:23"
+      }
+     ]
     },
     {
      "ref": "13",
@@ -118,19 +503,53 @@
      "text_de": "Strafe der falschen Propheten und Prophetinnen",
      "text_en": "Punishment of the false prophets and prophetesses",
      "par_de": "Warnung vor falschen Propheten: 5. Mose 18:14–22; Zum Thema falsche Propheten: Jeremia 23:9–32; Micha 3:5–8; Sacharja 13:1–6",
-     "par_en": "Warning against false prophets: Deuteronomy 18:14–22; On the subject of false prophets: Jeremiah 23:9–32; Micah 3:5–8; Zechariah 13:1–6"
+     "par_en": "Warning against false prophets: Deuteronomy 18:14–22; On the subject of false prophets: Jeremiah 23:9–32; Micah 3:5–8; Zechariah 13:1–6",
+     "sub": [
+      {
+       "ref": "13:1-16",
+       "text": "עַל חֲזוֹנוֹת שָׁוְא שֶׁל נְבִיאֵי הַשֶּׁקֶר וְעַל עָנְשָׁם",
+       "text_de": "Über die trügerischen Gesichte der falschen Propheten und ihre Strafe",
+       "blk": "עַל מְשָׁלִים וַחֲזוֹנוֹת וְעַל 'נְבִיאִים' וּ'מִתְנַבְּאוֹת' 12:21-13:23",
+       "blk_de": "Über Gleichnisse und Gesichte und über „Propheten“ und „Prophetinnen“ 12:21-13:23"
+      },
+      {
+       "ref": "13:17-23",
+       "text": "עַל הַמִּתְנַבְּאוֹת מִלִּבָּן וְעַל עָנְשָׁן",
+       "text_de": "Über die Frauen, die aus eigenem Herzen weissagen, und ihre Strafe",
+       "blk": "עַל מְשָׁלִים וַחֲזוֹנוֹת וְעַל 'נְבִיאִים' וּ'מִתְנַבְּאוֹת' 12:21-13:23",
+       "blk_de": "Über Gleichnisse und Gesichte und über „Propheten“ und „Prophetinnen“ 12:21-13:23"
+      }
+     ]
     },
     {
      "ref": "14:1-8",
      "text": "נבואה לעובדי ע\"ז וקריאתו להם לחזור בתשובה",
      "text_de": "Prophezeiung an die Götzendiener und sein Aufruf zur Umkehr",
-     "text_en": "Prophecy to the idol worshippers and his call to repent"
+     "text_en": "Prophecy to the idol worshippers and his call to repent",
+     "sub": [
+      {
+       "ref": "14:1-8",
+       "text": "ה' אֵינוֹ נִדְרָשׁ לַזְּקֵנִים, אֲבָל נַעֲנֶה לָהֶם",
+       "text_de": "Der HERR lässt sich von den Ältesten nicht befragen, aber er antwortet ihnen",
+       "blk": "זִקְנֵי יִשְׂרָאֵל אֵצֶל הַנָּבִיא 14:1-11",
+       "blk_de": "Die Ältesten Israels beim Propheten 14:1-11"
+      }
+     ]
     },
     {
      "ref": "14:9-11",
      "text": "עונש נביאי השקר והשומעים להם",
      "text_de": "Strafe der falschen Propheten und derer, die auf sie hören",
-     "text_en": "Punishment of the false prophets and those who listen to them"
+     "text_en": "Punishment of the false prophets and those who listen to them",
+     "sub": [
+      {
+       "ref": "14:9-11",
+       "text": "'הַנָּבִיא כִּי-יְפֻתֶּה'",
+       "text_de": "„Wenn ein Prophet sich betören lässt“",
+       "blk": "זִקְנֵי יִשְׂרָאֵל אֵצֶל הַנָּבִיא 14:1-11",
+       "blk_de": "Die Ältesten Israels beim Propheten 14:1-11"
+      }
+     ]
     },
     {
      "ref": "14:12-23",
@@ -139,31 +558,132 @@
      "text_de": "Rettung von Überlebenden unter den Bewohnern Jerusalems",
      "text_en": "Rescue of survivors among the inhabitants of Jerusalem",
      "par_de": "Siehe Ezechiel 13 (oben)",
-     "par_en": "See Ezekiel 13 (above)"
+     "par_en": "See Ezekiel 13 (above)",
+     "sub": [
+      {
+       "ref": "14:12-20",
+       "text": "שְׁלֹשֶׁת הַצַּדִּיקִים לֹא יַצִּילוּ בָּנִים וּבָנוֹת מֵאַרְבַּעַת הַשְּׁפָטִים",
+       "text_de": "Die drei Gerechten würden Söhne und Töchter nicht vor den vier Strafgerichten retten",
+       "blk": "זְכוּת אָבוֹת 14:12-23",
+       "blk_de": "Das Verdienst der Väter 14:12-23"
+      },
+      {
+       "ref": "14:21-23",
+       "text": "הַפְּלִיטִים שֶׁיִּנָּצְלוּ עַל אַף הַכֹּל",
+       "text_de": "Die Entronnenen, die trotz allem gerettet werden",
+       "blk": "זְכוּת אָבוֹת 14:12-23",
+       "blk_de": "Das Verdienst der Väter 14:12-23"
+      }
+     ]
     },
     {
      "ref": "15",
      "text": "פורענות ירושלים [בדרך משל]",
      "text_de": "Unheil über Jerusalem [als Gleichnis]",
-     "text_en": "Calamity for Jerusalem [in parable form]"
+     "text_en": "Calamity for Jerusalem [in parable form]",
+     "sub": [
+      {
+       "ref": "15:1-5",
+       "text": "הַזְּמוֹרָה שֶׁהָאֵשׁ אָכְלָה אֶת שְׁנֵי קְצוֹתֶיהָ",
+       "text_de": "Die Rebe, deren beide Enden das Feuer verzehrt hat",
+       "blk": "עֵץ הַגֶּפֶן בְּעֵץ הַיַּעַר 15",
+       "blk_de": "Das Rebholz unter dem Holz des Waldes 15"
+      },
+      {
+       "ref": "15:6-8",
+       "text": "׳כֵּן נָתַתִּי אֶת יוֹשְׁבֵי יְרוּשָׁלַיִם׳",
+       "text_de": "„So gebe ich die Bewohner Jerusalems hin“",
+       "blk": "עֵץ הַגֶּפֶן בְּעֵץ הַיַּעַר 15",
+       "blk_de": "Das Rebholz unter dem Holz des Waldes 15"
+      }
+     ]
     },
     {
      "ref": "16:1-35",
      "text": "תוכחה ליושבי ירושלים על חטאיהם [בדרך משל]",
      "text_de": "Zurechtweisung der Bewohner Jerusalems wegen ihrer Sünden [als Gleichnis]",
-     "text_en": "Rebuke of the inhabitants of Jerusalem for their sins [in parable form]"
+     "text_en": "Rebuke of the inhabitants of Jerusalem for their sins [in parable form]",
+     "sub": [
+      {
+       "ref": "16:1-34",
+       "text": "הַתִּינֹקֶת הָאֲסוּפִית וּבְגִידָתָהּ",
+       "text_de": "Das ausgesetzte Findelkind und sein Treuebruch",
+       "blk": "׳הַבּוֹגֶדֶת׳ — עַם יִשְׂרָאֵל כְּפוּי טוֹבָה 16",
+       "blk_de": "„Die Treulose“ – das undankbare Volk Israel 16"
+      },
+      {
+       "ref": "16:35-43",
+       "text": "מִשְׁפָּטָהּ וְעָנְשָׁהּ",
+       "text_de": "Ihr Gericht und ihre Strafe",
+       "blk": "׳הַבּוֹגֶדֶת׳ — עַם יִשְׂרָאֵל כְּפוּי טוֹבָה 16",
+       "blk_de": "„Die Treulose“ – das undankbare Volk Israel 16"
+      }
+     ]
     },
     {
      "ref": "16:36-63",
      "text": "העונש שיבוא עליהם בעבור חטאיהם",
      "text_de": "Die Strafe, die wegen ihrer Sünden über sie kommen wird",
-     "text_en": "The punishment that will come upon them because of their sins"
+     "text_en": "The punishment that will come upon them because of their sins",
+     "sub": [
+      {
+       "ref": "16:44-52",
+       "text": "יְרוּשָׁלַיִם וְאַחְיוֹתֶיהָ",
+       "text_de": "Jerusalem und seine Schwestern",
+       "blk": "׳הַבּוֹגֶדֶת׳ — עַם יִשְׂרָאֵל כְּפוּי טוֹבָה 16",
+       "blk_de": "„Die Treulose“ – das undankbare Volk Israel 16"
+      },
+      {
+       "ref": "16:53-63",
+       "text": "דִּבְרֵי נֶחָמָה",
+       "text_de": "Worte des Trostes",
+       "blk": "׳הַבּוֹגֶדֶת׳ — עַם יִשְׂרָאֵל כְּפוּי טוֹבָה 16",
+       "blk_de": "„Die Treulose“ – das undankbare Volk Israel 16"
+      }
+     ]
     },
     {
      "ref": "17",
      "text": "נבואת תוכחה על מלכי יהודה [בדרך משל]",
      "text_de": "Prophezeiung der Zurechtweisung über die Könige von Juda [als Gleichnis]",
-     "text_en": "Prophecy of rebuke concerning the kings of Judah [in parable form]"
+     "text_en": "Prophecy of rebuke concerning the kings of Judah [in parable form]",
+     "sub": [
+      {
+       "ref": "17:1-6",
+       "text": "הַנֶּשֶׁר הָרִאשׁוֹן—נְבוּכַדְנֶאצַּר",
+       "text_de": "Der erste Adler – Nebukadnezzar",
+       "blk": "הַנֶּשֶׁר, הָאֶרֶז וְהַגֶּפֶן—הֲפָרַת הַבְּרִית עַל יְדֵי צִדְקִיָּהוּ וְתוֹצְאוֹתֶיהָ 17",
+       "blk_de": "Der Adler, die Zeder und der Weinstock – der Bundesbruch Zidkijas und seine Folgen 17"
+      },
+      {
+       "ref": "17:7-8",
+       "text": "הַנֶּשֶׁר הַשֵּׁנִי—פַּרְעֹה (חָפְרַע)",
+       "text_de": "Der zweite Adler – der Pharao (Hofra)",
+       "blk": "הַנֶּשֶׁר, הָאֶרֶז וְהַגֶּפֶן—הֲפָרַת הַבְּרִית עַל יְדֵי צִדְקִיָּהוּ וְתוֹצְאוֹתֶיהָ 17",
+       "blk_de": "Der Adler, die Zeder und der Weinstock – der Bundesbruch Zidkijas und seine Folgen 17"
+      },
+      {
+       "ref": "17:9-10",
+       "text": "עָנְשָׁהּ שֶׁל הַגֶּפֶן",
+       "text_de": "Die Strafe des Weinstocks",
+       "blk": "הַנֶּשֶׁר, הָאֶרֶז וְהַגֶּפֶן—הֲפָרַת הַבְּרִית עַל יְדֵי צִדְקִיָּהוּ וְתוֹצְאוֹתֶיהָ 17",
+       "blk_de": "Der Adler, die Zeder und der Weinstock – der Bundesbruch Zidkijas und seine Folgen 17"
+      },
+      {
+       "ref": "17:11-21",
+       "text": "שְׁנֵי פִתְרוֹנִים לַחִידָה הַמַּשְׁלִימִים זֶה אֶת זֶה",
+       "text_de": "Zwei einander ergänzende Lösungen des Rätsels",
+       "blk": "הַנֶּשֶׁר, הָאֶרֶז וְהַגֶּפֶן—הֲפָרַת הַבְּרִית עַל יְדֵי צִדְקִיָּהוּ וְתוֹצְאוֹתֶיהָ 17",
+       "blk_de": "Der Adler, die Zeder und der Weinstock – der Bundesbruch Zidkijas und seine Folgen 17"
+      },
+      {
+       "ref": "17:22-24",
+       "text": "דִּבְרֵי נֶחָמָה",
+       "text_de": "Worte des Trostes",
+       "blk": "הַנֶּשֶׁר, הָאֶרֶז וְהַגֶּפֶן—הֲפָרַת הַבְּרִית עַל יְדֵי צִדְקִיָּהוּ וְתוֹצְאוֹתֶיהָ 17",
+       "blk_de": "Der Adler, die Zeder und der Weinstock – der Bundesbruch Zidkijas und seine Folgen 17"
+      }
+     ]
     },
     {
      "ref": "18",
@@ -172,13 +692,87 @@
      "text_de": "Warnung – jeder Mensch wird für seine Sünden bestraft",
      "text_en": "Warning – every person will be punished for his own sins",
      "par_de": "Sünde der Väter und Söhne: 5. Mose 24:16; 2 Könige 14:6; Jeremia 31:28–29; 2 Chronik 25:4",
-     "par_en": "Sin of fathers and sons: Deuteronomy 24:16; II Kings 14:6; Jeremiah 31:28–29; II Chronicles 25:4"
+     "par_en": "Sin of fathers and sons: Deuteronomy 24:16; II Kings 14:6; Jeremiah 31:28–29; II Chronicles 25:4",
+     "sub": [
+      {
+       "ref": "18:1-4",
+       "text": "׳הַנֶּפֶשׁ הַחֹטֵאת הִיא תָמוּת׳",
+       "text_de": "„Die Seele, die sündigt, die soll sterben“",
+       "blk": "׳כִּי לֹא אֶחְפֹּץ בְּמוֹת הַמֵּת׳ 18",
+       "blk_de": "„Denn ich habe kein Gefallen am Tod des Sterbenden“ 18"
+      },
+      {
+       "ref": "18:5-9",
+       "text": "הַצַּדִּיק",
+       "text_de": "Der Gerechte",
+       "blk": "׳כִּי לֹא אֶחְפֹּץ בְּמוֹת הַמֵּת׳ 18",
+       "blk_de": "„Denn ich habe kein Gefallen am Tod des Sterbenden“ 18"
+      },
+      {
+       "ref": "18:10-13",
+       "text": "רָשָׁע בֶּן צַדִּיק",
+       "text_de": "Ein Frevler als Sohn eines Gerechten",
+       "blk": "׳כִּי לֹא אֶחְפֹּץ בְּמוֹת הַמֵּת׳ 18",
+       "blk_de": "„Denn ich habe kein Gefallen am Tod des Sterbenden“ 18"
+      },
+      {
+       "ref": "18:14-20",
+       "text": "צַדִּיק בֶּן רָשָׁע",
+       "text_de": "Ein Gerechter als Sohn eines Frevlers",
+       "blk": "׳כִּי לֹא אֶחְפֹּץ בְּמוֹת הַמֵּת׳ 18",
+       "blk_de": "„Denn ich habe kein Gefallen am Tod des Sterbenden“ 18"
+      },
+      {
+       "ref": "18:21-24",
+       "text": "רָשָׁע הַחוֹזֵר בִּתְשׁוּבָה וְצַדִּיק שֶׁנַּעֲשָׂה רָשָׁע",
+       "text_de": "Ein Frevler, der umkehrt, und ein Gerechter, der zum Frevler wird",
+       "blk": "׳כִּי לֹא אֶחְפֹּץ בְּמוֹת הַמֵּת׳ 18",
+       "blk_de": "„Denn ich habe kein Gefallen am Tod des Sterbenden“ 18"
+      },
+      {
+       "ref": "18:25-29",
+       "text": "׳הַדַּרְכִּי לֹא יִתָּכֵן? הֲלֹא דַרְכֵיכֶם לֹא יִתָּכֵנוּ׳",
+       "text_de": "„Der Weg des Herrn sei nicht recht? Sind nicht vielmehr eure Wege nicht recht?“",
+       "blk": "׳כִּי לֹא אֶחְפֹּץ בְּמוֹת הַמֵּת׳ 18",
+       "blk_de": "„Denn ich habe kein Gefallen am Tod des Sterbenden“ 18"
+      },
+      {
+       "ref": "18:30-32",
+       "text": "הַלֶּקַח: ׳כִּי לֹא אֶחְפֹּץ בְּמוֹת הַמֵּת — וְהָשִׁיבוּ וִחְיוּ׳",
+       "text_de": "Die Lehre: „Denn ich habe kein Gefallen am Tod des Sterbenden – so kehrt um, damit ihr lebt“",
+       "blk": "׳כִּי לֹא אֶחְפֹּץ בְּמוֹת הַמֵּת׳ 18",
+       "blk_de": "„Denn ich habe kein Gefallen am Tod des Sterbenden“ 18"
+      }
+     ]
     },
     {
      "ref": "19",
      "text": "קינה על מלכי יהודה בני יאשיהו",
      "text_de": "Klagelied über die Könige von Juda, die Söhne Joschijas",
-     "text_en": "Lament over the kings of Judah, the sons of Josiah"
+     "text_en": "Lament over the kings of Judah, the sons of Josiah",
+     "sub": [
+      {
+       "ref": "19:1-4",
+       "text": "הַלָּבִיא וְהַגּוּר הָרִאשׁוֹן",
+       "text_de": "Die Löwin und das erste Junge",
+       "blk": "קִינָה אֶל־נְשִׂיאֵי יִשְׂרָאֵל 19",
+       "blk_de": "Klage über die Fürsten Israels 19"
+      },
+      {
+       "ref": "19:5-9",
+       "text": "הַגּוּר הַשֵּׁנִי",
+       "text_de": "Das zweite Junge",
+       "blk": "קִינָה אֶל־נְשִׂיאֵי יִשְׂרָאֵל 19",
+       "blk_de": "Klage über die Fürsten Israels 19"
+      },
+      {
+       "ref": "19:10-14",
+       "text": "הָאֵם־הַגֶּפֶן",
+       "text_de": "Die Mutter als Weinstock",
+       "blk": "קִינָה אֶל־נְשִׂיאֵי יִשְׂרָאֵל 19",
+       "blk_de": "Klage über die Fürsten Israels 19"
+      }
+     ]
     },
     {
      "ref": "20:1-26",
@@ -187,43 +781,162 @@
      "text_de": "Zurechtweisung – Sünden Israels in Ägypten und in der Wüste",
      "text_en": "Rebuke – the sins of Israel in Egypt and in the wilderness",
      "time_de": "10. Aw 3334",
-     "time_en": "10 Av 3334"
+     "time_en": "10 Av 3334",
+     "sub": [
+      {
+       "ref": "20:1-4",
+       "text": "פְּתִיחָה",
+       "text_de": "Einleitung",
+       "blk": "עֲבָרוֹ וַעֲתִידוֹ שֶׁל עַם יִשְׂרָאֵל 20",
+       "blk_de": "Vergangenheit und Zukunft des Volkes Israel 20"
+      },
+      {
+       "ref": "20:5-9",
+       "text": "בְּחִירַת עַם יִשְׂרָאֵל, חֲטָאָיו בְּמִצְרַיִם, הָעֹנֶשׁ הָרָאוּי וְהַמְּחִילָה מִצַּד ה׳",
+       "text_de": "Erwählung des Volkes Israel, seine Sünden in Ägypten, die verdiente Strafe und die Vergebung durch den HERRN",
+       "blk": "עֲבָרוֹ וַעֲתִידוֹ שֶׁל עַם יִשְׂרָאֵל 20",
+       "blk_de": "Vergangenheit und Zukunft des Volkes Israel 20"
+      },
+      {
+       "ref": "20:10-26",
+       "text": "חֲטָאֵי יִשְׂרָאֵל בַּמִּדְבָּר, הָעֹנֶשׁ הָרָאוּי — וְשׁוּב מְחִילָה מִצַּד ה׳",
+       "text_de": "Sünden Israels in der Wüste, die verdiente Strafe – und erneute Vergebung durch den HERRN",
+       "blk": "עֲבָרוֹ וַעֲתִידוֹ שֶׁל עַם יִשְׂרָאֵל 20",
+       "blk_de": "Vergangenheit und Zukunft des Volkes Israel 20"
+      }
+     ]
     },
     {
      "ref": "20:27-29",
      "text": "תוכחה - חטא עבודה זרה בא\"י",
      "text_de": "Zurechtweisung – Sünde des Götzendienstes im Land Israel",
-     "text_en": "Rebuke – the sin of idolatry in the Land of Israel"
+     "text_en": "Rebuke – the sin of idolatry in the Land of Israel",
+     "sub": [
+      {
+       "ref": "20:27-31",
+       "text": "חֲטָאֵי בֵּית יִשְׂרָאֵל בָּאָרֶץ, וּבִגְלָלָם לֹא יִדָּרֵשׁ ה׳ לָהֶם",
+       "text_de": "Sünden des Hauses Israel im Land, derentwegen der HERR sich von ihnen nicht befragen lässt",
+       "blk": "עֲבָרוֹ וַעֲתִידוֹ שֶׁל עַם יִשְׂרָאֵל 20",
+       "blk_de": "Vergangenheit und Zukunft des Volkes Israel 20"
+      }
+     ]
     },
     {
      "ref": "20:30-44",
      "text": "מלכות ה' עליהם בע\"כ, הבאתם לא\"י לעתיד",
      "text_de": "Gottes Königsherrschaft über sie gegen ihren Willen, ihre Heimführung ins Land Israel in der Zukunft",
-     "text_en": "God's kingship over them against their will, their being brought to the Land of Israel in the future"
+     "text_en": "God's kingship over them against their will, their being brought to the Land of Israel in the future",
+     "sub": [
+      {
+       "ref": "20:32-33",
+       "text": "׳בְּיָד חֲזָקָה... אֶמְלוֹךְ עֲלֵיכֶם׳",
+       "text_de": "„Mit starker Hand … will ich über euch herrschen“",
+       "blk": "עֲבָרוֹ וַעֲתִידוֹ שֶׁל עַם יִשְׂרָאֵל 20",
+       "blk_de": "Vergangenheit und Zukunft des Volkes Israel 20"
+      },
+      {
+       "ref": "20:34-38",
+       "text": "מָסֹרֶת הַבְּרִית בְּמִדְבַּר הָעַמִּים",
+       "text_de": "Die Bundesverpflichtung in der Wüste der Völker",
+       "blk": "עֲבָרוֹ וַעֲתִידוֹ שֶׁל עַם יִשְׂרָאֵל 20",
+       "blk_de": "Vergangenheit und Zukunft des Volkes Israel 20"
+      },
+      {
+       "ref": "20:39-44",
+       "text": "בֵּית יִשְׂרָאֵל יוּבָא אֶל אַדְמַת יִשְׂרָאֵל ׳לְמַעַן שְׁמִי׳",
+       "text_de": "Das Haus Israel wird „um meines Namens willen“ ins Land Israel gebracht",
+       "blk": "עֲבָרוֹ וַעֲתִידוֹ שֶׁל עַם יִשְׂרָאֵל 20",
+       "blk_de": "Vergangenheit und Zukunft des Volkes Israel 20"
+      }
+     ]
     },
     {
      "ref": "21:1-22",
      "text": "נבואה על החורבן והגלות [בדרך משל]",
      "text_de": "Prophezeiung über Zerstörung und Exil [als Gleichnis]",
-     "text_en": "Prophecy about destruction and exile [in parable form]"
+     "text_en": "Prophecy about destruction and exile [in parable form]",
+     "sub": [
+      {
+       "ref": "21:1-12",
+       "text": "— נְבוּאָה אֶל אַדְמַת יִשְׂרָאֵל; בַּיִת א (יג-יח): ה׳ מַצִּית אֵשׁ בְּיַעַר הַנֶּגֶב; בַּיִת ב (ו-יב): פִּשְׁרוֹ שֶׁל הַמָּשָׁל וְאַנְחַת הַנָּבִיא.",
+       "text_de": "– Weissagung an das Land Israel; Strophe 1 (V. 13–18): Der HERR entfacht ein Feuer im Wald des Südens; Strophe 2 (V. 6–12): Deutung des Gleichnisses und das Seufzen des Propheten.",
+       "blk": "חֶרֶב מֶלֶךְ בָּבֶל 21",
+       "blk_de": "Das Schwert des Königs von Babel 21"
+      },
+      {
+       "ref": "21:13-22",
+       "text": "— הַחֶרֶב הַחַדָּה וְהַמְּרוּטָה; בַּיִת א (יג-יח): תֵּאוּר הַחֶרֶב; בַּיִת ב (יט-כב): יְעוּדָהּ שֶׁל הַחֶרֶב.",
+       "text_de": "– Das scharfe und geschliffene Schwert; Strophe 1 (V. 13–18): Beschreibung des Schwertes; Strophe 2 (V. 19–22): Bestimmung des Schwertes.",
+       "blk": "חֶרֶב מֶלֶךְ בָּבֶל 21",
+       "blk_de": "Das Schwert des Königs von Babel 21"
+      }
+     ]
     },
     {
      "ref": "21:23-37",
      "text": "נבואה - ביאת נבוכדנצר על ירושלים",
      "text_de": "Prophezeiung – Nebukadnezzars Zug gegen Jerusalem",
-     "text_en": "Prophecy – Nebuchadnezzar's coming against Jerusalem"
+     "text_en": "Prophecy – Nebuchadnezzar's coming against Jerusalem",
+     "sub": [
+      {
+       "ref": "21:23-37",
+       "text": "— ׳שְׁנַיִם דְּרָכִים לָבוֹא חֶרֶב מֶלֶךְ־בָּבֶל׳: בַּיִת א (כג-לב): מֶלֶךְ בָּבֶל בּוֹחֵר תְּחִלָּה בְּדֶרֶךְ לִירוּשָׁלַיִם; בַּיִת ב (לג-לז): הַחֶרֶב אֶל בְּנֵי עַמּוֹן.",
+       "text_de": "– „Zwei Wege, auf denen das Schwert des Königs von Babel kommt“: Strophe 1 (V. 23–32): Der König von Babel wählt zuerst den Weg nach Jerusalem; Strophe 2 (V. 33–37): Das Schwert gegen die Ammoniter.",
+       "blk": "חֶרֶב מֶלֶךְ בָּבֶל 21",
+       "blk_de": "Das Schwert des Königs von Babel 21"
+      }
+     ]
     },
     {
      "ref": "22",
      "text": "תוכחה - התועבות שנעשו בירושלים והעונש ע\"ז",
      "text_de": "Zurechtweisung – die in Jerusalem begangenen Gräuel und die Strafe dafür",
-     "text_en": "Rebuke – the abominations committed in Jerusalem and the punishment for them"
+     "text_en": "Rebuke – the abominations committed in Jerusalem and the punishment for them",
+     "sub": [
+      {
+       "ref": "22:1-16",
+       "text": "׳עִיר שֹׁפֶכֶת דָּם׳",
+       "text_de": "„Stadt, die Blut vergießt“",
+       "blk": "מִשְׁפָּטָהּ שֶׁל יְרוּשָׁלַיִם 22",
+       "blk_de": "Das Gericht über Jerusalem 22"
+      },
+      {
+       "ref": "22:17-22",
+       "text": "׳כְּהִתּוּךְ כֶּסֶף בְּתוֹךְ כּוּר כֵּן תֻּתְּכוּ בְּתוֹכָהּ׳",
+       "text_de": "„Wie Silber im Schmelzofen geschmolzen wird, so werdet ihr in ihr geschmolzen werden“",
+       "blk": "מִשְׁפָּטָהּ שֶׁל יְרוּשָׁלַיִם 22",
+       "blk_de": "Das Gericht über Jerusalem 22"
+      },
+      {
+       "ref": "22:23-31",
+       "text": "חֲטָאֵי כָּל הַמַּעֲמָדוֹת",
+       "text_de": "Die Sünden aller Stände",
+       "blk": "מִשְׁפָּטָהּ שֶׁל יְרוּשָׁלַיִם 22",
+       "blk_de": "Das Gericht über Jerusalem 22"
+      }
+     ]
     },
     {
      "ref": "23",
      "text": "תוכחה למלכי ישראל ויהודה [בדרך משל]",
      "text_de": "Zurechtweisung der Könige von Israel und Juda [als Gleichnis]",
-     "text_en": "Rebuke of the kings of Israel and Judah [in parable form]"
+     "text_en": "Rebuke of the kings of Israel and Judah [in parable form]",
+     "sub": [
+      {
+       "ref": "23:1-35",
+       "text": "עוֹסֵק בַּחֲטָאֵי אָהֳלָה וְאָהֳלִיבָה בְּתַזְנוּתֵיהֶן וּבְעָנְשָׁן",
+       "text_de": "Behandelt die Sünden von Ohola und Oholiba in ihrer Hurerei und ihre Strafe",
+       "blk": "אָהֳלָה וְאָהֳלִיבָה 23",
+       "blk_de": "Ohola und Oholiba 23"
+      },
+      {
+       "ref": "23:36-49",
+       "text": "מְדַבֵּר עַל תּוֹעֲבוֹתֵיהֶן בַּמִּקְדָּשׁ, עַל זְנוּתָן עִם הָרְחוֹקִים וְעַל עָנְשָׁן.",
+       "text_de": "Spricht von ihren Gräueln im Heiligtum, von ihrer Hurerei mit den Fernen und von ihrer Strafe.",
+       "blk": "אָהֳלָה וְאָהֳלִיבָה 23",
+       "blk_de": "Ohola und Oholiba 23"
+      }
+     ]
     },
     {
      "ref": "24",
@@ -232,7 +945,58 @@
      "text_de": "Prophezeiung – Unheil über Jerusalem und den Tempel [als Gleichnis]",
      "text_en": "Prophecy – calamity for Jerusalem and the Temple [in parable form]",
      "time_de": "10. Tewet 3337",
-     "time_en": "10 Tevet 3337"
+     "time_en": "10 Tevet 3337",
+     "sub": [
+      {
+       "ref": "24:1-2",
+       "text": "הַתְחָלַת הַמָּצוֹר עַל יְרוּשָׁלַיִם",
+       "text_de": "Beginn der Belagerung Jerusalems",
+       "blk": "׳סִיר אֲשֶׁר חֶלְאָתָהּ בָהּ׳ 24:1-14",
+       "blk_de": "„Topf, dessen Rost an ihm haftet“ 24:1-14"
+      },
+      {
+       "ref": "24:3-5",
+       "text": "שְׁפִיתַת הַסִּיר",
+       "text_de": "Das Aufstellen des Topfes",
+       "blk": "׳סִיר אֲשֶׁר חֶלְאָתָהּ בָהּ׳ 24:1-14",
+       "blk_de": "„Topf, dessen Rost an ihm haftet“ 24:1-14"
+      },
+      {
+       "ref": "24:6-8",
+       "text": "הַסִּיר הִיא עִיר הַדָּמִים",
+       "text_de": "Der Topf ist die Stadt des Blutes",
+       "blk": "׳סִיר אֲשֶׁר חֶלְאָתָהּ בָהּ׳ 24:1-14",
+       "blk_de": "„Topf, dessen Rost an ihm haftet“ 24:1-14"
+      },
+      {
+       "ref": "24:9-14",
+       "text": "שְׂרֵפַת הַסִּיר וּמַה שֶּׁבְּתוֹכוֹ, וּמַשְׁמָעוּת הַמַּעֲשֶׂה",
+       "text_de": "Das Verbrennen des Topfes und seines Inhalts und die Bedeutung der Handlung",
+       "blk": "׳סִיר אֲשֶׁר חֶלְאָתָהּ בָהּ׳ 24:1-14",
+       "blk_de": "„Topf, dessen Rost an ihm haftet“ 24:1-14"
+      },
+      {
+       "ref": "24:15-18",
+       "text": "אִסּוּר הָאֵבֶל",
+       "text_de": "Verbot der Trauer",
+       "blk": "אִסּוּר הָאֵבֶל עַל מוֹת אֵשֶׁת הַנָּבִיא וּמַשְׁמָעוּתוֹ 24:15-27",
+       "blk_de": "Verbot der Trauer um den Tod der Frau des Propheten und seine Bedeutung 24:15-27"
+      },
+      {
+       "ref": "24:19-24",
+       "text": "מַשְׁמָעוּת הָאִסּוּר",
+       "text_de": "Bedeutung des Verbots",
+       "blk": "אִסּוּר הָאֵבֶל עַל מוֹת אֵשֶׁת הַנָּבִיא וּמַשְׁמָעוּתוֹ 24:15-27",
+       "blk_de": "Verbot der Trauer um den Tod der Frau des Propheten und seine Bedeutung 24:15-27"
+      },
+      {
+       "ref": "24:25-27",
+       "text": "בּוֹא הַפָּלִיט",
+       "text_de": "Das Kommen des Entronnenen",
+       "blk": "אִסּוּר הָאֵבֶל עַל מוֹת אֵשֶׁת הַנָּבִיא וּמַשְׁמָעוּתוֹ 24:15-27",
+       "blk_de": "Verbot der Trauer um den Tod der Frau des Propheten und seine Bedeutung 24:15-27"
+      }
+     ]
     }
    ],
    "head_de": "Prophezeiungen der Zurechtweisung",
@@ -248,7 +1012,23 @@
      "text_de": "Unheil – Untergang Ammons",
      "text_en": "Calamity – the fall of Ammon",
      "par_de": "Weitere Prophezeiungen über Ammon: Ezechiel 21:33–37 (oben); Jeremia 49:1–6; Amos 1:13–15; Zefanja 2:8–11",
-     "par_en": "More prophecies about Ammon: Ezekiel 21:33–37 (above); Jeremiah 49:1–6; Amos 1:13–15; Zephaniah 2:8–11"
+     "par_en": "More prophecies about Ammon: Ezekiel 21:33–37 (above); Jeremiah 49:1–6; Amos 1:13–15; Zephaniah 2:8–11",
+     "sub": [
+      {
+       "ref": "25:1-5",
+       "text": "עַל עַמּוֹן",
+       "text_de": "Über Ammon",
+       "blk": "הַנְּבוּאָה עַל עַמּוֹן, מוֹאָב, אֱדוֹם וּפְלִשְׁתִּים 25",
+       "blk_de": "Die Weissagung über Ammon, Moab, Edom und die Philister 25"
+      },
+      {
+       "ref": "25:6-7",
+       "text": "עוֹד עַל עַמּוֹן",
+       "text_de": "Noch einmal über Ammon",
+       "blk": "הַנְּבוּאָה עַל עַמּוֹן, מוֹאָב, אֱדוֹם וּפְלִשְׁתִּים 25",
+       "blk_de": "Die Weissagung über Ammon, Moab, Edom und die Philister 25"
+      }
+     ]
     },
     {
      "ref": "25:8-11",
@@ -257,7 +1037,16 @@
      "text_de": "Unheil – Untergang Moabs [Ammons]",
      "text_en": "Calamity – the fall of Moab [Ammon]",
      "par_de": "Weitere Prophezeiungen über Moab: Jesaja 15–16, 25:10–12; Jeremia 48; Amos 2:1–3; Zefanja 2:8–11",
-     "par_en": "More prophecies about Moab: Isaiah 15–16, 25:10–12; Jeremiah 48; Amos 2:1–3; Zephaniah 2:8–11"
+     "par_en": "More prophecies about Moab: Isaiah 15–16, 25:10–12; Jeremiah 48; Amos 2:1–3; Zephaniah 2:8–11",
+     "sub": [
+      {
+       "ref": "25:8-11",
+       "text": "עַל מוֹאָב",
+       "text_de": "Über Moab",
+       "blk": "הַנְּבוּאָה עַל עַמּוֹן, מוֹאָב, אֱדוֹם וּפְלִשְׁתִּים 25",
+       "blk_de": "Die Weissagung über Ammon, Moab, Edom und die Philister 25"
+      }
+     ]
     },
     {
      "ref": "25:12-14",
@@ -266,7 +1055,16 @@
      "text_de": "Unheil – Untergang Edoms",
      "text_en": "Calamity – the fall of Edom",
      "par_de": "Weitere Prophezeiungen über Edom: Jesaja 34, 63:1–6; Jeremia 49:7–22; Ezechiel 35 (unten); Amos 1:11–12; Buch Obadja; Maleachi 1:1–5",
-     "par_en": "More prophecies about Edom: Isaiah 34, 63:1–6; Jeremiah 49:7–22; Ezekiel 35 (below); Amos 1:11–12; Book of Obadiah; Malachi 1:1–5"
+     "par_en": "More prophecies about Edom: Isaiah 34, 63:1–6; Jeremiah 49:7–22; Ezekiel 35 (below); Amos 1:11–12; Book of Obadiah; Malachi 1:1–5",
+     "sub": [
+      {
+       "ref": "25:12-14",
+       "text": "עַל אֱדוֹם",
+       "text_de": "Über Edom",
+       "blk": "הַנְּבוּאָה עַל עַמּוֹן, מוֹאָב, אֱדוֹם וּפְלִשְׁתִּים 25",
+       "blk_de": "Die Weissagung über Ammon, Moab, Edom und die Philister 25"
+      }
+     ]
     },
     {
      "ref": "25:15-17",
@@ -275,7 +1073,16 @@
      "text_de": "Unheil – Untergang der Philister",
      "text_en": "Calamity – the fall of the Philistines",
      "par_de": "Weitere Prophezeiungen über die Philister: Jesaja 14:25–32; Jeremia 47; Amos 1:6–8; Zefanja 2:4–7; Sacharja 9:5–7",
-     "par_en": "More prophecies about the Philistines: Isaiah 14:25–32; Jeremiah 47; Amos 1:6–8; Zephaniah 2:4–7; Zechariah 9:5–7"
+     "par_en": "More prophecies about the Philistines: Isaiah 14:25–32; Jeremiah 47; Amos 1:6–8; Zephaniah 2:4–7; Zechariah 9:5–7",
+     "sub": [
+      {
+       "ref": "25:15-17",
+       "text": "עַל פְּלִשְׁתִּים",
+       "text_de": "Über die Philister",
+       "blk": "הַנְּבוּאָה עַל עַמּוֹן, מוֹאָב, אֱדוֹם וּפְלִשְׁתִּים 25",
+       "blk_de": "Die Weissagung über Ammon, Moab, Edom und die Philister 25"
+      }
+     ]
     },
     {
      "ref": "26",
@@ -287,31 +1094,125 @@
      "par_de": "Weitere Prophezeiungen über Tyrus und Sidon: Jesaja 23; Amos 1:9–10; Sacharja 9:2–4",
      "par_en": "More prophecies about Tyre and Sidon: Isaiah 23; Amos 1:9–10; Zechariah 9:2–4",
      "time_de": "1. Aw 3338",
-     "time_en": "1 Av 3338"
+     "time_en": "1 Av 3338",
+     "sub": [
+      {
+       "ref": "26:1-6",
+       "text": "חֶטְאָהּ שֶׁל צוֹר וְעָנְשָׁהּ",
+       "text_de": "Die Sünde von Tyrus und seine Strafe",
+       "blk": "הַנְּבוּאָה עַל צוֹר וְצִידוֹן 26-28 › נְפִילָתָהּ שֶׁל צוֹר 26",
+       "blk_de": "Die Weissagung über Tyrus und Sidon 26-28 › Der Fall von Tyrus 26"
+      },
+      {
+       "ref": "26:7-14",
+       "text": "מֶלֶךְ בָּבֶל עוֹלֶה עַל צוֹר",
+       "text_de": "Der König von Babel zieht gegen Tyrus heran",
+       "blk": "הַנְּבוּאָה עַל צוֹר וְצִידוֹן 26-28 › נְפִילָתָהּ שֶׁל צוֹר 26",
+       "blk_de": "Die Weissagung über Tyrus und Sidon 26-28 › Der Fall von Tyrus 26"
+      },
+      {
+       "ref": "26:15-18",
+       "text": "חֶרְדַּת הַגּוֹיִם וְקִינָתָם עַל צוֹר",
+       "text_de": "Das Entsetzen der Völker und ihre Klage über Tyrus",
+       "blk": "הַנְּבוּאָה עַל צוֹר וְצִידוֹן 26-28 › נְפִילָתָהּ שֶׁל צוֹר 26",
+       "blk_de": "Die Weissagung über Tyrus und Sidon 26-28 › Der Fall von Tyrus 26"
+      },
+      {
+       "ref": "26:19-21",
+       "text": "יְרִידָתָהּ שֶׁל צוֹר שְׁאוֹלָה",
+       "text_de": "Der Abstieg von Tyrus in die Unterwelt",
+       "blk": "הַנְּבוּאָה עַל צוֹר וְצִידוֹן 26-28 › נְפִילָתָהּ שֶׁל צוֹר 26",
+       "blk_de": "Die Weissagung über Tyrus und Sidon 26-28 › Der Fall von Tyrus 26"
+      }
+     ]
     },
     {
      "ref": "27",
      "text": "קינה על מפלת צור",
      "text_de": "Klagelied über den Untergang von Tyrus",
-     "text_en": "Lament over the fall of Tyre"
+     "text_en": "Lament over the fall of Tyre",
+     "sub": [
+      {
+       "ref": "27:1-7",
+       "text": "יָפְיָהּ שֶׁל הָאֳנִיָּה, הִיא צוֹר",
+       "text_de": "Die Schönheit des Schiffes, das ist Tyrus",
+       "blk": "הַנְּבוּאָה עַל צוֹר וְצִידוֹן 26-28 › אֳנִיַּת הַפְּאֵר שֶׁל צוֹר וּשְׁקִיעָתָהּ 27",
+       "blk_de": "Die Weissagung über Tyrus und Sidon 26-28 › Das prächtige Schiff von Tyrus und sein Untergang 27"
+      },
+      {
+       "ref": "27:8-11",
+       "text": "צֶוֶת הָאֳנִיָּה",
+       "text_de": "Die Besatzung des Schiffes",
+       "blk": "הַנְּבוּאָה עַל צוֹר וְצִידוֹן 26-28 › אֳנִיַּת הַפְּאֵר שֶׁל צוֹר וּשְׁקִיעָתָהּ 27",
+       "blk_de": "Die Weissagung über Tyrus und Sidon 26-28 › Das prächtige Schiff von Tyrus und sein Untergang 27"
+      },
+      {
+       "ref": "27:12-25",
+       "text": "מִסְחָרָהּ שֶׁל צוֹר",
+       "text_de": "Der Handel von Tyrus",
+       "blk": "הַנְּבוּאָה עַל צוֹר וְצִידוֹן 26-28 › אֳנִיַּת הַפְּאֵר שֶׁל צוֹר וּשְׁקִיעָתָהּ 27",
+       "blk_de": "Die Weissagung über Tyrus und Sidon 26-28 › Das prächtige Schiff von Tyrus und sein Untergang 27"
+      },
+      {
+       "ref": "27:26-36",
+       "text": "שִׁבְרָהּ שֶׁל הָאֳנִיָּה צוֹר וְהָאֵבֶל עַל מַפַּלְתָּהּ",
+       "text_de": "Der Schiffbruch des Schiffes Tyrus und die Trauer über seinen Untergang",
+       "blk": "הַנְּבוּאָה עַל צוֹר וְצִידוֹן 26-28 › אֳנִיַּת הַפְּאֵר שֶׁל צוֹר וּשְׁקִיעָתָהּ 27",
+       "blk_de": "Die Weissagung über Tyrus und Sidon 26-28 › Das prächtige Schiff von Tyrus und sein Untergang 27"
+      }
+     ]
     },
     {
      "ref": "28:1-19",
      "text": "נבואה למלך צור",
      "text_de": "Prophezeiung an den König von Tyrus",
-     "text_en": "Prophecy to the king of Tyre"
+     "text_en": "Prophecy to the king of Tyre",
+     "sub": [
+      {
+       "ref": "28:1-10",
+       "text": "גַּאֲוָתוֹ שֶׁל נְגִיד צוֹר וּמַפַּלְתּוֹ",
+       "text_de": "Der Hochmut des Fürsten von Tyrus und sein Sturz",
+       "blk": "הַנְּבוּאָה עַל צוֹר וְצִידוֹן 26-28 › עַל נְגִיד צוֹר, עַל מֶלֶךְ צוֹר וְעַל צִידוֹן 28",
+       "blk_de": "Die Weissagung über Tyrus und Sidon 26-28 › Über den Fürsten von Tyrus, über den König von Tyrus und über Sidon 28"
+      },
+      {
+       "ref": "28:11-19",
+       "text": "גְּדֻלָּתוֹ, חֶטְאוֹ וּמַפַּלְתּוֹ שֶׁל מֶלֶךְ צוֹר",
+       "text_de": "Größe, Sünde und Sturz des Königs von Tyrus",
+       "blk": "הַנְּבוּאָה עַל צוֹר וְצִידוֹן 26-28 › עַל נְגִיד צוֹר, עַל מֶלֶךְ צוֹר וְעַל צִידוֹן 28",
+       "blk_de": "Die Weissagung über Tyrus und Sidon 26-28 › Über den Fürsten von Tyrus, über den König von Tyrus und über Sidon 28"
+      }
+     ]
     },
     {
      "ref": "28:20-24",
      "text": "פורענות - מפלת צידון",
      "text_de": "Unheil – Untergang Sidons",
-     "text_en": "Calamity – the fall of Sidon"
+     "text_en": "Calamity – the fall of Sidon",
+     "sub": [
+      {
+       "ref": "28:20-24",
+       "text": "עַל צִידוֹן",
+       "text_de": "Über Sidon",
+       "blk": "הַנְּבוּאָה עַל צוֹר וְצִידוֹן 26-28 › עַל נְגִיד צוֹר, עַל מֶלֶךְ צוֹר וְעַל צִידוֹן 28",
+       "blk_de": "Die Weissagung über Tyrus und Sidon 26-28 › Über den Fürsten von Tyrus, über den König von Tyrus und über Sidon 28"
+      }
+     ]
     },
     {
      "ref": "28:25-26",
      "text": "ישיבת ישראל בארצם בבטחון ובהשקט",
      "text_de": "Israel wohnt in seinem Land in Sicherheit und Ruhe",
-     "text_en": "Israel dwells in its land in security and tranquility"
+     "text_en": "Israel dwells in its land in security and tranquility",
+     "sub": [
+      {
+       "ref": "28:25-26",
+       "text": "דִּבְרֵי נֶחָמָה לְבֵית יִשְׂרָאֵל",
+       "text_de": "Worte des Trostes für das Haus Israel",
+       "blk": "הַנְּבוּאָה עַל צוֹר וְצִידוֹן 26-28 › עַל נְגִיד צוֹר, עַל מֶלֶךְ צוֹר וְעַל צִידוֹן 28",
+       "blk_de": "Die Weissagung über Tyrus und Sidon 26-28 › Über den Fürsten von Tyrus, über den König von Tyrus und über Sidon 28"
+      }
+     ]
     },
     {
      "ref": "29-30",
@@ -323,7 +1224,51 @@
      "par_de": "Weitere Prophezeiungen über Ägypten: Jesaja 19–20, 43:3–13; Jeremia 46",
      "par_en": "More prophecies about Egypt: Isaiah 19–20, 43:3–13; Jeremiah 46",
      "time_de": "12. Tewet 3337; 1. Nisan 3347; 7. Nisan 3338",
-     "time_en": "12 Tevet 3337; 1 Nisan 3347; 7 Nisan 3338"
+     "time_en": "12 Tevet 3337; 1 Nisan 3347; 7 Nisan 3338",
+     "sub": [
+      {
+       "ref": "29:1-7",
+       "text": "עָנְשׁוֹ שֶׁל פַּרְעֹה 'הַתַּנִּים' עַל גַּאֲוָתוֹ וְעַל הֱיוֹתוֹ קָנֶה רָצוּץ לְבֵית יִשְׂרָאֵל",
+       "text_de": "Die Strafe des Pharao, des „Krokodils“, für seinen Hochmut und dafür, dass er dem Haus Israel ein geknicktes Rohr war",
+       "blk": "קֹבֶץ נְבוּאוֹת עַל מִצְרַיִם 29-32 › פַּרְעֹה 'הַתַּנִּים הַגָּדוֹל' 29:1-16",
+       "blk_de": "Sammlung von Weissagungen über Ägypten 29-32 › Der Pharao, das „große Krokodil“ 29:1-16"
+      },
+      {
+       "ref": "29:8-12",
+       "text": "חֻרְבַּן אֶרֶץ מִצְרַיִם בְּמֶשֶׁךְ אַרְבָּעִים שָׁנָה",
+       "text_de": "Die Verwüstung des Landes Ägypten während vierzig Jahren",
+       "blk": "קֹבֶץ נְבוּאוֹת עַל מִצְרַיִם 29-32 › פַּרְעֹה 'הַתַּנִּים הַגָּדוֹל' 29:1-16",
+       "blk_de": "Sammlung von Weissagungen über Ägypten 29-32 › Der Pharao, das „große Krokodil“ 29:1-16"
+      },
+      {
+       "ref": "29:13-16",
+       "text": "שִׁיבַת שְׁבוּת מִצְרַיִם מִקֵּץ אַרְבָּעִים שָׁנָה וַהֲפִיכָתָהּ לְ'מַמְלָכָה שְׁפָלָה'",
+       "text_de": "Die Wende für Ägypten nach vierzig Jahren und seine Verwandlung in ein „niedriges Königreich“",
+       "blk": "קֹבֶץ נְבוּאוֹת עַל מִצְרַיִם 29-32 › פַּרְעֹה 'הַתַּנִּים הַגָּדוֹל' 29:1-16",
+       "blk_de": "Sammlung von Weissagungen über Ägypten 29-32 › Der Pharao, das „große Krokodil“ 29:1-16"
+      },
+      {
+       "ref": "30:1-9",
+       "text": "יוֹם ה'",
+       "text_de": "Der Tag des HERRN",
+       "blk": "קֹבֶץ נְבוּאוֹת עַל מִצְרַיִם 29-32 › יוֹם ה' עַל מִצְרַיִם 30:1-19",
+       "blk_de": "Sammlung von Weissagungen über Ägypten 29-32 › Der Tag des HERRN über Ägypten 30:1-19"
+      },
+      {
+       "ref": "30:10-12",
+       "text": "מִבְצַע הַגְּזֵרָה - נְבוּכַדְרֶאצַּר",
+       "text_de": "Vollzug des Beschlusses – Nebukadnezzar",
+       "blk": "קֹבֶץ נְבוּאוֹת עַל מִצְרַיִם 29-32 › יוֹם ה' עַל מִצְרַיִם 30:1-19",
+       "blk_de": "Sammlung von Weissagungen über Ägypten 29-32 › Der Tag des HERRN über Ägypten 30:1-19"
+      },
+      {
+       "ref": "30:13-19",
+       "text": "חֻרְבַּן עָרֵי מִצְרַיִם",
+       "text_de": "Zerstörung der Städte Ägyptens",
+       "blk": "קֹבֶץ נְבוּאוֹת עַל מִצְרַיִם 29-32 › יוֹם ה' עַל מִצְרַיִם 30:1-19",
+       "blk_de": "Sammlung von Weissagungen über Ägypten 29-32 › Der Tag des HERRN über Ägypten 30:1-19"
+      }
+     ]
     },
     {
      "ref": "31",
@@ -332,7 +1277,30 @@
      "text_de": "Prophezeiung an den König von Ägypten – Schilderung des Untergangs Assurs",
      "text_en": "Prophecy to the king of Egypt – description of the fall of Assyria",
      "time_de": "1. Siwan 3338",
-     "time_en": "1 Sivan 3338"
+     "time_en": "1 Sivan 3338",
+     "sub": [
+      {
+       "ref": "31:1-9",
+       "text": "יָפְיוֹ שֶׁל הָאֶרֶז",
+       "text_de": "Die Schönheit der Zeder",
+       "blk": "קֹבֶץ נְבוּאוֹת עַל מִצְרַיִם 29-32 › הִנֵּה אַשּׁוּר אֶרֶז בַּלְּבָנוֹן 31:1-18",
+       "blk_de": "Sammlung von Weissagungen über Ägypten 29-32 › Siehe, Assur, eine Zeder auf dem Libanon 31:1-18"
+      },
+      {
+       "ref": "31:10-14",
+       "text": "מַפַּלְתּוֹ שֶׁל הָאֶרֶז",
+       "text_de": "Der Sturz der Zeder",
+       "blk": "קֹבֶץ נְבוּאוֹת עַל מִצְרַיִם 29-32 › הִנֵּה אַשּׁוּר אֶרֶז בַּלְּבָנוֹן 31:1-18",
+       "blk_de": "Sammlung von Weissagungen über Ägypten 29-32 › Siehe, Assur, eine Zeder auf dem Libanon 31:1-18"
+      },
+      {
+       "ref": "31:15-18",
+       "text": "יְרִידָתוֹ שְׁאוֹלָה",
+       "text_de": "Ihr Hinabfahren in die Unterwelt",
+       "blk": "קֹבֶץ נְבוּאוֹת עַל מִצְרַיִם 29-32 › הִנֵּה אַשּׁוּר אֶרֶז בַּלְּבָנוֹן 31:1-18",
+       "blk_de": "Sammlung von Weissagungen über Ägypten 29-32 › Siehe, Assur, eine Zeder auf dem Libanon 31:1-18"
+      }
+     ]
     },
     {
      "ref": "32:1-16",
@@ -341,7 +1309,30 @@
      "text_de": "Klagelied über den König von Ägypten",
      "text_en": "Lament over the king of Egypt",
      "time_de": "1. Adar 3339",
-     "time_en": "1 Adar 3339"
+     "time_en": "1 Adar 3339",
+     "sub": [
+      {
+       "ref": "32:1-2",
+       "text": "פְּנִיָּה אֶל הַנָּבִיא",
+       "text_de": "Anrede an den Propheten",
+       "blk": "קֹבֶץ נְבוּאוֹת עַל מִצְרַיִם 29-32 › קִינָה (וְתוֹכֵחָה) עַל פַּרְעֹה מֶלֶךְ מִצְרַיִם 32:1-16",
+       "blk_de": "Sammlung von Weissagungen über Ägypten 29-32 › Klage (und Zurechtweisung) über den Pharao, den König von Ägypten 32:1-16"
+      },
+      {
+       "ref": "32:3-10",
+       "text": "הַשְׁמָדַת הַתַּנִּין (מִצְרַיִם) וְהַשְׁפָּעָתָהּ עַל הָעַמִּים",
+       "text_de": "Vernichtung des Krokodils (Ägyptens) und ihre Wirkung auf die Völker",
+       "blk": "קֹבֶץ נְבוּאוֹת עַל מִצְרַיִם 29-32 › קִינָה (וְתוֹכֵחָה) עַל פַּרְעֹה מֶלֶךְ מִצְרַיִם 32:1-16",
+       "blk_de": "Sammlung von Weissagungen über Ägypten 29-32 › Klage (und Zurechtweisung) über den Pharao, den König von Ägypten 32:1-16"
+      },
+      {
+       "ref": "32:11-16",
+       "text": "חֶרֶב מֶלֶךְ בָּבֶל עַל מִצְרַיִם",
+       "text_de": "Das Schwert des Königs von Babel gegen Ägypten",
+       "blk": "קֹבֶץ נְבוּאוֹת עַל מִצְרַיִם 29-32 › קִינָה (וְתוֹכֵחָה) עַל פַּרְעֹה מֶלֶךְ מִצְרַיִם 32:1-16",
+       "blk_de": "Sammlung von Weissagungen über Ägypten 29-32 › Klage (und Zurechtweisung) über den Pharao, den König von Ägypten 32:1-16"
+      }
+     ]
     },
     {
      "ref": "32:17-32",
@@ -369,7 +1360,16 @@
      "text_de": "Aufgabe des Propheten, das Volk zu warnen und zurechtzuweisen",
      "text_en": "The prophet's task to warn and rebuke the people",
      "par_de": "Siehe Ezechiel 2–3 (oben)",
-     "par_en": "See Ezekiel 2–3 (above)"
+     "par_en": "See Ezekiel 2–3 (above)",
+     "sub": [
+      {
+       "ref": "33:1-22",
+       "text": "הוּא עֶצֶם הַמַּעֲבָר מִפֻּרְעָנוּת לִגְאֻלָּה.",
+       "text_de": "Er ist der eigentliche Übergang von Strafgericht zu Erlösung.",
+       "blk": "'צֹפֶה נְתַתִּיךָ לְבֵית יִשְׂרָאֵל' 33",
+       "blk_de": "„Zum Wächter habe ich dich gesetzt für das Haus Israel“ 33"
+      }
+     ]
     },
     {
      "ref": "33:10-20",
@@ -393,13 +1393,45 @@
      "ref": "33:23-33",
      "text": "תוכחה - טענת הבריות לירושת הארץ ותשובת ה'",
      "text_de": "Zurechtweisung – Anspruch der Leute auf den Besitz des Landes und Gottes Antwort",
-     "text_en": "Rebuke – the people's claim to inherit the land and God's reply"
+     "text_en": "Rebuke – the people's claim to inherit the land and God's reply",
+     "sub": [
+      {
+       "ref": "33:23-33",
+       "text": "בָּא לְהַפְרִיךְ אֶת הַסִּסְמָה 'לָנוּ נִתְּנָה הָאָרֶץ לְמוֹרָשָׁה' (פסוק כד).",
+       "text_de": "Er will die Parole widerlegen: „Uns ist das Land zum Besitz gegeben“ (V. 24).",
+       "blk": "'צֹפֶה נְתַתִּיךָ לְבֵית יִשְׂרָאֵל' 33",
+       "blk_de": "„Zum Wächter habe ich dich gesetzt für das Haus Israel“ 33"
+      }
+     ]
     },
     {
      "ref": "34",
      "text": "תוכחה לפרנסים/למלכים",
      "text_de": "Zurechtweisung der Vorsteher/Könige",
-     "text_en": "Rebuke of the leaders/kings"
+     "text_en": "Rebuke of the leaders/kings",
+     "sub": [
+      {
+       "ref": "34:1-16",
+       "text": "מַעֲשֵׂי הָרוֹעִים וְהַצָּלַת הַצֹּאן מִפִּיהֶם",
+       "text_de": "Das Tun der Hirten und die Rettung der Schafe aus ihrem Rachen",
+       "blk": "עַל רוֹעֵי יִשְׂרָאֵל 34",
+       "blk_de": "Über die Hirten Israels 34"
+      },
+      {
+       "ref": "34:17-22",
+       "text": "הַמִּשְׁפָּט בֵּין שֶׂה לָשֶׂה",
+       "text_de": "Das Gericht zwischen Schaf und Schaf",
+       "blk": "עַל רוֹעֵי יִשְׂרָאֵל 34",
+       "blk_de": "Über die Hirten Israels 34"
+      },
+      {
+       "ref": "34:23-31",
+       "text": "הֲקָמַת רוֹעֶה מִבֵּית דָּוִד, שָׁלוֹם, בִּטָּחוֹן וּבְרָכָה בָּאָרֶץ",
+       "text_de": "Einsetzung eines Hirten aus dem Haus David; Frieden, Sicherheit und Segen im Land",
+       "blk": "עַל רוֹעֵי יִשְׂרָאֵל 34",
+       "blk_de": "Über die Hirten Israels 34"
+      }
+     ]
     }
    ],
    "head_de": "Zurechtweisungen",
@@ -415,19 +1447,130 @@
      "text_de": "Unheil – Untergang Edoms",
      "text_en": "Calamity – the fall of Edom",
      "par_de": "Siehe Ezechiel 25:12–14 (oben)",
-     "par_en": "See Ezekiel 25:12–14 (above)"
+     "par_en": "See Ezekiel 25:12–14 (above)",
+     "sub": [
+      {
+       "ref": "35:1-4",
+       "text": "הַר שֵׂעִיר שְׁמָמָה יִהְיֶה",
+       "text_de": "Das Gebirge Seïr wird zur Öde werden",
+       "blk": "הַר שֵׂעִיר וְהָרֵי יִשְׂרָאֵל · הַר שֵׂעִיר וְהָרֵי יִשְׂרָאֵל 35:1-36:15 › חֵלֶק א: 'עַל־הַר שֵׂעִיר' 35:1-15",
+       "blk_de": "Das Gebirge Seïr und die Berge Israels · Das Gebirge Seïr und die Berge Israels 35:1-36:15 › Teil 1: „Gegen das Gebirge Seïr“ 35:1-15"
+      },
+      {
+       "ref": "35:5-9",
+       "text": "הַנִּמּוּק הָרִאשׁוֹן: יַעַן הֱיוֹת לְךָ אֵיבַת עוֹלָם",
+       "text_de": "Die erste Begründung: Weil du ewige Feindschaft hegst",
+       "blk": "הַר שֵׂעִיר וְהָרֵי יִשְׂרָאֵל · הַר שֵׂעִיר וְהָרֵי יִשְׂרָאֵל 35:1-36:15 › חֵלֶק א: 'עַל־הַר שֵׂעִיר' 35:1-15",
+       "blk_de": "Das Gebirge Seïr und die Berge Israels · Das Gebirge Seïr und die Berge Israels 35:1-36:15 › Teil 1: „Gegen das Gebirge Seïr“ 35:1-15"
+      },
+      {
+       "ref": "35:10-15",
+       "text": "הַנִּמּוּק הַשֵּׁנִי: אֲשֶׁר אָמַרְתָּ, עַל הָרֵי יִשְׂרָאֵל...לָנוּ נִתְּנוּ לְאָכְלָה",
+       "text_de": "Die zweite Begründung: Dass du gesagt hast: Die Berge Israels ... sind uns zum Fraß gegeben",
+       "blk": "הַר שֵׂעִיר וְהָרֵי יִשְׂרָאֵל · הַר שֵׂעִיר וְהָרֵי יִשְׂרָאֵל 35:1-36:15 › חֵלֶק א: 'עַל־הַר שֵׂעִיר' 35:1-15",
+       "blk_de": "Das Gebirge Seïr und die Berge Israels · Das Gebirge Seïr und die Berge Israels 35:1-36:15 › Teil 1: „Gegen das Gebirge Seïr“ 35:1-15"
+      }
+     ]
     },
     {
      "ref": "36",
      "text": "נחמה - גאולת ישראל ויישובם בארץ בעת הגאולה",
      "text_de": "Trost – Erlösung Israels und seine Ansiedlung im Land zur Zeit der Erlösung",
-     "text_en": "Consolation – the redemption of Israel and its settlement in the land at the time of redemption"
+     "text_en": "Consolation – the redemption of Israel and its settlement in the land at the time of redemption",
+     "sub": [
+      {
+       "ref": "36:15-21",
+       "text": "הָעֲוֹנוֹת בֶּעָבָר וְחִלּוּל שֵׁם שָׁמַיִם בַּגּוֹלָה",
+       "text_de": "Die Verfehlungen der Vergangenheit und die Entweihung des Gottesnamens im Exil",
+       "blk": "'לֹא לְמַעַנְכֶם אֲנִי עֹשֶׂה...כִּי אִם־לְשֵׁם־קָדְשִׁי' 36:16-38",
+       "blk_de": "„Nicht euretwegen handle ich ... sondern um meines heiligen Namens willen“ 36:16-38"
+      },
+      {
+       "ref": "36:22-32",
+       "text": "גְּאֻלַּת יִשְׂרָאֵל, טָהֳרָתוֹ וִישׁוּבוֹ בָּאָרֶץ לְמַעַן שְׁמוֹ",
+       "text_de": "Die Erlösung Israels, seine Reinigung und seine Ansiedlung im Land um seines Namens willen",
+       "blk": "'לֹא לְמַעַנְכֶם אֲנִי עֹשֶׂה...כִּי אִם־לְשֵׁם־קָדְשִׁי' 36:16-38",
+       "blk_de": "„Nicht euretwegen handle ich ... sondern um meines heiligen Namens willen“ 36:16-38"
+      },
+      {
+       "ref": "36:33-36",
+       "text": "עִמּוּת הֶעָבָר עִם הֶעָתִיד",
+       "text_de": "Die Gegenüberstellung von Vergangenheit und Zukunft",
+       "blk": "'לֹא לְמַעַנְכֶם אֲנִי עֹשֶׂה...כִּי אִם־לְשֵׁם־קָדְשִׁי' 36:16-38",
+       "blk_de": "„Nicht euretwegen handle ich ... sondern um meines heiligen Namens willen“ 36:16-38"
+      },
+      {
+       "ref": "36:36-39",
+       "text": "הַתּוֹעֵבוֹת בַּמִּקְדָּשׁ",
+       "text_de": "Die Gräuel im Tempel",
+       "blk": "אָהֳלָה וְאָהֳלִיבָה · חֵלֶק ב: תּוֹעֲבוֹתֵיהֶן בַּמִּקְדָּשׁ, הַזְּנוּת עִם הָרְחוֹקִים וְעָנְשָׁן. 36-49",
+       "blk_de": "Ohola und Oholiba · Teil 2: Ihre Gräuel im Tempel, die Hurerei mit den Fernen und ihre Strafe 36-49"
+      },
+      {
+       "ref": "36:37-38",
+       "text": "צֹאן אָדָם",
+       "text_de": "Die Menschenherde",
+       "blk": "'לֹא לְמַעַנְכֶם אֲנִי עֹשֶׂה...כִּי אִם־לְשֵׁם־קָדְשִׁי' 36:16-38",
+       "blk_de": "„Nicht euretwegen handle ich ... sondern um meines heiligen Namens willen“ 36:16-38"
+      },
+      {
+       "ref": "36:40-44",
+       "text": "הַזְּנוּת עִם הָרְחוֹקִים",
+       "text_de": "Die Hurerei mit den Fernen",
+       "blk": "אָהֳלָה וְאָהֳלִיבָה · חֵלֶק ב: תּוֹעֲבוֹתֵיהֶן בַּמִּקְדָּשׁ, הַזְּנוּת עִם הָרְחוֹקִים וְעָנְשָׁן. 36-49",
+       "blk_de": "Ohola und Oholiba · Teil 2: Ihre Gräuel im Tempel, die Hurerei mit den Fernen und ihre Strafe 36-49"
+      },
+      {
+       "ref": "36:45-49",
+       "text": "הַמִּשְׁפָּט וְהָעֹנֶשׁ",
+       "text_de": "Das Gericht und die Strafe",
+       "blk": "אָהֳלָה וְאָהֳלִיבָה · חֵלֶק ב: תּוֹעֲבוֹתֵיהֶן בַּמִּקְדָּשׁ, הַזְּנוּת עִם הָרְחוֹקִים וְעָנְשָׁן. 36-49",
+       "blk_de": "Ohola und Oholiba · Teil 2: Ihre Gräuel im Tempel, die Hurerei mit den Fernen und ihre Strafe 36-49"
+      }
+     ]
     },
     {
      "ref": "37:1-14",
      "text": "נחמה - תחיית העצמות היבשות",
      "text_de": "Trost – Auferweckung der verdorrten Gebeine",
-     "text_en": "Consolation – the revival of the dry bones"
+     "text_en": "Consolation – the revival of the dry bones",
+     "sub": [
+      {
+       "ref": "37:1-3",
+       "text": "סְקִירַת הָעֲצָמוֹת הַיְבֵשׁוֹת עַל פְּנֵי הַבִּקְעָה",
+       "text_de": "Überblick über die verdorrten Gebeine auf der Ebene",
+       "blk": "חֲזוֹן הָעֲצָמוֹת הַיְבֵשׁוֹת 37:1-14",
+       "blk_de": "Die Vision von den verdorrten Gebeinen 37:1-14"
+      },
+      {
+       "ref": "37:4-6",
+       "text": "הַנְּבוּאָה אֶל הָעֲצָמוֹת",
+       "text_de": "Die Weissagung an die Gebeine",
+       "blk": "חֲזוֹן הָעֲצָמוֹת הַיְבֵשׁוֹת 37:1-14",
+       "blk_de": "Die Vision von den verdorrten Gebeinen 37:1-14"
+      },
+      {
+       "ref": "37:7-8",
+       "text": "הָעֲצָמוֹת קְרֵבוֹת עֶצֶם אֶל עַצְמוֹ",
+       "text_de": "Die Gebeine nähern sich, Bein zu Bein",
+       "blk": "חֲזוֹן הָעֲצָמוֹת הַיְבֵשׁוֹת 37:1-14",
+       "blk_de": "Die Vision von den verdorrten Gebeinen 37:1-14"
+      },
+      {
+       "ref": "37:9-10",
+       "text": "הַנְּבוּאָה אֶל הָרוּחַ",
+       "text_de": "Die Weissagung an den Geist",
+       "blk": "חֲזוֹן הָעֲצָמוֹת הַיְבֵשׁוֹת 37:1-14",
+       "blk_de": "Die Vision von den verdorrten Gebeinen 37:1-14"
+      },
+      {
+       "ref": "37:11-14",
+       "text": "פֵּשֶׁר הֶחָזוֹן",
+       "text_de": "Deutung der Vision",
+       "blk": "חֲזוֹן הָעֲצָמוֹת הַיְבֵשׁוֹת 37:1-14",
+       "blk_de": "Die Vision von den verdorrten Gebeinen 37:1-14"
+      }
+     ]
     },
     {
      "ref": "37:15-28",
@@ -436,7 +1579,30 @@
      "text_de": "Sammlung der Verbannten und Einheit Israels bei ihrer Erlösung",
      "text_en": "Ingathering of the exiles and the unity of Israel at their redemption",
      "par_de": "Vereinigung von Juda und Israel in der Zukunft: Jesaja 11:11–13; Jeremia 3:18, 50:4–5",
-     "par_en": "Union of Judah and Israel in the future: Isaiah 11:11–13; Jeremiah 3:18, 50:4–5"
+     "par_en": "Union of Judah and Israel in the future: Isaiah 11:11–13; Jeremiah 3:18, 50:4–5",
+     "sub": [
+      {
+       "ref": "37:15-20",
+       "text": "הַמַּעֲשֶׂה הַסִּמְלִי וְהַסְבָּרָתוֹ",
+       "text_de": "Die Zeichenhandlung und ihre Erklärung",
+       "blk": "אחוד שִׁבְטֵי יִשְׂרָאֵל 37:15-28",
+       "blk_de": "Vereinigung der Stämme Israels 37:15-28"
+      },
+      {
+       "ref": "37:21-23",
+       "text": "פֵּשֶׁר הַסֵּמֶל",
+       "text_de": "Deutung des Zeichens",
+       "blk": "אחוד שִׁבְטֵי יִשְׂרָאֵל 37:15-28",
+       "blk_de": "Vereinigung der Stämme Israels 37:15-28"
+      },
+      {
+       "ref": "37:23-28",
+       "text": "הַהַבְטָחוֹת בְּעִקְּבוֹת הָאִחוּד",
+       "text_de": "Die Verheißungen im Gefolge der Vereinigung",
+       "blk": "אחוד שִׁבְטֵי יִשְׂרָאֵל 37:15-28",
+       "blk_de": "Vereinigung der Stämme Israels 37:15-28"
+      }
+     ]
     },
     {
      "ref": "38:1-16",
@@ -445,13 +1611,94 @@
      "text_de": "Prophezeiung – Gogs Kriegszug gegen Israel",
      "text_en": "Prophecy – Gog's coming to wage war against Israel",
      "par_de": "Weitere Prophezeiungen über Gog: Jesaja 18 (nach manchen), 24–27 (nach manchen), 30:19–26 (nach manchen), 33:1–6 (nach manchen), 66:5–24; Jeremia 30 (nach manchen); Joel 3:1–4 (nach manchen); Micha 4:11–14 (nach manchen); Sacharja 12–13 (nach manchen), 14; Psalmen 2 (nach manchen), 45–48, 76 (nach manchen), 97 (nach manchen), 99 (nach manchen)",
-     "par_en": "More prophecies about Gog: Isaiah 18 (according to some), 24–27 (according to some), 30:19–26 (according to some), 33:1–6 (according to some), 66:5–24; Jeremiah 30 (according to some); Joel 3:1–4 (according to some); Micah 4:11–14 (according to some); Zechariah 12–13 (according to some), 14; Psalms 2 (according to some), 45–48, 76 (according to some), 97 (according to some), 99 (according to some)"
+     "par_en": "More prophecies about Gog: Isaiah 18 (according to some), 24–27 (according to some), 30:19–26 (according to some), 33:1–6 (according to some), 66:5–24; Jeremiah 30 (according to some); Joel 3:1–4 (according to some); Micah 4:11–14 (according to some); Zechariah 12–13 (according to some), 14; Psalms 2 (according to some), 45–48, 76 (according to some), 97 (according to some), 99 (according to some)",
+     "sub": [
+      {
+       "ref": "38:1-9",
+       "text": "תֵּאוּרוֹ שֶׁל גּוֹג וְחֵילוֹ הָעוֹלֶה עַל הָרֵי יִשְׂרָאֵל",
+       "text_de": "Beschreibung Gogs und seines Heeres, das gegen die Berge Israels heraufzieht",
+       "blk": "הַנְּבוּאָה אֶל גּוֹג אֶרֶץ הַמָּגוֹג 38-39",
+       "blk_de": "Die Weissagung über Gog im Land Magog 38-39"
+      },
+      {
+       "ref": "38:1-13",
+       "text": "הַפְּנִיָּה הָרִאשׁוֹנָה אֶל גּוֹג",
+       "text_de": "Die erste Anrede an Gog",
+       "blk": "הַנְּבוּאָה אֶל גּוֹג אֶרֶץ הַמָּגוֹג 38-39",
+       "blk_de": "Die Weissagung über Gog im Land Magog 38-39"
+      },
+      {
+       "ref": "38:10-13",
+       "text": "הַמַּחֲשָׁבָה לִשְׁלֹל שָׁלָל וְלָבֹז בַּז",
+       "text_de": "Der Plan, Beute zu machen und zu plündern",
+       "blk": "הַנְּבוּאָה אֶל גּוֹג אֶרֶץ הַמָּגוֹג 38-39",
+       "blk_de": "Die Weissagung über Gog im Land Magog 38-39"
+      },
+      {
+       "ref": "38:14-16",
+       "text": "פְּנִיָּה מְחֻדֶּשֶׁת אֶל גּוֹג",
+       "text_de": "Erneute Anrede an Gog",
+       "blk": "הַנְּבוּאָה אֶל גּוֹג אֶרֶץ הַמָּגוֹג 38-39",
+       "blk_de": "Die Weissagung über Gog im Land Magog 38-39"
+      },
+      {
+       "ref": "38:14-23",
+       "text": "הַפְּנִיָּה הַשְּׁנִיָּה אֶל גּוֹג (וְעַל גּוֹג)",
+       "text_de": "Die zweite Anrede an Gog (und über Gog)",
+       "blk": "הַנְּבוּאָה אֶל גּוֹג אֶרֶץ הַמָּגוֹג 38-39",
+       "blk_de": "Die Weissagung über Gog im Land Magog 38-39"
+      }
+     ]
     },
     {
      "ref": "38:17-39:24",
      "text": "נקמת ה' בגוג ובאומות שבאו עמו",
      "text_de": "Gottes Vergeltung an Gog und den Völkern, die mit ihm kamen",
-     "text_en": "God's vengeance on Gog and the nations that came with him"
+     "text_en": "God's vengeance on Gog and the nations that came with him",
+     "sub": [
+      {
+       "ref": "38:17-23",
+       "text": "תֵּאוּר מַהֲלַךְ הַמִּלְחָמָה",
+       "text_de": "Beschreibung des Kriegsverlaufs",
+       "blk": "הַנְּבוּאָה אֶל גּוֹג אֶרֶץ הַמָּגוֹג 38-39",
+       "blk_de": "Die Weissagung über Gog im Land Magog 38-39"
+      },
+      {
+       "ref": "39:1-10",
+       "text": "מַפֶּלֶת גּוֹג, הַשְׁמָדַת צְבָאוֹ וְנִשְׁקוֹ",
+       "text_de": "Der Fall Gogs, die Vernichtung seines Heeres und seiner Waffen",
+       "blk": "הַנְּבוּאָה אֶל גּוֹג אֶרֶץ הַמָּגוֹג 38-39",
+       "blk_de": "Die Weissagung über Gog im Land Magog 38-39"
+      },
+      {
+       "ref": "39:1-15",
+       "text": "הַפְּנִיָּה הַשְּׁלִישִׁית אֶל גּוֹג (וְעַל גּוֹג)",
+       "text_de": "Die dritte Anrede an Gog (und über Gog)",
+       "blk": "הַנְּבוּאָה אֶל גּוֹג אֶרֶץ הַמָּגוֹג 38-39",
+       "blk_de": "Die Weissagung über Gog im Land Magog 38-39"
+      },
+      {
+       "ref": "39:11-16",
+       "text": "קְבוּרַת הַנּוֹפְלִים וְטִהוּר הָאָרֶץ",
+       "text_de": "Bestattung der Gefallenen und Reinigung des Landes",
+       "blk": "הַנְּבוּאָה אֶל גּוֹג אֶרֶץ הַמָּגוֹג 38-39",
+       "blk_de": "Die Weissagung über Gog im Land Magog 38-39"
+      },
+      {
+       "ref": "39:17-20",
+       "text": "הַפְּנִיָּה הָרְבִיעִית אֶל הַטּוֹרְפִים וְהַזְמָנָתָם לֶאֱכֹל בָּשָׂר וְלִשְׁתּוֹת דָּם",
+       "text_de": "Die vierte Anrede an die Raubtiere und ihre Einladung, Fleisch zu essen und Blut zu trinken",
+       "blk": "הַנְּבוּאָה אֶל גּוֹג אֶרֶץ הַמָּגוֹג 38-39",
+       "blk_de": "Die Weissagung über Gog im Land Magog 38-39"
+      },
+      {
+       "ref": "39:21-29",
+       "text": "סִכּוּם מַטְּרַת הַמִּלְחָמָה",
+       "text_de": "Zusammenfassung des Kriegszwecks",
+       "blk": "הַנְּבוּאָה אֶל גּוֹג אֶרֶץ הַמָּגוֹג 38-39",
+       "blk_de": "Die Weissagung über Gog im Land Magog 38-39"
+      }
+     ]
     },
     {
      "ref": "39:25-29",
@@ -476,7 +1723,72 @@
      "par_de": "Bau und Geräte des Heiligtums: 1 Könige 6–7; 2 Chronik 3:1–5:1",
      "par_en": "Construction and vessels of the Sanctuary: I Kings 6–7; II Chronicles 3:1–5:1",
      "time_de": "10. Tischri 3352",
-     "time_en": "10 Tishrei 3352"
+     "time_en": "10 Tishrei 3352",
+     "sub": [
+      {
+       "ref": "40:1-4",
+       "text": "הקדמה למראה",
+       "text_de": "Einleitung zur Vision",
+       "blk": "הַבַּיִת הַהוֹלֵךְ וְנִבְנֶה 40:1-42:20",
+       "blk_de": "Das Haus, das immer weiter ansteigend gebaut wird 40:1-42:20"
+      },
+      {
+       "ref": "40:5-16",
+       "text": "החומה והשער המזרחי של החצר החיצונה",
+       "text_de": "Die Mauer und das östliche Tor des äußeren Vorhofs",
+       "blk": "הַבַּיִת הַהוֹלֵךְ וְנִבְנֶה 40:1-42:20",
+       "blk_de": "Das Haus, das immer weiter ansteigend gebaut wird 40:1-42:20"
+      },
+      {
+       "ref": "40:17-27",
+       "text": "החצר החיצונה",
+       "text_de": "Der äußere Vorhof",
+       "blk": "הַבַּיִת הַהוֹלֵךְ וְנִבְנֶה 40:1-42:20",
+       "blk_de": "Das Haus, das immer weiter ansteigend gebaut wird 40:1-42:20"
+      },
+      {
+       "ref": "40:28-37",
+       "text": "החצר הפנימית ושעריה",
+       "text_de": "Der innere Vorhof und seine Tore",
+       "blk": "הַבַּיִת הַהוֹלֵךְ וְנִבְנֶה 40:1-42:20",
+       "blk_de": "Das Haus, das immer weiter ansteigend gebaut wird 40:1-42:20"
+      },
+      {
+       "ref": "40:38-43",
+       "text": "המתקנים שבשער הצפוני",
+       "text_de": "Die Einrichtungen am nördlichen Tor",
+       "blk": "הַבַּיִת הַהוֹלֵךְ וְנִבְנֶה 40:1-42:20",
+       "blk_de": "Das Haus, das immer weiter ansteigend gebaut wird 40:1-42:20"
+      },
+      {
+       "ref": "40:44-47",
+       "text": "לשכות הכהנים ושטח החצר הפנימית",
+       "text_de": "Die Priesterkammern und die Fläche des inneren Vorhofs",
+       "blk": "הַבַּיִת הַהוֹלֵךְ וְנִבְנֶה 40:1-42:20",
+       "blk_de": "Das Haus, das immer weiter ansteigend gebaut wird 40:1-42:20"
+      },
+      {
+       "ref": "40:48-41:26",
+       "text": "מבנה הבית: האולם, ההיכל וקדש הקדשים, הבנין והגזרה",
+       "text_de": "Aufbau des Hauses: Vorhalle, Tempelhaus und Allerheiligstes, der Anbau und der abgesonderte Bereich",
+       "blk": "הַבַּיִת הַהוֹלֵךְ וְנִבְנֶה 40:1-42:20",
+       "blk_de": "Das Haus, das immer weiter ansteigend gebaut wird 40:1-42:20"
+      },
+      {
+       "ref": "42:1-14",
+       "text": "לשכות הצפון והדרום",
+       "text_de": "Die Kammern im Norden und Süden",
+       "blk": "הַבַּיִת הַהוֹלֵךְ וְנִבְנֶה 40:1-42:20",
+       "blk_de": "Das Haus, das immer weiter ansteigend gebaut wird 40:1-42:20"
+      },
+      {
+       "ref": "42:15-20",
+       "text": "שטחו של הר הבית",
+       "text_de": "Die Fläche des Tempelbergs",
+       "blk": "הַבַּיִת הַהוֹלֵךְ וְנִבְנֶה 40:1-42:20",
+       "blk_de": "Das Haus, das immer weiter ansteigend gebaut wird 40:1-42:20"
+      }
+     ]
     },
     {
      "ref": "43:1-9",
@@ -527,7 +1839,16 @@
      "text_de": "Landanteile für den Tempel, den Stamm Levi, die Stadt und den Fürsten",
      "text_en": "Land allotments for the Temple, the tribe of Levi, the city and the prince",
      "par_de": "Siehe Ezechiel 48:8–35 (unten)",
-     "par_en": "See Ezekiel 48:8–35 (below)"
+     "par_en": "See Ezekiel 48:8–35 (below)",
+     "sub": [
+      {
+       "ref": "45:1-8",
+       "text": "תרומה לה' קדש מן הארץ",
+       "text_de": "Die heilige Abgabe für den HERRN aus dem Land",
+       "blk": "הַנָּשִׂיא וּמַעֲמָדוֹ 45-46",
+       "blk_de": "Der Fürst und seine Stellung 45-46"
+      }
+     ]
     },
     {
      "ref": "45:9-12",
@@ -536,7 +1857,16 @@
      "text_de": "Verbot des Betrugs bei Maßen und Gewichten",
      "text_en": "Prohibition of cheating in measures and weights",
      "par_de": "Wiederholung von: 3. Mose 19:35–36; 5. Mose 25:13–16; Wiederholung: Sprüche 11:1, 16:11, 20:10, 23",
-     "par_en": "Repeat of: Leviticus 19:35–36; Deuteronomy 25:13–16; Repeat: Proverbs 11:1, 16:11, 20:10, 23"
+     "par_en": "Repeat of: Leviticus 19:35–36; Deuteronomy 25:13–16; Repeat: Proverbs 11:1, 16:11, 20:10, 23",
+     "sub": [
+      {
+       "ref": "45:9-17",
+       "text": "נשיאי ישראל חמס ושד הסירו!",
+       "text_de": "Ihr Fürsten Israels, lasst ab von Gewalt und Unterdrückung!",
+       "blk": "הַנָּשִׂיא וּמַעֲמָדוֹ 45-46",
+       "blk_de": "Der Fürst und seine Stellung 45-46"
+      }
+     ]
     },
     {
      "ref": "45:13-17",
@@ -554,7 +1884,16 @@
      "text_de": "Ordnung der Altarweihe und der Feste",
      "text_en": "Order of the altar's dedication and of the festivals",
      "par_de": "Siehe Ezechiel 43:18–27 (oben); Zusatzopfer an Pessach und Sukkot: 4. Mose 28:16–25, 29:12–39",
-     "par_en": "See Ezekiel 43:18–27 (above); Additional offerings of Passover and Sukkot: Numbers 28:16–25, 29:12–39"
+     "par_en": "See Ezekiel 43:18–27 (above); Additional offerings of Passover and Sukkot: Numbers 28:16–25, 29:12–39",
+     "sub": [
+      {
+       "ref": "45:18-20",
+       "text": "דינים נוספים בהלכות הקרבנות",
+       "text_de": "Weitere Bestimmungen zu den Opfergesetzen",
+       "blk": "הַנָּשִׂיא וּמַעֲמָדוֹ 45-46",
+       "blk_de": "Der Fürst und seine Stellung 45-46"
+      }
+     ]
     },
     {
      "ref": "46:1-15",
@@ -563,7 +1902,16 @@
      "text_de": "Opferordnungen für das Volk und den Fürsten",
      "text_en": "Offering procedures for the people and the prince",
      "par_de": "Zusatzopfer an Schabbat und Neumond: 4. Mose 28:9–15; tägliches Opfer: 2. Mose 29:38–42; 4. Mose 28:1–8; Opfer des Hohenpriesters: 3. Mose 4:1–12, 6:12–16",
-     "par_en": "Additional offerings of Sabbath and New Moon: Numbers 28:9–15; daily offering: Exodus 29:38–42; Numbers 28:1–8; Offerings of the High Priest: Leviticus 4:1–12, 6:12–16"
+     "par_en": "Additional offerings of Sabbath and New Moon: Numbers 28:9–15; daily offering: Exodus 29:38–42; Numbers 28:1–8; Offerings of the High Priest: Leviticus 4:1–12, 6:12–16",
+     "sub": [
+      {
+       "ref": "46:1-15",
+       "text": "הנשיא בשער החצר הפנימית ויתר דיני הקרבנות",
+       "text_de": "Der Fürst am Tor des inneren Vorhofs und weitere Opfervorschriften",
+       "blk": "הַנָּשִׂיא וּמַעֲמָדוֹ 45-46",
+       "blk_de": "Der Fürst und seine Stellung 45-46"
+      }
+     ]
     },
     {
      "ref": "46:16-18",
@@ -572,13 +1920,31 @@
      "text_de": "Erbbesitz des Fürsten",
      "text_en": "The prince's inheritance",
      "par_de": "Ähnlichkeit: 4. Mose 36",
-     "par_en": "Similarity: Numbers 36"
+     "par_en": "Similarity: Numbers 36",
+     "sub": [
+      {
+       "ref": "46:16-18",
+       "text": "הבעלות על נחלת הנשיא",
+       "text_de": "Das Eigentum am Erbbesitz des Fürsten",
+       "blk": "הַנָּשִׂיא וּמַעֲמָדוֹ 45-46",
+       "blk_de": "Der Fürst und seine Stellung 45-46"
+      }
+     ]
     },
     {
      "ref": "46:19-24",
      "text": "מחזה - לשכות בישול הקדשים",
      "text_de": "Schauung – Kammern zum Kochen der heiligen Opfer",
-     "text_en": "Vision – chambers for cooking the sacred offerings"
+     "text_en": "Vision – chambers for cooking the sacred offerings",
+     "sub": [
+      {
+       "ref": "46:19-24",
+       "text": "מקום בירכתים וחצרות קטרות",
+       "text_de": "Der Platz in den Ecken und die Vorhöfe der Küchen",
+       "blk": "הַנָּשִׂיא וּמַעֲמָדוֹ 45-46",
+       "blk_de": "Der Fürst und seine Stellung 45-46"
+      }
+     ]
     },
     {
      "ref": "47:1-12",
@@ -611,16 +1977,41 @@
      "par_en": "The division in the days of Joshua: Joshua 13–21"
     },
     {
+     "ref": "48:1-7",
+     "text": "נחלת שבעת השבטים מצפון ל'תרומה'",
+     "text_de": "Das Erbteil der sieben Stämme nördlich der „heiligen Abgabe“",
+     "blk": "הַחֲלֻקָּה הַחֲדָשָׁה שֶׁל הָאָרֶץ 48:1-29",
+     "blk_de": "Die neue Aufteilung des Landes 48:1-29",
+     "orph": 1
+    },
+    {
      "ref": "48:8-14",
      "text": "נחלות לביהמ\"ק, לכהנים וללויים",
      "text_de": "Landanteile für den Tempel, die Priester und die Leviten",
-     "text_en": "Land allotments for the Temple, the priests and the Levites"
+     "text_en": "Land allotments for the Temple, the priests and the Levites",
+     "sub": [
+      {
+       "ref": "48:8-22",
+       "text": "'התרומה'",
+       "text_de": "Die „heilige Abgabe“",
+       "blk": "הַחֲלֻקָּה הַחֲדָשָׁה שֶׁל הָאָרֶץ 48:1-29",
+       "blk_de": "Die neue Aufteilung des Landes 48:1-29"
+      }
+     ]
     },
     {
      "ref": "48:15-22,30-35",
      "text": "שטח העיר ושעריה, נחלת הנשיא",
      "text_de": "Fläche der Stadt und ihre Tore, Erbbesitz des Fürsten",
      "text_en": "Area of the city and its gates, the prince's inheritance"
+    },
+    {
+     "ref": "48:23-29",
+     "text": "נחלת חמשת השבטים מדרום ל'תרומה'",
+     "text_de": "Das Erbteil der fünf Stämme südlich der „heiligen Abgabe“",
+     "blk": "הַחֲלֻקָּה הַחֲדָשָׁה שֶׁל הָאָרֶץ 48:1-29",
+     "blk_de": "Die neue Aufteilung des Landes 48:1-29",
+     "orph": 1
     }
    ],
    "head_de": "Prophezeiungen für die Zukunft",
@@ -629,6 +2020,6 @@
  ],
  "title_de": "Inhalt des Buches Ezechiel",
  "title_en": "Contents of the Book of Ezekiel",
- "note_de": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt.",
- "note_en": "Transcribed from photos of an overview table. Chapter and verse numbering as well as dates (Jewish reckoning) as printed in the source."
+ "note_de": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt. Unterpunkte aus der Gliederung von „Da'at Mikra“ (Teilpunkte mit Versangaben, mit Hinweis auf den jeweiligen Abschnitt) ergänzt und ins Deutsche übersetzt.",
+ "note_en": "Transcribed from photos of an overview table. Chapter and verse numbering as well as dates (Jewish reckoning) as printed in the source. Sub-points from the Da'at Mikra outlines (parts with verse references, labelled with their section) added; German translation."
 }

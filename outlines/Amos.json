@@ -1,7 +1,7 @@
 {
  "book": "Amos",
  "title": "תוכן ספר עמוס",
- "note": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt.",
+ "note": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt. · הורחב בחלוקת דעת מקרא (פסקאות עם מראי מקום).",
  "sections": [
   {
    "head": "נבואות על האומות",
@@ -19,7 +19,16 @@
      "text_de": "Strafe für Damaskus [Königreiche Arams]",
      "text_en": "Punishment of Damascus [the kingdoms of Aram]",
      "par_de": "Weitere Prophezeiungen über Damaskus: Jesaja 17:1–11, Jeremia 49:23–27",
-     "par_en": "More prophecies about Damascus: Isaiah 17:1–11, Jeremiah 49:23–27"
+     "par_en": "More prophecies about Damascus: Isaiah 17:1–11, Jeremiah 49:23–27",
+     "sub": [
+      {
+       "ref": "1:3-2:6",
+       "text": "עַל שִׁבְעָה עַמִּים שֶׁמִּסָּבִיב לְמַמְלֶכֶת יִשְׂרָאֵל הַצְּפוֹנִית (א ג-ב ו) - עַל אֲרָם (א ג-ה); עַל פְּלִשְׁתִּים (ו-ח); עַל צוֹר (ט-י); עַל אֱדוֹם (יא-יב); עַל בְּנֵי עַמּוֹן (יג-טו); עַל מוֹאָב (ב א-ג); עַל יְהוּדָה (ד-ה).",
+       "text_de": "Über sieben Völker rings um das nördliche Königreich Israel (Kap. 1,3 – 2,6): über Aram (1,3-5); über die Philister (V. 6-8); über Tyrus (V. 9-10); über Edom (V. 11-12); über die Ammoniter (V. 13-15); über Moab (2,1-3); über Juda (V. 4-5)",
+       "blk": "פֻּרְעָנוּת תָּבוֹא עַל־כָּל־הַגּוֹיִם שִׁכְנֵי יִשְׂרָאֵל אַךְ עַל יִשְׂרָאֵל יוֹתֵר מִכֹּל 1:3-2:16",
+       "blk_de": "Unheil kommt über alle Völker, die Nachbarn Israels, doch über Israel mehr als über alle 1:3-2:16"
+      }
+     ]
     },
     {
      "ref": "1:6-8",
@@ -83,109 +92,362 @@
      "ref": "2:6-16",
      "text": "תוכחה לישראל על חטאיהם",
      "text_de": "Mahnung an Israel wegen seiner Sünden",
-     "text_en": "Rebuke of Israel for its sins"
+     "text_en": "Rebuke of Israel for its sins",
+     "sub": [
+      {
+       "ref": "2:6-16",
+       "text": "עַל יִשְׂרָאֵל",
+       "text_de": "Über Israel",
+       "blk": "פֻּרְעָנוּת תָּבוֹא עַל־כָּל־הַגּוֹיִם שִׁכְנֵי יִשְׂרָאֵל אַךְ עַל יִשְׂרָאֵל יוֹתֵר מִכֹּל 1:3-2:16",
+       "blk_de": "Unheil kommt über alle Völker, die Nachbarn Israels, doch über Israel mehr als über alle 1:3-2:16"
+      }
+     ]
     },
     {
      "ref": "3:1-10",
      "text": "תוכחה לעם על זלזולם בנביאי ה'",
      "text_de": "Mahnung an das Volk wegen seiner Geringschätzung der Propheten Gottes",
-     "text_en": "Rebuke of the people for their contempt of the prophets of God"
+     "text_en": "Rebuke of the people for their contempt of the prophets of God",
+     "sub": [
+      {
+       "ref": "3:1-2",
+       "text": "קִרְבַת אֱלֹהִים לְיִשְׂרָאֵל גּוֹרֶמֶת לְחֻמְרַת הָעֹנֶשׁ עַל חֲטָאָיו",
+       "text_de": "Die Nähe Gottes zu Israel bewirkt die Schwere der Strafe für seine Sünden",
+       "blk": "כְּנֶגֶד הַחוֹלְקִים וְהַמַּכְחִישִׁים אֶת יִעוּדֵי הַפֻּרְעָנוּת שֶׁל הַנְּבִיאִים 3:1-8",
+       "blk_de": "Gegen jene, die die Unheilsankündigungen der Propheten bestreiten und leugnen 3:1-8"
+      },
+      {
+       "ref": "3:3-8",
+       "text": "דִּבְרֵי הַנְּבִיאִים - אוֹת אַזְהָרָה בִּפְנֵי הַפֻּרְעָנוּת",
+       "text_de": "Die Worte der Propheten als Warnzeichen vor dem Unheil",
+       "blk": "כְּנֶגֶד הַחוֹלְקִים וְהַמַּכְחִישִׁים אֶת יִעוּדֵי הַפֻּרְעָנוּת שֶׁל הַנְּבִיאִים 3:1-8",
+       "blk_de": "Gegen jene, die die Unheilsankündigungen der Propheten bestreiten und leugnen 3:1-8"
+      },
+      {
+       "ref": "3:9-10",
+       "text": "עַל הָעוֹשְׁקִים לֵבוֹשׁ בִּפְנֵי הַגּוֹיִם",
+       "text_de": "Gegen die Unterdrücker, die vor den Völkern beschämt werden",
+       "blk": "תּוֹכָחָה עַל הָעוֹשִׂים הוֹן בְּעֹשֶׁק 3:9-4:3",
+       "blk_de": "Mahnrede gegen die, die durch Unterdrückung Reichtum erwerben 3:9-4:3"
+      }
+     ]
     },
     {
      "ref": "3:11-15",
      "text": "העונש הצפוי למלכי ישראל",
      "text_de": "Die zu erwartende Strafe für die Könige Israels",
-     "text_en": "The expected punishment of the kings of Israel"
+     "text_en": "The expected punishment of the kings of Israel",
+     "sub": [
+      {
+       "ref": "3:11-12",
+       "text": "הַפֻּרְעָנוּת שֶׁל בִּזַּת הָרְכוּשׁ",
+       "text_de": "Das Strafgericht der Plünderung des Besitzes",
+       "blk": "תּוֹכָחָה עַל הָעוֹשִׂים הוֹן בְּעֹשֶׁק 3:9-4:3",
+       "blk_de": "Mahnrede gegen die, die durch Unterdrückung Reichtum erwerben 3:9-4:3"
+      },
+      {
+       "ref": "3:13-15",
+       "text": "הַפֻּרְעָנוּת עַל הַמִּקְדָּשִׁים וְעַל בָּתֵּי הַחֶמְדָּה",
+       "text_de": "Das Strafgericht über die Heiligtümer und die Prachthäuser",
+       "blk": "תּוֹכָחָה עַל הָעוֹשִׂים הוֹן בְּעֹשֶׁק 3:9-4:3",
+       "blk_de": "Mahnrede gegen die, die durch Unterdrückung Reichtum erwerben 3:9-4:3"
+      }
+     ]
     },
     {
      "ref": "4:1-5",
      "text": "העונש הצפוי לנשות השרים",
      "text_de": "Die zu erwartende Strafe für die Frauen der Fürsten",
-     "text_en": "The expected punishment of the wives of the nobles"
+     "text_en": "The expected punishment of the wives of the nobles",
+     "sub": [
+      {
+       "ref": "4:1-3",
+       "text": "תּוֹכָחָה לִנְשֵׁי הָעֲשִׁירִים וְהַפֻּרְעָנוּת עֲלֵיהֶן",
+       "text_de": "Mahnrede an die Frauen der Reichen und das Strafgericht über sie",
+       "blk": "תּוֹכָחָה עַל הָעוֹשִׂים הוֹן בְּעֹשֶׁק 3:9-4:3",
+       "blk_de": "Mahnrede gegen die, die durch Unterdrückung Reichtum erwerben 3:9-4:3"
+      },
+      {
+       "ref": "4:4-5",
+       "text": "תּוֹכָחָה לַמַּרְבִּים בְּקָרְבָּנוֹת וּמַרְבִּים לִפְשֹׁעַ",
+       "text_de": "Mahnrede an die, die Opfer häufen und Frevel mehren",
+       "blk": "אִם יִשְׂרָאֵל לֹא יָשׁוּב תָּבוֹא עָלָיו פֻּרְעָנוּת קָשָׁה 4:4-13",
+       "blk_de": "Wenn Israel nicht umkehrt, wird schweres Strafgericht über es kommen 4:4-13"
+      }
+     ]
     },
     {
      "ref": "4:6-13",
      "text": "עונשים שקיבלו מה' ולא חזרו למוטב",
      "text_de": "Strafen, die sie von Gott empfingen, ohne sich zu bessern",
-     "text_en": "Punishments they received from God without mending their ways"
+     "text_en": "Punishments they received from God without mending their ways",
+     "sub": [
+      {
+       "ref": "4:6-11",
+       "text": "כָּל־הַפֻּרְעָנֻיּוֹת שֶׁבָּאוּ עַל הָעָם לֹא הֱבִיאוּהוּ לִתְשׁוּבָה",
+       "text_de": "Alle Strafgerichte, die über das Volk kamen, führten es nicht zur Umkehr",
+       "blk": "אִם יִשְׂרָאֵל לֹא יָשׁוּב תָּבוֹא עָלָיו פֻּרְעָנוּת קָשָׁה 4:4-13",
+       "blk_de": "Wenn Israel nicht umkehrt, wird schweres Strafgericht über es kommen 4:4-13"
+      },
+      {
+       "ref": "4:12",
+       "text": "ה׳ עָתִיד לְהִפָּרַע",
+       "text_de": "Der HERR wird einst Vergeltung üben",
+       "blk": "אִם יִשְׂרָאֵל לֹא יָשׁוּב תָּבוֹא עָלָיו פֻּרְעָנוּת קָשָׁה 4:4-13",
+       "blk_de": "Wenn Israel nicht umkehrt, wird schweres Strafgericht über es kommen 4:4-13"
+      },
+      {
+       "ref": "4:13",
+       "text": "שֶׁבַח לָאֵל",
+       "text_de": "Lobpreis Gottes",
+       "blk": "אִם יִשְׂרָאֵל לֹא יָשׁוּב תָּבוֹא עָלָיו פֻּרְעָנוּת קָשָׁה 4:4-13",
+       "blk_de": "Wenn Israel nicht umkehrt, wird schweres Strafgericht über es kommen 4:4-13"
+      }
+     ]
     },
     {
      "ref": "5:1-6",
      "text": "קינה על גלותם העתידה והתיקון לזה",
      "text_de": "Klage über ihr künftiges Exil und die Abhilfe dagegen",
-     "text_en": "Lament over their future exile and the remedy for it"
+     "text_en": "Lament over their future exile and the remedy for it",
+     "sub": [
+      {
+       "ref": "5:1-3",
+       "text": "קִינַת הַנָּבִיא עַל הַפֻּרְעָנוּת",
+       "text_de": "Klagelied des Propheten über das Strafgericht",
+       "blk": "תּוֹכָחָה בְּתוֹךְ קִינָה 5:1-17",
+       "blk_de": "Mahnrede innerhalb eines Klageliedes 5:1-17"
+      },
+      {
+       "ref": "5:4-6",
+       "text": "קְרִיאָה לָעָם לִדְרֹשׁ אֶת־ה׳ וְלֹא אֶת־הַמְּקוֹמוֹת שֶׁהָיוּ הֵם מְיַחֲסִים לָהֶם קְדֻשָּׁה",
+       "text_de": "Aufruf an das Volk, den HERRN zu suchen und nicht die Orte, denen es Heiligkeit zuschrieb",
+       "blk": "תּוֹכָחָה בְּתוֹךְ קִינָה 5:1-17",
+       "blk_de": "Mahnrede innerhalb eines Klageliedes 5:1-17"
+      }
+     ]
     },
     {
      "ref": "5:7-17",
      "text": "תוכחה - גזילת הדלים ושנאת התוכחות",
      "text_de": "Mahnung – Beraubung der Armen und Hass auf Zurechtweisungen",
-     "text_en": "Rebuke – robbing the poor and hating reproof"
+     "text_en": "Rebuke – robbing the poor and hating reproof",
+     "sub": [
+      {
+       "ref": "5:7-17",
+       "text": "תּוֹכָחָה עַל חֲטָאִים בֵּין אָדָם לַחֲבֵרוֹ וְיִעוּד הַפֻּרְעָנוּת",
+       "text_de": "Mahnrede wegen Sünden zwischen Mensch und Mitmensch und Androhung des Strafgerichts",
+       "blk": "תּוֹכָחָה בְּתוֹךְ קִינָה 5:1-17",
+       "blk_de": "Mahnrede innerhalb eines Klageliedes 5:1-17"
+      }
+     ]
     },
     {
      "ref": "5:18-27",
      "text": "עונש הרשעים, מאיסת חגיהם וקרבנותיהם",
      "text_de": "Strafe der Frevler, Verwerfung ihrer Feste und Opfer",
-     "text_en": "Punishment of the wicked, rejection of their festivals and offerings"
+     "text_en": "Punishment of the wicked, rejection of their festivals and offerings",
+     "sub": [
+      {
+       "ref": "5:18-20",
+       "text": "יוֹם ה׳ - יוֹם פֻּרְעָנוּת הוּא",
+       "text_de": "Der Tag des HERRN ist ein Tag des Strafgerichts",
+       "blk": "לֹא יְשׁוּעָה אֶלָּא פֻּרְעָנוּת עֲתִידָה לָבוֹא עַל הָעָם 5:18-27",
+       "blk_de": "Nicht Rettung, sondern künftiges Strafgericht steht dem Volk bevor 5:18-27"
+      },
+      {
+       "ref": "5:21-25",
+       "text": "אֵין ה׳ מִתְרַצֶּה בְּקָרְבְּנוֹתֵיהֶם וּבְשִׁירֵיהֶם שֶׁל רְשָׁעִים שֶׁאֵינָם עוֹשִׂים מִשְׁפָּט וּצְדָקָה",
+       "text_de": "Der HERR hat kein Gefallen an den Opfern und Liedern der Frevler, die weder Recht noch Gerechtigkeit üben",
+       "blk": "לֹא יְשׁוּעָה אֶלָּא פֻּרְעָנוּת עֲתִידָה לָבוֹא עַל הָעָם 5:18-27",
+       "blk_de": "Nicht Rettung, sondern künftiges Strafgericht steht dem Volk bevor 5:18-27"
+      },
+      {
+       "ref": "5:26-27",
+       "text": "הָרְשָׁעִים יִגְלוּ עִם אֱלִילֵיהֶם",
+       "text_de": "Die Frevler werden mit ihren Götzen in die Verbannung ziehen",
+       "blk": "לֹא יְשׁוּעָה אֶלָּא פֻּרְעָנוּת עֲתִידָה לָבוֹא עַל הָעָם 5:18-27",
+       "blk_de": "Nicht Rettung, sondern künftiges Strafgericht steht dem Volk bevor 5:18-27"
+      }
+     ]
     },
     {
      "ref": "6:1-6",
      "text": "תוכחה על חטאיהם",
      "text_de": "Mahnung wegen ihrer Sünden",
-     "text_en": "Rebuke for their sins"
+     "text_en": "Rebuke for their sins",
+     "sub": [
+      {
+       "ref": "6:1-7",
+       "text": "עַל הַמְבַלִּים חַיֵּיהֶם בְּמִשְׁתָּאוֹת וְהוֹלֵלוֹת",
+       "text_de": "Über die, die ihr Leben in Gelagen und Schwelgerei verbringen",
+       "blk": "תּוֹכָחָה לַשַּׁלְוִים הַהוֹלְלִים 6",
+       "blk_de": "Mahnrede an die sorglos Schwelgenden 6"
+      }
+     ]
     },
     {
      "ref": "6:7-14",
      "text": "פורענות - כיבושם וגלותם מא\"י",
      "text_de": "Unheil – ihre Eroberung und ihr Exil aus dem Land Israel",
-     "text_en": "Calamity – their conquest and exile from the Land of Israel"
+     "text_en": "Calamity – their conquest and exile from the Land of Israel",
+     "sub": [
+      {
+       "ref": "6:8-11",
+       "text": "פֻּרְעָנוּת עַל הָאַרְמְנוֹת וְעַל יוֹשְׁבֵיהֶם",
+       "text_de": "Strafgericht über die Paläste und ihre Bewohner",
+       "blk": "תּוֹכָחָה לַשַּׁלְוִים הַהוֹלְלִים 6",
+       "blk_de": "Mahnrede an die sorglos Schwelgenden 6"
+      },
+      {
+       "ref": "6:12-14",
+       "text": "עַל הַמְעַוְּתִים מִשְׁפָּט וּמִתְגָּאִים בִּגְבוּרָתָם",
+       "text_de": "Über die, die das Recht verdrehen und sich ihrer Stärke rühmen",
+       "blk": "תּוֹכָחָה לַשַּׁלְוִים הַהוֹלְלִים 6",
+       "blk_de": "Mahnrede an die sorglos Schwelgenden 6"
+      }
+     ]
     },
     {
      "ref": "7:1-6",
      "text": "פורענויות שנמנעו מלבוא ע\"י תפילת הנביא",
      "text_de": "Unheil, das durch das Gebet des Propheten abgewendet wurde",
-     "text_en": "Calamities averted through the prophet's prayer"
+     "text_en": "Calamities averted through the prophet's prayer",
+     "sub": [
+      {
+       "ref": "7:1-3",
+       "text": "אַרְבֶּה",
+       "text_de": "Heuschrecken",
+       "blk": "מַרְאוֹת פֻּרְעָנוּת 7:1-8:3",
+       "blk_de": "Visionen des Strafgerichts 7:1-8:3"
+      },
+      {
+       "ref": "7:4-6",
+       "text": "אֵשׁ",
+       "text_de": "Feuer",
+       "blk": "מַרְאוֹת פֻּרְעָנוּת 7:1-8:3",
+       "blk_de": "Visionen des Strafgerichts 7:1-8:3"
+      }
+     ]
     },
     {
      "ref": "7:7-9",
      "text": "נבואת פורענות על ירבעם",
      "text_de": "Unheilsprophezeiung über Jerobeam",
-     "text_en": "Prophecy of calamity against Jeroboam"
+     "text_en": "Prophecy of calamity against Jeroboam",
+     "sub": [
+      {
+       "ref": "7:7-9",
+       "text": "אֲנָךְ",
+       "text_de": "Senkblei",
+       "blk": "מַרְאוֹת פֻּרְעָנוּת 7:1-8:3",
+       "blk_de": "Visionen des Strafgerichts 7:1-8:3"
+      }
+     ]
     },
     {
      "ref": "7:10-17",
      "text": "מחלוקת עמוס ואמציה נביא השקר",
      "text_de": "Streit zwischen Amos und Amazja, dem falschen Propheten",
-     "text_en": "Dispute between Amos and Amaziah, the false prophet"
+     "text_en": "Dispute between Amos and Amaziah, the false prophet",
+     "sub": [
+      {
+       "ref": "7:10-17",
+       "text": "רִיב בֵּין אֲמַצְיָה וּבֵין עָמוֹס",
+       "text_de": "Streit zwischen Amazja und Amos",
+       "blk": "מַרְאוֹת פֻּרְעָנוּת 7:1-8:3",
+       "blk_de": "Visionen des Strafgerichts 7:1-8:3"
+      }
+     ]
     },
     {
      "ref": "8:1-3",
      "text": "נבואה על גלותם [בדרך משל]",
      "text_de": "Prophezeiung über ihr Exil [als Gleichnis]",
-     "text_en": "Prophecy about their exile [in parable form]"
+     "text_en": "Prophecy about their exile [in parable form]",
+     "sub": [
+      {
+       "ref": "8:1-3",
+       "text": "הַקֵּץ",
+       "text_de": "Das Ende",
+       "blk": "מַרְאוֹת פֻּרְעָנוּת 7:1-8:3",
+       "blk_de": "Visionen des Strafgerichts 7:1-8:3"
+      }
+     ]
     },
     {
      "ref": "8:4-10",
      "text": "תוכחה למפקיעי שערים ועונשם",
      "text_de": "Mahnung an die, die die Preise in die Höhe treiben, und ihre Strafe",
-     "text_en": "Rebuke of those who inflate prices, and their punishment"
+     "text_en": "Rebuke of those who inflate prices, and their punishment",
+     "sub": [
+      {
+       "ref": "8:4-6",
+       "text": "תֵּאוּר מַעֲשֵׂיהֶם הָרָעִים",
+       "text_de": "Schilderung ihrer bösen Taten",
+       "blk": "תּוֹכָחָה לְעוֹשְׁקִים בְּמִקָּח וּבְמִמְכָּר 8:4-10",
+       "blk_de": "Mahnrede an die, die im Handel Unrecht tun 8:4-10"
+      },
+      {
+       "ref": "8:7-10",
+       "text": "הַפֻּרְעָנוּת הַמְיֹעֶדֶת לָעֹנֶשׁ",
+       "text_de": "Das zur Strafe bestimmte Strafgericht",
+       "blk": "תּוֹכָחָה לְעוֹשְׁקִים בְּמִקָּח וּבְמִמְכָּר 8:4-10",
+       "blk_de": "Mahnrede an die, die im Handel Unrecht tun 8:4-10"
+      }
+     ]
     },
     {
      "ref": "8:11-14",
      "text": "נבואה על סילוק הנבואה ורוח הקודש",
      "text_de": "Prophezeiung über das Aufhören der Prophetie und des Heiligen Geistes",
-     "text_en": "Prophecy about the cessation of prophecy and of the Holy Spirit"
+     "text_en": "Prophecy about the cessation of prophecy and of the Holy Spirit",
+     "sub": [
+      {
+       "ref": "8:11-14",
+       "text": "סִלּוּק הַנְּבוּאָה וּבִטּוּל הָעֲבוֹדָה הַזָּרָה",
+       "text_de": "Entzug der Prophetie und Abschaffung des Götzendienstes",
+       "blk": "סִיּוּם הַסֵּפֶר - הָאַחֲרִית 8:11-9:99",
+       "blk_de": "Schluss des Buches – das Ende der Tage 8:11-9:99"
+      }
+     ]
     },
     {
      "ref": "9:1-6",
      "text": "נבואת פורענות ליהודה, א\"א להמלט מה'",
      "text_de": "Unheilsprophezeiung für Juda, man kann Gott nicht entrinnen",
-     "text_en": "Prophecy of calamity for Judah; there is no escaping God"
+     "text_en": "Prophecy of calamity for Judah; there is no escaping God",
+     "sub": [
+      {
+       "ref": "9:1-4",
+       "text": "חֻרְבַּן הַמִּקְדָּשׁ וַאֲבַדּוֹן לָעָם",
+       "text_de": "Zerstörung des Heiligtums und Untergang des Volkes",
+       "blk": "סִיּוּם הַסֵּפֶר - הָאַחֲרִית 8:11-9:99",
+       "blk_de": "Schluss des Buches – das Ende der Tage 8:11-9:99"
+      },
+      {
+       "ref": "9:5-6",
+       "text": "שֶׁבַח לָאֵל",
+       "text_de": "Lobpreis Gottes",
+       "blk": "סִיּוּם הַסֵּפֶר - הָאַחֲרִית 8:11-9:99",
+       "blk_de": "Schluss des Buches – das Ende der Tage 8:11-9:99"
+      }
+     ]
     },
     {
      "ref": "9:7-10",
      "text": "נבואה - גלות השבטים ועונש מלכי ישראל",
      "text_de": "Prophezeiung – Exil der Stämme und Strafe der Könige Israels",
-     "text_en": "Prophecy – exile of the tribes and punishment of the kings of Israel"
+     "text_en": "Prophecy – exile of the tribes and punishment of the kings of Israel",
+     "sub": [
+      {
+       "ref": "9:7-12",
+       "text": "חֻרְבַּן הַמַּמְלָכָה וְקִיּוּם הָעָם",
+       "text_de": "Untergang des Königtums und Fortbestand des Volkes",
+       "blk": "סִיּוּם הַסֵּפֶר - הָאַחֲרִית 8:11-9:99",
+       "blk_de": "Schluss des Buches – das Ende der Tage 8:11-9:99"
+      }
+     ]
     },
     {
      "ref": "9:11-12",
@@ -197,7 +459,16 @@
      "ref": "9:13-15",
      "text": "נבואה על הגאולה העתידה וטובותיה",
      "text_de": "Prophezeiung über die künftige Erlösung und ihre Wohltaten",
-     "text_en": "Prophecy about the future redemption and its blessings"
+     "text_en": "Prophecy about the future redemption and its blessings",
+     "sub": [
+      {
+       "ref": "9:13-15",
+       "text": "הַטּוֹבָה הַמֻּבְטַחַת לֶעָתִיד לָבוֹא",
+       "text_de": "Das verheißene Heil für die Zukunft",
+       "blk": "סִיּוּם הַסֵּפֶר - הָאַחֲרִית 8:11-9:99",
+       "blk_de": "Schluss des Buches – das Ende der Tage 8:11-9:99"
+      }
+     ]
     }
    ],
    "head_de": "Prophezeiungen über die zehn Stämme",
@@ -206,6 +477,6 @@
  ],
  "title_de": "Inhalt des Buches Amos",
  "title_en": "Contents of the Book of Amos",
- "note_de": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt.",
- "note_en": "Transcribed from photos of an overview table. Chapter and verse numbering as well as dates (Jewish reckoning) as printed in the source."
+ "note_de": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt. Unterpunkte aus der Gliederung von „Da'at Mikra“ (Teilpunkte mit Versangaben, mit Hinweis auf den jeweiligen Abschnitt) ergänzt und ins Deutsche übersetzt.",
+ "note_en": "Transcribed from photos of an overview table. Chapter and verse numbering as well as dates (Jewish reckoning) as printed in the source. Sub-points from the Da'at Mikra outlines (parts with verse references, labelled with their section) added; German translation."
 }

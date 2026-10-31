@@ -1,7 +1,7 @@
 {
  "book": "Habakkuk",
  "title": "תוכן ספר חבקוק",
- "note": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt.",
+ "note": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt. · הורחב בחלוקת דעת מקרא (פסקאות עם מראי מקום).",
  "sections": [
   {
    "head": "מלכות בבל ומפלתה",
@@ -31,7 +31,51 @@
      "ref": "2",
      "text": "נבואות על מפלת מלכי בבל בדרך משל",
      "text_de": "Prophezeiungen über den Fall der Könige Babels in Gleichnisform",
-     "text_en": "Prophecies about the fall of the kings of Babylon in parable form"
+     "text_en": "Prophecies about the fall of the kings of Babylon in parable form",
+     "sub": [
+      {
+       "ref": "2:6-8",
+       "text": "ענינו: שהכשדים יצטרכו להחזיר את כל החמס שבידיהם",
+       "text_de": "Sein Inhalt: Die Chaldäer werden alles geraubte Gut zurückgeben müssen",
+       "blk": "הַנְּבוּאָה הַשְּׁנִיָּה: תְּשׁוּבַת ה' 2",
+       "blk_de": "Die zweite Weissagung: Die Antwort des HERRN 2"
+      },
+      {
+       "ref": "2:9-10",
+       "text": "ענינו: מעשיהם של הכשדים יביאו עליהם רעה ובושה",
+       "text_de": "Sein Inhalt: Die Taten der Chaldäer werden Unheil und Schande über sie bringen",
+       "blk": "הַנְּבוּאָה הַשְּׁנִיָּה: תְּשׁוּבַת ה' 2",
+       "blk_de": "Die zweite Weissagung: Die Antwort des HERRN 2"
+      },
+      {
+       "ref": "2:11-12",
+       "text": "ענינו: האבנים והעצים הגזולים מצטרפים לשיר האבל: הבונה עיר בדם עמים אחרים ובעול, לא ינקה",
+       "text_de": "Sein Inhalt: Die geraubten Steine und Balken stimmen in das Klagelied ein: Wer eine Stadt mit dem Blut anderer Völker und mit Unrecht baut, bleibt nicht ungestraft",
+       "blk": "הַנְּבוּאָה הַשְּׁנִיָּה: תְּשׁוּבַת ה' 2",
+       "blk_de": "Die zweite Weissagung: Die Antwort des HERRN 2"
+      },
+      {
+       "ref": "2:13-14",
+       "text": "אינו מגופו של שיר האבל, אלא נבואה בפני עצמה משלבת בתוך השיר והיא מאשרת את דברי האבנים והעצים. כל עמלם של הכשדים יהיה לשוא, כי סופם של כל בני האדם להכיר בה'",
+       "text_de": "Gehört nicht zum Klagelied selbst, sondern ist eine eigene, in das Lied eingefügte Weissagung, die die Worte der Steine und Balken bestätigt: Alle Mühe der Chaldäer wird vergeblich sein, denn am Ende werden alle Menschen den HERRN erkennen",
+       "blk": "הַנְּבוּאָה הַשְּׁנִיָּה: תְּשׁוּבַת ה' 2",
+       "blk_de": "Die zweite Weissagung: Die Antwort des HERRN 2"
+      },
+      {
+       "ref": "2:15-18",
+       "text": "ענינו: גם על הכשדים תבוא פרענות והם ישבעו קלון, כי בטחו באלילים",
+       "text_de": "Sein Inhalt: Auch über die Chaldäer wird das Strafgericht kommen, und sie werden mit Schande gesättigt werden, weil sie auf Götzen vertrauten",
+       "blk": "הַנְּבוּאָה הַשְּׁנִיָּה: תְּשׁוּבַת ה' 2",
+       "blk_de": "Die zweite Weissagung: Die Antwort des HERRN 2"
+      },
+      {
+       "ref": "2:19-20",
+       "text": "ענינו: הפסלים העשויים מאבן ומעץ, מזהב ומכסף, אין בהם רוח, לפיכך המתפללים אליהם לא יעזרו. אולם ה' השוכן בהיכל קדשו בשמים, מיראת כבודו ישתקו כל באי עולם",
+       "text_de": "Sein Inhalt: Die Bildnisse aus Stein und Holz, aus Gold und Silber haben keinen Geist, daher werden die, die zu ihnen beten, keine Hilfe finden. Der HERR aber in seinem heiligen Tempel im Himmel: Vor der Furcht seiner Herrlichkeit soll alle Welt schweigen",
+       "blk": "הַנְּבוּאָה הַשְּׁנִיָּה: תְּשׁוּבַת ה' 2",
+       "blk_de": "Die zweite Weissagung: Die Antwort des HERRN 2"
+      }
+     ]
     },
     {
      "ref": "3:1-2",
@@ -67,6 +111,6 @@
  ],
  "title_de": "Inhalt des Buches Habakuk",
  "title_en": "Contents of the Book of Habakkuk",
- "note_de": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt.",
- "note_en": "Transcribed from photos of an overview table. Chapter and verse numbering as well as dates (Jewish reckoning) as printed in the source."
+ "note_de": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt. Unterpunkte aus der Gliederung von „Da'at Mikra“ (Teilpunkte mit Versangaben, mit Hinweis auf den jeweiligen Abschnitt) ergänzt und ins Deutsche übersetzt.",
+ "note_en": "Transcribed from photos of an overview table. Chapter and verse numbering as well as dates (Jewish reckoning) as printed in the source. Sub-points from the Da'at Mikra outlines (parts with verse references, labelled with their section) added; German translation."
 }

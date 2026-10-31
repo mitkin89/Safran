@@ -1,7 +1,7 @@
 {
  "book": "II Samuel",
  "title": "תוכן ספר שמואל ב",
- "note": "Abgeschrieben aus einer Übersichtstabelle (SifreiKodesh). Jahre nach der jüdischen Zählung (Anno Mundi), wie in der Vorlage gedruckt.",
+ "note": "Abgeschrieben aus einer Übersichtstabelle (SifreiKodesh). Jahre nach der jüdischen Zählung (Anno Mundi), wie in der Vorlage gedruckt. · הורחב בחלוקת דעת מקרא (פסקאות עם מראי מקום).",
  "sections": [
   {
    "head": "מיתת שאול",
@@ -16,7 +16,58 @@
      "place_de": "Ziklag",
      "place_en": "Ziklag",
      "time_de": "2884",
-     "time_en": "2884"
+     "time_en": "2884",
+     "sub": [
+      {
+       "ref": "1:1-4",
+       "text": "דוד מבקש את שרידי בית שאול",
+       "text_de": "David fragt nach den Überlebenden des Hauses Saul",
+       "blk": "אַחֲרִית יְמֵי שָׁאוּל 1:1-27 › דָּוִד עוֹשֶׂה חֶסֶד עִם בֵּית שָׁאוּל 1:1-13",
+       "blk_de": "Sauls letzte Tage 1:1-27 › David erweist dem Haus Saul Güte 1:1-13"
+      },
+      {
+       "ref": "1:1-10",
+       "text": "בוא הנער וספורו",
+       "text_de": "Das Kommen des jungen Mannes und sein Bericht",
+       "blk": "אַחֲרִית יְמֵי שָׁאוּל 1:1-27 › נַעַר עֲמָלֵקִי מְסַפֵּר לְדָוִד עַל מוֹת שָׁאוּל 1:1-16",
+       "blk_de": "Sauls letzte Tage 1:1-27 › Ein junger Amalekiter berichtet David vom Tod Sauls 1:1-16"
+      },
+      {
+       "ref": "1:5-8",
+       "text": "דוד מוסר למפיבשת את כל נכסי שאול ומושיבו בין הסועדים על שלחן המלך תמיד",
+       "text_de": "David übergibt Mefi-Boschet den gesamten Besitz Sauls und lässt ihn stets unter den Tischgästen des Königs sitzen",
+       "blk": "אַחֲרִית יְמֵי שָׁאוּל 1:1-27 › דָּוִד עוֹשֶׂה חֶסֶד עִם בֵּית שָׁאוּל 1:1-13",
+       "blk_de": "Sauls letzte Tage 1:1-27 › David erweist dem Haus Saul Güte 1:1-13"
+      },
+      {
+       "ref": "1:9-11",
+       "text": "פקדת דוד לציבא",
+       "text_de": "Davids Anordnung an Ziba",
+       "blk": "אַחֲרִית יְמֵי שָׁאוּל 1:1-27 › דָּוִד עוֹשֶׂה חֶסֶד עִם בֵּית שָׁאוּל 1:1-13",
+       "blk_de": "Sauls letzte Tage 1:1-27 › David erweist dem Haus Saul Güte 1:1-13"
+      },
+      {
+       "ref": "1:11-12",
+       "text": "אבל דוד ואנשיו",
+       "text_de": "Die Trauer Davids und seiner Männer",
+       "blk": "אַחֲרִית יְמֵי שָׁאוּל 1:1-27 › נַעַר עֲמָלֵקִי מְסַפֵּר לְדָוִד עַל מוֹת שָׁאוּל 1:1-16",
+       "blk_de": "Sauls letzte Tage 1:1-27 › Ein junger Amalekiter berichtet David vom Tod Sauls 1:1-16"
+      },
+      {
+       "ref": "1:12-13",
+       "text": "סכום הפרשה",
+       "text_de": "Zusammenfassung des Abschnitts",
+       "blk": "אַחֲרִית יְמֵי שָׁאוּל 1:1-27 › דָּוִד עוֹשֶׂה חֶסֶד עִם בֵּית שָׁאוּל 1:1-13",
+       "blk_de": "Sauls letzte Tage 1:1-27 › David erweist dem Haus Saul Güte 1:1-13"
+      },
+      {
+       "ref": "1:13-16",
+       "text": "ענש המגיד",
+       "text_de": "Die Bestrafung des Überbringers",
+       "blk": "אַחֲרִית יְמֵי שָׁאוּל 1:1-27 › נַעַר עֲמָלֵקִי מְסַפֵּר לְדָוִד עַל מוֹת שָׁאוּל 1:1-16",
+       "blk_de": "Sauls letzte Tage 1:1-27 › Ein junger Amalekiter berichtet David vom Tod Sauls 1:1-16"
+      }
+     ]
     },
     {
      "ref": "1:17-27",
@@ -28,7 +79,51 @@
      "place_de": "Ziklag",
      "place_en": "Ziklag",
      "time_de": "2884",
-     "time_en": "2884"
+     "time_en": "2884",
+     "sub": [
+      {
+       "ref": "1:17-18",
+       "text": "כתבת",
+       "text_de": "Inschrift",
+       "blk": "אַחֲרִית יְמֵי שָׁאוּל 1:1-27 › קִינַת דָּוִד 1:17-27",
+       "blk_de": "Sauls letzte Tage 1:1-27 › Davids Klagelied 1:17-27"
+      },
+      {
+       "ref": "1:19-20",
+       "text": "הפתיחה - השבר שפקד את ישראל",
+       "text_de": "Einleitung - der Schlag, der Israel getroffen hat",
+       "blk": "אַחֲרִית יְמֵי שָׁאוּל 1:1-27 › קִינַת דָּוִד 1:17-27",
+       "blk_de": "Sauls letzte Tage 1:1-27 › Davids Klagelied 1:17-27"
+      },
+      {
+       "ref": "1:21-23",
+       "text": "גבורת שאול ויהונתן",
+       "text_de": "Die Heldenhaftigkeit Sauls und Jonatans",
+       "blk": "אַחֲרִית יְמֵי שָׁאוּל 1:1-27 › קִינַת דָּוִד 1:17-27",
+       "blk_de": "Sauls letzte Tage 1:1-27 › Davids Klagelied 1:17-27"
+      },
+      {
+       "ref": "1:24",
+       "text": "מעורר את בנות ישראל לספד לשאול",
+       "text_de": "Aufruf an die Töchter Israels, um Saul zu klagen",
+       "blk": "אַחֲרִית יְמֵי שָׁאוּל 1:1-27 › קִינַת דָּוִד 1:17-27",
+       "blk_de": "Sauls letzte Tage 1:1-27 › Davids Klagelied 1:17-27"
+      },
+      {
+       "ref": "1:25-26",
+       "text": "ההספד על יהונתן",
+       "text_de": "Die Totenklage um Jonatan",
+       "blk": "אַחֲרִית יְמֵי שָׁאוּל 1:1-27 › קִינַת דָּוִד 1:17-27",
+       "blk_de": "Sauls letzte Tage 1:1-27 › Davids Klagelied 1:17-27"
+      },
+      {
+       "ref": "1:27",
+       "text": "דבור כולל של קינה על כל גבורי ישראל שנפלו, והוא החתימה",
+       "text_de": "Abschließende Gesamtklage um alle gefallenen Helden Israels",
+       "blk": "אַחֲרִית יְמֵי שָׁאוּל 1:1-27 › קִינַת דָּוִד 1:17-27",
+       "blk_de": "Sauls letzte Tage 1:1-27 › Davids Klagelied 1:17-27"
+      }
+     ]
     },
     {
      "ref": "2:1-7",
@@ -52,7 +147,23 @@
      "place_de": "Mahanajim und die Städte Israels",
      "place_en": "Mahanaim and the cities of Israel",
      "time_de": "2884",
-     "time_en": "2884"
+     "time_en": "2884",
+     "sub": [
+      {
+       "ref": "2:8-9",
+       "text": "אבנר ממליך את איש בשת",
+       "text_de": "Abner macht Isch-Boschet zum König",
+       "blk": "בֵּין בֵּית דָּוִד לְבֵין בֵּית שָׁאוּל 2-4 › הַמִּלְחָמָה בֵּין בֵּית שָׁאוּל לְבֵין בֵּית דָּוִד 2:8-3:5",
+       "blk_de": "Zwischen dem Haus David und dem Haus Saul 2-4 › Der Krieg zwischen dem Haus Saul und dem Haus David 2:8-3:5"
+      },
+      {
+       "ref": "2:10-11",
+       "text": "הימים שמלכו איש בשת במחנים ודוד בחברון",
+       "text_de": "Die Zeit, in der Isch-Boschet in Mahanajim und David in Hebron König war",
+       "blk": "בֵּין בֵּית דָּוִד לְבֵין בֵּית שָׁאוּל 2-4 › הַמִּלְחָמָה בֵּין בֵּית שָׁאוּל לְבֵין בֵּית דָּוִד 2:8-3:5",
+       "blk_de": "Zwischen dem Haus David und dem Haus Saul 2-4 › Der Krieg zwischen dem Haus Saul und dem Haus David 2:8-3:5"
+      }
+     ]
     },
     {
      "ref": "2:12-32",
@@ -61,7 +172,16 @@
      "text_de": "Krieg zwischen Abner und Joab und Tötung Asaëls",
      "text_en": "War between Abner and Joab, and the killing of Asahel",
      "place_de": "Hebron, Mahanajim, Gibeon",
-     "place_en": "Hebron, Mahanaim, Gibeon"
+     "place_en": "Hebron, Mahanaim, Gibeon",
+     "sub": [
+      {
+       "ref": "2:12-3:1",
+       "text": "המלחמה בין שני בתי המלוכה בגבעון",
+       "text_de": "Der Krieg zwischen den beiden Königshäusern bei Gibeon",
+       "blk": "בֵּין בֵּית דָּוִד לְבֵין בֵּית שָׁאוּל 2-4 › הַמִּלְחָמָה בֵּין בֵּית שָׁאוּל לְבֵין בֵּית דָּוִד 2:8-3:5",
+       "blk_de": "Zwischen dem Haus David und dem Haus Saul 2-4 › Der Krieg zwischen dem Haus Saul und dem Haus David 2:8-3:5"
+      }
+     ]
     },
     {
      "ref": "3",
@@ -70,7 +190,72 @@
      "text_de": "Bündnis zwischen Abner und David und Tötung Abners",
      "text_en": "Covenant between Abner and David, and the killing of Abner",
      "place_de": "Hebron",
-     "place_en": "Hebron"
+     "place_en": "Hebron",
+     "sub": [
+      {
+       "ref": "3:2-8",
+       "text": "שמות בני דוד הילודים בחברון",
+       "text_de": "Die Namen der Söhne, die David in Hebron geboren wurden",
+       "blk": "בֵּין בֵּית דָּוִד לְבֵין בֵּית שָׁאוּל 2-4 › הַמִּלְחָמָה בֵּין בֵּית שָׁאוּל לְבֵין בֵּית דָּוִד 2:8-3:5",
+       "blk_de": "Zwischen dem Haus David und dem Haus Saul 2-4 › Der Krieg zwischen dem Haus Saul und dem Haus David 2:8-3:5"
+      },
+      {
+       "ref": "3:6-11",
+       "text": "הריב בין איש בשת ואבנר",
+       "text_de": "Der Streit zwischen Isch-Boschet und Abner",
+       "blk": "בֵּין בֵּית דָּוִד לְבֵין בֵּית שָׁאוּל 2-4 › בְּרִית אַבְנֵר עִם דָּוִד 3:6-39",
+       "blk_de": "Zwischen dem Haus David und dem Haus Saul 2-4 › Abners Bund mit David 3:6-39"
+      },
+      {
+       "ref": "3:12-13",
+       "text": "הצעת אבנר לכרת ברית עם דוד",
+       "text_de": "Abners Angebot, einen Bund mit David zu schließen",
+       "blk": "בֵּין בֵּית דָּוִד לְבֵין בֵּית שָׁאוּל 2-4 › בְּרִית אַבְנֵר עִם דָּוִד 3:6-39",
+       "blk_de": "Zwischen dem Haus David und dem Haus Saul 2-4 › Abners Bund mit David 3:6-39"
+      },
+      {
+       "ref": "3:14-16",
+       "text": "שיבת מיכל לדוד",
+       "text_de": "Michals Rückkehr zu David",
+       "blk": "בֵּין בֵּית דָּוִד לְבֵין בֵּית שָׁאוּל 2-4 › בְּרִית אַבְנֵר עִם דָּוִד 3:6-39",
+       "blk_de": "Zwischen dem Haus David und dem Haus Saul 2-4 › Abners Bund mit David 3:6-39"
+      },
+      {
+       "ref": "3:17-21",
+       "text": "פעלת אבנר להמליך את דוד",
+       "text_de": "Abners Bemühen, David zum König zu machen",
+       "blk": "בֵּין בֵּית דָּוִד לְבֵין בֵּית שָׁאוּל 2-4 › בְּרִית אַבְנֵר עִם דָּוִד 3:6-39",
+       "blk_de": "Zwischen dem Haus David und dem Haus Saul 2-4 › Abners Bund mit David 3:6-39"
+      },
+      {
+       "ref": "3:22-30",
+       "text": "יואב הורג את אבנר",
+       "text_de": "Joab tötet Abner",
+       "blk": "בֵּין בֵּית דָּוִד לְבֵין בֵּית שָׁאוּל 2-4 › בְּרִית אַבְנֵר עִם דָּוִד 3:6-39",
+       "blk_de": "Zwischen dem Haus David und dem Haus Saul 2-4 › Abners Bund mit David 3:6-39"
+      },
+      {
+       "ref": "3:31-32",
+       "text": "קבורת אבנר",
+       "text_de": "Abners Begräbnis",
+       "blk": "בֵּין בֵּית דָּוִד לְבֵין בֵּית שָׁאוּל 2-4 › בְּרִית אַבְנֵר עִם דָּוִד 3:6-39",
+       "blk_de": "Zwischen dem Haus David und dem Haus Saul 2-4 › Abners Bund mit David 3:6-39"
+      },
+      {
+       "ref": "3:33-37",
+       "text": "קינת דוד על אבנר ואבלו",
+       "text_de": "Davids Klagelied auf Abner und seine Trauer",
+       "blk": "בֵּין בֵּית דָּוִד לְבֵין בֵּית שָׁאוּל 2-4 › בְּרִית אַבְנֵר עִם דָּוִד 3:6-39",
+       "blk_de": "Zwischen dem Haus David und dem Haus Saul 2-4 › Abners Bund mit David 3:6-39"
+      },
+      {
+       "ref": "3:38-39",
+       "text": "דוד מוסר דין בני צרויה לשמים",
+       "text_de": "David überlässt das Urteil über die Söhne der Zeruja dem Himmel",
+       "blk": "בֵּין בֵּית דָּוִד לְבֵין בֵּית שָׁאוּל 2-4 › בְּרִית אַבְנֵר עִם דָּוִד 3:6-39",
+       "blk_de": "Zwischen dem Haus David und dem Haus Saul 2-4 › Abners Bund mit David 3:6-39"
+      }
+     ]
     },
     {
      "ref": "4",
@@ -98,7 +283,30 @@
      "place_de": "Hebron, Jerusalem, Burg Zion",
      "place_en": "Hebron, Jerusalem, stronghold of Zion",
      "par_de": "Wiederholung: 1. Chronik 11:1–9",
-     "par_en": "Repeat: 1 Chronicles 11:1–9"
+     "par_en": "Repeat: 1 Chronicles 11:1–9",
+     "sub": [
+      {
+       "ref": "5:1-3",
+       "text": "משיחת דוד למלך על כל ישראל",
+       "text_de": "Davids Salbung zum König über ganz Israel",
+       "blk": "מַלְכוּת דָּוִד עַל כָּל יִשְׂרָאֵל 5-8 › כִּבּוּשׁ יְרוּשָׁלַיִם וּבִנְיָנָהּ 5",
+       "blk_de": "Davids Königtum über ganz Israel 5-8 › Die Eroberung Jerusalems und sein Ausbau 5"
+      },
+      {
+       "ref": "5:4-5",
+       "text": "הימים אשר מלך דוד",
+       "text_de": "Die Zeit, in der David König war",
+       "blk": "מַלְכוּת דָּוִד עַל כָּל יִשְׂרָאֵל 5-8 › כִּבּוּשׁ יְרוּשָׁלַיִם וּבִנְיָנָהּ 5",
+       "blk_de": "Davids Königtum über ganz Israel 5-8 › Die Eroberung Jerusalems und sein Ausbau 5"
+      },
+      {
+       "ref": "5:6-10",
+       "text": "כבוש ירושלים מידי היבוסי ובנינה",
+       "text_de": "Die Eroberung Jerusalems von den Jebusitern und sein Ausbau",
+       "blk": "מַלְכוּת דָּוִד עַל כָּל יִשְׂרָאֵל 5-8 › כִּבּוּשׁ יְרוּשָׁלַיִם וּבִנְיָנָהּ 5",
+       "blk_de": "Davids Königtum über ganz Israel 5-8 › Die Eroberung Jerusalems und sein Ausbau 5"
+      }
+     ]
     },
     {
      "ref": "5:11-16",
@@ -110,7 +318,23 @@
      "place_de": "Jerusalem",
      "place_en": "Jerusalem",
      "par_de": "Wiederholung: 1. Chronik 14:1–7 · Weitere seiner Söhne: 2. Samuel 3:2–5 · Sein Gebet zu jener Zeit: Psalm 30 (nach einigen Auslegern)",
-     "par_en": "Repeat: 1 Chronicles 14:1–7 · More of his sons: 2 Samuel 3:2–5 · His prayer at that time: Psalm 30 (according to some commentators)"
+     "par_en": "Repeat: 1 Chronicles 14:1–7 · More of his sons: 2 Samuel 3:2–5 · His prayer at that time: Psalm 30 (according to some commentators)",
+     "sub": [
+      {
+       "ref": "5:11-12",
+       "text": "בנין בית הארזים",
+       "text_de": "Der Bau des Zedernhauses",
+       "blk": "מַלְכוּת דָּוִד עַל כָּל יִשְׂרָאֵל 5-8 › כִּבּוּשׁ יְרוּשָׁלַיִם וּבִנְיָנָהּ 5",
+       "blk_de": "Davids Königtum über ganz Israel 5-8 › Die Eroberung Jerusalems und sein Ausbau 5"
+      },
+      {
+       "ref": "5:13-16",
+       "text": "שמות הבנים הילודים לדוד בירושלים",
+       "text_de": "Die Namen der Söhne, die David in Jerusalem geboren wurden",
+       "blk": "מַלְכוּת דָּוִד עַל כָּל יִשְׂרָאֵל 5-8 › כִּבּוּשׁ יְרוּשָׁלַיִם וּבִנְיָנָהּ 5",
+       "blk_de": "Davids Königtum über ganz Israel 5-8 › Die Eroberung Jerusalems und sein Ausbau 5"
+      }
+     ]
     },
     {
      "ref": "5:17-25",
@@ -122,7 +346,23 @@
      "place_de": "Tal der Refaïter",
      "place_en": "Valley of Rephaim",
      "par_de": "Wiederholung: 1. Chronik 14:8–17 · Erwähnung: Jesaja 28:21 (nach einigen Auslegern)",
-     "par_en": "Repeat: 1 Chronicles 14:8–17 · Mention: Isaiah 28:21 (according to some commentators)"
+     "par_en": "Repeat: 1 Chronicles 14:8–17 · Mention: Isaiah 28:21 (according to some commentators)",
+     "sub": [
+      {
+       "ref": "5:17-21",
+       "text": "המלחמה הראשונה עם הפלשתים שבאו להלחם בדוד",
+       "text_de": "Der erste Krieg mit den Philistern, die kamen, um gegen David zu kämpfen",
+       "blk": "מַלְכוּת דָּוִד עַל כָּל יִשְׂרָאֵל 5-8 › כִּבּוּשׁ יְרוּשָׁלַיִם וּבִנְיָנָהּ 5",
+       "blk_de": "Davids Königtum über ganz Israel 5-8 › Die Eroberung Jerusalems und sein Ausbau 5"
+      },
+      {
+       "ref": "5:22-25",
+       "text": "המלחמה השניה",
+       "text_de": "Der zweite Krieg",
+       "blk": "מַלְכוּת דָּוִד עַל כָּל יִשְׂרָאֵל 5-8 › כִּבּוּשׁ יְרוּשָׁלַיִם וּבִנְיָנָהּ 5",
+       "blk_de": "Davids Königtum über ganz Israel 5-8 › Die Eroberung Jerusalems und sein Ausbau 5"
+      }
+     ]
     },
     {
      "ref": "6",
@@ -137,7 +377,30 @@
      "par_de": "Fortsetzung von: 1. Samuel 7:1–2 · Wiederholung und Erweiterung: Psalm 96 (nach einigen Auslegern); 105:1–15; 1. Chronik 13; 15–16",
      "par_en": "Continuation of: 1 Samuel 7:1–2 · Repeat and expansion: Psalms 96 (according to some commentators); 105:1–15; 1 Chronicles 13; 15–16",
      "time_de": "2891",
-     "time_en": "2891"
+     "time_en": "2891",
+     "sub": [
+      {
+       "ref": "6:1-11",
+       "text": "ההעלאה הראשונה של הארון",
+       "text_de": "Die erste Überführung der Lade",
+       "blk": "מַלְכוּת דָּוִד עַל כָּל יִשְׂרָאֵל 5-8 › הַעֲלָאַת אֲרוֹן ה' לְעִיר דָּוִד 6",
+       "blk_de": "Davids Königtum über ganz Israel 5-8 › Die Überführung der Lade des HERRN in die Davidsstadt 6"
+      },
+      {
+       "ref": "6:12-19",
+       "text": "ההעלאה השניה של הארון",
+       "text_de": "Die zweite Überführung der Lade",
+       "blk": "מַלְכוּת דָּוִד עַל כָּל יִשְׂרָאֵל 5-8 › הַעֲלָאַת אֲרוֹן ה' לְעִיר דָּוִד 6",
+       "blk_de": "Davids Königtum über ganz Israel 5-8 › Die Überführung der Lade des HERRN in die Davidsstadt 6"
+      },
+      {
+       "ref": "6:20-23",
+       "text": "בין מיכל ודוד",
+       "text_de": "Zwischen Michal und David",
+       "blk": "מַלְכוּת דָּוִד עַל כָּל יִשְׂרָאֵל 5-8 › הַעֲלָאַת אֲרוֹן ה' לְעִיר דָּוִד 6",
+       "blk_de": "Davids Königtum über ganz Israel 5-8 › Die Überführung der Lade des HERRN in die Davidsstadt 6"
+      }
+     ]
     },
     {
      "ref": "7:1-7",
@@ -149,7 +412,23 @@
      "place_de": "Jerusalem",
      "place_en": "Jerusalem",
      "par_de": "Wiederholung und Erweiterung: 1. Chronik 17:1–6; 22:6–19; 28:1–21 · Das Gebot: Deuteronomium 12:4–14 (nach einigen Auslegern) · Sein Gebet zu jener Zeit: Psalm 30 (nach einigen Auslegern)",
-     "par_en": "Repeat and expansion: 1 Chronicles 17:1–6; 22:6–19; 28:1–21 · The commandment: Deuteronomy 12:4–14 (according to some commentators) · His prayer at that time: Psalm 30 (according to some commentators)"
+     "par_en": "Repeat and expansion: 1 Chronicles 17:1–6; 22:6–19; 28:1–21 · The commandment: Deuteronomy 12:4–14 (according to some commentators) · His prayer at that time: Psalm 30 (according to some commentators)",
+     "sub": [
+      {
+       "ref": "7:1-3",
+       "text": "דוד מבקש לבנות בית לה'",
+       "text_de": "David will dem HERRN ein Haus bauen",
+       "blk": "מַלְכוּת דָּוִד עַל כָּל יִשְׂרָאֵל 5-8 › בִּנְיַן בֵּית ה' וּמַלְכוּת בֵּית דָּוִד 7",
+       "blk_de": "Davids Königtum über ganz Israel 5-8 › Der Bau des Hauses des HERRN und das Königtum des Hauses David 7"
+      },
+      {
+       "ref": "7:4-17",
+       "text": "חזיון נתן",
+       "text_de": "Das Gesicht Nathans",
+       "blk": "מַלְכוּת דָּוִד עַל כָּל יִשְׂרָאֵל 5-8 › בִּנְיַן בֵּית ה' וּמַלְכוּת בֵּית דָּוִד 7",
+       "blk_de": "Davids Königtum über ganz Israel 5-8 › Der Bau des Hauses des HERRN und das Königtum des Hauses David 7"
+      }
+     ]
     },
     {
      "ref": "7:8-29",
@@ -161,7 +440,16 @@
      "place_de": "Jerusalem",
      "place_en": "Jerusalem",
      "par_de": "Wiederholung: 1. Chronik 17:7–27 · Erwähnung: 1. Könige 11:34–36; Jeremia 33:17–22; Psalm 89; 132:11–12 · Segen darüber: Genesis 49:10",
-     "par_en": "Repeat: 1 Chronicles 17:7–27 · Mention: 1 Kings 11:34–36; Jeremiah 33:17–22; Psalms 89; 132:11–12 · Blessing about it: Genesis 49:10"
+     "par_en": "Repeat: 1 Chronicles 17:7–27 · Mention: 1 Kings 11:34–36; Jeremiah 33:17–22; Psalms 89; 132:11–12 · Blessing about it: Genesis 49:10",
+     "sub": [
+      {
+       "ref": "7:18-29",
+       "text": "תפלת דוד",
+       "text_de": "Davids Gebet",
+       "blk": "מַלְכוּת דָּוִד עַל כָּל יִשְׂרָאֵל 5-8 › בִּנְיַן בֵּית ה' וּמַלְכוּת בֵּית דָּוִד 7",
+       "blk_de": "Davids Königtum über ganz Israel 5-8 › Der Bau des Hauses des HERRN und das Königtum des Hauses David 7"
+      }
+     ]
     },
     {
      "ref": "8:1-14",
@@ -173,7 +461,37 @@
      "place_de": "Die eroberten Orte",
      "place_en": "The conquered places",
      "par_de": "Fortsetzung des Themas und Wiederholung: 1. Könige 11:14–22; 1. Chronik 18:1–14 · Prophezeiung darüber: Genesis 49:9 (nach einigen Auslegern); Numeri 24:15–19 (nach einigen Auslegern) · Sein Gebet zu jener Zeit: Psalm 60",
-     "par_en": "Continuation of the topic and repeat: 1 Kings 11:14–22; 1 Chronicles 18:1–14 · Prophecy about it: Genesis 49:9 (according to some commentators); Numbers 24:15–19 (according to some commentators) · His prayer at that time: Psalm 60"
+     "par_en": "Continuation of the topic and repeat: 1 Kings 11:14–22; 1 Chronicles 18:1–14 · Prophecy about it: Genesis 49:9 (according to some commentators); Numbers 24:15–19 (according to some commentators) · His prayer at that time: Psalm 60",
+     "sub": [
+      {
+       "ref": "8:1-8",
+       "text": "כבוש פלשת, מואב וארם",
+       "text_de": "Die Eroberung Philistäas, Moabs und Arams",
+       "blk": "מַלְכוּת דָּוִד עַל כָּל יִשְׂרָאֵל 5-8 › דָּוִד מַרְחִיב אֶת תְּחוּמֵי הַמַּמְלָכָה וּמְאַרְגְּנָהּ 8",
+       "blk_de": "Davids Königtum über ganz Israel 5-8 › David erweitert die Grenzen des Königreichs und gliedert es 8"
+      },
+      {
+       "ref": "8:9-10",
+       "text": "תעי מלך חמת שואל בשלום דוד",
+       "text_de": "Toi, der König von Hamat, erkundigt sich nach Davids Wohlergehen",
+       "blk": "מַלְכוּת דָּוִד עַל כָּל יִשְׂרָאֵל 5-8 › דָּוִד מַרְחִיב אֶת תְּחוּמֵי הַמַּמְלָכָה וּמְאַרְגְּנָהּ 8",
+       "blk_de": "Davids Königtum über ganz Israel 5-8 › David erweitert die Grenzen des Königreichs und gliedert es 8"
+      },
+      {
+       "ref": "8:11-12",
+       "text": "הקדשת שלל המלחמה לה'",
+       "text_de": "Die Weihung der Kriegsbeute für den HERRN",
+       "blk": "מַלְכוּת דָּוִד עַל כָּל יִשְׂרָאֵל 5-8 › דָּוִד מַרְחִיב אֶת תְּחוּמֵי הַמַּמְלָכָה וּמְאַרְגְּנָהּ 8",
+       "blk_de": "Davids Königtum über ganz Israel 5-8 › David erweitert die Grenzen des Königreichs und gliedert es 8"
+      },
+      {
+       "ref": "8:13-14",
+       "text": "כבוש אדום",
+       "text_de": "Die Eroberung Edoms",
+       "blk": "מַלְכוּת דָּוִד עַל כָּל יִשְׂרָאֵל 5-8 › דָּוִד מַרְחִיב אֶת תְּחוּמֵי הַמַּמְלָכָה וּמְאַרְגְּנָהּ 8",
+       "blk_de": "Davids Königtum über ganz Israel 5-8 › David erweitert die Grenzen des Königreichs und gliedert es 8"
+      }
+     ]
     },
     {
      "ref": "8:15-18",
@@ -182,7 +500,16 @@
      "text_de": "Davids Beamte",
      "text_en": "David's officials",
      "par_de": "Wiederholung und Erweiterung: 2. Samuel 20:23–26; 1. Chronik 18:15–17; 27:25–34",
-     "par_en": "Repeat and expansion: 2 Samuel 20:23–26; 1 Chronicles 18:15–17; 27:25–34"
+     "par_en": "Repeat and expansion: 2 Samuel 20:23–26; 1 Chronicles 18:15–17; 27:25–34",
+     "sub": [
+      {
+       "ref": "8:15-18",
+       "text": "סדר הממלכה ושריה",
+       "text_de": "Ordnung des Königreichs und seine Beamten",
+       "blk": "מַלְכוּת דָּוִד עַל כָּל יִשְׂרָאֵל 5-8 › דָּוִד מַרְחִיב אֶת תְּחוּמֵי הַמַּמְלָכָה וּמְאַרְגְּנָהּ 8",
+       "blk_de": "Davids Königtum über ganz Israel 5-8 › David erweitert die Grenzen des Königreichs und gliedert es 8"
+      }
+     ]
     },
     {
      "ref": "9",
@@ -209,7 +536,30 @@
      "par_de": "Wiederholung: 1. Chronik 19",
      "par_en": "Repeat: 1 Chronicles 19",
      "time_de": "7. Siwan / 15. Ijar",
-     "time_en": "7 Sivan / 15 Iyar"
+     "time_en": "7 Sivan / 15 Iyar",
+     "sub": [
+      {
+       "ref": "10:1-5",
+       "text": "סבת המלחמה בבני עמון",
+       "text_de": "Der Anlass des Krieges gegen die Ammoniter",
+       "blk": "חֵטְא וָעֹנֶשׁ, חֶסֶד וּתְשׁוּבָה 9:1-20:22 › מַעֲשֵׂה בַּת-שֶׁבַע וְאוּרִיָּה וּמִלְחֶמֶת בְּנֵי-עַמּוֹן 10-12",
+       "blk_de": "Sünde und Strafe, Gnade und Umkehr 9:1-20:22 › Die Geschichte von Batseba und Urija und der Krieg gegen die Ammoniter 10-12"
+      },
+      {
+       "ref": "10:6-14",
+       "text": "הקרב הראשון",
+       "text_de": "Die erste Schlacht",
+       "blk": "חֵטְא וָעֹנֶשׁ, חֶסֶד וּתְשׁוּבָה 9:1-20:22 › מַעֲשֵׂה בַּת-שֶׁבַע וְאוּרִיָּה וּמִלְחֶמֶת בְּנֵי-עַמּוֹן 10-12",
+       "blk_de": "Sünde und Strafe, Gnade und Umkehr 9:1-20:22 › Die Geschichte von Batseba und Urija und der Krieg gegen die Ammoniter 10-12"
+      },
+      {
+       "ref": "10:15-19",
+       "text": "הקרב השני",
+       "text_de": "Die zweite Schlacht",
+       "blk": "חֵטְא וָעֹנֶשׁ, חֶסֶד וּתְשׁוּבָה 9:1-20:22 › מַעֲשֵׂה בַּת-שֶׁבַע וְאוּרִיָּה וּמִלְחֶמֶת בְּנֵי-עַמּוֹן 10-12",
+       "blk_de": "Sünde und Strafe, Gnade und Umkehr 9:1-20:22 › Die Geschichte von Batseba und Urija und der Krieg gegen die Ammoniter 10-12"
+      }
+     ]
     },
     {
      "ref": "11",
@@ -224,7 +574,37 @@
      "par_de": "Sein Gebet zu jener Zeit: Psalm 51 · Tod Abimelechs: Richter 9:53–54",
      "par_en": "His prayer at that time: Psalm 51 · Death of Abimelech: Judges 9:53–54",
      "time_de": "15./24. Elul",
-     "time_en": "15/24 Elul"
+     "time_en": "15/24 Elul",
+     "sub": [
+      {
+       "ref": "11:1-5",
+       "text": "דוד ובת-שבע",
+       "text_de": "David und Batseba",
+       "blk": "חֵטְא וָעֹנֶשׁ, חֶסֶד וּתְשׁוּבָה 9:1-20:22 › מַעֲשֵׂה בַּת-שֶׁבַע וְאוּרִיָּה וּמִלְחֶמֶת בְּנֵי-עַמּוֹן 10-12",
+       "blk_de": "Sünde und Strafe, Gnade und Umkehr 9:1-20:22 › Die Geschichte von Batseba und Urija und der Krieg gegen die Ammoniter 10-12"
+      },
+      {
+       "ref": "11:6-15",
+       "text": "דוד ואוריה",
+       "text_de": "David und Urija",
+       "blk": "חֵטְא וָעֹנֶשׁ, חֶסֶד וּתְשׁוּבָה 9:1-20:22 › מַעֲשֵׂה בַּת-שֶׁבַע וְאוּרִיָּה וּמִלְחֶמֶת בְּנֵי-עַמּוֹן 10-12",
+       "blk_de": "Sünde und Strafe, Gnade und Umkehr 9:1-20:22 › Die Geschichte von Batseba und Urija und der Krieg gegen die Ammoniter 10-12"
+      },
+      {
+       "ref": "11:16-24",
+       "text": "מות אוריה",
+       "text_de": "Der Tod Urijas",
+       "blk": "חֵטְא וָעֹנֶשׁ, חֶסֶד וּתְשׁוּבָה 9:1-20:22 › מַעֲשֵׂה בַּת-שֶׁבַע וְאוּרִיָּה וּמִלְחֶמֶת בְּנֵי-עַמּוֹן 10-12",
+       "blk_de": "Sünde und Strafe, Gnade und Umkehr 9:1-20:22 › Die Geschichte von Batseba und Urija und der Krieg gegen die Ammoniter 10-12"
+      },
+      {
+       "ref": "11:25-27",
+       "text": "דוד מעודד את יואב ונושא את בת-שבע",
+       "text_de": "David ermutigt Joab und nimmt Batseba zur Frau",
+       "blk": "חֵטְא וָעֹנֶשׁ, חֶסֶד וּתְשׁוּבָה 9:1-20:22 › מַעֲשֵׂה בַּת-שֶׁבַע וְאוּרִיָּה וּמִלְחֶמֶת בְּנֵי-עַמּוֹן 10-12",
+       "blk_de": "Sünde und Strafe, Gnade und Umkehr 9:1-20:22 › Die Geschichte von Batseba und Urija und der Krieg gegen die Ammoniter 10-12"
+      }
+     ]
     },
     {
      "ref": "11:27-12:23",
@@ -236,7 +616,30 @@
      "place_de": "Jerusalem",
      "place_en": "Jerusalem",
      "par_de": "Sein Gebet zu jener Zeit: Psalm 9 (nach einigen Auslegern)",
-     "par_en": "His prayer at that time: Psalm 9 (according to some commentators)"
+     "par_en": "His prayer at that time: Psalm 9 (according to some commentators)",
+     "sub": [
+      {
+       "ref": "12:1-6",
+       "text": "משל כבשת הרש ומשפט דוד",
+       "text_de": "Das Gleichnis vom Lamm des Armen und Davids Urteil",
+       "blk": "חֵטְא וָעֹנֶשׁ, חֶסֶד וּתְשׁוּבָה 9:1-20:22 › מַעֲשֵׂה בַּת-שֶׁבַע וְאוּרִיָּה וּמִלְחֶמֶת בְּנֵי-עַמּוֹן 10-12",
+       "blk_de": "Sünde und Strafe, Gnade und Umkehr 9:1-20:22 › Die Geschichte von Batseba und Urija und der Krieg gegen die Ammoniter 10-12"
+      },
+      {
+       "ref": "12:7-14",
+       "text": "הנמשל ותוכחת נתן",
+       "text_de": "Die Deutung des Gleichnisses und die Mahnrede Natans",
+       "blk": "חֵטְא וָעֹנֶשׁ, חֶסֶד וּתְשׁוּבָה 9:1-20:22 › מַעֲשֵׂה בַּת-שֶׁבַע וְאוּרִיָּה וּמִלְחֶמֶת בְּנֵי-עַמּוֹן 10-12",
+       "blk_de": "Sünde und Strafe, Gnade und Umkehr 9:1-20:22 › Die Geschichte von Batseba und Urija und der Krieg gegen die Ammoniter 10-12"
+      },
+      {
+       "ref": "12:15-23",
+       "text": "מות הילד",
+       "text_de": "Der Tod des Kindes",
+       "blk": "חֵטְא וָעֹנֶשׁ, חֶסֶד וּתְשׁוּבָה 9:1-20:22 › מַעֲשֵׂה בַּת-שֶׁבַע וְאוּרִיָּה וּמִלְחֶמֶת בְּנֵי-עַמּוֹן 10-12",
+       "blk_de": "Sünde und Strafe, Gnade und Umkehr 9:1-20:22 › Die Geschichte von Batseba und Urija und der Krieg gegen die Ammoniter 10-12"
+      }
+     ]
     },
     {
      "ref": "12:24-25",
@@ -251,7 +654,16 @@
      "par_de": "Erweiterung: 1. Könige 1",
      "par_en": "Expansion: 1 Kings 1",
      "time_de": "2912",
-     "time_en": "2912"
+     "time_en": "2912",
+     "sub": [
+      {
+       "ref": "12:24-25",
+       "text": "לידת שלמה",
+       "text_de": "Die Geburt Salomos",
+       "blk": "חֵטְא וָעֹנֶשׁ, חֶסֶד וּתְשׁוּבָה 9:1-20:22 › מַעֲשֵׂה בַּת-שֶׁבַע וְאוּרִיָּה וּמִלְחֶמֶת בְּנֵי-עַמּוֹן 10-12",
+       "blk_de": "Sünde und Strafe, Gnade und Umkehr 9:1-20:22 › Die Geschichte von Batseba und Urija und der Krieg gegen die Ammoniter 10-12"
+      }
+     ]
     },
     {
      "ref": "12:26-31",
@@ -263,7 +675,16 @@
      "place_de": "Ammon",
      "place_en": "Ammon",
      "par_de": "Wiederholung: 1. Chronik 20:1–3",
-     "par_en": "Repeat: 1 Chronicles 20:1–3"
+     "par_en": "Repeat: 1 Chronicles 20:1–3",
+     "sub": [
+      {
+       "ref": "12:26-31",
+       "text": "כבוש רבת בני עמון",
+       "text_de": "Die Eroberung von Rabba der Ammoniter",
+       "blk": "חֵטְא וָעֹנֶשׁ, חֶסֶד וּתְשׁוּבָה 9:1-20:22 › מַעֲשֵׂה בַּת-שֶׁבַע וְאוּרִיָּה וּמִלְחֶמֶת בְּנֵי-עַמּוֹן 10-12",
+       "blk_de": "Sünde und Strafe, Gnade und Umkehr 9:1-20:22 › Die Geschichte von Batseba und Urija und der Krieg gegen die Ammoniter 10-12"
+      }
+     ]
     }
    ],
    "head_de": "Davids Königtum",
@@ -282,7 +703,30 @@
      "place_de": "Jerusalem, Baal-Hazor",
      "place_en": "Jerusalem, Baal-hazor",
      "time_de": "2912–2914",
-     "time_en": "2912–2914"
+     "time_en": "2912–2914",
+     "sub": [
+      {
+       "ref": "13:1-22",
+       "text": "אמנון מענה את תמר ומגרשה מביתו",
+       "text_de": "Amnon schändet Tamar und verstößt sie aus seinem Haus",
+       "blk": "חֵטְא וָעֹנֶשׁ, חֶסֶד וּתְשׁוּבָה 9:1-20:22 › מַעֲשֵׂה אַמְנוֹן וְתָמָר 13-14",
+       "blk_de": "Sünde und Strafe, Gnade und Umkehr 9:1-20:22 › Die Geschichte von Amnon und Tamar 13-14"
+      },
+      {
+       "ref": "13:23-30",
+       "text": "אבשלום נוקם נקמת אחותו",
+       "text_de": "Abschalom rächt seine Schwester",
+       "blk": "חֵטְא וָעֹנֶשׁ, חֶסֶד וּתְשׁוּבָה 9:1-20:22 › מַעֲשֵׂה אַמְנוֹן וְתָמָר 13-14",
+       "blk_de": "Sünde und Strafe, Gnade und Umkehr 9:1-20:22 › Die Geschichte von Amnon und Tamar 13-14"
+      },
+      {
+       "ref": "13:31-39",
+       "text": "אבלו של דוד ובריחת אבשלום",
+       "text_de": "Davids Trauer und Abschaloms Flucht",
+       "blk": "חֵטְא וָעֹנֶשׁ, חֶסֶד וּתְשׁוּבָה 9:1-20:22 › מַעֲשֵׂה אַמְנוֹן וְתָמָר 13-14",
+       "blk_de": "Sünde und Strafe, Gnade und Umkehr 9:1-20:22 › Die Geschichte von Amnon und Tamar 13-14"
+      }
+     ]
     },
     {
      "ref": "13:34-14:33",
@@ -294,7 +738,58 @@
      "place_de": "Jerusalem, Geschur",
      "place_en": "Jerusalem, Geshur",
      "time_de": "2917–2919",
-     "time_en": "2917–2919"
+     "time_en": "2917–2919",
+     "sub": [
+      {
+       "ref": "14:1-3",
+       "text": "יואב שולח אשה תקועית לדבר על לב דוד שישיב את אבשלום",
+       "text_de": "Joab schickt eine Frau aus Tekoa, um David zur Rückholung Abschaloms zu bewegen",
+       "blk": "חֵטְא וָעֹנֶשׁ, חֶסֶד וּתְשׁוּבָה 9:1-20:22 › מַעֲשֵׂה אַמְנוֹן וְתָמָר 13-14",
+       "blk_de": "Sünde und Strafe, Gnade und Umkehr 9:1-20:22 › Die Geschichte von Amnon und Tamar 13-14"
+      },
+      {
+       "ref": "14:4-11",
+       "text": "ספור התקועית ופסק דינו של דוד",
+       "text_de": "Die Erzählung der Frau aus Tekoa und Davids Urteilsspruch",
+       "blk": "חֵטְא וָעֹנֶשׁ, חֶסֶד וּתְשׁוּבָה 9:1-20:22 › מַעֲשֵׂה אַמְנוֹן וְתָמָר 13-14",
+       "blk_de": "Sünde und Strafe, Gnade und Umkehr 9:1-20:22 › Die Geschichte von Amnon und Tamar 13-14"
+      },
+      {
+       "ref": "14:12-17",
+       "text": "הלקח",
+       "text_de": "Die Lehre",
+       "blk": "חֵטְא וָעֹנֶשׁ, חֶסֶד וּתְשׁוּבָה 9:1-20:22 › מַעֲשֵׂה אַמְנוֹן וְתָמָר 13-14",
+       "blk_de": "Sünde und Strafe, Gnade und Umkehr 9:1-20:22 › Die Geschichte von Amnon und Tamar 13-14"
+      },
+      {
+       "ref": "14:18-20",
+       "text": "חכמת דוד",
+       "text_de": "Davids Weisheit",
+       "blk": "חֵטְא וָעֹנֶשׁ, חֶסֶד וּתְשׁוּבָה 9:1-20:22 › מַעֲשֵׂה אַמְנוֹן וְתָמָר 13-14",
+       "blk_de": "Sünde und Strafe, Gnade und Umkehr 9:1-20:22 › Die Geschichte von Amnon und Tamar 13-14"
+      },
+      {
+       "ref": "14:21-23",
+       "text": "דוד מצוה להשיב את אבשלום",
+       "text_de": "David befiehlt, Abschalom zurückzuholen",
+       "blk": "חֵטְא וָעֹנֶשׁ, חֶסֶד וּתְשׁוּבָה 9:1-20:22 › מַעֲשֵׂה אַמְנוֹן וְתָמָר 13-14",
+       "blk_de": "Sünde und Strafe, Gnade und Umkehr 9:1-20:22 › Die Geschichte von Amnon und Tamar 13-14"
+      },
+      {
+       "ref": "14:24-32",
+       "text": "דוד ממאן לראות פני אבשלום",
+       "text_de": "David weigert sich, Abschalom zu sehen",
+       "blk": "חֵטְא וָעֹנֶשׁ, חֶסֶד וּתְשׁוּבָה 9:1-20:22 › מַעֲשֵׂה אַמְנוֹן וְתָמָר 13-14",
+       "blk_de": "Sünde und Strafe, Gnade und Umkehr 9:1-20:22 › Die Geschichte von Amnon und Tamar 13-14"
+      },
+      {
+       "ref": "14:33",
+       "text": "דוד מתפיס עם אבשלום",
+       "text_de": "David versöhnt sich mit Abschalom",
+       "blk": "חֵטְא וָעֹנֶשׁ, חֶסֶד וּתְשׁוּבָה 9:1-20:22 › מַעֲשֵׂה אַמְנוֹן וְתָמָר 13-14",
+       "blk_de": "Sünde und Strafe, Gnade und Umkehr 9:1-20:22 › Die Geschichte von Amnon und Tamar 13-14"
+      }
+     ]
     },
     {
      "ref": "15:1-31",
@@ -309,7 +804,58 @@
      "par_de": "Sein Gebet zu jener Zeit: Psalm 3",
      "par_en": "His prayer at that time: Psalm 3",
      "time_de": "2919",
-     "time_en": "2919"
+     "time_en": "2919",
+     "sub": [
+      {
+       "ref": "15:1-6",
+       "text": "אבשלום מגנב את לב אנשי ישראל",
+       "text_de": "Abschalom stiehlt das Herz der Männer Israels",
+       "blk": "חֵטְא וָעֹנֶשׁ, חֶסֶד וּתְשׁוּבָה 9:1-20:22 › מֶרֶד אַבְשָׁלוֹם 15:1-19:9",
+       "blk_de": "Sünde und Strafe, Gnade und Umkehr 9:1-20:22 › Der Aufstand Abschaloms 15:1-19:9"
+      },
+      {
+       "ref": "15:7-9",
+       "text": "נדר אבשלום",
+       "text_de": "Abschaloms Gelübde",
+       "blk": "חֵטְא וָעֹנֶשׁ, חֶסֶד וּתְשׁוּבָה 9:1-20:22 › מֶרֶד אַבְשָׁלוֹם 15:1-19:9",
+       "blk_de": "Sünde und Strafe, Gnade und Umkehr 9:1-20:22 › Der Aufstand Abschaloms 15:1-19:9"
+      },
+      {
+       "ref": "15:10-13",
+       "text": "הקשר של אבשלום",
+       "text_de": "Die Verschwörung Abschaloms",
+       "blk": "חֵטְא וָעֹנֶשׁ, חֶסֶד וּתְשׁוּבָה 9:1-20:22 › מֶרֶד אַבְשָׁלוֹם 15:1-19:9",
+       "blk_de": "Sünde und Strafe, Gnade und Umkehr 9:1-20:22 › Der Aufstand Abschaloms 15:1-19:9"
+      },
+      {
+       "ref": "15:14-18",
+       "text": "דוד בורח מירושלים",
+       "text_de": "David flieht aus Jerusalem",
+       "blk": "חֵטְא וָעֹנֶשׁ, חֶסֶד וּתְשׁוּבָה 9:1-20:22 › מֶרֶד אַבְשָׁלוֹם 15:1-19:9",
+       "blk_de": "Sünde und Strafe, Gnade und Umkehr 9:1-20:22 › Der Aufstand Abschaloms 15:1-19:9"
+      },
+      {
+       "ref": "15:19-22",
+       "text": "דוד ואתי הגתי",
+       "text_de": "David und Ittai aus Gat",
+       "blk": "חֵטְא וָעֹנֶשׁ, חֶסֶד וּתְשׁוּבָה 9:1-20:22 › מֶרֶד אַבְשָׁלוֹם 15:1-19:9",
+       "blk_de": "Sünde und Strafe, Gnade und Umkehr 9:1-20:22 › Der Aufstand Abschaloms 15:1-19:9"
+      },
+      {
+       "ref": "15:23-29",
+       "text": "דוד והכהנים",
+       "text_de": "David und die Priester",
+       "blk": "חֵטְא וָעֹנֶשׁ, חֶסֶד וּתְשׁוּבָה 9:1-20:22 › מֶרֶד אַבְשָׁלוֹם 15:1-19:9",
+       "blk_de": "Sünde und Strafe, Gnade und Umkehr 9:1-20:22 › Der Aufstand Abschaloms 15:1-19:9"
+      },
+      {
+       "ref": "15:30-31",
+       "text": "תפלת דוד",
+       "text_de": "Davids Gebet",
+       "blk": "חֵטְא וָעֹנֶשׁ, חֶסֶד וּתְשׁוּבָה 9:1-20:22 › מֶרֶד אַבְשָׁלוֹם 15:1-19:9",
+       "blk_de": "Sünde und Strafe, Gnade und Umkehr 9:1-20:22 › Der Aufstand Abschaloms 15:1-19:9"
+      }
+     ]
     },
     {
      "ref": "15:32-37, 16:14-19",
@@ -321,7 +867,23 @@
      "place_de": "Ölberg, Jerusalem",
      "place_en": "Mount of Olives, Jerusalem",
      "time_de": "2919",
-     "time_en": "2919"
+     "time_en": "2919",
+     "sub": [
+      {
+       "ref": "15:32-37",
+       "text": "דוד וחושי",
+       "text_de": "David und Huschai",
+       "blk": "חֵטְא וָעֹנֶשׁ, חֶסֶד וּתְשׁוּבָה 9:1-20:22 › מֶרֶד אַבְשָׁלוֹם 15:1-19:9",
+       "blk_de": "Sünde und Strafe, Gnade und Umkehr 9:1-20:22 › Der Aufstand Abschaloms 15:1-19:9"
+      },
+      {
+       "ref": "16:14-19",
+       "text": "אבשלום וחושי",
+       "text_de": "Abschalom und Huschai",
+       "blk": "חֵטְא וָעֹנֶשׁ, חֶסֶד וּתְשׁוּבָה 9:1-20:22 › מֶרֶד אַבְשָׁלוֹם 15:1-19:9",
+       "blk_de": "Sünde und Strafe, Gnade und Umkehr 9:1-20:22 › Der Aufstand Abschaloms 15:1-19:9"
+      }
+     ]
     },
     {
      "ref": "16:1-4",
@@ -336,7 +898,16 @@
      "par_de": "Fortsetzung des Themas: 2. Samuel 9; 19:25–31",
      "par_en": "Continuation of the topic: 2 Samuel 9; 19:25–31",
      "time_de": "2919",
-     "time_en": "2919"
+     "time_en": "2919",
+     "sub": [
+      {
+       "ref": "16:1-4",
+       "text": "דוד וציבא",
+       "text_de": "David und Ziba",
+       "blk": "חֵטְא וָעֹנֶשׁ, חֶסֶד וּתְשׁוּבָה 9:1-20:22 › מֶרֶד אַבְשָׁלוֹם 15:1-19:9",
+       "blk_de": "Sünde und Strafe, Gnade und Umkehr 9:1-20:22 › Der Aufstand Abschaloms 15:1-19:9"
+      }
+     ]
     },
     {
      "ref": "16:5-13",
@@ -351,7 +922,16 @@
      "par_de": "Fortsetzung des Themas: 2. Samuel 19:17–24; 1. Könige 2:8–9; 2:36–46",
      "par_en": "Continuation of the topic: 2 Samuel 19:17–24; 1 Kings 2:8–9; 2:36–46",
      "time_de": "2919",
-     "time_en": "2919"
+     "time_en": "2919",
+     "sub": [
+      {
+       "ref": "16:5-13",
+       "text": "שמעי ודוד",
+       "text_de": "Schimi und David",
+       "blk": "חֵטְא וָעֹנֶשׁ, חֶסֶד וּתְשׁוּבָה 9:1-20:22 › מֶרֶד אַבְשָׁלוֹם 15:1-19:9",
+       "blk_de": "Sünde und Strafe, Gnade und Umkehr 9:1-20:22 › Der Aufstand Abschaloms 15:1-19:9"
+      }
+     ]
     },
     {
      "ref": "16:20-17:23",
@@ -363,7 +943,30 @@
      "place_de": "Jerusalem, Bahurim, Steppen der Wüste, En-Rogel, Mahanajim, Land Gilead",
      "place_en": "Jerusalem, Bahurim, plains of the wilderness, En-rogel, Mahanaim, land of Gilead",
      "time_de": "2919",
-     "time_en": "2919"
+     "time_en": "2919",
+     "sub": [
+      {
+       "ref": "16:40-17:23",
+       "text": "אבשלום בא אל פלגשי אביו לפי עצת אחיתפל",
+       "text_de": "Abschalom geht zu den Nebenfrauen seines Vaters nach dem Rat Ahitofels",
+       "blk": "חֵטְא וָעֹנֶשׁ, חֶסֶד וּתְשׁוּבָה 9:1-20:22 › מֶרֶד אַבְשָׁלוֹם 15:1-19:9",
+       "blk_de": "Sünde und Strafe, Gnade und Umkehr 9:1-20:22 › Der Aufstand Abschaloms 15:1-19:9"
+      },
+      {
+       "ref": "17:1-14",
+       "text": "עצת אחיתפל האחרת",
+       "text_de": "Der andere Rat Ahitofels",
+       "blk": "חֵטְא וָעֹנֶשׁ, חֶסֶד וּתְשׁוּבָה 9:1-20:22 › מֶרֶד אַבְשָׁלוֹם 15:1-19:9",
+       "blk_de": "Sünde und Strafe, Gnade und Umkehr 9:1-20:22 › Der Aufstand Abschaloms 15:1-19:9"
+      },
+      {
+       "ref": "17:15-23",
+       "text": "בני הכהנים מודיעים לדוד על העצות שיעצו לאבשלום",
+       "text_de": "Die Söhne der Priester melden David die Ratschläge, die Abschalom erteilt wurden",
+       "blk": "חֵטְא וָעֹנֶשׁ, חֶסֶד וּתְשׁוּבָה 9:1-20:22 › מֶרֶד אַבְשָׁלוֹם 15:1-19:9",
+       "blk_de": "Sünde und Strafe, Gnade und Umkehr 9:1-20:22 › Der Aufstand Abschaloms 15:1-19:9"
+      }
+     ]
     },
     {
      "ref": "17:24-18:19",
@@ -375,7 +978,37 @@
      "place_de": "Mahanajim, Land Gilead, Wald Efraim",
      "place_en": "Mahanaim, land of Gilead, forest of Ephraim",
      "time_de": "2919",
-     "time_en": "2919"
+     "time_en": "2919",
+     "sub": [
+      {
+       "ref": "17:24-29",
+       "text": "דוד במחנים",
+       "text_de": "David in Mahanajim",
+       "blk": "חֵטְא וָעֹנֶשׁ, חֶסֶד וּתְשׁוּבָה 9:1-20:22 › מֶרֶד אַבְשָׁלוֹם 15:1-19:9",
+       "blk_de": "Sünde und Strafe, Gnade und Umkehr 9:1-20:22 › Der Aufstand Abschaloms 15:1-19:9"
+      },
+      {
+       "ref": "18:1-5",
+       "text": "דוד עורך את צבאו למלחמה",
+       "text_de": "David stellt sein Heer zum Kampf auf",
+       "blk": "חֵטְא וָעֹנֶשׁ, חֶסֶד וּתְשׁוּבָה 9:1-20:22 › מֶרֶד אַבְשָׁלוֹם 15:1-19:9",
+       "blk_de": "Sünde und Strafe, Gnade und Umkehr 9:1-20:22 › Der Aufstand Abschaloms 15:1-19:9"
+      },
+      {
+       "ref": "18:6-18",
+       "text": "המלחמה ביער אפרים ומות אבשלום",
+       "text_de": "Der Kampf im Wald Efraim und der Tod Abschaloms",
+       "blk": "חֵטְא וָעֹנֶשׁ, חֶסֶד וּתְשׁוּבָה 9:1-20:22 › מֶרֶד אַבְשָׁלוֹם 15:1-19:9",
+       "blk_de": "Sünde und Strafe, Gnade und Umkehr 9:1-20:22 › Der Aufstand Abschaloms 15:1-19:9"
+      },
+      {
+       "ref": "18:19-32",
+       "text": "המבשרים לדוד",
+       "text_de": "Die Boten an David",
+       "blk": "חֵטְא וָעֹנֶשׁ, חֶסֶד וּתְשׁוּבָה 9:1-20:22 › מֶרֶד אַבְשָׁלוֹם 15:1-19:9",
+       "blk_de": "Sünde und Strafe, Gnade und Umkehr 9:1-20:22 › Der Aufstand Abschaloms 15:1-19:9"
+      }
+     ]
     },
     {
      "ref": "18:20-19:9",
@@ -387,7 +1020,23 @@
      "place_de": "Mahanajim",
      "place_en": "Mahanaim",
      "time_de": "2919",
-     "time_en": "2919"
+     "time_en": "2919",
+     "sub": [
+      {
+       "ref": "19:1-5",
+       "text": "קינת דוד על אבשלום",
+       "text_de": "Davids Klage um Abschalom",
+       "blk": "חֵטְא וָעֹנֶשׁ, חֶסֶד וּתְשׁוּבָה 9:1-20:22 › מֶרֶד אַבְשָׁלוֹם 15:1-19:9",
+       "blk_de": "Sünde und Strafe, Gnade und Umkehr 9:1-20:22 › Der Aufstand Abschaloms 15:1-19:9"
+      },
+      {
+       "ref": "19:6-9",
+       "text": "תוכחת יואב לדוד",
+       "text_de": "Joabs Mahnrede an David",
+       "blk": "חֵטְא וָעֹנֶשׁ, חֶסֶד וּתְשׁוּבָה 9:1-20:22 › מֶרֶד אַבְשָׁלוֹם 15:1-19:9",
+       "blk_de": "Sünde und Strafe, Gnade und Umkehr 9:1-20:22 › Der Aufstand Abschaloms 15:1-19:9"
+      }
+     ]
     },
     {
      "ref": "19:10-16, 19:41-44",
@@ -399,7 +1048,30 @@
      "place_de": "Mahanajim, Jordan, Gilgal",
      "place_en": "Mahanaim, Jordan, Gilgal",
      "time_de": "2919",
-     "time_en": "2919"
+     "time_en": "2919",
+     "sub": [
+      {
+       "ref": "19:10-11",
+       "text": "יִשְׂרָאֵל מְבַקְּשִׁים לְהָשִׁיב אֶת הַמֶּלֶךְ",
+       "text_de": "Israel will den König zurückholen",
+       "blk": "שִׁיבַת דָּוִד לִירוּשָׁלַיִם וּמֶרֶד שֶׁבַע בֶּן בִּכְרִי 19:10-20:26",
+       "blk_de": "Davids Rückkehr nach Jerusalem und der Aufstand des Scheba ben Bichri 19:10-20:26"
+      },
+      {
+       "ref": "19:12-16",
+       "text": "דָּוִד מְבַקֵּשׁ מִיהוּדָה שֶׁיִּהְיוּ רִאשׁוֹנִים לַהֲשִׁיבוֹ",
+       "text_de": "David fordert Juda auf, als Erste seine Rückholung zu betreiben",
+       "blk": "שִׁיבַת דָּוִד לִירוּשָׁלַיִם וּמֶרֶד שֶׁבַע בֶּן בִּכְרִי 19:10-20:26",
+       "blk_de": "Davids Rückkehr nach Jerusalem und der Aufstand des Scheba ben Bichri 19:10-20:26"
+      },
+      {
+       "ref": "19:41-20:2",
+       "text": "הָרִיב בֵּין יִשְׂרָאֵל וִיהוּדָה וּמֶרֶד שֶׁבַע בֶּן בִּכְרִי",
+       "text_de": "Der Streit zwischen Israel und Juda und der Aufstand des Scheba ben Bichri",
+       "blk": "שִׁיבַת דָּוִד לִירוּשָׁלַיִם וּמֶרֶד שֶׁבַע בֶּן בִּכְרִי 19:10-20:26",
+       "blk_de": "Davids Rückkehr nach Jerusalem und der Aufstand des Scheba ben Bichri 19:10-20:26"
+      }
+     ]
     },
     {
      "ref": "19:17-24",
@@ -414,7 +1086,16 @@
      "par_de": "Siehe: 2. Samuel 16:1–13",
      "par_en": "See: 2 Samuel 16:1–13",
      "time_de": "2919",
-     "time_en": "2919"
+     "time_en": "2919",
+     "sub": [
+      {
+       "ref": "19:17-24",
+       "text": "שִׁמְעִי מְבַקֵּשׁ מִדָּוִד שֶׁיִּסְלַח לוֹ",
+       "text_de": "Schimi bittet David um Vergebung",
+       "blk": "שִׁיבַת דָּוִד לִירוּשָׁלַיִם וּמֶרֶד שֶׁבַע בֶּן בִּכְרִי 19:10-20:26",
+       "blk_de": "Davids Rückkehr nach Jerusalem und der Aufstand des Scheba ben Bichri 19:10-20:26"
+      }
+     ]
     },
     {
      "ref": "19:25-40",
@@ -429,7 +1110,23 @@
      "par_de": "Fortsetzung von: 2. Samuel 9; 16:1–4",
      "par_en": "Continuation of: 2 Samuel 9; 16:1–4",
      "time_de": "2919",
-     "time_en": "2919"
+     "time_en": "2919",
+     "sub": [
+      {
+       "ref": "19:25-31",
+       "text": "דִּין וּדְבָרִים בֵּין דָּוִד וּמְפִיבֹשֶׁת",
+       "text_de": "Rechtsstreit und Wortwechsel zwischen David und Mefi-Boschet",
+       "blk": "שִׁיבַת דָּוִד לִירוּשָׁלַיִם וּמֶרֶד שֶׁבַע בֶּן בִּכְרִי 19:10-20:26",
+       "blk_de": "Davids Rückkehr nach Jerusalem und der Aufstand des Scheba ben Bichri 19:10-20:26"
+      },
+      {
+       "ref": "19:32-40",
+       "text": "בַּרְזִלַּי נִפְרָד מִדָּוִד",
+       "text_de": "Barsillai verabschiedet sich von David",
+       "blk": "שִׁיבַת דָּוִד לִירוּשָׁלַיִם וּמֶרֶד שֶׁבַע בֶּן בִּכְרִי 19:10-20:26",
+       "blk_de": "Davids Rückkehr nach Jerusalem und der Aufstand des Scheba ben Bichri 19:10-20:26"
+      }
+     ]
     }
    ],
    "head_de": "Absaloms Aufstand",
@@ -445,7 +1142,16 @@
      "text_de": "Aufstand des Scheba ben Bichri gegen David",
      "text_en": "Rebellion of Sheba son of Bichri against David",
      "place_de": "Gilgal, Jerusalem",
-     "place_en": "Gilgal, Jerusalem"
+     "place_en": "Gilgal, Jerusalem",
+     "sub": [
+      {
+       "ref": "20:3",
+       "text": "בֵּין דָּוִד וּפִלַגְשָׁיו",
+       "text_de": "David und seine Nebenfrauen",
+       "blk": "שִׁיבַת דָּוִד לִירוּשָׁלַיִם וּמֶרֶד שֶׁבַע בֶּן בִּכְרִי 19:10-20:26",
+       "blk_de": "Davids Rückkehr nach Jerusalem und der Aufstand des Scheba ben Bichri 19:10-20:26"
+      }
+     ]
     },
     {
      "ref": "20:4-13",
@@ -454,7 +1160,16 @@
      "text_de": "Tötung Amasas",
      "text_en": "The killing of Amasa",
      "place_de": "Jerusalem, Gibeon",
-     "place_en": "Jerusalem, Gibeon"
+     "place_en": "Jerusalem, Gibeon",
+     "sub": [
+      {
+       "ref": "20:4-13",
+       "text": "כִּשְׁלוֹנוֹ שֶׁל עֲמָשָׂא וּמוֹתוֹ",
+       "text_de": "Das Scheitern Amasas und sein Tod",
+       "blk": "שִׁיבַת דָּוִד לִירוּשָׁלַיִם וּמֶרֶד שֶׁבַע בֶּן בִּכְרִי 19:10-20:26",
+       "blk_de": "Davids Rückkehr nach Jerusalem und der Aufstand des Scheba ben Bichri 19:10-20:26"
+      }
+     ]
     },
     {
      "ref": "20:14-22",
@@ -466,7 +1181,16 @@
      "place_de": "Abel-Bet-Maacha",
      "place_en": "Abel-beth-maacah",
      "par_de": "Erwähnung: Sprüche 31:26 (nach einigen Auslegern)",
-     "par_en": "Mention: Proverbs 31:26 (according to some commentators)"
+     "par_en": "Mention: Proverbs 31:26 (according to some commentators)",
+     "sub": [
+      {
+       "ref": "20:14-22",
+       "text": "אַחֲרִיתוֹ שֶׁל שֶׁבַע בֶּן בִּכְרִי",
+       "text_de": "Das Ende des Scheba ben Bichri",
+       "blk": "שִׁיבַת דָּוִד לִירוּשָׁלַיִם וּמֶרֶד שֶׁבַע בֶּן בִּכְרִי 19:10-20:26",
+       "blk_de": "Davids Rückkehr nach Jerusalem und der Aufstand des Scheba ben Bichri 19:10-20:26"
+      }
+     ]
     },
     {
      "ref": "20:23-26",
@@ -475,7 +1199,16 @@
      "text_de": "Davids Beamte",
      "text_en": "David's officials",
      "par_de": "Wiederholung und Erweiterung: 2. Samuel 8:16–18; 1. Chronik 18:15–17; 27",
-     "par_en": "Repeat and expansion: 2 Samuel 8:16–18; 1 Chronicles 18:15–17; 27"
+     "par_en": "Repeat and expansion: 2 Samuel 8:16–18; 1 Chronicles 18:15–17; 27",
+     "sub": [
+      {
+       "ref": "20:23-26",
+       "text": "רְשִׁימַת שָׂרֵי דָוִד",
+       "text_de": "Verzeichnis der Beamten Davids",
+       "blk": "שִׁיבַת דָּוִד לִירוּשָׁלַיִם וּמֶרֶד שֶׁבַע בֶּן בִּכְרִי 19:10-20:26",
+       "blk_de": "Davids Rückkehr nach Jerusalem und der Aufstand des Scheba ben Bichri 19:10-20:26"
+      }
+     ]
     },
     {
      "ref": "21:1-14",
@@ -490,7 +1223,37 @@
      "par_de": "Fortsetzung von: Josua 9; 1. Samuel 22 · Sein Gebet beim Ausbleiben des Regens und bei der Hungersnot: Psalm 32 (nach einigen Auslegern)",
      "par_en": "Continuation of: Joshua 9; 1 Samuel 22 · His prayer during the drought and famine: Psalm 32 (according to some commentators)",
      "time_de": "16. Nisan – 17. Cheschwan 2922",
-     "time_en": "16 Nisan – 17 Cheshvan 2922"
+     "time_en": "16 Nisan – 17 Cheshvan 2922",
+     "sub": [
+      {
+       "ref": "21:1",
+       "text": "הָרָעָב",
+       "text_de": "Die Hungersnot",
+       "blk": "הַחֲטִיבָה הָאַחַת־עֶשְׂרֵה: חֲתִימַת הַסֵּפֶר 21-24 › מַעֲשֵׂה הַגִּבְעוֹנִים 21:1-14",
+       "blk_de": "Der elfte Abschnitt: Schluss des Buches 21-24 › Die Geschichte der Gibeoniter 21:1-14"
+      },
+      {
+       "ref": "21:2-9",
+       "text": "הַגִּבְעוֹנִים תּוֹבְעִים הוֹקָעַת בְּנֵי שָׁאוּל",
+       "text_de": "Die Gibeoniter fordern die Preisgabe der Söhne Sauls",
+       "blk": "הַחֲטִיבָה הָאַחַת־עֶשְׂרֵה: חֲתִימַת הַסֵּפֶר 21-24 › מַעֲשֵׂה הַגִּבְעוֹנִים 21:1-14",
+       "blk_de": "Der elfte Abschnitt: Schluss des Buches 21-24 › Die Geschichte der Gibeoniter 21:1-14"
+      },
+      {
+       "ref": "21:10-11",
+       "text": "מַעֲשֵׂה רִצְפָּה בַּת אַיָּה",
+       "text_de": "Die Geschichte von Rizpa, der Tochter Ajas",
+       "blk": "הַחֲטִיבָה הָאַחַת־עֶשְׂרֵה: חֲתִימַת הַסֵּפֶר 21-24 › מַעֲשֵׂה הַגִּבְעוֹנִים 21:1-14",
+       "blk_de": "Der elfte Abschnitt: Schluss des Buches 21-24 › Die Geschichte der Gibeoniter 21:1-14"
+      },
+      {
+       "ref": "21:12-14",
+       "text": "דָּוִד קוֹבֵר עַצְמוֹת שָׁאוּל וְעַצְמוֹת בָּנָיו",
+       "text_de": "David bestattet die Gebeine Sauls und seiner Söhne",
+       "blk": "הַחֲטִיבָה הָאַחַת־עֶשְׂרֵה: חֲתִימַת הַסֵּפֶר 21-24 › מַעֲשֵׂה הַגִּבְעוֹנִים 21:1-14",
+       "blk_de": "Der elfte Abschnitt: Schluss des Buches 21-24 › Die Geschichte der Gibeoniter 21:1-14"
+      }
+     ]
     },
     {
      "ref": "21:15-22",
@@ -502,7 +1265,37 @@
      "place_de": "Nob, Gob-Geser, Gat",
      "place_en": "Nob, Gob-Gezer, Gath",
      "par_de": "Wiederholung: 1. Chronik 20:4–8 · Sein Gebet zu jener Zeit: Psalm 7 (nach einigen Auslegern)",
-     "par_en": "Repeat: 1 Chronicles 20:4–8 · His prayer at that time: Psalm 7 (according to some commentators)"
+     "par_en": "Repeat: 1 Chronicles 20:4–8 · His prayer at that time: Psalm 7 (according to some commentators)",
+     "sub": [
+      {
+       "ref": "21:15-17",
+       "text": "מִלְחֶמֶת דָּוִד אֶת יִשְׁבִּי בְּנֹב",
+       "text_de": "Davids Kampf gegen Jischbi von Nob",
+       "blk": "הַחֲטִיבָה הָאַחַת־עֶשְׂרֵה: חֲתִימַת הַסֵּפֶר 21-24 › מַעֲשֵׂי גְבוּרָה שֶׁל דָּוִד וַעֲבָדָיו 21:15-22",
+       "blk_de": "Der elfte Abschnitt: Schluss des Buches 21-24 › Heldentaten Davids und seiner Diener 21:15-22"
+      },
+      {
+       "ref": "21:18",
+       "text": "מַעֲשֵׂה סִבְּכַי",
+       "text_de": "Die Geschichte von Sibbechai",
+       "blk": "הַחֲטִיבָה הָאַחַת־עֶשְׂרֵה: חֲתִימַת הַסֵּפֶר 21-24 › מַעֲשֵׂי גְבוּרָה שֶׁל דָּוִד וַעֲבָדָיו 21:15-22",
+       "blk_de": "Der elfte Abschnitt: Schluss des Buches 21-24 › Heldentaten Davids und seiner Diener 21:15-22"
+      },
+      {
+       "ref": "21:19",
+       "text": "מַעֲשֵׂה אֶלְחָנָן",
+       "text_de": "Die Geschichte von Elhanan",
+       "blk": "הַחֲטִיבָה הָאַחַת־עֶשְׂרֵה: חֲתִימַת הַסֵּפֶר 21-24 › מַעֲשֵׂי גְבוּרָה שֶׁל דָּוִד וַעֲבָדָיו 21:15-22",
+       "blk_de": "Der elfte Abschnitt: Schluss des Buches 21-24 › Heldentaten Davids und seiner Diener 21:15-22"
+      },
+      {
+       "ref": "21:20-22",
+       "text": "מַעֲשֵׂה יְהוֹנָתָן בֶּן שִׁמְעָה",
+       "text_de": "Die Geschichte von Jonatan ben Schima",
+       "blk": "הַחֲטִיבָה הָאַחַת־עֶשְׂרֵה: חֲתִימַת הַסֵּפֶר 21-24 › מַעֲשֵׂי גְבוּרָה שֶׁל דָּוִד וַעֲבָדָיו 21:15-22",
+       "blk_de": "Der elfte Abschnitt: Schluss des Buches 21-24 › Heldentaten Davids und seiner Diener 21:15-22"
+      }
+     ]
     },
     {
      "ref": "22",
@@ -514,7 +1307,72 @@
      "place_de": "Jerusalem",
      "place_en": "Jerusalem",
      "par_de": "Wiederholt in: Psalm 18",
-     "par_en": "Repeated in: Psalm 18"
+     "par_en": "Repeated in: Psalm 18",
+     "sub": [
+      {
+       "ref": "22:2-3",
+       "text": "פְּתִיחָה — ה׳ הוּא מַחְסִי",
+       "text_de": "Einleitung: Der HERR ist meine Zuflucht",
+       "blk": "הַחֲטִיבָה הָאַחַת־עֶשְׂרֵה: חֲתִימַת הַסֵּפֶר 21-24 › שִׁירַת דָּוִד 22",
+       "blk_de": "Der elfte Abschnitt: Schluss des Buches 21-24 › Das Lied Davids 22"
+      },
+      {
+       "ref": "22:4-7",
+       "text": "הַצָּרָה וְהַתְּפִלָּה",
+       "text_de": "Die Not und das Gebet",
+       "blk": "הַחֲטִיבָה הָאַחַת־עֶשְׂרֵה: חֲתִימַת הַסֵּפֶר 21-24 › שִׁירַת דָּוִד 22",
+       "blk_de": "Der elfte Abschnitt: Schluss des Buches 21-24 › Das Lied Davids 22"
+      },
+      {
+       "ref": "22:8-16",
+       "text": "גִּלּוּי שְׁכִינָה",
+       "text_de": "Die Offenbarung der Schechina",
+       "blk": "הַחֲטִיבָה הָאַחַת־עֶשְׂרֵה: חֲתִימַת הַסֵּפֶר 21-24 › שִׁירַת דָּוִד 22",
+       "blk_de": "Der elfte Abschnitt: Schluss des Buches 21-24 › Das Lied Davids 22"
+      },
+      {
+       "ref": "22:17-20",
+       "text": "ה׳ מוֹשִׁיעַ אֶת דָּוִד מִיַּד אוֹיְבָיו",
+       "text_de": "Der HERR rettet David aus der Hand seiner Feinde",
+       "blk": "הַחֲטִיבָה הָאַחַת־עֶשְׂרֵה: חֲתִימַת הַסֵּפֶר 21-24 › שִׁירַת דָּוִד 22",
+       "blk_de": "Der elfte Abschnitt: Schluss des Buches 21-24 › Das Lied Davids 22"
+      },
+      {
+       "ref": "22:21-32",
+       "text": "מִדּוֹת הַהַשְׁגָּחָה וּגְדָרֶיהָ",
+       "text_de": "Die Maßstäbe der Vorsehung und ihre Grenzen",
+       "blk": "הַחֲטִיבָה הָאַחַת־עֶשְׂרֵה: חֲתִימַת הַסֵּפֶר 21-24 › שִׁירַת דָּוִד 22",
+       "blk_de": "Der elfte Abschnitt: Schluss des Buches 21-24 › Das Lied Davids 22"
+      },
+      {
+       "ref": "22:33-43",
+       "text": "ה׳ עוֹזֵר לְדָוִד בְּמִלְחֲמוֹתָיו",
+       "text_de": "Der HERR hilft David in seinen Kriegen",
+       "blk": "הַחֲטִיבָה הָאַחַת־עֶשְׂרֵה: חֲתִימַת הַסֵּפֶר 21-24 › שִׁירַת דָּוִד 22",
+       "blk_de": "Der elfte Abschnitt: Schluss des Buches 21-24 › Das Lied Davids 22"
+      },
+      {
+       "ref": "22:44-46",
+       "text": "בִּסּוּס הַמַּמְלָכָה וְהַרְחָבַת גְּבוּלוֹתֶיהָ",
+       "text_de": "Die Festigung des Königreichs und die Erweiterung seiner Grenzen",
+       "blk": "הַחֲטִיבָה הָאַחַת־עֶשְׂרֵה: חֲתִימַת הַסֵּפֶר 21-24 › שִׁירַת דָּוִד 22",
+       "blk_de": "Der elfte Abschnitt: Schluss des Buches 21-24 › Das Lied Davids 22"
+      },
+      {
+       "ref": "22:47-49",
+       "text": "סִכּוּם הַיְשׁוּעָה",
+       "text_de": "Zusammenfassung der Rettung",
+       "blk": "הַחֲטִיבָה הָאַחַת־עֶשְׂרֵה: חֲתִימַת הַסֵּפֶר 21-24 › שִׁירַת דָּוִד 22",
+       "blk_de": "Der elfte Abschnitt: Schluss des Buches 21-24 › Das Lied Davids 22"
+      },
+      {
+       "ref": "22:50-51",
+       "text": "חֲתִימָה — הוֹדָיָה לַה׳",
+       "text_de": "Schluss: Dank an den HERRN",
+       "blk": "הַחֲטִיבָה הָאַחַת־עֶשְׂרֵה: חֲתִימַת הַסֵּפֶר 21-24 › שִׁירַת דָּוִד 22",
+       "blk_de": "Der elfte Abschnitt: Schluss des Buches 21-24 › Das Lied Davids 22"
+      }
+     ]
     },
     {
      "ref": "23:1-7",
@@ -532,7 +1390,58 @@
      "text_de": "Die Helden des Hauses Davids",
      "text_en": "The warriors of David's house",
      "par_de": "Wiederholung: 1. Chronik 11:10–47 · Weitere Helden: 1. Chronik 12:1–38",
-     "par_en": "Repeat: 1 Chronicles 11:10–47 · More heroes: 1 Chronicles 12:1–38"
+     "par_en": "Repeat: 1 Chronicles 11:10–47 · More heroes: 1 Chronicles 12:1–38",
+     "sub": [
+      {
+       "ref": "23:8",
+       "text": "מַעֲשֵׂה עֲדִינוֹ הָעֶצְנִי",
+       "text_de": "Die Geschichte von Adino, dem Ezniter",
+       "blk": "הַחֲטִיבָה הָאַחַת־עֶשְׂרֵה: חֲתִימַת הַסֵּפֶר 21-24 › הַגִּבּוֹרִים אֲשֶׁר לְדָוִד וּמַעֲשֵׂי גְבוּרָתָם 23:8-39",
+       "blk_de": "Der elfte Abschnitt: Schluss des Buches 21-24 › Die Helden Davids und ihre Heldentaten 23:8-39"
+      },
+      {
+       "ref": "23:9-10",
+       "text": "מַעֲשֵׂה אֶלְעָזָר בֶּן דֹּדוֹ",
+       "text_de": "Die Geschichte von Eleasar ben Dodo",
+       "blk": "הַחֲטִיבָה הָאַחַת־עֶשְׂרֵה: חֲתִימַת הַסֵּפֶר 21-24 › הַגִּבּוֹרִים אֲשֶׁר לְדָוִד וּמַעֲשֵׂי גְבוּרָתָם 23:8-39",
+       "blk_de": "Der elfte Abschnitt: Schluss des Buches 21-24 › Die Helden Davids und ihre Heldentaten 23:8-39"
+      },
+      {
+       "ref": "23:11-12",
+       "text": "מַעֲשֵׂה שַׁמָּה בֶּן אָגֵא",
+       "text_de": "Die Geschichte von Schamma ben Age",
+       "blk": "הַחֲטִיבָה הָאַחַת־עֶשְׂרֵה: חֲתִימַת הַסֵּפֶר 21-24 › הַגִּבּוֹרִים אֲשֶׁר לְדָוִד וּמַעֲשֵׂי גְבוּרָתָם 23:8-39",
+       "blk_de": "Der elfte Abschnitt: Schluss des Buches 21-24 › Die Helden Davids und ihre Heldentaten 23:8-39"
+      },
+      {
+       "ref": "23:13-17",
+       "text": "מַעֲשֵׂה הַשְּׁלֹשָׁה מְבִיאֵי הַמַּיִם",
+       "text_de": "Die Geschichte der drei Wasserholer",
+       "blk": "הַחֲטִיבָה הָאַחַת־עֶשְׂרֵה: חֲתִימַת הַסֵּפֶר 21-24 › הַגִּבּוֹרִים אֲשֶׁר לְדָוִד וּמַעֲשֵׂי גְבוּרָתָם 23:8-39",
+       "blk_de": "Der elfte Abschnitt: Schluss des Buches 21-24 › Die Helden Davids und ihre Heldentaten 23:8-39"
+      },
+      {
+       "ref": "23:18-19",
+       "text": "מַעֲשֵׂה אֲבִישַׁי בֶּן צְרוּיָה",
+       "text_de": "Die Geschichte von Abischai ben Zeruja",
+       "blk": "הַחֲטִיבָה הָאַחַת־עֶשְׂרֵה: חֲתִימַת הַסֵּפֶר 21-24 › הַגִּבּוֹרִים אֲשֶׁר לְדָוִד וּמַעֲשֵׂי גְבוּרָתָם 23:8-39",
+       "blk_de": "Der elfte Abschnitt: Schluss des Buches 21-24 › Die Helden Davids und ihre Heldentaten 23:8-39"
+      },
+      {
+       "ref": "23:20-23",
+       "text": "מַעֲשֵׂי בְנָיָהוּ בֶּן יְהוֹיָדָע",
+       "text_de": "Die Taten Benajahus ben Jojada",
+       "blk": "הַחֲטִיבָה הָאַחַת־עֶשְׂרֵה: חֲתִימַת הַסֵּפֶר 21-24 › הַגִּבּוֹרִים אֲשֶׁר לְדָוִד וּמַעֲשֵׂי גְבוּרָתָם 23:8-39",
+       "blk_de": "Der elfte Abschnitt: Schluss des Buches 21-24 › Die Helden Davids und ihre Heldentaten 23:8-39"
+      },
+      {
+       "ref": "23:24-39",
+       "text": "שְׁמוֹת הַשְּׁלֹשִׁים",
+       "text_de": "Die Namen der Dreißig",
+       "blk": "הַחֲטִיבָה הָאַחַת־עֶשְׂרֵה: חֲתִימַת הַסֵּפֶר 21-24 › הַגִּבּוֹרִים אֲשֶׁר לְדָוִד וּמַעֲשֵׂי גְבוּרָתָם 23:8-39",
+       "blk_de": "Der elfte Abschnitt: Schluss des Buches 21-24 › Die Helden Davids und ihre Heldentaten 23:8-39"
+      }
+     ]
     },
     {
      "ref": "24:1-17",
@@ -547,7 +1456,30 @@
      "par_de": "Wiederholung: 1. Chronik 21:1–17 · Die Warnung: Exodus 30:12",
      "par_en": "Repeat: 1 Chronicles 21:1–17 · The warning: Exodus 30:12",
      "time_de": "2923",
-     "time_en": "2923"
+     "time_en": "2923",
+     "sub": [
+      {
+       "ref": "24:1-9",
+       "text": "דָּוִד מְצַוֶּה לְיוֹאָב לִפְקֹד אֶת הָעָם",
+       "text_de": "David befiehlt Joab, das Volk zu zählen",
+       "blk": "הַחֲטִיבָה הָאַחַת־עֶשְׂרֵה: חֲתִימַת הַסֵּפֶר 21-24 › מַעֲשֵׂה הַמִּפְקָד (׳הַהֲסָתָה׳) 24:1-25",
+       "blk_de": "Der elfte Abschnitt: Schluss des Buches 21-24 › Die Geschichte der Volkszählung („die Anstiftung“) 24:1-25"
+      },
+      {
+       "ref": "24:10-16",
+       "text": "דָּוִד מִתְחָרֵט עַל הַהוֹרָאָה שֶׁנָּתַן וּבוֹחֵר בְּעֹנֶשׁ",
+       "text_de": "David bereut den erteilten Befehl und wählt eine Strafe",
+       "blk": "הַחֲטִיבָה הָאַחַת־עֶשְׂרֵה: חֲתִימַת הַסֵּפֶר 21-24 › מַעֲשֵׂה הַמִּפְקָד (׳הַהֲסָתָה׳) 24:1-25",
+       "blk_de": "Der elfte Abschnitt: Schluss des Buches 21-24 › Die Geschichte der Volkszählung („die Anstiftung“) 24:1-25"
+      },
+      {
+       "ref": "24:17",
+       "text": "דָּוִד מְבַקֵּשׁ שֶׁהָעֹנֶשׁ יוּטַל רַק עָלָיו וְעַל בֵּיתוֹ",
+       "text_de": "David bittet, die Strafe nur ihm und seinem Haus aufzuerlegen",
+       "blk": "הַחֲטִיבָה הָאַחַת־עֶשְׂרֵה: חֲתִימַת הַסֵּפֶר 21-24 › מַעֲשֵׂה הַמִּפְקָד (׳הַהֲסָתָה׳) 24:1-25",
+       "blk_de": "Der elfte Abschnitt: Schluss des Buches 21-24 › Die Geschichte der Volkszählung („die Anstiftung“) 24:1-25"
+      }
+     ]
     },
     {
      "ref": "24:18-25",
@@ -562,7 +1494,16 @@
      "par_de": "Wiederholung: 1. Chronik 21:18–22:1 · Ort des Heiligtums: Deuteronomium 12:14; 33:12 · Sein Gebet zu jener Zeit: Psalm 132 (nach einigen Auslegern)",
      "par_en": "Repeat: 1 Chronicles 21:18–22:1 · Place of the Temple: Deuteronomy 12:14; 33:12 · His prayer at that time: Psalm 132 (according to some commentators)",
      "time_de": "2923",
-     "time_en": "2923"
+     "time_en": "2923",
+     "sub": [
+      {
+       "ref": "24:18-25",
+       "text": "דָּוִד בּוֹנֶה בְּמִצְוַת ה׳ מִזְבֵּחַ בְּגֹרֶן אֲרַוְנָה",
+       "text_de": "David baut auf Geheiß des HERRN einen Altar auf der Tenne Araunas",
+       "blk": "הַחֲטִיבָה הָאַחַת־עֶשְׂרֵה: חֲתִימַת הַסֵּפֶר 21-24 › מַעֲשֵׂה הַמִּפְקָד (׳הַהֲסָתָה׳) 24:1-25",
+       "blk_de": "Der elfte Abschnitt: Schluss des Buches 21-24 › Die Geschichte der Volkszählung („die Anstiftung“) 24:1-25"
+      }
+     ]
     }
    ],
    "head_de": "Davids letzte Tage",
@@ -571,6 +1512,6 @@
  ],
  "title_de": "Inhalt des 2. Buches Samuel",
  "title_en": "Contents of the Second Book of Samuel",
- "note_de": "Abgeschrieben aus einer Übersichtstabelle (SifreiKodesh) und übersetzt. Jahre nach der jüdischen Zählung (Anno Mundi), wie in der Vorlage gedruckt.",
- "note_en": "Transcribed from an overview table (SifreiKodesh) and translated. Years follow the Jewish count (from the creation of the world), as printed in the source."
+ "note_de": "Abgeschrieben aus einer Übersichtstabelle (SifreiKodesh) und übersetzt. Jahre nach der jüdischen Zählung (Anno Mundi), wie in der Vorlage gedruckt. Unterpunkte aus der Gliederung von „Da'at Mikra“ (Teilpunkte mit Versangaben, mit Hinweis auf den jeweiligen Abschnitt) ergänzt und ins Deutsche übersetzt.",
+ "note_en": "Transcribed from an overview table (SifreiKodesh) and translated. Years follow the Jewish count (from the creation of the world), as printed in the source. Sub-points from the Da'at Mikra outlines (parts with verse references, labelled with their section) added; German translation."
 }

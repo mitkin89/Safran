@@ -1469,13 +1469,16 @@
   const olMz = () => { try { return localStorage.getItem('olMz') === '1'; } catch { return false; } };
   async function olOwn(book) { if (!window.outline) return null; if (!olOwnCache.has(book)) olOwnCache.set(book, await window.outline.get(book)); return olOwnCache.get(book); }
   function olContentHtml(g, ol) {
-    const cur = olPos(g), L = I18N.lang;
+    const lv2 = ol.levels === 2; // Gliederung nach Buch:Kapitel (z. B. Josephus), nicht nach Kapitel:Vers
+    const cur = olPos(g, lv2), L = I18N.lang;
     const T = (o, k) => (L !== 'he' && o[k + '_' + L]) || o[k]; // Text in der Oberflächensprache, sonst Hebräisch
     const heUi = L === 'he' || !ol.sections[0] || !ol.sections[0]['head_' + L];
     const first = r => { const m = String(r).match(/^(\d+)(?::(\d+))?/); return m ? { ch: +m[1], v: m[2] ? +m[2] : 1 } : null; };
     const mzOn = olMz() && ol.sections.some(x => x.items.some(i => i.mz));
+    const anySub = ol.sections.some(x => x.items.some(i => i.sub));
+    const olRows = (list, lvl) => { let pb = null; return list.map(it => { const f = first(it.ref); const ih = (heUi || !it['text_' + L]) && /[\u0590-\u05FF]/.test(it.text); const meta = [T(it, 'speaker'), T(it, 'author'), T(it, 'kind'), T(it, 'place'), T(it, 'time'), T(it, 'par'), T(it, 'desc'), it.seg ? (L === 'he' ? 'סגולה: ' : L === 'de' ? 'Segula: ' : 'Segula: ') + T(it, 'seg') : ''].filter(Boolean).map(esc).join(' · '); const np = !lvl && window.__mapCount ? window.__mapCount(g.title, it.ref) : 0; const bk = lvl && it.blk ? T(it, 'blk') : null; const chip = bk && bk !== pb ? `<div class="olchip">${esc(bk.replace(/(\d)-(?=\d)/g, '$1–'))}</div>` : ''; if (bk) pb = bk; return chip + `<div class="olp olc${ih ? '' : ' lt'}${it.mz ? ' olmz' : ''}${lvl ? ' olsub olsub1' : ''}${it.orph ? ' olorph' : ''}${olIn(it.ref, cur, lv2 ? false : !olPlaying(g)) ? ' cur' : ''}" data-r="${esc(it.ref)}"${lv2 ? ` data-sec="${esc(it.ref)}"` : ''} data-ref="${esc(g.title + ' ' + (f ? f.ch + ':' + f.v : it.ref))}">${!lvl && anySub ? `<span class="oltg"${it.sub ? ` title="${esc(I18N.t('Unterpunkte'))}"` : ' style="visibility:hidden"'}>${it.sub ? '▸' : ''}</span>` : ''}<span class="ref">${esc(String(it.ref).replace(/-/g, '–'))}</span><span class="${ih ? 'he' : 'tx'}"${ih ? ' lang="he"' : ''}>${it.mz ? `<b class="mzn">${it.mz}</b> ` : ''}${esc(T(it, 'text'))}${meta ? `<small class="olm"${ih ? '' : ' style="direction:ltr"'}>${meta}</small>` : ''}</span>${np ? `<span class="olmap" data-n="${np}" title="${esc(I18N.t('Karte: Orte dieses Abschnitts'))}">🗺 ${np}</span>` : ''}</div>` + (it.sub ? `<div class="olsubs" hidden>${olRows(it.sub, lvl + 1)}</div>` : ''); }).join(''); };
     return (T(ol, 'title') ? `<p class="${heUi ? 'he' : ''}" ${heUi ? 'lang="he"' : ''}><b>${esc(T(ol, 'title'))}</b></p>` : '') + ol.sections.filter(s => s.items.some(it => !!it.mz === mzOn)).map(s => {
-      return `<details open><summary>${heUi ? `<span class="he" lang="he">${esc(s.head)}</span>` : `${esc(T(s, 'head'))} <small class="he" lang="he">${esc(s.head)}</small>`}</summary>${s.desc ? `<p class="he olnote" lang="he">${esc(s.desc)}</p>` : ''}${s.items.filter(it => !!it.mz === mzOn).map(it => { const f = first(it.ref); const ih = heUi || (!it['text_' + L] && /[\u0590-\u05FF]/.test(it.text)); const meta = [T(it, 'speaker'), T(it, 'author'), T(it, 'kind'), T(it, 'place'), T(it, 'time'), T(it, 'par'), T(it, 'desc'), it.seg ? (L === 'he' ? 'סגולה: ' : L === 'de' ? 'Segula: ' : 'Segula: ') + T(it, 'seg') : ''].filter(Boolean).map(esc).join(' · '); const np = window.__mapCount ? window.__mapCount(g.title, it.ref) : 0; return `<div class="olp olc${ih ? '' : ' lt'}${it.mz ? ' olmz' : ''}${olIn(it.ref, cur, !olPlaying(g)) ? ' cur' : ''}" data-r="${esc(it.ref)}" data-ref="${esc(g.title + ' ' + (f ? f.ch + ':' + f.v : it.ref))}"><span class="ref">${esc(String(it.ref).replace(/-/g, '–'))}</span><span class="${ih ? 'he' : 'tx'}"${ih ? ' lang="he"' : ''}>${it.mz ? `<b class="mzn">${it.mz}</b> ` : ''}${esc(T(it, 'text'))}${meta ? `<small class="olm"${ih ? '' : ' style="direction:ltr"'}>${meta}</small>` : ''}</span>${np ? `<span class="olmap" data-n="${np}" title="${esc(I18N.t('Karte: Orte dieses Abschnitts'))}">🗺 ${np}</span>` : ''}</div>`; }).join('')}</details>`;
+      return `<details open><summary>${heUi ? `<span class="he" lang="he">${esc(s.head)}</span>` : `${esc(T(s, 'head'))} <small class="he" lang="he">${esc(s.head)}</small>`}</summary>${s.desc ? `<p class="he olnote" lang="he">${esc(s.desc)}</p>` : ''}${olRows(s.items.filter(it => !!it.mz === mzOn), 0)}}</details>`;
     }).join('') + (T(ol, 'note') ? `<p class="muted olnote">${esc(T(ol, 'note'))}</p>` : '');
   }
   // „Gliederung“-Knopf nur, wenn es für das Buch eine gibt (Karte: siehe mapRefresh)
@@ -1496,7 +1499,16 @@
     if (window.__olLast) { const el = [...body.querySelectorAll('.olp')].find(x => x.dataset.r === window.__olLast); window.__olLast = null; if (el) el.scrollIntoView({ block: 'center' }); }
   }
   // aktuelle Stelle: der gerade gespielte Vers, sonst der Vers in der Leseansicht
-  function olPos(g) { const c = AU.cur; if (c && g && c.book === g.title) return { ch: c.ch, v: c.v }; return auChapterSafe(); }
+  // Buch:Kapitel (z. B. Josephus): der Abschnitt ist das Buch („Buch 18“), die Zeilen heißen „Kapitel:Absatz“ („3:5“).
+  // Stelle = Buch aus dem Abschnitt, Kapitel aus der obersten sichtbaren Zeile → {ch: 18, v: 3}
+  const olBookNo = s => { const n = s ? String(s.label || '').match(/\d+/g) : null; return n ? +n[n.length - 1] : null; };
+  function olTopRow() { const top = syncTop(); return $$('#rOut .row[data-l]').find(x => x.getBoundingClientRect().bottom > top + 4) || null; }
+  function olSecPos() {
+    const b = olBookNo(view && view.sections && view.sections[view.idx]); if (b == null) return null;
+    const r = olTopRow(), m = r && String(r.dataset.l).match(/^(\d+)/);
+    return { ch: b, v: m ? +m[1] : 1 };
+  }
+  function olPos(g, lv2) { if (lv2) return olSecPos(); const c = AU.cur; if (c && g && c.book === g.title) return { ch: c.ch, v: c.v }; return auChapterSafe(); }
   // liegt die Stelle (Kapitel, Vers) im ref der Gliederung? („1:27-2:5“, „4-5“, „3“, „15:32-37, 16:14-19“)
   const olPlaying = g => !!(AU.cur && g && AU.cur.book === g.title);
   function olIn(ref, pos, wholeCh) { // wholeCh: alle Punkte, die das Kapitel berühren; sonst nur der Punkt mit dem Vers
@@ -1509,11 +1521,32 @@
       return hi >= a[0] * 10000 + a[1] && lo <= b[0] * 10000 + b[1];
     });
   }
+  function olToggle(w, open) { w.hidden = !open; const t = w.previousElementSibling && w.previousElementSibling.querySelector('.oltg'); if (t) t.textContent = open ? '▾' : '▸'; }
   function olMark(scroll) {
     const pnl = $('#outlinePanel'); if (!pnl || pnl.hidden) return;
-    const g = view && view.group, pos = olPos(g), whole = !olPlaying(g); let first = null;
+    const g = view && view.group, ol = g && olOwnCache.get(g.title), lv2 = !!(ol && ol.levels === 2), pos = olPos(g, lv2), whole = !lv2 && !olPlaying(g); let first = null;
     $$('#olBody .olc').forEach(el => { const on = olIn(el.dataset.r, pos, whole); el.classList.toggle('cur', on); if (on && !first) first = el; });
+    $$('#olBody .olc.cur').forEach(el => { const w = el.classList.contains('olsub') ? el.closest('.olsubs') : (el.nextElementSibling && el.nextElementSibling.classList.contains('olsubs') ? el.nextElementSibling : null); if (w && w.hidden) olToggle(w, true); });
     if (first && (scroll || AU.cur)) first.scrollIntoView({ block: 'center' });
+    else if (first && lv2) olKeepVisible(first);
+  }
+  // markierten Eintrag in der Gliederung sichtbar halten, ohne die Leseansicht zu verschieben
+  function olKeepVisible(el) {
+    let box = el.parentElement; while (box && box !== document.body && !(box.scrollHeight > box.clientHeight + 2 && /auto|scroll/.test(getComputedStyle(box).overflowY))) box = box.parentElement;
+    if (!box || box === document.body) return;
+    const r = el.getBoundingClientRect(), b = box.getBoundingClientRect();
+    if (r.top < b.top || r.bottom > b.bottom) box.scrollTop += r.top - b.top - (b.height - r.height) / 2;
+  }
+  // beim Lesen (Scrollen) die Markierung in Buch:Kapitel-Gliederungen mitführen
+  { let olScrollT = null, olLastPos = '';
+    window.addEventListener('scroll', () => {
+      if ($('#outlinePanel').hidden) return;
+      clearTimeout(olScrollT);
+      olScrollT = setTimeout(() => {
+        const g = view && view.group, ol = g && olOwnCache.get(g.title); if (!ol || ol.levels !== 2) return;
+        const p = olSecPos(), k = p ? p.ch + ':' + p.v : ''; if (k === olLastPos) return; olLastPos = k; olMark(false);
+      }, 120);
+    }, { passive: true });
   }
   function auChapterSafe() { const ch = typeof auChapter === 'function' ? auChapter() : null; if (ch == null || !view) return null; const l = $('#rOut .row.hit, #rOut .row[data-l]'); return { ch, v: l && /^\d+$/.test(l.dataset.l) ? +l.dataset.l : 1 }; }
   const olPlace = () => { const h = document.querySelector('header'); const t = (h ? h.getBoundingClientRect().bottom : 44) + 'px'; $('#outlinePanel').style.top = t; $('#tpResize').style.top = t; };
@@ -1528,7 +1561,16 @@
   $('#mapOl').onclick = () => { $('#mapPanel').hidden = true; $('#olBtn').click(); };
   $('#olBody').addEventListener('click', e => {
     const mp = e.target.closest('.olmap'); if (mp) { const q = mp.closest('.olp'); e.stopPropagation(); window.__olLast = q.dataset.r; window.__mapOpenFor && window.__mapOpenFor(view.group.title, q.dataset.r, q.querySelector('.ref').textContent + ' ' + (q.querySelector('.tx, .he')?.firstChild?.textContent || '')); return; }
+    const tg = e.target.closest('.oltg'); if (tg) { const w = tg.closest('.olp').nextElementSibling; if (w && w.classList.contains('olsubs')) { e.stopPropagation(); olToggle(w, w.hidden); } return; }
     const p = e.target.closest('.olp'); if (!p) return;
+    if (p.dataset.sec) { // Buch:Kapitel → Abschnitt „Buch b“ öffnen und zur ersten Zeile von Kapitel c („c:1“) scrollen
+      const [b, c] = p.dataset.sec.split(':').map(Number);
+      const idx = view && view.sections ? view.sections.findIndex(s => olBookNo(s) === b) : -1;
+      if (idx < 0) return;
+      const goRow = () => { const r = $$('#rOut .row[data-l]').find(x => +String(x.dataset.l).split(':')[0] === c); if (r) window.scrollBy(0, r.getBoundingClientRect().top - syncTop()); olMark(false); };
+      if (idx !== view.idx || view.vf) { view.idx = idx; view.vf = null; renderSection(); requestAnimationFrame(goRow); } else goRow();
+      return;
+    }
     jumpTo(p.dataset.ref, e.metaKey || e.ctrlKey);
   });
   const TPS = window.topics;

@@ -1,7 +1,7 @@
 {
  "book": "Haggai",
  "title": "תוכן ספר חגי",
- "note": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt.",
+ "note": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt. · הורחב בחלוקת דעת מקרא (פסקאות עם מראי מקום).",
  "sections": [
   {
    "head": "בנין הבית השני",
@@ -16,7 +16,16 @@
      "par_de": "Beginn der Sache: Esra 1–4. Wiederholung und Erweiterung: Esra 5:1–6:14",
      "par_en": "Beginning of the matter: Ezra 1–4. Repetition and expansion: Ezra 5:1–6:14",
      "time_de": "1. Elul 3408",
-     "time_en": "1 Elul 3408"
+     "time_en": "1 Elul 3408",
+     "sub": [
+      {
+       "ref": "1:1-11",
+       "text": "ההתרשלות בבנין הבית היא מקור כל התקלות",
+       "text_de": "Die Nachlässigkeit beim Bau des Hauses ist die Quelle aller Missstände",
+       "blk": "חגי 1:1-2:23",
+       "blk_de": "Haggai 1:1-2:23"
+      }
+     ]
     },
     {
      "ref": "1:12-15",
@@ -25,7 +34,16 @@
      "text_de": "Die Vorbereitungen für den Bau",
      "text_en": "The preparations for the construction",
      "time_de": "24. Elul 3408",
-     "time_en": "24 Elul 3408"
+     "time_en": "24 Elul 3408",
+     "sub": [
+      {
+       "ref": "1:12-14",
+       "text": "התעוררות העם וראשיו לבנין בית ה'",
+       "text_de": "Das Volk und seine Anführer erwachen zum Bau des Hauses des HERRN",
+       "blk": "חגי 1:1-2:23",
+       "blk_de": "Haggai 1:1-2:23"
+      }
+     ]
     },
     {
      "ref": "2:1-5",
@@ -34,7 +52,16 @@
      "text_de": "Ermutigung zur Bauarbeit",
      "text_en": "Encouragement for the building work",
      "time_de": "21. Tischri 3409",
-     "time_en": "21 Tishri 3409"
+     "time_en": "21 Tishri 3409",
+     "sub": [
+      {
+       "ref": "2:1-9",
+       "text": "גדול יהיה כבוד הבית השני",
+       "text_de": "Groß wird die Herrlichkeit des zweiten Hauses sein",
+       "blk": "חגי 1:1-2:23",
+       "blk_de": "Haggai 1:1-2:23"
+      }
+     ]
     },
     {
      "ref": "2:6-9",
@@ -49,7 +76,16 @@
      "text_de": "Die Fragen an die Priester zu den Priestergesetzen",
      "text_en": "The questions put to the priests concerning the laws of the priesthood",
      "time_de": "24. Kislew 3409",
-     "time_en": "24 Kislev 3409"
+     "time_en": "24 Kislev 3409",
+     "sub": [
+      {
+       "ref": "2:10-19",
+       "text": "אין לשתף את עמי הארצות טמאי הנפש בבנין המקדש",
+       "text_de": "Die unreinen Landbewohner sollen nicht am Bau des Tempels beteiligt werden",
+       "blk": "חגי 1:1-2:23",
+       "blk_de": "Haggai 1:1-2:23"
+      }
+     ]
     },
     {
      "ref": "2:15-19",
@@ -64,7 +100,16 @@
      "ref": "2:20-23",
      "text": "נבואה - גדולת זרובבל ומפלת פרס",
      "text_de": "Prophezeiung – Serubbabels Größe und der Fall Persiens",
-     "text_en": "Prophecy – the greatness of Zerubbabel and the fall of Persia"
+     "text_en": "Prophecy – the greatness of Zerubbabel and the fall of Persia",
+     "sub": [
+      {
+       "ref": "2:20-23",
+       "text": "השמדת חזק ממלכות הגוים ובחירת זרבבל",
+       "text_de": "Die Vernichtung der Stärke der Königreiche der Völker und die Erwählung Serubbabels",
+       "blk": "חגי 1:1-2:23",
+       "blk_de": "Haggai 1:1-2:23"
+      }
+     ]
     }
    ],
    "head_de": "Der Bau des Zweiten Tempels",
@@ -73,6 +118,6 @@
  ],
  "title_de": "Inhalt des Buches Haggai",
  "title_en": "Contents of the Book of Haggai",
- "note_de": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt.",
- "note_en": "Transcribed from photos of an overview table. Chapter and verse numbering as well as dates (Jewish reckoning) as printed in the source."
+ "note_de": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt. Unterpunkte aus der Gliederung von „Da'at Mikra“ (Teilpunkte mit Versangaben, mit Hinweis auf den jeweiligen Abschnitt) ergänzt und ins Deutsche übersetzt.",
+ "note_en": "Transcribed from photos of an overview table. Chapter and verse numbering as well as dates (Jewish reckoning) as printed in the source. Sub-points from the Da'at Mikra outlines (parts with verse references, labelled with their section) added; German translation."
 }

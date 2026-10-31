@@ -1,7 +1,7 @@
 {
  "book": "Job",
  "title": "תוכן ספר איוב",
- "note": "Abgeschrieben aus einer Übersichtstabelle (SifreiKodesh).",
+ "note": "Abgeschrieben aus einer Übersichtstabelle (SifreiKodesh). · הורחב בחלוקת דעת מקרא (פסקאות עם מראי מקום).",
  "sections": [
   {
    "head": "מאורעות איוב הראשונים",
@@ -10,25 +10,61 @@
      "ref": "1:1-5",
      "text": "איוב ומשפחתו, עושרו וצדקותו",
      "text_de": "Hiob und seine Familie, sein Reichtum und seine Rechtschaffenheit",
-     "text_en": "Job and his family, his wealth and his righteousness"
+     "text_en": "Job and his family, his wealth and his righteousness",
+     "sub": [
+      {
+       "ref": "1:1-5",
+       "text": "איוב איש צדיק, מלא ברכת ה'",
+       "text_de": "Ijob, ein gerechter Mann, voll des Segens des HERRN",
+       "blk": "אִיּוֹב וְנִסְיוֹנוֹתָיו 1:1-2:10",
+       "blk_de": "Ijob und seine Prüfungen 1:1-2:10"
+      }
+     ]
     },
     {
      "ref": "1:6-12",
      "text": "קטרוג השטן על איוב",
      "text_de": "Die Anklage des Satans gegen Hiob",
-     "text_en": "Satan's accusation against Job"
+     "text_en": "Satan's accusation against Job",
+     "sub": [
+      {
+       "ref": "1:6-12",
+       "text": "ה' נותן לשטן רשות לנסות את-איוב",
+       "text_de": "Der HERR gibt dem Satan die Erlaubnis, Ijob zu prüfen",
+       "blk": "אִיּוֹב וְנִסְיוֹנוֹתָיו 1:1-2:10",
+       "blk_de": "Ijob und seine Prüfungen 1:1-2:10"
+      }
+     ]
     },
     {
      "ref": "1:13-22",
      "text": "מות בני איוב ואיבוד כל רכושו",
      "text_de": "Der Tod der Söhne Hiobs und der Verlust seines ganzen Besitzes",
-     "text_en": "The death of Job's sons and the loss of all his property"
+     "text_en": "The death of Job's sons and the loss of all his property",
+     "sub": [
+      {
+       "ref": "1:13-22",
+       "text": "איוב מתנסה באבדן רכושו ובניו ועומד בנסיון",
+       "text_de": "Ijob wird durch den Verlust seines Besitzes und seiner Kinder geprüft und besteht die Prüfung",
+       "blk": "אִיּוֹב וְנִסְיוֹנוֹתָיו 1:1-2:10",
+       "blk_de": "Ijob und seine Prüfungen 1:1-2:10"
+      }
+     ]
     },
     {
      "ref": "2:1-10",
      "text": "קטרוג השטן על איוב שנית והכאתו בשחין",
      "text_de": "Zweite Anklage des Satans gegen Hiob, und Hiob wird mit Geschwüren geschlagen",
-     "text_en": "Satan's second accusation against Job, and his being struck with boils"
+     "text_en": "Satan's second accusation against Job, and his being struck with boils",
+     "sub": [
+      {
+       "ref": "2:1-10",
+       "text": "איוב עומד גם בנסיון של יסורי גוף",
+       "text_de": "Ijob besteht auch die Prüfung durch körperliche Leiden",
+       "blk": "אִיּוֹב וְנִסְיוֹנוֹתָיו 1:1-2:10",
+       "blk_de": "Ijob und seine Prüfungen 1:1-2:10"
+      }
+     ]
     },
     {
      "ref": "2:11-13",
@@ -50,7 +86,30 @@
      "text_de": "Klage darüber, dass er auf die Welt gekommen ist, wegen seiner vielen Leiden",
      "text_en": "Lament that he came into the world, because of his many sufferings",
      "speaker_de": "Hiob",
-     "speaker_en": "Job"
+     "speaker_en": "Job",
+     "sub": [
+      {
+       "ref": "3:2-9",
+       "text": "קִלְלוֹת יוֹם הֻלַּדְתּוֹ וְלֵיל עִבּוּרוֹ (ב-ט).",
+       "text_de": "Verfluchung des Tages seiner Geburt und der Nacht seiner Empfängnis (V. 2-9).",
+       "blk": "הַמַּעֲנֶה הַפּוֹתֵחַ 3:2-26",
+       "blk_de": "Die einleitende Antwort 3:2-26"
+      },
+      {
+       "ref": "3:10-19",
+       "text": "טוֹב מָוֶת מֵחַיִּים (י-יט).",
+       "text_de": "Besser der Tod als das Leben (V. 10-19).",
+       "blk": "הַמַּעֲנֶה הַפּוֹתֵחַ 3:2-26",
+       "blk_de": "Die einleitende Antwort 3:2-26"
+      },
+      {
+       "ref": "3:20-26",
+       "text": "לָמָּה יִתֵּן אֱלֹהִים חַיִּים לִמְעֻנִּים בְּיִסּוּרִים? (כ-כו).",
+       "text_de": "Warum gibt Gott den Leidgeplagten das Leben? (V. 20-26).",
+       "blk": "הַמַּעֲנֶה הַפּוֹתֵחַ 3:2-26",
+       "blk_de": "Die einleitende Antwort 3:2-26"
+      }
+     ]
     },
     {
      "ref": "4-5",
@@ -59,7 +118,37 @@
      "text_de": "Hiob wird als Frevler beschuldigt; die Strafe des Herrn für die Frevler; Lohn dafür, Leiden in Liebe anzunehmen (Kapitel 4–5)",
      "text_en": "Job is accused of wickedness; the Lord's punishment of the wicked; the reward for accepting suffering with love (chapters 4–5)",
      "speaker_de": "Elifas zu Hiob",
-     "speaker_en": "Eliphaz to Job"
+     "speaker_en": "Eliphaz to Job",
+     "sub": [
+      {
+       "ref": "4:2-11",
+       "text": "אַל לוֹ לְאִיּוֹב לְהִתְיָאֵשׁ (ד ב-יא) - תְּמִיהָה עַל יֵאוּשׁוֹ שֶׁל אִיּוֹב (ב-ו); לֹא הַיְשָׁרִים, אֶלָּא הָרְשָׁעִים אוֹבְדִים (ז-יא).",
+       "text_de": "Ijob soll nicht verzweifeln (4,2-11) - Verwunderung über Ijobs Verzweiflung (V. 2-6); nicht die Aufrichtigen, sondern die Frevler gehen zugrunde (V. 7-11).",
+       "blk": "הַמַּחֲזוֹר הָראשׁוֹן שֶׁל הַוִּכּוּחִים (ד-יד) · הַמַּעֲנֶה הָראשׁוֹן שֶׁל אֱלִיפַז 4-5",
+       "blk_de": "Die erste Runde der Streitgespräche (Kap. 4-14) · Die erste Antwort des Elifas 4-5"
+      },
+      {
+       "ref": "4:12-21",
+       "text": "חֲזוֹן אֱלִיפַז (ד יב-כא) - תֵּאוּר בּוֹא הַהִתְגַּלּוּת (יב-טז); אֵין אָדָם אֲשֶׁר לֹא יֶחֱטָא (יז-כא).",
+       "text_de": "Die Vision des Elifas (4,12-21) - Beschreibung des Eintretens der Offenbarung (V. 12-16); kein Mensch ist ohne Sünde (V. 17-21).",
+       "blk": "הַמַּחֲזוֹר הָראשׁוֹן שֶׁל הַוִּכּוּחִים (ד-יד) · הַמַּעֲנֶה הָראשׁוֹן שֶׁל אֱלִיפַז 4-5",
+       "blk_de": "Die erste Runde der Streitgespräche (Kap. 4-14) · Die erste Antwort des Elifas 4-5"
+      },
+      {
+       "ref": "5:1-7",
+       "text": "אֵין טַעַם לְזַעֲקַת אִיּוֹב (ה א-ז).",
+       "text_de": "Ijobs Klageschrei ist sinnlos (5,1-7).",
+       "blk": "הַמַּחֲזוֹר הָראשׁוֹן שֶׁל הַוִּכּוּחִים (ד-יד) · הַמַּעֲנֶה הָראשׁוֹן שֶׁל אֱלִיפַז 4-5",
+       "blk_de": "Die erste Runde der Streitgespräche (Kap. 4-14) · Die erste Antwort des Elifas 4-5"
+      },
+      {
+       "ref": "5:8-27",
+       "text": "מוּסַר שַׁדַּי אַל תִּמְאָס! (ה ח-כז) - טוֹב לְהִתְפַּלֵּל לֵאלֹהִים, הָעוֹשֶׂה נִפְלָאוֹת גְּדוֹלוֹת (ח-טז); הַמְקַבֵּל יִסּוּרָיו בְּאַהֲבָה - שְׁמוּרָה לוֹ טוֹבָה (יז-כז).",
+       "text_de": "Die Zucht des Allmächtigen verschmähe nicht! (5,8-27) - Es ist gut, zu Gott zu beten, der große Wunder tut (V. 8-16); wer seine Leiden in Liebe annimmt, dem ist Gutes aufbewahrt (V. 17-27).",
+       "blk": "הַמַּחֲזוֹר הָראשׁוֹן שֶׁל הַוִּכּוּחִים (ד-יד) · הַמַּעֲנֶה הָראשׁוֹן שֶׁל אֱלִיפַז 4-5",
+       "blk_de": "Die erste Runde der Streitgespräche (Kap. 4-14) · Die erste Antwort des Elifas 4-5"
+      }
+     ]
     },
     {
      "ref": "6:1-7:6",
@@ -68,7 +157,30 @@
      "text_de": "Größe seines Kummers und seiner Schwäche, sein Wunsch zu sterben, Rüge an seine Freunde wegen ihrer falschen Worte (6:1–7:6)",
      "text_en": "The greatness of his anguish and weakness, his wish to die, rebuke of his friends for their false words (6:1–7:6)",
      "speaker_de": "Hiob zu seinen Freunden",
-     "speaker_en": "Job to his friends"
+     "speaker_en": "Job to his friends",
+     "sub": [
+      {
+       "ref": "6:2-10",
+       "text": "יִסּוּרַי רַבִּים מְאֹד (ו ב-י) - צָרוֹתַי כָּבְדוּ מִנְּשׂא (ב-ד); נַפְשִׁי קָצָה בְּחַיִּים תְּפֵלִים (ה-ז); תִּקְוָתִי הַיְחִידָה - הַמָּוֶת (ח-י).",
+       "text_de": "Meine Leiden sind sehr groß (6,2-10) - Meine Nöte sind zu schwer zum Tragen (V. 2-4); meine Seele hat genug von einem faden Leben (V. 5-7); meine einzige Hoffnung ist der Tod (V. 8-10).",
+       "blk": "מַעֲנֵה אִיּוֹב לֶאֱלִיפַז 6-7",
+       "blk_de": "Ijobs Antwort an Elifas 6-7"
+      },
+      {
+       "ref": "6:11-30",
+       "text": "רֵעַי בָּגְדוּ! (יא-ל) - אֵין בִּי כֹּחַ לְקַוּוֹת (יא-יד); רֵעַי דּוֹמִים לְנַחֲלֵי אַכְזָב (טו-כ); הוֹרוּנִי מַה־שָּׁגִיתִי (כא-ל).",
+       "text_de": "Meine Freunde haben mich verraten! (V. 11-30) - Ich habe keine Kraft mehr zu hoffen (V. 11-14); meine Freunde gleichen trügerischen Bächen (V. 15-20); belehrt mich, worin ich gefehlt habe (V. 21-30).",
+       "blk": "מַעֲנֵה אִיּוֹב לֶאֱלִיפַז 6-7",
+       "blk_de": "Ijobs Antwort an Elifas 6-7"
+      },
+      {
+       "ref": "7:1-21",
+       "text": "גּוֹרָלוֹ שֶׁל אֱנוֹשׁ עֲלֵי אָרֶץ (ז א-כא) - אֵין לִי מְנוּחָה לֹא בַיּוֹם וְלֹא בַלָּיְלָה (א-ו); יוֹרֵד שְׁאוֹל לֹא יַעֲלֶה (ז-יא); גַּם בְּשִׁנְתִי לֹא יָנוּחַ לִי (יב-טז); מָה אֱנוֹשׁ כִּי תָשִׁית אֵלָיו לִבֶּךָ (יז-כא).",
+       "text_de": "Das Los des Menschen auf Erden (7,1-21) - Ich habe keine Ruhe, weder bei Tag noch bei Nacht (V. 1-6); wer in die Unterwelt hinabfährt, steigt nicht wieder herauf (V. 7-11); auch im Schlaf findet er keine Ruhe (V. 12-16); was ist der Mensch, dass du ihn beachtest (V. 17-21).",
+       "blk": "מַעֲנֵה אִיּוֹב לֶאֱלִיפַז 6-7",
+       "blk_de": "Ijobs Antwort an Elifas 6-7"
+      }
+     ]
     },
     {
      "ref": "7:7-21",
@@ -86,7 +198,30 @@
      "text_de": "Die Gerechtigkeit des Herrn, die Bosheit der Söhne Hiobs; wenn er zum Herrn umkehrt, wird dieser ihn annehmen, und er wird groß werden wie zuvor (Kapitel 8)",
      "text_en": "The righteousness of the Lord, the wickedness of Job's sons; if he returns to the Lord, He will accept him and he will become great as before (chapter 8)",
      "speaker_de": "Bildad zu Hiob",
-     "speaker_en": "Bildad to Job"
+     "speaker_en": "Bildad to Job",
+     "sub": [
+      {
+       "ref": "8:2-7",
+       "text": "ה' אֵינוֹ מְעַוֵּת מִשְׁפָּט (ב-ז).",
+       "text_de": "Der HERR beugt das Recht nicht (V. 2-7).",
+       "blk": "הַמַּעֲנֶה הָראשׁוֹן שֶׁל בִּלְדַּד 8:1-22",
+       "blk_de": "Die erste Antwort Bildads 8:1-22"
+      },
+      {
+       "ref": "8:8-19",
+       "text": "מִשְׁלֵי קַדְמוֹנִים (ח-יט): - יֵשׁ לִסְמֹךְ עַל דַּעַת הַקַּדְמוֹנִים (ח-י); מָשָׁל עַל גּוֹרַל הָרָשָׁע (יא-טו); מָשָׁל עַל גּוֹרַל הַצַּדִּיק (טז-יט).",
+       "text_de": "Sprüche der Vorfahren (V. 8-19): Man darf sich auf die Einsicht der Vorfahren verlassen (V. 8-10); ein Gleichnis vom Los des Frevlers (V. 11-15); ein Gleichnis vom Los des Gerechten (V. 16-19).",
+       "blk": "הַמַּעֲנֶה הָראשׁוֹן שֶׁל בִּלְדַּד 8:1-22",
+       "blk_de": "Die erste Antwort Bildads 8:1-22"
+      },
+      {
+       "ref": "8:20-22",
+       "text": "סוֹף דָּבָר: בְּרָכָה לְאִיּוֹב, וּקְלָלָה לְשׂוֹנְאָיו (כ-כב).",
+       "text_de": "Schluss: Segen für Ijob und Fluch für seine Hasser (V. 20-22).",
+       "blk": "הַמַּעֲנֶה הָראשׁוֹן שֶׁל בִּלְדַּד 8:1-22",
+       "blk_de": "Die erste Antwort Bildads 8:1-22"
+      }
+     ]
     },
     {
      "ref": "9-10",
@@ -95,7 +230,23 @@
      "text_de": "Der Mensch kann wegen der Größe des Herrn nicht mit ihm rechten; der Herr behandelt Gerechten und Frevler gleich (9:1–27). Seine Klagen gegen den Herrn: die Genauigkeit des Herrn in seinem Gericht, Klage über seine Geburt, Bitte an den Herrn, ihn in Ruhe zu lassen, solange er lebt (9:28–10:22)",
      "text_en": "Man cannot contend with the Lord because of His greatness; the Lord treats the righteous and the wicked alike (9:1–27). His complaints against the Lord: the Lord's exactness in His judgment, lament over his birth, his plea that the Lord leave him alone while he is still alive (9:28–10:22)",
      "speaker_de": "Hiob zu Bildad",
-     "speaker_en": "Job to Bildad"
+     "speaker_en": "Job to Bildad",
+     "sub": [
+      {
+       "ref": "9:2-24",
+       "text": "לֵאלֹהִים חָכְמָה וּגְבוּרָה אֲבָל לֹא הַצְדָּקָה (ט ב-כד) - זַעְמוֹ שֶׁל אֱלֹהִים פּוֹגֵעַ בַּכֹּל (ב-י); אֱלֹהִים לֹא יַנִּיחַ שֶׁאִיּוֹב יֵצֵא צַדִּיק בְּרִיבוֹ (יא-כא); אֱלֹהִים אֵינוֹ מַנְהִיג עוֹלָמוֹ בְּצֶדֶק (כב-כד).",
+       "text_de": "Gott besitzt Weisheit und Macht, aber keine Gerechtigkeit (9,2-24) - Gottes Zorn trifft alles (V. 2-10); Gott lässt nicht zu, dass Ijob in seinem Rechtsstreit als gerecht hervorgeht (V. 11-21); Gott lenkt seine Welt nicht gerecht (V. 22-24).",
+       "blk": "מַעֲנֵה אִיּוֹב לְבִלְדַּד בַּמַּחֲזוֹר הָראשׁוֹן 9-10",
+       "blk_de": "Ijobs Antwort an Bildad in der ersten Runde 9-10"
+      },
+      {
+       "ref": "9:25-10:22",
+       "text": "דִּבּוּר אֶל אֱלֹהִים (ט כה - י כב) - תְּשׁוּקָתוֹ שֶׁל אִיּוֹב לְהִדַּיֵּן עִם אֱלֹהִים (ט כה-לד); אִיּוֹב מְדַבֵּר בְּלִי מוֹרָא (לה - י ב); אִיּוֹב מְבַקֵּשׁ לָדַעַת מָה רָאָה אֱלֹהִים לְיַסְּרוֹ (ג-ח); פִּלְאֵי יְצִירַת הָאָדָם כְּנֶגֶד יִסּוּרָיו הַקָּשִׁים (ט-יז); מַה־טַּעַם בְּחַיִּים קְצָרִים וּמְלֵאֵי יִסּוּרִים (יח-כב).",
+       "text_de": "Rede zu Gott (9,25 - 10,22) - Ijobs Sehnsucht, mit Gott zu rechten (9,25-34); Ijob redet ohne Furcht (9,35 - 10,2); Ijob will wissen, was Gott dazu bewogen hat, ihn zu züchtigen (V. 3-8); die Wunder der Erschaffung des Menschen im Gegensatz zu seinen harten Leiden (V. 9-17); welchen Sinn hat ein kurzes Leben voller Leiden (V. 18-22).",
+       "blk": "מַעֲנֵה אִיּוֹב לְבִלְדַּד בַּמַּחֲזוֹר הָראשׁוֹן 9-10",
+       "blk_de": "Ijobs Antwort an Bildad in der ersten Runde 9-10"
+      }
+     ]
     },
     {
      "ref": "11",
@@ -104,7 +255,30 @@
      "text_de": "Hiob wird als Frevler beschuldigt; die Gedanken des Herrn sind nicht zu erfassen; Aufruf an Hiob, zum Herrn umzukehren (Kapitel 11)",
      "text_en": "Job is accused of wickedness; the Lord's thoughts cannot be grasped; a call to Job to return to the Lord (chapter 11)",
      "speaker_de": "Zofar zu Hiob",
-     "speaker_en": "Zophar to Job"
+     "speaker_en": "Zophar to Job",
+     "sub": [
+      {
+       "ref": "11:2-6",
+       "text": "תּוֹכָחָה לְאִיּוֹב עַל דְּבָרָיו (ב-ו);",
+       "text_de": "Zurechtweisung Ijobs wegen seiner Worte (V. 2-6);",
+       "blk": "מַעֲנֵה צוֹפַר בַּמַּחֲזוֹר הָראשׁוֹן 11",
+       "blk_de": "Zofars Antwort in der ersten Runde 11"
+      },
+      {
+       "ref": "11:7-12",
+       "text": "חָכְמַת אֱלֹהִים - אֵין לָהּ חֵקֶר (ז-יב);",
+       "text_de": "Gottes Weisheit ist unerforschlich (V. 7-12);",
+       "blk": "מַעֲנֵה צוֹפַר בַּמַּחֲזוֹר הָראשׁוֹן 11",
+       "blk_de": "Zofars Antwort in der ersten Runde 11"
+      },
+      {
+       "ref": "11:13-20",
+       "text": "אִם יָשׁוּב אִיּוֹב יִיטַב לוֹ (יג-כ).",
+       "text_de": "Wenn Ijob umkehrt, wird es ihm gut ergehen (V. 13-20).",
+       "blk": "מַעֲנֵה צוֹפַר בַּמַּחֲזוֹר הָראשׁוֹן 11",
+       "blk_de": "Zofars Antwort in der ersten Runde 11"
+      }
+     ]
     },
     {
      "ref": "12:1-13:19",
@@ -113,7 +287,16 @@
      "text_de": "Lohn der Gerechten und der Frevler, die Größe des Herrn, sein Wunsch, zum Herrn zu sprechen, Rüge an seine Freunde (12:1–13:19)",
      "text_en": "The reward of the righteous and the wicked, the greatness of the Lord, his wish to speak to the Lord, rebuke of his friends (12:1–13:19)",
      "speaker_de": "Hiob zu seinen Freunden",
-     "speaker_en": "Job to his friends"
+     "speaker_en": "Job to his friends",
+     "sub": [
+      {
+       "ref": "12:2-13:19",
+       "text": "כְּלַפֵּי הָרֵעִים וְדִבְרֵיהֶם (יב ב - יג יט) - הָרֵעִים אֵינָם מְדַבְּרִים בְּחָכְמָה (יב ב-ו); גְּדֻלַּת אֱלֹהִים יְדוּעָה לַכֹּל (יב ז-יג); בְּחָכְמָתוֹ וּבִגְבוּרָתוֹ מֵבִיא אֱלֹהִים גַּם אֶת־הָרָעוֹת (יב יד-כה); מַה־בֵּין אִיּוֹב הַיָּשָׁר לְרֵעִים הַחֲנֵפִים (יג א-יט).",
+       "text_de": "An die Freunde und ihre Reden (12,2 - 13,19) - Die Freunde reden nicht weise (12,2-6); Gottes Größe ist allen bekannt (12,7-13); durch seine Weisheit und Macht bringt Gott auch das Unglück (12,14-25); der Unterschied zwischen dem aufrichtigen Ijob und den heuchlerischen Freunden (13,1-19).",
+       "blk": "מַעֲנֵה אִיּוֹב לְצוֹפַר בְּסִיּוּם הַמַּחֲזוֹר הָראשׁוֹן שֶׁל הַוִּכּוּחִים 12:1-13:14",
+       "blk_de": "Ijobs Antwort an Zofar am Ende der ersten Runde der Streitgespräche 12:1-13:14"
+      }
+     ]
     },
     {
      "ref": "13:20-14:22",
@@ -122,7 +305,16 @@
      "text_de": "Womit hat er gesündigt und warum wurde er bestraft, die Niedrigkeit des Menschen in Leben und Tod, wie sollte der Herr sich nicht über ihn erbarmen (13:20–14:22)",
      "text_en": "How did he sin and why was he punished, man's lowliness in life and in death, how could the Lord not have mercy on him (13:20–14:22)",
      "speaker_de": "Hiob zum Herrn",
-     "speaker_en": "Job to the Lord"
+     "speaker_en": "Job to the Lord",
+     "sub": [
+      {
+       "ref": "13:20-14:14",
+       "text": "טַעֲנוֹת אִיּוֹב כְּלַפֵּי אֱלֹהִים (יג כ - יד כב) - עַל שׁוּם מָה מְיַסֵּר אֱלֹהִים אֶת־אִיּוֹב (יג כ-כו); הָאָדָם קַל עֵרֶךְ מוּל אֱלֹהִים (יג כח - יד ו); אֵין תִּקְוָה לָאָדָם אַחֲרֵי מוֹתוֹ (יד ז-כב).",
+       "text_de": "Ijobs Klagen gegen Gott (13,20 - 14,22) - Weshalb züchtigt Gott Ijob? (13,20-26); der Mensch ist vor Gott geringgeachtet (13,28 - 14,6); der Mensch hat nach seinem Tod keine Hoffnung (14,7-22).",
+       "blk": "מַעֲנֵה אִיּוֹב לְצוֹפַר בְּסִיּוּם הַמַּחֲזוֹר הָראשׁוֹן שֶׁל הַוִּכּוּחִים 12:1-13:14",
+       "blk_de": "Ijobs Antwort an Zofar am Ende der ersten Runde der Streitgespräche 12:1-13:14"
+      }
+     ]
     }
    ],
    "head_de": "Reden Hiobs und seiner Freunde – I",
@@ -138,7 +330,23 @@
      "text_de": "Zurechtweisung Hiobs: Er ist nicht weiser als alle; wer ist gerecht vor dem Herrn; wenn er nicht zum Herrn umkehrt, wird er bestraft (Kapitel 15)",
      "text_en": "Rebuke of Job: he is not wiser than everyone; who is righteous before the Lord; if he does not return to the Lord he will be punished (chapter 15)",
      "speaker_de": "Elifas zu Hiob",
-     "speaker_en": "Eliphaz to Job"
+     "speaker_en": "Eliphaz to Job",
+     "sub": [
+      {
+       "ref": "15:2-16",
+       "text": "תּוֹכָחָה לְאִיּוֹב (ב-טז) - דִּבְרֵי אִיּוֹב שְׁטוּת וְעָווֹן (ב-ו). אֵין אִיּוֹב חָכָם מֵרֵעָיו (ז-י). גְּעָרָה בְּאִיּוֹב עַל שֶׁאֵינוֹ מִתְנַחֵם בְּדִבְרֵי הָרֵעִים (יא-יג). אֵין אָדָם צַדִּיק לִפְנֵי אֱלֹהִים (יד-טז).",
+       "text_de": "Zurechtweisung Ijobs (V. 2-16) - Ijobs Worte sind Torheit und Schuld (V. 2-6). Ijob ist nicht weiser als seine Freunde (V. 7-10). Tadel an Ijob, dass er sich durch die Worte der Freunde nicht trösten lässt (V. 11-13). Kein Mensch ist vor Gott gerecht (V. 14-16).",
+       "blk": "הַמַּחֲזוֹר הַשֵּׁנִי שֶׁל הַוִּכּוּחִים (פרקים טו - כא) · מַעֲנֵה אֱלִיפַז בַּמַּחֲזוֹר הַשֵּׁנִי 15",
+       "blk_de": "Die zweite Runde der Streitgespräche (Kap. 15-21) · Elifas' Antwort in der zweiten Runde 15"
+      },
+      {
+       "ref": "15:17-35",
+       "text": "דִּבְרֵי הַחֲכָמִים (יז-לה) - פְּתִיחָה: רָאוּי לִסְמֹךְ עַל דִּבְרֵי הַחֲכָמִים (יז-יט). חֶלְקָם שֶׁל הָרְשָׁעִים פַּחַד תָּמִיד (כ-כד). תֵּאוּר לוֹעֵג שֶׁל מְרִי הָרְשָׁעִים (כה-כז). אַחֲרִיתוֹ הַמָּרָה שֶׁל הָרָשָׁע (כח-ל). אֵין תִּקְוָה לָרָשָׁע אַחֲרֵי מַפַּלְתּוֹ (לא-לג). סִיּוּם: שְׁנֵי מַאַמְרֵי חָכְמָה כְּלָלִיִּים עַל אָבְדַן הָרָשָׁע (לד-לה).",
+       "text_de": "Worte der Weisen (V. 17-35) - Einleitung: Man soll sich auf die Worte der Weisen verlassen (V. 17-19). Das Los der Frevler ist beständige Angst (V. 20-24). Spöttische Beschreibung der Widerspenstigkeit der Frevler (V. 25-27). Das bittere Ende des Frevlers (V. 28-30). Der Frevler hat nach seinem Fall keine Hoffnung (V. 31-33). Schluss: zwei allgemeine Weisheitssprüche über den Untergang des Frevlers (V. 34-35).",
+       "blk": "הַמַּחֲזוֹר הַשֵּׁנִי שֶׁל הַוִּכּוּחִים (פרקים טו - כא) · מַעֲנֵה אֱלִיפַז בַּמַּחֲזוֹר הַשֵּׁנִי 15",
+       "blk_de": "Die zweite Runde der Streitgespräche (Kap. 15-21) · Elifas' Antwort in der zweiten Runde 15"
+      }
+     ]
     },
     {
      "ref": "16:1-17:2",
@@ -147,7 +355,30 @@
      "text_de": "Die Tröstungen seiner Freunde sind nichtig, Klage über seine Leiden und über die Worte seiner Freunde, sein Wunsch, mit dem Herrn und seinen Freunden über seine Gerechtigkeit zu streiten (16:1–17:2)",
      "text_en": "His friends' consolations are worthless, lament over his sufferings and his friends' words, his wish to contend with the Lord and his friends about his righteousness (16:1–17:2)",
      "speaker_de": "Hiob zu seinen Freunden",
-     "speaker_en": "Job to his friends"
+     "speaker_en": "Job to his friends",
+     "sub": [
+      {
+       "ref": "16:2-6",
+       "text": "דִּבְרֵי הָרֵעִים אֵין בָּהֶם חִדּוּשׁ לְאִיּוֹב (טז ב-ו).",
+       "text_de": "Die Worte der Freunde bringen Ijob nichts Neues (16,2-6).",
+       "blk": "מַעֲנֵה אִיּוֹב לֶאֱלִיפַז בַּמַּחֲזוֹר הַשֵּׁנִי 16-17",
+       "blk_de": "Ijobs Antwort an Elifas in der zweiten Runde 16-17"
+      },
+      {
+       "ref": "16:7-17",
+       "text": "אִיּוֹב מִתְלוֹנֵן עַל יִסּוּרָיו הַגְּדוֹלִים (טז ז-יז).",
+       "text_de": "Ijob klagt über seine großen Leiden (16,7-17).",
+       "blk": "מַעֲנֵה אִיּוֹב לֶאֱלִיפַז בַּמַּחֲזוֹר הַשֵּׁנִי 16-17",
+       "blk_de": "Ijobs Antwort an Elifas in der zweiten Runde 16-17"
+      },
+      {
+       "ref": "16:18-17:9",
+       "text": "אִיּוֹב תּוֹבֵעַ מֵאֱלֹהִים דִּין צֶדֶק בֵּינוֹ וּבֵין אֱלֹהִים וּבֵינוֹ וּבֵין רֵעָיו (טז יח-יז ט).",
+       "text_de": "Ijob fordert von Gott ein gerechtes Urteil zwischen sich und Gott und zwischen sich und seinen Freunden (16,18 - 17,9).",
+       "blk": "מַעֲנֵה אִיּוֹב לֶאֱלִיפַז בַּמַּחֲזוֹר הַשֵּׁנִי 16-17",
+       "blk_de": "Ijobs Antwort an Elifas in der zweiten Runde 16-17"
+      }
+     ]
     },
     {
      "ref": "17:3-16",
@@ -156,7 +387,16 @@
      "text_de": "Sein Wunsch, mit dem Herrn zu rechten, Klage über die Bosheit seiner Freunde, sein Warten auf den Tod wegen seines großen Kummers (17:3–16)",
      "text_en": "His wish to plead with the Lord, complaint about his friends' wickedness, his longing for death because of his great anguish (17:3–16)",
      "speaker_de": "Hiob zum Herrn",
-     "speaker_en": "Job to the Lord"
+     "speaker_en": "Job to the Lord",
+     "sub": [
+      {
+       "ref": "17:10-16",
+       "text": "תַּנְחוּמֵי הָרֵעִים הֶבֶל שֶׁהֲרֵי הַמָּוֶת קָרוֹב (יז י-טז).",
+       "text_de": "Die Tröstungen der Freunde sind nichtig, denn der Tod ist nahe (17,10-16).",
+       "blk": "מַעֲנֵה אִיּוֹב לֶאֱלִיפַז בַּמַּחֲזוֹר הַשֵּׁנִי 16-17",
+       "blk_de": "Ijobs Antwort an Elifas in der zweiten Runde 16-17"
+      }
+     ]
     },
     {
      "ref": "18:1-3",
@@ -165,7 +405,16 @@
      "text_de": "Einleitung: seine Worte an Elifas und Zofar (18:1–3)",
      "text_en": "Introduction: his words to Eliphaz and Zophar (18:1–3)",
      "speaker_de": "Bildad zu Elifas und Zofar",
-     "speaker_en": "Bildad to Eliphaz and Zophar"
+     "speaker_en": "Bildad to Eliphaz and Zophar",
+     "sub": [
+      {
+       "ref": "18:2-4",
+       "text": "פְּתִיחָה: גְּעָרָה בְּאִיּוֹב (ב-ד).",
+       "text_de": "Einleitung: Tadel an Ijob (V. 2-4).",
+       "blk": "מַעֲנֵה בִלְדַּד בַּמַּחֲזוֹר הַשֵּׁנִי 18",
+       "blk_de": "Bildads Antwort in der zweiten Runde 18"
+      }
+     ]
     },
     {
      "ref": "18:4-21",
@@ -174,7 +423,16 @@
      "text_de": "Das Unheil der Frevler; Hiobs Leiden beweisen, dass er gesündigt hat (18:4–21)",
      "text_en": "The calamity of the wicked; Job's sufferings prove that he has sinned (18:4–21)",
      "speaker_de": "Bildad zu Hiob",
-     "speaker_en": "Bildad to Job"
+     "speaker_en": "Bildad to Job",
+     "sub": [
+      {
+       "ref": "18:5-21",
+       "text": "אָבְדַן הָרְשָׁעִים (ה-כא).",
+       "text_de": "Der Untergang der Frevler (V. 5-21).",
+       "blk": "מַעֲנֵה בִלְדַּד בַּמַּחֲזוֹר הַשֵּׁנִי 18",
+       "blk_de": "Bildads Antwort in der zweiten Runde 18"
+      }
+     ]
     },
     {
      "ref": "19",
@@ -183,7 +441,30 @@
      "text_de": "Rüge an seine Freunde wegen ihrer Worte und Warnung, dass sie bestraft werden; Klage über seine Lage (Kapitel 19)",
      "text_en": "Rebuke of his friends for their words and a warning that they will be punished; lament over his condition (chapter 19)",
      "speaker_de": "Hiob zu seinen Freunden",
-     "speaker_en": "Job to his friends"
+     "speaker_en": "Job to his friends",
+     "sub": [
+      {
+       "ref": "19:2-5",
+       "text": "תְּלוּנָה עַל הָרֵעִים הַמַּכְלִימִים אֶת אִיּוֹב (ב-ה).",
+       "text_de": "Klage über die Freunde, die Ijob beschämen (V. 2-5).",
+       "blk": "תְּשׁוּבַת אִיּוֹב לְבִלְדַּד בַּמַּחֲזוֹר הַשֵּׁנִי 19",
+       "blk_de": "Ijobs Antwort an Bildad in der zweiten Runde 19"
+      },
+      {
+       "ref": "19:6-20",
+       "text": "בְּדִידוּתוֹ שֶׁל אִיּוֹב (ו-כ) - מָצוֹר עַל אִיּוֹב בִּידֵי שָׁמָיִם (ו-יב). אִיּוֹב עָזוּב מִכָּל־בְּנֵי הָאָדָם (יג-כ).",
+       "text_de": "Ijobs Einsamkeit (V. 6-20) - Ijob wird vom Himmel belagert (V. 6-12). Ijob ist von allen Menschen verlassen (V. 13-20).",
+       "blk": "תְּשׁוּבַת אִיּוֹב לְבִלְדַּד בַּמַּחֲזוֹר הַשֵּׁנִי 19",
+       "blk_de": "Ijobs Antwort an Bildad in der zweiten Runde 19"
+      },
+      {
+       "ref": "19:21-29",
+       "text": "תִּקְוָתוֹ שֶׁל אִיּוֹב (כא-כט) - אִיּוֹב מִתְחַנֵּן אֶל רֵעָיו (כא-כב). אִיּוֹב בָּטוּחַ בַּגּוֹאֵל (כג-כז). אִיּוֹב מְאַיֵּם עַל רֵעָיו בְּעֹנֶשׁ מִשָּׁמָיִם (כח-כט).",
+       "text_de": "Ijobs Hoffnung (V. 21-29) - Ijob fleht seine Freunde an (V. 21-22). Ijob vertraut auf den Löser (V. 23-27). Ijob droht seinen Freunden mit Strafe vom Himmel (V. 28-29).",
+       "blk": "תְּשׁוּבַת אִיּוֹב לְבִלְדַּד בַּמַּחֲזוֹר הַשֵּׁנִי 19",
+       "blk_de": "Ijobs Antwort an Bildad in der zweiten Runde 19"
+      }
+     ]
     },
     {
      "ref": "20",
@@ -192,7 +473,30 @@
      "text_de": "Das Unheil der Frevler, die Leute von Sodom und ihre Strafe; Hiobs Leiden beweisen, dass er gesündigt hat (Kapitel 20)",
      "text_en": "The calamity of the wicked, the people of Sodom and their punishment; Job's sufferings prove that he has sinned (chapter 20)",
      "speaker_de": "Zofar zu Hiob",
-     "speaker_en": "Zophar to Job"
+     "speaker_en": "Zophar to Job",
+     "sub": [
+      {
+       "ref": "20:2-4",
+       "text": "פְּתִיחָה: רוּחוֹ שֶׁל צוֹפַר מְעוֹרַרְתּוֹ לְדַבֵּר (ב-ד).",
+       "text_de": "Einleitung: Zofars Geist treibt ihn zu reden (V. 2-4).",
+       "blk": "הַמַּעֲנֶה שֶׁל צוֹפַר בַּמַּחֲזוֹר הַשֵּׁנִי 20",
+       "blk_de": "Zofars Antwort in der zweiten Runde 20"
+      },
+      {
+       "ref": "20:5-28",
+       "text": "גּוּף הַמַּעֲנֶה: אֲסוֹנוֹת אֲיֻמִּים בָּאִים עַל הָרָשָׁע (ה-כח).",
+       "text_de": "Hauptteil der Antwort: Furchtbare Unglücke kommen über den Frevler (V. 5-28).",
+       "blk": "הַמַּעֲנֶה שֶׁל צוֹפַר בַּמַּחֲזוֹר הַשֵּׁנִי 20",
+       "blk_de": "Zofars Antwort in der zweiten Runde 20"
+      },
+      {
+       "ref": "20:29",
+       "text": "סִיּוּם: כֵּן נִגְזַר מֵאֵת אֱלֹהִים (כט).",
+       "text_de": "Schluss: So ist es von Gott bestimmt (V. 29).",
+       "blk": "הַמַּעֲנֶה שֶׁל צוֹפַר בַּמַּחֲזוֹר הַשֵּׁנִי 20",
+       "blk_de": "Zofars Antwort in der zweiten Runde 20"
+      }
+     ]
     },
     {
      "ref": "21",
@@ -201,7 +505,44 @@
      "text_de": "Das Wohlergehen der Generation der Sintflut, seine Hoffnung auf die Bestrafung der Frevler, die Leiden der Gerechten, Rüge an seine Freunde, weil sie ihn als Frevler hinstellen (Kapitel 21)",
      "text_en": "The prosperity of the generation of the Flood, his hope that the wicked will be punished, the sufferings of the righteous, rebuke of his friends for portraying him as wicked (chapter 21)",
      "speaker_de": "Hiob zu seinen Freunden",
-     "speaker_en": "Job to his friends"
+     "speaker_en": "Job to his friends",
+     "sub": [
+      {
+       "ref": "21:2-6",
+       "text": "הדברים, שאיוב עומד לדבר, מבהילים",
+       "text_de": "Die Worte, die Ijob sprechen will, sind erschreckend",
+       "blk": "תְּשׁוּבַת אִיּוֹב לְמַעֲנֵה צוֹפַר בַּמַּחֲזוֹר הַשֵּׁנִי 21",
+       "blk_de": "Ijobs Antwort auf Zofars Rede in der zweiten Runde 21"
+      },
+      {
+       "ref": "21:7-16",
+       "text": "שלות הרשעים",
+       "text_de": "Die Sorglosigkeit der Frevler",
+       "blk": "תְּשׁוּבַת אִיּוֹב לְמַעֲנֵה צוֹפַר בַּמַּחֲזוֹר הַשֵּׁנִי 21",
+       "blk_de": "Ijobs Antwort auf Zofars Rede in der zweiten Runde 21"
+      },
+      {
+       "ref": "21:17-26",
+       "text": "סתירת תשובות הרעים על גורל הרשעים",
+       "text_de": "Widerlegung der Antworten der Freunde über das Los der Frevler",
+       "blk": "תְּשׁוּבַת אִיּוֹב לְמַעֲנֵה צוֹפַר בַּמַּחֲזוֹר הַשֵּׁנִי 21",
+       "blk_de": "Ijobs Antwort auf Zofars Rede in der zweiten Runde 21"
+      },
+      {
+       "ref": "21:27-33",
+       "text": "ספורי עוברי דרכים על הצלחת הרשעים",
+       "text_de": "Berichte von Wegreisenden über das Gelingen der Frevler",
+       "blk": "תְּשׁוּבַת אִיּוֹב לְמַעֲנֵה צוֹפַר בַּמַּחֲזוֹר הַשֵּׁנִי 21",
+       "blk_de": "Ijobs Antwort auf Zofars Rede in der zweiten Runde 21"
+      },
+      {
+       "ref": "21:34",
+       "text": "תנחומי הרעים הבל הם",
+       "text_de": "Die Tröstungen der Freunde sind nichtig",
+       "blk": "תְּשׁוּבַת אִיּוֹב לְמַעֲנֵה צוֹפַר בַּמַּחֲזוֹר הַשֵּׁנִי 21",
+       "blk_de": "Ijobs Antwort auf Zofars Rede in der zweiten Runde 21"
+      }
+     ]
     }
    ],
    "head_de": "Reden Hiobs und seiner Freunde – II",
@@ -217,7 +558,23 @@
      "text_de": "Hiobs Sünde, dass er die Armen und Bedürftigen übersehen hat, die Strafe der früheren Generationen; Aufruf an ihn, zum Herrn umzukehren, dann werde dieser ihn annehmen (Kapitel 22)",
      "text_en": "Job's sin of ignoring the poor and needy, the punishment of earlier generations; a call to him to return to the Lord, and He will accept him (chapter 22)",
      "speaker_de": "Elifas zu Hiob",
-     "speaker_en": "Eliphaz to Job"
+     "speaker_en": "Eliphaz to Job",
+     "sub": [
+      {
+       "ref": "22:2-20",
+       "text": "תוכחה לאיוב (ב-כ) - אלהים לא יבוא להדין עם איוב (ב-ד); פשעי איוב [לדעת אליפז] בין אדם לחברו (ה-י); מחשבות הכפירה של איוב [לדעת אליפז] (יא-יד); חטאות הדורות הקדמונים וענשם (טו-כ).",
+       "text_de": "Zurechtweisung Ijobs (V. 2-20) - Gott wird nicht kommen, um mit Ijob zu rechten (V. 2-4); Ijobs Vergehen [nach Elifas] gegen den Mitmenschen (V. 5-10); Ijobs Gedanken des Unglaubens [nach Elifas] (V. 11-14); die Sünden der Urgeschlechter und ihre Strafe (V. 15-20).",
+       "blk": "מַעֲנֵה אֱלִיפַז בַּמַּחֲזוֹר הַשְּׁלִישִׁי 22",
+       "blk_de": "Elifas' Antwort in der dritten Runde 22"
+      },
+      {
+       "ref": "22:21-30",
+       "text": "נחמה לאיוב (כא-ל) - דרך התשובה (כא-כה); האחרית הטובה המבטחת לשב בתשובה (כו-ל).",
+       "text_de": "Trost für Ijob (V. 21-30) - der Weg der Umkehr (V. 21-25); das gute Ende, das dem Umkehrenden gewiss ist (V. 26-30).",
+       "blk": "מַעֲנֵה אֱלִיפַז בַּמַּחֲזוֹר הַשְּׁלִישִׁי 22",
+       "blk_de": "Elifas' Antwort in der dritten Runde 22"
+      }
+     ]
     },
     {
      "ref": "23-24",
@@ -226,7 +583,23 @@
      "text_de": "Sein Wunsch, mit dem Herrn zu rechten, seine Ehrfurcht vor dem Herrn, die Sünden der Räuber und der Generation der Sintflut, Klage über die Langmut des Herrn gegenüber den Frevlern (Kapitel 23–24)",
      "text_en": "His wish to contend with the Lord, his awe of the Lord, the sins of the robbers and of the generation of the Flood, complaint about the Lord's forbearance toward the wicked (chapters 23–24)",
      "speaker_de": "Hiob zu Elifas",
-     "speaker_en": "Job to Eliphaz"
+     "speaker_en": "Job to Eliphaz",
+     "sub": [
+      {
+       "ref": "23",
+       "text": "תלונה על שאלהים מסתתר מאיוב (פרק כג) - איוב משתוקק למצא את אלהים (ב-ז); אלהים מסתתר מאיוב משום שהוא יודע שאיוב צדיק (ח-יב); אלהים מיסר את איוב ומבעיתו (יג-יז).",
+       "text_de": "Klage darüber, dass Gott sich vor Ijob verbirgt (Kap. 23) - Ijob sehnt sich danach, Gott zu finden (V. 2-7); Gott verbirgt sich vor Ijob, weil er weiß, dass Ijob gerecht ist (V. 8-12); Gott züchtigt Ijob und erschreckt ihn (V. 13-17).",
+       "blk": "תְּשׁוּבַת אִיּוֹב לֶאֱלִיפַז בַּמַּחֲזוֹר הַשְּׁלִישִׁי 23-24",
+       "blk_de": "Ijobs Antwort an Elifas in der dritten Runde 23-24"
+      },
+      {
+       "ref": "24",
+       "text": "תלונה על מעשי הרשעים ועל שלותם (פרק כד) - פתיחה: תלונה מדוע יום הדין איננו בא (א); תאור הפשעים שהרשעים פושעים (ב-כא); סיום: תלונה על שאלהים שומר את הרשעים מרעה (כב-כה).",
+       "text_de": "Klage über das Tun der Frevler und über ihre Sorglosigkeit (Kap. 24) - Einleitung: Klage, warum der Gerichtstag nicht kommt (V. 1); Beschreibung der Verbrechen, die die Frevler begehen (V. 2-21); Schluss: Klage darüber, dass Gott die Frevler vor Unglück bewahrt (V. 22-25).",
+       "blk": "תְּשׁוּבַת אִיּוֹב לֶאֱלִיפַז בַּמַּחֲזוֹר הַשְּׁלִישִׁי 23-24",
+       "blk_de": "Ijobs Antwort an Elifas in der dritten Runde 23-24"
+      }
+     ]
     },
     {
      "ref": "25",
@@ -244,7 +617,65 @@
      "text_de": "Die Erhabenheit des Herrn, seine Größe und seine Wunder, Hiobs Behauptung seiner Gerechtigkeit, die Schande der Frevler und ihr Unheil, der Vorzug der Tora, die Leute von Sodom und ihre Strafe, Erinnerung an seine frühere Ehre, seine Gerechtigkeit und Wohltaten, Klage über seine Lage und seine Leiden (26:1–30:19)",
      "text_en": "The exaltedness of the Lord, His greatness and wonders, Job's claim of his righteousness, the disgrace of the wicked and their calamity, the merit of the Torah, the people of Sodom and their punishment, remembrance of his former honor, his righteousness and kindnesses, lament over his condition and sufferings (26:1–30:19)",
      "speaker_de": "Hiob zu seinen Freunden",
-     "speaker_en": "Job to his friends"
+     "speaker_en": "Job to his friends",
+     "sub": [
+      {
+       "ref": "26:1-7",
+       "text": "אימת אלהים מטלת על הכל",
+       "text_de": "Die Furcht vor Gott lastet auf allem",
+       "blk": "מַעֲנֵה אִיּוֹב לְבִלְדַּד בַּמַּחֲזוֹר הַשְּׁלִישִׁי 26",
+       "blk_de": "Hiobs Antwort an Bildad im dritten Redegang 26"
+      },
+      {
+       "ref": "26:2-4",
+       "text": "איוב מהתל בבלדד על דבריו",
+       "text_de": "Ijob verspottet Bildad wegen seiner Worte",
+       "blk": "מַעֲנֵה אִיּוֹב לְבִלְדַּד בַּמַּחֲזוֹר הַשְּׁלִישִׁי 26",
+       "blk_de": "Hiobs Antwort an Bildad im dritten Redegang 26"
+      },
+      {
+       "ref": "26:8-10",
+       "text": "אלהים אינו מניח למים לעבר את גבולם",
+       "text_de": "Gott lässt die Wasser ihre Grenze nicht überschreiten",
+       "blk": "מַעֲנֵה אִיּוֹב לְבִלְדַּד בַּמַּחֲזוֹר הַשְּׁלִישִׁי 26",
+       "blk_de": "Hiobs Antwort an Bildad im dritten Redegang 26"
+      },
+      {
+       "ref": "26:11-14",
+       "text": "גבורת אלהים מרעידה את איתני העולם",
+       "text_de": "Gottes Macht lässt die Urkräfte der Welt erbeben",
+       "blk": "מַעֲנֵה אִיּוֹב לְבִלְדַּד בַּמַּחֲזוֹר הַשְּׁלִישִׁי 26",
+       "blk_de": "Hiobs Antwort an Bildad im dritten Redegang 26"
+      },
+      {
+       "ref": "27",
+       "text": "שבועת איוב להחזיק ביראתו, לא כדעת הרעים (פרק כז - שבועת איוב שלא יודה לדברי הרעים (ב-יב); תאור הפרענות הראויה לבוא על רעי איוב ברשעתם (יג-כג).",
+       "text_de": "Hiobs Schwur, an seiner Gottesfurcht festzuhalten, nicht nach der Meinung der Freunde (Kap. 27 – Hiobs Schwur, den Worten der Freunde nicht zuzustimmen (V. 2-12); Schilderung des Unheils, das die Frevler unter Hiobs Freunden treffen soll (V. 13-23))",
+       "blk": "הַמָּשָׁל הָרִאשׁוֹן שֶׁל אִיּוֹב 27-28",
+       "blk_de": "Hiobs erster Spruch 27-28"
+      },
+      {
+       "ref": "28",
+       "text": "החכמה נעלמת מעין כל (פרק כח) - האדם מוציא מן האדמה דברים יקרים (א-יא); את החכמה אין למצא בשום מקום (יב-כב); אלהים לבדו מכיר את החכמה (כג-כח).",
+       "text_de": "Die Weisheit ist vor aller Augen verborgen (Kap. 28) – Der Mensch fördert Kostbares aus der Erde (V. 1-11); die Weisheit ist nirgends zu finden (V. 12-22); Gott allein kennt die Weisheit (V. 23-28)",
+       "blk": "הַמָּשָׁל הָרִאשׁוֹן שֶׁל אִיּוֹב 27-28",
+       "blk_de": "Hiobs erster Spruch 27-28"
+      },
+      {
+       "ref": "29",
+       "text": "אשרו של איוב לפנים (פרק כט) - ברכת אלהים שרתה על איוב (ב-ו); כבודו של איוב בשבתו בשער (ז-יא); עדות העם על צדקתו של איוב (יב-יז); איוב בטח בשלותו והיה אהוב ומכבד על העם (יח-כה).",
+       "text_de": "Hiobs früheres Glück (Kap. 29) – Gottes Segen ruhte auf Hiob (V. 2-6); Hiobs Ansehen beim Sitzen im Tor (V. 7-11); das Zeugnis des Volkes für Hiobs Gerechtigkeit (V. 12-17); Hiob lebte sorglos in Ruhe und war beim Volk beliebt und geehrt (V. 18-25)",
+       "blk": "הַמָּשָׁל (הַמַּעֲנֶה) הָאַחֲרוֹן שֶׁל אִיּוֹב 29-31",
+       "blk_de": "Hiobs letzter Spruch (Antwort) 29-31"
+      },
+      {
+       "ref": "30:1-24",
+       "text": "יסורי איוב עתה (ל א-כד) - תאור הנקלים המבזים את איוב (א-ח); תאור סבלו של איוב בידי אדם (ט-טו); תאור יסורי איוב בידי שמים (טז-כד).",
+       "text_de": "Hiobs jetziges Leiden (Kap. 30, 1-24) – Schilderung der Verächtlichen, die Hiob schmähen (V. 1-8); Schilderung von Hiobs Leiden durch Menschen (V. 9-15); Schilderung von Hiobs Leiden durch den Himmel (V. 16-24)",
+       "blk": "הַמָּשָׁל (הַמַּעֲנֶה) הָאַחֲרוֹן שֶׁל אִיּוֹב 29-31",
+       "blk_de": "Hiobs letzter Spruch (Antwort) 29-31"
+      }
+     ]
     },
     {
      "ref": "30:20-31:40",
@@ -253,7 +684,16 @@
      "text_de": "Warum der Herr ihn so sehr peinigt und sein Ohr vor seinem Schreien verschließt, seine Gerechtigkeit im Halten der Gebote des Herrn und seine Wohltaten an den Geschöpfen, sein Wunsch, mit dem Herrn zu rechten (30:20–31:40)",
      "text_en": "Why the Lord torments him so much and closes His ear to his cry, his righteousness in keeping the Lord's commandments and his kindnesses to people, his wish to plead with the Lord (30:20–31:40)",
      "speaker_de": "Hiob zum Herrn",
-     "speaker_en": "Job to the Lord"
+     "speaker_en": "Job to the Lord",
+     "sub": [
+      {
+       "ref": "30:25-31:40",
+       "text": "שבועות איוב על צדקתו (ל כה-לא מ) - בכה לקשה-יום (כה-לא); שמר את-עיניו מעברה (לא א-ד); שמר את-רגליו מעברה (ה-ו); לא גנב (ז-ח); לא נאף (ט-יב); נהג כשורה עם עבדיו (יג-טו); היה חונן דלים, יתומים ואלמנות (טז-כ); לא דכא יתום בשער (כא-כג); לא עבד עבודה זרה (כד-כח); לא שמח לאיד אויבו (כט-ל); הכניס אורחים (לא-לב); שבועה שאינו מעלים את-חטאתיו (לג-לד); משאלה שדבריו ישמעו ויענו (לה-לז); שבועת הסיום לאמת כל-דבריו (לח-מ).",
+       "text_de": "Hiobs Schwüre über seine Gerechtigkeit (Kap. 30, 25 – 31, 40) – Er weinte über den, der harte Tage hatte (V. 25-31); er bewahrte seine Augen vor Verfehlung (Kap. 31, 1-4); er bewahrte seine Füße vor Verfehlung (V. 5-6); er stahl nicht (V. 7-8); er beging keinen Ehebruch (V. 9-12); er verhielt sich recht gegenüber seinen Knechten (V. 13-15); er war gütig gegen Arme, Waisen und Witwen (V. 16-20); er unterdrückte keine Waise im Tor (V. 21-23); er diente keinem Götzen (V. 24-28); er freute sich nicht über das Unglück seines Feindes (V. 29-30); er nahm Gäste auf (V. 31-32); Schwur, dass er seine Sünden nicht verbirgt (V. 33-34); Wunsch, dass seine Worte gehört und beantwortet werden (V. 35-37); abschließender Schwur auf die Wahrheit aller seiner Worte (V. 38-40)",
+       "blk": "הַמָּשָׁל (הַמַּעֲנֶה) הָאַחֲרוֹן שֶׁל אִיּוֹב 29-31",
+       "blk_de": "Hiobs letzter Spruch (Antwort) 29-31"
+      }
+     ]
     }
    ],
    "head_de": "Reden Hiobs und seiner Freunde – III",
@@ -269,7 +709,16 @@
      "text_de": "Zurechtweisung der Freunde Hiobs, weil sie seinen Behauptungen nachgegeben haben (Kapitel 32)",
      "text_en": "Rebuke of Job's friends for yielding to his claims (chapter 32)",
      "speaker_de": "Elihu zu den Freunden Hiobs",
-     "speaker_en": "Elihu to Job's friends"
+     "speaker_en": "Elihu to Job's friends",
+     "sub": [
+      {
+       "ref": "32:6-22",
+       "text": "דברי התנצלות על קומו לדבר (לב ו-כב) - אליהוא הצעיר כנגד הזקנים (ו-י); גנוי שתיקתם של הרעים (יא-טז); תשוקת אליהוא לדבר (יז-כב).",
+       "text_de": "Worte der Entschuldigung für sein Auftreten zum Reden (Kap. 32, 6-22) – Elihu, der Junge, gegenüber den Alten (V. 6-10); Tadel am Schweigen der Freunde (V. 11-16); Elihus Drang zu reden (V. 17-22)",
+       "blk": "הַמַּעֲנֶה הָרִאשׁוֹן שֶׁל אֱלִיהוּא 32:6-33:33",
+       "blk_de": "Elihus erste Antwort 32:6-33:33"
+      }
+     ]
     },
     {
      "ref": "33",
@@ -278,7 +727,16 @@
      "text_de": "Er ruft Hiob auf, mit ihm statt mit dem Herrn zu rechten; Hiob wird als Frevler beschuldigt; die Leiden, die der Herr den Menschen schickt, um sie vor dem Tod zu retten (Kapitel 33)",
      "text_en": "He calls Job to contend with him instead of with the Lord; Job is accused of wickedness; the sufferings the Lord sends people in order to save them from death (chapter 33)",
      "speaker_de": "Elihu zu Hiob",
-     "speaker_en": "Elihu to Job"
+     "speaker_en": "Elihu to Job",
+     "sub": [
+      {
+       "ref": "33",
+       "text": "סתירת טענות איוב (פרק לג) - שדול לאיוב שישמע לדבריו (א-ז); חזרה קצרה על טענות איוב (ח-יא); אליהוא אומר שאיוב אינו צודק (יב-יד); תאור דבור אלהים עם האדם בחלום (טו-יח); תאור דבור אלהים וקרבתו במחלה וברפואתה (יט-ל); פניה אל איוב בבקשה שישיב לו או שיוסיף להקשיב לו (לא-לג).",
+       "text_de": "Widerlegung von Hiobs Behauptungen (Kap. 33) – Aufforderung an Hiob, auf seine Worte zu hören (V. 1-7); kurze Wiederholung von Hiobs Behauptungen (V. 8-11); Elihu sagt, Hiob habe nicht recht (V. 12-14); Schilderung, wie Gott im Traum zum Menschen spricht (V. 15-18); Schilderung, wie Gott in der Krankheit und in der Heilung spricht und nahe ist (V. 19-30); Aufruf an Hiob, ihm zu antworten oder weiter zuzuhören (V. 31-33)",
+       "blk": "הַמַּעֲנֶה הָרִאשׁוֹן שֶׁל אֱלִיהוּא 32:6-33:33",
+       "blk_de": "Elihus erste Antwort 32:6-33:33"
+      }
+     ]
     },
     {
      "ref": "34",
@@ -287,7 +745,44 @@
      "text_de": "Die Gerechtigkeit der Urteile des Herrn, das Gegenteil von Hiobs Worten, das Unheil der Frevler, das Annehmen der Leiden und das Anerkennen des Urteils, Hiobs Sünde in seinen Worten (Kapitel 34)",
      "text_en": "The righteousness of the Lord's judgments, the opposite of Job's words, the calamity of the wicked, accepting suffering and justifying the verdict, Job's sin in his words (chapter 34)",
      "speaker_de": "Elihu zu den Freunden Hiobs",
-     "speaker_en": "Elihu to Job's friends"
+     "speaker_en": "Elihu to Job's friends",
+     "sub": [
+      {
+       "ref": "34:2-9",
+       "text": "אליהוא מרצה את-טענות איוב לפני החכמים",
+       "text_de": "Elihu trägt den Weisen Hiobs Behauptungen vor",
+       "blk": "הַמַּעֲנֶה הַשֵּׁנִי שֶׁל אֱלִיהוּא 34",
+       "blk_de": "Elihus zweite Antwort 34"
+      },
+      {
+       "ref": "34:10-15",
+       "text": "אלהים אינו רשע כי הוא אדון כל",
+       "text_de": "Gott ist nicht ungerecht, denn er ist Herr über alles",
+       "blk": "הַמַּעֲנֶה הַשֵּׁנִי שֶׁל אֱלִיהוּא 34",
+       "blk_de": "Elihus zweite Antwort 34"
+      },
+      {
+       "ref": "34:16-30",
+       "text": "השגחת אלהים במדינות",
+       "text_de": "Gottes Vorsehung über die Völker",
+       "blk": "הַמַּעֲנֶה הַשֵּׁנִי שֶׁל אֱלִיהוּא 34",
+       "blk_de": "Elihus zweite Antwort 34"
+      },
+      {
+       "ref": "34:31-33",
+       "text": "מה-ראוי לומר לאל",
+       "text_de": "Was man zu Gott sagen darf",
+       "blk": "הַמַּעֲנֶה הַשֵּׁנִי שֶׁל אֱלִיהוּא 34",
+       "blk_de": "Elihus zweite Antwort 34"
+      },
+      {
+       "ref": "34:34-37",
+       "text": "סיום בפניה אל החכמים",
+       "text_de": "Abschluss mit einer Anrede an die Weisen",
+       "blk": "הַמַּעֲנֶה הַשֵּׁנִי שֶׁל אֱלִיהוּא 34",
+       "blk_de": "Elihus zweite Antwort 34"
+      }
+     ]
     },
     {
      "ref": "35",
@@ -296,7 +791,30 @@
      "text_de": "Der Lohn der Taten des Menschen gilt ihm selbst, die Langmut des Herrn gegenüber den Frevlern, Hiobs Sünden sind größer als seine Strafe (Kapitel 35)",
      "text_en": "The recompense of a person's deeds is his own, the Lord's forbearance toward the wicked, Job's sins are greater than his punishment (chapter 35)",
      "speaker_de": "Elihu zu Hiob und seinen Freunden",
-     "speaker_en": "Elihu to Job and his friends"
+     "speaker_en": "Elihu to Job and his friends",
+     "sub": [
+      {
+       "ref": "35:2-4",
+       "text": "הרצאת טענת איוב",
+       "text_de": "Darlegung von Hiobs Behauptung",
+       "blk": "הַמַּעֲנֶה הַשְּׁלִישִׁי שֶׁל אֱלִיהוּא 35",
+       "blk_de": "Elihus dritte Antwort 35"
+      },
+      {
+       "ref": "35:5-12",
+       "text": "הצדק והרשע עושים רשם באדם ולא באלהים",
+       "text_de": "Gerechtigkeit und Frevel wirken auf den Menschen, nicht auf Gott",
+       "blk": "הַמַּעֲנֶה הַשְּׁלִישִׁי שֶׁל אֱלִיהוּא 35",
+       "blk_de": "Elihus dritte Antwort 35"
+      },
+      {
+       "ref": "35:13-16",
+       "text": "יש לצפות לאלהים",
+       "text_de": "Man soll auf Gott warten",
+       "blk": "הַמַּעֲנֶה הַשְּׁלִישִׁי שֶׁל אֱלִיהוּא 35",
+       "blk_de": "Elihus dritte Antwort 35"
+      }
+     ]
     },
     {
      "ref": "36-37",
@@ -305,7 +823,23 @@
      "text_de": "Der Zweck der Leiden, die Größe und Macht des Herrn, die Wunder des Herrn in der Ordnung des Himmels, die Gerechtigkeit und das Erbarmen des Herrn (Kapitel 36–37)",
      "text_en": "The purpose of suffering, the greatness and might of the Lord, the Lord's wonders in the order of the heavens, the Lord's righteousness and mercy (chapters 36–37)",
      "speaker_de": "Elihu zu Hiob und seinen Freunden",
-     "speaker_en": "Elihu to Job and his friends"
+     "speaker_en": "Elihu to Job and his friends",
+     "sub": [
+      {
+       "ref": "36:2-21",
+       "text": "צדקת אלהים בהשגחתו על עניני בני אדם (לו ב-כא) - פתיחה: דבריו דברי אמת (לו ב-ד); הנהגת ה' עם המלכים (ה-טו); דברי עדוד לאיוב (טז-כא).",
+       "text_de": "Gottes Gerechtigkeit in seiner Vorsehung über die Angelegenheiten der Menschen (Kap. 36, 2-21) – Einleitung: Seine Worte sind Worte der Wahrheit (Kap. 36, 2-4); Gottes Walten gegenüber den Königen (V. 5-15); Worte der Ermutigung an Hiob (V. 16-21)",
+       "blk": "הַמַּעֲנֶה הָרְבִיעִי שֶׁל אֱלִיהוּא 36-37",
+       "blk_de": "Elihus vierte Antwort 36-37"
+      },
+      {
+       "ref": "36:22-37:24",
+       "text": "נפלאות אלהים בגבורות הגשם (לו כב - לז כד) - פתיחה: ראוי לשיר לאלהים (לו כב-כד); השיר אשר שוררו אנשים (לו כה - לז יג); הלקח היוצא מדברי השיר (יד-כא); סיום ברמז להופעת ה' מן הסערה (כב-כד).",
+       "text_de": "Gottes Wunder in der Macht des Regens (Kap. 36, 22 – 37, 24) – Einleitung: Gott gebührt Lobgesang (Kap. 36, 22-24); das Lied, das Menschen gesungen haben (Kap. 36, 25 – 37, 13); die Lehre aus den Worten des Liedes (V. 14-21); Abschluss mit einem Hinweis auf das Erscheinen des HERRN im Sturm (V. 22-24)",
+       "blk": "הַמַּעֲנֶה הָרְבִיעִי שֶׁל אֱלִיהוּא 36-37",
+       "blk_de": "Elihus vierte Antwort 36-37"
+      }
+     ]
     }
    ],
    "head_de": "Die Zurechtweisungen Elihus",
@@ -321,7 +855,37 @@
      "text_de": "Die Weisheit in der Erschaffung der Welt und in ihrer Lenkung, Zurechtweisung wegen seiner Worte",
      "text_en": "The wisdom in the creation of the world and its governance, rebuke for his words",
      "speaker_de": "Der Herr zu Hiob",
-     "speaker_en": "The Lord to Job"
+     "speaker_en": "The Lord to Job",
+     "sub": [
+      {
+       "ref": "38:2-3",
+       "text": "פניה שיש בה נזיפה ועדוד ביחד",
+       "text_de": "Eine Anrede, die Zurechtweisung und Ermutigung zugleich enthält",
+       "blk": "מַעֲנֵי ה' וְהִכָּנְעוּת אִיּוֹב · הַמַּעֲנֶה הָרִאשׁוֹן 38:1-40:2",
+       "blk_de": "Die Antwort des HERRN und Hiobs Unterwerfung · Die erste Antwort 38:1-40:2"
+      },
+      {
+       "ref": "38:4-38",
+       "text": "נפלאות הבורא המתגלות בדומם (לח ד-לח) - א. בארץ (ד-ז); ב. בים (ח-יא); ג. בעלות השחר (יב-טו); ד. במעמקי הארץ וברחבה, באור ובחשך (טז-כ); ה. בשלג ובגשם (כא-ל); ו. בכוכבים, בברקים, בעופות השמים ובעננים (לא-לח).",
+       "text_de": "Die Wunder des Schöpfers, die sich im Unbelebten zeigen (Kap. 38, 4-38) – 1. in der Erde (V. 4-7); 2. im Meer (V. 8-11); 3. im Anbruch der Morgenröte (V. 12-15); 4. in den Tiefen und der Weite der Erde, im Licht und in der Finsternis (V. 16-20); 5. in Schnee und Regen (V. 21-30); 6. in den Sternen, Blitzen, Vögeln des Himmels und Wolken (V. 31-38)",
+       "blk": "מַעֲנֵי ה' וְהִכָּנְעוּת אִיּוֹב · הַמַּעֲנֶה הָרִאשׁוֹן 38:1-40:2",
+       "blk_de": "Die Antwort des HERRN und Hiobs Unterwerfung · Die erste Antwort 38:1-40:2"
+      },
+      {
+       "ref": "38:39-39:30",
+       "text": "נפלאות הבריאה המתגלות בבעלי חיים (לח לט - לט ל) - א. באריה (לח לט-מ); ב. בעורב (לח מא); ג. ביעלים ובאילות (לט א-ד); ד. בפרא ובערוד (לט ה-ח); ה. בראם (לט ט-יב); ו. בעופות נפלאים (לט יג-יח); ז. בסוס (לט יט-כה); ח. בנץ ובנשר (לט כו-ל).",
+       "text_de": "Die Wunder der Schöpfung, die sich in den Tieren zeigen (Kap. 38, 39 – 39, 30) – 1. im Löwen (Kap. 38, 39-40); 2. im Raben (Kap. 38, 41); 3. in den Steinböcken und Hirschkühen (Kap. 39, 1-4); 4. im Wildesel und im Onager (Kap. 39, 5-8); 5. im Wildochsen (Kap. 39, 9-12); 6. in wunderbaren Vögeln (Kap. 39, 13-18); 7. im Pferd (Kap. 39, 19-25); 8. im Habicht und im Adler (Kap. 39, 26-30)",
+       "blk": "מַעֲנֵי ה' וְהִכָּנְעוּת אִיּוֹב · הַמַּעֲנֶה הָרִאשׁוֹן 38:1-40:2",
+       "blk_de": "Die Antwort des HERRN und Hiobs Unterwerfung · Die erste Antwort 38:1-40:2"
+      },
+      {
+       "ref": "40:1-2",
+       "text": "דרישה מאיוב לענות",
+       "text_de": "Aufforderung an Hiob zu antworten",
+       "blk": "מַעֲנֵי ה' וְהִכָּנְעוּת אִיּוֹב · הַמַּעֲנֶה הָרִאשׁוֹן 38:1-40:2",
+       "blk_de": "Die Antwort des HERRN und Hiobs Unterwerfung · Die erste Antwort 38:1-40:2"
+      }
+     ]
     },
     {
      "ref": "40:3-5",
@@ -339,7 +903,37 @@
      "text_de": "Zurechtweisung wegen seiner Worte, seine Nichtigkeit gegenüber den Machttaten und Wundern des Herrn",
      "text_en": "Rebuke for his words, his insignificance compared to the Lord's mighty deeds and wonders",
      "speaker_de": "Der Herr zu Hiob",
-     "speaker_en": "The Lord to Job"
+     "speaker_en": "The Lord to Job",
+     "sub": [
+      {
+       "ref": "40:6-7",
+       "text": "דברי עדוד לאיוב",
+       "text_de": "Worte der Ermutigung an Hiob",
+       "blk": "הַמַּעֲנֶה הַשֵּׁנִי שֶׁל ה' 40:6-41:26",
+       "blk_de": "Die zweite Antwort des HERRN 40:6-41:26"
+      },
+      {
+       "ref": "40:8-14",
+       "text": "לעג לאיוב על תלונותיו",
+       "text_de": "Spott über Hiob wegen seiner Klagen",
+       "blk": "הַמַּעֲנֶה הַשֵּׁנִי שֶׁל ה' 40:6-41:26",
+       "blk_de": "Die zweite Antwort des HERRN 40:6-41:26"
+      },
+      {
+       "ref": "40:15-24",
+       "text": "תאור בהמות",
+       "text_de": "Beschreibung der Behemot",
+       "blk": "הַמַּעֲנֶה הַשֵּׁנִי שֶׁל ה' 40:6-41:26",
+       "blk_de": "Die zweite Antwort des HERRN 40:6-41:26"
+      },
+      {
+       "ref": "40:25-41:26",
+       "text": "תאור לויתן",
+       "text_de": "Beschreibung des Leviatan",
+       "blk": "הַמַּעֲנֶה הַשֵּׁנִי שֶׁל ה' 40:6-41:26",
+       "blk_de": "Die zweite Antwort des HERRN 40:6-41:26"
+      }
+     ]
     },
     {
      "ref": "42:1-6",
@@ -376,6 +970,6 @@
  ],
  "title_de": "Inhalt des Buches Hiob",
  "title_en": "Contents of the Book of Job",
- "note_de": "Abgeschrieben aus einer Übersichtstabelle (SifreiKodesh) und übersetzt.",
- "note_en": "Transcribed from an overview table (SifreiKodesh) and translated."
+ "note_de": "Abgeschrieben aus einer Übersichtstabelle (SifreiKodesh) und übersetzt. Unterpunkte aus der Gliederung von „Da'at Mikra“ (Teilpunkte mit Versangaben, mit Hinweis auf den jeweiligen Abschnitt) ergänzt und ins Deutsche übersetzt.",
+ "note_en": "Transcribed from an overview table (SifreiKodesh) and translated. Sub-points from the Da'at Mikra outlines (parts with verse references, labelled with their section) added; German translation."
 }

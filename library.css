@@ -810,3 +810,10 @@ html[data-tab=dict] #dictPanel.pinp:not(.docked) { box-shadow: none; }
 .aref{color:var(--accent);cursor:pointer;text-decoration:underline dotted;text-underline-offset:3px}
 .aref:hover{text-decoration:underline}
 .aref.dmiss{opacity:.55;text-decoration:line-through;cursor:help}
+/* Gliederung: Überpunkte mit Unterpunkten (z. B. Da'at Mikra) */
+#olBody .olp.olsub { font-size: 13px; margin-inline-start: 34px; border-inline-start: 1px solid color-mix(in srgb, var(--accent) 35%, transparent); }
+#olBody .olp .oln { color: var(--muted, #999); font-weight: 500; }
+#olBody .olp.olorph { font-style: italic; }
+#olBody .olchip { margin: 5px 0 1px 34px; padding: 1px 8px; font-size: 11px; color: var(--muted, #999); border-inline-start: 3px solid color-mix(in srgb, var(--accent) 55%, transparent); background: color-mix(in srgb, var(--accent) 7%, transparent); border-radius: 0 6px 6px 0; }
+#olBody .olp .oltg { flex: none; width: 14px; margin-inline-end: -2px; font-size: 12px; text-align: center; cursor: pointer; user-select: none; color: var(--muted, #999); }
+#olBody .olp .oltg:hover { color: var(--accent); }

@@ -1,7 +1,7 @@
 {
  "book": "I Kings",
  "title": "תוכן ספר מלכים א",
- "note": "Abgeschrieben aus einer Übersichtstabelle (SifreiKodesh). Jahre/Daten nach der jüdischen Zählung, wie in der Vorlage gedruckt.",
+ "note": "Abgeschrieben aus einer Übersichtstabelle (SifreiKodesh). Jahre/Daten nach der jüdischen Zählung, wie in der Vorlage gedruckt. · הורחב בחלוקת דעת מקרא (פסקאות עם מראי מקום).",
  "sections": [
   {
    "head": "שלמה [בן דוד] המלך",
@@ -16,7 +16,79 @@
      "place_de": "Jerusalem [En-Rogel, Gihon]",
      "place_en": "Jerusalem [En-rogel, Gihon]",
      "time_de": "2924",
-     "time_en": "2924"
+     "time_en": "2924",
+     "sub": [
+      {
+       "ref": "1:1-4",
+       "text": "פְּתִיחָה: מַחֲלָתוֹ שֶׁל דָּוִד",
+       "text_de": "Einleitung: Davids Krankheit",
+       "blk": "שְׁלֹמֹה נִמְשַׁח לְמֶלֶךְ עַל כָּל יִשְׂרָאֵל בִּידֵי דָוִד 1:1-2:12",
+       "blk_de": "Salomo wird von David zum König über ganz Israel gesalbt 1:1-2:12"
+      },
+      {
+       "ref": "1:5-10",
+       "text": "אֲדֹנִיָּהוּ מֵקִים לוֹ סִיעָה וְעוֹרֵךְ סְעֻדַּת זֶבַח פַּמְבִּית",
+       "text_de": "Adonija sammelt eine Anhängerschaft und veranstaltet ein öffentliches Opfermahl",
+       "blk": "שְׁלֹמֹה נִמְשַׁח לְמֶלֶךְ עַל כָּל יִשְׂרָאֵל בִּידֵי דָוִד 1:1-2:12",
+       "blk_de": "Salomo wird von David zum König über ganz Israel gesalbt 1:1-2:12"
+      },
+      {
+       "ref": "1:11-14",
+       "text": "עֲצַת נָתָן לְבַת־שָׁבַע",
+       "text_de": "Natans Rat an Batseba",
+       "blk": "שְׁלֹמֹה נִמְשַׁח לְמֶלֶךְ עַל כָּל יִשְׂרָאֵל בִּידֵי דָוִד 1:1-2:12",
+       "blk_de": "Salomo wird von David zum König über ganz Israel gesalbt 1:1-2:12"
+      },
+      {
+       "ref": "1:15-21",
+       "text": "בַּת־שֶׁבַע מַעֲמִידָה אֶת דָּוִד עַל חֻמְרַת מַצָּבָהּ וּמַצַּב שְׁלֹמֹה בְנָהּ",
+       "text_de": "Batseba macht David auf ihre Lage und die Lage ihres Sohnes Salomo aufmerksam",
+       "blk": "שְׁלֹמֹה נִמְשַׁח לְמֶלֶךְ עַל כָּל יִשְׂרָאֵל בִּידֵי דָוִד 1:1-2:12",
+       "blk_de": "Salomo wird von David zum König über ganz Israel gesalbt 1:1-2:12"
+      },
+      {
+       "ref": "1:22-27",
+       "text": "נָתָן בָּא לְדָוִד וּמְמַלֵּא אַחֲרֵי דִבְרֵי בַּת־שָׁבַע",
+       "text_de": "Natan kommt zu David und bestätigt die Worte Batsebas",
+       "blk": "שְׁלֹמֹה נִמְשַׁח לְמֶלֶךְ עַל כָּל יִשְׂרָאֵל בִּידֵי דָוִד 1:1-2:12",
+       "blk_de": "Salomo wird von David zum König über ganz Israel gesalbt 1:1-2:12"
+      },
+      {
+       "ref": "1:28-31",
+       "text": "דָּוִד חוֹזֵר וְנִשְׁבָּע לְבַת־שֶׁבַע שֶׁשְּׁלֹמֹה יִמְלֹךְ אַחֲרָיו",
+       "text_de": "David schwört Batseba erneut, dass Salomo nach ihm König sein wird",
+       "blk": "שְׁלֹמֹה נִמְשַׁח לְמֶלֶךְ עַל כָּל יִשְׂרָאֵל בִּידֵי דָוִד 1:1-2:12",
+       "blk_de": "Salomo wird von David zum König über ganz Israel gesalbt 1:1-2:12"
+      },
+      {
+       "ref": "1:32-37",
+       "text": "דָּוִד מְצַוֶּה לִמְשֹׁחַ בּוֹ בַּיּוֹם אֶת שְׁלֹמֹה לְמֶלֶךְ",
+       "text_de": "David befiehlt, Salomo noch am selben Tag zum König zu salben",
+       "blk": "שְׁלֹמֹה נִמְשַׁח לְמֶלֶךְ עַל כָּל יִשְׂרָאֵל בִּידֵי דָוִד 1:1-2:12",
+       "blk_de": "Salomo wird von David zum König über ganz Israel gesalbt 1:1-2:12"
+      },
+      {
+       "ref": "1:38-40",
+       "text": "שְׁלֹמֹה נִמְשַׁח לְמֶלֶךְ",
+       "text_de": "Salomo wird zum König gesalbt",
+       "blk": "שְׁלֹמֹה נִמְשַׁח לְמֶלֶךְ עַל כָּל יִשְׂרָאֵל בִּידֵי דָוִד 1:1-2:12",
+       "blk_de": "Salomo wird von David zum König über ganz Israel gesalbt 1:1-2:12"
+      },
+      {
+       "ref": "1:41-49",
+       "text": "בְּשׂוֹרַת הַמְּשִׁיחָה מַגִּיעָה אֶל אֲדֹנִיָּהוּ וְסִיעָתוֹ",
+       "text_de": "Die Nachricht von der Salbung erreicht Adonija und seine Anhänger",
+       "blk": "שְׁלֹמֹה נִמְשַׁח לְמֶלֶךְ עַל כָּל יִשְׂרָאֵל בִּידֵי דָוִד 1:1-2:12",
+       "blk_de": "Salomo wird von David zum König über ganz Israel gesalbt 1:1-2:12"
+      },
+      {
+       "ref": "1:50-53",
+       "text": "שְׁלֹמֹה סוֹלֵחַ לַאֲדֹנִיָּהוּ",
+       "text_de": "Salomo verzeiht Adonija",
+       "blk": "שְׁלֹמֹה נִמְשַׁח לְמֶלֶךְ עַל כָּל יִשְׂרָאֵל בִּידֵי דָוִד 1:1-2:12",
+       "blk_de": "Salomo wird von David zum König über ganz Israel gesalbt 1:1-2:12"
+      }
+     ]
     },
     {
      "ref": "2:1-10",
@@ -31,7 +103,23 @@
      "par_de": "Fortsetzung von: 2. Samuel 3:26–27; 16:5–13; 19:16–24; 20:9–10; oben 1:7 · Wiederholung und Erweiterung: 1. Chronik 28–29 · Fluch über Elis Söhne: 1. Samuel 2:27–36",
      "par_en": "Continuation of: 2 Samuel 3:26–27; 16:5–13; 19:16–24; 20:9–10; above 1:7 · Repeated and expanded: 1 Chronicles 28–29 · Curse on Eli's sons: 1 Samuel 2:27–36",
      "time_de": "2924",
-     "time_en": "2924"
+     "time_en": "2924",
+     "sub": [
+      {
+       "ref": "2:1-9",
+       "text": "צַוָּאַת דָּוִד לִשְׁלֹמֹה",
+       "text_de": "Davids Vermächtnis an Salomo",
+       "blk": "שְׁלֹמֹה נִמְשַׁח לְמֶלֶךְ עַל כָּל יִשְׂרָאֵל בִּידֵי דָוִד 1:1-2:12",
+       "blk_de": "Salomo wird von David zum König über ganz Israel gesalbt 1:1-2:12"
+      },
+      {
+       "ref": "2:10-12",
+       "text": "חֲתִימָה: מוֹת דָּוִד",
+       "text_de": "Schluss: Davids Tod",
+       "blk": "שְׁלֹמֹה נִמְשַׁח לְמֶלֶךְ עַל כָּל יִשְׂרָאֵל בִּידֵי דָוִד 1:1-2:12",
+       "blk_de": "Salomo wird von David zum König über ganz Israel gesalbt 1:1-2:12"
+      }
+     ]
     },
     {
      "ref": "2:11-46",
@@ -43,7 +131,37 @@
      "place_de": "Jerusalem",
      "place_en": "Jerusalem",
      "par_de": "Fortsetzung von: 2. Samuel 3:26–27; 16:5–13; 19:16–24; 20:9–10; oben 1:7 · Wiederholung und Erweiterung: 1. Chronik 28–29 · Fluch über Elis Söhne: 1. Samuel 2:27–36",
-     "par_en": "Continuation of: 2 Samuel 3:26–27; 16:5–13; 19:16–24; 20:9–10; above 1:7 · Repeated and expanded: 1 Chronicles 28–29 · Curse on Eli's sons: 1 Samuel 2:27–36"
+     "par_en": "Continuation of: 2 Samuel 3:26–27; 16:5–13; 19:16–24; 20:9–10; above 1:7 · Repeated and expanded: 1 Chronicles 28–29 · Curse on Eli's sons: 1 Samuel 2:27–36",
+     "sub": [
+      {
+       "ref": "2:13-25",
+       "text": "מַעֲשֵׂה אֲדֹנִיָּהוּ",
+       "text_de": "Die Geschichte von Adonija",
+       "blk": "הַמַּמְלָכָה נָכוֹנָה בְּיַד־שְׁלֹמֹה 2:13-4:1",
+       "blk_de": "Das Königreich ist in Salomos Hand gefestigt 2:13-4:1"
+      },
+      {
+       "ref": "2:26-27",
+       "text": "מַעֲשֵׂה אֶבְיָתָר",
+       "text_de": "Die Geschichte von Abjatar",
+       "blk": "הַמַּמְלָכָה נָכוֹנָה בְּיַד־שְׁלֹמֹה 2:13-4:1",
+       "blk_de": "Das Königreich ist in Salomos Hand gefestigt 2:13-4:1"
+      },
+      {
+       "ref": "2:28-35",
+       "text": "מַעֲשֵׂה יוֹאָב",
+       "text_de": "Die Geschichte von Joab",
+       "blk": "הַמַּמְלָכָה נָכוֹנָה בְּיַד־שְׁלֹמֹה 2:13-4:1",
+       "blk_de": "Das Königreich ist in Salomos Hand gefestigt 2:13-4:1"
+      },
+      {
+       "ref": "2:36-46",
+       "text": "מַעֲשֵׂה שִׁמְעִי",
+       "text_de": "Die Geschichte von Schimi",
+       "blk": "הַמַּמְלָכָה נָכוֹנָה בְּיַד־שְׁלֹמֹה 2:13-4:1",
+       "blk_de": "Das Königreich ist in Salomos Hand gefestigt 2:13-4:1"
+      }
+     ]
     },
     {
      "ref": "3:1-15",
@@ -58,7 +176,23 @@
      "par_de": "Wiederholung: 2. Chronik 1:1–13",
      "par_en": "Repeated: 2 Chronicles 1:1–13",
      "time_de": "2924",
-     "time_en": "2924"
+     "time_en": "2924",
+     "sub": [
+      {
+       "ref": "3:1",
+       "text": "שְׁלֹמֹה מִתְחַתֵּן בְּפַרְעֹה",
+       "text_de": "Salomo verschwägert sich mit dem Pharao",
+       "blk": "הַמַּמְלָכָה נָכוֹנָה בְּיַד־שְׁלֹמֹה 2:13-4:1",
+       "blk_de": "Das Königreich ist in Salomos Hand gefestigt 2:13-4:1"
+      },
+      {
+       "ref": "3:3-15",
+       "text": "הֲלִיכַת שְׁלֹמֹה לְגִבְעוֹן וּמַרְאֵה הַלַּיְלָה הָרִאשׁוֹן",
+       "text_de": "Salomos Gang nach Gibeon und die erste nächtliche Erscheinung",
+       "blk": "הַמַּמְלָכָה נָכוֹנָה בְּיַד־שְׁלֹמֹה 2:13-4:1",
+       "blk_de": "Das Königreich ist in Salomos Hand gefestigt 2:13-4:1"
+      }
+     ]
     },
     {
      "ref": "3:16-28",
@@ -67,13 +201,59 @@
      "text_de": "Das Urteil Salomos",
      "text_en": "The judgment of Solomon",
      "place_de": "Jerusalem",
-     "place_en": "Jerusalem"
+     "place_en": "Jerusalem",
+     "sub": [
+      {
+       "ref": "3:16-4:1",
+       "text": "מִשְׁפַּט שְׁלֹמֹה",
+       "text_de": "Das Urteil Salomos",
+       "blk": "הַמַּמְלָכָה נָכוֹנָה בְּיַד־שְׁלֹמֹה 2:13-4:1",
+       "blk_de": "Das Königreich ist in Salomos Hand gefestigt 2:13-4:1"
+      }
+     ]
     },
     {
      "ref": "4:1-5:14",
      "text": "שריו, ניצביו, עושרו וחכמתו",
      "text_de": "Seine Beamten, seine Statthalter, sein Reichtum und seine Weisheit",
-     "text_en": "His officials, his prefects, his wealth and his wisdom"
+     "text_en": "His officials, his prefects, his wealth and his wisdom",
+     "sub": [
+      {
+       "ref": "4:2-6",
+       "text": "שָׂרֵי שְׁלֹמֹה",
+       "text_de": "Die Obersten Salomos",
+       "blk": "מִנְהַל הַמַּמְלָכָה, חָכְמַת שְׁלֹמֹה וּפִרְסוּמָהּ בֵּין הָעַמִּים 4:2-5:14",
+       "blk_de": "Verwaltung des Königreichs, Salomos Weisheit und ihr Ruhm unter den Völkern 4:2-5:14"
+      },
+      {
+       "ref": "4:7-20",
+       "text": "נִצָּבֵי שְׁלֹמֹה",
+       "text_de": "Die Statthalter Salomos",
+       "blk": "מִנְהַל הַמַּמְלָכָה, חָכְמַת שְׁלֹמֹה וּפִרְסוּמָהּ בֵּין הָעַמִּים 4:2-5:14",
+       "blk_de": "Verwaltung des Königreichs, Salomos Weisheit und ihr Ruhm unter den Völkern 4:2-5:14"
+      },
+      {
+       "ref": "5:1-5",
+       "text": "גְּבוּל מַמְלֶכֶת שְׁלֹמֹה וְ׳לֶחֶם שְׁלֹמֹה׳",
+       "text_de": "Das Gebiet des Königreichs Salomos und „Salomos Tisch“",
+       "blk": "מִנְהַל הַמַּמְלָכָה, חָכְמַת שְׁלֹמֹה וּפִרְסוּמָהּ בֵּין הָעַמִּים 4:2-5:14",
+       "blk_de": "Verwaltung des Königreichs, Salomos Weisheit und ihr Ruhm unter den Völkern 4:2-5:14"
+      },
+      {
+       "ref": "5:6-8",
+       "text": "חֵיל הָרֶכֶב",
+       "text_de": "Die Streitwagentruppe",
+       "blk": "מִנְהַל הַמַּמְלָכָה, חָכְמַת שְׁלֹמֹה וּפִרְסוּמָהּ בֵּין הָעַמִּים 4:2-5:14",
+       "blk_de": "Verwaltung des Königreichs, Salomos Weisheit und ihr Ruhm unter den Völkern 4:2-5:14"
+      },
+      {
+       "ref": "5:9-14",
+       "text": "חָכְמַת שְׁלֹמֹה וּפִרְסוּמָהּ בֵּין הָעַמִּים",
+       "text_de": "Salomos Weisheit und ihr Ruhm unter den Völkern",
+       "blk": "מִנְהַל הַמַּמְלָכָה, חָכְמַת שְׁלֹמֹה וּפִרְסוּמָהּ בֵּין הָעַמִּים 4:2-5:14",
+       "blk_de": "Verwaltung des Königreichs, Salomos Weisheit und ihr Ruhm unter den Völkern 4:2-5:14"
+      }
+     ]
     },
     {
      "ref": "5:15-32",
@@ -85,7 +265,16 @@
      "place_de": "Jerusalem, Libanon",
      "place_en": "Jerusalem, Lebanon",
      "par_de": "Wiederholung: 2. Chronik 1:18–2:17",
-     "par_en": "Repeated: 2 Chronicles 1:18–2:17"
+     "par_en": "Repeated: 2 Chronicles 1:18–2:17",
+     "sub": [
+      {
+       "ref": "5:15-32",
+       "text": "ההכנות שעשה שלמה לבנין המקדש והברית בינו לבין חירם",
+       "text_de": "Salomos Vorbereitungen für den Tempelbau und sein Bund mit Hiram",
+       "blk": "בִּנְיַן בֵּית הַמִּקְדָּשׁ וּבִנְיַן בֵּית הַמֶּלֶךְ 5:15-7:51",
+       "blk_de": "Der Bau des Tempels und der Bau des Königshauses 5:15-7:51"
+      }
+     ]
     },
     {
      "ref": "6",
@@ -100,7 +289,44 @@
      "par_de": "Gebot: Exodus 25:9 (nach einigen Auslegern); Deuteronomium 12:4–14 (nach einigen Auslegern) · Bau und Geräte des Tempels: Exodus 25:10–40; 27:1–8; 30:1–10; 2. Könige 25:13–17; Jeremia 52:17–23; 2. Chronik 3:1–5:1 · Verbot behauener Steine: Exodus 20:22",
      "par_en": "The command: Exodus 25:9 (according to some commentators); Deuteronomy 12:4–14 (according to some commentators) · Construction and vessels of the Temple: Exodus 25:10–40; 27:1–8; 30:1–10; 2 Kings 25:13–17; Jeremiah 52:17–23; 2 Chronicles 3:1–5:1 · Prohibition of hewn stones: Exodus 20:22",
      "time_de": "Ijar 2928 – Cheschwan 2935",
-     "time_en": "Iyar 2928 – Cheshvan 2935"
+     "time_en": "Iyar 2928 – Cheshvan 2935",
+     "sub": [
+      {
+       "ref": "6:1",
+       "text": "פתיחה לבנין הבית",
+       "text_de": "Einleitung zum Bau des Hauses",
+       "blk": "בִּנְיַן בֵּית הַמִּקְדָּשׁ וּבִנְיַן בֵּית הַמֶּלֶךְ 5:15-7:51",
+       "blk_de": "Der Bau des Tempels und der Bau des Königshauses 5:15-7:51"
+      },
+      {
+       "ref": "6:1-13",
+       "text": "הבטחת ה'",
+       "text_de": "Die Verheißung des HERRN",
+       "blk": "בִּנְיַן בֵּית הַמִּקְדָּשׁ וּבִנְיַן בֵּית הַמֶּלֶךְ 5:15-7:51",
+       "blk_de": "Der Bau des Tempels und der Bau des Königshauses 5:15-7:51"
+      },
+      {
+       "ref": "6:2-10",
+       "text": "בנין הבית",
+       "text_de": "Der Bau des Hauses",
+       "blk": "בִּנְיַן בֵּית הַמִּקְדָּשׁ וּבִנְיַן בֵּית הַמֶּלֶךְ 5:15-7:51",
+       "blk_de": "Der Bau des Tempels und der Bau des Königshauses 5:15-7:51"
+      },
+      {
+       "ref": "6:14-36",
+       "text": "הבית מבפנים",
+       "text_de": "Das Haus von innen",
+       "blk": "בִּנְיַן בֵּית הַמִּקְדָּשׁ וּבִנְיַן בֵּית הַמֶּלֶךְ 5:15-7:51",
+       "blk_de": "Der Bau des Tempels und der Bau des Königshauses 5:15-7:51"
+      },
+      {
+       "ref": "6:37-38",
+       "text": "חתימה לבנין הבית",
+       "text_de": "Schluss zum Bau des Hauses",
+       "blk": "בִּנְיַן בֵּית הַמִּקְדָּשׁ וּבִנְיַן בֵּית הַמֶּלֶךְ 5:15-7:51",
+       "blk_de": "Der Bau des Tempels und der Bau des Königshauses 5:15-7:51"
+      }
+     ]
     },
     {
      "ref": "7:1-12",
@@ -112,7 +338,16 @@
      "place_de": "Jerusalem",
      "place_en": "Jerusalem",
      "time_de": "2935–2948",
-     "time_en": "2935–2948"
+     "time_en": "2935–2948",
+     "sub": [
+      {
+       "ref": "7:1-12",
+       "text": "בית שלמה",
+       "text_de": "Das Haus Salomos",
+       "blk": "בִּנְיַן בֵּית הַמִּקְדָּשׁ וּבִנְיַן בֵּית הַמֶּלֶךְ 5:15-7:51",
+       "blk_de": "Der Bau des Tempels und der Bau des Königshauses 5:15-7:51"
+      }
+     ]
     },
     {
      "ref": "7:13-51",
@@ -127,7 +362,16 @@
      "par_de": "Gebot: Exodus 25:9 (nach einigen Auslegern); Deuteronomium 12:4–14 (nach einigen Auslegern) · Bau und Geräte des Tempels: Exodus 25:10–40; 27:1–8; 30:1–10; 2. Könige 25:13–17; Jeremia 52:17–23; 2. Chronik 3:1–5:1 · Verbot behauener Steine: Exodus 20:22",
      "par_en": "The command: Exodus 25:9 (according to some commentators); Deuteronomy 12:4–14 (according to some commentators) · Construction and vessels of the Temple: Exodus 25:10–40; 27:1–8; 30:1–10; 2 Kings 25:13–17; Jeremiah 52:17–23; 2 Chronicles 3:1–5:1 · Prohibition of hewn stones: Exodus 20:22",
      "time_de": "Ijar 2928 – Cheschwan 2935",
-     "time_en": "Iyar 2928 – Cheshvan 2935"
+     "time_en": "Iyar 2928 – Cheshvan 2935",
+     "sub": [
+      {
+       "ref": "7:13-51",
+       "text": "מלאכת העמודים, המכונות, הכיורות ושאר כלי המקדש",
+       "text_de": "Die Arbeit an den Säulen, den Gestellen, den Becken und den übrigen Tempelgeräten",
+       "blk": "בִּנְיַן בֵּית הַמִּקְדָּשׁ וּבִנְיַן בֵּית הַמֶּלֶךְ 5:15-7:51",
+       "blk_de": "Der Bau des Tempels und der Bau des Königshauses 5:15-7:51"
+      }
+     ]
     },
     {
      "ref": "8",
@@ -142,7 +386,51 @@
      "par_de": "Wiederholung: 2. Chronik 5:1–7:11 · Lied dazu: Psalm 30 (nach einigen Auslegern) · Einweihung des Zeltheiligtums: Levitikus 8–9 · Einweihungen des Tempels: Ezechiel 43:18–27; 45:18–25 (nach einigen Auslegern); Esra 6:16–18",
      "par_en": "Repeated: 2 Chronicles 5:1–7:11 · Song about it: Psalms 30 (according to some commentators) · Dedication of the Tabernacle: Leviticus 8–9 · Dedications of the Temple: Ezekiel 43:18–27; 45:18–25 (according to some commentators); Ezra 6:16–18",
      "time_de": "Tischri 2936",
-     "time_en": "Tishri 2936"
+     "time_en": "Tishri 2936",
+     "sub": [
+      {
+       "ref": "8:1-9",
+       "text": "העלאת הארון מעיר דוד והכנסתו אל קדש הקדשים",
+       "text_de": "Die Heraufführung der Lade aus der Stadt Davids und ihre Überführung ins Allerheiligste",
+       "blk": "חֲנֻכַּת הַמִּקְדָּשׁ וּתְפִלַּת שְׁלֹמֹה 8",
+       "blk_de": "Die Einweihung des Tempels und das Gebet Salomos 8"
+      },
+      {
+       "ref": "8:10-11",
+       "text": "הבית מלא כבוד ה'",
+       "text_de": "Das Haus ist erfüllt von der Herrlichkeit des HERRN",
+       "blk": "חֲנֻכַּת הַמִּקְדָּשׁ וּתְפִלַּת שְׁלֹמֹה 8",
+       "blk_de": "Die Einweihung des Tempels und das Gebet Salomos 8"
+      },
+      {
+       "ref": "8:12-21",
+       "text": "ברכת שלמה",
+       "text_de": "Der Segen Salomos",
+       "blk": "חֲנֻכַּת הַמִּקְדָּשׁ וּתְפִלַּת שְׁלֹמֹה 8",
+       "blk_de": "Die Einweihung des Tempels und das Gebet Salomos 8"
+      },
+      {
+       "ref": "8:22-53",
+       "text": "תפלת שלמה",
+       "text_de": "Das Gebet Salomos",
+       "blk": "חֲנֻכַּת הַמִּקְדָּשׁ וּתְפִלַּת שְׁלֹמֹה 8",
+       "blk_de": "Die Einweihung des Tempels und das Gebet Salomos 8"
+      },
+      {
+       "ref": "8:54-61",
+       "text": "ברכת שלמה לכל קהל ישראל",
+       "text_de": "Salomos Segen für die ganze Gemeinde Israels",
+       "blk": "חֲנֻכַּת הַמִּקְדָּשׁ וּתְפִלַּת שְׁלֹמֹה 8",
+       "blk_de": "Die Einweihung des Tempels und das Gebet Salomos 8"
+      },
+      {
+       "ref": "8:62-66",
+       "text": "קרבנות החנכה וקרבנות החג",
+       "text_de": "Die Einweihungsopfer und die Festopfer",
+       "blk": "חֲנֻכַּת הַמִּקְדָּשׁ וּתְפִלַּת שְׁלֹמֹה 8",
+       "blk_de": "Die Einweihung des Tempels und das Gebet Salomos 8"
+      }
+     ]
     },
     {
      "ref": "9:1-9",
@@ -172,7 +460,51 @@
      "par_de": "Wiederholung und Erweiterung: 2. Chronik 8",
      "par_en": "Repeated and expanded: 2 Chronicles 8",
      "time_de": "2948",
-     "time_en": "2948"
+     "time_en": "2948",
+     "sub": [
+      {
+       "ref": "9:10",
+       "text": "פתיחה",
+       "text_de": "Einleitung",
+       "blk": "שְׁאָר מַעֲשֵׂי שְׁלֹמֹה 9:10-28",
+       "blk_de": "Die übrigen Taten Salomos 9:10-28"
+      },
+      {
+       "ref": "9:11-14",
+       "text": "בין שלמה לחירם",
+       "text_de": "Zwischen Salomo und Hiram",
+       "blk": "שְׁאָר מַעֲשֵׂי שְׁלֹמֹה 9:10-28",
+       "blk_de": "Die übrigen Taten Salomos 9:10-28"
+      },
+      {
+       "ref": "9:15-23",
+       "text": "בנין הערים בכל ארץ ממשלתו בידי אנשי המס",
+       "text_de": "Der Bau der Städte im ganzen Herrschaftsgebiet durch die Frondienstpflichtigen",
+       "blk": "שְׁאָר מַעֲשֵׂי שְׁלֹמֹה 9:10-28",
+       "blk_de": "Die übrigen Taten Salomos 9:10-28"
+      },
+      {
+       "ref": "9:24",
+       "text": "בנין הבית לבת-פרעה",
+       "text_de": "Der Bau des Hauses für die Tochter des Pharao",
+       "blk": "שְׁאָר מַעֲשֵׂי שְׁלֹמֹה 9:10-28",
+       "blk_de": "Die übrigen Taten Salomos 9:10-28"
+      },
+      {
+       "ref": "9:25",
+       "text": "שלמה שוקד על שלמות העבודה בבית המקדש",
+       "text_de": "Salomo sorgt für die Vollendung der Arbeit am Tempel",
+       "blk": "שְׁאָר מַעֲשֵׂי שְׁלֹמֹה 9:10-28",
+       "blk_de": "Die übrigen Taten Salomos 9:10-28"
+      },
+      {
+       "ref": "9:26-28",
+       "text": "הסחר הבין-ימי המשתף של שלמה וחירם",
+       "text_de": "Der gemeinsame Seehandel Salomos und Hirams",
+       "blk": "שְׁאָר מַעֲשֵׂי שְׁלֹמֹה 9:10-28",
+       "blk_de": "Die übrigen Taten Salomos 9:10-28"
+      }
+     ]
     },
     {
      "ref": "10:1-13",
@@ -184,7 +516,16 @@
      "place_de": "Jerusalem",
      "place_en": "Jerusalem",
      "par_de": "Wiederholung: 2. Chronik 9:1–12",
-     "par_en": "Repeated: 2 Chronicles 9:1–12"
+     "par_en": "Repeated: 2 Chronicles 9:1–12",
+     "sub": [
+      {
+       "ref": "10:1-13",
+       "text": "מעשה מלכת-שבא",
+       "text_de": "Die Geschichte der Königin von Saba",
+       "blk": "חָכְמַת שְׁלֹמֹה, עָשְׁרוֹ, גְּדֻלָּתוֹ וְתָקְפּוֹ 10",
+       "blk_de": "Salomos Weisheit, Reichtum, Größe und Macht 10"
+      }
+     ]
     },
     {
      "ref": "10:14-29",
@@ -196,7 +537,44 @@
      "place_de": "Jerusalem",
      "place_en": "Jerusalem",
      "par_de": "Wiederholung: 2. Chronik 9:13–28",
-     "par_en": "Repeated: 2 Chronicles 9:13–28"
+     "par_en": "Repeated: 2 Chronicles 9:13–28",
+     "sub": [
+      {
+       "ref": "10:14-15",
+       "text": "מקורות עשרו של שלמה",
+       "text_de": "Die Quellen von Salomos Reichtum",
+       "blk": "חָכְמַת שְׁלֹמֹה, עָשְׁרוֹ, גְּדֻלָּתוֹ וְתָקְפּוֹ 10",
+       "blk_de": "Salomos Weisheit, Reichtum, Größe und Macht 10"
+      },
+      {
+       "ref": "10:16-17",
+       "text": "צנות הזהב ומגני הזהב",
+       "text_de": "Die goldenen Schilde und Tartschen",
+       "blk": "חָכְמַת שְׁלֹמֹה, עָשְׁרוֹ, גְּדֻלָּתוֹ וְתָקְפּוֹ 10",
+       "blk_de": "Salomos Weisheit, Reichtum, Größe und Macht 10"
+      },
+      {
+       "ref": "10:18-20",
+       "text": "כסא שלמה",
+       "text_de": "Der Thron Salomos",
+       "blk": "חָכְמַת שְׁלֹמֹה, עָשְׁרוֹ, גְּדֻלָּתוֹ וְתָקְפּוֹ 10",
+       "blk_de": "Salomos Weisheit, Reichtum, Größe und Macht 10"
+      },
+      {
+       "ref": "10:21-25",
+       "text": "עשרו וגדלתו",
+       "text_de": "Sein Reichtum und seine Größe",
+       "blk": "חָכְמַת שְׁלֹמֹה, עָשְׁרוֹ, גְּדֻלָּתוֹ וְתָקְפּוֹ 10",
+       "blk_de": "Salomos Weisheit, Reichtum, Größe und Macht 10"
+      },
+      {
+       "ref": "10:26-29",
+       "text": "הרכב והסוסים",
+       "text_de": "Die Streitwagen und die Pferde",
+       "blk": "חָכְמַת שְׁלֹמֹה, עָשְׁרוֹ, גְּדֻלָּתוֹ וְתָקְפּוֹ 10",
+       "blk_de": "Salomos Weisheit, Reichtum, Größe und Macht 10"
+      }
+     ]
     },
     {
      "ref": "11:1-25",
@@ -208,7 +586,30 @@
      "place_de": "Jerusalem",
      "place_en": "Jerusalem",
      "par_de": "Beginn der Sache und Wiederholung: 2. Samuel 8:13; 1. Chronik 18:1–14 · Erwähnung: Nehemia 13:26 · Königtum für Davids Nachkommen: 2. Samuel 7:12–29; Psalm 89; 132:11–12",
-     "par_en": "Beginning of the matter, and repetition: 2 Samuel 8:13; 1 Chronicles 18:1–14 · Mention: Nehemiah 13:26 · Kingship for David's descendants: 2 Samuel 7:12–29; Psalms 89; 132:11–12"
+     "par_en": "Beginning of the matter, and repetition: 2 Samuel 8:13; 1 Chronicles 18:1–14 · Mention: Nehemiah 13:26 · Kingship for David's descendants: 2 Samuel 7:12–29; Psalms 89; 132:11–12",
+     "sub": [
+      {
+       "ref": "11:1-10",
+       "text": "החטא: הנשים הנכריות מחטיאות את שלמה",
+       "text_de": "Die Sünde: Die fremden Frauen verleiten Salomo zur Sünde",
+       "blk": "הַחֵטְא וְעָנְשׁוֹ 11",
+       "blk_de": "Die Sünde und ihre Strafe 11"
+      },
+      {
+       "ref": "11:11-13",
+       "text": "העונש בידי שמים",
+       "text_de": "Die Strafe von Gott",
+       "blk": "הַחֵטְא וְעָנְשׁוֹ 11",
+       "blk_de": "Die Sünde und ihre Strafe 11"
+      },
+      {
+       "ref": "11:14-25",
+       "text": "ה'שטנים' מאדום ומארם ומעשי מרידותיהם",
+       "text_de": "Die „Widersacher“ aus Edom und Aram und ihre Aufstände",
+       "blk": "הַחֵטְא וְעָנְשׁוֹ 11",
+       "blk_de": "Die Sünde und ihre Strafe 11"
+      }
+     ]
     },
     {
      "ref": "11:26-40",
@@ -220,7 +621,23 @@
      "place_de": "Jerusalem, Ägypten",
      "place_en": "Jerusalem, Egypt",
      "par_de": "Prophezeiung darüber: Genesis 49:10 (nach einigen Auslegern)",
-     "par_en": "Prophecy about it: Genesis 49:10 (according to some commentators)"
+     "par_en": "Prophecy about it: Genesis 49:10 (according to some commentators)",
+     "sub": [
+      {
+       "ref": "11:26-28",
+       "text": "ירבעם בן נבט מורד בשלמה",
+       "text_de": "Jerobeam, der Sohn Nebats, lehnt sich gegen Salomo auf",
+       "blk": "הַחֵטְא וְעָנְשׁוֹ 11",
+       "blk_de": "Die Sünde und ihre Strafe 11"
+      },
+      {
+       "ref": "11:29-40",
+       "text": "הנביא אחיה השילוני 'קורע' את הממלכה מידי שלמה ונותן לירבעם מלכות על עשרה השבטים",
+       "text_de": "Der Prophet Ahija von Schilo „zerreißt“ das Königreich Salomos und gibt Jerobeam die Herrschaft über die zehn Stämme",
+       "blk": "הַחֵטְא וְעָנְשׁוֹ 11",
+       "blk_de": "Die Sünde und ihre Strafe 11"
+      }
+     ]
     },
     {
      "ref": "11:41-43",
@@ -235,7 +652,16 @@
      "par_de": "Wiederholung: 2. Chronik 9:29–31",
      "par_en": "Repeated: 2 Chronicles 9:29–31",
      "time_de": "2964",
-     "time_en": "2964"
+     "time_en": "2964",
+     "sub": [
+      {
+       "ref": "11:41-43",
+       "text": "חתימה ל'דברי' שלמה",
+       "text_de": "Abschluss der „Geschichte“ Salomos",
+       "blk": "הַחֵטְא וְעָנְשׁוֹ 11",
+       "blk_de": "Die Sünde und ihre Strafe 11"
+      }
+     ]
     }
    ],
    "head_de": "König Salomo [Sohn Davids]",
@@ -257,7 +683,44 @@
      "par_de": "Wiederholung: 2. Chronik 10",
      "par_en": "Repeated: 2 Chronicles 10",
      "time_de": "2964",
-     "time_en": "2964"
+     "time_en": "2964",
+     "sub": [
+      {
+       "ref": "12:1-5",
+       "text": "העם דורש מרחבעם להקל מעליהם את על המלכות",
+       "text_de": "Das Volk fordert von Rehabeam, ihm das Joch der Herrschaft zu erleichtern",
+       "blk": "הַמֶּרֶד בְּבֵית דָּוִד וְהִתְפַּלְּגוּת יִשְׂרָאֵל לִשְׁתֵּי מַמְלָכוֹת 12:1-24",
+       "blk_de": "Der Aufstand gegen das Haus David und die Teilung Israels in zwei Königreiche 12:1-24"
+      },
+      {
+       "ref": "12:6-7",
+       "text": "עצת 'הזקנים'",
+       "text_de": "Der Rat der „Alten“",
+       "blk": "הַמֶּרֶד בְּבֵית דָּוִד וְהִתְפַּלְּגוּת יִשְׂרָאֵל לִשְׁתֵּי מַמְלָכוֹת 12:1-24",
+       "blk_de": "Der Aufstand gegen das Haus David und die Teilung Israels in zwei Königreiche 12:1-24"
+      },
+      {
+       "ref": "12:8-11",
+       "text": "עצת 'הילדים'",
+       "text_de": "Der Rat der „Jungen“",
+       "blk": "הַמֶּרֶד בְּבֵית דָּוִד וְהִתְפַּלְּגוּת יִשְׂרָאֵל לִשְׁתֵּי מַמְלָכוֹת 12:1-24",
+       "blk_de": "Der Aufstand gegen das Haus David und die Teilung Israels in zwei Königreiche 12:1-24"
+      },
+      {
+       "ref": "12:12-17",
+       "text": "תשובת רחבעם ותגובת העם",
+       "text_de": "Rehabeams Antwort und die Reaktion des Volkes",
+       "blk": "הַמֶּרֶד בְּבֵית דָּוִד וְהִתְפַּלְּגוּת יִשְׂרָאֵל לִשְׁתֵּי מַמְלָכוֹת 12:1-24",
+       "blk_de": "Der Aufstand gegen das Haus David und die Teilung Israels in zwei Königreiche 12:1-24"
+      },
+      {
+       "ref": "12:18-20",
+       "text": "המרד בבית דוד",
+       "text_de": "Der Aufstand gegen das Haus David",
+       "blk": "הַמֶּרֶד בְּבֵית דָּוִד וְהִתְפַּלְּגוּת יִשְׂרָאֵל לִשְׁתֵּי מַמְלָכוֹת 12:1-24",
+       "blk_de": "Der Aufstand gegen das Haus David und die Teilung Israels in zwei Königreiche 12:1-24"
+      }
+     ]
     },
     {
      "ref": "12:20-24",
@@ -272,7 +735,16 @@
      "par_de": "Wiederholung: 2. Chronik 11:1–4",
      "par_en": "Repeated: 2 Chronicles 11:1–4",
      "time_de": "2964",
-     "time_en": "2964"
+     "time_en": "2964",
+     "sub": [
+      {
+       "ref": "12:21-24",
+       "text": "רחבעם נשמע לדברי הנביא ונמנע מלהלחם במתמרדים",
+       "text_de": "Rehabeam gehorcht dem Wort des Propheten und verzichtet auf den Kampf gegen die Aufständischen",
+       "blk": "הַמֶּרֶד בְּבֵית דָּוִד וְהִתְפַּלְּגוּת יִשְׂרָאֵל לִשְׁתֵּי מַמְלָכוֹת 12:1-24",
+       "blk_de": "Der Aufstand gegen das Haus David und die Teilung Israels in zwei Königreiche 12:1-24"
+      }
+     ]
     },
     {
      "ref": "12:25-33",
@@ -287,7 +759,23 @@
      "par_de": "Erwähnung: 2. Chronik 11:14–15",
      "par_en": "Mention: 2 Chronicles 11:14–15",
      "time_de": "15. Cheschwan",
-     "time_en": "15 Cheshvan"
+     "time_en": "15 Cheshvan",
+     "sub": [
+      {
+       "ref": "12:25",
+       "text": "פתיחה: ערי הבירה הראשונות של ירבעם",
+       "text_de": "Einleitung: Die ersten Hauptstädte Jerobeams",
+       "blk": "חַטֹּאות יָרָבְעָם וְעָנְשׁוֹ 12:25-14:20",
+       "blk_de": "Die Sünden Jerobeams und ihre Strafe 12:25-14:20"
+      },
+      {
+       "ref": "12:26-33",
+       "text": "חטאות ירבעם",
+       "text_de": "Die Sünden Jerobeams",
+       "blk": "חַטֹּאות יָרָבְעָם וְעָנְשׁוֹ 12:25-14:20",
+       "blk_de": "Die Sünden Jerobeams und ihre Strafe 12:25-14:20"
+      }
+     ]
     },
     {
      "ref": "13:1-10",
@@ -299,7 +787,16 @@
      "place_de": "Bet-El",
      "place_en": "Bethel",
      "time_de": "15. Cheschwan",
-     "time_en": "15 Cheshvan"
+     "time_en": "15 Cheshvan",
+     "sub": [
+      {
+       "ref": "13:1-10",
+       "text": "מעשי 'איש האלהים' מיהודה ביום חנכת המזבח",
+       "text_de": "Die Taten des „Mannes Gottes“ aus Juda am Tag der Altarweihe",
+       "blk": "חַטֹּאות יָרָבְעָם וְעָנְשׁוֹ 12:25-14:20",
+       "blk_de": "Die Sünden Jerobeams und ihre Strafe 12:25-14:20"
+      }
+     ]
     },
     {
      "ref": "13:11-34",
@@ -308,7 +805,30 @@
      "text_de": "Tod des Gottesmannes",
      "text_en": "Death of the man of God",
      "place_de": "Bet-El",
-     "place_en": "Bethel"
+     "place_en": "Bethel",
+     "sub": [
+      {
+       "ref": "13:11-19",
+       "text": "מעשי הנביא הזקן מבית-אל",
+       "text_de": "Die Taten des alten Propheten aus Bet-El",
+       "blk": "חַטֹּאות יָרָבְעָם וְעָנְשׁוֹ 12:25-14:20",
+       "blk_de": "Die Sünden Jerobeams und ihre Strafe 12:25-14:20"
+      },
+      {
+       "ref": "13:20-32",
+       "text": "העונש ל'איש האלהים' על שעבר על דברי עצמו",
+       "text_de": "Die Strafe für den „Mann Gottes“, weil er sich über sein eigenes Wort hinwegsetzte",
+       "blk": "חַטֹּאות יָרָבְעָם וְעָנְשׁוֹ 12:25-14:20",
+       "blk_de": "Die Sünden Jerobeams und ihre Strafe 12:25-14:20"
+      },
+      {
+       "ref": "13:33-34",
+       "text": "ירבעם אינו שב מדרכו הרעה",
+       "text_de": "Jerobeam kehrt nicht von seinem bösen Weg um",
+       "blk": "חַטֹּאות יָרָבְעָם וְעָנְשׁוֹ 12:25-14:20",
+       "blk_de": "Die Sünden Jerobeams und ihre Strafe 12:25-14:20"
+      }
+     ]
     },
     {
      "ref": "14:1-20",
@@ -320,7 +840,37 @@
      "place_de": "Schilo, Tirza",
      "place_en": "Shiloh, Tirzah",
      "time_de": "2986",
-     "time_en": "2986"
+     "time_en": "2986",
+     "sub": [
+      {
+       "ref": "14:1-4",
+       "text": "ירבעם שולח את אשתו אל אחיה השלוני לבקש על בנם החולה",
+       "text_de": "Jerobeam schickt seine Frau zu Ahija von Schilo, um für ihren kranken Sohn zu fragen",
+       "blk": "חַטֹּאות יָרָבְעָם וְעָנְשׁוֹ 12:25-14:20",
+       "blk_de": "Die Sünden Jerobeams und ihre Strafe 12:25-14:20"
+      },
+      {
+       "ref": "14:5-16",
+       "text": "תוכחת אחיה לירבעם ולישראל",
+       "text_de": "Ahijas Mahnrede an Jerobeam und an Israel",
+       "blk": "חַטֹּאות יָרָבְעָם וְעָנְשׁוֹ 12:25-14:20",
+       "blk_de": "Die Sünden Jerobeams und ihre Strafe 12:25-14:20"
+      },
+      {
+       "ref": "14:17-18",
+       "text": "מות אביה בן ירבעם",
+       "text_de": "Der Tod Abijas, des Sohnes Jerobeams",
+       "blk": "חַטֹּאות יָרָבְעָם וְעָנְשׁוֹ 12:25-14:20",
+       "blk_de": "Die Sünden Jerobeams und ihre Strafe 12:25-14:20"
+      },
+      {
+       "ref": "14:19-20",
+       "text": "חתימה למלכות ירבעם",
+       "text_de": "Abschluss der Herrschaft Jerobeams",
+       "blk": "חַטֹּאות יָרָבְעָם וְעָנְשׁוֹ 12:25-14:20",
+       "blk_de": "Die Sünden Jerobeams und ihre Strafe 12:25-14:20"
+      }
+     ]
     },
     {
      "ref": "14:21-30",
@@ -335,7 +885,37 @@
      "par_de": "Wiederholung und Erweiterung: 2. Chronik 12:1–14",
      "par_en": "Repeated and expanded: 2 Chronicles 12:1–14",
      "time_de": "2969",
-     "time_en": "2969"
+     "time_en": "2969",
+     "sub": [
+      {
+       "ref": "14:21",
+       "text": "פתיחה",
+       "text_de": "Einleitung",
+       "blk": "'דִּבְרֵי' (- עִנְיָנֵי, מַעֲשֵׂי) רְחַבְעָם בֶּן־שְׁלֹמֹה 14:21-31",
+       "blk_de": "Die „Geschichte“ (Angelegenheiten, Taten) Rehabeams, des Sohnes Salomos 14:21-31"
+      },
+      {
+       "ref": "14:22-23",
+       "text": "חטאות יהודה",
+       "text_de": "Die Sünden Judas",
+       "blk": "'דִּבְרֵי' (- עִנְיָנֵי, מַעֲשֵׂי) רְחַבְעָם בֶּן־שְׁלֹמֹה 14:21-31",
+       "blk_de": "Die „Geschichte“ (Angelegenheiten, Taten) Rehabeams, des Sohnes Salomos 14:21-31"
+      },
+      {
+       "ref": "14:25-28",
+       "text": "העונש: פלישת שישק",
+       "text_de": "Die Strafe: Der Einfall Schischaks",
+       "blk": "'דִּבְרֵי' (- עִנְיָנֵי, מַעֲשֵׂי) רְחַבְעָם בֶּן־שְׁלֹמֹה 14:21-31",
+       "blk_de": "Die „Geschichte“ (Angelegenheiten, Taten) Rehabeams, des Sohnes Salomos 14:21-31"
+      },
+      {
+       "ref": "14:29-31",
+       "text": "חתימה",
+       "text_de": "Abschluss",
+       "blk": "'דִּבְרֵי' (- עִנְיָנֵי, מַעֲשֵׂי) רְחַבְעָם בֶּן־שְׁלֹמֹה 14:21-31",
+       "blk_de": "Die „Geschichte“ (Angelegenheiten, Taten) Rehabeams, des Sohnes Salomos 14:21-31"
+      }
+     ]
     },
     {
      "ref": "14:31",
@@ -372,7 +952,30 @@
      "par_de": "Wiederholung und Erweiterung: 2. Chronik 13 · Die Sache mit Urija: 2. Samuel 11",
      "par_en": "Repeated and expanded: 2 Chronicles 13 · The affair of Uriah: 2 Samuel 11",
      "time_de": "2982–2984",
-     "time_en": "2982–2984"
+     "time_en": "2982–2984",
+     "sub": [
+      {
+       "ref": "15:1-2",
+       "text": "פתיחה",
+       "text_de": "Einleitung",
+       "blk": "'דִּבְרֵי' (- עִנְיָנֵי, מַעֲשֵׂי) אֲבִיָּם (=אֲבִיָּה) בֶּן רְחַבְעָם 15:1-8",
+       "blk_de": "Die „Geschichte“ (Angelegenheiten, Taten) Abijams (= Abijas), des Sohnes Rehabeams 15:1-8"
+      },
+      {
+       "ref": "15:3-6",
+       "text": "הערכת מעשי אבים",
+       "text_de": "Beurteilung der Taten Abijams",
+       "blk": "'דִּבְרֵי' (- עִנְיָנֵי, מַעֲשֵׂי) אֲבִיָּם (=אֲבִיָּה) בֶּן רְחַבְעָם 15:1-8",
+       "blk_de": "Die „Geschichte“ (Angelegenheiten, Taten) Abijams (= Abijas), des Sohnes Rehabeams 15:1-8"
+      },
+      {
+       "ref": "15:7-8",
+       "text": "חתימה",
+       "text_de": "Abschluss",
+       "blk": "'דִּבְרֵי' (- עִנְיָנֵי, מַעֲשֵׂי) אֲבִיָּם (=אֲבִיָּה) בֶּן רְחַבְעָם 15:1-8",
+       "blk_de": "Die „Geschichte“ (Angelegenheiten, Taten) Abijams (= Abijas), des Sohnes Rehabeams 15:1-8"
+      }
+     ]
     }
    ],
    "head_de": "Abijam, Sohn Rehabeams, König von Juda",
@@ -394,7 +997,23 @@
      "par_de": "Wiederholung und Erweiterung: 2. Chronik 14–15",
      "par_en": "Repeated and expanded: 2 Chronicles 14–15",
      "time_de": "2984",
-     "time_en": "2984"
+     "time_en": "2984",
+     "sub": [
+      {
+       "ref": "15:9-10",
+       "text": "פתיחה",
+       "text_de": "Einleitung",
+       "blk": "'דִּבְרֵי' (= עִנְיָנֵי, מַעֲשֵׂי) אָסָא 15:9-24",
+       "blk_de": "Die „Geschichte“ (Angelegenheiten, Taten) Asas 15:9-24"
+      },
+      {
+       "ref": "15:11-15",
+       "text": "צדקתו וחסידותו של אסא",
+       "text_de": "Asas Gerechtigkeit und Frömmigkeit",
+       "blk": "'דִּבְרֵי' (= עִנְיָנֵי, מַעֲשֵׂי) אָסָא 15:9-24",
+       "blk_de": "Die „Geschichte“ (Angelegenheiten, Taten) Asas 15:9-24"
+      }
+     ]
     },
     {
      "ref": "15:16-24",
@@ -409,7 +1028,23 @@
      "par_de": "Wiederholung und Erweiterung: Jeremia 41:9; 2. Chronik 16",
      "par_en": "Repeated and expanded: Jeremiah 41:9; 2 Chronicles 16",
      "time_de": "3000–3025",
-     "time_en": "3000–3025"
+     "time_en": "3000–3025",
+     "sub": [
+      {
+       "ref": "15:16-22",
+       "text": "מלחמת אסא ובעשא",
+       "text_de": "Der Krieg zwischen Asa und Bascha",
+       "blk": "'דִּבְרֵי' (= עִנְיָנֵי, מַעֲשֵׂי) אָסָא 15:9-24",
+       "blk_de": "Die „Geschichte“ (Angelegenheiten, Taten) Asas 15:9-24"
+      },
+      {
+       "ref": "15:23-24",
+       "text": "חתימה",
+       "text_de": "Abschluss",
+       "blk": "'דִּבְרֵי' (= עִנְיָנֵי, מַעֲשֵׂי) אָסָא 15:9-24",
+       "blk_de": "Die „Geschichte“ (Angelegenheiten, Taten) Asas 15:9-24"
+      }
+     ]
     }
    ],
    "head_de": "Asa, Sohn Abijams, König von Juda",
@@ -428,7 +1063,16 @@
      "place_de": "Gibbeton",
      "place_en": "Gibbethon",
      "time_de": "2986–2987",
-     "time_en": "2986–2987"
+     "time_en": "2986–2987",
+     "sub": [
+      {
+       "ref": "15:25-32",
+       "text": "'דברי' נדב בן ירבעם",
+       "text_de": "Die „Geschichte“ Nadabs, des Sohnes Jerobeams",
+       "blk": "'דִּבְרֵי' (=עִנְיָנֵי, מַעֲשֵׂי) אַרְבָּעָה בָּתֵּי הַמַּלְכוּת בְּיִשְׂרָאֵל שֶׁהִתְחַלְּפוּ בִּימֵי אָסָא 15:25-16:24",
+       "blk_de": "Die „Geschichte“ (Angelegenheiten, Taten) der vier Königshäuser in Israel, die sich in den Tagen Asas ablösten 15:25-16:24"
+      }
+     ]
     }
    ],
    "head_de": "Nadab, Sohn Jerobeams, König von Israel",
@@ -447,7 +1091,16 @@
      "place_de": "Tirza",
      "place_en": "Tirzah",
      "time_de": "2987–3010",
-     "time_en": "2987–3010"
+     "time_en": "2987–3010",
+     "sub": [
+      {
+       "ref": "15:33-16:7",
+       "text": "'דברי' בעשא בן אחיה",
+       "text_de": "Die „Geschichte“ Baschas, des Sohnes Ahijas",
+       "blk": "'דִּבְרֵי' (=עִנְיָנֵי, מַעֲשֵׂי) אַרְבָּעָה בָּתֵּי הַמַּלְכוּת בְּיִשְׂרָאֵל שֶׁהִתְחַלְּפוּ בִּימֵי אָסָא 15:25-16:24",
+       "blk_de": "Die „Geschichte“ (Angelegenheiten, Taten) der vier Königshäuser in Israel, die sich in den Tagen Asas ablösten 15:25-16:24"
+      }
+     ]
     }
    ],
    "head_de": "Bascha, Sohn Ahijas, König von Israel",
@@ -466,7 +1119,16 @@
      "place_de": "Tirza",
      "place_en": "Tirzah",
      "time_de": "3010–3011",
-     "time_en": "3010–3011"
+     "time_en": "3010–3011",
+     "sub": [
+      {
+       "ref": "16:8-14",
+       "text": "'דברי' אלה בן בעשא",
+       "text_de": "Die „Geschichte“ Elas, des Sohnes Baschas",
+       "blk": "'דִּבְרֵי' (=עִנְיָנֵי, מַעֲשֵׂי) אַרְבָּעָה בָּתֵּי הַמַּלְכוּת בְּיִשְׂרָאֵל שֶׁהִתְחַלְּפוּ בִּימֵי אָסָא 15:25-16:24",
+       "blk_de": "Die „Geschichte“ (Angelegenheiten, Taten) der vier Königshäuser in Israel, die sich in den Tagen Asas ablösten 15:25-16:24"
+      }
+     ]
     }
    ],
    "head_de": "Ela, Sohn Baschas, König von Israel",
@@ -485,7 +1147,16 @@
      "place_de": "Tirza",
      "place_en": "Tirzah",
      "time_de": "3011",
-     "time_en": "3011"
+     "time_en": "3011",
+     "sub": [
+      {
+       "ref": "16:15-20",
+       "text": "'דברי' זמרי",
+       "text_de": "Die „Geschichte“ Simris",
+       "blk": "'דִּבְרֵי' (=עִנְיָנֵי, מַעֲשֵׂי) אַרְבָּעָה בָּתֵּי הַמַּלְכוּת בְּיִשְׂרָאֵל שֶׁהִתְחַלְּפוּ בִּימֵי אָסָא 15:25-16:24",
+       "blk_de": "Die „Geschichte“ (Angelegenheiten, Taten) der vier Königshäuser in Israel, die sich in den Tagen Asas ablösten 15:25-16:24"
+      }
+     ]
     }
    ],
    "head_de": "Simri, König von Israel",
@@ -504,7 +1175,16 @@
      "place_de": "Tirza",
      "place_en": "Tirzah",
      "time_de": "3011–3015",
-     "time_en": "3011–3015"
+     "time_en": "3011–3015",
+     "sub": [
+      {
+       "ref": "16:21-22",
+       "text": "עמרי ותבני בן-גינת מולכים על ישראל",
+       "text_de": "Omri und Tibni, der Sohn Ginats, werden zu Königen über Israel ausgerufen",
+       "blk": "'דִּבְרֵי' (=עִנְיָנֵי, מַעֲשֵׂי) אַרְבָּעָה בָּתֵּי הַמַּלְכוּת בְּיִשְׂרָאֵל שֶׁהִתְחַלְּפוּ בִּימֵי אָסָא 15:25-16:24",
+       "blk_de": "Die „Geschichte“ (Angelegenheiten, Taten) der vier Königshäuser in Israel, die sich in den Tagen Asas ablösten 15:25-16:24"
+      }
+     ]
     },
     {
      "ref": "16:23-28",
@@ -516,7 +1196,16 @@
      "place_de": "Tirza",
      "place_en": "Tirzah",
      "time_de": "3015–3022",
-     "time_en": "3015–3022"
+     "time_en": "3015–3022",
+     "sub": [
+      {
+       "ref": "16:23-28",
+       "text": "'דברי' עמרי",
+       "text_de": "Die „Geschichte“ Omris",
+       "blk": "'דִּבְרֵי' (=עִנְיָנֵי, מַעֲשֵׂי) אַרְבָּעָה בָּתֵּי הַמַּלְכוּת בְּיִשְׂרָאֵל שֶׁהִתְחַלְּפוּ בִּימֵי אָסָא 15:25-16:24",
+       "blk_de": "Die „Geschichte“ (Angelegenheiten, Taten) der vier Königshäuser in Israel, die sich in den Tagen Asas ablösten 15:25-16:24"
+      }
+     ]
     }
    ],
    "head_de": "Tibni, Sohn Ginats, und Omri, Könige von Israel",
@@ -538,7 +1227,16 @@
      "par_de": "Prophezeiung darüber: Micha 6:9–16 · Fluch über den Wiederaufbauer Jerichos: Josua 6:26",
      "par_en": "Prophecy about it: Micah 6:9–16 · Curse on the rebuilder of Jericho: Joshua 6:26",
      "time_de": "3022",
-     "time_en": "3022"
+     "time_en": "3022",
+     "sub": [
+      {
+       "ref": "16:29-34",
+       "text": "פשעי אחאב",
+       "text_de": "Die Vergehen Ahabs",
+       "blk": "'דִּבְרֵי' (=עִנְיָנֵי, מַעֲשֵׂי) אַרְבָּעָה בָּתֵּי הַמַּלְכוּת בְּיִשְׂרָאֵל שֶׁהִתְחַלְּפוּ בִּימֵי אָסָא 15:25-16:24",
+       "blk_de": "Die „Geschichte“ (Angelegenheiten, Taten) der vier Königshäuser in Israel, die sich in den Tagen Asas ablösten 15:25-16:24"
+      }
+     ]
     },
     {
      "ref": "17:1-7",
@@ -547,7 +1245,23 @@
      "text_de": "Hungersnot im Land und Elijas Versorgung durch die Raben",
      "text_en": "Famine in the land and the ravens' provision for Elijah",
      "place_de": "Samaria, Bach Kerit",
-     "place_en": "Samaria, Wadi Cherith"
+     "place_en": "Samaria, Wadi Cherith",
+     "sub": [
+      {
+       "ref": "17:1",
+       "text": "אליהו קופץ ונשבע לאחאב, שבצרת קשה עומדת לפקד את הארץ",
+       "text_de": "Elija tritt plötzlich auf und schwört Ahab, dass eine schwere Dürre das Land heimsuchen wird",
+       "blk": "מַעֲשֵׂי אֵלִיָּהוּ הָרִאשׁוֹנִים 17-19",
+       "blk_de": "Die ersten Taten Elijas 17-19"
+      },
+      {
+       "ref": "17:2-7",
+       "text": "אליהו מצטוה להסתתר בנחל כרית",
+       "text_de": "Elija erhält den Befehl, sich am Bach Krit zu verbergen",
+       "blk": "מַעֲשֵׂי אֵלִיָּהוּ הָרִאשׁוֹנִים 17-19",
+       "blk_de": "Die ersten Taten Elijas 17-19"
+      }
+     ]
     },
     {
      "ref": "17:8-24",
@@ -559,7 +1273,23 @@
      "place_de": "Sarepta",
      "place_en": "Zarephath",
      "par_de": "Erwähnung: Sprüche 31:20 (nach einigen Auslegern)",
-     "par_en": "Mention: Proverbs 31:20 (according to some commentators)"
+     "par_en": "Mention: Proverbs 31:20 (according to some commentators)",
+     "sub": [
+      {
+       "ref": "17:8-16",
+       "text": "אליהו מצטוה ללכת לצרפת ולהתגורר בבית האלמנה",
+       "text_de": "Elija erhält den Befehl, nach Sarepta zu gehen und im Haus der Witwe zu wohnen",
+       "blk": "מַעֲשֵׂי אֵלִיָּהוּ הָרִאשׁוֹנִים 17-19",
+       "blk_de": "Die ersten Taten Elijas 17-19"
+      },
+      {
+       "ref": "17:17-24",
+       "text": "אליהו מחיה את בן האלמנה",
+       "text_de": "Elija erweckt den Sohn der Witwe zum Leben",
+       "blk": "מַעֲשֵׂי אֵלִיָּהוּ הָרִאשׁוֹנִים 17-19",
+       "blk_de": "Die ersten Taten Elijas 17-19"
+      }
+     ]
     },
     {
      "ref": "18",
@@ -571,7 +1301,51 @@
      "place_de": "Samaria, Karmel, Jesreel",
      "place_en": "Samaria, Mount Carmel, Jezreel",
      "par_de": "Gebot, die Baalspropheten zu töten: Deuteronomium 18:20 · Prophezeiung darüber: Genesis 35:11 (nach einigen Auslegern)",
-     "par_en": "Command to kill the prophets of Baal: Deuteronomy 18:20 · Prophecy about it: Genesis 35:11 (according to some commentators)"
+     "par_en": "Command to kill the prophets of Baal: Deuteronomy 18:20 · Prophecy about it: Genesis 35:11 (according to some commentators)",
+     "sub": [
+      {
+       "ref": "18:1-2",
+       "text": "אליהו מצטוה להראות לפני אחאב",
+       "text_de": "Elija erhält den Befehl, sich Ahab zu zeigen",
+       "blk": "מַעֲשֵׂי אֵלִיָּהוּ הָרִאשׁוֹנִים 17-19",
+       "blk_de": "Die ersten Taten Elijas 17-19"
+      },
+      {
+       "ref": "18:3-6",
+       "text": "אחאב ועובדיהו הולכים לחפש חציר לבהמתם",
+       "text_de": "Ahab und Obadja ziehen aus, um Gras für ihr Vieh zu suchen",
+       "blk": "מַעֲשֵׂי אֵלִיָּהוּ הָרִאשׁוֹנִים 17-19",
+       "blk_de": "Die ersten Taten Elijas 17-19"
+      },
+      {
+       "ref": "18:7-15",
+       "text": "אליהו מצוה על עובדיהו להודיע לאחאב על בואו",
+       "text_de": "Elija beauftragt Obadja, Ahab sein Kommen anzukündigen",
+       "blk": "מַעֲשֵׂי אֵלִיָּהוּ הָרִאשׁוֹנִים 17-19",
+       "blk_de": "Die ersten Taten Elijas 17-19"
+      },
+      {
+       "ref": "18:16-20",
+       "text": "דין ודברים נוקב, ואליהו מצוה על אחאב לקבץ את כל ישראל ואת כל נביאי (= כהני) הבעל והאשרה אל הר הכרמל",
+       "text_de": "Scharfer Wortwechsel; Elija befiehlt Ahab, ganz Israel und alle Propheten (= Priester) des Baal und der Aschera auf dem Berg Karmel zu versammeln",
+       "blk": "מַעֲשֵׂי אֵלִיָּהוּ הָרִאשׁוֹנִים 17-19",
+       "blk_de": "Die ersten Taten Elijas 17-19"
+      },
+      {
+       "ref": "18:21-40",
+       "text": "מעמד הר הכרמל",
+       "text_de": "Das Geschehen auf dem Berg Karmel",
+       "blk": "מַעֲשֵׂי אֵלִיָּהוּ הָרִאשׁוֹנִים 17-19",
+       "blk_de": "Die ersten Taten Elijas 17-19"
+      },
+      {
+       "ref": "18:41-46",
+       "text": "ה' נעתר לתפלת אליהו ומוריד גשם גדול; אליהו חולק כבוד לאחאב",
+       "text_de": "Der HERR erhört Elijas Gebet und sendet einen gewaltigen Regen; Elija erweist Ahab Ehre",
+       "blk": "מַעֲשֵׂי אֵלִיָּהוּ הָרִאשׁוֹנִים 17-19",
+       "blk_de": "Die ersten Taten Elijas 17-19"
+      }
+     ]
     },
     {
      "ref": "19",
@@ -580,7 +1354,37 @@
      "text_de": "Prophetische Offenbarung an Elija am Horeb",
      "text_en": "Prophetic revelation to Elijah at Horeb",
      "place_de": "Beerscheba, Horeb, Damaskus",
-     "place_en": "Beersheba, Horeb, Damascus"
+     "place_en": "Beersheba, Horeb, Damascus",
+     "sub": [
+      {
+       "ref": "19:1-2",
+       "text": "איזבל גוזרת גזר-דין של מות על אליהו",
+       "text_de": "Isebel fällt ein Todesurteil über Elija",
+       "blk": "מַעֲשֵׂי אֵלִיָּהוּ הָרִאשׁוֹנִים 17-19",
+       "blk_de": "Die ersten Taten Elijas 17-19"
+      },
+      {
+       "ref": "19:3-8",
+       "text": "אליהו נמלט על נפשו, תחלה ליהודה, ולאחר מכן להר האלהים, חורב",
+       "text_de": "Elija flieht um sein Leben, zuerst nach Juda und dann zum Berg Gottes, dem Horeb",
+       "blk": "מַעֲשֵׂי אֵלִיָּהוּ הָרִאשׁוֹנִים 17-19",
+       "blk_de": "Die ersten Taten Elijas 17-19"
+      },
+      {
+       "ref": "19:9-18",
+       "text": "מעמד הר חורב לאליהו",
+       "text_de": "Elijas Begegnung am Berg Horeb",
+       "blk": "מַעֲשֵׂי אֵלִיָּהוּ הָרִאשׁוֹנִים 17-19",
+       "blk_de": "Die ersten Taten Elijas 17-19"
+      },
+      {
+       "ref": "19:19-21",
+       "text": "אלישע הולך אחרי אליהו",
+       "text_de": "Elisa folgt Elija nach",
+       "blk": "מַעֲשֵׂי אֵלִיָּהוּ הָרִאשׁוֹנִים 17-19",
+       "blk_de": "Die ersten Taten Elijas 17-19"
+      }
+     ]
     },
     {
      "ref": "20",
@@ -589,7 +1393,51 @@
      "text_de": "Seine Kriege mit Aram",
      "text_en": "His wars with Aram",
      "place_de": "Samaria, Afek",
-     "place_en": "Samaria, Aphek"
+     "place_en": "Samaria, Aphek",
+     "sub": [
+      {
+       "ref": "20:1-4",
+       "text": "בן־הדד שם מצור על שומרון, ואחאב נכון להכנע לו",
+       "text_de": "Ben-Hadad belagert Samaria, und Ahab ist bereit, sich ihm zu unterwerfen",
+       "blk": "'דִּבְרֵי' (— עִנְיְנֵי, מַעֲשֵׂי) אַחְאָב 20:1-22:40",
+       "blk_de": "Die „Geschichte“ (Angelegenheiten, Taten) Ahabs 20:1-22:40"
+      },
+      {
+       "ref": "20:5-11",
+       "text": "בן־הדד מעלה את רמת דרישותיו, ואחאב מסרב — בעצת גדולי העם וזקניו — להענות להן",
+       "text_de": "Ben-Hadad steigert seine Forderungen, und Ahab weigert sich auf den Rat der Großen und Ältesten des Volkes, sie zu erfüllen",
+       "blk": "'דִּבְרֵי' (— עִנְיְנֵי, מַעֲשֵׂי) אַחְאָב 20:1-22:40",
+       "blk_de": "Die „Geschichte“ (Angelegenheiten, Taten) Ahabs 20:1-22:40"
+      },
+      {
+       "ref": "20:12-22",
+       "text": "בן־הדד מצוה על שריו לפתח במלחמה ונוחל תבוסה מוחצת מידי אחאב, כנבואת הנביא עליו",
+       "text_de": "Ben-Hadad befiehlt seinen Obersten, den Kampf zu eröffnen, und erleidet durch Ahab eine vernichtende Niederlage, wie der Prophet es vorausgesagt hatte",
+       "blk": "'דִּבְרֵי' (— עִנְיְנֵי, מַעֲשֵׂי) אַחְאָב 20:1-22:40",
+       "blk_de": "Die „Geschichte“ (Angelegenheiten, Taten) Ahabs 20:1-22:40"
+      },
+      {
+       "ref": "20:23-30",
+       "text": "בן־הדד פותח שנית, כעבור שנה, במלחמה, הפעם באפק, ונוחל שוב תבוסה מוחצת, כנבואה עליו",
+       "text_de": "Ben-Hadad beginnt nach einem Jahr erneut den Krieg, diesmal bei Afek, und erleidet wiederum eine vernichtende Niederlage, wie vorausgesagt",
+       "blk": "'דִּבְרֵי' (— עִנְיְנֵי, מַעֲשֵׂי) אַחְאָב 20:1-22:40",
+       "blk_de": "Die „Geschichte“ (Angelegenheiten, Taten) Ahabs 20:1-22:40"
+      },
+      {
+       "ref": "20:31-34",
+       "text": "בן־הדד נכנע לאחאב, ואחאב כורת עמו ברית",
+       "text_de": "Ben-Hadad unterwirft sich Ahab, und Ahab schließt mit ihm einen Bund",
+       "blk": "'דִּבְרֵי' (— עִנְיְנֵי, מַעֲשֵׂי) אַחְאָב 20:1-22:40",
+       "blk_de": "Die „Geschichte“ (Angelegenheiten, Taten) Ahabs 20:1-22:40"
+      },
+      {
+       "ref": "20:35-43",
+       "text": "תוכחת הנביא לאחאב על ששלח את בן־הדד 'בברית'",
+       "text_de": "Die Zurechtweisung des Propheten an Ahab, weil er Ben-Hadad „im Bund“ entlassen hat",
+       "blk": "'דִּבְרֵי' (— עִנְיְנֵי, מַעֲשֵׂי) אַחְאָב 20:1-22:40",
+       "blk_de": "Die „Geschichte“ (Angelegenheiten, Taten) Ahabs 20:1-22:40"
+      }
+     ]
     },
     {
      "ref": "21",
@@ -598,7 +1446,30 @@
      "text_de": "Nabots Weinberg",
      "text_en": "Naboth's vineyard",
      "place_de": "Jesreel",
-     "place_en": "Jezreel"
+     "place_en": "Jezreel",
+     "sub": [
+      {
+       "ref": "21:1-16",
+       "text": "מעשה נבות",
+       "text_de": "Die Geschichte von Nabot",
+       "blk": "'דִּבְרֵי' (— עִנְיְנֵי, מַעֲשֵׂי) אַחְאָב 20:1-22:40",
+       "blk_de": "Die „Geschichte“ (Angelegenheiten, Taten) Ahabs 20:1-22:40"
+      },
+      {
+       "ref": "21:17-26",
+       "text": "תוכחת אליהו לאחאב ('הרצחת וגם ירשת'?!) וגזרת הרעה על בית אחאב",
+       "text_de": "Elijas Zurechtweisung an Ahab („Hast du gemordet und dazu geerbt?“) und die Unheilsankündigung über das Haus Ahab",
+       "blk": "'דִּבְרֵי' (— עִנְיְנֵי, מַעֲשֵׂי) אַחְאָב 20:1-22:40",
+       "blk_de": "Die „Geschichte“ (Angelegenheiten, Taten) Ahabs 20:1-22:40"
+      },
+      {
+       "ref": "21:27-29",
+       "text": "אחאב נכנע לפני ה' וגזרת הרעה נדחית לימי בנו",
+       "text_de": "Ahab demütigt sich vor dem HERRN, und das Unheil wird auf die Tage seines Sohnes verschoben",
+       "blk": "'דִּבְרֵי' (— עִנְיְנֵי, מַעֲשֵׂי) אַחְאָב 20:1-22:40",
+       "blk_de": "Die „Geschichte“ (Angelegenheiten, Taten) Ahabs 20:1-22:40"
+      }
+     ]
     },
     {
      "ref": "22:1-4",
@@ -610,7 +1481,16 @@
      "place_de": "Samaria",
      "place_en": "Samaria",
      "par_de": "Wiederholung: 2. Chronik 18:1–3",
-     "par_en": "Repeated: 2 Chronicles 18:1–3"
+     "par_en": "Repeated: 2 Chronicles 18:1–3",
+     "sub": [
+      {
+       "ref": "22:1-4",
+       "text": "אחאב מבקש מיהושפט מלך יהודה לסיע לו ולשחרר את רמות גלעד מיד מלך ארם, ויהושפט נענה לו",
+       "text_de": "Ahab bittet Joschafat, den König von Juda, ihm beizustehen und Ramot in Gilead aus der Hand des Königs von Aram zu befreien, und Joschafat willigt ein",
+       "blk": "'דִּבְרֵי' (— עִנְיְנֵי, מַעֲשֵׂי) אַחְאָב 20:1-22:40",
+       "blk_de": "Die „Geschichte“ (Angelegenheiten, Taten) Ahabs 20:1-22:40"
+      }
+     ]
     },
     {
      "ref": "22:5-28",
@@ -622,7 +1502,30 @@
      "place_de": "Samaria",
      "place_en": "Samaria",
      "par_de": "Wiederholung: 2. Chronik 18:4–27",
-     "par_en": "Repeated: 2 Chronicles 18:4–27"
+     "par_en": "Repeated: 2 Chronicles 18:4–27",
+     "sub": [
+      {
+       "ref": "22:5-12",
+       "text": "יהושפט מבקש מאחאב לדרש בנבואת ה', ונביאי אחאב — ובראשם צדקיהו בן כנענה — מנבאים 'פה־אחד' נצחון",
+       "text_de": "Joschafat bittet Ahab, das Wort des HERRN zu befragen, und die Propheten Ahabs, allen voran Zidkija, der Sohn Kenaanas, weissagen „einmütig“ den Sieg",
+       "blk": "'דִּבְרֵי' (— עִנְיְנֵי, מַעֲשֵׂי) אַחְאָב 20:1-22:40",
+       "blk_de": "Die „Geschichte“ (Angelegenheiten, Taten) Ahabs 20:1-22:40"
+      },
+      {
+       "ref": "22:13-23",
+       "text": "נבואת מיכיהו בן־ימלה",
+       "text_de": "Die Weissagung Michas, des Sohnes Jimlas",
+       "blk": "'דִּבְרֵי' (— עִנְיְנֵי, מַעֲשֵׂי) אַחְאָב 20:1-22:40",
+       "blk_de": "Die „Geschichte“ (Angelegenheiten, Taten) Ahabs 20:1-22:40"
+      },
+      {
+       "ref": "22:24-28",
+       "text": "עמות בין צדקיהו בן־כנענה לבין מיכיהו בן־ימלה",
+       "text_de": "Die Auseinandersetzung zwischen Zidkija, dem Sohn Kenaanas, und Micha, dem Sohn Jimlas",
+       "blk": "'דִּבְרֵי' (— עִנְיְנֵי, מַעֲשֵׂי) אַחְאָב 20:1-22:40",
+       "blk_de": "Die „Geschichte“ (Angelegenheiten, Taten) Ahabs 20:1-22:40"
+      }
+     ]
     },
     {
      "ref": "22:29-40",
@@ -637,7 +1540,23 @@
      "par_de": "Wiederholung: 2. Chronik 18:28–34 · Erwähnung: Sacharja 12:11 (nach einigen Auslegern)",
      "par_en": "Repeated: 2 Chronicles 18:28–34 · Mention: Zechariah 12:11 (according to some commentators)",
      "time_de": "3043",
-     "time_en": "3043"
+     "time_en": "3043",
+     "sub": [
+      {
+       "ref": "22:29-38",
+       "text": "המלחמה על רמות גלעד ומות אחאב",
+       "text_de": "Der Krieg um Ramot in Gilead und der Tod Ahabs",
+       "blk": "'דִּבְרֵי' (— עִנְיְנֵי, מַעֲשֵׂי) אַחְאָב 20:1-22:40",
+       "blk_de": "Die „Geschichte“ (Angelegenheiten, Taten) Ahabs 20:1-22:40"
+      },
+      {
+       "ref": "22:39-40",
+       "text": "חתימה ל'דברי' אחאב",
+       "text_de": "Abschluss der „Geschichte“ Ahabs",
+       "blk": "'דִּבְרֵי' (— עִנְיְנֵי, מַעֲשֵׂי) אַחְאָב 20:1-22:40",
+       "blk_de": "Die „Geschichte“ (Angelegenheiten, Taten) Ahabs 20:1-22:40"
+      }
+     ]
     }
    ],
    "head_de": "Ahab, Sohn Omris, König von Israel * Wundertaten Elijas",
@@ -659,7 +1578,37 @@
      "par_de": "Wiederholung und Erweiterung: 2. Chronik 17:1–21:3",
      "par_en": "Repeated and expanded: 2 Chronicles 17:1–21:3",
      "time_de": "3026–3050",
-     "time_en": "3026–3050"
+     "time_en": "3026–3050",
+     "sub": [
+      {
+       "ref": "22:41-42",
+       "text": "פתיחה",
+       "text_de": "Einleitung",
+       "blk": "'דִּבְרֵי' (עִנְיָנֵי, מַעֲשֵׂי) יְהוֹשָׁפָט 22:41-51",
+       "blk_de": "Die „Geschichte“ (Angelegenheiten, Taten) Joschafats 22:41-51"
+      },
+      {
+       "ref": "22:43-44",
+       "text": "צדקתו וחסידותו של יהושפט",
+       "text_de": "Joschafats Gerechtigkeit und Frömmigkeit",
+       "blk": "'דִּבְרֵי' (עִנְיָנֵי, מַעֲשֵׂי) יְהוֹשָׁפָט 22:41-51",
+       "blk_de": "Die „Geschichte“ (Angelegenheiten, Taten) Joschafats 22:41-51"
+      },
+      {
+       "ref": "22:45-50",
+       "text": "מעשי יהושפט",
+       "text_de": "Die Taten Joschafats",
+       "blk": "'דִּבְרֵי' (עִנְיָנֵי, מַעֲשֵׂי) יְהוֹשָׁפָט 22:41-51",
+       "blk_de": "Die „Geschichte“ (Angelegenheiten, Taten) Joschafats 22:41-51"
+      },
+      {
+       "ref": "22:51",
+       "text": "חתימה",
+       "text_de": "Abschluss",
+       "blk": "'דִּבְרֵי' (עִנְיָנֵי, מַעֲשֵׂי) יְהוֹשָׁפָט 22:41-51",
+       "blk_de": "Die „Geschichte“ (Angelegenheiten, Taten) Joschafats 22:41-51"
+      }
+     ]
     }
    ],
    "head_de": "Joschafat, Sohn Asas, König von Juda",
@@ -678,7 +1627,23 @@
      "place_de": "Samaria",
      "place_en": "Samaria",
      "time_de": "3043–3044",
-     "time_en": "3043–3044"
+     "time_en": "3043–3044",
+     "sub": [
+      {
+       "ref": "22:52",
+       "text": "פתיחה למעשי אחזיהו",
+       "text_de": "Einleitung zu den Taten Ahasjas",
+       "blk": "'דִּבְרֵי' (עִנְיָנֵי, מַעֲשֵׂי) אֲחַזְיָהוּ בֶּן־אַחְאָב; גַּם אֵלֶּה מַעֲשֵׂי אֵלִיָּהוּ 22:52-54",
+       "blk_de": "Die „Geschichte“ (Angelegenheiten, Taten) Ahasjas, des Sohnes Ahabs; auch dies sind Taten Elijas 22:52-54"
+      },
+      {
+       "ref": "22:53-54",
+       "text": "רשעת אחזיהו",
+       "text_de": "Die Bosheit Ahasjas",
+       "blk": "'דִּבְרֵי' (עִנְיָנֵי, מַעֲשֵׂי) אֲחַזְיָהוּ בֶּן־אַחְאָב; גַּם אֵלֶּה מַעֲשֵׂי אֵלִיָּהוּ 22:52-54",
+       "blk_de": "Die „Geschichte“ (Angelegenheiten, Taten) Ahasjas, des Sohnes Ahabs; auch dies sind Taten Elijas 22:52-54"
+      }
+     ]
     }
    ],
    "head_de": "Ahasja, Sohn Ahabs, König von Israel",
@@ -687,6 +1652,6 @@
  ],
  "title_de": "Inhalt des Ersten Buches der Könige",
  "title_en": "Contents of the First Book of Kings",
- "note_de": "Abgeschrieben aus einer Übersichtstabelle (SifreiKodesh) und übersetzt. Jahre/Daten nach der jüdischen Zählung, wie in der Vorlage gedruckt.",
- "note_en": "Transcribed from an overview table (SifreiKodesh) and translated. Years/dates follow the Jewish count (from the creation of the world) as printed in the source."
+ "note_de": "Abgeschrieben aus einer Übersichtstabelle (SifreiKodesh) und übersetzt. Jahre/Daten nach der jüdischen Zählung, wie in der Vorlage gedruckt. Unterpunkte aus der Gliederung von „Da'at Mikra“ (Teilpunkte mit Versangaben, mit Hinweis auf den jeweiligen Abschnitt) ergänzt und ins Deutsche übersetzt.",
+ "note_en": "Transcribed from an overview table (SifreiKodesh) and translated. Years/dates follow the Jewish count (from the creation of the world) as printed in the source. Sub-points from the Da'at Mikra outlines (parts with verse references, labelled with their section) added; German translation."
 }

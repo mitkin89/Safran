@@ -1,7 +1,7 @@
 {
  "book": "Micah",
  "title": "תוכן ספר מיכה",
- "note": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt.",
+ "note": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt. · הורחב בחלוקת דעת מקרא (פסקאות עם מראי מקום).",
  "sections": [
   {
    "head": "נבואות תוכחה",
@@ -10,7 +10,44 @@
      "ref": "1:1-9",
      "text": "פורענות שומרון וירושלים",
      "text_de": "Strafe für Samaria und Jerusalem",
-     "text_en": "Punishment of Samaria and Jerusalem"
+     "text_en": "Punishment of Samaria and Jerusalem",
+     "sub": [
+      {
+       "ref": "1:2",
+       "text": "קריאה לשמע את-הנבואה",
+       "text_de": "Aufruf, die Weissagung zu hören",
+       "blk": "נְבוּאַת פֻּרְעָנוּת עַל שֹׁמְרוֹן וְעַל עָרֵי יְהוּדָה 1:2-16",
+       "blk_de": "Weissagung des Strafgerichts über Samaria und die Städte Judas 1:2-16"
+      },
+      {
+       "ref": "1:3-4",
+       "text": "גלוי כבוד ה'",
+       "text_de": "Offenbarung der Herrlichkeit des HERRN",
+       "blk": "נְבוּאַת פֻּרְעָנוּת עַל שֹׁמְרוֹן וְעַל עָרֵי יְהוּדָה 1:2-16",
+       "blk_de": "Weissagung des Strafgerichts über Samaria und die Städte Judas 1:2-16"
+      },
+      {
+       "ref": "1:5",
+       "text": "פשעי שמרון וירושלים",
+       "text_de": "Die Vergehen Samarias und Jerusalems",
+       "blk": "נְבוּאַת פֻּרְעָנוּת עַל שֹׁמְרוֹן וְעַל עָרֵי יְהוּדָה 1:2-16",
+       "blk_de": "Weissagung des Strafgerichts über Samaria und die Städte Judas 1:2-16"
+      },
+      {
+       "ref": "1:6-7",
+       "text": "הפרענות על שמרון",
+       "text_de": "Das Strafgericht über Samaria",
+       "blk": "נְבוּאַת פֻּרְעָנוּת עַל שֹׁמְרוֹן וְעַל עָרֵי יְהוּדָה 1:2-16",
+       "blk_de": "Weissagung des Strafgerichts über Samaria und die Städte Judas 1:2-16"
+      },
+      {
+       "ref": "1:8-16",
+       "text": "הפרענות על ירושלים",
+       "text_de": "Das Strafgericht über Jerusalem",
+       "blk": "נְבוּאַת פֻּרְעָנוּת עַל שֹׁמְרוֹן וְעַל עָרֵי יְהוּדָה 1:2-16",
+       "blk_de": "Weissagung des Strafgerichts über Samaria und die Städte Judas 1:2-16"
+      }
+     ]
     },
     {
      "ref": "1:10-16",
@@ -22,19 +59,67 @@
      "ref": "2:1-5",
      "text": "תוכחה ועונש לרשעי ישראל",
      "text_de": "Mahnung und Strafe für die Frevler in Israel",
-     "text_en": "Rebuke and punishment of the wicked in Israel"
+     "text_en": "Rebuke and punishment of the wicked in Israel",
+     "sub": [
+      {
+       "ref": "2:1-2",
+       "text": "החטאים של חמדה, גזל ועשק",
+       "text_de": "Die Sünden der Begehrlichkeit, des Raubes und der Unterdrückung",
+       "blk": "תּוֹכָחָה כְּנֶגֶד הַגּוֹזְלִים וְהָעוֹשְׁקִים 2",
+       "blk_de": "Mahnrede gegen die Räuber und Unterdrücker 2"
+      },
+      {
+       "ref": "2:3-5",
+       "text": "הפרענות של חלקת הנחלה בידי האויב",
+       "text_de": "Das Strafgericht: Der Erbbesitz fällt in die Hand des Feindes",
+       "blk": "תּוֹכָחָה כְּנֶגֶד הַגּוֹזְלִים וְהָעוֹשְׁקִים 2",
+       "blk_de": "Mahnrede gegen die Räuber und Unterdrücker 2"
+      }
+     ]
     },
     {
      "ref": "2:6-11",
      "text": "תוכחה - ריבם עם נביאי ה' והתשובה לזה",
      "text_de": "Mahnung – ihr Streit mit den Propheten Gottes und die Antwort darauf",
-     "text_en": "Rebuke – their quarrel with the prophets of God and the answer to it"
+     "text_en": "Rebuke – their quarrel with the prophets of God and the answer to it",
+     "sub": [
+      {
+       "ref": "2:6-7",
+       "text": "דברי החולקים על הנביאים",
+       "text_de": "Die Worte derer, die den Propheten widersprechen",
+       "blk": "תּוֹכָחָה כְּנֶגֶד הַגּוֹזְלִים וְהָעוֹשְׁקִים 2",
+       "blk_de": "Mahnrede gegen die Räuber und Unterdrücker 2"
+      },
+      {
+       "ref": "2:8-10",
+       "text": "החטאים של גזלת הבגדים והנשים",
+       "text_de": "Die Sünden des Raubs von Gewändern und Frauen",
+       "blk": "תּוֹכָחָה כְּנֶגֶד הַגּוֹזְלִים וְהָעוֹשְׁקִים 2",
+       "blk_de": "Mahnrede gegen die Räuber und Unterdrücker 2"
+      },
+      {
+       "ref": "2:11",
+       "text": "נביא השקר המטיף ליין ושכר",
+       "text_de": "Der falsche Prophet, der Wein und Rauschtrank predigt",
+       "blk": "תּוֹכָחָה כְּנֶגֶד הַגּוֹזְלִים וְהָעוֹשְׁקִים 2",
+       "blk_de": "Mahnrede gegen die Räuber und Unterdrücker 2"
+      }
+     ]
     },
     {
      "ref": "2:12-13",
      "text": "נחמה - הישועה לעתיד",
      "text_de": "Trost – die Rettung in der Zukunft",
-     "text_en": "Consolation – the salvation in the future"
+     "text_en": "Consolation – the salvation in the future",
+     "sub": [
+      {
+       "ref": "2:12-13",
+       "text": "סיום בנחמה",
+       "text_de": "Schluss mit Trost",
+       "blk": "תּוֹכָחָה כְּנֶגֶד הַגּוֹזְלִים וְהָעוֹשְׁקִים 2",
+       "blk_de": "Mahnrede gegen die Räuber und Unterdrücker 2"
+      }
+     ]
     },
     {
      "ref": "3:1-4,3:9-12",
@@ -65,25 +150,75 @@
      "text_de": "Trost – das Kommen des Messias und der Bau des Tempels",
      "text_en": "Consolation – the coming of the Messiah and the building of the Temple",
      "par_de": "Ähnliche Prophezeiung: Jesaja 2:1–4",
-     "par_en": "Similar prophecy: Isaiah 2:1–4"
+     "par_en": "Similar prophecy: Isaiah 2:1–4",
+     "sub": [
+      {
+       "ref": "4:1",
+       "text": "והיה באחרית הימים",
+       "text_de": "„Und es wird geschehen am Ende der Tage“",
+       "blk": "יִעוּדֵי נֶחָמָה 4-5",
+       "blk_de": "Trostverheissungen 4-5"
+      },
+      {
+       "ref": "4:6",
+       "text": "ביום ההוא נאם-ה'",
+       "text_de": "„An jenem Tag, spricht der HERR“",
+       "blk": "יִעוּדֵי נֶחָמָה 4-5",
+       "blk_de": "Trostverheissungen 4-5"
+      }
+     ]
     },
     {
      "ref": "4:8-14",
      "text": "גלות בבל, עונש האומות לעתיד",
      "text_de": "Das Exil in Babel, die Strafe der Völker in der Zukunft",
-     "text_en": "The Babylonian exile, the future punishment of the nations"
+     "text_en": "The Babylonian exile, the future punishment of the nations",
+     "sub": [
+      {
+       "ref": "4:8",
+       "text": "ואתה מגדל-עדר",
+       "text_de": "„Und du, Turm der Herde“",
+       "blk": "יִעוּדֵי נֶחָמָה 4-5",
+       "blk_de": "Trostverheissungen 4-5"
+      }
+     ]
     },
     {
      "ref": "5:1-8",
      "text": "נחמה - ביאת המשיח והכנעתו לאויבים",
      "text_de": "Trost – das Kommen des Messias und seine Unterwerfung der Feinde",
-     "text_en": "Consolation – the coming of the Messiah and his subduing of the enemies"
+     "text_en": "Consolation – the coming of the Messiah and his subduing of the enemies",
+     "sub": [
+      {
+       "ref": "5:1",
+       "text": "ואתה בית-לחם אפרתה",
+       "text_de": "„Und du, Bethlehem Efrata“",
+       "blk": "יִעוּדֵי נֶחָמָה 4-5",
+       "blk_de": "Trostverheissungen 4-5"
+      },
+      {
+       "ref": "5:6",
+       "text": "והיה שארית יעקב",
+       "text_de": "„Und der Rest Jakobs wird sein“",
+       "blk": "יִעוּדֵי נֶחָמָה 4-5",
+       "blk_de": "Trostverheissungen 4-5"
+      }
+     ]
     },
     {
      "ref": "5:9-14",
      "text": "ביעור הע\"ז והתחזקות בה'",
      "text_de": "Beseitigung des Götzendienstes und Erstarken in Gott",
-     "text_en": "Eradication of idolatry and strengthening in God"
+     "text_en": "Eradication of idolatry and strengthening in God",
+     "sub": [
+      {
+       "ref": "5:9",
+       "text": "והיה ביום ההוא נאם ה'",
+       "text_de": "„Und es wird geschehen an jenem Tag, spricht der HERR“",
+       "blk": "יִעוּדֵי נֶחָמָה 4-5",
+       "blk_de": "Trostverheissungen 4-5"
+      }
+     ]
     }
    ],
    "head_de": "Trostprophezeiungen",
@@ -96,31 +231,83 @@
      "ref": "6:1-8",
      "text": "ויכוח ה' עם ישראל",
      "text_de": "Gottes Rechtsstreit mit Israel",
-     "text_en": "God's lawsuit with Israel"
+     "text_en": "God's lawsuit with Israel",
+     "sub": [
+      {
+       "ref": "6:1-5",
+       "text": "ריב ה' עם עמו",
+       "text_de": "Der Rechtsstreit des HERRN mit seinem Volk",
+       "blk": "חוֹבוֹת הָאָדָם 6",
+       "blk_de": "Die Pflichten des Menschen 6"
+      },
+      {
+       "ref": "6:6-8",
+       "text": "דרישות ה' מן האדם",
+       "text_de": "Die Forderungen des HERRN an den Menschen",
+       "blk": "חוֹבוֹת הָאָדָם 6",
+       "blk_de": "Die Pflichten des Menschen 6"
+      }
+     ]
     },
     {
      "ref": "6:9-16",
      "text": "תוכחה לרשעים על גזל וחמס",
      "text_de": "Mahnung an die Frevler wegen Raub und Gewalttat",
-     "text_en": "Rebuke of the wicked for robbery and violence"
+     "text_en": "Rebuke of the wicked for robbery and violence",
+     "sub": [
+      {
+       "ref": "6:9-16",
+       "text": "קריאת התראה מאת ה' על מעשה החמס והרמיה",
+       "text_de": "Warnruf des HERRN wegen der Taten von Gewalt und Betrug",
+       "blk": "חוֹבוֹת הָאָדָם 6",
+       "blk_de": "Die Pflichten des Menschen 6"
+      }
+     ]
     },
     {
      "ref": "7:1-7",
      "text": "קינה על שפלות וחטאי ישראל",
      "text_de": "Klage über die Niedrigkeit und die Sünden Israels",
-     "text_en": "Lament over the lowliness and the sins of Israel"
+     "text_en": "Lament over the lowliness and the sins of Israel",
+     "sub": [
+      {
+       "ref": "7:1-7",
+       "text": "תוכחה על מצבה המוסרי של האמה, האמורה בלשון קינה, ותפלת הנביא לתקנתה",
+       "text_de": "Mahnrede über den sittlichen Zustand der Nation in Form einer Klage und das Gebet des Propheten um ihre Besserung",
+       "blk": "תּוֹכָחָה עַל מַצָּבָהּ הַמּוּסָרִי שֶׁל הָאֻמָּה - וּנְבוּאַת נֶחָמָה עַל גְּאֻלָּתָהּ 7",
+       "blk_de": "Mahnrede über den sittlichen Zustand der Nation und Trostweissagung über ihre Erlösung 7"
+      }
+     ]
     },
     {
      "ref": "7:8-13",
      "text": "דברי הנביא לאומות",
      "text_de": "Worte des Propheten an die Völker",
-     "text_en": "The prophet's words to the nations"
+     "text_en": "The prophet's words to the nations",
+     "sub": [
+      {
+       "ref": "7:8-13",
+       "text": "כנסת ישראל מתוכחת עם אויבתה. לאחר מרוק עונותיה עתידה היא לשוב ולרשת ארץ רבה",
+       "text_de": "Die Gemeinde Israels streitet mit ihrer Feindin; nach der Tilgung ihrer Sünden wird sie ein weites Land wieder in Besitz nehmen",
+       "blk": "תּוֹכָחָה עַל מַצָּבָהּ הַמּוּסָרִי שֶׁל הָאֻמָּה - וּנְבוּאַת נֶחָמָה עַל גְּאֻלָּתָהּ 7",
+       "blk_de": "Mahnrede über den sittlichen Zustand der Nation und Trostweissagung über ihre Erlösung 7"
+      }
+     ]
     },
     {
      "ref": "7:14-20",
      "text": "תפילה ושבח לה'",
      "text_de": "Gebet und Lobpreis Gottes",
-     "text_en": "Prayer and praise of God"
+     "text_en": "Prayer and praise of God",
+     "sub": [
+      {
+       "ref": "7:14-20",
+       "text": "בזכות אבות עתידים ישראל לזכות לנפלאות ה' כימי צאתם מארץ מצרים",
+       "text_de": "Um der Väter willen wird Israel künftig die Wunder des HERRN erleben wie in den Tagen seines Auszugs aus Ägypten",
+       "blk": "תּוֹכָחָה עַל מַצָּבָהּ הַמּוּסָרִי שֶׁל הָאֻמָּה - וּנְבוּאַת נֶחָמָה עַל גְּאֻלָּתָהּ 7",
+       "blk_de": "Mahnrede über den sittlichen Zustand der Nation und Trostweissagung über ihre Erlösung 7"
+      }
+     ]
     }
    ],
    "head_de": "Mahnungen, Klage",
@@ -129,6 +316,6 @@
  ],
  "title_de": "Inhalt des Buches Micha",
  "title_en": "Contents of the Book of Micah",
- "note_de": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt.",
- "note_en": "Transcribed from photos of an overview table. Chapter and verse numbering as well as dates (Jewish reckoning) as printed in the source."
+ "note_de": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt. Unterpunkte aus der Gliederung von „Da'at Mikra“ (Teilpunkte mit Versangaben, mit Hinweis auf den jeweiligen Abschnitt) ergänzt und ins Deutsche übersetzt.",
+ "note_en": "Transcribed from photos of an overview table. Chapter and verse numbering as well as dates (Jewish reckoning) as printed in the source. Sub-points from the Da'at Mikra outlines (parts with verse references, labelled with their section) added; German translation."
 }

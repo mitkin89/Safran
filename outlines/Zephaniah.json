@@ -1,7 +1,7 @@
 {
  "book": "Zephaniah",
  "title": "תוכן ספר צפניה",
- "note": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt.",
+ "note": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt. · הורחב בחלוקת דעת מקרא (פסקאות עם מראי מקום).",
  "sections": [
   {
    "head": "נבואות תוכחה ופורענות",
@@ -10,13 +10,52 @@
      "ref": "1",
      "text": "נבואת תוכחה - החורבן הקרב על שעבדו ע\"ז",
      "text_de": "Mahnprophezeiung – die nahe Zerstörung, weil sie Götzen dienten",
-     "text_en": "Prophecy of rebuke – the imminent destruction because they served idols"
+     "text_en": "Prophecy of rebuke – the imminent destruction because they served idols",
+     "sub": [
+      {
+       "ref": "1:2-3",
+       "text": "הפרענות שתבוא על כל העמים",
+       "text_de": "Das Strafgericht, das über alle Völker kommen wird",
+       "blk": "הַנְּבוּאָה הָרִאשׁוֹנָה: יוֹם ה' 1:2-18",
+       "blk_de": "Die erste Weissagung: Der Tag des HERRN 1:2-18"
+      },
+      {
+       "ref": "1:4-9",
+       "text": "סוגי האנשים שיפגעו על ידי החרבן",
+       "text_de": "Die Arten von Menschen, die von der Zerstörung getroffen werden",
+       "blk": "הַנְּבוּאָה הָרִאשׁוֹנָה: יוֹם ה' 1:2-18",
+       "blk_de": "Die erste Weissagung: Der Tag des HERRN 1:2-18"
+      },
+      {
+       "ref": "1:10-13",
+       "text": "כבוש ירושלים",
+       "text_de": "Die Eroberung Jerusalems",
+       "blk": "הַנְּבוּאָה הָרִאשׁוֹנָה: יוֹם ה' 1:2-18",
+       "blk_de": "Die erste Weissagung: Der Tag des HERRN 1:2-18"
+      },
+      {
+       "ref": "1:14-18",
+       "text": "הפרענות שתבוא על כל הארץ",
+       "text_de": "Das Strafgericht, das über die ganze Erde kommen wird",
+       "blk": "הַנְּבוּאָה הָרִאשׁוֹנָה: יוֹם ה' 1:2-18",
+       "blk_de": "Die erste Weissagung: Der Tag des HERRN 1:2-18"
+      }
+     ]
     },
     {
      "ref": "2:1-3",
      "text": "תוכחה - קריאה לישראל לשוב לה'",
      "text_de": "Mahnung – Aufruf an Israel, zu Gott zurückzukehren",
-     "text_en": "Rebuke – call to Israel to return to God"
+     "text_en": "Rebuke – call to Israel to return to God",
+     "sub": [
+      {
+       "ref": "2:1-3",
+       "text": "קריאה אל רשעי יהודה לחזור בתשובה, ולצדיקיה להחזיק בדרך ה', כדי שינצלו מיום הדין, שיבוא על כל העמים",
+       "text_de": "Aufruf an die Frevler Judas zur Umkehr und an seine Gerechten, am Weg des HERRN festzuhalten, damit sie vom Gerichtstag gerettet werden, der über alle Völker kommen wird",
+       "blk": "הַנְּבוּאָה הַשְּׁנִיָּה 2",
+       "blk_de": "Die zweite Weissagung 2"
+      }
+     ]
     },
     {
      "ref": "2:4-7",
@@ -25,7 +64,16 @@
      "text_de": "Strafe für die Philister",
      "text_en": "Punishment of the Philistines",
      "par_de": "Weitere Prophezeiungen über die Philister: Jesaja 14:28–32, Ezechiel 25:15–17, Amos 1:6–8, Sacharja 9:5–7",
-     "par_en": "More prophecies about Philistia: Isaiah 14:28–32, Ezekiel 25:15–17, Amos 1:6–8, Zechariah 9:5–7"
+     "par_en": "More prophecies about Philistia: Isaiah 14:28–32, Ezekiel 25:15–17, Amos 1:6–8, Zechariah 9:5–7",
+     "sub": [
+      {
+       "ref": "2:4-7",
+       "text": "ארץ פלשתים תחרב ותכבש על ידי שארית יהודה",
+       "text_de": "Das Land der Philister wird verwüstet und vom Rest Judas erobert werden",
+       "blk": "הַנְּבוּאָה הַשְּׁנִיָּה 2",
+       "blk_de": "Die zweite Weissagung 2"
+      }
+     ]
     },
     {
      "ref": "2:8-11",
@@ -34,13 +82,31 @@
      "text_de": "Strafe für Moab und Ammon",
      "text_en": "Punishment of Moab and Ammon",
      "par_de": "Weitere Prophezeiungen über Ammon: Jeremia 49:1–6, Ezechiel 25:1–7, Amos 1:13–15. Weitere Prophezeiungen über Moab: Jesaja 15–16, 25:10–12, Jeremia 48, Ezechiel 25:8–11, Amos 2:1–3",
-     "par_en": "More prophecies about Ammon: Jeremiah 49:1–6, Ezekiel 25:1–7, Amos 1:13–15. More prophecies about Moab: Isaiah 15–16, 25:10–12, Jeremiah 48, Ezekiel 25:8–11, Amos 2:1–3"
+     "par_en": "More prophecies about Ammon: Jeremiah 49:1–6, Ezekiel 25:1–7, Amos 1:13–15. More prophecies about Moab: Isaiah 15–16, 25:10–12, Jeremiah 48, Ezekiel 25:8–11, Amos 2:1–3",
+     "sub": [
+      {
+       "ref": "2:8-11",
+       "text": "ארצות מואב ועמון יחרבו ויכבשו על ידי שארית יהודה ולבסוף כל העמים יכירו בה'",
+       "text_de": "Die Länder Moab und Ammon werden verwüstet und vom Rest Judas erobert werden, und am Ende werden alle Völker den HERRN erkennen",
+       "blk": "הַנְּבוּאָה הַשְּׁנִיָּה 2",
+       "blk_de": "Die zweite Weissagung 2"
+      }
+     ]
     },
     {
      "ref": "2:12",
      "text": "פורענות כוש",
      "text_de": "Strafe für Kusch",
-     "text_en": "Punishment of Cush"
+     "text_en": "Punishment of Cush",
+     "sub": [
+      {
+       "ref": "2:12",
+       "text": "הכושים שבקצוי הדרום יפלו בחרב",
+       "text_de": "Die Kuschiter an den äußersten Enden des Südens werden durch das Schwert fallen",
+       "blk": "הַנְּבוּאָה הַשְּׁנִיָּה 2",
+       "blk_de": "Die zweite Weissagung 2"
+      }
+     ]
     },
     {
      "ref": "2:13-15",
@@ -49,19 +115,60 @@
      "text_de": "Strafe für Assur",
      "text_en": "Punishment of Assyria",
      "par_de": "Weitere Prophezeiungen über Assur: Jesaja 7:18–9:6, 10:5–34, 14:24–27, 36–37 u. a. Buch Jona, Buch Nahum",
-     "par_en": "More prophecies about Assyria: Isaiah 7:18–9:6, 10:5–34, 14:24–27, 36–37 and more. Book of Jonah, Book of Nahum"
+     "par_en": "More prophecies about Assyria: Isaiah 7:18–9:6, 10:5–34, 14:24–27, 36–37 and more. Book of Jonah, Book of Nahum",
+     "sub": [
+      {
+       "ref": "2:13-15",
+       "text": "חרבן נינוה שבצפון",
+       "text_de": "Die Zerstörung Ninives im Norden",
+       "blk": "הַנְּבוּאָה הַשְּׁנִיָּה 2",
+       "blk_de": "Die zweite Weissagung 2"
+      }
+     ]
     },
     {
      "ref": "3:1-7",
      "text": "תוכחה לאנשי ירושלים על חטאיהם",
      "text_de": "Mahnung an die Einwohner Jerusalems wegen ihrer Sünden",
-     "text_en": "Rebuke of the inhabitants of Jerusalem for their sins"
+     "text_en": "Rebuke of the inhabitants of Jerusalem for their sins",
+     "sub": [
+      {
+       "ref": "3:1-4",
+       "text": "תאור המצב הדתי והמוסרי הקשה של ירושלים",
+       "text_de": "Schilderung des schlimmen religiösen und sittlichen Zustands Jerusalems",
+       "blk": "הַנְבוּאָה הַשְּׁלִישִׁית 3",
+       "blk_de": "Die dritte Weissagung 3"
+      },
+      {
+       "ref": "3:5-7",
+       "text": "אין ירושלים חוזרת למוטב",
+       "text_de": "Jerusalem kehrt nicht zum Guten zurück",
+       "blk": "הַנְבוּאָה הַשְּׁלִישִׁית 3",
+       "blk_de": "Die dritte Weissagung 3"
+      }
+     ]
     },
     {
      "ref": "3:8-20",
      "text": "נבואת נחמה - דין באומות ותקומת ישראל",
      "text_de": "Trostprophezeiung – Gericht über die Völker und Wiederaufrichtung Israels",
-     "text_en": "Prophecy of consolation – judgment on the nations and the restoration of Israel"
+     "text_en": "Prophecy of consolation – judgment on the nations and the restoration of Israel",
+     "sub": [
+      {
+       "ref": "3:8-10",
+       "text": "לאחר משפט העמים יעבדו כל באי עולם את ה'",
+       "text_de": "Nach dem Gericht über die Völker werden alle Menschen der Welt den HERRN verehren",
+       "blk": "הַנְבוּאָה הַשְּׁלִישִׁית 3",
+       "blk_de": "Die dritte Weissagung 3"
+      },
+      {
+       "ref": "3:11-20",
+       "text": "שרידי ישראל הנאמנים לה' ישובו לארץ וישבו לבטח עליה ויהיו תפארת לכל העמים",
+       "text_de": "Die dem HERRN treuen Überlebenden Israels werden ins Land zurückkehren, sicher darin wohnen und allen Völkern zum Ruhm gereichen",
+       "blk": "הַנְבוּאָה הַשְּׁלִישִׁית 3",
+       "blk_de": "Die dritte Weissagung 3"
+      }
+     ]
     }
    ],
    "head_de": "Mahn- und Unheilsprophezeiungen",
@@ -70,6 +177,6 @@
  ],
  "title_de": "Inhalt des Buches Zefanja",
  "title_en": "Contents of the Book of Zephaniah",
- "note_de": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt.",
- "note_en": "Transcribed from photos of an overview table. Chapter and verse numbering as well as dates (Jewish reckoning) as printed in the source."
+ "note_de": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt. Unterpunkte aus der Gliederung von „Da'at Mikra“ (Teilpunkte mit Versangaben, mit Hinweis auf den jeweiligen Abschnitt) ergänzt und ins Deutsche übersetzt.",
+ "note_en": "Transcribed from photos of an overview table. Chapter and verse numbering as well as dates (Jewish reckoning) as printed in the source. Sub-points from the Da'at Mikra outlines (parts with verse references, labelled with their section) added; German translation."
 }

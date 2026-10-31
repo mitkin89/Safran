@@ -1,7 +1,7 @@
 {
  "book": "Jonah",
  "title": "תוכן ספר יונה",
- "note": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt.",
+ "note": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt. · הורחב בחלוקת דעת מקרא (פסקאות עם מראי מקום).",
  "sections": [
   {
    "head": "סירוב יונה",
@@ -13,19 +13,53 @@
      "text_de": "Gottes Gebot an Jona, nach Ninive zu gehen, und seine Flucht",
      "text_en": "God's command to Jonah to go to Nineveh, and his flight",
      "par_de": "Weitere Prophezeiungen über Assur: Jesaja 7:18–9:6, 10:5–34, 14:24–27, 36–37 u. a. Buch Nahum, Zefanja 2:13–15",
-     "par_en": "More prophecies about Assyria: Isaiah 7:18–9:6, 10:5–34, 14:24–27, 36–37 and more. Book of Nahum, Zephaniah 2:13–15"
+     "par_en": "More prophecies about Assyria: Isaiah 7:18–9:6, 10:5–34, 14:24–27, 36–37 and more. Book of Nahum, Zephaniah 2:13–15",
+     "sub": [
+      {
+       "ref": "1:1-3",
+       "text": "יונה כובש את נבואתו",
+       "text_de": "Jona unterdrückt seine Prophetie",
+       "blk": "הַנְּבוּאָה הָרִאשׁוֹנָה 1:1-2:11",
+       "blk_de": "Die erste Weissagung 1:1-2:11"
+      }
+     ]
     },
     {
      "ref": "1:4-16",
      "text": "סערת הים והשלכת יונה למים",
      "text_de": "Der Sturm auf dem Meer und das Hineinwerfen Jonas ins Wasser",
-     "text_en": "The storm at sea and the casting of Jonah into the water"
+     "text_en": "The storm at sea and the casting of Jonah into the water",
+     "sub": [
+      {
+       "ref": "1:4-16",
+       "text": "ה' מסכל את בריחתו של יונה",
+       "text_de": "Der HERR vereitelt Jonas Flucht",
+       "blk": "הַנְּבוּאָה הָרִאשׁוֹנָה 1:1-2:11",
+       "blk_de": "Die erste Weissagung 1:1-2:11"
+      }
+     ]
     },
     {
      "ref": "2",
      "text": "בליעתו ע\"י דג, תפילתו ויציאתו משם",
      "text_de": "Sein Verschlungenwerden von einem Fisch, sein Gebet und sein Herauskommen",
-     "text_en": "His being swallowed by a fish, his prayer, and his emerging from it"
+     "text_en": "His being swallowed by a fish, his prayer, and his emerging from it",
+     "sub": [
+      {
+       "ref": "2:1-10",
+       "text": "יונה במעי הדג",
+       "text_de": "Jona im Bauch des Fisches",
+       "blk": "הַנְּבוּאָה הָרִאשׁוֹנָה 1:1-2:11",
+       "blk_de": "Die erste Weissagung 1:1-2:11"
+      },
+      {
+       "ref": "2:11",
+       "text": "הצלתו של יונה",
+       "text_de": "Jonas Rettung",
+       "blk": "הַנְּבוּאָה הָרִאשׁוֹנָה 1:1-2:11",
+       "blk_de": "Die erste Weissagung 1:1-2:11"
+      }
+     ]
     }
    ],
    "head_de": "Jonas Weigerung",
@@ -38,7 +72,16 @@
      "ref": "3:1-9",
      "text": "התראתו באנשי נינוה ושובם בתשובה",
      "text_de": "Seine Warnung an die Leute von Ninive und ihre Umkehr",
-     "text_en": "His warning to the people of Nineveh and their repentance"
+     "text_en": "His warning to the people of Nineveh and their repentance",
+     "sub": [
+      {
+       "ref": "3:1-4:3",
+       "text": "יונה בנינוה",
+       "text_de": "Jona in Ninive",
+       "blk": "הַנְּבוּאָה הַשְּׁנִיָּה 3:1-4:11",
+       "blk_de": "Die zweite Weissagung 3:1-4:11"
+      }
+     ]
     },
     {
      "ref": "3:10-4:3",
@@ -50,7 +93,16 @@
      "ref": "4:4-11",
      "text": "תשובת ה' - מופת הקיקיון",
      "text_de": "Gottes Antwort – das Wunder des Rizinus",
-     "text_en": "God's answer – the miracle of the gourd"
+     "text_en": "God's answer – the miracle of the gourd",
+     "sub": [
+      {
+       "ref": "4:4-11",
+       "text": "מדותיו של ה'",
+       "text_de": "Die Eigenschaften des HERRN",
+       "blk": "הַנְּבוּאָה הַשְּׁנִיָּה 3:1-4:11",
+       "blk_de": "Die zweite Weissagung 3:1-4:11"
+      }
+     ]
     }
    ],
    "head_de": "Die Sendung nach Ninive",
@@ -59,6 +111,6 @@
  ],
  "title_de": "Inhalt des Buches Jona",
  "title_en": "Contents of the Book of Jonah",
- "note_de": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt.",
- "note_en": "Transcribed from photos of an overview table. Chapter and verse numbering as well as dates (Jewish reckoning) as printed in the source."
+ "note_de": "Abgeschrieben aus Fotos einer Übersichtstabelle. Kapitel- und Verszählung sowie Daten (jüdische Zählung) wie in der Vorlage gedruckt. Unterpunkte aus der Gliederung von „Da'at Mikra“ (Teilpunkte mit Versangaben, mit Hinweis auf den jeweiligen Abschnitt) ergänzt und ins Deutsche übersetzt.",
+ "note_en": "Transcribed from photos of an overview table. Chapter and verse numbering as well as dates (Jewish reckoning) as printed in the source. Sub-points from the Da'at Mikra outlines (parts with verse references, labelled with their section) added; German translation."
 }
