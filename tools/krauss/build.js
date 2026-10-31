@@ -118,7 +118,13 @@ function abk(t) {
     stats.abk++; return AB(e[0], m);
   });
 }
-function proc(html) { html = onText(html, talmud); html = onText(html, midrasch); html = onText(html, bible); return onText(html, abk); }
+// Verweise „s. אפוטני“ / „s. auch …“ / „siehe …“ -> Link auf das Stichwort (öffnet die Suche)
+const HW = '[\\u05d0-\\u05ea][\\u05d0-\\u05ea\\u05b0-\\u05c7\\u05f3\\u05f4\'"]*';
+const XREF = new RegExp('(?<![\\p{L}])((?:s\\. auch|s\\. a\\.|s\\. d\\.|s\\.|siehe|vgl\\.) )(' + HW + '(?:(?:, | u\\. | und | od\\. | oder )' + HW + ')*)', 'gu');
+function xref(t) {
+  return t.replace(XREF, (m, pre, list) => pre + list.replace(new RegExp(HW, 'gu'), w => { stats.xref = (stats.xref || 0) + 1; const q = w.replace(/[\u05f3\u05f4'"]/g, ''); return `<a class="dref" data-q="${q}">${w}</a>`; }));
+}
+function proc(html) { html = onText(html, talmud); html = onText(html, midrasch); html = onText(html, bible); html = onText(html, abk); return onText(html, xref); }
 
 const p = DSL.parseDsl(fs.readFileSync(process.argv[2]), path.basename(process.argv[2]));
 const data = { name: NAME, indexLang: p.indexLang, contentsLang: p.contentsLang, heads: p.entries.map(e => e.heads), html: p.entries.map(e => proc(e.html)) };
