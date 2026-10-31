@@ -701,11 +701,10 @@ img.g, #rOut img.g, #cmtBody img.g, .sres img.g { display: inline; height: 1.35e
 #olBody details { margin: 2px 0; }
 #olBody summary { cursor: pointer; font-weight: 600; padding: 3px 0; }
 #olBody summary small { font-weight: 400; color: var(--muted, #999); margin-left: 6px; }
-#olBody .olp { display: flex; gap: 8px; align-items: baseline; padding: 3px 6px; margin-left: 14px; border-radius: 6px; cursor: pointer; font-size: 14px; }
+#olBody .olp { display: flex; gap: 8px; align-items: baseline; padding: 3px 6px; margin-inline-start: 14px; border-radius: 6px; cursor: pointer; font-size: 14px; }
 #olBody .olp:hover { background: color-mix(in srgb, var(--accent) 14%, transparent); }
 #olBody .olp .ref { color: var(--muted, #999); font-size: 12px; min-width: 6ch; font-variant-numeric: tabular-nums; }
 #olBody .olp .he { direction: rtl; flex: 1; text-align: right; }
-#olBody .olp .mk { font-size: 11px; opacity: .6; }
 #olBody .olp.cur { background: color-mix(in srgb, var(--accent) 18%, transparent); box-shadow: inset 3px 0 0 var(--accent); font-weight: 600; }
 
 #olBody .olTabs { display: flex; gap: 6px; margin-bottom: 8px; }
@@ -816,9 +815,8 @@ html[data-tab=dict] #dictPanel.pinp:not(.docked) { box-shadow: none; }
 body:has(#findBar:not([hidden])) #olBody { padding-bottom: 56px; }
 #olBody .olchip[hidden] { display: none; }
 #olBody .olp.olsub { font-size: 13px; margin-inline-start: 34px; border-inline-start: 1px solid color-mix(in srgb, var(--accent) 35%, transparent); }
-#olBody .olp .oln { color: var(--muted, #999); font-weight: 500; }
 #olBody .olp.olorph { font-style: italic; }
-#olBody .olchip { margin: 5px 0 1px 34px; padding: 1px 8px; font-size: 11px; color: var(--muted, #999); border-inline-start: 3px solid color-mix(in srgb, var(--accent) 55%, transparent); background: color-mix(in srgb, var(--accent) 7%, transparent); border-radius: 0 6px 6px 0; }
+#olBody .olchip { margin: 5px 0 1px; margin-inline-start: 34px; padding: 1px 8px; font-size: 11px; color: var(--muted, #999); border-inline-start: 3px solid color-mix(in srgb, var(--accent) 55%, transparent); background: color-mix(in srgb, var(--accent) 7%, transparent); border-radius: 0 6px 6px 0; }
 #olBody .olp .oltg { flex: none; width: 22px; margin-inline-end: -2px; font-size: 18px; line-height: 1; text-align: center; cursor: pointer; user-select: none; color: var(--muted, #999); }
 #olBody .olp .oltg:hover { color: var(--accent); }
 
@@ -830,3 +828,5 @@ body:has(#findBar:not([hidden])) #olBody { padding-bottom: 56px; }
 #dictSelList { display: flex; flex-direction: column; gap: 2px; max-height: 180px; overflow: auto; }
 #dictSelList .dsel { display: flex; justify-content: flex-start; align-items: center; gap: 6px; cursor: pointer; text-align: start; }
 #dictSelList .dsel input { flex: none; width: auto; margin: 0; }
+
+#olBody .olp:focus-visible, #olBody .oltg:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }

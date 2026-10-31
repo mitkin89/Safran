@@ -1470,13 +1470,13 @@
   async function olOwn(book) { if (!window.outline) return null; if (!olOwnCache.has(book)) olOwnCache.set(book, await window.outline.get(book)); return olOwnCache.get(book); }
   function olContentHtml(g, ol) {
     const lv2 = ol.levels === 2; // Gliederung nach Buch:Kapitel (z. B. Josephus), nicht nach Kapitel:Vers
-    const cur = olPos(g, lv2), L = I18N.lang;
+    const L = I18N.lang;
     const T = (o, k) => (L !== 'he' && o[k + '_' + L]) || o[k]; // Text in der Oberflächensprache, sonst Hebräisch
     const heUi = L === 'he' || !ol.sections[0] || !ol.sections[0]['head_' + L];
     const first = r => { const m = String(r).match(/^(\d+)(?::(\d+))?/); return m ? { ch: +m[1], v: m[2] ? +m[2] : 1 } : null; };
     const mzOn = olMz() && ol.sections.some(x => x.items.some(i => i.mz));
     const anySub = ol.sections.some(x => x.items.some(i => i.sub));
-    const olRows = (list, lvl) => { let pb = null; if (lvl && list.some(x => x.blk)) { const ks = []; list.forEach(x => { const k = T(x, 'blk') || ''; if (!ks.includes(k)) ks.push(k); }); list = [...list].sort((a, b) => ks.indexOf(T(a, 'blk') || '') - ks.indexOf(T(b, 'blk') || '')); } /* nach Überschrift gruppieren */ return list.map(it => { const f = first(it.ref); const ih = (heUi || !it['text_' + L]) && /[\u0590-\u05FF]/.test(it.text); const meta = [T(it, 'speaker'), T(it, 'author'), T(it, 'kind'), T(it, 'place'), T(it, 'time'), T(it, 'par'), T(it, 'desc'), it.seg ? (L === 'he' ? 'סגולה: ' : L === 'de' ? 'Segula: ' : 'Segula: ') + T(it, 'seg') : ''].filter(Boolean).map(esc).join(' · '); const np = !lvl && window.__mapCount ? window.__mapCount(g.title, it.ref) : 0; const bk = lvl && it.blk ? T(it, 'blk') : null; const chip = bk && bk !== pb ? `<div class="olchip" data-blk="${esc(bk)}">${esc(bk.replace(/(\d)-(?=\d)/g, '$1–'))}</div>` : ''; if (bk) pb = bk; return chip + `<div class="olp olc${ih ? '' : ' lt'}${it.mz ? ' olmz' : ''}${lvl ? ' olsub olsub1' : ''}${it.orph ? ' olorph' : ''}${olIn(it.ref, cur, lv2 || lvl ? false : !olPlaying(g)) ? ' cur' : ''}" data-r="${esc(it.ref)}"${lv2 ? ` data-sec="${esc(it.ref)}"` : ''} data-ref="${esc(g.title + ' ' + (f ? f.ch + ':' + f.v : it.ref))}">${!lvl && anySub ? `<span class="oltg"${it.sub ? ` title="${esc(I18N.t('Unterpunkte'))}" role="button" tabindex="0" aria-expanded="false"` : ' style="visibility:hidden" aria-hidden="true"'}>${it.sub ? '▸' : ''}</span>` : ''}<span class="ref">${esc(String(it.ref).replace(/-/g, '–'))}</span><span class="${ih ? 'he' : 'tx'}"${ih ? ' lang="he"' : ''}>${it.mz ? `<b class="mzn">${it.mz}</b> ` : ''}${esc(T(it, 'text'))}${meta ? `<small class="olm"${ih ? '' : ' style="direction:ltr"'}>${meta}</small>` : ''}</span>${np ? `<span class="olmap" data-n="${np}" title="${esc(I18N.t('Karte: Orte dieses Abschnitts'))}">🗺 ${np}</span>` : ''}</div>` + (it.sub ? `<div class="olsubs" hidden>${olRows(it.sub, lvl + 1)}</div>` : ''); }).join(''); };
+    const olRows = (list, lvl) => { let pb = null; if (lvl && list.some(x => x.blk)) { const ks = []; list.forEach(x => { const k = T(x, 'blk') || ''; if (!ks.includes(k)) ks.push(k); }); const st = x => { const sp = olSpans(x.ref)[0]; return sp ? sp[0] : 0; }; list = [...list].sort((a, b) => ks.indexOf(T(a, 'blk') || '') - ks.indexOf(T(b, 'blk') || '') || st(a) - st(b)); } /* nach Überschrift gruppieren */ return list.map(it => { const f = first(it.ref); const ih = (heUi || !it['text_' + L]) && /[\u0590-\u05FF]/.test(it.text); const meta = [T(it, 'speaker'), T(it, 'author'), T(it, 'kind'), T(it, 'place'), T(it, 'time'), T(it, 'par'), T(it, 'desc'), it.seg ? (L === 'he' ? 'סגולה: ' : L === 'de' ? 'Segula: ' : 'Segula: ') + T(it, 'seg') : ''].filter(Boolean).map(esc).join(' · '); const np = !lvl && window.__mapCount ? window.__mapCount(g.title, it.ref) : 0; const bk = lvl && it.blk ? T(it, 'blk') : null; const chip = bk && bk !== pb ? `<div class="olchip" dir="auto" data-blk="${esc(bk)}">${esc(bk.replace(/(\d)-(?=\d)/g, '$1–'))}</div>` : ''; if (bk) pb = bk; return chip + `<div role="link" tabindex="0" class="olp olc${ih ? '' : ' lt'}${it.mz ? ' olmz' : ''}${lvl ? ' olsub olsub1' : ''}${it.orph ? ' olorph' : ''}" data-r="${esc(it.ref)}"${lv2 ? ` data-sec="${esc(it.ref)}"` : ''} data-ref="${esc(g.title + ' ' + (f ? f.ch + ':' + f.v : it.ref))}">${!lvl && anySub ? `<span class="oltg"${it.sub ? ` title="${esc(I18N.t('Unterpunkte'))}" aria-label="${esc(I18N.t('Unterpunkte'))}" role="button" tabindex="0" aria-expanded="false"` : ' style="visibility:hidden" aria-hidden="true"'}>${it.sub ? '▸' : ''}</span>` : ''}<span class="ref">${esc(String(it.ref).replace(/-/g, '–'))}</span><span class="${ih ? 'he' : 'tx'}"${ih ? ' lang="he"' : ''}>${it.mz ? `<b class="mzn">${it.mz}</b> ` : ''}${esc(T(it, 'text'))}${meta ? `<small class="olm"${ih ? '' : ' style="direction:ltr"'}>${meta}</small>` : ''}</span>${np ? `<span class="olmap" data-n="${np}" title="${esc(I18N.t('Karte: Orte dieses Abschnitts'))}">🗺 ${np}</span>` : ''}</div>` + (it.sub ? `<div class="olsubs" hidden>${olRows(it.sub, lvl + 1)}</div>` : ''); }).join(''); };
     return (T(ol, 'title') ? `<p class="${heUi ? 'he' : ''}" ${heUi ? 'lang="he"' : ''}><b>${esc(T(ol, 'title'))}</b></p>` : '') + ol.sections.filter(s => s.items.some(it => !!it.mz === mzOn)).map(s => {
       return `<details open><summary>${heUi ? `<span class="he" lang="he">${esc(s.head)}</span>` : `${esc(T(s, 'head'))} <small class="he" lang="he">${esc(s.head)}</small>`}</summary>${s.desc ? `<p class="he olnote" lang="he">${esc(s.desc)}</p>` : ''}${olRows(s.items.filter(it => !!it.mz === mzOn), 0)}</details>`;
     }).join('') + (T(ol, 'note') ? `<p class="muted olnote">${esc(T(ol, 'note'))}</p>` : '');
@@ -1493,9 +1493,16 @@
     if (!g) { body.innerHTML = ''; return; }
     $('#olTitle').textContent = I18N.t('Gliederung') + ' · ' + g.title;
     const ol = await olOwn(g.title);
+    if (!view || view.group !== g) return; // inzwischen anderes Buch
     const hasMz = !!(ol && ol.sections.some(x => x.items.some(i => i.mz))); $('#olMzW').hidden = !hasMz; $('#olTabT').classList.toggle('on', !olMz() || !hasMz); $('#olTabM').classList.toggle('on', olMz() && hasMz);
-    body.innerHTML = ol ? olContentHtml(g, ol) : `<p class="muted">${esc(I18N.t('Keine Gliederung verfügbar.'))}</p>`;
-    olMark(true);
+    const key = g.title + '|' + I18N.lang + '|' + olMz();
+    if (body.dataset.key === key && ol && body.firstElementChild) olMark(true); // unverändert: nicht neu aufbauen (Zustand der Unterpunkte bleibt)
+    else {
+      if (body.dataset.book !== g.title) window.__olClicked = null;
+      body.dataset.book = g.title; body.dataset.key = ol ? key : '';
+      body.innerHTML = ol ? olContentHtml(g, ol) : `<p class="muted">${esc(I18N.t('Keine Gliederung verfügbar.'))}</p>`;
+      olMark(true);
+    }
     if (window.__olLast) { const el = [...body.querySelectorAll('.olp')].find(x => x.dataset.r === window.__olLast); window.__olLast = null; if (el) el.scrollIntoView({ block: 'center' }); }
   }
   // aktuelle Stelle: der gerade gespielte Vers, sonst der Vers in der Leseansicht
@@ -1527,11 +1534,11 @@
     const lo = pos.ch * 10000 + (wholeCh ? 0 : pos.v), hi = pos.ch * 10000 + (wholeCh ? 9999 : pos.v);
     return olSpans(ref).some(([x, y]) => hi >= x && lo <= y);
   }
-  function olChips() { // gleiche Überschriftzeile nicht in direkt aufeinanderfolgenden, aufgeklappten Gruppen wiederholen
+  function olChips() { if ($('#outlinePanel').hidden) return; // gleiche Überschriftzeile nicht in direkt aufeinanderfolgenden, aufgeklappten Gruppen wiederholen
     let last = null;
     $$('#olBody .olsubs').forEach(w => { const cs = [...w.querySelectorAll(':scope > .olchip')]; cs.forEach(c => { c.hidden = false; }); if (w.hidden) return; if (cs[0] && cs[0].dataset.blk === last) cs[0].hidden = true; if (cs.length) last = cs[cs.length - 1].dataset.blk; });
   }
-  function olToggle(w, open, silent) { w.hidden = !open; if (!silent) olChips(); const t = w.previousElementSibling && w.previousElementSibling.querySelector('.oltg'); if (t) { t.textContent = open ? '▾' : '▸'; t.setAttribute('aria-expanded', open ? 'true' : 'false'); } }
+  function olToggle(w, open, silent, how) { w.hidden = !open; if (how) w.dataset.how = how; if (!silent) olChips(); const t = w.previousElementSibling && w.previousElementSibling.querySelector('.oltg'); if (t) { t.textContent = open ? '▾' : '▸'; t.setAttribute('aria-expanded', open ? 'true' : 'false'); } }
   function olMark(scroll) {
     const pnl = $('#outlinePanel'); if (!pnl || pnl.hidden) return;
     const g = view && view.group, ol = g && olOwnCache.get(g.title), lv2 = !!(ol && ol.levels === 2), pos = olPos(g, lv2), whole = !lv2 && !olPlaying(g); let first = null;
@@ -1539,9 +1546,11 @@
     $$('#olBody .olc').forEach(el => { const sub = el.classList.contains('olsub'), on = olIn(el.dataset.r, sub || tv ? vpos : pos, whole && !sub && !tv); el.classList.toggle('cur', on); if (on && !first) first = el; });
     { // überlappende Unterpunkte (z. B. 1:10–20 und 1:12–14): nur den genauesten (schmalsten) markieren
       const wd = el => olSpans(el.dataset.r).reduce((a, [x, y]) => a + (y - x), 0), cs = $$('#olBody .olc.cur.olsub');
-      if (cs.length > 1) { const pk = cs.find(el => el.dataset.r === window.__olClicked), mn = Math.min(...cs.map(wd)); cs.forEach(el => { if (pk ? el !== pk : wd(el) > mn) el.classList.remove('cur'); }); first = $('#olBody .olc.cur'); }
+      if (cs.length > 1) { const pk = cs.find(el => el.dataset.r === window.__olClicked), mn = Math.min(...cs.map(wd)); let kept = false; cs.forEach(el => { if (pk ? el !== pk : (wd(el) > mn || kept)) el.classList.remove('cur'); else kept = true; }); first = $('#olBody .olc.cur'); }
     }
-    $$('#olBody .olc.cur').forEach(el => { const w = el.classList.contains('olsub') ? el.closest('.olsubs') : (el.nextElementSibling && el.nextElementSibling.classList.contains('olsubs') ? el.nextElementSibling : null); if (w && w.hidden) olToggle(w, true, true); });
+    const curW = new Set(); // Gruppen mit markiertem Punkt: automatisch aufklappen, außer der Nutzer hat sie bei unverändertem Punkt zugeklappt
+    $$('#olBody .olc.cur').forEach(el => { const w = el.classList.contains('olsub') ? el.closest('.olsubs') : (el.nextElementSibling && el.nextElementSibling.classList.contains('olsubs') ? el.nextElementSibling : null); if (!w) return; curW.add(w); if (w.hidden && !(w.dataset.how === 'user-closed' && w.dataset.seen === '1')) olToggle(w, true, true, w.dataset.how === 'user-open' ? 'user-open' : 'auto'); });
+    $$('#olBody .olsubs').forEach(w => { if (curW.has(w)) w.dataset.seen = '1'; else { delete w.dataset.seen; if (!w.hidden && w.dataset.how === 'auto') olToggle(w, false, true, ''); } }); // selbst aufgeklappte Gruppen ohne Markierung wieder schließen
     olChips();
     if (first) olKeepVisible(first, scroll); // nur das Gliederungs-Panel scrollen, nie das Lesefenster
   }
@@ -1563,7 +1572,7 @@
       }, 120);
     }, { passive: true });
   }
-  function auChapterSafe() { const ch = typeof auChapter === 'function' ? auChapter() : null; if (ch == null || !view) return null; const l = $('#rOut .row.hit, #rOut .row[data-l]'); return { ch, v: l && /^\d+$/.test(l.dataset.l) ? +l.dataset.l : 1 }; }
+  function auChapterSafe() { const ch = typeof auChapter === 'function' ? auChapter() : null; if (ch == null || !view) return null; const l = $('#rOut .row.hit[data-l]') || $('#rOut .row[data-l]'); return { ch, v: l && /^\d+$/.test(l.dataset.l) ? +l.dataset.l : 1 }; }
   const olPlace = () => { const h = document.querySelector('header'); const t = (h ? h.getBoundingClientRect().bottom : 44) + 'px'; $('#outlinePanel').style.top = t; $('#tpResize').style.top = t; };
   $('#olBtn').onclick = () => { if (!$('#outlinePanel').hidden) { $('#outlinePanel').hidden = true; return; } $('#topicPanel').hidden = true; $('#mapPanel').hidden = true; olPlace(); $('#outlinePanel').hidden = false; renderOutline(); };
   $('#olClose').onclick = () => { $('#outlinePanel').hidden = true; };
@@ -1577,7 +1586,7 @@
   $('#olBody').addEventListener('keydown', e => { if ((e.key === 'Enter' || e.key === ' ') && e.target.closest && e.target.closest('.oltg, .olp')) { e.preventDefault(); e.target.click(); } });
   $('#olBody').addEventListener('click', e => {
     const mp = e.target.closest('.olmap'); if (mp) { const q = mp.closest('.olp'); e.stopPropagation(); window.__olLast = q.dataset.r; window.__mapOpenFor && window.__mapOpenFor(view.group.title, q.dataset.r, q.querySelector('.ref').textContent + ' ' + (q.querySelector('.tx, .he')?.firstChild?.textContent || '')); return; }
-    const tg = e.target.closest('.oltg'); if (tg) { const w = tg.closest('.olp').nextElementSibling; if (w && w.classList.contains('olsubs')) { e.stopPropagation(); olToggle(w, w.hidden); } return; }
+    const tg = e.target.closest('.oltg'); if (tg) { const w = tg.closest('.olp').nextElementSibling; if (w && w.classList.contains('olsubs')) { e.stopPropagation(); olToggle(w, w.hidden, false, w.hidden ? 'user-open' : 'user-closed'); } return; }
     const p = e.target.closest('.olp'); if (!p) return;
     if (p.dataset.sec) { // Buch:Kapitel → Abschnitt „Buch b“ öffnen und zur ersten Zeile von Kapitel c („c:1“) scrollen
       const [b, c] = p.dataset.sec.split(':').map(Number);
@@ -2185,6 +2194,7 @@
     fRanges = []; fIdx = -1;
     hl('find', []); hl('find-active', []);
     $$('#rOut .note.fnd').forEach(n => n.classList.remove('fnd'));
+    $$('#olBody .olsubs').forEach(w => { if (w.dataset.how === 'find') olToggle(w, false, true, ''); }); olChips(); // durch die Suche geöffnete Unterpunkte wieder schließen
     $('#findCount').textContent = '';
     if (!keepTerm) fTerm = '';
   }
@@ -2200,7 +2210,7 @@
     if (!$('#cmtPanel').hidden) roots.push($('#cmtBody')); // auch der Kommentar-Bereich wird durchsucht
     if (!$('#dictPanel').hidden) roots.push($('#dictOut')); // ebenso die Wörterbuch-Treffer
     if (!$('#outlinePanel').hidden) roots.push($('#olBody')); // und die geöffnete Gliederung
-    if (!$('#outlinePanel').hidden) $$('#olBody .olsubs[hidden]').forEach(w => { if (normF(w.textContent).includes(q)) olToggle(w, true, true); }); olChips(); // zugeklappte Unterpunkte mit Treffer aufklappen
+    if (!$('#outlinePanel').hidden) $$('#olBody .olsubs[hidden]').forEach(w => { if (normF(w.textContent).includes(q)) olToggle(w, true, true, 'find'); }); olChips(); // zugeklappte Unterpunkte mit Treffer aufklappen
     const ranges = [];
     // Textknoten je Absatz/Zelle sammeln und zusammenhängend durchsuchen, damit auch Wortfolgen über mehrere
     // Wort-Elemente hinweg gefunden werden (Westminster-Text: jedes Wort steckt in einem eigenen <span class="w">)
@@ -2256,7 +2266,7 @@
     if (!sc) { hit.scrollIntoView({ block: 'center' }); return; }
     const top = n => n.getBoundingClientRect().top, st = top(sc);
     const owner = hit.classList.contains('olsub') ? (hit.closest('.olsubs') || {}).previousElementSibling || hit : hit;
-    let anchor = $('#olBody .olp.cur:not(.olsub)') || owner;
+    let anchor = $('#olBody .olp.cur:not(.olsub)'); if (!anchor || !(anchor === owner || (anchor.nextElementSibling && anchor.nextElementSibling.contains(hit)))) anchor = owner; // nur der Hauptpunkt, der den Treffer enthält
     const dy = top(hit) - top(anchor);
     if (dy < 0 || dy > sc.clientHeight - 100) anchor = owner; // Treffer läge sonst außerhalb: Hauptpunkt des Treffers nach oben
     const hd = sc.querySelector('.lhead'); sc.scrollTop += top(anchor) - st - (hd ? hd.offsetHeight + 12 : 8); // unter die feste Kopfzeile

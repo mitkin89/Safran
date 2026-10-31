@@ -620,7 +620,7 @@ async function getTopics() {
 }
 // Eigene Gliederungen (Inhaltsübersichten) je Buch: outlines/<Buch>.json im Projekt oder im Benutzerordner
 ipcMain.handle('outline:get', async (_e, book) => {
-  const name = String(book || '').replace(/[^\w .-]/g, '_'); if (!name) return null;
+  const name = String(book || '').replace(/[^\p{L}\p{N} .'’-]/gu, '_').replace(/\.{2,}/g, '_'); if (!name) return null;
   for (const dir of [path.join(app.getPath('userData'), 'outlines'), path.join(__dirname, 'outlines')]) {
     try { const d = JSON.parse(await fs.readFile(path.join(dir, name + '.json'), 'utf8')); if (d && Array.isArray(d.sections)) return d; } catch { /* nächster Ort */ }
   }
