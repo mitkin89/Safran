@@ -103,7 +103,7 @@ function buildMenu() {
     ...(IS_MAC ? [{ label: 'Safran', submenu: [{ role: 'about' }, { type: 'separator' }, { role: 'hide' }, { role: 'hideOthers' }, { role: 'unhide' }, { type: 'separator' }, { role: 'quit' }] }]
       : [{ label: M('Datei', 'File'), submenu: [{ label: M('Beenden', 'Quit'), role: 'quit' }] }]),
     { label: M('Bearbeiten', 'Edit'), submenu: [{ role: 'undo' }, { role: 'redo' }, { type: 'separator' }, { role: 'cut' }, { role: 'copy' }, { role: 'paste' }, { role: 'selectAll' }, { type: 'separator' }, { label: M('Im Text suchen…', 'Find in text…'), accelerator: 'CmdOrCtrl+F', click: (_i, w) => { if (w && !w.isDestroyed()) w.webContents.send('find:open'); } }] },
-    { label: M('Ansicht', 'View'), submenu: [{ role: 'reload' }, { role: 'forceReload' }, { type: 'separator' }, { role: 'resetZoom' }, { role: 'zoomIn' }, { role: 'zoomOut' }, { type: 'separator' }, { role: 'togglefullscreen' }] },
+    { label: M('Ansicht', 'View'), submenu: [{ role: 'reload' }, { role: 'forceReload' }, { type: 'separator' }, { role: 'resetZoom' }, { role: 'zoomIn' }, { role: 'zoomOut' }, { type: 'separator' }, { role: 'togglefullscreen' }, { type: 'separator' }, { role: 'toggleDevTools' }] },
     {
       label: M('Werkzeuge', 'Tools'),
       submenu: [

@@ -73,7 +73,7 @@ aside input { width: 100%; margin-bottom: 8px; }
 /* schlanke Leiste in einer Zeile */
 #stick { padding-top: 4px; margin-top: -4px; }
 #stick .bar.compact { display: flex; align-items: center; gap: 6px; margin: 0 0 4px; flex-wrap: nowrap; } /* immer eine Zeile */
-#stick h2#rTitle { font-size: 15px; margin: 0; white-space: nowrap; flex: 0 1 auto; min-width: 6ch; max-width: 28ch; overflow: hidden; text-overflow: ellipsis; }
+#stick h2#rTitle { font-size: 15px; margin: 0; white-space: nowrap; flex: 0 1 auto; min-width: 10ch; max-width: 28ch; overflow: hidden; text-overflow: ellipsis; }
 #stick button, #stick select, #stick input { padding: 3px 8px; font-size: 13px; }
 #titleBox { display: flex; align-items: center; flex: 0 1 auto; min-width: 0; }
 #titleBox #rTitle { cursor: text; border-radius: 6px; padding: 1px 4px; }

@@ -1478,7 +1478,7 @@
     const anySub = ol.sections.some(x => x.items.some(i => i.sub));
     const olRows = (list, lvl) => { let pb = null; return list.map(it => { const f = first(it.ref); const ih = (heUi || !it['text_' + L]) && /[\u0590-\u05FF]/.test(it.text); const meta = [T(it, 'speaker'), T(it, 'author'), T(it, 'kind'), T(it, 'place'), T(it, 'time'), T(it, 'par'), T(it, 'desc'), it.seg ? (L === 'he' ? 'סגולה: ' : L === 'de' ? 'Segula: ' : 'Segula: ') + T(it, 'seg') : ''].filter(Boolean).map(esc).join(' · '); const np = !lvl && window.__mapCount ? window.__mapCount(g.title, it.ref) : 0; const bk = lvl && it.blk ? T(it, 'blk') : null; const chip = bk && bk !== pb ? `<div class="olchip">${esc(bk.replace(/(\d)-(?=\d)/g, '$1–'))}</div>` : ''; if (bk) pb = bk; return chip + `<div class="olp olc${ih ? '' : ' lt'}${it.mz ? ' olmz' : ''}${lvl ? ' olsub olsub1' : ''}${it.orph ? ' olorph' : ''}${olIn(it.ref, cur, lv2 ? false : !olPlaying(g)) ? ' cur' : ''}" data-r="${esc(it.ref)}"${lv2 ? ` data-sec="${esc(it.ref)}"` : ''} data-ref="${esc(g.title + ' ' + (f ? f.ch + ':' + f.v : it.ref))}">${!lvl && anySub ? `<span class="oltg"${it.sub ? ` title="${esc(I18N.t('Unterpunkte'))}"` : ' style="visibility:hidden"'}>${it.sub ? '▸' : ''}</span>` : ''}<span class="ref">${esc(String(it.ref).replace(/-/g, '–'))}</span><span class="${ih ? 'he' : 'tx'}"${ih ? ' lang="he"' : ''}>${it.mz ? `<b class="mzn">${it.mz}</b> ` : ''}${esc(T(it, 'text'))}${meta ? `<small class="olm"${ih ? '' : ' style="direction:ltr"'}>${meta}</small>` : ''}</span>${np ? `<span class="olmap" data-n="${np}" title="${esc(I18N.t('Karte: Orte dieses Abschnitts'))}">🗺 ${np}</span>` : ''}</div>` + (it.sub ? `<div class="olsubs" hidden>${olRows(it.sub, lvl + 1)}</div>` : ''); }).join(''); };
     return (T(ol, 'title') ? `<p class="${heUi ? 'he' : ''}" ${heUi ? 'lang="he"' : ''}><b>${esc(T(ol, 'title'))}</b></p>` : '') + ol.sections.filter(s => s.items.some(it => !!it.mz === mzOn)).map(s => {
-      return `<details open><summary>${heUi ? `<span class="he" lang="he">${esc(s.head)}</span>` : `${esc(T(s, 'head'))} <small class="he" lang="he">${esc(s.head)}</small>`}</summary>${s.desc ? `<p class="he olnote" lang="he">${esc(s.desc)}</p>` : ''}${olRows(s.items.filter(it => !!it.mz === mzOn), 0)}}</details>`;
+      return `<details open><summary>${heUi ? `<span class="he" lang="he">${esc(s.head)}</span>` : `${esc(T(s, 'head'))} <small class="he" lang="he">${esc(s.head)}</small>`}</summary>${s.desc ? `<p class="he olnote" lang="he">${esc(s.desc)}</p>` : ''}${olRows(s.items.filter(it => !!it.mz === mzOn), 0)}</details>`;
     }).join('') + (T(ol, 'note') ? `<p class="muted olnote">${esc(T(ol, 'note'))}</p>` : '');
   }
   // „Gliederung“-Knopf nur, wenn es für das Buch eine gibt (Karte: siehe mapRefresh)
@@ -2182,6 +2182,7 @@
     const roots = [$('#rOut')];
     if (!$('#cmtPanel').hidden) roots.push($('#cmtBody')); // auch der Kommentar-Bereich wird durchsucht
     if (!$('#dictPanel').hidden) roots.push($('#dictOut')); // ebenso die Wörterbuch-Treffer
+    if (!$('#outlinePanel').hidden) roots.push($('#olBody')); // und die geöffnete Gliederung
     const ranges = [];
     // Textknoten je Absatz/Zelle sammeln und zusammenhängend durchsuchen, damit auch Wortfolgen über mehrere
     // Wort-Elemente hinweg gefunden werden (Westminster-Text: jedes Wort steckt in einem eigenen <span class="w">)
@@ -2192,7 +2193,7 @@
         const el = node.parentElement;
         if (!el || el.offsetParent === null && getComputedStyle(el).display === 'none') continue;
         if (el.closest('.note') && !el.closest('.note').offsetParent) continue;
-        const key = el.closest('.note, .txt, .dbody, .dhead, p, li, td, div') || root;
+        const key = el.closest('.note, .txt, .dbody, .dhead, summary, p, li, td, div') || root;
         if (!groups.has(key)) groups.set(key, []);
         groups.get(key).push(node);
       }
@@ -2220,6 +2221,7 @@
             r.setStart(map[s0][0], map[s0][1]);
             r.setEnd(map[e0][0], map[e0][1] + 1);
             ranges.push(r);
+            for (let od = map[s0][0].parentElement && map[s0][0].parentElement.closest('#olBody details:not([open])'); od; od = od.parentElement.closest('#olBody details:not([open])')) od.open = true; // eingeklappte Gliederungsabschnitte mit Treffer aufklappen
           }
           pos += q.length;
         }
