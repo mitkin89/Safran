@@ -179,6 +179,7 @@
         <input id="ntIn" placeholder="Gen. 1:1" autocomplete="off"><p id="ntMsg" class="muted"></p></div>`;
       setTimeout(() => { const i = $('#ntIn'); if (i) { attachSuggest(i); i.focus(); } }, 0);
     }
+    olBtnRefresh(); if (!none && !view.group) $('#mapBtn').hidden = true;
     renderTabs();
   }
   function newTab() {
@@ -463,6 +464,7 @@
     const s = view.sections[view.idx];
     $('#rSection').value = String(view.idx);
     fitSection();
+    olBtnRefresh();
     $('#prevSec').disabled = view.idx <= 0;
     $('#nextSec').disabled = view.idx >= view.sections.length - 1;
     if (!s) { $('#rOut').innerHTML = '<p class="muted">In den gewählten Versionen ist kein Text vorhanden.</p>'; return; }
@@ -1471,6 +1473,13 @@
     return (T(ol, 'title') ? `<p class="${heUi ? 'he' : ''}" ${heUi ? 'lang="he"' : ''}><b>${esc(T(ol, 'title'))}</b></p>` : '') + ol.sections.filter(s => s.items.some(it => !!it.mz === mzOn)).map(s => {
       return `<details open><summary>${heUi ? `<span class="he" lang="he">${esc(s.head)}</span>` : `${esc(T(s, 'head'))} <small class="he" lang="he">${esc(s.head)}</small>`}</summary>${s.desc ? `<p class="he olnote" lang="he">${esc(s.desc)}</p>` : ''}${s.items.filter(it => !!it.mz === mzOn).map(it => { const f = first(it.ref); const ih = heUi || (!it['text_' + L] && /[\u0590-\u05FF]/.test(it.text)); const meta = [T(it, 'speaker'), T(it, 'author'), T(it, 'kind'), T(it, 'place'), T(it, 'time'), T(it, 'par'), T(it, 'desc'), it.seg ? (L === 'he' ? 'סגולה: ' : L === 'de' ? 'Segula: ' : 'Segula: ') + T(it, 'seg') : ''].filter(Boolean).map(esc).join(' · '); const np = window.__mapCount ? window.__mapCount(g.title, it.ref) : 0; return `<div class="olp olc${ih ? '' : ' lt'}${it.mz ? ' olmz' : ''}${olIn(it.ref, cur, !olPlaying(g)) ? ' cur' : ''}" data-r="${esc(it.ref)}" data-ref="${esc(g.title + ' ' + (f ? f.ch + ':' + f.v : it.ref))}"><span class="ref">${esc(String(it.ref).replace(/-/g, '–'))}</span><span class="${ih ? 'he' : 'tx'}"${ih ? ' lang="he"' : ''}>${it.mz ? `<b class="mzn">${it.mz}</b> ` : ''}${esc(T(it, 'text'))}${meta ? `<small class="olm"${ih ? '' : ' style="direction:ltr"'}>${meta}</small>` : ''}</span>${np ? `<span class="olmap" data-n="${np}" title="${esc(I18N.t('Karte: Orte dieses Abschnitts'))}">🗺 ${np}</span>` : ''}</div>`; }).join('')}</details>`;
     }).join('') + (T(ol, 'note') ? `<p class="muted olnote">${esc(T(ol, 'note'))}</p>` : '');
+  }
+  // „Gliederung“-Knopf nur, wenn es für das Buch eine gibt (Karte: siehe mapRefresh)
+  async function olBtnRefresh() {
+    const g = view && view.group, b = $('#olBtn'); if (!b) return;
+    if (!g) { b.hidden = true; return; }
+    const ol = await olOwn(g.title);
+    if (view && view.group === g) b.hidden = !ol && $('#outlinePanel').hidden;
   }
   async function renderOutline() {
     const body = $('#olBody'); const g = view && view.group;
