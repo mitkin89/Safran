@@ -820,6 +820,10 @@
       await openGroup(c[0], {}, inNewTab);
       return true;
     }
+    // Komplexe Werke mit Teilen („Guide for the Perplexed, Part 2 › 5“, „… Part 1 › Introduction 3“): Teil abspalten
+    let partSel = '';
+    { const nm = String(m[1]).match(/^(.*?)[\s,]*\b(part\s*\d+|teil\s*\d+)\s*[›>,]?\s*(introduction|einleitung)?\s*[›>,]?\s*$/i);
+      if (nm) { m[1] = nm[1]; partSel = nm[2].toLowerCase().replace(/^teil/, 'part').replace(/\s+/g, ' ') + (nm[3] ? ' › introduction' : ' ›'); } }
     const book = normT(m[1]), num = m[2].toLowerCase(), verse = m[3];
     let g = view && view.group;
     if (book) {
@@ -831,7 +835,7 @@
       if (!g || cands[0] !== g || inNewTab) { g = cands[0]; await openGroup(g, {}, inNewTab); }
     }
     if (!g || !view) return false;
-    const find = n => view.sections.findIndex(s => s.label.toLowerCase().endsWith(' ' + n) || s.label.toLowerCase() === n);
+    const find = n => view.sections.findIndex(s => { const l = s.label.toLowerCase(); if (partSel) return partSel.endsWith('introduction') ? l === partSel : l.startsWith(partSel) && l.endsWith(' ' + n); return l.endsWith(' ' + n) || l === n; });
     let idx = find(num);
     if (idx < 0 && /^\d+$/.test(num)) idx = find(num + 'a'); // Talmud: „3“ = Daf 3a
     if (idx < 0) return false;
