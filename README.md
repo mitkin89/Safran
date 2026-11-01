@@ -120,6 +120,11 @@ Also bundled: the Westminster Leningrad Codex with morphology (OSHB), the Aleppo
   <sub>Click a Hebrew word: grammar at a glance, and the BDB entry opens next to the text.</sub>
 </p>
 
+<p align="center">
+  <a href="screenshots/search-advanced.png"><img src="screenshots/search-advanced.png" alt="Search tab: anf*, gott and erd* within 10 words, distribution chart per book, hits by book and category filter" width="900"></a><br>
+  <sub>Advanced search: wildcards and words near each other, a chart of hits per book, and a category filter.</sub>
+</p>
+
 <!-- TODO gallery: capture the images below into screenshots/ and replace this comment with a 2-column <table> of thumbnails.
      Settings for all captures: macOS, dark theme, window 1600×1000, UI size 100 %, SBL Hebrew installed, no annotations, JPEG q80 or optimised PNG, ≤ 400 KB each.
      1. dictionary-fulltext.jpg (optional: a version with "auch im Text" ticked; dictionary-search.png is already in)   – Wörterbuch tab, query "אפוטרופוס", "auch im Text" ticked, 📚 showing "3 von 6", hits in Levy, Jastrow and Krauss with highlights, recent searches and favourites visible.

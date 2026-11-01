@@ -120,6 +120,11 @@ Ebenfalls enthalten: der Westminster Leningrad Codex mit Morphologie (OSHB), der
   <sub>Hebräisches Wort anklicken: die Grammatik auf einen Blick, daneben der BDB-Eintrag.</sub>
 </p>
 
+<p align="center">
+  <a href="screenshots/search-advanced.png"><img src="screenshots/search-advanced.png" alt="Suche: anf*, gott und erd* höchstens 10 Wörter auseinander, Verteilung auf die Bücher, Treffer nach Buch und Kategorienfilter" width="900"></a><br>
+  <sub>Erweiterte Suche: Platzhalter und Wörter in der Nähe, Diagramm der Treffer je Buch und Kategorienfilter.</sub>
+</p>
+
 <!-- TODO Galerie: die folgenden Aufnahmen in screenshots/ ablegen und diesen Kommentar durch eine zweispaltige <table> mit Vorschaubildern ersetzen.
      Einstellungen für alle Aufnahmen: macOS, dunkles Thema, Fenster 1600×1000, Größe 100 %, SBL Hebrew installiert, ohne Beschriftungen, JPEG q80 oder optimiertes PNG, je ≤ 400 KB.
      1. dictionary-fulltext.jpg   – Reiter Wörterbuch, Suchwort „אפוטרופוס“, Häkchen „auch im Text“, 📚 zeigt „3 von 6“, Treffer in Levy, Jastrow und Krauss mit Hervorhebung, Letzte Suchen und Favoriten sichtbar.
