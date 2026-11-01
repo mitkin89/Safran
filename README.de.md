@@ -57,7 +57,7 @@ Safran ist eine kostenlose Desktop-App, die deine Texte auf dem eigenen Rechner 
 </tr>
 <tr>
 <td valign="top"><b>🗺 Bibelkarte und Gliederungen</b><br>Die Orte jedes Kapitels auf einer Karte von Israel mit Entfernungen und Höhenprofil, eine detaillierte Jerusalem-Karte von 1865, Gliederungen für 39 Bücher mit Schalter 613 Mizwot, dazu Themen.</td>
-<td valign="top"><b>🎧 Hebräische Lesung</b><br>Eine Lesung des ganzen Tanach von Abraham Schmueloff, pro Buch herunterladbar. Der gelesene Vers wird markiert.</td>
+<td valign="top"><b>🎧 Hebräische Lesung</b><br>Eine Lesung des ganzen Tanach von Abraham Schmueloff, pro Buch herunterladbar. Jeder Vers hat sein eigenes ▶: Ein Klick spielt genau diesen Vers ab, danach läuft die Lesung weiter. Der gelesene Vers wird markiert.</td>
 </tr>
 <tr>
 <td valign="top"><b>✍️ Eigene Texte und Notizen</b><br>TXT, Word, CSV oder JSON als zusätzliche Spalte oder als Kommentar importieren. Lesezeichen und Notizen mit Export nach JSON, Markdown, Word oder PDF.</td>
