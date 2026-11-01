@@ -1,6 +1,7 @@
 # Changelog
 
 ### Unreleased
+- **Hebrew in commentaries:** Hebrew words inside German/English commentary and text columns are now set in SBL Hebrew, like everywhere else.
 - **Hirsch on Isaiah (German):** Julius Hirsch's *Jesaia* – the translation (under Isaiah, 1291 verses, divided verse by verse exactly like Sefaria) and the commentary as a separate text (without the Hebrew Bible text).
 - **Breuer on Ezekiel and Breuer on Ezra (German):** Joseph Breuer's commentary on Ezekiel (1921; commentary only, 876 verses, with the four plans/figures embedded) and Raphael Breuer's *Esra* (1933): the translation sits under Ezra, divided verse by verse like Sefaria, the commentary is a separate text (introduction and foreword left out).
 - **Wünsche's midrash translations (German):** Pesikta de-Rav Kahana, Midrash Shmuel, and the Rabbah volumes on Song of Songs, Ruth, Ecclesiastes, Esther and Lamentations – transcribed from the prints and divided segment by segment like Sefaria (parts without a Sefaria counterpart, e.g. editors' introductions and appendices, are left out).
