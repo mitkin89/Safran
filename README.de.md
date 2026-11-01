@@ -115,6 +115,11 @@ Ebenfalls enthalten: der Westminster Leningrad Codex mit Morphologie (OSHB), der
   <sub>Wörterbuch-Reiter: eine Suche in Levy und Krauss, links die letzten Suchen, rechts die Favoriten.</sub>
 </p>
 
+<p align="center">
+  <a href="screenshots/morphology.png"><img src="screenshots/morphology.png" alt="Josua 1,3 auf Hebräisch und Deutsch; ein angeklicktes Wort zeigt Stamm, Zeit und Person, rechts öffnet sich der BDB-Eintrag" width="900"></a><br>
+  <sub>Hebräisches Wort anklicken: die Grammatik auf einen Blick, daneben der BDB-Eintrag.</sub>
+</p>
+
 <!-- TODO Galerie: die folgenden Aufnahmen in screenshots/ ablegen und diesen Kommentar durch eine zweispaltige <table> mit Vorschaubildern ersetzen.
      Einstellungen für alle Aufnahmen: macOS, dunkles Thema, Fenster 1600×1000, Größe 100 %, SBL Hebrew installiert, ohne Beschriftungen, JPEG q80 oder optimiertes PNG, je ≤ 400 KB.
      1. dictionary-fulltext.jpg   – Reiter Wörterbuch, Suchwort „אפוטרופוס“, Häkchen „auch im Text“, 📚 zeigt „3 von 6“, Treffer in Levy, Jastrow und Krauss mit Hervorhebung, Letzte Suchen und Favoriten sichtbar.
