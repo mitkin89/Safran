@@ -1,5 +1,15 @@
 # Changelog
 
+### New in 1.9
+- **Dictionaries – full text:** tick *auch im Text* to search the article text, not only the headwords; hits are highlighted. The 📚 button chooses which dictionaries are searched.
+- **Headword list:** every dictionary bar has a **≡ Stichwörter** button; a click on a headword searches all selected dictionaries.
+- **Dictionary tab:** recent searches on the left, favourites on the right.
+- **New dictionaries:** Krauss, *Griechische und lateinische Lehnwörter* (part II) with abbreviation tooltips, source links and clickable cross references ("s. X"); Levy, *Targumim-Wörterbuch* (vols. 1–2); abbreviations added to Levy's Talmud dictionary.
+- **New texts:** Apocrypha and Pseudepigrapha (Kautzsch, 1900), Mishneh Torah (Mandelstamm), Testaments of the Twelve Patriarchs as one book with twelve parts.
+- **Outlines:** the whole Mishnah (63 tractates), Ketuvim sub-points, *Guide for the Perplexed*, Da'at Mikra sub-points; search (Cmd+F), keyboard control, marker follows the clicked verse.
+- JSON import keeps title, version and language; unpinned commentary and dictionary open one at a time; the window title follows the chapter.
+- Windows build: long paths allowed when checking out the bundled texts.
+
 ### New in 1.8
 - **Maps:** Bible map of Israel and detailed Jerusalem map; the places of a chapter, with a back button to the outline.
 - **Topics** and **outlines** for 39 books (Hebrew/German/English), Torah outlines with a **613 Mitzvot** switch.
