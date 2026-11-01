@@ -1,5 +1,8 @@
 # Changelog
 
+### Unreleased
+- **Mishneh Torah (Mandelstamm), 12 more volumes in German:** Leavened and Unleavened Bread, Blessings, Eruvin, Rest on a Holiday, Gifts to the Poor, Scroll of Esther and Hanukkah, Sabbath, Shofar/Sukkah/Lulav, Rest on the Tenth of Tishrei, Fasts, Tefillin/Mezuzah/Torah Scroll, Theft – transcribed from the 1851 print, printing errors fixed, divided chapter by chapter and halakhah by halakhah like Sefaria.
+
 ### New in 1.9
 - **Dictionaries – full text:** tick *auch im Text* to search the article text, not only the headwords; hits are highlighted. The 📚 button chooses which dictionaries are searched.
 - **Headword list:** every dictionary bar has a **≡ Stichwörter** button; a click on a headword searches all selected dictionaries.
