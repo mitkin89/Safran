@@ -19,7 +19,7 @@
 <p align="center"><a href="README.md">English</a> &nbsp;·&nbsp; <b>Deutsch</b></p>
 
 <p align="center">
-  <a href="screenshots/reading-and-commentary-annotated.jpg"><img src="screenshots/reading-and-commentary-annotated.jpg" alt="Safran-Lesansicht: Hebräisch, Englisch und Deutsch nebeneinander, links die Bücherliste, rechts das Kommentarfenster" width="900"></a><br>
+  <a href="screenshots/hero-reading.png"><img src="screenshots/hero-reading.png" alt="Safran: Genesis 1 auf Hebräisch (Westminster Leningrad Codex) und Deutsch (Zunz), rechts Raschi auf Deutsch" width="900"></a><br>
   <sub>Zefanja 1 auf Hebräisch, Englisch und Deutsch, mit Raschi, Ibn Esra und Radak im Kommentarfenster. Die nummerierten Marken erklären die Oberfläche (englisch).</sub>
 </p>
 

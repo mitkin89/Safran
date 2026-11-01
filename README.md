@@ -19,7 +19,7 @@
 <p align="center"><b>English</b> &nbsp;·&nbsp; <a href="README.de.md">Deutsch</a></p>
 
 <p align="center">
-  <a href="screenshots/reading-and-commentary-annotated.jpg"><img src="screenshots/reading-and-commentary-annotated.jpg" alt="Safran reading view: Hebrew, English and German side by side, book list on the left, commentary panel on the right" width="900"></a><br>
+  <a href="screenshots/hero-reading.png"><img src="screenshots/hero-reading.png" alt="Safran: Genesis 1 in Hebrew (Westminster Leningrad Codex) and German (Zunz), with Rashi in German in the commentary panel" width="900"></a><br>
   <sub>Zephaniah 1 in Hebrew, English and German, with Rashi, Ibn Ezra and Radak in the commentary panel. Numbered labels explain the interface.</sub>
 </p>
 
