@@ -3431,6 +3431,7 @@
   $('#flat').addEventListener('change', onPick);
   ['#oHe', '#oEn', '#oDe', '#oAll'].forEach(id => $(id).addEventListener('change', schedulePlan));
 
+  $('#pickAll').onclick = () => { for (const s of summary) { if (s.cats.length) selCats.add(s.cats[0]); else selIds.add(s.id); } refreshChecks(); schedulePlan(); };
   $('#pickClear').onclick = () => { selCats.clear(); selIds.clear(); refreshChecks(); schedulePlan(); };
 
   let flatMatches = [];

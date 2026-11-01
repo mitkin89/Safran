@@ -211,7 +211,7 @@
     '2 · Auswahl': '2 · Selection', 'Deutsch (alle Übersetzungen)': 'German (all translations)', 'auch alle Einzelversionen': 'also all individual versions',
     'Standard: pro Sprache die zusammengeführte Fassung. Mit dieser Option werden alle einzelnen Versionen geladen (deutlich mehr Daten).': 'Default: the merged version per language. With this option all individual versions are downloaded (much more data).',
     'Titel suchen (z. B. Genesis, Berakhot, Rashi …) – leer lassen für die Kategorie-Ansicht': 'Search titles (e.g. Genesis, Berakhot, Rashi …) – leave empty for the category view',
-    'Alle Treffer auswählen': 'Select all matches', 'Alle {#} Treffer auswählen': 'Select all {} matches', 'Auswahl leeren': 'Clear selection',
+    'Alle Treffer auswählen': 'Select all matches', 'Alle {#} Treffer auswählen': 'Select all {} matches', 'Auswahl leeren': 'Clear selection', 'Alles auswählen': 'Select all', 'Alle Kategorien und Titel auswählen (je nach Sprachwahl oben ein großer Download)': 'Select all categories and titles (a large download, depending on the language choice above)',
     '… {#} weitere Treffer, bitte genauer suchen oder „Alle Treffer auswählen“.': '… {} more matches, please narrow the search or use “Select all matches”.',
     '3 · Herunterladen': '3 · Download', 'Nichts ausgewählt.': 'Nothing selected.',
     '{#} Titel · {#} Dateien · etwa {} (grobe Schätzung)': '{} titles · {} files · about {} (rough estimate)',
