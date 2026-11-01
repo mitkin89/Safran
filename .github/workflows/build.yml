@@ -12,6 +12,9 @@ jobs:
         os: [macos-latest, windows-latest]
     runs-on: ${{ matrix.os }}
     steps:
+      # Windows: manche mitgelieferten Texte haben Pfade über 260 Zeichen, ohne diese Einstellung scheitert das Auschecken
+      - run: git config --system core.longpaths true
+        if: runner.os == 'Windows'
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: 20 }
