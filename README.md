@@ -110,9 +110,14 @@ Also bundled: the Westminster Leningrad Codex with morphology (OSHB), the Aleppo
   <sub>Two reading windows: Genesis with Hirsch's translation and Rashi in German on the left, Sanhedrin 12a with English translation on the right.</sub>
 </p>
 
+<p align="center">
+  <a href="screenshots/dictionary-search.png"><img src="screenshots/dictionary-search.png" alt="Dictionary tab: one search in Levy and Krauss, recent searches on the left, favourites on the right" width="900"></a><br>
+  <sub>Dictionary tab: one search across Levy and Krauss, with recent searches on the left and favourites on the right.</sub>
+</p>
+
 <!-- TODO gallery: capture the images below into screenshots/ and replace this comment with a 2-column <table> of thumbnails.
      Settings for all captures: macOS, dark theme, window 1600×1000, UI size 100 %, SBL Hebrew installed, no annotations, JPEG q80 or optimised PNG, ≤ 400 KB each.
-     1. dictionary-fulltext.jpg   – Wörterbuch tab, query "אפוטרופוס", "auch im Text" ticked, 📚 showing "3 von 6", hits in Levy, Jastrow and Krauss with highlights, recent searches and favourites visible.
+     1. dictionary-fulltext.jpg (optional: a version with "auch im Text" ticked; dictionary-search.png is already in)   – Wörterbuch tab, query "אפוטרופוס", "auch im Text" ticked, 📚 showing "3 von 6", hits in Levy, Jastrow and Krauss with highlights, recent searches and favourites visible.
      2. dictionary-headwords.jpg  – a Krauss article with an abbreviation tooltip open and the ☰ Stichwörter list popped up.
      3. morphology.jpg            – OSHB column, one word clicked, the morphology popup and the BDB entry in the dictionary panel.
      4. search-advanced.jpg       – Suche tab, "anf* · gott · erd*" with distance 10, result chips per book.
