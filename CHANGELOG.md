@@ -1,6 +1,9 @@
 # Changelog
 
 ### Unreleased
+- **Hirsch on Isaiah (German):** Julius Hirsch's *Jesaia* – the translation (under Isaiah, 1291 verses, divided verse by verse exactly like Sefaria) and the commentary as a separate text (without the Hebrew Bible text).
+- **Breuer on Ezekiel and Breuer on Ezra (German):** Joseph Breuer's commentary on Ezekiel (1921; commentary only, 876 verses, with the four plans/figures embedded) and Raphael Breuer's *Esra* (1933): the translation sits under Ezra, divided verse by verse like Sefaria, the commentary is a separate text (introduction and foreword left out).
+- **Wünsche's midrash translations (German):** Pesikta de-Rav Kahana, Midrash Shmuel, and the Rabbah volumes on Song of Songs, Ruth, Ecclesiastes, Esther and Lamentations – transcribed from the prints and divided segment by segment like Sefaria (parts without a Sefaria counterpart, e.g. editors' introductions and appendices, are left out).
 - **Mishneh Torah (Mandelstamm), 12 more volumes in German:** Leavened and Unleavened Bread, Blessings, Eruvin, Rest on a Holiday, Gifts to the Poor, Scroll of Esther and Hanukkah, Sabbath, Shofar/Sukkah/Lulav, Rest on the Tenth of Tishrei, Fasts, Tefillin/Mezuzah/Torah Scroll, Theft – transcribed from the 1851 print, printing errors fixed, divided chapter by chapter and halakhah by halakhah like Sefaria.
 
 ### New in 1.9

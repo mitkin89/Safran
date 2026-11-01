@@ -52,7 +52,7 @@
     "Midrash Rabbah"
    ],
    "kind": "de",
-   "hash": "3f5c00e7acb8693d63b5afdc0ceb4544cfaab6ce"
+   "hash": "3765bd26f4bea9f396173bcc67d4aa59e9b187d9"
   },
   {
    "rel": "own/Daniel/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung.json",
@@ -157,7 +157,7 @@
     "Midrash Rabbah"
    ],
    "kind": "de",
-   "hash": "ae5ef964b5c65c0c8e2ce3d1d7ff3a992891a4b9"
+   "hash": "7e3a223eacf41481a6471ec96dd14cb8489356f8"
   },
   {
    "rel": "own/Ecclesiastes/de/Die Israelitische Bibel, übersetzt und erläutert von Dr. Ludwig Philippson — Übersetzung.json",
@@ -5701,6 +5701,167 @@
    ],
    "kind": "de",
    "hash": "1a3704b41e98ecebf30126236adf3e1511e5bd20"
+  },
+  {
+   "rel": "own/Pesikta DeRav Kahana/de/Pesikta des Rab Kahana, deutsch von A. Wünsche, Leipzig 1885 (Transkription eScriptorium).json",
+   "title": "Pesikta DeRav Kahana",
+   "heTitle": "פסיקתא דרב כהנא",
+   "language": "English",
+   "versionTitle": "Pesikta des Rab Kahana, deutsch von A. Wünsche, Leipzig 1885 (Transkription eScriptorium)",
+   "categories": [
+    "Midrash",
+    "Aggadah"
+   ],
+   "kind": "de",
+   "hash": "febf7646509fc34d170c84d19f2ab7be5b8b8276"
+  },
+  {
+   "rel": "own/Midrash Shmuel/de/Midrasch Samuel (Aus Israels Lehrhallen V), deutsch von A. Wünsche, Leipzig 1910 (Transkription eScriptorium).json",
+   "title": "Midrash Shmuel",
+   "heTitle": "מדרש שמואל",
+   "language": "English",
+   "versionTitle": "Midrasch Samuel (Aus Israels Lehrhallen V), deutsch von A. Wünsche, Leipzig 1910 (Transkription eScriptorium)",
+   "categories": [
+    "Midrash",
+    "Aggadah"
+   ],
+   "kind": "de",
+   "hash": "beba41fdf83a517f1985648a0cfdbc97ef4159c0"
+  },
+  {
+   "rel": "own/Shir HaShirim Rabbah/de/Der Midrasch Schir Haschirim, deutsch von A. Wünsche, Leipzig 1880 (Transkription eScriptorium).json",
+   "title": "Shir HaShirim Rabbah",
+   "heTitle": "שיר השירים רבה",
+   "language": "English",
+   "versionTitle": "Der Midrasch Schir Haschirim, deutsch von A. Wünsche, Leipzig 1880 (Transkription eScriptorium)",
+   "categories": [
+    "Midrash",
+    "Aggadah",
+    "Midrash Rabbah"
+   ],
+   "kind": "de",
+   "hash": "8e220fc72fd3a8e41480ec25ab5226bf5597dc26"
+  },
+  {
+   "rel": "own/Ruth Rabbah/de/Der Midrasch Ruth, deutsch von A. Wünsche, Leipzig 1880 (Transkription eScriptorium).json",
+   "title": "Ruth Rabbah",
+   "heTitle": "רות רבה",
+   "language": "English",
+   "versionTitle": "Der Midrasch Ruth, deutsch von A. Wünsche, Leipzig 1880 (Transkription eScriptorium)",
+   "categories": [
+    "Midrash",
+    "Aggadah",
+    "Midrash Rabbah"
+   ],
+   "kind": "de",
+   "hash": "b3cc7f84d0755f04be7cf32a5f5c7f7666f936f0"
+  },
+  {
+   "rel": "own/Kohelet Rabbah/de/Der Midrasch Kohelet, deutsch von A. Wünsche, Leipzig 1880 (Transkription eScriptorium).json",
+   "title": "Kohelet Rabbah",
+   "heTitle": "קוהלת רבה",
+   "language": "English",
+   "versionTitle": "Der Midrasch Kohelet, deutsch von A. Wünsche, Leipzig 1880 (Transkription eScriptorium)",
+   "categories": [
+    "Midrash",
+    "Aggadah",
+    "Midrash Rabbah"
+   ],
+   "kind": "de",
+   "hash": "07e53f1de3a767f05baf30591448470092a5dc80"
+  },
+  {
+   "rel": "own/Esther Rabbah/de/Der Midrasch Esther, deutsch von A. Wünsche, Leipzig 1880 (Transkription eScriptorium).json",
+   "title": "Esther Rabbah",
+   "heTitle": "אסתר רבה",
+   "language": "English",
+   "versionTitle": "Der Midrasch Esther, deutsch von A. Wünsche, Leipzig 1880 (Transkription eScriptorium)",
+   "categories": [
+    "Midrash",
+    "Aggadah",
+    "Midrash Rabbah"
+   ],
+   "kind": "de",
+   "hash": "8de3719402ce61748b4dae367ae3c57d24ea5ce7"
+  },
+  {
+   "rel": "own/Eikhah Rabbah/de/Der Midrasch Echa Rabbati, deutsch von A. Wünsche, Leipzig 1881 (Transkription eScriptorium).json",
+   "title": "Eikhah Rabbah",
+   "heTitle": "איכה רבה",
+   "language": "English",
+   "versionTitle": "Der Midrasch Echa Rabbati, deutsch von A. Wünsche, Leipzig 1881 (Transkription eScriptorium)",
+   "categories": [
+    "Midrash",
+    "Aggadah",
+    "Midrash Rabbah"
+   ],
+   "kind": "de",
+   "hash": "7b9aa841bad8069f3637f7d74808a70d08e10bcc"
+  },
+  {
+   "rel": "own/Breuer on Ezekiel/de/Das Buch Jecheskel, übersetzt und erläutert von Dr. Joseph Breuer, Frankfurt a. M. 1921 — Kommentar.json",
+   "title": "Breuer on Ezekiel",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Das Buch Jecheskel, übersetzt und erläutert von Dr. Joseph Breuer, Frankfurt a. M. 1921 — Kommentar",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "e2283afccd5e4f1cb34aacfe398f5ec894a67cd1"
+  },
+  {
+   "rel": "own/Breuer on Ezra/de/Raphael Breuer, Die Bücher Esra und Nehemia, Teil I Esra. Frankfurt a. M. 1933 — Kommentar.json",
+   "title": "Breuer on Ezra",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Raphael Breuer, Die Bücher Esra und Nehemia, Teil I: Esra. Frankfurt a. M. 1933 — Kommentar",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "069f0c4edcc8889743c00cf89bfa85423ceefe0c"
+  },
+  {
+   "rel": "own/Hirsch on Isaiah/de/Julius Hirsch, Jesaia — Kommentar.json",
+   "title": "Hirsch on Isaiah",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Julius Hirsch, Jesaia — Kommentar",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "34db9c104ea8bc251461d281d2bc73ebc42f222a"
+  },
+  {
+   "rel": "own/Isaiah/de/Julius Hirsch, Jesaia — Übersetzung.json",
+   "title": "Isaiah",
+   "heTitle": "ישעיהו",
+   "language": "English",
+   "versionTitle": "Julius Hirsch, Jesaia — Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "de",
+   "hash": "287225378d5975f66de5eec89f7ce0c7e21116b6"
+  },
+  {
+   "rel": "own/Ezra/de/Raphael Breuer, Die Bücher Esra und Nehemia, Teil I Esra. Frankfurt a. M. 1933 — Übersetzung.json",
+   "title": "Ezra",
+   "heTitle": "עזרא",
+   "language": "English",
+   "versionTitle": "Raphael Breuer, Die Bücher Esra und Nehemia, Teil I: Esra. Frankfurt a. M. 1933 — Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "de",
+   "hash": "2142259eeda09a3ab54a74c11ed06e394a5c0994"
   }
  ]
 }
