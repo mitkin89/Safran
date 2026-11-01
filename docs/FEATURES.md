@@ -9,7 +9,7 @@ The short version is in the [README](../README.md). This page lists everything, 
 - **Links:** download Sefaria's link data once (~680 MB), then see links per verse, grouped by category and book, with text preview. Bible cross-references from OpenBible.info (Tanakh) are shown among them.
 - **Audio:** Hebrew reading of the Tanakh (Abraham Schmueloff), chapter by chapter with verse markers, downloaded per book in the *Download* window from the GitHub release `audio` (≈ 3 GB in total). Playback follows the verses and highlights the one being read.
 - **Update check:** ⋯ → *Nach Updates suchen* asks GitHub for a newer release; *Beim Start nach Updates suchen* does it automatically. A separate check compares your texts against the Sefaria export.
-- **Bundled texts and dictionaries:** everything in `bundled/` (texts) and `bundled/dict/` (dictionaries, gzip with manifest) is imported on first start and updated when it changes; what you remove stays removed, and your own version of the same text is never overwritten.
+- **Bundled texts and dictionaries:** everything in `bundled/` (texts) and `bundled/dict/` (dictionaries, gzip with manifest) is imported on first start and updated when it changes; what you remove stays removed, and your own version of the same text is never overwritten. The bundle holds 238 German text files (Zunz, Philippson, Herxheimer, Kautzsch's Apocrypha and Pseudepigrapha, Mendelssohn, Rashi and Kitzur Shulchan Arukh after Bamberger, Hertz, Hirsch's Psalms, Midrash Bemidbar and Devarim Rabbah, More Nevuchim), 124 Hebrew versions (OSHB, Aleppo Codex, Qumran scrolls, Mendelssohn's Taitsch) and the Septuagint and Targumim, see the [README](../README.md#german-texts-that-are-not-on-sefaria) and [SOURCES.md](../SOURCES.md).
 
 ## Reading
 
