@@ -130,6 +130,11 @@ Also bundled: the Westminster Leningrad Codex with morphology (OSHB), the Aleppo
   <sub>Bible map: routes from the text, distance measuring with an elevation profile, and all places of the chapter.</sub>
 </p>
 
+<p align="center">
+  <a href="screenshots/map-jerusalem.png"><img src="screenshots/map-jerusalem.png" alt="Jerusalem 1865 (Wilson) map with the gates of Nehemiah 3 marked, layers for the modern city and terrain, and a place note for the East Gate" width="900"></a><br>
+  <sub>Jerusalem on the 1865 Ordnance Survey map: the gates of Nehemiah 3, switchable layers, and a note per place.</sub>
+</p>
+
 <!-- TODO gallery: capture the images below into screenshots/ and replace this comment with a 2-column <table> of thumbnails.
      Settings for all captures: macOS, dark theme, window 1600×1000, UI size 100 %, SBL Hebrew installed, no annotations, JPEG q80 or optimised PNG, ≤ 400 KB each.
      1. dictionary-fulltext.jpg (optional: a version with "auch im Text" ticked; dictionary-search.png is already in)   – Wörterbuch tab, query "אפוטרופוס", "auch im Text" ticked, 📚 showing "3 von 6", hits in Levy, Jastrow and Krauss with highlights, recent searches and favourites visible.

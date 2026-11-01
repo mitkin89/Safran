@@ -130,6 +130,11 @@ Ebenfalls enthalten: der Westminster Leningrad Codex mit Morphologie (OSHB), der
   <sub>Bibelkarte: Routen aus dem Text, Entfernungen messen mit Höhenprofil und alle Orte des Kapitels.</sub>
 </p>
 
+<p align="center">
+  <a href="screenshots/map-jerusalem.png"><img src="screenshots/map-jerusalem.png" alt="Jerusalem-Karte von 1865 (Wilson) mit den Toren aus Nehemia 3, Ebenen für heutige Stadt und Gelände und einer Ortsnotiz zum Osttor" width="900"></a><br>
+  <sub>Jerusalem auf der Karte von 1865: die Tore aus Nehemia 3, einschaltbare Ebenen und eine Notiz je Ort.</sub>
+</p>
+
 <!-- TODO Galerie: die folgenden Aufnahmen in screenshots/ ablegen und diesen Kommentar durch eine zweispaltige <table> mit Vorschaubildern ersetzen.
      Einstellungen für alle Aufnahmen: macOS, dunkles Thema, Fenster 1600×1000, Größe 100 %, SBL Hebrew installiert, ohne Beschriftungen, JPEG q80 oder optimiertes PNG, je ≤ 400 KB.
      1. dictionary-fulltext.jpg   – Reiter Wörterbuch, Suchwort „אפוטרופוס“, Häkchen „auch im Text“, 📚 zeigt „3 von 6“, Treffer in Levy, Jastrow und Krauss mit Hervorhebung, Letzte Suchen und Favoriten sichtbar.
