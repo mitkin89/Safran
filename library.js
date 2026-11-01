@@ -203,7 +203,7 @@
     tabIdx = i; view = tabs[i];
     showTab('read');
     showView();
-    if (view.group) { const sc = view.scroll || 0; await loadView({ noKeep: true }); window.scrollTo(0, sc); }
+    if (view.group) await loadTabView();
   }
   async function closeTab(i) {
     if (!tabs[i]) return;
@@ -215,7 +215,7 @@
       tabIdx = Math.min(i, tabs.length - 1);
       view = tabs[tabIdx];
       showView();
-      if (view.group) { const sc = view.scroll || 0; await loadView({ noKeep: true }); window.scrollTo(0, sc); }
+      if (view.group) await loadTabView();
     } else renderTabs();
   }
   $('#tabbar').addEventListener('click', e => {
@@ -295,6 +295,23 @@
     showTab('read');
     showView();
     await loadView(target);
+  }
+
+  // Cmd/Strg-Klick im Suchen-Reiter: Treffer als neuen Tab im Hintergrund anlegen, der Suchreiter bleibt offen (geladen wird beim ersten Öffnen des Tabs)
+  function openGroupBg(g, target = {}) {
+    if (!g) return;
+    if (!tabs.length) return openGroup(g, target, false); // noch kein Tab: normal öffnen
+    const nv = { group: g, selected: new Set(), loaded: [], sections: [], idx: 0, key: null, target };
+    if (target.showCompare) nv.cmpRel = target.rel;
+    pickVersions(g).forEach(r => nv.selected.add(r));
+    if (target.rel) nv.selected.add(target.rel);
+    tabs.push(nv); renderTabs(); saveSession();
+  }
+  // Tab laden; ein im Hintergrund angelegter Tab springt dabei an seine Stelle (target), sonst an die gemerkte Scrollposition
+  async function loadTabView() {
+    const sc = view.scroll || 0, tg = view.target || {}; view.target = null;
+    await loadView({ noKeep: true, ...tg });
+    if (!tg.sectionPath && tg.rowLabel == null) window.scrollTo(0, sc);
   }
 
   async function loadView(target = {}) {
@@ -3277,7 +3294,7 @@
     const row = e.target.closest('.row[data-sp]');
     if (!row || e.target.closest('.w, sup, .note, .scm, .slk') || (window.getSelection() + '')) return;
     const g = [...groupsByKey.values()].find(x => x.title === row.dataset.t);
-    if (g) openGroup(g, { sectionPath: JSON.parse(row.dataset.sp), rowLabel: row.dataset.sl }, e.metaKey || e.ctrlKey);
+    if (g) { const tg = { sectionPath: JSON.parse(row.dataset.sp), rowLabel: row.dataset.sl }; if (e.metaKey || e.ctrlKey) openGroupBg(g, tg); else openGroup(g, tg, false); }
   });
   $('#sSum').addEventListener('click', e => { const c = e.target.closest('.chip'); if (c && c.dataset.more) { sSumState.n += 100; renderSum(); return; } if (c) runSearch(c.dataset.t || 'restore'); });
   $('#sExport').onclick = async () => {
@@ -3348,7 +3365,7 @@
     const r = sResults[+el.dataset.i];
     const entry = entries.find(x => x.rel === r.rel);
     if (!entry) return;
-    openGroup(groupsByKey.get(keyOf(entry)), { rel: r.rel, sectionPath: r.loc && r.loc.path, rowLabel: r.loc ? r.loc.label : undefined }, e.metaKey || e.ctrlKey);
+    { const tg = { rel: r.rel, sectionPath: r.loc && r.loc.path, rowLabel: r.loc ? r.loc.label : undefined }, gg = groupsByKey.get(keyOf(entry)); if (e.metaKey || e.ctrlKey) openGroupBg(gg, tg); else openGroup(gg, tg, false); }
   });
 
   // ---------- Herunterladen ----------
