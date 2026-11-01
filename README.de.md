@@ -126,8 +126,8 @@ Ebenfalls enthalten: der Westminster Leningrad Codex mit Morphologie (OSHB), der
 </p>
 
 <p align="center">
-  <a href="screenshots/map-israel.png"><img src="screenshots/map-israel.png" alt="Kartenfenster zu Josua 10 mit der Route des Südfeldzugs auf einer Reliefkarte, Entfernungen je Abschnitt und die Orte des Kapitels" width="900"></a><br>
-  <sub>Bibelkarte: der Südfeldzug aus Josua 10 als Route mit Entfernungen, dazu alle Orte des Kapitels.</sub>
+  <a href="screenshots/map-israel.png"><img src="screenshots/map-israel.png" alt="Kartenfenster zu Josua 10: Route des Südfeldzugs, eine Messung von 39 km mit Höhenprofil und die Orte des Kapitels" width="900"></a><br>
+  <sub>Bibelkarte: Routen aus dem Text, Entfernungen messen mit Höhenprofil und alle Orte des Kapitels.</sub>
 </p>
 
 <!-- TODO Galerie: die folgenden Aufnahmen in screenshots/ ablegen und diesen Kommentar durch eine zweispaltige <table> mit Vorschaubildern ersetzen.
