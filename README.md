@@ -57,7 +57,7 @@ Safran is a free desktop app that keeps your texts on your own computer. Pick th
 </tr>
 <tr>
 <td valign="top"><b>🗺 Bible map and outlines</b><br>The places of each chapter on a map of Israel with distances and elevation profile, a detailed 1865 map of Jerusalem, outlines for 39 books with a 613 Mitzvot switch, and topics.</td>
-<td valign="top"><b>🎧 Hebrew audio</b><br>A reading of the whole Tanakh, downloadable per book. The verse being read is highlighted.</td>
+<td valign="top"><b>🎧 Hebrew audio</b><br>A reading of the whole Tanakh by Abraham Schmueloff, downloadable per book. The verse being read is highlighted.</td>
 </tr>
 <tr>
 <td valign="top"><b>✍️ Your own texts and notes</b><br>Import TXT, Word, CSV or JSON as an extra column or as a commentary. Bookmarks and notes with export to JSON, Markdown, Word or PDF.</td>
