@@ -1,6 +1,6 @@
 <p align="center"><img src="logo.png" alt="Safran" width="110"></p>
 <h1 align="center">Safran סַפְרָן</h1>
-<p align="center"><b>Offline-Bibliothek für Tanach, Talmud, Midrasch und Kommentare, mit deutschen Übersetzungen, die es sonst kaum gibt.</b><br>Für macOS und Windows.</p>
+<p align="center"><b>Offline-Bibliothek für Tanach, Talmud, Midrasch und Kommentare, mit deutschen Übersetzungen, die es sonst kaum gibt.</b><br>Für macOS und Windows. Kostenlos und quelloffen.</p>
 
 <p align="center">
   <a href="https://github.com/mitkin89/Safran/releases/latest"><img alt="Latest release" src="https://img.shields.io/github/v/release/mitkin89/Safran?label=release"></a>
@@ -16,83 +16,89 @@
 
 <p align="center"><img src="screenshots/reading-and-commentary-annotated.jpg" alt="Safran Lesansicht: Hebräisch, Englisch und Deutsch mit Kommentarfenster" width="900"><br><i>Zefanja 1: Hebräisch, Englisch und Deutsch nebeneinander, links Bücherliste und Verlauf, rechts der Kommentar.</i></p>
 
-> **Erster Start:** Die App ist nicht mit einem kostenpflichtigen Zertifikat signiert. Unter macOS Rechtsklick → *Öffnen*, unter Windows *Weitere Informationen → Trotzdem ausführen* ([Einzelheiten unten](#erster-start-unter-macos-und-windows)).
-> Die Texte werden aus dem öffentlichen Sefaria-Export geladen, nur was du auswählst (Hebräisch insgesamt ≈ 2,8 GB). Safran ist ein unabhängiges Projekt und **nicht mit Sefaria verbunden**.
+Safran holt die Sefaria-Bibliothek auf den eigenen Rechner: Du wählst einmal, welche Bücher und Sprachen geladen werden, und liest, durchsuchst und kommentierst sie danach ohne Internetverbindung. Dazu bringt die App eine eigene Sammlung **deutscher Übersetzungen und Kommentare** mit (Zunz, Philippson, Mendelssohn, Herxheimer, Hertz, Raschi nach Bamberger, Midrasch Rabba, More Nevuchim …) sowie ein **Wörterbuchregal** (BDB, Gesenius, Jastrow, Levy, Krauss), das sich nach Stichwort und im Volltext durchsuchen lässt. Safran ist ein unabhängiges Projekt und **nicht mit Sefaria verbunden**.
+
+## Schnellstart
+
+1. **Herunterladen:** das Installationsprogramm für dein System aus der [neuesten Version](https://github.com/mitkin89/Safran/releases/latest) laden und öffnen. Die App ist nicht mit einem kostenpflichtigen Zertifikat signiert, darum braucht der erste Start einen zusätzlichen Klick: siehe [Erster Start](#erster-start-unter-macos-und-windows).
+2. **Texte wählen:** *Herunterladen* öffnen (⋯-Menü), den Katalog einmal laden (~22 MB), Kategorien oder einzelne Bücher ankreuzen und die Sprachen wählen (Hebräisch, Englisch, Deutsch). Der Speicherort lässt sich ändern, z. B. auf eine externe Festplatte.
+3. **Lesen:** ein Buch aus der Liste wählen, eine Stelle ins Springen-Feld tippen (`2:5`, `Daf 3a`, `gen. 1:1`) und mit Cmd+K das Kommentarfenster öffnen. Ein Doppelklick auf ein Wort schlägt es in den Wörterbüchern nach.
+
+Die mitgelieferten deutschen Texte und Wörterbücher sind sofort da, noch bevor etwas heruntergeladen ist.
 
 ## Was Safran kann
 
 <table>
 <tr>
-<td width="50%" valign="top"><b>📖 Vers für Vers in drei Sprachen</b><br>Hebräisch, Englisch und Deutsch nebeneinander, Vers für Vers ausgerichtet, Fußnoten direkt im Text.</td>
-<td width="50%" valign="top"><b>🇩🇪 Deutsche Texte, die es sonst nicht gibt</b><br>Über 290 Versionen, vieles nicht bei Sefaria: Zunz, Philippson, Mendelssohn, Herxheimer, Hertz, Raschi (Bamberger), Midrasch Rabba, More Nevuchim …</td>
+<td width="50%" valign="top"><b>📖 Vers für Vers in drei Sprachen</b><br>Hebräisch, Englisch und Deutsch nebeneinander, Vers für Vers ausgerichtet, Fußnoten direkt im Text, Kapitel und Talmudseiten per Pfeiltasten, ein zweites Lesefenster für Parallelstellen.</td>
+<td width="50%" valign="top"><b>🇩🇪 Deutsche Texte, die es sonst nicht gibt</b><br>Über 290 Versionen, vieles nicht bei Sefaria: Zunz, Philippson, Mendelssohn (Biur), Herxheimer, Hertz, Hirsch, Raschi und Kitzur Schulchan Aruch (Bamberger), Midrasch Rabba, More Nevuchim …</td>
 </tr>
 <tr>
-<td width="50%" valign="top"><b>💬 Kommentarfenster</b><br>Raschi, Ibn Esra u. a. unter dem gewählten Vers. Lässt sich zusammen mit dem Wörterbuch neben dem Text anpinnen.</td>
-<td width="50%" valign="top"><b>🔎 Volltextsuche</b><br>Ignoriert Vokale und Kantillation; Wörter in der Nähe, Platzhalter und unscharfe Suche für Schreibvarianten.</td>
+<td width="50%" valign="top"><b>📚 Ein Wörterbuchregal</b><br>BDB, Gesenius, Jastrow, Levy (Talmud und Targumim) und Krauss sind dabei; eigene DSL-Wörterbücher (ABBYY Lingvo) lassen sich hinzufügen. Suche in Stichwörtern oder im ganzen Artikeltext, Auswahl der durchsuchten Wörterbücher, Stichwortliste je Wörterbuch.</td>
+<td width="50%" valign="top"><b>🔤 Morphologie per Klick</b><br>Der OSHB-Tanach trägt zu jedem Wort Lemma und Morphologie: Klick auf ein Wort zeigt Stamm, Form, Person, Genus und Numerus und schlägt das Lemma im Wörterbuch nach.</td>
 </tr>
 <tr>
-<td width="50%" valign="top"><b>🗺 Bibelkarte</b><br>Orte jedes Kapitels auf einer Karte von Israel, Entfernungen, Höhenprofil und eine detaillierte Karte von Jerusalem (1865).</td>
+<td width="50%" valign="top"><b>💬 Kommentarfenster</b><br>Raschi, Ibn Esra u. a. unter dem gewählten Vers, auf Hebräisch, Englisch oder Deutsch. Lässt sich zusammen mit dem Wörterbuch neben dem Text anpinnen.</td>
+<td width="50%" valign="top"><b>🔎 Volltextsuche</b><br>In allem, was du geladen hast, auch Fußnoten und eigene Texte. Ignoriert Vokale und Kantillation; Wörter in der Nähe, Platzhalter und unscharfe Suche für Schreibvarianten; letzte Suchen und Favoriten.</td>
+</tr>
+<tr>
+<td width="50%" valign="top"><b>🗺 Bibelkarte und Gliederungen</b><br>Orte jedes Kapitels auf einer Karte von Israel mit Entfernungen und Höhenprofil, eine detaillierte Jerusalem-Karte von 1865, Themen und Gliederungen für 39 Bücher mit Schalter 613 Mizwot.</td>
 <td width="50%" valign="top"><b>🎧 Hebräische Lesung</b><br>Lesung des Tanach mit Versmarken; der gelesene Vers wird markiert.</td>
 </tr>
 <tr>
-<td width="50%" valign="top"><b>📚 Wörterbücher und Morphologie</b><br>BDB, Gesenius und eigene DSL-Wörterbücher; Klick auf ein Wort zeigt Lemma und Morphologie.</td>
-<td width="50%" valign="top"><b>📜 Handschriften und Fassungen</b><br>Aleppo-Kodex, Qumran-Rollen, Septuaginta mit hebräischem Gegenstück, Targumim, Parallelstellen.</td>
+<td width="50%" valign="top"><b>📜 Handschriften und Fassungen</b><br>Aleppo-Kodex, Qumran-Rollen, Septuaginta mit hebräischem Gegenstück je Wortgruppe, Targumim mit Morphologie, Parallelstellen und Sefarias Verknüpfungen.</td>
+<td width="50%" valign="top"><b>✍️ Eigene Texte und Notizen</b><br>TXT, Word, CSV oder JSON als zusätzliche Spalte oder als Kommentar importieren; Lesezeichen und Notizen mit Export; Tabs, Verlauf und Sitzung werden beim nächsten Start wiederhergestellt.</td>
 </tr>
 </table>
 
-<details>
-<summary><b>Alle Funktionen</b></summary>
+Einzelheiten, Tastenkürzel und das Menü Werkzeuge: [docs/FEATURES.md](docs/FEATURES.md) (englisch).
 
-- **Download:** Katalog einmal laden (~22 MB), Kategorien oder einzelne Bücher ankreuzen, Sprachen wählen (Hebräisch, Englisch, Deutsch) und herunterladen. Standardmäßig wird je Sprache die zusammengeführte Fassung verwendet; deutsche Übersetzungen werden vollständig geladen. Unterbrochene Downloads lassen sich fortsetzen, vorhandene Dateien werden übersprungen.
-- **Lesen:** Hebräisch, Englisch und Deutsch nebeneinander, Vers für Vers ausgerichtet. Kapitel bzw. Talmudseiten (2a, 2b …) per Auswahlliste oder Pfeiltasten. Fußnoten öffnen sich direkt im Text (Klick auf die kleine Marke). Einzelne Versionen lassen sich ein- und ausschalten.
-- **Tabs, Verlauf und Sitzungen:** mehrere Tabs mit Zurück/Vor je Tab, Liste „zuletzt geöffnet"; offene Tabs werden beim nächsten Start wiederhergestellt.
-- **Springen-Feld:** Stelle eintippen (`3`, `2:5`, `14 2`, `Daf 3a`, `gen. 1:1`, `Kapitel 14 Vers 2`); abgekürzte Buchnamen funktionieren.
-- **Suche:** Volltextsuche in allen geladenen Texten (inkl. Fußnoten und eigenen Texten), hebräische Vokale und Kantillation werden ignoriert, optional „ganze Wörter mit Präfixen", Kategoriefilter. Erweiterte Suche: bis zu drei Wörter in der Nähe zueinander (Abstand einstellbar, Reihenfolge optional), Platzhalter (`anf*`, `m?er`) und unscharfe Suche für Schreibvarianten (Raschi/Rashi). Seitensuche mit Cmd+F, auch im Kommentarfenster.
-- **Verknüpfungen (🔗):** Sefarias Verknüpfungsdaten einmal laden (~680 MB), dann je Vers nach Kategorie und Buch gruppiert mit Textvorschau ansehen.
-- **Bibelkarte (🗺):** Orte des aktuellen Kapitels auf einer Karte von Israel (Grenzen, Relief, Flüsse, Routen), Entfernungsmessung, Höhenprofil, Notizen an Orten; dazu eine detaillierte **Jerusalem**-Karte (Wilson 1864/65 mit heutigen Straßen). Der Knopf zeigt die Anzahl der Orte.
-- **Themen (🏷):** Themenansicht, die Themen den Stellen zuordnet. Der Knopf zeigt die Anzahl der Themen.
-- **Gliederungen:** Gliederungen für 39 Bücher des Tanach auf Hebräisch, Deutsch und Englisch. Für die Tora gibt es in der Gliederung zusätzlich den Schalter **613 Mizwot**, der statt der Gliederung nur die Gebote zeigt. Von der Karte führt ein Klick zurück zur Gliederung.
-- **Audio:** hebräische Lesung des Tanach von Abraham Schmueloff, kapitelweise, mit Versmarken (in der App enthalten). Die Audiodateien (etwa 3 GB) werden im *Download*-Fenster pro Buch geladen (GitHub-Release `audio`); die Wiedergabe folgt den Versen.
-- **Fenster anpinnen:** Verknüpfungen, Themen, Gliederung, Karte, Kommentare und Wörterbuch lassen sich mit der Nadel neben dem ✕ anheften und stehen dann neben dem Text. Der Pin wird je Fenster gemerkt; ein zweites angepinntes Fenster ersetzt das erste (Kommentare und Wörterbuch dürfen zusammen angepinnt sein). Nicht angepinnte Fenster schweben und schließen beim Klick außerhalb. Ein Klick auf die Versnummer öffnet die Kommentare.
-- **Beschriftete Werkzeugleiste:** Die Knöpfe für Verknüpfungen, Themen und Karte tragen eine Beschriftung und zeigen die Anzahl.
-- **Kommentarfenster (Cmd+K):** zeigt Kommentare zum gewählten Vers (z. B. Raschi und Ibn Esra untereinander) in der gewählten Sprache. Ist kein Kommentator gewählt, erscheinen alle lokal vorhandenen.
-- **Eigene Texte und Kommentare:** TXT, Word (.docx), CSV, JSON oder Sefaria-Upload-CSV importieren, auch mehrere auf einmal (Drag & Drop), als *Text* oder als *Kommentar* (`Kommentator on Buch`, erscheint im Kommentarfenster). Dein Text erscheint als zusätzliche Spalte neben dem Original, wird Zeile für Zeile verglichen und lässt sich wieder entfernen. Eingebettete Base64-Bilder werden angezeigt.
-- **Zusätzliche Texte, die es bei Sefaria (noch) nicht gibt:** Safran enthält eine eigene Sammlung deutscher Übersetzungen und Kommentare, die Sefaria bisher nicht anbietet. Sie erscheinen als zusätzliche Versionen und Kommentatoren neben den Sefaria-Texten.
-- **Mitgelieferte Texte:** Texte im Ordner `bundled/` werden beim Start automatisch importiert (neue oder geänderte auch nach Updates); eigene Texte exportierst du mit ⋯ → „Eigene Texte für GitHub exportieren …" in diesen Ordner.
-- **Zwei Lesefenster** nebeneinander mit eigenen Tabs, Verlauf und Kommentarfenster; **Kommentarfenster in der Breite verstellbar** mit einstellbarer Schriftgröße.
-- **Notizen und Lesezeichen**, **Anzeigeoptionen** (Schriftgrößen, Vokale/Kantillation ausblenden), **Export** als PDF oder Word, **Update-Prüfung** gegen den Sefaria-Export.
-- **Menü Werkzeuge:** Buch oder Kapitelbereich als CSV/TXT/JSON herunterladen; CSV-Dateien für den Sefaria-Upload vorbereiten und prüfen (Duplikate, Lücken, Reihenfolge, HTML, Steuerzeichen, Segmentzahlen im Vergleich mit einem vorhandenen Sefaria-Text).
-- Hebräischer Text wird in **SBL Hebrew** gesetzt, falls installiert (kostenlos von der Society of Biblical Literature), sonst in einer Ersatzschrift.
+## Wörterbücher
 
-### Tastenkürzel
+Der Reiter *Wörterbuch* (oder der Knopf 📖 neben dem Kommentarfenster) öffnet das Wörterbuchfenster. Mitgeliefert sind:
 
-| Kürzel | Aktion |
-| --- | --- |
-| ← / → | vorheriger / nächster Abschnitt |
-| Cmd+T / Cmd+W | neuer Tab / Tab schließen (Cmd+Shift+W schließt das Fenster) |
-| Cmd+1…9 | Tab wählen (9 = letzter), Cmd+Alt+←/→ Tab links/rechts |
-| Cmd+[ / Cmd+] | zurück / vor |
-| Cmd+F | Suche im angezeigten Text |
-| Cmd+K | Kommentarfenster |
-| Cmd+B | Bücherliste ein-/ausblenden |
-| Cmd+Shift+O | Offline-Bibliothek öffnen |
+| Wörterbuch | Einträge | Hinweise |
+| --- | ---: | --- |
+| BDB, Brown-Driver-Briggs (ungekürzt) | 10.022 | auch nach Strong- und BDB-Nummer; Bibelstellen verlinkt |
+| Gesenius, Hebräisches Handwörterbuch (1915) | 10.118 | |
+| Jastrow, Dictionary of the Targumim, Talmud and Midrash | 32.466 | |
+| Levy, Wörterbuch über die Talmudim und Midraschim (Bd. 1–4) | 19.503 | Abkürzungen beim Überfahren erklärt, Quellen verlinkt |
+| Levy, Chaldäisches Wörterbuch über die Targumim (Bd. 1–2) | 7.232 | Abkürzungen beim Überfahren erklärt, Quellen verlinkt |
+| Krauss, Griechische und lateinische Lehnwörter (Teil II) | 6.329 | Abkürzungen beim Überfahren, Quellen verlinkt, Verweise *s. X* anklickbar |
 
-
-</details>
+- **Nachschlagen** ignoriert Vokalzeichen und Endbuchstaben, löst die Präfixe ו ה ב כ ל מ ש ab und zeigt auch Einträge, die mit dem Wort beginnen. Beim Tippen erscheinen Vorschläge.
+- **Volltext:** mit dem Häkchen *auch im Text* wird im Artikeltext gesucht, nicht nur in den Stichwörtern; Treffer werden hervorgehoben.
+- **Wörterbücher wählen:** der Knopf 📚 legt fest, welche Wörterbücher durchsucht werden; die Auswahl wird gemerkt.
+- **Stichwortliste:** der Knopf *☰ Stichwörter* in der Titelleiste eines Wörterbuchs öffnet dessen vollständige, filterbare Stichwortliste; ein Klick schlägt das Wort in diesem Wörterbuch nach.
+- **Verlinkte Quellen:** Stellenangaben wie *Rosh Hashanah 18b* öffnen die Stelle im Lesefenster (Cmd/Strg+Klick: neuer Tab, Umschalt+Klick: zweites Fenster), sofern der Text in deiner Bibliothek ist.
+- **Letzte Suchen und Favoriten** stehen unter dem Suchfeld; beide wandern mit in den Notizen-Export.
+- **Eigene Wörterbücher:** `.dsl`- / `.dsl.dz`-Dateien (ABBYY-Lingvo-Format) unter *Wörterbücher verwalten* hinzufügen. Tags wie `[b]`, `[i]`, `[ref]` werden dargestellt; mit `{{ref:…}}` markierte Stellen werden in Safran anklickbar.
+- Rechtsklick auf ein hebräisches Wort im Text → *Im Wörterbuch nachschlagen*, oder Doppelklick.
 
 ## Texte, die es bei Sefaria nicht gibt
 
-Neben den Sefaria-Texten enthält Safran eine eigene Sammlung deutscher Übersetzungen und Kommentare (Zunz, Philippson, Mendelssohn, Herxheimer, Hertz, Raschi und Kitzur Schulchan Aruch (Bamberger), Mendelssohn (Netivot ha-Schalom, Biur), Midrasch Rabba, More Nevuchim u. a.) im Ordner `bundled/`. Sie werden beim ersten Start importiert und erscheinen unter *Eigene Texte* als zusätzliche Versionen und Kommentatoren neben den Sefaria-Texten.
+Neben den Sefaria-Texten enthält Safran im Ordner `bundled/` eine eigene Sammlung deutscher Übersetzungen und Kommentare: Zunz (1838), Philippson, Mendelssohn (Netivot ha-Schalom, Biur), Herxheimer, Hertz, Hirschs Psalmen, Raschi und Kitzur Schulchan Aruch (Bamberger), Midrasch Rabba, More Nevuchim u. a. Sie werden beim ersten Start importiert und erscheinen unter *Eigene Texte* als zusätzliche Versionen und Kommentatoren neben den Sefaria-Texten. Ebenfalls enthalten: der Westminster Leningrad Codex mit Morphologie (OSHB), der Aleppo-Kodex, die Qumran-Rollen, Targum Pseudo-Jonathan und Neofiti sowie die Septuaginta (CATSS). Quellen und Lizenzen: [SOURCES.de.md](SOURCES.de.md).
 
-## Installation
+## Bildschirmfotos
 
-1. Das Installationsprogramm für dein System aus der [neuesten Version](https://github.com/mitkin89/Safran/releases/latest) laden.
-2. Safran starten und unter **Download** Bücher und Sprachen wählen. Der Speicherort lässt sich ändern (z. B. auf eine externe Festplatte).
-3. Optional: im selben Fenster die hebräische Lesung pro Buch laden.
+<!-- TODO Galerie: die folgenden Aufnahmen in screenshots/ ablegen und die Platzhalter ersetzen.
+     Vorschlag (macOS, dunkles Thema, Fenster ≈ 1600×1000, Größe 100 %, SBL Hebrew installiert):
+     1. dictionary-fulltext.png   – Reiter Wörterbuch, Suchwort „אפוטרופוס“, Häkchen „auch im Text“, 📚 zeigt „3 von 6“,
+                                     Treffer in Levy, Jastrow und Krauss mit Hervorhebung, Letzte Suchen/Favoriten sichtbar.
+     2. dictionary-headwords.png  – Krauss-Artikel mit geöffnetem Abkürzungs-Tooltip und aufgeklappter Stichwortliste.
+     3. search-advanced.png       – Reiter Suche, „anf* · gott · erd*“ mit Abstand 10, Trefferchips je Buch.
+     4. map-jerusalem.png         – 🗺 Jerusalem-Karte (Wilson 1865) stark gezoomt mit einer Ortsnotiz.
+     5. morphology.png            – OSHB-Spalte, ein Wort angeklickt, Morphologie-Popup und BDB-Eintrag im Wörterbuchfenster.
+     6. safran-tour.gif           – GIF von 10–15 s: Buch öffnen → Cmd+K → Doppelklick auf ein Wort → Wörterbuch → Fenster anpinnen.
+     Jedes Bild ≤ 400 KB (JPEG q80 oder optimiertes PNG). -->
 
-### Erster Start unter macOS und Windows
+![Geteilte Ansicht](screenshots/split-view-commentary-annotated.jpg)
 
-Die App hat kein kostenpflichtiges Entwicklerzertifikat (die Zertifikate von Apple und Microsoft kosten Geld), darum ist beim ersten Start ein zusätzlicher Schritt nötig. Die App ist nicht defekt. Unter macOS ist sie lokal (ad hoc) signiert; meist erscheint die Meldung *„Entwickler kann nicht überprüft werden"* mit der Schaltfläche **Trotzdem öffnen**.
+*Zwei Lesefenster nebeneinander (Genesis mit Kommentarfenster links, Sanhedrin rechts) mit der kompakten Werkzeugleiste.*
+
+## Erster Start unter macOS und Windows
+
+Die App hat kein kostenpflichtiges Entwicklerzertifikat (die Zertifikate von Apple und Microsoft kosten Geld), darum ist beim ersten Start ein zusätzlicher Schritt nötig. Die App ist nicht defekt. Unter macOS ist sie lokal (ad hoc) signiert.
 
 **macOS** – bei *„Safran ist beschädigt und kann nicht geöffnet werden"* oder *„Entwickler kann nicht überprüft werden"*:
 
@@ -102,18 +108,19 @@ Die App hat kein kostenpflichtiges Entwicklerzertifikat (die Zertifikate von App
 
 **Windows** – SmartScreen zeigt evtl. *„Der Computer wurde durch Windows geschützt"*: **Weitere Informationen** → **Trotzdem ausführen**.
 
-
-
 ### Datenmenge (grobe Werte)
 
-Alle zusammengeführten hebräischen Texte ≈ 2,8 GB, Englisch ≈ 0,5 GB, deutsche Übersetzungen (288 Versionen, vor allem Tanach, Talmud, Mischna) ≈ 0,13 GB. Alle JSON-Texte mit jeder Einzelversion ≈ 7 GB. Der Speicherort lässt sich ändern („Speicherort …"), z. B. auf eine externe Festplatte.
-
+Alle zusammengeführten hebräischen Texte ≈ 2,8 GB, Englisch ≈ 0,5 GB, deutsche Übersetzungen (288 Versionen, vor allem Tanach, Talmud, Mischna) ≈ 0,13 GB. Alle JSON-Texte mit jeder Einzelversion ≈ 7 GB. Sefarias Verknüpfungsdaten ≈ 680 MB, hebräische Lesung ≈ 3 GB (pro Buch, optional). Die Texte kommen aus dem öffentlichen Sefaria-Export, nur was du auswählst; Safran lädt nie etwas zu Sefaria hoch.
 
 ## Oberfläche
 
-![Geteilte Ansicht](screenshots/split-view-commentary-annotated.jpg)
+Die Oberfläche gibt es auf Deutsch, Englisch und Hebräisch (⋯ → *Sprache*), hell, dunkel oder automatisch, mit einstellbarer Gesamtgröße. Hebräischer Text wird in **SBL Hebrew** gesetzt, falls installiert (kostenlos von der Society of Biblical Literature). Auf Wunsch oder bei jedem Start prüft Safran bei GitHub, ob es eine neuere Version gibt.
 
-*Zwei Lesefenster nebeneinander (Genesis mit Kommentarfenster links, Sanhedrin rechts) mit der kompakten Werkzeugleiste.*
+## Mitwirken
+
+- **Fehler und Ideen:** ein [Issue](https://github.com/mitkin89/Safran/issues) anlegen. Bitte System, Safran-Version (⋯-Menü) und bei Textproblemen Buch und Stelle nennen.
+- **Texte:** eigene Übersetzungen oder Kommentare mit ⋯ → *Eigene Texte für GitHub exportieren …* ausgeben und als Pull Request für `bundled/` anbieten. Bitte Quelle und Lizenz angeben.
+- **Code:** [docs/DEVELOPMENT.md](docs/DEVELOPMENT.md) beschreibt Start aus dem Quelltext, Build und Tests. Die Oberflächentexte liegen in `i18n.js` (Englisch) und `i18n-he.js` (Hebräisch).
 
 ## Über das Projekt
 
@@ -121,14 +128,11 @@ Der Name ist das hebräische Wort **סַפְרָן** (*safran*): Schreiber, im m
 
 ## Weiteres
 
+- [Alle Funktionen, Tastenkürzel, Menü Werkzeuge](docs/FEATURES.md) (englisch)
 - [Entwicklung, Build und Tests](docs/DEVELOPMENT.md) (englisch)
-- [Quellen und Lizenzen](SOURCES.de.md): Sefaria, OSHB, ETCBC, CATSS, Karten, Audio, Gliederungen
+- [Quellen und Lizenzen](SOURCES.de.md): Sefaria, OSHB, ETCBC, CATSS, Wörterbücher, Karten, Audio, Gliederungen
 - [Änderungen](CHANGELOG.md) (englisch)
 
 ## Lizenz
 
-Der Quellcode dieser App steht unter der [MIT-Lizenz](LICENSE). Die Texte haben eigene Lizenzen, siehe [SOURCES.de.md](SOURCES.de.md).
-
-## Neu in 1.8
-
-Bibelkarte und Jerusalem-Karte · Themen · Gliederungen für 39 Bücher mit Schalter 613 Mizwot · hebräische Lesung mit Versmarken · anpinnbare Fenster · beschriftete Knöpfe. Alles im [Changelog](CHANGELOG.md).
+Der Quellcode dieser App steht unter der [MIT-Lizenz](LICENSE). Texte, Wörterbücher und Karten haben eigene Lizenzen, siehe [SOURCES.de.md](SOURCES.de.md) und [LICENSE-CATSS.md](LICENSE-CATSS.md).

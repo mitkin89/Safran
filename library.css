@@ -820,13 +820,41 @@ body:has(#findBar:not([hidden])) #olBody { padding-bottom: 56px; }
 #olBody .olp .oltg { flex: none; width: 22px; margin-inline-end: -2px; font-size: 18px; line-height: 1; text-align: center; cursor: pointer; user-select: none; color: var(--muted, #999); }
 #olBody .olp .oltg:hover { color: var(--accent); }
 
-/* Wörterbuch: Auswahl der durchsuchten Wörterbücher */
-#dictSel { margin: 6px 0 4px; font-size: 13px; }
-#dictSel summary { cursor: pointer; color: var(--muted); }
-#dictSel .dselbar { display: flex; gap: 6px; margin: 6px 0 4px; }
-#dictSel .dselbar button { font-size: 12px; padding: 2px 8px; }
-#dictSelList { display: flex; flex-direction: column; gap: 2px; max-height: 180px; overflow: auto; }
-#dictSelList .dsel { display: flex; justify-content: flex-start; align-items: center; gap: 6px; cursor: pointer; text-align: start; }
-#dictSelList .dsel input { flex: none; width: auto; margin: 0; }
-
 #olBody .olp:focus-visible, #olBody .oltg:focus-visible { outline: 2px solid var(--accent); outline-offset: -2px; }
+
+/* Wörterbuch: Volltextsuche */
+.dfull { display: inline-flex; align-items: center; gap: 4px; margin-left: 6px; font-size: 12px; color: var(--muted, #888); white-space: nowrap; cursor: pointer; }
+.dhit { background: rgba(255, 200, 0, .45); color: inherit; border-radius: 2px; padding: 0 1px; }
+#dictSelW { position: relative; display: inline-block; margin-left: 6px; }
+#dictSelP { position: absolute; left: 0; top: 100%; z-index: 40; min-width: 280px; max-height: 340px; overflow: auto; background: var(--card); border: 1px solid var(--accent); border-radius: 6px; box-shadow: 0 6px 20px rgba(0,0,0,.3); margin-top: 2px; padding: 6px 8px; }
+#dictSelP[hidden] { display: none; }
+#dictSelP label.dsl { display: grid !important; grid-template-columns: 18px minmax(0, 1fr) auto; align-items: center; gap: 8px; width: auto; margin: 0; padding: 4px 2px; cursor: pointer; font-size: 13px; text-align: left; direction: ltr; }
+#dictSelP label.dsl input { width: 16px !important; height: 16px !important; margin: 0 !important; padding: 0 !important; justify-self: center; }
+#dictSelP .dsn { text-align: left; line-height: 1.25; }
+#dictSelP small { color: var(--muted, #888); white-space: nowrap; }
+#dictSelP .dsa { font-size: 12px; padding: 2px 2px 6px; color: var(--muted, #888); } #dictSelP .dsa a { cursor: pointer; text-decoration: underline; }
+
+/* Wörterbuch: Stichwortliste in der Titelleiste */
+.dsr { display: inline-flex; align-items: baseline; gap: 12px; }
+.dsr .dlist { font-size: 12px; font-weight: 600; color: #fff; background: rgba(255,255,255,.18); border: 1px solid rgba(255,255,255,.45); border-radius: 5px; padding: 2px 9px; cursor: pointer; }
+.dsr .dlist:hover { background: rgba(255,255,255,.32); }
+#dheadPop { position: fixed; z-index: 60; top: 7vh; left: 50%; transform: translateX(-50%); width: min(900px, 94vw); height: 82vh; max-height: 82vh; display: flex; flex-direction: column; gap: 6px; background: var(--card); color: var(--fg, inherit); border: 1px solid var(--accent); border-radius: 8px; box-shadow: 0 10px 30px rgba(0,0,0,.45); padding: 10px; }
+#dheadPop[hidden] { display: none; }
+#dheadPop .dht { display: flex; justify-content: space-between; align-items: center; gap: 8px; font-size: 13px; }
+#dheadPop .dhx { background: none; border: none; color: inherit; cursor: pointer; font-size: 15px; }
+#dheadPop input { width: 100%; box-sizing: border-box; }
+#dheadPop .dhc { font-size: 11px; }
+#dheadPop .dhl { overflow: auto; min-height: 120px; min-width: 0; flex: 1 1 auto; display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); grid-auto-rows: 28px; align-content: start; gap: 0 8px; font-family: "HeDict", inherit; font-size: 17px; }
+#dheadPop .dhi { line-height: 24px; padding: 0 6px; border-radius: 4px; cursor: pointer; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+#dheadPop .dhi:hover { background: var(--accent); color: #fff; }
+
+/* Reiter „Wörterbuch“ (breit): Letzte Suchen links, Favoriten rechts in den Randspalten */
+@media (min-width: 1100px) {
+  html[data-tab=dict]:not(.split) #dictSaved { display: block; margin: 0; }
+  html[data-tab=dict]:not(.split) #dictSaved .dsv { position: fixed; top: 150px; width: calc(12vw - 30px); min-width: 120px; }
+  html[data-tab=dict]:not(.split) #dictSaved .dsv:first-child { left: 14px; }
+  html[data-tab=dict]:not(.split) #dictSaved .dsv:last-child { right: 14px; }
+  html[data-tab=dict]:not(.split) #dictSaved .dchips { flex-direction: column; flex-wrap: nowrap; align-items: stretch; max-height: calc(100vh - 230px); gap: 3px; }
+  html[data-tab=dict]:not(.split) #dictSaved .dchip { justify-content: space-between; border-radius: 6px; padding: 1px 4px 1px 8px; }
+  html[data-tab=dict]:not(.split) #dictSaved .dchip button { opacity: .5; }
+}

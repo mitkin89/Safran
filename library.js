@@ -669,7 +669,7 @@
   $('#togglePanel').onclick = togglePanel;
   const closeListOutside = e => { // Klick außerhalb der Bücherliste schließt sie
     if (!panelOpen || (document.documentElement.dataset.tab || 'read') !== 'read') return;
-    if (e.target.closest('aside:not(#dictPanel):not(#cmtPanel):not(#linkPanel), nav, #togglePanel, #suggest, #ctxMenu, #tip, dialog')) return;
+    if (e.target.closest('aside:not(#dictPanel):not(#cmtPanel):not(#linkPanel), nav, #togglePanel, #suggest, #ctxMenu, #tip, #dheadPop, #dictSelP, dialog')) return;
     // Knöpfe, Links, Auswahlfelder: erst beim Klick schließen – sonst verschiebt sich das Layout schon beim Drücken und der Klick geht ins Leere
     if (e.type !== 'click' && e.target.closest('button, a, select, label, input, [role=button], .chip, [data-ref]')) return;
     panelOpen = false; applyPanel();
@@ -2729,22 +2729,8 @@
   $('#cmtBody').addEventListener('click', clickMark);
   $('#rOut').addEventListener('dblclick', dblWord);
   $('#cmtBody').addEventListener('dblclick', dblWord);
-  // Welche Wörterbücher durchsucht werden: gespeichert wird, was abgewählt ist (neue Wörterbücher sind automatisch angehakt)
-  const dictOffGet = () => { try { const a = JSON.parse(localStorage.getItem('dictOff') || '[]'); return new Set(Array.isArray(a) ? a : []); } catch { return new Set(); } };
-  const dictOffSet = set => { try { localStorage.setItem('dictOff', JSON.stringify([...set])); } catch { /* egal */ } };
-  async function renderDictSel() {
-    const box = $('#dictSelList'); if (!box) return;
-    const r = await O.dictList(), off = dictOffGet(), list = r.list || [];
-    box.innerHTML = list.length ? list.map(d => `<label class="dsel"><input type="checkbox" data-id="${esc(d.id)}"${off.has(d.id) ? '' : ' checked'}> ${esc(d.name)}</label>`).join('') : '<p class="muted">Noch keine Wörterbücher.</p>';
-    const n = list.filter(d => !off.has(d.id)).length;
-    $('#dictSelSum').textContent = `${I18N.t('Durchsuchte Wörterbücher')} (${n} / ${list.length})`;
-    $('#dictSel').hidden = !list.length;
-  }
-  const dictSelChanged = () => { renderDictSel(); if (dictHist[dictPos]) dictLookup(dictHist[dictPos].q, dictHist[dictPos].only, true); };
-  $('#dictSelList').addEventListener('change', e => { const c = e.target.closest('input[data-id]'); if (!c) return; const off = dictOffGet(); if (c.checked) off.delete(c.dataset.id); else off.add(c.dataset.id); dictOffSet(off); dictSelChanged(); });
-  $('#dictSelAll').onclick = () => { dictOffSet(new Set()); dictSelChanged(); };
-  $('#dictSelNone').onclick = async () => { dictOffSet(new Set((await O.dictList()).list.map(d => d.id))); dictSelChanged(); };
-  renderDictSel().catch(() => {});
+  let dictSel = null; // Auswahl der durchsuchten Wörterbücher (Liste von Kennungen) oder null = alle
+  try { const a = JSON.parse(localStorage.getItem('dictSel') || 'null'); if (Array.isArray(a) && a.length) dictSel = a; } catch { /* egal */ }
   let dictOnly = null; // { id, name }: Suche nur in diesem Wörterbuch (wird nicht mehr über das Menü gesetzt)
   let dictHist = [], dictPos = -1, dictShown = [];
   function dictNavButtons() { $('#dictBack').disabled = dictPos <= 0; $('#dictFwd').disabled = dictPos >= dictHist.length - 1; }
@@ -2761,13 +2747,12 @@
     $('#dictQ').value = q;
     if (typeof renderSaved === 'function') renderSaved();
     $('#dictOut').innerHTML = '<p class="muted">Suche …</p>';
-    const r = await O.dictLookup(q, only && only.id);
+    const r = await O.dictLookup(q, only ? only.id : (dictSel && dictSel.length ? dictSel : null), $('#dictFull') && $('#dictFull').checked);
     if (r.error) { $('#dictOut').innerHTML = `<p class="muted">⚠ ${esc(r.error)}</p>`; return; }
-    if (!only) { const off = dictOffGet(); if (off.size) r.results = r.results.filter(x => !off.has(x.dictId)); } // nur die angehakten Wörterbücher
     dictShown = r.results;
     if (!r.results.length) {
       const n = (await O.dictList()).list.length;
-      const offN = dictOffGet().size; $('#dictOut').innerHTML = n && offN >= n ? `<p class="muted">${esc(I18N.t('Alle Wörterbücher sind abgewählt – wähle oben unter „Durchsuchte Wörterbücher“ mindestens eines aus.'))}</p>` : n ? `<p class="muted">Kein Eintrag für „${esc(q)}“ gefunden.</p>` : '<p class="muted">Es ist noch kein Wörterbuch eingebunden. Öffne unten „Wörterbücher verwalten“ und füge eine DSL-Datei hinzu.</p>';
+      $('#dictOut').innerHTML = n ? `<p class="muted">Kein Eintrag für „${esc(q)}“ gefunden.</p>` : '<p class="muted">Es ist noch kein Wörterbuch eingebunden. Öffne unten „Wörterbücher verwalten“ und füge eine DSL-Datei hinzu.</p>';
       return;
     }
     const onlyBar = dictOnly ? `<div class="donly muted">Nur in: <b>${esc(dictOnly.name)}</b> · <a class="dall">alle Wörterbücher</a></div>` : '';
@@ -2777,7 +2762,7 @@
     let last = null;
     $('#dictOut').innerHTML = onlyBar + r.results.map((x, i) => {
       let sec = '';
-      if (x.dictId !== last) { last = x.dictId; sec = `<div class="dsec" style="--dh:${hue(x.dictId)}"><span>${esc(x.dict)}</span><small>${cnt[x.dictId]} Treffer</small></div>`; }
+      if (x.dictId !== last) { last = x.dictId; sec = `<div class="dsec" style="--dh:${hue(x.dictId)}"><span>${esc(x.dict)}</span><span class="dsr"><button type="button" class="dlist" data-id="${esc(x.dictId)}" data-name="${esc(x.dict)}" title="Alle Stichwörter dieses Wörterbuchs als Liste">☰ Stichwörter</button><small>${cnt[x.dictId]} Treffer</small></span></div>`; }
       return `${sec}<div class="dentry" id="dentry${i}" style="--dh:${hue(x.dictId)}"><div class="dhead"><b dir="auto">${esc(x.head)}</b>${x.note ? ` <span class="muted">${esc(x.note)}</span>` : ''}</div><div class="dbody" dir="ltr">${/Gesenius/.test(x.dict || '') && window.GAbk ? window.GAbk.mark(x.html) : x.html}</div></div>`;
     }).join('');
     $('#dictPanel').scrollTop = 0;
@@ -2883,7 +2868,6 @@
     el.classList.add('flash'); setTimeout(() => el.classList.remove('flash'), 1200);
   }
   async function renderDictList() {
-    renderDictSel();
     const r = await O.dictList();
     $('#dictList').innerHTML = r.list.length ? r.list.map((d, i) => `<div class="dli"><span>${esc(d.name)} <span class="muted">· ${d.count.toLocaleString(I18N.loc)} Einträge</span></span><span class="dbtns"><button data-mv="-1" data-id="${esc(d.id)}" title="Nach oben (wird zuerst angezeigt)"${i === 0 ? ' disabled' : ''}>▲</button><button data-mv="1" data-id="${esc(d.id)}" title="Nach unten"${i === r.list.length - 1 ? ' disabled' : ''}>▼</button><button data-id="${esc(d.id)}" title="Wörterbuch entfernen">✕</button></span></div>`).join('') : '<p class="muted">Noch keine Wörterbücher.</p>';
   }
@@ -2906,11 +2890,11 @@
     const q = $('#dictQ').value.trim(), on = !!q && dFavs.includes(q);
     $('#dictStar').textContent = on ? '★' : '☆'; $('#dictStar').classList.toggle('on', on);
   }
-  const manualSearch = q => {
+  const manualSearch = (q, only = null) => {
     q = String(q || '').trim();
     syncSaved();
     if (q) { dRecent = [q, ...dRecent.filter(x => x !== q)].slice(0, 30); lsSet('dictRecent', dRecent); }
-    dictLookup(q); renderSaved();
+    dictLookup(q, only); renderSaved();
   };
   $('#dictStar').onclick = () => {
     const q = $('#dictQ').value.trim(); if (!q) return;
@@ -2926,6 +2910,65 @@
   });
   $('#dictQ').addEventListener('input', renderSaved);
   renderSaved();
+  { const fb = $('#dictFull'); // Volltextsuche (Artikeltext) ein/aus, wird gemerkt
+    try { fb.checked = localStorage.getItem('dictFull') === '1'; } catch { /* egal */ }
+    fb.addEventListener('change', () => { try { localStorage.setItem('dictFull', fb.checked ? '1' : '0'); } catch { /* egal */ } const q = $('#dictQ').value.trim(); if (q) dictLookup(q, dictOnly); }); }
+  { // Auswahl der Wörterbücher: Häkchen je Wörterbuch, wird gemerkt
+    const B = $('#dictSelB'), Pn = $('#dictSelP');
+    const label = n => { B.textContent = (dictSel ? `📚 ${dictSel.length} von ${n}` : '📚 Alle Wörterbücher') + ' ▾'; };
+    const paint = async () => {
+      const list = (await O.dictList()).list || [];
+      if (dictSel) dictSel = dictSel.filter(id => list.some(d => d.id === id)); if (dictSel && !dictSel.length) dictSel = null;
+      Pn.innerHTML = `<div class="dsa"><a data-a="all">alle</a> · <a data-a="none">keins</a></div>` + list.map(d => `<label class="dsl"><input type="checkbox" data-id="${esc(d.id)}"${!dictSel || dictSel.includes(d.id) ? ' checked' : ''}><span class="dsn">${esc(d.name)}</span><small>${d.count.toLocaleString(I18N.loc)}</small></label>`).join('');
+      label(list.length);
+    };
+    const save = () => { try { localStorage.setItem('dictSel', JSON.stringify(dictSel || null)); } catch { /* egal */ } };
+    B.onclick = async e => { e.stopPropagation(); if (Pn.hidden) { await paint(); Pn.hidden = false; } else Pn.hidden = true; };
+    document.addEventListener('click', e => { if (!Pn.hidden && !Pn.contains(e.target) && e.target !== B) Pn.hidden = true; });
+    Pn.addEventListener('click', async e => {
+      const a = e.target.closest('a[data-a]');
+      if (a) { dictSel = null; if (a.dataset.a === 'none') { Pn.querySelectorAll('input').forEach(i => { i.checked = false; }); return; } save(); await paint(); const q = $('#dictQ').value.trim(); if (q) dictLookup(q, dictOnly); }
+    });
+    Pn.addEventListener('change', async e => {
+      const ids = [...Pn.querySelectorAll('input')].filter(i => i.checked).map(i => i.dataset.id), all = Pn.querySelectorAll('input').length;
+      dictSel = ids.length && ids.length < all ? ids : null; save(); label(all);
+      const q = $('#dictQ').value.trim(); if (q) dictLookup(q, dictOnly);
+    });
+    paint();
+  }
+
+  { // Stichwortliste eines Wörterbuchs (Knopf in der farbigen Titelleiste): filtern, Klick = nur in diesem Wörterbuch nachschlagen
+    let pop = null, cur = null, all = [], shown = [], pos = 0;
+    const CH = 300;
+    const close = () => { if (pop) pop.hidden = true; };
+    const more = () => { const box = pop.querySelector('.dhl'); const end = Math.min(shown.length, pos + CH); let h = ''; for (let i = pos; i < end; i++) h += `<div class="dhi" dir="auto" data-w="${esc(shown[i])}">${esc(shown[i])}</div>`; box.insertAdjacentHTML('beforeend', h); pos = end; pop.querySelector('.dhc').textContent = `${shown.length.toLocaleString(I18N.loc)} von ${all.length.toLocaleString(I18N.loc)}`; };
+    const refilter = () => {
+      const q = pop.querySelector('input').value.trim().normalize('NFD').replace(/[\u0591-\u05c7\u0300-\u036f]/g, '').replace(/[ךםןףץ]/g, c => ({ 'ך': 'כ', 'ם': 'מ', 'ן': 'נ', 'ף': 'פ', 'ץ': 'צ' }[c])).toLowerCase();
+      shown = q ? all.filter(h => h.normalize('NFD').replace(/[\u0591-\u05c7\u0300-\u036f]/g, '').replace(/[ךםןףץ]/g, c => ({ 'ך': 'כ', 'ם': 'מ', 'ן': 'נ', 'ף': 'פ', 'ץ': 'צ' }[c])).toLowerCase().includes(q)) : all;
+      pos = 0; pop.querySelector('.dhl').innerHTML = ''; pop.querySelector('.dhl').scrollTop = 0; more();
+    };
+    $('#dictOut').addEventListener('click', async e => {
+      const b = e.target.closest('.dlist'); if (!b) return;
+      e.stopPropagation();
+      if (!pop) {
+        pop = document.createElement('div'); pop.id = 'dheadPop'; pop.hidden = true;
+        pop.innerHTML = '<div class="dht"><b></b><button type="button" class="dhx" title="Schließen">✕</button></div><input type="search" placeholder="Stichwörter filtern …" autocomplete="off"><div class="dhc muted"></div><div class="dhl"></div>';
+        document.body.appendChild(pop);
+        pop.querySelector('.dhx').onclick = close;
+        pop.querySelector('input').addEventListener('input', refilter);
+        pop.querySelector('.dhl').addEventListener('scroll', ev => { const l = ev.target; if (pos < shown.length && l.scrollTop + l.clientHeight > l.scrollHeight - 200) more(); });
+        pop.querySelector('.dhl').addEventListener('click', ev => { const it = ev.target.closest('.dhi'); if (!it || !cur) return; const w = it.dataset.w; close(); manualSearch(w); });
+        document.addEventListener('click', ev => { if (pop && !pop.hidden && !pop.contains(ev.target) && !ev.target.closest('.dlist')) close(); });
+        document.addEventListener('keydown', ev => { if (ev.key === 'Escape') close(); });
+      }
+      if (!pop.hidden && cur && cur.id === b.dataset.id) { close(); return; }
+      cur = { id: b.dataset.id, name: b.dataset.name };
+      pop.querySelector('.dht b').textContent = cur.name; pop.querySelector('input').value = '';
+      pop.querySelector('.dhl').innerHTML = '<p class="muted">Lade …</p>'; pop.hidden = false;
+      /* feste Größe und Lage (unabhängig vom Knopf) – siehe CSS */
+      all = (await O.dictHeads(cur.id)).list || []; refilter(); pop.querySelector('input').focus();
+    }, true);
+  }
   $('#dictGo').onclick = () => manualSearch($('#dictQ').value);
   $('#dictQ').addEventListener('keydown', e => { if (e.key === 'Enter') manualSearch($('#dictQ').value); });
   // Stellenangaben im Lesetext und in den Kommentaren (Klasse „aref“): im Reader öffnen; Cmd/Strg + Klick = neuer Tab, Umschalt + Klick = im zweiten Fenster rechts
@@ -4179,7 +4222,7 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
   // nicht angepinnte Kommentare/Wörterbuch schließen beim Klick außerhalb (wie die anderen schwebenden Fenster)
   document.addEventListener('mousedown', e => {
     if (!e.target.closest || document.documentElement.dataset.tab === 'dict') return;
-    if (e.target.closest('#cmtPanel, #dictPanel, #cmtBtn, #cmtResize, #rOut .lab, #suggest, #audioBar, #ctxMenu, #lkHover, #tip, #undoBar, dialog')) return;
+    if (e.target.closest('#cmtPanel, #dictPanel, #cmtBtn, #cmtResize, #rOut .lab, #suggest, #audioBar, #ctxMenu, #lkHover, #tip, #undoBar, #dheadPop, #dictSelP, dialog')) return;
     for (const k of ['cmt', 'dict']) { const el = $(PINS[k][0]); if (!el.hidden && !el.classList.contains('docked')) $(PINS[k][1]).click(); }
   });
   $('#cmtLang').onchange = () => {

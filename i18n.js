@@ -271,7 +271,7 @@
     '{} – lokal vorhanden, aber nicht auf {}': '{} – available locally, but not in {}', '{} – nicht in deiner Bibliothek': '{} – not in your library', '{#} nicht in deiner Bibliothek': '{} not in your library',
     '{} ({#} Artikel)': '{} ({} entries)',
     // ----- Wörterbuch -----
-    'Wort eingeben (mit oder ohne Vokalzeichen) …': 'Enter a word (with or without vowel points) …', 'Nachschlagen': 'Look up',
+    'Wort eingeben (mit oder ohne Vokalzeichen) …': 'Enter a word (with or without vowel points) …', 'Nachschlagen': 'Look up', 'auch im Text': 'also in text', 'Wählen, welche Wörterbücher durchsucht werden': 'Choose which dictionaries are searched', 'Alle Wörterbücher': 'All dictionaries', 'Auch im Text der Artikel suchen (nicht nur in den Stichwörtern)': 'Also search the article text (not only the headwords)',
     'Ersten Buchstaben entfernen und neu nachschlagen (z. B. בִדְגַת → דְגַת)': 'Remove the first letter and look up again (e.g. בִדְגַת → דְגַת)', '⌫ 1. Buchstabe': '⌫ 1st letter',
     'Gib ein hebräisches oder deutsches Wort ein, oder markiere ein Wort im Text und wähle mit Rechtsklick „Im Wörterbuch nachschlagen“.': 'Enter a Hebrew or German word, or select a word in the text and choose “Look up in dictionary” from the right-click menu.',
     'Gib ein hebräisches oder deutsches Wort ein.': 'Enter a Hebrew or German word.',

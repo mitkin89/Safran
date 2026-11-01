@@ -113,6 +113,9 @@ function parseDsl(buf, filename = '') {
 }
 
 // ---------- Speicher: ein Ordner mit je einer JSON-Datei pro Wörterbuch ----------
+// only: leer = alle Wörterbücher; sonst Kennung oder Liste von Kennungen
+const allowed = (only, id) => !only || (Array.isArray(only) ? !only.length || only.includes(id) : only === id);
+
 class Dictionaries {
   constructor(dir) { this.dir = dir; this.cache = new Map(); }
   file(id) { return path.join(this.dir, id + '.json'); }
@@ -246,6 +249,47 @@ class Dictionaries {
     // kürzere (näher an der Eingabe liegende) Wörter zuerst, bei Gleichstand die Wörterbuch-Reihenfolge behalten
     return out.map((x, i) => [x, i]).sort((a, b) => a[0].key.length - b[0].key.length || a[1] - b[1]).map(a => a[0]).slice(0, limit);
   }
+  // Alle Stichwörter eines Wörterbuchs (sortiert, ohne Doppelte) für die Stichwortliste
+  async headList(id) {
+    const j = await this.load(id);
+    if (!j.hlist) {
+      const seen = new Set(), arr = [];
+      j.heads.forEach(hs => hs.forEach(h => { const c = cleanHead(h), n = norm(c); if (!n || seen.has(c)) return; seen.add(c); arr.push([n, c]); }));
+      arr.sort((a, b) => a[0] < b[0] ? -1 : a[0] > b[0] ? 1 : 0);
+      j.hlist = arr.map(a => a[1]);
+    }
+    return j.hlist;
+  }
+  // Volltext: Suchwörter (alle müssen vorkommen, ohne Vokalzeichen/Endbuchstaben/Groß-Klein) im Artikeltext; skip = schon als Stichwort-Treffer gezeigte (dictId:k)
+  async fulltext(query, { limit = 80, only = '', skip = new Set() } = {}) {
+    const terms = norm(query).split(' ').filter(Boolean);
+    if (!terms.length) return [];
+    const res = [];
+    for (const d of (await this.list())) {
+      if (!allowed(only, d.id)) continue;
+      const data = await this.load(d.id);
+      if (!data.plain) data.plain = data.html.map((h, k) => norm(htmlText(h) + ' ' + data.heads[k].join(' ')));
+      const hits = [];
+      data.plain.forEach((t, k) => {
+        if (skip.has(d.id + ':' + k)) return;
+        let n = 0;
+        for (const w of terms) { let i = t.indexOf(w), c = 0; if (i < 0) return; while (i >= 0 && c < 99) { c++; i = t.indexOf(w, i + w.length); } n += c; }
+        hits.push([k, n]);
+      });
+      hits.sort((a, b) => b[1] - a[1] || a[0] - b[0]);
+      for (const [k, n] of hits.slice(0, limit)) res.push({ dict: data.name, dictId: d.id, k, head: data.heads[k].join(' · '), html: markTerms(data.html[k], terms), kind: 'text', note: `Treffer im Text (${n}×)` });
+    }
+    return res;
+  }
+  // Stichwörter und Volltext gemeinsam, je Wörterbuch zusammenhängend (Reihenfolge der Wörterbücher)
+  async search(query, { limit = 40, only = '', full = false } = {}) {
+    const base = await this.lookup(query, { limit, only });
+    if (!full) return base;
+    const skip = new Set(base.map(x => x.dictId + ':' + x.k));
+    const text = await this.fulltext(query, { limit: limit * 2, only, skip });
+    const order = (await this.list()).map(d => d.id);
+    return base.concat(text).map((x, i) => [x, i]).sort((a, b) => order.indexOf(a[0].dictId) - order.indexOf(b[0].dictId) || a[1] - b[1]).map(a => a[0]);
+  }
   // Nachschlagen: genau, dann Wortanfang, dann ohne hebräische Vorsilben (ה ו ב כ ל מ ש)
   async lookup(query, { limit = 40, only = '' } = {}) {
     const q = norm(query);
@@ -258,10 +302,10 @@ class Dictionaries {
       if ([...head].every(c => prefixes.includes(c))) variants.push({ q: q.slice(k), note: `ohne Vorsilbe „${head}“` });
     }
     for (const d of (await this.list())) {
-      if (only && d.id !== only) continue;
+      if (!allowed(only, d.id)) continue;
       const data = await this.load(d.id);
       const seen = new Set();
-      const add = (k, kind, note) => { if (seen.has(k)) return; seen.add(k); res.push({ dict: data.name, dictId: d.id, head: data.heads[k].join(' · '), html: data.html[k], kind, note }); };
+      const add = (k, kind, note) => { if (seen.has(k)) return; seen.add(k); res.push({ dict: data.name, dictId: d.id, k, head: data.heads[k].join(' · '), html: data.html[k], kind, note }); };
       for (const v of variants) {
         const exact = range(data.idx, v.q, true), pre = range(data.idx, v.q, false);
         for (const k of exact) add(k, 'exact', v.note);
@@ -273,6 +317,16 @@ class Dictionaries {
     const rank = new Map(); res.forEach(x => { if (!rank.has(x.dictId)) rank.set(x.dictId, rank.size); });
     return res.sort((a, b) => rank.get(a.dictId) - rank.get(b.dictId) || (a.kind === b.kind ? 0 : a.kind === 'exact' ? -1 : 1)).slice(0, limit * 2);
   }
+}
+
+// Text ohne Tags (für den Volltext); Entitäten grob auflösen
+function htmlText(h) { return String(h).replace(/<[^>]+>/g, ' ').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"').replace(/&amp;/g, '&'); }
+// Treffer im HTML hervorheben (nur in Textstücken, nicht in Tags); hebräisch: Vokalzeichen zwischen den Buchstaben und Endbuchstaben egal
+function markTerms(html, terms) {
+  const FIN = { 'כ': 'כך', 'מ': 'מם', 'נ': 'נן', 'פ': 'פף', 'צ': 'צץ' };
+  const rx = terms.map(t => [...t].map(c => /[א-ת]/.test(c) ? '[' + (FIN[c] || c) + '][֑-ׇ]*' : c.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '[\u0300-\u036f]*').join('')).join('|');
+  let re; try { re = new RegExp('(' + rx + ')', 'giu'); } catch { return html; }
+  return String(html).split(/(<[^>]+>)/).map((x, i) => i % 2 ? x : x.normalize('NFD').replace(re, '<mark class="dhit">$1</mark>')).join('');
 }
 function range(idx, q, exact) {
   let lo = 0, hi = idx.length;
@@ -287,4 +341,4 @@ function range(idx, q, exact) {
   return out;
 }
 
-module.exports = { decode, norm, cleanHead, bodyToHtml, parseDsl, Dictionaries };
+module.exports = { decode, norm, cleanHead, bodyToHtml, parseDsl, Dictionaries, markTerms };
