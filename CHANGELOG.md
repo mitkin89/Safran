@@ -1,5 +1,8 @@
 # Changelog
 
+### New in 1.9.7
+- **Audio on Windows:** the play button now works – paths with backslashes and a drive letter (`C:\Users\…`) were turned into an invalid file address, so the player opened but stayed silent.
+
 ### New in 1.9.6
 - **Download tab:** entries that no longer exist in Sefaria's catalog (HTTP 404, e.g. a renamed version) are listed as outdated and skipped instead of being reported as errors.
 - **Download tab:** new button **Alles auswählen** selects every category and title with one click.

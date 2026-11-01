@@ -1306,7 +1306,13 @@
   // ---------- Audio: eigener Ordner mit Versdateien (Buch_Kapitel_Vers.mp3), ▶ in der Zeilenbeschriftung, fortlaufendes Abspielen ----------
   const AU = { dir: '', map: new Map(), chap: new Map(), chapRel: '', pendingSeek: null, el: new Audio(), cur: null, speed: 1, paused: false };
   const auKey = (book, ch, v) => `${String(book).replace(/ /g, '_')}_${String(ch).padStart(3, '0')}_${String(v).padStart(3, '0')}`;
-  const auSrc = rel => 'file://' + AU.dir.split('/').map(encodeURIComponent).join('/') + '/' + String(rel).split('/').map(encodeURIComponent).join('/');
+  // file-URL aus Ordner + Datei; Windows-Pfade („C:\\Users\\…“) haben Rückwärtsstriche und ein Laufwerk, das nicht kodiert werden darf
+  const auSrc = rel => {
+    const d = AU.dir.replace(/\\/g, '/'), unc = d.startsWith('//');
+    const segs = d.replace(/^\/\//, '').split('/').filter((s, i) => s !== '' || (i === 0 && !unc)).map((s, i) => (i === 0 && /^[A-Za-z]:$/.test(s)) ? s : encodeURIComponent(s));
+    const head = unc ? 'file://' + segs.join('/') : 'file://' + (/^[A-Za-z]:$/.test(segs[0] || '') ? '/' : '') + segs.join('/');
+    return head + '/' + String(rel).split('/').map(encodeURIComponent).join('/');
+  };
   // Gibt es zu dieser Stelle Audio? Versdatei oder Kapiteldatei mit Marker (ohne Markerliste nur Vers 1 = Kapitelanfang)
   const auHas = (book, ch, v) => { if (AU.map.has(auKey(book, ch, v))) return true; const e = AU.chap.get(book + '|' + ch); return !!e && (e.marks.some(m => m.v === v) || (!e.marks.length && v === 1)); };
   function auChapter() { const s = view && view.sections && view.sections[view.idx]; const m = s && String(s.label || '').match(/(\d+)\s*$/); return m ? +m[1] : null; }
