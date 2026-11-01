@@ -3481,9 +3481,9 @@
     $('#dProg').hidden = true;
     if (res.error) { $('#dInfo').innerHTML = `<span class="err">${esc(res.error)}</span>`; return; }
     $('#dInfo').textContent = `${res.cancelled ? 'Abgebrochen' : 'Fertig'}: ${res.done} von ${res.total} Dateien · ${fmtSize(res.bytes)}.`;
-    if (res.failed.length) {
-      $('#dWarn').innerHTML = `<p class="err">${res.failed.length} Dateien konnten nicht geladen werden (erneut „Herunterladen“ versucht es noch einmal):</p><ul>${res.failed.slice(0, 20).map(f => `<li>${esc(f.title)} (${esc(f.versionTitle)}): ${esc(f.error)}</li>`).join('')}</ul>`;
-    }
+    const stale = res.failed.filter(f => /HTTP 404/.test(f.error)), bad = res.failed.filter(f => !/HTTP 404/.test(f.error));
+    $('#dWarn').innerHTML = (bad.length ? `<p class="err">${bad.length} Dateien konnten nicht geladen werden (erneut „Herunterladen“ versucht es noch einmal):</p><ul>${bad.slice(0, 20).map(f => `<li>${esc(f.title)} (${esc(f.versionTitle)}): ${esc(f.error)}</li>`).join('')}</ul>` : '') +
+      (stale.length ? `<p class="muted">${stale.length} Einträge sind im Sefaria-Katalog veraltet (Datei dort nicht mehr vorhanden, vermutlich umbenannt) und wurden übersprungen:</p><ul class="muted">${stale.slice(0, 20).map(f => `<li>${esc(f.title)} (${esc(f.versionTitle)})</li>`).join('')}</ul>` : '');
     await refreshState();
     await loadLibrary();
   };

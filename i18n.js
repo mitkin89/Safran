@@ -156,7 +156,7 @@
     'Sucht im hebräischen Tanach (Westminster) nach grammatischen Merkmalen, auch ohne Suchwort. Mit Suchwort: nur Wörter, die dazu passen (Form oder Lemma).': 'Searches the Hebrew Tanakh (Westminster) for grammatical features, even without a search word. With a search word: only words that match it (form or lemma).',
     'Im Wörterbuch nachschlagen: „{}“': 'Look up in dictionary: “{}”', 'Referenz kopieren: {}': 'Copy reference: {}', 'Auf sefaria.org öffnen': 'Open on sefaria.org',
     'Im neuen Tab nachschlagen: „{}“': 'Look up in new tab: “{}”', 'Hier nachschlagen: „{}“': 'Look up here: “{}”',
-    'Aktuellen Artikel auswählen': 'Select current article', 'Alles auswählen': 'Select all',
+    'Aktuellen Artikel auswählen': 'Select current article', 'Alles auswählen': 'Select all', '{#} Einträge sind im Sefaria-Katalog veraltet (Datei dort nicht mehr vorhanden, vermutlich umbenannt) und wurden übersprungen:': '{} entries are outdated in the Sefaria catalog (file no longer exists there, probably renamed) and were skipped:',
     'Eigene Texte ({#}) entfernen …': 'Remove own texts ({}) …', 'Eigenen Text entfernen …': 'Remove own text …',
     // ----- OSHB-Popup -----
     'Zusatz der Septuaginta (kein hebräisches Gegenstück)': 'Plus in the Septuagint (no Hebrew counterpart)', 'Minus der Septuaginta (hebräisches Wort ohne griechisches Gegenstück)': 'Minus in the Septuagint (Hebrew word without Greek counterpart)',

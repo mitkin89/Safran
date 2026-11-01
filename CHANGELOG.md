@@ -1,6 +1,7 @@
 # Changelog
 
 ### New in 1.9.6
+- **Download tab:** entries that no longer exist in Sefaria's catalog (HTTP 404, e.g. a renamed version) are listed as outdated and skipped instead of being reported as errors.
 - **Download tab:** new button **Alles auswählen** selects every category and title with one click.
 - **Audio download:** a book that fails no longer aborts the whole download – each download is checked against its size in the release and retried once, the other books are still loaded, the failed ones are named in the message, and books that are already loaded are usable right away (the audio folder is remembered even after a partial download).
 
