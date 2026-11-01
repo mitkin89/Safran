@@ -102,7 +102,16 @@ function parseOwn(content, filename = '') {
   if (name.endsWith('.json') || /^\s*[\[{]/.test(content)) {
     let j;
     try { j = JSON.parse(content); } catch (e) { throw new Error('JSON ist ungültig: ' + e.message); }
-    if (j && !Array.isArray(j) && typeof j === 'object' && 'text' in j) { text = j.text; sectionNames = j.sectionNames || null; }
+    if (j && !Array.isArray(j) && typeof j === 'object' && 'text' in j) {
+      text = j.text; sectionNames = j.sectionNames || null;
+      // Sefaria-Export/-Upload-JSON: Titel, Version, Sprache, Quelle aus der Datei übernehmen
+      const str = v => (typeof v === 'string' ? v.trim() : '');
+      if (str(j.title)) meta.title = str(j.title);
+      if (str(j.versionTitle)) meta.versionTitle = str(j.versionTitle);
+      if (str(j.actualLanguage) || str(j.language)) meta.language = str(j.actualLanguage) || str(j.language); // actualLanguage: „de“, wo Sefaria „en“ führt
+      if (str(j.versionSource)) meta.source = str(j.versionSource);
+      if (str(j.versionNotes)) meta.notes = str(j.versionNotes);
+    }
     else text = j;
     if (!R.nonEmpty(text)) throw new Error('Im JSON wurde kein Text gefunden.');
     if (typeof text === 'string') text = [text];
@@ -323,7 +332,10 @@ class Library {
     if (!['he', 'en', 'de', 'other'].includes(kind)) kind = 'other';
     const rel = ['own', safeSeg(title), kind, safeSeg(versionTitle) + '.json'].join('/');
     const dest = path.join(this.dir, rel);
-    if (this.index.entries[rel] && !replace) { const e = new Error(`„${versionTitle}“ zu „${title}“ gibt es schon`); e.code = 'EXISTS'; throw e; }
+    // dieselbe Fassung (Titel + Versionsname) unter anderer Sprache gespeichert (z. B. früher als „en“ eingebunden)? Auch sie gilt als vorhanden und wird beim Ersetzen entfernt
+    const twins = Object.values(this.index.entries).filter(x => x.own && x.rel !== rel && x.title === title && x.versionTitle === versionTitle);
+    if ((this.index.entries[rel] || twins.length) && !replace) { const e = new Error(`„${versionTitle}“ zu „${title}“ gibt es schon`); e.code = 'EXISTS'; throw e; }
+    for (const x of twins) await this.removeOwn(x.rel);
     const data = { title, heTitle, language: kind === 'he' ? 'Hebrew' : 'English', versionTitle, versionSource: 'eigener Text', sectionNames, text };
     const buf = Buffer.from(JSON.stringify(data));
     await fs.mkdir(path.dirname(dest), { recursive: true });
