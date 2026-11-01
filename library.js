@@ -148,7 +148,7 @@
   }, true);
   $('#tree').addEventListener('click', e => {
     const a = e.target.closest('.lib-item');
-    if (a) openGroup(groupsByKey.get(a.dataset.key), {}, e.metaKey || e.ctrlKey);
+    if (a) openGroup(groupsByKey.get(a.dataset.key), {}, BG(e));
   });
 
   // ---------- Lesen: Buch öffnen und anzeigen ----------
@@ -284,6 +284,7 @@
   }
   async function openGroup(g, target = {}, inNewTab = false) {
     if (!g) return;
+    if (inNewTab === 'bg') return openGroupBg(g, target);
     saveScroll();
     const nv = { group: g, selected: new Set(), loaded: [], sections: [], idx: 0, key: null };
     if (!tabs.length || (tabs[tabIdx] && tabs[tabIdx].sres) || (inNewTab && tabs[tabIdx] && tabs[tabIdx].group)) { tabs.push(nv); tabIdx = tabs.length - 1; }
@@ -297,7 +298,9 @@
     await loadView(target);
   }
 
-  // Cmd/Strg-Klick im Suchen-Reiter: Treffer als neuen Tab im Hintergrund anlegen, der Suchreiter bleibt offen (geladen wird beim ersten Öffnen des Tabs)
+  // Cmd/Strg-Klick (überall): Ziel als neuen Tab im Hintergrund öffnen; ‚bg‘ wird an openGroup/jumpTo weitergereicht
+  function BG(e) { return (e.metaKey || e.ctrlKey) ? 'bg' : false; }
+  // Cmd/Strg-Klick: Treffer als neuen Tab im Hintergrund anlegen, der Suchreiter bleibt offen (geladen wird beim ersten Öffnen des Tabs)
   function openGroupBg(g, target = {}) {
     if (!g) return;
     if (!tabs.length) return openGroup(g, target, false); // noch kein Tab: normal öffnen
@@ -311,6 +314,7 @@
   async function loadTabView() {
     const sc = view.scroll || 0, tg = view.target || {}; view.target = null;
     await loadView({ noKeep: true, ...tg });
+    if (tg.jumpRef) { await jumpTo(tg.jumpRef, false); return; } // Verweis (z. B. „Gen. 1:3“): im geladenen Tab an die Stelle springen
     if (!tg.sectionPath && tg.rowLabel == null) window.scrollTo(0, sc);
   }
 
@@ -819,9 +823,10 @@
     if (e.target.closest('.pstar')) { toggleBlock({ key: h.dataset.key, title: h.dataset.title, sk: h.dataset.sk, secLabel: h.dataset.sec, set: JSON.parse(h.dataset.set || '[]'), vs: h.dataset.vs }); return; }
     const g = groupsByKey.get(h.dataset.key); if (!g) return;
     $('#passDlg').close();
-    openGroup(g, { sectionPath: JSON.parse(h.dataset.sk), rowLabel: h.dataset.row }, e.metaKey || e.ctrlKey);
+    openGroup(g, { sectionPath: JSON.parse(h.dataset.sk), rowLabel: h.dataset.row }, BG(e));
   });
   async function jumpTo(q, inNewTab = false) {
+    const q0 = q;
     { const ps = window.Parashot && window.Parashot.find(q); if (ps) return jumpTo(window.Parashot.ref(ps), inNewTab); } // Wochenabschnitt: „Noach“, „Parascha Lech Lecha“, „פרשת ויחי“
     { const pm = parseMulti(q); if (pm) return openPassages(pm); }
     // Versauswahl wie „gen 1:1-5,9“: springt zum Kapitel und zeigt nur diese Verse
@@ -841,7 +846,7 @@
         .sort((a, b2) => (normT(a.title) === b ? 0 : 1) - (normT(b2.title) === b ? 0 : 1) || (normT(a.title).startsWith(b) ? 0 : 1) - (normT(b2.title).startsWith(b) ? 0 : 1) || a.title.length - b2.title.length);
       if (!c.length) return false;
       await openGroup(c[0], {}, inNewTab);
-      return true;
+      return true; // (bei ‚bg‘: Tab liegt im Hintergrund)
     }
     // Komplexe Werke mit Teilen („Guide for the Perplexed, Part 2 › 5“, „… Part 1 › Introduction 3“): Teil abspalten
     let partSel = '';
@@ -855,8 +860,9 @@
       // Kein Treffer auf den Buchnamen selbst, nur Kommentare „X on <Buch>“: nicht den falschen Kommentar öffnen
       if (cands.length && normT(cands[0].title) !== book && !/\bon\b/.test(book) && cands.every(x => /\bon\b/.test(normT(x.title)))) return false;
       if (!cands.length) return false;
+      if (inNewTab === 'bg') { if (!/\d/.test(String(q0))) return false; openGroupBg(cands[0], { jumpRef: q0 }); return true; }
       if (!g || cands[0] !== g || inNewTab) { g = cands[0]; await openGroup(g, {}, inNewTab); }
-    }
+    } else if (inNewTab === 'bg' && g) { openGroupBg(g, { jumpRef: q0 }); return true; }
     if (!g || !view) return false;
     const find = n => view.sections.findIndex(s => { const l = s.label.toLowerCase(); if (partSel) return partSel.endsWith('introduction') ? l === partSel : l.startsWith(partSel) && l.endsWith(' ' + n); return l.endsWith(' ' + n) || l === n; });
     let idx = find(num);
@@ -1105,7 +1111,7 @@
     const h = a && history[+a.dataset.i];
     if (!h) return;
     const g = groupsByKey.get(h.key);
-    if (g) openGroup(g, { sectionPath: JSON.parse(h.sk), rowLabel: h.row || undefined }, e.metaKey || e.ctrlKey);
+    if (g) openGroup(g, { sectionPath: JSON.parse(h.sk), rowLabel: h.row || undefined }, BG(e));
   });
   let recentOpen = true;
   try { recentOpen = localStorage.getItem('recentOpen3') !== '0'; } catch { /* egal */ }
@@ -1242,7 +1248,7 @@
     const a = e.target.closest('a[data-ref]');
     if (a) {
       if (a.parentElement.classList.contains('off')) return;
-      await jumpTo(a.dataset.ref.replace(/-.*$/, ''), e.metaKey || e.ctrlKey);
+      await jumpTo(a.dataset.ref.replace(/-.*$/, ''), BG(e));
       return;
     }
     const b = e.target.closest('button[data-pv]');
@@ -1648,7 +1654,7 @@
         }
       }
     }
-    jumpTo(p.dataset.ref, e.metaKey || e.ctrlKey);
+    jumpTo(p.dataset.ref, BG(e));
   });
   const TPS = window.topics;
   let topicsReady = false, tpIdx = null, tpSec = [], tpSecKey = '';
@@ -2180,9 +2186,9 @@
       if (e.target.closest('.pnadd') && MP.sel >= 0) { const p = BM.places[MP.sel]; openNoteDlg({ id: newId('free'), kind: 'free', title: p[0], place: p[0], note: '', order: topOrder() }, {}); return; }
       const pn = e.target.closest('.pnote'); if (pn) { const n = notesAll.find(x => x.id === pn.dataset.id); if (n) openNoteDlg(n, { canDelete: true }); return; }
       const c = e.target.closest('.chip'); if (c) { if (+c.dataset.i === -2) { MP.over = null; MP.cur = mapChapPlaces(); MP.sel = -1; mapFit(); mapDraw(); mapInfo(); return; } mapSelect(+c.dataset.i, +c.dataset.i >= 0); return; }
-      const orow = e.target.closest('.olr'); if (orow) { jumpTo(orow.dataset.ref, e.metaKey || e.ctrlKey); return; }
+      const orow = e.target.closest('.olr'); if (orow) { jumpTo(orow.dataset.ref, BG(e)); return; }
       const al = e.target.closest('.alt'); if (al && MP.sel >= 0) { const k = +al.dataset.a, a = (BM.places[MP.sel][6] || [])[k]; if (a) { MP.alt = k; const [x, y] = mapXY(a[1], a[2]), { w, h } = mapSize(); MP.tx = w / 2 - x * MP.s; MP.ty = h / 2 - y * MP.s; mapDraw(); mapInfo(); } return; }
-      const a = e.target.closest('a[data-ref]'); if (a) jumpTo(a.dataset.ref, e.metaKey || e.ctrlKey);
+      const a = e.target.closest('a[data-ref]'); if (a) jumpTo(a.dataset.ref, BG(e));
     });
   }
 
@@ -2194,7 +2200,7 @@
   $('#tpBody').addEventListener('click', e => {
     const t = e.target.closest('button, a'); if (!t) return;
     if (t.dataset.slug) return openTopic(t.dataset.slug);
-    if (t.dataset.ref) { hovApi && hovApi.hide(); return jumpTo(t.dataset.ref.replace(/-.*$/, ''), e.metaKey || e.ctrlKey); }
+    if (t.dataset.ref) { hovApi && hovApi.hide(); return jumpTo(t.dataset.ref.replace(/-.*$/, ''), BG(e)); }
     if (t.dataset.tab) { tpS.tab = t.dataset.tab; tpS.n = 60; return renderTopicPanel(); }
     if (t.dataset.act === 'allbooks') { tpS.books = new Set(); tpS.n = 60; return renderTopicPanel(); }
     if (t.dataset.act === 'more') { tpS.n += 100; return renderTopicPanel(); }
@@ -3008,7 +3014,7 @@
     if (!a || !a.closest('#rOut, #cmtBody, #linkPanel')) return;
     e.preventDefault(); e.stopPropagation();
     if (e.shiftKey && !IS_PANE2) { toPane2({ type: 'jump', ref: a.dataset.sref.replace(/-.*$/, '') }); return; }
-    jumpTo(a.dataset.sref, e.metaKey || e.ctrlKey).then(ok => {
+    jumpTo(a.dataset.sref, BG(e)).then(ok => {
       a.classList.toggle('dmiss', !ok);
       a.title = ok ? a.dataset.sref : I18N.t('Dieser Text ist nicht in deiner Bibliothek (Reiter „Herunterladen“).');
     });
@@ -3018,7 +3024,7 @@
     if (s) {   // Quellenangabe im Artikel (z. B. „Rosh Hashanah 18b“): im Reader öffnen; Cmd/Strg + Klick = neuer Tab, Umschalt + Klick = im zweiten Fenster rechts
       e.preventDefault();
       if (e.shiftKey && !IS_PANE2) { toPane2({ type: 'jump', ref: s.dataset.sref.replace(/-.*$/, '') }); return; }
-      jumpTo(s.dataset.sref, e.metaKey || e.ctrlKey).then(ok => {
+      jumpTo(s.dataset.sref, BG(e)).then(ok => {
         s.classList.toggle('dmiss', !ok);
         s.title = ok ? '' : 'Dieser Text ist nicht in deiner Bibliothek (Reiter „Herunterladen“).';
       });
@@ -4025,7 +4031,7 @@
     const tg = e.target.closest('button[data-tag]');
     if (tg) { nTag = nTag === tg.dataset.tag ? '' : tg.dataset.tag; renderNotes(); return; }
     const rf = e.target.closest('a.nref');
-    if (rf) { e.preventDefault(); showTab('read'); await jumpTo(rf.dataset.q, e.metaKey || e.ctrlKey); return; }
+    if (rf) { e.preventDefault(); if (!BG(e)) showTab('read'); await jumpTo(rf.dataset.q, BG(e)); return; }
     if (e.target.closest('a[data-dl]')) { showTab('get'); return; }
     const cm = e.target.closest('button[data-cmt]');
     if (cm) {
@@ -4051,8 +4057,9 @@
     if (kindOf(n) === 'free') { openNoteDlg(n, { canDelete: true }); return; }
     const g = groupsByKey.get(n.key);
     if (g) {
-      await openGroup(g, { sectionPath: JSON.parse(n.sk), rowLabel: n.row }, e.metaKey || e.ctrlKey);
-      if (kindOf(n) === 'block' && n.set && n.set.length && view && view.group === g) { view.vf = { k: view.sections[view.idx].k, set: new Set(n.set), text: String(view.sections[view.idx].label || '').replace(/^\D+/, '') + ':' + n.vs }; renderSection(n.row); }
+      const bgn = BG(e);
+      await openGroup(g, { sectionPath: JSON.parse(n.sk), rowLabel: n.row }, bgn);
+      if (!bgn && kindOf(n) === 'block' && n.set && n.set.length && view && view.group === g) { view.vf = { k: view.sections[view.idx].k, set: new Set(n.set), text: String(view.sections[view.idx].label || '').replace(/^\D+/, '') + ':' + n.vs }; renderSection(n.row); }
     }
   });
   let dragId = null;

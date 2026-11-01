@@ -1,7 +1,7 @@
 # Changelog
 
 ### New in 1.9.8
-- **Search tab:** Cmd/Ctrl-click on a result now opens it in a new tab in the background – the search stays in front, so you can open several hits one after another. The tab loads when you switch to it and jumps to the hit.
+- **Cmd/Ctrl-click opens a background tab – everywhere:** in the search results, library, outlines, notes, commentary and link lists, source links and cross references, a Cmd/Ctrl-click opens the target in a new tab in the background; the current view stays where it is. The tab loads when you switch to it and jumps to the verse.
 
 ### New in 1.9.7
 - **Audio on Windows:** the play button now works – paths with backslashes and a drive letter (`C:\Users\…`) were turned into an invalid file address, so the player opened but stayed silent.
