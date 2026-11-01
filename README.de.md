@@ -20,7 +20,7 @@
 
 <p align="center">
   <a href="screenshots/hero-reading.png"><img src="screenshots/hero-reading.png" alt="Safran: Genesis 1 auf Hebräisch (Westminster Leningrad Codex) und Deutsch (Zunz), rechts Raschi auf Deutsch" width="900"></a><br>
-  <sub>Zefanja 1 auf Hebräisch, Englisch und Deutsch, mit Raschi, Ibn Esra und Radak im Kommentarfenster. Die nummerierten Marken erklären die Oberfläche (englisch).</sub>
+  <sub>Genesis 1: Hebräisch und Deutsch (Zunz) nebeneinander, rechts Raschi auf Deutsch im Kommentarfenster.</sub>
 </p>
 
 Safran ist eine kostenlose Desktop-App, die deine Texte auf dem eigenen Rechner hält. Du wählst einmal die Bücher und Sprachen aus der [Sefaria](https://www.sefaria.org)-Bibliothek und liest, durchsuchst und kommentierst sie danach ohne Internetverbindung. Dazu bringt Safran **238 deutsche Übersetzungen und Kommentare** mit, die es sonst kaum gibt, und **sechs Wörterbücher** mit über 85.000 Einträgen. Safran ist ein unabhängiges Projekt und nicht mit Sefaria verbunden.

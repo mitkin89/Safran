@@ -20,7 +20,7 @@
 
 <p align="center">
   <a href="screenshots/hero-reading.png"><img src="screenshots/hero-reading.png" alt="Safran: Genesis 1 in Hebrew (Westminster Leningrad Codex) and German (Zunz), with Rashi in German in the commentary panel" width="900"></a><br>
-  <sub>Zephaniah 1 in Hebrew, English and German, with Rashi, Ibn Ezra and Radak in the commentary panel. Numbered labels explain the interface.</sub>
+  <sub>Genesis 1: Hebrew and German (Zunz) side by side, with Rashi in German in the commentary panel.</sub>
 </p>
 
 Safran is a free desktop app that keeps your texts on your own computer. Pick the books and languages you want from the [Sefaria](https://www.sefaria.org) library once, and read, search and annotate them afterwards without an internet connection. On top of that, Safran ships **238 German translations and commentaries** that are hard to find anywhere else, plus **six dictionaries** with more than 85,000 entries. Safran is an independent project and not affiliated with Sefaria.
