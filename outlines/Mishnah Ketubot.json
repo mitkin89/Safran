@@ -1,0 +1,1101 @@
+{
+ "book": "Mishnah Ketubot",
+ "title": "משנה כתובות",
+ "title_de": "Mischna Ketubbot – Gliederung",
+ "title_en": "Ketubot – outline",
+ "note": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema).",
+ "note_de": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema); ins Deutsche und Englische übersetzt.",
+ "note_en": "Outline after the table “Mishna Sedura”: the central content of each mishnah, with the topic path (main topic to sub-topic); translated into German and English.",
+ "sections": [
+  {
+   "head": "פרק א",
+   "head_de": "Kapitel 1",
+   "head_en": "Chapter 1",
+   "items": [
+    {
+     "ref": "1:1",
+     "text": "בתולה ואלמנה",
+     "text_de": "Jungfrau und Witwe",
+     "text_en": "Virgin and widow",
+     "desc": "נאמנות הבעל והאשה › טענת בתולים › יום לנשואין",
+     "desc_de": "Glaubwürdigkeit von Mann und Frau › Behauptung der Jungfräulichkeit › Tag der Hochzeit",
+     "desc_en": "Credibility of husband and wife › Claim concerning virginity › Day of the wedding"
+    },
+    {
+     "ref": "1:2",
+     "text": "הכלל\\ בתולות מן הארוסין, קטנה שנבעלה",
+     "text_de": "Die Regel / Jungfrauen seit der Verlobung, minderjährig Beigeschlafene",
+     "text_en": "The rule / virgins since betrothal, minor girl who had intercourse",
+     "desc": "נאמנות הבעל והאשה › טענת בתולים › סכום הכתובה › הנחשבות בתולות",
+     "desc_de": "Glaubwürdigkeit von Mann und Frau › Behauptung der Jungfräulichkeit › Betrag der Ketuba › Als Jungfrauen Geltende",
+     "desc_en": "Credibility of husband and wife › Claim concerning virginity › Amount of the ketubah › Those considered virgins"
+    },
+    {
+     "ref": "1:3",
+     "text": "בועל או נבעלת קטן, מוכת עץ",
+     "text_de": "Wer einem Minderjährigen beiwohnt oder von ihm beigeschlafen wird, vom Holz Verletzte",
+     "text_en": "One who has intercourse with a minor or with whom a minor has intercourse, woman injured by wood",
+     "desc": "נאמנות הבעל והאשה › טענת בתולים › סכום הכתובה › הנחשבות בתולות",
+     "desc_de": "Glaubwürdigkeit von Mann und Frau › Behauptung der Jungfräulichkeit › Betrag der Ketuba › Als Jungfrauen Geltende",
+     "desc_en": "Credibility of husband and wife › Claim concerning virginity › Amount of the ketubah › Those considered virgins"
+    },
+    {
+     "ref": "1:4",
+     "text": "בתולות מן הנשואין, קטנה שנבעלה",
+     "text_de": "Jungfrauen seit der Heirat, minderjährig Beigeschlafene",
+     "text_en": "Virgins since marriage, minor girl who had intercourse",
+     "desc": "נאמנות הבעל והאשה › טענת בתולים › סכום הכתובה › הנחשבות בעולות",
+     "desc_de": "Glaubwürdigkeit von Mann und Frau › Behauptung der Jungfräulichkeit › Betrag der Ketuba › Als Nichtjungfrauen Geltende",
+     "desc_en": "Credibility of husband and wife › Claim concerning virginity › Amount of the ketubah › Those considered non-virgins"
+    },
+    {
+     "ref": "1:5",
+     "text": "המתיחד עם כלתו \\ בנות כהן",
+     "text_de": "Wer mit seiner Schwiegertochter allein ist / Priestertöchter",
+     "text_en": "One alone with his daughter-in-law / daughters of priests",
+     "desc": "נאמנות הבעל והאשה › טענת בתולים › סכום הכתובה › הנחשבות בעולות",
+     "desc_de": "Glaubwürdigkeit von Mann und Frau › Behauptung der Jungfräulichkeit › Betrag der Ketuba › Als Nichtjungfrauen Geltende",
+     "desc_en": "Credibility of husband and wife › Claim concerning virginity › Amount of the ketubah › Those considered non-virgins"
+    },
+    {
+     "ref": "1:6",
+     "text": "הטוענת שנאנסה משנתארסה",
+     "text_de": "Die behauptet, seit der Verlobung vergewaltigt worden zu sein",
+     "text_en": "She who claims to have been raped since betrothal",
+     "desc": "נאמנות הבעל והאשה › טענת בתולים › חזקת האשה › לגביית הכתובה",
+     "desc_de": "Glaubwürdigkeit von Mann und Frau › Behauptung der Jungfräulichkeit › Vermutung zugunsten der Frau › Einzug der Ketuba",
+     "desc_en": "Credibility of husband and wife › Claim concerning virginity › Presumption in favor of the woman › Collection of the ketubah"
+    },
+    {
+     "ref": "1:7",
+     "text": "הטוענת מוכת עץ",
+     "text_de": "Die sich als vom Holz Verletzte ausgibt",
+     "text_en": "She who claims to be injured by wood",
+     "desc": "נאמנות הבעל והאשה › טענת בתולים › חזקת האשה › לגביית הכתובה",
+     "desc_de": "Glaubwürdigkeit von Mann und Frau › Behauptung der Jungfräulichkeit › Vermutung zugunsten der Frau › Einzug der Ketuba",
+     "desc_en": "Credibility of husband and wife › Claim concerning virginity › Presumption in favor of the woman › Collection of the ketubah"
+    },
+    {
+     "ref": "1:8",
+     "text": "ראוה מתיחדת",
+     "text_de": "Allein mit einem Mann gesehen",
+     "text_en": "Seen secluded with a man",
+     "desc": "נאמנות הבעל והאשה › חזקת האשה › כשרות לכהונה",
+     "desc_de": "Glaubwürdigkeit von Mann und Frau › Vermutung zugunsten der Frau › Eignung zum Priestertum",
+     "desc_en": "Credibility of husband and wife › Presumption in favor of the woman › Eligibility for the priesthood"
+    },
+    {
+     "ref": "1:9",
+     "text": "המעוברת",
+     "text_de": "Die Schwangere",
+     "text_en": "The pregnant woman",
+     "desc": "נאמנות הבעל והאשה › חזקת האשה › כשרות לכהונה",
+     "desc_de": "Glaubwürdigkeit von Mann und Frau › Vermutung zugunsten der Frau › Eignung zum Priestertum",
+     "desc_en": "Credibility of husband and wife › Presumption in favor of the woman › Eligibility for the priesthood"
+    },
+    {
+     "ref": "1:10",
+     "text": "צורך ברוב להכשיר",
+     "text_de": "Notwendigkeit einer Mehrheit zur Zulassung",
+     "text_en": "Need for a majority to permit",
+     "desc": "נאמנות הבעל והאשה › חזקת האשה › כשרות לכהונה",
+     "desc_de": "Glaubwürdigkeit von Mann und Frau › Vermutung zugunsten der Frau › Eignung zum Priestertum",
+     "desc_en": "Credibility of husband and wife › Presumption in favor of the woman › Eligibility for the priesthood"
+    }
+   ]
+  },
+  {
+   "head": "פרק ב",
+   "head_de": "Kapitel 2",
+   "head_en": "Chapter 2",
+   "items": [
+    {
+     "ref": "2:1",
+     "text": "עדות לנשואי בתולה",
+     "text_de": "Zeugnis über die Heirat einer Jungfrau",
+     "text_en": "Testimony about the marriage of a virgin",
+     "desc": "נאמנות הבעל והאשה › חשש לנאמנות עדים › חזקת האשה",
+     "desc_de": "Glaubwürdigkeit von Mann und Frau › Bedenken zur Glaubwürdigkeit der Zeugen › Vermutung zugunsten der Frau",
+     "desc_en": "Credibility of husband and wife › Concern about the credibility of witnesses › Presumption in favor of the woman"
+    },
+    {
+     "ref": "2:2",
+     "text": "קנין שדה",
+     "text_de": "Erwerb eines Feldes",
+     "text_en": "Acquisition of a field",
+     "desc": "נאמנות הבעל והאשה › חשש לנאמנות עדים › הפה שאסר",
+     "desc_de": "Glaubwürdigkeit von Mann und Frau › Bedenken zur Glaubwürdigkeit der Zeugen › Der Mund, der verboten hat",
+     "desc_en": "Credibility of husband and wife › Concern about the credibility of witnesses › The mouth that forbade"
+    },
+    {
+     "ref": "2:3",
+     "text": "העדים פוסלים את עצמם",
+     "text_de": "Die Zeugen disqualifizieren sich selbst",
+     "text_en": "The witnesses disqualify themselves",
+     "desc": "נאמנות הבעל והאשה › חשש לנאמנות עדים › הפה שאסר › קיום שטר",
+     "desc_de": "Glaubwürdigkeit von Mann und Frau › Bedenken zur Glaubwürdigkeit der Zeugen › Der Mund, der verboten hat › Beglaubigung der Urkunde",
+     "desc_en": "Credibility of husband and wife › Concern about the credibility of witnesses › The mouth that forbade › Authentication of the document"
+    },
+    {
+     "ref": "2:4",
+     "text": "מספר העדים הנצרך לכל כתב",
+     "text_de": "Zahl der für jede Schrift nötigen Zeugen",
+     "text_en": "Number of witnesses needed for each document",
+     "desc": "נאמנות הבעל והאשה › חשש לנאמנות עדים › הפה שאסר › קיום שטר",
+     "desc_de": "Glaubwürdigkeit von Mann und Frau › Bedenken zur Glaubwürdigkeit der Zeugen › Der Mund, der verboten hat › Beglaubigung der Urkunde",
+     "desc_en": "Credibility of husband and wife › Concern about the credibility of witnesses › The mouth that forbade › Authentication of the document"
+    },
+    {
+     "ref": "2:5",
+     "text": "היתר לכהונה",
+     "text_de": "Zulassung zum Priestertum",
+     "text_en": "Permission regarding the priesthood",
+     "desc": "נאמנות הבעל והאשה › חשש לנאמנות עדים › גומלין › שבויה",
+     "desc_de": "Glaubwürdigkeit von Mann und Frau › Bedenken zur Glaubwürdigkeit der Zeugen › Gegenseitigkeit › Gefangene Frau",
+     "desc_en": "Credibility of husband and wife › Concern about the credibility of witnesses › Reciprocity › Captive woman"
+    },
+    {
+     "ref": "2:6",
+     "text": "שבויות המעידות זו לזו",
+     "text_de": "Gefangene Frauen, die füreinander aussagen",
+     "text_en": "Captive women testifying for one another",
+     "desc": "נאמנות הבעל והאשה › חשש לנאמנות עדים › גומלין › שבויה",
+     "desc_de": "Glaubwürdigkeit von Mann und Frau › Bedenken zur Glaubwürdigkeit der Zeugen › Gegenseitigkeit › Gefangene Frau",
+     "desc_en": "Credibility of husband and wife › Concern about the credibility of witnesses › Reciprocity › Captive woman"
+    },
+    {
+     "ref": "2:7",
+     "text": "כהנים המעידים זה לזה",
+     "text_de": "Priester, die füreinander aussagen",
+     "text_en": "Priests testifying for one another",
+     "desc": "נאמנות הבעל והאשה › חשש לנאמנות עדים › גומלין › עלייה לכהונה",
+     "desc_de": "Glaubwürdigkeit von Mann und Frau › Bedenken zur Glaubwürdigkeit der Zeugen › Gegenseitigkeit › Aufstieg ins Priestertum",
+     "desc_en": "Credibility of husband and wife › Concern about the credibility of witnesses › Reciprocity › Elevation to the priesthood"
+    },
+    {
+     "ref": "2:8",
+     "text": "מספר העדים הנצרך",
+     "text_de": "Zahl der erforderlichen Zeugen",
+     "text_en": "Number of witnesses required",
+     "desc": "נאמנות הבעל והאשה › חשש לנאמנות עדים › גומלין › עלייה לכהונה",
+     "desc_de": "Glaubwürdigkeit von Mann und Frau › Bedenken zur Glaubwürdigkeit der Zeugen › Gegenseitigkeit › Aufstieg ins Priestertum",
+     "desc_en": "Credibility of husband and wife › Concern about the credibility of witnesses › Reciprocity › Elevation to the priesthood"
+    },
+    {
+     "ref": "2:9",
+     "text": "חשש אונס ע\"י גויים",
+     "text_de": "Verdacht auf Vergewaltigung durch Nichtjuden",
+     "text_en": "Suspicion of rape by gentiles",
+     "desc": "נאמנות הבעל והאשה › חשש לנאמנות עדים › פסולי העדות",
+     "desc_de": "Glaubwürdigkeit von Mann und Frau › Bedenken zur Glaubwürdigkeit der Zeugen › Untaugliche Zeugen",
+     "desc_en": "Credibility of husband and wife › Concern about the credibility of witnesses › Disqualified witnesses"
+    },
+    {
+     "ref": "2:10",
+     "text": "דברים דרבנן, המוחזקים, ממונות",
+     "text_de": "Rabbinische Bestimmungen, Besitzstand, Vermögensfragen",
+     "text_en": "Rabbinic rulings, those in possession, monetary matters",
+     "desc": "נאמנות הבעל והאשה › חשש לנאמנות עדים › פסולי העדות › קטן",
+     "desc_de": "Glaubwürdigkeit von Mann und Frau › Bedenken zur Glaubwürdigkeit der Zeugen › Untaugliche Zeugen › Minderjähriger",
+     "desc_en": "Credibility of husband and wife › Concern about the credibility of witnesses › Disqualified witnesses › Minor"
+    }
+   ]
+  },
+  {
+   "head": "פרק ג",
+   "head_de": "Kapitel 3",
+   "head_en": "Chapter 3",
+   "items": [
+    {
+     "ref": "3:1",
+     "text": "בתולות, איסורי לאו וכרת",
+     "text_de": "Jungfrauen, Verbote des Lav und des Karet",
+     "text_en": "Virgins, prohibitions of a negative commandment and of karet",
+     "desc": "בין אב לבתו › זכויות האב ויורשיו › קנסי אישות › שיש להן קנס",
+     "desc_de": "Zwischen Vater und Tochter › Rechte des Vaters und seiner Erben › Eherechtliche Bußen › Für die es eine Buße gibt",
+     "desc_en": "Between father and daughter › Rights of the father and his heirs › Fines relating to marriage › Those for whom there is a fine"
+    },
+    {
+     "ref": "3:2",
+     "text": "בעולות, חייבי מיתות, הטעם",
+     "text_de": "Nicht mehr Jungfrauen, Todeswürdige, der Grund",
+     "text_en": "Non-virgins, those liable to death, the reason",
+     "desc": "בין אב לבתו › זכויות האב ויורשיו › קנסי אישות › שאין להם קנס",
+     "desc_de": "Zwischen Vater und Tochter › Rechte des Vaters und seiner Erben › Eherechtliche Bußen › Für die es keine Buße gibt",
+     "desc_en": "Between father and daughter › Rights of the father and his heirs › Fines relating to marriage › Those for whom there is no fine"
+    },
+    {
+     "ref": "3:3",
+     "text": "שנתארסה ונתגרשה",
+     "text_de": "Die verlobt und geschieden wurde",
+     "text_en": "She who was betrothed and divorced",
+     "desc": "בין אב לבתו › זכויות האב ויורשיו › קנסי אישות › שאין להם קנס",
+     "desc_de": "Zwischen Vater und Tochter › Rechte des Vaters und seiner Erben › Eherechtliche Bußen › Für die es keine Buße gibt",
+     "desc_en": "Between father and daughter › Rights of the father and his heirs › Fines relating to marriage › Those for whom there is no fine"
+    },
+    {
+     "ref": "3:4",
+     "text": "בין אונס למפתה",
+     "text_de": "Zwischen Vergewaltigung und Verführung",
+     "text_en": "Between rape and seduction",
+     "desc": "בין אב לבתו › זכויות האב ויורשיו › קנסי אישות › חיובי אונס ומפתה",
+     "desc_de": "Zwischen Vater und Tochter › Rechte des Vaters und seiner Erben › Eherechtliche Bußen › Verpflichtungen bei Vergewaltigung und Verführung",
+     "desc_en": "Between father and daughter › Rights of the father and his heirs › Fines relating to marriage › Liabilities for rape and seduction"
+    },
+    {
+     "ref": "3:5",
+     "text": "השותה בעציצו",
+     "text_de": "Wer aus seinem Gefäß trinkt",
+     "text_en": "One who drinks from his own vessel",
+     "desc": "בין אב לבתו › זכויות האב ויורשיו › קנסי אישות › חיובי אונס ומפתה",
+     "desc_de": "Zwischen Vater und Tochter › Rechte des Vaters und seiner Erben › Eherechtliche Bußen › Verpflichtungen bei Vergewaltigung und Verführung",
+     "desc_en": "Between father and daughter › Rights of the father and his heirs › Fines relating to marriage › Liabilities for rape and seduction"
+    },
+    {
+     "ref": "3:6",
+     "text": "מי שקנסה לעצמה",
+     "text_de": "Die, die sich selbst eine Buße auferlegt",
+     "text_en": "She who fined herself",
+     "desc": "בין אב לבתו › זכויות האב ויורשיו › קנסי אישות › חיובי אונס ומפתה",
+     "desc_de": "Zwischen Vater und Tochter › Rechte des Vaters und seiner Erben › Eherechtliche Bußen › Verpflichtungen bei Vergewaltigung und Verführung",
+     "desc_en": "Between father and daughter › Rights of the father and his heirs › Fines relating to marriage › Liabilities for rape and seduction"
+    },
+    {
+     "ref": "3:7",
+     "text": "הגדרת בשת פגם וקנס",
+     "text_de": "Definition von Schande, Wertminderung und Buße",
+     "text_en": "Definition of shame, blemish and fine",
+     "desc": "בין אב לבתו › זכויות האב ויורשיו › קנסי אישות › חיובי אונס ומפתה",
+     "desc_de": "Zwischen Vater und Tochter › Rechte des Vaters und seiner Erben › Eherechtliche Bußen › Verpflichtungen bei Vergewaltigung und Verführung",
+     "desc_en": "Between father and daughter › Rights of the father and his heirs › Fines relating to marriage › Liabilities for rape and seduction"
+    },
+    {
+     "ref": "3:8",
+     "text": "כללי שייכות מכר וקנס בבת",
+     "text_de": "Regeln zu Zugehörigkeit, Verkauf und Buße bei der Tochter",
+     "text_en": "Rules on ownership, sale and fine in the case of a daughter",
+     "desc": "בין אב לבתו › זכויות האב ויורשיו › קנסי אישות › פטור מקנס",
+     "desc_de": "Zwischen Vater und Tochter › Rechte des Vaters und seiner Erben › Eherechtliche Bußen › Befreiung von der Buße",
+     "desc_en": "Between father and daughter › Rights of the father and his heirs › Fines relating to marriage › Exemption from the fine"
+    },
+    {
+     "ref": "3:9",
+     "text": "המשלם על פי עצמו",
+     "text_de": "Wer auf eigene Aussage hin zahlt",
+     "text_en": "One who pays on his own admission",
+     "desc": "בין אב לבתו › זכויות האב ויורשיו › קנסי אישות › פטור מקנס",
+     "desc_de": "Zwischen Vater und Tochter › Rechte des Vaters und seiner Erben › Eherechtliche Bußen › Befreiung von der Buße",
+     "desc_en": "Between father and daughter › Rights of the father and his heirs › Fines relating to marriage › Exemption from the fine"
+    }
+   ]
+  },
+  {
+   "head": "פרק ד",
+   "head_de": "Kapitel 4",
+   "head_en": "Chapter 4",
+   "items": [
+    {
+     "ref": "4:1",
+     "text": "אונס או פיתוי, מעשה ידיה מציאתה",
+     "text_de": "Vergewaltigung oder Verführung, Arbeitsertrag und Fundsachen der Tochter",
+     "text_en": "Rape or seduction, a daughter's earnings and found items",
+     "desc": "בין אב לבתו › זכויות האב ויורשיו › קנסי אישות › מי הוא הזוכה › דין וגבייה",
+     "desc_de": "Zwischen Vater und Tochter › Rechte des Vaters und seiner Erben › Eherechtliche Bußen › Wer ist der Berechtigte › Rechtsverfahren und Einziehung",
+     "desc_en": "Between father and daughter › Rights of the father and his heirs › Fines relating to marriage › Who is the entitled party › Legal procedure and collection"
+    },
+    {
+     "ref": "4:2",
+     "text": "הזוכה בכתובתה",
+     "text_de": "Der Berechtigte an ihrer Ketuba",
+     "text_en": "The one entitled to her ketubah",
+     "desc": "בין אב לבתו › זכויות האב ויורשיו › קנסי אישות › מי הוא הזוכה › יציאה מרשות",
+     "desc_de": "Zwischen Vater und Tochter › Rechte des Vaters und seiner Erben › Eherechtliche Bußen › Wer ist der Berechtigte › Austritt aus der Gewalt",
+     "desc_en": "Between father and daughter › Rights of the father and his heirs › Fines relating to marriage › Who is the entitled party › Leaving the authority"
+    },
+    {
+     "ref": "4:3",
+     "text": "גיורת שזנתה מן הארוסין",
+     "text_de": "Proselytin, die seit der Verlobung unzüchtig war",
+     "text_en": "Convert who committed fornication since betrothal",
+     "desc": "בין אב לבתו › זכויות האב ויורשיו › קנסי אישות › מוציא שם רע",
+     "desc_de": "Zwischen Vater und Tochter › Rechte des Vaters und seiner Erben › Eherechtliche Bußen › Der üble Nachrede Verbreitende",
+     "desc_en": "Between father and daughter › Rights of the father and his heirs › Fines relating to marriage › One who spreads a slanderous report"
+    },
+    {
+     "ref": "4:4",
+     "text": "חובות וזכויות",
+     "text_de": "Pflichten und Rechte",
+     "text_en": "Duties and rights",
+     "desc": "בין אב לבתו › זכויות האב ויורשיו › השוואת רשויות האב והבעל",
+     "desc_de": "Zwischen Vater und Tochter › Rechte des Vaters und seiner Erben › Vergleich der Gewalt von Vater und Ehemann",
+     "desc_en": "Between father and daughter › Rights of the father and his heirs › Comparison of the authority of father and husband"
+    },
+    {
+     "ref": "4:5",
+     "text": "שעת העברת רשות",
+     "text_de": "Zeitpunkt der Übergabe der Gewalt",
+     "text_en": "Time of transfer of authority",
+     "desc": "בין אב לבתו › זכויות האב ויורשיו › השוואת רשויות האב והבעל",
+     "desc_de": "Zwischen Vater und Tochter › Rechte des Vaters und seiner Erben › Vergleich der Gewalt von Vater und Ehemann",
+     "desc_en": "Between father and daughter › Rights of the father and his heirs › Comparison of the authority of father and husband"
+    },
+    {
+     "ref": "4:6",
+     "text": "חיוב במזונות בת",
+     "text_de": "Unterhaltspflicht für die Tochter",
+     "text_en": "Obligation to support the daughter",
+     "desc": "בין אב לבתו › זכויות האב ויורשיו › זכיות האשה › השוואת רשויות האב והבעל",
+     "desc_de": "Zwischen Vater und Tochter › Rechte des Vaters und seiner Erben › Rechte der Frau › Vergleich der Gewalt von Vater und Ehemann",
+     "desc_en": "Between father and daughter › Rights of the father and his heirs › Rights of the woman › Comparison of the authority of father and husband"
+    },
+    {
+     "ref": "4:7",
+     "text": "סכום ואחריות הכתובה",
+     "text_de": "Betrag und Haftung der Ketuba",
+     "text_en": "Amount and security of the ketubah",
+     "desc": "בין איש לאשתו › זכויות האשה › תנאי בית דין בכתובה",
+     "desc_de": "Zwischen Mann und Frau › Rechte der Frau › Gerichtsbedingungen in der Ketuba",
+     "desc_en": "Between husband and wife › Rights of the woman › Conditions of the court in the ketubah"
+    },
+    {
+     "ref": "4:8",
+     "text": "פדיון",
+     "text_de": "Auslösung",
+     "text_en": "Redemption",
+     "desc": "בין איש לאשתו › זכויות האשה › תנאי בית דין בכתובה › בחיי הבעל",
+     "desc_de": "Zwischen Mann und Frau › Rechte der Frau › Gerichtsbedingungen in der Ketuba › Zu Lebzeiten des Ehemanns",
+     "desc_en": "Between husband and wife › Rights of the woman › Conditions of the court in the ketubah › During the husband's lifetime"
+    },
+    {
+     "ref": "4:9",
+     "text": "פדיון, רפואה, רשות לגרשה",
+     "text_de": "Auslösung, Heilung, Erlaubnis zur Scheidung",
+     "text_en": "Ransom, medical treatment, permission to divorce her",
+     "desc": "בין איש לאשתו › זכויות האשה › תנאי בית דין בכתובה › בחיי הבעל",
+     "desc_de": "Zwischen Mann und Frau › Rechte der Frau › Gerichtsbedingungen in der Ketuba › Zu Lebzeiten des Ehemanns",
+     "desc_en": "Between husband and wife › Rights of the woman › Conditions of the court in the ketubah › During the husband's lifetime"
+    },
+    {
+     "ref": "4:10",
+     "text": "בנין דכרין",
+     "text_de": "Söhne (Binin Dichrin)",
+     "text_en": "Male children (binin dikhrin)",
+     "desc": "בין איש לאשתו › זכויות האשה › תנאי בית דין בכתובה › אחר מיתת הבעל",
+     "desc_de": "Zwischen Mann und Frau › Rechte der Frau › Gerichtsbedingungen in der Ketuba › Nach dem Tod des Ehemanns",
+     "desc_en": "Between husband and wife › Rights of the woman › Conditions of the court in the ketubah › After the husband's death"
+    },
+    {
+     "ref": "4:11",
+     "text": "בנן נקבן",
+     "text_de": "Töchter (Binan Nukwan)",
+     "text_en": "Female children (binan nukvan)",
+     "desc": "בין איש לאשתו › זכויות האשה › תנאי בית דין בכתובה › אחר מיתת הבעל",
+     "desc_de": "Zwischen Mann und Frau › Rechte der Frau › Gerichtsbedingungen in der Ketuba › Nach dem Tod des Ehemanns",
+     "desc_en": "Between husband and wife › Rights of the woman › Conditions of the court in the ketubah › After the husband's death"
+    },
+    {
+     "ref": "4:12",
+     "text": "זכיות אלמנה",
+     "text_de": "Rechte der Witwe",
+     "text_en": "Rights of the widow",
+     "desc": "בין איש לאשתו › זכויות האשה › תנאי בית דין בכתובה › אחר מיתת הבעל",
+     "desc_de": "Zwischen Mann und Frau › Rechte der Frau › Gerichtsbedingungen in der Ketuba › Nach dem Tod des Ehemanns",
+     "desc_en": "Between husband and wife › Rights of the woman › Conditions of the court in the ketubah › After the husband's death"
+    }
+   ]
+  },
+  {
+   "head": "פרק ה",
+   "head_de": "Kapitel 5",
+   "head_en": "Chapter 5",
+   "items": [
+    {
+     "ref": "5:1",
+     "text": "גביית ומחילת תוספת ועיקר",
+     "text_de": "Einzug und Erlass von Zusatzbetrag und Hauptbetrag",
+     "text_en": "Collection and waiver of the additional sum and the principal",
+     "desc": "בין איש לאשתו › זכויות האשה › תוצאות הכניסה לחופה",
+     "desc_de": "Zwischen Mann und Frau › Rechte der Frau › Folgen des Eintritts in die Chuppa",
+     "desc_en": "Between husband and wife › Rights of the woman › Consequences of entering the chuppah"
+    },
+    {
+     "ref": "5:2",
+     "text": "זמן לפרנס \\ אחוזי מזונות תרומה",
+     "text_de": "Zeit der Versorgung / Unterhaltsanteile, Teruma",
+     "text_en": "Time of support / portions of maintenance, terumah",
+     "desc": "בין איש לאשתו › זכויות האשה › תוצאות הכניסה לחופה › האכלת ארוסה תרומה",
+     "desc_de": "Zwischen Mann und Frau › Rechte der Frau › Folgen des Eintritts in die Chuppa › Verlobte mit Teruma speisen",
+     "desc_en": "Between husband and wife › Rights of the woman › Consequences of entering the chuppah › Feeding a betrothed woman terumah"
+    },
+    {
+     "ref": "5:3",
+     "text": "שומרת יבם, משנה אחרונה",
+     "text_de": "Wartende auf den Schwager, letzte Mischna",
+     "text_en": "Woman awaiting her levir, last mishnah",
+     "desc": "בין איש לאשתו › זכויות האשה › תוצאות הכניסה לחופה › האכלת ארוסה תרומה",
+     "desc_de": "Zwischen Mann und Frau › Rechte der Frau › Folgen des Eintritts in die Chuppa › Verlobte mit Teruma speisen",
+     "desc_en": "Between husband and wife › Rights of the woman › Consequences of entering the chuppah › Feeding a betrothed woman terumah"
+    },
+    {
+     "ref": "5:4",
+     "text": "הקדשת מעשי ידיה והמותר",
+     "text_de": "Weihung ihres Arbeitsertrags und der Rest",
+     "text_en": "Dedication of her earnings and the remainder",
+     "desc": "בין איש לאשתו › זכויות הבעל › מלאכות האשה",
+     "desc_de": "Zwischen Mann und Frau › Rechte des Ehemanns › Arbeiten der Frau",
+     "desc_en": "Between husband and wife › Rights of the husband › Work of the wife"
+    },
+    {
+     "ref": "5:5",
+     "text": "חיוב ופטור ממלאכות שחייבת בהן",
+     "text_de": "Pflicht und Befreiung von den Arbeiten, zu denen sie verpflichtet ist",
+     "text_en": "Obligation and exemption regarding the work she is bound to do",
+     "desc": "בין איש לאשתו › זכויות הבעל › נדוניא › מלאכות האשה",
+     "desc_de": "Zwischen Mann und Frau › Rechte des Ehemanns › Mitgift › Arbeiten der Frau",
+     "desc_en": "Between husband and wife › Rights of the husband › Dowry › Work of the wife"
+    },
+    {
+     "ref": "5:6",
+     "text": "המדיר את אשתו, עונה הראויה",
+     "text_de": "Wer seiner Frau Verkehr durch Gelübde verbietet, die gebührende eheliche Pflicht",
+     "text_en": "One who vows to deny his wife intercourse, the proper conjugal duty",
+     "desc": "בין איש לאשתו › זכיות האשה › שארה כסותה ועונתה › עניני תשמיש",
+     "desc_de": "Zwischen Mann und Frau › Rechte der Frau › Nahrung, Kleidung und eheliche Pflicht › Fragen des Verkehrs",
+     "desc_en": "Between husband and wife › Rights of the woman › Food, clothing and conjugal duty › Matters of intercourse"
+    },
+    {
+     "ref": "5:7",
+     "text": "קנסות למורדת ולמורד",
+     "text_de": "Bußen für die widerspenstige Frau und den widerspenstigen Mann",
+     "text_en": "Penalties for the rebellious wife and the rebellious husband",
+     "desc": "בין איש לאשתו › זכיות האשה › שארה כסותה ועונתה › עניני תשמיש",
+     "desc_de": "Zwischen Mann und Frau › Rechte der Frau › Nahrung, Kleidung und eheliche Pflicht › Fragen des Verkehrs",
+     "desc_en": "Between husband and wife › Rights of the woman › Food, clothing and conjugal duty › Matters of intercourse"
+    },
+    {
+     "ref": "5:8",
+     "text": "המשרה את אשתו",
+     "text_de": "Wer seine Frau als Haushaltsverwalterin einsetzt",
+     "text_en": "One who appoints his wife as household manager",
+     "desc": "בין איש לאשתו › זכיות האשה › שארה כסותה ועונתה",
+     "desc_de": "Zwischen Mann und Frau › Rechte der Frau › Nahrung, Kleidung und eheliche Pflicht",
+     "desc_en": "Between husband and wife › Rights of the woman › Food, clothing and conjugal duty"
+    },
+    {
+     "ref": "5:9",
+     "text": "עלייה לעשירה,מעה כסף \\ טוויה שחייבת",
+     "text_de": "Erhöhung bei der Reichen, Silbermaa / Spinnarbeit, zu der sie verpflichtet ist",
+     "text_en": "Increase for the wealthy woman, silver ma'ah / spinning she is bound to do",
+     "desc": "בין איש לאשתו › זכויות הבעל › מלאכה ונכסים",
+     "desc_de": "Zwischen Mann und Frau › Rechte des Ehemanns › Arbeit und Vermögen",
+     "desc_en": "Between husband and wife › Rights of the husband › Work and property"
+    }
+   ]
+  },
+  {
+   "head": "פרק ו",
+   "head_de": "Kapitel 6",
+   "head_en": "Chapter 6",
+   "items": [
+    {
+     "ref": "6:1",
+     "text": "ממון הבא לה ממקום אחר",
+     "text_de": "Geld, das ihr von anderswo zukommt",
+     "text_en": "Money that comes to her from elsewhere",
+     "desc": "בין איש לאשתו › זכויות הבעל › מלאכה ונכסים",
+     "desc_de": "Zwischen Mann und Frau › Rechte des Ehemanns › Arbeit und Vermögen",
+     "desc_en": "Between husband and wife › Rights of the husband › Work and property"
+    },
+    {
+     "ref": "6:2",
+     "text": "פסיקה ליבם",
+     "text_de": "Festsetzung für den Schwager",
+     "text_en": "Determination for the levir",
+     "desc": "בין אב לבתו וחתנו › זכויות הבעל › עניני נדוניא › מהאב",
+     "desc_de": "Zwischen Vater, Tochter und Schwiegersohn › Rechte des Ehemanns › Fragen der Mitgift › Vom Vater",
+     "desc_en": "Between father, daughter and son-in-law › Rights of the husband › Matters of the dowry › From the father"
+    },
+    {
+     "ref": "6:3",
+     "text": "הכנסת כספים, הצריך שומא",
+     "text_de": "Einbringen von Geldern, was Schätzung erfordert",
+     "text_en": "Bringing in of funds, what requires appraisal",
+     "desc": "בין אב לבתו וחתנו › זכויות האשה › עניני נדוניא › השפעה על סכום כתובה",
+     "desc_de": "Zwischen Vater, Tochter und Schwiegersohn › Rechte der Frau › Fragen der Mitgift › Einfluss auf den Betrag der Ketuba",
+     "desc_en": "Between father, daughter and son-in-law › Rights of the woman › Matters of the dowry › Effect on the amount of the ketubah"
+    },
+    {
+     "ref": "6:4",
+     "text": "כספים מועטים, קופה",
+     "text_de": "Geringe Geldbeträge, Kasse",
+     "text_en": "Small sums, the fund",
+     "desc": "בין אב לבתו וחתנו › זכויות האשה › עניני נדוניא › השפעה על סכום כתובה",
+     "desc_de": "Zwischen Vater, Tochter und Schwiegersohn › Rechte der Frau › Fragen der Mitgift › Einfluss auf den Betrag der Ketuba",
+     "desc_en": "Between father, daughter and son-in-law › Rights of the woman › Matters of the dowry › Effect on the amount of the ketubah"
+    },
+    {
+     "ref": "6:5",
+     "text": "הפוסק סתם או כלום, מן הצדקה",
+     "text_de": "Wer unbestimmt oder nichts festsetzt, aus der Wohltätigkeit",
+     "text_en": "One who stipulates vaguely or nothing, from charity",
+     "desc": "בין אב לבתו וחתנו › זכויות האשה › עניני נדוניא › מהאב ומנכסיו",
+     "desc_de": "Zwischen Vater, Tochter und Schwiegersohn › Rechte der Frau › Fragen der Mitgift › Vom Vater und aus seinem Vermögen",
+     "desc_en": "Between father, daughter and son-in-law › Rights of the woman › Matters of the dowry › From the father and from his property"
+    },
+    {
+     "ref": "6:6",
+     "text": "התובעת אחר נישואיה",
+     "text_de": "Die nach ihrer Heirat Fordernde",
+     "text_en": "She who claims after her marriage",
+     "desc": "בין אב לבתו וחתנו › זכויות האשה › עניני נדוניא › מהאב ומנכסיו",
+     "desc_de": "Zwischen Vater, Tochter und Schwiegersohn › Rechte der Frau › Fragen der Mitgift › Vom Vater und aus seinem Vermögen",
+     "desc_en": "Between father, daughter and son-in-law › Rights of the woman › Matters of the dowry › From the father and from his property"
+    },
+    {
+     "ref": "6:7",
+     "text": "המשליש מעות ורצון הבת",
+     "text_de": "Wer Geld hinterlegt und der Wille der Tochter",
+     "text_en": "One who deposits money and the daughter's wish",
+     "desc": "בין אב לבתו וחתנו › זכויות האשה › עניני נדוניא › מהאב ומנכסיו",
+     "desc_de": "Zwischen Vater, Tochter und Schwiegersohn › Rechte der Frau › Fragen der Mitgift › Vom Vater und aus seinem Vermögen",
+     "desc_en": "Between father, daughter and son-in-law › Rights of the woman › Matters of the dowry › From the father and from his property"
+    }
+   ]
+  },
+  {
+   "head": "פרק ז",
+   "head_de": "Kapitel 7",
+   "head_en": "Chapter 7",
+   "items": [
+    {
+     "ref": "7:1",
+     "text": "הנאה",
+     "text_de": "Nutzen",
+     "text_en": "Benefit",
+     "desc": "בין איש לאשתו › זכויות האשה › היוצאות עם כתובה › המדיר את אשתו",
+     "desc_de": "Zwischen Mann und Frau › Rechte der Frau › Die mit Ketuba Ausgehenden › Wer seiner Frau Verkehr verwehrt",
+     "desc_en": "Between husband and wife › Rights of the woman › Those who leave with a ketubah › One who bars his wife from intercourse"
+    },
+    {
+     "ref": "7:2",
+     "text": "אכילת פירות",
+     "text_de": "Genuss von Früchten",
+     "text_en": "Eating fruit",
+     "desc": "בין איש לאשתו › זכויות האשה › היוצאות עם כתובה › המדיר את אשתו",
+     "desc_de": "Zwischen Mann und Frau › Rechte der Frau › Die mit Ketuba Ausgehenden › Wer seiner Frau Verkehr verwehrt",
+     "desc_en": "Between husband and wife › Rights of the woman › Those who leave with a ketubah › One who bars his wife from intercourse"
+    },
+    {
+     "ref": "7:3",
+     "text": "קישוט בשמים",
+     "text_de": "Schmuck, Duftstoffe",
+     "text_en": "Adornment, perfumes",
+     "desc": "בין איש לאשתו › זכויות האשה › היוצאות עם כתובה › המדיר את אשתו",
+     "desc_de": "Zwischen Mann und Frau › Rechte der Frau › Die mit Ketuba Ausgehenden › Wer seiner Frau Verkehr verwehrt",
+     "desc_en": "Between husband and wife › Rights of the woman › Those who leave with a ketubah › One who bars his wife from intercourse"
+    },
+    {
+     "ref": "7:4",
+     "text": "הליכה לבית אביה",
+     "text_de": "Gang zum Haus ihres Vaters",
+     "text_en": "Going to her father's house",
+     "desc": "בין איש לאשתו › זכויות האשה › היוצאות עם כתובה › המדיר את אשתו",
+     "desc_de": "Zwischen Mann und Frau › Rechte der Frau › Die mit Ketuba Ausgehenden › Wer seiner Frau Verkehr verwehrt",
+     "desc_en": "Between husband and wife › Rights of the woman › Those who leave with a ketubah › One who bars his wife from intercourse"
+    },
+    {
+     "ref": "7:5",
+     "text": "הליכה לאבל או משחה, תנאי שטותי",
+     "text_de": "Gang zu Trauernden oder zum Festmahl, törichte Bedingung",
+     "text_en": "Going to mourners or to a feast, foolish condition",
+     "desc": "בין איש לאשתו › זכויות האשה › היוצאות עם כתובה › המדיר את אשתו",
+     "desc_de": "Zwischen Mann und Frau › Rechte der Frau › Die mit Ketuba Ausgehenden › Wer seiner Frau Verkehr verwehrt",
+     "desc_en": "Between husband and wife › Rights of the woman › Those who leave with a ketubah › One who bars his wife from intercourse"
+    },
+    {
+     "ref": "7:6",
+     "text": "העוברת על דת משה או יהודית",
+     "text_de": "Die gegen das Gesetz Moses oder jüdischen Brauch Verstoßende",
+     "text_en": "She who transgresses the law of Moses or Jewish custom",
+     "desc": "בין איש לאשתו › זכויות האשה › היוצאות בלי כתובה",
+     "desc_de": "Zwischen Mann und Frau › Rechte der Frau › Die ohne Ketuba Ausgehenden",
+     "desc_en": "Between husband and wife › Rights of the woman › Those who leave without a ketubah"
+    },
+    {
+     "ref": "7:7",
+     "text": "יש בה נדרים או מומים",
+     "text_de": "Mit Gelübden oder Gebrechen behaftet",
+     "text_en": "Having vows or blemishes",
+     "desc": "בין איש לאשתו › זכויות האשה › היוצאות בלי כתובה › מומים",
+     "desc_de": "Zwischen Mann und Frau › Rechte der Frau › Die ohne Ketuba Ausgehenden › Gebrechen",
+     "desc_en": "Between husband and wife › Rights of the woman › Those who leave without a ketubah › Blemishes"
+    },
+    {
+     "ref": "7:8",
+     "text": "חזקת הגוף והרשות",
+     "text_de": "Vermutung des Körpers und der Gewalt",
+     "text_en": "Presumption of the body and of authority",
+     "desc": "בין איש לאשתו › זכויות האשה › היוצאות בלי כתובה › מומים",
+     "desc_de": "Zwischen Mann und Frau › Rechte der Frau › Die ohne Ketuba Ausgehenden › Gebrechen",
+     "desc_en": "Between husband and wife › Rights of the woman › Those who leave without a ketubah › Blemishes"
+    },
+    {
+     "ref": "7:9",
+     "text": "נולדו מומין באיש",
+     "text_de": "Gebrechen am Mann entstanden",
+     "text_en": "Blemishes arising in the man",
+     "desc": "בין איש לאשתו › זכויות האשה › שכופין להוציא › מומים",
+     "desc_de": "Zwischen Mann und Frau › Rechte der Frau › Wo man zur Scheidung zwingt › Gebrechen",
+     "desc_en": "Between husband and wife › Rights of the woman › Where one is compelled to divorce › Blemishes"
+    },
+    {
+     "ref": "7:10",
+     "text": "העוסק במלאכה מסרחת",
+     "text_de": "Wer ein übelriechendes Handwerk ausübt",
+     "text_en": "One who practices a malodorous trade",
+     "desc": "בין איש לאשתו › זכויות האשה › שכופין להוציא",
+     "desc_de": "Zwischen Mann und Frau › Rechte der Frau › Wo man zur Scheidung zwingt",
+     "desc_en": "Between husband and wife › Rights of the woman › Where one is compelled to divorce"
+    }
+   ]
+  },
+  {
+   "head": "פרק ח",
+   "head_de": "Kapitel 8",
+   "head_en": "Chapter 8",
+   "items": [
+    {
+     "ref": "8:1",
+     "text": "לפני ואחרי ארוסין ונשואין",
+     "text_de": "Vor und nach Verlobung und Heirat",
+     "text_en": "Before and after betrothal and marriage",
+     "desc": "בין איש לאשתו › זכויות הבעל › נכסי האשה › מתי נפלו לה",
+     "desc_de": "Zwischen Mann und Frau › Rechte des Ehemanns › Vermögen der Frau › Wann sie ihr zugefallen sind",
+     "desc_en": "Between husband and wife › Rights of the husband › Property of the wife › When they came to her"
+    },
+    {
+     "ref": "8:2",
+     "text": "ידיעת הבעל על הנכסים",
+     "text_de": "Kenntnis des Ehemanns vom Vermögen",
+     "text_en": "The husband's knowledge of the property",
+     "desc": "בין איש לאשתו › זכויות הבעל › נכסי האשה › מה נפל לה",
+     "desc_de": "Zwischen Mann und Frau › Rechte des Ehemanns › Vermögen der Frau › Was ihr zugefallen ist",
+     "desc_en": "Between husband and wife › Rights of the husband › Property of the wife › What came to her"
+    },
+    {
+     "ref": "8:3",
+     "text": "כספים, פירות התלושין והמחוברין",
+     "text_de": "Geld, abgetrennte und angewachsene Früchte",
+     "text_en": "Money, detached and attached produce",
+     "desc": "בין איש לאשתו › זכויות הבעל › נכסי האשה › מה נפל לה",
+     "desc_de": "Zwischen Mann und Frau › Rechte des Ehemanns › Vermögen der Frau › Was ihr zugefallen ist",
+     "desc_en": "Between husband and wife › Rights of the husband › Property of the wife › What came to her"
+    },
+    {
+     "ref": "8:4",
+     "text": "כללי זכויותיהן",
+     "text_de": "Regeln über ihre Rechte",
+     "text_en": "Rules on their rights",
+     "desc": "בין איש לאשתו › זכויות הבעל › נכסי האשה › מה נפל לה",
+     "desc_de": "Zwischen Mann und Frau › Rechte des Ehemanns › Vermögen der Frau › Was ihr zugefallen ist",
+     "desc_en": "Between husband and wife › Rights of the husband › Property of the wife › What came to her"
+    },
+    {
+     "ref": "8:5",
+     "text": "שבח בית אביה \\ החזרת הוצאות",
+     "text_de": "Wertzuwachs im Haus ihres Vaters / Erstattung von Auslagen",
+     "text_en": "Increase in value in her father's house / reimbursement of expenses",
+     "desc": "בין איש לאשתו › זכויות הבעל › נכסי האשה",
+     "desc_de": "Zwischen Mann und Frau › Rechte des Ehemanns › Vermögen der Frau",
+     "desc_en": "Between husband and wife › Rights of the husband › Property of the wife"
+    },
+    {
+     "ref": "8:6",
+     "text": "נפלו לשומרת ואם מתה",
+     "text_de": "Der Wartenden zugefallen, und wenn sie stirbt",
+     "text_en": "Fallen to the woman awaiting her levir, and if she dies",
+     "desc": "בין איש לאשתו › זכויות הבעל › נכסי האשה › שומרת יבם",
+     "desc_de": "Zwischen Mann und Frau › Rechte des Ehemanns › Vermögen der Frau › Wartende auf den Schwager",
+     "desc_en": "Between husband and wife › Rights of the husband › Property of the wife › Woman awaiting her levir"
+    },
+    {
+     "ref": "8:7",
+     "text": "נכסי המת",
+     "text_de": "Vermögen des Verstorbenen",
+     "text_en": "Property of the deceased",
+     "desc": "בין איש לאשתו › זכויות האשה › נכסי הבעל › שומרת יבם",
+     "desc_de": "Zwischen Mann und Frau › Rechte der Frau › Vermögen des Ehemanns › Wartende auf den Schwager",
+     "desc_en": "Between husband and wife › Rights of the woman › Property of the husband › Woman awaiting her levir"
+    },
+    {
+     "ref": "8:8",
+     "text": "אחריות נכסים לכתובה, גם גרושה",
+     "text_de": "Haftung des Vermögens für die Ketuba, auch der Geschiedenen",
+     "text_en": "Liability of property for the ketubah, also of the divorcée",
+     "desc": "בין איש לאשתו › זכויות האשה › נכסי הבעל › שומרת יבם",
+     "desc_de": "Zwischen Mann und Frau › Rechte der Frau › Vermögen des Ehemanns › Wartende auf den Schwager",
+     "desc_en": "Between husband and wife › Rights of the woman › Property of the husband › Woman awaiting her levir"
+    }
+   ]
+  },
+  {
+   "head": "פרק ט",
+   "head_de": "Kapitel 9",
+   "head_en": "Chapter 9",
+   "items": [
+    {
+     "ref": "9:1",
+     "text": "אכילת פירות, ירושתה, מכירתה",
+     "text_de": "Fruchtgenuss, ihre Erbschaft, ihr Verkauf",
+     "text_en": "Usufruct, her inheritance, her sale",
+     "desc": "בין איש לאשתו › זכויות הבעל ויורשיו › נכסי האשה › סילוק רשות",
+     "desc_de": "Zwischen Mann und Frau › Rechte des Ehemanns und seiner Erben › Vermögen der Frau › Verzicht auf Rechte",
+     "desc_en": "Between husband and wife › Rights of the husband and his heirs › Property of the wife › Relinquishing of rights"
+    },
+    {
+     "ref": "9:2",
+     "text": "נתינתם לבעל חוב",
+     "text_de": "Ihre Übergabe an einen Gläubiger",
+     "text_en": "Handing them over to a creditor",
+     "desc": "בין איש לאשתו › זכויות הבעל ויורשיו › נכסי הבעל › שעבוד מטלטלי יתומים",
+     "desc_de": "Zwischen Mann und Frau › Rechte des Ehemanns und seiner Erben › Vermögen des Ehemanns › Verpfändung beweglicher Güter der Waisen",
+     "desc_en": "Between husband and wife › Rights of the husband and his heirs › Property of the husband › Lien on the movable property of orphans"
+    },
+    {
+     "ref": "9:3",
+     "text": "תפיסתן על ידי בעל חוב",
+     "text_de": "Ihre Pfändung durch einen Gläubiger",
+     "text_en": "Their seizure by a creditor",
+     "desc": "בין איש לאשתו › זכויות הבעל ויורשיו › נכסי הבעל › שעבוד מטלטלי יתומים",
+     "desc_de": "Zwischen Mann und Frau › Rechte des Ehemanns und seiner Erben › Vermögen des Ehemanns › Verpfändung beweglicher Güter der Waisen",
+     "desc_en": "Between husband and wife › Rights of the husband and his heirs › Property of the husband › Lien on the movable property of orphans"
+    },
+    {
+     "ref": "9:4",
+     "text": "על אפוטרופא בישירות ובגלגול",
+     "text_de": "Gegen einen Vormund, unmittelbar und mittelbar",
+     "text_en": "Against a guardian, directly and indirectly",
+     "desc": "בין איש לאשתו › זכויות הבעל ויורשיו › נכסי הבעל › השבעת האשה",
+     "desc_de": "Zwischen Mann und Frau › Rechte des Ehemanns und seiner Erben › Vermögen des Ehemanns › Beeidigung der Frau",
+     "desc_en": "Between husband and wife › Rights of the husband and his heirs › Property of the husband › Administering an oath to the woman"
+    },
+    {
+     "ref": "9:5",
+     "text": "סילוק רשותו להשביע",
+     "text_de": "Verzicht auf sein Recht, sie schwören zu lassen",
+     "text_en": "Waiver of his right to have her swear",
+     "desc": "בין איש לאשתו › זכויות הבעל ויורשיו › נכסי הבעל › השבעת האשה",
+     "desc_de": "Zwischen Mann und Frau › Rechte des Ehemanns und seiner Erben › Vermögen des Ehemanns › Beeidigung der Frau",
+     "desc_en": "Between husband and wife › Rights of the husband and his heirs › Property of the husband › Administering an oath to the woman"
+    },
+    {
+     "ref": "9:6",
+     "text": "אפוטרופא ליתומין אחר מיתה",
+     "text_de": "Vormund für Waisen nach dem Tod",
+     "text_en": "Guardian for orphans after death",
+     "desc": "בין איש לאשתו › זכויות הבעל ויורשיו › נכסי הבעל › השבעת האשה",
+     "desc_de": "Zwischen Mann und Frau › Rechte des Ehemanns und seiner Erben › Vermögen des Ehemanns › Beeidigung der Frau",
+     "desc_en": "Between husband and wife › Rights of the husband and his heirs › Property of the husband › Administering an oath to the woman"
+    },
+    {
+     "ref": "9:7",
+     "text": "מקרים",
+     "text_de": "Fälle",
+     "text_en": "Cases",
+     "desc": "בין איש לאשתו › זכויות הבעל ויורשיו › זכות האשה › נכסי הבעל › גביית כתובה › השבעת האשה › על פריעת כתובה",
+     "desc_de": "Zwischen Mann und Frau › Rechte des Ehemanns und seiner Erben › Recht der Frau › Vermögen des Ehemanns › Einzug der Ketuba › Beeidigung der Frau › Zur Zahlung der Ketuba",
+     "desc_en": "Between husband and wife › Rights of the husband and his heirs › Right of the woman › Property of the husband › Collection of the ketubah › Administering an oath to the woman › For payment of the ketubah"
+    },
+    {
+     "ref": "9:8",
+     "text": "הדגמה",
+     "text_de": "Veranschaulichung",
+     "text_en": "Demonstration",
+     "desc": "בין איש לאשתו › זכויות הבעל ויורשיו › זכות האשה › נכסי הבעל › גביית כתובה › השבעת האשה › על פריעת כתובה",
+     "desc_de": "Zwischen Mann und Frau › Rechte des Ehemanns und seiner Erben › Recht der Frau › Vermögen des Ehemanns › Einzug der Ketuba › Beeidigung der Frau › Zur Zahlung der Ketuba",
+     "desc_en": "Between husband and wife › Rights of the husband and his heirs › Right of the woman › Property of the husband › Collection of the ketubah › Administering an oath to the woman › For payment of the ketubah"
+    },
+    {
+     "ref": "9:9",
+     "text": "שטרות המזכות האשה, אשת קטן וגר",
+     "text_de": "Urkunden, die die Frau berechtigen, Frau eines Minderjährigen und eines Proselyten",
+     "text_en": "Documents entitling the woman, wife of a minor and of a convert",
+     "desc": "בין איש לאשתו › זכויות האשה ויורשיה › גביית הכתובה ותנאיה › רק בשטר",
+     "desc_de": "Zwischen Mann und Frau › Rechte der Frau und ihrer Erben › Einzug der Ketuba und ihre Bedingungen › Nur durch Urkunde",
+     "desc_en": "Between husband and wife › Rights of the woman and her heirs › Collection of the ketubah and its conditions › Only by document"
+    }
+   ]
+  },
+  {
+   "head": "פרק י",
+   "head_de": "Kapitel 10",
+   "head_en": "Chapter 10",
+   "items": [
+    {
+     "ref": "10:1",
+     "text": "העדפת אשה ראשונה או שניה",
+     "text_de": "Vorrang der ersten oder zweiten Frau",
+     "text_en": "Priority of the first or second wife",
+     "desc": "בין איש לאשתו › זכויות האשה ויורשיה › גביית הכתובה ותנאיה › סדרי קדימה › כתובת בנין דכרין",
+     "desc_de": "Zwischen Mann und Frau › Rechte der Frau und ihrer Erben › Einzug der Ketuba und ihre Bedingungen › Rangfolgen › Ketuba der Binin Dichrin",
+     "desc_en": "Between husband and wife › Rights of the woman and her heirs › Collection of the ketubah and its conditions › Orders of priority › Ketubah of the binin dikhrin"
+    },
+    {
+     "ref": "10:2",
+     "text": "מותר דינר",
+     "text_de": "erlaubt ist ein Denar",
+     "text_en": "a denar is permitted",
+     "desc": "בין איש לאשתו › זכויות האשה ויורשיה › גביית הכתובה ותנאיה › סדרי קדימה › כתובת בנין דכרין",
+     "desc_de": "Zwischen Mann und Frau › Rechte der Frau und ihrer Erben › Einzug der Ketuba und ihre Bedingungen › Rangfolgen › Ketuba der Binin Dichrin",
+     "desc_en": "Between husband and wife › Rights of the woman and her heirs › Collection of the ketubah and its conditions › Orders of priority › Ketubah of the binin dikhrin"
+    },
+    {
+     "ref": "10:3",
+     "text": "נכסים בראוי, מטלטלין",
+     "text_de": "Immobilien in Aussicht, bewegliche Güter",
+     "text_en": "property expected in the future, movable property",
+     "desc": "בין איש לאשתו › זכויות האשה ויורשיה › גביית הכתובה ותנאיה › סדרי קדימה › כתובת בנין דכרין",
+     "desc_de": "Zwischen Mann und Frau › Rechte der Frau und ihrer Erben › Einzug der Ketuba und ihre Bedingungen › Rangfolgen › Ketuba der Binin Dichrin",
+     "desc_en": "Between husband and wife › Rights of the woman and her heirs › Collection of the ketubah and its conditions › Orders of priority › Ketubah of the binin dikhrin"
+    },
+    {
+     "ref": "10:4",
+     "text": "ג' נשים עם כתובות שונות",
+     "text_de": "drei Frauen mit unterschiedlichen Ehevertragssummen",
+     "text_en": "three wives with different marriage-contract amounts",
+     "desc": "בין איש לאשתו › זכויות האשה ויורשיה › גביית הכתובה ותנאיה › סדרי קדימה › נשאו ביום אחד",
+     "desc_de": "Zwischen Mann und Frau › Rechte der Frau und ihrer Erben › Einzug der Ketuba und ihre Bedingungen › Rangfolgen › am selben Tag geheiratet",
+     "desc_en": "Between husband and wife › Rights of the woman and her heirs › Collection of the ketubah and its conditions › Orders of priority › married on the same day"
+    },
+    {
+     "ref": "10:5",
+     "text": "שבועה הקודמת למאוחרת",
+     "text_de": "Eid der früheren gegenüber der späteren",
+     "text_en": "oath of the earlier wife against the later one",
+     "desc": "בין איש לאשתו › זכויות האשה ויורשיה › גביית הכתובה ותנאיה › סדרי קדימה › שנשאו זו אחר זו",
+     "desc_de": "Zwischen Mann und Frau › Rechte der Frau und ihrer Erben › Einzug der Ketuba und ihre Bedingungen › Rangfolgen › nacheinander geheiratet",
+     "desc_en": "Between husband and wife › Rights of the woman and her heirs › Collection of the ketubah and its conditions › Orders of priority › married one after another"
+    },
+    {
+     "ref": "10:6",
+     "text": "סילוק רשות הקודמת מבעל חוב",
+     "text_de": "Verzicht der früheren auf ihr Recht gegenüber dem Gläubiger",
+     "text_en": "the earlier wife's waiver of her claim against the creditor",
+     "desc": "בין איש לאשתו › זכויות האשה ויורשיה › גביית הכתובה ותנאיה › סדרי קדימה › שנשאו זו אחר זו",
+     "desc_de": "Zwischen Mann und Frau › Rechte der Frau und ihrer Erben › Einzug der Ketuba und ihre Bedingungen › Rangfolgen › nacheinander geheiratet",
+     "desc_en": "Between husband and wife › Rights of the woman and her heirs › Collection of the ketubah and its conditions › Orders of priority › married one after another"
+    }
+   ]
+  },
+  {
+   "head": "פרק יא",
+   "head_de": "Kapitel 11",
+   "head_en": "Chapter 11",
+   "items": [
+    {
+     "ref": "11:1",
+     "text": "לאלמנה וחיוב לקברה",
+     "text_de": "für die Witwe und Pflicht, sie zu bestatten",
+     "text_en": "for the widow and the duty to bury her",
+     "desc": "בין איש לאשתו › זכויות האשה ויורשיה › גביית הכתובה ותנאיה › מזונות",
+     "desc_de": "Zwischen Mann und Frau › Rechte der Frau und ihrer Erben › Einzug der Ketuba und ihre Bedingungen › Unterhalt",
+     "desc_en": "Between husband and wife › Rights of the woman and her heirs › Collection of the ketubah and its conditions › maintenance"
+    },
+    {
+     "ref": "11:2",
+     "text": "אלמנה מן הארוסין או נשואין",
+     "text_de": "Witwe nach Verlobung oder Heirat",
+     "text_en": "widow from betrothal or marriage",
+     "desc": "בין איש לאשתו › זכויות האשה ויורשיה › גביית הכתובה ותנאיה › מזונות",
+     "desc_de": "Zwischen Mann und Frau › Rechte der Frau und ihrer Erben › Einzug der Ketuba und ihre Bedingungen › Unterhalt",
+     "desc_en": "Between husband and wife › Rights of the woman and her heirs › Collection of the ketubah and its conditions › maintenance"
+    },
+    {
+     "ref": "11:3",
+     "text": "הפוגמת כתובתה, גרושה",
+     "text_de": "die ihre Ehevertragssumme mindert, Geschiedene",
+     "text_en": "she who impairs her marriage contract, divorcee",
+     "desc": "בין איש לאשתו › זכויות האשה ויורשיה › גביית הכתובה ותנאיה › הפסד מזכויותיה › מכירת נכסים",
+     "desc_de": "Zwischen Mann und Frau › Rechte der Frau und ihrer Erben › Einzug der Ketuba und ihre Bedingungen › Verlust von ihren Rechten › Verkauf von Besitz",
+     "desc_en": "Between husband and wife › Rights of the woman and her heirs › Collection of the ketubah and its conditions › loss of her rights › sale of property"
+    },
+    {
+     "ref": "11:4",
+     "text": "רווח במכירה, בסכום גדול מדי",
+     "text_de": "Gewinn beim Verkauf, zu hoher Betrag",
+     "text_en": "profit on a sale, excessive amount",
+     "desc": "בין איש לאשתו › זכויות האשה ויורשיה › גביית הכתובה ותנאיה › הפסד מזכויותיה › מכירת נכסים › טעות",
+     "desc_de": "Zwischen Mann und Frau › Rechte der Frau und ihrer Erben › Einzug der Ketuba und ihre Bedingungen › Verlust von ihren Rechten › Verkauf von Besitz › Irrtum",
+     "desc_en": "Between husband and wife › Rights of the woman and her heirs › Collection of the ketubah and its conditions › loss of her rights › sale of property › error"
+    },
+    {
+     "ref": "11:5",
+     "text": "מכירת ב\"ד, אגרת",
+     "text_de": "Verkauf durch das Gericht, Quittung",
+     "text_en": "sale by the court, receipt",
+     "desc": "בין איש לאשתו › זכויות האשה ויורשיה › גביית הכתובה ותנאיה › הפסד מזכויותיה › מכירת נכסים › טעות",
+     "desc_de": "Zwischen Mann und Frau › Rechte der Frau und ihrer Erben › Einzug der Ketuba und ihre Bedingungen › Verlust von ihren Rechten › Verkauf von Besitz › Irrtum",
+     "desc_en": "Between husband and wife › Rights of the woman and her heirs › Collection of the ketubah and its conditions › loss of her rights › sale of property › error"
+    },
+    {
+     "ref": "11:6",
+     "text": "המפסידות כתובתן ותנאיה",
+     "text_de": "Frauen, die ihre Ehevertragssumme und ihre Bedingungen verlieren",
+     "text_en": "women who forfeit their marriage contract and its conditions",
+     "desc": "בין איש לאשתו › זכויות האשה ויורשיה › גביית הכתובה ותנאיה › הפסד מזכויותיה",
+     "desc_de": "Zwischen Mann und Frau › Rechte der Frau und ihrer Erben › Einzug der Ketuba und ihre Bedingungen › Verlust von ihren Rechten",
+     "desc_en": "Between husband and wife › Rights of the woman and her heirs › Collection of the ketubah and its conditions › loss of her rights"
+    }
+   ]
+  },
+  {
+   "head": "פרק יב",
+   "head_de": "Kapitel 12",
+   "head_en": "Chapter 12",
+   "items": [
+    {
+     "ref": "12:1",
+     "text": "נישואי האם ומקומה, שנים יחד",
+     "text_de": "Wiederheirat der Mutter und ihr Wohnort, zwei zusammen",
+     "text_en": "the mother's remarriage and her residence, two together",
+     "desc": "בין איש לאשתו › זכויות האשה ויורשיה › גביית הכתובה ותנאיה › הפוסק לזון בת אשתו",
+     "desc_de": "Zwischen Mann und Frau › Rechte der Frau und ihrer Erben › Einzug der Ketuba und ihre Bedingungen › wer sich verpflichtet, die Tochter seiner Frau zu unterhalten",
+     "desc_en": "Between husband and wife › Rights of the woman and her heirs › Collection of the ketubah and its conditions › one who undertakes to support his wife's daughter"
+    },
+    {
+     "ref": "12:2",
+     "text": "נשואי וגביית הבת, תנאי בפסיקה",
+     "text_de": "Heirat und Einzug der Tochter, Bedingung in der Verpflichtung",
+     "text_en": "the daughter's marriage and collection, condition in the undertaking",
+     "desc": "בין איש לאשתו › זכויות האשה ויורשיה › גביית הכתובה ותנאיה › הפוסק לזון בת אשתו",
+     "desc_de": "Zwischen Mann und Frau › Rechte der Frau und ihrer Erben › Einzug der Ketuba und ihre Bedingungen › wer sich verpflichtet, die Tochter seiner Frau zu unterhalten",
+     "desc_en": "Between husband and wife › Rights of the woman and her heirs › Collection of the ketubah and its conditions › one who undertakes to support his wife's daughter"
+    },
+    {
+     "ref": "12:3",
+     "text": "מזונותיה",
+     "text_de": "ihr Unterhalt",
+     "text_en": "her maintenance",
+     "desc": "בין איש לאשתו › זכויות האשה ויורשיה › גביית הכתובה ותנאיה › אלמנה בבית בעלה או אביה",
+     "desc_de": "Zwischen Mann und Frau › Rechte der Frau und ihrer Erben › Einzug der Ketuba und ihre Bedingungen › Witwe im Haus ihres Mannes oder ihres Vaters",
+     "desc_en": "Between husband and wife › Rights of the woman and her heirs › Collection of the ketubah and its conditions › widow in her husband's or her father's house"
+    },
+    {
+     "ref": "12:4",
+     "text": "מועד אחרון לגביית כתובתה",
+     "text_de": "letzter Termin für die Einforderung ihrer Ehevertragssumme",
+     "text_en": "final deadline for collecting her marriage contract",
+     "desc": "בין איש לאשתו › זכויות האשה ויורשיה › גביית הכתובה ותנאיה › אלמנה בבית בעלה או אביה",
+     "desc_de": "Zwischen Mann und Frau › Rechte der Frau und ihrer Erben › Einzug der Ketuba und ihre Bedingungen › Witwe im Haus ihres Mannes oder ihres Vaters",
+     "desc_en": "Between husband and wife › Rights of the woman and her heirs › Collection of the ketubah and its conditions › widow in her husband's or her father's house"
+    }
+   ]
+  },
+  {
+   "head": "פרק יג",
+   "head_de": "Kapitel 13",
+   "head_en": "Chapter 13",
+   "items": [
+    {
+     "ref": "13:1",
+     "text": "שבועה לתובעת מזונות",
+     "text_de": "Eid für die Frau, die Unterhalt fordert",
+     "text_en": "oath for a woman claiming maintenance",
+     "desc": "בין איש לאשתו › מחלוקות חנן ואדמון עם החכמים › זכויות האשה ויורשיה › גביית הכתובה ותנאיה › מזונות › שלא בפני הבעל",
+     "desc_de": "Zwischen Mann und Frau › Meinungsverschiedenheiten Chanans und Admons mit den Weisen › Rechte der Frau und ihrer Erben › Einzug der Ketuba und ihre Bedingungen › Unterhalt › in Abwesenheit des Ehemannes",
+     "desc_en": "Between husband and wife › disputes of Chanan and Admon with the Sages › Rights of the woman and her heirs › Collection of the ketubah and its conditions › maintenance › in the husband's absence"
+    },
+    {
+     "ref": "13:2",
+     "text": "המפרנס אשה",
+     "text_de": "wer eine Frau versorgt",
+     "text_en": "one who provides for a woman",
+     "desc": "בין איש לאשתו › מחלוקות חנן ואדמון עם החכמים › זכויות האשה ויורשיה › גביית הכתובה ותנאיה › מזונות › שלא בפני הבעל",
+     "desc_de": "Zwischen Mann und Frau › Meinungsverschiedenheiten Chanans und Admons mit den Weisen › Rechte der Frau und ihrer Erben › Einzug der Ketuba und ihre Bedingungen › Unterhalt › in Abwesenheit des Ehemannes",
+     "desc_en": "Between husband and wife › disputes of Chanan and Admon with the Sages › Rights of the woman and her heirs › Collection of the ketubah and its conditions › maintenance › in the husband's absence"
+    },
+    {
+     "ref": "13:3",
+     "text": "קדימת בנים או בנות בנכסים",
+     "text_de": "Vorrang von Söhnen oder Töchtern beim Erbe",
+     "text_en": "precedence of sons or daughters in the estate",
+     "desc": "בין איש לאשתו › מחלוקות חנן ואדמון עם החכמים › זכויות האשה ויורשיה › גביית הכתובה ותנאיה › מזונות",
+     "desc_de": "Zwischen Mann und Frau › Meinungsverschiedenheiten Chanans und Admons mit den Weisen › Rechte der Frau und ihrer Erben › Einzug der Ketuba und ihre Bedingungen › Unterhalt",
+     "desc_en": "Between husband and wife › disputes of Chanan and Admon with the Sages › Rights of the woman and her heirs › Collection of the ketubah and its conditions › maintenance"
+    },
+    {
+     "ref": "13:4",
+     "text": "המודה במקצת במין אחר",
+     "text_de": "teilweises Zugeständnis bei einer anderen Art",
+     "text_en": "partial admission concerning a different kind",
+     "desc": "בין איש לאשתו › מחלוקות חנן ואדמון עם החכמים",
+     "desc_de": "Zwischen Mann und Frau › Meinungsverschiedenheiten Chanans und Admons mit den Weisen",
+     "desc_en": "Between husband and wife › disputes of Chanan and Admon with the Sages"
+    },
+    {
+     "ref": "13:5",
+     "text": "כפיית חתן שפשטו לו רגל",
+     "text_de": "Zwang gegen einen Bräutigam, der zahlungsunfähig geworden ist",
+     "text_en": "compelling a bridegroom who has become insolvent",
+     "desc": "בין איש לאשתו › מחלוקות חנן ואדמון עם החכמים",
+     "desc_de": "Zwischen Mann und Frau › Meinungsverschiedenheiten Chanans und Admons mit den Weisen",
+     "desc_en": "Between husband and wife › disputes of Chanan and Admon with the Sages"
+    },
+    {
+     "ref": "13:6",
+     "text": "שדה שהעיד עליו",
+     "text_de": "Feld, über das er ausgesagt hat",
+     "text_en": "a field about which he testified",
+     "desc": "בין איש לאשתו › מחלוקות חנן ואדמון עם החכמים › דחיית ערעור",
+     "desc_de": "Zwischen Mann und Frau › Meinungsverschiedenheiten Chanans und Admons mit den Weisen › Abweisung eines Einspruchs",
+     "desc_en": "Between husband and wife › disputes of Chanan and Admon with the Sages › rejection of an appeal"
+    },
+    {
+     "ref": "13:7",
+     "text": "התובע דרך שדהו",
+     "text_de": "wer einen Weg durch sein Feld beansprucht",
+     "text_en": "one who claims a right of way through his field",
+     "desc": "בין איש לאשתו › מחלוקות חנן ואדמון עם החכמים › דחיית ערעור",
+     "desc_de": "Zwischen Mann und Frau › Meinungsverschiedenheiten Chanans und Admons mit den Weisen › Abweisung eines Einspruchs",
+     "desc_en": "Between husband and wife › disputes of Chanan and Admon with the Sages › rejection of an appeal"
+    },
+    {
+     "ref": "13:8",
+     "text": "המוכר לו שדה",
+     "text_de": "wer ihm ein Feld verkauft",
+     "text_en": "one who sells him a field",
+     "desc": "בין איש לאשתו › מחלוקות חנן ואדמון עם החכמים › עיסקות עם החייב לו",
+     "desc_de": "Zwischen Mann und Frau › Meinungsverschiedenheiten Chanans und Admons mit den Weisen › Geschäfte mit dem Schuldner",
+     "desc_en": "Between husband and wife › disputes of Chanan and Admon with the Sages › transactions with one's debtor"
+    },
+    {
+     "ref": "13:9",
+     "text": "הלוה ממנו",
+     "text_de": "wer von ihm borgt",
+     "text_en": "one who borrows from him",
+     "desc": "בין איש לאשתו › מחלוקות חנן ואדמון עם החכמים › עיסקות עם החייב לו",
+     "desc_de": "Zwischen Mann und Frau › Meinungsverschiedenheiten Chanans und Admons mit den Weisen › Geschäfte mit dem Schuldner",
+     "desc_en": "Between husband and wife › disputes of Chanan and Admon with the Sages › transactions with one's debtor"
+    },
+    {
+     "ref": "13:10",
+     "text": "ג' ארצות, כרך ועיר, טיב הנוה",
+     "text_de": "drei Länder, Großstadt und Stadt, Beschaffenheit der Wohnstätte",
+     "text_en": "three countries, metropolis and town, nature of the dwelling",
+     "desc": "בין איש לאשתו › זכויות הבעל ואשתו › העברת דירה › כפייה לעבור",
+     "desc_de": "Zwischen Mann und Frau › Rechte des Mannes und seiner Frau › Umzug der Wohnung › Zwang zum Umzug",
+     "desc_en": "Between husband and wife › rights of the husband and his wife › relocation of the dwelling › compulsion to move"
+    },
+    {
+     "ref": "13:11",
+     "text": "א\"י וירושלים \\ מעות מחוזות שונים",
+     "text_de": "Land Israel und Jerusalem / Münzen verschiedener Gebiete",
+     "text_en": "the Land of Israel and Jerusalem / coins of different regions",
+     "desc": "בין איש לאשתו › זכויות הבעל ואשתו › העברת דירה › תשלום כתובה",
+     "desc_de": "Zwischen Mann und Frau › Rechte des Mannes und seiner Frau › Umzug der Wohnung › Zahlung der Ehevertragssumme",
+     "desc_en": "Between husband and wife › rights of the husband and his wife › relocation of the dwelling › payment of the marriage contract"
+    }
+   ]
+  }
+ ]
+}

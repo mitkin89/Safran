@@ -1,0 +1,758 @@
+{
+ "book": "Mishnah Kilayim",
+ "title": "משנה כלאים",
+ "title_de": "Mischna Kilajim – Gliederung",
+ "title_en": "Kilayim – outline",
+ "note": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema).",
+ "note_de": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema); ins Deutsche und Englische übersetzt.",
+ "note_en": "Outline after the table “Mishna Sedura”: the central content of each mishnah, with the topic path (main topic to sub-topic); translated into German and English.",
+ "sections": [
+  {
+   "head": "פרק א",
+   "head_de": "Kapitel 1",
+   "head_en": "Chapter 1",
+   "items": [
+    {
+     "ref": "1:1",
+     "text": "תבואה, קטנית",
+     "text_de": "Getreide, Hülsenfrüchte",
+     "text_en": "Grain, legumes",
+     "desc": "כלאי חקלאות › פירוט מינים שונים › זוגות שונים › שאינם כלאים",
+     "desc_de": "Mischarten im Ackerbau › Aufzählung verschiedener Arten › Verschiedene Paare › Was keine Mischarten sind",
+     "desc_en": "Mixed kinds in agriculture › Enumeration of various kinds › Various pairs › What are not mixed kinds"
+    },
+    {
+     "ref": "1:2",
+     "text": "ירקות שונים, שמות לוואי",
+     "text_de": "Verschiedene Gemüse, Beinamen",
+     "text_en": "Various vegetables, alternative names",
+     "desc": "כלאי חקלאות › פירוט מינים שונים › זוגות שונים › שאינם כלאים",
+     "desc_de": "Mischarten im Ackerbau › Aufzählung verschiedener Arten › Verschiedene Paare › Was keine Mischarten sind",
+     "desc_en": "Mixed kinds in agriculture › Enumeration of various kinds › Various pairs › What are not mixed kinds"
+    },
+    {
+     "ref": "1:3",
+     "text": "ירקות שונים, זנים קטנים",
+     "text_de": "Verschiedene Gemüse, kleine Sorten",
+     "text_en": "Various vegetables, minor varieties",
+     "desc": "כלאי חקלאות › פירוט מינים שונים › זוגות שונים › שאינם כלאים",
+     "desc_de": "Mischarten im Ackerbau › Aufzählung verschiedener Arten › Verschiedene Paare › Was keine Mischarten sind",
+     "desc_en": "Mixed kinds in agriculture › Enumeration of various kinds › Various pairs › What are not mixed kinds"
+    },
+    {
+     "ref": "1:4",
+     "text": "אילנות",
+     "text_de": "Bäume",
+     "text_en": "Trees",
+     "desc": "כלאי חקלאות › פירוט מינים שונים › זוגות שונים › שהם כלאים",
+     "desc_de": "Mischarten im Ackerbau › Aufzählung verschiedener Arten › Verschiedene Paare › Die Mischarten sind",
+     "desc_en": "Mixed kinds in agriculture › Enumeration of various kinds › Various pairs › What are mixed kinds"
+    },
+    {
+     "ref": "1:5",
+     "text": "ירקות",
+     "text_de": "Gemüse",
+     "text_en": "Vegetables",
+     "desc": "כלאי חקלאות › פירוט מינים שונים › זוגות שונים › שהם כלאים",
+     "desc_de": "Mischarten im Ackerbau › Aufzählung verschiedener Arten › Verschiedene Paare › Die Mischarten sind",
+     "desc_en": "Mixed kinds in agriculture › Enumeration of various kinds › Various pairs › What are mixed kinds"
+    },
+    {
+     "ref": "1:6",
+     "text": "בהמות וחיות",
+     "text_de": "Haustiere und Wildtiere",
+     "text_en": "Domestic and wild animals",
+     "desc": "כלאי חקלאות › פירוט מינים שונים › זוגות שונים › שהם כלאים",
+     "desc_de": "Mischarten im Ackerbau › Aufzählung verschiedener Arten › Verschiedene Paare › Die Mischarten sind",
+     "desc_en": "Mixed kinds in agriculture › Enumeration of various kinds › Various pairs › What are mixed kinds"
+    },
+    {
+     "ref": "1:7",
+     "text": "כלל",
+     "text_de": "Grundregel",
+     "text_en": "General rule",
+     "desc": "כלאי חקלאות › פירוט מינים שונים › כלאי הרכבה",
+     "desc_de": "Mischarten im Ackerbau › Aufzählung verschiedener Arten › Mischarten durch Veredelung",
+     "desc_en": "Mixed kinds in agriculture › Enumeration of various kinds › Mixed kinds by grafting"
+    },
+    {
+     "ref": "1:8",
+     "text": "דוגמאות",
+     "text_de": "Beispiele",
+     "text_en": "Examples",
+     "desc": "כלאי חקלאות › פירוט מינים שונים › כלאי הרכבה",
+     "desc_de": "Mischarten im Ackerbau › Aufzählung verschiedener Arten › Mischarten durch Veredelung",
+     "desc_en": "Mixed kinds in agriculture › Enumeration of various kinds › Mixed kinds by grafting"
+    },
+    {
+     "ref": "1:9",
+     "text": "הטמנה זמנית \\ התהוות איסור תורה",
+     "text_de": "Zeitweiliges Vergraben / Entstehen eines Toraverbots",
+     "text_en": "Temporary burying / arising of a Torah prohibition",
+     "desc": "כלאי חקלאות › כלאי זרעים › מניעת איסור לפני זריעה › כלאי הרכבה",
+     "desc_de": "Mischarten im Ackerbau › Mischsaat › Verhinderung des Verbots vor der Aussaat › Mischarten durch Veredelung",
+     "desc_en": "Mixed kinds in agriculture › Mixed seeds › Preventing the prohibition before sowing › Mixed kinds by grafting"
+    }
+   ]
+  },
+  {
+   "head": "פרק ב",
+   "head_de": "Kapitel 2",
+   "head_en": "Chapter 2",
+   "items": [
+    {
+     "ref": "2:1",
+     "text": "כלל",
+     "text_de": "Grundregel",
+     "text_en": "General rule",
+     "desc": "כלאי חקלאות › כלאי זרעים › מניעת איסור לפני זריעה › אחוזי תערובת בזרעים",
+     "desc_de": "Mischarten im Ackerbau › Mischsaat › Verhinderung des Verbots vor der Aussaat › Mischungsanteile bei Samen",
+     "desc_en": "Mixed kinds in agriculture › Mixed seeds › Preventing the prohibition before sowing › Proportions of mixture in seeds"
+    },
+    {
+     "ref": "2:2",
+     "text": "פירוט מינים",
+     "text_de": "Aufzählung der Arten",
+     "text_en": "Enumeration of the kinds",
+     "desc": "כלאי חקלאות › כלאי זרעים › מניעת איסור לפני זריעה › אחוזי תערובת בזרעים",
+     "desc_de": "Mischarten im Ackerbau › Mischsaat › Verhinderung des Verbots vor der Aussaat › Mischungsanteile bei Samen",
+     "desc_en": "Mixed kinds in agriculture › Mixed seeds › Preventing the prohibition before sowing › Proportions of mixture in seeds"
+    },
+    {
+     "ref": "2:3",
+     "text": "כשזרוע",
+     "text_de": "Wenn es gesät ist",
+     "text_en": "When it is sown",
+     "desc": "כלאי חקלאות › כלאי זרעים › מניעת איסור לפני זריעה › שינוי ביבול השדה",
+     "desc_de": "Mischarten im Ackerbau › Mischsaat › Verhinderung des Verbots vor der Aussaat › Veränderung im Ertrag des Feldes",
+     "desc_en": "Mixed kinds in agriculture › Mixed seeds › Preventing the prohibition before sowing › Change in the field's yield"
+    },
+    {
+     "ref": "2:4",
+     "text": "כשזרוע או נטוע",
+     "text_de": "Wenn es gesät oder gepflanzt ist",
+     "text_en": "When it is sown or planted",
+     "desc": "כלאי חקלאות › כלאי זרעים › מניעת איסור לפני זריעה › שינוי ביבול השדה",
+     "desc_de": "Mischarten im Ackerbau › Mischsaat › Verhinderung des Verbots vor der Aussaat › Veränderung im Ertrag des Feldes",
+     "desc_en": "Mixed kinds in agriculture › Mixed seeds › Preventing the prohibition before sowing › Change in the field's yield"
+    },
+    {
+     "ref": "2:5",
+     "text": "כשהנזרע אינו מתליע, שסופן ליעקר",
+     "text_de": "Wenn das Gesäte nicht wurmstichig wird, weil sie später ausgerissen werden",
+     "text_en": "When the sown does not become wormy, since they will later be uprooted",
+     "desc": "כלאי חקלאות › כלאי זרעים › מניעת איסור לפני זריעה › שינוי ביבול השדה",
+     "desc_de": "Mischarten im Ackerbau › Mischsaat › Verhinderung des Verbots vor der Aussaat › Veränderung im Ertrag des Feldes",
+     "desc_en": "Mixed kinds in agriculture › Mixed seeds › Preventing the prohibition before sowing › Change in the field's yield"
+    },
+    {
+     "ref": "2:6",
+     "text": "מישרים רבים",
+     "text_de": "Viele Ebenen",
+     "text_en": "Many plains",
+     "desc": "כלאי חקלאות › כלאי זרעים › אופני זריעה המותרים › היכר בין מינים שונים",
+     "desc_de": "Mischarten im Ackerbau › Mischsaat › Erlaubte Arten der Aussaat › Erkennbarer Unterschied zwischen verschiedenen Arten",
+     "desc_en": "Mixed kinds in agriculture › Mixed seeds › Permitted ways of sowing › Recognizable distinction between different kinds"
+    },
+    {
+     "ref": "2:7",
+     "text": "ראש תור, סמיכת פשתן",
+     "text_de": "Beginn der Reihe, Dichte des Flachses",
+     "text_en": "Head of the row, density of flax",
+     "desc": "כלאי חקלאות › כלאי זרעים › אופני זריעה המותרים › היכר בין מינים שונים",
+     "desc_de": "Mischarten im Ackerbau › Mischsaat › Erlaubte Arten der Aussaat › Erkennbarer Unterschied zwischen verschiedenen Arten",
+     "desc_en": "Mixed kinds in agriculture › Mixed seeds › Permitted ways of sowing › Recognizable distinction between different kinds"
+    },
+    {
+     "ref": "2:8",
+     "text": "סמיכת חרדל וחריע, מחיצות",
+     "text_de": "Dichte von Senf und Chariaa, Trennwände",
+     "text_en": "Density of mustard and chariaa, partitions",
+     "desc": "כלאי חקלאות › כלאי זרעים › אופני זריעה המותרים › היכר בין מינים שונים",
+     "desc_de": "Mischarten im Ackerbau › Mischsaat › Erlaubte Arten der Aussaat › Erkennbarer Unterschied zwischen verschiedenen Arten",
+     "desc_en": "Mixed kinds in agriculture › Mixed seeds › Permitted ways of sowing › Recognizable distinction between different kinds"
+    },
+    {
+     "ref": "2:9",
+     "text": "בין קרחות",
+     "text_de": "Zwischen kahlen Stellen",
+     "text_en": "Between bare patches",
+     "desc": "כלאי חקלאות › כלאי זרעים › אופני זריעה המותרים › היכר בין מינים שונים",
+     "desc_de": "Mischarten im Ackerbau › Mischsaat › Erlaubte Arten der Aussaat › Erkennbarer Unterschied zwischen verschiedenen Arten",
+     "desc_en": "Mixed kinds in agriculture › Mixed seeds › Permitted ways of sowing › Recognizable distinction between different kinds"
+    },
+    {
+     "ref": "2:10",
+     "text": "צירוף שטחים, כללי מידות ריחוק",
+     "text_de": "Zusammenfassung von Flächen, allgemeine Regeln der Abstandsmaße",
+     "text_en": "Combining areas, general rules of distance measures",
+     "desc": "כלאי חקלאות › כלאי זרעים › אופני זריעה המותרים › היכר בין מינים שונים › הרחקה",
+     "desc_de": "Mischarten im Ackerbau › Mischsaat › Erlaubte Arten der Aussaat › Erkennbarer Unterschied zwischen verschiedenen Arten › Abstandhalten",
+     "desc_en": "Mixed kinds in agriculture › Mixed seeds › Permitted ways of sowing › Recognizable distinction between different kinds › Keeping distance"
+    },
+    {
+     "ref": "2:11",
+     "text": "נטייה",
+     "text_de": "Neigung",
+     "text_en": "Inclination",
+     "desc": "כלאי חקלאות › כלאי זרעים › אופני זריעה המותרים › היכר בין מינים שונים",
+     "desc_de": "Mischarten im Ackerbau › Mischsaat › Erlaubte Arten der Aussaat › Erkennbarer Unterschied zwischen verschiedenen Arten",
+     "desc_en": "Mixed kinds in agriculture › Mixed seeds › Permitted ways of sowing › Recognizable distinction between different kinds"
+    }
+   ]
+  },
+  {
+   "head": "פרק ג",
+   "head_de": "Kapitel 3",
+   "head_en": "Chapter 3",
+   "items": [
+    {
+     "ref": "3:1",
+     "text": "מיני ירקות",
+     "text_de": "Gemüsearten",
+     "text_en": "Kinds of vegetables",
+     "desc": "כלאי חקלאות › כלאי זרעים › אופני זריעה המותרים › היכר בין מינים שונים › ערוגה",
+     "desc_de": "Mischarten im Ackerbau › Mischsaat › Erlaubte Arten der Aussaat › Erkennbarer Unterschied zwischen verschiedenen Arten › Beet",
+     "desc_en": "Mixed kinds in agriculture › Mixed seeds › Permitted ways of sowing › Recognizable distinction between different kinds › Garden bed"
+    },
+    {
+     "ref": "3:2",
+     "text": "מיני זרעים, התמעטות גבול \\ שקע",
+     "text_de": "Samenarten, Verringerung der Grenze / Vertiefung",
+     "text_en": "Kinds of seeds, reduction of the border / hollow",
+     "desc": "כלאי חקלאות › כלאי זרעים › אופני זריעה המותרים › היכר בין מינים שונים › ערוגה",
+     "desc_de": "Mischarten im Ackerbau › Mischsaat › Erlaubte Arten der Aussaat › Erkennbarer Unterschied zwischen verschiedenen Arten › Beet",
+     "desc_en": "Mixed kinds in agriculture › Mixed seeds › Permitted ways of sowing › Recognizable distinction between different kinds › Garden bed"
+    },
+    {
+     "ref": "3:3",
+     "text": "ירק בשדה ירק",
+     "text_de": "Gemüse im Gemüsefeld",
+     "text_en": "Vegetable in a vegetable field",
+     "desc": "כלאי חקלאות › כלאי זרעים › אופני זריעה המותרים › היכר בין מינים שונים",
+     "desc_de": "Mischarten im Ackerbau › Mischsaat › Erlaubte Arten der Aussaat › Erkennbarer Unterschied zwischen verschiedenen Arten",
+     "desc_en": "Mixed kinds in agriculture › Mixed seeds › Permitted ways of sowing › Recognizable distinction between different kinds"
+    },
+    {
+     "ref": "3:4",
+     "text": "שורות בשורות",
+     "text_de": "Reihen in Reihen",
+     "text_en": "Rows within rows",
+     "desc": "כלאי חקלאות › כלאי זרעים › אופני זריעה המותרים › היכר בין מינים שונים › דלעת יוונית",
+     "desc_de": "Mischarten im Ackerbau › Mischsaat › Erlaubte Arten der Aussaat › Erkennbarer Unterschied zwischen verschiedenen Arten › Kürbis (Zucchini)",
+     "desc_en": "Mixed kinds in agriculture › Mixed seeds › Permitted ways of sowing › Recognizable distinction between different kinds › Egyptian gourd"
+    },
+    {
+     "ref": "3:5",
+     "text": "בגומא עם קשות, כלל האיסור",
+     "text_de": "Im Binsen mit Gurken, Grundregel des Verbots",
+     "text_en": "In rushes with cucumbers, general rule of the prohibition",
+     "desc": "כלאי חקלאות › כלאי זרעים › אופני זריעה המותרים › היכר בין מינים שונים › דלעת יוונית",
+     "desc_de": "Mischarten im Ackerbau › Mischsaat › Erlaubte Arten der Aussaat › Erkennbarer Unterschied zwischen verschiedenen Arten › Kürbis (Zucchini)",
+     "desc_en": "Mixed kinds in agriculture › Mixed seeds › Permitted ways of sowing › Recognizable distinction between different kinds › Egyptian gourd"
+    },
+    {
+     "ref": "3:6",
+     "text": "בשדה בצלים",
+     "text_de": "Im Zwiebelfeld",
+     "text_en": "In an onion field",
+     "desc": "כלאי חקלאות › כלאי זרעים › אופני זריעה המותרים › היכר בין מינים שונים › דלעת יוונית",
+     "desc_de": "Mischarten im Ackerbau › Mischsaat › Erlaubte Arten der Aussaat › Erkennbarer Unterschied zwischen verschiedenen Arten › Kürbis (Zucchini)",
+     "desc_en": "Mixed kinds in agriculture › Mixed seeds › Permitted ways of sowing › Recognizable distinction between different kinds › Egyptian gourd"
+    },
+    {
+     "ref": "3:7",
+     "text": "בירק ובתבואה",
+     "text_de": "Bei Gemüse und Getreide",
+     "text_en": "With vegetables and grain",
+     "desc": "כלאי חקלאות › כלאי זרעים › אופני זריעה המותרים › הרחקה › דלעת יוונית",
+     "desc_de": "Mischarten im Ackerbau › Mischsaat › Erlaubte Arten der Aussaat › Abstandhalten › Kürbis (Zucchini)",
+     "desc_en": "Mixed kinds in agriculture › Mixed seeds › Permitted ways of sowing › Keeping distance › Egyptian gourd"
+    }
+   ]
+  },
+  {
+   "head": "פרק ד",
+   "head_de": "Kapitel 4",
+   "head_en": "Chapter 4",
+   "items": [
+    {
+     "ref": "4:1",
+     "text": "קרחת",
+     "text_de": "Kahle Stelle",
+     "text_en": "Bare patch",
+     "desc": "חקלאות › כלאי הכרם › אופני זריעה המותרים › בתוך הכרם",
+     "desc_de": "Ackerbau › Mischpflanzung im Weinberg › Erlaubte Arten der Aussaat › Innerhalb des Weinbergs",
+     "desc_en": "Agriculture › Mixed planting in the vineyard › Permitted ways of sowing › Inside the vineyard"
+    },
+    {
+     "ref": "4:2",
+     "text": "מחול",
+     "text_de": "Profanes Land",
+     "text_en": "Unconsecrated area",
+     "desc": "חקלאות › כלאי הכרם › אופני זריעה המותרים › בתוך הכרם",
+     "desc_de": "Ackerbau › Mischpflanzung im Weinberg › Erlaubte Arten der Aussaat › Innerhalb des Weinbergs",
+     "desc_en": "Agriculture › Mixed planting in the vineyard › Permitted ways of sowing › Inside the vineyard"
+    },
+    {
+     "ref": "4:3",
+     "text": "בין כרמים \\ גדר וחריץ",
+     "text_de": "Zwischen Weinbergen / Zaun und Graben",
+     "text_en": "Between vineyards / fence and ditch",
+     "desc": "חקלאות › כלאי הכרם › אופני זריעה המותרים › מחוץ לכרם",
+     "desc_de": "Ackerbau › Mischpflanzung im Weinberg › Erlaubte Arten der Aussaat › Außerhalb des Weinbergs",
+     "desc_en": "Agriculture › Mixed planting in the vineyard › Permitted ways of sowing › Outside the vineyard"
+    },
+    {
+     "ref": "4:4",
+     "text": "מחיצת קנים, גדר שנפרץ",
+     "text_de": "Rohrwand, durchbrochener Zaun",
+     "text_en": "Reed partition, breached fence",
+     "desc": "חקלאות › כלאי הכרם › אופני זריעה המותרים › מחוץ לכרם › מחיצה",
+     "desc_de": "Ackerbau › Mischpflanzung im Weinberg › Erlaubte Arten der Aussaat › Außerhalb des Weinbergs › Trennwand",
+     "desc_en": "Agriculture › Mixed planting in the vineyard › Permitted ways of sowing › Outside the vineyard › Partition"
+    },
+    {
+     "ref": "4:5",
+     "text": "שורה אחת ונפקא מינות לקידוש הכרם",
+     "text_de": "Eine einzelne Reihe und praktische Folgen für die Heiligung des Weinbergs",
+     "text_en": "A single row and practical consequences for the consecration of the vineyard",
+     "desc": "חקלאות › כלאי הכרם › הגדרת כרם › מספר",
+     "desc_de": "Ackerbau › Mischpflanzung im Weinberg › Definition des Weinbergs › Anzahl",
+     "desc_en": "Agriculture › Mixed planting in the vineyard › Definition of a vineyard › Number"
+    },
+    {
+     "ref": "4:6",
+     "text": "צורת חמש גפנים",
+     "text_de": "Form von fünf Reben",
+     "text_en": "Formation of five vines",
+     "desc": "חקלאות › כלאי הכרם › הגדרת כרם › מספר",
+     "desc_de": "Ackerbau › Mischpflanzung im Weinberg › Definition des Weinbergs › Anzahl",
+     "desc_en": "Agriculture › Mixed planting in the vineyard › Definition of a vineyard › Number"
+    },
+    {
+     "ref": "4:7",
+     "text": "צירוף שורות לשיעור",
+     "text_de": "Zusammenfassung von Reihen zum Mindestmaß",
+     "text_en": "Combining rows to the minimum measure",
+     "desc": "חקלאות › כלאי הכרם › הגדרת כרם › הפסק וגדר",
+     "desc_de": "Ackerbau › Mischpflanzung im Weinberg › Definition des Weinbergs › Unterbrechung und Zaun",
+     "desc_en": "Agriculture › Mixed planting in the vineyard › Definition of a vineyard › Interruption and fence"
+    },
+    {
+     "ref": "4:8",
+     "text": "כרם של 2 או 3 שורות, חרבה אמצעית",
+     "text_de": "Weinberg mit zwei oder drei Reihen, verödete Mitte",
+     "text_en": "Vineyard of two or three rows, desolate middle",
+     "desc": "חקלאות › כלאי הכרם › אופני זריעה המותרים › ריחוק בין שורות",
+     "desc_de": "Ackerbau › Mischpflanzung im Weinberg › Erlaubte Arten der Aussaat › Abstand zwischen Reihen",
+     "desc_en": "Agriculture › Mixed planting in the vineyard › Permitted ways of sowing › Distance between rows"
+    },
+    {
+     "ref": "4:9",
+     "text": "כרם גדול, הפיכת העלים",
+     "text_de": "Großer Weinberg, Wenden der Blätter",
+     "text_en": "Large vineyard, turning the leaves",
+     "desc": "חקלאות › כלאי הכרם › אופני זריעה המותרים › ריחוק בין שורות",
+     "desc_de": "Ackerbau › Mischpflanzung im Weinberg › Erlaubte Arten der Aussaat › Abstand zwischen Reihen",
+     "desc_en": "Agriculture › Mixed planting in the vineyard › Permitted ways of sowing › Distance between rows"
+    }
+   ]
+  },
+  {
+   "head": "פרק ה",
+   "head_de": "Kapitel 5",
+   "head_en": "Chapter 5",
+   "items": [
+    {
+     "ref": "5:1",
+     "text": "דל, מעורבב",
+     "text_de": "Dürftig, vermischt",
+     "text_en": "Sparse, mixed",
+     "desc": "חקלאות › כלאי הכרם › הגדרת כרם › חשיבות",
+     "desc_de": "Ackerbau › Mischpflanzung im Weinberg › Definition des Weinbergs › Bedeutung",
+     "desc_en": "Agriculture › Mixed planting in the vineyard › Definition of a vineyard › Significance"
+    },
+    {
+     "ref": "5:2",
+     "text": "צפוף",
+     "text_de": "Dicht",
+     "text_en": "Dense",
+     "desc": "חקלאות › כלאי הכרם › הגדרת כרם › חשיבות",
+     "desc_de": "Ackerbau › Mischpflanzung im Weinberg › Definition des Weinbergs › Bedeutung",
+     "desc_en": "Agriculture › Mixed planting in the vineyard › Definition of a vineyard › Significance"
+    },
+    {
+     "ref": "5:3",
+     "text": "חריץ,גת, שומירה",
+     "text_de": "Graben, Kelter, Wächterhütte",
+     "text_en": "Ditch, winepress, watchman's hut",
+     "desc": "חקלאות › כלאי הכרם › אופני זריעה המותרים › הפסק פיסי",
+     "desc_de": "Ackerbau › Mischpflanzung im Weinberg › Erlaubte Arten der Aussaat › Physische Unterbrechung",
+     "desc_en": "Agriculture › Mixed planting in the vineyard › Permitted ways of sowing › Physical interruption"
+    },
+    {
+     "ref": "5:4",
+     "text": "נקע",
+     "text_de": "Kerbe",
+     "text_en": "Notch",
+     "desc": "חקלאות › כלאי הכרם › אופני זריעה המותרים › הפסק פיסי",
+     "desc_de": "Ackerbau › Mischpflanzung im Weinberg › Erlaubte Arten der Aussaat › Physische Unterbrechung",
+     "desc_en": "Agriculture › Mixed planting in the vineyard › Permitted ways of sowing › Physical interruption"
+    },
+    {
+     "ref": "5:5",
+     "text": "מספר הגפנים המתקדשות",
+     "text_de": "Zahl der geheiligten Reben",
+     "text_en": "Number of consecrated vines",
+     "desc": "חקלאות › כלאי הכרם › קידוש",
+     "desc_de": "Ackerbau › Mischpflanzung im Weinberg › Heiligung",
+     "desc_en": "Agriculture › Mixed planting in the vineyard › Consecration"
+    },
+    {
+     "ref": "5:6",
+     "text": "שהייה",
+     "text_de": "Verweilen",
+     "text_en": "Remaining",
+     "desc": "חקלאות › כלאי הכרם › קידוש › כוונה",
+     "desc_de": "Ackerbau › Mischpflanzung im Weinberg › Heiligung › Andacht",
+     "desc_en": "Agriculture › Mixed planting in the vineyard › Consecration › Intention"
+    },
+    {
+     "ref": "5:7",
+     "text": "שלא מדעת, מדעת, שלבים שונים לביעור",
+     "text_de": "Unbeabsichtigt, absichtlich, verschiedene Stufen der Beseitigung",
+     "text_en": "Unintentionally, intentionally, various stages of removal",
+     "desc": "חקלאות › כלאי הכרם › קידוש › כוונה",
+     "desc_de": "Ackerbau › Mischpflanzung im Weinberg › Heiligung › Andacht",
+     "desc_en": "Agriculture › Mixed planting in the vineyard › Consecration › Intention"
+    },
+    {
+     "ref": "5:8",
+     "text": "קיום קוצים, זרעים",
+     "text_de": "Belassen von Dornen und Samen",
+     "text_en": "Leaving thorns and seeds",
+     "desc": "חקלאות › כלאי הכרם › קידוש › פירוט מינים",
+     "desc_de": "Ackerbau › Mischpflanzung im Weinberg › Heiligung › Aufzählung der Arten",
+     "desc_en": "Agriculture › Mixed planting in the vineyard › Consecration › Enumeration of the kinds"
+    }
+   ]
+  },
+  {
+   "head": "פרק ו",
+   "head_de": "Kapitel 6",
+   "head_en": "Chapter 6",
+   "items": [
+    {
+     "ref": "6:1",
+     "text": "הגדרה \\ הרחקה מגדר ,עבודת הגפן",
+     "text_de": "Definition / Abstand vom Zaun, Arbeit an der Rebe",
+     "text_en": "Definition / distance from the fence, work on the vine",
+     "desc": "חקלאות › כלאי הכרם › עריס › אופני זריעה › הרחקה",
+     "desc_de": "Ackerbau › Mischpflanzung im Weinberg › Rebenlaube › Arten der Aussaat › Abstandhalten",
+     "desc_en": "Agriculture › Mixed planting in the vineyard › Trellis › Ways of sowing › Keeping distance"
+    },
+    {
+     "ref": "6:2",
+     "text": "הרחקה ממדריגה, צירוף לכרם",
+     "text_de": "Abstand von der Stufe, Anschluss an den Weinberg",
+     "text_en": "Distance from the terrace, joining to the vineyard",
+     "desc": "חקלאות › כלאי הכרם › עריס › אופני זריעה › הרחקה",
+     "desc_de": "Ackerbau › Mischpflanzung im Weinberg › Rebenlaube › Arten der Aussaat › Abstandhalten",
+     "desc_en": "Agriculture › Mixed planting in the vineyard › Trellis › Ways of sowing › Keeping distance"
+    },
+    {
+     "ref": "6:3",
+     "text": "אפיפירות",
+     "text_de": "Überwucherung",
+     "text_en": "Overgrowth",
+     "desc": "חקלאות › כלאי הכרם › עריס › אופני זריעה › זריעה תחת מעמיד",
+     "desc_de": "Ackerbau › Mischpflanzung im Weinberg › Rebenlaube › Arten der Aussaat › Aussaat unter der Stützpflanze",
+     "desc_en": "Agriculture › Mixed planting in the vineyard › Trellis › Ways of sowing › Sowing under the supporting tree"
+    },
+    {
+     "ref": "6:4",
+     "text": "אילן מאכל",
+     "text_de": "Fruchtbaum",
+     "text_en": "Fruit tree",
+     "desc": "חקלאות › כלאי הכרם › עריס › אופני זריעה › זריעה תחת מעמיד",
+     "desc_de": "Ackerbau › Mischpflanzung im Weinberg › Rebenlaube › Arten der Aussaat › Aussaat unter der Stützpflanze",
+     "desc_en": "Agriculture › Mixed planting in the vineyard › Trellis › Ways of sowing › Sowing under the supporting tree"
+    },
+    {
+     "ref": "6:5",
+     "text": "הגדרת אילן סרק",
+     "text_de": "Definition des Zierbaums",
+     "text_en": "Definition of an ornamental tree",
+     "desc": "חקלאות › כלאי הכרם › עריס › אופני זריעה › זריעה תחת מעמיד",
+     "desc_de": "Ackerbau › Mischpflanzung im Weinberg › Rebenlaube › Arten der Aussaat › Aussaat unter der Stützpflanze",
+     "desc_en": "Agriculture › Mixed planting in the vineyard › Trellis › Ways of sowing › Sowing under the supporting tree"
+    },
+    {
+     "ref": "6:6",
+     "text": "פסקי ערים ומדידת עבודתו",
+     "text_de": "Bestimmungen der Städte und Messung seiner Bearbeitung",
+     "text_en": "Rulings of the cities and measurement of its cultivation",
+     "desc": "חקלאות › כלאי הכרם › עריס › אופני זריעה › הרחקה",
+     "desc_de": "Ackerbau › Mischpflanzung im Weinberg › Rebenlaube › Arten der Aussaat › Abstandhalten",
+     "desc_en": "Agriculture › Mixed planting in the vineyard › Trellis › Ways of sowing › Keeping distance"
+    },
+    {
+     "ref": "6:7",
+     "text": "היוצא מקרן זוית",
+     "text_de": "Das aus der Ecke Hervorgehende",
+     "text_en": "What emerges from a corner",
+     "desc": "חקלאות › כלאי הכרם › עריס › אופני זריעה › הרחקה",
+     "desc_de": "Ackerbau › Mischpflanzung im Weinberg › Rebenlaube › Arten der Aussaat › Abstandhalten",
+     "desc_en": "Agriculture › Mixed planting in the vineyard › Trellis › Ways of sowing › Keeping distance"
+    },
+    {
+     "ref": "6:8",
+     "text": "מותר קנים",
+     "text_de": "Zulässiges Rohr",
+     "text_en": "Permitted reeds",
+     "desc": "חקלאות › כלאי הכרם › עריס › אופני זריעה › זריעה תחת מעמיד",
+     "desc_de": "Ackerbau › Mischpflanzung im Weinberg › Rebenlaube › Arten der Aussaat › Aussaat unter der Stützpflanze",
+     "desc_en": "Agriculture › Mixed planting in the vineyard › Trellis › Ways of sowing › Sowing under the supporting tree"
+    },
+    {
+     "ref": "6:9",
+     "text": "פרח היוצא, גפן שספקה",
+     "text_de": "Hervorgehende Blüte, Rebe mit Zweifel",
+     "text_en": "Emerging blossom, doubtful vine",
+     "desc": "חקלאות › כלאי הכרם › עריס › אופני זריעה › זריעה תחת מעמיד",
+     "desc_de": "Ackerbau › Mischpflanzung im Weinberg › Rebenlaube › Arten der Aussaat › Aussaat unter der Stützpflanze",
+     "desc_en": "Agriculture › Mixed planting in the vineyard › Trellis › Ways of sowing › Sowing under the supporting tree"
+    }
+   ]
+  },
+  {
+   "head": "פרק ז",
+   "head_de": "Kapitel 7",
+   "head_en": "Chapter 7",
+   "items": [
+    {
+     "ref": "7:1",
+     "text": "ברך תת-קרקעי",
+     "text_de": "Unterirdisches Absenken",
+     "text_en": "Underground layering",
+     "desc": "חקלאות › כלאי הכרם › הברכה › אופני זריעה › הרחקה",
+     "desc_de": "Ackerbau › Mischpflanzung im Weinberg › Das Absenken › Arten der Aussaat › Abstandhalten",
+     "desc_en": "Agriculture › Mixed planting in the vineyard › Layering › Ways of sowing › Keeping distance"
+    },
+    {
+     "ref": "7:2",
+     "text": "צירוף להוות כרם,חסרון בשם",
+     "text_de": "Zusammenfassung zum Weinberg, Mangel an Name",
+     "text_en": "Combining into a vineyard, deficiency in name",
+     "desc": "חקלאות › כלאי הכרם › שאינם מתקדשות › הגדרה",
+     "desc_de": "Ackerbau › Mischpflanzung im Weinberg › Die nicht geheiligt werden › Definition",
+     "desc_en": "Agriculture › Mixed planting in the vineyard › Those that are not consecrated › Definition"
+    },
+    {
+     "ref": "7:3",
+     "text": "הרחוקים מדי",
+     "text_de": "Die zu weit Entfernten",
+     "text_en": "Those too far apart",
+     "desc": "חקלאות › כלאי הכרם › שאינם מתקדשות › ריחוק",
+     "desc_de": "Ackerbau › Mischpflanzung im Weinberg › Die nicht geheiligt werden › Abstand",
+     "desc_en": "Agriculture › Mixed planting in the vineyard › Those that are not consecrated › Distance"
+    },
+    {
+     "ref": "7:4-5",
+     "text": "תבואה שאינה שלו",
+     "text_de": "Getreide, das ihm nicht gehört",
+     "text_en": "Grain that is not his",
+     "desc": "חקלאות › כלאי הכרם › שאינם מתקדשות › בעלות",
+     "desc_de": "Ackerbau › Mischpflanzung im Weinberg › Die nicht geheiligt werden › Eigentum",
+     "desc_en": "Agriculture › Mixed planting in the vineyard › Those that are not consecrated › Ownership"
+    },
+    {
+     "ref": "7:6",
+     "text": "שדה אנס",
+     "text_de": "Zwangsfeld",
+     "text_en": "Field seized by force",
+     "desc": "חקלאות › כלאי הכרם › שאינם מתקדשות › בעלות",
+     "desc_de": "Ackerbau › Mischpflanzung im Weinberg › Die nicht geheiligt werden › Eigentum",
+     "desc_en": "Agriculture › Mixed planting in the vineyard › Those that are not consecrated › Ownership"
+    },
+    {
+     "ref": "7:7",
+     "text": "נטיית עלים, תחילה וסוף גידול",
+     "text_de": "Neigung der Blätter, Beginn und Ende des Wachstums",
+     "text_en": "Inclination of leaves, beginning and end of growth",
+     "desc": "חקלאות › כלאי הכרם › שאינם מתקדשות › יניקה",
+     "desc_de": "Ackerbau › Mischpflanzung im Weinberg › Die nicht geheiligt werden › Saugen",
+     "desc_en": "Agriculture › Mixed planting in the vineyard › Those that are not consecrated › Drawing nourishment"
+    },
+    {
+     "ref": "7:8",
+     "text": "דיני עציץ",
+     "text_de": "Gesetze des Blumentopfs",
+     "text_en": "Laws of the flowerpot",
+     "desc": "חקלאות › כלאי הכרם › שאינם מתקדשות › יניקה",
+     "desc_de": "Ackerbau › Mischpflanzung im Weinberg › Die nicht geheiligt werden › Saugen",
+     "desc_en": "Agriculture › Mixed planting in the vineyard › Those that are not consecrated › Drawing nourishment"
+    }
+   ]
+  },
+  {
+   "head": "פרק ח",
+   "head_de": "Kapitel 8",
+   "head_en": "Chapter 8",
+   "items": [
+    {
+     "ref": "8:1",
+     "text": "פעולות האסורות והנאה",
+     "text_de": "Verbotene Handlungen und Nutznießung",
+     "text_en": "Forbidden actions and benefit",
+     "desc": "כל מיני הכלאים › הגדרת האיסורים",
+     "desc_de": "Alle Arten von Mischarten › Definition der Verbote",
+     "desc_en": "All kinds of mixtures › Definition of the prohibitions"
+    },
+    {
+     "ref": "8:2",
+     "text": "פירוט מינים ועבודות",
+     "text_de": "Aufzählung von Arten und Arbeiten",
+     "text_en": "Enumeration of kinds and tasks",
+     "desc": "כלאי בהמה › מיני בהמות",
+     "desc_de": "Mischarten bei Tieren › Arten von Haustieren",
+     "desc_en": "Mixed kinds of animals › Kinds of domestic animals"
+    },
+    {
+     "ref": "8:3",
+     "text": "פעולת האדם, קשירה לרצועות",
+     "text_de": "Menschliche Handlung, Anbinden an Riemen",
+     "text_en": "Human action, harnessing with straps",
+     "desc": "כלאי בהמה › עבודה אסורה",
+     "desc_de": "Mischarten bei Tieren › Verbotene Arbeit",
+     "desc_en": "Mixed kinds of animals › Forbidden work"
+    },
+    {
+     "ref": "8:4",
+     "text": "קשירה לקרון, פרידות",
+     "text_de": "Anbinden an den Wagen, Maultiere",
+     "text_en": "Harnessing to a wagon, mules",
+     "desc": "כלאי בהמה › עבודה אסורה",
+     "desc_de": "Mischarten bei Tieren › Verbotene Arbeit",
+     "desc_en": "Mixed kinds of animals › Forbidden work"
+    },
+    {
+     "ref": "8:5",
+     "text": "ולד סוס, אדני שדה, קופד, חלדת הסנה",
+     "text_de": "Fohlen, Feldherr (Adne Sadeh), Kofed, Chuldat ha-Sneh",
+     "text_en": "Foal, wild man of the field (adne sadeh), kofed, weasel",
+     "desc": "כלאי בהמה › הגדרת בריות שונות ונ\"מ",
+     "desc_de": "Mischarten bei Tieren › Definition verschiedener Geschöpfe und praktische Folgen",
+     "desc_en": "Mixed kinds of animals › Definition of various creatures and practical consequences"
+    },
+    {
+     "ref": "8:6",
+     "text": "בעלי חיים שונים, אדם עם כולם",
+     "text_de": "Verschiedene Lebewesen, der Mensch mit allen",
+     "text_en": "Various animals, man with all",
+     "desc": "כלאי בהמה › הגדרת בריות שונות ונ\"מ",
+     "desc_de": "Mischarten bei Tieren › Definition verschiedener Geschöpfe und praktische Folgen",
+     "desc_en": "Mixed kinds of animals › Definition of various creatures and practical consequences"
+    }
+   ]
+  },
+  {
+   "head": "פרק ט",
+   "head_de": "Kapitel 9",
+   "head_en": "Chapter 9",
+   "items": [
+    {
+     "ref": "9:1",
+     "text": "המיוחד לצמר ופשתים, תערובת",
+     "text_de": "Besonderheit von Wolle und Leinen, Mischung",
+     "text_en": "Peculiarity of wool and linen, mixture",
+     "desc": "כלאי בגדים › מרכיבים הנאסרים",
+     "desc_de": "Mischgewebe in Kleidern › Verbotene Bestandteile",
+     "desc_en": "Mixed fabrics in garments › Forbidden components"
+    },
+    {
+     "ref": "9:2",
+     "text": "הנראים כפשתן\\ הצעה, תחתיו בלא מתכון",
+     "text_de": "Das wie Leinen Aussehende / Unterlage, darunter ohne Absicht",
+     "text_en": "What looks like linen / spread, underneath without intent",
+     "desc": "כלאי בגדים › תשמיש הנאסר",
+     "desc_de": "Mischgewebe in Kleidern › Verbotene Verwendung",
+     "desc_en": "Mixed fabrics in garments › Forbidden use"
+    },
+    {
+     "ref": "9:3",
+     "text": "מטפחות",
+     "text_de": "Tücher",
+     "text_en": "Kerchiefs",
+     "desc": "כלאי בגדים › תשמיש הנאסר",
+     "desc_de": "Mischgewebe in Kleidern › Verbotene Verwendung",
+     "desc_en": "Mixed fabrics in garments › Forbidden use"
+    },
+    {
+     "ref": "9:4",
+     "text": "תכריכים, מרדעת",
+     "text_de": "Leichentücher, Reitdecke",
+     "text_en": "Shrouds, saddle blanket",
+     "desc": "כלאי בגדים › תשמיש הנאסר › בלא מתכון",
+     "desc_de": "Mischgewebe in Kleidern › Verbotene Verwendung › Ohne Absicht",
+     "desc_en": "Mixed fabrics in garments › Forbidden use › Without intent"
+    },
+    {
+     "ref": "9:5",
+     "text": "מוכר כסות",
+     "text_de": "Kleiderverkäufer",
+     "text_en": "Garment seller",
+     "desc": "כלאי בגדים › תשמיש הנאסר › בלא מתכון",
+     "desc_de": "Mischgewebe in Kleidern › Verbotene Verwendung › Ohne Absicht",
+     "desc_en": "Mixed fabrics in garments › Forbidden use › Without intent"
+    },
+    {
+     "ref": "9:6",
+     "text": "תופרי כסות",
+     "text_de": "Kleidernäher",
+     "text_en": "Garment sewers",
+     "desc": "כלאי בגדים › תשמיש הנאסר › בלא מתכון",
+     "desc_de": "Mischgewebe in Kleidern › Verbotene Verwendung › Ohne Absicht",
+     "desc_en": "Mixed fabrics in garments › Forbidden use › Without intent"
+    },
+    {
+     "ref": "9:7",
+     "text": "הצריך בדיקה לכלאים",
+     "text_de": "Was auf Mischgewebe geprüft werden muss",
+     "text_en": "What must be checked for mixed fabrics",
+     "desc": "כלאי בגדים › מרכיבים הנאסרים",
+     "desc_de": "Mischgewebe in Kleidern › Verbotene Bestandteile",
+     "desc_en": "Mixed fabrics in garments › Forbidden components"
+    },
+    {
+     "ref": "9:8",
+     "text": "פירוש של שעטנז",
+     "text_de": "Bedeutung von Schaatnes",
+     "text_en": "Meaning of shaatnez",
+     "desc": "כלאי בגדים › מרכיבים הנאסרים › אופני התהוות הכלאים",
+     "desc_de": "Mischgewebe in Kleidern › Verbotene Bestandteile › Arten der Entstehung von Mischgewebe",
+     "desc_en": "Mixed fabrics in garments › Forbidden components › Ways mixed fabric arises"
+    },
+    {
+     "ref": "9:9",
+     "text": "האסורים בלי טוויה או תפירה",
+     "text_de": "Das ohne Spinnen oder Nähen Verbotene",
+     "text_en": "What is forbidden without spinning or sewing",
+     "desc": "כלאי בגדים › מרכיבים הנאסרים › אופני התהוות הכלאים",
+     "desc_de": "Mischgewebe in Kleidern › Verbotene Bestandteile › Arten der Entstehung von Mischgewebe",
+     "desc_en": "Mixed fabrics in garments › Forbidden components › Ways mixed fabric arises"
+    },
+    {
+     "ref": "9:10",
+     "text": "אותות שונות, חיבורים לכלאים",
+     "text_de": "Verschiedene Zeichen, Verbindungen mit Mischgewebe",
+     "text_en": "Various signs, connections to mixed fabric",
+     "desc": "כלאי בגדים › מרכיבים הנאסרים › אופני התהוות הכלאים",
+     "desc_de": "Mischgewebe in Kleidern › Verbotene Bestandteile › Arten der Entstehung von Mischgewebe",
+     "desc_en": "Mixed fabrics in garments › Forbidden components › Ways mixed fabric arises"
+    }
+   ]
+  }
+ ]
+}

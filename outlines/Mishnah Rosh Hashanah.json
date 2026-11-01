@@ -1,0 +1,354 @@
+{
+ "book": "Mishnah Rosh Hashanah",
+ "title": "משנה ראש השנה",
+ "title_de": "Mischna Rosch ha-Schana – Gliederung",
+ "title_en": "Rosh Hashanah – outline",
+ "note": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema).",
+ "note_de": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema); ins Deutsche und Englische übersetzt.",
+ "note_en": "Outline after the table “Mishna Sedura”: the central content of each mishnah, with the topic path (main topic to sub-topic); translated into German and English.",
+ "sections": [
+  {
+   "head": "פרק א",
+   "head_de": "Kapitel 1",
+   "head_en": "Chapter 1",
+   "items": [
+    {
+     "ref": "1:1",
+     "text": "בניסן, באלול, בתשרי, בשבט",
+     "text_de": "Im Nissan, im Elul, im Tischri, im Schwat",
+     "text_en": "In Nisan, in Elul, in Tishrei, in Shevat",
+     "desc": "קביעת המועדים בזמנם › תאריכים חשובים › שהם ארבעה בשנה › ראשי שנים",
+     "desc_de": "Festsetzung der Feste zu ihrer Zeit › Wichtige Daten › Dass es vier im Jahr sind › Neujahrstage",
+     "desc_en": "Fixing the festivals at their proper time › Important dates › That there are four in the year › New Year days"
+    },
+    {
+     "ref": "1:2",
+     "text": "לתבואה, לפירות, לאדם, למים",
+     "text_de": "Für Getreide, für Früchte, für den Menschen, für Wasser",
+     "text_en": "For grain, for fruits, for people, for water",
+     "desc": "קביעת המועדים בזמנם › תאריכים חשובים › שהם ארבעה בשנה › פרקי דין",
+     "desc_de": "Festsetzung der Feste zu ihrer Zeit › Wichtige Daten › Dass es vier im Jahr sind › Abschnitte des Gerichts",
+     "desc_en": "Fixing the festivals at their proper time › Important dates › That there are four in the year › Sections of judgment"
+    },
+    {
+     "ref": "1:3",
+     "text": "שבעה חדשים",
+     "text_de": "Sieben Monate",
+     "text_en": "Seven months",
+     "desc": "קביעת המועדים בזמנם › הודעה › יציאת שלוחים › על איזה חדשים והטעם",
+     "desc_de": "Festsetzung der Feste zu ihrer Zeit › Bekanntmachung › Aussendung der Boten › Für welche Monate und der Grund",
+     "desc_en": "Fixing the festivals at their proper time › Announcement › Dispatch of messengers › For which months and the reason"
+    },
+    {
+     "ref": "1:4",
+     "text": "ניסן ותשרי, בזמן המקדש",
+     "text_de": "Nissan und Tischri, zur Zeit des Tempels",
+     "text_en": "Nisan and Tishrei, in the time of the Temple",
+     "desc": "קביעת המועדים בזמנם › העדים וביאתם להעיד › יציאת שלוחים › על איזה חדשים והטעם",
+     "desc_de": "Festsetzung der Feste zu ihrer Zeit › Die Zeugen und ihr Kommen zur Aussage › Aussendung der Boten › Für welche Monate und der Grund",
+     "desc_en": "Fixing the festivals at their proper time › The witnesses and their coming to testify › Dispatch of messengers › For which months and the reason"
+    },
+    {
+     "ref": "1:5",
+     "text": "אם נראה בעליל",
+     "text_de": "Wenn es deutlich gesehen wurde",
+     "text_en": "If it was clearly seen",
+     "desc": "קביעת המועדים בזמנם › העדים וביאתם להעיד › חילול שבת בביאתם › אי צורך לחלל",
+     "desc_de": "Festsetzung der Feste zu ihrer Zeit › Die Zeugen und ihr Kommen zur Aussage › Entweihung des Schabbats bei ihrem Kommen › Keine Notwendigkeit zu entweihen",
+     "desc_en": "Fixing the festivals at their proper time › The witnesses and their coming to testify › Desecrating Shabbat upon their arrival › No need to desecrate"
+    },
+    {
+     "ref": "1:6",
+     "text": "מספר העדים הרשאין לחלל",
+     "text_de": "Anzahl der Zeugen, die entweihen dürfen",
+     "text_en": "Number of witnesses permitted to desecrate",
+     "desc": "קביעת המועדים בזמנם › העדים וביאתם להעיד › חילול שבת בביאתם › אי צורך לחלל",
+     "desc_de": "Festsetzung der Feste zu ihrer Zeit › Die Zeugen und ihr Kommen zur Aussage › Entweihung des Schabbats bei ihrem Kommen › Keine Notwendigkeit zu entweihen",
+     "desc_en": "Fixing the festivals at their proper time › The witnesses and their coming to testify › Desecrating Shabbat upon their arrival › No need to desecrate"
+    },
+    {
+     "ref": "1:7",
+     "text": "קרובים ועבד משוחרר",
+     "text_de": "Verwandte und freigelassener Sklave",
+     "text_en": "Relatives and freed slave",
+     "desc": "קביעת המועדים בזמנם › העדים וביאתם להעיד › כשרות העדים",
+     "desc_de": "Festsetzung der Feste zu ihrer Zeit › Die Zeugen und ihr Kommen zur Aussage › Zulässigkeit der Zeugen",
+     "desc_en": "Fixing the festivals at their proper time › The witnesses and their coming to testify › Eligibility of witnesses"
+    },
+    {
+     "ref": "1:8",
+     "text": "גזלנים מדרבנן, עבד, אשה",
+     "text_de": "Rabbinisch definierte Räuber, Sklave, Frau",
+     "text_en": "Robbers by rabbinic definition, slave, woman",
+     "desc": "קביעת המועדים בזמנם › העדים וביאתם להעיד › כשרות העדים",
+     "desc_de": "Festsetzung der Feste zu ihrer Zeit › Die Zeugen und ihr Kommen zur Aussage › Zulässigkeit der Zeugen",
+     "desc_en": "Fixing the festivals at their proper time › The witnesses and their coming to testify › Eligibility of witnesses"
+    },
+    {
+     "ref": "1:9",
+     "text": "צרכם לדרך, מרחק, הטעם שמחללין",
+     "text_de": "Reisebedarf, Entfernung, Grund der Entweihung",
+     "text_en": "Provisions for the journey, distance, reason for desecrating",
+     "desc": "קביעת המועדים בזמנם › העדים וביאתם להעיד › חילול שבת בביאתם",
+     "desc_de": "Festsetzung der Feste zu ihrer Zeit › Die Zeugen und ihr Kommen zur Aussage › Entweihung des Schabbats bei ihrem Kommen",
+     "desc_en": "Fixing the festivals at their proper time › The witnesses and their coming to testify › Desecrating Shabbat upon their arrival"
+    }
+   ]
+  },
+  {
+   "head": "פרק ב",
+   "head_de": "Kapitel 2",
+   "head_en": "Chapter 2",
+   "items": [
+    {
+     "ref": "2:1",
+     "text": "עדים להכרתם והצורך בהם",
+     "text_de": "Zeugen zur Identifizierung und die Notwendigkeit ihrer Anwesenheit",
+     "text_en": "Witnesses for identification and the need for them",
+     "desc": "קביעת המועדים בזמנם › העדים וביאתם להעיד › כשרות העדים › קלקול המינים",
+     "desc_de": "Festsetzung der Feste zu ihrer Zeit › Die Zeugen und ihr Kommen zur Aussage › Zulässigkeit der Zeugen › Verfälschung durch die Sektierer",
+     "desc_en": "Fixing the festivals at their proper time › The witnesses and their coming to testify › Eligibility of witnesses › Corruption by the sectarians"
+    },
+    {
+     "ref": "2:2",
+     "text": "הטעם שתקנו שלוחין",
+     "text_de": "Grund für die Einführung von Boten",
+     "text_en": "Reason for instituting messengers",
+     "desc": "קביעת המועדים בזמנם › הודעת הקביעה › המשואות › קלקול המינים",
+     "desc_de": "Festsetzung der Feste zu ihrer Zeit › Bekanntgabe der Festsetzung › Die Feuersignale › Verfälschung durch die Sektierer",
+     "desc_en": "Fixing the festivals at their proper time › Announcement of the declaration › The beacon fires › Corruption by the sectarians"
+    },
+    {
+     "ref": "2:3",
+     "text": "החומרים לאבוקות והנענועין בהם",
+     "text_de": "Materialien für Fackeln und ihr Schwenken",
+     "text_en": "Materials for torches and waving them",
+     "desc": "קביעת המועדים בזמנם › הודעת הקביעה › המשואות › כיצד",
+     "desc_de": "Festsetzung der Feste zu ihrer Zeit › Bekanntgabe der Festsetzung › Die Feuersignale › Wie",
+     "desc_en": "Fixing the festivals at their proper time › Announcement of the declaration › The beacon fires › How"
+    },
+    {
+     "ref": "2:4",
+     "text": "שלשת ההרים עד הגולה",
+     "text_de": "Die drei Berge bis zur Diaspora",
+     "text_en": "The three mountains up to the Diaspora",
+     "desc": "קביעת המועדים בזמנם › הודעת הקביעה › המשואות › מאין",
+     "desc_de": "Festsetzung der Feste zu ihrer Zeit › Bekanntgabe der Festsetzung › Die Feuersignale › Woher",
+     "desc_en": "Fixing the festivals at their proper time › Announcement of the declaration › The beacon fires › From where"
+    },
+    {
+     "ref": "2:5",
+     "text": "סעודות, הרחבת תחומן לעושי מצוה",
+     "text_de": "Mahlzeiten, Ausdehnung ihrer Grenze für Ausführende eines Gebots",
+     "text_en": "Meals, extending their limit for those performing a commandment",
+     "desc": "קביעת המועדים בזמנם › קביעת החודש › חקירת העדים והכרזת בית דין › הרגלת העדים לבוא",
+     "desc_de": "Festsetzung der Feste zu ihrer Zeit › Festsetzung des Monats › Befragung der Zeugen und Bekanntmachung des Gerichts › Gewöhnung der Zeugen ans Kommen",
+     "desc_en": "Fixing the festivals at their proper time › Fixing of the month › Examination of the witnesses and proclamation of the court › Accustoming the witnesses to come"
+    },
+    {
+     "ref": "2:6",
+     "text": "שאילות ששאלן, אימות עדות/ שאר העדים",
+     "text_de": "Fragen, die er stellte, Bestätigung der Aussage / übrige Zeugen",
+     "text_en": "Questions he asked, corroboration of testimony / other witnesses",
+     "desc": "קביעת המועדים בזמנם › קביעת החודש › חקירת העדים והכרזת בית דין › הרגלת העדים לבוא",
+     "desc_de": "Festsetzung der Feste zu ihrer Zeit › Festsetzung des Monats › Befragung der Zeugen und Bekanntmachung des Gerichts › Gewöhnung der Zeugen ans Kommen",
+     "desc_en": "Fixing the festivals at their proper time › Fixing of the month › Examination of the witnesses and proclamation of the court › Accustoming the witnesses to come"
+    },
+    {
+     "ref": "2:7",
+     "text": "הכרזת בית דין ובמעובר",
+     "text_de": "Bekanntmachung des Gerichts, auch im Schaltmonat",
+     "text_en": "Proclamation of the court, also in a leap month",
+     "desc": "קביעת המועדים בזמנם › קביעת החודש › חקירת העדים והכרזת בית דין",
+     "desc_de": "Festsetzung der Feste zu ihrer Zeit › Festsetzung des Monats › Befragung der Zeugen und Bekanntmachung des Gerichts",
+     "desc_en": "Fixing the festivals at their proper time › Fixing of the month › Examination of the witnesses and proclamation of the court"
+    },
+    {
+     "ref": "2:8",
+     "text": "ר\"י בן נורי, ר' דוסא ור' יהושע",
+     "text_de": "Rabbi Jochanan ben Nuri, Rabbi Dosa und Rabbi Jehoschua",
+     "text_en": "Rabbi Yohanan ben Nuri, Rabbi Dosa and Rabbi Joshua",
+     "desc": "קביעת המועדים בזמנם › קביעת החודש › חקירת העדים והכרזת בית דין › מחלוקות על ר' גמליאל",
+     "desc_de": "Festsetzung der Feste zu ihrer Zeit › Festsetzung des Monats › Befragung der Zeugen und Bekanntmachung des Gerichts › Meinungsverschiedenheiten mit Rabbi Gamliel",
+     "desc_en": "Fixing the festivals at their proper time › Fixing of the month › Examination of the witnesses and proclamation of the court › Disputes with Rabbi Gamliel"
+    },
+    {
+     "ref": "2:9",
+     "text": "גזירה על ר' יהושע, ראיות לסמכות ר\"ג",
+     "text_de": "Verordnung gegen Rabbi Jehoschua, Belege für die Autorität Rabban Gamliels",
+     "text_en": "Decree against Rabbi Joshua, proofs for the authority of Rabban Gamliel",
+     "desc": "קביעת המועדים בזמנם › קביעת החודש › חקירת העדים והכרזת בית דין › מחלוקות על ר' גמליאל",
+     "desc_de": "Festsetzung der Feste zu ihrer Zeit › Festsetzung des Monats › Befragung der Zeugen und Bekanntmachung des Gerichts › Meinungsverschiedenheiten mit Rabbi Gamliel",
+     "desc_en": "Fixing the festivals at their proper time › Fixing of the month › Examination of the witnesses and proclamation of the court › Disputes with Rabbi Gamliel"
+    }
+   ]
+  },
+  {
+   "head": "פרק ג",
+   "head_de": "Kapitel 3",
+   "head_en": "Chapter 3",
+   "items": [
+    {
+     "ref": "3:1",
+     "text": "צורך באמירת \"מקודש\", ראיית דיינים",
+     "text_de": "Notwendigkeit, „geheiligt“ zu sagen, Sehen durch Richter",
+     "text_en": "Need to say \"sanctified\", sighting by judges",
+     "desc": "קביעת המועדים בזמנם › קביעת החודש › חקירת העדים והכרזת בית דין",
+     "desc_de": "Festsetzung der Feste zu ihrer Zeit › Festsetzung des Monats › Befragung der Zeugen und Bekanntmachung des Gerichts",
+     "desc_en": "Fixing the festivals at their proper time › Fixing of the month › Examination of the witnesses and proclamation of the court"
+    },
+    {
+     "ref": "3:2",
+     "text": "שופר וקרן",
+     "text_de": "Schofar und Horn",
+     "text_en": "Shofar and horn",
+     "desc": "הלכות שופר › כשרות השופר › איזה מין",
+     "desc_de": "Regeln des Schofars › Tauglichkeit des Schofars › Welche Art",
+     "desc_en": "Laws of the shofar › Fitness of the shofar › Which kind"
+    },
+    {
+     "ref": "3:3",
+     "text": "בראש השנה",
+     "text_de": "An Rosch Haschana",
+     "text_en": "On Rosh Hashana",
+     "desc": "הלכות שופר › כשרות השופר › איזה מין › כיצד תוקעין במקדש",
+     "desc_de": "Regeln des Schofars › Tauglichkeit des Schofars › Welche Art › Wie man im Tempel bläst",
+     "desc_en": "Laws of the shofar › Fitness of the shofar › Which kind › How the shofar is blown in the Temple"
+    },
+    {
+     "ref": "3:4",
+     "text": "בתעניות",
+     "text_de": "An Fasttagen",
+     "text_en": "On fast days",
+     "desc": "הלכות שופר › כשרות השופר › איזה מין › כיצד תוקעין במקדש",
+     "desc_de": "Regeln des Schofars › Tauglichkeit des Schofars › Welche Art › Wie man im Tempel bläst",
+     "desc_en": "Laws of the shofar › Fitness of the shofar › Which kind › How the shofar is blown in the Temple"
+    },
+    {
+     "ref": "3:5",
+     "text": "ביובל",
+     "text_de": "Im Jubeljahr",
+     "text_en": "In the Jubilee year",
+     "desc": "הלכות שופר › כשרות השופר › איזה מין",
+     "desc_de": "Regeln des Schofars › Tauglichkeit des Schofars › Welche Art",
+     "desc_en": "Laws of the shofar › Fitness of the shofar › Which kind"
+    },
+    {
+     "ref": "3:6",
+     "text": "סדק, נקב",
+     "text_de": "Riss, Loch",
+     "text_en": "Crack, hole",
+     "desc": "הלכות שופר › כשרות השופר › פסול בגופו ותקנתו",
+     "desc_de": "Regeln des Schofars › Tauglichkeit des Schofars › In sich untauglich und seine Reparatur",
+     "desc_en": "Laws of the shofar › Fitness of the shofar › Inherently unfit and its repair"
+    },
+    {
+     "ref": "3:7",
+     "text": "קול הברה \\ השומע מפי הש\"ץ",
+     "text_de": "Dumpfer Klang / Hören vom Vorbeter",
+     "text_en": "Muffled sound / hearing from the prayer leader",
+     "desc": "הלכות שופר › שמיעת קול השופר › הוצאת רבים ידי חובה › כוונה › איכות השמיעה",
+     "desc_de": "Regeln des Schofars › Hören des Schofarklangs › Erfüllung der Pflicht für die Allgemeinheit › Andacht › Qualität des Hörens",
+     "desc_en": "Laws of the shofar › Hearing the sound of the shofar › Fulfilling the obligation on behalf of the public › Intention › Quality of hearing"
+    },
+    {
+     "ref": "3:8",
+     "text": "במלחמת עמלק, הנשוכין \\ חש\"ו וכלל",
+     "text_de": "Im Krieg gegen Amalek, die Gebissenen / Gehörlose, Geistesschwache, Minderjährige und Regel",
+     "text_en": "In the war against Amalek, the bitten / deaf-mute, mentally incompetent, minors and rule",
+     "desc": "הלכות שופר › שמיעת קול השופר › הוצאת רבים ידי חובה › מי מוציא › כוונה",
+     "desc_de": "Regeln des Schofars › Hören des Schofarklangs › Erfüllung der Pflicht für die Allgemeinheit › Wer die Pflicht für andere erfüllen kann › Andacht",
+     "desc_en": "Laws of the shofar › Hearing the sound of the shofar › Fulfilling the obligation on behalf of the public › Who can fulfill the obligation for others › Intention"
+    }
+   ]
+  },
+  {
+   "head": "פרק ד",
+   "head_de": "Kapitel 4",
+   "head_en": "Chapter 4",
+   "items": [
+    {
+     "ref": "4:1",
+     "text": "במקדש ובבית דין",
+     "text_de": "Im Tempel und im Gericht",
+     "text_en": "In the Temple and in the court",
+     "desc": "הלכות שופר › שמיעת קול השופר › מתי ואיפה › תקנות ריב\"ז אחר החורבן › תקיעה בשבת",
+     "desc_de": "Regeln des Schofars › Hören des Schofarklangs › Wann und wo › Verordnungen Rabban Jochanan ben Sakkais nach der Zerstörung › Blasen am Schabbat",
+     "desc_en": "Laws of the shofar › Hearing the sound of the shofar › When and where › Ordinances of Rabban Yohanan ben Zakkai after the destruction › Blowing on Shabbat"
+    },
+    {
+     "ref": "4:2",
+     "text": "עיירות שמסביב למקום שתוקעים",
+     "text_de": "Städte rings um den Ort des Blasens",
+     "text_en": "Towns surrounding the place of blowing",
+     "desc": "הלכות שופר › שמיעת קול השופר › מתי ואיפה › תקנות ריב\"ז אחר החורבן › תקיעה בשבת",
+     "desc_de": "Regeln des Schofars › Hören des Schofarklangs › Wann und wo › Verordnungen Rabban Jochanan ben Sakkais nach der Zerstörung › Blasen am Schabbat",
+     "desc_en": "Laws of the shofar › Hearing the sound of the shofar › When and where › Ordinances of Rabban Yohanan ben Zakkai after the destruction › Blowing on Shabbat"
+    },
+    {
+     "ref": "4:3",
+     "text": "משך נטילת לולב, איסור תבואה חדשה",
+     "text_de": "Dauer des Lulaw-Nehmens, Verbot des neuen Getreides",
+     "text_en": "Duration of taking the lulav, prohibition of new grain",
+     "desc": "הלכות שופר › שמיעת קול השופר › תקנות ריב\"ז אחר החורבן",
+     "desc_de": "Regeln des Schofars › Hören des Schofarklangs › Verordnungen Rabban Jochanan ben Sakkais nach der Zerstörung",
+     "desc_en": "Laws of the shofar › Hearing the sound of the shofar › Ordinances of Rabban Yohanan ben Zakkai after the destruction"
+    },
+    {
+     "ref": "4:4",
+     "text": "עד מתי והיכן מקבלים עדויות",
+     "text_de": "Bis wann und wo Zeugenaussagen angenommen werden",
+     "text_en": "Until when and where testimonies are accepted",
+     "desc": "הלכות שופר › שמיעת קול השופר › תקנות ריב\"ז אחר החורבן › קידוש החודש",
+     "desc_de": "Regeln des Schofars › Hören des Schofarklangs › Verordnungen Rabban Jochanan ben Sakkais nach der Zerstörung › Heiligung des Monats",
+     "desc_en": "Laws of the shofar › Hearing the sound of the shofar › Ordinances of Rabban Yohanan ben Zakkai after the destruction › Sanctification of the month"
+    },
+    {
+     "ref": "4:5",
+     "text": "סדרם",
+     "text_de": "Ihre Ordnung",
+     "text_en": "Their order",
+     "desc": "הלכות שופר › שמיעת קול השופר › סדר התפילה › ברכות העמידה",
+     "desc_de": "Regeln des Schofars › Hören des Schofarklangs › Ordnung des Gebets › Segenssprüche der Amida",
+     "desc_en": "Laws of the shofar › Hearing the sound of the shofar › Order of the prayer › Blessings of the Amida"
+    },
+    {
+     "ref": "4:6",
+     "text": "מספר, אופי וסדר הפסוקים",
+     "text_de": "Anzahl, Charakter und Ordnung der Verse",
+     "text_en": "Number, character and order of the verses",
+     "desc": "הלכות שופר › שמיעת קול השופר › סדר התפילה › ברכות העמידה",
+     "desc_de": "Regeln des Schofars › Hören des Schofarklangs › Ordnung des Gebets › Segenssprüche der Amida",
+     "desc_en": "Laws of the shofar › Hearing the sound of the shofar › Order of the prayer › Blessings of the Amida"
+    },
+    {
+     "ref": "4:7",
+     "text": "התקיעות במוסף, הלל בשחרית",
+     "text_de": "Die Schofarstöße im Mussaf, Hallel am Morgen",
+     "text_en": "The shofar blasts in Musaf, Hallel in the morning",
+     "desc": "הלכות שופר › שמיעת קול השופר › סדר התפילה",
+     "desc_de": "Regeln des Schofars › Hören des Schofarklangs › Ordnung des Gebets",
+     "desc_en": "Laws of the shofar › Hearing the sound of the shofar › Order of the prayer"
+    },
+    {
+     "ref": "4:8",
+     "text": "אי דחיית שבות, חינוך, המתעסק",
+     "text_de": "Keine Verdrängung rabbinischer Schabbatverbote, Erziehung, wer ohne Absicht handelt",
+     "text_en": "No overriding of rabbinic Shabbat prohibitions, education of minors, one who acts unintentionally",
+     "desc": "הלכות שופר › שמיעת קול השופר › יציאת ידי חובה › כוונה",
+     "desc_de": "Regeln des Schofars › Hören des Schofarklangs › Erfüllung der Pflicht › Andacht",
+     "desc_en": "Laws of the shofar › Hearing the sound of the shofar › Fulfilling the obligation › Intention"
+    },
+    {
+     "ref": "4:9",
+     "text": "סדר ושיעור הקולות, בלי ברכות \\ הש\"ץ",
+     "text_de": "Ordnung und Maß der Töne, ohne Segenssprüche / Vorbeter",
+     "text_en": "Order and measure of the sounds, without blessings / prayer leader",
+     "desc": "הלכות שופר › שמיעת קול השופר › יציאת ידי חובה › תקיעה, התפילה",
+     "desc_de": "Regeln des Schofars › Hören des Schofarklangs › Erfüllung der Pflicht › Blasen, das Gebet",
+     "desc_en": "Laws of the shofar › Hearing the sound of the shofar › Fulfilling the obligation › Blowing, the prayer"
+    }
+   ]
+  }
+ ]
+}

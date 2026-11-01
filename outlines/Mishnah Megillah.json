@@ -1,0 +1,336 @@
+{
+ "book": "Mishnah Megillah",
+ "title": "משנה מגילה",
+ "title_de": "Mischna Megilla – Gliederung",
+ "title_en": "Megillah – outline",
+ "note": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema).",
+ "note_de": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema); ins Deutsche und Englische übersetzt.",
+ "note_en": "Outline after the table “Mishna Sedura”: the central content of each mishnah, with the topic path (main topic to sub-topic); translated into German and English.",
+ "sections": [
+  {
+   "head": "פרק א",
+   "head_de": "Kapitel 1",
+   "head_en": "Chapter 1",
+   "items": [
+    {
+     "ref": "1:1",
+     "text": "כללים לכרכין עיירות וכפרים",
+     "text_de": "Regeln für ummauerte Städte, Städte und Dörfer",
+     "text_en": "Rules for walled cities, towns and villages",
+     "desc": "קריאת המגילה › זמן הקריאה › קביעת היום › שינוי התאריך",
+     "desc_de": "Lesung der Megilla › Zeit der Lesung › Festsetzung des Tages › Änderung des Datums",
+     "desc_en": "Reading of the Megilla › Time of the reading › Fixing of the day › Change of the date"
+    },
+    {
+     "ref": "1:2",
+     "text": "הדגמה",
+     "text_de": "Veranschaulichung",
+     "text_en": "Demonstration",
+     "desc": "קריאת המגילה › זמן הקריאה › קביעת היום › שינוי התאריך",
+     "desc_de": "Lesung der Megilla › Zeit der Lesung › Festsetzung des Tages › Änderung des Datums",
+     "desc_en": "Reading of the Megilla › Time of the reading › Fixing of the day › Change of the date"
+    },
+    {
+     "ref": "1:3",
+     "text": "תנאי עיר,מצוות שמאחרין,קדושת המוקדם",
+     "text_de": "Bedingungen der Stadt, später zu erfüllende Gebote, Vorrang der früheren Heiligkeit",
+     "text_en": "Conditions of the city, commandments performed later, precedence of the earlier sanctity",
+     "desc": "קריאת המגילה › זמן הקריאה › קביעת היום › שינוי התאריך",
+     "desc_de": "Lesung der Megilla › Zeit der Lesung › Festsetzung des Tages › Änderung des Datums",
+     "desc_en": "Reading of the Megilla › Time of the reading › Fixing of the day › Change of the date"
+    },
+    {
+     "ref": "1:4",
+     "text": "חיוב הקריאה, מתנות לאביונים",
+     "text_de": "Pflicht der Lesung, Gaben an die Armen",
+     "text_en": "Obligation of the reading, gifts to the poor",
+     "desc": "קריאת המגילה › דמיון הלכתי חלקי › שינוי בחודש",
+     "desc_de": "Lesung der Megilla › Teilweise halachische Ähnlichkeit › Änderung im Monat",
+     "desc_en": "Reading of the Megilla › Partial halakhic similarity › Change in the month"
+    },
+    {
+     "ref": "1:5",
+     "text": "ליום טוב, ליום הכיפורים",
+     "text_de": "Zum Feiertag, zum Jom Kippur",
+     "text_en": "For the festival, for Yom Kippur",
+     "desc": "קריאת המגילה › דמיון הלכתי חלקי › השוואת שבת",
+     "desc_de": "Lesung der Megilla › Teilweise halachische Ähnlichkeit › Gleichstellung mit dem Schabbat",
+     "desc_en": "Reading of the Megilla › Partial halakhic similarity › Equating with Shabbat"
+    },
+    {
+     "ref": "1:6",
+     "text": "בין מודרי הנאה, בין נדרים לנדבות",
+     "text_de": "Zwischen Genussverboten, zwischen Gelübden und freiwilligen Gaben",
+     "text_en": "Between prohibitions of benefit, between vows and voluntary offerings",
+     "desc": "קריאת המגילה › דמיון הלכתי חלקי › נדרים",
+     "desc_de": "Lesung der Megilla › Teilweise halachische Ähnlichkeit › Gelübde",
+     "desc_en": "Reading of the Megilla › Partial halakhic similarity › Vows"
+    },
+    {
+     "ref": "1:7",
+     "text": "דרגות בזב ומצורע, טהרת מצורעים",
+     "text_de": "Grade beim Zav und beim Aussätzigen, Reinigung der Aussätzigen",
+     "text_en": "Degrees of the zav and the leper, purification of lepers",
+     "desc": "קריאת המגילה › דמיון הלכתי חלקי › טמאים מגופן",
+     "desc_de": "Lesung der Megilla › Teilweise halachische Ähnlichkeit › Von Körpers wegen Unreine",
+     "desc_en": "Reading of the Megilla › Partial halakhic similarity › Those impure by their own bodies"
+    },
+    {
+     "ref": "1:8",
+     "text": "בין ספרים ותפילין ומזוזות",
+     "text_de": "Zwischen Büchern, Tefillin und Mesusot",
+     "text_en": "Between books, tefillin and mezuzot",
+     "desc": "קריאת המגילה › דמיון הלכתי חלקי › כתבי הקודש",
+     "desc_de": "Lesung der Megilla › Teilweise halachische Ähnlichkeit › Heilige Schriften",
+     "desc_en": "Reading of the Megilla › Partial halakhic similarity › Holy Scriptures"
+    },
+    {
+     "ref": "1:9",
+     "text": "המשוח והמרובה בגדים, המשמש ושעבר",
+     "text_de": "Der Gesalbte und der durch mehrere Gewänder Geweihte, der Amtierende und der Abgetretene",
+     "text_en": "The anointed and the one consecrated by multiple garments, the serving and the retired",
+     "desc": "קריאת המגילה › דמיון הלכתי חלקי › הלכות המקדש › כהן גדול",
+     "desc_de": "Lesung der Megilla › Teilweise halachische Ähnlichkeit › Gesetze des Tempels › Hoher Priester",
+     "desc_en": "Reading of the Megilla › Partial halakhic similarity › laws of the Temple › High Priest"
+    },
+    {
+     "ref": "1:10",
+     "text": "גדולה וקטנה והקרב בהם",
+     "text_de": "Große und kleine Kulthöhe und das Darbringen auf ihnen",
+     "text_en": "Great and small high place and offering on them",
+     "desc": "קריאת המגילה › דמיון הלכתי חלקי › הלכות המקדש › במות והמשכן",
+     "desc_de": "Lesung der Megilla › Teilweise halachische Ähnlichkeit › Gesetze des Tempels › Kulthöhen und die Stiftshütte",
+     "desc_en": "Reading of the Megilla › Partial halakhic similarity › laws of the Temple › High places and the Tabernacle"
+    },
+    {
+     "ref": "1:11",
+     "text": "הנאכל בשילה וירושלים, היתר במות",
+     "text_de": "Was in Schilo und Jerusalem gegessen wird, Erlaubnis der Kulthöhen",
+     "text_en": "What is eaten in Shiloh and Jerusalem, permission of the high places",
+     "desc": "קריאת המגילה › דמיון הלכתי חלקי › הלכות המקדש › במות והמשכן",
+     "desc_de": "Lesung der Megilla › Teilweise halachische Ähnlichkeit › Gesetze des Tempels › Kulthöhen und die Stiftshütte",
+     "desc_en": "Reading of the Megilla › Partial halakhic similarity › laws of the Temple › High places and the Tabernacle"
+    }
+   ]
+  },
+  {
+   "head": "פרק ב",
+   "head_de": "Kapitel 2",
+   "head_en": "Chapter 2",
+   "items": [
+    {
+     "ref": "2:1",
+     "text": "למפרע, בעל פה, לשון הקריאה",
+     "text_de": "Rückwirkend, auswendig, Sprache der Lesung",
+     "text_en": "Retroactively, by heart, language of the reading",
+     "desc": "קריאת המגילה › פרטי הלכות הקריאה › איך נקראת המגילה",
+     "desc_de": "Lesung der Megilla › Einzelheiten der Lesungsregeln › Wie die Megilla gelesen wird",
+     "desc_en": "Reading of the Megilla › Details of the laws of reading › How the Megilla is read"
+    },
+    {
+     "ref": "2:2",
+     "text": "הפסקות, כוונה \\ צורך בקלף ודיו",
+     "text_de": "Unterbrechungen, Intention / Erfordernis von Pergament und Tinte",
+     "text_en": "Interruptions, intention / requirement of parchment and ink",
+     "desc": "קריאת המגילה › פרטי הלכות הקריאה › איך נקראת המגילה",
+     "desc_de": "Lesung der Megilla › Einzelheiten der Lesungsregeln › Wie die Megilla gelesen wird",
+     "desc_en": "Reading of the Megilla › Details of the laws of reading › How the Megilla is read"
+    },
+    {
+     "ref": "2:3",
+     "text": "מקום האדם בבוקר, חלק המגילה הנקרא",
+     "text_de": "Aufenthaltsort des Menschen am Morgen, gelesener Teil der Megilla",
+     "text_en": "Whereabouts of a person in the morning, portion of the Megilla read",
+     "desc": "קריאת המגילה › פרטי הלכות הקריאה › חיוב האדם",
+     "desc_de": "Lesung der Megilla › Einzelheiten der Lesungsregeln › Verpflichtung des Menschen",
+     "desc_en": "Reading of the Megilla › Details of the laws of reading › The person's obligation"
+    },
+    {
+     "ref": "2:4",
+     "text": "הקורא \\ נץ ועמוד השחר",
+     "text_de": "Der Lesende / Sonnenaufgang und Morgendämmerung",
+     "text_en": "The reader / sunrise and dawn",
+     "desc": "קריאת המגילה › פרטי הלכות הקריאה › שעת קיום מצוות › הנעשים ביום › חיוב האדם",
+     "desc_de": "Lesung der Megilla › Einzelheiten der Lesungsregeln › Zeitpunkt der Gebotserfüllung › Am Tag Vollzogenes › Verpflichtung des Menschen",
+     "desc_en": "Reading of the Megilla › Details of the laws of reading › Time of fulfilling commandments › What is performed by day › The person's obligation"
+    },
+    {
+     "ref": "2:5",
+     "text": "עשרים ואחת מצוות",
+     "text_de": "Einundzwanzig Gebote",
+     "text_en": "Twenty-one commandments",
+     "desc": "קריאת המגילה › פרטי הלכות הקריאה › שעת קיום מצוות › הנעשים ביום",
+     "desc_de": "Lesung der Megilla › Einzelheiten der Lesungsregeln › Zeitpunkt der Gebotserfüllung › Am Tag Vollzogenes",
+     "desc_en": "Reading of the Megilla › Details of the laws of reading › Time of fulfilling commandments › What is performed by day"
+    },
+    {
+     "ref": "2:6",
+     "text": "שתי מצוות \\ הכלל",
+     "text_de": "Zwei Gebote / die Regel",
+     "text_en": "Two commandments / the rule",
+     "desc": "קריאת המגילה › פרטי הלכות הקריאה › שעת קיום מצוות › בלילה",
+     "desc_de": "Lesung der Megilla › Einzelheiten der Lesungsregeln › Zeitpunkt der Gebotserfüllung › In der Nacht",
+     "desc_en": "Reading of the Megilla › Details of the laws of reading › Time of fulfilling commandments › At night"
+    }
+   ]
+  },
+  {
+   "head": "פרק ג",
+   "head_de": "Kapitel 3",
+   "head_en": "Chapter 3",
+   "items": [
+    {
+     "ref": "3:1",
+     "text": "החלפת תשמישי קדושה, בעלות יחיד",
+     "text_de": "Austausch von Kultgegenständen, Eigentum eines Einzelnen",
+     "text_en": "Exchange of sacred objects, ownership by an individual",
+     "desc": "הלכות תפילה ובית הכנסת › קדושת בית הכנסת › מכירתה",
+     "desc_de": "Regeln des Gebets und der Synagoge › Heiligkeit der Synagoge › Ihr Verkauf",
+     "desc_en": "Laws of prayer and the synagogue › Sanctity of the synagogue › Its sale"
+    },
+    {
+     "ref": "3:2",
+     "text": "תנאי מכירה",
+     "text_de": "Verkaufsbedingungen",
+     "text_en": "Conditions of sale",
+     "desc": "הלכות תפילה ובית הכנסת › קדושת בית הכנסת › מכירתה",
+     "desc_de": "Regeln des Gebets und der Synagoge › Heiligkeit der Synagoge › Ihr Verkauf",
+     "desc_en": "Laws of prayer and the synagogue › Sanctity of the synagogue › Its sale"
+    },
+    {
+     "ref": "3:3",
+     "text": "כיבוד מקום חורבנה",
+     "text_de": "Ehrung des Ortes ihrer Zerstörung",
+     "text_en": "Honoring the place of its destruction",
+     "desc": "הלכות תפילה ובית הכנסת › קדושת בית הכנסת",
+     "desc_de": "Regeln des Gebets und der Synagoge › Heiligkeit der Synagoge",
+     "desc_en": "Laws of prayer and the synagogue › Sanctity of the synagogue"
+    },
+    {
+     "ref": "3:4",
+     "text": "ארבעת הפרשיות, ימים שונים",
+     "text_de": "Die vier Abschnitte, verschiedene Tage",
+     "text_en": "The four portions, various days",
+     "desc": "הלכות תפילה ובית הכנסת › קריאת התורה › מה קוראים › הפסקה לקריאה מיוחדת",
+     "desc_de": "Regeln des Gebets und der Synagoge › Die Toralesung › Was man liest › Unterbrechung für besondere Lesung",
+     "desc_en": "Laws of prayer and the synagogue › The Torah reading › What one recites › Interruption for a special reading"
+    },
+    {
+     "ref": "3:5",
+     "text": "רגלים, ר\"ה, יוה\"כ",
+     "text_de": "Wallfahrtsfeste, Rosch Haschana, Jom Kippur",
+     "text_en": "Pilgrimage festivals, Rosh Hashana, Yom Kippur",
+     "desc": "הלכות תפילה ובית הכנסת › קריאת התורה › מה קוראים › הפסקה לקריאה מיוחדת",
+     "desc_de": "Regeln des Gebets und der Synagoge › Die Toralesung › Was man liest › Unterbrechung für besondere Lesung",
+     "desc_en": "Laws of prayer and the synagogue › The Torah reading › What one recites › Interruption for a special reading"
+    },
+    {
+     "ref": "3:6",
+     "text": "שאר ימים מיוחדים,הטעם\\ כסדר",
+     "text_de": "Andere besondere Tage, der Grund / der Reihe nach",
+     "text_en": "Other special days, the reason / in order",
+     "desc": "הלכות תפילה ובית הכנסת › קריאת התורה › מה קוראים › בשני חמישי ושבת במנחה › הפסקה לקריאה מיוחדת",
+     "desc_de": "Regeln des Gebets und der Synagoge › Die Toralesung › Was man liest › Montag, Donnerstag und Schabbat zu Mincha › Unterbrechung für besondere Lesung",
+     "desc_en": "Laws of prayer and the synagogue › The Torah reading › What one recites › Monday, Thursday and Shabbat at Mincha › Interruption for a special reading"
+    }
+   ]
+  },
+  {
+   "head": "פרק ד",
+   "head_de": "Kapitel 4",
+   "head_en": "Chapter 4",
+   "items": [
+    {
+     "ref": "4:1",
+     "text": "קריאה וברכת המגילה, קריאת שלושה",
+     "text_de": "Lesung und Segen der Megilla, Lesung von dreien",
+     "text_en": "Reading and blessing of the Megilla, reading by three",
+     "desc": "הלכות תפילה ובית הכנסת › קריאת התורה › מספר העולים › בשני חמישי ושבת במנחה",
+     "desc_de": "Regeln des Gebets und der Synagoge › Die Toralesung › Zahl der Aufgerufenen › Montag, Donnerstag und Schabbat zu Mincha",
+     "desc_en": "Laws of prayer and the synagogue › The Torah reading › Number of those called up › Monday, Thursday and Shabbat at Mincha"
+    },
+    {
+     "ref": "4:2",
+     "text": "קריאה של ארבעה עד שבעה",
+     "text_de": "Lesung von vier bis sieben",
+     "text_en": "Reading by four to seven",
+     "desc": "הלכות תפילה ובית הכנסת › קריאת התורה › מספר העולים",
+     "desc_de": "Regeln des Gebets und der Synagoge › Die Toralesung › Zahl der Aufgerufenen",
+     "desc_en": "Laws of prayer and the synagogue › The Torah reading › Number of those called up"
+    },
+    {
+     "ref": "4:3",
+     "text": "דברי קדושה, שומות הקדש",
+     "text_de": "Heilige Dinge, Schätzungen von Geweihtem",
+     "text_en": "Holy matters, valuations of consecrated property",
+     "desc": "הלכות תפילה ובית הכנסת › קריאת התורה › הנהגות כבוד וקדושה › הצריכים 10",
+     "desc_de": "Regeln des Gebets und der Synagoge › Die Toralesung › Ehrerbietige und heilige Bräuche › Was zehn Personen erfordert",
+     "desc_en": "Laws of prayer and the synagogue › The Torah reading › Respectful and holy customs › What requires ten people"
+    },
+    {
+     "ref": "4:4",
+     "text": "מספר פסוקים ותרגומן, דילוג",
+     "text_de": "Zahl der Verse und ihre Übersetzung, Überspringen",
+     "text_en": "Number of verses and their translation, skipping",
+     "desc": "הלכות תפילה ובית הכנסת › קריאת התורה › הנהגות כבוד וקדושה › מה קוראים",
+     "desc_de": "Regeln des Gebets und der Synagoge › Die Toralesung › Ehrerbietige und heilige Bräuche › Was man liest",
+     "desc_en": "Laws of prayer and the synagogue › The Torah reading › Respectful and holy customs › What one recites"
+    },
+    {
+     "ref": "4:5",
+     "text": "המפטיר, אם היה קטן",
+     "text_de": "Der Maftir, wenn er minderjährig ist",
+     "text_en": "The Maftir, if he is a minor",
+     "desc": "הלכות תפילה ובית הכנסת › קריאת התורה › הנהגות כבוד וקדושה › הרשאי להוציא את הרבים",
+     "desc_de": "Regeln des Gebets und der Synagoge › Die Toralesung › Ehrerbietige und heilige Bräuche › Wer die Gemeinde vertreten darf",
+     "desc_en": "Laws of prayer and the synagogue › The Torah reading › Respectful and holy customs › Who may represent the congregation"
+    },
+    {
+     "ref": "4:6",
+     "text": "קטן, פוחח, סומא",
+     "text_de": "Minderjähriger, Barfüßiger, Blinder",
+     "text_en": "Minor, barefoot person, blind person",
+     "desc": "הלכות תפילה ובית הכנסת › קריאת התורה › הנהגות כבוד וקדושה › הרשאי להוציא את הרבים",
+     "desc_de": "Regeln des Gebets und der Synagoge › Die Toralesung › Ehrerbietige und heilige Bräuche › Wer die Gemeinde vertreten darf",
+     "desc_en": "Laws of prayer and the synagogue › The Torah reading › Respectful and holy customs › Who may represent the congregation"
+    },
+    {
+     "ref": "4:7",
+     "text": "חשש הסתכלות בכהן",
+     "text_de": "Bedenken wegen des Anstarrens des Priesters",
+     "text_en": "Concern about gazing at the priest",
+     "desc": "הלכות תפילה ובית הכנסת › קריאת התורה › הנהגות כבוד וקדושה › הרשאי להוציא את הרבים",
+     "desc_de": "Regeln des Gebets und der Synagoge › Die Toralesung › Ehrerbietige und heilige Bräuche › Wer die Gemeinde vertreten darf",
+     "desc_en": "Laws of prayer and the synagogue › The Torah reading › Respectful and holy customs › Who may represent the congregation"
+    },
+    {
+     "ref": "4:8",
+     "text": "בלבוש, בתפילין",
+     "text_de": "In Kleidung, in Tefillin",
+     "text_en": "In clothing, in tefillin",
+     "desc": "הלכות תפילה ובית הכנסת › קריאת התורה › הנהגות כבוד וקדושה › דרכי מינות",
+     "desc_de": "Regeln des Gebets und der Synagoge › Die Toralesung › Ehrerbietige und heilige Bräuche › Wege der Häresie",
+     "desc_en": "Laws of prayer and the synagogue › The Torah reading › Respectful and holy customs › Ways of heresy"
+    },
+    {
+     "ref": "4:9",
+     "text": "בנוסח תפילה, פירוש פסוקים",
+     "text_de": "Im Gebetstext, Deutung von Versen",
+     "text_en": "In the prayer text, interpretation of verses",
+     "desc": "הלכות תפילה ובית הכנסת › קריאת התורה › הנהגות כבוד וקדושה › דרכי מינות",
+     "desc_de": "Regeln des Gebets und der Synagoge › Die Toralesung › Ehrerbietige und heilige Bräuche › Wege der Häresie",
+     "desc_en": "Laws of prayer and the synagogue › The Torah reading › Respectful and holy customs › Ways of heresy"
+    },
+    {
+     "ref": "4:10",
+     "text": "פרשיות שאינן נקראות או מתרגמות",
+     "text_de": "Abschnitte, die nicht gelesen oder übersetzt werden",
+     "text_en": "Passages that are not read or translated",
+     "desc": "הלכות תפילה ובית הכנסת › קריאת התורה › הנהגות כבוד וקדושה › מה קוראים",
+     "desc_de": "Regeln des Gebets und der Synagoge › Die Toralesung › Ehrerbietige und heilige Bräuche › Was man liest",
+     "desc_en": "Laws of prayer and the synagogue › The Torah reading › Respectful and holy customs › What one recites"
+    }
+   ]
+  }
+ ]
+}

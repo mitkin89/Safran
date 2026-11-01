@@ -1,0 +1,239 @@
+{
+ "book": "Mishnah Chagigah",
+ "title": "משנה חגיגה",
+ "title_de": "Mischna Chagiga – Gliederung",
+ "title_en": "Chagigah – outline",
+ "note": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema).",
+ "note_de": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema); ins Deutsche und Englische übersetzt.",
+ "note_en": "Outline after the table “Mishna Sedura”: the central content of each mishnah, with the topic path (main topic to sub-topic); translated into German and English.",
+ "sections": [
+  {
+   "head": "פרק א",
+   "head_de": "Kapitel 1",
+   "head_en": "Chapter 1",
+   "items": [
+    {
+     "ref": "1:1",
+     "text": "הפטורים, הגדרת קטן",
+     "text_de": "Die Befreiten, Definition des Minderjährigen",
+     "text_en": "Those exempt, definition of a minor",
+     "desc": "הלכות קרבנות יחיד ברגל › חיוב להקריב › חיוב בראייה",
+     "desc_de": "Gesetze der Einzelopfer an den Wallfahrtsfesten › Pflicht zum Opfern › Pflicht des Erscheinens",
+     "desc_en": "Laws of individual offerings at the pilgrimage festivals › Obligation to offer sacrifices › Obligation of appearing"
+    },
+    {
+     "ref": "1:2",
+     "text": "שווי מזערי לראיה ולחגיגה",
+     "text_de": "Mindestwert für Erscheinungs- und Festopfer",
+     "text_en": "Minimum value for the appearance and festival offerings",
+     "desc": "הלכות קרבנות יחיד ברגל › חיוב להקריב › מה מקריבים › קביעת מספר הבהמות ומחיריהן",
+     "desc_de": "Gesetze der Einzelopfer an den Wallfahrtsfesten › Pflicht zum Opfern › Was man darbringt › Festlegung der Zahl der Tiere und ihrer Preise",
+     "desc_en": "Laws of individual offerings at the pilgrimage festivals › Obligation to offer sacrifices › What is offered › Determination of the number of animals and their prices"
+    },
+    {
+     "ref": "1:3",
+     "text": "מקור מחיר הקרבן",
+     "text_de": "Quelle für den Preis des Opfers",
+     "text_en": "Source of the price of the offering",
+     "desc": "הלכות קרבנות יחיד ברגל › חיוב להקריב › מה מקריבים › קביעת מספר הבהמות ומחיריהן",
+     "desc_de": "Gesetze der Einzelopfer an den Wallfahrtsfesten › Pflicht zum Opfern › Was man darbringt › Festlegung der Zahl der Tiere und ihrer Preise",
+     "desc_en": "Laws of individual offerings at the pilgrimage festivals › Obligation to offer sacrifices › What is offered › Determination of the number of animals and their prices"
+    },
+    {
+     "ref": "1:4",
+     "text": "שמחה בבשר, קרבנות אחרים",
+     "text_de": "Freude beim Fleischessen, andere Opfer",
+     "text_en": "Rejoicing with meat, other offerings",
+     "desc": "הלכות קרבנות יחיד ברגל › חיוב להקריב › מה מקריבים › קביעת מספר הבהמות ומחיריהן",
+     "desc_de": "Gesetze der Einzelopfer an den Wallfahrtsfesten › Pflicht zum Opfern › Was man darbringt › Festlegung der Zahl der Tiere und ihrer Preise",
+     "desc_en": "Laws of individual offerings at the pilgrimage festivals › Obligation to offer sacrifices › What is offered › Determination of the number of animals and their prices"
+    },
+    {
+     "ref": "1:5",
+     "text": "מצב הכלכלי ומספר האוכלים",
+     "text_de": "Wirtschaftliche Lage und Zahl der Essenden",
+     "text_en": "Financial situation and number of diners",
+     "desc": "הלכות קרבנות יחיד ברגל › חיוב להקריב › מה מקריבים › קביעת מספר הבהמות ומחיריהן",
+     "desc_de": "Gesetze der Einzelopfer an den Wallfahrtsfesten › Pflicht zum Opfern › Was man darbringt › Festlegung der Zahl der Tiere und ihrer Preise",
+     "desc_en": "Laws of individual offerings at the pilgrimage festivals › Obligation to offer sacrifices › What is offered › Determination of the number of animals and their prices"
+    },
+    {
+     "ref": "1:6",
+     "text": "תשלומי חגיגה וראייה, אם עבר הרגל",
+     "text_de": "Zahlungen für Fest- und Erscheinungsopfer, wenn das Fest vorüber ist",
+     "text_en": "Payments for festival and appearance offerings, if the festival has passed",
+     "desc": "הלכות קרבנות יחיד ברגל › חיוב להקריב › מתי › חטאים בלי תיקון",
+     "desc_de": "Gesetze der Einzelopfer an den Wallfahrtsfesten › Pflicht zum Opfern › Wann › Sünden ohne Wiedergutmachung",
+     "desc_en": "Laws of individual offerings at the pilgrimage festivals › Obligation to offer sacrifices › When › Sins without remedy"
+    },
+    {
+     "ref": "1:7",
+     "text": "לידת ממזר, פרישה מתורה",
+     "text_de": "Geburt eines Mamser, Abkehr von der Tora",
+     "text_en": "Birth of a mamzer, abandoning the Torah",
+     "desc": "הלכות קרבנות יחיד ברגל › חיוב להקריב › קשיים בלימוד התורה › חטאים בלי תיקון",
+     "desc_de": "Gesetze der Einzelopfer an den Wallfahrtsfesten › Pflicht zum Opfern › Schwierigkeiten beim Torastudium › Sünden ohne Wiedergutmachung",
+     "desc_en": "Laws of individual offerings at the pilgrimage festivals › Obligation to offer sacrifices › Difficulties in Torah study › Sins without remedy"
+    },
+    {
+     "ref": "1:8",
+     "text": "הפורח, התלויין, הגופין",
+     "text_de": "Das Fliegende, das Hängende, die Körper",
+     "text_en": "The flying, the hanging, the bodies",
+     "desc": "הלכות קרבנות יחיד ברגל › חיוב להקריב › קשיים בלימוד התורה › קשר לחומש",
+     "desc_de": "Gesetze der Einzelopfer an den Wallfahrtsfesten › Pflicht zum Opfern › Schwierigkeiten beim Torastudium › Bezug zum Pentateuch",
+     "desc_en": "Laws of individual offerings at the pilgrimage festivals › Obligation to offer sacrifices › Difficulties in Torah study › Connection to the Pentateuch"
+    }
+   ]
+  },
+  {
+   "head": "פרק ב",
+   "head_de": "Kapitel 2",
+   "head_en": "Chapter 2",
+   "items": [
+    {
+     "ref": "2:1",
+     "text": "ענינים העדינים ומסוכנים",
+     "text_de": "Heikle und gefährliche Themen",
+     "text_en": "Delicate and dangerous subjects",
+     "desc": "הלכות קרבנות יחיד ברגל › חיוב להקריב › קשיים בלימוד התורה",
+     "desc_de": "Gesetze der Einzelopfer an den Wallfahrtsfesten › Pflicht zum Opfern › Schwierigkeiten beim Torastudium",
+     "desc_en": "Laws of individual offerings at the pilgrimage festivals › Obligation to offer sacrifices › Difficulties in Torah study"
+    },
+    {
+     "ref": "2:2",
+     "text": "מחלוקת הזוגות",
+     "text_de": "Streit der Paare",
+     "text_en": "Dispute of the pairs",
+     "desc": "הלכות קרבנות יחיד ברגל › הקרבה › קשיים בלימוד התורה › דחייה מפני יום טוב › סמיכה",
+     "desc_de": "Gesetze der Einzelopfer an den Wallfahrtsfesten › Darbringung › Schwierigkeiten beim Torastudium › Verschiebung wegen des Feiertags › Handaufstemmung",
+     "desc_en": "Laws of individual offerings at the pilgrimage festivals › Offering › Difficulties in Torah study › Postponement because of the festival day › Laying on of hands"
+    },
+    {
+     "ref": "2:3",
+     "text": "הבאת שלמים ועולות וסמיכתן",
+     "text_de": "Darbringung von Heils- und Brandopfern und deren Handaufstemmung",
+     "text_en": "Bringing peace offerings and burnt offerings and laying hands on them",
+     "desc": "הלכות קרבנות יחיד ברגל › הקרבה › דחייה מפני יום טוב › סמיכה › ב\"ש וב\"ה",
+     "desc_de": "Gesetze der Einzelopfer an den Wallfahrtsfesten › Darbringung › Verschiebung wegen des Feiertags › Handaufstemmung › Schule Schammais und Schule Hillels",
+     "desc_en": "Laws of individual offerings at the pilgrimage festivals › Offering › Postponement because of the festival day › Laying on of hands › School of Shammai and School of Hillel"
+    },
+    {
+     "ref": "2:4",
+     "text": "צורך ביום טבוח והלכותיו",
+     "text_de": "Notwendigkeit des Schlachttags und seine Gesetze",
+     "text_en": "Necessity of the slaughter day and its laws",
+     "desc": "הלכות קרבנות יחיד ברגל › הקרבה › דחייה מפני יום טוב › ב\"ש וב\"ה",
+     "desc_de": "Gesetze der Einzelopfer an den Wallfahrtsfesten › Darbringung › Verschiebung wegen des Feiertags › Schule Schammais und Schule Hillels",
+     "desc_en": "Laws of individual offerings at the pilgrimage festivals › Offering › Postponement because of the festival day › School of Shammai and School of Hillel"
+    },
+    {
+     "ref": "2:5",
+     "text": "טומאת וטהרת ידים",
+     "text_de": "Unreinheit und Reinheit der Hände",
+     "text_en": "Impurity and purity of the hands",
+     "desc": "טהרה לרגל › יחס שבין מעלות הטהרה › בין כל המעלות",
+     "desc_de": "Reinheit für das Wallfahrtsfest › Verhältnis der Reinheitsstufen zueinander › Zwischen allen Reinheitsstufen",
+     "desc_en": "Purity for the pilgrimage festival › Relationship between the levels of purity › Among all the levels"
+    },
+    {
+     "ref": "2:6",
+     "text": "כוונת הטבילה",
+     "text_de": "Absicht beim Untertauchen",
+     "text_en": "Intention in immersion",
+     "desc": "טהרה לרגל › יחס שבין מעלות הטהרה › בין כל המעלות",
+     "desc_de": "Reinheit für das Wallfahrtsfest › Verhältnis der Reinheitsstufen zueinander › Zwischen allen Reinheitsstufen",
+     "desc_en": "Purity for the pilgrimage festival › Relationship between the levels of purity › Among all the levels"
+    },
+    {
+     "ref": "2:7",
+     "text": "טומאת מדרס",
+     "text_de": "Midras-Unreinheit",
+     "text_en": "Midras impurity",
+     "desc": "טהרה לרגל › יחס שבין מעלות הטהרה › בין כל המעלות",
+     "desc_de": "Reinheit für das Wallfahrtsfest › Verhältnis der Reinheitsstufen zueinander › Zwischen allen Reinheitsstufen",
+     "desc_en": "Purity for the pilgrimage festival › Relationship between the levels of purity › Among all the levels"
+    }
+   ]
+  },
+  {
+   "head": "פרק ג",
+   "head_de": "Kapitel 3",
+   "head_en": "Chapter 3",
+   "items": [
+    {
+     "ref": "3:1",
+     "text": "חציצה בטבילה, טומאת אחוריים, שמירתם",
+     "text_de": "Trennendes Hindernis beim Untertauchen, Unreinheit der Rückseite, deren Bewachung",
+     "text_en": "Interposition in immersion, impurity of the back side, guarding them",
+     "desc": "טהרה לרגל › יחס שבין מעלות הטהרה › בין קודש לתרומה › חומרות בקודש",
+     "desc_de": "Reinheit für das Wallfahrtsfest › Verhältnis der Reinheitsstufen zueinander › Zwischen Heiligem und Priesterabgabe › Erschwerungen beim Heiligen",
+     "desc_en": "Purity for the pilgrimage festival › Relationship between the levels of purity › Between sacred offerings and terumah › Stringencies regarding sacred things"
+    },
+    {
+     "ref": "3:2",
+     "text": "צורך בטבילה,צירוף,דרגת פסול, ידיים",
+     "text_de": "Notwendigkeit des Untertauchens, Verbindung, Grad der Untauglichkeit, Hände",
+     "text_en": "Necessity of immersion, joining, degree of disqualification, hands",
+     "desc": "טהרה לרגל › יחס שבין מעלות הטהרה › בין קודש לתרומה › חומרות בקודש",
+     "desc_de": "Reinheit für das Wallfahrtsfest › Verhältnis der Reinheitsstufen zueinander › Zwischen Heiligem und Priesterabgabe › Erschwerungen beim Heiligen",
+     "desc_en": "Purity for the pilgrimage festival › Relationship between the levels of purity › Between sacred offerings and terumah › Stringencies regarding sacred things"
+    },
+    {
+     "ref": "3:3",
+     "text": "אכילת חולין עמהן, טבילה לנתרים להם",
+     "text_de": "Essen von Profanem mit ihnen, Untertauchen für die Nasiräer unter ihnen",
+     "text_en": "Eating unconsecrated food with them, immersion for nazirites among them",
+     "desc": "טהרה לרגל › יחס שבין מעלות הטהרה › בין קודש לתרומה › חומרות בקודש",
+     "desc_de": "Reinheit für das Wallfahrtsfest › Verhältnis der Reinheitsstufen zueinander › Zwischen Heiligem und Priesterabgabe › Erschwerungen beim Heiligen",
+     "desc_en": "Purity for the pilgrimage festival › Relationship between the levels of purity › Between sacred offerings and terumah › Stringencies regarding sacred things"
+    },
+    {
+     "ref": "3:4",
+     "text": "שעת הגתות, עירוב קודש",
+     "text_de": "Zeit der Kelterpressen, Vermischung von Heiligem",
+     "text_en": "Time of the wine presses, mixing of sacred things",
+     "desc": "טהרה לרגל › יחס שבין מעלות הטהרה › נאמנות עם הארץ › בין קודש לתרומה › קולות › ביחס למקום",
+     "desc_de": "Reinheit für das Wallfahrtsfest › Verhältnis der Reinheitsstufen zueinander › Glaubwürdigkeit eines Am Haarez › Zwischen Heiligem und Priesterabgabe › Leichtere Bestimmungen › In Bezug auf den Ort",
+     "desc_en": "Purity for the pilgrimage festival › Relationship between the levels of purity › Trustworthiness of an Am Ha'aretz › Between sacred offerings and terumah › Leniencies › With regard to place"
+    },
+    {
+     "ref": "3:5",
+     "text": "כלי חרס וגבול מודיעין",
+     "text_de": "Tongefäße und die Grenze von Modiin",
+     "text_en": "Earthenware vessels and the boundary of Modiin",
+     "desc": "טהרה לרגל › יחס שבין מעלות הטהרה › נאמנות עם הארץ › בין קודש לתרומה › קולות › ביחס למקום",
+     "desc_de": "Reinheit für das Wallfahrtsfest › Verhältnis der Reinheitsstufen zueinander › Glaubwürdigkeit eines Am Haarez › Zwischen Heiligem und Priesterabgabe › Leichtere Bestimmungen › In Bezug auf den Ort",
+     "desc_en": "Purity for the pilgrimage festival › Relationship between the levels of purity › Trustworthiness of an Am Ha'aretz › Between sacred offerings and terumah › Leniencies › With regard to place"
+    },
+    {
+     "ref": "3:6",
+     "text": "הנוגעים בכלים בירושלים לתרומה",
+     "text_de": "Wer in Jerusalem Gefäße für die Priesterabgabe berührt",
+     "text_en": "Those who touch vessels in Jerusalem for terumah",
+     "desc": "טהרה לרגל › יחס שבין מעלות הטהרה › נאמנות עם הארץ › בשעת הרגל בלבד › בין קודש לתרומה › קולות › ביחס למקום",
+     "desc_de": "Reinheit für das Wallfahrtsfest › Verhältnis der Reinheitsstufen zueinander › Glaubwürdigkeit eines Am Haarez › Nur zur Zeit des Wallfahrtsfestes › Zwischen Heiligem und Priesterabgabe › Leichtere Bestimmungen › In Bezug auf den Ort",
+     "desc_en": "Purity for the pilgrimage festival › Relationship between the levels of purity › Trustworthiness of an Am Ha'aretz › Only at the time of the pilgrimage festival › Between sacred offerings and terumah › Leniencies › With regard to place"
+    },
+    {
+     "ref": "3:7",
+     "text": "שיירים מאוכל הנמכר \\ סמוך לשבת",
+     "text_de": "Reste von verkauftem Essen / kurz vor Schabbat",
+     "text_en": "Leftovers of food that is sold / shortly before the Sabbath",
+     "desc": "טהרה לרגל › נאמנות עם הארץ › בשעת הרגל בלבד › קולות › העברה על טהרת העזרה › חולין",
+     "desc_de": "Reinheit für das Wallfahrtsfest › Glaubwürdigkeit eines Am Haarez › Nur zur Zeit des Wallfahrtsfestes › Leichtere Bestimmungen › Entfernung von der Reinheit des Tempelvorhofs › Profanes",
+     "desc_en": "Purity for the pilgrimage festival › Trustworthiness of an Am Ha'aretz › Only at the time of the pilgrimage festival › Leniencies › Removal from the purity of the Temple court › Unconsecrated food"
+    },
+    {
+     "ref": "3:8",
+     "text": "כיצד, אזהרות, כלים לחילוף והטהורים",
+     "text_de": "Wie, Warnungen, auszutauschende und reine Gefäße",
+     "text_en": "How, warnings, vessels for exchange and the pure ones",
+     "desc": "טהרה לרגל › נאמנות עם הארץ › בשעת הרגל בלבד › העברה על טהרת העזרה",
+     "desc_de": "Reinheit für das Wallfahrtsfest › Glaubwürdigkeit eines Am Haarez › Nur zur Zeit des Wallfahrtsfestes › Entfernung von der Reinheit des Tempelvorhofs",
+     "desc_en": "Purity for the pilgrimage festival › Trustworthiness of an Am Ha'aretz › Only at the time of the pilgrimage festival › Removal from the purity of the Temple court"
+    }
+   ]
+  }
+ ]
+}

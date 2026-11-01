@@ -1,0 +1,462 @@
+{
+ "book": "Mishnah Kiddushin",
+ "title": "משנה קידושין",
+ "title_de": "Mischna Kidduschin – Gliederung",
+ "title_en": "Kiddushin – outline",
+ "note": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema).",
+ "note_de": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema); ins Deutsche und Englische übersetzt.",
+ "note_en": "Outline after the table “Mishna Sedura”: the central content of each mishnah, with the topic path (main topic to sub-topic); translated into German and English.",
+ "sections": [
+  {
+   "head": "פרק א",
+   "head_de": "Kapitel 1",
+   "head_en": "Chapter 1",
+   "items": [
+    {
+     "ref": "1:1",
+     "text": "אשה, יבמה",
+     "text_de": "Frau, Schwägerin",
+     "text_en": "Wife, sister-in-law",
+     "desc": "דרכי קנין › בני אדם › במה מקדשין › נשים",
+     "desc_de": "Erwerbsarten › Menschen › Wodurch man antraut › Frauen",
+     "desc_en": "Modes of acquisition › Persons › By what means betrothal is effected › Women"
+    },
+    {
+     "ref": "1:2",
+     "text": "עבד עברי, אמה עבריה, נרצע",
+     "text_de": "Hebräischer Sklave, hebräische Sklavin, durchbohrter Sklave",
+     "text_en": "Hebrew slave, Hebrew maidservant, pierced slave",
+     "desc": "דרכי קנין › בני אדם › עבדים",
+     "desc_de": "Erwerbsarten › Menschen › Sklaven",
+     "desc_en": "Modes of acquisition › Persons › Slaves"
+    },
+    {
+     "ref": "1:3",
+     "text": "עבד כנעני",
+     "text_de": "Kanaanäischer Sklave",
+     "text_en": "Canaanite slave",
+     "desc": "דרכי קנין › בני אדם › עבדים",
+     "desc_de": "Erwerbsarten › Menschen › Sklaven",
+     "desc_en": "Modes of acquisition › Persons › Slaves"
+    },
+    {
+     "ref": "1:4",
+     "text": "גסה ודקה",
+     "text_de": "Großvieh und Kleinvieh",
+     "text_en": "Large and small livestock",
+     "desc": "דרכי קנין › נכסים › בהמות",
+     "desc_de": "Erwerbsarten › Vermögen › Vieh",
+     "desc_en": "Modes of acquisition › Property › animals"
+    },
+    {
+     "ref": "1:5",
+     "text": "קרקעות ומטלטלין, אגב, גלגול שבועה",
+     "text_de": "Grundstücke und bewegliche Güter, Agav, Ausdehnung des Eides",
+     "text_en": "Real estate and movables, agav, extension of the oath",
+     "desc": "דרכי קנין › נכסים",
+     "desc_de": "Erwerbsarten › Vermögen",
+     "desc_en": "Modes of acquisition › Property"
+    },
+    {
+     "ref": "1:6",
+     "text": "חליפין, כסף ואמירה",
+     "text_de": "Tausch, Geld und Aussage",
+     "text_en": "Exchange, money and declaration",
+     "desc": "דרכי קנין › נכסים",
+     "desc_de": "Erwerbsarten › Vermögen",
+     "desc_en": "Modes of acquisition › Property"
+    },
+    {
+     "ref": "1:7",
+     "text": "מצוות משפחתיות, עשה וזמן, לאוים",
+     "text_de": "Familiäre Gebote, zeitgebundene Gebote, Verbote",
+     "text_en": "Family commandments, time-bound commandments, prohibitions",
+     "desc": "כללים › המצוות › חיוב בהן › חיוב נשים",
+     "desc_de": "Regeln › Die Gebote › Verpflichtung dazu › Verpflichtung der Frauen",
+     "desc_en": "Rules › The commandments › Obligation regarding them › Obligation of women"
+    },
+    {
+     "ref": "1:8",
+     "text": "דוגמאות של עשין",
+     "text_de": "Beispiele positiver Gebote",
+     "text_en": "Examples of positive commandments",
+     "desc": "כללים › המצוות › חיוב בהן › חיוב נשים",
+     "desc_de": "Regeln › Die Gebote › Verpflichtung dazu › Verpflichtung der Frauen",
+     "desc_en": "Rules › The commandments › Obligation regarding them › Obligation of women"
+    },
+    {
+     "ref": "1:9",
+     "text": "חובות גוף וקרקע, יוצאים מן הכלל",
+     "text_de": "Pflichten des Körpers und des Bodens, Ausnahmen",
+     "text_en": "Obligations of the person and of the land, exceptions",
+     "desc": "כללים › המצוות › חיוב בהן › חוץ לארץ",
+     "desc_de": "Regeln › Die Gebote › Verpflichtung dazu › Ausland",
+     "desc_en": "Rules › The commandments › Obligation regarding them › Outside the Land of Israel"
+    },
+    {
+     "ref": "1:10",
+     "text": "המעלה של העושה מצוות והלומד תורה",
+     "text_de": "Vorzug dessen, der Gebote erfüllt und Tora lernt",
+     "text_en": "Merit of one who fulfills commandments and studies Torah",
+     "desc": "כללים › המצוות › שכר לעושיהן",
+     "desc_de": "Regeln › Die Gebote › Lohn für die, die sie erfüllen",
+     "desc_en": "Rules › The commandments › Reward for those who perform them"
+    }
+   ]
+  },
+  {
+   "head": "פרק ב",
+   "head_de": "Kapitel 2",
+   "head_en": "Chapter 2",
+   "items": [
+    {
+     "ref": "2:1",
+     "text": "שליחות איש, אשה ואב \\ חילוק וצירוף",
+     "text_de": "Beauftragung durch Mann, Frau und Vater / Aufteilung und Zusammenlegung",
+     "text_en": "Agency of a man, woman and father / division and combination",
+     "desc": "כיצד מקדשין › מי מקדש",
+     "desc_de": "Wie man antraut › Wer antraut",
+     "desc_en": "How one betroths › Who betroths"
+    },
+    {
+     "ref": "2:2",
+     "text": "כוס, דינר \\ מעמדו הכספי של החתן",
+     "text_de": "Becher, Denar / finanzielle Stellung des Bräutigams",
+     "text_en": "Cup, denar / financial standing of the groom",
+     "desc": "כיצד מקדשין › טעויות › תנאים › במה מקדשין › בהבנת האשה › שווי",
+     "desc_de": "Wie man antraut › Irrtümer › Bedingungen › Wodurch man antraut › Im Verständnis der Frau › Wert",
+     "desc_en": "How one betroths › Mistakes › Conditions › By what means betrothal is effected › In the woman's understanding › Value"
+    },
+    {
+     "ref": "2:3",
+     "text": "יחוסו, מקום ואנשי ביתו, דברים בלבה",
+     "text_de": "Seine Abstammung, Ort und Hausangehörige, Gedanken im Herzen",
+     "text_en": "His lineage, place and household members, thoughts in the heart",
+     "desc": "כיצד מקדשין › טעויות › תנאים › בהבנת האשה",
+     "desc_de": "Wie man antraut › Irrtümer › Bedingungen › Im Verständnis der Frau",
+     "desc_en": "How one betroths › Mistakes › Conditions › In the woman's understanding"
+    },
+    {
+     "ref": "2:4",
+     "text": "ציון מקום לשליח",
+     "text_de": "Angabe des Ortes für den Boten",
+     "text_en": "Specifying the place for the agent",
+     "desc": "כיצד מקדשין › טעויות › תנאים › בהבנת האיש",
+     "desc_de": "Wie man antraut › Irrtümer › Bedingungen › Im Verständnis des Mannes",
+     "desc_en": "How one betroths › Mistakes › Conditions › In the man's understanding"
+    },
+    {
+     "ref": "2:5",
+     "text": "נמצאו עליה נדרים או מומין",
+     "text_de": "Gelübde oder Gebrechen an ihr gefunden",
+     "text_en": "Vows or blemishes found on her",
+     "desc": "כיצד מקדשין › טעויות › תנאים › בהבנת האיש",
+     "desc_de": "Wie man antraut › Irrtümer › Bedingungen › Im Verständnis des Mannes",
+     "desc_en": "How one betroths › Mistakes › Conditions › In the man's understanding"
+    },
+    {
+     "ref": "2:6",
+     "text": "שוה פרוטה לכל אשה, סיבלונות",
+     "text_de": "Eine Prutawert für jede Frau, Sivlonot (Brautgeschenke)",
+     "text_en": "A perutah's worth for each woman, sivlonot (bridal gifts)",
+     "desc": "כיצד מקדשין › במה מקדשין › טעויות › שווי › שתי נשים",
+     "desc_de": "Wie man antraut › Wodurch man antraut › Irrtümer › Wert › Zwei Frauen",
+     "desc_en": "How one betroths › By what means betrothal is effected › Mistakes › Value › Two women"
+    },
+    {
+     "ref": "2:7",
+     "text": "שתי קרובות, ועם נכריות בפירות שביעית",
+     "text_de": "Zwei Verwandte, und mit Nichtverwandten bei Früchten des Sabbatjahres",
+     "text_en": "Two relatives, and with non-relatives, regarding Sabbatical-year produce",
+     "desc": "כיצד מקדשין › במה מקדשין › טעויות › ממון של האיש › האסורים או קדושים › כאחת",
+     "desc_de": "Wie man antraut › Wodurch man antraut › Irrtümer › Vermögen des Mannes › Verbotene oder geheiligte Dinge › Gleichzeitig",
+     "desc_en": "How one betroths › By what means betrothal is effected › Mistakes › The man's property › Forbidden or consecrated items › Simultaneously"
+    },
+    {
+     "ref": "2:8",
+     "text": "קדשי מזבח ובדק הבית, מעשר שני",
+     "text_de": "Altaropfer und Tempelinstandhaltung, Zweiter Zehnt",
+     "text_en": "Altar offerings and Temple maintenance, second tithe",
+     "desc": "כיצד מקדשין › במה מקדשין › ממון של האיש › האסורים או קדושים",
+     "desc_de": "Wie man antraut › Wodurch man antraut › Vermögen des Mannes › Verbotene oder geheiligte Dinge",
+     "desc_en": "How one betroths › By what means betrothal is effected › The man's property › Forbidden or consecrated items"
+    },
+    {
+     "ref": "2:9",
+     "text": "באיסורי הנאה ובדמיהן",
+     "text_de": "Bei Nutznießungsverbotenem und dessen Erlös",
+     "text_en": "Items forbidden for benefit and their proceeds",
+     "desc": "כיצד מקדשין › במה מקדשין › ממון של האיש › האסורים או קדושים",
+     "desc_de": "Wie man antraut › Wodurch man antraut › Vermögen des Mannes › Verbotene oder geheiligte Dinge",
+     "desc_en": "How one betroths › By what means betrothal is effected › The man's property › Forbidden or consecrated items"
+    },
+    {
+     "ref": "2:10",
+     "text": "מתנות כהונה ולויה, מי ואפר חטאת",
+     "text_de": "Priester- und Levitengaben, Entsündigungswasser und -asche",
+     "text_en": "Priestly and Levitical gifts, water and ashes of purification",
+     "desc": "כיצד מקדשין › במה מקדשין › ממון של האיש › האסורים או קדושים",
+     "desc_de": "Wie man antraut › Wodurch man antraut › Vermögen des Mannes › Verbotene oder geheiligte Dinge",
+     "desc_en": "How one betroths › By what means betrothal is effected › The man's property › Forbidden or consecrated items"
+    }
+   ]
+  },
+  {
+   "head": "פרק ג",
+   "head_de": "Kapitel 3",
+   "head_en": "Chapter 3",
+   "items": [
+    {
+     "ref": "3:1",
+     "text": "שליח שקידש הוא \\ לפני חלות קידושין",
+     "text_de": "Der Bote, der selbst antraute / vor Wirksamwerden der Kidduschin",
+     "text_en": "Agent who betrothed for himself / before the betrothal takes effect",
+     "desc": "כיצד מקדשין › מי מקדש",
+     "desc_de": "Wie man antraut › Wer antraut",
+     "desc_en": "How one betroths › Who betroths"
+    },
+    {
+     "ref": "3:2",
+     "text": "נתינת וראיית כסף, הגבלת זמן",
+     "text_de": "Geldübergabe und Sehen des Geldes, zeitliche Begrenzung",
+     "text_en": "Giving and seeing of money, time limit",
+     "desc": "כיצד מקדשין › תנאים › זמן › מעמד כספי",
+     "desc_de": "Wie man antraut › Bedingungen › Zeit › Finanzielle Stellung",
+     "desc_en": "How one betroths › Conditions › time › Financial standing"
+    },
+    {
+     "ref": "3:3",
+     "text": "בעלות וראיית קרקע",
+     "text_de": "Eigentum und Besichtigung des Grundstücks",
+     "text_en": "Ownership and inspection of the land",
+     "desc": "כיצד מקדשין › תנאים › מעמד כספי",
+     "desc_de": "Wie man antraut › Bedingungen › Finanzielle Stellung",
+     "desc_en": "How one betroths › Conditions › Financial standing"
+    },
+    {
+     "ref": "3:4",
+     "text": "צורך בדמיון לתנאי בני גד וראובן",
+     "text_de": "Erfordernis der Entsprechung zur Bedingung der Söhne Gads und Rubens",
+     "text_en": "Need for correspondence to the condition of the sons of Gad and Reuben",
+     "desc": "כיצד מקדשין › תנאים › תבנית התנאי",
+     "desc_de": "Wie man antraut › Bedingungen › Form der Bedingung",
+     "desc_en": "How one betroths › Conditions › Form of the condition"
+    },
+    {
+     "ref": "3:5",
+     "text": "יוחסין, מעמד כספי, דבר שלא בא לעולם",
+     "text_de": "Abstammung, finanzielle Stellung, Sache, die noch nicht in die Welt gekommen ist",
+     "text_en": "Lineage, financial standing, a thing not yet in existence",
+     "desc": "כיצד מקדשין › טעויות › בהבנת האיש",
+     "desc_de": "Wie man antraut › Irrtümer › Im Verständnis des Mannes",
+     "desc_en": "How one betroths › Mistakes › In the man's understanding"
+    },
+    {
+     "ref": "3:6",
+     "text": "עבודה כפועל, ריצוי שלטון ואב",
+     "text_de": "Arbeit als Tagelöhner, Besänftigung der Obrigkeit und des Vaters",
+     "text_en": "Working as a hired laborer, appeasing the authorities and the father",
+     "desc": "כיצד מקדשין › טעויות › תנאים",
+     "desc_de": "Wie man antraut › Irrtümer › Bedingungen",
+     "desc_en": "How one betroths › Mistakes › Conditions"
+    },
+    {
+     "ref": "3:7",
+     "text": "האומר 'קדשתיה', ובשנים",
+     "text_de": "Wer sagt „Ich habe sie angetraut\", und bei zwei Männern",
+     "text_en": "One who says \"I betrothed her\", and in the case of two men",
+     "desc": "כיצד מקדשין › טעויות › קידושין ע\"י האב › נאמנות",
+     "desc_de": "Wie man antraut › Irrtümer › Kidduschin durch den Vater › Glaubwürdigkeit",
+     "desc_en": "How one betroths › Mistakes › Betrothal by the father › Credibility"
+    },
+    {
+     "ref": "3:8",
+     "text": "גירושי ושבי בת, זקיקה ליבום \\ בוגרות",
+     "text_de": "Scheidung und Gefangennahme einer Tochter, der Leviratspflicht Unterliegende / Volljährige",
+     "text_en": "Divorce and capture of a daughter, one subject to levirate marriage / adult women",
+     "desc": "כיצד מקדשין › טעויות › קידושין ע\"י האב › כוונה במקדש סתם › נאמנות",
+     "desc_de": "Wie man antraut › Irrtümer › Kidduschin durch den Vater › Absicht bei unbestimmter Antrauung › Glaubwürdigkeit",
+     "desc_en": "How one betroths › Mistakes › Betrothal by the father › Intention in an unspecified betrothal › Credibility"
+    },
+    {
+     "ref": "3:9",
+     "text": "בגרות יחסית בין שתי כתי בנות",
+     "text_de": "Relative Volljährigkeit zwischen zwei Gruppen von Töchtern",
+     "text_en": "Relative majority between two groups of daughters",
+     "desc": "כיצד מקדשין › טעויות › קידושין ע\"י האב › כוונה במקדש סתם",
+     "desc_de": "Wie man antraut › Irrtümer › Kidduschin durch den Vater › Absicht bei unbestimmter Antrauung",
+     "desc_en": "How one betroths › Mistakes › Betrothal by the father › Intention in an unspecified betrothal"
+    },
+    {
+     "ref": "3:10",
+     "text": "היא או הוא מכחישים, המסבירה שקדש בתה",
+     "text_de": "Sie oder er bestreiten, die Erklärende, er habe ihre Tochter angetraut",
+     "text_en": "She or he denies, she who explains that he betrothed her daughter",
+     "desc": "כיצד מקדשין › טעויות › בהבנת האיש והאשה › איסור בקרובים",
+     "desc_de": "Wie man antraut › Irrtümer › Im Verständnis von Mann und Frau › Verbot unter Verwandten",
+     "desc_en": "How one betroths › Mistakes › In the understanding of man and woman › Prohibition among relatives"
+    },
+    {
+     "ref": "3:11",
+     "text": "האומרת 'קידשתני ולא בתי'",
+     "text_de": "Die Sagende „Du hast mich angetraut, nicht meine Tochter\"",
+     "text_en": "The woman who says \"You betrothed me, not my daughter\"",
+     "desc": "כיצד מקדשין › טעויות › בהבנת האיש והאשה › איסור בקרובים",
+     "desc_de": "Wie man antraut › Irrtümer › Im Verständnis von Mann und Frau › Verbot unter Verwandten",
+     "desc_en": "How one betroths › Mistakes › In the understanding of man and woman › Prohibition among relatives"
+    },
+    {
+     "ref": "3:12",
+     "text": "אפשרות קידושין ועבירה",
+     "text_de": "Möglichkeit von Kidduschin und Übertretung",
+     "text_en": "Possibility of betrothal and transgression",
+     "desc": "הרחקות מאיסורי אישות › יוחסין › ולדות הפגומים › כלל",
+     "desc_de": "Fernhalten von Eheverboten › Abstammungen › Kinder aus fehlerhaften Verbindungen › Grundregel",
+     "desc_en": "Distancing from forbidden relations › Lineages › Offspring of flawed unions › General rule"
+    },
+    {
+     "ref": "3:13",
+     "text": "טהרת ולד ממזר",
+     "text_de": "Reinheit des Kindes eines Mamser",
+     "text_en": "Purity of the child of a mamzer",
+     "desc": "הרחקות מאיסורי אישות › יוחסין › ולדות הפגומים",
+     "desc_de": "Fernhalten von Eheverboten › Abstammungen › Kinder aus fehlerhaften Verbindungen",
+     "desc_en": "Distancing from forbidden relations › Lineages › Offspring of flawed unions"
+    }
+   ]
+  },
+  {
+   "head": "פרק ד",
+   "head_de": "Kapitel 4",
+   "head_en": "Chapter 4",
+   "items": [
+    {
+     "ref": "4:1",
+     "text": "10 היוחסין, היתרם לכהן, לקהל, לפסול",
+     "text_de": "Die zehn Abstammungsklassen, ihre Heiratserlaubnis für Priester, für die Gemeinde, für Untaugliche",
+     "text_en": "The ten lineage classes, their permissibility to a priest, to the congregation, to the disqualified",
+     "desc": "הרחקות מאיסורי אישות › יוחסין › הגדרת העריות והיתרם זה בזה",
+     "desc_de": "Fernhalten von Eheverboten › Abstammungen › Definition der verbotenen Verwandtschaftsgrade und ihre gegenseitige Erlaubtheit",
+     "desc_en": "Distancing from forbidden relations › Lineages › Definition of forbidden relations and their mutual permissibility"
+    },
+    {
+     "ref": "4:2",
+     "text": "הגדרת שתוקי ואסופי",
+     "text_de": "Definition von Schetuki und Asufi",
+     "text_en": "Definition of shetuki and asufi",
+     "desc": "הרחקות מאיסורי אישות › יוחסין › הגדרת העריות והיתרם זה בזה",
+     "desc_de": "Fernhalten von Eheverboten › Abstammungen › Definition der verbotenen Verwandtschaftsgrade und ihre gegenseitige Erlaubtheit",
+     "desc_en": "Distancing from forbidden relations › Lineages › Definition of forbidden relations and their mutual permissibility"
+    },
+    {
+     "ref": "4:3",
+     "text": "היתר האסורי קהל וספיקות זה לזה",
+     "text_de": "Erlaubtheit der für die Gemeinde Verbotenen und Zweifelsfälle untereinander",
+     "text_en": "Permissibility of those forbidden to the congregation, and cases of doubt among one another",
+     "desc": "הרחקות מאיסורי אישות › יוחסין › הגדרת העריות והיתרם זה בזה",
+     "desc_de": "Fernhalten von Eheverboten › Abstammungen › Definition der verbotenen Verwandtschaftsgrade und ihre gegenseitige Erlaubtheit",
+     "desc_en": "Distancing from forbidden relations › Lineages › Definition of forbidden relations and their mutual permissibility"
+    },
+    {
+     "ref": "4:4",
+     "text": "בדיקת אמהות",
+     "text_de": "Prüfung der Mütter",
+     "text_en": "Examination of the mothers",
+     "desc": "הרחקות מאיסורי אישות › יוחסין › כשרות לכהונה › בדיקת יוחסין",
+     "desc_de": "Fernhalten von Eheverboten › Abstammungen › Eignung zum Priestertum › Prüfung der Abstammung",
+     "desc_en": "Distancing from forbidden relations › Lineages › Eligibility for the priesthood › Examination of lineage"
+    },
+    {
+     "ref": "4:5",
+     "text": "שאינם צריכים בדיקה מהם והלאה",
+     "text_de": "Die keiner Prüfung bedürfen, von ihnen an",
+     "text_en": "Those who need no examination, from them onward",
+     "desc": "הרחקות מאיסורי אישות › יוחסין › כשרות לכהונה › בדיקת יוחסין",
+     "desc_de": "Fernhalten von Eheverboten › Abstammungen › Eignung zum Priestertum › Prüfung der Abstammung",
+     "desc_en": "Distancing from forbidden relations › Lineages › Eligibility for the priesthood › Examination of lineage"
+    },
+    {
+     "ref": "4:6",
+     "text": "בת חלל או חללה \\ בת גר",
+     "text_de": "Tochter eines Chalal oder einer Chalala / Tochter eines Proselyten",
+     "text_en": "Daughter of a chalal or chalala / daughter of a convert",
+     "desc": "הרחקות מאיסורי אישות › יוחסין › כשרות לכהונה › גרים",
+     "desc_de": "Fernhalten von Eheverboten › Abstammungen › Eignung zum Priestertum › Proselyten",
+     "desc_en": "Distancing from forbidden relations › Lineages › Eligibility for the priesthood › Converts"
+    },
+    {
+     "ref": "4:7",
+     "text": "כשהורים או אחד מהם גר",
+     "text_de": "Wenn die Eltern oder einer von ihnen Proselyt ist",
+     "text_en": "When the parents or one of them is a convert",
+     "desc": "הרחקות מאיסורי אישות › יוחסין › כשרות לכהונה › גרים",
+     "desc_de": "Fernhalten von Eheverboten › Abstammungen › Eignung zum Priestertum › Proselyten",
+     "desc_en": "Distancing from forbidden relations › Lineages › Eligibility for the priesthood › Converts"
+    },
+    {
+     "ref": "4:8",
+     "text": "נאמנות על ממזרות בן",
+     "text_de": "Glaubwürdigkeit über die Mamserschaft des Sohnes",
+     "text_en": "Credibility regarding the son's status as mamzer",
+     "desc": "הרחקות מאיסורי אישות › יוחסין › נאמנות על יחוס בניו",
+     "desc_de": "Fernhalten von Eheverboten › Abstammungen › Glaubwürdigkeit über die Abstammung seiner Söhne",
+     "desc_en": "Distancing from forbidden relations › Lineages › Credibility regarding the lineage of his sons"
+    },
+    {
+     "ref": "4:9",
+     "text": "קדימת קידושי המשלח והשליח",
+     "text_de": "Vorrang der Kidduschin des Auftraggebers und des Boten",
+     "text_en": "Priority of the betrothal by the principal or by the agent",
+     "desc": "הרחקות מאיסורי אישות › יוחסין › נאמנות על יחוס בניו › ספק קידושין",
+     "desc_de": "Fernhalten von Eheverboten › Abstammungen › Glaubwürdigkeit über die Abstammung seiner Söhne › Zweifel an Kidduschin",
+     "desc_en": "Distancing from forbidden relations › Lineages › Credibility regarding the lineage of his sons › Doubtful betrothal"
+    },
+    {
+     "ref": "4:10",
+     "text": "היוצא עם אשה",
+     "text_de": "Wer mit einer Frau ausgeht",
+     "text_en": "One who goes out with a woman",
+     "desc": "הרחקות מאיסורי אישות › יוחסין › נאמנות על יחוס בניו › היוצא לחו\"ל וכשרות בניו",
+     "desc_de": "Fernhalten von Eheverboten › Abstammungen › Glaubwürdigkeit über die Abstammung seiner Söhne › Wer ins Ausland geht, und Tauglichkeit seiner Kinder",
+     "desc_en": "Distancing from forbidden relations › Lineages › Credibility regarding the lineage of his sons › One who goes abroad, and the fitness of his children"
+    },
+    {
+     "ref": "4:11",
+     "text": "הנושא שם אשה",
+     "text_de": "Wer eine Frau zur Ehe nimmt",
+     "text_en": "One who takes a wife",
+     "desc": "הרחקות מאיסורי אישות › יוחסין › נאמנות על יחוס בניו › היוצא לחו\"ל וכשרות בניו",
+     "desc_de": "Fernhalten von Eheverboten › Abstammungen › Glaubwürdigkeit über die Abstammung seiner Söhne › Wer ins Ausland geht, und Tauglichkeit seiner Kinder",
+     "desc_en": "Distancing from forbidden relations › Lineages › Credibility regarding the lineage of his sons › One who goes abroad, and the fitness of his children"
+    },
+    {
+     "ref": "4:12",
+     "text": "נשים או אנשים, שמירת אשה, המותרות",
+     "text_de": "Frauen oder Männer, Beaufsichtigung einer Frau, die Erlaubten",
+     "text_en": "Women or men, guarding a woman, the permitted ones",
+     "desc": "הרחקות מאיסורי אישות › יחוד › מצבים המרגילים לאיסור",
+     "desc_de": "Fernhalten von Eheverboten › Alleinsein (Jichud) › Situationen, die zur Übertretung verleiten",
+     "desc_en": "Distancing from forbidden relations › Seclusion (yichud) › Situations conducive to transgression"
+    },
+    {
+     "ref": "4:13",
+     "text": "האסור ללמד סופרים",
+     "text_de": "Verbot, Schreiber zu unterrichten",
+     "text_en": "Prohibition on teaching scribes",
+     "desc": "הרחקות מאיסורי אישות › יחוד › מצבים המרגילים לאיסור",
+     "desc_de": "Fernhalten von Eheverboten › Alleinsein (Jichud) › Situationen, die zur Übertretung verleiten",
+     "desc_en": "Distancing from forbidden relations › Seclusion (yichud) › Situations conducive to transgression"
+    },
+    {
+     "ref": "4:14",
+     "text": "משכב זכור, הרגיל בנשים, אומנות הרצויה",
+     "text_de": "Männlicher Beischlaf, wer viel mit Frauen verkehrt, wünschenswertes Handwerk",
+     "text_en": "Male intercourse, one accustomed to women, desirable trade",
+     "desc": "הרחקות מאיסורי אישות › יחוד › מצבים המרגילים לאיסור",
+     "desc_de": "Fernhalten von Eheverboten › Alleinsein (Jichud) › Situationen, die zur Übertretung verleiten",
+     "desc_en": "Distancing from forbidden relations › Seclusion (yichud) › Situations conducive to transgression"
+    }
+   ]
+  }
+ ]
+}

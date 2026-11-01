@@ -1,0 +1,559 @@
+{
+ "book": "Mishnah Maaser Sheni",
+ "title": "משנה מעשר שני",
+ "title_de": "Mischna Maaser Scheni – Gliederung",
+ "title_en": "Maaser Sheni – outline",
+ "note": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema).",
+ "note_de": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema); ins Deutsche und Englische übersetzt.",
+ "note_en": "Outline after the table “Mishna Sedura”: the central content of each mishnah, with the topic path (main topic to sub-topic); translated into German and English.",
+ "sections": [
+  {
+   "head": "פרק א",
+   "head_de": "Kapitel 1",
+   "head_en": "Chapter 1",
+   "items": [
+    {
+     "ref": "1:1",
+     "text": "מעשר שני",
+     "text_de": "Zweiter Zehnt (Maasser scheni)",
+     "text_en": "Second tithe",
+     "desc": "הלכות מעשר שני › קדושתו ותכליתו › איסור מקח וממכר",
+     "desc_de": "Gesetze des Zweiten Zehnten › Seine Heiligkeit und sein Zweck › Verbot von Kauf und Verkauf",
+     "desc_en": "Laws of the second tithe › Its sanctity and its purpose › Prohibition of buying and selling"
+    },
+    {
+     "ref": "1:2",
+     "text": "מעשר בהמה, בכור \\ מעות לחילול",
+     "text_de": "Viehzehnt, Erstgeburt / Geld zur Auslösung",
+     "text_en": "Animal tithe, firstborn / money for redemption",
+     "desc": "הלכות מעשר שני › קדושתו ותכליתו › הנלקח בכסף מעשר › פדיון › איסור מקח וממכר",
+     "desc_de": "Gesetze des Zweiten Zehnten › Seine Heiligkeit und sein Zweck › Was mit Zehntgeld gekauft wird › Auslösung › Verbot von Kauf und Verkauf",
+     "desc_en": "Laws of the second tithe › Its sanctity and its purpose › What is bought with tithe money › Redemption › Prohibition of buying and selling"
+    },
+    {
+     "ref": "1:3",
+     "text": "עורות, קליפות, חמד",
+     "text_de": "Häute, Schalen, Begehrenswertes",
+     "text_en": "Hides, peels, desirable items",
+     "desc": "הלכות מעשר שני › קדושתו ותכליתו › הנלקח בכסף מעשר › שנתפסין",
+     "desc_de": "Gesetze des Zweiten Zehnten › Seine Heiligkeit und sein Zweck › Was mit Zehntgeld gekauft wird › Was erfasst wird",
+     "desc_en": "Laws of the second tithe › Its sanctity and its purpose › What is bought with tithe money › What is subject to the sanctity"
+    },
+    {
+     "ref": "1:4",
+     "text": "עורות, מיכלי אוכל",
+     "text_de": "Häute, Speisegefäße",
+     "text_en": "Hides, food containers",
+     "desc": "הלכות מעשר שני › קדושתו ותכליתו › הנלקח בכסף מעשר › שאינם נתפסין",
+     "desc_de": "Gesetze des Zweiten Zehnten › Seine Heiligkeit und sein Zweck › Was mit Zehntgeld gekauft wird › Was nicht erfasst wird",
+     "desc_en": "Laws of the second tithe › Its sanctity and its purpose › What is bought with tithe money › What is not subject to the sanctity"
+    },
+    {
+     "ref": "1:5",
+     "text": "מים, מלח, פירות \\ פירות",
+     "text_de": "Wasser, Salz, Früchte / Früchte",
+     "text_en": "Water, salt, fruits / fruits",
+     "desc": "הלכות מעשר שני › קדושתו ותכליתו › הנלקח בכסף מעשר › חוץ לירושלים › שאינם נתפסין",
+     "desc_de": "Gesetze des Zweiten Zehnten › Seine Heiligkeit und sein Zweck › Was mit Zehntgeld gekauft wird › Außerhalb Jerusalems › Was nicht erfasst wird",
+     "desc_en": "Laws of the second tithe › Its sanctity and its purpose › What is bought with tithe money › Outside Jerusalem › What is not subject to the sanctity"
+    },
+    {
+     "ref": "1:6",
+     "text": "בהמה",
+     "text_de": "Vieh",
+     "text_en": "Animals",
+     "desc": "הלכות מעשר שני › קדושתו ותכליתו › הנלקח בכסף מעשר › חוץ לירושלים",
+     "desc_de": "Gesetze des Zweiten Zehnten › Seine Heiligkeit und sein Zweck › Was mit Zehntgeld gekauft wird › Außerhalb Jerusalems",
+     "desc_en": "Laws of the second tithe › Its sanctity and its purpose › What is bought with tithe money › Outside Jerusalem"
+    },
+    {
+     "ref": "1:7",
+     "text": "שצריך לאכול כנגדן",
+     "text_de": "Was man dagegen essen muss",
+     "text_en": "What must be eaten in exchange",
+     "desc": "הלכות מעשר שני › קדושתו ותכליתו › הנלקח בכסף מעשר › כללים ודוגמאות",
+     "desc_de": "Gesetze des Zweiten Zehnten › Seine Heiligkeit und sein Zweck › Was mit Zehntgeld gekauft wird › Regeln und Beispiele",
+     "desc_en": "Laws of the second tithe › Its sanctity and its purpose › What is bought with tithe money › Rules and examples"
+    }
+   ]
+  },
+  {
+   "head": "פרק ב",
+   "head_de": "Kapitel 2",
+   "head_en": "Chapter 2",
+   "items": [
+    {
+     "ref": "2:1",
+     "text": "הנאות המותרות,השבחת טעם ע\"י חולין",
+     "text_de": "Erlaubter Nutzen, Geschmacksverbesserung durch Profanes",
+     "text_en": "Permitted benefits, improving flavor with non-sacred produce",
+     "desc": "הלכות מעשר שני › קדושתו ותכליתו › הפסד פירות מעשר שני › כללים ודוגמאות",
+     "desc_de": "Gesetze des Zweiten Zehnten › Seine Heiligkeit und sein Zweck › Verderb von Früchten des Zweiten Zehnten › Regeln und Beispiele",
+     "desc_en": "Laws of the second tithe › Its sanctity and its purpose › Spoilage of second-tithe produce › Rules and examples"
+    },
+    {
+     "ref": "2:2",
+     "text": "סיכה",
+     "text_de": "Salben",
+     "text_en": "Anointing",
+     "desc": "הלכות מעשר שני › קדושתו ותכליתו › הפסד פירות מעשר שני › השוואה לדיני תרומה",
+     "desc_de": "Gesetze des Zweiten Zehnten › Seine Heiligkeit und sein Zweck › Verderb von Früchten des Zweiten Zehnten › Vergleich mit den Gesetzen der Teruma",
+     "desc_en": "Laws of the second tithe › Its sanctity and its purpose › Spoilage of second-tithe produce › Comparison with the laws of terumah"
+    },
+    {
+     "ref": "2:3",
+     "text": "תלתן וטומאתו",
+     "text_de": "Bockshornklee und seine Unreinheit",
+     "text_en": "Fenugreek and its impurity",
+     "desc": "הלכות מעשר שני › קדושתו ותכליתו › הפסד פירות מעשר שני › השוואה לדיני תרומה",
+     "desc_de": "Gesetze des Zweiten Zehnten › Seine Heiligkeit und sein Zweck › Verderb von Früchten des Zweiten Zehnten › Vergleich mit den Gesetzen der Teruma",
+     "desc_en": "Laws of the second tithe › Its sanctity and its purpose › Spoilage of second-tithe produce › Comparison with the laws of terumah"
+    },
+    {
+     "ref": "2:4",
+     "text": "כרשינים וטומאתן",
+     "text_de": "Wicken und ihre Unreinheit",
+     "text_en": "Vetch and its impurity",
+     "desc": "הלכות מעשר שני › קדושתו ותכליתו › הפסד פירות מעשר שני › השוואה לדיני תרומה",
+     "desc_de": "Gesetze des Zweiten Zehnten › Seine Heiligkeit und sein Zweck › Verderb von Früchten des Zweiten Zehnten › Vergleich mit den Gesetzen der Teruma",
+     "desc_en": "Laws of the second tithe › Its sanctity and its purpose › Spoilage of second-tithe produce › Comparison with the laws of terumah"
+    },
+    {
+     "ref": "2:5",
+     "text": "מפוזרים",
+     "text_de": "Verstreutes",
+     "text_en": "Scattered items",
+     "desc": "הלכות מעשר שני › קדושתו ותכליתו › טיפול במעות מעשר › תערובת מעות מעשר וחולין",
+     "desc_de": "Gesetze des Zweiten Zehnten › Seine Heiligkeit und sein Zweck › Umgang mit Zehntgeld › Vermischung von Zehntgeld und Profangeld",
+     "desc_en": "Laws of the second tithe › Its sanctity and its purpose › Handling tithe money › Mixture of tithe money and ordinary money"
+    },
+    {
+     "ref": "2:6",
+     "text": "שתערבו יחד",
+     "text_de": "Wenn sie zusammengemischt wurden",
+     "text_en": "When they were mixed together",
+     "desc": "הלכות מעשר שני › קדושתו ותכליתו › טיפול במעות מעשר › תערובת מעות מעשר וחולין",
+     "desc_de": "Gesetze des Zweiten Zehnten › Seine Heiligkeit und sein Zweck › Umgang mit Zehntgeld › Vermischung von Zehntgeld und Profangeld",
+     "desc_en": "Laws of the second tithe › Its sanctity and its purpose › Handling tithe money › Mixture of tithe money and ordinary money"
+    },
+    {
+     "ref": "2:7",
+     "text": "צירוף סלעים לדינרים",
+     "text_de": "Anrechnung von Selaim auf Denare",
+     "text_en": "Combining sela coins with denarii",
+     "desc": "הלכות מעשר שני › קדושתו ותכליתו › טיפול במעות מעשר › החלפת מעות",
+     "desc_de": "Gesetze des Zweiten Zehnten › Seine Heiligkeit und sein Zweck › Umgang mit Zehntgeld › Geldwechsel",
+     "desc_en": "Laws of the second tithe › Its sanctity and its purpose › Handling tithe money › Exchange of coins"
+    },
+    {
+     "ref": "2:8",
+     "text": "צירוף מעות לסלעים, פירות וכסף",
+     "text_de": "Anrechnung von Geld auf Selaim, Früchte und Silber",
+     "text_en": "Combining coins with selas, fruits and silver",
+     "desc": "הלכות מעשר שני › קדושתו ותכליתו › טיפול במעות מעשר › החלפת מעות",
+     "desc_de": "Gesetze des Zweiten Zehnten › Seine Heiligkeit und sein Zweck › Umgang mit Zehntgeld › Geldwechsel",
+     "desc_en": "Laws of the second tithe › Its sanctity and its purpose › Handling tithe money › Exchange of coins"
+    },
+    {
+     "ref": "2:9",
+     "text": "פריטת סלעים בירושלים",
+     "text_de": "Kleingeldwechsel von Selaim in Jerusalem",
+     "text_en": "Changing selas into small coins in Jerusalem",
+     "desc": "הלכות מעשר שני › קדושתו ותכליתו › טיפול במעות מעשר › החלפת מעות",
+     "desc_de": "Gesetze des Zweiten Zehnten › Seine Heiligkeit und sein Zweck › Umgang mit Zehntgeld › Geldwechsel",
+     "desc_en": "Laws of the second tithe › Its sanctity and its purpose › Handling tithe money › Exchange of coins"
+    },
+    {
+     "ref": "2:10",
+     "text": "חילול למפרע",
+     "text_de": "Rückwirkende Auslösung",
+     "text_en": "Retroactive redemption",
+     "desc": "הלכות מעשר שני › קדושתו ותכליתו › הנלקח בכסף מעשר › חילול מעות",
+     "desc_de": "Gesetze des Zweiten Zehnten › Seine Heiligkeit und sein Zweck › Was mit Zehntgeld gekauft wird › Auslösung von Geld",
+     "desc_en": "Laws of the second tithe › Its sanctity and its purpose › What is bought with tithe money › Redemption of money"
+    }
+   ]
+  },
+  {
+   "head": "פרק ג",
+   "head_de": "Kapitel 3",
+   "head_en": "Chapter 3",
+   "items": [
+    {
+     "ref": "3:1",
+     "text": "שכר הובלה לירושלים",
+     "text_de": "Frachtlohn nach Jerusalem",
+     "text_en": "Transport fee to Jerusalem",
+     "desc": "הלכות מעשר שני › קדושתו ותכליתו › הנלקח בכסף מעשר › חשש להפסד",
+     "desc_de": "Gesetze des Zweiten Zehnten › Seine Heiligkeit und sein Zweck › Was mit Zehntgeld gekauft wird › Befürchtung eines Verlusts",
+     "desc_en": "Laws of the second tithe › Its sanctity and its purpose › What is bought with tithe money › Fear of loss"
+    },
+    {
+     "ref": "3:2",
+     "text": "תרומה",
+     "text_de": "Teruma",
+     "text_en": "Teruma",
+     "desc": "הלכות מעשר שני › קדושתו ותכליתו › הנלקח בכסף מעשר › חשש להפסד",
+     "desc_de": "Gesetze des Zweiten Zehnten › Seine Heiligkeit und sein Zweck › Was mit Zehntgeld gekauft wird › Befürchtung eines Verlusts",
+     "desc_en": "Laws of the second tithe › Its sanctity and its purpose › What is bought with tithe money › Fear of loss"
+    },
+    {
+     "ref": "3:3",
+     "text": "כששניהם בירושלים",
+     "text_de": "Wenn beide in Jerusalem sind",
+     "text_en": "When both are in Jerusalem",
+     "desc": "הלכות מעשר שני › קדושתו ותכליתו › הנלקח בכסף מעשר › חילול מעות על פירות",
+     "desc_de": "Gesetze des Zweiten Zehnten › Seine Heiligkeit und sein Zweck › Was mit Zehntgeld gekauft wird › Auslösung von Geld gegen Früchte",
+     "desc_en": "Laws of the second tithe › Its sanctity and its purpose › What is bought with tithe money › Redeeming money onto fruits"
+    },
+    {
+     "ref": "3:4",
+     "text": "כשרק אחד מהם בירושלים",
+     "text_de": "Wenn nur einer von ihnen in Jerusalem ist",
+     "text_en": "When only one of them is in Jerusalem",
+     "desc": "הלכות מעשר שני › קדושתו ותכליתו › הנלקח בכסף מעשר › חילול מעות על פירות",
+     "desc_de": "Gesetze des Zweiten Zehnten › Seine Heiligkeit und sein Zweck › Was mit Zehntgeld gekauft wird › Auslösung von Geld gegen Früchte",
+     "desc_en": "Laws of the second tithe › Its sanctity and its purpose › What is bought with tithe money › Redeeming money onto fruits"
+    },
+    {
+     "ref": "3:5",
+     "text": "מעות, פירות",
+     "text_de": "Geld, Früchte",
+     "text_en": "Money, fruits",
+     "desc": "הלכות מעשר שני › פדיון מחוץ לירושלים › קליטת החומות › מה נקלט",
+     "desc_de": "Gesetze des Zweiten Zehnten › Auslösung außerhalb Jerusalems › Aufnahme durch die Mauern › Was aufgenommen wird",
+     "desc_en": "Laws of the second tithe › Redemption outside Jerusalem › Absorption by the walls › What is absorbed"
+    },
+    {
+     "ref": "3:6",
+     "text": "טבל, קביעת גמר מלאכה",
+     "text_de": "Tewel, Festlegung des Abschlusses der Arbeit",
+     "text_en": "Tevel, fixing the completion of the work",
+     "desc": "הלכות מעשר שני › פדיון מחוץ לירושלים › קליטת החומות › מה נקלט",
+     "desc_de": "Gesetze des Zweiten Zehnten › Auslösung außerhalb Jerusalems › Aufnahme durch die Mauern › Was aufgenommen wird",
+     "desc_en": "Laws of the second tithe › Redemption outside Jerusalem › Absorption by the walls › What is absorbed"
+    },
+    {
+     "ref": "3:7",
+     "text": "תחת אילן נוטה, תוך החומה",
+     "text_de": "Unter einem überhängenden Baum, innerhalb der Mauer",
+     "text_en": "Under an overhanging tree, inside the wall",
+     "desc": "הלכות מעשר שני › פדיון מחוץ לירושלים › קליטת החומות › היכן נקלט",
+     "desc_de": "Gesetze des Zweiten Zehnten › Auslösung außerhalb Jerusalems › Aufnahme durch die Mauern › Wo es aufgenommen wird",
+     "desc_en": "Laws of the second tithe › Redemption outside Jerusalem › Absorption by the walls › Where it is absorbed"
+    },
+    {
+     "ref": "3:8",
+     "text": "קדושת לשכות וגגות",
+     "text_de": "Heiligkeit der Kammern und Dächer",
+     "text_en": "Sanctity of the chambers and roofs",
+     "desc": "הלכות מעשר שני › פדיון מחוץ לירושלים › קליטת החומות › היכן נקלט",
+     "desc_de": "Gesetze des Zweiten Zehnten › Auslösung außerhalb Jerusalems › Aufnahme durch die Mauern › Wo es aufgenommen wird",
+     "desc_en": "Laws of the second tithe › Redemption outside Jerusalem › Absorption by the walls › Where it is absorbed"
+    },
+    {
+     "ref": "3:9",
+     "text": "פירות שנטמאו",
+     "text_de": "Unrein gewordene Früchte",
+     "text_en": "Fruits that became impure",
+     "desc": "הלכות מעשר שני › פדיון מחוץ לירושלים › קליטת החומות › מה נקלט",
+     "desc_de": "Gesetze des Zweiten Zehnten › Auslösung außerhalb Jerusalems › Aufnahme durch die Mauern › Was aufgenommen wird",
+     "desc_en": "Laws of the second tithe › Redemption outside Jerusalem › Absorption by the walls › What is absorbed"
+    },
+    {
+     "ref": "3:10",
+     "text": "לקוח שנטמא",
+     "text_de": "Unrein gewordenes Gekauftes",
+     "text_en": "Purchased item that became impure",
+     "desc": "הלכות מעשר שני › פדיון מחוץ לירושלים › קליטת החומות › מה נקלט",
+     "desc_de": "Gesetze des Zweiten Zehnten › Auslösung außerhalb Jerusalems › Aufnahme durch die Mauern › Was aufgenommen wird",
+     "desc_en": "Laws of the second tithe › Redemption outside Jerusalem › Absorption by the walls › What is absorbed"
+    },
+    {
+     "ref": "3:11",
+     "text": "צבי שנרכש",
+     "text_de": "Erworbene Gazelle",
+     "text_en": "Acquired gazelle",
+     "desc": "הלכות מעשר שני › פדיון מחוץ לירושלים › קליטת החומות › מה נקלט",
+     "desc_de": "Gesetze des Zweiten Zehnten › Auslösung außerhalb Jerusalems › Aufnahme durch die Mauern › Was aufgenommen wird",
+     "desc_en": "Laws of the second tithe › Redemption outside Jerusalem › Absorption by the walls › What is absorbed"
+    },
+    {
+     "ref": "3:12",
+     "text": "השאלתן למעשר \\ ועוד נפקא מינות",
+     "text_de": "Ihr Ausleihen für den Zehnten / weitere praktische Folgen",
+     "text_en": "Lending them for the tithe / further practical implications",
+     "desc": "הלכות מעשר שני › פדיון מחוץ לירושלים › התפסת קנקנים אגב יין › תרומה",
+     "desc_de": "Gesetze des Zweiten Zehnten › Auslösung außerhalb Jerusalems › Erfassen von Krügen zusammen mit Wein › Teruma",
+     "desc_en": "Laws of the second tithe › Redemption outside Jerusalem › Sanctifying jugs together with wine › Teruma"
+    },
+    {
+     "ref": "3:13",
+     "text": "התורם מאחת \\ דרך מכירתן",
+     "text_de": "Wer von einem absondert / Art ihres Verkaufs",
+     "text_en": "One who separates from one / manner of selling them",
+     "desc": "הלכות מעשר שני › פדיון מחוץ לירושלים › התפסת קנקנים אגב יין › תרומה",
+     "desc_de": "Gesetze des Zweiten Zehnten › Auslösung außerhalb Jerusalems › Erfassen von Krügen zusammen mit Wein › Teruma",
+     "desc_en": "Laws of the second tithe › Redemption outside Jerusalem › Sanctifying jugs together with wine › Teruma"
+    }
+   ]
+  },
+  {
+   "head": "פרק ד",
+   "head_de": "Kapitel 4",
+   "head_en": "Chapter 4",
+   "items": [
+    {
+     "ref": "4:1",
+     "text": "המוליך למקום אחר, הוצאות להובלה",
+     "text_de": "Wer an einen anderen Ort bringt, Transportkosten",
+     "text_en": "One who carries to another place, transport costs",
+     "desc": "הלכות מעשר שני › פדיון מחוץ לירושלים › קביעת המחיר › השער",
+     "desc_de": "Gesetze des Zweiten Zehnten › Auslösung außerhalb Jerusalems › Festlegung des Preises › Der Marktpreis",
+     "desc_en": "Laws of the second tithe › Redemption outside Jerusalem › Fixing the price › The market price"
+    },
+    {
+     "ref": "4:2",
+     "text": "שער זול \\ צורך בשומה",
+     "text_de": "Niedriger Preis / Notwendigkeit einer Schätzung",
+     "text_en": "Low price / need for an appraisal",
+     "desc": "הלכות מעשר שני › פדיון מחוץ לירושלים › קביעת המחיר › השער",
+     "desc_de": "Gesetze des Zweiten Zehnten › Auslösung außerhalb Jerusalems › Festlegung des Preises › Der Marktpreis",
+     "desc_en": "Laws of the second tithe › Redemption outside Jerusalem › Fixing the price › The market price"
+    },
+    {
+     "ref": "4:3",
+     "text": "מיקוח \\ על שלו",
+     "text_de": "Feilschen / bei dem Seinen",
+     "text_en": "Bargaining / with one's own",
+     "desc": "הלכות מעשר שני › פדיון מחוץ לירושלים › קביעת המחיר › תוספת חומש והערמה עליו",
+     "desc_de": "Gesetze des Zweiten Zehnten › Auslösung außerhalb Jerusalems › Festlegung des Preises › Zusatz des Fünftels und List dabei",
+     "desc_en": "Laws of the second tithe › Redemption outside Jerusalem › Fixing the price › Adding the fifth and subterfuge regarding it"
+    },
+    {
+     "ref": "4:4",
+     "text": "היכול לעזור",
+     "text_de": "Wer helfen kann",
+     "text_en": "One who can assist",
+     "desc": "הלכות מעשר שני › פדיון מחוץ לירושלים › קביעת המחיר › תוספת חומש והערמה עליו",
+     "desc_de": "Gesetze des Zweiten Zehnten › Auslösung außerhalb Jerusalems › Festlegung des Preises › Zusatz des Fünftels und List dabei",
+     "desc_en": "Laws of the second tithe › Redemption outside Jerusalem › Fixing the price › Adding the fifth and subterfuge regarding it"
+    },
+    {
+     "ref": "4:5",
+     "text": "כשאין לפודה מעות",
+     "text_de": "Wenn der Auslösende kein Geld hat",
+     "text_en": "When the redeemer has no money",
+     "desc": "הלכות מעשר שני › פדיון מחוץ לירושלים › קביעת המחיר › תוספת חומש והערמה עליו",
+     "desc_de": "Gesetze des Zweiten Zehnten › Auslösung außerhalb Jerusalems › Festlegung des Preises › Zusatz des Fünftels und List dabei",
+     "desc_en": "Laws of the second tithe › Redemption outside Jerusalem › Fixing the price › Adding the fifth and subterfuge regarding it"
+    },
+    {
+     "ref": "4:6",
+     "text": "שינוי בשער לפני גמר הקנין",
+     "text_de": "Preisänderung vor Abschluss des Erwerbs",
+     "text_en": "Price change before completion of the acquisition",
+     "desc": "הלכות מעשר שני › פדיון מחוץ לירושלים › קביעת המחיר › השער",
+     "desc_de": "Gesetze des Zweiten Zehnten › Auslösung außerhalb Jerusalems › Festlegung des Preises › Der Marktpreis",
+     "desc_en": "Laws of the second tithe › Redemption outside Jerusalem › Fixing the price › The market price"
+    },
+    {
+     "ref": "4:7",
+     "text": "כשלא פירש, בגט וקידושין",
+     "text_de": "Wenn er es nicht ausdrücklich nannte, bei Scheidebrief und Verlobung",
+     "text_en": "When he did not specify, in divorce and betrothal",
+     "desc": "הלכות מעשר שני › פדיון מחוץ לירושלים › איך פודים",
+     "desc_de": "Gesetze des Zweiten Zehnten › Auslösung außerhalb Jerusalems › Wie löst man aus",
+     "desc_en": "Laws of the second tithe › Redemption outside Jerusalem › How one redeems"
+    },
+    {
+     "ref": "4:8",
+     "text": "הנחת מעות לחלל עליהם ולפדותן",
+     "text_de": "Hinlegen von Geld, um darauf auszulösen und es zu lösen",
+     "text_en": "Setting down money to redeem onto it and to release it",
+     "desc": "הלכות מעשר שני › פדיון מחוץ לירושלים › איך פודים",
+     "desc_de": "Gesetze des Zweiten Zehnten › Auslösung außerhalb Jerusalems › Wie löst man aus",
+     "desc_en": "Laws of the second tithe › Redemption outside Jerusalem › How one redeems"
+    },
+    {
+     "ref": "4:9",
+     "text": "מעות \\ על חרס",
+     "text_de": "Geld / auf einer Tonscherbe",
+     "text_en": "Money / on a potsherd",
+     "desc": "הלכות מעשר שני › מציאות וספק מעשר › משמעות של סימנים › תערובת",
+     "desc_de": "Gesetze des Zweiten Zehnten › Fundsachen und zweifelhafter Zehnt › Bedeutung von Kennzeichen › Vermischung",
+     "desc_en": "Laws of the second tithe › Found items and doubtful tithe › Meaning of markings › Mixture"
+    },
+    {
+     "ref": "4:10",
+     "text": "טיב הכלי",
+     "text_de": "Beschaffenheit des Gefäßes",
+     "text_en": "Nature of the vessel",
+     "desc": "הלכות מעשר שני › מציאות וספק מעשר › משמעות של סימנים › כתב",
+     "desc_de": "Gesetze des Zweiten Zehnten › Fundsachen und zweifelhafter Zehnt › Bedeutung von Kennzeichen › Schrift",
+     "desc_en": "Laws of the second tithe › Found items and doubtful tithe › Meaning of markings › Writing"
+    },
+    {
+     "ref": "4:11",
+     "text": "ראשי תיבות, חשש פינוי",
+     "text_de": "Abkürzungen, Befürchtung der Räumung",
+     "text_en": "Abbreviations, concern about clearing out",
+     "desc": "הלכות מעשר שני › מציאות וספק מעשר › משמעות של סימנים › כתב",
+     "desc_de": "Gesetze des Zweiten Zehnten › Fundsachen und zweifelhafter Zehnt › Bedeutung von Kennzeichen › Schrift",
+     "desc_en": "Laws of the second tithe › Found items and doubtful tithe › Meaning of markings › Writing"
+    },
+    {
+     "ref": "4:12",
+     "text": "הוראות לא מדויקות",
+     "text_de": "Ungenaue Anweisungen",
+     "text_en": "Imprecise instructions",
+     "desc": "הלכות מעשר שני › מציאות וספק מעשר › משמעות של סימנים › מקום הנחה",
+     "desc_de": "Gesetze des Zweiten Zehnten › Fundsachen und zweifelhafter Zehnt › Bedeutung von Kennzeichen › Ort des Hinstellens",
+     "desc_en": "Laws of the second tithe › Found items and doubtful tithe › Meaning of markings › Place of setting down"
+    }
+   ]
+  },
+  {
+   "head": "פרק ה",
+   "head_de": "Kapitel 5",
+   "head_en": "Chapter 5",
+   "items": [
+    {
+     "ref": "5:1",
+     "text": "איסורים שונים, מנהג צנועים",
+     "text_de": "Verschiedene Verbote, Brauch der Frommen",
+     "text_en": "Various prohibitions, custom of the modest",
+     "desc": "נטע רבעי › סימנים › צבע וחומר",
+     "desc_de": "Vierjahrespflanzung › Kennzeichen › Farbe und Material",
+     "desc_en": "Fourth-year planting › Markings › Color and material"
+    },
+    {
+     "ref": "5:2",
+     "text": "תחומה, ביטול ותנאי",
+     "text_de": "Ihre Grenze, Aufhebung und Bedingung",
+     "text_en": "Its boundary, nullification and condition",
+     "desc": "נטע רבעי › פדיון › גזירת העלאה",
+     "desc_de": "Vierjahrespflanzung › Auslösung › Verordnung über das Hinaufbringen",
+     "desc_en": "Fourth-year planting › Redemption › Decree concerning bringing up"
+    },
+    {
+     "ref": "5:3",
+     "text": "שוויון להלכות מעשר שני ומתנות עניים",
+     "text_de": "Gleichstellung für die Gesetze des Zweiten Zehnten und der Armengaben",
+     "text_en": "Equating the laws of the second tithe and gifts to the poor",
+     "desc": "נטע רבעי › פדיון",
+     "desc_de": "Vierjahrespflanzung › Auslösung",
+     "desc_en": "Fourth-year planting › Redemption"
+    },
+    {
+     "ref": "5:4",
+     "text": "שנה רגילה",
+     "text_de": "Gewöhnliches Jahr",
+     "text_en": "Ordinary year",
+     "desc": "נטע רבעי › פדיון › קביעת מחיר",
+     "desc_de": "Vierjahrespflanzung › Auslösung › Festlegung des Preises",
+     "desc_en": "Fourth-year planting › Redemption › Fixing the price"
+    },
+    {
+     "ref": "5:5",
+     "text": "שביעית, תוספת חומש",
+     "text_de": "Sabbatjahr, Zusatz des Fünftels",
+     "text_en": "Sabbatical year, addition of the fifth",
+     "desc": "נטע רבעי › פדיון › קביעת מחיר",
+     "desc_de": "Vierjahrespflanzung › Auslösung › Festlegung des Preises",
+     "desc_en": "Fourth-year planting › Redemption › Fixing the price"
+    },
+    {
+     "ref": "5:6",
+     "text": "התאריך, מי מקבלם, ביכורים, תבשיל",
+     "text_de": "Datum, wer sie empfängt, Erstlingsfrüchte, Gekochtes",
+     "text_en": "Date, who receives them, first fruits, cooked dish",
+     "desc": "ביעור המעשרות › כיצד ובמה שייך › בזמן המקדש",
+     "desc_de": "Beseitigung der Zehnte › Wie und worauf es zutrifft › Zur Zeit des Tempels",
+     "desc_en": "Removal of the tithes › How and to what it applies › In Temple times"
+    },
+    {
+     "ref": "5:7",
+     "text": "צורך בחילול",
+     "text_de": "Notwendigkeit der Auslösung",
+     "text_en": "Need for redemption",
+     "desc": "ביעור המעשרות › כיצד ובמה שייך › אחר החורבן",
+     "desc_de": "Beseitigung der Zehnte › Wie und worauf es zutrifft › Nach der Zerstörung",
+     "desc_en": "Removal of the tithes › How and to what it applies › After the destruction"
+    },
+    {
+     "ref": "5:8",
+     "text": "פירות שלא נגמרו",
+     "text_de": "Früchte, die nicht fertig waren",
+     "text_en": "Fruits that were not finished",
+     "desc": "ביעור המעשרות › כיצד ובמה שייך › הבשלתן",
+     "desc_de": "Beseitigung der Zehnte › Wie und worauf es zutrifft › Ihr Ausreifen",
+     "desc_en": "Removal of the tithes › How and to what it applies › Their ripening"
+    },
+    {
+     "ref": "5:9",
+     "text": "פירות המרוחקים ממנו השכרת מקום",
+     "text_de": "Weit entfernte Früchte, Vermieten von Platz",
+     "text_en": "Fruits far away, renting out space",
+     "desc": "ביעור המעשרות › כיצד ובמה שייך › מקומן",
+     "desc_de": "Beseitigung der Zehnte › Wie und worauf es zutrifft › Ihr Ort",
+     "desc_en": "Removal of the tithes › How and to what it applies › Their location"
+    },
+    {
+     "ref": "5:10",
+     "text": "מה צריך להפריש",
+     "text_de": "Was abgesondert werden muss",
+     "text_en": "What must be separated",
+     "desc": "ביעור המעשרות › וידוי המעשרות › דרשת פסוקי הוידו › ההפרשה",
+     "desc_de": "Beseitigung der Zehnte › Bekenntnis über die Zehnte › Auslegung der Verse des Bekenntnisses › Die Absonderung",
+     "desc_en": "Removal of the tithes › Confession regarding the tithes › Exposition of the verses of the confession › The separation"
+    },
+    {
+     "ref": "5:11",
+     "text": "דיוק בהפרשה",
+     "text_de": "Genauigkeit bei der Absonderung",
+     "text_en": "Precision in the separation",
+     "desc": "ביעור המעשרות › וידוי המעשרות › דרשת פסוקי הוידו › ההפרשה",
+     "desc_de": "Beseitigung der Zehnte › Bekenntnis über die Zehnte › Auslegung der Verse des Bekenntnisses › Die Absonderung",
+     "desc_en": "Removal of the tithes › Confession regarding the tithes › Exposition of the verses of the confession › The separation"
+    },
+    {
+     "ref": "5:12",
+     "text": "שימושים האסורים",
+     "text_de": "Verbotene Verwendungen",
+     "text_en": "Prohibited uses",
+     "desc": "ביעור המעשרות › וידוי המעשרות › דרשת פסוקי הוידו › ההפרשה",
+     "desc_de": "Beseitigung der Zehnte › Bekenntnis über die Zehnte › Auslegung der Verse des Bekenntnisses › Die Absonderung",
+     "desc_en": "Removal of the tithes › Confession regarding the tithes › Exposition of the verses of the confession › The separation"
+    },
+    {
+     "ref": "5:13",
+     "text": "תפילה",
+     "text_de": "Gebet",
+     "text_en": "Prayer",
+     "desc": "ביעור המעשרות › וידוי המעשרות › דרשת פסוקי הוידו",
+     "desc_de": "Beseitigung der Zehnte › Bekenntnis über die Zehnte › Auslegung der Verse des Bekenntnisses",
+     "desc_en": "Removal of the tithes › Confession regarding the tithes › Exposition of the verses of the confession"
+    },
+    {
+     "ref": "5:14",
+     "text": "נוחלי הארץ",
+     "text_de": "Die Erben des Landes",
+     "text_en": "The inheritors of the Land",
+     "desc": "ביעור המעשרות › וידוי המעשרות › דרשת פסוקי הוידו › המתוודים",
+     "desc_de": "Beseitigung der Zehnte › Bekenntnis über die Zehnte › Auslegung der Verse des Bekenntnisses › Die Bekennenden",
+     "desc_en": "Removal of the tithes › Confession regarding the tithes › Exposition of the verses of the confession › Those who confess"
+    },
+    {
+     "ref": "5:15",
+     "text": "וידו, גנאי, מראית עין, דמאי",
+     "text_de": "Bekenntnis, Schmähung, Anschein, Demai",
+     "text_en": "Confession, disgrace, appearance, demai",
+     "desc": "ביעור המעשרות › וידוי המעשרות › תקנות יוחנן כה\"ג",
+     "desc_de": "Beseitigung der Zehnte › Bekenntnis über die Zehnte › Verordnungen des Hohenpriesters Jochanan",
+     "desc_en": "Removal of the tithes › Confession regarding the tithes › Ordinances of the High Priest Yochanan"
+    }
+   ]
+  }
+ ]
+}

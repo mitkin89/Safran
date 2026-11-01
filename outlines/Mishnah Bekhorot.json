@@ -1,0 +1,731 @@
+{
+ "book": "Mishnah Bekhorot",
+ "title": "משנה בכורות",
+ "title_de": "Mischna Bechorot – Gliederung",
+ "title_en": "Bekhorot – outline",
+ "note": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema).",
+ "note_de": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema); ins Deutsche und Englische übersetzt.",
+ "note_en": "Outline after the table “Mishna Sedura”: the central content of each mishnah, with the topic path (main topic to sub-topic); translated into German and English.",
+ "sections": [
+  {
+   "head": "פרק א",
+   "head_de": "Kapitel 1",
+   "head_en": "Chapter 1",
+   "items": [
+    {
+     "ref": "1:1",
+     "text": "שותפות נכרי, כהן ולוי",
+     "text_de": "Partnerschaft mit einem Nichtjuden, Priester und Levit",
+     "text_en": "Partnership with a gentile, priest and Levite",
+     "desc": "קדושת בכורות ודיניהם › פטר חמור › חיוב בבעלים ובבהמה",
+     "desc_de": "Heiligkeit der Erstgeborenen und ihre Regeln › Erstgeborener des Esels › Verpflichtung bei Besitzern und Tier",
+     "desc_en": "Sanctity of firstborn animals and their rules › Firstborn of the donkey › Liability regarding owners and animal"
+    },
+    {
+     "ref": "1:2",
+     "text": "קדושת בכור, אכילה",
+     "text_de": "Heiligkeit des Erstgeborenen, Essen",
+     "text_en": "Sanctity of the firstborn, eating",
+     "desc": "קדושת בכורות ודיניהם › פטר חמור › חיוב בבעלים ובבהמה › ולד שונה מאמו",
+     "desc_de": "Heiligkeit der Erstgeborenen und ihre Regeln › Erstgeborener des Esels › Verpflichtung bei Besitzern und Tier › Junges, das der Mutter unähnlich ist",
+     "desc_en": "Sanctity of firstborn animals and their rules › Firstborn of the donkey › Liability regarding owners and animal › Offspring differing from its mother"
+    },
+    {
+     "ref": "1:3",
+     "text": "מבכירות",
+     "text_de": "Von Erstgebärenden",
+     "text_en": "From animals that have given birth for the first time",
+     "desc": "קדושת בכורות ודיניהם › פטר חמור › חיוב בבעלים ובבהמה › חיוב בספק",
+     "desc_de": "Heiligkeit der Erstgeborenen und ihre Regeln › Erstgeborener des Esels › Verpflichtung bei Besitzern und Tier › Verpflichtung im Zweifelsfall",
+     "desc_en": "Sanctity of firstborn animals and their rules › Firstborn of the donkey › Liability regarding owners and animal › Liability in cases of doubt"
+    },
+    {
+     "ref": "1:4",
+     "text": "אחת משתים מבכירה \\ הכשר, דין ספק",
+     "text_de": "Eine von zweien gebiert erstmals / Zulassung, Zweifelsregel",
+     "text_en": "One of two is a first-time mother / validation, rule of doubt",
+     "desc": "קדושת בכורות ודיניהם › פטר חמור › חיוב בבעלים ובבהמה › חיוב בספק",
+     "desc_de": "Heiligkeit der Erstgeborenen und ihre Regeln › Erstgeborener des Esels › Verpflichtung bei Besitzern und Tier › Verpflichtung im Zweifelsfall",
+     "desc_en": "Sanctity of firstborn animals and their rules › Firstborn of the donkey › Liability regarding owners and animal › Liability in cases of doubt"
+    },
+    {
+     "ref": "1:5",
+     "text": "הפסול לפדיון \\ הפרשת כהן",
+     "text_de": "Untauglich zur Auslösung / Aussonderung durch den Priester",
+     "text_en": "Unfit for redemption / separation by the priest",
+     "desc": "קדושת בכורות ודיניהם › פטר חמור › פדיון › במה פודים",
+     "desc_de": "Heiligkeit der Erstgeborenen und ihre Regeln › Erstgeborener des Esels › Auslösung › Womit man auslöst",
+     "desc_en": "Sanctity of firstborn animals and their rules › Firstborn of the donkey › Redemption › With what one redeems"
+    },
+    {
+     "ref": "1:6",
+     "text": "אחריות הפדיון ונפקא מינות",
+     "text_de": "Haftung für die Auslösung und Folgerungen",
+     "text_en": "Responsibility for the redemption and its implications",
+     "desc": "קדושת בכורות ודיניהם › פטר חמור › פדיון › תוצאות הפדיון",
+     "desc_de": "Heiligkeit der Erstgeborenen und ihre Regeln › Erstgeborener des Esels › Auslösung › Folgen der Auslösung",
+     "desc_en": "Sanctity of firstborn animals and their rules › Firstborn of the donkey › Redemption › Consequences of the redemption"
+    },
+    {
+     "ref": "1:7",
+     "text": "כיצד, קדימה במצוות זוגיות",
+     "text_de": "Wie, Vorrang bei paarweisen Geboten",
+     "text_en": "How, precedence in paired commandments",
+     "desc": "קדושת בכורות ודיניהם › פטר חמור › פדיון › עריפה",
+     "desc_de": "Heiligkeit der Erstgeborenen und ihre Regeln › Erstgeborener des Esels › Auslösung › Genickbruch (Arifa)",
+     "desc_en": "Sanctity of firstborn animals and their rules › Firstborn of the donkey › Redemption › Breaking the neck (arifa)"
+    }
+   ]
+  },
+  {
+   "head": "פרק ב",
+   "head_de": "Kapitel 2",
+   "head_en": "Chapter 2",
+   "items": [
+    {
+     "ref": "2:1",
+     "text": "שותפות נכרי, כהן לוי",
+     "text_de": "Partnerschaft mit einem Nichtjuden, Priester, Levit",
+     "text_en": "Partnership with a gentile, priest, Levite",
+     "desc": "קדושת בכורות ודיניהם › בכור בהמה טהורה › חיוב בבעלים ובבהמות › שבוודאי פטורים או חייבים",
+     "desc_de": "Heiligkeit der Erstgeborenen und ihre Regeln › Erstgeborenes reines Tier › Verpflichtung bei Besitzern und Tieren › Die gewiss befreit oder verpflichtet sind",
+     "desc_en": "Sanctity of firstborn animals and their rules › Firstborn of a pure animal › Liability regarding owners and animals › Those certainly exempt or liable"
+    },
+    {
+     "ref": "2:2",
+     "text": "שהוממו לפני הקדשן",
+     "text_de": "Die vor der Weihung fehlerhaft wurden",
+     "text_en": "Those that became blemished before consecration",
+     "desc": "קדושת בכורות ודיניהם › בכור בהמה טהורה › חיוב בבעלים ובבהמות › שבוודאי פטורים או חייבים › דיני קדשים",
+     "desc_de": "Heiligkeit der Erstgeborenen und ihre Regeln › Erstgeborenes reines Tier › Verpflichtung bei Besitzern und Tieren › Die gewiss befreit oder verpflichtet sind › Regeln über Geweihtes",
+     "desc_en": "Sanctity of firstborn animals and their rules › Firstborn of a pure animal › Liability regarding owners and animals › Those certainly exempt or liable › Rules on consecrated animals"
+    },
+    {
+     "ref": "2:3",
+     "text": "שהוממו לאחר הקדשן",
+     "text_de": "Die nach der Weihung fehlerhaft wurden",
+     "text_en": "Those that became blemished after consecration",
+     "desc": "קדושת בכורות ודיניהם › בכור בהמה טהורה › חיוב בבעלים ובבהמות › שבוודאי פטורים או חייבים › דיני קדשים",
+     "desc_de": "Heiligkeit der Erstgeborenen und ihre Regeln › Erstgeborenes reines Tier › Verpflichtung bei Besitzern und Tieren › Die gewiss befreit oder verpflichtet sind › Regeln über Geweihtes",
+     "desc_en": "Sanctity of firstborn animals and their rules › Firstborn of a pure animal › Liability regarding owners and animals › Those certainly exempt or liable › Rules on consecrated animals"
+    },
+    {
+     "ref": "2:4",
+     "text": "צאן ברזל מנכרי, חוזק השעבוד",
+     "text_de": "Schafe in Eisenpacht von einem Nichtjuden, Stärke der Verpflichtung",
+     "text_en": "Iron-flock sheep from a gentile, strength of the obligation",
+     "desc": "קדושת בכורות ודיניהם › בכור בהמה טהורה › חיוב בבעלים ובבהמות › שבוודאי פטורים או חייבים",
+     "desc_de": "Heiligkeit der Erstgeborenen und ihre Regeln › Erstgeborenes reines Tier › Verpflichtung bei Besitzern und Tieren › Die gewiss befreit oder verpflichtet sind",
+     "desc_en": "Sanctity of firstborn animals and their rules › Firstborn of a pure animal › Liability regarding owners and animals › Those certainly exempt or liable"
+    },
+    {
+     "ref": "2:5",
+     "text": "מראה שונה מן האם",
+     "text_de": "Aussehen, das von der Mutter abweicht",
+     "text_en": "Appearance differing from the mother",
+     "desc": "קדושת בכורות ודיניהם › בכור בהמה טהורה › חיוב בבעלים ובבהמות › שבוודאי פטורים או חייבים",
+     "desc_de": "Heiligkeit der Erstgeborenen und ihre Regeln › Erstgeborenes reines Tier › Verpflichtung bei Besitzern und Tieren › Die gewiss befreit oder verpflichtet sind",
+     "desc_en": "Sanctity of firstborn animals and their rules › Firstborn of a pure animal › Liability regarding owners and animals › Those certainly exempt or liable"
+    },
+    {
+     "ref": "2:6",
+     "text": "נולדו שנים בבת אחת",
+     "text_de": "Zwei gleichzeitig geboren",
+     "text_en": "Two born at the same time",
+     "desc": "קדושת בכורות ודיניהם › בכור בהמה טהורה › חיוב בבעלים ובבהמות › שיש ספק בחיובם",
+     "desc_de": "Heiligkeit der Erstgeborenen und ihre Regeln › Erstgeborenes reines Tier › Verpflichtung bei Besitzern und Tieren › Deren Verpflichtung zweifelhaft ist",
+     "desc_en": "Sanctity of firstborn animals and their rules › Firstborn of a pure animal › Liability regarding owners and animals › Those whose liability is doubtful"
+    },
+    {
+     "ref": "2:7",
+     "text": "עירבוב ולדי מבכירות",
+     "text_de": "Vermischung der Jungen von Erstgebärenden",
+     "text_en": "Mixing of offspring of first-time mothers",
+     "desc": "קדושת בכורות ודיניהם › בכור בהמה טהורה › חיוב בבעלים ובבהמות › שיש ספק בחיובם",
+     "desc_de": "Heiligkeit der Erstgeborenen und ihre Regeln › Erstgeborenes reines Tier › Verpflichtung bei Besitzern und Tieren › Deren Verpflichtung zweifelhaft ist",
+     "desc_en": "Sanctity of firstborn animals and their rules › Firstborn of a pure animal › Liability regarding owners and animals › Those whose liability is doubtful"
+    },
+    {
+     "ref": "2:8",
+     "text": "עירבוב ולדי מבכירה ואינה מבכירה",
+     "text_de": "Vermischung der Jungen einer Erstgebärenden und einer Nichterstgebärenden",
+     "text_en": "Mixing of offspring of a first-time mother and a non-first-time mother",
+     "desc": "קדושת בכורות ודיניהם › בכור בהמה טהורה › חיוב בבעלים ובבהמות › שיש ספק בחיובם",
+     "desc_de": "Heiligkeit der Erstgeborenen und ihre Regeln › Erstgeborenes reines Tier › Verpflichtung bei Besitzern und Tieren › Deren Verpflichtung zweifelhaft ist",
+     "desc_en": "Sanctity of firstborn animals and their rules › Firstborn of a pure animal › Liability regarding owners and animals › Those whose liability is doubtful"
+    },
+    {
+     "ref": "2:9",
+     "text": "יוצא דופן והבא אחריו",
+     "text_de": "Ungewöhnliche Geburt und das danach Kommende",
+     "text_en": "Caesarean birth and the one that follows",
+     "desc": "קדושת בכורות ודיניהם › בכור בהמה טהורה › חיוב בבעלים ובבהמות › שיש ספק בחיובם",
+     "desc_de": "Heiligkeit der Erstgeborenen und ihre Regeln › Erstgeborenes reines Tier › Verpflichtung bei Besitzern und Tieren › Deren Verpflichtung zweifelhaft ist",
+     "desc_en": "Sanctity of firstborn animals and their rules › Firstborn of a pure animal › Liability regarding owners and animals › Those whose liability is doubtful"
+    }
+   ]
+  },
+  {
+   "head": "פרק ג",
+   "head_de": "Kapitel 3",
+   "head_en": "Chapter 3",
+   "items": [
+    {
+     "ref": "3:1",
+     "text": "גיל הנלקחת מנכרי, כלל, חררת דם",
+     "text_de": "Alter des von einem Nichtjuden genommenen Tieres, Grundsatz, Blutkuchen",
+     "text_en": "Age of the animal taken from a gentile, general rule, blood cake",
+     "desc": "קדושת בכורות ודיניהם › בכור בהמה טהורה › חיוב בבעלים ובבהמות › שיש ספק בחיובם › דרכי בירור",
+     "desc_de": "Heiligkeit der Erstgeborenen und ihre Regeln › Erstgeborenes reines Tier › Verpflichtung bei Besitzern und Tieren › Deren Verpflichtung zweifelhaft ist › Wege der Klärung",
+     "desc_en": "Sanctity of firstborn animals and their rules › Firstborn of a pure animal › Liability regarding owners and animals › Those whose liability is doubtful › Means of clarification"
+    },
+    {
+     "ref": "3:2",
+     "text": "אי חשש לערבוב בני מניקות",
+     "text_de": "Keine Sorge wegen Vermischung der Jungen säugender Tiere",
+     "text_en": "No concern about mixing of offspring of nursing animals",
+     "desc": "קדושת בכורות ודיניהם › בכור בהמה טהורה › חיוב בבעלים ובבהמות › שיש ספק בחיובם › דרכי בירור",
+     "desc_de": "Heiligkeit der Erstgeborenen und ihre Regeln › Erstgeborenes reines Tier › Verpflichtung bei Besitzern und Tieren › Deren Verpflichtung zweifelhaft ist › Wege der Klärung",
+     "desc_en": "Sanctity of firstborn animals and their rules › Firstborn of a pure animal › Liability regarding owners and animals › Those whose liability is doubtful › Means of clarification"
+    },
+    {
+     "ref": "3:3",
+     "text": "לצורך שחיטה או ראיית מום",
+     "text_de": "Zum Schlachten oder zur Untersuchung eines Fehlers",
+     "text_en": "For slaughter or examination of a blemish",
+     "desc": "קדושת בכורות ודיניהם › בכור בהמה טהורה › הנאה מהבכור › איסור בגיזת בכור",
+     "desc_de": "Heiligkeit der Erstgeborenen und ihre Regeln › Erstgeborenes reines Tier › Nutzen vom Erstgeborenen › Verbot der Schur des Erstgeborenen",
+     "desc_en": "Sanctity of firstborn animals and their rules › Firstborn of a pure animal › Benefit from the firstborn › Prohibition of shearing a firstborn"
+    },
+    {
+     "ref": "3:4",
+     "text": "שיער שנשר, שמדובלל",
+     "text_de": "Ausgefallenes Haar, verfilztes Haar",
+     "text_en": "Fallen hair, matted hair",
+     "desc": "קדושת בכורות ודיניהם › בכור בהמה טהורה › הנאה מהבכור › איסור בגיזת בכור",
+     "desc_de": "Heiligkeit der Erstgeborenen und ihre Regeln › Erstgeborenes reines Tier › Nutzen vom Erstgeborenen › Verbot der Schur des Erstgeborenen",
+     "desc_en": "Sanctity of firstborn animals and their rules › Firstborn of a pure animal › Benefit from the firstborn › Prohibition of shearing a firstborn"
+    }
+   ]
+  },
+  {
+   "head": "פרק ד",
+   "head_de": "Kapitel 4",
+   "head_en": "Chapter 4",
+   "items": [
+    {
+     "ref": "4:1",
+     "text": "נתינה לכהן, טעות להקדים \\ אכילה",
+     "text_de": "Übergabe an den Priester, irrtümliches Vorziehen / Essen",
+     "text_en": "Giving to the priest, mistaken advancing / eating",
+     "desc": "קדושת בכורות ודיניהם › בכור בהמה טהורה › הנאה מהבכור › חלות החיוב › שנה",
+     "desc_de": "Heiligkeit der Erstgeborenen und ihre Regeln › Erstgeborenes reines Tier › Nutzen vom Erstgeborenen › Eintreten der Verpflichtung › Jahr",
+     "desc_en": "Sanctity of firstborn animals and their rules › Firstborn of a pure animal › Benefit from the firstborn › Onset of the obligation › Year"
+    },
+    {
+     "ref": "4:2",
+     "text": "החזקה לפני אכילה",
+     "text_de": "Vermutung vor dem Essen",
+     "text_en": "Presumption before eating",
+     "desc": "קדושת בכורות ודיניהם › בכור בהמה טהורה › הנאה מהבכור › חלות החיוב › שנה",
+     "desc_de": "Heiligkeit der Erstgeborenen und ihre Regeln › Erstgeborenes reines Tier › Nutzen vom Erstgeborenen › Eintreten der Verpflichtung › Jahr",
+     "desc_en": "Sanctity of firstborn animals and their rules › Firstborn of a pure animal › Benefit from the firstborn › Onset of the obligation › Year"
+    },
+    {
+     "ref": "4:3",
+     "text": "ראיית מומחה אחר שחיטה",
+     "text_de": "Untersuchung durch einen anderen Sachkundigen nach der Schlachtung",
+     "text_en": "Examination by another expert after slaughter",
+     "desc": "קדושת בכורות ודיניהם › בכור בהמה טהורה › התרת הבכור › הנשחט באיסור",
+     "desc_de": "Heiligkeit der Erstgeborenen und ihre Regeln › Erstgeborenes reines Tier › Freigabe des Erstgeborenen › Das verbotenerweise Geschlachtete",
+     "desc_en": "Sanctity of firstborn animals and their rules › Firstborn of a pure animal › Releasing the firstborn › That slaughtered in violation"
+    },
+    {
+     "ref": "4:4",
+     "text": "הניתר על ידי הדיוט, מומחה שטעה",
+     "text_de": "Von einem Laien Freigegebenes, Irrtum des Sachkundigen",
+     "text_en": "Released by a layman, error of the expert",
+     "desc": "קדושת בכורות ודיניהם › בכור בהמה טהורה › התרת הבכור › הנשחט באיסור",
+     "desc_de": "Heiligkeit der Erstgeborenen und ihre Regeln › Erstgeborenes reines Tier › Freigabe des Erstgeborenen › Das verbotenerweise Geschlachtete",
+     "desc_en": "Sanctity of firstborn animals and their rules › Firstborn of a pure animal › Releasing the firstborn › That slaughtered in violation"
+    },
+    {
+     "ref": "4:5",
+     "text": "ראיית בכורות",
+     "text_de": "Untersuchung von Erstgeborenen",
+     "text_en": "Examination of firstborn animals",
+     "desc": "קדושת בכורות ודיניהם › בכור בהמה טהורה › התרת הבכור › קבלת שכר",
+     "desc_de": "Heiligkeit der Erstgeborenen und ihre Regeln › Erstgeborenes reines Tier › Freigabe des Erstgeborenen › Entgegennahme von Lohn",
+     "desc_en": "Sanctity of firstborn animals and their rules › Firstborn of a pure animal › Releasing the firstborn › Receiving payment"
+    },
+    {
+     "ref": "4:6",
+     "text": "עניני ב\"ד או מי חטאת, המותר לקבל",
+     "text_de": "Angelegenheiten des Gerichts oder des Entsündigungswassers, was man annehmen darf",
+     "text_en": "Matters of the court or of the purification water, what one may accept",
+     "desc": "קדושת בכורות ודיניהם › בכור בהמה טהורה › התרת הבכור › קבלת שכר",
+     "desc_de": "Heiligkeit der Erstgeborenen und ihre Regeln › Erstgeborenes reines Tier › Freigabe des Erstgeborenen › Entgegennahme von Lohn",
+     "desc_en": "Sanctity of firstborn animals and their rules › Firstborn of a pure animal › Releasing the firstborn › Receiving payment"
+    },
+    {
+     "ref": "4:7",
+     "text": "בשר ועורות של בכורות",
+     "text_de": "Fleisch und Häute von Erstgeborenen",
+     "text_en": "Meat and hides of firstborn animals",
+     "desc": "קדושת בכורות ודיניהם › בכור בהמה טהורה › הנאה מהבכור › קנין מהחשוד באיסור",
+     "desc_de": "Heiligkeit der Erstgeborenen und ihre Regeln › Erstgeborenes reines Tier › Nutzen vom Erstgeborenen › Erwerb von einem, der verdächtigt wird, Verbotenes zu tun",
+     "desc_en": "Sanctity of firstborn animals and their rules › Firstborn of a pure animal › Benefit from the firstborn › Purchase from one suspected of transgression"
+    },
+    {
+     "ref": "4:8",
+     "text": "פשתן ובגדים של שביעית",
+     "text_de": "Flachs und Kleider aus dem Sabbatjahr",
+     "text_en": "Flax and garments of the Sabbatical year",
+     "desc": "קדושת בכורות ודיניהם › בכור בהמה טהורה › הנאה מהבכור › קנין מהחשוד באיסור",
+     "desc_de": "Heiligkeit der Erstgeborenen und ihre Regeln › Erstgeborenes reines Tier › Nutzen vom Erstgeborenen › Erwerb von einem, der verdächtigt wird, Verbotenes zu tun",
+     "desc_en": "Sanctity of firstborn animals and their rules › Firstborn of a pure animal › Benefit from the firstborn › Purchase from one suspected of transgression"
+    },
+    {
+     "ref": "4:9",
+     "text": "מאכלי תרומה",
+     "text_de": "Speisen der Terumot",
+     "text_en": "Foods of terumah",
+     "desc": "קדושת בכורות ודיניהם › בכור בהמה טהורה › הנאה מהבכור › קנין מהחשוד באיסור",
+     "desc_de": "Heiligkeit der Erstgeborenen und ihre Regeln › Erstgeborenes reines Tier › Nutzen vom Erstgeborenen › Erwerb von einem, der verdächtigt wird, Verbotenes zu tun",
+     "desc_en": "Sanctity of firstborn animals and their rules › Firstborn of a pure animal › Benefit from the firstborn › Purchase from one suspected of transgression"
+    },
+    {
+     "ref": "4:10",
+     "text": "השוואת חשדים",
+     "text_de": "Vergleich der Verdachtsfälle",
+     "text_en": "Comparison of suspicions",
+     "desc": "קדושת בכורות ודיניהם › בכור בהמה טהורה › הנאה מהבכור › קנין מהחשוד באיסור",
+     "desc_de": "Heiligkeit der Erstgeborenen und ihre Regeln › Erstgeborenes reines Tier › Nutzen vom Erstgeborenen › Erwerb von einem, der verdächtigt wird, Verbotenes zu tun",
+     "desc_en": "Sanctity of firstborn animals and their rules › Firstborn of a pure animal › Benefit from the firstborn › Purchase from one suspected of transgression"
+    }
+   ]
+  },
+  {
+   "head": "פרק ה",
+   "head_de": "Kapitel 5",
+   "head_en": "Chapter 5",
+   "items": [
+    {
+     "ref": "5:1",
+     "text": "בזיון לצורך ריוח בפסולי המוקדשין",
+     "text_de": "Entwürdigung zum Gewinn bei untauglichen Geweihten",
+     "text_en": "Degradation for profit with disqualified consecrated animals",
+     "desc": "קדושת בכורות ודיניהם › בכור בהמה טהורה › הנאה מהבכור › מכירת ואכילת בכור",
+     "desc_de": "Heiligkeit der Erstgeborenen und ihre Regeln › Erstgeborenes reines Tier › Nutzen vom Erstgeborenen › Verkauf und Essen eines Erstgeborenen",
+     "desc_en": "Sanctity of firstborn animals and their rules › Firstborn of a pure animal › Benefit from the firstborn › Sale and eating of a firstborn"
+    },
+    {
+     "ref": "5:2",
+     "text": "הרשאי לאוכלו \\ רפואה",
+     "text_de": "Wer es essen darf / Heilbehandlung",
+     "text_en": "Who may eat it / medical treatment",
+     "desc": "קדושת בכורות ודיניהם › מומים › התרת הבכור › הטלת מום",
+     "desc_de": "Heiligkeit der Erstgeborenen und ihre Regeln › Gebrechen › Freigabe des Erstgeborenen › Zufügen eines Fehlers",
+     "desc_en": "Sanctity of firstborn animals and their rules › Blemishes › Releasing the firstborn › Inflicting a blemish"
+    },
+    {
+     "ref": "5:3",
+     "text": "במזיד, שלא לדעת",
+     "text_de": "Absichtlich, unwissentlich",
+     "text_en": "Intentionally, unknowingly",
+     "desc": "קדושת בכורות ודיניהם › מומים › התרת הבכור › הטלת מום",
+     "desc_de": "Heiligkeit der Erstgeborenen und ihre Regeln › Gebrechen › Freigabe des Erstgeborenen › Zufügen eines Fehlers",
+     "desc_en": "Sanctity of firstborn animals and their rules › Blemishes › Releasing the firstborn › Inflicting a blemish"
+    },
+    {
+     "ref": "5:4",
+     "text": "להגנה \\ רועה כהן",
+     "text_de": "Zum Schutz / Priester als Hirte",
+     "text_en": "For protection / priest as shepherd",
+     "desc": "קדושת בכורות ודיניהם › מומים › התרת הבכור › הטלת מום › נאמנות כהן",
+     "desc_de": "Heiligkeit der Erstgeborenen und ihre Regeln › Gebrechen › Freigabe des Erstgeborenen › Zufügen eines Fehlers › Glaubwürdigkeit des Priesters",
+     "desc_en": "Sanctity of firstborn animals and their rules › Blemishes › Releasing the firstborn › Inflicting a blemish › Reliability of the priest"
+    },
+    {
+     "ref": "5:5",
+     "text": "ראיית בכור, מעשר \\ המתיר מום מובהק",
+     "text_de": "Untersuchung des Erstgeborenen, Zehnt / Wer einen eindeutigen Fehler freigibt",
+     "text_en": "Examination of the firstborn, tithe / one who permits a clear blemish",
+     "desc": "קדושת בכורות ודיניהם › מומים › התרת הבכור › הטלת מום › נאמנות כהן",
+     "desc_de": "Heiligkeit der Erstgeborenen und ihre Regeln › Gebrechen › Freigabe des Erstgeborenen › Zufügen eines Fehlers › Glaubwürdigkeit des Priesters",
+     "desc_en": "Sanctity of firstborn animals and their rules › Blemishes › Releasing the firstborn › Inflicting a blemish › Reliability of the priest"
+    },
+    {
+     "ref": "5:6",
+     "text": "קנס למוכר בשר של איסור",
+     "text_de": "Strafgeld für den Verkäufer von verbotenem Fleisch",
+     "text_en": "Fine for the seller of forbidden meat",
+     "desc": "קדושת בכורות ודיניהם › מומים › התרת הבכור",
+     "desc_de": "Heiligkeit der Erstgeborenen und ihre Regeln › Gebrechen › Freigabe des Erstgeborenen",
+     "desc_en": "Sanctity of firstborn animals and their rules › Blemishes › Releasing the firstborn"
+    }
+   ]
+  },
+  {
+   "head": "פרק ו",
+   "head_de": "Kapitel 6",
+   "head_en": "Chapter 6",
+   "items": [
+    {
+     "ref": "6:1",
+     "text": "באוזן",
+     "text_de": "Am Ohr",
+     "text_en": "In the ear",
+     "desc": "קדושת בהמות קדשים › כהן בעל מום › מומים › הפוסלים בבהמה ובאדם › ששוחטין בהמה עליהן ופוסלין עבודת כהן",
+     "desc_de": "Heiligkeit von Opfertieren › Priester mit einem Fehler › Gebrechen › Die beim Tier und beim Menschen untauglich machen › Wegen derer man das Tier schlachten darf und die den Priesterdienst untauglich machen",
+     "desc_en": "Sanctity of sacrificial animals › Priest with a blemish › Blemishes › Those that disqualify in animal and human › Those for which one may slaughter the animal and which disqualify priestly service"
+    },
+    {
+     "ref": "6:2",
+     "text": "בעין",
+     "text_de": "Am Auge",
+     "text_en": "In the eye",
+     "desc": "קדושת בהמות קדשים › כהן בעל מום › מומים › הפוסלים בבהמה ובאדם › ששוחטין בהמה עליהן ופוסלין עבודת כהן",
+     "desc_de": "Heiligkeit von Opfertieren › Priester mit einem Fehler › Gebrechen › Die beim Tier und beim Menschen untauglich machen › Wegen derer man das Tier schlachten darf und die den Priesterdienst untauglich machen",
+     "desc_en": "Sanctity of sacrificial animals › Priest with a blemish › Blemishes › Those that disqualify in animal and human › Those for which one may slaughter the animal and which disqualify priestly service"
+    },
+    {
+     "ref": "6:3",
+     "text": "בעין ובדיקת קביעות המום",
+     "text_de": "Am Auge und Prüfung der Dauerhaftigkeit des Fehlers",
+     "text_en": "In the eye and examination of the permanence of the blemish",
+     "desc": "קדושת בהמות קדשים › כהן בעל מום › מומים › הפוסלים בבהמה ובאדם › ששוחטין בהמה עליהן ופוסלין עבודת כהן",
+     "desc_de": "Heiligkeit von Opfertieren › Priester mit einem Fehler › Gebrechen › Die beim Tier und beim Menschen untauglich machen › Wegen derer man das Tier schlachten darf und die den Priesterdienst untauglich machen",
+     "desc_en": "Sanctity of sacrificial animals › Priest with a blemish › Blemishes › Those that disqualify in animal and human › Those for which one may slaughter the animal and which disqualify priestly service"
+    },
+    {
+     "ref": "6:4",
+     "text": "באף, בשפתים, בשניים",
+     "text_de": "An Nase, Lippen, Zähnen",
+     "text_en": "In the nose, lips, teeth",
+     "desc": "קדושת בהמות קדשים › כהן בעל מום › מומים › הפוסלים בבהמה ובאדם › ששוחטין בהמה עליהן ופוסלין עבודת כהן",
+     "desc_de": "Heiligkeit von Opfertieren › Priester mit einem Fehler › Gebrechen › Die beim Tier und beim Menschen untauglich machen › Wegen derer man das Tier schlachten darf und die den Priesterdienst untauglich machen",
+     "desc_en": "Sanctity of sacrificial animals › Priest with a blemish › Blemishes › Those that disqualify in animal and human › Those for which one may slaughter the animal and which disqualify priestly service"
+    },
+    {
+     "ref": "6:5",
+     "text": "באברי המין, בזנב",
+     "text_de": "An den Geschlechtsorganen, am Schwanz",
+     "text_en": "In the sexual organs, in the tail",
+     "desc": "קדושת בהמות קדשים › כהן בעל מום › מומים › הפוסלים בבהמה ובאדם › ששוחטין בהמה עליהן ופוסלין עבודת כהן",
+     "desc_de": "Heiligkeit von Opfertieren › Priester mit einem Fehler › Gebrechen › Die beim Tier und beim Menschen untauglich machen › Wegen derer man das Tier schlachten darf und die den Priesterdienst untauglich machen",
+     "desc_en": "Sanctity of sacrificial animals › Priest with a blemish › Blemishes › Those that disqualify in animal and human › Those for which one may slaughter the animal and which disqualify priestly service"
+    },
+    {
+     "ref": "6:6",
+     "text": "חסרון ביצי זכר ובדיקתם",
+     "text_de": "Fehlen von männlichen Hoden und ihre Untersuchung",
+     "text_en": "Missing male testicles and their examination",
+     "desc": "קדושת בהמות קדשים › כהן בעל מום › מומים › הפוסלים בבהמה ובאדם › ששוחטין בהמה עליהן ופוסלין עבודת כהן",
+     "desc_de": "Heiligkeit von Opfertieren › Priester mit einem Fehler › Gebrechen › Die beim Tier und beim Menschen untauglich machen › Wegen derer man das Tier schlachten darf und die den Priesterdienst untauglich machen",
+     "desc_en": "Sanctity of sacrificial animals › Priest with a blemish › Blemishes › Those that disqualify in animal and human › Those for which one may slaughter the animal and which disqualify priestly service"
+    },
+    {
+     "ref": "6:7",
+     "text": "ברגלים ובפרסות",
+     "text_de": "An Füßen und Hufen",
+     "text_en": "In the legs and hooves",
+     "desc": "קדושת בהמות קדשים › כהן בעל מום › מומים › הפוסלים בבהמה ובאדם › ששוחטין בהמה עליהן ופוסלין עבודת כהן",
+     "desc_de": "Heiligkeit von Opfertieren › Priester mit einem Fehler › Gebrechen › Die beim Tier und beim Menschen untauglich machen › Wegen derer man das Tier schlachten darf und die den Priesterdienst untauglich machen",
+     "desc_en": "Sanctity of sacrificial animals › Priest with a blemish › Blemishes › Those that disqualify in animal and human › Those for which one may slaughter the animal and which disqualify priestly service"
+    },
+    {
+     "ref": "6:8",
+     "text": "בעצמות, בעין, בפה",
+     "text_de": "An Knochen, Auge, Mund",
+     "text_en": "In bones, eye, mouth",
+     "desc": "קדושת בהמות קדשים › כהן בעל מום › מומים › הפוסלים בבהמה ובאדם › ששוחטין בהמה עליהן ופוסלין עבודת כהן",
+     "desc_de": "Heiligkeit von Opfertieren › Priester mit einem Fehler › Gebrechen › Die beim Tier und beim Menschen untauglich machen › Wegen derer man das Tier schlachten darf und die den Priesterdienst untauglich machen",
+     "desc_en": "Sanctity of sacrificial animals › Priest with a blemish › Blemishes › Those that disqualify in animal and human › Those for which one may slaughter the animal and which disqualify priestly service"
+    },
+    {
+     "ref": "6:9",
+     "text": "בלחי, באוזן, בזנב",
+     "text_de": "An Kinnbacken, Ohr, Schwanz",
+     "text_en": "In the jaw, ear, tail",
+     "desc": "קדושת בהמות קדשים › כהן בעל מום › מומים › הפוסלים בבהמה ובאדם › ששוחטין בהמה עליהן ופוסלין עבודת כהן",
+     "desc_de": "Heiligkeit von Opfertieren › Priester mit einem Fehler › Gebrechen › Die beim Tier und beim Menschen untauglich machen › Wegen derer man das Tier schlachten darf und die den Priesterdienst untauglich machen",
+     "desc_en": "Sanctity of sacrificial animals › Priest with a blemish › Blemishes › Those that disqualify in animal and human › Those for which one may slaughter the animal and which disqualify priestly service"
+    },
+    {
+     "ref": "6:10",
+     "text": "בעין, בעצמות, אי סמטריות",
+     "text_de": "An Auge, Knochen, Asymmetrie",
+     "text_en": "In the eye, bones, asymmetry",
+     "desc": "קדושת בהמות קדשים › כהן בעל מום › מומים › הפוסלים בבהמה ובאדם › ששוחטין בהמה עליהן ופוסלין עבודת כהן",
+     "desc_de": "Heiligkeit von Opfertieren › Priester mit einem Fehler › Gebrechen › Die beim Tier und beim Menschen untauglich machen › Wegen derer man das Tier schlachten darf und die den Priesterdienst untauglich machen",
+     "desc_en": "Sanctity of sacrificial animals › Priest with a blemish › Blemishes › Those that disqualify in animal and human › Those for which one may slaughter the animal and which disqualify priestly service"
+    },
+    {
+     "ref": "6:11",
+     "text": "בזנב",
+     "text_de": "Am Schwanz",
+     "text_en": "In the tail",
+     "desc": "קדושת בהמות קדשים › כהן בעל מום › מומים › הפוסלים בבהמה ובאדם › ששוחטין בהמה עליהן ופוסלין עבודת כהן",
+     "desc_de": "Heiligkeit von Opfertieren › Priester mit einem Fehler › Gebrechen › Die beim Tier und beim Menschen untauglich machen › Wegen derer man das Tier schlachten darf und die den Priesterdienst untauglich machen",
+     "desc_en": "Sanctity of sacrificial animals › Priest with a blemish › Blemishes › Those that disqualify in animal and human › Those for which one may slaughter the animal and which disqualify priestly service"
+    },
+    {
+     "ref": "6:12",
+     "text": "דברים שונים",
+     "text_de": "Verschiedene Dinge",
+     "text_en": "Various matters",
+     "desc": "קדושת בהמות קדשים › כהן בעל מום › מומים › הפוסלים בבהמה ובאדם › שאין שוחטין עליהן",
+     "desc_de": "Heiligkeit von Opfertieren › Priester mit einem Fehler › Gebrechen › Die beim Tier und beim Menschen untauglich machen › Bei denen man nicht schlachten darf",
+     "desc_en": "Sanctity of sacrificial animals › Priest with a blemish › Blemishes › Those that disqualify in animal and human › Those for which one may not slaughter"
+    }
+   ]
+  },
+  {
+   "head": "פרק ז",
+   "head_de": "Kapitel 7",
+   "head_en": "Chapter 7",
+   "items": [
+    {
+     "ref": "7:1",
+     "text": "צורת הראש, חטוטרת",
+     "text_de": "Kopfform, Buckel",
+     "text_en": "Shape of the head, hump",
+     "desc": "כהן בעל מום › מומים › הפוסלים רק באדם › שאינם פוסלין עבודת כהן",
+     "desc_de": "Priester mit einem Fehler › Gebrechen › Die nur beim Menschen untauglich machen › Die den Priesterdienst nicht untauglich machen",
+     "desc_en": "Priest with a blemish › Blemishes › Those that disqualify only in humans › Those that do not disqualify priestly service"
+    },
+    {
+     "ref": "7:2",
+     "text": "\"קרח\", \"גבן\"",
+     "text_de": "„Kereach“ (Kahlköpfiger), „Gibben“ (Buckliger)",
+     "text_en": "\"Kereach\" (bald), \"Gibben\" (hunchback)",
+     "desc": "כהן בעל מום › מומים › הפוסלים רק באדם › שאינם פוסלין עבודת כהן",
+     "desc_de": "Priester mit einem Fehler › Gebrechen › Die nur beim Menschen untauglich machen › Die den Priesterdienst nicht untauglich machen",
+     "desc_en": "Priest with a blemish › Blemishes › Those that disqualify only in humans › Those that do not disqualify priestly service"
+    },
+    {
+     "ref": "7:3",
+     "text": "\"חרום\", בעינים",
+     "text_de": "„Charum“ (mit eingedrückter Nase), an den Augen",
+     "text_en": "\"Charum\" (flat-nosed), in the eyes",
+     "desc": "כהן בעל מום › מומים › הפוסלים רק באדם › שאינם פוסלין עבודת כהן",
+     "desc_de": "Priester mit einem Fehler › Gebrechen › Die nur beim Menschen untauglich machen › Die den Priesterdienst nicht untauglich machen",
+     "desc_en": "Priest with a blemish › Blemishes › Those that disqualify only in humans › Those that do not disqualify priestly service"
+    },
+    {
+     "ref": "7:4",
+     "text": "בעינים, אי סמטריות הגוף, באזנים",
+     "text_de": "An den Augen, Asymmetrie des Körpers, an den Ohren",
+     "text_en": "In the eyes, asymmetry of the body, in the ears",
+     "desc": "כהן בעל מום › מומים › הפוסלים רק באדם › שאינם פוסלין עבודת כהן",
+     "desc_de": "Priester mit einem Fehler › Gebrechen › Die nur beim Menschen untauglich machen › Die den Priesterdienst nicht untauglich machen",
+     "desc_en": "Priest with a blemish › Blemishes › Those that disqualify only in humans › Those that do not disqualify priestly service"
+    },
+    {
+     "ref": "7:5",
+     "text": "בפה, בדברים שונים, \"מרוח אשך\"",
+     "text_de": "Am Mund, in verschiedenen Dingen, „Meruach Eschech“ (Hodenleiden)",
+     "text_en": "In the mouth, in various matters, \"meruach eshekh\" (testicular defect)",
+     "desc": "כהן בעל מום › מומים › הפוסלים רק באדם › שאינם פוסלין עבודת כהן",
+     "desc_de": "Priester mit einem Fehler › Gebrechen › Die nur beim Menschen untauglich machen › Die den Priesterdienst nicht untauglich machen",
+     "desc_en": "Priest with a blemish › Blemishes › Those that disqualify only in humans › Those that do not disqualify priestly service"
+    },
+    {
+     "ref": "7:6",
+     "text": "רגלים, באצבעות, דברים שונים",
+     "text_de": "Beine, Finger, verschiedene Dinge",
+     "text_en": "Legs, fingers, various matters",
+     "desc": "כהן בעל מום › מומים › הפוסלים רק באדם › שאינם פוסלין עבודת כהן",
+     "desc_de": "Priester mit einem Fehler › Gebrechen › Die nur beim Menschen untauglich machen › Die den Priesterdienst nicht untauglich machen",
+     "desc_en": "Priest with a blemish › Blemishes › Those that disqualify only in humans › Those that do not disqualify priestly service"
+    },
+    {
+     "ref": "7:7",
+     "text": "עבריין \\ אותו ובנו, טריפה,יוצא דופן",
+     "text_de": "Übertreter / „Ihn und sein Junges“, Terefa, Kaiserschnittgeburt",
+     "text_en": "Transgressor / \"it and its young\", terefa, caesarean birth",
+     "desc": "כהן בעל מום › מומים › רק בבהמה",
+     "desc_de": "Priester mit einem Fehler › Gebrechen › Nur beim Tier",
+     "desc_en": "Priest with a blemish › Blemishes › Only in animals"
+    }
+   ]
+  },
+  {
+   "head": "פרק ח",
+   "head_de": "Kapitel 8",
+   "head_en": "Chapter 8",
+   "items": [
+    {
+     "ref": "8:1",
+     "text": "בכור לנחלה או לכהן או לשניהן",
+     "text_de": "Erstgeborener für das Erbe, für den Priester oder für beide",
+     "text_en": "Firstborn for inheritance, for the priest, or for both",
+     "desc": "קדושת בכורות ודיניהם › בכור אדם › חיוב בבכורה › ודאי",
+     "desc_de": "Heiligkeit der Erstgeborenen und ihre Regeln › Menschliche Erstgeburt › Pflicht zur Erstgeburtsheiligung › Gewisses",
+     "desc_en": "Sanctity of firstborn animals and their rules › Human firstborn › Obligation regarding the firstborn › Certain (tithe-liable) produce"
+    },
+    {
+     "ref": "8:2",
+     "text": "שאינו בכור כלל",
+     "text_de": "Überhaupt kein Erstgeborener",
+     "text_en": "Not a firstborn at all",
+     "desc": "קדושת בכורות ודיניהם › בכור אדם › חיוב בבכורה › ודאי",
+     "desc_de": "Heiligkeit der Erstgeborenen und ihre Regeln › Menschliche Erstgeburt › Pflicht zur Erstgeburtsheiligung › Gewisses",
+     "desc_en": "Sanctity of firstborn animals and their rules › Human firstborn › Obligation regarding the firstborn › Certain (tithe-liable) produce"
+    },
+    {
+     "ref": "8:3",
+     "text": "ולדי מבכירה, מיתת האב",
+     "text_de": "Nachkommen einer Erstgebärenden, Tod des Vaters",
+     "text_en": "Offspring of a first-time mother, death of the father",
+     "desc": "קדושת בכורות ודיניהם › בכור אדם › חיוב בבכורה › ספק ע\"י ערבוב ולדות › באב אחד",
+     "desc_de": "Heiligkeit der Erstgeborenen und ihre Regeln › Menschliche Erstgeburt › Pflicht zur Erstgeburtsheiligung › Zweifel durch Vermischung der Neugeborenen › Bei einem Vater",
+     "desc_en": "Sanctity of firstborn animals and their rules › Human firstborn › Obligation regarding the firstborn › Doubt due to mixing of the newborns › With one father"
+    },
+    {
+     "ref": "8:4",
+     "text": "שתי מבכירות, אחת משתים מבכירה",
+     "text_de": "Zwei Erstgebärende, eine von zwei gebiert erstmals",
+     "text_en": "Two first-time mothers, one of two is giving birth for the first time",
+     "desc": "קדושת בכורות ודיניהם › בכור אדם › חיוב בבכורה › ספק ע\"י ערבוב ולדות › באב אחד",
+     "desc_de": "Heiligkeit der Erstgeborenen und ihre Regeln › Menschliche Erstgeburt › Pflicht zur Erstgeburtsheiligung › Zweifel durch Vermischung der Neugeborenen › Bei einem Vater",
+     "desc_en": "Sanctity of firstborn animals and their rules › Human firstborn › Obligation regarding the firstborn › Doubt due to mixing of the newborns › With one father"
+    },
+    {
+     "ref": "8:5",
+     "text": "2 מבכירות, מת ולד אחד",
+     "text_de": "Zwei Erstgebärende, ein Neugeborenes stirbt",
+     "text_en": "Two first-time mothers, one newborn dies",
+     "desc": "קדושת בכורות ודיניהם › בכור אדם › חיוב בבכורה › ספק ע\"י ערבוב ולדות › בשני אבות",
+     "desc_de": "Heiligkeit der Erstgeborenen und ihre Regeln › Menschliche Erstgeburt › Pflicht zur Erstgeburtsheiligung › Zweifel durch Vermischung der Neugeborenen › Bei zwei Vätern",
+     "desc_en": "Sanctity of firstborn animals and their rules › Human firstborn › Obligation regarding the firstborn › Doubt due to mixing of the newborns › With two fathers"
+    },
+    {
+     "ref": "8:6",
+     "text": "1 מבכירה\\ מיתת בן או אב,קדימת פדיון",
+     "text_de": "Eine Erstgebärende / Tod des Sohnes oder Vaters, Vorrang der Auslösung",
+     "text_en": "One first-time mother / death of the son or father, priority of redemption",
+     "desc": "קדושת בכורות ודיניהם › בכור אדם › פדיון › חיוב",
+     "desc_de": "Heiligkeit der Erstgeborenen und ihre Regeln › Menschliche Erstgeburt › Auslösung › Verpflichtung",
+     "desc_en": "Sanctity of firstborn animals and their rules › Human firstborn › Redemption › Obligation"
+    },
+    {
+     "ref": "8:7",
+     "text": "כשרות ושווי הפדיון, מנה צורי",
+     "text_de": "Eignung und Wert der Auslösung, tyrische Mine",
+     "text_en": "Suitability and value of the redemption, Tyrian maneh",
+     "desc": "קדושת בכורות ודיניהם › בכור אדם › פדיון › במה פודים",
+     "desc_de": "Heiligkeit der Erstgeborenen und ihre Regeln › Menschliche Erstgeburt › Auslösung › Womit man auslöst",
+     "desc_en": "Sanctity of firstborn animals and their rules › Human firstborn › Redemption › With what one redeems"
+    },
+    {
+     "ref": "8:8",
+     "text": "הפסול לפדיון ולהקדש \\ אחריות הפדיון",
+     "text_de": "Untauglich zur Auslösung und zur Weihung / Haftung für die Auslösung",
+     "text_en": "Unfit for redemption and for dedication / liability for the redemption",
+     "desc": "קדושת בכורות ודיניהם › בכור אדם › פדיון › חיוב",
+     "desc_de": "Heiligkeit der Erstgeborenen und ihre Regeln › Menschliche Erstgeburt › Auslösung › Verpflichtung",
+     "desc_en": "Sanctity of firstborn animals and their rules › Human firstborn › Redemption › Obligation"
+    },
+    {
+     "ref": "8:9",
+     "text": "אלו שאין להם בשבח או בראוי",
+     "text_de": "Diejenigen, die kein Anrecht auf Wertzuwachs oder künftigen Besitz haben",
+     "text_en": "Those who have no share in appreciation or in prospective property",
+     "desc": "קדושת בכורות ודיניהם › בכור אדם › ירושת הבכור › דיני ירושה",
+     "desc_de": "Heiligkeit der Erstgeborenen und ihre Regeln › Menschliche Erstgeburt › Erbe des Erstgeborenen › Erbrecht",
+     "desc_en": "Sanctity of firstborn animals and their rules › Human firstborn › Inheritance of the firstborn › Laws of inheritance"
+    },
+    {
+     "ref": "8:10",
+     "text": "אלו שאינן חוזרים ביובל",
+     "text_de": "Diejenigen, die im Jobeljahr nicht zurückkehren",
+     "text_en": "Those who do not return in the Jubilee year",
+     "desc": "קדושת בכורות ודיניהם › בכור אדם › ירושת הבכור › דיני ירושה",
+     "desc_de": "Heiligkeit der Erstgeborenen und ihre Regeln › Menschliche Erstgeburt › Erbe des Erstgeborenen › Erbrecht",
+     "desc_en": "Sanctity of firstborn animals and their rules › Human firstborn › Inheritance of the firstborn › Laws of inheritance"
+    }
+   ]
+  },
+  {
+   "head": "פרק ט",
+   "head_de": "Kapitel 9",
+   "head_en": "Chapter 9",
+   "items": [
+    {
+     "ref": "9:1",
+     "text": "היקף החיוב \\ כל צאן, חדש וישן",
+     "text_de": "Umfang der Pflicht / alles Kleinvieh, neu und alt",
+     "text_en": "Scope of the obligation / all small livestock, new and old",
+     "desc": "קדושת בהמות קדשים › מעשר בהמה › חיוב בבעלים ובבהמות › צירוף",
+     "desc_de": "Heiligkeit von Opfertieren › Viehzehnt › Verpflichtung bei Besitzern und Tieren › Zusammenrechnen",
+     "desc_en": "Sanctity of sacrificial animals › Animal tithe › Liability regarding owners and animals › Combining"
+    },
+    {
+     "ref": "9:2",
+     "text": "מרחק בין עדרים, הפסק הירדן",
+     "text_de": "Abstand zwischen Herden, Unterbrechung durch den Jordan",
+     "text_en": "Distance between flocks, the Jordan as a dividing line",
+     "desc": "קדושת בהמות קדשים › מעשר בהמה › חיוב בבעלים ובבהמות › צירוף",
+     "desc_de": "Heiligkeit von Opfertieren › Viehzehnt › Verpflichtung bei Besitzern und Tieren › Zusammenrechnen",
+     "desc_en": "Sanctity of sacrificial animals › Animal tithe › Liability regarding owners and animals › Combining"
+    },
+    {
+     "ref": "9:3",
+     "text": "לקוח, מתנה, יורשין שותפין, קלבון",
+     "text_de": "Gekauft, Geschenk, Miterben als Teilhaber, Kalbon",
+     "text_en": "Purchase, gift, heirs as partners, Kalbon",
+     "desc": "קדושת בהמות קדשים › מעשר בהמה › חיוב בבעלים ובבהמות",
+     "desc_de": "Heiligkeit von Opfertieren › Viehzehnt › Verpflichtung bei Besitzern und Tieren",
+     "desc_en": "Sanctity of sacrificial animals › Animal tithe › Liability regarding owners and animals"
+    },
+    {
+     "ref": "9:4",
+     "text": "בהמות הפטורות, הגדרת יתום",
+     "text_de": "Befreite Tiere, Definition des Waisen",
+     "text_en": "Exempt animals, definition of an orphan",
+     "desc": "קדושת בהמות קדשים › מעשר בהמה › חיוב בבעלים ובבהמות",
+     "desc_de": "Heiligkeit von Opfertieren › Viehzehnt › Verpflichtung bei Besitzern und Tieren",
+     "desc_en": "Sanctity of sacrificial animals › Animal tithe › Liability regarding owners and animals"
+    },
+    {
+     "ref": "9:5",
+     "text": "שלושה גרנות, ר\"ה למעשר",
+     "text_de": "Drei Tennen, Neujahr für den Zehnt",
+     "text_en": "Three threshing floors, New Year for the tithe",
+     "desc": "קדושת בהמות קדשים › מעשר בהמה › אופן עישורן › זמן",
+     "desc_de": "Heiligkeit von Opfertieren › Viehzehnt › Art und Weise der Verzehntung › Zeit",
+     "desc_en": "Sanctity of sacrificial animals › Animal tithe › Manner of tithing › time"
+    },
+    {
+     "ref": "9:6",
+     "text": "נפקא מינות לר\"ה ולגורן",
+     "text_de": "Praktische Unterschiede zwischen Neujahr und Tenne",
+     "text_en": "Practical differences between the New Year and the threshing floor",
+     "desc": "קדושת בהמות קדשים › מעשר בהמה › אופן עישורן › זמן",
+     "desc_de": "Heiligkeit von Opfertieren › Viehzehnt › Art und Weise der Verzehntung › Zeit",
+     "desc_en": "Sanctity of sacrificial animals › Animal tithe › Manner of tithing › time"
+    },
+    {
+     "ref": "9:7",
+     "text": "הפתח, המנין, מנוים ומעושרים",
+     "text_de": "Die Öffnung, das Zählen, Gezählte und Verzehntete",
+     "text_en": "The opening, the counting, those counted and those tithed",
+     "desc": "קדושת בהמות קדשים › מעשר בהמה › אופן עישורן › תערובת וטעות",
+     "desc_de": "Heiligkeit von Opfertieren › Viehzehnt › Art und Weise der Verzehntung › Vermischung und Irrtum",
+     "desc_en": "Sanctity of sacrificial animals › Animal tithe › Manner of tithing › Mixing and error"
+    },
+    {
+     "ref": "9:8",
+     "text": "בלבול בספירה, דין האחד עשר",
+     "text_de": "Verzählen, Regel des Elften",
+     "text_en": "Miscounting, rule of the eleventh",
+     "desc": "קדושת בהמות קדשים › מעשר בהמה › אופן עישורן › תערובת וטעות",
+     "desc_de": "Heiligkeit von Opfertieren › Viehzehnt › Art und Weise der Verzehntung › Vermischung und Irrtum",
+     "desc_en": "Sanctity of sacrificial animals › Animal tithe › Manner of tithing › Mixing and error"
+    }
+   ]
+  }
+ ]
+}

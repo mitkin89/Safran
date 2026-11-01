@@ -1,0 +1,749 @@
+{
+ "book": "Mishnah Gittin",
+ "title": "משנה גיטין",
+ "title_de": "Mischna Gittin – Gliederung",
+ "title_en": "Gittin – outline",
+ "note": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema).",
+ "note_de": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema); ins Deutsche und Englische übersetzt.",
+ "note_en": "Outline after the table “Mishna Sedura”: the central content of each mishnah, with the topic path (main topic to sub-topic); translated into German and English.",
+ "sections": [
+  {
+   "head": "פרק א",
+   "head_de": "Kapitel 1",
+   "head_en": "Chapter 1",
+   "items": [
+    {
+     "ref": "1:1",
+     "text": "מהיכן, מחו\"ל לא\"י, בחו\"ל",
+     "text_de": "Woher, aus dem Ausland nach Erez Israel, im Ausland",
+     "text_en": "From where, from abroad to the Land of Israel, abroad",
+     "desc": "כשרות הגט והעברתו לאשה › שליחות בגיטין › אמירת בפני נכתב ובפני נחתם › הבאה מחוץ לארץ",
+     "desc_de": "Tauglichkeit des Scheidebriefs und seine Übergabe an die Frau › Beauftragung bei Scheidebriefen › Aussage „in meiner Gegenwart geschrieben und in meiner Gegenwart unterzeichnet“ › Überbringung aus dem Ausland",
+     "desc_en": "Validity of the bill of divorce and its delivery to the wife › Agency in bills of divorce › Declaration \"written in my presence and signed in my presence\" › Bringing from abroad"
+    },
+    {
+     "ref": "1:2",
+     "text": "גבולות ארץ ישראל",
+     "text_de": "Grenzen des Landes Israel",
+     "text_en": "Borders of the Land of Israel",
+     "desc": "כשרות הגט והעברתו לאשה › שליחות בגיטין › אמירת בפני נכתב ובפני נחתם › הבאה מחוץ לארץ",
+     "desc_de": "Tauglichkeit des Scheidebriefs und seine Übergabe an die Frau › Beauftragung bei Scheidebriefen › Aussage „in meiner Gegenwart geschrieben und in meiner Gegenwart unterzeichnet“ › Überbringung aus dem Ausland",
+     "desc_en": "Validity of the bill of divorce and its delivery to the wife › Agency in bills of divorce › Declaration \"written in my presence and signed in my presence\" › Bringing from abroad"
+    },
+    {
+     "ref": "1:3",
+     "text": "הבאה בארץ ישראל, מחו\"ל",
+     "text_de": "Überbringung im Land Israel, aus dem Ausland",
+     "text_en": "Delivery within the Land of Israel, from abroad",
+     "desc": "כשרות הגט והעברתו לאשה › שליחות בגיטין › אמירת בפני נכתב ובפני נחתם › צורך בקיום",
+     "desc_de": "Tauglichkeit des Scheidebriefs und seine Übergabe an die Frau › Beauftragung bei Scheidebriefen › Aussage „in meiner Gegenwart geschrieben und in meiner Gegenwart unterzeichnet“ › Notwendigkeit der Beglaubigung",
+     "desc_en": "Validity of the bill of divorce and its delivery to the wife › Agency in bills of divorce › Declaration \"written in my presence and signed in my presence\" › Necessity of authentication"
+    },
+    {
+     "ref": "1:4",
+     "text": "אמירת בפני נכתב ונחתם",
+     "text_de": "Aussage „in meiner Gegenwart geschrieben und unterzeichnet“",
+     "text_en": "Declaration \"written and signed in my presence\"",
+     "desc": "כשרות הגט והעברתו לאשה › שליחות בגיטין › אמירת בפני נכתב ובפני נחתם › שוויון גט ושחרור",
+     "desc_de": "Tauglichkeit des Scheidebriefs und seine Übergabe an die Frau › Beauftragung bei Scheidebriefen › Aussage „in meiner Gegenwart geschrieben und in meiner Gegenwart unterzeichnet“ › Gleichstellung von Scheidebrief und Freilassung",
+     "desc_en": "Validity of the bill of divorce and its delivery to the wife › Agency in bills of divorce › Declaration \"written in my presence and signed in my presence\" › Equivalence of bill of divorce and manumission"
+    },
+    {
+     "ref": "1:5",
+     "text": "עדי כותים, העולה מערכאות הגוים",
+     "text_de": "Kutäische Zeugen, Urkunden aus nichtjüdischen Gerichten",
+     "text_en": "Samaritan witnesses, documents issuing from gentile courts",
+     "desc": "כשרות הגט והעברתו לאשה › שליחות בגיטין › אמירת בפני נכתב ובפני נחתם › שוויון גט ושחרור",
+     "desc_de": "Tauglichkeit des Scheidebriefs und seine Übergabe an die Frau › Beauftragung bei Scheidebriefen › Aussage „in meiner Gegenwart geschrieben und in meiner Gegenwart unterzeichnet“ › Gleichstellung von Scheidebrief und Freilassung",
+     "desc_en": "Validity of the bill of divorce and its delivery to the wife › Agency in bills of divorce › Declaration \"written in my presence and signed in my presence\" › Equivalence of bill of divorce and manumission"
+    },
+    {
+     "ref": "1:6",
+     "text": "זכייה שלא בפניהם וחזרה, לאחר מיתה",
+     "text_de": "Erwerb in Abwesenheit der Betreffenden und Widerruf, nach dem Tod",
+     "text_en": "Acquisition in their absence and retraction, after death",
+     "desc": "כשרות הגט והעברתו לאשה › שליחות בגיטין › אמירת בפני נכתב ובפני נחתם › שוויון גט ושחרור",
+     "desc_de": "Tauglichkeit des Scheidebriefs und seine Übergabe an die Frau › Beauftragung bei Scheidebriefen › Aussage „in meiner Gegenwart geschrieben und in meiner Gegenwart unterzeichnet“ › Gleichstellung von Scheidebrief und Freilassung",
+     "desc_en": "Validity of the bill of divorce and its delivery to the wife › Agency in bills of divorce › Declaration \"written in my presence and signed in my presence\" › Equivalence of bill of divorce and manumission"
+    }
+   ]
+  },
+  {
+   "head": "פרק ב",
+   "head_de": "Kapitel 2",
+   "head_en": "Chapter 2",
+   "items": [
+    {
+     "ref": "2:1",
+     "text": "שלימותה ומספר העדים",
+     "text_de": "Vollständigkeit und Zahl der Zeugen",
+     "text_en": "Completeness and number of witnesses",
+     "desc": "כשרות הגט והעברתו לאשה › שליחות בגיטין › אמירת בפני נכתב ובפני נחתם › האמירה",
+     "desc_de": "Tauglichkeit des Scheidebriefs und seine Übergabe an die Frau › Beauftragung bei Scheidebriefen › Aussage „in meiner Gegenwart geschrieben und in meiner Gegenwart unterzeichnet“ › Der Ausspruch",
+     "desc_en": "Validity of the bill of divorce and its delivery to the wife › Agency in bills of divorce › Declaration \"written in my presence and signed in my presence\" › The declaration"
+    },
+    {
+     "ref": "2:2",
+     "text": "כתיבה וחתימה",
+     "text_de": "Schreiben und Unterzeichnen",
+     "text_en": "Writing and signing",
+     "desc": "כשרות הגט והעברתו לאשה › שליחות בגיטין › כתיבת הגט › זמן",
+     "desc_de": "Tauglichkeit des Scheidebriefs und seine Übergabe an die Frau › Beauftragung bei Scheidebriefen › Schreiben des Get (Scheidebrief) › Zeit",
+     "desc_en": "Validity of the bill of divorce and its delivery to the wife › Agency in bills of divorce › Writing the get (bill of divorce) › time"
+    },
+    {
+     "ref": "2:3",
+     "text": "קביעות הרושם \\ בעלי חיים, אכלים",
+     "text_de": "Beständigkeit der Schrift / Tiere, Esswaren",
+     "text_en": "Permanence of the writing / animals, foods",
+     "desc": "כשרות הגט והעברתו לאשה › שליחות בגיטין › כתיבת הגט › על מה › הדיו",
+     "desc_de": "Tauglichkeit des Scheidebriefs und seine Übergabe an die Frau › Beauftragung bei Scheidebriefen › Schreiben des Get (Scheidebrief) › Worauf man schreibt › Die Tinte",
+     "desc_en": "Validity of the bill of divorce and its delivery to the wife › Agency in bills of divorce › Writing the get (bill of divorce) › What to write on › The ink"
+    },
+    {
+     "ref": "2:4",
+     "text": "מחובר, אפשר להזדייף",
+     "text_de": "Befestigtes, Fälschung möglich",
+     "text_en": "Attached material, forgery possible",
+     "desc": "כשרות הגט והעברתו לאשה › שליחות בגיטין › כתיבת הגט › על מה",
+     "desc_de": "Tauglichkeit des Scheidebriefs und seine Übergabe an die Frau › Beauftragung bei Scheidebriefen › Schreiben des Get (Scheidebrief) › Worauf man schreibt",
+     "desc_en": "Validity of the bill of divorce and its delivery to the wife › Agency in bills of divorce › Writing the get (bill of divorce) › What to write on"
+    },
+    {
+     "ref": "2:5",
+     "text": "חרש שוטה וקטן, נוגע בדבר, סומא, נכרי",
+     "text_de": "Taubstumme, Geistesschwache und Minderjährige, Beteiligte, Blinde, Nichtjuden",
+     "text_en": "Deaf-mutes, the mentally incompetent and minors, interested parties, the blind, gentiles",
+     "desc": "כשרות הגט והעברתו לאשה › שליחות בגיטין › אמירת בפני נכתב ונחתם › כתיבת הגט › הכותב › המביאו",
+     "desc_de": "Tauglichkeit des Scheidebriefs und seine Übergabe an die Frau › Beauftragung bei Scheidebriefen › Aussage „in meiner Gegenwart geschrieben und unterzeichnet“ › Schreiben des Get (Scheidebrief) › Der Schreibende › Der Überbringer",
+     "desc_en": "Validity of the bill of divorce and its delivery to the wife › Agency in bills of divorce › Declaration \"written and signed in my presence\" › Writing the get (bill of divorce) › The writer › The bearer"
+    },
+    {
+     "ref": "2:6",
+     "text": "שינוי במצב המביא",
+     "text_de": "Veränderung im Status des Überbringers",
+     "text_en": "Change in the bearer's status",
+     "desc": "כשרות הגט והעברתו לאשה › שליחות בגיטין › אמירת בפני נכתב ונחתם › המביאו",
+     "desc_de": "Tauglichkeit des Scheidebriefs und seine Übergabe an die Frau › Beauftragung bei Scheidebriefen › Aussage „in meiner Gegenwart geschrieben und unterzeichnet“ › Der Überbringer",
+     "desc_en": "Validity of the bill of divorce and its delivery to the wife › Agency in bills of divorce › Declaration \"written and signed in my presence\" › The bearer"
+    },
+    {
+     "ref": "2:7",
+     "text": "השונאות אותה, האשה עצמה",
+     "text_de": "Ihre Feindinnen, die Frau selbst",
+     "text_en": "Those who hate her, the woman herself",
+     "desc": "כשרות הגט והעברתו לאשה › שליחות בגיטין › אמירת בפני נכתב ונחתם › המביאו",
+     "desc_de": "Tauglichkeit des Scheidebriefs und seine Übergabe an die Frau › Beauftragung bei Scheidebriefen › Aussage „in meiner Gegenwart geschrieben und unterzeichnet“ › Der Überbringer",
+     "desc_en": "Validity of the bill of divorce and its delivery to the wife › Agency in bills of divorce › Declaration \"written and signed in my presence\" › The bearer"
+    }
+   ]
+  },
+  {
+   "head": "פרק ג",
+   "head_de": "Kapitel 3",
+   "head_en": "Chapter 3",
+   "items": [
+    {
+     "ref": "3:1",
+     "text": "דרגות בלא לשמה",
+     "text_de": "Stufen des Nicht-um-ihretwillen (lo lischma)",
+     "text_en": "Degrees of not-for-her-sake (lo lishma)",
+     "desc": "כשרות הגט והעברתו לאשה › לשמה › כתיבת הגט",
+     "desc_de": "Tauglichkeit des Scheidebriefs und seine Übergabe an die Frau › Um ihretwillen (lischma) › Schreiben des Get (Scheidebrief)",
+     "desc_en": "Validity of the bill of divorce and its delivery to the wife › For her sake (lishma) › Writing the get (bill of divorce)"
+    },
+    {
+     "ref": "3:2",
+     "text": "כתיבת טפסין",
+     "text_de": "Schreiben von Formularen (Tofsin)",
+     "text_en": "Writing of blank forms (tofsin)",
+     "desc": "כשרות הגט והעברתו לאשה › לשמה › כתיבת הגט",
+     "desc_de": "Tauglichkeit des Scheidebriefs und seine Übergabe an die Frau › Um ihretwillen (lischma) › Schreiben des Get (Scheidebrief)",
+     "desc_en": "Validity of the bill of divorce and its delivery to the wife › For her sake (lishma) › Writing the get (bill of divorce)"
+    },
+    {
+     "ref": "3:3",
+     "text": "חשש אבידה \\ גט, תרומה, חטאת",
+     "text_de": "Befürchtung des Verlusts / Get, Terumah, Sündopfer",
+     "text_en": "Concern of loss / get, terumah, sin offering",
+     "desc": "כשרות הגט והעברתו לאשה › חזקת קיום › לשמה",
+     "desc_de": "Tauglichkeit des Scheidebriefs und seine Übergabe an die Frau › Vermutung des Fortbestands › Um ihretwillen (lischma)",
+     "desc_en": "Validity of the bill of divorce and its delivery to the wife › Presumption of continued existence › For her sake (lishma)"
+    },
+    {
+     "ref": "3:4",
+     "text": "ריעותא בחזקה והתוצאות",
+     "text_de": "Erschütterung der Vermutung und ihre Folgen",
+     "text_en": "Weakening of the presumption and its consequences",
+     "desc": "כשרות הגט והעברתו לאשה › חזקת קיום",
+     "desc_de": "Tauglichkeit des Scheidebriefs und seine Übergabe an die Frau › Vermutung des Fortbestands",
+     "desc_en": "Validity of the bill of divorce and its delivery to the wife › Presumption of continued existence"
+    },
+    {
+     "ref": "3:5",
+     "text": "בא\"י, הקפדה האוסרת",
+     "text_de": "Im Land Israel, verbietende Beanstandung",
+     "text_en": "In the Land of Israel, prohibitive objection",
+     "desc": "כשרות הגט והעברתו לאשה › שליחות › שליח העושה שליח",
+     "desc_de": "Tauglichkeit des Scheidebriefs und seine Übergabe an die Frau › Botenschaft › Der Bote, der einen Boten einsetzt",
+     "desc_en": "Validity of the bill of divorce and its delivery to the wife › Agency › Agent who appoints an agent"
+    },
+    {
+     "ref": "3:6",
+     "text": "מחו\"ל, צורך בב\"ד",
+     "text_de": "Aus dem Ausland, Erfordernis eines Gerichts",
+     "text_en": "From abroad, need for a court",
+     "desc": "כשרות הגט והעברתו לאשה › שליחות › שליח העושה שליח",
+     "desc_de": "Tauglichkeit des Scheidebriefs und seine Übergabe an die Frau › Botenschaft › Der Bote, der einen Boten einsetzt",
+     "desc_en": "Validity of the bill of divorce and its delivery to the wife › Agency › Agent who appoints an agent"
+    },
+    {
+     "ref": "3:7",
+     "text": "ניכוי חוב כנגד חלק המקבל",
+     "text_de": "Abzug der Schuld vom Anteil des Empfängers",
+     "text_en": "Deduction of a debt from the recipient's share",
+     "desc": "כשרות הגט והעברתו לאשה › חזקת קיום › הפרשת תרומות ומעשרות",
+     "desc_de": "Tauglichkeit des Scheidebriefs und seine Übergabe an die Frau › Vermutung des Fortbestands › Absonderung von Terumot und Maaserot",
+     "desc_en": "Validity of the bill of divorce and its delivery to the wife › Presumption of continued existence › Separation of terumot and tithes"
+    },
+    {
+     "ref": "3:8",
+     "text": "הנחת פירות ומעות",
+     "text_de": "Hinlegen von Früchten und Geld",
+     "text_en": "Placing of produce and money",
+     "desc": "כשרות הגט והעברתו לאשה › חזקת קיום › הפרשת תרומות ומעשרות",
+     "desc_de": "Tauglichkeit des Scheidebriefs und seine Übergabe an die Frau › Vermutung des Fortbestands › Absonderung von Terumot und Maaserot",
+     "desc_en": "Validity of the bill of divorce and its delivery to the wife › Presumption of continued existence › Separation of terumot and tithes"
+    }
+   ]
+  },
+  {
+   "head": "פרק ד",
+   "head_de": "Kapitel 4",
+   "head_en": "Chapter 4",
+   "items": [
+    {
+     "ref": "4:1",
+     "text": "קודם שיגיע לידה",
+     "text_de": "Bevor er in ihre Hand gelangt",
+     "text_en": "Before it reaches her hand",
+     "desc": "תקנות משום תיקון העולם › כשרות הגט והעברתו לאשה › שליחות › ביטול גט",
+     "desc_de": "Verordnungen zum Wohl der Welt (Tikkun Olam) › Tauglichkeit des Scheidebriefs und seine Übergabe an die Frau › Botenschaft › Aufhebung des Get",
+     "desc_en": "Ordinances for the betterment of the world (tikkun olam) › Validity of the bill of divorce and its delivery to the wife › Agency › Annulment of the get"
+    },
+    {
+     "ref": "4:2",
+     "text": "שלא בפניה \\ דיוק בשמות בגט",
+     "text_de": "In ihrer Abwesenheit / Genauigkeit der Namen im Get",
+     "text_en": "In her absence / accuracy of names in the get",
+     "desc": "תקנות משום תיקון העולם › כשרות הגט והעברתו לאשה › כתיבת הגט › שליחות › ביטול גט",
+     "desc_de": "Verordnungen zum Wohl der Welt (Tikkun Olam) › Tauglichkeit des Scheidebriefs und seine Übergabe an die Frau › Schreiben des Get (Scheidebrief) › Botenschaft › Aufhebung des Get",
+     "desc_en": "Ordinances for the betterment of the world (tikkun olam) › Validity of the bill of divorce and its delivery to the wife › Writing the get (bill of divorce) › Agency › Annulment of the get"
+    },
+    {
+     "ref": "4:3",
+     "text": "שבועת אלמנה, פרוזבול / עדי חתימה",
+     "text_de": "Eid der Witwe, Prosbul / Zeugen der Unterzeichnung",
+     "text_en": "Oath of the widow, prozbul / signing witnesses",
+     "desc": "תקנות משום תיקון העולם › כשרות הגט והעברתו לאשה › בדיני ממונות ואיסורים › כתיבת הגט › פרעון חוב",
+     "desc_de": "Verordnungen zum Wohl der Welt (Tikkun Olam) › Tauglichkeit des Scheidebriefs und seine Übergabe an die Frau › In Geldsachen und Verbotsangelegenheiten › Schreiben des Get (Scheidebrief) › Begleichung einer Schuld",
+     "desc_en": "Ordinances for the betterment of the world (tikkun olam) › Validity of the bill of divorce and its delivery to the wife › In monetary law and in prohibitions › Writing the get (bill of divorce) › Repayment of a debt"
+    },
+    {
+     "ref": "4:4",
+     "text": "שעבוד אחר פדיון, המזיק שעבוד",
+     "text_de": "Verpfändung nach der Auslösung, Verpfändung durch den Schädiger",
+     "text_en": "Lien after redemption, lien of the one who caused damage",
+     "desc": "תקנות משום תיקון העולם › בדיני ממונות ואיסורים › עבדים",
+     "desc_de": "Verordnungen zum Wohl der Welt (Tikkun Olam) › In Geldsachen und Verbotsangelegenheiten › Sklaven",
+     "desc_en": "Ordinances for the betterment of the world (tikkun olam) › In monetary law and in prohibitions › Slaves"
+    },
+    {
+     "ref": "4:5",
+     "text": "חצי עבד וחצי בן חורין",
+     "text_de": "Halb Sklave, halb Freier",
+     "text_en": "Half slave, half free",
+     "desc": "תקנות משום תיקון העולם › בדיני ממונות ואיסורים › עבדים",
+     "desc_de": "Verordnungen zum Wohl der Welt (Tikkun Olam) › In Geldsachen und Verbotsangelegenheiten › Sklaven",
+     "desc_en": "Ordinances for the betterment of the world (tikkun olam) › In monetary law and in prohibitions › Slaves"
+    },
+    {
+     "ref": "4:6",
+     "text": "מכר לגוי, לחו\"ל \\ פדיון מוגזם, הברחה",
+     "text_de": "Verkauf an Nichtjuden, ins Ausland / überhöhte Auslösung, Schmuggel",
+     "text_en": "Sale to a gentile, abroad / excessive ransom, smuggling out",
+     "desc": "תקנות משום תיקון העולם › בדיני ממונות ואיסורים › בידי גוים › עבדים",
+     "desc_de": "Verordnungen zum Wohl der Welt (Tikkun Olam) › In Geldsachen und Verbotsangelegenheiten › In der Hand von Nichtjuden › Sklaven",
+     "desc_en": "Ordinances for the betterment of the world (tikkun olam) › In monetary law and in prohibitions › In the hands of gentiles › Slaves"
+    },
+    {
+     "ref": "4:7",
+     "text": "משום שם רע או נדר",
+     "text_de": "Wegen schlechten Rufs oder eines Gelübdes",
+     "text_en": "Because of bad reputation or a vow",
+     "desc": "תקנות משום תיקון העולם › בדיני ממונות ואיסורים › החזרת אשה שנתגרשה",
+     "desc_de": "Verordnungen zum Wohl der Welt (Tikkun Olam) › In Geldsachen und Verbotsangelegenheiten › Wiederaufnahme einer geschiedenen Frau",
+     "desc_en": "Ordinances for the betterment of the world (tikkun olam) › In monetary law and in prohibitions › Taking back a divorced woman"
+    },
+    {
+     "ref": "4:8",
+     "text": "משום איילונית",
+     "text_de": "Wegen der Ailonit (unfruchtbaren Frau)",
+     "text_en": "Because of the ailonit (barren woman)",
+     "desc": "תקנות משום תיקון העולם › בדיני ממונות ואיסורים › החזרת אשה שנתגרשה",
+     "desc_de": "Verordnungen zum Wohl der Welt (Tikkun Olam) › In Geldsachen und Verbotsangelegenheiten › Wiederaufnahme einer geschiedenen Frau",
+     "desc_en": "Ordinances for the betterment of the world (tikkun olam) › In monetary law and in prohibitions › Taking back a divorced woman"
+    },
+    {
+     "ref": "4:9",
+     "text": "המוכר עצמו או שדהו לגוי",
+     "text_de": "Wer sich selbst oder sein Feld an einen Nichtjuden verkauft",
+     "text_en": "One who sells himself or his field to a gentile",
+     "desc": "תקנות משום תיקון העולם › בדיני ממונות ואיסורים › שבידי גוים",
+     "desc_de": "Verordnungen zum Wohl der Welt (Tikkun Olam) › In Geldsachen und Verbotsangelegenheiten › Was sich in der Hand von Nichtjuden befindet",
+     "desc_en": "Ordinances for the betterment of the world (tikkun olam) › In monetary law and in prohibitions › That which is in the hands of gentiles"
+    }
+   ]
+  },
+  {
+   "head": "פרק ה",
+   "head_de": "Kapitel 5",
+   "head_en": "Chapter 5",
+   "items": [
+    {
+     "ref": "5:1",
+     "text": "נזקים, בעל חוב, כתובה",
+     "text_de": "Schäden, Gläubiger, Ketubba",
+     "text_en": "Damages, creditor, ketubbah",
+     "desc": "תקנות משום תיקון העולם › בדיני ממונות › פרעון חוב › טיב הקרקע",
+     "desc_de": "Verordnungen zum Wohl der Welt (Tikkun Olam) › In Geldsachen › Begleichung einer Schuld › Beschaffenheit des Bodens",
+     "desc_en": "Ordinances for the betterment of the world (tikkun olam) › In monetary law › Repayment of a debt › Quality of the land"
+    },
+    {
+     "ref": "5:2",
+     "text": "אם זיבורית בנמצא , מנכסי יתומים",
+     "text_de": "Wenn Boden minderer Qualität (Zibburit) vorhanden ist, aus dem Vermögen von Waisen",
+     "text_en": "If inferior land (zibburit) is available, from orphans' estate",
+     "desc": "תקנות משום תיקון העולם › בדיני ממונות › פרעון חוב › טיב הקרקע",
+     "desc_de": "Verordnungen zum Wohl der Welt (Tikkun Olam) › In Geldsachen › Begleichung einer Schuld › Beschaffenheit des Bodens",
+     "desc_en": "Ordinances for the betterment of the world (tikkun olam) › In monetary law › Repayment of a debt › Quality of the land"
+    },
+    {
+     "ref": "5:3",
+     "text": "לדברים בלי קצבה \\ המוצא מציאה",
+     "text_de": "Bei Dingen ohne festgesetztes Maß / Finder eines verlorenen Gegenstands",
+     "text_en": "For matters with no fixed amount / finder of lost property",
+     "desc": "תקנות משום תיקון העולם › בדיני ממונות › צורך בשבועה › פרעון חוב",
+     "desc_de": "Verordnungen zum Wohl der Welt (Tikkun Olam) › In Geldsachen › Notwendigkeit eines Eides › Begleichung einer Schuld",
+     "desc_en": "Ordinances for the betterment of the world (tikkun olam) › In monetary law › Need for an oath › Repayment of a debt"
+    },
+    {
+     "ref": "5:4",
+     "text": "אפוטרופוס ומעשרותיו \\ נזק לא ניכר",
+     "text_de": "Vormund und seine Zehnten / unmerklicher Schaden",
+     "text_en": "Guardian and his tithes / unnoticeable damage",
+     "desc": "תקנות משום תיקון העולם › בדיני ממונות › צורך בשבועה",
+     "desc_de": "Verordnungen zum Wohl der Welt (Tikkun Olam) › In Geldsachen › Notwendigkeit eines Eides",
+     "desc_en": "Ordinances for the betterment of the world (tikkun olam) › In monetary law › Need for an oath"
+    },
+    {
+     "ref": "5:5",
+     "text": "אישות חרשת וקטנה \\ מריש, חטאת",
+     "text_de": "Eherecht: Taubstumme und Minderjährige / Balken, Sündopfer",
+     "text_en": "Marital law: deaf-mute and minor girl / beam, sin offering",
+     "desc": "תקנות משום תיקון העולם › בדיני ממונות › גזל",
+     "desc_de": "Verordnungen zum Wohl der Welt (Tikkun Olam) › In Geldsachen › Raub",
+     "desc_en": "Ordinances for the betterment of the world (tikkun olam) › In monetary law › Robbery"
+    },
+    {
+     "ref": "5:6",
+     "text": "כשהרגו, משנה ראשונה ואחרונה",
+     "text_de": "Wenn sie ihn töteten, erste und letzte Mischna",
+     "text_en": "When they killed him, first and last Mishnah",
+     "desc": "תקנות משום תיקון העולם › בדיני ממונות › גזל › סיקריקון",
+     "desc_de": "Verordnungen zum Wohl der Welt (Tikkun Olam) › In Geldsachen › Raub › Sikarikon",
+     "desc_en": "Ordinances for the betterment of the world (tikkun olam) › In monetary law › Robbery › Sicaricon"
+    },
+    {
+     "ref": "5:7",
+     "text": "קניני חרש, פעוטות",
+     "text_de": "Erwerbsakte des Taubstummen, von Kleinkindern",
+     "text_en": "Acts of acquisition of the deaf-mute, of small children",
+     "desc": "תקנות משום תיקון העולם › בדיני ממונות › גזל › אין בהם דעת",
+     "desc_de": "Verordnungen zum Wohl der Welt (Tikkun Olam) › In Geldsachen › Raub › Sie haben kein Urteilsvermögen",
+     "desc_en": "Ordinances for the betterment of the world (tikkun olam) › In monetary law › Robbery › They lack understanding"
+    },
+    {
+     "ref": "5:8",
+     "text": "עניני סדר, מניעת גזל",
+     "text_de": "Ordnungsangelegenheiten, Verhinderung von Raub",
+     "text_en": "Matters of public order, prevention of robbery",
+     "desc": "תקנות משום תיקון העולם › בדיני ממונות › גזל › דרכי שלום › אין בהם דעת",
+     "desc_de": "Verordnungen zum Wohl der Welt (Tikkun Olam) › In Geldsachen › Raub › Wege des Friedens (Darchei Schalom) › Sie haben kein Urteilsvermögen",
+     "desc_en": "Ordinances for the betterment of the world (tikkun olam) › In monetary law › Robbery › Ways of peace (darkhei shalom) › They lack understanding"
+    },
+    {
+     "ref": "5:9",
+     "text": "החזקת ידי עבריינים וגוים",
+     "text_de": "Unterstützung von Übeltätern und Nichtjuden",
+     "text_en": "Supporting wrongdoers and gentiles",
+     "desc": "תקנות משום תיקון העולם › בדיני ממונות › דרכי שלום",
+     "desc_de": "Verordnungen zum Wohl der Welt (Tikkun Olam) › In Geldsachen › Wege des Friedens (Darchei Schalom)",
+     "desc_en": "Ordinances for the betterment of the world (tikkun olam) › In monetary law › Ways of peace (darkhei shalom)"
+    }
+   ]
+  },
+  {
+   "head": "פרק ו",
+   "head_de": "Kapitel 6",
+   "head_en": "Chapter 6",
+   "items": [
+    {
+     "ref": "6:1",
+     "text": "שליח הולכה וקבלה ולשון מנויים",
+     "text_de": "Bote für Überbringung und Empfang, Wortlaut der Ernennung",
+     "text_en": "Agent for delivery and for receipt, wording of the appointment",
+     "desc": "העברת הגט לאשה › שליחות בגיטין › אפשרות להתחרט",
+     "desc_de": "Übergabe des Get an die Frau › Beauftragung bei Scheidebriefen › Möglichkeit der Reue",
+     "desc_en": "Delivery of the get to the woman › Agency in bills of divorce › Possibility of regret"
+    },
+    {
+     "ref": "6:2",
+     "text": "עדי מסירה \\ ע\"י אב ולנערה, חסרת דעת",
+     "text_de": "Übergabezeugen / durch den Vater, bei einem Mädchen (Naara), Geistesschwache",
+     "text_en": "Witnesses of delivery / by the father, for a young girl (naarah), mentally incompetent",
+     "desc": "העברת הגט לאשה › שליחות בגיטין › אפשרות להתחרט › קבלה לקטנה",
+     "desc_de": "Übergabe des Get an die Frau › Beauftragung bei Scheidebriefen › Möglichkeit der Reue › Empfang für eine Minderjährige",
+     "desc_en": "Delivery of the get to the woman › Agency in bills of divorce › Possibility of regret › Receipt on behalf of a minor"
+    },
+    {
+     "ref": "6:3",
+     "text": "מניית שליח \\ בהולכה ובקבלה",
+     "text_de": "Ernennung eines Boten / zum Überbringen und zum Empfangen",
+     "text_en": "Appointing an agent / for delivery and for receipt",
+     "desc": "העברת הגט לאשה › שליחות בגיטין › לשון מניית שליח › אפשרות להתחרט › ציון מקום הקבלה › קבלה לקטנה",
+     "desc_de": "Übergabe des Get an die Frau › Beauftragung bei Scheidebriefen › Wortlaut der Botenernennung › Möglichkeit der Reue › Angabe des Empfangsortes › Empfang für eine Minderjährige",
+     "desc_en": "Delivery of the get to the woman › Agency in bills of divorce › Wording of the agent's appointment › Possibility of regret › Specifying the place of receipt › Receipt on behalf of a minor"
+    },
+    {
+     "ref": "6:4",
+     "text": "נפקא מינא לאכילת תרומה",
+     "text_de": "Praktische Folge für den Verzehr von Terumah",
+     "text_en": "Practical consequence for eating terumah",
+     "desc": "העברת הגט לאשה › שליחות בגיטין › לשון מניית שליח › ציון מקום הקבלה",
+     "desc_de": "Übergabe des Get an die Frau › Beauftragung bei Scheidebriefen › Wortlaut der Botenernennung › Angabe des Empfangsortes",
+     "desc_en": "Delivery of the get to the woman › Agency in bills of divorce › Wording of the agent's appointment › Specifying the place of receipt"
+    },
+    {
+     "ref": "6:5",
+     "text": "לכתיבת גט \\ המבוהל",
+     "text_de": "Für das Schreiben eines Get / der Verwirrte",
+     "text_en": "For writing a get / the disoriented person",
+     "desc": "העברת הגט לאשה › שליחות בגיטין › לשון מניית שליח › לא אמר 'תתנו'",
+     "desc_de": "Übergabe des Get an die Frau › Beauftragung bei Scheidebriefen › Wortlaut der Botenernennung › Er sagte nicht „Gebt\"",
+     "desc_en": "Delivery of the get to the woman › Agency in bills of divorce › Wording of the agent's appointment › He did not say \"Give\""
+    },
+    {
+     "ref": "6:6",
+     "text": "מושלך בבור, בריא וסופו המוכיח",
+     "text_de": "In eine Grube geworfen, Gesunder, dessen Ende es beweist",
+     "text_en": "Thrown into a pit, healthy person, whose end proves it",
+     "desc": "העברת הגט לאשה › שליחות בגיטין › לשון מניית שליח › לא אמר 'תתנו'",
+     "desc_de": "Übergabe des Get an die Frau › Beauftragung bei Scheidebriefen › Wortlaut der Botenernennung › Er sagte nicht „Gebt\"",
+     "desc_en": "Delivery of the get to the woman › Agency in bills of divorce › Wording of the agent's appointment › He did not say \"Give\""
+    },
+    {
+     "ref": "6:7",
+     "text": "מינוי כב\"ד או כעדים ושלוחים",
+     "text_de": "Ernennung wie ein Gericht oder wie Zeugen und Boten",
+     "text_en": "Appointment as a court or as witnesses and agents",
+     "desc": "העברת הגט לאשה › שליחות בגיטין › לשון מניית שליח › יכולת למנות",
+     "desc_de": "Übergabe des Get an die Frau › Beauftragung bei Scheidebriefen › Wortlaut der Botenernennung › Fähigkeit zu ernennen",
+     "desc_en": "Delivery of the get to the woman › Agency in bills of divorce › Wording of the agent's appointment › Capacity to appoint"
+    }
+   ]
+  },
+  {
+   "head": "פרק ז",
+   "head_de": "Kapitel 7",
+   "head_en": "Chapter 7",
+   "items": [
+    {
+     "ref": "7:1",
+     "text": "אחזו קורדקידוס או נשתתק",
+     "text_de": "Von Kordikos befallen oder gelähmt",
+     "text_en": "Seized by kordikos or paralyzed",
+     "desc": "העברת הגט לאשה › שליחות בגיטין › לשון מניית שליח › יכולת למנות",
+     "desc_de": "Übergabe des Get an die Frau › Beauftragung bei Scheidebriefen › Wortlaut der Botenernennung › Fähigkeit zu ernennen",
+     "desc_en": "Delivery of the get to the woman › Agency in bills of divorce › Wording of the agent's appointment › Capacity to appoint"
+    },
+    {
+     "ref": "7:2",
+     "text": "שליחים שמינו סופרים ועדים",
+     "text_de": "Boten, die Schreiber und Zeugen ernannten",
+     "text_en": "Agents who appointed scribes and witnesses",
+     "desc": "העברת הגט לאשה › שליחות בגיטין › לשון מניית שליח › יכולת למנות",
+     "desc_de": "Übergabe des Get an die Frau › Beauftragung bei Scheidebriefen › Wortlaut der Botenernennung › Fähigkeit zu ernennen",
+     "desc_en": "Delivery of the get to the woman › Agency in bills of divorce › Wording of the agent's appointment › Capacity to appoint"
+    },
+    {
+     "ref": "7:3",
+     "text": "'אם מתי', 'מעכשיו', הגורם למיתה",
+     "text_de": "„Wenn ich sterbe\", „von jetzt an\", Verursachung des Todes",
+     "text_en": "\"If I die\", \"from now\", causing death",
+     "desc": "כשרות הגט › תנאים בגט › קיום מצד האיש › לאחר מיתה",
+     "desc_de": "Gültigkeit des Get › Bedingungen im Get › Erfüllung von Seiten des Mannes › Nach dem Tod",
+     "desc_en": "Validity of the get › Conditions in the get › Fulfillment on the husband's part › After death"
+    },
+    {
+     "ref": "7:4",
+     "text": "דין אשה וגיטה החל בדיוק לפני מיתה",
+     "text_de": "Rechtslage von Frau und Get, wirksam genau vor dem Tod",
+     "text_en": "Legal status of the woman and her get, taking effect just before death",
+     "desc": "כשרות הגט › תנאים בגט › קיום מצד האיש › לאחר מיתה",
+     "desc_de": "Gültigkeit des Get › Bedingungen im Get › Erfüllung von Seiten des Mannes › Nach dem Tod",
+     "desc_en": "Validity of the get › Conditions in the get › Fulfillment on the husband's part › After death"
+    },
+    {
+     "ref": "7:5",
+     "text": "תשלום כסף ובהגבלת זמן, איצטלית",
+     "text_de": "Geldzahlung und Befristung, Mantel",
+     "text_en": "Payment of money and time limit, cloak",
+     "desc": "כשרות הגט › תנאים בגט › קיום מצד האשה",
+     "desc_de": "Gültigkeit des Get › Bedingungen im Get › Erfüllung von Seiten der Frau",
+     "desc_en": "Validity of the get › Conditions in the get › Fulfillment on the wife's part"
+    },
+    {
+     "ref": "7:6",
+     "text": "שירות אבא או בן, סיבת האי קיום",
+     "text_de": "Dienst für Vater oder Sohn, Grund der Nichterfüllung",
+     "text_en": "Service for father or son, cause of non-fulfillment",
+     "desc": "כשרות הגט › תנאים בגט › קיום מצד האשה",
+     "desc_de": "Gültigkeit des Get › Bedingungen im Get › Erfüllung von Seiten der Frau",
+     "desc_en": "Validity of the get › Conditions in the get › Fulfillment on the wife's part"
+    },
+    {
+     "ref": "7:7",
+     "text": "הליכה לגליל, יהודה, מדינת הים, יחוד",
+     "text_de": "Reise nach Galiläa, Judäa, Übersee, Alleinsein",
+     "text_en": "Travel to Galilee, Judea, overseas, seclusion",
+     "desc": "כשרות הגט › תנאים בגט › קיום מצד האיש › תוך ל' יום",
+     "desc_de": "Gültigkeit des Get › Bedingungen im Get › Erfüllung von Seiten des Mannes › Innerhalb von dreißig Tagen",
+     "desc_en": "Validity of the get › Conditions in the get › Fulfillment on the husband's part › Within thirty days"
+    },
+    {
+     "ref": "7:8",
+     "text": "מת תוך הזמן, אמר 'מעכשיו'",
+     "text_de": "Starb innerhalb der Frist, sagte „von jetzt an\"",
+     "text_en": "Died within the time, said \"from now\"",
+     "desc": "כשרות הגט › תנאים בגט › קיום מצד האיש › חזרה",
+     "desc_de": "Gültigkeit des Get › Bedingungen im Get › Erfüllung von Seiten des Mannes › Rückkehr",
+     "desc_en": "Validity of the get › Conditions in the get › Fulfillment on the husband's part › Return"
+    },
+    {
+     "ref": "7:9",
+     "text": "מילוי הוראותיו תוך הזמן",
+     "text_de": "Ausführung seiner Anweisungen innerhalb der Frist",
+     "text_en": "Carrying out his instructions within the time",
+     "desc": "כשרות הגט › תנאים בגט › קיום מצד האיש › תוך שנה",
+     "desc_de": "Gültigkeit des Get › Bedingungen im Get › Erfüllung von Seiten des Mannes › Innerhalb eines Jahres",
+     "desc_en": "Validity of the get › Conditions in the get › Fulfillment on the husband's part › Within a year"
+    }
+   ]
+  },
+  {
+   "head": "פרק ח",
+   "head_de": "Kapitel 8",
+   "head_en": "Chapter 8",
+   "items": [
+    {
+     "ref": "8:1",
+     "text": "רשותה כידה",
+     "text_de": "Ihr Verfügungsbereich gilt wie ihre Hand",
+     "text_en": "Her domain is like her hand",
+     "desc": "העברת הגט לאשה › קבלת הגט › יד האשה › מקום הקבלה",
+     "desc_de": "Übergabe des Get an die Frau › Empfang des Get › Die Hand der Frau › Ort des Empfangs",
+     "desc_en": "Delivery of the get to the woman › Receiving the get › The woman's hand › Place of receipt"
+    },
+    {
+     "ref": "8:2",
+     "text": "נתינה בתורת גט \\ גט",
+     "text_de": "Übergabe zum Zweck der Scheidung / Get",
+     "text_en": "Giving as a get / get",
+     "desc": "העברת הגט לאשה › קבלת הגט › יד האשה › מקום הקבלה › ברה\"ר",
+     "desc_de": "Übergabe des Get an die Frau › Empfang des Get › Die Hand der Frau › Ort des Empfangs › Auf öffentlichem Grund",
+     "desc_en": "Delivery of the get to the woman › Receiving the get › The woman's hand › Place of receipt › In the public domain"
+    },
+    {
+     "ref": "8:3",
+     "text": "קידושין, חוב \\ אויר רשותה",
+     "text_de": "Kidduschin, Schuld / Luftraum ihres Verfügungsbereichs",
+     "text_en": "Betrothal, debt / airspace of her domain",
+     "desc": "העברת הגט לאשה › קבלת הגט › יד האשה › מקום הקבלה › ברה\"ר",
+     "desc_de": "Übergabe des Get an die Frau › Empfang des Get › Die Hand der Frau › Ort des Empfangs › Auf öffentlichem Grund",
+     "desc_en": "Delivery of the get to the woman › Receiving the get › The woman's hand › Place of receipt › In the public domain"
+    },
+    {
+     "ref": "8:4",
+     "text": "גט ישן והגדרתו",
+     "text_de": "Altes Get und seine Definition",
+     "text_en": "Old get and its definition",
+     "desc": "כשרות הגט › כתיבת גט › זמן",
+     "desc_de": "Gültigkeit des Get › Schreiben des Get › Zeit",
+     "desc_en": "Validity of the get › Writing the get › time"
+    },
+    {
+     "ref": "8:5",
+     "text": "לא לשם מלכות\\ מקום הכתיבה, שינוי שם",
+     "text_de": "Nicht im Namen der Regierung / Ort des Schreibens, Namensänderung",
+     "text_en": "Not in the name of the government / place of writing, change of name",
+     "desc": "כשרות הגט › תוצאות הגט › כתיבת גט › קנסות לנשואות בלי כריתות › זמן",
+     "desc_de": "Gültigkeit des Get › Folgen des Get › Schreiben des Get › Bußen für Frauen, die ohne Scheidung geheiratet haben › Zeit",
+     "desc_en": "Validity of the get › Consequences of the get › Writing the get › Penalties for women who remarried without a divorce › time"
+    },
+    {
+     "ref": "8:6",
+     "text": "צרת ערווה איילונית",
+     "text_de": "Nebenfrau einer Inzestverwandten, Ailonit",
+     "text_en": "Rival wife of a forbidden relative, ailonit",
+     "desc": "כשרות הגט › תוצאות הגט › קנסות לנשואות בלי כריתות › פטור יבמה מחליצה",
+     "desc_de": "Gültigkeit des Get › Folgen des Get › Bußen für Frauen, die ohne Scheidung geheiratet haben › Befreiung der Schwägerin von der Chalitza",
+     "desc_en": "Validity of the get › Consequences of the get › Penalties for women who remarried without a divorce › Exemption of the levirate widow from chalitza"
+    },
+    {
+     "ref": "8:7",
+     "text": "צרת איילונית שנתיבמה",
+     "text_de": "Nebenfrau einer Ailonit, die die Leviratsehe vollzogen hat",
+     "text_en": "Rival wife of an ailonit who entered levirate marriage",
+     "desc": "כשרות הגט › תוצאות הגט › קנסות לנשואות בלי כריתות › פטור יבמה מחליצה",
+     "desc_de": "Gültigkeit des Get › Folgen des Get › Bußen für Frauen, die ohne Scheidung geheiratet haben › Befreiung der Schwägerin von der Chalitza",
+     "desc_en": "Validity of the get › Consequences of the get › Penalties for women who remarried without a divorce › Exemption of the levirate widow from chalitza"
+    },
+    {
+     "ref": "8:8",
+     "text": "ניתן גט לאיש\\ פסול לכהונה לפני חלות",
+     "text_de": "Get einem Mann gegeben / für das Priesteramt untauglich vor Wirksamwerden",
+     "text_en": "Get given to a man / disqualified from priesthood before taking effect",
+     "desc": "כשרות הגט › תוצאות הגט › קנסות לנשואות בלי כריתות › לפני ואחרי הנתינה",
+     "desc_de": "Gültigkeit des Get › Folgen des Get › Bußen für Frauen, die ohne Scheidung geheiratet haben › Vor und nach der Übergabe",
+     "desc_en": "Validity of the get › Consequences of the get › Penalties for women who remarried without a divorce › Before and after the delivery"
+    },
+    {
+     "ref": "8:9",
+     "text": "יחוד אחר גט \\ אם נשאת בו",
+     "text_de": "Alleinsein nach dem Get / wenn sie ihn geheiratet hat",
+     "text_en": "Seclusion after the get / if she married him",
+     "desc": "כשרות הגט › תוצאות הגט › לפני ואחרי הנתינה",
+     "desc_de": "Gültigkeit des Get › Folgen des Get › Vor und nach der Übergabe",
+     "desc_en": "Validity of the get › Consequences of the get › Before and after the delivery"
+    },
+    {
+     "ref": "8:10",
+     "text": "מי משלים עליו, הגדרתו",
+     "text_de": "Wer ergänzt es, seine Definition",
+     "text_en": "Who completes it, its definition",
+     "desc": "כשרות הגט › כתיבת גט › עדי הגט › גט קרח",
+     "desc_de": "Gültigkeit des Get › Schreiben des Get › Zeugen des Get › Kahles Get",
+     "desc_en": "Validity of the get › Writing the get › Witnesses of the get › Bald get"
+    }
+   ]
+  },
+  {
+   "head": "פרק ט",
+   "head_de": "Kapitel 9",
+   "head_en": "Chapter 9",
+   "items": [
+    {
+     "ref": "9:1",
+     "text": "איך מתקנו \\ המותר לה",
+     "text_de": "Wie man es behebt / was ihr erlaubt ist",
+     "text_en": "How to remedy it / what is permitted to her",
+     "desc": "כשרות הגט › תנאים בגט › כתיבת גט › שיור בכריתות › לאיזה אדם לא הותרה",
+     "desc_de": "Gültigkeit des Get › Bedingungen im Get › Schreiben des Get › Vorbehalt bei der Scheidung › Für welchen Mann sie nicht erlaubt wurde",
+     "desc_en": "Validity of the get › Conditions in the get › Writing the get › Reservation in the divorce › For which man she was not permitted"
+    },
+    {
+     "ref": "9:2",
+     "text": "שאין עימו קידושין, האסור לה בלאו",
+     "text_de": "Wo keine Kidduschin wirken, die durch ein Verbot Untersagte",
+     "text_en": "Where no betrothal takes effect, one forbidden by a negative commandment",
+     "desc": "כשרות הגט › תנאים בגט › שיור בכריתות › לאיזה אדם לא הותרה",
+     "desc_de": "Gültigkeit des Get › Bedingungen im Get › Vorbehalt bei der Scheidung › Für welchen Mann sie nicht erlaubt wurde",
+     "desc_en": "Validity of the get › Conditions in the get › Reservation in the divorce › For which man she was not permitted"
+    },
+    {
+     "ref": "9:3",
+     "text": "גט, גט שחרור",
+     "text_de": "Get, Freilassungsurkunde",
+     "text_en": "Get, deed of manumission",
+     "desc": "כשרות הגט › כתיבת הגט › הנוסח",
+     "desc_de": "Gültigkeit des Get › Schreiben des Get (Scheidebrief) › Der Wortlaut",
+     "desc_en": "Validity of the get › Writing the get (bill of divorce) › The wording"
+    },
+    {
+     "ref": "9:4",
+     "text": "חסרון בעדים או בזמן, עדי מסירה",
+     "text_de": "Mangel an Zeugen oder Zeit, Übergabezeugen",
+     "text_en": "Deficiency in witnesses or date, witnesses of delivery",
+     "desc": "כשרות הגט › כתיבת הגט › עדי הגט › ג' גיטין",
+     "desc_de": "Gültigkeit des Get › Schreiben des Get (Scheidebrief) › Zeugen des Get › Drei Gittin",
+     "desc_en": "Validity of the get › Writing the get (bill of divorce) › Witnesses of the get › Three gittin"
+    },
+    {
+     "ref": "9:5",
+     "text": "עירוב גיטין ניסוח כללי",
+     "text_de": "Vermischung von Gittin, allgemeine Formulierung",
+     "text_en": "Mixing of gittin, general wording",
+     "desc": "כשרות הגט › כתיבת הגט › עדי הגט",
+     "desc_de": "Gültigkeit des Get › Schreiben des Get (Scheidebrief) › Zeugen des Get",
+     "desc_en": "Validity of the get › Writing the get (bill of divorce) › Witnesses of the get"
+    },
+    {
+     "ref": "9:6",
+     "text": "זה בצד זה, עדים עברים ויונים",
+     "text_de": "Nebeneinander, hebräische und griechische Zeugen",
+     "text_en": "Side by side, Hebrew and Greek witnesses",
+     "desc": "כשרות הגט › כתיבת הגט › עדי הגט › גיטין הסמוכין",
+     "desc_de": "Gültigkeit des Get › Schreiben des Get (Scheidebrief) › Zeugen des Get › Aneinandergefügte Gittin",
+     "desc_en": "Validity of the get › Writing the get (bill of divorce) › Witnesses of the get › Juxtaposed gittin"
+    },
+    {
+     "ref": "9:7",
+     "text": "הסמוכין בצורות שונות, מקום החתימות",
+     "text_de": "Aneinanderfügung in verschiedenen Formen, Ort der Unterschriften",
+     "text_en": "Juxtaposition in various forms, place of the signatures",
+     "desc": "כשרות הגט › כתיבת הגט › עדי הגט › גיטין הסמוכין",
+     "desc_de": "Gültigkeit des Get › Schreiben des Get (Scheidebrief) › Zeugen des Get › Aneinandergefügte Gittin",
+     "desc_en": "Validity of the get › Writing the get (bill of divorce) › Witnesses of the get › Juxtaposed gittin"
+    },
+    {
+     "ref": "9:8",
+     "text": "ערוב בלשונות כתיבה ועדות \\ גט מעושה",
+     "text_de": "Vermischung von Schreibsprachen und Zeugenschaften / erzwungenes Get",
+     "text_en": "Mixing of languages of writing and of testimonies / coerced get",
+     "desc": "כשרות הגט › כתיבת הגט › כוונה בגירושין › עדי הגט",
+     "desc_de": "Gültigkeit des Get › Schreiben des Get (Scheidebrief) › Absicht bei der Scheidung › Zeugen des Get",
+     "desc_en": "Validity of the get › Writing the get (bill of divorce) › Intention in divorce › Witnesses of the get"
+    },
+    {
+     "ref": "9:9",
+     "text": "קול ואמתלא ובקידושין",
+     "text_de": "Gerücht und Rechtfertigung, auch bei Kidduschin",
+     "text_en": "Rumor and justification, also in betrothal",
+     "desc": "כשרות הגט › כוונה בגירושין",
+     "desc_de": "Gültigkeit des Get › Absicht bei der Scheidung",
+     "desc_en": "Validity of the get › Intention in divorce"
+    },
+    {
+     "ref": "9:10",
+     "text": "סיבה לגרושין",
+     "text_de": "Grund der Scheidung",
+     "text_en": "Reason for divorce",
+     "desc": "כשרות הגט › כוונה בגירושין",
+     "desc_de": "Gültigkeit des Get › Absicht bei der Scheidung",
+     "desc_en": "Validity of the get › Intention in divorce"
+    }
+   ]
+  }
+ ]
+}

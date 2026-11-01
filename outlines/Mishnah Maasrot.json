@@ -1,0 +1,406 @@
+{
+ "book": "Mishnah Maasrot",
+ "title": "משנה מעשרות",
+ "title_de": "Mischna Maasrot – Gliederung",
+ "title_en": "Maasrot – outline",
+ "note": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema).",
+ "note_de": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema); ins Deutsche und Englische übersetzt.",
+ "note_en": "Outline after the table “Mishna Sedura”: the central content of each mishnah, with the topic path (main topic to sub-topic); translated into German and English.",
+ "sections": [
+  {
+   "head": "פרק א",
+   "head_de": "Kapitel 1",
+   "head_en": "Chapter 1",
+   "items": [
+    {
+     "ref": "1:1",
+     "text": "השייך למעשרות \\ זמן חיוב",
+     "text_de": "Was den Zehnten unterliegt / Zeitpunkt der Pflicht",
+     "text_en": "What is subject to tithes / time of obligation",
+     "desc": "חלות החיוב להפריש מעשרות › חיוב במעשרות › כללים",
+     "desc_de": "Eintritt der Pflicht, Zehnte abzusondern › Pflicht zur Verzehntung › Regeln",
+     "desc_en": "Onset of the obligation to separate tithes › Obligation to tithe › Rules"
+    },
+    {
+     "ref": "1:2",
+     "text": "פירות שונים",
+     "text_de": "Verschiedene Früchte",
+     "text_en": "Various fruits",
+     "desc": "חלות החיוב להפריש מעשרות › חיוב במעשרות › עונת המעשרות › פירוט מינים",
+     "desc_de": "Eintritt der Pflicht, Zehnte abzusondern › Pflicht zur Verzehntung › Zeit der Zehnte › Aufzählung der Arten",
+     "desc_en": "Onset of the obligation to separate tithes › Obligation to tithe › Season of the tithes › Enumeration of the kinds"
+    },
+    {
+     "ref": "1:3",
+     "text": "פירות שחורים, לבנים ושונים",
+     "text_de": "Schwarze, weiße und verschiedene Früchte",
+     "text_en": "Black, white and various fruits",
+     "desc": "חלות החיוב להפריש מעשרות › חיוב במעשרות › עונת המעשרות › פירוט מינים",
+     "desc_de": "Eintritt der Pflicht, Zehnte abzusondern › Pflicht zur Verzehntung › Zeit der Zehnte › Aufzählung der Arten",
+     "desc_en": "Onset of the obligation to separate tithes › Obligation to tithe › Season of the tithes › Enumeration of the kinds"
+    },
+    {
+     "ref": "1:4",
+     "text": "ירק החייבים בקטנן",
+     "text_de": "Gemüse, das nur in kleiner Menge verzehntet werden muss",
+     "text_en": "Vegetables liable to tithes only in small quantity",
+     "desc": "חלות החיוב להפריש מעשרות › חיוב במעשרות › עונת המעשרות › פירוט מינים",
+     "desc_de": "Eintritt der Pflicht, Zehnte abzusondern › Pflicht zur Verzehntung › Zeit der Zehnte › Aufzählung der Arten",
+     "desc_en": "Onset of the obligation to separate tithes › Obligation to tithe › Season of the tithes › Enumeration of the kinds"
+    },
+    {
+     "ref": "1:5",
+     "text": "דברים שונים, המוליך לביתו",
+     "text_de": "Verschiedene Dinge, wer nach Hause trägt",
+     "text_en": "Various matters, one who carries home",
+     "desc": "חלות החיוב להפריש מעשרות › קביעה למעשרות › משום מעשה › גמר הכנת הפירות",
+     "desc_de": "Eintritt der Pflicht, Zehnte abzusondern › Festlegung für die Zehnte › Wegen einer Handlung › Abschluss der Zubereitung der Früchte",
+     "desc_en": "Onset of the obligation to separate tithes › Fixing liability for tithes › Because of an act › Completion of the processing of the produce"
+    },
+    {
+     "ref": "1:6",
+     "text": "העמדת ערימה, מירוח",
+     "text_de": "Aufschichten des Haufens, Glattstreichen",
+     "text_en": "Piling up the heap, smoothing",
+     "desc": "חלות החיוב להפריש מעשרות › קביעה למעשרות › משום מעשה › גמר הכנת הפירות",
+     "desc_de": "Eintritt der Pflicht, Zehnte abzusondern › Festlegung für die Zehnte › Wegen einer Handlung › Abschluss der Zubereitung der Früchte",
+     "desc_en": "Onset of the obligation to separate tithes › Fixing liability for tithes › Because of an act › Completion of the processing of the produce"
+    },
+    {
+     "ref": "1:7",
+     "text": "יין, שמן, בישול",
+     "text_de": "Wein, Öl, Kochen",
+     "text_en": "Wine, oil, cooking",
+     "desc": "חלות החיוב להפריש מעשרות › קביעה למעשרות › משום מעשה › גמר הכנת הפירות",
+     "desc_de": "Eintritt der Pflicht, Zehnte abzusondern › Festlegung für die Zehnte › Wegen einer Handlung › Abschluss der Zubereitung der Früchte",
+     "desc_en": "Onset of the obligation to separate tithes › Fixing liability for tithes › Because of an act › Completion of the processing of the produce"
+    },
+    {
+     "ref": "1:8",
+     "text": "החלקה, דישה, העגלה",
+     "text_de": "Glätten, Dreschen, Aufladen auf den Wagen",
+     "text_en": "Smoothing, threshing, loading on the cart",
+     "desc": "חלות החיוב להפריש מעשרות › קביעה למעשרות › משום מעשה › גמר הכנת הפירות",
+     "desc_de": "Eintritt der Pflicht, Zehnte abzusondern › Festlegung für die Zehnte › Wegen einer Handlung › Abschluss der Zubereitung der Früchte",
+     "desc_en": "Onset of the obligation to separate tithes › Fixing liability for tithes › Because of an act › Completion of the processing of the produce"
+    }
+   ]
+  },
+  {
+   "head": "פרק ב",
+   "head_de": "Kapitel 2",
+   "head_en": "Chapter 2",
+   "items": [
+    {
+     "ref": "2:1",
+     "text": "מתנה בשוק והכנסה לבית",
+     "text_de": "Gabe auf dem Markt und Bringen ins Haus",
+     "text_en": "Gift in the marketplace and bringing into the house",
+     "desc": "חלות החיוב להפריש מעשרות › קביעה למעשרות › מצד המקום › בית הקובעת",
+     "desc_de": "Eintritt der Pflicht, Zehnte abzusondern › Festlegung für die Zehnte › Seitens des Ortes › Das festlegende Haus",
+     "desc_en": "Onset of the obligation to separate tithes › Fixing liability for tithes › By reason of the place › The house that fixes liability"
+    },
+    {
+     "ref": "2:2",
+     "text": "מקום הפתוח לציבור",
+     "text_de": "Der Öffentlichkeit zugänglicher Ort",
+     "text_en": "Place open to the public",
+     "desc": "חלות החיוב להפריש מעשרות › קביעה למעשרות › מצד המקום › בית הקובעת",
+     "desc_de": "Eintritt der Pflicht, Zehnte abzusondern › Festlegung für die Zehnte › Seitens des Ortes › Das festlegende Haus",
+     "desc_en": "Onset of the obligation to separate tithes › Fixing liability for tithes › By reason of the place › The house that fixes liability"
+    },
+    {
+     "ref": "2:3",
+     "text": "שביתת ולינת אדם הנוסע",
+     "text_de": "Rast und Übernachten eines Reisenden",
+     "text_en": "Resting and lodging of a traveler",
+     "desc": "חלות החיוב להפריש מעשרות › קביעה למעשרות › מצד המקום › בית הקובעת",
+     "desc_de": "Eintritt der Pflicht, Zehnte abzusondern › Festlegung für die Zehnte › Seitens des Ortes › Das festlegende Haus",
+     "desc_en": "Onset of the obligation to separate tithes › Fixing liability for tithes › By reason of the place › The house that fixes liability"
+    },
+    {
+     "ref": "2:4",
+     "text": "הפרשת תרומה",
+     "text_de": "Absonderung der Teruma",
+     "text_en": "Separation of terumah",
+     "desc": "חלות החיוב להפריש מעשרות › קביעה למעשרות › משום מעשה",
+     "desc_de": "Eintritt der Pflicht, Zehnte abzusondern › Festlegung für die Zehnte › Wegen einer Handlung",
+     "desc_en": "Onset of the obligation to separate tithes › Fixing liability for tithes › Because of an act"
+    },
+    {
+     "ref": "2:5",
+     "text": "לקיטת המוכר",
+     "text_de": "Pflücken durch den Verkäufer",
+     "text_en": "Picking by the seller",
+     "desc": "חלות החיוב להפריש מעשרות › קביעה למעשרות › משום מעשה › מקח הקובע",
+     "desc_de": "Eintritt der Pflicht, Zehnte abzusondern › Festlegung für die Zehnte › Wegen einer Handlung › Kauf, der festlegt",
+     "desc_en": "Onset of the obligation to separate tithes › Fixing liability for tithes › Because of an act › Purchase that fixes liability"
+    },
+    {
+     "ref": "2:6",
+     "text": "לקיטת הלוקח",
+     "text_de": "Pflücken durch den Käufer",
+     "text_en": "Picking by the buyer",
+     "desc": "חלות החיוב להפריש מעשרות › קביעה למעשרות › משום מעשה › מקח הקובע",
+     "desc_de": "Eintritt der Pflicht, Zehnte abzusondern › Festlegung für die Zehnte › Wegen einer Handlung › Kauf, der festlegt",
+     "desc_en": "Onset of the obligation to separate tithes › Fixing liability for tithes › Because of an act › Purchase that fixes liability"
+    },
+    {
+     "ref": "2:7",
+     "text": "בתנאי או מן התורה",
+     "text_de": "Als Bedingung oder von der Tora her",
+     "text_en": "As a condition or from the Torah",
+     "desc": "חלות החיוב להפריש מעשרות › קביעה למעשרות › משום מעשה › אכילת פועל",
+     "desc_de": "Eintritt der Pflicht, Zehnte abzusondern › Festlegung für die Zehnte › Wegen einer Handlung › Essen des Arbeiters",
+     "desc_en": "Onset of the obligation to separate tithes › Fixing liability for tithes › Because of an act › Eating by the laborer"
+    },
+    {
+     "ref": "2:8",
+     "text": "מין וטיב שרשאי,תנאי החלפת אכילה",
+     "text_de": "Art und Güte, die erlaubt sind, Bedingung des Tauschs der Speise",
+     "text_en": "Kind and quality that are permitted, condition of exchanging the food",
+     "desc": "חלות החיוב להפריש מעשרות › קביעה למעשרות › משום מעשה › אכילת פועל",
+     "desc_de": "Eintritt der Pflicht, Zehnte abzusondern › Festlegung für die Zehnte › Wegen einer Handlung › Essen des Arbeiters",
+     "desc_en": "Onset of the obligation to separate tithes › Fixing liability for tithes › Because of an act › Eating by the laborer"
+    }
+   ]
+  },
+  {
+   "head": "פרק ג",
+   "head_de": "Kapitel 3",
+   "head_en": "Chapter 3",
+   "items": [
+    {
+     "ref": "3:1",
+     "text": "בחצר לפני גמר מלאכה, בני בית",
+     "text_de": "Im Hof vor Abschluss der Arbeit, Hausangehörige",
+     "text_en": "In the courtyard before completion of the work, members of the household",
+     "desc": "חלות החיוב להפריש מעשרות › קביעה למעשרות › משום מעשה › אכילת פועל",
+     "desc_de": "Eintritt der Pflicht, Zehnte abzusondern › Festlegung für die Zehnte › Wegen einer Handlung › Essen des Arbeiters",
+     "desc_en": "Onset of the obligation to separate tithes › Fixing liability for tithes › Because of an act › Eating by the laborer"
+    },
+    {
+     "ref": "3:2",
+     "text": "העוסק במלאכה אחרת",
+     "text_de": "Wer eine andere Arbeit verrichtet",
+     "text_en": "One engaged in other work",
+     "desc": "חלות החיוב להפריש מעשרות › קביעה למעשרות › משום מעשה › אכילת פועל",
+     "desc_de": "Eintritt der Pflicht, Zehnte abzusondern › Festlegung für die Zehnte › Wegen einer Handlung › Essen des Arbeiters",
+     "desc_en": "Onset of the obligation to separate tithes › Fixing liability for tithes › Because of an act › Eating by the laborer"
+    },
+    {
+     "ref": "3:3",
+     "text": "העוסק בגמר מלאכה במחובר",
+     "text_de": "Wer an der Fertigstellung am noch Verwurzelten arbeitet",
+     "text_en": "One engaged in completing work on produce still attached to the ground",
+     "desc": "חלות החיוב להפריש מעשרות › קביעה למעשרות › משום מעשה › הכנת הפירות › אכילת פועל",
+     "desc_de": "Eintritt der Pflicht, Zehnte abzusondern › Festlegung für die Zehnte › Wegen einer Handlung › Zubereitung der Früchte › Essen des Arbeiters",
+     "desc_en": "Onset of the obligation to separate tithes › Fixing liability for tithes › Because of an act › Preparation of the fruits › Eating by the laborer"
+    },
+    {
+     "ref": "3:4",
+     "text": "פירות שנמצאו \\ האכלת בהמה",
+     "text_de": "Gefundene Früchte / Füttern von Vieh",
+     "text_en": "Found fruits / feeding animals",
+     "desc": "חלות החיוב להפריש מעשרות › קביעה למעשרות › משום מעשה › החזרת מותר › הכנת הפירות",
+     "desc_de": "Eintritt der Pflicht, Zehnte abzusondern › Festlegung für die Zehnte › Wegen einer Handlung › Zurückgeben des Erlaubten › Zubereitung der Früchte",
+     "desc_en": "Onset of the obligation to separate tithes › Fixing liability for tithes › Because of an act › Returning what is permitted › Preparation of the fruits"
+    },
+    {
+     "ref": "3:5",
+     "text": "הגדרת חצר הקובעת",
+     "text_de": "Bestimmung des festlegenden Hofes",
+     "text_en": "Definition of the courtyard that fixes liability",
+     "desc": "חלות החיוב להפריש מעשרות › קביעה למעשרות › מצד המקום › חצר ובית הקובעים",
+     "desc_de": "Eintritt der Pflicht, Zehnte abzusondern › Festlegung für die Zehnte › Seitens des Ortes › Hof und Haus, die festlegen",
+     "desc_en": "Onset of the obligation to separate tithes › Fixing liability for tithes › By reason of the place › Courtyard and house that fix liability"
+    },
+    {
+     "ref": "3:6",
+     "text": "הטפילים לחצר",
+     "text_de": "Zum Hof Gehörendes",
+     "text_en": "Appurtenances of the courtyard",
+     "desc": "חלות החיוב להפריש מעשרות › קביעה למעשרות › מצד המקום › חצר ובית הקובעים",
+     "desc_de": "Eintritt der Pflicht, Zehnte abzusondern › Festlegung für die Zehnte › Seitens des Ortes › Hof und Haus, die festlegen",
+     "desc_en": "Onset of the obligation to separate tithes › Fixing liability for tithes › By reason of the place › Courtyard and house that fix liability"
+    },
+    {
+     "ref": "3:7",
+     "text": "מקום דיור עראי",
+     "text_de": "Vorübergehende Wohnstätte",
+     "text_en": "Temporary dwelling place",
+     "desc": "חלות החיוב להפריש מעשרות › קביעה למעשרות › מצד המקום › חצר ובית הקובעים",
+     "desc_de": "Eintritt der Pflicht, Zehnte abzusondern › Festlegung für die Zehnte › Seitens des Ortes › Hof und Haus, die festlegen",
+     "desc_en": "Onset of the obligation to separate tithes › Fixing liability for tithes › By reason of the place › Courtyard and house that fix liability"
+    },
+    {
+     "ref": "3:8",
+     "text": "תאנים",
+     "text_de": "Feigen",
+     "text_en": "Figs",
+     "desc": "חלות החיוב להפריש מעשרות › קביעה למעשרות › מצד המקום › צירוף בחצר",
+     "desc_de": "Eintritt der Pflicht, Zehnte abzusondern › Festlegung für die Zehnte › Seitens des Ortes › Zusammenrechnung im Hof",
+     "desc_en": "Onset of the obligation to separate tithes › Fixing liability for tithes › By reason of the place › Combining in the courtyard"
+    },
+    {
+     "ref": "3:9",
+     "text": "דברים שונים \\ ספיחים הנשמרים",
+     "text_de": "Verschiedene Dinge / bewachte Nachwuchspflanzen",
+     "text_en": "Various matters / guarded aftergrowth",
+     "desc": "חלות החיוב להפריש מעשרות › קביעה למעשרות › מצד המקום › צירוף בחצר",
+     "desc_de": "Eintritt der Pflicht, Zehnte abzusondern › Festlegung für die Zehnte › Seitens des Ortes › Zusammenrechnung im Hof",
+     "desc_en": "Onset of the obligation to separate tithes › Fixing liability for tithes › By reason of the place › Combining in the courtyard"
+    },
+    {
+     "ref": "3:10",
+     "text": "אילן נוטה ונפקא מינות שונות",
+     "text_de": "Überhängender Baum und verschiedene praktische Folgen",
+     "text_en": "Overhanging tree and various practical implications",
+     "desc": "חלות החיוב להפריש מעשרות › קביעה למעשרות › מצד המקום › שייכות המקום",
+     "desc_de": "Eintritt der Pflicht, Zehnte abzusondern › Festlegung für die Zehnte › Seitens des Ortes › Zugehörigkeit des Ortes",
+     "desc_en": "Onset of the obligation to separate tithes › Fixing liability for tithes › By reason of the place › Belonging of the place"
+    }
+   ]
+  },
+  {
+   "head": "פרק ד",
+   "head_de": "Kapitel 4",
+   "head_en": "Chapter 4",
+   "items": [
+    {
+     "ref": "4:1",
+     "text": "הכנות שונות לאכילה",
+     "text_de": "Verschiedene Vorbereitungen zum Essen",
+     "text_en": "Various preparations for eating",
+     "desc": "חלות החיוב להפריש מעשרות › קביעה למעשרות › משום מעשה › הכנת הפירות",
+     "desc_de": "Eintritt der Pflicht, Zehnte abzusondern › Festlegung für die Zehnte › Wegen einer Handlung › Zubereitung der Früchte",
+     "desc_en": "Onset of the obligation to separate tithes › Fixing liability for tithes › Because of an act › Preparation of the fruits"
+    },
+    {
+     "ref": "4:2",
+     "text": "הכנתם לשבת או למתנה",
+     "text_de": "Ihre Zubereitung für den Schabbat oder als Geschenk",
+     "text_en": "Preparing them for the Sabbath or as a gift",
+     "desc": "חלות החיוב להפריש מעשרות › קביעה למעשרות › משום מעשה › הכנת הפירות",
+     "desc_de": "Eintritt der Pflicht, Zehnte abzusondern › Festlegung für die Zehnte › Wegen einer Handlung › Zubereitung der Früchte",
+     "desc_en": "Onset of the obligation to separate tithes › Fixing liability for tithes › Because of an act › Preparation of the fruits"
+    },
+    {
+     "ref": "4:3",
+     "text": "אכילת זיתים ממעטנם",
+     "text_de": "Oliven essen, bevor man sie verringert",
+     "text_en": "Eating olives before reducing them",
+     "desc": "חלות החיוב להפריש מעשרות › קביעה למעשרות › משום מעשה › החזרת המותר",
+     "desc_de": "Eintritt der Pflicht, Zehnte abzusondern › Festlegung für die Zehnte › Wegen einer Handlung › Zurückgeben des Erlaubten",
+     "desc_en": "Onset of the obligation to separate tithes › Fixing liability for tithes › Because of an act › Returning what is permitted"
+    },
+    {
+     "ref": "4:4",
+     "text": "שתייה על הגת",
+     "text_de": "Trinken an der Kelter",
+     "text_en": "Drinking at the winepress",
+     "desc": "חלות החיוב להפריש מעשרות › קביעה למעשרות › משום מעשה › החזרת המותר",
+     "desc_de": "Eintritt der Pflicht, Zehnte abzusondern › Festlegung für die Zehnte › Wegen einer Handlung › Zurückgeben des Erlaubten",
+     "desc_en": "Onset of the obligation to separate tithes › Fixing liability for tithes › Because of an act › Returning what is permitted"
+    },
+    {
+     "ref": "4:5",
+     "text": "קילוף תבואה \\ כוסבר, שבת, שונות",
+     "text_de": "Getreide enthülsen / Koriander, Schabbat, Verschiedenes",
+     "text_en": "Husking grain / coriander, Sabbath, miscellaneous",
+     "desc": "חלות החיוב להפריש מעשרות › קביעה למעשרות › משום מעשה › חלקים שמתעשרים › הכנת פירות",
+     "desc_de": "Eintritt der Pflicht, Zehnte abzusondern › Festlegung für die Zehnte › Wegen einer Handlung › Teile, die dem Zehnten unterliegen › Zubereitung der Früchte",
+     "desc_en": "Onset of the obligation to separate tithes › Fixing liability for tithes › Because of an act › Parts that become subject to tithe › Preparation of the fruits"
+    },
+    {
+     "ref": "4:6",
+     "text": "תמרות שונים, צלף",
+     "text_de": "Verschiedene Rauchsäulen, Kaper",
+     "text_en": "Various columns of smoke, caper",
+     "desc": "חלות החיוב להפריש מעשרות › קביעה למעשרות › משום מעשה › חלקים שמתעשרים",
+     "desc_de": "Eintritt der Pflicht, Zehnte abzusondern › Festlegung für die Zehnte › Wegen einer Handlung › Teile, die dem Zehnten unterliegen",
+     "desc_en": "Onset of the obligation to separate tithes › Fixing liability for tithes › Because of an act › Parts that become subject to tithe"
+    }
+   ]
+  },
+  {
+   "head": "פרק ה",
+   "head_de": "Kapitel 5",
+   "head_en": "Chapter 5",
+   "items": [
+    {
+     "ref": "5:1",
+     "text": "שתילים",
+     "text_de": "Setzlinge",
+     "text_en": "Saplings",
+     "desc": "חלות החיוב להפריש מעשרות › קביעה למעשרות › משום מעשה › עקירה והשרשה",
+     "desc_de": "Eintritt der Pflicht, Zehnte abzusondern › Festlegung für die Zehnte › Wegen einer Handlung › Entwurzeln und Anwurzeln",
+     "desc_en": "Onset of the obligation to separate tithes › Fixing liability for tithes › Because of an act › Uprooting and taking root"
+    },
+    {
+     "ref": "5:2",
+     "text": "מכירת לפת צנונות ובצלים",
+     "text_de": "Verkauf von Rüben, Rettichen und Zwiebeln",
+     "text_en": "Selling turnips, radishes and onions",
+     "desc": "חלות החיוב להפריש מעשרות › קביעה למעשרות › משום מעשה › עקירה והשרשה",
+     "desc_de": "Eintritt der Pflicht, Zehnte abzusondern › Festlegung für die Zehnte › Wegen einer Handlung › Entwurzeln und Anwurzeln",
+     "desc_en": "Onset of the obligation to separate tithes › Fixing liability for tithes › Because of an act › Uprooting and taking root"
+    },
+    {
+     "ref": "5:3",
+     "text": "פירות שביכרו",
+     "text_de": "Früh gereifte Früchte",
+     "text_en": "Early-ripened fruits",
+     "desc": "חלות החיוב להפריש מעשרות › חיוב במעשרות › עונת המעשרות › חובת הנאמן",
+     "desc_de": "Eintritt der Pflicht, Zehnte abzusondern › Pflicht zur Verzehntung › Zeit der Zehnte › Pflicht des Vertrauenswürdigen",
+     "desc_en": "Onset of the obligation to separate tithes › Obligation to tithe › Season of the tithes › Duty of the trustworthy person"
+    },
+    {
+     "ref": "5:4",
+     "text": "פסולת",
+     "text_de": "Abfall",
+     "text_en": "Refuse",
+     "desc": "חלות החיוב להפריש מעשרות › חיוב במעשרות › עונת המעשרות › חובת הנאמן",
+     "desc_de": "Eintritt der Pflicht, Zehnte abzusondern › Pflicht zur Verzehntung › Zeit der Zehnte › Pflicht des Vertrauenswürdigen",
+     "desc_en": "Onset of the obligation to separate tithes › Obligation to tithe › Season of the tithes › Duty of the trustworthy person"
+    },
+    {
+     "ref": "5:5",
+     "text": "קניית שדה ולקיטת פירותיו",
+     "text_de": "Kauf eines Feldes und Pflücken seiner Früchte",
+     "text_en": "Buying a field and picking its fruits",
+     "desc": "חלות החיוב להפריש מעשרות › חיוב במעשרות › עונת המעשרות",
+     "desc_de": "Eintritt der Pflicht, Zehnte abzusondern › Pflicht zur Verzehntung › Zeit der Zehnte",
+     "desc_en": "Onset of the obligation to separate tithes › Obligation to tithe › Season of the tithes"
+    },
+    {
+     "ref": "5:6",
+     "text": "תמד",
+     "text_de": "Tresterwein",
+     "text_en": "Second-pressing wine",
+     "desc": "חלות החיוב להפריש מעשרות › חיוב במעשרות › השייך למעשרות",
+     "desc_de": "Eintritt der Pflicht, Zehnte abzusondern › Pflicht zur Verzehntung › Was den Zehnten unterliegt",
+     "desc_en": "Onset of the obligation to separate tithes › Obligation to tithe › What is subject to tithes"
+    },
+    {
+     "ref": "5:7",
+     "text": "תבואה בחורי נמלים",
+     "text_de": "Getreide in Ameisenlöchern",
+     "text_en": "Grain in ant holes",
+     "desc": "חלות החיוב להפריש מעשרות › חיוב במעשרות › השייך למעשרות",
+     "desc_de": "Eintritt der Pflicht, Zehnte abzusondern › Pflicht zur Verzehntung › Was den Zehnten unterliegt",
+     "desc_en": "Onset of the obligation to separate tithes › Obligation to tithe › What is subject to tithes"
+    },
+    {
+     "ref": "5:8",
+     "text": "ירקות שונים, זרעוני גינה",
+     "text_de": "Verschiedenes Gemüse, Gartensamen",
+     "text_en": "Various vegetables, garden seeds",
+     "desc": "חלות החיוב להפריש מעשרות › חיוב במעשרות › השייך למעשרות",
+     "desc_de": "Eintritt der Pflicht, Zehnte abzusondern › Pflicht zur Verzehntung › Was den Zehnten unterliegt",
+     "desc_en": "Onset of the obligation to separate tithes › Obligation to tithe › What is subject to tithes"
+    }
+   ]
+  }
+ ]
+}

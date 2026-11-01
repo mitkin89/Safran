@@ -1,0 +1,535 @@
+{
+ "book": "Mishnah Shekalim",
+ "title": "משנה שקלים",
+ "title_de": "Mischna Schekalim – Gliederung",
+ "title_en": "Shekalim – outline",
+ "note": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema).",
+ "note_de": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema); ins Deutsche und Englische übersetzt.",
+ "note_en": "Outline after the table “Mishna Sedura”: the central content of each mishnah, with the topic path (main topic to sub-topic); translated into German and English.",
+ "sections": [
+  {
+   "head": "פרק א",
+   "head_de": "Kapitel 1",
+   "head_en": "Chapter 1",
+   "items": [
+    {
+     "ref": "1:1",
+     "text": "הכרזות, צרכי ציבור שונים",
+     "text_de": "Bekanntmachungen, verschiedene öffentliche Angelegenheiten",
+     "text_en": "announcements, various public needs",
+     "desc": "הלכות שקלים › גבייתם › הנעשים באדר › עקירת כלאים",
+     "desc_de": "Gesetze der Schekalim › ihre Einziehung › im Adar zu Verrichtendes › Entfernung der Mischsaaten",
+     "desc_en": "laws of the shekalim › their collection › what is done in Adar › removal of mixed kinds"
+    },
+    {
+     "ref": "1:2",
+     "text": "קנס בעקירתן",
+     "text_de": "Strafe bei ihrer Pfändung",
+     "text_en": "penalty for their seizure",
+     "desc": "הלכות שקלים › גבייתם › הנעשים באדר › עקירת כלאים",
+     "desc_de": "Gesetze der Schekalim › ihre Einziehung › im Adar zu Verrichtendes › Entfernung der Mischsaaten",
+     "desc_en": "laws of the shekalim › their collection › what is done in Adar › removal of mixed kinds"
+    },
+    {
+     "ref": "1:3",
+     "text": "מועדים לישיבת השלחנות, מי מתמשכן",
+     "text_de": "Zeiten für das Aufstellen der Tische, wer gepfändet wird",
+     "text_en": "times for setting up the tables, who is subject to pledge",
+     "desc": "הלכות שקלים › גבייתם › חיוב לשקול › הנעשים באדר › החייבים",
+     "desc_de": "Gesetze der Schekalim › ihre Einziehung › Pflicht zu wägen › im Adar zu Verrichtendes › die Verpflichteten",
+     "desc_en": "laws of the shekalim › their collection › obligation to weigh › what is done in Adar › those obligated"
+    },
+    {
+     "ref": "1:4",
+     "text": "כהנים",
+     "text_de": "Priester",
+     "text_en": "priests",
+     "desc": "הלכות שקלים › גבייתם › חיוב לשקול › החייבים",
+     "desc_de": "Gesetze der Schekalim › ihre Einziehung › Pflicht zu wägen › die Verpflichteten",
+     "desc_en": "laws of the shekalim › their collection › obligation to weigh › those obligated"
+    },
+    {
+     "ref": "1:5",
+     "text": "הראוי לנדוב, נדבות גוים",
+     "text_de": "was als freiwillige Gabe geeignet ist, Spenden von Nichtjuden",
+     "text_en": "what is fit as a voluntary gift, gifts from gentiles",
+     "desc": "הלכות שקלים › גבייתם › חיוב לשקול",
+     "desc_de": "Gesetze der Schekalim › ihre Einziehung › Pflicht zu wägen",
+     "desc_en": "laws of the shekalim › their collection › obligation to weigh"
+    },
+    {
+     "ref": "1:6",
+     "text": "החייבים, המתחייבים בשנים",
+     "text_de": "die Verpflichteten, die zu zwei Schekel Verpflichteten",
+     "text_en": "those obligated, those obligated for two",
+     "desc": "הלכות שקלים › גבייתם › הקלבון › חיוב",
+     "desc_de": "Gesetze der Schekalim › ihre Einziehung › das Kolbon › Verpflichtung",
+     "desc_en": "laws of the shekalim › their collection › the kolbon › Obligation"
+    },
+    {
+     "ref": "1:7",
+     "text": "השוקל כמתנה, שותפין \\ שוויו",
+     "text_de": "wer als Geschenk wägt, Teilhaber / gleicher Wert",
+     "text_en": "one who weighs as a gift, partners / equal value",
+     "desc": "הלכות שקלים › גבייתם › הקלבון › חיוב",
+     "desc_de": "Gesetze der Schekalim › ihre Einziehung › das Kolbon › Verpflichtung",
+     "desc_en": "laws of the shekalim › their collection › the kolbon › Obligation"
+    }
+   ]
+  },
+  {
+   "head": "פרק ב",
+   "head_de": "Kapitel 2",
+   "head_en": "Chapter 2",
+   "items": [
+    {
+     "ref": "2:1",
+     "text": "הבאתן לירושלים, אחריות השוקל והשליח",
+     "text_de": "ihre Überbringung nach Jerusalem, Haftung des Wägenden und des Boten",
+     "text_en": "bringing them to Jerusalem, liability of the giver and the messenger",
+     "desc": "הלכות שקלים › גבייתם › שלא נשקלו כהוגן",
+     "desc_de": "Gesetze der Schekalim › ihre Einziehung › die nicht ordnungsgemäß gewogen wurden",
+     "desc_en": "laws of the shekalim › their collection › those not weighed properly"
+    },
+    {
+     "ref": "2:2",
+     "text": "השוקל משאינו שלו",
+     "text_de": "wer von fremdem Geld wägt",
+     "text_en": "one who weighs from what is not his",
+     "desc": "הלכות שקלים › גבייתם › שלא נשקלו כהוגן",
+     "desc_de": "Gesetze der Schekalim › ihre Einziehung › die nicht ordnungsgemäß gewogen wurden",
+     "desc_en": "laws of the shekalim › their collection › those not weighed properly"
+    },
+    {
+     "ref": "2:3",
+     "text": "דינם",
+     "text_de": "ihre Rechtslage",
+     "text_en": "their legal status",
+     "desc": "הלכות שקלים › גבייתם › מותרות › השוואת שקלים וחטאת",
+     "desc_de": "Gesetze der Schekalim › ihre Einziehung › Überschüsse › Vergleich von Schekalim und Sündopfer",
+     "desc_en": "laws of the shekalim › their collection › surpluses › comparison of shekalim and sin offering"
+    },
+    {
+     "ref": "2:4",
+     "text": "הטעם שהם שונים",
+     "text_de": "der Grund für ihre Verschiedenheit",
+     "text_en": "the reason they differ",
+     "desc": "הלכות שקלים › גבייתם › מותרות › השוואת שקלים וחטאת",
+     "desc_de": "Gesetze der Schekalim › ihre Einziehung › Überschüsse › Vergleich von Schekalim und Sündopfer",
+     "desc_en": "laws of the shekalim › their collection › surpluses › comparison of shekalim and sin offering"
+    },
+    {
+     "ref": "2:5",
+     "text": "קרבנות וצדקות שונות",
+     "text_de": "verschiedene Opfer und Spenden",
+     "text_en": "various offerings and charities",
+     "desc": "הלכות שקלים › גבייתם › מותרות",
+     "desc_de": "Gesetze der Schekalim › ihre Einziehung › Überschüsse",
+     "desc_en": "laws of the shekalim › their collection › surpluses"
+    }
+   ]
+  },
+  {
+   "head": "פרק ג",
+   "head_de": "Kapitel 3",
+   "head_en": "Chapter 3",
+   "items": [
+    {
+     "ref": "3:1",
+     "text": "מתי תורמים, ומעשרים בהמה",
+     "text_de": "wann man abhebt, und Verzehntung des Viehs",
+     "text_en": "when one separates, and tithing of animals",
+     "desc": "הלכות שקלים › תרומת הלשכה › זמנה",
+     "desc_de": "Gesetze der Schekalim › Abhebung aus der Tempelkammer › Ihre Zeit",
+     "desc_en": "laws of the shekalim › offering from the Chamber › Their time"
+    },
+    {
+     "ref": "3:2",
+     "text": "הקופות וסימונם, נקיון התורם מחשד",
+     "text_de": "die Kassen und ihre Kennzeichnung, Unverdächtigkeit des Abhebenden",
+     "text_en": "the chests and their marking, freedom of the collector from suspicion",
+     "desc": "הלכות שקלים › תרומת הלשכה › כיצד",
+     "desc_de": "Gesetze der Schekalim › Abhebung aus der Tempelkammer › Wie",
+     "desc_en": "laws of the shekalim › offering from the Chamber › How"
+    },
+    {
+     "ref": "3:3",
+     "text": "השוקלים לקופה, רשות לתרום",
+     "text_de": "die in die Kasse Wägenden, Erlaubnis zu spenden",
+     "text_en": "those who weigh into the chest, permission to donate",
+     "desc": "הלכות שקלים › תרומת הלשכה › כיצד",
+     "desc_de": "Gesetze der Schekalim › Abhebung aus der Tempelkammer › Wie",
+     "desc_en": "laws of the shekalim › offering from the Chamber › How"
+    },
+    {
+     "ref": "3:4",
+     "text": "חיפוי והטעם, כוונת הג' תרומות",
+     "text_de": "Bedeckung und ihr Grund, Absicht der drei Abhebungen",
+     "text_en": "covering and its reason, intention of the three withdrawals",
+     "desc": "הלכות שקלים › תרומת הלשכה › כיצד",
+     "desc_de": "Gesetze der Schekalim › Abhebung aus der Tempelkammer › Wie",
+     "desc_en": "laws of the shekalim › offering from the Chamber › How"
+    }
+   ]
+  },
+  {
+   "head": "פרק ד",
+   "head_de": "Kapitel 4",
+   "head_en": "Chapter 4",
+   "items": [
+    {
+     "ref": "4:1",
+     "text": "קרבנות ציבור, שומרי ספיחים",
+     "text_de": "Gemeinschaftsopfer, Hüter der Spätfrüchte",
+     "text_en": "communal offerings, guardians of aftergrowth",
+     "desc": "הלכות שקלים › ניהול עסקי הקדש › שימוש בכספי הקדש › התרומה",
+     "desc_de": "Gesetze der Schekalim › Verwaltung der Tempelgeschäfte › Nutzung von Tempelgeldern › die Abhebung",
+     "desc_en": "laws of the shekalim › administration of Temple affairs › use of Temple funds › the withdrawal"
+    },
+    {
+     "ref": "4:2",
+     "text": "פרה ושעיר, לא לצורך קרבן",
+     "text_de": "Kuh und Bock, nicht für Opferzwecke",
+     "text_en": "cow and goat, not for offering purposes",
+     "desc": "הלכות שקלים › ניהול עסקי הקדש › שימוש בכספי הקדש › התרומה › שיירי הלשכה",
+     "desc_de": "Gesetze der Schekalim › Verwaltung der Tempelgeschäfte › Nutzung von Tempelgeldern › die Abhebung › Reste der Kammer",
+     "desc_en": "laws of the shekalim › administration of Temple affairs › use of Temple funds › the withdrawal › remainders of the Chamber"
+    },
+    {
+     "ref": "4:3",
+     "text": "מותרן",
+     "text_de": "ihre Verwendung",
+     "text_en": "their permitted use",
+     "desc": "הלכות שקלים › ניהול עסקי הקדש › שימוש בכספי הקדש › מותרות › שיירי הלשכה",
+     "desc_de": "Gesetze der Schekalim › Verwaltung der Tempelgeschäfte › Nutzung von Tempelgeldern › Überschüsse › Reste der Kammer",
+     "desc_en": "laws of the shekalim › administration of Temple affairs › use of Temple funds › surpluses › remainders of the Chamber"
+    },
+    {
+     "ref": "4:4",
+     "text": "ציפויים, קיץ המזבח, כלי שרת",
+     "text_de": "Überzüge, Sommerfrüchte für den Altar, Dienstgeräte",
+     "text_en": "plating, summer fruit for the altar, service vessels",
+     "desc": "הלכות המקדש › הלכות שקלים › ניהול עסקי הקדש › שימוש בכספי הקדש › מותרות",
+     "desc_de": "Gesetze des Tempels › Gesetze der Schekalim › Verwaltung der Tempelgeschäfte › Nutzung von Tempelgeldern › Überschüsse",
+     "desc_en": "laws of the Temple › laws of the shekalim › administration of Temple affairs › use of Temple funds › surpluses"
+    },
+    {
+     "ref": "4:5",
+     "text": "מותר קטורת",
+     "text_de": "Überschuss des Räucherwerks",
+     "text_en": "surplus of the incense",
+     "desc": "הלכות המקדש › ניהול עסקי הקדש › שימוש בכספי הקדש › חילול על שכר אומנים",
+     "desc_de": "Gesetze des Tempels › Verwaltung der Tempelgeschäfte › Nutzung von Tempelgeldern › Auslösung für den Lohn der Handwerker",
+     "desc_en": "laws of the Temple › administration of Temple affairs › use of Temple funds › redemption for the wages of craftsmen"
+    },
+    {
+     "ref": "4:6",
+     "text": "הראוי לקרבנות ציבור",
+     "text_de": "was für Gemeinschaftsopfer geeignet ist",
+     "text_en": "what is fit for communal offerings",
+     "desc": "הלכות המקדש › ניהול עסקי הקדש › נדבות › חילול על שכר אומנים › המקדיש נכסיו",
+     "desc_de": "Gesetze des Tempels › Verwaltung der Tempelgeschäfte › freiwillige Gaben › Auslösung für den Lohn der Handwerker › wer sein Vermögen weiht",
+     "desc_en": "laws of the Temple › administration of Temple affairs › voluntary gifts › redemption for the wages of craftsmen › one who dedicates his property"
+    },
+    {
+     "ref": "4:7",
+     "text": "בהמות",
+     "text_de": "Vieh",
+     "text_en": "animals",
+     "desc": "הלכות המקדש › ניהול עסקי הקדש › נדבות › המקדיש נכסיו › הראוי למזבח",
+     "desc_de": "Gesetze des Tempels › Verwaltung der Tempelgeschäfte › freiwillige Gaben › wer sein Vermögen weiht › was für den Altar geeignet ist",
+     "desc_en": "laws of the Temple › administration of Temple affairs › voluntary gifts › one who dedicates his property › what is fit for the altar"
+    },
+    {
+     "ref": "4:8",
+     "text": "יינות, שמנים, עופות",
+     "text_de": "Weine, Öle, Geflügel",
+     "text_en": "wines, oils, birds",
+     "desc": "הלכות המקדש › ניהול עסקי הקדש › נדבות › המקדיש נכסיו › הראוי למזבח",
+     "desc_de": "Gesetze des Tempels › Verwaltung der Tempelgeschäfte › freiwillige Gaben › wer sein Vermögen weiht › was für den Altar geeignet ist",
+     "desc_en": "laws of the Temple › administration of Temple affairs › voluntary gifts › one who dedicates his property › what is fit for the altar"
+    },
+    {
+     "ref": "4:9",
+     "text": "קביעות ושינוי בשער להספקת המקדש",
+     "text_de": "Festlegung und Preisänderung bei der Versorgung des Tempels",
+     "text_en": "fixing and changing prices for supplying the Temple",
+     "desc": "הלכות המקדש › ניהול עסקי הקדש › נדבות › המקדיש נכסיו",
+     "desc_de": "Gesetze des Tempels › Verwaltung der Tempelgeschäfte › freiwillige Gaben › wer sein Vermögen weiht",
+     "desc_en": "laws of the Temple › administration of Temple affairs › voluntary gifts › one who dedicates his property"
+    }
+   ]
+  },
+  {
+   "head": "פרק ה",
+   "head_de": "Kapitel 5",
+   "head_en": "Chapter 5",
+   "items": [
+    {
+     "ref": "5:1",
+     "text": "שמות חמש עשרה ותפקידם",
+     "text_de": "die Namen der Fünfzehn und ihre Aufgaben",
+     "text_en": "the names of the fifteen and their duties",
+     "desc": "הלכות המקדש › ניהול עסקי הקדש › הממונים",
+     "desc_de": "Gesetze des Tempels › Verwaltung der Tempelgeschäfte › die Beauftragten",
+     "desc_en": "laws of the Temple › administration of Temple affairs › the officials"
+    },
+    {
+     "ref": "5:2",
+     "text": "גזברים ואמרכלים, שררת ממון",
+     "text_de": "Schatzmeister und Amarkalim, Amtsgewalt über Gelder",
+     "text_en": "treasurers and amarkalim, authority over funds",
+     "desc": "הלכות המקדש › ניהול עסקי הקדש › הממונים",
+     "desc_de": "Gesetze des Tempels › Verwaltung der Tempelgeschäfte › die Beauftragten",
+     "desc_en": "laws of the Temple › administration of Temple affairs › the officials"
+    },
+    {
+     "ref": "5:3",
+     "text": "החותמות",
+     "text_de": "die Siegel",
+     "text_en": "the seals",
+     "desc": "הלכות המקדש › ניהול עסקי הקדש › קנייה מהקדש › נסכים",
+     "desc_de": "Gesetze des Tempels › Verwaltung der Tempelgeschäfte › Kauf aus Tempelgut › Trankopfer",
+     "desc_en": "laws of the Temple › administration of Temple affairs › purchase from Temple property › libations"
+    },
+    {
+     "ref": "5:4",
+     "text": "כיצד קונים, בדיקת החשבונות",
+     "text_de": "wie man einkauft, Prüfung der Rechnungen",
+     "text_en": "how one purchases, auditing the accounts",
+     "desc": "הלכות המקדש › ניהול עסקי הקדש › קנייה מהקדש › נסכים",
+     "desc_de": "Gesetze des Tempels › Verwaltung der Tempelgeschäfte › Kauf aus Tempelgut › Trankopfer",
+     "desc_en": "laws of the Temple › administration of Temple affairs › purchase from Temple property › libations"
+    },
+    {
+     "ref": "5:5",
+     "text": "תשלום למאבד חותם, ביטוח נגד רמאים",
+     "text_de": "Bezahlung an den, der ein Siegel verloren hat, Sicherung gegen Betrüger",
+     "text_en": "payment to one who lost a seal, protection against fraudsters",
+     "desc": "הלכות המקדש › ניהול עסקי הקדש › קנייה מהקדש › נסכים",
+     "desc_de": "Gesetze des Tempels › Verwaltung der Tempelgeschäfte › Kauf aus Tempelgut › Trankopfer",
+     "desc_en": "laws of the Temple › administration of Temple affairs › purchase from Temple property › libations"
+    },
+    {
+     "ref": "5:6",
+     "text": "לשכות החשאים והכלים",
+     "text_de": "Kammer der Verschwiegenen und Kammer der Geräte",
+     "text_en": "Chamber of the Secret Ones and Chamber of Vessels",
+     "desc": "הלכות המקדש › ניהול עסקי הקדש › צדקה ונדבות",
+     "desc_de": "Gesetze des Tempels › Verwaltung der Tempelgeschäfte › Wohltätigkeit und Spenden",
+     "desc_en": "laws of the Temple › administration of Temple affairs › charity and donations"
+    }
+   ]
+  },
+  {
+   "head": "פרק ו",
+   "head_de": "Kapitel 6",
+   "head_en": "Chapter 6",
+   "items": [
+    {
+     "ref": "6:1",
+     "text": "היכן, המשתחוים כנגדו",
+     "text_de": "wo, die sich ihm gegenüber niederwerfen",
+     "text_en": "where, those who prostrate themselves facing it",
+     "desc": "הלכות המקדש › שמספרם שלשה עשר › ההשתחויות › מקום גניזת הארון",
+     "desc_de": "Gesetze des Tempels › deren Zahl dreizehn beträgt › die Niederwerfungen › Ort der Verwahrung der Lade",
+     "desc_en": "laws of the Temple › which number thirteen › the prostrations › place where the Ark was hidden"
+    },
+    {
+     "ref": "6:2",
+     "text": "איך נודע",
+     "text_de": "wie es bekannt wurde",
+     "text_en": "how it became known",
+     "desc": "הלכות המקדש › שמספרם שלשה עשר › ההשתחויות › מקום גניזת הארון",
+     "desc_de": "Gesetze des Tempels › deren Zahl dreizehn beträgt › die Niederwerfungen › Ort der Verwahrung der Lade",
+     "desc_en": "laws of the Temple › which number thirteen › the prostrations › place where the Ark was hidden"
+    },
+    {
+     "ref": "6:3",
+     "text": "פירוט מקומן",
+     "text_de": "Aufzählung ihrer Orte",
+     "text_en": "listing of their locations",
+     "desc": "הלכות המקדש › שמספרם שלשה עשר › ההשתחויות › השערים",
+     "desc_de": "Gesetze des Tempels › deren Zahl dreizehn beträgt › die Niederwerfungen › die Tore",
+     "desc_en": "laws of the Temple › which number thirteen › the prostrations › the gates"
+    },
+    {
+     "ref": "6:4",
+     "text": "פירוט מקומן",
+     "text_de": "Aufzählung ihrer Orte",
+     "text_en": "listing of their locations",
+     "desc": "הלכות המקדש › שמספרם שלשה עשר › השולחנות",
+     "desc_de": "Gesetze des Tempels › deren Zahl dreizehn beträgt › die Tische",
+     "desc_en": "laws of the Temple › which number thirteen › the tables"
+    },
+    {
+     "ref": "6:5",
+     "text": "סימונם, השימוש במעות לעופות",
+     "text_de": "ihre Kennzeichnung, Verwendung des Geldes für Geflügel",
+     "text_en": "their marking, use of the money for birds",
+     "desc": "הלכות המקדש › ניהול › שמספרם שלשה עשר › השופרות והמעות שבהן",
+     "desc_de": "Gesetze des Tempels › Verwaltung › deren Zahl dreizehn beträgt › die Schofarkästen und das Geld darin",
+     "desc_en": "laws of the Temple › administration › which number thirteen › the shofar chests and the money in them"
+    },
+    {
+     "ref": "6:6",
+     "text": "המזעריות, שימוש בנדבה ומותר, הטעם",
+     "text_de": "die Geringsten, Verwendung von Spende und Überschuss, der Grund",
+     "text_en": "the smallest amounts, use of donation and surplus, the reason",
+     "desc": "הלכות המקדש › ניהול › שמספרם שלשה עשר › השופרות והמעות שבהן › נדבות",
+     "desc_de": "Gesetze des Tempels › Verwaltung › deren Zahl dreizehn beträgt › die Schofarkästen und das Geld darin › freiwillige Gaben",
+     "desc_en": "laws of the Temple › administration › which number thirteen › the shofar chests and the money in them › voluntary gifts"
+    }
+   ]
+  },
+  {
+   "head": "פרק ז",
+   "head_de": "Kapitel 7",
+   "head_en": "Chapter 7",
+   "items": [
+    {
+     "ref": "7:1",
+     "text": "בין השופרות, הכרעה אחר קרוב",
+     "text_de": "zwischen den Schofarkästen, Entscheidung nach dem Nächstliegenden",
+     "text_en": "between the shofar chests, decision according to the nearest",
+     "desc": "הלכות המקדש › דיני מציאות › ספק קדושה › מעות",
+     "desc_de": "Gesetze des Tempels › Gesetze des Fundguts › Zweifel der Heiligkeit › Geld",
+     "desc_en": "laws of the Temple › laws of found property › doubt of sanctity › money"
+    },
+    {
+     "ref": "7:2",
+     "text": "לפני סוחרי בהמה, בהר הבית, בירושלים",
+     "text_de": "vor Viehhändlern, auf dem Tempelberg, in Jerusalem",
+     "text_en": "before cattle dealers, on the Temple Mount, in Jerusalem",
+     "desc": "הלכות המקדש › דיני מציאות › ספק קדושה › מעות",
+     "desc_de": "Gesetze des Tempels › Gesetze des Fundguts › Zweifel der Heiligkeit › Geld",
+     "desc_en": "laws of the Temple › laws of found property › doubt of sanctity › money"
+    },
+    {
+     "ref": "7:3",
+     "text": "במקדש, בירושלים, בגבולין",
+     "text_de": "im Tempel, in Jerusalem, in den Grenzgebieten",
+     "text_en": "in the Temple, in Jerusalem, in the outlying regions",
+     "desc": "הלכות המקדש › דיני מציאות › ספק קדושה › בשר",
+     "desc_de": "Gesetze des Tempels › Gesetze des Fundguts › Zweifel der Heiligkeit › Fleisch",
+     "desc_en": "laws of the Temple › laws of found property › doubt of sanctity › meat"
+    },
+    {
+     "ref": "7:4",
+     "text": "בסביבות ירושלים, הראוי לפסח",
+     "text_de": "in der Umgebung Jerusalems, was für Pessach geeignet ist",
+     "text_en": "in the environs of Jerusalem, what is fit for Pesach",
+     "desc": "הלכות המקדש › דיני מציאות › ספק קדושה › בהמה",
+     "desc_de": "Gesetze des Tempels › Gesetze des Fundguts › Zweifel der Heiligkeit › Vieh",
+     "desc_en": "laws of the Temple › laws of found property › doubt of sanctity › Animals"
+    },
+    {
+     "ref": "7:5",
+     "text": "מישכון המוצאים ותקנתם",
+     "text_de": "Pfändung der Finder und ihre Regelung",
+     "text_en": "pledging of finders and its regulation",
+     "desc": "הלכות המקדש › ניהול עיסקי הקדש › דיני מציאות › ספק קדושה › בהמה",
+     "desc_de": "Gesetze des Tempels › Verwaltung der Tempelgeschäfte › Gesetze des Fundguts › Zweifel der Heiligkeit › Vieh",
+     "desc_en": "laws of the Temple › administration of Temple affairs › laws of found property › doubt of sanctity › Animals"
+    },
+    {
+     "ref": "7:6",
+     "text": "נכסים לשאין לו, חביתי כהן גדול שמת",
+     "text_de": "Güter für den, der keine hat, Pfannenopfer des verstorbenen Hohenpriesters",
+     "text_en": "property for one who has none, griddle offering of a deceased High Priest",
+     "desc": "הלכות המקדש › ניהול עיסקי הקדש › שימוש בכספי הקדש › תקנות בית דין",
+     "desc_de": "Gesetze des Tempels › Verwaltung der Tempelgeschäfte › Nutzung von Tempelgeldern › Verordnungen des Gerichts",
+     "desc_en": "laws of the Temple › administration of Temple affairs › use of Temple funds › ordinances of the court"
+    },
+    {
+     "ref": "7:7",
+     "text": "ביטול מעילות, קינין הפסולות",
+     "text_de": "Aufhebung der Veruntreuung, untaugliche Vogelopfer",
+     "text_en": "annulment of misappropriation, invalid bird offerings",
+     "desc": "הלכות המקדש › ניהול עיסקי הקדש › שימוש בכספי הקדש › תקנות בית דין",
+     "desc_de": "Gesetze des Tempels › Verwaltung der Tempelgeschäfte › Nutzung von Tempelgeldern › Verordnungen des Gerichts",
+     "desc_en": "laws of the Temple › administration of Temple affairs › use of Temple funds › ordinances of the court"
+    }
+   ]
+  },
+  {
+   "head": "פרק ח",
+   "head_de": "Kapitel 8",
+   "head_en": "Chapter 8",
+   "items": [
+    {
+     "ref": "8:1",
+     "text": "רוקין",
+     "text_de": "Ausspucken",
+     "text_en": "spitting",
+     "desc": "הלכות המקדש › טיפול בנטמאים › דיני מציאות › בירושלים",
+     "desc_de": "Gesetze des Tempels › Umgang mit Unreinen › Gesetze des Fundguts › in Jerusalem",
+     "desc_en": "laws of the Temple › handling of the impure › laws of found property › in Jerusalem"
+    },
+    {
+     "ref": "8:2",
+     "text": "מקומן ליחס לבית הטבילה",
+     "text_de": "ihr Ort, Zuordnung zum Tauchbad",
+     "text_en": "their place, relation to the immersion bath",
+     "desc": "הלכות המקדש › טיפול בנטמאים › דיני מציאות › בירושלים › כלים",
+     "desc_de": "Gesetze des Tempels › Umgang mit Unreinen › Gesetze des Fundguts › in Jerusalem › Geräte",
+     "desc_en": "laws of the Temple › handling of the impure › laws of found property › in Jerusalem › vessels"
+    },
+    {
+     "ref": "8:3",
+     "text": "סכין וקופיץ לפסח",
+     "text_de": "Messer und Beil für Pessach",
+     "text_en": "knife and cleaver for Pesach",
+     "desc": "הלכות המקדש › טיפול בנטמאים › דיני מציאות › בירושלים › כלים",
+     "desc_de": "Gesetze des Tempels › Umgang mit Unreinen › Gesetze des Fundguts › in Jerusalem › Geräte",
+     "desc_en": "laws of the Temple › handling of the impure › laws of found property › in Jerusalem › vessels"
+    },
+    {
+     "ref": "8:4",
+     "text": "היכן נטבלת ונשטחת",
+     "text_de": "wo sie getaucht und ausgebreitet wird",
+     "text_en": "where it is immersed and spread out",
+     "desc": "הלכות המקדש › טיפול בנטמאים › במקדש › הפרוכת",
+     "desc_de": "Gesetze des Tempels › Umgang mit Unreinen › im Tempel › der Vorhang",
+     "desc_en": "laws of the Temple › handling of the impure › in the Temple › the curtain"
+    },
+    {
+     "ref": "8:5",
+     "text": "מדותיה, עשייתה",
+     "text_de": "ihre Maße, ihre Anfertigung",
+     "text_en": "its measurements, its making",
+     "desc": "הלכות המקדש › טיפול בנטמאים › במקדש › הפרוכת",
+     "desc_de": "Gesetze des Tempels › Umgang mit Unreinen › im Tempel › der Vorhang",
+     "desc_en": "laws of the Temple › handling of the impure › in the Temple › the curtain"
+    },
+    {
+     "ref": "8:6",
+     "text": "דרגת טומאה ומקום שנטמא",
+     "text_de": "Grad der Unreinheit und Ort der Verunreinigung",
+     "text_en": "degree of impurity and place of contamination",
+     "desc": "הלכות המקדש › טיפול בנטמאים › במקדש › בשר › מקום שריפתו",
+     "desc_de": "Gesetze des Tempels › Umgang mit Unreinen › im Tempel › Fleisch › Ort ihrer Verbrennung",
+     "desc_en": "laws of the Temple › handling of the impure › in the Temple › meat › place of their burning"
+    },
+    {
+     "ref": "8:7",
+     "text": "דרגת טומאה, מקום שנטמא",
+     "text_de": "Grad der Unreinheit, Ort der Verunreinigung",
+     "text_en": "degree of impurity, place of contamination",
+     "desc": "הלכות המקדש › טיפול בנטמאים › במקדש › בשר › מקום שריפתו",
+     "desc_de": "Gesetze des Tempels › Umgang mit Unreinen › im Tempel › Fleisch › Ort ihrer Verbrennung",
+     "desc_en": "laws of the Temple › handling of the impure › in the Temple › meat › place of their burning"
+    },
+    {
+     "ref": "8:8",
+     "text": "מקום נתינת אברים, הקדש ומעשר בזה\"ז",
+     "text_de": "Ort der Darbringung der Glieder, Geweihtes und Zehnt in der heutigen Zeit",
+     "text_en": "place for placing the limbs, consecrated property and tithe nowadays",
+     "desc": "הלכות המקדש › טיפול בנטמאים › במקדש › בשר",
+     "desc_de": "Gesetze des Tempels › Umgang mit Unreinen › im Tempel › Fleisch",
+     "desc_en": "laws of the Temple › handling of the impure › in the Temple › meat"
+    }
+   ]
+  }
+ ]
+}

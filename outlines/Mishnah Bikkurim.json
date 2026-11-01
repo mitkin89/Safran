@@ -1,0 +1,390 @@
+{
+ "book": "Mishnah Bikkurim",
+ "title": "משנה ביכורים",
+ "title_de": "Mischna Bikkurim – Gliederung",
+ "title_en": "Bikkurim – outline",
+ "note": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema).",
+ "note_de": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema); ins Deutsche und Englische übersetzt.",
+ "note_en": "Outline after the table “Mishna Sedura”: the central content of each mishnah, with the topic path (main topic to sub-topic); translated into German and English.",
+ "sections": [
+  {
+   "head": "פרק א",
+   "head_de": "Kapitel 1",
+   "head_en": "Chapter 1",
+   "items": [
+    {
+     "ref": "1:1",
+     "text": "הנוטע שלא ברשותו",
+     "text_de": "Wer ohne Erlaubnis pflanzt",
+     "text_en": "One who plants without permission",
+     "desc": "הלכות ביכורים › הראוי להבאה וקריאה › שאינם מביאים › בעלות הקרקע",
+     "desc_de": "Gesetze der Bikkurim › Zum Bringen und Rezitieren Geeignetes › Die nicht bringen › Eigentum am Boden",
+     "desc_en": "Laws of bikkurim › Suitable for bringing and reciting › Those who do not bring › Ownership of the land"
+    },
+    {
+     "ref": "1:2",
+     "text": "המקור בתורה, שאינם בעלי הקרקע",
+     "text_de": "Quelle in der Tora, Nicht-Grundbesitzer",
+     "text_en": "Source in the Torah; non-landowners",
+     "desc": "הלכות ביכורים › הראוי להבאה וקריאה › שאינם מביאים › בעלות הקרקע",
+     "desc_de": "Gesetze der Bikkurim › Zum Bringen und Rezitieren Geeignetes › Die nicht bringen › Eigentum am Boden",
+     "desc_en": "Laws of bikkurim › Suitable for bringing and reciting › Those who do not bring › Ownership of the land"
+    },
+    {
+     "ref": "1:3",
+     "text": "מאיזה פירות \\ קודם לעצרת",
+     "text_de": "Von welchen Früchten / vor Schawuot",
+     "text_en": "From which fruits / before Shavuot",
+     "desc": "הלכות ביכורים › הראוי להבאה וקריאה › שאינם מביאים › זמנה › טיב ומין",
+     "desc_de": "Gesetze der Bikkurim › Zum Bringen und Rezitieren Geeignetes › Die nicht bringen › Ihre Zeit › Qualität und Art",
+     "desc_en": "Laws of bikkurim › Suitable for bringing and reciting › Those who do not bring › Their time › Quality and kind"
+    },
+    {
+     "ref": "1:4",
+     "text": "קריאה לביכורים, נוסח תפילתו",
+     "text_de": "Rezitation bei den Bikkurim, Wortlaut des Gebets",
+     "text_en": "Recitation over bikkurim; text of the prayer",
+     "desc": "הלכות ביכורים › הראוי להבאה וקריאה › המביאים בלי קריאה › הלכות גר",
+     "desc_de": "Gesetze der Bikkurim › Zum Bringen und Rezitieren Geeignetes › Die ohne Rezitation bringen › Gesetze des Gers",
+     "desc_en": "Laws of bikkurim › Suitable for bringing and reciting › Those who bring without reciting › Laws of the convert"
+    },
+    {
+     "ref": "1:5",
+     "text": "בתו לכהונה \\ שליחים, שאינם נוחלים",
+     "text_de": "Seine Tochter für das Priestertum / Boten, Nichterbende",
+     "text_en": "His daughter to a priest / agents, non-inheritors",
+     "desc": "הלכות ביכורים › הראוי להבאה וקריאה › המביאים בלי קריאה › הקרקע ובעלותה › הלכות גר",
+     "desc_de": "Gesetze der Bikkurim › Zum Bringen und Rezitieren Geeignetes › Die ohne Rezitation bringen › Der Boden und sein Besitz › Gesetze des Gers",
+     "desc_en": "Laws of bikkurim › Suitable for bringing and reciting › Those who bring without reciting › The land and its ownership › Laws of the convert"
+    },
+    {
+     "ref": "1:6",
+     "text": "חשיבות של קרקע, הבאה מאוחרת",
+     "text_de": "Wert des Bodens, späte Darbringung",
+     "text_en": "Value of the land; late bringing",
+     "desc": "הלכות ביכורים › הראוי להבאה וקריאה › המביאים בלי קריאה › הקרקע ובעלותה",
+     "desc_de": "Gesetze der Bikkurim › Zum Bringen und Rezitieren Geeignetes › Die ohne Rezitation bringen › Der Boden und sein Besitz",
+     "desc_en": "Laws of bikkurim › Suitable for bringing and reciting › Those who bring without reciting › The land and its ownership"
+    },
+    {
+     "ref": "1:7",
+     "text": "המוכר וקונה שדה",
+     "text_de": "Verkäufer und Käufer eines Feldes",
+     "text_en": "Seller and buyer of a field",
+     "desc": "הלכות ביכורים › הראוי להבאה וקריאה › המביאים בלי קריאה › הקרקע ובעלותה › מין הפרי",
+     "desc_de": "Gesetze der Bikkurim › Zum Bringen und Rezitieren Geeignetes › Die ohne Rezitation bringen › Der Boden und sein Besitz › Art der Frucht",
+     "desc_en": "Laws of bikkurim › Suitable for bringing and reciting › Those who bring without reciting › The land and its ownership › Kind of fruit"
+    },
+    {
+     "ref": "1:8",
+     "text": "נטמאו בעזרה, צורך בהפרשה שניה",
+     "text_de": "Im Tempelvorhof unrein geworden, Notwendigkeit zweiter Absonderung",
+     "text_en": "Became impure in the Temple court; need for a second separation",
+     "desc": "הלכות ביכורים › הראוי להבאה וקריאה › המביאים בלי קריאה › אחריות",
+     "desc_de": "Gesetze der Bikkurim › Zum Bringen und Rezitieren Geeignetes › Die ohne Rezitation bringen › Haftung",
+     "desc_en": "Laws of bikkurim › Suitable for bringing and reciting › Those who bring without reciting › Liability"
+    },
+    {
+     "ref": "1:9",
+     "text": "המקור בתורה \\ הבאה שנייה",
+     "text_de": "Quelle in der Tora / zweite Darbringung",
+     "text_en": "Source in the Torah / second bringing",
+     "desc": "הלכות ביכורים › הראוי להבאה וקריאה › המביאים בלי קריאה › מין הפרי",
+     "desc_de": "Gesetze der Bikkurim › Zum Bringen und Rezitieren Geeignetes › Die ohne Rezitation bringen › Art der Frucht",
+     "desc_en": "Laws of bikkurim › Suitable for bringing and reciting › Those who bring without reciting › Kind of fruit"
+    },
+    {
+     "ref": "1:10",
+     "text": "כללים \\ מעבר לירדן",
+     "text_de": "Regeln / jenseits des Jordans",
+     "text_en": "Rules / beyond the Jordan",
+     "desc": "הלכות ביכורים › הראוי להבאה וקריאה › המביאים עם קריאה › הקרקע ובעלותה",
+     "desc_de": "Gesetze der Bikkurim › Zum Bringen und Rezitieren Geeignetes › Die mit Rezitation bringen › Der Boden und sein Besitz",
+     "desc_en": "Laws of bikkurim › Suitable for bringing and reciting › Those who bring with recitation › The land and its ownership"
+    },
+    {
+     "ref": "1:11",
+     "text": "קנין בקרקע המצדקת קריאה",
+     "text_de": "Grunderwerb, der die Rezitation begründet",
+     "text_en": "Land acquisition that warrants recitation",
+     "desc": "הלכות ביכורים › הראוי להבאה וקריאה › המביאים עם קריאה › הקרקע ובעלותה",
+     "desc_de": "Gesetze der Bikkurim › Zum Bringen und Rezitieren Geeignetes › Die mit Rezitation bringen › Der Boden und sein Besitz",
+     "desc_en": "Laws of bikkurim › Suitable for bringing and reciting › Those who bring with recitation › The land and its ownership"
+    }
+   ]
+  },
+  {
+   "head": "פרק ב",
+   "head_de": "Kapitel 2",
+   "head_en": "Chapter 2",
+   "items": [
+    {
+     "ref": "2:1",
+     "text": "תרומה וביכורים",
+     "text_de": "Teruma und Bikkurim",
+     "text_en": "Teruma and bikkurim",
+     "desc": "הלכות ביכורים › דרכי שוויון › תרומות מעשר שני וביכורים",
+     "desc_de": "Gesetze der Bikkurim › Arten der Gleichstellung › Teruma, Zehnt-Teruma, Zweiter Zehnt und Bikkurim",
+     "desc_en": "Laws of bikkurim › Modes of equivalence › Teruma, tithe-teruma, second tithe and bikkurim"
+    },
+    {
+     "ref": "2:2",
+     "text": "מעשר שני וביכורים",
+     "text_de": "Zweiter Zehnt und Bikkurim",
+     "text_en": "Second tithe and bikkurim",
+     "desc": "הלכות ביכורים › דרכי שוויון › תרומות מעשר שני וביכורים",
+     "desc_de": "Gesetze der Bikkurim › Arten der Gleichstellung › Teruma, Zehnt-Teruma, Zweiter Zehnt und Bikkurim",
+     "desc_en": "Laws of bikkurim › Modes of equivalence › Teruma, tithe-teruma, second tithe and bikkurim"
+    },
+    {
+     "ref": "2:3",
+     "text": "תרומה ומעשר שני",
+     "text_de": "Teruma und Zweiter Zehnt",
+     "text_en": "Teruma and second tithe",
+     "desc": "הלכות ביכורים › דרכי שוויון › תרומות מעשר שני וביכורים",
+     "desc_de": "Gesetze der Bikkurim › Arten der Gleichstellung › Teruma, Zehnt-Teruma, Zweiter Zehnt und Bikkurim",
+     "desc_en": "Laws of bikkurim › Modes of equivalence › Teruma, tithe-teruma, second tithe and bikkurim"
+    },
+    {
+     "ref": "2:4",
+     "text": "המיוחד בביכורים",
+     "text_de": "Das Besondere an den Bikkurim",
+     "text_en": "What is unique to bikkurim",
+     "desc": "הלכות ביכורים › דרכי שוויון › תרומות מעשר שני וביכורים",
+     "desc_de": "Gesetze der Bikkurim › Arten der Gleichstellung › Teruma, Zehnt-Teruma, Zweiter Zehnt und Bikkurim",
+     "desc_en": "Laws of bikkurim › Modes of equivalence › Teruma, tithe-teruma, second tithe and bikkurim"
+    },
+    {
+     "ref": "2:5",
+     "text": "שוויון תרומת מעשר לביכורים ולתרומה",
+     "text_de": "Gleichstellung der Zehnt-Teruma mit Bikkurim und Teruma",
+     "text_en": "Equivalence of tithe-teruma with bikkurim and teruma",
+     "desc": "הלכות ביכורים › דרכי שוויון › תרומות מעשר שני וביכורים",
+     "desc_de": "Gesetze der Bikkurim › Arten der Gleichstellung › Teruma, Zehnt-Teruma, Zweiter Zehnt und Bikkurim",
+     "desc_en": "Laws of bikkurim › Modes of equivalence › Teruma, tithe-teruma, second tithe and bikkurim"
+    },
+    {
+     "ref": "2:6",
+     "text": "אתרוג לאילן וירק",
+     "text_de": "Etrog: wie Baum und wie Gemüse",
+     "text_en": "Etrog: like a tree and like a vegetable",
+     "desc": "הלכות ביכורים › דרכי שוויון › הלכות התלויות בארץ",
+     "desc_de": "Gesetze der Bikkurim › Arten der Gleichstellung › Vom Land abhängige Gesetze",
+     "desc_en": "Laws of bikkurim › Modes of equivalence › Laws dependent on the Land"
+    },
+    {
+     "ref": "2:7",
+     "text": "דם אדם לדם בהמה ולשרץ",
+     "text_de": "Menschenblut gegenüber Blut von Vieh und Kriechtier",
+     "text_en": "Human blood compared with blood of livestock and creeping animals",
+     "desc": "דרכי שוויון › טומאה ואיסור",
+     "desc_de": "Arten der Gleichstellung › Unreinheit und Verbot",
+     "desc_en": "Modes of equivalence › Impurity and prohibition"
+    },
+    {
+     "ref": "2:8",
+     "text": "כללים",
+     "text_de": "Regeln",
+     "text_en": "Rules",
+     "desc": "דרכי שוויון › כוי חיה ובהמה",
+     "desc_de": "Arten der Gleichstellung › Kuj: Wildtier und Vieh",
+     "desc_en": "Modes of equivalence › Koy: wild animal and livestock"
+    },
+    {
+     "ref": "2:9",
+     "text": "שוויון לחיה",
+     "text_de": "Gleichstellung mit dem Wildtier",
+     "text_en": "Equivalence to the wild animal",
+     "desc": "דרכי שוויון › כוי חיה ובהמה",
+     "desc_de": "Arten der Gleichstellung › Kuj: Wildtier und Vieh",
+     "desc_en": "Modes of equivalence › Koy: wild animal and livestock"
+    },
+    {
+     "ref": "2:10",
+     "text": "שוויון לבהמה",
+     "text_de": "Gleichstellung mit dem Vieh",
+     "text_en": "Equivalence to livestock",
+     "desc": "דרכי שוויון › כוי חיה ובהמה",
+     "desc_de": "Arten der Gleichstellung › Kuj: Wildtier und Vieh",
+     "desc_en": "Modes of equivalence › Koy: wild animal and livestock"
+    },
+    {
+     "ref": "2:11",
+     "text": "המיוחד לכוי, השוה בשלשתם",
+     "text_de": "Das Besondere am Kuj, in allen dreien gleich",
+     "text_en": "What is unique to the koy; same in all three",
+     "desc": "דרכי שוויון › כוי חיה ובהמה",
+     "desc_de": "Arten der Gleichstellung › Kuj: Wildtier und Vieh",
+     "desc_en": "Modes of equivalence › Koy: wild animal and livestock"
+    }
+   ]
+  },
+  {
+   "head": "פרק ג",
+   "head_de": "Kapitel 3",
+   "head_en": "Chapter 3",
+   "items": [
+    {
+     "ref": "3:1",
+     "text": "סימונם וקריאת שמם",
+     "text_de": "Kennzeichnung und Benennung",
+     "text_en": "Marking and naming",
+     "desc": "הלכות ביכורים › הבאת ביכורים ודיניהם › ההבאה › הפרשה",
+     "desc_de": "Gesetze der Bikkurim › Darbringung der Bikkurim und ihre Gesetze › Das Bringen › Absonderung",
+     "desc_en": "Laws of bikkurim › Bringing of bikkurim and its laws › The bringing › Setting apart"
+    },
+    {
+     "ref": "3:2",
+     "text": "כינוס המעמד",
+     "text_de": "Versammlung der Zeremonie",
+     "text_en": "Assembly for the ceremony",
+     "desc": "הלכות ביכורים › הבאת ביכורים ודיניהם › ההבאה › עלייה לירושלים",
+     "desc_de": "Gesetze der Bikkurim › Darbringung der Bikkurim und ihre Gesetze › Das Bringen › Aufstieg nach Jerusalem",
+     "desc_en": "Laws of bikkurim › Bringing of bikkurim and its laws › The bringing › Ascent to Jerusalem"
+    },
+    {
+     "ref": "3:3",
+     "text": "פירות מרחוק, עליתם, קבלת פניהם",
+     "text_de": "Früchte aus der Ferne, ihr Aufstieg, ihr Empfang",
+     "text_en": "Fruits from afar, their ascent, their reception",
+     "desc": "הלכות ביכורים › הבאת ביכורים ודיניהם › ההבאה › עלייה לירושלים",
+     "desc_de": "Gesetze der Bikkurim › Darbringung der Bikkurim und ihre Gesetze › Das Bringen › Aufstieg nach Jerusalem",
+     "desc_en": "Laws of bikkurim › Bringing of bikkurim and its laws › The bringing › Ascent to Jerusalem"
+    },
+    {
+     "ref": "3:4",
+     "text": "התהלוכה לעזרה, השיר",
+     "text_de": "Zug zum Tempelvorhof, das Lied",
+     "text_en": "Procession to the Temple court; the song",
+     "desc": "הלכות ביכורים › הבאת ביכורים ודיניהם › ההבאה › בירושלים ובמקדש",
+     "desc_de": "Gesetze der Bikkurim › Darbringung der Bikkurim und ihre Gesetze › Das Bringen › In Jerusalem und im Tempel",
+     "desc_en": "Laws of bikkurim › Bringing of bikkurim and its laws › The bringing › In Jerusalem and in the Temple"
+    },
+    {
+     "ref": "3:5",
+     "text": "מקבלי הגוזלות והביכורים",
+     "text_de": "Empfänger der Täubchen und Bikkurim",
+     "text_en": "Recipients of the young doves and bikkurim",
+     "desc": "הלכות ביכורים › הבאת ביכורים ודיניהם › ההבאה › בירושלים ובמקדש",
+     "desc_de": "Gesetze der Bikkurim › Darbringung der Bikkurim und ihre Gesetze › Das Bringen › In Jerusalem und im Tempel",
+     "desc_en": "Laws of bikkurim › Bringing of bikkurim and its laws › The bringing › In Jerusalem and in the Temple"
+    },
+    {
+     "ref": "3:6",
+     "text": "סדר הקריאה והתנופה",
+     "text_de": "Ablauf von Rezitation und Schwingen",
+     "text_en": "Order of recitation and waving",
+     "desc": "הלכות ביכורים › הבאת ביכורים ודיניהם › הקריאה",
+     "desc_de": "Gesetze der Bikkurim › Darbringung der Bikkurim und ihre Gesetze › Die Lesung",
+     "desc_en": "Laws of bikkurim › Bringing of bikkurim and its laws › The recitation"
+    },
+    {
+     "ref": "3:7",
+     "text": "הקראת הקוראים",
+     "text_de": "Vorsprechen für die Rezitierenden",
+     "text_en": "Prompting the reciters",
+     "desc": "הלכות ביכורים › הבאת ביכורים ודיניהם › הקריאה",
+     "desc_de": "Gesetze der Bikkurim › Darbringung der Bikkurim und ihre Gesetze › Die Lesung",
+     "desc_en": "Laws of bikkurim › Bringing of bikkurim and its laws › The recitation"
+    },
+    {
+     "ref": "3:8",
+     "text": "הסלים שבהם הובאו",
+     "text_de": "Die Körbe, in denen sie gebracht wurden",
+     "text_en": "The baskets in which they were brought",
+     "desc": "הלכות ביכורים › הבאת ביכורים ודיניהם › הידורי הביכורים",
+     "desc_de": "Gesetze der Bikkurim › Darbringung der Bikkurim und ihre Gesetze › Verschönerung der Bikkurim",
+     "desc_en": "Laws of bikkurim › Bringing of bikkurim and its laws › Embellishment of bikkurim"
+    },
+    {
+     "ref": "3:9",
+     "text": "עיטור הביכורים",
+     "text_de": "Schmuck der Bikkurim",
+     "text_en": "Decoration of bikkurim",
+     "desc": "הלכות ביכורים › הבאת ביכורים ודיניהם › הידורי הביכורים › המינים ודינם",
+     "desc_de": "Gesetze der Bikkurim › Darbringung der Bikkurim und ihre Gesetze › Verschönerung der Bikkurim › Die Arten und ihr Rechtsstatus",
+     "desc_en": "Laws of bikkurim › Bringing of bikkurim and its laws › Embellishment of bikkurim › The kinds and their legal status"
+    },
+    {
+     "ref": "3:10",
+     "text": "עיטור ותוספת",
+     "text_de": "Schmuck und Zusatz",
+     "text_en": "Decoration and addition",
+     "desc": "הלכות ביכורים › הבאת ביכורים ודיניהם › הידורי הביכורים › המינים ודינם",
+     "desc_de": "Gesetze der Bikkurim › Darbringung der Bikkurim und ihre Gesetze › Verschönerung der Bikkurim › Die Arten und ihr Rechtsstatus",
+     "desc_en": "Laws of bikkurim › Bringing of bikkurim and its laws › Embellishment of bikkurim › The kinds and their legal status"
+    },
+    {
+     "ref": "3:11",
+     "text": "התוספת שבביכורים",
+     "text_de": "Der Zusatz bei den Bikkurim",
+     "text_en": "The addition to bikkurim",
+     "desc": "הלכות ביכורים › הבאת ביכורים ודיניהם › הידורי הביכורים › המינים ודינם",
+     "desc_de": "Gesetze der Bikkurim › Darbringung der Bikkurim und ihre Gesetze › Verschönerung der Bikkurim › Die Arten und ihr Rechtsstatus",
+     "desc_en": "Laws of bikkurim › Bringing of bikkurim and its laws › Embellishment of bikkurim › The kinds and their legal status"
+    },
+    {
+     "ref": "3:12",
+     "text": "שימושם כממון, חלוקתם",
+     "text_de": "Verwendung als Geld, ihre Verteilung",
+     "text_en": "Use as money; their distribution",
+     "desc": "הלכות ביכורים › הבאת ביכורים ודיניהם › בעלותם",
+     "desc_de": "Gesetze der Bikkurim › Darbringung der Bikkurim und ihre Gesetze › Ihr Besitz",
+     "desc_en": "Laws of bikkurim › Bringing of bikkurim and its laws › Their ownership"
+    }
+   ]
+  },
+  {
+   "head": "פרק ד",
+   "head_de": "Kapitel 4",
+   "head_en": "Chapter 4",
+   "items": [
+    {
+     "ref": "4:1",
+     "text": "כללים",
+     "text_de": "Regeln",
+     "text_en": "Rules",
+     "desc": "דרכי שוויון › אנדרוגינוס לאנשים ונשים",
+     "desc_de": "Arten der Gleichstellung › Androgynos bei Männern und Frauen",
+     "desc_en": "Modes of equivalence › Androgynos regarding men and women"
+    },
+    {
+     "ref": "4:2",
+     "text": "שוויון לאנשים",
+     "text_de": "Gleichstellung mit Männern",
+     "text_en": "Equivalence to men",
+     "desc": "דרכי שוויון › אנדרוגינוס לאנשים ונשים",
+     "desc_de": "Arten der Gleichstellung › Androgynos bei Männern und Frauen",
+     "desc_en": "Modes of equivalence › Androgynos regarding men and women"
+    },
+    {
+     "ref": "4:3",
+     "text": "שוויון לנשים",
+     "text_de": "Gleichstellung mit Frauen",
+     "text_en": "Equivalence to women",
+     "desc": "דרכי שוויון › אנדרוגינוס לאנשים ונשים",
+     "desc_de": "Arten der Gleichstellung › Androgynos bei Männern und Frauen",
+     "desc_en": "Modes of equivalence › Androgynos regarding men and women"
+    },
+    {
+     "ref": "4:4",
+     "text": "שוויון לאנשים ולנשים",
+     "text_de": "Gleichstellung mit Männern und Frauen",
+     "text_en": "Equivalence to men and women",
+     "desc": "דרכי שוויון › אנדרוגינוס לאנשים ונשים",
+     "desc_de": "Arten der Gleichstellung › Androgynos bei Männern und Frauen",
+     "desc_en": "Modes of equivalence › Androgynos regarding men and women"
+    },
+    {
+     "ref": "4:5",
+     "text": "המיוחד לעצמו, טומטום",
+     "text_de": "Das Besondere für sich, Tumtum",
+     "text_en": "What is unique to itself; tumtum",
+     "desc": "דרכי שוויון › אנדרוגינוס לאנשים ונשים",
+     "desc_de": "Arten der Gleichstellung › Androgynos bei Männern und Frauen",
+     "desc_en": "Modes of equivalence › Androgynos regarding men and women"
+    }
+   ]
+  }
+ ]
+}

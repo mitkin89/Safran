@@ -1,0 +1,1018 @@
+{
+ "book": "Mishnah Zevachim",
+ "title": "משנה זבחים",
+ "title_de": "Mischna Sewachim – Gliederung",
+ "title_en": "Zevachim – outline",
+ "note": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema).",
+ "note_de": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema); ins Deutsche und Englische übersetzt.",
+ "note_en": "Outline after the table “Mishna Sedura”: the central content of each mishnah, with the topic path (main topic to sub-topic); translated into German and English.",
+ "sections": [
+  {
+   "head": "פרק א",
+   "head_de": "Kapitel 1",
+   "head_en": "Chapter 1",
+   "items": [
+    {
+     "ref": "1:1",
+     "text": "רוב הזבחים, פסח, חטאת, אשם",
+     "text_de": "Die meisten Schlachtopfer, Pessach, Sündopfer, Schuldopfer",
+     "text_en": "Most animal offerings, Passover offering, sin offering, guilt offering",
+     "desc": "פסול במעשי כל הזבחים › שפסולים › מחשבה › שלא לשמו",
+     "desc_de": "Ungültigkeit in den Handlungen aller Schlachtopfer › Die ungültig sind › Gedanke › Nicht für seinen Zweck",
+     "desc_en": "Invalidity in the rites of all animal offerings › Those that are invalid › Intention › Not for its own sake"
+    },
+    {
+     "ref": "1:2",
+     "text": "לשם פסח או חטאת, לשם נמוך",
+     "text_de": "Für den Namen von Pessach- oder Sündopfer, für einen niedrigeren Zweck",
+     "text_en": "In the name of a Passover or sin offering, for a lower purpose",
+     "desc": "פסול במעשי כל הזבחים › שפסולים › מחשבה › שלא לשמו",
+     "desc_de": "Ungültigkeit in den Handlungen aller Schlachtopfer › Die ungültig sind › Gedanke › Nicht für seinen Zweck",
+     "desc_en": "Invalidity in the rites of all animal offerings › Those that are invalid › Intention › Not for its own sake"
+    },
+    {
+     "ref": "1:3",
+     "text": "הפסח בי\"ד בבוקר, העולה",
+     "text_de": "Das Pessachopfer am Morgen des 14., das Ganzopfer",
+     "text_en": "The Passover offering on the morning of the 14th, the burnt offering",
+     "desc": "פסול במעשי כל הזבחים › שפסולים › מחשבה › שלא לשמו",
+     "desc_de": "Ungültigkeit in den Handlungen aller Schlachtopfer › Die ungültig sind › Gedanke › Nicht für seinen Zweck",
+     "desc_en": "Invalidity in the rites of all animal offerings › Those that are invalid › Intention › Not for its own sake"
+    },
+    {
+     "ref": "1:4",
+     "text": "עירוב \\ עבודות המשמעותיות",
+     "text_de": "Vermischung / die bedeutsamen Dienste",
+     "text_en": "Mixing / the significant services",
+     "desc": "פסול במעשי כל הזבחים › שפסולים › מחשבה › מעשה › בעבודה",
+     "desc_de": "Ungültigkeit in den Handlungen aller Schlachtopfer › Die ungültig sind › Gedanke › Handlung › Beim Dienst",
+     "desc_en": "Invalidity in the rites of all animal offerings › Those that are invalid › Intention › Act › During the service"
+    }
+   ]
+  },
+  {
+   "head": "פרק ב",
+   "head_de": "Kapitel 2",
+   "head_en": "Chapter 2",
+   "items": [
+    {
+     "ref": "2:1",
+     "text": "תיקון או עמידת העובד, קבלה, זריקה",
+     "text_de": "Herrichtung oder Stand des Dienstausübenden, Auffangen, Sprengen",
+     "text_en": "Preparation or position of the officiant, receiving the blood, sprinkling",
+     "desc": "פסול במעשי כל הזבחים › שפסולים › מעשה › בעבודה",
+     "desc_de": "Ungültigkeit in den Handlungen aller Schlachtopfer › Die ungültig sind › Handlung › Beim Dienst",
+     "desc_en": "Invalidity in the rites of all animal offerings › Those that are invalid › Act › During the service"
+    },
+    {
+     "ref": "2:2",
+     "text": "הדגמה במחשבת זריקה, הקטרה, אכילה",
+     "text_de": "Beispiel am Gedanken beim Sprengen, Verbrennen, Essen",
+     "text_en": "Illustration with intention during sprinkling, burning, eating",
+     "desc": "פסול במעשי כל הזבחים › שפסולים › מחשבה › פסול ופגול › הגדרה",
+     "desc_de": "Ungültigkeit in den Handlungen aller Schlachtopfer › Die ungültig sind › Gedanke › Ungültig und Piggul › Definition",
+     "desc_en": "Invalidity in the rites of all animal offerings › Those that are invalid › Intention › Invalid and piggul › Definition"
+    },
+    {
+     "ref": "2:3",
+     "text": "כלל",
+     "text_de": "Grundregel",
+     "text_en": "General rule",
+     "desc": "פסול במעשי כל הזבחים › שפסולים › מחשבה › פסול ופגול › הגדרה",
+     "desc_de": "Ungültigkeit in den Handlungen aller Schlachtopfer › Die ungültig sind › Gedanke › Ungültig und Piggul › Definition",
+     "desc_en": "Invalidity in the rites of all animal offerings › Those that are invalid › Intention › Invalid and piggul › Definition"
+    },
+    {
+     "ref": "2:4",
+     "text": "המתיר כמצותו, שלא כמצותו בעבודה אחת",
+     "text_de": "Wer gemäß dem Gebot erlaubt, nicht gemäß dem Gebot, bei einem Dienst",
+     "text_en": "One who permits in accordance with the commandment, not in accordance with it, in a single service",
+     "desc": "פסול במעשי כל הזבחים › שפסולים › מחשבה › פסול ופגול › ריצוי לפיגול",
+     "desc_de": "Ungültigkeit in den Handlungen aller Schlachtopfer › Die ungültig sind › Gedanke › Ungültig und Piggul › Sühnewirkung bei Piggul",
+     "desc_en": "Invalidity in the rites of all animal offerings › Those that are invalid › Intention › Invalid and piggul › Appeasement for piggul"
+    },
+    {
+     "ref": "2:5",
+     "text": "שלא כמצותו בשתי עבודות",
+     "text_de": "Nicht gemäß dem Gebot bei zwei Diensten",
+     "text_en": "Not in accordance with the commandment in two services",
+     "desc": "פסול במעשי כל הזבחים › שפסולים › מחשבה › פסול ופגול › ריצוי לפיגול",
+     "desc_de": "Ungültigkeit in den Handlungen aller Schlachtopfer › Die ungültig sind › Gedanke › Ungültig und Piggul › Sühnewirkung bei Piggul",
+     "desc_en": "Invalidity in the rites of all animal offerings › Those that are invalid › Intention › Invalid and piggul › Appeasement for piggul"
+    }
+   ]
+  },
+  {
+   "head": "פרק ג",
+   "head_de": "Kapitel 3",
+   "head_en": "Chapter 3",
+   "items": [
+    {
+     "ref": "3:1",
+     "text": "פסולין ששחיטתן \\ קבלה",
+     "text_de": "Untaugliche, deren Schlachtung / Auffangen",
+     "text_en": "Disqualified persons whose slaughtering / receiving",
+     "desc": "פסול במעשי כל הזבחים › שאינם פסולים › מעשה › העובד",
+     "desc_de": "Ungültigkeit in den Handlungen aller Schlachtopfer › Die nicht untauglich sind › Handlung › Der Dienstausübende",
+     "desc_en": "Invalidity in the rites of all animal offerings › Those that are not disqualified › Act › The officiant"
+    },
+    {
+     "ref": "3:2",
+     "text": "קבלה וזריקה",
+     "text_de": "Auffangen und Sprengen",
+     "text_en": "Receiving and sprinkling",
+     "desc": "פסול במעשי כל הזבחים › שאינם פסולים › מעשה › תיקון לפסול",
+     "desc_de": "Ungültigkeit in den Handlungen aller Schlachtopfer › Die nicht untauglich sind › Handlung › Behebung einer Untauglichkeit",
+     "desc_en": "Invalidity in the rites of all animal offerings › Those that are not disqualified › Act › Remedy for a disqualification"
+    },
+    {
+     "ref": "3:3",
+     "text": "אכילה והקטרה, שיעור וצירוף",
+     "text_de": "Essen und Verbrennen, Mindestmaß und Zusammenrechnung",
+     "text_en": "Eating and burning, minimum quantity and combination",
+     "desc": "פסול במעשי כל הזבחים › שאינם פסולים › מחשבה › שייכות לפגול או פסול › ערך המחשבה",
+     "desc_de": "Ungültigkeit in den Handlungen aller Schlachtopfer › Die nicht untauglich sind › Gedanke › Zugehörigkeit zu Piggul oder Untauglichkeit › Bedeutung des Gedankens",
+     "desc_en": "Invalidity in the rites of all animal offerings › Those that are not disqualified › Intention › Pertinence to piggul or disqualification › Significance of intention"
+    },
+    {
+     "ref": "3:4",
+     "text": "שאינן נאכלים",
+     "text_de": "Was nicht gegessen wird",
+     "text_en": "What is not eaten",
+     "desc": "פסול במעשי כל הזבחים › שאינם פסולים › מחשבה › שייכות לפגול או פסול › ערך המחשבה › לא כדרכו",
+     "desc_de": "Ungültigkeit in den Handlungen aller Schlachtopfer › Die nicht untauglich sind › Gedanke › Zugehörigkeit zu Piggul oder Untauglichkeit › Bedeutung des Gedankens › Nicht auf die übliche Weise",
+     "desc_en": "Invalidity in the rites of all animal offerings › Those that are not disqualified › Intention › Pertinence to piggul or disqualification › Significance of intention › Not in the usual manner"
+    },
+    {
+     "ref": "3:5",
+     "text": "שאינן גוף הזבח",
+     "text_de": "Was nicht zum Körper des Opfers gehört",
+     "text_en": "What is not part of the body of the offering",
+     "desc": "פסול במעשי כל הזבחים › שאינם פסולים › מחשבה › שייכות לפגול או פסול › ערך המחשבה",
+     "desc_de": "Ungültigkeit in den Handlungen aller Schlachtopfer › Die nicht untauglich sind › Gedanke › Zugehörigkeit zu Piggul oder Untauglichkeit › Bedeutung des Gedankens",
+     "desc_en": "Invalidity in the rites of all animal offerings › Those that are not disqualified › Intention › Pertinence to piggul or disqualification › Significance of intention"
+    },
+    {
+     "ref": "3:6",
+     "text": "הנחה, זריקה, דברים שונים",
+     "text_de": "Auflegen, Sprengen, verschiedene Dinge",
+     "text_en": "Placing, sprinkling, various matters",
+     "desc": "פסול במעשי כל הזבחים › שאינם פסולים › מחשבה › שייכות לפגול או פסול › ערך המחשבה",
+     "desc_de": "Ungültigkeit in den Handlungen aller Schlachtopfer › Die nicht untauglich sind › Gedanke › Zugehörigkeit zu Piggul oder Untauglichkeit › Bedeutung des Gedankens",
+     "desc_en": "Invalidity in the rites of all animal offerings › Those that are not disqualified › Intention › Pertinence to piggul or disqualification › Significance of intention"
+    }
+   ]
+  },
+  {
+   "head": "פרק ד",
+   "head_de": "Kapitel 4",
+   "head_en": "Chapter 4",
+   "items": [
+    {
+     "ref": "4:1",
+     "text": "חטאות החיצונות",
+     "text_de": "Die äußeren Sündopfer",
+     "text_en": "The outer sin offerings",
+     "desc": "פסול במעשי כל הזבחים › אפשרות לפסול › מחשבה › שייכות לפגול או פסול › מספר הזריקות המתירות",
+     "desc_de": "Ungültigkeit in den Handlungen aller Schlachtopfer › Möglichkeit der Untauglichkeit › Gedanke › Zugehörigkeit zu Piggul oder Untauglichkeit › Zahl der erlaubenden Sprengungen",
+     "desc_en": "Invalidity in the rites of all animal offerings › Possibility of disqualification › Intention › Pertinence to piggul or disqualification › Number of permitting sprinklings"
+    },
+    {
+     "ref": "4:2",
+     "text": "חטאות הפנימיות",
+     "text_de": "Die inneren Sündopfer",
+     "text_en": "The inner sin offerings",
+     "desc": "פסול במעשי כל הזבחים › אפשרות לפסול › מחשבה › שייכות לפגול או פסול › מספר הזריקות המתירות",
+     "desc_de": "Ungültigkeit in den Handlungen aller Schlachtopfer › Möglichkeit der Untauglichkeit › Gedanke › Zugehörigkeit zu Piggul oder Untauglichkeit › Zahl der erlaubenden Sprengungen",
+     "desc_en": "Invalidity in the rites of all animal offerings › Possibility of disqualification › Intention › Pertinence to piggul or disqualification › Number of permitting sprinklings"
+    },
+    {
+     "ref": "4:3",
+     "text": "שאין להם",
+     "text_de": "Die keine haben",
+     "text_en": "Those that have none",
+     "desc": "פסול במעשי כל הזבחים › אפשרות לפסול › מחשבה › שייכות לפגול או פסול › הימצאות מתירים",
+     "desc_de": "Ungültigkeit in den Handlungen aller Schlachtopfer › Möglichkeit der Untauglichkeit › Gedanke › Zugehörigkeit zu Piggul oder Untauglichkeit › Vorhandensein erlaubender Mittel",
+     "desc_en": "Invalidity in the rites of all animal offerings › Possibility of disqualification › Intention › Pertinence to piggul or disqualification › Presence of permitting means"
+    },
+    {
+     "ref": "4:4",
+     "text": "שיש להם \\ על מזבח הפנימי",
+     "text_de": "Die haben / auf dem inneren Altar",
+     "text_en": "Those that have / on the inner altar",
+     "desc": "פסול במעשי כל הזבחים › אפשרות לפסול › מחשבה › שייכות לפגול או פסול › הימצאות מתירים",
+     "desc_de": "Ungültigkeit in den Handlungen aller Schlachtopfer › Möglichkeit der Untauglichkeit › Gedanke › Zugehörigkeit zu Piggul oder Untauglichkeit › Vorhandensein erlaubender Mittel",
+     "desc_en": "Invalidity in the rites of all animal offerings › Possibility of disqualification › Intention › Pertinence to piggul or disqualification › Presence of permitting means"
+    },
+    {
+     "ref": "4:5",
+     "text": "קדשי נכרים\\ השווה לחיוב בנותר וטמא",
+     "text_de": "Heilige Gaben von Nichtjuden / Gleichstellung bei der Haftung für Übriggebliebenes und Unreines",
+     "text_en": "Sacrifices of gentiles / equal liability for remnant and impure",
+     "desc": "פסול במעשי כל הזבחים › אפשרות לפסול › מחשבה › שייכות לפגול או פסול › המשונים",
+     "desc_de": "Ungültigkeit in den Handlungen aller Schlachtopfer › Möglichkeit der Untauglichkeit › Gedanke › Zugehörigkeit zu Piggul oder Untauglichkeit › Die Abweichenden",
+     "desc_en": "Invalidity in the rites of all animal offerings › Possibility of disqualification › Intention › Pertinence to piggul or disqualification › The exceptional ones"
+    },
+    {
+     "ref": "4:6",
+     "text": "שבע כוונות, תנאי בית דין",
+     "text_de": "Sieben Absichten, Bedingung des Gerichts",
+     "text_en": "Seven intentions, condition of the court",
+     "desc": "מעשי הזבחים לכתחילה › אפשרות לפסול › מחשבה › כוונות הזובח",
+     "desc_de": "Handlungen der Schlachtopfer von vornherein › Möglichkeit der Untauglichkeit › Gedanke › Absichten des Schlachtenden",
+     "desc_en": "Rites of the animal offerings ab initio › Possibility of disqualification › Intention › Intentions of the slaughterer"
+    }
+   ]
+  },
+  {
+   "head": "פרק ה",
+   "head_de": "Kapitel 5",
+   "head_en": "Chapter 5",
+   "items": [
+    {
+     "ref": "5:1",
+     "text": "של יום הכיפורים",
+     "text_de": "Die des Versöhnungstags",
+     "text_en": "Those of the Day of Atonement",
+     "desc": "מעשי הזבחים לכתחילה › בהמות › קדשי קדשים › חטאות › פנימיות",
+     "desc_de": "Handlungen der Schlachtopfer von vornherein › Vieh › Hochheilige Opfer › Sündopfer › Innere",
+     "desc_en": "Rites of the animal offerings ab initio › animals › Most holy offerings › Sin offerings › Inner"
+    },
+    {
+     "ref": "5:2",
+     "text": "העלם צבור וכה\"ג, שעירי ע\"ז",
+     "text_de": "Verborgenheit der Gemeinde und des Hohepriesters, Götzendienst-Böcke",
+     "text_en": "Communal and high priest's inadvertence, goats for idolatry",
+     "desc": "מעשי הזבחים לכתחילה › בהמות › קדשי קדשים › חטאות › פנימיות",
+     "desc_de": "Handlungen der Schlachtopfer von vornherein › Vieh › Hochheilige Opfer › Sündopfer › Innere",
+     "desc_en": "Rites of the animal offerings ab initio › animals › Most holy offerings › Sin offerings › Inner"
+    },
+    {
+     "ref": "5:3",
+     "text": "החיצונות",
+     "text_de": "Die äußeren",
+     "text_en": "The outer ones",
+     "desc": "מעשי הזבחים לכתחילה › בהמות › קדשי קדשים › חטאות",
+     "desc_de": "Handlungen der Schlachtopfer von vornherein › Vieh › Hochheilige Opfer › Sündopfer",
+     "desc_en": "Rites of the animal offerings ab initio › animals › Most holy offerings › Sin offerings"
+    },
+    {
+     "ref": "5:4",
+     "text": "עולה",
+     "text_de": "Ganzopfer",
+     "text_en": "Burnt offering",
+     "desc": "מעשי הזבחים לכתחילה › בהמות › קדשי קדשים",
+     "desc_de": "Handlungen der Schlachtopfer von vornherein › Vieh › Hochheilige Opfer",
+     "desc_en": "Rites of the animal offerings ab initio › animals › Most holy offerings"
+    },
+    {
+     "ref": "5:5",
+     "text": "שלמי ציבור ואשמות",
+     "text_de": "Gemeinschaftliche Heilsopfer und Schuldopfer",
+     "text_en": "Communal peace offerings and guilt offerings",
+     "desc": "מעשי הזבחים לכתחילה › בהמות › קדשי קדשים › הנאכלין ליום א'",
+     "desc_de": "Handlungen der Schlachtopfer von vornherein › Vieh › Hochheilige Opfer › Die am ersten Tag zu essen sind",
+     "desc_en": "Rites of the animal offerings ab initio › animals › Most holy offerings › Those eaten on the first day"
+    },
+    {
+     "ref": "5:6",
+     "text": "תודה ואיל נזיר",
+     "text_de": "Dankopfer und Nasiräer-Widder",
+     "text_en": "Thanksgiving offering and Nazirite ram",
+     "desc": "מעשי הזבחים לכתחילה › בהמות › קדשים קלים › הנאכלין ליום א'",
+     "desc_de": "Handlungen der Schlachtopfer von vornherein › Vieh › Leichtere heilige Opfer › Die am ersten Tag zu essen sind",
+     "desc_en": "Rites of the animal offerings ab initio › animals › Lesser holy offerings › Those eaten on the first day"
+    },
+    {
+     "ref": "5:7",
+     "text": "שלמים",
+     "text_de": "Heilsopfer",
+     "text_en": "Peace offerings",
+     "desc": "מעשי הזבחים לכתחילה › בהמות › קדשים קלים › הנאכלין לב' ימים",
+     "desc_de": "Handlungen der Schlachtopfer von vornherein › Vieh › Leichtere heilige Opfer › Die an zwei Tagen zu essen sind",
+     "desc_en": "Rites of the animal offerings ab initio › animals › Lesser holy offerings › Those eaten over two days"
+    },
+    {
+     "ref": "5:8",
+     "text": "בכור, מעשר, פסח",
+     "text_de": "Erstgeborenes, Zehnt, Pessach",
+     "text_en": "Firstborn, tithe, Passover offering",
+     "desc": "מעשי הזבחים לכתחילה › בהמות › קדשים קלים › הנאכלין לב' ימים",
+     "desc_de": "Handlungen der Schlachtopfer von vornherein › Vieh › Leichtere heilige Opfer › Die an zwei Tagen zu essen sind",
+     "desc_en": "Rites of the animal offerings ab initio › animals › Lesser holy offerings › Those eaten over two days"
+    }
+   ]
+  },
+  {
+   "head": "פרק ו",
+   "head_de": "Kapitel 6",
+   "head_en": "Chapter 6",
+   "items": [
+    {
+     "ref": "6:1",
+     "text": "שחיטה במזבח / קמיצה ואכילה",
+     "text_de": "Schlachtung am Altar / Handvoll und Essen",
+     "text_en": "Slaughter at the altar / taking the handful and eating",
+     "desc": "מעשי הזבחים לכתחילה › מנחות › קדשי קדשים",
+     "desc_de": "Handlungen der Schlachtopfer von vornherein › Mehlopfer › Hochheilige Opfer",
+     "desc_en": "Rites of the animal offerings ab initio › Meal offerings › Most holy offerings"
+    },
+    {
+     "ref": "6:2",
+     "text": "מקום חטאת העוף,שמושי קרן בדרום מערב",
+     "text_de": "Ort des Vogel-Sündopfers, Gebrauch der Altarecke im Südwesten",
+     "text_en": "Place of the bird sin offering, use of the altar corner in the southwest",
+     "desc": "מעשי הזבחים לכתחילה › עופות › הנעשים במזבח",
+     "desc_de": "Handlungen der Schlachtopfer von vornherein › Vögel › Die am Altar Vollzogenen",
+     "desc_en": "Rites of the animal offerings ab initio › Birds › Those performed at the altar"
+    },
+    {
+     "ref": "6:3",
+     "text": "דרך עלייה למזבח",
+     "text_de": "Weg des Aufstiegs zum Altar",
+     "text_en": "Way of ascent to the altar",
+     "desc": "מעשי הזבחים לכתחילה › עופות › הנעשים במזבח",
+     "desc_de": "Handlungen der Schlachtopfer von vornherein › Vögel › Die am Altar Vollzogenen",
+     "desc_en": "Rites of the animal offerings ab initio › Birds › Those performed at the altar"
+    },
+    {
+     "ref": "6:4",
+     "text": "חטאת",
+     "text_de": "Sündopfer",
+     "text_en": "Sin offering",
+     "desc": "מעשי הזבחים לכתחילה › עופות › תיאור עשייתן",
+     "desc_de": "Handlungen der Schlachtopfer von vornherein › Vögel › Beschreibung ihrer Ausführung",
+     "desc_en": "Rites of the animal offerings ab initio › Birds › Description of their performance"
+    },
+    {
+     "ref": "6:5",
+     "text": "עולה",
+     "text_de": "Ganzopfer",
+     "text_en": "Burnt offering",
+     "desc": "מעשי הזבחים לכתחילה › עופות › תיאור עשייתן",
+     "desc_de": "Handlungen der Schlachtopfer von vornherein › Vögel › Beschreibung ihrer Ausführung",
+     "desc_en": "Rites of the animal offerings ab initio › Birds › Description of their performance"
+    },
+    {
+     "ref": "6:6",
+     "text": "לפני ואחרי המיצוי, המיצוי",
+     "text_de": "Vor und nach dem Ausdrücken, das Ausdrücken",
+     "text_en": "Before and after the squeezing, the squeezing",
+     "desc": "פסול במעשי הזבחים › עופות › מעשה › כשרות",
+     "desc_de": "Untauglichkeit bei den Handlungen der Schlachtopfer › Vögel › Handlung › Tauglichkeit",
+     "desc_en": "Invalidity in the rites of the animal offerings › Birds › Act › Fitness"
+    },
+    {
+     "ref": "6:7",
+     "text": "שלא לשמה, הדגמת מתיר כמצוותו",
+     "text_de": "Nicht für ihren Zweck, Beispiel für das Erlaubende gemäß dem Gebot",
+     "text_en": "Not for its own sake, illustration of permitting in accordance with the commandment",
+     "desc": "פסול במעשי הזבחים › עופות › מחשבה › פגול ופסול",
+     "desc_de": "Untauglichkeit bei den Handlungen der Schlachtopfer › Vögel › Gedanke › Piggul und Untauglichkeit",
+     "desc_en": "Invalidity in the rites of the animal offerings › Birds › Intention › Piggul and invalidity"
+    }
+   ]
+  },
+  {
+   "head": "פרק ז",
+   "head_de": "Kapitel 7",
+   "head_en": "Chapter 7",
+   "items": [
+    {
+     "ref": "7:1",
+     "text": "חטאת",
+     "text_de": "Sündopfer",
+     "text_en": "Sin offering",
+     "desc": "פסול במעשי הזבחים › עופות › מחשבה ומעשה › כשרות",
+     "desc_de": "Untauglichkeit bei den Handlungen der Schlachtopfer › Vögel › Gedanke und Handlung › Tauglichkeit",
+     "desc_en": "Invalidity in the rites of the animal offerings › Birds › Intention and act › Fitness"
+    },
+    {
+     "ref": "7:2",
+     "text": "עולה",
+     "text_de": "Ganzopfer",
+     "text_en": "Burnt offering",
+     "desc": "פסול במעשי הזבחים › עופות › מחשבה ומעשה › כשרות",
+     "desc_de": "Untauglichkeit bei den Handlungen der Schlachtopfer › Vögel › Gedanke und Handlung › Tauglichkeit",
+     "desc_en": "Invalidity in the rites of the animal offerings › Birds › Intention and act › Fitness"
+    },
+    {
+     "ref": "7:3",
+     "text": "כל הפסולים, חטאת כשרה",
+     "text_de": "Alle Untauglichkeiten, taugliches Sündopfer",
+     "text_en": "All disqualifications, valid sin offering",
+     "desc": "פסול במעשי הזבחים › עופות › מחשבה ומעשה › טומאה ומעילה",
+     "desc_de": "Untauglichkeit bei den Handlungen der Schlachtopfer › Vögel › Gedanke und Handlung › Unreinheit und Veruntreuung",
+     "desc_en": "Invalidity in the rites of the animal offerings › Birds › Intention and act › Impurity and misappropriation"
+    },
+    {
+     "ref": "7:4",
+     "text": "עולה שנעשית חטאת",
+     "text_de": "Ein Ganzopfer, das als Sündopfer dargebracht wurde",
+     "text_en": "A burnt offering that was made a sin offering",
+     "desc": "פסול במעשי הזבחים › עופות › מחשבה ומעשה › טומאה ומעילה",
+     "desc_de": "Untauglichkeit bei den Handlungen der Schlachtopfer › Vögel › Gedanke und Handlung › Unreinheit und Veruntreuung",
+     "desc_en": "Invalidity in the rites of the animal offerings › Birds › Intention and act › Impurity and misappropriation"
+    },
+    {
+     "ref": "7:5",
+     "text": "פסול בהריגתן או בגופן, כלל",
+     "text_de": "Untauglichkeit bei ihrer Tötung oder an ihrem Körper, Regel",
+     "text_en": "Invalidity in their killing or in their bodies, rule",
+     "desc": "פסול במעשי הזבחים › עופות › מעשה › טומאה ומעילה",
+     "desc_de": "Untauglichkeit bei den Handlungen der Schlachtopfer › Vögel › Handlung › Unreinheit und Veruntreuung",
+     "desc_en": "Invalidity in the rites of the animal offerings › Birds › Act › Impurity and misappropriation"
+    },
+    {
+     "ref": "7:6",
+     "text": "מליקת טריפה",
+     "text_de": "Genickknicken bei einem Tier mit tödlichem Mangel",
+     "text_en": "Pinching the neck of a terefa",
+     "desc": "פסול במעשי הזבחים › עופות › מעשה › טומאה ומעילה",
+     "desc_de": "Untauglichkeit bei den Handlungen der Schlachtopfer › Vögel › Handlung › Unreinheit und Veruntreuung",
+     "desc_en": "Invalidity in the rites of the animal offerings › Birds › Act › Impurity and misappropriation"
+    }
+   ]
+  },
+  {
+   "head": "פרק ח",
+   "head_de": "Kapitel 8",
+   "head_en": "Chapter 8",
+   "items": [
+    {
+     "ref": "8:1",
+     "text": "איסורי הנאה, פסולי מזבח, תמימים",
+     "text_de": "Nutzungsverbote, für den Altar Untaugliches, Makellose",
+     "text_en": "Prohibitions of benefit, unfit for the altar, unblemished animals",
+     "desc": "תערובת קדשים › הקרבה › בהמות › חולין",
+     "desc_de": "Vermischung heiliger Opfer › Darbringung › Vieh › Profanes",
+     "desc_en": "Mixing of sacrifices › Offering › animals › Unconsecrated food"
+    },
+    {
+     "ref": "8:2",
+     "text": "מינו,לא מינו, אין להם פדיון",
+     "text_de": "Gleichartig, nicht gleichartig, ohne Auslösung",
+     "text_en": "Of the same kind, not of the same kind, without redemption",
+     "desc": "תערובת קדשים › הקרבה › בהמות › קדשים",
+     "desc_de": "Vermischung heiliger Opfer › Darbringung › Vieh › Heilige Opfer",
+     "desc_en": "Mixing of sacrifices › Offering › animals › Sacrifices"
+    },
+    {
+     "ref": "8:3",
+     "text": "אשם ושלמים \\ חמור וקל",
+     "text_de": "Schuldopfer und Heilsopfer / Strengeres und Leichteres",
+     "text_en": "Guilt offering and peace offering / stricter and lighter",
+     "desc": "תערובת קדשים › הקרבה › בהמות › קדשים",
+     "desc_de": "Vermischung heiliger Opfer › Darbringung › Vieh › Heilige Opfer",
+     "desc_en": "Mixing of sacrifices › Offering › animals › Sacrifices"
+    },
+    {
+     "ref": "8:4",
+     "text": "עולה וחטאת",
+     "text_de": "Ganzopfer und Sündopfer",
+     "text_en": "Burnt offering and sin offering",
+     "desc": "תערובת קדשים › הקרבה › איברים וחתיכות › קדשים כשרים",
+     "desc_de": "Vermischung heiliger Opfer › Darbringung › Glieder und Stücke › Taugliche heilige Opfer",
+     "desc_en": "Mixing of sacrifices › Offering › Limbs and pieces › Valid sacrifices"
+    },
+    {
+     "ref": "8:5",
+     "text": "בעל מום",
+     "text_de": "Tier mit Makel",
+     "text_en": "Blemished animal",
+     "desc": "תערובת קדשים › הקרבה › איברים וחתיכות › קדשים פסולים",
+     "desc_de": "Vermischung heiliger Opfer › Darbringung › Glieder und Stücke › Untaugliche heilige Opfer",
+     "desc_en": "Mixing of sacrifices › Offering › Limbs and pieces › Invalid sacrifices"
+    },
+    {
+     "ref": "8:6",
+     "text": "מים, יין, חולין",
+     "text_de": "Wasser, Wein, Profanes",
+     "text_en": "Water, wine, unconsecrated food",
+     "desc": "תערובת קדשים › זריקה › דמים",
+     "desc_de": "Vermischung heiliger Opfer › Werfen › Blut",
+     "desc_en": "Mixing of sacrifices › Throwing › Blood"
+    },
+    {
+     "ref": "8:7",
+     "text": "פסולים, דם תמצית",
+     "text_de": "Untaugliche, Blut des Ausflusses",
+     "text_en": "Invalid ones, blood of the final drops",
+     "desc": "תערובת קדשים › זריקה › דמים › קדשים פסולים",
+     "desc_de": "Vermischung heiliger Opfer › Werfen › Blut › Untaugliche heilige Opfer",
+     "desc_en": "Mixing of sacrifices › Throwing › Blood › Invalid sacrifices"
+    },
+    {
+     "ref": "8:8",
+     "text": "בעלי מומין",
+     "text_de": "Tiere mit Makeln",
+     "text_en": "Blemished animals",
+     "desc": "תערובת קדשים › זריקה › דמים › קדשים פסולים",
+     "desc_de": "Vermischung heiliger Opfer › Werfen › Blut › Untaugliche heilige Opfer",
+     "desc_en": "Mixing of sacrifices › Throwing › Blood › Invalid sacrifices"
+    },
+    {
+     "ref": "8:9",
+     "text": "מקום המתנות במזבח",
+     "text_de": "Ort der Blutapplikationen am Altar",
+     "text_en": "Place of the blood applications on the altar",
+     "desc": "תערובת קדשים › זריקה › דמים › קדשים כשרים",
+     "desc_de": "Vermischung heiliger Opfer › Werfen › Blut › Taugliche heilige Opfer",
+     "desc_en": "Mixing of sacrifices › Throwing › Blood › Valid sacrifices"
+    },
+    {
+     "ref": "8:10",
+     "text": "מספר המתנות",
+     "text_de": "Zahl der Applikationen",
+     "text_en": "Number of applications",
+     "desc": "תערובת קדשים › זריקה › דמים › קדשים כשרים",
+     "desc_de": "Vermischung heiliger Opfer › Werfen › Blut › Taugliche heilige Opfer",
+     "desc_en": "Mixing of sacrifices › Throwing › Blood › Valid sacrifices"
+    },
+    {
+     "ref": "8:11",
+     "text": "מקום המתנות במקדש והטעם",
+     "text_de": "Ort der Applikationen im Heiligtum und der Grund",
+     "text_en": "Place of the applications in the Sanctuary and the reason",
+     "desc": "תערובת קדשים › זריקה › דמים › קדשים כשרים › כניסה להיכל",
+     "desc_de": "Vermischung heiliger Opfer › Werfen › Blut › Taugliche heilige Opfer › Eintritt in die Halle",
+     "desc_en": "Mixing of sacrifices › Throwing › Blood › Valid sacrifices › Entering the Sanctuary hall"
+    },
+    {
+     "ref": "8:12",
+     "text": "חלק מהדם,כוונת כניסה\\ טמא ושאר פסול",
+     "text_de": "Teil des Blutes, Absicht des Eintretens / Unreiner und sonstige Untaugliche",
+     "text_en": "Part of the blood, intention of entering / impure person and other disqualified",
+     "desc": "תערובת קדשים › זריקה › דמים › קדשים כשרים › כניסה להיכל › רצוי ציץ",
+     "desc_de": "Vermischung heiliger Opfer › Werfen › Blut › Taugliche heilige Opfer › Eintritt in die Halle › Wohlgefälligkeit durch das Stirnblech",
+     "desc_en": "Mixing of sacrifices › Throwing › Blood › Valid sacrifices › Entering the Sanctuary hall › Acceptance through the frontlet"
+    }
+   ]
+  },
+  {
+   "head": "פרק ט",
+   "head_de": "Kapitel 9",
+   "head_en": "Chapter 9",
+   "items": [
+    {
+     "ref": "9:1",
+     "text": "כלל וטעמו, בגלל עצמו",
+     "text_de": "Regel und ihr Grund, um seiner selbst willen",
+     "text_en": "Rule and its reason, on its own account",
+     "desc": "הקדשת הקרב › על ידי המזבח › שלא יורדים › הראוי למזבח",
+     "desc_de": "Heiligung des Darzubringenden › Durch den Altar › Was nicht herabgenommen wird › was für den Altar geeignet ist",
+     "desc_en": "Sanctification of what is to be offered › By the altar › What is not taken down › what is fit for the altar"
+    },
+    {
+     "ref": "9:2",
+     "text": "פירוט, מיעוטים \\ כלל",
+     "text_de": "Aufzählung, Ausnahmen / Regel",
+     "text_en": "Enumeration, exceptions / rule",
+     "desc": "הקדשת הקרב › על ידי המזבח › שלא יורדים › הראוי למזבח",
+     "desc_de": "Heiligung des Darzubringenden › Durch den Altar › Was nicht herabgenommen wird › was für den Altar geeignet ist",
+     "desc_en": "Sanctification of what is to be offered › By the altar › What is not taken down › what is fit for the altar"
+    },
+    {
+     "ref": "9:3",
+     "text": "פירוט, דין בעלי מומין",
+     "text_de": "Aufzählung, Gesetz der makelbehafteten Tiere",
+     "text_en": "Enumeration, law of blemished animals",
+     "desc": "הקדשת הקרב › על ידי המזבח › היורדים › פסולו לא בקודש",
+     "desc_de": "Heiligung des Darzubringenden › Durch den Altar › Die Herabgenommenen › Seine Untauglichkeit entstand nicht im Heiligen",
+     "desc_en": "Sanctification of what is to be offered › By the altar › Those that are taken down › Its disqualification did not arise in the sacred state"
+    },
+    {
+     "ref": "9:4",
+     "text": "ירדו המתקבלים, עלתה חיים למזבח",
+     "text_de": "Die Angenommenen wurden herabgenommen, lebend auf den Altar gekommen",
+     "text_en": "Those accepted were taken down, one that went up alive onto the altar",
+     "desc": "הקדשת הקרב › על ידי המזבח › היורדים",
+     "desc_de": "Heiligung des Darzubringenden › Durch den Altar › Die Herabgenommenen",
+     "desc_en": "Sanctification of what is to be offered › By the altar › Those that are taken down"
+    },
+    {
+     "ref": "9:5",
+     "text": "לא שייך כלל למזבח, חיבור לעולים",
+     "text_de": "Gehört überhaupt nicht zum Altar, Verbindung mit dem Aufgestiegenen",
+     "text_en": "Does not belong to the altar at all, connection with what went up",
+     "desc": "הקדשת הקרב › על ידי המזבח › היורדים",
+     "desc_de": "Heiligung des Darzubringenden › Durch den Altar › Die Herabgenommenen",
+     "desc_en": "Sanctification of what is to be offered › By the altar › Those that are taken down"
+    },
+    {
+     "ref": "9:6",
+     "text": "פוקעים",
+     "text_de": "Sie erlöschen",
+     "text_en": "They lapse",
+     "desc": "הקדשת הקרב › על ידי המזבח › החוזרים",
+     "desc_de": "Heiligung des Darzubringenden › Durch den Altar › Die Zurückkehrenden",
+     "desc_en": "Sanctification of what is to be offered › By the altar › Those who return"
+    },
+    {
+     "ref": "9:7",
+     "text": "הראוי להם, שלימותם, מקומם",
+     "text_de": "Das ihnen Gehörende, ihre Vollständigkeit, ihr Ort",
+     "text_en": "What is proper to them, their completeness, their place",
+     "desc": "הקדשת הקרב › אביזריו › הכבש וכלי שרת",
+     "desc_de": "Heiligung des Darzubringenden › Zubehör › Die Rampe und die Dienstgeräte",
+     "desc_en": "Sanctification of what is to be offered › Accessories › The ramp and the service vessels"
+    }
+   ]
+  },
+  {
+   "head": "פרק י",
+   "head_de": "Kapitel 10",
+   "head_en": "Chapter 10",
+   "items": [
+    {
+     "ref": "10:1",
+     "text": "תמידים ומוספים, הטעם",
+     "text_de": "Tamidopfer und Zusatzopfer, die Begründung",
+     "text_en": "Daily and additional offerings, the reasoning",
+     "desc": "חשיבות הקרב › סדרי קדימה › תדיר",
+     "desc_de": "Bedeutung der Opferdarbringung › Rangfolgen › Das Häufigere",
+     "desc_en": "Significance of the offering › Orders of priority › The more frequent"
+    },
+    {
+     "ref": "10:2",
+     "text": "דברים שונים וסדרם",
+     "text_de": "Verschiedenes und seine Reihenfolge",
+     "text_en": "Various matters and their order",
+     "desc": "חשיבות הקרב › סדרי קדימה › מקודש › זבחים",
+     "desc_de": "Bedeutung der Opferdarbringung › Rangfolgen › Das Geheiligte › Schlachtopfer",
+     "desc_en": "Significance of the offering › Orders of priority › The sanctified › Animal sacrifices"
+    },
+    {
+     "ref": "10:3",
+     "text": "בכור, מעשר \\ עופות",
+     "text_de": "Erstgeborenes, Zehnt / Vögel",
+     "text_en": "Firstborn, tithe / birds",
+     "desc": "חשיבות הקרב › סדרי קדימה › מקודש",
+     "desc_de": "Bedeutung der Opferdarbringung › Rangfolgen › Das Geheiligte",
+     "desc_en": "Significance of the offering › Orders of priority › The sanctified"
+    },
+    {
+     "ref": "10:4",
+     "text": "עופות, מנחות",
+     "text_de": "Vögel, Mehlopfer",
+     "text_en": "Birds, meal offerings",
+     "desc": "חשיבות הקרב › סדרי קדימה › מקודש",
+     "desc_de": "Bedeutung der Opferdarbringung › Rangfolgen › Das Geheiligte",
+     "desc_en": "Significance of the offering › Orders of priority › The sanctified"
+    },
+    {
+     "ref": "10:5",
+     "text": "אשמות היוצאות מן הכלל, הלכות אחרות",
+     "text_de": "Ausnahmefälle bei den Schuldopfern, weitere Bestimmungen",
+     "text_en": "Guilt offerings that are exceptions to the rule, other laws",
+     "desc": "חשיבות הקרב › סדרי קדימה › סיבה מיוחדת להקדמה › טהרה",
+     "desc_de": "Bedeutung der Opferdarbringung › Rangfolgen › Besonderer Grund für die Voranstellung › Reinheit",
+     "desc_en": "Significance of the offering › Orders of priority › Special reason for the precedence › Purity"
+    },
+    {
+     "ref": "10:6",
+     "text": "קדשי קדשים וקלים וזמנם",
+     "text_de": "Hochheiliges und Minderheiliges und ihre Zeiten",
+     "text_en": "Most holy and lesser holy offerings and their times",
+     "desc": "חשיבות הקרב › סדרי קדימה › סיבה מיוחדת להקדמה › הצלה מנותר",
+     "desc_de": "Bedeutung der Opferdarbringung › Rangfolgen › Besonderer Grund für die Voranstellung › Rettung vor dem Übrigbleiben (Notar)",
+     "desc_en": "Significance of the offering › Orders of priority › Special reason for the precedence › Rescue from becoming leftover (notar)"
+    },
+    {
+     "ref": "10:7",
+     "text": "חשיבות האכילה, תבליני תרומה",
+     "text_de": "Bedeutung des Essens, Gewürze der Priesterabgabe",
+     "text_en": "Importance of eating, spices of the priestly gift",
+     "desc": "הלכות לאחר ההקרבה › אכילת קדשים › הנאכל ודרך אכילתו",
+     "desc_de": "Bestimmungen nach der Darbringung › Essen von Opferfleisch › Das Essbare und die Art des Essens",
+     "desc_en": "Laws after the offering › Eating of sacrificial portions › What is eaten and the manner of eating it"
+    },
+    {
+     "ref": "10:8",
+     "text": "מותרות ונדבות שמן",
+     "text_de": "Überschüsse und freiwillige Ölspenden",
+     "text_en": "Surpluses and voluntary oil offerings",
+     "desc": "הלכות לאחר ההקרבה › אכילת קדשים › הנאכל ודרך אכילתו",
+     "desc_de": "Bestimmungen nach der Darbringung › Essen von Opferfleisch › Das Essbare und die Art des Essens",
+     "desc_en": "Laws after the offering › Eating of sacrificial portions › What is eaten and the manner of eating it"
+    }
+   ]
+  },
+  {
+   "head": "פרק יא",
+   "head_de": "Kapitel 11",
+   "head_en": "Chapter 11",
+   "items": [
+    {
+     "ref": "11:1",
+     "text": "דרשה לריבוי כל החטאות",
+     "text_de": "Auslegung zur Einbeziehung aller Sündopfer",
+     "text_en": "Exposition on the inclusion of all sin offerings",
+     "desc": "הלכות לאחר ההקרבה › נקיון בולעי קדשים › הטעון כיבוס › הדמים",
+     "desc_de": "Bestimmungen nach der Darbringung › Reinigung bei Aufsaugen von Geheiligtem › Was gewaschen werden muss › Das Blut",
+     "desc_en": "Laws after the offering › Cleansing of vessels that absorbed sanctified matter › What requires washing › The blood"
+    },
+    {
+     "ref": "11:2",
+     "text": "שעת כושר להזאה",
+     "text_de": "Geeigneter Zeitpunkt für die Sprengung",
+     "text_en": "Suitable time for the sprinkling",
+     "desc": "הלכות לאחר ההקרבה › נקיון בולעי קדשים › הטעון כיבוס › הדמים",
+     "desc_de": "Bestimmungen nach der Darbringung › Reinigung bei Aufsaugen von Geheiligtem › Was gewaschen werden muss › Das Blut",
+     "desc_en": "Laws after the offering › Cleansing of vessels that absorbed sanctified matter › What requires washing › The blood"
+    },
+    {
+     "ref": "11:3",
+     "text": "לפני קבלה,אחר הזאה \\ הראוי ליטמא",
+     "text_de": "Vor der Aufnahme, nach der Sprengung / Was unrein werden kann",
+     "text_en": "Before receiving, after sprinkling / What can become impure",
+     "desc": "הלכות לאחר ההקרבה › נקיון בולעי קדשים › הטעון כיבוס › הבגד",
+     "desc_de": "Bestimmungen nach der Darbringung › Reinigung bei Aufsaugen von Geheiligtem › Was gewaschen werden muss › Das Kleidungsstück",
+     "desc_en": "Laws after the offering › Cleansing of vessels that absorbed sanctified matter › What requires washing › The garment"
+    },
+    {
+     "ref": "11:4",
+     "text": "נקיון לכלים שונים, חומר בחטאת",
+     "text_de": "Reinigung verschiedener Gefäße, Material beim Sündopfer",
+     "text_en": "Cleansing of various vessels, material in the sin offering",
+     "desc": "הלכות לאחר ההקרבה › נקיון בולעי קדשים › צורך במקום קדוש › שיצאו",
+     "desc_de": "Bestimmungen nach der Darbringung › Reinigung bei Aufsaugen von Geheiligtem › Notwendigkeit eines heiligen Ortes › Die hinausgelangt sind",
+     "desc_en": "Laws after the offering › Cleansing of vessels that absorbed sanctified matter › Requirement of a holy place › Those that left"
+    },
+    {
+     "ref": "11:5",
+     "text": "בגד, כלי חרס",
+     "text_de": "Kleidungsstück, Tongefäß",
+     "text_en": "Garment, earthenware vessel",
+     "desc": "הלכות לאחר ההקרבה › נקיון בולעי קדשים › צורך במקום קדוש › שיצאו",
+     "desc_de": "Bestimmungen nach der Darbringung › Reinigung bei Aufsaugen von Geheiligtem › Notwendigkeit eines heiligen Ortes › Die hinausgelangt sind",
+     "desc_en": "Laws after the offering › Cleansing of vessels that absorbed sanctified matter › Requirement of a holy place › Those that left"
+    },
+    {
+     "ref": "11:6",
+     "text": "כלי נחושת",
+     "text_de": "Kupfergefäß",
+     "text_en": "Copper vessel",
+     "desc": "הלכות לאחר ההקרבה › נקיון בולעי קדשים › צורך במקום קדוש › מריקה ושטיפה › שיצאו",
+     "desc_de": "Bestimmungen nach der Darbringung › Reinigung bei Aufsaugen von Geheiligtem › Notwendigkeit eines heiligen Ortes › Scheuern und Spülen › Die hinausgelangt sind",
+     "desc_en": "Laws after the offering › Cleansing of vessels that absorbed sanctified matter › Requirement of a holy place › Scouring and rinsing › Those that left"
+    },
+    {
+     "ref": "11:7",
+     "text": "כיצד בלע, קדשים קלים / כיצד מבצען",
+     "text_de": "Wie es aufgesaugt wurde, minderheilige Opfer / Wie man sie ausführt",
+     "text_en": "How it was absorbed, lesser holy offerings / How to carry them out",
+     "desc": "הלכות לאחר ההקרבה › נקיון בולעי קדשים › מריקה ושטיפה",
+     "desc_de": "Bestimmungen nach der Darbringung › Reinigung bei Aufsaugen von Geheiligtem › Scheuern und Spülen",
+     "desc_en": "Laws after the offering › Cleansing of vessels that absorbed sanctified matter › Scouring and rinsing"
+    },
+    {
+     "ref": "11:8",
+     "text": "בליעה בנותן טעם בבישול, ובמגע",
+     "text_de": "Aufsaugen durch geschmackgebende Wirkung beim Kochen und bei Berührung",
+     "text_en": "Absorption by flavor transfer in cooking and through contact",
+     "desc": "הלכות לאחר ההקרבה › נקיון בולעי קדשים › מריקה ושטיפה › איזה הטעון",
+     "desc_de": "Bestimmungen nach der Darbringung › Reinigung bei Aufsaugen von Geheiligtem › Scheuern und Spülen › Was das Waschen erfordert",
+     "desc_en": "Laws after the offering › Cleansing of vessels that absorbed sanctified matter › Scouring and rinsing › What requires washing"
+    }
+   ]
+  },
+  {
+   "head": "פרק יב",
+   "head_de": "Kapitel 12",
+   "head_en": "Chapter 12",
+   "items": [
+    {
+     "ref": "12:1",
+     "text": "הראויים לאכילה בשעת הקרבה",
+     "text_de": "Was bei der Darbringung essbar ist",
+     "text_en": "What is edible at the time of offering",
+     "desc": "הלכות לאחר ההקרבה › חלקם של הכהנים › החולקים › בשר ועור",
+     "desc_de": "Bestimmungen nach der Darbringung › Anteil der Priester › Die Teilenden › Fleisch und Haut",
+     "desc_en": "Laws after the offering › The priests' share › Those who share › Meat and hide"
+    },
+    {
+     "ref": "12:2",
+     "text": "זבח פסול, של אשה",
+     "text_de": "Untauglicher Schlachtopfer, das einer Frau",
+     "text_en": "Disqualified sacrifice, that of a woman",
+     "desc": "הלכות לאחר ההקרבה › חלקם של הכהנים › המתחלק › עור",
+     "desc_de": "Bestimmungen nach der Darbringung › Anteil der Priester › Das Aufzuteilende › Haut",
+     "desc_en": "Laws after the offering › The priests' share › What is to be divided › Hide"
+    },
+    {
+     "ref": "12:3",
+     "text": "דרגת הקדשים, הטעם",
+     "text_de": "Heiligkeitsgrad der Opfer, die Begründung",
+     "text_en": "Degree of sanctity of the offerings, the reasoning",
+     "desc": "הלכות לאחר ההקרבה › חלקם של הכהנים › המתחלק › עור",
+     "desc_de": "Bestimmungen nach der Darbringung › Anteil der Priester › Das Aufzuteilende › Haut",
+     "desc_en": "Laws after the offering › The priests' share › What is to be divided › Hide"
+    },
+    {
+     "ref": "12:4",
+     "text": "פסול ושעת הפשט",
+     "text_de": "Untauglichkeit und der Zeitpunkt des Abziehens",
+     "text_en": "Disqualification and the time of flaying",
+     "desc": "הלכות לאחר ההקרבה › חלקם של הכהנים › המתחלק › עור",
+     "desc_de": "Bestimmungen nach der Darbringung › Anteil der Priester › Das Aufzuteilende › Haut",
+     "desc_en": "Laws after the offering › The priests' share › What is to be divided › Hide"
+    },
+    {
+     "ref": "12:5",
+     "text": "בכשר ובפסול, ומקום השריפה",
+     "text_de": "Bei Tauglichem und Untauglichem, und der Ort der Verbrennung",
+     "text_en": "For the fit and the unfit, and the place of burning",
+     "desc": "הלכות לאחר ההקרבה › שריפת חטאות הפנימיות › טומאת בגדי השורפים",
+     "desc_de": "Bestimmungen nach der Darbringung › Verbrennung der inneren Sündopfer › Unreinheit der Kleider der Verbrennenden",
+     "desc_en": "Laws after the offering › Burning of the inner sin offerings › Impurity of the garments of those who burn"
+    },
+    {
+     "ref": "12:6",
+     "text": "משך יכלתן לטמא",
+     "text_de": "Dauer ihrer Fähigkeit zu verunreinigen",
+     "text_en": "Duration of their capacity to defile",
+     "desc": "הלכות לאחר ההקרבה › שריפת חטאות הפנימיות › טומאת בגדי השורפים",
+     "desc_de": "Bestimmungen nach der Darbringung › Verbrennung der inneren Sündopfer › Unreinheit der Kleider der Verbrennenden",
+     "desc_en": "Laws after the offering › Burning of the inner sin offerings › Impurity of the garments of those who burn"
+    }
+   ]
+  },
+  {
+   "head": "פרק יג",
+   "head_de": "Kapitel 13",
+   "head_en": "Chapter 13",
+   "items": [
+    {
+     "ref": "13:1",
+     "text": "חילוק שחיטה והעלאה \\ הנשחט בחוץ",
+     "text_de": "Unterscheidung von Schlachtung und Emporbringen / Das draußen Geschlachtete",
+     "text_en": "Distinction between slaughtering and bringing up / What is slaughtered outside",
+     "desc": "הקרבת חוץ › כיצד מתחייב › פעולות האסורות",
+     "desc_de": "Darbringung außerhalb › Wie man haftbar wird › Verbotene Handlungen",
+     "desc_en": "Offering outside › How one becomes liable › Prohibited acts"
+    },
+    {
+     "ref": "13:2",
+     "text": "אכילת קודש בטומאה",
+     "text_de": "Essen von Heiligem in Unreinheit",
+     "text_en": "Eating sanctified food in impurity",
+     "desc": "הקרבת חוץ › כיצד מתחייב › הנקרב › חיוב על דבר פסול",
+     "desc_de": "Darbringung außerhalb › Wie man haftbar wird › Das Dargebrachte › Haftung für etwas Untaugliches",
+     "desc_en": "Offering outside › How one becomes liable › What is offered › Liability for something disqualified"
+    },
+    {
+     "ref": "13:3",
+     "text": "השוואתן, חילוק העלאות, בלי מזבח",
+     "text_de": "Ihr Vergleich, Unterscheidung des Emporbringens, ohne Altar",
+     "text_en": "Their comparison, distinction of bringing up, without an altar",
+     "desc": "הקרבת חוץ › כיצד מתחייב › פעולות האסורות",
+     "desc_de": "Darbringung außerhalb › Wie man haftbar wird › Verbotene Handlungen",
+     "desc_en": "Offering outside › How one becomes liable › Prohibited acts"
+    },
+    {
+     "ref": "13:4",
+     "text": "פסולו בקודש, שיעור, חיסרון",
+     "text_de": "Seine Untauglichkeit im Heiligtum, Mindestmaß, Mangel",
+     "text_en": "Its disqualification in the sanctuary, minimum measure, deficiency",
+     "desc": "הקרבת חוץ › כיצד מתחייב › חשיבות וכשרות הנקרב › הפסולים או חלקיים",
+     "desc_de": "Darbringung außerhalb › Wie man haftbar wird › Bedeutung und Tauglichkeit des Dargebrachten › Die Untauglichen oder Teilstücke",
+     "desc_en": "Offering outside › How one becomes liable › Importance and fitness of what is offered › The disqualified or partial pieces"
+    },
+    {
+     "ref": "13:5",
+     "text": "עירוב נקטרים בשאינם נקטרים",
+     "text_de": "Vermischung von zu Verbrennendem mit nicht zu Verbrennendem",
+     "text_en": "Mixture of what is to be burned with what is not to be burned",
+     "desc": "הקרבת חוץ › כיצד מתחייב › חשיבות וכשרות הנקרב › הפסולים או חלקיים",
+     "desc_de": "Darbringung außerhalb › Wie man haftbar wird › Bedeutung und Tauglichkeit des Dargebrachten › Die Untauglichen oder Teilstücke",
+     "desc_en": "Offering outside › How one becomes liable › Importance and fitness of what is offered › The disqualified or partial pieces"
+    },
+    {
+     "ref": "13:6",
+     "text": "חלקי מתיר \\ ניסוך, שיירים",
+     "text_de": "Teile, die (das Essen) erlauben / Libation, Reste",
+     "text_en": "Parts that permit / Libation, remainders",
+     "desc": "הקרבת חוץ › כיצד מתחייב › חשיבות וכשרות הנקרב › הנשפכים",
+     "desc_de": "Darbringung außerhalb › Wie man haftbar wird › Bedeutung und Tauglichkeit des Dargebrachten › Das Ausgegossene",
+     "desc_en": "Offering outside › How one becomes liable › Importance and fitness of what is offered › What is poured out"
+    },
+    {
+     "ref": "13:7",
+     "text": "מליקה ושחיטה בפנים ובחוץ",
+     "text_de": "Genickkneifen und Schlachten drinnen und draußen",
+     "text_en": "Pinching the neck and slaughtering inside and outside",
+     "desc": "הקרבת חוץ › כיצד מתחייב › חשיבות וכשרות הנקרב › עוף",
+     "desc_de": "Darbringung außerhalb › Wie man haftbar wird › Bedeutung und Tauglichkeit des Dargebrachten › Geflügel",
+     "desc_en": "Offering outside › How one becomes liable › Importance and fitness of what is offered › Fowl"
+    },
+    {
+     "ref": "13:8",
+     "text": "חלק מתיר, שיריים, דמיון לזוג חטאות",
+     "text_de": "Erlaubender Teil, Reste, Ähnlichkeit mit einem Paar Sündopfer",
+     "text_en": "Permitting part, remainders, similarity to a pair of sin offerings",
+     "desc": "הקרבת חוץ › כיצד מתחייב › חשיבות וכשרות הנקרב › דם הפנימיות",
+     "desc_de": "Darbringung außerhalb › Wie man haftbar wird › Bedeutung und Tauglichkeit des Dargebrachten › Blut der inneren Opfer",
+     "desc_en": "Offering outside › How one becomes liable › Importance and fitness of what is offered › Blood of the inner offerings"
+    }
+   ]
+  },
+  {
+   "head": "פרק יד",
+   "head_de": "Kapitel 14",
+   "head_en": "Chapter 14",
+   "items": [
+    {
+     "ref": "14:1",
+     "text": "פרה אדומה, שעיר המשתלח",
+     "text_de": "Rote Kuh, der fortgeschickte Bock",
+     "text_en": "Red heifer, the scapegoat",
+     "desc": "הקרבת חוץ › כיצד מתחייב › חשיבות וכשרות הנקרב › הקרבת פנים",
+     "desc_de": "Darbringung außerhalb › Wie man haftbar wird › Bedeutung und Tauglichkeit des Dargebrachten › Darbringung im Inneren",
+     "desc_en": "Offering outside › How one becomes liable › Importance and fitness of what is offered › Offering inside"
+    },
+    {
+     "ref": "14:2",
+     "text": "פסולי מזבח \\ בקרבן",
+     "text_de": "Untaugliches am Altar / Beim Opfer",
+     "text_en": "Disqualified matter at the altar / In the offering",
+     "desc": "הקרבת חוץ › כיצד מתחייב › חשיבות וכשרות הנקרב › עתיד להתקבל",
+     "desc_de": "Darbringung außerhalb › Wie man haftbar wird › Bedeutung und Tauglichkeit des Dargebrachten › Was künftig angenommen wird",
+     "desc_en": "Offering outside › How one becomes liable › Importance and fitness of what is offered › What will be accepted in the future"
+    },
+    {
+     "ref": "14:3",
+     "text": "בעלים \\ הנאכלים, גמר עבודה",
+     "text_de": "Eigentümer / Das zu Essende, Abschluss des Dienstes",
+     "text_en": "Owners / What is eaten, completion of the service",
+     "desc": "הקרבת חוץ › כיצד מתחייב › פעולות האסורות",
+     "desc_de": "Darbringung außerhalb › Wie man haftbar wird › Verbotene Handlungen",
+     "desc_en": "Offering outside › How one becomes liable › Prohibited acts"
+    },
+    {
+     "ref": "14:4",
+     "text": "לפני ובמשך תקופת המשכן",
+     "text_de": "Vor und während der Zeit der Stiftshütte",
+     "text_en": "Before and during the period of the Tabernacle",
+     "desc": "הקרבת חוץ › זמן החיוב › היתר הבמות ומקום אכילת קדשים",
+     "desc_de": "Darbringung außerhalb › Zeitpunkt der Verpflichtung › Erlaubnis der Opferhöhen und Ort des Essens von Heiligem",
+     "desc_en": "Offering outside › Time of obligation › Permission of the high places and place of eating sanctified food"
+    },
+    {
+     "ref": "14:5",
+     "text": "תקופת גלגל",
+     "text_de": "Zeit von Gilgal",
+     "text_en": "The period of Gilgal",
+     "desc": "הקרבת חוץ › זמן החיוב › היתר הבמות ומקום אכילת קדשים",
+     "desc_de": "Darbringung außerhalb › Zeitpunkt der Verpflichtung › Erlaubnis der Opferhöhen und Ort des Essens von Heiligem",
+     "desc_en": "Offering outside › Time of obligation › Permission of the high places and place of eating sanctified food"
+    },
+    {
+     "ref": "14:6",
+     "text": "תקופת שילה",
+     "text_de": "Zeit von Schilo",
+     "text_en": "The period of Shiloh",
+     "desc": "הקרבת חוץ › זמן החיוב › היתר הבמות ומקום אכילת קדשים › 'מנוחה'",
+     "desc_de": "Darbringung außerhalb › Zeitpunkt der Verpflichtung › Erlaubnis der Opferhöhen und Ort des Essens von Heiligem › „Ruhe“",
+     "desc_en": "Offering outside › Time of obligation › Permission of the high places and place of eating sanctified food › \"Rest\""
+    },
+    {
+     "ref": "14:7",
+     "text": "תקופת נוב וגבעון",
+     "text_de": "Zeit von Nob und Gibeon",
+     "text_en": "The period of Nob and Gibeon",
+     "desc": "הקרבת חוץ › זמן החיוב › היתר הבמות ומקום אכילת קדשים",
+     "desc_de": "Darbringung außerhalb › Zeitpunkt der Verpflichtung › Erlaubnis der Opferhöhen und Ort des Essens von Heiligem",
+     "desc_en": "Offering outside › Time of obligation › Permission of the high places and place of eating sanctified food"
+    },
+    {
+     "ref": "14:8",
+     "text": "מתקופת ירושלים",
+     "text_de": "Ab der Zeit von Jerusalem",
+     "text_en": "From the period of Jerusalem",
+     "desc": "הקרבת חוץ › זמן החיוב › היתר הבמות ומקום אכילת קדשים › 'נחלה'",
+     "desc_de": "Darbringung außerhalb › Zeitpunkt der Verpflichtung › Erlaubnis der Opferhöhen und Ort des Essens von Heiligem › „Erbbesitz“",
+     "desc_en": "Offering outside › Time of obligation › Permission of the high places and place of eating sanctified food › \"Inheritance\""
+    },
+    {
+     "ref": "14:9",
+     "text": "שניהם באיסור, הקרבה או הקדש באיסור",
+     "text_de": "Beide im Verbot, Darbringung oder Weihung im Verbot",
+     "text_en": "Both under prohibition, offering or consecration under prohibition",
+     "desc": "הקרבת חוץ › זמן החיוב › חיוב ושעת הקדש והקרבה",
+     "desc_de": "Darbringung außerhalb › Zeitpunkt der Verpflichtung › Verpflichtung und Zeitpunkt der Weihung und Darbringung",
+     "desc_en": "Offering outside › Time of obligation › Obligation and time of consecration and offering"
+    },
+    {
+     "ref": "14:10",
+     "text": "קדשים הקרבים בהם, הלכות הקרבה",
+     "text_de": "Opfer, die dabei dargebracht werden, Darbringungsgesetze",
+     "text_en": "Offerings brought with them, laws of offering",
+     "desc": "הקרבת חוץ › זמן החיוב › בין במת יחיד לציבור",
+     "desc_de": "Darbringung außerhalb › Zeitpunkt der Verpflichtung › Zwischen Einzel- und Gemeinschaftsopferhöhe",
+     "desc_en": "Offering outside › Time of obligation › Between private and public high place"
+    }
+   ]
+  }
+ ]
+}

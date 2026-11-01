@@ -1,0 +1,997 @@
+{
+ "book": "Mishnah Terumot",
+ "title": "משנה תרומות",
+ "title_de": "Mischna Terumot – Gliederung",
+ "title_en": "Terumot – outline",
+ "note": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema).",
+ "note_de": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema); ins Deutsche und Englische übersetzt.",
+ "note_en": "Outline after the table “Mishna Sedura”: the central content of each mishnah, with the topic path (main topic to sub-topic); translated into German and English.",
+ "sections": [
+  {
+   "head": "פרק א",
+   "head_de": "Kapitel 1",
+   "head_en": "Chapter 1",
+   "items": [
+    {
+     "ref": "1:1",
+     "text": "פירוט חמשה",
+     "text_de": "Aufzählung der Fünf",
+     "text_en": "Enumeration of the five",
+     "desc": "הלכות תרומות ומעשרות › הפרשה › מי מפריש › בדיעבד פסול",
+     "desc_de": "Gesetze der Teruma und der Zehnten › Absonderung › Wer absondert › Nachträglich ungültig",
+     "desc_en": "Laws of Terumot and tithes › Setting apart › Who sets apart › Invalid after the fact"
+    },
+    {
+     "ref": "1:2",
+     "text": "חרש",
+     "text_de": "Gehörloser",
+     "text_en": "Deaf-mute",
+     "desc": "הלכות תרומות ומעשרות › הפרשה › מי מפריש › הגדרות והכשר בדיעבד",
+     "desc_de": "Gesetze der Teruma und der Zehnten › Absonderung › Wer absondert › Bestimmungen und nachträgliche Gültigkeit",
+     "desc_en": "Laws of Terumot and tithes › Setting apart › Who sets apart › Definitions and validity after the fact"
+    },
+    {
+     "ref": "1:3",
+     "text": "קטן",
+     "text_de": "Minderjähriger",
+     "text_en": "Minor",
+     "desc": "הלכות תרומות ומעשרות › הפרשה › מי מפריש › הגדרות והכשר בדיעבד",
+     "desc_de": "Gesetze der Teruma und der Zehnten › Absonderung › Wer absondert › Bestimmungen und nachträgliche Gültigkeit",
+     "desc_en": "Laws of Terumot and tithes › Setting apart › Who sets apart › Definitions and validity after the fact"
+    },
+    {
+     "ref": "1:4",
+     "text": "שאינו גמור",
+     "text_de": "Unfertiges",
+     "text_en": "Unfinished produce",
+     "desc": "הלכות תרומות ומעשרות › הפרשה › ממה מפרישים",
+     "desc_de": "Gesetze der Teruma und der Zehnten › Absonderung › Wovon man absondert",
+     "desc_en": "Laws of Terumot and tithes › Setting apart › From what one separates"
+    },
+    {
+     "ref": "1:5",
+     "text": "הפטור והחיוב",
+     "text_de": "Befreiung und Verpflichtung",
+     "text_en": "Exemption and obligation",
+     "desc": "הלכות תרומות ומעשרות › הפרשה › ממה מפרישים",
+     "desc_de": "Gesetze der Teruma und der Zehnten › Absonderung › Wovon man absondert",
+     "desc_en": "Laws of Terumot and tithes › Setting apart › From what one separates"
+    },
+    {
+     "ref": "1:6",
+     "text": "פירוט חמשה",
+     "text_de": "Aufzählung der Fünf",
+     "text_en": "Enumeration of the five",
+     "desc": "הלכות תרומות ומעשרות › הפרשה › מי מפריש › בדיעבד כשר",
+     "desc_de": "Gesetze der Teruma und der Zehnten › Absonderung › Wer absondert › Nachträglich gültig",
+     "desc_en": "Laws of Terumot and tithes › Setting apart › Who sets apart › Valid after the fact"
+    },
+    {
+     "ref": "1:7",
+     "text": "דרכי מדידה הפסולים, כלים שונים",
+     "text_de": "Ungültige Messmethoden, verschiedene Gefäße",
+     "text_en": "Invalid methods of measuring, various vessels",
+     "desc": "הלכות תרומות ומעשרות › הפרשה › איך מפריש › אומד",
+     "desc_de": "Gesetze der Teruma und der Zehnten › Absonderung › Wie man absondert › Schätzung",
+     "desc_en": "Laws of Terumot and tithes › Setting apart › How one sets apart › Estimation"
+    },
+    {
+     "ref": "1:8",
+     "text": "על שאינו גמור, ואם תרם",
+     "text_de": "Von Unfertigem, und wenn jemand Teruma abgesondert hat",
+     "text_en": "From unfinished produce, and if one has separated Teruma",
+     "desc": "הלכות תרומות ומעשרות › הפרשה › ממה ועל מה מפרישים › מן הגמור על גמור",
+     "desc_de": "Gesetze der Teruma und der Zehnten › Absonderung › Wovon und wofür man absondert › Von Fertigem für Fertiges",
+     "desc_en": "Laws of Terumot and tithes › Setting apart › From what and for what one sets apart › From finished produce for finished produce"
+    },
+    {
+     "ref": "1:9",
+     "text": "על גמורים ואם נמלך",
+     "text_de": "Für Fertiges und wenn er es sich anders überlegt hat",
+     "text_en": "For finished produce and if he changed his mind",
+     "desc": "הלכות תרומות ומעשרות › הפרשה › ממה ועל מה מפרישים › מן הגמור על גמור",
+     "desc_de": "Gesetze der Teruma und der Zehnten › Absonderung › Wovon und wofür man absondert › Von Fertigem für Fertiges",
+     "desc_en": "Laws of Terumot and tithes › Setting apart › From what and for what one sets apart › From finished produce for finished produce"
+    },
+    {
+     "ref": "1:10",
+     "text": "כלל",
+     "text_de": "Grundregel",
+     "text_en": "General rule",
+     "desc": "הלכות תרומות ומעשרות › הפרשה › ממה ועל מה מפרישים › מן הגמור על גמור",
+     "desc_de": "Gesetze der Teruma und der Zehnten › Absonderung › Wovon und wofür man absondert › Von Fertigem für Fertiges",
+     "desc_en": "Laws of Terumot and tithes › Setting apart › From what and for what one sets apart › From finished produce for finished produce"
+    }
+   ]
+  },
+  {
+   "head": "פרק ב",
+   "head_de": "Kapitel 2",
+   "head_en": "Chapter 2",
+   "items": [
+    {
+     "ref": "2:1",
+     "text": "על טמא ואם תרם, חיבור",
+     "text_de": "Für Unreines und wenn jemand Teruma abgesondert hat, Verbindung",
+     "text_en": "For unclean produce and if one has separated Teruma, connection",
+     "desc": "הלכות תרומות ומעשרות › הפרשה › ממה ועל מה מפרישים › מטהור או על טהור",
+     "desc_de": "Gesetze der Teruma und der Zehnten › Absonderung › Wovon und wofür man absondert › Von Reinem oder für Reines",
+     "desc_en": "Laws of Terumot and tithes › Setting apart › From what and for what one sets apart › From clean produce or for clean produce"
+    },
+    {
+     "ref": "2:2",
+     "text": "מן הטמא \\ בשוגג ובמזיד",
+     "text_de": "Vom Unreinen / unabsichtlich und absichtlich",
+     "text_en": "From unclean produce / unintentionally and intentionally",
+     "desc": "הלכות תרומות ומעשרות › הפרשה › ממה ועל מה מפרישים › הנאה מעבירה › מטהור או על טהור",
+     "desc_de": "Gesetze der Teruma und der Zehnten › Absonderung › Wovon und wofür man absondert › Nutzen aus einer Übertretung › Von Reinem oder für Reines",
+     "desc_en": "Laws of Terumot and tithes › Setting apart › From what and for what one sets apart › Benefit from a transgression › From clean produce or for clean produce"
+    },
+    {
+     "ref": "2:3",
+     "text": "איסורים שונים",
+     "text_de": "Verschiedene Verbote",
+     "text_en": "Various prohibitions",
+     "desc": "הלכות תרומות ומעשרות › הפרשה › ממה ועל מה מפרישים › הנאה מעבירה",
+     "desc_de": "Gesetze der Teruma und der Zehnten › Absonderung › Wovon und wofür man absondert › Nutzen aus einer Übertretung",
+     "desc_en": "Laws of Terumot and tithes › Setting apart › From what and for what one sets apart › Benefit from a transgression"
+    },
+    {
+     "ref": "2:4",
+     "text": "כלל ודוגמאות \\ כלל",
+     "text_de": "Regel und Beispiele / Regel",
+     "text_en": "Rule and examples / rule",
+     "desc": "הלכות תרומות ומעשרות › הפרשה › ממה ועל מה מפרישים › יפה ומתקיים › מין אחד",
+     "desc_de": "Gesetze der Teruma und der Zehnten › Absonderung › Wovon und wofür man absondert › Gut und haltbar › Eine Art",
+     "desc_en": "Laws of Terumot and tithes › Setting apart › From what and for what one sets apart › Good and durable › One kind"
+    },
+    {
+     "ref": "2:5",
+     "text": "דוגמא בבצלים",
+     "text_de": "Beispiel an Zwiebeln",
+     "text_en": "Example with onions",
+     "desc": "הלכות תרומות ומעשרות › הפרשה › ממה ועל מה מפרישים › יפה ומתקיים",
+     "desc_de": "Gesetze der Teruma und der Zehnten › Absonderung › Wovon und wofür man absondert › Gut und haltbar",
+     "desc_en": "Laws of Terumot and tithes › Setting apart › From what and for what one sets apart › Good and durable"
+    },
+    {
+     "ref": "2:6",
+     "text": "דוגמאות, כלל",
+     "text_de": "Beispiele, Regel",
+     "text_en": "Examples, rule",
+     "desc": "הלכות תרומות ומעשרות › הפרשה › ממה ועל מה מפרישים › יפה על הרע",
+     "desc_de": "Gesetze der Teruma und der Zehnten › Absonderung › Wovon und wofür man absondert › Gutes für Schlechtes",
+     "desc_en": "Laws of Terumot and tithes › Setting apart › From what and for what one sets apart › Good for bad"
+    }
+   ]
+  },
+  {
+   "head": "פרק ג",
+   "head_de": "Kapitel 3",
+   "head_en": "Chapter 3",
+   "items": [
+    {
+     "ref": "3:1",
+     "text": "טעות או ספק בטיב או במין",
+     "text_de": "Irrtum oder Zweifel über Beschaffenheit oder Art",
+     "text_en": "Error or doubt about quality or kind",
+     "desc": "הלכות תרומות ומעשרות › הפרשה › ממה ועל מה מפרישים › מין על מינו › יפה על הרע",
+     "desc_de": "Gesetze der Teruma und der Zehnten › Absonderung › Wovon und wofür man absondert › Art für ihre eigene Art › Gutes für Schlechtes",
+     "desc_en": "Laws of Terumot and tithes › Setting apart › From what and for what one sets apart › Kind for its own kind › Good for bad"
+    },
+    {
+     "ref": "3:2",
+     "text": "דימוע ע\"י הספיקות",
+     "text_de": "Vermischung von Teruma wegen Zweifelsfällen",
+     "text_en": "Mixing with Teruma through cases of doubt",
+     "desc": "הלכות תרומות ומעשרות › הפרשה › ממה ועל מה מפרישים › מין על מינו",
+     "desc_de": "Gesetze der Teruma und der Zehnten › Absonderung › Wovon und wofür man absondert › Art für ihre eigene Art",
+     "desc_en": "Laws of Terumot and tithes › Setting apart › From what and for what one sets apart › Kind for its own kind"
+    },
+    {
+     "ref": "3:3",
+     "text": "שני שותפין",
+     "text_de": "Zwei Teilhaber",
+     "text_en": "Two partners",
+     "desc": "הלכות תרומות ומעשרות › הפרשה › איך מפרישים › רשות לתרום",
+     "desc_de": "Gesetze der Teruma und der Zehnten › Absonderung › Wie man absondert › Erlaubnis zum Absondern",
+     "desc_en": "Laws of Terumot and tithes › Setting apart › How one sets apart › Permission to set apart"
+    },
+    {
+     "ref": "3:4",
+     "text": "הנותן והמבטל רשות",
+     "text_de": "Wer die Erlaubnis gibt und wer sie widerruft",
+     "text_en": "One who grants permission and one who revokes it",
+     "desc": "הלכות תרומות ומעשרות › הפרשה › איך מפרישים › רשות לתרום",
+     "desc_de": "Gesetze der Teruma und der Zehnten › Absonderung › Wie man absondert › Erlaubnis zum Absondern",
+     "desc_en": "Laws of Terumot and tithes › Setting apart › How one sets apart › Permission to set apart"
+    },
+    {
+     "ref": "3:5",
+     "text": "נוסח",
+     "text_de": "Wortlaut",
+     "text_en": "Wording",
+     "desc": "הלכות תרומות ומעשרות › הפרשה › איך מפרישים › ציון מקום",
+     "desc_de": "Gesetze der Teruma und der Zehnten › Absonderung › Wie man absondert › Kennzeichnung des Ortes",
+     "desc_en": "Laws of Terumot and tithes › Setting apart › How one sets apart › Designation of the place"
+    },
+    {
+     "ref": "3:6",
+     "text": "בלבול בסדר ההפרשות",
+     "text_de": "Verwechslung in der Reihenfolge der Absonderungen",
+     "text_en": "Confusion in the order of the separations",
+     "desc": "הלכות תרומות ומעשרות › הפרשה › איך מפרישים › סדר",
+     "desc_de": "Gesetze der Teruma und der Zehnten › Absonderung › Wie man absondert › Ordnung",
+     "desc_en": "Laws of Terumot and tithes › Setting apart › How one sets apart › Order"
+    },
+    {
+     "ref": "3:7",
+     "text": "הטעם לסדר",
+     "text_de": "Grund der Reihenfolge",
+     "text_en": "Reason for the order",
+     "desc": "הלכות תרומות ומעשרות › הפרשה › איך מפרישים › סדר",
+     "desc_de": "Gesetze der Teruma und der Zehnten › Absonderung › Wie man absondert › Ordnung",
+     "desc_en": "Laws of Terumot and tithes › Setting apart › How one sets apart › Order"
+    },
+    {
+     "ref": "3:8",
+     "text": "טעות בהפרשה, נדרים",
+     "text_de": "Irrtum bei der Absonderung, Gelübde",
+     "text_en": "Error in separating, vows",
+     "desc": "הלכות תרומות ומעשרות › הפרשה › איך מפרישים › כוונה",
+     "desc_de": "Gesetze der Teruma und der Zehnten › Absonderung › Wie man absondert › Andacht",
+     "desc_en": "Laws of Terumot and tithes › Setting apart › How one sets apart › Intention"
+    },
+    {
+     "ref": "3:9",
+     "text": "הקדש, מעשרות",
+     "text_de": "Geweihtes, Zehnten",
+     "text_en": "Consecrated property, tithes",
+     "desc": "הלכות תרומות ומעשרות › הפרשה › איך מפרישים › גוי",
+     "desc_de": "Gesetze der Teruma und der Zehnten › Absonderung › Wie man absondert › Nichtjude",
+     "desc_en": "Laws of Terumot and tithes › Setting apart › How one sets apart › Gentile"
+    }
+   ]
+  },
+  {
+   "head": "פרק ד",
+   "head_de": "Kapitel 4",
+   "head_en": "Chapter 4",
+   "items": [
+    {
+     "ref": "4:1",
+     "text": "הפרשה חלקית",
+     "text_de": "Teilweise Absonderung",
+     "text_en": "Partial separation",
+     "desc": "הלכות תרומות ומעשרות › הפרשה › איך מפרישים › שיעור ההפרשה",
+     "desc_de": "Gesetze der Teruma und der Zehnten › Absonderung › Wie man absondert › Maß der Absonderung",
+     "desc_en": "Laws of Terumot and tithes › Setting apart › How one sets apart › Amount of the separation"
+    },
+    {
+     "ref": "4:2",
+     "text": "הפרשת על שיריים לא מסומנים",
+     "text_de": "Absonderung von nicht gekennzeichnetem Rest",
+     "text_en": "Separation from unmarked remainder",
+     "desc": "הלכות תרומות ומעשרות › הפרשה › איך מפרישים › שיעור ההפרשה",
+     "desc_de": "Gesetze der Teruma und der Zehnten › Absonderung › Wie man absondert › Maß der Absonderung",
+     "desc_en": "Laws of Terumot and tithes › Setting apart › How one sets apart › Amount of the separation"
+    },
+    {
+     "ref": "4:3",
+     "text": "דרגות בנדיבות, הטועה",
+     "text_de": "Stufen der Großzügigkeit, der Irrende",
+     "text_en": "Degrees of generosity, one who errs",
+     "desc": "הלכות תרומות ומעשרות › הפרשה › איך מפרישים › שיעור ההפרשה",
+     "desc_de": "Gesetze der Teruma und der Zehnten › Absonderung › Wie man absondert › Maß der Absonderung",
+     "desc_en": "Laws of Terumot and tithes › Setting apart › How one sets apart › Amount of the separation"
+    },
+    {
+     "ref": "4:4",
+     "text": "שליח",
+     "text_de": "Bote",
+     "text_en": "Agent",
+     "desc": "הלכות תרומות ומעשרות › הפרשה › איך מפרישים › שיעור ההפרשה",
+     "desc_de": "Gesetze der Teruma und der Zehnten › Absonderung › Wie man absondert › Maß der Absonderung",
+     "desc_en": "Laws of Terumot and tithes › Setting apart › How one sets apart › Amount of the separation"
+    },
+    {
+     "ref": "4:5",
+     "text": "המקסימום",
+     "text_de": "Das Höchstmaß",
+     "text_en": "The maximum",
+     "desc": "הלכות תרומות ומעשרות › הפרשה › איך מפרישים › שיעור ההפרשה",
+     "desc_de": "Gesetze der Teruma und der Zehnten › Absonderung › Wie man absondert › Maß der Absonderung",
+     "desc_en": "Laws of Terumot and tithes › Setting apart › How one sets apart › Amount of the separation"
+    },
+    {
+     "ref": "4:6",
+     "text": "כיצד לדייק במדות",
+     "text_de": "Wie man beim Messen genau verfährt",
+     "text_en": "How to be precise in measuring",
+     "desc": "הלכות תרומות ומעשרות › הפרשה › איך מפרישים › שיעור ההפרשה",
+     "desc_de": "Gesetze der Teruma und der Zehnten › Absonderung › Wie man absondert › Maß der Absonderung",
+     "desc_en": "Laws of Terumot and tithes › Setting apart › How one sets apart › Amount of the separation"
+    },
+    {
+     "ref": "4:7",
+     "text": "שיעור המבטל",
+     "text_de": "Maß, das aufhebt",
+     "text_en": "Amount that neutralizes",
+     "desc": "הלכות תרומה › תערובת › דימוע › צירוף לבטל",
+     "desc_de": "Gesetze der Teruma › Vermischung › Vermischung mit Teruma › Hinzurechnung zur Aufhebung",
+     "desc_en": "Laws of Teruma › Mixture › Mixing with Teruma › Combining for neutralization"
+    },
+    {
+     "ref": "4:8",
+     "text": "כלל",
+     "text_de": "Grundregel",
+     "text_en": "General rule",
+     "desc": "הלכות תרומה › תערובת › דימוע › צירוף לבטל › החלוקים בחיצוניותם",
+     "desc_de": "Gesetze der Teruma › Vermischung › Vermischung mit Teruma › Hinzurechnung zur Aufhebung › Die äußerlich Verschiedenen",
+     "desc_en": "Laws of Teruma › Mixture › Mixing with Teruma › Combining for neutralization › Those differing in appearance"
+    },
+    {
+     "ref": "4:9",
+     "text": "דוגמא בתערובת צבעים",
+     "text_de": "Beispiel einer Farbmischung",
+     "text_en": "Example of a mixture of colors",
+     "desc": "הלכות תרומה › תערובת › דימוע › צירוף לבטל › החלוקים בחיצוניותם",
+     "desc_de": "Gesetze der Teruma › Vermischung › Vermischung mit Teruma › Hinzurechnung zur Aufhebung › Die äußerlich Verschiedenen",
+     "desc_en": "Laws of Teruma › Mixture › Mixing with Teruma › Combining for neutralization › Those differing in appearance"
+    },
+    {
+     "ref": "4:10",
+     "text": "הנאסר לא מעורב",
+     "text_de": "Das Verbotene, nicht vermischt",
+     "text_en": "The forbidden, not mixed",
+     "desc": "הלכות תרומה › תערובת › דימוע › צירוף לבטל › החלוקים במקומם",
+     "desc_de": "Gesetze der Teruma › Vermischung › Vermischung mit Teruma › Hinzurechnung zur Aufhebung › Die örtlich Getrennten",
+     "desc_en": "Laws of Teruma › Mixture › Mixing with Teruma › Combining for neutralization › Those separated by location"
+    },
+    {
+     "ref": "4:11",
+     "text": "הנאסר לא נתערב לגמרי, כלל",
+     "text_de": "Das Verbotene hat sich nicht völlig vermischt, Regel",
+     "text_en": "The forbidden has not mixed completely, rule",
+     "desc": "הלכות תרומה › תערובת › דימוע › צירוף לבטל › החלוקים במקומם",
+     "desc_de": "Gesetze der Teruma › Vermischung › Vermischung mit Teruma › Hinzurechnung zur Aufhebung › Die örtlich Getrennten",
+     "desc_en": "Laws of Teruma › Mixture › Mixing with Teruma › Combining for neutralization › Those separated by location"
+    },
+    {
+     "ref": "4:12",
+     "text": "כלים נפרדים",
+     "text_de": "Getrennte Gefäße",
+     "text_en": "Separate vessels",
+     "desc": "הלכות תרומה › תערובת › דימוע › צירוף לבטל › החלוקים במקומם",
+     "desc_de": "Gesetze der Teruma › Vermischung › Vermischung mit Teruma › Hinzurechnung zur Aufhebung › Die örtlich Getrennten",
+     "desc_en": "Laws of Teruma › Mixture › Mixing with Teruma › Combining for neutralization › Those separated by location"
+    },
+    {
+     "ref": "4:13",
+     "text": "חצאי אגודות",
+     "text_de": "Halbe Bündel",
+     "text_en": "Half bundles",
+     "desc": "הלכות תרומה › תערובת › דימוע › צירוף לבטל",
+     "desc_de": "Gesetze der Teruma › Vermischung › Vermischung mit Teruma › Hinzurechnung zur Aufhebung",
+     "desc_en": "Laws of Teruma › Mixture › Mixing with Teruma › Combining for neutralization"
+    }
+   ]
+  },
+  {
+   "head": "פרק ה",
+   "head_de": "Kapitel 5",
+   "head_en": "Chapter 5",
+   "items": [
+    {
+     "ref": "5:1",
+     "text": "תרומה טמאה או טהורה שנתערבו",
+     "text_de": "Unreine oder reine Teruma, die sich vermischt haben",
+     "text_en": "Unclean or clean Teruma that have become mixed",
+     "desc": "הלכות תרומה › תערובת › דימוע › טומאה במדומע › טיפול בתערובת",
+     "desc_de": "Gesetze der Teruma › Vermischung › Vermischung mit Teruma › Unreinheit bei Teruma-Mischung › Behandlung der Mischung",
+     "desc_en": "Laws of Teruma › Mixture › Mixing with Teruma › Impurity in a mixture with Teruma › Treatment of the mixture"
+    },
+    {
+     "ref": "5:2",
+     "text": "תרומה טמאה העולה",
+     "text_de": "Unreine Teruma, die abgehoben wird",
+     "text_en": "Unclean Teruma that is lifted out",
+     "desc": "הלכות תרומה › תערובת › דימוע › טומאה במדומע › טיפול בתערובת",
+     "desc_de": "Gesetze der Teruma › Vermischung › Vermischung mit Teruma › Unreinheit bei Teruma-Mischung › Behandlung der Mischung",
+     "desc_en": "Laws of Teruma › Mixture › Mixing with Teruma › Impurity in a mixture with Teruma › Treatment of the mixture"
+    },
+    {
+     "ref": "5:3",
+     "text": "העולה מחולין טמאין",
+     "text_de": "Das aus unreinem Profanem Abgehobene",
+     "text_en": "What is lifted out of unclean non-sacred produce",
+     "desc": "הלכות תרומה › תערובת › דימוע › טומאה במדומע › טיפול בתערובת",
+     "desc_de": "Gesetze der Teruma › Vermischung › Vermischung mit Teruma › Unreinheit bei Teruma-Mischung › Behandlung der Mischung",
+     "desc_en": "Laws of Teruma › Mixture › Mixing with Teruma › Impurity in a mixture with Teruma › Treatment of the mixture"
+    },
+    {
+     "ref": "5:4",
+     "text": "תרומה טמאה העולה מתרומה טהורה",
+     "text_de": "Unreine Teruma, die von reiner Teruma abgehoben wird",
+     "text_en": "Unclean Teruma lifted out of clean Teruma",
+     "desc": "הלכות תרומה › תערובת › דימוע › טומאה במדומע › טיפול בתערובת",
+     "desc_de": "Gesetze der Teruma › Vermischung › Vermischung mit Teruma › Unreinheit bei Teruma-Mischung › Behandlung der Mischung",
+     "desc_en": "Laws of Teruma › Mixture › Mixing with Teruma › Impurity in a mixture with Teruma › Treatment of the mixture"
+    },
+    {
+     "ref": "5:5",
+     "text": "העולה מתערובת במאה",
+     "text_de": "Das aus einer Mischung im Verhältnis eins zu hundert Abgehobene",
+     "text_en": "What is lifted out of a mixture of one to a hundred",
+     "desc": "הלכות תרומה › תערובת › דימוע › יכולת לדמע › לדמע אחר",
+     "desc_de": "Gesetze der Teruma › Vermischung › Vermischung mit Teruma › Fähigkeit, mit Teruma zu vermischen › Für eine weitere Teruma-Mischung",
+     "desc_en": "Laws of Teruma › Mixture › Mixing with Teruma › Ability to render a mixture with Teruma › For another Teruma mixture"
+    },
+    {
+     "ref": "5:6",
+     "text": "העולה ממדומע, מים שאובים",
+     "text_de": "Das aus einer Teruma-Mischung Abgehobene, Schöpfwasser",
+     "text_en": "What is lifted out of a Teruma mixture, drawn water",
+     "desc": "הלכות תרומה › תערובת › דימוע › יכולת לדמע › לדמע אחר",
+     "desc_de": "Gesetze der Teruma › Vermischung › Vermischung mit Teruma › Fähigkeit, mit Teruma zu vermischen › Für eine weitere Teruma-Mischung",
+     "desc_en": "Laws of Teruma › Mixture › Mixing with Teruma › Ability to render a mixture with Teruma › For another Teruma mixture"
+    },
+    {
+     "ref": "5:7",
+     "text": "כבר הוגבהה ממנו",
+     "text_de": "Es wurde bereits davon abgehoben",
+     "text_en": "It has already been lifted from it",
+     "desc": "הלכות תרומה › תערובת › דימוע › יכולת לדמע › לדמע עוד פעם",
+     "desc_de": "Gesetze der Teruma › Vermischung › Vermischung mit Teruma › Fähigkeit, mit Teruma zu vermischen › Noch einmal mit Teruma vermischen",
+     "desc_en": "Laws of Teruma › Mixture › Mixing with Teruma › Ability to render a mixture with Teruma › Mixing with Teruma again"
+    },
+    {
+     "ref": "5:8",
+     "text": "העומד להגבהה",
+     "text_de": "Was zum Abheben bestimmt ist",
+     "text_en": "What is designated for lifting out",
+     "desc": "הלכות תרומה › תערובת › דימוע › יכולת לדמע › לדמע עוד פעם",
+     "desc_de": "Gesetze der Teruma › Vermischung › Vermischung mit Teruma › Fähigkeit, mit Teruma zu vermischen › Noch einmal mit Teruma vermischen",
+     "desc_en": "Laws of Teruma › Mixture › Mixing with Teruma › Ability to render a mixture with Teruma › Mixing with Teruma again"
+    },
+    {
+     "ref": "5:9",
+     "text": "שינוי בנפח, תוספת חולין",
+     "text_de": "Veränderung des Volumens, Zugabe von Profanem",
+     "text_en": "Change in volume, addition of non-sacred produce",
+     "desc": "הלכות תרומה › תערובת › דימוע › ביטול דימוע",
+     "desc_de": "Gesetze der Teruma › Vermischung › Vermischung mit Teruma › Aufhebung der Teruma-Mischung",
+     "desc_en": "Laws of Teruma › Mixture › Mixing with Teruma › Neutralization of a Teruma mixture"
+    }
+   ]
+  },
+  {
+   "head": "פרק ו",
+   "head_de": "Kapitel 6",
+   "head_en": "Chapter 6",
+   "items": [
+    {
+     "ref": "6:1",
+     "text": "ההנאה, ממה התשלומים, מחילה",
+     "text_de": "Der Genuss, wovon die Zahlungen erfolgen, Verzicht",
+     "text_en": "The benefit, from what payments are made, waiver",
+     "desc": "הלכות תרומה › הנאה מתרומה באיסור › תשלום חומש",
+     "desc_de": "Gesetze der Teruma › Genuss von Teruma entgegen dem Verbot › Zahlung des Fünftels",
+     "desc_en": "Laws of Teruma › Benefit from Teruma contrary to the prohibition › Payment of the added fifth"
+    },
+    {
+     "ref": "6:2",
+     "text": "הנשאת לכהן",
+     "text_de": "Verheiraten an einen Priester",
+     "text_en": "Marrying off to a priest",
+     "desc": "הלכות תרומה › הנאה מתרומה באיסור › תשלום חומש › מי משלם",
+     "desc_de": "Gesetze der Teruma › Genuss von Teruma entgegen dem Verbot › Zahlung des Fünftels › Wer zahlt",
+     "desc_en": "Laws of Teruma › Benefit from Teruma contrary to the prohibition › Payment of the added fifth › Who pays"
+    },
+    {
+     "ref": "6:3",
+     "text": "המאכיל או האוכל",
+     "text_de": "Der Fütternde oder der Essende",
+     "text_en": "The one who feeds or the one who eats",
+     "desc": "הלכות תרומה › הנאה מתרומה באיסור › תשלום חומש › מי משלם",
+     "desc_de": "Gesetze der Teruma › Genuss von Teruma entgegen dem Verbot › Zahlung des Fünftels › Wer zahlt",
+     "desc_en": "Laws of Teruma › Benefit from Teruma contrary to the prohibition › Payment of the added fifth › Who pays"
+    },
+    {
+     "ref": "6:4",
+     "text": "גנב ובהקדש",
+     "text_de": "Dieb und Geweihtes",
+     "text_en": "Thief and consecrated property",
+     "desc": "הלכות תרומה › הנאה מתרומה באיסור › תשלום חומש › מי משלם",
+     "desc_de": "Gesetze der Teruma › Genuss von Teruma entgegen dem Verbot › Zahlung des Fünftels › Wer zahlt",
+     "desc_en": "Laws of Teruma › Benefit from Teruma contrary to the prohibition › Payment of the added fifth › Who pays"
+    },
+    {
+     "ref": "6:5",
+     "text": "הפטור ממעשרות, קודש",
+     "text_de": "Von den Zehnten Befreites, Heiliges",
+     "text_en": "What is exempt from tithes, holy produce",
+     "desc": "הלכות תרומה › הנאה מתרומה באיסור › תשלום חומש › ממה משלם",
+     "desc_de": "Gesetze der Teruma › Genuss von Teruma entgegen dem Verbot › Zahlung des Fünftels › Wovon man zahlt",
+     "desc_en": "Laws of Teruma › Benefit from Teruma contrary to the prohibition › Payment of the added fifth › From what one pays"
+    },
+    {
+     "ref": "6:6",
+     "text": "מין",
+     "text_de": "Art",
+     "text_en": "Kind",
+     "desc": "הלכות תרומה › הנאה מתרומה באיסור › תשלום חומש › ממה משלם",
+     "desc_de": "Gesetze der Teruma › Genuss von Teruma entgegen dem Verbot › Zahlung des Fünftels › Wovon man zahlt",
+     "desc_en": "Laws of Teruma › Benefit from Teruma contrary to the prohibition › Payment of the added fifth › From what one pays"
+    }
+   ]
+  },
+  {
+   "head": "פרק ז",
+   "head_de": "Kapitel 7",
+   "head_en": "Chapter 7",
+   "items": [
+    {
+     "ref": "7:1",
+     "text": "המזיד",
+     "text_de": "Der Vorsätzliche",
+     "text_en": "The intentional offender",
+     "desc": "הלכות תרומה › הנאה מתרומה באיסור › שאינם בתשלום חומש › מי אינו משלם",
+     "desc_de": "Gesetze der Teruma › Genuss von Teruma entgegen dem Verbot › Was nicht der Zahlung des Fünftels unterliegt › Wer nicht zahlt",
+     "desc_en": "Laws of Teruma › Benefit from Teruma contrary to the prohibition › What is not subject to payment of the added fifth › Who does not pay"
+    },
+    {
+     "ref": "7:2",
+     "text": "בת כהן, הנשאת ודיניה",
+     "text_de": "Tochter eines Priesters, Verheiraten und ihre Rechtsfolgen",
+     "text_en": "Daughter of a priest, marrying off and its legal consequences",
+     "desc": "הלכות תרומה › הנאה מתרומה באיסור › שאינם בתשלום חומש › מי אינו משלם",
+     "desc_de": "Gesetze der Teruma › Genuss von Teruma entgegen dem Verbot › Was nicht der Zahlung des Fünftels unterliegt › Wer nicht zahlt",
+     "desc_en": "Laws of Teruma › Benefit from Teruma contrary to the prohibition › What is not subject to payment of the added fifth › Who does not pay"
+    },
+    {
+     "ref": "7:3",
+     "text": "לא יכולים \\ חסרון בשיעור ובשם,מחילה",
+     "text_de": "Die nicht können / Mangel an Maß und Bezeichnung, Verzicht",
+     "text_en": "Those who cannot / deficiency in amount and designation, waiver",
+     "desc": "הלכות תרומה › הנאה מתרומה באיסור › שאינם בתשלום חומש › מי אינו משלם",
+     "desc_de": "Gesetze der Teruma › Genuss von Teruma entgegen dem Verbot › Was nicht der Zahlung des Fünftels unterliegt › Wer nicht zahlt",
+     "desc_en": "Laws of Teruma › Benefit from Teruma contrary to the prohibition › What is not subject to payment of the added fifth › Who does not pay"
+    },
+    {
+     "ref": "7:4",
+     "text": "קרן וחומש ומחילת כהן",
+     "text_de": "Kapital und Fünftel und Verzicht des Priesters",
+     "text_en": "Principal and fifth and the priest's waiver",
+     "desc": "הלכות תרומה › הנאה מתרומה באיסור › כללי תשלומים",
+     "desc_de": "Gesetze der Teruma › Genuss von Teruma entgegen dem Verbot › Allgemeine Regeln der Zahlungen",
+     "desc_en": "Laws of Teruma › Benefit from Teruma contrary to the prohibition › General rules of payments"
+    },
+    {
+     "ref": "7:5",
+     "text": "תלייה שלא מקלקלת, אכילה",
+     "text_de": "Aufhängen, das nicht verdirbt, Essen",
+     "text_en": "Hanging that does not spoil, eating",
+     "desc": "תרומה › תערובת › דימוע › ספק שתי קופות",
+     "desc_de": "Teruma › Vermischung › Vermischung mit Teruma › Zweifel zwischen zwei Behältern",
+     "desc_en": "Teruma › Mixture › Mixing with Teruma › Doubt between two containers"
+    },
+    {
+     "ref": "7:6",
+     "text": "דימוע אחרים",
+     "text_de": "Andere Teruma-Mischungen",
+     "text_en": "Other Teruma mixtures",
+     "desc": "תרומה › תערובת › דימוע › ספק שתי קופות",
+     "desc_de": "Teruma › Vermischung › Vermischung mit Teruma › Zweifel zwischen zwei Behältern",
+     "desc_en": "Teruma › Mixture › Mixing with Teruma › Doubt between two containers"
+    },
+    {
+     "ref": "7:7",
+     "text": "זריעה",
+     "text_de": "Säen",
+     "text_en": "Sowing",
+     "desc": "תרומה › תערובת › דימוע › ספק שתי קופות",
+     "desc_de": "Teruma › Vermischung › Vermischung mit Teruma › Zweifel zwischen zwei Behältern",
+     "desc_en": "Teruma › Mixture › Mixing with Teruma › Doubt between two containers"
+    }
+   ]
+  },
+  {
+   "head": "פרק ח",
+   "head_de": "Kapitel 8",
+   "head_en": "Chapter 8",
+   "items": [
+    {
+     "ref": "8:1",
+     "text": "תשלומי תרומה, עבודת כהן",
+     "text_de": "Zahlungen für Teruma, Dienst des Priesters",
+     "text_en": "Payments for Teruma, service of the priest",
+     "desc": "תרומה › תשלומים › שינוי מצב",
+     "desc_de": "Teruma › Zahlungen › Veränderung des Zustands",
+     "desc_en": "Teruma › Payments › Change of condition"
+    },
+    {
+     "ref": "8:2",
+     "text": "תרומה",
+     "text_de": "Teruma",
+     "text_en": "Teruma",
+     "desc": "תרומה › שמירת תרומה › שינוי מצב › גמר אכילה",
+     "desc_de": "Teruma › Aufbewahrung der Teruma › Veränderung des Zustands › Ende des Essens",
+     "desc_en": "Teruma › Safeguarding Teruma › Change of condition › End of eating"
+    },
+    {
+     "ref": "8:3",
+     "text": "טבל",
+     "text_de": "Tevel",
+     "text_en": "Tevel",
+     "desc": "תרומה › שמירת תרומה › שינוי מצב › גמר אכילה",
+     "desc_de": "Teruma › Aufbewahrung der Teruma › Veränderung des Zustands › Ende des Essens",
+     "desc_en": "Teruma › Safeguarding Teruma › Change of condition › End of eating"
+    },
+    {
+     "ref": "8:4",
+     "text": "הנאסרים, שהות הגילוי",
+     "text_de": "Die Verbotenen, Dauer der Aufdeckung",
+     "text_en": "What becomes forbidden, duration of uncoverage",
+     "desc": "תרומה › שמירת תרומה › גילוי",
+     "desc_de": "Teruma › Aufbewahrung der Teruma › Aufdeckung",
+     "desc_en": "Teruma › Safeguarding Teruma › Uncoverage"
+    },
+    {
+     "ref": "8:5",
+     "text": "שיעור לבטל ארס",
+     "text_de": "Maß zur Aufhebung des Giftes",
+     "text_en": "Amount to neutralize the venom",
+     "desc": "תרומה › שמירת תרומה › גילוי",
+     "desc_de": "Teruma › Aufbewahrung der Teruma › Aufdeckung",
+     "desc_en": "Teruma › Safeguarding Teruma › Uncoverage"
+    },
+    {
+     "ref": "8:6",
+     "text": "נקורים ונשוכים",
+     "text_de": "Angepickte und Gebissene",
+     "text_en": "Pecked and bitten produce",
+     "desc": "תרומה › שמירת תרומה › גילוי › מעבר הארס",
+     "desc_de": "Teruma › Aufbewahrung der Teruma › Aufdeckung › Übergang des Giftes",
+     "desc_en": "Teruma › Safeguarding Teruma › Uncoverage › Passage of the venom"
+    },
+    {
+     "ref": "8:7",
+     "text": "המכוסה במשמרת",
+     "text_de": "Das durch Abdecken Bedeckte",
+     "text_en": "What is covered by a strainer",
+     "desc": "תרומה › שמירת תרומה › גילוי › מעבר הארס",
+     "desc_de": "Teruma › Aufbewahrung der Teruma › Aufdeckung › Übergang des Giftes",
+     "desc_en": "Teruma › Safeguarding Teruma › Uncoverage › Passage of the venom"
+    },
+    {
+     "ref": "8:8",
+     "text": "הטמאה מספק",
+     "text_de": "Die aus Zweifel Verunreinigte",
+     "text_en": "What is rendered unclean through doubt",
+     "desc": "תרומה › שמירת תרומה › טומאה › שאינה עומדת לאכילה",
+     "desc_de": "Teruma › Aufbewahrung der Teruma › Unreinheit › Die nicht zum Essen bestimmt ist",
+     "desc_en": "Teruma › Safeguarding Teruma › Impurity › What is not intended for eating"
+    },
+    {
+     "ref": "8:9",
+     "text": "העתידה להטמא",
+     "text_de": "Die künftig verunreinigt wird",
+     "text_en": "What will become unclean in the future",
+     "desc": "תרומה › שמירת תרומה › טומאה › שאינה עומדת לאכילה",
+     "desc_de": "Teruma › Aufbewahrung der Teruma › Unreinheit › Die nicht zum Essen bestimmt ist",
+     "desc_en": "Teruma › Safeguarding Teruma › Impurity › What is not intended for eating"
+    },
+    {
+     "ref": "8:10",
+     "text": "העתידה להבלע",
+     "text_de": "Die künftig verschluckt wird",
+     "text_en": "What will be swallowed in the future",
+     "desc": "תרומה › שמירת תרומה › טומאה › שאינה עומדת לאכילה",
+     "desc_de": "Teruma › Aufbewahrung der Teruma › Unreinheit › Die nicht zum Essen bestimmt ist",
+     "desc_en": "Teruma › Safeguarding Teruma › Impurity › What is not intended for eating"
+    },
+    {
+     "ref": "8:11",
+     "text": "טומאה על ידי גוי",
+     "text_de": "Unreinheit durch einen Nichtjuden",
+     "text_en": "Impurity through a gentile",
+     "desc": "תרומה › שמירת תרומה › טומאה › מפני גויים",
+     "desc_de": "Teruma › Aufbewahrung der Teruma › Unreinheit › Wegen der Nichtjuden",
+     "desc_en": "Teruma › Safeguarding Teruma › Impurity › Because of gentiles"
+    },
+    {
+     "ref": "8:12",
+     "text": "דחיית נפש מפני נפש",
+     "text_de": "Ein Leben wegen eines anderen Lebens preisgeben",
+     "text_en": "Surrendering one life for another",
+     "desc": "תרומה › שמירת תרומה › טומאה › מפני גויים",
+     "desc_de": "Teruma › Aufbewahrung der Teruma › Unreinheit › Wegen der Nichtjuden",
+     "desc_en": "Teruma › Safeguarding Teruma › Impurity › Because of gentiles"
+    }
+   ]
+  },
+  {
+   "head": "פרק ט",
+   "head_de": "Kapitel 9",
+   "head_en": "Chapter 9",
+   "items": [
+    {
+     "ref": "9:1",
+     "text": "עקירה",
+     "text_de": "Entwurzeln",
+     "text_en": "Uprooting",
+     "desc": "תרומה › שמירת תרומה › גזירת גידולים › תרומה",
+     "desc_de": "Teruma › Aufbewahrung der Teruma › Verordnung über Gewächse › Teruma",
+     "desc_en": "Teruma › Safeguarding Teruma › Decree concerning growths › Teruma"
+    },
+    {
+     "ref": "9:2",
+     "text": "מתנות עניים",
+     "text_de": "Gaben an die Armen",
+     "text_en": "Gifts to the poor",
+     "desc": "תרומה › שמירת תרומה › גזירת גידולים › תרומה",
+     "desc_de": "Teruma › Aufbewahrung der Teruma › Verordnung über Gewächse › Teruma",
+     "desc_en": "Teruma › Safeguarding Teruma › Decree concerning growths › Teruma"
+    },
+    {
+     "ref": "9:3",
+     "text": "מעשרות,דישה",
+     "text_de": "Zehnte, Dreschen",
+     "text_en": "Tithes, threshing",
+     "desc": "תרומה › שמירת תרומה › גזירת גידולים › תרומה",
+     "desc_de": "Teruma › Aufbewahrung der Teruma › Verordnung über Gewächse › Teruma",
+     "desc_en": "Teruma › Safeguarding Teruma › Decree concerning growths › Teruma"
+    },
+    {
+     "ref": "9:4",
+     "text": "גידולי גידולין, גידולי דברים שונים",
+     "text_de": "Nachwuchs, Nachwuchs verschiedener Dinge",
+     "text_en": "Offshoots, offshoots of various things",
+     "desc": "תרומה › שמירת תרומה › גזירת גידולים › תרומה",
+     "desc_de": "Teruma › Aufbewahrung der Teruma › Verordnung über Gewächse › Teruma",
+     "desc_en": "Teruma › Safeguarding Teruma › Decree concerning growths › Teruma"
+    },
+    {
+     "ref": "9:5",
+     "text": "ביטול במחובר",
+     "text_de": "Aufhebung am noch Verwurzelten",
+     "text_en": "Nullification of what is still attached to the ground",
+     "desc": "תרומה › שמירת תרומה › גזירת גידולים › תרומה",
+     "desc_de": "Teruma › Aufbewahrung der Teruma › Verordnung über Gewächse › Teruma",
+     "desc_en": "Teruma › Safeguarding Teruma › Decree concerning growths › Teruma"
+    },
+    {
+     "ref": "9:6",
+     "text": "גידולין והשרדות הזרע",
+     "text_de": "Nachwuchs und Überdauern des Samens",
+     "text_en": "Offshoots and survival of the seed",
+     "desc": "תרומה › שמירת תרומה › גזירת גידולים › טבל",
+     "desc_de": "Teruma › Aufbewahrung der Teruma › Verordnung über Gewächse › Tevel",
+     "desc_en": "Teruma › Safeguarding Teruma › Decree concerning growths › Tevel"
+    },
+    {
+     "ref": "9:7",
+     "text": "תבואת נכרי \\ תרומה טמאה",
+     "text_de": "Getreide eines Nichtjuden / unreine Teruma",
+     "text_en": "Grain of a gentile / impure terumah",
+     "desc": "תרומה › שמירת תרומה › גזירת גידולים › תרומה",
+     "desc_de": "Teruma › Aufbewahrung der Teruma › Verordnung über Gewächse › Teruma",
+     "desc_en": "Teruma › Safeguarding Teruma › Decree concerning growths › Teruma"
+    }
+   ]
+  },
+  {
+   "head": "פרק י",
+   "head_de": "Kapitel 10",
+   "head_en": "Chapter 10",
+   "items": [
+    {
+     "ref": "10:1",
+     "text": "בצל שנתערב, חיתוכו",
+     "text_de": "Vermischte Zwiebel, ihr Zerschneiden",
+     "text_en": "Mixed-in onion, cutting it up",
+     "desc": "הלכות תרומה › תערובת › נתינת טעם › תרומה ואיסורים שונים › השפעה חלקית",
+     "desc_de": "Gesetze der Teruma › Vermischung › Übertragung von Geschmack › Teruma und verschiedene Verbote › Teilweise Wirkung",
+     "desc_en": "Laws of Teruma › Mixture › Transfer of flavor › Terumah and various prohibitions › Partial effect"
+    },
+    {
+     "ref": "10:2",
+     "text": "חימוץ של תפוח, שעורים",
+     "text_de": "Säuerung bei Apfel, Gerste",
+     "text_en": "Leavening of apple, barley",
+     "desc": "הלכות תרומה › תערובת › נתינת טעם › תרומה ואיסורים שונים › השפעה חלקית",
+     "desc_de": "Gesetze der Teruma › Vermischung › Übertragung von Geschmack › Teruma und verschiedene Verbote › Teilweise Wirkung",
+     "desc_en": "Laws of Teruma › Mixture › Transfer of flavor › Terumah and various prohibitions › Partial effect"
+    },
+    {
+     "ref": "10:3",
+     "text": "פת על חבית יין",
+     "text_de": "Brot auf einem Weinfass",
+     "text_en": "Bread on a wine barrel",
+     "desc": "הלכות תרומה › תערובת › נתינת טעם › תרומה ואיסורים שונים › השפעה חלקית › ריח",
+     "desc_de": "Gesetze der Teruma › Vermischung › Übertragung von Geschmack › Teruma und verschiedene Verbote › Teilweise Wirkung › Geruch",
+     "desc_en": "Laws of Teruma › Mixture › Transfer of flavor › Terumah and various prohibitions › Partial effect › Smell"
+    },
+    {
+     "ref": "10:4",
+     "text": "הסק כמון בפת",
+     "text_de": "Heizen mit Kümmel im Brot",
+     "text_en": "Heating with cumin in bread",
+     "desc": "הלכות תרומה › תערובת › נתינת טעם › תרומה ואיסורים שונים › השפעה חלקית › ריח",
+     "desc_de": "Gesetze der Teruma › Vermischung › Übertragung von Geschmack › Teruma und verschiedene Verbote › Teilweise Wirkung › Geruch",
+     "desc_en": "Laws of Teruma › Mixture › Transfer of flavor › Terumah and various prohibitions › Partial effect › Smell"
+    },
+    {
+     "ref": "10:5",
+     "text": "איסורים שונים",
+     "text_de": "Verschiedene Verbote",
+     "text_en": "Various prohibitions",
+     "desc": "הלכות תרומה › תערובת › נתינת טעם › תרומה ואיסורים שונים › תלתן",
+     "desc_de": "Gesetze der Teruma › Vermischung › Übertragung von Geschmack › Teruma und verschiedene Verbote › Bockshornklee",
+     "desc_en": "Laws of Teruma › Mixture › Transfer of flavor › Terumah and various prohibitions › Fenugreek"
+    },
+    {
+     "ref": "10:6",
+     "text": "כלאים, טבל",
+     "text_de": "Mischsaat, Tewel",
+     "text_en": "Mixed kinds, tevel",
+     "desc": "הלכות תרומה › תערובת › נתינת טעם › תרומה ואיסורים שונים › תלתן",
+     "desc_de": "Gesetze der Teruma › Vermischung › Übertragung von Geschmack › Teruma und verschiedene Verbote › Bockshornklee",
+     "desc_en": "Laws of Teruma › Mixture › Transfer of flavor › Terumah and various prohibitions › Fenugreek"
+    },
+    {
+     "ref": "10:7",
+     "text": "זתים",
+     "text_de": "Oliven",
+     "text_en": "Olives",
+     "desc": "הלכות תרומה › תערובת › נתינת טעם › תרומה ואיסורים שונים › כבישה",
+     "desc_de": "Gesetze der Teruma › Vermischung › Übertragung von Geschmack › Teruma und verschiedene Verbote › Einlegen",
+     "desc_en": "Laws of Teruma › Mixture › Transfer of flavor › Terumah and various prohibitions › Pickling"
+    },
+    {
+     "ref": "10:8",
+     "text": "דג טמא",
+     "text_de": "Unreiner Fisch",
+     "text_en": "Unclean fish",
+     "desc": "הלכות תרומה › תערובת › נתינת טעם › תרומה ואיסורים שונים › כבישה",
+     "desc_de": "Gesetze der Teruma › Vermischung › Übertragung von Geschmack › Teruma und verschiedene Verbote › Einlegen",
+     "desc_en": "Laws of Teruma › Mixture › Transfer of flavor › Terumah and various prohibitions › Pickling"
+    },
+    {
+     "ref": "10:9",
+     "text": "חגבים טמאים",
+     "text_de": "Unreine Heuschrecken",
+     "text_en": "Unclean locusts",
+     "desc": "הלכות תרומה › תערובת › נתינת טעם › תרומה ואיסורים שונים › כבישה",
+     "desc_de": "Gesetze der Teruma › Vermischung › Übertragung von Geschmack › Teruma und verschiedene Verbote › Einlegen",
+     "desc_en": "Laws of Teruma › Mixture › Transfer of flavor › Terumah and various prohibitions › Pickling"
+    },
+    {
+     "ref": "10:10",
+     "text": "ירקות, חסית",
+     "text_de": "Gemüse, Salat",
+     "text_en": "Vegetables, lettuce",
+     "desc": "הלכות תרומה › תערובת › נתינת טעם › תרומה ואיסורים שונים › כבישה",
+     "desc_de": "Gesetze der Teruma › Vermischung › Übertragung von Geschmack › Teruma und verschiedene Verbote › Einlegen",
+     "desc_en": "Laws of Teruma › Mixture › Transfer of flavor › Terumah and various prohibitions › Pickling"
+    },
+    {
+     "ref": "10:11",
+     "text": "דברים שונים",
+     "text_de": "Verschiedene Dinge",
+     "text_en": "Various matters",
+     "desc": "הלכות תרומה › תערובת › נתינת טעם › תרומה ואיסורים שונים › בישול",
+     "desc_de": "Gesetze der Teruma › Vermischung › Übertragung von Geschmack › Teruma und verschiedene Verbote › Kochen",
+     "desc_en": "Laws of Teruma › Mixture › Transfer of flavor › Terumah and various prohibitions › Cooking"
+    },
+    {
+     "ref": "10:12",
+     "text": "בצים, מי בישול",
+     "text_de": "Eier, Kochwasser",
+     "text_en": "Eggs, cooking water",
+     "desc": "הלכות תרומה › תערובת › נתינת טעם › תרומה ואיסורים שונים › בישול",
+     "desc_de": "Gesetze der Teruma › Vermischung › Übertragung von Geschmack › Teruma und verschiedene Verbote › Kochen",
+     "desc_en": "Laws of Teruma › Mixture › Transfer of flavor › Terumah and various prohibitions › Cooking"
+    }
+   ]
+  },
+  {
+   "head": "פרק יא",
+   "head_de": "Kapitel 11",
+   "head_en": "Chapter 11",
+   "items": [
+    {
+     "ref": "11:1",
+     "text": "השבחת טעם",
+     "text_de": "Geschmacksverbesserung",
+     "text_en": "Improving the flavor",
+     "desc": "הלכות תרומה › שמירת תרומה › שימוש הראוי",
+     "desc_de": "Gesetze der Teruma › Aufbewahrung der Teruma › Zweckmäßige Verwendung",
+     "desc_en": "Laws of Teruma › Safeguarding Teruma › Proper use"
+    },
+    {
+     "ref": "11:2",
+     "text": "חיוב חומש, המקבל טומאה",
+     "text_de": "Pflicht zum Fünftel, was Unreinheit annimmt",
+     "text_en": "Liability for the added fifth, what receives impurity",
+     "desc": "הלכות תרומה › שמירת תרומה › שימוש הראוי › משקי תרומה",
+     "desc_de": "Gesetze der Teruma › Aufbewahrung der Teruma › Zweckmäßige Verwendung › Flüssigkeiten der Teruma",
+     "desc_en": "Laws of Teruma › Safeguarding Teruma › Proper use › Liquids of terumah"
+    },
+    {
+     "ref": "11:3",
+     "text": "המותר לסחוט, יחודיות של שמן ויין",
+     "text_de": "Was ausgepresst werden darf, Besonderheiten von Öl und Wein",
+     "text_en": "What may be squeezed out, special features of oil and wine",
+     "desc": "הלכות תרומה › שמירת תרומה › שימוש הראוי › משקי תרומה",
+     "desc_de": "Gesetze der Teruma › Aufbewahrung der Teruma › Zweckmäßige Verwendung › Flüssigkeiten der Teruma",
+     "desc_en": "Laws of Teruma › Safeguarding Teruma › Proper use › Liquids of terumah"
+    },
+    {
+     "ref": "11:4",
+     "text": "עוקצים",
+     "text_de": "Stiele",
+     "text_en": "Stems",
+     "desc": "הלכות תרומה › שמירת תרומה › פסולת › שנוצר כך",
+     "desc_de": "Gesetze der Teruma › Aufbewahrung der Teruma › Abfall › Was so entstanden ist",
+     "desc_en": "Laws of Teruma › Safeguarding Teruma › Refuse › What came about in this way"
+    },
+    {
+     "ref": "11:5",
+     "text": "גרעינים, ניפוי",
+     "text_de": "Kerne, Aussieben",
+     "text_en": "Seeds, sifting",
+     "desc": "הלכות תרומה › שמירת תרומה › פסולת › שנוצר כך",
+     "desc_de": "Gesetze der Teruma › Aufbewahrung der Teruma › Abfall › Was so entstanden ist",
+     "desc_en": "Laws of Teruma › Safeguarding Teruma › Refuse › What came about in this way"
+    },
+    {
+     "ref": "11:6",
+     "text": "כיבוד",
+     "text_de": "Bewirtung",
+     "text_en": "Serving food",
+     "desc": "הלכות תרומה › שמירת תרומה › פסולת › על ידי מעשה",
+     "desc_de": "Gesetze der Teruma › Aufbewahrung der Teruma › Abfall › Durch eine Handlung",
+     "desc_en": "Laws of Teruma › Safeguarding Teruma › Refuse › Through an act"
+    },
+    {
+     "ref": "11:7",
+     "text": "הצלת הנשפך",
+     "text_de": "Rettung des Verschütteten",
+     "text_en": "Saving what is spilled",
+     "desc": "הלכות תרומה › שמירת תרומה › פסולת › על ידי מעשה",
+     "desc_de": "Gesetze der Teruma › Aufbewahrung der Teruma › Abfall › Durch eine Handlung",
+     "desc_en": "Laws of Teruma › Safeguarding Teruma › Refuse › Through an act"
+    },
+    {
+     "ref": "11:8",
+     "text": "שיורי עירוי \\ שיעור שחייב לשומרו",
+     "text_de": "Reste des Eingießens / Maß der Pflicht zur Aufbewahrung",
+     "text_en": "Remnants of pouring / measure requiring safekeeping",
+     "desc": "הלכות תרומה › הנאה מתרומה › שמירת תרומה › הרשאי ליהנות › פסולת › ברשות כהן › על ידי מעשה",
+     "desc_de": "Gesetze der Teruma › Nutzen aus Teruma › Aufbewahrung der Teruma › Wer Nutzen ziehen darf › Abfall › Im Besitz eines Priesters › Durch eine Handlung",
+     "desc_en": "Laws of Teruma › Benefit from terumah › Safeguarding Teruma › Who may derive benefit › Refuse › In the possession of a priest › Through an act"
+    },
+    {
+     "ref": "11:9",
+     "text": "האכלת בהמה כרשיני תרומה",
+     "text_de": "Vieh mit Teruma-Wicken füttern",
+     "text_en": "Feeding animals with terumah vetch",
+     "desc": "הלכות תרומה › הנאה מתרומה › הרשאי ליהנות › ברשות כהן",
+     "desc_de": "Gesetze der Teruma › Nutzen aus Teruma › Wer Nutzen ziehen darf › Im Besitz eines Priesters",
+     "desc_en": "Laws of Teruma › Benefit from terumah › Who may derive benefit › In the possession of a priest"
+    },
+    {
+     "ref": "11:10",
+     "text": "הנאת כילוי",
+     "text_de": "Nutzen durch Verbrauch",
+     "text_en": "Benefit through consumption",
+     "desc": "הלכות תרומה › הנאה מתרומה › הרשאי ליהנות › ברשות כהן",
+     "desc_de": "Gesetze der Teruma › Nutzen aus Teruma › Wer Nutzen ziehen darf › Im Besitz eines Priesters",
+     "desc_en": "Laws of Teruma › Benefit from terumah › Who may derive benefit › In the possession of a priest"
+    }
+   ]
+  }
+ ]
+}

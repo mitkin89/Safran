@@ -1,0 +1,524 @@
+{
+ "book": "Mishnah Arakhin",
+ "title": "משנה ערכין",
+ "title_de": "Mischna Arachin – Gliederung",
+ "title_en": "Arakhin – outline",
+ "note": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema).",
+ "note_de": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema); ins Deutsche und Englische übersetzt.",
+ "note_en": "Outline after the table “Mishna Sedura”: the central content of each mishnah, with the topic path (main topic to sub-topic); translated into German and English.",
+ "sections": [
+  {
+   "head": "פרק א",
+   "head_de": "Kapitel 1",
+   "head_en": "Chapter 1",
+   "items": [
+    {
+     "ref": "1:1",
+     "text": "שכבות העם, ספק מין, דעת וגיל",
+     "text_de": "Volksschichten, Zweifel über die Art, Verstand und Alter",
+     "text_en": "Classes of the people, doubt about the kind, understanding and age",
+     "desc": "דיני הקדש › התחייבות ממונית להקדש › שייכות לערכים ולנדרים › יהודי",
+     "desc_de": "Gesetze der Weihung › Finanzielle Verpflichtung gegenüber dem Heiligtum › Zugehörigkeit zu Schätzungen und Gelübden › Jude",
+     "desc_en": "Laws of dedication › Monetary obligation to the Sanctuary › Relation to valuations and vows › Jew"
+    },
+    {
+     "ref": "1:2",
+     "text": "ערכין ונדרים",
+     "text_de": "Schätzungen und Gelübde",
+     "text_en": "Valuations and vows",
+     "desc": "דיני הקדש › התחייבות ממונית להקדש › שייכות לערכים ולנדרים › נכרי",
+     "desc_de": "Gesetze der Weihung › Finanzielle Verpflichtung gegenüber dem Heiligtum › Zugehörigkeit zu Schätzungen und Gelübden › Nichtjude",
+     "desc_en": "Laws of dedication › Monetary obligation to the Sanctuary › Relation to valuations and vows › Non-Jew"
+    },
+    {
+     "ref": "1:3",
+     "text": "גוסס, היוצא ליהרג",
+     "text_de": "Sterbender, zur Hinrichtung Geführter",
+     "text_en": "One at the point of death, one led out to execution",
+     "desc": "דיני הקדש › התחייבות ממונית להקדש › שייכות לערכים ולנדרים › העומדים למות ומתים",
+     "desc_de": "Gesetze der Weihung › Finanzielle Verpflichtung gegenüber dem Heiligtum › Zugehörigkeit zu Schätzungen und Gelübden › Todgeweihte und Gestorbene",
+     "desc_en": "Laws of dedication › Monetary obligation to the Sanctuary › Relation to valuations and vows › Those facing death and the dead"
+    },
+    {
+     "ref": "1:4",
+     "text": "דחיית הריגת יולדת, הנאה ממת",
+     "text_de": "Aufschub der Hinrichtung einer Gebärenden, Nutznießung von einem Toten",
+     "text_en": "Postponing the execution of a woman in labor, deriving benefit from a corpse",
+     "desc": "דיני הקדש › התחייבות ממונית להקדש › שייכות לערכים ולנדרים › העומדים למות ומתים",
+     "desc_de": "Gesetze der Weihung › Finanzielle Verpflichtung gegenüber dem Heiligtum › Zugehörigkeit zu Schätzungen und Gelübden › Todgeweihte und Gestorbene",
+     "desc_en": "Laws of dedication › Monetary obligation to the Sanctuary › Relation to valuations and vows › Those facing death and the dead"
+    }
+   ]
+  },
+  {
+   "head": "פרק ב",
+   "head_de": "Kapitel 2",
+   "head_en": "Chapter 2",
+   "items": [
+    {
+     "ref": "2:1",
+     "text": "ערכין, פתח נדה, הסגר נגעים",
+     "text_de": "Schätzungen, Eingang der Nidda, Quarantäne bei Aussatz",
+     "text_en": "Valuations, the onset of niddah, quarantine for skin disease",
+     "desc": "דיני הקדש › התחייבות ממונית להקדש › גבול מזערי ומירבי",
+     "desc_de": "Gesetze der Weihung › Finanzielle Verpflichtung gegenüber dem Heiligtum › Mindest- und Höchstgrenze",
+     "desc_en": "Laws of dedication › Monetary obligation to the Sanctuary › Minimum and maximum limit"
+    },
+    {
+     "ref": "2:2",
+     "text": "חדשים מעוברים, אכילת לחם הקדש, מילה",
+     "text_de": "Schaltmonate, Verzehr des Weihebrots, Beschneidung",
+     "text_en": "Intercalated months, eating of sanctified bread, circumcision",
+     "desc": "דיני הקדש › התחייבות ממונית להקדש › גבול מזערי ומירבי",
+     "desc_de": "Gesetze der Weihung › Finanzielle Verpflichtung gegenüber dem Heiligtum › Mindest- und Höchstgrenze",
+     "desc_en": "Laws of dedication › Monetary obligation to the Sanctuary › Minimum and maximum limit"
+    },
+    {
+     "ref": "2:3",
+     "text": "תקיעות,נבלין \\ מספרם,זמנם,קנה,החלקה",
+     "text_de": "Blasen, Nevel-Harfen / ihre Zahl, Zeiten, Rohr, Glätten",
+     "text_en": "Blasts, nevel-harps / their number, times, reed, smoothing",
+     "desc": "דיני הקדש › התחייבות ממונית להקדש › גבול מזערי ומירבי › החלילין שבמקדש",
+     "desc_de": "Gesetze der Weihung › Finanzielle Verpflichtung gegenüber dem Heiligtum › Mindest- und Höchstgrenze › Die Flöten im Tempel",
+     "desc_en": "Laws of dedication › Monetary obligation to the Sanctuary › Minimum and maximum limit › The flutes in the Temple"
+    },
+    {
+     "ref": "2:4",
+     "text": "המנגנים",
+     "text_de": "Die Musiker",
+     "text_en": "The musicians",
+     "desc": "דיני הקדש › התחייבות ממונית להקדש › גבול מזערי ומירבי › החלילין שבמקדש",
+     "desc_de": "Gesetze der Weihung › Finanzielle Verpflichtung gegenüber dem Heiligtum › Mindest- und Höchstgrenze › Die Flöten im Tempel",
+     "desc_en": "Laws of dedication › Monetary obligation to the Sanctuary › Minimum and maximum limit › The flutes in the Temple"
+    },
+    {
+     "ref": "2:5",
+     "text": "טלאים מבוקרים, חצוצרות, כנורות",
+     "text_de": "Geprüfte Lämmer, Trompeten, Leiern",
+     "text_en": "Inspected lambs, trumpets, lyres",
+     "desc": "דיני הקדש › התחייבות ממונית להקדש › גבול מזערי ומירבי › שמוסיפין עד לעולם",
+     "desc_de": "Gesetze der Weihung › Finanzielle Verpflichtung gegenüber dem Heiligtum › Mindest- und Höchstgrenze › Man fügt hinzu bis in Ewigkeit",
+     "desc_en": "Laws of dedication › Monetary obligation to the Sanctuary › Minimum and maximum limit › One may add forever"
+    },
+    {
+     "ref": "2:6",
+     "text": "לוים על הדוכן , שירת לוים קטנים",
+     "text_de": "Leviten auf der Estrade, Gesang der jungen Leviten",
+     "text_en": "Levites on the platform, singing of the young Levites",
+     "desc": "דיני הקדש › התחייבות ממונית להקדש › גבול מזערי ומירבי › שמוסיפין עד לעולם",
+     "desc_de": "Gesetze der Weihung › Finanzielle Verpflichtung gegenüber dem Heiligtum › Mindest- und Höchstgrenze › Man fügt hinzu bis in Ewigkeit",
+     "desc_en": "Laws of dedication › Monetary obligation to the Sanctuary › Minimum and maximum limit › One may add forever"
+    }
+   ]
+  },
+  {
+   "head": "פרק ג",
+   "head_de": "Kapitel 3",
+   "head_en": "Chapter 3",
+   "items": [
+    {
+     "ref": "3:1",
+     "text": "ערכין נדרים ונזיקין",
+     "text_de": "Schätzungen, Gelübde und Schadensersatz",
+     "text_en": "Valuations, vows and damages",
+     "desc": "דיני הקדש › התחייבות ממונית להקדש › יש בהם להקל ולהחמיר",
+     "desc_de": "Gesetze der Weihung › Finanzielle Verpflichtung gegenüber dem Heiligtum › Es gibt darin Erleichterungen und Erschwerungen",
+     "desc_en": "Laws of dedication › Monetary obligation to the Sanctuary › They contain both leniencies and stringencies"
+    },
+    {
+     "ref": "3:2",
+     "text": "פדיון שדה אחוזה ומקנה",
+     "text_de": "Auslösung von Erbfeld und Kaufacker",
+     "text_en": "Redemption of an ancestral field and a purchased field",
+     "desc": "דיני הקדש › התחייבות ממונית להקדש › יש בהם להקל ולהחמיר",
+     "desc_de": "Gesetze der Weihung › Finanzielle Verpflichtung gegenüber dem Heiligtum › Es gibt darin Erleichterungen und Erschwerungen",
+     "desc_en": "Laws of dedication › Monetary obligation to the Sanctuary › They contain both leniencies and stringencies"
+    },
+    {
+     "ref": "3:3",
+     "text": "נזקי שור המועד",
+     "text_de": "Schäden durch einen gewarnten Ochsen",
+     "text_en": "Damages by a forewarned ox",
+     "desc": "דיני הקדש › התחייבות ממונית להקדש › יש בהם להקל ולהחמיר › קנסות",
+     "desc_de": "Gesetze der Weihung › Finanzielle Verpflichtung gegenüber dem Heiligtum › Es gibt darin Erleichterungen und Erschwerungen › Geldbußen",
+     "desc_en": "Laws of dedication › Monetary obligation to the Sanctuary › They contain both leniencies and stringencies › Fines"
+    },
+    {
+     "ref": "3:4",
+     "text": "אונס ומפתה",
+     "text_de": "Vergewaltiger und Verführer",
+     "text_en": "Rapist and seducer",
+     "desc": "דיני הקדש › התחייבות ממונית להקדש › יש בהם להקל ולהחמיר › קנסות",
+     "desc_de": "Gesetze der Weihung › Finanzielle Verpflichtung gegenüber dem Heiligtum › Es gibt darin Erleichterungen und Erschwerungen › Geldbußen",
+     "desc_en": "Laws of dedication › Monetary obligation to the Sanctuary › They contain both leniencies and stringencies › Fines"
+    },
+    {
+     "ref": "3:5",
+     "text": "מוציא שם רע, מעשה ודיבור",
+     "text_de": "Verleumder, Tat und Rede",
+     "text_en": "One who defames, act and speech",
+     "desc": "דיני הקדש › התחייבות ממונית להקדש › יש בהם להקל ולהחמיר › קנסות",
+     "desc_de": "Gesetze der Weihung › Finanzielle Verpflichtung gegenüber dem Heiligtum › Es gibt darin Erleichterungen und Erschwerungen › Geldbußen",
+     "desc_en": "Laws of dedication › Monetary obligation to the Sanctuary › They contain both leniencies and stringencies › Fines"
+    }
+   ]
+  },
+  {
+   "head": "פרק ד",
+   "head_de": "Kapitel 4",
+   "head_en": "Chapter 4",
+   "items": [
+    {
+     "ref": "4:1",
+     "text": "מצב הכלכלי של הנודר",
+     "text_de": "Wirtschaftliche Lage des Gelobenden",
+     "text_en": "Economic situation of the one who vows",
+     "desc": "דיני הקדש › התחייבות ממונית להקדש › חישוב ההתחייבות בערכין ובנדרי דמים › השג יד",
+     "desc_de": "Gesetze der Weihung › Finanzielle Verpflichtung gegenüber dem Heiligtum › Berechnung der Verpflichtung bei Schätzungen und Geldgelübden › Vermögensgrenze",
+     "desc_en": "Laws of dedication › Monetary obligation to the Sanctuary › Calculation of the obligation in valuations and vows of monetary worth › Means of the one who vows"
+    },
+    {
+     "ref": "4:2",
+     "text": "השוואה לנדרי קרבן \\ ערכין",
+     "text_de": "Vergleich mit Opfergelübden / Schätzungen",
+     "text_en": "Comparison with vows of offerings / valuations",
+     "desc": "דיני הקדש › התחייבות ממונית להקדש › חישוב ההתחייבות בערכין ובנדרי דמים › השג יד › שינו במצבו",
+     "desc_de": "Gesetze der Weihung › Finanzielle Verpflichtung gegenüber dem Heiligtum › Berechnung der Verpflichtung bei Schätzungen und Geldgelübden › Vermögensgrenze › Seine Lage hat sich geändert",
+     "desc_en": "Laws of dedication › Monetary obligation to the Sanctuary › Calculation of the obligation in valuations and vows of monetary worth › Means of the one who vows › His situation has changed"
+    },
+    {
+     "ref": "4:3",
+     "text": "השוואה לנדרי קרבן",
+     "text_de": "Vergleich mit Opfergelübden",
+     "text_en": "Comparison with vows of offerings",
+     "desc": "דיני הקדש › התחייבות ממונית להקדש › חישוב ההתחייבות בערכין ובנדרי דמים › השג יד › שינו במצבו",
+     "desc_de": "Gesetze der Weihung › Finanzielle Verpflichtung gegenüber dem Heiligtum › Berechnung der Verpflichtung bei Schätzungen und Geldgelübden › Vermögensgrenze › Seine Lage hat sich geändert",
+     "desc_en": "Laws of dedication › Monetary obligation to the Sanctuary › Calculation of the obligation in valuations and vows of monetary worth › Means of the one who vows › His situation has changed"
+    },
+    {
+     "ref": "4:4",
+     "text": "גיל ומין הנערך,זמן הערך,גיל הגובל",
+     "text_de": "Alter und Geschlecht der geschätzten Person, Zeitpunkt der Schätzung, Grenzalter",
+     "text_en": "Age and sex of the person valued, time of valuation, borderline age",
+     "desc": "דיני הקדש › התחייבות ממונית להקדש › חישוב ההתחייבות בערכין ובנדרי דמים",
+     "desc_de": "Gesetze der Weihung › Finanzielle Verpflichtung gegenüber dem Heiligtum › Berechnung der Verpflichtung bei Schätzungen und Geldgelübden",
+     "desc_en": "Laws of dedication › Monetary obligation to the Sanctuary › Calculation of the obligation in valuations and vows of monetary worth"
+    }
+   ]
+  },
+  {
+   "head": "פרק ה",
+   "head_de": "Kapitel 5",
+   "head_en": "Chapter 5",
+   "items": [
+    {
+     "ref": "5:1",
+     "text": "כל הגוף, יד וחישובה",
+     "text_de": "Der ganze Körper, Hand und ihre Berechnung",
+     "text_en": "The whole body, the hand and its calculation",
+     "desc": "דיני הקדש › התחייבות ממונית להקדש › חישוב ההתחייבות בערכין ובנדרי דמים › נדרי משקל",
+     "desc_de": "Gesetze der Weihung › Finanzielle Verpflichtung gegenüber dem Heiligtum › Berechnung der Verpflichtung bei Schätzungen und Geldgelübden › Gewichtsgelübde",
+     "desc_en": "Laws of dedication › Monetary obligation to the Sanctuary › Calculation of the obligation in valuations and vows of monetary worth › Vows of weight"
+    },
+    {
+     "ref": "5:2",
+     "text": "דמי וערך אבר,מיתת הנודר \\ אבר",
+     "text_de": "Wert und Schätzung eines Gliedes, Tod des Gelobenden / Glied",
+     "text_en": "Value and valuation of a limb, death of the one who vows / limb",
+     "desc": "דיני הקדש › התחייבות ממונית להקדש › חישוב ההתחייבות בערכין ובנדרי דמים › השוואת ערכין לנדרי דמים › שהנשמה תלויה בו",
+     "desc_de": "Gesetze der Weihung › Finanzielle Verpflichtung gegenüber dem Heiligtum › Berechnung der Verpflichtung bei Schätzungen und Geldgelübden › Vergleich der Schätzungen mit Geldgelübden › Woran die Seele hängt",
+     "desc_en": "Laws of dedication › Monetary obligation to the Sanctuary › Calculation of the obligation in valuations and vows of monetary worth › Comparison of valuations with vows of monetary worth › That on which the soul depends"
+    },
+    {
+     "ref": "5:3",
+     "text": "חצי גוף וחצי הסכום",
+     "text_de": "Halber Körper und halber Betrag",
+     "text_en": "Half the body and half the sum",
+     "desc": "דיני הקדש › התחייבות ממונית להקדש › חישוב ההתחייבות בערכין ובנדרי דמים › השוואת ערכין לנדרי דמים › שהנשמה תלויה בו",
+     "desc_de": "Gesetze der Weihung › Finanzielle Verpflichtung gegenüber dem Heiligtum › Berechnung der Verpflichtung bei Schätzungen und Geldgelübden › Vergleich der Schätzungen mit Geldgelübden › Woran die Seele hängt",
+     "desc_en": "Laws of dedication › Monetary obligation to the Sanctuary › Calculation of the obligation in valuations and vows of monetary worth › Comparison of valuations with vows of monetary worth › That on which the soul depends"
+    },
+    {
+     "ref": "5:4",
+     "text": "מיתת הנודר או הנידר",
+     "text_de": "Tod des Gelobenden oder des Gelobten",
+     "text_en": "Death of the one who vows or of the one vowed for",
+     "desc": "דיני הקדש › התחייבות ממונית להקדש › חיוב לשלם › השוואת ערכין לנדרי דמים",
+     "desc_de": "Gesetze der Weihung › Finanzielle Verpflichtung gegenüber dem Heiligtum › Zahlungspflicht › Vergleich der Schätzungen mit Geldgelübden",
+     "desc_en": "Laws of dedication › Monetary obligation to the Sanctuary › Obligation to pay › Comparison of valuations with vows of monetary worth"
+    },
+    {
+     "ref": "5:5",
+     "text": "אחריות לנדרים",
+     "text_de": "Haftung für Gelübde",
+     "text_en": "Liability for vows",
+     "desc": "דיני הקדש › התחייבות ממונית להקדש › חיוב לשלם › השוואת ערכין לנדרי דמים",
+     "desc_de": "Gesetze der Weihung › Finanzielle Verpflichtung gegenüber dem Heiligtum › Zahlungspflicht › Vergleich der Schätzungen mit Geldgelübden",
+     "desc_en": "Laws of dedication › Monetary obligation to the Sanctuary › Obligation to pay › Comparison of valuations with vows of monetary worth"
+    },
+    {
+     "ref": "5:6",
+     "text": "חובות של מצוה וצורך בכפיה",
+     "text_de": "Pflichten des Gebots und Bedarf, Zwang",
+     "text_en": "Obligations of a commandment and need, compulsion",
+     "desc": "דיני הקדש › התחייבות ממונית להקדש › חיוב לשלם › השוואת ערכין לנדרי דמים",
+     "desc_de": "Gesetze der Weihung › Finanzielle Verpflichtung gegenüber dem Heiligtum › Zahlungspflicht › Vergleich der Schätzungen mit Geldgelübden",
+     "desc_en": "Laws of dedication › Monetary obligation to the Sanctuary › Obligation to pay › Comparison of valuations with vows of monetary worth"
+    }
+   ]
+  },
+  {
+   "head": "פרק ו",
+   "head_de": "Kapitel 6",
+   "head_en": "Chapter 6",
+   "items": [
+    {
+     "ref": "6:1",
+     "text": "פרסום המכירה \\ חשש בהקדש, ובכתובה",
+     "text_de": "Bekanntmachung des Verkaufs / Bedenken bei Weihung und Eheurkunde",
+     "text_en": "Announcement of the sale / concern regarding dedication and the marriage contract",
+     "desc": "הקדש › פדיון › נכסים ושדה מקנה › קנוניא",
+     "desc_de": "Geweihtes › Auslösung › Besitz und Erbfeld › Kollusion",
+     "desc_en": "Consecrated property › Redemption › Property and purchased field › Collusion"
+    },
+    {
+     "ref": "6:2",
+     "text": "כשאין חשש \\ נכסים משועבדים",
+     "text_de": "Wenn kein Bedenken besteht / verpfändeter Besitz",
+     "text_en": "When there is no concern / encumbered property",
+     "desc": "הקדש › פדיון › נכסים ושדה מקנה › קנוניא",
+     "desc_de": "Geweihtes › Auslösung › Besitz und Erbfeld › Kollusion",
+     "desc_en": "Consecrated property › Redemption › Property and purchased field › Collusion"
+    },
+    {
+     "ref": "6:3",
+     "text": "כלים שמשארים לנודר",
+     "text_de": "Gegenstände, die dem Gelobenden verbleiben",
+     "text_en": "Items left to the one who vows",
+     "desc": "הקדש › פדיון › נכסים ושדה מקנה › סידור למחויב להקדש",
+     "desc_de": "Geweihtes › Auslösung › Besitz und Erbfeld › Versorgung des dem Heiligtum Verpflichteten",
+     "desc_en": "Consecrated property › Redemption › Property and purchased field › Provision for one obligated to the Sanctuary"
+    },
+    {
+     "ref": "6:4",
+     "text": "מספר הכלים שנשארים, תפילין",
+     "text_de": "Zahl der verbleibenden Gegenstände, Tefillin",
+     "text_en": "Number of items left, tefillin",
+     "desc": "הקדש › פדיון › נכסים ושדה מקנה › סידור למחויב להקדש",
+     "desc_de": "Geweihtes › Auslösung › Besitz und Erbfeld › Versorgung des dem Heiligtum Verpflichteten",
+     "desc_en": "Consecrated property › Redemption › Property and purchased field › Provision for one obligated to the Sanctuary"
+    },
+    {
+     "ref": "6:5",
+     "text": "כלי בני ביתו, שומה ע\"פי ערך העכשוית",
+     "text_de": "Gegenstände seiner Hausgenossen, Schätzung nach dem heutigen Wert",
+     "text_en": "Items of his household members, appraisal at current value",
+     "desc": "הקדש › פדיון › נכסים ושדה מקנה › סידור למחויב להקדש",
+     "desc_de": "Geweihtes › Auslösung › Besitz und Erbfeld › Versorgung des dem Heiligtum Verpflichteten",
+     "desc_en": "Consecrated property › Redemption › Property and purchased field › Provision for one obligated to the Sanctuary"
+    }
+   ]
+  },
+  {
+   "head": "פרק ז",
+   "head_de": "Kapitel 7",
+   "head_en": "Chapter 7",
+   "items": [
+    {
+     "ref": "7:1",
+     "text": "קביעת השנה, גודל השדה, תשלום אחד",
+     "text_de": "Festlegung des Jahres, Größe des Feldes, eine Zahlung",
+     "text_en": "Determination of the year, size of the field, single payment",
+     "desc": "הקדש › פדיון › שדה אחוזה בשעת היובל › חשבון המחיר",
+     "desc_de": "Geweihtes › Auslösung › Erbfeld zur Zeit des Jobeljahres › Preisberechnung",
+     "desc_en": "Consecrated property › Redemption › Ancestral field at the time of the Jubilee › Price calculation"
+    },
+    {
+     "ref": "7:2",
+     "text": "תוספת חומש לבעלים",
+     "text_de": "Zuschlag eines Fünftels für den Eigentümer",
+     "text_en": "Addition of a fifth for the owner",
+     "desc": "הקדש › פדיון › שדה אחוזה בשעת היובל › חשבון המחיר",
+     "desc_de": "Geweihtes › Auslösung › Erbfeld zur Zeit des Jobeljahres › Preisberechnung",
+     "desc_en": "Consecrated property › Redemption › Ancestral field at the time of the Jubilee › Price calculation"
+    },
+    {
+     "ref": "7:3",
+     "text": "שגאלה המקדיש או בנו או אחר או כהן",
+     "text_de": "Wenn der Weihende, sein Sohn, ein anderer oder ein Priester es ausgelöst hat",
+     "text_en": "If the dedicator, his son, another person or a priest redeemed it",
+     "desc": "הקדש › פדיון › שדה אחוזה בשעת היובל › יציאה לכהנים ביובל",
+     "desc_de": "Geweihtes › Auslösung › Erbfeld zur Zeit des Jobeljahres › Übergang an die Priester im Jobeljahr",
+     "desc_en": "Consecrated property › Redemption › Ancestral field at the time of the Jubilee › Transfer to the priests in the Jubilee year"
+    },
+    {
+     "ref": "7:4",
+     "text": "לא נגאלה",
+     "text_de": "Nicht ausgelöst",
+     "text_en": "Not redeemed",
+     "desc": "הקדש › פדיון › שדה אחוזה בשעת היובל › יציאה לכהנים ביובל",
+     "desc_de": "Geweihtes › Auslösung › Erbfeld zur Zeit des Jobeljahres › Übergang an die Priester im Jobeljahr",
+     "desc_en": "Consecrated property › Redemption › Ancestral field at the time of the Jubilee › Transfer to the priests in the Jubilee year"
+    },
+    {
+     "ref": "7:5",
+     "text": "יורש כמקדיש, שדה מקנה, שדה כהן ולוי",
+     "text_de": "Erbe wie der Weihende, Kaufacker, Feld eines Priesters und Leviten",
+     "text_en": "Heir as the dedicator, purchased field, field of a priest and Levite",
+     "desc": "הקדש › פדיון › שדה אחוזה בשעת היובל › יציאה לכהנים ביובל",
+     "desc_de": "Geweihtes › Auslösung › Erbfeld zur Zeit des Jobeljahres › Übergang an die Priester im Jobeljahr",
+     "desc_en": "Consecrated property › Redemption › Ancestral field at the time of the Jubilee › Transfer to the priests in the Jubilee year"
+    }
+   ]
+  },
+  {
+   "head": "פרק ח",
+   "head_de": "Kapitel 8",
+   "head_en": "Chapter 8",
+   "items": [
+    {
+     "ref": "8:1",
+     "text": "פתיחת הבעלים, פדיון המזערי",
+     "text_de": "Eröffnung durch die Eigentümer, Mindestauslösung",
+     "text_en": "Opening by the owners, minimum redemption",
+     "desc": "הקדש › פדיון › שדה כשאין יובל › סדר המיקוח",
+     "desc_de": "Geweihtes › Auslösung › Feld, wenn kein Jobel gilt › Reihenfolge des Bietens",
+     "desc_en": "Consecrated property › Redemption › Field when no Jubilee applies › Order of bidding"
+    },
+    {
+     "ref": "8:2",
+     "text": "מישכון החוזר בו \\ הצעות שוות",
+     "text_de": "Zurücktretender Pfandnehmer / gleiche Gebote",
+     "text_en": "Withdrawing pledgee / equal bids",
+     "desc": "הקדש › פדיון › שדה כשאין יובל › סדר המיקוח",
+     "desc_de": "Geweihtes › Auslösung › Feld, wenn kein Jobel gilt › Reihenfolge des Bietens",
+     "desc_en": "Consecrated property › Redemption › Field when no Jubilee applies › Order of bidding"
+    },
+    {
+     "ref": "8:3",
+     "text": "כשבעלים מציעים פחות",
+     "text_de": "Wenn die Eigentümer weniger bieten",
+     "text_en": "When the owners bid less",
+     "desc": "הקדש › פדיון › שדה כשאין יובל › סדר המיקוח › תוספת חומש",
+     "desc_de": "Geweihtes › Auslösung › Feld, wenn kein Jobel gilt › Reihenfolge des Bietens › Zuschlag eines Fünftels",
+     "desc_en": "Consecrated property › Redemption › Field when no Jubilee applies › Order of bidding › Addition of a fifth"
+    },
+    {
+     "ref": "8:4",
+     "text": "הקנוי בגופו, החרמה כוללת, מוסר השכל",
+     "text_de": "Was ihm selbst gehört, Gesamtbann, Lehre",
+     "text_en": "What belongs to him personally, general ban, moral lesson",
+     "desc": "הקדש › התחייבות ממונית להקדש › חרמים › האפשר להחרים",
+     "desc_de": "Geweihtes › Finanzielle Verpflichtung gegenüber dem Heiligtum › Bannungen › Was man mit dem Bann belegen kann",
+     "desc_en": "Consecrated property › Monetary obligation to the Sanctuary › Bans › What may be placed under the ban"
+    },
+    {
+     "ref": "8:5",
+     "text": "בעלות חסרה או שלא יכולה להשתנות",
+     "text_de": "Unvollständiges oder unveränderliches Eigentum",
+     "text_en": "Incomplete or unchangeable ownership",
+     "desc": "הקדש › התחייבות ממונית להקדש › חרמים › האפשר להחרים",
+     "desc_de": "Geweihtes › Finanzielle Verpflichtung gegenüber dem Heiligtum › Bannungen › Was man mit dem Bann belegen kann",
+     "desc_en": "Consecrated property › Monetary obligation to the Sanctuary › Bans › What may be placed under the ban"
+    },
+    {
+     "ref": "8:6",
+     "text": "חרמי כהנים, סתם חרמים",
+     "text_de": "Bann der Priester, unspezifizierter Bann",
+     "text_en": "Ban of the priests, unspecified ban",
+     "desc": "הקדש › התחייבות ממונית להקדש › חרמים › האפשר להחרים",
+     "desc_de": "Geweihtes › Finanzielle Verpflichtung gegenüber dem Heiligtum › Bannungen › Was man mit dem Bann belegen kann",
+     "desc_en": "Consecrated property › Monetary obligation to the Sanctuary › Bans › What may be placed under the ban"
+    },
+    {
+     "ref": "8:7",
+     "text": "החרמת קדשים",
+     "text_de": "Bannung von Geweihtem",
+     "text_en": "Placing consecrated items under the ban",
+     "desc": "הקדש › התחייבות ממונית להקדש › חרמים › האפשר להחרים",
+     "desc_de": "Geweihtes › Finanzielle Verpflichtung gegenüber dem Heiligtum › Bannungen › Was man mit dem Bann belegen kann",
+     "desc_en": "Consecrated property › Monetary obligation to the Sanctuary › Bans › What may be placed under the ban"
+    }
+   ]
+  },
+  {
+   "head": "פרק ט",
+   "head_de": "Kapitel 9",
+   "head_en": "Chapter 9",
+   "items": [
+    {
+     "ref": "9:1",
+     "text": "המתנת שנתיים, חשבון השנים ותבואות",
+     "text_de": "Wartezeit von zwei Jahren, Berechnung der Jahre und Erträge",
+     "text_en": "Waiting period of two years, calculation of the years and produce",
+     "desc": "דיני מקח וממכר › גאולה מלוקח › קרקעות בשעת היובל › שדה אחוזה",
+     "desc_de": "Gesetze von Kauf und Verkauf › Auslösung vom Käufer › Grundstücke zur Zeit des Jobeljahres › Erbfeld",
+     "desc_en": "Laws of purchase and sale › Redemption from the buyer › Land at the time of the Jubilee › Ancestral field"
+    },
+    {
+     "ref": "9:2",
+     "text": "חישוב המחיר כשנמכרה עוד, הגבלות",
+     "text_de": "Preisberechnung bei Weiterverkauf, Einschränkungen",
+     "text_en": "Price calculation upon resale, restrictions",
+     "desc": "דיני מקח וממכר › גאולה מלוקח › קרקעות בשעת היובל › שדה אחוזה",
+     "desc_de": "Gesetze von Kauf und Verkauf › Auslösung vom Käufer › Grundstücke zur Zeit des Jobeljahres › Erbfeld",
+     "desc_en": "Laws of purchase and sale › Redemption from the buyer › Land at the time of the Jubilee › Ancestral field"
+    },
+    {
+     "ref": "9:3",
+     "text": "דיני הגאולה, חישוב שנת הגאולה",
+     "text_de": "Gesetze der Auslösung, Berechnung des Auslösungsjahres",
+     "text_en": "Laws of redemption, calculation of the year of redemption",
+     "desc": "דיני מקח וממכר › גאולה מלוקח › קרקעות בשעת היובל › בתי ערי חומה › גאולתן",
+     "desc_de": "Gesetze von Kauf und Verkauf › Auslösung vom Käufer › Grundstücke zur Zeit des Jobeljahres › Häuser in ummauerten Städten › Ihre Auslösung",
+     "desc_en": "Laws of purchase and sale › Redemption from the buyer › Land at the time of the Jubilee › Houses in walled cities › Their redemption"
+    },
+    {
+     "ref": "9:4",
+     "text": "מתנה, תקנת הלל",
+     "text_de": "Geschenk, Verordnung Hillels",
+     "text_en": "Gift, Hillel's ordinance",
+     "desc": "דיני מקח וממכר › גאולה מלוקח › קרקעות בשעת היובל › בתי ערי חומה › גאולתן",
+     "desc_de": "Gesetze von Kauf und Verkauf › Auslösung vom Käufer › Grundstücke zur Zeit des Jobeljahres › Häuser in ummauerten Städten › Ihre Auslösung",
+     "desc_en": "Laws of purchase and sale › Redemption from the buyer › Land at the time of the Jubilee › Houses in walled cities › Their redemption"
+    },
+    {
+     "ref": "9:5",
+     "text": "לפנים מן החומה, שדות, בית בחומה",
+     "text_de": "Innerhalb der Mauer, Felder, Haus in der Mauer",
+     "text_en": "Inside the wall, fields, house in the wall",
+     "desc": "דיני מקח וממכר › גאולה מלוקח › קרקעות בשעת היובל › בתי ערי חומה › הגדרתן",
+     "desc_de": "Gesetze von Kauf und Verkauf › Auslösung vom Käufer › Grundstücke zur Zeit des Jobeljahres › Häuser in ummauerten Städten › Ihre Definition",
+     "desc_en": "Laws of purchase and sale › Redemption from the buyer › Land at the time of the Jubilee › Houses in walled cities › Their definition"
+    },
+    {
+     "ref": "9:6",
+     "text": "הגדרות מוקפת חומה ועיר חומה,דוגמאות",
+     "text_de": "Definitionen von ummauert und Mauerstadt, Beispiele",
+     "text_en": "Definitions of walled and city wall, examples",
+     "desc": "דיני מקח וממכר › גאולה מלוקח › קרקעות בשעת היובל › בתי ערי חומה › הגדרתן",
+     "desc_de": "Gesetze von Kauf und Verkauf › Auslösung vom Käufer › Grundstücke zur Zeit des Jobeljahres › Häuser in ummauerten Städten › Ihre Definition",
+     "desc_en": "Laws of purchase and sale › Redemption from the buyer › Land at the time of the Jubilee › Houses in walled cities › Their definition"
+    },
+    {
+     "ref": "9:7",
+     "text": "דיני הגאולה, הגדרתם",
+     "text_de": "Gesetze der Auslösung, ihre Definition",
+     "text_en": "Laws of redemption, their definition",
+     "desc": "דיני מקח וממכר › גאולה מלוקח › קרקעות בשעת היובל › בתי החצרים",
+     "desc_de": "Gesetze von Kauf und Verkauf › Auslösung vom Käufer › Grundstücke zur Zeit des Jobeljahres › Häuser der Gehöfte",
+     "desc_en": "Laws of purchase and sale › Redemption from the buyer › Land at the time of the Jubilee › Houses of the villages"
+    },
+    {
+     "ref": "9:8",
+     "text": "יורשים, שינוי בתכלית בשטחי העיר",
+     "text_de": "Erben, Zweckänderung in Stadtgebieten",
+     "text_en": "Heirs, change of purpose in city areas",
+     "desc": "דיני מקח וממכר › גאולה מלוקח › קרקעות בשעת היובל › כהנים ולוים",
+     "desc_de": "Gesetze von Kauf und Verkauf › Auslösung vom Käufer › Grundstücke zur Zeit des Jobeljahres › Priester und Leviten",
+     "desc_en": "Laws of purchase and sale › Redemption from the buyer › Land at the time of the Jubilee › Priests and Levites"
+    }
+   ]
+  }
+ ]
+}

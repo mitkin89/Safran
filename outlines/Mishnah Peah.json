@@ -1,0 +1,688 @@
+{
+ "book": "Mishnah Peah",
+ "title": "משנה פאה",
+ "title_de": "Mischna Pea – Gliederung",
+ "title_en": "Peah – outline",
+ "note": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema).",
+ "note_de": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema); ins Deutsche und Englische übersetzt.",
+ "note_en": "Outline after the table “Mishna Sedura”: the central content of each mishnah, with the topic path (main topic to sub-topic); translated into German and English.",
+ "sections": [
+  {
+   "head": "פרק א",
+   "head_de": "Kapitel 1",
+   "head_en": "Chapter 1",
+   "items": [
+    {
+     "ref": "1:1",
+     "text": "דברים שאין להם שיעור מדאורייתא",
+     "text_de": "Dinge, die nach der Tora kein Mindestmaß haben",
+     "text_en": "Things with no prescribed measure by Torah law",
+     "desc": "מתנות עניים מן הצומח › פאה › חיוב › שיעור",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Pea (Ackerecke) › Verpflichtung › Mindestmaß",
+     "desc_en": "Gifts to the poor from plant produce › Pe'ah (field corner) › Obligation › Minimum measure"
+    },
+    {
+     "ref": "1:2",
+     "text": "שיעור מדרבנן לפאה",
+     "text_de": "Rabbinisches Mindestmaß für die Pea",
+     "text_en": "Rabbinic minimum measure for Pe'ah",
+     "desc": "מתנות עניים מן הצומח › פאה › חיוב › שיעור",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Pea (Ackerecke) › Verpflichtung › Mindestmaß",
+     "desc_en": "Gifts to the poor from plant produce › Pe'ah (field corner) › Obligation › Minimum measure"
+    },
+    {
+     "ref": "1:3",
+     "text": "מיקום הפאה בשדה",
+     "text_de": "Lage der Pea im Feld",
+     "text_en": "Location of Pe'ah in the field",
+     "desc": "מתנות עניים מן הצומח › פאה › חיוב › חלוקה",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Pea (Ackerecke) › Verpflichtung › Aufteilung",
+     "desc_en": "Gifts to the poor from plant produce › Pe'ah (field corner) › Obligation › Division"
+    },
+    {
+     "ref": "1:4",
+     "text": "כלל לחיוב \\ תבואה",
+     "text_de": "Allgemeine Regel der Verpflichtung / Getreide",
+     "text_en": "General rule of obligation / Grain",
+     "desc": "מתנות עניים מן הצומח › פאה › חיוב › פירוט מינים",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Pea (Ackerecke) › Verpflichtung › Aufzählung der Arten",
+     "desc_en": "Gifts to the poor from plant produce › Pe'ah (field corner) › Obligation › Enumeration of the kinds"
+    },
+    {
+     "ref": "1:5",
+     "text": "אילן",
+     "text_de": "Baum",
+     "text_en": "Tree",
+     "desc": "מתנות עניים מן הצומח › פאה › חיוב › פירוט מינים",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Pea (Ackerecke) › Verpflichtung › Aufzählung der Arten",
+     "desc_en": "Gifts to the poor from plant produce › Pe'ah (field corner) › Obligation › Enumeration of the kinds"
+    },
+    {
+     "ref": "1:6",
+     "text": "קביעת מירוח, ונפקא מינות אחרות",
+     "text_de": "Festlegung des Mirúach (Garbenabschluss) und andere Folgen",
+     "text_en": "Determination of the finishing of the grain pile and other consequences",
+     "desc": "מתנות עניים מן הצומח › פאה › חיוב › חלות החיוב",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Pea (Ackerecke) › Verpflichtung › Eintreten der Verpflichtung",
+     "desc_en": "Gifts to the poor from plant produce › Pe'ah (field corner) › Obligation › Onset of the obligation"
+    }
+   ]
+  },
+  {
+   "head": "פרק ב",
+   "head_de": "Kapitel 2",
+   "head_en": "Chapter 2",
+   "items": [
+    {
+     "ref": "2:1",
+     "text": "מים, שבילים, שדה המשונה",
+     "text_de": "Wasser, Pfade, ungleichartiges Feld",
+     "text_en": "Water, paths, a field of mixed character",
+     "desc": "מתנות עניים מן הצומח › פאה › היבול › הפסקה לפאה › שדה",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Pea (Ackerecke) › Der Ertrag › Trennung für die Pea › Feld",
+     "desc_en": "Gifts to the poor from plant produce › Pe'ah (field corner) › The yield › Separation for Pe'ah › Field"
+    },
+    {
+     "ref": "2:2",
+     "text": "אמת המים, הרים סלעיים",
+     "text_de": "Wasserkanal, felsige Berge",
+     "text_en": "Water channel, rocky mountains",
+     "desc": "מתנות עניים מן הצומח › פאה › היבול › הפסקה לפאה › שדה",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Pea (Ackerecke) › Der Ertrag › Trennung für die Pea › Feld",
+     "desc_en": "Gifts to the poor from plant produce › Pe'ah (field corner) › The yield › Separation for Pe'ah › Field"
+    },
+    {
+     "ref": "2:3",
+     "text": "גדר, אם ענף כותש",
+     "text_de": "Zaun, ob ein Zweig als Trennung gilt",
+     "text_en": "Fence, whether a branch counts as a divider",
+     "desc": "מתנות עניים מן הצומח › פאה › היבול › הפסקה לפאה › אילן",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Pea (Ackerecke) › Der Ertrag › Trennung für die Pea › Baum",
+     "desc_en": "Gifts to the poor from plant produce › Pe'ah (field corner) › The yield › Separation for Pe'ah › Tree"
+    },
+    {
+     "ref": "2:4",
+     "text": "מרחק",
+     "text_de": "Entfernung",
+     "text_en": "Distance",
+     "desc": "מתנות עניים מן הצומח › פאה › היבול › הפסקה לפאה › אילן",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Pea (Ackerecke) › Der Ertrag › Trennung für die Pea › Baum",
+     "desc_en": "Gifts to the poor from plant produce › Pe'ah (field corner) › The yield › Separation for Pe'ah › Tree"
+    },
+    {
+     "ref": "2:5",
+     "text": "מין תבואה, חילוק גרנות",
+     "text_de": "Getreideart, Aufteilung der Tennen",
+     "text_en": "Type of grain, division of threshing floors",
+     "desc": "מתנות עניים מן הצומח › פאה › היבול › הפסקה לפאה › שדה",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Pea (Ackerecke) › Der Ertrag › Trennung für die Pea › Feld",
+     "desc_en": "Gifts to the poor from plant produce › Pe'ah (field corner) › The yield › Separation for Pe'ah › Field"
+    },
+    {
+     "ref": "2:6",
+     "text": "הוראת וקבלת הלכה זו",
+     "text_de": "Lehre und Annahme dieser Halacha",
+     "text_en": "Teaching and acceptance of this halacha",
+     "desc": "מתנות עניים מן הצומח › פאה › היבול › הפסקה לפאה › שדה",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Pea (Ackerecke) › Der Ertrag › Trennung für die Pea › Feld",
+     "desc_en": "Gifts to the poor from plant produce › Pe'ah (field corner) › The yield › Separation for Pe'ah › Field"
+    },
+    {
+     "ref": "2:7",
+     "text": "קצירה ע\"י אחר",
+     "text_de": "Ernte durch einen anderen",
+     "text_en": "Harvest by another person",
+     "desc": "מתנות עניים מן הצומח › פאה › היבול › הפסקה לפאה › חיוב בקמה",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Pea (Ackerecke) › Der Ertrag › Trennung für die Pea › Verpflichtung beim stehenden Halm",
+     "desc_en": "Gifts to the poor from plant produce › Pe'ah (field corner) › The yield › Separation for Pe'ah › Obligation for standing grain"
+    },
+    {
+     "ref": "2:8",
+     "text": "קצירה חלקית, שינוי רשות",
+     "text_de": "Teilweise Ernte, Wechsel des Besitzbereichs",
+     "text_en": "Partial harvest, change of ownership domain",
+     "desc": "מתנות עניים מן הצומח › פאה › היבול › הפסקה לפאה › חיוב בקמה",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Pea (Ackerecke) › Der Ertrag › Trennung für die Pea › Verpflichtung beim stehenden Halm",
+     "desc_en": "Gifts to the poor from plant produce › Pe'ah (field corner) › The yield › Separation for Pe'ah › Obligation for standing grain"
+    }
+   ]
+  },
+  {
+   "head": "פרק ג",
+   "head_de": "Kapitel 3",
+   "head_en": "Chapter 3",
+   "items": [
+    {
+     "ref": "3:1",
+     "text": "הפסקה על ידי אילנות",
+     "text_de": "Trennung durch Bäume",
+     "text_en": "Separation by trees",
+     "desc": "מתנות עניים מן הצומח › פאה › היבול › הפסקה לפאה › שדה",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Pea (Ackerecke) › Der Ertrag › Trennung für die Pea › Feld",
+     "desc_en": "Gifts to the poor from plant produce › Pe'ah (field corner) › The yield › Separation for Pe'ah › Field"
+    },
+    {
+     "ref": "3:2",
+     "text": "אסיפה וזריעה מקומית",
+     "text_de": "Einsammeln und lokale Aussaat",
+     "text_en": "Gathering and local sowing",
+     "desc": "מתנות עניים מן הצומח › פאה › היבול › הפסקה לפאה › שדה",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Pea (Ackerecke) › Der Ertrag › Trennung für die Pea › Feld",
+     "desc_en": "Gifts to the poor from plant produce › Pe'ah (field corner) › The yield › Separation for Pe'ah › Field"
+    },
+    {
+     "ref": "3:3",
+     "text": "אסיפה חלקית ותכליתה",
+     "text_de": "Teilweises Einsammeln und sein Zweck",
+     "text_en": "Partial gathering and its purpose",
+     "desc": "מתנות עניים מן הצומח › פאה › היבול › הפסקה לפאה › בצלים",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Pea (Ackerecke) › Der Ertrag › Trennung für die Pea › Zwiebeln",
+     "desc_en": "Gifts to the poor from plant produce › Pe'ah (field corner) › The yield › Separation for Pe'ah › Onions"
+    },
+    {
+     "ref": "3:4",
+     "text": "אמהות, הפסקה על ידי ירק",
+     "text_de": "Beetreihen, Trennung durch Gemüse",
+     "text_en": "Garden beds, separation by vegetables",
+     "desc": "מתנות עניים מן הצומח › פאה › היבול › הפסקה לפאה › בצלים",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Pea (Ackerecke) › Der Ertrag › Trennung für die Pea › Zwiebeln",
+     "desc_en": "Gifts to the poor from plant produce › Pe'ah (field corner) › The yield › Separation for Pe'ah › Onions"
+    },
+    {
+     "ref": "3:5",
+     "text": "שותפות בשדה, מכירה חלקית",
+     "text_de": "Teilhaberschaft am Feld, teilweiser Verkauf",
+     "text_en": "Partnership in a field, partial sale",
+     "desc": "מתנות עניים מן הצומח › פאה › חיוב › בעלות",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Pea (Ackerecke) › Verpflichtung › Eigentum",
+     "desc_en": "Gifts to the poor from plant produce › Pe'ah (field corner) › Obligation › Ownership"
+    },
+    {
+     "ref": "3:6",
+     "text": "שיעור שדה החייבת \\ שונות",
+     "text_de": "Mindestgröße des verpflichteten Feldes / Verschiedenes",
+     "text_en": "Minimum size of the obligated field / Miscellaneous",
+     "desc": "מתנות עניים מן הצומח › פאה › חיוב › קרקע כל שהוא › בעלות",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Pea (Ackerecke) › Verpflichtung › Beliebig kleines Stück Land › Eigentum",
+     "desc_en": "Gifts to the poor from plant produce › Pe'ah (field corner) › Obligation › Any amount of land whatsoever › Ownership"
+    },
+    {
+     "ref": "3:7",
+     "text": "מתנת שכיב מרע, אשתו וכתובתה",
+     "text_de": "Schenkung eines Schwerkranken, seine Frau und ihre Ketuba",
+     "text_en": "Gift of a gravely ill person, his wife and her marriage contract",
+     "desc": "מתנות עניים מן הצומח › פאה › חיוב › קרקע כל שהוא",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Pea (Ackerecke) › Verpflichtung › Beliebig kleines Stück Land",
+     "desc_en": "Gifts to the poor from plant produce › Pe'ah (field corner) › Obligation › Any amount of land whatsoever"
+    },
+    {
+     "ref": "3:8",
+     "text": "כתיבת נכסים לעבדו ושיור",
+     "text_de": "Übertragung von Besitz an seinen Sklaven und Vorbehalt",
+     "text_en": "Transfer of property to his slave and reservation",
+     "desc": "מתנות עניים מן הצומח › פאה › חיוב › קרקע כל שהוא",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Pea (Ackerecke) › Verpflichtung › Beliebig kleines Stück Land",
+     "desc_en": "Gifts to the poor from plant produce › Pe'ah (field corner) › Obligation › Any amount of land whatsoever"
+    }
+   ]
+  },
+  {
+   "head": "פרק ד",
+   "head_de": "Kapitel 4",
+   "head_en": "Chapter 4",
+   "items": [
+    {
+     "ref": "4:1",
+     "text": "סכנה בביזה \\ כשאין סכנה",
+     "text_de": "Gefahr bei Plünderung / Wenn keine Gefahr besteht",
+     "text_en": "Danger of plunder / When there is no danger",
+     "desc": "מתנות עניים מן הצומח › פאה › חלוקה › איך מתחלקת ונקנית › אי ציות לעניים",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Pea (Ackerecke) › Aufteilung › Wie sie aufgeteilt und erworben wird › Nichtbeachtung der Armen",
+     "desc_en": "Gifts to the poor from plant produce › Pe'ah (field corner) › Division › How it is divided and acquired › Disregard of the poor"
+    },
+    {
+     "ref": "4:2",
+     "text": "כשיש סכנה",
+     "text_de": "Wenn Gefahr besteht",
+     "text_en": "When there is danger",
+     "desc": "מתנות עניים מן הצומח › פאה › חלוקה › איך מתחלקת ונקנית › אי ציות לעניים",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Pea (Ackerecke) › Aufteilung › Wie sie aufgeteilt und erworben wird › Nichtbeachtung der Armen",
+     "desc_en": "Gifts to the poor from plant produce › Pe'ah (field corner) › Division › How it is divided and acquired › Disregard of the poor"
+    },
+    {
+     "ref": "4:3",
+     "text": "קניני העני שאינם כהלכה",
+     "text_de": "Erwerbshandlungen des Armen, die nicht den Vorschriften entsprechen",
+     "text_en": "Acts of acquisition by the poor that do not conform to the law",
+     "desc": "מתנות עניים מן הצומח › פאה › חלוקה › איך מתחלקת ונקנית",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Pea (Ackerecke) › Aufteilung › Wie sie aufgeteilt und erworben wird",
+     "desc_en": "Gifts to the poor from plant produce › Pe'ah (field corner) › Division › How it is divided and acquired"
+    },
+    {
+     "ref": "4:4",
+     "text": "איסור כלי קצירה מסוכנים",
+     "text_de": "Verbot gefährlicher Erntewerkzeuge",
+     "text_en": "Prohibition of dangerous harvesting tools",
+     "desc": "מתנות עניים מן הצומח › פאה › חלוקה › איך מתחלקת ונקנית",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Pea (Ackerecke) › Aufteilung › Wie sie aufgeteilt und erworben wird",
+     "desc_en": "Gifts to the poor from plant produce › Pe'ah (field corner) › Division › How it is divided and acquired"
+    },
+    {
+     "ref": "4:5",
+     "text": "מספר וזמני האבעיות",
+     "text_de": "Zahl und Zeiten der Nachlesen",
+     "text_en": "Number and times of the gleanings",
+     "desc": "מתנות עניים מן הצומח › פאה › חלוקה › איך מתחלקת ונקנית",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Pea (Ackerecke) › Aufteilung › Wie sie aufgeteilt und erworben wird",
+     "desc_en": "Gifts to the poor from plant produce › Pe'ah (field corner) › Division › How it is divided and acquired"
+    },
+    {
+     "ref": "4:6",
+     "text": "גיור אחר קצירה",
+     "text_de": "Übertritt zum Judentum nach der Ernte",
+     "text_en": "Conversion after the harvest",
+     "desc": "מתנות עניים מן הצומח › פאה › חיוב › בעלות וחלות החיוב",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Pea (Ackerecke) › Verpflichtung › Eigentum und Eintreten der Verpflichtung",
+     "desc_en": "Gifts to the poor from plant produce › Pe'ah (field corner) › Obligation › Ownership and onset of the obligation"
+    },
+    {
+     "ref": "4:7",
+     "text": "הקדש לפני ואחרי עימור",
+     "text_de": "Weihung vor und nach dem Garbenbinden",
+     "text_en": "Dedication before and after sheaf-binding",
+     "desc": "מתנות עניים מן הצומח › פאה › חיוב › בעלות וחלות החיוב",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Pea (Ackerecke) › Verpflichtung › Eigentum und Eintreten der Verpflichtung",
+     "desc_en": "Gifts to the poor from plant produce › Pe'ah (field corner) › Obligation › Ownership and onset of the obligation"
+    },
+    {
+     "ref": "4:8",
+     "text": "הקדש וחיוב במעשרות",
+     "text_de": "Weihung und Verpflichtung zu den Zehnten",
+     "text_en": "Dedication and obligation to tithes",
+     "desc": "מתנות עניים מן הצומח › פאה › חיוב › בעלות וחלות החיוב",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Pea (Ackerecke) › Verpflichtung › Eigentum und Eintreten der Verpflichtung",
+     "desc_en": "Gifts to the poor from plant produce › Pe'ah (field corner) › Obligation › Ownership and onset of the obligation"
+    },
+    {
+     "ref": "4:9",
+     "text": "זכייה לזולת, מתנות עניים של נכרי",
+     "text_de": "Erwerb für einen anderen, Armenabgaben eines Nichtjuden",
+     "text_en": "Acquisition for another, gifts to the poor from a gentile",
+     "desc": "מתנות עניים מן הצומח › פאה › חיוב › בעלות וחלות החיוב",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Pea (Ackerecke) › Verpflichtung › Eigentum und Eintreten der Verpflichtung",
+     "desc_en": "Gifts to the poor from plant produce › Pe'ah (field corner) › Obligation › Ownership and onset of the obligation"
+    },
+    {
+     "ref": "4:10",
+     "text": "איך נופל הלקט",
+     "text_de": "Wie die Nachlese (Leket) fällt",
+     "text_en": "How the gleaning falls",
+     "desc": "מתנות עניים מן הצומח › לקט › קביעת בעלותו › קצירתו",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Leket (Nachlese) › Festlegung seines Eigentums › Seine Ernte",
+     "desc_en": "Gifts to the poor from plant produce › Leket (gleanings) › Determination of its ownership › Its harvesting"
+    },
+    {
+     "ref": "4:11",
+     "text": "חורי נמלים וספק לקט",
+     "text_de": "Ameisenlöcher und zweifelhafte Nachlese",
+     "text_en": "Ant holes and doubtful gleanings",
+     "desc": "מתנות עניים מן הצומח › לקט › קביעת בעלותו › הפרעה",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Leket (Nachlese) › Festlegung seines Eigentums › Behinderung",
+     "desc_en": "Gifts to the poor from plant produce › Leket (gleanings) › Determination of its ownership › Obstruction"
+    }
+   ]
+  },
+  {
+   "head": "פרק ה",
+   "head_de": "Kapitel 5",
+   "head_en": "Chapter 5",
+   "items": [
+    {
+     "ref": "5:1",
+     "text": "אומד לקט שנתכסה או נתפזר",
+     "text_de": "Schätzung der bedeckten oder zerstreuten Nachlese",
+     "text_en": "Estimation of gleanings that were covered or scattered",
+     "desc": "מתנות עניים מן הצומח › לקט › קביעת בעלותו › בלקיטתו",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Leket (Nachlese) › Festlegung seines Eigentums › Beim Auflesen",
+     "desc_en": "Gifts to the poor from plant produce › Leket (gleanings) › Determination of its ownership › During gleaning"
+    },
+    {
+     "ref": "5:2",
+     "text": "הצלת קמה על שכחה, תערובת לקט בגדיש",
+     "text_de": "Rettung des stehenden Halms vor dem Vergessen, Vermischung von Nachlese im Garbenhaufen",
+     "text_en": "Saving standing grain from being forgotten, mixing of gleanings in the grain heap",
+     "desc": "מתנות עניים מן הצומח › לקט › קביעת בעלותו › תערובת",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Leket (Nachlese) › Festlegung seines Eigentums › Vermischung",
+     "desc_en": "Gifts to the poor from plant produce › Leket (gleanings) › Determination of its ownership › Mixture"
+    },
+    {
+     "ref": "5:3",
+     "text": "עירוב תבואה טובה עם גרועה",
+     "text_de": "Vermengung guten Getreides mit schlechtem",
+     "text_en": "Mixing good grain with inferior grain",
+     "desc": "מתנות עניים מן הצומח › לקט › קביעת בעלותו › תערובת",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Leket (Nachlese) › Festlegung seines Eigentums › Vermischung",
+     "desc_en": "Gifts to the poor from plant produce › Leket (gleanings) › Determination of its ownership › Mixture"
+    },
+    {
+     "ref": "5:4",
+     "text": "עני לשעה",
+     "text_de": "Vorübergehend Armer",
+     "text_en": "Temporarily poor person",
+     "desc": "מתנות עניים מן הצומח › לקט › זכייה בו › הראוי ליטול מתנות",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Leket (Nachlese) › Erwerb dadurch › Wer berechtigt ist, Gaben zu nehmen",
+     "desc_en": "Gifts to the poor from plant produce › Leket (gleanings) › Acquiring through it › Who is entitled to take the gifts"
+    },
+    {
+     "ref": "5:5",
+     "text": "המחליף עם עני, אריסים עניים",
+     "text_de": "Der mit einem Armen Tauschende, arme Pächter",
+     "text_en": "One who exchanges with a poor person, poor tenant farmers",
+     "desc": "מתנות עניים מן הצומח › לקט › זכייה בו › הראוי ליטול מתנות",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Leket (Nachlese) › Erwerb dadurch › Wer berechtigt ist, Gaben zu nehmen",
+     "desc_en": "Gifts to the poor from plant produce › Leket (gleanings) › Acquiring through it › Who is entitled to take the gifts"
+    },
+    {
+     "ref": "5:6",
+     "text": "מכירת שדה\\תנאי עבודה, גזילת העניים",
+     "text_de": "Verkauf eines Feldes / Arbeitsbedingungen, Beraubung der Armen",
+     "text_en": "Sale of a field / Working conditions, robbing the poor",
+     "desc": "מתנות עניים מן הצומח › לקט › זכייה בו › הראוי ליטול מתנות",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Leket (Nachlese) › Erwerb dadurch › Wer berechtigt ist, Gaben zu nehmen",
+     "desc_en": "Gifts to the poor from plant produce › Leket (gleanings) › Acquiring through it › Who is entitled to take the gifts"
+    },
+    {
+     "ref": "5:7",
+     "text": "שכחה ע\"י בע\"ב ופועליו, עומר הנסתר",
+     "text_de": "Vergessen durch den Hausherrn und seine Arbeiter, verborgene Garbe",
+     "text_en": "Forgetting by the landowner and his workers, hidden sheaf",
+     "desc": "מתנות עניים מן הצומח › שכחה › איך ומתי נשכח",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Vergessene Garbe (Schichecha) › Wie und wann etwas vergessen wird",
+     "desc_en": "Gifts to the poor from plant produce › Forgotten sheaf (Shikhchah) › How and when something is forgotten"
+    },
+    {
+     "ref": "5:8",
+     "text": "גמר מלאכת העימור",
+     "text_de": "Abschluss der Garbenarbeit",
+     "text_en": "Completion of the sheaf work",
+     "desc": "מתנות עניים מן הצומח › שכחה › איך ומתי נשכח",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Vergessene Garbe (Schichecha) › Wie und wann etwas vergessen wird",
+     "desc_en": "Gifts to the poor from plant produce › Forgotten sheaf (Shikhchah) › How and when something is forgotten"
+    }
+   ]
+  },
+  {
+   "head": "פרק ו",
+   "head_de": "Kapitel 6",
+   "head_en": "Chapter 6",
+   "items": [
+    {
+     "ref": "6:1",
+     "text": "הגדרת הפקר, גודל היחסי",
+     "text_de": "Definition von Herrenlosem, relative Größe",
+     "text_en": "Definition of ownerless property, relative size",
+     "desc": "מתנות עניים מן הצומח › שכחה › איך ומתי נשכח › עתיד לזכרו",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Vergessene Garbe (Schichecha) › Wie und wann etwas vergessen wird › Der sich später daran erinnern wird",
+     "desc_en": "Gifts to the poor from plant produce › Forgotten sheaf (Shikhchah) › How and when something is forgotten › One who will remember it later"
+    },
+    {
+     "ref": "6:2",
+     "text": "הנחתו אצל דבר מסויים",
+     "text_de": "Das Niederlegen neben etwas Bestimmtem",
+     "text_en": "Placing it beside something specific",
+     "desc": "מתנות עניים מן הצומח › שכחה › איך ומתי נשכח › עתיד לזכרו",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Vergessene Garbe (Schichecha) › Wie und wann etwas vergessen wird › Der sich später daran erinnern wird",
+     "desc_en": "Gifts to the poor from plant produce › Forgotten sheaf (Shikhchah) › How and when something is forgotten › One who will remember it later"
+    },
+    {
+     "ref": "6:3",
+     "text": "הוכחת ראשי שורות / עומר שהוחזק בו",
+     "text_de": "Beweis durch Reihenanfänge / Garbe, die darin festgehalten wurde",
+     "text_en": "Proof by the heads of rows / Sheaf held in it",
+     "desc": "מתנות עניים מן הצומח › שכחה › איך ומתי נשכח › בל תשוב › עתיד לזכרו",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Vergessene Garbe (Schichecha) › Wie und wann etwas vergessen wird › „Du sollst nicht zurückkehren“ › Der sich später daran erinnern wird",
+     "desc_en": "Gifts to the poor from plant produce › Forgotten sheaf (Shikhchah) › How and when something is forgotten › “You shall not return” › One who will remember it later"
+    },
+    {
+     "ref": "6:4",
+     "text": "כיצד מוכיחים, כלל",
+     "text_de": "Wie man beweist, allgemeine Regel",
+     "text_en": "How one proves, general rule",
+     "desc": "מתנות עניים מן הצומח › שכחה › איך ומתי נשכח › בל תשוב",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Vergessene Garbe (Schichecha) › Wie und wann etwas vergessen wird › „Du sollst nicht zurückkehren“",
+     "desc_en": "Gifts to the poor from plant produce › Forgotten sheaf (Shikhchah) › How and when something is forgotten › “You shall not return”"
+    },
+    {
+     "ref": "6:5",
+     "text": "מנין היחידות",
+     "text_de": "Zählung der Einheiten",
+     "text_en": "Counting of the units",
+     "desc": "מתנות עניים מן הצומח › שכחה › גבולות מרביים לשכחה",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Vergessene Garbe (Schichecha) › Höchstgrenzen des Vergessens",
+     "desc_en": "Gifts to the poor from plant produce › Forgotten sheaf (Shikhchah) › Maximum limits of forgetting"
+    },
+    {
+     "ref": "6:6",
+     "text": "מדת העומר",
+     "text_de": "Maß der Garbe",
+     "text_en": "Measure of the sheaf",
+     "desc": "מתנות עניים מן הצומח › שכחה › גבולות מרביים לשכחה",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Vergessene Garbe (Schichecha) › Höchstgrenzen des Vergessens",
+     "desc_en": "Gifts to the poor from plant produce › Forgotten sheaf (Shikhchah) › Maximum limits of forgetting"
+    },
+    {
+     "ref": "6:7",
+     "text": "מדת הקמה",
+     "text_de": "Maß des stehenden Halms",
+     "text_en": "Measure of the standing grain",
+     "desc": "מתנות עניים מן הצומח › שכחה › גבולות מרביים לשכחה",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Vergessene Garbe (Schichecha) › Höchstgrenzen des Vergessens",
+     "desc_en": "Gifts to the poor from plant produce › Forgotten sheaf (Shikhchah) › Maximum limits of forgetting"
+    },
+    {
+     "ref": "6:8",
+     "text": "ע\"י קמה וע\"י עומר",
+     "text_de": "Durch stehenden Halm und durch Garbe",
+     "text_en": "By standing grain and by sheaf",
+     "desc": "מתנות עניים מן הצומח › שכחה › גבולות מרביים לשכחה › הצלה",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Vergessene Garbe (Schichecha) › Höchstgrenzen des Vergessens › Rettung",
+     "desc_en": "Gifts to the poor from plant produce › Forgotten sheaf (Shikhchah) › Maximum limits of forgetting › Salvaging"
+    },
+    {
+     "ref": "6:9",
+     "text": "צירוף למידה המצילה",
+     "text_de": "Hinzurechnung zum rettenden Maß",
+     "text_en": "Addition to the saving measure",
+     "desc": "מתנות עניים מן הצומח › שכחה › גבולות מרביים לשכחה › הצלה",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Vergessene Garbe (Schichecha) › Höchstgrenzen des Vergessens › Rettung",
+     "desc_en": "Gifts to the poor from plant produce › Forgotten sheaf (Shikhchah) › Maximum limits of forgetting › Salvaging"
+    },
+    {
+     "ref": "6:10",
+     "text": "גמר מלאכה, הטמון בארץ",
+     "text_de": "Abschluss der Arbeit, in der Erde Verborgenes",
+     "text_en": "Completion of the work, what is hidden in the ground",
+     "desc": "מתנות עניים מן הצומח › שכחה › איך ומתי נשכח",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Vergessene Garbe (Schichecha) › Wie und wann etwas vergessen wird",
+     "desc_en": "Gifts to the poor from plant produce › Forgotten sheaf (Shikhchah) › How and when something is forgotten"
+    },
+    {
+     "ref": "6:11",
+     "text": "בלא ראייה, כוונת הקוצר",
+     "text_de": "Ohne Sicht, Absicht des Erntenden",
+     "text_en": "Without sight, intention of the reaper",
+     "desc": "מתנות עניים מן הצומח › שכחה › איך ומתי נשכח",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Vergessene Garbe (Schichecha) › Wie und wann etwas vergessen wird",
+     "desc_en": "Gifts to the poor from plant produce › Forgotten sheaf (Shikhchah) › How and when something is forgotten"
+    }
+   ]
+  },
+  {
+   "head": "פרק ז",
+   "head_de": "Kapitel 7",
+   "head_en": "Chapter 7",
+   "items": [
+    {
+     "ref": "7:1",
+     "text": "אילנות מיוחדים",
+     "text_de": "Besondere Bäume",
+     "text_en": "Special trees",
+     "desc": "מתנות עניים מן הצומח › שכחה › איך ומתי נשכח › עצי זית",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Vergessene Garbe (Schichecha) › Wie und wann etwas vergessen wird › Olivenbäume",
+     "desc_en": "Gifts to the poor from plant produce › Forgotten sheaf (Shikhchah) › How and when something is forgotten › Olive trees"
+    },
+    {
+     "ref": "7:2",
+     "text": "הנסתר, אסיפה חלקית",
+     "text_de": "Das Verborgene, teilweises Einsammeln",
+     "text_en": "What is hidden, partial gathering",
+     "desc": "מתנות עניים מן הצומח › שכחה › איך ומתי נשכח › עצי זית",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Vergessene Garbe (Schichecha) › Wie und wann etwas vergessen wird › Olivenbäume",
+     "desc_en": "Gifts to the poor from plant produce › Forgotten sheaf (Shikhchah) › How and when something is forgotten › Olive trees"
+    },
+    {
+     "ref": "7:3",
+     "text": "פרט דרך בצירה, גזל עניים",
+     "text_de": "Einzelheit zur Art der Weinlese, Beraubung der Armen",
+     "text_en": "Detail on the manner of the grape harvest, robbing the poor",
+     "desc": "מתנות עניים מן הצומח › מתנות מן הכרם › פרט › קביעת בעלותו",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Gaben aus dem Weinberg › Einzelheit › Festlegung seines Eigentums",
+     "desc_en": "Gifts to the poor from plant produce › Gifts from the vineyard › Detail › Determination of its ownership"
+    },
+    {
+     "ref": "7:4",
+     "text": "הגדרת עוללות; הצלה",
+     "text_de": "Definition der Olelot (Nachtrauben); Rettung",
+     "text_en": "Definition of Olelot (gleaned grapes); salvaging",
+     "desc": "מתנות עניים מן הצומח › מתנות מן הכרם › עוללות › בעלות",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Gaben aus dem Weinberg › Olelot (Nachtrauben) › Eigentum",
+     "desc_en": "Gifts to the poor from plant produce › Gifts from the vineyard › Olelot (gleaned grapes) › Ownership"
+    },
+    {
+     "ref": "7:5",
+     "text": "דילול גפנים",
+     "text_de": "Ausdünnen der Weinstöcke",
+     "text_en": "Thinning of the vines",
+     "desc": "מתנות עניים מן הצומח › מתנות מן הכרם › עוללות › בעלות",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Gaben aus dem Weinberg › Olelot (Nachtrauben) › Eigentum",
+     "desc_en": "Gifts to the poor from plant produce › Gifts from the vineyard › Olelot (gleaned grapes) › Ownership"
+    },
+    {
+     "ref": "7:6",
+     "text": "כרם רבעי ונפקא מינות בו",
+     "text_de": "Weinberg des vierten Jahres und dessen Folgen",
+     "text_en": "Fourth-year vineyard and its consequences",
+     "desc": "מתנות עניים מן הצומח › מתנות מן הכרם › עוללות › הפקעת דין עוללות",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Gaben aus dem Weinberg › Olelot (Nachtrauben) › Aufhebung des Rechts der Nachtrauben",
+     "desc_en": "Gifts to the poor from plant produce › Gifts from the vineyard › Olelot (gleaned grapes) › Cancellation of the law of gleaned grapes"
+    },
+    {
+     "ref": "7:7",
+     "text": "כרם שכולו עוללות",
+     "text_de": "Weinberg, der ganz aus Nachtrauben besteht",
+     "text_en": "Vineyard consisting entirely of gleaned grapes",
+     "desc": "מתנות עניים מן הצומח › מתנות מן הכרם › עוללות › הפקעת דין עוללות",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Gaben aus dem Weinberg › Olelot (Nachtrauben) › Aufhebung des Rechts der Nachtrauben",
+     "desc_en": "Gifts to the poor from plant produce › Gifts from the vineyard › Olelot (gleaned grapes) › Cancellation of the law of gleaned grapes"
+    },
+    {
+     "ref": "7:8",
+     "text": "כרם שנתקדש, שכחת עריס ורגליות",
+     "text_de": "Geweihter Weinberg, Vergessen am Rebengerüst und Einzeltrauben",
+     "text_en": "Consecrated vineyard, forgotten grapes on the trellis and Regalot",
+     "desc": "מתנות עניים מן הצומח › מתנות מן הכרם › עוללות › הפקעת דין עוללות",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Gaben aus dem Weinberg › Olelot (Nachtrauben) › Aufhebung des Rechts der Nachtrauben",
+     "desc_en": "Gifts to the poor from plant produce › Gifts from the vineyard › Olelot (gleaned grapes) › Cancellation of the law of gleaned grapes"
+    }
+   ]
+  },
+  {
+   "head": "פרק ח",
+   "head_de": "Kapitel 8",
+   "head_en": "Chapter 8",
+   "items": [
+    {
+     "ref": "8:1",
+     "text": "שעת הפקרת מתנות לעניים",
+     "text_de": "Zeitpunkt der Freigabe der Armengaben",
+     "text_en": "Time of declaring the gifts to the poor ownerless",
+     "desc": "מתנות עניים מן הצומח › כל מתנות עניים › בעלות",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Alle Armenabgaben › Eigentum",
+     "desc_en": "Gifts to the poor from plant produce › All gifts to the poor › Ownership"
+    },
+    {
+     "ref": "8:2",
+     "text": "שעת המתנות, כלל לנאמנות",
+     "text_de": "Zeitpunkt der Gaben, Regel zur Glaubwürdigkeit",
+     "text_en": "Time of the gifts, rule of trustworthiness",
+     "desc": "מתנות עניים מן הצומח › כל מתנות עניים › נאמנות עם הארץ",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Alle Armenabgaben › Glaubwürdigkeit eines Am Haarez",
+     "desc_en": "Gifts to the poor from plant produce › All gifts to the poor › Trustworthiness of an Am Ha'aretz"
+    },
+    {
+     "ref": "8:3",
+     "text": "תבואה, קטניות, שמן",
+     "text_de": "Getreide, Hülsenfrüchte, Öl",
+     "text_en": "Grain, legumes, oil",
+     "desc": "מתנות עניים מן הצומח › כל מתנות עניים › נאמנות עם הארץ",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Alle Armenabgaben › Glaubwürdigkeit eines Am Haarez",
+     "desc_en": "Gifts to the poor from plant produce › All gifts to the poor › Trustworthiness of an Am Ha'aretz"
+    },
+    {
+     "ref": "8:4",
+     "text": "ירקות",
+     "text_de": "Gemüse",
+     "text_en": "Vegetables",
+     "desc": "מתנות עניים מן הצומח › כל מתנות עניים › נאמנות עם הארץ",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Alle Armenabgaben › Glaubwürdigkeit eines Am Haarez",
+     "desc_en": "Gifts to the poor from plant produce › All gifts to the poor › Trustworthiness of an Am Ha'aretz"
+    },
+    {
+     "ref": "8:5",
+     "text": "תבואה ופירות",
+     "text_de": "Getreide und Früchte",
+     "text_en": "Grain and fruits",
+     "desc": "מתנות עניים מן הצומח › שיעורים › מעשר עני › חלוקה בגורן",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Maße › Armenzehnt › Verteilung auf der Tenne",
+     "desc_en": "Gifts to the poor from plant produce › Measures › Poor tithe › Distribution at the threshing floor"
+    },
+    {
+     "ref": "8:6",
+     "text": "בכהנים, הצלה, חלוקת המועט",
+     "text_de": "Bei Priestern, Rettung, Verteilung geringer Mengen",
+     "text_en": "Among priests, salvaging, distribution of small amounts",
+     "desc": "מתנות עניים מן הצומח › שיעורים › מעשר עני › חלוקה בגורן",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Maße › Armenzehnt › Verteilung auf der Tenne",
+     "desc_en": "Gifts to the poor from plant produce › Measures › Poor tithe › Distribution at the threshing floor"
+    },
+    {
+     "ref": "8:7",
+     "text": "עני אורח, גבייה וחלוקה \\ תמחוי,קופה",
+     "text_de": "Armer Gast, Einsammeln und Verteilung / Armenküche, Armenkasse",
+     "text_en": "Poor guest, collection and distribution / Soup kitchen, charity fund",
+     "desc": "מתנות עניים מן הצומח › שיעורים › צדקה › הראוי לטול מתנות",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Maße › Zedaka (Wohltätigkeit) › Wer berechtigt ist, Gaben zu nehmen",
+     "desc_en": "Gifts to the poor from plant produce › Measures › Tzedakah (charity) › Who is entitled to take gifts"
+    },
+    {
+     "ref": "8:8",
+     "text": "אם יש לו מאתיים זוז, מכירת כליו",
+     "text_de": "Wenn er zweihundert Sus hat, Verkauf seiner Geräte",
+     "text_en": "If he has two hundred zuz, sale of his utensils",
+     "desc": "מתנות עניים מן הצומח › שיעורים › צדקה › הראוי לטול מתנות",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Maße › Zedaka (Wohltätigkeit) › Wer berechtigt ist, Gaben zu nehmen",
+     "desc_en": "Gifts to the poor from plant produce › Measures › Tzedakah (charity) › Who is entitled to take gifts"
+    },
+    {
+     "ref": "8:9",
+     "text": "השתדלות, ישרות ורמאות בצדקה ודין",
+     "text_de": "Bemühung, Redlichkeit und Betrug bei der Wohltätigkeit und im Rechtsstreit",
+     "text_en": "Effort, honesty and deceit in charity and in judgment",
+     "desc": "מתנות עניים מן הצומח › שיעורים › צדקה › הראוי לטול מתנות",
+     "desc_de": "Armenabgaben von Pflanzenerzeugnissen › Maße › Zedaka (Wohltätigkeit) › Wer berechtigt ist, Gaben zu nehmen",
+     "desc_en": "Gifts to the poor from plant produce › Measures › Tzedakah (charity) › Who is entitled to take gifts"
+    }
+   ]
+  }
+ ]
+}

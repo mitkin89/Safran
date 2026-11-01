@@ -1,0 +1,381 @@
+{
+ "book": "Mishnah Challah",
+ "title": "משנה חלה",
+ "title_de": "Mischna Challa – Gliederung",
+ "title_en": "Challah – outline",
+ "note": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema).",
+ "note_de": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema); ins Deutsche und Englische übersetzt.",
+ "note_en": "Outline after the table “Mishna Sedura”: the central content of each mishnah, with the topic path (main topic to sub-topic); translated into German and English.",
+ "sections": [
+  {
+   "head": "פרק א",
+   "head_de": "Kapitel 1",
+   "head_en": "Chapter 1",
+   "items": [
+    {
+     "ref": "1:1",
+     "text": "חלה, חדש",
+     "text_de": "Challa, Neues",
+     "text_en": "Challah, new grain",
+     "desc": "חיוב בחלה › מין התבואה › חמשת מיני דגן",
+     "desc_de": "Pflicht zur Challa › Getreideart › Die fünf Getreidearten",
+     "desc_en": "Obligation of challah › Type of grain › The five species of grain"
+    },
+    {
+     "ref": "1:2",
+     "text": "מצה וחמץ, לשון הנודר מהם \\ חיוב בהן",
+     "text_de": "Mazza und Chamez, Wortlaut des Gelübdes darüber / Pflicht dazu",
+     "text_en": "Matzah and chametz, wording of a vow concerning them / obligation regarding them",
+     "desc": "חיוב בחלה › מין התבואה › חלה ומעשרות › חמשת מיני דגן",
+     "desc_de": "Pflicht zur Challa › Getreideart › Challa und Zehnte › Die fünf Getreidearten",
+     "desc_en": "Obligation of challah › Type of grain › Challah and tithes › The five species of grain"
+    },
+    {
+     "ref": "1:3",
+     "text": "החייבין בחלה ופטורין ממעשרות",
+     "text_de": "Challapflichtig, aber vom Zehnten befreit",
+     "text_en": "Liable to challah but exempt from tithes",
+     "desc": "חיוב בחלה › מין התבואה › חלה ומעשרות",
+     "desc_de": "Pflicht zur Challa › Getreideart › Challa und Zehnte",
+     "desc_en": "Obligation of challah › Type of grain › Challah and tithes"
+    },
+    {
+     "ref": "1:4",
+     "text": "הפטורין מחלה וחייבין במעשרות",
+     "text_de": "Von der Challa befreit, aber zehntpflichtig",
+     "text_en": "Exempt from challah but liable to tithes",
+     "desc": "חיוב בחלה › מין התבואה › חלה ומעשרות",
+     "desc_de": "Pflicht zur Challa › Getreideart › Challa und Zehnte",
+     "desc_en": "Obligation of challah › Type of grain › Challah and tithes"
+    },
+    {
+     "ref": "1:5",
+     "text": "רכות העיסה",
+     "text_de": "Weichheit des Teigs",
+     "text_en": "Softness of the dough",
+     "desc": "חיוב בחלה › הגדרת עיסה החייבת › טיב ותכלית העיסה",
+     "desc_de": "Pflicht zur Challa › Bestimmung des pflichtigen Teigs › Beschaffenheit und Zweck des Teigs",
+     "desc_en": "Obligation of challah › Definition of dough that is liable › Nature and purpose of the dough"
+    },
+    {
+     "ref": "1:6",
+     "text": "עיסה מבושלת, חלות לקרבנות",
+     "text_de": "Gekochter Teig, Brote für Opfer",
+     "text_en": "Cooked dough, loaves for offerings",
+     "desc": "חיוב בחלה › הגדרת עיסה החייבת › טיב ותכלית העיסה",
+     "desc_de": "Pflicht zur Challa › Bestimmung des pflichtigen Teigs › Beschaffenheit und Zweck des Teigs",
+     "desc_en": "Obligation of challah › Definition of dough that is liable › Nature and purpose of the dough"
+    },
+    {
+     "ref": "1:7",
+     "text": "צירוף עיסות נחתום לשיעור",
+     "text_de": "Zusammenrechnen von Teigen des Bäckers zum Mindestmaß",
+     "text_en": "Combining a baker's doughs to reach the minimum measure",
+     "desc": "חיוב בחלה › הגדרת עיסה החייבת › טיב ותכלית העיסה",
+     "desc_de": "Pflicht zur Challa › Bestimmung des pflichtigen Teigs › Beschaffenheit und Zweck des Teigs",
+     "desc_en": "Obligation of challah › Definition of dough that is liable › Nature and purpose of the dough"
+    },
+    {
+     "ref": "1:8",
+     "text": "עיסת כלבים והלכותיה",
+     "text_de": "Hundeteig und seine Gesetze",
+     "text_en": "Dog dough and its laws",
+     "desc": "חיוב בחלה › הגדרת עיסה החייבת › טיב ותכלית העיסה",
+     "desc_de": "Pflicht zur Challa › Bestimmung des pflichtigen Teigs › Beschaffenheit und Zweck des Teigs",
+     "desc_en": "Obligation of challah › Definition of dough that is liable › Nature and purpose of the dough"
+    },
+    {
+     "ref": "1:9",
+     "text": "דמיון חלה לתרומה",
+     "text_de": "Ähnlichkeit der Challa mit der Teruma",
+     "text_en": "Similarity of challah to terumah",
+     "desc": "חיוב בחלה › הגדרת עיסה החייבת › טיב ותכלית העיסה",
+     "desc_de": "Pflicht zur Challa › Bestimmung des pflichtigen Teigs › Beschaffenheit und Zweck des Teigs",
+     "desc_en": "Obligation of challah › Definition of dough that is liable › Nature and purpose of the dough"
+    }
+   ]
+  },
+  {
+   "head": "פרק ב",
+   "head_de": "Kapitel 2",
+   "head_en": "Chapter 2",
+   "items": [
+    {
+     "ref": "2:1",
+     "text": "פירות הנכנסים ויוצאים",
+     "text_de": "Früchte, die ein- und ausgeführt werden",
+     "text_en": "Produce imported and exported",
+     "desc": "חיוב בחלה › הגדרת עיסה החייבת › הארץ וחוץ לארץ",
+     "desc_de": "Pflicht zur Challa › Bestimmung des pflichtigen Teigs › Das Land und das Ausland",
+     "desc_en": "Obligation of challah › Definition of dough that is liable › The Land of Israel and outside it"
+    },
+    {
+     "ref": "2:2",
+     "text": "עפר חו\"ל, ומעשרות \\ עיסת מי-פירות",
+     "text_de": "Erde des Auslands und Zehnte / Teig aus Fruchtsaft",
+     "text_en": "Soil of the Diaspora and tithes / dough made with fruit juice",
+     "desc": "חיוב בחלה › הגדרת עיסה החייבת › הנעשים בטומאה › הארץ וחוץ לארץ",
+     "desc_de": "Pflicht zur Challa › Bestimmung des pflichtigen Teigs › In Unreinheit Zubereitetes › Das Land und das Ausland",
+     "desc_en": "Obligation of challah › Definition of dough that is liable › Things done in impurity › The Land of Israel and outside it"
+    },
+    {
+     "ref": "2:3",
+     "text": "טומאה מהכרח, הפרשה בעירום",
+     "text_de": "Unreinheit aus Zwang, Abtrennung in Nacktheit",
+     "text_en": "Impurity by compulsion; separating while naked",
+     "desc": "חיוב בחלה › הפרשת חלה › הגדרת עיסה החייבת › הנעשים בטומאה",
+     "desc_de": "Pflicht zur Challa › Absonderung der Challa › Bestimmung des pflichtigen Teigs › In Unreinheit Zubereitetes",
+     "desc_en": "Obligation of challah › Separating challah › Definition of dough that is liable › Things done in impurity"
+    },
+    {
+     "ref": "2:4",
+     "text": "צירוף עיסות",
+     "text_de": "Zusammenrechnen von Teigen",
+     "text_en": "Combining doughs",
+     "desc": "חיוב בחלה › הפרשת חלה › הגדרת עיסה החייבת › שיעור ולישת העיסה",
+     "desc_de": "Pflicht zur Challa › Absonderung der Challa › Bestimmung des pflichtigen Teigs › Mindestmaß und Kneten des Teigs",
+     "desc_en": "Obligation of challah › Separating challah › Definition of dough that is liable › Minimum quantity and kneading of the dough"
+    },
+    {
+     "ref": "2:5",
+     "text": "הפרשה מקמח",
+     "text_de": "Absonderung von Mehl",
+     "text_en": "Separation from flour",
+     "desc": "חיוב בחלה › הפרשת חלה › הגדרת עיסה החייבת › שיעור ולישת העיסה",
+     "desc_de": "Pflicht zur Challa › Absonderung der Challa › Bestimmung des pflichtigen Teigs › Mindestmaß und Kneten des Teigs",
+     "desc_en": "Obligation of challah › Separating challah › Definition of dough that is liable › Minimum quantity and kneading of the dough"
+    },
+    {
+     "ref": "2:6",
+     "text": "שיעור עיסה ומורסנה",
+     "text_de": "Maß von Teig und Kleie",
+     "text_en": "Quantity of dough and bran",
+     "desc": "חיוב בחלה › הפרשת חלה › הגדרת עיסה החייבת › שיעור ולישת העיסה",
+     "desc_de": "Pflicht zur Challa › Absonderung der Challa › Bestimmung des pflichtigen Teigs › Mindestmaß und Kneten des Teigs",
+     "desc_en": "Obligation of challah › Separating challah › Definition of dough that is liable › Minimum quantity and kneading of the dough"
+    },
+    {
+     "ref": "2:7",
+     "text": "בעלות ותכלית העיסה,איך אירעה טומאה",
+     "text_de": "Besitz und Zweck des Teigs, wie Unreinheit eintrat",
+     "text_en": "Ownership and purpose of the dough; how impurity occurred",
+     "desc": "הפרשת חלה › כיצד מפרישים › שיעור",
+     "desc_de": "Absonderung der Challa › Wie man absondert › Mindestmaß",
+     "desc_en": "Separating challah › How one separates › Minimum measure"
+    },
+    {
+     "ref": "2:8",
+     "text": "הפרשה מן הטהור על הטמא",
+     "text_de": "Absonderung vom Reinen für das Unreine",
+     "text_en": "Separating from the pure for the impure",
+     "desc": "הפרשת חלה › כיצד מפרישים › בטומאה",
+     "desc_de": "Absonderung der Challa › Wie man absondert › In Unreinheit",
+     "desc_en": "Separating challah › How one separates › In impurity"
+    }
+   ]
+  },
+  {
+   "head": "פרק ג",
+   "head_de": "Kapitel 3",
+   "head_en": "Chapter 3",
+   "items": [
+    {
+     "ref": "3:1",
+     "text": "שעת חיוב, אכילת עראי/ חשש לטומאה",
+     "text_de": "Zeitpunkt der Pflicht, beiläufiges Essen / Verdacht auf Unreinheit",
+     "text_en": "Time of obligation; casual eating / suspected impurity",
+     "desc": "הפרשת חלה › כיצד מפרישים › בטומאה",
+     "desc_de": "Absonderung der Challa › Wie man absondert › In Unreinheit",
+     "desc_en": "Separating challah › How one separates › In impurity"
+    },
+    {
+     "ref": "3:2",
+     "text": "דימוע, ספק טומאה",
+     "text_de": "Vermischung mit Teruma, zweifelhafte Unreinheit",
+     "text_en": "Admixture of teruma; doubtful impurity",
+     "desc": "חיוב בחלה › חלות חיוב בחלה › תהליך הייצור",
+     "desc_de": "Pflicht zur Challa › Eintreten der Challa-Pflicht › Herstellungsprozess",
+     "desc_en": "Obligation of challah › Onset of the challah obligation › Production process"
+    },
+    {
+     "ref": "3:3",
+     "text": "חיוב בחלה",
+     "text_de": "Pflicht zur Challa",
+     "text_en": "Obligation of challah",
+     "desc": "חיוב בחלה › חלות חיוב בחלה › בעלות › הקדש",
+     "desc_de": "Pflicht zur Challa › Eintreten der Challa-Pflicht › Eigentum › Geweihtes",
+     "desc_en": "Obligation of challah › Onset of the challah obligation › Ownership › Consecrated property"
+    },
+    {
+     "ref": "3:4",
+     "text": "חיוב במעשרות",
+     "text_de": "Pflicht zur Verzehntung",
+     "text_en": "Obligation to tithe",
+     "desc": "חיוב בחלה › חלות חיוב בחלה › בעלות › הקדש",
+     "desc_de": "Pflicht zur Challa › Eintreten der Challa-Pflicht › Eigentum › Geweihtes",
+     "desc_en": "Obligation of challah › Onset of the challah obligation › Ownership › Consecrated property"
+    },
+    {
+     "ref": "3:5",
+     "text": "מתנת עיסה, שותפות",
+     "text_de": "Teiggeschenk, Teilhaberschaft",
+     "text_en": "Gift of dough; partnership",
+     "desc": "חיוב בחלה › חלות חיוב בחלה › בעלות › עיסת נכרי",
+     "desc_de": "Pflicht zur Challa › Eintreten der Challa-Pflicht › Eigentum › Teig eines Nichtjuden",
+     "desc_en": "Obligation of challah › Onset of the challah obligation › Ownership › Dough of a gentile"
+    },
+    {
+     "ref": "3:6",
+     "text": "גיור \\ שעת חיוב",
+     "text_de": "Übertritt zum Judentum / Zeitpunkt der Pflicht",
+     "text_en": "Conversion / time of obligation",
+     "desc": "חיוב בחלה › חלות חיוב בחלה › תהליך הייצור › בעלות › עיסת נכרי",
+     "desc_de": "Pflicht zur Challa › Eintreten der Challa-Pflicht › Herstellungsprozess › Eigentum › Teig eines Nichtjuden",
+     "desc_en": "Obligation of challah › Onset of the challah obligation › Production process › Ownership › Dough of a gentile"
+    },
+    {
+     "ref": "3:7",
+     "text": "דגן באורז ונפקא מינות",
+     "text_de": "Getreide im Reis und die Folgen",
+     "text_en": "Grain in rice and its implications",
+     "desc": "חיוב בחלה › נתינת טעם המחייבת",
+     "desc_de": "Pflicht zur Challa › Geschmacksabgabe, die verpflichtet",
+     "desc_en": "Obligation of challah › Imparting flavor that obligates"
+    },
+    {
+     "ref": "3:8",
+     "text": "החייב לפטור",
+     "text_de": "Pflichtiges, das befreit",
+     "text_en": "Obligated item that exempts",
+     "desc": "חיוב בחלה › נתינת טעם המחייבת › החמצה",
+     "desc_de": "Pflicht zur Challa › Geschmacksabgabe, die verpflichtet › Säuerung",
+     "desc_en": "Obligation of challah › Imparting flavor that obligates › Leavening"
+    },
+    {
+     "ref": "3:9",
+     "text": "הפרשת מעשרות לתערובת",
+     "text_de": "Absonderung der Zehnte von einer Mischung",
+     "text_en": "Separating tithes from a mixture",
+     "desc": "חיוב בחלה › נתינת טעם המחייבת › החמצה",
+     "desc_de": "Pflicht zur Challa › Geschmacksabgabe, die verpflichtet › Säuerung",
+     "desc_en": "Obligation of challah › Imparting flavor that obligates › Leavening"
+    },
+    {
+     "ref": "3:10",
+     "text": "דגן לאורז \\ במינו ושלא במינו",
+     "text_de": "Getreide zu Reis / Gleichartiges und Nichtgleichartiges",
+     "text_en": "Grain to rice / same kind and different kind",
+     "desc": "חיוב בחלה › נתינת טעם המחייבת › החמצה",
+     "desc_de": "Pflicht zur Challa › Geschmacksabgabe, die verpflichtet › Säuerung",
+     "desc_en": "Obligation of challah › Imparting flavor that obligates › Leavening"
+    }
+   ]
+  },
+  {
+   "head": "פרק ד",
+   "head_de": "Kapitel 4",
+   "head_en": "Chapter 4",
+   "items": [
+    {
+     "ref": "4:1",
+     "text": "מין ובעלות",
+     "text_de": "Art und Besitz",
+     "text_en": "Kind and ownership",
+     "desc": "חיוב בחלה › צירוף עיסות לשיעור › חלות הנוגעות",
+     "desc_de": "Pflicht zur Challa › Zusammenrechnen von Teigen zum Mindestmaß › Betroffene Challot",
+     "desc_en": "Obligation of challah › Combining doughs to the minimum quantity › Affected challot"
+    },
+    {
+     "ref": "4:2",
+     "text": "מיני דגן המצטרפים",
+     "text_de": "Zusammenzurechnende Getreidearten",
+     "text_en": "Grain types that combine",
+     "desc": "חיוב בחלה › צירוף עיסות לשיעור › חלות הנוגעות",
+     "desc_de": "Pflicht zur Challa › Zusammenrechnen von Teigen zum Mindestmaß › Betroffene Challot",
+     "desc_en": "Obligation of challah › Combining doughs to the minimum quantity › Affected challot"
+    },
+    {
+     "ref": "4:3",
+     "text": "פטור באמצע",
+     "text_de": "Befreiung in der Mitte",
+     "text_en": "Exemption in the middle",
+     "desc": "חיוב בחלה › צירוף עיסות לשיעור › חלות הנוגעות",
+     "desc_de": "Pflicht zur Challa › Zusammenrechnen von Teigen zum Mindestmaß › Betroffene Challot",
+     "desc_en": "Obligation of challah › Combining doughs to the minimum quantity › Affected challot"
+    },
+    {
+     "ref": "4:4",
+     "text": "ישן וחדש \\ חלת קב לעצמו",
+     "text_de": "Altes und Neues / Kab-Challa für sich",
+     "text_en": "Old and new / kab-challah on its own",
+     "desc": "חיוב בחלה › הפרשת חלה › צירוף עיסות לשיעור › חלת קב › חלות הנוגעות",
+     "desc_de": "Pflicht zur Challa › Absonderung der Challa › Zusammenrechnen von Teigen zum Mindestmaß › Kab-Challa › Betroffene Challot",
+     "desc_en": "Obligation of challah › Separating challah › Combining doughs to the minimum quantity › Kab-challah › Affected challot"
+    },
+    {
+     "ref": "4:5",
+     "text": "צירוף אחר הפרשה",
+     "text_de": "Zusammenrechnen nach der Absonderung",
+     "text_en": "Combining after separation",
+     "desc": "חיוב בחלה › הפרשת חלה › צירוף עיסות לשיעור › חלת קב",
+     "desc_de": "Pflicht zur Challa › Absonderung der Challa › Zusammenrechnen von Teigen zum Mindestmaß › Kab-Challa",
+     "desc_en": "Obligation of challah › Separating challah › Combining doughs to the minimum quantity › Kab-challah"
+    },
+    {
+     "ref": "4:6",
+     "text": "קולות שונות",
+     "text_de": "Verschiedene Erleichterungen",
+     "text_en": "Various leniencies",
+     "desc": "חיוב בחלה › הפרשת חלה › דמאי",
+     "desc_de": "Pflicht zur Challa › Absonderung der Challa › Demai (zweifelhaft Verzehntetes)",
+     "desc_en": "Obligation of challah › Separating challah › Demai (doubtfully tithed produce)"
+    },
+    {
+     "ref": "4:7",
+     "text": "אריס לגוי סורי, ובמעשרות ובשביעית",
+     "text_de": "Pächter eines syrischen Nichtjuden, Zehnte und Schmitta",
+     "text_en": "Tenant of a Syrian gentile; tithes and the Sabbatical year",
+     "desc": "חיוב בחלה › הפרשת חלה › קדשי חוץ לארץ",
+     "desc_de": "Pflicht zur Challa › Absonderung der Challa › Heiligtümer außerhalb des Landes",
+     "desc_en": "Obligation of challah › Separating challah › Sanctified items outside the Land"
+    },
+    {
+     "ref": "4:8",
+     "text": "שלש ארצות וחלותיהם",
+     "text_de": "Drei Länder und ihre Challot",
+     "text_en": "Three lands and their challot",
+     "desc": "חיוב בחלה › הפרשת חלה › קדשי חוץ לארץ",
+     "desc_de": "Pflicht zur Challa › Absonderung der Challa › Heiligtümer außerhalb des Landes",
+     "desc_en": "Obligation of challah › Separating challah › Sanctified items outside the Land"
+    },
+    {
+     "ref": "4:9",
+     "text": "הניתנין לכל כהן",
+     "text_de": "Jedem Priester zu Gebendes",
+     "text_en": "That which may be given to any priest",
+     "desc": "חיוב בחלה › קדשי חוץ לארץ",
+     "desc_de": "Pflicht zur Challa › Heiligtümer außerhalb des Landes",
+     "desc_en": "Obligation of challah › Sanctified items outside the Land"
+    },
+    {
+     "ref": "4:10",
+     "text": "חלת חוץ לארץ, ביכורים קודם לעצרת",
+     "text_de": "Challa außerhalb des Landes, Bikkurim vor Schawuot",
+     "text_en": "Challah outside the Land; bikkurim before Shavuot",
+     "desc": "חיוב בחלה › קדשי חוץ לארץ › שהובאו ולא נתקבלו",
+     "desc_de": "Pflicht zur Challa › Heiligtümer außerhalb des Landes › Gebrachte, aber nicht angenommene",
+     "desc_en": "Obligation of challah › Sanctified items outside the Land › Brought but not accepted"
+    },
+    {
+     "ref": "4:11",
+     "text": "בכורי משקים וחו\"ל וסוריא,פסח שני",
+     "text_de": "Bikkurim von Getränken, Ausland und Syrien, Zweites Pessach",
+     "text_en": "Bikkurim of liquids, abroad and Syria; Second Pesach",
+     "desc": "חיוב בחלה › קדשי חוץ לארץ › שהובאו ולא נתקבלו",
+     "desc_de": "Pflicht zur Challa › Heiligtümer außerhalb des Landes › Gebrachte, aber nicht angenommene",
+     "desc_en": "Obligation of challah › Sanctified items outside the Land › Brought but not accepted"
+    }
+   ]
+  }
+ ]
+}

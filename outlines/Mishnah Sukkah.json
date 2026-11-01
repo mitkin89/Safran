@@ -1,0 +1,523 @@
+{
+ "book": "Mishnah Sukkah",
+ "title": "משנה סוכה",
+ "title_de": "Mischna Sukka – Gliederung",
+ "title_en": "Sukkah – outline",
+ "note": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema).",
+ "note_de": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema); ins Deutsche und Englische übersetzt.",
+ "note_en": "Outline after the table “Mishna Sedura”: the central content of each mishnah, with the topic path (main topic to sub-topic); translated into German and English.",
+ "sections": [
+  {
+   "head": "פרק א",
+   "head_de": "Kapitel 1",
+   "head_en": "Chapter 1",
+   "items": [
+    {
+     "ref": "1:1",
+     "text": "גובהה, הדפנות, קלישות הסכך, לשמה",
+     "text_de": "Höhe, Wände, Lockerheit des Schattendachs, zu diesem Zweck",
+     "text_en": "Height, walls, sparseness of the roofing, for its sake",
+     "desc": "מצות הסוכה › כשרות הסוכה › פסולים בסכך",
+     "desc_de": "Das Gebot der Sukka › Tauglichkeit der Sukka › Untaugliches Schattendach-Material",
+     "desc_en": "The commandment of the sukka › Fitness of the sukka › Unfit roofing material"
+    },
+    {
+     "ref": "1:2",
+     "text": "אילן, סוכה אחרת",
+     "text_de": "Baum, andere Sukka",
+     "text_en": "Tree, another sukka",
+     "desc": "מצות הסוכה › כשרות הסוכה › פסולים בסכך › הפרוס מעליו",
+     "desc_de": "Das Gebot der Sukka › Tauglichkeit der Sukka › Untaugliches Schattendach-Material › Das darüber Ausgebreitete",
+     "desc_en": "The commandment of the sukka › Fitness of the sukka › Unfit roofing material › What is spread above it"
+    },
+    {
+     "ref": "1:3",
+     "text": "סדין \\ סדין, על מטה",
+     "text_de": "Tuch / Tuch, über einem Bett",
+     "text_en": "Sheet / sheet, over a bed",
+     "desc": "מצות הסוכה › כשרות הסוכה › פסולים בסכך › פרוס תחתיו › הפרוס מעליו",
+     "desc_de": "Das Gebot der Sukka › Tauglichkeit der Sukka › Untaugliches Schattendach-Material › Darunter Ausgebreitetes › Das darüber Ausgebreitete",
+     "desc_en": "The commandment of the sukka › Fitness of the sukka › Unfit roofing material › What is spread beneath it › What is spread above it"
+    },
+    {
+     "ref": "1:4",
+     "text": "המחובר והכשרתו, כלל",
+     "text_de": "Das Angewachsene und seine Eignung, Grundsatz",
+     "text_en": "What is attached and its qualification, general rule",
+     "desc": "מצות הסוכה › כשרות הסוכה › פסולים בסכך",
+     "desc_de": "Das Gebot der Sukka › Tauglichkeit der Sukka › Untaugliches Schattendach-Material",
+     "desc_en": "The commandment of the sukka › Fitness of the sukka › Unfit roofing material"
+    },
+    {
+     "ref": "1:5",
+     "text": "חבילות והתרתן, כשרות לדפנות",
+     "text_de": "Bündel und ihre Lösung, Tauglichkeit für Wände",
+     "text_en": "Bundles and their untying, fitness for walls",
+     "desc": "מצות הסוכה › כשרות הסוכה › פסולים בסכך",
+     "desc_de": "Das Gebot der Sukka › Tauglichkeit der Sukka › Untaugliches Schattendach-Material",
+     "desc_en": "The commandment of the sukka › Fitness of the sukka › Unfit roofing material"
+    },
+    {
+     "ref": "1:6",
+     "text": "מסוכך כולו בהם, נסר אחד",
+     "text_de": "Ganz damit bedacht, ein Brett",
+     "text_en": "Entirely roofed with them, a single board",
+     "desc": "מצות הסוכה › כשרות הסוכה › פסולים בסכך › נסרים",
+     "desc_de": "Das Gebot der Sukka › Tauglichkeit der Sukka › Untaugliches Schattendach-Material › Bretter",
+     "desc_en": "The commandment of the sukka › Fitness of the sukka › Unfit roofing material › Boards"
+    },
+    {
+     "ref": "1:7",
+     "text": "שהם בתקרה והכשרתן",
+     "text_de": "Die in der Decke sind und ihre Zulassung",
+     "text_en": "Those in the ceiling and their qualification",
+     "desc": "מצות הסוכה › כשרות הסוכה › פסולים בסכך › נסרים",
+     "desc_de": "Das Gebot der Sukka › Tauglichkeit der Sukka › Untaugliches Schattendach-Material › Bretter",
+     "desc_en": "The commandment of the sukka › Fitness of the sukka › Unfit roofing material › Boards"
+    },
+    {
+     "ref": "1:8",
+     "text": "דבר המקבל טומאה, מן העשוי",
+     "text_de": "Etwas, das Unreinheit annimmt, aus Gefertigtem",
+     "text_en": "Something susceptible to impurity, made from manufactured material",
+     "desc": "מצות הסוכה › כשרות הסוכה › פסולים בסכך",
+     "desc_de": "Das Gebot der Sukka › Tauglichkeit der Sukka › Untaugliches Schattendach-Material",
+     "desc_en": "The commandment of the sukka › Fitness of the sukka › Unfit roofing material"
+    },
+    {
+     "ref": "1:9",
+     "text": "מחציה תלויה, מעל דופן, רוחב 3 טפח",
+     "text_de": "Zur Hälfte hängend, über der Wand, Breite von drei Handbreiten",
+     "text_en": "Half hanging, above the wall, width of three handbreadths",
+     "desc": "מצות הסוכה › כשרות הסוכה › פסולים בסכך › מרחק בין הסכך לדפנות",
+     "desc_de": "Das Gebot der Sukka › Tauglichkeit der Sukka › Untaugliches Schattendach-Material › Abstand zwischen Dach und Wänden",
+     "desc_en": "The commandment of the sukka › Fitness of the sukka › Unfit roofing material › Distance between the roofing and the walls"
+    },
+    {
+     "ref": "1:10",
+     "text": "דופן עקומה",
+     "text_de": "Gekrümmte Wand",
+     "text_en": "Curved wall",
+     "desc": "מצות הסוכה › כשרות הסוכה › פסולים בסכך › מרחק בין הסכך לדפנות",
+     "desc_de": "Das Gebot der Sukka › Tauglichkeit der Sukka › Untaugliches Schattendach-Material › Abstand zwischen Dach und Wänden",
+     "desc_en": "The commandment of the sukka › Fitness of the sukka › Unfit roofing material › Distance between the roofing and the walls"
+    },
+    {
+     "ref": "1:11",
+     "text": "חסרון בגג, מחצלאות הטמאות",
+     "text_de": "Lücke im Dach, unreine Matten",
+     "text_en": "Gap in the roof, impure mats",
+     "desc": "מצות הסוכה › כשרות הסוכה › פסולים בסכך",
+     "desc_de": "Das Gebot der Sukka › Tauglichkeit der Sukka › Untaugliches Schattendach-Material",
+     "desc_en": "The commandment of the sukka › Fitness of the sukka › Unfit roofing material"
+    }
+   ]
+  },
+  {
+   "head": "פרק ב",
+   "head_de": "Kapitel 2",
+   "head_en": "Chapter 2",
+   "items": [
+    {
+     "ref": "2:1",
+     "text": "שינה תחתיו",
+     "text_de": "Schlafen darunter",
+     "text_en": "Sleeping beneath it",
+     "desc": "מצות הסוכה › כשרות הסוכה › פסולים בסכך › מטה בסוכה",
+     "desc_de": "Das Gebot der Sukka › Tauglichkeit der Sukka › Untaugliches Schattendach-Material › Bett in der Sukka",
+     "desc_en": "The commandment of the sukka › Fitness of the sukka › Unfit roofing material › Bed in the sukka"
+    },
+    {
+     "ref": "2:2",
+     "text": "סמיכה בכרעיו \\ סכך מדובלל או עב",
+     "text_de": "Aufstützen auf die Beine / aufgelockertes oder dichtes Dach",
+     "text_en": "Resting on the legs / sparse or dense roofing",
+     "desc": "מצות הסוכה › כשרות הסוכה › שאינם פוסלים",
+     "desc_de": "Das Gebot der Sukka › Tauglichkeit der Sukka › Was nicht untauglich macht",
+     "desc_en": "The commandment of the sukka › Fitness of the sukka › What does not disqualify"
+    },
+    {
+     "ref": "2:3",
+     "text": "לא נבנית מעל לקרקע ושימושה ביו\"ט",
+     "text_de": "Nicht über dem Boden gebaut und ihre Benutzung am Feiertag",
+     "text_en": "Not built above the ground and its use on a festival day",
+     "desc": "מצות הסוכה › כשרות הסוכה › שאינם פוסלים",
+     "desc_de": "Das Gebot der Sukka › Tauglichkeit der Sukka › Was nicht untauglich macht",
+     "desc_en": "The commandment of the sukka › Fitness of the sukka › What does not disqualify"
+    },
+    {
+     "ref": "2:4",
+     "text": "אילנות כדפנות \\ העוסק במצוה, המצטער",
+     "text_de": "Bäume als Wände / wer mit einem Gebot beschäftigt ist, der Leidende",
+     "text_en": "Trees as walls / one engaged in a commandment, one who suffers",
+     "desc": "מצות הסוכה › דירה בסוכה › חיוב האדם › הפטורים › כשרות הסוכה › שאינם פוסלים",
+     "desc_de": "Das Gebot der Sukka › Wohnen in der Sukka › Verpflichtung des Menschen › Die Befreiten › Tauglichkeit der Sukka › Was nicht untauglich macht",
+     "desc_en": "The commandment of the sukka › Dwelling in the sukka › The person's obligation › Those exempt › Fitness of the sukka › What does not disqualify"
+    },
+    {
+     "ref": "2:5",
+     "text": "אכילת עראי והמחמירים",
+     "text_de": "Gelegentliches Essen und die Strengen",
+     "text_en": "Casual eating and those who are strict",
+     "desc": "מצות הסוכה › דירה בסוכה › חיוב האדם › אכילה בסוכה",
+     "desc_de": "Das Gebot der Sukka › Wohnen in der Sukka › Verpflichtung des Menschen › Essen in der Sukka",
+     "desc_en": "The commandment of the sukka › Dwelling in the sukka › The person's obligation › Eating in the sukka"
+    },
+    {
+     "ref": "2:6",
+     "text": "מספר הסעודות והשלמתן",
+     "text_de": "Zahl der Mahlzeiten und ihre Vollendung",
+     "text_en": "Number of meals and their completion",
+     "desc": "מצות הסוכה › דירה בסוכה › חיוב האדם › אכילה בסוכה",
+     "desc_de": "Das Gebot der Sukka › Wohnen in der Sukka › Verpflichtung des Menschen › Essen in der Sukka",
+     "desc_en": "The commandment of the sukka › Dwelling in the sukka › The person's obligation › Eating in the sukka"
+    },
+    {
+     "ref": "2:7",
+     "text": "שלחן בתוך הבית",
+     "text_de": "Tisch innerhalb des Hauses",
+     "text_en": "Table inside the house",
+     "desc": "מצות הסוכה › דירה בסוכה › חיוב האדם › אכילה בסוכה",
+     "desc_de": "Das Gebot der Sukka › Wohnen in der Sukka › Verpflichtung des Menschen › Essen in der Sukka",
+     "desc_en": "The commandment of the sukka › Dwelling in the sukka › The person's obligation › Eating in the sukka"
+    },
+    {
+     "ref": "2:8",
+     "text": "נשים ועבדים, חינוך קטן",
+     "text_de": "Frauen und Sklaven, Erziehung eines Kindes",
+     "text_en": "Women and slaves, training a child",
+     "desc": "מצות הסוכה › דירה בסוכה › חיוב האדם › הפטורים",
+     "desc_de": "Das Gebot der Sukka › Wohnen in der Sukka › Verpflichtung des Menschen › Die Befreiten",
+     "desc_en": "The commandment of the sukka › Dwelling in the sukka › The person's obligation › Those exempt"
+    },
+    {
+     "ref": "2:9",
+     "text": "דירה חשובה, בלי צער",
+     "text_de": "Würdige Wohnung, ohne Beschwerde",
+     "text_en": "Proper dwelling, without discomfort",
+     "desc": "מצות הסוכה › דירה בסוכה › איכות הדירה",
+     "desc_de": "Das Gebot der Sukka › Wohnen in der Sukka › Beschaffenheit der Wohnung",
+     "desc_en": "The commandment of the sukka › Dwelling in the sukka › Quality of the dwelling"
+    }
+   ]
+  },
+  {
+   "head": "פרק ג",
+   "head_de": "Kapitel 3",
+   "head_en": "Chapter 3",
+   "items": [
+    {
+     "ref": "3:1",
+     "text": "בעלות, הידור, שיעור",
+     "text_de": "Eigentum, Verschönerung, Maß",
+     "text_en": "Ownership, beautification, measure",
+     "desc": "מצות ארבעת המינים › כשרות המינים › פסולים שונים › לולב",
+     "desc_de": "Das Gebot der vier Arten › Tauglichkeit der Arten › Verschiedene untaugliche Fälle › Lulaw",
+     "desc_en": "The commandment of the four species › Fitness of the species › Various disqualifying cases › Lulav"
+    },
+    {
+     "ref": "3:2",
+     "text": "בעלות, הידור, ענבים",
+     "text_de": "Eigentum, Verschönerung, Trauben",
+     "text_en": "Ownership, beautification, grapes",
+     "desc": "מצות ארבעת המינים › כשרות המינים › פסולים שונים › הדס",
+     "desc_de": "Das Gebot der vier Arten › Tauglichkeit der Arten › Verschiedene untaugliche Fälle › Myrte",
+     "desc_en": "The commandment of the four species › Fitness of the species › Various disqualifying cases › Myrtle"
+    },
+    {
+     "ref": "3:3",
+     "text": "בעלות, הידור, צפצפה, של בעל",
+     "text_de": "Eigentum, Verschönerung, Pappel, die des Götzenpriesters",
+     "text_en": "Ownership, beautification, poplar, that of an idol's owner",
+     "desc": "מצות ארבעת המינים › כשרות המינים › פסולים שונים › ערבה",
+     "desc_de": "Das Gebot der vier Arten › Tauglichkeit der Arten › Verschiedene untaugliche Fälle › Bachweide",
+     "desc_en": "The commandment of the four species › Fitness of the species › Various disqualifying cases › Willow"
+    },
+    {
+     "ref": "3:4",
+     "text": "מספרם הנצרך, הידורם",
+     "text_de": "Ihre erforderliche Zahl, ihre Verschönerung",
+     "text_en": "Their required number, their beautification",
+     "desc": "מצות ארבעת המינים › כשרות המינים › פסולים שונים › הד' מינים",
+     "desc_de": "Das Gebot der vier Arten › Tauglichkeit der Arten › Verschiedene untaugliche Fälle › Die vier Arten",
+     "desc_en": "The commandment of the four species › Fitness of the species › Various disqualifying cases › The four species"
+    },
+    {
+     "ref": "3:5",
+     "text": "בעלות, הידור, שיעור, אפשרות ליהנות",
+     "text_de": "Eigentum, Verschönerung, Maß, Möglichkeit des Nutzens",
+     "text_en": "Ownership, beautification, measure, possibility of benefiting",
+     "desc": "מצות ארבעת המינים › כשרות המינים › פסולים שונים › אתרוג",
+     "desc_de": "Das Gebot der vier Arten › Tauglichkeit der Arten › Verschiedene untaugliche Fälle › Etrog",
+     "desc_en": "The commandment of the four species › Fitness of the species › Various disqualifying cases › Etrog"
+    },
+    {
+     "ref": "3:6",
+     "text": "חסרון, הידור, צבע",
+     "text_de": "Mangel, Verschönerung, Farbe",
+     "text_en": "Defect, beautification, color",
+     "desc": "מצות ארבעת המינים › כשרות המינים › פסולים שונים › אתרוג",
+     "desc_de": "Das Gebot der vier Arten › Tauglichkeit der Arten › Verschiedene untaugliche Fälle › Etrog",
+     "desc_en": "The commandment of the four species › Fitness of the species › Various disqualifying cases › Etrog"
+    },
+    {
+     "ref": "3:7",
+     "text": "שיעור המזערי והמרבי",
+     "text_de": "Mindest- und Höchstmaß",
+     "text_en": "Minimum and maximum size",
+     "desc": "מצות ארבעת המינים › כשרות המינים › פסולים שונים › אתרוג",
+     "desc_de": "Das Gebot der vier Arten › Tauglichkeit der Arten › Verschiedene untaugliche Fälle › Etrog",
+     "desc_en": "The commandment of the four species › Fitness of the species › Various disqualifying cases › Etrog"
+    },
+    {
+     "ref": "3:8",
+     "text": "אגד במינו",
+     "text_de": "Bündelung nach Art",
+     "text_en": "Binding by kind",
+     "desc": "מצות ארבעת המינים › נטילתם › כיצד › איך ומתי",
+     "desc_de": "Das Gebot der vier Arten › Ihr Ergreifen › Wie › Wie und wann",
+     "desc_en": "The commandment of the four species › Taking them › How › How and when"
+    },
+    {
+     "ref": "3:9",
+     "text": "נענועים / מצותו כל היום",
+     "text_de": "Schütteln / sein Gebot gilt den ganzen Tag",
+     "text_en": "Waving / its commandment lasts all day",
+     "desc": "מצות ארבעת המינים › נטילתם › כיצד › קריאת ההלל › איך ומתי",
+     "desc_de": "Das Gebot der vier Arten › Ihr Ergreifen › Wie › Rezitation des Hallel › Wie und wann",
+     "desc_en": "The commandment of the four species › Taking them › How › Recitation of the Hallel › How and when"
+    },
+    {
+     "ref": "3:10",
+     "text": "ענייה להקראתו",
+     "text_de": "Antworten beim Vortragen",
+     "text_en": "Responding during its recitation",
+     "desc": "מצות ארבעת המינים › נטילתם › כיצד › קריאת ההלל",
+     "desc_de": "Das Gebot der vier Arten › Ihr Ergreifen › Wie › Rezitation des Hallel",
+     "desc_en": "The commandment of the four species › Taking them › How › Recitation of the Hallel"
+    },
+    {
+     "ref": "3:11",
+     "text": "כפילות הפסוקים, ברכות, אתרוג בשביעית",
+     "text_de": "Doppelung der Verse, Segenssprüche, Etrog im Brachjahr",
+     "text_en": "Repetition of the verses, blessings, etrog in the Sabbatical year",
+     "desc": "מצות ארבעת המינים › נטילתם › כיצד › קריאת ההלל",
+     "desc_de": "Das Gebot der vier Arten › Ihr Ergreifen › Wie › Rezitation des Hallel",
+     "desc_en": "The commandment of the four species › Taking them › How › Recitation of the Hallel"
+    },
+    {
+     "ref": "3:12",
+     "text": "במקדש ובמדינה ואחרי החורבן",
+     "text_de": "Im Tempel, im Land und nach der Zerstörung",
+     "text_en": "In the Temple, in the country and after the destruction",
+     "desc": "מצות ארבעת המינים › נטילתם › כיצד › מספר ימים",
+     "desc_de": "Das Gebot der vier Arten › Ihr Ergreifen › Wie › Zahl der Tage",
+     "desc_en": "The commandment of the four species › Taking them › How › Number of days"
+    },
+    {
+     "ref": "3:13",
+     "text": "ביום ראשון בשלו, כיצד נהגו בגבולין",
+     "text_de": "Am ersten Tag in seiner Reife, wie man in den Provinzen verfuhr",
+     "text_en": "On the first day when ripe, how they acted in the provinces",
+     "desc": "מצות ארבעת המינים › נטילתם › כיצד › בשבת",
+     "desc_de": "Das Gebot der vier Arten › Ihr Ergreifen › Wie › Am Schabbat",
+     "desc_en": "The commandment of the four species › Taking them › How › On Shabbat"
+    },
+    {
+     "ref": "3:14",
+     "text": "חיוב בהוצאה לרשות הרבים",
+     "text_de": "Verpflichtung beim Hinausbringen in den öffentlichen Bereich",
+     "text_en": "Liability for carrying out into the public domain",
+     "desc": "מצות ארבעת המינים › נטילתם › כיצד › בשבת",
+     "desc_de": "Das Gebot der vier Arten › Ihr Ergreifen › Wie › Am Schabbat",
+     "desc_en": "The commandment of the four species › Taking them › How › On Shabbat"
+    },
+    {
+     "ref": "3:15",
+     "text": "החזרתו למים ובמועד \\ חינוך קטן",
+     "text_de": "Zurückbringen ins Wasser und am Halbfeiertag / Erziehung eines Kindes",
+     "text_en": "Returning it to water and on the intermediate days / training a child",
+     "desc": "מצות ארבעת המינים › נטילתם › חיוב בהן › כיצד › בשבת",
+     "desc_de": "Das Gebot der vier Arten › Ihr Ergreifen › Verpflichtung dazu › Wie › Am Schabbat",
+     "desc_en": "The commandment of the four species › Taking them › Obligation regarding them › How › On Shabbat"
+    }
+   ]
+  },
+  {
+   "head": "פרק ד",
+   "head_de": "Kapitel 4",
+   "head_en": "Chapter 4",
+   "items": [
+    {
+     "ref": "4:1",
+     "text": "הנוהגים מחמישה עד שמונה ימים",
+     "text_de": "Die vom fünften bis zum achten Tag Pflegenden",
+     "text_en": "Those who observe from five to eight days",
+     "desc": "מצוות חג הסוכות במקדש › משך ותיאור קיומם › דחיית השבת › כותרת",
+     "desc_de": "Gebote des Laubhüttenfestes im Tempel › Dauer und Beschreibung ihrer Ausübung › Verdrängung des Schabbats › Überschrift",
+     "desc_en": "Commandments of the festival of Sukkot in the Temple › Duration and description of their observance › Overriding of Shabbat › Heading"
+    },
+    {
+     "ref": "4:2",
+     "text": "יום הראשון שדוחה",
+     "text_de": "Der erste Tag, der verdrängt",
+     "text_en": "The first day, which overrides",
+     "desc": "מצוות חג הסוכות במקדש › משך ותיאור קיומם › דחיית השבת › הדגמה › לולב",
+     "desc_de": "Gebote des Laubhüttenfestes im Tempel › Dauer und Beschreibung ihrer Ausübung › Verdrängung des Schabbats › Veranschaulichung › Lulaw",
+     "desc_en": "Commandments of the festival of Sukkot in the Temple › Duration and description of their observance › Overriding of Shabbat › Demonstration › Lulav"
+    },
+    {
+     "ref": "4:3",
+     "text": "יום השביעי שדוחה",
+     "text_de": "Der siebte Tag, der verdrängt",
+     "text_en": "The seventh day, which overrides",
+     "desc": "מצוות חג הסוכות במקדש › משך ותיאור קיומם › דחיית השבת › הדגמה › ערבה",
+     "desc_de": "Gebote des Laubhüttenfestes im Tempel › Dauer und Beschreibung ihrer Ausübung › Verdrängung des Schabbats › Veranschaulichung › Bachweide",
+     "desc_en": "Commandments of the festival of Sukkot in the Temple › Duration and description of their observance › Overriding of Shabbat › Demonstration › Willow"
+    },
+    {
+     "ref": "4:4",
+     "text": "כשיום הראשון חל בשבת, התקנה",
+     "text_de": "Wenn der erste Tag auf Schabbat fällt, die Verordnung",
+     "text_en": "When the first day falls on Shabbat, the ordinance",
+     "desc": "מצוות חג הסוכות במקדש › משך ותיאור קיומם › דחיית השבת › כיצד נהגו › לולב",
+     "desc_de": "Gebote des Laubhüttenfestes im Tempel › Dauer und Beschreibung ihrer Ausübung › Verdrängung des Schabbats › Wie man verfuhr › Lulaw",
+     "desc_en": "Commandments of the festival of Sukkot in the Temple › Duration and description of their observance › Overriding of Shabbat › How they acted › Lulav"
+    },
+    {
+     "ref": "4:5",
+     "text": "לקיטתן, זקיפתן, תפילות",
+     "text_de": "Ihr Pflücken, Aufstellen, Gebete",
+     "text_en": "Their gathering, setting upright, prayers",
+     "desc": "מצוות חג הסוכות במקדש › משך ותיאור קיומם › כיצד נהגו › ערבה",
+     "desc_de": "Gebote des Laubhüttenfestes im Tempel › Dauer und Beschreibung ihrer Ausübung › Wie man verfuhr › Bachweide",
+     "desc_en": "Commandments of the festival of Sukkot in the Temple › Duration and description of their observance › How they acted › Willow"
+    },
+    {
+     "ref": "4:6",
+     "text": "מעשהו בשבת, חריות דקל",
+     "text_de": "Sein Handeln am Schabbat, Palmzweige",
+     "text_en": "His conduct on Shabbat, palm branches",
+     "desc": "מצוות חג הסוכות במקדש › משך ותיאור קיומם › כיצד נהגו › ערבה",
+     "desc_de": "Gebote des Laubhüttenfestes im Tempel › Dauer und Beschreibung ihrer Ausübung › Wie man verfuhr › Bachweide",
+     "desc_en": "Commandments of the festival of Sukkot in the Temple › Duration and description of their observance › How they acted › Willow"
+    },
+    {
+     "ref": "4:7",
+     "text": "בזיזת הד' מינים של קטנים",
+     "text_de": "Plünderung der vier Arten von Kindern",
+     "text_en": "Plundering of the four species by children",
+     "desc": "מצוות חג הסוכות במקדש › משך ותיאור קיומם › סוף החג › לולב",
+     "desc_de": "Gebote des Laubhüttenfestes im Tempel › Dauer und Beschreibung ihrer Ausübung › Ende des Festes › Lulaw",
+     "desc_en": "Commandments of the festival of Sukkot in the Temple › Duration and description of their observance › End of the festival › Lulav"
+    },
+    {
+     "ref": "4:8",
+     "text": "הלל ושמחה אפ' בשמיני, פינוי הסוכה",
+     "text_de": "Hallel und Freude auch am achten Tag, Räumen der Sukka",
+     "text_en": "Hallel and rejoicing even on the eighth day, clearing the sukka",
+     "desc": "מצוות חג הסוכות במקדש › משך ותיאור קיומם › סוף החג",
+     "desc_de": "Gebote des Laubhüttenfestes im Tempel › Dauer und Beschreibung ihrer Ausübung › Ende des Festes",
+     "desc_en": "Commandments of the festival of Sukkot in the Temple › Duration and description of their observance › End of the festival"
+    },
+    {
+     "ref": "4:9",
+     "text": "המילוי, הספלים, הניסוך כהלכה",
+     "text_de": "Das Füllen, die Becher, die Ausgießung nach der Halacha",
+     "text_en": "The filling, the cups, the libation according to halacha",
+     "desc": "מצוות חג הסוכות במקדש › משך ותיאור קיומם › ניסוך המים",
+     "desc_de": "Gebote des Laubhüttenfestes im Tempel › Dauer und Beschreibung ihrer Ausübung › Wasserspende",
+     "desc_en": "Commandments of the festival of Sukkot in the Temple › Duration and description of their observance › Water libation"
+    },
+    {
+     "ref": "4:10",
+     "text": "הכנת המים מבערב, אם נפסלו",
+     "text_de": "Vorbereitung des Wassers vom Vorabend, wenn es untauglich wurde",
+     "text_en": "Preparing the water from the previous evening, if it became unfit",
+     "desc": "מצוות חג הסוכות במקדש › משך ותיאור קיומם › ניסוך המים › בשבת",
+     "desc_de": "Gebote des Laubhüttenfestes im Tempel › Dauer und Beschreibung ihrer Ausübung › Wasserspende › Am Schabbat",
+     "desc_en": "Commandments of the festival of Sukkot in the Temple › Duration and description of their observance › Water libation › On Shabbat"
+    }
+   ]
+  },
+  {
+   "head": "פרק ה",
+   "head_de": "Kapitel 5",
+   "head_en": "Chapter 5",
+   "items": [
+    {
+     "ref": "5:1",
+     "text": "אי דחיית שבת \\ גודל השמחה",
+     "text_de": "Schabbat wird nicht verdrängt / Größe der Freude",
+     "text_en": "Shabbat is not overridden / greatness of the rejoicing",
+     "desc": "מצוות חג הסוכות במקדש › משך ותיאור קיומם › ניסוך המים › שמחת בית השואבה › בשבת",
+     "desc_de": "Gebote des Laubhüttenfestes im Tempel › Dauer und Beschreibung ihrer Ausübung › Wasserspende › Freude des Wasserschöpffestes › Am Schabbat",
+     "desc_en": "Commandments of the festival of Sukkot in the Temple › Duration and description of their observance › Water libation › The Water-Drawing celebration › On Shabbat"
+    },
+    {
+     "ref": "5:2",
+     "text": "המחיצה \\ תיאורן ומילואן",
+     "text_de": "Die Trennwand / ihre Beschreibung und Füllung",
+     "text_en": "The partition / its description and filling",
+     "desc": "מצוות חג הסוכות במקדש › משך ותיאור קיומם › ניסוך המים › שמחת בית השואבה › המנורות",
+     "desc_de": "Gebote des Laubhüttenfestes im Tempel › Dauer und Beschreibung ihrer Ausübung › Wasserspende › Freude des Wasserschöpffestes › Die Leuchter",
+     "desc_en": "Commandments of the festival of Sukkot in the Temple › Duration and description of their observance › Water libation › The Water-Drawing celebration › The lamps"
+    },
+    {
+     "ref": "5:3",
+     "text": "הפתילות, רוב האור",
+     "text_de": "Die Dochte, Mehrheit des Lichts",
+     "text_en": "The wicks, most of the light",
+     "desc": "מצוות חג הסוכות במקדש › משך ותיאור קיומם › ניסוך המים › שמחת בית השואבה › המנורות",
+     "desc_de": "Gebote des Laubhüttenfestes im Tempel › Dauer und Beschreibung ihrer Ausübung › Wasserspende › Freude des Wasserschöpffestes › Die Leuchter",
+     "desc_en": "Commandments of the festival of Sukkot in the Temple › Duration and description of their observance › Water libation › The Water-Drawing celebration › The lamps"
+    },
+    {
+     "ref": "5:4",
+     "text": "ריקודים, ניגונים, תקיעות, השתחויות",
+     "text_de": "Tänze, Gesänge, Trompetenstöße, Niederwerfungen",
+     "text_en": "Dances, songs, trumpet blasts, prostrations",
+     "desc": "מצוות חג הסוכות במקדש › משך ותיאור קיומם › ניסוך המים › שמחת בית השואבה",
+     "desc_de": "Gebote des Laubhüttenfestes im Tempel › Dauer und Beschreibung ihrer Ausübung › Wasserspende › Freude des Wasserschöpffestes",
+     "desc_en": "Commandments of the festival of Sukkot in the Temple › Duration and description of their observance › Water libation › The Water-Drawing celebration"
+    },
+    {
+     "ref": "5:5",
+     "text": "גבולות מספרם",
+     "text_de": "Grenzen ihrer Zahl",
+     "text_en": "Limits of their number",
+     "desc": "מצוות חג הסוכות במקדש › הלכות המקדש › התקיעות",
+     "desc_de": "Gebote des Laubhüttenfestes im Tempel › Gesetze des Tempels › Die Trompetenstöße",
+     "desc_en": "Commandments of the festival of Sukkot in the Temple › laws of the Temple › The trumpet blasts"
+    },
+    {
+     "ref": "5:6",
+     "text": "קרבנות החג",
+     "text_de": "Die Opfer des Festes",
+     "text_en": "The festival offerings",
+     "desc": "מצוות חג הסוכות במקדש › הלכות המקדש › חלוקה בין המשמרות › הקרבה",
+     "desc_de": "Gebote des Laubhüttenfestes im Tempel › Gesetze des Tempels › Verteilung unter den Priesterwachen › Darbringung",
+     "desc_en": "Commandments of the festival of Sukkot in the Temple › laws of the Temple › Division among the priestly watches › Offering"
+    },
+    {
+     "ref": "5:7",
+     "text": "ברגלים \\ יום טוב הסמוך לשבת",
+     "text_de": "An den Wallfahrtsfesten / Feiertag neben dem Schabbat",
+     "text_en": "On the pilgrimage festivals / festival day adjacent to Shabbat",
+     "desc": "מצוות חג הסוכות במקדש › הלכות המקדש › חלוקה בין המשמרות › אכילת זבחים ומנחות › הקרבה",
+     "desc_de": "Gebote des Laubhüttenfestes im Tempel › Gesetze des Tempels › Verteilung unter den Priesterwachen › Essen von Schlacht- und Mehlopfern › Darbringung",
+     "desc_en": "Commandments of the festival of Sukkot in the Temple › laws of the Temple › Division among the priestly watches › Eating of sacrifices and meal offerings › Offering"
+    },
+    {
+     "ref": "5:8",
+     "text": "יום טוב קרוב לשבת, קנס לבלגה",
+     "text_de": "Feiertag nahe dem Schabbat, Strafe für Bilga",
+     "text_en": "Festival day near Shabbat, penalty for Bilga",
+     "desc": "מצוות חג הסוכות במקדש › הלכות המקדש › חלוקה בין המשמרות › אכילת זבחים ומנחות",
+     "desc_de": "Gebote des Laubhüttenfestes im Tempel › Gesetze des Tempels › Verteilung unter den Priesterwachen › Essen von Schlacht- und Mehlopfern",
+     "desc_en": "Commandments of the festival of Sukkot in the Temple › laws of the Temple › Division among the priestly watches › Eating of sacrifices and meal offerings"
+    }
+   ]
+  }
+ ]
+}

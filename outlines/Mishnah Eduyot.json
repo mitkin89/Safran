@@ -1,0 +1,733 @@
+{
+ "book": "Mishnah Eduyot",
+ "title": "משנה עדויות",
+ "title_de": "Mischna Edujot – Gliederung",
+ "title_en": "Eduyot – outline",
+ "note": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema).",
+ "note_de": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema); ins Deutsche und Englische übersetzt.",
+ "note_en": "Outline after the table “Mishna Sedura”: the central content of each mishnah, with the topic path (main topic to sub-topic); translated into German and English.",
+ "sections": [
+  {
+   "head": "פרק א",
+   "head_de": "Kapitel 1",
+   "head_en": "Chapter 1",
+   "items": [
+    {
+     "ref": "1:1",
+     "text": "חשש טומאת נדה למפרע, עדים",
+     "text_de": "Befürchtung rückwirkender Menstruationsunreinheit, Zeugen",
+     "text_en": "Concern for retroactive menstrual impurity, witnesses",
+     "desc": "שמאי והלל ותלמידיהם › שמאי והלל וחכמים",
+     "desc_de": "Schammai und Hillel und ihre Schüler › Schammai und Hillel und die Weisen",
+     "desc_en": "Shammai and Hillel and their disciples › Shammai and Hillel and the Sages"
+    },
+    {
+     "ref": "1:2",
+     "text": "עיסה החייבת בחלה",
+     "text_de": "Teig, der der Challa unterliegt",
+     "text_en": "Dough subject to challah",
+     "desc": "שמאי והלל ותלמידיהם › שמאי והלל וחכמים › שיעורים",
+     "desc_de": "Schammai und Hillel und ihre Schüler › Schammai und Hillel und die Weisen › Maße",
+     "desc_en": "Shammai and Hillel and their disciples › Shammai and Hillel and the Sages › Measures"
+    },
+    {
+     "ref": "1:3",
+     "text": "מים שאובים הפוסלים מקוה,עדות גרדיים",
+     "text_de": "Geschöpftes Wasser, das die Mikwe untauglich macht, Zeugnis der Walker",
+     "text_en": "Drawn water that invalidates a mikveh, testimony of the wool-carders",
+     "desc": "שמאי והלל ותלמידיהם › שמאי והלל וחכמים › שיעורים",
+     "desc_de": "Schammai und Hillel und ihre Schüler › Schammai und Hillel und die Weisen › Maße",
+     "desc_en": "Shammai and Hillel and their disciples › Shammai and Hillel and the Sages › Measures"
+    },
+    {
+     "ref": "1:4",
+     "text": "גמישות הלכתית",
+     "text_de": "Halachische Flexibilität",
+     "text_en": "Halakhic flexibility",
+     "desc": "שמאי והלל ותלמידיהם › שמאי והלל וחכמים › לימוד מדרכי המשנה",
+     "desc_de": "Schammai und Hillel und ihre Schüler › Schammai und Hillel und die Weisen › Lernen aus den Wegen der Mischna",
+     "desc_en": "Shammai and Hillel and their disciples › Shammai and Hillel and the Sages › Learning from the ways of the Mishna"
+    },
+    {
+     "ref": "1:5",
+     "text": "תנאים לביטול דברי קדמונים",
+     "text_de": "Bedingungen für die Aufhebung der Worte der Früheren",
+     "text_en": "Conditions for overturning the words of earlier authorities",
+     "desc": "שמאי והלל ותלמידיהם › שמאי והלל וחכמים › לימוד מדרכי המשנה",
+     "desc_de": "Schammai und Hillel und ihre Schüler › Schammai und Hillel und die Weisen › Lernen aus den Wegen der Mischna",
+     "desc_en": "Shammai and Hillel and their disciples › Shammai and Hillel and the Sages › Learning from the ways of the Mishna"
+    },
+    {
+     "ref": "1:6",
+     "text": "מניעת ערעור",
+     "text_de": "Verhinderung von Anfechtung",
+     "text_en": "Preventing challenge",
+     "desc": "שמאי והלל ותלמידיהם › שמאי והלל וחכמים › לימוד מדרכי המשנה",
+     "desc_de": "Schammai und Hillel und ihre Schüler › Schammai und Hillel und die Weisen › Lernen aus den Wegen der Mischna",
+     "desc_en": "Shammai and Hillel and their disciples › Shammai and Hillel and the Sages › Learning from the ways of the Mishna"
+    },
+    {
+     "ref": "1:7",
+     "text": "שיעור עצמות לטמא באהל",
+     "text_de": "Maß der Knochen, die im Zelt verunreinigen",
+     "text_en": "Measure of bones that defile in a tent",
+     "desc": "שמאי והלל ותלמידיהם › בית שמאי ובית הלל › טומאה וטהרה",
+     "desc_de": "Schammai und Hillel und ihre Schüler › Schule Schammais und Schule Hillels › Unreinheit und Reinheit",
+     "desc_en": "Shammai and Hillel and their disciples › School of Shammai and School of Hillel › Impurity and purity"
+    },
+    {
+     "ref": "1:8",
+     "text": "שמירת טהרת כרשיני תרומה",
+     "text_de": "Bewahrung der Reinheit von Terumawicken",
+     "text_en": "Safeguarding the purity of terumah vetches",
+     "desc": "שמאי והלל ותלמידיהם › בית שמאי ובית הלל › טומאה וטהרה",
+     "desc_de": "Schammai und Hillel und ihre Schüler › Schule Schammais und Schule Hillels › Unreinheit und Reinheit",
+     "desc_en": "Shammai and Hillel and their disciples › School of Shammai and School of Hillel › Impurity and purity"
+    },
+    {
+     "ref": "1:9",
+     "text": "צירוף מעות לסלע, חילול על כסף",
+     "text_de": "Zusammenrechnen von Münzen zu einem Sela, Auslösung auf Geld",
+     "text_en": "Combining coins into a sela, redemption onto money",
+     "desc": "שמאי והלל ותלמידיהם › בית שמאי ובית הלל › שמירת ערך מעשר שני",
+     "desc_de": "Schammai und Hillel und ihre Schüler › Schule Schammais und Schule Hillels › Wahrung des Wertes des Zweiten Zehnten",
+     "desc_en": "Shammai and Hillel and their disciples › School of Shammai and School of Hillel › Preserving the value of Second Tithe"
+    },
+    {
+     "ref": "1:10",
+     "text": "פריטת סלע למעות",
+     "text_de": "Wechseln eines Sela in Kleingeld",
+     "text_en": "Changing a sela into small coins",
+     "desc": "שמאי והלל ותלמידיהם › בית שמאי ובית הלל › שמירת ערך מעשר שני",
+     "desc_de": "Schammai und Hillel und ihre Schüler › Schule Schammais und Schule Hillels › Wahrung des Wertes des Zweiten Zehnten",
+     "desc_en": "Shammai and Hillel and their disciples › School of Shammai and School of Hillel › Preserving the value of Second Tithe"
+    },
+    {
+     "ref": "1:11",
+     "text": "נטילת חיפויים, כסא הקבוע בעריבה",
+     "text_de": "Entfernen von Überzügen, Stuhl, der in der Backmulde fest ist",
+     "text_en": "Removing coverings, a chair fixed in the kneading trough",
+     "desc": "שמאי והלל ותלמידיהם › בית שמאי ובית הלל › טומאה וטהרה",
+     "desc_de": "Schammai und Hillel und ihre Schüler › Schule Schammais und Schule Hillels › Unreinheit und Reinheit",
+     "desc_en": "Shammai and Hillel and their disciples › School of Shammai and School of Hillel › Impurity and purity"
+    },
+    {
+     "ref": "1:12",
+     "text": "עדות להתרת עגונה וזכאות בכתובה",
+     "text_de": "Zeugnis zur Freigabe einer Agunah und Anspruch auf die Ketubba",
+     "text_en": "Testimony to release an agunah and entitlement to the ketubba",
+     "desc": "שמאי והלל ותלמידיהם › בית שמאי ובית הלל › שחזרו בהן בית הלל › אישות",
+     "desc_de": "Schammai und Hillel und ihre Schüler › Schule Schammais und Schule Hillels › Dass die Schule Hillels zurückgenommen hat › Eherecht",
+     "desc_en": "Shammai and Hillel and their disciples › School of Shammai and School of Hillel › That the School of Hillel retracted › Marriage law"
+    },
+    {
+     "ref": "1:13",
+     "text": "התאפשרות נישואין לחצי עבד",
+     "text_de": "Möglichkeit der Heirat für einen halben Sklaven",
+     "text_en": "Possibility of marriage for a half-slave",
+     "desc": "שמאי והלל ותלמידיהם › בית שמאי ובית הלל › שחזרו בהן בית הלל › אישות",
+     "desc_de": "Schammai und Hillel und ihre Schüler › Schule Schammais und Schule Hillels › Dass die Schule Hillels zurückgenommen hat › Eherecht",
+     "desc_en": "Shammai and Hillel and their disciples › School of Shammai and School of Hillel › That the School of Hillel retracted › Marriage law"
+    },
+    {
+     "ref": "1:14",
+     "text": "הצלה בצמיד פתיל",
+     "text_de": "Rettung durch ein fest verschlossenes Gefäß",
+     "text_en": "Protection by a tightly sealed vessel",
+     "desc": "שמאי והלל ותלמידיהם › בית שמאי ובית הלל › שחזרו בהן בית הלל › טומאה וטהרה",
+     "desc_de": "Schammai und Hillel und ihre Schüler › Schule Schammais und Schule Hillels › Dass die Schule Hillels zurückgenommen hat › Unreinheit und Reinheit",
+     "desc_en": "Shammai and Hillel and their disciples › School of Shammai and School of Hillel › That the School of Hillel retracted › Impurity and purity"
+    }
+   ]
+  },
+  {
+   "head": "פרק ב",
+   "head_de": "Kapitel 2",
+   "head_en": "Chapter 2",
+   "items": [
+    {
+     "ref": "2:1",
+     "text": "תוספת טומאה",
+     "text_de": "Zusätzliche Unreinheit",
+     "text_en": "Additional impurity",
+     "desc": "עדויות של תנאים › ר' חנינא › הוספות של ר' עקיבא › שריפת קדשים",
+     "desc_de": "Zeugnisse von Tannaiten › Rabbi Chanina › Zusätze von Rabbi Akiva › Verbrennen von Heiligem",
+     "desc_en": "Testimonies of Tannaim › Rabbi Chanina › Additions of Rabbi Akiva › Burning of sacred offerings"
+    },
+    {
+     "ref": "2:2",
+     "text": "הנאה מעורות קדשים פסולים",
+     "text_de": "Nutzen von den Fellen untauglicher Opfer",
+     "text_en": "Benefit from the hides of disqualified offerings",
+     "desc": "עדויות של תנאים › ר' חנינא › הוספות של ר' עקיבא › שריפת קדשים",
+     "desc_de": "Zeugnisse von Tannaiten › Rabbi Chanina › Zusätze von Rabbi Akiva › Verbrennen von Heiligem",
+     "desc_en": "Testimonies of Tannaim › Rabbi Chanina › Additions of Rabbi Akiva › Burning of sacred offerings"
+    },
+    {
+     "ref": "2:3",
+     "text": "חשיבות חתימת עד,קולות בטומאה במקדש",
+     "text_de": "Bedeutung der Zeugenunterschrift, Erleichterungen bei Unreinheit im Tempel",
+     "text_en": "Importance of a witness's signature, leniencies concerning impurity in the Temple",
+     "desc": "עדויות של תנאים › סגן הכהנים",
+     "desc_de": "Zeugnisse von Tannaiten › Stellvertreter des Hohepriesters",
+     "desc_en": "Testimonies of Tannaim › Deputy High Priest"
+    },
+    {
+     "ref": "2:4",
+     "text": "חיבור אוכלים וקציר, הרחקה מכלאים",
+     "text_de": "Verbindung von Lebensmitteln und Ernte, Abstand von Mischsaaten",
+     "text_en": "Joining of foods and harvest, distance from mixed kinds",
+     "desc": "עדויות של תנאים › ר' ישמעאל › קבוצות של ג' דברים › זריעה וטומאה וטהרה",
+     "desc_de": "Zeugnisse von Tannaiten › Rabbi Jischmael › Gruppen von drei Dingen › Aussaat und Unreinheit und Reinheit",
+     "desc_en": "Testimonies of Tannaim › Rabbi Yishmael › Groups of three things › Sowing and impurity and purity"
+    },
+    {
+     "ref": "2:5",
+     "text": "הפטור ומותר בשבת / גמר מלאכת לפסים",
+     "text_de": "Befreiung und Erlaubtes am Schabbat / Vollendung der Arbeit an Streifen",
+     "text_en": "Exemption and what is permitted on Shabbat / completion of work on strips",
+     "desc": "עדויות של תנאים › ר' ישמעאל › קבוצות של ג' דברים › הלכות שבת › זריעה וטומאה וטהרה",
+     "desc_de": "Zeugnisse von Tannaiten › Rabbi Jischmael › Gruppen von drei Dingen › Schabbatgesetze › Aussaat und Unreinheit und Reinheit",
+     "desc_en": "Testimonies of Tannaim › Rabbi Yishmael › Groups of three things › Laws of Shabbat › Sowing and impurity and purity"
+    },
+    {
+     "ref": "2:6",
+     "text": "מוקצה במשקים שזבו",
+     "text_de": "Muktze bei ausgeflossenen Flüssigkeiten",
+     "text_en": "Muktze in liquids that have flowed",
+     "desc": "עדויות של תנאים › ר' עקיבא › ר' ישמעאל › קבוצות של ג' דברים › הלכות שבת",
+     "desc_de": "Zeugnisse von Tannaiten › Rabbi Akiva › Rabbi Jischmael › Gruppen von drei Dingen › Schabbatgesetze",
+     "desc_en": "Testimonies of Tannaim › Rabbi Akiva › Rabbi Yishmael › Groups of three things › Laws of Shabbat"
+    },
+    {
+     "ref": "2:7",
+     "text": "הוצאה \\ פסולי עדות, טומאה בתנועה",
+     "text_de": "Hinaustragen / Zeugnisuntaugliche, Unreinheit durch Bewegung",
+     "text_en": "Carrying out / those disqualified as witnesses, impurity through movement",
+     "desc": "עדויות של תנאים › ר' עקיבא › קבוצות של ג' דברים › טומאה וטהרה › הלכות שבת",
+     "desc_de": "Zeugnisse von Tannaiten › Rabbi Akiva › Gruppen von drei Dingen › Unreinheit und Reinheit › Schabbatgesetze",
+     "desc_en": "Testimonies of Tannaim › Rabbi Akiva › Groups of three things › Impurity and purity › Laws of Shabbat"
+    },
+    {
+     "ref": "2:8",
+     "text": "סנדל המגין, שיירי תנור וכסא",
+     "text_de": "Schützende Sandale, Reste von Ofen und Stuhl",
+     "text_en": "Protective sandal, remnants of an oven and chair",
+     "desc": "עדויות של תנאים › ר' עקיבא › קבוצות של ג' דברים › טומאה וטהרה › כלים",
+     "desc_de": "Zeugnisse von Tannaiten › Rabbi Akiva › Gruppen von drei Dingen › Unreinheit und Reinheit › Geräte",
+     "desc_en": "Testimonies of Tannaim › Rabbi Akiva › Groups of three things › Impurity and purity › vessels"
+    },
+    {
+     "ref": "2:9",
+     "text": "זכויות הבן מן האב",
+     "text_de": "Rechte des Sohnes vom Vater",
+     "text_en": "Rights of the son from the father",
+     "desc": "עדויות של תנאים › ר' עקיבא › קבוצות של חמישה דברים",
+     "desc_de": "Zeugnisse von Tannaiten › Rabbi Akiva › Gruppen von fünf Dingen",
+     "desc_en": "Testimonies of Tannaim › Rabbi Akiva › Groups of five things"
+    },
+    {
+     "ref": "2:10",
+     "text": "מבול, איוב, מצרים, גוג ומגוג, גיהנם",
+     "text_de": "Sintflut, Hiob, Ägypten, Gog und Magog, Gehinnom",
+     "text_en": "Flood, Job, Egypt, Gog and Magog, Gehinnom",
+     "desc": "עדויות של תנאים › ר' עקיבא › קבוצות של חמישה דברים › משפט לשנה",
+     "desc_de": "Zeugnisse von Tannaiten › Rabbi Akiva › Gruppen von fünf Dingen › Gericht für ein Jahr",
+     "desc_en": "Testimonies of Tannaim › Rabbi Akiva › Groups of five things › Judgment for a year"
+    }
+   ]
+  },
+  {
+   "head": "פרק ג",
+   "head_de": "Kapitel 3",
+   "head_en": "Chapter 3",
+   "items": [
+    {
+     "ref": "3:1",
+     "text": "טומאות נבלה ומת",
+     "text_de": "Unreinheiten von Aas und Toten",
+     "text_en": "Impurities of carrion and of the dead",
+     "desc": "מחלוקות עם חכמים › חכמים מחמירים › ר' דוסא › טומאה וטהרה › צירוף",
+     "desc_de": "Meinungsverschiedenheiten mit den Weisen › Die Weisen verschärfen › Rabbi Dosa › Unreinheit und Reinheit › Zusammenrechnen",
+     "desc_en": "Disputes with the Sages › The Sages are stringent › Rabbi Dosa › Impurity and purity › Combining"
+    },
+    {
+     "ref": "3:2",
+     "text": "אוכל \\ חילול על אסימון, ידים לחטאת",
+     "text_de": "Essen / Auslösung auf eine Asimon-Münze, Hände bei Sündopfer",
+     "text_en": "Food / redemption onto an asimon coin, hands in the sin offering",
+     "desc": "מחלוקות עם חכמים › חכמים מחמירים › ר' דוסא › טומאה וטהרה › צירוף",
+     "desc_de": "Meinungsverschiedenheiten mit den Weisen › Die Weisen verschärfen › Rabbi Dosa › Unreinheit und Reinheit › Zusammenrechnen",
+     "desc_en": "Disputes with the Sages › The Sages are stringent › Rabbi Dosa › Impurity and purity › Combining"
+    },
+    {
+     "ref": "3:3",
+     "text": "פסולת תרומה, שיעור החייב בראשית הגז",
+     "text_de": "Abfall der Terumah, Maß der Pflicht zu den Erstlingen der Schur",
+     "text_en": "Waste of terumah, measure obligated for the first fleece",
+     "desc": "מחלוקות עם חכמים › חכמים מחמירים › ר' דוסא › מתנות כהונה",
+     "desc_de": "Meinungsverschiedenheiten mit den Weisen › Die Weisen verschärfen › Rabbi Dosa › Unreine Matten und Geflechte",
+     "desc_en": "Disputes with the Sages › The Sages are stringent › Rabbi Dosa › Impure mats and plaited work"
+    },
+    {
+     "ref": "3:4",
+     "text": "חוצלות וקליעות הטמאות",
+     "text_de": "Unreinheit und Reinheit der Schleuder",
+     "text_en": "Impurity and purity of the sling",
+     "desc": "מחלוקות עם חכמים › חכמים מחמירים › ר' דוסא › טומאה וטהרה › כלים",
+     "desc_de": "Meinungsverschiedenheiten mit den Weisen › Die Weisen verschärfen › Rabbi Dosa › Unreinheit und Reinheit › Geräte",
+     "desc_en": "Disputes with the Sages › The Sages are stringent › Rabbi Dosa › Impurity and purity › vessels"
+    },
+    {
+     "ref": "3:5",
+     "text": "טומאת וטהרת קלע",
+     "text_de": "Unreinheit und Reinheit der Schleuder",
+     "text_en": "Impurity and purity of the sling",
+     "desc": "מחלוקות עם חכמים › חכמים מחמירים › ר' דוסא › טומאה וטהרה › כלים",
+     "desc_de": "Meinungsverschiedenheiten mit den Weisen › Die Weisen verschärfen › Rabbi Dosa › Unreinheit und Reinheit › Geräte",
+     "desc_en": "Disputes with the Sages › The Sages are stringent › Rabbi Dosa › Impurity and purity › vessels"
+    },
+    {
+     "ref": "3:6",
+     "text": "פסול שבויה לתרומה",
+     "text_de": "Untauglichkeit einer Gefangenen für die Terumah",
+     "text_en": "Disqualification of a captive woman from terumah",
+     "desc": "מחלוקות עם חכמים › חכמים מחמירים › ר' דוסא › תרומה",
+     "desc_de": "Meinungsverschiedenheiten mit den Weisen › Die Weisen verschärfen › Rabbi Dosa › Teruma",
+     "desc_en": "Disputes with the Sages › The Sages are stringent › Rabbi Dosa › Teruma"
+    },
+    {
+     "ref": "3:7",
+     "text": "ספק טומאה וטהרה ושיתוף רשויות",
+     "text_de": "Zweifel bei Unreinheit und Reinheit und Zusammenführung von Bereichen",
+     "text_en": "Doubt in impurity and purity and combining of domains",
+     "desc": "מחלוקות עם חכמים › חכמים מקילים › מנינים של מחלוקות › ר' יהושע › טומאה וטהרה",
+     "desc_de": "Meinungsverschiedenheiten mit den Weisen › Die Weisen erleichtern › Zählungen von Meinungsverschiedenheiten › Rabbi Jehoschua › Unreinheit und Reinheit",
+     "desc_en": "Disputes with the Sages › The Sages are lenient › Enumerations of disputes › Rabbi Yehoshua › Impurity and purity"
+    },
+    {
+     "ref": "3:8",
+     "text": "מסמרים, העשוי לנחת",
+     "text_de": "Nägel, das zum Ablegen Gemachte",
+     "text_en": "Nails, that which is made for setting down",
+     "desc": "מחלוקות עם חכמים › חכמים מקילים › מנינים של מחלוקות › ר' צדוק › טומאה וטהרה",
+     "desc_de": "Meinungsverschiedenheiten mit den Weisen › Die Weisen erleichtern › Zählungen von Meinungsverschiedenheiten › Rabbi Zadok › Unreinheit und Reinheit",
+     "desc_en": "Disputes with the Sages › The Sages are lenient › Enumerations of disputes › Rabbi Tzadok › Impurity and purity"
+    },
+    {
+     "ref": "3:9",
+     "text": "החסר חשיבות, טבלא שנחלקה",
+     "text_de": "Das Unbedeutende, geteilter Tevel",
+     "text_en": "The insignificant, divided untithed produce",
+     "desc": "מחלוקות עם חכמים › חכמים מקילים › מנינים של מחלוקות › רבן גמליאל › טומאה וטהרה",
+     "desc_de": "Meinungsverschiedenheiten mit den Weisen › Die Weisen erleichtern › Zählungen von Meinungsverschiedenheiten › Rabban Gamliel › Unreinheit und Reinheit",
+     "desc_en": "Disputes with the Sages › The Sages are lenient › Enumerations of disputes › Rabban Gamliel › Impurity and purity"
+    },
+    {
+     "ref": "3:10",
+     "text": "הטמנה, בנין, טרחה",
+     "text_de": "Wärmehaltung, Bauen, Mühe",
+     "text_en": "Insulating food, building, effort",
+     "desc": "מחלוקות עם חכמים › חכמים מקילים › מנינים של מחלוקות › רבן גמליאל › הלכות שבת ויום טוב",
+     "desc_de": "Meinungsverschiedenheiten mit den Weisen › Die Weisen erleichtern › Zählungen von Meinungsverschiedenheiten › Rabban Gamliel › Gesetze von Schabbat und Feiertag",
+     "desc_en": "Disputes with the Sages › The Sages are lenient › Enumerations of disputes › Rabban Gamliel › Laws of Shabbat and festival"
+    },
+    {
+     "ref": "3:11",
+     "text": "גזירות, אוכל נפש",
+     "text_de": "Verordnungen, Nahrung für den Lebensunterhalt",
+     "text_en": "Decrees, food for sustenance",
+     "desc": "מחלוקות עם חכמים › חכמים מחמירים › מנינים של מחלוקות › רבן גמליאל › הלכות שבת ויום טוב",
+     "desc_de": "Meinungsverschiedenheiten mit den Weisen › Die Weisen verschärfen › Zählungen von Meinungsverschiedenheiten › Rabban Gamliel › Gesetze von Schabbat und Feiertag",
+     "desc_en": "Disputes with the Sages › The Sages are stringent › Enumerations of disputes › Rabban Gamliel › Laws of Shabbat and festival"
+    },
+    {
+     "ref": "3:12",
+     "text": "הוצאה, החובל, הטוחן",
+     "text_de": "Hinaustragen, Verwundender, Mahlender",
+     "text_en": "Carrying out, wounding, grinding",
+     "desc": "מחלוקות עם חכמים › חכמים מחמירים › מנינים של מחלוקות › ראב\"ע › הלכות שבת ויום טוב",
+     "desc_de": "Meinungsverschiedenheiten mit den Weisen › Die Weisen verschärfen › Zählungen von Meinungsverschiedenheiten › Rabbi Elasar ben Asarja › Gesetze von Schabbat und Feiertag",
+     "desc_en": "Disputes with the Sages › The Sages are stringent › Enumerations of disputes › Rabbi Elazar ben Azariah › Laws of Shabbat and festival"
+    }
+   ]
+  },
+  {
+   "head": "פרק ד",
+   "head_de": "Kapitel 4",
+   "head_en": "Chapter 4",
+   "items": [
+    {
+     "ref": "4:1",
+     "text": "הכנת שבת ליו\"ט, שעורים לאיסורי חמץ",
+     "text_de": "Vorbereitung des Schabbat für den Feiertag, Maße bei den Chametz-Verboten",
+     "text_en": "Preparing Shabbat for a festival, measures concerning chametz prohibitions",
+     "desc": "שמאי והלל ותלמידיהם › קולי בית שמאי וחומרי בית הלל › מתנות עניים › הלכות שבת ויום טוב",
+     "desc_de": "Schammai und Hillel und ihre Schüler › Erleichterungen der Schule Schammais und Verschärfungen der Schule Hillels › Gaben an die Armen › Gesetze von Schabbat und Feiertag",
+     "desc_en": "Shammai and Hillel and their disciples › Leniencies of the School of Shammai and stringencies of the School of Hillel › Gifts to the poor › Laws of Shabbat and festival"
+    },
+    {
+     "ref": "4:2",
+     "text": "נולד, מוקצה וכיסוי הדם",
+     "text_de": "Neu Entstandenes, Muktze und Bedecken des Blutes",
+     "text_en": "Newly born, muktze, and covering the blood",
+     "desc": "שמאי והלל ותלמידיהם › קולי בית שמאי וחומרי בית הלל › מתנות עניים › הלכות שבת ויום טוב",
+     "desc_de": "Schammai und Hillel und ihre Schüler › Erleichterungen der Schule Schammais und Verschärfungen der Schule Hillels › Gaben an die Armen › Gesetze von Schabbat und Feiertag",
+     "desc_en": "Shammai and Hillel and their disciples › Leniencies of the School of Shammai and stringencies of the School of Hillel › Gifts to the poor › Laws of Shabbat and festival"
+    },
+    {
+     "ref": "4:3",
+     "text": "הפקר לעניים \\ שיעור יחסי לשכוח",
+     "text_de": "Herrenloses für die Armen / anteiliges Maß beim Vergessen",
+     "text_en": "Ownerless produce for the poor / proportional measure for forgotten sheaves",
+     "desc": "שמאי והלל ותלמידיהם › קולי בית שמאי וחומרי בית הלל › מתנות עניים › שכחה",
+     "desc_de": "Schammai und Hillel und ihre Schüler › Erleichterungen der Schule Schammais und Verschärfungen der Schule Hillels › Gaben an die Armen › Vergessene Garbe (Schichecha)",
+     "desc_en": "Shammai and Hillel and their disciples › Leniencies of the School of Shammai and stringencies of the School of Hillel › Gifts to the poor › Forgotten sheaf (Shikhchah)"
+    },
+    {
+     "ref": "4:4",
+     "text": "מקום המסוים",
+     "text_de": "Der bestimmte Ort",
+     "text_en": "The specified place",
+     "desc": "שמאי והלל ותלמידיהם › קולי בית שמאי וחומרי בית הלל › מתנות עניים › שכחה",
+     "desc_de": "Schammai und Hillel und ihre Schüler › Erleichterungen der Schule Schammais und Verschärfungen der Schule Hillels › Gaben an die Armen › Vergessene Garbe (Schichecha)",
+     "desc_en": "Shammai and Hillel and their disciples › Leniencies of the School of Shammai and stringencies of the School of Hillel › Gifts to the poor › Forgotten sheaf (Shikhchah)"
+    },
+    {
+     "ref": "4:5",
+     "text": "דמיון רבעי למעשר שני",
+     "text_de": "Vergleich des Vierten-Jahres-Ertrags mit dem Zweiten Zehnten",
+     "text_en": "Comparison of fourth-year produce to Second Tithe",
+     "desc": "שמאי והלל ותלמידיהם › קולי בית שמאי וחומרי בית הלל › מתנות עניים",
+     "desc_de": "Schammai und Hillel und ihre Schüler › Erleichterungen der Schule Schammais und Verschärfungen der Schule Hillels › Gaben an die Armen",
+     "desc_en": "Shammai and Hillel and their disciples › Leniencies of the School of Shammai and stringencies of the School of Hillel › Gifts to the poor"
+    },
+    {
+     "ref": "4:6",
+     "text": "הכשר לרצון, טהרת שמן אגב הטובל",
+     "text_de": "Eignung durch Willen, Reinheit des Öls beim Eintauchenden",
+     "text_en": "Susceptibility through intent, purity of oil of one immersing",
+     "desc": "שמאי והלל ותלמידיהם › קולי בית שמאי וחומרי בית הלל › טומאה וטהרה",
+     "desc_de": "Schammai und Hillel und ihre Schüler › Erleichterungen der Schule Schammais und Verschärfungen der Schule Hillels › Unreinheit und Reinheit",
+     "desc_en": "Shammai and Hillel and their disciples › Leniencies of the School of Shammai and stringencies of the School of Hillel › Impurity and purity"
+    },
+    {
+     "ref": "4:7",
+     "text": "שווי לקידושי כסף, יחוד אחר גט",
+     "text_de": "Wert für Geldverlobung, Alleinsein nach dem Scheidebrief",
+     "text_en": "Value for betrothal by money, seclusion after a get",
+     "desc": "שמאי והלל ותלמידיהם › קולי בית שמאי וחומרי בית הלל › אישות › קידושין וגיטין",
+     "desc_de": "Schammai und Hillel und ihre Schüler › Erleichterungen der Schule Schammais und Verschärfungen der Schule Hillels › Eherecht › Verlobung und Scheidebriefe",
+     "desc_en": "Shammai and Hillel and their disciples › Leniencies of the School of Shammai and stringencies of the School of Hillel › Marriage law › Betrothal and divorce documents"
+    },
+    {
+     "ref": "4:8",
+     "text": "צרת ערוה ונפקא מינות, יחסי ב\"ש ו",
+     "text_de": "Rivalin einer Verbotenen und praktische Folgen, Verhältnis zwischen Schule Schammais und",
+     "text_en": "Rival wife of a forbidden relative and practical consequences, relationship between the School of Shammai and",
+     "desc": "שמאי והלל ותלמידיהם › קולי בית שמאי וחומרי בית הלל › אישות › יבום",
+     "desc_de": "Schammai und Hillel und ihre Schüler › Erleichterungen der Schule Schammais und Verschärfungen der Schule Hillels › Eherecht › Leviratsehe",
+     "desc_en": "Shammai and Hillel and their disciples › Leniencies of the School of Shammai and stringencies of the School of Hillel › Marriage law › Levirate marriage"
+    },
+    {
+     "ref": "4:9",
+     "text": "דחיית זיקה ע\"י מאמר",
+     "text_de": "Aufhebung der Verbindung durch Aussage",
+     "text_en": "Dissolving the bond through a declaration",
+     "desc": "שמאי והלל ותלמידיהם › קולי בית שמאי וחומרי בית הלל › אישות › יבום",
+     "desc_de": "Schammai und Hillel und ihre Schüler › Erleichterungen der Schule Schammais und Verschärfungen der Schule Hillels › Eherecht › Leviratsehe",
+     "desc_en": "Shammai and Hillel and their disciples › Leniencies of the School of Shammai and stringencies of the School of Hillel › Marriage law › Levirate marriage"
+    },
+    {
+     "ref": "4:10",
+     "text": "נדר מחשמיש\\ קרבן יולדת, ציצית, מעשרות",
+     "text_de": "Gelübde der Enthaltung vom Verkehr / Opfer der Gebärenden, Zizit, Zehnte",
+     "text_en": "Vow of abstention from relations / offering of a woman after childbirth, tzitzit, tithes",
+     "desc": "שמאי והלל ותלמידיהם › קולי בית שמאי וחומרי בית הלל › חיובים שונים",
+     "desc_de": "Schammai und Hillel und ihre Schüler › Erleichterungen der Schule Schammais und Verschärfungen der Schule Hillels › Verschiedene Verpflichtungen",
+     "desc_en": "Shammai and Hillel and their disciples › Leniencies of the School of Shammai and stringencies of the School of Hillel › Various obligations"
+    },
+    {
+     "ref": "4:11",
+     "text": "קנס לנזיר מחו\"ל, עדות למשך נזירות",
+     "text_de": "Strafe für den Nasiräer aus dem Ausland, Zeugnis über die Dauer der Nasiräerschaft",
+     "text_en": "Penalty for the Nazirite from abroad, testimony regarding the duration of Nazirite vow",
+     "desc": "שמאי והלל ותלמידיהם › קולי בית שמאי וחומרי בית הלל › חיובים שונים › נזירות",
+     "desc_de": "Schammai und Hillel und ihre Schüler › Erleichterungen der Schule Schammais und Verschärfungen der Schule Hillels › Verschiedene Verpflichtungen › Nasiräat",
+     "desc_en": "Shammai and Hillel and their disciples › Leniencies of the School of Shammai and stringencies of the School of Hillel › Various obligations › Nazirite vow"
+    },
+    {
+     "ref": "4:12",
+     "text": "הבאת טומאה ע\"י אדם המאהיל",
+     "text_de": "Übertragung von Unreinheit durch einen überdachenden Menschen",
+     "text_en": "Transmission of impurity by a person who overshadows",
+     "desc": "שמאי והלל ותלמידיהם › קולי בית שמאי וחומרי בית הלל › טומאה וטהרה",
+     "desc_de": "Schammai und Hillel und ihre Schüler › Erleichterungen der Schule Schammais und Verschärfungen der Schule Hillels › Unreinheit und Reinheit",
+     "desc_en": "Shammai and Hillel and their disciples › Leniencies of the School of Shammai and stringencies of the School of Hillel › Impurity and purity"
+    }
+   ]
+  },
+  {
+   "head": "פרק ה",
+   "head_de": "Kapitel 5",
+   "head_en": "Chapter 5",
+   "items": [
+    {
+     "ref": "5:1",
+     "text": "דמים, חמתות, איסור והיתר, שביעית",
+     "text_de": "Blut, Wasserschläuche, Verbotenes und Erlaubtes, Schmitta",
+     "text_en": "Blood, water skins, prohibited and permitted, Sabbatical year",
+     "desc": "שמאי והלל ותלמידיהם › קולי בית שמאי וחומרי בית הלל › ר' יהודה › טומאה וטהרה",
+     "desc_de": "Schammai und Hillel und ihre Schüler › Erleichterungen der Schule Schammais und Verschärfungen der Schule Hillels › Rabbi Jehuda › Unreinheit und Reinheit",
+     "desc_en": "Shammai and Hillel and their disciples › Leniencies of the School of Shammai and stringencies of the School of Hillel › Rabbi Yehuda › Impurity and purity"
+    },
+    {
+     "ref": "5:2",
+     "text": "איסורים במאכל, טבילת חרדלית, גר",
+     "text_de": "Speiseverbote, Untertauchen von Senfkraut, Proselyt",
+     "text_en": "Dietary prohibitions, immersion of senafrit-greens, proselyte",
+     "desc": "שמאי והלל ותלמידיהם › קולי בית שמאי וחומרי בית הלל › ר' יוסי › טומאה וטהרה",
+     "desc_de": "Schammai und Hillel und ihre Schüler › Erleichterungen der Schule Schammais und Verschärfungen der Schule Hillels › Rabbi Jose › Unreinheit und Reinheit",
+     "desc_en": "Shammai and Hillel and their disciples › Leniencies of the School of Shammai and stringencies of the School of Hillel › Rabbi Yose › Impurity and purity"
+    },
+    {
+     "ref": "5:3",
+     "text": "כתבי הקודש, מי חטאת, אוכלים",
+     "text_de": "Heilige Schriften, Sündopferwasser, Speisen",
+     "text_en": "Holy Scriptures, sin-offering water, foods",
+     "desc": "שמאי והלל ותלמידיהם › קולי בית שמאי וחומרי בית הלל › ר' ישמעאל › טומאה וטהרה",
+     "desc_de": "Schammai und Hillel und ihre Schüler › Erleichterungen der Schule Schammais und Verschärfungen der Schule Hillels › Rabbi Jischmael › Unreinheit und Reinheit",
+     "desc_en": "Shammai and Hillel and their disciples › Leniencies of the School of Shammai and stringencies of the School of Hillel › Rabbi Yishmael › Impurity and purity"
+    },
+    {
+     "ref": "5:4",
+     "text": "דם יולדת ובזוב",
+     "text_de": "Blut der Wöchnerin und des Zawa",
+     "text_en": "Blood of a woman after childbirth and of a zav",
+     "desc": "שמאי והלל ותלמידיהם › קולי בית שמאי וחומרי בית הלל › ר' אליעזר › טומאה וטהרה",
+     "desc_de": "Schammai und Hillel und ihre Schüler › Erleichterungen der Schule Schammais und Verschärfungen der Schule Hillels › Rabbi Elieser › Unreinheit und Reinheit",
+     "desc_en": "Shammai and Hillel and their disciples › Leniencies of the School of Shammai and stringencies of the School of Hillel › Rabbi Eliezer › Impurity and purity"
+    },
+    {
+     "ref": "5:5",
+     "text": "זיקת יבמות",
+     "text_de": "Schwagerehe-Bindung",
+     "text_en": "Levirate bond",
+     "desc": "שמאי והלל ותלמידיהם › קולי בית שמאי וחומרי בית הלל › ר' אליעזר › אישות",
+     "desc_de": "Schammai und Hillel und ihre Schüler › Erleichterungen der Schule Schammais und Verschärfungen der Schule Hillels › Rabbi Elieser › Eherecht",
+     "desc_en": "Shammai and Hillel and their disciples › Leniencies of the School of Shammai and stringencies of the School of Hillel › Rabbi Eliezer › Marriage law"
+    },
+    {
+     "ref": "5:6",
+     "text": "טעם לעקשנות, מחלוקתיו, נידוי לכב' ב\"ד",
+     "text_de": "Grund für Halsstarrigkeit, seine Meinungsverschiedenheiten, Bann zur Wahrung der Würde des Gerichts",
+     "text_en": "Reason for stubbornness, his disputes, excommunication to uphold the dignity of the court",
+     "desc": "עדויות של תנאים › עקביא בן מהללאל › הלכה ומוסר",
+     "desc_de": "Zeugnisse von Tannaiten › Akawja ben Mahalalel › Halacha und Ethik",
+     "desc_en": "Testimonies of Tannaim › Akavya ben Mahalalel › Halakha and ethics"
+    },
+    {
+     "ref": "5:7",
+     "text": "צוואה לבנו, חשיבות המעשים",
+     "text_de": "Testament an seinen Sohn, Bedeutung der Taten",
+     "text_en": "Testament to his son, the importance of deeds",
+     "desc": "עדויות של תנאים › עקביא בן מהללאל › הלכה ומוסר",
+     "desc_de": "Zeugnisse von Tannaiten › Akawja ben Mahalalel › Halacha und Ethik",
+     "desc_en": "Testimonies of Tannaim › Akavya ben Mahalalel › Halakha and ethics"
+    }
+   ]
+  },
+  {
+   "head": "פרק ו",
+   "head_de": "Kapitel 6",
+   "head_en": "Chapter 6",
+   "items": [
+    {
+     "ref": "6:1",
+     "text": "אישות, דיני נפשות, הנהגות במקדש",
+     "text_de": "Eherecht, Kapitalstrafverfahren, Verhaltensregeln im Tempel",
+     "text_en": "Marriage law, capital cases, rules of conduct in the Temple",
+     "desc": "עדויות של תנאים › ר' יהודה בן בבא › 5 דברים",
+     "desc_de": "Zeugnisse von Tannaiten › Rabbi Jehuda ben Bava › Fünf Dinge",
+     "desc_en": "Testimonies of Tannaim › Rabbi Yehuda ben Bava › Five things"
+    },
+    {
+     "ref": "6:2",
+     "text": "אבר מן המת",
+     "text_de": "Glied vom toten Tier",
+     "text_en": "Limb from a dead animal",
+     "desc": "עדויות של תנאים › ר' אליעזר ר' יהושע ור' נחוניא › טומאה וטהרה",
+     "desc_de": "Zeugnisse von Tannaiten › Rabbi Elieser, Rabbi Jehoschua und Rabbi Nechunja › Unreinheit und Reinheit",
+     "desc_en": "Testimonies of Tannaim › Rabbi Eliezer, Rabbi Yehoshua and Rabbi Nechunya › Impurity and purity"
+    },
+    {
+     "ref": "6:3",
+     "text": "בשר ועצם הפורש מאבר מן החי",
+     "text_de": "Fleisch und Knochen, die sich von einem Glied vom lebenden Tier lösen",
+     "text_en": "Flesh and bone that separate from a limb of a living animal",
+     "desc": "עדויות של תנאים › ר' אליעזר ר' יהושע ור' נחוניא › טומאה וטהרה",
+     "desc_de": "Zeugnisse von Tannaiten › Rabbi Elieser, Rabbi Jehoschua und Rabbi Nechunja › Unreinheit und Reinheit",
+     "desc_en": "Testimonies of Tannaim › Rabbi Eliezer, Rabbi Yehoshua and Rabbi Nechunya › Impurity and purity"
+    }
+   ]
+  },
+  {
+   "head": "פרק ז",
+   "head_de": "Kapitel 7",
+   "head_en": "Chapter 7",
+   "items": [
+    {
+     "ref": "7:1",
+     "text": "אחריות פדיון חמור",
+     "text_de": "Haftung für die Auslösung des Esels",
+     "text_en": "Liability for the redemption of a donkey",
+     "desc": "עדויות של תנאים › רבי צדוק › כנגד ר\"א › מתנות כהונה",
+     "desc_de": "Zeugnisse von Tannaiten › Rabbi Zadok › Gegen Rabbi Elieser › Unreine Matten und Geflechte",
+     "desc_en": "Testimonies of Tannaim › Rabbi Tzadok › Against Rabbi Eliezer › Impure mats and plaited work"
+    },
+    {
+     "ref": "7:2",
+     "text": "ציר חגבים טמאים",
+     "text_de": "Brühe aus unreinen Heuschrecken",
+     "text_en": "Brine of unclean locusts",
+     "desc": "עדויות של תנאים › רבי צדוק › איסור והיתר",
+     "desc_de": "Zeugnisse von Tannaiten › Rabbi Zadok › Verbot und Erlaubnis",
+     "desc_en": "Testimonies of Tannaim › Rabbi Tzadok › Prohibition and permission"
+    },
+    {
+     "ref": "7:3",
+     "text": "זוחלין שרבו על הנוטפים",
+     "text_de": "Fließende Wasser, die die tropfenden überwiegen",
+     "text_en": "Flowing waters that outnumber dripping waters",
+     "desc": "עדויות של תנאים › רבי צדוק › טומאה וטהרה › תורת מעיין",
+     "desc_de": "Zeugnisse von Tannaiten › Rabbi Zadok › Unreinheit und Reinheit › Vorschrift der Quelle",
+     "desc_en": "Testimonies of Tannaim › Rabbi Tzadok › Impurity and purity › Law of the spring"
+    },
+    {
+     "ref": "7:4",
+     "text": "זוחלין שהזחילן בעלה אגוז",
+     "text_de": "Fließende Wasser, die ein Nussblatt zum Fließen gebracht hat",
+     "text_en": "Flowing waters set in motion by a walnut leaf",
+     "desc": "עדויות של תנאים › רבי צדוק › טומאה וטהרה › תורת מעיין",
+     "desc_de": "Zeugnisse von Tannaiten › Rabbi Zadok › Unreinheit und Reinheit › Vorschrift der Quelle",
+     "desc_en": "Testimonies of Tannaim › Rabbi Tzadok › Impurity and purity › Law of the spring"
+    },
+    {
+     "ref": "7:5",
+     "text": "מקום טהור לחטאת \\ תום נזירות",
+     "text_de": "Reiner Ort für das Sündopfer / Ende des Nasiräats",
+     "text_en": "Pure place for the sin-offering / end of the nazirite vow",
+     "desc": "עדויות של תנאים › ר' יהושע ור' פפיס",
+     "desc_de": "Zeugnisse von Tannaiten › Rabbi Jehoschua und Rabbi Papias",
+     "desc_en": "Testimonies of Tannaim › Rabbi Yehoshua and Rabbi Papias"
+    },
+    {
+     "ref": "7:6",
+     "text": "ולד שלמים",
+     "text_de": "Junges eines Heilsopfers",
+     "text_en": "Offspring of a peace-offering",
+     "desc": "עדויות של תנאים › ר' יהושע ור' פפיס › כנגד ר\"א",
+     "desc_de": "Zeugnisse von Tannaiten › Rabbi Jehoschua und Rabbi Papias › Gegen Rabbi Elieser",
+     "desc_en": "Testimonies of Tannaim › Rabbi Yehoshua and Rabbi Papias › Against Rabbi Eliezer"
+    },
+    {
+     "ref": "7:7",
+     "text": "פשוטי כלי עץ, תנור עכנאי/ עיבור שנה",
+     "text_de": "Einfache Holzgeräte, Ofen des Achnai / Schaltjahr",
+     "text_en": "Plain wooden vessels, the oven of Achnai / intercalation of the year",
+     "desc": "עדויות של תנאים › ר' יהושע ור' פפיס › טומאה וטהרה › כלים",
+     "desc_de": "Zeugnisse von Tannaiten › Rabbi Jehoschua und Rabbi Papias › Unreinheit und Reinheit › Geräte",
+     "desc_en": "Testimonies of Tannaim › Rabbi Yehoshua and Rabbi Papias › Impurity and purity › vessels"
+    },
+    {
+     "ref": "7:8",
+     "text": "מוסף יורה",
+     "text_de": "Zusatzopfer, Kessel",
+     "text_en": "Additional offering, cauldron",
+     "desc": "עדויות של תנאים › מ' בן סגנאי › טומאה וטהרה › כלים",
+     "desc_de": "Zeugnisse von Tannaiten › Menachem ben Signai › Unreinheit und Reinheit › Geräte",
+     "desc_en": "Testimonies of Tannaim › Menachem ben Signai › Impurity and purity › vessels"
+    },
+    {
+     "ref": "7:9",
+     "text": "נשואה חסרת דעת, תקנת שבים ומזבח",
+     "text_de": "Verheiratete Schwachsinnige, Verordnung zugunsten der Reuigen und Altar",
+     "text_en": "Married woman of unsound mind, ordinance for penitents and the altar",
+     "desc": "עדויות של תנאים › רבי נחוניא בן גודגדא",
+     "desc_de": "Zeugnisse von Tannaiten › Rabbi Nechunja ben Gudgeda",
+     "desc_en": "Testimonies of Tannaim › Rabbi Nechunya ben Gudgeda"
+    }
+   ]
+  },
+  {
+   "head": "פרק ח",
+   "head_de": "Kapitel 8",
+   "head_en": "Chapter 8",
+   "items": [
+    {
+     "ref": "8:1",
+     "text": "דם נבילות, צירוף גופים מחולקים",
+     "text_de": "Blut von Aas, Vereinigung getrennter Körper",
+     "text_en": "Blood of carcasses, combining of separate bodies",
+     "desc": "עדויות של תנאים › בני בתירא › טומאה וטהרה",
+     "desc_de": "Zeugnisse von Tannaiten › Die Söhne Bsetiras › Unreinheit und Reinheit",
+     "desc_en": "Testimonies of Tannaim › The sons of Bathyra › Impurity and purity"
+    },
+    {
+     "ref": "8:2",
+     "text": "האכלת תרומה לקטנה נשואה \\ עדי שבויה",
+     "text_de": "Fütterung einer verheirateten Minderjährigen mit Teruma / Zeugen für eine Gefangene",
+     "text_en": "Feeding terumah to a married minor / witnesses for a captive woman",
+     "desc": "עדויות של תנאים › ר\"י ור\"י הכהן › יוחסין › תרומה",
+     "desc_de": "Zeugnisse von Tannaiten › Rabbi Jehoschua und Rabbi Jochanan HaKohen › Abstammungen › Teruma",
+     "desc_en": "Testimonies of Tannaim › Rabbi Yehoshua and Rabbi Yochanan HaKohen › Lineages › Teruma"
+    },
+    {
+     "ref": "8:3",
+     "text": "אלמנת עיסה",
+     "text_de": "Die Teig-Witwe",
+     "text_en": "The widow of dough",
+     "desc": "עדויות של תנאים › בני בתירא › יוחסין",
+     "desc_de": "Zeugnisse von Tannaiten › Die Söhne Bsetiras › Abstammungen",
+     "desc_en": "Testimonies of Tannaim › The sons of Bathyra › Lineages"
+    },
+    {
+     "ref": "8:4",
+     "text": "חגב הטהור, משקים במקדש, ספק טומאה",
+     "text_de": "Reine Heuschrecke, Flüssigkeiten im Tempel, Zweifel über Unreinheit",
+     "text_en": "Clean locust, liquids in the Temple, doubtful impurity",
+     "desc": "עדויות של תנאים › יוסי בן יועזר › הלכות המקדש › טומאה וטהרה",
+     "desc_de": "Zeugnisse von Tannaiten › Jose ben Joeser › Gesetze des Tempels › Unreinheit und Reinheit",
+     "desc_en": "Testimonies of Tannaim › Yose ben Yoezer › laws of the Temple › Impurity and purity"
+    },
+    {
+     "ref": "8:5",
+     "text": "עדות לעגונה, ספק קבר במקדש",
+     "text_de": "Zeugnis für die Agunah, Zweifel über ein Grab im Tempel",
+     "text_en": "Testimony for an agunah, doubt about a grave in the Temple",
+     "desc": "עדויות של תנאים › רבי יהושע › הלכות המקדש › טומאה וטהרה",
+     "desc_de": "Zeugnisse von Tannaiten › Rabbi Jehoschua › Gesetze des Tempels › Unreinheit und Reinheit",
+     "desc_en": "Testimonies of Tannaim › Rabbi Yehoshua › laws of the Temple › Impurity and purity"
+    },
+    {
+     "ref": "8:6",
+     "text": "קלעים ובנין המקדש, קדושה ראשונה",
+     "text_de": "Vorhänge und Bau des Tempels, erste Heiligung",
+     "text_en": "Curtains and construction of the Temple, first sanctification",
+     "desc": "עדויות של תנאים › רבי יהושע › הלכות המקדש",
+     "desc_de": "Zeugnisse von Tannaiten › Rabbi Jehoschua › Gesetze des Tempels",
+     "desc_en": "Testimonies of Tannaim › Rabbi Yehoshua › laws of the Temple"
+    },
+    {
+     "ref": "8:7",
+     "text": "חידושיו של אליהו הנביא",
+     "text_de": "Neue Lehren des Propheten Elija",
+     "text_en": "Novel teachings of Elijah the prophet",
+     "desc": "עדויות של תנאים › רבי יהושע › חתימה",
+     "desc_de": "Zeugnisse von Tannaiten › Rabbi Jehoschua › Abschluss",
+     "desc_en": "Testimonies of Tannaim › Rabbi Yehoshua › Conclusion"
+    }
+   ]
+  }
+ ]
+}

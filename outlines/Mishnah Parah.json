@@ -1,0 +1,959 @@
+{
+ "book": "Mishnah Parah",
+ "title": "משנה פרה",
+ "title_de": "Mischna Para – Gliederung",
+ "title_en": "Parah – outline",
+ "note": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema).",
+ "note_de": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema); ins Deutsche und Englische übersetzt.",
+ "note_en": "Outline after the table “Mishna Sedura”: the central content of each mishnah, with the topic path (main topic to sub-topic); translated into German and English.",
+ "sections": [
+  {
+   "head": "פרק א",
+   "head_de": "Kapitel 1",
+   "head_en": "Chapter 1",
+   "items": [
+    {
+     "ref": "1:1",
+     "text": "פרה אדומה, סתומים שפרשן בן עזאי",
+     "text_de": "Rote Kuh, unklare Stellen, die Ben Asai erklärte",
+     "text_en": "Red heifer, obscure passages explained by Ben Azzai",
+     "desc": "הכנת אפר חטאת › כשרות הפרה › גיל הקרבנות",
+     "desc_de": "Zubereitung der Sündopfer-Asche › Tauglichkeit der Kuh › Alter der Opfertiere",
+     "desc_en": "Preparation of the sin-offering ashes › Fitness of the heifer › Age of the sacrificial animals"
+    },
+    {
+     "ref": "1:2",
+     "text": "פרים",
+     "text_de": "Jungstiere",
+     "text_en": "Bulls",
+     "desc": "הכנת אפר חטאת › כשרות הפרה › גיל הקרבנות",
+     "desc_de": "Zubereitung der Sündopfer-Asche › Tauglichkeit der Kuh › Alter der Opfertiere",
+     "desc_en": "Preparation of the sin-offering ashes › Fitness of the heifer › Age of the sacrificial animals"
+    },
+    {
+     "ref": "1:3",
+     "text": "כבשים, אלים, בן י\"ג חודש ודיניו",
+     "text_de": "Lämmer, Widder, Dreizehnmonatiger und seine Vorschriften",
+     "text_en": "Lambs, rams, a thirteen-month-old and its laws",
+     "desc": "הכנת אפר חטאת › כשרות הפרה › גיל הקרבנות",
+     "desc_de": "Zubereitung der Sündopfer-Asche › Tauglichkeit der Kuh › Alter der Opfertiere",
+     "desc_en": "Preparation of the sin-offering ashes › Fitness of the heifer › Age of the sacrificial animals"
+    },
+    {
+     "ref": "1:4",
+     "text": "הכשרים משמונה ימים",
+     "text_de": "Taugliche ab dem achten Tag",
+     "text_en": "Fit from the eighth day",
+     "desc": "הכנת אפר חטאת › כשרות הפרה › גיל הקרבנות",
+     "desc_de": "Zubereitung der Sündopfer-Asche › Tauglichkeit der Kuh › Alter der Opfertiere",
+     "desc_en": "Preparation of the sin-offering ashes › Fitness of the heifer › Age of the sacrificial animals"
+    }
+   ]
+  },
+  {
+   "head": "פרק ב",
+   "head_de": "Kapitel 2",
+   "head_en": "Chapter 2",
+   "items": [
+    {
+     "ref": "2:1",
+     "text": "מעוברת, בעלות של נכרי, מוצא הקרבנות",
+     "text_de": "Trächtige, Besitz eines Nichtjuden, Herkunft der Opfertiere",
+     "text_en": "Pregnant animal, ownership by a gentile, source of the offerings",
+     "desc": "הכנת אפר חטאת › כשרות הפרה",
+     "desc_de": "Zubereitung der Sündopfer-Asche › Tauglichkeit der Kuh",
+     "desc_en": "Preparation of the sin-offering ashes › Fitness of the heifer"
+    },
+    {
+     "ref": "2:2",
+     "text": "מומים ושחרות שאינם פוסלים",
+     "text_de": "Makel und Schwärze, die nicht untauglich machen",
+     "text_en": "Blemishes and blackness that do not disqualify",
+     "desc": "הכנת אפר חטאת › כשרות הפרה › תמימותה",
+     "desc_de": "Zubereitung der Sündopfer-Asche › Tauglichkeit der Kuh › Ihre Makellosigkeit",
+     "desc_en": "Preparation of the sin-offering ashes › Fitness of the heifer › Its unblemished state"
+    },
+    {
+     "ref": "2:3",
+     "text": "מומים הפוסלים \\ דוגמאות וכלל",
+     "text_de": "Makel, die untauglich machen / Beispiele und Grundsatz",
+     "text_en": "Disqualifying blemishes / examples and general rule",
+     "desc": "הכנת אפר חטאת › כשרות הפרה › עבודה הפוסלה › תמימותה",
+     "desc_de": "Zubereitung der Sündopfer-Asche › Tauglichkeit der Kuh › Arbeit, die untauglich macht › Ihre Makellosigkeit",
+     "desc_en": "Preparation of the sin-offering ashes › Fitness of the heifer › Work that disqualifies › Its unblemished state"
+    },
+    {
+     "ref": "2:4",
+     "text": "שימושה לבעל חיים אחר",
+     "text_de": "Ihre Verwendung für ein anderes Tier",
+     "text_en": "Its use for another animal",
+     "desc": "הכנת אפר חטאת › כשרות הפרה › עבודה הפוסלה",
+     "desc_de": "Zubereitung der Sündopfer-Asche › Tauglichkeit der Kuh › Arbeit, die untauglich macht",
+     "desc_en": "Preparation of the sin-offering ashes › Fitness of the heifer › Work that disqualifies"
+    },
+    {
+     "ref": "2:5",
+     "text": "שערותיה",
+     "text_de": "Ihre Haare",
+     "text_en": "Its hairs",
+     "desc": "הכנת אפר חטאת › כשרות הפרה › חסרון באדמימות",
+     "desc_de": "Zubereitung der Sündopfer-Asche › Tauglichkeit der Kuh › Mangel an Röte",
+     "desc_en": "Preparation of the sin-offering ashes › Fitness of the heifer › Lack of redness"
+    }
+   ]
+  },
+  {
+   "head": "פרק ג",
+   "head_de": "Kapitel 3",
+   "head_en": "Chapter 3",
+   "items": [
+    {
+     "ref": "3:1",
+     "text": "הפרשתו והזאה עליו",
+     "text_de": "Seine Aussonderung und die Besprengung auf ihn",
+     "text_en": "Its separation and the sprinkling upon it",
+     "desc": "הכנת אפר חטאת › מעשה שריפת הפרה › הכנת הכהן השורף",
+     "desc_de": "Zubereitung der Sündopfer-Asche › Vorgang der Verbrennung der Kuh › Vorbereitung des verbrennenden Priesters",
+     "desc_en": "Preparation of the sin-offering ashes › Procedure of burning the heifer › Preparation of the burning priest"
+    },
+    {
+     "ref": "3:2",
+     "text": "מקום גידולן, שאיבת המים",
+     "text_de": "Ort ihrer Aufzucht, Schöpfen des Wassers",
+     "text_en": "Place of their upbringing, drawing the water",
+     "desc": "הכנת אפר חטאת › מעשה שריפת הפרה › הכנת הכהן השורף › מעשי התינוקות",
+     "desc_de": "Zubereitung der Sündopfer-Asche › Vorgang der Verbrennung der Kuh › Vorbereitung des verbrennenden Priesters › Taten der Kinder",
+     "desc_en": "Preparation of the sin-offering ashes › Procedure of burning the heifer › Preparation of the burning priest › Acts of the children"
+    },
+    {
+     "ref": "3:3",
+     "text": "בהר הבית, קידוש המים",
+     "text_de": "Auf dem Tempelberg, Heiligung des Wassers",
+     "text_en": "On the Temple Mount, sanctification of the water",
+     "desc": "הכנת אפר חטאת › מעשה שריפת הפרה › הכנת הכהן השורף › מעשי התינוקות",
+     "desc_de": "Zubereitung der Sündopfer-Asche › Vorgang der Verbrennung der Kuh › Vorbereitung des verbrennenden Priesters › Taten der Kinder",
+     "desc_en": "Preparation of the sin-offering ashes › Procedure of burning the heifer › Preparation of the burning priest › Acts of the children"
+    },
+    {
+     "ref": "3:4",
+     "text": "צורך בטהרה לשמה, הזאה עליהם",
+     "text_de": "Notwendigkeit der Reinheit für ihren Zweck, Besprengung auf sie",
+     "text_en": "Need for purity for its purpose, sprinkling upon them",
+     "desc": "הכנת אפר חטאת › מעשה שריפת הפרה › הכנת הכהן השורף › מעשי התינוקות",
+     "desc_de": "Zubereitung der Sündopfer-Asche › Vorgang der Verbrennung der Kuh › Vorbereitung des verbrennenden Priesters › Taten der Kinder",
+     "desc_en": "Preparation of the sin-offering ashes › Procedure of burning the heifer › Preparation of the burning priest › Acts of the children"
+    },
+    {
+     "ref": "3:5",
+     "text": "מנין ההזאות לכהן מהפרות שנעשו כבר",
+     "text_de": "Zahl der Besprengungen für den Priester bei bereits vollzogenen Kühen",
+     "text_en": "Number of sprinklings for the priest regarding heifers already prepared",
+     "desc": "הכנת אפר חטאת › מעשה שריפת הפרה › הכנת הכהן השורף",
+     "desc_de": "Zubereitung der Sündopfer-Asche › Vorgang der Verbrennung der Kuh › Vorbereitung des verbrennenden Priesters",
+     "desc_en": "Preparation of the sin-offering ashes › Procedure of burning the heifer › Preparation of the burning priest"
+    },
+    {
+     "ref": "3:6",
+     "text": "הכבש",
+     "text_de": "Die Rampe",
+     "text_en": "The ramp",
+     "desc": "הכנת אפר חטאת › מעשה שריפת הפרה › תיאור עשייתה › יציאה להר הזיתים",
+     "desc_de": "Zubereitung der Sündopfer-Asche › Vorgang der Verbrennung der Kuh › Beschreibung ihrer Durchführung › Auszug zum Ölberg",
+     "desc_en": "Preparation of the sin-offering ashes › Procedure of burning the heifer › Description of its performance › Going out to the Mount of Olives"
+    },
+    {
+     "ref": "3:7",
+     "text": "יציאת 2 פרות, הזקנים \\ טומאת השורף",
+     "text_de": "Auszug von zwei Kühen, die Ältesten / Unreinheit des Verbrennenden",
+     "text_en": "Going out of two heifers, the elders / impurity of the burner",
+     "desc": "הכנת אפר חטאת › מעשה שריפת הפרה › תיאור עשייתה › כשרות בטבול יום › יציאה להר הזיתים",
+     "desc_de": "Zubereitung der Sündopfer-Asche › Vorgang der Verbrennung der Kuh › Beschreibung ihrer Durchführung › Tauglichkeit beim Tebul Jom › Auszug zum Ölberg",
+     "desc_en": "Preparation of the sin-offering ashes › Procedure of burning the heifer › Description of its performance › Fitness of one who immersed that day (tevul yom) › Going out to the Mount of Olives"
+    },
+    {
+     "ref": "3:8",
+     "text": "טבילה \\ מיני העצים ובנינה",
+     "text_de": "Tauchbad / Holzarten und ihr Aufbau",
+     "text_en": "Immersion / types of wood and their construction",
+     "desc": "הכנת אפר חטאת › מעשה שריפת הפרה › תיאור עשייתה › המדורה › כשרות בטבול יום",
+     "desc_de": "Zubereitung der Sündopfer-Asche › Vorgang der Verbrennung der Kuh › Beschreibung ihrer Durchführung › Der Scheiterhaufen › Tauglichkeit beim Tebul Jom",
+     "desc_en": "Preparation of the sin-offering ashes › Procedure of burning the heifer › Description of its performance › The pyre › Fitness of one who immersed that day (tevul yom)"
+    },
+    {
+     "ref": "3:9",
+     "text": "שחיטה, קבלה, הזאה, הצתה",
+     "text_de": "Schlachten, Auffangen, Besprengung, Entzünden",
+     "text_en": "Slaughtering, receiving, sprinkling, kindling",
+     "desc": "הכנת אפר חטאת › מעשה שריפת הפרה › תיאור עשייתה",
+     "desc_de": "Zubereitung der Sündopfer-Asche › Vorgang der Verbrennung der Kuh › Beschreibung ihrer Durchführung",
+     "desc_en": "Preparation of the sin-offering ashes › Procedure of burning the heifer › Description of its performance"
+    },
+    {
+     "ref": "3:10",
+     "text": "הפרסום",
+     "text_de": "Die Bekanntmachung",
+     "text_en": "The publicizing",
+     "desc": "הכנת אפר חטאת › מעשה שריפת הפרה › תיאור עשייתה › השלכת המינים",
+     "desc_de": "Zubereitung der Sündopfer-Asche › Vorgang der Verbrennung der Kuh › Beschreibung ihrer Durchführung › Das Hineinwerfen der Arten",
+     "desc_en": "Preparation of the sin-offering ashes › Procedure of burning the heifer › Description of its performance › Throwing in the species"
+    },
+    {
+     "ref": "3:11",
+     "text": "ההשלכה \\ חביטה, כבירה, חלוקה",
+     "text_de": "Das Hineinwerfen / Zerstoßen, Zerreiben, Verteilung",
+     "text_en": "The throwing in / beating, crushing, distribution",
+     "desc": "הכנת אפר חטאת › מעשה שריפת הפרה › תיאור עשייתה › הטיפול באפר › השלכת המינים",
+     "desc_de": "Zubereitung der Sündopfer-Asche › Vorgang der Verbrennung der Kuh › Beschreibung ihrer Durchführung › Umgang mit der Asche › Das Hineinwerfen der Arten",
+     "desc_en": "Preparation of the sin-offering ashes › Procedure of burning the heifer › Description of its performance › Handling of the ashes › Throwing in the species"
+    }
+   ]
+  },
+  {
+   "head": "פרק ד",
+   "head_de": "Kapitel 4",
+   "head_en": "Chapter 4",
+   "items": [
+    {
+     "ref": "4:1",
+     "text": "מחשבה שלא לשמה, רחיצת בגדי הכהן",
+     "text_de": "Gedanke an einen anderen Zweck, Waschen der Priesterkleider",
+     "text_en": "Intention for another purpose, washing the priest's garments",
+     "desc": "הכנת אפר חטאת › מעשה שריפת הפרה › שינויים במעשיה › הפוסלים",
+     "desc_de": "Zubereitung der Sündopfer-Asche › Vorgang der Verbrennung der Kuh › Abweichungen in ihrer Durchführung › Die Untauglichmachenden",
+     "desc_en": "Preparation of the sin-offering ashes › Procedure of burning the heifer › Deviations in its performance › Disqualifying factors"
+    },
+    {
+     "ref": "4:2",
+     "text": "גתה, כיוון ומנין ההזאות",
+     "text_de": "Das Gatha, Richtung und Zählung der Besprengungen",
+     "text_en": "The pit (Gatha), direction and counting of the sprinklings",
+     "desc": "הכנת אפר חטאת › מעשה שריפת הפרה › שינויים במעשיה › הפוסלים",
+     "desc_de": "Zubereitung der Sündopfer-Asche › Vorgang der Verbrennung der Kuh › Abweichungen in ihrer Durchführung › Die Untauglichmachenden",
+     "desc_en": "Preparation of the sin-offering ashes › Procedure of burning the heifer › Deviations in its performance › Disqualifying factors"
+    },
+    {
+     "ref": "4:3",
+     "text": "בשריפה, חתיכה, כוונת השחיטה",
+     "text_de": "Bei der Verbrennung, dem Zerteilen, der Absicht beim Schlachten",
+     "text_en": "In burning, cutting up, intention in slaughtering",
+     "desc": "הכנת אפר חטאת › מעשה שריפת הפרה › שינויים במעשיה › שאינם פוסלים",
+     "desc_de": "Zubereitung der Sündopfer-Asche › Vorgang der Verbrennung der Kuh › Abweichungen in ihrer Durchführung › Was nicht untauglich macht",
+     "desc_en": "Preparation of the sin-offering ashes › Procedure of burning the heifer › Deviations in its performance › What does not disqualify"
+    },
+    {
+     "ref": "4:4",
+     "text": "טומאת העסוקים, עד מתי, במים",
+     "text_de": "Unreinheit der Beschäftigten, bis wann, im Wasser",
+     "text_en": "Impurity of those engaged, until when, in the water",
+     "desc": "הכנת אפר חטאת › מעשה שריפת הפרה › שינויים במעשיה › פסול במלאכה",
+     "desc_de": "Zubereitung der Sündopfer-Asche › Vorgang der Verbrennung der Kuh › Abweichungen in ihrer Durchführung › Untauglichkeit durch Arbeit",
+     "desc_en": "Preparation of the sin-offering ashes › Procedure of burning the heifer › Deviations in its performance › Disqualification through work"
+    }
+   ]
+  },
+  {
+   "head": "פרק ה",
+   "head_de": "Kapitel 5",
+   "head_en": "Chapter 5",
+   "items": [
+    {
+     "ref": "5:1",
+     "text": "חזקת טהרה, ובתרומה",
+     "text_de": "Vermutung der Reinheit, und bei Teruma",
+     "text_en": "Presumption of purity, and in the case of terumah",
+     "desc": "הלכות מי חטאת › קידוש מי חטאת › הכנות לקידוש › תוצרת הכלי",
+     "desc_de": "Vorschriften über das Sündopferwasser › Heiligung des Sündopferwassers › Vorbereitungen zur Heiligung › Erzeugnis des Gefäßes",
+     "desc_en": "Laws of the sin-offering water › Sanctification of the sin-offering water › Preparations for sanctification › Product of the vessel"
+    },
+    {
+     "ref": "5:2",
+     "text": "צורך לנגב",
+     "text_de": "Notwendigkeit des Abtrocknens",
+     "text_en": "Need for drying",
+     "desc": "הלכות מי חטאת › קידוש מי חטאת › הכנות לקידוש › מניעת עירוב מים אחרים",
+     "desc_de": "Vorschriften über das Sündopferwasser › Heiligung des Sündopferwassers › Vorbereitungen zur Heiligung › Verhinderung der Vermischung mit anderem Wasser",
+     "desc_en": "Laws of the sin-offering water › Sanctification of the sin-offering water › Preparations for sanctification › Preventing mixing with other water"
+    },
+    {
+     "ref": "5:3",
+     "text": "בליעת ופליטת קירויה",
+     "text_de": "Aufsaugen und Abgeben ihrer Wandung",
+     "text_en": "Absorption and release by its wall",
+     "desc": "הלכות מי חטאת › קידוש מי חטאת › הכנות לקידוש › מניעת עירוב מים אחרים",
+     "desc_de": "Vorschriften über das Sündopferwasser › Heiligung des Sündopferwassers › Vorbereitungen zur Heiligung › Verhinderung der Vermischung mit anderem Wasser",
+     "desc_en": "Laws of the sin-offering water › Sanctification of the sin-offering water › Preparations for sanctification › Preventing mixing with other water"
+    },
+    {
+     "ref": "5:4",
+     "text": "הכירא לחטאת, הראוי לקדש",
+     "text_de": "Erleichterung für das Sündopfer, das zur Heiligung Taugliche",
+     "text_en": "Leniency for the sin offering, what is fit for sanctification",
+     "desc": "הלכות מי חטאת › קידוש מי חטאת › הכנות לקידוש",
+     "desc_de": "Vorschriften über das Sündopferwasser › Heiligung des Sündopferwassers › Vorbereitungen zur Heiligung",
+     "desc_en": "Laws of the sin-offering water › Sanctification of the sin-offering water › Preparations for sanctification"
+    },
+    {
+     "ref": "5:5",
+     "text": "אפילו הטהורים, דוקא בכלי, עוד דינים",
+     "text_de": "Auch die Reinen, nur im Gefäß, weitere Vorschriften",
+     "text_en": "Even the pure, only in a vessel, further laws",
+     "desc": "הלכות מי חטאת › קידוש מי חטאת › כלים הכשרים",
+     "desc_de": "Vorschriften über das Sündopferwasser › Heiligung des Sündopferwassers › Taugliche Gefäße",
+     "desc_en": "Laws of the sin-offering water › Sanctification of the sin-offering water › Fit vessels"
+    },
+    {
+     "ref": "5:6",
+     "text": "ביצת היוצרים והתרנגולת",
+     "text_de": "Ei der Töpfer und das Huhn",
+     "text_en": "The potters' egg and the hen",
+     "desc": "הלכות מי חטאת › קידוש מי חטאת › כלים הכשרים",
+     "desc_de": "Vorschriften über das Sündopferwasser › Heiligung des Sündopferwassers › Taugliche Gefäße",
+     "desc_en": "Laws of the sin-offering water › Sanctification of the sin-offering water › Fit vessels"
+    },
+    {
+     "ref": "5:7",
+     "text": "חיבורה, הפקוקה, עטרתה",
+     "text_de": "Seine Verbindung, der Stöpsel, sein Kranz",
+     "text_en": "Its attachment, the stopper, its rim",
+     "desc": "הלכות מי חטאת › קידוש מי חטאת › כלים הכשרים › שוקת",
+     "desc_de": "Vorschriften über das Sündopferwasser › Heiligung des Sündopferwassers › Taugliche Gefäße › Trog",
+     "desc_en": "Laws of the sin-offering water › Sanctification of the sin-offering water › Fit vessels › Trough"
+    },
+    {
+     "ref": "5:8",
+     "text": "בין שקתות",
+     "text_de": "Zwischen Trögen",
+     "text_en": "Between troughs",
+     "desc": "הלכות מי חטאת › קידוש מי חטאת › כלים הכשרים › חיבור כלים › שוקת",
+     "desc_de": "Vorschriften über das Sündopferwasser › Heiligung des Sündopferwassers › Taugliche Gefäße › Verbindung von Gefäßen › Trog",
+     "desc_en": "Laws of the sin-offering water › Sanctification of the sin-offering water › Fit vessels › Connection of vessels › Trough"
+    },
+    {
+     "ref": "5:9",
+     "text": "בין כלים מחולקים",
+     "text_de": "Zwischen getrennten Gefäßen",
+     "text_en": "Between divided vessels",
+     "desc": "הלכות מי חטאת › קידוש מי חטאת › כלים הכשרים › חיבור כלים",
+     "desc_de": "Vorschriften über das Sündopferwasser › Heiligung des Sündopferwassers › Taugliche Gefäße › Verbindung von Gefäßen",
+     "desc_en": "Laws of the sin-offering water › Sanctification of the sin-offering water › Fit vessels › Connection of vessels"
+    }
+   ]
+  },
+  {
+   "head": "פרק ו",
+   "head_de": "Kapitel 6",
+   "head_en": "Chapter 6",
+   "items": [
+    {
+     "ref": "6:1",
+     "text": "מכח אדם, פסול מלאכה, שמירה",
+     "text_de": "Durch Menschenkraft, Untauglichkeit durch Arbeit, Bewachung",
+     "text_en": "By human power, disqualification through work, guarding",
+     "desc": "הלכות מי חטאת › קידוש מי חטאת › כיצד מקדשים › הקידוש",
+     "desc_de": "Vorschriften über das Sündopferwasser › Heiligung des Sündopferwassers › Wie man heiligt › Die Heiligung",
+     "desc_en": "Laws of the sin-offering water › Sanctification of the sin-offering water › How one sanctifies › The sanctification"
+    },
+    {
+     "ref": "6:2",
+     "text": "אפר שכבר נגע במים",
+     "text_de": "Asche, die bereits Wasser berührt hat",
+     "text_en": "Ashes that have already touched water",
+     "desc": "הלכות מי חטאת › קידוש מי חטאת › כיצד מקדשים › הקידוש",
+     "desc_de": "Vorschriften über das Sündopferwasser › Heiligung des Sündopferwassers › Wie man heiligt › Die Heiligung",
+     "desc_en": "Laws of the sin-offering water › Sanctification of the sin-offering water › How one sanctifies › The sanctification"
+    },
+    {
+     "ref": "6:3",
+     "text": "טפי או ספוג בשוקת וטיפול בספוג",
+     "text_de": "Tropfen oder Schwamm im Trog und Umgang mit dem Schwamm",
+     "text_en": "Drop or sponge in the trough and handling of the sponge",
+     "desc": "הלכות מי חטאת › קידוש מי חטאת › כיצד מקדשים › העברת מים החיים לכלי",
+     "desc_de": "Vorschriften über das Sündopferwasser › Heiligung des Sündopferwassers › Wie man heiligt › Überleitung des lebenden Wassers in ein Gefäß",
+     "desc_en": "Laws of the sin-offering water › Sanctification of the sin-offering water › How one sanctifies › Transferring living water into a vessel"
+    },
+    {
+     "ref": "6:4",
+     "text": "על ידי דבר המקבל טומאה",
+     "text_de": "Durch etwas, das Unreinheit annimmt",
+     "text_en": "By something that is susceptible to impurity",
+     "desc": "הלכות מי חטאת › קידוש מי חטאת › כיצד מקדשים › העברת מים החיים לכלי",
+     "desc_de": "Vorschriften über das Sündopferwasser › Heiligung des Sündopferwassers › Wie man heiligt › Überleitung des lebenden Wassers in ein Gefäß",
+     "desc_en": "Laws of the sin-offering water › Sanctification of the sin-offering water › How one sanctifies › Transferring living water into a vessel"
+    },
+    {
+     "ref": "6:5",
+     "text": "בורות המופסקים מן המקור",
+     "text_de": "Gruben, die von der Quelle abgetrennt sind",
+     "text_en": "Pits cut off from the spring",
+     "desc": "הלכות מי חטאת › קידוש מי חטאת › כיצד מקדשים › העברת מים החיים לכלי",
+     "desc_de": "Vorschriften über das Sündopferwasser › Heiligung des Sündopferwassers › Wie man heiligt › Überleitung des lebenden Wassers in ein Gefäß",
+     "desc_en": "Laws of the sin-offering water › Sanctification of the sin-offering water › How one sanctifies › Transferring living water into a vessel"
+    }
+   ]
+  },
+  {
+   "head": "פרק ז",
+   "head_de": "Kapitel 7",
+   "head_en": "Chapter 7",
+   "items": [
+    {
+     "ref": "7:1",
+     "text": "מספר, כוונת ובעלות המילויים",
+     "text_de": "Zahl, Absicht und Besitz der Füllungen",
+     "text_en": "Number, intention and ownership of the fillings",
+     "desc": "הלכות מי חטאת › פסול מי חטאת › מלאכה הפוסלת › על ידי המילוי והקידוש עצמם",
+     "desc_de": "Vorschriften über das Sündopferwasser › Untauglichkeit des Sündopferwassers › Arbeit, die untauglich macht › Durch Füllung und Heiligung selbst",
+     "desc_en": "Laws of the sin-offering water › Disqualification of the sin-offering water › Work that disqualifies › Through the filling and sanctification themselves"
+    },
+    {
+     "ref": "7:2",
+     "text": "מילוי שלו ושל אחר",
+     "text_de": "Füllung durch ihn selbst und durch einen anderen",
+     "text_en": "Filling by oneself and by another",
+     "desc": "הלכות מי חטאת › פסול מי חטאת › מלאכה הפוסלת › על ידי המילוי והקידוש עצמם",
+     "desc_de": "Vorschriften über das Sündopferwasser › Untauglichkeit des Sündopferwassers › Arbeit, die untauglich macht › Durch Füllung und Heiligung selbst",
+     "desc_en": "Laws of the sin-offering water › Disqualification of the sin-offering water › Work that disqualifies › Through the filling and sanctification themselves"
+    },
+    {
+     "ref": "7:3",
+     "text": "בקידוש שלו ושל אחר",
+     "text_de": "Bei Heiligung durch ihn selbst und durch einen anderen",
+     "text_en": "In sanctification by oneself and by another",
+     "desc": "הלכות מי חטאת › פסול מי חטאת › מלאכה הפוסלת › על ידי המילוי והקידוש עצמם",
+     "desc_de": "Vorschriften über das Sündopferwasser › Untauglichkeit des Sündopferwassers › Arbeit, die untauglich macht › Durch Füllung und Heiligung selbst",
+     "desc_en": "Laws of the sin-offering water › Disqualification of the sin-offering water › Work that disqualifies › Through the filling and sanctification themselves"
+    },
+    {
+     "ref": "7:4",
+     "text": "פסול מהמילוי עד הקידוש",
+     "text_de": "Untauglichkeit von der Füllung bis zur Heiligung",
+     "text_en": "Disqualification from filling until sanctification",
+     "desc": "הלכות מי חטאת › פסול מי חטאת › מלאכה הפוסלת › על ידי המילוי והקידוש עצמם",
+     "desc_de": "Vorschriften über das Sündopferwasser › Untauglichkeit des Sündopferwassers › Arbeit, die untauglich macht › Durch Füllung und Heiligung selbst",
+     "desc_en": "Laws of the sin-offering water › Disqualification of the sin-offering water › Work that disqualifies › Through the filling and sanctification themselves"
+    },
+    {
+     "ref": "7:5",
+     "text": "מילוי אחר צרכיו, שמירה מעולה",
+     "text_de": "Füllung nach seinem Bedarf, vorzügliche Bewachung",
+     "text_en": "Filling according to need, excellent guarding",
+     "desc": "הלכות מי חטאת › פסול מי חטאת › מלאכה הפוסלת",
+     "desc_de": "Vorschriften über das Sündopferwasser › Untauglichkeit des Sündopferwassers › Arbeit, die untauglich macht",
+     "desc_en": "Laws of the sin-offering water › Disqualification of the sin-offering water › Work that disqualifies"
+    },
+    {
+     "ref": "7:6",
+     "text": "החזרתו",
+     "text_de": "Seine Rückgabe",
+     "text_en": "Its return",
+     "desc": "הלכות מי חטאת › פסול מי חטאת › מלאכה הפוסלת › חבל של מילוי",
+     "desc_de": "Vorschriften über das Sündopferwasser › Untauglichkeit des Sündopferwassers › Arbeit, die untauglich macht › Seil der Füllung",
+     "desc_en": "Laws of the sin-offering water › Disqualification of the sin-offering water › Work that disqualifies › Rope of the filling"
+    },
+    {
+     "ref": "7:7",
+     "text": "כינונו",
+     "text_de": "Seine Einrichtung",
+     "text_en": "Its arrangement",
+     "desc": "הלכות מי חטאת › פסול מי חטאת › מלאכה הפוסלת › חבל של מילוי",
+     "desc_de": "Vorschriften über das Sündopferwasser › Untauglichkeit des Sündopferwassers › Arbeit, die untauglich macht › Seil der Füllung",
+     "desc_en": "Laws of the sin-offering water › Disqualification of the sin-offering water › Work that disqualifies › Rope of the filling"
+    },
+    {
+     "ref": "7:8",
+     "text": "טיפול בחבית המילוי, פינוי השוקת",
+     "text_de": "Behandlung des Füllfasses, Leeren des Trogs",
+     "text_en": "Handling of the filling barrel, emptying the trough",
+     "desc": "הלכות מי חטאת › פסול מי חטאת › מלאכה הפוסלת",
+     "desc_de": "Vorschriften über das Sündopferwasser › Untauglichkeit des Sündopferwassers › Arbeit, die untauglich macht",
+     "desc_en": "Laws of the sin-offering water › Disqualification of the sin-offering water › Work that disqualifies"
+    },
+    {
+     "ref": "7:9",
+     "text": "מלאכה והיסח הדעת בהובלת המים",
+     "text_de": "Arbeit und Unachtsamkeit beim Transport des Wassers",
+     "text_en": "Work and inattention while transporting the water",
+     "desc": "הלכות מי חטאת › פסול מי חטאת › מלאכה ושמירה",
+     "desc_de": "Vorschriften über das Sündopferwasser › Untauglichkeit des Sündopferwassers › Arbeit und Bewachung",
+     "desc_en": "Laws of the sin-offering water › Disqualification of the sin-offering water › Work and guarding"
+    },
+    {
+     "ref": "7:10",
+     "text": "שמירה ע\"י שומר טמא ומלאכת בעלים",
+     "text_de": "Bewachung durch einen unreinen Wächter und Arbeit der Eigentümer",
+     "text_en": "Guarding by an impure guard and work of the owners",
+     "desc": "הלכות מי חטאת › פסול מי חטאת › מלאכה ושמירה",
+     "desc_de": "Vorschriften über das Sündopferwasser › Untauglichkeit des Sündopferwassers › Arbeit und Bewachung",
+     "desc_en": "Laws of the sin-offering water › Disqualification of the sin-offering water › Work and guarding"
+    },
+    {
+     "ref": "7:11",
+     "text": "עזרה הדדית",
+     "text_de": "Gegenseitige Hilfe",
+     "text_en": "Mutual help",
+     "desc": "הלכות מי חטאת › פסול מי חטאת › מלאכה ושמירה › שותפים",
+     "desc_de": "Vorschriften über das Sündopferwasser › Untauglichkeit des Sündopferwassers › Arbeit und Bewachung › Teilhaber",
+     "desc_en": "Laws of the sin-offering water › Disqualification of the sin-offering water › Work and guarding › Partners"
+    },
+    {
+     "ref": "7:12",
+     "text": "כוונת המלאכה",
+     "text_de": "Absicht der Arbeit",
+     "text_en": "Intention of the work",
+     "desc": "הלכות מי חטאת › פסול מי חטאת › מלאכה ושמירה › שותפים",
+     "desc_de": "Vorschriften über das Sündopferwasser › Untauglichkeit des Sündopferwassers › Arbeit und Bewachung › Teilhaber",
+     "desc_en": "Laws of the sin-offering water › Disqualification of the sin-offering water › Work and guarding › Partners"
+    }
+   ]
+  },
+  {
+   "head": "פרק ח",
+   "head_de": "Kapitel 8",
+   "head_en": "Chapter 8",
+   "items": [
+    {
+     "ref": "8:1",
+     "text": "תורנות שומרים",
+     "text_de": "Wechsel der Wächter",
+     "text_en": "Rotation of guards",
+     "desc": "הלכות מי חטאת › פסול מי חטאת › מלאכה ושמירה › שותפים",
+     "desc_de": "Vorschriften über das Sündopferwasser › Untauglichkeit des Sündopferwassers › Arbeit und Bewachung › Teilhaber",
+     "desc_en": "Laws of the sin-offering water › Disqualification of the sin-offering water › Work and guarding › Partners"
+    },
+    {
+     "ref": "8:2",
+     "text": "משקים וכליו ובשרו של המקדש",
+     "text_de": "Flüssigkeiten, Geräte und Fleisch des Heiligtums",
+     "text_en": "Liquids, utensils and flesh of the sanctuary",
+     "desc": "הלכות מי חטאת › פסול מי חטאת › משקים לחטאת",
+     "desc_de": "Vorschriften über das Sündopferwasser › Untauglichkeit des Sündopferwassers › Flüssigkeiten für das Sündopfer",
+     "desc_en": "Laws of the sin-offering water › Disqualification of the sin-offering water › Liquids for the sin offering"
+    },
+    {
+     "ref": "8:3",
+     "text": "העוסק בקרבנות המטמאין ובגדיו",
+     "text_de": "Wer sich mit verunreinigenden Opfern befasst, und seine Kleider",
+     "text_en": "One engaged with defiling offerings, and his garments",
+     "desc": "הלכות מי חטאת › המטמא את מה שאין מטמאו מטמא › בעלי חיים",
+     "desc_de": "Vorschriften über das Sündopferwasser › Wer verunreinigt, was nicht verunreinigt, was ihn verunreinigt › Tiere",
+     "desc_en": "Laws of the sin-offering water › One who defiles what does not defile him, that which defiles him › Animals"
+    },
+    {
+     "ref": "8:4",
+     "text": "האוכל מנבלת עוף טהור ובגדיו",
+     "text_de": "Wer von der Aas eines reinen Vogels isst, und seine Kleider",
+     "text_en": "One who eats from the carcass of a pure bird, and his garments",
+     "desc": "הלכות מי חטאת › המטמא את מה שאין מטמאו מטמא › בעלי חיים",
+     "desc_de": "Vorschriften über das Sündopferwasser › Wer verunreinigt, was nicht verunreinigt, was ihn verunreinigt › Tiere",
+     "desc_en": "Laws of the sin-offering water › One who defiles what does not defile him, that which defiles him › Animals"
+    },
+    {
+     "ref": "8:5",
+     "text": "כלים הנטמאים ע\"י ולד",
+     "text_de": "Geräte, die durch Nachkommen unrein werden",
+     "text_en": "Utensils that become impure through derived impurity",
+     "desc": "הלכות מי חטאת › המטמא את מה שאין מטמאו מטמא › טומאת משקים",
+     "desc_de": "Vorschriften über das Sündopferwasser › Wer verunreinigt, was nicht verunreinigt, was ihn verunreinigt › Unreinheit von Flüssigkeiten",
+     "desc_en": "Laws of the sin-offering water › One who defiles what does not defile him, that which defiles him › Impurity of liquids"
+    },
+    {
+     "ref": "8:6",
+     "text": "כלי חרס הנטמאים ע\"י כלי חרס",
+     "text_de": "Tongefäße, die durch Tongefäße unrein werden",
+     "text_en": "Earthenware vessels that become impure through earthenware vessels",
+     "desc": "הלכות מי חטאת › המטמא את מה שאין מטמאו מטמא › טומאת משקים",
+     "desc_de": "Vorschriften über das Sündopferwasser › Wer verunreinigt, was nicht verunreinigt, was ihn verunreinigt › Unreinheit von Flüssigkeiten",
+     "desc_en": "Laws of the sin-offering water › One who defiles what does not defile him, that which defiles him › Impurity of liquids"
+    },
+    {
+     "ref": "8:7",
+     "text": "חולין הנטמאים ע\"י הפוסל תרומה",
+     "text_de": "Profanes, das durch das unrein wird, was Teruma untauglich macht",
+     "text_en": "Unconsecrated food that becomes impure through what disqualifies terumah",
+     "desc": "הלכות מי חטאת › המטמא את מה שאין מטמאו מטמא › טומאת משקים",
+     "desc_de": "Vorschriften über das Sündopferwasser › Wer verunreinigt, was nicht verunreinigt, was ihn verunreinigt › Unreinheit von Flüssigkeiten",
+     "desc_en": "Laws of the sin-offering water › One who defiles what does not defile him, that which defiles him › Impurity of liquids"
+    },
+    {
+     "ref": "8:8",
+     "text": "אילו ימים כמקוה",
+     "text_de": "Welche Tage wie ein Tauchbad",
+     "text_en": "Which days are like a mikveh",
+     "desc": "הלכות מי חטאת › פסול מי חטאת › מים חיים › הפסולים",
+     "desc_de": "Vorschriften über das Sündopferwasser › Untauglichkeit des Sündopferwassers › Lebendes Wasser › Die Untauglichen",
+     "desc_en": "Laws of the sin-offering water › Disqualification of the sin-offering water › Living water › The disqualified"
+    },
+    {
+     "ref": "8:9",
+     "text": "מים מוכים ומכזבים",
+     "text_de": "Geschlagenes und versiegendes Wasser",
+     "text_en": "Beaten water and failing water",
+     "desc": "הלכות מי חטאת › פסול מי חטאת › מים חיים › הפסולים",
+     "desc_de": "Vorschriften über das Sündopferwasser › Untauglichkeit des Sündopferwassers › Lebendes Wasser › Die Untauglichen",
+     "desc_en": "Laws of the sin-offering water › Disqualification of the sin-offering water › Living water › The disqualified"
+    },
+    {
+     "ref": "8:10",
+     "text": "מי ביצים, מי תערובות",
+     "text_de": "Eierwasser, Mischwasser",
+     "text_en": "Egg water, mixed water",
+     "desc": "הלכות מי חטאת › פסול מי חטאת › מים חיים › הפסולים",
+     "desc_de": "Vorschriften über das Sündopferwasser › Untauglichkeit des Sündopferwassers › Lebendes Wasser › Die Untauglichen",
+     "desc_en": "Laws of the sin-offering water › Disqualification of the sin-offering water › Living water › The disqualified"
+    },
+    {
+     "ref": "8:11",
+     "text": "דוגמאות, שנשתנו, אמה, צילול עכורים",
+     "text_de": "Beispiele, Veränderte, Elle, Klärung trüber Wasser",
+     "text_en": "Examples, altered waters, cubit, clearing of turbid waters",
+     "desc": "הלכות מי חטאת › פסול מי חטאת › מים חיים › הכשרים",
+     "desc_de": "Vorschriften über das Sündopferwasser › Untauglichkeit des Sündopferwassers › Lebendes Wasser › Die Tauglichen",
+     "desc_en": "Laws of the sin-offering water › Disqualification of the sin-offering water › Living water › The fit ones"
+    }
+   ]
+  },
+  {
+   "head": "פרק ט",
+   "head_de": "Kapitel 9",
+   "head_en": "Chapter 9",
+   "items": [
+    {
+     "ref": "9:1",
+     "text": "משקים שונים ונקיון",
+     "text_de": "Verschiedene Flüssigkeiten und Sauberkeit",
+     "text_en": "Various liquids and cleanliness",
+     "desc": "הלכות מי חטאת › פסול מי חטאת › עוד פסולים › עירוב משקים אחרים",
+     "desc_de": "Vorschriften über das Sündopferwasser › Untauglichkeit des Sündopferwassers › Weitere Untaugliche › Vermischung mit anderen Flüssigkeiten",
+     "desc_en": "Laws of the sin-offering water › Disqualification of the sin-offering water › Further disqualifiers › Mixing with other liquids"
+    },
+    {
+     "ref": "9:2",
+     "text": "ליחות בתוך חרקים",
+     "text_de": "Feuchtigkeit in Kleintieren",
+     "text_en": "Moisture in creeping creatures",
+     "desc": "הלכות מי חטאת › פסול מי חטאת › עוד פסולים › עירוב משקים אחרים",
+     "desc_de": "Vorschriften über das Sündopferwasser › Untauglichkeit des Sündopferwassers › Weitere Untaugliche › Vermischung mit anderen Flüssigkeiten",
+     "desc_en": "Laws of the sin-offering water › Disqualification of the sin-offering water › Further disqualifiers › Mixing with other liquids"
+    },
+    {
+     "ref": "9:3",
+     "text": "רוק בעלי חיים ששותים",
+     "text_de": "Speichel von Tieren, die trinken",
+     "text_en": "Saliva of animals that drink",
+     "desc": "הלכות מי חטאת › פסול מי חטאת › עוד פסולים › עירוב משקים אחרים",
+     "desc_de": "Vorschriften über das Sündopferwasser › Untauglichkeit des Sündopferwassers › Weitere Untaugliche › Vermischung mit anderen Flüssigkeiten",
+     "desc_en": "Laws of the sin-offering water › Disqualification of the sin-offering water › Further disqualifiers › Mixing with other liquids"
+    },
+    {
+     "ref": "9:4",
+     "text": "מחשבת ושתיית האדם",
+     "text_de": "Absicht und Trinken des Menschen",
+     "text_en": "Intention and drinking of a person",
+     "desc": "הלכות מי חטאת › פסול מי חטאת › עוד פסולים › עירוב משקים אחרים",
+     "desc_de": "Vorschriften über das Sündopferwasser › Untauglichkeit des Sündopferwassers › Weitere Untaugliche › Vermischung mit anderen Flüssigkeiten",
+     "desc_en": "Laws of the sin-offering water › Disqualification of the sin-offering water › Further disqualifiers › Mixing with other liquids"
+    },
+    {
+     "ref": "9:5",
+     "text": "ביטולם בטיט, במעי פרה",
+     "text_de": "Ihre Aufhebung durch Lehm, im Magen einer Kuh",
+     "text_en": "Their nullification by mud, in a cow's stomach",
+     "desc": "הלכות מי חטאת › פסול מי חטאת › עוד פסולים › איך מטמאים",
+     "desc_de": "Vorschriften über das Sündopferwasser › Untauglichkeit des Sündopferwassers › Weitere Untaugliche › Wie man verunreinigt",
+     "desc_en": "Laws of the sin-offering water › Disqualification of the sin-offering water › Further disqualifiers › How one defiles"
+    },
+    {
+     "ref": "9:6",
+     "text": "גזירת העברה על פני המים",
+     "text_de": "Verordnung über das Hinübertragen über das Wasser",
+     "text_en": "Decree on carrying across the water",
+     "desc": "הלכות מי חטאת › פסול מי חטאת › עוד פסולים",
+     "desc_de": "Vorschriften über das Sündopferwasser › Untauglichkeit des Sündopferwassers › Weitere Untaugliche",
+     "desc_en": "Laws of the sin-offering water › Disqualification of the sin-offering water › Further disqualifiers"
+    },
+    {
+     "ref": "9:7",
+     "text": "עירוב הפוסל באפר",
+     "text_de": "Vermischung des Untauglichmachenden in die Asche",
+     "text_en": "Mixing of the disqualifying substance into the ashes",
+     "desc": "הלכות מי חטאת › פסול מי חטאת › עוד פסולים",
+     "desc_de": "Vorschriften über das Sündopferwasser › Untauglichkeit des Sündopferwassers › Weitere Untaugliche",
+     "desc_en": "Laws of the sin-offering water › Disqualification of the sin-offering water › Further disqualifiers"
+    },
+    {
+     "ref": "9:8",
+     "text": "שנפסלו, שנטמאו",
+     "text_de": "Die untauglich Gewordenen, die unrein Gewordenen",
+     "text_en": "Those that became disqualified, those that became impure",
+     "desc": "הלכות מי חטאת › פסול מי חטאת › טומאה ומי חטאת › כיצד מטמאים אם נפסלו",
+     "desc_de": "Vorschriften über das Sündopferwasser › Untauglichkeit des Sündopferwassers › Unreinheit und Sündopferwasser › Wie man verunreinigt, wenn sie untauglich wurden",
+     "desc_en": "Laws of the sin-offering water › Disqualification of the sin-offering water › Impurity and sin-offering water › How they defile if they became disqualified"
+    },
+    {
+     "ref": "9:9",
+     "text": "שלא היו ראויין",
+     "text_de": "Die nicht tauglich waren",
+     "text_en": "Those that were not fit",
+     "desc": "הלכות מי חטאת › פסול מי חטאת › טומאה ומי חטאת › כיצד מטמאים אם נפסלו",
+     "desc_de": "Vorschriften über das Sündopferwasser › Untauglichkeit des Sündopferwassers › Unreinheit und Sündopferwasser › Wie man verunreinigt, wenn sie untauglich wurden",
+     "desc_en": "Laws of the sin-offering water › Disqualification of the sin-offering water › Impurity and sin-offering water › How they defile if they became disqualified"
+    }
+   ]
+  },
+  {
+   "head": "פרק י",
+   "head_de": "Kapitel 10",
+   "head_en": "Chapter 10",
+   "items": [
+    {
+     "ref": "10:1",
+     "text": "היסט",
+     "text_de": "Heset (Verrückung)",
+     "text_en": "Heset (shifting)",
+     "desc": "הלכות מי חטאת › טומאה ומי חטאת › איך נטמאים בקלות › מדף",
+     "desc_de": "Vorschriften über das Sündopferwasser › Unreinheit und Sündopferwasser › Wie man leicht unrein wird › Medaf",
+     "desc_en": "Laws of the sin-offering water › Impurity and sin-offering water › How one becomes impure easily › Medaf"
+    },
+    {
+     "ref": "10:2",
+     "text": "נגיעה בו \\ או באוכל והסיטן",
+     "text_de": "Berührung mit ihm / oder mit Speise und deren Verrückung",
+     "text_en": "Touching it / or food and shifting them",
+     "desc": "הלכות מי חטאת › טומאה ומי חטאת › איך נטמאים בקלות › מדף",
+     "desc_de": "Vorschriften über das Sündopferwasser › Unreinheit und Sündopferwasser › Wie man leicht unrein wird › Medaf",
+     "desc_en": "Laws of the sin-offering water › Impurity and sin-offering water › How one becomes impure easily › Medaf"
+    },
+    {
+     "ref": "10:3",
+     "text": "על שרץ, על ולד טומאה",
+     "text_de": "Durch ein Kriechtier, durch abgeleitete Unreinheit",
+     "text_en": "By a creeping creature, by derived impurity",
+     "desc": "הלכות מי חטאת › טומאה ומי חטאת › איך נטמאים בקלות › הנחת מי חטאת במקום טמא",
+     "desc_de": "Vorschriften über das Sündopferwasser › Unreinheit und Sündopferwasser › Wie man leicht unrein wird › Abstellen von Sündopferwasser an unreinem Ort",
+     "desc_en": "Laws of the sin-offering water › Impurity and sin-offering water › How one becomes impure easily › Placing sin-offering water in an impure place"
+    },
+    {
+     "ref": "10:4",
+     "text": "נגיעה ברגל, מקומו של המעמידן",
+     "text_de": "Berührung am Fuß, Ort dessen, der sie aufstellt",
+     "text_en": "Touching the foot, place of the one who sets them up",
+     "desc": "הלכות מי חטאת › טומאה ומי חטאת › איך נטמאים בקלות › הנחת מי חטאת במקום טמא",
+     "desc_de": "Vorschriften über das Sündopferwasser › Unreinheit und Sündopferwasser › Wie man leicht unrein wird › Abstellen von Sündopferwasser an unreinem Ort",
+     "desc_en": "Laws of the sin-offering water › Impurity and sin-offering water › How one becomes impure easily › Placing sin-offering water in an impure place"
+    },
+    {
+     "ref": "10:5",
+     "text": "גזירה שמא יניח, רק במכילי אפר",
+     "text_de": "Verordnung, er könnte sie abstellen, nur bei Aschebehältern",
+     "text_en": "Decree lest he set them down, only with ash containers",
+     "desc": "הלכות מי חטאת › טומאה ומי חטאת › איך נטמאים בקלות › הנחת מי חטאת במקום טמא",
+     "desc_de": "Vorschriften über das Sündopferwasser › Unreinheit und Sündopferwasser › Wie man leicht unrein wird › Abstellen von Sündopferwasser an unreinem Ort",
+     "desc_en": "Laws of the sin-offering water › Impurity and sin-offering water › How one becomes impure easily › Placing sin-offering water in an impure place"
+    },
+    {
+     "ref": "10:6",
+     "text": "טהרת חטאת וטומאת הנושא מי חטאת",
+     "text_de": "Reinheit des Sündopfers und Unreinheit des Trägers von Sündopferwasser",
+     "text_en": "Purity of the sin offering and impurity of the carrier of sin-offering water",
+     "desc": "הלכות מי חטאת › טומאה ומי חטאת › איך נטמאים בקלות",
+     "desc_de": "Vorschriften über das Sündopferwasser › Unreinheit und Sündopferwasser › Wie man leicht unrein wird",
+     "desc_en": "Laws of the sin-offering water › Impurity and sin-offering water › How one becomes impure easily"
+    }
+   ]
+  },
+  {
+   "head": "פרק יא",
+   "head_de": "Kapitel 11",
+   "head_en": "Chapter 11",
+   "items": [
+    {
+     "ref": "11:1",
+     "text": "שינוי בכיסוי, הצלה בצמיד פתיל",
+     "text_de": "Veränderung der Bedeckung, Rettung durch festgebundene Verschlüsse",
+     "text_en": "Change of the covering, saving through a tightly bound cover",
+     "desc": "הלכות מי חטאת › טומאה ומי חטאת › איך נטמאים בקלות › ספק פסול",
+     "desc_de": "Vorschriften über das Sündopferwasser › Unreinheit und Sündopferwasser › Wie man leicht unrein wird › Zweifelhafte Untauglichkeit",
+     "desc_en": "Laws of the sin-offering water › Impurity and sin-offering water › How one becomes impure easily › Doubtful disqualification"
+    },
+    {
+     "ref": "11:2",
+     "text": "בהשוואה לתרומה, הסיטי הזב",
+     "text_de": "Im Vergleich zur Teruma, das Verrücken durch den Zaw",
+     "text_en": "In comparison to terumah, shifting by the zav",
+     "desc": "הלכות מי חטאת › טומאה ומי חטאת › איך נטמאים בקלות › ספק פסול",
+     "desc_de": "Vorschriften über das Sündopferwasser › Unreinheit und Sündopferwasser › Wie man leicht unrein wird › Zweifelhafte Untauglichkeit",
+     "desc_en": "Laws of the sin-offering water › Impurity and sin-offering water › How one becomes impure easily › Doubtful disqualification"
+    },
+    {
+     "ref": "11:3",
+     "text": "ע\"י אוכלי תרומה, הכנסת הגוף לתוכם",
+     "text_de": "Durch Teruma-Essende, Hineinbringen des Körpers in sie",
+     "text_en": "By those who eat terumah, bringing the body into them",
+     "desc": "הלכות מי חטאת › טומאה ומי חטאת › איך נטמאים בקלות › איך מטמאים",
+     "desc_de": "Vorschriften über das Sündopferwasser › Unreinheit und Sündopferwasser › Wie man leicht unrein wird › Wie man verunreinigt",
+     "desc_en": "Laws of the sin-offering water › Impurity and sin-offering water › How one becomes impure easily › How one defiles"
+    },
+    {
+     "ref": "11:4",
+     "text": "הטמא מדאורייתא",
+     "text_de": "Das nach der Tora Unreine",
+     "text_en": "What is impure by Torah law",
+     "desc": "הלכות מי חטאת › טומאה ומי חטאת › איך נטמאים בקלות › יכולת לטמא וביאת מקדש",
+     "desc_de": "Vorschriften über das Sündopferwasser › Unreinheit und Sündopferwasser › Wie man leicht unrein wird › Fähigkeit zu verunreinigen und Betreten des Heiligtums",
+     "desc_en": "Laws of the sin-offering water › Impurity and sin-offering water › How one becomes impure easily › Ability to defile and entering the Temple"
+    },
+    {
+     "ref": "11:5",
+     "text": "הטמא מדרבנן",
+     "text_de": "Das rabbinisch Unreine",
+     "text_en": "What is impure by rabbinic law",
+     "desc": "הלכות מי חטאת › טומאה ומי חטאת › איך נטמאים בקלות › יכולת לטמא וביאת מקדש",
+     "desc_de": "Vorschriften über das Sündopferwasser › Unreinheit und Sündopferwasser › Wie man leicht unrein wird › Fähigkeit zu verunreinigen und Betreten des Heiligtums",
+     "desc_en": "Laws of the sin-offering water › Impurity and sin-offering water › How one becomes impure easily › Ability to defile and entering the Temple"
+    },
+    {
+     "ref": "11:6",
+     "text": "לטמא הטהור לחטאת",
+     "text_de": "Den für das Sündopfer Reinen verunreinigen",
+     "text_en": "Defiling one who is pure for the sin offering",
+     "desc": "הלכות מי חטאת › טומאה ומי חטאת › איך נטמאים בקלות › יכולת לטמא וביאת מקדש",
+     "desc_de": "Vorschriften über das Sündopferwasser › Unreinheit und Sündopferwasser › Wie man leicht unrein wird › Fähigkeit zu verunreinigen und Betreten des Heiligtums",
+     "desc_en": "Laws of the sin-offering water › Impurity and sin-offering water › How one becomes impure easily › Ability to defile and entering the Temple"
+    },
+    {
+     "ref": "11:7",
+     "text": "שמו, של תרומה, יונקותיו ותמרותיו",
+     "text_de": "Sein Name, bei Teruma, seine Triebe und Ranken",
+     "text_en": "Its name, in the case of terumah, its shoots and tendrils",
+     "desc": "הלכות הזיה › במה מזים › איזוב הכשר להזאה",
+     "desc_de": "Vorschriften zur Besprengung › Womit man besprengt › Für die Besprengung taugliches Ysop",
+     "desc_en": "Laws of sprinkling › With what one sprinkles › Hyssop fit for sprinkling"
+    },
+    {
+     "ref": "11:8",
+     "text": "לטהר מצורע, תכלית לקיטתו וטומאתו",
+     "text_de": "Den Aussätzigen zu reinigen, Zweck seines Sammelns und seine Unreinheit",
+     "text_en": "To purify the leper, purpose of its gathering and its impurity",
+     "desc": "הלכות הזיה › במה מזים › איזוב הכשר להזאה",
+     "desc_de": "Vorschriften zur Besprengung › Womit man besprengt › Für die Besprengung taugliches Ysop",
+     "desc_en": "Laws of sprinkling › With what one sprinkles › Hyssop fit for sprinkling"
+    },
+    {
+     "ref": "11:9",
+     "text": "מספר הקלחים וגבעולים, אגודתו",
+     "text_de": "Zahl der Ähren und Stängel, ihr Bündel",
+     "text_en": "Number of ears and stalks, their bundle",
+     "desc": "הלכות הזיה › במה מזים › איזוב הכשר להזאה",
+     "desc_de": "Vorschriften zur Besprengung › Womit man besprengt › Für die Besprengung taugliches Ysop",
+     "desc_en": "Laws of sprinkling › With what one sprinkles › Hyssop fit for sprinkling"
+    }
+   ]
+  },
+  {
+   "head": "פרק יב",
+   "head_de": "Kapitel 12",
+   "head_en": "Chapter 12",
+   "items": [
+    {
+     "ref": "12:1",
+     "text": "איזוב הקצר ושסיפקו",
+     "text_de": "Kurzer Ysop und was ihn ausreichen lässt",
+     "text_en": "Short hyssop and what makes it sufficient",
+     "desc": "הלכות הזיה › איך ועל מה מזים › במה מזים › איזוב הכשר להזאה",
+     "desc_de": "Vorschriften zur Besprengung › Womit und worauf man besprengt › Womit man besprengt › Für die Besprengung taugliches Ysop",
+     "desc_en": "Laws of sprinkling › With what and on what one sprinkles › With what one sprinkles › Hyssop fit for sprinkling"
+    },
+    {
+     "ref": "12:2",
+     "text": "ספק, שיעור \\ לכיוון הטמאים ומספרם",
+     "text_de": "Zweifel, Mindestmaß / bezüglich der Unreinen und ihrer Anzahl",
+     "text_en": "Doubt, minimum measure / regarding the impure and their number",
+     "desc": "הלכות הזיה › איך ועל מה מזים › כוונה",
+     "desc_de": "Vorschriften zur Besprengung › Womit und worauf man besprengt › Andacht",
+     "desc_en": "Laws of sprinkling › With what and on what one sprinkles › Intention"
+    },
+    {
+     "ref": "12:3",
+     "text": "הטבילה וצורך בטבילה אחרת, המנטפים",
+     "text_de": "Das Untertauchen und die Notwendigkeit eines weiteren Untertauchens, die Träufelnden",
+     "text_en": "Immersion and the need for another immersion, those who drip",
+     "desc": "הלכות הזיה › איך ועל מה מזים › כוונה",
+     "desc_de": "Vorschriften zur Besprengung › Womit und worauf man besprengt › Andacht",
+     "desc_en": "Laws of sprinkling › With what and on what one sprinkles › Intention"
+    },
+    {
+     "ref": "12:4",
+     "text": "עשו מצותן, ביאה למקדש אחר הזאה פסולה",
+     "text_de": "Sie haben ihr Gebot erfüllt, Betreten des Heiligtums nach untauglicher Besprengung",
+     "text_en": "They have fulfilled their commandment, entering the Temple after an invalid sprinkling",
+     "desc": "הלכות הזיה › טומאה וחטאת › תוצאות ההזיה",
+     "desc_de": "Vorschriften zur Besprengung › Unreinheit und Sündopfer › Folgen der Besprengung",
+     "desc_en": "Laws of sprinkling › Impurity and sin offering › Consequences of the sprinkling"
+    },
+    {
+     "ref": "12:5",
+     "text": "עשו מצוותן \\ מי הזיה",
+     "text_de": "Sie haben ihr Gebot erfüllt / Besprengungswasser",
+     "text_en": "They have fulfilled their commandment / sprinkling water",
+     "desc": "הלכות הזיה › טומאה וחטאת › אי שיעור מנין דרגות טומאה בחטאת › תוצאות ההזיה",
+     "desc_de": "Vorschriften zur Besprengung › Unreinheit und Sündopfer › Kein Mindestmaß, Zählung der Unreinheitsgrade beim Sündopfer › Folgen der Besprengung",
+     "desc_en": "Laws of sprinkling › Impurity and sin offering › No minimum measure, counting the degrees of impurity in the sin offering › Consequences of the sprinkling"
+    },
+    {
+     "ref": "12:6",
+     "text": "באיזוב טמא",
+     "text_de": "Mit unreinem Ysop",
+     "text_en": "With impure hyssop",
+     "desc": "הלכות הזיה › טומאה וחטאת › אי שיעור מנין דרגות טומאה בחטאת",
+     "desc_de": "Vorschriften zur Besprengung › Unreinheit und Sündopfer › Kein Mindestmaß, Zählung der Unreinheitsgrade beim Sündopfer",
+     "desc_en": "Laws of sprinkling › Impurity and sin offering › No minimum measure, counting the degrees of impurity in the sin offering"
+    },
+    {
+     "ref": "12:7",
+     "text": "אדם הטהור לחטאת",
+     "text_de": "Der für das Sündopfer reine Mensch",
+     "text_en": "The person pure for the sin offering",
+     "desc": "הלכות הזיה › טומאה וחטאת › אי שיעור מנין דרגות טומאה בחטאת",
+     "desc_de": "Vorschriften zur Besprengung › Unreinheit und Sündopfer › Kein Mindestmaß, Zählung der Unreinheitsgrade beim Sündopfer",
+     "desc_en": "Laws of sprinkling › Impurity and sin offering › No minimum measure, counting the degrees of impurity in the sin offering"
+    },
+    {
+     "ref": "12:8",
+     "text": "לגין של חטאת \\ כלי אריגה ומטה, ידות",
+     "text_de": "Das Gefäß des Sündopfers / Webgeräte und Bett, Griffe",
+     "text_en": "The vessel of the sin offering / weaving implements and bed, handles",
+     "desc": "הלכות הזיה › על מה מזים › חיבור להזיה",
+     "desc_de": "Vorschriften zur Besprengung › Worauf man besprengt › Verbindung bei der Besprengung",
+     "desc_en": "Laws of sprinkling › On what one sprinkles › Connection in sprinkling"
+    },
+    {
+     "ref": "12:9",
+     "text": "כלים שונים המחוברים",
+     "text_de": "Verschiedene verbundene Gefäße",
+     "text_en": "Various connected vessels",
+     "desc": "הלכות הזיה › על מה מזים › חיבור להזיה",
+     "desc_de": "Vorschriften zur Besprengung › Worauf man besprengt › Verbindung bei der Besprengung",
+     "desc_en": "Laws of sprinkling › On what one sprinkles › Connection in sprinkling"
+    },
+    {
+     "ref": "12:10",
+     "text": "כיסוי מיחם \\ הפסולין וסיוען",
+     "text_de": "Deckel eines Warmwasserkessels / Untaugliche und ihre Helfer",
+     "text_en": "Cover of a hot-water boiler / The disqualified and their helpers",
+     "desc": "הלכות הזיה › על מה מזים › חיבור להזיה",
+     "desc_de": "Vorschriften zur Besprengung › Worauf man besprengt › Verbindung bei der Besprengung",
+     "desc_en": "Laws of sprinkling › On what one sprinkles › Connection in sprinkling"
+    },
+    {
+     "ref": "12:11",
+     "text": "זמני ההזיה וטבילת האזוב והאדם",
+     "text_de": "Zeiten der Besprengung und Untertauchen des Ysops und des Menschen",
+     "text_en": "Times of sprinkling and immersion of the hyssop and the person",
+     "desc": "הלכות הזיה › מי מזה ומתי",
+     "desc_de": "Vorschriften zur Besprengung › Wer besprengt und wann",
+     "desc_en": "Laws of sprinkling › Who sprinkles and when"
+    }
+   ]
+  }
+ ]
+}

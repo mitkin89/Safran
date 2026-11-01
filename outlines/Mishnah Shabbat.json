@@ -1,0 +1,1430 @@
+{
+ "book": "Mishnah Shabbat",
+ "title": "משנה שבת",
+ "title_de": "Mischna Schabbat – Gliederung",
+ "title_en": "Shabbat – outline",
+ "note": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema).",
+ "note_de": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema); ins Deutsche und Englische übersetzt.",
+ "note_en": "Outline after the table “Mishna Sedura”: the central content of each mishnah, with the topic path (main topic to sub-topic); translated into German and English.",
+ "sections": [
+  {
+   "head": "פרק א",
+   "head_de": "Kapitel 1",
+   "head_en": "Chapter 1",
+   "items": [
+    {
+     "ref": "1:1",
+     "text": "סוגי ההוצאה וחיוביהן",
+     "text_de": "Arten des Hinausbringens und ihre Verpflichtungen",
+     "text_en": "Types of carrying out and their liabilities",
+     "desc": "הלכות מדרבנן › דינים לערב שבת › גזירות שונות › שמא יימשך",
+     "desc_de": "Rabbinische Gesetze › Regeln für den Freitag › Verschiedene Verordnungen › Damit er sich nicht hinreißen lässt",
+     "desc_en": "Rabbinic laws › Rules for Sabbath eve › Various decrees › Lest he be drawn into it"
+    },
+    {
+     "ref": "1:2",
+     "text": "עיסוק לפני תפילה",
+     "text_de": "Beschäftigung vor dem Gebet",
+     "text_en": "Engaging in activity before prayer",
+     "desc": "הלכות מדרבנן › דינים לערב שבת › גזירות שונות › שמא יימשך",
+     "desc_de": "Rabbinische Gesetze › Regeln für den Freitag › Verschiedene Verordnungen › Damit er sich nicht hinreißen lässt",
+     "desc_en": "Rabbinic laws › Rules for Sabbath eve › Various decrees › Lest he be drawn into it"
+    },
+    {
+     "ref": "1:3",
+     "text": "סמוך לשבת \\ לאור הנר / הרגל עבירה",
+     "text_de": "Nahe dem Schabbat / bei Kerzenlicht / Gewöhnung an Übertretung",
+     "text_en": "Close to Shabbat / by lamplight / habituation to transgression",
+     "desc": "הלכות מדרבנן › דינים לערב שבת › גזירות שונות › ח\"י גזרות",
+     "desc_de": "Rabbinische Gesetze › Regeln für den Freitag › Verschiedene Verordnungen › Achtzehn Verordnungen",
+     "desc_en": "Rabbinic laws › Rules for Sabbath eve › Various decrees › Eighteen decrees"
+    },
+    {
+     "ref": "1:4",
+     "text": "מקורן",
+     "text_de": "Ihre Quelle",
+     "text_en": "Their source",
+     "desc": "הלכות מדרבנן › דינים לערב שבת › גזירות שונות › ח\"י גזרות",
+     "desc_de": "Rabbinische Gesetze › Regeln für den Freitag › Verschiedene Verordnungen › Achtzehn Verordnungen",
+     "desc_en": "Rabbinic laws › Rules for Sabbath eve › Various decrees › Eighteen decrees"
+    },
+    {
+     "ref": "1:5",
+     "text": "שרייה",
+     "text_de": "Einweichen",
+     "text_en": "Soaking",
+     "desc": "הלכות מדרבנן › דינים לערב שבת › גזירות שונות › שביתת כלים",
+     "desc_de": "Rabbinische Gesetze › Regeln für den Freitag › Verschiedene Verordnungen › Ruhen der Geräte",
+     "desc_en": "Rabbinic laws › Rules for Sabbath eve › Various decrees › Rest of utensils"
+    },
+    {
+     "ref": "1:6",
+     "text": "בישול, מצודות",
+     "text_de": "Kochen, Fanggeräte",
+     "text_en": "Cooking; traps",
+     "desc": "הלכות מדרבנן › דינים לערב שבת › גזירות שונות › שביתת כלים",
+     "desc_de": "Rabbinische Gesetze › Regeln für den Freitag › Verschiedene Verordnungen › Ruhen der Geräte",
+     "desc_en": "Rabbinic laws › Rules for Sabbath eve › Various decrees › Rest of utensils"
+    },
+    {
+     "ref": "1:7",
+     "text": "הוצאה",
+     "text_de": "Hinausbringen",
+     "text_en": "Carrying out",
+     "desc": "הלכות מדרבנן › דינים לערב שבת › גזירות שונות › נראה כמשלח נכרי",
+     "desc_de": "Rabbinische Gesetze › Regeln für den Freitag › Verschiedene Verordnungen › Es sieht aus, als schicke man einen Nichtjuden",
+     "desc_en": "Rabbinic laws › Rules for Sabbath eve › Various decrees › It appears as if sending a gentile"
+    },
+    {
+     "ref": "1:8",
+     "text": "עיבוד וכיבוס",
+     "text_de": "Verarbeitung und Waschen",
+     "text_en": "Processing and laundering",
+     "desc": "הלכות מדרבנן › דינים לערב שבת › גזירות שונות › נראה כמשלח נכרי",
+     "desc_de": "Rabbinische Gesetze › Regeln für den Freitag › Verschiedene Verordnungen › Es sieht aus, als schicke man einen Nichtjuden",
+     "desc_en": "Rabbinic laws › Rules for Sabbath eve › Various decrees › It appears as if sending a gentile"
+    },
+    {
+     "ref": "1:9",
+     "text": "כיבוס \\ התחלת עצירת זתים",
+     "text_de": "Waschen / Beginn des Olivenpressens",
+     "text_en": "Laundering / start of olive pressing",
+     "desc": "הלכות מדרבנן › דינים לערב שבת › גזירות שונות › שביתת כלים",
+     "desc_de": "Rabbinische Gesetze › Regeln für den Freitag › Verschiedene Verordnungen › Ruhen der Geräte",
+     "desc_en": "Rabbinic laws › Rules for Sabbath eve › Various decrees › Rest of utensils"
+    },
+    {
+     "ref": "1:10",
+     "text": "צליה ואפייה",
+     "text_de": "Braten und Backen",
+     "text_en": "Roasting and baking",
+     "desc": "הלכות מדרבנן › דינים לערב שבת › גזירות שונות › שמא יחתה",
+     "desc_de": "Rabbinische Gesetze › Regeln für den Freitag › Verschiedene Verordnungen › Damit er nicht schürt",
+     "desc_en": "Rabbinic laws › Rules for Sabbath eve › Various decrees › Lest he stoke the fire"
+    },
+    {
+     "ref": "1:11",
+     "text": "צליה, הבערת מדורה",
+     "text_de": "Braten, Anzünden eines Feuers",
+     "text_en": "Roasting; kindling a fire",
+     "desc": "הלכות מדרבנן › דינים לערב שבת › גזירות שונות › שמא יחתה",
+     "desc_de": "Rabbinische Gesetze › Regeln für den Freitag › Verschiedene Verordnungen › Damit er nicht schürt",
+     "desc_en": "Rabbinic laws › Rules for Sabbath eve › Various decrees › Lest he stoke the fire"
+    }
+   ]
+  },
+  {
+   "head": "פרק ב",
+   "head_de": "Kapitel 2",
+   "head_en": "Chapter 2",
+   "items": [
+    {
+     "ref": "2:1",
+     "text": "פתילות ושמנים הפסולים",
+     "text_de": "Ungeeignete Dochte und Öle",
+     "text_en": "Unsuitable wicks and oils",
+     "desc": "הלכות מדרבנן › דינים לערב שבת › נר של שבת › במה מדליקין",
+     "desc_de": "Rabbinische Gesetze › Regeln für den Freitag › Schabbatlicht › Womit man anzünden darf",
+     "desc_en": "Rabbinic laws › Rules for Sabbath eve › Shabbat light › What may be used for lighting"
+    },
+    {
+     "ref": "2:2",
+     "text": "שמנים הפסולים והכשרים",
+     "text_de": "Ungeeignete und geeignete Öle",
+     "text_en": "Unsuitable and suitable oils",
+     "desc": "הלכות מדרבנן › דינים לערב שבת › נר של שבת › במה מדליקין",
+     "desc_de": "Rabbinische Gesetze › Regeln für den Freitag › Schabbatlicht › Womit man anzünden darf",
+     "desc_en": "Rabbinic laws › Rules for Sabbath eve › Shabbat light › What may be used for lighting"
+    },
+    {
+     "ref": "2:3",
+     "text": "פתילת פשתן או בגד",
+     "text_de": "Flachsdocht oder Stoff",
+     "text_en": "Flax wick or cloth",
+     "desc": "הלכות מדרבנן › דינים לערב שבת › נר של שבת › במה מדליקין",
+     "desc_de": "Rabbinische Gesetze › Regeln für den Freitag › Schabbatlicht › Womit man anzünden darf",
+     "desc_en": "Rabbinic laws › Rules for Sabbath eve › Shabbat light › What may be used for lighting"
+    },
+    {
+     "ref": "2:4",
+     "text": "גזירות שמא יסתפק",
+     "text_de": "Verordnungen aus Besorgnis, er könnte schöpfen",
+     "text_en": "Decrees out of concern he might draw oil",
+     "desc": "הלכות מדרבנן › דינים לערב שבת › נר של שבת › במה מדליקין",
+     "desc_de": "Rabbinische Gesetze › Regeln für den Freitag › Schabbatlicht › Womit man anzünden darf",
+     "desc_en": "Rabbinic laws › Rules for Sabbath eve › Shabbat light › What may be used for lighting"
+    },
+    {
+     "ref": "2:5",
+     "text": "כיבוי המותר והאסור",
+     "text_de": "Erlaubtes und verbotenes Löschen",
+     "text_en": "Permitted and forbidden extinguishing",
+     "desc": "הלכות מדרבנן › דינים לערב שבת › נר של שבת › הדלקה וכיבוי",
+     "desc_de": "Rabbinische Gesetze › Regeln für den Freitag › Schabbatlicht › Anzünden und Löschen",
+     "desc_en": "Rabbinic laws › Rules for Sabbath eve › Shabbat light › Lighting and extinguishing"
+    },
+    {
+     "ref": "2:6",
+     "text": "עונש רשלנות",
+     "text_de": "Strafe für Nachlässigkeit",
+     "text_en": "Penalty for negligence",
+     "desc": "הלכות מדרבנן › דינים לערב שבת › נר של שבת › הדלקה וכיבוי",
+     "desc_de": "Rabbinische Gesetze › Regeln für den Freitag › Schabbatlicht › Anzünden und Löschen",
+     "desc_en": "Rabbinic laws › Rules for Sabbath eve › Shabbat light › Lighting and extinguishing"
+    },
+    {
+     "ref": "2:7",
+     "text": "מצוות הנעשות סמוך לשבת",
+     "text_de": "Gebote, die kurz vor Schabbat erfüllt werden",
+     "text_en": "Commandments performed shortly before Shabbat",
+     "desc": "הלכות מדרבנן › דינים לערב שבת › נר של שבת › הדלקה וכיבוי",
+     "desc_de": "Rabbinische Gesetze › Regeln für den Freitag › Schabbatlicht › Anzünden und Löschen",
+     "desc_en": "Rabbinic laws › Rules for Sabbath eve › Shabbat light › Lighting and extinguishing"
+    }
+   ]
+  },
+  {
+   "head": "פרק ג",
+   "head_de": "Kapitel 3",
+   "head_en": "Chapter 3",
+   "items": [
+    {
+     "ref": "3:1",
+     "text": "כירה",
+     "text_de": "Kocher",
+     "text_en": "Stove",
+     "desc": "הלכות מדרבנן › דינים לערב שבת › הכנת אוכל › בישול › שמא יחתה › מקור החום",
+     "desc_de": "Rabbinische Gesetze › Regeln für den Freitag › Zubereitung von Speisen › Kochen › Damit er nicht schürt › Wärmequelle",
+     "desc_en": "Rabbinic laws › Rules for Sabbath eve › Food preparation › Cooking › Lest he stoke the fire › Heat source"
+    },
+    {
+     "ref": "3:2",
+     "text": "תנור וכפח",
+     "text_de": "Backofen und Kupach",
+     "text_en": "Oven and kupach",
+     "desc": "הלכות מדרבנן › הכנת אוכל › בישול › שמא יחתה › מקור החום",
+     "desc_de": "Rabbinische Gesetze › Zubereitung von Speisen › Kochen › Damit er nicht schürt › Wärmequelle",
+     "desc_en": "Rabbinic laws › Food preparation › Cooking › Lest he stoke the fire › Heat source"
+    },
+    {
+     "ref": "3:3",
+     "text": "תולדות אש או שמש",
+     "text_de": "Abgeleitete Wirkungen von Feuer oder Sonne",
+     "text_en": "Derivatives of fire or sun",
+     "desc": "הלכות מדרבנן › הכנת אוכל › בישול › תולדות למקור החום",
+     "desc_de": "Rabbinische Gesetze › Zubereitung von Speisen › Kochen › Abgeleitetes der Wärmequelle",
+     "desc_en": "Rabbinic laws › Food preparation › Cooking › Derivatives of the heat source"
+    },
+    {
+     "ref": "3:4",
+     "text": "חמי טבריה, מוליאר ואנטיכי",
+     "text_de": "Heiße Quellen von Tiberias, Mulijar und Antiochia",
+     "text_en": "Hot springs of Tiberias, Muliar and Antioch",
+     "desc": "הלכות מדרבנן › הכנת אוכל › בישול › תולדות למקור החום",
+     "desc_de": "Rabbinische Gesetze › Zubereitung von Speisen › Kochen › Abgeleitetes der Wärmequelle",
+     "desc_en": "Rabbinic laws › Food preparation › Cooking › Derivatives of the heat source"
+    },
+    {
+     "ref": "3:5",
+     "text": "בישול מים או תבלין, כלי שני",
+     "text_de": "Kochen von Wasser oder Gewürz, zweites Gefäß",
+     "text_en": "Heating water or spice; secondary vessel",
+     "desc": "הלכות מדרבנן › הכנת אוכל › בישול › תולדות למקור החום",
+     "desc_de": "Rabbinische Gesetze › Zubereitung von Speisen › Kochen › Abgeleitetes der Wärmequelle",
+     "desc_en": "Rabbinic laws › Food preparation › Cooking › Derivatives of the heat source"
+    },
+    {
+     "ref": "3:6",
+     "text": "שמן של נר, נר ישן ,נצוצות וכבוין",
+     "text_de": "Kerzenöl, alte Kerze, Funken und Verglimmendes",
+     "text_en": "Lamp oil, old lamp, sparks and embers",
+     "desc": "הלכות מדרבנן › הכנת אוכל › מוקצה",
+     "desc_de": "Rabbinische Gesetze › Zubereitung von Speisen › Mukze",
+     "desc_en": "Rabbinic laws › Food preparation › Muktzeh"
+    }
+   ]
+  },
+  {
+   "head": "פרק ד",
+   "head_de": "Kapitel 4",
+   "head_en": "Chapter 4",
+   "items": [
+    {
+     "ref": "4:1",
+     "text": "דברים המוסיפין ומשמרין חום",
+     "text_de": "Dinge, die Wärme verstärken und bewahren",
+     "text_en": "Items that add and retain heat",
+     "desc": "הלכות מדרבנן › בערב שבת › הכנת אוכל › הטמנה › במה טומנין",
+     "desc_de": "Rabbinische Gesetze › Am Freitag › Zubereitung von Speisen › Warmhalten › Worin man Speisen warmhält",
+     "desc_en": "Rabbinic laws › On Sabbath eve › Food preparation › Insulating › In what one may insulate food"
+    },
+    {
+     "ref": "4:2",
+     "text": "דבר המוקצה \\ כיסוי בשבת, שלא כדרכה",
+     "text_de": "Mukze / Abdecken am Schabbat, auf ungewöhnliche Weise",
+     "text_en": "Muktzeh / covering on Shabbat; in an unusual manner",
+     "desc": "הלכות מדרבנן › בערב שבת › הכנת אוכל › הטמנה › במה טומנין",
+     "desc_de": "Rabbinische Gesetze › Am Freitag › Zubereitung von Speisen › Warmhalten › Worin man Speisen warmhält",
+     "desc_en": "Rabbinic laws › On Sabbath eve › Food preparation › Insulating › In what one may insulate food"
+    }
+   ]
+  },
+  {
+   "head": "פרק ה",
+   "head_de": "Kapitel 5",
+   "head_en": "Chapter 5",
+   "items": [
+    {
+     "ref": "5:1",
+     "text": "בהמות שונות",
+     "text_de": "Verschiedene Tiere",
+     "text_en": "Various animals",
+     "desc": "חיוב במלאכה דאוריתא וגזירות › המוציא מרשות לרשות › בהמה › כלים שיוצאים בהם",
+     "desc_de": "Verpflichtung bei toraischer Arbeit und Verordnungen › Hinausbringen von Bereich zu Bereich › Vieh › Geräte, mit denen man hinausgehen darf",
+     "desc_en": "Liability for Torah-prohibited labor and decrees › Carrying from domain to domain › Animals › Items one may go out with"
+    },
+    {
+     "ref": "5:2",
+     "text": "חמורים, צאן",
+     "text_de": "Esel, Kleinvieh",
+     "text_en": "Donkeys, sheep and goats",
+     "desc": "חיוב במלאכה דאוריתא וגזירות › המוציא מרשות לרשות › בהמה › כלים שיוצאים בהם",
+     "desc_de": "Verpflichtung bei toraischer Arbeit und Verordnungen › Hinausbringen von Bereich zu Bereich › Vieh › Geräte, mit denen man hinausgehen darf",
+     "desc_en": "Liability for Torah-prohibited labor and decrees › Carrying from domain to domain › Animals › Items one may go out with"
+    },
+    {
+     "ref": "5:3",
+     "text": "גמלים",
+     "text_de": "Kamele",
+     "text_en": "Camels",
+     "desc": "חיוב במלאכה דאוריתא וגזירות › המוציא מרשות לרשות › בהמה › כלים שאין יוצאים בהם",
+     "desc_de": "Verpflichtung bei toraischer Arbeit und Verordnungen › Hinausbringen von Bereich zu Bereich › Vieh › Geräte, mit denen man nicht hinausgehen darf",
+     "desc_en": "Liability for Torah-prohibited labor and decrees › Carrying from domain to domain › Animals › Items one may not go out with"
+    },
+    {
+     "ref": "5:4",
+     "text": "בהמות שונות",
+     "text_de": "Verschiedene Tiere",
+     "text_en": "Various animals",
+     "desc": "חיוב במלאכה דאוריתא וגזירות › המוציא מרשות לרשות › בהמה › כלים שאין יוצאים בהם",
+     "desc_de": "Verpflichtung bei toraischer Arbeit und Verordnungen › Hinausbringen von Bereich zu Bereich › Vieh › Geräte, mit denen man nicht hinausgehen darf",
+     "desc_en": "Liability for Torah-prohibited labor and decrees › Carrying from domain to domain › Animals › Items one may not go out with"
+    }
+   ]
+  },
+  {
+   "head": "פרק ו",
+   "head_de": "Kapitel 6",
+   "head_en": "Chapter 6",
+   "items": [
+    {
+     "ref": "6:1",
+     "text": "תכשיטי אשה",
+     "text_de": "Frauenschmuck",
+     "text_en": "Women's jewelry",
+     "desc": "חיוב במלאכה דאוריתא וגזירות › המוציא מרשות לרשות › אדם › הפטור אבל אסור",
+     "desc_de": "Verpflichtung bei toraischer Arbeit und Verordnungen › Hinausbringen von Bereich zu Bereich › Mensch › Straffrei, aber verboten",
+     "desc_en": "Liability for Torah-prohibited labor and decrees › Carrying from domain to domain › Person › Exempt but forbidden"
+    },
+    {
+     "ref": "6:2",
+     "text": "כלי איש",
+     "text_de": "Gegenstände des Mannes",
+     "text_en": "Men's articles",
+     "desc": "חיוב במלאכה דאוריתא וגזירות › המוציא מרשות לרשות › אדם › הפטור אבל אסור",
+     "desc_de": "Verpflichtung bei toraischer Arbeit und Verordnungen › Hinausbringen von Bereich zu Bereich › Mensch › Straffrei, aber verboten",
+     "desc_en": "Liability for Torah-prohibited labor and decrees › Carrying from domain to domain › Person › Exempt but forbidden"
+    },
+    {
+     "ref": "6:3",
+     "text": "כלי אשה",
+     "text_de": "Gegenstände der Frau",
+     "text_en": "Women's articles",
+     "desc": "חיוב במלאכה דאוריתא וגזירות › המוציא מרשות לרשות › אדם › שחייב עליהן",
+     "desc_de": "Verpflichtung bei toraischer Arbeit und Verordnungen › Hinausbringen von Bereich zu Bereich › Mensch › Wofür man haftbar ist",
+     "desc_en": "Liability for Torah-prohibited labor and decrees › Carrying from domain to domain › Person › For which one is liable"
+    },
+    {
+     "ref": "6:4",
+     "text": "כלי מלחמה \\ בירית וכבלים",
+     "text_de": "Kriegsgerät / Fußreif und Fesseln",
+     "text_en": "Weapons / ankle chain and shackles",
+     "desc": "חיוב במלאכה דאוריתא וגזירות › המוציא מרשות לרשות › אדם › המותר › שחייב עליהן",
+     "desc_de": "Verpflichtung bei toraischer Arbeit und Verordnungen › Hinausbringen von Bereich zu Bereich › Mensch › Das Erlaubte › Wofür man haftbar ist",
+     "desc_en": "Liability for Torah-prohibited labor and decrees › Carrying from domain to domain › Person › What is permitted › For which one is liable"
+    },
+    {
+     "ref": "6:5",
+     "text": "תכשיטי וכלי אשה",
+     "text_de": "Schmuck und Geräte der Frau",
+     "text_en": "Women's jewelry and articles",
+     "desc": "חיוב במלאכה דאוריתא וגזירות › המוציא מרשות לרשות › אדם › המותר",
+     "desc_de": "Verpflichtung bei toraischer Arbeit und Verordnungen › Hinausbringen von Bereich zu Bereich › Mensch › Das Erlaubte",
+     "desc_en": "Liability for Torah-prohibited labor and decrees › Carrying from domain to domain › Person › What is permitted"
+    },
+    {
+     "ref": "6:6",
+     "text": "לרגל, לאוזן, לכיסוי הגוף",
+     "text_de": "Für den Fuß, das Ohr, zur Körperbedeckung",
+     "text_en": "For the foot, the ear, body covering",
+     "desc": "חיוב במלאכה דאוריתא וגזירות › המוציא מרשות לרשות › אדם › המותר",
+     "desc_de": "Verpflichtung bei toraischer Arbeit und Verordnungen › Hinausbringen von Bereich zu Bereich › Mensch › Das Erlaubte",
+     "desc_en": "Liability for Torah-prohibited labor and decrees › Carrying from domain to domain › Person › What is permitted"
+    },
+    {
+     "ref": "6:7",
+     "text": "פריפה המותרת",
+     "text_de": "Die erlaubte Perifa",
+     "text_en": "The permitted perifa",
+     "desc": "חיוב במלאכה דאוריתא וגזירות › המוציא מרשות לרשות › אדם › המותר",
+     "desc_de": "Verpflichtung bei toraischer Arbeit und Verordnungen › Hinausbringen von Bereich zu Bereich › Mensch › Das Erlaubte",
+     "desc_en": "Liability for Torah-prohibited labor and decrees › Carrying from domain to domain › Person › What is permitted"
+    },
+    {
+     "ref": "6:8",
+     "text": "כלי הליכה של קיטע ודיניהן, אנקטמין",
+     "text_de": "Gehhilfen des Beinamputierten und ihre Vorschriften, Anaktamin",
+     "text_en": "Walking aids of the amputee and their laws, anaktamin",
+     "desc": "חיוב במלאכה דאוריתא וגזירות › המוציא מרשות לרשות › אדם › המותר",
+     "desc_de": "Verpflichtung bei toraischer Arbeit und Verordnungen › Hinausbringen von Bereich zu Bereich › Mensch › Das Erlaubte",
+     "desc_en": "Liability for Torah-prohibited labor and decrees › Carrying from domain to domain › Person › What is permitted"
+    },
+    {
+     "ref": "6:9",
+     "text": "קשרים, זוגין",
+     "text_de": "Knoten, Glöckchen",
+     "text_en": "Knots, bells",
+     "desc": "חיוב במלאכה דאוריתא וגזירות › המוציא מרשות לרשות › אדם › המותר",
+     "desc_de": "Verpflichtung bei toraischer Arbeit und Verordnungen › Hinausbringen von Bereich zu Bereich › Mensch › Das Erlaubte",
+     "desc_en": "Liability for Torah-prohibited labor and decrees › Carrying from domain to domain › Person › What is permitted"
+    },
+    {
+     "ref": "6:10",
+     "text": "משום רפואה",
+     "text_de": "Wegen Heilung",
+     "text_en": "For medical reasons",
+     "desc": "חיוב במלאכה דאוריתא וגזירות › המוציא מרשות לרשות › אדם › המותר",
+     "desc_de": "Verpflichtung bei toraischer Arbeit und Verordnungen › Hinausbringen von Bereich zu Bereich › Mensch › Das Erlaubte",
+     "desc_en": "Liability for Torah-prohibited labor and decrees › Carrying from domain to domain › Person › What is permitted"
+    }
+   ]
+  },
+  {
+   "head": "פרק ז",
+   "head_de": "Kapitel 7",
+   "head_en": "Chapter 7",
+   "items": [
+    {
+     "ref": "7:1",
+     "text": "ידיעה, זמן, סוג המלאכה",
+     "text_de": "Wissen, Zeitpunkt, Art der Arbeit",
+     "text_en": "Awareness, time, type of labor",
+     "desc": "חיוב במלאכה דאוריתא › כללים לחיוב › חילוק חטאות",
+     "desc_de": "Haftung bei toraischer Arbeit › Regeln der Haftung › Aufteilung der Sündopfer",
+     "desc_en": "Liability for Torah-prohibited labor › Rules of liability › Division of sin-offerings"
+    },
+    {
+     "ref": "7:2",
+     "text": "ל\"ט אבות מלאכות",
+     "text_de": "Die neununddreißig Hauptarbeiten",
+     "text_en": "The thirty-nine principal labors",
+     "desc": "חיוב במלאכה דאוריתא › כללים לחיוב › חילוק חטאות",
+     "desc_de": "Haftung bei toraischer Arbeit › Regeln der Haftung › Aufteilung der Sündopfer",
+     "desc_en": "Liability for Torah-prohibited labor › Rules of liability › Division of sin-offerings"
+    },
+    {
+     "ref": "7:3",
+     "text": "כלל לחשיבות השיעורים",
+     "text_de": "Regel zur Bedeutung der Maße",
+     "text_en": "Rule on the significance of the minimum quantities",
+     "desc": "חיוב במלאכה דאוריתא › המוציא מרשות לרשות › הוצאה › שיעורים לדברים שהוצאו",
+     "desc_de": "Haftung bei toraischer Arbeit › Hinausbringen von Bereich zu Bereich › Hinausbringen › Maße für hinausgetragene Dinge",
+     "desc_en": "Liability for Torah-prohibited labor › Carrying from domain to domain › Carrying out › Quantities for items carried out"
+    },
+    {
+     "ref": "7:4",
+     "text": "מאכלי אדם ובהמה, צירופים",
+     "text_de": "Speisen für Mensch und Tier, Kombinationen",
+     "text_en": "Foods for people and animals, combinations",
+     "desc": "חיוב במלאכה דאוריתא › המוציא מרשות לרשות › הוצאה › שיעורים לדברים שהוצאו",
+     "desc_de": "Haftung bei toraischer Arbeit › Hinausbringen von Bereich zu Bereich › Hinausbringen › Maße für hinausgetragene Dinge",
+     "desc_en": "Liability for Torah-prohibited labor › Carrying from domain to domain › Carrying out › Quantities for items carried out"
+    }
+   ]
+  },
+  {
+   "head": "פרק ח",
+   "head_de": "Kapitel 8",
+   "head_en": "Chapter 8",
+   "items": [
+    {
+     "ref": "8:1",
+     "text": "נוזלים שונים",
+     "text_de": "Verschiedene Flüssigkeiten",
+     "text_en": "Various liquids",
+     "desc": "חיוב במלאכה דאוריתא › המוציא מרשות לרשות › הוצאה › שיעורים לדברים שהוצאו",
+     "desc_de": "Haftung bei toraischer Arbeit › Hinausbringen von Bereich zu Bereich › Hinausbringen › Maße für hinausgetragene Dinge",
+     "desc_en": "Liability for Torah-prohibited labor › Carrying from domain to domain › Carrying out › Quantities for items carried out"
+    },
+    {
+     "ref": "8:2",
+     "text": "חבל, גמי, ניירות",
+     "text_de": "Seil, Binse, Papiere",
+     "text_en": "Rope, reed, papers",
+     "desc": "חיוב במלאכה דאוריתא › המוציא מרשות לרשות › הוצאה › שיעורים לדברים שהוצאו",
+     "desc_de": "Haftung bei toraischer Arbeit › Hinausbringen von Bereich zu Bereich › Hinausbringen › Maße für hinausgetragene Dinge",
+     "desc_en": "Liability for Torah-prohibited labor › Carrying from domain to domain › Carrying out › Quantities for items carried out"
+    },
+    {
+     "ref": "8:3",
+     "text": "עור, קלף, דיו, ככול",
+     "text_de": "Leder, Pergament, Tinte, Augenschminke",
+     "text_en": "Leather, parchment, ink, eye paint",
+     "desc": "חיוב במלאכה דאוריתא › המוציא מרשות לרשות › הוצאה › שיעורים לדברים שהוצאו",
+     "desc_de": "Haftung bei toraischer Arbeit › Hinausbringen von Bereich zu Bereich › Hinausbringen › Maße für hinausgetragene Dinge",
+     "desc_en": "Liability for Torah-prohibited labor › Carrying from domain to domain › Carrying out › Quantities for items carried out"
+    },
+    {
+     "ref": "8:4",
+     "text": "דברים הדביקים וסותמים, סיד",
+     "text_de": "Klebende und verschließende Stoffe, Kalk",
+     "text_en": "Adhesive and sealing substances, lime",
+     "desc": "חיוב במלאכה דאוריתא › המוציא מרשות לרשות › הוצאה › שיעורים לדברים שהוצאו",
+     "desc_de": "Haftung bei toraischer Arbeit › Hinausbringen von Bereich zu Bereich › Hinausbringen › Maße für hinausgetragene Dinge",
+     "desc_en": "Liability for Torah-prohibited labor › Carrying from domain to domain › Carrying out › Quantities for items carried out"
+    },
+    {
+     "ref": "8:5",
+     "text": "אדמה, חול, קנה",
+     "text_de": "Erde, Sand, Rohr",
+     "text_en": "Earth, sand, reed",
+     "desc": "חיוב במלאכה דאוריתא › המוציא מרשות לרשות › הוצאה › שיעורים לדברים שהוצאו",
+     "desc_de": "Haftung bei toraischer Arbeit › Hinausbringen von Bereich zu Bereich › Hinausbringen › Maße für hinausgetragene Dinge",
+     "desc_en": "Liability for Torah-prohibited labor › Carrying from domain to domain › Carrying out › Quantities for items carried out"
+    },
+    {
+     "ref": "8:6",
+     "text": "עצם, זכוכית, אבן",
+     "text_de": "Knochen, Glas, Stein",
+     "text_en": "Bone, glass, stone",
+     "desc": "חיוב במלאכה דאוריתא › המוציא מרשות לרשות › הוצאה › שיעורים לדברים שהוצאו",
+     "desc_de": "Haftung bei toraischer Arbeit › Hinausbringen von Bereich zu Bereich › Hinausbringen › Maße für hinausgetragene Dinge",
+     "desc_en": "Liability for Torah-prohibited labor › Carrying from domain to domain › Carrying out › Quantities for items carried out"
+    },
+    {
+     "ref": "8:7",
+     "text": "חרס",
+     "text_de": "Ton",
+     "text_en": "Clay",
+     "desc": "חיוב במלאכה דאוריתא › המוציא מרשות לרשות › הוצאה › שיעורים לדברים שהוצאו",
+     "desc_de": "Haftung bei toraischer Arbeit › Hinausbringen von Bereich zu Bereich › Hinausbringen › Maße für hinausgetragene Dinge",
+     "desc_en": "Liability for Torah-prohibited labor › Carrying from domain to domain › Carrying out › Quantities for items carried out"
+    }
+   ]
+  },
+  {
+   "head": "פרק ט",
+   "head_de": "Kapitel 9",
+   "head_en": "Chapter 9",
+   "items": [
+    {
+     "ref": "9:1",
+     "text": "טומאת עבודה זרה",
+     "text_de": "Unreinheit des Götzendienstes",
+     "text_en": "Impurity of idolatry",
+     "desc": "חיוב במלאכה דאוריתא › המוציא מרשות לרשות › הוצאה › אסמכתאות",
+     "desc_de": "Haftung bei toraischer Arbeit › Hinausbringen von Bereich zu Bereich › Hinausbringen › Belegstellen",
+     "desc_en": "Liability for Torah-prohibited labor › Carrying from domain to domain › Carrying out › Scriptural allusions"
+    },
+    {
+     "ref": "9:2",
+     "text": "טהרת ספינה, כלאי זרעים",
+     "text_de": "Reinheit des Schiffes, Mischsaaten",
+     "text_en": "Purity of a ship, mixed seeds",
+     "desc": "חיוב במלאכה דאוריתא › המוציא מרשות לרשות › הוצאה › אסמכתאות",
+     "desc_de": "Haftung bei toraischer Arbeit › Hinausbringen von Bereich zu Bereich › Hinausbringen › Belegstellen",
+     "desc_en": "Liability for Torah-prohibited labor › Carrying from domain to domain › Carrying out › Scriptural allusions"
+    },
+    {
+     "ref": "9:3",
+     "text": "שכבת זרע, מילה, זהורית של המשתלח",
+     "text_de": "Samenerguss, Beschneidung, Karmesinfaden des Sündenbocks",
+     "text_en": "Seminal emission, circumcision, crimson thread of the scapegoat",
+     "desc": "חיוב במלאכה דאוריתא › המוציא מרשות לרשות › הוצאה › אסמכתאות",
+     "desc_de": "Haftung bei toraischer Arbeit › Hinausbringen von Bereich zu Bereich › Hinausbringen › Belegstellen",
+     "desc_en": "Liability for Torah-prohibited labor › Carrying from domain to domain › Carrying out › Scriptural allusions"
+    },
+    {
+     "ref": "9:4",
+     "text": "סיכה כשתיה",
+     "text_de": "Einsalben wie Trinken",
+     "text_en": "Anointing like drinking",
+     "desc": "חיוב במלאכה דאוריתא › המוציא מרשות לרשות › הוצאה › אסמכתאות",
+     "desc_de": "Haftung bei toraischer Arbeit › Hinausbringen von Bereich zu Bereich › Hinausbringen › Belegstellen",
+     "desc_en": "Liability for Torah-prohibited labor › Carrying from domain to domain › Carrying out › Scriptural allusions"
+    },
+    {
+     "ref": "9:5",
+     "text": "הנצרכין לביצה קלה, לבגד קטן בסבכה",
+     "text_de": "Was für ein leichtes Ei benötigt wird, für ein kleines Kleidungsstück im Haarnetz",
+     "text_en": "What is needed for a light egg, for a small garment in a hairnet",
+     "desc": "חיוב במלאכה דאוריתא › המוציא מרשות לרשות › הוצאה › שיעורים לדברים שהוצאו",
+     "desc_de": "Haftung bei toraischer Arbeit › Hinausbringen von Bereich zu Bereich › Hinausbringen › Maße für hinausgetragene Dinge",
+     "desc_en": "Liability for Torah-prohibited labor › Carrying from domain to domain › Carrying out › Quantities for items carried out"
+    },
+    {
+     "ref": "9:6",
+     "text": "ששיעורן בכל שהוא",
+     "text_de": "Deren Maß beliebig klein ist",
+     "text_en": "Whose minimum quantity is any amount at all",
+     "desc": "חיוב במלאכה דאוריתא › המוציא מרשות לרשות › הוצאה › שיעורים לדברים שהוצאו",
+     "desc_de": "Haftung bei toraischer Arbeit › Hinausbringen von Bereich zu Bereich › Hinausbringen › Maße für hinausgetragene Dinge",
+     "desc_en": "Liability for Torah-prohibited labor › Carrying from domain to domain › Carrying out › Quantities for items carried out"
+    },
+    {
+     "ref": "9:7",
+     "text": "מינים בבת א', זרעים,חגב, צפורת כרמים",
+     "text_de": "Mehrere Arten auf einmal, Samen, Heuschrecke, Weinbergvogel",
+     "text_en": "Several kinds at once, seeds, locust, vineyard bird",
+     "desc": "חיוב במלאכה דאוריתא › המוציא מרשות לרשות › הוצאה › שיעורים לדברים שהוצאו",
+     "desc_de": "Haftung bei toraischer Arbeit › Hinausbringen von Bereich zu Bereich › Hinausbringen › Maße für hinausgetragene Dinge",
+     "desc_en": "Liability for Torah-prohibited labor › Carrying from domain to domain › Carrying out › Quantities for items carried out"
+    }
+   ]
+  },
+  {
+   "head": "פרק י",
+   "head_de": "Kapitel 10",
+   "head_en": "Chapter 10",
+   "items": [
+    {
+     "ref": "10:1",
+     "text": "המצניע",
+     "text_de": "Der Verstauende",
+     "text_en": "One who stores away",
+     "desc": "חיוב במלאכה דאוריתא › המוציא מרשות לרשות › הוצאה › שיעורים לדברים שהוצאו",
+     "desc_de": "Haftung bei toraischer Arbeit › Hinausbringen von Bereich zu Bereich › Hinausbringen › Maße für hinausgetragene Dinge",
+     "desc_en": "Liability for Torah-prohibited labor › Carrying from domain to domain › Carrying out › Quantities for items carried out"
+    },
+    {
+     "ref": "10:2",
+     "text": "הוצאה חלקית",
+     "text_de": "Teilweises Hinaustragen",
+     "text_en": "Partial carrying out",
+     "desc": "חיוב במלאכה דאוריתא › המוציא מרשות לרשות › הוצאה › כיצד מתחייב",
+     "desc_de": "Haftung bei toraischer Arbeit › Hinausbringen von Bereich zu Bereich › Hinausbringen › Wie man haftbar wird",
+     "desc_en": "Liability for Torah-prohibited labor › Carrying from domain to domain › Carrying out › How one becomes liable"
+    },
+    {
+     "ref": "10:3",
+     "text": "הגדרת הוצאה כדרכה",
+     "text_de": "Definition des Hinaustragens in üblicher Weise",
+     "text_en": "Definition of carrying out in the usual manner",
+     "desc": "חיוב במלאכה דאוריתא › המוציא מרשות לרשות › הוצאה › כיצד מתחייב",
+     "desc_de": "Haftung bei toraischer Arbeit › Hinausbringen von Bereich zu Bereich › Hinausbringen › Wie man haftbar wird",
+     "desc_en": "Liability for Torah-prohibited labor › Carrying from domain to domain › Carrying out › How one becomes liable"
+    },
+    {
+     "ref": "10:4",
+     "text": "אי קיום כוונת המוציא",
+     "text_de": "Nichterfüllung der Absicht des Hinaustragenden",
+     "text_en": "Failure to fulfill the carrier's intention",
+     "desc": "חיוב במלאכה דאוריתא › המוציא מרשות לרשות › הוצאה › כיצד מתחייב",
+     "desc_de": "Haftung bei toraischer Arbeit › Hinausbringen von Bereich zu Bereich › Hinausbringen › Wie man haftbar wird",
+     "desc_en": "Liability for Torah-prohibited labor › Carrying from domain to domain › Carrying out › How one becomes liable"
+    },
+    {
+     "ref": "10:5",
+     "text": "שנים שהוציאו, עיקר וטפל, לא לצורך",
+     "text_de": "Zwei, die hinaustrugen, Haupt- und Nebensache, nicht zweckgerichtet",
+     "text_en": "Two who carried out, principal and secondary, not for a purpose",
+     "desc": "חיוב במלאכה דאוריתא › המוציא מרשות לרשות › הוצאה › כיצד מתחייב",
+     "desc_de": "Haftung bei toraischer Arbeit › Hinausbringen von Bereich zu Bereich › Hinausbringen › Wie man haftbar wird",
+     "desc_en": "Liability for Torah-prohibited labor › Carrying from domain to domain › Carrying out › How one becomes liable"
+    },
+    {
+     "ref": "10:6",
+     "text": "דברים שונים, התולש מעציץ",
+     "text_de": "Verschiedenes, wer aus einem Blumentopf pflückt",
+     "text_en": "Various matters, one who plucks from a flowerpot",
+     "desc": "חיוב במלאכה דאוריתא › המוציא מרשות לרשות › הוצאה › כיצד מתחייב",
+     "desc_de": "Haftung bei toraischer Arbeit › Hinausbringen von Bereich zu Bereich › Hinausbringen › Wie man haftbar wird",
+     "desc_en": "Liability for Torah-prohibited labor › Carrying from domain to domain › Carrying out › How one becomes liable"
+    }
+   ]
+  },
+  {
+   "head": "פרק יא",
+   "head_de": "Kapitel 11",
+   "head_en": "Chapter 11",
+   "items": [
+    {
+     "ref": "11:1",
+     "text": "זריקה מרשות לרשות",
+     "text_de": "Werfen von Bereich zu Bereich",
+     "text_en": "Throwing from domain to domain",
+     "desc": "חיוב במלאכה דאוריתא › המוציא מרשות לרשות › זריקה › כיצד מתחייב",
+     "desc_de": "Haftung bei toraischer Arbeit › Hinausbringen von Bereich zu Bereich › Werfen › Wie man haftbar wird",
+     "desc_en": "Liability for Torah-prohibited labor › Carrying from domain to domain › Throwing › How one becomes liable"
+    },
+    {
+     "ref": "11:2",
+     "text": "זריקה והושטה, גובה המקום",
+     "text_de": "Werfen und Reichen, Höhe des Ortes",
+     "text_en": "Throwing and handing over, height of the place",
+     "desc": "חיוב במלאכה דאוריתא › המוציא מרשות לרשות › זריקה › כיצד מתחייב",
+     "desc_de": "Haftung bei toraischer Arbeit › Hinausbringen von Bereich zu Bereich › Werfen › Wie man haftbar wird",
+     "desc_en": "Liability for Torah-prohibited labor › Carrying from domain to domain › Throwing › How one becomes liable"
+    },
+    {
+     "ref": "11:3",
+     "text": "גובה, מרחק, כוונה",
+     "text_de": "Höhe, Entfernung, Absicht",
+     "text_en": "Height, distance, intention",
+     "desc": "חיוב במלאכה דאוריתא › המוציא מרשות לרשות › זריקה › כיצד מתחייב",
+     "desc_de": "Haftung bei toraischer Arbeit › Hinausbringen von Bereich zu Bereich › Werfen › Wie man haftbar wird",
+     "desc_en": "Liability for Torah-prohibited labor › Carrying from domain to domain › Throwing › How one becomes liable"
+    },
+    {
+     "ref": "11:4",
+     "text": "ים, רקק",
+     "text_de": "Meer, Sumpf",
+     "text_en": "Sea, marsh",
+     "desc": "חיוב במלאכה דאוריתא › המוציא מרשות לרשות › זריקה › כיצד מתחייב",
+     "desc_de": "Haftung bei toraischer Arbeit › Hinausbringen von Bereich zu Bereich › Werfen › Wie man haftbar wird",
+     "desc_en": "Liability for Torah-prohibited labor › Carrying from domain to domain › Throwing › How one becomes liable"
+    },
+    {
+     "ref": "11:5",
+     "text": "זריקה בין רשות לכרמלית, בין ספינות",
+     "text_de": "Werfen zwischen einem Bereich und einer Karmelit, zwischen Schiffen",
+     "text_en": "Throwing between a domain and a karmelit, between ships",
+     "desc": "חיוב במלאכה דאוריתא › המוציא מרשות לרשות › זריקה › כיצד מתחייב",
+     "desc_de": "Haftung bei toraischer Arbeit › Hinausbringen von Bereich zu Bereich › Werfen › Wie man haftbar wird",
+     "desc_en": "Liability for Torah-prohibited labor › Carrying from domain to domain › Throwing › How one becomes liable"
+    },
+    {
+     "ref": "11:6",
+     "text": "הנחה \\ כוונה בגמר מלאכה",
+     "text_de": "Niederlegen / Absicht beim Abschluss der Arbeit",
+     "text_en": "Setting down / intention at the completion of the work",
+     "desc": "חיוב במלאכה דאוריתא › כללים לחיוב › חיוב חטאת",
+     "desc_de": "Haftung bei toraischer Arbeit › Regeln der Haftung › Haftung für ein Sündopfer",
+     "desc_en": "Liability for Torah-prohibited labor › Rules of liability › Liability for a sin-offering"
+    }
+   ]
+  },
+  {
+   "head": "פרק יב",
+   "head_de": "Kapitel 12",
+   "head_en": "Chapter 12",
+   "items": [
+    {
+     "ref": "12:1",
+     "text": "הבונה, המכה בפטיש",
+     "text_de": "Der Bauende, der mit dem Hammer Schlagende",
+     "text_en": "The builder, the one who strikes with a hammer",
+     "desc": "חיוב במלאכה דאוריתא › הגדרת מלאכות שונות › ששיעורן בכל שהוא",
+     "desc_de": "Haftung bei toraischer Arbeit › Definition verschiedener Arbeiten › Deren Maß beliebig klein ist",
+     "desc_en": "Liability for Torah-prohibited labor › Definition of various labors › Whose minimum quantity is any amount at all"
+    },
+    {
+     "ref": "12:2",
+     "text": "החורש, תולדות הזורע והמעמר",
+     "text_de": "Der Pflügende, Nebenarbeiten des Säens und Garbenbindens",
+     "text_en": "The plowman, derivative labors of sowing and sheaf-binding",
+     "desc": "חיוב במלאכה דאוריתא › הגדרת מלאכות שונות › ששיעורן בכל שהוא",
+     "desc_de": "Haftung bei toraischer Arbeit › Definition verschiedener Arbeiten › Deren Maß beliebig klein ist",
+     "desc_en": "Liability for Torah-prohibited labor › Definition of various labors › Whose minimum quantity is any amount at all"
+    },
+    {
+     "ref": "12:3",
+     "text": "כיצד כתב, מה כתב",
+     "text_de": "Wie er schrieb, was er schrieb",
+     "text_en": "How he wrote, what he wrote",
+     "desc": "חיוב במלאכה דאוריתא › הגדרת מלאכות שונות › הכותב › שחייב",
+     "desc_de": "Haftung bei toraischer Arbeit › Definition verschiedener Arbeiten › Der Schreibende › Wer haftbar ist",
+     "desc_en": "Liability for Torah-prohibited labor › Definition of various labors › The writer › Who is liable"
+    },
+    {
+     "ref": "12:4",
+     "text": "העלם א', קיום קירבת האותיות, כדרכה",
+     "text_de": "Ein Versehen, Bestand und Nähe der Buchstaben, übliche Weise",
+     "text_en": "One lapse of awareness, durability and proximity of the letters, usual manner",
+     "desc": "חיוב במלאכה דאוריתא › הגדרת מלאכות שונות › הכותב › שחייב",
+     "desc_de": "Haftung bei toraischer Arbeit › Definition verschiedener Arbeiten › Der Schreibende › Wer haftbar ist",
+     "desc_en": "Liability for Torah-prohibited labor › Definition of various labors › The writer › Who is liable"
+    },
+    {
+     "ref": "12:5",
+     "text": "קיום,דרך כתיבה, קירבה, נוטריקון",
+     "text_de": "Haltbarkeit, Schreibweise, Nähe, Notarikon",
+     "text_en": "Durability, manner of writing, proximity, notarikon",
+     "desc": "חיוב במלאכה דאוריתא › הגדרת מלאכות שונות › הכותב › שפטור",
+     "desc_de": "Haftung bei toraischer Arbeit › Definition verschiedener Arbeiten › Der Schreibende › Wer befreit ist",
+     "desc_en": "Liability for Torah-prohibited labor › Definition of various labors › The writer › Who is exempt"
+    },
+    {
+     "ref": "12:6",
+     "text": "חילוק העלמות",
+     "text_de": "Aufteilung der Versehen",
+     "text_en": "Division of lapses of awareness",
+     "desc": "חיוב במלאכה דאוריתא › הגדרת מלאכות שונות › הכותב › שפטור",
+     "desc_de": "Haftung bei toraischer Arbeit › Definition verschiedener Arbeiten › Der Schreibende › Wer befreit ist",
+     "desc_en": "Liability for Torah-prohibited labor › Definition of various labors › The writer › Who is exempt"
+    }
+   ]
+  },
+  {
+   "head": "פרק יג",
+   "head_de": "Kapitel 13",
+   "head_en": "Chapter 13",
+   "items": [
+    {
+     "ref": "13:1",
+     "text": "שיעור האורג",
+     "text_de": "Maß des Webenden",
+     "text_en": "Quantity for the weaver",
+     "desc": "חיוב במלאכה דאוריתא › הגדרת מלאכות שונות › הכנת בגדים",
+     "desc_de": "Haftung bei toraischer Arbeit › Definition verschiedener Arbeiten › Zubereitung von Kleidern",
+     "desc_en": "Liability for Torah-prohibited labor › Definition of various labors › Preparation of garments"
+    },
+    {
+     "ref": "13:2",
+     "text": "בתי נירין ותולדותיו \\ הקורע והתופר",
+     "text_de": "Webelitzen und ihre Nebenarbeiten / Der Reißende und der Nähende",
+     "text_en": "Heddles and their derivative labors / The one who tears and the one who sews",
+     "desc": "חיוב במלאכה דאוריתא › הגדרת מלאכות שונות › הכנת בגדים › מטרת הקריעה",
+     "desc_de": "Haftung bei toraischer Arbeit › Definition verschiedener Arbeiten › Zubereitung von Kleidern › Zweck des Reißens",
+     "desc_en": "Liability for Torah-prohibited labor › Definition of various labors › Preparation of garments › Purpose of the tearing"
+    },
+    {
+     "ref": "13:3",
+     "text": "קריעה המקלקלת",
+     "text_de": "Zerstörendes Reißen",
+     "text_en": "Destructive tearing",
+     "desc": "חיוב במלאכה דאוריתא › הגדרת מלאכות שונות › הכנת בגדים › מטרת הקריעה",
+     "desc_de": "Haftung bei toraischer Arbeit › Definition verschiedener Arbeiten › Zubereitung von Kleidern › Zweck des Reißens",
+     "desc_en": "Liability for Torah-prohibited labor › Definition of various labors › Preparation of garments › Purpose of the tearing"
+    },
+    {
+     "ref": "13:4",
+     "text": "שיעור הכנת חוטין ואריגתן",
+     "text_de": "Maß der Fadenherstellung und ihres Webens",
+     "text_en": "Quantity for preparing threads and weaving them",
+     "desc": "חיוב במלאכה דאוריתא › הגדרת מלאכות שונות › הכנת בגדים",
+     "desc_de": "Haftung bei toraischer Arbeit › Definition verschiedener Arbeiten › Zubereitung von Kleidern",
+     "desc_en": "Liability for Torah-prohibited labor › Definition of various labors › Preparation of garments"
+    },
+    {
+     "ref": "13:5",
+     "text": "להיכן נצוד",
+     "text_de": "Wohin gejagt wird",
+     "text_en": "Where the catch is made",
+     "desc": "חיוב במלאכה דאוריתא › הגדרת מלאכות שונות › הצד",
+     "desc_de": "Haftung bei toraischer Arbeit › Definition verschiedener Arbeiten › Der Jagende",
+     "desc_en": "Liability for Torah-prohibited labor › Definition of various labors › The hunter"
+    },
+    {
+     "ref": "13:6",
+     "text": "ביחד",
+     "text_de": "Gemeinsam",
+     "text_en": "Together",
+     "desc": "חיוב במלאכה דאוריתא › הגדרת מלאכות שונות › הצד › עשאוהו שנים",
+     "desc_de": "Haftung bei toraischer Arbeit › Definition verschiedener Arbeiten › Der Jagende › Zwei haben es getan",
+     "desc_en": "Liability for Torah-prohibited labor › Definition of various labors › The hunter › Two did it"
+    },
+    {
+     "ref": "13:7",
+     "text": "בזה אחר זה",
+     "text_de": "Nacheinander",
+     "text_en": "One after the other",
+     "desc": "חיוב במלאכה דאוריתא › הגדרת מלאכות שונות › הצד › עשאוהו שנים",
+     "desc_de": "Haftung bei toraischer Arbeit › Definition verschiedener Arbeiten › Der Jagende › Zwei haben es getan",
+     "desc_en": "Liability for Torah-prohibited labor › Definition of various labors › The hunter › Two did it"
+    }
+   ]
+  },
+  {
+   "head": "פרק יד",
+   "head_de": "Kapitel 14",
+   "head_en": "Chapter 14",
+   "items": [
+    {
+     "ref": "14:1",
+     "text": "סוג הניצוד, חבלתו ,צורך בצידה",
+     "text_de": "Art des Gejagten, Verwundung, Notwendigkeit des Fangens",
+     "text_en": "Type of animal caught, wounding, necessity of the catch",
+     "desc": "חיוב במלאכה דאוריתא › הגדרת מלאכות שונות › הצד",
+     "desc_de": "Haftung bei toraischer Arbeit › Definition verschiedener Arbeiten › Der Jagende",
+     "desc_en": "Liability for Torah-prohibited labor › Definition of various labors › The hunter"
+    },
+    {
+     "ref": "14:2",
+     "text": "עשיית מי מלח",
+     "text_de": "Herstellung von Salzwasser",
+     "text_en": "Making salt water",
+     "desc": "חיוב במלאכה דאוריתא › הגדרת מלאכות שונות › גזירות מדרבנן › נראה כמעבד",
+     "desc_de": "Haftung bei toraischer Arbeit › Definition verschiedener Arbeiten › Rabbinische Verordnungen › Erscheint wie Gerben",
+     "desc_en": "Liability for Torah-prohibited labor › Definition of various labors › Rabbinic decrees › Appears like tanning"
+    },
+    {
+     "ref": "14:3",
+     "text": "באכילה ושתיה",
+     "text_de": "Beim Essen und Trinken",
+     "text_en": "In eating and drinking",
+     "desc": "חיוב במלאכה דאוריתא › הגדרת מלאכות שונות › גזירות מדרבנן › רפואה בשבת",
+     "desc_de": "Haftung bei toraischer Arbeit › Definition verschiedener Arbeiten › Rabbinische Verordnungen › Heilung am Schabbat",
+     "desc_en": "Liability for Torah-prohibited labor › Definition of various labors › Rabbinic decrees › Healing on Shabbat"
+    },
+    {
+     "ref": "14:4",
+     "text": "גמיעה, סיכה",
+     "text_de": "Schlürfen, Einsalben",
+     "text_en": "Sipping, anointing",
+     "desc": "חיוב במלאכה דאוריתא › הגדרת מלאכות שונות › גזירות מדרבנן › רפואה בשבת",
+     "desc_de": "Haftung bei toraischer Arbeit › Definition verschiedener Arbeiten › Rabbinische Verordnungen › Heilung am Schabbat",
+     "desc_en": "Liability for Torah-prohibited labor › Definition of various labors › Rabbinic decrees › Healing on Shabbat"
+    }
+   ]
+  },
+  {
+   "head": "פרק טו",
+   "head_de": "Kapitel 15",
+   "head_en": "Chapter 15",
+   "items": [
+    {
+     "ref": "15:1",
+     "text": "על אלו חייבין, לא מהודק",
+     "text_de": "Wofür man haftet, nicht fest",
+     "text_en": "For what one is liable, not tight",
+     "desc": "חיוב במלאכה דאוריתא › הגדרת מלאכות שונות › הקושר והמתיר › סוג הקשר",
+     "desc_de": "Haftung bei toraischer Arbeit › Definition verschiedener Arbeiten › Der Knüpfende und der Lösende › Art des Knotens",
+     "desc_en": "Liability for Torah-prohibited labor › Definition of various labors › The one who ties and the one who unties › Type of knot"
+    },
+    {
+     "ref": "15:2",
+     "text": "על אלו פטורים,המותרים",
+     "text_de": "Wofür man befreit ist, das Erlaubte",
+     "text_en": "For what one is exempt, what is permitted",
+     "desc": "חיוב במלאכה דאוריתא › הגדרת מלאכות שונות › הקושר והמתיר › סוג הקשר",
+     "desc_de": "Haftung bei toraischer Arbeit › Definition verschiedener Arbeiten › Der Knüpfende und der Lösende › Art des Knotens",
+     "desc_en": "Liability for Torah-prohibited labor › Definition of various labors › The one who ties and the one who unties › Type of knot"
+    },
+    {
+     "ref": "15:3",
+     "text": "קיפול כלים, מיטות, הקטרת קרבנות",
+     "text_de": "Zusammenlegen von Geräten und Betten, Verbrennen von Opferteilen",
+     "text_en": "Folding of utensils and beds, burning of offerings",
+     "desc": "הלכות מדרבנן › שמירת רוח השבת והרחקה ממלאכה › הכנה לחול",
+     "desc_de": "Rabbinische Gesetze › Wahrung des Schabbatgeistes und Abstand von Arbeit › Vorbereitung für den Werktag",
+     "desc_en": "Rabbinic laws › Preserving the spirit of Shabbat and distance from labor › Preparation for the weekday"
+    }
+   ]
+  },
+  {
+   "head": "פרק טז",
+   "head_de": "Kapitel 16",
+   "head_en": "Chapter 16",
+   "items": [
+    {
+     "ref": "16:1",
+     "text": "דברי קודש, קריאה בהן ,להיכן ניצולין",
+     "text_de": "Heilige Schriften, Lesen darin, wohin man sie rettet",
+     "text_en": "Sacred writings, reading them, where they are rescued to",
+     "desc": "הלכות מדרבנן › שמירת רוח השבת והרחקה ממלאכה › הצלה מנזק › הוצאה ממקום הנשרף",
+     "desc_de": "Rabbinische Gesetze › Wahrung des Schabbatgeistes und Abstand von Arbeit › Rettung vor Schaden › Hinausbringen aus dem Brandort",
+     "desc_en": "Rabbinic laws › Preserving the spirit of Shabbat and distance from labor › Rescue from damage › Removal from the place of the fire"
+    },
+    {
+     "ref": "16:2",
+     "text": "כמות האוכל הראויה",
+     "text_de": "Menge der geeigneten Speise",
+     "text_en": "Quantity of suitable food",
+     "desc": "הלכות מדרבנן › שמירת רוח השבת והרחקה ממלאכה › הצלה מנזק › הוצאה ממקום הנשרף",
+     "desc_de": "Rabbinische Gesetze › Wahrung des Schabbatgeistes und Abstand von Arbeit › Rettung vor Schaden › Hinausbringen aus dem Brandort",
+     "desc_en": "Rabbinic laws › Preserving the spirit of Shabbat and distance from labor › Rescue from damage › Removal from the place of the fire"
+    },
+    {
+     "ref": "16:3",
+     "text": "בבת אחת, עזרה מאחרים, להיכן ניצולין",
+     "text_de": "Auf einmal, Hilfe von anderen, wohin gerettet wird",
+     "text_en": "All at once, help from others, where things are rescued to",
+     "desc": "הלכות מדרבנן › שמירת רוח השבת והרחקה ממלאכה › הצלה מנזק › הוצאה ממקום הנשרף",
+     "desc_de": "Rabbinische Gesetze › Wahrung des Schabbatgeistes und Abstand von Arbeit › Rettung vor Schaden › Hinausbringen aus dem Brandort",
+     "desc_en": "Rabbinic laws › Preserving the spirit of Shabbat and distance from labor › Rescue from damage › Removal from the place of the fire"
+    },
+    {
+     "ref": "16:4",
+     "text": "כלים ובגדים",
+     "text_de": "Geräte und Kleider",
+     "text_en": "Utensils and clothing",
+     "desc": "הלכות מדרבנן › שמירת רוח השבת והרחקה ממלאכה › הצלה מנזק › הוצאה ממקום הנשרף",
+     "desc_de": "Rabbinische Gesetze › Wahrung des Schabbatgeistes und Abstand von Arbeit › Rettung vor Schaden › Hinausbringen aus dem Brandort",
+     "desc_en": "Rabbinic laws › Preserving the spirit of Shabbat and distance from labor › Rescue from damage › Removal from the place of the fire"
+    },
+    {
+     "ref": "16:5",
+     "text": "מחיצה וגרם כיבוי",
+     "text_de": "Trennwand und verursachtes Löschen",
+     "text_en": "Partition and indirectly causing extinguishing",
+     "desc": "הלכות מדרבנן › שמירת רוח השבת והרחקה ממלאכה › הצלה מנזק › פעולות לעצור את הנזק",
+     "desc_de": "Rabbinische Gesetze › Wahrung des Schabbatgeistes und Abstand von Arbeit › Rettung vor Schaden › Maßnahmen zum Eindämmen des Schadens",
+     "desc_en": "Rabbinic laws › Preserving the spirit of Shabbat and distance from labor › Rescue from damage › Measures to contain the damage"
+    },
+    {
+     "ref": "16:6",
+     "text": "כיבוי ע\"י גוי או קטן",
+     "text_de": "Löschen durch einen Nichtjuden oder ein Kind",
+     "text_en": "Extinguishing by a non-Jew or a child",
+     "desc": "הלכות מדרבנן › שמירת רוח השבת והרחקה ממלאכה › הצלה מנזק › פעולות לעצור את הנזק › הנאה ממלאכת נכרי",
+     "desc_de": "Rabbinische Gesetze › Wahrung des Schabbatgeistes und Abstand von Arbeit › Rettung vor Schaden › Maßnahmen zum Eindämmen des Schadens › Nutzen aus der Arbeit eines Nichtjuden",
+     "desc_en": "Rabbinic laws › Preserving the spirit of Shabbat and distance from labor › Rescue from damage › Measures to contain the damage › Benefit from the work of a non-Jew"
+    },
+    {
+     "ref": "16:7",
+     "text": "הרחקתת דליקה, לכלוך,ועקיצה",
+     "text_de": "Fernhalten von Feuer, Schmutz und Stich",
+     "text_en": "Keeping away fire, dirt and stings",
+     "desc": "הלכות מדרבנן › שמירת רוח השבת והרחקה ממלאכה › הצלה מנזק › פעולות לעצור את הנזק › הנאה ממלאכת נכרי",
+     "desc_de": "Rabbinische Gesetze › Wahrung des Schabbatgeistes und Abstand von Arbeit › Rettung vor Schaden › Maßnahmen zum Eindämmen des Schadens › Nutzen aus der Arbeit eines Nichtjuden",
+     "desc_en": "Rabbinic laws › Preserving the spirit of Shabbat and distance from labor › Rescue from damage › Measures to contain the damage › Benefit from the work of a non-Jew"
+    },
+    {
+     "ref": "16:8",
+     "text": "נר, מילוי מים, כבש",
+     "text_de": "Lampe, Wasserfüllung, Rampe",
+     "text_en": "Lamp, filling with water, ramp",
+     "desc": "הלכות מדרבנן › שמירת רוח השבת והרחקה ממלאכה › הנאה ממלאכת נכרי",
+     "desc_de": "Rabbinische Gesetze › Wahrung des Schabbatgeistes und Abstand von Arbeit › Nutzen aus der Arbeit eines Nichtjuden",
+     "desc_en": "Rabbinic laws › Preserving the spirit of Shabbat and distance from labor › Benefit from the work of a non-Jew"
+    }
+   ]
+  },
+  {
+   "head": "פרק יז",
+   "head_de": "Kapitel 17",
+   "head_en": "Chapter 17",
+   "items": [
+    {
+     "ref": "17:1",
+     "text": "כלים שיש להן דלתות",
+     "text_de": "Geräte mit Türen",
+     "text_en": "Utensils with doors",
+     "desc": "הלכות מדרבנן › שמירת רוח השבת והרחקה ממלאכה › טלטול מוקצה › מלאכתן להיתר",
+     "desc_de": "Rabbinische Gesetze › Wahrung des Schabbatgeistes und Abstand von Arbeit › Tragen von Muktzeh › Geräte, deren Verwendung erlaubt ist",
+     "desc_en": "Rabbinic laws › Preserving the spirit of Shabbat and distance from labor › Moving muktzeh › Utensils whose use is permitted"
+    },
+    {
+     "ref": "17:2",
+     "text": "כלי בנין, תבואה ותפירה",
+     "text_de": "Baugeräte, Getreide und Nähen",
+     "text_en": "Building tools, grain and sewing",
+     "desc": "הלכות מדרבנן › שמירת רוח השבת והרחקה ממלאכה › טלטול מוקצה › שמלאכתן לאיסור לצורך המותר",
+     "desc_de": "Rabbinische Gesetze › Wahrung des Schabbatgeistes und Abstand von Arbeit › Tragen von Muktzeh › Geräte, deren Verwendung verboten ist, für einen erlaubten Zweck",
+     "desc_en": "Rabbinic laws › Preserving the spirit of Shabbat and distance from labor › Moving muktzeh › Utensils whose use is forbidden, for a permitted purpose"
+    },
+    {
+     "ref": "17:3",
+     "text": "קנה של זיתים, דיני טומאתו",
+     "text_de": "Olivenrohr, Regeln seiner Unreinheit",
+     "text_en": "Olive reed, laws of its impurity",
+     "desc": "הלכות מדרבנן › שמירת רוח השבת והרחקה ממלאכה › טלטול מוקצה › שמלאכתן לאיסור לצורך המותר",
+     "desc_de": "Rabbinische Gesetze › Wahrung des Schabbatgeistes und Abstand von Arbeit › Tragen von Muktzeh › Geräte, deren Verwendung verboten ist, für einen erlaubten Zweck",
+     "desc_en": "Rabbinic laws › Preserving the spirit of Shabbat and distance from labor › Moving muktzeh › Utensils whose use is forbidden, for a permitted purpose"
+    },
+    {
+     "ref": "17:4",
+     "text": "מסר, יתד, טלטול שלא לצורך",
+     "text_de": "Hobel, Pflock, unnötiges Tragen",
+     "text_en": "Plane, peg, unnecessary carrying",
+     "desc": "הלכות מדרבנן › שמירת רוח השבת והרחקה ממלאכה › טלטול מוקצה",
+     "desc_de": "Rabbinische Gesetze › Wahrung des Schabbatgeistes und Abstand von Arbeit › Tragen von Muktzeh",
+     "desc_en": "Rabbinic laws › Preserving the spirit of Shabbat and distance from labor › Moving muktzeh"
+    },
+    {
+     "ref": "17:5",
+     "text": "שברי כלים",
+     "text_de": "Gefäßscherben",
+     "text_en": "Shards of vessels",
+     "desc": "הלכות מדרבנן › שמירת רוח השבת והרחקה ממלאכה › טלטול מוקצה › מחמת עצמו",
+     "desc_de": "Rabbinische Gesetze › Wahrung des Schabbatgeistes und Abstand von Arbeit › Tragen von Muktzeh › Aus sich selbst heraus",
+     "desc_en": "Rabbinic laws › Preserving the spirit of Shabbat and distance from labor › Moving muktzeh › Because of itself"
+    },
+    {
+     "ref": "17:6",
+     "text": "האסור הטפל למותר",
+     "text_de": "Das Verbotene, das dem Erlaubten untergeordnet ist",
+     "text_en": "The forbidden that is secondary to the permitted",
+     "desc": "הלכות מדרבנן › שמירת רוח השבת והרחקה ממלאכה › טלטול מוקצה › מחמת עצמו",
+     "desc_de": "Rabbinische Gesetze › Wahrung des Schabbatgeistes und Abstand von Arbeit › Tragen von Muktzeh › Aus sich selbst heraus",
+     "desc_en": "Rabbinic laws › Preserving the spirit of Shabbat and distance from labor › Moving muktzeh › Because of itself"
+    },
+    {
+     "ref": "17:7",
+     "text": "פקק החלון",
+     "text_de": "Fensterstöpsel",
+     "text_en": "Window stopper",
+     "desc": "הלכות מדרבנן › שמירת רוח השבת והרחקה ממלאכה › טלטול מוקצה › נראה כבנין",
+     "desc_de": "Rabbinische Gesetze › Wahrung des Schabbatgeistes und Abstand von Arbeit › Tragen von Muktzeh › Sieht aus wie Bauen",
+     "desc_en": "Rabbinic laws › Preserving the spirit of Shabbat and distance from labor › Moving muktzeh › Appears like building"
+    },
+    {
+     "ref": "17:8",
+     "text": "כיסויים",
+     "text_de": "Abdeckungen",
+     "text_en": "Coverings",
+     "desc": "הלכות מדרבנן › שמירת רוח השבת והרחקה ממלאכה › טלטול מוקצה › נראה כבנין",
+     "desc_de": "Rabbinische Gesetze › Wahrung des Schabbatgeistes und Abstand von Arbeit › Tragen von Muktzeh › Sieht aus wie Bauen",
+     "desc_en": "Rabbinic laws › Preserving the spirit of Shabbat and distance from labor › Moving muktzeh › Appears like building"
+    }
+   ]
+  },
+  {
+   "head": "פרק יח",
+   "head_de": "Kapitel 18",
+   "head_en": "Chapter 18",
+   "items": [
+    {
+     "ref": "18:1",
+     "text": "פינוי קופות, מאכל שאינו ראוי",
+     "text_de": "Leeren von Körben, nicht essbare Speise",
+     "text_en": "Emptying baskets, inedible food",
+     "desc": "הלכות מדרבנן › שמירת רוח השבת והרחקה ממלאכה › טלטול מוקצה › לצורך מצוה",
+     "desc_de": "Rabbinische Gesetze › Wahrung des Schabbatgeistes und Abstand von Arbeit › Tragen von Muktzeh › Für ein Gebot",
+     "desc_en": "Rabbinic laws › Preserving the spirit of Shabbat and distance from labor › Moving muktzeh › For a commandment"
+    },
+    {
+     "ref": "18:2",
+     "text": "הראוי למאכלם,לצורך גופן",
+     "text_de": "Was für ihr Futter geeignet ist, für ihre Körperbedürfnisse",
+     "text_en": "What is suitable for their food, for their bodily needs",
+     "desc": "הלכות מדרבנן › שמירת רוח השבת והרחקה ממלאכה › טלטול מוקצה › לצורך בע\"ח",
+     "desc_de": "Rabbinische Gesetze › Wahrung des Schabbatgeistes und Abstand von Arbeit › Tragen von Muktzeh › Für Tiere",
+     "desc_en": "Rabbinic laws › Preserving the spirit of Shabbat and distance from labor › Moving muktzeh › For animals"
+    },
+    {
+     "ref": "18:3",
+     "text": "עזרת הבהמה והאשה היולדות,והולד\\מילה",
+     "text_de": "Hilfe für gebärende Tiere und Frauen, Neugeborenes / Beschneidung",
+     "text_en": "Assistance for animals and women giving birth, newborn / circumcision",
+     "desc": "פטור ממלאכה דאוריתא וגזירות › דחיית השבת › משום סכנה או הפסד",
+     "desc_de": "Befreiung von toraischer Arbeit und von Verordnungen › Verdrängung des Schabbats › Wegen Gefahr oder Verlust",
+     "desc_en": "Exemption from Torah-prohibited labor and from decrees › Overriding of Shabbat › Because of danger or loss"
+    }
+   ]
+  },
+  {
+   "head": "פרק יט",
+   "head_de": "Kapitel 19",
+   "head_en": "Chapter 19",
+   "items": [
+    {
+     "ref": "19:1",
+     "text": "מכשירי מילה, כלל למכשירי מצוה",
+     "text_de": "Beschneidungsgeräte, Regel für Gebotsgeräte",
+     "text_en": "Circumcision implements, rule for implements of a commandment",
+     "desc": "פטור ממלאכה דאוריתא וגזירות › דחיית השבת › מילה בשבת › מה נעשה",
+     "desc_de": "Befreiung von toraischer Arbeit und von Verordnungen › Verdrängung des Schabbats › Beschneidung am Schabbat › Was getan wird",
+     "desc_en": "Exemption from Torah-prohibited labor and from decrees › Overriding of Shabbat › Circumcision on Shabbat › What is done"
+    },
+    {
+     "ref": "19:2",
+     "text": "החתיכה, הכנת תרופות וחלוק",
+     "text_de": "Das Schneiden, Zubereiten von Heilmitteln und Hemd",
+     "text_en": "The cutting, preparing remedies and tunic",
+     "desc": "פטור ממלאכה דאוריתא וגזירות › דחיית השבת › מילה בשבת › מה נעשה",
+     "desc_de": "Befreiung von toraischer Arbeit und von Verordnungen › Verdrängung des Schabbats › Beschneidung am Schabbat › Was getan wird",
+     "desc_en": "Exemption from Torah-prohibited labor and from decrees › Overriding of Shabbat › Circumcision on Shabbat › What is done"
+    },
+    {
+     "ref": "19:3",
+     "text": "רחיצת המילה \\ ספק ואנדרוגינוס",
+     "text_de": "Waschen nach der Beschneidung / Zweifelsfall und Androgynos",
+     "text_en": "Washing after circumcision / doubtful case and androgynos",
+     "desc": "פטור ממלאכה דאוריתא וגזירות › דחיית השבת › מילה בשבת › למי נעשה › מה נעשה",
+     "desc_de": "Befreiung von toraischer Arbeit und von Verordnungen › Verdrängung des Schabbats › Beschneidung am Schabbat › Für wen es getan wird › Was getan wird",
+     "desc_en": "Exemption from Torah-prohibited labor and from decrees › Overriding of Shabbat › Circumcision on Shabbat › For whom it is done › What is done"
+    },
+    {
+     "ref": "19:4",
+     "text": "חיוב על מילה שלא בזמנה בשגגה",
+     "text_de": "Haftung bei unzeitiger Beschneidung aus Versehen",
+     "text_en": "Liability for untimely circumcision done inadvertently",
+     "desc": "פטור ממלאכה דאוריתא וגזירות › דחיית השבת › מילה בשבת › למי נעשה",
+     "desc_de": "Befreiung von toraischer Arbeit und von Verordnungen › Verdrängung des Schabbats › Beschneidung am Schabbat › Für wen es getan wird",
+     "desc_en": "Exemption from Torah-prohibited labor and from decrees › Overriding of Shabbat › Circumcision on Shabbat › For whom it is done"
+    },
+    {
+     "ref": "19:5",
+     "text": "ספק הנדחה, חולה",
+     "text_de": "Verdrängter Zweifelsfall, Kranker",
+     "text_en": "Postponed doubtful case, sick person",
+     "desc": "פטור ממלאכה דאוריתא וגזירות › דחיית השבת › מילה בשבת › למי נעשה",
+     "desc_de": "Befreiung von toraischer Arbeit und von Verordnungen › Verdrängung des Schabbats › Beschneidung am Schabbat › Für wen es getan wird",
+     "desc_en": "Exemption from Torah-prohibited labor and from decrees › Overriding of Shabbat › Circumcision on Shabbat › For whom it is done"
+    },
+    {
+     "ref": "19:6",
+     "text": "חסרון במילה שמעכב",
+     "text_de": "Mangel bei der Beschneidung, der sie ungültig macht",
+     "text_en": "Defect in the circumcision that invalidates it",
+     "desc": "פטור ממלאכה דאוריתא וגזירות › דחיית השבת › מילה בשבת › מה נעשה",
+     "desc_de": "Befreiung von toraischer Arbeit und von Verordnungen › Verdrängung des Schabbats › Beschneidung am Schabbat › Was getan wird",
+     "desc_en": "Exemption from Torah-prohibited labor and from decrees › Overriding of Shabbat › Circumcision on Shabbat › What is done"
+    }
+   ]
+  },
+  {
+   "head": "פרק כ",
+   "head_de": "Kapitel 20",
+   "head_en": "Chapter 20",
+   "items": [
+    {
+     "ref": "20:1",
+     "text": "תליית משמרת ושימושה",
+     "text_de": "Aufhängen des Seihtuchs und seine Verwendung",
+     "text_en": "Hanging the strainer and its use",
+     "desc": "הלכות מדרבנן › שמירת רוח השבת › שיפור אוכלים › עובדא דחול",
+     "desc_de": "Rabbinische Gesetze › Wahrung des Schabbatgeistes › Verbesserung von Speisen › Werktagshandlung",
+     "desc_en": "Rabbinic laws › Preserving the spirit of Shabbat › Improving food › Weekday activity"
+    },
+    {
+     "ref": "20:2",
+     "text": "שמרים, יין, חרדל, אנומלין",
+     "text_de": "Weinhefe, Wein, Senf, Würzwein",
+     "text_en": "Lees, wine, mustard, spiced wine",
+     "desc": "הלכות מדרבנן › שמירת רוח השבת › שיפור אוכלים › עובדא דחול",
+     "desc_de": "Rabbinische Gesetze › Wahrung des Schabbatgeistes › Verbesserung von Speisen › Werktagshandlung",
+     "desc_en": "Rabbinic laws › Preserving the spirit of Shabbat › Improving food › Weekday activity"
+    },
+    {
+     "ref": "20:3",
+     "text": "הכנת חלתית וכרשינים, כברת תבן",
+     "text_de": "Zubereitung von Asant und Wicken, Strohsieb",
+     "text_en": "Preparing asafoetida and vetch, straw sieve",
+     "desc": "הלכות מדרבנן › שמירת רוח השבת › שיפור אוכלים › עובדא דחול",
+     "desc_de": "Rabbinische Gesetze › Wahrung des Schabbatgeistes › Verbesserung von Speisen › Werktagshandlung",
+     "desc_en": "Rabbinic laws › Preserving the spirit of Shabbat › Improving food › Weekday activity"
+    },
+    {
+     "ref": "20:4",
+     "text": "מאכלי בהמה",
+     "text_de": "Tierfutter",
+     "text_en": "Animal fodder",
+     "desc": "הלכות מדרבנן › שמירת רוח השבת › שיפור אוכלים › טרחה יתירה",
+     "desc_de": "Rabbinische Gesetze › Wahrung des Schabbatgeistes › Verbesserung von Speisen › Übermäßige Mühe",
+     "desc_en": "Rabbinic laws › Preserving the spirit of Shabbat › Improving food › Excessive effort"
+    },
+    {
+     "ref": "20:5",
+     "text": "קש, מכבש",
+     "text_de": "Stroh, Presse",
+     "text_en": "Straw, press",
+     "desc": "הלכות מדרבנן › שמירת רוח השבת › טלטול מוקצה › איך נוטל",
+     "desc_de": "Rabbinische Gesetze › Wahrung des Schabbatgeistes › Tragen von Muktzeh › Wie man nimmt",
+     "desc_en": "Rabbinic laws › Preserving the spirit of Shabbat › Moving muktzeh › How one takes"
+    }
+   ]
+  },
+  {
+   "head": "פרק כא",
+   "head_de": "Kapitel 21",
+   "head_en": "Chapter 21",
+   "items": [
+    {
+     "ref": "21:1",
+     "text": "אגב המותר, העלאת דימוע",
+     "text_de": "Nebenbei beim Erlaubten, Anheben von Dimua",
+     "text_en": "Incidentally with the permitted, lifting of dimua",
+     "desc": "הלכות מדרבנן › שמירת רוח השבת › טלטול מוקצה › איך נוטל",
+     "desc_de": "Rabbinische Gesetze › Wahrung des Schabbatgeistes › Tragen von Muktzeh › Wie man nimmt",
+     "desc_en": "Rabbinic laws › Preserving the spirit of Shabbat › Moving muktzeh › How one takes"
+    },
+    {
+     "ref": "21:2",
+     "text": "מן הצד, כיבוס",
+     "text_de": "Von der Seite, Wäschewaschen",
+     "text_en": "From the side, laundering",
+     "desc": "הלכות מדרבנן › שמירת רוח השבת › טלטול מוקצה › איך נוטל",
+     "desc_de": "Rabbinische Gesetze › Wahrung des Schabbatgeistes › Tragen von Muktzeh › Wie man nimmt",
+     "desc_en": "Rabbinic laws › Preserving the spirit of Shabbat › Moving muktzeh › How one takes"
+    },
+    {
+     "ref": "21:3",
+     "text": "שיירי סעודה הראויין לבהמה \\ ספוג",
+     "text_de": "Tischreste, die für Tiere geeignet sind / Schwamm",
+     "text_en": "Meal leftovers fit for animals / sponge",
+     "desc": "הלכות מדרבנן › שמירת רוח השבת › טלטול מוקצה › טיפול במשקים › איך נוטל",
+     "desc_de": "Rabbinische Gesetze › Wahrung des Schabbatgeistes › Tragen von Muktzeh › Umgang mit Flüssigkeiten › Wie man nimmt",
+     "desc_en": "Rabbinic laws › Preserving the spirit of Shabbat › Moving muktzeh › Handling liquids › How one takes"
+    }
+   ]
+  },
+  {
+   "head": "פרק כב",
+   "head_de": "Kapitel 22",
+   "head_en": "Chapter 22",
+   "items": [
+    {
+     "ref": "22:1",
+     "text": "הצלת אוכלים, משקים שזבו",
+     "text_de": "Rettung von Speisen, ausgelaufene Flüssigkeiten",
+     "text_en": "Rescuing food, liquids that have leaked",
+     "desc": "הלכות מדרבנן › שמירת רוח השבת › לצורך אכילה › טיפול במשקים",
+     "desc_de": "Rabbinische Gesetze › Wahrung des Schabbatgeistes › Zum Essen › Umgang mit Flüssigkeiten",
+     "desc_en": "Rabbinic laws › Preserving the spirit of Shabbat › For eating › Handling liquids"
+    },
+    {
+     "ref": "22:2",
+     "text": "שלבים בבישול, קלי הבישול",
+     "text_de": "Stufen des Kochens, schnell Garendes",
+     "text_en": "Stages of cooking, quick-cooking foods",
+     "desc": "הלכות מדרבנן › שמירת רוח השבת › לצורך אכילה › התירים",
+     "desc_de": "Rabbinische Gesetze › Wahrung des Schabbatgeistes › Zum Essen › Das Erlaubte",
+     "desc_en": "Rabbinic laws › Preserving the spirit of Shabbat › For eating › What is permitted"
+    },
+    {
+     "ref": "22:3",
+     "text": "מקלקל לצורך, ממרח",
+     "text_de": "Zerstörendes zu einem Zweck, Aufstreichen",
+     "text_en": "Destructive act for a purpose, spreading",
+     "desc": "הלכות מדרבנן › שמירת רוח השבת › לצורך אכילה › התירים",
+     "desc_de": "Rabbinische Gesetze › Wahrung des Schabbatgeistes › Zum Essen › Das Erlaubte",
+     "desc_en": "Rabbinic laws › Preserving the spirit of Shabbat › For eating › What is permitted"
+    },
+    {
+     "ref": "22:4",
+     "text": "מידות חום של אוכלים \\ בגדים וייבושם",
+     "text_de": "Wärmegrade von Speisen / Kleider und ihr Trocknen",
+     "text_en": "Heat levels of foods / garments and their drying",
+     "desc": "הלכות מדרבנן › הרחקה ממלאכה › שמירת רוח השבת › לצורך אכילה › חשש סחיטה › התירים",
+     "desc_de": "Rabbinische Gesetze › Fernhalten von Arbeit › Wahrung des Schabbatgeistes › Zum Essen › Verdacht auf Auswringen › Das Erlaubte",
+     "desc_en": "Rabbinic laws › Keeping away from labor › Preserving the spirit of Shabbat › For eating › Suspicion of wringing out › What is permitted"
+    },
+    {
+     "ref": "22:5",
+     "text": "נגוב יחיד וברבים",
+     "text_de": "Abtrocknen für einen einzelnen und für viele",
+     "text_en": "Drying for an individual and for many",
+     "desc": "הלכות מדרבנן › הרחקה ממלאכה › חשש סחיטה",
+     "desc_de": "Rabbinische Gesetze › Fernhalten von Arbeit › Verdacht auf Auswringen",
+     "desc_en": "Rabbinic laws › Keeping away from labor › Suspicion of wringing out"
+    },
+    {
+     "ref": "22:6",
+     "text": "טיפול בגוף ורפואה",
+     "text_de": "Körperpflege und Heilkunde",
+     "text_en": "Bodily care and medicine",
+     "desc": "הלכות מדרבנן › הרחקה ממלאכה › רפואה › עובדא דחול",
+     "desc_de": "Rabbinische Gesetze › Fernhalten von Arbeit › Heilung › Werktagshandlung",
+     "desc_en": "Rabbinic laws › Keeping away from labor › Healing › Weekday activity"
+    }
+   ]
+  },
+  {
+   "head": "פרק כג",
+   "head_de": "Kapitel 23",
+   "head_en": "Chapter 23",
+   "items": [
+    {
+     "ref": "23:1",
+     "text": "לשון הלואה ודיניה",
+     "text_de": "Ausdruck des Darlehens und seine Regeln",
+     "text_en": "Terminology of loans and their laws",
+     "desc": "הלכות מדרבנן › שמירת רוח השבת › \"ממצוא חפציך ודבר דבר\"",
+     "desc_de": "Rabbinische Gesetze › Wahrung des Schabbatgeistes › „Deine Geschäfte zu verfolgen und Worte zu reden“",
+     "desc_en": "Rabbinic laws › Preserving the spirit of Shabbat › \"Pursuing your affairs and speaking of them\""
+    },
+    {
+     "ref": "23:2",
+     "text": "קריאה והגרלה לצורך הסעודה",
+     "text_de": "Rufen und Losen für die Mahlzeit",
+     "text_en": "Calling and casting lots for the meal",
+     "desc": "הלכות מדרבנן › שמירת רוח השבת › \"ממצוא חפציך ודבר דבר\"",
+     "desc_de": "Rabbinische Gesetze › Wahrung des Schabbatgeistes › „Deine Geschäfte zu verfolgen und Worte zu reden“",
+     "desc_en": "Rabbinic laws › Preserving the spirit of Shabbat › \"Pursuing your affairs and speaking of them\""
+    },
+    {
+     "ref": "23:3",
+     "text": "השכרת פועלים \\ לצורך חול",
+     "text_de": "Anheuern von Arbeitern / für einen Werktagszweck",
+     "text_en": "Hiring workers / for a weekday purpose",
+     "desc": "הלכות מדרבנן › שמירת רוח השבת › \"ממצוא חפציך ודבר דבר\" › החשכה",
+     "desc_de": "Rabbinische Gesetze › Wahrung des Schabbatgeistes › „Deine Geschäfte zu verfolgen und Worte zu reden“ › Einbruch der Dunkelheit",
+     "desc_en": "Rabbinic laws › Preserving the spirit of Shabbat › \"Pursuing your affairs and speaking of them\" › Nightfall"
+    },
+    {
+     "ref": "23:4",
+     "text": "לצורך מצוה \\ הנאה ממלאכת גוי",
+     "text_de": "Für ein Gebot / Nutzen aus der Arbeit eines Nichtjuden",
+     "text_en": "For a commandment / benefit from the work of a non-Jew",
+     "desc": "הלכות מדרבנן › שמירת רוח השבת › מוקצה וטרחא יתירה › \"ממצוא חפציך ודבר דבר\" › צרכי המת בשבת › החשכה",
+     "desc_de": "Rabbinische Gesetze › Wahrung des Schabbatgeistes › Muktzeh und übermäßige Mühe › „Deine Geschäfte zu verfolgen und Worte zu reden“ › Bedürfnisse des Toten am Schabbat › Einbruch der Dunkelheit",
+     "desc_en": "Rabbinic laws › Preserving the spirit of Shabbat › Muktzeh and excessive effort › \"Pursuing your affairs and speaking of them\" › Needs of the dead on Shabbat › Nightfall"
+    },
+    {
+     "ref": "23:5",
+     "text": "אילו מהם נעשים",
+     "text_de": "Welche davon getan werden",
+     "text_en": "Which of them may be done",
+     "desc": "הלכות מדרבנן › שמירת רוח השבת › מוקצה וטרחא יתירה › צרכי המת בשבת",
+     "desc_de": "Rabbinische Gesetze › Wahrung des Schabbatgeistes › Muktzeh und übermäßige Mühe › Bedürfnisse des Toten am Schabbat",
+     "desc_en": "Rabbinic laws › Preserving the spirit of Shabbat › Muktzeh and excessive effort › Needs of the dead on Shabbat"
+    }
+   ]
+  },
+  {
+   "head": "פרק כד",
+   "head_de": "Kapitel 24",
+   "head_en": "Chapter 24",
+   "items": [
+    {
+     "ref": "24:1",
+     "text": "העברת כיס, פריקת בהמה",
+     "text_de": "Umlagern des Beutels, Abladen des Tieres",
+     "text_en": "Shifting the purse, unloading the animal",
+     "desc": "הלכות מדרבנן › שמירת רוח השבת › מוקצה וטרחא יתירה › הפסד וצער",
+     "desc_de": "Rabbinische Gesetze › Wahrung des Schabbatgeistes › Muktzeh und übermäßige Mühe › Verlust und Leid",
+     "desc_en": "Rabbinic laws › Preserving the spirit of Shabbat › Muktzeh and excessive effort › Loss and suffering"
+    },
+    {
+     "ref": "24:2",
+     "text": "הכנת מאכלים",
+     "text_de": "Zubereitung von Speisen",
+     "text_en": "Preparing food",
+     "desc": "הלכות מדרבנן › שמירת רוח השבת › מוקצה וטרחא יתירה › האכלת בעלי חיים",
+     "desc_de": "Rabbinische Gesetze › Wahrung des Schabbatgeistes › Muktzeh und übermäßige Mühe › Füttern von Tieren",
+     "desc_en": "Rabbinic laws › Preserving the spirit of Shabbat › Muktzeh and excessive effort › Feeding animals"
+    },
+    {
+     "ref": "24:3",
+     "text": "בכח, שלא לצורך",
+     "text_de": "Mit Kraft, ohne Notwendigkeit",
+     "text_en": "By force, without necessity",
+     "desc": "הלכות מדרבנן › שמירת רוח השבת › מוקצה וטרחא יתירה › האכלת בעלי חיים",
+     "desc_de": "Rabbinische Gesetze › Wahrung des Schabbatgeistes › Muktzeh und übermäßige Mühe › Füttern von Tieren",
+     "desc_en": "Rabbinic laws › Preserving the spirit of Shabbat › Muktzeh and excessive effort › Feeding animals"
+    },
+    {
+     "ref": "24:4",
+     "text": "מוקצה",
+     "text_de": "Mukze",
+     "text_en": "Muktzeh",
+     "desc": "הלכות מדרבנן › שמירת רוח השבת › מוקצה וטרחא יתירה › האכלת בעלי חיים",
+     "desc_de": "Rabbinische Gesetze › Wahrung des Schabbatgeistes › Muktzeh und übermäßige Mühe › Füttern von Tieren",
+     "desc_en": "Rabbinic laws › Preserving the spirit of Shabbat › Muktzeh and excessive effort › Feeding animals"
+    },
+    {
+     "ref": "24:5",
+     "text": "התרת נדרים, מדידה וקשירה של מצוה",
+     "text_de": "Auflösung von Gelübden, Messen und Binden für ein Gebot",
+     "text_en": "Annulment of vows, measuring and tying for a commandment",
+     "desc": "הלכות מדרבנן › שמירת רוח השבת › מוקצה וטרחא יתירה",
+     "desc_de": "Rabbinische Gesetze › Wahrung des Schabbatgeistes › Muktzeh und übermäßige Mühe",
+     "desc_en": "Rabbinic laws › Preserving the spirit of Shabbat › Muktzeh and excessive effort"
+    }
+   ]
+  }
+ ]
+}

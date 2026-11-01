@@ -1,0 +1,496 @@
+{
+ "book": "Mishnah Avodah Zarah",
+ "title": "משנה עבודה זרה",
+ "title_de": "Mischna Awoda Sara – Gliederung",
+ "title_en": "Avodah Zarah – outline",
+ "note": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema).",
+ "note_de": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema); ins Deutsche und Englische übersetzt.",
+ "note_en": "Outline after the table “Mishna Sedura”: the central content of each mishnah, with the topic path (main topic to sub-topic); translated into German and English.",
+ "sections": [
+  {
+   "head": "פרק א",
+   "head_de": "Kapitel 1",
+   "head_en": "Chapter 1",
+   "items": [
+    {
+     "ref": "1:1",
+     "text": "משא ומתן, שאלה, הלואה",
+     "text_de": "Handel, Frage, Darlehen",
+     "text_en": "Commerce, inquiry, loan",
+     "desc": "התרחקות מעבודה זרה ועובדיה › משא ומתן › האסור לזמן ידוע › עסק האסור",
+     "desc_de": "Distanz zum Götzendienst und seinen Anhängern › Handel › Zeitlich begrenztes Verbot › Verbotenes Geschäft",
+     "desc_en": "Distancing from idolatry and its adherents › Commerce › Prohibition for a fixed time › Forbidden business"
+    },
+    {
+     "ref": "1:2",
+     "text": "שלושה ימים לפניהן ואחריהן",
+     "text_de": "Drei Tage davor und danach",
+     "text_en": "Three days before and after",
+     "desc": "התרחקות מעבודה זרה ועובדיה › משא ומתן › האסור לזמן ידוע › תקופת האיסור",
+     "desc_de": "Distanz zum Götzendienst und seinen Anhängern › Handel › Zeitlich begrenztes Verbot › Dauer des Verbots",
+     "desc_en": "Distancing from idolatry and its adherents › Commerce › Prohibition for a fixed time › Duration of the prohibition"
+    },
+    {
+     "ref": "1:3",
+     "text": "אידים לרבים וליחיד",
+     "text_de": "Feste für die Allgemeinheit und für den Einzelnen",
+     "text_en": "Festivals for the community and for the individual",
+     "desc": "התרחקות מעבודה זרה ועובדיה › משא ומתן › האסור לזמן ידוע › תקופת האיסור",
+     "desc_de": "Distanz zum Götzendienst und seinen Anhängern › Handel › Zeitlich begrenztes Verbot › Dauer des Verbots",
+     "desc_en": "Distancing from idolatry and its adherents › Commerce › Prohibition for a fixed time › Duration of the prohibition"
+    },
+    {
+     "ref": "1:4",
+     "text": "תחום העיר ודרכיה, עיטור חנויות",
+     "text_de": "Stadtgrenze und ihre Straßen, Schmücken von Läden",
+     "text_en": "City limits and its streets, decorating shops",
+     "desc": "התרחקות מעבודה זרה ועובדיה › משא ומתן › האסור לזמן ידוע › מקום האיסור",
+     "desc_de": "Distanz zum Götzendienst und seinen Anhängern › Handel › Zeitlich begrenztes Verbot › Ort des Verbots",
+     "desc_en": "Distancing from idolatry and its adherents › Commerce › Prohibition for a fixed time › Place of the prohibition"
+    },
+    {
+     "ref": "1:5",
+     "text": "דברי מאכל, בפירוש ובסתם",
+     "text_de": "Lebensmittel, ausdrücklich und unbestimmt",
+     "text_en": "Foodstuffs, explicit and unspecified",
+     "desc": "התרחקות מעבודה זרה ועובדיה › משא ומתן › האסור למכור להם › האסור לעולם › מטלטלין",
+     "desc_de": "Distanz zum Götzendienst und seinen Anhängern › Handel › Was ihnen nicht verkauft werden darf › Dauerhaft Verbotenes › Bewegliches",
+     "desc_en": "Distancing from idolatry and its adherents › Commerce › What may not be sold to them › Permanently forbidden › Movables"
+    },
+    {
+     "ref": "1:6",
+     "text": "בהמות גסות ודקות",
+     "text_de": "Großvieh und Kleinvieh",
+     "text_en": "Large and small livestock",
+     "desc": "התרחקות מעבודה זרה ועובדיה › משא ומתן › האסור למכור להם › האסור לעולם › מטלטלין",
+     "desc_de": "Distanz zum Götzendienst und seinen Anhängern › Handel › Was ihnen nicht verkauft werden darf › Dauerhaft Verbotenes › Bewegliches",
+     "desc_en": "Distancing from idolatry and its adherents › Commerce › What may not be sold to them › Permanently forbidden › Movables"
+    },
+    {
+     "ref": "1:7",
+     "text": "חיות \\ בנין ונזק ושיתוף עבודה זרה",
+     "text_de": "Tiere / Bau, Schaden und Beteiligung am Götzendienst",
+     "text_en": "Animals / building, damage and participation in idolatry",
+     "desc": "התרחקות מעבודה זרה ועובדיה › משא ומתן › האסור למכור להם › האסור לעולם › שיתוף פעולה › מטלטלין",
+     "desc_de": "Distanz zum Götzendienst und seinen Anhängern › Handel › Was ihnen nicht verkauft werden darf › Dauerhaft Verbotenes › Zusammenarbeit › Bewegliches",
+     "desc_en": "Distancing from idolatry and its adherents › Commerce › What may not be sold to them › Permanently forbidden › Cooperation › Movables"
+    },
+    {
+     "ref": "1:8",
+     "text": "תכשיטים \\ מחובר, בית ושדה, וקרבה לארץ",
+     "text_de": "Schmuck / Angewachsenes, Haus und Feld, und Nähe zum Land",
+     "text_en": "Jewelry / attached property, house and field, and proximity to the Land",
+     "desc": "התרחקות מעבודה זרה ועובדיה › משא ומתן › האסור למכור להם › האסור לעולם › קרקעות › שיתוף פעולה",
+     "desc_de": "Distanz zum Götzendienst und seinen Anhängern › Handel › Was ihnen nicht verkauft werden darf › Dauerhaft Verbotenes › Grundstücke › Zusammenarbeit",
+     "desc_en": "Distancing from idolatry and its adherents › Commerce › What may not be sold to them › Permanently forbidden › Real estate › Cooperation"
+    },
+    {
+     "ref": "1:9",
+     "text": "איסור לבית דירה, מראית העין",
+     "text_de": "Verbot einer Wohnstätte, Anschein des Verdachts",
+     "text_en": "Prohibition regarding a dwelling, appearance of impropriety",
+     "desc": "התרחקות מעבודה זרה ועובדיה › משא ומתן › האסור למכור להם › האסור לעולם › קרקעות",
+     "desc_de": "Distanz zum Götzendienst und seinen Anhängern › Handel › Was ihnen nicht verkauft werden darf › Dauerhaft Verbotenes › Grundstücke",
+     "desc_en": "Distancing from idolatry and its adherents › Commerce › What may not be sold to them › Permanently forbidden › Real estate"
+    }
+   ]
+  },
+  {
+   "head": "פרק ב",
+   "head_de": "Kapitel 2",
+   "head_en": "Chapter 2",
+   "items": [
+    {
+     "ref": "2:1",
+     "text": "רביעה, עריות, רצח \\ הולדה, הנקה",
+     "text_de": "Tierzucht, Inzest, Mord / Geburtshilfe, Stillen",
+     "text_en": "Animal breeding, forbidden relations, murder / midwifery, nursing",
+     "desc": "התרחקות מעבודה זרה ועובדיה › התרחקות אישית מחשש לרשעותם › שירות אישי",
+     "desc_de": "Distanz zum Götzendienst und seinen Anhängern › Persönliche Distanz aus Furcht vor ihrer Bosheit › Persönliche Dienste",
+     "desc_en": "Distancing from idolatry and its adherents › Personal distance for fear of their wickedness › Personal services"
+    },
+    {
+     "ref": "2:2",
+     "text": "רפואה, להסתפר",
+     "text_de": "Heilkunde, Haareschneiden",
+     "text_en": "Medical treatment, haircutting",
+     "desc": "התרחקות מעבודה זרה ועובדיה › התרחקות אישית מחשש לרשעותם › שירות אישי",
+     "desc_de": "Distanz zum Götzendienst und seinen Anhängern › Persönliche Distanz aus Furcht vor ihrer Bosheit › Persönliche Dienste",
+     "desc_en": "Distancing from idolatry and its adherents › Personal distance for fear of their wickedness › Personal services"
+    },
+    {
+     "ref": "2:3",
+     "text": "יין וחומץ / עורות, בשר, ההולך לתרפות",
+     "text_de": "Wein und Essig / Häute, Fleisch, Gang zu einem Götzenbild",
+     "text_en": "Wine and vinegar / hides, meat, going to an idol",
+     "desc": "התרחקות מעבודה זרה ועובדיה › משא ומתן › האסור לקנות מהם › האסורים בהנאה › יין",
+     "desc_de": "Distanz zum Götzendienst und seinen Anhängern › Handel › Was von ihnen zu kaufen verboten ist › Was zu nutzen verboten ist › Wein",
+     "desc_en": "Distancing from idolatry and its adherents › Commerce › What is forbidden to buy from them › What is forbidden to benefit from › Wine"
+    },
+    {
+     "ref": "2:4",
+     "text": "שבלעו או שנתערבו ביין \\ חשש למיעוט",
+     "text_de": "Was aufgesogen wurde oder sich mit Wein vermischte / Verdacht einer Minderheit",
+     "text_en": "What was absorbed or mixed into wine / suspicion due to a minority",
+     "desc": "התרחקות מעבודה זרה ועובדיה › משא ומתן › האסור לקנות מהם › האסורים באכילה › האסורים בהנאה › גבינה › יין",
+     "desc_de": "Distanz zum Götzendienst und seinen Anhängern › Handel › Was von ihnen zu kaufen verboten ist › Was zu essen verboten ist › Was zu nutzen verboten ist › Käse › Wein",
+     "desc_en": "Distancing from idolatry and its adherents › Commerce › What is forbidden to buy from them › What is forbidden to eat › What is forbidden to benefit from › Cheese › Wine"
+    },
+    {
+     "ref": "2:5",
+     "text": "הטעם לאיסור",
+     "text_de": "Grund des Verbots",
+     "text_en": "Reason for the prohibition",
+     "desc": "התרחקות מעבודה זרה ועובדיה › משא ומתן › האסור לקנות מהם › האסורים באכילה › גבינה",
+     "desc_de": "Distanz zum Götzendienst und seinen Anhängern › Handel › Was von ihnen zu kaufen verboten ist › Was zu essen verboten ist › Käse",
+     "desc_en": "Distancing from idolatry and its adherents › Commerce › What is forbidden to buy from them › What is forbidden to eat › Cheese"
+    },
+    {
+     "ref": "2:6",
+     "text": "שיש בהן חשש עירוב איסור, משום חתנות",
+     "text_de": "Bei Verdacht auf Beimischung von Verbotenem, wegen Verschwägerung",
+     "text_en": "Where there is suspicion of admixture of forbidden matter, because of intermarriage",
+     "desc": "התרחקות מעבודה זרה ועובדיה › משא ומתן › האסור לקנות מהם › האסורים באכילה › תערובת איסור בדברי מאכל",
+     "desc_de": "Distanz zum Götzendienst und seinen Anhängern › Handel › Was von ihnen zu kaufen verboten ist › Was zu essen verboten ist › Vermischung von Verbotenem in Lebensmitteln",
+     "desc_en": "Distancing from idolatry and its adherents › Commerce › What is forbidden to buy from them › What is forbidden to eat › Mixture of forbidden matter in foodstuffs"
+    },
+    {
+     "ref": "2:7",
+     "text": "שאין בהם חשש, לתרומה",
+     "text_de": "Ohne Verdachtsmoment, für die Teruma",
+     "text_en": "Without suspicion, for terumah",
+     "desc": "התרחקות מעבודה זרה ועובדיה › משא ומתן › האסור לקנות מהם › המותרים › תערובת איסור בדברי מאכל",
+     "desc_de": "Distanz zum Götzendienst und seinen Anhängern › Handel › Was von ihnen zu kaufen verboten ist › Das Erlaubte › Vermischung von Verbotenem in Lebensmitteln",
+     "desc_en": "Distancing from idolatry and its adherents › Commerce › What is forbidden to buy from them › The permitted › Mixture of forbidden matter in foodstuffs"
+    }
+   ]
+  },
+  {
+   "head": "פרק ג",
+   "head_de": "Kapitel 3",
+   "head_en": "Chapter 3",
+   "items": [
+    {
+     "ref": "3:1",
+     "text": "חשש למיעוט, שיש בידם חפץ",
+     "text_de": "Verdacht einer Minderheit, wenn sie einen Gegenstand in der Hand haben",
+     "text_en": "Suspicion due to a minority, when they hold an object",
+     "desc": "הגדרת עבודה זרה › צלמים",
+     "desc_de": "Definition des Götzendienstes › Bildnisse",
+     "desc_en": "Definition of idolatry › Images"
+    },
+    {
+     "ref": "3:2",
+     "text": "שברים",
+     "text_de": "Bruchstücke",
+     "text_en": "Fragments",
+     "desc": "הגדרת עבודה זרה › צלמים › ביטול",
+     "desc_de": "Definition des Götzendienstes › Bildnisse › Annullierung",
+     "desc_en": "Definition of idolatry › Images › Annulment"
+    },
+    {
+     "ref": "3:3",
+     "text": "פירוט צורות, חשיבות מקומן, דרכי השמדה",
+     "text_de": "Aufzählung der Bildnisse, Bedeutung ihres Ortes, Arten der Vernichtung",
+     "text_en": "Enumeration of images, significance of their location, methods of destruction",
+     "desc": "הגדרת עבודה זרה › צורות › בזיון והנאה מהן",
+     "desc_de": "Definition des Götzendienstes › Bildnisse › Schändung und Nutzung von ihnen",
+     "desc_en": "Definition of idolatry › Images › Desecration and benefit from them"
+    },
+    {
+     "ref": "3:4",
+     "text": "הנאה ממרחץ שיש בו צורה",
+     "text_de": "Nutzung eines Bades mit einem Bildnis",
+     "text_en": "Benefit from a bathhouse containing an image",
+     "desc": "הגדרת עבודה זרה › צורות › בזיון והנאה מהן",
+     "desc_de": "Definition des Götzendienstes › Bildnisse › Schändung und Nutzung von ihnen",
+     "desc_en": "Definition of idolatry › Images › Desecration and benefit from them"
+    },
+    {
+     "ref": "3:5",
+     "text": "המחובר וציפוייו, סימנים לחיפוש",
+     "text_de": "Angewachsenes und sein Überzug, Zeichen für die Suche",
+     "text_en": "Attached items and their coverings, signs for searching",
+     "desc": "הגדרת עבודה זרה › המחובר",
+     "desc_de": "Definition des Götzendienstes › Angewachsenes",
+     "desc_en": "Definition of idolatry › Attached items"
+    },
+    {
+     "ref": "3:6",
+     "text": "בנין המהנה לע\"ז, טומאת ע\"ז",
+     "text_de": "Gebäude zugunsten des Götzendienstes, Unreinheit des Götzendienstes",
+     "text_en": "Building for the benefit of idolatry, impurity of idolatry",
+     "desc": "הגדרת עבודה זרה › המחובר",
+     "desc_de": "Definition des Götzendienstes › Angewachsenes",
+     "desc_en": "Definition of idolatry › Attached items"
+    },
+    {
+     "ref": "3:7",
+     "text": "בתים, אבנים, אשירות \\ הגדרתה",
+     "text_de": "Häuser, Steine, Ascheren / ihre Definition",
+     "text_en": "Houses, stones, asherot / their definition",
+     "desc": "הגדרת עבודה זרה › אשירה › המחובר › דרגות איסור",
+     "desc_de": "Definition des Götzendienstes › Ascheira › Angewachsenes › Verbotsstufen",
+     "desc_en": "Definition of idolatry › Asherah › Attached items › Degrees of prohibition"
+    },
+    {
+     "ref": "3:8",
+     "text": "צלה",
+     "text_de": "Ihr Schatten",
+     "text_en": "Its shade",
+     "desc": "הגדרת עבודה זרה › אשירה › הנאה ממנה",
+     "desc_de": "Definition des Götzendienstes › Ascheira › Nutzung von ihr",
+     "desc_en": "Definition of idolatry › Asherah › Benefit from it"
+    },
+    {
+     "ref": "3:9",
+     "text": "עציה, תערובת ופדיון",
+     "text_de": "Ihr Holz, Vermischung und Auslösung",
+     "text_en": "Its wood, mixture and redemption",
+     "desc": "הגדרת עבודה זרה › אשירה › הנאה ממנה",
+     "desc_de": "Definition des Götzendienstes › Ascheira › Nutzung von ihr",
+     "desc_en": "Definition of idolatry › Asherah › Benefit from it"
+    },
+    {
+     "ref": "3:10",
+     "text": "כוונות חיתוך",
+     "text_de": "Absicht beim Schneiden",
+     "text_en": "Intention when cutting",
+     "desc": "הגדרת עבודה זרה › אשירה › ביטול",
+     "desc_de": "Definition des Götzendienstes › Ascheira › Annullierung",
+     "desc_en": "Definition of idolatry › Asherah › Annulment"
+    }
+   ]
+  },
+  {
+   "head": "פרק ד",
+   "head_de": "Kapitel 4",
+   "head_en": "Chapter 4",
+   "items": [
+    {
+     "ref": "4:1",
+     "text": "אבנים בצידו",
+     "text_de": "Steine an seiner Seite",
+     "text_en": "Stones beside it",
+     "desc": "הגדרת עבודה זרה › הטפלים אליה › מרקוליס",
+     "desc_de": "Definition des Götzendienstes › Das ihr Zugehörige › Merkurios",
+     "desc_en": "Definition of idolatry › Items subordinate to it › Mercury"
+    },
+    {
+     "ref": "4:2",
+     "text": "נוי ותקרובת",
+     "text_de": "Zierde und Opfergabe",
+     "text_en": "Ornament and offering",
+     "desc": "הגדרת עבודה זרה › הטפלים אליה › מרקוליס",
+     "desc_de": "Definition des Götzendienstes › Das ihr Zugehörige › Merkurios",
+     "desc_en": "Definition of idolatry › Items subordinate to it › Mercury"
+    },
+    {
+     "ref": "4:3",
+     "text": "השייך לה ובשותפות",
+     "text_de": "Was ihr gehört und gemeinsamer Besitz",
+     "text_en": "What belongs to it and joint ownership",
+     "desc": "הגדרת עבודה זרה › הטפלים אליה › הנאה מהן",
+     "desc_de": "Definition des Götzendienstes › Das ihr Zugehörige › Nutzung von ihnen",
+     "desc_en": "Definition of idolatry › Items subordinate to it › Benefit from them"
+    },
+    {
+     "ref": "4:4",
+     "text": "חלות האיסור, היכול לבטל, משמשיה",
+     "text_de": "Eintreten des Verbots, wer annullieren kann, ihre Diener",
+     "text_en": "Onset of the prohibition, who can annul, its attendants",
+     "desc": "הגדרת עבודה זרה › ביטול › אופן הביטול",
+     "desc_de": "Definition des Götzendienstes › Annullierung › Art der Annullierung",
+     "desc_en": "Definition of idolatry › Annulment › Manner of annulment"
+    },
+    {
+     "ref": "4:5",
+     "text": "השחתת צורתה, בזיון",
+     "text_de": "Zerstörung ihrer Gestalt, Schändung",
+     "text_en": "Defacing its form, desecration",
+     "desc": "הגדרת עבודה זרה › ביטול › אופן הביטול",
+     "desc_de": "Definition des Götzendienstes › Annullierung › Art der Annullierung",
+     "desc_en": "Definition of idolatry › Annulment › Manner of annulment"
+    },
+    {
+     "ref": "4:6",
+     "text": "נטישה",
+     "text_de": "Aufgabe",
+     "text_en": "Abandonment",
+     "desc": "הגדרת עבודה זרה › ביטול › אופן הביטול",
+     "desc_de": "Definition des Götzendienstes › Annullierung › Art der Annullierung",
+     "desc_en": "Definition of idolatry › Annulment › Manner of annulment"
+    },
+    {
+     "ref": "4:7",
+     "text": "הטעם שהקב\"ה לא מבטלן",
+     "text_de": "Grund, weshalb der Heilige, gelobt sei er, sie nicht abschafft",
+     "text_en": "Reason why the Holy One, blessed be He, does not abolish them",
+     "desc": "הגדרת עבודה זרה › ביטול",
+     "desc_de": "Definition des Götzendienstes › Annullierung",
+     "desc_en": "Definition of idolatry › Annulment"
+    },
+    {
+     "ref": "4:8",
+     "text": "ירידה לבור",
+     "text_de": "Hinabsteigen in die Grube",
+     "text_en": "Descending into the pit",
+     "desc": "התרחקות מעבודה זרה ועובדיה › יין נסך › כיצד נאסר",
+     "desc_de": "Distanz zum Götzendienst und seinen Anhängern › Libationswein › Wie es verboten wird",
+     "desc_en": "Distancing from idolatry and its adherents › Libation wine › How it becomes forbidden"
+    },
+    {
+     "ref": "4:9",
+     "text": "שיתוף פעולה עם גוי ועם ישראל המטמא",
+     "text_de": "Zusammenarbeit mit einem Nichtjuden und mit einem Israeliten, der Unreinheit überträgt",
+     "text_en": "Cooperation with a gentile and with an Israelite who transmits impurity",
+     "desc": "התרחקות מעבודה זרה ועובדיה › יין נסך › כיצד נאסר",
+     "desc_de": "Distanz zum Götzendienst und seinen Anhängern › Libationswein › Wie es verboten wird",
+     "desc_en": "Distancing from idolatry and its adherents › Libation wine › How it becomes forbidden"
+    },
+    {
+     "ref": "4:10",
+     "text": "דרך ניסוך \\ המשועבד לנכרי",
+     "text_de": "Art der Libation / was einem Nichtjuden verpfändet ist",
+     "text_en": "Manner of libation / what is mortgaged to a gentile",
+     "desc": "התרחקות מעבודה זרה ועובדיה › יין נסך › כיצד נאסר › חשש ניסוך ושמירה",
+     "desc_de": "Distanz zum Götzendienst und seinen Anhängern › Libationswein › Wie es verboten wird › Verdacht der Libation und Bewachung",
+     "desc_en": "Distancing from idolatry and its adherents › Libation wine › How it becomes forbidden › Suspicion of libation and guarding"
+    },
+    {
+     "ref": "4:11",
+     "text": "שמירה ע\"י רשות הרבים ושומר",
+     "text_de": "Bewachung durch öffentlichen Grund und durch einen Wächter",
+     "text_en": "Guarding via public thoroughfare and by a guard",
+     "desc": "התרחקות מעבודה זרה ועובדיה › יין נסך › כיצד נאסר › חשש ניסוך ושמירה",
+     "desc_de": "Distanz zum Götzendienst und seinen Anhängern › Libationswein › Wie es verboten wird › Verdacht der Libation und Bewachung",
+     "desc_en": "Distancing from idolatry and its adherents › Libation wine › How it becomes forbidden › Suspicion of libation and guarding"
+    },
+    {
+     "ref": "4:12",
+     "text": "הממושכן לנכרי",
+     "text_de": "Was einem Nichtjuden verpfändet ist",
+     "text_en": "What is pledged to a gentile",
+     "desc": "התרחקות מעבודה זרה ועובדיה › יין נסך › כיצד נאסר › חשש ניסוך ושמירה",
+     "desc_de": "Distanz zum Götzendienst und seinen Anhängern › Libationswein › Wie es verboten wird › Verdacht der Libation und Bewachung",
+     "desc_en": "Distancing from idolatry and its adherents › Libation wine › How it becomes forbidden › Suspicion of libation and guarding"
+    }
+   ]
+  },
+  {
+   "head": "פרק ה",
+   "head_de": "Kapitel 5",
+   "head_en": "Chapter 5",
+   "items": [
+    {
+     "ref": "5:1",
+     "text": "פועל, חמור",
+     "text_de": "Arbeiter, Esel",
+     "text_en": "Laborer, donkey",
+     "desc": "התרחקות מעבודה זרה ועובדיה › יין נסך › הנאה האסורה › כספי",
+     "desc_de": "Distanz zum Götzendienst und seinen Anhängern › Libationswein › Verbotene Nutzung › Geld",
+     "desc_en": "Distancing from idolatry and its adherents › Libation wine › Forbidden benefit › Money"
+    },
+    {
+     "ref": "5:2",
+     "text": "טעם לשבח ולפגם, כלל",
+     "text_de": "Geschmack zum Besseren und zum Schlechteren, Grundregel",
+     "text_en": "Taste that improves and that spoils, general rule",
+     "desc": "התרחקות מעבודה זרה ועובדיה › יין נסך › הנאה האסורה › תערובת",
+     "desc_de": "Distanz zum Götzendienst und seinen Anhängern › Libationswein › Verbotene Nutzung › Vermischung",
+     "desc_en": "Distancing from idolatry and its adherents › Libation wine › Forbidden benefit › Mixture"
+    },
+    {
+     "ref": "5:3",
+     "text": "גוי המעביר כדים",
+     "text_de": "Nichtjude, der Krüge transportiert",
+     "text_en": "Gentile transporting jugs",
+     "desc": "התרחקות מעבודה זרה ועובדיה › יין נסך › כיצד נאסר › חשש ניסוך וזמן",
+     "desc_de": "Distanz zum Götzendienst und seinen Anhängern › Libationswein › Wie es verboten wird › Verdacht der Libation und Zeitpunkt",
+     "desc_en": "Distancing from idolatry and its adherents › Libation wine › How it becomes forbidden › Suspicion of libation and timing"
+    },
+    {
+     "ref": "5:4",
+     "text": "המניח יינו בכלי תחבורה או בחנות",
+     "text_de": "Wer seinen Wein in einem Transportmittel oder in einem Laden lässt",
+     "text_en": "One who leaves his wine in a vehicle or in a shop",
+     "desc": "התרחקות מעבודה זרה ועובדיה › יין נסך › כיצד נאסר › חשש ניסוך וזמן",
+     "desc_de": "Distanz zum Götzendienst und seinen Anhängern › Libationswein › Wie es verboten wird › Verdacht der Libation und Zeitpunkt",
+     "desc_en": "Distancing from idolatry and its adherents › Libation wine › How it becomes forbidden › Suspicion of libation and timing"
+    },
+    {
+     "ref": "5:5",
+     "text": "המניח גוי יחידי ורשותו לשתות",
+     "text_de": "Wer einen Nichtjuden allein lässt, der Zugang zum Trinken hat",
+     "text_en": "One who leaves a gentile alone with access to drink",
+     "desc": "התרחקות מעבודה זרה ועובדיה › יין נסך › כיצד נאסר › חשש ניסוך וזמן",
+     "desc_de": "Distanz zum Götzendienst und seinen Anhängern › Libationswein › Wie es verboten wird › Verdacht der Libation und Zeitpunkt",
+     "desc_en": "Distancing from idolatry and its adherents › Libation wine › How it becomes forbidden › Suspicion of libation and timing"
+    },
+    {
+     "ref": "5:6",
+     "text": "מצב רוחם של אנשי בלשת",
+     "text_de": "Gemütszustand der Leute von Bilschat",
+     "text_en": "State of mind of the people of Bilshat",
+     "desc": "התרחקות מעבודה זרה ועובדיה › יין נסך › כיצד נאסר › חשש ניסוך וזמן",
+     "desc_de": "Distanz zum Götzendienst und seinen Anhängern › Libationswein › Wie es verboten wird › Verdacht der Libation und Zeitpunkt",
+     "desc_en": "Distancing from idolatry and its adherents › Libation wine › How it becomes forbidden › Suspicion of libation and timing"
+    },
+    {
+     "ref": "5:7",
+     "text": "קנין ע\"י ישראל במדידה \\ ובעירוי",
+     "text_de": "Erwerb durch einen Israeliten beim Abmessen / und beim Umgießen",
+     "text_en": "Acquisition by an Israelite through measuring / and through pouring",
+     "desc": "התרחקות מעבודה זרה ועובדיה › יין נסך › הנאה האסורה › תערובת › כספי",
+     "desc_de": "Distanz zum Götzendienst und seinen Anhängern › Libationswein › Verbotene Nutzung › Vermischung › Geld",
+     "desc_en": "Distancing from idolatry and its adherents › Libation wine › Forbidden benefit › Mixture › Money"
+    },
+    {
+     "ref": "5:8",
+     "text": "שיעור האוסר במינו ובשאינו מינו",
+     "text_de": "Maß, das in gleicher und in ungleicher Art verbietet",
+     "text_en": "Quantity that prohibits in kind and not in kind",
+     "desc": "התרחקות מעבודה זרה ועובדיה › יין נסך › הנאה האסורה › תערובת",
+     "desc_de": "Distanz zum Götzendienst und seinen Anhängern › Libationswein › Verbotene Nutzung › Vermischung",
+     "desc_en": "Distancing from idolatry and its adherents › Libation wine › Forbidden benefit › Mixture"
+    },
+    {
+     "ref": "5:9",
+     "text": "דברים שבמנין האוסרין בכל שהן",
+     "text_de": "Dinge, die gezählt werden und in jeder Menge verbieten",
+     "text_en": "Countable items that prohibit in any quantity",
+     "desc": "התרחקות מעבודה זרה ועובדיה › יין נסך › הנאה האסורה › תערובת",
+     "desc_de": "Distanz zum Götzendienst und seinen Anhängern › Libationswein › Verbotene Nutzung › Vermischung",
+     "desc_en": "Distancing from idolatry and its adherents › Libation wine › Forbidden benefit › Mixture"
+    },
+    {
+     "ref": "5:10",
+     "text": "מכירת תערובת",
+     "text_de": "Verkauf einer Mischung",
+     "text_en": "Sale of a mixture",
+     "desc": "התרחקות מעבודה זרה ועובדיה › יין נסך › הנאה האסורה › תערובת › כספי",
+     "desc_de": "Distanz zum Götzendienst und seinen Anhängern › Libationswein › Verbotene Nutzung › Vermischung › Geld",
+     "desc_en": "Distancing from idolatry and its adherents › Libation wine › Forbidden benefit › Mixture › Money"
+    },
+    {
+     "ref": "5:11",
+     "text": "גת מזופת",
+     "text_de": "Gepichte Kelter",
+     "text_en": "Pitch-coated winepress",
+     "desc": "התרחקות מעבודה זרה ועובדיה › יין נסך › הנאה האסורה › בליעה",
+     "desc_de": "Distanz zum Götzendienst und seinen Anhängern › Libationswein › Verbotene Nutzung › Aufsaugung",
+     "desc_en": "Distancing from idolatry and its adherents › Libation wine › Forbidden benefit › Absorption"
+    },
+    {
+     "ref": "5:12",
+     "text": "כלי תשמיש ודרכי הכשרתן",
+     "text_de": "Gebrauchsgeräte und Art ihrer Reinigung",
+     "text_en": "Utensils and methods of making them fit for use",
+     "desc": "התרחקות מעבודה זרה ועובדיה › יין נסך › הנאה האסורה › בליעה",
+     "desc_de": "Distanz zum Götzendienst und seinen Anhängern › Libationswein › Verbotene Nutzung › Aufsaugung",
+     "desc_en": "Distancing from idolatry and its adherents › Libation wine › Forbidden benefit › Absorption"
+    }
+   ]
+  }
+ ]
+}

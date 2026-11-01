@@ -1,0 +1,395 @@
+{
+ "book": "Mishnah Meilah",
+ "title": "משנה מעילה",
+ "title_de": "Mischna Meila – Gliederung",
+ "title_en": "Meilah – outline",
+ "note": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema).",
+ "note_de": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema); ins Deutsche und Englische übersetzt.",
+ "note_en": "Outline after the table “Mishna Sedura”: the central content of each mishnah, with the topic path (main topic to sub-topic); translated into German and English.",
+ "sections": [
+  {
+   "head": "פרק א",
+   "head_de": "Kapitel 1",
+   "head_en": "Chapter 1",
+   "items": [
+    {
+     "ref": "1:1",
+     "text": "פסולים שונים, פסול אחר היתר לכהנים",
+     "text_de": "Verschiedene untaugliche Fälle, andere Untauglichkeit, die für Priester erlaubt ist",
+     "text_en": "Various disqualified cases, other disqualification that is permitted to priests",
+     "desc": "במה מועלין › שינוי במצב ובדיני המעילה › קדשי מזבח › פסול",
+     "desc_de": "Wovon man Veruntreuung begeht › Veränderung des Zustands und Vorschriften der Veruntreuung › Altaropfer (Kodaschim des Altars) › Untauglich",
+     "desc_en": "What is subject to misappropriation › Change of status and laws of misappropriation › Altar offerings (sacred items of the altar) › Disqualified"
+    },
+    {
+     "ref": "1:2",
+     "text": "בשר קדשי הקדשים",
+     "text_de": "Fleisch der Hochheiligen Opfer",
+     "text_en": "Meat of the most holy offerings",
+     "desc": "במה מועלין › שינוי במצב ובדיני המעילה › קדשי מזבח › פסול › השפעת זריקה",
+     "desc_de": "Wovon man Veruntreuung begeht › Veränderung des Zustands und Vorschriften der Veruntreuung › Altaropfer (Kodaschim des Altars) › Untauglich › Wirkung des Sprengens",
+     "desc_en": "What is subject to misappropriation › Change of status and laws of misappropriation › Altar offerings (sacred items of the altar) › Disqualified › Effect of the sprinkling"
+    },
+    {
+     "ref": "1:3",
+     "text": "אמורי קדשים קלים",
+     "text_de": "Altarteile (Emurim) der leichter Heiligen Opfer",
+     "text_en": "Altar portions (emurim) of the lesser holy offerings",
+     "desc": "במה מועלין › שינוי במצב ובדיני המעילה › קדשי מזבח › פסול › השפעת זריקה",
+     "desc_de": "Wovon man Veruntreuung begeht › Veränderung des Zustands und Vorschriften der Veruntreuung › Altaropfer (Kodaschim des Altars) › Untauglich › Wirkung des Sprengens",
+     "desc_en": "What is subject to misappropriation › Change of status and laws of misappropriation › Altar offerings (sacred items of the altar) › Disqualified › Effect of the sprinkling"
+    },
+    {
+     "ref": "1:4",
+     "text": "קדשי קדשים וקדשים קלים",
+     "text_de": "Hochheilige und leichter heilige Opfer",
+     "text_en": "Most holy and lesser holy offerings",
+     "desc": "במה מועלין › שינוי במצב ובדיני המעילה › קדשי מזבח › פסול › השפעת זריקה › השוואה",
+     "desc_de": "Wovon man Veruntreuung begeht › Veränderung des Zustands und Vorschriften der Veruntreuung › Altaropfer (Kodaschim des Altars) › Untauglich › Wirkung des Sprengens › Gleichstellung",
+     "desc_en": "What is subject to misappropriation › Change of status and laws of misappropriation › Altar offerings (sacred items of the altar) › Disqualified › Effect of the sprinkling › Comparison"
+    }
+   ]
+  },
+  {
+   "head": "פרק ב",
+   "head_de": "Kapitel 2",
+   "head_en": "Chapter 2",
+   "items": [
+    {
+     "ref": "2:1",
+     "text": "חטאת",
+     "text_de": "Sündopfer",
+     "text_en": "Sin offering",
+     "desc": "במה מועלין › שינוי במצב ובדיני המעילה › קדשי מזבח › חלקי הקרבן שמועלים בהם › עופות",
+     "desc_de": "Wovon man Veruntreuung begeht › Veränderung des Zustands und Vorschriften der Veruntreuung › Altaropfer (Kodaschim des Altars) › Opferteile, an denen Veruntreuung begangen wird › Vögel",
+     "desc_en": "What is subject to misappropriation › Change of status and laws of misappropriation › Altar offerings (sacred items of the altar) › Portions of the offering subject to misappropriation › Birds"
+    },
+    {
+     "ref": "2:2",
+     "text": "עולה",
+     "text_de": "Ganzopfer",
+     "text_en": "Burnt offering",
+     "desc": "במה מועלין › שינוי במצב ובדיני המעילה › קדשי מזבח › חלקי הקרבן שמועלים בהם › עופות",
+     "desc_de": "Wovon man Veruntreuung begeht › Veränderung des Zustands und Vorschriften der Veruntreuung › Altaropfer (Kodaschim des Altars) › Opferteile, an denen Veruntreuung begangen wird › Vögel",
+     "desc_en": "What is subject to misappropriation › Change of status and laws of misappropriation › Altar offerings (sacred items of the altar) › Portions of the offering subject to misappropriation › Birds"
+    },
+    {
+     "ref": "2:3",
+     "text": "פרים ושעירים הנשרפין",
+     "text_de": "Zu verbrennende Stiere und Ziegenböcke",
+     "text_en": "Bulls and goats that are burned",
+     "desc": "במה מועלין › שינוי במצב ובדיני המעילה › קדשי מזבח › חלקי הקרבן שמועלים בהם › זבחי קדשי קדשים",
+     "desc_de": "Wovon man Veruntreuung begeht › Veränderung des Zustands und Vorschriften der Veruntreuung › Altaropfer (Kodaschim des Altars) › Opferteile, an denen Veruntreuung begangen wird › Schlachtopfer der Hochheiligen Opfer",
+     "desc_en": "What is subject to misappropriation › Change of status and laws of misappropriation › Altar offerings (sacred items of the altar) › Portions of the offering subject to misappropriation › Slaughtered offerings of the most holy offerings"
+    },
+    {
+     "ref": "2:4",
+     "text": "עולה",
+     "text_de": "Ganzopfer",
+     "text_en": "Burnt offering",
+     "desc": "במה מועלין › שינוי במצב ובדיני המעילה › קדשי מזבח › חלקי הקרבן שמועלים בהם › זבחי קדשי קדשים",
+     "desc_de": "Wovon man Veruntreuung begeht › Veränderung des Zustands und Vorschriften der Veruntreuung › Altaropfer (Kodaschim des Altars) › Opferteile, an denen Veruntreuung begangen wird › Schlachtopfer der Hochheiligen Opfer",
+     "desc_en": "What is subject to misappropriation › Change of status and laws of misappropriation › Altar offerings (sacred items of the altar) › Portions of the offering subject to misappropriation › Slaughtered offerings of the most holy offerings"
+    },
+    {
+     "ref": "2:5",
+     "text": "קדשי קדשים הנאכלים",
+     "text_de": "Hochheilige Opfer, die gegessen werden",
+     "text_en": "Most holy offerings that are eaten",
+     "desc": "במה מועלין › שינוי במצב ובדיני המעילה › קדשי מזבח › חלקי הקרבן שמועלים בהם › זבחי קדשי קדשים",
+     "desc_de": "Wovon man Veruntreuung begeht › Veränderung des Zustands und Vorschriften der Veruntreuung › Altaropfer (Kodaschim des Altars) › Opferteile, an denen Veruntreuung begangen wird › Schlachtopfer der Hochheiligen Opfer",
+     "desc_en": "What is subject to misappropriation › Change of status and laws of misappropriation › Altar offerings (sacred items of the altar) › Portions of the offering subject to misappropriation › Slaughtered offerings of the most holy offerings"
+    },
+    {
+     "ref": "2:6",
+     "text": "שתי הלחם",
+     "text_de": "Die beiden Brote",
+     "text_en": "The two loaves",
+     "desc": "במה מועלין › שינוי במצב ובדיני המעילה › קדשי מזבח › חלקי הקרבן שמועלים בהם › מנחות",
+     "desc_de": "Wovon man Veruntreuung begeht › Veränderung des Zustands und Vorschriften der Veruntreuung › Altaropfer (Kodaschim des Altars) › Opferteile, an denen Veruntreuung begangen wird › Mehlopfer",
+     "desc_en": "What is subject to misappropriation › Change of status and laws of misappropriation › Altar offerings (sacred items of the altar) › Portions of the offering subject to misappropriation › Meal offerings"
+    },
+    {
+     "ref": "2:7",
+     "text": "לחם הפנים",
+     "text_de": "Schaubrot",
+     "text_en": "Showbread",
+     "desc": "במה מועלין › שינוי במצב ובדיני המעילה › קדשי מזבח › חלקי הקרבן שמועלים בהם › מנחות",
+     "desc_de": "Wovon man Veruntreuung begeht › Veränderung des Zustands und Vorschriften der Veruntreuung › Altaropfer (Kodaschim des Altars) › Opferteile, an denen Veruntreuung begangen wird › Mehlopfer",
+     "desc_en": "What is subject to misappropriation › Change of status and laws of misappropriation › Altar offerings (sacred items of the altar) › Portions of the offering subject to misappropriation › Meal offerings"
+    },
+    {
+     "ref": "2:8",
+     "text": "מנחות הנקמצות",
+     "text_de": "Mincha-Opfer, von denen eine Handvoll abgehoben wird",
+     "text_en": "Meal offerings from which a handful is taken",
+     "desc": "במה מועלין › שינוי במצב ובדיני המעילה › קדשי מזבח › חלקי הקרבן שמועלים בהם › מנחות",
+     "desc_de": "Wovon man Veruntreuung begeht › Veränderung des Zustands und Vorschriften der Veruntreuung › Altaropfer (Kodaschim des Altars) › Opferteile, an denen Veruntreuung begangen wird › Mehlopfer",
+     "desc_en": "What is subject to misappropriation › Change of status and laws of misappropriation › Altar offerings (sacred items of the altar) › Portions of the offering subject to misappropriation › Meal offerings"
+    },
+    {
+     "ref": "2:9",
+     "text": "דבר שאין לו מתירין, כלל",
+     "text_de": "Etwas, das keine Freigabe hat, allgemeine Regel",
+     "text_en": "Something that has nothing to permit it, general rule",
+     "desc": "במה מועלין › שינוי במצב ובדיני המעילה › קדשי מזבח › חלקי הקרבן שמועלים בהם",
+     "desc_de": "Wovon man Veruntreuung begeht › Veränderung des Zustands und Vorschriften der Veruntreuung › Altaropfer (Kodaschim des Altars) › Opferteile, an denen Veruntreuung begangen wird",
+     "desc_en": "What is subject to misappropriation › Change of status and laws of misappropriation › Altar offerings (sacred items of the altar) › Portions of the offering subject to misappropriation"
+    }
+   ]
+  },
+  {
+   "head": "פרק ג",
+   "head_de": "Kapitel 3",
+   "head_en": "Chapter 3",
+   "items": [
+    {
+     "ref": "3:1",
+     "text": "חטאות המתות והמסתאבות",
+     "text_de": "Sündopfer, die sterben müssen oder unrein werden",
+     "text_en": "Sin offerings that must die or become impure",
+     "desc": "במה מועלין › שינוי במצב ובדיני המעילה › קדשי מזבח › חי",
+     "desc_de": "Wovon man Veruntreuung begeht › Veränderung des Zustands und Vorschriften der Veruntreuung › Altaropfer (Kodaschim des Altars) › Lebendes",
+     "desc_en": "What is subject to misappropriation › Change of status and laws of misappropriation › Altar offerings (sacred items of the altar) › Living things"
+    },
+    {
+     "ref": "3:2",
+     "text": "מעות לקרבנות נזיר",
+     "text_de": "Geld für die Opfer des Nasiräers",
+     "text_en": "Money for the offerings of the nazirite",
+     "desc": "במה מועלין › שינוי במצב ובדיני המעילה › קדשי מזבח › חי › דומם",
+     "desc_de": "Wovon man Veruntreuung begeht › Veränderung des Zustands und Vorschriften der Veruntreuung › Altaropfer (Kodaschim des Altars) › Lebendes › Lebloses",
+     "desc_en": "What is subject to misappropriation › Change of status and laws of misappropriation › Altar offerings (sacred items of the altar) › Living things › Inanimate things"
+    },
+    {
+     "ref": "3:3",
+     "text": "דם ונסכים",
+     "text_de": "Blut und Trankopfer",
+     "text_en": "Blood and libations",
+     "desc": "במה מועלין › שינוי במצב ובדיני המעילה › קדשי מזבח › דומם",
+     "desc_de": "Wovon man Veruntreuung begeht › Veränderung des Zustands und Vorschriften der Veruntreuung › Altaropfer (Kodaschim des Altars) › Lebloses",
+     "desc_en": "What is subject to misappropriation › Change of status and laws of misappropriation › Altar offerings (sacred items of the altar) › Inanimate things"
+    },
+    {
+     "ref": "3:4",
+     "text": "דשן המזבח \\ עופות שלא בזמנן",
+     "text_de": "Asche des Altars / Vögel nicht zu ihrer Zeit",
+     "text_en": "Ashes of the altar / birds not at their time",
+     "desc": "במה מועלין › שינוי במצב ובדיני המעילה › קדשי מזבח › חי",
+     "desc_de": "Wovon man Veruntreuung begeht › Veränderung des Zustands und Vorschriften der Veruntreuung › Altaropfer (Kodaschim des Altars) › Lebendes",
+     "desc_en": "What is subject to misappropriation › Change of status and laws of misappropriation › Altar offerings (sacred items of the altar) › Living things"
+    },
+    {
+     "ref": "3:5",
+     "text": "חלב וביצים",
+     "text_de": "Fett und Eier",
+     "text_en": "Forbidden fat and eggs",
+     "desc": "במה מועלין › שינוי במצב ובדיני המעילה › קדשי מזבח ובדק הבית › תוספת להקדש",
+     "desc_de": "Wovon man Veruntreuung begeht › Veränderung des Zustands und Vorschriften der Veruntreuung › Altaropfer und Tempelreparatur › Zusatz zum Geweihten",
+     "desc_en": "What is subject to misappropriation › Change of status and laws of misappropriation › Altar offerings and Temple maintenance › Addition to consecrated property"
+    },
+    {
+     "ref": "3:6",
+     "text": "שבח הקדש, האכלת ולדות, פועלים ובהמות",
+     "text_de": "Wertzuwachs geweihter Güter, Verfüttern von Jungtieren, Arbeiter und Tiere",
+     "text_en": "Increase in value of consecrated property, feeding of young animals, laborers and animals",
+     "desc": "במה מועלין › שינוי במצב ובדיני המעילה › קדשי מזבח ובדק הבית › תוספת להקדש",
+     "desc_de": "Wovon man Veruntreuung begeht › Veränderung des Zustands und Vorschriften der Veruntreuung › Altaropfer und Tempelreparatur › Zusatz zum Geweihten",
+     "desc_en": "What is subject to misappropriation › Change of status and laws of misappropriation › Altar offerings and Temple maintenance › Addition to consecrated property"
+    },
+    {
+     "ref": "3:7",
+     "text": "שרשי אילן, מעיין, מי ניסוך, ערבה",
+     "text_de": "Wurzeln eines Baumes, Quelle, Wasser des Trankopfers, Bachweide",
+     "text_en": "Roots of a tree, spring, water libation, willow branch",
+     "desc": "במה מועלין › שינוי במצב ובדיני המעילה › קדשי מזבח ובדק הבית › השפעת המקום",
+     "desc_de": "Wovon man Veruntreuung begeht › Veränderung des Zustands und Vorschriften der Veruntreuung › Altaropfer und Tempelreparatur › Einfluss des Ortes",
+     "desc_en": "What is subject to misappropriation › Change of status and laws of misappropriation › Altar offerings and Temple maintenance › Influence of the place"
+    },
+    {
+     "ref": "3:8",
+     "text": "קן, עצים והקדשתם",
+     "text_de": "Vogelnest, Holz und ihre Weihung",
+     "text_en": "Bird's nest, wood and their consecration",
+     "desc": "במה מועלין › שינוי במצב ובדיני המעילה › קדשי מזבח ובדק הבית › השפעת המקום",
+     "desc_de": "Wovon man Veruntreuung begeht › Veränderung des Zustands und Vorschriften der Veruntreuung › Altaropfer und Tempelreparatur › Einfluss des Ortes",
+     "desc_en": "What is subject to misappropriation › Change of status and laws of misappropriation › Altar offerings and Temple maintenance › Influence of the place"
+    }
+   ]
+  },
+  {
+   "head": "פרק ד",
+   "head_de": "Kapitel 4",
+   "head_en": "Chapter 4",
+   "items": [
+    {
+     "ref": "4:1",
+     "text": "הסוגים השונים לחוד וביחד",
+     "text_de": "Die verschiedenen Arten einzeln und zusammen",
+     "text_en": "The different kinds separately and together",
+     "desc": "במה מועלין › צירוף › קדשי מזבח ובדק הבית › מעילה ועוד איסורים",
+     "desc_de": "Wovon man Veruntreuung begeht › Zusammenrechnen › Altaropfer und Tempelreparatur › Veruntreuung und weitere Verbote",
+     "desc_en": "What is subject to misappropriation › Combining › Altar offerings and Temple maintenance › Misappropriation and further prohibitions"
+    },
+    {
+     "ref": "4:2",
+     "text": "עולה, תודה \\ הנקראים תרומה",
+     "text_de": "Brandopfer, Dankopfer / als Teruma bezeichnete Dinge",
+     "text_en": "Burnt offering, thanksgiving offering / things called terumah",
+     "desc": "במה מועלין › צירוף › איסורים",
+     "desc_de": "Wovon man Veruntreuung begeht › Zusammenrechnen › Verbote",
+     "desc_en": "What is subject to misappropriation › Combining › Prohibitions"
+    },
+    {
+     "ref": "4:3",
+     "text": "פיגולין, נותרין \\ נבילה ושרץ",
+     "text_de": "Pigul, Notar / Aas und Kriechtier",
+     "text_en": "Pigul, notar / carcass and creeping creature",
+     "desc": "במה מועלין › צירוף › טומאות",
+     "desc_de": "Wovon man Veruntreuung begeht › Zusammenrechnen › Unreinheiten",
+     "desc_en": "What is subject to misappropriation › Combining › Impurities"
+    },
+    {
+     "ref": "4:4",
+     "text": "פגול ונותר, טומאה חמורה וקלה",
+     "text_de": "Pigul und Notar, schwere und leichte Unreinheit",
+     "text_en": "Pigul and notar, severe and light impurity",
+     "desc": "במה מועלין › צירוף › טומאות",
+     "desc_de": "Wovon man Veruntreuung begeht › Zusammenrechnen › Unreinheiten",
+     "desc_en": "What is subject to misappropriation › Combining › Impurities"
+    },
+    {
+     "ref": "4:5",
+     "text": "אכלים, משקים",
+     "text_de": "Speisen, Getränke",
+     "text_en": "Foods, liquids",
+     "desc": "במה מועלין › צירוף › איסורים › טומאות",
+     "desc_de": "Wovon man Veruntreuung begeht › Zusammenrechnen › Verbote › Unreinheiten",
+     "desc_en": "What is subject to misappropriation › Combining › Prohibitions › Impurities"
+    },
+    {
+     "ref": "4:6",
+     "text": "ערלה וכלאים \\ חומרים למשכב",
+     "text_de": "Orla und Kilajim / Stoffe für das Lager",
+     "text_en": "Orlah and kilayim / materials for bedding",
+     "desc": "במה מועלין › צירוף › טומאות",
+     "desc_de": "Wovon man Veruntreuung begeht › Zusammenrechnen › Unreinheiten",
+     "desc_en": "What is subject to misappropriation › Combining › Impurities"
+    }
+   ]
+  },
+  {
+   "head": "פרק ה",
+   "head_de": "Kapitel 5",
+   "head_en": "Chapter 5",
+   "items": [
+    {
+     "ref": "5:1",
+     "text": "שייכות פגם",
+     "text_de": "Zugehörigkeit des Mangels",
+     "text_en": "Attribution of the defect",
+     "desc": "אופן המעילה › פגם והנאה",
+     "desc_de": "Art der Veruntreuung › Minderung und Nutznießung",
+     "desc_en": "Manner of misappropriation › Diminution and benefit"
+    },
+    {
+     "ref": "5:2",
+     "text": "כשיעור ובדבר אחד",
+     "text_de": "Im Mindestmaß und mit einer Sache",
+     "text_en": "By the minimum amount and with one item",
+     "desc": "אופן המעילה › צירוף › פגם והנאה",
+     "desc_de": "Art der Veruntreuung › Zusammenrechnen › Minderung und Nutznießung",
+     "desc_en": "Manner of misappropriation › Combining › Diminution and benefit"
+    },
+    {
+     "ref": "5:3",
+     "text": "מועל אחר מועל",
+     "text_de": "Veruntreuung nach Veruntreuung",
+     "text_en": "Misappropriation after misappropriation",
+     "desc": "אופן המעילה › שינוי רשות › קדושת הגוף",
+     "desc_de": "Art der Veruntreuung › Wechsel des Besitzbereichs › Heiligkeit des Körpers",
+     "desc_en": "Manner of misappropriation › Change of domain › Sanctity of the body"
+    },
+    {
+     "ref": "5:4",
+     "text": "שינוי רשות, הנאה",
+     "text_de": "Wechsel des Besitzbereichs, Nutznießung",
+     "text_en": "Change of domain, benefit",
+     "desc": "אופן המעילה › שינוי רשות › קדושת דמים",
+     "desc_de": "Art der Veruntreuung › Wechsel des Besitzbereichs › Heiligkeit des Geldes",
+     "desc_en": "Manner of misappropriation › Change of domain › Sanctity of the money"
+    },
+    {
+     "ref": "5:5",
+     "text": "הנהנים, זמן",
+     "text_de": "Die Nutznießenden, Zeit",
+     "text_en": "Those who benefit, time",
+     "desc": "אופן המעילה › צירוף",
+     "desc_de": "Art der Veruntreuung › Zusammenrechnen",
+     "desc_en": "Manner of misappropriation › Combining"
+    }
+   ]
+  },
+  {
+   "head": "פרק ו",
+   "head_de": "Kapitel 6",
+   "head_en": "Chapter 6",
+   "items": [
+    {
+     "ref": "6:1",
+     "text": "הדגמה, דברים שבלב",
+     "text_de": "Demonstration, Gedanken im Herzen",
+     "text_en": "Demonstration, thoughts in the heart",
+     "desc": "אופן המעילה › שליחות למעילה › עקירה",
+     "desc_de": "Art der Veruntreuung › Beauftragung zur Veruntreuung › Entwurzeln",
+     "desc_en": "Manner of misappropriation › Agency for misappropriation › Uprooting"
+    },
+    {
+     "ref": "6:2",
+     "text": "כושר דעת השליח, נזכר, אופן התיקון",
+     "text_de": "Eignung des Beauftragten, Erinnerung, Art der Wiedergutmachung",
+     "text_en": "Competence of the agent, remembering, manner of restitution",
+     "desc": "אופן המעילה › שליחות למעילה",
+     "desc_de": "Art der Veruntreuung › Beauftragung zur Veruntreuung",
+     "desc_en": "Manner of misappropriation › Agency for misappropriation"
+    },
+    {
+     "ref": "6:3",
+     "text": "כשיעור או פחות",
+     "text_de": "Im Mindestmaß oder weniger",
+     "text_en": "At the minimum amount or less",
+     "desc": "אופן המעילה › שליחות למעילה › עקירה",
+     "desc_de": "Art der Veruntreuung › Beauftragung zur Veruntreuung › Entwurzeln",
+     "desc_en": "Manner of misappropriation › Agency for misappropriation › Uprooting"
+    },
+    {
+     "ref": "6:4",
+     "text": "קיום ותוספת בדבר אחר",
+     "text_de": "Fortbestehen und Zusatz mit einer anderen Sache",
+     "text_en": "Continuation and addition with another item",
+     "desc": "אופן המעילה › שליחות למעילה › עקירה",
+     "desc_de": "Art der Veruntreuung › Beauftragung zur Veruntreuung › Entwurzeln",
+     "desc_en": "Manner of misappropriation › Agency for misappropriation › Uprooting"
+    },
+    {
+     "ref": "6:5",
+     "text": "הפקדת מעות",
+     "text_de": "Hinterlegung von Geld",
+     "text_en": "Deposit of money",
+     "desc": "אופן המעילה › שליחות למעילה › עקירה",
+     "desc_de": "Art der Veruntreuung › Beauftragung zur Veruntreuung › Entwurzeln",
+     "desc_en": "Manner of misappropriation › Agency for misappropriation › Uprooting"
+    },
+    {
+     "ref": "6:6",
+     "text": "תערובת",
+     "text_de": "Vermischung",
+     "text_en": "Mixture",
+     "desc": "אופן המעילה › ספק וודאי",
+     "desc_de": "Art der Veruntreuung › Zweifel und Sicherheit",
+     "desc_en": "Manner of misappropriation › Doubt and certainty"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,990 @@
+{
+ "book": "Mishnah Bava Metzia",
+ "title": "משנה בבא מציעא",
+ "title_de": "Mischna Baba Mezia – Gliederung",
+ "title_en": "Bava Metzia – outline",
+ "note": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema).",
+ "note_de": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema); ins Deutsche und Englische übersetzt.",
+ "note_en": "Outline after the table “Mishna Sedura”: the central content of each mishnah, with the topic path (main topic to sub-topic); translated into German and English.",
+ "sections": [
+  {
+   "head": "פרק א",
+   "head_de": "Kapitel 1",
+   "head_en": "Chapter 1",
+   "items": [
+    {
+     "ref": "1:1",
+     "text": "טענות כולה וחציה בטלית",
+     "text_de": "Behauptungen über das Ganze und die Hälfte beim Mantel",
+     "text_en": "Claims of the whole and half regarding a garment",
+     "desc": "הלכות מציאות › חלוקה ושבועה › שנים מוחזקים",
+     "desc_de": "Vorschriften über Fundsachen › Teilung und Eid › Zwei Besitzer",
+     "desc_en": "Laws of found objects › Division and oath › Two possessors"
+    },
+    {
+     "ref": "1:2",
+     "text": "טענות כולה בבהמה, עדים או הוצאה",
+     "text_de": "Behauptungen über das Ganze beim Vieh, Zeugen oder Hinausführen",
+     "text_en": "Claims of the whole regarding an animal, witnesses or removal",
+     "desc": "הלכות מציאות › חלוקה ושבועה › שנים מוחזקים",
+     "desc_de": "Vorschriften über Fundsachen › Teilung und Eid › Zwei Besitzer",
+     "desc_en": "Laws of found objects › Division and oath › Two possessors"
+    },
+    {
+     "ref": "1:3",
+     "text": "זכייה בשביל אחר או בשביל עצמו",
+     "text_de": "Erwerb für einen anderen oder für sich selbst",
+     "text_en": "Acquisition for another or for oneself",
+     "desc": "הלכות מציאות › כיצד זוכים › אחד מוחזק",
+     "desc_de": "Vorschriften über Fundsachen › Wie man erwirbt › Einer im Besitz",
+     "desc_en": "Laws of found objects › How one acquires › One in possession"
+    },
+    {
+     "ref": "1:4",
+     "text": "התנפלות עליה, ע\"י שדהו",
+     "text_de": "Sich darauf Stürzen, durch sein Feld",
+     "text_en": "Pouncing on it, through his field",
+     "desc": "הלכות מציאות › כיצד זוכים › אחד מוחזק",
+     "desc_de": "Vorschriften über Fundsachen › Wie man erwirbt › Einer im Besitz",
+     "desc_en": "Laws of found objects › How one acquires › One in possession"
+    },
+    {
+     "ref": "1:5",
+     "text": "בני ביתו שידן כידו או לעצמן",
+     "text_de": "Hausangehörige, deren Hand wie seine ist oder für sich selbst",
+     "text_en": "Household members whose hand is like his or who act for themselves",
+     "desc": "הלכות מציאות › כיצד זוכים › אחד מוחזק",
+     "desc_de": "Vorschriften über Fundsachen › Wie man erwirbt › Einer im Besitz",
+     "desc_en": "Laws of found objects › How one acquires › One in possession"
+    },
+    {
+     "ref": "1:6",
+     "text": "שטרי חוב ואחריות שבהן",
+     "text_de": "Schuldscheine und ihre Haftung",
+     "text_en": "Promissory notes and their guarantee",
+     "desc": "הלכות שומרים › הלכות מציאות › חיוב להחזיר › שטרות",
+     "desc_de": "Vorschriften über Hüter › Vorschriften über Fundsachen › Pflicht zur Rückgabe › Urkunden",
+     "desc_en": "Laws of bailees › Laws of found objects › Duty to return › Documents"
+    },
+    {
+     "ref": "1:7",
+     "text": "המזכין לאחר",
+     "text_de": "Wer für einen anderen erwirbt",
+     "text_en": "One who acquires for another",
+     "desc": "הלכות שומרים › הלכות מציאות › חיוב להחזיר › שטרות",
+     "desc_de": "Vorschriften über Hüter › Vorschriften über Fundsachen › Pflicht zur Rückgabe › Urkunden",
+     "desc_en": "Laws of bailees › Laws of found objects › Duty to return › Documents"
+    },
+    {
+     "ref": "1:8",
+     "text": "מעשה ב\"ד, סימן בהן, ספק פרוע",
+     "text_de": "Handlung des Gerichts, Erkennungszeichen daran, Zweifel an Bezahlung",
+     "text_en": "Act of the court, identifying mark on them, doubt of repayment",
+     "desc": "הלכות שומרים › הלכות מציאות › חיוב להחזיר › שטרות",
+     "desc_de": "Vorschriften über Hüter › Vorschriften über Fundsachen › Pflicht zur Rückgabe › Urkunden",
+     "desc_en": "Laws of bailees › Laws of found objects › Duty to return › Documents"
+    }
+   ]
+  },
+  {
+   "head": "פרק ב",
+   "head_de": "Kapitel 2",
+   "head_en": "Chapter 2",
+   "items": [
+    {
+     "ref": "2:1",
+     "text": "שאין בהם סימן וסתמן נתיאשו",
+     "text_de": "Ohne Erkennungszeichen, deren Besitzer gewöhnlich aufgegeben haben",
+     "text_en": "Without identifying marks, whose owners usually gave up hope",
+     "desc": "הלכות שומרים › הלכות מציאות › חיוב להכריז › סימנים בהן",
+     "desc_de": "Vorschriften über Hüter › Vorschriften über Fundsachen › Pflicht zum Ausrufen › Erkennungszeichen daran",
+     "desc_en": "Laws of bailees › Laws of found objects › Duty to announce › Identifying marks on them"
+    },
+    {
+     "ref": "2:2",
+     "text": "שיש בהן סימן",
+     "text_de": "Mit Erkennungszeichen",
+     "text_en": "With identifying marks",
+     "desc": "הלכות שומרים › הלכות מציאות › חיוב להכריז › סימנים בהן",
+     "desc_de": "Vorschriften über Hüter › Vorschriften über Fundsachen › Pflicht zum Ausrufen › Erkennungszeichen daran",
+     "desc_en": "Laws of bailees › Laws of found objects › Duty to announce › Identifying marks on them"
+    },
+    {
+     "ref": "2:3",
+     "text": "מקום המשתמר, הנמצאת הרבה זמן",
+     "text_de": "Gesicherter Ort, lange Zeit Gefundenes",
+     "text_en": "Secured place, long-found items",
+     "desc": "הלכות שומרים › הלכות מציאות › חיוב להכריז › מקומן",
+     "desc_de": "Vorschriften über Hüter › Vorschriften über Fundsachen › Pflicht zum Ausrufen › Ihr Ort",
+     "desc_en": "Laws of bailees › Laws of found objects › Duty to announce › Their location"
+    },
+    {
+     "ref": "2:4",
+     "text": "בחנות, אצל שלחני, מעות מתוך פירות",
+     "text_de": "Im Laden, beim Geldwechsler, Münzen zwischen Früchten",
+     "text_en": "In a shop, with a money changer, coins among fruits",
+     "desc": "הלכות שומרים › הלכות מציאות › חיוב להכריז › מקומן",
+     "desc_de": "Vorschriften über Hüter › Vorschriften über Fundsachen › Pflicht zum Ausrufen › Ihr Ort",
+     "desc_en": "Laws of bailees › Laws of found objects › Duty to announce › Their location"
+    },
+    {
+     "ref": "2:5",
+     "text": "סימנים ותובעים",
+     "text_de": "Erkennungszeichen und Anspruchsteller",
+     "text_en": "Identifying marks and claimants",
+     "desc": "הלכות שומרים › הלכות מציאות › חיוב להכריז › כלל",
+     "desc_de": "Vorschriften über Hüter › Vorschriften über Fundsachen › Pflicht zum Ausrufen › Grundregel",
+     "desc_en": "Laws of bailees › Laws of found objects › Duty to announce › General rule"
+    },
+    {
+     "ref": "2:6",
+     "text": "עד מתי מכריז",
+     "text_de": "Bis wann man ausruft",
+     "text_en": "Until when one announces",
+     "desc": "הלכות שומרים › הלכות מציאות › אחר מציאתן › הכרזה והחזרה",
+     "desc_de": "Vorschriften über Hüter › Vorschriften über Fundsachen › Nach ihrem Finden › Ausrufen und Rückgabe",
+     "desc_en": "Laws of bailees › Laws of found objects › After finding them › Announcing and returning"
+    },
+    {
+     "ref": "2:7",
+     "text": "חשש רמאות \\ בעלי חיים, מעות",
+     "text_de": "Verdacht auf Betrug / Tiere, Geld",
+     "text_en": "Suspicion of fraud / animals, money",
+     "desc": "הלכות שומרים › הלכות מציאות › אחר מציאתן › טיפול בהן › הכרזה והחזרה",
+     "desc_de": "Vorschriften über Hüter › Vorschriften über Fundsachen › Nach ihrem Finden › Umgang damit › Ausrufen und Rückgabe",
+     "desc_en": "Laws of bailees › Laws of found objects › After finding them › Handling them › Announcing and returning"
+    },
+    {
+     "ref": "2:8",
+     "text": "ספרים, כסות, כלים \\ אינו לפי כבודו",
+     "text_de": "Bücher, Kleidung, Geräte / unter seiner Würde",
+     "text_en": "Books, clothing, utensils / beneath his dignity",
+     "desc": "הלכות שומרים › הלכות מציאות › חיוב ליזקק לו › אחר מציאתן › אפשרויות להיות פטור › טיפול בהן",
+     "desc_de": "Vorschriften über Hüter › Vorschriften über Fundsachen › Pflicht, sich darum zu kümmern › Nach ihrem Finden › Möglichkeiten der Befreiung › Umgang damit",
+     "desc_en": "Laws of bailees › Laws of found objects › Duty to attend to it › After finding them › Possibilities of exemption › Handling them"
+    },
+    {
+     "ref": "2:9",
+     "text": "היכר אבידה, השבות רבות, שכר בטלה",
+     "text_de": "Erkennen des Verlorenen, mehrfache Rückgabe, Entschädigung für Arbeitsausfall",
+     "text_en": "Recognizing the lost item, repeated return, compensation for lost work time",
+     "desc": "הלכות שומרים › הלכות מציאות › חיוב ליזקק לו › אפשרויות להיות פטור",
+     "desc_de": "Vorschriften über Hüter › Vorschriften über Fundsachen › Pflicht, sich darum zu kümmern › Möglichkeiten der Befreiung",
+     "desc_en": "Laws of bailees › Laws of found objects › Duty to attend to it › Possibilities of exemption"
+    },
+    {
+     "ref": "2:10",
+     "text": "חיוב ואיסור\\ פעמים הרבה, לבדו, המשאוי",
+     "text_de": "Pflicht und Verbot / oft, allein, die Last",
+     "text_en": "Obligation and prohibition / often, alone, the burden",
+     "desc": "הלכות שומרים › הלכות מציאות › חיוב ליזקק לו › פריקה וטעינה › אפשרויות להיות פטור",
+     "desc_de": "Vorschriften über Hüter › Vorschriften über Fundsachen › Pflicht, sich darum zu kümmern › Abladen und Aufladen › Möglichkeiten der Befreiung",
+     "desc_en": "Laws of bailees › Laws of found objects › Duty to attend to it › Unloading and loading › Possibilities of exemption"
+    },
+    {
+     "ref": "2:11",
+     "text": "אבידת, משאוי ופדיון רב ואב",
+     "text_de": "Verlorenes, Last und Loskauf: Lehrer und Vater",
+     "text_en": "Lost item, burden and redemption: teacher and father",
+     "desc": "הלכות שומרים › הלכות מציאות › חיוב ליזקק לו › קדימה › פריקה וטעינה",
+     "desc_de": "Vorschriften über Hüter › Vorschriften über Fundsachen › Pflicht, sich darum zu kümmern › Vorrang › Abladen und Aufladen",
+     "desc_en": "Laws of bailees › Laws of found objects › Duty to attend to it › Precedence › Unloading and loading"
+    }
+   ]
+  },
+  {
+   "head": "פרק ג",
+   "head_de": "Kapitel 3",
+   "head_en": "Chapter 3",
+   "items": [
+    {
+     "ref": "3:1",
+     "text": "שומר חינם",
+     "text_de": "Unentgeltlicher Hüter",
+     "text_en": "Unpaid bailee",
+     "desc": "הלכות שומרים › פקדון › התחייבות השומר › שבועה וקנין תשלומים",
+     "desc_de": "Vorschriften über Hüter › Depositum › Haftung des Hüters › Eid und Erwerb der Zahlungen",
+     "desc_en": "Laws of bailees › Deposit › Liability of the bailee › Oath and acquisition of payments"
+    },
+    {
+     "ref": "3:2",
+     "text": "שוכר שהשאיל ברשות",
+     "text_de": "Mieter, der mit Erlaubnis verleiht",
+     "text_en": "Renter who lent with permission",
+     "desc": "הלכות שומרים › פקדון › התחייבות השומר › שבועה וקנין תשלומים",
+     "desc_de": "Vorschriften über Hüter › Depositum › Haftung des Hüters › Eid und Erwerb der Zahlungen",
+     "desc_en": "Laws of bailees › Deposit › Liability of the bailee › Oath and acquisition of payments"
+    },
+    {
+     "ref": "3:3",
+     "text": "ספק החזרת גזילה או פקדון",
+     "text_de": "Zweifel über die Rückgabe von Geraubtem oder Depositum",
+     "text_en": "Doubt about the return of robbed goods or a deposit",
+     "desc": "הלכות שומרים › פקדון › החזרה",
+     "desc_de": "Vorschriften über Hüter › Depositum › Rückgabe",
+     "desc_en": "Laws of bailees › Deposit › Return"
+    },
+    {
+     "ref": "3:4",
+     "text": "מעות",
+     "text_de": "Geld",
+     "text_en": "money",
+     "desc": "הלכות שומרים › פקדון › החזרה › חשש רמאות",
+     "desc_de": "Vorschriften über Hüter › Depositum › Rückgabe › Verdacht auf Betrug",
+     "desc_en": "Laws of bailees › Deposit › Return › Suspicion of fraud"
+    },
+    {
+     "ref": "3:5",
+     "text": "כלים",
+     "text_de": "Geräte",
+     "text_en": "vessels",
+     "desc": "הלכות שומרים › פקדון › החזרה › חשש רמאות",
+     "desc_de": "Vorschriften über Hüter › Depositum › Rückgabe › Verdacht auf Betrug",
+     "desc_en": "Laws of bailees › Deposit › Return › Suspicion of fraud"
+    },
+    {
+     "ref": "3:6",
+     "text": "מכירה להציל מאיבוד",
+     "text_de": "Verkauf zur Rettung vor Verlust",
+     "text_en": "Sale to save from loss",
+     "desc": "הלכות שומרים › פקדון › החזרה › בלאי בפקדון",
+     "desc_de": "Vorschriften über Hüter › Depositum › Rückgabe › Abnutzung beim Depositum",
+     "desc_en": "Laws of bailees › Deposit › Return › Wear and tear of a deposit"
+    },
+    {
+     "ref": "3:7",
+     "text": "יבש",
+     "text_de": "Trocken",
+     "text_en": "Dry",
+     "desc": "הלכות שומרים › פקדון › החזרה › בלאי בפקדון › ניכוי חסרונות",
+     "desc_de": "Vorschriften über Hüter › Depositum › Rückgabe › Abnutzung beim Depositum › Abzug von Verlusten",
+     "desc_en": "Laws of bailees › Deposit › Return › Wear and tear of a deposit › Deduction of shortfalls"
+    },
+    {
+     "ref": "3:8",
+     "text": "לח",
+     "text_de": "Flüssig",
+     "text_en": "Liquid",
+     "desc": "הלכות שומרים › פקדון › החזרה › בלאי בפקדון › ניכוי חסרונות",
+     "desc_de": "Vorschriften über Hüter › Depositum › Rückgabe › Abnutzung beim Depositum › Abzug von Verlusten",
+     "desc_en": "Laws of bailees › Deposit › Return › Wear and tear of a deposit › Deduction of shortfalls"
+    },
+    {
+     "ref": "3:9",
+     "text": "יחוד מקום וצורך הטלטול",
+     "text_de": "Bestimmung des Ortes und Notwendigkeit des Bewegens",
+     "text_en": "Designation of a place and necessity of moving",
+     "desc": "הלכות שומרים › פקדון › שומר חנם › תנאי השמירה › התחייבות באונסין",
+     "desc_de": "Vorschriften über Hüter › Depositum › Unentgeltlicher Hüter › Bedingungen der Bewachung › Haftung bei höherer Gewalt",
+     "desc_en": "Laws of bailees › Deposit › Unpaid bailee › Conditions of guarding › Liability for accidents"
+    },
+    {
+     "ref": "3:10",
+     "text": "דרך השומרים",
+     "text_de": "Weise der Hüter",
+     "text_en": "Manner of bailees",
+     "desc": "הלכות שומרים › פקדון › שומר חנם › תנאי השמירה › התחייבות באונסין",
+     "desc_de": "Vorschriften über Hüter › Depositum › Unentgeltlicher Hüter › Bedingungen der Bewachung › Haftung bei höherer Gewalt",
+     "desc_en": "Laws of bailees › Deposit › Unpaid bailee › Conditions of guarding › Liability for accidents"
+    },
+    {
+     "ref": "3:11",
+     "text": "רשות להשתמש במעות ואחריותן",
+     "text_de": "Erlaubnis, das Geld zu verwenden, und seine Haftung",
+     "text_en": "Permission to use the money and its liability",
+     "desc": "הלכות שומרים › פקדון › שומר חנם › תנאי השמירה › התחייבות באונסין",
+     "desc_de": "Vorschriften über Hüter › Depositum › Unentgeltlicher Hüter › Bedingungen der Bewachung › Haftung bei höherer Gewalt",
+     "desc_en": "Laws of bailees › Deposit › Unpaid bailee › Conditions of guarding › Liability for accidents"
+    },
+    {
+     "ref": "3:12",
+     "text": "מאימתי וכיצד הקנין בשליחות יד",
+     "text_de": "Ab wann und wie der Erwerb bei Veruntreuung erfolgt",
+     "text_en": "From when and how acquisition occurs in misappropriation",
+     "desc": "הלכות שומרים › פקדון › שומר חנם › תנאי השמירה › התחייבות באונסין",
+     "desc_de": "Vorschriften über Hüter › Depositum › Unentgeltlicher Hüter › Bedingungen der Bewachung › Haftung bei höherer Gewalt",
+     "desc_en": "Laws of bailees › Deposit › Unpaid bailee › Conditions of guarding › Liability for accidents"
+    }
+   ]
+  },
+  {
+   "head": "פרק ד",
+   "head_de": "Kapitel 4",
+   "head_en": "Chapter 4",
+   "items": [
+    {
+     "ref": "4:1",
+     "text": "דין יחסי של פירות ומעות",
+     "text_de": "Besonderes Recht von Früchten und Geld",
+     "text_en": "Specific law of fruits and money",
+     "desc": "הלכות מקח וממכר › קנין מטלטלין › כיצד קונים",
+     "desc_de": "Vorschriften über Kauf und Verkauf › Erwerb beweglicher Sachen › Wie man erwirbt",
+     "desc_en": "Laws of purchase and sale › Acquisition of movable property › How one acquires"
+    },
+    {
+     "ref": "4:2",
+     "text": "נפקא מינה לחזרה, והעונש על כך",
+     "text_de": "Bedeutung für den Rücktritt und die Strafe dafür",
+     "text_en": "Significance for withdrawal, and the penalty for it",
+     "desc": "הלכות מקח וממכר › קנין מטלטלין › כיצד קונים",
+     "desc_de": "Vorschriften über Kauf und Verkauf › Erwerb beweglicher Sachen › Wie man erwirbt",
+     "desc_en": "Laws of purchase and sale › Acquisition of movable property › How one acquires"
+    },
+    {
+     "ref": "4:3",
+     "text": "שיעורו, עד מתי מחזיר",
+     "text_de": "Sein Maß, bis wann man zurücktreten kann",
+     "text_en": "Its measure, until when one may withdraw",
+     "desc": "הלכות מקח וממכר › קנין מטלטלין › אונאה › מחיר המקח",
+     "desc_de": "Vorschriften über Kauf und Verkauf › Erwerb beweglicher Sachen › Übervorteilung › Preis der Ware",
+     "desc_en": "Laws of purchase and sale › Acquisition of movable property › Overcharging › Price of the goods"
+    },
+    {
+     "ref": "4:4",
+     "text": "אונאה לתגר, מי רשאי לחזור",
+     "text_de": "Übervorteilung des Händlers, wer zurücktreten darf",
+     "text_en": "Overcharging a merchant, who may withdraw",
+     "desc": "הלכות מקח וממכר › קנין מטלטלין › אונאה › מחיר המקח",
+     "desc_de": "Vorschriften über Kauf und Verkauf › Erwerb beweglicher Sachen › Übervorteilung › Preis der Ware",
+     "desc_en": "Laws of purchase and sale › Acquisition of movable property › Overcharging › Price of the goods"
+    },
+    {
+     "ref": "4:5",
+     "text": "שיעור החסרון",
+     "text_de": "Maß des Mangels",
+     "text_en": "Measure of the deficiency",
+     "desc": "הלכות מקח וממכר › קנין מטלטלין › אונאה › מטבע",
+     "desc_de": "Vorschriften über Kauf und Verkauf › Erwerb beweglicher Sachen › Übervorteilung › Münze",
+     "desc_en": "Laws of purchase and sale › Acquisition of movable property › Overcharging › Coin"
+    },
+    {
+     "ref": "4:6",
+     "text": "עד מתי מחזיר, למעשר שני",
+     "text_de": "Bis wann man zurücktreten kann, beim zweiten Zehnten",
+     "text_en": "Until when one may withdraw, regarding second tithe",
+     "desc": "הלכות מקח וממכר › קנין מטלטלין › אונאה › מטבע",
+     "desc_de": "Vorschriften über Kauf und Verkauf › Erwerb beweglicher Sachen › Übervorteilung › Münze",
+     "desc_en": "Laws of purchase and sale › Acquisition of movable property › Overcharging › Coin"
+    },
+    {
+     "ref": "4:7",
+     "text": "אונאה, טענה \\ 5 פרוטות",
+     "text_de": "Übervorteilung, Behauptung / fünf Perutot",
+     "text_en": "Overcharging, claim / five perutot",
+     "desc": "הלכות מקח וממכר › קנין מטלטלין › אונאה › שהן חמשה",
+     "desc_de": "Vorschriften über Kauf und Verkauf › Erwerb beweglicher Sachen › Übervorteilung › Die fünf sind",
+     "desc_en": "Laws of purchase and sale › Acquisition of movable property › Overcharging › The five are"
+    },
+    {
+     "ref": "4:8",
+     "text": "חמשה חומשין",
+     "text_de": "Fünf Fünftel",
+     "text_en": "Five fifths",
+     "desc": "הלכות מקח וממכר › קנין מטלטלין › אונאה › שהן חמשה",
+     "desc_de": "Vorschriften über Kauf und Verkauf › Erwerb beweglicher Sachen › Übervorteilung › Die fünf sind",
+     "desc_en": "Laws of purchase and sale › Acquisition of movable property › Overcharging › The five are"
+    },
+    {
+     "ref": "4:9",
+     "text": "שאין בהן אונאה",
+     "text_de": "Wobei es keine Übervorteilung gibt",
+     "text_en": "Where there is no overcharging",
+     "desc": "הלכות מקח וממכר › קנין מטלטלין › אונאה",
+     "desc_de": "Vorschriften über Kauf und Verkauf › Erwerb beweglicher Sachen › Übervorteilung",
+     "desc_en": "Laws of purchase and sale › Acquisition of movable property › Overcharging"
+    },
+    {
+     "ref": "4:10",
+     "text": "בקנייה, בעל תשובה, בן גרים",
+     "text_de": "Beim Kauf, Umkehrer, Sohn von Proselyten",
+     "text_en": "In purchase, penitent, son of converts",
+     "desc": "הלכות מקח וממכר › קנין מטלטלין › אונאה › דיבור",
+     "desc_de": "Vorschriften über Kauf und Verkauf › Erwerb beweglicher Sachen › Übervorteilung › Kränkende Rede",
+     "desc_en": "Laws of purchase and sale › Acquisition of movable property › Overcharging › Verbal wronging"
+    },
+    {
+     "ref": "4:11",
+     "text": "עירוב פירות; יינות, שמרים ומים ביין",
+     "text_de": "Vermischung von Früchten; Wein, Bodensatz und Wasser im Wein",
+     "text_en": "Mixing of fruits; wine, dregs and water in wine",
+     "desc": "הלכות מקח וממכר › קנין מטלטלין › אונאה › טיב המקח",
+     "desc_de": "Vorschriften über Kauf und Verkauf › Erwerb beweglicher Sachen › Übervorteilung › Qualität der Ware",
+     "desc_en": "Laws of purchase and sale › Acquisition of movable property › Overcharging › Quality of the goods"
+    },
+    {
+     "ref": "4:12",
+     "text": "מקורות סחורה, הרגלת לקוחות, הטעיה",
+     "text_de": "Bezugsquellen der Ware, Kundengewöhnung, Täuschung",
+     "text_en": "Sources of goods, accustoming customers, deception",
+     "desc": "הלכות מקח וממכר › קנין מטלטלין › אונאה › טיב המקח",
+     "desc_de": "Vorschriften über Kauf und Verkauf › Erwerb beweglicher Sachen › Übervorteilung › Qualität der Ware",
+     "desc_en": "Laws of purchase and sale › Acquisition of movable property › Overcharging › Quality of the goods"
+    }
+   ]
+  },
+  {
+   "head": "פרק ה",
+   "head_de": "Kapitel 5",
+   "head_en": "Chapter 5",
+   "items": [
+    {
+     "ref": "5:1",
+     "text": "רבית קצוצה, המרבה בפירות",
+     "text_de": "Festgelegter Zins, wer mit Früchten Zins nimmt",
+     "text_en": "Fixed interest, one who profits on fruits",
+     "desc": "הלכות מקח וממכר › הלכות ריבית › הגדרות האיסורים ואופני היתר",
+     "desc_de": "Vorschriften über Kauf und Verkauf › Vorschriften über Zins › Definitionen der Verbote und Weisen der Erlaubnis",
+     "desc_en": "Laws of purchase and sale › Laws of interest › Definitions of the prohibitions and ways of permission"
+    },
+    {
+     "ref": "5:2",
+     "text": "הנאת דירה \\ שכירות, מכר",
+     "text_de": "Wohnnutzen / Miete, Verkauf",
+     "text_en": "Benefit of residence / rental, sale",
+     "desc": "הלכות מקח וממכר › הלכות ריבית › הגדרות האיסורים ואופני היתר › דיחוי תשלום",
+     "desc_de": "Vorschriften über Kauf und Verkauf › Vorschriften über Zins › Definitionen der Verbote und Weisen der Erlaubnis › Zahlungsaufschub",
+     "desc_en": "Laws of purchase and sale › Laws of interest › Definitions of the prohibitions and ways of permission › Deferral of payment"
+    },
+    {
+     "ref": "5:3",
+     "text": "מכר שהשתלם חלק, הלואה וקנין משכון",
+     "text_de": "Verkauf mit Teilzahlung, Darlehen und Pfandübereignung",
+     "text_en": "Sale with partial payment, loan and acquisition of a pledge",
+     "desc": "הלכות מקח וממכר › הלכות ריבית › הגדרות האיסורים ואופני היתר › דיחוי תשלום",
+     "desc_de": "Vorschriften über Kauf und Verkauf › Vorschriften über Zins › Definitionen der Verbote und Weisen der Erlaubnis › Zahlungsaufschub",
+     "desc_en": "Laws of purchase and sale › Laws of interest › Definitions of the prohibitions and ways of permission › Deferral of payment"
+    },
+    {
+     "ref": "5:4",
+     "text": "פירות, תרנגולין, עגלים, חמורים",
+     "text_de": "Früchte, Hühnchen, Kälber, Esel",
+     "text_en": "Fruits, chicks, calves, donkeys",
+     "desc": "הלכות מקח וממכר › הלכות ריבית › הגדרות האיסורים ואופני היתר › פקדון עם הנאה",
+     "desc_de": "Vorschriften über Kauf und Verkauf › Vorschriften über Zins › Definitionen der Verbote und Weisen der Erlaubnis › Verwahrung mit Nutznießung",
+     "desc_en": "Laws of purchase and sale › Laws of interest › Definitions of the prohibitions and ways of permission › Deposit with benefit to the bailee"
+    },
+    {
+     "ref": "5:5",
+     "text": "דבר שעושה, גידול, ביחד עם גדול הפרזה",
+     "text_de": "Arbeitendes Tier, Nachwuchs, zusammen mit dem Wachstum des Großtiers, Übertreibung",
+     "text_en": "Working animal, offspring, together with the growth of the adult animal, exaggeration",
+     "desc": "הלכות מקח וממכר › הלכות ריבית › הגדרות האיסורים ואופני היתר › פקדון עם הנאה",
+     "desc_de": "Vorschriften über Kauf und Verkauf › Vorschriften über Zins › Definitionen der Verbote und Weisen der Erlaubnis › Verwahrung mit Nutznießung",
+     "desc_en": "Laws of purchase and sale › Laws of interest › Definitions of the prohibitions and ways of permission › Deposit with benefit to the bailee"
+    },
+    {
+     "ref": "5:6",
+     "text": "צאן ברזל \\ רבית, מעותיו מדעת",
+     "text_de": "Eisernes Vieh / Zins, Geld mit seinem Wissen",
+     "text_en": "Iron flock / interest, money with his knowledge",
+     "desc": "הלכות מקח וממכר › הלכות ריבית › הגדרות האיסורים ואופני היתר › נכרי › פקדון עם הנאה",
+     "desc_de": "Vorschriften über Kauf und Verkauf › Vorschriften über Zins › Definitionen der Verbote und Weisen der Erlaubnis › Nichtjude › Verwahrung mit Nutznießung",
+     "desc_en": "Laws of purchase and sale › Laws of interest › Definitions of the prohibitions and ways of permission › Non-Jew › Deposit with benefit to the bailee"
+    },
+    {
+     "ref": "5:7",
+     "text": "צורך ביציאת השער, יש לו, שער גבוה",
+     "text_de": "Bedarf bis zum Marktpreis, er besitzt es, hoher Preis",
+     "text_en": "Need until the market price is set, he has it, high price",
+     "desc": "הלכות מקח וממכר › הלכות ריבית › הגדרות האיסורים ואופני היתר › שינוי בשער",
+     "desc_de": "Vorschriften über Kauf und Verkauf › Vorschriften über Zins › Definitionen der Verbote und Weisen der Erlaubnis › Preisänderung",
+     "desc_en": "Laws of purchase and sale › Laws of interest › Definitions of the prohibitions and ways of permission › Change in price"
+    },
+    {
+     "ref": "5:8",
+     "text": "חיטים לזרע לאריסין",
+     "text_de": "Weizen zur Aussaat für Pächter",
+     "text_en": "Wheat for sowing for tenant farmers",
+     "desc": "הלכות מקח וממכר › הלכות ריבית › הגדרות האיסורים ואופני היתר › בלא מעות › שינוי בשער",
+     "desc_de": "Vorschriften über Kauf und Verkauf › Vorschriften über Zins › Definitionen der Verbote und Weisen der Erlaubnis › Ohne Geld › Preisänderung",
+     "desc_en": "Laws of purchase and sale › Laws of interest › Definitions of the prohibitions and ways of permission › Without money › Change in price"
+    },
+    {
+     "ref": "5:9",
+     "text": "סאה בסאה לזמן מועט, דבר מועט",
+     "text_de": "Se'a gegen Se'a für kurze Zeit, geringfügige Sache",
+     "text_en": "Se'a for a se'a for a short time, a minor matter",
+     "desc": "הלכות מקח וממכר › הלכות ריבית › הגדרות האיסורים ואופני היתר › בלא מעות",
+     "desc_de": "Vorschriften über Kauf und Verkauf › Vorschriften über Zins › Definitionen der Verbote und Weisen der Erlaubnis › Ohne Geld",
+     "desc_en": "Laws of purchase and sale › Laws of interest › Definitions of the prohibitions and ways of permission › Without money"
+    },
+    {
+     "ref": "5:10",
+     "text": "עבודה שוה \\ מוקדמת, מאוחרת, דברים",
+     "text_de": "Gleiche Arbeit / früher, später, Dinge",
+     "text_en": "Equal work / earlier, later, matters",
+     "desc": "הלכות מקח וממכר › הלכות ריבית › הגדרות האיסורים ואופני היתר › בלא מעות",
+     "desc_de": "Vorschriften über Kauf und Verkauf › Vorschriften über Zins › Definitionen der Verbote und Weisen der Erlaubnis › Ohne Geld",
+     "desc_en": "Laws of purchase and sale › Laws of interest › Definitions of the prohibitions and ways of permission › Without money"
+    },
+    {
+     "ref": "5:11",
+     "text": "העוברים בלאוין ומנינם",
+     "text_de": "Die Übertretenden von Verboten und deren Zahl",
+     "text_en": "Those who transgress prohibitions and their number",
+     "desc": "הלכות מקח וממכר › הלכות ריבית › הגדרות האיסורים ואופני היתר",
+     "desc_de": "Vorschriften über Kauf und Verkauf › Vorschriften über Zins › Definitionen der Verbote und Weisen der Erlaubnis",
+     "desc_en": "Laws of purchase and sale › Laws of interest › Definitions of the prohibitions and ways of permission"
+    }
+   ]
+  },
+  {
+   "head": "פרק ו",
+   "head_de": "Kapitel 6",
+   "head_en": "Chapter 6",
+   "items": [
+    {
+     "ref": "6:1",
+     "text": "אומנים, החוזר בדבר האבד",
+     "text_de": "Handwerker, Rücktritt bei verderblicher Ware",
+     "text_en": "Craftsmen, withdrawal in the case of perishable goods",
+     "desc": "הלכות שכירות › פועלים › החוזר בו",
+     "desc_de": "Gesetze der Miete › Arbeiter › Der Zurücktretende",
+     "desc_en": "Laws of hiring › Laborers › One who withdraws"
+    },
+    {
+     "ref": "6:2",
+     "text": "כללים ליד על התחתונה",
+     "text_de": "Regeln: die Hand ist unten",
+     "text_en": "Rules: the hand is below",
+     "desc": "הלכות שכירות › פועלים › שינוי מן המוסכם › החוזר בו",
+     "desc_de": "Gesetze der Miete › Arbeiter › Abweichung von der Vereinbarung › Der Zurücktretende",
+     "desc_en": "Laws of hiring › Laborers › Deviation from the agreement › One who withdraws"
+    },
+    {
+     "ref": "6:3",
+     "text": "הליכה וגורם למיתה, אונס לחיב המשכיר",
+     "text_de": "Gehen und Todesverursachung, höhere Gewalt, Haftung des Vermieters",
+     "text_en": "Walking and causing death, force majeure, liability of the lessor",
+     "desc": "הלכות שכירות › בהמה › שינוי מן המוסכם › מקום",
+     "desc_de": "Gesetze der Miete › Vieh › Abweichung von der Vereinbarung › Ort",
+     "desc_en": "Laws of hiring › Animals › Deviation from the agreement › Place"
+    },
+    {
+     "ref": "6:4",
+     "text": "חרישה \\ קטנית ותבואה ודישתן",
+     "text_de": "Pflügen / Hülsenfrüchte und Getreide und deren Dreschen",
+     "text_en": "Plowing / legumes and grain and their threshing",
+     "desc": "הלכות שכירות › בהמה › שינוי מן המוסכם › עבודה › מקום",
+     "desc_de": "Gesetze der Miete › Vieh › Abweichung von der Vereinbarung › Arbeit › Ort",
+     "desc_en": "Laws of hiring › Animals › Deviation from the agreement › Work › Place"
+    },
+    {
+     "ref": "6:5",
+     "text": "כובד ונפח משאוי",
+     "text_de": "Gewicht und Volumen der Last",
+     "text_en": "Weight and volume of the load",
+     "desc": "הלכות שכירות › בהמה › שינוי מן המוסכם › עבודה",
+     "desc_de": "Gesetze der Miete › Vieh › Abweichung von der Vereinbarung › Arbeit",
+     "desc_en": "Laws of hiring › Animals › Deviation from the agreement › Work"
+    },
+    {
+     "ref": "6:6",
+     "text": "אומן השומר, החלפת שמירות, \"הנח לפני\"",
+     "text_de": "Handwerker als Hüter, Wechsel der Hütepflichten, „Stell es vor mich hin“",
+     "text_en": "Craftsman as guardian, exchange of custodial duties, \"Put it down before me\"",
+     "desc": "הלכות שכירות › שמירה ושכירות › קבלת שמירה",
+     "desc_de": "Gesetze der Miete › Obhut und Miete › Übernahme der Obhut",
+     "desc_en": "Laws of hiring › Custody and hire › Acceptance of custody"
+    },
+    {
+     "ref": "6:7",
+     "text": "שמירת והשכרת משכון, מעות ופירות",
+     "text_de": "Obhut und Vermietung eines Pfandes, Geld und Früchte",
+     "text_en": "Custody and rental of a pledge, money and fruits",
+     "desc": "הלכות שכירות › שמירה ושכירות › הנאה ממשכן",
+     "desc_de": "Gesetze der Miete › Obhut und Miete › Nutznießung vom Pfand",
+     "desc_en": "Laws of hiring › Custody and hire › Benefit from a pledge"
+    },
+    {
+     "ref": "6:8",
+     "text": "שבועה לפושע בהובלה",
+     "text_de": "Eid gegen den Fahrlässigen beim Transport",
+     "text_en": "Oath against the negligent party in transport",
+     "desc": "הלכות שכירות › פועלים › שמירה ושכירות › פשיעה",
+     "desc_de": "Gesetze der Miete › Arbeiter › Obhut und Miete › Fahrlässigkeit",
+     "desc_en": "Laws of hiring › Laborers › Custody and hire › Negligence"
+    }
+   ]
+  },
+  {
+   "head": "פרק ז",
+   "head_de": "Kapitel 7",
+   "head_en": "Chapter 7",
+   "items": [
+    {
+     "ref": "7:1",
+     "text": "שעות עבודה, טיב המזונות",
+     "text_de": "Arbeitszeiten, Qualität der Verpflegung",
+     "text_en": "Working hours, quality of the food",
+     "desc": "הלכות שכירות › פועלים › מנהג המדינה",
+     "desc_de": "Gesetze der Miete › Arbeiter › Landesbrauch",
+     "desc_en": "Laws of hiring › Laborers › Local custom"
+    },
+    {
+     "ref": "7:2",
+     "text": "במה עוסק",
+     "text_de": "Womit er beschäftigt ist",
+     "text_en": "What he is engaged in",
+     "desc": "הלכות שכירות › פועלים › אכילה מן התורה › הרשאי לאכול",
+     "desc_de": "Gesetze der Miete › Arbeiter › Essen nach der Tora › Wer darf essen",
+     "desc_en": "Laws of hiring › Laborers › Eating according to the Torah › Who may eat"
+    },
+    {
+     "ref": "7:3",
+     "text": "איבריו שעובד בהם",
+     "text_de": "Seine Glieder, mit denen er arbeitet",
+     "text_en": "His limbs with which he works",
+     "desc": "הלכות שכירות › פועלים › אכילה מן התורה › הרשאי לאכול",
+     "desc_de": "Gesetze der Miete › Arbeiter › Essen nach der Tora › Wer darf essen",
+     "desc_en": "Laws of hiring › Laborers › Eating according to the Torah › Who may eat"
+    },
+    {
+     "ref": "7:4",
+     "text": "מין וטיב, שעת מלאכה",
+     "text_de": "Art und Qualität, Zeit der Arbeit",
+     "text_en": "Kind and quality, time of work",
+     "desc": "הלכות שכירות › פועלים › אכילה מן התורה › מה אוכל",
+     "desc_de": "Gesetze der Miete › Arbeiter › Essen nach der Tora › Was er isst",
+     "desc_en": "Laws of hiring › Laborers › Eating according to the Torah › What he may eat"
+    },
+    {
+     "ref": "7:5",
+     "text": "שוויו",
+     "text_de": "Sein Wert",
+     "text_en": "Its value",
+     "desc": "הלכות שכירות › פועלים › אכילה מן התורה › מה אוכל",
+     "desc_de": "Gesetze der Miete › Arbeiter › Essen nach der Tora › Was er isst",
+     "desc_en": "Laws of hiring › Laborers › Eating according to the Torah › What he may eat"
+    },
+    {
+     "ref": "7:6",
+     "text": "קציצה בשביל בר דעת",
+     "text_de": "Pauschalvereinbarung zugunsten eines Verständigen",
+     "text_en": "Lump-sum agreement for the benefit of a person of understanding",
+     "desc": "הלכות שכירות › פועלים › אכילה מן התורה › שאינם אוכלים",
+     "desc_de": "Gesetze der Miete › Arbeiter › Essen nach der Tora › Die nicht essen dürfen",
+     "desc_en": "Laws of hiring › Laborers › Eating according to the Torah › Those who may not eat"
+    },
+    {
+     "ref": "7:7",
+     "text": "נטע רבעי במחובר, שאינו מעושר והודעה",
+     "text_de": "Neta Revai am Boden haftend, nicht verzehntet und Bekanntmachung",
+     "text_en": "Neta revai still attached to the ground, untithed, and declaration",
+     "desc": "הלכות שכירות › פועלים › אכילה מן התורה › שאינם אוכלים",
+     "desc_de": "Gesetze der Miete › Arbeiter › Essen nach der Tora › Die nicht essen dürfen",
+     "desc_en": "Laws of hiring › Laborers › Eating according to the Torah › Those who may not eat"
+    },
+    {
+     "ref": "7:8",
+     "text": "שומרי פירות \\ ארבעת השומרים ודיניהם",
+     "text_de": "Fruchthüter / die vier Hüter und ihre Rechtsregeln",
+     "text_en": "Fruit guards / the four bailees and their laws",
+     "desc": "הלכות שכירות › הלכות שומרים › פועלים › כלל › מנהג המדינה",
+     "desc_de": "Gesetze der Miete › Vorschriften über Hüter › Arbeiter › Grundregel › Landesbrauch",
+     "desc_en": "Laws of hiring › Laws of bailees › Laborers › General rule › Local custom"
+    },
+    {
+     "ref": "7:9",
+     "text": "בע\"ח הטורפים, לסטים, המוליכן לסכנה",
+     "text_de": "Raubtiere, Räuber, wer sie in Gefahr führt",
+     "text_en": "Predatory animals, robbers, one who leads them into danger",
+     "desc": "הלכות שומרים › ש\"ש ושוכר › הגדרת אונס",
+     "desc_de": "Vorschriften über Hüter › Unentgeltlicher Verwahrer und Mieter › Definition der höheren Gewalt",
+     "desc_en": "Laws of bailees › Unpaid bailee and renter › Definition of force majeure"
+    },
+    {
+     "ref": "7:10",
+     "text": "מיתה וסיגופין, ראשי צוקין\\ תנאי פטור",
+     "text_de": "Tod und Entkräftung, Felsabhänge / Bedingung der Haftungsbefreiung",
+     "text_en": "Death and exhaustion, cliff edges / condition of exemption from liability",
+     "desc": "הלכות שומרים › כל השומרים › ש\"ש ושוכר › תנאים › הגדרת אונס",
+     "desc_de": "Vorschriften über Hüter › Alle Hüter › Unentgeltlicher Verwahrer und Mieter › Bedingungen › Definition der höheren Gewalt",
+     "desc_en": "Laws of bailees › All bailees › Unpaid bailee and renter › Conditions › Definition of force majeure"
+    },
+    {
+     "ref": "7:11",
+     "text": "כללי תנאים הבטלים",
+     "text_de": "Regeln über ungültige Bedingungen",
+     "text_en": "Rules on invalid conditions",
+     "desc": "הלכות שומרים › כל השומרים › תנאים",
+     "desc_de": "Vorschriften über Hüter › Alle Hüter › Bedingungen",
+     "desc_en": "Laws of bailees › All bailees › Conditions"
+    }
+   ]
+  },
+  {
+   "head": "פרק ח",
+   "head_de": "Kapitel 8",
+   "head_en": "Chapter 8",
+   "items": [
+    {
+     "ref": "8:1",
+     "text": "שאלה עם בעלים",
+     "text_de": "Leihe mit dem Eigentümer",
+     "text_en": "Loan together with the owner",
+     "desc": "הלכות שומרים › שואל › קבלת השמירה",
+     "desc_de": "Vorschriften über Hüter › Entleiher › Übernahme der Obhut",
+     "desc_en": "Laws of bailees › Borrower › Acceptance of custody"
+    },
+    {
+     "ref": "8:2",
+     "text": "שכירות ושאילה ואונסים",
+     "text_de": "Miete, Leihe und höhere Gewalt",
+     "text_en": "Hire, loan and force majeure",
+     "desc": "הלכות שומרים › שואל › טענות ברי ושמא",
+     "desc_de": "Vorschriften über Hüter › Entleiher › Behauptungen „sicher“ und „vielleicht“",
+     "desc_en": "Laws of bailees › Borrower › Claims of certainty and of doubt"
+    },
+    {
+     "ref": "8:3",
+     "text": "מסירה וקנין שואל ע\"י שליח",
+     "text_de": "Übergabe und Erwerbsakt des Entleihers durch einen Boten",
+     "text_en": "Delivery and act of acquisition by the borrower through an agent",
+     "desc": "הלכות שומרים › שואל › טענות ברי ושמא",
+     "desc_de": "Vorschriften über Hüter › Entleiher › Behauptungen „sicher“ und „vielleicht“",
+     "desc_en": "Laws of bailees › Borrower › Claims of certainty and of doubt"
+    },
+    {
+     "ref": "8:4",
+     "text": "ולדות בשעת חליפין, גודל דבר הנמכר",
+     "text_de": "Neugeborene Tiere zur Zeit des Tauschs, Größe der verkauften Sache",
+     "text_en": "Offspring at the time of exchange, size of the item sold",
+     "desc": "הלכות שומרים › מקח וממכר › טענות ברי ושמא",
+     "desc_de": "Vorschriften über Hüter › Kauf und Verkauf › Behauptungen „sicher“ und „vielleicht“",
+     "desc_en": "Laws of bailees › Purchase and sale › Claims of certainty and of doubt"
+    },
+    {
+     "ref": "8:5",
+     "text": "זיתים מעצי זית הנמכרים והנשטפים",
+     "text_de": "Oliven von verkauften und weggespülten Olivenbäumen",
+     "text_en": "Olives from olive trees that are sold and washed away",
+     "desc": "הלכות שומרים › מקח וממכר › טענות ברי ושמא",
+     "desc_de": "Vorschriften über Hüter › Kauf und Verkauf › Behauptungen „sicher“ und „vielleicht“",
+     "desc_en": "Laws of bailees › Purchase and sale › Claims of certainty and of doubt"
+    },
+    {
+     "ref": "8:6",
+     "text": "הודעה מוקדמת: עונה, מקום, סוג החנות",
+     "text_de": "Vorherige Ankündigung: Zeit, Ort, Art des Ladens",
+     "text_en": "Prior notice: season, place, type of shop",
+     "desc": "הלכות שכירות › בתים › זכויות השוכר והמשכיר › תום השכירות",
+     "desc_de": "Gesetze der Miete › Häuser › Rechte des Mieters und des Vermieters › Ende der Mietzeit",
+     "desc_en": "Laws of hiring › Houses › Rights of the tenant and the landlord › End of the rental period"
+    },
+    {
+     "ref": "8:7",
+     "text": "אביזרי הבית, זכייה בזבל",
+     "text_de": "Zubehör des Hauses, Aneignung von Dung",
+     "text_en": "Fixtures of the house, acquisition of manure",
+     "desc": "הלכות שכירות › בתים › זכויות השוכר והמשכיר",
+     "desc_de": "Gesetze der Miete › Häuser › Rechte des Mieters und des Vermieters",
+     "desc_en": "Laws of hiring › Houses › Rights of the tenant and the landlord"
+    },
+    {
+     "ref": "8:8",
+     "text": "שנה מעוברת",
+     "text_de": "Schaltjahr",
+     "text_en": "Leap year",
+     "desc": "הלכות שכירות › בתים › זכויות השוכר והמשכיר › תום השכירות",
+     "desc_de": "Gesetze der Miete › Häuser › Rechte des Mieters und des Vermieters › Ende der Mietzeit",
+     "desc_en": "Laws of hiring › Houses › Rights of the tenant and the landlord › End of the rental period"
+    },
+    {
+     "ref": "8:9",
+     "text": "חיוב וצורה בבנית בית הרוס",
+     "text_de": "Verpflichtung und Form beim Wiederaufbau eines zerstörten Hauses",
+     "text_en": "Obligation and form in rebuilding a ruined house",
+     "desc": "הלכות שכירות › בתים › זכויות השוכר והמשכיר",
+     "desc_de": "Gesetze der Miete › Häuser › Rechte des Mieters und des Vermieters",
+     "desc_en": "Laws of hiring › Houses › Rights of the tenant and the landlord"
+    }
+   ]
+  },
+  {
+   "head": "פרק ט",
+   "head_de": "Kapitel 9",
+   "head_en": "Chapter 9",
+   "items": [
+    {
+     "ref": "9:1",
+     "text": "עבודה כנהוג, חלוקה בפסולת",
+     "text_de": "Arbeit nach Brauch, Aufteilung des Abfalls",
+     "text_en": "Work according to custom, division of the waste",
+     "desc": "הלכות שכירות › שדות › חוכר ואריס",
+     "desc_de": "Gesetze der Miete › Felder › Pächter und Teilpächter",
+     "desc_en": "Laws of hiring › Fields › Lessee and sharecropper"
+    },
+    {
+     "ref": "9:2",
+     "text": "ביטול חשיבות השדה ולשון ההסכם",
+     "text_de": "Aufhebung der Bedeutung des Feldes und Wortlaut der Vereinbarung",
+     "text_en": "Annulment of the field's significance and wording of the agreement",
+     "desc": "הלכות שכירות › שדות › חוכר",
+     "desc_de": "Gesetze der Miete › Felder › Pächter",
+     "desc_en": "Laws of hiring › Fields › Lessee"
+    },
+    {
+     "ref": "9:3",
+     "text": "הובירה",
+     "text_de": "Brachlassen",
+     "text_en": "Leaving fallow",
+     "desc": "הלכות שכירות › שדות › אריס › חסרון בעבודת המקבל",
+     "desc_de": "Gesetze der Miete › Felder › Teilpächter › Mangel in der Arbeit des Übernehmers",
+     "desc_en": "Laws of hiring › Fields › Sharecropper › Deficiency in the work of the contractor"
+    },
+    {
+     "ref": "9:4",
+     "text": "ניכוש",
+     "text_de": "Jäten",
+     "text_en": "Weeding",
+     "desc": "הלכות שכירות › שדות › חוכר › חסרון בעבודת המקבל",
+     "desc_de": "Gesetze der Miete › Felder › Pächter › Mangel in der Arbeit des Übernehmers",
+     "desc_en": "Laws of hiring › Fields › Lessee › Deficiency in the work of the contractor"
+    },
+    {
+     "ref": "9:5",
+     "text": "כמות המחייבת טיפול",
+     "text_de": "Menge, die Bearbeitung erfordert",
+     "text_en": "Quantity that requires attention",
+     "desc": "הלכות שכירות › שדות › אריס › יבול דל",
+     "desc_de": "Gesetze der Miete › Felder › Teilpächter › Dürftiger Ertrag",
+     "desc_en": "Laws of hiring › Fields › Sharecropper › Meager yield"
+    },
+    {
+     "ref": "9:6",
+     "text": "שכיחות המכה וניכוי, קבלה במעות",
+     "text_de": "Häufigkeit des Schadens und Abzug, Übernahme gegen Geld",
+     "text_en": "Frequency of the damage and deduction, contract for money",
+     "desc": "הלכות שכירות › שדות › חוכר › יבול דל",
+     "desc_de": "Gesetze der Miete › Felder › Pächter › Dürftiger Ertrag",
+     "desc_en": "Laws of hiring › Fields › Lessee › Meager yield"
+    },
+    {
+     "ref": "9:7",
+     "text": "מן הרגיל",
+     "text_de": "Vom Üblichen",
+     "text_en": "From the usual",
+     "desc": "הלכות שכירות › שדות › חוכר › יבול דל",
+     "desc_de": "Gesetze der Miete › Felder › Pächter › Dürftiger Ertrag",
+     "desc_en": "Laws of hiring › Fields › Lessee › Meager yield"
+    },
+    {
+     "ref": "9:8",
+     "text": "שינוי במין התבואה לזריעה",
+     "text_de": "Wechsel der Getreideart zur Aussaat",
+     "text_en": "Change in the type of grain for sowing",
+     "desc": "הלכות שכירות › שדות › חוכר ואריס › מה זורע",
+     "desc_de": "Gesetze der Miete › Felder › Pächter und Teilpächter › Was er sät",
+     "desc_en": "Laws of hiring › Fields › Lessee and sharecropper › What he sows"
+    },
+    {
+     "ref": "9:9",
+     "text": "זריעת פשתן וקציצת שקמין",
+     "text_de": "Flachsaussaat und Fällen von Sykomoren",
+     "text_en": "Sowing flax and cutting down sycamores",
+     "desc": "הלכות שכירות › שדות › חוכר ואריס › המקבל לזמן מרובה › מה זורע",
+     "desc_de": "Gesetze der Miete › Felder › Pächter und Teilpächter › Der Übernehmer für lange Zeit › Was er sät",
+     "desc_en": "Laws of hiring › Fields › Lessee and sharecropper › The contractor for a long term › What he sows"
+    },
+    {
+     "ref": "9:10",
+     "text": "לשון הסכם לשבוע",
+     "text_de": "Vereinbarungswortlaut für eine Woche",
+     "text_en": "Wording of the agreement for a week",
+     "desc": "הלכות שכירות › שדות › חוכר › המקבל לזמן מרובה",
+     "desc_de": "Gesetze der Miete › Felder › Pächter › Der Übernehmer für lange Zeit",
+     "desc_en": "Laws of hiring › Fields › Lessee › The contractor for a long term"
+    },
+    {
+     "ref": "9:11",
+     "text": "תום השכירות וזמן הגבייה",
+     "text_de": "Ende der Mietzeit und Zeitpunkt der Einforderung",
+     "text_en": "End of the rental period and time of collection",
+     "desc": "הלכות שכירות › פועלים › הלנת פעולת שכיר",
+     "desc_de": "Gesetze der Miete › Arbeiter › Verzögerung des Lohns eines Arbeiters",
+     "desc_en": "Laws of hiring › Laborers › Delaying the wages of a hired worker"
+    },
+    {
+     "ref": "9:12",
+     "text": "שכיר ששייך לאיסור, תביעה ושבועה",
+     "text_de": "Arbeiter, der mit einem Verbot behaftet ist, Klage und Eid",
+     "text_en": "Worker connected with a prohibition, claim and oath",
+     "desc": "הלכות שכירות › פועלים › הלנת פעולת שכיר",
+     "desc_de": "Gesetze der Miete › Arbeiter › Verzögerung des Lohns eines Arbeiters",
+     "desc_en": "Laws of hiring › Laborers › Delaying the wages of a hired worker"
+    },
+    {
+     "ref": "9:13",
+     "text": "משכון והחזרה, מכירה, אלמנה, כלי מזון",
+     "text_de": "Pfand und Rückgabe, Verkauf, Witwe, Essgeräte",
+     "text_en": "Pledge and return, sale, widow, food utensils",
+     "desc": "הלכות שכירות › פועלים › הלנת פעולת שכיר › דיני משכון",
+     "desc_de": "Gesetze der Miete › Arbeiter › Verzögerung des Lohns eines Arbeiters › Gesetze des Pfandes",
+     "desc_en": "Laws of hiring › Laborers › Delaying the wages of a hired worker › Laws of the pledge"
+    }
+   ]
+  },
+  {
+   "head": "פרק י",
+   "head_de": "Kapitel 10",
+   "head_en": "Chapter 10",
+   "items": [
+    {
+     "ref": "10:1",
+     "text": "היכר וחלוקת חומרי בנין",
+     "text_de": "Kennzeichen und Aufteilung von Baumaterial",
+     "text_en": "Identification and division of building materials",
+     "desc": "הלכות שכנים › חיובים על ידי הרס › בית ועלייה",
+     "desc_de": "Gesetze der Nachbarn › Haftung durch Zerstörung › Haus und Obergeschoss",
+     "desc_en": "Laws of neighbors › Liability through destruction › house and upper room"
+    },
+    {
+     "ref": "10:2",
+     "text": "חיוב לתקן תקרה, שעבוד הבית",
+     "text_de": "Pflicht zur Reparatur der Decke, Haftung des Hauses",
+     "text_en": "Duty to repair the ceiling, encumbrance of the house",
+     "desc": "הלכות שכנים › חיובים על ידי הרס › בית ועלייה › סירוב בעל הבית לבנות",
+     "desc_de": "Gesetze der Nachbarn › Haftung durch Zerstörung › Haus und Obergeschoss › Weigerung des Hausbesitzers zu bauen",
+     "desc_en": "Laws of neighbors › Liability through destruction › house and upper room › Refusal of the homeowner to build"
+    },
+    {
+     "ref": "10:3",
+     "text": "הרס גמור, חיוב בשכר דירה",
+     "text_de": "Völlige Zerstörung, Pflicht zur Mietzahlung",
+     "text_en": "Total destruction, obligation to pay rent",
+     "desc": "הלכות שכנים › חיובים על ידי הרס › בית ועלייה › סירוב בעל הבית לבנות",
+     "desc_de": "Gesetze der Nachbarn › Haftung durch Zerstörung › Haus und Obergeschoss › Weigerung des Hausbesitzers zu bauen",
+     "desc_en": "Laws of neighbors › Liability through destruction › house and upper room › Refusal of the homeowner to build"
+    },
+    {
+     "ref": "10:4",
+     "text": "בית הבד וגינה \\ אונס ופשיעה",
+     "text_de": "Ölpresse und Garten / höhere Gewalt und Fahrlässigkeit",
+     "text_en": "Olive press and garden / force majeure and negligence",
+     "desc": "הלכות שכנים › חיובים על ידי הרס › נזק ברשות הרבים › בית ועלייה",
+     "desc_de": "Gesetze der Nachbarn › Haftung durch Zerstörung › Schaden im öffentlichen Bereich › Haus und Obergeschoss",
+     "desc_en": "Laws of neighbors › Liability through destruction › Damage in the public domain › house and upper room"
+    },
+    {
+     "ref": "10:5",
+     "text": "קנין ושכירות, המותר להוציא",
+     "text_de": "Erwerbsakt und Miete, was herausgebracht werden darf",
+     "text_en": "Act of acquisition and hire, what may be taken out",
+     "desc": "הלכות שכנים › חיובים על ידי הרס › נזק ברשות הרבים",
+     "desc_de": "Gesetze der Nachbarn › Haftung durch Zerstörung › Schaden im öffentlichen Bereich",
+     "desc_en": "Laws of neighbors › Liability through destruction › Damage in the public domain"
+    },
+    {
+     "ref": "10:6",
+     "text": "ירק בין גינות מדורגות",
+     "text_de": "Gemüse zwischen terrassenförmigen Gärten",
+     "text_en": "Vegetables between terraced gardens",
+     "desc": "הלכות שכנים › בעלות › רשות המסופקת",
+     "desc_de": "Gesetze der Nachbarn › Eigentum › Zweifelhafter Bereich",
+     "desc_en": "Laws of neighbors › Ownership › Doubtful domain"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,792 @@
+{
+ "book": "Mishnah Bava Kamma",
+ "title": "משנה בבא קמא",
+ "title_de": "Mischna Baba Kamma – Gliederung",
+ "title_en": "Bava Kamma – outline",
+ "note": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema).",
+ "note_de": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema); ins Deutsche und Englische übersetzt.",
+ "note_en": "Outline after the table “Mishna Sedura”: the central content of each mishnah, with the topic path (main topic to sub-topic); translated into German and English.",
+ "sections": [
+  {
+   "head": "פרק א",
+   "head_de": "Kapitel 1",
+   "head_en": "Chapter 1",
+   "items": [
+    {
+     "ref": "1:1",
+     "text": "אבות ותכונתן, חיוב לשמרן, תשלום ממיטב",
+     "text_de": "Hauptschadensarten (Avot) und ihre Eigenart, Pflicht sie zu hüten, Zahlung aus dem Besten",
+     "text_en": "Principal categories of damage (avot) and their nature, duty to guard them, payment from the best",
+     "desc": "כללי אבות הנזיקין › חיוב בתשלום › התחייבות",
+     "desc_de": "Allgemeine Regeln der Hauptschadensarten › Zahlungspflicht › Verpflichtung",
+     "desc_en": "General rules of the principal categories of damage › Liability to pay › Obligation"
+    },
+    {
+     "ref": "1:2",
+     "text": "כיצד מתחייב, מה ניזוק והיכן",
+     "text_de": "Wie man haftet, was geschädigt wird und wo",
+     "text_en": "How one becomes liable, what is damaged and where",
+     "desc": "כללי אבות הנזיקין › חיוב בתשלום › התחייבות",
+     "desc_de": "Allgemeine Regeln der Hauptschadensarten › Zahlungspflicht › Verpflichtung",
+     "desc_en": "General rules of the principal categories of damage › Liability to pay › Obligation"
+    },
+    {
+     "ref": "1:3",
+     "text": "אמדן הנזק ותשלומין, חיוב נשים וניזק",
+     "text_de": "Schadensschätzung und Zahlungen, Haftung von Frauen und des Geschädigten",
+     "text_en": "Assessment of damage and payments, liability of women and of the injured party",
+     "desc": "כללי אבות הנזיקין › חיוב בתשלום › גודל ההתחייבות",
+     "desc_de": "Allgemeine Regeln der Hauptschadensarten › Zahlungspflicht › Umfang der Verpflichtung",
+     "desc_en": "General rules of the principal categories of damage › Liability to pay › Extent of the liability"
+    },
+    {
+     "ref": "1:4",
+     "text": "המועדים ותמים, הבדל בתשלומים",
+     "text_de": "Die Gefährlichen (Muadim) und die Zahmen (Tamim), Unterschied in den Zahlungen",
+     "text_en": "The attested (mu'ad) and the innocuous (tam), difference in payments",
+     "desc": "כללי אבות הנזיקין › חיוב בתשלום › גודל ההתחייבות",
+     "desc_de": "Allgemeine Regeln der Hauptschadensarten › Zahlungspflicht › Umfang der Verpflichtung",
+     "desc_en": "General rules of the principal categories of damage › Liability to pay › Extent of the liability"
+    }
+   ]
+  },
+  {
+   "head": "פרק ב",
+   "head_de": "Kapitel 2",
+   "head_en": "Chapter 2",
+   "items": [
+    {
+     "ref": "2:1",
+     "text": "הליכה כדרכה, צרורות",
+     "text_de": "Gehen auf gewöhnliche Weise, weggeschleuderte Steinchen",
+     "text_en": "Walking in the usual manner, pebbles thrown up",
+     "desc": "נזקי ממון האדם › רגל ושן › תיאור מועדותם › רגל",
+     "desc_de": "Vermögensschäden durch Menschen › Fuß und Zahn › Beschreibung ihrer Gefährlichkeit › Fuß",
+     "desc_en": "Property damages caused by a person › Foot and tooth › Description of their attested dangerousness › Foot"
+    },
+    {
+     "ref": "2:2",
+     "text": "מדת אכילות, מקום הנזק, הנאה ונזק",
+     "text_de": "Maß des Fressens, Ort des Schadens, Vorteil und Schaden",
+     "text_en": "Measure of eating, place of damage, benefit and damage",
+     "desc": "נזקי ממון האדם › רגל ושן › תיאור מועדותם › שן",
+     "desc_de": "Vermögensschäden durch Menschen › Fuß und Zahn › Beschreibung ihrer Gefährlichkeit › Zahn",
+     "desc_en": "Property damages caused by a person › Foot and tooth › Description of their attested dangerousness › Tooth"
+    },
+    {
+     "ref": "2:3",
+     "text": "קפיצה, הולכה ואכילה",
+     "text_de": "Springen, Gehen und Fressen",
+     "text_en": "Jumping, walking and eating",
+     "desc": "נזקי ממון האדם › תיאור מועדותם › רגל ושן",
+     "desc_de": "Vermögensschäden durch Menschen › Beschreibung ihrer Gefährlichkeit › Fuß und Zahn",
+     "desc_en": "Property damages caused by a person › Description of their attested dangerousness › Foot and tooth"
+    },
+    {
+     "ref": "2:4",
+     "text": "העדת שור והתמותו",
+     "text_de": "Verwarnung des Ochsen und seine Hinrichtung",
+     "text_en": "Warning of the ox and its execution",
+     "desc": "נזקי ממון האדם › קרן › תיאור מועדותם › קרן ותולדותיו",
+     "desc_de": "Vermögensschäden durch Menschen › Horn › Beschreibung ihrer Gefährlichkeit › Horn und seine Abkömmlinge",
+     "desc_en": "Property damages caused by a person › Horn › Description of their attested dangerousness › Horn and its derivatives"
+    },
+    {
+     "ref": "2:5",
+     "text": "שינוי תנוחת הגוף להזיק, ברשות הניזק",
+     "text_de": "Veränderung der Körperhaltung, um zu schaden, im Bereich des Geschädigten",
+     "text_en": "Changing body posture to cause damage, on the injured party's property",
+     "desc": "נזקי ממון האדם › קרן › תיאור מועדותם › קרן ותולדותיו",
+     "desc_de": "Vermögensschäden durch Menschen › Horn › Beschreibung ihrer Gefährlichkeit › Horn und seine Abkömmlinge",
+     "desc_en": "Property damages caused by a person › Horn › Description of their attested dangerousness › Horn and its derivatives"
+    },
+    {
+     "ref": "2:6",
+     "text": "כוונה וידיעה",
+     "text_de": "Absicht und Wissen",
+     "text_en": "Intent and knowledge",
+     "desc": "נזקי ממון האדם › חובל ומזיק › תיאור מועדותם › אדם בגופו",
+     "desc_de": "Vermögensschäden durch Menschen › Verwundender und Schädigender › Beschreibung ihrer Gefährlichkeit › Der Mensch durch seinen Körper",
+     "desc_en": "Property damages caused by a person › One who wounds and one who damages › Description of their attested dangerousness › A person through his own body"
+    }
+   ]
+  },
+  {
+   "head": "פרק ג",
+   "head_de": "Kapitel 3",
+   "head_en": "Chapter 3",
+   "items": [
+    {
+     "ref": "3:1",
+     "text": "הנחה וזכייה בכד",
+     "text_de": "Abstellen und Erwerb des Kruges",
+     "text_en": "Setting down and acquisition of the jug",
+     "desc": "נזקי ממון האדם › בור › הגורם תקלה ברשות הרבים › בממונו",
+     "desc_de": "Vermögensschäden durch Menschen › Grube › Wer ein Hindernis im öffentlichen Bereich verursacht › Durch sein Vermögen",
+     "desc_en": "Property damages caused by a person › Pit › One who causes an obstacle in the public domain › Through his property"
+    },
+    {
+     "ref": "3:2",
+     "text": "שעשה ברשות, שפשע קצת",
+     "text_de": "Wer mit Erlaubnis handelte, leichte Fahrlässigkeit",
+     "text_en": "One who acted with permission, slight negligence",
+     "desc": "נזקי ממון האדם › בור › הגורם תקלה ברשות הרבים › בממונו",
+     "desc_de": "Vermögensschäden durch Menschen › Grube › Wer ein Hindernis im öffentlichen Bereich verursacht › Durch sein Vermögen",
+     "desc_en": "Property damages caused by a person › Pit › One who causes an obstacle in the public domain › Through his property"
+    },
+    {
+     "ref": "3:3",
+     "text": "הוצאת זבלים וקנס, זכייה בגלל",
+     "text_de": "Hinausschaffen von Mist und Bußgeld, Erwerb aufgrund von",
+     "text_en": "Removal of dung and fine, acquisition by reason of",
+     "desc": "נזקי ממון האדם › בור › הגורם תקלה ברשות הרבים › בממונו",
+     "desc_de": "Vermögensschäden durch Menschen › Grube › Wer ein Hindernis im öffentlichen Bereich verursacht › Durch sein Vermögen",
+     "desc_en": "Property damages caused by a person › Pit › One who causes an obstacle in the public domain › Through his property"
+    },
+    {
+     "ref": "3:4",
+     "text": "הנתקל ויכל לעמוד",
+     "text_de": "Wer stolpert und hätte stehen bleiben können",
+     "text_en": "One who stumbles and could have stood still",
+     "desc": "נזקי האדם › המזיק › הגורם תקלה ברשות הרבים › פגיעת אנשים זה בזה",
+     "desc_de": "Schäden durch den Menschen › Der Schädigende › Wer ein Hindernis im öffentlichen Bereich verursacht › Gegenseitige Verletzung von Menschen",
+     "desc_en": "Damages caused by a person › The damager › One who causes an obstacle in the public domain › Mutual injury between people"
+    },
+    {
+     "ref": "3:5",
+     "text": "סדר הליכה, אזהרות",
+     "text_de": "Gehordnung, Warnungen",
+     "text_en": "Order of walking, warnings",
+     "desc": "נזקי האדם › המזיק › הגורם תקלה ברשות הרבים › פגיעת אנשים זה בזה",
+     "desc_de": "Schäden durch den Menschen › Der Schädigende › Wer ein Hindernis im öffentlichen Bereich verursacht › Gegenseitige Verletzung von Menschen",
+     "desc_en": "Damages caused by a person › The damager › One who causes an obstacle in the public domain › Mutual injury between people"
+    },
+    {
+     "ref": "3:6",
+     "text": "הליכה וריצה",
+     "text_de": "Gehen und Laufen",
+     "text_en": "Walking and running",
+     "desc": "נזקי האדם › המזיק › הגורם תקלה ברשות הרבים › פגיעת אנשים זה בזה",
+     "desc_de": "Schäden durch den Menschen › Der Schädigende › Wer ein Hindernis im öffentlichen Bereich verursacht › Gegenseitige Verletzung von Menschen",
+     "desc_en": "Damages caused by a person › The damager › One who causes an obstacle in the public domain › Mutual injury between people"
+    },
+    {
+     "ref": "3:7",
+     "text": "המבקע",
+     "text_de": "Der Spaltende",
+     "text_en": "The one who splits",
+     "desc": "נזקי האדם › המזיק › מרשות לרשות",
+     "desc_de": "Schäden durch den Menschen › Der Schädigende › Von einem Bereich in einen anderen",
+     "desc_en": "Damages caused by a person › The damager › From one domain to another"
+    },
+    {
+     "ref": "3:8",
+     "text": "תשלום מותר בתם ובמועד ובאדם",
+     "text_de": "Zahlung, erlaubt bei Tam, Muad und Mensch",
+     "text_en": "Payment, permitted for tam, muad and a person",
+     "desc": "נזקי ממון האדם › קרן › שוורים זה בזה › גודל ההתחייבות",
+     "desc_de": "Vermögensschäden durch Menschen › Horn › Ochsen gegeneinander › Umfang der Verpflichtung",
+     "desc_en": "Property damages caused by a person › Horn › Oxen against each other › Extent of the liability"
+    },
+    {
+     "ref": "3:9",
+     "text": "שבח נבילה",
+     "text_de": "Wertsteigerung des Kadavers",
+     "text_en": "Increase in value of the carcass",
+     "desc": "נזקי ממון האדם › קרן › שוורים זה בזה › גודל ההתחייבות",
+     "desc_de": "Vermögensschäden durch Menschen › Horn › Ochsen gegeneinander › Umfang der Verpflichtung",
+     "desc_en": "Property damages caused by a person › Horn › Oxen against each other › Extent of the liability"
+    },
+    {
+     "ref": "3:10",
+     "text": "בושת, נזק עבד או הורה, המתחייב בנפשו",
+     "text_de": "Beschämung, Schaden an Sklaven oder Elternteil, wer sich mit dem Leben schuldig macht",
+     "text_en": "Humiliation, damage to a slave or parent, one liable with his life",
+     "desc": "נזקי ממון האדם › קרן › שוורים זה בזה › השוואה לאדם",
+     "desc_de": "Vermögensschäden durch Menschen › Horn › Ochsen gegeneinander › Gleichstellung mit dem Menschen",
+     "desc_en": "Property damages caused by a person › Horn › Oxen against each other › Equating with a person"
+    },
+    {
+     "ref": "3:11",
+     "text": "ספק במציאות וחיוב הניזק להוכיח",
+     "text_de": "Zweifel über die Tatsachen und Pflicht des Geschädigten zum Beweis",
+     "text_en": "Doubt about the facts and the injured party's duty to prove",
+     "desc": "נזקי ממון האדם › קרן › שוורים זה בזה › גודל ההתחייבות",
+     "desc_de": "Vermögensschäden durch Menschen › Horn › Ochsen gegeneinander › Umfang der Verpflichtung",
+     "desc_en": "Property damages caused by a person › Horn › Oxen against each other › Extent of the liability"
+    }
+   ]
+  },
+  {
+   "head": "פרק ד",
+   "head_de": "Kapitel 4",
+   "head_en": "Chapter 4",
+   "items": [
+    {
+     "ref": "4:1",
+     "text": "הנוגח כמה שוורים",
+     "text_de": "Der Stoßende, mehrere Ochsen",
+     "text_en": "The goring ox, several oxen",
+     "desc": "נזקי ממון האדם › קרן › שוורים זה בזה › תם › גודל ההתחייבות",
+     "desc_de": "Vermögensschäden durch Menschen › Horn › Ochsen gegeneinander › Tam › Umfang der Verpflichtung",
+     "desc_en": "Property damages caused by a person › Horn › Oxen against each other › Tam (harmless ox) › Extent of the liability"
+    },
+    {
+     "ref": "4:2",
+     "text": "מועד במקצת דברים וחזרתו",
+     "text_de": "Muad in einem Teil der Dinge und seine Rückkehr",
+     "text_en": "Muad in some respects and its reversion",
+     "desc": "נזקי ממון האדם › קרן › שוורים זה בזה › מועד › הגדרת מועד",
+     "desc_de": "Vermögensschäden durch Menschen › Horn › Ochsen gegeneinander › Muad › Definition des Muad",
+     "desc_en": "Property damages caused by a person › Horn › Oxen against each other › Muad (forewarned ox) › Definition of muad"
+    },
+    {
+     "ref": "4:3",
+     "text": "של הקדש, של גוי",
+     "text_de": "Dem Heiligtum gehörend, einem Nichtjuden gehörend",
+     "text_en": "Belonging to the Temple, belonging to a gentile",
+     "desc": "נזקי ממון האדם › קרן › שוורים זה בזה › מועד › בעלות היוצאת מן הכלל",
+     "desc_de": "Vermögensschäden durch Menschen › Horn › Ochsen gegeneinander › Muad › Ausgenommener Besitz",
+     "desc_en": "Property damages caused by a person › Horn › Oxen against each other › Muad (forewarned ox) › Excluded ownership"
+    },
+    {
+     "ref": "4:4",
+     "text": "חש\"ו, אפוטרופוס, חזרה לדעת, של אצטדין",
+     "text_de": "Gehörloser, Geistesschwacher, Minderjähriger, Verwalter, Sinnesänderung, Besitz im Stadion",
+     "text_en": "Deaf-mute, mentally incompetent, minor, guardian, change of mind, ox of the stadium",
+     "desc": "נזקי ממון האדם › קרן › שוורים זה בזה › מועד › בעלות היוצאת מן הכלל",
+     "desc_de": "Vermögensschäden durch Menschen › Horn › Ochsen gegeneinander › Muad › Ausgenommener Besitz",
+     "desc_en": "Property damages caused by a person › Horn › Oxen against each other › Muad (forewarned ox) › Excluded ownership"
+    },
+    {
+     "ref": "4:5",
+     "text": "חיוב בכופר ובשלושים שקל",
+     "text_de": "Pflicht zu Lösegeld und zu dreißig Schekel",
+     "text_en": "Liability for ransom and thirty shekels",
+     "desc": "נזקי ממון האדם › קרן › ממית אדם › מועד › כופר",
+     "desc_de": "Vermögensschäden durch Menschen › Horn › Wer einen Menschen tötet › Muad › Lösegeld",
+     "desc_en": "Property damages caused by a person › Horn › One who kills a person › Muad (forewarned ox) › Ransom"
+    },
+    {
+     "ref": "4:6",
+     "text": "בלא מתכוין",
+     "text_de": "Ohne Absicht",
+     "text_en": "Without intent",
+     "desc": "נזקי ממון האדם › קרן › ממית אדם › מועד › כופר",
+     "desc_de": "Vermögensschäden durch Menschen › Horn › Wer einen Menschen tötet › Muad › Lösegeld",
+     "desc_en": "Property damages caused by a person › Horn › One who kills a person › Muad (forewarned ox) › Ransom"
+    },
+    {
+     "ref": "4:7",
+     "text": "בעלות הפוטרת",
+     "text_de": "Befreiende Eigentümerschaft",
+     "text_en": "Exempting ownership",
+     "desc": "נזקי ממון האדם › קרן › ממית אדם › תם › בעלות וחיוב במיתה לשור",
+     "desc_de": "Vermögensschäden durch Menschen › Horn › Wer einen Menschen tötet › Tam › Eigentümerschaft und Todespflicht für den Ochsen",
+     "desc_en": "Property damages caused by a person › Horn › One who kills a person › Tam (harmless ox) › Ownership and death liability for the ox"
+    },
+    {
+     "ref": "4:8",
+     "text": "הנאה : הקדש וגמר דין",
+     "text_de": "Nutznießung: Heiligtum und Urteilsabschluss",
+     "text_en": "Benefit: Temple property and final judgment",
+     "desc": "נזקי ממון האדם › קרן › ממית אדם › תם › בעלות וחיוב במיתה לשור",
+     "desc_de": "Vermögensschäden durch Menschen › Horn › Wer einen Menschen tötet › Tam › Eigentümerschaft und Todespflicht für den Ochsen",
+     "desc_en": "Property damages caused by a person › Horn › One who kills a person › Tam (harmless ox) › Ownership and death liability for the ox"
+    },
+    {
+     "ref": "4:9",
+     "text": "על ידי אחר, דרגות בשמירה לפטור",
+     "text_de": "Durch einen anderen, Schutzstufen bei der Bewachung zur Befreiung",
+     "text_en": "Through another, levels of guarding for exemption",
+     "desc": "נזקי ממון האדם › קרן › ומועד › שמירתו",
+     "desc_de": "Vermögensschäden durch Menschen › Horn › Und Muad › Seine Bewachung",
+     "desc_en": "Property damages caused by a person › Horn › And muad › Its guarding"
+    }
+   ]
+  },
+  {
+   "head": "פרק ה",
+   "head_de": "Kapitel 5",
+   "head_en": "Chapter 5",
+   "items": [
+    {
+     "ref": "5:1",
+     "text": "ספק בנזוק או מזיק",
+     "text_de": "Zweifel über den Geschädigten oder den Schädiger",
+     "text_en": "Doubt about the injured party or the damager",
+     "desc": "נזקי ממון האדם › קרן › תם › ממון המוטל בספק",
+     "desc_de": "Vermögensschäden durch Menschen › Horn › Tam › Zweifelhaftes Geldvermögen",
+     "desc_en": "Property damages caused by a person › Horn › Tam (harmless ox) › Property in doubt"
+    },
+    {
+     "ref": "5:2",
+     "text": "קדירות ופירות ונזקיהן",
+     "text_de": "Töpfe und Früchte und ihre Schäden",
+     "text_en": "Pots and fruits and their damages",
+     "desc": "נזקי ממון האדם › קרן › כוונה ונזקין › הכנסה לרשות המזיק",
+     "desc_de": "Vermögensschäden durch Menschen › Horn › Absicht und Schäden › Eintritt in den Bereich des Schädigers",
+     "desc_en": "Property damages caused by a person › Horn › Intent and damages › Entering the damager's domain"
+    },
+    {
+     "ref": "5:3",
+     "text": "שור ונזקיו",
+     "text_de": "Ochse und seine Schäden",
+     "text_en": "The ox and its damages",
+     "desc": "נזקי ממון האדם › קרן › כוונה ונזקין › הכנסה לרשות המזיק",
+     "desc_de": "Vermögensschäden durch Menschen › Horn › Absicht und Schäden › Eintritt in den Bereich des Schädigers",
+     "desc_en": "Property damages caused by a person › Horn › Intent and damages › Entering the damager's domain"
+    },
+    {
+     "ref": "5:4",
+     "text": "נזקי שור ואדם, שומה",
+     "text_de": "Schäden durch Ochsen und Menschen, Schätzung",
+     "text_en": "Damages by ox and by person, assessment",
+     "desc": "נזקי ממון האדם › קרן › כוונה ונזקין › דמי ולדות",
+     "desc_de": "Vermögensschäden durch Menschen › Horn › Absicht und Schäden › Wert der Föten",
+     "desc_en": "Property damages caused by a person › Horn › Intent and damages › Value of fetuses"
+    },
+    {
+     "ref": "5:5",
+     "text": "מקום פיתחו, צורתו, עמקו",
+     "text_de": "Ort seiner Öffnung, seine Form, seine Tiefe",
+     "text_en": "Location of its opening, its shape, its depth",
+     "desc": "נזקי ממון האדם › בור › תיאורו",
+     "desc_de": "Vermögensschäden durch Menschen › Grube › Seine Beschreibung",
+     "desc_en": "Property damages caused by a person › Pit › Its description"
+    },
+    {
+     "ref": "5:6",
+     "text": "חיוב וחוזק כיסוי, מה ניזוק וכיצד",
+     "text_de": "Haftung und Festigkeit der Abdeckung, was geschädigt wurde und wie",
+     "text_en": "Liability and strength of the cover, what was damaged and how",
+     "desc": "נזקי ממון האדם › בור › סיבות לפטור",
+     "desc_de": "Vermögensschäden durch Menschen › Grube › Gründe für Befreiung",
+     "desc_en": "Property damages caused by a person › Pit › Grounds for exemption"
+    },
+    {
+     "ref": "5:7",
+     "text": "ממונות ואיסורים שונים",
+     "text_de": "Verschiedene Vermögens- und Verbotsfälle",
+     "text_en": "Various monetary and prohibition cases",
+     "desc": "נזקי ממון האדם › בור › שוויון בע\"ח",
+     "desc_de": "Vermögensschäden durch Menschen › Grube › Gleichstellung der Tiere",
+     "desc_en": "Property damages caused by a person › Pit › Equal treatment of animals"
+    }
+   ]
+  },
+  {
+   "head": "פרק ו",
+   "head_de": "Kapitel 6",
+   "head_en": "Chapter 6",
+   "items": [
+    {
+     "ref": "6:1",
+     "text": "נעילה כראוי, יציאה מסיבה אחרת",
+     "text_de": "Ordnungsgemäßes Verschließen, Ausbrechen aus anderem Grund",
+     "text_en": "Proper locking, escaping for another reason",
+     "desc": "נזקי ממון האדם › שן ורגל › שמירה",
+     "desc_de": "Vermögensschäden durch Menschen › Zahn und Fuß › Bewachung",
+     "desc_en": "Property damages caused by a person › Tooth and foot › Guarding"
+    },
+    {
+     "ref": "6:2",
+     "text": "מסירה לשומר\\ כניסה כדרכה, אומד הנזק",
+     "text_de": "Übergabe an einen Hüter / Eintreten auf übliche Weise, Schadensschätzung",
+     "text_en": "Handing over to a guardian / entering in the usual way, assessment of damage",
+     "desc": "נזקי ממון האדם › שן ורגל › תשלום › שמירה",
+     "desc_de": "Vermögensschäden durch Menschen › Zahn und Fuß › Zahlung › Bewachung",
+     "desc_en": "Property damages caused by a person › Tooth and foot › Payment › Guarding"
+    },
+    {
+     "ref": "6:3",
+     "text": "רשות להגדיש",
+     "text_de": "Erlaubnis zum Aufstapeln",
+     "text_en": "Permission to stack",
+     "desc": "נזקי ממון האדם › שן ורגל › רשות המזיק",
+     "desc_de": "Vermögensschäden durch Menschen › Zahn und Fuß › Bereich des Schädigers",
+     "desc_en": "Property damages caused by a person › Tooth and foot › Domain of the damager"
+    },
+    {
+     "ref": "6:4",
+     "text": "דעת השומר, הגורם\\ חומר הנשרף, התפשטות",
+     "text_de": "Wissen des Hüters, der Verursacher / brennbares Material, Ausbreitung",
+     "text_en": "Knowledge of the guardian, the cause / combustible material, spread",
+     "desc": "נזקי ממון האדם › ההבער › הנשרף › השורף",
+     "desc_de": "Vermögensschäden durch Menschen › Das Anzünden › Das Verbrannte › Der Brandstifter",
+     "desc_en": "Property damages caused by a person › The kindling › That which is burned › The one who burns"
+    },
+    {
+     "ref": "6:5",
+     "text": "טמון, מתחיב בנפשו",
+     "text_de": "Verborgenes, wer sich mit dem Leben schuldig macht",
+     "text_en": "Hidden items, one liable with his life",
+     "desc": "נזקי ממון האדם › ההבער › הנשרף",
+     "desc_de": "Vermögensschäden durch Menschen › Das Anzünden › Das Verbrannte",
+     "desc_en": "Property damages caused by a person › The kindling › That which is burned"
+    },
+    {
+     "ref": "6:6",
+     "text": "גץ היוצא, קירבת פשתן לנר",
+     "text_de": "Herausfliegender Funke, Flachs nahe der Lampe",
+     "text_en": "Flying spark, flax near a lamp",
+     "desc": "נזקי ממון האדם › ההבער › נסיבות הדליקה",
+     "desc_de": "Vermögensschäden durch Menschen › Das Anzünden › Umstände des Feuers",
+     "desc_en": "Property damages caused by a person › The kindling › Circumstances of the fire"
+    }
+   ]
+  },
+  {
+   "head": "פרק ז",
+   "head_de": "Kapitel 7",
+   "head_en": "Chapter 7",
+   "items": [
+    {
+     "ref": "7:1",
+     "text": "במה נוהגים, המזיק לגנב",
+     "text_de": "Was üblich ist, der Schädiger des Diebes",
+     "text_en": "What is customary, one who damages a thief",
+     "desc": "נזקי האדם › גניבה › חיוב בכפל ד' וה' › מה, למי הזיק",
+     "desc_de": "Schäden durch den Menschen › Diebstahl › Pflicht zum Doppelten, Vier- und Fünffachen › Was und wem er schadete",
+     "desc_en": "Damages caused by a person › Theft › Liability for double, fourfold and fivefold › What and whom he damaged"
+    },
+    {
+     "ref": "7:2",
+     "text": "המחייבת / שינוי רשות, שחיטה לא ראויה",
+     "text_de": "Die Verpflichtende / Wechsel des Bereichs, untaugliche Schlachtung",
+     "text_en": "The obligating act / change of domain, invalid slaughter",
+     "desc": "נזקי האדם › גניבה › חיוב בכפל ד' וה' › עדות",
+     "desc_de": "Schäden durch den Menschen › Diebstahl › Pflicht zum Doppelten, Vier- und Fünffachen › Zeugenaussage",
+     "desc_en": "Damages caused by a person › Theft › Liability for double, fourfold and fivefold › Testimony"
+    },
+    {
+     "ref": "7:3",
+     "text": "תשלום של זוממין",
+     "text_de": "Zahlung der überführten Falschzeugen",
+     "text_en": "Payment by false witnesses",
+     "desc": "נזקי האדם › גניבה › חיוב בכפל ד' וה' › עדות",
+     "desc_de": "Schäden durch den Menschen › Diebstahl › Pflicht zum Doppelten, Vier- und Fünffachen › Zeugenaussage",
+     "desc_en": "Damages caused by a person › Theft › Liability for double, fourfold and fivefold › Testimony"
+    },
+    {
+     "ref": "7:4",
+     "text": "חסרון בעדות\\ מתחיב בנפשו, שינוי רשות",
+     "text_de": "Mangel in der Zeugenaussage / wer sich mit dem Leben schuldig macht, Bereichswechsel",
+     "text_en": "Defect in testimony / one liable with his life, change of domain",
+     "desc": "נזקי האדם › גניבה › חיוב בכפל ד' וה' › פטור מד' וה' › עדות",
+     "desc_de": "Schäden durch den Menschen › Diebstahl › Pflicht zum Doppelten, Vier- und Fünffachen › Befreiung von Vier- und Fünffachem › Zeugenaussage",
+     "desc_en": "Damages caused by a person › Theft › Liability for double, fourfold and fivefold › Exemption from fourfold and fivefold › Testimony"
+    },
+    {
+     "ref": "7:5",
+     "text": "חסרון במכירה, בשחיטה\\ הזק בלי הוצאה",
+     "text_de": "Mangel beim Verkauf, bei der Schlachtung / Schaden ohne Hinausschaffen",
+     "text_en": "Defect in sale, in slaughter / damage without removal",
+     "desc": "נזקי האדם › גניבה › חיוב בכפל ד' וה' › קנין הגנב להתחייב › פטור מד' וה'",
+     "desc_de": "Schäden durch den Menschen › Diebstahl › Pflicht zum Doppelten, Vier- und Fünffachen › Erwerb des Diebes, um haftbar zu werden › Befreiung von Vier- und Fünffachem",
+     "desc_en": "Damages caused by a person › Theft › Liability for double, fourfold and fivefold › The thief's acquisition in order to be liable › Exemption from fourfold and fivefold"
+    },
+    {
+     "ref": "7:6",
+     "text": "מיתה או מסירה לאחר והוצאה והגבהה",
+     "text_de": "Tod oder Übergabe an einen anderen, Hinausschaffen und Anheben",
+     "text_en": "Death or transfer to another, removal and lifting",
+     "desc": "נזקי האדם › גניבה › חיוב בכפל ד' וה' › קנין הגנב להתחייב",
+     "desc_de": "Schäden durch den Menschen › Diebstahl › Pflicht zum Doppelten, Vier- und Fünffachen › Erwerb des Diebes, um haftbar zu werden",
+     "desc_en": "Damages caused by a person › Theft › Liability for double, fourfold and fivefold › The thief's acquisition in order to be liable"
+    },
+    {
+     "ref": "7:7",
+     "text": "ישוב א\"י, טהרה, גרם נזק",
+     "text_de": "Besiedlung des Landes Israel, Reinheit, Schadensverursachung",
+     "text_en": "Settlement of the Land of Israel, purity, causing damage",
+     "desc": "נזקי האדם › גניבה › האסור לגדל בארץ ישראל",
+     "desc_de": "Schäden durch den Menschen › Diebstahl › Was im Land Israel nicht gehalten werden darf",
+     "desc_en": "Damages caused by a person › Theft › What may not be raised in the Land of Israel"
+    }
+   ]
+  },
+  {
+   "head": "פרק ח",
+   "head_de": "Kapitel 8",
+   "head_en": "Chapter 8",
+   "items": [
+    {
+     "ref": "8:1",
+     "text": "החמישה דברים והגדרתן",
+     "text_de": "Die fünf Dinge und ihre Definition",
+     "text_en": "The five things and their definition",
+     "desc": "נזקי האדם › חבלה › חיוב › במה חייב",
+     "desc_de": "Schäden durch den Menschen › Verwundung › Verpflichtung › Wofür man haftet",
+     "desc_en": "Damages caused by a person › Wounding › Obligation › For what one is liable"
+    },
+    {
+     "ref": "8:2",
+     "text": "חומרתו מנזקי שור",
+     "text_de": "Seine Strenge gegenüber den Schäden des Ochsen",
+     "text_en": "Its stricter nature compared with ox damages",
+     "desc": "נזקי האדם › חבלה › חיוב › במה חייב",
+     "desc_de": "Schäden durch den Menschen › Verwundung › Verpflichtung › Wofür man haftet",
+     "desc_en": "Damages caused by a person › Wounding › Obligation › For what one is liable"
+    },
+    {
+     "ref": "8:3",
+     "text": "שאינו מתחייב בנפשו, המזיק לעבד",
+     "text_de": "Wer sich nicht mit dem Leben schuldig macht, der Schädiger des Sklaven",
+     "text_en": "One not liable with his life, the damager of a slave",
+     "desc": "נזקי האדם › חבלה › התשלום › פטור מתשלום",
+     "desc_de": "Schäden durch den Menschen › Verwundung › Die Zahlung › Befreiung von Zahlung",
+     "desc_en": "Damages caused by a person › Wounding › The payment › Exemption from payment"
+    },
+    {
+     "ref": "8:4",
+     "text": "חוסר יכולת לשלם",
+     "text_de": "Zahlungsunfähigkeit",
+     "text_en": "Inability to pay",
+     "desc": "נזקי האדם › חבלה › התשלום › פטור מתשלום",
+     "desc_de": "Schäden durch den Menschen › Verwundung › Die Zahlung › Befreiung von Zahlung",
+     "desc_en": "Damages caused by a person › Wounding › The payment › Exemption from payment"
+    },
+    {
+     "ref": "8:5",
+     "text": "המתחייב בנפשו, המזיק לעבד",
+     "text_de": "Wer sich mit dem Leben schuldig macht, der Schädiger des Sklaven",
+     "text_en": "One liable with his life, the damager of a slave",
+     "desc": "נזקי האדם › חבלה › התשלום › פטור מתשלום",
+     "desc_de": "Schäden durch den Menschen › Verwundung › Die Zahlung › Befreiung von Zahlung",
+     "desc_en": "Damages caused by a person › Wounding › The payment › Exemption from payment"
+    },
+    {
+     "ref": "8:6",
+     "text": "חישובי חיוב בושת \\ המזיק את של עצמו",
+     "text_de": "Berechnung der Beschämungsschuld / wer sein eigenes beschädigt",
+     "text_en": "Calculation of humiliation liability / one who damages his own",
+     "desc": "נזקי האדם › חבלה › חיוב › רשות להזיק › התשלום",
+     "desc_de": "Schäden durch den Menschen › Verwundung › Verpflichtung › Erlaubnis zu schaden › Die Zahlung",
+     "desc_en": "Damages caused by a person › Wounding › Obligation › Permission to cause damage › The payment"
+    },
+    {
+     "ref": "8:7",
+     "text": "מחילה, המצווה להזיק",
+     "text_de": "Verzicht, wer zum Schaden verpflichtet ist",
+     "text_en": "Waiver, one commanded to cause damage",
+     "desc": "נזקי האדם › חבלה › חיוב › רשות להזיק",
+     "desc_de": "Schäden durch den Menschen › Verwundung › Verpflichtung › Erlaubnis zu schaden",
+     "desc_en": "Damages caused by a person › Wounding › Obligation › Permission to cause damage"
+    }
+   ]
+  },
+  {
+   "head": "פרק ט",
+   "head_de": "Kapitel 9",
+   "head_en": "Chapter 9",
+   "items": [
+    {
+     "ref": "9:1",
+     "text": "המשנה בידים, לידה",
+     "text_de": "Wer mit den Händen verändert, Geburt",
+     "text_en": "One who alters by hand, birth",
+     "desc": "נזקי האדם › גזילה › השבת גזילה › קנין של מזיק › גודל התשלום",
+     "desc_de": "Schäden durch den Menschen › Raub › Rückgabe des Geraubten › Erwerb durch den Schädiger › Höhe der Zahlung",
+     "desc_en": "Damages caused by a person › Robbery › Returning stolen goods › Acquisition by the damager › Amount of payment"
+    },
+    {
+     "ref": "9:2",
+     "text": "עבדים, היכרות הנזק",
+     "text_de": "Sklaven, Erkennen des Schadens",
+     "text_en": "Slaves, recognition of the damage",
+     "desc": "נזקי האדם › גזילה › השבת גזילה › קנין של מזיק › גודל התשלום",
+     "desc_de": "Schäden durch den Menschen › Raub › Rückgabe des Geraubten › Erwerb durch den Schädiger › Höhe der Zahlung",
+     "desc_en": "Damages caused by a person › Robbery › Returning stolen goods › Acquisition by the damager › Amount of payment"
+    },
+    {
+     "ref": "9:3",
+     "text": "חרש, בנאי",
+     "text_de": "Handwerker, Bauarbeiter",
+     "text_en": "Craftsman, builder",
+     "desc": "נזקי האדם › גזילה › השבת גזילה › קנין של מזיק › אומן המקלקל",
+     "desc_de": "Schäden durch den Menschen › Raub › Rückgabe des Geraubten › Erwerb durch den Schädiger › Handwerker, der verdirbt",
+     "desc_en": "Damages caused by a person › Robbery › Returning stolen goods › Acquisition by the damager › Craftsman who spoils"
+    },
+    {
+     "ref": "9:4",
+     "text": "תשלום לצבע המקדיח או משנה",
+     "text_de": "Zahlung an den Färber, der verbrennt oder verändert",
+     "text_en": "Payment to the dyer who scorches or alters",
+     "desc": "נזקי האדם › גזילה › השבת גזילה › קנין של מזיק › אומן המקלקל",
+     "desc_de": "Schäden durch den Menschen › Raub › Rückgabe des Geraubten › Erwerb durch den Schädiger › Handwerker, der verdirbt",
+     "desc_en": "Damages caused by a person › Robbery › Returning stolen goods › Acquisition by the damager › Craftsman who spoils"
+    },
+    {
+     "ref": "9:5",
+     "text": "בנו, שלוחו, שליח בית דין",
+     "text_de": "Sein Sohn, sein Beauftragter, Gerichtsbote",
+     "text_en": "His son, his agent, court messenger",
+     "desc": "נזקי האדם › גזילה › השבת גזילה › תשלום ללא אמצעי",
+     "desc_de": "Schäden durch den Menschen › Raub › Rückgabe des Geraubten › Zahlung ohne Vermittler",
+     "desc_en": "Damages caused by a person › Robbery › Returning stolen goods › Payment without intermediary"
+    },
+    {
+     "ref": "9:6",
+     "text": "שוה פרוטה בקרן ומחילה",
+     "text_de": "Wert einer Peruta beim Kapital und Verzicht",
+     "text_en": "Value of a peruta in the principal and waiver",
+     "desc": "נזקי האדם › גזילה › השבת גזילה › תשלום ללא אמצעי › קרן וחומש",
+     "desc_de": "Schäden durch den Menschen › Raub › Rückgabe des Geraubten › Zahlung ohne Vermittler › Kapital und Fünftel",
+     "desc_en": "Damages caused by a person › Robbery › Returning stolen goods › Payment without intermediary › Principal and fifth"
+    },
+    {
+     "ref": "9:7",
+     "text": "חומש דחומש \\ במה נוהג, טענת אבידה",
+     "text_de": "Fünftel vom Fünftel / wann es gilt, Behauptung eines Verlusts",
+     "text_en": "Fifth of the fifth / when it applies, claim of loss",
+     "desc": "נזקי האדם › גזילה › השבת גזילה › כפירת פקדון › תשלום ללא אמצעי",
+     "desc_de": "Schäden durch den Menschen › Raub › Rückgabe des Geraubten › Leugnen eines Depositums › Zahlung ohne Vermittler",
+     "desc_en": "Damages caused by a person › Robbery › Returning stolen goods › Denial of a deposit › Payment without intermediary"
+    },
+    {
+     "ref": "9:8",
+     "text": "טענת גניבה",
+     "text_de": "Behauptung des Diebstahls",
+     "text_en": "Claim of theft",
+     "desc": "נזקי האדם › גזילה › השבת גזילה › כפירת פקדון",
+     "desc_de": "Schäden durch den Menschen › Raub › Rückgabe des Geraubten › Leugnen eines Depositums",
+     "desc_en": "Damages caused by a person › Robbery › Returning stolen goods › Denial of a deposit"
+    },
+    {
+     "ref": "9:9",
+     "text": "הגוזל את אביו",
+     "text_de": "Wer seinen Vater beraubt",
+     "text_en": "One who robs his father",
+     "desc": "נזקי האדם › גזילה › השבת גזילה › היורש ממון האסור לו",
+     "desc_de": "Schäden durch den Menschen › Raub › Rückgabe des Geraubten › Erbe von verbotenem Vermögen",
+     "desc_en": "Damages caused by a person › Robbery › Returning stolen goods › Heir of forbidden property"
+    },
+    {
+     "ref": "9:10",
+     "text": "הנידר הנאה מאביו",
+     "text_de": "Wer sich den Nutzen vom Vater durch Gelübde versagt",
+     "text_en": "One who vows to abstain from benefit from his father",
+     "desc": "נזקי האדם › גזילה › השבת גזילה › היורש ממון האסור לו",
+     "desc_de": "Schäden durch den Menschen › Raub › Rückgabe des Geraubten › Erbe von verbotenem Vermögen",
+     "desc_en": "Damages caused by a person › Robbery › Returning stolen goods › Heir of forbidden property"
+    },
+    {
+     "ref": "9:11",
+     "text": "חיוב לשלם לכהנים \\ לפני נתינה",
+     "text_de": "Pflicht zur Zahlung an die Priester / vor der Übergabe",
+     "text_en": "Duty to pay the priests / before the handover",
+     "desc": "נזקי האדם › גזילה › השבת גזילה › גזל הגר › מיתת גזלן",
+     "desc_de": "Schäden durch den Menschen › Raub › Rückgabe des Geraubten › Raub am Proselyten › Tod des Räubers",
+     "desc_en": "Damages caused by a person › Robbery › Returning stolen goods › Robbery of a convert › Death of the robber"
+    },
+    {
+     "ref": "9:12",
+     "text": "אחר נתינה \\ קשר בין אשם קרן וחומש",
+     "text_de": "Nach der Übergabe / Zusammenhang zwischen Schuldopfer, Kapital und Fünftel",
+     "text_en": "After the handover / connection between guilt offering, principal and fifth",
+     "desc": "נזקי האדם › גזילה › השבת גזילה › גזל הגר › מיתת גזלן",
+     "desc_de": "Schäden durch den Menschen › Raub › Rückgabe des Geraubten › Raub am Proselyten › Tod des Räubers",
+     "desc_en": "Damages caused by a person › Robbery › Returning stolen goods › Robbery of a convert › Death of the robber"
+    }
+   ]
+  },
+  {
+   "head": "פרק י",
+   "head_de": "Kapitel 10",
+   "head_en": "Chapter 10",
+   "items": [
+    {
+     "ref": "10:1",
+     "text": "על ידי יורשים \\ הנאה מנכסי גזלנים",
+     "text_de": "Durch Erben / Nutzen aus dem Vermögen von Räubern",
+     "text_en": "Through heirs / benefit from the property of robbers",
+     "desc": "נזקי האדם › גזילה › הנאה מגזל › השבת גזילה › יאוש",
+     "desc_de": "Schäden durch den Menschen › Raub › Nutzen aus Raub › Rückgabe des Geraubten › Verzweiflung am Besitz (Jeuasch)",
+     "desc_en": "Damages caused by a person › Robbery › Benefit from robbery › Returning stolen goods › Abandonment of hope of recovery (yeush)"
+    },
+    {
+     "ref": "10:2",
+     "text": "בסתם, או בפירוש, נחיל והצלתו",
+     "text_de": "Unbestimmt oder ausdrücklich, Bienenschwarm und seine Rettung",
+     "text_en": "Unspecified or explicit, swarm of bees and its rescue",
+     "desc": "נזקי האדם › גזילה › הנאה מגזל › יאוש",
+     "desc_de": "Schäden durch den Menschen › Raub › Nutzen aus Raub › Verzweiflung am Besitz (Jeuasch)",
+     "desc_en": "Damages caused by a person › Robbery › Benefit from robbery › Abandonment of hope of recovery (yeush)"
+    },
+    {
+     "ref": "10:3",
+     "text": "הטוען גניבה וחשש רמאות",
+     "text_de": "Wer Diebstahl behauptet und Verdacht auf Betrug",
+     "text_en": "One who claims theft and suspicion of fraud",
+     "desc": "נזקי האדם › גזילה › הנאה מגזל › יאוש",
+     "desc_de": "Schäden durch den Menschen › Raub › Nutzen aus Raub › Verzweiflung am Besitz (Jeuasch)",
+     "desc_en": "Damages caused by a person › Robbery › Benefit from robbery › Abandonment of hope of recovery (yeush)"
+    },
+    {
+     "ref": "10:4",
+     "text": "המאבד את של עצמו להציל",
+     "text_de": "Wer sein eigenes zerstört, um zu retten",
+     "text_en": "One who destroys his own to save",
+     "desc": "נזקי האדם › גזילה › הנאה מגזל › יאוש",
+     "desc_de": "Schäden durch den Menschen › Raub › Nutzen aus Raub › Verzweiflung am Besitz (Jeuasch)",
+     "desc_en": "Damages caused by a person › Robbery › Benefit from robbery › Abandonment of hope of recovery (yeush)"
+    },
+    {
+     "ref": "10:5",
+     "text": "אונס בשדה לפני החזרה",
+     "text_de": "Höhere Gewalt auf dem Feld vor der Rückgabe",
+     "text_en": "Accident in the field before the return",
+     "desc": "נזקי האדם › גזילה › השבת גזילה › השבה גרועה",
+     "desc_de": "Schäden durch den Menschen › Raub › Rückgabe des Geraubten › Mangelhafte Rückgabe",
+     "desc_en": "Damages caused by a person › Robbery › Returning stolen goods › Defective return"
+    },
+    {
+     "ref": "10:6",
+     "text": "השבה במקום סכנה",
+     "text_de": "Rückgabe an einem gefährlichen Ort",
+     "text_en": "Return in a dangerous place",
+     "desc": "נזקי האדם › גזילה › השבת גזילה › השבה גרועה",
+     "desc_de": "Schäden durch den Menschen › Raub › Rückgabe des Geraubten › Mangelhafte Rückgabe",
+     "desc_en": "Damages caused by a person › Robbery › Returning stolen goods › Defective return"
+    },
+    {
+     "ref": "10:7",
+     "text": "המסופק אם גזל או החזיר",
+     "text_de": "Wer im Zweifel ist, ob er geraubt oder zurückgegeben hat",
+     "text_en": "One in doubt whether he robbed or returned",
+     "desc": "נזקי האדם › גזילה › השבת גזילה › התחייבות אחר השבה",
+     "desc_de": "Schäden durch den Menschen › Raub › Rückgabe des Geraubten › Verpflichtung nach der Rückgabe",
+     "desc_en": "Damages caused by a person › Robbery › Returning stolen goods › Obligation after the return"
+    },
+    {
+     "ref": "10:8",
+     "text": "שלימות ההשבה ליפטר מאונסין",
+     "text_de": "Vollständigkeit der Rückgabe, um von Unfällen befreit zu sein",
+     "text_en": "Completeness of the return to be free of accidents",
+     "desc": "נזקי האדם › גזילה › השבת גזילה › התחייבות אחר השבה",
+     "desc_de": "Schäden durch den Menschen › Raub › Rückgabe des Geraubten › Verpflichtung nach der Rückgabe",
+     "desc_en": "Damages caused by a person › Robbery › Returning stolen goods › Obligation after the return"
+    },
+    {
+     "ref": "10:9",
+     "text": "חשד וחזקת גזל",
+     "text_de": "Verdacht und Raubvermutung",
+     "text_en": "Suspicion and presumption of robbery",
+     "desc": "נזקי האדם › גזילה › הנאה מגזל › רשות בעל הבית",
+     "desc_de": "Schäden durch den Menschen › Raub › Nutzen aus Raub › Erlaubnis des Hausherrn",
+     "desc_en": "Damages caused by a person › Robbery › Benefit from robbery › Permission of the householder"
+    },
+    {
+     "ref": "10:10",
+     "text": "הקפדת בעל הבית בשיירי אומנות",
+     "text_de": "Anspruch des Hausherrn auf Reste der Handwerksarbeit",
+     "text_en": "Householder's claim to the remnants of craftwork",
+     "desc": "נזקי האדם › גזילה › הנאה מגזל › רשות בעל הבית",
+     "desc_de": "Schäden durch den Menschen › Raub › Nutzen aus Raub › Erlaubnis des Hausherrn",
+     "desc_en": "Damages caused by a person › Robbery › Benefit from robbery › Permission of the householder"
+    }
+   ]
+  }
+ ]
+}

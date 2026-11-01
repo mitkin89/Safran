@@ -1,0 +1,761 @@
+{
+ "book": "Mishnah Chullin",
+ "title": "משנה חולין",
+ "title_de": "Mischna Chullin – Gliederung",
+ "title_en": "Chullin – outline",
+ "note": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema).",
+ "note_de": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema); ins Deutsche und Englische übersetzt.",
+ "note_en": "Outline after the table “Mishna Sedura”: the central content of each mishnah, with the topic path (main topic to sub-topic); translated into German and English.",
+ "sections": [
+  {
+   "head": "פרק א",
+   "head_de": "Kapitel 1",
+   "head_en": "Chapter 1",
+   "items": [
+    {
+     "ref": "1:1",
+     "text": "השוחט, זמן השחיטה",
+     "text_de": "Der Schlachtende, Zeitpunkt der Schlachtung",
+     "text_en": "The slaughterer, time of slaughter",
+     "desc": "כשרות חולין לאכילה › כיצד שוחטים",
+     "desc_de": "Eignung von Profanem zum Essen › Wie man schlachtet",
+     "desc_en": "Fitness of unconsecrated animals for eating › How one slaughters"
+    },
+    {
+     "ref": "1:2",
+     "text": "כלי לשחיטה",
+     "text_de": "Schlachtgerät",
+     "text_en": "Slaughtering implement",
+     "desc": "כשרות חולין לאכילה › כיצד שוחטים",
+     "desc_de": "Eignung von Profanem zum Essen › Wie man schlachtet",
+     "desc_en": "Fitness of unconsecrated animals for eating › How one slaughters"
+    },
+    {
+     "ref": "1:3",
+     "text": "הגרמה",
+     "text_de": "Stocken (Hagrama)",
+     "text_en": "Pausing (hagrama)",
+     "desc": "כשרות חולין לאכילה › כיצד שוחטים › מעשה השחיטה › המקום בצוואר",
+     "desc_de": "Eignung von Profanem zum Essen › Wie man schlachtet › Ausführung der Schlachtung › Stelle am Hals",
+     "desc_en": "Fitness of unconsecrated animals for eating › How one slaughters › Performance of the slaughter › Location on the neck"
+    },
+    {
+     "ref": "1:4",
+     "text": "השוואה למקומה של מליקה",
+     "text_de": "Vergleich mit der Stelle der Melika",
+     "text_en": "Comparison with the place of melika",
+     "desc": "כשרות חולין לאכילה › כיצד שוחטים › הלכות מנוגדות › המקום בצוואר",
+     "desc_de": "Eignung von Profanem zum Essen › Wie man schlachtet › Gegensätzliche Regeln › Stelle am Hals",
+     "desc_en": "Fitness of unconsecrated animals for eating › How one slaughters › Contrasting rules › Location on the neck"
+    },
+    {
+     "ref": "1:5",
+     "text": "גיל כשרות תורים ובני יונה",
+     "text_de": "Alter der Tauglichkeit von Turteltauben und jungen Tauben",
+     "text_en": "Age of fitness of turtledoves and young pigeons",
+     "desc": "כשרות חולין לאכילה › כיצד שוחטים › הלכות מנוגדות",
+     "desc_de": "Eignung von Profanem zum Essen › Wie man schlachtet › Gegensätzliche Regeln",
+     "desc_en": "Fitness of unconsecrated animals for eating › How one slaughters › Contrasting rules"
+    },
+    {
+     "ref": "1:6",
+     "text": "דברים שונים זה מול זה",
+     "text_de": "Verschiedene Dinge im Gegensatz zueinander",
+     "text_en": "Different matters in contrast to one another",
+     "desc": "כשרות חולין לאכילה › כיצד שוחטים › הלכות מנוגדות",
+     "desc_de": "Eignung von Profanem zum Essen › Wie man schlachtet › Gegensätzliche Regeln",
+     "desc_en": "Fitness of unconsecrated animals for eating › How one slaughters › Contrasting rules"
+    },
+    {
+     "ref": "1:7",
+     "text": "בדבר אחד במצבים שונים",
+     "text_de": "Dasselbe in verschiedenen Fällen",
+     "text_en": "The same matter in different circumstances",
+     "desc": "כשרות חולין לאכילה › כיצד שוחטים › הלכות מנוגדות",
+     "desc_de": "Eignung von Profanem zum Essen › Wie man schlachtet › Gegensätzliche Regeln",
+     "desc_en": "Fitness of unconsecrated animals for eating › How one slaughters › Contrasting rules"
+    }
+   ]
+  },
+  {
+   "head": "פרק ב",
+   "head_de": "Kapitel 2",
+   "head_en": "Chapter 2",
+   "items": [
+    {
+     "ref": "2:1",
+     "text": "מספר סימנים",
+     "text_de": "Anzahl der Zeichen",
+     "text_en": "Number of signs",
+     "desc": "כשרות חולין לאכילה › כיצד שוחטים › מעשה השחיטה",
+     "desc_de": "Eignung von Profanem zum Essen › Wie man schlachtet › Ausführung der Schlachtung",
+     "desc_en": "Fitness of unconsecrated animals for eating › How one slaughters › Performance of the slaughter"
+    },
+    {
+     "ref": "2:2",
+     "text": "שנים שוחטים ונשחטים",
+     "text_de": "Zwei schlachten und werden geschlachtet",
+     "text_en": "Two slaughtering and being slaughtered",
+     "desc": "כשרות חולין לאכילה › כיצד שוחטים › מעשה השחיטה › בשינוי",
+     "desc_de": "Eignung von Profanem zum Essen › Wie man schlachtet › Ausführung der Schlachtung › Bei Abweichung",
+     "desc_en": "Fitness of unconsecrated animals for eating › How one slaughters › Performance of the slaughter › In case of deviation"
+    },
+    {
+     "ref": "2:3",
+     "text": "התזה,אורך הסכין,כיוון \\כוונה, שהייה",
+     "text_de": "Spritzen, Länge des Messers, Richtung/Absicht, Verweilen",
+     "text_en": "Spurting, length of the knife, direction/intention, delay",
+     "desc": "כשרות חולין לאכילה › כיצד שוחטים › מעשה השחיטה › בשינוי",
+     "desc_de": "Eignung von Profanem zum Essen › Wie man schlachtet › Ausführung der Schlachtung › Bei Abweichung",
+     "desc_en": "Fitness of unconsecrated animals for eating › How one slaughters › Performance of the slaughter › In case of deviation"
+    },
+    {
+     "ref": "2:4",
+     "text": "עיקור, חלדה \\ הגדרת נבילה וטריפה",
+     "text_de": "Durchtrennen, Rinne (Chalda) / Definition von Aas und Verletztem (Terefa)",
+     "text_en": "Uprooting, burrowing (chalda) / definition of carrion and terefa",
+     "desc": "כשרות חולין לאכילה › כיצד שוחטים › מעשה השחיטה › תוצאותיה",
+     "desc_de": "Eignung von Profanem zum Essen › Wie man schlachtet › Ausführung der Schlachtung › Ihre Folgen",
+     "desc_en": "Fitness of unconsecrated animals for eating › How one slaughters › Performance of the slaughter › Its consequences"
+    },
+    {
+     "ref": "2:5",
+     "text": "הכשר הבשר לטומאה",
+     "text_de": "Zulassung des Fleisches für die Unreinheit",
+     "text_en": "Rendering the meat susceptible to impurity",
+     "desc": "כשרות חולין לאכילה › אלו בע\"ח כשרים › חשש לבריאות הבהמה › תוצאותיה › שחיטה יבשה",
+     "desc_de": "Eignung von Profanem zum Essen › Welche Tiere sind koscher › Sorge um die Gesundheit des Tieres › Ihre Folgen › Trockene Schlachtung",
+     "desc_en": "Fitness of unconsecrated animals for eating › Which animals are kosher › Concern for the animal's health › Its consequences › Dry slaughter"
+    },
+    {
+     "ref": "2:6",
+     "text": "סימני חיות",
+     "text_de": "Lebenszeichen",
+     "text_en": "Signs of life",
+     "desc": "כשרות חולין לאכילה › אלו בע\"ח כשרים › חשש לבריאות הבהמה › תוצאותיה › מסוכנת",
+     "desc_de": "Eignung von Profanem zum Essen › Welche Tiere sind koscher › Sorge um die Gesundheit des Tieres › Ihre Folgen › Lebensgefährlich verletztes Tier",
+     "desc_en": "Fitness of unconsecrated animals for eating › Which animals are kosher › Concern for the animal's health › Its consequences › Mortally endangered animal"
+    },
+    {
+     "ref": "2:7",
+     "text": "בעל הנשחט נכרי",
+     "text_de": "Der Besitzer des Geschlachteten ist ein Nichtjude",
+     "text_en": "The owner of the slaughtered animal is a gentile",
+     "desc": "כשרות חולין לאכילה › כיצד שוחטים › כוונת השחיטה",
+     "desc_de": "Eignung von Profanem zum Essen › Wie man schlachtet › Absicht der Schlachtung",
+     "desc_en": "Fitness of unconsecrated animals for eating › How one slaughters › Intention of the slaughter"
+    },
+    {
+     "ref": "2:8",
+     "text": "לשם דבר הדומה לע\"ז",
+     "text_de": "Zum Namen von etwas, das Götzendienst ähnelt",
+     "text_en": "For the sake of something resembling idolatry",
+     "desc": "כשרות חולין לאכילה › כיצד שוחטים › כוונת השחיטה",
+     "desc_de": "Eignung von Profanem zum Essen › Wie man schlachtet › Absicht der Schlachtung",
+     "desc_en": "Fitness of unconsecrated animals for eating › How one slaughters › Intention of the slaughter"
+    },
+    {
+     "ref": "2:9",
+     "text": "מעשים וחשד ע\"ז",
+     "text_de": "Handlungen und Verdacht auf Götzendienst",
+     "text_en": "Acts and suspicion of idolatry",
+     "desc": "כשרות חולין לאכילה › כיצד שוחטים › כוונת השחיטה › מראית העין",
+     "desc_de": "Eignung von Profanem zum Essen › Wie man schlachtet › Absicht der Schlachtung › Äußerer Anschein",
+     "desc_en": "Fitness of unconsecrated animals for eating › How one slaughters › Intention of the slaughter › Outward appearance"
+    },
+    {
+     "ref": "2:10",
+     "text": "חשש לקדשים בחוץ, כלל",
+     "text_de": "Sorge wegen Opfern außerhalb (des Heiligtums), Grundsatz",
+     "text_en": "Concern about sacrifices outside (the Sanctuary), general rule",
+     "desc": "כשרות חולין לאכילה › כיצד שוחטים › כוונת השחיטה › מראית העין",
+     "desc_de": "Eignung von Profanem zum Essen › Wie man schlachtet › Absicht der Schlachtung › Äußerer Anschein",
+     "desc_en": "Fitness of unconsecrated animals for eating › How one slaughters › Intention of the slaughter › Outward appearance"
+    }
+   ]
+  },
+  {
+   "head": "פרק ג",
+   "head_de": "Kapitel 3",
+   "head_en": "Chapter 3",
+   "items": [
+    {
+     "ref": "3:1",
+     "text": "18 טריפות, כלל",
+     "text_de": "Die achtzehn Terefot, Grundsatz",
+     "text_en": "The eighteen terefot, general rule",
+     "desc": "כשרות חולין לאכילה › אלו בעלי חיים כשרים › טריפות › בהמה",
+     "desc_de": "Eignung von Profanem zum Essen › Welche Tiere sind koscher › Terefot › Vieh",
+     "desc_en": "Fitness of unconsecrated animals for eating › Which animals are kosher › Terefot › Animals"
+    },
+    {
+     "ref": "3:2",
+     "text": "פצעים הכשרים",
+     "text_de": "Koschere Wunden",
+     "text_en": "Wounds that are kosher",
+     "desc": "כשרות חולין לאכילה › אלו בעלי חיים כשרים › טריפות › בהמה",
+     "desc_de": "Eignung von Profanem zum Essen › Welche Tiere sind koscher › Terefot › Vieh",
+     "desc_en": "Fitness of unconsecrated animals for eating › Which animals are kosher › Terefot › Animals"
+    },
+    {
+     "ref": "3:3",
+     "text": "טריפות נוספות",
+     "text_de": "Weitere Terefot",
+     "text_en": "Further terefot",
+     "desc": "כשרות חולין לאכילה › אלו בעלי חיים כשרים › טריפות › עוף",
+     "desc_de": "Eignung von Profanem zum Essen › Welche Tiere sind koscher › Terefot › Geflügel",
+     "desc_en": "Fitness of unconsecrated animals for eating › Which animals are kosher › Terefot › Fowl"
+    },
+    {
+     "ref": "3:4",
+     "text": "פצעים הכשרים",
+     "text_de": "Koschere Wunden",
+     "text_en": "Wounds that are kosher",
+     "desc": "כשרות חולין לאכילה › אלו בעלי חיים כשרים › טריפות › עוף",
+     "desc_de": "Eignung von Profanem zum Essen › Welche Tiere sind koscher › Terefot › Geflügel",
+     "desc_en": "Fitness of unconsecrated animals for eating › Which animals are kosher › Terefot › Fowl"
+    },
+    {
+     "ref": "3:5",
+     "text": "חליים אחרים",
+     "text_de": "Andere Krankheiten",
+     "text_en": "Other ailments",
+     "desc": "כשרות חולין לאכילה › אלו בעלי חיים כשרים › טריפות",
+     "desc_de": "Eignung von Profanem zum Essen › Welche Tiere sind koscher › Terefot",
+     "desc_en": "Fitness of unconsecrated animals for eating › Which animals are kosher › Terefot"
+    },
+    {
+     "ref": "3:6",
+     "text": "בעוף",
+     "text_de": "Beim Geflügel",
+     "text_en": "In poultry",
+     "desc": "כשרות חולין לאכילה › אלו בעלי חיים כשרים › סימני כשרות",
+     "desc_de": "Eignung von Profanem zum Essen › Welche Tiere sind koscher › Zeichen der Koscherheit",
+     "desc_en": "Fitness of unconsecrated animals for eating › Which animals are kosher › Signs of kashrut"
+    },
+    {
+     "ref": "3:7",
+     "text": "בחגבים, בדגים",
+     "text_de": "Bei Heuschrecken, bei Fischen",
+     "text_en": "In locusts, in fish",
+     "desc": "כשרות חולין לאכילה › אלו בעלי חיים כשרים › סימני כשרות",
+     "desc_de": "Eignung von Profanem zum Essen › Welche Tiere sind koscher › Zeichen der Koscherheit",
+     "desc_en": "Fitness of unconsecrated animals for eating › Which animals are kosher › Signs of kashrut"
+    }
+   ]
+  },
+  {
+   "head": "פרק ד",
+   "head_de": "Kapitel 4",
+   "head_en": "Chapter 4",
+   "items": [
+    {
+     "ref": "4:1",
+     "text": "חלקי עובר שיצאו,ניטלו, חלקי גוף האם",
+     "text_de": "Herausgetretene, entnommene Teile des Fötus, Körperteile der Mutter",
+     "text_en": "Fetal parts that emerged or were removed, parts of the mother's body",
+     "desc": "כשרות חולין לאכילה › התרת השחיטה › בהמה ועוברה › חיתוך",
+     "desc_de": "Eignung von Profanem zum Essen › Freigabe der Schlachtung › Tier und sein Fötus › Zerschneiden",
+     "desc_en": "Fitness of unconsecrated animals for eating › Permitting the slaughter › Animal and its fetus › Cutting"
+    },
+    {
+     "ref": "4:2",
+     "text": "קדושת בכור שנחתך",
+     "text_de": "Heiligkeit des zerschnittenen Erstgeborenen",
+     "text_en": "Sanctity of a firstborn that was cut up",
+     "desc": "כשרות חולין לאכילה › התרת השחיטה › בהמה ועוברה › חיתוך › עובר מת",
+     "desc_de": "Eignung von Profanem zum Essen › Freigabe der Schlachtung › Tier und sein Fötus › Zerschneiden › Toter Fötus",
+     "desc_en": "Fitness of unconsecrated animals for eating › Permitting the slaughter › Animal and its fetus › Cutting › Dead fetus"
+    },
+    {
+     "ref": "4:3",
+     "text": "נגיעה בעובר בבהמה טמאה ובאדם",
+     "text_de": "Berührung des Fötus bei unreinem Tier und beim Menschen",
+     "text_en": "Contact with the fetus in an impure animal and in a human",
+     "desc": "כשרות חולין לאכילה › התרת השחיטה › בהמה ועוברה › טומאה › עובר מת",
+     "desc_de": "Eignung von Profanem zum Essen › Freigabe der Schlachtung › Tier und sein Fötus › Unreinheit › Toter Fötus",
+     "desc_en": "Fitness of unconsecrated animals for eating › Permitting the slaughter › Animal and its fetus › Impurity › Dead fetus"
+    },
+    {
+     "ref": "4:4",
+     "text": "אבר שיצא ונחתך, לטהר טריפה",
+     "text_de": "Herausgetretenes und abgetrenntes Glied, Terefa rein machen",
+     "text_en": "A limb that emerged and was cut off, making a terefa pure",
+     "desc": "כשרות חולין לאכילה › התרת השחיטה › בהמה ועוברה › טומאה",
+     "desc_de": "Eignung von Profanem zum Essen › Freigabe der Schlachtung › Tier und sein Fötus › Unreinheit",
+     "desc_en": "Fitness of unconsecrated animals for eating › Permitting the slaughter › Animal and its fetus › Impurity"
+    },
+    {
+     "ref": "4:5",
+     "text": "בן פקועה",
+     "text_de": "Ben Pekua (im Mutterleib gefundenes Junges)",
+     "text_en": "Ben pekua (fetus found in a slaughtered mother)",
+     "desc": "כשרות חולין לאכילה › התרת השחיטה › בהמה ועוברה › עובר חי/מת",
+     "desc_de": "Eignung von Profanem zum Essen › Freigabe der Schlachtung › Tier und sein Fötus › Lebender/toter Fötus",
+     "desc_en": "Fitness of unconsecrated animals for eating › Permitting the slaughter › Animal and its fetus › Living/dead fetus"
+    },
+    {
+     "ref": "4:6",
+     "text": "עצמות וגידי הרגלים",
+     "text_de": "Knochen und Sehnen der Beine",
+     "text_en": "Bones and sinews of the legs",
+     "desc": "כשרות חולין לאכילה › התרת השחיטה › בהמה ועוברה › טריפות",
+     "desc_de": "Eignung von Profanem zum Essen › Freigabe der Schlachtung › Tier und sein Fötus › Terefot",
+     "desc_en": "Fitness of unconsecrated animals for eating › Permitting the slaughter › Animal and its fetus › Terefot"
+    },
+    {
+     "ref": "4:7",
+     "text": "טומאה, קדושה, קבורה",
+     "text_de": "Unreinheit, Heiligkeit, Bestattung",
+     "text_en": "Impurity, sanctity, burial",
+     "desc": "כשרות חולין לאכילה › התרת השחיטה › בהמה ועוברה › שליא שנמצאת",
+     "desc_de": "Eignung von Profanem zum Essen › Freigabe der Schlachtung › Tier und sein Fötus › Gefundene Nachgeburt",
+     "desc_en": "Fitness of unconsecrated animals for eating › Permitting the slaughter › Animal and its fetus › A placenta that is found"
+    }
+   ]
+  },
+  {
+   "head": "פרק ה",
+   "head_de": "Kapitel 5",
+   "head_en": "Chapter 5",
+   "items": [
+    {
+     "ref": "5:1",
+     "text": "מקום, זמן, בעלות \\ זוג ומקום שוים",
+     "text_de": "Ort, Zeit, Besitz / Paar und gleicher Ort",
+     "text_en": "Place, time, ownership / pair and same place",
+     "desc": "מצוות הקשורות לשחיטה › אותו ואת בנו › היקף החיוב",
+     "desc_de": "Mit der Schlachtung verbundene Gebote › „Ihn und sein Junges“ › Umfang der Verpflichtung",
+     "desc_en": "Commandments connected with slaughter › \"It and its young\" › Scope of the obligation"
+    },
+    {
+     "ref": "5:2",
+     "text": "חילוק בקדושת הזוג או המקום",
+     "text_de": "Unterscheidung in der Heiligkeit des Paares oder des Ortes",
+     "text_en": "Distinction in the sanctity of the pair or the place",
+     "desc": "מצוות הקשורות לשחיטה › אותו ואת בנו › איך מתחייב › הדגמה חולין,קדשים",
+     "desc_de": "Mit der Schlachtung verbundene Gebote › „Ihn und sein Junges“ › Wie man schuldig wird › Veranschaulichung: Profanes, Geheiligtes",
+     "desc_en": "Commandments connected with slaughter › \"It and its young\" › How one becomes liable › Illustration: unconsecrated, consecrated"
+    },
+    {
+     "ref": "5:3",
+     "text": "שחיטה לא ראויה,חיוב כפול\\ הודעת טבח",
+     "text_de": "Unzulässige Schlachtung, doppelte Haftung / Mitteilung des Metzgers",
+     "text_en": "Invalid slaughter, double liability / the butcher's notification",
+     "desc": "מצוות הקשורות לשחיטה › אותו ואת בנו › איך מתחייב › ארבעה פרקים",
+     "desc_de": "Mit der Schlachtung verbundene Gebote › „Ihn und sein Junges“ › Wie man schuldig wird › Vier Kapitel",
+     "desc_en": "Commandments connected with slaughter › \"It and its young\" › How one becomes liable › Four chapters"
+    },
+    {
+     "ref": "5:4",
+     "text": "מעות קונות",
+     "text_de": "Geld erwirbt",
+     "text_en": "Money acquires",
+     "desc": "מצוות הקשורות לשחיטה › אותו ואת בנו › איך מתחייב › ארבעה פרקים",
+     "desc_de": "Mit der Schlachtung verbundene Gebote › „Ihn und sein Junges“ › Wie man schuldig wird › Vier Kapitel",
+     "desc_en": "Commandments connected with slaughter › \"It and its young\" › How one becomes liable › Four chapters"
+    },
+    {
+     "ref": "5:5",
+     "text": "יום אחר הלילה",
+     "text_de": "Ein anderer Tag als die Nacht",
+     "text_en": "A day other than the night",
+     "desc": "מצוות הקשורות לשחיטה › אותו ואת בנו › החיוב › זמן",
+     "desc_de": "Mit der Schlachtung verbundene Gebote › „Ihn und sein Junges“ › Die Verpflichtung › Zeit",
+     "desc_en": "Commandments connected with slaughter › \"It and its young\" › The obligation › time"
+    }
+   ]
+  },
+  {
+   "head": "פרק ו",
+   "head_de": "Kapitel 6",
+   "head_en": "Chapter 6",
+   "items": [
+    {
+     "ref": "6:1",
+     "text": "מקום, זמן, בעל חי, כוי",
+     "text_de": "Ort, Zeit, Tier, Koi",
+     "text_en": "Place, time, animal, koy",
+     "desc": "מצוות הקשורות לשחיטה › כיסוי הדם › חיוב לכסות › היקף החיוב",
+     "desc_de": "Mit der Schlachtung verbundene Gebote › Bedecken des Blutes › Pflicht zu bedecken › Umfang der Verpflichtung",
+     "desc_en": "Commandments connected with slaughter › Covering the blood › Obligation to cover › Scope of the obligation"
+    },
+    {
+     "ref": "6:2",
+     "text": "שאינה נאכלת, שאינה שחיטה כלל",
+     "text_de": "Was nicht gegessen wird, was gar keine Schlachtung ist",
+     "text_en": "What is not eaten, what is not slaughter at all",
+     "desc": "מצוות הקשורות לשחיטה › כיסוי הדם › חיוב לכסות › שחיטה שאינה ראויה",
+     "desc_de": "Mit der Schlachtung verbundene Gebote › Bedecken des Blutes › Pflicht zu bedecken › Unzulässige Schlachtung",
+     "desc_en": "Commandments connected with slaughter › Covering the blood › Obligation to cover › Invalid slaughter"
+    },
+    {
+     "ref": "6:3",
+     "text": "ע\"י חסרי דעת והתוצאה לאותו ואת בנו",
+     "text_de": "Durch Unzurechnungsfähige und die Folge für „ihn und sein Junges“",
+     "text_en": "By persons lacking understanding and the consequence for \"it and its young\"",
+     "desc": "מצוות הקשורות לשחיטה › כיסוי הדם › חיוב לכסות › שחיטה שאינה ראויה",
+     "desc_de": "Mit der Schlachtung verbundene Gebote › Bedecken des Blutes › Pflicht zu bedecken › Unzulässige Schlachtung",
+     "desc_en": "Commandments connected with slaughter › Covering the blood › Obligation to cover › Invalid slaughter"
+    },
+    {
+     "ref": "6:4",
+     "text": "מספר הכיסוים, כיסוי ע\"י אחר, נתגלה",
+     "text_de": "Anzahl der Bedeckungen, Bedecken durch einen anderen, Aufdeckung",
+     "text_en": "Number of coverings, covering by another, uncovering",
+     "desc": "מצוות הקשורות לשחיטה › כיסוי הדם › חיוב לכסות › כיצד מכסים",
+     "desc_de": "Mit der Schlachtung verbundene Gebote › Bedecken des Blutes › Pflicht zu bedecken › Wie man bedeckt",
+     "desc_en": "Commandments connected with slaughter › Covering the blood › Obligation to cover › How one covers"
+    },
+    {
+     "ref": "6:5",
+     "text": "שנתערב",
+     "text_de": "Vermischtes",
+     "text_en": "What became mixed",
+     "desc": "מצוות הקשורות לשחיטה › כיסוי הדם › חיוב לכסות › דם הראוי",
+     "desc_de": "Mit der Schlachtung verbundene Gebote › Bedecken des Blutes › Pflicht zu bedecken › Geeignetes Blut",
+     "desc_en": "Commandments connected with slaughter › Covering the blood › Obligation to cover › Suitable blood"
+    },
+    {
+     "ref": "6:6",
+     "text": "מקומו של הדם",
+     "text_de": "Ort des Blutes",
+     "text_en": "Place of the blood",
+     "desc": "מצוות הקשורות לשחיטה › כיסוי הדם › חיוב לכסות › דם הראוי",
+     "desc_de": "Mit der Schlachtung verbundene Gebote › Bedecken des Blutes › Pflicht zu bedecken › Geeignetes Blut",
+     "desc_en": "Commandments connected with slaughter › Covering the blood › Obligation to cover › Suitable blood"
+    },
+    {
+     "ref": "6:7",
+     "text": "כיסוי הראוי, כלל",
+     "text_de": "Geeignetes Bedecken, Grundsatz",
+     "text_en": "Suitable covering, general rule",
+     "desc": "מצוות הקשורות לשחיטה › כיסוי הדם › כיצד מכסים",
+     "desc_de": "Mit der Schlachtung verbundene Gebote › Bedecken des Blutes › Wie man bedeckt",
+     "desc_en": "Commandments connected with slaughter › Covering the blood › How one covers"
+    }
+   ]
+  },
+  {
+   "head": "פרק ז",
+   "head_de": "Kapitel 7",
+   "head_en": "Chapter 7",
+   "items": [
+    {
+     "ref": "7:1",
+     "text": "מקום, זמן, בעל חי \\ נאמנות הטבח",
+     "text_de": "Ort, Zeit, Tier / Glaubwürdigkeit des Metzgers",
+     "text_en": "Place, time, animal / reliability of the butcher",
+     "desc": "כשרות חולין לאכילה › גיד הנשה › היקף האיסור",
+     "desc_de": "Eignung von Profanem zum Essen › Hüftsehne (Gid ha-Nasche) › Umfang des Verbots",
+     "desc_en": "Fitness of unconsecrated animals for eating › Sciatic nerve (gid ha-nasheh) › Scope of the prohibition"
+    },
+    {
+     "ref": "7:2",
+     "text": "נתינתו לנכרי, נטילה חלקית",
+     "text_de": "Übergabe an einen Nichtjuden, teilweises Entfernen",
+     "text_en": "Giving it to a gentile, partial removal",
+     "desc": "כשרות חולין לאכילה › גיד הנשה › נטילתו",
+     "desc_de": "Eignung von Profanem zum Essen › Hüftsehne (Gid ha-Nasche) › Seine Entfernung",
+     "desc_en": "Fitness of unconsecrated animals for eating › Sciatic nerve (gid ha-nasheh) › Its removal"
+    },
+    {
+     "ref": "7:3",
+     "text": "שיעורו",
+     "text_de": "Sein Mindestmaß",
+     "text_en": "Its minimum quantity",
+     "desc": "כשרות חולין לאכילה › גיד הנשה › היקף האיסור",
+     "desc_de": "Eignung von Profanem zum Essen › Hüftsehne (Gid ha-Nasche) › Umfang des Verbots",
+     "desc_en": "Fitness of unconsecrated animals for eating › Sciatic nerve (gid ha-nasheh) › Scope of the prohibition"
+    },
+    {
+     "ref": "7:4",
+     "text": "גיד בירך",
+     "text_de": "Sehne in der Keule",
+     "text_en": "Sinew in the thigh",
+     "desc": "כשרות חולין לאכילה › גיד הנשה › נתינת טעם",
+     "desc_de": "Eignung von Profanem zum Essen › Hüftsehne (Gid ha-Nasche) › Übertragung von Geschmack",
+     "desc_en": "Fitness of unconsecrated animals for eating › Sciatic nerve (gid ha-nasheh) › Transfer of flavor"
+    },
+    {
+     "ref": "7:5",
+     "text": "גיד בין הגידין, חתיכה בין חתיכות",
+     "text_de": "Sehne unter den Sehnen, Stück unter Stücken",
+     "text_en": "A sinew among sinews, a piece among pieces",
+     "desc": "כשרות חולין לאכילה › גיד הנשה › נתינת טעם",
+     "desc_de": "Eignung von Profanem zum Essen › Hüftsehne (Gid ha-Nasche) › Übertragung von Geschmack",
+     "desc_en": "Fitness of unconsecrated animals for eating › Sciatic nerve (gid ha-nasheh) › Transfer of flavor"
+    },
+    {
+     "ref": "7:6",
+     "text": "בהמה טמאה",
+     "text_de": "Unreines Tier",
+     "text_en": "Impure animal",
+     "desc": "כשרות חולין לאכילה › גיד הנשה › היקף האיסור",
+     "desc_de": "Eignung von Profanem zum Essen › Hüftsehne (Gid ha-Nasche) › Umfang des Verbots",
+     "desc_en": "Fitness of unconsecrated animals for eating › Sciatic nerve (gid ha-nasheh) › Scope of the prohibition"
+    }
+   ]
+  },
+  {
+   "head": "פרק ח",
+   "head_de": "Kapitel 8",
+   "head_en": "Chapter 8",
+   "items": [
+    {
+     "ref": "8:1",
+     "text": "בשר דגים וחגבים \\ גזירת העלאה לשלחן",
+     "text_de": "Fleisch von Fischen und Heuschrecken / Verordnung des Auftragens auf den Tisch",
+     "text_en": "Meat of fish and locusts / decree against bringing it to the table",
+     "desc": "כשרות חולין לאכילה › בשר בחלב › הרחקות",
+     "desc_de": "Eignung von Profanem zum Essen › Fleisch in Milch › Schutzmaßnahmen",
+     "desc_en": "Fitness of unconsecrated animals for eating › Meat in milk › Safeguards"
+    },
+    {
+     "ref": "8:2",
+     "text": "נגיעה, אכליתן על שלחן אחד",
+     "text_de": "Berührung, Essen an einem Tisch",
+     "text_en": "Contact, eating at one table",
+     "desc": "כשרות חולין לאכילה › בשר בחלב › הרחקות",
+     "desc_de": "Eignung von Profanem zum Essen › Fleisch in Milch › Schutzmaßnahmen",
+     "desc_en": "Fitness of unconsecrated animals for eating › Meat in milk › Safeguards"
+    },
+    {
+     "ref": "8:3",
+     "text": "טפה בקדירה \\ כחל, לב, העלאת עוף",
+     "text_de": "Tropfen im Topf / Euter, Herz, Auftragen von Geflügel",
+     "text_en": "A drop in the pot / udder, heart, serving poultry",
+     "desc": "כשרות חולין לאכילה › בשר בחלב › נתינת טעם",
+     "desc_de": "Eignung von Profanem zum Essen › Fleisch in Milch › Übertragung von Geschmack",
+     "desc_en": "Fitness of unconsecrated animals for eating › Meat in milk › Transfer of flavor"
+    },
+    {
+     "ref": "8:4",
+     "text": "טמאה וטהורה, חיה ועוף",
+     "text_de": "Unreine und reine, Wild und Geflügel",
+     "text_en": "Impure and pure, beast and fowl",
+     "desc": "כשרות חולין לאכילה › בשר בחלב › היקף האיסור",
+     "desc_de": "Eignung von Profanem zum Essen › Fleisch in Milch › Umfang des Verbots",
+     "desc_en": "Fitness of unconsecrated animals for eating › Meat in milk › Scope of the prohibition"
+    },
+    {
+     "ref": "8:5",
+     "text": "דיני קיבה ועורה",
+     "text_de": "Regeln über Labmagen und seine Haut",
+     "text_en": "Rules on the rennet stomach and its hide",
+     "desc": "כשרות חולין לאכילה › בשר בחלב › נתינת טעם",
+     "desc_de": "Eignung von Profanem zum Essen › Fleisch in Milch › Übertragung von Geschmack",
+     "desc_en": "Fitness of unconsecrated animals for eating › Meat in milk › Transfer of flavor"
+    },
+    {
+     "ref": "8:6",
+     "text": "השוואת איסורם",
+     "text_de": "Vergleich ihrer Verbote",
+     "text_en": "Comparison of their prohibitions",
+     "desc": "כשרות חולין לאכילה › חלב ודם",
+     "desc_de": "Eignung von Profanem zum Essen › Fett und Blut",
+     "desc_en": "Fitness of unconsecrated animals for eating › Fat and blood"
+    }
+   ]
+  },
+  {
+   "head": "פרק ט",
+   "head_de": "Kapitel 9",
+   "head_en": "Chapter 9",
+   "items": [
+    {
+     "ref": "9:1",
+     "text": "המצטרפין לטומאה קלה ולא לחמורה",
+     "text_de": "Was sich für leichte, nicht aber für schwere Unreinheit vereinigt",
+     "text_en": "What combines for lesser but not for severe impurity",
+     "desc": "כשרות חולין לאכילה › טומאת בשר › המטמאים › צירוף",
+     "desc_de": "Eignung von Profanem zum Essen › Unreinheit des Fleisches › Die Verunreinigenden › Zusammenrechnen",
+     "desc_en": "Fitness of unconsecrated animals for eating › Impurity of meat › Those that convey impurity › Combining"
+    },
+    {
+     "ref": "9:2",
+     "text": "שעורותיהן כבשרן",
+     "text_de": "Ihre Häute sind wie ihr Fleisch",
+     "text_en": "Their hides are like their flesh",
+     "desc": "כשרות חולין לאכילה › טומאת בשר › המטמאים",
+     "desc_de": "Eignung von Profanem zum Essen › Unreinheit des Fleisches › Die Verunreinigenden",
+     "desc_en": "Fitness of unconsecrated animals for eating › Impurity of meat › Those that convey impurity"
+    },
+    {
+     "ref": "9:3",
+     "text": "יד לטומאה במפשיט",
+     "text_de": "Griff für die Unreinheit beim Abhäuten",
+     "text_en": "A handle for impurity in flaying",
+     "desc": "כשרות חולין לאכילה › טומאת בשר › המעבירים טומאה › יד ושומר",
+     "desc_de": "Eignung von Profanem zum Essen › Unreinheit des Fleisches › Die Unreinheit Weitergebenden › Griff und Hüter",
+     "desc_en": "Fitness of unconsecrated animals for eating › Impurity of meat › Those that transmit impurity › Handle and guardian"
+    },
+    {
+     "ref": "9:4",
+     "text": "יד לכזית ולשני חצאיו",
+     "text_de": "Griff für Olivengröße und für ihre beiden Hälften",
+     "text_en": "Handle for an olive's bulk and for its two halves",
+     "desc": "כשרות חולין לאכילה › טומאת בשר › המעבירים טומאה › יד ושומר",
+     "desc_de": "Eignung von Profanem zum Essen › Unreinheit des Fleisches › Die Unreinheit Weitergebenden › Griff und Hüter",
+     "desc_en": "Fitness of unconsecrated animals for eating › Impurity of meat › Those that transmit impurity › Handle and guardian"
+    },
+    {
+     "ref": "9:5",
+     "text": "בא לכלל מגע \\ משא",
+     "text_de": "Kommt in Berührung / Tragen",
+     "text_en": "Comes into contact / carrying",
+     "desc": "כשרות חולין לאכילה › טומאת בשר › המעבירים טומאה › יד ושומר",
+     "desc_de": "Eignung von Profanem zum Essen › Unreinheit des Fleisches › Die Unreinheit Weitergebenden › Griff und Hüter",
+     "desc_en": "Fitness of unconsecrated animals for eating › Impurity of meat › Those that transmit impurity › Handle and guardian"
+    },
+    {
+     "ref": "9:6",
+     "text": "ביצת השרץ, טומאת עכבר שחציו אדמה",
+     "text_de": "Ei des Kriechtiers, Unreinheit einer Maus, die halb Erde ist",
+     "text_en": "Egg of the creeping creature, impurity of a mouse that is half earth",
+     "desc": "כשרות חולין לאכילה › טומאת בשר › המטמאים › יד ושומר",
+     "desc_de": "Eignung von Profanem zum Essen › Unreinheit des Fleisches › Die Verunreinigenden › Griff und Hüter",
+     "desc_en": "Fitness of unconsecrated animals for eating › Impurity of meat › Those that convey impurity › Handle and guardian"
+    },
+    {
+     "ref": "9:7",
+     "text": "בבהמה ובשחיטתה",
+     "text_de": "Beim Tier und seiner Schlachtung",
+     "text_en": "In the animal and its slaughter",
+     "desc": "כשרות חולין לאכילה › טומאת בשר › המטמאים › אבר ובשר המדולדלין",
+     "desc_de": "Eignung von Profanem zum Essen › Unreinheit des Fleisches › Die Verunreinigenden › Hängendes Glied und Fleisch",
+     "desc_en": "Fitness of unconsecrated animals for eating › Impurity of meat › Those that convey impurity › Dangling limb and flesh"
+    },
+    {
+     "ref": "9:8",
+     "text": "באדם ובמיתתו",
+     "text_de": "Beim Menschen und seinem Tod",
+     "text_en": "In the human and his death",
+     "desc": "כשרות חולין לאכילה › טומאת בשר › המטמאים › אבר ובשר המדולדלין",
+     "desc_de": "Eignung von Profanem zum Essen › Unreinheit des Fleisches › Die Verunreinigenden › Hängendes Glied und Fleisch",
+     "desc_en": "Fitness of unconsecrated animals for eating › Impurity of meat › Those that convey impurity › Dangling limb and flesh"
+    }
+   ]
+  },
+  {
+   "head": "פרק י",
+   "head_de": "Kapitel 10",
+   "head_en": "Chapter 10",
+   "items": [
+    {
+     "ref": "10:1",
+     "text": "זמן ומקום, של מוקדשין",
+     "text_de": "Zeit und Ort, bei Geweihtem",
+     "text_en": "Time and place, regarding consecrated animals",
+     "desc": "מצוות הקשורות לשחיטה › מתנות כהונה מהחי › זרוע לחיים וקיבה › היקף החיוב",
+     "desc_de": "Mit der Schlachtung verbundene Gebote › Priestergaben vom lebenden Tier › Vorderbein, Kinnbacken und Labmagen › Umfang der Verpflichtung",
+     "desc_en": "Commandments connected with slaughter › Priestly gifts from the living animal › Foreleg, jaws and maw › Scope of the obligation"
+    },
+    {
+     "ref": "10:2",
+     "text": "דיני קדשים שהוממו לפני / אחרי הקדשן",
+     "text_de": "Regeln über Geweihtes, das vor / nach der Weihung fehlerhaft wurde",
+     "text_en": "Rules on consecrated animals that became blemished before / after consecration",
+     "desc": "מצוות הקשורות לשחיטה › מתנות כהונה מהחי › זרוע לחיים וקיבה › היקף החיוב",
+     "desc_de": "Mit der Schlachtung verbundene Gebote › Priestergaben vom lebenden Tier › Vorderbein, Kinnbacken und Labmagen › Umfang der Verpflichtung",
+     "desc_en": "Commandments connected with slaughter › Priestly gifts from the living animal › Foreleg, jaws and maw › Scope of the obligation"
+    },
+    {
+     "ref": "10:3",
+     "text": "תערובת בכור, בעלות, תנאי מכירה",
+     "text_de": "Vermischung von Erstgeborenem, Besitz, Verkaufsbedingungen",
+     "text_en": "Mixing of a firstborn, ownership, conditions of sale",
+     "desc": "מצוות הקשורות לשחיטה › מתנות כהונה מהחי › זרוע לחיים וקיבה › פטור ממתנות",
+     "desc_de": "Mit der Schlachtung verbundene Gebote › Priestergaben vom lebenden Tier › Vorderbein, Kinnbacken und Labmagen › Befreiung von den Gaben",
+     "desc_en": "Commandments connected with slaughter › Priestly gifts from the living animal › Foreleg, jaws and maw › Exemption from the gifts"
+    },
+    {
+     "ref": "10:4",
+     "text": "גר \\ תיאור מיקום המתנות",
+     "text_de": "Proselyt / Beschreibung der Lage der Gaben",
+     "text_en": "Proselyte / description of the location of the gifts",
+     "desc": "מצוות הקשורות לשחיטה › מתנות כהונה מהחי › זרוע לחיים וקיבה",
+     "desc_de": "Mit der Schlachtung verbundene Gebote › Priestergaben vom lebenden Tier › Vorderbein, Kinnbacken und Labmagen",
+     "desc_en": "Commandments connected with slaughter › Priestly gifts from the living animal › Foreleg, jaws and maw"
+    }
+   ]
+  },
+  {
+   "head": "פרק יא",
+   "head_de": "Kapitel 11",
+   "head_en": "Chapter 11",
+   "items": [
+    {
+     "ref": "11:1",
+     "text": "זמן ומקום,שלא מוקדשין,השוואה למתנות",
+     "text_de": "Zeit und Ort, Nichtgeweihtes, Vergleich mit den Gaben",
+     "text_en": "Time and place, unconsecrated animals, comparison with the gifts",
+     "desc": "מצוות הקשורות לשחיטה › מתנות כהונה מהחי › ראשית הגז › היקף החיוב",
+     "desc_de": "Mit der Schlachtung verbundene Gebote › Priestergaben vom lebenden Tier › Erstes Schurgut › Umfang der Verpflichtung",
+     "desc_en": "Commandments connected with slaughter › Priestly gifts from the living animal › First fleece › Scope of the obligation"
+    },
+    {
+     "ref": "11:2",
+     "text": "כמות צאן וגיזה\\ מתנה קטנה,שינוי,מכר",
+     "text_de": "Menge der Schafe und der Schur / kleine Gabe, Änderung, Verkauf",
+     "text_en": "Number of sheep and of the fleece / small gift, alteration, sale",
+     "desc": "מצוות הקשורות לשחיטה › מתנות כהונה מהחי › ראשית הגז",
+     "desc_de": "Mit der Schlachtung verbundene Gebote › Priestergaben vom lebenden Tier › Erstes Schurgut",
+     "desc_en": "Commandments connected with slaughter › Priestly gifts from the living animal › First fleece"
+    }
+   ]
+  },
+  {
+   "head": "פרק יב",
+   "head_de": "Kapitel 12",
+   "head_en": "Chapter 12",
+   "items": [
+    {
+     "ref": "12:1",
+     "text": "מקום,זמן,מוקדשין,דמיון לכיסוי,מזומן",
+     "text_de": "Ort, Zeit, Geweihtes, Ähnlichkeit mit dem Bedecken, Bargeld",
+     "text_en": "Place, time, consecrated animals, similarity to covering, ready money",
+     "desc": "מצוות הקשורות לשחיטה › שילוח הקן › החיוב לשלח",
+     "desc_de": "Mit der Schlachtung verbundene Gebote › Fortschicken des Nestes › Pflicht zum Fortschicken",
+     "desc_en": "Commandments connected with slaughter › Sending away from the nest › Obligation to send away"
+    },
+    {
+     "ref": "12:2",
+     "text": "עוף טמא, זכר הרובץ",
+     "text_de": "Unreiner Vogel, auf dem Nest sitzendes Männchen",
+     "text_en": "Impure bird, male sitting on the nest",
+     "desc": "מצוות הקשורות לשחיטה › שילוח הקן › החיוב לשלח",
+     "desc_de": "Mit der Schlachtung verbundene Gebote › Fortschicken des Nestes › Pflicht zum Fortschicken",
+     "desc_en": "Commandments connected with slaughter › Sending away from the nest › Obligation to send away"
+    },
+    {
+     "ref": "12:3",
+     "text": "קירבת האם לקן,מצב בניה,חזרת האם לקן",
+     "text_de": "Nähe der Mutter zum Nest, Zustand des Baus, Rückkehr der Mutter zum Nest",
+     "text_en": "Mother's proximity to the nest, state of the structure, mother's return to the nest",
+     "desc": "מצוות הקשורות לשחיטה › שילוח הקן › החיוב לשלח",
+     "desc_de": "Mit der Schlachtung verbundene Gebote › Fortschicken des Nestes › Pflicht zum Fortschicken",
+     "desc_en": "Commandments connected with slaughter › Sending away from the nest › Obligation to send away"
+    },
+    {
+     "ref": "12:4",
+     "text": "מלקות על לקיחת האם",
+     "text_de": "Geißelung für das Nehmen der Mutter",
+     "text_en": "Lashes for taking the mother",
+     "desc": "מצוות הקשורות לשחיטה › שילוח הקן › החיוב לשלח",
+     "desc_de": "Mit der Schlachtung verbundene Gebote › Fortschicken des Nestes › Pflicht zum Fortschicken",
+     "desc_en": "Commandments connected with slaughter › Sending away from the nest › Obligation to send away"
+    },
+    {
+     "ref": "12:5",
+     "text": "אסור אפילו למצוה, ק\"ו לשכר מצוות",
+     "text_de": "Verboten selbst für ein Gebot, Schluss vom Leichteren auf das Schwerere für den Lohn der Gebote",
+     "text_en": "Forbidden even for a commandment, a fortiori for the reward of the commandments",
+     "desc": "מצוות הקשורות לשחיטה › שילוח הקן › החיוב לשלח",
+     "desc_de": "Mit der Schlachtung verbundene Gebote › Fortschicken des Nestes › Pflicht zum Fortschicken",
+     "desc_en": "Commandments connected with slaughter › Sending away from the nest › Obligation to send away"
+    }
+   ]
+  }
+ ]
+}

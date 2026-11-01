@@ -1,0 +1,334 @@
+{
+ "book": "Mishnah Zavim",
+ "title": "משנה זבים",
+ "title_de": "Mischna Sawim – Gliederung",
+ "title_en": "Zavim – outline",
+ "note": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema).",
+ "note_de": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema); ins Deutsche und Englische übersetzt.",
+ "note_en": "Outline after the table “Mishna Sedura”: the central content of each mishnah, with the topic path (main topic to sub-topic); translated into German and English.",
+ "sections": [
+  {
+   "head": "פרק א",
+   "head_de": "Kapitel 1",
+   "head_en": "Chapter 1",
+   "items": [
+    {
+     "ref": "1:1",
+     "text": "מספרם והפסק יום",
+     "text_de": "Ihre Anzahl und Unterbrechung durch einen Tag",
+     "text_en": "Their number and interruption by a day",
+     "desc": "כיצד נטמא הזב › צירוף לטמא ולטהר › ראיות",
+     "desc_de": "Wie der Zaw unrein wird › Zusammenrechnen zur Verunreinigung und zur Reinigung › Ausflüsse",
+     "desc_en": "How a zav becomes impure › Combining for impurity and for purification › Discharges"
+    },
+    {
+     "ref": "1:2",
+     "text": "סתירת ספירה בקרי, בזוב",
+     "text_de": "Aufhebung der Zählung bei Samenerguss, bei Zawut",
+     "text_en": "Voiding of the count through seminal emission, through zavut",
+     "desc": "כיצד נטמא הזב › צירוף לטמא ולטהר › ימי טהרה",
+     "desc_de": "Wie der Zaw unrein wird › Zusammenrechnen zur Verunreinigung und zur Reinigung › Tage der Reinheit",
+     "desc_en": "How a zav becomes impure › Combining for impurity and for purification › Days of purity"
+    },
+    {
+     "ref": "1:3",
+     "text": "זמני שלש ראיות",
+     "text_de": "Zeitpunkte der drei Ausflüsse",
+     "text_en": "Timing of the three discharges",
+     "desc": "כיצד נטמא הזב › צירוף לטמא ולטהר › ראיות",
+     "desc_de": "Wie der Zaw unrein wird › Zusammenrechnen zur Verunreinigung und zur Reinigung › Ausflüsse",
+     "desc_en": "How a zav becomes impure › Combining for impurity and for purification › Discharges"
+    },
+    {
+     "ref": "1:4",
+     "text": "שיעור הפסק ושל אחת המרובה כשתים",
+     "text_de": "Maß der Unterbrechung und dass ein umfangreicher Ausfluss wie zwei gilt",
+     "text_en": "Measure of the interruption and that one large discharge counts as two",
+     "desc": "כיצד נטמא הזב › חילוק לטמא ולטהר › ראיות",
+     "desc_de": "Wie der Zaw unrein wird › Unterscheidung bei Verunreinigung und Reinigung › Ausflüsse",
+     "desc_en": "How a zav becomes impure › Distinction regarding impurity and purification › Discharges"
+    },
+    {
+     "ref": "1:5",
+     "text": "שיעור אחת כשלש, דין הרואה אחת כשתים",
+     "text_de": "Maß: einer wie drei, Recht dessen, der einen Ausfluss sieht, wie zwei",
+     "text_en": "Measure: one counts as three, law of one who sees a single discharge as two",
+     "desc": "כיצד נטמא הזב › חילוק לטמא ולטהר › ראיות",
+     "desc_de": "Wie der Zaw unrein wird › Unterscheidung bei Verunreinigung und Reinigung › Ausflüsse",
+     "desc_en": "How a zav becomes impure › Distinction regarding impurity and purification › Discharges"
+    },
+    {
+     "ref": "1:6",
+     "text": "חילוק על ידי שקיעה וספק",
+     "text_de": "Unterscheidung durch Sonnenuntergang und Zweifel",
+     "text_en": "Distinction by sunset and doubt",
+     "desc": "כיצד נטמא הזב › חילוק לטמא ולטהר › ראיות",
+     "desc_de": "Wie der Zaw unrein wird › Unterscheidung bei Verunreinigung und Reinigung › Ausflüsse",
+     "desc_en": "How a zav becomes impure › Distinction regarding impurity and purification › Discharges"
+    }
+   ]
+  },
+  {
+   "head": "פרק ב",
+   "head_de": "Kapitel 2",
+   "head_en": "Chapter 2",
+   "items": [
+    {
+     "ref": "2:1",
+     "text": "גרים, עבדים, חש\"ו, סריסים, ספקי זכר",
+     "text_de": "Proselyten, Sklaven, Taube/Schwachsinnige/Minderjährige, Eunuchen, Zweifel des Geschlechts",
+     "text_en": "Converts, slaves, deaf-mutes/mentally incompetent/minors, eunuchs, those of uncertain sex",
+     "desc": "כיצד נטמא הזב › הנטמא בזוב",
+     "desc_de": "Wie der Zaw unrein wird › Durch Zawut Verunreinigter",
+     "desc_en": "How a zav becomes impure › One defiled through zavut"
+    },
+    {
+     "ref": "2:2",
+     "text": "תיאור האונס, מניין ראיות לבדיקה",
+     "text_de": "Beschreibung des Zwangs, Zahl der Ausflüsse zur Untersuchung",
+     "text_en": "Description of compulsion, number of discharges for examination",
+     "desc": "כיצד נטמא הזב › טהרת הראיה › תלייה באונס",
+     "desc_de": "Wie der Zaw unrein wird › Reinheit des Ausflusses › Zurückführung auf Zwang",
+     "desc_en": "How a zav becomes impure › Purity of the discharge › Attributing it to compulsion"
+    },
+    {
+     "ref": "2:3",
+     "text": "מעת לעת, ועוד הלכות",
+     "text_de": "Vierundzwanzig-Stunden-Zeitspanne und weitere Gesetze",
+     "text_en": "The twenty-four-hour period and further laws",
+     "desc": "כיצד נטמא הזב › טהרת הראיה › תלייה באונס",
+     "desc_de": "Wie der Zaw unrein wird › Reinheit des Ausflusses › Zurückführung auf Zwang",
+     "desc_en": "How a zav becomes impure › Purity of the discharge › Attributing it to compulsion"
+    },
+    {
+     "ref": "2:4",
+     "text": "5 דרכים שנטמא, 7 דרכים שמטמא",
+     "text_de": "Fünf Wege, unrein zu werden, sieben Wege zu verunreinigen",
+     "text_en": "Five ways of becoming impure, seven ways of defiling",
+     "desc": "דרכי העברת טומאה › טומאת מדרס והיסט הזב › עשיית משכב והעברת טומאתו",
+     "desc_de": "Wege der Weitergabe von Unreinheit › Midras-Unreinheit und Verschieben durch den Zaw › Bereiten eines Lagers und Weitergabe seiner Unreinheit",
+     "desc_en": "Ways of transmitting impurity › Midras impurity and shifting by the zav › Making a bed and transmitting its impurity"
+    }
+   ]
+  },
+  {
+   "head": "פרק ג",
+   "head_de": "Kapitel 3",
+   "head_en": "Chapter 3",
+   "items": [
+    {
+     "ref": "3:1",
+     "text": "ישיבה על דבר שמתנועע",
+     "text_de": "Sitzen auf etwas Beweglichem",
+     "text_en": "Sitting on something movable",
+     "desc": "דרכי העברת טומאה › טומאת מדרס והיסט הזב › הזב עם הטהור ובגדיו › שמטמא",
+     "desc_de": "Wege der Weitergabe von Unreinheit › Midras-Unreinheit und Verschieben durch den Zaw › Der Zaw mit dem Reinen und dessen Kleidern › Was verunreinigt",
+     "desc_en": "Ways of transmitting impurity › Midras impurity and shifting by the zav › The zav with a pure person and his clothes › What defiles"
+    },
+    {
+     "ref": "3:2",
+     "text": "שיתוף פעולה",
+     "text_de": "Zusammenarbeit",
+     "text_en": "Cooperation",
+     "desc": "דרכי העברת טומאה › טומאת מדרס והיסט הזב › הזב עם הטהור ובגדיו › שמטמא",
+     "desc_de": "Wege der Weitergabe von Unreinheit › Midras-Unreinheit und Verschieben durch den Zaw › Der Zaw mit dem Reinen und dessen Kleidern › Was verunreinigt",
+     "desc_en": "Ways of transmitting impurity › Midras impurity and shifting by the zav › The zav with a pure person and his clothes › What defiles"
+    },
+    {
+     "ref": "3:3",
+     "text": "ישיבה על דבר היציב \\ הכאה",
+     "text_de": "Sitzen auf etwas Festem / Schlagen",
+     "text_en": "Sitting on something stable / striking",
+     "desc": "דרכי העברת טומאה › טומאת מדרס והיסט הזב › הזב עם הטהור ובגדיו › שטהור",
+     "desc_de": "Wege der Weitergabe von Unreinheit › Midras-Unreinheit und Verschieben durch den Zaw › Der Zaw mit dem Reinen und dessen Kleidern › Was rein bleibt",
+     "desc_en": "Ways of transmitting impurity › Midras impurity and shifting by the zav › The zav with a pure person and his clothes › What remains pure"
+    }
+   ]
+  },
+  {
+   "head": "פרק ד",
+   "head_de": "Kapitel 4",
+   "head_en": "Chapter 4",
+   "items": [
+    {
+     "ref": "4:1",
+     "text": "ישיבה עם נידה, נשיאת עריבה \\ כצוצרא",
+     "text_de": "Sitzen mit einer Menstruierenden, Tragen eines Troges / wie eine Röhre",
+     "text_en": "Sitting with a menstruating woman, carrying a trough / like a pipe",
+     "desc": "דרכי העברת טומאה › טומאת מדרס והיסט הזב › הזב עם הטהור ובגדיו \\ תנודה ע\"י הזב › שטהור",
+     "desc_de": "Wege der Weitergabe von Unreinheit › Midras-Unreinheit und Verschieben durch den Zaw › Der Zaw mit dem Reinen und dessen Kleidern / Bewegung durch den Zaw › Was rein bleibt",
+     "desc_en": "Ways of transmitting impurity › Midras impurity and shifting by the zav › The zav with a pure person and his clothes / movement by the zav › What remains pure"
+    },
+    {
+     "ref": "4:2",
+     "text": "דברים היציבים",
+     "text_de": "Feste Dinge",
+     "text_en": "Stable things",
+     "desc": "דרכי העברת טומאה › טומאת מדרס והיסט הזב › תנודה ע\"י הזב › שטהור",
+     "desc_de": "Wege der Weitergabe von Unreinheit › Midras-Unreinheit und Verschieben durch den Zaw › Bewegung durch den Zaw › Was rein bleibt",
+     "desc_en": "Ways of transmitting impurity › Midras impurity and shifting by the zav › Movement by the zav › What remains pure"
+    },
+    {
+     "ref": "4:3",
+     "text": "דברים שאינם יציבים",
+     "text_de": "Nicht feste Dinge",
+     "text_en": "Unstable things",
+     "desc": "דרכי העברת טומאה › טומאת מדרס והיסט הזב › תנודה ע\"י הזב › שמטמא",
+     "desc_de": "Wege der Weitergabe von Unreinheit › Midras-Unreinheit und Verschieben durch den Zaw › Bewegung durch den Zaw › Was verunreinigt",
+     "desc_en": "Ways of transmitting impurity › Midras impurity and shifting by the zav › Movement by the zav › What defiles"
+    },
+    {
+     "ref": "4:4",
+     "text": "מוטל על ספסלים וכסיות",
+     "text_de": "Auf Bänken und Hockern Daliegendes",
+     "text_en": "Lying on benches and stools",
+     "desc": "דרכי העברת טומאה › טומאת משא הזב › הכבדה מועטת › רובו של הזב",
+     "desc_de": "Wege der Weitergabe von Unreinheit › Unreinheit des Tragens durch den Zaw › Geringe Belastung › Der größte Teil des Zaw",
+     "desc_en": "Ways of transmitting impurity › Impurity of carrying by the zav › Slight burden › The greater part of the zav"
+    },
+    {
+     "ref": "4:5",
+     "text": "שוכב על טליות \\ משכב",
+     "text_de": "Liegen auf Tüchern / Lager",
+     "text_en": "Lying on cloths / bed",
+     "desc": "דרכי העברת טומאה › טומאת משא הזב › הכבדה מועטת › רובו של הזב › תלייה במאזנים",
+     "desc_de": "Wege der Weitergabe von Unreinheit › Unreinheit des Tragens durch den Zaw › Geringe Belastung › Der größte Teil des Zaw › Aufhängen an einer Waage",
+     "desc_en": "Ways of transmitting impurity › Impurity of carrying by the zav › Slight burden › The greater part of the zav › Suspending on a balance"
+    },
+    {
+     "ref": "4:6",
+     "text": "אוכלין, השוואה לטומאת מת",
+     "text_de": "Esswaren, Vergleich mit Leichenunreinheit",
+     "text_en": "Foodstuffs, comparison with corpse impurity",
+     "desc": "דרכי העברת טומאה › טומאת משא הזב › הכבדה מועטת › רובו של הזב › תלייה במאזנים",
+     "desc_de": "Wege der Weitergabe von Unreinheit › Unreinheit des Tragens durch den Zaw › Geringe Belastung › Der größte Teil des Zaw › Aufhängen an einer Waage",
+     "desc_en": "Ways of transmitting impurity › Impurity of carrying by the zav › Slight burden › The greater part of the zav › Suspending on a balance"
+    },
+    {
+     "ref": "4:7",
+     "text": "רגלי מטה ובהמה \\ על כלים כבדים",
+     "text_de": "Füße von Bett und Tier / auf schweren Geräten",
+     "text_en": "Legs of a bed and of an animal / on heavy vessels",
+     "desc": "דרכי העברת טומאה › טומאת משא הזב › הכבדה מועטת › רובו של הזב",
+     "desc_de": "Wege der Weitergabe von Unreinheit › Unreinheit des Tragens durch den Zaw › Geringe Belastung › Der größte Teil des Zaw",
+     "desc_en": "Ways of transmitting impurity › Impurity of carrying by the zav › Slight burden › The greater part of the zav"
+    }
+   ]
+  },
+  {
+   "head": "פרק ה",
+   "head_de": "Kapitel 5",
+   "head_en": "Chapter 5",
+   "items": [
+    {
+     "ref": "5:1",
+     "text": "מגע והיסט",
+     "text_de": "Berührung und Verschieben",
+     "text_en": "Touching and shifting",
+     "desc": "דרכי העברת טומאה › טומאת משא הזב › כיצד הם ומה שטמאו מטמאין › אדם הנטמא",
+     "desc_de": "Wege der Weitergabe von Unreinheit › Unreinheit des Tragens durch den Zaw › Wie sie und was sie verunreinigt haben verunreinigen › Der Mensch, der unrein wird",
+     "desc_en": "Ways of transmitting impurity › Impurity of carrying by the zav › How they and what they have defiled defile › A person who becomes impure"
+    },
+    {
+     "ref": "5:2",
+     "text": "משא ומשכב \\ כלים ואכלים",
+     "text_de": "Tragen und Lager / Geräte und Esswaren",
+     "text_en": "Carrying and bed / vessels and foodstuffs",
+     "desc": "דרכי העברת טומאה › טומאת משא הזב › כיצד הם ומה שטמאו מטמאין › אדם הנטמא",
+     "desc_de": "Wege der Weitergabe von Unreinheit › Unreinheit des Tragens durch den Zaw › Wie sie und was sie verunreinigt haben verunreinigen › Der Mensch, der unrein wird",
+     "desc_en": "Ways of transmitting impurity › Impurity of carrying by the zav › How they and what they have defiled defile › A person who becomes impure"
+    },
+    {
+     "ref": "5:3",
+     "text": "משא של משכב, נבילה ומת והסיטם",
+     "text_de": "Tragen des Lagers, Aas und Toten und deren Verschieben",
+     "text_en": "Carrying a bed, carrion and a corpse, and shifting them",
+     "desc": "דרכי העברת טומאה › טומאת משא הזב › כיצד הם ומה שטמאו מטמאין",
+     "desc_de": "Wege der Weitergabe von Unreinheit › Unreinheit des Tragens durch den Zaw › Wie sie und was sie verunreinigt haben verunreinigen",
+     "desc_en": "Ways of transmitting impurity › Impurity of carrying by the zav › How they and what they have defiled defile"
+    },
+    {
+     "ref": "5:4",
+     "text": "הזב והטהור",
+     "text_de": "Der Zaw und der Reine",
+     "text_en": "The zav and the pure person",
+     "desc": "דרכי העברת טומאה › טומאת משא הזב › כיצד הם ומה שטמאו מטמאין › משא ומשכב במקצת",
+     "desc_de": "Wege der Weitergabe von Unreinheit › Unreinheit des Tragens durch den Zaw › Wie sie und was sie verunreinigt haben verunreinigen › Tragen und Lager teilweise",
+     "desc_en": "Ways of transmitting impurity › Impurity of carrying by the zav › How they and what they have defiled defile › Carrying and bed, partially"
+    },
+    {
+     "ref": "5:5",
+     "text": "הזב והטהור עם המשכב \\ אוכלי תרומה",
+     "text_de": "Der Zaw und der Reine mit dem Lager / Esser von Teruma",
+     "text_en": "The zav and the pure person with the bed / eaters of terumah",
+     "desc": "דרכי העברת טומאה › טומאת משא הזב › כיצד הם ומה שטמאו מטמאין › משא ומשכב במקצת",
+     "desc_de": "Wege der Weitergabe von Unreinheit › Unreinheit des Tragens durch den Zaw › Wie sie und was sie verunreinigt haben verunreinigen › Tragen und Lager teilweise",
+     "desc_en": "Ways of transmitting impurity › Impurity of carrying by the zav › How they and what they have defiled defile › Carrying and bed, partially"
+    },
+    {
+     "ref": "5:6",
+     "text": "במגע, בהיסט ובמשא",
+     "text_de": "Durch Berührung, Verschieben und Tragen",
+     "text_en": "By touching, shifting and carrying",
+     "desc": "דרכי העברת טומאה › כללים באבות הטומאה › כיצד הם ומה שטמאו מטמאין › העושים אבות",
+     "desc_de": "Wege der Weitergabe von Unreinheit › Regeln zu den Hauptunreinheiten › Wie sie und was sie verunreinigt haben verunreinigen › Die Hauptunreinheiten erzeugen",
+     "desc_en": "Ways of transmitting impurity › Rules concerning primary impurities › How they and what they have defiled defile › Those that create primary impurities"
+    },
+    {
+     "ref": "5:7",
+     "text": "במגע ובהיסט",
+     "text_de": "Durch Berührung und Verschieben",
+     "text_en": "By touching and shifting",
+     "desc": "דרכי העברת טומאה › כללים באבות הטומאה › כיצד הם ומה שטמאו מטמאין › העושים אבות",
+     "desc_de": "Wege der Weitergabe von Unreinheit › Regeln zu den Hauptunreinheiten › Wie sie und was sie verunreinigt haben verunreinigen › Die Hauptunreinheiten erzeugen",
+     "desc_en": "Ways of transmitting impurity › Rules concerning primary impurities › How they and what they have defiled defile › Those that create primary impurities"
+    },
+    {
+     "ref": "5:8",
+     "text": "במשא והיסט, במשא",
+     "text_de": "Durch Tragen und Verschieben, durch Tragen",
+     "text_en": "By carrying and shifting, by carrying",
+     "desc": "דרכי העברת טומאה › כללים באבות הטומאה › כיצד הם ומה שטמאו מטמאין › העושים אבות",
+     "desc_de": "Wege der Weitergabe von Unreinheit › Regeln zu den Hauptunreinheiten › Wie sie und was sie verunreinigt haben verunreinigen › Die Hauptunreinheiten erzeugen",
+     "desc_en": "Ways of transmitting impurity › Rules concerning primary impurities › How they and what they have defiled defile › Those that create primary impurities"
+    },
+    {
+     "ref": "5:9",
+     "text": "אכילת נבילת עוף טהור",
+     "text_de": "Essen vom Aas eines reinen Vogels",
+     "text_en": "Eating the carcass of a pure bird",
+     "desc": "דרכי העברת טומאה › כללים באבות הטומאה › כיצד הם ומה שטמאו מטמאין › העושים אבות",
+     "desc_de": "Wege der Weitergabe von Unreinheit › Regeln zu den Hauptunreinheiten › Wie sie und was sie verunreinigt haben verunreinigen › Die Hauptunreinheiten erzeugen",
+     "desc_en": "Ways of transmitting impurity › Rules concerning primary impurities › How they and what they have defiled defile › Those that create primary impurities"
+    },
+    {
+     "ref": "5:10",
+     "text": "במגע, נגיעת הדומם באב הטומאה",
+     "text_de": "Durch Berührung, Berührung des Unbelebten mit der Hauptunreinheit",
+     "text_en": "By touching, contact of an inanimate object with a primary impurity",
+     "desc": "דרכי העברת טומאה › כללים באבות הטומאה › כיצד הם ומה שטמאו מטמאין › שלא עושים אבות",
+     "desc_de": "Wege der Weitergabe von Unreinheit › Regeln zu den Hauptunreinheiten › Wie sie und was sie verunreinigt haben verunreinigen › Die keine Hauptunreinheiten erzeugen",
+     "desc_en": "Ways of transmitting impurity › Rules concerning primary impurities › How they and what they have defiled defile › Those that do not create primary impurities"
+    },
+    {
+     "ref": "5:11",
+     "text": "הנטמאים בקרי, בבעילה",
+     "text_de": "Durch Samenerguss und Beischlaf Verunreinigte",
+     "text_en": "Those defiled by seminal emission and intercourse",
+     "desc": "דרכי העברת טומאה › כללים באבות הטומאה › כיצד הם ומה שטמאו מטמאין › שלא עושים אבות",
+     "desc_de": "Wege der Weitergabe von Unreinheit › Regeln zu den Hauptunreinheiten › Wie sie und was sie verunreinigt haben verunreinigen › Die keine Hauptunreinheiten erzeugen",
+     "desc_en": "Ways of transmitting impurity › Rules concerning primary impurities › How they and what they have defiled defile › Those that do not create primary impurities"
+    },
+    {
+     "ref": "5:12",
+     "text": "רק פוסלים תרומה",
+     "text_de": "Machen nur Teruma untauglich",
+     "text_en": "They only disqualify terumah",
+     "desc": "דרכי העברת טומאה › שניות דרבנן › כיצד הם ומה שטמאו מטמאין › שלא עושים אבות",
+     "desc_de": "Wege der Weitergabe von Unreinheit › Zweitgradige Unreinheiten rabbinischen Rechts › Wie sie und was sie verunreinigt haben verunreinigen › Die keine Hauptunreinheiten erzeugen",
+     "desc_en": "Ways of transmitting impurity › Secondary impurities of rabbinic law › How they and what they have defiled defile › Those that do not create primary impurities"
+    }
+   ]
+  }
+ ]
+}

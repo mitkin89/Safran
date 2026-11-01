@@ -1,0 +1,792 @@
+{
+ "book": "Mishnah Niddah",
+ "title": "משנה נדה",
+ "title_de": "Mischna Nidda – Gliederung",
+ "title_en": "Niddah – outline",
+ "note": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema).",
+ "note_de": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema); ins Deutsche und Englische übersetzt.",
+ "note_en": "Outline after the table “Mishna Sedura”: the central content of each mishnah, with the topic path (main topic to sub-topic); translated into German and English.",
+ "sections": [
+  {
+   "head": "פרק א",
+   "head_de": "Kapitel 1",
+   "head_en": "Chapter 1",
+   "items": [
+    {
+     "ref": "1:1",
+     "text": "מיעוט ע\"י פקידה, צורך ויעילות עידים",
+     "text_de": "Verringerung durch Zählung, Notwendigkeit und Wirksamkeit von Zeugen",
+     "text_en": "Reduction by count, need and effectiveness of witnesses",
+     "desc": "טומאה היוצאת מרחם האשה › טומאת נדה › אלו שדיין שעתן › תחילת הטומאה",
+     "desc_de": "Unreinheit, die aus dem Schoß der Frau austritt › Unreinheit der Menstruierenden › Diejenigen, für die ihre Stunde genügt › Beginn der Unreinheit",
+     "desc_en": "Impurity emerging from the woman's womb › Impurity of the menstruant › Those for whom their hour suffices › Onset of impurity"
+    },
+    {
+     "ref": "1:2",
+     "text": "טומאה ומנין נידות לדיה שעתה",
+     "text_de": "Unreinheit und Zählung der Menstruationen, für die ihre Stunde genügt",
+     "text_en": "Impurity and counting of menstruations, for whom their hour suffices",
+     "desc": "טומאה היוצאת מרחם האשה › טומאת נדה › אלו שדיין שעתן › תחילת הטומאה",
+     "desc_de": "Unreinheit, die aus dem Schoß der Frau austritt › Unreinheit der Menstruierenden › Diejenigen, für die ihre Stunde genügt › Beginn der Unreinheit",
+     "desc_en": "Impurity emerging from the woman's womb › Impurity of the menstruant › Those for whom their hour suffices › Onset of impurity"
+    },
+    {
+     "ref": "1:3",
+     "text": "פירותן",
+     "text_de": "Ihre Früchte",
+     "text_en": "Their produce",
+     "desc": "טומאה היוצאת מרחם האשה › טומאת נדה › אלו שדיין שעתן › ארבע נשים והגדרתן",
+     "desc_de": "Unreinheit, die aus dem Schoß der Frau austritt › Unreinheit der Menstruierenden › Diejenigen, für die ihre Stunde genügt › Vier Frauen und ihre Bestimmung",
+     "desc_en": "Impurity emerging from the woman's womb › Impurity of the menstruant › Those for whom their hour suffices › Four women and their definition"
+    },
+    {
+     "ref": "1:4",
+     "text": "בתולה, מעוברת, מניקה",
+     "text_de": "Jungfrau, Schwangere, Stillende",
+     "text_en": "Virgin, pregnant woman, nursing woman",
+     "desc": "טומאה היוצאת מרחם האשה › טומאת נדה › אלו שדיין שעתן › ארבע נשים והגדרתן",
+     "desc_de": "Unreinheit, die aus dem Schoß der Frau austritt › Unreinheit der Menstruierenden › Diejenigen, für die ihre Stunde genügt › Vier Frauen und ihre Bestimmung",
+     "desc_en": "Impurity emerging from the woman's womb › Impurity of the menstruant › Those for whom their hour suffices › Four women and their definition"
+    },
+    {
+     "ref": "1:5",
+     "text": "זקנה, עוד דעות",
+     "text_de": "Alte Frau, weitere Meinungen",
+     "text_en": "Elderly woman, further opinions",
+     "desc": "טומאה היוצאת מרחם האשה › טומאת נדה › אלו שדיין שעתן › ארבע נשים והגדרתן",
+     "desc_de": "Unreinheit, die aus dem Schoß der Frau austritt › Unreinheit der Menstruierenden › Diejenigen, für die ihre Stunde genügt › Vier Frauen und ihre Bestimmung",
+     "desc_en": "Impurity emerging from the woman's womb › Impurity of the menstruant › Those for whom their hour suffices › Four women and their definition"
+    },
+    {
+     "ref": "1:6",
+     "text": "דין ראייה ראשונה ושניה",
+     "text_de": "Rechtsregel der ersten und zweiten Beobachtung",
+     "text_en": "Law of the first and second observation",
+     "desc": "טומאה היוצאת מרחם האשה › טומאת נדה › אלו שדיין שעתן › תחילת טומאה",
+     "desc_de": "Unreinheit, die aus dem Schoß der Frau austritt › Unreinheit der Menstruierenden › Diejenigen, für die ihre Stunde genügt › Beginn der Unreinheit",
+     "desc_en": "Impurity emerging from the woman's womb › Impurity of the menstruant › Those for whom their hour suffices › Onset of impurity"
+    },
+    {
+     "ref": "1:7",
+     "text": "הצריכים לבדוק, זמני הבדיקות",
+     "text_de": "Die zur Untersuchung Verpflichteten, Zeiten der Untersuchungen",
+     "text_en": "Those required to examine, times of examinations",
+     "desc": "טומאה היוצאת מרחם האשה › טומאת נדה › בדיקה",
+     "desc_de": "Unreinheit, die aus dem Schoß der Frau austritt › Unreinheit der Menstruierenden › Untersuchung",
+     "desc_en": "Impurity emerging from the woman's womb › Impurity of the menstruant › Examination"
+    }
+   ]
+  },
+  {
+   "head": "פרק ב",
+   "head_de": "Kapitel 2",
+   "head_en": "Chapter 2",
+   "items": [
+    {
+     "ref": "2:1",
+     "text": "תדירות רצויה, הצריכות עזרה\\מס' עדים",
+     "text_de": "Wünschenswerte Häufigkeit, die der Hilfe Bedürftigen / Zahl der Zeugen",
+     "text_en": "Desirable frequency, those needing help / number of witnesses",
+     "desc": "טומאה היוצאת מרחם האשה › טומאת נדה › בדיקה › לתשמיש",
+     "desc_de": "Unreinheit, die aus dem Schoß der Frau austritt › Unreinheit der Menstruierenden › Untersuchung › Für den Beischlaf",
+     "desc_en": "Impurity emerging from the woman's womb › Impurity of the menstruant › Examination › For intercourse"
+    },
+    {
+     "ref": "2:2",
+     "text": "תכיפות הבדיקה וקרבן וטומאה",
+     "text_de": "Unmittelbarkeit der Untersuchung, Opfer und Unreinheit",
+     "text_en": "Immediacy of examination, offering and impurity",
+     "desc": "טומאה היוצאת מרחם האשה › טומאת נדה › בדיקה › לתשמיש",
+     "desc_de": "Unreinheit, die aus dem Schoß der Frau austritt › Unreinheit der Menstruierenden › Untersuchung › Für den Beischlaf",
+     "desc_en": "Impurity emerging from the woman's womb › Impurity of the menstruant › Examination › For intercourse"
+    },
+    {
+     "ref": "2:3",
+     "text": "הגדרת תכיפות, טומאת הבועל",
+     "text_de": "Bestimmung der Unmittelbarkeit, Unreinheit des Beischläfers",
+     "text_en": "Definition of immediacy, impurity of the cohabiting man",
+     "desc": "טומאה היוצאת מרחם האשה › טומאת נדה › בדיקה › לתשמיש",
+     "desc_de": "Unreinheit, die aus dem Schoß der Frau austritt › Unreinheit der Menstruierenden › Untersuchung › Für den Beischlaf",
+     "desc_en": "Impurity emerging from the woman's womb › Impurity of the menstruant › Examination › For intercourse"
+    },
+    {
+     "ref": "2:4",
+     "text": "נוכחות הבעל, לפני בדיקת העדים",
+     "text_de": "Anwesenheit des Ehemanns, vor der Untersuchung durch die Zeugen",
+     "text_en": "Presence of the husband, before examination by the witnesses",
+     "desc": "טומאה היוצאת מרחם האשה › טומאת נדה › בדיקה › חזקת טהרה וטומאה",
+     "desc_de": "Unreinheit, die aus dem Schoß der Frau austritt › Unreinheit der Menstruierenden › Untersuchung › Rechtsvermutung der Reinheit und Unreinheit",
+     "desc_en": "Impurity emerging from the woman's womb › Impurity of the menstruant › Examination › Presumptive status of purity and impurity"
+    },
+    {
+     "ref": "2:5",
+     "text": "מקור הדם בגוף האשה",
+     "text_de": "Quelle des Blutes im Körper der Frau",
+     "text_en": "Source of the blood in the woman's body",
+     "desc": "טומאה היוצאת מרחם האשה › טומאת נדה › הדם › חזקת טהרה וטומאה",
+     "desc_de": "Unreinheit, die aus dem Schoß der Frau austritt › Unreinheit der Menstruierenden › Das Blut › Rechtsvermutung der Reinheit und Unreinheit",
+     "desc_en": "Impurity emerging from the woman's womb › Impurity of the menstruant › The blood › Presumptive status of purity and impurity"
+    },
+    {
+     "ref": "2:6",
+     "text": "הצבעים הטמאים",
+     "text_de": "Die unreinen Farben",
+     "text_en": "The impure colors",
+     "desc": "טומאה היוצאת מרחם האשה › טומאת נדה › הדם › צבע הטמא",
+     "desc_de": "Unreinheit, die aus dem Schoß der Frau austritt › Unreinheit der Menstruierenden › Das Blut › Die unreine Farbe",
+     "desc_en": "Impurity emerging from the woman's womb › Impurity of the menstruant › The blood › The impure color"
+    },
+    {
+     "ref": "2:7",
+     "text": "הגדרת הצבעים",
+     "text_de": "Bestimmung der Farben",
+     "text_en": "Definition of the colors",
+     "desc": "טומאה היוצאת מרחם האשה › טומאת נדה › הדם › צבע הטמא",
+     "desc_de": "Unreinheit, die aus dem Schoß der Frau austritt › Unreinheit der Menstruierenden › Das Blut › Die unreine Farbe",
+     "desc_en": "Impurity emerging from the woman's womb › Impurity of the menstruant › The blood › The impure color"
+    }
+   ]
+  },
+  {
+   "head": "פרק ג",
+   "head_de": "Kapitel 3",
+   "head_en": "Chapter 3",
+   "items": [
+    {
+     "ref": "3:1",
+     "text": "חתיכה",
+     "text_de": "Stück",
+     "text_en": "Piece",
+     "desc": "טומאה היוצאת מרחם האשה › טומאת יולדת › שאינו ולד › נוכחות דם",
+     "desc_de": "Unreinheit, die aus dem Schoß der Frau austritt › Unreinheit der Wöchnerin › Was kein Kind ist › Vorhandensein von Blut",
+     "desc_en": "Impurity emerging from the woman's womb › Impurity of the woman after childbirth › What is not a child › Presence of blood"
+    },
+    {
+     "ref": "3:2",
+     "text": "הנימוחים, צורת אדם",
+     "text_de": "Zerfließende Gebilde, Menschengestalt",
+     "text_en": "Dissolving matter, human form",
+     "desc": "טומאה היוצאת מרחם האשה › טומאת יולדת › שאינו ולד › נוכחות דם",
+     "desc_de": "Unreinheit, die aus dem Schoß der Frau austritt › Unreinheit der Wöchnerin › Was kein Kind ist › Vorhandensein von Blut",
+     "desc_en": "Impurity emerging from the woman's womb › Impurity of the woman after childbirth › What is not a child › Presence of blood"
+    },
+    {
+     "ref": "3:3",
+     "text": "שפיר \\ ורקימתה",
+     "text_de": "Fruchtblase / ihre Verfärbung",
+     "text_en": "Amniotic sac / its coloring",
+     "desc": "טומאה היוצאת מרחם האשה › טומאת יולדת › ולד › שאינו ולד › מספר ימי טומאה וטהרה › נוכחות דם",
+     "desc_de": "Unreinheit, die aus dem Schoß der Frau austritt › Unreinheit der Wöchnerin › Kind › Was kein Kind ist › Zahl der Tage von Unreinheit und Reinheit › Vorhandensein von Blut",
+     "desc_en": "Impurity emerging from the woman's womb › Impurity of the woman after childbirth › Child › What is not a child › Number of days of impurity and purity › Presence of blood"
+    },
+    {
+     "ref": "3:4",
+     "text": "סנדל, שליא וטומאת מת",
+     "text_de": "Sandale, Nachgeburt und Leichenunreinheit",
+     "text_en": "Sandal-shaped afterbirth, placenta and corpse impurity",
+     "desc": "טומאה היוצאת מרחם האשה › טומאת יולדת › ולד › מספר ימי טומאה וטהרה",
+     "desc_de": "Unreinheit, die aus dem Schoß der Frau austritt › Unreinheit der Wöchnerin › Kind › Zahl der Tage von Unreinheit und Reinheit",
+     "desc_en": "Impurity emerging from the woman's womb › Impurity of the woman after childbirth › Child › Number of days of impurity and purity"
+    },
+    {
+     "ref": "3:5",
+     "text": "טומטום ואדרוגינוס, יציאת הרוב והראש",
+     "text_de": "Tumtum und Androgynos, Austritt der Mehrheit und des Kopfes",
+     "text_en": "Tumtum and androgynos, emergence of the majority and of the head",
+     "desc": "טומאה היוצאת מרחם האשה › טומאת יולדת › ולד › מספר ימי טומאה וטהרה",
+     "desc_de": "Unreinheit, die aus dem Schoß der Frau austritt › Unreinheit der Wöchnerin › Kind › Zahl der Tage von Unreinheit und Reinheit",
+     "desc_en": "Impurity emerging from the woman's womb › Impurity of the woman after childbirth › Child › Number of days of impurity and purity"
+    },
+    {
+     "ref": "3:6",
+     "text": "ספק המין ובהימצאות הנפל",
+     "text_de": "Zweifel am Geschlecht und beim Vorhandensein der Fehlgeburt",
+     "text_en": "Doubt about sex and when the miscarriage is present",
+     "desc": "טומאה היוצאת מרחם האשה › טומאת יולדת › ולד › מספר ימי טומאה וטהרה",
+     "desc_de": "Unreinheit, die aus dem Schoß der Frau austritt › Unreinheit der Wöchnerin › Kind › Zahl der Tage von Unreinheit und Reinheit",
+     "desc_en": "Impurity emerging from the woman's womb › Impurity of the woman after childbirth › Child › Number of days of impurity and purity"
+    },
+    {
+     "ref": "3:7",
+     "text": "משך יצירת העובר ומינו",
+     "text_de": "Dauer der Bildung des Embryos und sein Geschlecht",
+     "text_en": "Duration of the embryo's formation and its sex",
+     "desc": "טומאה היוצאת מרחם האשה › טומאת יולדת › ולד › מספר ימי טומאה וטהרה",
+     "desc_de": "Unreinheit, die aus dem Schoß der Frau austritt › Unreinheit der Wöchnerin › Kind › Zahl der Tage von Unreinheit und Reinheit",
+     "desc_en": "Impurity emerging from the woman's womb › Impurity of the woman after childbirth › Child › Number of days of impurity and purity"
+    }
+   ]
+  },
+  {
+   "head": "פרק ד",
+   "head_de": "Kapitel 4",
+   "head_en": "Chapter 4",
+   "items": [
+    {
+     "ref": "4:1",
+     "text": "כותים זכרים ונקיבות",
+     "text_de": "Samaritanische Männer und Frauen",
+     "text_en": "Samaritan men and women",
+     "desc": "טומאה היוצאת מרחם האשה › טומאות מדרבנן › אי זהירות בהלכה",
+     "desc_de": "Unreinheit, die aus dem Schoß der Frau austritt › Rabbinische Unreinheiten › Unvorsichtigkeit in der Halacha",
+     "desc_en": "Impurity emerging from the woman's womb › Rabbinic impurities › Carelessness in halacha"
+    },
+    {
+     "ref": "4:2",
+     "text": "בנות צדוקין",
+     "text_de": "Töchter der Sadduzäer",
+     "text_en": "Daughters of the Sadducees",
+     "desc": "טומאה היוצאת מרחם האשה › טומאות מדרבנן › אי זהירות בהלכה",
+     "desc_de": "Unreinheit, die aus dem Schoß der Frau austritt › Rabbinische Unreinheiten › Unvorsichtigkeit in der Halacha",
+     "desc_en": "Impurity emerging from the woman's womb › Rabbinic impurities › Carelessness in halacha"
+    },
+    {
+     "ref": "4:3",
+     "text": "נכרית, מצורעת, יולדת שלא טבלה\\ ובזוב",
+     "text_de": "Nichtjüdin, Aussätzige, Wöchnerin, die nicht getaucht ist / und beim Fluss",
+     "text_en": "Gentile woman, leper, woman after childbirth who has not immersed / and in the case of zav discharge",
+     "desc": "טומאה היוצאת מרחם האשה › זיבות › טהרה › המקשה › טומאות מדרבנן",
+     "desc_de": "Unreinheit, die aus dem Schoß der Frau austritt › Flüsse (Zivot) › Reinheit › Die Gebärende unter Schwierigkeiten › Rabbinische Unreinheiten",
+     "desc_en": "Impurity emerging from the woman's womb › Genital discharges (zivot) › Purity › The woman in hard labor › Rabbinic impurities"
+    },
+    {
+     "ref": "4:4",
+     "text": "אורך והגדרת שופי",
+     "text_de": "Länge und Bestimmung von Schofi",
+     "text_en": "Length and definition of shofi",
+     "desc": "טומאה היוצאת מרחם האשה › זיבות › טהרה › המקשה",
+     "desc_de": "Unreinheit, die aus dem Schoß der Frau austritt › Flüsse (Zivot) › Reinheit › Die Gebärende unter Schwierigkeiten",
+     "desc_en": "Impurity emerging from the woman's womb › Genital discharges (zivot) › Purity › The woman in hard labor"
+    },
+    {
+     "ref": "4:5",
+     "text": "משך זמן שקישוי מטהר",
+     "text_de": "Dauer der Erektion, die reinigt",
+     "text_en": "Duration of erection that purifies",
+     "desc": "טומאה היוצאת מרחם האשה › זיבות › טהרה › המקשה",
+     "desc_de": "Unreinheit, die aus dem Schoß der Frau austritt › Flüsse (Zivot) › Reinheit › Die Gebärende unter Schwierigkeiten",
+     "desc_en": "Impurity emerging from the woman's womb › Genital discharges (zivot) › Purity › The woman in hard labor"
+    },
+    {
+     "ref": "4:6",
+     "text": "קישוי בימי טוהר",
+     "text_de": "Erektion in den Tagen der Reinheit",
+     "text_en": "Erection in the days of purity",
+     "desc": "טומאה היוצאת מרחם האשה › זיבות › טהרה › המקשה",
+     "desc_de": "Unreinheit, die aus dem Schoß der Frau austritt › Flüsse (Zivot) › Reinheit › Die Gebärende unter Schwierigkeiten",
+     "desc_en": "Impurity emerging from the woman's womb › Genital discharges (zivot) › Purity › The woman in hard labor"
+    },
+    {
+     "ref": "4:7",
+     "text": "במשך ואחרי זמן הנדות ושכבר נטמאה",
+     "text_de": "Während und nach der Zeit der Menstruation, und wenn sie schon unrein geworden ist",
+     "text_en": "During and after the time of menstruation, and when she has already become impure",
+     "desc": "טומאה היוצאת מרחם האשה › זיבות › טהרה › חזקת טהרה",
+     "desc_de": "Unreinheit, die aus dem Schoß der Frau austritt › Flüsse (Zivot) › Reinheit › Rechtsvermutung der Reinheit",
+     "desc_en": "Impurity emerging from the woman's womb › Genital discharges (zivot) › Purity › Presumptive status of purity"
+    }
+   ]
+  },
+  {
+   "head": "פרק ה",
+   "head_de": "Kapitel 5",
+   "head_en": "Chapter 5",
+   "items": [
+    {
+     "ref": "5:1",
+     "text": "לידת יוצא דופן, יציאה מן הרחם\\ ואמה",
+     "text_de": "Ungewöhnliche Geburt, Austritt aus dem Schoß / und Glied",
+     "text_en": "Unusual birth, emergence from the womb / and organ",
+     "desc": "טומאה היוצאת מרחם האשה › זיבות › טומאה › שכבת זרע וזוב",
+     "desc_de": "Unreinheit, die aus dem Schoß der Frau austritt › Flüsse (Zivot) › Unreinheit › Samenerguss und Fluss",
+     "desc_en": "Impurity emerging from the woman's womb › Genital discharges (zivot) › Impurity › Seminal emission and discharge"
+    },
+    {
+     "ref": "5:2",
+     "text": "באמצע אכילת תרומה, שיעור לטומאה",
+     "text_de": "Mitten im Essen von Teruma, Maß für die Unreinheit",
+     "text_en": "In the middle of eating terumah, measure for impurity",
+     "desc": "טומאה היוצאת מרחם האשה › זיבות › טומאה › שכבת זרע וזוב",
+     "desc_de": "Unreinheit, die aus dem Schoß der Frau austritt › Flüsse (Zivot) › Unreinheit › Samenerguss und Fluss",
+     "desc_en": "Impurity emerging from the woman's womb › Genital discharges (zivot) › Impurity › Seminal emission and discharge"
+    },
+    {
+     "ref": "5:3",
+     "text": "תינוקות",
+     "text_de": "Kinder",
+     "text_en": "Children",
+     "desc": "שלבי בגרות והלכותיהן › לפני הבגרות",
+     "desc_de": "Stufen der Reife und ihre Gesetze › Vor der Reife",
+     "desc_en": "Stages of maturity and their laws › Before maturity"
+    },
+    {
+     "ref": "5:4",
+     "text": "בת שלוש שנים ויום",
+     "text_de": "Dreijähriges Mädchen und ein Tag",
+     "text_en": "Girl of three years and one day",
+     "desc": "שלבי בגרות והלכותיהן › לפני הבגרות",
+     "desc_de": "Stufen der Reife und ihre Gesetze › Vor der Reife",
+     "desc_en": "Stages of maturity and their laws › Before maturity"
+    },
+    {
+     "ref": "5:5",
+     "text": "בן תשע שנים ויום",
+     "text_de": "Neunjähriger Junge und ein Tag",
+     "text_en": "Boy of nine years and one day",
+     "desc": "שלבי בגרות והלכותיהן › לפני הבגרות",
+     "desc_de": "Stufen der Reife und ihre Gesetze › Vor der Reife",
+     "desc_en": "Stages of maturity and their laws › Before maturity"
+    },
+    {
+     "ref": "5:6",
+     "text": "קיום נדריהן והקדישן",
+     "text_de": "Gültigkeit ihrer Gelübde und Weihungen",
+     "text_en": "Validity of their vows and consecrations",
+     "desc": "שלבי בגרות והלכותיהן › שנת המעבר לבגרות",
+     "desc_de": "Stufen der Reife und ihre Gesetze › Das Übergangsjahr zur Reife",
+     "desc_en": "Stages of maturity and their laws › The year of transition to maturity"
+    },
+    {
+     "ref": "5:7",
+     "text": "השלבים, זכות אביה בה",
+     "text_de": "Die Stufen, das Recht ihres Vaters an ihr",
+     "text_en": "The stages, her father's right over her",
+     "desc": "שלבי בגרות והלכותיהן › סימני בגרות האשה",
+     "desc_de": "Stufen der Reife und ihre Gesetze › Reifezeichen der Frau",
+     "desc_en": "Stages of maturity and their laws › Signs of maturity in a woman"
+    },
+    {
+     "ref": "5:8",
+     "text": "סימני בגרות",
+     "text_de": "Reifezeichen",
+     "text_en": "Signs of maturity",
+     "desc": "שלבי בגרות והלכותיהן › סימני בגרות האשה",
+     "desc_de": "Stufen der Reife und ihre Gesetze › Reifezeichen der Frau",
+     "desc_en": "Stages of maturity and their laws › Signs of maturity in a woman"
+    },
+    {
+     "ref": "5:9",
+     "text": "איילונית, וסריס",
+     "text_de": "Ajlonit und Saris",
+     "text_en": "Aylonit and saris",
+     "desc": "שלבי בגרות והלכותיהן › סימני בגרות האשה › זמן הופעתם",
+     "desc_de": "Stufen der Reife und ihre Gesetze › Reifezeichen der Frau › Zeit ihres Auftretens",
+     "desc_en": "Stages of maturity and their laws › Signs of maturity in a woman › Time of their appearance"
+    }
+   ]
+  },
+  {
+   "head": "פרק ו",
+   "head_de": "Kapitel 6",
+   "head_en": "Chapter 6",
+   "items": [
+    {
+     "ref": "6:1",
+     "text": "סדר הופעת סימני תחתון ועליון",
+     "text_de": "Reihenfolge des Auftretens der unteren und oberen Zeichen",
+     "text_en": "Order of appearance of the lower and upper signs",
+     "desc": "שלבי בגרות והלכותיהן › אפשרויות כלליות ופרטיות › סימני בגרות האשה › זמן הופעתם",
+     "desc_de": "Stufen der Reife und ihre Gesetze › Allgemeine und besondere Möglichkeiten › Reifezeichen der Frau › Zeit ihres Auftretens",
+     "desc_en": "Stages of maturity and their laws › General and particular possibilities › Signs of maturity in a woman › Time of their appearance"
+    },
+    {
+     "ref": "6:2",
+     "text": "נקב ומעבר משקה, צפורן ועצם באבר",
+     "text_de": "Loch und Durchfluss von Flüssigkeit, Nagel und Knochen im Glied",
+     "text_en": "Hole and passage of liquid, nail and bone in the organ",
+     "desc": "סיכומי הלכות › אפשרויות כלליות ופרטיות › טומאה וטהרה",
+     "desc_de": "Zusammenfassung der Halachot › Allgemeine und besondere Möglichkeiten › Unreinheit und Reinheit",
+     "desc_en": "Summary of the laws › General and particular possibilities › Impurity and purity"
+    },
+    {
+     "ref": "6:3",
+     "text": "טומאות מדרס ומת",
+     "text_de": "Midras- und Leichenunreinheiten",
+     "text_en": "Midras impurity and corpse impurity",
+     "desc": "סיכומי הלכות › אפשרויות כלליות ופרטיות › טומאה וטהרה",
+     "desc_de": "Zusammenfassung der Halachot › Allgemeine und besondere Möglichkeiten › Unreinheit und Reinheit",
+     "desc_en": "Summary of the laws › General and particular possibilities › Impurity and purity"
+    },
+    {
+     "ref": "6:4",
+     "text": "כשרות דיין ועד",
+     "text_de": "Tauglichkeit von Richter und Zeugen",
+     "text_en": "Qualification of judge and witness",
+     "desc": "סיכומי הלכות › אפשרויות כלליות ופרטיות › דין",
+     "desc_de": "Zusammenfassung der Halachot › Allgemeine und besondere Möglichkeiten › Urteil",
+     "desc_en": "Summary of the laws › General and particular possibilities › Judgment"
+    },
+    {
+     "ref": "6:5",
+     "text": "טומאת אכלין",
+     "text_de": "Unreinheit von Speisen",
+     "text_en": "Impurity of foods",
+     "desc": "סיכומי הלכות › אפשרויות כלליות ופרטיות › חיוב במעשרות",
+     "desc_de": "Zusammenfassung der Halachot › Allgemeine und besondere Möglichkeiten › Pflicht zur Verzehntung",
+     "desc_en": "Summary of the laws › General and particular possibilities › Obligation to tithe"
+    },
+    {
+     "ref": "6:6",
+     "text": "חיוב בפאה",
+     "text_de": "Verpflichtung zur Pea",
+     "text_en": "Obligation of pea",
+     "desc": "סיכומי הלכות › אפשרויות כלליות ופרטיות › חיוב במעשרות",
+     "desc_de": "Zusammenfassung der Halachot › Allgemeine und besondere Möglichkeiten › Pflicht zur Verzehntung",
+     "desc_en": "Summary of the laws › General and particular possibilities › Obligation to tithe"
+    },
+    {
+     "ref": "6:7",
+     "text": "ראשית הגז ומתנות",
+     "text_de": "Erste Schur und Gaben",
+     "text_en": "First shearing and gifts",
+     "desc": "סיכומי הלכות › אפשרויות כלליות ופרטיות",
+     "desc_de": "Zusammenfassung der Halachot › Allgemeine und besondere Möglichkeiten",
+     "desc_en": "Summary of the laws › General and particular possibilities"
+    },
+    {
+     "ref": "6:8",
+     "text": "ביעור ושביעית",
+     "text_de": "Beseitigung und Schemitta",
+     "text_en": "Removal and shemitta",
+     "desc": "סיכומי הלכות › אפשרויות כלליות ופרטיות",
+     "desc_de": "Zusammenfassung der Halachot › Allgemeine und besondere Möglichkeiten",
+     "desc_en": "Summary of the laws › General and particular possibilities"
+    },
+    {
+     "ref": "6:9",
+     "text": "דג, בהמה וחיה",
+     "text_de": "Fisch, Vieh und Wild",
+     "text_en": "Fish, domestic animal and wild animal",
+     "desc": "סיכומי הלכות › אפשרויות כלליות ופרטיות › סימני טהרה",
+     "desc_de": "Zusammenfassung der Halachot › Allgemeine und besondere Möglichkeiten › Zeichen der Reinheit",
+     "desc_en": "Summary of the laws › General and particular possibilities › Signs of purity"
+    },
+    {
+     "ref": "6:10",
+     "text": "ברכה לפניו ואחריו",
+     "text_de": "Segen davor und danach",
+     "text_en": "Blessing before and after",
+     "desc": "סיכומי הלכות › אפשרויות כלליות ופרטיות",
+     "desc_de": "Zusammenfassung der Halachot › Allgemeine und besondere Möglichkeiten",
+     "desc_en": "Summary of the laws › General and particular possibilities"
+    },
+    {
+     "ref": "6:11",
+     "text": "חיוב במצוות, אישות, בן סורר, מיאון",
+     "text_de": "Verpflichtung zu Geboten, Eheleben, störrischer Sohn, Mi'un",
+     "text_en": "Obligation to commandments, marriage, rebellious son, mi'un",
+     "desc": "שלבי בגרות והלכותיהן › המעבר לבגרות",
+     "desc_de": "Stufen der Reife und ihre Gesetze › Übergang zur Reife",
+     "desc_en": "Stages of maturity and their laws › Transition to maturity"
+    },
+    {
+     "ref": "6:12",
+     "text": "אורך השערות, ובענינים שונים",
+     "text_de": "Länge der Haare und in verschiedenen Angelegenheiten",
+     "text_en": "Length of hairs and in various matters",
+     "desc": "שלבי בגרות והלכותיהן › המעבר לבגרות › סימנים",
+     "desc_de": "Stufen der Reife und ihre Gesetze › Übergang zur Reife › Kennzeichen",
+     "desc_en": "Stages of maturity and their laws › Transition to maturity › Markings"
+    },
+    {
+     "ref": "6:13",
+     "text": "הרואה כתם וזיבה",
+     "text_de": "Die Fleckensehende und Flusssehende",
+     "text_en": "The woman who sees a stain and discharge",
+     "desc": "טומאה היוצאת מרחם האשה › טומאה מספק › המקולקלות בפתח נדתן",
+     "desc_de": "Unreinheit, die aus dem Schoß der Frau austritt › Unreinheit aus Zweifel › Die an der Öffnung ihrer Menstruation Gestörten",
+     "desc_en": "Impurity emerging from the woman's womb › Impurity from doubt › Those afflicted at the opening of their menstruation"
+    },
+    {
+     "ref": "6:14",
+     "text": "הרואה בבין השמשות ביום גבולי",
+     "text_de": "Die in der Dämmerung an einem Grenztag Sehende",
+     "text_en": "The woman who sees at twilight on a borderline day",
+     "desc": "טומאה היוצאת מרחם האשה › טומאה מספק › המקולקלות בפתח נדתן",
+     "desc_de": "Unreinheit, die aus dem Schoß der Frau austritt › Unreinheit aus Zweifel › Die an der Öffnung ihrer Menstruation Gestörten",
+     "desc_en": "Impurity emerging from the woman's womb › Impurity from doubt › Those afflicted at the opening of their menstruation"
+    }
+   ]
+  },
+  {
+   "head": "פרק ז",
+   "head_de": "Kapitel 7",
+   "head_en": "Chapter 7",
+   "items": [
+    {
+     "ref": "7:1",
+     "text": "משקים טמאים מן הגוף, שרץ ונבילה",
+     "text_de": "Unreine Flüssigkeiten aus dem Körper, Kriechtier und Aas",
+     "text_en": "Impure fluids from the body, creeping creature and carcass",
+     "desc": "טומאה היוצאת מרחם האשה › הלכות כתמים › מציאת הכתם › רטיבות הטומאה",
+     "desc_de": "Unreinheit, die aus dem Schoß der Frau austritt › Gesetze der Flecken › Auffinden des Flecks › Feuchtigkeit der Unreinheit",
+     "desc_en": "Impurity emerging from the woman's womb › Laws of stains › Finding of the stain › Moisture of impurity"
+    },
+    {
+     "ref": "7:2",
+     "text": "טומאה למפרע בשרץ ובכתם",
+     "text_de": "Rückwirkende Unreinheit bei Kriechtier und Fleck",
+     "text_en": "Retroactive impurity in the case of creeping creature and stain",
+     "desc": "טומאה היוצאת מרחם האשה › הלכות כתמים › מציאת הכתם › רטיבות הטומאה",
+     "desc_de": "Unreinheit, die aus dem Schoß der Frau austritt › Gesetze der Flecken › Auffinden des Flecks › Feuchtigkeit der Unreinheit",
+     "desc_en": "Impurity emerging from the woman's womb › Laws of stains › Finding of the stain › Moisture of impurity"
+    },
+    {
+     "ref": "7:3",
+     "text": "רקם, גוים, ישראלים וכותים",
+     "text_de": "Stickerei, Nichtjuden, Israeliten und Samaritaner",
+     "text_en": "Embroidery, gentiles, Israelites and Samaritans",
+     "desc": "טומאה היוצאת מרחם האשה › הלכות כתמים › מציאת הכתם › המקום",
+     "desc_de": "Unreinheit, die aus dem Schoß der Frau austritt › Gesetze der Flecken › Auffinden des Flecks › Der Ort",
+     "desc_en": "Impurity emerging from the woman's womb › Laws of stains › Finding of the stain › The place"
+    },
+    {
+     "ref": "7:4",
+     "text": "כתמים הנמצאים \\ בית הטומאה של כותים",
+     "text_de": "Gefundene Flecken / Haus der Unreinheit der Samaritaner",
+     "text_en": "Stains found / house of impurity of the Samaritans",
+     "desc": "טומאה היוצאת מרחם האשה › הלכות כתמים › מציאת הכתם › המקום \\ הלכות כותים",
+     "desc_de": "Unreinheit, die aus dem Schoß der Frau austritt › Gesetze der Flecken › Auffinden des Flecks › Der Ort / Gesetze der Samaritaner",
+     "desc_en": "Impurity emerging from the woman's womb › Laws of stains › Finding of the stain › The place / laws of the Samaritans"
+    },
+    {
+     "ref": "7:5",
+     "text": "נאמנות כותים על איסורים שונים, כלל",
+     "text_de": "Glaubwürdigkeit der Samaritaner bei verschiedenen Verboten, Regel",
+     "text_en": "Trustworthiness of Samaritans regarding various prohibitions, rule",
+     "desc": "טומאה היוצאת מרחם האשה › הלכות כתמים › מציאת הכתם › הלכות כותים",
+     "desc_de": "Unreinheit, die aus dem Schoß der Frau austritt › Gesetze der Flecken › Auffinden des Flecks › Gesetze der Samaritaner",
+     "desc_en": "Impurity emerging from the woman's womb › Laws of stains › Finding of the stain › Laws of the Samaritans"
+    }
+   ]
+  },
+  {
+   "head": "פרק ח",
+   "head_de": "Kapitel 8",
+   "head_en": "Chapter 8",
+   "items": [
+    {
+     "ref": "8:1",
+     "text": "הנמצא על הגוף ועל בגדים",
+     "text_de": "Das auf dem Körper und auf Kleidern Gefundene",
+     "text_en": "What is found on the body and on garments",
+     "desc": "טומאה היוצאת מרחם האשה › הלכות כתמים › מציאת הכתם › המקום",
+     "desc_de": "Unreinheit, die aus dem Schoß der Frau austritt › Gesetze der Flecken › Auffinden des Flecks › Der Ort",
+     "desc_en": "Impurity emerging from the woman's womb › Laws of stains › Finding of the stain › The place"
+    },
+    {
+     "ref": "8:2",
+     "text": "קירבה למקור אחר, גודל הכתם \\ גילויה",
+     "text_de": "Nähe zu einer anderen Quelle, Größe des Flecks / seine Aufdeckung",
+     "text_en": "Proximity to another source, size of the stain / its uncovering",
+     "desc": "טומאה היוצאת מרחם האשה › הלכות כתמים › תלייה במקור דם אחר › תלייה במכה",
+     "desc_de": "Unreinheit, die aus dem Schoß der Frau austritt › Gesetze der Flecken › Zurückführung auf eine andere Blutquelle › Zurückführung auf eine Wunde",
+     "desc_en": "Impurity emerging from the woman's womb › Laws of stains › Attribution to another blood source › Attribution to a wound"
+    },
+    {
+     "ref": "8:3",
+     "text": "מעשה",
+     "text_de": "Handlung",
+     "text_en": "Act",
+     "desc": "טומאה היוצאת מרחם האשה › הלכות כתמים › תלייה במקור דם אחר › תלייה במכה",
+     "desc_de": "Unreinheit, die aus dem Schoß der Frau austritt › Gesetze der Flecken › Zurückführung auf eine andere Blutquelle › Zurückführung auf eine Wunde",
+     "desc_en": "Impurity emerging from the woman's womb › Laws of stains › Attribution to another blood source › Attribution to a wound"
+    },
+    {
+     "ref": "8:4",
+     "text": "צורת הכתם בעד",
+     "text_de": "Form des Flecks im Zeugnis",
+     "text_en": "Shape of the stain in testimony",
+     "desc": "טומאה היוצאת מרחם האשה › הלכות כתמים › תלייה במקור דם אחר › כינה",
+     "desc_de": "Unreinheit, die aus dem Schoß der Frau austritt › Gesetze der Flecken › Zurückführung auf eine andere Blutquelle › Laus",
+     "desc_en": "Impurity emerging from the woman's womb › Laws of stains › Attribution to another blood source › Louse"
+    }
+   ]
+  },
+  {
+   "head": "פרק ט",
+   "head_de": "Kapitel 9",
+   "head_en": "Chapter 9",
+   "items": [
+    {
+     "ref": "9:1",
+     "text": "תנוחת אשה המתפנה",
+     "text_de": "Haltung der sich entleerenden Frau",
+     "text_en": "Posture of the woman relieving herself",
+     "desc": "טומאה היוצאת מרחם האשה › הלכות כתמים › תלייה במקור דם אחר › דם עם מי רגלים",
+     "desc_de": "Unreinheit, die aus dem Schoß der Frau austritt › Gesetze der Flecken › Zurückführung auf eine andere Blutquelle › Blut mit Urin",
+     "desc_en": "Impurity emerging from the woman's womb › Laws of stains › Attribution to another blood source › Blood with urine"
+    },
+    {
+     "ref": "9:2",
+     "text": "ספל שתן של איש ואשה",
+     "text_de": "Urinbecher von Mann und Frau",
+     "text_en": "Urine cup of a man and a woman",
+     "desc": "טומאה היוצאת מרחם האשה › הלכות כתמים › תלייה במקור דם אחר › דם עם מי רגלים",
+     "desc_de": "Unreinheit, die aus dem Schoß der Frau austritt › Gesetze der Flecken › Zurückführung auf eine andere Blutquelle › Blut mit Urin",
+     "desc_en": "Impurity emerging from the woman's womb › Laws of stains › Attribution to another blood source › Blood with urine"
+    },
+    {
+     "ref": "9:3",
+     "text": "לבישה של אחרת, כתם על מקום הטהור",
+     "text_de": "Tragen von Kleidung einer anderen, Fleck an reiner Stelle",
+     "text_en": "Wearing another woman's garment, stain on a clean place",
+     "desc": "טומאה היוצאת מרחם האשה › הלכות כתמים › תלייה במקור דם אחר › אשה אחרת",
+     "desc_de": "Unreinheit, die aus dem Schoß der Frau austritt › Gesetze der Flecken › Zurückführung auf eine andere Blutquelle › Eine andere Frau",
+     "desc_en": "Impurity emerging from the woman's womb › Laws of stains › Attribution to another blood source › Another woman"
+    },
+    {
+     "ref": "9:4",
+     "text": "תכופות",
+     "text_de": "Unmittelbar aufeinander folgend",
+     "text_en": "Immediately successive",
+     "desc": "טומאה היוצאת מרחם האשה › הלכות כתמים › תלייה במקור דם אחר › אשה אחרת › ישנות ביחד",
+     "desc_de": "Unreinheit, die aus dem Schoß der Frau austritt › Gesetze der Flecken › Zurückführung auf eine andere Blutquelle › Eine andere Frau › Zusammen schlafend",
+     "desc_en": "Impurity emerging from the woman's womb › Laws of stains › Attribution to another blood source › Another woman › Sleeping together"
+    },
+    {
+     "ref": "9:5",
+     "text": "לא תכופות, ודמיון לספק טומאת מת",
+     "text_de": "Nicht unmittelbar aufeinander folgend, und Vergleich mit dem Zweifel der Leichenunreinheit",
+     "text_en": "Not immediately successive, and comparison with doubt of corpse impurity",
+     "desc": "טומאה היוצאת מרחם האשה › הלכות כתמים › תלייה במקור דם אחר › אשה אחרת › ישנות ביחד",
+     "desc_de": "Unreinheit, die aus dem Schoß der Frau austritt › Gesetze der Flecken › Zurückführung auf eine andere Blutquelle › Eine andere Frau › Zusammen schlafend",
+     "desc_en": "Impurity emerging from the woman's womb › Laws of stains › Attribution to another blood source › Another woman › Sleeping together"
+    },
+    {
+     "ref": "9:6",
+     "text": "7 סממנים, תוצאות הבדיקה",
+     "text_de": "Sieben Substanzen, Ergebnisse der Untersuchung",
+     "text_en": "Seven substances, results of the examination",
+     "desc": "טומאה היוצאת מרחם האשה › הלכות כתמים › בדיקה הכתם",
+     "desc_de": "Unreinheit, die aus dem Schoß der Frau austritt › Gesetze der Flecken › Untersuchung des Flecks",
+     "desc_en": "Impurity emerging from the woman's womb › Laws of stains › Examination of the stain"
+    },
+    {
+     "ref": "9:7",
+     "text": "הגדרת הסממנים, הוראות לבדיקה",
+     "text_de": "Bestimmung der Substanzen, Anweisungen zur Untersuchung",
+     "text_en": "Definition of the substances, instructions for the examination",
+     "desc": "טומאה היוצאת מרחם האשה › הלכות כתמים › בדיקה הכתם",
+     "desc_de": "Unreinheit, die aus dem Schoß der Frau austritt › Gesetze der Flecken › Untersuchung des Flecks",
+     "desc_en": "Impurity emerging from the woman's womb › Laws of stains › Examination of the stain"
+    },
+    {
+     "ref": "9:8",
+     "text": "דוגמות וקביעתן",
+     "text_de": "Beispiele und ihre Festlegung",
+     "text_en": "Examples and their establishment",
+     "desc": "טומאה היוצאת מרחם האשה › חזקת טומאה וטהרה › וסתות › בגוף",
+     "desc_de": "Unreinheit, die aus dem Schoß der Frau austritt › Rechtsvermutung von Unreinheit und Reinheit › Zyklen (Vestot) › Am Körper",
+     "desc_en": "Impurity emerging from the woman's womb › Presumptive status of impurity and purity › Cycles (vestot) › On the body"
+    },
+    {
+     "ref": "9:9",
+     "text": "הופעת הראייה ונ\"מ לטהרות \\ נץ החמה",
+     "text_de": "Auftreten der Beobachtung und praktische Folgen für Reinheiten / Sonnenaufgang",
+     "text_en": "Occurrence of the observation and practical consequences for purities / sunrise",
+     "desc": "טומאה היוצאת מרחם האשה › חזקת טומאה וטהרה › וסתות › הזמן",
+     "desc_de": "Unreinheit, die aus dem Schoß der Frau austritt › Rechtsvermutung von Unreinheit und Reinheit › Zyklen (Vestot) › Die Zeit",
+     "desc_en": "Impurity emerging from the woman's womb › Presumptive status of impurity and purity › Cycles (vestot) › The time"
+    },
+    {
+     "ref": "9:10",
+     "text": "תאריך בחודש, קביעתן ועקירתן",
+     "text_de": "Datum im Monat, ihre Festlegung und Aufhebung",
+     "text_en": "Date in the month, their establishment and cancellation",
+     "desc": "טומאה היוצאת מרחם האשה › חזקת טומאה וטהרה › וסתות › הזמן",
+     "desc_de": "Unreinheit, die aus dem Schoß der Frau austritt › Rechtsvermutung von Unreinheit und Reinheit › Zyklen (Vestot) › Die Zeit",
+     "desc_en": "Impurity emerging from the woman's womb › Presumptive status of impurity and purity › Cycles (vestot) › The time"
+    },
+    {
+     "ref": "9:11",
+     "text": "צבע וכמות דם בתולים ונדות",
+     "text_de": "Farbe und Menge von Jungfrauenblut und Menstruationsblut",
+     "text_en": "Color and quantity of virginal blood and menstrual blood",
+     "desc": "טומאה היוצאת מרחם האשה › חזקת טומאה וטהרה › דם בתולים",
+     "desc_de": "Unreinheit, die aus dem Schoß der Frau austritt › Rechtsvermutung von Unreinheit und Reinheit › Jungfrauenblut",
+     "desc_en": "Impurity emerging from the woman's womb › Presumptive status of impurity and purity › Virginal blood"
+    }
+   ]
+  },
+  {
+   "head": "פרק י",
+   "head_de": "Kapitel 10",
+   "head_en": "Chapter 10",
+   "items": [
+    {
+     "ref": "10:1",
+     "text": "משך זמן טהרתם",
+     "text_de": "Dauer ihrer Reinigungszeit",
+     "text_en": "Duration of their period of purification",
+     "desc": "טומאה היוצאת מרחם האשה › חזקת טומאה וטהרה › דם בתולים",
+     "desc_de": "Unreinheit, die aus dem Schoß der Frau austritt › Rechtsvermutung von Unreinheit und Reinheit › Jungfrauenblut",
+     "desc_en": "Impurity emerging from the woman's womb › Presumptive status of impurity and purity › Virginal blood"
+    },
+    {
+     "ref": "10:2",
+     "text": "בדיקות הנדה",
+     "text_de": "Untersuchungen der Menstruierenden",
+     "text_en": "Examinations of the menstruant",
+     "desc": "טומאה היוצאת מרחם האשה › חזקת טומאה וטהרה › בדיקות במשך הספירה",
+     "desc_de": "Unreinheit, die aus dem Schoß der Frau austritt › Rechtsvermutung von Unreinheit und Reinheit › Untersuchungen während der Zählung",
+     "desc_en": "Impurity emerging from the woman's womb › Presumptive status of impurity and purity › Examinations during the counting"
+    },
+    {
+     "ref": "10:3",
+     "text": "בדיקות זבים",
+     "text_de": "Untersuchungen der Flussbehafteten",
+     "text_en": "Examinations of those with discharge",
+     "desc": "טומאה היוצאת מרחם האשה › חזקת טומאה וטהרה › בדיקות במשך הספירה",
+     "desc_de": "Unreinheit, die aus dem Schoß der Frau austritt › Rechtsvermutung von Unreinheit und Reinheit › Untersuchungen während der Zählung",
+     "desc_en": "Impurity emerging from the woman's womb › Presumptive status of impurity and purity › Examinations during the counting"
+    },
+    {
+     "ref": "10:4",
+     "text": "טומאת אבן מסמא, נדות",
+     "text_de": "Unreinheit des Steins, der verstopft, Menstruierende",
+     "text_en": "Impurity of the blocking stone, menstruants",
+     "desc": "טומאה היוצאת מרחם האשה › טומאות ומעלות מדרבנן › מתים",
+     "desc_de": "Unreinheit, die aus dem Schoß der Frau austritt › Rabbinische Unreinheiten und Stufen › Tote",
+     "desc_en": "Impurity emerging from the woman's womb › Rabbinic impurities and degrees › The dead"
+    },
+    {
+     "ref": "10:5",
+     "text": "יציאת דם וביולדת שמתה",
+     "text_de": "Blutaustritt und bei der gestorbenen Wöchnerin",
+     "text_en": "Emission of blood and in the case of a woman who died in childbirth",
+     "desc": "טומאה היוצאת מרחם האשה › טומאות ומעלות מדרבנן › מתים",
+     "desc_de": "Unreinheit, die aus dem Schoß der Frau austritt › Rabbinische Unreinheiten und Stufen › Tote",
+     "desc_en": "Impurity emerging from the woman's womb › Rabbinic impurities and degrees › The dead"
+    },
+    {
+     "ref": "10:6",
+     "text": "חולין על טהרת הקודש",
+     "text_de": "Profanes in Reinheit des Heiligen",
+     "text_en": "Unconsecrated food in the purity of sacred food",
+     "desc": "טומאה היוצאת מרחם האשה › טומאות ומעלות מדרבנן › ימי טוהר",
+     "desc_de": "Unreinheit, die aus dem Schoß der Frau austritt › Rabbinische Unreinheiten und Stufen › Tage der Reinheit",
+     "desc_en": "Impurity emerging from the woman's womb › Rabbinic impurities and degrees › Days of purity"
+    },
+    {
+     "ref": "10:7",
+     "text": "מעשר, חלה ותרומה, צורך בטבילה",
+     "text_de": "Maaser, Challa und Teruma, Notwendigkeit der Tauchung",
+     "text_en": "Maaser, challah and terumah, need for immersion",
+     "desc": "טומאה היוצאת מרחם האשה › טומאות ומעלות מדרבנן › ימי טוהר",
+     "desc_de": "Unreinheit, die aus dem Schoß der Frau austritt › Rabbinische Unreinheiten und Stufen › Tage der Reinheit",
+     "desc_en": "Impurity emerging from the woman's womb › Rabbinic impurities and degrees › Days of purity"
+    },
+    {
+     "ref": "10:8",
+     "text": "שמירה וביאה",
+     "text_de": "Bewachung und Beischlaf",
+     "text_en": "Guarding and intercourse",
+     "desc": "טומאה היוצאת מרחם האשה › טומאות ומעלות מדרבנן › סוף ימי זיבה",
+     "desc_de": "Unreinheit, die aus dem Schoß der Frau austritt › Rabbinische Unreinheiten und Stufen › Ende der Tage des Flusses",
+     "desc_en": "Impurity emerging from the woman's womb › Rabbinic impurities and degrees › End of the days of discharge"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,345 @@
+{
+ "book": "Mishnah Taanit",
+ "title": "משנה תענית",
+ "title_de": "Mischna Taanit – Gliederung",
+ "title_en": "Taanit – outline",
+ "note": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema).",
+ "note_de": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema); ins Deutsche und Englische übersetzt.",
+ "note_en": "Outline after the table “Mishna Sedura”: the central content of each mishnah, with the topic path (main topic to sub-topic); translated into German and English.",
+ "sections": [
+  {
+   "head": "פרק א",
+   "head_de": "Kapitel 1",
+   "head_en": "Chapter 1",
+   "items": [
+    {
+     "ref": "1:1",
+     "text": "התחלת הזכרה",
+     "text_de": "Beginn der Erwähnung",
+     "text_en": "Beginning of the mention",
+     "desc": "תעניות גשמים › שלבים בבקשת מטר › הוספות לתפילה › הזכרה",
+     "desc_de": "Regenfasten › Stufen der Bitte um Regen › Zusätze zum Gebet › Erwähnung",
+     "desc_en": "Fasts for rain › Stages of the request for rain › Additions to the prayer › Mention"
+    },
+    {
+     "ref": "1:2",
+     "text": "התחלה וסוף הזכרה ושאלה",
+     "text_de": "Beginn und Ende von Erwähnung und Bitte",
+     "text_en": "Beginning and end of the mention and the request",
+     "desc": "תעניות גשמים › שלבים בבקשת מטר › הוספות לתפילה › שאילה › הזכרה",
+     "desc_de": "Regenfasten › Stufen der Bitte um Regen › Zusätze zum Gebet › Bitte › Erwähnung",
+     "desc_en": "Fasts for rain › Stages of the request for rain › Additions to the prayer › Request › Mention"
+    },
+    {
+     "ref": "1:3",
+     "text": "התחלת שאלה",
+     "text_de": "Beginn der Bitte",
+     "text_en": "Beginning of the request",
+     "desc": "תעניות גשמים › שלבים בבקשת מטר › הוספות לתפילה › שאילה",
+     "desc_de": "Regenfasten › Stufen der Bitte um Regen › Zusätze zum Gebet › Bitte",
+     "desc_en": "Fasts for rain › Stages of the request for rain › Additions to the prayer › Request"
+    },
+    {
+     "ref": "1:4",
+     "text": "תעניות היחידים",
+     "text_de": "Fasten Einzelner",
+     "text_en": "Fasts of individuals",
+     "desc": "תעניות גשמים › הלכות התעניות › שלבים בבקשת מטר › סדרי תעניות › י\"ז מרחשון",
+     "desc_de": "Regenfasten › Regeln der Fasttage › Stufen der Bitte um Regen › Ordnung der Fasttage › 17. Marcheschwan",
+     "desc_en": "Fasts for rain › Laws of the fast days › Stages of the request for rain › Order of the fast days › 17th of Marcheshvan"
+    },
+    {
+     "ref": "1:5",
+     "text": "שלוש הקלות",
+     "text_de": "Drei Erleichterungen",
+     "text_en": "Three leniencies",
+     "desc": "תעניות גשמים › הלכות התעניות › שלבים בבקשת מטר › סדרי תעניות › מר\"ח כסלו › ציבור",
+     "desc_de": "Regenfasten › Regeln der Fasttage › Stufen der Bitte um Regen › Ordnung der Fasttage › Neumond Kislew › Gemeinde",
+     "desc_en": "Fasts for rain › Laws of the fast days › Stages of the request for rain › Order of the fast days › New moon of Kislev › Community"
+    },
+    {
+     "ref": "1:6",
+     "text": "שלוש ושבע החמורות",
+     "text_de": "Die drei und die sieben strengeren (Fasten)",
+     "text_en": "The three and the seven more severe (fasts)",
+     "desc": "תעניות גשמים › הלכות התעניות › שלבים בבקשת מטר › סדרי תעניות › מר\"ח כסלו › ציבור",
+     "desc_de": "Regenfasten › Regeln der Fasttage › Stufen der Bitte um Regen › Ordnung der Fasttage › Neumond Kislew › Gemeinde",
+     "desc_en": "Fasts for rain › Laws of the fast days › Stages of the request for rain › Order of the fast days › New moon of Kislev › Community"
+    },
+    {
+     "ref": "1:7",
+     "text": "סימני נזיפה, יחידים, גשם קייצי",
+     "text_de": "Zeichen der Rüge, Einzelne, Sommerregen",
+     "text_en": "Signs of rebuke, individuals, summer rain",
+     "desc": "תעניות גשמים › הלכות התעניות › שלבים בבקשת מטר › סדרי תעניות › עד סוף ניסן",
+     "desc_de": "Regenfasten › Regeln der Fasttage › Stufen der Bitte um Regen › Ordnung der Fasttage › Bis Ende Nissan",
+     "desc_en": "Fasts for rain › Laws of the fast days › Stages of the request for rain › Order of the fast days › Until the end of Nisan"
+    }
+   ]
+  },
+  {
+   "head": "פרק ב",
+   "head_de": "Kapitel 2",
+   "head_en": "Chapter 2",
+   "items": [
+    {
+     "ref": "2:1",
+     "text": "הנהגות ודברי כבושים",
+     "text_de": "Verhaltensweisen und zurückhaltende Worte",
+     "text_en": "Conduct and restrained words",
+     "desc": "תעניות גשמים › הלכות התעניות › סדר התפילה",
+     "desc_de": "Regenfasten › Regeln der Fasttage › Ordnung des Gebets",
+     "desc_en": "Fasts for rain › Laws of the fast days › Order of the prayer"
+    },
+    {
+     "ref": "2:2",
+     "text": "שליח צבור המתאים \\ מספר הנוספות",
+     "text_de": "Geeigneter Vorbeter / Anzahl der Zusätze",
+     "text_en": "Suitable prayer leader / number of additions",
+     "desc": "תעניות גשמים › הלכות התעניות › סדר התפילה › הברכות",
+     "desc_de": "Regenfasten › Regeln der Fasttage › Ordnung des Gebets › Die Segenssprüche",
+     "desc_en": "Fasts for rain › Laws of the fast days › Order of the prayer › The blessings"
+    },
+    {
+     "ref": "2:3",
+     "text": "גוף הברכות",
+     "text_de": "Inhalt der Segenssprüche",
+     "text_en": "Content of the blessings",
+     "desc": "תעניות גשמים › הלכות התעניות › סדר התפילה › הברכות",
+     "desc_de": "Regenfasten › Regeln der Fasttage › Ordnung des Gebets › Die Segenssprüche",
+     "desc_en": "Fasts for rain › Laws of the fast days › Order of the prayer › The blessings"
+    },
+    {
+     "ref": "2:4",
+     "text": "חתימתן",
+     "text_de": "Ihre Schlussformeln",
+     "text_en": "Their concluding formulas",
+     "desc": "תעניות גשמים › הלכות התעניות › סדר התפילה › הברכות",
+     "desc_de": "Regenfasten › Regeln der Fasttage › Ordnung des Gebets › Die Segenssprüche",
+     "desc_en": "Fasts for rain › Laws of the fast days › Order of the prayer › The blessings"
+    },
+    {
+     "ref": "2:5",
+     "text": "עניית אמן ותקיעות",
+     "text_de": "Antwort mit Amen und Schofarstöße",
+     "text_en": "Responding Amen and shofar blasts",
+     "desc": "תעניות גשמים › הלכות התעניות › סדר התפילה › הברכות",
+     "desc_de": "Regenfasten › Regeln der Fasttage › Ordnung des Gebets › Die Segenssprüche",
+     "desc_en": "Fasts for rain › Laws of the fast days › Order of the prayer › The blessings"
+    },
+    {
+     "ref": "2:6",
+     "text": "אנשי בית אב ומשמר",
+     "text_de": "Angehörige des Vaterhauses und der Priesterwache",
+     "text_en": "Members of the father's house and the priestly watch",
+     "desc": "תעניות גשמים › הלכות התעניות › חיובים של העוסקים בעבודה › תעניות קשות",
+     "desc_de": "Regenfasten › Regeln der Fasttage › Pflichten der im Tempeldienst Beschäftigten › Strenge Fasten",
+     "desc_en": "Fasts for rain › Laws of the fast days › Obligations of those engaged in the Temple service › Severe fasts"
+    },
+    {
+     "ref": "2:7",
+     "text": "אנשי בית אב, משמר והמעמד",
+     "text_de": "Vaterhaus, Priesterwache und Maamad",
+     "text_en": "Father's house, priestly watch and Maamad",
+     "desc": "תעניות גשמים › הלכות התעניות › חיובים של העוסקים בעבודה › טרדה וכבוד",
+     "desc_de": "Regenfasten › Regeln der Fasttage › Pflichten der im Tempeldienst Beschäftigten › Beschäftigung und Ehre",
+     "desc_en": "Fasts for rain › Laws of the fast days › Obligations of those engaged in the Temple service › Preoccupation and honor"
+    },
+    {
+     "ref": "2:8",
+     "text": "הכתוב במגילת תענית",
+     "text_de": "Das in der Megillat Taanit Geschriebene",
+     "text_en": "What is written in Megillat Taanit",
+     "desc": "תעניות גשמים › הלכות התעניות › מתי גוזרים תענית",
+     "desc_de": "Regenfasten › Regeln der Fasttage › Wann man ein Fasten verordnet",
+     "desc_en": "Fasts for rain › Laws of the fast days › When a fast is decreed"
+    },
+    {
+     "ref": "2:9",
+     "text": "ביום חמישי",
+     "text_de": "Am Donnerstag",
+     "text_en": "On Thursday",
+     "desc": "תעניות גשמים › הלכות התעניות › מתי גוזרים תענית › התחלת הסידרה",
+     "desc_de": "Regenfasten › Regeln der Fasttage › Wann man ein Fasten verordnet › Beginn der Reihe",
+     "desc_en": "Fasts for rain › Laws of the fast days › When a fast is decreed › Beginning of the series"
+    },
+    {
+     "ref": "2:10",
+     "text": "ביום מועד או שמחה \\ הפסקה, השלמה",
+     "text_de": "An einem Festtag oder Freudentag / Unterbrechung, Nachholung",
+     "text_en": "On a festival or day of joy / interruption, making up",
+     "desc": "תעניות גשמים › הלכות התעניות › מתי גוזרים תענית › התחלת הסידרה",
+     "desc_de": "Regenfasten › Regeln der Fasttage › Wann man ein Fasten verordnet › Beginn der Reihe",
+     "desc_en": "Fasts for rain › Laws of the fast days › When a fast is decreed › Beginning of the series"
+    }
+   ]
+  },
+  {
+   "head": "פרק ג",
+   "head_de": "Kapitel 3",
+   "head_en": "Chapter 3",
+   "items": [
+    {
+     "ref": "3:1",
+     "text": "צמחים ששנו \\ הפסק בין גשמים",
+     "text_de": "Pflanzen, die sich verändert haben / Unterbrechung zwischen Regenfällen",
+     "text_en": "Plants that have changed / interval between rainfalls",
+     "desc": "תעניות גשמים › הצלה מצרה › שמריעין עליהן מיד › גשמים",
+     "desc_de": "Regenfasten › Rettung aus Not › Dass man sofort Alarm für sie bläst › Regen",
+     "desc_en": "Fasts for rain › Rescue from distress › That the alarm is sounded for them immediately › Rain"
+    },
+    {
+     "ref": "3:2",
+     "text": "כמות שאינה מספקת",
+     "text_de": "Unzureichende Menge",
+     "text_en": "Insufficient quantity",
+     "desc": "תעניות גשמים › הצלה מצרה › שמריעין עליהן מיד › גשמים",
+     "desc_de": "Regenfasten › Rettung aus Not › Dass man sofort Alarm für sie bläst › Regen",
+     "desc_en": "Fasts for rain › Rescue from distress › That the alarm is sounded for them immediately › Rain"
+    },
+    {
+     "ref": "3:3",
+     "text": "עיר שלא נמטרה",
+     "text_de": "Stadt, auf die kein Regen fiel",
+     "text_en": "City on which no rain fell",
+     "desc": "תעניות גשמים › הצלה מצרה › שמריעין עליהן מיד › מקום המכה וסביבתו › גשמים",
+     "desc_de": "Regenfasten › Rettung aus Not › Dass man sofort Alarm für sie bläst › Ort der Plage und seine Umgebung › Regen",
+     "desc_en": "Fasts for rain › Rescue from distress › That the alarm is sounded for them immediately › Place of the plague and its surroundings › Rain"
+    },
+    {
+     "ref": "3:4",
+     "text": "מפולת, דבר והגדרתו",
+     "text_de": "Einsturz, Pest und ihre Definition",
+     "text_en": "Collapse, pestilence and its definition",
+     "desc": "סיבות אחרות לתעניות › הצלה מצרה › שמריעין עליהן מיד › מתחת איום › מקום המכה וסביבתו",
+     "desc_de": "Weitere Anlässe für Fasten › Rettung aus Not › Dass man sofort Alarm für sie bläst › Unter Bedrohung › Ort der Plage und seine Umgebung",
+     "desc_en": "Other reasons for fasting › Rescue from distress › That the alarm is sounded for them immediately › Under threat › Place of the plague and its surroundings"
+    },
+    {
+     "ref": "3:5",
+     "text": "מכות לתבואה, לאדם",
+     "text_de": "Plagen für Getreide, für Menschen",
+     "text_en": "Plagues for grain, for people",
+     "desc": "סיבות אחרות לתעניות › הצלה מצרה › שמריעין עליהן מיד › מתחת איום › מכה מהלכת",
+     "desc_de": "Weitere Anlässe für Fasten › Rettung aus Not › Dass man sofort Alarm für sie bläst › Unter Bedrohung › Wandernde Plage",
+     "desc_en": "Other reasons for fasting › Rescue from distress › That the alarm is sounded for them immediately › Under threat › Spreading plague"
+    },
+    {
+     "ref": "3:6",
+     "text": "מעשה שגזרו",
+     "text_de": "Vorfall, bei dem man ein Fasten verordnete",
+     "text_en": "Incident in which a fast was decreed",
+     "desc": "סיבות אחרות לתעניות › הצלה מצרה › שמריעין עליהן מיד › מתחת איום › מכה מהלכת",
+     "desc_de": "Weitere Anlässe für Fasten › Rettung aus Not › Dass man sofort Alarm für sie bläst › Unter Bedrohung › Wandernde Plage",
+     "desc_en": "Other reasons for fasting › Rescue from distress › That the alarm is sounded for them immediately › Under threat › Spreading plague"
+    },
+    {
+     "ref": "3:7",
+     "text": "סכנת מלחמה, טביעה",
+     "text_de": "Kriegsgefahr, Ertrinken",
+     "text_en": "Danger of war, drowning",
+     "desc": "סיבות אחרות לתעניות › הצלה מצרה › שמריעין עליהן מיד › התרעה בשבת",
+     "desc_de": "Weitere Anlässe für Fasten › Rettung aus Not › Dass man sofort Alarm für sie bläst › Alarmblasen am Schabbat",
+     "desc_en": "Other reasons for fasting › Rescue from distress › That the alarm is sounded for them immediately › Sounding the alarm on Shabbat"
+    },
+    {
+     "ref": "3:8",
+     "text": "תפילת חוני המעגל",
+     "text_de": "Gebet Chonis des Kreiszeichners",
+     "text_en": "Prayer of Honi the Circle-Drawer",
+     "desc": "סיבות אחרות לתעניות › הצלה מצרה › שאין מתענין › רוב טובה",
+     "desc_de": "Weitere Anlässe für Fasten › Rettung aus Not › Wofür man nicht fastet › Überfluss an Gutem",
+     "desc_en": "Other reasons for fasting › Rescue from distress › For what one does not fast › Abundance of good"
+    },
+    {
+     "ref": "3:9",
+     "text": "שעת היום, תגובות של שמחה",
+     "text_de": "Tageszeit, Reaktionen der Freude",
+     "text_en": "Time of day, reactions of joy",
+     "desc": "סיבות אחרות לתעניות › הצלה מצרה › שאין מתענין › מטרה שהושגה",
+     "desc_de": "Weitere Anlässe für Fasten › Rettung aus Not › Wofür man nicht fastet › Erreichtes Ziel",
+     "desc_en": "Other reasons for fasting › Rescue from distress › For what one does not fast › Goal achieved"
+    }
+   ]
+  },
+  {
+   "head": "פרק ד",
+   "head_de": "Kapitel 4",
+   "head_en": "Chapter 4",
+   "items": [
+    {
+     "ref": "4:1",
+     "text": "הימים שיש בהם נשיאת כפים בכל תפילה",
+     "text_de": "Die Tage mit Priestersegen in jedem Gebet",
+     "text_en": "The days with the priestly blessing in every prayer",
+     "desc": "סיבות אחרות לתעניות › תפילה › המעמדות › דיניהם",
+     "desc_de": "Weitere Anlässe für Fasten › Gebet › Die Maamadot › Ihre Regeln",
+     "desc_en": "Other reasons for fasting › Prayer › The Maamadot › Their laws"
+    },
+    {
+     "ref": "4:2",
+     "text": "המעמדות, חלוקת המשמרות",
+     "text_de": "Die Maamadot, Einteilung der Priesterwachen",
+     "text_en": "The Maamadot, division of the priestly watches",
+     "desc": "סיבות אחרות לתעניות › תפילה › המעמדות › דיניהם",
+     "desc_de": "Weitere Anlässe für Fasten › Gebet › Die Maamadot › Ihre Regeln",
+     "desc_en": "Other reasons for fasting › Prayer › The Maamadot › Their laws"
+    },
+    {
+     "ref": "4:3",
+     "text": "הימים שמתענים, איך ומה קראו בכל יום",
+     "text_de": "Die Fasttage, wie und was man an jedem Tag las",
+     "text_en": "The fast days, how and what was read on each day",
+     "desc": "סיבות אחרות לתעניות › תפילה › המעמדות › דיניהם",
+     "desc_de": "Weitere Anlässe für Fasten › Gebet › Die Maamadot › Ihre Regeln",
+     "desc_en": "Other reasons for fasting › Prayer › The Maamadot › Their laws"
+    },
+    {
+     "ref": "4:4",
+     "text": "על ידי הלל, מוסף, קרבן העצים",
+     "text_de": "Durch Hallel, Mussaf, Holzopfer",
+     "text_en": "Through Hallel, Musaf, wood offering",
+     "desc": "סיבות אחרות לתעניות › תפילה › המעמדות › ביטולם",
+     "desc_de": "Weitere Anlässe für Fasten › Gebet › Die Maamadot › Ihre Aufhebung",
+     "desc_en": "Other reasons for fasting › Prayer › The Maamadot › Their abolition"
+    },
+    {
+     "ref": "4:5",
+     "text": "זמני קרבות עצים ומביאיהם, ר\"ח טבת",
+     "text_de": "Zeiten der Holzopfer und ihrer Darbringer, Neumond Tewet",
+     "text_en": "Times of the wood offerings and their donors, new moon of Tevet",
+     "desc": "סיבות אחרות לתעניות › תפילה › המעמדות › ביטולם",
+     "desc_de": "Weitere Anlässe für Fasten › Gebet › Die Maamadot › Ihre Aufhebung",
+     "desc_en": "Other reasons for fasting › Prayer › The Maamadot › Their abolition"
+    },
+    {
+     "ref": "4:6",
+     "text": "המאורעות בבי\"ז בתמוז ובט' באב",
+     "text_de": "Die Ereignisse am 17. Tammus und am 9. Aw",
+     "text_en": "The events of the 17th of Tammuz and the 9th of Av",
+     "desc": "סיבות אחרות לתעניות › אבילות › בין המצרים › טעמי האבל",
+     "desc_de": "Weitere Anlässe für Fasten › Trauer › Zwischen den Bedrängnissen › Gründe der Trauer",
+     "desc_en": "Other reasons for fasting › Mourning › Between the straits › Reasons for mourning"
+    },
+    {
+     "ref": "4:7",
+     "text": "שבוע שחל בו, סעודה המפסקת, כפית מטה",
+     "text_de": "Woche, in die er fällt, trennende Mahlzeit, Umkippen des Bettes",
+     "text_en": "Week in which it falls, separating meal, overturning the bed",
+     "desc": "סיבות אחרות לתעניות › אבילות › בין המצרים › דיני ט' באב",
+     "desc_de": "Weitere Anlässe für Fasten › Trauer › Zwischen den Bedrängnissen › Regeln des 9. Aw",
+     "desc_en": "Other reasons for fasting › Mourning › Between the straits › Laws of the 9th of Av"
+    },
+    {
+     "ref": "4:8",
+     "text": "בגדי הנשים ודבריהם",
+     "text_de": "Kleider der Frauen und ihre Worte",
+     "text_en": "Clothes of the women and their words",
+     "desc": "ימי שמחה › ט\"ו באב ויוה\"כ › מחול בכרמים",
+     "desc_de": "Freudentage › 15. Aw und Jom Kippur › Tanz in den Weinbergen",
+     "desc_en": "Days of joy › 15th of Av and Yom Kippur › Dancing in the vineyards"
+    }
+   ]
+  }
+ ]
+}

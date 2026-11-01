@@ -1,0 +1,284 @@
+{
+ "book": "Mishnah Oktzin",
+ "title": "משנה עוקצים",
+ "title_de": "Mischna Ukzin – Gliederung",
+ "title_en": "Oktzin – outline",
+ "note": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema).",
+ "note_de": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema); ins Deutsche und Englische übersetzt.",
+ "note_en": "Outline after the table “Mishna Sedura”: the central content of each mishnah, with the topic path (main topic to sub-topic); translated into German and English.",
+ "sections": [
+  {
+   "head": "פרק א",
+   "head_de": "Kapitel 1",
+   "head_en": "Chapter 1",
+   "items": [
+    {
+     "ref": "1:1",
+     "text": "הבדל בין שומר ליד",
+     "text_de": "Unterschied zwischen Hüter und Hand",
+     "text_en": "Difference between a guardian and a handle",
+     "desc": "המקבל טומאת אכלים › ידות ושומרים לאוכל › כלל של 3 חילוקים",
+     "desc_de": "Was die Unreinheit von Speisen aufnimmt › Griffe und Schutzteile von Speisen › Regel mit drei Unterscheidungen",
+     "desc_en": "What receives the impurity of foods › Handles and protectors of food › Rule with three distinctions"
+    },
+    {
+     "ref": "1:2",
+     "text": "שומרים",
+     "text_de": "Schutzteile",
+     "text_en": "Protectors",
+     "desc": "המקבל טומאת אכלים › ידות ושומרים לאוכל › פירוט חלקי פירות שונים › דוגמאות לכלל",
+     "desc_de": "Was die Unreinheit von Speisen aufnimmt › Griffe und Schutzteile von Speisen › Aufzählung der Teile verschiedener Früchte › Beispiele zur Regel",
+     "desc_en": "What receives the impurity of foods › Handles and protectors of food › Listing of the parts of various fruits › Examples of the rule"
+    },
+    {
+     "ref": "1:3",
+     "text": "ידות",
+     "text_de": "Griffe (Umschreibungen)",
+     "text_en": "handles (substitute terms)",
+     "desc": "המקבל טומאת אכלים › ידות ושומרים לאוכל › פירוט חלקי פירות שונים › דוגמאות לכלל",
+     "desc_de": "Was die Unreinheit von Speisen aufnimmt › Griffe und Schutzteile von Speisen › Aufzählung der Teile verschiedener Früchte › Beispiele zur Regel",
+     "desc_en": "What receives the impurity of foods › Handles and protectors of food › Listing of the parts of various fruits › Examples of the rule"
+    },
+    {
+     "ref": "1:4",
+     "text": "שאינם ידות או שומרים",
+     "text_de": "Teile, die weder Griffe noch Schutzteile sind",
+     "text_en": "Parts that are neither handles nor protectors",
+     "desc": "המקבל טומאת אכלים › ידות ושומרים לאוכל › פירוט חלקי פירות שונים › דוגמאות לכלל › חוסר",
+     "desc_de": "Was die Unreinheit von Speisen aufnimmt › Griffe und Schutzteile von Speisen › Aufzählung der Teile verschiedener Früchte › Beispiele zur Regel › Mangel",
+     "desc_en": "What receives the impurity of foods › Handles and protectors of food › Listing of the parts of various fruits › Examples of the rule › Deficiency"
+    },
+    {
+     "ref": "1:5",
+     "text": "ניתוק הפרי וטהרת הידות",
+     "text_de": "Ablösen der Frucht und Reinheit der Griffe",
+     "text_en": "Detaching the fruit and purity of the handles",
+     "desc": "המקבל טומאת אכלים › ידות ושומרים לאוכל › פירוט חלקי פירות שונים › שימושיות",
+     "desc_de": "Was die Unreinheit von Speisen aufnimmt › Griffe und Schutzteile von Speisen › Aufzählung der Teile verschiedener Früchte › Nutzbarkeit",
+     "desc_en": "What receives the impurity of foods › Handles and protectors of food › Listing of the parts of various fruits › Usefulness"
+    },
+    {
+     "ref": "1:6",
+     "text": "הנחשב אוכל, יד, השאר",
+     "text_de": "Was als Speise, Griff oder Rest gilt",
+     "text_en": "What counts as food, handle, or remainder",
+     "desc": "המקבל טומאת אכלים › ידות ושומרים לאוכל › פירוט חלקי פירות שונים › עוקצים",
+     "desc_de": "Was die Unreinheit von Speisen aufnimmt › Griffe und Schutzteile von Speisen › Aufzählung der Teile verschiedener Früchte › Stiele",
+     "desc_en": "What receives the impurity of foods › Handles and protectors of food › Listing of the parts of various fruits › Stems"
+    }
+   ]
+  },
+  {
+   "head": "פרק ב",
+   "head_de": "Kapitel 2",
+   "head_en": "Chapter 2",
+   "items": [
+    {
+     "ref": "2:1",
+     "text": "עלי זית, חלקי קישוט",
+     "text_de": "Olivenblätter, Zierteile",
+     "text_en": "Olive leaves, decorative parts",
+     "desc": "המקבל טומאת אכלים › ידות ושומרים לאוכל › פירוט חלקי פירות שונים › טהור לגמרי",
+     "desc_de": "Was die Unreinheit von Speisen aufnimmt › Griffe und Schutzteile von Speisen › Aufzählung der Teile verschiedener Früchte › Völlig rein",
+     "desc_en": "What receives the impurity of foods › Handles and protectors of food › Listing of the parts of various fruits › Entirely pure"
+    },
+    {
+     "ref": "2:2",
+     "text": "גלעינים, עצם שיש עליו בשר",
+     "text_de": "Kerne, Knochen mit anhaftendem Fleisch",
+     "text_en": "Pits, bone with meat on it",
+     "desc": "המקבל טומאת אכלים › ידות ושומרים לאוכל › פירוט חלקי פירות שונים › תוך האוכל",
+     "desc_de": "Was die Unreinheit von Speisen aufnimmt › Griffe und Schutzteile von Speisen › Aufzählung der Teile verschiedener Früchte › Inneres der Speise",
+     "desc_en": "What receives the impurity of foods › Handles and protectors of food › Listing of the parts of various fruits › Inside of the food"
+    },
+    {
+     "ref": "2:3",
+     "text": "נמוק מקצת, הפטמא, נץ, מסרק",
+     "text_de": "Teilweise verfault, Blütenansatz, Knospe, Kamm",
+     "text_en": "Partly rotted, calyx tip, bud, comb",
+     "desc": "המקבל טומאת אכלים › ידות ושומרים לאוכל › פירוט חלקי פירות שונים › רמון",
+     "desc_de": "Was die Unreinheit von Speisen aufnimmt › Griffe und Schutzteile von Speisen › Aufzählung der Teile verschiedener Früchte › Granatapfel",
+     "desc_en": "What receives the impurity of foods › Handles and protectors of food › Listing of the parts of various fruits › Pomegranate"
+    },
+    {
+     "ref": "2:4",
+     "text": "כל הפירות, בצל",
+     "text_de": "Alle Früchte, Zwiebel",
+     "text_en": "All fruits, onion",
+     "desc": "המקבל טומאת אכלים › ידות ושומרים לאוכל › פירוט חלקי פירות שונים › שלימות הקליפות",
+     "desc_de": "Was die Unreinheit von Speisen aufnimmt › Griffe und Schutzteile von Speisen › Aufzählung der Teile verschiedener Früchte › Unversehrtheit der Schalen",
+     "desc_en": "What receives the impurity of foods › Handles and protectors of food › Listing of the parts of various fruits › Intactness of the peels"
+    },
+    {
+     "ref": "2:5",
+     "text": "מטרת החיתוך, אגוזים ובצלים",
+     "text_de": "Zweck des Schneidens, Nüsse und Zwiebeln",
+     "text_en": "Purpose of the cutting, nuts and onions",
+     "desc": "המקבל טומאת אכלים › ידות ושומרים לאוכל › פירוט חלקי פירות שונים › שלימות הקליפות",
+     "desc_de": "Was die Unreinheit von Speisen aufnimmt › Griffe und Schutzteile von Speisen › Aufzählung der Teile verschiedener Früchte › Unversehrtheit der Schalen",
+     "desc_en": "What receives the impurity of foods › Handles and protectors of food › Listing of the parts of various fruits › Intactness of the peels"
+    },
+    {
+     "ref": "2:6",
+     "text": "ביצה ובישולה \\ עצם, רימון, כלאים",
+     "text_de": "Ei und sein Kochen / Knochen, Granatapfel, Mischsaat",
+     "text_en": "Egg and its cooking / Bone, pomegranate, mixed species",
+     "desc": "המקבל טומאת אכלים › ידות ושומרים לאוכל › פירוט חלקי פירות שונים › שלימות הקליפות \\ פירוק עלים",
+     "desc_de": "Was die Unreinheit von Speisen aufnimmt › Griffe und Schutzteile von Speisen › Aufzählung der Teile verschiedener Früchte › Unversehrtheit der Schalen / Ablösen der Blätter",
+     "desc_en": "What receives the impurity of foods › Handles and protectors of food › Listing of the parts of various fruits › Intactness of the peels / Removing the leaves"
+    },
+    {
+     "ref": "2:7",
+     "text": "מדת האכילות, שמירה",
+     "text_de": "Maß des Essbaren, Bewachung",
+     "text_en": "Measure of edibility, guarding",
+     "desc": "המקבל טומאת אכלים › ידות ושומרים לאוכל › פירוט חלקי פירות שונים › פירוק עלים",
+     "desc_de": "Was die Unreinheit von Speisen aufnimmt › Griffe und Schutzteile von Speisen › Aufzählung der Teile verschiedener Früchte › Ablösen der Blätter",
+     "desc_en": "What receives the impurity of foods › Handles and protectors of food › Listing of the parts of various fruits › Removing the leaves"
+    },
+    {
+     "ref": "2:8",
+     "text": "מיעוך, המצב הנוכחי",
+     "text_de": "Zerdrücken, gegenwärtiger Zustand",
+     "text_en": "Crushing, present state",
+     "desc": "המקבל טומאת אכלים › אכלים עצמם › שינוי פיסי › קביעת נפח",
+     "desc_de": "Was die Unreinheit von Speisen aufnimmt › Die Speisen selbst › Physische Veränderung › Bestimmung des Volumens",
+     "desc_en": "What receives the impurity of foods › The foods themselves › Physical change › Determining the volume"
+    },
+    {
+     "ref": "2:9",
+     "text": "הגדל מחוץ לעציץ",
+     "text_de": "Was außerhalb des Blumentopfs wächst",
+     "text_en": "What grows outside the flowerpot",
+     "desc": "המקבל טומאת אכלים › אכלים עצמם › שינוי פיסי › עציץ",
+     "desc_de": "Was die Unreinheit von Speisen aufnimmt › Die Speisen selbst › Physische Veränderung › Blumentopf",
+     "desc_en": "What receives the impurity of foods › The foods themselves › Physical change › Flowerpot"
+    },
+    {
+     "ref": "2:10",
+     "text": "ניקוב ע\"י שרשים ושיעורו, המלא עפר",
+     "text_de": "Durchlöcherung durch Wurzeln und ihr Maß, mit Erde gefüllt",
+     "text_en": "Perforation by roots and its measure, filled with soil",
+     "desc": "המקבל טומאת אכלים › אכלים עצמם › מחשבה והכשר › עציץ",
+     "desc_de": "Was die Unreinheit von Speisen aufnimmt › Die Speisen selbst › Absicht und Tauglichmachung › Blumentopf",
+     "desc_en": "What receives the impurity of foods › The foods themselves › Intention and rendering susceptible › Flowerpot"
+    }
+   ]
+  },
+  {
+   "head": "פרק ג",
+   "head_de": "Kapitel 3",
+   "head_en": "Chapter 3",
+   "items": [
+    {
+     "ref": "3:1",
+     "text": "4 חילוקים \\ הצריכים הכשר",
+     "text_de": "Vier Unterscheidungen / Was der Tauglichmachung bedarf",
+     "text_en": "Four distinctions / What requires rendering susceptible",
+     "desc": "המקבל טומאת אכלים › אכלים עצמם › מחשבה והכשר › כלל \\ דוגמאות",
+     "desc_de": "Was die Unreinheit von Speisen aufnimmt › Die Speisen selbst › Absicht und Tauglichmachung › Regel / Beispiele",
+     "desc_en": "What receives the impurity of foods › The foods themselves › Intention and rendering susceptible › Rule / Examples"
+    },
+    {
+     "ref": "3:2",
+     "text": "הצריכים מחשבה והכשר",
+     "text_de": "Was Absicht und Tauglichmachung braucht",
+     "text_en": "What requires intention and rendering susceptible",
+     "desc": "המקבל טומאת אכלים › אכלים עצמם › מחשבה והכשר › דוגמאות",
+     "desc_de": "Was die Unreinheit von Speisen aufnimmt › Die Speisen selbst › Absicht und Tauglichmachung › Beispiele",
+     "desc_en": "What receives the impurity of foods › The foods themselves › Intention and rendering susceptible › Examples"
+    },
+    {
+     "ref": "3:3",
+     "text": "הצריכים מחשבה או לא כלום",
+     "text_de": "Was Absicht braucht oder gar nichts",
+     "text_en": "What requires intention or nothing at all",
+     "desc": "המקבל טומאת אכלים › אכלים עצמם › מחשבה והכשר › דוגמאות",
+     "desc_de": "Was die Unreinheit von Speisen aufnimmt › Die Speisen selbst › Absicht und Tauglichmachung › Beispiele",
+     "desc_en": "What receives the impurity of foods › The foods themselves › Intention and rendering susceptible › Examples"
+    },
+    {
+     "ref": "3:4",
+     "text": "שבת שנתבשל, דברים מרים",
+     "text_de": "Am Schabbat Gekochtes, bittere Dinge",
+     "text_en": "Cooked on the Sabbath, bitter things",
+     "desc": "המקבל טומאת אכלים › אכלים עצמם › הטהורים לגמרי › שינוי › טעם",
+     "desc_de": "Was die Unreinheit von Speisen aufnimmt › Die Speisen selbst › Die völlig Reinen › Veränderung › Geschmack",
+     "desc_en": "What receives the impurity of foods › The foods themselves › Those entirely pure › Change › Taste"
+    },
+    {
+     "ref": "3:5",
+     "text": "בשמים שונים",
+     "text_de": "Verschiedene Gewürze",
+     "text_en": "Various spices",
+     "desc": "המקבל טומאת אכלים › אכלים עצמם › הטהורים לגמרי › השוואה להלכות מעשר",
+     "desc_de": "Was die Unreinheit von Speisen aufnimmt › Die Speisen selbst › Die völlig Reinen › Vergleich mit den Zehntgesetzen",
+     "desc_en": "What receives the impurity of foods › The foods themselves › Those entirely pure › Comparison with the laws of tithes"
+    },
+    {
+     "ref": "3:6",
+     "text": "פירות שאינן מבושלין, קצח",
+     "text_de": "Ungekochte Früchte, Schwarzkümmel",
+     "text_en": "Uncooked fruits, nigella",
+     "desc": "המקבל טומאת אכלים › אכלים עצמם › הטהורים לגמרי › השוואה להלכות מעשר",
+     "desc_de": "Was die Unreinheit von Speisen aufnimmt › Die Speisen selbst › Die völlig Reinen › Vergleich mit den Zehntgesetzen",
+     "desc_en": "What receives the impurity of foods › The foods themselves › Those entirely pure › Comparison with the laws of tithes"
+    },
+    {
+     "ref": "3:7",
+     "text": "קור, כפניות",
+     "text_de": "Kälte, Frühfeigen",
+     "text_en": "Cold, early figs",
+     "desc": "המקבל טומאת אכלים › אכלים עצמם › הטהורים לגמרי › השוואה להלכות מעשר",
+     "desc_de": "Was die Unreinheit von Speisen aufnimmt › Die Speisen selbst › Die völlig Reinen › Vergleich mit den Zehntgesetzen",
+     "desc_en": "What receives the impurity of foods › The foods themselves › Those entirely pure › Comparison with the laws of tithes"
+    },
+    {
+     "ref": "3:8",
+     "text": "מיתת דג, עקירת אילן ותבואה",
+     "text_de": "Tod eines Fisches, Entwurzeln von Baum und Getreide",
+     "text_en": "Death of a fish, uprooting of tree and grain",
+     "desc": "המקבל טומאת אכלים › אכלים עצמם › הטהורים לגמרי › שינוי › עדיין חי",
+     "desc_de": "Was die Unreinheit von Speisen aufnimmt › Die Speisen selbst › Die völlig Reinen › Veränderung › Noch lebendig",
+     "desc_en": "What receives the impurity of foods › The foods themselves › Those entirely pure › Change › Still alive"
+    },
+    {
+     "ref": "3:9",
+     "text": "חלב בהמות, דגים וחגבים טמאים",
+     "text_de": "Milch von Haustieren, unreine Fische und Heuschrecken",
+     "text_en": "Milk of domestic animals, impure fish and locusts",
+     "desc": "המקבל טומאת אכלים › אכלים עצמם › הכשר ומחשבה",
+     "desc_de": "Was die Unreinheit von Speisen aufnimmt › Die Speisen selbst › Tauglichmachung und Absicht",
+     "desc_en": "What receives the impurity of foods › The foods themselves › Rendering susceptible and intention"
+    },
+    {
+     "ref": "3:10",
+     "text": "השוואה הלכתית לקרקע",
+     "text_de": "Halachischer Vergleich mit dem Erdboden",
+     "text_en": "Halakhic comparison with the ground",
+     "desc": "המקבל טומאת אכלים › אכלים עצמם › דבש דבורים › כוורת",
+     "desc_de": "Was die Unreinheit von Speisen aufnimmt › Die Speisen selbst › Bienenhonig › Bienenkorb",
+     "desc_en": "What receives the impurity of foods › The foods themselves › Bee honey › Beehive"
+    },
+    {
+     "ref": "3:11",
+     "text": "החשבה כמשקה",
+     "text_de": "Einstufung als Getränk",
+     "text_en": "Classification as a beverage",
+     "desc": "המקבל טומאת אכלים › אכלים עצמם › דבש דבורים › חלות",
+     "desc_de": "Was die Unreinheit von Speisen aufnimmt › Die Speisen selbst › Bienenhonig › Challa-Brote",
+     "desc_en": "What receives the impurity of foods › The foods themselves › Bee honey › Challah loaves"
+    },
+    {
+     "ref": "3:12",
+     "text": "שכר לצדיקים, מעלת השלום",
+     "text_de": "Lohn für die Gerechten, Vorzug des Friedens",
+     "text_en": "Reward for the righteous, the merit of peace",
+     "desc": "חתימה לששה סדרי משנה",
+     "desc_de": "Schluss der sechs Ordnungen der Mischna",
+     "desc_en": "Conclusion of the six orders of the Mishnah"
+    }
+   ]
+  }
+ ]
+}

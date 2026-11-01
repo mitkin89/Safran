@@ -1,0 +1,945 @@
+{
+ "book": "Mishnah Eruvin",
+ "title": "משנה עירובין",
+ "title_de": "Mischna Eruwin – Gliederung",
+ "title_en": "Eruvin – outline",
+ "note": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema).",
+ "note_de": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema); ins Deutsche und Englische übersetzt.",
+ "note_en": "Outline after the table “Mishna Sedura”: the central content of each mishnah, with the topic path (main topic to sub-topic); translated into German and English.",
+ "sections": [
+  {
+   "head": "פרק א",
+   "head_de": "Kapitel 1",
+   "head_en": "Chapter 1",
+   "items": [
+    {
+     "ref": "1:1",
+     "text": "מדות המרביים לפתח, צורת פתח",
+     "text_de": "Höchstmaße für die Öffnung, Form der Öffnung",
+     "text_en": "Maximum dimensions for the opening, shape of the opening",
+     "desc": "יצירת רשות היחיד › מחיצות גרועות › הכשר מבוי",
+     "desc_de": "Herstellung eines Privatbereichs › Mangelhafte Trennwände › Tauglichmachung der Gasse",
+     "desc_en": "Creation of a private domain › Deficient partitions › Making the alley valid"
+    },
+    {
+     "ref": "1:2",
+     "text": "הכשרים הנצרכים",
+     "text_de": "Erforderliche Tauglichmachungen",
+     "text_en": "Required validations",
+     "desc": "יצירת רשות היחיד › מחיצות גרועות › הכשר מבוי",
+     "desc_de": "Herstellung eines Privatbereichs › Mangelhafte Trennwände › Tauglichmachung der Gasse",
+     "desc_en": "Creation of a private domain › Deficient partitions › Making the alley valid"
+    },
+    {
+     "ref": "1:3",
+     "text": "רחבה",
+     "text_de": "Breite",
+     "text_en": "Width",
+     "desc": "יצירת רשות היחיד › מחיצות גרועות › הכשר מבוי › קורה",
+     "desc_de": "Herstellung eines Privatbereichs › Mangelhafte Trennwände › Tauglichmachung der Gasse › Balken",
+     "desc_en": "Creation of a private domain › Deficient partitions › Making the alley valid › Beam"
+    },
+    {
+     "ref": "1:4",
+     "text": "חזקה",
+     "text_de": "Vermutung",
+     "text_en": "Presumption",
+     "desc": "יצירת רשות היחיד › מחיצות גרועות › הכשר מבוי › קורה",
+     "desc_de": "Herstellung eines Privatbereichs › Mangelhafte Trennwände › Tauglichmachung der Gasse › Balken",
+     "desc_en": "Creation of a private domain › Deficient partitions › Making the alley valid › Beam"
+    },
+    {
+     "ref": "1:5",
+     "text": "דמיון כדי להכשיר, עביה",
+     "text_de": "Ähnlichkeit zur Tauglichmachung, Dicke",
+     "text_en": "Resemblance to validation, thickness",
+     "desc": "יצירת רשות היחיד › מחיצות גרועות › הכשר מבוי › קורה",
+     "desc_de": "Herstellung eines Privatbereichs › Mangelhafte Trennwände › Tauglichmachung der Gasse › Balken",
+     "desc_en": "Creation of a private domain › Deficient partitions › Making the alley valid › Beam"
+    },
+    {
+     "ref": "1:6",
+     "text": "מדתם",
+     "text_de": "Ihr Maß",
+     "text_en": "Their dimensions",
+     "desc": "יצירת רשות היחיד › מחיצות גרועות › הכשר מבוי › לחיין",
+     "desc_de": "Herstellung eines Privatbereichs › Mangelhafte Trennwände › Tauglichmachung der Gasse › Pfosten",
+     "desc_en": "Creation of a private domain › Deficient partitions › Making the alley valid › Side post"
+    },
+    {
+     "ref": "1:7",
+     "text": "העשויים מבעלי חיים, ועוד הלכות",
+     "text_de": "Aus Lebewesen Gemachtes, weitere Regeln",
+     "text_en": "Made from living creatures, further laws",
+     "desc": "יצירת רשות היחיד › מחיצות גרועות › הכשר מבוי › לחיין",
+     "desc_de": "Herstellung eines Privatbereichs › Mangelhafte Trennwände › Tauglichmachung der Gasse › Pfosten",
+     "desc_en": "Creation of a private domain › Deficient partitions › Making the alley valid › Side post"
+    },
+    {
+     "ref": "1:8",
+     "text": "העשוי מכלי בהמה, מדת הפרוץ",
+     "text_de": "Aus Tiergerät Gemachtes, Maß der Lücke",
+     "text_en": "Made from animal equipment, size of the gap",
+     "desc": "יצירת רשות היחיד › מחיצות גרועות › שיירא",
+     "desc_de": "Herstellung eines Privatbereichs › Mangelhafte Trennwände › Karawane",
+     "desc_en": "Creation of a private domain › Deficient partitions › Caravan"
+    },
+    {
+     "ref": "1:9",
+     "text": "חבלים",
+     "text_de": "Seile",
+     "text_en": "Ropes",
+     "desc": "יצירת רשות היחיד › מחיצות גרועות › שיירא › לבוד",
+     "desc_de": "Herstellung eines Privatbereichs › Mangelhafte Trennwände › Karawane › Lawud",
+     "desc_en": "Creation of a private domain › Deficient partitions › Caravan › Lavud"
+    },
+    {
+     "ref": "1:10",
+     "text": "קנים, הרשאי להקל, קולות במחנה",
+     "text_de": "Rohre, wer erleichtern darf, Erleichterungen im Lager",
+     "text_en": "Reeds, who may be lenient, leniencies in a camp",
+     "desc": "יצירת רשות היחיד › מחיצות גרועות › שיירא › לבוד",
+     "desc_de": "Herstellung eines Privatbereichs › Mangelhafte Trennwände › Karawane › Lawud",
+     "desc_en": "Creation of a private domain › Deficient partitions › Caravan › Lavud"
+    }
+   ]
+  },
+  {
+   "head": "פרק ב",
+   "head_de": "Kapitel 2",
+   "head_en": "Chapter 2",
+   "items": [
+    {
+     "ref": "2:1",
+     "text": "מספר הנצרך, מדתן, מדת הפרוץ",
+     "text_de": "Erforderliche Zahl, ihre Maße, Maß der Lücke",
+     "text_en": "Required number, their dimensions, size of the gap",
+     "desc": "יצירת רשות היחיד › מחיצות גרועות › פסי ביראות › קירובן וריחוקין",
+     "desc_de": "Herstellung eines Privatbereichs › Mangelhafte Trennwände › Brunnenstreifen › Ihre Nähe und Entfernung",
+     "desc_en": "Creation of a private domain › Deficient partitions › Well strips › Their nearness and distance"
+    },
+    {
+     "ref": "2:2",
+     "text": "גבול מזערי ומרבי, רבוי בפסים",
+     "text_de": "Minimale und maximale Grenze, Vielzahl von Streifen",
+     "text_en": "Minimum and maximum limit, multiple strips",
+     "desc": "יצירת רשות היחיד › מחיצות גרועות › פסי ביראות › קירובן וריחוקין",
+     "desc_de": "Herstellung eines Privatbereichs › Mangelhafte Trennwände › Brunnenstreifen › Ihre Nähe und Entfernung",
+     "desc_en": "Creation of a private domain › Deficient partitions › Well strips › Their nearness and distance"
+    },
+    {
+     "ref": "2:3",
+     "text": "גבול מרבי והיקף לדירה",
+     "text_de": "Maximalgrenze und Umfriedung für eine Wohnstätte",
+     "text_en": "Maximum limit and enclosure for a dwelling",
+     "desc": "יצירת רשות היחיד › מחיצות גרועות › פסי ביראות › קירובן וריחוקין",
+     "desc_de": "Herstellung eines Privatbereichs › Mangelhafte Trennwände › Brunnenstreifen › Ihre Nähe und Entfernung",
+     "desc_en": "Creation of a private domain › Deficient partitions › Well strips › Their nearness and distance"
+    },
+    {
+     "ref": "2:4",
+     "text": "בקיעת רבים, לאיזה מים נעשים",
+     "text_de": "Durchbruch durch die Öffentlichkeit, für welches Wasser sie gemacht werden",
+     "text_en": "Breach by the public, for which waters they are made",
+     "desc": "יצירת רשות היחיד › מחיצות גרועות › פסי ביראות",
+     "desc_de": "Herstellung eines Privatbereichs › Mangelhafte Trennwände › Brunnenstreifen",
+     "desc_en": "Creation of a private domain › Deficient partitions › Well strips"
+    },
+    {
+     "ref": "2:5",
+     "text": "היקף לדירה, צורת ההיקף",
+     "text_de": "Umfriedung für eine Wohnstätte, Form der Umfriedung",
+     "text_en": "Enclosure for a dwelling, shape of the enclosure",
+     "desc": "יצירת רשות היחיד › מחיצות גרועות › תנאים והגבלות לשטח",
+     "desc_de": "Herstellung eines Privatbereichs › Mangelhafte Trennwände › Bedingungen und Beschränkungen für das Gebiet",
+     "desc_en": "Creation of a private domain › Deficient partitions › Conditions and restrictions for the area"
+    },
+    {
+     "ref": "2:6",
+     "text": "דעת ר\"א, ועוד קולות משמו",
+     "text_de": "Meinung Rabbi Eliesers, weitere Erleichterungen in seinem Namen",
+     "text_en": "Opinion of Rabbi Eliezer, further leniencies in his name",
+     "desc": "יצירת רשות היחיד › מחיצות גרועות › תנאים והגבלות לשטח",
+     "desc_de": "Herstellung eines Privatbereichs › Mangelhafte Trennwände › Bedingungen und Beschränkungen für das Gebiet",
+     "desc_en": "Creation of a private domain › Deficient partitions › Conditions and restrictions for the area"
+    }
+   ]
+  },
+  {
+   "head": "פרק ג",
+   "head_de": "Kapitel 3",
+   "head_en": "Chapter 3",
+   "items": [
+    {
+     "ref": "3:1",
+     "text": "הזן, מעשר שני, במקום טמא\\מיני איסור",
+     "text_de": "Das Ernähren, Zweiter Zehnt, an unreinem Ort / verbotene Arten",
+     "text_en": "Sustenance, second tithe, in an impure place / forbidden kinds",
+     "desc": "קביעת תחום › האדם › איך קובע › הנחת העירוב וממה נעשה › מאכל האסור",
+     "desc_de": "Festlegung des Grenzbereichs › Der Mensch › Wie man festlegt › Niederlegen des Eruw und woraus er gemacht wird › Verbotene Speise",
+     "desc_en": "Determination of the boundary › The person › How one establishes › Placing the eruv and what it is made of › Forbidden food"
+    },
+    {
+     "ref": "3:2",
+     "text": "משום הקדש, מעשרות\\ שליח גרוע להנחתו",
+     "text_de": "Wegen Geweihtem, Zehnten / ungeeigneter Bote für seine Niederlegung",
+     "text_en": "Because of consecrated items, tithes / unsuitable agent for placing it",
+     "desc": "קביעת תחום › האדם › איך קובע › הנחת העירוב וממה נעשה › מאכל האסור",
+     "desc_de": "Festlegung des Grenzbereichs › Der Mensch › Wie man festlegt › Niederlegen des Eruw und woraus er gemacht wird › Verbotene Speise",
+     "desc_en": "Determination of the boundary › The person › How one establishes › Placing the eruv and what it is made of › Forbidden food"
+    },
+    {
+     "ref": "3:3",
+     "text": "משום איסור שבות",
+     "text_de": "Wegen des Verbots der Schewut",
+     "text_en": "Because of the shevut prohibition",
+     "desc": "קביעת תחום › האדם › איך קובע › הנחת העירוב וממה נעשה › הכשר עד חשיכה",
+     "desc_de": "Festlegung des Grenzbereichs › Der Mensch › Wie man festlegt › Niederlegen des Eruw und woraus er gemacht wird › Tauglichmachung bis zur Dämmerung",
+     "desc_en": "Determination of the boundary › The person › How one establishes › Placing the eruv and what it is made of › Validation until dusk"
+    },
+    {
+     "ref": "3:4",
+     "text": "שנתבטל בודאי ובספק",
+     "text_de": "Sicher und zweifelhaft Aufgehobenes",
+     "text_en": "Annulled with certainty and in doubt",
+     "desc": "קביעת תחום › האדם › איך קובע › הנחת העירוב וממה נעשה › הכשר עד חשיכה",
+     "desc_de": "Festlegung des Grenzbereichs › Der Mensch › Wie man festlegt › Niederlegen des Eruw und woraus er gemacht wird › Tauglichmachung bis zur Dämmerung",
+     "desc_en": "Determination of the boundary › The person › How one establishes › Placing the eruv and what it is made of › Validation until dusk"
+    },
+    {
+     "ref": "3:5",
+     "text": "משום גוים או חכם",
+     "text_de": "Wegen Nichtjuden oder Weisem",
+     "text_en": "Because of non-Jews or a sage",
+     "desc": "קביעת תחום › האדם › איך קובע › הנחת העירוב וממה נעשה › תנאים › עירוב",
+     "desc_de": "Festlegung des Grenzbereichs › Der Mensch › Wie man festlegt › Niederlegen des Eruw und woraus er gemacht wird › Bedingungen › Eruw",
+     "desc_en": "Determination of the boundary › The person › How one establishes › Placing the eruv and what it is made of › Conditions › Eruv"
+    },
+    {
+     "ref": "3:6",
+     "text": "יום טוב הסמוך לשבת",
+     "text_de": "Feiertag neben dem Schabbat",
+     "text_en": "Festival day adjacent to Shabbat",
+     "desc": "קביעת תחום › האדם › איך קובע › הנחת העירוב וממה נעשה › תנאים › עירוב",
+     "desc_de": "Festlegung des Grenzbereichs › Der Mensch › Wie man festlegt › Niederlegen des Eruw und woraus er gemacht wird › Bedingungen › Eruw",
+     "desc_en": "Determination of the boundary › The person › How one establishes › Placing the eruv and what it is made of › Conditions › Eruv"
+    },
+    {
+     "ref": "3:7",
+     "text": "ראש השנה",
+     "text_de": "Rosch Haschana",
+     "text_en": "Rosh Hashanah",
+     "desc": "קביעת תחום › האדם › איך קובע › הנחת העירוב וממה נעשה › תנאים › ראש השנה › עירוב",
+     "desc_de": "Festlegung des Grenzbereichs › Der Mensch › Wie man festlegt › Niederlegen des Eruw und woraus er gemacht wird › Bedingungen › Rosch Haschana › Eruw",
+     "desc_en": "Determination of the boundary › The person › How one establishes › Placing the eruv and what it is made of › Conditions › Rosh Hashanah › Eruv"
+    },
+    {
+     "ref": "3:8",
+     "text": "הפרשת מעשרות, ביצה שנולדה",
+     "text_de": "Abgabe der Zehnten, am Feiertag gelegtes Ei",
+     "text_en": "Separating tithes, egg laid on a festival day",
+     "desc": "קביעת תחום › האדם › איך קובע › הנחת העירוב וממה נעשה › תנאים › ראש השנה",
+     "desc_de": "Festlegung des Grenzbereichs › Der Mensch › Wie man festlegt › Niederlegen des Eruw und woraus er gemacht wird › Bedingungen › Rosch Haschana",
+     "desc_en": "Determination of the boundary › The person › How one establishes › Placing the eruv and what it is made of › Conditions › Rosh Hashanah"
+    },
+    {
+     "ref": "3:9",
+     "text": "נוסח תפילה",
+     "text_de": "Gebetstext",
+     "text_en": "Wording of the prayer",
+     "desc": "קביעת תחום › האדם › איך קובע › הנחת העירוב וממה נעשה › תנאים › ראש השנה",
+     "desc_de": "Festlegung des Grenzbereichs › Der Mensch › Wie man festlegt › Niederlegen des Eruw und woraus er gemacht wird › Bedingungen › Rosch Haschana",
+     "desc_en": "Determination of the boundary › The person › How one establishes › Placing the eruv and what it is made of › Conditions › Rosh Hashanah"
+    }
+   ]
+  },
+  {
+   "head": "פרק ד",
+   "head_de": "Kapitel 4",
+   "head_en": "Chapter 4",
+   "items": [
+    {
+     "ref": "4:1",
+     "text": "היקף מחיצות, ספינה",
+     "text_de": "Umfang der Wände, Schiff",
+     "text_en": "Extent of the walls, ship",
+     "desc": "קביעת תחום › האדם › איך קובע › כוונה וכניסה לתחום › הנכנס בעל כרחו",
+     "desc_de": "Festlegung des Grenzbereichs › Der Mensch › Wie man festlegt › Absicht und Betreten des Gebiets › Wer unfreiwillig hineingelangt",
+     "desc_en": "Determination of the boundary › The person › How one establishes › Intention and entering the area › One who enters involuntarily"
+    },
+    {
+     "ref": "4:2",
+     "text": "נמל בתוך התחום",
+     "text_de": "Hafen innerhalb des Gebiets",
+     "text_en": "Harbor within the boundary",
+     "desc": "קביעת תחום › האדם › איך קובע › כוונה וכניסה לתחום › הנכנס בעל כרחו",
+     "desc_de": "Festlegung des Grenzbereichs › Der Mensch › Wie man festlegt › Absicht und Betreten des Gebiets › Wer unfreiwillig hineingelangt",
+     "desc_en": "Determination of the boundary › The person › How one establishes › Intention and entering the area › One who enters involuntarily"
+    },
+    {
+     "ref": "4:3",
+     "text": "תחומו, חזרה למקומו",
+     "text_de": "Sein Gebiet, Rückkehr an seinen Ort",
+     "text_en": "His boundary, return to his place",
+     "desc": "קביעת תחום › האדם › איך קובע › כוונה וכניסה לתחום › היוצא ברשות",
+     "desc_de": "Festlegung des Grenzbereichs › Der Mensch › Wie man festlegt › Absicht und Betreten des Gebiets › Wer mit Erlaubnis hinausgeht",
+     "desc_en": "Determination of the boundary › The person › How one establishes › Intention and entering the area › One who goes out with permission"
+    },
+    {
+     "ref": "4:4",
+     "text": "היושב בדרך",
+     "text_de": "Wer unterwegs rastet",
+     "text_en": "One who sits on the road",
+     "desc": "קביעת תחום › האדם › איך קובע › כוונה וכניסה לתחום › בלא כוונה מבעוד יום",
+     "desc_de": "Festlegung des Grenzbereichs › Der Mensch › Wie man festlegt › Absicht und Betreten des Gebiets › Ohne Absicht bei Tageslicht",
+     "desc_en": "Determination of the boundary › The person › How one establishes › Intention and entering the area › Without intention while it is still day"
+    },
+    {
+     "ref": "4:5",
+     "text": "הישן בדרך, מיקום אמותיו",
+     "text_de": "Wer unterwegs schläft, Lage seiner Ellen",
+     "text_en": "One who sleeps on the road, position of his cubits",
+     "desc": "קביעת תחום › האדם › איך קובע › כוונה וכניסה לתחום › בלא כוונה מבעוד יום",
+     "desc_de": "Festlegung des Grenzbereichs › Der Mensch › Wie man festlegt › Absicht und Betreten des Gebiets › Ohne Absicht bei Tageslicht",
+     "desc_en": "Determination of the boundary › The person › How one establishes › Intention and entering the area › Without intention while it is still day"
+    },
+    {
+     "ref": "4:6",
+     "text": "חיפוף מקומם של שכנים, דמיון לחצירות",
+     "text_de": "Überlappung der Plätze von Nachbarn, Ähnlichkeit zu Höfen",
+     "text_en": "Overlap of neighbors' places, resemblance to courtyards",
+     "desc": "קביעת תחום › האדם › איך קובע › כוונה וכניסה לתחום › בלא כוונה מבעוד יום",
+     "desc_de": "Festlegung des Grenzbereichs › Der Mensch › Wie man festlegt › Absicht und Betreten des Gebiets › Ohne Absicht bei Tageslicht",
+     "desc_en": "Determination of the boundary › The person › How one establishes › Intention and entering the area › Without intention while it is still day"
+    },
+    {
+     "ref": "4:7",
+     "text": "ציון שביתה מרחוק",
+     "text_de": "Kennzeichnung des Ruheorts aus der Ferne",
+     "text_en": "Designating the resting place from afar",
+     "desc": "קביעת תחום › האדם › איך קובע › בלי פת › נוסח ההצהרה",
+     "desc_de": "Festlegung des Grenzbereichs › Der Mensch › Wie man festlegt › Ohne Brot › Wortlaut der Erklärung",
+     "desc_en": "Determination of the boundary › The person › How one establishes › Without bread › Wording of the declaration"
+    },
+    {
+     "ref": "4:8",
+     "text": "השובת במקומו, צורת האלפים אמה",
+     "text_de": "Wer an seinem Ort den Schabbat verbringt, Form der Zweitausend-Ellen-Fläche",
+     "text_en": "One who rests in his place, shape of the two-thousand-cubit area",
+     "desc": "קביעת תחום › האדם › איך קובע › בלי פת › עירוב ברגלים › נוסח ההצהרה",
+     "desc_de": "Festlegung des Grenzbereichs › Der Mensch › Wie man festlegt › Ohne Brot › Eruw mit den Füßen › Wortlaut der Erklärung",
+     "desc_en": "Determination of the boundary › The person › How one establishes › Without bread › Eruv by foot › Wording of the declaration"
+    },
+    {
+     "ref": "4:9",
+     "text": "הרשאי לערב ברגליו",
+     "text_de": "Wer darf durch seine Füße einen Eruw machen",
+     "text_en": "Who may establish an Eruv by foot",
+     "desc": "קביעת תחום › האדם › איך קובע › בלי פת › עירוב ברגלים",
+     "desc_de": "Festlegung des Grenzbereichs › Der Mensch › Wie man festlegt › Ohne Brot › Eruw mit den Füßen",
+     "desc_en": "Determination of the boundary › The person › How one establishes › Without bread › Eruv by foot"
+    },
+    {
+     "ref": "4:10",
+     "text": "המוביל עירוב שחזר",
+     "text_de": "Wer einen Eruw bringt, der zurückkam",
+     "text_en": "One who carries an Eruv that returned",
+     "desc": "קביעת תחום › האדם › איך קובע › בלי פת › עירוב ברגלים",
+     "desc_de": "Festlegung des Grenzbereichs › Der Mensch › Wie man festlegt › Ohne Brot › Eruw mit den Füßen",
+     "desc_en": "Determination of the boundary › The person › How one establishes › Without bread › Eruv by foot"
+    },
+    {
+     "ref": "4:11",
+     "text": "היוצא לחוץ והמחשיך, קרבתם לתחום",
+     "text_de": "Wer hinausgeht und in der Dämmerung ankommt, Nähe zur Grenze",
+     "text_en": "One who goes out and is overtaken by nightfall, proximity to the boundary",
+     "desc": "קביעת תחום › האדם › כניסה לתחום",
+     "desc_de": "Festlegung des Grenzbereichs › Der Mensch › Eintritt in die Grenze",
+     "desc_en": "Determination of the boundary › The person › Entering the boundary"
+    }
+   ]
+  },
+  {
+   "head": "פרק ה",
+   "head_de": "Kapitel 5",
+   "head_en": "Chapter 5",
+   "items": [
+    {
+     "ref": "5:1",
+     "text": "עיבור זויות",
+     "text_de": "Abrundung der Ecken",
+     "text_en": "Rounding of corners",
+     "desc": "קביעת תחום › העיר › המדידה › מהיכן",
+     "desc_de": "Festlegung des Grenzbereichs › Die Stadt › Das Messen › Von wo aus",
+     "desc_en": "Determination of the boundary › The city › The measuring › From where"
+    },
+    {
+     "ref": "5:2",
+     "text": "בעיר אחת ובשתים",
+     "text_de": "In einer Stadt und in zweien",
+     "text_en": "In one city and in two",
+     "desc": "קביעת תחום › העיר › המדידה › מהיכן › תוספת קרפף",
+     "desc_de": "Festlegung des Grenzbereichs › Die Stadt › Das Messen › Von wo aus › Zusatz eines Karpef",
+     "desc_en": "Determination of the boundary › The city › The measuring › From where › Addition of a karpef"
+    },
+    {
+     "ref": "5:3",
+     "text": "כפרים המשולשים",
+     "text_de": "Dreieckig angelegte Dörfer",
+     "text_en": "Triangular villages",
+     "desc": "קביעת תחום › העיר › המדידה › מהיכן › תוספת קרפף",
+     "desc_de": "Festlegung des Grenzbereichs › Die Stadt › Das Messen › Von wo aus › Zusatz eines Karpef",
+     "desc_en": "Determination of the boundary › The city › The measuring › From where › Addition of a karpef"
+    },
+    {
+     "ref": "5:4",
+     "text": "החבל ואחיזתו, הבלעה",
+     "text_de": "Die Messschnur und ihr Halten, Einbeziehung",
+     "text_en": "The measuring rope and its handling, inclusion",
+     "desc": "קביעת תחום › העיר › המדידה › איך",
+     "desc_de": "Festlegung des Grenzbereichs › Die Stadt › Das Messen › Wie",
+     "desc_en": "Determination of the boundary › The city › The measuring › How"
+    },
+    {
+     "ref": "5:5",
+     "text": "נאמנות המודדים והמעידים, הטעם",
+     "text_de": "Glaubwürdigkeit der Messenden und der Zeugen, der Grund",
+     "text_en": "Reliability of the surveyors and the witnesses, the reason",
+     "desc": "קביעת תחום › העיר › המדידה › איך",
+     "desc_de": "Festlegung des Grenzbereichs › Die Stadt › Das Messen › Wie",
+     "desc_en": "Determination of the boundary › The city › The measuring › How"
+    },
+    {
+     "ref": "5:6",
+     "text": "עירוב עיר של יחיד או רבים",
+     "text_de": "Eruw einer Stadt, von Einzelnen oder von Vielen",
+     "text_en": "Eruv of a city, of an individual or of many",
+     "desc": "קביעת תחום › העיר › המדידה › איך",
+     "desc_de": "Festlegung des Grenzbereichs › Die Stadt › Das Messen › Wie",
+     "desc_en": "Determination of the boundary › The city › The measuring › How"
+    },
+    {
+     "ref": "5:7",
+     "text": "הרחוק מעירובו",
+     "text_de": "Wer von seinem Eruw entfernt ist",
+     "text_en": "One who is far from his Eruv",
+     "desc": "קביעת תחום › האדם › איך קובע",
+     "desc_de": "Festlegung des Grenzbereichs › Der Mensch › Wie man festlegt",
+     "desc_en": "Determination of the boundary › The person › How one establishes"
+    },
+    {
+     "ref": "5:8",
+     "text": "עיר קטנה וגדולה",
+     "text_de": "Kleine und große Stadt",
+     "text_en": "Small and large city",
+     "desc": "קביעת תחום › האדם › איך קובע › ההבדל בין מניח למודד",
+     "desc_de": "Festlegung des Grenzbereichs › Der Mensch › Wie man festlegt › Unterschied zwischen dem, der niederlegt, und dem, der misst",
+     "desc_en": "Determination of the boundary › The person › How one establishes › Difference between one who places and one who measures"
+    },
+    {
+     "ref": "5:9",
+     "text": "מערה הראויה לדירה",
+     "text_de": "Höhle, die zum Wohnen geeignet ist",
+     "text_en": "Cave suitable for dwelling",
+     "desc": "קביעת תחום › האדם › איך קובע › ההבדל בין מניח למודד",
+     "desc_de": "Festlegung des Grenzbereichs › Der Mensch › Wie man festlegt › Unterschied zwischen dem, der niederlegt, und dem, der misst",
+     "desc_en": "Determination of the boundary › The person › How one establishes › Difference between one who places and one who measures"
+    }
+   ]
+  },
+  {
+   "head": "פרק ו",
+   "head_de": "Kapitel 6",
+   "head_en": "Chapter 6",
+   "items": [
+    {
+     "ref": "6:1",
+     "text": "נכרי",
+     "text_de": "Nichtjude",
+     "text_en": "Non-Jew",
+     "desc": "עירובי חצירות › חצר אחת › רשות האוסרת › מי שאינו משתייך לערוב",
+     "desc_de": "Eruw der Höfe › Ein Hof › Nutzungsrecht, das (den Eruw) untersagt › Wer nicht zum Eruw gehört",
+     "desc_en": "Eruv of the courtyards › One courtyard › Right of use that prohibits (the Eruv) › One who does not belong to the Eruv"
+    },
+    {
+     "ref": "6:2",
+     "text": "צדוקי",
+     "text_de": "Sadduzäer",
+     "text_en": "Sadducee",
+     "desc": "עירובי חצירות › חצר אחת › רשות האוסרת › מי שאינו משתייך לערוב › נתינת רשות",
+     "desc_de": "Eruw der Höfe › Ein Hof › Nutzungsrecht, das (den Eruw) untersagt › Wer nicht zum Eruw gehört › Überlassung des Nutzungsrechts",
+     "desc_en": "Eruv of the courtyards › One courtyard › Right of use that prohibits (the Eruv) › One who does not belong to the Eruv › Renunciation of the right of use"
+    },
+    {
+     "ref": "6:3",
+     "text": "יחיד לרבים, רבים ליחיד או ליחידים",
+     "text_de": "Einzelner an Viele, Viele an einen Einzelnen oder an Einzelne",
+     "text_en": "Individual to many, many to an individual or to individuals",
+     "desc": "עירובי חצירות › חצר אחת › רשות האוסרת › נתינת רשות",
+     "desc_de": "Eruw der Höfe › Ein Hof › Nutzungsrecht, das (den Eruw) untersagt › Überlassung des Nutzungsrechts",
+     "desc_en": "Eruv of the courtyards › One courtyard › Right of use that prohibits (the Eruv) › Renunciation of the right of use"
+    },
+    {
+     "ref": "6:4",
+     "text": "מאימתי נותנין, ביטול הנתינה",
+     "text_de": "Ab wann man überlässt, Aufhebung der Überlassung",
+     "text_en": "From when one may renounce, cancellation of the renunciation",
+     "desc": "עירובי חצירות › חצר אחת › רשות האוסרת › נתינת רשות",
+     "desc_de": "Eruw der Höfe › Ein Hof › Nutzungsrecht, das (den Eruw) untersagt › Überlassung des Nutzungsrechts",
+     "desc_en": "Eruv of the courtyards › One courtyard › Right of use that prohibits (the Eruv) › Renunciation of the right of use"
+    },
+    {
+     "ref": "6:5",
+     "text": "המשותפים במסחרם",
+     "text_de": "Geschäftspartner",
+     "text_en": "Business partners",
+     "desc": "עירובי חצירות › חצר אחת › מספר העירובים הנצרך › שתוף מבואות",
+     "desc_de": "Eruw der Höfe › Ein Hof › Zahl der erforderlichen Eruwim › Schituf der Gassen",
+     "desc_en": "Eruv of the courtyards › One courtyard › Number of Eruwim required › Shituf of the alleys"
+    },
+    {
+     "ref": "6:6",
+     "text": "חבורות בטרקלין המחולק",
+     "text_de": "Gruppen in einem geteilten Saal",
+     "text_en": "Groups in a divided dining hall",
+     "desc": "עירובי חצירות › חצר אחת › מספר העירובים הנצרך",
+     "desc_de": "Eruw der Höfe › Ein Hof › Zahl der erforderlichen Eruwim",
+     "desc_en": "Eruv of the courtyards › One courtyard › Number of Eruwim required"
+    },
+    {
+     "ref": "6:7",
+     "text": "המשותפים באכילתם, מקום הנחת העירוב",
+     "text_de": "Tischgemeinschaften, Ort der Niederlegung des Eruw",
+     "text_en": "Dining partners, place where the Eruv is deposited",
+     "desc": "עירובי חצירות › חצר אחת › מספר העירובים הנצרך",
+     "desc_de": "Eruw der Höfe › Ein Hof › Zahl der erforderlichen Eruwim",
+     "desc_en": "Eruv of the courtyards › One courtyard › Number of Eruwim required"
+    },
+    {
+     "ref": "6:8",
+     "text": "אם כבר נשתתפו, שכחו",
+     "text_de": "Wenn sie sich schon verbunden hatten und es vergaßen",
+     "text_en": "If they had already joined and forgot",
+     "desc": "עירובי חצירות › חצירות הסמוכות › חצר אחת › מספר העירובים הנצרך › שתוף מבואות",
+     "desc_de": "Eruw der Höfe › Aneinandergrenzende Höfe › Ein Hof › Zahl der erforderlichen Eruwim › Schituf der Gassen",
+     "desc_en": "Eruv of the courtyards › Adjoining courtyards › One courtyard › Number of Eruwim required › Shituf of the alleys"
+    },
+    {
+     "ref": "6:9",
+     "text": "רגל האסורה והמותרת במקומה",
+     "text_de": "Fuß(weg), der verboten und an seinem Ort erlaubt ist",
+     "text_en": "Foot passage that is prohibited, and that is permitted in its place",
+     "desc": "עירובי חצירות › חצירות הסמוכות › דריסת רגל האוסרת",
+     "desc_de": "Eruw der Höfe › Aneinandergrenzende Höfe › Fußrecht, das (den Eruw) untersagt",
+     "desc_en": "Eruv of the courtyards › Adjoining courtyards › Right of passage that prohibits (the Eruv)"
+    },
+    {
+     "ref": "6:10",
+     "text": "מקומו של השוכח ושל העירוב",
+     "text_de": "Ort dessen, der es vergaß, und Ort des Eruw",
+     "text_en": "Place of the one who forgot, and place of the Eruv",
+     "desc": "עירובי חצירות › חצירות הסמוכות › דריסת רגל האוסרת",
+     "desc_de": "Eruw der Höfe › Aneinandergrenzende Höfe › Fußrecht, das (den Eruw) untersagt",
+     "desc_en": "Eruv of the courtyards › Adjoining courtyards › Right of passage that prohibits (the Eruv)"
+    }
+   ]
+  },
+  {
+   "head": "פרק ז",
+   "head_de": "Kapitel 7",
+   "head_en": "Chapter 7",
+   "items": [
+    {
+     "ref": "7:1",
+     "text": "חלון",
+     "text_de": "Fenster",
+     "text_en": "Window",
+     "desc": "עירובי חצירות › חצירות הסמוכות › מחיצה ובה פתח או פרצה",
+     "desc_de": "Eruw der Höfe › Aneinandergrenzende Höfe › Trennwand mit Öffnung oder Bresche",
+     "desc_en": "Eruv of the courtyards › Adjoining courtyards › Partition with an opening or a breach"
+    },
+    {
+     "ref": "7:2",
+     "text": "כותל והורדה מעליו",
+     "text_de": "Mauer und Herabnehmen von ihr",
+     "text_en": "Wall and lowering from it",
+     "desc": "עירובי חצירות › חצירות הסמוכות › מחיצה ובה פתח או פרצה",
+     "desc_de": "Eruw der Höfe › Aneinandergrenzende Höfe › Trennwand mit Öffnung oder Bresche",
+     "desc_en": "Eruv of the courtyards › Adjoining courtyards › Partition with an opening or a breach"
+    },
+    {
+     "ref": "7:3",
+     "text": "מידותיו, ביטולו",
+     "text_de": "Ihre Maße, ihre Aufhebung",
+     "text_en": "Its measurements, its nullification",
+     "desc": "עירובי חצירות › חצירות הסמוכות › מחיצה ובה פתח או פרצה › חריץ",
+     "desc_de": "Eruw der Höfe › Aneinandergrenzende Höfe › Trennwand mit Öffnung oder Bresche › Graben",
+     "desc_en": "Eruv of the courtyards › Adjoining courtyards › Partition with an opening or a breach › Ditch"
+    },
+    {
+     "ref": "7:4",
+     "text": "שיעור גשר, ובין גזוזטראות",
+     "text_de": "Maß der Brücke und zwischen Balkonen",
+     "text_en": "Measure of a bridge and between balconies",
+     "desc": "עירובי חצירות › חצירות הסמוכות › מחיצה ובה פתח או פרצה › חריץ",
+     "desc_de": "Eruw der Höfe › Aneinandergrenzende Höfe › Trennwand mit Öffnung oder Bresche › Graben",
+     "desc_en": "Eruv of the courtyards › Adjoining courtyards › Partition with an opening or a breach › Ditch"
+    },
+    {
+     "ref": "7:5",
+     "text": "מתבן",
+     "text_de": "Strohspeicher",
+     "text_en": "Straw storehouse",
+     "desc": "עירובי חצירות › חצירות הסמוכות › מחיצה ובה פתח או פרצה",
+     "desc_de": "Eruw der Höfe › Aneinandergrenzende Höfe › Trennwand mit Öffnung oder Bresche",
+     "desc_en": "Eruv of the courtyards › Adjoining courtyards › Partition with an opening or a breach"
+    },
+    {
+     "ref": "7:6",
+     "text": "הזוכה לבני המבוי",
+     "text_de": "Wer für die Bewohner der Gasse erwirbt",
+     "text_en": "One who acquires for the residents of the alley",
+     "desc": "כיצד משתתפין ומערבין › בחצירות ובמבואות › הזכייה",
+     "desc_de": "Wie man sich verbindet und den Eruw macht › In Höfen und Gassen › Das Erwerben",
+     "desc_en": "How one joins and makes the Eruv › In courtyards and alleys › The acquisition"
+    },
+    {
+     "ref": "7:7",
+     "text": "הודעה על תוספת",
+     "text_de": "Mitteilung über den Zusatz",
+     "text_en": "Notice of an addition",
+     "desc": "כיצד משתתפין ומערבין › בחצירות ובמבואות › השיעור › הזכייה",
+     "desc_de": "Wie man sich verbindet und den Eruw macht › In Höfen und Gassen › Das Maß › Das Erwerben",
+     "desc_en": "How one joins and makes the Eruv › In courtyards and alleys › The measure › The acquisition"
+    },
+    {
+     "ref": "7:8",
+     "text": "השיעור המזערי",
+     "text_de": "Das Mindestmaß",
+     "text_en": "The minimum measure",
+     "desc": "כיצד משתתפין ומערבין › בחצירות ובמבואות › השיעור",
+     "desc_de": "Wie man sich verbindet und den Eruw macht › In Höfen und Gassen › Das Maß",
+     "desc_en": "How one joins and makes the Eruv › In courtyards and alleys › The measure"
+    },
+    {
+     "ref": "7:9",
+     "text": "לשיור",
+     "text_de": "Zum Übrigbleiben",
+     "text_en": "For what remains",
+     "desc": "כיצד משתתפין ומערבין › בחצירות ובמבואות › השיעור",
+     "desc_de": "Wie man sich verbindet und den Eruw macht › In Höfen und Gassen › Das Maß",
+     "desc_en": "How one joins and makes the Eruv › In courtyards and alleys › The measure"
+    },
+    {
+     "ref": "7:10",
+     "text": "צורך בככר שלם",
+     "text_de": "Erfordernis eines ganzen Brotes",
+     "text_en": "Requirement of a whole loaf",
+     "desc": "כיצד משתתפין ומערבין › עירובי תחומין › בחצירות ובמבואות › במה",
+     "desc_de": "Wie man sich verbindet und den Eruw macht › Eruwim der Grenzen › In Höfen und Gassen › Womit",
+     "desc_en": "How one joins and makes the Eruv › Eruvim of the boundaries › In courtyards and alleys › With what"
+    },
+    {
+     "ref": "7:11",
+     "text": "על ידי חנוני, שלא מדעת",
+     "text_de": "Durch einen Krämer, ohne Wissen",
+     "text_en": "Through a shopkeeper, without knowledge",
+     "desc": "כיצד משתתפין ומערבין › עירובי תחומין › בחצירות ובמבואות › הזכייה",
+     "desc_de": "Wie man sich verbindet und den Eruw macht › Eruwim der Grenzen › In Höfen und Gassen › Das Erwerben",
+     "desc_en": "How one joins and makes the Eruv › Eruvim of the boundaries › In courtyards and alleys › The acquisition"
+    }
+   ]
+  },
+  {
+   "head": "פרק ח",
+   "head_de": "Kapitel 8",
+   "head_en": "Chapter 8",
+   "items": [
+    {
+     "ref": "8:1",
+     "text": "נוסח הזכייה, קבלה מבעוד יום",
+     "text_de": "Wortlaut der Erwerbung, Annahme am Vortag",
+     "text_en": "Wording of the acquisition, acceptance on the preceding day",
+     "desc": "כיצד משתתפין ומערבין › עירובי תחומין › הזכייה",
+     "desc_de": "Wie man sich verbindet und den Eruw macht › Eruwim der Grenzen › Das Erwerben",
+     "desc_en": "How one joins and makes the Eruv › Eruvim of the boundaries › The acquisition"
+    },
+    {
+     "ref": "8:2",
+     "text": "שיעורו לכל אחד, עוד שיעורים",
+     "text_de": "Sein Maß für jeden Einzelnen, weitere Maße",
+     "text_en": "Its measure for each person, further measures",
+     "desc": "כיצד משתתפין ומערבין › עירובי תחומין",
+     "desc_de": "Wie man sich verbindet und den Eruw macht › Eruwim der Grenzen",
+     "desc_en": "How one joins and makes the Eruv › Eruvim of the boundaries"
+    },
+    {
+     "ref": "8:3",
+     "text": "חצר ומרפסת ותחומי רשותן",
+     "text_de": "Hof und Veranda und die Grenzen ihres Bereichs",
+     "text_en": "Courtyard and veranda and the limits of their domain",
+     "desc": "עירובי חצירות › צורך בעירוב › רשות האוסרת",
+     "desc_de": "Eruw der Höfe › Notwendigkeit eines Eruw › Nutzungsrecht, das (den Eruw) untersagt",
+     "desc_en": "Eruv of the courtyards › Necessity of an Eruv › Right of use that prohibits (the Eruv)"
+    },
+    {
+     "ref": "8:4",
+     "text": "מקום שאינו דירה",
+     "text_de": "Ort, der keine Wohnstätte ist",
+     "text_en": "Place that is not a dwelling",
+     "desc": "עירובי חצירות › צורך בעירוב › רשות האוסרת › הגדרת דירה",
+     "desc_de": "Eruw der Höfe › Notwendigkeit eines Eruw › Nutzungsrecht, das (den Eruw) untersagt › Definition der Wohnstätte",
+     "desc_en": "Eruv of the courtyards › Necessity of an Eruv › Right of use that prohibits (the Eruv) › Definition of a dwelling"
+    },
+    {
+     "ref": "8:5",
+     "text": "דירה בלא בעלים",
+     "text_de": "Wohnstätte ohne Besitzer",
+     "text_en": "Dwelling without owners",
+     "desc": "עירובי חצירות › צורך בעירוב › רשות האוסרת › הגדרת דירה",
+     "desc_de": "Eruw der Höfe › Notwendigkeit eines Eruw › Nutzungsrecht, das (den Eruw) untersagt › Definition der Wohnstätte",
+     "desc_en": "Eruv of the courtyards › Necessity of an Eruv › Right of use that prohibits (the Eruv) › Definition of a dwelling"
+    },
+    {
+     "ref": "8:6",
+     "text": "בור בין חצירות",
+     "text_de": "Zisterne zwischen Höfen",
+     "text_en": "Cistern between courtyards",
+     "desc": "עירובי חצירות › צורך בעירוב › מחיצות על המים › מילוי",
+     "desc_de": "Eruw der Höfe › Notwendigkeit eines Eruw › Trennwände auf dem Wasser › Füllung",
+     "desc_en": "Eruv of the courtyards › Necessity of an Eruv › Partitions on the water › Filling"
+    },
+    {
+     "ref": "8:7",
+     "text": "אמת המים הנכנסת ויוצאת",
+     "text_de": "Wasserleitung, die hinein- und hinausführt",
+     "text_en": "Aqueduct entering and leaving",
+     "desc": "עירובי חצירות › צורך בעירוב › מחיצות על המים › מילוי",
+     "desc_de": "Eruw der Höfe › Notwendigkeit eines Eruw › Trennwände auf dem Wasser › Füllung",
+     "desc_en": "Eruv of the courtyards › Necessity of an Eruv › Partitions on the water › Filling"
+    },
+    {
+     "ref": "8:8",
+     "text": "לצורך גזוזטראות",
+     "text_de": "Für Balkone",
+     "text_en": "For balconies",
+     "desc": "עירובי חצירות › צורך בעירוב › מחיצות על המים › מילוי",
+     "desc_de": "Eruw der Höfe › Notwendigkeit eines Eruw › Trennwände auf dem Wasser › Füllung",
+     "desc_en": "Eruv of the courtyards › Necessity of an Eruv › Partitions on the water › Filling"
+    },
+    {
+     "ref": "8:9",
+     "text": "צורך בעוקה וקמירתה",
+     "text_de": "Erfordernis einer Vertiefung und ihrer Überwölbung",
+     "text_en": "Requirement of a hollow and its vaulting",
+     "desc": "גזירות שונות מדרבנן › שמא יוציא › מחיצות על המים › שופכין",
+     "desc_de": "Verschiedene rabbinische Verordnungen › Dass er nicht etwa hinaustrage › Trennwände auf dem Wasser › Abwasser",
+     "desc_en": "Various rabbinic decrees › Lest he carry out › Partitions on the water › Waste water"
+    },
+    {
+     "ref": "8:10",
+     "text": "ביב ושפיכה בהדיא, צירוף לד' אמות",
+     "text_de": "Abflusskanal und ausdrückliches Ausgießen, Zusammenrechnung zu vier Ellen",
+     "text_en": "Drain and explicit pouring, combining into four cubits",
+     "desc": "גזירות שונות מדרבנן › שמא יוציא › מחיצות על המים › שופכין",
+     "desc_de": "Verschiedene rabbinische Verordnungen › Dass er nicht etwa hinaustrage › Trennwände auf dem Wasser › Abwasser",
+     "desc_en": "Various rabbinic decrees › Lest he carry out › Partitions on the water › Waste water"
+    },
+    {
+     "ref": "8:11",
+     "text": "מקצת דיירים עשו עוקה",
+     "text_de": "Einige Bewohner haben eine Vertiefung angelegt",
+     "text_en": "Some residents made a hollow",
+     "desc": "גזירות שונות מדרבנן › שמא יוציא › מחיצות על המים › שופכין",
+     "desc_de": "Verschiedene rabbinische Verordnungen › Dass er nicht etwa hinaustrage › Trennwände auf dem Wasser › Abwasser",
+     "desc_en": "Various rabbinic decrees › Lest he carry out › Partitions on the water › Waste water"
+    }
+   ]
+  },
+  {
+   "head": "פרק ט",
+   "head_de": "Kapitel 9",
+   "head_en": "Chapter 9",
+   "items": [
+    {
+     "ref": "9:1",
+     "text": "גגות, חצירות, קרפיפות",
+     "text_de": "Dächer, Höfe, Karpefim",
+     "text_en": "Roofs, courtyards, karpefim",
+     "desc": "גזירות שונות מדרבנן › שמא יוציא › צירוף וחילוק רשויות › שאין תשמישם תדיר",
+     "desc_de": "Verschiedene rabbinische Verordnungen › Dass er nicht etwa hinaustrage › Zusammenrechnung und Teilung der Bereiche › Deren Gebrauch nicht regelmäßig ist",
+     "desc_en": "Various rabbinic decrees › Lest he carry out › Combining and dividing of domains › Whose use is not regular"
+    },
+    {
+     "ref": "9:2",
+     "text": "בין היקף קטן לגדול, בין חצר לרה\"ר",
+     "text_de": "Zwischen kleiner und großer Umfriedung, zwischen Hof und öffentlichem Bereich",
+     "text_en": "Between a small and a large enclosure, between a courtyard and the public domain",
+     "desc": "גזירות שונות מדרבנן › צירוף וחילוק רשויות › פחות מדי מחיצות › פירצה",
+     "desc_de": "Verschiedene rabbinische Verordnungen › Zusammenrechnung und Teilung der Bereiche › Zu wenige Trennwände › Bresche",
+     "desc_en": "Various rabbinic decrees › Combining and dividing of domains › Too few partitions › Breach"
+    },
+    {
+     "ref": "9:3",
+     "text": "ביטול היתר באמצע השבת",
+     "text_de": "Aufhebung der Erlaubnis mitten am Schabbat",
+     "text_en": "Cancellation of a permission in the middle of Shabbat",
+     "desc": "גזירות שונות מדרבנן › צירוף וחילוק רשויות › פחות מדי מחיצות › פירצה",
+     "desc_de": "Verschiedene rabbinische Verordnungen › Zusammenrechnung und Teilung der Bereiche › Zu wenige Trennwände › Bresche",
+     "desc_en": "Various rabbinic decrees › Combining and dividing of domains › Too few partitions › Breach"
+    },
+    {
+     "ref": "9:4",
+     "text": "שתי מחיצות מלכתחילה",
+     "text_de": "Zwei Trennwände von vornherein",
+     "text_en": "Two partitions from the outset",
+     "desc": "גזירות שונות מדרבנן › צירוף וחילוק רשויות › פחות מדי מחיצות",
+     "desc_de": "Verschiedene rabbinische Verordnungen › Zusammenrechnung und Teilung der Bereiche › Zu wenige Trennwände",
+     "desc_en": "Various rabbinic decrees › Combining and dividing of domains › Too few partitions"
+    }
+   ]
+  },
+  {
+   "head": "פרק י",
+   "head_de": "Kapitel 10",
+   "head_en": "Chapter 10",
+   "items": [
+    {
+     "ref": "10:1",
+     "text": "תפילין בלבישה, תנאי ההיתר, בסכנה",
+     "text_de": "Tefillin beim Anlegen, Bedingungen der Erlaubnis, bei Gefahr",
+     "text_en": "Tefillin when putting on, conditions of the permission, in danger",
+     "desc": "גזירות שונות מדרבנן › שמא יעביר ד' אמות › הכנסה לצורך",
+     "desc_de": "Verschiedene rabbinische Verordnungen › Dass er nicht etwa vier Ellen weitertrage › Hineinbringen aus Notwendigkeit",
+     "desc_en": "Various rabbinic decrees › Lest he carry four cubits › Bringing in out of necessity"
+    },
+    {
+     "ref": "10:2",
+     "text": "נתינה לחבירו",
+     "text_de": "Übergabe an seinen Nächsten",
+     "text_en": "Handing to one's fellow",
+     "desc": "גזירות שונות מדרבנן › שמא יעביר ד' אמות › הכנסה לצורך",
+     "desc_de": "Verschiedene rabbinische Verordnungen › Dass er nicht etwa vier Ellen weitertrage › Hineinbringen aus Notwendigkeit",
+     "desc_en": "Various rabbinic decrees › Lest he carry four cubits › Bringing in out of necessity"
+    },
+    {
+     "ref": "10:3",
+     "text": "כשאגדו בידו",
+     "text_de": "Wenn sie in seiner Hand gebunden waren",
+     "text_en": "When they were bound together in his hand",
+     "desc": "גזירות שונות מדרבנן › שמא יוציא › העומד ברשות אחת ופועל ברשות אחרת › הכנסה לצורך",
+     "desc_de": "Verschiedene rabbinische Verordnungen › Dass er nicht etwa hinaustrage › Wer in einem Bereich steht und in einem anderen wirkt › Hineinbringen aus Notwendigkeit",
+     "desc_en": "Various rabbinic decrees › Lest he carry out › One who stands in one domain and acts in another › Bringing in out of necessity"
+    },
+    {
+     "ref": "10:4",
+     "text": "זיז, טלטול ברשות אחרת",
+     "text_de": "Vorsprung, Tragen in einem anderen Bereich",
+     "text_en": "Projection, carrying in another domain",
+     "desc": "גזירות שונות מדרבנן › שמא יוציא › העומד ברשות אחת ופועל ברשות אחרת",
+     "desc_de": "Verschiedene rabbinische Verordnungen › Dass er nicht etwa hinaustrage › Wer in einem Bereich steht und in einem anderen wirkt",
+     "desc_en": "Various rabbinic decrees › Lest he carry out › One who stands in one domain and acts in another"
+    },
+    {
+     "ref": "10:5",
+     "text": "השתנה ורקיקה",
+     "text_de": "Urinieren und Ausspucken",
+     "text_en": "Urinating and spitting",
+     "desc": "גזירות שונות מדרבנן › שמא יוציא › העומד ברשות אחת ופועל ברשות אחרת",
+     "desc_de": "Verschiedene rabbinische Verordnungen › Dass er nicht etwa hinaustrage › Wer in einem Bereich steht und in einem anderen wirkt",
+     "desc_en": "Various rabbinic decrees › Lest he carry out › One who stands in one domain and acts in another"
+    },
+    {
+     "ref": "10:6",
+     "text": "שתייה וקליטת מים מרשות אחרת",
+     "text_de": "Trinken und Wasseraufnahme aus einem anderen Bereich",
+     "text_en": "Drinking and receiving water from another domain",
+     "desc": "גזירות שונות מדרבנן › שמא יוציא › העומד ברשות אחת ופועל ברשות אחרת",
+     "desc_de": "Verschiedene rabbinische Verordnungen › Dass er nicht etwa hinaustrage › Wer in einem Bereich steht und in einem anderen wirkt",
+     "desc_en": "Various rabbinic decrees › Lest he carry out › One who stands in one domain and acts in another"
+    },
+    {
+     "ref": "10:7",
+     "text": "העברה דרך מקום פטור",
+     "text_de": "Hinüberbringen durch einen freien Bereich",
+     "text_en": "Transferring through an exempt area",
+     "desc": "גזירות שונות מדרבנן › שמא יוציא › העומד ברשות אחת ופועל ברשות אחרת › יצירת רשות",
+     "desc_de": "Verschiedene rabbinische Verordnungen › Dass er nicht etwa hinaustrage › Wer in einem Bereich steht und in einem anderen wirkt › Schaffung eines Bereichs",
+     "desc_en": "Various rabbinic decrees › Lest he carry out › One who stands in one domain and acts in another › Creation of a domain"
+    },
+    {
+     "ref": "10:8",
+     "text": "נוף ושרשי אילן \\ שאינם מחוברים כלל",
+     "text_de": "Äste und Wurzeln eines Baumes / die überhaupt nicht verbunden sind",
+     "text_en": "Branches and roots of a tree / that are not connected at all",
+     "desc": "גזירות שונות מדרבנן › שמא יוציא › העומד ברשות אחת ופועל ברשות אחרת › נעילת דלתות › יצירת רשות",
+     "desc_de": "Verschiedene rabbinische Verordnungen › Dass er nicht etwa hinaustrage › Wer in einem Bereich steht und in einem anderen wirkt › Verschließen der Türen › Schaffung eines Bereichs",
+     "desc_en": "Various rabbinic decrees › Lest he carry out › One who stands in one domain and acts in another › Locking the doors › Creation of a domain"
+    },
+    {
+     "ref": "10:9",
+     "text": "כשהמפתח ברשות הרבים",
+     "text_de": "Wenn der Schlüssel im öffentlichen Bereich ist",
+     "text_en": "When the key is in the public domain",
+     "desc": "גזירות שונות מדרבנן › שמא יוציא › העומד ברשות אחת ופועל ברשות אחרת › נעילת דלתות",
+     "desc_de": "Verschiedene rabbinische Verordnungen › Dass er nicht etwa hinaustrage › Wer in einem Bereich steht und in einem anderen wirkt › Verschließen der Türen",
+     "desc_en": "Various rabbinic decrees › Lest he carry out › One who stands in one domain and acts in another › Locking the doors"
+    },
+    {
+     "ref": "10:10",
+     "text": "שיש עליו תורת כלי",
+     "text_de": "Was den Status eines Gefäßes hat",
+     "text_en": "What has the status of a vessel",
+     "desc": "גזירות שונות מדרבנן › שמא יבנה › נעילת דלתות › נגר",
+     "desc_de": "Verschiedene rabbinische Verordnungen › Dass er nicht etwa baue › Verschließen der Türen › Tischler",
+     "desc_en": "Various rabbinic decrees › Lest he build › Locking the doors › Carpenter"
+    },
+    {
+     "ref": "10:11",
+     "text": "הנגרר והמונח",
+     "text_de": "Das Gezogene und das Abgestellte",
+     "text_en": "What is dragged and what is placed down",
+     "desc": "גזירות שונות מדרבנן › שמא יבנה › נעילת דלתות › נגר",
+     "desc_de": "Verschiedene rabbinische Verordnungen › Dass er nicht etwa baue › Verschließen der Türen › Tischler",
+     "desc_en": "Various rabbinic decrees › Lest he build › Locking the doors › Carpenter"
+    },
+    {
+     "ref": "10:12",
+     "text": "דלת המחוברת בציר אחד",
+     "text_de": "Tür, die an einem Zapfen befestigt ist",
+     "text_en": "Door attached by one hinge",
+     "desc": "גזירות שונות מדרבנן › שמא יבנה › נעילת דלתות",
+     "desc_de": "Verschiedene rabbinische Verordnungen › Dass er nicht etwa baue › Verschließen der Türen",
+     "desc_en": "Various rabbinic decrees › Lest he build › Locking the doors"
+    },
+    {
+     "ref": "10:13",
+     "text": "החזרת רטיה, קשירת נימא, חתיכת יבלת",
+     "text_de": "Wiederanlegen eines Verbandes, Knüpfen eines Fadens, Abschneiden einer Warze",
+     "text_en": "Replacing a bandage, tying a thread, cutting off a wart",
+     "desc": "גזירות שונות מדרבנן › שבות במקדש",
+     "desc_de": "Verschiedene rabbinische Verordnungen › Rabbinisches Verbot im Tempel",
+     "desc_en": "Various rabbinic decrees › Rabbinic prohibition in the Temple"
+    },
+    {
+     "ref": "10:14",
+     "text": "גמי על פצע, מלח לכבש, מילוי בגלגל",
+     "text_de": "Schilf auf einer Wunde, Salz für ein Lamm, Auffüllen im Rad",
+     "text_en": "Reed on a wound, salt for a lamb, filling in the wheel",
+     "desc": "גזירות שונות מדרבנן › שבות במקדש",
+     "desc_de": "Verschiedene rabbinische Verordnungen › Rabbinisches Verbot im Tempel",
+     "desc_en": "Various rabbinic decrees › Rabbinic prohibition in the Temple"
+    },
+    {
+     "ref": "10:15",
+     "text": "במה ומהיכן מוציאים שרץ או כלל",
+     "text_de": "Womit und woher man ein kriechendes Tier oder einen Gegenstand herausnimmt",
+     "text_en": "With what and from where one removes a creeping creature or a general item",
+     "desc": "גזירות שונות מדרבנן › שבות במקדש",
+     "desc_de": "Verschiedene rabbinische Verordnungen › Rabbinisches Verbot im Tempel",
+     "desc_en": "Various rabbinic decrees › Rabbinic prohibition in the Temple"
+    }
+   ]
+  }
+ ]
+}

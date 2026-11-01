@@ -1,0 +1,347 @@
+{
+ "book": "Mishnah Orlah",
+ "title": "משנה ערלה",
+ "title_de": "Mischna Orla – Gliederung",
+ "title_en": "Orlah – outline",
+ "note": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema).",
+ "note_de": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema); ins Deutsche und Englische übersetzt.",
+ "note_en": "Outline after the table “Mishna Sedura”: the central content of each mishnah, with the topic path (main topic to sub-topic); translated into German and English.",
+ "sections": [
+  {
+   "head": "פרק א",
+   "head_de": "Kapitel 1",
+   "head_en": "Chapter 1",
+   "items": [
+    {
+     "ref": "1:1",
+     "text": "שלא נטוע למאכל",
+     "text_de": "Nicht zum Essen Gepflanztes",
+     "text_en": "Not planted for eating",
+     "desc": "הלכות ערלה › פירות ונטיעות האסורות › בעלות ותכלית הנטיעה",
+     "desc_de": "Gesetze der Orla › Verbotene Früchte und Pflanzungen › Besitz und Zweck der Pflanzung",
+     "desc_en": "Laws of orlah › Forbidden fruits and plantings › Ownership and purpose of planting"
+    },
+    {
+     "ref": "1:2",
+     "text": "של גוי, נטיעות שונות החייבות",
+     "text_de": "Eines Nichtjuden, verschiedene pflichtige Pflanzungen",
+     "text_en": "Of a gentile; various plantings that are liable",
+     "desc": "הלכות ערלה › פירות ונטיעות האסורות › בעלות ותכלית הנטיעה",
+     "desc_de": "Gesetze der Orla › Verbotene Früchte und Pflanzungen › Besitz und Zweck der Pflanzung",
+     "desc_en": "Laws of orlah › Forbidden fruits and plantings › Ownership and purpose of planting"
+    },
+    {
+     "ref": "1:3",
+     "text": "עפר שנשתייר בשרשים",
+     "text_de": "Erde, die an den Wurzeln zurückblieb",
+     "text_en": "Soil remaining on the roots",
+     "desc": "הלכות ערלה › פירות ונטיעות האסורות › הגדרת נטיעה › יניקה חלקית › אחרי עקירה",
+     "desc_de": "Gesetze der Orla › Verbotene Früchte und Pflanzungen › Definition des Setzlings › Teilweise Nährstoffaufnahme › Nach dem Ausreißen",
+     "desc_en": "Laws of orlah › Forbidden fruits and plantings › Definition of a sapling › Partial nourishment › After uprooting"
+    },
+    {
+     "ref": "1:4",
+     "text": "שורש שנשתייר נטוע",
+     "text_de": "Eingepflanzt gebliebene Wurzel",
+     "text_en": "Root that remained planted",
+     "desc": "הלכות ערלה › פירות ונטיעות האסורות › הגדרת נטיעה › יניקה חלקית › אחרי עקירה",
+     "desc_de": "Gesetze der Orla › Verbotene Früchte und Pflanzungen › Definition des Setzlings › Teilweise Nährstoffaufnahme › Nach dem Ausreißen",
+     "desc_en": "Laws of orlah › Forbidden fruits and plantings › Definition of a sapling › Partial nourishment › After uprooting"
+    },
+    {
+     "ref": "1:5",
+     "text": "הברכות וסיפוקים",
+     "text_de": "Absenker und Zusätze",
+     "text_en": "Layered shoots and additions",
+     "desc": "הלכות ערלה › פירות ונטיעות האסורות › הגדרת נטיעה › יניקה חלקית",
+     "desc_de": "Gesetze der Orla › Verbotene Früchte und Pflanzungen › Definition des Setzlings › Teilweise Nährstoffaufnahme",
+     "desc_en": "Laws of orlah › Forbidden fruits and plantings › Definition of a sapling › Partial nourishment"
+    },
+    {
+     "ref": "1:6",
+     "text": "לקיטה",
+     "text_de": "Pflücken",
+     "text_en": "Picking",
+     "desc": "הלכות ערלה › פירות ונטיעות האסורות › ביטול בתערובת",
+     "desc_de": "Gesetze der Orla › Verbotene Früchte und Pflanzungen › Aufhebung in der Mischung",
+     "desc_en": "Laws of orlah › Forbidden fruits and plantings › Nullification in a mixture"
+    },
+    {
+     "ref": "1:7",
+     "text": "עלים, לולבים, סמדר, שרץ",
+     "text_de": "Blätter, Triebe, Blütenansatz, Ausläufer",
+     "text_en": "Leaves, shoots, blossom buds, runners",
+     "desc": "הלכות ערלה › פירות ונטיעות האסורות › הגדרת פרי › איסורי ערלה, רבעי נזיר,אשירה",
+     "desc_de": "Gesetze der Orla › Verbotene Früchte und Pflanzungen › Definition der Frucht › Verbote der Orla, Vierjahresfrucht, Nasiräer, Ascheira",
+     "desc_en": "Laws of orlah › Forbidden fruits and plantings › Definition of fruit › Orlah prohibitions, fourth-year fruit, nazirite, asherah"
+    },
+    {
+     "ref": "1:8",
+     "text": "פירות שלקו, פסולת, קליפות",
+     "text_de": "Gekochte Früchte, Abfall, Schalen",
+     "text_en": "Cooked fruits, waste, peels",
+     "desc": "הלכות ערלה › פירות ונטיעות האסורות › הגדרת פרי › איסורי ערלה, רבעי נזיר,אשירה",
+     "desc_de": "Gesetze der Orla › Verbotene Früchte und Pflanzungen › Definition der Frucht › Verbote der Orla, Vierjahresfrucht, Nasiräer, Ascheira",
+     "desc_en": "Laws of orlah › Forbidden fruits and plantings › Definition of fruit › Orlah prohibitions, fourth-year fruit, nazirite, asherah"
+    },
+    {
+     "ref": "1:9",
+     "text": "נטיעת יחורים או פירות",
+     "text_de": "Pflanzen von Schösslingen oder Früchten",
+     "text_en": "Planting of cuttings or fruits",
+     "desc": "הלכות ערלה › פירות ונטיעות האסורות › הגדרת פרי",
+     "desc_de": "Gesetze der Orla › Verbotene Früchte und Pflanzungen › Definition der Frucht",
+     "desc_en": "Laws of orlah › Forbidden fruits and plantings › Definition of fruit"
+    }
+   ]
+  },
+  {
+   "head": "פרק ב",
+   "head_de": "Kapitel 2",
+   "head_en": "Chapter 2",
+   "items": [
+    {
+     "ref": "2:1",
+     "text": "תרומה, ערלה וכלאים, הרמה",
+     "text_de": "Teruma, Orla und Kilajim, Haramma",
+     "text_en": "Teruma, orlah and kilayim, haramah",
+     "desc": "הלכות אסורים מן הצומח › הלכות תערובות › צירוף › כלל לאסור",
+     "desc_de": "Gesetze verbotener Pflanzenprodukte › Gesetze der Mischungen › Zusammenrechnen › Regel zum Verbieten",
+     "desc_en": "Laws of forbidden plant products › Laws of mixtures › Combining › Rule for prohibiting"
+    },
+    {
+     "ref": "2:2",
+     "text": "תרומה וערלה",
+     "text_de": "Teruma und Orla",
+     "text_en": "Teruma and orlah",
+     "desc": "הלכות אסורים מן הצומח › הלכות תערובות › צירוף › לבטל",
+     "desc_de": "Gesetze verbotener Pflanzenprodukte › Gesetze der Mischungen › Zusammenrechnen › Aufheben des Verbots",
+     "desc_en": "Laws of forbidden plant products › Laws of mixtures › Combining › Nullifying"
+    },
+    {
+     "ref": "2:3",
+     "text": "ערלה וכלאים",
+     "text_de": "Orla und Kilajim",
+     "text_en": "Orlah and kilayim",
+     "desc": "הלכות אסורים מן הצומח › הלכות תערובות › צירוף › לבטל",
+     "desc_de": "Gesetze verbotener Pflanzenprodukte › Gesetze der Mischungen › Zusammenrechnen › Aufheben des Verbots",
+     "desc_en": "Laws of forbidden plant products › Laws of mixtures › Combining › Nullifying"
+    },
+    {
+     "ref": "2:4",
+     "text": "לטמא",
+     "text_de": "Verunreinigen",
+     "text_en": "Rendering impure",
+     "desc": "הלכות אסורים מן הצומח › הלכות תערובות › כללי איסור › איסור וטומאה",
+     "desc_de": "Gesetze verbotener Pflanzenprodukte › Gesetze der Mischungen › Verbotsregeln › Verbot und Unreinheit",
+     "desc_en": "Laws of forbidden plant products › Laws of mixtures › Rules of prohibition › Prohibition and impurity"
+    },
+    {
+     "ref": "2:5",
+     "text": "עדות על ההלכה",
+     "text_de": "Zeugnis über die Halacha",
+     "text_en": "Testimony about the halakha",
+     "desc": "הלכות אסורים מן הצומח › הלכות תערובות › כללי איסור › איסור וטומאה",
+     "desc_de": "Gesetze verbotener Pflanzenprodukte › Gesetze der Mischungen › Verbotsregeln › Verbot und Unreinheit",
+     "desc_en": "Laws of forbidden plant products › Laws of mixtures › Rules of prohibition › Prohibition and impurity"
+    },
+    {
+     "ref": "2:6",
+     "text": "במינו להחמיר",
+     "text_de": "Gleichartiges: erschwerend",
+     "text_en": "Same kind: stringent",
+     "desc": "הלכות אסורים מן הצומח › הלכות תערובות › כללי איסור › מין האוסר",
+     "desc_de": "Gesetze verbotener Pflanzenprodukte › Gesetze der Mischungen › Verbotsregeln › Verbietende Art",
+     "desc_en": "Laws of forbidden plant products › Laws of mixtures › Rules of prohibition › Prohibiting kind"
+    },
+    {
+     "ref": "2:7",
+     "text": "בשאינו מינו להקל",
+     "text_de": "Nicht Gleichartiges: erleichternd",
+     "text_en": "Different kind: lenient",
+     "desc": "הלכות אסורים מן הצומח › הלכות תערובות › כללי איסור › מין האוסר",
+     "desc_de": "Gesetze verbotener Pflanzenprodukte › Gesetze der Mischungen › Verbotsregeln › Verbietende Art",
+     "desc_en": "Laws of forbidden plant products › Laws of mixtures › Rules of prohibition › Prohibiting kind"
+    },
+    {
+     "ref": "2:8",
+     "text": "עיסה שלא נתחמצה",
+     "text_de": "Ungesäuerter Teig",
+     "text_en": "Unleavened dough",
+     "desc": "הלכות אסורים מן הצומח › הלכות תערובות › צירוף לאסור › של איסור ושל היתר › בשניהם כדי לחמץ",
+     "desc_de": "Gesetze verbotener Pflanzenprodukte › Gesetze der Mischungen › Zusammenrechnen zum Verbieten › Von Verbotenem und Erlaubtem › In beiden genug zum Säuern",
+     "desc_en": "Laws of forbidden plant products › Laws of mixtures › Combining to prohibit › Of forbidden and permitted › Enough in both to leaven"
+    },
+    {
+     "ref": "2:9",
+     "text": "עיסה שנתחמצה",
+     "text_de": "Gesäuerter Teig",
+     "text_en": "Leavened dough",
+     "desc": "הלכות אסורים מן הצומח › הלכות תערובות › צירוף לאסור › של איסור ושל היתר › בשניהם כדי לחמץ",
+     "desc_de": "Gesetze verbotener Pflanzenprodukte › Gesetze der Mischungen › Zusammenrechnen zum Verbieten › Von Verbotenem und Erlaubtem › In beiden genug zum Säuern",
+     "desc_en": "Laws of forbidden plant products › Laws of mixtures › Combining to prohibit › Of forbidden and permitted › Enough in both to leaven"
+    },
+    {
+     "ref": "2:10",
+     "text": "שמות ומינים של תבלינים אסורים",
+     "text_de": "Namen und Arten verbotener Gewürze",
+     "text_en": "Names and kinds of forbidden spices",
+     "desc": "הלכות אסורים מן הצומח › הלכות תערובות › צירוף לאסור › של איסור ושל היתר › זה וזה ביחד גורם",
+     "desc_de": "Gesetze verbotener Pflanzenprodukte › Gesetze der Mischungen › Zusammenrechnen zum Verbieten › Von Verbotenem und Erlaubtem › Beides zusammen bewirkt es",
+     "desc_en": "Laws of forbidden plant products › Laws of mixtures › Combining to prohibit › Of forbidden and permitted › Both together cause it"
+    },
+    {
+     "ref": "2:11",
+     "text": "חימוץ",
+     "text_de": "Säuern",
+     "text_en": "Leavening",
+     "desc": "הלכות אסורים מן הצומח › הלכות תערובות › צירוף לאסור › של איסור ושל היתר › זה וזה ביחד גורם",
+     "desc_de": "Gesetze verbotener Pflanzenprodukte › Gesetze der Mischungen › Zusammenrechnen zum Verbieten › Von Verbotenem und Erlaubtem › Beides zusammen bewirkt es",
+     "desc_en": "Laws of forbidden plant products › Laws of mixtures › Combining to prohibit › Of forbidden and permitted › Both together cause it"
+    },
+    {
+     "ref": "2:12",
+     "text": "עדות על ההלכה",
+     "text_de": "Zeugnis über die Halacha",
+     "text_en": "Testimony about the halakha",
+     "desc": "הלכות אסורים מן הצומח › הלכות תערובות › צירוף לאסור › של איסור ושל היתר › זה וזה ביחד גורם",
+     "desc_de": "Gesetze verbotener Pflanzenprodukte › Gesetze der Mischungen › Zusammenrechnen zum Verbieten › Von Verbotenem und Erlaubtem › Beides zusammen bewirkt es",
+     "desc_en": "Laws of forbidden plant products › Laws of mixtures › Combining to prohibit › Of forbidden and permitted › Both together cause it"
+    },
+    {
+     "ref": "2:13",
+     "text": "אחר ראשון או אחרון, בסיכה טמאה",
+     "text_de": "Nach dem Ersten oder Letzten, bei unreiner Salbung",
+     "text_en": "After the first or last; with impure anointing",
+     "desc": "הלכות אסורים מן הצומח › הלכות תערובות › צירוף לאסור › של איסור ושל היתר › זה וזה ביחד גורם",
+     "desc_de": "Gesetze verbotener Pflanzenprodukte › Gesetze der Mischungen › Zusammenrechnen zum Verbieten › Von Verbotenem und Erlaubtem › Beides zusammen bewirkt es",
+     "desc_en": "Laws of forbidden plant products › Laws of mixtures › Combining to prohibit › Of forbidden and permitted › Both together cause it"
+    },
+    {
+     "ref": "2:14",
+     "text": "לחמץ",
+     "text_de": "Zum Säuern",
+     "text_en": "To leaven",
+     "desc": "הלכות אסורים מן הצומח › הלכות תערובות › צירוף לאסור › צירוף איסורים",
+     "desc_de": "Gesetze verbotener Pflanzenprodukte › Gesetze der Mischungen › Zusammenrechnen zum Verbieten › Zusammenrechnen von Verboten",
+     "desc_en": "Laws of forbidden plant products › Laws of mixtures › Combining to prohibit › Combining prohibitions"
+    },
+    {
+     "ref": "2:15",
+     "text": "לתבל",
+     "text_de": "Würzen",
+     "text_en": "Seasoning",
+     "desc": "הלכות אסורים מן הצומח › הלכות תערובות › צירוף לאסור › צירוף איסורים",
+     "desc_de": "Gesetze verbotener Pflanzenprodukte › Gesetze der Mischungen › Zusammenrechnen zum Verbieten › Zusammenrechnen von Verboten",
+     "desc_en": "Laws of forbidden plant products › Laws of mixtures › Combining to prohibit › Combining prohibitions"
+    },
+    {
+     "ref": "2:16",
+     "text": "בשר של קודש ושל איסור",
+     "text_de": "Fleisch von Heiligem und von Verbotenem",
+     "text_en": "Meat of sanctified and of forbidden animals",
+     "desc": "הלכות אסורים מן הצומח › הלכות תערובות › צירוף לאסור › צירוף איסורים",
+     "desc_de": "Gesetze verbotener Pflanzenprodukte › Gesetze der Mischungen › Zusammenrechnen zum Verbieten › Zusammenrechnen von Verboten",
+     "desc_en": "Laws of forbidden plant products › Laws of mixtures › Combining to prohibit › Combining prohibitions"
+    },
+    {
+     "ref": "2:17",
+     "text": "בשר של קדשי קדשים וקלים",
+     "text_de": "Fleisch von Allerheiligstem und von minderen Heiligtümern",
+     "text_en": "Meat of most holy and lesser holy offerings",
+     "desc": "הלכות אסורים מן הצומח › הלכות תערובות › צירוף לאסור › צירוף איסורים",
+     "desc_de": "Gesetze verbotener Pflanzenprodukte › Gesetze der Mischungen › Zusammenrechnen zum Verbieten › Zusammenrechnen von Verboten",
+     "desc_en": "Laws of forbidden plant products › Laws of mixtures › Combining to prohibit › Combining prohibitions"
+    }
+   ]
+  },
+  {
+   "head": "פרק ג",
+   "head_de": "Kapitel 3",
+   "head_en": "Chapter 3",
+   "items": [
+    {
+     "ref": "3:1",
+     "text": "בבגדים",
+     "text_de": "In Kleidern",
+     "text_en": "In garments",
+     "desc": "הלכות ערלה וכלאי הכרם › הלכות תערובות › ביטול הנאסר › צבע של ערלה",
+     "desc_de": "Gesetze der Orla und der Kilaj HaKerem › Gesetze der Mischungen › Aufhebung des Verbotenen › Farbe von Orla",
+     "desc_en": "Laws of orlah and kilayim of the vineyard › Laws of mixtures › Nullification of the forbidden item › Dye of orlah"
+    },
+    {
+     "ref": "3:2",
+     "text": "בבגד",
+     "text_de": "In einem Kleid",
+     "text_en": "In a garment",
+     "desc": "הלכות ערלה וכלאי הכרם › הלכות תערובות › ביטול הנאסר › צבע של ערלה › מלא סיט הארוג",
+     "desc_de": "Gesetze der Orla und der Kilaj HaKerem › Gesetze der Mischungen › Aufhebung des Verbotenen › Farbe von Orla › Ein gewebtes Sit-Maß",
+     "desc_en": "Laws of orlah and kilayim of the vineyard › Laws of mixtures › Nullification of the forbidden item › Dye of orlah › A woven sit-measure"
+    },
+    {
+     "ref": "3:3",
+     "text": "איסורים שונים",
+     "text_de": "Verschiedene Verbote",
+     "text_en": "Various prohibitions",
+     "desc": "הלכות ערלה וכלאי הכרם › הלכות תערובות › ביטול הנאסר › מלא סיט הארוג",
+     "desc_de": "Gesetze der Orla und der Kilaj HaKerem › Gesetze der Mischungen › Aufhebung des Verbotenen › Ein gewebtes Sit-Maß",
+     "desc_en": "Laws of orlah and kilayim of the vineyard › Laws of mixtures › Nullification of the forbidden item › A woven sit-measure"
+    },
+    {
+     "ref": "3:4",
+     "text": "בישול",
+     "text_de": "Kochen",
+     "text_en": "Cooking",
+     "desc": "הלכות ערלה וכלאי הכרם › הלכות תערובות › ביטול הנאסר › עצי ערלה",
+     "desc_de": "Gesetze der Orla und der Kilaj HaKerem › Gesetze der Mischungen › Aufhebung des Verbotenen › Orla-Holz",
+     "desc_en": "Laws of orlah and kilayim of the vineyard › Laws of mixtures › Nullification of the forbidden item › Orlah wood"
+    },
+    {
+     "ref": "3:5",
+     "text": "אפייה",
+     "text_de": "Backen",
+     "text_en": "Baking",
+     "desc": "הלכות ערלה וכלאי הכרם › הלכות תערובות › ביטול הנאסר › עצי ערלה",
+     "desc_de": "Gesetze der Orla und der Kilaj HaKerem › Gesetze der Mischungen › Aufhebung des Verbotenen › Orla-Holz",
+     "desc_en": "Laws of orlah and kilayim of the vineyard › Laws of mixtures › Nullification of the forbidden item › Orlah wood"
+    },
+    {
+     "ref": "3:6",
+     "text": "חבילי תלתן של כלאים",
+     "text_de": "Bündel Bockshornklee von Kilajim",
+     "text_en": "Bundles of fenugreek of kilayim",
+     "desc": "הלכות ערלה וכלאי הכרם › הלכות תערובות › ביטול האיסור",
+     "desc_de": "Gesetze der Orla und der Kilaj HaKerem › Gesetze der Mischungen › Aufhebung des Verbots",
+     "desc_en": "Laws of orlah and kilayim of the vineyard › Laws of mixtures › Nullification of the prohibition"
+    },
+    {
+     "ref": "3:7",
+     "text": "האוסרים בערלה ובכלאים",
+     "text_de": "Was bei Orla und Kilajim verbietet",
+     "text_en": "What prohibits with orlah and kilayim",
+     "desc": "הלכות ערלה וכלאי הכרם › הלכות תערובות › ביטול האיסור › דברים חשובים",
+     "desc_de": "Gesetze der Orla und der Kilaj HaKerem › Gesetze der Mischungen › Aufhebung des Verbots › Wichtige Dinge",
+     "desc_en": "Laws of orlah and kilayim of the vineyard › Laws of mixtures › Nullification of the prohibition › Important items"
+    },
+    {
+     "ref": "3:8",
+     "text": "שאינם שלמים",
+     "text_de": "Nicht ganze Dinge",
+     "text_en": "Items that are not whole",
+     "desc": "הלכות ערלה וכלאי הכרם › הלכות תערובות › ביטול האיסור › דברים חשובים",
+     "desc_de": "Gesetze der Orla und der Kilaj HaKerem › Gesetze der Mischungen › Aufhebung des Verbots › Wichtige Dinge",
+     "desc_en": "Laws of orlah and kilayim of the vineyard › Laws of mixtures › Nullification of the prohibition › Important items"
+    },
+    {
+     "ref": "3:9",
+     "text": "ספק ערלה, חדש, כלאים",
+     "text_de": "Zweifel bei Orla, Chadasch und Kilajim",
+     "text_en": "Doubt regarding orlah, chadash and kilayim",
+     "desc": "הלכות ערלה וכלאי הכרם › הלכות תערובות › בארץ ובחו\"ל",
+     "desc_de": "Gesetze der Orla und der Kilaj HaKerem › Gesetze der Mischungen › Im Land und im Ausland",
+     "desc_en": "Laws of orlah and kilayim of the vineyard › Laws of mixtures › In the Land and abroad"
+    }
+   ]
+  }
+ ]
+}

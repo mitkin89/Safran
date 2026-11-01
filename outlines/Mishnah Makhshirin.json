@@ -1,0 +1,539 @@
+{
+ "book": "Mishnah Makhshirin",
+ "title": "משנה מכשירין",
+ "title_de": "Mischna Machschirin – Gliederung",
+ "title_en": "Makhshirin – outline",
+ "note": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema).",
+ "note_de": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema); ins Deutsche und Englische übersetzt.",
+ "note_en": "Outline after the table “Mishna Sedura”: the central content of each mishnah, with the topic path (main topic to sub-topic); translated into German and English.",
+ "sections": [
+  {
+   "head": "פרק א",
+   "head_de": "Kapitel 1",
+   "head_en": "Chapter 1",
+   "items": [
+    {
+     "ref": "1:1",
+     "text": "משקים טהורים וטמאים",
+     "text_de": "Reine und unreine Flüssigkeiten",
+     "text_en": "Pure and impure liquids",
+     "desc": "משקים המכשירים › כלל של צורך ברצון",
+     "desc_de": "Flüssigkeiten, die tauglich machen › Regel über die Notwendigkeit des Willens",
+     "desc_en": "Liquids that render susceptible › Rule on the need for intent"
+    },
+    {
+     "ref": "1:2",
+     "text": "משקים הנופלים מאילן והנשארים",
+     "text_de": "Flüssigkeiten, die vom Baum fallen und zurückbleiben",
+     "text_en": "Liquids that fall from a tree and remain",
+     "desc": "משקים המכשירים › עקירת משקים ממקומם › מעשה באינו מתכוון › מחלוקות ב\"ש וב\"ה",
+     "desc_de": "Flüssigkeiten, die tauglich machen › Entfernen von Flüssigkeiten von ihrem Ort › Fall des unabsichtlichen Handelns › Streitfragen der Schulen Schammais und Hillels",
+     "desc_en": "Liquids that render susceptible › Removal of liquids from their place › Case of unintentional action › Disputes between the Schools of Shammai and Hillel"
+    },
+    {
+     "ref": "1:3",
+     "text": "אכלין הנופלים מאילן על משקה",
+     "text_de": "Speisen, die vom Baum auf Flüssigkeit fallen",
+     "text_en": "Foods that fall from a tree onto liquid",
+     "desc": "משקים המכשירים › עקירת משקים ממקומם › מעשה באינו מתכוון › מחלוקות ב\"ש וב\"ה",
+     "desc_de": "Flüssigkeiten, die tauglich machen › Entfernen von Flüssigkeiten von ihrem Ort › Fall des unabsichtlichen Handelns › Streitfragen der Schulen Schammais und Hillels",
+     "desc_en": "Liquids that render susceptible › Removal of liquids from their place › Case of unintentional action › Disputes between the Schools of Shammai and Hillel"
+    },
+    {
+     "ref": "1:4",
+     "text": "משקים היוצאים מאגודת ירק",
+     "text_de": "Flüssigkeiten, die aus einem Gemüsebündel austreten",
+     "text_en": "Liquids that come out of a bundle of vegetables",
+     "desc": "משקים המכשירים › עקירת משקים ממקומם › מעשה באינו מתכוון › מחלוקות ב\"ש וב\"ה",
+     "desc_de": "Flüssigkeiten, die tauglich machen › Entfernen von Flüssigkeiten von ihrem Ort › Fall des unabsichtlichen Handelns › Streitfragen der Schulen Schammais und Hillels",
+     "desc_en": "Liquids that render susceptible › Removal of liquids from their place › Case of unintentional action › Disputes between the Schools of Shammai and Hillel"
+    },
+    {
+     "ref": "1:5",
+     "text": "מים הנסחטים",
+     "text_de": "Ausgepresstes Wasser",
+     "text_en": "Squeezed-out water",
+     "desc": "משקים המכשירים › עקירת משקים ממקומם › מעשה באינו מתכוון",
+     "desc_de": "Flüssigkeiten, die tauglich machen › Entfernen von Flüssigkeiten von ihrem Ort › Fall des unabsichtlichen Handelns",
+     "desc_en": "Liquids that render susceptible › Removal of liquids from their place › Case of unintentional action"
+    },
+    {
+     "ref": "1:6",
+     "text": "לאכילה, לשמירת אוכלים",
+     "text_de": "Zum Essen, zur Aufbewahrung von Speisen",
+     "text_en": "For eating, for preserving foods",
+     "desc": "משקים המכשירים › עקירת משקים ממקומם › מעשה באינו מתכוון › כוונה למטרה אחרת",
+     "desc_de": "Flüssigkeiten, die tauglich machen › Entfernen von Flüssigkeiten von ihrem Ort › Fall des unabsichtlichen Handelns › Absicht für einen anderen Zweck",
+     "desc_en": "Liquids that render susceptible › Removal of liquids from their place › Case of unintentional action › Intent for another purpose"
+    }
+   ]
+  },
+  {
+   "head": "פרק ב",
+   "head_de": "Kapitel 2",
+   "head_en": "Chapter 2",
+   "items": [
+    {
+     "ref": "2:1",
+     "text": "ממחובר לקרקע, של אדם",
+     "text_de": "Aus dem im Boden Verwurzelten, von einem Menschen",
+     "text_en": "From what is attached to the ground, from a person",
+     "desc": "משקים המכשירים › עקירת משקים ממקומם › ממילא › זיעה",
+     "desc_de": "Flüssigkeiten, die tauglich machen › Entfernen von Flüssigkeiten von ihrem Ort › Von selbst › Schweiß",
+     "desc_en": "Liquids that render susceptible › Removal of liquids from their place › Of itself › Sweat"
+    },
+    {
+     "ref": "2:2",
+     "text": "משום מרחץ או בריכה",
+     "text_de": "Wegen Badehaus oder Teich",
+     "text_en": "Because of a bathhouse or pool",
+     "desc": "משקים המכשירים › עקירת משקים ממקומם › ממילא › זיעה",
+     "desc_de": "Flüssigkeiten, die tauglich machen › Entfernen von Flüssigkeiten von ihrem Ort › Von selbst › Schweiß",
+     "desc_en": "Liquids that render susceptible › Removal of liquids from their place › Of itself › Sweat"
+    },
+    {
+     "ref": "2:3",
+     "text": "קירבה לברכה,ברזל,מי רגלים,מי שפיכות",
+     "text_de": "Nähe zu einem Teich, Eisen, Urin, Samenflüssigkeit",
+     "text_en": "Proximity to a pool, iron, urine, seminal fluid",
+     "desc": "הכרעה אחר רוב ומחצה על מחצה להחמיר › אחוזי נפח › ביטול טומאה",
+     "desc_de": "Entscheidung nach Mehrheit, und bei Hälfte-Hälfte zur Erschwerung › Volumenanteile › Aufhebung der Unreinheit",
+     "desc_en": "Decision by majority, and in the case of half-and-half to be stringent › Volume proportions › Nullification of impurity"
+    },
+    {
+     "ref": "2:4",
+     "text": "מים טמאים",
+     "text_de": "Unreines Wasser",
+     "text_en": "Impure water",
+     "desc": "הכרעה אחר רוב ומחצה על מחצה להחמיר › אחוזי נפח › ביטול טומאה",
+     "desc_de": "Entscheidung nach Mehrheit, und bei Hälfte-Hälfte zur Erschwerung › Volumenanteile › Aufhebung der Unreinheit",
+     "desc_en": "Decision by majority, and in the case of half-and-half to be stringent › Volume proportions › Nullification of impurity"
+    },
+    {
+     "ref": "2:5",
+     "text": "שימוש במרחץ שהוחם בשבת",
+     "text_de": "Benutzung eines am Schabbat erwärmten Badehauses",
+     "text_en": "Use of a bathhouse heated on Shabbat",
+     "desc": "הכרעה אחר רוב ומחצה על מחצה להחמיר › אחוז אוכלוסיה היהודי › איסורי שבת",
+     "desc_de": "Entscheidung nach Mehrheit, und bei Hälfte-Hälfte zur Erschwerung › Anteil der jüdischen Bevölkerung › Schabbatverbote",
+     "desc_en": "Decision by majority, and in the case of half-and-half to be stringent › Proportion of the Jewish population › Shabbat prohibitions"
+    },
+    {
+     "ref": "2:6",
+     "text": "קניית המובא מחוץ לתחום בשבת",
+     "text_de": "Kauf des am Schabbat von außerhalb der Grenze Gebrachten",
+     "text_en": "Purchase of what was brought from beyond the boundary on Shabbat",
+     "desc": "הכרעה אחר רוב ומחצה על מחצה להחמיר › אחוז אוכלוסיה היהודי › איסורי שבת",
+     "desc_de": "Entscheidung nach Mehrheit, und bei Hälfte-Hälfte zur Erschwerung › Anteil der jüdischen Bevölkerung › Schabbatverbote",
+     "desc_en": "Decision by majority, and in the case of half-and-half to be stringent › Proportion of the Jewish population › Shabbat prohibitions"
+    },
+    {
+     "ref": "2:7",
+     "text": "דין תינוק שנמצא",
+     "text_de": "Rechtsstatus eines gefundenen Kindes",
+     "text_en": "Law of a foundling",
+     "desc": "הכרעה אחר רוב ומחצה על מחצה להחמיר › אחוז אוכלוסיה היהודי › איסורים וממונות",
+     "desc_de": "Entscheidung nach Mehrheit, und bei Hälfte-Hälfte zur Erschwerung › Anteil der jüdischen Bevölkerung › Verbote und Vermögensrecht",
+     "desc_en": "Decision by majority, and in the case of half-and-half to be stringent › Proportion of the Jewish population › Prohibitions and monetary law"
+    },
+    {
+     "ref": "2:8",
+     "text": "הכרזת אבידה \\ איכות פת שנמצאה",
+     "text_de": "Ausrufen eines Fundes / Beschaffenheit gefundenen Brotes",
+     "text_en": "Announcing a lost item / quality of found bread",
+     "desc": "הכרעה אחר רוב ומחצה על מחצה להחמיר › אחוז אוכלוסיה היהודי › איסורים וממונות \\ כשרות לאכילה",
+     "desc_de": "Entscheidung nach Mehrheit, und bei Hälfte-Hälfte zur Erschwerung › Anteil der jüdischen Bevölkerung › Verbote und Vermögensrecht / Eignung zum Verzehr",
+     "desc_en": "Decision by majority, and in the case of half-and-half to be stringent › Proportion of the Jewish population › Prohibitions and monetary law / fitness for eating"
+    },
+    {
+     "ref": "2:9",
+     "text": "בשר הנמצא",
+     "text_de": "Gefundenes Fleisch",
+     "text_en": "Found meat",
+     "desc": "הכרעה אחר רוב ומחצה על מחצה להחמיר › אחוז אוכלוסיה היהודי › כשרות לאכילה",
+     "desc_de": "Entscheidung nach Mehrheit, und bei Hälfte-Hälfte zur Erschwerung › Anteil der jüdischen Bevölkerung › Eignung zum Verzehr",
+     "desc_en": "Decision by majority, and in the case of half-and-half to be stringent › Proportion of the Jewish population › Fitness for eating"
+    },
+    {
+     "ref": "2:10",
+     "text": "הנמצא בדרך, אוצר עם פירות נכרי",
+     "text_de": "Auf dem Weg Gefundenes, Lager mit Früchten eines Nichtjuden",
+     "text_en": "Things found on the road, storehouse with a gentile's produce",
+     "desc": "הכרעה אחר רוב ומחצה על מחצה להחמיר › אחוזי נפח › חיוב במעשרות",
+     "desc_de": "Entscheidung nach Mehrheit, und bei Hälfte-Hälfte zur Erschwerung › Volumenanteile › Pflicht zur Verzehntung",
+     "desc_en": "Decision by majority, and in the case of half-and-half to be stringent › Volume proportions › Obligation to tithe"
+    },
+    {
+     "ref": "2:11",
+     "text": "תערובת של יבול שנות השמיטה",
+     "text_de": "Gemisch aus Erträgen der Sabbatjahre",
+     "text_en": "Mixture of produce of the Sabbatical years",
+     "desc": "הכרעה אחר רוב ומחצה על מחצה להחמיר › אחוזי נפח › חיוב במעשרות",
+     "desc_de": "Entscheidung nach Mehrheit, und bei Hälfte-Hälfte zur Erschwerung › Volumenanteile › Pflicht zur Verzehntung",
+     "desc_en": "Decision by majority, and in the case of half-and-half to be stringent › Volume proportions › Obligation to tithe"
+    }
+   ]
+  },
+  {
+   "head": "פרק ג",
+   "head_de": "Kapitel 3",
+   "head_en": "Chapter 3",
+   "items": [
+    {
+     "ref": "3:1",
+     "text": "שנתנן קרוב למים",
+     "text_de": "Nahe am Wasser Hingelegtes",
+     "text_en": "Items placed near water",
+     "desc": "הרטבת אכלים › ממילא › שאיבת לחות ע\"י אכלים › בירור אם שאבו",
+     "desc_de": "Befeuchtung von Esswaren › Von selbst › Aufnahme von Feuchtigkeit durch Esswaren › Klärung, ob sie geschöpft haben",
+     "desc_en": "Wetting of foodstuffs › Of itself › Absorption of moisture by foodstuffs › Determining whether they drew water"
+    },
+    {
+     "ref": "3:2",
+     "text": "מעבר משקים בדפני חבית ובקטניות",
+     "text_de": "Durchdringen von Flüssigkeiten durch Fasswände und Hülsenfrüchte",
+     "text_en": "Passage of liquids through barrel walls and legumes",
+     "desc": "הרטבת אכלים › ממילא › שאיבת לחות ע\"י אכלים › בירור אם שאבו",
+     "desc_de": "Befeuchtung von Esswaren › Von selbst › Aufnahme von Feuchtigkeit durch Esswaren › Klärung, ob sie geschöpft haben",
+     "desc_en": "Wetting of foodstuffs › Of itself › Absorption of moisture by foodstuffs › Determining whether they drew water"
+    },
+    {
+     "ref": "3:3",
+     "text": "פת חמה על חבית יין",
+     "text_de": "Warmes Brot auf einem Weinfass",
+     "text_en": "Hot bread on a wine barrel",
+     "desc": "הרטבת אכלים › ממילא › שאיבת לחות ע\"י אכלים › בירור אם שאבו",
+     "desc_de": "Befeuchtung von Esswaren › Von selbst › Aufnahme von Feuchtigkeit durch Esswaren › Klärung, ob sie geschöpft haben",
+     "desc_en": "Wetting of foodstuffs › Of itself › Absorption of moisture by foodstuffs › Determining whether they drew water"
+    },
+    {
+     "ref": "3:4",
+     "text": "הרבצת בית, עריבה לחה, טינון בחול",
+     "text_de": "Besprengen des Hauses, feuchter Backtrog, Abreiben mit Sand",
+     "text_en": "Sprinkling the house, damp kneading trough, rubbing with sand",
+     "desc": "הרטבת אכלים › ממילא › שאיבת לחות ע\"י אכלים › ממה נתרטבו",
+     "desc_de": "Befeuchtung von Esswaren › Von selbst › Aufnahme von Feuchtigkeit durch Esswaren › Wodurch sie nass wurden",
+     "desc_en": "Wetting of foodstuffs › Of itself › Absorption of moisture by foodstuffs › What made them wet"
+    },
+    {
+     "ref": "3:5",
+     "text": "טינון בטיט,עשבים,ריבוץ בגורן \\ חטים",
+     "text_de": "Abreiben mit Lehm, Kräutern, Besprengen auf der Tenne / Weizen",
+     "text_en": "Rubbing with clay, herbs, sprinkling on the threshing floor / wheat",
+     "desc": "הרטבת אכלים › ממילא \\ ע\"י מעשה › שאיבת לחות ע\"י אכלים \\ כוונת המעשה › ממה נתרטבו \\ צורך ושמחה במעשה",
+     "desc_de": "Befeuchtung von Esswaren › Von selbst / durch eine Handlung › Aufnahme von Feuchtigkeit durch Esswaren / Absicht der Handlung › Wodurch sie nass wurden / Nutzen und Freude bei der Handlung",
+     "desc_en": "Wetting of foodstuffs › Of itself / through an act › Absorption of moisture by foodstuffs / intent of the act › What made them wet / benefit and joy in the act"
+    },
+    {
+     "ref": "3:6",
+     "text": "זיתים שהועלו לגג",
+     "text_de": "Auf das Dach gebrachte Oliven",
+     "text_en": "Olives brought up to the roof",
+     "desc": "הרטבת אכלים › ע\"י מעשה › כוונת המעשה › צורך ושמחה במעשה",
+     "desc_de": "Befeuchtung von Esswaren › Durch eine Handlung › Absicht der Handlung › Nutzen und Freude bei der Handlung",
+     "desc_en": "Wetting of foodstuffs › Through an act › Intent of the act › Benefit and joy in the act"
+    },
+    {
+     "ref": "3:7",
+     "text": "תבואה ונקיון בנהר",
+     "text_de": "Getreide und Reinigung im Fluss",
+     "text_en": "Grain and cleaning in a river",
+     "desc": "הרטבת אכלים › ע\"י מעשה › כוונת המעשה › צורך ושמחה במעשה",
+     "desc_de": "Befeuchtung von Esswaren › Durch eine Handlung › Absicht der Handlung › Nutzen und Freude bei der Handlung",
+     "desc_en": "Wetting of foodstuffs › Through an act › Intent of the act › Benefit and joy in the act"
+    },
+    {
+     "ref": "3:8",
+     "text": "הורדת דברים שונים למים,ע\"י חש\"ו",
+     "text_de": "Hinablassen verschiedener Dinge ins Wasser, durch Taube, Schwachsinnige und Minderjährige",
+     "text_en": "Lowering various things into water, by deaf-mutes, the mentally incompetent and minors",
+     "desc": "משקים המכשירים › עקירת משקים ממקומם › כוונת המעשה › צורך במעשה",
+     "desc_de": "Flüssigkeiten, die tauglich machen › Entfernen von Flüssigkeiten von ihrem Ort › Absicht der Handlung › Nutzen bei der Handlung",
+     "desc_en": "Liquids that render susceptible › Removal of liquids from their place › Intent of the act › Benefit in the act"
+    }
+   ]
+  },
+  {
+   "head": "פרק ד",
+   "head_de": "Kapitel 4",
+   "head_en": "Chapter 4",
+   "items": [
+    {
+     "ref": "4:1",
+     "text": "חלקי גוף בשתיה,חלקי חבית בשאיבה",
+     "text_de": "Körperteile beim Trinken, Fassteile beim Schöpfen",
+     "text_en": "Body parts when drinking, barrel parts when drawing water",
+     "desc": "משקים המכשירים › עקירת משקים ממקומם › כוונת המעשה › א\"א שלא ירטב",
+     "desc_de": "Flüssigkeiten, die tauglich machen › Entfernen von Flüssigkeiten von ihrem Ort › Absicht der Handlung › Unmöglich, nicht nass zu werden",
+     "desc_en": "Liquids that render susceptible › Removal of liquids from their place › Intent of the act › Impossible not to become wet"
+    },
+    {
+     "ref": "4:2",
+     "text": "כוונת וטומאת המתרטב",
+     "text_de": "Absicht und Unreinheit des Benetzten",
+     "text_en": "Intent and impurity of what becomes wet",
+     "desc": "משקים המכשירים › עקירת משקים ממקומם › כוונת המעשה › מי גשמים",
+     "desc_de": "Flüssigkeiten, die tauglich machen › Entfernen von Flüssigkeiten von ihrem Ort › Absicht der Handlung › Regenwasser",
+     "desc_en": "Liquids that render susceptible › Removal of liquids from their place › Intent of the act › Rainwater"
+    },
+    {
+     "ref": "4:3",
+     "text": "כוונה להדיח ולהגן",
+     "text_de": "Absicht zu spülen und zu schützen",
+     "text_en": "Intent to rinse and to protect",
+     "desc": "משקים המכשירים › עקירת משקים ממקומם › כוונת המעשה › מי גשמים",
+     "desc_de": "Flüssigkeiten, die tauglich machen › Entfernen von Flüssigkeiten von ihrem Ort › Absicht der Handlung › Regenwasser",
+     "desc_en": "Liquids that render susceptible › Removal of liquids from their place › Intent of the act › Rainwater"
+    },
+    {
+     "ref": "4:4",
+     "text": "הוצאת תכולת חבית",
+     "text_de": "Ausleeren des Fassinhalts",
+     "text_en": "Emptying the contents of a barrel",
+     "desc": "משקים המכשירים › עקירת משקים ממקומם › כוונת המעשה › מי גשמים",
+     "desc_de": "Flüssigkeiten, die tauglich machen › Entfernen von Flüssigkeiten von ihrem Ort › Absicht der Handlung › Regenwasser",
+     "desc_en": "Liquids that render susceptible › Removal of liquids from their place › Intent of the act › Rainwater"
+    },
+    {
+     "ref": "4:5",
+     "text": "הנחת עריבה, היוצאין \\ וודאות ההרטבה",
+     "text_de": "Hinstellen eines Troges, des Herausfließenden / Gewissheit der Benetzung",
+     "text_en": "Placing a trough, what flows out / certainty of wetting",
+     "desc": "משקים המכשירים › עקירת משקים ממקומם › כוונת המעשה › מי גשמים \\ מים המחוברים",
+     "desc_de": "Flüssigkeiten, die tauglich machen › Entfernen von Flüssigkeiten von ihrem Ort › Absicht der Handlung › Regenwasser / angeschlossenes Wasser",
+     "desc_en": "Liquids that render susceptible › Removal of liquids from their place › Intent of the act › Rainwater / attached water"
+    },
+    {
+     "ref": "4:6",
+     "text": "העלאת פירות וקופתן",
+     "text_de": "Hinaufbringen von Früchten und ihres Korbes",
+     "text_en": "Bringing up fruit and its basket",
+     "desc": "משקים המכשירים › עקירת משקים ממקומם › כוונת המעשה › מים המחוברים",
+     "desc_de": "Flüssigkeiten, die tauglich machen › Entfernen von Flüssigkeiten von ihrem Ort › Absicht der Handlung › Angeschlossenes Wasser",
+     "desc_en": "Liquids that render susceptible › Removal of liquids from their place › Intent of the act › Attached water"
+    },
+    {
+     "ref": "4:7",
+     "text": "מטרת הכנסת ידים ליטול פירות",
+     "text_de": "Zweck des Hineinsteckens der Hände, um Früchte zu nehmen",
+     "text_en": "Purpose of putting hands in to take fruit",
+     "desc": "משקים המכשירים › עקירת משקים ממקומם › כוונת המעשה › מים המחוברים",
+     "desc_de": "Flüssigkeiten, die tauglich machen › Entfernen von Flüssigkeiten von ihrem Ort › Absicht der Handlung › Angeschlossenes Wasser",
+     "desc_en": "Liquids that render susceptible › Removal of liquids from their place › Intent of the act › Attached water"
+    },
+    {
+     "ref": "4:8",
+     "text": "טומאת משקים תוך כלי במקוה",
+     "text_de": "Unreinheit von Flüssigkeiten in einem Gefäß im Tauchbad",
+     "text_en": "Impurity of liquids in a vessel in a ritual bath",
+     "desc": "משקים המכשירים › עקירת משקים ממקומם › כוונת המעשה › ביטול טומאת משקין",
+     "desc_de": "Flüssigkeiten, die tauglich machen › Entfernen von Flüssigkeiten von ihrem Ort › Absicht der Handlung › Aufhebung der Unreinheit von Flüssigkeiten",
+     "desc_en": "Liquids that render susceptible › Removal of liquids from their place › Intent of the act › Nullification of the impurity of liquids"
+    },
+    {
+     "ref": "4:9",
+     "text": "על ידי ניגובן",
+     "text_de": "Durch Abwischen",
+     "text_en": "By wiping them off",
+     "desc": "משקים המכשירים › עקירת משקים ממקומם › כוונת המעשה › ביטול טומאת משקין",
+     "desc_de": "Flüssigkeiten, die tauglich machen › Entfernen von Flüssigkeiten von ihrem Ort › Absicht der Handlung › Aufhebung der Unreinheit von Flüssigkeiten",
+     "desc_en": "Liquids that render susceptible › Removal of liquids from their place › Intent of the act › Nullification of the impurity of liquids"
+    },
+    {
+     "ref": "4:10",
+     "text": "ברוב משקים הטהורים",
+     "text_de": "Durch Mehrheit reiner Flüssigkeiten",
+     "text_en": "By a majority of pure liquids",
+     "desc": "משקים המכשירים › עקירת משקים ממקומם › כוונת המעשה › ביטול טומאת משקין",
+     "desc_de": "Flüssigkeiten, die tauglich machen › Entfernen von Flüssigkeiten von ihrem Ort › Absicht der Handlung › Aufhebung der Unreinheit von Flüssigkeiten",
+     "desc_en": "Liquids that render susceptible › Removal of liquids from their place › Intent of the act › Nullification of the impurity of liquids"
+    }
+   ]
+  },
+  {
+   "head": "פרק ה",
+   "head_de": "Kapitel 5",
+   "head_en": "Chapter 5",
+   "items": [
+    {
+     "ref": "5:1",
+     "text": "על ידי טבילה \\ בשכרות, בשחוק",
+     "text_de": "Durch Untertauchen / in Trunkenheit, im Scherz",
+     "text_en": "By immersion / in drunkenness, in jest",
+     "desc": "משקים המכשירים › עקירת משקים ממקומם › כוונת המעשה › ביטול טומאת משקין \\ שלא לצורך",
+     "desc_de": "Flüssigkeiten, die tauglich machen › Entfernen von Flüssigkeiten von ihrem Ort › Absicht der Handlung › Aufhebung der Unreinheit von Flüssigkeiten / ohne Bedarf",
+     "desc_en": "Liquids that render susceptible › Removal of liquids from their place › Intent of the act › Nullification of the impurity of liquids / without need"
+    },
+    {
+     "ref": "5:2",
+     "text": "נתיזה",
+     "text_de": "Wegspritzen",
+     "text_en": "Splashing off",
+     "desc": "משקים המכשירים › עקירת משקים ממקומם › כוונת המעשה › שלא לצורך",
+     "desc_de": "Flüssigkeiten, die tauglich machen › Entfernen von Flüssigkeiten von ihrem Ort › Absicht der Handlung › Ohne Bedarf",
+     "desc_en": "Liquids that render susceptible › Removal of liquids from their place › Intent of the act › Without need"
+    },
+    {
+     "ref": "5:3",
+     "text": "הרטבה לצורך ניגוב",
+     "text_de": "Befeuchtung zum Abtrocknen",
+     "text_en": "Wetting for the sake of drying",
+     "desc": "משקים המכשירים › עקירת משקים ממקומם › כוונת המעשה › שלא לצורך",
+     "desc_de": "Flüssigkeiten, die tauglich machen › Entfernen von Flüssigkeiten von ihrem Ort › Absicht der Handlung › Ohne Bedarf",
+     "desc_en": "Liquids that render susceptible › Removal of liquids from their place › Intent of the act › Without need"
+    },
+    {
+     "ref": "5:4",
+     "text": "כיוון המדידה",
+     "text_de": "Richtung der Messung",
+     "text_en": "Direction of measuring",
+     "desc": "משקים המכשירים › עקירת משקים ממקומם › כוונת המעשה › שלא לצורך › מדידת בור",
+     "desc_de": "Flüssigkeiten, die tauglich machen › Entfernen von Flüssigkeiten von ihrem Ort › Absicht der Handlung › Ohne Bedarf › Messung einer Zisterne",
+     "desc_en": "Liquids that render susceptible › Removal of liquids from their place › Intent of the act › Without need › Measuring a cistern"
+    },
+    {
+     "ref": "5:5",
+     "text": "לבדוק כמות המים",
+     "text_de": "Prüfung der Wassermenge",
+     "text_en": "Checking the quantity of water",
+     "desc": "משקים המכשירים › עקירת משקים ממקומם › כוונת המעשה › שלא לצורך › מדידת בור",
+     "desc_de": "Flüssigkeiten, die tauglich machen › Entfernen von Flüssigkeiten von ihrem Ort › Absicht der Handlung › Ohne Bedarf › Messung einer Zisterne",
+     "desc_en": "Liquids that render susceptible › Removal of liquids from their place › Intent of the act › Without need › Measuring a cistern"
+    },
+    {
+     "ref": "5:6",
+     "text": "כיבוס שלחין",
+     "text_de": "Waschen im Bewässerungskanal",
+     "text_en": "Washing in an irrigation channel",
+     "desc": "משקים המכשירים › עקירת משקים ממקומם › כוונת המעשה › לצורך נקיון ותיקון",
+     "desc_de": "Flüssigkeiten, die tauglich machen › Entfernen von Flüssigkeiten von ihrem Ort › Absicht der Handlung › Zur Reinigung und Reparatur",
+     "desc_en": "Liquids that render susceptible › Removal of liquids from their place › Intent of the act › For cleaning and repair"
+    },
+    {
+     "ref": "5:7",
+     "text": "חלקי ספינה,מכשירי צידה,בכוונת קירור",
+     "text_de": "Schiffsteile, Reisegeräte, in kühlender Absicht",
+     "text_en": "Ship parts, travel equipment, with intent to cool",
+     "desc": "משקים המכשירים › עקירת משקים ממקומם › כוונת המעשה › לצורך נקיון ותיקון",
+     "desc_de": "Flüssigkeiten, die tauglich machen › Entfernen von Flüssigkeiten von ihrem Ort › Absicht der Handlung › Zur Reinigung und Reparatur",
+     "desc_en": "Liquids that render susceptible › Removal of liquids from their place › Intent of the act › For cleaning and repair"
+    },
+    {
+     "ref": "5:8",
+     "text": "מים על כיסויים וניעורן",
+     "text_de": "Wasser auf Abdeckungen und ihr Abschütteln",
+     "text_en": "Water on coverings and shaking it off",
+     "desc": "משקים המכשירים › עקירת משקים ממקומם › כוונת המעשה › לצורך נקיון ותיקון",
+     "desc_de": "Flüssigkeiten, die tauglich machen › Entfernen von Flüssigkeiten von ihrem Ort › Absicht der Handlung › Zur Reinigung und Reparatur",
+     "desc_en": "Liquids that render susceptible › Removal of liquids from their place › Intent of the act › For cleaning and repair"
+    },
+    {
+     "ref": "5:9",
+     "text": "הסולד",
+     "text_de": "Das Abbrühen",
+     "text_en": "Scalding",
+     "desc": "משקים המכשירים › עקירת משקים ממקומם › הכשר והעברת טומאה › חיבורי משקה",
+     "desc_de": "Flüssigkeiten, die tauglich machen › Entfernen von Flüssigkeiten von ihrem Ort › Empfänglichmachen und Weitergabe von Unreinheit › Verbindungen von Flüssigkeit",
+     "desc_en": "Liquids that render susceptible › Removal of liquids from their place › Rendering susceptible and transmitting impurity › Connections of liquid"
+    },
+    {
+     "ref": "5:10",
+     "text": "המעלה הבל",
+     "text_de": "Wer Dampf aufsteigen lässt",
+     "text_en": "One who causes steam to rise",
+     "desc": "משקים המכשירים › עקירת משקים ממקומם › הכשר והעברת טומאה › חיבורי משקה",
+     "desc_de": "Flüssigkeiten, die tauglich machen › Entfernen von Flüssigkeiten von ihrem Ort › Empfänglichmachen und Weitergabe von Unreinheit › Verbindungen von Flüssigkeit",
+     "desc_en": "Liquids that render susceptible › Removal of liquids from their place › Rendering susceptible and transmitting impurity › Connections of liquid"
+    },
+    {
+     "ref": "5:11",
+     "text": "זיעה, עירוי המחשיב את המשקה",
+     "text_de": "Schweiß, Aufgießen, das die Flüssigkeit bedeutsam macht",
+     "text_en": "Sweat, pouring that makes the liquid significant",
+     "desc": "משקים המכשירים › עקירת משקים ממקומם › הכשר והעברת טומאה › חיבורי משקה",
+     "desc_de": "Flüssigkeiten, die tauglich machen › Entfernen von Flüssigkeiten von ihrem Ort › Empfänglichmachen und Weitergabe von Unreinheit › Verbindungen von Flüssigkeit",
+     "desc_en": "Liquids that render susceptible › Removal of liquids from their place › Rendering susceptible and transmitting impurity › Connections of liquid"
+    }
+   ]
+  },
+  {
+   "head": "פרק ו",
+   "head_de": "Kapitel 6",
+   "head_en": "Chapter 6",
+   "items": [
+    {
+     "ref": "6:1",
+     "text": "ירידת טל, ע\"י חרש שוטה וקטן",
+     "text_de": "Tauniederschlag, durch Taube, Schwachsinnige und Minderjährige",
+     "text_en": "Falling dew, by deaf-mutes, the mentally incompetent and minors",
+     "desc": "הרטבת אכלים › ע\"י מעשה › כוונת המעשה › העלאה לגג",
+     "desc_de": "Befeuchtung von Esswaren › Durch eine Handlung › Absicht der Handlung › Hinaufbringen aufs Dach",
+     "desc_en": "Wetting of foodstuffs › Through an act › Intent of the act › Bringing up to the roof"
+    },
+    {
+     "ref": "6:2",
+     "text": "שימתינו \\ מוצא המצרכים",
+     "text_de": "Sie sollen warten / Fundort der Waren",
+     "text_en": "Let them wait / where the goods are found",
+     "desc": "הרטבת אכלים › ע\"י מעשה › כוונת המעשה \\ הכשר והעברת טומאה › העלאה לגג \\ שהוכשרו ונטמאו",
+     "desc_de": "Befeuchtung von Esswaren › Durch eine Handlung › Absicht der Handlung / Empfänglichmachen und Weitergabe von Unreinheit › Hinaufbringen aufs Dach / die empfänglich gemacht wurden und unrein wurden",
+     "desc_en": "Wetting of foodstuffs › Through an act › Intent of the act / rendering susceptible and transmitting impurity › Bringing up to the roof / that were made susceptible and became impure"
+    },
+    {
+     "ref": "6:3",
+     "text": "ביצים והנמכר אתם, דגים, ציר",
+     "text_de": "Eier und mit ihnen Verkauftes, Fische, Fischlake",
+     "text_en": "Eggs and what is sold with them, fish, fish brine",
+     "desc": "הרטבת אכלים › ע\"י מעשה › הכשר והעברת טומאה › שהוכשרו ונטמאו",
+     "desc_de": "Befeuchtung von Esswaren › Durch eine Handlung › Empfänglichmachen und Weitergabe von Unreinheit › Die empfänglich gemacht wurden und unrein wurden",
+     "desc_en": "Wetting of foodstuffs › Through an act › Rendering susceptible and transmitting impurity › Those that were made susceptible and became impure"
+    },
+    {
+     "ref": "6:4",
+     "text": "פירותן, דבש צרעין",
+     "text_de": "Ihre Früchte, Hornissenhonig",
+     "text_en": "Their fruits, hornet honey",
+     "desc": "משקים המכשירים › שבעת המשקים › הגדרות › אבות",
+     "desc_de": "Flüssigkeiten, die tauglich machen › Die sieben Flüssigkeiten › Definitionen › Hauptkategorien der Unreinheit",
+     "desc_en": "Liquids that render susceptible › The seven liquids › Definitions › Primary sources of impurity"
+    },
+    {
+     "ref": "6:5",
+     "text": "למים, לדם, חלב, שמן \\ דם השרץ",
+     "text_de": "Wasser, Blut, Milch, Öl / Blut des Kriechtiers",
+     "text_en": "Water, blood, milk, oil / blood of a creeping creature",
+     "desc": "משקים המכשירים › שבעת המשקים › הגדרות › תולדות \\ מטמא ולא מכשיר",
+     "desc_de": "Flüssigkeiten, die tauglich machen › Die sieben Flüssigkeiten › Definitionen › Abgeleitete Unreinheiten / verunreinigt, macht aber nicht empfänglich",
+     "desc_en": "Liquids that render susceptible › The seven liquids › Definitions › Derivative impurities / defiles but does not render susceptible"
+    },
+    {
+     "ref": "6:6",
+     "text": "מעיינות של טמא",
+     "text_de": "Quellen eines Unreinen",
+     "text_en": "Springs of an impure person",
+     "desc": "משקים המכשירים › שבעת המשקים › הגדרות › מטמא ומכשיר",
+     "desc_de": "Flüssigkeiten, die tauglich machen › Die sieben Flüssigkeiten › Definitionen › Verunreinigt und macht empfänglich",
+     "desc_en": "Liquids that render susceptible › The seven liquids › Definitions › Defiles and renders susceptible"
+    },
+    {
+     "ref": "6:7",
+     "text": "הסרוחים, לא חשובים",
+     "text_de": "Verdorbene, nicht bedeutsame",
+     "text_en": "Spoiled, insignificant ones",
+     "desc": "משקים המכשירים › שבעת המשקים › הגדרות › טהורים",
+     "desc_de": "Flüssigkeiten, die tauglich machen › Die sieben Flüssigkeiten › Definitionen › Reine",
+     "desc_en": "Liquids that render susceptible › The seven liquids › Definitions › Pure ones"
+    },
+    {
+     "ref": "6:8",
+     "text": "חלב האשה",
+     "text_de": "Frauenmilch",
+     "text_en": "Human milk",
+     "desc": "משקים המכשירים › עקירת משקים › צורך ברצון",
+     "desc_de": "Flüssigkeiten, die tauglich machen › Entfernen von Flüssigkeiten › Notwendigkeit des Willens",
+     "desc_en": "Liquids that render susceptible › Removal of liquids › Need for intent"
+    }
+   ]
+  }
+ ]
+}

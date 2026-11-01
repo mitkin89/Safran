@@ -1,0 +1,898 @@
+{
+ "book": "Mishnah Nedarim",
+ "title": "משנה נדרים",
+ "title_de": "Mischna Nedarim – Gliederung",
+ "title_en": "Nedarim – outline",
+ "note": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema).",
+ "note_de": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema); ins Deutsche und Englische übersetzt.",
+ "note_en": "Outline after the table “Mishna Sedura”: the central content of each mishnah, with the topic path (main topic to sub-topic); translated into German and English.",
+ "sections": [
+  {
+   "head": "פרק א",
+   "head_de": "Kapitel 1",
+   "head_en": "Chapter 1",
+   "items": [
+    {
+     "ref": "1:1",
+     "text": "כלל, לשונות שונים",
+     "text_de": "Grundsatz, verschiedene Ausdrucksweisen",
+     "text_en": "general rule, various wordings",
+     "desc": "הגדרת נדר › שאינם עיקר נדר › ידות",
+     "desc_de": "Definition des Gelübdes › die nicht den Kern des Gelübdes bilden › Griffe (Umschreibungen)",
+     "desc_en": "definition of a vow › those that are not the essence of a vow › handles (substitute terms)"
+    },
+    {
+     "ref": "1:2",
+     "text": "לקרבן, לחרם, לנזירות, לשבועה",
+     "text_de": "für ein Opfer, für den Bann, für das Nasiräat, für einen Eid",
+     "text_en": "by a sacrifice, by herem, by the Nazirite vow, by an oath",
+     "desc": "הגדרת נדר › שאינם עיקר נדר › כינויים",
+     "desc_de": "Definition des Gelübdes › die nicht den Kern des Gelübdes bilden › Ersatzbezeichnungen",
+     "desc_en": "definition of a vow › those that are not the essence of a vow › substitute terms"
+    },
+    {
+     "ref": "1:3",
+     "text": "דברים המשתייכים להקדש",
+     "text_de": "Dinge, die zum Geweihten gehören",
+     "text_en": "things pertaining to consecrated property",
+     "desc": "הגדרת נדר › שאינם עיקר נדר › ידות",
+     "desc_de": "Definition des Gelübdes › die nicht den Kern des Gelübdes bilden › Griffe (Umschreibungen)",
+     "desc_en": "definition of a vow › those that are not the essence of a vow › handles (substitute terms)"
+    },
+    {
+     "ref": "1:4",
+     "text": "קדשים, דבר שיש בו ממש",
+     "text_de": "Geweihtes, etwas Substanzielles",
+     "text_en": "consecrated things, something with substance",
+     "desc": "הגדרת נדר › שאינם עיקר נדר › ידות",
+     "desc_de": "Definition des Gelübdes › die nicht den Kern des Gelübdes bilden › Griffe (Umschreibungen)",
+     "desc_en": "definition of a vow › those that are not the essence of a vow › handles (substitute terms)"
+    }
+   ]
+  },
+  {
+   "head": "פרק ב",
+   "head_de": "Kapitel 2",
+   "head_en": "Chapter 2",
+   "items": [
+    {
+     "ref": "2:1",
+     "text": "הנודר באיסור \\ שינה, הליכה, תשמיש",
+     "text_de": "wer sich etwas verbietet / Schlaf, Gehen, Beischlaf",
+     "text_en": "one who forbids himself something / sleep, walking, marital relations",
+     "desc": "הגדרת נדר › נדרים המותרים › שאינם נדרים",
+     "desc_de": "Definition des Gelübdes › erlaubte Gelübde › die keine Gelübde sind",
+     "desc_en": "definition of a vow › permitted vows › those that are not vows"
+    },
+    {
+     "ref": "2:2",
+     "text": "אכילה, על המצוות",
+     "text_de": "Essen, im Hinblick auf Gebote",
+     "text_en": "eating, with respect to commandments",
+     "desc": "הגדרת נדר › נדרים המותרים › שאינם נדרים › השוואת נדר ושבועה › שאין בו ממש",
+     "desc_de": "Definition des Gelübdes › erlaubte Gelübde › die keine Gelübde sind › Vergleich von Gelübde und Eid › ohne Substanz",
+     "desc_en": "definition of a vow › permitted vows › those that are not vows › comparison of vow and oath › without substance"
+    },
+    {
+     "ref": "2:3",
+     "text": "חל על עצמו",
+     "text_de": "bindet ihn selbst",
+     "text_en": "takes effect on himself",
+     "desc": "הגדרת נדר › נדרים המותרים › שאינם נדרים › השוואת נדר ושבועה",
+     "desc_de": "Definition des Gelübdes › erlaubte Gelübde › die keine Gelübde sind › Vergleich von Gelübde und Eid",
+     "desc_en": "definition of a vow › permitted vows › those that are not vows › comparison of vow and oath"
+    },
+    {
+     "ref": "2:4",
+     "text": "סתם או מפורש",
+     "text_de": "unbestimmt oder ausdrücklich",
+     "text_en": "unspecified or explicit",
+     "desc": "הגדרת נדר › נדרים המותרים › שאינם נדרים › באסור או בנדור",
+     "desc_de": "Definition des Gelübdes › erlaubte Gelübde › die keine Gelübde sind › über ein Verbot oder ein Gelobtes",
+     "desc_en": "definition of a vow › permitted vows › those that are not vows › concerning a prohibition or a vowed item"
+    },
+    {
+     "ref": "2:5",
+     "text": "שפירש אח\"כ \\ פתחו, עונשו, תוכחתו",
+     "text_de": "wenn er es nachher erklärt / Öffnung, Strafe, Zurechtweisung",
+     "text_en": "if he explained it afterwards / opening, punishment, rebuke",
+     "desc": "הגדרת נדר › נדרים המותרים › שאינם נדרים › אם נשאל",
+     "desc_de": "Definition des Gelübdes › erlaubte Gelübde › die keine Gelübde sind › wenn er befragt wurde",
+     "desc_en": "definition of a vow › permitted vows › those that are not vows › if he was asked"
+    }
+   ]
+  },
+  {
+   "head": "פרק ג",
+   "head_de": "Kapitel 3",
+   "head_en": "Chapter 3",
+   "items": [
+    {
+     "ref": "3:1",
+     "text": "זירוזים, תנאי מראש",
+     "text_de": "Anspornungen, vorherige Bedingung",
+     "text_en": "exhortations, prior condition",
+     "desc": "הגדרת נדר › נדרים המותרים › שהקילו בהם › ארבעה נדרים",
+     "desc_de": "Definition des Gelübdes › erlaubte Gelübde › die man erleichtert hat › vier Gelübde",
+     "desc_en": "definition of a vow › permitted vows › those for which leniency was granted › four vows"
+    },
+    {
+     "ref": "3:2",
+     "text": "הבאי, שגגות",
+     "text_de": "Übertreibung, Versehen",
+     "text_en": "exaggeration, unintentional errors",
+     "desc": "הגדרת נדר › נדרים המותרים › שהקילו בהם › ארבעה נדרים",
+     "desc_de": "Definition des Gelübdes › erlaubte Gelübde › die man erleichtert hat › vier Gelübde",
+     "desc_en": "definition of a vow › permitted vows › those for which leniency was granted › four vows"
+    },
+    {
+     "ref": "3:3",
+     "text": "אונסים",
+     "text_de": "unter Zwang",
+     "text_en": "under duress",
+     "desc": "הגדרת נדר › נדרים המותרים › שהקילו בהם › ארבעה נדרים",
+     "desc_de": "Definition des Gelübdes › erlaubte Gelübde › die man erleichtert hat › vier Gelübde",
+     "desc_en": "definition of a vow › permitted vows › those for which leniency was granted › four vows"
+    },
+    {
+     "ref": "3:4",
+     "text": "להבריח מגנבים",
+     "text_de": "um vor Dieben zu schützen",
+     "text_en": "to deflect thieves",
+     "desc": "הגדרת נדר › נדרים המותרים › שהקילו בהם › דברים שבלב",
+     "desc_de": "Definition des Gelübdes › erlaubte Gelübde › die man erleichtert hat › Gedanken im Herzen",
+     "desc_en": "definition of a vow › permitted vows › those for which leniency was granted › thoughts in the heart"
+    },
+    {
+     "ref": "3:5",
+     "text": "נדר להקדיש דבר הנאבד",
+     "text_de": "Gelübde, etwas Verderbliches zu weihen",
+     "text_en": "a vow to consecrate something perishable",
+     "desc": "פירושי נדרים › הגדרת הנאסר › שהחמירו › דברים שבלב",
+     "desc_de": "Auslegungen von Gelübden › Definition des Verbotenen › die man erschwert hat › Gedanken im Herzen",
+     "desc_en": "interpretations of vows › definition of the prohibited item › those for which stringency was imposed › thoughts in the heart"
+    },
+    {
+     "ref": "3:6",
+     "text": "יורדי הים ויושבי היבשה",
+     "text_de": "Seefahrer und Landbewohner",
+     "text_en": "seafarers and landdwellers",
+     "desc": "פירושי נדרים › הגדרת הנאסר › הגדרות לקבוצות בני אדם",
+     "desc_de": "Auslegungen von Gelübden › Definition des Verbotenen › Definitionen von Personengruppen",
+     "desc_en": "interpretations of vows › definition of the prohibited item › definitions of groups of people"
+    },
+    {
+     "ref": "3:7",
+     "text": "רואי חמה",
+     "text_de": "die die Sonne sehen",
+     "text_en": "those who see the sun",
+     "desc": "פירושי נדרים › הגדרת הנאסר › הגדרות לקבוצות בני אדם › תכונות גופניות",
+     "desc_de": "Auslegungen von Gelübden › Definition des Verbotenen › Definitionen von Personengruppen › körperliche Merkmale",
+     "desc_en": "interpretations of vows › definition of the prohibited item › definitions of groups of people › physical characteristics"
+    },
+    {
+     "ref": "3:8",
+     "text": "שחורי הראש",
+     "text_de": "die Schwarzköpfigen",
+     "text_en": "the black-headed",
+     "desc": "פירושי נדרים › הגדרת הנאסר › הגדרות לקבוצות בני אדם › תכונות גופניות",
+     "desc_de": "Auslegungen von Gelübden › Definition des Verbotenen › Definitionen von Personengruppen › körperliche Merkmale",
+     "desc_en": "interpretations of vows › definition of the prohibited item › definitions of groups of people › physical characteristics"
+    },
+    {
+     "ref": "3:9",
+     "text": "ילודים ונולדים",
+     "text_de": "Geborene und noch zu Gebärende",
+     "text_en": "those born and those yet to be born",
+     "desc": "פירושי נדרים › הגדרת הנאסר › הגדרות לקבוצות בני אדם",
+     "desc_de": "Auslegungen von Gelübden › Definition des Verbotenen › Definitionen von Personengruppen",
+     "desc_en": "interpretations of vows › definition of the prohibited item › definitions of groups of people"
+    },
+    {
+     "ref": "3:10",
+     "text": "שובתי שבת, אוכלי שום, עולי ירושלים",
+     "text_de": "Sabbatruhende, Knoblauchesser, Jerusalem-Pilger",
+     "text_en": "Sabbath observers, garlic eaters, pilgrims to Jerusalem",
+     "desc": "פירושי נדרים › הגדרת הנאסר › הגדרות לקבוצות בני אדם › יהודים ונכרים",
+     "desc_de": "Auslegungen von Gelübden › Definition des Verbotenen › Definitionen von Personengruppen › Juden und Nichtjuden",
+     "desc_en": "interpretations of vows › definition of the prohibited item › definitions of groups of people › Jews and gentiles"
+    },
+    {
+     "ref": "3:11",
+     "text": "כינויים להם,הנהגת הנודר, ערך המילה",
+     "text_de": "Bezeichnungen für sie, Verhalten des Gelobenden, Bedeutung der Beschneidung",
+     "text_en": "designations for them, conduct of the one who vows, significance of circumcision",
+     "desc": "פירושי נדרים › הגדרת הנאסר › הגדרות לקבוצות בני אדם › יהודים ונכרים",
+     "desc_de": "Auslegungen von Gelübden › Definition des Verbotenen › Definitionen von Personengruppen › Juden und Nichtjuden",
+     "desc_en": "interpretations of vows › definition of the prohibited item › definitions of groups of people › Jews and gentiles"
+    }
+   ]
+  },
+  {
+   "head": "פרק ד",
+   "head_de": "Kapitel 4",
+   "head_en": "Chapter 4",
+   "items": [
+    {
+     "ref": "4:1",
+     "text": "דריסת רגל, כלים, הנאה המביאה למאכל",
+     "text_de": "Betreten, Geräte, Nutzen, der zu Essbarem führt",
+     "text_en": "setting foot, utensils, benefit that leads to food",
+     "desc": "פירושי נדרים › מודר הנאה › המותר לנודר ליהנות לנידר › השוואה למודר אכל",
+     "desc_de": "Auslegungen von Gelübden › Nutzenverbot › was der Gelobende dem Verbotenen gestatten darf › Vergleich mit demjenigen, dem das Essen verboten ist",
+     "desc_en": "interpretations of vows › prohibition of benefit › what the one who vowed may allow the one prohibited › comparison with one forbidden to eat"
+    },
+    {
+     "ref": "4:2",
+     "text": "פריעת חובות, החזרת אבידה",
+     "text_de": "Schuldentilgung, Rückgabe verlorener Sachen",
+     "text_en": "repaying debts, returning lost property",
+     "desc": "פירושי נדרים › מודר הנאה › המותר לנודר ליהנות לנידר › לנכסיו",
+     "desc_de": "Auslegungen von Gelübden › Nutzenverbot › was der Gelobende dem Verbotenen gestatten darf › sein Besitz",
+     "desc_en": "interpretations of vows › prohibition of benefit › what the one who vowed may allow the one prohibited › his property"
+    },
+    {
+     "ref": "4:3",
+     "text": "מעשרות, קדשים, לימוד, האכלת בהמתו",
+     "text_de": "Zehnte, Geweihtes, Unterricht, Füttern seines Viehs",
+     "text_en": "tithes, consecrated things, teaching, feeding his animal",
+     "desc": "פירושי נדרים › מודר הנאה › המותר לנודר ליהנות לנידר › לנכסיו",
+     "desc_de": "Auslegungen von Gelübden › Nutzenverbot › was der Gelobende dem Verbotenen gestatten darf › sein Besitz",
+     "desc_en": "interpretations of vows › prohibition of benefit › what the one who vowed may allow the one prohibited › his property"
+    },
+    {
+     "ref": "4:4",
+     "text": "קיום והנאה לגופו, עבודה ביחד",
+     "text_de": "Erfüllung und Nutzen für ihn persönlich, gemeinsame Arbeit",
+     "text_en": "fulfillment and benefit to him personally, working together",
+     "desc": "פירושי נדרים › מודר הנאה › המותר לנודר ליהנות לנידר › לגופו",
+     "desc_de": "Auslegungen von Gelübden › Nutzenverbot › was der Gelobende dem Verbotenen gestatten darf › ihn persönlich",
+     "desc_en": "interpretations of vows › prohibition of benefit › what the one who vowed may allow the one prohibited › him personally"
+    },
+    {
+     "ref": "4:5",
+     "text": "הנאה משדהו ובשביעית, ובמודר מאכל",
+     "text_de": "Nutzen von seinem Feld, im Brachjahr und bei Essensverbot",
+     "text_en": "benefit from his field, in the Sabbatical year and in the case of a food prohibition",
+     "desc": "פירושי נדרים › מודר הנאה › המותר לנודר ליהנות לנידר › הנאה מנכסיו",
+     "desc_de": "Auslegungen von Gelübden › Nutzenverbot › was der Gelobende dem Verbotenen gestatten darf › Nutzen von seinem Besitz",
+     "desc_en": "interpretations of vows › prohibition of benefit › what the one who vowed may allow the one prohibited › benefit from his property"
+    },
+    {
+     "ref": "4:6",
+     "text": "הלואה והשאלה, מכירה, הדיר מפרתו",
+     "text_de": "Darlehen und Leihe, Verkauf, Verpachtung seiner Kuh",
+     "text_en": "loan and lending, sale, leasing out his cow",
+     "desc": "פירושי נדרים › מודר הנאה › המותר לנודר ליהנות לנידר › הנאה מנכסיו",
+     "desc_de": "Auslegungen von Gelübden › Nutzenverbot › was der Gelobende dem Verbotenen gestatten darf › Nutzen von seinem Besitz",
+     "desc_en": "interpretations of vows › prohibition of benefit › what the one who vowed may allow the one prohibited › benefit from his property"
+    },
+    {
+     "ref": "4:7",
+     "text": "על ידי חנוני או פועלים",
+     "text_de": "durch einen Ladenbesitzer oder Arbeiter",
+     "text_en": "through a shopkeeper or workers",
+     "desc": "פירושי נדרים › מודר הנאה › המותר לנודר ליהנות לנידר › אינו שלו › בעקיפין",
+     "desc_de": "Auslegungen von Gelübden › Nutzenverbot › was der Gelobende dem Verbotenen gestatten darf › gehört ihm nicht › indirekt",
+     "desc_en": "interpretations of vows › prohibition of benefit › what the one who vowed may allow the one prohibited › does not belong to him › indirectly"
+    },
+    {
+     "ref": "4:8",
+     "text": "על ידי מתנה או הפקר",
+     "text_de": "durch Geschenk oder Herrenlosigkeit",
+     "text_en": "by gift or by declaring ownerless",
+     "desc": "פירושי נדרים › מודר הנאה › המותר לנודר ליהנות לנידר › אינו שלו › בעקיפין",
+     "desc_de": "Auslegungen von Gelübden › Nutzenverbot › was der Gelobende dem Verbotenen gestatten darf › gehört ihm nicht › indirekt",
+     "desc_en": "interpretations of vows › prohibition of benefit › what the one who vowed may allow the one prohibited › does not belong to him › indirectly"
+    }
+   ]
+  },
+  {
+   "head": "פרק ה",
+   "head_de": "Kapitel 5",
+   "head_en": "Chapter 5",
+   "items": [
+    {
+     "ref": "5:1",
+     "text": "חלקם זה לזה",
+     "text_de": "ihr Anteil gegenseitig",
+     "text_en": "their shares to one another",
+     "desc": "פירושי נדרים › מודר הנאה › להנות ממנו › אינו שלו › שותפין",
+     "desc_de": "Auslegungen von Gelübden › Nutzenverbot › von ihm Nutzen zu haben › gehört ihm nicht › Teilhaber",
+     "desc_en": "interpretations of vows › prohibition of benefit › to benefit from him › does not belong to him › partners"
+    },
+    {
+     "ref": "5:2",
+     "text": "ביחס לזר",
+     "text_de": "in Bezug auf einen Fremden",
+     "text_en": "with regard to a stranger",
+     "desc": "פירושי נדרים › מודר הנאה › להנות ממנו › אינו שלו › שותפין",
+     "desc_de": "Auslegungen von Gelübden › Nutzenverbot › von ihm Nutzen zu haben › gehört ihm nicht › Teilhaber",
+     "desc_en": "interpretations of vows › prohibition of benefit › to benefit from him › does not belong to him › partners"
+    },
+    {
+     "ref": "5:3",
+     "text": "שכירות, מכר, ירושה",
+     "text_de": "Miete, Verkauf, Erbe",
+     "text_en": "rental, sale, inheritance",
+     "desc": "פירושי נדרים › מודר הנאה › להנות ממנו › אינו שלו › ביד אחר",
+     "desc_de": "Auslegungen von Gelübden › Nutzenverbot › von ihm Nutzen zu haben › gehört ihm nicht › in der Hand eines anderen",
+     "desc_en": "interpretations of vows › prohibition of benefit › to benefit from him › does not belong to him › in another's hand"
+    },
+    {
+     "ref": "5:4",
+     "text": "המודר אסור ליהנות \\ כלל",
+     "text_de": "dem, der das Gelübde getan hat, ist der Nutzen verboten / Grundsatz",
+     "text_en": "one who is bound by the vow is forbidden to benefit / general rule",
+     "desc": "פירושי נדרים › מודר הנאה › להנות ממנו › אינו שלו › רכוש ציבורי",
+     "desc_de": "Auslegungen von Gelübden › Nutzenverbot › von ihm Nutzen zu haben › gehört ihm nicht › öffentliches Eigentum",
+     "desc_en": "interpretations of vows › prohibition of benefit › to benefit from him › does not belong to him › public property"
+    },
+    {
+     "ref": "5:5",
+     "text": "פירוט נכסים שונים \\ כתיבת חלק לאחר",
+     "text_de": "Aufzählung verschiedener Besitztümer / einem anderen einen Anteil schreiben",
+     "text_en": "enumeration of various properties / writing a share over to another",
+     "desc": "פירושי נדרים › מודר הנאה › להנות ממנו › אינו שלו › רכוש ציבורי",
+     "desc_de": "Auslegungen von Gelübden › Nutzenverbot › von ihm Nutzen zu haben › gehört ihm nicht › öffentliches Eigentum",
+     "desc_en": "interpretations of vows › prohibition of benefit › to benefit from him › does not belong to him › public property"
+    },
+    {
+     "ref": "5:6",
+     "text": "קנוניה מוכחת",
+     "text_de": "erwiesene Absprache",
+     "text_en": "proven collusion",
+     "desc": "פירושי נדרים › מודר הנאה › להנות ממנו › אינו שלו › ביד אחר",
+     "desc_de": "Auslegungen von Gelübden › Nutzenverbot › von ihm Nutzen zu haben › gehört ihm nicht › in der Hand eines anderen",
+     "desc_en": "interpretations of vows › prohibition of benefit › to benefit from him › does not belong to him › in another's hand"
+    }
+   ]
+  },
+  {
+   "head": "פרק ו",
+   "head_de": "Kapitel 6",
+   "head_en": "Chapter 6",
+   "items": [
+    {
+     "ref": "6:1",
+     "text": "מבושל, תבשיל",
+     "text_de": "Gekochtes, Gericht",
+     "text_en": "cooked food, dish",
+     "desc": "פירושי נדרים › הגדרת הנאסר › מאכל › סוג הבישול",
+     "desc_de": "Auslegungen von Gelübden › Definition des Verbotenen › Speise › Art des Kochens",
+     "desc_en": "interpretations of vows › definition of the prohibited item › food › type of cooking"
+    },
+    {
+     "ref": "6:2",
+     "text": "מעשה והיורד לקדירה",
+     "text_de": "Handlung und was in den Topf kommt",
+     "text_en": "the act and what goes into the pot",
+     "desc": "פירושי נדרים › הגדרת הנאסר › מאכל › סוג הבישול",
+     "desc_de": "Auslegungen von Gelübden › Definition des Verbotenen › Speise › Art des Kochens",
+     "desc_en": "interpretations of vows › definition of the prohibited item › food › type of cooking"
+    },
+    {
+     "ref": "6:3",
+     "text": "כבוש, שלוק, צלי \\ מליח",
+     "text_de": "Eingelegtes, Weichgekochtes, Gebratenes / Gesalzenes",
+     "text_en": "pickled, boiled soft, roasted / salted",
+     "desc": "פירושי נדרים › הגדרת הנאסר › מאכל › סוג הבישול",
+     "desc_de": "Auslegungen von Gelübden › Definition des Verbotenen › Speise › Art des Kochens",
+     "desc_en": "interpretations of vows › definition of the prohibited item › food › type of cooking"
+    },
+    {
+     "ref": "6:4",
+     "text": "לשון בפולה, צחנה, טרית",
+     "text_de": "Ausdruck für Saubohnen, Stinkendes, Trit (Fischsorte)",
+     "text_en": "term for beans, stinking food, trit (a kind of fish)",
+     "desc": "פירושי נדרים › הגדרת הנאסר › מאכל › דגים",
+     "desc_de": "Auslegungen von Gelübden › Definition des Verbotenen › Speise › Fische",
+     "desc_en": "interpretations of vows › definition of the prohibited item › food › fish"
+    },
+    {
+     "ref": "6:5",
+     "text": "חלב, גבינה",
+     "text_de": "Milch, Käse",
+     "text_en": "milk, cheese",
+     "desc": "פירושי נדרים › הגדרת הנאסר › מאכל › מוצרי חלב",
+     "desc_de": "Auslegungen von Gelübden › Definition des Verbotenen › Speise › Milchprodukte",
+     "desc_en": "interpretations of vows › definition of the prohibited item › food › dairy products"
+    },
+    {
+     "ref": "6:6",
+     "text": "בשר",
+     "text_de": "Fleisch",
+     "text_en": "meat",
+     "desc": "פירושי נדרים › הגדרת הנאסר › מאכל › נותן טעם",
+     "desc_de": "Auslegungen von Gelübden › Definition des Verbotenen › Speise › Geschmack abgebend",
+     "desc_en": "interpretations of vows › definition of the prohibited item › food › imparting flavor"
+    },
+    {
+     "ref": "6:7",
+     "text": "יין \\ ענבים, זתים",
+     "text_de": "Wein / Trauben, Oliven",
+     "text_en": "wine / grapes, olives",
+     "desc": "פירושי נדרים › הגדרת הנאסר › מאכל › היוצא ממנו",
+     "desc_de": "Auslegungen von Gelübden › Definition des Verbotenen › Speise › was von ihm stammt",
+     "desc_en": "interpretations of vows › definition of the prohibited item › food › what comes from it"
+    },
+    {
+     "ref": "6:8",
+     "text": "תמרים, סתווניות",
+     "text_de": "Datteln, Winterfrüchte",
+     "text_en": "dates, winter fruits",
+     "desc": "פירושי נדרים › הגדרת הנאסר › מאכל › היוצא ממנו",
+     "desc_de": "Auslegungen von Gelübden › Definition des Verbotenen › Speise › was von ihm stammt",
+     "desc_en": "interpretations of vows › definition of the prohibited item › food › what comes from it"
+    },
+    {
+     "ref": "6:9",
+     "text": "שם לווי",
+     "text_de": "Beiname",
+     "text_en": "qualifying name",
+     "desc": "פירושי נדרים › הגדרת הנאסר › מאכל › שם הכולל",
+     "desc_de": "Auslegungen von Gelübden › Definition des Verbotenen › Speise › Oberbegriff",
+     "desc_en": "interpretations of vows › definition of the prohibited item › food › general term"
+    },
+    {
+     "ref": "6:10",
+     "text": "כרוב, גריסים, עדשים, לשון כפול",
+     "text_de": "Kohl, Graupen, Linsen, doppelte Ausdrucksweise",
+     "text_en": "cabbage, groats, lentils, double expression",
+     "desc": "פירושי נדרים › הגדרת הנאסר › מאכל › שם הכולל",
+     "desc_de": "Auslegungen von Gelübden › Definition des Verbotenen › Speise › Oberbegriff",
+     "desc_en": "interpretations of vows › definition of the prohibited item › food › general term"
+    }
+   ]
+  },
+  {
+   "head": "פרק ז",
+   "head_de": "Kapitel 7",
+   "head_en": "Chapter 7",
+   "items": [
+    {
+     "ref": "7:1",
+     "text": "ירק",
+     "text_de": "Gemüse",
+     "text_en": "vegetables",
+     "desc": "פירושי נדרים › הגדרת הנאסר › מאכל › שם הכולל",
+     "desc_de": "Auslegungen von Gelübden › Definition des Verbotenen › Speise › Oberbegriff",
+     "desc_en": "interpretations of vows › definition of the prohibited item › food › general term"
+    },
+    {
+     "ref": "7:2",
+     "text": "דגן, תבואה",
+     "text_de": "Getreide, Korn",
+     "text_en": "grain, cereal",
+     "desc": "פירושי נדרים › הגדרת הנאסר › מאכל › שם הכולל",
+     "desc_de": "Auslegungen von Gelübden › Definition des Verbotenen › Speise › Oberbegriff",
+     "desc_en": "interpretations of vows › definition of the prohibited item › food › general term"
+    },
+    {
+     "ref": "7:3",
+     "text": "בגדים, מצב הנודר המוכיח",
+     "text_de": "Kleidung, Lage des Gelobenden als Beweis",
+     "text_en": "clothing, the vower's situation as proof",
+     "desc": "פירושי נדרים › הגדרת הנאסר › כלים ומגורים › שם הכולל",
+     "desc_de": "Auslegungen von Gelübden › Definition des Verbotenen › Geräte und Wohnungen › Oberbegriff",
+     "desc_en": "interpretations of vows › definition of the prohibited item › utensils and dwellings › general term"
+    },
+    {
+     "ref": "7:4",
+     "text": "בית ועלייה",
+     "text_de": "Haus und Obergeschoss",
+     "text_en": "house and upper room",
+     "desc": "פירושי נדרים › הגדרת הנאסר › כלים ומגורים › שם הכולל",
+     "desc_de": "Auslegungen von Gelübden › Definition des Verbotenen › Geräte und Wohnungen › Oberbegriff",
+     "desc_en": "interpretations of vows › definition of the prohibited item › utensils and dwellings › general term"
+    },
+    {
+     "ref": "7:5",
+     "text": "מטה ודרגש, עיר ותחומה, בית",
+     "text_de": "Bett und Liege, Stadt und ihr Gebiet, Haus",
+     "text_en": "bed and couch, city and its boundary, house",
+     "desc": "פירושי נדרים › הגדרת הנאסר › כלים ומגורים › שם הכולל",
+     "desc_de": "Auslegungen von Gelübden › Definition des Verbotenen › Geräte und Wohnungen › Oberbegriff",
+     "desc_en": "interpretations of vows › definition of the prohibited item › utensils and dwellings › general term"
+    },
+    {
+     "ref": "7:6",
+     "text": "פירות",
+     "text_de": "Früchte",
+     "text_en": "fruits",
+     "desc": "פירושי נדרים › הגדרת הנאסר › חילופין וגידולין › אכילה והנאה",
+     "desc_de": "Auslegungen von Gelübden › Definition des Verbotenen › Tausch und Gewächse › Essen und Nutzen",
+     "desc_en": "interpretations of vows › definition of the prohibited item › exchange and growths › eating and benefit"
+    },
+    {
+     "ref": "7:7",
+     "text": "בסתם",
+     "text_de": "unbestimmt",
+     "text_en": "unspecified",
+     "desc": "פירושי נדרים › הגדרת הנאסר › חילופין וגידולין › אכילה והנאה › מעשה ידי האשה",
+     "desc_de": "Auslegungen von Gelübden › Definition des Verbotenen › Tausch und Gewächse › Essen und Nutzen › Handarbeit der Frau",
+     "desc_en": "interpretations of vows › definition of the prohibited item › exchange and growths › eating and benefit › the wife's handiwork"
+    },
+    {
+     "ref": "7:8",
+     "text": "בתנאי",
+     "text_de": "unter Bedingung",
+     "text_en": "conditional",
+     "desc": "פירושי נדרים › תנאים › זמן › תאריך או מאורע › מעשה ידי האשה",
+     "desc_de": "Auslegungen von Gelübden › Bedingungen › Zeit › Datum oder Ereignis › Handarbeit der Frau",
+     "desc_en": "interpretations of vows › Conditions › time › date or event › the wife's handiwork"
+    },
+    {
+     "ref": "7:9",
+     "text": "הליכה לבית אב",
+     "text_de": "Gang zum Haus des Vaters",
+     "text_en": "going to the father's house",
+     "desc": "פירושי נדרים › תנאים › זמן › תאריך או מאורע",
+     "desc_de": "Auslegungen von Gelübden › Bedingungen › Zeit › Datum oder Ereignis",
+     "desc_en": "interpretations of vows › Conditions › time › date or event"
+    }
+   ]
+  },
+  {
+   "head": "פרק ח",
+   "head_de": "Kapitel 8",
+   "head_en": "Chapter 8",
+   "items": [
+    {
+     "ref": "8:1",
+     "text": "יחידות זמן ודין וגבולותיהן",
+     "text_de": "Zeiteinheiten, ihre Regelung und Grenzen",
+     "text_en": "time units, their law and limits",
+     "desc": "פירושי נדרים › תנאים › זמן › תאריך או מאורע",
+     "desc_de": "Auslegungen von Gelübden › Bedingungen › Zeit › Datum oder Ereignis",
+     "desc_en": "interpretations of vows › Conditions › time › date or event"
+    },
+    {
+     "ref": "8:2",
+     "text": "פסח",
+     "text_de": "Pessach",
+     "text_en": "Pesach",
+     "desc": "פירושי נדרים › תנאים › זמן › תאריך או מאורע › זמן קבוע וספק",
+     "desc_de": "Auslegungen von Gelübden › Bedingungen › Zeit › Datum oder Ereignis › feste Zeit und Zweifelsfall",
+     "desc_en": "interpretations of vows › Conditions › time › date or event › fixed time and doubtful case"
+    },
+    {
+     "ref": "8:3",
+     "text": "קציר, בציר, מסיק, כלל",
+     "text_de": "Ernte, Weinlese, Olivenernte, Grundsatz",
+     "text_en": "harvest, grape harvest, olive harvest, general rule",
+     "desc": "פירושי נדרים › תנאים › זמן › תאריך או מאורע › זמן קבוע וספק",
+     "desc_de": "Auslegungen von Gelübden › Bedingungen › Zeit › Datum oder Ereignis › feste Zeit und Zweifelsfall",
+     "desc_en": "interpretations of vows › Conditions › time › date or event › fixed time and doubtful case"
+    },
+    {
+     "ref": "8:4",
+     "text": "קיץ, קציר, לפי מקום הנדר",
+     "text_de": "Sommer, Ernte, nach dem Ort des Gelübdes",
+     "text_en": "summer, harvest, according to the place of the vow",
+     "desc": "פירושי נדרים › תנאים › זמן › תאריך או מאורע",
+     "desc_de": "Auslegungen von Gelübden › Bedingungen › Zeit › Datum oder Ereignis",
+     "desc_en": "interpretations of vows › Conditions › time › date or event"
+    },
+    {
+     "ref": "8:5",
+     "text": "גשמים, שנה מעוברת \\ יין עד פסח",
+     "text_de": "Regenzeit, Schaltjahr / Wein bis Pessach",
+     "text_en": "rainy season, leap year / wine until Pesach",
+     "desc": "פירושי נדרים › תנאים › זמן › תאריך או מאורע",
+     "desc_de": "Auslegungen von Gelübden › Bedingungen › Zeit › Datum oder Ereignis",
+     "desc_en": "interpretations of vows › Conditions › time › date or event"
+    },
+    {
+     "ref": "8:6",
+     "text": "בשר עד הצום, שום עד שבת",
+     "text_de": "Fleisch bis zum Fasttag, Knoblauch bis Schabbat",
+     "text_en": "meat until the fast day, garlic until Shabbat",
+     "desc": "פירושי נדרים › תנאים › זמן › תאריך או מאורע",
+     "desc_de": "Auslegungen von Gelübden › Bedingungen › Zeit › Datum oder Ereignis",
+     "desc_en": "interpretations of vows › Conditions › time › date or event"
+    },
+    {
+     "ref": "8:7",
+     "text": "נתינת וקבלת כבוד,סרוב נשואין וסעודה",
+     "text_de": "Ehre erweisen und annehmen, Weigerung zu heiraten und zum Mahl",
+     "text_en": "giving and receiving honor, refusal of marriage and of a meal",
+     "desc": "פירושי נדרים › תנאים › כוונה מוכחת",
+     "desc_de": "Auslegungen von Gelübden › Bedingungen › erwiesene Absicht",
+     "desc_en": "interpretations of vows › Conditions › proven intention"
+    }
+   ]
+  },
+  {
+   "head": "פרק ט",
+   "head_de": "Kapitel 9",
+   "head_en": "Chapter 9",
+   "items": [
+    {
+     "ref": "9:1",
+     "text": "כיבוד הורים",
+     "text_de": "Elternehrung",
+     "text_en": "honoring parents",
+     "desc": "היתר נדרים › התרת חכם › פתחים › קולות של ר\"א",
+     "desc_de": "Lösung von Gelübden › Lösung durch einen Gelehrten › Öffnungen › Erleichterungen des Rabbi Eliezer",
+     "desc_en": "annulment of vows › release by a sage › openings › leniencies of Rabbi Eliezer"
+    },
+    {
+     "ref": "9:2",
+     "text": "ממש",
+     "text_de": "Substanz",
+     "text_en": "substance",
+     "desc": "היתר נדרים › התרת חכם › פתחים › קולות של ר\"א › נולד",
+     "desc_de": "Lösung von Gelübden › Lösung durch einen Gelehrten › Öffnungen › Erleichterungen des Rabbi Eliezer › Neugeborenes",
+     "desc_en": "annulment of vows › release by a sage › openings › leniencies of Rabbi Eliezer › something newly arisen"
+    },
+    {
+     "ref": "9:3",
+     "text": "המפרש את נדרו",
+     "text_de": "wer sein Gelübde erläutert",
+     "text_en": "one who explains his vow",
+     "desc": "היתר נדרים › התרת חכם › פתחים › קולות של ר\"מ › נולד",
+     "desc_de": "Lösung von Gelübden › Lösung durch einen Gelehrten › Öffnungen › Erleichterungen des Rabbi Meir › Neugeborenes",
+     "desc_en": "annulment of vows › release by a sage › openings › leniencies of Rabbi Meir › something newly arisen"
+    },
+    {
+     "ref": "9:4",
+     "text": "פתח מן הכתובים",
+     "text_de": "Öffnung aus der Schrift",
+     "text_en": "opening from Scripture",
+     "desc": "היתר נדרים › התרת חכם › פתחים › קולות של ר\"מ",
+     "desc_de": "Lösung von Gelübden › Lösung durch einen Gelehrten › Öffnungen › Erleichterungen des Rabbi Meir",
+     "desc_en": "annulment of vows › release by a sage › openings › leniencies of Rabbi Meir"
+    },
+    {
+     "ref": "9:5",
+     "text": "כתובת אשתו",
+     "text_de": "Ehevertrag seiner Frau",
+     "text_en": "his wife's marriage contract",
+     "desc": "היתר נדרים › התרת חכם › פתחים › קולות של ר\"ע",
+     "desc_de": "Lösung von Gelübden › Lösung durch einen Gelehrten › Öffnungen › Erleichterungen des Rabbi Akiva",
+     "desc_en": "annulment of vows › release by a sage › openings › leniencies of Rabbi Akiva"
+    },
+    {
+     "ref": "9:6",
+     "text": "ימים טובים ושבתות",
+     "text_de": "Feiertage und Schabbatot",
+     "text_en": "festivals and Sabbaths",
+     "desc": "היתר נדרים › התרת חכם › פתחים › קולות של ר\"ע › היתר מקצתו",
+     "desc_de": "Lösung von Gelübden › Lösung durch einen Gelehrten › Öffnungen › Erleichterungen des Rabbi Akiva › teilweise Lösung",
+     "desc_en": "annulment of vows › release by a sage › openings › leniencies of Rabbi Akiva › partial release"
+    },
+    {
+     "ref": "9:7",
+     "text": "קבוצה או סדרה של אנשים",
+     "text_de": "Gruppe oder Reihe von Personen",
+     "text_en": "a group or series of people",
+     "desc": "היתר נדרים › התרת חכם › פתחים › קולות של ר\"ע › היתר מקצתו",
+     "desc_de": "Lösung von Gelübden › Lösung durch einen Gelehrten › Öffnungen › Erleichterungen des Rabbi Akiva › teilweise Lösung",
+     "desc_en": "annulment of vows › release by a sage › openings › leniencies of Rabbi Akiva › partial release"
+    },
+    {
+     "ref": "9:8",
+     "text": "סוג יין או בצל",
+     "text_de": "Weinsorte oder Zwiebel",
+     "text_en": "kind of wine or onion",
+     "desc": "היתר נדרים › התרת חכם › פתחים › קולות של ר\"ע › היתר מקצתו",
+     "desc_de": "Lösung von Gelübden › Lösung durch einen Gelehrten › Öffnungen › Erleichterungen des Rabbi Akiva › teilweise Lösung",
+     "desc_en": "annulment of vows › release by a sage › openings › leniencies of Rabbi Akiva › partial release"
+    },
+    {
+     "ref": "9:9",
+     "text": "כבוד עצמו ובניו",
+     "text_de": "seine eigene Ehre und die seiner Söhne",
+     "text_en": "his own honor and that of his sons",
+     "desc": "היתר נדרים › התרת חכם › טעות",
+     "desc_de": "Lösung von Gelübden › Lösung durch einen Gelehrten › Irrtum",
+     "desc_en": "annulment of vows › release by a sage › error"
+    },
+    {
+     "ref": "9:10",
+     "text": "יפוי אשה",
+     "text_de": "Verschönerung der Frau",
+     "text_en": "a woman's beautification",
+     "desc": "היתר נדרים › התרת חכם › טעות",
+     "desc_de": "Lösung von Gelübden › Lösung durch einen Gelehrten › Irrtum",
+     "desc_en": "annulment of vows › release by a sage › error"
+    }
+   ]
+  },
+  {
+   "head": "פרק י",
+   "head_de": "Kapitel 10",
+   "head_en": "Chapter 10",
+   "items": [
+    {
+     "ref": "10:1",
+     "text": "צורך באב ובעל",
+     "text_de": "Bedürfnis nach Vater und Ehemann",
+     "text_en": "need for father and husband",
+     "desc": "היתר נדרים › הפרת האב והבעל › מי מיפר › נערה מאורסה",
+     "desc_de": "Lösung von Gelübden › Annullierung durch Vater und Ehemann › wer annulliert › verlobte Jugendliche",
+     "desc_en": "annulment of vows › annulment by father and husband › who annuls › betrothed young woman"
+    },
+    {
+     "ref": "10:2",
+     "text": "התרוקנות רשות, הפרה בבגרות",
+     "text_de": "Ausscheiden aus der Gewalt, Annullierung nach Volljährigkeit",
+     "text_en": "leaving authority, annulment after majority",
+     "desc": "היתר נדרים › הפרת האב והבעל › מי מיפר › נערה מאורסה",
+     "desc_de": "Lösung von Gelübden › Annullierung durch Vater und Ehemann › wer annulliert › verlobte Jugendliche",
+     "desc_en": "annulment of vows › annulment by father and husband › who annuls › betrothed young woman"
+    },
+    {
+     "ref": "10:3",
+     "text": "סדרה של בעלים",
+     "text_de": "Reihe von Ehemännern",
+     "text_en": "series of husbands",
+     "desc": "היתר נדרים › הפרת האב והבעל › מי מיפר › נערה מאורסה",
+     "desc_de": "Lösung von Gelübden › Annullierung durch Vater und Ehemann › wer annulliert › verlobte Jugendliche",
+     "desc_en": "annulment of vows › annulment by father and husband › who annuls › betrothed young woman"
+    },
+    {
+     "ref": "10:4",
+     "text": "הפרה לפני היציאה וכניסה לרשות",
+     "text_de": "Annullierung vor dem Austritt und dem Eintritt in die Gewalt",
+     "text_en": "annulment before leaving and entering authority",
+     "desc": "היתר נדרים › הפרת האב והבעל › מי מיפר › נערה מאורסה",
+     "desc_de": "Lösung von Gelübden › Annullierung durch Vater und Ehemann › wer annulliert › verlobte Jugendliche",
+     "desc_en": "annulment of vows › annulment by father and husband › who annuls › betrothed young woman"
+    },
+    {
+     "ref": "10:5",
+     "text": "הניזונת על ידי בעלה",
+     "text_de": "von ihrem Mann Unterhaltene",
+     "text_en": "one maintained by her husband",
+     "desc": "היתר נדרים › הפרת האב והבעל › מי מיפר › בוגרת ואלמנה",
+     "desc_de": "Lösung von Gelübden › Annullierung durch Vater und Ehemann › wer annulliert › Volljährige und Witwe",
+     "desc_en": "annulment of vows › annulment by father and husband › who annuls › adult woman and widow"
+    },
+    {
+     "ref": "10:6",
+     "text": "שומרת יבם וזיקתה",
+     "text_de": "Schwagerehe-Wartende und ihre Bindung",
+     "text_en": "one awaiting levirate marriage and her bond",
+     "desc": "היתר נדרים › הפרת האב והבעל › מי מיפר › בוגרת ואלמנה",
+     "desc_de": "Lösung von Gelübden › Annullierung durch Vater und Ehemann › wer annulliert › Volljährige und Witwe",
+     "desc_en": "annulment of vows › annulment by father and husband › who annuls › adult woman and widow"
+    },
+    {
+     "ref": "10:7",
+     "text": "קיום והפרה לעתיד",
+     "text_de": "Bestätigung und Annullierung für die Zukunft",
+     "text_en": "confirmation and annulment for the future",
+     "desc": "היתר נדרים › הפרת האב והבעל › מתי מיפר › זמן להפרה",
+     "desc_de": "Lösung von Gelübden › Annullierung durch Vater und Ehemann › wann er annulliert › Frist für die Annullierung",
+     "desc_en": "annulment of vows › annulment by father and husband › when he may annul › time limit for annulment"
+    },
+    {
+     "ref": "10:8",
+     "text": "הגדרת \"יום שמעו\"",
+     "text_de": "Definition von „am Tag, an dem er davon hört“",
+     "text_en": "definition of \"the day he hears\"",
+     "desc": "היתר נדרים › הפרת האב והבעל › מתי מיפר › זמן להפרה",
+     "desc_de": "Lösung von Gelübden › Annullierung durch Vater und Ehemann › wann er annulliert › Frist für die Annullierung",
+     "desc_en": "annulment of vows › annulment by father and husband › when he may annul › time limit for annulment"
+    }
+   ]
+  },
+  {
+   "head": "פרק יא",
+   "head_de": "Kapitel 11",
+   "head_en": "Chapter 11",
+   "items": [
+    {
+     "ref": "11:1",
+     "text": "רחיצה, קישוט",
+     "text_de": "Waschen, Schmücken",
+     "text_en": "bathing, adornment",
+     "desc": "היתר נדרים › הפרת האב והבעל › אילו נדרים מיפר › הגדרת עינוי נפש",
+     "desc_de": "Lösung von Gelübden › Annullierung durch Vater und Ehemann › welche Gelübde er annullieren kann › Definition der Selbstkasteiung",
+     "desc_en": "annulment of vows › annulment by father and husband › which vows he may annul › definition of self-affliction"
+    },
+    {
+     "ref": "11:2",
+     "text": "אכילת פירות",
+     "text_de": "Genuss von Früchten",
+     "text_en": "Eating fruit",
+     "desc": "היתר נדרים › הפרת האב והבעל › אילו נדרים מיפר › הגדרת עינוי נפש",
+     "desc_de": "Lösung von Gelübden › Annullierung durch Vater und Ehemann › welche Gelübde er annullieren kann › Definition der Selbstkasteiung",
+     "desc_en": "annulment of vows › annulment by father and husband › which vows he may annul › definition of self-affliction"
+    },
+    {
+     "ref": "11:3",
+     "text": "הנאת הבריות, כהנים, לויים",
+     "text_de": "Nutzen für die Mitmenschen, Priester, Leviten",
+     "text_en": "benefit to others, priests, Levites",
+     "desc": "היתר נדרים › הפרת האב והבעל › אילו נדרים מיפר › בינו לבינה",
+     "desc_de": "Lösung von Gelübden › Annullierung durch Vater und Ehemann › welche Gelübde er annullieren kann › zwischen ihm und ihr",
+     "desc_en": "annulment of vows › annulment by father and husband › which vows he may annul › between him and her"
+    },
+    {
+     "ref": "11:4",
+     "text": "הנאת קרובים, מעשה ידיה",
+     "text_de": "Nutzen für Verwandte, ihre Handarbeit",
+     "text_en": "benefit to relatives, her handiwork",
+     "desc": "היתר נדרים › הפרת האב והבעל › אילו נדרים מיפר › בינו לבינה",
+     "desc_de": "Lösung von Gelübden › Annullierung durch Vater und Ehemann › welche Gelübde er annullieren kann › zwischen ihm und ihr",
+     "desc_en": "annulment of vows › annulment by father and husband › which vows he may annul › between him and her"
+    },
+    {
+     "ref": "11:5",
+     "text": "הנודרת, מין הנדר, מן הנאסר",
+     "text_de": "die Gelobende, Art des Gelübdes, das Verbotene",
+     "text_en": "the woman who vows, type of vow, the prohibited item",
+     "desc": "היתר נדרים › הפרת האב והבעל › איך מיפר › טעות בהפרה",
+     "desc_de": "Lösung von Gelübden › Annullierung durch Vater und Ehemann › wie er annulliert › Irrtum bei der Annullierung",
+     "desc_en": "annulment of vows › annulment by father and husband › how he annuls › error in the annulment"
+    },
+    {
+     "ref": "11:6",
+     "text": "קיום והפרה במקצת",
+     "text_de": "teilweise Bestätigung und Annullierung",
+     "text_en": "partial confirmation and annulment",
+     "desc": "היתר נדרים › הפרת האב והבעל › איך מיפר › טעות בהפרה",
+     "desc_de": "Lösung von Gelübden › Annullierung durch Vater und Ehemann › wie er annulliert › Irrtum bei der Annullierung",
+     "desc_en": "annulment of vows › annulment by father and husband › how he annuls › error in the annulment"
+    },
+    {
+     "ref": "11:7",
+     "text": "אי ידיעת זכויותיו או צורך בהפרה",
+     "text_de": "Unkenntnis seiner Rechte oder Notwendigkeit der Annullierung",
+     "text_en": "ignorance of his rights or necessity of annulment",
+     "desc": "היתר נדרים › הפרת האב והבעל › איך מיפר › טעות בהפרה",
+     "desc_de": "Lösung von Gelübden › Annullierung durch Vater und Ehemann › wie er annulliert › Irrtum bei der Annullierung",
+     "desc_en": "annulment of vows › annulment by father and husband › how he annuls › error in the annulment"
+    },
+    {
+     "ref": "11:8",
+     "text": "מתנה על מנת שלא יהנה הבעל",
+     "text_de": "Geschenk unter der Bedingung, dass der Ehemann keinen Nutzen hat",
+     "text_en": "gift on condition that the husband derive no benefit",
+     "desc": "היתר נדרים › הפרת האב והבעל › האב מודר מחתנו",
+     "desc_de": "Lösung von Gelübden › Annullierung durch Vater und Ehemann › der Vater darf von seinem Schwiegersohn nichts haben",
+     "desc_en": "annulment of vows › annulment by father and husband › the father is barred from benefit from his son-in-law"
+    },
+    {
+     "ref": "11:9",
+     "text": "שעת הנדר, יציאה לרשות עצמה",
+     "text_de": "Zeitpunkt des Gelübdes, Übergang in die eigene Gewalt",
+     "text_en": "time of the vow, moving into her own authority",
+     "desc": "היתר נדרים › הפרת האב והבעל › שאין עליהם מיפר › אלמנה וגרושה",
+     "desc_de": "Lösung von Gelübden › Annullierung durch Vater und Ehemann › über die kein Annullierender besteht › Witwe und Geschiedene",
+     "desc_en": "annulment of vows › annulment by father and husband › over whom no one can annul › widow and divorcee"
+    },
+    {
+     "ref": "11:10",
+     "text": "פירוט עשרה מקרים",
+     "text_de": "Aufzählung von zehn Fällen",
+     "text_en": "enumeration of ten cases",
+     "desc": "היתר נדרים › הפרת האב והבעל › שאין עליהם מיפר › יתומות ובוגרות",
+     "desc_de": "Lösung von Gelübden › Annullierung durch Vater und Ehemann › über die kein Annullierender besteht › Waisen und Volljährige",
+     "desc_en": "annulment of vows › annulment by father and husband › over whom no one can annul › orphans and adult women"
+    },
+    {
+     "ref": "11:11",
+     "text": "גנאי לבעל",
+     "text_de": "Schmähung des Ehemannes",
+     "text_en": "disgrace to the husband",
+     "desc": "היתר נדרים › הפרת האב והבעל › איזה נדרים מיפר › בינו לבינה",
+     "desc_de": "Lösung von Gelübden › Annullierung durch Vater und Ehemann › welche Gelübde er annulliert › zwischen ihm und ihr",
+     "desc_en": "annulment of vows › annulment by father and husband › which vows he annuls › between him and her"
+    },
+    {
+     "ref": "11:12",
+     "text": "האוסרת עצמה על בעלה",
+     "text_de": "die sich ihrem Mann verbietet",
+     "text_en": "she who forbids herself to her husband",
+     "desc": "היתר נדרים › הפרת האב והבעל › איזה נדרים מיפר › בינו לבינה",
+     "desc_de": "Lösung von Gelübden › Annullierung durch Vater und Ehemann › welche Gelübde er annulliert › zwischen ihm und ihr",
+     "desc_en": "annulment of vows › annulment by father and husband › which vows he annuls › between him and her"
+    }
+   ]
+  }
+ ]
+}

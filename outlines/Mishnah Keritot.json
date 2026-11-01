@@ -1,0 +1,440 @@
+{
+ "book": "Mishnah Keritot",
+ "title": "משנה כריתות",
+ "title_de": "Mischna Keritot – Gliederung",
+ "title_en": "Keritot – outline",
+ "note": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema).",
+ "note_de": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema); ins Deutsche und Englische übersetzt.",
+ "note_en": "Outline after the table “Mishna Sedura”: the central content of each mishnah, with the topic path (main topic to sub-topic); translated into German and English.",
+ "sections": [
+  {
+   "head": "פרק א",
+   "head_de": "Kapitel 1",
+   "head_en": "Chapter 1",
+   "items": [
+    {
+     "ref": "1:1",
+     "text": "שלושים ושש כריתות",
+     "text_de": "Sechsunddreißig Karet-Vergehen",
+     "text_en": "Thirty-six karet offenses",
+     "desc": "התחייבות בקרבן › עבירות שיש בהן כרת › זדון",
+     "desc_de": "Verpflichtung zum Opfer › Vergehen, die mit Karet bestraft werden › Vorsatz",
+     "desc_en": "Obligation to bring an offering › Transgressions punishable by karet › Deliberate sin"
+    },
+    {
+     "ref": "1:2",
+     "text": "החייבים חטאת ואשם תלוי",
+     "text_de": "Zu Sündopfer und bedingtem Schuldopfer Verpflichtete",
+     "text_en": "Those liable for a sin offering and a conditional guilt offering",
+     "desc": "התחייבות בקרבן › עבירות שיש בהן כרת › שגגה,לא הודע",
+     "desc_de": "Verpflichtung zum Opfer › Vergehen, die mit Karet bestraft werden › Unabsichtlich, nicht bekannt gemacht",
+     "desc_en": "Obligation to bring an offering › Transgressions punishable by karet › Unintentional, not made known"
+    },
+    {
+     "ref": "1:3",
+     "text": "ודאי ולד",
+     "text_de": "Sicher ein Kind",
+     "text_en": "Certainly a child",
+     "desc": "התחייבות בקרבן › קרבנות מיוחדים › חטאת יולדת › המביאות קרבן",
+     "desc_de": "Verpflichtung zum Opfer › Besondere Opfer › Sündopfer der Gebärenden › Die Opfer Darbringenden",
+     "desc_en": "Obligation to bring an offering › Special offerings › Sin offering of a woman after childbirth › Women who bring an offering"
+    },
+    {
+     "ref": "1:4",
+     "text": "ספק בולד או ביולדת, תנאי",
+     "text_de": "Zweifel bei Kind oder Wöchnerin, Bedingung",
+     "text_en": "Doubt regarding the child or the woman after childbirth, condition",
+     "desc": "התחייבות בקרבן › קרבנות מיוחדים › חטאת יולדת › המביאות קרבן",
+     "desc_de": "Verpflichtung zum Opfer › Besondere Opfer › Sündopfer der Gebärenden › Die Opfer Darbringenden",
+     "desc_en": "Obligation to bring an offering › Special offerings › Sin offering of a woman after childbirth › Women who bring an offering"
+    },
+    {
+     "ref": "1:5",
+     "text": "ודאי אינו ולד",
+     "text_de": "Sicher kein Kind",
+     "text_en": "Certainly not a child",
+     "desc": "התחייבות בקרבן › קרבנות מיוחדים › חטאת יולדת › הפטורות",
+     "desc_de": "Verpflichtung zum Opfer › Besondere Opfer › Sündopfer der Gebärenden › Die Befreiten",
+     "desc_en": "Obligation to bring an offering › Special offerings › Sin offering of a woman after childbirth › Those exempt"
+    },
+    {
+     "ref": "1:6",
+     "text": "הפלה באור ליום שמונים ואחד",
+     "text_de": "Fehlgeburt in der Nacht zum einundachtzigsten Tag",
+     "text_en": "Miscarriage on the night of the eighty-first day",
+     "desc": "התחייבות בקרבן › קרבנות מיוחדים › חטאת יולדת › חיובים מרובים",
+     "desc_de": "Verpflichtung zum Opfer › Besondere Opfer › Sündopfer der Gebärenden › Mehrfache Verpflichtungen",
+     "desc_en": "Obligation to bring an offering › Special offerings › Sin offering of a woman after childbirth › Multiple obligations"
+    },
+    {
+     "ref": "1:7",
+     "text": "ספיקות וודאות רבים, תקנת רשב\"ג",
+     "text_de": "Mehrere Zweifelsfälle und Gewissheiten, Verordnung Rabban Schimon ben Gamliels",
+     "text_en": "Multiple cases of doubt and certainty, ordinance of Rabban Shimon ben Gamliel",
+     "desc": "התחייבות בקרבן › קרבנות מיוחדים › חטאת יולדת › חיובים מרובים",
+     "desc_de": "Verpflichtung zum Opfer › Besondere Opfer › Sündopfer der Gebärenden › Mehrfache Verpflichtungen",
+     "desc_en": "Obligation to bring an offering › Special offerings › Sin offering of a woman after childbirth › Multiple obligations"
+    }
+   ]
+  },
+  {
+   "head": "פרק ב",
+   "head_de": "Kapitel 2",
+   "head_en": "Chapter 2",
+   "items": [
+    {
+     "ref": "2:1",
+     "text": "המחוסרי כפרה",
+     "text_de": "Die, denen Sühne fehlt",
+     "text_en": "Those lacking atonement",
+     "desc": "התחייבות בקרבן › קרבנות מיוחדים › חטאות ואשמות",
+     "desc_de": "Verpflichtung zum Opfer › Besondere Opfer › Sündopfer und Schuldopfer",
+     "desc_en": "Obligation to bring an offering › Special offerings › Sin offerings and guilt offerings"
+    },
+    {
+     "ref": "2:2",
+     "text": "המביאין על זדון כשגגה",
+     "text_de": "Die, die für vorsätzliche wie für unabsichtliche Tat bringen",
+     "text_en": "Those who bring for deliberate as for unintentional transgression",
+     "desc": "התחייבות בקרבן › קרבנות מיוחדים › חטאות ואשמות",
+     "desc_de": "Verpflichtung zum Opfer › Besondere Opfer › Sündopfer und Schuldopfer",
+     "desc_en": "Obligation to bring an offering › Special offerings › Sin offerings and guilt offerings"
+    },
+    {
+     "ref": "2:3",
+     "text": "שפחה,נזיר,סוטה,מצורע וקביעת מצבו",
+     "text_de": "Magd, Nasiräer, Sota, Aussätziger und Feststellung seines Zustands",
+     "text_en": "Maidservant, nazirite, sotah, person with skin disease and determination of his status",
+     "desc": "התחייבות בקרבן › קרבנות מיוחדים › חטאות ואשמות › אחד על עבירות הרבה",
+     "desc_de": "Verpflichtung zum Opfer › Besondere Opfer › Sündopfer und Schuldopfer › Eines für viele Vergehen",
+     "desc_en": "Obligation to bring an offering › Special offerings › Sin offerings and guilt offerings › One offering for many transgressions"
+    },
+    {
+     "ref": "2:4",
+     "text": "המפלת, 5 חטאים \\ המיוחד מבשאר עריות",
+     "text_de": "Die Fehlgebärende, fünf Sünden / das Besondere gegenüber anderen Inzestverboten",
+     "text_en": "The woman who miscarries, five sins / what is special compared to other forbidden unions",
+     "desc": "התחייבות בקרבן › קרבנות מיוחדים › חטאות ואשמות › אחד על עבירות הרבה",
+     "desc_de": "Verpflichtung zum Opfer › Besondere Opfer › Sündopfer und Schuldopfer › Eines für viele Vergehen",
+     "desc_en": "Obligation to bring an offering › Special offerings › Sin offerings and guilt offerings › One offering for many transgressions"
+    },
+    {
+     "ref": "2:5",
+     "text": "הגדרתה",
+     "text_de": "Ihre Definition",
+     "text_en": "Her definition",
+     "desc": "התחייבות בקרבן › קרבנות מיוחדים › חטאות ואשמות › שפחה חרופה",
+     "desc_de": "Verpflichtung zum Opfer › Besondere Opfer › Sündopfer und Schuldopfer › Verlobte Magd",
+     "desc_en": "Obligation to bring an offering › Special offerings › Sin offerings and guilt offerings › Betrothed maidservant"
+    },
+    {
+     "ref": "2:6",
+     "text": "חומרות בעריות מבשפחה",
+     "text_de": "Erschwerungen bei Inzestverboten gegenüber der Magd",
+     "text_en": "Stringencies of forbidden unions compared to the maidservant",
+     "desc": "התחייבות בקרבן › קרבנות מיוחדים › חטאות ואשמות › שפחה חרופה",
+     "desc_de": "Verpflichtung zum Opfer › Besondere Opfer › Sündopfer und Schuldopfer › Verlobte Magd",
+     "desc_en": "Obligation to bring an offering › Special offerings › Sin offerings and guilt offerings › Betrothed maidservant"
+    }
+   ]
+  },
+  {
+   "head": "פרק ג",
+   "head_de": "Kapitel 3",
+   "head_en": "Chapter 3",
+   "items": [
+    {
+     "ref": "3:1",
+     "text": "עדות והכחשתה",
+     "text_de": "Zeugnis und seine Widerlegung",
+     "text_en": "Testimony and its refutation",
+     "desc": "התחייבות בקרבן › חיובים מרובים › חטאות",
+     "desc_de": "Verpflichtung zum Opfer › Mehrfache Verpflichtungen › Sündopfer",
+     "desc_en": "Obligation to bring an offering › Multiple obligations › Sin offerings"
+    },
+    {
+     "ref": "3:2",
+     "text": "חילוק שמות \\ מינים",
+     "text_de": "Aufteilung nach Bezeichnungen / Arten",
+     "text_en": "Division by names / kinds",
+     "desc": "התחייבות בקרבן › חיובים מרובים › חטאות › צירוף לשיעור",
+     "desc_de": "Verpflichtung zum Opfer › Mehrfache Verpflichtungen › Sündopfer › Zusammenrechnung zum Mindestmaß",
+     "desc_en": "Obligation to bring an offering › Multiple obligations › Sin offerings › Combining to reach the minimum amount"
+    },
+    {
+     "ref": "3:3",
+     "text": "שהייה",
+     "text_de": "Verweilen",
+     "text_en": "Remaining",
+     "desc": "התחייבות בקרבן › חיובים מרובים › חטאות › צירוף לשיעור",
+     "desc_de": "Verpflichtung zum Opfer › Mehrfache Verpflichtungen › Sündopfer › Zusammenrechnung zum Mindestmaß",
+     "desc_en": "Obligation to bring an offering › Multiple obligations › Sin offerings › Combining to reach the minimum amount"
+    },
+    {
+     "ref": "3:4",
+     "text": "4 + אשם באכילה אחת",
+     "text_de": "Vier + Schuldopfer bei einem Essen",
+     "text_en": "Four + guilt offering for a single act of eating",
+     "desc": "התחייבות בקרבן › חיובים מרובים › חטאות › חילוק שמות › איסור חל על איסור",
+     "desc_de": "Verpflichtung zum Opfer › Mehrfache Verpflichtungen › Sündopfer › Aufteilung nach Bezeichnungen › Verbot, das auf ein Verbot fällt",
+     "desc_en": "Obligation to bring an offering › Multiple obligations › Sin offerings › Division by names › Prohibition added onto a prohibition"
+    },
+    {
+     "ref": "3:5",
+     "text": "6 או 7 או 8 בביאה אחת",
+     "text_de": "Sechs oder sieben oder acht bei einem Beischlaf",
+     "text_en": "Six or seven or eight in a single act of intercourse",
+     "desc": "התחייבות בקרבן › חיובים מרובים › חטאות › חילוק שמות › איסור חל על איסור",
+     "desc_de": "Verpflichtung zum Opfer › Mehrfache Verpflichtungen › Sündopfer › Aufteilung nach Bezeichnungen › Verbot, das auf ein Verbot fällt",
+     "desc_en": "Obligation to bring an offering › Multiple obligations › Sin offerings › Division by names › Prohibition added onto a prohibition"
+    },
+    {
+     "ref": "3:6",
+     "text": "7 בביאה אחת",
+     "text_de": "Sieben bei einem Beischlaf",
+     "text_en": "Seven in a single act of intercourse",
+     "desc": "התחייבות בקרבן › חיובים מרובים › חטאות › חילוק שמות › איסור חל על איסור",
+     "desc_de": "Verpflichtung zum Opfer › Mehrfache Verpflichtungen › Sündopfer › Aufteilung nach Bezeichnungen › Verbot, das auf ein Verbot fällt",
+     "desc_en": "Obligation to bring an offering › Multiple obligations › Sin offerings › Division by names › Prohibition added onto a prohibition"
+    },
+    {
+     "ref": "3:7",
+     "text": "חילוק שמות אחיות",
+     "text_de": "Aufteilung nach Namen von Schwestern",
+     "text_en": "Division by names of sisters",
+     "desc": "התחייבות בקרבן › חיובים מרובים › חטאות › חילוק שמות › שאלות של ר' עקיבא",
+     "desc_de": "Verpflichtung zum Opfer › Mehrfache Verpflichtungen › Sündopfer › Aufteilung nach Bezeichnungen › Fragen Rabbi Akivas",
+     "desc_en": "Obligation to bring an offering › Multiple obligations › Sin offerings › Division by names › Questions of Rabbi Akiva"
+    },
+    {
+     "ref": "3:8",
+     "text": "טומאת אבר מדולדל",
+     "text_de": "Unreinheit eines herabhängenden Gliedes",
+     "text_en": "Impurity of a dangling limb",
+     "desc": "התחייבות בקרבן › חיובים מרובים › חטאות › חילוק שמות › שאלות של ר' עקיבא",
+     "desc_de": "Verpflichtung zum Opfer › Mehrfache Verpflichtungen › Sündopfer › Aufteilung nach Bezeichnungen › Fragen Rabbi Akivas",
+     "desc_en": "Obligation to bring an offering › Multiple obligations › Sin offerings › Division by names › Questions of Rabbi Akiva"
+    },
+    {
+     "ref": "3:9",
+     "text": "שחיטת חוץ, אכילת נותר והקדש",
+     "text_de": "Schlachten außerhalb, Essen von Übriggebliebenem und Weihung",
+     "text_en": "Slaughter outside the Temple, eating of leftover offering and dedication",
+     "desc": "התחייבות בקרבן › חיובים מרובים › חטאות › חילוק שמות › שאלות של ר' עקיבא",
+     "desc_de": "Verpflichtung zum Opfer › Mehrfache Verpflichtungen › Sündopfer › Aufteilung nach Bezeichnungen › Fragen Rabbi Akivas",
+     "desc_en": "Obligation to bring an offering › Multiple obligations › Sin offerings › Division by names › Questions of Rabbi Akiva"
+    },
+    {
+     "ref": "3:10",
+     "text": "מלאכות ותולדות בשבתות",
+     "text_de": "Arbeiten und Nebenarbeiten an Schabbaten",
+     "text_en": "Labors and derivative labors on Sabbaths",
+     "desc": "התחייבות בקרבן › חיובים מרובים › חטאות › חילוק שמות › שאלות של ר' עקיבא",
+     "desc_de": "Verpflichtung zum Opfer › Mehrfache Verpflichtungen › Sündopfer › Aufteilung nach Bezeichnungen › Fragen Rabbi Akivas",
+     "desc_en": "Obligation to bring an offering › Multiple obligations › Sin offerings › Division by names › Questions of Rabbi Akiva"
+    }
+   ]
+  },
+  {
+   "head": "פרק ד",
+   "head_de": "Kapitel 4",
+   "head_en": "Chapter 4",
+   "items": [
+    {
+     "ref": "4:1",
+     "text": "איסור קבוע",
+     "text_de": "Festes Verbot",
+     "text_en": "Fixed prohibition",
+     "desc": "התחייבות בקרבן › עבירה שיש בה ספק › אשם תלוי",
+     "desc_de": "Verpflichtung zum Opfer › Vergehen, bei dem ein Zweifel besteht › Bedingtes Schuldopfer",
+     "desc_en": "Obligation to bring an offering › Transgression involving doubt › Conditional guilt offering"
+    },
+    {
+     "ref": "4:2",
+     "text": "חילוק העלמות ושמות \\ שתי שמות",
+     "text_de": "Aufteilung nach Unkenntnissen und Namen / zwei Namen",
+     "text_en": "Division by lapses of awareness and names / two names",
+     "desc": "התחייבות בקרבן › עבירה שיש בה ספק › חטאות › אין חטא מסוים",
+     "desc_de": "Verpflichtung zum Opfer › Vergehen, bei dem ein Zweifel besteht › Sündopfer › Keine bestimmte Sünde",
+     "desc_en": "Obligation to bring an offering › Transgression involving doubt › Sin offerings › No specific sin"
+    },
+    {
+     "ref": "4:3",
+     "text": "שתי שמות, קיום כוונה, מתעסק",
+     "text_de": "Zwei Namen, Erfüllung der Absicht, Mitarbeiter ohne Absicht",
+     "text_en": "Two names, fulfillment of intent, one acting inadvertently",
+     "desc": "התחייבות בקרבן › עבירה שיש בה ספק › חטאות › אין חטא מסוים",
+     "desc_de": "Verpflichtung zum Opfer › Vergehen, bei dem ein Zweifel besteht › Sündopfer › Keine bestimmte Sünde",
+     "desc_en": "Obligation to bring an offering › Transgression involving doubt › Sin offerings › No specific sin"
+    }
+   ]
+  },
+  {
+   "head": "פרק ה",
+   "head_de": "Kapitel 5",
+   "head_en": "Chapter 5",
+   "items": [
+    {
+     "ref": "5:1",
+     "text": "דם המחייב",
+     "text_de": "Blut, das Verpflichtung bewirkt",
+     "text_en": "Blood that causes liability",
+     "desc": "התחייבות בקרבן › עבירה שיש בה ספק › חטאות",
+     "desc_de": "Verpflichtung zum Opfer › Vergehen, bei dem ein Zweifel besteht › Sündopfer",
+     "desc_en": "Obligation to bring an offering › Transgression involving doubt › Sin offerings"
+    },
+    {
+     "ref": "5:2",
+     "text": "ספק מעילה",
+     "text_de": "Zweifel an Veruntreuung",
+     "text_en": "Doubt regarding misappropriation of sacred property",
+     "desc": "התחייבות בקרבן › עבירה שיש בה ספק › חטאות ואשמות › אותו קרבן לספק ולודאי",
+     "desc_de": "Verpflichtung zum Opfer › Vergehen, bei dem ein Zweifel besteht › Sündopfer und Schuldopfer › Dasselbe Opfer für Zweifel und Gewissheit",
+     "desc_en": "Obligation to bring an offering › Transgression involving doubt › Sin offerings and guilt offerings › The same offering for doubt and certainty"
+    },
+    {
+     "ref": "5:3",
+     "text": "ספק מעילה מועטת, חטאת העוף",
+     "text_de": "Zweifel an geringer Veruntreuung, Vogel-Sündopfer",
+     "text_en": "Doubt regarding minor misappropriation, bird sin offering",
+     "desc": "התחייבות בקרבן › עבירה שיש בה ספק › חטאות ואשמות › אותו קרבן לספק ולודאי",
+     "desc_de": "Verpflichtung zum Opfer › Vergehen, bei dem ein Zweifel besteht › Sündopfer und Schuldopfer › Dasselbe Opfer für Zweifel und Gewissheit",
+     "desc_en": "Obligation to bring an offering › Transgression involving doubt › Sin offerings and guilt offerings › The same offering for doubt and certainty"
+    },
+    {
+     "ref": "5:4",
+     "text": "חולין וקודש",
+     "text_de": "Profanes und Heiliges",
+     "text_en": "Unconsecrated and sacred",
+     "desc": "התחייבות בקרבן › עבירה שיש בה ספק › חטאות ואשמות › אכילת אדם אחד או שניים",
+     "desc_de": "Verpflichtung zum Opfer › Vergehen, bei dem ein Zweifel besteht › Sündopfer und Schuldopfer › Verzehr durch eine oder zwei Personen",
+     "desc_en": "Obligation to bring an offering › Transgression involving doubt › Sin offerings and guilt offerings › Consumption by one or two people"
+    },
+    {
+     "ref": "5:5",
+     "text": "חולין וחלב",
+     "text_de": "Profanes und Fett",
+     "text_en": "Unconsecrated food and forbidden fat",
+     "desc": "התחייבות בקרבן › עבירה שיש בה ספק › חטאות ואשמות › אכילת אדם אחד או שניים",
+     "desc_de": "Verpflichtung zum Opfer › Vergehen, bei dem ein Zweifel besteht › Sündopfer und Schuldopfer › Verzehr durch eine oder zwei Personen",
+     "desc_en": "Obligation to bring an offering › Transgression involving doubt › Sin offerings and guilt offerings › Consumption by one or two people"
+    },
+    {
+     "ref": "5:6",
+     "text": "חלב וקודש",
+     "text_de": "Fett und Geweihtes",
+     "text_en": "Forbidden fat and consecrated items",
+     "desc": "התחייבות בקרבן › עבירה שיש בה ספק › חטאות ואשמות › אכילת אדם אחד או שניים",
+     "desc_de": "Verpflichtung zum Opfer › Vergehen, bei dem ein Zweifel besteht › Sündopfer und Schuldopfer › Verzehr durch eine oder zwei Personen",
+     "desc_en": "Obligation to bring an offering › Transgression involving doubt › Sin offerings and guilt offerings › Consumption by one or two people"
+    },
+    {
+     "ref": "5:7",
+     "text": "חלב וחלב קודש",
+     "text_de": "Fett und geweihtes Fett",
+     "text_en": "Forbidden fat and consecrated fat",
+     "desc": "התחייבות בקרבן › עבירה שיש בה ספק › חטאות ואשמות › אכילת אדם אחד או שניים",
+     "desc_de": "Verpflichtung zum Opfer › Vergehen, bei dem ein Zweifel besteht › Sündopfer und Schuldopfer › Verzehr durch eine oder zwei Personen",
+     "desc_en": "Obligation to bring an offering › Transgression involving doubt › Sin offerings and guilt offerings › Consumption by one or two people"
+    },
+    {
+     "ref": "5:8",
+     "text": "חלב וחלב נותר",
+     "text_de": "Fett und Übriggebliebenes (Notar)",
+     "text_en": "Forbidden fat and leftover sacrificial meat (notar)",
+     "desc": "התחייבות בקרבן › עבירה שיש בה ספק › חטאות ואשמות › אכילת אדם אחד או שניים",
+     "desc_de": "Verpflichtung zum Opfer › Vergehen, bei dem ein Zweifel besteht › Sündopfer und Schuldopfer › Verzehr durch eine oder zwei Personen",
+     "desc_en": "Obligation to bring an offering › Transgression involving doubt › Sin offerings and guilt offerings › Consumption by one or two people"
+    }
+   ]
+  },
+  {
+   "head": "פרק ו",
+   "head_de": "Kapitel 6",
+   "head_en": "Chapter 6",
+   "items": [
+    {
+     "ref": "6:1",
+     "text": "אשם תלוי",
+     "text_de": "Bedingtes Schuldopfer",
+     "text_en": "Conditional guilt offering",
+     "desc": "התחייבות בקרבן › עבירה שיש בה ספק › חטאות ואשמות › נתברר הספק",
+     "desc_de": "Verpflichtung zum Opfer › Vergehen, bei dem ein Zweifel besteht › Sündopfer und Schuldopfer › Der Zweifel wurde geklärt",
+     "desc_en": "Obligation to bring an offering › Transgression involving doubt › Sin offerings and guilt offerings › The doubt was resolved"
+    },
+    {
+     "ref": "6:2",
+     "text": "אשם ודאי, שור הנסקל, עגלה ערופה",
+     "text_de": "Sicheres Schuldopfer, gesteinigter Ochse, genickte Kuh",
+     "text_en": "Certain guilt offering, the ox that is stoned, the heifer whose neck is broken",
+     "desc": "התחייבות בקרבן › עבירה שיש בה ספק › חטאות ואשמות › נתברר הספק",
+     "desc_de": "Verpflichtung zum Opfer › Vergehen, bei dem ein Zweifel besteht › Sündopfer und Schuldopfer › Der Zweifel wurde geklärt",
+     "desc_en": "Obligation to bring an offering › Transgression involving doubt › Sin offerings and guilt offerings › The doubt was resolved"
+    },
+    {
+     "ref": "6:3",
+     "text": "נדבת אשם תלוי \\ אשם תלוי",
+     "text_de": "Freiwilliges Schuldopfer für Zweifelsfall / Zweifelsschuldopfer",
+     "text_en": "Voluntary offering for a suspended guilt offering / suspended guilt offering",
+     "desc": "התחייבות בקרבן › עבירה שיש בה ספק › חטאות ואשמות",
+     "desc_de": "Verpflichtung zum Opfer › Vergehen, bei dem ein Zweifel besteht › Sündopfer und Schuldopfer",
+     "desc_en": "Obligation to bring an offering › Transgression involving doubt › Sin offerings and guilt offerings"
+    },
+    {
+     "ref": "6:4",
+     "text": "חטאות ואשמות ודאים ותלויים",
+     "text_de": "Sichere und zweifelhafte Sünd- und Schuldopfer",
+     "text_en": "Certain and doubtful sin offerings and guilt offerings",
+     "desc": "התחייבות בקרבן › עבירה שיש בה ספק › חטאות ואשמות › כפרת יוה\"כ על חייבי קרבן",
+     "desc_de": "Verpflichtung zum Opfer › Vergehen, bei dem ein Zweifel besteht › Sündopfer und Schuldopfer › Sühne des Versöhnungstages für Opferpflichtige",
+     "desc_en": "Obligation to bring an offering › Transgression involving doubt › Sin offerings and guilt offerings › Atonement of the Day of Atonement for those liable to bring an offering"
+    },
+    {
+     "ref": "6:5",
+     "text": "חטאת העוף ספק ואם נתברר ספקה",
+     "text_de": "Vogel-Sündopfer im Zweifelsfall und wenn der Zweifel geklärt wurde",
+     "text_en": "Bird sin offering in a case of doubt and when the doubt was resolved",
+     "desc": "התחייבות בקרבן › עבירה שיש בה ספק › חטאות ואשמות › כפרת יוה\"כ על חייבי קרבן",
+     "desc_de": "Verpflichtung zum Opfer › Vergehen, bei dem ein Zweifel besteht › Sündopfer und Schuldopfer › Sühne des Versöhnungstages für Opferpflichtige",
+     "desc_en": "Obligation to bring an offering › Transgression involving doubt › Sin offerings and guilt offerings › Atonement of the Day of Atonement for those liable to bring an offering"
+    },
+    {
+     "ref": "6:6",
+     "text": "באשם, התיקרות ומעילה בדמים",
+     "text_de": "Beim Schuldopfer, Preissteigerung und Veruntreuung bei Geldwerten",
+     "text_en": "In the guilt offering, price increase and misappropriation involving money",
+     "desc": "התחייבות בקרבן › בחירת בעל חי להקרבה › שינוי הקדש",
+     "desc_de": "Verpflichtung zum Opfer › Auswahl eines Tiers zum Opfer › Umwidmung eines geweihten Gegenstands",
+     "desc_en": "Obligation to bring an offering › Selection of an animal for sacrifice › Change of a consecrated item"
+    },
+    {
+     "ref": "6:7",
+     "text": "חטאת לחטא אחר",
+     "text_de": "Sündopfer für eine andere Sünde",
+     "text_en": "Sin offering for a different sin",
+     "desc": "התחייבות בקרבן › בחירת בעל חי להקרבה › שינוי הקדש",
+     "desc_de": "Verpflichtung zum Opfer › Auswahl eines Tiers zum Opfer › Umwidmung eines geweihten Gegenstands",
+     "desc_en": "Obligation to bring an offering › Selection of an animal for sacrifice › Change of a consecrated item"
+    },
+    {
+     "ref": "6:8",
+     "text": "דמי הקדש, שינוי במצב כספו",
+     "text_de": "Wert geweihter Güter, Änderung ihres Geldwerts",
+     "text_en": "Value of consecrated property, change in its monetary value",
+     "desc": "התחייבות בקרבן › בחירת בעל חי להקרבה › שינוי הקדש",
+     "desc_de": "Verpflichtung zum Opfer › Auswahl eines Tiers zum Opfer › Umwidmung eines geweihten Gegenstands",
+     "desc_en": "Obligation to bring an offering › Selection of an animal for sacrifice › Change of a consecrated item"
+    },
+    {
+     "ref": "6:9",
+     "text": "צאן, עוף, הורים, מורים",
+     "text_de": "Kleinvieh, Vögel, Eltern, Lehrer",
+     "text_en": "Flock animals, birds, parents, teachers",
+     "desc": "התחייבות בקרבן › בחירת בעל חי להקרבה › חשיבות",
+     "desc_de": "Verpflichtung zum Opfer › Auswahl eines Tiers zum Opfer › Bedeutung",
+     "desc_en": "Obligation to bring an offering › Selection of an animal for sacrifice › Significance"
+    }
+   ]
+  }
+ ]
+}

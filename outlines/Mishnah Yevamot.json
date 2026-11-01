@@ -1,0 +1,1230 @@
+{
+ "book": "Mishnah Yevamot",
+ "title": "משנה יבמות",
+ "title_de": "Mischna Jewamot – Gliederung",
+ "title_en": "Yevamot – outline",
+ "note": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema).",
+ "note_de": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema); ins Deutsche und Englische übersetzt.",
+ "note_en": "Outline after the table “Mishna Sedura”: the central content of each mishnah, with the topic path (main topic to sub-topic); translated into German and English.",
+ "sections": [
+  {
+   "head": "פרק א",
+   "head_de": "Kapitel 1",
+   "head_en": "Chapter 1",
+   "items": [
+    {
+     "ref": "1:1",
+     "text": "15 נשים, כלל",
+     "text_de": "Fünfzehn Frauen, Grundsatz",
+     "text_en": "Fifteen women, general rule",
+     "desc": "הלכות יבום וחליצה › הפטורות מיבום וחליצה › פטור צרות › הפטור וביטולו",
+     "desc_de": "Gesetze der Leviratsehe und Chalitza › Von Leviratsehe und Chalitza Befreite › Befreiung wegen der Nebenfrau › Die Befreiung und ihre Aufhebung",
+     "desc_en": "Laws of levirate marriage and chalitza › Those exempt from levirate marriage and chalitza › Exemption through the rival wife › The exemption and its annulment"
+    },
+    {
+     "ref": "1:2",
+     "text": "הדגמת, אם לא מאנה",
+     "text_de": "Veranschaulichung, wenn sie nicht verweigert hat",
+     "text_en": "Illustration, if she did not refuse",
+     "desc": "הלכות יבום וחליצה › הפטורות מיבום וחליצה › פטור צרות › הפטור וביטולו",
+     "desc_de": "Gesetze der Leviratsehe und Chalitza › Von Leviratsehe und Chalitza Befreite › Befreiung wegen der Nebenfrau › Die Befreiung und ihre Aufhebung",
+     "desc_en": "Laws of levirate marriage and chalitza › Those exempt from levirate marriage and chalitza › Exemption through the rival wife › The exemption and its annulment"
+    },
+    {
+     "ref": "1:3",
+     "text": "6 עריות החמורות",
+     "text_de": "Die sechs schweren Inzestverbote",
+     "text_en": "The six severe incest prohibitions",
+     "desc": "הלכות יבום וחליצה › הפטורות מיבום וחליצה › פטור צרות › אינן פוטרות",
+     "desc_de": "Gesetze der Leviratsehe und Chalitza › Von Leviratsehe und Chalitza Befreite › Befreiung wegen der Nebenfrau › Befreien nicht",
+     "desc_en": "Laws of levirate marriage and chalitza › Those exempt from levirate marriage and chalitza › Exemption through the rival wife › They do not exempt"
+    },
+    {
+     "ref": "1:4",
+     "text": "פטור צרה ונפקא מינות, יחסים ביניהם",
+     "text_de": "Befreiung der Nebenfrau und Folgen, Beziehungen zwischen ihnen",
+     "text_en": "Exemption of the rival wife and consequences, relations between them",
+     "desc": "הלכות יבום וחליצה › הפטורות מיבום וחליצה › פטור צרות › ב\"ש וב\"ה",
+     "desc_de": "Gesetze der Leviratsehe und Chalitza › Von Leviratsehe und Chalitza Befreite › Befreiung wegen der Nebenfrau › Schule Schammais und Schule Hillels",
+     "desc_en": "Laws of levirate marriage and chalitza › Those exempt from levirate marriage and chalitza › Exemption through the rival wife › School of Shammai and School of Hillel"
+    }
+   ]
+  },
+  {
+   "head": "פרק ב",
+   "head_de": "Kapitel 2",
+   "head_en": "Chapter 2",
+   "items": [
+    {
+     "ref": "2:1",
+     "text": "שנולד לזיקה",
+     "text_de": "Der zur Bindung geboren wurde",
+     "text_en": "One born into the bond",
+     "desc": "הלכות יבום וחליצה › הפטורות מיבום וחליצה › אשת אחיו שלא בעולמו",
+     "desc_de": "Gesetze der Leviratsehe und Chalitza › Von Leviratsehe und Chalitza Befreite › Frau seines Bruders, die nicht zu seiner Lebenszeit lebte",
+     "desc_en": "Laws of levirate marriage and chalitza › Those exempt from levirate marriage and chalitza › Brother's wife who was not in his lifetime"
+    },
+    {
+     "ref": "2:2",
+     "text": "שנולד אחר יבום",
+     "text_de": "Der nach der Leviratsehe geboren wurde",
+     "text_en": "One born after levirate marriage",
+     "desc": "הלכות יבום וחליצה › הפטורות מיבום וחליצה › אשת אחיו שלא בעולמו",
+     "desc_de": "Gesetze der Leviratsehe und Chalitza › Von Leviratsehe und Chalitza Befreite › Frau seines Bruders, die nicht zu seiner Lebenszeit lebte",
+     "desc_en": "Laws of levirate marriage and chalitza › Those exempt from levirate marriage and chalitza › Brother's wife who was not in his lifetime"
+    },
+    {
+     "ref": "2:3",
+     "text": "ערוה, מצוה וקדושה, אחות ויבמת ערוה",
+     "text_de": "Blutschande, Gebot und Heiligkeit, Schwester und Schwägerin bei Blutschande",
+     "text_en": "Forbidden relation, commandment and sanctity, sister and sister-in-law in a forbidden relation",
+     "desc": "הלכות יבום וחליצה › כללי זיקת יבמה › התרת הזיקה › כלל",
+     "desc_de": "Gesetze der Leviratsehe und Chalitza › Grundsätze der Bindung der Schwägerin › Lösung der Bindung › Grundregel",
+     "desc_en": "Laws of levirate marriage and chalitza › Principles of the bond of the sister-in-law › Release of the bond › General rule"
+    },
+    {
+     "ref": "2:4",
+     "text": "שניות, פסולות לכהונה ולקהל",
+     "text_de": "Zweitgradige Verbote, für das Priestertum und die Gemeinde Untaugliche",
+     "text_en": "Secondary prohibitions, those unfit for the priesthood and the congregation",
+     "desc": "הלכות יבום וחליצה › כללי זיקת יבמה › התרת הזיקה › החולצות",
+     "desc_de": "Gesetze der Leviratsehe und Chalitza › Grundsätze der Bindung der Schwägerin › Lösung der Bindung › Die Chalitza-Vollziehenden",
+     "desc_en": "Laws of levirate marriage and chalitza › Principles of the bond of the sister-in-law › Release of the bond › Women performing chalitza"
+    },
+    {
+     "ref": "2:5",
+     "text": "אח ובן מכל מקום",
+     "text_de": "Bruder und Sohn in jedem Fall",
+     "text_en": "Brother and son in every case",
+     "desc": "הלכות יבום וחליצה › כללי זיקת יבמה › יצירת הזיקה",
+     "desc_de": "Gesetze der Leviratsehe und Chalitza › Grundsätze der Bindung der Schwägerin › Entstehung der Bindung",
+     "desc_en": "Laws of levirate marriage and chalitza › Principles of the bond of the sister-in-law › Creation of the bond"
+    },
+    {
+     "ref": "2:6",
+     "text": "אחד שקידש",
+     "text_de": "Einer, der angetraut hat",
+     "text_en": "One who betrothed",
+     "desc": "הלכות יבום וחליצה › הדגמה בנשואים לאחיות › שאם כנסו אין מוציאין › ספק בקידושי אחיות",
+     "desc_de": "Gesetze der Leviratsehe und Chalitza › Veranschaulichung bei Ehen mit Schwestern › Wenn sie geheiratet haben, entlässt man sie nicht › Zweifel bei der Trauung von Schwestern",
+     "desc_en": "Laws of levirate marriage and chalitza › Illustration in marriages to sisters › If they married, they are not sent away › Doubt in the betrothal of sisters"
+    },
+    {
+     "ref": "2:7",
+     "text": "שנים שקדשו",
+     "text_de": "Zwei, die angetraut haben",
+     "text_en": "Two who betrothed",
+     "desc": "הלכות יבום וחליצה › הדגמה בנשואים לאחיות › שאם כנסו אין מוציאין › ספק בקידושי אחיות",
+     "desc_de": "Gesetze der Leviratsehe und Chalitza › Veranschaulichung bei Ehen mit Schwestern › Wenn sie geheiratet haben, entlässt man sie nicht › Zweifel bei der Trauung von Schwestern",
+     "desc_en": "Laws of levirate marriage and chalitza › Illustration in marriages to sisters › If they married, they are not sent away › Doubt in the betrothal of sisters"
+    },
+    {
+     "ref": "2:8",
+     "text": "צעיר שיבם \\ הנטען",
+     "text_de": "Jüngerer, der die Leviratsehe vollzog / der Verdächtigte",
+     "text_en": "Younger one who performed levirate marriage / the one suspected",
+     "desc": "הלכות יבום וחליצה › הדגמה בנשואים לאחיות › שאם כנסו אין מוציאין › חשד",
+     "desc_de": "Gesetze der Leviratsehe und Chalitza › Veranschaulichung bei Ehen mit Schwestern › Wenn sie geheiratet haben, entlässt man sie nicht › Verdacht",
+     "desc_en": "Laws of levirate marriage and chalitza › Illustration in marriages to sisters › If they married, they are not sent away › Suspicion"
+    },
+    {
+     "ref": "2:9",
+     "text": "המעיד על גט או מיתה",
+     "text_de": "Zeugnis über Scheidebrief oder Tod",
+     "text_en": "Testimony about a bill of divorce or death",
+     "desc": "הלכות יבום וחליצה › הדגמה בנשואים לאחיות › שאם כנסו אין מוציאין › חשד",
+     "desc_de": "Gesetze der Leviratsehe und Chalitza › Veranschaulichung bei Ehen mit Schwestern › Wenn sie geheiratet haben, entlässt man sie nicht › Verdacht",
+     "desc_en": "Laws of levirate marriage and chalitza › Illustration in marriages to sisters › If they married, they are not sent away › Suspicion"
+    },
+    {
+     "ref": "2:10",
+     "text": "חכם ודין, מתי אין חשד",
+     "text_de": "Gelehrter und Rechtsregel, wann kein Verdacht besteht",
+     "text_en": "Sage and legal rule, when there is no suspicion",
+     "desc": "הלכות יבום וחליצה › הדגמה בנשואים לאחיות › שאם כנסו אין מוציאין › חשד",
+     "desc_de": "Gesetze der Leviratsehe und Chalitza › Veranschaulichung bei Ehen mit Schwestern › Wenn sie geheiratet haben, entlässt man sie nicht › Verdacht",
+     "desc_en": "Laws of levirate marriage and chalitza › Illustration in marriages to sisters › If they married, they are not sent away › Suspicion"
+    }
+   ]
+  },
+  {
+   "head": "פרק ג",
+   "head_de": "Kapitel 3",
+   "head_en": "Chapter 3",
+   "items": [
+    {
+     "ref": "3:1",
+     "text": "שכנס כל אחד אחות זקוקתו",
+     "text_de": "Dass jeder die Schwester seiner Leviratsverpflichteten heiratete",
+     "text_en": "That each one married the sister of his levirate-bound woman",
+     "desc": "הלכות יבום וחליצה › הדגמה בנשואים לאחיות › ארבעה אחים › מתו השנים הנשואים לאחיות",
+     "desc_de": "Gesetze der Leviratsehe und Chalitza › Veranschaulichung bei Ehen mit Schwestern › Vier Brüder › Die beiden mit Schwestern Verheirateten starben",
+     "desc_en": "Laws of levirate marriage and chalitza › Illustration in marriages to sisters › Four brothers › The two married to sisters died"
+    },
+    {
+     "ref": "3:2",
+     "text": "אחת אסורה על אחד",
+     "text_de": "Eine ist einem verboten",
+     "text_en": "One is forbidden to one",
+     "desc": "הלכות יבום וחליצה › הדגמה בנשואים לאחיות › ארבעה אחים › מתו השנים הנשואים לאחיות",
+     "desc_de": "Gesetze der Leviratsehe und Chalitza › Veranschaulichung bei Ehen mit Schwestern › Vier Brüder › Die beiden mit Schwestern Verheirateten starben",
+     "desc_en": "Laws of levirate marriage and chalitza › Illustration in marriages to sisters › Four brothers › The two married to sisters died"
+    },
+    {
+     "ref": "3:3",
+     "text": "כל אחת אסורה על אחד",
+     "text_de": "Jede ist einem verboten",
+     "text_en": "Each is forbidden to one",
+     "desc": "הלכות יבום וחליצה › הדגמה בנשואים לאחיות › ארבעה אחים › מתו השנים הנשואים לאחיות",
+     "desc_de": "Gesetze der Leviratsehe und Chalitza › Veranschaulichung bei Ehen mit Schwestern › Vier Brüder › Die beiden mit Schwestern Verheirateten starben",
+     "desc_en": "Laws of levirate marriage and chalitza › Illustration in marriages to sisters › Four brothers › The two married to sisters died"
+    },
+    {
+     "ref": "3:4",
+     "text": "שנפלו לפני אחד, אם רק אחת אסורה",
+     "text_de": "Die einem zufielen, wenn nur eine verboten ist",
+     "text_en": "Those who fell to one, if only one is forbidden",
+     "desc": "הלכות יבום וחליצה › הדגמה בנשואים לאחיות › שלשה אחים › אחד מופנה › מתו השנים הנשואים לאחיות",
+     "desc_de": "Gesetze der Leviratsehe und Chalitza › Veranschaulichung bei Ehen mit Schwestern › Drei Brüder › Ein Abgesonderter › Die beiden mit Schwestern Verheirateten starben",
+     "desc_en": "Laws of levirate marriage and chalitza › Illustration in marriages to sisters › Three brothers › A set-aside one › The two married to sisters died"
+    },
+    {
+     "ref": "3:5",
+     "text": "השפעת זיקה לאחר מאמר",
+     "text_de": "Einfluss der Bindung nach dem Antrauungswort",
+     "text_en": "Effect of the bond after the betrothal declaration",
+     "desc": "הלכות יבום וחליצה › הדגמה בנשואים לאחיות › שלשה אחים › אחד מופנה",
+     "desc_de": "Gesetze der Leviratsehe und Chalitza › Veranschaulichung bei Ehen mit Schwestern › Drei Brüder › Ein Abgesonderter",
+     "desc_en": "Laws of levirate marriage and chalitza › Illustration in marriages to sisters › Three brothers › A set-aside one"
+    },
+    {
+     "ref": "3:6",
+     "text": "נפילת אחות וצרתה לפני בעל אחות",
+     "text_de": "Zufall der Schwester und ihrer Nebenfrau an den Mann der Schwester",
+     "text_en": "Falling of the sister and her rival wife to the sister's husband",
+     "desc": "הלכות יבום וחליצה › הדגמה בנשואים לאחיות › שלשה אחים › אחד נשוי נכרית",
+     "desc_de": "Gesetze der Leviratsehe und Chalitza › Veranschaulichung bei Ehen mit Schwestern › Drei Brüder › Einer ist mit einer Nichtjüdin verheiratet",
+     "desc_en": "Laws of levirate marriage and chalitza › Illustration in marriages to sisters › Three brothers › One is married to a non-Jewish woman"
+    },
+    {
+     "ref": "3:7",
+     "text": "מיתה וגירושין אחרי ולפני זיקה",
+     "text_de": "Tod und Scheidung nach und vor der Bindung",
+     "text_en": "Death and divorce after and before the bond",
+     "desc": "הלכות יבום וחליצה › הדגמה בנשואים לאחיות › שלשה אחים › אחד נשוי נכרית",
+     "desc_de": "Gesetze der Leviratsehe und Chalitza › Veranschaulichung bei Ehen mit Schwestern › Drei Brüder › Einer ist mit einer Nichtjüdin verheiratet",
+     "desc_en": "Laws of levirate marriage and chalitza › Illustration in marriages to sisters › Three brothers › One is married to a non-Jewish woman"
+    },
+    {
+     "ref": "3:8",
+     "text": "ספק קידושין וגירושין",
+     "text_de": "Zweifel bei Trauung und Scheidung",
+     "text_en": "Doubt in betrothal and divorce",
+     "desc": "הלכות יבום וחליצה › הדגמה בנשואים לאחיות › שלשה אחים › אחד נשוי נכרית",
+     "desc_de": "Gesetze der Leviratsehe und Chalitza › Veranschaulichung bei Ehen mit Schwestern › Drei Brüder › Einer ist mit einer Nichtjüdin verheiratet",
+     "desc_en": "Laws of levirate marriage and chalitza › Illustration in marriages to sisters › Three brothers › One is married to a non-Jewish woman"
+    },
+    {
+     "ref": "3:9",
+     "text": "זיקת שתי יבמות \\ מיתה אחר זיקה",
+     "text_de": "Bindung zweier Schwägerinnen / Tod nach der Bindung",
+     "text_en": "Bond of two sisters-in-law / death after the bond",
+     "desc": "הלכות יבום וחליצה › הדגמה בנשואים לאחיות › שלשה אחים › שני אחים",
+     "desc_de": "Gesetze der Leviratsehe und Chalitza › Veranschaulichung bei Ehen mit Schwestern › Drei Brüder › Zwei Brüder",
+     "desc_en": "Laws of levirate marriage and chalitza › Illustration in marriages to sisters › Three brothers › Two brothers"
+    },
+    {
+     "ref": "3:10",
+     "text": "איסורים בהחלפת נשים",
+     "text_de": "Verbote beim Vertauschen von Frauen",
+     "text_en": "Prohibitions in the exchange of wives",
+     "desc": "הלכות יבום וחליצה › הדגמה בנשואים לאחיות › מעשה בטעות › שני אחים",
+     "desc_de": "Gesetze der Leviratsehe und Chalitza › Veranschaulichung bei Ehen mit Schwestern › Vorfall aus Irrtum › Zwei Brüder",
+     "desc_en": "Laws of levirate marriage and chalitza › Illustration in marriages to sisters › Case of error › Two brothers"
+    }
+   ]
+  },
+  {
+   "head": "פרק ד",
+   "head_de": "Kapitel 4",
+   "head_en": "Chapter 4",
+   "items": [
+    {
+     "ref": "4:1",
+     "text": "אחר חליצה",
+     "text_de": "Nach der Chalitza",
+     "text_en": "After chalitza",
+     "desc": "הלכות יבום וחליצה › תוצאות היבום והחליצה › מעשה בטעות › ולד יבמה",
+     "desc_de": "Gesetze der Leviratsehe und Chalitza › Folgen von Leviratsehe und Chalitza › Vorfall aus Irrtum › Kind der Schwägerin",
+     "desc_en": "Laws of levirate marriage and chalitza › Consequences of levirate marriage and chalitza › Case of error › Child of the sister-in-law"
+    },
+    {
+     "ref": "4:2",
+     "text": "אחר יבום",
+     "text_de": "Nach der Leviratsehe",
+     "text_en": "After levirate marriage",
+     "desc": "הלכות יבום וחליצה › תוצאות היבום והחליצה › מעשה בטעות › ולד יבמה",
+     "desc_de": "Gesetze der Leviratsehe und Chalitza › Folgen von Leviratsehe und Chalitza › Vorfall aus Irrtum › Kind der Schwägerin",
+     "desc_en": "Laws of levirate marriage and chalitza › Consequences of levirate marriage and chalitza › Case of error › Child of the sister-in-law"
+    },
+    {
+     "ref": "4:3",
+     "text": "השומרת יבם ואם מתה",
+     "text_de": "Die auf den Schwager Wartende und wenn sie stirbt",
+     "text_en": "The woman waiting for her brother-in-law and if she dies",
+     "desc": "הלכות יבום וחליצה › תוצאות היבום והחליצה › דין הנכסים › נכסי היבמה",
+     "desc_de": "Gesetze der Leviratsehe und Chalitza › Folgen von Leviratsehe und Chalitza › Recht der Vermögenswerte › Vermögen der Schwägerin",
+     "desc_en": "Laws of levirate marriage and chalitza › Consequences of levirate marriage and chalitza › Law of the property › Property of the sister-in-law"
+    },
+    {
+     "ref": "4:4",
+     "text": "אחר יבום, כתובתה",
+     "text_de": "Nach der Leviratsehe, ihre Eheurkunde",
+     "text_en": "After levirate marriage, her marriage contract",
+     "desc": "הלכות יבום וחליצה › תוצאות היבום והחליצה › דין הנכסים › נכסי היבמה",
+     "desc_de": "Gesetze der Leviratsehe und Chalitza › Folgen von Leviratsehe und Chalitza › Recht der Vermögenswerte › Vermögen der Schwägerin",
+     "desc_en": "Laws of levirate marriage and chalitza › Consequences of levirate marriage and chalitza › Law of the property › Property of the sister-in-law"
+    },
+    {
+     "ref": "4:5",
+     "text": "הגדול לכתחילה",
+     "text_de": "Der Älteste von vornherein",
+     "text_en": "The eldest in the first instance",
+     "desc": "הלכות יבום וחליצה › תוצאות היבום והחליצה › דין הנכסים › חיוב ליבם",
+     "desc_de": "Gesetze der Leviratsehe und Chalitza › Folgen von Leviratsehe und Chalitza › Recht der Vermögenswerte › Verpflichtung zur Leviratsehe",
+     "desc_en": "Laws of levirate marriage and chalitza › Consequences of levirate marriage and chalitza › Law of the property › Obligation of levirate marriage"
+    },
+    {
+     "ref": "4:6",
+     "text": "אי שהיית המצוה",
+     "text_de": "Nicht Aufschieben des Gebots",
+     "text_en": "Not delaying the commandment",
+     "desc": "הלכות יבום וחליצה › תוצאות היבום והחליצה › דין הנכסים › חיוב ליבם",
+     "desc_de": "Gesetze der Leviratsehe und Chalitza › Folgen von Leviratsehe und Chalitza › Recht der Vermögenswerte › Verpflichtung zur Leviratsehe",
+     "desc_en": "Laws of levirate marriage and chalitza › Consequences of levirate marriage and chalitza › Law of the property › Obligation of levirate marriage"
+    },
+    {
+     "ref": "4:7",
+     "text": "נכסי הנפטר \\ שלה, שלו, של צרתה",
+     "text_de": "Vermögen des Verstorbenen / ihr eigenes, seines, das ihrer Nebenfrau",
+     "text_en": "Property of the deceased / her own, his, that of her rival wife",
+     "desc": "הלכות יבום וחליצה › תוצאות היבום והחליצה › איסורי ביאה › דין הנכסים › איסור בקרובים",
+     "desc_de": "Gesetze der Leviratsehe und Chalitza › Folgen von Leviratsehe und Chalitza › Verbotene Beziehungen › Recht der Vermögenswerte › Verbot unter Verwandten",
+     "desc_en": "Laws of levirate marriage and chalitza › Consequences of levirate marriage and chalitza › Forbidden relations › Law of the property › Prohibition among relatives"
+    },
+    {
+     "ref": "4:8",
+     "text": "אחות גרושה וחלוצה",
+     "text_de": "Geschiedene und durch Chalitza gelöste Schwester",
+     "text_en": "Divorced sister and sister released by chalitza",
+     "desc": "הלכות יבום וחליצה › תוצאות היבום והחליצה › איסורי ביאה › איסור בקרובים",
+     "desc_de": "Gesetze der Leviratsehe und Chalitza › Folgen von Leviratsehe und Chalitza › Verbotene Beziehungen › Verbot unter Verwandten",
+     "desc_en": "Laws of levirate marriage and chalitza › Consequences of levirate marriage and chalitza › Forbidden relations › Prohibition among relatives"
+    },
+    {
+     "ref": "4:9",
+     "text": "אחות זקוקתו",
+     "text_de": "Schwester seiner Leviratsverpflichteten",
+     "text_en": "Sister of his levirate-bound woman",
+     "desc": "הלכות יבום וחליצה › תוצאות היבום והחליצה › איסורי ביאה › איסור בקרובים",
+     "desc_de": "Gesetze der Leviratsehe und Chalitza › Folgen von Leviratsehe und Chalitza › Verbotene Beziehungen › Verbot unter Verwandten",
+     "desc_en": "Laws of levirate marriage and chalitza › Consequences of levirate marriage and chalitza › Forbidden relations › Prohibition among relatives"
+    },
+    {
+     "ref": "4:10",
+     "text": "הבחנה בין זרע, ובאשת איש",
+     "text_de": "Unterscheidung zwischen Samen und bei der Ehefrau",
+     "text_en": "Distinction between seed, and in the case of a married woman",
+     "desc": "הלכות יבום וחליצה › תוצאות היבום והחליצה › איסורי ביאה › אשת אח",
+     "desc_de": "Gesetze der Leviratsehe und Chalitza › Folgen von Leviratsehe und Chalitza › Verbotene Beziehungen › Frau des Bruders",
+     "desc_en": "Laws of levirate marriage and chalitza › Consequences of levirate marriage and chalitza › Forbidden relations › Brother's wife"
+    },
+    {
+     "ref": "4:11",
+     "text": "יבום וחליצה לכמה נשים",
+     "text_de": "Leviratsehe und Chalitza bei mehreren Frauen",
+     "text_en": "Levirate marriage and chalitza for several women",
+     "desc": "הלכות יבום וחליצה › תוצאות היבום והחליצה › איסורי ביאה › אשת אח",
+     "desc_de": "Gesetze der Leviratsehe und Chalitza › Folgen von Leviratsehe und Chalitza › Verbotene Beziehungen › Frau des Bruders",
+     "desc_en": "Laws of levirate marriage and chalitza › Consequences of levirate marriage and chalitza › Forbidden relations › Brother's wife"
+    },
+    {
+     "ref": "4:12",
+     "text": "דוגמאות של חייבי לאוין ועריות",
+     "text_de": "Beispiele für Verbote und Inzestverbote",
+     "text_en": "Examples of those liable for prohibitions and incest",
+     "desc": "הלכות יבום וחליצה › איסורי ביאה › הגדרת ממזר",
+     "desc_de": "Gesetze der Leviratsehe und Chalitza › Verbotene Beziehungen › Definition des Mamser",
+     "desc_en": "Laws of levirate marriage and chalitza › Forbidden relations › Definition of the mamzer"
+    },
+    {
+     "ref": "4:13",
+     "text": "הדעות ועדות \\ היתר אחר מיתה",
+     "text_de": "Die Meinungen und Zeugen / Erlaubnis nach dem Tod",
+     "text_en": "The opinions and witnesses / permission after death",
+     "desc": "הלכות יבום וחליצה › איסורי ביאה › אחות אשה › הגדרת ממזר",
+     "desc_de": "Gesetze der Leviratsehe und Chalitza › Verbotene Beziehungen › Schwester der Ehefrau › Definition des Mamser",
+     "desc_en": "Laws of levirate marriage and chalitza › Forbidden relations › Wife's sister › Definition of the mamzer"
+    }
+   ]
+  },
+  {
+   "head": "פרק ה",
+   "head_de": "Kapitel 5",
+   "head_en": "Chapter 5",
+   "items": [
+    {
+     "ref": "5:1",
+     "text": "מחלוקת ר\"ג וח\"כ",
+     "text_de": "Streit zwischen Rabban Gamliel und den Weisen",
+     "text_en": "Dispute between Rabban Gamliel and the Sages",
+     "desc": "הלכות יבום וחליצה › הדגמה להשלמת והפקעת הקנין › פעולות מדאורייתא ומדרבנן › כללים",
+     "desc_de": "Gesetze der Leviratsehe und Chalitza › Veranschaulichung der Vollendung und Aufhebung des Erwerbs › Handlungen von der Tora und von den Rabbinen › Regeln",
+     "desc_en": "Laws of levirate marriage and chalitza › Illustration of completion and nullification of acquisition › Acts by Torah law and by rabbinic law › Rules"
+    },
+    {
+     "ref": "5:2",
+     "text": "מאמר תחילה",
+     "text_de": "Antrauungswort zuerst",
+     "text_en": "Betrothal declaration first",
+     "desc": "הלכות יבום וחליצה › הדגמה להשלמת והפקעת הקנין › פעולות מדאורייתא ומדרבנן › יבמה אחת",
+     "desc_de": "Gesetze der Leviratsehe und Chalitza › Veranschaulichung der Vollendung und Aufhebung des Erwerbs › Handlungen von der Tora und von den Rabbinen › Eine Schwägerin",
+     "desc_en": "Laws of levirate marriage and chalitza › Illustration of completion and nullification of acquisition › Acts by Torah law and by rabbinic law › One sister-in-law"
+    },
+    {
+     "ref": "5:3",
+     "text": "גט או חליצה או בעילה תחילה",
+     "text_de": "Scheidebrief oder Chalitza oder Beischlaf zuerst",
+     "text_en": "Bill of divorce or chalitza or intercourse first",
+     "desc": "הלכות יבום וחליצה › הדגמה להשלמת והפקעת הקנין › פעולות מדאורייתא ומדרבנן › יבמה אחת",
+     "desc_de": "Gesetze der Leviratsehe und Chalitza › Veranschaulichung der Vollendung und Aufhebung des Erwerbs › Handlungen von der Tora und von den Rabbinen › Eine Schwägerin",
+     "desc_en": "Laws of levirate marriage and chalitza › Illustration of completion and nullification of acquisition › Acts by Torah law and by rabbinic law › One sister-in-law"
+    },
+    {
+     "ref": "5:4",
+     "text": "מאמר או גט תחילה",
+     "text_de": "Antrauungswort oder Scheidebrief zuerst",
+     "text_en": "Betrothal declaration or bill of divorce first",
+     "desc": "הלכות יבום וחליצה › הדגמה להשלמת והפקעת הקנין › פעולות מדאורייתא ומדרבנן › שתי יבמות",
+     "desc_de": "Gesetze der Leviratsehe und Chalitza › Veranschaulichung der Vollendung und Aufhebung des Erwerbs › Handlungen von der Tora und von den Rabbinen › Zwei Schwägerinnen",
+     "desc_en": "Laws of levirate marriage and chalitza › Illustration of completion and nullification of acquisition › Acts by Torah law and by rabbinic law › Two sisters-in-law"
+    },
+    {
+     "ref": "5:5",
+     "text": "חליצה או בעילה תחילה",
+     "text_de": "Chalitza oder Beischlaf zuerst",
+     "text_en": "Chalitza or intercourse first",
+     "desc": "הלכות יבום וחליצה › הדגמה להשלמת והפקעת הקנין › פעולות מדאורייתא ומדרבנן › שתי יבמות",
+     "desc_de": "Gesetze der Leviratsehe und Chalitza › Veranschaulichung der Vollendung und Aufhebung des Erwerbs › Handlungen von der Tora und von den Rabbinen › Zwei Schwägerinnen",
+     "desc_en": "Laws of levirate marriage and chalitza › Illustration of completion and nullification of acquisition › Acts by Torah law and by rabbinic law › Two sisters-in-law"
+    },
+    {
+     "ref": "5:6",
+     "text": "בתחילה,באמצע ובסוף",
+     "text_de": "Am Anfang, in der Mitte und am Ende",
+     "text_en": "At the beginning, in the middle and at the end",
+     "desc": "הלכות יבום וחליצה › הדגמה להשלמת והפקעת הקנין › פעולות מדאורייתא ומדרבנן › חליצה וביאה",
+     "desc_de": "Gesetze der Leviratsehe und Chalitza › Veranschaulichung der Vollendung und Aufhebung des Erwerbs › Handlungen von der Tora und von den Rabbinen › Chalitza und Beischlaf",
+     "desc_en": "Laws of levirate marriage and chalitza › Illustration of completion and nullification of acquisition › Acts by Torah law and by rabbinic law › Chalitza and intercourse"
+    }
+   ]
+  },
+  {
+   "head": "פרק ו",
+   "head_de": "Kapitel 6",
+   "head_en": "Chapter 6",
+   "items": [
+    {
+     "ref": "6:1",
+     "text": "יבום",
+     "text_de": "Leviratsehe",
+     "text_en": "Levirate marriage",
+     "desc": "הלכות יבום וחליצה › הדגמה להשלמת והפקעת הקנין › פעולות מדאורייתא ומדרבנן › מעשה וכוונת הביאה",
+     "desc_de": "Gesetze der Leviratsehe und Chalitza › Veranschaulichung der Vollendung und Aufhebung des Erwerbs › Handlungen von der Tora und von den Rabbinen › Handlung und Absicht des Beischlafs",
+     "desc_en": "Laws of levirate marriage and chalitza › Illustration of completion and nullification of acquisition › Acts by Torah law and by rabbinic law › Act and intention of intercourse"
+    },
+    {
+     "ref": "6:2",
+     "text": "בעבירה",
+     "text_de": "In Sünde",
+     "text_en": "In transgression",
+     "desc": "איסורי ביאה ונשואין › נישואי כהן › איך נאסרות › הפוסלין לתרומה › מעשה וכוונת הביאה",
+     "desc_de": "Verbote des Beischlafs und der Eheschließung › Ehe eines Priesters › Wie sie verboten werden › Die für die Priesterabgabe Untauglichmachenden › Handlung und Absicht des Beischlafs",
+     "desc_en": "Prohibitions of intercourse and marriage › Marriage of a priest › How they become forbidden › Those who disqualify from terumah › Act and intention of intercourse"
+    },
+    {
+     "ref": "6:3",
+     "text": "מן האירוסין או נשואין",
+     "text_de": "Von der Verlobung oder der Ehe",
+     "text_en": "From betrothal or marriage",
+     "desc": "איסורי ביאה ונשואין › נישואי כהן › איך נאסרות › הפוסלין לתרומה",
+     "desc_de": "Verbote des Beischlafs und der Eheschließung › Ehe eines Priesters › Wie sie verboten werden › Die für die Priesterabgabe Untauglichmachenden",
+     "desc_en": "Prohibitions of intercourse and marriage › Marriage of a priest › How they become forbidden › Those who disqualify from terumah"
+    },
+    {
+     "ref": "6:4",
+     "text": "הפסולה לו, כינוס ארוסה אחר מינויו",
+     "text_de": "Die ihm Untaugliche, Heimführung der Verlobten nach seiner Ernennung",
+     "text_en": "The woman unfit for him, bringing home the betrothed after his appointment",
+     "desc": "איסורי ביאה ונשואין › נישואי כהן › איך נאסרות › כהן גדול",
+     "desc_de": "Verbote des Beischlafs und der Eheschließung › Ehe eines Priesters › Wie sie verboten werden › Hoher Priester",
+     "desc_en": "Prohibitions of intercourse and marriage › Marriage of a priest › How they become forbidden › High Priest"
+    },
+    {
+     "ref": "6:5",
+     "text": "הגדרת זונה",
+     "text_de": "Definition der Zona",
+     "text_en": "Definition of a zonah",
+     "desc": "איסורי ביאה ונשואין › נישואי כהן › פריה ורביה",
+     "desc_de": "Verbote des Beischlafs und der Eheschließung › Ehe eines Priesters › Fortpflanzung",
+     "desc_en": "Prohibitions of intercourse and marriage › Marriage of a priest › Procreation"
+    },
+    {
+     "ref": "6:6",
+     "text": "קיום המצוה, הכרחת גירושין,חיוב האשה",
+     "text_de": "Erfüllung des Gebots, Zwang zur Scheidung, Pflicht der Frau",
+     "text_en": "Fulfillment of the commandment, compelled divorce, obligation of the woman",
+     "desc": "איסורי ביאה ונשואין › נישואי כהן › פריה ורביה",
+     "desc_de": "Verbote des Beischlafs und der Eheschließung › Ehe eines Priesters › Fortpflanzung",
+     "desc_en": "Prohibitions of intercourse and marriage › Marriage of a priest › Procreation"
+    }
+   ]
+  },
+  {
+   "head": "פרק ז",
+   "head_de": "Kapitel 7",
+   "head_en": "Chapter 7",
+   "items": [
+    {
+     "ref": "7:1",
+     "text": "של חללה הנשואה לכהן",
+     "text_de": "Der Chalala, die einem Priester verheiratet ist",
+     "text_en": "Of a chalalah married to a priest",
+     "desc": "איסורי ביאה ונשואין › הרשאית לאכול בתרומה › ע\"י נישואין › עבדים",
+     "desc_de": "Verbote des Beischlafs und der Eheschließung › Die zum Essen der Priesterabgabe Berechtigte › Durch Eheschließung › Sklaven",
+     "desc_en": "Prohibitions of intercourse and marriage › The woman entitled to eat terumah › Through marriage › Slaves"
+    },
+    {
+     "ref": "7:2",
+     "text": "של כשרה הנשואה לכהן או בתו",
+     "text_de": "Der tauglichen Frau, die mit einem Priester verheiratet ist, oder seiner Tochter",
+     "text_en": "Of a fit woman married to a priest, or his daughter",
+     "desc": "איסורי ביאה ונשואין › הרשאית לאכול בתרומה › ע\"י נישואין › עבדים",
+     "desc_de": "Verbote des Beischlafs und der Eheschließung › Die zum Essen der Priesterabgabe Berechtigte › Durch Eheschließung › Sklaven",
+     "desc_en": "Prohibitions of intercourse and marriage › The woman entitled to eat terumah › Through marriage › Slaves"
+    },
+    {
+     "ref": "7:3",
+     "text": "חלק עובר של אשת כהן",
+     "text_de": "Anteil des Fötus einer Priesterfrau",
+     "text_en": "Share of the fetus of a priest's wife",
+     "desc": "איסורי ביאה ונשואין › הרשאית לאכול בתרומה › ע\"י נישואין › עבדים",
+     "desc_de": "Verbote des Beischlafs und der Eheschließung › Die zum Essen der Priesterabgabe Berechtigte › Durch Eheschließung › Sklaven",
+     "desc_en": "Prohibitions of intercourse and marriage › The woman entitled to eat terumah › Through marriage › Slaves"
+    },
+    {
+     "ref": "7:4",
+     "text": "פוסלין ולא מאכילין, ספק האוסר חליצה",
+     "text_de": "Disqualifizieren, aber nicht zum Essen berechtigen, Zweifel, der Chalitza verbietet",
+     "text_en": "Disqualify but do not entitle to eat, doubt that prohibits chalitza",
+     "desc": "איסורי ביאה ונשואין › הרשאית לאכול בתרומה › ע\"י ביאה וזרע › ע\"י נישואין › נשים",
+     "desc_de": "Verbote des Beischlafs und der Eheschließung › Die zum Essen der Priesterabgabe Berechtigte › Durch Beischlaf und Samen › Durch Eheschließung › Frauen",
+     "desc_en": "Prohibitions of intercourse and marriage › The woman entitled to eat terumah › Through intercourse and seed › Through marriage › Women"
+    },
+    {
+     "ref": "7:5",
+     "text": "ביאת זנות, לעבד או ממזר",
+     "text_de": "Hurerei-Beischlaf, mit einem Sklaven oder Mamser",
+     "text_en": "Illicit intercourse, with a slave or mamzer",
+     "desc": "איסורי ביאה ונשואין › הרשאית לאכול בתרומה › ע\"י ביאה וזרע › נשים",
+     "desc_de": "Verbote des Beischlafs und der Eheschließung › Die zum Essen der Priesterabgabe Berechtigte › Durch Beischlaf und Samen › Frauen",
+     "desc_en": "Prohibitions of intercourse and marriage › The woman entitled to eat terumah › Through intercourse and seed › Women"
+    },
+    {
+     "ref": "7:6",
+     "text": "זרע מישראל",
+     "text_de": "Samen von einem Israeliten",
+     "text_en": "Seed from an Israelite",
+     "desc": "איסורי ביאה ונשואין › הרשאית לאכול בתרומה › ע\"י ביאה וזרע › נשים",
+     "desc_de": "Verbote des Beischlafs und der Eheschließung › Die zum Essen der Priesterabgabe Berechtigte › Durch Beischlaf und Samen › Frauen",
+     "desc_en": "Prohibitions of intercourse and marriage › The woman entitled to eat terumah › Through intercourse and seed › Women"
+    }
+   ]
+  },
+  {
+   "head": "פרק ח",
+   "head_de": "Kapitel 8",
+   "head_en": "Chapter 8",
+   "items": [
+    {
+     "ref": "8:1",
+     "text": "ערל,טמא, וקנינם\\ הן ועבדיהן ונשיהן",
+     "text_de": "Unbeschnittener, Unreiner und ihr Erwerb / sie, ihre Sklaven und ihre Frauen",
+     "text_en": "Uncircumcised, impure, and their acquisitions / they, their slaves and their wives",
+     "desc": "איסורי ביאה ונשואין › הרשאית לאכול בתרומה › ע\"י ביאה וזרע › פצוע דכא וכרות שפכה › נשים",
+     "desc_de": "Verbote des Beischlafs und der Eheschließung › Die zum Essen der Priesterabgabe Berechtigte › Durch Beischlaf und Samen › Mit zerquetschten Hoden und abgeschnittenem Glied › Frauen",
+     "desc_en": "Prohibitions of intercourse and marriage › The woman entitled to eat terumah › Through intercourse and seed › One with crushed testicles and severed organ › Women"
+    },
+    {
+     "ref": "8:2",
+     "text": "הגדרת מומם, המותרות לינשא להן",
+     "text_de": "Definition ihres Gebrechens, die ihnen zur Heirat Erlaubten",
+     "text_en": "Definition of their defect, women permitted to marry them",
+     "desc": "איסורי ביאה ונשואין › פסולי קהל › פצוע דכא וכרות שפכה",
+     "desc_de": "Verbote des Beischlafs und der Eheschließung › Für die Gemeinde Untaugliche › Mit zerquetschten Hoden und abgeschnittenem Glied",
+     "desc_en": "Prohibitions of intercourse and marriage › Those unfit for the congregation › One with crushed testicles and severed organ"
+    },
+    {
+     "ref": "8:3",
+     "text": "דורות להיתר, נקיבותיהן, ממזר",
+     "text_de": "Generationen bis zur Erlaubnis, ihre Frauen, Mamser",
+     "text_en": "Generations until permission, their females, mamzer",
+     "desc": "איסורי ביאה ונשואין › פסולי קהל › אומות",
+     "desc_de": "Verbote des Beischlafs und der Eheschließung › Für die Gemeinde Untaugliche › Völker",
+     "desc_en": "Prohibitions of intercourse and marriage › Those unfit for the congregation › Nations"
+    },
+    {
+     "ref": "8:4",
+     "text": "מיני הסריס ודיניהן",
+     "text_de": "Arten des Eunuchen und ihre Gesetze",
+     "text_en": "Kinds of eunuchs and their laws",
+     "desc": "איסורי ביאה ונשואין › הלכות יבום וחליצה › השייך ליבום › סריס",
+     "desc_de": "Verbote des Beischlafs und der Eheschließung › Gesetze der Leviratsehe und Chalitza › Was zur Leviratsehe gehört › Eunuch",
+     "desc_en": "Prohibitions of intercourse and marriage › Laws of levirate marriage and chalitza › What pertains to levirate marriage › Eunuch"
+    },
+    {
+     "ref": "8:5",
+     "text": "חליצה או יבום בו ובאיילונית",
+     "text_de": "Chalitza oder Leviratsehe mit ihm und mit der Ajlonit",
+     "text_en": "Chalitza or levirate marriage with him and with an ailonit",
+     "desc": "איסורי ביאה ונשואין › הלכות יבום וחליצה › השייך ליבום › סריס",
+     "desc_de": "Verbote des Beischlafs und der Eheschließung › Gesetze der Leviratsehe und Chalitza › Was zur Leviratsehe gehört › Eunuch",
+     "desc_en": "Prohibitions of intercourse and marriage › Laws of levirate marriage and chalitza › What pertains to levirate marriage › Eunuch"
+    },
+    {
+     "ref": "8:6",
+     "text": "דינים בסריס, אנדרוגינוס וטומטום",
+     "text_de": "Gesetze zum Eunuchen, Androgynos und Tumtum",
+     "text_en": "Laws of the eunuch, androgynos and tumtum",
+     "desc": "איסורי ביאה ונשואין › הלכות יבום וחליצה › השייך ליבום › סריס",
+     "desc_de": "Verbote des Beischlafs und der Eheschließung › Gesetze der Leviratsehe und Chalitza › Was zur Leviratsehe gehört › Eunuch",
+     "desc_en": "Prohibitions of intercourse and marriage › Laws of levirate marriage and chalitza › What pertains to levirate marriage › Eunuch"
+    }
+   ]
+  },
+  {
+   "head": "פרק ט",
+   "head_de": "Kapitel 9",
+   "head_en": "Chapter 9",
+   "items": [
+    {
+     "ref": "9:1",
+     "text": "המותרת לבעל ואסורה ליבם",
+     "text_de": "Der Frau erlaubt, dem Schwager verboten",
+     "text_en": "Permitted to the husband and forbidden to the brother-in-law",
+     "desc": "איסורי ביאה ונשואין › הלכות יבום וחליצה › איסור ביבם › היתר לבעל ויבם",
+     "desc_de": "Verbote des Beischlafs und der Eheschließung › Gesetze der Leviratsehe und Chalitza › Verbot beim Schwager › Erlaubt dem Ehemann und dem Schwager",
+     "desc_en": "Prohibitions of intercourse and marriage › Laws of levirate marriage and chalitza › Prohibition regarding the brother-in-law › Permitted to the husband and the brother-in-law"
+    },
+    {
+     "ref": "9:2",
+     "text": "ליבם בלבד, האסורה או מותרת לשניהם",
+     "text_de": "Nur dem Schwager, die beiden Verbotene oder Erlaubte",
+     "text_en": "Only to the brother-in-law, the woman forbidden or permitted to both",
+     "desc": "איסורי ביאה ונשואין › הלכות יבום וחליצה › איסור ביבם › היתר לבעל ויבם",
+     "desc_de": "Verbote des Beischlafs und der Eheschließung › Gesetze der Leviratsehe und Chalitza › Verbot beim Schwager › Erlaubt dem Ehemann und dem Schwager",
+     "desc_en": "Prohibitions of intercourse and marriage › Laws of levirate marriage and chalitza › Prohibition regarding the brother-in-law › Permitted to the husband and the brother-in-law"
+    },
+    {
+     "ref": "9:3",
+     "text": "איסור שניה, קנס לנשואה בעבירה",
+     "text_de": "Verbot der Zweiten, Strafgeld für die in Sünde Verheiratete",
+     "text_en": "Prohibition of the second, fine for a woman married in transgression",
+     "desc": "איסורי ביאה ונשואין › הלכות יבום וחליצה › איסור ביבם › היתר לבעל ויבם",
+     "desc_de": "Verbote des Beischlafs und der Eheschließung › Gesetze der Leviratsehe und Chalitza › Verbot beim Schwager › Erlaubt dem Ehemann und dem Schwager",
+     "desc_en": "Prohibitions of intercourse and marriage › Laws of levirate marriage and chalitza › Prohibition regarding the brother-in-law › Permitted to the husband and the brother-in-law"
+    },
+    {
+     "ref": "9:4",
+     "text": "אירוסין, עיבור, זיקה",
+     "text_de": "Verlobung, Schwangerschaft, Bindung",
+     "text_en": "Betrothal, pregnancy, bond",
+     "desc": "איסורי ביאה ונשואין › הרשאית לאכול בתרומה › ע\"י נישואין וזרע › נשים",
+     "desc_de": "Verbote des Beischlafs und der Eheschließung › Die zum Essen der Priesterabgabe Berechtigte › Durch Eheschließung und Samen › Frauen",
+     "desc_en": "Prohibitions of intercourse and marriage › The woman entitled to eat terumah › Through marriage and seed › Women"
+    },
+    {
+     "ref": "9:5",
+     "text": "בת ישראל",
+     "text_de": "Tochter eines Israeliten",
+     "text_en": "Daughter of an Israelite",
+     "desc": "איסורי ביאה ונשואין › הרשאית לאכול בתרומה › ע\"י נישואין וזרע › נשים",
+     "desc_de": "Verbote des Beischlafs und der Eheschließung › Die zum Essen der Priesterabgabe Berechtigte › Durch Eheschließung und Samen › Frauen",
+     "desc_en": "Prohibitions of intercourse and marriage › The woman entitled to eat terumah › Through marriage and seed › Women"
+    },
+    {
+     "ref": "9:6",
+     "text": "בת כהן",
+     "text_de": "Tochter eines Priesters",
+     "text_en": "Daughter of a priest",
+     "desc": "איסורי ביאה ונשואין › הרשאית לאכול בתרומה › ע\"י נישואין וזרע › נשים",
+     "desc_de": "Verbote des Beischlafs und der Eheschließung › Die zum Essen der Priesterabgabe Berechtigte › Durch Eheschließung und Samen › Frauen",
+     "desc_en": "Prohibitions of intercourse and marriage › The woman entitled to eat terumah › Through marriage and seed › Women"
+    }
+   ]
+  },
+  {
+   "head": "פרק י",
+   "head_de": "Kapitel 10",
+   "head_en": "Chapter 10",
+   "items": [
+    {
+     "ref": "10:1",
+     "text": "מספר העדים וקנסות",
+     "text_de": "Zahl der Zeugen und Strafgelder",
+     "text_en": "Number of witnesses and fines",
+     "desc": "איסורי ביאה ונשואין › נישואי טעות › אשת איש › רשות להנשא",
+     "desc_de": "Verbote des Beischlafs und der Eheschließung › Irrtümliche Ehen › Verheiratete Frau › Erlaubnis zur Heirat",
+     "desc_en": "Prohibitions of intercourse and marriage › Marriages in error › Married woman › Permission to marry"
+    },
+    {
+     "ref": "10:2",
+     "text": "חיוב בקרבן",
+     "text_de": "Opferpflicht",
+     "text_en": "Obligation of a sacrifice",
+     "desc": "איסורי ביאה ונשואין › נישואי טעות › אשת איש › רשות להנשא",
+     "desc_de": "Verbote des Beischlafs und der Eheschließung › Irrtümliche Ehen › Verheiratete Frau › Erlaubnis zur Heirat",
+     "desc_en": "Prohibitions of intercourse and marriage › Marriages in error › Married woman › Permission to marry"
+    },
+    {
+     "ref": "10:3",
+     "text": "סדר מיתת בן ובעל, קיום בעל, אירוסין",
+     "text_de": "Reihenfolge des Todes von Sohn und Ehemann, Fortbestand der Ehe, Verlobung",
+     "text_en": "Order of death of son and husband, continuance of the husband, betrothal",
+     "desc": "איסורי ביאה ונשואין › נישואי טעות › אשת איש",
+     "desc_de": "Verbote des Beischlafs und der Eheschließung › Irrtümliche Ehen › Verheiratete Frau",
+     "desc_en": "Prohibitions of intercourse and marriage › Marriages in error › Married woman"
+    },
+    {
+     "ref": "10:4",
+     "text": "היתר לבעל, לקרובים, לגיס",
+     "text_de": "Erlaubnis für den Ehemann, für Verwandte, für den Schwager",
+     "text_en": "Permission for the husband, for relatives, for the brother-in-law",
+     "desc": "איסורי ביאה ונשואין › נישואי טעות › אחות אשה › אחות אחת",
+     "desc_de": "Verbote des Beischlafs und der Eheschließung › Irrtümliche Ehen › Schwester der Ehefrau › Eine Schwester",
+     "desc_en": "Prohibitions of intercourse and marriage › Marriages in error › Wife's sister › One sister"
+    },
+    {
+     "ref": "10:5",
+     "text": "היתר לבעל, פטור צרות",
+     "text_de": "Erlaubnis für den Ehemann, Befreiung der Nebenfrauen",
+     "text_en": "Permission for the husband, exemption of rival wives",
+     "desc": "הלכות יבום וחליצה › נישואי טעות › אחות אשה › שרשרת אחיות",
+     "desc_de": "Gesetze der Leviratsehe und Chalitza › Irrtümliche Ehen › Schwester der Ehefrau › Kette von Schwestern",
+     "desc_en": "Laws of levirate marriage and chalitza › Marriages in error › Wife's sister › Chain of sisters"
+    },
+    {
+     "ref": "10:6",
+     "text": "של קטן לעומת גדול",
+     "text_de": "Des Minderjährigen im Vergleich zum Erwachsenen",
+     "text_en": "Of the minor compared with the adult",
+     "desc": "הלכות יבום וחליצה › זיקה והתרה חלקית › שיור בקנין קטן › יחס בין פעולות הפוסלות ביבמה",
+     "desc_de": "Gesetze der Leviratsehe und Chalitza › Bindung und teilweise Lösung › Vorbehalt beim Erwerb des Minderjährigen › Verhältnis der die Schwägerin untauglich machenden Handlungen",
+     "desc_en": "Laws of levirate marriage and chalitza › Bond and partial release › Reservation in the acquisition of a minor › Relation of the acts that disqualify the sister-in-law"
+    },
+    {
+     "ref": "10:7",
+     "text": "של קטן לעומת קטן",
+     "text_de": "Des Minderjährigen im Vergleich zum Minderjährigen",
+     "text_en": "Of a minor compared with a minor",
+     "desc": "הלכות יבום וחליצה › זיקה והתרה חלקית › שיור בקנין קטן › יחס בין פעולות הפוסלות ביבמה",
+     "desc_de": "Gesetze der Leviratsehe und Chalitza › Bindung und teilweise Lösung › Vorbehalt beim Erwerb des Minderjährigen › Verhältnis der die Schwägerin untauglich machenden Handlungen",
+     "desc_en": "Laws of levirate marriage and chalitza › Bond and partial release › Reservation in the acquisition of a minor › Relation of the acts that disqualify the sister-in-law"
+    },
+    {
+     "ref": "10:8",
+     "text": "בצרות \\ דין אשתו ויבמתו",
+     "text_de": "Bei Nebenfrauen / Recht seiner Frau und seiner Schwägerin",
+     "text_en": "In the case of rival wives / law of his wife and his sister-in-law",
+     "desc": "הלכות יבום וחליצה › זיקה והתרה חלקית › שיור בקנין קטן › נשואין ויבום › יחס בין פעולות הפוסלות ביבמה",
+     "desc_de": "Gesetze der Leviratsehe und Chalitza › Bindung und teilweise Lösung › Vorbehalt beim Erwerb des Minderjährigen › Ehe und Leviratsehe › Verhältnis der die Schwägerin untauglich machenden Handlungen",
+     "desc_en": "Laws of levirate marriage and chalitza › Bond and partial release › Reservation in the acquisition of a minor › Marriage and levirate marriage › Relation of the acts that disqualify the sister-in-law"
+    },
+    {
+     "ref": "10:9",
+     "text": "יבמתו וצרתה מנישואין \\ בן כ' שנה",
+     "text_de": "Seine Schwägerin und ihre Nebenfrau aus Ehe / zwanzig Jahre alt",
+     "text_en": "His sister-in-law and her rival wife from marriage / twenty years old",
+     "desc": "הלכות יבום וחליצה › זיקה והתרה חלקית › שיור בקנין קטן › סריס › נשואין ויבום",
+     "desc_de": "Gesetze der Leviratsehe und Chalitza › Bindung und teilweise Lösung › Vorbehalt beim Erwerb des Minderjährigen › Eunuch › Ehe und Leviratsehe",
+     "desc_en": "Laws of levirate marriage and chalitza › Bond and partial release › Reservation in the acquisition of a minor › Eunuch › Marriage and levirate marriage"
+    }
+   ]
+  },
+  {
+   "head": "פרק יא",
+   "head_de": "Kapitel 11",
+   "head_en": "Chapter 11",
+   "items": [
+    {
+     "ref": "11:1",
+     "text": "נישואי אנוסה ומפותה וקרובותיהן",
+     "text_de": "Ehen mit Vergewaltigter und Verführter und ihren Verwandten",
+     "text_en": "Marriages with a raped woman and a seduced woman and their relatives",
+     "desc": "הלכות יבום וחליצה › אין זיקה › הלכות אישות וכהונה › בלי נישואין",
+     "desc_de": "Gesetze der Leviratsehe und Chalitza › Keine Bindung › Gesetze über Ehe und Priestertum › Ohne Eheschließung",
+     "desc_en": "Laws of levirate marriage and chalitza › No bond › Laws of marriage and priesthood › Without marriage"
+    },
+    {
+     "ref": "11:2",
+     "text": "בני גיורת",
+     "text_de": "Söhne einer Proselytin",
+     "text_en": "Sons of a female convert",
+     "desc": "הלכות יבום וחליצה › אין זיקה › הלכות אישות וכהונה",
+     "desc_de": "Gesetze der Leviratsehe und Chalitza › Keine Bindung › Gesetze über Ehe und Priestertum",
+     "desc_en": "Laws of levirate marriage and chalitza › No bond › Laws of marriage and priesthood"
+    },
+    {
+     "ref": "11:3",
+     "text": "חמש נכריות",
+     "text_de": "Fünf Nichtjüdinnen",
+     "text_en": "Five non-Jewish women",
+     "desc": "הלכות יבום וחליצה › ספק זיקה ואסורים לחומרא › הלכות אישות וכהונה › ערבוב ולדות",
+     "desc_de": "Gesetze der Leviratsehe und Chalitza › Zweifel an der Bindung und aus Strenge Verbotene › Gesetze über Ehe und Priestertum › Vermischung von Kindern",
+     "desc_en": "Laws of levirate marriage and chalitza › Doubt about the bond and those forbidden out of stringency › Laws of marriage and priesthood › Mixing of children"
+    },
+    {
+     "ref": "11:4",
+     "text": "אשה וכלתה",
+     "text_de": "Frau und ihre Schwiegertochter",
+     "text_en": "A woman and her daughter-in-law",
+     "desc": "הלכות יבום וחליצה › ספק זיקה ואסורים לחומרא › הלכות אישות וכהונה › ערבוב ולדות",
+     "desc_de": "Gesetze der Leviratsehe und Chalitza › Zweifel an der Bindung und aus Strenge Verbotene › Gesetze über Ehe und Priestertum › Vermischung von Kindern",
+     "desc_en": "Laws of levirate marriage and chalitza › Doubt about the bond and those forbidden out of stringency › Laws of marriage and priesthood › Mixing of children"
+    },
+    {
+     "ref": "11:5",
+     "text": "כהנת ושפחה",
+     "text_de": "Priesterin und Magd",
+     "text_en": "Priestess and maidservant",
+     "desc": "הלכות יבום וחליצה › ספק זיקה ואסורים לחומרא › הלכות אישות וכהונה › ערבוב ולדות",
+     "desc_de": "Gesetze der Leviratsehe und Chalitza › Zweifel an der Bindung und aus Strenge Verbotene › Gesetze über Ehe und Priestertum › Vermischung von Kindern",
+     "desc_en": "Laws of levirate marriage and chalitza › Doubt about the bond and those forbidden out of stringency › Laws of marriage and priesthood › Mixing of children"
+    },
+    {
+     "ref": "11:6",
+     "text": "שני ישראלים",
+     "text_de": "Zwei Israeliten",
+     "text_en": "Two Israelites",
+     "desc": "הלכות יבום וחליצה › ספק זיקה ואסורים לחומרא › הלכות אישות וכהונה › ספק באב",
+     "desc_de": "Gesetze der Leviratsehe und Chalitza › Zweifel an der Bindung und aus Strenge Verbotene › Gesetze über Ehe und Priestertum › Zweifel am Vater",
+     "desc_en": "Laws of levirate marriage and chalitza › Doubt about the bond and those forbidden out of stringency › Laws of marriage and priesthood › Doubt about the father"
+    },
+    {
+     "ref": "11:7",
+     "text": "ישראל בכהן, שני כהנים",
+     "text_de": "Israelit und Priester, zwei Priester",
+     "text_en": "Israelite and priest, two priests",
+     "desc": "הלכות יבום וחליצה › ספק זיקה ואסורים לחומרא › הלכות אישות וכהונה › ספק באב",
+     "desc_de": "Gesetze der Leviratsehe und Chalitza › Zweifel an der Bindung und aus Strenge Verbotene › Gesetze über Ehe und Priestertum › Zweifel am Vater",
+     "desc_en": "Laws of levirate marriage and chalitza › Doubt about the bond and those forbidden out of stringency › Laws of marriage and priesthood › Doubt about the father"
+    }
+   ]
+  },
+  {
+   "head": "פרק יב",
+   "head_de": "Kapitel 12",
+   "head_en": "Chapter 12",
+   "items": [
+    {
+     "ref": "12:1",
+     "text": "מספרם ומומחיותם \\ דבר רך, עקב, גבוה",
+     "text_de": "Ihre Zahl und Sachkunde / weiche Sache, Ferse, hoch",
+     "text_en": "Their number and expertise / soft matter, heel, high",
+     "desc": "הלכות יבום וחליצה › כיצד חולצים › כשרות הנעל › הדיינים",
+     "desc_de": "Gesetze der Leviratsehe und Chalitza › Wie man Chalitza vollzieht › Tauglichkeit des Schuhs › Die Richter",
+     "desc_en": "Laws of levirate marriage and chalitza › How chalitza is performed › Fitness of the shoe › The judges"
+    },
+    {
+     "ref": "12:2",
+     "text": "בעלות, עץ, התאמה \\ לילה, בשמאל",
+     "text_de": "Besitz, Holz, Passform / Nacht, am linken Fuß",
+     "text_en": "Ownership, wood, fit / night, on the left foot",
+     "desc": "הלכות יבום וחליצה › כיצד חולצים › כשרות הנעל",
+     "desc_de": "Gesetze der Leviratsehe und Chalitza › Wie man Chalitza vollzieht › Tauglichkeit des Schuhs",
+     "desc_en": "Laws of levirate marriage and chalitza › How chalitza is performed › Fitness of the shoe"
+    },
+    {
+     "ref": "12:3",
+     "text": "במעשי החליצה",
+     "text_de": "Bei den Handlungen der Chalitza",
+     "text_en": "In the acts of chalitza",
+     "desc": "הלכות יבום וחליצה › כיצד חולצים › חסרון בחליצה",
+     "desc_de": "Gesetze der Leviratsehe und Chalitza › Wie man Chalitza vollzieht › Mangel bei der Chalitza",
+     "desc_en": "Laws of levirate marriage and chalitza › How chalitza is performed › Defect in the chalitza"
+    },
+    {
+     "ref": "12:4",
+     "text": "בדעת החולצת או בנחלץ",
+     "text_de": "Nach dem Willen der Vollziehenden oder des Entschuhten",
+     "text_en": "By the intent of the woman performing it or of the man released",
+     "desc": "הלכות יבום וחליצה › כיצד חולצים › חסרון בחליצה",
+     "desc_de": "Gesetze der Leviratsehe und Chalitza › Wie man Chalitza vollzieht › Mangel bei der Chalitza",
+     "desc_en": "Laws of levirate marriage and chalitza › How chalitza is performed › Defect in the chalitza"
+    },
+    {
+     "ref": "12:5",
+     "text": "מספרם",
+     "text_de": "Ihre Zahl",
+     "text_en": "Their number",
+     "desc": "הלכות יבום וחליצה › כיצד חולצים › חסרון בחליצה › הדיינים",
+     "desc_de": "Gesetze der Leviratsehe und Chalitza › Wie man Chalitza vollzieht › Mangel bei der Chalitza › Die Richter",
+     "desc_en": "Laws of levirate marriage and chalitza › How chalitza is performed › Defect in the chalitza › The judges"
+    },
+    {
+     "ref": "12:6",
+     "text": "סדר החליצה",
+     "text_de": "Ablauf der Chalitza",
+     "text_en": "Order of the chalitza",
+     "desc": "הלכות יבום וחליצה › כיצד חולצים",
+     "desc_de": "Gesetze der Leviratsehe und Chalitza › Wie man Chalitza vollzieht",
+     "desc_en": "Laws of levirate marriage and chalitza › How chalitza is performed"
+    }
+   ]
+  },
+  {
+   "head": "פרק יג",
+   "head_de": "Kapitel 13",
+   "head_en": "Chapter 13",
+   "items": [
+    {
+     "ref": "13:1",
+     "text": "מחלוקות ב\"ש וב\"ה",
+     "text_de": "Streitfragen der Schulen Schammais und Hillels",
+     "text_en": "Disputes between the Schools of Shammai and Hillel",
+     "desc": "תוקף נישואין דרבנן › הלכות מיאון › אפשרות וצורך למאון",
+     "desc_de": "Gültigkeit der rabbinischen Ehe › Gesetze der Verweigerung (Mi'un) › Möglichkeit und Notwendigkeit der Verweigerung (Mi'un)",
+     "desc_en": "Validity of rabbinic marriage › Laws of refusal (mi'un) › Possibility and necessity of refusal (mi'un)"
+    },
+    {
+     "ref": "13:2",
+     "text": "גיל ודעת הקטנה \\ אכילה בתרומה",
+     "text_de": "Alter und Willensbildung des Mädchens / Essen von Teruma",
+     "text_en": "Age and intent of the minor girl / eating terumah",
+     "desc": "תוקף נישואין דרבנן › הלכות מיאון › תוצאות המיאון › אפשרות וצורך למאון",
+     "desc_de": "Gültigkeit der rabbinischen Ehe › Gesetze der Verweigerung (Mi'un) › Folgen der Verweigerung › Möglichkeit und Notwendigkeit der Verweigerung (Mi'un)",
+     "desc_en": "Validity of rabbinic marriage › Laws of refusal (mi'un) › Consequences of refusal › Possibility and necessity of refusal (mi'un)"
+    },
+    {
+     "ref": "13:3",
+     "text": "כלל של גילוי דעת",
+     "text_de": "Allgemeine Regel der Willensäußerung",
+     "text_en": "General rule of declaring intent",
+     "desc": "תוקף נישואין דרבנן › הלכות מיאון › תוצאות המיאון",
+     "desc_de": "Gültigkeit der rabbinischen Ehe › Gesetze der Verweigerung (Mi'un) › Folgen der Verweigerung",
+     "desc_en": "Validity of rabbinic marriage › Laws of refusal (mi'un) › Consequences of refusal"
+    },
+    {
+     "ref": "13:4",
+     "text": "איסור קרובים ופסול בכהונה \\ בעל אחד",
+     "text_de": "Verbot Verwandter und Untauglichkeit für das Priestertum / ein Ehemann",
+     "text_en": "Prohibition of relatives and disqualification from the priesthood / one husband",
+     "desc": "תוקף נישואין דרבנן › הלכות מיאון › חזרה לבעל › ביטול גט ע\"י מיאון › תוצאות המיאון",
+     "desc_de": "Gültigkeit der rabbinischen Ehe › Gesetze der Verweigerung (Mi'un) › Rückkehr zum Ehemann › Aufhebung eines Scheidebriefs durch Verweigerung › Folgen der Verweigerung",
+     "desc_en": "Validity of rabbinic marriage › Laws of refusal (mi'un) › Return to the husband › Annulment of a bill of divorce through refusal › Consequences of refusal"
+    },
+    {
+     "ref": "13:5",
+     "text": "שני בעלים",
+     "text_de": "Zwei Ehemänner",
+     "text_en": "Two husbands",
+     "desc": "תוקף נישואין דרבנן › הלכות מיאון › תוצאות המיאון › חזרה לבעל › ביטול גט ע\"י מיאון",
+     "desc_de": "Gültigkeit der rabbinischen Ehe › Gesetze der Verweigerung (Mi'un) › Folgen der Verweigerung › Rückkehr zum Ehemann › Aufhebung eines Scheidebriefs durch Verweigerung",
+     "desc_en": "Validity of rabbinic marriage › Laws of refusal (mi'un) › Consequences of refusal › Return to the husband › Annulment of a bill of divorce through refusal"
+    },
+    {
+     "ref": "13:6",
+     "text": "היתר ליבם אחר חזרה",
+     "text_de": "Erlaubnis zur Leviratsehe nach der Rückkehr",
+     "text_en": "Permission for levirate marriage after the return",
+     "desc": "תוקף נישואין דרבנן › יבום וחליצה › השוואת והשפעת זיקות › חזרה לבעל",
+     "desc_de": "Gültigkeit der rabbinischen Ehe › Leviratsehe und Chalitza › Vergleich und Wirkung der Bindungen › Rückkehr zum Ehemann",
+     "desc_en": "Validity of rabbinic marriage › Levirate marriage and chalitza › Comparison and effect of the levirate ties › Return to the husband"
+    },
+    {
+     "ref": "13:7",
+     "text": "הנשוי לאחות זקוקתו",
+     "text_de": "Der mit der Schwester seiner Schwagerin Verheiratete",
+     "text_en": "One married to the sister of his levirate widow",
+     "desc": "תוקף נישואין דרבנן › יבום וחליצה › השוואת והשפעת זיקות › פסול",
+     "desc_de": "Gültigkeit der rabbinischen Ehe › Leviratsehe und Chalitza › Vergleich und Wirkung der Bindungen › Untauglich",
+     "desc_en": "Validity of rabbinic marriage › Levirate marriage and chalitza › Comparison and effect of the levirate ties › Disqualified"
+    },
+    {
+     "ref": "13:8",
+     "text": "פטור צרות",
+     "text_de": "Befreiung wegen der Nebenfrau",
+     "text_en": "Exemption through the rival wife",
+     "desc": "תוקף נישואין דרבנן › יבום וחליצה › השוואת והשפעת זיקות › פטור",
+     "desc_de": "Gültigkeit der rabbinischen Ehe › Leviratsehe und Chalitza › Vergleich und Wirkung der Bindungen › Befreit",
+     "desc_en": "Validity of rabbinic marriage › Levirate marriage and chalitza › Comparison and effect of the levirate ties › Exempt"
+    },
+    {
+     "ref": "13:9",
+     "text": "קטנות, קטנה וחרשת",
+     "text_de": "Minderjährigkeit, Minderjährige und Taubstumme",
+     "text_en": "Minority, the minor girl and the deaf-mute woman",
+     "desc": "תוקף נישואין דרבנן › יבום וחליצה › השוואת והשפעת זיקות › פסול",
+     "desc_de": "Gültigkeit der rabbinischen Ehe › Leviratsehe und Chalitza › Vergleich und Wirkung der Bindungen › Untauglich",
+     "desc_en": "Validity of rabbinic marriage › Levirate marriage and chalitza › Comparison and effect of the levirate ties › Disqualified"
+    },
+    {
+     "ref": "13:10",
+     "text": "פקחת וחרשת",
+     "text_de": "Unversehrte und Taubstumme",
+     "text_en": "The sound-minded woman and the deaf-mute woman",
+     "desc": "תוקף נישואין דרבנן › יבום וחליצה › השוואת והשפעת זיקות › פסול",
+     "desc_de": "Gültigkeit der rabbinischen Ehe › Leviratsehe und Chalitza › Vergleich und Wirkung der Bindungen › Untauglich",
+     "desc_en": "Validity of rabbinic marriage › Levirate marriage and chalitza › Comparison and effect of the levirate ties › Disqualified"
+    },
+    {
+     "ref": "13:11",
+     "text": "גדולה וקטנה",
+     "text_de": "Volljährige und Minderjährige",
+     "text_en": "Adult and minor",
+     "desc": "תוקף נישואין דרבנן › יבום וחליצה › השוואת והשפעת זיקות › פסול",
+     "desc_de": "Gültigkeit der rabbinischen Ehe › Leviratsehe und Chalitza › Vergleich und Wirkung der Bindungen › Untauglich",
+     "desc_en": "Validity of rabbinic marriage › Levirate marriage and chalitza › Comparison and effect of the levirate ties › Disqualified"
+    },
+    {
+     "ref": "13:12",
+     "text": "יבם קטן \\ טענת בעילה",
+     "text_de": "Minderjähriger Schwager / Behauptung des Beischlafs",
+     "text_en": "Minor brother-in-law / claim of intercourse",
+     "desc": "תוקף נישואין דרבנן › יבום וחליצה › גט › אפשרות לגרש",
+     "desc_de": "Gültigkeit der rabbinischen Ehe › Leviratsehe und Chalitza › Scheidebrief › Möglichkeit der Scheidung",
+     "desc_en": "Validity of rabbinic marriage › Levirate marriage and chalitza › Bill of divorce › Possibility of divorce"
+    },
+    {
+     "ref": "13:13",
+     "text": "הנודרת הנאה מיבמה",
+     "text_de": "Gelübde des Nutzenentzugs von der Schwagerin",
+     "text_en": "Vow forbidding benefit from the levirate widow",
+     "desc": "תוקף נישואין דרבנן › יבום וחליצה › גט › השפעת נתינתו › כפייה לחליצה",
+     "desc_de": "Gültigkeit der rabbinischen Ehe › Leviratsehe und Chalitza › Scheidebrief › Wirkung seiner Gabe › Zwang zur Chalitza",
+     "desc_en": "Validity of rabbinic marriage › Levirate marriage and chalitza › Bill of divorce › Effect of his giving › Compulsion to perform chalitza"
+    }
+   ]
+  },
+  {
+   "head": "פרק יד",
+   "head_de": "Kapitel 14",
+   "head_en": "Chapter 14",
+   "items": [
+    {
+     "ref": "14:1",
+     "text": "מצב דעתם הנוככי ואם נשתנה",
+     "text_de": "Ihr gegenwärtiger Geisteszustand und ob er sich geändert hat",
+     "text_en": "Their present state of mind and whether it has changed",
+     "desc": "תוקף נישואין דרבנן › יבום וחליצה › גט › אפשרות לגרש › נישואין דאוריתא ודרבנן",
+     "desc_de": "Gültigkeit der rabbinischen Ehe › Leviratsehe und Chalitza › Scheidebrief › Möglichkeit der Scheidung › Biblische und rabbinische Ehe",
+     "desc_en": "Validity of rabbinic marriage › Levirate marriage and chalitza › Bill of divorce › Possibility of divorce › Biblical and rabbinic marriage"
+    },
+    {
+     "ref": "14:2",
+     "text": "עדות להלכה",
+     "text_de": "Zeugnis für die Halacha",
+     "text_en": "Testimony for the halacha",
+     "desc": "תוקף נישואין דרבנן › יבום וחליצה › גט › אפשרות לגרש › נישואין דאוריתא ודרבנן",
+     "desc_de": "Gültigkeit der rabbinischen Ehe › Leviratsehe und Chalitza › Scheidebrief › Möglichkeit der Scheidung › Biblische und rabbinische Ehe",
+     "desc_en": "Validity of rabbinic marriage › Levirate marriage and chalitza › Bill of divorce › Possibility of divorce › Biblical and rabbinic marriage"
+    },
+    {
+     "ref": "14:3",
+     "text": "אחים הנשואים לאחיות",
+     "text_de": "Brüder, die mit Schwestern verheiratet sind",
+     "text_en": "Brothers married to sisters",
+     "desc": "תוקף נישואין דרבנן › יבום וחליצה › גט › אפשרות לגרש › השואת זקות › נישואין דאוריתא ודרבנן",
+     "desc_de": "Gültigkeit der rabbinischen Ehe › Leviratsehe und Chalitza › Scheidebrief › Möglichkeit der Scheidung › Vergleich der Bindungen › Biblische und rabbinische Ehe",
+     "desc_en": "Validity of rabbinic marriage › Levirate marriage and chalitza › Bill of divorce › Possibility of divorce › Comparison of the ties › Biblical and rabbinic marriage"
+    },
+    {
+     "ref": "14:4",
+     "text": "אחים הנשואים לאחיות או לנכריות",
+     "text_de": "Brüder, die mit Schwestern oder Fremden verheiratet sind",
+     "text_en": "Brothers married to sisters or to unrelated women",
+     "desc": "תוקף נישואין דרבנן › יבום וחליצה › גט › אפשרות לגרש › השואת זקות › נישואין דאוריתא ודרבנן",
+     "desc_de": "Gültigkeit der rabbinischen Ehe › Leviratsehe und Chalitza › Scheidebrief › Möglichkeit der Scheidung › Vergleich der Bindungen › Biblische und rabbinische Ehe",
+     "desc_en": "Validity of rabbinic marriage › Levirate marriage and chalitza › Bill of divorce › Possibility of divorce › Comparison of the ties › Biblical and rabbinic marriage"
+    }
+   ]
+  },
+  {
+   "head": "פרק טו",
+   "head_de": "Kapitel 15",
+   "head_en": "Chapter 15",
+   "items": [
+    {
+     "ref": "15:1",
+     "text": "שלום בעולם וביניהם",
+     "text_de": "Frieden in der Welt und unter ihnen",
+     "text_en": "Peace in the world and among them",
+     "desc": "עדות המתירה עגונה › נאמנות האשה לעצמה › באיזה מצב",
+     "desc_de": "Zeugnis, das eine Agunah freigibt › Glaubwürdigkeit der Frau in eigener Sache › In welchem Fall",
+     "desc_en": "Testimony permitting an agunah to remarry › Credibility of the woman in her own case › In which case"
+    },
+    {
+     "ref": "15:2",
+     "text": "מקום מיתת הבעל",
+     "text_de": "Ort des Todes des Ehemanns",
+     "text_en": "Place of the husband's death",
+     "desc": "עדות המתירה עגונה › נאמנות האשה לעצמה › באיזה מצב",
+     "desc_de": "Zeugnis, das eine Agunah freigibt › Glaubwürdigkeit der Frau in eigener Sache › In welchem Fall",
+     "desc_en": "Testimony permitting an agunah to remarry › Credibility of the woman in her own case › In which case"
+    },
+    {
+     "ref": "15:3",
+     "text": "ממונות הנישואין",
+     "text_de": "Vermögensrechtliche Folgen der Ehe",
+     "text_en": "Financial consequences of marriage",
+     "desc": "עדות המתירה עגונה › נאמנות האשה לעצמה › לאיזה ענין",
+     "desc_de": "Zeugnis, das eine Agunah freigibt › Glaubwürdigkeit der Frau in eigener Sache › In welcher Hinsicht",
+     "desc_en": "Testimony permitting an agunah to remarry › Credibility of the woman in her own case › In what respect"
+    },
+    {
+     "ref": "15:4",
+     "text": "שאינן נאמנות, מספר עדים והכחשתם",
+     "text_de": "Nicht glaubwürdige Frauen, Zahl der Zeugen und ihr Widerspruch",
+     "text_en": "Women who are not believed, number of witnesses and their contradiction",
+     "desc": "עדות המתירה עגונה › נאמנות האשה לעצמה › ולאשה ששנואה לה › עדים פסולים",
+     "desc_de": "Zeugnis, das eine Agunah freigibt › Glaubwürdigkeit der Frau in eigener Sache › Und für eine Frau, die ihr verhasst ist › Untaugliche Zeugen",
+     "desc_en": "Testimony permitting an agunah to remarry › Credibility of the woman in her own case › And for a woman who is hated by her › Disqualified witnesses"
+    },
+    {
+     "ref": "15:5",
+     "text": "צרות זו לזו והכחשתם, עד אחד והכחשתו",
+     "text_de": "Rivalinnen gegeneinander und ihr Widerspruch, ein einzelner Zeuge und sein Widerspruch",
+     "text_en": "Co-wives against one another and their contradiction, a single witness and his contradiction",
+     "desc": "עדות המתירה עגונה › נאמנות האשה לעצמה › ולאשה ששנואה לה › לנישואין ולתרומה",
+     "desc_de": "Zeugnis, das eine Agunah freigibt › Glaubwürdigkeit der Frau in eigener Sache › Und für eine Frau, die ihr verhasst ist › Für die Ehe und für Teruma",
+     "desc_en": "Testimony permitting an agunah to remarry › Credibility of the woman in her own case › And for a woman who is hated by her › For marriage and for terumah"
+    },
+    {
+     "ref": "15:6",
+     "text": "לצרתה",
+     "text_de": "Für ihre Rivalin",
+     "text_en": "For her co-wife",
+     "desc": "עדות המתירה עגונה › נאמנות האשה לעצמה › ולאשה ששנואה לה › הרחקה מעבירה › לנישואין ולתרומה",
+     "desc_de": "Zeugnis, das eine Agunah freigibt › Glaubwürdigkeit der Frau in eigener Sache › Und für eine Frau, die ihr verhasst ist › Distanzierung von der Übertretung › Für die Ehe und für Teruma",
+     "desc_en": "Testimony permitting an agunah to remarry › Credibility of the woman in her own case › And for a woman who is hated by her › Distancing from transgression › For marriage and for terumah"
+    },
+    {
+     "ref": "15:7",
+     "text": "לחמותה \\ תשלום כתובה וגזל מספק",
+     "text_de": "Für ihre Schwiegermutter / Zahlung der Ketuba und Raub bei Zweifel",
+     "text_en": "For her mother-in-law / payment of the ketubah and robbery in case of doubt",
+     "desc": "עדות המתירה עגונה › נאמנות האשה לעצמה › ולאשה ששנואה לה › הרחקה מעבירה › לנישואין ולתרומה",
+     "desc_de": "Zeugnis, das eine Agunah freigibt › Glaubwürdigkeit der Frau in eigener Sache › Und für eine Frau, die ihr verhasst ist › Distanzierung von der Übertretung › Für die Ehe und für Teruma",
+     "desc_en": "Testimony permitting an agunah to remarry › Credibility of the woman in her own case › And for a woman who is hated by her › Distancing from transgression › For marriage and for terumah"
+    },
+    {
+     "ref": "15:8",
+     "text": "מיתת בן ובעל",
+     "text_de": "Tod von Sohn und Ehemann",
+     "text_en": "Death of son and husband",
+     "desc": "עדות המתירה עגונה › נאמנות האשה לעצמה › חזקת זיקה › סדר המקרים",
+     "desc_de": "Zeugnis, das eine Agunah freigibt › Glaubwürdigkeit der Frau in eigener Sache › Vermutung der Bindung › Reihenfolge der Fälle",
+     "desc_en": "Testimony permitting an agunah to remarry › Credibility of the woman in her own case › Presumption of the tie › Order of the cases"
+    },
+    {
+     "ref": "15:9",
+     "text": "לידת בן, מיתתו, מיתת הבעל",
+     "text_de": "Geburt eines Sohnes, sein Tod, Tod des Ehemanns",
+     "text_en": "Birth of a son, his death, death of the husband",
+     "desc": "עדות המתירה עגונה › נאמנות האשה לעצמה › חזקת זיקה › סדר המקרים",
+     "desc_de": "Zeugnis, das eine Agunah freigibt › Glaubwürdigkeit der Frau in eigener Sache › Vermutung der Bindung › Reihenfolge der Fälle",
+     "desc_en": "Testimony permitting an agunah to remarry › Credibility of the woman in her own case › Presumption of the tie › Order of the cases"
+    },
+    {
+     "ref": "15:10",
+     "text": "לידת יבם ומיתתו \\ יבום, נשואה אחת",
+     "text_de": "Geburt und Tod eines Schwagers / Leviratsehe, eine Verheiratete",
+     "text_en": "Birth and death of a brother-in-law / levirate marriage, one married woman",
+     "desc": "עדות המתירה עגונה › נאמנות האשה לעצמה › חזקת זיקה › כלל בנאמנות › סדר המקרים",
+     "desc_de": "Zeugnis, das eine Agunah freigibt › Glaubwürdigkeit der Frau in eigener Sache › Vermutung der Bindung › Regel zur Glaubwürdigkeit › Reihenfolge der Fälle",
+     "desc_en": "Testimony permitting an agunah to remarry › Credibility of the woman in her own case › Presumption of the tie › Rule on credibility › Order of the cases"
+    }
+   ]
+  },
+  {
+   "head": "פרק טז",
+   "head_de": "Kapitel 16",
+   "head_en": "Chapter 16",
+   "items": [
+    {
+     "ref": "16:1",
+     "text": "חשש עיבור צרה וחמות",
+     "text_de": "Verdacht auf Schwangerschaft: Rivalin und Schwiegermutter",
+     "text_en": "Suspicion of pregnancy: co-wife and mother-in-law",
+     "desc": "עדות המתירה עגונה › נאמנות האשה לעצמה › חזקת זיקה › כלל בנאמנות",
+     "desc_de": "Zeugnis, das eine Agunah freigibt › Glaubwürdigkeit der Frau in eigener Sache › Vermutung der Bindung › Regel zur Glaubwürdigkeit",
+     "desc_en": "Testimony permitting an agunah to remarry › Credibility of the woman in her own case › Presumption of the tie › Rule on credibility"
+    },
+    {
+     "ref": "16:2",
+     "text": "לינשא, אחר מיתת יבמין",
+     "text_de": "Heirat nach dem Tod der Schwäger",
+     "text_en": "Marriage after the death of the brothers-in-law",
+     "desc": "עדות המתירה עגונה › נאמנות האשה לעצמה › אשה שנואה › יבמות",
+     "desc_de": "Zeugnis, das eine Agunah freigibt › Glaubwürdigkeit der Frau in eigener Sache › Verhasste Frau › Schwägerinnen",
+     "desc_en": "Testimony permitting an agunah to remarry › Credibility of the woman in her own case › Hated wife › Levirate widows"
+    },
+    {
+     "ref": "16:3",
+     "text": "סימן מוסמך וחשש שינוי\\ העומד למות",
+     "text_de": "Zuverlässiges Merkmal und Verdacht auf Veränderung / der im Sterben Liegende",
+     "text_en": "Reliable identifying mark and suspicion of alteration / the dying man",
+     "desc": "עדות המתירה עגונה › דקדוק בעדות › שמא לא מת",
+     "desc_de": "Zeugnis, das eine Agunah freigibt › Genauigkeit bei der Zeugenaussage › Vielleicht ist er nicht gestorben",
+     "desc_en": "Testimony permitting an agunah to remarry › Precision in testimony › Perhaps he did not die"
+    },
+    {
+     "ref": "16:4",
+     "text": "הנופל למים ומדתם",
+     "text_de": "Der ins Wasser Gefallene und die Maße",
+     "text_en": "One who fell into water and the measures",
+     "desc": "עדות המתירה עגונה › דקדוק בעדות › שמא לא מת",
+     "desc_de": "Zeugnis, das eine Agunah freigibt › Genauigkeit bei der Zeugenaussage › Vielleicht ist er nicht gestorben",
+     "desc_en": "Testimony permitting an agunah to remarry › Precision in testimony › Perhaps he did not die"
+    },
+    {
+     "ref": "16:5",
+     "text": "המשיח לפי תומו",
+     "text_de": "Der unbedacht Redende",
+     "text_en": "One who speaks unwittingly",
+     "desc": "עדות המתירה עגונה › דקדוק בעדות › ישירות העדות",
+     "desc_de": "Zeugnis, das eine Agunah freigibt › Genauigkeit bei der Zeugenaussage › Unmittelbarkeit der Aussage",
+     "desc_en": "Testimony permitting an agunah to remarry › Precision in testimony › Directness of testimony"
+    },
+    {
+     "ref": "16:6",
+     "text": "אור חלש, 'בת קולי'",
+     "text_de": "Schwaches Licht, „Bat Kol“",
+     "text_en": "Dim light, “bat kol”",
+     "desc": "עדות המתירה עגונה › דקדוק בעדות › ישירות העדות",
+     "desc_de": "Zeugnis, das eine Agunah freigibt › Genauigkeit bei der Zeugenaussage › Unmittelbarkeit der Aussage",
+     "desc_en": "Testimony permitting an agunah to remarry › Precision in testimony › Directness of testimony"
+    },
+    {
+     "ref": "16:7",
+     "text": "עד אחד, מפי עד, פסולי העדות",
+     "text_de": "Einzelzeuge, Zeugnis vom Hörensagen, untaugliche Zeugen",
+     "text_en": "Single witness, hearsay testimony, disqualified witnesses",
+     "desc": "עדות המתירה עגונה › דקדוק בעדות › כשרות העדים",
+     "desc_de": "Zeugnis, das eine Agunah freigibt › Genauigkeit bei der Zeugenaussage › Zulässigkeit der Zeugen",
+     "desc_en": "Testimony permitting an agunah to remarry › Precision in testimony › Eligibility of witnesses"
+    }
+   ]
+  }
+ ]
+}

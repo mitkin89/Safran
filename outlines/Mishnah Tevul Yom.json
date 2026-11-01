@@ -1,0 +1,273 @@
+{
+ "book": "Mishnah Tevul Yom",
+ "title": "משנה טבול יום",
+ "title_de": "Mischna Tebul Jom – Gliederung",
+ "title_en": "Tevul Yom – outline",
+ "note": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema).",
+ "note_de": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema); ins Deutsche und Englische übersetzt.",
+ "note_en": "Outline after the table “Mishna Sedura”: the central content of each mishnah, with the topic path (main topic to sub-topic); translated into German and English.",
+ "sections": [
+  {
+   "head": "פרק א",
+   "head_de": "Kapitel 1",
+   "head_en": "Chapter 1",
+   "items": [
+    {
+     "ref": "1:1",
+     "text": "חיבור בטבול יום",
+     "text_de": "Verbindung bei Tevul Jom",
+     "text_en": "Connection with a tevul yom",
+     "desc": "חיבור לטומאה › אוכלים › ב\"ש וב\"ה › חולקים",
+     "desc_de": "Verbindung zur Unreinheit › Esswaren › Schule Schammais und Schule Hillels › Sie sind uneins",
+     "desc_en": "Connection to impurity › Foodstuffs › School of Shammai and School of Hillel › They disagree"
+    },
+    {
+     "ref": "1:2",
+     "text": "חיבור אפילו בטבול יום",
+     "text_de": "Verbindung selbst bei Tevul Jom",
+     "text_en": "Connection even with a tevul yom",
+     "desc": "חיבור לטומאה › אוכלים › ב\"ש וב\"ה › מודים",
+     "desc_de": "Verbindung zur Unreinheit › Esswaren › Schule Schammais und Schule Hillels › Sie stimmen zu",
+     "desc_en": "Connection to impurity › Foodstuffs › School of Shammai and School of Hillel › They agree"
+    },
+    {
+     "ref": "1:3",
+     "text": "חיבור אפילו בטבול יום",
+     "text_de": "Verbindung selbst bei Tevul Jom",
+     "text_en": "Connection even with a tevul yom",
+     "desc": "חיבור לטומאה › אוכלים › דברים שונים הנדבקים לפת",
+     "desc_de": "Verbindung zur Unreinheit › Esswaren › Verschiedenes, das am Brot haftet",
+     "desc_en": "Connection to impurity › Foodstuffs › Various things that adhere to bread"
+    },
+    {
+     "ref": "1:4",
+     "text": "אינם חיבור כלל",
+     "text_de": "Sind überhaupt keine Verbindung",
+     "text_en": "Are not a connection at all",
+     "desc": "חיבור לטומאה › אוכלים › דברים שונים הנדבקים לפת",
+     "desc_de": "Verbindung zur Unreinheit › Esswaren › Verschiedenes, das am Brot haftet",
+     "desc_en": "Connection to impurity › Foodstuffs › Various things that adhere to bread"
+    },
+    {
+     "ref": "1:5",
+     "text": "הטהורים רק בטבו\"י, הטמאים בכל טומאה",
+     "text_de": "Die Reinen nur bei Tevul Jom, die Unreinen bei jeder Unreinheit",
+     "text_en": "Pure ones only with a tevul yom, impure ones with any impurity",
+     "desc": "המקבל טומאה מטבול יום › אוכלים › חשיבות",
+     "desc_de": "Was Unreinheit von einem Tevul Jom aufnimmt › Esswaren › Bedeutung",
+     "desc_en": "What receives impurity from a tevul yom › Foodstuffs › Significance"
+    }
+   ]
+  },
+  {
+   "head": "פרק ב",
+   "head_de": "Kapitel 2",
+   "head_en": "Chapter 2",
+   "items": [
+    {
+     "ref": "2:1",
+     "text": "היוצאים מגוף אדם הטמא",
+     "text_de": "Was aus dem Körper eines unreinen Menschen austritt",
+     "text_en": "What emerges from the body of an impure person",
+     "desc": "המקבל טומאה מטבול יום › משקים › המהווים מקור לטומאה",
+     "desc_de": "Was Unreinheit von einem Tevul Jom aufnimmt › Flüssigkeiten › Die eine Quelle der Unreinheit darstellen",
+     "desc_en": "What receives impurity from a tevul yom › Liquids › Those that constitute a source of impurity"
+    },
+    {
+     "ref": "2:2",
+     "text": "כיצד נטמאים מטבול יום, השוואה לידים",
+     "text_de": "Wie sie durch Tevul Jom verunreinigt werden, Vergleich mit den Händen",
+     "text_en": "How they are defiled by a tevul yom, comparison with the hands",
+     "desc": "המקבל טומאה מטבול יום › משקים › חולין והחמור ממנו › כלים",
+     "desc_de": "Was Unreinheit von einem Tevul Jom aufnimmt › Flüssigkeiten › Profanes und das Strengere davon › Geräte",
+     "desc_en": "What receives impurity from a tevul yom › Liquids › Unconsecrated food and what is stricter than it › vessels"
+    },
+    {
+     "ref": "2:3",
+     "text": "הכרעה אחר רוב, גוש בדברים הנידוכין",
+     "text_de": "Entscheidung nach der Mehrheit, Klumpen bei zerstoßenen Dingen",
+     "text_en": "Decision by majority, lump in pounded substances",
+     "desc": "המקבל טומאה מטבול יום \\ חיבור לטומאה › משקים › חולין והחמור ממנו › הסמיך › מקפה",
+     "desc_de": "Was Unreinheit von Tevul Jom aufnimmt / Verbindung zur Unreinheit › Flüssigkeiten › Profanes und das Strengere davon › Das Verdickte › Das Eindicken",
+     "desc_en": "What receives impurity from a tevul yom / connection to impurity › Liquids › Unconsecrated food and what is stricter than it › The thickened › Thickening"
+    },
+    {
+     "ref": "2:4",
+     "text": "חיבוץ שמן",
+     "text_de": "Gerinnen von Öl",
+     "text_en": "Congealing of oil",
+     "desc": "המקבל טומאה מטבול יום \\ חיבור לטומאה › משקים › חולין והחמור ממנו › הסמיך › מקפה",
+     "desc_de": "Was Unreinheit von Tevul Jom aufnimmt / Verbindung zur Unreinheit › Flüssigkeiten › Profanes und das Strengere davon › Das Verdickte › Das Eindicken",
+     "desc_en": "What receives impurity from a tevul yom / connection to impurity › Liquids › Unconsecrated food and what is stricter than it › The thickened › Thickening"
+    },
+    {
+     "ref": "2:5",
+     "text": "קרימה, גושי מעשה קדירה \\ שמן על יין",
+     "text_de": "Hautbildung, Klumpen von Topfgerichten / Öl auf Wein",
+     "text_en": "Skin formation, lumps of pot dishes / oil on wine",
+     "desc": "חיבור לטומאה › משקים › חולין והחמור ממנו › הסמיך \\ נזיל",
+     "desc_de": "Verbindung zur Unreinheit › Flüssigkeiten › Profanes und das Strengere davon › Das Verdickte / Flüssiges",
+     "desc_en": "Connection to impurity › Liquids › Unconsecrated food and what is stricter than it › The thickened / liquid"
+    },
+    {
+     "ref": "2:6",
+     "text": "חבית השקוע בבור",
+     "text_de": "Fass, das in einer Grube versenkt ist",
+     "text_en": "Barrel sunk in a pit",
+     "desc": "חיבור לטומאה › משקים › נזיל",
+     "desc_de": "Verbindung zur Unreinheit › Flüssigkeiten › Flüssiges",
+     "desc_en": "Connection to impurity › Liquids › Liquid"
+    },
+    {
+     "ref": "2:7",
+     "text": "חבית, עירוי",
+     "text_de": "Fass, Umgießen",
+     "text_en": "Barrel, pouring",
+     "desc": "חיבור לטומאה › משקים › נזיל › מקום נקבים",
+     "desc_de": "Verbindung zur Unreinheit › Flüssigkeiten › Flüssiges › Ort der Öffnungen",
+     "desc_en": "Connection to impurity › Liquids › Liquid › Place of the openings"
+    },
+    {
+     "ref": "2:8",
+     "text": "בעבוע החבית",
+     "text_de": "Blasenbildung am Fass",
+     "text_en": "Bubbling of the barrel",
+     "desc": "חיבור לטומאה › משקים › נזיל › מקום נקבים",
+     "desc_de": "Verbindung zur Unreinheit › Flüssigkeiten › Flüssiges › Ort der Öffnungen",
+     "desc_en": "Connection to impurity › Liquids › Liquid › Place of the openings"
+    }
+   ]
+  },
+  {
+   "head": "פרק ג",
+   "head_de": "Kapitel 3",
+   "head_en": "Chapter 3",
+   "items": [
+    {
+     "ref": "3:1",
+     "text": "עוקצין, אוכל שנפרס",
+     "text_de": "Stiele, aufgeschnittene Speise",
+     "text_en": "Stalks, sliced food",
+     "desc": "חיבור לטומאה › אוכלים › באוכל עצמו",
+     "desc_de": "Verbindung zur Unreinheit › Esswaren › In der Speise selbst",
+     "desc_en": "Connection to impurity › Foodstuffs › In the food itself"
+    },
+    {
+     "ref": "3:2",
+     "text": "הטרופה על ירק",
+     "text_de": "Das über Gemüse Verquirlte",
+     "text_en": "What is beaten over vegetables",
+     "desc": "חיבור לטומאה › אוכלים › המעורב עם אחר › ביצה",
+     "desc_de": "Verbindung zur Unreinheit › Esswaren › Das mit anderem Vermischte › Ei",
+     "desc_en": "Connection to impurity › Foodstuffs › What is mixed with something else › Egg"
+    },
+    {
+     "ref": "3:3",
+     "text": "חוט מחוץ לאלפס",
+     "text_de": "Faden außerhalb des Topfes",
+     "text_en": "Thread outside the pot",
+     "desc": "חיבור לטומאה › אוכלים › המעורב עם אחר › ביצה",
+     "desc_de": "Verbindung zur Unreinheit › Esswaren › Das mit anderem Vermischte › Ei",
+     "desc_en": "Connection to impurity › Foodstuffs › What is mixed with something else › Egg"
+    },
+    {
+     "ref": "3:4",
+     "text": "פסול מדומע, לישה במי פירות",
+     "text_de": "Untauglich durch Vermischung mit Teruma, Kneten mit Fruchtsaft",
+     "text_en": "Disqualified through mixture with terumah, kneading with fruit juice",
+     "desc": "חיבור לטומאה › אוכלים \\ משקים › המעורב עם אחר › מרכיבים בהכנתם",
+     "desc_de": "Verbindung zur Unreinheit › Esswaren / Flüssigkeiten › Das mit anderem Vermischte › Bestandteile bei ihrer Zubereitung",
+     "desc_en": "Connection to impurity › Foodstuffs / liquids › What is mixed with something else › Ingredients in their preparation"
+    },
+    {
+     "ref": "3:5",
+     "text": "המבושל בשמן",
+     "text_de": "In Öl Gekochtes",
+     "text_en": "What is cooked in oil",
+     "desc": "חיבור לטומאה › אוכלים \\ משקים › המעורב עם אחר › מרכיבים בהכנתם",
+     "desc_de": "Verbindung zur Unreinheit › Esswaren / Flüssigkeiten › Das mit anderem Vermischte › Bestandteile bei ihrer Zubereitung",
+     "desc_en": "Connection to impurity › Foodstuffs / liquids › What is mixed with something else › Ingredients in their preparation"
+    },
+    {
+     "ref": "3:6",
+     "text": "הנופל בעת אכילה",
+     "text_de": "Das beim Essen Herabfallende",
+     "text_en": "What falls while eating",
+     "desc": "המקבל טומאה מטבול יום › משקים › רצון והכשר › רוק",
+     "desc_de": "Was Unreinheit von einem Tevul Jom aufnimmt › Flüssigkeiten › Wille und Empfänglichmachung › Speichel",
+     "desc_en": "What receives impurity from a tevul yom › Liquids › Intent and rendering susceptible › Saliva"
+    }
+   ]
+  },
+  {
+   "head": "פרק ד",
+   "head_de": "Kapitel 4",
+   "head_en": "Chapter 4",
+   "items": [
+    {
+     "ref": "4:1",
+     "text": "אחר הכשר ונגיעת שני לטומאה",
+     "text_de": "Nach der Empfänglichmachung und Berührung des Zweitgradigen",
+     "text_en": "After rendering susceptible and contact with the second degree of impurity",
+     "desc": "המקבל טומאה מטבול יום › הטבול לתרומה › הפרשת תרומת מעשר",
+     "desc_de": "Was Unreinheit von einem Tevul Jom aufnimmt › Das noch nicht Verzehntete, bezüglich Teruma › Abtrennen der Teruma vom Zehnten",
+     "desc_en": "What receives impurity from a tevul yom › Untithed produce, with regard to terumah › Separating the terumah of the tithe"
+    },
+    {
+     "ref": "4:2",
+     "text": "על ידי אשה טבולת יום",
+     "text_de": "Durch eine Frau, die tagsüber untergetaucht ist",
+     "text_en": "By a woman who immersed that day",
+     "desc": "המקבל טומאה מטבול יום › הטבול לתרומה › התמוהים לרבי יהושע › הפרשת חלה",
+     "desc_de": "Was Unreinheit von einem Tevul Jom aufnimmt › Das noch nicht Verzehntete, bezüglich Teruma › Die für Rabbi Jehoschua unverständlichen Fälle › Absonderung der Challa",
+     "desc_en": "What receives impurity from a tevul yom › Untithed produce, with regard to terumah › The cases Rabbi Joshua found baffling › Separating challah"
+    },
+    {
+     "ref": "4:3",
+     "text": "מתוך כלי הטבול יום",
+     "text_de": "Aus dem Gefäß des Tevul Jom",
+     "text_en": "From the vessel of a tevul yom",
+     "desc": "המקבל טומאה מטבול יום › הטבול לתרומה › התמוהים לרבי יהושע › הפרשת חלה",
+     "desc_de": "Was Unreinheit von einem Tevul Jom aufnimmt › Das noch nicht Verzehntete, bezüglich Teruma › Die für Rabbi Jehoschua unverständlichen Fälle › Absonderung der Challa",
+     "desc_en": "What receives impurity from a tevul yom › Untithed produce, with regard to terumah › The cases Rabbi Joshua found baffling › Separating challah"
+    },
+    {
+     "ref": "4:4",
+     "text": "חלות ההפרשה בחשיכה, שבירה",
+     "text_de": "Wirksamkeit der Abtrennung bei Dunkelheit, Bruch",
+     "text_en": "Validity of separation at dusk, breaking",
+     "desc": "המקבל טומאה מטבול יום › הטבול לתרומה › התמוהים לרבי יהושע",
+     "desc_de": "Was Unreinheit von einem Tevul Jom aufnimmt › Das noch nicht Verzehntete, bezüglich Teruma › Die für Rabbi Jehoschua unverständlichen Fälle",
+     "desc_en": "What receives impurity from a tevul yom › Untithed produce, with regard to terumah › The cases Rabbi Joshua found baffling"
+    },
+    {
+     "ref": "4:5",
+     "text": "חילול מעשר ועה\"א, צוואת גט ע\"י בהול",
+     "text_de": "Auslösung des Zehnten und des Am ha-Aretz, Anordnung eines Scheidebriefs durch einen Verstörten",
+     "text_en": "Redemption of the tithe and of the am ha-aretz, instruction for a bill of divorce by a distraught person",
+     "desc": "המקבל טומאה מטבול יום › הטבול לתרומה › התמוהים לרבי יהושע",
+     "desc_de": "Was Unreinheit von einem Tevul Jom aufnimmt › Das noch nicht Verzehntete, bezüglich Teruma › Die für Rabbi Jehoschua unverständlichen Fälle",
+     "desc_en": "What receives impurity from a tevul yom › Untithed produce, with regard to terumah › The cases Rabbi Joshua found baffling"
+    },
+    {
+     "ref": "4:6",
+     "text": "שיור אונקלין בכדומין, שן של מתכת",
+     "text_de": "Vorbehalt von Haken bei Kadomin, Zahn aus Metall",
+     "text_en": "Reservation of hooks at Kadomin, metal tooth",
+     "desc": "המקבל טומאה מטבול יום › הטבול לתרומה › התמוהים לרבי יהושע › טומאת כלים",
+     "desc_de": "Was Unreinheit von einem Tevul Jom aufnimmt › Das noch nicht Verzehntete, bezüglich Teruma › Die für Rabbi Jehoschua unverständlichen Fälle › Unreinheit von Geräten",
+     "desc_en": "What receives impurity from a tevul yom › Untithed produce, with regard to terumah › The cases Rabbi Joshua found baffling › Impurity of vessels"
+    },
+    {
+     "ref": "4:7",
+     "text": "תנאי בטיחות לחלות שם תרומה",
+     "text_de": "Sicherheitsbedingungen für das Eintreten des Status Teruma",
+     "text_en": "Safety conditions for the onset of terumah status",
+     "desc": "המקבל טומאה מטבול יום › הטבול לתרומה › הפרשת תרומה",
+     "desc_de": "Was Unreinheit von einem Tevul Jom aufnimmt › Das noch nicht Verzehntete, bezüglich Teruma › Absonderung der Teruma",
+     "desc_en": "What receives impurity from a tevul yom › Untithed produce, with regard to terumah › Separation of terumah"
+    }
+   ]
+  }
+ ]
+}

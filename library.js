@@ -1549,8 +1549,11 @@
   function olToggle(w, open, silent, how) { w.hidden = !open; if (how) w.dataset.how = how; if (!silent) olChips(); const t = w.previousElementSibling && w.previousElementSibling.querySelector('.oltg'); if (t) { t.textContent = open ? '▾' : '▸'; t.setAttribute('aria-expanded', open ? 'true' : 'false'); } }
   function olMark(scroll) {
     const pnl = $('#outlinePanel'); if (!pnl || pnl.hidden) return;
+    // Nach Klick im Panel: angeklickten Punkt auf dem Bildschirm festhalten, auch wenn andere Gruppen auf-/zuklappen
+    const holdEl = window.__olHold && Date.now() < window.__olHold ? $$('#olBody .olc').find(x => x.dataset.r === window.__olClicked) : null;
+    let holdBox = null, holdTop = 0; if (holdEl) { holdBox = holdEl.parentElement; while (holdBox && holdBox !== document.body && !(holdBox.scrollHeight > holdBox.clientHeight + 2 && /auto|scroll/.test(getComputedStyle(holdBox).overflowY))) holdBox = holdBox.parentElement; if (holdBox === document.body) holdBox = null; holdTop = holdEl.getBoundingClientRect().top; }
     const g = view && view.group, ol = g && olOwnCached(g), lv2 = !!(ol && ol.levels === 2), pos = olPos(g, lv2), whole = !lv2 && !olPlaying(g); let first = null;
-    const hr = !lv2 && !olPlaying(g) ? $('#rOut .row.hit[data-l]') : null, tr = !lv2 && !olPlaying(g) ? (hr && hr.getBoundingClientRect().bottom > 0 && hr.getBoundingClientRect().top < innerHeight ? hr : olTopRow()) : null, tv = tr && /^\d+$/.test(tr.dataset.l) ? +tr.dataset.l : null, vpos = pos && tv ? { ch: pos.ch, v: tv } : pos; // Unterpunkte: nur der Punkt mit dem Vers am oberen Rand
+    const hr = !lv2 && !olPlaying(g) ? $('#rOut .row.hit[data-l]') : null, tr = !lv2 && !olPlaying(g) ? (hr && hr.getBoundingClientRect().bottom > 0 && hr.getBoundingClientRect().top < innerHeight ? hr : olTopRow()) : null, tv = tr ? (m => m ? +m[1] : null)(String(tr.dataset.l).match(/(\d+)\s*[a-z]?\s*$/i)) : null, vpos = pos && tv ? { ch: pos.ch, v: tv } : pos; // Unterpunkte: nur der Punkt mit dem Vers am oberen Rand
     $$('#olBody .olc').forEach(el => { const sub = el.classList.contains('olsub'), on = olIn(el.dataset.r, sub || tv ? vpos : pos, whole && !sub && !tv); el.classList.toggle('cur', on); if (on && !first) first = el; });
     { // überlappende Unterpunkte (z. B. 1:10–20 und 1:12–14): nur den genauesten (schmalsten) markieren
       const wd = el => olSpans(el.dataset.r).reduce((a, [x, y]) => a + (y - x), 0), cs = $$('#olBody .olc.cur.olsub');
@@ -1560,6 +1563,7 @@
     $$('#olBody .olc.cur').forEach(el => { const w = el.classList.contains('olsub') ? el.closest('.olsubs') : (el.nextElementSibling && el.nextElementSibling.classList.contains('olsubs') ? el.nextElementSibling : null); if (!w) return; curW.add(w); if (w.hidden && !(w.dataset.how === 'user-closed' && w.dataset.seen === '1')) olToggle(w, true, true, w.dataset.how === 'user-open' ? 'user-open' : 'auto'); });
     $$('#olBody .olsubs').forEach(w => { if (curW.has(w)) w.dataset.seen = '1'; else { delete w.dataset.seen; if (!w.hidden && w.dataset.how === 'auto') olToggle(w, false, true, ''); } }); // selbst aufgeklappte Gruppen ohne Markierung wieder schließen
     olChips();
+    if (holdBox && holdEl.isConnected) holdBox.scrollTop += holdEl.getBoundingClientRect().top - holdTop;
     if (first) olKeepVisible(first, scroll); // nur das Gliederungs-Panel scrollen, nie das Lesefenster
   }
   // markierten Eintrag in der Gliederung sichtbar halten, ohne die Leseansicht zu verschieben
@@ -1567,7 +1571,8 @@
     let box = el.parentElement; while (box && box !== document.body && !(box.scrollHeight > box.clientHeight + 2 && /auto|scroll/.test(getComputedStyle(box).overflowY))) box = box.parentElement;
     if (!box || box === document.body) return;
     const r = el.getBoundingClientRect(), b = box.getBoundingClientRect();
-    if (center || r.top < b.top || r.bottom > b.bottom) box.scrollTop += r.top - b.top - (b.height - r.height) / 2;
+    if (window.__olHold && Date.now() < window.__olHold) return; // gerade im Panel geklickt: nicht nachscrollen
+    if (center ? (r.top < b.top || r.bottom > b.bottom) : (r.top < b.top || r.bottom > b.bottom)) box.scrollTop += r.top - b.top - (b.height - r.height) / 2;
   }
   // beim Lesen (Scrollen) die Markierung in Buch:Kapitel-Gliederungen mitführen
   { let olScrollT = null, olLastPos = '';
@@ -1604,6 +1609,7 @@
       if (idx !== view.idx || view.vf) { view.idx = idx; view.vf = null; renderSection(); requestAnimationFrame(goRow); } else goRow();
       return;
     }
+    window.__olHold = Date.now() + 1500; // Klick im Panel: Panel bleibt stehen, nur der Text springt
     window.__olClicked = p.dataset.r; // der angeklickte Punkt bleibt bei überlappenden Unterpunkten markiert
     { // komplexer Text (Teile): Kapitel im geöffneten Teil öffnen und zum Vers scrollen
       const nd = olNode(view && view.group), m = nd && String(p.dataset.r).match(/^(\d+)(?::(\d+))?/);

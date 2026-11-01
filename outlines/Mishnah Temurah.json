@@ -1,0 +1,375 @@
+{
+ "book": "Mishnah Temurah",
+ "title": "משנה תמורה",
+ "title_de": "Mischna Tmura – Gliederung",
+ "title_en": "Temurah – outline",
+ "note": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema).",
+ "note_de": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema); ins Deutsche und Englische übersetzt.",
+ "note_en": "Outline after the table “Mishna Sedura”: the central content of each mishnah, with the topic path (main topic to sub-topic); translated into German and English.",
+ "sections": [
+  {
+   "head": "פרק א",
+   "head_de": "Kapitel 1",
+   "head_en": "Chapter 1",
+   "items": [
+    {
+     "ref": "1:1",
+     "text": "מין, בעלות הקרבן ומתנות כהנים",
+     "text_de": "Art, Eigentümer des Opfers und Priestergaben",
+     "text_en": "Kind, owner of the offering and priestly gifts",
+     "desc": "דיני הקדש › בהמות קדשים › הלכות תמורה › היכולים להמיר",
+     "desc_de": "Gesetze der Weihung › Heilige Tiere › Gesetze der Temura › Wer austauschen kann",
+     "desc_en": "Laws of dedication › Consecrated animals › Laws of temurah › Who can substitute"
+    },
+    {
+     "ref": "1:2",
+     "text": "מין וסוג הבהמה, בעל מום,מספר הבהמות",
+     "text_de": "Art und Gattung des Tieres, mit Makel, Zahl der Tiere",
+     "text_en": "Kind and species of the animal, blemished, number of animals",
+     "desc": "דיני הקדש › בהמות קדשים › הלכות תמורה › במה ממירין",
+     "desc_de": "Gesetze der Weihung › Heilige Tiere › Gesetze der Temura › Wodurch man austauscht",
+     "desc_en": "Laws of dedication › Consecrated animals › Laws of temurah › By what one substitutes"
+    },
+    {
+     "ref": "1:3",
+     "text": "שלימות המומרים",
+     "text_de": "Unversehrtheit der Ausgetauschten",
+     "text_en": "Soundness of the substituted animals",
+     "desc": "דיני הקדש › בהמות קדשים › הלכות תמורה › במה ממירין",
+     "desc_de": "Gesetze der Weihung › Heilige Tiere › Gesetze der Temura › Wodurch man austauscht",
+     "desc_en": "Laws of dedication › Consecrated animals › Laws of temurah › By what one substitutes"
+    },
+    {
+     "ref": "1:4",
+     "text": "דימוע, חימוץ, מים שאובים במקוה",
+     "text_de": "Vermischung, Säuerung, geschöpftes Wasser in der Mikwe",
+     "text_en": "Mixture, leavening, drawn water in a mikveh",
+     "desc": "דיני הקדש › בהמות קדשים › הלכות תמורה › במה ממירין › הנפעל לא כפועלו",
+     "desc_de": "Gesetze der Weihung › Heilige Tiere › Gesetze der Temura › Wodurch man austauscht › Das Bewirkte ist nicht wie das Bewirkende",
+     "desc_en": "Laws of dedication › Consecrated animals › Laws of temurah › By what one substitutes › The effect is not like its cause"
+    },
+    {
+     "ref": "1:5",
+     "text": "מי חטאת, בית הפרס,תרומה, תמורה וולד",
+     "text_de": "Entsühnungswasser, Beit Haperas, Teruma, Temura und Nachkomme",
+     "text_en": "Purification water, beit haperas, terumah, temurah and offspring",
+     "desc": "דיני הקדש › בהמות קדשים › הלכות תמורה › במה ממירין › הנפעל לא כפועלו",
+     "desc_de": "Gesetze der Weihung › Heilige Tiere › Gesetze der Temura › Wodurch man austauscht › Das Bewirkte ist nicht wie das Bewirkende",
+     "desc_en": "Laws of dedication › Consecrated animals › Laws of temurah › By what one substitutes › The effect is not like its cause"
+    },
+    {
+     "ref": "1:6",
+     "text": "סוג בע\"ח,רשות משותפת,קדושת גוף,דמים",
+     "text_de": "Tiergattung, gemeinsamer Besitz, Heiligkeit des Körpers, Geldwert",
+     "text_en": "Animal species, joint ownership, sanctity of the body, monetary value",
+     "desc": "דיני הקדש › בהמות קדשים › הלכות תמורה › במה ממירין",
+     "desc_de": "Gesetze der Weihung › Heilige Tiere › Gesetze der Temura › Wodurch man austauscht",
+     "desc_en": "Laws of dedication › Consecrated animals › Laws of temurah › By what one substitutes"
+    }
+   ]
+  },
+  {
+   "head": "פרק ב",
+   "head_de": "Kapitel 2",
+   "head_en": "Chapter 2",
+   "items": [
+    {
+     "ref": "2:1",
+     "text": "דינים שונים",
+     "text_de": "Verschiedene Gesetze",
+     "text_en": "Various laws",
+     "desc": "דיני הקדש › בהמות קדשים › השוואת דיני קרבנות › של יחיד לשל ציבור",
+     "desc_de": "Gesetze der Weihung › Heilige Tiere › Vergleich der Opfergesetze › Vom Einzelnen zum Gemeinschaftlichen",
+     "desc_en": "Laws of dedication › Consecrated animals › Comparison of the laws of offerings › From an individual's to a communal offering"
+    },
+    {
+     "ref": "2:2",
+     "text": "חטאות המתות",
+     "text_de": "Zum Tod bestimmte Sündopfer",
+     "text_en": "Sin offerings left to die",
+     "desc": "דיני הקדש › בהמות קדשים › השוואת דיני קרבנות › של יחיד לשל ציבור",
+     "desc_de": "Gesetze der Weihung › Heilige Tiere › Vergleich der Opfergesetze › Vom Einzelnen zum Gemeinschaftlichen",
+     "desc_en": "Laws of dedication › Consecrated animals › Comparison of the laws of offerings › From an individual's to a communal offering"
+    },
+    {
+     "ref": "2:3",
+     "text": "קדשים ותמורה / שאינן קדושים כלל",
+     "text_de": "Geweihtes und Temura / gar nicht Geweihtes",
+     "text_en": "Consecrated items and temurah / items not consecrated at all",
+     "desc": "דיני הקדש › בהמות קדשים › השוואת דיני קרבנות",
+     "desc_de": "Gesetze der Weihung › Heilige Tiere › Vergleich der Opfergesetze",
+     "desc_en": "Laws of dedication › Consecrated animals › Comparison of the laws of offerings"
+    }
+   ]
+  },
+  {
+   "head": "פרק ג",
+   "head_de": "Kapitel 3",
+   "head_en": "Chapter 3",
+   "items": [
+    {
+     "ref": "3:1",
+     "text": "שלמים, עדות על ההלכה",
+     "text_de": "Heilsopfer, Zeugnis über die Halacha",
+     "text_en": "Peace offerings, testimony about halacha",
+     "desc": "דיני הקדש › בהמות קדשים › שולדותיהן ותמורותיהן כיוצא בהן",
+     "desc_de": "Gesetze der Weihung › Heilige Tiere › Ihre Nachgeburten und Temurot sind ihnen gleich",
+     "desc_en": "Laws of dedication › Consecrated animals › Their afterbirths and substitutes are like them"
+    },
+    {
+     "ref": "3:2",
+     "text": "תודה \\ תמורה, ולדות",
+     "text_de": "Dankopfer / Temura, Nachkommen",
+     "text_en": "Thanksgiving offering / temurah, offspring",
+     "desc": "דיני הקדש › בהמות קדשים › שולדותיהן ותמורותיהן כיוצא בהן",
+     "desc_de": "Gesetze der Weihung › Heilige Tiere › Ihre Nachgeburten und Temurot sind ihnen gleich",
+     "desc_en": "Laws of dedication › Consecrated animals › Their afterbirths and substitutes are like them"
+    },
+    {
+     "ref": "3:3",
+     "text": "המפריש נקבה\\ תמורה,ולדות, חסר בעלים",
+     "text_de": "Wer ein Weibchen aussondert / Temura, Nachkommen, ohne Eigentümer",
+     "text_en": "One who sets aside a female / temurah, offspring, without an owner",
+     "desc": "דיני הקדש › בהמות קדשים › שולדותיהן ותמורותיהן כיוצא בהן › עולה",
+     "desc_de": "Gesetze der Weihung › Heilige Tiere › Ihre Nachgeburten und Temurot sind ihnen gleich › Ganzopfer",
+     "desc_en": "Laws of dedication › Consecrated animals › Their afterbirths and substitutes are like them › Burnt offering"
+    },
+    {
+     "ref": "3:4",
+     "text": "בין נדבת עולת יחיד לשל ציבור",
+     "text_de": "Zwischen freiwilligem Brandopfer eines Einzelnen und dem der Gemeinschaft",
+     "text_en": "Between the voluntary burnt offering of an individual and that of the community",
+     "desc": "דיני הקדש › בהמות קדשים › שולדותיהן ותמורותיהן כיוצא בהן › אשם",
+     "desc_de": "Gesetze der Weihung › Heilige Tiere › Ihre Nachgeburten und Temurot sind ihnen gleich › Schuldopfer",
+     "desc_en": "Laws of dedication › Consecrated animals › Their afterbirths and substitutes are like them › Guilt offering"
+    },
+    {
+     "ref": "3:5",
+     "text": "דיניהן והשואתן לשאר קדשים",
+     "text_de": "Ihre Gesetze und Vergleich mit den übrigen Opfern",
+     "text_en": "Their laws and comparison with other offerings",
+     "desc": "דיני הקדש › בהמות קדשים › שולדותיהן ותמורותיהן כיוצא בהן › בכור ומעשר",
+     "desc_de": "Gesetze der Weihung › Heilige Tiere › Ihre Nachgeburten und Temurot sind ihnen gleich › Erstgeburt und Zehnt",
+     "desc_en": "Laws of dedication › Consecrated animals › Their afterbirths and substitutes are like them › Firstborn and tithe"
+    }
+   ]
+  },
+  {
+   "head": "פרק ד",
+   "head_de": "Kapitel 4",
+   "head_en": "Chapter 4",
+   "items": [
+    {
+     "ref": "4:1",
+     "text": "ולד,תמורה,מתו בעלים\\ עם זקנה או מום",
+     "text_de": "Nachkomme, Temura, Tod der Eigentümer / bei Alter oder Makel",
+     "text_en": "Offspring, temurah, death of the owners / with old age or blemish",
+     "desc": "דיני הקדש › בהמות קדשים › החטאות המתות ודיניהן",
+     "desc_de": "Gesetze der Weihung › Heilige Tiere › Die zum Tod bestimmten Sündopfer und ihre Gesetze",
+     "desc_en": "Laws of dedication › Consecrated animals › The sin offerings left to die and their laws"
+    },
+    {
+     "ref": "4:2",
+     "text": "מציאת חטאת ומעות לאחר כפרה",
+     "text_de": "Fund eines Sündopfers und von Geld nach der Sühne",
+     "text_en": "Finding a sin offering and money after atonement",
+     "desc": "דיני הקדש › בהמות קדשים › החטאות המתות ודיניהן › שנאבדה",
+     "desc_de": "Gesetze der Weihung › Heilige Tiere › Die zum Tod bestimmten Sündopfer und ihre Gesetze › Das verloren ging",
+     "desc_en": "Laws of dedication › Consecrated animals › The sin offerings left to die and their laws › That which was lost"
+    },
+    {
+     "ref": "4:3",
+     "text": "מציאת מעות וחטאת לפני כפרה",
+     "text_de": "Fund von Geld und Sündopfer vor der Sühne",
+     "text_en": "Finding money and a sin offering before atonement",
+     "desc": "דיני הקדש › בהמות קדשים › החטאות המתות ודיניהן › שנאבדה",
+     "desc_de": "Gesetze der Weihung › Heilige Tiere › Die zum Tod bestimmten Sündopfer und ihre Gesetze › Das verloren ging",
+     "desc_en": "Laws of dedication › Consecrated animals › The sin offerings left to die and their laws › That which was lost"
+    },
+    {
+     "ref": "4:4",
+     "text": "בהמה שהוקרבה מדמיה חטאת",
+     "text_de": "Tier, das aus dem Erlös eines Sündopfers dargebracht wurde",
+     "text_en": "Animal offered from the proceeds of a sin offering",
+     "desc": "דיני הקדש › בהמות קדשים › החטאות המתות ודיניהן",
+     "desc_de": "Gesetze der Weihung › Heilige Tiere › Die zum Tod bestimmten Sündopfer und ihre Gesetze",
+     "desc_en": "Laws of dedication › Consecrated animals › The sin offerings left to die and their laws"
+    }
+   ]
+  },
+  {
+   "head": "פרק ה",
+   "head_de": "Kapitel 5",
+   "head_en": "Chapter 5",
+   "items": [
+    {
+     "ref": "5:1",
+     "text": "מבכרת, בקדשים, תנאי כפול",
+     "text_de": "Erstgebärende, bei Geweihtem, doppelte Bedingung",
+     "text_en": "A first-time bearer, among consecrated animals, double condition",
+     "desc": "דיני הקדש › בהמות קדשים › דרכי הקדשת בהמה › חלות קדושה על עוברים",
+     "desc_de": "Gesetze der Weihung › Heilige Tiere › Arten, ein Tier zu weihen › Eintreten von Heiligkeit auf Embryonen",
+     "desc_en": "Laws of dedication › Consecrated animals › Ways of consecrating an animal › Onset of sanctity upon embryos"
+    },
+    {
+     "ref": "5:2",
+     "text": "בחולין, בקדשים, בלידת פסול למזבח",
+     "text_de": "Bei Profanem, bei Geweihtem, bei Geburt eines für den Altar untauglichen Tieres",
+     "text_en": "With unconsecrated animals, with consecrated ones, with the birth of an animal unfit for the altar",
+     "desc": "דיני הקדש › בהמות קדשים › דרכי הקדשת בהמה › חלות קדושה על עוברים",
+     "desc_de": "Gesetze der Weihung › Heilige Tiere › Arten, ein Tier zu weihen › Eintreten von Heiligkeit auf Embryonen",
+     "desc_en": "Laws of dedication › Consecrated animals › Ways of consecrating an animal › Onset of sanctity upon embryos"
+    },
+    {
+     "ref": "5:3",
+     "text": "הקדש שונה לאם ועובר",
+     "text_de": "Unterschiedliche Weihung für Muttertier und Embryo",
+     "text_en": "Different consecration for mother and embryo",
+     "desc": "דיני הקדש › בהמות קדשים › דרכי הקדשת בהמה › לשונות של תמורה,חילול והקדש › בבת אחת",
+     "desc_de": "Gesetze der Weihung › Heilige Tiere › Arten, ein Tier zu weihen › Formulierungen von Temura, Entweihung und Weihung › Auf einmal",
+     "desc_en": "Laws of dedication › Consecrated animals › Ways of consecrating an animal › Formulations of temurah, desecration and dedication › All at once"
+    },
+    {
+     "ref": "5:4",
+     "text": "תמורות שונות בבהמה",
+     "text_de": "Verschiedene Temurot bei Tieren",
+     "text_en": "Various substitutions among animals",
+     "desc": "דיני הקדש › בהמות קדשים › דרכי הקדשת בהמה › לשונות של תמורה,חילול והקדש › בבת אחת",
+     "desc_de": "Gesetze der Weihung › Heilige Tiere › Arten, ein Tier zu weihen › Formulierungen von Temura, Entweihung und Weihung › Auf einmal",
+     "desc_en": "Laws of dedication › Consecrated animals › Ways of consecrating an animal › Formulations of temurah, desecration and dedication › All at once"
+    },
+    {
+     "ref": "5:5",
+     "text": "בתמימה, בבעל מום",
+     "text_de": "Bei makellosem, bei makelbehaftetem",
+     "text_en": "With an unblemished one, with a blemished one",
+     "desc": "דיני הקדש › בהמות קדשים › דרכי הקדשת בהמה › לשונות של תמורה,חילול והקדש",
+     "desc_de": "Gesetze der Weihung › Heilige Tiere › Arten, ein Tier zu weihen › Formulierungen von Temura, Entweihung und Weihung",
+     "desc_en": "Laws of dedication › Consecrated animals › Ways of consecrating an animal › Formulations of temurah, desecration and dedication"
+    },
+    {
+     "ref": "5:6",
+     "text": "בתמימה, בשאינה ראויה למזבח",
+     "text_de": "Bei makellosem, bei einem für den Altar ungeeigneten",
+     "text_en": "With an unblemished one, with one unfit for the altar",
+     "desc": "דיני הקדש › בהמות קדשים › דרכי הקדשת בהמה › לשונות של תמורה,חילול והקדש",
+     "desc_de": "Gesetze der Weihung › Heilige Tiere › Arten, ein Tier zu weihen › Formulierungen von Temura, Entweihung und Weihung",
+     "desc_en": "Laws of dedication › Consecrated animals › Ways of consecrating an animal › Formulations of temurah, desecration and dedication"
+    }
+   ]
+  },
+  {
+   "head": "פרק ו",
+   "head_de": "Kapitel 6",
+   "head_en": "Chapter 6",
+   "items": [
+    {
+     "ref": "6:1",
+     "text": "תערובת, פירותן, הגדרת מוקצה ונעבד",
+     "text_de": "Vermischung, ihre Erträge, Definition von Muktze und Ne'evad",
+     "text_en": "Mixture, their produce, definition of muktzeh and ne'evad",
+     "desc": "דיני הקדש › בהמות קדשים › האסורים למזבח",
+     "desc_de": "Gesetze der Weihung › Heilige Tiere › Die für den Altar Verbotenen",
+     "desc_en": "Laws of dedication › Consecrated animals › Those forbidden for the altar"
+    },
+    {
+     "ref": "6:2",
+     "text": "הגדרת אתנן",
+     "text_de": "Definition von Hurenlohn",
+     "text_en": "Definition of a harlot's hire",
+     "desc": "דיני הקדש › בהמות קדשים › האסורים למזבח › אתנן זונה ומחיר כלב",
+     "desc_de": "Gesetze der Weihung › Heilige Tiere › Die für den Altar Verbotenen › Hurenlohn und Hundepreis",
+     "desc_en": "Laws of dedication › Consecrated animals › Those forbidden for the altar › Harlot's hire and the price of a dog"
+    },
+    {
+     "ref": "6:3",
+     "text": "הגדרת מחיר, ולדותיהן, הדומים",
+     "text_de": "Definition des Preises, ihre Nachkommen, Ähnliches",
+     "text_en": "Definition of the price, their offspring, similar cases",
+     "desc": "דיני הקדש › בהמות קדשים › האסורים למזבח › אתנן זונה ומחיר כלב",
+     "desc_de": "Gesetze der Weihung › Heilige Tiere › Die für den Altar Verbotenen › Hurenlohn und Hundepreis",
+     "desc_en": "Laws of dedication › Consecrated animals › Those forbidden for the altar › Harlot's hire and the price of a dog"
+    },
+    {
+     "ref": "6:4",
+     "text": "חלות על חולין הראויין למזבח",
+     "text_de": "Wirkung auf Profanes, das für den Altar geeignet ist",
+     "text_en": "Effect upon unconsecrated items fit for the altar",
+     "desc": "דיני הקדש › בהמות קדשים › האסורים למזבח › אתנן זונה ומחיר כלב",
+     "desc_de": "Gesetze der Weihung › Heilige Tiere › Die für den Altar Verbotenen › Hurenlohn und Hundepreis",
+     "desc_en": "Laws of dedication › Consecrated animals › Those forbidden for the altar › Harlot's hire and the price of a dog"
+    },
+    {
+     "ref": "6:5",
+     "text": "ולדות האסורים, יניקה ופדיון טריפה",
+     "text_de": "Verbotene Nachkommen, Saugen und Auslösung der Trefa",
+     "text_en": "Forbidden offspring, nursing and redemption of a treifah",
+     "desc": "דיני הקדש › בהמות קדשים › האסורים למזבח",
+     "desc_de": "Gesetze der Weihung › Heilige Tiere › Die für den Altar Verbotenen",
+     "desc_en": "Laws of dedication › Consecrated animals › Those forbidden for the altar"
+    }
+   ]
+  },
+  {
+   "head": "פרק ז",
+   "head_de": "Kapitel 7",
+   "head_en": "Chapter 7",
+   "items": [
+    {
+     "ref": "7:1",
+     "text": "המיוחד בקדשי מזבח",
+     "text_de": "Das Besondere an den Altaropfern",
+     "text_en": "What is special to altar offerings",
+     "desc": "דיני הקדש › קדשי מזבח ובדק הבית › השוואת דיניהם",
+     "desc_de": "Gesetze der Weihung › Altaropfer und Tempelreparatur › Vergleich ihrer Gesetze",
+     "desc_en": "Laws of dedication › Altar offerings and Temple maintenance › Comparison of their laws"
+    },
+    {
+     "ref": "7:2",
+     "text": "המיוחד בקדשי בדק הבית",
+     "text_de": "Das Besondere an der Tempelreparatur",
+     "text_en": "What is special to Temple maintenance",
+     "desc": "דיני הקדש › קדשי מזבח ובדק הבית › השוואת דיניהם",
+     "desc_de": "Gesetze der Weihung › Altaropfer und Tempelreparatur › Vergleich ihrer Gesetze",
+     "desc_en": "Laws of dedication › Altar offerings and Temple maintenance › Comparison of their laws"
+    },
+    {
+     "ref": "7:3",
+     "text": "השוה לשניהן",
+     "text_de": "Gleich bei beiden",
+     "text_en": "Common to both",
+     "desc": "דיני הקדש › קדשי מזבח ובדק הבית › השוואת דיניהם",
+     "desc_de": "Gesetze der Weihung › Altaropfer und Tempelreparatur › Vergleich ihrer Gesetze",
+     "desc_en": "Laws of dedication › Altar offerings and Temple maintenance › Comparison of their laws"
+    },
+    {
+     "ref": "7:4",
+     "text": "הנקברים",
+     "text_de": "Die zu Begrabenden",
+     "text_en": "Those to be buried",
+     "desc": "דיני הקדש › איסורי הנאה › דרכי השמדתם",
+     "desc_de": "Gesetze der Weihung › Nutzungsverbote › Arten ihrer Vernichtung",
+     "desc_en": "Laws of dedication › Prohibitions of benefit › Methods of their destruction"
+    },
+    {
+     "ref": "7:5",
+     "text": "איסורים בצומח",
+     "text_de": "Verbote bei Pflanzlichem",
+     "text_en": "Prohibitions concerning plants",
+     "desc": "דיני הקדש › איסורי הנאה › דרכי השמדתם › הנשרפים",
+     "desc_de": "Gesetze der Weihung › Nutzungsverbote › Arten ihrer Vernichtung › Die zu Verbrennenden",
+     "desc_en": "Laws of dedication › Prohibitions of benefit › Methods of their destruction › Those to be burned"
+    },
+    {
+     "ref": "7:6",
+     "text": "קדשים פסולים \\ בשינוי",
+     "text_de": "Untaugliche Opfer / durch Veränderung",
+     "text_en": "Disqualified offerings / through alteration",
+     "desc": "דיני הקדש › איסורי הנאה › דרכי השמדתם",
+     "desc_de": "Gesetze der Weihung › Nutzungsverbote › Arten ihrer Vernichtung",
+     "desc_en": "Laws of dedication › Prohibitions of benefit › Methods of their destruction"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,1144 @@
+{
+ "book": "Mishnah Negaim",
+ "title": "משנה נגעים",
+ "title_de": "Mischna Negaim – Gliederung",
+ "title_en": "Negaim – outline",
+ "note": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema).",
+ "note_de": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema); ins Deutsche und Englische übersetzt.",
+ "note_en": "Outline after the table “Mishna Sedura”: the central content of each mishnah, with the topic path (main topic to sub-topic); translated into German and English.",
+ "sections": [
+  {
+   "head": "פרק א",
+   "head_de": "Kapitel 1",
+   "head_en": "Chapter 1",
+   "items": [
+    {
+     "ref": "1:1",
+     "text": "האבות ותולדותיהן",
+     "text_de": "Die Urväter der Unreinheit und ihre Abkömmlinge",
+     "text_en": "The principal categories of impurity and their derivatives",
+     "desc": "נגעי אדם › ראיית הנגעים › המראות",
+     "desc_de": "Plagen am Menschen › Das Sehen der Plagen › Die Erscheinungen",
+     "desc_en": "Plagues of a person › Examination of the plagues › The appearances"
+    },
+    {
+     "ref": "1:2",
+     "text": "הפתוכים",
+     "text_de": "Die Vermischten",
+     "text_en": "The mixed ones",
+     "desc": "נגעי אדם › ראיית הנגעים › המראות",
+     "desc_de": "Plagen am Menschen › Das Sehen der Plagen › Die Erscheinungen",
+     "desc_en": "Plagues of a person › Examination of the plagues › The appearances"
+    },
+    {
+     "ref": "1:3",
+     "text": "הצטרפותם, סימני טומאה וטהרה בעור",
+     "text_de": "Ihre Zusammenrechnung, Zeichen von Unreinheit und Reinheit in der Haut",
+     "text_en": "Their combination, signs of impurity and purity in the skin",
+     "desc": "נגעי אדם › ראיית הנגעים › המראות",
+     "desc_de": "Plagen am Menschen › Das Sehen der Plagen › Die Erscheinungen",
+     "desc_en": "Plagues of a person › Examination of the plagues › The appearances"
+    },
+    {
+     "ref": "1:4",
+     "text": "עוד מנין מראות \\ אי ראייתם בשבת",
+     "text_de": "Weitere Aufzählung von Erscheinungen / Nichtbesichtigung am Schabbat",
+     "text_en": "Further enumeration of appearances / Non-examination on Shabbat",
+     "desc": "נגעי אדם › ראיית הנגעים › דחיית ראייתם › המראות",
+     "desc_de": "Plagen am Menschen › Das Sehen der Plagen › Aufschub ihrer Besichtigung › Die Erscheinungen",
+     "desc_en": "Plagues of a person › Examination of the plagues › Postponement of their examination › The appearances"
+    },
+    {
+     "ref": "1:5",
+     "text": "להקל",
+     "text_de": "Zur Erleichterung",
+     "text_en": "To be lenient",
+     "desc": "נגעי אדם › ראיית הנגעים › דחיית ראייתם",
+     "desc_de": "Plagen am Menschen › Das Sehen der Plagen › Aufschub ihrer Besichtigung",
+     "desc_en": "Plagues of a person › Examination of the plagues › Postponement of their examination"
+    },
+    {
+     "ref": "1:6",
+     "text": "להחמיר",
+     "text_de": "Zur Erschwerung",
+     "text_en": "To be stringent",
+     "desc": "נגעי אדם › ראיית הנגעים › דחיית ראייתם",
+     "desc_de": "Plagen am Menschen › Das Sehen der Plagen › Aufschub ihrer Besichtigung",
+     "desc_en": "Plagues of a person › Examination of the plagues › Postponement of their examination"
+    }
+   ]
+  },
+  {
+   "head": "פרק ב",
+   "head_de": "Kapitel 2",
+   "head_en": "Chapter 2",
+   "items": [
+    {
+     "ref": "2:1",
+     "text": "צבע העור",
+     "text_de": "Farbe der Haut",
+     "text_en": "Color of the skin",
+     "desc": "נגעי אדם › ראיית הנגעים › דיוק בראייה › הבחנת המראה",
+     "desc_de": "Plagen am Menschen › Das Sehen der Plagen › Genauigkeit beim Sehen › Unterscheidung der Erscheinung",
+     "desc_en": "Plagues of a person › Examination of the plagues › Precision in seeing › Distinguishing the appearance"
+    },
+    {
+     "ref": "2:2",
+     "text": "מדת הארת השמש",
+     "text_de": "Maß der Sonnenbeleuchtung",
+     "text_en": "Degree of sunlight",
+     "desc": "כל הנגעים › ראיית הנגעים › דיוק בראייה › הבחנת המראה",
+     "desc_de": "Alle Plagen › Das Sehen der Plagen › Genauigkeit beim Sehen › Unterscheidung der Erscheinung",
+     "desc_en": "All plagues › Examination of the plagues › Precision in seeing › Distinguishing the appearance"
+    },
+    {
+     "ref": "2:3",
+     "text": "כושר הראייה של הכהן \\ בית אפל",
+     "text_de": "Sehkraft des Priesters / dunkles Haus",
+     "text_en": "Eyesight of the priest / dark house",
+     "desc": "כל הנגעים › ראיית הנגעים › דיוק בראייה › מקומות מוסתרים › הבחנת המראה",
+     "desc_de": "Alle Plagen › Das Sehen der Plagen › Genauigkeit beim Sehen › Verborgene Stellen › Unterscheidung der Erscheinung",
+     "desc_en": "All plagues › Examination of the plagues › Precision in seeing › Concealed places › Distinguishing the appearance"
+    },
+    {
+     "ref": "2:4",
+     "text": "גילוי בית הסתרים",
+     "text_de": "Aufdecken der verborgenen Stellen",
+     "text_en": "Uncovering the concealed places",
+     "desc": "כל הנגעים › ראיית הנגעים › דיוק בראייה › מקומות מוסתרים",
+     "desc_de": "Alle Plagen › Das Sehen der Plagen › Genauigkeit beim Sehen › Verborgene Stellen",
+     "desc_en": "All plagues › Examination of the plagues › Precision in seeing › Concealed places"
+    },
+    {
+     "ref": "2:5",
+     "text": "ראיית לעצמו, לקרוביו,בנדרים,בבכורות",
+     "text_de": "Besichtigung für sich selbst, für seine Verwandten, bei Gelübden, bei Erstgeburten",
+     "text_en": "Examination for oneself, for one's relatives, in vows, in firstborn matters",
+     "desc": "כל הנגעים › ראיית הנגעים › דיוק בראייה › מי רואה ונראה",
+     "desc_de": "Alle Plagen › Das Sehen der Plagen › Genauigkeit beim Sehen › Wer sieht und wer gesehen wird",
+     "desc_en": "All plagues › Examination of the plagues › Precision in seeing › Who examines and who is examined"
+    }
+   ]
+  },
+  {
+   "head": "פרק ג",
+   "head_de": "Kapitel 3",
+   "head_en": "Chapter 3",
+   "items": [
+    {
+     "ref": "3:1",
+     "text": "הנטמא, הפוסק, מספר הנגעים ומצבם",
+     "text_de": "Der Verunreinigte, der Entscheidende, Zahl und Zustand der Plagen",
+     "text_en": "The one rendered impure, the one who rules, number and condition of the plagues",
+     "desc": "כל הנגעים › ראיית הנגעים › דיוק בראייה › מי רואה ונראה",
+     "desc_de": "Alle Plagen › Das Sehen der Plagen › Genauigkeit beim Sehen › Wer sieht und wer gesehen wird",
+     "desc_en": "All plagues › Examination of the plagues › Precision in seeing › Who examines and who is examined"
+    },
+    {
+     "ref": "3:2",
+     "text": "דיחוי לחתן ולרגל",
+     "text_de": "Aufschub für Bräutigam und Wallfahrtsfest",
+     "text_en": "Postponement for a bridegroom and for a festival",
+     "desc": "כל הנגעים › ראיית הנגעים › מי רואה ונראה",
+     "desc_de": "Alle Plagen › Das Sehen der Plagen › Wer sieht und wer gesehen wird",
+     "desc_en": "All plagues › Examination of the plagues › Who examines and who is examined"
+    },
+    {
+     "ref": "3:3",
+     "text": "עור הבשר",
+     "text_de": "Fleischhaut",
+     "text_en": "Skin of the flesh",
+     "desc": "כל הנגעים › סיכומי הלכות › מיני הנגעים › נגעי אדם",
+     "desc_de": "Alle Plagen › Zusammenfassung der Halachot › Arten der Plagen › Plagen am Menschen",
+     "desc_en": "All plagues › Summary of the laws › Types of plagues › Plagues of a person"
+    },
+    {
+     "ref": "3:4",
+     "text": "שחין ומכוה",
+     "text_de": "Geschwür und Brandwunde",
+     "text_en": "Boil and burn",
+     "desc": "כל הנגעים › סיכומי הלכות › מיני הנגעים › נגעי אדם",
+     "desc_de": "Alle Plagen › Zusammenfassung der Halachot › Arten der Plagen › Plagen am Menschen",
+     "desc_en": "All plagues › Summary of the laws › Types of plagues › Plagues of a person"
+    },
+    {
+     "ref": "3:5",
+     "text": "נתקין",
+     "text_de": "Schuppengrind",
+     "text_en": "Scall",
+     "desc": "כל הנגעים › סיכומי הלכות › מיני הנגעים › נגעי אדם",
+     "desc_de": "Alle Plagen › Zusammenfassung der Halachot › Arten der Plagen › Plagen am Menschen",
+     "desc_en": "All plagues › Summary of the laws › Types of plagues › Plagues of a person"
+    },
+    {
+     "ref": "3:6",
+     "text": "קרחת וגבחת",
+     "text_de": "Kahlheit am Hinterkopf und an der Stirn",
+     "text_en": "Baldness of the back and front of the head",
+     "desc": "כל הנגעים › סיכומי הלכות › מיני הנגעים › נגעי אדם",
+     "desc_de": "Alle Plagen › Zusammenfassung der Halachot › Arten der Plagen › Plagen am Menschen",
+     "desc_en": "All plagues › Summary of the laws › Types of plagues › Plagues of a person"
+    },
+    {
+     "ref": "3:7",
+     "text": "בגדים",
+     "text_de": "Kleider",
+     "text_en": "Garments",
+     "desc": "כל הנגעים › סיכומי הלכות › מיני הנגעים › נגעי דומם",
+     "desc_de": "Alle Plagen › Zusammenfassung der Halachot › Arten der Plagen › Plagen an unbelebten Dingen",
+     "desc_en": "All plagues › Summary of the laws › Types of plagues › Plagues of inanimate objects"
+    },
+    {
+     "ref": "3:8",
+     "text": "בתים \\ גבולי מספר השבועות",
+     "text_de": "Häuser / Grenzen der Wochenzahl",
+     "text_en": "Houses / Limits of the number of weeks",
+     "desc": "כל הנגעים › סיכומי הלכות › מיני הנגעים › נגעי דומם",
+     "desc_de": "Alle Plagen › Zusammenfassung der Halachot › Arten der Plagen › Plagen an unbelebten Dingen",
+     "desc_en": "All plagues › Summary of the laws › Types of plagues › Plagues of inanimate objects"
+    }
+   ]
+  },
+  {
+   "head": "פרק ד",
+   "head_de": "Kapitel 4",
+   "head_en": "Chapter 4",
+   "items": [
+    {
+     "ref": "4:1",
+     "text": "שער לבן ופשיון",
+     "text_de": "Weißes Haar und Ausbreitung",
+     "text_en": "White hair and spreading",
+     "desc": "כל הנגעים › סימני טומאה › השוואת סימני טומאה",
+     "desc_de": "Alle Plagen › Zeichen der Unreinheit › Gleichstellung der Zeichen der Unreinheit",
+     "desc_en": "All plagues › Signs of impurity › Equating the signs of impurity"
+    },
+    {
+     "ref": "4:2",
+     "text": "מחיה ופשיון",
+     "text_de": "Wildes Fleisch und Ausbreitung",
+     "text_en": "Quick flesh and spreading",
+     "desc": "כל הנגעים › סימני טומאה › השוואת סימני טומאה",
+     "desc_de": "Alle Plagen › Zeichen der Unreinheit › Gleichstellung der Zeichen der Unreinheit",
+     "desc_en": "All plagues › Signs of impurity › Equating the signs of impurity"
+    },
+    {
+     "ref": "4:3",
+     "text": "שער לבן ומחיה",
+     "text_de": "Weißes Haar und wildes Fleisch",
+     "text_en": "White hair and quick flesh",
+     "desc": "נגעי עור הבשר › סימני טומאה › השוואת סימני טומאה",
+     "desc_de": "Plagen der Fleischhaut › Zeichen der Unreinheit › Gleichstellung der Zeichen der Unreinheit",
+     "desc_en": "Plagues of the skin of the flesh › Signs of impurity › Equating the signs of impurity"
+    },
+    {
+     "ref": "4:4",
+     "text": "הלבנונית, מספרן, אי השפעת שחורות",
+     "text_de": "Das Weißliche, ihre Zahl, keine Wirkung von Schwärzlichem",
+     "text_en": "The whitish, their number, no effect of dark patches",
+     "desc": "נגעי עור הבשר › סימני טומאה › שערות",
+     "desc_de": "Plagen der Fleischhaut › Zeichen der Unreinheit › Haare",
+     "desc_en": "Plagues of the skin of the flesh › Signs of impurity › Hairs"
+    },
+    {
+     "ref": "4:5",
+     "text": "רוחב חוט היוצא",
+     "text_de": "Breite eines herausragenden Fadens",
+     "text_en": "Width of a protruding thread",
+     "desc": "נגעי עור הבשר › סימני טומאה › זיקה וצירוף",
+     "desc_de": "Plagen der Fleischhaut › Zeichen der Unreinheit › Berührung und Zusammenschluss",
+     "desc_en": "Plagues of the skin of the flesh › Signs of impurity › Contact and combination"
+    },
+    {
+     "ref": "4:6",
+     "text": "מחיה ושער",
+     "text_de": "Wildes Fleisch und Haar",
+     "text_en": "Quick flesh and hair",
+     "desc": "נגעי עור הבשר › סימני טומאה › נגע עם 2 סימנים",
+     "desc_de": "Plagen der Fleischhaut › Zeichen der Unreinheit › Plage mit zwei Zeichen",
+     "desc_en": "Plagues of the skin of the flesh › Signs of impurity › Plague with two signs"
+    },
+    {
+     "ref": "4:7",
+     "text": "פשיון ואחר, שינוי מראה\\גבול לא שינה",
+     "text_de": "Ausbreitung und anderes, Änderung der Erscheinung / Grenze nicht geändert",
+     "text_en": "Spreading and other, change of appearance / boundary not changed",
+     "desc": "נגעי עור הבשר › סימני טומאה › שינויים בנגע › פשיון וכינוס › נגע עם 2 סימנים",
+     "desc_de": "Plagen der Fleischhaut › Zeichen der Unreinheit › Veränderungen an der Plage › Ausbreitung und Zusammenziehung › Plage mit zwei Zeichen",
+     "desc_en": "Plagues of the skin of the flesh › Signs of impurity › Changes in the plague › Spreading and gathering › Plague with two signs"
+    },
+    {
+     "ref": "4:8",
+     "text": "שמשנים הגבול אבל לא שיעור הנגע",
+     "text_de": "Wenn sie die Grenze ändern, aber nicht das Maß der Plage",
+     "text_en": "Where they change the boundary but not the size of the plague",
+     "desc": "נגעי עור הבשר › סימני טומאה › שינויים בנגע › פשיון וכינוס",
+     "desc_de": "Plagen der Fleischhaut › Zeichen der Unreinheit › Veränderungen an der Plage › Ausbreitung und Zusammenziehung",
+     "desc_en": "Plagues of the skin of the flesh › Signs of impurity › Changes in the plague › Spreading and gathering"
+    },
+    {
+     "ref": "4:9",
+     "text": "שמגדילים את שיעור הנגע",
+     "text_de": "Wenn sie das Maß der Plage vergrößern",
+     "text_en": "Where they enlarge the size of the plague",
+     "desc": "נגעי עור הבשר › סימני טומאה › שינויים בנגע › פשיון וכינוס",
+     "desc_de": "Plagen der Fleischhaut › Zeichen der Unreinheit › Veränderungen an der Plage › Ausbreitung und Zusammenziehung",
+     "desc_en": "Plagues of the skin of the flesh › Signs of impurity › Changes in the plague › Spreading and gathering"
+    },
+    {
+     "ref": "4:10",
+     "text": "בפשיון הנשאר, צירוף לסימני האום",
+     "text_de": "Bei der verbleibenden Ausbreitung, Zusammenrechnung mit den Zeichen der Mutterplage",
+     "text_en": "In the remaining spread, combination with the signs of the original plague",
+     "desc": "נגעי עור הבשר › סימני טומאה › שינויים בנגע › סימני טומאה בפשיון",
+     "desc_de": "Plagen der Fleischhaut › Zeichen der Unreinheit › Veränderungen an der Plage › Zeichen der Unreinheit bei der Ausbreitung",
+     "desc_en": "Plagues of the skin of the flesh › Signs of impurity › Changes in the plague › Signs of impurity in the spreading"
+    },
+    {
+     "ref": "4:11",
+     "text": "סימן המחליט, קדימת בהרת לשער וספק",
+     "text_de": "Zeichen der endgültigen Erklärung, Vorrang des hellen Flecks vor dem Haar, und Zweifel",
+     "text_en": "Sign of final declaration, priority of the bright spot over the hair, and doubt",
+     "desc": "נגעי עור הבשר › סימני טומאה › שינויים בנגע › ספק נגעים › סימני טומאה בפשיון",
+     "desc_de": "Plagen der Fleischhaut › Zeichen der Unreinheit › Veränderungen an der Plage › Zweifel bei Plagen › Zeichen der Unreinheit bei der Ausbreitung",
+     "desc_en": "Plagues of the skin of the flesh › Signs of impurity › Changes in the plague › Doubt in plagues › Signs of impurity in the spreading"
+    }
+   ]
+  },
+  {
+   "head": "פרק ה",
+   "head_de": "Kapitel 5",
+   "head_en": "Chapter 5",
+   "items": [
+    {
+     "ref": "5:1",
+     "text": "ספק פשיון או נגע חדש",
+     "text_de": "Zweifel, ob Ausbreitung oder neue Plage",
+     "text_en": "Doubt whether spreading or a new plague",
+     "desc": "נגעי עור הבשר › סימני טומאה › שינויים בנגע › ספק נגעים",
+     "desc_de": "Plagen der Fleischhaut › Zeichen der Unreinheit › Veränderungen an der Plage › Zweifel bei Plagen",
+     "desc_en": "Plagues of the skin of the flesh › Signs of impurity › Changes in the plague › Doubt in plagues"
+    },
+    {
+     "ref": "5:2",
+     "text": "הסתלקות וחזרה",
+     "text_de": "Verschwinden und Wiederkehr",
+     "text_en": "Disappearance and return",
+     "desc": "נגעי עור הבשר › סימני טומאה › שינויים בנגע › שינוי שאינו מטהר",
+     "desc_de": "Plagen der Fleischhaut › Zeichen der Unreinheit › Veränderungen an der Plage › Veränderung, die nicht reinigt",
+     "desc_en": "Plagues of the skin of the flesh › Signs of impurity › Changes in the plague › Change that does not purify"
+    },
+    {
+     "ref": "5:3",
+     "text": "שער פקודה",
+     "text_de": "Haar der Anordnung",
+     "text_en": "Hair of Pekuda",
+     "desc": "נגעי עור הבשר › סימני טומאה › שינויים בנגע › שינוי שאינו מטהר",
+     "desc_de": "Plagen der Fleischhaut › Zeichen der Unreinheit › Veränderungen an der Plage › Veränderung, die nicht reinigt",
+     "desc_en": "Plagues of the skin of the flesh › Signs of impurity › Changes in the plague › Change that does not purify"
+    },
+    {
+     "ref": "5:4",
+     "text": "עד שלא נטמא",
+     "text_de": "Bevor er unrein wurde",
+     "text_en": "Before he became impure",
+     "desc": "נגעי עור הבשר › סימני טומאה › שינויים בנגע › ספק נגעים",
+     "desc_de": "Plagen der Fleischhaut › Zeichen der Unreinheit › Veränderungen an der Plage › Zweifel bei Plagen",
+     "desc_en": "Plagues of the skin of the flesh › Signs of impurity › Changes in the plague › Doubt in plagues"
+    },
+    {
+     "ref": "5:5",
+     "text": "משנטמא",
+     "text_de": "Nachdem er unrein wurde",
+     "text_en": "After he became impure",
+     "desc": "נגעי עור הבשר › סימני טומאה › שינויים בנגע › ספק נגעים",
+     "desc_de": "Plagen der Fleischhaut › Zeichen der Unreinheit › Veränderungen an der Plage › Zweifel bei Plagen",
+     "desc_en": "Plagues of the skin of the flesh › Signs of impurity › Changes in the plague › Doubt in plagues"
+    }
+   ]
+  },
+  {
+   "head": "פרק ו",
+   "head_de": "Kapitel 6",
+   "head_en": "Chapter 6",
+   "items": [
+    {
+     "ref": "6:1",
+     "text": "שיעור הגריס",
+     "text_de": "Maß der Graupe",
+     "text_en": "Measure of a split bean",
+     "desc": "נגעי עור הבשר › סימני טומאה › שינויים בנגע › מחיה והשפעת הפשיון",
+     "desc_de": "Plagen der Fleischhaut › Zeichen der Unreinheit › Veränderungen an der Plage › Wildes Fleisch und Einfluss der Ausbreitung",
+     "desc_en": "Plagues of the skin of the flesh › Signs of impurity › Changes in the plague › Quick flesh and the effect of spreading"
+    },
+    {
+     "ref": "6:2",
+     "text": "בהרת כגריס ומחיה כעדשה",
+     "text_de": "Heller Fleck wie eine Graupe und wildes Fleisch wie eine Linse",
+     "text_en": "Bright spot like a split bean and quick flesh like a lentil",
+     "desc": "נגעי עור הבשר › סימני טומאה › שינויים בנגע › מחיה והשפעת הפשיון",
+     "desc_de": "Plagen der Fleischhaut › Zeichen der Unreinheit › Veränderungen an der Plage › Wildes Fleisch und Einfluss der Ausbreitung",
+     "desc_en": "Plagues of the skin of the flesh › Signs of impurity › Changes in the plague › Quick flesh and the effect of spreading"
+    },
+    {
+     "ref": "6:3",
+     "text": "בהרת כגריס ומחיה פחותה מכעדשה",
+     "text_de": "Heller Fleck wie eine Graupe und wildes Fleisch kleiner als eine Linse",
+     "text_en": "Bright spot like a split bean and quick flesh smaller than a lentil",
+     "desc": "נגעי עור הבשר › סימני טומאה › שינויים בנגע › מחיה והשפעת הפשיון",
+     "desc_de": "Plagen der Fleischhaut › Zeichen der Unreinheit › Veränderungen an der Plage › Wildes Fleisch und Einfluss der Ausbreitung",
+     "desc_en": "Plagues of the skin of the flesh › Signs of impurity › Changes in the plague › Quick flesh and the effect of spreading"
+    },
+    {
+     "ref": "6:4",
+     "text": "בהרת ומחיה גדולות",
+     "text_de": "Großer heller Fleck und großes wildes Fleisch",
+     "text_en": "Large bright spot and large quick flesh",
+     "desc": "נגעי עור הבשר › סימני טומאה › שינויים בנגע › מחיה והשפעת הפשיון",
+     "desc_de": "Plagen der Fleischhaut › Zeichen der Unreinheit › Veränderungen an der Plage › Wildes Fleisch und Einfluss der Ausbreitung",
+     "desc_en": "Plagues of the skin of the flesh › Signs of impurity › Changes in the plague › Quick flesh and the effect of spreading"
+    },
+    {
+     "ref": "6:5",
+     "text": "בהרת תוך מחיה תוך בהרת",
+     "text_de": "Heller Fleck innerhalb von wildem Fleisch, innerhalb eines hellen Flecks",
+     "text_en": "Bright spot within quick flesh, within a bright spot",
+     "desc": "נגעי עור הבשר › סימני טומאה › שינויים בנגע › מחיה והשפעת הפשיון",
+     "desc_de": "Plagen der Fleischhaut › Zeichen der Unreinheit › Veränderungen an der Plage › Wildes Fleisch und Einfluss der Ausbreitung",
+     "desc_en": "Plagues of the skin of the flesh › Signs of impurity › Changes in the plague › Quick flesh and the effect of spreading"
+    },
+    {
+     "ref": "6:6",
+     "text": "שיעור מחיה או בוהק במוקפים",
+     "text_de": "Maß des wilden Fleisches oder des Glanzes bei Umgebenen",
+     "text_en": "Measure of quick flesh or of the glossy spot in surrounded ones",
+     "desc": "נגעי עור הבשר › סימני טומאה › שינויים בנגע › מחיה והשפעת הפשיון",
+     "desc_de": "Plagen der Fleischhaut › Zeichen der Unreinheit › Veränderungen an der Plage › Wildes Fleisch und Einfluss der Ausbreitung",
+     "desc_en": "Plagues of the skin of the flesh › Signs of impurity › Changes in the plague › Quick flesh and the effect of spreading"
+    },
+    {
+     "ref": "6:7",
+     "text": "במחיה - עשרים וארבע ראשי איברים",
+     "text_de": "Beim wilden Fleisch: vierundzwanzig Hauptglieder",
+     "text_en": "In quick flesh: the twenty-four extremities",
+     "desc": "נגעי עור הבשר › סימני טומאה › שאינם מטמאים › שטחי הגוף המיוחדים",
+     "desc_de": "Plagen der Fleischhaut › Zeichen der Unreinheit › Die nicht verunreinigen › Besondere Körperbereiche",
+     "desc_en": "Plagues of the skin of the flesh › Signs of impurity › Those that do not render impure › Special areas of the body"
+    },
+    {
+     "ref": "6:8",
+     "text": "בבהרת - שאינם כעור ואם נשתנו",
+     "text_de": "Beim hellen Fleck: die nicht wie Haut sind, und wenn sie sich verändert haben",
+     "text_en": "In a bright spot: those that are not like skin, and if they changed",
+     "desc": "נגעי עור הבשר › סימני טומאה › שאינם מטמאים › שטחי הגוף המיוחדים",
+     "desc_de": "Plagen der Fleischhaut › Zeichen der Unreinheit › Die nicht verunreinigen › Besondere Körperbereiche",
+     "desc_en": "Plagues of the skin of the flesh › Signs of impurity › Those that do not render impure › Special areas of the body"
+    }
+   ]
+  },
+  {
+   "head": "פרק ז",
+   "head_de": "Kapitel 7",
+   "head_en": "Chapter 7",
+   "items": [
+    {
+     "ref": "7:1",
+     "text": "שינוי במצב האדם או עורו",
+     "text_de": "Veränderung im Zustand des Menschen oder seiner Haut",
+     "text_en": "Change in a person's condition or skin",
+     "desc": "נגעי עור הבשר › סימני טומאה › שאינם מטמאים › שטחי הגוף המיוחדים › בהרות טהורות",
+     "desc_de": "Plagen der Fleischhaut › Zeichen der Unreinheit › Die nicht verunreinigen › Besondere Körperbereiche › Reine helle Flecken",
+     "desc_en": "Plagues of the skin of the flesh › Signs of impurity › Those that do not render impure › Special areas of the body › Pure bright spots"
+    },
+    {
+     "ref": "7:2",
+     "text": "שינוי במראיהן",
+     "text_de": "Veränderung ihres Aussehens",
+     "text_en": "Change in their appearance",
+     "desc": "נגעי עור הבשר › סימני טומאה › שאינם מטמאים › בהרות טהורות",
+     "desc_de": "Plagen der Fleischhaut › Zeichen der Unreinheit › Die nicht verunreinigen › Reine helle Flecken",
+     "desc_en": "Plagues of the skin of the flesh › Signs of impurity › Those that do not render impure › Pure bright spots"
+    },
+    {
+     "ref": "7:3",
+     "text": "שינוי בסימני טומאה בעת ראיית הכהן",
+     "text_de": "Veränderung der Zeichen der Unreinheit zur Zeit der Besichtigung durch den Priester",
+     "text_en": "Change in the signs of impurity at the time of the priest's examination",
+     "desc": "נגעי עור הבשר › סימני טומאה › סילוק סימנים וטהרה › מאליו",
+     "desc_de": "Plagen der Fleischhaut › Zeichen der Unreinheit › Entfernung der Zeichen und Reinheit › Von selbst",
+     "desc_en": "Plagues of the skin of the flesh › Signs of impurity › Removal of the signs and purity › On its own"
+    },
+    {
+     "ref": "7:4",
+     "text": "סימני טומאה",
+     "text_de": "Zeichen der Unreinheit",
+     "text_en": "Signs of impurity",
+     "desc": "נגעי עור הבשר › סימני טומאה › סילוק סימנים וטהרה › על ידי מעשה",
+     "desc_de": "Plagen der Fleischhaut › Zeichen der Unreinheit › Entfernung der Zeichen und Reinheit › Durch eine Handlung",
+     "desc_en": "Plagues of the skin of the flesh › Signs of impurity › Removal of the signs and purity › Through an act"
+    },
+    {
+     "ref": "7:5",
+     "text": "קציצת בהרת",
+     "text_de": "Ausschneiden eines hellen Flecks",
+     "text_en": "Cutting out a bright spot",
+     "desc": "נגעי עור הבשר › סימני טומאה › סילוק סימנים וטהרה › על ידי מעשה",
+     "desc_de": "Plagen der Fleischhaut › Zeichen der Unreinheit › Entfernung der Zeichen und Reinheit › Durch eine Handlung",
+     "desc_en": "Plagues of the skin of the flesh › Signs of impurity › Removal of the signs and purity › Through an act"
+    }
+   ]
+  },
+  {
+   "head": "פרק ח",
+   "head_de": "Kapitel 8",
+   "head_en": "Chapter 8",
+   "items": [
+    {
+     "ref": "8:1",
+     "text": "מן הטהור ומן הטמא",
+     "text_de": "Vom Reinen und vom Unreinen",
+     "text_en": "From the pure and from the impure",
+     "desc": "נגעי עור הבשר › פריחה גמורה › הכלל",
+     "desc_de": "Plagen der Fleischhaut › Vollständiger Ausbruch › Die Regel",
+     "desc_en": "Plagues of the skin of the flesh › Complete eruption › The rule"
+    },
+    {
+     "ref": "8:2",
+     "text": "היתה או נולדה מחיה \\ נולד",
+     "text_de": "Vorhanden oder entstanden: wildes Fleisch / entstanden",
+     "text_en": "Existing or arising: quick flesh / arising",
+     "desc": "נגעי עור הבשר › פריחה גמורה › שער לבן › מחיה",
+     "desc_de": "Plagen der Fleischhaut › Vollständiger Ausbruch › Weißes Haar › Wildes Fleisch",
+     "desc_en": "Plagues of the skin of the flesh › Complete eruption › White hair › Quick flesh"
+    },
+    {
+     "ref": "8:3",
+     "text": "נשאר\\ חזרת ראשי איברים, פריחה חלקית",
+     "text_de": "Verbleibend / Wiederkehr der Hauptglieder, teilweiser Ausbruch",
+     "text_en": "Remaining / return of the extremities, partial eruption",
+     "desc": "נגעי עור הבשר › פריחה גמורה › השפעת מחיה › שער לבן",
+     "desc_de": "Plagen der Fleischhaut › Vollständiger Ausbruch › Einfluss von wildem Fleisch › Weißes Haar",
+     "desc_en": "Plagues of the skin of the flesh › Complete eruption › Effect of quick flesh › White hair"
+    },
+    {
+     "ref": "8:4",
+     "text": "פריחה וחזרת ראשי איברים",
+     "text_de": "Ausbruch und Wiederkehr der Hauptglieder",
+     "text_en": "Eruption and return of the extremities",
+     "desc": "נגעי עור הבשר › פריחה גמורה › השפעת מחיה",
+     "desc_de": "Plagen der Fleischhaut › Vollständiger Ausbruch › Einfluss von wildem Fleisch",
+     "desc_en": "Plagues of the skin of the flesh › Complete eruption › Effect of quick flesh"
+    },
+    {
+     "ref": "8:5",
+     "text": "המעכבין פריחה",
+     "text_de": "Was den Ausbruch verhindert",
+     "text_en": "What prevents the eruption",
+     "desc": "נגעי עור הבשר › פריחה גמורה › השפעת מחיה",
+     "desc_de": "Plagen der Fleischhaut › Vollständiger Ausbruch › Einfluss von wildem Fleisch",
+     "desc_en": "Plagues of the skin of the flesh › Complete eruption › Effect of quick flesh"
+    },
+    {
+     "ref": "8:6",
+     "text": "פריחה מבהרות מחולקות,עכוב,חזרת בוהק",
+     "text_de": "Ausbruch aus getrennten hellen Flecken, Verhinderung, Wiederkehr des Glanzes",
+     "text_en": "Eruption from separate bright spots, prevention, return of the glossy spot",
+     "desc": "נגעי עור הבשר › פריחה גמורה",
+     "desc_de": "Plagen der Fleischhaut › Vollständiger Ausbruch",
+     "desc_en": "Plagues of the skin of the flesh › Complete eruption"
+    },
+    {
+     "ref": "8:7",
+     "text": "סימני טומאה, חזרת ראשי איברים",
+     "text_de": "Zeichen der Unreinheit, Wiederkehr der Hauptglieder",
+     "text_en": "Signs of impurity, return of the extremities",
+     "desc": "נגעי עור הבשר › פריחה גמורה › הבא כולו לבן",
+     "desc_de": "Plagen der Fleischhaut › Vollständiger Ausbruch › Der ganz weiß Kommende",
+     "desc_en": "Plagues of the skin of the flesh › Complete eruption › One who comes entirely white"
+    },
+    {
+     "ref": "8:8",
+     "text": "פריחה וטהרה מתוך הסגר והחלט",
+     "text_de": "Ausbruch und Reinheit aus Absonderung und endgültiger Erklärung",
+     "text_en": "Eruption and purity after quarantine and final declaration",
+     "desc": "נגעי עור הבשר › פריחה גמורה › הבא כולו לבן",
+     "desc_de": "Plagen der Fleischhaut › Vollständiger Ausbruch › Der ganz weiß Kommende",
+     "desc_en": "Plagues of the skin of the flesh › Complete eruption › One who comes entirely white"
+    },
+    {
+     "ref": "8:9",
+     "text": "עם מחיה",
+     "text_de": "Mit wildem Fleisch",
+     "text_en": "With quick flesh",
+     "desc": "נגעי עור הבשר › פריחה גמורה › הבא כולו לבן",
+     "desc_de": "Plagen der Fleischhaut › Vollständiger Ausbruch › Der ganz weiß Kommende",
+     "desc_en": "Plagues of the skin of the flesh › Complete eruption › One who comes entirely white"
+    },
+    {
+     "ref": "8:10",
+     "text": "פריחה לפני ראיית הכהן",
+     "text_de": "Ausbruch vor der Besichtigung durch den Priester",
+     "text_en": "Eruption before the priest's examination",
+     "desc": "נגעי עור הבשר › פריחה גמורה",
+     "desc_de": "Plagen der Fleischhaut › Vollständiger Ausbruch",
+     "desc_en": "Plagues of the skin of the flesh › Complete eruption"
+    }
+   ]
+  },
+  {
+   "head": "פרק ט",
+   "head_de": "Kapitel 9",
+   "head_en": "Chapter 9",
+   "items": [
+    {
+     "ref": "9:1",
+     "text": "זמנם, סימנם \\ איך נתהוו",
+     "text_de": "Ihre Zeit, ihr Zeichen / wie sie entstanden",
+     "text_en": "Their time, their sign / how they arose",
+     "desc": "שחין ומכוה › כיצד מטמאין › הגדרתן",
+     "desc_de": "Geschwür und Brandwunde › Wie sie verunreinigen › Ihre Definition",
+     "desc_en": "Boil and burn › How they render impure › Their definition"
+    },
+    {
+     "ref": "9:2",
+     "text": "צירופם ופשיונם / שלבים ברפואתן",
+     "text_de": "Ihre Zusammenrechnung und Ausbreitung / Stufen ihrer Heilung",
+     "text_en": "Their combination and spreading / stages of their healing",
+     "desc": "שחין ומכוה › כיצד מטמאין › הגדרתן",
+     "desc_de": "Geschwür und Brandwunde › Wie sie verunreinigen › Ihre Definition",
+     "desc_en": "Boil and burn › How they render impure › Their definition"
+    },
+    {
+     "ref": "9:3",
+     "text": "בהרת השחין בכף היד",
+     "text_de": "Heller Fleck des Geschwürs auf dem Handrücken",
+     "text_en": "Bright spot of the boil on the back of the hand",
+     "desc": "שחין ומכוה › כיצד מטמאין",
+     "desc_de": "Geschwür und Brandwunde › Wie sie verunreinigen",
+     "desc_en": "Boil and burn › How they render impure"
+    }
+   ]
+  },
+  {
+   "head": "פרק י",
+   "head_de": "Kapitel 10",
+   "head_en": "Chapter 10",
+   "items": [
+    {
+     "ref": "10:1",
+     "text": "זמנם, סימנם \\ ארכו",
+     "text_de": "Ihre Zeit, ihr Zeichen / wenn sie sich verlängerten",
+     "text_en": "Their time, their sign / if they lasted long",
+     "desc": "נגעי הראש והזקן › נתקים › כיצד מטמאין › שער צהוב דק",
+     "desc_de": "Plagen des Kopfes und des Bartes › Schuppengrinde › Wie sie verunreinigen › Dünnes gelbes Haar",
+     "desc_en": "Plagues of the head and the beard › Scalls › How they render impure › Thin yellow hair"
+    },
+    {
+     "ref": "10:2",
+     "text": "איך מטמא",
+     "text_de": "Wie es verunreinigt",
+     "text_en": "How it renders impure",
+     "desc": "נגעי הראש והזקן › נתקים › כיצד מטמאין › שער צהוב דק",
+     "desc_de": "Plagen des Kopfes und des Bartes › Schuppengrinde › Wie sie verunreinigen › Dünnes gelbes Haar",
+     "desc_en": "Plagues of the head and the beard › Scalls › How they render impure › Thin yellow hair"
+    },
+    {
+     "ref": "10:3",
+     "text": "הצלת שער שחור",
+     "text_de": "Rettung des schwarzen Haares",
+     "text_en": "Saving of black hair",
+     "desc": "נגעי הראש והזקן › נתקים › הצלה",
+     "desc_de": "Plagen des Kopfes und des Bartes › Schuppengrinde › Rettung",
+     "desc_en": "Plagues of the head and the beard › Scalls › Salvaging"
+    },
+    {
+     "ref": "10:4",
+     "text": "שער צהוב שקדם לנתק",
+     "text_de": "Gelbes Haar, das dem Nethek vorausging",
+     "text_en": "Yellow hair that preceded the nethek",
+     "desc": "נגעי הראש והזקן › נתקים › הצלה",
+     "desc_de": "Plagen des Kopfes und des Bartes › Schuppengrinde › Rettung",
+     "desc_en": "Plagues of the head and the beard › Scalls › Salvaging"
+    },
+    {
+     "ref": "10:5",
+     "text": "גילוח הנתק, סימני טומאה המשתנים",
+     "text_de": "Scheren des Nethek, wechselnde Unreinheitszeichen",
+     "text_en": "Shaving the nethek, changing signs of impurity",
+     "desc": "נגעי הראש והזקן › נתקים › הצלה › פרטי הלכות",
+     "desc_de": "Plagen des Kopfes und des Bartes › Schuppengrinde › Rettung › Einzelheiten der Vorschriften",
+     "desc_en": "Plagues of the head and the beard › Scalls › Salvaging › Details of the laws"
+    },
+    {
+     "ref": "10:6",
+     "text": "זה בצד זה",
+     "text_de": "Nebeneinander",
+     "text_en": "Side by side",
+     "desc": "נגעי הראש והזקן › נתקים › הצלה › פשיון בין נתקים",
+     "desc_de": "Plagen des Kopfes und des Bartes › Schuppengrinde › Rettung › Ausbreitung zwischen Nethek-Stellen",
+     "desc_en": "Plagues of the head and the beard › Scalls › Salvaging › Spreading between nethek patches"
+    },
+    {
+     "ref": "10:7",
+     "text": "זה לפנים מזה",
+     "text_de": "Eines innerhalb des anderen",
+     "text_en": "One inside the other",
+     "desc": "נגעי הראש והזקן › נתקים › הצלה › פשיון בין נתקים",
+     "desc_de": "Plagen des Kopfes und des Bartes › Schuppengrinde › Rettung › Ausbreitung zwischen Nethek-Stellen",
+     "desc_en": "Plagues of the head and the beard › Scalls › Salvaging › Spreading between nethek patches"
+    },
+    {
+     "ref": "10:8",
+     "text": "על מה מצילים שחורות",
+     "text_de": "Wofür schwarze Haare retten",
+     "text_en": "What black hairs save",
+     "desc": "נגעי הראש והזקן › נתקים › הצלה",
+     "desc_de": "Plagen des Kopfes und des Bartes › Schuppengrinde › Rettung",
+     "desc_en": "Plagues of the head and the beard › Scalls › Salvaging"
+    },
+    {
+     "ref": "10:9",
+     "text": "פריחה, עיכוב ראש וזקן, הגדרת זקן",
+     "text_de": "Ausschlag, Verzögerung bei Kopf und Bart, Definition des Bartes",
+     "text_en": "Eruption, delay of head and beard, definition of the beard",
+     "desc": "נגעי הראש והזקן › נתקים",
+     "desc_de": "Plagen des Kopfes und des Bartes › Schuppengrinde",
+     "desc_en": "Plagues of the head and the beard › Scalls"
+    },
+    {
+     "ref": "10:10",
+     "text": "איך מטמאין, הגדרתן, צירופן ופשיונן",
+     "text_de": "Wie sie verunreinigen, ihre Definition, Zusammenschluss und Ausbreitung",
+     "text_en": "How they defile, their definition, their combination and spreading",
+     "desc": "נגעי הראש והזקן › דיני קרחת וגבחת",
+     "desc_de": "Plagen des Kopfes und des Bartes › Vorschriften über Kahlköpfigkeit am Hinterkopf und an der Stirn",
+     "desc_en": "Plagues of the head and the beard › Laws of baldness at the back and front of the head"
+    }
+   ]
+  },
+  {
+   "head": "פרק יא",
+   "head_de": "Kapitel 11",
+   "head_en": "Chapter 11",
+   "items": [
+    {
+     "ref": "11:1",
+     "text": "של נכרים \\ עורות ים",
+     "text_de": "Bei Nichtjuden / Seetierhäute",
+     "text_en": "Of gentiles / sea-creature hides",
+     "desc": "נגעי בגדים › מה מיטמא › בעלות",
+     "desc_de": "Kleideraussatz › Was verunreinigt › Eigentum",
+     "desc_en": "Leprosy of garments › What becomes impure › Ownership"
+    },
+    {
+     "ref": "11:2",
+     "text": "המטמא ושאינו מטמא",
+     "text_de": "Was verunreinigt und was nicht verunreinigt",
+     "text_en": "What defiles and what does not defile",
+     "desc": "נגעי בגדים › מה מיטמא › תערובת",
+     "desc_de": "Kleideraussatz › Was verunreinigt › Vermischung",
+     "desc_en": "Leprosy of garments › What becomes impure › Mixture"
+    },
+    {
+     "ref": "11:3",
+     "text": "עורות, בגדים ובתים",
+     "text_de": "Häute, Kleider und Häuser",
+     "text_en": "Hides, garments and houses",
+     "desc": "נגעי בגדים › מה מיטמא › צבועים",
+     "desc_de": "Kleideraussatz › Was verunreinigt › Gefärbte",
+     "desc_en": "Leprosy of garments › What becomes impure › Dyed items"
+    },
+    {
+     "ref": "11:4",
+     "text": "הנראה \\ צבעם ושינוי בו, בפשיונם",
+     "text_de": "Das Sichtbare / ihre Farbe und deren Veränderung, bei ihrer Ausbreitung",
+     "text_en": "What is visible / their color and its change, in their spreading",
+     "desc": "נגעי בגדים › סימני טומאה › מה מיטמא › האום › צבועים",
+     "desc_de": "Kleideraussatz › Zeichen der Unreinheit › Was verunreinigt › Der Aum › Gefärbte",
+     "desc_en": "Leprosy of garments › Signs of impurity › What becomes impure › The aum (dark-colored spot) › Dyed items"
+    },
+    {
+     "ref": "11:5",
+     "text": "העומד, הכהה, צורך במטלית",
+     "text_de": "Das Beständige, das Blasse, Notwendigkeit eines Flickens",
+     "text_en": "The persistent, the faded, need for a patch",
+     "desc": "נגעי בגדים › סימני טומאה › האום",
+     "desc_de": "Kleideraussatz › Zeichen der Unreinheit › Der Aum",
+     "desc_en": "Leprosy of garments › Signs of impurity › The aum (dark-colored spot)"
+    },
+    {
+     "ref": "11:6",
+     "text": "החוזר לבגד או למטלית שבו או שבאחר",
+     "text_de": "Das Wiederkehrende am Kleid oder am Flicken, an ihm oder an einem anderen",
+     "text_en": "Recurrence on the garment or the patch, on it or on another",
+     "desc": "נגעי בגדים › סימני טומאה › חזרה",
+     "desc_de": "Kleideraussatz › Zeichen der Unreinheit › Rückkehr",
+     "desc_en": "Leprosy of garments › Signs of impurity › Return"
+    },
+    {
+     "ref": "11:7",
+     "text": "בבגד מפוספס, שיעור פשיון, והחוזר",
+     "text_de": "Beim gestreiften Kleid, Maß der Ausbreitung und das Wiederkehrende",
+     "text_en": "On a striped garment, measure of spreading, and recurrence",
+     "desc": "נגעי בגדים › סימני טומאה › פשיון",
+     "desc_de": "Kleideraussatz › Zeichen der Unreinheit › Ausbreitung",
+     "desc_en": "Leprosy of garments › Signs of impurity › Spreading"
+    },
+    {
+     "ref": "11:8",
+     "text": "גמר מלאכתן, שיעורן \\ וחיבורן",
+     "text_de": "Vollendung ihrer Herstellung, ihre Maße / und ihre Verbindung",
+     "text_en": "Completion of their manufacture, their measures / and their connection",
+     "desc": "נגעי בגדים › מה מיטמא › חוטין › חיבור",
+     "desc_de": "Kleideraussatz › Was verunreinigt › Fäden › Verbindung",
+     "desc_en": "Leprosy of garments › What becomes impure › Threads › Connection"
+    },
+    {
+     "ref": "11:9",
+     "text": "למחזיק אותם, לאריגה שלא נגמרה",
+     "text_de": "Für den, der sie hält, bei unvollendetem Gewebe",
+     "text_en": "For one who holds them, in unfinished weaving",
+     "desc": "נגעי בגדים › מה מיטמא › חוטין › חיבור",
+     "desc_de": "Kleideraussatz › Was verunreinigt › Fäden › Verbindung",
+     "desc_en": "Leprosy of garments › What becomes impure › Threads › Connection"
+    },
+    {
+     "ref": "11:10",
+     "text": "באריגה שנגמרה, נימין, אמריות",
+     "text_de": "Bei vollendetem Gewebe, Fäden, Säume",
+     "text_en": "In finished weaving, threads, hems",
+     "desc": "נגעי בגדים › מה מיטמא › חוטין › חיבור",
+     "desc_de": "Kleideraussatz › Was verunreinigt › Fäden › Verbindung",
+     "desc_en": "Leprosy of garments › What becomes impure › Threads › Connection"
+    },
+    {
+     "ref": "11:11",
+     "text": "השואה לטומאות, כלים שונים, סגוס,עור",
+     "text_de": "Vergleich mit anderen Unreinheiten, verschiedene Geräte, Mischgewebe, Leder",
+     "text_en": "Comparison with other impurities, various utensils, mixed fabric, leather",
+     "desc": "נגעי בגדים › מה מיטמא",
+     "desc_de": "Kleideraussatz › Was verunreinigt",
+     "desc_en": "Leprosy of garments › What becomes impure"
+    },
+    {
+     "ref": "11:12",
+     "text": "מוסגר או מוחלט באחרים",
+     "text_de": "Abgesperrter oder endgültig Unreiner unter anderen",
+     "text_en": "One shut up or definitively declared impure, among others",
+     "desc": "נגעי בגדים › מה מיטמא › תערובת",
+     "desc_de": "Kleideraussatz › Was verunreinigt › Vermischung",
+     "desc_en": "Leprosy of garments › What becomes impure › Mixture"
+    }
+   ]
+  },
+  {
+   "head": "פרק יב",
+   "head_de": "Kapitel 12",
+   "head_en": "Chapter 12",
+   "items": [
+    {
+     "ref": "12:1",
+     "text": "של נכרים \\ מספר קירות, חיבור לארץ",
+     "text_de": "Bei Nichtjuden / Zahl der Wände, Verbindung mit dem Boden",
+     "text_en": "Of gentiles / number of walls, attachment to the ground",
+     "desc": "נגעי בתים › מה מיטמא › איזה בית › בעלות",
+     "desc_de": "Hausaussatz › Was verunreinigt › Welches Haus › Eigentum",
+     "desc_en": "Leprosy of houses › What becomes impure › Which house › Ownership"
+    },
+    {
+     "ref": "12:2",
+     "text": "חומר הקירות ושינוי, שיעור הבגד",
+     "text_de": "Material der Wände und seine Veränderung, Maß des Kleides",
+     "text_en": "Material of the walls and its change, measure of the garment",
+     "desc": "נגעי בתים › מה מיטמא › איזה בית › חומר וצורת בנינו",
+     "desc_de": "Hausaussatz › Was verunreinigt › Welches Haus › Material und Form seines Baus",
+     "desc_en": "Leprosy of houses › What becomes impure › Which house › Material and form of its construction"
+    },
+    {
+     "ref": "12:3",
+     "text": "מספר האבנים ושיעור הנגע",
+     "text_de": "Zahl der Steine und Maß des Befalls",
+     "text_en": "Number of stones and measure of the affliction",
+     "desc": "נגעי בתים › מה מיטמא › איזה בית › חומר וצורת בנינו",
+     "desc_de": "Hausaussatz › Was verunreinigt › Welches Haus › Material und Form seines Baus",
+     "desc_en": "Leprosy of houses › What becomes impure › Which house › Material and form of its construction"
+    },
+    {
+     "ref": "12:4",
+     "text": "כמות עצים \\ שאינם בית או אחוזה",
+     "text_de": "Menge an Holz / was weder Haus noch Erbbesitz ist",
+     "text_en": "Quantity of wood / what is neither a house nor a hereditary estate",
+     "desc": "נגעי בתים › מה מיטמא › איזה בית › חומר וצורת בנינו",
+     "desc_de": "Hausaussatz › Was verunreinigt › Welches Haus › Material und Form seines Baus",
+     "desc_en": "Leprosy of houses › What becomes impure › Which house › Material and form of its construction"
+    },
+    {
+     "ref": "12:5",
+     "text": "דיווח על הנגע, פינוי הכלים וטעמו",
+     "text_de": "Meldung des Befalls, Räumen der Geräte und dessen Grund",
+     "text_en": "Reporting the affliction, removing the utensils and its reason",
+     "desc": "נגעי בתים › הפסיקה › תיאור התהליך › ראיית הבית",
+     "desc_de": "Hausaussatz › Die Unterbrechung › Beschreibung des Vorgangs › Besichtigung des Hauses",
+     "desc_en": "Leprosy of houses › The interruption › Description of the procedure › Inspection of the house"
+    },
+    {
+     "ref": "12:6",
+     "text": "עמדת המסגיר\\ חליצה,טיחה,השתתפות שכן",
+     "text_de": "Stellung des Abgesperrten / Herausnehmen, Verputzen, Beteiligung des Nachbarn",
+     "text_en": "Position of the one shut up / removal, plastering, participation of the neighbor",
+     "desc": "נגעי בתים › הפסיקה › תיאור התהליך › ראיית הבית",
+     "desc_de": "Hausaussatz › Die Unterbrechung › Beschreibung des Vorgangs › Besichtigung des Hauses",
+     "desc_en": "Leprosy of houses › The interruption › Description of the procedure › Inspection of the house"
+    },
+    {
+     "ref": "12:7",
+     "text": "נתיצה \\ שיעור פשיון והחוזר",
+     "text_de": "Abbruch / Maß der Ausbreitung und Wiederkehr",
+     "text_en": "Demolition / measure of spreading and recurrence",
+     "desc": "נגעי בתים › הפסיקה › הלכות לפסיקה › תיאור התהליך",
+     "desc_de": "Hausaussatz › Die Unterbrechung › Vorschriften zur Unterbrechung › Beschreibung des Vorgangs",
+     "desc_en": "Leprosy of houses › The interruption › Laws of the interruption › Description of the procedure"
+    }
+   ]
+  },
+  {
+   "head": "פרק יג",
+   "head_de": "Kapitel 13",
+   "head_en": "Chapter 13",
+   "items": [
+    {
+     "ref": "13:1",
+     "text": "10 אפשרויות בבית המנוגעת",
+     "text_de": "Zehn Möglichkeiten beim befallenen Haus",
+     "text_en": "Ten possibilities with the afflicted house",
+     "desc": "נגעי בתים › הפסיקה › הלכות לפסיקה",
+     "desc_de": "Hausaussatz › Die Unterbrechung › Vorschriften zur Unterbrechung",
+     "desc_en": "Leprosy of houses › The interruption › Laws of the interruption"
+    },
+    {
+     "ref": "13:2",
+     "text": "לשכנים",
+     "text_de": "Für die Nachbarn",
+     "text_en": "For the neighbors",
+     "desc": "נגעי בתים › מה מיטמא › חלקי הבית › אבנים משותפות",
+     "desc_de": "Hausaussatz › Was verunreinigt › Teile des Hauses › Gemeinsame Steine",
+     "desc_en": "Leprosy of houses › What becomes impure › Parts of the house › Shared stones"
+    },
+    {
+     "ref": "13:3",
+     "text": "לבית ועלייה\\ חלק הניצול, שיעור לטמא",
+     "text_de": "Für Haus und Obergeschoss / Anteil der Nutzung, Maß der Verunreinigung",
+     "text_en": "For house and upper story / share of use, measure of defilement",
+     "desc": "נגעי בתים › מה מיטמא › חלקי הבית › אבנים משותפות",
+     "desc_de": "Hausaussatz › Was verunreinigt › Teile des Hauses › Gemeinsame Steine",
+     "desc_en": "Leprosy of houses › What becomes impure › Parts of the house › Shared stones"
+    },
+    {
+     "ref": "13:4",
+     "text": "מוסגר ומוחלט בנגיעה ובביאה",
+     "text_de": "Abgesperrter und endgültig Unreiner durch Berührung und Eintreten",
+     "text_en": "One shut up and one definitively impure, through touch and entry",
+     "desc": "נגעי בתים › טומאת המנוגע › כיצד מטמא בביאה",
+     "desc_de": "Hausaussatz › Unreinheit des Befallenen › Wie es durch Eintreten verunreinigt",
+     "desc_en": "Leprosy of houses › Impurity of the afflicted › How it defiles by entering"
+    },
+    {
+     "ref": "13:5",
+     "text": "אבני מוסגר בטהור",
+     "text_de": "Steine des Abgesperrten bei einem Reinen",
+     "text_en": "Stones of the one shut up, in the case of a pure person",
+     "desc": "נגעי בתים › טומאת המנוגע › כיצד מטמא בביאה › חזרה",
+     "desc_de": "Hausaussatz › Unreinheit des Befallenen › Wie es durch Eintreten verunreinigt › Rückkehr",
+     "desc_en": "Leprosy of houses › Impurity of the afflicted › How it defiles by entering › Return"
+    },
+    {
+     "ref": "13:6",
+     "text": "המאהיל על בית מנוגע",
+     "text_de": "Wer sich über ein befallenes Haus überdacht",
+     "text_en": "One who overshadows an afflicted house",
+     "desc": "נגעי בתים › טומאת המנוגע › כיצד מטמא בביאה › קביעת מקום",
+     "desc_de": "Hausaussatz › Unreinheit des Befallenen › Wie es durch Eintreten verunreinigt › Bestimmung des Ortes",
+     "desc_en": "Leprosy of houses › Impurity of the afflicted › How it defiles by entering › Determination of the place"
+    },
+    {
+     "ref": "13:7",
+     "text": "מושב מצורע - העובר והעומד",
+     "text_de": "Sitz des Aussätzigen - der Vorbeigehende und der Stehende",
+     "text_en": "Seat of the leper - the one passing by and the one standing",
+     "desc": "כל הנגעים › טומאת המנוגע › כיצד מטמא בביאה › קביעת מקום",
+     "desc_de": "Alle Plagen › Unreinheit des Befallenen › Wie es durch Eintreten verunreinigt › Bestimmung des Ortes",
+     "desc_en": "All plagues › Impurity of the afflicted › How it defiles by entering › Determination of the place"
+    },
+    {
+     "ref": "13:8",
+     "text": "כניסה חלקית באדם ובבגד",
+     "text_de": "Teilweises Eintreten bei Mensch und Kleid",
+     "text_en": "Partial entry of person and garment",
+     "desc": "כל הנגעים › טומאת המנוגע › כיצד מטמא בביאה › קביעת מקום",
+     "desc_de": "Alle Plagen › Unreinheit des Befallenen › Wie es durch Eintreten verunreinigt › Bestimmung des Ortes",
+     "desc_en": "All plagues › Impurity of the afflicted › How it defiles by entering › Determination of the place"
+    },
+    {
+     "ref": "13:9",
+     "text": "בכניסה שלימה",
+     "text_de": "Bei vollständigem Eintreten",
+     "text_en": "On complete entry",
+     "desc": "כל הנגעים › טומאת המנוגע › כיצד מטמא בביאה › שהייה › מלבוש ומשאו",
+     "desc_de": "Alle Plagen › Unreinheit des Befallenen › Wie es durch Eintreten verunreinigt › Verweilen › Kleidung und Last",
+     "desc_en": "All plagues › Impurity of the afflicted › How it defiles by entering › Remaining › Clothing and burden"
+    },
+    {
+     "ref": "13:10",
+     "text": "בפישוט יד",
+     "text_de": "Beim Ausstrecken der Hand",
+     "text_en": "On stretching out the hand",
+     "desc": "כל הנגעים › טומאת המנוגע › כיצד מטמא בביאה › שהייה › מלבוש ומשאו",
+     "desc_de": "Alle Plagen › Unreinheit des Befallenen › Wie es durch Eintreten verunreinigt › Verweilen › Kleidung und Last",
+     "desc_en": "All plagues › Impurity of the afflicted › How it defiles by entering › Remaining › Clothing and burden"
+    },
+    {
+     "ref": "13:11",
+     "text": "טומאת כלים בבית",
+     "text_de": "Unreinheit von Geräten im Haus",
+     "text_en": "Impurity of utensils in the house",
+     "desc": "כל הנגעים › טומאת המנוגע › כיצד מטמא בביאה › שהייה",
+     "desc_de": "Alle Plagen › Unreinheit des Befallenen › Wie es durch Eintreten verunreinigt › Verweilen",
+     "desc_en": "All plagues › Impurity of the afflicted › How it defiles by entering › Remaining"
+    },
+    {
+     "ref": "13:12",
+     "text": "כניסה לבהכנ\"ס, כיסויים המצילים כלים",
+     "text_de": "Eintritt in die Synagoge, Bedeckungen, die Geräte retten",
+     "text_en": "Entering a synagogue, coverings that save utensils",
+     "desc": "כל הנגעים › טומאת המנוגע › כיצד מטמא בביאה › חציצה",
+     "desc_de": "Alle Plagen › Unreinheit des Befallenen › Wie es durch Eintreten verunreinigt › Trennung",
+     "desc_en": "All plagues › Impurity of the afflicted › How it defiles by entering › Partition"
+    }
+   ]
+  },
+  {
+   "head": "פרק יד",
+   "head_de": "Kapitel 14",
+   "head_en": "Chapter 14",
+   "items": [
+    {
+     "ref": "14:1",
+     "text": "שחיטת הציפור,טבילת המינים,הזאה, בית",
+     "text_de": "Schlachten des Vogels, Untertauchen der Arten, Besprengung, Haus",
+     "text_en": "Slaughtering the bird, immersing the species, sprinkling, house",
+     "desc": "נגעי אדם › כיצד נטהר › תיאור התהליך › בגמר ההחלט",
+     "desc_de": "Plagen am Menschen › Wie man gereinigt wird › Beschreibung des Vorgangs › Bei Abschluss der endgültigen Erklärung",
+     "desc_en": "Plagues of a person › How one is purified › Description of the procedure › At the conclusion of the final declaration"
+    },
+    {
+     "ref": "14:2",
+     "text": "שילוח, גילוח, טבילה \\ איסור תשמיש",
+     "text_de": "Entsendung, Scheren, Tauchbad / Verbot des Beischlafs",
+     "text_en": "Release, shaving, immersion / prohibition of marital relations",
+     "desc": "נגעי אדם › כיצד נטהר › תיאור התהליך › בימי ספרו › בגמר ההחלט",
+     "desc_de": "Plagen am Menschen › Wie man gereinigt wird › Beschreibung des Vorgangs › In den Tagen des Zählens › Bei Abschluss der endgültigen Erklärung",
+     "desc_en": "Plagues of a person › How one is purified › Description of the procedure › During the days of counting › At the conclusion of the final declaration"
+    },
+    {
+     "ref": "14:3",
+     "text": "תגלחת שניה, סיכום השלבים, ביולדת",
+     "text_de": "Zweites Scheren, Zusammenfassung der Phasen, bei der Wöchnerin",
+     "text_en": "Second shaving, summary of the stages, in the case of a woman after childbirth",
+     "desc": "נגעי אדם › כיצד נטהר › תיאור התהליך › בימי ספרו",
+     "desc_de": "Plagen am Menschen › Wie man gereinigt wird › Beschreibung des Vorgangs › In den Tagen des Zählens",
+     "desc_en": "Plagues of a person › How one is purified › Description of the procedure › During the days of counting"
+    },
+    {
+     "ref": "14:4",
+     "text": "תגלחות מצוה",
+     "text_de": "Gebotene Haarschuren",
+     "text_en": "Commanded shavings",
+     "desc": "נגעי אדם › כיצד נטהר › תיאור התהליך › בימי ספרו",
+     "desc_de": "Plagen am Menschen › Wie man gereinigt wird › Beschreibung des Vorgangs › In den Tagen des Zählens",
+     "desc_en": "Plagues of a person › How one is purified › Description of the procedure › During the days of counting"
+    },
+    {
+     "ref": "14:5",
+     "text": "שוויון וקשר בין הזוג, הנאה מפסולה",
+     "text_de": "Gleichheit und Verbindung zwischen dem Paar, Nutzen aus dem Untauglichen",
+     "text_en": "Equality and connection between the pair, benefit from the disqualified one",
+     "desc": "נגעי אדם › כיצד נטהר › דיני המינים",
+     "desc_de": "Plagen am Menschen › Wie man gereinigt wird › Vorschriften über die Arten",
+     "desc_en": "Plagues of a person › How one is purified › Laws of the species"
+    },
+    {
+     "ref": "14:6",
+     "text": "גודל עץ הארז, שם האזוב",
+     "text_de": "Größe des Zedernholzes, Name des Ysops",
+     "text_en": "Size of the cedar wood, name of the hyssop",
+     "desc": "נגעי אדם › כיצד נטהר › דיני המינים",
+     "desc_de": "Plagen am Menschen › Wie man gereinigt wird › Vorschriften über die Arten",
+     "desc_en": "Plagues of a person › How one is purified › Laws of the species"
+    },
+    {
+     "ref": "14:7",
+     "text": "פירוטן לעשיר ולעני",
+     "text_de": "Ihre Aufzählung für Reiche und Arme",
+     "text_en": "Their enumeration for the rich and the poor",
+     "desc": "נגעי אדם › כפרתו › קרבנות המצורע › עני ועשיר",
+     "desc_de": "Plagen am Menschen › Seine Sühne › Opfer des Aussätzigen › Armer und Reicher",
+     "desc_en": "Plagues of a person › His atonement › Offerings of the leper › Poor and rich"
+    },
+    {
+     "ref": "14:8",
+     "text": "שחיטה וקבלה, עמדת המצורע, טבילה",
+     "text_de": "Schlachten und Auffangen, Stellung des Aussätzigen, Tauchbad",
+     "text_en": "Slaughtering and receiving, position of the leper, immersion",
+     "desc": "נגעי אדם › כפרתו › קרבנות המצורע › סדר הכשירו",
+     "desc_de": "Plagen am Menschen › Seine Sühne › Opfer des Aussätzigen › Ablauf seiner Zulassung",
+     "desc_en": "Plagues of a person › His atonement › Offerings of the leper › Order of his admission"
+    },
+    {
+     "ref": "14:9",
+     "text": "הכנסה וחסרון באברים הטעונים הזאה",
+     "text_de": "Hineinbringen und Fehlen an den Gliedern, die Besprengung erfordern",
+     "text_en": "Bringing in, and lack in the limbs requiring sprinkling",
+     "desc": "נגעי אדם › כפרתו › קרבנות המצורע › סדר הכשירו",
+     "desc_de": "Plagen am Menschen › Seine Sühne › Opfer des Aussätzigen › Ablauf seiner Zulassung",
+     "desc_en": "Plagues of a person › His atonement › Offerings of the leper › Order of his admission"
+    },
+    {
+     "ref": "14:10",
+     "text": "הזאות ודיני לוג השמן",
+     "text_de": "Besprengungen und Vorschriften zum Log Öl",
+     "text_en": "Sprinklings and laws of the log of oil",
+     "desc": "נגעי אדם › כפרתו › קרבנות המצורע › סדר הכשירו",
+     "desc_de": "Plagen am Menschen › Seine Sühne › Opfer des Aussätzigen › Ablauf seiner Zulassung",
+     "desc_en": "Plagues of a person › His atonement › Offerings of the leper › Order of his admission"
+    },
+    {
+     "ref": "14:11",
+     "text": "הקרבן הקובע את מצבו הכלכלי",
+     "text_de": "Das Opfer, das seine wirtschaftliche Lage bestimmt",
+     "text_en": "The offering that determines his economic status",
+     "desc": "נגעי אדם › כפרתו › קרבנות המצורע › עניות ועשירות",
+     "desc_de": "Plagen am Menschen › Seine Sühne › Opfer des Aussätzigen › Armut und Reichtum",
+     "desc_en": "Plagues of a person › His atonement › Offerings of the leper › Poverty and wealth"
+    },
+    {
+     "ref": "14:12",
+     "text": "היוצא בקרבן עני",
+     "text_de": "Wer mit dem Opfer des Armen seine Pflicht erfüllt",
+     "text_en": "One who fulfills his obligation with the offering of the poor",
+     "desc": "נגעי אדם › כפרתו › קרבנות המצורע › עניות ועשירות",
+     "desc_de": "Plagen am Menschen › Seine Sühne › Opfer des Aussätzigen › Armut und Reichtum",
+     "desc_en": "Plagues of a person › His atonement › Offerings of the leper › Poverty and wealth"
+    },
+    {
+     "ref": "14:13",
+     "text": "קרבן עני לפתרון עירוב קרבנות",
+     "text_de": "Opfer des Armen zur Lösung der Vermischung von Opfern",
+     "text_en": "Offering of the poor to resolve a mixing of offerings",
+     "desc": "נגעי אדם › כפרתו › קרבנות המצורע › עניות ועשירות",
+     "desc_de": "Plagen am Menschen › Seine Sühne › Opfer des Aussätzigen › Armut und Reichtum",
+     "desc_en": "Plagues of a person › His atonement › Offerings of the leper › Poverty and wealth"
+    }
+   ]
+  }
+ ]
+}

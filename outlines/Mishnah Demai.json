@@ -1,0 +1,537 @@
+{
+ "book": "Mishnah Demai",
+ "title": "משנה דמאי",
+ "title_de": "Mischna Demai – Gliederung",
+ "title_en": "Demai – outline",
+ "note": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema).",
+ "note_de": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema); ins Deutsche und Englische übersetzt.",
+ "note_en": "Outline after the table “Mishna Sedura”: the central content of each mishnah, with the topic path (main topic to sub-topic); translated into German and English.",
+ "sections": [
+  {
+   "head": "פרק א",
+   "head_de": "Kapitel 1",
+   "head_en": "Chapter 1",
+   "items": [
+    {
+     "ref": "1:1",
+     "text": "פירות הפטורים מדמאי",
+     "text_de": "Früchte, die vom Demai befreit sind",
+     "text_en": "Fruits exempt from Demai",
+     "desc": "דמאי › חיוב לעשר › התבואה ושימושה › קולות בדמאי",
+     "desc_de": "Demai (zweifelhaft Verzehntetes) › Pflicht zu verzehnten › Das Getreide und seine Verwendung › Erleichterungen beim Demai",
+     "desc_en": "Demai (doubtfully tithed produce) › Obligation to tithe › The grain and its use › Leniencies regarding Demai"
+    },
+    {
+     "ref": "1:2",
+     "text": "דיני מעשר שני",
+     "text_de": "Regeln des Zweiten Zehnten",
+     "text_en": "Laws of the Second Tithe",
+     "desc": "דמאי › חיוב לעשר › התבואה ושימושה › קולות בדמאי",
+     "desc_de": "Demai (zweifelhaft Verzehntetes) › Pflicht zu verzehnten › Das Getreide und seine Verwendung › Erleichterungen beim Demai",
+     "desc_en": "Demai (doubtfully tithed produce) › Obligation to tithe › The grain and its use › Leniencies regarding Demai"
+    },
+    {
+     "ref": "1:3",
+     "text": "פטור מטעם אימת קדשים או שימוש פחות",
+     "text_de": "Befreiung wegen der Furcht vor dem Heiligen oder geringer Gebrauch",
+     "text_en": "Exemption due to awe of sacred things or minor use",
+     "desc": "דמאי › חיוב לעשר › התבואה ושימושה › קולות בדמאי",
+     "desc_de": "Demai (zweifelhaft Verzehntetes) › Pflicht zu verzehnten › Das Getreide und seine Verwendung › Erleichterungen beim Demai",
+     "desc_en": "Demai (doubtfully tithed produce) › Obligation to tithe › The grain and its use › Leniencies regarding Demai"
+    },
+    {
+     "ref": "1:4",
+     "text": "הקבלות הלכתיות לחולין,שימוש פחות",
+     "text_de": "Halachische Entsprechungen für Profanes, geringer Gebrauch",
+     "text_en": "Halakhic parallels for non-sacred produce, minor use",
+     "desc": "דמאי › חיוב לעשר › התבואה ושימושה › קולות בדמאי",
+     "desc_de": "Demai (zweifelhaft Verzehntetes) › Pflicht zu verzehnten › Das Getreide und seine Verwendung › Erleichterungen beim Demai",
+     "desc_en": "Demai (doubtfully tithed produce) › Obligation to tithe › The grain and its use › Leniencies regarding Demai"
+    }
+   ]
+  },
+  {
+   "head": "פרק ב",
+   "head_de": "Kapitel 2",
+   "head_en": "Chapter 2",
+   "items": [
+    {
+     "ref": "2:1",
+     "text": "מינים המוכרים",
+     "text_de": "Verkaufte Arten",
+     "text_en": "Types sold",
+     "desc": "דמאי › חיוב לעשר › התבואה ושימושה › מקום גידול",
+     "desc_de": "Demai (zweifelhaft Verzehntetes) › Pflicht zu verzehnten › Das Getreide und seine Verwendung › Anbauort",
+     "desc_en": "Demai (doubtfully tithed produce) › Obligation to tithe › The grain and its use › Place of growth"
+    },
+    {
+     "ref": "2:2",
+     "text": "למעשרות",
+     "text_de": "Zum Zehnt (Maaserot)",
+     "text_en": "Regarding tithes",
+     "desc": "דמאי › חיוב לעשר › חיוב הנאמן כלפי אחר › קבלת נאמנות",
+     "desc_de": "Demai (zweifelhaft Verzehntetes) › Pflicht zu verzehnten › Verpflichtung des Vertrauenswürdigen gegenüber einem anderen › Annahme der Vertrauenswürdigkeit",
+     "desc_en": "Demai (doubtfully tithed produce) › Obligation to tithe › Obligation of the trusted person toward another › Acceptance of trustworthiness"
+    },
+    {
+     "ref": "2:3",
+     "text": "לטהרות",
+     "text_de": "Zu den Reinheitsvorschriften (Taharot)",
+     "text_en": "Regarding purity laws",
+     "desc": "דמאי › חיוב לעשר › חיוב הנאמן כלפי אחר › קבלת נאמנות",
+     "desc_de": "Demai (zweifelhaft Verzehntetes) › Pflicht zu verzehnten › Verpflichtung des Vertrauenswürdigen gegenüber einem anderen › Annahme der Vertrauenswürdigkeit",
+     "desc_en": "Demai (doubtfully tithed produce) › Obligation to tithe › Obligation of the trusted person toward another › Acceptance of trustworthiness"
+    },
+    {
+     "ref": "2:4",
+     "text": "נחתומים, חנונים \\ המוכרים בגסה",
+     "text_de": "Bäcker, Krämer / Großhändler",
+     "text_en": "Bakers, shopkeepers / wholesale sellers",
+     "desc": "דמאי › חיוב לעשר › חיוב הנאמן כלפי אחר › כמוכר › מדה גסה",
+     "desc_de": "Demai (zweifelhaft Verzehntetes) › Pflicht zu verzehnten › Verpflichtung des Vertrauenswürdigen gegenüber einem anderen › Wie der Verkäufer › Großmaß",
+     "desc_en": "Demai (doubtfully tithed produce) › Obligation to tithe › Obligation of the trusted person toward another › Like the seller › Large measure"
+    },
+    {
+     "ref": "2:5",
+     "text": "כמות המדידה, מהו גסה",
+     "text_de": "Messmenge, was als Großmaß gilt",
+     "text_en": "Measured quantity, what counts as a large measure",
+     "desc": "דמאי › חיוב לעשר › חיוב הנאמן כלפי אחר › כמוכר › מדה גסה",
+     "desc_de": "Demai (zweifelhaft Verzehntetes) › Pflicht zu verzehnten › Verpflichtung des Vertrauenswürdigen gegenüber einem anderen › Wie der Verkäufer › Großmaß",
+     "desc_en": "Demai (doubtfully tithed produce) › Obligation to tithe › Obligation of the trusted person toward another › Like the seller › Large measure"
+    }
+   ]
+  },
+  {
+   "head": "פרק ג",
+   "head_de": "Kapitel 3",
+   "head_en": "Chapter 3",
+   "items": [
+    {
+     "ref": "3:1",
+     "text": "האוכלים דמאי",
+     "text_de": "Die Demai Essenden",
+     "text_en": "Those who eat demai",
+     "desc": "דמאי › חיוב לעשר › חיוב הנאמן כלפי אחר",
+     "desc_de": "Demai (zweifelhaft Verzehntetes) › Pflicht zu verzehnten › Verpflichtung des Vertrauenswürdigen gegenüber einem anderen",
+     "desc_en": "Demai (doubtfully tithed produce) › Obligation to tithe › Obligation of the trusted person toward another"
+    },
+    {
+     "ref": "3:2",
+     "text": "הקלה ממשאוי \\ הלוקח מן השוק",
+     "text_de": "Erleichterung bei Lasten / der vom Markt Kaufende",
+     "text_en": "Relief from burdens / one who buys from the market",
+     "desc": "דמאי › חיוב לעשר › חיוב הנאמן כלפי אחר › קנין המחייב",
+     "desc_de": "Demai (zweifelhaft Verzehntetes) › Pflicht zu verzehnten › Verpflichtung des Vertrauenswürdigen gegenüber einem anderen › Verbindlicher Erwerbsakt",
+     "desc_en": "Demai (doubtfully tithed produce) › Obligation to tithe › Obligation of the trusted person toward another › Binding act of acquisition"
+    },
+    {
+     "ref": "3:3",
+     "text": "מציאה בדרך \\ שילוח מתנה",
+     "text_de": "Fund auf dem Weg / Versand eines Geschenks",
+     "text_en": "Find on the road / sending a gift",
+     "desc": "דמאי › חיוב לעשר › חיוב הנאמן כלפי אחר › קנין המחייב",
+     "desc_de": "Demai (zweifelhaft Verzehntetes) › Pflicht zu verzehnten › Verpflichtung des Vertrauenswürdigen gegenüber einem anderen › Verbindlicher Erwerbsakt",
+     "desc_en": "Demai (doubtfully tithed produce) › Obligation to tithe › Obligation of the trusted person toward another › Binding act of acquisition"
+    },
+    {
+     "ref": "3:4",
+     "text": "כותי ועם הארץ, נכרי",
+     "text_de": "Samaritaner und Am ha-Arez, Nichtjude",
+     "text_en": "Samaritan and am ha-aretz, non-Jew",
+     "desc": "דמאי › חיוב לעשר › חיוב הנאמן כלפי אחר › נאמנות עם הארץ › חשש להחלפה",
+     "desc_de": "Demai (zweifelhaft Verzehntetes) › Pflicht zu verzehnten › Verpflichtung des Vertrauenswürdigen gegenüber einem anderen › Glaubwürdigkeit eines Am Haarez › Verdacht der Vertauschung",
+     "desc_en": "Demai (doubtfully tithed produce) › Obligation to tithe › Obligation of the trusted person toward another › Trustworthiness of an Am Ha'aretz › Suspicion of substitution"
+    },
+    {
+     "ref": "3:5",
+     "text": "פונדקית",
+     "text_de": "Wirtin",
+     "text_en": "Innkeeper (female)",
+     "desc": "דמאי › חיוב לעשר › חיוב הנאמן כלפי אחר › נאמנות עם הארץ › חשש להחלפה",
+     "desc_de": "Demai (zweifelhaft Verzehntetes) › Pflicht zu verzehnten › Verpflichtung des Vertrauenswürdigen gegenüber einem anderen › Glaubwürdigkeit eines Am Haarez › Verdacht der Vertauschung",
+     "desc_en": "Demai (doubtfully tithed produce) › Obligation to tithe › Obligation of the trusted person toward another › Trustworthiness of an Am Ha'aretz › Suspicion of substitution"
+    },
+    {
+     "ref": "3:6",
+     "text": "חמותו, פירות שביעית",
+     "text_de": "Seine Schwiegermutter, Früchte des Schmitta-Jahres",
+     "text_en": "His mother-in-law, Sabbatical-year produce",
+     "desc": "דמאי › חיוב לעשר › חיוב הנאמן כלפי אחר › נאמנות עם הארץ › חשש להחלפה",
+     "desc_de": "Demai (zweifelhaft Verzehntetes) › Pflicht zu verzehnten › Verpflichtung des Vertrauenswürdigen gegenüber einem anderen › Glaubwürdigkeit eines Am Haarez › Verdacht der Vertauschung",
+     "desc_en": "Demai (doubtfully tithed produce) › Obligation to tithe › Obligation of the trusted person toward another › Trustworthiness of an Am Ha'aretz › Suspicion of substitution"
+    }
+   ]
+  },
+  {
+   "head": "פרק ד",
+   "head_de": "Kapitel 4",
+   "head_en": "Chapter 4",
+   "items": [
+    {
+     "ref": "4:1",
+     "text": "שבת, מדומע",
+     "text_de": "Schabbat, mit Teruma vermischtes",
+     "text_en": "Shabbat, mixture containing teruma",
+     "desc": "דמאי › חיוב לעשר › נאמנות עם הארץ › אימה",
+     "desc_de": "Demai (zweifelhaft Verzehntetes) › Pflicht zu verzehnten › Glaubwürdigkeit eines Am Haarez › Schwiegermutter",
+     "desc_en": "Demai (doubtfully tithed produce) › Obligation to tithe › Trustworthiness of an Am Ha'aretz › Mother-in-law"
+    },
+    {
+     "ref": "4:2",
+     "text": "איבה ונדר",
+     "text_de": "Feindschaft und Gelübde",
+     "text_en": "Enmity and vow",
+     "desc": "דמאי › חיוב לעשר › נאמנות עם הארץ › אימה",
+     "desc_de": "Demai (zweifelhaft Verzehntetes) › Pflicht zu verzehnten › Glaubwürdigkeit eines Am Haarez › Schwiegermutter",
+     "desc_en": "Demai (doubtfully tithed produce) › Obligation to tithe › Trustworthiness of an Am Ha'aretz › Mother-in-law"
+    },
+    {
+     "ref": "4:3",
+     "text": "מעשר שני",
+     "text_de": "Zweiter Zehnt (Maasser scheni)",
+     "text_en": "Second tithe",
+     "desc": "דמאי › חיוב לעשר › נאמנות עם הארץ › קריאת שם והפרשה",
+     "desc_de": "Demai (zweifelhaft Verzehntetes) › Pflicht zu verzehnten › Glaubwürdigkeit eines Am Haarez › Benennung und Absonderung",
+     "desc_en": "Demai (doubtfully tithed produce) › Obligation to tithe › Trustworthiness of an Am Ha'aretz › Designation and separation"
+    },
+    {
+     "ref": "4:4",
+     "text": "הפרשה ע\"י אכילה",
+     "text_de": "Absonderung durch Essen",
+     "text_en": "Separation by eating",
+     "desc": "דמאי › חיוב לעשר › נאמנות עם הארץ › קריאת שם והפרשה",
+     "desc_de": "Demai (zweifelhaft Verzehntetes) › Pflicht zu verzehnten › Glaubwürdigkeit eines Am Haarez › Benennung und Absonderung",
+     "desc_en": "Demai (doubtfully tithed produce) › Obligation to tithe › Trustworthiness of an Am Ha'aretz › Designation and separation"
+    },
+    {
+     "ref": "4:5",
+     "text": "סתם ובפירוש",
+     "text_de": "Unbestimmt und ausdrücklich",
+     "text_en": "Unspecified and explicit",
+     "desc": "דמאי › חיוב לעשר › נאמנות עם הארץ › כשליח קניות",
+     "desc_de": "Demai (zweifelhaft Verzehntetes) › Pflicht zu verzehnten › Glaubwürdigkeit eines Am Haarez › Als Einkaufsbote",
+     "desc_en": "Demai (doubtfully tithed produce) › Obligation to tithe › Trustworthiness of an Am Ha'aretz › As purchasing agent"
+    },
+    {
+     "ref": "4:6",
+     "text": "חבר אכסנאי",
+     "text_de": "Chaver als Gast",
+     "text_en": "Chaver as guest",
+     "desc": "דמאי › חיוב לעשר › נאמנות עם הארץ › חשש לגומלין",
+     "desc_de": "Demai (zweifelhaft Verzehntetes) › Pflicht zu verzehnten › Glaubwürdigkeit eines Am Haarez › Verdacht des Austauschs",
+     "desc_en": "Demai (doubtfully tithed produce) › Obligation to tithe › Trustworthiness of an Am Ha'aretz › Suspicion of mutual exchange"
+    },
+    {
+     "ref": "4:7",
+     "text": "חמרים שנכנסו לעיר",
+     "text_de": "Eseltreiber, die in die Stadt kamen",
+     "text_en": "Donkey drivers who entered the city",
+     "desc": "דמאי › חיוב לעשר › נאמנות עם הארץ › חשש לגומלין",
+     "desc_de": "Demai (zweifelhaft Verzehntetes) › Pflicht zu verzehnten › Glaubwürdigkeit eines Am Haarez › Verdacht des Austauschs",
+     "desc_en": "Demai (doubtfully tithed produce) › Obligation to tithe › Trustworthiness of an Am Ha'aretz › Suspicion of mutual exchange"
+    }
+   ]
+  },
+  {
+   "head": "פרק ה",
+   "head_de": "Kapitel 5",
+   "head_en": "Chapter 5",
+   "items": [
+    {
+     "ref": "5:1",
+     "text": "תרומת מעשר וחלה ומעשר שני",
+     "text_de": "Zehntteruma, Challa und zweiter Zehnt",
+     "text_en": "Tithe-teruma, challa and second tithe",
+     "desc": "דמאי › כיצד מעשרין › נוסח ההפרשה",
+     "desc_de": "Demai (zweifelhaft Verzehntetes) › Wie man den Zehnt abtrennt › Wortlaut der Absonderung",
+     "desc_en": "Demai (doubtfully tithed produce) › How tithes are separated › Wording of the separation"
+    },
+    {
+     "ref": "5:2",
+     "text": "תרומה ותרומת מעשר ומעשר שני",
+     "text_de": "Teruma, Zehntteruma und zweiter Zehnt",
+     "text_en": "Teruma, tithe-teruma and second tithe",
+     "desc": "דמאי › כיצד מעשרין › נוסח ההפרשה",
+     "desc_de": "Demai (zweifelhaft Verzehntetes) › Wie man den Zehnt abtrennt › Wortlaut der Absonderung",
+     "desc_en": "Demai (doubtfully tithed produce) › How tithes are separated › Wording of the separation"
+    },
+    {
+     "ref": "5:3",
+     "text": "נחתום",
+     "text_de": "Bäcker",
+     "text_en": "Baker",
+     "desc": "דמאי › כיצד מעשרין › חיוב ופטור בתבואה › ממי נקנית",
+     "desc_de": "Demai (zweifelhaft Verzehntetes) › Wie man den Zehnt abtrennt › Verpflichtung und Befreiung beim Getreide › Von wem erworben wird",
+     "desc_en": "Demai (doubtfully tithed produce) › How tithes are separated › Obligation and exemption regarding grain › From whom one acquires"
+    },
+    {
+     "ref": "5:4",
+     "text": "פלטר או מנפול",
+     "text_de": "Händler oder Großhändler",
+     "text_en": "Retailer or wholesaler",
+     "desc": "דמאי › כיצד מעשרין › חיוב ופטור בתבואה › ממי נקנית",
+     "desc_de": "Demai (zweifelhaft Verzehntetes) › Wie man den Zehnt abtrennt › Verpflichtung und Befreiung beim Getreide › Von wem erworben wird",
+     "desc_en": "Demai (doubtfully tithed produce) › How tithes are separated › Obligation and exemption regarding grain › From whom one acquires"
+    },
+    {
+     "ref": "5:5",
+     "text": "עני או צדקה",
+     "text_de": "Armer oder Almosen",
+     "text_en": "Poor person or charity",
+     "desc": "דמאי › כיצד מעשרין › חיוב ופטור בתבואה › ממי נקנית",
+     "desc_de": "Demai (zweifelhaft Verzehntetes) › Wie man den Zehnt abtrennt › Verpflichtung und Befreiung beim Getreide › Von wem erworben wird",
+     "desc_en": "Demai (doubtfully tithed produce) › How tithes are separated › Obligation and exemption regarding grain › From whom one acquires"
+    },
+    {
+     "ref": "5:6",
+     "text": "סיטון",
+     "text_de": "Großhändler",
+     "text_en": "Wholesaler",
+     "desc": "דמאי › כיצד מעשרין › חיוב ופטור בתבואה › ממי נקנית",
+     "desc_de": "Demai (zweifelhaft Verzehntetes) › Wie man den Zehnt abtrennt › Verpflichtung und Befreiung beim Getreide › Von wem erworben wird",
+     "desc_en": "Demai (doubtfully tithed produce) › How tithes are separated › Obligation and exemption regarding grain › From whom one acquires"
+    },
+    {
+     "ref": "5:7",
+     "text": "בעל בית",
+     "text_de": "Hausherr",
+     "text_en": "Householder",
+     "desc": "דמאי › כיצד מעשרין › חיוב ופטור בתבואה › ממי נקנית",
+     "desc_de": "Demai (zweifelhaft Verzehntetes) › Wie man den Zehnt abtrennt › Verpflichtung und Befreiung beim Getreide › Von wem erworben wird",
+     "desc_en": "Demai (doubtfully tithed produce) › How tithes are separated › Obligation and exemption regarding grain › From whom one acquires"
+    },
+    {
+     "ref": "5:8",
+     "text": "טבל משני מקומות",
+     "text_de": "Tevel aus zwei Orten",
+     "text_en": "Tevel from two places",
+     "desc": "דמאי › כיצד מעשרין › חיוב ופטור בתבואה › ממי נקנית",
+     "desc_de": "Demai (zweifelhaft Verzehntetes) › Wie man den Zehnt abtrennt › Verpflichtung und Befreiung beim Getreide › Von wem erworben wird",
+     "desc_en": "Demai (doubtfully tithed produce) › How tithes are separated › Obligation and exemption regarding grain › From whom one acquires"
+    },
+    {
+     "ref": "5:9",
+     "text": "מישראל, גוי, כותי",
+     "text_de": "Von einem Israeliten, Nichtjuden, Samaritaner",
+     "text_en": "From an Israelite, non-Jew, Samaritan",
+     "desc": "דמאי › כיצד מעשרין › חיוב ופטור בתבואה › ממי נקנית",
+     "desc_de": "Demai (zweifelhaft Verzehntetes) › Wie man den Zehnt abtrennt › Verpflichtung und Befreiung beim Getreide › Von wem erworben wird",
+     "desc_en": "Demai (doubtfully tithed produce) › How tithes are separated › Obligation and exemption regarding grain › From whom one acquires"
+    },
+    {
+     "ref": "5:10",
+     "text": "עציץ והארץ",
+     "text_de": "Blumentopf und das Land",
+     "text_en": "Flowerpot and the land",
+     "desc": "דמאי › כיצד מעשרין › חיוב ופטור בתבואה",
+     "desc_de": "Demai (zweifelhaft Verzehntetes) › Wie man den Zehnt abtrennt › Verpflichtung und Befreiung beim Getreide",
+     "desc_en": "Demai (doubtfully tithed produce) › How tithes are separated › Obligation and exemption regarding grain"
+    },
+    {
+     "ref": "5:11",
+     "text": "דמאי וודאי",
+     "text_de": "Demai und Gewisses",
+     "text_en": "Demai and certain (tithe-liable) produce",
+     "desc": "דמאי › כיצד מעשרין › חיוב ופטור בתבואה",
+     "desc_de": "Demai (zweifelhaft Verzehntetes) › Wie man den Zehnt abtrennt › Verpflichtung und Befreiung beim Getreide",
+     "desc_en": "Demai (doubtfully tithed produce) › How tithes are separated › Obligation and exemption regarding grain"
+    }
+   ]
+  },
+  {
+   "head": "פרק ו",
+   "head_de": "Kapitel 6",
+   "head_en": "Chapter 6",
+   "items": [
+    {
+     "ref": "6:1",
+     "text": "המקבל מישראל או גוי, חוכר מישראל",
+     "text_de": "Wer von einem Israeliten oder Nichtjuden übernimmt, Pächter von einem Israeliten",
+     "text_en": "One who takes over from an Israelite or non-Jew, lessee from an Israelite",
+     "desc": "ודאי › החיוב לעשר › מקבלים וחוכרים › חיוב לעשר",
+     "desc_de": "Gewisses › Die Pflicht zu verzehnten › Übernehmer und Pächter › Pflicht zu verzehnten",
+     "desc_en": "Certain (tithe-liable) produce › The obligation to tithe › Sharecroppers and lessees › Obligation to tithe"
+    },
+    {
+     "ref": "6:2",
+     "text": "החוכר מנכרי, שדה אבות בקבלה",
+     "text_de": "Der von einem Nichtjuden Pachtende, Vätererbfeld in Teilpacht",
+     "text_en": "One who leases from a non-Jew, ancestral field under sharecropping",
+     "desc": "ודאי › החיוב לעשר › מקבלים וחוכרים › חיוב לעשר",
+     "desc_de": "Gewisses › Die Pflicht zu verzehnten › Übernehmer und Pächter › Pflicht zu verzehnten",
+     "desc_en": "Certain (tithe-liable) produce › The obligation to tithe › Sharecroppers and lessees › Obligation to tithe"
+    },
+    {
+     "ref": "6:3",
+     "text": "כהנים ולויים שקבלו מישראל",
+     "text_de": "Priester und Leviten, die von einem Israeliten übernahmen",
+     "text_en": "Priests and Levites who took over from an Israelite",
+     "desc": "ודאי › החיוב לעשר › מקבלים וחוכרים › בעלות המעשרות",
+     "desc_de": "Gewisses › Die Pflicht zu verzehnten › Übernehmer und Pächter › Eigentum an den Zehnten",
+     "desc_en": "Certain (tithe-liable) produce › The obligation to tithe › Sharecroppers and lessees › Ownership of the tithes"
+    },
+    {
+     "ref": "6:4",
+     "text": "המקבל מכהן לוי או ירושלמי",
+     "text_de": "Wer von einem Priester, Leviten oder Jerusalemer übernimmt",
+     "text_en": "One who takes over from a priest, Levite or Jerusalemite",
+     "desc": "ודאי › החיוב לעשר › מקבלים וחוכרים › בעלות המעשרות",
+     "desc_de": "Gewisses › Die Pflicht zu verzehnten › Übernehmer und Pächter › Eigentum an den Zehnten",
+     "desc_en": "Certain (tithe-liable) produce › The obligation to tithe › Sharecroppers and lessees › Ownership of the tithes"
+    },
+    {
+     "ref": "6:5",
+     "text": "המקבל זיתים לשמן",
+     "text_de": "Wer Oliven für Öl übernimmt",
+     "text_en": "One who takes over olives for oil",
+     "desc": "ודאי › החיוב לעשר › מקבלים וחוכרים › בעלות המעשרות",
+     "desc_de": "Gewisses › Die Pflicht zu verzehnten › Übernehmer und Pächter › Eigentum an den Zehnten",
+     "desc_en": "Certain (tithe-liable) produce › The obligation to tithe › Sharecroppers and lessees › Ownership of the tithes"
+    },
+    {
+     "ref": "6:6",
+     "text": "למי חבר מוכר זיתיו",
+     "text_de": "Für wen ein Chaver seine Oliven verkauft",
+     "text_en": "For whom a chaver sells his olives",
+     "desc": "ודאי › החיוב לעשר › חיוב הנאמן כלפי אחרים",
+     "desc_de": "Gewisses › Die Pflicht zu verzehnten › Verpflichtung des Vertrauenswürdigen gegenüber anderen",
+     "desc_en": "Certain (tithe-liable) produce › The obligation to tithe › Obligation of the trusted person toward others"
+    },
+    {
+     "ref": "6:7",
+     "text": "עישור יינם של שותפים",
+     "text_de": "Verzehntung des Weins von Teilhabern",
+     "text_en": "Tithing of the wine of partners",
+     "desc": "ודאי › החיוב לעשר › חיוב הנאמן כלפי אחרים",
+     "desc_de": "Gewisses › Die Pflicht zu verzehnten › Verpflichtung des Vertrauenswürdigen gegenüber anderen",
+     "desc_en": "Certain (tithe-liable) produce › The obligation to tithe › Obligation of the trusted person toward others"
+    },
+    {
+     "ref": "6:8",
+     "text": "חלוקת תבואה המשותפת",
+     "text_de": "Aufteilung gemeinsamen Getreides",
+     "text_en": "Division of jointly owned grain",
+     "desc": "ודאי › החיוב לעשר › חיוב הנאמן כלפי אחרים › חלוקה כמכר",
+     "desc_de": "Gewisses › Die Pflicht zu verzehnten › Verpflichtung des Vertrauenswürdigen gegenüber anderen › Aufteilung als Verkauf",
+     "desc_en": "Certain (tithe-liable) produce › The obligation to tithe › Obligation of the trusted person toward others › Division as a sale"
+    },
+    {
+     "ref": "6:9",
+     "text": "ירושת עם הארץ",
+     "text_de": "Erbe eines Am ha-Arez",
+     "text_en": "Inheritance of an am ha-aretz",
+     "desc": "ודאי › החיוב לעשר › חיוב הנאמן כלפי אחרים › חלוקה כמכר",
+     "desc_de": "Gewisses › Die Pflicht zu verzehnten › Verpflichtung des Vertrauenswürdigen gegenüber anderen › Aufteilung als Verkauf",
+     "desc_en": "Certain (tithe-liable) produce › The obligation to tithe › Obligation of the trusted person toward others › Division as a sale"
+    },
+    {
+     "ref": "6:10",
+     "text": "ירושת גוי",
+     "text_de": "Erbe eines Nichtjuden",
+     "text_en": "Inheritance of a non-Jew",
+     "desc": "ודאי › החיוב לעשר › חיוב הנאמן כלפי אחרים › חלוקה כמכר",
+     "desc_de": "Gewisses › Die Pflicht zu verzehnten › Verpflichtung des Vertrauenswürdigen gegenüber anderen › Aufteilung als Verkauf",
+     "desc_en": "Certain (tithe-liable) produce › The obligation to tithe › Obligation of the trusted person toward others › Division as a sale"
+    },
+    {
+     "ref": "6:11",
+     "text": "המוכר בסוריא",
+     "text_de": "Der in Syrien Verkaufende",
+     "text_en": "One who sells in Syria",
+     "desc": "ודאי › החיוב לעשר › חיוב הנאמן כלפי אחרים › נאמנות עה\"א",
+     "desc_de": "Gewisses › Die Pflicht zu verzehnten › Verpflichtung des Vertrauenswürdigen gegenüber anderen › Vertrauenswürdigkeit des Am ha-Arez",
+     "desc_en": "Certain (tithe-liable) produce › The obligation to tithe › Obligation of the trusted person toward others › Trustworthiness of the am ha-aretz"
+    },
+    {
+     "ref": "6:12",
+     "text": "חבר כשליח קנייה",
+     "text_de": "Chaver als Einkaufsbote",
+     "text_en": "Chaver as purchasing agent",
+     "desc": "ודאי › החיוב לעשר › חיוב הנאמן כלפי אחרים",
+     "desc_de": "Gewisses › Die Pflicht zu verzehnten › Verpflichtung des Vertrauenswürdigen gegenüber anderen",
+     "desc_en": "Certain (tithe-liable) produce › The obligation to tithe › Obligation of the trusted person toward others"
+    }
+   ]
+  },
+  {
+   "head": "פרק ז",
+   "head_de": "Kapitel 7",
+   "head_en": "Chapter 7",
+   "items": [
+    {
+     "ref": "7:1",
+     "text": "העתיד לאכול אצל עם הארץ",
+     "text_de": "Wer bei einem Am ha-Arez essen wird",
+     "text_en": "One who will eat at an am ha-aretz's",
+     "desc": "דמאי › כיצד מעשרין › נוסח ההפרשה › תנאים בהפרשה לאכילה בשבת",
+     "desc_de": "Demai (zweifelhaft Verzehntetes) › Wie man den Zehnt abtrennt › Wortlaut der Absonderung › Bedingungen bei der Absonderung zum Essen am Schabbat",
+     "desc_en": "Demai (doubtfully tithed produce) › How tithes are separated › Wording of the separation › Conditions in separation for eating on Shabbat"
+    },
+    {
+     "ref": "7:2",
+     "text": "האוכל אצל עם הארץ",
+     "text_de": "Wer bei einem Am ha-Arez isst",
+     "text_en": "One who eats at an am ha-aretz's",
+     "desc": "דמאי › כיצד מעשרין › נוסח ההפרשה › תנאים בהפרשה לאכילה בשבת",
+     "desc_de": "Demai (zweifelhaft Verzehntetes) › Wie man den Zehnt abtrennt › Wortlaut der Absonderung › Bedingungen bei der Absonderung zum Essen am Schabbat",
+     "desc_en": "Demai (doubtfully tithed produce) › How tithes are separated › Wording of the separation › Conditions in separation for eating on Shabbat"
+    },
+    {
+     "ref": "7:3",
+     "text": "פועל בסעודתו",
+     "text_de": "Arbeiter bei seiner Mahlzeit",
+     "text_en": "Worker at his meal",
+     "desc": "דמאי › כיצד מעשרין › נוסח ההפרשה › תנאים בהפרשה לאכילה בשבת",
+     "desc_de": "Demai (zweifelhaft Verzehntetes) › Wie man den Zehnt abtrennt › Wortlaut der Absonderung › Bedingungen bei der Absonderung zum Essen am Schabbat",
+     "desc_en": "Demai (doubtfully tithed produce) › How tithes are separated › Wording of the separation › Conditions in separation for eating on Shabbat"
+    },
+    {
+     "ref": "7:4",
+     "text": "טבל",
+     "text_de": "Tevel",
+     "text_en": "Tevel",
+     "desc": "דמאי › כיצד מעשרין › נוסח ההפרשה › תנאים בהפרשה לאכילה בשבת",
+     "desc_de": "Demai (zweifelhaft Verzehntetes) › Wie man den Zehnt abtrennt › Wortlaut der Absonderung › Bedingungen bei der Absonderung zum Essen am Schabbat",
+     "desc_en": "Demai (doubtfully tithed produce) › How tithes are separated › Wording of the separation › Conditions in separation for eating on Shabbat"
+    },
+    {
+     "ref": "7:5",
+     "text": "טבל ודמאי",
+     "text_de": "Tevel und Demai",
+     "text_en": "Tevel and demai",
+     "desc": "דמאי › כיצד מעשרין › נוסח ההפרשה › תנאים בהפרשה לאכילה בשבת",
+     "desc_de": "Demai (zweifelhaft Verzehntetes) › Wie man den Zehnt abtrennt › Wortlaut der Absonderung › Bedingungen bei der Absonderung zum Essen am Schabbat",
+     "desc_en": "Demai (doubtfully tithed produce) › How tithes are separated › Wording of the separation › Conditions in separation for eating on Shabbat"
+    },
+    {
+     "ref": "7:6",
+     "text": "כלכלות זו על זו",
+     "text_de": "Gegenseitige Versorgung",
+     "text_en": "Providing for one another",
+     "desc": "ודאי › כיצד מעשרין › נוסח ההפרשה › ממה מפרישים › חיוב ופטור",
+     "desc_de": "Gewisses › Wie man den Zehnt abtrennt › Wortlaut der Absonderung › Wovon man absondert › Verpflichtung und Befreiung",
+     "desc_en": "Certain (tithe-liable) produce › How tithes are separated › Wording of the separation › From what one separates › Obligation and exemption"
+    },
+    {
+     "ref": "7:7",
+     "text": "תערובות שונות",
+     "text_de": "Verschiedene Mischungen",
+     "text_en": "Various mixtures",
+     "desc": "ודאי › כיצד מעשרין › נוסח ההפרשה › ממה מפרישים › חיוב ופטור",
+     "desc_de": "Gewisses › Wie man den Zehnt abtrennt › Wortlaut der Absonderung › Wovon man absondert › Verpflichtung und Befreiung",
+     "desc_en": "Certain (tithe-liable) produce › How tithes are separated › Wording of the separation › From what one separates › Obligation and exemption"
+    },
+    {
+     "ref": "7:8",
+     "text": "אי דיוק בציון מקום המעשר",
+     "text_de": "Ungenaue Angabe des Ortes des Zehnten",
+     "text_en": "Imprecise indication of the location of the tithe",
+     "desc": "ודאי › כיצד מעשרין › נוסח ההפרשה › ממה מפרישים",
+     "desc_de": "Gewisses › Wie man den Zehnt abtrennt › Wortlaut der Absonderung › Wovon man absondert",
+     "desc_en": "Certain (tithe-liable) produce › How tithes are separated › Wording of the separation › From what one separates"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,855 @@
+{
+ "book": "Mishnah Bava Batra",
+ "title": "משנה בבא בתרא",
+ "title_de": "Mischna Baba Batra – Gliederung",
+ "title_en": "Bava Batra – outline",
+ "note": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema).",
+ "note_de": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema); ins Deutsche und Englische übersetzt.",
+ "note_en": "Outline after the table “Mishna Sedura”: the central content of each mishnah, with the topic path (main topic to sub-topic); translated into German and English.",
+ "sections": [
+  {
+   "head": "פרק א",
+   "head_de": "Kapitel 1",
+   "head_en": "Chapter 1",
+   "items": [
+    {
+     "ref": "1:1",
+     "text": "מנהג ועובי הקיר בחצר",
+     "text_de": "Brauch und Dicke der Mauer im Hof",
+     "text_en": "Custom and thickness of the wall in the courtyard",
+     "desc": "הלכות שכנים › כפיית שותפין › מחיצות וגדרות › חצר וגינה",
+     "desc_de": "Gesetze der Nachbarn › Zwang der Teilhaber › Trennwände und Zäune › Hof und Garten",
+     "desc_en": "Laws of neighbors › Compelling partners › Partitions and fences › Courtyard and garden"
+    },
+    {
+     "ref": "1:2",
+     "text": "בגינה \\ מנהג, חזית ובעלות",
+     "text_de": "Im Garten / Brauch, Vorderseite und Eigentum",
+     "text_en": "In the garden / custom, front side and ownership",
+     "desc": "הלכות שכנים › כפיית שותפין › מחיצות וגדרות › בקעה › חצר וגינה",
+     "desc_de": "Gesetze der Nachbarn › Zwang der Teilhaber › Trennwände und Zäune › Tal › Hof und Garten",
+     "desc_en": "Laws of neighbors › Compelling partners › Partitions and fences › Valley › Courtyard and garden"
+    },
+    {
+     "ref": "1:3",
+     "text": "גלגול יציאות על הנגדר מסביב",
+     "text_de": "Umlage der Kosten auf das ringsum Eingezäunte",
+     "text_en": "Apportioning of costs to the surrounding enclosed area",
+     "desc": "הלכות שכנים › כפיית שותפין › מחיצות וגדרות › בקעה",
+     "desc_de": "Gesetze der Nachbarn › Zwang der Teilhaber › Trennwände und Zäune › Tal",
+     "desc_en": "Laws of neighbors › Compelling partners › Partitions and fences › Valley"
+    },
+    {
+     "ref": "1:4",
+     "text": "כותל נמוך וגבוה, חזקת תשלום, גלגול",
+     "text_de": "Niedrige und hohe Mauer, Vermutung der Zahlung, Umlage",
+     "text_en": "Low and high wall, presumption of payment, apportioning",
+     "desc": "הלכות שכנים › כפיית שותפין › מחיצות וגדרות › חצר",
+     "desc_de": "Gesetze der Nachbarn › Zwang der Teilhaber › Trennwände und Zäune › Hof",
+     "desc_en": "Laws of neighbors › Compelling partners › Partitions and fences › Courtyard"
+    },
+    {
+     "ref": "1:5",
+     "text": "אמצעי הגנה והתאמתן \\ השתייכות לעיר",
+     "text_de": "Schutzmaßnahmen und ihre Anpassung / Zugehörigkeit zur Stadt",
+     "text_en": "Protective measures and their adjustment / belonging to the city",
+     "desc": "הלכות שכנים › כפיית שותפין › מחיצות וגדרות › עיר › חצר",
+     "desc_de": "Gesetze der Nachbarn › Zwang der Teilhaber › Trennwände und Zäune › Stadt › Hof",
+     "desc_en": "Laws of neighbors › Compelling partners › Partitions and fences › City › Courtyard"
+    },
+    {
+     "ref": "1:6",
+     "text": "דוגמאות, כלל, רצון השותפין",
+     "text_de": "Beispiele, Regel, Wille der Teilhaber",
+     "text_en": "Examples, rule, will of the partners",
+     "desc": "הלכות שכנים › כפיית שותפין › שייכות לדין חלוקה",
+     "desc_de": "Gesetze der Nachbarn › Zwang der Teilhaber › Zugehörigkeit zum Teilungsrecht",
+     "desc_en": "Laws of neighbors › Compelling partners › Applicability of the law of division"
+    }
+   ]
+  },
+  {
+   "head": "פרק ב",
+   "head_de": "Kapitel 2",
+   "head_en": "Chapter 2",
+   "items": [
+    {
+     "ref": "2:1",
+     "text": "חתירת יסודות, חמרים מזיקים, תנודות",
+     "text_de": "Untergraben von Fundamenten, schädliche Stoffe, Erschütterungen",
+     "text_en": "Undermining foundations, harmful materials, vibrations",
+     "desc": "הלכות שכנים › הרחקת נזק › שכן › הבל › ריעוע כתל",
+     "desc_de": "Gesetze der Nachbarn › Fernhalten von Schaden › Nachbar › Dunst › Wackeln einer Wand",
+     "desc_en": "Laws of neighbors › Keeping damage at a distance › Neighbor › Vapor › Instability of a wall"
+    },
+    {
+     "ref": "2:2",
+     "text": "חשש שריפה, הרחיק ואעפ\"כ הזיק",
+     "text_de": "Brandgefahr, trotz Abstand Schaden verursacht",
+     "text_en": "Fire hazard, kept at a distance and nevertheless caused damage",
+     "desc": "הלכות שכנים › הרחקת נזק › שכן › הבל",
+     "desc_de": "Gesetze der Nachbarn › Fernhalten von Schaden › Nachbar › Dunst",
+     "desc_en": "Laws of neighbors › Keeping damage at a distance › Neighbor › Vapor"
+    },
+    {
+     "ref": "2:3",
+     "text": "קלקול אוצר \\ הפרעת רעשים",
+     "text_de": "Verderben von Vorräten / Lärmbelästigung",
+     "text_en": "Spoiling of stored goods / noise disturbance",
+     "desc": "הלכות שכנים › הרחקת נזק › שכן › הבל",
+     "desc_de": "Gesetze der Nachbarn › Fernhalten von Schaden › Nachbar › Dunst",
+     "desc_en": "Laws of neighbors › Keeping damage at a distance › Neighbor › Vapor"
+    },
+    {
+     "ref": "2:4",
+     "text": "מניעת חיזוק כותל, הזיק ראייה",
+     "text_de": "Verhinderung der Wandverstärkung, Schaden durch Einsicht",
+     "text_en": "Preventing the reinforcement of a wall, damage through visibility",
+     "desc": "הלכות שכנים › הרחקת נזק › שכן",
+     "desc_de": "Gesetze der Nachbarn › Fernhalten von Schaden › Nachbar",
+     "desc_en": "Laws of neighbors › Keeping damage at a distance › Neighbor"
+    },
+    {
+     "ref": "2:5",
+     "text": "כניסת מזיק, אפשרות תיקון\\ הפסד יונים",
+     "text_de": "Eindringen von Schädlichem, Möglichkeit der Reparatur / Verlust von Tauben",
+     "text_en": "Entry of harmful things, possibility of repair / loss of doves",
+     "desc": "הלכות שכנים › הרחקת נזק › שכן › דיני שובך",
+     "desc_de": "Gesetze der Nachbarn › Fernhalten von Schaden › Nachbar › Gesetze des Taubenschlags",
+     "desc_en": "Laws of neighbors › Keeping damage at a distance › Neighbor › Laws of the dovecote"
+    },
+    {
+     "ref": "2:6",
+     "text": "בעלות ניפול הנמצא",
+     "text_de": "Eigentum am Gefundenen, das herabfällt",
+     "text_en": "Ownership of found items that fall down",
+     "desc": "הלכות שכנים › הרחקת נזק › שכן › דיני שובך",
+     "desc_de": "Gesetze der Nachbarn › Fernhalten von Schaden › Nachbar › Gesetze des Taubenschlags",
+     "desc_en": "Laws of neighbors › Keeping damage at a distance › Neighbor › Laws of the dovecote"
+    },
+    {
+     "ref": "2:7",
+     "text": "פגם בנוי העיר, תשלום לקציצה",
+     "text_de": "Beeinträchtigung der Stadtschönheit, Zahlung nach Pauschalabsprache",
+     "text_en": "Impairment of the city's appearance, payment by lump-sum agreement",
+     "desc": "הלכות שכנים › הרחקת נזק › עיר",
+     "desc_de": "Gesetze der Nachbarn › Fernhalten von Schaden › Stadt",
+     "desc_en": "Laws of neighbors › Keeping damage at a distance › City"
+    },
+    {
+     "ref": "2:8",
+     "text": "קלקול שדות מגורן, והרחקה משכן",
+     "text_de": "Verderben von Feldern durch die Tenne, und Abstand vom Nachbarn",
+     "text_en": "Spoiling of fields by the threshing floor, and distance from the neighbor",
+     "desc": "הלכות שכנים › הרחקת נזק › עיר",
+     "desc_de": "Gesetze der Nachbarn › Fernhalten von Schaden › Stadt",
+     "desc_en": "Laws of neighbors › Keeping damage at a distance › City"
+    },
+    {
+     "ref": "2:9",
+     "text": "ריח רע, לאיזה כיוון מותר",
+     "text_de": "Übler Geruch, in welche Richtung erlaubt",
+     "text_en": "Foul smell, in which direction permitted",
+     "desc": "הלכות שכנים › הרחקת נזק › עיר",
+     "desc_de": "Gesetze der Nachbarn › Fernhalten von Schaden › Stadt",
+     "desc_en": "Laws of neighbors › Keeping damage at a distance › City"
+    },
+    {
+     "ref": "2:10",
+     "text": "נזק לירקות, לדבש",
+     "text_de": "Schaden an Gemüse, an Honig",
+     "text_en": "Damage to vegetables, to honey",
+     "desc": "הלכות שכנים › הרחקת נזק › שכן › דברי מאכל",
+     "desc_de": "Gesetze der Nachbarn › Fernhalten von Schaden › Nachbar › Lebensmittel",
+     "desc_en": "Laws of neighbors › Keeping damage at a distance › Neighbor › Foodstuffs"
+    },
+    {
+     "ref": "2:11",
+     "text": "ריעוע בור, קציצה ונתינת דמים",
+     "text_de": "Wackeln einer Zisterne, Pauschalvereinbarung und Zahlung",
+     "text_en": "Instability of a cistern, lump-sum agreement and payment",
+     "desc": "הלכות שכנים › הרחקת נזק › שכן › אילן › שרשים",
+     "desc_de": "Gesetze der Nachbarn › Fernhalten von Schaden › Nachbar › Baum › Wurzeln",
+     "desc_en": "Laws of neighbors › Keeping damage at a distance › Neighbor › Tree › Roots"
+    },
+    {
+     "ref": "2:12",
+     "text": "מלמטה, קציצה לצורך",
+     "text_de": "Von unten, Fällen aus Bedarf",
+     "text_en": "From below, cutting down out of need",
+     "desc": "הלכות שכנים › הרחקת נזק › שכן › אילן › שרשים › עיכוב חרישה",
+     "desc_de": "Gesetze der Nachbarn › Fernhalten von Schaden › Nachbar › Baum › Wurzeln › Behinderung des Pflügens",
+     "desc_en": "Laws of neighbors › Keeping damage at a distance › Neighbor › Tree › Roots › Hindering plowing"
+    },
+    {
+     "ref": "2:13",
+     "text": "מלמעלה, השלכת צל המזיק",
+     "text_de": "Von oben, Schattenwurf als Schaden",
+     "text_en": "From above, casting of damaging shade",
+     "desc": "הלכות שכנים › הרחקת נזק › שכן › אילן › נוף › עיכוב חרישה",
+     "desc_de": "Gesetze der Nachbarn › Fernhalten von Schaden › Nachbar › Baum › Geäst › Behinderung des Pflügens",
+     "desc_en": "Laws of neighbors › Keeping damage at a distance › Neighbor › Tree › Branches › Hindering plowing"
+    },
+    {
+     "ref": "2:14",
+     "text": "עיכוב עוברים וסחורתם",
+     "text_de": "Behinderung von Passanten und ihrer Waren",
+     "text_en": "Obstruction of passersby and their goods",
+     "desc": "הלכות שכנים › הרחקת נזק › רשות הרבים › נוף",
+     "desc_de": "Gesetze der Nachbarn › Fernhalten von Schaden › Öffentlicher Bereich › Geäst",
+     "desc_en": "Laws of neighbors › Keeping damage at a distance › Public domain › Branches"
+    }
+   ]
+  },
+  {
+   "head": "פרק ג",
+   "head_de": "Kapitel 3",
+   "head_en": "Chapter 3",
+   "items": [
+    {
+     "ref": "3:1",
+     "text": "העושה פירות תדיר, שדה לבן ואילן",
+     "text_de": "Wer regelmäßig Früchte erntet, weißes Feld und Baum",
+     "text_en": "One who regularly harvests fruit, grain field and tree",
+     "desc": "הלכות מקח וממכר › חזקה › כיצד מחזיקין › זמן",
+     "desc_de": "Vorschriften über Kauf und Verkauf › Vermutung › Wie man Besitzanspruch begründet › Zeit",
+     "desc_en": "Laws of purchase and sale › Presumption › How possession is established › time"
+    },
+    {
+     "ref": "3:2",
+     "text": "הבעלים במדינה",
+     "text_de": "Die Eigentümer im Ausland",
+     "text_en": "The owners overseas",
+     "desc": "הלכות מקח וממכר › חזקה › כיצד מחזיקין › מקום",
+     "desc_de": "Vorschriften über Kauf und Verkauf › Vermutung › Wie man Besitzanspruch begründet › Ort",
+     "desc_en": "Laws of purchase and sale › Presumption › How possession is established › Place"
+    },
+    {
+     "ref": "3:3",
+     "text": "צורך בטענה, שאינן מחזיקים, קנין בחזקה",
+     "text_de": "Notwendigkeit einer Behauptung, die keinen Besitz begründen, Erwerb durch Besitz",
+     "text_en": "Necessity of a claim, those who do not establish possession, acquisition by possession",
+     "desc": "הלכות מקח וממכר › חזקה › כיצד מחזיקין",
+     "desc_de": "Vorschriften über Kauf und Verkauf › Vermutung › Wie man Besitzanspruch begründet",
+     "desc_en": "Laws of purchase and sale › Presumption › How possession is established"
+    },
+    {
+     "ref": "3:4",
+     "text": "עדות לחזקה והזמתה",
+     "text_de": "Zeugnis über den Besitz und dessen Widerlegung",
+     "text_en": "Testimony about possession and its refutation",
+     "desc": "הלכות מקח וממכר › חזקה › כיצד מחזיקין",
+     "desc_de": "Vorschriften über Kauf und Verkauf › Vermutung › Wie man Besitzanspruch begründet",
+     "desc_en": "Laws of purchase and sale › Presumption › How possession is established"
+    },
+    {
+     "ref": "3:5",
+     "text": "הכנסה לחצר וקביעות מקום",
+     "text_de": "Hineinbringen in den Hof und Festlegung des Ortes",
+     "text_en": "Bringing into the courtyard and fixing of the place",
+     "desc": "הלכות מקח וממכר › חזקה › כיצד מחזיקין › שייכות לחזקה",
+     "desc_de": "Vorschriften über Kauf und Verkauf › Vermutung › Wie man Besitzanspruch begründet › Zugehörigkeit zum Besitzrecht",
+     "desc_en": "Laws of purchase and sale › Presumption › How possession is established › Relation to the law of possession"
+    },
+    {
+     "ref": "3:6",
+     "text": "מרזבים, סולמות, חלונות, זיזים",
+     "text_de": "Dachrinnen, Leitern, Fenster, Vorsprünge",
+     "text_en": "Gutters, ladders, windows, projections",
+     "desc": "הלכות מקח וממכר › חזקה › כיצד מחזיקין › שייכות לחזקה",
+     "desc_de": "Vorschriften über Kauf und Verkauf › Vermutung › Wie man Besitzanspruch begründet › Zugehörigkeit zum Besitzrecht",
+     "desc_en": "Laws of purchase and sale › Presumption › How possession is established › Relation to the law of possession"
+    },
+    {
+     "ref": "3:7",
+     "text": "ריבוי צירים, הזק ראייה",
+     "text_de": "Vermehrung der Türangeln, Schaden durch Einsicht",
+     "text_en": "Multiplication of door hinges, damage through visibility",
+     "desc": "הלכות מקח וממכר › חזקה › שינוי מן המוחזק שמזיק › חצר השותפין",
+     "desc_de": "Vorschriften über Kauf und Verkauf › Vermutung › Änderung des Bestehenden, die schadet › Gemeinsamer Hof der Teilhaber",
+     "desc_en": "Laws of purchase and sale › Presumption › Change of the established state that causes damage › Shared courtyard of the partners"
+    },
+    {
+     "ref": "3:8",
+     "text": "חשש פתחים ומכשולים להליכה",
+     "text_de": "Befürchtung von Eingängen und Hindernissen beim Gehen",
+     "text_en": "Concern about entrances and obstacles for walking",
+     "desc": "הלכות מקח וממכר › חזקה › שינוי מן המוחזק שמזיק › רשות הרבים",
+     "desc_de": "Vorschriften über Kauf und Verkauf › Vermutung › Änderung des Bestehenden, die schadet › Öffentlicher Bereich",
+     "desc_en": "Laws of purchase and sale › Presumption › Change of the established state that causes damage › Public domain"
+    }
+   ]
+  },
+  {
+   "head": "פרק ד",
+   "head_de": "Kapitel 4",
+   "head_en": "Chapter 4",
+   "items": [
+    {
+     "ref": "4:1",
+     "text": "חדרים, הגג וצורת פתחו",
+     "text_de": "Zimmer, das Dach und die Form seines Eingangs",
+     "text_en": "Rooms, the roof and the form of its entrance",
+     "desc": "הלכות מקח וממכר › פירוש לשון המכר › בית",
+     "desc_de": "Vorschriften über Kauf und Verkauf › Auslegung des Verkaufswortlauts › Haus",
+     "desc_en": "Laws of purchase and sale › Interpretation of the wording of the sale › House"
+    },
+    {
+     "ref": "4:2",
+     "text": "בור ודות, צורך בתנאי ולקיחת דרך",
+     "text_de": "Zisterne und Wasserbehälter, Notwendigkeit einer Bedingung und Wegerecht",
+     "text_en": "Cistern and reservoir, necessity of a condition and right of way",
+     "desc": "הלכות מקח וממכר › פירוש לשון המכר › בית",
+     "desc_de": "Vorschriften über Kauf und Verkauf › Auslegung des Verkaufswortlauts › Haus",
+     "desc_en": "Laws of purchase and sale › Interpretation of the wording of the sale › House"
+    },
+    {
+     "ref": "4:3",
+     "text": "קביעות כלי הבית",
+     "text_de": "Festigkeit der Hausgeräte",
+     "text_en": "Fixedness of household utensils",
+     "desc": "הלכות מקח וממכר › פירוש לשון המכר › קרקעות מטלטלין אגב קרקע › בית",
+     "desc_de": "Vorschriften über Kauf und Verkauf › Auslegung des Verkaufswortlauts › Grundstücke, Bewegliches im Zusammenhang mit Grundstück › Haus",
+     "desc_en": "Laws of purchase and sale › Interpretation of the wording of the sale › Real estate, movables acquired along with land › House"
+    },
+    {
+     "ref": "4:4",
+     "text": "קרקעות שבה ומטלטלין",
+     "text_de": "Grundstücke, die darin sind, und Bewegliches",
+     "text_en": "Real estate that is in it, and movables",
+     "desc": "הלכות מקח וממכר › פירוש לשון המכר › קרקעות מטלטלין אגב קרקע › חצר",
+     "desc_de": "Vorschriften über Kauf und Verkauf › Auslegung des Verkaufswortlauts › Grundstücke, Bewegliches im Zusammenhang mit Grundstück › Hof",
+     "desc_en": "Laws of purchase and sale › Interpretation of the wording of the sale › Real estate, movables acquired along with land › Courtyard"
+    },
+    {
+     "ref": "4:5",
+     "text": "כלי בית הבד",
+     "text_de": "Geräte der Ölpresse",
+     "text_en": "Utensils of the olive press",
+     "desc": "הלכות מקח וממכר › פירוש לשון המכר › קרקעות מטלטלין אגב קרקע › בתי מלאכה",
+     "desc_de": "Vorschriften über Kauf und Verkauf › Auslegung des Verkaufswortlauts › Grundstücke, Bewegliches im Zusammenhang mit Grundstück › Werkstätten",
+     "desc_en": "Laws of purchase and sale › Interpretation of the wording of the sale › Real estate, movables acquired along with land › Workshops"
+    },
+    {
+     "ref": "4:6",
+     "text": "כלי מרחץ",
+     "text_de": "Badegeräte",
+     "text_en": "Bath utensils",
+     "desc": "הלכות מקח וממכר › פירוש לשון המכר › קרקעות מטלטלין אגב קרקע › בתי מלאכה",
+     "desc_de": "Vorschriften über Kauf und Verkauf › Auslegung des Verkaufswortlauts › Grundstücke, Bewegliches im Zusammenhang mit Grundstück › Werkstätten",
+     "desc_en": "Laws of purchase and sale › Interpretation of the wording of the sale › Real estate, movables acquired along with land › Workshops"
+    },
+    {
+     "ref": "4:7",
+     "text": "קרקעות מטלטלין ובעלי חיים",
+     "text_de": "Grundstücke, Bewegliches und Tiere",
+     "text_en": "Real estate, movables and animals",
+     "desc": "הלכות מקח וממכר › פירוש לשון המכר › קרקעות מטלטלין אגב קרקע › עיר",
+     "desc_de": "Vorschriften über Kauf und Verkauf › Auslegung des Verkaufswortlauts › Grundstücke, Bewegliches im Zusammenhang mit Grundstück › Stadt",
+     "desc_en": "Laws of purchase and sale › Interpretation of the wording of the sale › Real estate, movables acquired along with land › City"
+    },
+    {
+     "ref": "4:8",
+     "text": "הנצרכים אליה, שאין להן שם עצמאי",
+     "text_de": "Die dafür Benötigten, die keinen eigenen Namen haben",
+     "text_en": "Those needed for it, which have no independent name",
+     "desc": "הלכות מקח וממכר › פירוש לשון המכר › קרקעות מטלטלין אגב קרקע › שדה",
+     "desc_de": "Vorschriften über Kauf und Verkauf › Auslegung des Verkaufswortlauts › Grundstücke, Bewegliches im Zusammenhang mit Grundstück › Feld",
+     "desc_en": "Laws of purchase and sale › Interpretation of the wording of the sale › Real estate, movables acquired along with land › Field"
+    },
+    {
+     "ref": "4:9",
+     "text": "אינן נצרכים, יש להן שם,דרך,הקונה הכל",
+     "text_de": "Die nicht Benötigten, die einen Namen haben, Weg, der Käufer von allem",
+     "text_en": "Those not needed, which have a name, path, the buyer of everything",
+     "desc": "הלכות מקח וממכר › פירוש לשון המכר › קרקעות מטלטלין אגב קרקע › שדה",
+     "desc_de": "Vorschriften über Kauf und Verkauf › Auslegung des Verkaufswortlauts › Grundstücke, Bewegliches im Zusammenhang mit Grundstück › Feld",
+     "desc_en": "Laws of purchase and sale › Interpretation of the wording of the sale › Real estate, movables acquired along with land › Field"
+    }
+   ]
+  },
+  {
+   "head": "פרק ה",
+   "head_de": "Kapitel 5",
+   "head_en": "Chapter 5",
+   "items": [
+    {
+     "ref": "5:1",
+     "text": "ספינה, קרון,צמד ובהמות, הודעת דמים",
+     "text_de": "Schiff, Wagen, Gespann und Tiere, Angabe des Preises",
+     "text_en": "Ship, wagon, team and animals, statement of the price",
+     "desc": "הלכות מקח וממכר › פירוש לשון המכר › מטלטלין › בהמה",
+     "desc_de": "Vorschriften über Kauf und Verkauf › Auslegung des Verkaufswortlauts › Bewegliches › Vieh",
+     "desc_en": "Laws of purchase and sale › Interpretation of the wording of the sale › Movables › Animals"
+    },
+    {
+     "ref": "5:2",
+     "text": "כלי חמור, לשון המכר",
+     "text_de": "Geräte des Esels, Wortlaut des Verkaufs",
+     "text_en": "Utensils of the donkey, wording of the sale",
+     "desc": "הלכות מקח וממכר › פירוש לשון המכר › מטלטלין › בהמה",
+     "desc_de": "Vorschriften über Kauf und Verkauf › Auslegung des Verkaufswortlauts › Bewegliches › Vieh",
+     "desc_en": "Laws of purchase and sale › Interpretation of the wording of the sale › Movables › Animals"
+    },
+    {
+     "ref": "5:3",
+     "text": "פירות הנמצאים,שיור הלוקח בעתיד לבוא",
+     "text_de": "Vorgefundene Früchte, Vorbehalt des Käufers für die Zukunft",
+     "text_en": "Fruits found, the buyer's reservation for the future",
+     "desc": "הלכות מקח וממכר › פירוש לשון המכר › מטלטלין › טפל עם עיקר",
+     "desc_de": "Vorschriften über Kauf und Verkauf › Auslegung des Verkaufswortlauts › Bewegliches › Nebensache mit Hauptsache",
+     "desc_en": "Laws of purchase and sale › Interpretation of the wording of the sale › Movables › Accessory with principal"
+    },
+    {
+     "ref": "5:4",
+     "text": "קנין ושעבוד קרקע עם אילנות",
+     "text_de": "Erwerb und Haftung von Land mit Bäumen",
+     "text_en": "Acquisition and encumbrance of land with trees",
+     "desc": "הלכות מקח וממכר › פירוש לשון המכר › מטלטלין › טפל עם עיקר",
+     "desc_de": "Vorschriften über Kauf und Verkauf › Auslegung des Verkaufswortlauts › Bewegliches › Nebensache mit Hauptsache",
+     "desc_en": "Laws of purchase and sale › Interpretation of the wording of the sale › Movables › Accessory with principal"
+    },
+    {
+     "ref": "5:5",
+     "text": "נתחי בשר",
+     "text_de": "Fleischstücke",
+     "text_en": "Pieces of meat",
+     "desc": "הלכות מקח וממכר › פירוש לשון המכר › מטלטלין › בהמה",
+     "desc_de": "Vorschriften über Kauf und Verkauf › Auslegung des Verkaufswortlauts › Bewegliches › Vieh",
+     "desc_en": "Laws of purchase and sale › Interpretation of the wording of the sale › Movables › Animals"
+    },
+    {
+     "ref": "5:6",
+     "text": "טיב ומין וטעות",
+     "text_de": "Qualität, Art und Irrtum",
+     "text_en": "Quality, kind and error",
+     "desc": "הלכות מקח וממכר › חלות הקנין › אפשרות לחזור › 4 מידות",
+     "desc_de": "Vorschriften über Kauf und Verkauf › Wirksamwerden des Erwerbs › Möglichkeit des Rücktritts › Vier Maße",
+     "desc_en": "Laws of purchase and sale › Taking effect of the acquisition › Possibility of withdrawal › Four measures"
+    },
+    {
+     "ref": "5:7",
+     "text": "משיכה, תלישה",
+     "text_de": "Ziehen, Ausreißen",
+     "text_en": "Pulling, uprooting",
+     "desc": "הלכות מקח וממכר › חלות הקנין › אפשרות לחזור › כיצד קונים",
+     "desc_de": "Vorschriften über Kauf und Verkauf › Wirksamwerden des Erwerbs › Möglichkeit des Rücktritts › Wie man erwirbt",
+     "desc_en": "Laws of purchase and sale › Taking effect of the acquisition › Possibility of withdrawal › How one acquires"
+    },
+    {
+     "ref": "5:8",
+     "text": "מילוי המידה , סרסור, הטפת טיפין",
+     "text_de": "Füllen des Maßes, Makler, Tröpfeln",
+     "text_en": "Filling the measure, broker, dripping",
+     "desc": "הלכות מקח וממכר › חלות הקנין › מדידה › כיצד קונים",
+     "desc_de": "Vorschriften über Kauf und Verkauf › Wirksamwerden des Erwerbs › Messung › Wie man erwirbt",
+     "desc_en": "Laws of purchase and sale › Taking effect of the acquisition › Measuring › How one acquires"
+    },
+    {
+     "ref": "5:9",
+     "text": "שליח קניות קטן וחיוב באונסים",
+     "text_de": "Minderjähriger Einkaufsbote und Haftung bei höherer Gewalt",
+     "text_en": "Minor as purchasing agent and liability for force majeure",
+     "desc": "הלכות מקח וממכר › חלות הקנין › מדידה › כיצד קונים",
+     "desc_de": "Vorschriften über Kauf und Verkauf › Wirksamwerden des Erwerbs › Messung › Wie man erwirbt",
+     "desc_en": "Laws of purchase and sale › Taking effect of the acquisition › Measuring › How one acquires"
+    },
+    {
+     "ref": "5:10",
+     "text": "סיטון, בעל הבית, חנוני",
+     "text_de": "Großhändler, Hausherr, Krämer",
+     "text_en": "Wholesaler, householder, shopkeeper",
+     "desc": "הלכות מקח וממכר › מדידה › ישרות › קינוח מידות",
+     "desc_de": "Vorschriften über Kauf und Verkauf › Messung › Redlichkeit › Abstreichen der Maße",
+     "desc_en": "Laws of purchase and sale › Measuring › Honesty › Leveling of the measures"
+    },
+    {
+     "ref": "5:11",
+     "text": "ביבש \\ הכרעה, מחיקה, גודל המידה",
+     "text_de": "Bei Trockenem / Entscheidung, Auslöschung, Größe des Maßes",
+     "text_en": "With dry goods / decision, erasure, size of the measure",
+     "desc": "הלכות מקח וממכר › מדידה › ישרות › קינוח מידות",
+     "desc_de": "Vorschriften über Kauf und Verkauf › Messung › Redlichkeit › Abstreichen der Maße",
+     "desc_en": "Laws of purchase and sale › Measuring › Honesty › Leveling of the measures"
+    }
+   ]
+  },
+  {
+   "head": "פרק ו",
+   "head_de": "Kapitel 6",
+   "head_en": "Chapter 6",
+   "items": [
+    {
+     "ref": "6:1",
+     "text": "שלא צמחו",
+     "text_de": "Die nicht gewachsen sind",
+     "text_en": "Those that have not grown",
+     "desc": "הלכות מקח וממכר › פירוש לשון המכר › טיב ואחריות המכירה › פירות",
+     "desc_de": "Vorschriften über Kauf und Verkauf › Auslegung des Verkaufswortlauts › Qualität und Gewährleistung des Verkaufs › Früchte",
+     "desc_en": "Laws of purchase and sale › Interpretation of the wording of the sale › Quality and warranty of the sale › fruits"
+    },
+    {
+     "ref": "6:2",
+     "text": "טינופת,מתולעים \\ טיב יין וחביות",
+     "text_de": "Schmutz, wurmige Ware / Qualität von Wein und Fässern",
+     "text_en": "Filth, wormy goods / quality of wine and barrels",
+     "desc": "הלכות מקח וממכר › פירוש לשון המכר › טיב ואחריות המכירה › יין",
+     "desc_de": "Vorschriften über Kauf und Verkauf › Auslegung des Verkaufswortlauts › Qualität und Gewährleistung des Verkaufs › Wein",
+     "desc_en": "Laws of purchase and sale › Interpretation of the wording of the sale › Quality and warranty of the sale › Wine"
+    },
+    {
+     "ref": "6:3",
+     "text": "חימוץ, בישום, עתיקות",
+     "text_de": "Säuerung, Würzung, Alter",
+     "text_en": "Souring, spicing, age",
+     "desc": "הלכות מקח וממכר › פירוש לשון המכר › טיב ואחריות המכירה › יין",
+     "desc_de": "Vorschriften über Kauf und Verkauf › Auslegung des Verkaufswortlauts › Qualität und Gewährleistung des Verkaufs › Wein",
+     "desc_en": "Laws of purchase and sale › Interpretation of the wording of the sale › Quality and warranty of the sale › Wine"
+    },
+    {
+     "ref": "6:4",
+     "text": "גודל מיני בתים",
+     "text_de": "Größe der Hausarten",
+     "text_en": "Size of kinds of houses",
+     "desc": "הלכות מקח וממכר › פירוש לשון המכר › דיוק במדה › בתים",
+     "desc_de": "Vorschriften über Kauf und Verkauf › Auslegung des Verkaufswortlauts › Genauigkeit im Maß › Häuser",
+     "desc_en": "Laws of purchase and sale › Interpretation of the wording of the sale › Exactness in measure › Houses"
+    },
+    {
+     "ref": "6:5",
+     "text": "בור בתוך בית",
+     "text_de": "Zisterne im Haus",
+     "text_en": "Cistern inside a house",
+     "desc": "הלכות מקח וממכר › פירוש לשון המכר › דרך ארץ בשימוש › מעבר",
+     "desc_de": "Vorschriften über Kauf und Verkauf › Auslegung des Verkaufswortlauts › Landesüblichkeit bei der Nutzung › Durchgang",
+     "desc_en": "Laws of purchase and sale › Interpretation of the wording of the sale › Common courtesy in use › Passage"
+    },
+    {
+     "ref": "6:6",
+     "text": "גינה לפנים מגינה",
+     "text_de": "Garten innerhalb eines Gartens",
+     "text_en": "Garden within a garden",
+     "desc": "הלכות מקח וממכר › פירוש לשון המכר › דרך ארץ בשימוש › מעבר",
+     "desc_de": "Vorschriften über Kauf und Verkauf › Auslegung des Verkaufswortlauts › Landesüblichkeit bei der Nutzung › Durchgang",
+     "desc_en": "Laws of purchase and sale › Interpretation of the wording of the sale › Common courtesy in use › Passage"
+    },
+    {
+     "ref": "6:7",
+     "text": "חזקת מיצר רבים \\ דרכים שונות",
+     "text_de": "Besitzvermutung bei Grenzen mit vielen Anliegern / verschiedene Wege",
+     "text_en": "Presumption of possession of a boundary shared by many / various paths",
+     "desc": "הלכות מקח וממכר › פירוש לשון המכר › דיוק במידה › קבר › מעבר",
+     "desc_de": "Vorschriften über Kauf und Verkauf › Auslegung des Verkaufswortlauts › Genauigkeit im Maß › Grab › Durchgang",
+     "desc_en": "Laws of purchase and sale › Interpretation of the wording of the sale › Exactness in measure › Grave › Passage"
+    },
+    {
+     "ref": "6:8",
+     "text": "מערה, כוכים ומספרם, החצר",
+     "text_de": "Höhle, Grabnischen und ihre Zahl, der Hof",
+     "text_en": "Cave, burial niches and their number, the courtyard",
+     "desc": "הלכות מקח וממכר › פירוש לשון המכר › דיוק במידה › קבר",
+     "desc_de": "Vorschriften über Kauf und Verkauf › Auslegung des Verkaufswortlauts › Genauigkeit im Maß › Grab",
+     "desc_en": "Laws of purchase and sale › Interpretation of the wording of the sale › Exactness in measure › Grave"
+    }
+   ]
+  },
+  {
+   "head": "פרק ז",
+   "head_de": "Kapitel 7",
+   "head_en": "Chapter 7",
+   "items": [
+    {
+     "ref": "7:1",
+     "text": "בית כור שאינו משטח שוה",
+     "text_de": "Bet-Kor-Feld, das keine ebene Fläche ist",
+     "text_en": "Beit-kor field that is not a level surface",
+     "desc": "הלכות מקח וממכר › פירוש לשון המכר › דיוק במידה › שדות",
+     "desc_de": "Vorschriften über Kauf und Verkauf › Auslegung des Verkaufswortlauts › Genauigkeit im Maß › Felder",
+     "desc_en": "Laws of purchase and sale › Interpretation of the wording of the sale › Exactness in measure › Fields"
+    },
+    {
+     "ref": "7:2",
+     "text": "קנין וניכוי, יפוי כח המוכר",
+     "text_de": "Erwerb und Abzug, Vollmacht des Verkäufers",
+     "text_en": "Acquisition and deduction, authorization of the seller",
+     "desc": "הלכות מקח וממכר › פירוש לשון המכר › דיוק במידה › שדות",
+     "desc_de": "Vorschriften über Kauf und Verkauf › Auslegung des Verkaufswortlauts › Genauigkeit im Maß › Felder",
+     "desc_en": "Laws of purchase and sale › Interpretation of the wording of the sale › Exactness in measure › Fields"
+    },
+    {
+     "ref": "7:3",
+     "text": "לשונות הסותרות, ציון מיצרים",
+     "text_de": "Widersprüchliche Formulierungen, Angabe der Grenzen",
+     "text_en": "Contradictory wording, specification of boundaries",
+     "desc": "הלכות מקח וממכר › פירוש לשון המכר › דיוק במידה › שדות",
+     "desc_de": "Vorschriften über Kauf und Verkauf › Auslegung des Verkaufswortlauts › Genauigkeit im Maß › Felder",
+     "desc_en": "Laws of purchase and sale › Interpretation of the wording of the sale › Exactness in measure › Fields"
+    },
+    {
+     "ref": "7:4",
+     "text": "המוכר חצי שדהו, מקום לחריצים",
+     "text_de": "Der Verkäufer der Hälfte seines Feldes, Platz für Furchen",
+     "text_en": "One who sells half of his field, space for furrows",
+     "desc": "הלכות מקח וממכר › פירוש לשון המכר › דיוק במידה › שדות",
+     "desc_de": "Vorschriften über Kauf und Verkauf › Auslegung des Verkaufswortlauts › Genauigkeit im Maß › Felder",
+     "desc_en": "Laws of purchase and sale › Interpretation of the wording of the sale › Exactness in measure › Fields"
+    }
+   ]
+  },
+  {
+   "head": "פרק ח",
+   "head_de": "Kapitel 8",
+   "head_en": "Chapter 8",
+   "items": [
+    {
+     "ref": "8:1",
+     "text": "אלו שנוחלים ו/או מנחילים",
+     "text_de": "Diejenigen, die erben und/oder vererben",
+     "text_en": "Those who inherit and/or bequeath",
+     "desc": "הלכות נחלה › הזוכה לנחלה › זכייה בנחלה › כללים",
+     "desc_de": "Gesetze der Erbschaft › Der Erbberechtigte › Erwerb einer Erbschaft › Regeln",
+     "desc_en": "Laws of inheritance › The one entitled to inherit › Acquisition of an inheritance › Rules"
+    },
+    {
+     "ref": "8:2",
+     "text": "סדר הנחלות",
+     "text_de": "Reihenfolge der Erbfolge",
+     "text_en": "Order of succession",
+     "desc": "הלכות נחלה › הזוכה לנחלה › זכייה בנחלה › כללים",
+     "desc_de": "Gesetze der Erbschaft › Der Erbberechtigte › Erwerb einer Erbschaft › Regeln",
+     "desc_en": "Laws of inheritance › The one entitled to inherit › Acquisition of an inheritance › Rules"
+    },
+    {
+     "ref": "8:3",
+     "text": "ירושת בנות צלפחד",
+     "text_de": "Erbschaft der Töchter Zelofchads",
+     "text_en": "Inheritance of the daughters of Zelophehad",
+     "desc": "הלכות נחלה › הזוכה לנחלה › זכייה בנחלה › נחלת בכור",
+     "desc_de": "Gesetze der Erbschaft › Der Erbberechtigte › Erwerb einer Erbschaft › Erbteil des Erstgeborenen",
+     "desc_en": "Laws of inheritance › The one entitled to inherit › Acquisition of an inheritance › Inheritance share of the firstborn"
+    },
+    {
+     "ref": "8:4",
+     "text": "הבדלים בירושת נכסי אב ואם",
+     "text_de": "Unterschiede im Erbe des väterlichen und mütterlichen Vermögens",
+     "text_en": "Differences in the inheritance of paternal and maternal property",
+     "desc": "הלכות נחלה › הזוכה לנחלה › זכייה בנחלה › נחלת בכור",
+     "desc_de": "Gesetze der Erbschaft › Der Erbberechtigte › Erwerb einer Erbschaft › Erbteil des Erstgeborenen",
+     "desc_en": "Laws of inheritance › The one entitled to inherit › Acquisition of an inheritance › Inheritance share of the firstborn"
+    },
+    {
+     "ref": "8:5",
+     "text": "נגד התורה,לשון מתנה,סילוק מירושה",
+     "text_de": "Gegen die Tora, Wortlaut der Schenkung, Verzicht auf Erbe",
+     "text_en": "Contrary to the Torah, wording of the gift, renunciation of inheritance",
+     "desc": "הלכות נחלה › הזוכה לנחלה › צוואות › שינוי בנחלה",
+     "desc_de": "Gesetze der Erbschaft › Der Erbberechtigte › Testamente › Änderung der Erbfolge",
+     "desc_en": "Laws of inheritance › The one entitled to inherit › Wills › Alteration of the order of inheritance"
+    },
+    {
+     "ref": "8:6",
+     "text": "זיהוי בן ואח, דיתיקי",
+     "text_de": "Identifizierung von Sohn und Bruder, Diatheke",
+     "text_en": "Identification of son and brother, diatheke",
+     "desc": "הלכות נחלה › הזוכה לנחלה › צוואות › שינוי בנחלה",
+     "desc_de": "Gesetze der Erbschaft › Der Erbberechtigte › Testamente › Änderung der Erbfolge",
+     "desc_en": "Laws of inheritance › The one entitled to inherit › Wills › Alteration of the order of inheritance"
+    },
+    {
+     "ref": "8:7",
+     "text": "כתיבה מהיום ולאחר מיתה \\ בנים",
+     "text_de": "Schreiben „von heute“ und „nach dem Tod“ / Söhne",
+     "text_en": "Writing \"from today\" and \"after death\" / sons",
+     "desc": "הלכות נחלה › זכויות בתפוסת הבית › הזוכה לנחלה › בין בנות לבנים › צוואות › גדולים וקטנים › שינוי בנחלה",
+     "desc_de": "Gesetze der Erbschaft › Rechte im Besitz des Hauses › Der Erbberechtigte › Zwischen Töchtern und Söhnen › Testamente › Erwachsene und Minderjährige › Änderung der Erbfolge",
+     "desc_en": "Laws of inheritance › Rights in the possession of the house › The one entitled to inherit › Between daughters and sons › Wills › Adults and minors › Alteration of the order of inheritance"
+    },
+    {
+     "ref": "8:8",
+     "text": "בנות, חומר בבנות",
+     "text_de": "Töchter, Strenge bei Töchtern",
+     "text_en": "Daughters, stringency regarding daughters",
+     "desc": "הלכות נחלה › זכויות בתפוסת הבית › בין בנות לבנים › גדולים וקטנים",
+     "desc_de": "Gesetze der Erbschaft › Rechte im Besitz des Hauses › Zwischen Töchtern und Söhnen › Erwachsene und Minderjährige",
+     "desc_en": "Laws of inheritance › Rights in the possession of the house › Between daughters and sons › Adults and minors"
+    }
+   ]
+  },
+  {
+   "head": "פרק ט",
+   "head_de": "Kapitel 9",
+   "head_en": "Chapter 9",
+   "items": [
+    {
+     "ref": "9:1",
+     "text": "הפסד הזכרים",
+     "text_de": "Verlust der Männlichen",
+     "text_en": "Loss of the males",
+     "desc": "הלכות נחלה › זכויות בתפוסת הבית › בין בנות לבנים › נכסים מרובים ומעטים",
+     "desc_de": "Gesetze der Erbschaft › Rechte im Besitz des Hauses › Zwischen Töchtern und Söhnen › Große und kleine Vermögen",
+     "desc_en": "Laws of inheritance › Rights in the possession of the house › Between daughters and sons › Large and small estates"
+    },
+    {
+     "ref": "9:2",
+     "text": "דחיית טומטום, זכייה ע\"י תנאי של מין",
+     "text_de": "Zurückweisung des Tumtum, Erwerb durch Bedingung des Geschlechts",
+     "text_en": "Rejection of the tumtum, acquisition by condition of gender",
+     "desc": "הלכות נחלה › זכויות בתפוסת הבית › בין בנות לבנים › נכסים מרובים ומעטים",
+     "desc_de": "Gesetze der Erbschaft › Rechte im Besitz des Hauses › Zwischen Töchtern und Söhnen › Große und kleine Vermögen",
+     "desc_en": "Laws of inheritance › Rights in the possession of the house › Between daughters and sons › Large and small estates"
+    },
+    {
+     "ref": "9:3",
+     "text": "באח גדול ובאלמנה",
+     "text_de": "Der älteste Bruder und die Witwe",
+     "text_en": "The eldest brother and the widow",
+     "desc": "הלכות נחלה › זכויות בתפוסת הבית › שבח וחובות › לכלל או לפרט",
+     "desc_de": "Gesetze der Erbschaft › Rechte im Besitz des Hauses › Wertsteigerung und Schulden › Allgemeines oder Einzelnes",
+     "desc_en": "Laws of inheritance › Rights in the possession of the house › Improvements and debts › General or particular"
+    },
+    {
+     "ref": "9:4",
+     "text": "אומנות, רופאה, \\ שושבינות, גמ\"ח",
+     "text_de": "Handwerk, Ärztin / Brautführerin, zinsloses Darlehen (Gemilut Chassadim)",
+     "text_en": "Craft, female physician / bridal attendant, interest-free loan (gemilut chasadim)",
+     "desc": "הלכות נחלה › זכויות בתפוסת הבית › שבח וחובות › גבייה בבית דין › לכלל או לפרט",
+     "desc_de": "Gesetze der Erbschaft › Rechte im Besitz des Hauses › Wertsteigerung und Schulden › Eintreibung vor Gericht › Allgemeines oder Einzelnes",
+     "desc_en": "Laws of inheritance › Rights in the possession of the house › Improvements and debts › Collection through the court › General or particular"
+    },
+    {
+     "ref": "9:5",
+     "text": "מחילה ותנאים בסיבלונות",
+     "text_de": "Erlass und Bedingungen bei Hochzeitsgeschenken (Siblonot)",
+     "text_en": "Waiver and conditions regarding wedding gifts (siblonot)",
+     "desc": "הלכות נחלה › זכויות בתפוסת הבית › שבח וחובות › גבייה בבית דין",
+     "desc_de": "Gesetze der Erbschaft › Rechte im Besitz des Hauses › Wertsteigerung und Schulden › Eintreibung vor Gericht",
+     "desc_en": "Laws of inheritance › Rights in the possession of the house › Improvements and debts › Collection through the court"
+    },
+    {
+     "ref": "9:6",
+     "text": "שיור נכסים וקיום המתנה",
+     "text_de": "Vermögensvorbehalt und Gültigkeit der Schenkung",
+     "text_en": "Retention of property and validity of the gift",
+     "desc": "הלכות נחלה › הזוכה לנחלה › צוואות › שכיב מרע",
+     "desc_de": "Gesetze der Erbschaft › Der Erbberechtigte › Testamente › Todkranker",
+     "desc_en": "Laws of inheritance › The one entitled to inherit › Wills › One critically ill"
+    },
+    {
+     "ref": "9:7",
+     "text": "קיום בלי קנין וכתיבה, זכייה לגדול",
+     "text_de": "Gültigkeit ohne Erwerbsakt und Schriftform, Erwerb zugunsten eines Volljährigen",
+     "text_en": "Validity without formal acquisition or writing, acquisition on behalf of an adult",
+     "desc": "הלכות נחלה › הזוכה לנחלה › צוואות › שכיב מרע",
+     "desc_de": "Gesetze der Erbschaft › Der Erbberechtigte › Testamente › Todkranker",
+     "desc_en": "Laws of inheritance › The one entitled to inherit › Wills › One critically ill"
+    },
+    {
+     "ref": "9:8",
+     "text": "בן ואביו",
+     "text_de": "Sohn und Vater",
+     "text_en": "Son and father",
+     "desc": "הלכות נחלה › הזוכה לנחלה › זכייה בנחלה › ספק בסדר מיתות",
+     "desc_de": "Gesetze der Erbschaft › Der Erbberechtigte › Erwerb einer Erbschaft › Zweifel über die Reihenfolge der Todesfälle",
+     "desc_en": "Laws of inheritance › The one entitled to inherit › Acquisition of an inheritance › Doubt about the order of deaths"
+    },
+    {
+     "ref": "9:9",
+     "text": "איש ואשתו",
+     "text_de": "Mann und Frau",
+     "text_en": "Husband and wife",
+     "desc": "הלכות נחלה › הזוכה לנחלה › זכייה בנחלה › ספק בסדר מיתות",
+     "desc_de": "Gesetze der Erbschaft › Der Erbberechtigte › Erwerb einer Erbschaft › Zweifel über die Reihenfolge der Todesfälle",
+     "desc_en": "Laws of inheritance › The one entitled to inherit › Acquisition of an inheritance › Doubt about the order of deaths"
+    },
+    {
+     "ref": "9:10",
+     "text": "בן ואמו",
+     "text_de": "Sohn und Mutter",
+     "text_en": "Son and mother",
+     "desc": "הלכות נחלה › הזוכה לנחלה › זכייה בנחלה › ספק בסדר מיתות",
+     "desc_de": "Gesetze der Erbschaft › Der Erbberechtigte › Erwerb einer Erbschaft › Zweifel über die Reihenfolge der Todesfälle",
+     "desc_en": "Laws of inheritance › The one entitled to inherit › Acquisition of an inheritance › Doubt about the order of deaths"
+    }
+   ]
+  },
+  {
+   "head": "פרק י",
+   "head_de": "Kapitel 10",
+   "head_en": "Chapter 10",
+   "items": [
+    {
+     "ref": "10:1",
+     "text": "מקום חתימת העדים",
+     "text_de": "Ort der Zeugenunterschrift",
+     "text_en": "Place of the witnesses' signatures",
+     "desc": "הלכות שטרות › כתיבת השטר › כשרות ופסול › גט פשוט ומקושר",
+     "desc_de": "Urkundenrecht › Abfassung der Urkunde › Tauglichkeit und Untauglichkeit › Einfacher und gebundener Scheidebrief",
+     "desc_en": "Laws of documents › Writing of the document › Validity and invalidity › Plain and tied bill of divorce"
+    },
+    {
+     "ref": "10:2",
+     "text": "מספר העדים\\ לשון רבים, צורך בכפילות",
+     "text_de": "Zahl der Zeugen / Pluralformulierung, Notwendigkeit der Doppelung",
+     "text_en": "Number of witnesses / plural wording, need for duplication",
+     "desc": "הלכות שטרות › כתיבת השטר › כשרות ופסול › פירוש השטר › גט פשוט ומקושר",
+     "desc_de": "Urkundenrecht › Abfassung der Urkunde › Tauglichkeit und Untauglichkeit › Auslegung der Urkunde › Einfacher und gebundener Scheidebrief",
+     "desc_en": "Laws of documents › Writing of the document › Validity and invalidity › Interpretation of the document › Plain and tied bill of divorce"
+    },
+    {
+     "ref": "10:3",
+     "text": "גט ושובר, הלואה, מקח",
+     "text_de": "Scheidebrief und Quittung, Darlehen, Kauf",
+     "text_en": "Bill of divorce and receipt, loan, purchase",
+     "desc": "הלכות שטרות › כתיבת השטר › רשות לכתבו › דעת המתחייב ושכר סופר",
+     "desc_de": "Urkundenrecht › Abfassung der Urkunde › Erlaubnis, sie zu schreiben › Wille des Verpflichteten und Schreiberlohn",
+     "desc_en": "Laws of documents › Writing of the document › Permission to write it › Intent of the obligated party and scribe's fee"
+    },
+    {
+     "ref": "10:4",
+     "text": "נדוניא, כתובה, עבודת שדה, מעשה ב\"ד",
+     "text_de": "Mitgift, Ketuba, Feldarbeit, Gerichtsakt",
+     "text_en": "Dowry, ketubah, field work, court act",
+     "desc": "הלכות שטרות › כתיבת השטר › רשות לכתבו › דעת המתחייב ושכר סופר",
+     "desc_de": "Urkundenrecht › Abfassung der Urkunde › Erlaubnis, sie zu schreiben › Wille des Verpflichteten und Schreiberlohn",
+     "desc_en": "Laws of documents › Writing of the document › Permission to write it › Intent of the obligated party and scribe's fee"
+    },
+    {
+     "ref": "10:5",
+     "text": "נתינה לשליש וקניית אסמכתא",
+     "text_de": "Übergabe an einen Treuhänder und Erwerb durch Asmachta",
+     "text_en": "Delivery to a trustee and acquisition by asmachta",
+     "desc": "הלכות שטרות › ביצוע הכתוב בו › שטר › הפרוע במקצת",
+     "desc_de": "Urkundenrecht › Vollzug des darin Geschriebenen › Urkunde › Teilweise Bezahltes",
+     "desc_en": "Laws of documents › Execution of what is written in it › Document › Partially paid"
+    },
+    {
+     "ref": "10:6",
+     "text": "כתיבת שובר \\ קיום לנמחק",
+     "text_de": "Ausstellung einer Quittung / Bestätigung des Gelöschten",
+     "text_en": "Writing of a receipt / confirmation of what was erased",
+     "desc": "הלכות שטרות › ביצוע הכתוב בו › שטר › שאינו ברור › הפרוע במקצת",
+     "desc_de": "Urkundenrecht › Vollzug des darin Geschriebenen › Urkunde › Unklares › Teilweise Bezahltes",
+     "desc_en": "Laws of documents › Execution of what is written in it › Document › What is unclear › Partially paid"
+    },
+    {
+     "ref": "10:7",
+     "text": "ירושה ,שם זהה ובעיות \\ תנאי,לכתובה",
+     "text_de": "Erbschaft, gleicher Name und Probleme / Bedingung, zur Ketuba",
+     "text_en": "Inheritance, identical name and problems / condition, regarding the ketubah",
+     "desc": "הלכות שטרות › ביצוע הכתוב בו › שעבוד › ערבות › שאינו ברור",
+     "desc_de": "Urkundenrecht › Vollzug des darin Geschriebenen › Verpfändung › Bürgschaft › Unklares",
+     "desc_en": "Laws of documents › Execution of what is written in it › Lien › Guarantee › What is unclear"
+    },
+    {
+     "ref": "10:8",
+     "text": "אחריות נכסים, לאחר, חתימה לנזיקין",
+     "text_de": "Haftung des Vermögens, gegenüber Dritten, Unterschrift bei Schadensfällen",
+     "text_en": "Liability of property, toward third parties, signature in damage cases",
+     "desc": "הלכות שטרות › ביצוע הכתוב בו › שעבוד › ערבות",
+     "desc_de": "Urkundenrecht › Vollzug des darin Geschriebenen › Verpfändung › Bürgschaft",
+     "desc_en": "Laws of documents › Execution of what is written in it › Lien › Guarantee"
+    }
+   ]
+  }
+ ]
+}

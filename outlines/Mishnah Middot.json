@@ -1,0 +1,352 @@
+{
+ "book": "Mishnah Middot",
+ "title": "משנה מדות",
+ "title_de": "Mischna Middot – Gliederung",
+ "title_en": "Middot – outline",
+ "note": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema).",
+ "note_de": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema); ins Deutsche und Englische übersetzt.",
+ "note_en": "Outline after the table “Mishna Sedura”: the central content of each mishnah, with the topic path (main topic to sub-topic); translated into German and English.",
+ "sections": [
+  {
+   "head": "פרק א",
+   "head_de": "Kapitel 1",
+   "head_en": "Chapter 1",
+   "items": [
+    {
+     "ref": "1:1",
+     "text": "מוצבי השומרים",
+     "text_de": "Aufstellung der Wachen",
+     "text_en": "Posting of the guards",
+     "desc": "תיאורם וגם מדותיהם של הבנינים במקדש › מחוץ לעזרה › השמירה במקדש",
+     "desc_de": "Beschreibung der Gebäude im Tempel und ihre Maße › Außerhalb des Tempelvorhofs › Die Bewachung im Tempel",
+     "desc_en": "Description of the buildings in the Temple and their dimensions › Outside the Temple court › Guarding in the Temple"
+    },
+    {
+     "ref": "1:2",
+     "text": "פיקוח על השמירה",
+     "text_de": "Aufsicht über die Bewachung",
+     "text_en": "Supervision of the guard",
+     "desc": "תיאורם וגם מדותיהם של הבנינים במקדש › מחוץ לעזרה › השמירה במקדש",
+     "desc_de": "Beschreibung der Gebäude im Tempel und ihre Maße › Außerhalb des Tempelvorhofs › Die Bewachung im Tempel",
+     "desc_en": "Description of the buildings in the Temple and their dimensions › Outside the Temple court › Guarding in the Temple"
+    },
+    {
+     "ref": "1:3",
+     "text": "הר הבית",
+     "text_de": "Der Tempelberg",
+     "text_en": "The Temple Mount",
+     "desc": "תיאורם וגם מדותיהם של הבנינים במקדש › מחוץ לעזרה › השערים במקדש",
+     "desc_de": "Beschreibung der Gebäude im Tempel und ihre Maße › Außerhalb des Tempelvorhofs › Die Tore im Tempel",
+     "desc_en": "Description of the buildings in the Temple and their dimensions › Outside the Temple court › The gates in the Temple"
+    },
+    {
+     "ref": "1:4",
+     "text": "בדרום ומזרח",
+     "text_de": "Im Süden und Osten",
+     "text_en": "In the south and east",
+     "desc": "תיאורם וגם מדותיהם של הבנינים במקדש › מחוץ לעזרה › השערים במקדש › העזרה",
+     "desc_de": "Beschreibung der Gebäude im Tempel und ihre Maße › Außerhalb des Tempelvorhofs › Die Tore im Tempel › Der Tempelvorhof",
+     "desc_en": "Description of the buildings in the Temple and their dimensions › Outside the Temple court › The gates in the Temple › The Temple court"
+    },
+    {
+     "ref": "1:5",
+     "text": "בצפון",
+     "text_de": "Im Norden",
+     "text_en": "In the north",
+     "desc": "תיאורם וגם מדותיהם של הבנינים במקדש › מחוץ לעזרה › השערים במקדש › העזרה",
+     "desc_de": "Beschreibung der Gebäude im Tempel und ihre Maße › Außerhalb des Tempelvorhofs › Die Tore im Tempel › Der Tempelvorhof",
+     "desc_en": "Description of the buildings in the Temple and their dimensions › Outside the Temple court › The gates in the Temple › The Temple court"
+    },
+    {
+     "ref": "1:6",
+     "text": "לשכותיה",
+     "text_de": "Seine Kammern",
+     "text_en": "Its chambers",
+     "desc": "תיאורם וגם מדותיהם של הבנינים במקדש › מחוץ לעזרה › בית המוקד",
+     "desc_de": "Beschreibung der Gebäude im Tempel und ihre Maße › Außerhalb des Tempelvorhofs › Das Bet HaMokad",
+     "desc_en": "Description of the buildings in the Temple and their dimensions › Outside the Temple court › The Beth Hamoked"
+    },
+    {
+     "ref": "1:7",
+     "text": "שעריה",
+     "text_de": "Seine Tore",
+     "text_en": "Its gates",
+     "desc": "תיאורם וגם מדותיהם של הבנינים במקדש › מחוץ לעזרה › בית המוקד",
+     "desc_de": "Beschreibung der Gebäude im Tempel und ihre Maße › Außerhalb des Tempelvorhofs › Das Bet HaMokad",
+     "desc_en": "Description of the buildings in the Temple and their dimensions › Outside the Temple court › The Beth Hamoked"
+    },
+    {
+     "ref": "1:8",
+     "text": "צורתה \\ הישנים שמה",
+     "text_de": "Seine Gestalt / die dort Schlafenden",
+     "text_en": "Its form / those who sleep there",
+     "desc": "תיאורם וגם מדותיהם של הבנינים במקדש › מחוץ לעזרה › בית המוקד › הנעשה שמה",
+     "desc_de": "Beschreibung der Gebäude im Tempel und ihre Maße › Außerhalb des Tempelvorhofs › Das Bet HaMokad › Was dort geschah",
+     "desc_en": "Description of the buildings in the Temple and their dimensions › Outside the Temple court › The Beth Hamoked › What was done there"
+    },
+    {
+     "ref": "1:9",
+     "text": "שמירת המפתחות, ההנהגה לבעלי קרי",
+     "text_de": "Bewachung der Schlüssel, Verhalten für Samenbefleckte",
+     "text_en": "Guarding the keys, conduct for those who have had an emission",
+     "desc": "תיאורם וגם מדותיהם של הבנינים במקדש › מחוץ לעזרה › בית המוקד › הנעשה שמה",
+     "desc_de": "Beschreibung der Gebäude im Tempel und ihre Maße › Außerhalb des Tempelvorhofs › Das Bet HaMokad › Was dort geschah",
+     "desc_en": "Description of the buildings in the Temple and their dimensions › Outside the Temple court › The Beth Hamoked › What was done there"
+    }
+   ]
+  },
+  {
+   "head": "פרק ב",
+   "head_de": "Kapitel 2",
+   "head_en": "Chapter 2",
+   "items": [
+    {
+     "ref": "2:1",
+     "text": "מדתו, מקום המקדש",
+     "text_de": "Sein Maß, der Ort des Heiligtums",
+     "text_en": "Its measurements, the location of the Temple",
+     "desc": "תיאורם וגם מדותיהם של הבנינים במקדש › מחוץ לעזרה › הר הבית",
+     "desc_de": "Beschreibung der Gebäude im Tempel und ihre Maße › Außerhalb des Tempelvorhofs › Der Tempelberg",
+     "desc_en": "Description of the buildings in the Temple and their dimensions › Outside the Temple court › The Temple Mount"
+    },
+    {
+     "ref": "2:2",
+     "text": "כיוון כניסה ויציאה והמהפכים",
+     "text_de": "Richtung von Ein- und Ausgang und die Umkehrenden",
+     "text_en": "Direction of entering and leaving and those who turn back",
+     "desc": "תיאורם וגם מדותיהם של הבנינים במקדש › מחוץ לעזרה › הר הבית",
+     "desc_de": "Beschreibung der Gebäude im Tempel und ihre Maße › Außerhalb des Tempelvorhofs › Der Tempelberg",
+     "desc_en": "Description of the buildings in the Temple and their dimensions › Outside the Temple court › The Temple Mount"
+    },
+    {
+     "ref": "2:3",
+     "text": "הסורג, החיל \\ המעלות, השערים",
+     "text_de": "Das Gitter, der Chel / die Stufen, die Tore",
+     "text_en": "The lattice, the chel / the steps, the gates",
+     "desc": "תיאורם וגם מדותיהם של הבנינים במקדש › מחוץ לעזרה › כללי הבנין והיוצאים מן הכלל › הר הבית",
+     "desc_de": "Beschreibung der Gebäude im Tempel und ihre Maße › Außerhalb des Tempelvorhofs › Bauregeln und Ausnahmen › Der Tempelberg",
+     "desc_en": "Description of the buildings in the Temple and their dimensions › Outside the Temple court › Building rules and exceptions › The Temple Mount"
+    },
+    {
+     "ref": "2:4",
+     "text": "גובה הכתלים",
+     "text_de": "Höhe der Mauern",
+     "text_en": "Height of the walls",
+     "desc": "תיאורם וגם מדותיהם של הבנינים במקדש › מחוץ לעזרה › כללי הבנין והיוצאים מן הכלל",
+     "desc_de": "Beschreibung der Gebäude im Tempel und ihre Maße › Außerhalb des Tempelvorhofs › Bauregeln und Ausnahmen",
+     "desc_en": "Description of the buildings in the Temple and their dimensions › Outside the Temple court › Building rules and exceptions"
+    },
+    {
+     "ref": "2:5",
+     "text": "מדתה, לשכותיה, גזוזטרא, מעלות",
+     "text_de": "Ihr Maß, ihre Kammern, Balkon, Stufen",
+     "text_en": "Its measurements, its chambers, balcony, steps",
+     "desc": "תיאורם וגם מדותיהם של הבנינים במקדש › מחוץ לעזרה › העזרות › נשים",
+     "desc_de": "Beschreibung der Gebäude im Tempel und ihre Maße › Außerhalb des Tempelvorhofs › Die Vorhöfe › Frauen",
+     "desc_en": "Description of the buildings in the Temple and their dimensions › Outside the Temple court › The courts › Women"
+    },
+    {
+     "ref": "2:6",
+     "text": "לשכות, מדתן, גובהן \\ שערים",
+     "text_de": "Kammern, ihre Maße, ihre Höhe / Tore",
+     "text_en": "Chambers, their measurements, their height / gates",
+     "desc": "תיאורם וגם מדותיהם של הבנינים במקדש › בתוך העזרה › העזרות › ישראל וכהנים",
+     "desc_de": "Beschreibung der Gebäude im Tempel und ihre Maße › Innerhalb des Tempelvorhofs › Die Vorhöfe › Israeliten und Priester",
+     "desc_en": "Description of the buildings in the Temple and their dimensions › Inside the Temple court › The courts › Israelites and priests"
+    }
+   ]
+  },
+  {
+   "head": "פרק ג",
+   "head_de": "Kapitel 3",
+   "head_en": "Chapter 3",
+   "items": [
+    {
+     "ref": "3:1",
+     "text": "מדותיו והטעם, חוט הסקרא, היסוד",
+     "text_de": "Seine Maße und der Grund, die Messschnur, das Fundament",
+     "text_en": "Its measurements and the reason, the measuring line, the foundation",
+     "desc": "תיאורם וגם מדותיהם של הבנינים במקדש › בתוך העזרה › המזבח",
+     "desc_de": "Beschreibung der Gebäude im Tempel und ihre Maße › Innerhalb des Tempelvorhofs › Der Altar",
+     "desc_en": "Description of the buildings in the Temple and their dimensions › Inside the Temple court › The altar"
+    },
+    {
+     "ref": "3:2",
+     "text": "הנקבים ביסוד הדרומי",
+     "text_de": "Die Öffnungen im südlichen Fundament",
+     "text_en": "The openings in the southern foundation",
+     "desc": "תיאורם וגם מדותיהם של הבנינים במקדש › בתוך העזרה › המזבח",
+     "desc_de": "Beschreibung der Gebäude im Tempel und ihre Maße › Innerhalb des Tempelvorhofs › Der Altar",
+     "desc_en": "Description of the buildings in the Temple and their dimensions › Inside the Temple court › The altar"
+    },
+    {
+     "ref": "3:3",
+     "text": "הכניסה לשית, הכבש ורבובתו",
+     "text_de": "Der Zugang zum Schit, die Rampe und ihre Einfassung",
+     "text_en": "The access to the shit, the ramp and its edge",
+     "desc": "תיאורם וגם מדותיהם של הבנינים במקדש › בתוך העזרה › המזבח",
+     "desc_de": "Beschreibung der Gebäude im Tempel und ihre Maße › Innerhalb des Tempelvorhofs › Der Altar",
+     "desc_en": "Description of the buildings in the Temple and their dimensions › Inside the Temple court › The altar"
+    },
+    {
+     "ref": "3:4",
+     "text": "אבניה ופסול גזית, נקיונם",
+     "text_de": "Seine Steine und die Untauglichkeit behauener Steine, ihre Reinigung",
+     "text_en": "Its stones and the disqualification of hewn stone, cleaning them",
+     "desc": "תיאורם וגם מדותיהם של הבנינים במקדש › בתוך העזרה › המזבח",
+     "desc_de": "Beschreibung der Gebäude im Tempel und ihre Maße › Innerhalb des Tempelvorhofs › Der Altar",
+     "desc_en": "Description of the buildings in the Temple and their dimensions › Inside the Temple court › The altar"
+    },
+    {
+     "ref": "3:5",
+     "text": "הטבעות, העמודים, השלחנות",
+     "text_de": "Die Ringe, die Säulen, die Tische",
+     "text_en": "The rings, the pillars, the tables",
+     "desc": "תיאורם וגם מדותיהם של הבנינים במקדש › בתוך העזרה › בית המטבחים",
+     "desc_de": "Beschreibung der Gebäude im Tempel und ihre Maße › Innerhalb des Tempelvorhofs › Das Schlachthaus",
+     "desc_en": "Description of the buildings in the Temple and their dimensions › Inside the Temple court › The slaughter house"
+    },
+    {
+     "ref": "3:6",
+     "text": "מקום הכיור, מעלות האולם",
+     "text_de": "Ort des Beckens, Stufen der Vorhalle",
+     "text_en": "Place of the laver, steps of the porch",
+     "desc": "תיאורם וגם מדותיהם של הבנינים במקדש › בתוך העזרה › האולם › לפניו",
+     "desc_de": "Beschreibung der Gebäude im Tempel und ihre Maße › Innerhalb des Tempelvorhofs › Die Vorhalle › Vor ihm",
+     "desc_en": "Description of the buildings in the Temple and their dimensions › Inside the Temple court › The porch › In front of it"
+    },
+    {
+     "ref": "3:7",
+     "text": "מדותיו ומלתראותיו",
+     "text_de": "Seine Maße und Sehenswürdigkeiten",
+     "text_en": "Its measurements and sights",
+     "desc": "תיאורם וגם מדותיהם של הבנינים במקדש › בתוך העזרה › האולם › פתחו",
+     "desc_de": "Beschreibung der Gebäude im Tempel und ihre Maße › Innerhalb des Tempelvorhofs › Die Vorhalle › Sein Eingang",
+     "desc_en": "Description of the buildings in the Temple and their dimensions › Inside the Temple court › The porch › Its entrance"
+    },
+    {
+     "ref": "3:8",
+     "text": "סמיכתו, השרשראות, הגפן הזהב",
+     "text_de": "Seine Stützung, die Ketten, der goldene Weinstock",
+     "text_en": "Its support, the chains, the golden vine",
+     "desc": "תיאורם וגם מדותיהם של הבנינים במקדש › בתוך העזרה › האולם",
+     "desc_de": "Beschreibung der Gebäude im Tempel und ihre Maße › Innerhalb des Tempelvorhofs › Die Vorhalle",
+     "desc_en": "Description of the buildings in the Temple and their dimensions › Inside the Temple court › The porch"
+    }
+   ]
+  },
+  {
+   "head": "פרק ד",
+   "head_de": "Kapitel 4",
+   "head_en": "Chapter 4",
+   "items": [
+    {
+     "ref": "4:1",
+     "text": "בנין דלתותיו",
+     "text_de": "Bau seiner Türen",
+     "text_en": "Construction of its doors",
+     "desc": "תיאורם וגם מדותיהם של הבנינים במקדש › בתוך העזרה › ההיכל › השערים",
+     "desc_de": "Beschreibung der Gebäude im Tempel und ihre Maße › Innerhalb des Tempelvorhofs › Das Heiligtum (Hechal) › die Tore",
+     "desc_en": "Description of the buildings in the Temple and their dimensions › Inside the Temple court › The sanctuary (Hechal) › the gates"
+    },
+    {
+     "ref": "4:2",
+     "text": "דרך הכניסה לפותח אותם",
+     "text_de": "Der Weg des Eintretenden, der sie öffnet",
+     "text_en": "The path of the one who enters to open them",
+     "desc": "תיאורם וגם מדותיהם של הבנינים במקדש › בתוך העזרה › ההיכל › השערים",
+     "desc_de": "Beschreibung der Gebäude im Tempel und ihre Maße › Innerhalb des Tempelvorhofs › Das Heiligtum (Hechal) › die Tore",
+     "desc_en": "Description of the buildings in the Temple and their dimensions › Inside the Temple court › The sanctuary (Hechal) › the gates"
+    },
+    {
+     "ref": "4:3",
+     "text": "מספרם, פתחיהם",
+     "text_de": "Ihre Zahl, ihre Eingänge",
+     "text_en": "Their number, their entrances",
+     "desc": "תיאורם וגם מדותיהם של הבנינים במקדש › בתוך העזרה › ההיכל › התאים",
+     "desc_de": "Beschreibung der Gebäude im Tempel und ihre Maße › Innerhalb des Tempelvorhofs › Das Heiligtum (Hechal) › Die Zellen",
+     "desc_en": "Description of the buildings in the Temple and their dimensions › Inside the Temple court › The sanctuary (Hechal) › The cells"
+    },
+    {
+     "ref": "4:4",
+     "text": "מדתן",
+     "text_de": "Ihr Maß",
+     "text_en": "Their measurements",
+     "desc": "תיאורם וגם מדותיהם של הבנינים במקדש › בתוך העזרה › ההיכל › התאים",
+     "desc_de": "Beschreibung der Gebäude im Tempel und ihre Maße › Innerhalb des Tempelvorhofs › Das Heiligtum (Hechal) › Die Zellen",
+     "desc_en": "Description of the buildings in the Temple and their dimensions › Inside the Temple court › The sanctuary (Hechal) › The cells"
+    },
+    {
+     "ref": "4:5",
+     "text": "אופן העלייה, פספסין, לולין",
+     "text_de": "Art des Aufstiegs, Spiralgang, Fenster",
+     "text_en": "Manner of ascent, winding passage, windows",
+     "desc": "תיאורם וגם מדותיהם של הבנינים במקדש › בתוך העזרה › ההיכל › העלייה",
+     "desc_de": "Beschreibung der Gebäude im Tempel und ihre Maße › Innerhalb des Tempelvorhofs › Das Heiligtum (Hechal) › Das Obergeschoss",
+     "desc_en": "Description of the buildings in the Temple and their dimensions › Inside the Temple court › The sanctuary (Hechal) › The upper story"
+    },
+    {
+     "ref": "4:6",
+     "text": "גובה",
+     "text_de": "Höhe",
+     "text_en": "Height",
+     "desc": "תיאורם וגם מדותיהם של הבנינים במקדש › בתוך העזרה › ההיכל › מדותיו",
+     "desc_de": "Beschreibung der Gebäude im Tempel und ihre Maße › Innerhalb des Tempelvorhofs › Das Heiligtum (Hechal) › Seine Maße",
+     "desc_en": "Description of the buildings in the Temple and their dimensions › Inside the Temple court › The sanctuary (Hechal) › Its measurements"
+    },
+    {
+     "ref": "4:7",
+     "text": "אורך, רוחב, יחס לאולם והטעם",
+     "text_de": "Länge, Breite, Verhältnis zur Vorhalle und der Grund",
+     "text_en": "Length, width, relation to the porch and the reason",
+     "desc": "תיאורם וגם מדותיהם של הבנינים במקדש › בתוך העזרה › ההיכל › מדותיו",
+     "desc_de": "Beschreibung der Gebäude im Tempel und ihre Maße › Innerhalb des Tempelvorhofs › Das Heiligtum (Hechal) › Seine Maße",
+     "desc_en": "Description of the buildings in the Temple and their dimensions › Inside the Temple court › The sanctuary (Hechal) › Its measurements"
+    }
+   ]
+  },
+  {
+   "head": "פרק ה",
+   "head_de": "Kapitel 5",
+   "head_en": "Chapter 5",
+   "items": [
+    {
+     "ref": "5:1",
+     "text": "אורך",
+     "text_de": "Länge",
+     "text_en": "Length",
+     "desc": "תיאורם וגם מדותיהם של הבנינים במקדש › בתוך העזרה › העזרה › מדותיה",
+     "desc_de": "Beschreibung der Gebäude im Tempel und ihre Maße › Innerhalb des Tempelvorhofs › Der Tempelvorhof › Ihre Maße",
+     "desc_en": "Description of the buildings in the Temple and their dimensions › Inside the Temple court › The Temple court › Its measurements"
+    },
+    {
+     "ref": "5:2",
+     "text": "רוחב",
+     "text_de": "Breite",
+     "text_en": "Width",
+     "desc": "תיאורם וגם מדותיהם של הבנינים במקדש › בתוך העזרה › העזרה › מדותיה",
+     "desc_de": "Beschreibung der Gebäude im Tempel und ihre Maße › Innerhalb des Tempelvorhofs › Der Tempelvorhof › Ihre Maße",
+     "desc_en": "Description of the buildings in the Temple and their dimensions › Inside the Temple court › The Temple court › Its measurements"
+    },
+    {
+     "ref": "5:3",
+     "text": "בדרום",
+     "text_de": "Im Süden",
+     "text_en": "In the south",
+     "desc": "תיאורם וגם מדותיהם של הבנינים במקדש › בתוך העזרה › העזרה › הלשכות ושימושן",
+     "desc_de": "Beschreibung der Gebäude im Tempel und ihre Maße › Innerhalb des Tempelvorhofs › Der Tempelvorhof › Die Kammern und ihr Gebrauch",
+     "desc_en": "Description of the buildings in the Temple and their dimensions › Inside the Temple court › The Temple court › The chambers and their use"
+    },
+    {
+     "ref": "5:4",
+     "text": "בצפון, תגובה לשפיטה בפסולי כהונה",
+     "text_de": "Im Norden, Reaktion auf das Urteil über untaugliche Priester",
+     "text_en": "In the north, response to the judgment concerning priests disqualified from the priesthood",
+     "desc": "תיאורם וגם מדותיהם של הבנינים במקדש › בתוך העזרה › העזרה › הלשכות ושימושן",
+     "desc_de": "Beschreibung der Gebäude im Tempel und ihre Maße › Innerhalb des Tempelvorhofs › Der Tempelvorhof › Die Kammern und ihr Gebrauch",
+     "desc_en": "Description of the buildings in the Temple and their dimensions › Inside the Temple court › The Temple court › The chambers and their use"
+    }
+   ]
+  }
+ ]
+}

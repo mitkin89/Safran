@@ -1,0 +1,587 @@
+{
+ "book": "Mishnah Berakhot",
+ "title": "משנה ברכות",
+ "title_de": "Mischna Berachot – Gliederung",
+ "title_en": "Berakhot – outline",
+ "note": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema).",
+ "note_de": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema); ins Deutsche und Englische übersetzt.",
+ "note_en": "Outline after the table “Mishna Sedura”: the central content of each mishnah, with the topic path (main topic to sub-topic); translated into German and English.",
+ "sections": [
+  {
+   "head": "פרק א",
+   "head_de": "Kapitel 1",
+   "head_en": "Chapter 1",
+   "items": [
+    {
+     "ref": "1:1",
+     "text": "של ערבית, גזירות הרחקה",
+     "text_de": "Abendgebet, Absonderungsverordnungen",
+     "text_en": "Evening prayer, decrees of separation",
+     "desc": "קריאת שמע › הקריאה › מתי קוראים",
+     "desc_de": "Schma-Lesung › Die Lesung › Wann man liest",
+     "desc_en": "Recitation of the Shema › The recitation › When one recites"
+    },
+    {
+     "ref": "1:2",
+     "text": "של שחרית",
+     "text_de": "Des Morgengebets",
+     "text_en": "Of the morning prayer",
+     "desc": "קריאת שמע › הקריאה › מתי קוראים",
+     "desc_de": "Schma-Lesung › Die Lesung › Wann man liest",
+     "desc_en": "Recitation of the Shema › The recitation › When one recites"
+    },
+    {
+     "ref": "1:3",
+     "text": "מצב הגוף",
+     "text_de": "Körperhaltung",
+     "text_en": "Bodily posture",
+     "desc": "קריאת שמע › הקריאה › איך קוראים",
+     "desc_de": "Schma-Lesung › Die Lesung › Wie man liest",
+     "desc_en": "Recitation of the Shema › The recitation › How one recites"
+    },
+    {
+     "ref": "1:4",
+     "text": "מספר ברכותיה וצורתן",
+     "text_de": "Zahl und Form ihrer Segenssprüche",
+     "text_en": "Number and form of its blessings",
+     "desc": "קריאת שמע › הקריאה › מה קוראים",
+     "desc_de": "Schma-Lesung › Die Lesung › Was man liest",
+     "desc_en": "Recitation of the Shema › The recitation › What one recites"
+    },
+    {
+     "ref": "1:5",
+     "text": "פרשת ציצית בלילה",
+     "text_de": "Abschnitt über die Zizit in der Nacht",
+     "text_en": "The Tzitzit passage at night",
+     "desc": "קריאת שמע › הקריאה › מה קוראים",
+     "desc_de": "Schma-Lesung › Die Lesung › Was man liest",
+     "desc_en": "Recitation of the Shema › The recitation › What one recites"
+    }
+   ]
+  },
+  {
+   "head": "פרק ב",
+   "head_de": "Kapitel 2",
+   "head_en": "Chapter 2",
+   "items": [
+    {
+     "ref": "2:1",
+     "text": "חובת הכוונה \\ היתר הפסקות",
+     "text_de": "Pflicht der Andacht / Erlaubte Unterbrechungen",
+     "text_en": "Obligation of intention / Permitted interruptions",
+     "desc": "קריאת שמע › הקריאה › איך קוראים › הפסקות › כוונה",
+     "desc_de": "Schma-Lesung › Die Lesung › Wie man liest › Unterbrechungen › Andacht",
+     "desc_en": "Recitation of the Shema › The recitation › How one recites › Interruptions › Intention"
+    },
+    {
+     "ref": "2:2",
+     "text": "בין הפרקים \\ טעם לסדר הפרשיות",
+     "text_de": "Zwischen den Abschnitten / Grund für die Reihenfolge der Abschnitte",
+     "text_en": "Between the sections / Reason for the order of the passages",
+     "desc": "קריאת שמע › הקריאה › איך קוראים › דיוק וסדר › הפסקות",
+     "desc_de": "Schma-Lesung › Die Lesung › Wie man liest › Genauigkeit und Reihenfolge › Unterbrechungen",
+     "desc_en": "Recitation of the Shema › The recitation › How one recites › Precision and order › Interruptions"
+    },
+    {
+     "ref": "2:3",
+     "text": "השמעה ודיקדוק בקריאה",
+     "text_de": "Hörbarkeit und Genauigkeit der Aussprache beim Lesen",
+     "text_en": "Audibility and precise pronunciation in the recitation",
+     "desc": "קריאת שמע › הקריאה › איך קוראים › דיוק וסדר",
+     "desc_de": "Schma-Lesung › Die Lesung › Wie man liest › Genauigkeit und Reihenfolge",
+     "desc_en": "Recitation of the Shema › The recitation › How one recites › Precision and order"
+    },
+    {
+     "ref": "2:4",
+     "text": "מקום עמידה שאינו יציב, ובתפילה",
+     "text_de": "Unsicherer Standort, auch beim Gebet",
+     "text_en": "Unstable place to stand, also during prayer",
+     "desc": "קריאת שמע › הקריאה › איך קוראים › כוונה",
+     "desc_de": "Schma-Lesung › Die Lesung › Wie man liest › Andacht",
+     "desc_en": "Recitation of the Shema › The recitation › How one recites › Intention"
+    },
+    {
+     "ref": "2:5",
+     "text": "תנאים לפוטרו",
+     "text_de": "Bedingungen für die Befreiung davon",
+     "text_en": "Conditions for exemption from it",
+     "desc": "קריאת שמע › החיוב › כוונה וטרדא דמצוה › חתן",
+     "desc_de": "Schma-Lesung › Die Verpflichtung › Andacht und Beschäftigung mit einer Mizwa › Bräutigam",
+     "desc_en": "Recitation of the Shema › The obligation › Intention and preoccupation with a commandment › Bridegroom"
+    },
+    {
+     "ref": "2:6",
+     "text": "רחיצה בזמן האבילות",
+     "text_de": "Waschen während der Trauerzeit",
+     "text_en": "Washing during mourning",
+     "desc": "קריאת שמע › החיוב › כוונה וטרדא דמצוה › מעשים ברבן גמליאל",
+     "desc_de": "Schma-Lesung › Die Verpflichtung › Andacht und Beschäftigung mit einer Mizwa › Begebenheiten mit Rabban Gamliel",
+     "desc_en": "Recitation of the Shema › The obligation › Intention and preoccupation with a commandment › Incidents involving Rabban Gamliel"
+    },
+    {
+     "ref": "2:7",
+     "text": "תנחומים על מיתת עבדים",
+     "text_de": "Trost beim Tod von Sklaven",
+     "text_en": "Consolation on the death of slaves",
+     "desc": "קריאת שמע › החיוב › כוונה וטרדא דמצוה › מעשים ברבן גמליאל",
+     "desc_de": "Schma-Lesung › Die Verpflichtung › Andacht und Beschäftigung mit einer Mizwa › Begebenheiten mit Rabban Gamliel",
+     "desc_en": "Recitation of the Shema › The obligation › Intention and preoccupation with a commandment › Incidents involving Rabban Gamliel"
+    },
+    {
+     "ref": "2:8",
+     "text": "קריאה בהתנדבות",
+     "text_de": "Freiwillige Lesung",
+     "text_en": "Voluntary recitation",
+     "desc": "קריאת שמע › החיוב › כוונה וטרדא דמצוה › חתן",
+     "desc_de": "Schma-Lesung › Die Verpflichtung › Andacht und Beschäftigung mit einer Mizwa › Bräutigam",
+     "desc_en": "Recitation of the Shema › The obligation › Intention and preoccupation with a commandment › Bridegroom"
+    }
+   ]
+  },
+  {
+   "head": "פרק ג",
+   "head_de": "Kapitel 3",
+   "head_en": "Chapter 3",
+   "items": [
+    {
+     "ref": "3:1",
+     "text": "אונן והעוסקים בקבורה",
+     "text_de": "Der Aninut-Trauernde und die mit der Bestattung Befassten",
+     "text_en": "The mourner before burial and those engaged in the burial",
+     "desc": "קריאת שמע › החיוב › כוונה וטרדא דמצוה › אבילות",
+     "desc_de": "Schma-Lesung › Die Verpflichtung › Andacht und Beschäftigung mit einer Mizwa › Trauer",
+     "desc_en": "Recitation of the Shema › The obligation › Intention and preoccupation with a commandment › Mourning"
+    },
+    {
+     "ref": "3:2",
+     "text": "שורת המנחמים",
+     "text_de": "Reihe der Tröster",
+     "text_en": "Line of comforters",
+     "desc": "קריאת שמע › החיוב › כוונה וטרדא דמצוה › אבילות",
+     "desc_de": "Schma-Lesung › Die Verpflichtung › Andacht und Beschäftigung mit einer Mizwa › Trauer",
+     "desc_en": "Recitation of the Shema › The obligation › Intention and preoccupation with a commandment › Mourning"
+    },
+    {
+     "ref": "3:3",
+     "text": "נשים,עבדים וקטנים, מצוות אחרות",
+     "text_de": "Frauen, Sklaven und Minderjährige, andere Gebote",
+     "text_en": "Women, slaves and minors, other commandments",
+     "desc": "קריאת שמע › החיוב › הפטורים לגמרי",
+     "desc_de": "Schma-Lesung › Die Verpflichtung › Die völlig Befreiten",
+     "desc_en": "Recitation of the Shema › The obligation › Those completely exempt"
+    },
+    {
+     "ref": "3:4",
+     "text": "ברכות ק\"ש ונהנין",
+     "text_de": "Segenssprüche der Schma-Lesung und Genießende",
+     "text_en": "Blessings of the Shema recitation and those who eat",
+     "desc": "קריאת שמע › החיוב › בעל קרי",
+     "desc_de": "Schma-Lesung › Die Verpflichtung › Der Samenerguss-Unreine",
+     "desc_en": "Recitation of the Shema › The obligation › One who has had a seminal emission"
+    },
+    {
+     "ref": "3:5",
+     "text": "תפילתו \\ טבילה וק\"ש בקדושה",
+     "text_de": "Sein Gebet / Untertauchen und Schma-Lesung in Heiligkeit",
+     "text_en": "His prayer / Immersion and Shema recitation in holiness",
+     "desc": "קריאת שמע › החיוב › בעל קרי › טבילה",
+     "desc_de": "Schma-Lesung › Die Verpflichtung › Der Samenerguss-Unreine › Untertauchen",
+     "desc_en": "Recitation of the Shema › The obligation › One who has had a seminal emission › Immersion"
+    },
+    {
+     "ref": "3:6",
+     "text": "החייב בטבילה",
+     "text_de": "Wer zum Untertauchen verpflichtet ist",
+     "text_en": "Who is obligated to immerse",
+     "desc": "קריאת שמע › החיוב › בעל קרי › טבילה",
+     "desc_de": "Schma-Lesung › Die Verpflichtung › Der Samenerguss-Unreine › Untertauchen",
+     "desc_en": "Recitation of the Shema › The obligation › One who has had a seminal emission › Immersion"
+    }
+   ]
+  },
+  {
+   "head": "פרק ד",
+   "head_de": "Kapitel 4",
+   "head_en": "Chapter 4",
+   "items": [
+    {
+     "ref": "4:1",
+     "text": "זמני התפילות היום יומיות",
+     "text_de": "Zeiten der täglichen Gebete",
+     "text_en": "Times of the daily prayers",
+     "desc": "תפילה › מתי מתפלל › תפילות שונות",
+     "desc_de": "Gebet › Wann man betet › Verschiedene Gebete",
+     "desc_en": "Prayer › When one prays › Various prayers"
+    },
+    {
+     "ref": "4:2",
+     "text": "תפילות בית המדרש",
+     "text_de": "Gebete im Lehrhaus",
+     "text_en": "Prayers in the house of study",
+     "desc": "תפילה › מה מתפללים › תפילות שונות",
+     "desc_de": "Gebet › Was man betet › Verschiedene Gebete",
+     "desc_en": "Prayer › What one prays › Various prayers"
+    },
+    {
+     "ref": "4:3",
+     "text": "מספר הברכות בתפילה",
+     "text_de": "Zahl der Segenssprüche im Gebet",
+     "text_en": "Number of blessings in the prayer",
+     "desc": "תפילה › מה מתפללים › אורך התפילה",
+     "desc_de": "Gebet › Was man betet › Länge des Gebets",
+     "desc_en": "Prayer › What one prays › Length of the prayer"
+    },
+    {
+     "ref": "4:4",
+     "text": "צורך בתחנונים, תפילה קצרה",
+     "text_de": "Notwendigkeit von Bittgebeten, kurzes Gebet",
+     "text_en": "Need for supplications, short prayer",
+     "desc": "תפילה › מה מתפללים › אורך התפילה",
+     "desc_de": "Gebet › Was man betet › Länge des Gebets",
+     "desc_en": "Prayer › What one prays › Length of the prayer"
+    },
+    {
+     "ref": "4:5",
+     "text": "הרוכב על חמור",
+     "text_de": "Der auf einem Esel Reitende",
+     "text_en": "One riding on a donkey",
+     "desc": "תפילה › איך מתפללים › כיוון הנכון",
+     "desc_de": "Gebet › Wie man betet › Die richtige Richtung",
+     "desc_en": "Prayer › How one prays › The correct direction"
+    },
+    {
+     "ref": "4:6",
+     "text": "מצב שקשה להסתובב כלל",
+     "text_de": "Situation, in der man sich gar nicht umdrehen kann",
+     "text_en": "Situation in which one cannot turn around at all",
+     "desc": "תפילה › איך מתפללים › כיוון הנכון",
+     "desc_de": "Gebet › Wie man betet › Die richtige Richtung",
+     "desc_en": "Prayer › How one prays › The correct direction"
+    },
+    {
+     "ref": "4:7",
+     "text": "צורך במנין למוסף",
+     "text_de": "Notwendigkeit eines Minjan für das Mussaf",
+     "text_en": "Need for a minyan for Musaf",
+     "desc": "תפילה › החיוב › תפלת מוסף",
+     "desc_de": "Gebet › Die Verpflichtung › Mussaf-Gebet",
+     "desc_en": "Prayer › The obligation › Musaf prayer"
+    }
+   ]
+  },
+  {
+   "head": "פרק ה",
+   "head_de": "Kapitel 5",
+   "head_en": "Chapter 5",
+   "items": [
+    {
+     "ref": "5:1",
+     "text": "חובת ועומק הכוונה",
+     "text_de": "Pflicht und Tiefe der Andacht",
+     "text_en": "Obligation and depth of intention",
+     "desc": "תפילה › איך מתפללים › מניעת טעות",
+     "desc_de": "Gebet › Wie man betet › Vermeidung von Irrtum",
+     "desc_en": "Prayer › How one prays › Prevention of error"
+    },
+    {
+     "ref": "5:2",
+     "text": "מקום הזכרות ובקשות שונות",
+     "text_de": "Ort für Erwähnungen und verschiedene Bitten",
+     "text_en": "Place for mentions and various requests",
+     "desc": "תפילה › איך מתפללים › מניעת טעות",
+     "desc_de": "Gebet › Wie man betet › Vermeidung von Irrtum",
+     "desc_en": "Prayer › How one prays › Prevention of error"
+    },
+    {
+     "ref": "5:3",
+     "text": "שבחי ה' שמשתיקים \\ החלפת ש\"צ שטעה",
+     "text_de": "Lobpreisungen Gottes, die man zum Schweigen bringt / Ersetzen eines Vorbeters, der sich geirrt hat",
+     "text_en": "Praises of God that are silenced / Replacing a prayer leader who made an error",
+     "desc": "תפילה › איך מתפללים › מניעת טעות › חזן",
+     "desc_de": "Gebet › Wie man betet › Vermeidung von Irrtum › Chasan (Kantor)",
+     "desc_en": "Prayer › How one prays › Prevention of error › Chazzan (cantor)"
+    },
+    {
+     "ref": "5:4",
+     "text": "שליח ציבור ונשיאת כפיים",
+     "text_de": "Vorbeter und Priestersegen",
+     "text_en": "Prayer leader and priestly blessing",
+     "desc": "תפילה › איך מתפללים › מניעת טעות › חזן",
+     "desc_de": "Gebet › Wie man betet › Vermeidung von Irrtum › Chasan (Kantor)",
+     "desc_en": "Prayer › How one prays › Prevention of error › Chazzan (cantor)"
+    },
+    {
+     "ref": "5:5",
+     "text": "משמעות של טעות בתפילה",
+     "text_de": "Bedeutung eines Fehlers im Gebet",
+     "text_en": "Significance of an error in prayer",
+     "desc": "תפילה › איך מתפללים › מניעת טעות › חזן",
+     "desc_de": "Gebet › Wie man betet › Vermeidung von Irrtum › Chasan (Kantor)",
+     "desc_en": "Prayer › How one prays › Prevention of error › Chazzan (cantor)"
+    }
+   ]
+  },
+  {
+   "head": "פרק ו",
+   "head_de": "Kapitel 6",
+   "head_en": "Chapter 6",
+   "items": [
+    {
+     "ref": "6:1",
+     "text": "מה מברך עליהם",
+     "text_de": "Was man darüber segnet",
+     "text_en": "What blessing one says over them",
+     "desc": "ברכות שונות ודיניהן › הלכות הקשורות לאכילה › ברכות לפני האכילה › הברכה הראויה › פירות האילן והארץ",
+     "desc_de": "Verschiedene Segenssprüche und ihre Regeln › Mit dem Essen verbundene Vorschriften › Segenssprüche vor dem Essen › Der passende Segensspruch › Baumfrüchte und Früchte des Landes",
+     "desc_en": "Various blessings and their rules › Laws connected with eating › Blessings before eating › The appropriate blessing › Tree fruits and fruits of the earth"
+    },
+    {
+     "ref": "6:2",
+     "text": "הטועה בברכתם",
+     "text_de": "Wer sich im Segensspruch darüber irrt",
+     "text_en": "One who errs in the blessing over them",
+     "desc": "ברכות שונות ודיניהן › הלכות הקשורות לאכילה › ברכות לפני האכילה › הברכה הראויה › פירות האילן והארץ",
+     "desc_de": "Verschiedene Segenssprüche und ihre Regeln › Mit dem Essen verbundene Vorschriften › Segenssprüche vor dem Essen › Der passende Segensspruch › Baumfrüchte und Früchte des Landes",
+     "desc_en": "Various blessings and their rules › Laws connected with eating › Blessings before eating › The appropriate blessing › Tree fruits and fruits of the earth"
+    },
+    {
+     "ref": "6:3",
+     "text": "על מה מברך שהכל",
+     "text_de": "Worüber man „Schehakol“ spricht",
+     "text_en": "Over what one says “Shehakol”",
+     "desc": "ברכות שונות ודיניהן › הלכות הקשורות לאכילה › ברכות לפני האכילה › הברכה הראויה",
+     "desc_de": "Verschiedene Segenssprüche und ihre Regeln › Mit dem Essen verbundene Vorschriften › Segenssprüche vor dem Essen › Der passende Segensspruch",
+     "desc_en": "Various blessings and their rules › Laws connected with eating › Blessings before eating › The appropriate blessing"
+    },
+    {
+     "ref": "6:4",
+     "text": "קדימה בברכות",
+     "text_de": "Vorrang bei den Segenssprüchen",
+     "text_en": "Precedence among blessings",
+     "desc": "ברכות שונות ודיניהן › הלכות הקשורות לאכילה › ברכות לפני האכילה › הברכה הראויה",
+     "desc_de": "Verschiedene Segenssprüche und ihre Regeln › Mit dem Essen verbundene Vorschriften › Segenssprüche vor dem Essen › Der passende Segensspruch",
+     "desc_en": "Various blessings and their rules › Laws connected with eating › Blessings before eating › The appropriate blessing"
+    },
+    {
+     "ref": "6:5",
+     "text": "קודם ואחרי הארוחה, ברכת פת ומזונות",
+     "text_de": "Vor und nach der Mahlzeit, Segen über Brot und Gebäck",
+     "text_en": "Before and after the meal, blessing over bread and baked goods",
+     "desc": "ברכות שונות ודיניהן › הלכות הקשורות לאכילה › ברכות לפני האכילה › פטור מרובה בברכה אחת",
+     "desc_de": "Verschiedene Segenssprüche und ihre Regeln › Mit dem Essen verbundene Vorschriften › Segenssprüche vor dem Essen › Befreiung mehrerer durch einen Segensspruch",
+     "desc_en": "Various blessings and their rules › Laws connected with eating › Blessings before eating › Exemption of several items by one blessing"
+    },
+    {
+     "ref": "6:6",
+     "text": "יחיד המברך לרבים",
+     "text_de": "Einzelner, der für die Gemeinschaft segnet",
+     "text_en": "Individual who recites the blessing for the many",
+     "desc": "ברכות שונות ודיניהן › הלכות הקשורות לאכילה › ברכות לפני האכילה › פטור מרובה בברכה אחת",
+     "desc_de": "Verschiedene Segenssprüche und ihre Regeln › Mit dem Essen verbundene Vorschriften › Segenssprüche vor dem Essen › Befreiung mehrerer durch einen Segensspruch",
+     "desc_en": "Various blessings and their rules › Laws connected with eating › Blessings before eating › Exemption of several items by one blessing"
+    },
+    {
+     "ref": "6:7",
+     "text": "עיקר וטפל",
+     "text_de": "Hauptsache und Nebensache",
+     "text_en": "Principal and subsidiary",
+     "desc": "ברכות שונות ודיניהן › הלכות הקשורות לאכילה › ברכות לפני האכילה › הברכה הראויה › פטור מרובה בברכה אחת",
+     "desc_de": "Verschiedene Segenssprüche und ihre Regeln › Mit dem Essen verbundene Vorschriften › Segenssprüche vor dem Essen › Der passende Segensspruch › Befreiung mehrerer durch einen Segensspruch",
+     "desc_en": "Various blessings and their rules › Laws connected with eating › Blessings before eating › The appropriate blessing › Exemption of several items by one blessing"
+    },
+    {
+     "ref": "6:8",
+     "text": "פירות הארץ, כל ארוחה, שתיית מים",
+     "text_de": "Früchte des Landes, jede Mahlzeit, Wassertrinken",
+     "text_en": "Fruits of the earth, every meal, drinking water",
+     "desc": "ברכות שונות ודיניהן › הלכות הקשורות לאכילה › ברכת המזון › ברכות לפני האכילה › הברכה הראויה",
+     "desc_de": "Verschiedene Segenssprüche und ihre Regeln › Mit dem Essen verbundene Vorschriften › Tischgebet › Segenssprüche vor dem Essen › Der passende Segensspruch",
+     "desc_en": "Various blessings and their rules › Laws connected with eating › Grace after meals › Blessings before eating › The appropriate blessing"
+    }
+   ]
+  },
+  {
+   "head": "פרק ז",
+   "head_de": "Kapitel 7",
+   "head_en": "Chapter 7",
+   "items": [
+    {
+     "ref": "7:1",
+     "text": "מאכלים שיש בהם איסור; שמש,כותי,גוי",
+     "text_de": "Speisen mit Verbotenem; Diener, Samaritaner, Nichtjude",
+     "text_en": "Foods containing something forbidden; attendant, Samaritan, gentile",
+     "desc": "ברכות שונות ודיניהן › הלכות הקשורות לאכילה › ברכת המזון › המצטרפים לזימון",
+     "desc_de": "Verschiedene Segenssprüche und ihre Regeln › Mit dem Essen verbundene Vorschriften › Tischgebet › Die sich zum Zimmun zusammenschließen",
+     "desc_en": "Various blessings and their rules › Laws connected with eating › Grace after meals › Those who join for the Zimmun"
+    },
+    {
+     "ref": "7:2",
+     "text": "נשים, עבדים וקטנים, כמות שאכל",
+     "text_de": "Frauen, Sklaven und Minderjährige, Menge des Gegessenen",
+     "text_en": "Women, slaves and minors, quantity eaten",
+     "desc": "ברכות שונות ודיניהן › הלכות הקשורות לאכילה › ברכת המזון › המצטרפים לזימון",
+     "desc_de": "Verschiedene Segenssprüche und ihre Regeln › Mit dem Essen verbundene Vorschriften › Tischgebet › Die sich zum Zimmun zusammenschließen",
+     "desc_en": "Various blessings and their rules › Laws connected with eating › Grace after meals › Those who join for the Zimmun"
+    },
+    {
+     "ref": "7:3",
+     "text": "נוסח הזימון וברכו",
+     "text_de": "Formel des Zimmun und „Barechu“",
+     "text_en": "Wording of the Zimmun and “Barechu”",
+     "desc": "ברכות שונות ודיניהן › הלכות הקשורות לאכילה › ברכת המזון › הזימון והלכותיו",
+     "desc_de": "Verschiedene Segenssprüche und ihre Regeln › Mit dem Essen verbundene Vorschriften › Tischgebet › Das Zimmun und seine Regeln",
+     "desc_en": "Various blessings and their rules › Laws connected with eating › Grace after meals › The Zimmun and its laws"
+    },
+    {
+     "ref": "7:4",
+     "text": "איסור חלוקת חבורה",
+     "text_de": "Verbot, eine Tischgemeinschaft zu teilen",
+     "text_en": "Prohibition of dividing a dining group",
+     "desc": "ברכות שונות ודיניהן › הלכות הקשורות לאכילה › ברכת המזון › הזימון והלכותיו",
+     "desc_de": "Verschiedene Segenssprüche und ihre Regeln › Mit dem Essen verbundene Vorschriften › Tischgebet › Das Zimmun und seine Regeln",
+     "desc_en": "Various blessings and their rules › Laws connected with eating › Grace after meals › The Zimmun and its laws"
+    },
+    {
+     "ref": "7:5",
+     "text": "צירוף חבורות, מזיגת יין לברכה",
+     "text_de": "Zusammenschluss von Tischgemeinschaften, Mischen des Weins für den Segen",
+     "text_en": "Joining of dining groups, mixing the wine for the blessing",
+     "desc": "ברכות שונות ודיניהן › הלכות הקשורות לאכילה › ברכת המזון › הזימון והלכותיו",
+     "desc_de": "Verschiedene Segenssprüche und ihre Regeln › Mit dem Essen verbundene Vorschriften › Tischgebet › Das Zimmun und seine Regeln",
+     "desc_en": "Various blessings and their rules › Laws connected with eating › Grace after meals › The Zimmun and its laws"
+    }
+   ]
+  },
+  {
+   "head": "פרק ח",
+   "head_de": "Kapitel 8",
+   "head_en": "Chapter 8",
+   "items": [
+    {
+     "ref": "8:1",
+     "text": "ברכות הקידוש",
+     "text_de": "Segenssprüche des Kiddusch",
+     "text_en": "Blessings of the Kiddush",
+     "desc": "ברכות שונות ודיניהן › הלכות הקשורות לאכילה › מחלוקות בית שמאי ובית הלל › הלכות סעודה › סדר",
+     "desc_de": "Verschiedene Segenssprüche und ihre Regeln › Mit dem Essen verbundene Vorschriften › Meinungsverschiedenheiten zwischen Schule Schammais und Schule Hillels › Regeln der Mahlzeit › Ordnung",
+     "desc_en": "Various blessings and their rules › Laws connected with eating › Disputes between the School of Shammai and the School of Hillel › Laws of the meal › Order"
+    },
+    {
+     "ref": "8:2",
+     "text": "נטילה ומזיגה",
+     "text_de": "Händewaschen und Mischen des Weins",
+     "text_en": "Washing of hands and mixing of the wine",
+     "desc": "ברכות שונות ודיניהן › הלכות הקשורות לאכילה › מחלוקות בית שמאי ובית הלל › הלכות סעודה › סדר",
+     "desc_de": "Verschiedene Segenssprüche und ihre Regeln › Mit dem Essen verbundene Vorschriften › Meinungsverschiedenheiten zwischen Schule Schammais und Schule Hillels › Regeln der Mahlzeit › Ordnung",
+     "desc_en": "Various blessings and their rules › Laws connected with eating › Disputes between the School of Shammai and the School of Hillel › Laws of the meal › Order"
+    },
+    {
+     "ref": "8:3",
+     "text": "מקום הנחת מפת קינוח",
+     "text_de": "Ort, an dem das Abwischtuch hingelegt wird",
+     "text_en": "Place where the napkin is laid",
+     "desc": "ברכות שונות ודיניהן › הלכות הקשורות לאכילה › מחלוקות בית שמאי ובית הלל › הלכות סעודה",
+     "desc_de": "Verschiedene Segenssprüche und ihre Regeln › Mit dem Essen verbundene Vorschriften › Meinungsverschiedenheiten zwischen Schule Schammais und Schule Hillels › Regeln der Mahlzeit",
+     "desc_en": "Various blessings and their rules › Laws connected with eating › Disputes between the School of Shammai and the School of Hillel › Laws of the meal"
+    },
+    {
+     "ref": "8:4",
+     "text": "כיבוד שלחן ומים אחרונים",
+     "text_de": "Abräumen des Tisches und Wasser am Ende",
+     "text_en": "Clearing the table and the final water",
+     "desc": "ברכות שונות ודיניהן › הלכות הקשורות לאכילה › מחלוקות בית שמאי ובית הלל › הלכות סעודה › סדר",
+     "desc_de": "Verschiedene Segenssprüche und ihre Regeln › Mit dem Essen verbundene Vorschriften › Meinungsverschiedenheiten zwischen Schule Schammais und Schule Hillels › Regeln der Mahlzeit › Ordnung",
+     "desc_en": "Various blessings and their rules › Laws connected with eating › Disputes between the School of Shammai and the School of Hillel › Laws of the meal › Order"
+    },
+    {
+     "ref": "8:5",
+     "text": "ברכות ההבדלה ומזון \\ נוסח ברכת נר",
+     "text_de": "Segenssprüche der Hawdala und der Mahlzeit / Wortlaut des Lichtsegens",
+     "text_en": "Blessings of Havdalah and of the meal / Wording of the blessing over light",
+     "desc": "ברכות שונות ודיניהן › הלכות הקשורות לאכילה › מחלוקות בית שמאי ובית הלל › הלכות הבדלה › הלכות סעודה › סדר",
+     "desc_de": "Verschiedene Segenssprüche und ihre Regeln › Mit dem Essen verbundene Vorschriften › Meinungsverschiedenheiten zwischen Schule Schammais und Schule Hillels › Regeln der Hawdala › Regeln der Mahlzeit › Ordnung",
+     "desc_en": "Various blessings and their rules › Laws connected with eating › Disputes between the School of Shammai and the School of Hillel › Laws of Havdalah › Laws of the meal › Order"
+    },
+    {
+     "ref": "8:6",
+     "text": "נר ובשמים שאינן ראויין לברכה",
+     "text_de": "Licht und Gewürze, die für den Segensspruch nicht geeignet sind",
+     "text_en": "Light and spices unfit for the blessing",
+     "desc": "ברכות שונות ודיניהן › הלכות הקשורות לאכילה › מחלוקות בית שמאי ובית הלל › הלכות הבדלה",
+     "desc_de": "Verschiedene Segenssprüche und ihre Regeln › Mit dem Essen verbundene Vorschriften › Meinungsverschiedenheiten zwischen Schule Schammais und Schule Hillels › Regeln der Hawdala",
+     "desc_en": "Various blessings and their rules › Laws connected with eating › Disputes between the School of Shammai and the School of Hillel › Laws of Havdalah"
+    },
+    {
+     "ref": "8:7",
+     "text": "חזרה למקום אכילה לברהמ\"ז",
+     "text_de": "Rückkehr zum Ort des Essens für das Tischgebet",
+     "text_en": "Returning to the place of eating for the Grace after meals",
+     "desc": "ברכות שונות ודיניהן › הלכות הקשורות לאכילה › מחלוקות בית שמאי ובית הלל › הלכות סעודה",
+     "desc_de": "Verschiedene Segenssprüche und ihre Regeln › Mit dem Essen verbundene Vorschriften › Meinungsverschiedenheiten zwischen Schule Schammais und Schule Hillels › Regeln der Mahlzeit",
+     "desc_en": "Various blessings and their rules › Laws connected with eating › Disputes between the School of Shammai and the School of Hillel › Laws of the meal"
+    },
+    {
+     "ref": "8:8",
+     "text": "ברהמ\"ז על כוס, תגובה לחלק מברכה",
+     "text_de": "Tischgebet über dem Becher, Antwort auf einen Teil eines Segensspruchs",
+     "text_en": "Grace after meals over the cup, response to part of a blessing",
+     "desc": "ברכות שונות ודיניהן › הלכות הקשורות לאכילה › מחלוקות בית שמאי ובית הלל › הלכות סעודה",
+     "desc_de": "Verschiedene Segenssprüche und ihre Regeln › Mit dem Essen verbundene Vorschriften › Meinungsverschiedenheiten zwischen Schule Schammais und Schule Hillels › Regeln der Mahlzeit",
+     "desc_en": "Various blessings and their rules › Laws connected with eating › Disputes between the School of Shammai and the School of Hillel › Laws of the meal"
+    }
+   ]
+  },
+  {
+   "head": "פרק ט",
+   "head_de": "Kapitel 9",
+   "head_en": "Chapter 9",
+   "items": [
+    {
+     "ref": "9:1",
+     "text": "מקומו של נס, עקירת ע\"ז",
+     "text_de": "Ort eines Wunders, Beseitigung von Götzendienst",
+     "text_en": "Place of a miracle, removal of idolatry",
+     "desc": "ברכות שונות ודיניהן › ברכות מיוחדות › ברכות הראייה",
+     "desc_de": "Verschiedene Segenssprüche und ihre Regeln › Besondere Segenssprüche › Segenssprüche beim Sehen",
+     "desc_en": "Various blessings and their rules › Special blessings › Blessings on seeing"
+    },
+    {
+     "ref": "9:2",
+     "text": "מראות הטבע \\ מצב המשמח או המעציב",
+     "text_de": "Naturerscheinungen / Erfreulicher oder betrübender Zustand",
+     "text_en": "Natural phenomena / Joyful or distressing circumstance",
+     "desc": "ברכות שונות ודיניהן › ברכות מיוחדות › על מאורע › ברכות הראייה",
+     "desc_de": "Verschiedene Segenssprüche und ihre Regeln › Besondere Segenssprüche › Über ein Ereignis › Segenssprüche beim Sehen",
+     "desc_en": "Various blessings and their rules › Special blessings › On an occurrence › Blessings on seeing"
+    },
+    {
+     "ref": "9:3",
+     "text": "שהחיינו, מצב המתהפך \\ תפילת שוא",
+     "text_de": "Schehechejanu, sich wendende Lage / Vergebliches Gebet",
+     "text_en": "Shehecheyanu, a changing situation / Futile prayer",
+     "desc": "הרעיון של התפילה › ברכות מיוחדות › הגדרת תפילה הגונה › על מאורע",
+     "desc_de": "Der Gedanke des Gebets › Besondere Segenssprüche › Bestimmung eines angemessenen Gebets › Über ein Ereignis",
+     "desc_en": "The idea of prayer › Special blessings › Definition of a proper prayer › On an occurrence"
+    },
+    {
+     "ref": "9:4",
+     "text": "תפילות כניסה ויציאה מהכרך",
+     "text_de": "Gebete beim Betreten und Verlassen der Stadt",
+     "text_en": "Prayers on entering and leaving the city",
+     "desc": "הרעיון של התפילה › הגדרת תפילה הגונה",
+     "desc_de": "Der Gedanke des Gebets › Bestimmung eines angemessenen Gebets",
+     "desc_en": "The idea of prayer › Definition of a proper prayer"
+    },
+    {
+     "ref": "9:5",
+     "text": "אהבה ויראת ה' ומקדש, תקנות",
+     "text_de": "Liebe und Gottesfurcht, Tempel, Verordnungen",
+     "text_en": "Love and fear of God, the Temple, ordinances",
+     "desc": "הרעיון של התפילה › יחס להקב\"ה ולאדם",
+     "desc_de": "Der Gedanke des Gebets › Verhältnis zu Gott und zum Menschen",
+     "desc_en": "The idea of prayer › Relation to God and to man"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,167 @@
+{
+ "book": "Mishnah Kinnim",
+ "title": "משנה קינים",
+ "title_de": "Mischna Kinnim – Gliederung",
+ "title_en": "Kinnim – outline",
+ "note": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema).",
+ "note_de": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema); ins Deutsche und Englische übersetzt.",
+ "note_en": "Outline after the table “Mishna Sedura”: the central content of each mishnah, with the topic path (main topic to sub-topic); translated into German and English.",
+ "sections": [
+  {
+   "head": "פרק א",
+   "head_de": "Kapitel 1",
+   "head_en": "Chapter 1",
+   "items": [
+    {
+     "ref": "1:1",
+     "text": "מקום הקרבת קינים, נדר ונדבה",
+     "text_de": "Ort der Darbringung der Vogelpaare (Kinnim), Gelübde und freiwillige Gabe",
+     "text_en": "Place for offering bird pairs (kinnim), vow and voluntary offering",
+     "desc": "הלכות של קינים מעורבים › הלכות הקרבה בדיעבד › פתיחה › השוואות",
+     "desc_de": "Regeln über vermischte Vogelpaare › Regeln der Darbringung im Nachhinein › Einleitung › Gleichstellungen",
+     "desc_en": "Laws of mixed bird pairs › Laws of offering after the fact › Introduction › Comparisons"
+    },
+    {
+     "ref": "1:2",
+     "text": "חטאות ועולות בין עצמם ובין חובה",
+     "text_de": "Sündopfer und Brandopfer untereinander und im Verhältnis zur Pflicht",
+     "text_en": "Sin offerings and burnt offerings among themselves and in relation to obligation",
+     "desc": "הלכות של קינים מעורבים › הלכות הקרבה בדיעבד › מפורשות וסתומות › גוזל פורח",
+     "desc_de": "Regeln über vermischte Vogelpaare › Regeln der Darbringung im Nachhinein › Bestimmte und unbestimmte › Das davonfliegende Täubchen",
+     "desc_en": "Laws of mixed bird pairs › Laws of offering after the fact › Specified and unspecified › The young bird that flies away"
+    },
+    {
+     "ref": "1:3",
+     "text": "שויון ואי שויון במספר הקינים",
+     "text_de": "Gleiche und ungleiche Zahl der Vogelpaare",
+     "text_en": "Equal and unequal number of bird pairs",
+     "desc": "הלכות של קינים מעורבים › הלכות הקרבה בדיעבד › סתומות › תערובות גמורות",
+     "desc_de": "Regeln über vermischte Vogelpaare › Regeln der Darbringung im Nachhinein › Unbestimmte › Vollständige Vermischungen",
+     "desc_en": "Laws of mixed bird pairs › Laws of offering after the fact › Unspecified › Complete mixtures"
+    },
+    {
+     "ref": "1:4",
+     "text": "לשינוי שם ובעלים,לקיחת קינים בעירוב",
+     "text_de": "Änderung von Name und Eigentümer, Kauf von Vogelpaaren in Mischung",
+     "text_en": "Change of name and owner, purchase of bird pairs in a mixture",
+     "desc": "הלכות של קינים מעורבים › הלכות הקרבה בדיעבד › סתומות › תערובות גמורות",
+     "desc_de": "Regeln über vermischte Vogelpaare › Regeln der Darbringung im Nachhinein › Unbestimmte › Vollständige Vermischungen",
+     "desc_en": "Laws of mixed bird pairs › Laws of offering after the fact › Unspecified › Complete mixtures"
+    }
+   ]
+  },
+  {
+   "head": "פרק ב",
+   "head_de": "Kapitel 2",
+   "head_en": "Chapter 2",
+   "items": [
+    {
+     "ref": "2:1",
+     "text": "השלמת קן שחסרה ,פוסל אחד כנגדו",
+     "text_de": "Ergänzung eines fehlenden Paares, ein Untauglicher gegen ihn",
+     "text_en": "Completing a missing pair, one disqualified against it",
+     "desc": "הלכות של קינים מעורבים › הלכות הקרבה בדיעבד › סתומות › פריחת גוזל › כלל",
+     "desc_de": "Regeln über vermischte Vogelpaare › Regeln der Darbringung im Nachhinein › Unbestimmte › Das Davonfliegen eines Täubchens › Grundregel",
+     "desc_en": "Laws of mixed bird pairs › Laws of offering after the fact › Unspecified › The flying away of a young bird › General rule"
+    },
+    {
+     "ref": "2:2",
+     "text": "שתי נשים",
+     "text_de": "Zwei Frauen",
+     "text_en": "Two women",
+     "desc": "הלכות של קינים מעורבים › הלכות הקרבה בדיעבד › סתומות › פריחת גוזל › הדגמה",
+     "desc_de": "Regeln über vermischte Vogelpaare › Regeln der Darbringung im Nachhinein › Unbestimmte › Das Davonfliegen eines Täubchens › Veranschaulichung",
+     "desc_en": "Laws of mixed bird pairs › Laws of offering after the fact › Unspecified › The flying away of a young bird › Demonstration"
+    },
+    {
+     "ref": "2:3",
+     "text": "שבעה נשים",
+     "text_de": "Sieben Frauen",
+     "text_en": "Seven women",
+     "desc": "הלכות של קינים מעורבים › הלכות הקרבה בדיעבד › סתומות › פריחת גוזל › הדגמה",
+     "desc_de": "Regeln über vermischte Vogelpaare › Regeln der Darbringung im Nachhinein › Unbestimmte › Das Davonfliegen eines Täubchens › Veranschaulichung",
+     "desc_en": "Laws of mixed bird pairs › Laws of offering after the fact › Unspecified › The flying away of a young bird › Demonstration"
+    },
+    {
+     "ref": "2:4",
+     "text": "השלמת קן , תערובת מתה",
+     "text_de": "Ergänzung eines Paares, tote Mischung",
+     "text_en": "Completing a pair, dead mixture",
+     "desc": "הלכות של קינים מעורבים › הלכות הקרבה בדיעבד › מפורשות וסתומות › תערובת המביאה למיתה",
+     "desc_de": "Regeln über vermischte Vogelpaare › Regeln der Darbringung im Nachhinein › Bestimmte und unbestimmte › Mischung, die zum Tod führt",
+     "desc_en": "Laws of mixed bird pairs › Laws of offering after the fact › Specified and unspecified › Mixture that leads to death"
+    },
+    {
+     "ref": "2:5",
+     "text": "קריאת שם לפורח, קביעת מין , אחר מיתה",
+     "text_de": "Benennung des davongeflogenen Vogels, Bestimmung der Art, nach dem Tod",
+     "text_en": "Naming the bird that flew away, determining the kind, after death",
+     "desc": "הלכות של קינים מעורבים › הלכות הקרבה בדיעבד › מפורשות וסתומות › תערובת המביאה למיתה",
+     "desc_de": "Regeln über vermischte Vogelpaare › Regeln der Darbringung im Nachhinein › Bestimmte und unbestimmte › Mischung, die zum Tod führt",
+     "desc_en": "Laws of mixed bird pairs › Laws of offering after the fact › Specified and unspecified › Mixture that leads to death"
+    }
+   ]
+  },
+  {
+   "head": "פרק ג",
+   "head_de": "Kapitel 3",
+   "head_en": "Chapter 3",
+   "items": [
+    {
+     "ref": "3:1",
+     "text": "מספר קינים שוה",
+     "text_de": "Gleiche Zahl von Vogelpaaren",
+     "text_en": "Equal number of bird pairs",
+     "desc": "הלכות של קינים מעורבים › תוצאות ההקרבה בדיעבד › סתומות › מקום ומספר ההקרבות בתערובות גמורות",
+     "desc_de": "Regeln über vermischte Vogelpaare › Folgen der Darbringung im Nachhinein › Unbestimmte › Ort und Zahl der Darbringungen bei vollständigen Vermischungen",
+     "desc_en": "Laws of mixed bird pairs › Consequences of offering after the fact › Unspecified › Place and number of offerings in complete mixtures"
+    },
+    {
+     "ref": "3:2",
+     "text": "מספר קינים לא שוה",
+     "text_de": "Ungleiche Zahl von Vogelpaaren",
+     "text_en": "Unequal number of bird pairs",
+     "desc": "הלכות של קינים מעורבים › תוצאות ההקרבה בדיעבד › סתומות › מקום ומספר ההקרבות בתערובות גמורות",
+     "desc_de": "Regeln über vermischte Vogelpaare › Folgen der Darbringung im Nachhinein › Unbestimmte › Ort und Zahl der Darbringungen bei vollständigen Vermischungen",
+     "desc_en": "Laws of mixed bird pairs › Consequences of offering after the fact › Unspecified › Place and number of offerings in complete mixtures"
+    },
+    {
+     "ref": "3:3",
+     "text": "חטאות ועולות שוים במספר",
+     "text_de": "Sündopfer und Brandopfer in gleicher Zahl",
+     "text_en": "Sin offerings and burnt offerings in equal number",
+     "desc": "הלכות של קינים מעורבים › תוצאות ההקרבה בדיעבד › מפורשות › מקום ומספר ההקרבות בתערובות גמורות",
+     "desc_de": "Regeln über vermischte Vogelpaare › Folgen der Darbringung im Nachhinein › Bestimmte › Ort und Zahl der Darbringungen bei vollständigen Vermischungen",
+     "desc_en": "Laws of mixed bird pairs › Consequences of offering after the fact › Specified › Place and number of offerings in complete mixtures"
+    },
+    {
+     "ref": "3:4",
+     "text": "חטאת ועולה סתומה ומפורשת",
+     "text_de": "Sündopfer und Brandopfer, unbestimmt und bestimmt",
+     "text_en": "Sin offering and burnt offering, unspecified and specified",
+     "desc": "הלכות של קינים מעורבים › תוצאות ההקרבה בדיעבד › מפורשות וסתומות › מקום ומספר ההקרבות בתערובות גמורות",
+     "desc_de": "Regeln über vermischte Vogelpaare › Folgen der Darbringung im Nachhinein › Bestimmte und unbestimmte › Ort und Zahl der Darbringungen bei vollständigen Vermischungen",
+     "desc_en": "Laws of mixed bird pairs › Consequences of offering after the fact › Specified and unspecified › Place and number of offerings in complete mixtures"
+    },
+    {
+     "ref": "3:5",
+     "text": "חטאות או עולות בסתומות",
+     "text_de": "Sündopfer oder Brandopfer unter den unbestimmten",
+     "text_en": "Sin offerings or burnt offerings among the unspecified",
+     "desc": "הלכות של קינים מעורבים › תוצאות ההקרבה בדיעבד › מפורשות וסתומות › מקום ומספר ההקרבות בתערובות גמורות",
+     "desc_de": "Regeln über vermischte Vogelpaare › Folgen der Darbringung im Nachhinein › Bestimmte und unbestimmte › Ort und Zahl der Darbringungen bei vollständigen Vermischungen",
+     "desc_en": "Laws of mixed bird pairs › Consequences of offering after the fact › Specified and unspecified › Place and number of offerings in complete mixtures"
+    },
+    {
+     "ref": "3:6",
+     "text": "קביעת מין,משל לכלי נגינה \\ לעת זקנה",
+     "text_de": "Bestimmung der Art, Gleichnis vom Musikinstrument / für das Alter",
+     "text_en": "Determining the kind, parable of the musical instrument / for old age",
+     "desc": "חתימה לקדשים › ערך לימוד תורה",
+     "desc_de": "Abschluss der Kodaschim › Der Wert des Torastudiums",
+     "desc_en": "Conclusion of Kodashim › The value of Torah study"
+    }
+   ]
+  }
+ ]
+}

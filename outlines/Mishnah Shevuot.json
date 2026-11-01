@@ -1,0 +1,625 @@
+{
+ "book": "Mishnah Shevuot",
+ "title": "משנה שבועות",
+ "title_de": "Mischna Schewuot – Gliederung",
+ "title_en": "Shevuot – outline",
+ "note": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema).",
+ "note_de": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema); ins Deutsche und Englische übersetzt.",
+ "note_en": "Outline after the table “Mishna Sedura”: the central content of each mishnah, with the topic path (main topic to sub-topic); translated into German and English.",
+ "sections": [
+  {
+   "head": "פרק א",
+   "head_de": "Kapitel 1",
+   "head_en": "Chapter 1",
+   "items": [
+    {
+     "ref": "1:1",
+     "text": "שבועות, ידיעות טומאה, שבת, נגעים",
+     "text_de": "Eide, Wissen um Unreinheit, Schabbat, Aussatzmale",
+     "text_en": "Oaths, awareness of impurity, Shabbat, skin afflictions",
+     "desc": "טומאת מקדש וקדשיו › כפרה › שגגה › 2 שהן 4",
+     "desc_de": "Unreinheit des Heiligtums und seiner heiligen Dinge › Sühne › Versehen › Zwei, die vier sind",
+     "desc_en": "Impurity of the Sanctuary and its sacred things › Atonement › Inadvertence › Two that are four"
+    },
+    {
+     "ref": "1:2",
+     "text": "עולה ויורד, שעיר פנימי ויוה\"כ",
+     "text_de": "Gestaffeltes Opfer, innerer Bock und Jom Kippur",
+     "text_en": "Sliding-scale offering, inner goat and Yom Kippur",
+     "desc": "טומאת מקדש וקדשיו › כפרה › שגגה › ידיעה תחילה",
+     "desc_de": "Unreinheit des Heiligtums und seiner heiligen Dinge › Sühne › Versehen › Anfängliches Wissen",
+     "desc_en": "Impurity of the Sanctuary and its sacred things › Atonement › Inadvertence › Initial awareness"
+    },
+    {
+     "ref": "1:3",
+     "text": "כפרת שעיר חיצוני ויוה\"כ",
+     "text_de": "Sühne des äußeren Bocks und Jom Kippur",
+     "text_en": "Atonement of the outer goat and Yom Kippur",
+     "desc": "טומאת מקדש וקדשיו › כפרה › שגגה › שאין ידיעה תחילה",
+     "desc_de": "Unreinheit des Heiligtums und seiner heiligen Dinge › Sühne › Versehen › Fehlen des anfänglichen Wissens",
+     "desc_en": "Impurity of the Sanctuary and its sacred things › Atonement › Inadvertence › Absence of initial awareness"
+    },
+    {
+     "ref": "1:4",
+     "text": "דרגות ידיעה, אכילת קודש, טמא",
+     "text_de": "Grade des Wissens, Essen von Heiligem, Unreiner",
+     "text_en": "Degrees of awareness, eating sacred food, impure person",
+     "desc": "טומאת מקדש וקדשיו › כפרה › שגגה › שאין ידיעה תחילה › כפרת והקרבת שעירים",
+     "desc_de": "Unreinheit des Heiligtums und seiner heiligen Dinge › Sühne › Versehen › Fehlen des anfänglichen Wissens › Sühne und Darbringung der Böcke",
+     "desc_en": "Impurity of the Sanctuary and its sacred things › Atonement › Inadvertence › Absence of initial awareness › Atonement and offering of the goats"
+    },
+    {
+     "ref": "1:5",
+     "text": "שיטה מדורגת",
+     "text_de": "Gestaffeltes System",
+     "text_en": "Graduated system",
+     "desc": "טומאת מקדש וקדשיו › כפרה › שגגה › שאין ידיעה תחילה › כפרת והקרבת שעירים",
+     "desc_de": "Unreinheit des Heiligtums und seiner heiligen Dinge › Sühne › Versehen › Fehlen des anfänglichen Wissens › Sühne und Darbringung der Böcke",
+     "desc_en": "Impurity of the Sanctuary and its sacred things › Atonement › Inadvertence › Absence of initial awareness › Atonement and offering of the goats"
+    },
+    {
+     "ref": "1:6",
+     "text": "שעיר פנים ויוה\"כ \\ דרגותיהם והמשתלח",
+     "text_de": "Innerer Bock und Jom Kippur / ihre Grade und der Fortgeschickte",
+     "text_en": "Inner goat and Yom Kippur / their degrees and the one sent away",
+     "desc": "טומאת מקדש וקדשיו › כפרה › ושאר עבירות › זדון",
+     "desc_de": "Unreinheit des Heiligtums und seiner heiligen Dinge › Sühne › Und übrige Vergehen › Vorsatz",
+     "desc_en": "Impurity of the Sanctuary and its sacred things › Atonement › And other transgressions › Deliberate sin"
+    },
+    {
+     "ref": "1:7",
+     "text": "בין כפרת ישראלים וכהנים, פר כה\"ג",
+     "text_de": "Zwischen der Sühne der Israeliten und der Priester, Stier des Hohepriesters",
+     "text_en": "Between the atonement of Israelites and priests, bull of the High Priest",
+     "desc": "טומאת מקדש וקדשיו › כפרה › ושאר עבירות",
+     "desc_de": "Unreinheit des Heiligtums und seiner heiligen Dinge › Sühne › Und übrige Vergehen",
+     "desc_en": "Impurity of the Sanctuary and its sacred things › Atonement › And other transgressions"
+    }
+   ]
+  },
+  {
+   "head": "פרק ב",
+   "head_de": "Kapitel 2",
+   "head_en": "Chapter 2",
+   "items": [
+    {
+     "ref": "2:1",
+     "text": "פירוט ה־2 שהן 4",
+     "text_de": "Ausführung der „Zwei, die vier sind“",
+     "text_en": "Detailed treatment of the “two that are four”",
+     "desc": "טומאת מקדש וקדשיו › חיוב › הידיעה שנעלמה",
+     "desc_de": "Unreinheit des Heiligtums und seiner heiligen Dinge › Verpflichtung › Das entschwundene Wissen",
+     "desc_en": "Impurity of the Sanctuary and its sacred things › Obligation › Awareness that was lost"
+    },
+    {
+     "ref": "2:2",
+     "text": "תוספת לעזרה ולעיר",
+     "text_de": "Erweiterung des Tempelhofs und der Stadt",
+     "text_en": "Extension of the Temple court and the city",
+     "desc": "טומאת מקדש וקדשיו › חיוב › מקום המקדש המחייב",
+     "desc_de": "Unreinheit des Heiligtums und seiner heiligen Dinge › Verpflichtung › Der maßgebliche Ort des Heiligtums",
+     "desc_en": "Impurity of the Sanctuary and its sacred things › Obligation › The binding location of the Sanctuary"
+    },
+    {
+     "ref": "2:3",
+     "text": "כדי השתחויה, יציאה בארוכה",
+     "text_de": "Zeitspanne einer Niederwerfung, Hinausgehen auf langem Weg",
+     "text_en": "Time of a prostration, leaving by the long way",
+     "desc": "טומאת מקדש וקדשיו › חיוב › שהיית הנטמא › מצוות עשה וחיוב בקרבן",
+     "desc_de": "Unreinheit des Heiligtums und seiner heiligen Dinge › Verpflichtung › Verweilen des Unreinen › Positive Gebote und Haftung zu einem Opfer",
+     "desc_en": "Impurity of the Sanctuary and its sacred things › Obligation › Lingering of the impure person › Positive commandments and liability to an offering"
+    },
+    {
+     "ref": "2:4",
+     "text": "פרישה מתשמיש נדה",
+     "text_de": "Enthaltung vom Verkehr mit der Menstruierenden",
+     "text_en": "Abstaining from relations with a menstruating woman",
+     "desc": "טומאת מקדש וקדשיו › חיוב › שהיית הנטמא › מצוות עשה וחיוב בקרבן",
+     "desc_de": "Unreinheit des Heiligtums und seiner heiligen Dinge › Verpflichtung › Verweilen des Unreinen › Positive Gebote und Haftung zu einem Opfer",
+     "desc_en": "Impurity of the Sanctuary and its sacred things › Obligation › Lingering of the impure person › Positive commandments and liability to an offering"
+    },
+    {
+     "ref": "2:5",
+     "text": "העלם שרץ, העלם טומאה, העלם מקדש",
+     "text_de": "Unkenntnis des Kriechtiers, Unkenntnis der Unreinheit, Unkenntnis des Heiligtums",
+     "text_en": "Unawareness of the creeping creature, of the impurity, of the Sanctuary",
+     "desc": "טומאת מקדש וקדשיו › חיוב › הידיעה שנעלמה",
+     "desc_de": "Unreinheit des Heiligtums und seiner heiligen Dinge › Verpflichtung › Das entschwundene Wissen",
+     "desc_en": "Impurity of the Sanctuary and its sacred things › Obligation › Awareness that was lost"
+    }
+   ]
+  },
+  {
+   "head": "פרק ג",
+   "head_de": "Kapitel 3",
+   "head_en": "Chapter 3",
+   "items": [
+    {
+     "ref": "3:1",
+     "text": "פירוט 4, אכילת כלשהו \\ אכילה, שתייה",
+     "text_de": "Ausführung der Vier, Essen von irgendetwas / Essen, Trinken",
+     "text_en": "Detailed treatment of the four, eating any amount / eating, drinking",
+     "desc": "שבועות שאדם נשבע מעצמו › שבועת ביטוי › עניני אכילה › חילוק שבועות › חשיבות הנושא",
+     "desc_de": "Eide, die man von sich aus schwört › Ausspruchseid › Angelegenheiten des Essens › Einteilung der Eide › Bedeutung des Themas",
+     "desc_en": "Oaths a person swears on his own › Oath of utterance › Matters of eating › Classification of oaths › Importance of the subject"
+    },
+    {
+     "ref": "3:2",
+     "text": "מיני פת",
+     "text_de": "Arten von Brot",
+     "text_en": "Kinds of bread",
+     "desc": "שבועות שאדם נשבע מעצמו › שבועת ביטוי › עניני אכילה › חילוק שבועות",
+     "desc_de": "Eide, die man von sich aus schwört › Ausspruchseid › Angelegenheiten des Essens › Einteilung der Eide",
+     "desc_en": "Oaths a person swears on his own › Oath of utterance › Matters of eating › Classification of oaths"
+    },
+    {
+     "ref": "3:3",
+     "text": "מיני משקים",
+     "text_de": "Arten von Getränken",
+     "text_en": "Kinds of beverages",
+     "desc": "שבועות שאדם נשבע מעצמו › שבועת ביטוי › עניני אכילה › חילוק שבועות",
+     "desc_de": "Eide, die man von sich aus schwört › Ausspruchseid › Angelegenheiten des Essens › Einteilung der Eide",
+     "desc_en": "Oaths a person swears on his own › Oath of utterance › Matters of eating › Classification of oaths"
+    },
+    {
+     "ref": "3:4",
+     "text": "שאינם ראויים לאכילה, שאסורים ובנדר",
+     "text_de": "Nicht essbare Dinge, verbotene und im Gelübde",
+     "text_en": "Inedible things, forbidden things, and in a vow",
+     "desc": "שבועות שאדם נשבע מעצמו › שבועת ביטוי › חשיבות נושא השבועה › עניני אכילה › אינו אכיל",
+     "desc_de": "Eide, die man von sich aus schwört › Ausspruchseid › Bedeutung des Themas des Eides › Angelegenheiten des Essens › Nicht essbar",
+     "desc_en": "Oaths a person swears on his own › Oath of utterance › Importance of the subject of the oath › Matters of eating › Not edible"
+    },
+    {
+     "ref": "3:5",
+     "text": "דברים של עצמו ואחרים, ממשות, לשעבר",
+     "text_de": "Eigene und fremde Sachen, Substanz, Vergangenes",
+     "text_en": "Matters of oneself and of others, substance, the past",
+     "desc": "שבועות שאדם נשבע מעצמו › שבועת ביטוי › חשיבות נושא השבועה",
+     "desc_de": "Eide, die man von sich aus schwört › Ausspruchseid › Bedeutung des Themas des Eides",
+     "desc_en": "Oaths a person swears on his own › Oath of utterance › Importance of the subject of the oath"
+    },
+    {
+     "ref": "3:6",
+     "text": "לבטל את המצוה",
+     "text_de": "Ein Gebot aufheben",
+     "text_en": "Nullifying the commandment",
+     "desc": "שבועות שאדם נשבע מעצמו › שבועת ביטוי › חשיבות נושא השבועה › שכבר מושבע עליו",
+     "desc_de": "Eide, die man von sich aus schwört › Ausspruchseid › Bedeutung des Themas des Eides › Worauf er bereits verpflichtet ist",
+     "desc_en": "Oaths a person swears on his own › Oath of utterance › Importance of the subject of the oath › That to which he is already bound by oath"
+    },
+    {
+     "ref": "3:7",
+     "text": "שבועה חל על שבועה \\ מכות וקרבן",
+     "text_de": "Eid, der auf einen Eid fällt / Schläge und Opfer",
+     "text_en": "Oath that takes effect on an oath / lashes and offering",
+     "desc": "שבועות שאדם נשבע מעצמו › שבועות ביטוי ושוא › שבועת ביטוי › חשיבות נושא השבועה › עונש › שכבר מושבע עליו",
+     "desc_de": "Eide, die man von sich aus schwört › Ausspruchseide und Falscheide › Ausspruchseid › Bedeutung des Themas des Eides › Strafe › Worauf er bereits verpflichtet ist",
+     "desc_en": "Oaths a person swears on his own › Oaths of utterance and vain oaths › Oath of utterance › Importance of the subject of the oath › Punishment › That to which he is already bound by oath"
+    },
+    {
+     "ref": "3:8",
+     "text": "שינוי הידוע, שא\"א להיות וביטול מצוה",
+     "text_de": "Verändern des Bekannten, Unmögliches und Aufhebung eines Gebots",
+     "text_en": "Altering the known, the impossible, and nullifying a commandment",
+     "desc": "שבועות שאדם נשבע מעצמו › שבועות ביטוי ושוא › הגדרת שבועת שוא › נושא השבועה",
+     "desc_de": "Eide, die man von sich aus schwört › Ausspruchseide und Falscheide › Definition des Falscheids › Gegenstand des Eides",
+     "desc_en": "Oaths a person swears on his own › Oaths of utterance and vain oaths › Definition of the vain oath › Subject of the oath"
+    },
+    {
+     "ref": "3:9",
+     "text": "שבועות המתנגדות",
+     "text_de": "Einander widersprechende Eide",
+     "text_en": "Conflicting oaths",
+     "desc": "שבועות שאדם נשבע מעצמו › שבועות ביטוי ושוא › הגדרת שבועת שוא › נושא השבועה",
+     "desc_de": "Eide, die man von sich aus schwört › Ausspruchseide und Falscheide › Definition des Falscheids › Gegenstand des Eides",
+     "desc_en": "Oaths a person swears on his own › Oaths of utterance and vain oaths › Definition of the vain oath › Subject of the oath"
+    },
+    {
+     "ref": "3:10",
+     "text": "שבועת ביטוי",
+     "text_de": "Ausspruchseid",
+     "text_en": "Oath of utterance",
+     "desc": "שבועות שאדם נשבע מעצמו › שבועות ביטוי ושוא › הנשבע המשביע והעונש",
+     "desc_de": "Eide, die man von sich aus schwört › Ausspruchseide und Falscheide › Der Schwörende, der Schwören-Lassende und die Strafe",
+     "desc_en": "Oaths a person swears on his own › Oaths of utterance and vain oaths › The one who swears, the one who administers the oath, and the punishment"
+    },
+    {
+     "ref": "3:11",
+     "text": "שבועת שוא",
+     "text_de": "Falscheid",
+     "text_en": "Vain oath",
+     "desc": "שבועות שאדם נשבע מעצמו › שבועות ביטוי ושוא › הנשבע המשביע והעונש",
+     "desc_de": "Eide, die man von sich aus schwört › Ausspruchseide und Falscheide › Der Schwörende, der Schwören-Lassende und die Strafe",
+     "desc_en": "Oaths a person swears on his own › Oaths of utterance and vain oaths › The one who swears, the one who administers the oath, and the punishment"
+    }
+   ]
+  },
+  {
+   "head": "פרק ד",
+   "head_de": "Kapitel 4",
+   "head_en": "Chapter 4",
+   "items": [
+    {
+     "ref": "4:1",
+     "text": "שבועת העדות וכפירה בבית דין",
+     "text_de": "Zeugeneid und Leugnen vor Gericht",
+     "text_en": "Oath of testimony and denial in court",
+     "desc": "שבועות שאדם נשבע מעצמו › שבועת העדות › הנשבע המשביע והעונש",
+     "desc_de": "Eide, die man von sich aus schwört › Zeugeneid › Der Schwörende, der Schwören-Lassende und die Strafe",
+     "desc_en": "Oaths a person swears on his own › Oath of testimony › The one who swears, the one who administers the oath, and the punishment"
+    },
+    {
+     "ref": "4:2",
+     "text": "זדון, שגגת שבועה ועדות",
+     "text_de": "Vorsatz, Versehen bei Eid und Zeugnis",
+     "text_en": "Deliberate and inadvertent oath and testimony",
+     "desc": "שבועות שאדם נשבע מעצמו › שבועת העדות › כוונת הנשבע",
+     "desc_de": "Eide, die man von sich aus schwört › Zeugeneid › Absicht des Schwörenden",
+     "desc_en": "Oaths a person swears on his own › Oath of testimony › Intention of the one swearing"
+    },
+    {
+     "ref": "4:3",
+     "text": "דוגמא קלסית,השבעות מרובות ובבית דין",
+     "text_de": "Klassisches Beispiel, mehrfache Beschwörungen und vor Gericht",
+     "text_en": "Classic example, multiple adjurations and in court",
+     "desc": "שבועות שאדם נשבע מעצמו › שבועת העדות › חיוב מרובה",
+     "desc_de": "Eide, die man von sich aus schwört › Zeugeneid › Mehrfache Haftung",
+     "desc_en": "Oaths a person swears on his own › Oath of testimony › Multiple liability"
+    },
+    {
+     "ref": "4:4",
+     "text": "כפירת עדים או כיתות",
+     "text_de": "Leugnen der Zeugen oder Gruppen",
+     "text_en": "Denial by witnesses or groups",
+     "desc": "שבועות שאדם נשבע מעצמו › שבועת העדות › חיוב מרובה",
+     "desc_de": "Eide, die man von sich aus schwört › Zeugeneid › Mehrfache Haftung",
+     "desc_en": "Oaths a person swears on his own › Oath of testimony › Multiple liability"
+    },
+    {
+     "ref": "4:5",
+     "text": "תביעות ומינים",
+     "text_de": "Forderungen und Arten",
+     "text_en": "Claims and kinds",
+     "desc": "שבועות שאדם נשבע מעצמו › שבועת העדות › התביעה › חילוק שבועות",
+     "desc_de": "Eide, die man von sich aus schwört › Zeugeneid › Die Forderung › Einteilung der Eide",
+     "desc_en": "Oaths a person swears on his own › Oath of testimony › The claim › Classification of oaths"
+    },
+    {
+     "ref": "4:6",
+     "text": "תביעה ממונית",
+     "text_de": "Geldforderung",
+     "text_en": "Monetary claim",
+     "desc": "שבועות שאדם נשבע מעצמו › שבועת העדות › התביעה › ריוח לתובע",
+     "desc_de": "Eide, die man von sich aus schwört › Zeugeneid › Die Forderung › Vorteil für den Kläger",
+     "desc_en": "Oaths a person swears on his own › Oath of testimony › The claim › Benefit to the claimant"
+    },
+    {
+     "ref": "4:7",
+     "text": "שאין בה ממון, בשביל אחר",
+     "text_de": "Ohne Geldwert, für einen anderen",
+     "text_en": "Without monetary value, for another",
+     "desc": "שבועות שאדם נשבע מעצמו › שבועת העדות › התביעה › ריוח לתובע",
+     "desc_de": "Eide, die man von sich aus schwört › Zeugeneid › Die Forderung › Vorteil für den Kläger",
+     "desc_en": "Oaths a person swears on his own › Oath of testimony › The claim › Benefit to the claimant"
+    },
+    {
+     "ref": "4:8",
+     "text": "ממון שלא בא ליד התובע",
+     "text_de": "Geld, das nicht in die Hand des Klägers gelangt ist",
+     "text_en": "Money that did not reach the claimant's hand",
+     "desc": "שבועות שאדם נשבע מעצמו › שבועת העדות › התביעה › הקדמת השבועה",
+     "desc_de": "Eide, die man von sich aus schwört › Zeugeneid › Die Forderung › Vorangehen des Eides",
+     "desc_en": "Oaths a person swears on his own › Oath of testimony › The claim › Prior administering of the oath"
+    },
+    {
+     "ref": "4:9",
+     "text": "עדות לפני השבעה",
+     "text_de": "Zeugnis vor der Beschwörung",
+     "text_en": "Testimony before the adjuration",
+     "desc": "שבועות שאדם נשבע מעצמו › שבועת העדות › העדות וההשבעה › הקדמת השבועה",
+     "desc_de": "Eide, die man von sich aus schwört › Zeugeneid › Das Zeugnis und die Beschwörung › Vorangehen des Eides",
+     "desc_en": "Oaths a person swears on his own › Oath of testimony › The testimony and the adjuration › Prior administering of the oath"
+    },
+    {
+     "ref": "4:10",
+     "text": "יחוד עדים",
+     "text_de": "Einzelnheit der Zeugen",
+     "text_en": "Witnesses testifying separately",
+     "desc": "שבועות שאדם נשבע מעצמו › שבועת העדות › העדות וההשבעה",
+     "desc_de": "Eide, die man von sich aus schwört › Zeugeneid › Das Zeugnis und die Beschwörung",
+     "desc_en": "Oaths a person swears on his own › Oath of testimony › The testimony and the adjuration"
+    },
+    {
+     "ref": "4:11",
+     "text": "כשרות העדות",
+     "text_de": "Gültigkeit des Zeugnisses",
+     "text_en": "Validity of the testimony",
+     "desc": "שבועות שאדם נשבע מעצמו › שבועת העדות › העדות וההשבעה",
+     "desc_de": "Eide, die man von sich aus schwört › Zeugeneid › Das Zeugnis und die Beschwörung",
+     "desc_en": "Oaths a person swears on his own › Oath of testimony › The testimony and the adjuration"
+    },
+    {
+     "ref": "4:12",
+     "text": "שמיעה מפי תובע",
+     "text_de": "Hören aus dem Mund des Klägers",
+     "text_en": "Hearing from the claimant's mouth",
+     "desc": "שבועות שאדם נשבע מעצמו › שבועת העדות › העדות וההשבעה › כיצד משביעים",
+     "desc_de": "Eide, die man von sich aus schwört › Zeugeneid › Das Zeugnis und die Beschwörung › Wie man schwören lässt",
+     "desc_en": "Oaths a person swears on his own › Oath of testimony › The testimony and the adjuration › How one administers the oath"
+    },
+    {
+     "ref": "4:13",
+     "text": "לשון ושמות ה' להשבעה וקללות",
+     "text_de": "Formulierung und Gottesnamen bei der Beschwörung und Verfluchungen",
+     "text_en": "Wording and Divine Names in the adjuration, and curses",
+     "desc": "שבועות שאדם נשבע מעצמו › שבועת העדות › העדות וההשבעה › כיצד משביעים",
+     "desc_de": "Eide, die man von sich aus schwört › Zeugeneid › Das Zeugnis und die Beschwörung › Wie man schwören lässt",
+     "desc_en": "Oaths a person swears on his own › Oath of testimony › The testimony and the adjuration › How one administers the oath"
+    }
+   ]
+  },
+  {
+   "head": "פרק ה",
+   "head_de": "Kapitel 5",
+   "head_en": "Chapter 5",
+   "items": [
+    {
+     "ref": "5:1",
+     "text": "כפירה בבית דין, כוונה",
+     "text_de": "Leugnen vor Gericht, Absicht",
+     "text_en": "Denial in court, intention",
+     "desc": "שבועות שאדם נשבע מעצמו › שבועת הפקדון › הנשבע, המשביע והעונש",
+     "desc_de": "Eide, die man von sich aus schwört › Depositeneid › Der Schwörende, der Schwören-Lassende und die Strafe",
+     "desc_en": "Oaths a person swears on his own › Oath concerning a deposit › The one who swears, the one who administers the oath, and the punishment"
+    },
+    {
+     "ref": "5:2",
+     "text": "דוגמא קלסית \\ השבעות מרובות",
+     "text_de": "Klassisches Beispiel / mehrfache Beschwörungen",
+     "text_en": "Classic example / multiple adjurations",
+     "desc": "שבועות שאדם נשבע מעצמו › שבועת הפקדון › חיוב › חיוב מרובה",
+     "desc_de": "Eide, die man von sich aus schwört › Depositeneid › Verpflichtung › Mehrfache Haftung",
+     "desc_en": "Oaths a person swears on his own › Oath concerning a deposit › Obligation › Multiple liability"
+    },
+    {
+     "ref": "5:3",
+     "text": "חילוק תובעים, תביעות ומינים",
+     "text_de": "Unterscheidung der Kläger, Forderungen und Arten",
+     "text_en": "Distinguishing claimants, claims and kinds",
+     "desc": "שבועות שאדם נשבע מעצמו › שבועת הפקדון › חיוב › חיוב מרובה",
+     "desc_de": "Eide, die man von sich aus schwört › Depositeneid › Verpflichtung › Mehrfache Haftung",
+     "desc_en": "Oaths a person swears on his own › Oath concerning a deposit › Obligation › Multiple liability"
+    },
+    {
+     "ref": "5:4",
+     "text": "אונס ופיתוי",
+     "text_de": "Vergewaltigung und Verführung",
+     "text_en": "Rape and seduction",
+     "desc": "שבועות שאדם נשבע מעצמו › שבועת הפקדון › חיוב › תביעת קנס וממון",
+     "desc_de": "Eide, die man von sich aus schwört › Depositeneid › Verpflichtung › Klage auf Bußgeld und Geld",
+     "desc_en": "Oaths a person swears on his own › Oath concerning a deposit › Obligation › Claim for fine and for money"
+    },
+    {
+     "ref": "5:5",
+     "text": "גניבה טביחה ומכירה,הריגה וחבלה בעבד",
+     "text_de": "Diebstahl, Schlachten und Verkauf, Tötung und Verletzung eines Sklaven",
+     "text_en": "Theft, slaughtering and selling, killing and injuring a slave",
+     "desc": "שבועות שאדם נשבע מעצמו › שבועת הפקדון › חיוב › תביעת קנס וממון",
+     "desc_de": "Eide, die man von sich aus schwört › Depositeneid › Verpflichtung › Klage auf Bußgeld und Geld",
+     "desc_en": "Oaths a person swears on his own › Oath concerning a deposit › Obligation › Claim for fine and for money"
+    }
+   ]
+  },
+  {
+   "head": "פרק ו",
+   "head_de": "Kapitel 6",
+   "head_en": "Chapter 6",
+   "items": [
+    {
+     "ref": "6:1",
+     "text": "כללי טענה והודאה ודוגמאות, טענת שמא",
+     "text_de": "Regeln von Behauptung und Zugeständnis und Beispiele, Behauptung aus Vermutung",
+     "text_en": "Rules of claim and admission and examples, claim based on suspicion",
+     "desc": "שבועות שהדינים כופין לישבע › חיוב בשבועת המודה במקצת › הכפירה וההודאה",
+     "desc_de": "Eide, zu denen das Recht zu schwören nötigt › Eidespflicht dessen, der teilweise zugibt › Leugnen und Zugeständnis",
+     "desc_en": "Oaths that the law compels one to swear › Obligation of an oath for one who admits in part › Denial and admission"
+    },
+    {
+     "ref": "6:2",
+     "text": "כפירה ותשלום בפני עדים",
+     "text_de": "Leugnen und Bezahlung vor Zeugen",
+     "text_en": "Denial and payment before witnesses",
+     "desc": "שבועות שהדינים כופין לישבע › חיוב בשבועת המודה במקצת › הכפירה וההודאה",
+     "desc_de": "Eide, zu denen das Recht zu schwören nötigt › Eidespflicht dessen, der teilweise zugibt › Leugnen und Zugeständnis",
+     "desc_en": "Oaths that the law compels one to swear › Obligation of an oath for one who admits in part › Denial and admission"
+    },
+    {
+     "ref": "6:3",
+     "text": "מטבע, תבואה, כדים, כלים וקרקע וזיקה",
+     "text_de": "Münze, Getreide, Krüge, Geräte und Grundstück und Besitzrecht",
+     "text_en": "Coin, grain, jugs, utensils, land, and the right of connection",
+     "desc": "שבועות שהדינים כופין לישבע › חיוב בשבועת המודה במקצת › הכפירה וההודאה › מין הטענה",
+     "desc_de": "Eide, zu denen das Recht zu schwören nötigt › Eidespflicht dessen, der teilweise zugibt › Leugnen und Zugeständnis › Art der Behauptung",
+     "desc_en": "Oaths that the law compels one to swear › Obligation of an oath for one who admits in part › Denial and admission › Kind of claim"
+    },
+    {
+     "ref": "6:4",
+     "text": "טענת חסר דעת, שבועה לקטן ולהקדש",
+     "text_de": "Behauptung eines Unzurechnungsfähigen, Eid für einen Minderjährigen und für das Geweihte",
+     "text_en": "Claim of an incompetent person, oath for a minor and for consecrated property",
+     "desc": "שבועות שהדינים כופין לישבע › חיוב בשבועת המודה במקצת › שאין נשבעין עליהן › הטענה",
+     "desc_de": "Eide, zu denen das Recht zu schwören nötigt › Eidespflicht dessen, der teilweise zugibt › Worüber man nicht schwört › Die Behauptung",
+     "desc_en": "Oaths that the law compels one to swear › Obligation of an oath for one who admits in part › Matters about which one does not swear › The claim"
+    },
+    {
+     "ref": "6:5",
+     "text": "עבדים, שטרות, קרקעות, הקדשות, שונות",
+     "text_de": "Sklaven, Urkunden, Grundstücke, Geweihtes, Verschiedenes",
+     "text_en": "Slaves, documents, land, consecrated property, miscellaneous",
+     "desc": "שבועות שהדינים כופין לישבע › חיוב בשבועת המודה במקצת › שאין נשבעין עליהן › מין הממון",
+     "desc_de": "Eide, zu denen das Recht zu schwören nötigt › Eidespflicht dessen, der teilweise zugibt › Worüber man nicht schwört › Art des Geldes",
+     "desc_en": "Oaths that the law compels one to swear › Obligation of an oath for one who admits in part › Matters about which one does not swear › Kind of money"
+    },
+    {
+     "ref": "6:6",
+     "text": "המחובר לקרקע, אפשרות לדייק בשווי",
+     "text_de": "Mit dem Boden Verbundenes, Möglichkeit genauer Wertbestimmung",
+     "text_en": "What is attached to the ground, possibility of precise valuation",
+     "desc": "שבועות שהדינים כופין לישבע › חיוב בשבועת המודה במקצת › שאין נשבעין עליהן › מין הממון",
+     "desc_de": "Eide, zu denen das Recht zu schwören nötigt › Eidespflicht dessen, der teilweise zugibt › Worüber man nicht schwört › Art des Geldes",
+     "desc_en": "Oaths that the law compels one to swear › Obligation of an oath for one who admits in part › Matters about which one does not swear › Kind of money"
+    },
+    {
+     "ref": "6:7",
+     "text": "טענות מלוה ולוה על המשכון ושבועתן",
+     "text_de": "Behauptungen von Gläubiger und Schuldner über das Pfand und ihr Eid",
+     "text_en": "Claims of creditor and debtor about the pledge and their oath",
+     "desc": "שבועות שהדינים כופין לישבע › חיוב בשבועת המודה במקצת › הכפירה וההודאה",
+     "desc_de": "Eide, zu denen das Recht zu schwören nötigt › Eidespflicht dessen, der teilweise zugibt › Leugnen und Zugeständnis",
+     "desc_en": "Oaths that the law compels one to swear › Obligation of an oath for one who admits in part › Denial and admission"
+    }
+   ]
+  },
+  {
+   "head": "פרק ז",
+   "head_de": "Kapitel 7",
+   "head_en": "Chapter 7",
+   "items": [
+    {
+     "ref": "7:1",
+     "text": "מדאורייתא והתקנה \\ השכיר",
+     "text_de": "Von der Tora und aus Verordnung / der Tagelöhner",
+     "text_en": "From the Torah and by enactment / the hired laborer",
+     "desc": "שבועות שהדינים כופין לישבע › תקנות מדרבנן בחיוב שבועה › העברת השבועה לתובע › הנשבעין ונוטלין",
+     "desc_de": "Eide, zu denen das Recht zu schwören nötigt › Rabbinische Verordnungen zur Eidespflicht › Übertragung des Eides auf den Kläger › Die schwören und nehmen",
+     "desc_en": "Oaths that the law compels one to swear › Rabbinic enactments on the obligation of an oath › Transferring the oath to the claimant › Those who swear and take"
+    },
+    {
+     "ref": "7:2",
+     "text": "הנגזל",
+     "text_de": "Der Beraubte",
+     "text_en": "The one robbed",
+     "desc": "שבועות שהדינים כופין לישבע › תקנות מדרבנן בחיוב שבועה › העברת השבועה לתובע › הנשבעין ונוטלין",
+     "desc_de": "Eide, zu denen das Recht zu schwören nötigt › Rabbinische Verordnungen zur Eidespflicht › Übertragung des Eides auf den Kläger › Die schwören und nehmen",
+     "desc_en": "Oaths that the law compels one to swear › Rabbinic enactments on the obligation of an oath › Transferring the oath to the claimant › Those who swear and take"
+    },
+    {
+     "ref": "7:3",
+     "text": "הנחבל",
+     "text_de": "Der Verletzte",
+     "text_en": "The one injured",
+     "desc": "שבועות שהדינים כופין לישבע › תקנות מדרבנן בחיוב שבועה › העברת השבועה לתובע › הנשבעין ונוטלין",
+     "desc_de": "Eide, zu denen das Recht zu schwören nötigt › Rabbinische Verordnungen zur Eidespflicht › Übertragung des Eides auf den Kläger › Die schwören und nehmen",
+     "desc_en": "Oaths that the law compels one to swear › Rabbinic enactments on the obligation of an oath › Transferring the oath to the claimant › Those who swear and take"
+    },
+    {
+     "ref": "7:4",
+     "text": "שכנגדו חשוד, שניהם חשודים",
+     "text_de": "Der Gegner ist verdächtig, beide sind verdächtig",
+     "text_en": "The opponent is suspect, both are suspect",
+     "desc": "שבועות שהדינים כופין לישבע › תקנות מדרבנן בחיוב שבועה › העברת השבועה לתובע › הנשבעין ונוטלין",
+     "desc_de": "Eide, zu denen das Recht zu schwören nötigt › Rabbinische Verordnungen zur Eidespflicht › Übertragung des Eides auf den Kläger › Die schwören und nehmen",
+     "desc_en": "Oaths that the law compels one to swear › Rabbinic enactments on the obligation of an oath › Transferring the oath to the claimant › Those who swear and take"
+    },
+    {
+     "ref": "7:5",
+     "text": "החנוני על פנקסו",
+     "text_de": "Der Krämer mit seinem Notizbuch",
+     "text_en": "The shopkeeper with his ledger",
+     "desc": "שבועות שהדינים כופין לישבע › תקנות מדרבנן בחיוב שבועה › העברת השבועה לתובע › הנשבעין ונוטלין",
+     "desc_de": "Eide, zu denen das Recht zu schwören nötigt › Rabbinische Verordnungen zur Eidespflicht › Übertragung des Eides auf den Kläger › Die schwören und nehmen",
+     "desc_en": "Oaths that the law compels one to swear › Rabbinic enactments on the obligation of an oath › Transferring the oath to the claimant › Those who swear and take"
+    },
+    {
+     "ref": "7:6",
+     "text": "טענות פרעון",
+     "text_de": "Behauptungen der Zahlung",
+     "text_en": "Claims of payment",
+     "desc": "שבועות שהדינים כופין לישבע › תקנות מדרבנן בחיוב שבועה › מציאות המכריחה שבועה › הנשבעין ונוטלין",
+     "desc_de": "Eide, zu denen das Recht zu schwören nötigt › Rabbinische Verordnungen zur Eidespflicht › Gegebenheit, die einen Eid erzwingt › Die schwören und nehmen",
+     "desc_en": "Oaths that the law compels one to swear › Rabbinic enactments on the obligation of an oath › Circumstance that necessitates an oath › Those who swear and take"
+    },
+    {
+     "ref": "7:7",
+     "text": "הנפרעים רק בשבועה",
+     "text_de": "Die nur durch Eid einfordern",
+     "text_en": "Those who collect only by oath",
+     "desc": "שבועות שהדינים כופין לישבע › תקנות מדרבנן בחיוב שבועה › מציאות המכריחה שבועה › בלא טענת ברי",
+     "desc_de": "Eide, zu denen das Recht zu schwören nötigt › Rabbinische Verordnungen zur Eidespflicht › Gegebenheit, die einen Eid erzwingt › Ohne die Behauptung „sicher“",
+     "desc_en": "Oaths that the law compels one to swear › Rabbinic enactments on the obligation of an oath › Circumstance that necessitates an oath › Without a claim of certainty"
+    },
+    {
+     "ref": "7:8",
+     "text": "הנשבעים שלא בטענה, גלגול \\ שמיטה",
+     "text_de": "Die ohne Behauptung schwören, Weiterrollen des Eides / Schmitta",
+     "text_en": "Those who swear without a claim, extension of the oath / Sabbatical year",
+     "desc": "שבועות שהדינים כופין לישבע › תקנות מדרבנן בחיוב שבועה › פטור משבועה › בלא טענת ברי",
+     "desc_de": "Eide, zu denen das Recht zu schwören nötigt › Rabbinische Verordnungen zur Eidespflicht › Befreiung vom Eid › Ohne die Behauptung „sicher“",
+     "desc_en": "Oaths that the law compels one to swear › Rabbinic enactments on the obligation of an oath › Exemption from the oath › Without a claim of certainty"
+    }
+   ]
+  },
+  {
+   "head": "פרק ח",
+   "head_de": "Kapitel 8",
+   "head_en": "Chapter 8",
+   "items": [
+    {
+     "ref": "8:1",
+     "text": "חיוב בממון או שבועה",
+     "text_de": "Verpflichtung zu Geld oder Eid",
+     "text_en": "Obligation to pay or to swear",
+     "desc": "שבועות שהדינים כופין לישבע › שבועות השומרים › חיוב לישבע › כללי השומרים",
+     "desc_de": "Eide, zu denen das Recht zu schwören nötigt › Eide der Hüter › Pflicht zu schwören › Regeln der Hüter",
+     "desc_en": "Oaths that the law compels one to swear › Oaths of bailees › Obligation to swear › Rules of bailees"
+    },
+    {
+     "ref": "8:2",
+     "text": "אי כפירה בממון",
+     "text_de": "Kein Leugnen von Geld",
+     "text_en": "No denial of money",
+     "desc": "שבועות שהדינים כופין לישבע › שבועות השומרים › טענה המחייבת › שומר חינם",
+     "desc_de": "Eide, zu denen das Recht zu schwören nötigt › Eide der Hüter › Verpflichtende Behauptung › Unentgeltlicher Hüter",
+     "desc_en": "Oaths that the law compels one to swear › Oaths of bailees › Obligating claim › Unpaid bailee"
+    },
+    {
+     "ref": "8:3",
+     "text": "כפירה גמורה, אבידה, גניבה",
+     "text_de": "Vollständiges Leugnen, Verlorenes, Diebstahl",
+     "text_en": "Complete denial, lost property, theft",
+     "desc": "שבועות שהדינים כופין לישבע › שבועות השומרים › טענה המחייבת › שומר חינם",
+     "desc_de": "Eide, zu denen das Recht zu schwören nötigt › Eide der Hüter › Verpflichtende Behauptung › Unentgeltlicher Hüter",
+     "desc_en": "Oaths that the law compels one to swear › Oaths of bailees › Obligating claim › Unpaid bailee"
+    },
+    {
+     "ref": "8:4",
+     "text": "הכופר בגניבה, טביחה ומכירה, המודה",
+     "text_de": "Der Diebstahl Leugnende, Schlachten und Verkauf, der Zugebende",
+     "text_en": "One who denies theft, slaughtering and selling, the one who admits",
+     "desc": "שבועות שהדינים כופין לישבע › שבועות השומרים › טענה המחייבת › גנב",
+     "desc_de": "Eide, zu denen das Recht zu schwören nötigt › Eide der Hüter › Verpflichtende Behauptung › Dieb",
+     "desc_en": "Oaths that the law compels one to swear › Oaths of bailees › Obligating claim › Thief"
+    },
+    {
+     "ref": "8:5",
+     "text": "שבועת שקר המחייבתו",
+     "text_de": "Falscheid, der ihn haftbar macht",
+     "text_en": "False oath that makes him liable",
+     "desc": "שבועות שהדינים כופין לישבע › שבועות השומרים › טענה המחייבת › שואל",
+     "desc_de": "Eide, zu denen das Recht zu schwören nötigt › Eide der Hüter › Verpflichtende Behauptung › Entleiher",
+     "desc_en": "Oaths that the law compels one to swear › Oaths of bailees › Obligating claim › Borrower"
+    },
+    {
+     "ref": "8:6",
+     "text": "כופר בממון,שומר שכר,שוכר\\ חיוב,להקל",
+     "text_de": "Leugner von Geld, bezahlter Hüter, Mieter / Haftung, Erleichterung",
+     "text_en": "One who denies money, paid bailee, renter / liability, leniency",
+     "desc": "שבועות שהדינים כופין לישבע › שבועות השומרים › טענה המחייבת › כללים",
+     "desc_de": "Eide, zu denen das Recht zu schwören nötigt › Eide der Hüter › Verpflichtende Behauptung › Regeln",
+     "desc_en": "Oaths that the law compels one to swear › Oaths of bailees › Obligating claim › Rules"
+    }
+   ]
+  }
+ ]
+}

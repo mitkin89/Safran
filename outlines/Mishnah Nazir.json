@@ -1,0 +1,614 @@
+{
+ "book": "Mishnah Nazir",
+ "title": "משנה נזיר",
+ "title_de": "Mischna Nasir – Gliederung",
+ "title_en": "Nazir – outline",
+ "note": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema).",
+ "note_de": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema); ins Deutsche und Englische übersetzt.",
+ "note_en": "Outline after the table “Mishna Sedura”: the central content of each mishnah, with the topic path (main topic to sub-topic); translated into German and English.",
+ "sections": [
+  {
+   "head": "פרק א",
+   "head_de": "Kapitel 1",
+   "head_en": "Chapter 1",
+   "items": [
+    {
+     "ref": "1:1",
+     "text": "ידות וכינויים",
+     "text_de": "Griffe und Umschreibungen",
+     "text_en": "handles and substitute terms",
+     "desc": "קבלת ומשך הנזירות › פירושי לשונות › קבלה › שאינן עיקר הנדר",
+     "desc_de": "Annahme und Dauer des Nasiräats › Auslegung von Ausdrücken › Annahme › die nicht den Kern des Gelübdes bilden",
+     "desc_en": "acceptance and duration of the Nazirite vow › interpretation of expressions › acceptance › those that are not the essence of the vow"
+    },
+    {
+     "ref": "1:2",
+     "text": "אחד המנים \\ שמשון, עולם",
+     "text_de": "eine der Zählungen / Simson, Ewigkeit",
+     "text_en": "one of the counts / Samson, forever",
+     "desc": "קבלת ומשך הנזירות › פירושי לשונות › משך הנזירות",
+     "desc_de": "Annahme und Dauer des Nasiräats › Auslegung von Ausdrücken › Dauer des Nasiräats",
+     "desc_en": "acceptance and duration of the Nazirite vow › interpretation of expressions › duration of the Nazirite vow"
+    },
+    {
+     "ref": "1:3",
+     "text": "סתם, גודל, חלקי השלם",
+     "text_de": "unbestimmt, Größe, Teile des Ganzen",
+     "text_en": "unspecified, size, parts of a whole",
+     "desc": "קבלת ומשך הנזירות › פירושי לשונות › משך הנזירות",
+     "desc_de": "Annahme und Dauer des Nasiräats › Auslegung von Ausdrücken › Dauer des Nasiräats",
+     "desc_en": "acceptance and duration of the Nazirite vow › interpretation of expressions › duration of the Nazirite vow"
+    },
+    {
+     "ref": "1:4",
+     "text": "דברים המרובין",
+     "text_de": "große Mengen",
+     "text_en": "large quantities",
+     "desc": "קבלת ומשך הנזירות › פירושי לשונות › משך הנזירות › תליית המנין בדבר אחר",
+     "desc_de": "Annahme und Dauer des Nasiräats › Auslegung von Ausdrücken › Dauer des Nasiräats › Abhängigkeit der Zählung von etwas anderem",
+     "desc_en": "acceptance and duration of the Nazirite vow › interpretation of expressions › duration of the Nazirite vow › dependence of the count on something else"
+    },
+    {
+     "ref": "1:5",
+     "text": "מלוי נפח",
+     "text_de": "Auffüllen des Volumens",
+     "text_en": "filling a volume",
+     "desc": "קבלת ומשך הנזירות › פירושי לשונות › משך הנזירות › תליית המנין בדבר אחר",
+     "desc_de": "Annahme und Dauer des Nasiräats › Auslegung von Ausdrücken › Dauer des Nasiräats › Abhängigkeit der Zählung von etwas anderem",
+     "desc_en": "acceptance and duration of the Nazirite vow › interpretation of expressions › duration of the Nazirite vow › dependence of the count on something else"
+    },
+    {
+     "ref": "1:6",
+     "text": "אורך הדרך",
+     "text_de": "Länge des Weges",
+     "text_en": "length of a journey",
+     "desc": "קבלת ומשך הנזירות › פירושי לשונות › משך הנזירות › תליית המנין בדבר אחר",
+     "desc_de": "Annahme und Dauer des Nasiräats › Auslegung von Ausdrücken › Dauer des Nasiräats › Abhängigkeit der Zählung von etwas anderem",
+     "desc_en": "acceptance and duration of the Nazirite vow › interpretation of expressions › duration of the Nazirite vow › dependence of the count on something else"
+    },
+    {
+     "ref": "1:7",
+     "text": "מנין ימות השנה",
+     "text_de": "Zählung der Tage des Jahres",
+     "text_en": "counting the days of the year",
+     "desc": "קבלת ומשך הנזירות › פירושי לשונות › משך הנזירות › תליית המנין בדבר אחר",
+     "desc_de": "Annahme und Dauer des Nasiräats › Auslegung von Ausdrücken › Dauer des Nasiräats › Abhängigkeit der Zählung von etwas anderem",
+     "desc_en": "acceptance and duration of the Nazirite vow › interpretation of expressions › duration of the Nazirite vow › dependence of the count on something else"
+    }
+   ]
+  },
+  {
+   "head": "פרק ב",
+   "head_de": "Kapitel 2",
+   "head_en": "Chapter 2",
+   "items": [
+    {
+     "ref": "2:1",
+     "text": "נזיר מפירות",
+     "text_de": "Nasiräer von Früchten",
+     "text_en": "Nazirite concerning fruits",
+     "desc": "קבלת ומשך הנזירות › פירושי לשונות › קבלה › לשונות נזירות",
+     "desc_de": "Annahme und Dauer des Nasiräats › Auslegung von Ausdrücken › Annahme › Ausdrücke des Nasiräats",
+     "desc_en": "acceptance and duration of the Nazirite vow › interpretation of expressions › acceptance › expressions of the Nazirite vow"
+    },
+    {
+     "ref": "2:2",
+     "text": "נזיר מפרה, מדלת",
+     "text_de": "Nasiräer von einer Kuh, von einer Tür",
+     "text_en": "Nazirite from a cow, from a door",
+     "desc": "קבלת ומשך הנזירות › פירושי לשונות › קבלה › לשונות נזירות",
+     "desc_de": "Annahme und Dauer des Nasiräats › Auslegung von Ausdrücken › Annahme › Ausdrücke des Nasiräats",
+     "desc_en": "acceptance and duration of the Nazirite vow › interpretation of expressions › acceptance › expressions of the Nazirite vow"
+    },
+    {
+     "ref": "2:3",
+     "text": "שכור",
+     "text_de": "Betrunkener",
+     "text_en": "drunkard",
+     "desc": "קבלת ומשך הנזירות › פירושי לשונות › קבלה › שלא נתכון",
+     "desc_de": "Annahme und Dauer des Nasiräats › Auslegung von Ausdrücken › Annahme › ohne Absicht",
+     "desc_en": "acceptance and duration of the Nazirite vow › interpretation of expressions › acceptance › without intent"
+    },
+    {
+     "ref": "2:4",
+     "text": "שאינו רוצה או יודע באיסור נזיר",
+     "text_de": "der das Verbot des Nasiräers nicht will oder kennt",
+     "text_en": "one who does not want or know the Nazirite prohibition",
+     "desc": "קבלת ומשך הנזירות › פירושי לשונות › קבלה › שלא נתכון",
+     "desc_de": "Annahme und Dauer des Nasiräats › Auslegung von Ausdrücken › Annahme › ohne Absicht",
+     "desc_en": "acceptance and duration of the Nazirite vow › interpretation of expressions › acceptance › without intent"
+    },
+    {
+     "ref": "2:5",
+     "text": "נזיר שלם",
+     "text_de": "vollständiger Nasiräer",
+     "text_en": "full Nazirite",
+     "desc": "קבלת ומשך הנזירות › פירושי לשונות › קבלה › עם נדר גילוח",
+     "desc_de": "Annahme und Dauer des Nasiräats › Auslegung von Ausdrücken › Annahme › Mit Gelübde der Haarschur",
+     "desc_en": "acceptance and duration of the Nazirite vow › interpretation of expressions › acceptance › With a vow of shaving"
+    },
+    {
+     "ref": "2:6",
+     "text": "חצי נזיר",
+     "text_de": "Halber Nasiräer",
+     "text_en": "Half-Nazirite",
+     "desc": "קבלת ומשך הנזירות › פירושי לשונות › קבלה › עם נדר גילוח",
+     "desc_de": "Annahme und Dauer des Nasiräats › Auslegung von Ausdrücken › Annahme › Mit Gelübde der Haarschur",
+     "desc_en": "acceptance and duration of the Nazirite vow › interpretation of expressions › acceptance › With a vow of shaving"
+    },
+    {
+     "ref": "2:7",
+     "text": "מין הולד",
+     "text_de": "Art des Nachwuchses",
+     "text_en": "Kind of offspring",
+     "desc": "קבלת ומשך הנזירות › פירושי לשונות › קבלה › התולה בלידה",
+     "desc_de": "Annahme und Dauer des Nasiräats › Auslegung von Ausdrücken › Annahme › Abhängig machen von der Geburt",
+     "desc_en": "acceptance and duration of the Nazirite vow › interpretation of expressions › acceptance › Making it conditional on birth"
+    },
+    {
+     "ref": "2:8",
+     "text": "חיות הולד וספק",
+     "text_de": "Lebensfähigkeit des Neugeborenen und Zweifelsfall",
+     "text_en": "Viability of the newborn and doubt",
+     "desc": "קבלת ומשך הנזירות › פירושי לשונות › קבלה › התולה בלידה",
+     "desc_de": "Annahme und Dauer des Nasiräats › Auslegung von Ausdrücken › Annahme › Abhängig machen von der Geburt",
+     "desc_en": "acceptance and duration of the Nazirite vow › interpretation of expressions › acceptance › Making it conditional on birth"
+    },
+    {
+     "ref": "2:9",
+     "text": "עם סתם נזירות",
+     "text_de": "Mit unspezifischer Nasiräat",
+     "text_en": "With an unspecified Nazirite vow",
+     "desc": "קבלת ומשך הנזירות › פירושי לשונות › קבלה › התולה בלידה › סדר מנייה",
+     "desc_de": "Annahme und Dauer des Nasiräats › Auslegung von Ausdrücken › Annahme › Abhängig machen von der Geburt › Zählweise",
+     "desc_en": "acceptance and duration of the Nazirite vow › interpretation of expressions › acceptance › Making it conditional on birth › Order of counting"
+    },
+    {
+     "ref": "2:10",
+     "text": "עם נזירות למאה יום",
+     "text_de": "Mit Nasiräat für hundert Tage",
+     "text_en": "With a Nazirite vow for one hundred days",
+     "desc": "קבלת ומשך הנזירות › פירושי לשונות › קבלה › התולה בלידה › סדר מנייה",
+     "desc_de": "Annahme und Dauer des Nasiräats › Auslegung von Ausdrücken › Annahme › Abhängig machen von der Geburt › Zählweise",
+     "desc_en": "acceptance and duration of the Nazirite vow › interpretation of expressions › acceptance › Making it conditional on birth › Order of counting"
+    }
+   ]
+  },
+  {
+   "head": "פרק ג",
+   "head_de": "Kapitel 3",
+   "head_en": "Chapter 3",
+   "items": [
+    {
+     "ref": "3:1",
+     "text": "בסתם ובנזיר לשלושים",
+     "text_de": "Bei unspezifischer Nasiräat und bei Nasiräat für dreißig Tage",
+     "text_en": "Unspecified vow and vow for thirty days",
+     "desc": "קבלת ומשך הנזירות › קביעת תום הנזירות › לתגלחת",
+     "desc_de": "Annahme und Dauer des Nasiräats › Bestimmung des Endes der Nasiräat › Zur Haarschur",
+     "desc_en": "acceptance and duration of the Nazirite vow › Determining the end of the Nazirite vow › For the shaving"
+    },
+    {
+     "ref": "3:2",
+     "text": "בשתי נזיריות",
+     "text_de": "Bei zwei Nasiräaten",
+     "text_en": "In the case of two Nazirite vows",
+     "desc": "קבלת ומשך הנזירות › קביעת תום הנזירות › לתגלחת",
+     "desc_de": "Annahme und Dauer des Nasiräats › Bestimmung des Endes der Nasiräat › Zur Haarschur",
+     "desc_en": "acceptance and duration of the Nazirite vow › Determining the end of the Nazirite vow › For the shaving"
+    },
+    {
+     "ref": "3:3",
+     "text": "בסתם ובנזיר לשלושים",
+     "text_de": "Bei unspezifischer Nasiräat und bei Nasiräat für dreißig Tage",
+     "text_en": "Unspecified vow and vow for thirty days",
+     "desc": "קבלת ומשך הנזירות › קביעת תום הנזירות › סתירה ע\"י טומאה › יום הגבולי",
+     "desc_de": "Annahme und Dauer des Nasiräats › Bestimmung des Endes der Nasiräat › Aufhebung der gezählten Tage durch Unreinheit › Der Grenztag",
+     "desc_en": "acceptance and duration of the Nazirite vow › Determining the end of the Nazirite vow › Annulment of the counted days through impurity › The borderline day"
+    },
+    {
+     "ref": "3:4",
+     "text": "נזיר למאה",
+     "text_de": "Nasiräer für hundert Tage",
+     "text_en": "Nazirite for one hundred days",
+     "desc": "קבלת ומשך הנזירות › קביעת תום הנזירות › סתירה ע\"י טומאה › יום הגבולי",
+     "desc_de": "Annahme und Dauer des Nasiräats › Bestimmung des Endes der Nasiräat › Aufhebung der gezählten Tage durch Unreinheit › Der Grenztag",
+     "desc_en": "acceptance and duration of the Nazirite vow › Determining the end of the Nazirite vow › Annulment of the counted days through impurity › The borderline day"
+    },
+    {
+     "ref": "3:5",
+     "text": "בית הקברות",
+     "text_de": "Friedhof",
+     "text_en": "Cemetery",
+     "desc": "קבלת ומשך הנזירות › קביעת תום הנזירות › סתירה ע\"י טומאה › המתחיל נזירותו במקום טמא",
+     "desc_de": "Annahme und Dauer des Nasiräats › Bestimmung des Endes der Nasiräat › Aufhebung der gezählten Tage durch Unreinheit › Wer seine Nasiräat an einem unreinen Ort beginnt",
+     "desc_en": "acceptance and duration of the Nazirite vow › Determining the end of the Nazirite vow › Annulment of the counted days through impurity › One who begins his Nazirite vow in an impure place"
+    },
+    {
+     "ref": "3:6",
+     "text": "חוץ לארץ",
+     "text_de": "Ausland",
+     "text_en": "Outside the Land of Israel",
+     "desc": "קבלת ומשך הנזירות › קביעת תום הנזירות › סתירה ע\"י טומאה › ב\"ש וב\"ה › המתחיל נזירותו במקום טמא",
+     "desc_de": "Annahme und Dauer des Nasiräats › Bestimmung des Endes der Nasiräat › Aufhebung der gezählten Tage durch Unreinheit › Schule Schammais und Schule Hillels › Wer seine Nasiräat an einem unreinen Ort beginnt",
+     "desc_en": "acceptance and duration of the Nazirite vow › Determining the end of the Nazirite vow › Annulment of the counted days through impurity › School of Shammai and School of Hillel › One who begins his Nazirite vow in an impure place"
+    },
+    {
+     "ref": "3:7",
+     "text": "עדות מוכחשת למנין נזיריות",
+     "text_de": "Bestrittene Zeugenaussage über die Anzahl der Nasiräate",
+     "text_en": "Contested testimony about the number of Nazirite vows",
+     "desc": "קבלת ומשך הנזירות › קביעת תום הנזירות › עדות על הקבלה",
+     "desc_de": "Annahme und Dauer des Nasiräats › Bestimmung des Endes der Nasiräat › Zeugenaussage über die Annahme",
+     "desc_en": "acceptance and duration of the Nazirite vow › Determining the end of the Nazirite vow › Testimony about the acceptance"
+    }
+   ]
+  },
+  {
+   "head": "פרק ד",
+   "head_de": "Kapitel 4",
+   "head_en": "Chapter 4",
+   "items": [
+    {
+     "ref": "4:1",
+     "text": "על ידי \"ואני\"",
+     "text_de": "Durch „und ich“",
+     "text_en": "By saying \"and I\"",
+     "desc": "קבלת ומשך הנזירות › פירושי לשונות › אשה ובעלה והפרה › התפסה",
+     "desc_de": "Annahme und Dauer des Nasiräats › Auslegung von Ausdrücken › Frau, Ehemann und Aufhebung › Übertragung des Gelübdes",
+     "desc_en": "acceptance and duration of the Nazirite vow › interpretation of expressions › Wife, husband and annulment › Transfer of the vow"
+    },
+    {
+     "ref": "4:2",
+     "text": "על ידי \"אמן\"",
+     "text_de": "Durch „Amen“",
+     "text_en": "By saying \"Amen\"",
+     "desc": "קבלת ומשך הנזירות › פירושי לשונות › אשה ובעלה והפרה › התפסה › אפשרות להפר",
+     "desc_de": "Annahme und Dauer des Nasiräats › Auslegung von Ausdrücken › Frau, Ehemann und Aufhebung › Übertragung des Gelübdes › Möglichkeit der Aufhebung",
+     "desc_en": "acceptance and duration of the Nazirite vow › interpretation of expressions › Wife, husband and annulment › Transfer of the vow › Possibility of annulment"
+    },
+    {
+     "ref": "4:3",
+     "text": "עונשה אם עברה על נזירותה",
+     "text_de": "Ihre Strafe, wenn sie ihre Nasiräat übertreten hat",
+     "text_en": "Her punishment if she violated her Nazirite vow",
+     "desc": "קבלת ומשך הנזירות › פירושי לשונות › אשה ובעלה והפרה › תוצאות ההפרה",
+     "desc_de": "Annahme und Dauer des Nasiräats › Auslegung von Ausdrücken › Frau, Ehemann und Aufhebung › Folgen der Aufhebung",
+     "desc_en": "acceptance and duration of the Nazirite vow › interpretation of expressions › Wife, husband and annulment › Consequences of the annulment"
+    },
+    {
+     "ref": "4:4",
+     "text": "בהמות ומעות אחר הפרה",
+     "text_de": "Tiere und Geld nach der Aufhebung",
+     "text_en": "Animals and money after the annulment",
+     "desc": "קבלת ומשך הנזירות › קרבנות ומעות שאינם נצרכים › אשה ובעלה והפרה › תוצאות ההפרה",
+     "desc_de": "Annahme und Dauer des Nasiräats › Nicht benötigte Opfer und Gelder › Frau, Ehemann und Aufhebung › Folgen der Aufhebung",
+     "desc_en": "acceptance and duration of the Nazirite vow › Offerings and money no longer needed › Wife, husband and annulment › Consequences of the annulment"
+    },
+    {
+     "ref": "4:5",
+     "text": "עד מתי מפר, באיזו תגלחת",
+     "text_de": "Bis wann man aufheben kann, bei welcher Haarschur",
+     "text_en": "Until when one may annul, at which shaving",
+     "desc": "קבלת ומשך הנזירות › קרבנות ומעות שאינם נצרכים › אשה ובעלה והפרה › אפשרות להפר",
+     "desc_de": "Annahme und Dauer des Nasiräats › Nicht benötigte Opfer und Gelder › Frau, Ehemann und Aufhebung › Möglichkeit der Aufhebung",
+     "desc_en": "acceptance and duration of the Nazirite vow › Offerings and money no longer needed › Wife, husband and annulment › Possibility of annulment"
+    },
+    {
+     "ref": "4:6",
+     "text": "היכול להדירו, מחאה, דין ההקדשות",
+     "text_de": "Wer ihn am Gelübde hindern kann, Protest, Recht der Weihungen",
+     "text_en": "Who can prevent him from vowing, protest, law of consecrations",
+     "desc": "קבלת ומשך הנזירות › קרבנות ומעות שאינם נצרכים › נזירות בן",
+     "desc_de": "Annahme und Dauer des Nasiräats › Nicht benötigte Opfer und Gelder › Nasiräat eines Sohnes",
+     "desc_en": "acceptance and duration of the Nazirite vow › Offerings and money no longer needed › Nazirite vow of a son"
+    },
+    {
+     "ref": "4:7",
+     "text": "גילוח על נזירות אב",
+     "text_de": "Haarschur wegen der Nasiräat des Vaters",
+     "text_en": "Shaving on account of the father's Nazirite vow",
+     "desc": "קבלת ומשך הנזירות › קרבנות ומעות שאינם נצרכים › נזירות בן",
+     "desc_de": "Annahme und Dauer des Nasiräats › Nicht benötigte Opfer und Gelder › Nasiräat eines Sohnes",
+     "desc_en": "acceptance and duration of the Nazirite vow › Offerings and money no longer needed › Nazirite vow of a son"
+    }
+   ]
+  },
+  {
+   "head": "פרק ה",
+   "head_de": "Kapitel 5",
+   "head_en": "Chapter 5",
+   "items": [
+    {
+     "ref": "5:1",
+     "text": "שור",
+     "text_de": "Ochse",
+     "text_en": "Ox",
+     "desc": "קבלת ומשך הנזירות › קרבנות ומעות שאינם נצרכים › טעות › הקדש",
+     "desc_de": "Annahme und Dauer des Nasiräats › Nicht benötigte Opfer und Gelder › Irrtum › Geweihtes",
+     "desc_en": "acceptance and duration of the Nazirite vow › Offerings and money no longer needed › error › Consecrated property"
+    },
+    {
+     "ref": "5:2",
+     "text": "דינר, חבית",
+     "text_de": "Denar, Fass",
+     "text_en": "Denar, barrel",
+     "desc": "קבלת ומשך הנזירות › קרבנות ומעות שאינם נצרכים › טעות › הקדש",
+     "desc_de": "Annahme und Dauer des Nasiräats › Nicht benötigte Opfer und Gelder › Irrtum › Geweihtes",
+     "desc_en": "acceptance and duration of the Nazirite vow › Offerings and money no longer needed › error › Consecrated property"
+    },
+    {
+     "ref": "5:3",
+     "text": "השפעת הוראת חכם, טעם המחלוקת",
+     "text_de": "Einfluss der Weisung eines Gelehrten, Grund der Meinungsverschiedenheit",
+     "text_en": "Effect of a sage's ruling, reason for the dispute",
+     "desc": "קבלת ומשך הנזירות › קרבנות ומעות שאינם נצרכים › טעות › נזירות",
+     "desc_de": "Annahme und Dauer des Nasiräats › Nicht benötigte Opfer und Gelder › Irrtum › Nasiräat",
+     "desc_en": "acceptance and duration of the Nazirite vow › Offerings and money no longer needed › error › Nazirite vow"
+    },
+    {
+     "ref": "5:4",
+     "text": "נולד",
+     "text_de": "Neugeborenes",
+     "text_en": "something newly arisen",
+     "desc": "קבלת ומשך הנזירות › קרבנות ומעות שאינם נצרכים › טעות › נזירות",
+     "desc_de": "Annahme und Dauer des Nasiräats › Nicht benötigte Opfer und Gelder › Irrtum › Nasiräat",
+     "desc_en": "acceptance and duration of the Nazirite vow › Offerings and money no longer needed › error › Nazirite vow"
+    },
+    {
+     "ref": "5:5",
+     "text": "אם נתברר",
+     "text_de": "Wenn es geklärt wurde",
+     "text_en": "If it was clarified",
+     "desc": "קבלת ומשך הנזירות › ספק נזירות › טעות › קבוצת › זהות הבא כנגדן",
+     "desc_de": "Annahme und Dauer des Nasiräats › Zweifel bei der Nasiräat › Irrtum › Gruppe › Identität dessen, der anstelle von ihnen kommt",
+     "desc_en": "acceptance and duration of the Nazirite vow › Doubt regarding a Nazirite vow › error › Group › Identity of the one who comes in their place"
+    },
+    {
+     "ref": "5:6",
+     "text": "אם לא נתברר",
+     "text_de": "Wenn es nicht geklärt wurde",
+     "text_en": "If it was not clarified",
+     "desc": "קבלת ומשך הנזירות › ספק נזירות › טעות › קבוצת › זהות הבא כנגדן",
+     "desc_de": "Annahme und Dauer des Nasiräats › Zweifel bei der Nasiräat › Irrtum › Gruppe › Identität dessen, der anstelle von ihnen kommt",
+     "desc_en": "acceptance and duration of the Nazirite vow › Doubt regarding a Nazirite vow › error › Group › Identity of the one who comes in their place"
+    },
+    {
+     "ref": "5:7",
+     "text": "זהות כוי",
+     "text_de": "Identität des Koj",
+     "text_en": "Identity of the koy",
+     "desc": "קבלת ומשך הנזירות › ספק נזירות › טעות › קבוצת › נודרים",
+     "desc_de": "Annahme und Dauer des Nasiräats › Zweifel bei der Nasiräat › Irrtum › Gruppe › Gelobende",
+     "desc_en": "acceptance and duration of the Nazirite vow › Doubt regarding a Nazirite vow › error › Group › Those who vow"
+    }
+   ]
+  },
+  {
+   "head": "פרק ו",
+   "head_de": "Kapitel 6",
+   "head_en": "Chapter 6",
+   "items": [
+    {
+     "ref": "6:1",
+     "text": "כלל \\ צירוף ושיעור",
+     "text_de": "Regel / Kombination und Mindestmaß",
+     "text_en": "Rule / combination and minimum quantity",
+     "desc": "הנהגות הנזיר › איסורי נזיר › איסור יוצא מן הגפן",
+     "desc_de": "Verhaltensregeln des Nasiräers › Verbote des Nasiräers › Verbot, das von der Weinrebe stammt",
+     "desc_en": "Conduct of the Nazirite › Prohibitions of the Nazirite › Prohibition deriving from the grapevine"
+    },
+    {
+     "ref": "6:2",
+     "text": "מין בפני עצמו, הגדרתו",
+     "text_de": "Eigene Art, ihre Definition",
+     "text_en": "Separate category, its definition",
+     "desc": "הנהגות הנזיר › איסורי נזיר › איסור יוצא מן הגפן",
+     "desc_de": "Verhaltensregeln des Nasiräers › Verbote des Nasiräers › Verbot, das von der Weinrebe stammt",
+     "desc_en": "Conduct of the Nazirite › Prohibitions of the Nazirite › Prohibition deriving from the grapevine"
+    },
+    {
+     "ref": "6:3",
+     "text": "אונס, לא בתער, בלא מתכון",
+     "text_de": "Zwang, nicht mit dem Schermesser, ohne Absicht",
+     "text_en": "Coercion, not with a razor, unintentionally",
+     "desc": "הנהגות הנזיר › איסורי נזיר › איסור גילוח",
+     "desc_de": "Verhaltensregeln des Nasiräers › Verbote des Nasiräers › Haarschurverbot",
+     "desc_en": "Conduct of the Nazirite › Prohibitions of the Nazirite › Prohibition of shaving"
+    },
+    {
+     "ref": "6:4",
+     "text": "חלוק התראות",
+     "text_de": "Aufteilung der Verwarnungen",
+     "text_en": "Division of the warnings",
+     "desc": "הנהגות הנזיר › איסורי נזיר › כל האיסורים",
+     "desc_de": "Verhaltensregeln des Nasiräers › Verbote des Nasiräers › Alle Verbote",
+     "desc_en": "Conduct of the Nazirite › Prohibitions of the Nazirite › All prohibitions"
+    },
+    {
+     "ref": "6:5",
+     "text": "השוואת חומרתן",
+     "text_de": "Vergleich ihrer Schwere",
+     "text_en": "Comparison of their severity",
+     "desc": "הנהגות הנזיר › איסורי נזיר › כל האיסורים",
+     "desc_de": "Verhaltensregeln des Nasiräers › Verbote des Nasiräers › Alle Verbote",
+     "desc_en": "Conduct of the Nazirite › Prohibitions of the Nazirite › All prohibitions"
+    },
+    {
+     "ref": "6:6",
+     "text": "הזאות וגילוח, גילח בשמיני, מצורע",
+     "text_de": "Besprengungen und Haarschur, Haarschur am achten Tag, Aussätziger",
+     "text_en": "Sprinklings and shaving, shaving on the eighth day, leper",
+     "desc": "הנהגות הנזיר › תגלחות מצוה › הטומאה",
+     "desc_de": "Verhaltensregeln des Nasiräers › Gebotene Haarschuren › Die Unreinheit",
+     "desc_en": "Conduct of the Nazirite › Commanded shavings › The impurity"
+    },
+    {
+     "ref": "6:7",
+     "text": "קרבנותיו, על איזה מגלח",
+     "text_de": "Seine Opfer, wegen welcher Haarschur er schert",
+     "text_en": "His offerings, for which shaving he shaves",
+     "desc": "הנהגות הנזיר › תגלחות מצוה › הטהרה › הקרבנות",
+     "desc_de": "Verhaltensregeln des Nasiräers › Gebotene Haarschuren › Die Reinigung › Die Opfer",
+     "desc_en": "Conduct of the Nazirite › Commanded shavings › The purification › The offerings"
+    },
+    {
+     "ref": "6:8",
+     "text": "הפרשה בלי קריאת שם \\ שילוח שיער",
+     "text_de": "Absonderung ohne Namensnennung / Wachsenlassen des Haares",
+     "text_en": "Setting aside without naming / letting the hair grow",
+     "desc": "הנהגות הנזיר › תגלחות מצוה › הטהרה › מעשים שונים › הקרבנות",
+     "desc_de": "Verhaltensregeln des Nasiräers › Gebotene Haarschuren › Die Reinigung › Verschiedene Handlungen › Die Opfer",
+     "desc_en": "Conduct of the Nazirite › Commanded shavings › The purification › Various acts › The offerings"
+    },
+    {
+     "ref": "6:9",
+     "text": "זרוע, תנופה \\ שעת היתר",
+     "text_de": "Schenkel, Schwingopfer / Zeit der Erlaubnis",
+     "text_en": "Foreleg, wave offering / time of permission",
+     "desc": "הנהגות הנזיר › תגלחות מצוה › הטהרה › תוצאות ההקרבה › מעשים שונים",
+     "desc_de": "Verhaltensregeln des Nasiräers › Gebotene Haarschuren › Die Reinigung › Folgen der Darbringung › Verschiedene Handlungen",
+     "desc_en": "Conduct of the Nazirite › Commanded shavings › The purification › Consequences of the offering › Various acts"
+    },
+    {
+     "ref": "6:10",
+     "text": "נמצא פסול או שלא לשמן",
+     "text_de": "Untauglich oder nicht in ihrem Namen vorgefunden",
+     "text_en": "Found invalid or not offered for their own sake",
+     "desc": "הנהגות הנזיר › תגלחות מצוה › הטהרה › תוצאות ההקרבה",
+     "desc_de": "Verhaltensregeln des Nasiräers › Gebotene Haarschuren › Die Reinigung › Folgen der Darbringung",
+     "desc_en": "Conduct of the Nazirite › Commanded shavings › The purification › Consequences of the offering"
+    },
+    {
+     "ref": "6:11",
+     "text": "טומאה אחר קרבן אחד",
+     "text_de": "Unreinheit nach einem Opfer",
+     "text_en": "Impurity after one offering",
+     "desc": "הנהגות הנזיר › תגלחות מצוה › הטהרה › תוצאות ההקרבה",
+     "desc_de": "Verhaltensregeln des Nasiräers › Gebotene Haarschuren › Die Reinigung › Folgen der Darbringung",
+     "desc_en": "Conduct of the Nazirite › Commanded shavings › The purification › Consequences of the offering"
+    }
+   ]
+  },
+  {
+   "head": "פרק ז",
+   "head_de": "Kapitel 7",
+   "head_en": "Chapter 7",
+   "items": [
+    {
+     "ref": "7:1",
+     "text": "קדימת כהן ונזיר במת מצוה",
+     "text_de": "Vorrang von Priester und Nasiräer bei einem Leichnam ohne Bestatter",
+     "text_en": "Precedence of priest and Nazirite regarding an unattended corpse",
+     "desc": "הנהגות הנזיר › איסורי נזיר › איסור טומאה",
+     "desc_de": "Verhaltensregeln des Nasiräers › Verbote des Nasiräers › Unreinheitsverbot",
+     "desc_en": "Conduct of the Nazirite › Prohibitions of the Nazirite › Prohibition of impurity"
+    },
+    {
+     "ref": "7:2",
+     "text": "אחת עשרה טומאות שמגלח עליהן",
+     "text_de": "Elf Unreinheiten, wegen derer er sich schert",
+     "text_en": "Eleven impurities for which he shaves",
+     "desc": "הנהגות הנזיר › איסורי נזיר › איסור טומאה › צורך בגילוח",
+     "desc_de": "Verhaltensregeln des Nasiräers › Verbote des Nasiräers › Unreinheitsverbot › Notwendigkeit der Haarschur",
+     "desc_en": "Conduct of the Nazirite › Prohibitions of the Nazirite › Prohibition of impurity › Necessity of shaving"
+    },
+    {
+     "ref": "7:3",
+     "text": "טומאות שאינו מגלח עליהן",
+     "text_de": "Unreinheiten, wegen derer er sich nicht schert",
+     "text_en": "Impurities for which he does not shave",
+     "desc": "הנהגות הנזיר › איסורי נזיר › איסור טומאה › צורך בגילוח",
+     "desc_de": "Verhaltensregeln des Nasiräers › Verbote des Nasiräers › Unreinheitsverbot › Notwendigkeit der Haarschur",
+     "desc_en": "Conduct of the Nazirite › Prohibitions of the Nazirite › Prohibition of impurity › Necessity of shaving"
+    },
+    {
+     "ref": "7:4",
+     "text": "השוואה לטומאת מקדש וקדשיו",
+     "text_de": "Vergleich mit der Unreinheit von Heiligtum und Heiligem",
+     "text_en": "Comparison with impurity regarding the Sanctuary and sacred things",
+     "desc": "הנהגות הנזיר › איסורי נזיר › איסור טומאה › צורך בגילוח",
+     "desc_de": "Verhaltensregeln des Nasiräers › Verbote des Nasiräers › Unreinheitsverbot › Notwendigkeit der Haarschur",
+     "desc_en": "Conduct of the Nazirite › Prohibitions of the Nazirite › Prohibition of impurity › Necessity of shaving"
+    }
+   ]
+  },
+  {
+   "head": "פרק ח",
+   "head_de": "Kapitel 8",
+   "head_en": "Chapter 8",
+   "items": [
+    {
+     "ref": "8:1",
+     "text": "שני נזירים שאחד נטמא",
+     "text_de": "Zwei Nasiräer, von denen einer unrein wurde",
+     "text_en": "Two Nazirites, one of whom became impure",
+     "desc": "הנהגות הנזיר › איסורי נזיר › ספק טומאה › איסור טומאה › טהרה מספק טומאה",
+     "desc_de": "Verhaltensregeln des Nasiräers › Verbote des Nasiräers › Unreinheitszweifel › Unreinheitsverbot › Reinheit bei Unreinheitszweifel",
+     "desc_en": "Conduct of the Nazirite › Prohibitions of the Nazirite › Doubtful impurity › Prohibition of impurity › Purity in case of doubtful impurity"
+    },
+    {
+     "ref": "8:2",
+     "text": "ספק טומאה והחלט",
+     "text_de": "Unreinheitszweifel und Gewissheit",
+     "text_en": "Doubtful impurity and certainty",
+     "desc": "הנהגות הנזיר › איסורי נזיר › ספק טומאה › איסור טומאה › טהרה מספק טומאה",
+     "desc_de": "Verhaltensregeln des Nasiräers › Verbote des Nasiräers › Unreinheitszweifel › Unreinheitsverbot › Reinheit bei Unreinheitszweifel",
+     "desc_en": "Conduct of the Nazirite › Prohibitions of the Nazirite › Doubtful impurity › Prohibition of impurity › Purity in case of doubtful impurity"
+    }
+   ]
+  },
+  {
+   "head": "פרק ט",
+   "head_de": "Kapitel 9",
+   "head_en": "Chapter 9",
+   "items": [
+    {
+     "ref": "9:1",
+     "text": "גוים, נשים ועבדים והפרה",
+     "text_de": "Nichtjuden, Frauen und Sklaven und Aufhebung",
+     "text_en": "Gentiles, women and slaves, and annulment",
+     "desc": "הנהגות הנזיר › איסורי נזיר › ספק טומאה › שייכות לנזירות",
+     "desc_de": "Verhaltensregeln des Nasiräers › Verbote des Nasiräers › Unreinheitszweifel › Zugehörigkeit zur Nasiräat",
+     "desc_en": "Conduct of the Nazirite › Prohibitions of the Nazirite › Doubtful impurity › Eligibility for the Nazirite vow"
+    },
+    {
+     "ref": "9:2",
+     "text": "נזיר וטומאת התהום",
+     "text_de": "Nasiräer und Unreinheit der Tiefe",
+     "text_en": "Nazirite and the impurity of the deep",
+     "desc": "הנהגות הנזיר › איסורי נזיר › ספק טומאה › רגלים לדבר › טומאת מת",
+     "desc_de": "Verhaltensregeln des Nasiräers › Verbote des Nasiräers › Unreinheitszweifel › Anhaltspunkte › Leichenunreinheit",
+     "desc_en": "Conduct of the Nazirite › Prohibitions of the Nazirite › Doubtful impurity › Plausible grounds › Corpse impurity"
+    },
+    {
+     "ref": "9:3",
+     "text": "שכונת קברות",
+     "text_de": "Gräberviertel",
+     "text_en": "Graveyard quarter",
+     "desc": "הנהגות הנזיר › איסורי נזיר › ספק טומאה › רגלים לדבר › טומאת מת",
+     "desc_de": "Verhaltensregeln des Nasiräers › Verbote des Nasiräers › Unreinheitszweifel › Anhaltspunkte › Leichenunreinheit",
+     "desc_en": "Conduct of the Nazirite › Prohibitions of the Nazirite › Doubtful impurity › Plausible grounds › Corpse impurity"
+    },
+    {
+     "ref": "9:4",
+     "text": "ספק נגעים, בדיקת זב, חובל בחבירו",
+     "text_de": "Aussatzzweifel, Untersuchung des Zaw, Verletzung des Nächsten",
+     "text_en": "Doubtful leprosy, examination of a zav, injuring one's fellow",
+     "desc": "הנהגות הנזיר › איסורי נזיר › ספק טומאה › רגלים לדבר",
+     "desc_de": "Verhaltensregeln des Nasiräers › Verbote des Nasiräers › Unreinheitszweifel › Anhaltspunkte",
+     "desc_en": "Conduct of the Nazirite › Prohibitions of the Nazirite › Doubtful impurity › Plausible grounds"
+    },
+    {
+     "ref": "9:5",
+     "text": "נזירותו של שמואל",
+     "text_de": "Nasiräat Samuels",
+     "text_en": "Samuel's Nazirite vow",
+     "desc": "קבלת נזירות › שייכות לנזירות",
+     "desc_de": "Annahme der Nasiräat › Zugehörigkeit zur Nasiräat",
+     "desc_en": "Acceptance of the Nazirite vow › Eligibility for the Nazirite vow"
+    }
+   ]
+  }
+ ]
+}

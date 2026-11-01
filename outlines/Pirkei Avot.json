@@ -1,0 +1,1016 @@
+{
+ "book": "Pirkei Avot",
+ "title": "פרקי אבות",
+ "title_de": "Pirkej Awot – Gliederung",
+ "title_en": "Pirkei Avot – outline",
+ "note": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema).",
+ "note_de": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema); ins Deutsche und Englische übersetzt.",
+ "note_en": "Outline after the table “Mishna Sedura”: the central content of each mishnah, with the topic path (main topic to sub-topic); translated into German and English.",
+ "sections": [
+  {
+   "head": "פרק א",
+   "head_de": "Kapitel 1",
+   "head_en": "Chapter 1",
+   "items": [
+    {
+     "ref": "1:1",
+     "text": "סדר הקבלה הקדומה, שמירה על התורה",
+     "text_de": "Ordnung der frühen Überlieferung, Bewahrung der Tora",
+     "text_en": "Order of the early tradition, safeguarding the Torah",
+     "desc": "מוסר והשקפה › שלשלת המסורה › הקדמה",
+     "desc_de": "Ethik und Weltanschauung › Kette der Überlieferung › Einleitung",
+     "desc_en": "Ethics and worldview › Chain of transmission › Introduction"
+    },
+    {
+     "ref": "1:2",
+     "text": "סיבות לבריאת העולם",
+     "text_de": "Gründe für die Erschaffung der Welt",
+     "text_en": "Reasons for the creation of the world",
+     "desc": "מוסר והשקפה › שלשלת המסורה › אנשי כה\"ג",
+     "desc_de": "Ethik und Weltanschauung › Kette der Überlieferung › Männer der Großen Versammlung",
+     "desc_en": "Ethics and worldview › Chain of transmission › Men of the Great Assembly"
+    },
+    {
+     "ref": "1:3",
+     "text": "עבודה מאהבה ויראה",
+     "text_de": "Dienst aus Liebe und aus Ehrfurcht",
+     "text_en": "Service out of love and out of fear",
+     "desc": "מוסר והשקפה › שלשלת המסורה › הזוגות",
+     "desc_de": "Ethik und Weltanschauung › Kette der Überlieferung › Die Paare",
+     "desc_en": "Ethics and worldview › Chain of transmission › The pairs"
+    },
+    {
+     "ref": "1:4",
+     "text": "דביקות בחכמים ובדבריהם",
+     "text_de": "Anhänglichkeit an die Weisen und ihre Worte",
+     "text_en": "Attachment to the sages and their words",
+     "desc": "מוסר והשקפה › שלשלת המסורה › הזוגות › ברירת חברה",
+     "desc_de": "Ethik und Weltanschauung › Kette der Überlieferung › Die Paare › Wahl eines Gefährten",
+     "desc_en": "Ethics and worldview › Chain of transmission › The pairs › Choosing a companion"
+    },
+    {
+     "ref": "1:5",
+     "text": "הכנסת אורחים, זהירות משיחת אשה",
+     "text_de": "Gastfreundschaft, Vorsicht im Gespräch mit einer Frau",
+     "text_en": "Hospitality, caution in conversing with a woman",
+     "desc": "מוסר והשקפה › שלשלת המסורה › הזוגות › ברירת חברה",
+     "desc_de": "Ethik und Weltanschauung › Kette der Überlieferung › Die Paare › Wahl eines Gefährten",
+     "desc_en": "Ethics and worldview › Chain of transmission › The pairs › Choosing a companion"
+    },
+    {
+     "ref": "1:6",
+     "text": "רב חבר, דין לזכות",
+     "text_de": "Viel Gefährtschaft, zugunsten des Angeklagten urteilen",
+     "text_en": "Many companions, judging favorably",
+     "desc": "מוסר והשקפה › שלשלת המסורה › הזוגות › ברירת חברה",
+     "desc_de": "Ethik und Weltanschauung › Kette der Überlieferung › Die Paare › Wahl eines Gefährten",
+     "desc_en": "Ethics and worldview › Chain of transmission › The pairs › Choosing a companion"
+    },
+    {
+     "ref": "1:7",
+     "text": "הרחקה מרשעים וענשם",
+     "text_de": "Distanz zu Frevlern und ihre Strafe",
+     "text_en": "Distance from the wicked and their punishment",
+     "desc": "מוסר והשקפה › שלשלת המסורה › הזוגות › ברירת חברה",
+     "desc_de": "Ethik und Weltanschauung › Kette der Überlieferung › Die Paare › Wahl eines Gefährten",
+     "desc_en": "Ethics and worldview › Chain of transmission › The pairs › Choosing a companion"
+    },
+    {
+     "ref": "1:8",
+     "text": "התיחסות לבעלי הדין",
+     "text_de": "Verhalten gegenüber den Prozessparteien",
+     "text_en": "Conduct toward litigants",
+     "desc": "מוסר והשקפה › שלשלת המסורה › הזוגות › זהירות השופט בדין",
+     "desc_de": "Ethik und Weltanschauung › Kette der Überlieferung › Die Paare › Vorsicht des Richters im Urteil",
+     "desc_en": "Ethics and worldview › Chain of transmission › The pairs › The judge's caution in judgment"
+    },
+    {
+     "ref": "1:9",
+     "text": "התיחסות לעדים",
+     "text_de": "Verhalten gegenüber den Zeugen",
+     "text_en": "Conduct toward witnesses",
+     "desc": "מוסר והשקפה › שלשלת המסורה › הזוגות › זהירות השופט בדין",
+     "desc_de": "Ethik und Weltanschauung › Kette der Überlieferung › Die Paare › Vorsicht des Richters im Urteil",
+     "desc_en": "Ethics and worldview › Chain of transmission › The pairs › The judge's caution in judgment"
+    },
+    {
+     "ref": "1:10",
+     "text": "הרחקה מבטלה ושררה",
+     "text_de": "Distanz von Müßiggang und Herrschaft",
+     "text_en": "Distance from idleness and authority",
+     "desc": "מוסר והשקפה › שלשלת המסורה › הזוגות",
+     "desc_de": "Ethik und Weltanschauung › Kette der Überlieferung › Die Paare",
+     "desc_en": "Ethics and worldview › Chain of transmission › The pairs"
+    },
+    {
+     "ref": "1:11",
+     "text": "אי דיוק בדיבורים ותוצאותיו",
+     "text_de": "Ungenauigkeit im Reden und ihre Folgen",
+     "text_en": "Imprecision in speech and its consequences",
+     "desc": "מוסר והשקפה › שלשלת המסורה › הזוגות",
+     "desc_de": "Ethik und Weltanschauung › Kette der Überlieferung › Die Paare",
+     "desc_en": "Ethics and worldview › Chain of transmission › The pairs"
+    },
+    {
+     "ref": "1:12",
+     "text": "אהבת שלום והבריות",
+     "text_de": "Liebe zum Frieden und zu den Menschen",
+     "text_en": "Love of peace and of people",
+     "desc": "מוסר והשקפה › שלשלת המסורה › הזוגות › הלל וצאצאיו › הלל הזקן",
+     "desc_de": "Ethik und Weltanschauung › Kette der Überlieferung › Die Paare › Hillel und seine Nachkommen › Hillel der Älteste",
+     "desc_en": "Ethics and worldview › Chain of transmission › The pairs › Hillel and his descendants › Hillel the Elder"
+    },
+    {
+     "ref": "1:13",
+     "text": "סכנת פרסום וזלזול בתורה",
+     "text_de": "Gefahr der Bekanntmachung und Geringschätzung der Tora",
+     "text_en": "The danger of publicity and disdain for the Torah",
+     "desc": "מוסר והשקפה › שלשלת המסורה › הזוגות › הלל וצאצאיו › הלל הזקן",
+     "desc_de": "Ethik und Weltanschauung › Kette der Überlieferung › Die Paare › Hillel und seine Nachkommen › Hillel der Älteste",
+     "desc_en": "Ethics and worldview › Chain of transmission › The pairs › Hillel and his descendants › Hillel the Elder"
+    },
+    {
+     "ref": "1:14",
+     "text": "חובה תמידי ומידי לזכות עצמי",
+     "text_de": "Ständige und sofortige Pflicht, sich selbst Verdienst zu erwerben",
+     "text_en": "Constant and immediate duty to acquire merit for oneself",
+     "desc": "מוסר והשקפה › שלשלת המסורה › הזוגות › הלל וצאצאיו › הלל הזקן",
+     "desc_de": "Ethik und Weltanschauung › Kette der Überlieferung › Die Paare › Hillel und seine Nachkommen › Hillel der Älteste",
+     "desc_en": "Ethics and worldview › Chain of transmission › The pairs › Hillel and his descendants › Hillel the Elder"
+    },
+    {
+     "ref": "1:15",
+     "text": "קביעות בתורה, במעשה ובהתיחסות לבריות",
+     "text_de": "Festigkeit im Torastudium, im Tun und im Umgang mit den Menschen",
+     "text_en": "Steadfastness in Torah study, in action and in dealing with people",
+     "desc": "מוסר והשקפה › שלשלת המסורה › הזוגות › הלל וצאצאיו › שמאי הזקן",
+     "desc_de": "Ethik und Weltanschauung › Kette der Überlieferung › Die Paare › Hillel und seine Nachkommen › Schammai der Älteste",
+     "desc_en": "Ethics and worldview › Chain of transmission › The pairs › Hillel and his descendants › Shammai the Elder"
+    },
+    {
+     "ref": "1:16",
+     "text": "דביקות לדיוק",
+     "text_de": "Anhänglichkeit an Genauigkeit",
+     "text_en": "Devotion to precision",
+     "desc": "מוסר והשקפה › שלשלת המסורה › הלל וצאצאיו",
+     "desc_de": "Ethik und Weltanschauung › Kette der Überlieferung › Hillel und seine Nachkommen",
+     "desc_en": "Ethics and worldview › Chain of transmission › Hillel and his descendants"
+    },
+    {
+     "ref": "1:17",
+     "text": "מעלת השתיקה",
+     "text_de": "Vorzug des Schweigens",
+     "text_en": "The merit of silence",
+     "desc": "מוסר והשקפה › שלשלת המסורה › הלל וצאצאיו",
+     "desc_de": "Ethik und Weltanschauung › Kette der Überlieferung › Hillel und seine Nachkommen",
+     "desc_en": "Ethics and worldview › Chain of transmission › Hillel and his descendants"
+    },
+    {
+     "ref": "1:18",
+     "text": "סיבות לקיום העולם",
+     "text_de": "Gründe für den Bestand der Welt",
+     "text_en": "Reasons for the world's endurance",
+     "desc": "מוסר והשקפה › שלשלת המסורה › הלל וצאצאיו",
+     "desc_de": "Ethik und Weltanschauung › Kette der Überlieferung › Hillel und seine Nachkommen",
+     "desc_en": "Ethics and worldview › Chain of transmission › Hillel and his descendants"
+    }
+   ]
+  },
+  {
+   "head": "פרק ב",
+   "head_de": "Kapitel 2",
+   "head_en": "Chapter 2",
+   "items": [
+    {
+     "ref": "2:1",
+     "text": "ישרות במידות, במצוות וביראת שמים",
+     "text_de": "Aufrichtigkeit in den Charaktereigenschaften, in den Geboten und in der Gottesfurcht",
+     "text_en": "Integrity in character, in commandments and in fear of Heaven",
+     "desc": "מוסר והשקפה › שלשלת המסורה › הלל וצאצאיו",
+     "desc_de": "Ethik und Weltanschauung › Kette der Überlieferung › Hillel und seine Nachkommen",
+     "desc_en": "Ethics and worldview › Chain of transmission › Hillel and his descendants"
+    },
+    {
+     "ref": "2:2",
+     "text": "לימוד טהור ומתקיים, כוונת ושכר מנהיג",
+     "text_de": "Reines und beständiges Lernen, Absicht und Lohn des Führers",
+     "text_en": "Pure and lasting study, intention and reward of a leader",
+     "desc": "מוסר והשקפה › שלשלת המסורה › הלל וצאצאיו",
+     "desc_de": "Ethik und Weltanschauung › Kette der Überlieferung › Hillel und seine Nachkommen",
+     "desc_en": "Ethics and worldview › Chain of transmission › Hillel and his descendants"
+    },
+    {
+     "ref": "2:3",
+     "text": "זהירות מהרשות",
+     "text_de": "Vorsicht vor der Obrigkeit",
+     "text_en": "Caution regarding the authorities",
+     "desc": "מוסר והשקפה › שלשלת המסורה › הלל וצאצאיו",
+     "desc_de": "Ethik und Weltanschauung › Kette der Überlieferung › Hillel und seine Nachkommen",
+     "desc_en": "Ethics and worldview › Chain of transmission › Hillel and his descendants"
+    },
+    {
+     "ref": "2:4",
+     "text": "קיום רצון ה'\\ צורך יחיד לחברה, היסוס",
+     "text_de": "Erfüllung des Willens Gottes / Notwendigkeit des Einzelnen für die Gemeinschaft, Zögern",
+     "text_en": "Fulfilling God's will / the individual's necessity for the community, hesitation",
+     "desc": "מוסר והשקפה › שלשלת המסורה › הלל וצאצאיו › הלל הזקן",
+     "desc_de": "Ethik und Weltanschauung › Kette der Überlieferung › Hillel und seine Nachkommen › Hillel der Älteste",
+     "desc_en": "Ethics and worldview › Chain of transmission › Hillel and his descendants › Hillel the Elder"
+    },
+    {
+     "ref": "2:5",
+     "text": "צורך ויחס ללימוד",
+     "text_de": "Notwendigkeit des Lernens und Haltung dazu",
+     "text_en": "Necessity of study and attitude toward it",
+     "desc": "מוסר והשקפה › שלשלת המסורה › הלל וצאצאיו › הלל הזקן",
+     "desc_de": "Ethik und Weltanschauung › Kette der Überlieferung › Hillel und seine Nachkommen › Hillel der Älteste",
+     "desc_en": "Ethics and worldview › Chain of transmission › Hillel and his descendants › Hillel the Elder"
+    },
+    {
+     "ref": "2:6",
+     "text": "עונש מדה כנגד מדה",
+     "text_de": "Strafe Maß für Maß",
+     "text_en": "Punishment measure for measure",
+     "desc": "מוסר והשקפה › שלשלת המסורה › הלל וצאצאיו › הלל הזקן",
+     "desc_de": "Ethik und Weltanschauung › Kette der Überlieferung › Hillel und seine Nachkommen › Hillel der Älteste",
+     "desc_en": "Ethics and worldview › Chain of transmission › Hillel and his descendants › Hillel the Elder"
+    },
+    {
+     "ref": "2:7",
+     "text": "הפרזות המזיקות והמהנות",
+     "text_de": "Schädliche und nützliche Übertreibungen",
+     "text_en": "Harmful and beneficial excesses",
+     "desc": "מוסר והשקפה › שלשלת המסורה › הלל וצאצאיו › הלל הזקן",
+     "desc_de": "Ethik und Weltanschauung › Kette der Überlieferung › Hillel und seine Nachkommen › Hillel der Älteste",
+     "desc_en": "Ethics and worldview › Chain of transmission › Hillel and his descendants › Hillel the Elder"
+    },
+    {
+     "ref": "2:8",
+     "text": "חובה ללמוד, שבח ודרגת תלמידיו",
+     "text_de": "Pflicht zu lernen, Lob und Rang seiner Schüler",
+     "text_en": "Duty to study, praise and rank of his students",
+     "desc": "מוסר והשקפה › תקופת ר' יוחנן בן זכאי › רבן יוחנן בן זכאי ותלמידיו",
+     "desc_de": "Ethik und Weltanschauung › Zeit von Rabbi Jochanan ben Sakkai › Rabban Jochanan ben Sakkai und seine Schüler",
+     "desc_en": "Ethics and worldview › Era of Rabbi Yochanan ben Zakkai › Rabban Yochanan ben Zakkai and his students"
+    },
+    {
+     "ref": "2:9",
+     "text": "דרך טובה, דרך רעה",
+     "text_de": "Guter Weg, schlechter Weg",
+     "text_en": "Good path, bad path",
+     "desc": "מוסר והשקפה › תקופת ר' יוחנן בן זכאי › רבן יוחנן בן זכאי ותלמידיו",
+     "desc_de": "Ethik und Weltanschauung › Zeit von Rabbi Jochanan ben Sakkai › Rabban Jochanan ben Sakkai und seine Schüler",
+     "desc_en": "Ethics and worldview › Era of Rabbi Yochanan ben Zakkai › Rabban Yochanan ben Zakkai and his students"
+    },
+    {
+     "ref": "2:10",
+     "text": "כבוד חברים וחכמים, תשובה יום יומית",
+     "text_de": "Ehrung der Gefährten und Weisen, tägliche Umkehr",
+     "text_en": "Honoring colleagues and sages, daily repentance",
+     "desc": "מוסר והשקפה › תקופת ר' יוחנן בן זכאי › רבן יוחנן בן זכאי ותלמידיו",
+     "desc_de": "Ethik und Weltanschauung › Zeit von Rabbi Jochanan ben Sakkai › Rabban Jochanan ben Sakkai und seine Schüler",
+     "desc_en": "Ethics and worldview › Era of Rabbi Yochanan ben Zakkai › Rabban Yochanan ben Zakkai and his students"
+    },
+    {
+     "ref": "2:11",
+     "text": "המוציאים מן העולם",
+     "text_de": "Die aus der Welt Hinausbringenden",
+     "text_en": "Those who remove one from the world",
+     "desc": "מוסר והשקפה › תקופת ר' יוחנן בן זכאי › רבן יוחנן בן זכאי ותלמידיו",
+     "desc_de": "Ethik und Weltanschauung › Zeit von Rabbi Jochanan ben Sakkai › Rabban Jochanan ben Sakkai und seine Schüler",
+     "desc_en": "Ethics and worldview › Era of Rabbi Yochanan ben Zakkai › Rabban Yochanan ben Zakkai and his students"
+    },
+    {
+     "ref": "2:12",
+     "text": "בשייך לאחר",
+     "text_de": "Wenn es einem anderen gehört",
+     "text_en": "When it belongs to another",
+     "desc": "מוסר והשקפה › תקופת ר' יוחנן בן זכאי › רבן יוחנן בן זכאי ותלמידיו › זהירות",
+     "desc_de": "Ethik und Weltanschauung › Zeit von Rabbi Jochanan ben Sakkai › Rabban Jochanan ben Sakkai und seine Schüler › Vorsicht",
+     "desc_en": "Ethics and worldview › Era of Rabbi Yochanan ben Zakkai › Rabban Yochanan ben Zakkai and his students › Caution"
+    },
+    {
+     "ref": "2:13",
+     "text": "ישרות בהתיחסות להקב\"ה",
+     "text_de": "Aufrichtigkeit im Verhältnis zu Gott",
+     "text_en": "Sincerity in one's relationship with God",
+     "desc": "מוסר והשקפה › תקופת ר' יוחנן בן זכאי › רבן יוחנן בן זכאי ותלמידיו › זהירות",
+     "desc_de": "Ethik und Weltanschauung › Zeit von Rabbi Jochanan ben Sakkai › Rabban Jochanan ben Sakkai und seine Schüler › Vorsicht",
+     "desc_en": "Ethics and worldview › Era of Rabbi Yochanan ben Zakkai › Rabban Yochanan ben Zakkai and his students › Caution"
+    },
+    {
+     "ref": "2:14",
+     "text": "תשובה לאפיקורוס ולימוד תורה",
+     "text_de": "Antwort an den Epikureer und Torastudium",
+     "text_en": "Reply to the heretic and Torah study",
+     "desc": "מוסר והשקפה › תקופת ר' יוחנן בן זכאי › רבן יוחנן בן זכאי ותלמידיו",
+     "desc_de": "Ethik und Weltanschauung › Zeit von Rabbi Jochanan ben Sakkai › Rabban Jochanan ben Sakkai und seine Schüler",
+     "desc_en": "Ethics and worldview › Era of Rabbi Yochanan ben Zakkai › Rabban Yochanan ben Zakkai and his students"
+    },
+    {
+     "ref": "2:15",
+     "text": "דחיפות",
+     "text_de": "Dringlichkeit",
+     "text_en": "Urgency",
+     "desc": "מוסר והשקפה › תקופת ר' יוחנן בן זכאי › לימוד התורה › עידוד",
+     "desc_de": "Ethik und Weltanschauung › Zeit von Rabbi Jochanan ben Sakkai › Torastudium › Ermutigung",
+     "desc_en": "Ethics and worldview › Era of Rabbi Yochanan ben Zakkai › Torah study › Encouragement"
+    },
+    {
+     "ref": "2:16",
+     "text": "מניעת יאוש",
+     "text_de": "Verhinderung von Verzweiflung",
+     "text_en": "Preventing despair",
+     "desc": "מוסר והשקפה › תקופת ר' יוחנן בן זכאי › לימוד התורה › עידוד",
+     "desc_de": "Ethik und Weltanschauung › Zeit von Rabbi Jochanan ben Sakkai › Torastudium › Ermutigung",
+     "desc_en": "Ethics and worldview › Era of Rabbi Yochanan ben Zakkai › Torah study › Encouragement"
+    }
+   ]
+  },
+  {
+   "head": "פרק ג",
+   "head_de": "Kapitel 3",
+   "head_en": "Chapter 3",
+   "items": [
+    {
+     "ref": "3:1",
+     "text": "התבוננות בפחיתות ובגורל האדם",
+     "text_de": "Betrachtung der Geringheit und des Schicksals des Menschen",
+     "text_en": "Contemplating the lowliness and fate of man",
+     "desc": "מוסר והשקפה › תקופת רבי עקיבא › יראה › בין אדם לה'",
+     "desc_de": "Ethik und Weltanschauung › Zeit von Rabbi Akiba › Ehrfurcht › Zwischen Mensch und Gott",
+     "desc_en": "Ethics and worldview › Era of Rabbi Akiva › Fear of God › Between man and God"
+    },
+    {
+     "ref": "3:2",
+     "text": "חשיבות חברה מסודרת\\ בין חברים, ביחיד",
+     "text_de": "Bedeutung geordneter Gemeinschaft / unter Gefährten, beim Einzelnen",
+     "text_en": "Importance of an orderly community / among colleagues, for the individual",
+     "desc": "מוסר והשקפה › תקופת רבי עקיבא › יראה › בין בני אדם",
+     "desc_de": "Ethik und Weltanschauung › Zeit von Rabbi Akiba › Ehrfurcht › Zwischen den Menschen",
+     "desc_en": "Ethics and worldview › Era of Rabbi Akiva › Fear of God › Between people"
+    },
+    {
+     "ref": "3:3",
+     "text": "על השולחן",
+     "text_de": "Am Tisch",
+     "text_en": "At the table",
+     "desc": "מוסר והשקפה › תקופת רבי עקיבא › לימוד התורה › התמדה",
+     "desc_de": "Ethik und Weltanschauung › Zeit von Rabbi Akiba › Torastudium › Beharrlichkeit",
+     "desc_en": "Ethics and worldview › Era of Rabbi Akiva › Torah study › Perseverance"
+    },
+    {
+     "ref": "3:4",
+     "text": "בשעת סכנה",
+     "text_de": "In Gefahrenzeit",
+     "text_en": "In time of danger",
+     "desc": "מוסר והשקפה › תקופת רבי עקיבא › לימוד התורה › התמדה",
+     "desc_de": "Ethik und Weltanschauung › Zeit von Rabbi Akiba › Torastudium › Beharrlichkeit",
+     "desc_en": "Ethics and worldview › Era of Rabbi Akiva › Torah study › Perseverance"
+    },
+    {
+     "ref": "3:5",
+     "text": "תועלות בלימוד תמידי",
+     "text_de": "Nutzen ständigen Lernens",
+     "text_en": "Benefits of constant study",
+     "desc": "מוסר והשקפה › תקופת רבי עקיבא › לימוד התורה › התמדה",
+     "desc_de": "Ethik und Weltanschauung › Zeit von Rabbi Akiba › Torastudium › Beharrlichkeit",
+     "desc_en": "Ethics and worldview › Era of Rabbi Akiva › Torah study › Perseverance"
+    },
+    {
+     "ref": "3:6",
+     "text": "השראת שכינה על כל מספר של לומדים",
+     "text_de": "Einwohnung der Schechina bei jeder Zahl von Lernenden",
+     "text_en": "Presence of the Shechina among any number of learners",
+     "desc": "מוסר והשקפה › תקופת רבי עקיבא › לימוד התורה › התמדה",
+     "desc_de": "Ethik und Weltanschauung › Zeit von Rabbi Akiba › Torastudium › Beharrlichkeit",
+     "desc_en": "Ethics and worldview › Era of Rabbi Akiva › Torah study › Perseverance"
+    },
+    {
+     "ref": "3:7",
+     "text": "מסירות בעבודת ה', התמדה בזמן נסיעה",
+     "text_de": "Hingabe im Dienst Gottes, Beharrlichkeit auf der Reise",
+     "text_en": "Devotion in serving God, perseverance while traveling",
+     "desc": "מוסר והשקפה › תקופת רבי עקיבא › לימוד התורה › התמדה",
+     "desc_de": "Ethik und Weltanschauung › Zeit von Rabbi Akiba › Torastudium › Beharrlichkeit",
+     "desc_en": "Ethics and worldview › Era of Rabbi Akiva › Torah study › Perseverance"
+    },
+    {
+     "ref": "3:8",
+     "text": "חומרת שכחה מפשיעה",
+     "text_de": "Schwere des Vergessens aus Nachlässigkeit",
+     "text_en": "Gravity of forgetting through negligence",
+     "desc": "מוסר והשקפה › תקופת רבי עקיבא › לימוד התורה › קיום ללימוד",
+     "desc_de": "Ethik und Weltanschauung › Zeit von Rabbi Akiba › Torastudium › Bestehen durch Lernen",
+     "desc_en": "Ethics and worldview › Era of Rabbi Akiva › Torah study › Sustenance through study"
+    },
+    {
+     "ref": "3:9",
+     "text": "לימוד על מנת לעשות",
+     "text_de": "Lernen, um zu tun",
+     "text_en": "Studying in order to do",
+     "desc": "מוסר והשקפה › תקופת רבי עקיבא › לימוד התורה › קיום ללימוד",
+     "desc_de": "Ethik und Weltanschauung › Zeit von Rabbi Akiba › Torastudium › Bestehen durch Lernen",
+     "desc_en": "Ethics and worldview › Era of Rabbi Akiva › Torah study › Sustenance through study"
+    },
+    {
+     "ref": "3:10",
+     "text": "מציאת חן בעיני הכל, המבטלים לימוד",
+     "text_de": "Wohlgefallen bei allen finden, die das Lernen vernachlässigen",
+     "text_en": "Finding favor with all, those who neglect study",
+     "desc": "מוסר והשקפה › תקופת רבי עקיבא › לימוד התורה › קיום ללימוד",
+     "desc_de": "Ethik und Weltanschauung › Zeit von Rabbi Akiba › Torastudium › Bestehen durch Lernen",
+     "desc_en": "Ethics and worldview › Era of Rabbi Akiva › Torah study › Sustenance through study"
+    },
+    {
+     "ref": "3:11",
+     "text": "למקודש, לחבירו, לבריתו",
+     "text_de": "Gegenüber dem Geheiligten, dem Nächsten, seinem Bund",
+     "text_en": "Regarding the sanctified, one's fellow, one's covenant",
+     "desc": "מוסר והשקפה › תקופת רבי עקיבא › התיחסות לבורא ולאדם › כבוד",
+     "desc_de": "Ethik und Weltanschauung › Zeit von Rabbi Akiba › Verhalten gegenüber dem Schöpfer und dem Menschen › Ehre",
+     "desc_en": "Ethics and worldview › Era of Rabbi Akiva › Conduct toward the Creator and man › Honor"
+    },
+    {
+     "ref": "3:12",
+     "text": "לחכם הזקן וצעיר, כל אדם",
+     "text_de": "Gegenüber dem alten Weisen und dem Jungen, jedem Menschen",
+     "text_en": "Toward the old sage and the young, every person",
+     "desc": "מוסר והשקפה › תקופת רבי עקיבא › התיחסות לבורא ולאדם › כבוד",
+     "desc_de": "Ethik und Weltanschauung › Zeit von Rabbi Akiba › Verhalten gegenüber dem Schöpfer und dem Menschen › Ehre",
+     "desc_en": "Ethics and worldview › Era of Rabbi Akiva › Conduct toward the Creator and man › Honor"
+    },
+    {
+     "ref": "3:13",
+     "text": "סייגים",
+     "text_de": "Schutzzäune",
+     "text_en": "Fences",
+     "desc": "מוסר והשקפה › תקופת רבי עקיבא › התיחסות לבורא ולאדם",
+     "desc_de": "Ethik und Weltanschauung › Zeit von Rabbi Akiba › Verhalten gegenüber dem Schöpfer und dem Menschen",
+     "desc_en": "Ethics and worldview › Era of Rabbi Akiva › Conduct toward the Creator and man"
+    },
+    {
+     "ref": "3:14",
+     "text": "חביבות האדם וישראל",
+     "text_de": "Lieblichkeit des Menschen und Israels",
+     "text_en": "The preciousness of man and of Israel",
+     "desc": "מוסר והשקפה › תקופת רבי עקיבא › התיחסות לבורא ולאדם",
+     "desc_de": "Ethik und Weltanschauung › Zeit von Rabbi Akiba › Verhalten gegenüber dem Schöpfer und dem Menschen",
+     "desc_en": "Ethics and worldview › Era of Rabbi Akiva › Conduct toward the Creator and man"
+    },
+    {
+     "ref": "3:15",
+     "text": "ידיעת הקב\"ה ורחמיו",
+     "text_de": "Wissen Gottes und sein Erbarmen",
+     "text_en": "God's knowledge and His mercy",
+     "desc": "מוסר והשקפה › תקופת רבי עקיבא › התיחסות לבורא ולאדם › בחירה ושכר ועונש",
+     "desc_de": "Ethik und Weltanschauung › Zeit von Rabbi Akiba › Verhalten gegenüber dem Schöpfer und dem Menschen › Willensfreiheit, Lohn und Strafe",
+     "desc_en": "Ethics and worldview › Era of Rabbi Akiva › Conduct toward the Creator and man › Free choice, reward and punishment"
+    },
+    {
+     "ref": "3:16",
+     "text": "הדין המדויק והבלתי נמנע",
+     "text_de": "Das genaue und unabwendbare Gericht",
+     "text_en": "The exact and unavoidable judgment",
+     "desc": "מוסר והשקפה › תקופת רבי עקיבא › התיחסות לבורא ולאדם › בחירה ושכר ועונש",
+     "desc_de": "Ethik und Weltanschauung › Zeit von Rabbi Akiba › Verhalten gegenüber dem Schöpfer und dem Menschen › Willensfreiheit, Lohn und Strafe",
+     "desc_en": "Ethics and worldview › Era of Rabbi Akiva › Conduct toward the Creator and man › Free choice, reward and punishment"
+    },
+    {
+     "ref": "3:17",
+     "text": "גורמים ושומרים לחכמה",
+     "text_de": "Ursachen und Wächter der Weisheit",
+     "text_en": "Causes and guardians of wisdom",
+     "desc": "מוסר והשקפה › תקופת רבי עקיבא › לימוד התורה",
+     "desc_de": "Ethik und Weltanschauung › Zeit von Rabbi Akiba › Torastudium",
+     "desc_en": "Ethics and worldview › Era of Rabbi Akiva › Torah study"
+    },
+    {
+     "ref": "3:18",
+     "text": "סדרי חשיבות בלימוד",
+     "text_de": "Rangordnung im Lernen",
+     "text_en": "Order of priority in study",
+     "desc": "מוסר והשקפה › תקופת רבי עקיבא › לימוד התורה › חשיבות של הנראה טפל",
+     "desc_de": "Ethik und Weltanschauung › Zeit von Rabbi Akiba › Torastudium › Bedeutung des scheinbar Nebensächlichen",
+     "desc_en": "Ethics and worldview › Era of Rabbi Akiva › Torah study › Importance of the seemingly secondary"
+    }
+   ]
+  },
+  {
+   "head": "פרק ד",
+   "head_de": "Kapitel 4",
+   "head_en": "Chapter 4",
+   "items": [
+    {
+     "ref": "4:1",
+     "text": "דרכי קנין מידות אמיתיות",
+     "text_de": "Wege zum Erwerb wahrer Eigenschaften",
+     "text_en": "Ways of acquiring true character traits",
+     "desc": "מוסר והשקפה › תקופת רבי עקיבא › התיחסות לבורא ולאדם › חשיבות של הנראה טפל",
+     "desc_de": "Ethik und Weltanschauung › Zeit von Rabbi Akiba › Verhalten gegenüber dem Schöpfer und dem Menschen › Bedeutung des scheinbar Nebensächlichen",
+     "desc_en": "Ethics and worldview › Era of Rabbi Akiva › Conduct toward the Creator and man › Importance of the seemingly secondary"
+    },
+    {
+     "ref": "4:2",
+     "text": "שמירת המצוות",
+     "text_de": "Bewahrung der Gebote",
+     "text_en": "Observance of the commandments",
+     "desc": "מוסר והשקפה › תקופת רבי עקיבא › התיחסות לבורא ולאדם › חשיבות של הנראה טפל",
+     "desc_de": "Ethik und Weltanschauung › Zeit von Rabbi Akiba › Verhalten gegenüber dem Schöpfer und dem Menschen › Bedeutung des scheinbar Nebensächlichen",
+     "desc_en": "Ethics and worldview › Era of Rabbi Akiva › Conduct toward the Creator and man › Importance of the seemingly secondary"
+    },
+    {
+     "ref": "4:3",
+     "text": "זהירות מנזק",
+     "text_de": "Vorsicht vor Schaden",
+     "text_en": "Caution against harm",
+     "desc": "מוסר והשקפה › תקופת רבי עקיבא › התיחסות לבורא ולאדם › חשיבות של הנראה טפל",
+     "desc_de": "Ethik und Weltanschauung › Zeit von Rabbi Akiba › Verhalten gegenüber dem Schöpfer und dem Menschen › Bedeutung des scheinbar Nebensächlichen",
+     "desc_en": "Ethics and worldview › Era of Rabbi Akiva › Conduct toward the Creator and man › Importance of the seemingly secondary"
+    },
+    {
+     "ref": "4:4",
+     "text": "ענוה, חילול השם",
+     "text_de": "Demut, Entweihung des Namens",
+     "text_en": "Humility, desecration of the Name",
+     "desc": "מוסר והשקפה › תקופת רבי עקיבא › התיחסות לבורא ולאדם",
+     "desc_de": "Ethik und Weltanschauung › Zeit von Rabbi Akiba › Verhalten gegenüber dem Schöpfer und dem Menschen",
+     "desc_en": "Ethics and worldview › Era of Rabbi Akiva › Conduct toward the Creator and man"
+    },
+    {
+     "ref": "4:5",
+     "text": "כוונת הלומד",
+     "text_de": "Absicht des Lernenden",
+     "text_en": "Intention of the learner",
+     "desc": "מוסר והשקפה › תקופת תלמידי רבי עקיבא › לימוד התורה › התיחסות ללימוד",
+     "desc_de": "Ethik und Weltanschauung › Zeit der Schüler Rabbi Akibas › Torastudium › Haltung zum Lernen",
+     "desc_en": "Ethics and worldview › Era of the students of Rabbi Akiva › Torah study › Attitude toward study"
+    },
+    {
+     "ref": "4:6",
+     "text": "כבוד תורה",
+     "text_de": "Ehrung der Tora",
+     "text_en": "Honoring the Torah",
+     "desc": "מוסר והשקפה › תקופת תלמידי רבי עקיבא › לימוד התורה › התיחסות ללימוד",
+     "desc_de": "Ethik und Weltanschauung › Zeit der Schüler Rabbi Akibas › Torastudium › Haltung zum Lernen",
+     "desc_en": "Ethics and worldview › Era of the students of Rabbi Akiva › Torah study › Attitude toward study"
+    },
+    {
+     "ref": "4:7",
+     "text": "זהירות מלדון",
+     "text_de": "Vorsicht vor dem Richten",
+     "text_en": "Caution against judging",
+     "desc": "מוסר והשקפה › תקופת תלמידי רבי עקיבא › לימוד התורה › דין",
+     "desc_de": "Ethik und Weltanschauung › Zeit der Schüler Rabbi Akibas › Torastudium › Urteil",
+     "desc_en": "Ethics and worldview › Era of the students of Rabbi Akiva › Torah study › Judgment"
+    },
+    {
+     "ref": "4:8",
+     "text": "דין יחיד",
+     "text_de": "Urteil des Einzelnen",
+     "text_en": "Judgment by an individual",
+     "desc": "מוסר והשקפה › תקופת תלמידי רבי עקיבא › לימוד התורה › דין",
+     "desc_de": "Ethik und Weltanschauung › Zeit der Schüler Rabbi Akibas › Torastudium › Urteil",
+     "desc_en": "Ethics and worldview › Era of the students of Rabbi Akiva › Torah study › Judgment"
+    },
+    {
+     "ref": "4:9",
+     "text": "התגברות על קשיים, פיספוס אפשריות",
+     "text_de": "Überwindung von Schwierigkeiten, verpasste Möglichkeiten",
+     "text_en": "Overcoming difficulties, missed opportunities",
+     "desc": "מוסר והשקפה › תקופת תלמידי רבי עקיבא › לימוד התורה › ביטול תורה",
+     "desc_de": "Ethik und Weltanschauung › Zeit der Schüler Rabbi Akibas › Torastudium › Vernachlässigung der Tora",
+     "desc_en": "Ethics and worldview › Era of the students of Rabbi Akiva › Torah study › Neglect of Torah study"
+    },
+    {
+     "ref": "4:10",
+     "text": "ניצול אפשרות ללימוד ושכרו",
+     "text_de": "Nutzung der Lernmöglichkeit und ihr Lohn",
+     "text_en": "Making use of the opportunity to study and its reward",
+     "desc": "מוסר והשקפה › תקופת תלמידי רבי עקיבא › לימוד התורה › ביטול תורה",
+     "desc_de": "Ethik und Weltanschauung › Zeit der Schüler Rabbi Akibas › Torastudium › Vernachlässigung der Tora",
+     "desc_en": "Ethics and worldview › Era of the students of Rabbi Akiva › Torah study › Neglect of Torah study"
+    },
+    {
+     "ref": "4:11",
+     "text": "שכר מצוות, קיום לכינוס לשמה",
+     "text_de": "Lohn für Gebote, Versammlung um der Sache willen",
+     "text_en": "Reward for commandments, gathering for its own sake",
+     "desc": "מוסר והשקפה › תקופת תלמידי רבי עקיבא › לימוד התורה › לימוד בחבורה",
+     "desc_de": "Ethik und Weltanschauung › Zeit der Schüler Rabbi Akibas › Torastudium › Lernen in der Gruppe",
+     "desc_en": "Ethics and worldview › Era of the students of Rabbi Akiva › Torah study › Studying in a group"
+    },
+    {
+     "ref": "4:12",
+     "text": "דרגות כבוד למשותפים בלימוד האדם",
+     "text_de": "Ehrenstufen für die am Lernen des Menschen Beteiligten",
+     "text_en": "Degrees of honor for those who share in a person's learning",
+     "desc": "מוסר והשקפה › תקופת תלמידי רבי עקיבא › לימוד התורה › לימוד בחבורה",
+     "desc_de": "Ethik und Weltanschauung › Zeit der Schüler Rabbi Akibas › Torastudium › Lernen in der Gruppe",
+     "desc_en": "Ethics and worldview › Era of the students of Rabbi Akiva › Torah study › Studying in a group"
+    },
+    {
+     "ref": "4:13",
+     "text": "דיוק בלימוד, מעשים ישרים",
+     "text_de": "Genauigkeit beim Lernen, rechtschaffene Taten",
+     "text_en": "Precision in study, upright deeds",
+     "desc": "מוסר והשקפה › תקופת תלמידי רבי עקיבא › לימוד התורה › לימוד בחבורה",
+     "desc_de": "Ethik und Weltanschauung › Zeit der Schüler Rabbi Akibas › Torastudium › Lernen in der Gruppe",
+     "desc_en": "Ethics and worldview › Era of the students of Rabbi Akiva › Torah study › Studying in a group"
+    },
+    {
+     "ref": "4:14",
+     "text": "מקומן של חכמים, פלפול חברים",
+     "text_de": "Platz der Weisen, scharfsinnige Diskussion unter Gefährten",
+     "text_en": "Place of the sages, keen debate among colleagues",
+     "desc": "מוסר והשקפה › תקופת תלמידי רבי עקיבא › לימוד התורה › לימוד בחבורה",
+     "desc_de": "Ethik und Weltanschauung › Zeit der Schüler Rabbi Akibas › Torastudium › Lernen in der Gruppe",
+     "desc_en": "Ethics and worldview › Era of the students of Rabbi Akiva › Torah study › Studying in a group"
+    },
+    {
+     "ref": "4:15",
+     "text": "עומק דרכי משפט ה', כבוד האדם / המעלה",
+     "text_de": "Tiefe der Wege des göttlichen Gerichts, Würde des Menschen / Vorzug",
+     "text_en": "Depth of the ways of God's judgment, human dignity / merit",
+     "desc": "מוסר והשקפה › תקופת תלמידי רבי עקיבא › לימוד התורה › עוה\"ז ועוה\"ב › לימוד בחבורה",
+     "desc_de": "Ethik und Weltanschauung › Zeit der Schüler Rabbi Akibas › Torastudium › Diese Welt und die kommende Welt › Lernen in der Gruppe",
+     "desc_en": "Ethics and worldview › Era of the students of Rabbi Akiva › Torah study › This world and the World to Come › Studying in a group"
+    },
+    {
+     "ref": "4:16",
+     "text": "הכנה בעוה\"ז",
+     "text_de": "Vorbereitung in dieser Welt",
+     "text_en": "Preparation in this world",
+     "desc": "מוסר והשקפה › תקופת תלמידי רבי עקיבא › תכלית העולם › עוה\"ז ועוה\"ב",
+     "desc_de": "Ethik und Weltanschauung › Zeit der Schüler Rabbi Akibas › Zweck der Welt › Diese Welt und die kommende Welt",
+     "desc_en": "Ethics and worldview › Era of the students of Rabbi Akiva › Purpose of the world › This world and the World to Come"
+    },
+    {
+     "ref": "4:17",
+     "text": "חשיבות המיוחדת שבכל עולם",
+     "text_de": "Besondere Bedeutung jeder Welt",
+     "text_en": "Special significance of each world",
+     "desc": "מוסר והשקפה › תקופת תלמידי רבי עקיבא › תכלית העולם › עוה\"ז ועוה\"ב",
+     "desc_de": "Ethik und Weltanschauung › Zeit der Schüler Rabbi Akibas › Zweck der Welt › Diese Welt und die kommende Welt",
+     "desc_en": "Ethics and worldview › Era of the students of Rabbi Akiva › Purpose of the world › This world and the World to Come"
+    },
+    {
+     "ref": "4:18",
+     "text": "חבר",
+     "text_de": "Gefährte",
+     "text_en": "Companion",
+     "desc": "מוסר והשקפה › תקופת רבי › התיחסות לבורא ולאדם › כבוד האדם שנשפל",
+     "desc_de": "Ethik und Weltanschauung › Zeit Rabbis › Verhalten gegenüber dem Schöpfer und dem Menschen › Würde des erniedrigten Menschen",
+     "desc_en": "Ethics and worldview › The era of Rabbi › Conduct toward the Creator and man › Dignity of a degraded person"
+    },
+    {
+     "ref": "4:19",
+     "text": "אויב",
+     "text_de": "Feind",
+     "text_en": "Enemy",
+     "desc": "מוסר והשקפה › תקופת רבי › התיחסות לבורא ולאדם › כבוד האדם שנשפל",
+     "desc_de": "Ethik und Weltanschauung › Zeit Rabbis › Verhalten gegenüber dem Schöpfer und dem Menschen › Würde des erniedrigten Menschen",
+     "desc_en": "Ethics and worldview › The era of Rabbi › Conduct toward the Creator and man › Dignity of a degraded person"
+    },
+    {
+     "ref": "4:20",
+     "text": "לומד, מלמד",
+     "text_de": "Lernender, Lehrender",
+     "text_en": "Learner, teacher",
+     "desc": "מוסר והשקפה › תקופת רבי › התיחסות לבורא ולאדם › בגרות ולמוד",
+     "desc_de": "Ethik und Weltanschauung › Zeit Rabbis › Verhalten gegenüber dem Schöpfer und dem Menschen › Reife und Lernen",
+     "desc_en": "Ethics and worldview › The era of Rabbi › Conduct toward the Creator and man › Maturity and learning"
+    },
+    {
+     "ref": "4:21",
+     "text": "מקצרים חיי האדם",
+     "text_de": "Was das Leben des Menschen verkürzt",
+     "text_en": "What shortens a person's life",
+     "desc": "מוסר והשקפה › תקופת רבי › התיחסות לבורא ולאדם › מידות רעות",
+     "desc_de": "Ethik und Weltanschauung › Zeit Rabbis › Verhalten gegenüber dem Schöpfer und dem Menschen › Schlechte Charaktereigenschaften",
+     "desc_en": "Ethics and worldview › The era of Rabbi › Conduct toward the Creator and man › Bad character traits"
+    },
+    {
+     "ref": "4:22",
+     "text": "הדין",
+     "text_de": "Das Recht",
+     "text_en": "Justice",
+     "desc": "מוסר והשקפה › תקופת רבי › התיחסות לבורא ולאדם › תכלית העולם",
+     "desc_de": "Ethik und Weltanschauung › Zeit Rabbis › Verhalten gegenüber dem Schöpfer und dem Menschen › Zweck der Welt",
+     "desc_en": "Ethics and worldview › The era of Rabbi › Conduct toward the Creator and man › Purpose of the world"
+    }
+   ]
+  },
+  {
+   "head": "פרק ה",
+   "head_de": "Kapitel 5",
+   "head_en": "Chapter 5",
+   "items": [
+    {
+     "ref": "5:1",
+     "text": "המאמרות ותכליתם",
+     "text_de": "Die Schöpfungsworte und ihr Zweck",
+     "text_en": "The utterances of creation and their purpose",
+     "desc": "מוסר והשקפה › דברים שבמנין › 10 › הנהגת העולם › הבריאה",
+     "desc_de": "Ethik und Weltanschauung › Dinge, die in Zahlen gefasst sind › Zehn › Lenkung der Welt › Die Schöpfung",
+     "desc_en": "Ethics and worldview › Things enumerated by number › Ten › Governance of the world › Creation"
+    },
+    {
+     "ref": "5:2",
+     "text": "אריכת אף ה' על משך הדורות",
+     "text_de": "Langmut Gottes über die Dauer der Generationen",
+     "text_en": "God's forbearance over the span of the generations",
+     "desc": "מוסר והשקפה › דברים שבמנין › 10 › הנהגת העולם › אברהם אבינו",
+     "desc_de": "Ethik und Weltanschauung › Dinge, die in Zahlen gefasst sind › Zehn › Lenkung der Welt › Abraham, unser Vater",
+     "desc_en": "Ethics and worldview › Things enumerated by number › Ten › Governance of the world › Abraham our father"
+    },
+    {
+     "ref": "5:3",
+     "text": "נסיונותיו של אברהם",
+     "text_de": "Die Prüfungen Abrahams",
+     "text_en": "The trials of Abraham",
+     "desc": "מוסר והשקפה › דברים שבמנין › 10 › הנהגת העולם › אברהם אבינו › נסיונות",
+     "desc_de": "Ethik und Weltanschauung › Dinge, die in Zahlen gefasst sind › Zehn › Lenkung der Welt › Abraham, unser Vater › Prüfungen",
+     "desc_en": "Ethics and worldview › Things enumerated by number › Ten › Governance of the world › Abraham our father › Trials"
+    },
+    {
+     "ref": "5:4",
+     "text": "נסים ביציאת מצרים / נסיונות במדבר",
+     "text_de": "Wunder beim Auszug aus Ägypten / Prüfungen in der Wüste",
+     "text_en": "Miracles at the Exodus from Egypt / trials in the wilderness",
+     "desc": "מוסר והשקפה › דברים שבמנין › 10 › הנהגת העולם › נסים › נסיונות",
+     "desc_de": "Ethik und Weltanschauung › Dinge, die in Zahlen gefasst sind › Zehn › Lenkung der Welt › Wunder › Prüfungen",
+     "desc_en": "Ethics and worldview › Things enumerated by number › Ten › Governance of the world › Miracles › Trials"
+    },
+    {
+     "ref": "5:5",
+     "text": "בבית המקדש",
+     "text_de": "Im Tempel",
+     "text_en": "In the Temple",
+     "desc": "מוסר והשקפה › דברים שבמנין › 10 › הנהגת העולם › נסים",
+     "desc_de": "Ethik und Weltanschauung › Dinge, die in Zahlen gefasst sind › Zehn › Lenkung der Welt › Wunder",
+     "desc_en": "Ethics and worldview › Things enumerated by number › Ten › Governance of the world › Miracles"
+    },
+    {
+     "ref": "5:6",
+     "text": "הנבראים באחרונה",
+     "text_de": "Zuletzt Erschaffenes",
+     "text_en": "Things created last",
+     "desc": "מוסר והשקפה › דברים שבמנין › 10 › הנהגת העולם › הבריאה",
+     "desc_de": "Ethik und Weltanschauung › Dinge, die in Zahlen gefasst sind › Zehn › Lenkung der Welt › Die Schöpfung",
+     "desc_en": "Ethics and worldview › Things enumerated by number › Ten › Governance of the world › Creation"
+    },
+    {
+     "ref": "5:7",
+     "text": "הנהגותיו של חכם",
+     "text_de": "Verhaltensweisen des Weisen",
+     "text_en": "Conduct of a wise person",
+     "desc": "מוסר והשקפה › דברים שבמנין › שבעה",
+     "desc_de": "Ethik und Weltanschauung › Dinge, die in Zahlen gefasst sind › Sieben",
+     "desc_en": "Ethics and worldview › Things enumerated by number › Seven"
+    },
+    {
+     "ref": "5:8",
+     "text": "רעב, דבר, חרב",
+     "text_de": "Hunger, Pest, Schwert",
+     "text_en": "Famine, pestilence, sword",
+     "desc": "מוסר והשקפה › דברים שבמנין › שבעה › מיני פורעניות וסיבתן",
+     "desc_de": "Ethik und Weltanschauung › Dinge, die in Zahlen gefasst sind › Sieben › Arten von Strafen und ihre Ursache",
+     "desc_en": "Ethics and worldview › Things enumerated by number › Seven › Kinds of calamities and their cause"
+    },
+    {
+     "ref": "5:9",
+     "text": "חיה רעה, גלות וריבוי הדבר",
+     "text_de": "Wilde Tiere, Exil und Zunahme der Pest",
+     "text_en": "Wild beasts, exile and increase of pestilence",
+     "desc": "מוסר והשקפה › דברים שבמנין › שבעה › מיני פורעניות וסיבתן",
+     "desc_de": "Ethik und Weltanschauung › Dinge, die in Zahlen gefasst sind › Sieben › Arten von Strafen und ihre Ursache",
+     "desc_en": "Ethics and worldview › Things enumerated by number › Seven › Kinds of calamities and their cause"
+    },
+    {
+     "ref": "5:10",
+     "text": "אנוכיות",
+     "text_de": "Egoismus",
+     "text_en": "Selfishness",
+     "desc": "מוסר והשקפה › דברים שבמנין › ארבעה › תכונות אופי",
+     "desc_de": "Ethik und Weltanschauung › Dinge, die in Zahlen gefasst sind › Vier › Charaktereigenschaften",
+     "desc_en": "Ethics and worldview › Things enumerated by number › Four › Character traits"
+    },
+    {
+     "ref": "5:11",
+     "text": "רגזנות",
+     "text_de": "Jähzorn",
+     "text_en": "Irascibility",
+     "desc": "מוסר והשקפה › דברים שבמנין › ארבעה › תכונות אופי",
+     "desc_de": "Ethik und Weltanschauung › Dinge, die in Zahlen gefasst sind › Vier › Charaktereigenschaften",
+     "desc_en": "Ethics and worldview › Things enumerated by number › Four › Character traits"
+    },
+    {
+     "ref": "5:12",
+     "text": "מהירות בקליטת לימוד וזיכרון",
+     "text_de": "Schnelle Auffassung des Gelernten und Gedächtnis",
+     "text_en": "Quick grasp of learning and memory",
+     "desc": "מוסר והשקפה › דברים שבמנין › ארבעה › תכונות אופי",
+     "desc_de": "Ethik und Weltanschauung › Dinge, die in Zahlen gefasst sind › Vier › Charaktereigenschaften",
+     "desc_en": "Ethics and worldview › Things enumerated by number › Four › Character traits"
+    },
+    {
+     "ref": "5:13",
+     "text": "נדבנות",
+     "text_de": "Freigebigkeit",
+     "text_en": "Generosity",
+     "desc": "מוסר והשקפה › דברים שבמנין › ארבעה › תכונות אופי",
+     "desc_de": "Ethik und Weltanschauung › Dinge, die in Zahlen gefasst sind › Vier › Charaktereigenschaften",
+     "desc_en": "Ethics and worldview › Things enumerated by number › Four › Character traits"
+    },
+    {
+     "ref": "5:14",
+     "text": "הצלחה ועמל בלימוד",
+     "text_de": "Erfolg und Mühe beim Lernen",
+     "text_en": "Success and toil in study",
+     "desc": "מוסר והשקפה › דברים שבמנין › ארבעה › תכונות אופי",
+     "desc_de": "Ethik und Weltanschauung › Dinge, die in Zahlen gefasst sind › Vier › Charaktereigenschaften",
+     "desc_en": "Ethics and worldview › Things enumerated by number › Four › Character traits"
+    },
+    {
+     "ref": "5:15",
+     "text": "הבחנת עיקר וטפל",
+     "text_de": "Unterscheidung von Hauptsache und Nebensache",
+     "text_en": "Distinguishing the essential from the secondary",
+     "desc": "מוסר והשקפה › דברים שבמנין › ארבעה › תכונות אופי",
+     "desc_de": "Ethik und Weltanschauung › Dinge, die in Zahlen gefasst sind › Vier › Charaktereigenschaften",
+     "desc_en": "Ethics and worldview › Things enumerated by number › Four › Character traits"
+    },
+    {
+     "ref": "5:16",
+     "text": "אהבה",
+     "text_de": "Liebe",
+     "text_en": "Love",
+     "desc": "מוסר והשקפה › מידות ישרות ותיקונם › קיום מחשבת לשמה",
+     "desc_de": "Ethik und Weltanschauung › Rechtschaffene Charaktereigenschaften und ihre Verbesserung › Bestehen des Denkens um der Sache willen",
+     "desc_en": "Ethics and worldview › Upright character traits and their improvement › Persistence of thought for its own sake"
+    },
+    {
+     "ref": "5:17",
+     "text": "מחלוקת",
+     "text_de": "Streit",
+     "text_en": "Dispute",
+     "desc": "מוסר והשקפה › מידות ישרות ותיקונם › קיום מחשבת לשמה",
+     "desc_de": "Ethik und Weltanschauung › Rechtschaffene Charaktereigenschaften und ihre Verbesserung › Bestehen des Denkens um der Sache willen",
+     "desc_en": "Ethics and worldview › Upright character traits and their improvement › Persistence of thought for its own sake"
+    },
+    {
+     "ref": "5:18",
+     "text": "זכיית והכשלת הרבים",
+     "text_de": "Die Menge zum Verdienst führen und zu Fall bringen",
+     "text_en": "Causing the many to merit and to stumble",
+     "desc": "מוסר והשקפה › מידות ישרות ותיקונם",
+     "desc_de": "Ethik und Weltanschauung › Rechtschaffene Charaktereigenschaften und ihre Verbesserung",
+     "desc_en": "Ethics and worldview › Upright character traits and their improvement"
+    },
+    {
+     "ref": "5:19",
+     "text": "מידותיו של אברהם אבינו והיפוכם",
+     "text_de": "Die Eigenschaften unseres Vaters Abraham und ihr Gegenteil",
+     "text_en": "The qualities of our father Abraham and their opposites",
+     "desc": "מוסר והשקפה › מידות ישרות ותיקונם › הגדרת מידות טובות",
+     "desc_de": "Ethik und Weltanschauung › Rechtschaffene Charaktereigenschaften und ihre Verbesserung › Bestimmung guter Eigenschaften",
+     "desc_en": "Ethics and worldview › Upright character traits and their improvement › Definition of good qualities"
+    },
+    {
+     "ref": "5:20",
+     "text": "התגברות על אופי ושכרה, תפילה",
+     "text_de": "Überwindung des Charakters und ihr Lohn, Gebet",
+     "text_en": "Overcoming one's nature and its reward, prayer",
+     "desc": "מוסר והשקפה › מידות ישרות ותיקונם › הגדרת מידות טובות",
+     "desc_de": "Ethik und Weltanschauung › Rechtschaffene Charaktereigenschaften und ihre Verbesserung › Bestimmung guter Eigenschaften",
+     "desc_en": "Ethics and worldview › Upright character traits and their improvement › Definition of good qualities"
+    },
+    {
+     "ref": "5:21",
+     "text": "התגברות הדעת",
+     "text_de": "Vorherrschaft des Verstandes",
+     "text_en": "Mastery of the intellect",
+     "desc": "מוסר והשקפה › לימוד התורה › עבודת ה' לאורך ימים",
+     "desc_de": "Ethik und Weltanschauung › Torastudium › Gottesdienst über lange Zeit",
+     "desc_en": "Ethics and worldview › Torah study › Serving God over a long time"
+    },
+    {
+     "ref": "5:22",
+     "text": "התמדה, עמל ומעלת הלימוד",
+     "text_de": "Beharrlichkeit, Mühe und Vorzug des Lernens",
+     "text_en": "Perseverance, toil and merit of study",
+     "desc": "מוסר והשקפה › לימוד התורה › עבודת ה' לאורך ימים › שכר ללימוד",
+     "desc_de": "Ethik und Weltanschauung › Torastudium › Gottesdienst über lange Zeit › Lohn für das Lernen",
+     "desc_en": "Ethics and worldview › Torah study › Serving God over a long time › Reward for study"
+    }
+   ]
+  },
+  {
+   "head": "פרק ו",
+   "head_de": "Kapitel 6",
+   "head_en": "Chapter 6",
+   "items": [
+    {
+     "ref": "6:1",
+     "text": "מעלות הלומד לשמה",
+     "text_de": "Vorzüge dessen, der um der Sache willen lernt",
+     "text_en": "Merits of one who studies for its own sake",
+     "desc": "מוסר והשקפה › לימוד התורה › שכר ללימוד",
+     "desc_de": "Ethik und Weltanschauung › Torastudium › Lohn für das Lernen",
+     "desc_en": "Ethics and worldview › Torah study › Reward for study"
+    },
+    {
+     "ref": "6:2",
+     "text": "חובת הלימוד ושכרה",
+     "text_de": "Pflicht zu lernen und ihr Lohn",
+     "text_en": "The duty to study and its reward",
+     "desc": "מוסר והשקפה › לימוד התורה › שכר ללימוד",
+     "desc_de": "Ethik und Weltanschauung › Torastudium › Lohn für das Lernen",
+     "desc_en": "Ethics and worldview › Torah study › Reward for study"
+    },
+    {
+     "ref": "6:3",
+     "text": "כבוד למלמד תורה",
+     "text_de": "Ehre für den Toralehrer",
+     "text_en": "Honor for a teacher of Torah",
+     "desc": "מוסר והשקפה › לימוד התורה › ענוות הלומד",
+     "desc_de": "Ethik und Weltanschauung › Torastudium › Bescheidenheit des Lernenden",
+     "desc_en": "Ethics and worldview › Torah study › Humility of the learner"
+    },
+    {
+     "ref": "6:4",
+     "text": "מסירות נפש בלימוד",
+     "text_de": "Hingabe beim Lernen",
+     "text_en": "Self-sacrifice in study",
+     "desc": "מוסר והשקפה › לימוד התורה › ענוות הלומד",
+     "desc_de": "Ethik und Weltanschauung › Torastudium › Bescheidenheit des Lernenden",
+     "desc_en": "Ethics and worldview › Torah study › Humility of the learner"
+    },
+    {
+     "ref": "6:5",
+     "text": "כבוד הלומד ומעשיו \\ שכרו המובטח",
+     "text_de": "Ehre des Lernenden und seiner Taten / sein zugesagter Lohn",
+     "text_en": "Honor of the learner and his deeds / his promised reward",
+     "desc": "מוסר והשקפה › לימוד התורה › שכר ללימוד › ענוות הלומד",
+     "desc_de": "Ethik und Weltanschauung › Torastudium › Lohn für das Lernen › Bescheidenheit des Lernenden",
+     "desc_en": "Ethics and worldview › Torah study › Reward for study › Humility of the learner"
+    },
+    {
+     "ref": "6:6",
+     "text": "מעלת לימוד התורה ודרכי קנייתה",
+     "text_de": "Vorzug des Torastudiums und Wege, sie zu erwerben",
+     "text_en": "Merit of Torah study and the ways of acquiring it",
+     "desc": "מוסר והשקפה › לימוד התורה › שכר ללימוד",
+     "desc_de": "Ethik und Weltanschauung › Torastudium › Lohn für das Lernen",
+     "desc_en": "Ethics and worldview › Torah study › Reward for study"
+    },
+    {
+     "ref": "6:7",
+     "text": "חיי עד, חן וכבוד, אורך ימים ועושר",
+     "text_de": "Ewiges Leben, Anmut und Ehre, langes Leben und Reichtum",
+     "text_en": "Eternal life, grace and honor, long life and wealth",
+     "desc": "מוסר והשקפה › לימוד התורה › שכר ללימוד",
+     "desc_de": "Ethik und Weltanschauung › Torastudium › Lohn für das Lernen",
+     "desc_en": "Ethics and worldview › Torah study › Reward for study"
+    },
+    {
+     "ref": "6:8",
+     "text": "שבע מידות המפארים צדיקים",
+     "text_de": "Sieben Eigenschaften, die die Gerechten zieren",
+     "text_en": "Seven qualities that adorn the righteous",
+     "desc": "מוסר והשקפה › לימוד התורה › שכר ללימוד",
+     "desc_de": "Ethik und Weltanschauung › Torastudium › Lohn für das Lernen",
+     "desc_en": "Ethics and worldview › Torah study › Reward for study"
+    },
+    {
+     "ref": "6:9",
+     "text": "דביקות בחכמים, תמידיות קבלת שכר למוד",
+     "text_de": "Anschluss an die Weisen, beständiger Empfang des Lernlohns",
+     "text_en": "Attachment to the sages, continual receipt of the reward for study",
+     "desc": "מוסר והשקפה › לימוד התורה › שכר ללימוד",
+     "desc_de": "Ethik und Weltanschauung › Torastudium › Lohn für das Lernen",
+     "desc_en": "Ethics and worldview › Torah study › Reward for study"
+    },
+    {
+     "ref": "6:10",
+     "text": "החמישה קנינים המקיימים את העולם",
+     "text_de": "Die fünf Erwerbungen, die die Welt erhalten",
+     "text_en": "The five acquisitions that sustain the world",
+     "desc": "מוסר והשקפה › הנהגת העולם › סיבות לבריאה",
+     "desc_de": "Ethik und Weltanschauung › Lenkung der Welt › Gründe für die Schöpfung",
+     "desc_en": "Ethics and worldview › Governance of the world › Reasons for creation"
+    },
+    {
+     "ref": "6:11",
+     "text": "לכבודו של הקב\"ה",
+     "text_de": "Zur Ehre des Heiligen, gelobt sei er",
+     "text_en": "For the glory of the Holy One, blessed be He",
+     "desc": "מוסר והשקפה › הנהגת העולם › סיבות לבריאה",
+     "desc_de": "Ethik und Weltanschauung › Lenkung der Welt › Gründe für die Schöpfung",
+     "desc_en": "Ethics and worldview › Governance of the world › Reasons for creation"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,909 @@
+{
+ "book": "Mishnah Tahorot",
+ "title": "משנה טהרות",
+ "title_de": "Mischna Toharot – Gliederung",
+ "title_en": "Tahorot – outline",
+ "note": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema).",
+ "note_de": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema); ins Deutsche und Englische übersetzt.",
+ "note_en": "Outline after the table “Mishna Sedura”: the central content of each mishnah, with the topic path (main topic to sub-topic); translated into German and English.",
+ "sections": [
+  {
+   "head": "פרק א",
+   "head_de": "Kapitel 1",
+   "head_en": "Chapter 1",
+   "items": [
+    {
+     "ref": "1:1",
+     "text": "תשעה דינים בנבלת עוף הטהור",
+     "text_de": "Neun Bestimmungen zum Aas eines reinen Vogels",
+     "text_en": "Nine rulings on the carcass of a pure bird",
+     "desc": "טומאת אכלים ומשקים › צירוף לטמא › נבילות › עוף › 13 דבר",
+     "desc_de": "Unreinheit von Speisen und Getränken › Verbindung zum Verunreinigen › Aas › Geflügel › Dreizehn Dinge",
+     "desc_en": "Impurity of foods and liquids › Combining for impurity › Carcasses › Fowl › Thirteen things"
+    },
+    {
+     "ref": "1:2",
+     "text": "ארבעה דינים בנבלת עוף הטהור",
+     "text_de": "Vier Bestimmungen zum Aas eines reinen Vogels",
+     "text_en": "Four rulings on the carcass of a pure bird",
+     "desc": "טומאת אכלים ומשקים › צירוף לטמא › נבילות › עוף › 13 דבר",
+     "desc_de": "Unreinheit von Speisen und Getränken › Verbindung zum Verunreinigen › Aas › Geflügel › Dreizehn Dinge",
+     "desc_en": "Impurity of foods and liquids › Combining for impurity › Carcasses › Fowl › Thirteen things"
+    },
+    {
+     "ref": "1:3",
+     "text": "דיני נבלת עוף הטמא",
+     "text_de": "Bestimmungen zum Aas eines unreinen Vogels",
+     "text_en": "Rulings on the carcass of an impure bird",
+     "desc": "טומאת אכלים ומשקים › צירוף לטמא › נבילות › עוף",
+     "desc_de": "Unreinheit von Speisen und Getränken › Verbindung zum Verunreinigen › Aas › Geflügel",
+     "desc_en": "Impurity of foods and liquids › Combining for impurity › Carcasses › Fowl"
+    },
+    {
+     "ref": "1:4",
+     "text": "טומאת אוכלין ונבילות",
+     "text_de": "Unreinheit von Speisen und Aas",
+     "text_en": "Impurity of foods and carcasses",
+     "desc": "טומאת אכלים ומשקים › צירוף לטמא › נבילות › בהמה",
+     "desc_de": "Unreinheit von Speisen und Getränken › Verbindung zum Verunreinigen › Aas › Vieh",
+     "desc_en": "Impurity of foods and liquids › Combining for impurity › Carcasses › Animals"
+    },
+    {
+     "ref": "1:5",
+     "text": "פחות מכשיעור, כשיעור",
+     "text_de": "Weniger als das Mindestmaß, wie das Mindestmaß",
+     "text_en": "Less than the minimum measure, equal to the minimum measure",
+     "desc": "טומאת אכלים ומשקים › צירוף לטמא › אכלים טמאים › שיעור לטמא",
+     "desc_de": "Unreinheit von Speisen und Getränken › Verbindung zum Verunreinigen › Unreine Speisen › Mindestmaß zum Verunreinigen",
+     "desc_en": "Impurity of foods and liquids › Combining for impurity › Impure foods › Minimum measure for imparting impurity"
+    },
+    {
+     "ref": "1:6",
+     "text": "שבללן וחלקן",
+     "text_de": "Er hat sie vermengt und geglättet",
+     "text_en": "He mixed and smoothed them",
+     "desc": "טומאת אכלים ומשקים › צירוף לטמא › אכלים טמאים › שיעור לטמא",
+     "desc_de": "Unreinheit von Speisen und Getränken › Verbindung zum Verunreinigen › Unreine Speisen › Mindestmaß zum Verunreinigen",
+     "desc_en": "Impurity of foods and liquids › Combining for impurity › Impure foods › Minimum measure for imparting impurity"
+    },
+    {
+     "ref": "1:7",
+     "text": "נושכות שנטמאו ופרשו",
+     "text_de": "Beißende Tiere, die verunreinigt wurden und sich absonderten",
+     "text_en": "Biting creatures that became impure and separated",
+     "desc": "טומאת אכלים ומשקים › כיצד מטמאין › חבור לטומאה › אכלים טמאים › מקרצות",
+     "desc_de": "Unreinheit von Speisen und Getränken › Wie sie verunreinigen › Verbindung zur Unreinheit › Unreine Speisen › Kneifende Tiere",
+     "desc_en": "Impurity of foods and liquids › How they render impure › Connection to impurity › Impure foods › Pinching creatures"
+    },
+    {
+     "ref": "1:8",
+     "text": "הנושכות בטמאה ופרשו",
+     "text_de": "Beißende Tiere in Unreinheit, die sich absonderten",
+     "text_en": "Biting creatures in impurity that separated",
+     "desc": "טומאת אכלים ומשקים › כיצד מטמאין › חבור לטומאה › אכלים טמאים › מקרצות",
+     "desc_de": "Unreinheit von Speisen und Getränken › Wie sie verunreinigen › Verbindung zur Unreinheit › Unreine Speisen › Kneifende Tiere",
+     "desc_en": "Impurity of foods and liquids › How they render impure › Connection to impurity › Impure foods › Pinching creatures"
+    },
+    {
+     "ref": "1:9",
+     "text": "ככרות בגומות",
+     "text_de": "Brote in Vertiefungen",
+     "text_en": "Loaves in hollows",
+     "desc": "טומאת אכלים ומשקים › כיצד מטמאין › חבור לטומאה › אכלים טמאים › קודש ותרומה",
+     "desc_de": "Unreinheit von Speisen und Getränken › Wie sie verunreinigen › Verbindung zur Unreinheit › Unreine Speisen › Geweihtes und Priesterabgabe",
+     "desc_en": "Impurity of foods and liquids › How they render impure › Connection to impurity › Impure foods › Consecrated food and terumah"
+    }
+   ]
+  },
+  {
+   "head": "פרק ב",
+   "head_de": "Kapitel 2",
+   "head_en": "Chapter 2",
+   "items": [
+    {
+     "ref": "2:1",
+     "text": "טומאת הנוגע ושיעור ורטיבות האוכל",
+     "text_de": "Unreinheit des Berührenden, Mindestmaß und Feuchtigkeit der Speise",
+     "text_en": "Impurity of the one who touches, minimum measure and moisture of the food",
+     "desc": "טומאת אכלים ומשקים › כיצד מטמאין › יכולת לטמא › קודש ותרומה",
+     "desc_de": "Unreinheit von Speisen und Getränken › Wie sie verunreinigen › Fähigkeit zu verunreinigen › Geweihtes und Priesterabgabe",
+     "desc_en": "Impurity of foods and liquids › How they render impure › Capacity to impart impurity › Consecrated food and terumah"
+    },
+    {
+     "ref": "2:2",
+     "text": "האוכל אכלים טמאים",
+     "text_de": "Wer unreine Speisen isst",
+     "text_en": "One who eats impure foods",
+     "desc": "טומאת אכלים ומשקים › כיצד מטמאין › יכולת לטמא › כללי דרגות הטומאה",
+     "desc_de": "Unreinheit von Speisen und Getränken › Wie sie verunreinigen › Fähigkeit zu verunreinigen › Allgemeine Regeln der Unreinheitsgrade",
+     "desc_en": "Impurity of foods and liquids › How they render impure › Capacity to impart impurity › General rules of the degrees of impurity"
+    },
+    {
+     "ref": "2:3",
+     "text": "חולין",
+     "text_de": "Profanes",
+     "text_en": "Unconsecrated food",
+     "desc": "טומאת אכלים ומשקים › כיצד מטמאין › יכולת לטמא › כללי דרגות הטומאה",
+     "desc_de": "Unreinheit von Speisen und Getränken › Wie sie verunreinigen › Fähigkeit zu verunreinigen › Allgemeine Regeln der Unreinheitsgrade",
+     "desc_en": "Impurity of foods and liquids › How they render impure › Capacity to impart impurity › General rules of the degrees of impurity"
+    },
+    {
+     "ref": "2:4",
+     "text": "תרומה",
+     "text_de": "Teruma",
+     "text_en": "Teruma",
+     "desc": "טומאת אכלים ומשקים › כיצד מטמאין › יכולת לטמא › כללי דרגות הטומאה",
+     "desc_de": "Unreinheit von Speisen und Getränken › Wie sie verunreinigen › Fähigkeit zu verunreinigen › Allgemeine Regeln der Unreinheitsgrade",
+     "desc_en": "Impurity of foods and liquids › How they render impure › Capacity to impart impurity › General rules of the degrees of impurity"
+    },
+    {
+     "ref": "2:5",
+     "text": "קודש",
+     "text_de": "Geweihtes",
+     "text_en": "Consecrated food",
+     "desc": "טומאת אכלים ומשקים › כיצד מטמאין › יכולת לטמא › כללי דרגות הטומאה",
+     "desc_de": "Unreinheit von Speisen und Getränken › Wie sie verunreinigen › Fähigkeit zu verunreinigen › Allgemeine Regeln der Unreinheitsgrade",
+     "desc_en": "Impurity of foods and liquids › How they render impure › Capacity to impart impurity › General rules of the degrees of impurity"
+    },
+    {
+     "ref": "2:6",
+     "text": "חולין שני לטומאה, תרומה שלישי לטומאה",
+     "text_de": "Profanes zweiten Grades der Unreinheit, Priesterabgabe dritten Grades",
+     "text_en": "Unconsecrated food of second degree of impurity, terumah of third degree",
+     "desc": "טומאת אכלים ומשקים › כיצד מטמאין › יכולת לטמא › כללי דרגות הטומאה",
+     "desc_de": "Unreinheit von Speisen und Getränken › Wie sie verunreinigen › Fähigkeit zu verunreinigen › Allgemeine Regeln der Unreinheitsgrade",
+     "desc_en": "Impurity of foods and liquids › How they render impure › Capacity to impart impurity › General rules of the degrees of impurity"
+    },
+    {
+     "ref": "2:7",
+     "text": "שוויון שמירות",
+     "text_de": "Gleichheit der Beaufsichtigung",
+     "text_en": "Equal supervision",
+     "desc": "טומאת אכלים ומשקים › כיצד מטמאין › יכולת לטמא › כללי דרגות הטומאה",
+     "desc_de": "Unreinheit von Speisen und Getränken › Wie sie verunreinigen › Fähigkeit zu verunreinigen › Allgemeine Regeln der Unreinheitsgrade",
+     "desc_en": "Impurity of foods and liquids › How they render impure › Capacity to impart impurity › General rules of the degrees of impurity"
+    },
+    {
+     "ref": "2:8",
+     "text": "האוכל שני לטומאה, חולין על טהרת קדש",
+     "text_de": "Wer isst, zweiten Grades der Unreinheit; Profanes in Reinheit wie bei Geweihtem",
+     "text_en": "One who eats, second degree of impurity; unconsecrated food in the purity of consecrated food",
+     "desc": "טומאת אכלים ומשקים › כיצד מטמאין › יכולת לטמא › כללי דרגות הטומאה",
+     "desc_de": "Unreinheit von Speisen und Getränken › Wie sie verunreinigen › Fähigkeit zu verunreinigen › Allgemeine Regeln der Unreinheitsgrade",
+     "desc_en": "Impurity of foods and liquids › How they render impure › Capacity to impart impurity › General rules of the degrees of impurity"
+    }
+   ]
+  },
+  {
+   "head": "פרק ג",
+   "head_de": "Kapitel 3",
+   "head_en": "Chapter 3",
+   "items": [
+    {
+     "ref": "3:1",
+     "text": "אוכלים הנקרשים והנימוחים",
+     "text_de": "Speisen, die gerinnen und die zerfließen",
+     "text_en": "Foods that congeal and those that melt",
+     "desc": "טומאת אכלים ומשקים › כיצד מטמאין › שיעור לטמא › משקים הבאים מאכלים טמאים",
+     "desc_de": "Unreinheit von Speisen und Getränken › Wie sie verunreinigen › Mindestmaß zum Verunreinigen › Flüssigkeiten, die von unreinen Speisen kommen",
+     "desc_en": "Impurity of foods and liquids › How they render impure › Minimum measure for imparting impurity › Liquids that come from impure foods"
+    },
+    {
+     "ref": "3:2",
+     "text": "הנשארים בתורת משקה, שמן מזתים וחבורן",
+     "text_de": "Sie bleiben im Stand eines Getränks, Öl aus Oliven und ihre Verbindung",
+     "text_en": "They remain in the status of a liquid, oil from olives and their connection",
+     "desc": "טומאת אכלים ומשקים › כיצד מטמאין › שיעור לטמא › משקים הבאים מאכלים טמאים",
+     "desc_de": "Unreinheit von Speisen und Getränken › Wie sie verunreinigen › Mindestmaß zum Verunreinigen › Flüssigkeiten, die von unreinen Speisen kommen",
+     "desc_en": "Impurity of foods and liquids › How they render impure › Minimum measure for imparting impurity › Liquids that come from impure foods"
+    },
+    {
+     "ref": "3:3",
+     "text": "טמא מת וזב שהוציאו משקים",
+     "text_de": "Leichenunreiner und Flussbehafteter, die Flüssigkeiten ausgepresst haben",
+     "text_en": "One impure from a corpse and one with a discharge who pressed out liquids",
+     "desc": "טומאת אכלים ומשקים › כיצד מטמאין › שיעור לטמא › משקים הבאים מאכלים טמאים",
+     "desc_de": "Unreinheit von Speisen und Getränken › Wie sie verunreinigen › Mindestmaß zum Verunreinigen › Flüssigkeiten, die von unreinen Speisen kommen",
+     "desc_en": "Impurity of foods and liquids › How they render impure › Minimum measure for imparting impurity › Liquids that come from impure foods"
+    },
+    {
+     "ref": "3:4",
+     "text": "הצטמקות ותפיחה לשיעור טומאה ואיסור",
+     "text_de": "Schrumpfen und Aufquellen bezüglich des Maßes für Unreinheit und Verbot",
+     "text_en": "Shrinking and swelling regarding the measure for impurity and prohibition",
+     "desc": "טומאת אכלים ומשקים › כיצד מטמאין › שיעור לטמא",
+     "desc_de": "Unreinheit von Speisen und Getränken › Wie sie verunreinigen › Mindestmaß zum Verunreinigen",
+     "desc_en": "Impurity of foods and liquids › How they render impure › Minimum measure for imparting impurity"
+    },
+    {
+     "ref": "3:5",
+     "text": "כלל ודוגמאות",
+     "text_de": "Regel und Beispiele",
+     "text_en": "Rule and examples",
+     "desc": "הלכות ספק טומאה › כשעת מציאתן",
+     "desc_de": "Regeln des Unreinheitszweifels › Wie zur Zeit ihres Auffindens",
+     "desc_en": "Laws of doubtful impurity › As at the time of their discovery"
+    },
+    {
+     "ref": "3:6",
+     "text": "חרש, שוטה, קטן, פיקח",
+     "text_de": "Taubstummer, Geistesschwacher, Minderjähriger, Verständiger",
+     "text_en": "Deaf-mute, imbecile, minor, sound person",
+     "desc": "הלכות ספק טומאה › ספיקן טהור › כשאין דעת להישאל",
+     "desc_de": "Regeln des Unreinheitszweifels › Ihr Zweifel gilt als rein › Wenn keine Fähigkeit zur Befragung besteht",
+     "desc_en": "Laws of doubtful impurity › Their doubt is deemed pure › When there is no capacity to be questioned"
+    },
+    {
+     "ref": "3:7",
+     "text": "כניסת טהור למקום טומאה",
+     "text_de": "Eintreten eines Reinen in einen unreinen Ort",
+     "text_en": "A pure person entering a place of impurity",
+     "desc": "הלכות ספק טומאה › ספיקן טהור › כשאין דעת להישאל › תליה המתקבלת בספק",
+     "desc_de": "Regeln des Unreinheitszweifels › Ihr Zweifel gilt als rein › Wenn keine Fähigkeit zur Befragung besteht › Zurückführung, die im Zweifel angenommen wird",
+     "desc_en": "Laws of doubtful impurity › Their doubt is deemed pure › When there is no capacity to be questioned › Attribution that is accepted in doubt"
+    },
+    {
+     "ref": "3:8",
+     "text": "נגיעת טומאה בטהרות",
+     "text_de": "Berührung von Unreinheit mit Reinheitsspeisen",
+     "text_en": "Contact of impurity with pure foods",
+     "desc": "הלכות ספק טומאה › ספיקן טהור › כשאין דעת להישאל › תליה המתקבלת בספק",
+     "desc_de": "Regeln des Unreinheitszweifels › Ihr Zweifel gilt als rein › Wenn keine Fähigkeit zur Befragung besteht › Zurückführung, die im Zweifel angenommen wird",
+     "desc_en": "Laws of doubtful impurity › Their doubt is deemed pure › When there is no capacity to be questioned › Attribution that is accepted in doubt"
+    }
+   ]
+  },
+  {
+   "head": "פרק ד",
+   "head_de": "Kapitel 4",
+   "head_en": "Chapter 4",
+   "items": [
+    {
+     "ref": "4:1",
+     "text": "זריקה",
+     "text_de": "Werfen",
+     "text_en": "Throwing",
+     "desc": "הלכות ספק טומאה › ספיקן טהור › אין לטומאה מקום",
+     "desc_de": "Regeln des Unreinheitszweifels › Ihr Zweifel gilt als rein › Die Unreinheit hat keinen festen Ort",
+     "desc_en": "Laws of doubtful impurity › Their doubt is deemed pure › Impurity has no fixed place"
+    },
+    {
+     "ref": "4:2",
+     "text": "לטמא תרומה",
+     "text_de": "Priesterabgabe verunreinigen",
+     "text_en": "To render terumah impure",
+     "desc": "הלכות ספק טומאה › ספיקן טהור › אין לטומאה מקום › בפי בעלי חיים",
+     "desc_de": "Regeln des Unreinheitszweifels › Ihr Zweifel gilt als rein › Die Unreinheit hat keinen festen Ort › Im Maul von Tieren",
+     "desc_en": "Laws of doubtful impurity › Their doubt is deemed pure › Impurity has no fixed place › In the mouths of animals"
+    },
+    {
+     "ref": "4:3",
+     "text": "לטמא אדם ואם נח",
+     "text_de": "Einen Menschen verunreinigen, und wenn er sich niedergelassen hat",
+     "text_en": "To render a person impure, and if he rested",
+     "desc": "הלכות ספק טומאה › ספיקן טהור › אין לטומאה מקום › בפי בעלי חיים",
+     "desc_de": "Regeln des Unreinheitszweifels › Ihr Zweifel gilt als rein › Die Unreinheit hat keinen festen Ort › Im Maul von Tieren",
+     "desc_en": "Laws of doubtful impurity › Their doubt is deemed pure › Impurity has no fixed place › In the mouths of animals"
+    },
+    {
+     "ref": "4:4",
+     "text": "בטומאת אוהל \\ מילוי דליים",
+     "text_de": "Bei Zeltunreinheit / Füllen von Eimern",
+     "text_en": "In tent impurity / filling buckets",
+     "desc": "הלכות ספק טומאה › במקום מציאתן",
+     "desc_de": "Regeln des Unreinheitszweifels › An ihrem Fundort",
+     "desc_en": "Laws of doubtful impurity › At the place where they were found"
+    },
+    {
+     "ref": "4:5",
+     "text": "פירותן \\ ודאי וספק מגען",
+     "text_de": "Ihre Früchte / sichere und zweifelhafte Berührung",
+     "text_en": "Their produce / certain and doubtful contact",
+     "desc": "הלכות ספק טומאה › ספיקות שהחמירו בהן › ה-6",
+     "desc_de": "Regeln des Unreinheitszweifels › Zweifelsfälle, in denen man streng entschied › Die Sechs",
+     "desc_en": "Laws of doubtful impurity › Doubtful cases in which the ruling was strict › The six"
+    },
+    {
+     "ref": "4:6",
+     "text": "מגע, משא והיסט",
+     "text_de": "Berührung, Tragen und Verschieben",
+     "text_en": "Contact, carrying and shifting",
+     "desc": "הלכות ספק טומאה › ספיקות שהחמירו בהן › איך מטמאין",
+     "desc_de": "Regeln des Unreinheitszweifels › Zweifelsfälle, in denen man streng entschied › Wie man verunreinigt",
+     "desc_en": "Laws of doubtful impurity › Doubtful cases in which the ruling was strict › How one imparts impurity"
+    },
+    {
+     "ref": "4:7",
+     "text": "פירותן",
+     "text_de": "Ihre Früchte",
+     "text_en": "Their produce",
+     "desc": "הלכות ספק טומאה › ספיקות שהקילו בהן › ה-12",
+     "desc_de": "Regeln des Unreinheitszweifels › Zweifelsfälle, in denen man nachsichtig entschied › Die Zwölf",
+     "desc_en": "Laws of doubtful impurity › Doubtful cases in which the ruling was lenient › The twelve"
+    },
+    {
+     "ref": "4:8",
+     "text": "טומאה צפה",
+     "text_de": "Schwebende Unreinheit",
+     "text_en": "Floating impurity",
+     "desc": "הלכות ספק טומאה › ספיקות שהקילו בהן › תנאיהן",
+     "desc_de": "Regeln des Unreinheitszweifels › Zweifelsfälle, in denen man nachsichtig entschied › Ihre Bedingungen",
+     "desc_en": "Laws of doubtful impurity › Doubtful cases in which the ruling was lenient › Their conditions"
+    },
+    {
+     "ref": "4:9",
+     "text": "ספק משקין",
+     "text_de": "Zweifel bei Flüssigkeiten",
+     "text_en": "Doubt regarding liquids",
+     "desc": "הלכות ספק טומאה › ספיקות שהקילו בהן › תנאיהן",
+     "desc_de": "Regeln des Unreinheitszweifels › Zweifelsfälle, in denen man nachsichtig entschied › Ihre Bedingungen",
+     "desc_en": "Laws of doubtful impurity › Doubtful cases in which the ruling was lenient › Their conditions"
+    },
+    {
+     "ref": "4:10",
+     "text": "משקין לטמא אוכלין וכלים",
+     "text_de": "Flüssigkeiten, die Speisen und Gefäße verunreinigen",
+     "text_en": "Liquids that render foods and vessels impure",
+     "desc": "הלכות ספק טומאה › ספיקות שהקילו בהן › תנאיהן",
+     "desc_de": "Regeln des Unreinheitszweifels › Zweifelsfälle, in denen man nachsichtig entschied › Ihre Bedingungen",
+     "desc_en": "Laws of doubtful impurity › Doubtful cases in which the ruling was lenient › Their conditions"
+    },
+    {
+     "ref": "4:11",
+     "text": "ידים, רשות הרבים, דברי סופרים",
+     "text_de": "Hände, öffentlicher Bereich, Worte der Schriftgelehrten",
+     "text_en": "Hands, public domain, words of the Scribes",
+     "desc": "הלכות ספק טומאה › ספיקות שהקילו בהן › תנאיהן",
+     "desc_de": "Regeln des Unreinheitszweifels › Zweifelsfälle, in denen man nachsichtig entschied › Ihre Bedingungen",
+     "desc_en": "Laws of doubtful impurity › Doubtful cases in which the ruling was lenient › Their conditions"
+    },
+    {
+     "ref": "4:12",
+     "text": "חולין, נגעים, נזירות, בכורות",
+     "text_de": "Profanes, Aussatzmale, Nasiräat, Erstgeburten",
+     "text_en": "Unconsecrated food, leprosy marks, nazirite status, firstborn animals",
+     "desc": "הלכות ספק טומאה › ספיקות שהקילו בהן › תנאיהן",
+     "desc_de": "Regeln des Unreinheitszweifels › Zweifelsfälle, in denen man nachsichtig entschied › Ihre Bedingungen",
+     "desc_en": "Laws of doubtful impurity › Doubtful cases in which the ruling was lenient › Their conditions"
+    },
+    {
+     "ref": "4:13",
+     "text": "ספק חיוב חטאת העוף",
+     "text_de": "Zweifel über die Verpflichtung zum Vogel-Sündopfer",
+     "text_en": "Doubt regarding the obligation of the bird sin offering",
+     "desc": "הלכות ספק טומאה › ספיקות שהקילו בהן › תנאיהן",
+     "desc_de": "Regeln des Unreinheitszweifels › Zweifelsfälle, in denen man nachsichtig entschied › Ihre Bedingungen",
+     "desc_en": "Laws of doubtful impurity › Doubtful cases in which the ruling was lenient › Their conditions"
+    }
+   ]
+  },
+  {
+   "head": "פרק ה",
+   "head_de": "Kapitel 5",
+   "head_en": "Chapter 5",
+   "items": [
+    {
+     "ref": "5:1",
+     "text": "בהיסט ואוהל",
+     "text_de": "Bei Verschieben und Zelt",
+     "text_en": "In shifting and tent",
+     "desc": "הלכות ספק טומאה › ברשות הרבים › לטמא אדם",
+     "desc_de": "Regeln des Unreinheitszweifels › Im öffentlichen Bereich › Einen Menschen verunreinigen",
+     "desc_en": "Laws of doubtful impurity › In the public domain › To render a person impure"
+    },
+    {
+     "ref": "5:2",
+     "text": "במגע",
+     "text_de": "Bei Berührung",
+     "text_en": "In contact",
+     "desc": "הלכות ספק טומאה › ברשות הרבים › לטמא אדם",
+     "desc_de": "Regeln des Unreinheitszweifels › Im öffentlichen Bereich › Einen Menschen verunreinigen",
+     "desc_en": "Laws of doubtful impurity › In the public domain › To render a person impure"
+    },
+    {
+     "ref": "5:3",
+     "text": "אחר הליכתו",
+     "text_de": "Nach seinem Weggehen",
+     "text_en": "After his departure",
+     "desc": "הלכות ספק טומאה › ברשות הרבים › תלייה בזוג טהרות › אדם אחד שנגע",
+     "desc_de": "Regeln des Unreinheitszweifels › Im öffentlichen Bereich › Zurückführung auf ein Paar Reinheitsspeisen › Ein einzelner Mensch, der berührte",
+     "desc_en": "Laws of doubtful impurity › In the public domain › Attribution in the case of a pair of pure foods › A single person who touched"
+    },
+    {
+     "ref": "5:4",
+     "text": "אחר נגיעתו",
+     "text_de": "Nach seiner Berührung",
+     "text_en": "After his touching",
+     "desc": "הלכות ספק טומאה › ברשות הרבים › תלייה בזוג טהרות › אדם אחד שנגע",
+     "desc_de": "Regeln des Unreinheitszweifels › Im öffentlichen Bereich › Zurückführung auf ein Paar Reinheitsspeisen › Ein einzelner Mensch, der berührte",
+     "desc_en": "Laws of doubtful impurity › In the public domain › Attribution in the case of a pair of pure foods › A single person who touched"
+    },
+    {
+     "ref": "5:5",
+     "text": "אחר הליכתם",
+     "text_de": "Nach ihrem Weggehen",
+     "text_en": "After their departure",
+     "desc": "הלכות ספק טומאה › ברשות הרבים › תלייה בזוג טהרות › שני אנשים שנגעו",
+     "desc_de": "Regeln des Unreinheitszweifels › Im öffentlichen Bereich › Zurückführung auf ein Paar Reinheitsspeisen › Zwei Menschen, die berührten",
+     "desc_en": "Laws of doubtful impurity › In the public domain › Attribution in the case of a pair of pure foods › Two people who touched"
+    },
+    {
+     "ref": "5:6",
+     "text": "אחר אכילתם",
+     "text_de": "Nach ihrem Essen",
+     "text_en": "After their eating",
+     "desc": "הלכות ספק טומאה › ברשות הרבים › תלייה בזוג טהרות › שני אנשים שנגעו",
+     "desc_de": "Regeln des Unreinheitszweifels › Im öffentlichen Bereich › Zurückführung auf ein Paar Reinheitsspeisen › Zwei Menschen, die berührten",
+     "desc_en": "Laws of doubtful impurity › In the public domain › Attribution in the case of a pair of pure foods › Two people who touched"
+    },
+    {
+     "ref": "5:7",
+     "text": "שנגע ברוק, שדרסו עליו, שנגע בנמצא מת",
+     "text_de": "Der den Speichel berührte, auf den man trat, der einen aufgefundenen Toten berührte",
+     "text_en": "One who touched spittle, on which people trampled, who touched a body found dead",
+     "desc": "הלכות ספק טומאה › ברשות הרבים › לטמא אדם או בגדיו",
+     "desc_de": "Regeln des Unreinheitszweifels › Im öffentlichen Bereich › Einen Menschen oder seine Kleider verunreinigen",
+     "desc_en": "Laws of doubtful impurity › In the public domain › To render a person or his clothes impure"
+    },
+    {
+     "ref": "5:8",
+     "text": "המטמא כל רוק \\ עדות אשה על טומאתה",
+     "text_de": "Wer jeden Speichel verunreinigt / Zeugnis einer Frau über ihre Unreinheit",
+     "text_en": "What renders any spittle impure / A woman's testimony about her impurity",
+     "desc": "הלכות ספק טומאה › ברשות הרבים וברשות היחיד › ברשות הרבים › ספיקות שונים › עדות לטומאה › לטמא אדם או בגדיו",
+     "desc_de": "Regeln des Unreinheitszweifels › Im öffentlichen und im privaten Bereich › Im öffentlichen Bereich › Verschiedene Zweifelsfälle › Zeugnis über Unreinheit › Einen Menschen oder seine Kleider verunreinigen",
+     "desc_en": "Laws of doubtful impurity › In the public and the private domain › In the public domain › Various doubtful cases › Testimony about impurity › To render a person or his clothes impure"
+    },
+    {
+     "ref": "5:9",
+     "text": "עדות מוכחשת",
+     "text_de": "Widerlegtes Zeugnis",
+     "text_en": "Contradicted testimony",
+     "desc": "הלכות ספק טומאה › ברשות הרבים וברשות היחיד › ספיקות שונים › עדות לטומאה",
+     "desc_de": "Regeln des Unreinheitszweifels › Im öffentlichen und im privaten Bereich › Verschiedene Zweifelsfälle › Zeugnis über Unreinheit",
+     "desc_en": "Laws of doubtful impurity › In the public and the private domain › Various doubtful cases › Testimony about impurity"
+    }
+   ]
+  },
+  {
+   "head": "פרק ו",
+   "head_de": "Kapitel 6",
+   "head_en": "Chapter 6",
+   "items": [
+    {
+     "ref": "6:1",
+     "text": "מקום הטומאה המשתנה",
+     "text_de": "Ort der wechselnden Unreinheit",
+     "text_en": "Place of shifting impurity",
+     "desc": "הלכות ספק טומאה › ברשות הרבים וברשות היחיד › ספיקות שונים › מעבר בין רשויות",
+     "desc_de": "Regeln des Unreinheitszweifels › Im öffentlichen und im privaten Bereich › Verschiedene Zweifelsfälle › Übergang zwischen Bereichen",
+     "desc_en": "Laws of doubtful impurity › In the public and the private domain › Various doubtful cases › Passage between domains"
+    },
+    {
+     "ref": "6:2",
+     "text": "שותפות הרשויות",
+     "text_de": "Gemeinsamkeit der Bereiche",
+     "text_en": "Overlap of domains",
+     "desc": "הלכות ספק טומאה › ברשות הרבים וברשות היחיד › ספיקות שונים › מעבר בין רשויות",
+     "desc_de": "Regeln des Unreinheitszweifels › Im öffentlichen und im privaten Bereich › Verschiedene Zweifelsfälle › Übergang zwischen Bereichen",
+     "desc_en": "Laws of doubtful impurity › In the public and the private domain › Various doubtful cases › Passage between domains"
+    },
+    {
+     "ref": "6:3",
+     "text": "רשות היחיד בתוך או סמוך לרה\"ר",
+     "text_de": "Privater Bereich innerhalb des öffentlichen oder neben ihm",
+     "text_en": "Private domain within or adjacent to the public domain",
+     "desc": "הלכות ספק טומאה › ברשות הרבים וברשות היחיד › ספיקות שונים › מעבר בין רשויות",
+     "desc_de": "Regeln des Unreinheitszweifels › Im öffentlichen und im privaten Bereich › Verschiedene Zweifelsfälle › Übergang zwischen Bereichen",
+     "desc_en": "Laws of doubtful impurity › In the public and the private domain › Various doubtful cases › Passage between domains"
+    },
+    {
+     "ref": "6:4",
+     "text": "ריבוי ספיקות \\ כלל",
+     "text_de": "Mehrfache Zweifel / Regel",
+     "text_en": "Multiple doubts / Rule",
+     "desc": "הלכות ספק טומאה › ברשות הרבים וברשות היחיד › ספיקות שונים › מעבר בין רשויות › ספק כניסה",
+     "desc_de": "Regeln des Unreinheitszweifels › Im öffentlichen und im privaten Bereich › Verschiedene Zweifelsfälle › Übergang zwischen Bereichen › Zweifel beim Eintreten",
+     "desc_en": "Laws of doubtful impurity › In the public and the private domain › Various doubtful cases › Passage between domains › Doubt about entering"
+    },
+    {
+     "ref": "6:5",
+     "text": "דוגמת שדה בבקעה",
+     "text_de": "Beispiel eines Feldes in der Ebene",
+     "text_en": "Example of a field in the valley",
+     "desc": "הלכות ספק טומאה › ברשות הרבים וברשות היחיד › ספיקות שונים › מעבר בין רשויות › ספק כניסה",
+     "desc_de": "Regeln des Unreinheitszweifels › Im öffentlichen und im privaten Bereich › Verschiedene Zweifelsfälle › Übergang zwischen Bereichen › Zweifel beim Eintreten",
+     "desc_en": "Laws of doubtful impurity › In the public and the private domain › Various doubtful cases › Passage between domains › Doubt about entering"
+    },
+    {
+     "ref": "6:6",
+     "text": "כלל, שבילי בית גלגול, מבוי הסתום",
+     "text_de": "Regel, Pfade von Bet Gilgul, blinde Gasse",
+     "text_en": "Rule, paths of Beth Gilgul, dead-end alley",
+     "desc": "הלכות ספק טומאה › ברשות הרבים וברשות היחיד › הגדרת הרשויות › השוואות לרשויות שבת",
+     "desc_de": "Regeln des Unreinheitszweifels › Im öffentlichen und im privaten Bereich › Bestimmung der Bereiche › Vergleiche mit den Bereichen des Schabbat",
+     "desc_en": "Laws of doubtful impurity › In the public and the private domain › Definition of the domains › Comparisons with the domains of the Sabbath"
+    },
+    {
+     "ref": "6:7",
+     "text": "בקעה ועונות השנה",
+     "text_de": "Ebene und Jahreszeiten",
+     "text_en": "The valley and the seasons of the year",
+     "desc": "הלכות ספק טומאה › ברשות הרבים וברשות היחיד › הגדרת הרשויות › השוואות לרשויות שבת",
+     "desc_de": "Regeln des Unreinheitszweifels › Im öffentlichen und im privaten Bereich › Bestimmung der Bereiche › Vergleiche mit den Bereichen des Schabbat",
+     "desc_en": "Laws of doubtful impurity › In the public and the private domain › Definition of the domains › Comparisons with the domains of the Sabbath"
+    },
+    {
+     "ref": "6:8",
+     "text": "בסילקי",
+     "text_de": "Bei Bsilki",
+     "text_en": "In a basilica",
+     "desc": "הלכות ספק טומאה › ברשות הרבים וברשות היחיד › הגדרת הרשויות › השוואות לרשויות שבת",
+     "desc_de": "Regeln des Unreinheitszweifels › Im öffentlichen und im privaten Bereich › Bestimmung der Bereiche › Vergleiche mit den Bereichen des Schabbat",
+     "desc_en": "Laws of doubtful impurity › In the public and the private domain › Definition of the domains › Comparisons with the domains of the Sabbath"
+    },
+    {
+     "ref": "6:9",
+     "text": "פרן וצדדיו",
+     "text_de": "Perran und seine Seiten",
+     "text_en": "Paran and its sides",
+     "desc": "הלכות ספק טומאה › ברשות הרבים וברשות היחיד › הגדרת הרשויות › השוואות לרשויות שבת",
+     "desc_de": "Regeln des Unreinheitszweifels › Im öffentlichen und im privaten Bereich › Bestimmung der Bereiche › Vergleiche mit den Bereichen des Schabbat",
+     "desc_en": "Laws of doubtful impurity › In the public and the private domain › Definition of the domains › Comparisons with the domains of the Sabbath"
+    },
+    {
+     "ref": "6:10",
+     "text": "איסטונית, חצר של רבים",
+     "text_de": "Istonit, Hof der Allgemeinheit",
+     "text_en": "Portico, courtyard of many",
+     "desc": "הלכות ספק טומאה › ברשות הרבים וברשות היחיד › הגדרת הרשויות › השוואות לרשויות שבת",
+     "desc_de": "Regeln des Unreinheitszweifels › Im öffentlichen und im privaten Bereich › Bestimmung der Bereiche › Vergleiche mit den Bereichen des Schabbat",
+     "desc_en": "Laws of doubtful impurity › In the public and the private domain › Definition of the domains › Comparisons with the domains of the Sabbath"
+    }
+   ]
+  },
+  {
+   "head": "פרק ז",
+   "head_de": "Kapitel 7",
+   "head_en": "Chapter 7",
+   "items": [
+    {
+     "ref": "7:1",
+     "text": "קדירות בצדי רה\"ר\\ שמוסר לו מפתחו",
+     "text_de": "Töpfe am Rand des öffentlichen Bereichs / Wer ihm seinen Schlüssel übergibt",
+     "text_en": "Pots at the edge of the public domain / One who hands over his key to him",
+     "desc": "הלכות ספק טומאה › טומאת עם הארץ › היסח דעת › ברה\"ר",
+     "desc_de": "Regeln des Unreinheitszweifels › Unreinheit des Am Haarez › Unaufmerksamkeit › Auf öffentlichem Grund",
+     "desc_en": "Laws of doubtful impurity › Impurity of the am ha-aretz › Lapse of attention › In the public domain"
+    },
+    {
+     "ref": "7:2",
+     "text": "שינוי בעירנות העם הארץ",
+     "text_de": "Wechsel in der Wachsamkeit des Am Haarez",
+     "text_en": "Change in the vigilance of the am ha-aretz",
+     "desc": "הלכות ספק טומאה › טומאת עם הארץ › בידיעת בעל הבית › בתוך בית החבר",
+     "desc_de": "Regeln des Unreinheitszweifels › Unreinheit des Am Haarez › Mit Wissen des Hausherrn › Im Haus des Chaver",
+     "desc_en": "Laws of doubtful impurity › Impurity of the am ha-aretz › With the knowledge of the householder › In the house of the chaver"
+    },
+    {
+     "ref": "7:3",
+     "text": "אומנים",
+     "text_de": "Handwerker",
+     "text_en": "Craftsmen",
+     "desc": "הלכות ספק טומאה › טומאת עם הארץ › בידיעת בעל הבית › בתוך בית החבר",
+     "desc_de": "Regeln des Unreinheitszweifels › Unreinheit des Am Haarez › Mit Wissen des Hausherrn › Im Haus des Chaver",
+     "desc_en": "Laws of doubtful impurity › Impurity of the am ha-aretz › With the knowledge of the householder › In the house of the chaver"
+    },
+    {
+     "ref": "7:4",
+     "text": "טוחנת שהפסיקה",
+     "text_de": "Mühle, die stillstand",
+     "text_en": "A mill that stopped",
+     "desc": "הלכות ספק טומאה › טומאת עם הארץ › בידיעת בעל הבית › בתוך בית החבר",
+     "desc_de": "Regeln des Unreinheitszweifels › Unreinheit des Am Haarez › Mit Wissen des Hausherrn › Im Haus des Chaver",
+     "desc_en": "Laws of doubtful impurity › Impurity of the am ha-aretz › With the knowledge of the householder › In the house of the chaver"
+    },
+    {
+     "ref": "7:5",
+     "text": "שומר עם הארץ, והשגחת בעל הבית",
+     "text_de": "Am Haarez als Wächter und Aufsicht des Hausherrn",
+     "text_en": "An am ha-aretz as guard and supervision by the householder",
+     "desc": "הלכות ספק טומאה › טומאת עם הארץ › בידיעת בעל הבית › בתוך בית החבר",
+     "desc_de": "Regeln des Unreinheitszweifels › Unreinheit des Am Haarez › Mit Wissen des Hausherrn › Im Haus des Chaver",
+     "desc_en": "Laws of doubtful impurity › Impurity of the am ha-aretz › With the knowledge of the householder › In the house of the chaver"
+    },
+    {
+     "ref": "7:6",
+     "text": "גבאים וגנבים שנכנסו",
+     "text_de": "Steuereintreiber und eingedrungene Diebe",
+     "text_en": "Tax collectors and thieves who entered",
+     "desc": "הלכות ספק טומאה › טומאת עם הארץ › בידיעת בעל הבית › בתוך בית החבר",
+     "desc_de": "Regeln des Unreinheitszweifels › Unreinheit des Am Haarez › Mit Wissen des Hausherrn › Im Haus des Chaver",
+     "desc_en": "Laws of doubtful impurity › Impurity of the am ha-aretz › With the knowledge of the householder › In the house of the chaver"
+    },
+    {
+     "ref": "7:7",
+     "text": "חלון של אודיארין, הנחת כלי הגת",
+     "text_de": "Fenster des Odiarin, Abstellen von Kelterwerkzeug",
+     "text_en": "Window of the Odiarin, placing of winepress tools",
+     "desc": "הלכות ספק טומאה › טומאת עם הארץ › היסח הדעת משמירה › מחוץ לבית החבר",
+     "desc_de": "Regeln des Unreinheitszweifels › Unreinheit des Am Haarez › Unaufmerksamkeit bei der Bewachung › Außerhalb des Hauses des Chaver",
+     "desc_en": "Laws of doubtful impurity › Impurity of the am ha-aretz › Lapse of attention in guarding › Outside the house of the chaver"
+    },
+    {
+     "ref": "7:8",
+     "text": "דעת לאכול, טהרת גוף וידים",
+     "text_de": "Absicht zu essen, Reinheit von Körper und Händen",
+     "text_en": "Intention to eat, purity of body and hands",
+     "desc": "הלכות ספק טומאה › טומאת עם הארץ › היסח הדעת משמירה › מחוץ לבית החבר",
+     "desc_de": "Regeln des Unreinheitszweifels › Unreinheit des Am Haarez › Unaufmerksamkeit bei der Bewachung › Außerhalb des Hauses des Chaver",
+     "desc_en": "Laws of doubtful impurity › Impurity of the am ha-aretz › Lapse of attention in guarding › Outside the house of the chaver"
+    },
+    {
+     "ref": "7:9",
+     "text": "מציאת עם הארץ בצד כלים",
+     "text_de": "Fund eines Am Haarez neben Gefäßen",
+     "text_en": "Finding an am ha-aretz beside vessels",
+     "desc": "הלכות ספק טומאה › טומאת עם הארץ › היסח הדעת משמירה › מחוץ לבית החבר",
+     "desc_de": "Regeln des Unreinheitszweifels › Unreinheit des Am Haarez › Unaufmerksamkeit bei der Bewachung › Außerhalb des Hauses des Chaver",
+     "desc_en": "Laws of doubtful impurity › Impurity of the am ha-aretz › Lapse of attention in guarding › Outside the house of the chaver"
+    }
+   ]
+  },
+  {
+   "head": "פרק ח",
+   "head_de": "Kapitel 8",
+   "head_en": "Chapter 8",
+   "items": [
+    {
+     "ref": "8:1",
+     "text": "בחצר המשותפת עם עם הארץ",
+     "text_de": "Im Hof, den man mit einem Am Haarez teilt",
+     "text_en": "In a courtyard shared with an am ha-aretz",
+     "desc": "הלכות ספק טומאה › טומאת עם הארץ › היסח הדעת משמירה › ברשותו של עם הארץ",
+     "desc_de": "Regeln des Unreinheitszweifels › Unreinheit des Am Haarez › Unaufmerksamkeit bei der Bewachung › In der Verfügungsgewalt eines Am Haarez",
+     "desc_en": "Laws of doubtful impurity › Impurity of the am ha-aretz › Lapse of attention in guarding › In the possession of an am ha-aretz"
+    },
+    {
+     "ref": "8:2",
+     "text": "הפקדת כלים אצלו",
+     "text_de": "Hinterlegung von Gefäßen bei ihm",
+     "text_en": "Depositing vessels with him",
+     "desc": "הלכות ספק טומאה › טומאת עם הארץ › היסח הדעת משמירה › ברשותו של עם הארץ",
+     "desc_de": "Regeln des Unreinheitszweifels › Unreinheit des Am Haarez › Unaufmerksamkeit bei der Bewachung › In der Verfügungsgewalt eines Am Haarez",
+     "desc_en": "Laws of doubtful impurity › Impurity of the am ha-aretz › Lapse of attention in guarding › In the possession of an am ha-aretz"
+    },
+    {
+     "ref": "8:3",
+     "text": "איבוד ושטיחת כלים, דלי בבורו",
+     "text_de": "Verlieren und Ausbreiten von Gefäßen, Eimer in seiner Zisterne",
+     "text_en": "Losing and spreading out of vessels, bucket in his cistern",
+     "desc": "הלכות ספק טומאה › טומאת עם הארץ › היסח הדעת משמירה › ברשותו של עם הארץ",
+     "desc_de": "Regeln des Unreinheitszweifels › Unreinheit des Am Haarez › Unaufmerksamkeit bei der Bewachung › In der Verfügungsgewalt eines Am Haarez",
+     "desc_en": "Laws of doubtful impurity › Impurity of the am ha-aretz › Lapse of attention in guarding › In the possession of an am ha-aretz"
+    },
+    {
+     "ref": "8:4",
+     "text": "בית נעול ופתוח",
+     "text_de": "Verschlossenes und offenes Haus",
+     "text_en": "Locked and open house",
+     "desc": "הלכות ספק טומאה › טומאת עם הארץ › שלא בידיעת החבר › בתוך בית החבר",
+     "desc_de": "Regeln des Unreinheitszweifels › Unreinheit des Am Haarez › Ohne Wissen des Chaver › Im Haus des Chaver",
+     "desc_en": "Laws of doubtful impurity › Impurity of the am ha-aretz › Without the knowledge of the chaver › In the house of the chaver"
+    },
+    {
+     "ref": "8:5",
+     "text": "לצורך בעל הבית",
+     "text_de": "Zum Bedarf des Hausherrn",
+     "text_en": "For the needs of the householder",
+     "desc": "הלכות ספק טומאה › טומאת עם הארץ › שלא בידיעת החבר › בתוך בית החבר",
+     "desc_de": "Regeln des Unreinheitszweifels › Unreinheit des Am Haarez › Ohne Wissen des Chaver › Im Haus des Chaver",
+     "desc_en": "Laws of doubtful impurity › Impurity of the am ha-aretz › Without the knowledge of the chaver › In the house of the chaver"
+    },
+    {
+     "ref": "8:6",
+     "text": "פסילתו, צורך במחשבה ושל חסר דעת",
+     "text_de": "Seine Untauglichkeit, Notwendigkeit der Absicht und bei Unzurechnungsfähigen",
+     "text_en": "His disqualification, necessity of intention, and in the case of the mentally incompetent",
+     "desc": "טומאת אכלים ומשקים › כלל › יחוד לאכילת אדם",
+     "desc_de": "Unreinheit von Speisen und Getränken › Grundregel › Alleinsein zum Essen eines Menschen",
+     "desc_en": "Impurity of foods and liquids › General rule › Exclusive designation for human consumption"
+    },
+    {
+     "ref": "8:7",
+     "text": "טומאת משקים ואחורי כלים",
+     "text_de": "Unreinheit von Flüssigkeiten und Rückseiten von Gefäßen",
+     "text_en": "Impurity of liquids and outer sides of vessels",
+     "desc": "טומאת אכלים ומשקים › משקים",
+     "desc_de": "Unreinheit von Speisen und Getränken › Flüssigkeiten",
+     "desc_en": "Impurity of foods and liquids › Liquids"
+    },
+    {
+     "ref": "8:8",
+     "text": "לצרף אוכלים",
+     "text_de": "Speisen verbinden",
+     "text_en": "To combine foods",
+     "desc": "טומאת אכלים ומשקים › משקים › חיבור גרוע",
+     "desc_de": "Unreinheit von Speisen und Getränken › Flüssigkeiten › Schwache Verbindung",
+     "desc_en": "Impurity of foods and liquids › Liquids › Weak connection"
+    },
+    {
+     "ref": "8:9",
+     "text": "השקה",
+     "text_de": "Berührung",
+     "text_en": "Contact",
+     "desc": "טומאת אכלים ומשקים › משקים › חיבור גרוע",
+     "desc_de": "Unreinheit von Speisen und Getränken › Flüssigkeiten › Schwache Verbindung",
+     "desc_en": "Impurity of foods and liquids › Liquids › Weak connection"
+    }
+   ]
+  },
+  {
+   "head": "פרק ט",
+   "head_de": "Kapitel 9",
+   "head_en": "Chapter 9",
+   "items": [
+    {
+     "ref": "9:1",
+     "text": "הכמרתן",
+     "text_de": "Das Einkochen",
+     "text_en": "Boiling down",
+     "desc": "טומאת אכלים ומשקים › הלכות טומאה בעשיית שמן › מאימתי הכשרת זיתים",
+     "desc_de": "Unreinheit von Speisen und Getränken › Regeln der Unreinheit bei der Ölherstellung › Ab wann Oliven empfänglich werden",
+     "desc_en": "Impurity of foods and liquids › Laws of impurity in oil production › From when olives become susceptible"
+    },
+    {
+     "ref": "9:2",
+     "text": "גמר מלאכתן",
+     "text_de": "Abschluss ihrer Verarbeitung",
+     "text_en": "Completion of their processing",
+     "desc": "טומאת אכלים ומשקים › הלכות טומאה בעשיית שמן › מאימתי הכשרת זיתים",
+     "desc_de": "Unreinheit von Speisen und Getränken › Regeln der Unreinheit bei der Ölherstellung › Ab wann Oliven empfänglich werden",
+     "desc_en": "Impurity of foods and liquids › Laws of impurity in oil production › From when olives become susceptible"
+    },
+    {
+     "ref": "9:3",
+     "text": "על ידי משקים טמאים או מוהל",
+     "text_de": "Durch unreine Flüssigkeiten oder Lake",
+     "text_en": "Through impure liquids or brine",
+     "desc": "טומאת אכלים ומשקים › הלכות טומאה בעשיית שמן › טומאה אחר גמר מלאכה",
+     "desc_de": "Unreinheit von Speisen und Getränken › Regeln der Unreinheit bei der Ölherstellung › Unreinheit nach Abschluss der Arbeit",
+     "desc_en": "Impurity of foods and liquids › Laws of impurity in oil production › Impurity after completion of the work"
+    },
+    {
+     "ref": "9:4",
+     "text": "נאמנות עם הארץ על תרומה",
+     "text_de": "Glaubwürdigkeit des Am Haarez bei der Priesterabgabe",
+     "text_en": "Credibility of the am ha-aretz regarding terumah",
+     "desc": "טומאת אכלים ומשקים › הלכות טומאה בעשיית שמן › טומאה אחר גמר מלאכה",
+     "desc_de": "Unreinheit von Speisen und Getränken › Regeln der Unreinheit bei der Ölherstellung › Unreinheit nach Abschluss der Arbeit",
+     "desc_en": "Impurity of foods and liquids › Laws of impurity in oil production › Impurity after completion of the work"
+    },
+    {
+     "ref": "9:5",
+     "text": "המתנה לכתוש ולמלוח, פציעה",
+     "text_de": "Warten zum Zerstoßen und Salzen, Aufschlitzen",
+     "text_en": "Waiting to crush and salt, splitting",
+     "desc": "טומאת אכלים ומשקים › הלכות טומאה בעשיית שמן › מאימתי הכשרת זיתים",
+     "desc_de": "Unreinheit von Speisen und Getränken › Regeln der Unreinheit bei der Ölherstellung › Ab wann Oliven empfänglich werden",
+     "desc_en": "Impurity of foods and liquids › Laws of impurity in oil production › From when olives become susceptible"
+    },
+    {
+     "ref": "9:6",
+     "text": "גרגור, תכלית הנחתן בבית או בגג",
+     "text_de": "Entkernen, Zweck ihrer Lagerung im Haus oder auf dem Dach",
+     "text_en": "Pitting, purpose of storing them in the house or on the roof",
+     "desc": "טומאת אכלים ומשקים › הלכות טומאה בעשיית שמן › מאימתי הכשרת זיתים",
+     "desc_de": "Unreinheit von Speisen und Getränken › Regeln der Unreinheit bei der Ölherstellung › Ab wann Oliven empfänglich werden",
+     "desc_en": "Impurity of foods and liquids › Laws of impurity in oil production › From when olives become susceptible"
+    },
+    {
+     "ref": "9:7",
+     "text": "גמר מלאכה בהבאתן לבית הבד",
+     "text_de": "Abschluss der Arbeit durch Bringen ins Ölpresshaus",
+     "text_en": "Completion of work by bringing them to the olive press",
+     "desc": "טומאת אכלים ומשקים › הלכות טומאה בעשיית שמן › מאימתי הכשרת זיתים",
+     "desc_de": "Unreinheit von Speisen und Getränken › Regeln der Unreinheit bei der Ölherstellung › Ab wann Oliven empfänglich werden",
+     "desc_en": "Impurity of foods and liquids › Laws of impurity in oil production › From when olives become susceptible"
+    },
+    {
+     "ref": "9:8",
+     "text": "ברחיים, על גבי עלים, באום",
+     "text_de": "In der Mühle, auf Blättern, im Schlegel",
+     "text_en": "In the mill, on leaves, in the mortar",
+     "desc": "טומאת אכלים ומשקים › הלכות טומאה בעשיית שמן › טומאה הנמצאת",
+     "desc_de": "Unreinheit von Speisen und Getränken › Regeln der Unreinheit bei der Ölherstellung › Aufgefundene Unreinheit",
+     "desc_en": "Impurity of foods and liquids › Laws of impurity in oil production › Impurity that is found"
+    },
+    {
+     "ref": "9:9",
+     "text": "פרודים, במקומות שונים, טומאה שנטהרה",
+     "text_de": "Getrennte, an verschiedenen Orten, Unreinheit, die gereinigt wurde",
+     "text_en": "Separate ones, in different places, impurity that was purified",
+     "desc": "טומאת אכלים ומשקים › הלכות טומאה בעשיית שמן › טומאה הנמצאת",
+     "desc_de": "Unreinheit von Speisen und Getränken › Regeln der Unreinheit bei der Ölherstellung › Aufgefundene Unreinheit",
+     "desc_en": "Impurity of foods and liquids › Laws of impurity in oil production › Impurity that is found"
+    }
+   ]
+  },
+  {
+   "head": "פרק י",
+   "head_de": "Kapitel 10",
+   "head_en": "Chapter 10",
+   "items": [
+    {
+     "ref": "10:1",
+     "text": "כלים הטמאים מדרס",
+     "text_de": "Gefäße mit Midras-Unreinheit",
+     "text_en": "Vessels impure through Midras",
+     "desc": "טומאת אכלים ומשקים › הלכות טומאה בעשיית שמן › טהרת פועלי עם הארץ › חשש שנטמאו",
+     "desc_de": "Unreinheit von Speisen und Getränken › Regeln der Unreinheit bei der Ölherstellung › Reinheit der Arbeiter, die Am Haarez sind › Verdacht, dass sie verunreinigt wurden",
+     "desc_en": "Impurity of foods and liquids › Laws of impurity in oil production › Purity of workers who are am ha-aretz › Suspicion that they became impure"
+    },
+    {
+     "ref": "10:2",
+     "text": "משקים טמאים, נאמנותם, הרחקתם מהשגחה",
+     "text_de": "Unreine Flüssigkeiten, ihre Glaubwürdigkeit, ihre Fernhaltung von der Aufsicht",
+     "text_en": "Impure liquids, their credibility, keeping them away from supervision",
+     "desc": "טומאת אכלים ומשקים › הלכות טומאה בעשיית יין › הלכות טומאה בעשיית שמן › טהרת פועלי עם הארץ › חשש שנטמאו",
+     "desc_de": "Unreinheit von Speisen und Getränken › Regeln der Unreinheit bei der Weinherstellung › Regeln der Unreinheit bei der Ölherstellung › Reinheit der Arbeiter, die Am Haarez sind › Verdacht, dass sie verunreinigt wurden",
+     "desc_en": "Impurity of foods and liquids › Laws of impurity in wine production › Laws of impurity in oil production › Purity of workers who are am ha-aretz › Suspicion that they became impure"
+    },
+    {
+     "ref": "10:3",
+     "text": "טיהורם במקוה",
+     "text_de": "Ihre Reinigung im Tauchbad",
+     "text_en": "Their purification in a mikveh",
+     "desc": "טומאת אכלים ומשקים › הלכות טומאה בעשיית יין › הלכות טומאה בעשיית שמן › טהרת פועלי עם הארץ",
+     "desc_de": "Unreinheit von Speisen und Getränken › Regeln der Unreinheit bei der Weinherstellung › Regeln der Unreinheit bei der Ölherstellung › Reinheit der Arbeiter, die Am Haarez sind",
+     "desc_en": "Impurity of foods and liquids › Laws of impurity in wine production › Laws of impurity in oil production › Purity of workers who are am ha-aretz"
+    },
+    {
+     "ref": "10:4",
+     "text": "נתינה לגת",
+     "text_de": "Geben in die Kelter",
+     "text_en": "Putting into the winepress",
+     "desc": "טומאת אכלים ומשקים › הלכות טומאה בעשיית יין › תכלית בצירה + קביעת המיכל",
+     "desc_de": "Unreinheit von Speisen und Getränken › Regeln der Unreinheit bei der Weinherstellung › Zweck der Lese und Festlegung des Behälters",
+     "desc_en": "Impurity of foods and liquids › Laws of impurity in wine production › Purpose of the harvest and designation of the container"
+    },
+    {
+     "ref": "10:5",
+     "text": "נטילה לאכילה, נפילה ודריכה בגת",
+     "text_de": "Händewaschen zum Essen, Hineinfallen und Treten in der Kelter",
+     "text_en": "Washing hands for eating, falling and treading in the winepress",
+     "desc": "טומאת אכלים ומשקים › הלכות טומאה בעשיית יין › תכלית בצירה + קביעת המיכל",
+     "desc_de": "Unreinheit von Speisen und Getränken › Regeln der Unreinheit bei der Weinherstellung › Zweck der Lese und Festlegung des Behälters",
+     "desc_en": "Impurity of foods and liquids › Laws of impurity in wine production › Purpose of the harvest and designation of the container"
+    },
+    {
+     "ref": "10:6",
+     "text": "ספק רוק בגת",
+     "text_de": "Zweifel über Speichel in der Kelter",
+     "text_en": "Doubt about spittle in the winepress",
+     "desc": "טומאת אכלים ומשקים › הלכות טומאה בעשיית יין › טומאה הנמצאת",
+     "desc_de": "Unreinheit von Speisen und Getränken › Regeln der Unreinheit bei der Weinherstellung › Aufgefundene Unreinheit",
+     "desc_en": "Impurity of foods and liquids › Laws of impurity in wine production › Impurity that is found"
+    },
+    {
+     "ref": "10:7",
+     "text": "בחביות שזלפן מן הבור",
+     "text_de": "In Fässern, die er aus der Grube ausgespült hat",
+     "text_en": "In casks which he rinsed from the vat",
+     "desc": "טומאת אכלים ומשקים › הלכות טומאה בעשיית יין › טומאה הנמצאת",
+     "desc_de": "Unreinheit von Speisen und Getränken › Regeln der Unreinheit bei der Weinherstellung › Aufgefundene Unreinheit",
+     "desc_en": "Impurity of foods and liquids › Laws of impurity in wine production › Impurity that is found"
+    },
+    {
+     "ref": "10:8",
+     "text": "מקומה בגת ובכרם \\ טהרת כלי סחיטה",
+     "text_de": "Ihr Platz in Kelter und Weinberg / Reinheit der Presswerkzeuge",
+     "text_en": "Its place in winepress and vineyard / Purity of pressing implements",
+     "desc": "טומאת אכלים ומשקים › עשיית שמן",
+     "desc_de": "Unreinheit von Speisen und Getränken › Ölherstellung",
+     "desc_en": "Impurity of foods and liquids › Oil production"
+    }
+   ]
+  }
+ ]
+}

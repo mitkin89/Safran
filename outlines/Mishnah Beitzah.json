@@ -1,0 +1,424 @@
+{
+ "book": "Mishnah Beitzah",
+ "title": "משנה ביצה",
+ "title_de": "Mischna Beza – Gliederung",
+ "title_en": "Beitzah – outline",
+ "note": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema).",
+ "note_de": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema); ins Deutsche und Englische übersetzt.",
+ "note_en": "Outline after the table “Mishna Sedura”: the central content of each mishnah, with the topic path (main topic to sub-topic); translated into German and English.",
+ "sections": [
+  {
+   "head": "פרק א",
+   "head_de": "Kapitel 1",
+   "head_en": "Chapter 1",
+   "items": [
+    {
+     "ref": "1:1",
+     "text": "ביצה שנולדה, שיעור ראיית חמץ",
+     "text_de": "Am Feiertag gelegtes Ei, Maß der Suche nach Gesäuertem",
+     "text_en": "Egg laid on a festival day, measure of searching for leaven",
+     "desc": "גזירות לשמור על רוח החג ולהרחיק מאיסור › מחלוקות ב\"ש וב\"ה › מוקצה › חומרי בית הלל",
+     "desc_de": "Verordnungen zur Wahrung des Festcharakters und zur Fernhaltung vom Verbotenen › Streitfragen der Schulen Schammais und Hillels › Mukze › Erschwerungen der Schule Hillels",
+     "desc_en": "Ordinances to preserve the spirit of the festival and to keep away from the forbidden › Disputes between the Schools of Shammai and Hillel › Muktzeh › Stringencies of the School of Hillel"
+    },
+    {
+     "ref": "1:2",
+     "text": "חפירה לכסות דם, אפר כירה",
+     "text_de": "Graben zum Bedecken des Blutes, Herdasche",
+     "text_en": "Digging to cover blood, stove ashes",
+     "desc": "גזירות לשמור על רוח החג ולהרחיק מאיסור › מחלוקות ב\"ש וב\"ה › מוקצה › חומרי בית הלל",
+     "desc_de": "Verordnungen zur Wahrung des Festcharakters und zur Fernhaltung vom Verbotenen › Streitfragen der Schulen Schammais und Hillels › Mukze › Erschwerungen der Schule Hillels",
+     "desc_en": "Ordinances to preserve the spirit of the festival and to keep away from the forbidden › Disputes between the Schools of Shammai and Hillel › Muktzeh › Stringencies of the School of Hillel"
+    },
+    {
+     "ref": "1:3",
+     "text": "הולכת סולם השובך, אופן הזמנתם",
+     "text_de": "Tragen der Taubenschlagleiter, Art ihrer Bestimmung",
+     "text_en": "Carrying the dovecote ladder, manner of designating them",
+     "desc": "גזירות לשמור על רוח החג ולהרחיק מאיסור › מחלוקות ב\"ש וב\"ה › מוקצה › הנאה מגוזלות",
+     "desc_de": "Verordnungen zur Wahrung des Festcharakters und zur Fernhaltung vom Verbotenen › Streitfragen der Schulen Schammais und Hillels › Mukze › Nutzen von Taubenjungen",
+     "desc_en": "Ordinances to preserve the spirit of the festival and to keep away from the forbidden › Disputes between the Schools of Shammai and Hillel › Muktzeh › Benefit from young pigeons"
+    },
+    {
+     "ref": "1:4",
+     "text": "חשש החלפה במוקצים",
+     "text_de": "Befürchtung der Verwechslung mit Ausgesondertem",
+     "text_en": "Concern about confusion with set-aside items",
+     "desc": "גזירות לשמור על רוח החג ולהרחיק מאיסור › מחלוקות ב\"ש וב\"ה › מוקצה › הנאה מגוזלות",
+     "desc_de": "Verordnungen zur Wahrung des Festcharakters und zur Fernhaltung vom Verbotenen › Streitfragen der Schulen Schammais und Hillels › Mukze › Nutzen von Taubenjungen",
+     "desc_en": "Ordinances to preserve the spirit of the festival and to keep away from the forbidden › Disputes between the Schools of Shammai and Hillel › Muktzeh › Benefit from young pigeons"
+    },
+    {
+     "ref": "1:5",
+     "text": "עלי, תריסי חנות, עור ודריסתו, הוצאה",
+     "text_de": "Leiter, Ladenläden, Leder und das Daraufstehen, Hinaustragen",
+     "text_en": "Ladder, shop shutters, hide and treading on it, carrying out",
+     "desc": "גזירות לשמור על רוח החג ולהרחיק מאיסור › מחלוקות ב\"ש וב\"ה › היתרים לצורך יום טוב › מוקצה",
+     "desc_de": "Verordnungen zur Wahrung des Festcharakters und zur Fernhaltung vom Verbotenen › Streitfragen der Schulen Schammais und Hillels › Erlaubtes für Zwecke des Feiertags › Mukze",
+     "desc_en": "Ordinances to preserve the spirit of the festival and to keep away from the forbidden › Disputes between the Schools of Shammai and Hillel › Permitted acts for festival needs › Muktzeh"
+    },
+    {
+     "ref": "1:6",
+     "text": "הולכת מתנות כהונה",
+     "text_de": "Überbringen von Priestergaben",
+     "text_en": "Conveying priestly gifts",
+     "desc": "גזירות לשמור על רוח החג ולהרחיק מאיסור › מחלוקות ב\"ש וב\"ה › היתרים לצורך יום טוב",
+     "desc_de": "Verordnungen zur Wahrung des Festcharakters und zur Fernhaltung vom Verbotenen › Streitfragen der Schulen Schammais und Hillels › Erlaubtes für Zwecke des Feiertags",
+     "desc_en": "Ordinances to preserve the spirit of the festival and to keep away from the forbidden › Disputes between the Schools of Shammai and Hillel › Permitted acts for festival needs"
+    },
+    {
+     "ref": "1:7",
+     "text": "דיכה",
+     "text_de": "Stampfen",
+     "text_en": "Pounding",
+     "desc": "גזירות לשמור על רוח החג ולהרחיק מאיסור › מחלוקות ב\"ש וב\"ה › היתרים לצורך יום טוב › שינוי בהכנת מאכלים",
+     "desc_de": "Verordnungen zur Wahrung des Festcharakters und zur Fernhaltung vom Verbotenen › Streitfragen der Schulen Schammais und Hillels › Erlaubtes für Zwecke des Feiertags › Veränderung bei der Zubereitung von Speisen",
+     "desc_en": "Ordinances to preserve the spirit of the festival and to keep away from the forbidden › Disputes between the Schools of Shammai and Hillel › Permitted acts for festival needs › Change in food preparation"
+    },
+    {
+     "ref": "1:8",
+     "text": "ברירה",
+     "text_de": "Auslesen",
+     "text_en": "Selecting",
+     "desc": "גזירות לשמור על רוח החג ולהרחיק מאיסור › מחלוקות ב\"ש וב\"ה › היתרים לצורך יום טוב › שינוי בהכנת מאכלים",
+     "desc_de": "Verordnungen zur Wahrung des Festcharakters und zur Fernhaltung vom Verbotenen › Streitfragen der Schulen Schammais und Hillels › Erlaubtes für Zwecke des Feiertags › Veränderung bei der Zubereitung von Speisen",
+     "desc_en": "Ordinances to preserve the spirit of the festival and to keep away from the forbidden › Disputes between the Schools of Shammai and Hillel › Permitted acts for festival needs › Change in food preparation"
+    },
+    {
+     "ref": "1:9",
+     "text": "אכלים",
+     "text_de": "Speisen",
+     "text_en": "Foods",
+     "desc": "גזירות לשמור על רוח החג ולהרחיק מאיסור › מחלוקות ב\"ש וב\"ה › מוקצה › אילו מתנות משלחין",
+     "desc_de": "Verordnungen zur Wahrung des Festcharakters und zur Fernhaltung vom Verbotenen › Streitfragen der Schulen Schammais und Hillels › Mukze › Welche Geschenke man senden darf",
+     "desc_en": "Ordinances to preserve the spirit of the festival and to keep away from the forbidden › Disputes between the Schools of Shammai and Hillel › Muktzeh › Which gifts may be sent"
+    },
+    {
+     "ref": "1:10",
+     "text": "כלים, נעליים, הכלל",
+     "text_de": "Geräte, Schuhe, die Regel",
+     "text_en": "Utensils, shoes, the rule",
+     "desc": "גזירות לשמור על רוח החג ולהרחיק מאיסור › מחלוקות ב\"ש וב\"ה › מוקצה › אילו מתנות משלחין",
+     "desc_de": "Verordnungen zur Wahrung des Festcharakters und zur Fernhaltung vom Verbotenen › Streitfragen der Schulen Schammais und Hillels › Mukze › Welche Geschenke man senden darf",
+     "desc_en": "Ordinances to preserve the spirit of the festival and to keep away from the forbidden › Disputes between the Schools of Shammai and Hillel › Muktzeh › Which gifts may be sent"
+    }
+   ]
+  },
+  {
+   "head": "פרק ב",
+   "head_de": "Kapitel 2",
+   "head_en": "Chapter 2",
+   "items": [
+    {
+     "ref": "2:1",
+     "text": "דיני עירוב תבשילין",
+     "text_de": "Gesetze des Eruw Tawschilin",
+     "text_en": "Laws of the eruv tavshilin",
+     "desc": "גזירות לשמור על רוח החג ולהרחיק מאיסור › מחלוקות ב\"ש וב\"ה › יום טוב הסמוך לשבת",
+     "desc_de": "Verordnungen zur Wahrung des Festcharakters und zur Fernhaltung vom Verbotenen › Streitfragen der Schulen Schammais und Hillels › Feiertag neben dem Schabbat",
+     "desc_en": "Ordinances to preserve the spirit of the festival and to keep away from the forbidden › Disputes between the Schools of Shammai and Hillel › Festival day adjacent to Shabbat"
+    },
+    {
+     "ref": "2:2",
+     "text": "הטבלת כלים ואדם",
+     "text_de": "Eintauchen von Geräten und Personen",
+     "text_en": "Immersion of utensils and persons",
+     "desc": "גזירות לשמור על רוח החג ולהרחיק מאיסור › מחלוקות ב\"ש וב\"ה › יום טוב הסמוך לשבת › הטבלה",
+     "desc_de": "Verordnungen zur Wahrung des Festcharakters und zur Fernhaltung vom Verbotenen › Streitfragen der Schulen Schammais und Hillels › Feiertag neben dem Schabbat › Eintauchen",
+     "desc_en": "Ordinances to preserve the spirit of the festival and to keep away from the forbidden › Disputes between the Schools of Shammai and Hillel › Festival day adjacent to Shabbat › Immersion"
+    },
+    {
+     "ref": "2:3",
+     "text": "טהרת מים, לתוספת טהרה",
+     "text_de": "Reinheit des Wassers, für zusätzliche Reinheit",
+     "text_en": "Purity of the water, for additional purity",
+     "desc": "גזירות לשמור על רוח החג ולהרחיק מאיסור › מחלוקות ב\"ש וב\"ה › יום טוב הסמוך לשבת › הטבלה",
+     "desc_de": "Verordnungen zur Wahrung des Festcharakters und zur Fernhaltung vom Verbotenen › Streitfragen der Schulen Schammais und Hillels › Feiertag neben dem Schabbat › Eintauchen",
+     "desc_en": "Ordinances to preserve the spirit of the festival and to keep away from the forbidden › Disputes between the Schools of Shammai and Hillel › Festival day adjacent to Shabbat › Immersion"
+    },
+    {
+     "ref": "2:4",
+     "text": "סמיכה והקרבת קרבנות",
+     "text_de": "Handaufstemmung und Darbringung von Opfern",
+     "text_en": "Laying on of hands and offering sacrifices",
+     "desc": "גזירות לשמור על רוח החג ולהרחיק מאיסור › מחלוקות ב\"ש וב\"ה › שלא לצורך אוכל נפש",
+     "desc_de": "Verordnungen zur Wahrung des Festcharakters und zur Fernhaltung vom Verbotenen › Streitfragen der Schulen Schammais und Hillels › Nicht zum Zweck der Nahrung",
+     "desc_en": "Ordinances to preserve the spirit of the festival and to keep away from the forbidden › Disputes between the Schools of Shammai and Hillel › Not for the purpose of food"
+    },
+    {
+     "ref": "2:5",
+     "text": "הבערה לצורך רחיצה או חימום",
+     "text_de": "Feuermachen zum Waschen oder Wärmen",
+     "text_en": "Kindling fire for washing or heating",
+     "desc": "גזירות לשמור על רוח החג ולהרחיק מאיסור › מחלוקות ב\"ש וב\"ה › שלא לצורך אוכל נפש",
+     "desc_de": "Verordnungen zur Wahrung des Festcharakters und zur Fernhaltung vom Verbotenen › Streitfragen der Schulen Schammais und Hillels › Nicht zum Zweck der Nahrung",
+     "desc_en": "Ordinances to preserve the spirit of the festival and to keep away from the forbidden › Disputes between the Schools of Shammai and Hillel › Not for the purpose of food"
+    },
+    {
+     "ref": "2:6",
+     "text": "ג' דברים להחמיר כבית שמאי",
+     "text_de": "Drei Dinge, in denen man streng ist wie die Schule Schammais",
+     "text_en": "Three matters in which one is strict like the School of Shammai",
+     "desc": "גזירות לשמור על רוח החג ולהרחיק מאיסור › מחלוקות ב\"ש וב\"ה › רבן גמליאל וחכמים",
+     "desc_de": "Verordnungen zur Wahrung des Festcharakters und zur Fernhaltung vom Verbotenen › Streitfragen der Schulen Schammais und Hillels › Rabban Gamliel und die Weisen",
+     "desc_en": "Ordinances to preserve the spirit of the festival and to keep away from the forbidden › Disputes between the Schools of Shammai and Hillel › Rabban Gamliel and the Sages"
+    },
+    {
+     "ref": "2:7",
+     "text": "ג' דברים להקל",
+     "text_de": "Drei Dinge, in denen man erleichtert",
+     "text_en": "Three matters in which one is lenient",
+     "desc": "גזירות לשמור על רוח החג ולהרחיק מאיסור › רבן גמליאל וחכמים",
+     "desc_de": "Verordnungen zur Wahrung des Festcharakters und zur Fernhaltung vom Verbotenen › Rabban Gamliel und die Weisen",
+     "desc_en": "Ordinances to preserve the spirit of the festival and to keep away from the forbidden › Rabban Gamliel and the Sages"
+    },
+    {
+     "ref": "2:8",
+     "text": "משאוי, גירוד \\ שחיקתן ביו\"ט",
+     "text_de": "Last, Kratzen / ihr Zerreiben am Feiertag",
+     "text_en": "Burden, scratching / their grinding on a festival day",
+     "desc": "גזירות לשמור על רוח החג ולהרחיק מאיסור › דבר שאינו מתכוון › שחיקת פלפלין › ראב\"ע",
+     "desc_de": "Verordnungen zur Wahrung des Festcharakters und zur Fernhaltung vom Verbotenen › Unbeabsichtigte Handlung › Zerreiben von Pfefferkörnern › Rabbi Elasar ben Asarja",
+     "desc_en": "Ordinances to preserve the spirit of the festival and to keep away from the forbidden › Unintended act › Grinding peppercorns › Rabbi Elazar ben Azariah"
+    },
+    {
+     "ref": "2:9",
+     "text": "טומאת הרחים שלהם",
+     "text_de": "Unreinheit ihrer Mühlen",
+     "text_en": "Impurity of their mills",
+     "desc": "גזירות לשמור על רוח החג ולהרחיק מאיסור › דבר שאינו מתכוון › שחיקת פלפלין",
+     "desc_de": "Verordnungen zur Wahrung des Festcharakters und zur Fernhaltung vom Verbotenen › Unbeabsichtigte Handlung › Zerreiben von Pfefferkörnern",
+     "desc_en": "Ordinances to preserve the spirit of the festival and to keep away from the forbidden › Unintended act › Grinding peppercorns"
+    },
+    {
+     "ref": "2:10",
+     "text": "טומאה, טלטול וגרירת עגלה",
+     "text_de": "Unreinheit, Tragen und Ziehen eines Wagens",
+     "text_en": "Impurity, carrying and dragging a cart",
+     "desc": "גזירות לשמור על רוח החג ולהרחיק מאיסור › דבר שאינו מתכוון",
+     "desc_de": "Verordnungen zur Wahrung des Festcharakters und zur Fernhaltung vom Verbotenen › Unbeabsichtigte Handlung",
+     "desc_en": "Ordinances to preserve the spirit of the festival and to keep away from the forbidden › Unintended act"
+    }
+   ]
+  },
+  {
+   "head": "פרק ג",
+   "head_de": "Kapitel 3",
+   "head_en": "Chapter 3",
+   "items": [
+    {
+     "ref": "3:1",
+     "text": "מן הביברין, נתינת מזונות",
+     "text_de": "Aus den Tiergehegen, Gewähren von Futter",
+     "text_en": "From the game preserves, giving fodder",
+     "desc": "גזירות לשמור על רוח החג ולהרחיק מאיסור › טרחה ומוקצה בבעלי חיים › צידה",
+     "desc_de": "Verordnungen zur Wahrung des Festcharakters und zur Fernhaltung vom Verbotenen › Mühe und Mukzeh bei Tieren › Jagd",
+     "desc_en": "Ordinances to preserve the spirit of the festival and to keep away from the forbidden › Effort and muktzeh with animals › Hunting"
+    },
+    {
+     "ref": "3:2",
+     "text": "ממצודות, מוכן וספק",
+     "text_de": "Aus Fangnetzen, Bereitgestelltes und Zweifelhaftes",
+     "text_en": "From traps, prepared and doubtful cases",
+     "desc": "גזירות לשמור על רוח החג ולהרחיק מאיסור › טרחה ומוקצה בבעלי חיים › צידה",
+     "desc_de": "Verordnungen zur Wahrung des Festcharakters und zur Fernhaltung vom Verbotenen › Mühe und Mukzeh bei Tieren › Jagd",
+     "desc_en": "Ordinances to preserve the spirit of the festival and to keep away from the forbidden › Effort and muktzeh with animals › Hunting"
+    },
+    {
+     "ref": "3:3",
+     "text": "שהות לשחטה, הבאתה מן השדה",
+     "text_de": "Zeit bis zur Schlachtung, Herbringen vom Feld",
+     "text_en": "Time until slaughter, bringing from the field",
+     "desc": "גזירות לשמור על רוח החג ולהרחיק מאיסור › טרחה ומוקצה בבעלי חיים › המסוכנת",
+     "desc_de": "Verordnungen zur Wahrung des Festcharakters und zur Fernhaltung vom Verbotenen › Mühe und Mukzeh bei Tieren › Das lebensgefährlich erkrankte Tier",
+     "desc_en": "Ordinances to preserve the spirit of the festival and to keep away from the forbidden › Effort and muktzeh with animals › The animal in mortal danger"
+    },
+    {
+     "ref": "3:4",
+     "text": "ראיית מום בכור",
+     "text_de": "Untersuchung eines Makels beim Erstgeborenen",
+     "text_en": "Examining a blemish in a firstborn animal",
+     "desc": "גזירות לשמור על רוח החג ולהרחיק מאיסור › טרחה ומוקצה בבעלי חיים › המסוכנת",
+     "desc_de": "Verordnungen zur Wahrung des Festcharakters und zur Fernhaltung vom Verbotenen › Mühe und Mukzeh bei Tieren › Das lebensgefährlich erkrankte Tier",
+     "desc_en": "Ordinances to preserve the spirit of the festival and to keep away from the forbidden › Effort and muktzeh with animals › The animal in mortal danger"
+    },
+    {
+     "ref": "3:5",
+     "text": "שמתה, וחלה שנטמאה",
+     "text_de": "Verendet, und Teighebe, die unrein wurde",
+     "text_en": "Died, and challah that became impure",
+     "desc": "גזירות לשמור על רוח החג ולהרחיק מאיסור › טרחה ומוקצה בבעלי חיים › המסוכנת",
+     "desc_de": "Verordnungen zur Wahrung des Festcharakters und zur Fernhaltung vom Verbotenen › Mühe und Mukzeh bei Tieren › Das lebensgefährlich erkrankte Tier",
+     "desc_en": "Ordinances to preserve the spirit of the festival and to keep away from the forbidden › Effort and muktzeh with animals › The animal in mortal danger"
+    },
+    {
+     "ref": "3:6",
+     "text": "מינוי על בהמה / משקל",
+     "text_de": "Bestimmung für ein Tier / Gewicht",
+     "text_en": "Designation for an animal / weight",
+     "desc": "גזירות לשמור על רוח החג ולהרחיק מאיסור › שינוי מדרך חול › איסור מקח וממכר",
+     "desc_de": "Verordnungen zur Wahrung des Festcharakters und zur Fernhaltung vom Verbotenen › Abweichung von der Werktagsweise › Verbot von Kauf und Verkauf",
+     "desc_en": "Ordinances to preserve the spirit of the festival and to keep away from the forbidden › Deviation from the weekday manner › Prohibition of buying and selling"
+    },
+    {
+     "ref": "3:7",
+     "text": "הזכרת דמים / השחזת סכין",
+     "text_de": "Nennen des Preises / Schärfen eines Messers",
+     "text_en": "Mentioning the price / sharpening a knife",
+     "desc": "גזירות לשמור על רוח החג ולהרחיק מאיסור › שינוי מדרך חול › איסור מקח וממכר",
+     "desc_de": "Verordnungen zur Wahrung des Festcharakters und zur Fernhaltung vom Verbotenen › Abweichung von der Werktagsweise › Verbot von Kauf und Verkauf",
+     "desc_en": "Ordinances to preserve the spirit of the festival and to keep away from the forbidden › Deviation from the weekday manner › Prohibition of buying and selling"
+    },
+    {
+     "ref": "3:8",
+     "text": "מדידה, דרכי חסידות, מנין המותר",
+     "text_de": "Messen, Wege der Frömmigkeit, Zahl des Erlaubten",
+     "text_en": "Measuring, ways of piety, number of what is permitted",
+     "desc": "גזירות לשמור על רוח החג ולהרחיק מאיסור › שינוי מדרך חול › איסור מקח וממכר",
+     "desc_de": "Verordnungen zur Wahrung des Festcharakters und zur Fernhaltung vom Verbotenen › Abweichung von der Werktagsweise › Verbot von Kauf und Verkauf",
+     "desc_en": "Ordinances to preserve the spirit of the festival and to keep away from the forbidden › Deviation from the weekday manner › Prohibition of buying and selling"
+    }
+   ]
+  },
+  {
+   "head": "פרק ד",
+   "head_de": "Kapitel 4",
+   "head_en": "Chapter 4",
+   "items": [
+    {
+     "ref": "4:1",
+     "text": "משאות \\ תבן וקורות",
+     "text_de": "Lasten / Stroh und Balken",
+     "text_en": "Loads / straw and beams",
+     "desc": "גזירות לשמור על רוח החג ולהרחיק מאיסור › מוקצה › עצים להסקה",
+     "desc_de": "Verordnungen zur Wahrung des Festcharakters und zur Fernhaltung vom Verbotenen › Mukze › Brennholz",
+     "desc_en": "Ordinances to preserve the spirit of the festival and to keep away from the forbidden › Muktzeh › Firewood"
+    },
+    {
+     "ref": "4:2",
+     "text": "שכבר בנוים, מן השדה או קרפף",
+     "text_de": "Die bereits Gebauten, vom Feld oder Hofplatz",
+     "text_en": "Those already built, from the field or enclosure",
+     "desc": "גזירות לשמור על רוח החג ולהרחיק מאיסור › מוקצה › עצים להסקה",
+     "desc_de": "Verordnungen zur Wahrung des Festcharakters und zur Fernhaltung vom Verbotenen › Mukze › Brennholz",
+     "desc_en": "Ordinances to preserve the spirit of the festival and to keep away from the forbidden › Muktzeh › Firewood"
+    },
+    {
+     "ref": "4:3",
+     "text": "קורות וביקועץ \\ פירות בבית סתום",
+     "text_de": "Balken und Hackblock / Früchte in einem verschlossenen Haus",
+     "text_en": "Beams and chopping block / fruits in a closed house",
+     "desc": "גזירות לשמור על רוח החג ולהרחיק מאיסור › מוקצה › עצים להסקה",
+     "desc_de": "Verordnungen zur Wahrung des Festcharakters und zur Fernhaltung vom Verbotenen › Mukze › Brennholz",
+     "desc_en": "Ordinances to preserve the spirit of the festival and to keep away from the forbidden › Muktzeh › Firewood"
+    },
+    {
+     "ref": "4:4",
+     "text": "פחיתת נר, פחמין, חתיכת פתילה",
+     "text_de": "Abbrechen einer Kerze, Kohlen, Abschneiden eines Dochts",
+     "text_en": "Breaking off a candle, coals, cutting a wick",
+     "desc": "גזירות לשמור על רוח החג ולהרחיק מאיסור › תיקון כלי › לנר",
+     "desc_de": "Verordnungen zur Wahrung des Festcharakters und zur Fernhaltung vom Verbotenen › Reparatur eines Geräts › Für die Kerze",
+     "desc_en": "Ordinances to preserve the spirit of the festival and to keep away from the forbidden › Repairing a utensil › For the lamp"
+    },
+    {
+     "ref": "4:5",
+     "text": "לצלייה, לאפייה, לבישול, הנהגת בהמה",
+     "text_de": "Zum Braten, Backen, Kochen, Führen eines Tieres",
+     "text_en": "For roasting, baking, cooking, leading an animal",
+     "desc": "גזירות לשמור על רוח החג ולהרחיק מאיסור › מוקצה › לצורך אוכל נפש",
+     "desc_de": "Verordnungen zur Wahrung des Festcharakters und zur Fernhaltung vom Verbotenen › Mukze › Zum Zweck der Nahrung",
+     "desc_en": "Ordinances to preserve the spirit of the festival and to keep away from the forbidden › Muktzeh › For the purpose of food"
+    },
+    {
+     "ref": "4:6",
+     "text": "גיבוב קסמים ושימושם",
+     "text_de": "Anhäufen von Holzspänen und ihre Verwendung",
+     "text_en": "Piling up wood shavings and their use",
+     "desc": "גזירות לשמור על רוח החג ולהרחיק מאיסור › מוקצה › לצורך אוכל נפש",
+     "desc_de": "Verordnungen zur Wahrung des Festcharakters und zur Fernhaltung vom Verbotenen › Mukze › Zum Zweck der Nahrung",
+     "desc_en": "Ordinances to preserve the spirit of the festival and to keep away from the forbidden › Muktzeh › For the purpose of food"
+    },
+    {
+     "ref": "4:7",
+     "text": "הולדת אור, הזמנת פירות במוקצה",
+     "text_de": "Entstehung von Feuer, Bereitstellen von Früchten unter Mukzeh",
+     "text_en": "Producing fire, designating fruits among muktzeh",
+     "desc": "גזירות לשמור על רוח החג ולהרחיק מאיסור › מוקצה › לצורך אוכל נפש",
+     "desc_de": "Verordnungen zur Wahrung des Festcharakters und zur Fernhaltung vom Verbotenen › Mukze › Zum Zweck der Nahrung",
+     "desc_en": "Ordinances to preserve the spirit of the festival and to keep away from the forbidden › Muktzeh › For the purpose of food"
+    }
+   ]
+  },
+  {
+   "head": "פרק ה",
+   "head_de": "Kapitel 5",
+   "head_en": "Chapter 5",
+   "items": [
+    {
+     "ref": "5:1",
+     "text": "הצלה מהפסד וטרחה",
+     "text_de": "Rettung vor Verlust und Mühe",
+     "text_en": "Saving from loss and effort",
+     "desc": "גזירות לשמור על רוח החג ולהרחיק מאיסור › השוואת שבת ויום טוב",
+     "desc_de": "Verordnungen zur Wahrung des Festcharakters und zur Fernhaltung vom Verbotenen › Gleichstellung von Schabbat und Feiertag",
+     "desc_en": "Ordinances to preserve the spirit of the festival and to keep away from the forbidden › Equating Shabbat and festival day"
+    },
+    {
+     "ref": "5:2",
+     "text": "איסורי שבות, רשות, מצוה, כלל ההבדל",
+     "text_de": "Rabbinische Verbote, Bereich, Gebot, Regel des Unterschieds",
+     "text_en": "Rabbinic prohibitions, domain, commandment, rule of difference",
+     "desc": "גזירות לשמור על רוח החג ולהרחיק מאיסור › השוואת שבת ויום טוב",
+     "desc_de": "Verordnungen zur Wahrung des Festcharakters und zur Fernhaltung vom Verbotenen › Gleichstellung von Schabbat und Feiertag",
+     "desc_en": "Ordinances to preserve the spirit of the festival and to keep away from the forbidden › Equating Shabbat and festival day"
+    },
+    {
+     "ref": "5:3",
+     "text": "כרגלי הבעלים \\ בהמה ורועה, כלי אחים",
+     "text_de": "Wie die Füße der Besitzer / Tier und Hirte, Geräte von Brüdern",
+     "text_en": "Like the feet of the owners / animal and shepherd, utensils of brothers",
+     "desc": "גזירות לשמור על רוח החג ולהרחיק מאיסור › איסור תחומין › חפצים המשותפים › הכלל",
+     "desc_de": "Verordnungen zur Wahrung des Festcharakters und zur Fernhaltung vom Verbotenen › Verbot der Schabbatgrenze › Gemeinsame Gegenstände › Die Regel",
+     "desc_en": "Ordinances to preserve the spirit of the festival and to keep away from the forbidden › Prohibition of the Shabbat limit › Jointly held objects › The rule"
+    },
+    {
+     "ref": "5:4",
+     "text": "השאלת כלים \\ מרכיבים לאוכל",
+     "text_de": "Verleihen von Geräten / Zutaten zum Essen",
+     "text_en": "Lending utensils / ingredients for food",
+     "desc": "גזירות לשמור על רוח החג ולהרחיק מאיסור › איסור תחומין › חפצים המשותפים › אינם ממשיים",
+     "desc_de": "Verordnungen zur Wahrung des Festcharakters und zur Fernhaltung vom Verbotenen › Verbot der Schabbatgrenze › Gemeinsame Gegenstände › Nicht stofflich",
+     "desc_en": "Ordinances to preserve the spirit of the festival and to keep away from the forbidden › Prohibition of the Shabbat limit › Jointly held objects › Not substantial"
+    },
+    {
+     "ref": "5:5",
+     "text": "גחלת ושלהבת ועוד הלכות \\ מים מבור",
+     "text_de": "Glut und Flamme und weitere Gesetze / Wasser aus einer Zisterne",
+     "text_en": "Ember and flame and further laws / water from a cistern",
+     "desc": "גזירות לשמור על רוח החג ולהרחיק מאיסור › איסור תחומין › חפצים המשותפים › אינם ממשיים",
+     "desc_de": "Verordnungen zur Wahrung des Festcharakters und zur Fernhaltung vom Verbotenen › Verbot der Schabbatgrenze › Gemeinsame Gegenstände › Nicht stofflich",
+     "desc_en": "Ordinances to preserve the spirit of the festival and to keep away from the forbidden › Prohibition of the Shabbat limit › Jointly held objects › Not substantial"
+    },
+    {
+     "ref": "5:6",
+     "text": "על ידי עירוב",
+     "text_de": "Mittels Eruw",
+     "text_en": "By means of an eruv",
+     "desc": "גזירות לשמור על רוח החג ולהרחיק מאיסור › איסור תחומין › הבאה מחוץ לתחום",
+     "desc_de": "Verordnungen zur Wahrung des Festcharakters und zur Fernhaltung vom Verbotenen › Verbot der Schabbatgrenze › Hereinbringen von außerhalb der Grenze",
+     "desc_en": "Ordinances to preserve the spirit of the festival and to keep away from the forbidden › Prohibition of the Shabbat limit › Bringing in from beyond the limit"
+    },
+    {
+     "ref": "5:7",
+     "text": "על ידי זיכוי, בהמות מוקצות",
+     "text_de": "Durch Übereignung, ausgesonderte Tiere",
+     "text_en": "By transfer of ownership, set-aside animals",
+     "desc": "גזירות לשמור על רוח החג ולהרחיק מאיסור › איסור תחומין › הבאה מחוץ לתחום",
+     "desc_de": "Verordnungen zur Wahrung des Festcharakters und zur Fernhaltung vom Verbotenen › Verbot der Schabbatgrenze › Hereinbringen von außerhalb der Grenze",
+     "desc_en": "Ordinances to preserve the spirit of the festival and to keep away from the forbidden › Prohibition of the Shabbat limit › Bringing in from beyond the limit"
+    }
+   ]
+  }
+ ]
+}

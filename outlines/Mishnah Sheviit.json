@@ -1,0 +1,882 @@
+{
+ "book": "Mishnah Sheviit",
+ "title": "משנה שביעית",
+ "title_de": "Mischna Schewiit – Gliederung",
+ "title_en": "Sheviit – outline",
+ "note": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema).",
+ "note_de": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema); ins Deutsche und Englische übersetzt.",
+ "note_en": "Outline after the table “Mishna Sedura”: the central content of each mishnah, with the topic path (main topic to sub-topic); translated into German and English.",
+ "sections": [
+  {
+   "head": "פרק א",
+   "head_de": "Kapitel 1",
+   "head_en": "Chapter 1",
+   "items": [
+    {
+     "ref": "1:1",
+     "text": "סוף הזמן בשדה אילן",
+     "text_de": "Ende der Frist beim Baumfeld",
+     "text_en": "End of the time limit for an orchard",
+     "desc": "שמיטת קרקע › תוספת שביעית › חרישה",
+     "desc_de": "Brachliegen des Landes › Zusatz zum Schmitta-Jahr › Pflügen",
+     "desc_en": "Release of the land › Extension of the Sabbatical year › Plowing"
+    },
+    {
+     "ref": "1:2",
+     "text": "תאנה",
+     "text_de": "Feige",
+     "text_en": "Fig",
+     "desc": "שמיטת קרקע › תוספת שביעית › חרישה › הגדרת שדה אילן",
+     "desc_de": "Brachliegen des Landes › Zusatz zum Schmitta-Jahr › Pflügen › Definition des Baumfelds",
+     "desc_en": "Release of the land › Extension of the Sabbatical year › Plowing › Definition of an orchard"
+    },
+    {
+     "ref": "1:3",
+     "text": "שאר אילנות",
+     "text_de": "Übrige Bäume",
+     "text_en": "Other trees",
+     "desc": "שמיטת קרקע › תוספת שביעית › חרישה › הגדרת שדה אילן",
+     "desc_de": "Brachliegen des Landes › Zusatz zum Schmitta-Jahr › Pflügen › Definition des Baumfelds",
+     "desc_en": "Release of the land › Extension of the Sabbatical year › Plowing › Definition of an orchard"
+    },
+    {
+     "ref": "1:4",
+     "text": "אם אין האילנות שוים , מקור לתוספת",
+     "text_de": "Wenn die Bäume nicht gleich sind, Quelle für die Verlängerung",
+     "text_en": "If the trees are not alike, source for the extension",
+     "desc": "שמיטת קרקע › תוספת שביעית › חרישה › הגדרת שדה אילן",
+     "desc_de": "Brachliegen des Landes › Zusatz zum Schmitta-Jahr › Pflügen › Definition des Baumfelds",
+     "desc_en": "Release of the land › Extension of the Sabbatical year › Plowing › Definition of an orchard"
+    },
+    {
+     "ref": "1:5",
+     "text": "צירוף, צפיפות",
+     "text_de": "Zusammenfassung, Dichte",
+     "text_en": "Combining, density",
+     "desc": "שמיטת קרקע › תוספת שביעית › חרישה › הגדרת שדה אילן",
+     "desc_de": "Brachliegen des Landes › Zusatz zum Schmitta-Jahr › Pflügen › Definition des Baumfelds",
+     "desc_en": "Release of the land › Extension of the Sabbatical year › Plowing › Definition of an orchard"
+    },
+    {
+     "ref": "1:6",
+     "text": "עשר נטיעות וצורת נטיעתן",
+     "text_de": "Zehn Setzlinge und ihre Pflanzform",
+     "text_en": "Ten saplings and their planting pattern",
+     "desc": "שמיטת קרקע › תוספת שביעית › חרישה › דין נטיעות",
+     "desc_de": "Brachliegen des Landes › Zusatz zum Schmitta-Jahr › Pflügen › Gesetz der Setzlinge",
+     "desc_en": "Release of the land › Extension of the Sabbatical year › Plowing › Law of saplings"
+    },
+    {
+     "ref": "1:7",
+     "text": "דלועין ונטיעות",
+     "text_de": "Kürbisse und Setzlinge",
+     "text_en": "Gourds and saplings",
+     "desc": "שמיטת קרקע › תוספת שביעית › חרישה › דין נטיעות",
+     "desc_de": "Brachliegen des Landes › Zusatz zum Schmitta-Jahr › Pflügen › Gesetz der Setzlinge",
+     "desc_en": "Release of the land › Extension of the Sabbatical year › Plowing › Law of saplings"
+    },
+    {
+     "ref": "1:8",
+     "text": "הגדרת נטיעה",
+     "text_de": "Definition des Setzlings",
+     "text_en": "Definition of a sapling",
+     "desc": "שמיטת קרקע › תוספת שביעית › חרישה › דין נטיעות",
+     "desc_de": "Brachliegen des Landes › Zusatz zum Schmitta-Jahr › Pflügen › Gesetz der Setzlinge",
+     "desc_en": "Release of the land › Extension of the Sabbatical year › Plowing › Law of saplings"
+    }
+   ]
+  },
+  {
+   "head": "פרק ב",
+   "head_de": "Kapitel 2",
+   "head_en": "Chapter 2",
+   "items": [
+    {
+     "ref": "2:1",
+     "text": "סוף הזמן",
+     "text_de": "Ende der Frist",
+     "text_en": "End of the time limit",
+     "desc": "שמיטת קרקע › תוספת שביעית › חרישה › שדה לבן",
+     "desc_de": "Brachliegen des Landes › Zusatz zum Schmitta-Jahr › Pflügen › Weißes Feld (Getreidefeld)",
+     "desc_en": "Release of the land › Extension of the Sabbatical year › Plowing › White field (grain field)"
+    },
+    {
+     "ref": "2:2",
+     "text": "עבודות שונות",
+     "text_de": "Verschiedene Arbeiten",
+     "text_en": "Various tasks",
+     "desc": "שמיטת קרקע › תוספת שביעית › עבודות שונות",
+     "desc_de": "Brachliegen des Landes › Zusatz zum Schmitta-Jahr › Verschiedene Arbeiten",
+     "desc_en": "Release of the land › Extension of the Sabbatical year › Various tasks"
+    },
+    {
+     "ref": "2:3",
+     "text": "סיקול, חיתוך בגוף האילן",
+     "text_de": "Steineräumen, Schneiden am Baumstamm",
+     "text_en": "Clearing stones, cutting into the tree trunk",
+     "desc": "שמיטת קרקע › תוספת שביעית › עבודות שונות",
+     "desc_de": "Brachliegen des Landes › Zusatz zum Schmitta-Jahr › Verschiedene Arbeiten",
+     "desc_en": "Release of the land › Extension of the Sabbatical year › Various tasks"
+    },
+    {
+     "ref": "2:4",
+     "text": "פעולות הגנה, השקאה",
+     "text_de": "Schutzmaßnahmen, Bewässerung",
+     "text_en": "Protective measures, irrigation",
+     "desc": "שמיטת קרקע › תוספת שביעית › עבודות שונות",
+     "desc_de": "Brachliegen des Landes › Zusatz zum Schmitta-Jahr › Verschiedene Arbeiten",
+     "desc_en": "Release of the land › Extension of the Sabbatical year › Various tasks"
+    },
+    {
+     "ref": "2:5",
+     "text": "השבחת פגים",
+     "text_de": "Veredeln unreifer Früchte",
+     "text_en": "Improving unripe fruit",
+     "desc": "שמיטת קרקע › תוספת שביעית › עבודות שונות",
+     "desc_de": "Brachliegen des Landes › Zusatz zum Schmitta-Jahr › Verschiedene Arbeiten",
+     "desc_en": "Release of the land › Extension of the Sabbatical year › Various tasks"
+    },
+    {
+     "ref": "2:6",
+     "text": "הברכת והרכבת אילנות",
+     "text_de": "Absenken und Veredeln von Bäumen",
+     "text_en": "Layering and grafting trees",
+     "desc": "שמיטת קרקע › תוספת שביעית › עבודות שונות",
+     "desc_de": "Brachliegen des Landes › Zusatz zum Schmitta-Jahr › Verschiedene Arbeiten",
+     "desc_en": "Release of the land › Extension of the Sabbatical year › Various tasks"
+    },
+    {
+     "ref": "2:7",
+     "text": "השרשת קטניות",
+     "text_de": "Einweichen von Hülsenfrüchten",
+     "text_en": "Soaking legumes",
+     "desc": "שמיטת קרקע › תוספת שביעית › קביעה לשביעית ולשנת מעשר",
+     "desc_de": "Brachliegen des Landes › Zusatz zum Schmitta-Jahr › Zuordnung zum Schmitta-Jahr und zum Zehntjahr",
+     "desc_en": "Release of the land › Extension of the Sabbatical year › Assignment to the Sabbatical year and to the tithe year"
+    },
+    {
+     "ref": "2:8",
+     "text": "פול, אפונים",
+     "text_de": "Saubohnen, Erbsen",
+     "text_en": "Broad beans, peas",
+     "desc": "שמיטת קרקע › תוספת שביעית › קביעה לשביעית ולשנת מעשר",
+     "desc_de": "Brachliegen des Landes › Zusatz zum Schmitta-Jahr › Zuordnung zum Schmitta-Jahr und zum Zehntjahr",
+     "desc_en": "Release of the land › Extension of the Sabbatical year › Assignment to the Sabbatical year and to the tithe year"
+    },
+    {
+     "ref": "2:9",
+     "text": "בצלים, ופול",
+     "text_de": "Zwiebeln und Saubohnen",
+     "text_en": "Onions and broad beans",
+     "desc": "שמיטת קרקע › תוספת שביעית › קביעה לשביעית ולשנת מעשר",
+     "desc_de": "Brachliegen des Landes › Zusatz zum Schmitta-Jahr › Zuordnung zum Schmitta-Jahr und zum Zehntjahr",
+     "desc_en": "Release of the land › Extension of the Sabbatical year › Assignment to the Sabbatical year and to the tithe year"
+    },
+    {
+     "ref": "2:10",
+     "text": "דלועים \\ עבודות המותרות בשביעית",
+     "text_de": "Kürbisse / im Schmitta-Jahr erlaubte Arbeiten",
+     "text_en": "Gourds / work permitted in the Sabbatical year",
+     "desc": "שמיטת קרקע › תוספת שביעית › קביעה לשביעית ולשנת מעשר",
+     "desc_de": "Brachliegen des Landes › Zusatz zum Schmitta-Jahr › Zuordnung zum Schmitta-Jahr und zum Zehntjahr",
+     "desc_en": "Release of the land › Extension of the Sabbatical year › Assignment to the Sabbatical year and to the tithe year"
+    }
+   ]
+  },
+  {
+   "head": "פרק ג",
+   "head_de": "Kapitel 3",
+   "head_en": "Chapter 3",
+   "items": [
+    {
+     "ref": "3:1",
+     "text": "תחילת זמן ההוצאה",
+     "text_de": "Beginn der Zeit des Ausführens",
+     "text_en": "Beginning of the time of removal",
+     "desc": "שמיטת קרקע › עבודה בשביעית › הנראה כמתקן שדהו › זיבול",
+     "desc_de": "Brachliegen des Landes › Arbeit im Siebenten Jahr › Wer als Instandsetzer seines Feldes erscheint › Düngen",
+     "desc_en": "Release of the land › Work in the Sabbatical year › One who appears to be improving his field › Fertilizing"
+    },
+    {
+     "ref": "3:2",
+     "text": "סידור האשפתות",
+     "text_de": "Anordnung der Düngergruben",
+     "text_en": "Arrangement of the manure heaps",
+     "desc": "שמיטת קרקע › עבודה בשביעית › הנראה כמתקן שדהו › זיבול",
+     "desc_de": "Brachliegen des Landes › Arbeit im Siebenten Jahr › Wer als Instandsetzer seines Feldes erscheint › Düngen",
+     "desc_en": "Release of the land › Work in the Sabbatical year › One who appears to be improving his field › Fertilizing"
+    },
+    {
+     "ref": "3:3",
+     "text": "שינוי במספר ובגודל האשפתות",
+     "text_de": "Veränderung in Anzahl und Größe der Düngerhaufen",
+     "text_en": "Change in the number and size of the manure heaps",
+     "desc": "שמיטת קרקע › עבודה בשביעית › הנראה כמתקן שדהו › זיבול",
+     "desc_de": "Brachliegen des Landes › Arbeit im Siebenten Jahr › Wer als Instandsetzer seines Feldes erscheint › Düngen",
+     "desc_en": "Release of the land › Work in the Sabbatical year › One who appears to be improving his field › Fertilizing"
+    },
+    {
+     "ref": "3:4",
+     "text": "דיור",
+     "text_de": "Wohnen",
+     "text_en": "Dwelling",
+     "desc": "שמיטת קרקע › עבודה בשביעית › הנראה כמתקן שדהו › זיבול",
+     "desc_de": "Brachliegen des Landes › Arbeit im Siebenten Jahr › Wer als Instandsetzer seines Feldes erscheint › Düngen",
+     "desc_en": "Release of the land › Work in the Sabbatical year › One who appears to be improving his field › Fertilizing"
+    },
+    {
+     "ref": "3:5",
+     "text": "פתיחת מחצב",
+     "text_de": "Öffnen eines Steinbruchs",
+     "text_en": "Opening a quarry",
+     "desc": "שמיטת קרקע › עבודה בשביעית › הנראה כמתקן שדהו › הוצאת אבנים",
+     "desc_de": "Brachliegen des Landes › Arbeit im Siebenten Jahr › Wer als Instandsetzer seines Feldes erscheint › Entfernen von Steinen",
+     "desc_en": "Release of the land › Work in the Sabbatical year › One who appears to be improving his field › Removing stones"
+    },
+    {
+     "ref": "3:6",
+     "text": "הסרת גדר, תנאים לאיסור",
+     "text_de": "Entfernen einer Mauer, Bedingungen für das Verbot",
+     "text_en": "Removing a fence, conditions for the prohibition",
+     "desc": "שמיטת קרקע › עבודה בשביעית › הנראה כמתקן שדהו › הוצאת אבנים",
+     "desc_de": "Brachliegen des Landes › Arbeit im Siebenten Jahr › Wer als Instandsetzer seines Feldes erscheint › Entfernen von Steinen",
+     "desc_en": "Release of the land › Work in the Sabbatical year › One who appears to be improving his field › Removing stones"
+    },
+    {
+     "ref": "3:7",
+     "text": "המגולות,שלא תועיל לשדה",
+     "text_de": "Die Aufschüttungen, die dem Feld nicht nützen",
+     "text_en": "The mounds that do not benefit the field",
+     "desc": "שמיטת קרקע › עבודה בשביעית › הנראה כמתקן שדהו › הוצאת אבנים",
+     "desc_de": "Brachliegen des Landes › Arbeit im Siebenten Jahr › Wer als Instandsetzer seines Feldes erscheint › Entfernen von Steinen",
+     "desc_en": "Release of the land › Work in the Sabbatical year › One who appears to be improving his field › Removing stones"
+    },
+    {
+     "ref": "3:8",
+     "text": "בנין מדריגות וחייץ",
+     "text_de": "Bau von Stufen und Trennwand",
+     "text_en": "Building steps and a partition",
+     "desc": "שמיטת קרקע › עבודה בשביעית › הנראה כמתקן שדהו › הוצאת אבנים",
+     "desc_de": "Brachliegen des Landes › Arbeit im Siebenten Jahr › Wer als Instandsetzer seines Feldes erscheint › Entfernen von Steinen",
+     "desc_en": "Release of the land › Work in the Sabbatical year › One who appears to be improving his field › Removing stones"
+    },
+    {
+     "ref": "3:9",
+     "text": "אבני כתף, קבלן",
+     "text_de": "Schulterstützsteine, Unternehmer",
+     "text_en": "Retaining stones, contractor",
+     "desc": "שמיטת קרקע › עבודה בשביעית › הנראה כמתקן שדהו › הוצאת אבנים",
+     "desc_de": "Brachliegen des Landes › Arbeit im Siebenten Jahr › Wer als Instandsetzer seines Feldes erscheint › Entfernen von Steinen",
+     "desc_en": "Release of the land › Work in the Sabbatical year › One who appears to be improving his field › Removing stones"
+    },
+    {
+     "ref": "3:10",
+     "text": "טיפול בעפר חפירה",
+     "text_de": "Umgang mit Aushuberde",
+     "text_en": "Handling excavated earth",
+     "desc": "שמיטת קרקע › עבודה בשביעית › הנראה כמתקן שדהו",
+     "desc_de": "Brachliegen des Landes › Arbeit im Siebenten Jahr › Wer als Instandsetzer seines Feldes erscheint",
+     "desc_en": "Release of the land › Work in the Sabbatical year › One who appears to be improving his field"
+    }
+   ]
+  },
+  {
+   "head": "פרק ד",
+   "head_de": "Kapitel 4",
+   "head_en": "Chapter 4",
+   "items": [
+    {
+     "ref": "4:1",
+     "text": "ליקוט עצים",
+     "text_de": "Holzsammeln",
+     "text_en": "Gathering wood",
+     "desc": "שמיטת קרקע › עבודה בשביעית › הנראה כמתקן שדהו",
+     "desc_de": "Brachliegen des Landes › Arbeit im Siebenten Jahr › Wer als Instandsetzer seines Feldes erscheint",
+     "desc_en": "Release of the land › Work in the Sabbatical year › One who appears to be improving his field"
+    },
+    {
+     "ref": "4:2",
+     "text": "קנס לעבריין, אכילת פירות בטובה",
+     "text_de": "Strafe für den Übertreter, Genuss der Früchte mit Wohlwollen",
+     "text_en": "Penalty for the transgressor, eating the fruit with goodwill",
+     "desc": "שמיטת קרקע › עבודה בשביעית › הנראה כמתקן שדהו",
+     "desc_de": "Brachliegen des Landes › Arbeit im Siebenten Jahr › Wer als Instandsetzer seines Feldes erscheint",
+     "desc_en": "Release of the land › Work in the Sabbatical year › One who appears to be improving his field"
+    },
+    {
+     "ref": "4:3",
+     "text": "חכירה במוצאי שביעית, יחס לגוים",
+     "text_de": "Pacht nach Ablauf des Siebenten Jahres, Verhalten gegenüber Nichtjuden",
+     "text_en": "Leasing after the Sabbatical year, treatment of gentiles",
+     "desc": "שמיטת קרקע › עבודה בשביעית › הנראה כמתקן שדהו",
+     "desc_de": "Brachliegen des Landes › Arbeit im Siebenten Jahr › Wer als Instandsetzer seines Feldes erscheint",
+     "desc_en": "Release of the land › Work in the Sabbatical year › One who appears to be improving his field"
+    },
+    {
+     "ref": "4:4",
+     "text": "עקירת זיתים",
+     "text_de": "Entwurzeln von Olivenbäumen",
+     "text_en": "Uprooting olive trees",
+     "desc": "שמיטת קרקע › עבודה בשביעית › הנראה כמתקן שדהו",
+     "desc_de": "Brachliegen des Landes › Arbeit im Siebenten Jahr › Wer als Instandsetzer seines Feldes erscheint",
+     "desc_en": "Release of the land › Work in the Sabbatical year › One who appears to be improving his field"
+    },
+    {
+     "ref": "4:5",
+     "text": "טיפול בחיתוך באילן, שקמה",
+     "text_de": "Umgang mit Schnitten am Baum, Maulbeerfeigenbaum",
+     "text_en": "Handling cuts on a tree, sycamore",
+     "desc": "שמיטת קרקע › עבודה בשביעית › הנראה כמתקן שדהו › קציצה",
+     "desc_de": "Brachliegen des Landes › Arbeit im Siebenten Jahr › Wer als Instandsetzer seines Feldes erscheint › Abschlagen",
+     "desc_en": "Release of the land › Work in the Sabbatical year › One who appears to be improving his field › Cutting off"
+    },
+    {
+     "ref": "4:6",
+     "text": "צורך בשינוי, אילן שנפשח",
+     "text_de": "Notwendigkeit einer Veränderung, abgespaltener Baum",
+     "text_en": "Need for a change, a split tree",
+     "desc": "שמיטת קרקע › עבודה בשביעית › הנראה כמתקן שדהו › קציצה",
+     "desc_de": "Brachliegen des Landes › Arbeit im Siebenten Jahr › Wer als Instandsetzer seines Feldes erscheint › Abschlagen",
+     "desc_en": "Release of the land › Work in the Sabbatical year › One who appears to be improving his field › Cutting off"
+    },
+    {
+     "ref": "4:7",
+     "text": "תאנים",
+     "text_de": "Feigen",
+     "text_en": "Figs",
+     "desc": "קדושת פירות שביעית › איסור הפסד פירות שביעית › עונות לתשמיש",
+     "desc_de": "Heiligkeit der Früchte des Siebenten Jahres › Verbot, Früchte des Siebenten Jahres zu verderben › Zeiten für den Gebrauch",
+     "desc_en": "Sanctity of Sabbatical-year fruit › Prohibition against spoiling Sabbatical-year fruit › Seasons for use"
+    },
+    {
+     "ref": "4:8",
+     "text": "ענבים",
+     "text_de": "Trauben",
+     "text_en": "Grapes",
+     "desc": "קדושת פירות שביעית › איסור הפסד פירות שביעית › עונות לתשמיש",
+     "desc_de": "Heiligkeit der Früchte des Siebenten Jahres › Verbot, Früchte des Siebenten Jahres zu verderben › Zeiten für den Gebrauch",
+     "desc_en": "Sanctity of Sabbatical-year fruit › Prohibition against spoiling Sabbatical-year fruit › Seasons for use"
+    },
+    {
+     "ref": "4:9",
+     "text": "זיתים, שאר פירות",
+     "text_de": "Oliven, andere Früchte",
+     "text_en": "Olives, other fruits",
+     "desc": "קדושת פירות שביעית › איסור הפסד פירות שביעית › עונות לתשמיש",
+     "desc_de": "Heiligkeit der Früchte des Siebenten Jahres › Verbot, Früchte des Siebenten Jahres zu verderben › Zeiten für den Gebrauch",
+     "desc_en": "Sanctity of Sabbatical-year fruit › Prohibition against spoiling Sabbatical-year fruit › Seasons for use"
+    },
+    {
+     "ref": "4:10",
+     "text": "קציצת אילן",
+     "text_de": "Fällen eines Baumes",
+     "text_en": "Cutting down a tree",
+     "desc": "קדושת פירות שביעית › איסור הפסד פירות שביעית",
+     "desc_de": "Heiligkeit der Früchte des Siebenten Jahres › Verbot, Früchte des Siebenten Jahres zu verderben",
+     "desc_en": "Sanctity of Sabbatical-year fruit › Prohibition against spoiling Sabbatical-year fruit"
+    }
+   ]
+  },
+  {
+   "head": "פרק ה",
+   "head_de": "Kapitel 5",
+   "head_en": "Chapter 5",
+   "items": [
+    {
+     "ref": "5:1",
+     "text": "שביעית שלהן",
+     "text_de": "Das Siebente Jahr der Nichtjuden",
+     "text_en": "The Sabbatical year of the gentiles",
+     "desc": "קדושת פירות שביעית › פירות רב שנתיים",
+     "desc_de": "Heiligkeit der Früchte des Siebenten Jahres › Mehrjährige Früchte",
+     "desc_en": "Sanctity of Sabbatical-year fruit › Perennial fruits"
+    },
+    {
+     "ref": "5:2",
+     "text": "הטמנה בארץ",
+     "text_de": "Vergraben in der Erde",
+     "text_en": "Burying in the ground",
+     "desc": "קדושת פירות שביעית › פירות רב שנתיים › לוף",
+     "desc_de": "Heiligkeit der Früchte des Siebenten Jahres › Mehrjährige Früchte › Aronstab",
+     "desc_en": "Sanctity of Sabbatical-year fruit › Perennial fruits › Arum"
+    },
+    {
+     "ref": "5:3",
+     "text": "חלקם של עניים אחר הביעור",
+     "text_de": "Anteil der Armen nach dem Beseitigen",
+     "text_en": "The poor's share after the removal",
+     "desc": "קדושת פירות שביעית › פירות רב שנתיים › לוף",
+     "desc_de": "Heiligkeit der Früchte des Siebenten Jahres › Mehrjährige Früchte › Aronstab",
+     "desc_en": "Sanctity of Sabbatical-year fruit › Perennial fruits › Arum"
+    },
+    {
+     "ref": "5:4",
+     "text": "בצלים, פואה, איך נעקרים בשביעית",
+     "text_de": "Zwiebeln, Krapp, wie sie im Siebenten Jahr ausgerissen werden",
+     "text_en": "Onions, madder, how they are uprooted in the Sabbatical year",
+     "desc": "קדושת פירות שביעית › פירות רב שנתיים › לוף",
+     "desc_de": "Heiligkeit der Früchte des Siebenten Jahres › Mehrjährige Früchte › Aronstab",
+     "desc_en": "Sanctity of Sabbatical-year fruit › Perennial fruits › Arum"
+    },
+    {
+     "ref": "5:5",
+     "text": "זמן התרתו בשמינית",
+     "text_de": "Zeitpunkt ihrer Freigabe im achten Jahr",
+     "text_en": "Time of their permission in the eighth year",
+     "desc": "קדושת פירות שביעית › פירות רב שנתיים › לוף",
+     "desc_de": "Heiligkeit der Früchte des Siebenten Jahres › Mehrjährige Früchte › Aronstab",
+     "desc_en": "Sanctity of Sabbatical-year fruit › Perennial fruits › Arum"
+    },
+    {
+     "ref": "5:6",
+     "text": "כלי עבודת קרקע",
+     "text_de": "Ackergeräte",
+     "text_en": "Farming implements",
+     "desc": "שמיטת קרקע › סיוע לעבריינים › איסורי שביעית › מכירה לחשוד",
+     "desc_de": "Brachliegen des Landes › Unterstützung von Übertretern › Verbote des Siebenten Jahres › Verkauf an einen Verdächtigen",
+     "desc_en": "Release of the land › Assisting transgressors › Prohibitions of the Sabbatical year › Sale to a suspect"
+    },
+    {
+     "ref": "5:7",
+     "text": "כדים",
+     "text_de": "Krüge",
+     "text_en": "Jars",
+     "desc": "שמיטת קרקע › סיוע לעבריינים › איסורי שביעית › מכירה לחשוד",
+     "desc_de": "Brachliegen des Landes › Unterstützung von Übertretern › Verbote des Siebenten Jahres › Verkauf an einen Verdächtigen",
+     "desc_en": "Release of the land › Assisting transgressors › Prohibitions of the Sabbatical year › Sale to a suspect"
+    },
+    {
+     "ref": "5:8",
+     "text": "פרה חורשת, פירות \\ כלי מדידה,פרוטות",
+     "text_de": "Pflügende Kuh, Früchte / Messgeräte, Münzen",
+     "text_en": "Plowing cow, fruit / measuring vessels, small coins",
+     "desc": "שמיטת קרקע › סיוע לעבריינים › איסורי שביעית › מכירה לחשוד",
+     "desc_de": "Brachliegen des Landes › Unterstützung von Übertretern › Verbote des Siebenten Jahres › Verkauf an einen Verdächtigen",
+     "desc_en": "Release of the land › Assisting transgressors › Prohibitions of the Sabbatical year › Sale to a suspect"
+    },
+    {
+     "ref": "5:9",
+     "text": "השאלה ועיסוק עים עם הארץ \\ נכרי",
+     "text_de": "Leihen und Umgang mit einem Am ha-Arez / Nichtjuden",
+     "text_en": "Lending and dealings with an am ha-aretz / gentile",
+     "desc": "שמיטת קרקע › סיוע לעבריינים › איסורי שביעית",
+     "desc_de": "Brachliegen des Landes › Unterstützung von Übertretern › Verbote des Siebenten Jahres",
+     "desc_en": "Release of the land › Assisting transgressors › Prohibitions of the Sabbatical year"
+    }
+   ]
+  },
+  {
+   "head": "פרק ו",
+   "head_de": "Kapitel 6",
+   "head_en": "Chapter 6",
+   "items": [
+    {
+     "ref": "6:1",
+     "text": "ג' ארצות בארץ ישראל",
+     "text_de": "Die drei Länder im Land Israel",
+     "text_en": "The three territories in the Land of Israel",
+     "desc": "שמיטת קרקע › שייכות לאיסור › חילוקי דינים לפי האזור",
+     "desc_de": "Brachliegen des Landes › Zugehörigkeit zum Verbot › Rechtsunterschiede je nach Gebiet",
+     "desc_en": "Release of the land › Belonging to the prohibition › Differences in law according to region"
+    },
+    {
+     "ref": "6:2",
+     "text": "סוריא",
+     "text_de": "Syrien",
+     "text_en": "Syria",
+     "desc": "שמיטת קרקע › שייכות לאיסור › חילוקי דינים לפי האזור",
+     "desc_de": "Brachliegen des Landes › Zugehörigkeit zum Verbot › Rechtsunterschiede je nach Gebiet",
+     "desc_en": "Release of the land › Belonging to the prohibition › Differences in law according to region"
+    },
+    {
+     "ref": "6:3",
+     "text": "שנת השתייכות בצלים",
+     "text_de": "Jahr der Zugehörigkeit der Zwiebeln",
+     "text_en": "Year of attribution of onions",
+     "desc": "קדושת פירות שביעית › שייכות לאיסור",
+     "desc_de": "Heiligkeit der Früchte des Siebenten Jahres › Zugehörigkeit zum Verbot",
+     "desc_en": "Sanctity of Sabbatical-year fruit › Belonging to the prohibition"
+    },
+    {
+     "ref": "6:4",
+     "text": "היתר ירק למוצאי שביעית",
+     "text_de": "Erlaubnis des Gemüses nach Ablauf des Siebenten Jahres",
+     "text_en": "Permission of vegetables after the Sabbatical year",
+     "desc": "קדושת פירות שביעית › שייכות לאיסור",
+     "desc_de": "Heiligkeit der Früchte des Siebenten Jahres › Zugehörigkeit zum Verbot",
+     "desc_en": "Sanctity of Sabbatical-year fruit › Belonging to the prohibition"
+    },
+    {
+     "ref": "6:5",
+     "text": "הוצאת שמן שריפה ושביעית לחו\"ל",
+     "text_de": "Ausführen von Brennöl und das Siebente Jahr im Ausland",
+     "text_en": "Exporting lamp oil and the Sabbatical year abroad",
+     "desc": "קדושת פירות שביעית › שייכות לאיסור › אוכלי קודש וחו\"ל",
+     "desc_de": "Heiligkeit der Früchte des Siebenten Jahres › Zugehörigkeit zum Verbot › Wer Heiliges isst, und das Ausland",
+     "desc_en": "Sanctity of Sabbatical-year fruit › Belonging to the prohibition › Those who eat holy food, and outside the Land"
+    },
+    {
+     "ref": "6:6",
+     "text": "הבאת תרומה מחו\"ל",
+     "text_de": "Einführen von Teruma aus dem Ausland",
+     "text_en": "Bringing Teruma from abroad",
+     "desc": "קדושת פירות שביעית › שייכות לאיסור › אוכלי קודש וחו\"ל",
+     "desc_de": "Heiligkeit der Früchte des Siebenten Jahres › Zugehörigkeit zum Verbot › Wer Heiliges isst, und das Ausland",
+     "desc_en": "Sanctity of Sabbatical-year fruit › Belonging to the prohibition › Those who eat holy food, and outside the Land"
+    }
+   ]
+  },
+  {
+   "head": "פרק ז",
+   "head_de": "Kapitel 7",
+   "head_en": "Chapter 7",
+   "items": [
+    {
+     "ref": "7:1",
+     "text": "שיש להן שביעית וביעור",
+     "text_de": "Was dem Siebenten Jahr und dem Beseitigen unterliegt",
+     "text_en": "What is subject to the Sabbatical year and to removal",
+     "desc": "קדושת פירות שביעית › שייכות לאיסור",
+     "desc_de": "Heiligkeit der Früchte des Siebenten Jahres › Zugehörigkeit zum Verbot",
+     "desc_en": "Sanctity of Sabbatical-year fruit › Belonging to the prohibition"
+    },
+    {
+     "ref": "7:2",
+     "text": "שאין להן ביעור",
+     "text_de": "Was nicht dem Beseitigen unterliegt",
+     "text_en": "What is not subject to removal",
+     "desc": "קדושת פירות שביעית › שייכות לאיסור",
+     "desc_de": "Heiligkeit der Früchte des Siebenten Jahres › Zugehörigkeit zum Verbot",
+     "desc_en": "Sanctity of Sabbatical-year fruit › Belonging to the prohibition"
+    },
+    {
+     "ref": "7:3",
+     "text": "קליפה וגלעין\\ שביעית ואיסורים אחרים",
+     "text_de": "Schale und Kern / Siebentes Jahr und andere Verbote",
+     "text_en": "Peel and pit / Sabbatical year and other prohibitions",
+     "desc": "קדושת פירות שביעית › גדר האיסור › איסור סחורה",
+     "desc_de": "Heiligkeit der Früchte des Siebenten Jahres › Umfang des Verbots › Handelsverbot",
+     "desc_en": "Sanctity of Sabbatical-year fruit › Scope of the prohibition › Prohibition of trade"
+    },
+    {
+     "ref": "7:4",
+     "text": "בכור, בעלי חיים טמאים",
+     "text_de": "Erstgeborenes, unreine Tiere",
+     "text_en": "Firstborn, unclean animals",
+     "desc": "קדושת פירות שביעית › גדר האיסור › איסור סחורה",
+     "desc_de": "Heiligkeit der Früchte des Siebenten Jahres › Umfang des Verbots › Handelsverbot",
+     "desc_en": "Sanctity of Sabbatical-year fruit › Scope of the prohibition › Prohibition of trade"
+    },
+    {
+     "ref": "7:5",
+     "text": "לולבים ועלים שונים",
+     "text_de": "Lulawim und verschiedene Blätter",
+     "text_en": "Lulavim and various leaves",
+     "desc": "קדושת פירות שביעית › שייכות לאיסור",
+     "desc_de": "Heiligkeit der Früchte des Siebenten Jahres › Zugehörigkeit zum Verbot",
+     "desc_en": "Sanctity of Sabbatical-year fruit › Belonging to the prohibition"
+    },
+    {
+     "ref": "7:6",
+     "text": "צמחי בושם",
+     "text_de": "Duftpflanzen",
+     "text_en": "Aromatic plants",
+     "desc": "קדושת פירות שביעית › שייכות לאיסור",
+     "desc_de": "Heiligkeit der Früchte des Siebenten Jahres › Zugehörigkeit zum Verbot",
+     "desc_en": "Sanctity of Sabbatical-year fruit › Belonging to the prohibition"
+    },
+    {
+     "ref": "7:7",
+     "text": "נתינת טעם",
+     "text_de": "Übertragung von Geschmack",
+     "text_en": "Transfer of flavor",
+     "desc": "קדושת פירות שביעית › שייכות לאיסור",
+     "desc_de": "Heiligkeit der Früchte des Siebenten Jahres › Zugehörigkeit zum Verbot",
+     "desc_en": "Sanctity of Sabbatical-year fruit › Belonging to the prohibition"
+    }
+   ]
+  },
+  {
+   "head": "פרק ח",
+   "head_de": "Kapitel 8",
+   "head_en": "Chapter 8",
+   "items": [
+    {
+     "ref": "8:1",
+     "text": "קביעת ושינוי בתשמישן",
+     "text_de": "Festlegung und Veränderung ihrer Verwendung",
+     "text_en": "Determining and changing their use",
+     "desc": "קדושת פירות שביעית › גדר האיסור › הפסד פירות",
+     "desc_de": "Heiligkeit der Früchte des Siebenten Jahres › Umfang des Verbots › Verderben von Früchten",
+     "desc_en": "Sanctity of Sabbatical-year fruit › Scope of the prohibition › Spoiling fruit"
+    },
+    {
+     "ref": "8:2",
+     "text": "שימושיהם המותרים",
+     "text_de": "Ihre erlaubten Verwendungen",
+     "text_en": "Their permitted uses",
+     "desc": "קדושת פירות שביעית › גדר האיסור › הפסד פירות",
+     "desc_de": "Heiligkeit der Früchte des Siebenten Jahres › Umfang des Verbots › Verderben von Früchten",
+     "desc_en": "Sanctity of Sabbatical-year fruit › Scope of the prohibition › Spoiling fruit"
+    },
+    {
+     "ref": "8:3",
+     "text": "מכירה בשינוי",
+     "text_de": "Verkauf unter veränderten Umständen",
+     "text_en": "Sale under altered circumstances",
+     "desc": "קדושת פירות שביעית › גדר האיסור › איסור סחורה",
+     "desc_de": "Heiligkeit der Früchte des Siebenten Jahres › Umfang des Verbots › Handelsverbot",
+     "desc_en": "Sanctity of Sabbatical-year fruit › Scope of the prohibition › Prohibition of trade"
+    },
+    {
+     "ref": "8:4",
+     "text": "שכר פועל, פריעת חוב",
+     "text_de": "Arbeitslohn, Schuldbegleichung",
+     "text_en": "Worker's wages, repayment of debt",
+     "desc": "קדושת פירות שביעית › גדר האיסור › איסור סחורה",
+     "desc_de": "Heiligkeit der Früchte des Siebenten Jahres › Umfang des Verbots › Handelsverbot",
+     "desc_en": "Sanctity of Sabbatical-year fruit › Scope of the prohibition › Prohibition of trade"
+    },
+    {
+     "ref": "8:5",
+     "text": "שכר פועל",
+     "text_de": "Arbeitslohn",
+     "text_en": "Worker's wages",
+     "desc": "קדושת פירות שביעית › גדר האיסור › איסור סחורה",
+     "desc_de": "Heiligkeit der Früchte des Siebenten Jahres › Umfang des Verbots › Handelsverbot",
+     "desc_en": "Sanctity of Sabbatical-year fruit › Scope of the prohibition › Prohibition of trade"
+    },
+    {
+     "ref": "8:6",
+     "text": "שינוי בהכנת הפירות",
+     "text_de": "Veränderung bei der Zubereitung der Früchte",
+     "text_en": "Change in the preparation of the fruit",
+     "desc": "קדושת פירות שביעית › גדר האיסור",
+     "desc_de": "Heiligkeit der Früchte des Siebenten Jahres › Umfang des Verbots",
+     "desc_en": "Sanctity of Sabbatical-year fruit › Scope of the prohibition"
+    },
+    {
+     "ref": "8:7",
+     "text": "בישול שביעית ותרומה \\ התפסה",
+     "text_de": "Kochen von Früchten des Siebenten Jahres und Teruma / Übertragung der Heiligkeit",
+     "text_en": "Cooking Sabbatical-year fruit and Teruma / transfer of sanctity",
+     "desc": "קדושת פירות שביעית › גדר האיסור › קדושת דמים",
+     "desc_de": "Heiligkeit der Früchte des Siebenten Jahres › Umfang des Verbots › Heiligkeit des Geldes",
+     "desc_en": "Sanctity of Sabbatical-year fruit › Scope of the prohibition › Sanctity of the money"
+    },
+    {
+     "ref": "8:8",
+     "text": "קנייה לא לאכילה, סיכת כלים",
+     "text_de": "Kauf nicht zum Essen, Einsalben von Geräten",
+     "text_en": "Purchase not for eating, oiling of utensils",
+     "desc": "קדושת פירות שביעית › גדר האיסור › קדושת דמים",
+     "desc_de": "Heiligkeit der Früchte des Siebenten Jahres › Umfang des Verbots › Heiligkeit des Geldes",
+     "desc_en": "Sanctity of Sabbatical-year fruit › Scope of the prohibition › Sanctity of the money"
+    },
+    {
+     "ref": "8:9",
+     "text": "סיכת עור",
+     "text_de": "Einsalben von Leder",
+     "text_en": "Oiling of leather",
+     "desc": "קדושת פירות שביעית › גדר האיסור › מחלוקות ר\"א וחכמים",
+     "desc_de": "Heiligkeit der Früchte des Siebenten Jahres › Umfang des Verbots › Meinungsverschiedenheiten zwischen Rabbi Eliezer und den Weisen",
+     "desc_en": "Sanctity of Sabbatical-year fruit › Scope of the prohibition › Disputes between Rabbi Eliezer and the Sages"
+    },
+    {
+     "ref": "8:10",
+     "text": "פת כותים",
+     "text_de": "Brot der Samaritaner",
+     "text_en": "Bread of the Samaritans",
+     "desc": "קדושת פירות שביעית › גדר האיסור › מחלוקות ר\"א וחכמים",
+     "desc_de": "Heiligkeit der Früchte des Siebenten Jahres › Umfang des Verbots › Meinungsverschiedenheiten zwischen Rabbi Eliezer und den Weisen",
+     "desc_en": "Sanctity of Sabbatical-year fruit › Scope of the prohibition › Disputes between Rabbi Eliezer and the Sages"
+    },
+    {
+     "ref": "8:11",
+     "text": "הסקה",
+     "text_de": "Heizen",
+     "text_en": "Heating",
+     "desc": "קדושת פירות שביעית › גדר האיסור",
+     "desc_de": "Heiligkeit der Früchte des Siebenten Jahres › Umfang des Verbots",
+     "desc_en": "Sanctity of Sabbatical-year fruit › Scope of the prohibition"
+    }
+   ]
+  },
+  {
+   "head": "פרק ט",
+   "head_de": "Kapitel 9",
+   "head_en": "Chapter 9",
+   "items": [
+    {
+     "ref": "9:1",
+     "text": "פירות שחזקתן מן ההפקר",
+     "text_de": "Früchte, die vermutlich aus herrenlosem Besitz stammen",
+     "text_en": "Fruit presumed to come from ownerless property",
+     "desc": "קדושת פירות שביעית › שייכות לאיסור",
+     "desc_de": "Heiligkeit der Früchte des Siebenten Jahres › Zugehörigkeit zum Verbot",
+     "desc_en": "Sanctity of Sabbatical-year fruit › Belonging to the prohibition"
+    },
+    {
+     "ref": "9:2",
+     "text": "תחומן ומחוזותיהן",
+     "text_de": "Ihre Gebiete und deren Bezirke",
+     "text_en": "Their territories and their districts",
+     "desc": "קדושת פירות שביעית › ביעור › ארצות לביעור",
+     "desc_de": "Heiligkeit der Früchte des Siebenten Jahres › Beseitigen › Länder des Beseitigens",
+     "desc_en": "Sanctity of Sabbatical-year fruit › Removal › Regions of removal"
+    },
+    {
+     "ref": "9:3",
+     "text": "מחוז האחרון, פירות מיוחדים",
+     "text_de": "Der letzte Bezirk, besondere Früchte",
+     "text_en": "The last district, special fruits",
+     "desc": "קדושת פירות שביעית › ביעור › זמנו › ארצות לביעור",
+     "desc_de": "Heiligkeit der Früchte des Siebenten Jahres › Beseitigen › Seine Zeit › Länder des Beseitigens",
+     "desc_en": "Sanctity of Sabbatical-year fruit › Removal › Its time › Regions of removal"
+    },
+    {
+     "ref": "9:4",
+     "text": "השמור, מינים מאוחרים",
+     "text_de": "Das Aufbewahrte, späte Sorten",
+     "text_en": "The stored produce, late varieties",
+     "desc": "קדושת פירות שביעית › ביעור › זמנו",
+     "desc_de": "Heiligkeit der Früchte des Siebenten Jahres › Beseitigen › Seine Zeit",
+     "desc_en": "Sanctity of Sabbatical-year fruit › Removal › Its time"
+    },
+    {
+     "ref": "9:5",
+     "text": "סמיכה על כבושים",
+     "text_de": "Sich auf Eingelegtes stützen",
+     "text_en": "Relying on pickled produce",
+     "desc": "קדושת פירות שביעית › ביעור › זמנו",
+     "desc_de": "Heiligkeit der Früchte des Siebenten Jahres › Beseitigen › Seine Zeit",
+     "desc_en": "Sanctity of Sabbatical-year fruit › Removal › Its time"
+    },
+    {
+     "ref": "9:6",
+     "text": "הנגבבים",
+     "text_de": "Das Zusammengescharrte",
+     "text_en": "The gathered produce",
+     "desc": "קדושת פירות שביעית › ביעור › זמנו › רביעה שנייה",
+     "desc_de": "Heiligkeit der Früchte des Siebenten Jahres › Beseitigen › Seine Zeit › Zweiter Regenfall",
+     "desc_en": "Sanctity of Sabbatical-year fruit › Removal › Its time › Second rainfall"
+    },
+    {
+     "ref": "9:7",
+     "text": "השכרה, נדרים, הפקר, קש ותבן",
+     "text_de": "Vermieten, Gelübde, Herrenlosmachen, Stroh und Häcksel",
+     "text_en": "Renting out, vows, declaring ownerless, straw and chaff",
+     "desc": "קדושת פירות שביעית › ביעור › זמנו › רביעה שנייה",
+     "desc_de": "Heiligkeit der Früchte des Siebenten Jahres › Beseitigen › Seine Zeit › Zweiter Regenfall",
+     "desc_en": "Sanctity of Sabbatical-year fruit › Removal › Its time › Second rainfall"
+    },
+    {
+     "ref": "9:8",
+     "text": "פירותיו, הרשאי לאכול אח\"כ",
+     "text_de": "Seine Früchte, wer danach essen darf",
+     "text_en": "Its fruit, who may eat afterwards",
+     "desc": "קדושת פירות שביעית › ביעור › כיצד",
+     "desc_de": "Heiligkeit der Früchte des Siebenten Jahres › Beseitigen › Wie",
+     "desc_en": "Sanctity of Sabbatical-year fruit › Removal › How"
+    },
+    {
+     "ref": "9:9",
+     "text": "פירות שנתקבלו , חיוב בחלה",
+     "text_de": "Eingegangene Früchte, Pflicht zur Challa",
+     "text_en": "Received fruit, obligation of Challa",
+     "desc": "קדושת פירות שביעית › ביעור › כיצד",
+     "desc_de": "Heiligkeit der Früchte des Siebenten Jahres › Beseitigen › Wie",
+     "desc_en": "Sanctity of Sabbatical-year fruit › Removal › How"
+    }
+   ]
+  },
+  {
+   "head": "פרק י",
+   "head_de": "Kapitel 10",
+   "head_en": "Chapter 10",
+   "items": [
+    {
+     "ref": "10:1",
+     "text": "הקפה, שכר פועל",
+     "text_de": "Anschreiben lassen, Arbeitslohn",
+     "text_en": "Buying on credit, worker's wages",
+     "desc": "שמיטת כספים › חובות המשתמטים",
+     "desc_de": "Erlass der Geldschulden › Pflichten der sich Entziehenden",
+     "desc_en": "Remission of monetary debts › Duties of those who evade"
+    },
+    {
+     "ref": "10:2",
+     "text": "תאריך מכירה, מעשה בית דין",
+     "text_de": "Verkaufsdatum, Gerichtsfall",
+     "text_en": "Date of sale, court case",
+     "desc": "שמיטת כספים › חובות המשתמטים",
+     "desc_de": "Erlass der Geldschulden › Pflichten der sich Entziehenden",
+     "desc_en": "Remission of monetary debts › Duties of those who evade"
+    },
+    {
+     "ref": "10:3",
+     "text": "טעם התקנה",
+     "text_de": "Grund der Verordnung",
+     "text_en": "Reason for the ordinance",
+     "desc": "שמיטת כספים › פרוזבול",
+     "desc_de": "Erlass der Geldschulden › Prosbul",
+     "desc_en": "Remission of monetary debts › Prosbul"
+    },
+    {
+     "ref": "10:4",
+     "text": "הנוסח",
+     "text_de": "Der Wortlaut",
+     "text_en": "The wording",
+     "desc": "שמיטת כספים › פרוזבול",
+     "desc_de": "Erlass der Geldschulden › Prosbul",
+     "desc_en": "Remission of monetary debts › Prosbul"
+    },
+    {
+     "ref": "10:5",
+     "text": "תאריך מזויף וכחוב ,מספר הנצרך",
+     "text_de": "Gefälschtes und überschriebenes Datum, erforderliche Zahl",
+     "text_en": "Forged and overwritten date, required number",
+     "desc": "שמיטת כספים › פרוזבול",
+     "desc_de": "Erlass der Geldschulden › Prosbul",
+     "desc_en": "Remission of monetary debts › Prosbul"
+    },
+    {
+     "ref": "10:6",
+     "text": "צורך בקרקע,תועלת בקרקע של אחר",
+     "text_de": "Bedarf an Grundbesitz, Nutzen am Grundstück eines anderen",
+     "text_en": "Need for land, benefit from another's land",
+     "desc": "שמיטת כספים › פרוזבול › על קרקע",
+     "desc_de": "Erlass der Geldschulden › Prosbul › Auf Grundbesitz",
+     "desc_en": "Remission of monetary debts › Prosbul › On land"
+    },
+    {
+     "ref": "10:7",
+     "text": "כוורת כקרקע ונפקא מינות",
+     "text_de": "Bienenstock als Grundbesitz und die praktischen Folgen",
+     "text_en": "Beehive as land and its practical consequences",
+     "desc": "שמיטת כספים › פרוזבול › על קרקע",
+     "desc_de": "Erlass der Geldschulden › Prosbul › Auf Grundbesitz",
+     "desc_en": "Remission of monetary debts › Prosbul › On land"
+    },
+    {
+     "ref": "10:8",
+     "text": "נסיון ההחזרה, כיבוד רוצח",
+     "text_de": "Versuch der Rückzahlung, Ehrung des Mörders",
+     "text_en": "Attempt at repayment, honoring the murderer",
+     "desc": "שמיטת כספים › חובות המשתמטים › החזרת חוב",
+     "desc_de": "Erlass der Geldschulden › Pflichten der sich Entziehenden › Rückzahlung der Schuld",
+     "desc_en": "Remission of monetary debts › Duties of those who evade › Repayment of the debt"
+    },
+    {
+     "ref": "10:9",
+     "text": "הגורם נחת רוח לחכמים",
+     "text_de": "Wer den Weisen Freude bereitet",
+     "text_en": "One who gives satisfaction to the Sages",
+     "desc": "שמיטת כספים › חובות המשתמטים › החזרת חוב",
+     "desc_de": "Erlass der Geldschulden › Pflichten der sich Entziehenden › Rückzahlung der Schuld",
+     "desc_en": "Remission of monetary debts › Duties of those who evade › Repayment of the debt"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,366 @@
+{
+ "book": "Mishnah Tamid",
+ "title": "משנה תמיד",
+ "title_de": "Mischna Tamid – Gliederung",
+ "title_en": "Tamid – outline",
+ "note": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema).",
+ "note_de": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema); ins Deutsche und Englische übersetzt.",
+ "note_en": "Outline after the table “Mishna Sedura”: the central content of each mishnah, with the topic path (main topic to sub-topic); translated into German and English.",
+ "sections": [
+  {
+   "head": "פרק א",
+   "head_de": "Kapitel 1",
+   "head_en": "Chapter 1",
+   "items": [
+    {
+     "ref": "1:1",
+     "text": "שמירה, שינה, הנהגה לבעל קרי",
+     "text_de": "Bewachung, Schlaf, Verhalten für den Samenbefleckten",
+     "text_en": "Guarding, sleep, conduct for one who has had an emission",
+     "desc": "תיאור העבודה במקדש עד לאחר הקרבת התמיד › הקרבת התמיד › בלילה",
+     "desc_de": "Beschreibung des Dienstes im Tempel bis nach der Darbringung des Tamid › Darbringung des Tamid › In der Nacht",
+     "desc_en": "Description of the Temple service until after the offering of the Tamid › Offering of the Tamid › At night"
+    },
+    {
+     "ref": "1:2",
+     "text": "הכנות ופייס לתרומת הדשן",
+     "text_de": "Vorbereitungen und Losverfahren für die Aschenabhebung",
+     "text_en": "Preparations and lottery for the removal of the ashes",
+     "desc": "תיאור העבודה במקדש עד לאחר הקרבת התמיד › הקרבת התמיד › הכנת המזבח › תרומת הדשן",
+     "desc_de": "Beschreibung des Dienstes im Tempel bis nach der Darbringung des Tamid › Darbringung des Tamid › Vorbereitung des Altars › Aschenabhebung",
+     "desc_en": "Description of the Temple service until after the offering of the Tamid › Offering of the Tamid › Preparation of the altar › Removal of the ashes"
+    },
+    {
+     "ref": "1:3",
+     "text": "בלישת העזרה",
+     "text_de": "Das Überprüfen des Tempelvorhofs",
+     "text_en": "Inspection of the Temple court",
+     "desc": "תיאור העבודה במקדש עד לאחר הקרבת התמיד › הקרבת התמיד › הכנת המזבח › תרומת הדשן",
+     "desc_de": "Beschreibung des Dienstes im Tempel bis nach der Darbringung des Tamid › Darbringung des Tamid › Vorbereitung des Altars › Aschenabhebung",
+     "desc_en": "Description of the Temple service until after the offering of the Tamid › Offering of the Tamid › Preparation of the altar › Removal of the ashes"
+    },
+    {
+     "ref": "1:4",
+     "text": "מעשיו של תורם הדשן",
+     "text_de": "Tätigkeiten dessen, der die Asche abhebt",
+     "text_en": "Actions of the one who removes the ashes",
+     "desc": "תיאור העבודה במקדש עד לאחר הקרבת התמיד › הקרבת התמיד › הכנת המזבח › תרומת הדשן",
+     "desc_de": "Beschreibung des Dienstes im Tempel bis nach der Darbringung des Tamid › Darbringung des Tamid › Vorbereitung des Altars › Aschenabhebung",
+     "desc_en": "Description of the Temple service until after the offering of the Tamid › Offering of the Tamid › Preparation of the altar › Removal of the ashes"
+    }
+   ]
+  },
+  {
+   "head": "פרק ב",
+   "head_de": "Kapitel 2",
+   "head_en": "Chapter 2",
+   "items": [
+    {
+     "ref": "2:1",
+     "text": "האברים שלא נתעכלו",
+     "text_de": "Die nicht verbrannten Glieder",
+     "text_en": "The limbs that were not consumed",
+     "desc": "תיאור העבודה במקדש עד לאחר הקרבת התמיד › הקרבת התמיד › הכנת המזבח › פינוי מקום",
+     "desc_de": "Beschreibung des Dienstes im Tempel bis nach der Darbringung des Tamid › Darbringung des Tamid › Vorbereitung des Altars › Platz räumen",
+     "desc_en": "Description of the Temple service until after the offering of the Tamid › Offering of the Tamid › Preparation of the altar › Clearing a space"
+    },
+    {
+     "ref": "2:2",
+     "text": "הטיפול באפר התפוח",
+     "text_de": "Umgang mit der aufgehäuften Asche",
+     "text_en": "Handling the heaped-up ashes",
+     "desc": "תיאור העבודה במקדש עד לאחר הקרבת התמיד › הקרבת התמיד › הכנת המזבח › פינוי מקום",
+     "desc_de": "Beschreibung des Dienstes im Tempel bis nach der Darbringung des Tamid › Darbringung des Tamid › Vorbereitung des Altars › Platz räumen",
+     "desc_en": "Description of the Temple service until after the offering of the Tamid › Offering of the Tamid › Preparation of the altar › Clearing a space"
+    },
+    {
+     "ref": "2:3",
+     "text": "סוג העצים",
+     "text_de": "Art des Holzes",
+     "text_en": "Kind of wood",
+     "desc": "תיאור העבודה במקדש עד לאחר הקרבת התמיד › הקרבת התמיד › הכנת המזבח › המערכה הגדולה",
+     "desc_de": "Beschreibung des Dienstes im Tempel bis nach der Darbringung des Tamid › Darbringung des Tamid › Vorbereitung des Altars › Das große Holzfeuer",
+     "desc_en": "Description of the Temple service until after the offering of the Tamid › Offering of the Tamid › Preparation of the altar › The great woodpile"
+    },
+    {
+     "ref": "2:4",
+     "text": "סידור העצים",
+     "text_de": "Anordnung des Holzes",
+     "text_en": "Arrangement of the wood",
+     "desc": "תיאור העבודה במקדש עד לאחר הקרבת התמיד › הקרבת התמיד › הכנת המזבח › המערכה הגדולה",
+     "desc_de": "Beschreibung des Dienstes im Tempel bis nach der Darbringung des Tamid › Darbringung des Tamid › Vorbereitung des Altars › Das große Holzfeuer",
+     "desc_en": "Description of the Temple service until after the offering of the Tamid › Offering of the Tamid › Preparation of the altar › The great woodpile"
+    },
+    {
+     "ref": "2:5",
+     "text": "סידור מערכת הקטורת,החזרת אברים,הצתה",
+     "text_de": "Anordnung des Räucherwerk-Feuers, Zurücklegen der Glieder, Anzünden",
+     "text_en": "Arrangement of the incense fire, replacing the limbs, kindling",
+     "desc": "תיאור העבודה במקדש עד לאחר הקרבת התמיד › הקרבת התמיד › הכנת המזבח",
+     "desc_de": "Beschreibung des Dienstes im Tempel bis nach der Darbringung des Tamid › Darbringung des Tamid › Vorbereitung des Altars",
+     "desc_en": "Description of the Temple service until after the offering of the Tamid › Offering of the Tamid › Preparation of the altar"
+    }
+   ]
+  },
+  {
+   "head": "פרק ג",
+   "head_de": "Kapitel 3",
+   "head_en": "Chapter 3",
+   "items": [
+    {
+     "ref": "3:1",
+     "text": "זכיית שלוש עשרה כהנים בפייס",
+     "text_de": "Gewinn des Loses durch dreizehn Priester",
+     "text_en": "Thirteen priests winning the lottery",
+     "desc": "תיאור העבודה במקדש עד לאחר הקרבת התמיד › הקרבת התמיד › הכנת הכהנים והקרבן",
+     "desc_de": "Beschreibung des Dienstes im Tempel bis nach der Darbringung des Tamid › Darbringung des Tamid › Vorbereitung der Priester und des Opfers",
+     "desc_en": "Description of the Temple service until after the offering of the Tamid › Offering of the Tamid › Preparation of the priests and the offering"
+    },
+    {
+     "ref": "3:2",
+     "text": "קביעת זמן השחיטה",
+     "text_de": "Festlegung der Schlachtzeit",
+     "text_en": "Determining the time of slaughter",
+     "desc": "תיאור העבודה במקדש עד לאחר הקרבת התמיד › הקרבת התמיד › הכנת הכהנים והקרבן",
+     "desc_de": "Beschreibung des Dienstes im Tempel bis nach der Darbringung des Tamid › Darbringung des Tamid › Vorbereitung der Priester und des Opfers",
+     "desc_en": "Description of the Temple service until after the offering of the Tamid › Offering of the Tamid › Preparation of the priests and the offering"
+    },
+    {
+     "ref": "3:3",
+     "text": "הבאת טלה, הלשכות סביב בית המוקד",
+     "text_de": "Herbeibringen des Lamms, die Kammern rings um das Bet HaMokad",
+     "text_en": "Bringing the lamb, the chambers around the Beth Hamoked",
+     "desc": "תיאור העבודה במקדש עד לאחר הקרבת התמיד › הקרבת התמיד › הכנת הכהנים והקרבן",
+     "desc_de": "Beschreibung des Dienstes im Tempel bis nach der Darbringung des Tamid › Darbringung des Tamid › Vorbereitung der Priester und des Opfers",
+     "desc_en": "Description of the Temple service until after the offering of the Tamid › Offering of the Tamid › Preparation of the priests and the offering"
+    },
+    {
+     "ref": "3:4",
+     "text": "הוצאת הכלים, השקאת וביקור הקרבן",
+     "text_de": "Herausbringen der Geräte, Tränken und Untersuchen des Opfertiers",
+     "text_en": "Bringing out the vessels, giving the offering water and inspecting it",
+     "desc": "תיאור העבודה במקדש עד לאחר הקרבת התמיד › הקרבת התמיד › הכנת הכהנים והקרבן",
+     "desc_de": "Beschreibung des Dienstes im Tempel bis nach der Darbringung des Tamid › Darbringung des Tamid › Vorbereitung der Priester und des Opfers",
+     "desc_en": "Description of the Temple service until after the offering of the Tamid › Offering of the Tamid › Preparation of the priests and the offering"
+    },
+    {
+     "ref": "3:5",
+     "text": "תיאור בית המטבחים",
+     "text_de": "Beschreibung des Schlachthauses",
+     "text_en": "Description of the slaughter house",
+     "desc": "תיאור העבודה במקדש עד לאחר הקרבת התמיד › הקרבת התמיד › הכנת הכהנים והקרבן",
+     "desc_de": "Beschreibung des Dienstes im Tempel bis nach der Darbringung des Tamid › Darbringung des Tamid › Vorbereitung der Priester und des Opfers",
+     "desc_en": "Description of the Temple service until after the offering of the Tamid › Offering of the Tamid › Preparation of the priests and the offering"
+    },
+    {
+     "ref": "3:6",
+     "text": "הכלים הנצרכים",
+     "text_de": "Die benötigten Geräte",
+     "text_en": "The required vessels",
+     "desc": "תיאור העבודה במקדש עד לאחר הקרבת התמיד › הקטרת הקטורת › דישונים הפנימיים",
+     "desc_de": "Beschreibung des Dienstes im Tempel bis nach der Darbringung des Tamid › Darbringung des Räucherwerks › Die inneren Entaschungen",
+     "desc_en": "Description of the Temple service until after the offering of the Tamid › burning the incense › The inner removals of ashes"
+    },
+    {
+     "ref": "3:7",
+     "text": "פתיחת הפשפש ושער ההיכל",
+     "text_de": "Öffnen der Nebenpforte und des Tores zum Heiligtum",
+     "text_en": "Opening the wicket gate and the gate of the sanctuary",
+     "desc": "תיאור העבודה במקדש עד לאחר הקרבת התמיד › הקטרת הקטורת › דישונים הפנימיים",
+     "desc_de": "Beschreibung des Dienstes im Tempel bis nach der Darbringung des Tamid › Darbringung des Räucherwerks › Die inneren Entaschungen",
+     "desc_en": "Description of the Temple service until after the offering of the Tamid › burning the incense › The inner removals of ashes"
+    },
+    {
+     "ref": "3:8",
+     "text": "ריחות וקולות במקדש שחשו ביריחו",
+     "text_de": "Gerüche und Klänge im Tempel, die man in Jericho wahrnahm",
+     "text_en": "Smells and sounds in the Temple that were noticed in Jericho",
+     "desc": "תיאור העבודה במקדש עד לאחר הקרבת התמיד › הקטרת הקטורת › דישונים הפנימיים",
+     "desc_de": "Beschreibung des Dienstes im Tempel bis nach der Darbringung des Tamid › Darbringung des Räucherwerks › Die inneren Entaschungen",
+     "desc_en": "Description of the Temple service until after the offering of the Tamid › burning the incense › The inner removals of ashes"
+    },
+    {
+     "ref": "3:9",
+     "text": "מעשיהם של המדשנים",
+     "text_de": "Tätigkeiten der Aschenentferner",
+     "text_en": "Actions of those who remove the ashes",
+     "desc": "תיאור העבודה במקדש עד לאחר הקרבת התמיד › הקטרת הקטורת › דישונים הפנימיים",
+     "desc_de": "Beschreibung des Dienstes im Tempel bis nach der Darbringung des Tamid › Darbringung des Räucherwerks › Die inneren Entaschungen",
+     "desc_en": "Description of the Temple service until after the offering of the Tamid › burning the incense › The inner removals of ashes"
+    }
+   ]
+  },
+  {
+   "head": "פרק ד",
+   "head_de": "Kapitel 4",
+   "head_en": "Chapter 4",
+   "items": [
+    {
+     "ref": "4:1",
+     "text": "עקידה, שחיטה וזריקה",
+     "text_de": "Fesselung, Schlachtung und Sprengung",
+     "text_en": "Binding, slaughtering and sprinkling",
+     "desc": "תיאור העבודה במקדש עד לאחר הקרבת התמיד › הקרבת התמיד › מעשים בגוף הקרבן",
+     "desc_de": "Beschreibung des Dienstes im Tempel bis nach der Darbringung des Tamid › Darbringung des Tamid › Handlungen am Körper des Opfers",
+     "desc_en": "Description of the Temple service until after the offering of the Tamid › Offering of the Tamid › Actions on the body of the offering"
+    },
+    {
+     "ref": "4:2",
+     "text": "ניתוח אברים ונקיונם",
+     "text_de": "Zerlegen der Glieder und ihre Reinigung",
+     "text_en": "Cutting up the limbs and cleaning them",
+     "desc": "תיאור העבודה במקדש עד לאחר הקרבת התמיד › הקרבת התמיד › מעשים בגוף הקרבן",
+     "desc_de": "Beschreibung des Dienstes im Tempel bis nach der Darbringung des Tamid › Darbringung des Tamid › Handlungen am Körper des Opfers",
+     "desc_en": "Description of the Temple service until after the offering of the Tamid › Offering of the Tamid › Actions on the body of the offering"
+    },
+    {
+     "ref": "4:3",
+     "text": "ניתוח, העלאה לכבש",
+     "text_de": "Zerlegen, Hinaufbringen auf die Rampe",
+     "text_en": "Cutting up, bringing up to the ramp",
+     "desc": "תיאור העבודה במקדש עד לאחר הקרבת התמיד › הקרבת התמיד › מעשים בגוף הקרבן",
+     "desc_de": "Beschreibung des Dienstes im Tempel bis nach der Darbringung des Tamid › Darbringung des Tamid › Handlungen am Körper des Opfers",
+     "desc_en": "Description of the Temple service until after the offering of the Tamid › Offering of the Tamid › Actions on the body of the offering"
+    }
+   ]
+  },
+  {
+   "head": "פרק ה",
+   "head_de": "Kapitel 5",
+   "head_en": "Chapter 5",
+   "items": [
+    {
+     "ref": "5:1",
+     "text": "ברכות ותפילות שהתפללו הכהנים",
+     "text_de": "Segenssprüche und Gebete, die die Priester sprachen",
+     "text_en": "Blessings and prayers recited by the priests",
+     "desc": "תיאור העבודה במקדש עד לאחר הקרבת התמיד › הקרבת התמיד › הכנת הכהנים",
+     "desc_de": "Beschreibung des Dienstes im Tempel bis nach der Darbringung des Tamid › Darbringung des Tamid › Vorbereitung der Priester",
+     "desc_en": "Description of the Temple service until after the offering of the Tamid › Offering of the Tamid › Preparation of the priests"
+    },
+    {
+     "ref": "5:2",
+     "text": "פייס לקטורת ולהעלאת האברים",
+     "text_de": "Losverfahren für das Räucherwerk und das Hinaufbringen der Glieder",
+     "text_en": "Lottery for the incense and for bringing up the limbs",
+     "desc": "תיאור העבודה במקדש עד לאחר הקרבת התמיד › הקרבת התמיד › הכנת הכהנים",
+     "desc_de": "Beschreibung des Dienstes im Tempel bis nach der Darbringung des Tamid › Darbringung des Tamid › Vorbereitung der Priester",
+     "desc_en": "Description of the Temple service until after the offering of the Tamid › Offering of the Tamid › Preparation of the priests"
+    },
+    {
+     "ref": "5:3",
+     "text": "הפשטת הכהנים שלא זכו",
+     "text_de": "Entkleiden der Priester, die nicht gewannen",
+     "text_en": "Undressing of the priests who did not win",
+     "desc": "תיאור העבודה במקדש עד לאחר הקרבת התמיד › הקרבת התמיד › הכנת הכהנים",
+     "desc_de": "Beschreibung des Dienstes im Tempel bis nach der Darbringung des Tamid › Darbringung des Tamid › Vorbereitung der Priester",
+     "desc_en": "Description of the Temple service until after the offering of the Tamid › Offering of the Tamid › Preparation of the priests"
+    },
+    {
+     "ref": "5:4",
+     "text": "הכלים המחזיקים את הקטורת",
+     "text_de": "Die Gefäße, die das Räucherwerk fassen",
+     "text_en": "The vessels that hold the incense",
+     "desc": "תיאור העבודה במקדש עד לאחר הקרבת התמיד › הקטרת הקטורת › הכנות",
+     "desc_de": "Beschreibung des Dienstes im Tempel bis nach der Darbringung des Tamid › Darbringung des Räucherwerks › Vorbereitungen",
+     "desc_en": "Description of the Temple service until after the offering of the Tamid › burning the incense › preparations"
+    },
+    {
+     "ref": "5:5",
+     "text": "חתיית גחלים לקטורת\\ הפסכתר ושימושיו",
+     "text_de": "Schüren der Kohlen für das Räucherwerk / der Pasechter und seine Verwendung",
+     "text_en": "Raking the coals for the incense / the pasechter and its uses",
+     "desc": "תיאור העבודה במקדש עד לאחר הקרבת התמיד › הקטרת הקטורת › כלים משונים › הכנות",
+     "desc_de": "Beschreibung des Dienstes im Tempel bis nach der Darbringung des Tamid › Darbringung des Räucherwerks › Besondere Geräte › Vorbereitungen",
+     "desc_en": "Description of the Temple service until after the offering of the Tamid › burning the incense › Special vessels › preparations"
+    },
+    {
+     "ref": "5:6",
+     "text": "קול המגריפה",
+     "text_de": "Klang der Magrefa",
+     "text_en": "Sound of the magrefa",
+     "desc": "תיאור העבודה במקדש עד לאחר הקרבת התמיד › הקטרת הקטורת › כלים משונים",
+     "desc_de": "Beschreibung des Dienstes im Tempel bis nach der Darbringung des Tamid › Darbringung des Räucherwerks › Besondere Geräte",
+     "desc_en": "Description of the Temple service until after the offering of the Tamid › burning the incense › Special vessels"
+    }
+   ]
+  },
+  {
+   "head": "פרק ו",
+   "head_de": "Kapitel 6",
+   "head_en": "Chapter 6",
+   "items": [
+    {
+     "ref": "6:1",
+     "text": "סיומם",
+     "text_de": "Ihr Abschluss",
+     "text_en": "Their conclusion",
+     "desc": "תיאור העבודה במקדש עד לאחר הקרבת התמיד › הקטרת הקטורת › דישונים פנימים",
+     "desc_de": "Beschreibung des Dienstes im Tempel bis nach der Darbringung des Tamid › Darbringung des Räucherwerks › Innere Entaschungen",
+     "desc_en": "Description of the Temple service until after the offering of the Tamid › burning the incense › Inner removals of ashes"
+    },
+    {
+     "ref": "6:2",
+     "text": "נתינת הגחלים על מזבח הזהב",
+     "text_de": "Auflegen der Kohlen auf den goldenen Altar",
+     "text_en": "Placing the coals on the golden altar",
+     "desc": "תיאור העבודה במקדש עד לאחר הקרבת התמיד › הקטרת הקטורת › ההקטרה",
+     "desc_de": "Beschreibung des Dienstes im Tempel bis nach der Darbringung des Tamid › Darbringung des Räucherwerks › Das Räuchern",
+     "desc_en": "Description of the Temple service until after the offering of the Tamid › burning the incense › The burning of the incense"
+    },
+    {
+     "ref": "6:3",
+     "text": "הוצאת הבזך, אופן ההקטרה, נתינת רשות",
+     "text_de": "Herausnehmen der Räucherschale, Art des Räucherns, Erteilen der Erlaubnis",
+     "text_en": "Removing the incense bowl, manner of burning the incense, giving permission",
+     "desc": "תיאור העבודה במקדש עד לאחר הקרבת התמיד › הקטרת הקטורת › ההקטרה",
+     "desc_de": "Beschreibung des Dienstes im Tempel bis nach der Darbringung des Tamid › Darbringung des Räucherwerks › Das Räuchern",
+     "desc_en": "Description of the Temple service until after the offering of the Tamid › burning the incense › The burning of the incense"
+    }
+   ]
+  },
+  {
+   "head": "פרק ז",
+   "head_de": "Kapitel 7",
+   "head_en": "Chapter 7",
+   "items": [
+    {
+     "ref": "7:1",
+     "text": "כהן הגדול,הממונה ושאר הכהנים",
+     "text_de": "Hohepriester, Vorsteher und die übrigen Priester",
+     "text_en": "High priest, the appointed official and the other priests",
+     "desc": "תיאור העבודה במקדש עד לאחר הקרבת התמיד › הקרבת התמיד › השתחוואות בהיכל",
+     "desc_de": "Beschreibung des Dienstes im Tempel bis nach der Darbringung des Tamid › Darbringung des Tamid › Niederwerfungen im Heiligtum",
+     "desc_en": "Description of the Temple service until after the offering of the Tamid › Offering of the Tamid › Prostrations in the sanctuary"
+    },
+    {
+     "ref": "7:2",
+     "text": "עמידתן, הבדלים בהברכה בגבולין",
+     "text_de": "Ihre Stellung, Unterschiede beim Segen in den Provinzen",
+     "text_en": "Their position, differences in the blessing in the provinces",
+     "desc": "תיאור העבודה במקדש עד לאחר הקרבת התמיד › הקרבת התמיד › ברכת כהנים",
+     "desc_de": "Beschreibung des Dienstes im Tempel bis nach der Darbringung des Tamid › Darbringung des Tamid › Priestersegen",
+     "desc_en": "Description of the Temple service until after the offering of the Tamid › Offering of the Tamid › Priestly blessing"
+    },
+    {
+     "ref": "7:3",
+     "text": "הקטרתו וניסוכו של כה\"ג, השיר,תקיעות",
+     "text_de": "Räucherung und Trankopfer des Hohepriesters, der Gesang, Trompetenstöße",
+     "text_en": "Burning and libation by the high priest, the song, trumpet blasts",
+     "desc": "תיאור העבודה במקדש עד לאחר הקרבת התמיד › הקרבת התמיד › השיר",
+     "desc_de": "Beschreibung des Dienstes im Tempel bis nach der Darbringung des Tamid › Darbringung des Tamid › Der Gesang",
+     "desc_en": "Description of the Temple service until after the offering of the Tamid › Offering of the Tamid › The song"
+    },
+    {
+     "ref": "7:4",
+     "text": "רשימת שירים יומיים",
+     "text_de": "Liste der täglichen Lieder",
+     "text_en": "List of the daily songs",
+     "desc": "תיאור העבודה במקדש עד לאחר הקרבת התמיד › הקרבת התמיד › השיר",
+     "desc_de": "Beschreibung des Dienstes im Tempel bis nach der Darbringung des Tamid › Darbringung des Tamid › Der Gesang",
+     "desc_en": "Description of the Temple service until after the offering of the Tamid › Offering of the Tamid › The song"
+    }
+   ]
+  }
+ ]
+}

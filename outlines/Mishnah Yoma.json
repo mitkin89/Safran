@@ -1,0 +1,616 @@
+{
+ "book": "Mishnah Yoma",
+ "title": "משנה יומא",
+ "title_de": "Mischna Joma – Gliederung",
+ "title_en": "Yoma – outline",
+ "note": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema).",
+ "note_de": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema); ins Deutsche und Englische übersetzt.",
+ "note_en": "Outline after the table “Mishna Sedura”: the central content of each mishnah, with the topic path (main topic to sub-topic); translated into German and English.",
+ "sections": [
+  {
+   "head": "פרק א",
+   "head_de": "Kapitel 1",
+   "head_en": "Chapter 1",
+   "items": [
+    {
+     "ref": "1:1",
+     "text": "הפרשתו, התקנת מילוי מקום לו ולאשתו",
+     "text_de": "seine Absonderung, Bereitstellung eines Stellvertreters für ihn und seine Frau",
+     "text_en": "his separation, providing a substitute for him and his wife",
+     "desc": "הכנות הכהן הגדול › שבעת ימי הפרשתו",
+     "desc_de": "Vorbereitungen des Hohenpriesters › die sieben Tage seiner Absonderung",
+     "desc_en": "preparations of the High Priest › the seven days of his separation"
+    },
+    {
+     "ref": "1:2",
+     "text": "על ידי עבודה יומית",
+     "text_de": "durch den täglichen Dienst",
+     "text_en": "through the daily service",
+     "desc": "הכנות הכהן הגדול › שבעת ימי הפרשתו › התרגלות בעבודה",
+     "desc_de": "Vorbereitungen des Hohenpriesters › die sieben Tage seiner Absonderung › Einübung in den Dienst",
+     "desc_en": "preparations of the High Priest › the seven days of his separation › practice in the service"
+    },
+    {
+     "ref": "1:3",
+     "text": "לימוד מהתורה \\ היכר הבהמות",
+     "text_de": "Lernen aus der Tora / Erkennen der Tiere",
+     "text_en": "study of the Torah / recognizing the animals",
+     "desc": "הכנות הכהן הגדול › שבעת ימי הפרשתו › ערב יום הכיפורים › התרגלות בעבודה",
+     "desc_de": "Vorbereitungen des Hohenpriesters › die sieben Tage seiner Absonderung › Vorabend des Jom Kippur › Einübung in den Dienst",
+     "desc_en": "preparations of the High Priest › the seven days of his separation › eve of Yom Kippur › practice in the service"
+    },
+    {
+     "ref": "1:4",
+     "text": "מניעת מאכל ממנו",
+     "text_de": "Entzug von Speise",
+     "text_en": "withholding of food from him",
+     "desc": "הכנות הכהן הגדול › שבעת ימי הפרשתו › ערב יום הכיפורים",
+     "desc_de": "Vorbereitungen des Hohenpriesters › die sieben Tage seiner Absonderung › Vorabend des Jom Kippur",
+     "desc_en": "preparations of the High Priest › the seven days of his separation › eve of Yom Kippur"
+    },
+    {
+     "ref": "1:5",
+     "text": "לימוד חפינה, השבעה",
+     "text_de": "Einüben der Handvoll, Beschwörung",
+     "text_en": "practicing the handful, adjuration",
+     "desc": "הכנות הכהן הגדול › שבעת ימי הפרשתו › ערב יום הכיפורים",
+     "desc_de": "Vorbereitungen des Hohenpriesters › die sieben Tage seiner Absonderung › Vorabend des Jom Kippur",
+     "desc_en": "preparations of the High Priest › the seven days of his separation › eve of Yom Kippur"
+    },
+    {
+     "ref": "1:6",
+     "text": "לימוד",
+     "text_de": "Lernen",
+     "text_en": "study",
+     "desc": "הכנות הכהן הגדול › ליל יום הכיפורים › תעסוקה שלא יישן",
+     "desc_de": "Vorbereitungen des Hohenpriesters › Nacht des Jom Kippur › Beschäftigung, damit er nicht einschläft",
+     "desc_en": "preparations of the High Priest › night of Yom Kippur › occupation so that he does not fall asleep"
+    },
+    {
+     "ref": "1:7",
+     "text": "מאמצי פרחי כהונה",
+     "text_de": "Anstrengungen der jungen Priesteranwärter",
+     "text_en": "efforts of the young priestly novices",
+     "desc": "הכנות הכהן הגדול › ליל יום הכיפורים › תעסוקה שלא יישן",
+     "desc_de": "Vorbereitungen des Hohenpriesters › Nacht des Jom Kippur › Beschäftigung, damit er nicht einschläft",
+     "desc_en": "preparations of the High Priest › night of Yom Kippur › occupation so that he does not fall asleep"
+    },
+    {
+     "ref": "1:8",
+     "text": "זמנה במועדים שונים",
+     "text_de": "ihre Zeit an verschiedenen Festen",
+     "text_en": "its time on the various festivals",
+     "desc": "עבודה בבגדי זהב › תיאור העבודה היום יומי › תרומת המזבח",
+     "desc_de": "Dienst in den goldenen Gewändern › Beschreibung des täglichen Dienstes › Abhebung der Asche vom Altar",
+     "desc_en": "service in the golden garments › description of the daily service › removal of the ashes from the altar"
+    }
+   ]
+  },
+  {
+   "head": "פרק ב",
+   "head_de": "Kapitel 2",
+   "head_en": "Chapter 2",
+   "items": [
+    {
+     "ref": "2:1",
+     "text": "תחרות, פיס",
+     "text_de": "Wettbewerb, Losverfahren",
+     "text_en": "contest, lottery",
+     "desc": "עבודה בבגדי זהב › תיאור העבודה היום יומי › תרומת המזבח › הזכייה בה",
+     "desc_de": "Dienst in den goldenen Gewändern › Beschreibung des täglichen Dienstes › Abhebung der Asche vom Altar › das Gewinnen darin",
+     "desc_en": "service in the golden garments › description of the daily service › removal of the ashes from the altar › winning it"
+    },
+    {
+     "ref": "2:2",
+     "text": "מעשה שבאו לידי סכנה",
+     "text_de": "Vorfall, bei dem es gefährlich wurde",
+     "text_en": "incident that led to danger",
+     "desc": "עבודה בבגדי זהב › תיאור העבודה היום יומי › הפייסות › הראשון › הזכייה בה",
+     "desc_de": "Dienst in den goldenen Gewändern › Beschreibung des täglichen Dienstes › die Losverfahren › das erste › das Gewinnen darin",
+     "desc_en": "service in the golden garments › description of the daily service › the lotteries › the first › winning it"
+    },
+    {
+     "ref": "2:3",
+     "text": "העבודות עד העלאת האברים לכבש",
+     "text_de": "die Dienste bis zum Hinaufbringen der Glieder auf die Rampe",
+     "text_en": "the services up to bringing the limbs up the ramp",
+     "desc": "עבודה בבגדי זהב › תיאור העבודה היום יומי › פירוט עבודת הכהנים › הפייסות › השני",
+     "desc_de": "Dienst in den goldenen Gewändern › Beschreibung des täglichen Dienstes › Einzelheiten des Priesterdienstes › die Losverfahren › das zweite",
+     "desc_en": "service in the golden garments › description of the daily service › details of the priestly service › the lotteries › the second"
+    },
+    {
+     "ref": "2:4",
+     "text": "הקטורת, העלאת האברים למזבח",
+     "text_de": "das Räucherwerk, Hinaufbringen der Glieder auf den Altar",
+     "text_en": "the incense, bringing the limbs up to the altar",
+     "desc": "עבודה בבגדי זהב › תיאור העבודה היום יומי › פירוט עבודת הכהנים › הפייסות › שלישי,רביעי",
+     "desc_de": "Dienst in den goldenen Gewändern › Beschreibung des täglichen Dienstes › Einzelheiten des Priesterdienstes › die Losverfahren › das dritte, vierte",
+     "desc_en": "service in the golden garments › description of the daily service › details of the priestly service › the lotteries › the third, fourth"
+    },
+    {
+     "ref": "2:5",
+     "text": "הקרבת התמיד במועדים שונים",
+     "text_de": "Darbringung des Tamid an verschiedenen Festen",
+     "text_en": "offering the Tamid on the various festivals",
+     "desc": "עבודה בבגדי זהב › תיאור העבודה היום יומי › פירוט עבודת הכהנים › מספר הכהנים הזוכים",
+     "desc_de": "Dienst in den goldenen Gewändern › Beschreibung des täglichen Dienstes › Einzelheiten des Priesterdienstes › Zahl der erfolgreichen Priester",
+     "desc_en": "service in the golden garments › description of the daily service › details of the priestly service › number of successful priests"
+    },
+    {
+     "ref": "2:6",
+     "text": "הקרבת איל",
+     "text_de": "Darbringung des Widders",
+     "text_en": "offering the ram",
+     "desc": "עבודה בבגדי זהב › תיאור העבודה היום יומי › פירוט עבודת הכהנים › מספר הכהנים הזוכים",
+     "desc_de": "Dienst in den goldenen Gewändern › Beschreibung des täglichen Dienstes › Einzelheiten des Priesterdienstes › Zahl der erfolgreichen Priester",
+     "desc_en": "service in the golden garments › description of the daily service › details of the priestly service › number of successful priests"
+    },
+    {
+     "ref": "2:7",
+     "text": "הקרבת פר, בקרבנות יחיד",
+     "text_de": "Darbringung des Stiers, bei Einzelopfern",
+     "text_en": "offering the bull, in individual offerings",
+     "desc": "עבודה בבגדי זהב › תיאור העבודה היום יומי › פירוט עבודת הכהנים › מספר הכהנים הזוכים",
+     "desc_de": "Dienst in den goldenen Gewändern › Beschreibung des täglichen Dienstes › Einzelheiten des Priesterdienstes › Zahl der erfolgreichen Priester",
+     "desc_en": "service in the golden garments › description of the daily service › details of the priestly service › number of successful priests"
+    }
+   ]
+  },
+  {
+   "head": "פרק ג",
+   "head_de": "Kapitel 3",
+   "head_en": "Chapter 3",
+   "items": [
+    {
+     "ref": "3:1",
+     "text": "סימנים למועד הנכון",
+     "text_de": "Zeichen für die richtige Zeit",
+     "text_en": "signs for the correct time",
+     "desc": "עבודה בבגדי זהב › תיאור העבודה היום יומי › הכנות › בירור זמן השחיטה",
+     "desc_de": "Dienst in den goldenen Gewändern › Beschreibung des täglichen Dienstes › Vorbereitungen › Feststellung der Zeit der Schlachtung",
+     "desc_en": "service in the golden garments › description of the daily service › preparations › determining the time of slaughter"
+    },
+    {
+     "ref": "3:2",
+     "text": "הצורך בדיוק \\ למתפנה",
+     "text_de": "Notwendigkeit der Genauigkeit / für den, der sich erleichtert",
+     "text_en": "the need for precision / for one who relieves himself",
+     "desc": "עבודה בבגדי זהב › תיאור העבודה היום יומי › הכנות › בירור זמן השחיטה",
+     "desc_de": "Dienst in den goldenen Gewändern › Beschreibung des täglichen Dienstes › Vorbereitungen › Feststellung der Zeit der Schlachtung",
+     "desc_en": "service in the golden garments › description of the daily service › preparations › determining the time of slaughter"
+    },
+    {
+     "ref": "3:3",
+     "text": "הנכנס לעזרה \\ סיכום הטבילות",
+     "text_de": "wer den Tempelvorhof betritt / Zusammenfassung der Tauchbäder",
+     "text_en": "one who enters the Temple Court / summary of the immersions",
+     "desc": "עבודה בבגדי זהב › תיאור העבודה היום יומי › הכנות › טבילה ולבישת בגדי זהב › כללי טבילה",
+     "desc_de": "Dienst in den goldenen Gewändern › Beschreibung des täglichen Dienstes › Vorbereitungen › Tauchbad und Anlegen der goldenen Gewänder › allgemeine Regeln des Tauchbads",
+     "desc_en": "service in the golden garments › description of the daily service › preparations › immersion and donning the golden garments › general rules of immersion"
+    },
+    {
+     "ref": "3:4",
+     "text": "לבישה הראשונה \\ תמיד, קטורת, נרות",
+     "text_de": "erstes Anlegen / Tamid, Räucherwerk, Lichter",
+     "text_en": "first donning / Tamid, incense, lamps",
+     "desc": "עבודה בבגדי זהב › הכנות › טבילה ולבישת בגדי זהב",
+     "desc_de": "Dienst in den goldenen Gewändern › Vorbereitungen › Tauchbad und Anlegen der goldenen Gewänder",
+     "desc_en": "service in the golden garments › preparations › immersion and donning the golden garments"
+    },
+    {
+     "ref": "3:5",
+     "text": "הבדל בסדר בין הערבים \\ חימום לאסטניס",
+     "text_de": "Unterschied im Ablauf zwischen den beiden Abenden / Erwärmen für den Astenis",
+     "text_en": "difference in procedure between the two twilights / warming for the astenis",
+     "desc": "עבודה בבגדי זהב › העבודות › עד אחר קרבן התמיד",
+     "desc_de": "Dienst in den goldenen Gewändern › die Dienste › bis nach dem Tamid-Opfer",
+     "desc_en": "service in the golden garments › the services › until after the Tamid offering"
+    },
+    {
+     "ref": "3:6",
+     "text": "סדר הלבישה והקידושים",
+     "text_de": "Reihenfolge des Anlegens und der Heiligungen",
+     "text_en": "order of the donning and the sanctifications",
+     "desc": "עבודה בבגדי לבן › הכנות › טבילה שניה והחלפה ללבן",
+     "desc_de": "Dienst in den weißen Gewändern › Vorbereitungen › zweites Tauchbad und Wechsel zu Weiß",
+     "desc_en": "service in the white garments › preparations › second immersion and change to white"
+    },
+    {
+     "ref": "3:7",
+     "text": "ערך הלבנים של הבוקר ושל בין הערבים",
+     "text_de": "Wert der weißen Gewänder vom Morgen und vom Abend",
+     "text_en": "value of the white garments of the morning and of the evening",
+     "desc": "עבודה בבגדי לבן › הכנות › טבילה שניה והחלפה ללבן › הבגדים",
+     "desc_de": "Dienst in den weißen Gewändern › Vorbereitungen › zweites Tauchbad und Wechsel zu Weiß › die Gewänder",
+     "desc_en": "service in the white garments › preparations › second immersion and change to white › the garments"
+    },
+    {
+     "ref": "3:8",
+     "text": "לו ולביתו",
+     "text_de": "für ihn und sein Haus",
+     "text_en": "for himself and his household",
+     "desc": "עבודה בבגדי לבן › עבודה בפר › הוידוי הראשון",
+     "desc_de": "Dienst in den weißen Gewändern › Dienst mit dem Stier › das erste Sündenbekenntnis",
+     "desc_en": "service in the white garments › service with the bull › the first confession"
+    },
+    {
+     "ref": "3:9",
+     "text": "מיקום הקלפי והגורלות \\ בן גמלא",
+     "text_de": "Platz der Lostruhe und der Lose / Ben Gamla",
+     "text_en": "place of the lot box and the lots / Ben Gamla",
+     "desc": "עבודה בבגדי לבן › עבודה בשעירים › ההגרלה › העמדתם",
+     "desc_de": "Dienst in den weißen Gewändern › Dienst mit den Böcken › die Losziehung › ihre Aufstellung",
+     "desc_en": "service in the white garments › service with the goats › the lot-drawing › their placement"
+    },
+    {
+     "ref": "3:10",
+     "text": "בן קטין, מונבז ואמו, ניקנור",
+     "text_de": "Ben Katin, Monbaz und seine Mutter, Nikanor",
+     "text_en": "Ben Katin, Monobaz and his mother, Nicanor",
+     "desc": "עבודה בבגדי לבן › עבודה בשעירים › המפורסמים במעשיהם במקדש › לשבח",
+     "desc_de": "Dienst in den weißen Gewändern › Dienst mit den Böcken › die für ihre Taten im Tempel Berühmten › zum Lob",
+     "desc_en": "service in the white garments › service with the goats › those renowned for their deeds in the Temple › in praise"
+    },
+    {
+     "ref": "3:11",
+     "text": "שלא רצו ללמד אומנותם",
+     "text_de": "die ihr Handwerk nicht lehren wollten",
+     "text_en": "those who did not want to teach their craft",
+     "desc": "עבודה בבגדי לבן › עבודה בשעירים › המפורסמים במעשיהם במקדש › לגנאי",
+     "desc_de": "Dienst in den weißen Gewändern › Dienst mit den Böcken › die für ihre Taten im Tempel Berühmten › zur Schande",
+     "desc_en": "service in the white garments › service with the goats › those renowned for their deeds in the Temple › in disgrace"
+    }
+   ]
+  },
+  {
+   "head": "פרק ד",
+   "head_de": "Kapitel 4",
+   "head_en": "Chapter 4",
+   "items": [
+    {
+     "ref": "4:1",
+     "text": "העלאת הגורלות וקריאת שמם",
+     "text_de": "Hinaufbringen der Lose und Ausrufen ihres Namens",
+     "text_en": "raising the lots and calling out their name",
+     "desc": "עבודה בבגדי לבן › עבודה בשעירים › ההגרלה",
+     "desc_de": "Dienst in den weißen Gewändern › Dienst mit den Böcken › die Losziehung",
+     "desc_en": "service in the white garments › service with the goats › the lot-drawing"
+    },
+    {
+     "ref": "4:2",
+     "text": "סימון השעירים \\ לו ולביתו ולכהנים",
+     "text_de": "Kennzeichnung der Böcke / für ihn, sein Haus und die Priester",
+     "text_en": "marking the goats / for himself, his household and the priests",
+     "desc": "עבודה בבגדי לבן › עבודה בפר › הוידוי שני והדם › עבודה בשעירים › ההגרלה",
+     "desc_de": "Dienst in den weißen Gewändern › Dienst mit dem Stier › das zweite Bekenntnis und das Blut › Dienst mit den Böcken › die Losziehung",
+     "desc_en": "service in the white garments › service with the bull › the second confession and the blood › service with the goats › the lot-drawing"
+    },
+    {
+     "ref": "4:3",
+     "text": "שחיטה, מירוס הדם \\ חתייתם והנחתם",
+     "text_de": "Schlachtung, Umrühren des Bluts / Schüren und Hinlegen der Kohlen",
+     "text_en": "slaughter, stirring the blood / stoking and setting down the coals",
+     "desc": "עבודה בבגדי לבן › הקטרת הקטורת › הגחלים › עבודה בפר › הוידוי שני והדם",
+     "desc_de": "Dienst in den weißen Gewändern › Darbringung des Räucherwerks › die Kohlen › Dienst mit dem Stier › das zweite Bekenntnis und das Blut",
+     "desc_en": "service in the white garments › burning the incense › the coals › service with the bull › the second confession and the blood"
+    },
+    {
+     "ref": "4:4",
+     "text": "המחתה והקטורת",
+     "text_de": "die Räucherpfanne und das Räucherwerk",
+     "text_en": "the fire pan and the incense",
+     "desc": "עבודה בבגדי לבן › הקטרת הקטורת › בין יום הכיפורים לבין ימות השנה › הגחלים › עבודת כהן גדול",
+     "desc_de": "Dienst in den weißen Gewändern › Darbringung des Räucherwerks › zwischen Jom Kippur und den übrigen Tagen des Jahres › die Kohlen › Dienst des Hohenpriesters",
+     "desc_en": "service in the white garments › burning the incense › between Yom Kippur and the rest of the days of the year › the coals › service of the High Priest"
+    },
+    {
+     "ref": "4:5",
+     "text": "דריסתו על הכבש, כלים לקידוש",
+     "text_de": "sein Betreten der Rampe, Geräte zur Heiligung",
+     "text_en": "his treading on the ramp, vessels for sanctification",
+     "desc": "עבודה בבגדי לבן › הקטרת הקטורת › בין יום הכיפורים לבין ימות השנה › עבודת כהן גדול",
+     "desc_de": "Dienst in den weißen Gewändern › Darbringung des Räucherwerks › zwischen Jom Kippur und den übrigen Tagen des Jahres › Dienst des Hohenpriesters",
+     "desc_en": "service in the white garments › burning the incense › between Yom Kippur and the rest of the days of the year › service of the High Priest"
+    },
+    {
+     "ref": "4:6",
+     "text": "מספר המערכות",
+     "text_de": "Zahl der Holzstapel",
+     "text_en": "number of the wood piles",
+     "desc": "עבודה בבגדי לבן › הקטרת הקטורת › בין יום הכיפורים לבין ימות השנה",
+     "desc_de": "Dienst in den weißen Gewändern › Darbringung des Räucherwerks › zwischen Jom Kippur und den übrigen Tagen des Jahres",
+     "desc_en": "service in the white garments › burning the incense › between Yom Kippur and the rest of the days of the year"
+    }
+   ]
+  },
+  {
+   "head": "פרק ה",
+   "head_de": "Kapitel 5",
+   "head_en": "Chapter 5",
+   "items": [
+    {
+     "ref": "5:1",
+     "text": "החפינה, כניסה לקה\"ק, הקטרה, יציאה",
+     "text_de": "die Handvoll, Eintritt ins Allerheiligste, Räuchern, Austritt",
+     "text_en": "the handful, entering the Holy of Holies, burning incense, exit",
+     "desc": "עבודה בבגדי לבן › הקטרת הקטורת › ההקטרה והנחת המחתה",
+     "desc_de": "Dienst in den weißen Gewändern › Darbringung des Räucherwerks › das Räuchern und das Niederlegen der Pfanne",
+     "desc_en": "service in the white garments › burning the incense › the burning of incense and setting down the pan"
+    },
+    {
+     "ref": "5:2",
+     "text": "אבן השתיה",
+     "text_de": "der Grundstein",
+     "text_en": "the foundation stone",
+     "desc": "עבודה בבגדי לבן › הקטרת הקטורת › ההקטרה והנחת המחתה",
+     "desc_de": "Dienst in den weißen Gewändern › Darbringung des Räucherwerks › das Räuchern und das Niederlegen der Pfanne",
+     "desc_en": "service in the white garments › burning the incense › the burning of incense and setting down the pan"
+    },
+    {
+     "ref": "5:3",
+     "text": "דם הפר",
+     "text_de": "Blut des Stiers",
+     "text_en": "blood of the bull",
+     "desc": "עבודה בבגדי לבן › הזאות הפנימיות › בקודש הקדשים",
+     "desc_de": "Dienst in den weißen Gewändern › die inneren Sprengungen › im Allerheiligsten",
+     "desc_en": "service in the white garments › the inner sprinklings › in the Holy of Holies"
+    },
+    {
+     "ref": "5:4",
+     "text": "דם השעיר \\ דם הפר, דם השעיר",
+     "text_de": "Blut des Bocks / Blut des Stiers, Blut des Bocks",
+     "text_en": "blood of the goat / blood of the bull, blood of the goat",
+     "desc": "עבודה בבגדי לבן › הזאות הפנימיות › בהיכל › על הפרוכת › בקודש הקדשים",
+     "desc_de": "Dienst in den weißen Gewändern › die inneren Sprengungen › im Heiligtum › auf den Vorhang › im Allerheiligsten",
+     "desc_en": "service in the white garments › the inner sprinklings › in the Sanctuary › on the curtain › in the Holy of Holies"
+    },
+    {
+     "ref": "5:5",
+     "text": "על הקרנות",
+     "text_de": "auf die Hörner",
+     "text_en": "on the horns",
+     "desc": "עבודה בבגדי לבן › הזאות הפנימיות › בהיכל › מזבח הזהב",
+     "desc_de": "Dienst in den weißen Gewändern › die inneren Sprengungen › im Heiligtum › der goldene Altar",
+     "desc_en": "service in the white garments › the inner sprinklings › in the Sanctuary › the golden altar"
+    },
+    {
+     "ref": "5:6",
+     "text": "על טהרו \\ שפיכתם ודינם",
+     "text_de": "auf seinen Boden / ihr Ausgießen und ihre Rechtslage",
+     "text_en": "on its base / their pouring out and their legal status",
+     "desc": "עבודה בבגדי לבן › הזאות הפנימיות › בהיכל › שיריים",
+     "desc_de": "Dienst in den weißen Gewändern › die inneren Sprengungen › im Heiligtum › Reste",
+     "desc_en": "service in the white garments › the inner sprinklings › in the Sanctuary › remainders"
+    },
+    {
+     "ref": "5:7",
+     "text": "סדר, הפסק באמצע",
+     "text_de": "Reihenfolge, Unterbrechung in der Mitte",
+     "text_en": "order, interruption in the middle",
+     "desc": "עבודה בבגדי לבן › הזאות הפנימיות › בהיכל › עכוב עבודות",
+     "desc_de": "Dienst in den weißen Gewändern › die inneren Sprengungen › im Heiligtum › Behinderung der Dienste",
+     "desc_en": "service in the white garments › the inner sprinklings › in the Sanctuary › obstruction of the services"
+    }
+   ]
+  },
+  {
+   "head": "פרק ו",
+   "head_de": "Kapitel 6",
+   "head_en": "Chapter 6",
+   "items": [
+    {
+     "ref": "6:1",
+     "text": "דמיון גופני, קניתם, במקרה של מיתה",
+     "text_de": "körperliche Ähnlichkeit, ihr Erwerb, im Todesfall",
+     "text_en": "physical resemblance, their purchase, in case of death",
+     "desc": "עבודה בבגדי לבן › עבודה בשעירים › זיקת הזוג",
+     "desc_de": "Dienst in den weißen Gewändern › Dienst mit den Böcken › Bindung des Paares",
+     "desc_en": "service in the white garments › service with the goats › the pair's connection"
+    },
+    {
+     "ref": "6:2",
+     "text": "סמיכה, וידוי לבית ישראל, תגובת הקהל",
+     "text_de": "Handauflegung, Bekenntnis für das Haus Israel, Antwort der Gemeinde",
+     "text_en": "laying on of hands, confession for the House of Israel, response of the congregation",
+     "desc": "עבודה בבגדי לבן › עבודה בשעירים › וידוי שלישי › השעיר החי",
+     "desc_de": "Dienst in den weißen Gewändern › Dienst mit den Böcken › Drittes Sündenbekenntnis › Der lebende Bock",
+     "desc_en": "service in the white garments › service with the goats › Third confession › The live goat"
+    },
+    {
+     "ref": "6:3",
+     "text": "המשלח",
+     "text_de": "Der Beauftragte",
+     "text_en": "The one who leads the goat away",
+     "desc": "עבודה בבגדי לבן › עבודה בשעירים › השילוח לעזעזאל",
+     "desc_de": "Dienst in den weißen Gewändern › Dienst mit den Böcken › Die Entsendung zu Asasel",
+     "desc_en": "service in the white garments › service with the goats › Sending the goat to Azazel"
+    },
+    {
+     "ref": "6:4",
+     "text": "הכבש וצרכו \\ מן העיר, מספרן, המרחק",
+     "text_de": "Der Bock und sein Bedarf / aus der Stadt, ihre Zahl, die Entfernung",
+     "text_en": "The goat and its needs / out of the city, their number, the distance",
+     "desc": "עבודה בבגדי לבן › עבודה בשעירים › השילוח לעזעזאל › לוית המשלח והסוכות",
+     "desc_de": "Dienst in den weißen Gewändern › Dienst mit den Böcken › Die Entsendung zu Asasel › Das Geleit des Beauftragten und die Hütten",
+     "desc_en": "service in the white garments › service with the goats › Sending the goat to Azazel › Escorting the one who leads the goat and the huts"
+    },
+    {
+     "ref": "6:5",
+     "text": "לוייה על ידי דיירי הסוכות",
+     "text_de": "Geleit durch die Bewohner der Hütten",
+     "text_en": "Escort by the inhabitants of the huts",
+     "desc": "עבודה בבגדי לבן › עבודה בשעירים › השילוח לעזעזאל › לוית המשלח והסוכות",
+     "desc_de": "Dienst in den weißen Gewändern › Dienst mit den Böcken › Die Entsendung zu Asasel › Das Geleit des Beauftragten und die Hütten",
+     "desc_en": "service in the white garments › service with the goats › Sending the goat to Azazel › Escorting the one who leads the goat and the huts"
+    },
+    {
+     "ref": "6:6",
+     "text": "חלוקת הלשון, הדחיפה, טומאת המשלח",
+     "text_de": "Zerteilung der Zunge, das Stoßen, Unreinheit des Beauftragten",
+     "text_en": "Dividing the tongue, the push, impurity of the one who leads the goat",
+     "desc": "עבודה בבגדי לבן › עבודה בשעירים › השילוח לעזעזאל",
+     "desc_de": "Dienst in den weißen Gewändern › Dienst mit den Böcken › Die Entsendung zu Asasel",
+     "desc_en": "service in the white garments › service with the goats › Sending the goat to Azazel"
+    },
+    {
+     "ref": "6:7",
+     "text": "הוצאת גופן וטומאתן",
+     "text_de": "Hinausbringen ihrer Körper und ihre Unreinheit",
+     "text_en": "Taking out their bodies and their impurity",
+     "desc": "עבודה בבגדי לבן › עבודה בשעירים › השילוח לעזעזאל › הפר והשעיר",
+     "desc_de": "Dienst in den weißen Gewändern › Dienst mit den Böcken › Die Entsendung zu Asasel › Der Stier und der Bock",
+     "desc_en": "service in the white garments › service with the goats › Sending the goat to Azazel › The bull and the goat"
+    },
+    {
+     "ref": "6:8",
+     "text": "סימנים להגעת השעיר למדבר",
+     "text_de": "Zeichen für das Ankommen des Bocks in der Wüste",
+     "text_en": "Signs of the goat's arrival in the wilderness",
+     "desc": "עבודה בבגדי לבן › קריאת התורה › עבודה בשעירים › השילוח לעזעזאל",
+     "desc_de": "Dienst in den weißen Gewändern › Die Toralesung › Dienst mit den Böcken › Die Entsendung zu Asasel",
+     "desc_en": "service in the white garments › The Torah reading › service with the goats › Sending the goat to Azazel"
+    }
+   ]
+  },
+  {
+   "head": "פרק ז",
+   "head_de": "Kapitel 7",
+   "head_en": "Chapter 7",
+   "items": [
+    {
+     "ref": "7:1",
+     "text": "בגדיו, נטילת הספר, הקריאה והברכות",
+     "text_de": "Seine Gewänder, Entgegennahme der Rolle, Lesung und Segenssprüche",
+     "text_en": "His garments, taking the scroll, the reading and the blessings",
+     "desc": "עבודה בבגדי לבן › קריאת התורה › כיצד ומתי",
+     "desc_de": "Dienst in den weißen Gewändern › Die Toralesung › Wie und wann",
+     "desc_en": "service in the white garments › The Torah reading › How and when"
+    },
+    {
+     "ref": "7:2",
+     "text": "זמנו ומקומו ביחס לשריפת הנשרפין",
+     "text_de": "Zeitpunkt und Ort im Verhältnis zur Verbrennung der zu Verbrennenden",
+     "text_en": "Time and place in relation to the burning of the offerings to be burned",
+     "desc": "עבודה בבגדי לבן › קריאת התורה › כיצד ומתי",
+     "desc_de": "Dienst in den weißen Gewändern › Die Toralesung › Wie und wann",
+     "desc_en": "service in the white garments › The Torah reading › How and when"
+    },
+    {
+     "ref": "7:3",
+     "text": "סדר העולות והמוספין",
+     "text_de": "Reihenfolge der Ganzopfer und der Zusatzopfer",
+     "text_en": "Order of the burnt offerings and the additional offerings",
+     "desc": "בלבן › בזהב › שאר העבודות › טבילות והחלפות › אילים, מוספין",
+     "desc_de": "In Weiß › In Gold › Die übrigen Dienste › Tauchbäder und Kleiderwechsel › Widder, Zusatzopfer",
+     "desc_en": "In white › In gold › The remaining services › Immersions and changes of garments › Rams, additional offerings"
+    },
+    {
+     "ref": "7:4",
+     "text": "הוצאת הכף \\ קטורת ונרות, שמחתו",
+     "text_de": "Herausnahme der Schaufel / Räucherwerk und Lampen, seine Pfanne",
+     "text_en": "Taking out the ladle / incense and lamps, his fire pan",
+     "desc": "בזהב › בלבן › שאר העבודות › טבילות והחלפות › גמר הקטורת",
+     "desc_de": "In Gold › In Weiß › Die übrigen Dienste › Tauchbäder und Kleiderwechsel › Abschluss des Räucherwerks",
+     "desc_en": "In gold › In white › The remaining services › Immersions and changes of garments › Completion of the incense"
+    },
+    {
+     "ref": "7:5",
+     "text": "כהן גדול והדיוט, שאילת אורים",
+     "text_de": "Hohepriester und Gemeiner, Befragung der Urim",
+     "text_en": "High priest and ordinary priest, inquiry of the Urim",
+     "desc": "בזהב › שאר העבודות › בגדי הכהנים",
+     "desc_de": "In Gold › Die übrigen Dienste › Die Priestergewänder",
+     "desc_en": "In gold › The remaining services › The priestly garments"
+    }
+   ]
+  },
+  {
+   "head": "פרק ח",
+   "head_de": "Kapitel 8",
+   "head_en": "Chapter 8",
+   "items": [
+    {
+     "ref": "8:1",
+     "text": "פירוט העינויים \\ רחיצה, נעילה",
+     "text_de": "Aufzählung der Kasteiungen / Waschen, Schließung",
+     "text_en": "List of the afflictions / washing, the closing service",
+     "desc": "הלכות היום השייכות לכל › עינוי ביוה\"כ › דחוי איסור › פטור מענוי",
+     "desc_de": "Gesetze des Tages, die alle betreffen › Kasteiung am Jom Kippur › Verschobenes Verbot › Befreiung von der Kasteiung",
+     "desc_en": "Laws of the day that apply to everyone › Affliction on Yom Kippur › Postponed prohibition › Exemption from affliction"
+    },
+    {
+     "ref": "8:2",
+     "text": "שיעור אכילה ושתיה",
+     "text_de": "Maß für Essen und Trinken",
+     "text_en": "Quantity for eating and drinking",
+     "desc": "הלכות היום השייכות לכל › עינוי ביוה\"כ › חיוב בעונש › צירוף",
+     "desc_de": "Gesetze des Tages, die alle betreffen › Kasteiung am Jom Kippur › Verpflichtung zur Strafe › Zusammenrechnen",
+     "desc_en": "Laws of the day that apply to everyone › Affliction on Yom Kippur › Liability to punishment › Combining"
+    },
+    {
+     "ref": "8:3",
+     "text": "חטאות \\ אכילה שאינה ראויה",
+     "text_de": "Sündopfer / unzulässiges Essen",
+     "text_en": "Sin offerings / improper eating",
+     "desc": "הלכות היום השייכות לכל › עינוי ביוה\"כ › חיוב בעונש › צירוף",
+     "desc_de": "Gesetze des Tages, die alle betreffen › Kasteiung am Jom Kippur › Verpflichtung zur Strafe › Zusammenrechnen",
+     "desc_en": "Laws of the day that apply to everyone › Affliction on Yom Kippur › Liability to punishment › Combining"
+    },
+    {
+     "ref": "8:4",
+     "text": "תינוקות וחינוכן",
+     "text_de": "Kinder und ihre Erziehung",
+     "text_en": "Children and their training",
+     "desc": "הלכות היום השייכות לכל › עינוי ביוה\"כ › סכנת נפשות דוחה איסור › הפטורים מן הצום",
+     "desc_de": "Gesetze des Tages, die alle betreffen › Kasteiung am Jom Kippur › Lebensgefahr verdrängt ein Verbot › Die vom Fasten Befreiten",
+     "desc_en": "Laws of the day that apply to everyone › Affliction on Yom Kippur › Danger to life overrides a prohibition › Those exempt from fasting"
+    },
+    {
+     "ref": "8:5",
+     "text": "עוברה שהריחה, חולה",
+     "text_de": "Schwangere, die Geruch wahrnahm, Kranker",
+     "text_en": "Pregnant woman who smelled food, sick person",
+     "desc": "הלכות היום השייכות לכל › עינוי ביוה\"כ › סכנת נפשות דוחה איסור › הפטורים מן הצום",
+     "desc_de": "Gesetze des Tages, die alle betreffen › Kasteiung am Jom Kippur › Lebensgefahr verdrängt ein Verbot › Die vom Fasten Befreiten",
+     "desc_en": "Laws of the day that apply to everyone › Affliction on Yom Kippur › Danger to life overrides a prohibition › Those exempt from fasting"
+    },
+    {
+     "ref": "8:6",
+     "text": "בולמוס, נשיכת כלב \\ חשש בגרון",
+     "text_de": "Heißhunger, Hundebiss / Halsleiden",
+     "text_en": "Ravenous hunger, dog bite / throat ailment",
+     "desc": "הלכות היום השייכות לכל › עינוי ביוה\"כ › סכנת נפשות דוחה איסור › שבת",
+     "desc_de": "Gesetze des Tages, die alle betreffen › Kasteiung am Jom Kippur › Lebensgefahr verdrängt ein Verbot › Schabbat",
+     "desc_en": "Laws of the day that apply to everyone › Affliction on Yom Kippur › Danger to life overrides a prohibition › Shabbat"
+    },
+    {
+     "ref": "8:7",
+     "text": "הטמון תחת מפולות",
+     "text_de": "Der unter Trümmern Verschüttete",
+     "text_en": "One buried under rubble",
+     "desc": "הלכות היום השייכות לכל › עינוי ביוה\"כ › סכנת נפשות דוחה איסור › שבת",
+     "desc_de": "Gesetze des Tages, die alle betreffen › Kasteiung am Jom Kippur › Lebensgefahr verdrängt ein Verbot › Schabbat",
+     "desc_en": "Laws of the day that apply to everyone › Affliction on Yom Kippur › Danger to life overrides a prohibition › Shabbat"
+    },
+    {
+     "ref": "8:8",
+     "text": "אמצעי כפרה וכפרתן",
+     "text_de": "Mittel der Sühne und ihre Sühnewirkung",
+     "text_en": "Means of atonement and their effect",
+     "desc": "הלכות היום השייכות לכל › כפרת יום הכיפורים",
+     "desc_de": "Gesetze des Tages, die alle betreffen › Die Sühne des Jom Kippur",
+     "desc_en": "Laws of the day that apply to everyone › The atonement of Yom Kippur"
+    },
+    {
+     "ref": "8:9",
+     "text": "על מה אינו מכפר, הקב\"ה מטהר את ישראל",
+     "text_de": "Wofür er nicht sühnt, der Heilige, gelobt sei er, reinigt Israel",
+     "text_en": "What it does not atone for, the Holy One, blessed be He, purifies Israel",
+     "desc": "הלכות היום השייכות לכל › כפרת יום הכיפורים",
+     "desc_de": "Gesetze des Tages, die alle betreffen › Die Sühne des Jom Kippur",
+     "desc_en": "Laws of the day that apply to everyone › The atonement of Yom Kippur"
+    }
+   ]
+  }
+ ]
+}

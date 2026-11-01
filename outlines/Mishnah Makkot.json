@@ -1,0 +1,338 @@
+{
+ "book": "Mishnah Makkot",
+ "title": "משנה מכות",
+ "title_de": "Mischna Makkot – Gliederung",
+ "title_en": "Makkot – outline",
+ "note": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema).",
+ "note_de": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema); ins Deutsche und Englische übersetzt.",
+ "note_en": "Outline after the table “Mishna Sedura”: the central content of each mishnah, with the topic path (main topic to sub-topic); translated into German and English.",
+ "sections": [
+  {
+   "head": "פרק א",
+   "head_de": "Kapitel 1",
+   "head_en": "Chapter 1",
+   "items": [
+    {
+     "ref": "1:1",
+     "text": "שאינן נענשין כמזימתן \\ הצריך אומדנא",
+     "text_de": "Die nicht gemäß ihrer Verschwörung bestraft werden / was einer Schätzung bedarf",
+     "text_en": "Those not punished according to their plot / what requires estimation",
+     "desc": "עדים זוממין › ענשן › ממון ומלקות",
+     "desc_de": "Überführte Falschzeugen (Edim Sommemim) › Ihre Strafe › Geld und Geißelung",
+     "desc_en": "Conspiring witnesses › Their punishment › Money and lashes"
+    },
+    {
+     "ref": "1:2",
+     "text": "מלקות בנוסף לתשלום",
+     "text_de": "Geißelung zusätzlich zur Zahlung",
+     "text_en": "Lashes in addition to payment",
+     "desc": "עדים זוממין › ענשן › ממון ומלקות",
+     "desc_de": "Überführte Falschzeugen (Edim Sommemim) › Ihre Strafe › Geld und Geißelung",
+     "desc_en": "Conspiring witnesses › Their punishment › Money and lashes"
+    },
+    {
+     "ref": "1:3",
+     "text": "שני מלקיות, שילוש",
+     "text_de": "Zwei Geißelungen, Dreiteilung",
+     "text_en": "Two floggings, division into three",
+     "desc": "עדים זוממין › ענשן › ממון ומלקות",
+     "desc_de": "Überführte Falschzeugen (Edim Sommemim) › Ihre Strafe › Geld und Geißelung",
+     "desc_en": "Conspiring witnesses › Their punishment › Money and lashes"
+    },
+    {
+     "ref": "1:4",
+     "text": "הזמת העדים עצמן",
+     "text_de": "Überführung der Zeugen selbst",
+     "text_en": "Refutation of the witnesses themselves",
+     "desc": "עדים זוממין › כיצד נעשים זוממים › עדות המזימים אותם",
+     "desc_de": "Überführte Falschzeugen (Edim Sommemim) › Wie man zum überführten Zeugen wird › Zeugnis derer, die sie überführen",
+     "desc_en": "Conspiring witnesses › How witnesses become conspiring witnesses › Testimony of those who refute them"
+    },
+    {
+     "ref": "1:5",
+     "text": "מספר הכתות הנהרגין על פי כת אחת",
+     "text_de": "Zahl der Gruppen, die aufgrund einer Gruppe hingerichtet werden",
+     "text_en": "Number of groups put to death on the basis of one group",
+     "desc": "עדים זוממין › כיצד נעשים זוממים › עדות המזימים אותם",
+     "desc_de": "Überführte Falschzeugen (Edim Sommemim) › Wie man zum überführten Zeugen wird › Zeugnis derer, die sie überführen",
+     "desc_en": "Conspiring witnesses › How witnesses become conspiring witnesses › Testimony of those who refute them"
+    },
+    {
+     "ref": "1:6",
+     "text": "הזמה אחר גמר דין ולא אחר ביצועו",
+     "text_de": "Überführung nach Urteilsabschluss, aber nicht nach der Vollstreckung",
+     "text_en": "Refutation after the verdict but not after its execution",
+     "desc": "עדים זוממין › כיצד נעשים זוממים › עיתוי ההזמה",
+     "desc_de": "Überführte Falschzeugen (Edim Sommemim) › Wie man zum überführten Zeugen wird › Zeitpunkt der Überführung",
+     "desc_en": "Conspiring witnesses › How witnesses become conspiring witnesses › Timing of the refutation"
+    },
+    {
+     "ref": "1:7",
+     "text": "אפשרות וצורך בהזמת כולם",
+     "text_de": "Möglichkeit und Notwendigkeit, alle zu überführen",
+     "text_en": "Possibility and necessity of refuting all of them",
+     "desc": "עדים זוממין › כיצד נעשים זוממים › כת מרובה",
+     "desc_de": "Überführte Falschzeugen (Edim Sommemim) › Wie man zum überführten Zeugen wird › Größere Gruppe",
+     "desc_en": "Conspiring witnesses › How witnesses become conspiring witnesses › Larger group"
+    },
+    {
+     "ref": "1:8",
+     "text": "לפסול העדות, בממונות \\ כוונה להעיד",
+     "text_de": "Das Zeugnis ungültig machen, in Geldsachen / Absicht zu bezeugen",
+     "text_en": "Invalidating the testimony, in monetary matters / intent to testify",
+     "desc": "עדים זוממין › כיצד נעשים זוממים › התראה › כת מרובה",
+     "desc_de": "Überführte Falschzeugen (Edim Sommemim) › Wie man zum überführten Zeugen wird › Verwarnung › Größere Gruppe",
+     "desc_en": "Conspiring witnesses › How witnesses become conspiring witnesses › Warning › Larger group"
+    },
+    {
+     "ref": "1:9",
+     "text": "צירוף וצורך בעדים מתרים\\ מפי תורגמן",
+     "text_de": "Zusammenschluss und Notwendigkeit verwarnender Zeugen / durch Dolmetscher",
+     "text_en": "Joining together and need for warning witnesses / through an interpreter",
+     "desc": "עדים זוממין › כיצד נעשים זוממים › הלכות סנהדרין › התראה",
+     "desc_de": "Überführte Falschzeugen (Edim Sommemim) › Wie man zum überführten Zeugen wird › Gesetze des Sanhedrin › Verwarnung",
+     "desc_en": "Conspiring witnesses › How witnesses become conspiring witnesses › Laws of the Sanhedrin › Warning"
+    },
+    {
+     "ref": "1:10",
+     "text": "סתירת הדין , בחו\"ל, שכיחות עונש מות",
+     "text_de": "Aufhebung des Urteils, im Ausland, Häufigkeit der Todesstrafe",
+     "text_en": "Reversal of the verdict, outside the Land of Israel, frequency of the death penalty",
+     "desc": "עדים זוממין › כיצד נעשים זוממים › הלכות סנהדרין",
+     "desc_de": "Überführte Falschzeugen (Edim Sommemim) › Wie man zum überführten Zeugen wird › Gesetze des Sanhedrin",
+     "desc_en": "Conspiring witnesses › How witnesses become conspiring witnesses › Laws of the Sanhedrin"
+    }
+   ]
+  },
+  {
+   "head": "פרק ב",
+   "head_de": "Kapitel 2",
+   "head_en": "Chapter 2",
+   "items": [
+    {
+     "ref": "2:1",
+     "text": "כללי שגגה ודרך ירידה \\ ברזל, עץ העף",
+     "text_de": "Regeln des Versehens und Weg des Abstiegs / Eisen, fliegendes Holz",
+     "text_en": "Rules of inadvertence and manner of descent / iron, flying wood",
+     "desc": "הגולין › חיוב בגלות › כיצד הרג › זריקה",
+     "desc_de": "Die ins Exil Gehenden › Verpflichtung zum Exil › Wie er getötet hat › Werfen",
+     "desc_en": "Those who go into exile › Obligation of exile › How he killed › Throwing"
+    },
+    {
+     "ref": "2:2",
+     "text": "זורק לרה\"ר,לחצרו \\ רשות כניסה והכאה",
+     "text_de": "Wirft in den öffentlichen Raum, in seinen Hof / Erlaubnis zum Betreten und Schlagen",
+     "text_en": "Throws into the public domain, into his courtyard / permission to enter and strike",
+     "desc": "הגולין › חיוב בגלות › ההורג והנהרג › כיצד הרג › זריקה",
+     "desc_de": "Die ins Exil Gehenden › Verpflichtung zum Exil › Der Tötende und der Getötete › Wie er getötet hat › Werfen",
+     "desc_en": "Those who go into exile › Obligation of exile › The killer and the one killed › How he killed › Throwing"
+    },
+    {
+     "ref": "2:3",
+     "text": "קרובים, ישראל, גר תושב, סומא, שונא",
+     "text_de": "Verwandte, Israelit, ansässiger Fremder, Blinder, Feind",
+     "text_en": "Relatives, Israelite, resident alien, blind person, enemy",
+     "desc": "הגולין › חיוב בגלות › ההורג והנהרג",
+     "desc_de": "Die ins Exil Gehenden › Verpflichtung zum Exil › Der Tötende und der Getötete",
+     "desc_en": "Those who go into exile › Obligation of exile › The killer and the one killed"
+    },
+    {
+     "ref": "2:4",
+     "text": "שש הערים וזיקתן",
+     "text_de": "Die sechs Städte und ihr Bezug",
+     "text_en": "The six cities and their connection",
+     "desc": "הגולין › הגלות והחזרה › יעוד הגלות › ערי המקלט",
+     "desc_de": "Die ins Exil Gehenden › Exil und Rückkehr › Zweck des Exils › Zufluchtsstädte",
+     "desc_en": "Those who go into exile › Exile and return › Purpose of exile › Cities of refuge"
+    },
+    {
+     "ref": "2:5",
+     "text": "הדרכים להן \\ דיבור הרוצח",
+     "text_de": "Die Wege dorthin / Rede des Totschlägers",
+     "text_en": "The roads to them / speech of the killer",
+     "desc": "הגולין › הגלות והחזרה › תהליך הגלות › יעוד הגלות › ערי המקלט",
+     "desc_de": "Die ins Exil Gehenden › Exil und Rückkehr › Ablauf des Exils › Zweck des Exils › Zufluchtsstädte",
+     "desc_en": "Those who go into exile › Exile and return › Process of exile › Purpose of exile › Cities of refuge"
+    },
+    {
+     "ref": "2:6",
+     "text": "בתחילה, אחר גמר דין \\ כהן המחזירו",
+     "text_de": "Zu Beginn, nach Urteilsabschluss / Priester, der ihn zurückbringt",
+     "text_en": "At the outset, after the verdict / priest who returns him",
+     "desc": "הגולין › הגלות והחזרה › גורם לחזרה › תהליך הגלות › מיתת הכהן",
+     "desc_de": "Die ins Exil Gehenden › Exil und Rückkehr › Anlass zur Rückkehr › Ablauf des Exils › Tod des Priesters",
+     "desc_en": "Those who go into exile › Exile and return › Cause of return › Process of exile › Death of the priest"
+    },
+    {
+     "ref": "2:7",
+     "text": "שאינם חוזרים\\ רשות לצאת,להרוג,הגבול",
+     "text_de": "Die nicht zurückkehren / Erlaubnis zum Verlassen, zum Töten, die Grenze",
+     "text_en": "Those who do not return / permission to leave, to kill, the border",
+     "desc": "הגולין › הגלות והחזרה › תנאי הגלות › גורם לחזרה › הגבלת תנועה › מיתת הכהן",
+     "desc_de": "Die ins Exil Gehenden › Exil und Rückkehr › Bedingungen des Exils › Anlass zur Rückkehr › Bewegungseinschränkung › Tod des Priesters",
+     "desc_en": "Those who go into exile › Exile and return › Conditions of exile › Cause of return › Restriction of movement › Death of the priest"
+    },
+    {
+     "ref": "2:8",
+     "text": "קבלת וחזרה לכבוד, שכר דירה",
+     "text_de": "Aufnahme und Wiederherstellung der Ehre, Miete",
+     "text_en": "Reception and restoration of honor, rent",
+     "desc": "הגולין › הגלות והחזרה › תנאי הגלות › הגבלת תנועה",
+     "desc_de": "Die ins Exil Gehenden › Exil und Rückkehr › Bedingungen des Exils › Bewegungseinschränkung",
+     "desc_en": "Those who go into exile › Exile and return › Conditions of exile › Restriction of movement"
+    }
+   ]
+  },
+  {
+   "head": "פרק ג",
+   "head_de": "Kapitel 3",
+   "head_en": "Chapter 3",
+   "items": [
+    {
+     "ref": "3:1",
+     "text": "איסורי אישות",
+     "text_de": "Eheliche und sexuelle Verbote",
+     "text_en": "Prohibitions of marital and sexual relations",
+     "desc": "הלוקין › חיוב במלקות › חיוב אחד במלקיות",
+     "desc_de": "Die zu Geißelnden › Haftung auf Geißelung › Einfache Haftung auf Geißelung",
+     "desc_en": "Those to be flogged › Liability to lashes › Single liability to lashes"
+    },
+    {
+     "ref": "3:2",
+     "text": "דברים שונים, איסור, בריה",
+     "text_de": "Verschiedenes, Verbot, Geschöpf",
+     "text_en": "Miscellaneous, prohibition, creature",
+     "desc": "הלוקין › חיוב במלקות › חיוב אחד במלקיות › אכילה",
+     "desc_de": "Die zu Geißelnden › Haftung auf Geißelung › Einfache Haftung auf Geißelung › Essen",
+     "desc_en": "Those to be flogged › Liability to lashes › Single liability to lashes › Eating"
+    },
+    {
+     "ref": "3:3",
+     "text": "שלא בזמנו או במקומו \\ טיפול בפסח",
+     "text_de": "Nicht zur rechten Zeit oder am rechten Ort / Behandlung des Pessachopfers",
+     "text_en": "Not at its time or place / handling of the Passover offering",
+     "desc": "הלוקין › חיוב במלקות › חיוב אחד במלקיות › לאו הניתק לעשה › אכילה",
+     "desc_de": "Die zu Geißelnden › Haftung auf Geißelung › Einfache Haftung auf Geißelung › Verbot, das in ein Gebot übergeht › Essen",
+     "desc_en": "Those to be flogged › Liability to lashes › Single liability to lashes › Prohibition that is remedied by a positive commandment › Eating"
+    },
+    {
+     "ref": "3:4",
+     "text": "שילוח אם על בנים",
+     "text_de": "Wegschicken der Mutter vom Nest",
+     "text_en": "Sending away the mother bird",
+     "desc": "הלוקין › חיוב במלקות › הפטור › לאו הניתק לעשה",
+     "desc_de": "Die zu Geißelnden › Haftung auf Geißelung › Die Befreiung › Verbot, das in ein Gebot übergeht",
+     "desc_en": "Those to be flogged › Liability to lashes › Exemption › Prohibition that is remedied by a positive commandment"
+    },
+    {
+     "ref": "3:5",
+     "text": "גילוח שער, שריטות, כלי הגילוח",
+     "text_de": "Haarschur, Einritzungen, Rasierwerkzeuge",
+     "text_en": "Shaving hair, incisions, shaving implements",
+     "desc": "הלוקין › חיוב במלקות › חיוב מרובה › השחתת צורת הגוף",
+     "desc_de": "Die zu Geißelnden › Haftung auf Geißelung › Mehrfache Haftung › Verstümmelung der Körpergestalt",
+     "desc_en": "Those to be flogged › Liability to lashes › Multiple liability › Disfiguring the body"
+    },
+    {
+     "ref": "3:6",
+     "text": "כתובת קעקע",
+     "text_de": "Tätowierung",
+     "text_en": "Tattoo",
+     "desc": "הלוקין › חיוב במלקות › חיוב מרובה › השחתת צורת הגוף",
+     "desc_de": "Die zu Geißelnden › Haftung auf Geißelung › Mehrfache Haftung › Verstümmelung der Körpergestalt",
+     "desc_en": "Those to be flogged › Liability to lashes › Multiple liability › Disfiguring the body"
+    },
+    {
+     "ref": "3:7",
+     "text": "יין לנזיר",
+     "text_de": "Wein für den Nasiräer",
+     "text_en": "Wine for the Nazirite",
+     "desc": "הלוקין › חיוב במלקות › חיוב מרובה › חילוק התראות",
+     "desc_de": "Die zu Geißelnden › Haftung auf Geißelung › Mehrfache Haftung › Unterscheidung der Verwarnungen",
+     "desc_en": "Those to be flogged › Liability to lashes › Multiple liability › Distinguishing between warnings"
+    },
+    {
+     "ref": "3:8",
+     "text": "טומאה וגילוח לנזיר, לבישת כלאים",
+     "text_de": "Unreinheit und Haarschur beim Nasiräer, Tragen von Mischgewebe",
+     "text_en": "Impurity and shaving of the Nazirite, wearing mixed fabrics",
+     "desc": "הלוקין › חיוב במלקות › חיוב מרובה › חילוק התראות",
+     "desc_de": "Die zu Geißelnden › Haftung auf Geißelung › Mehrfache Haftung › Unterscheidung der Verwarnungen",
+     "desc_en": "Those to be flogged › Liability to lashes › Multiple liability › Distinguishing between warnings"
+    },
+    {
+     "ref": "3:9",
+     "text": "חיובים בבת אחת",
+     "text_de": "Haftungen in einem Zug",
+     "text_en": "Liabilities incurred simultaneously",
+     "desc": "הלוקין › חיוב במלקות › חיוב מרובה",
+     "desc_de": "Die zu Geißelnden › Haftung auf Geißelung › Mehrfache Haftung",
+     "desc_en": "Those to be flogged › Liability to lashes › Multiple liability"
+    },
+    {
+     "ref": "3:10",
+     "text": "מספר המרבי, מיקום המכה הארבעים",
+     "text_de": "Höchstzahl, Ort des vierzigsten Schlages",
+     "text_en": "Maximum number, place of the fortieth stroke",
+     "desc": "הלוקין › ההלקאה › מספר המלקות",
+     "desc_de": "Die zu Geißelnden › Die Geißelung › Zahl der Geißelhiebe",
+     "desc_en": "Those to be flogged › The flogging › Number of lashes"
+    },
+    {
+     "ref": "3:11",
+     "text": "אומד המשתלש, שינוי בבריאות ופטור",
+     "text_de": "Schätzung des Abnehmenden, Veränderung der Gesundheit und Befreiung",
+     "text_en": "Assessment of the one who weakens, change in health, and exemption",
+     "desc": "הלוקין › ההלקאה › מספר המלקות",
+     "desc_de": "Die zu Geißelnden › Die Geißelung › Zahl der Geißelhiebe",
+     "desc_en": "Those to be flogged › The flogging › Number of lashes"
+    },
+    {
+     "ref": "3:12",
+     "text": "מקום הנלקה וחזן,קריעת בגדים \\ מספרן",
+     "text_de": "Ort des Gegeißelten und der Gemeindediener, Zerreißen der Kleider / ihre Zahl",
+     "text_en": "Place of the one flogged and the attendant, tearing of garments / their number",
+     "desc": "הלוקין › ההלקאה › כיצד מלקין › הרצועות",
+     "desc_de": "Die zu Geißelnden › Die Geißelung › Wie man geißelt › Die Riemen",
+     "desc_en": "Those to be flogged › The flogging › How one flogs › The straps"
+    },
+    {
+     "ref": "3:13",
+     "text": "גדלן וארכן\\ שילוש המכות, מצב גופו",
+     "text_de": "Ihre Größe und Länge / Dreiteilung der Schläge, Zustand seines Körpers",
+     "text_en": "Their size and length / dividing the strokes into three, condition of his body",
+     "desc": "הלוקין › ההלקאה › כיצד מלקין › הרצועות",
+     "desc_de": "Die zu Geißelnden › Die Geißelung › Wie man geißelt › Die Riemen",
+     "desc_en": "Those to be flogged › The flogging › How one flogs › The straps"
+    },
+    {
+     "ref": "3:14",
+     "text": "הקריאה, חיוב החזן במיתתו \\ ע\"י קלון",
+     "text_de": "Das Vorlesen, Haftung des Gemeindedieners für seinen Tod / durch Schande",
+     "text_en": "The reading, liability of the attendant for his death / through disgrace",
+     "desc": "הלוקין › ההלקאה › כיצד מלקין › פטור",
+     "desc_de": "Die zu Geißelnden › Die Geißelung › Wie man geißelt › Befreit",
+     "desc_en": "Those to be flogged › The flogging › How one flogs › Exempt"
+    },
+    {
+     "ref": "3:15",
+     "text": "מכרת ע\"י מכות \\ שמירת לאוין",
+     "text_de": "Ausrottung durch Schläge / Einhaltung der Verbote",
+     "text_en": "Karet through lashes / observing the prohibitions",
+     "desc": "הלוקין › ההלקאה › תוצאות המלקות › שכר מצוות › פטור",
+     "desc_de": "Die zu Geißelnden › Die Geißelung › Folgen der Geißelung › Lohn für Gebote › Befreit",
+     "desc_en": "Those to be flogged › The flogging › Consequences of the flogging › Reward for commandments › Exempt"
+    },
+    {
+     "ref": "3:16",
+     "text": "טעם לריבוי המצוות",
+     "text_de": "Grund für die Vielzahl der Gebote",
+     "text_en": "Reason for the multitude of commandments",
+     "desc": "הלוקין › ההלקאה › תוצאות המלקות › שכר מצוות",
+     "desc_de": "Die zu Geißelnden › Die Geißelung › Folgen der Geißelung › Lohn für Gebote",
+     "desc_en": "Those to be flogged › The flogging › Consequences of the flogging › Reward for commandments"
+    }
+   ]
+  }
+ ]
+}

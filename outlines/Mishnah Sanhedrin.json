@@ -1,0 +1,727 @@
+{
+ "book": "Mishnah Sanhedrin",
+ "title": "משנה סנהדרין",
+ "title_de": "Mischna Sanhedrin – Gliederung",
+ "title_en": "Sanhedrin – outline",
+ "note": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema).",
+ "note_de": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema); ins Deutsche und Englische übersetzt.",
+ "note_en": "Outline after the table “Mishna Sedura”: the central content of each mishnah, with the topic path (main topic to sub-topic); translated into German and English.",
+ "sections": [
+  {
+   "head": "פרק א",
+   "head_de": "Kapitel 1",
+   "head_en": "Chapter 1",
+   "items": [
+    {
+     "ref": "1:1",
+     "text": "דיני ממונות ונזקים, קנסי אישות",
+     "text_de": "Vermögens- und Schadensrecht, Bußgelder im Eherecht",
+     "text_en": "Civil and tort law, fines in matrimonial law",
+     "desc": "יוצרי הדין › מספר הדיינים › הנידונין בשלושה",
+     "desc_de": "Gestalter des Rechts › Zahl der Richter › Fälle vor drei Richtern",
+     "desc_en": "Shapers of the law › Number of judges › Cases tried before three judges"
+    },
+    {
+     "ref": "1:2",
+     "text": "מכות, עיבורי חדש ושנה",
+     "text_de": "Geißelung, Schaltung von Monat und Jahr",
+     "text_en": "Lashes, intercalation of month and year",
+     "desc": "יוצרי הדין › מספר הדיינים › הנידונין בשלושה",
+     "desc_de": "Gestalter des Rechts › Zahl der Richter › Fälle vor drei Richtern",
+     "desc_en": "Shapers of the law › Number of judges › Cases tried before three judges"
+    },
+    {
+     "ref": "1:3",
+     "text": "סמיכה ועריפה, הפקעת זיקות,שומת הקדש",
+     "text_de": "Handauflegung und Genickbrechen, Aufhebung von Bindungen, Schätzung von Geweihtem",
+     "text_en": "Laying on of hands and breaking of the neck, annulment of ties, valuation of consecrated property",
+     "desc": "יוצרי הדין › מספר הדיינים › הנידונין בשלושה",
+     "desc_de": "Gestalter des Rechts › Zahl der Richter › Fälle vor drei Richtern",
+     "desc_en": "Shapers of the law › Number of judges › Cases tried before three judges"
+    },
+    {
+     "ref": "1:4",
+     "text": "דיני נפשות של בעלי חיים",
+     "text_de": "Kapitalverfahren gegen Tiere",
+     "text_en": "Capital cases concerning animals",
+     "desc": "יוצרי הדין › מספר הדיינים › הנידונין בסנהדרין › קטנה",
+     "desc_de": "Gestalter des Rechts › Zahl der Richter › Fälle vor dem Sanhedrin › Kleiner Sanhedrin",
+     "desc_en": "Shapers of the law › Number of judges › Cases tried before the Sanhedrin › Lesser Sanhedrin"
+    },
+    {
+     "ref": "1:5",
+     "text": "הכרעות כלל ישראליות",
+     "text_de": "Entscheidungen für ganz Israel",
+     "text_en": "Decisions concerning all Israel",
+     "desc": "יוצרי הדין › מספר הדיינים › הנידונין בסנהדרין › גדולה",
+     "desc_de": "Gestalter des Rechts › Zahl der Richter › Fälle vor dem Sanhedrin › Großer Sanhedrin",
+     "desc_en": "Shapers of the law › Number of judges › Cases tried before the Sanhedrin › Great Sanhedrin"
+    },
+    {
+     "ref": "1:6",
+     "text": "דרשות למספר הדיינים, אוכלוסיית העיר",
+     "text_de": "Auslegungen zur Zahl der Richter, Einwohnerzahl der Stadt",
+     "text_en": "Interpretations on the number of judges, population of the city",
+     "desc": "יוצרי הדין › מספר הדיינים › הרכבת הסנהדרין",
+     "desc_de": "Gestalter des Rechts › Zahl der Richter › Zusammensetzung des Sanhedrin",
+     "desc_en": "Shapers of the law › Number of judges › Composition of the Sanhedrin"
+    }
+   ]
+  },
+  {
+   "head": "פרק ב",
+   "head_de": "Kapitel 2",
+   "head_en": "Chapter 2",
+   "items": [
+    {
+     "ref": "2:1",
+     "text": "דין,עניני יבום,איסורים,כבוד ואבילות",
+     "text_de": "Gericht, Angelegenheiten der Leviratsehe, Verbote, Ehre und Trauer",
+     "text_en": "Court, matters of levirate marriage, prohibitions, honor and mourning",
+     "desc": "יוצרי הדין › המעיד ודן › השונים מכלל העם › כהן גדול",
+     "desc_de": "Gestalter des Rechts › Wer bezeugt und zugleich richtet › Die vom Volk Abweichenden › Hoher Priester",
+     "desc_en": "Shapers of the law › One who testifies and also judges › Those who differ from the general public › High Priest"
+    },
+    {
+     "ref": "2:2",
+     "text": "דין, עניני יבום, נישואי אלמנותו",
+     "text_de": "Gericht, Angelegenheiten der Leviratsehe, Heirat seiner Witwe",
+     "text_en": "Court, matters of levirate marriage, marriage to his widow",
+     "desc": "יוצרי הדין › המעיד ודן › השונים מכלל העם › מלך",
+     "desc_de": "Gestalter des Rechts › Wer bezeugt und zugleich richtet › Die vom Volk Abweichenden › König",
+     "desc_en": "Shapers of the law › One who testifies and also judges › Those who differ from the general public › King"
+    },
+    {
+     "ref": "2:3",
+     "text": "כבודו ואבילות",
+     "text_de": "Seine Ehre und Trauer",
+     "text_en": "His honor and mourning",
+     "desc": "יוצרי הדין › המעיד ודן › השונים מכלל העם › מלך",
+     "desc_de": "Gestalter des Rechts › Wer bezeugt und zugleich richtet › Die vom Volk Abweichenden › König",
+     "desc_en": "Shapers of the law › One who testifies and also judges › Those who differ from the general public › King"
+    },
+    {
+     "ref": "2:4",
+     "text": "מלחמה,דרך,ריבוי נשים סוסים וכסף,ס\"ת",
+     "text_de": "Krieg, Weg, Vielzahl von Frauen, Pferden und Silber, Torarolle",
+     "text_en": "War, road, multiplying wives, horses and silver, Torah scroll",
+     "desc": "יוצרי הדין › המעיד ודן › השונים מכלל העם › מלך",
+     "desc_de": "Gestalter des Rechts › Wer bezeugt und zugleich richtet › Die vom Volk Abweichenden › König",
+     "desc_en": "Shapers of the law › One who testifies and also judges › Those who differ from the general public › King"
+    },
+    {
+     "ref": "2:5",
+     "text": "שמירה על אימתו",
+     "text_de": "Wahrung seiner Ehrfurcht gebietenden Autorität",
+     "text_en": "Preserving the awe he inspires",
+     "desc": "יוצרי הדין › המעיד ודן › השונים מכלל העם › מלך",
+     "desc_de": "Gestalter des Rechts › Wer bezeugt und zugleich richtet › Die vom Volk Abweichenden › König",
+     "desc_en": "Shapers of the law › One who testifies and also judges › Those who differ from the general public › King"
+    }
+   ]
+  },
+  {
+   "head": "פרק ג",
+   "head_de": "Kapitel 3",
+   "head_en": "Chapter 3",
+   "items": [
+    {
+     "ref": "3:1",
+     "text": "הבורר דיין השלישי, אפשרות לפסול",
+     "text_de": "Wahl des dritten Richters, Möglichkeit der Ablehnung",
+     "text_en": "Selection of the third judge, possibility of disqualification",
+     "desc": "יוצרי הדין › המעיד ודן › בחירתם",
+     "desc_de": "Gestalter des Rechts › Wer bezeugt und zugleich richtet › Ihre Wahl",
+     "desc_en": "Shapers of the law › One who testifies and also judges › Their selection"
+    },
+    {
+     "ref": "3:2",
+     "text": "המקבל דיינים ושבועה כשאינו חייב",
+     "text_de": "Wer Richter annimmt, und Eid ohne Schuldpflicht",
+     "text_en": "One who accepts judges, and oath when not liable",
+     "desc": "יוצרי הדין › המעיד ודן › בחירתם",
+     "desc_de": "Gestalter des Rechts › Wer bezeugt und zugleich richtet › Ihre Wahl",
+     "desc_en": "Shapers of the law › One who testifies and also judges › Their selection"
+    },
+    {
+     "ref": "3:3",
+     "text": "חשד ממוני או בטלנות",
+     "text_de": "Verdacht auf Geldgeschäfte oder Müßiggang",
+     "text_en": "Suspicion of financial dealings or idleness",
+     "desc": "יוצרי הדין › המעיד ודן › הפסולים",
+     "desc_de": "Gestalter des Rechts › Wer bezeugt und zugleich richtet › Die Untauglichen",
+     "desc_en": "Shapers of the law › One who testifies and also judges › The disqualified"
+    },
+    {
+     "ref": "3:4",
+     "text": "קירבה",
+     "text_de": "Verwandtschaft",
+     "text_en": "Kinship",
+     "desc": "יוצרי הדין › המעיד ודן › הפסולים",
+     "desc_de": "Gestalter des Rechts › Wer bezeugt und zugleich richtet › Die Untauglichen",
+     "desc_en": "Shapers of the law › One who testifies and also judges › The disqualified"
+    },
+    {
+     "ref": "3:5",
+     "text": "אהבה ושנאה",
+     "text_de": "Liebe und Hass",
+     "text_en": "Love and hatred",
+     "desc": "יוצרי הדין › המעיד ודן › הפסולים",
+     "desc_de": "Gestalter des Rechts › Wer bezeugt und zugleich richtet › Die Untauglichen",
+     "desc_en": "Shapers of the law › One who testifies and also judges › The disqualified"
+    },
+    {
+     "ref": "3:6",
+     "text": "איום,דיוק העדות,הכרעת והוספת דיינים",
+     "text_de": "Drohung, Genauigkeit des Zeugnisses, Entscheidung und Hinzuziehung weiterer Richter",
+     "text_en": "Threat, precision of testimony, decision and addition of judges",
+     "desc": "כיצד דנים › דיני ממונות › גמר הדין › עד פסק הדין",
+     "desc_de": "Wie man richtet › Zivilrecht › Abschluss des Verfahrens › Bis zum Urteilsspruch",
+     "desc_en": "How to judge › Monetary law › Conclusion of the trial › Until the verdict"
+    },
+    {
+     "ref": "3:7",
+     "text": "הכרזת הפסק \\ וסודיות ההכרעה",
+     "text_de": "Verkündung des Urteils / Geheimhaltung der Entscheidung",
+     "text_en": "Announcement of the verdict / secrecy of the decision",
+     "desc": "כיצד דנים › דיני ממונות › גמר הדין › אחרי פסק הדין › עד פסק הדין",
+     "desc_de": "Wie man richtet › Zivilrecht › Abschluss des Verfahrens › Nach dem Urteilsspruch › Bis zum Urteilsspruch",
+     "desc_en": "How to judge › Monetary law › Conclusion of the trial › After the verdict › Until the verdict"
+    },
+    {
+     "ref": "3:8",
+     "text": "אפשרות לסתור את הדין",
+     "text_de": "Möglichkeit, das Urteil aufzuheben",
+     "text_en": "Possibility of overturning the verdict",
+     "desc": "כיצד דנים › דיני ממונות › גמר הדין › אחרי פסק הדין",
+     "desc_de": "Wie man richtet › Zivilrecht › Abschluss des Verfahrens › Nach dem Urteilsspruch",
+     "desc_en": "How to judge › Monetary law › Conclusion of the trial › After the verdict"
+    }
+   ]
+  },
+  {
+   "head": "פרק ד",
+   "head_de": "Kapitel 4",
+   "head_en": "Chapter 4",
+   "items": [
+    {
+     "ref": "4:1",
+     "text": "שוויון אחד ושמונה הבדלים",
+     "text_de": "Eine Gemeinsamkeit und acht Unterschiede",
+     "text_en": "One similarity and eight differences",
+     "desc": "כיצד דנים › דיני נפשות › דיני ממונות › תהליכי וארגון הבית דין › בין ממונות לנפשות",
+     "desc_de": "Wie man richtet › Kapitalsachen › Zivilrecht › Abläufe und Organisation des Gerichts › Zwischen Zivil- und Kapitalsachen",
+     "desc_en": "How to judge › Capital cases › Monetary law › Procedures and organization of the court › Between monetary and capital cases"
+    },
+    {
+     "ref": "4:2",
+     "text": "הבדלים במתחיל וכשר לדון",
+     "text_de": "Unterschiede bei Prozessbeginn und Eignung zum Richten",
+     "text_en": "Differences regarding the start of proceedings and fitness to judge",
+     "desc": "כיצד דנים › דיני נפשות › דיני ממונות › תהליכי וארגון הבית דין › בין ממונות לנפשות",
+     "desc_de": "Wie man richtet › Kapitalsachen › Zivilrecht › Abläufe und Organisation des Gerichts › Zwischen Zivil- und Kapitalsachen",
+     "desc_en": "How to judge › Capital cases › Monetary law › Procedures and organization of the court › Between monetary and capital cases"
+    },
+    {
+     "ref": "4:3",
+     "text": "צורת ישיבתן, מספר הסופרין הנצרכים",
+     "text_de": "Sitzordnung, Zahl der benötigten Schreiber",
+     "text_en": "Seating arrangement, number of scribes needed",
+     "desc": "כיצד דנים › דיני נפשות › תהליכי וארגון הבית דין › תיאור המעמד",
+     "desc_de": "Wie man richtet › Kapitalsachen › Abläufe und Organisation des Gerichts › Beschreibung der Szene",
+     "desc_en": "How to judge › Capital cases › Procedures and organization of the court › Description of the setting"
+    },
+    {
+     "ref": "4:4",
+     "text": "שורות של תלמידים, הסמכתן וישיבתן",
+     "text_de": "Reihen der Schüler, ihre Ordination und Sitzordnung",
+     "text_en": "Rows of students, their ordination and seating",
+     "desc": "כיצד דנים › דיני נפשות › תהליכי וארגון הבית דין › תיאור המעמד",
+     "desc_de": "Wie man richtet › Kapitalsachen › Abläufe und Organisation des Gerichts › Beschreibung der Szene",
+     "desc_en": "How to judge › Capital cases › Procedures and organization of the court › Description of the setting"
+    },
+    {
+     "ref": "4:5",
+     "text": "דיוק,זרע,בריאת אדם יחידי,סיבה להעיד",
+     "text_de": "Genauigkeit, Same, Erschaffung des einzelnen Menschen, Grund zur Zeugenaussage",
+     "text_en": "Precision, seed, creation of a single human being, reason to testify",
+     "desc": "כיצד דנים › דיני נפשות › איום ושכנוע העדים",
+     "desc_de": "Wie man richtet › Kapitalsachen › Warnung und Ermahnung der Zeugen",
+     "desc_en": "How to judge › Capital cases › Warning and persuasion of the witnesses"
+    }
+   ]
+  },
+  {
+   "head": "פרק ה",
+   "head_de": "Kapitel 5",
+   "head_en": "Chapter 5",
+   "items": [
+    {
+     "ref": "5:1",
+     "text": "החקירות",
+     "text_de": "Die Verhöre",
+     "text_en": "The examinations",
+     "desc": "כיצד דנים › דיני נפשות › התאמתות העדות › מה נשאלים",
+     "desc_de": "Wie man richtet › Kapitalsachen › Übereinstimmung der Zeugenaussagen › Was gefragt wird",
+     "desc_en": "How to judge › Capital cases › Agreement of the testimonies › What they are asked"
+    },
+    {
+     "ref": "5:2",
+     "text": "הבדיקות \\ אי ידיעה, הכחשה",
+     "text_de": "Die Prüfungen / Nichtwissen, Widerspruch",
+     "text_en": "The inquiries / ignorance, contradiction",
+     "desc": "כיצד דנים › דיני נפשות › התאמתות העדות › הגורמים לביטול › מה נשאלים",
+     "desc_de": "Wie man richtet › Kapitalsachen › Übereinstimmung der Zeugenaussagen › Gründe für die Aufhebung › Was gefragt wird",
+     "desc_en": "How to judge › Capital cases › Agreement of the testimonies › Causes of invalidation › What they are asked"
+    },
+    {
+     "ref": "5:3",
+     "text": "הכחשה המשמעותית",
+     "text_de": "Wesentlicher Widerspruch",
+     "text_en": "Significant contradiction",
+     "desc": "כיצד דנים › דיני נפשות › התאמתות העדות › הגורמים לביטול",
+     "desc_de": "Wie man richtet › Kapitalsachen › Übereinstimmung der Zeugenaussagen › Gründe für die Aufhebung",
+     "desc_en": "How to judge › Capital cases › Agreement of the testimonies › Causes of invalidation"
+    },
+    {
+     "ref": "5:4",
+     "text": "תוספת טענות שלא מן הדיינים",
+     "text_de": "Zusätzliche Argumente von Nicht-Richtern",
+     "text_en": "Additional arguments from non-judges",
+     "desc": "כיצד דנים › דיני נפשות › הכרעת וגמר הדין",
+     "desc_de": "Wie man richtet › Kapitalsachen › Entscheidung und Abschluss des Urteils",
+     "desc_en": "How to judge › Capital cases › Decision and conclusion of the verdict"
+    },
+    {
+     "ref": "5:5",
+     "text": "הלנת דין,שינוי דעת,הכרעה,עוד דיינים",
+     "text_de": "Verschleppung des Urteils, Meinungsänderung, Entscheidung, weitere Richter",
+     "text_en": "Delaying the verdict, change of opinion, decision, additional judges",
+     "desc": "כיצד דנים › דיני נפשות › הכרעת וגמר הדין",
+     "desc_de": "Wie man richtet › Kapitalsachen › Entscheidung und Abschluss des Urteils",
+     "desc_en": "How to judge › Capital cases › Decision and conclusion of the verdict"
+    }
+   ]
+  },
+  {
+   "head": "פרק ו",
+   "head_de": "Kapitel 6",
+   "head_en": "Chapter 6",
+   "items": [
+    {
+     "ref": "6:1",
+     "text": "הוצאה לסקילה והחזרה, הכרזה",
+     "text_de": "Hinausführung zur Steinigung und Rückholung, Ausrufung",
+     "text_en": "Taking out for stoning and bringing back, proclamation",
+     "desc": "כיצד דנים › כיצד ממיתים › סקילה › לפני הסקילה",
+     "desc_de": "Wie man richtet › Wie man hinrichtet › Steinigung › Vor der Steinigung",
+     "desc_en": "How to judge › How they are executed › Stoning › Before the stoning"
+    },
+    {
+     "ref": "6:2",
+     "text": "וידוי",
+     "text_de": "Bekenntnis (Widduj)",
+     "text_en": "Confession (vidui)",
+     "desc": "כיצד ממיתים › סקילה › לפני הסקילה",
+     "desc_de": "Wie man hinrichtet › Steinigung › Vor der Steinigung",
+     "desc_en": "How they are executed › Stoning › Before the stoning"
+    },
+    {
+     "ref": "6:3",
+     "text": "הפשטת הנסקל",
+     "text_de": "Entkleidung des Gesteinigten",
+     "text_en": "Disrobing of the one stoned",
+     "desc": "כיצד ממיתים › סקילה › לפני הסקילה",
+     "desc_de": "Wie man hinrichtet › Steinigung › Vor der Steinigung",
+     "desc_en": "How they are executed › Stoning › Before the stoning"
+    },
+    {
+     "ref": "6:4",
+     "text": "הסקילה ותלייה",
+     "text_de": "Steinigung und Aufhängung",
+     "text_en": "Stoning and hanging",
+     "desc": "כיצד ממיתים › סקילה › אחרי הסקילה",
+     "desc_de": "Wie man hinrichtet › Steinigung › Nach der Steinigung",
+     "desc_en": "How they are executed › Stoning › After the stoning"
+    },
+    {
+     "ref": "6:5",
+     "text": "צער השכינה, הלנת מת, מקום קבורה",
+     "text_de": "Leid der Schechina, Über-Nacht-Lassen eines Toten, Begräbnisstätte",
+     "text_en": "Distress of the Shechina, leaving a corpse overnight, burial place",
+     "desc": "כיצד ממיתים › סקילה › אחרי הסקילה",
+     "desc_de": "Wie man hinrichtet › Steinigung › Nach der Steinigung",
+     "desc_en": "How they are executed › Stoning › After the stoning"
+    },
+    {
+     "ref": "6:6",
+     "text": "ליקוט עצמות, פיוס קרובים ואבילותם",
+     "text_de": "Einsammeln der Gebeine, Versöhnung der Verwandten und ihre Trauer",
+     "text_en": "Gathering the bones, reconciliation of relatives and their mourning",
+     "desc": "כיצד ממיתים › סקילה › אחרי הסקילה",
+     "desc_de": "Wie man hinrichtet › Steinigung › Nach der Steinigung",
+     "desc_en": "How they are executed › Stoning › After the stoning"
+    }
+   ]
+  },
+  {
+   "head": "פרק ז",
+   "head_de": "Kapitel 7",
+   "head_en": "Chapter 7",
+   "items": [
+    {
+     "ref": "7:1",
+     "text": "סדר חומרתן",
+     "text_de": "Rangfolge ihrer Schwere",
+     "text_en": "Order of their severity",
+     "desc": "כיצד ממיתים › הארבע מיתות",
+     "desc_de": "Wie man hinrichtet › Die vier Todesstrafen",
+     "desc_en": "How they are executed › The four death penalties"
+    },
+    {
+     "ref": "7:2",
+     "text": "העמדה, פתיחת הפה, שריפה ממש",
+     "text_de": "Aufstellung, Öffnen des Mundes, tatsächliches Verbrennen",
+     "text_en": "Placing in position, opening the mouth, actual burning",
+     "desc": "כיצד ממיתים › שריפה",
+     "desc_de": "Wie man hinrichtet › Verbrennung",
+     "desc_en": "How they are executed › Burning"
+    },
+    {
+     "ref": "7:3",
+     "text": "מצב גוף הנהרג \\ העמדה וחניקה",
+     "text_de": "Körperzustand des Hingerichteten / Aufstellung und Erdrosselung",
+     "text_en": "Condition of the body of the executed / placing in position and strangulation",
+     "desc": "כיצד ממיתים › חנק › הרג",
+     "desc_de": "Wie man hinrichtet › Erdrosselung › Enthauptung",
+     "desc_en": "How they are executed › Strangulation › Beheading"
+    },
+    {
+     "ref": "7:4",
+     "text": "17 חטאים,חיוב כפול, טעם לסקילת בהמה",
+     "text_de": "Siebzehn Sünden, doppelte Haftung, Grund für die Steinigung eines Tieres",
+     "text_en": "Seventeen sins, double liability, reason for stoning an animal",
+     "desc": "המומתים › הנסקלין › כללי החיובים",
+     "desc_de": "Die Hinzurichtenden › Die zu Steinigenden › Allgemeine Regeln der Strafpflichten",
+     "desc_en": "Those to be put to death › Those to be stoned › General rules of liability"
+    },
+    {
+     "ref": "7:5",
+     "text": "הזכרת השם, דין בכינוי, גמר דין",
+     "text_de": "Aussprechen des Namens, Verfahren bei Umschreibung, Urteilsabschluss",
+     "text_en": "Pronouncing the Name, trial involving a euphemism, conclusion of the verdict",
+     "desc": "המומתים › הנסקלין › כיצד מתחייבים › מגדף",
+     "desc_de": "Die Hinzurichtenden › Die zu Steinigenden › Wie man schuldig wird › Gotteslästerer",
+     "desc_en": "Those to be put to death › Those to be stoned › How one becomes liable › Blasphemer"
+    },
+    {
+     "ref": "7:6",
+     "text": "עבודה המחייבת,שאסורות בלאו ומיוחדות",
+     "text_de": "Strafbarer Dienst, durch Verbot untersagte und besondere",
+     "text_en": "Culpable worship, those prohibited by a negative commandment, and special ones",
+     "desc": "המומתים › הנסקלין › כיצד מתחייבים › עובדי ע\"ז",
+     "desc_de": "Die Hinzurichtenden › Die zu Steinigenden › Wie man schuldig wird › Götzendiener",
+     "desc_en": "Those to be put to death › Those to be stoned › How one becomes liable › Idol worshippers"
+    },
+    {
+     "ref": "7:7",
+     "text": "מסירה והעברה למולך \\ אוב וידעוני",
+     "text_de": "Übergabe und Weihung an Molech / Totenbeschwörer und Wahrsager",
+     "text_en": "Delivering and passing to Molech / necromancer and diviner",
+     "desc": "המומתים › הנסקלין › כיצד מתחייבים › עובדי ע\"ז",
+     "desc_de": "Die Hinzurichtenden › Die zu Steinigenden › Wie man schuldig wird › Götzendiener",
+     "desc_en": "Those to be put to death › Those to be stoned › How one becomes liable › Idol worshippers"
+    },
+    {
+     "ref": "7:8",
+     "text": "חילול שבת, קללת הורים",
+     "text_de": "Schabbatschändung, Verfluchung der Eltern",
+     "text_en": "Desecration of the Sabbath, cursing parents",
+     "desc": "המומתים › הנסקלין › כיצד מתחייבים",
+     "desc_de": "Die Hinzurichtenden › Die zu Steinigenden › Wie man schuldig wird",
+     "desc_en": "Those to be put to death › Those to be stoned › How one becomes liable"
+    },
+    {
+     "ref": "7:9",
+     "text": "פרטי הנערה המחייבת, אם נבעלה",
+     "text_de": "Einzelheiten zum Mädchen, das die Strafe bewirkt, falls sie beschlafen wurde",
+     "text_en": "Details of the girl who incurs liability, if she was intimate",
+     "desc": "המומתים › הנסקלין › כיצד מתחייבים › נערה מאורסה",
+     "desc_de": "Die Hinzurichtenden › Die zu Steinigenden › Wie man schuldig wird › verlobte Jugendliche",
+     "desc_en": "Those to be put to death › Those to be stoned › How one becomes liable › betrothed young woman"
+    },
+    {
+     "ref": "7:10",
+     "text": "שכנועיו, הכמנת עדים,לשון הסתה והדחה",
+     "text_de": "Seine Überredungen, Verstecken von Zeugen, Wortlaut der Verführung und Verleitung",
+     "text_en": "His persuasions, concealing of witnesses, wording of enticement and incitement",
+     "desc": "המומתים › הנסקלין › כיצד מתחייבים › מסית ומדיח",
+     "desc_de": "Die Hinzurichtenden › Die zu Steinigenden › Wie man schuldig wird › Verführer und Verleiter",
+     "desc_en": "Those to be put to death › Those to be stoned › How one becomes liable › Enticer and inciter"
+    },
+    {
+     "ref": "7:11",
+     "text": "מעשה ואחיזת עינים",
+     "text_de": "Tat und Augentäuschung",
+     "text_en": "Deed and sleight of hand",
+     "desc": "המומתים › הנסקלין › כיצד מתחייבים › מכשף",
+     "desc_de": "Die Hinzurichtenden › Die zu Steinigenden › Wie man schuldig wird › Zauberer",
+     "desc_en": "Those to be put to death › Those to be stoned › How one becomes liable › Sorcerer"
+    }
+   ]
+  },
+  {
+   "head": "פרק ח",
+   "head_de": "Kapitel 8",
+   "head_en": "Chapter 8",
+   "items": [
+    {
+     "ref": "8:1",
+     "text": "שערות, גיל",
+     "text_de": "Schamhaare, Alter",
+     "text_en": "Pubic hair, age",
+     "desc": "המומתים › הנסקלין › כיצד מתחייבים › בן סורר ומורה › בגרותו",
+     "desc_de": "Die Hinzurichtenden › Die zu Steinigenden › Wie man schuldig wird › Der abtrünnige und widerspenstige Sohn › Seine Reife",
+     "desc_en": "Those to be put to death › Those to be stoned › How one becomes liable › The stubborn and rebellious son › His maturity"
+    },
+    {
+     "ref": "8:2",
+     "text": "כמות שאכל, אכילת מצוה או עבירה",
+     "text_de": "Menge des Gegessenen, Essen einer Mizwa-Speise oder eines Vergehens",
+     "text_en": "Quantity eaten, eating of a mitzvah meal or a transgression",
+     "desc": "המומתים › הנסקלין › כיצד מתחייבים › בן סורר ומורה › מעשיו",
+     "desc_de": "Die Hinzurichtenden › Die zu Steinigenden › Wie man schuldig wird › Der abtrünnige und widerspenstige Sohn › Seine Taten",
+     "desc_en": "Those to be put to death › Those to be stoned › How one becomes liable › The stubborn and rebellious son › His deeds"
+    },
+    {
+     "ref": "8:3",
+     "text": "בעלות הגניבה והמקום שנאכל",
+     "text_de": "Eigentum am Diebesgut und Ort des Verzehrs",
+     "text_en": "Ownership of the stolen goods and place of eating",
+     "desc": "המומתים › הנסקלין › כיצד מתחייבים › בן סורר ומורה › מעשיו",
+     "desc_de": "Die Hinzurichtenden › Die zu Steinigenden › Wie man schuldig wird › Der abtrünnige und widerspenstige Sohn › Seine Taten",
+     "desc_en": "Those to be put to death › Those to be stoned › How one becomes liable › The stubborn and rebellious son › His deeds"
+    },
+    {
+     "ref": "8:4",
+     "text": "התאמת ושלימות הוריו, התראתו,גמר דין",
+     "text_de": "Übereinstimmung und Vollständigkeit seiner Eltern, seine Verwarnung, Urteilsabschluss",
+     "text_en": "Agreement and completeness of his parents, his warning, conclusion of the verdict",
+     "desc": "המומתים › הנסקלין › כיצד מתחייבים › בן סורר ומורה",
+     "desc_de": "Die Hinzurichtenden › Die zu Steinigenden › Wie man schuldig wird › Der abtrünnige und widerspenstige Sohn",
+     "desc_en": "Those to be put to death › Those to be stoned › How one becomes liable › The stubborn and rebellious son"
+    },
+    {
+     "ref": "8:5",
+     "text": "בן סורר,מנע ועידוד לדרכי רשע וצדיק",
+     "text_de": "Der widerspenstige Sohn, Abhaltung und Ermutigung auf den Wegen der Frevler und Gerechten",
+     "text_en": "The rebellious son, deterrence and encouragement regarding the ways of the wicked and the righteous",
+     "desc": "המומתים › הנסקלין › בן סורר ומורה",
+     "desc_de": "Die Hinzurichtenden › Die zu Steinigenden › Der abtrünnige und widerspenstige Sohn",
+     "desc_en": "Those to be put to death › Those to be stoned › The stubborn and rebellious son"
+    },
+    {
+     "ref": "8:6",
+     "text": "הבא במחתרת ופטורו מתשלומים",
+     "text_de": "Der Einbrecher und seine Befreiung von Zahlungen",
+     "text_en": "The burglar and his exemption from payments",
+     "desc": "המומתים › הנסקלין › הנידונים על שם סופן",
+     "desc_de": "Die Hinzurichtenden › Die zu Steinigenden › Die nach ihrem künftigen Ende Verurteilten",
+     "desc_en": "Those to be put to death › Those to be stoned › Those sentenced according to their eventual end"
+    },
+    {
+     "ref": "8:7",
+     "text": "שמצילין אותן בנפשן,המחיב רק את עצמו",
+     "text_de": "Die man unter Einsatz des Lebens rettet, wer nur sich selbst belastet",
+     "text_en": "Those whom one saves at the cost of one's life, one who incriminates only himself",
+     "desc": "המומתים › הנסקלין › הנידונים על שם סופן",
+     "desc_de": "Die Hinzurichtenden › Die zu Steinigenden › Die nach ihrem künftigen Ende Verurteilten",
+     "desc_en": "Those to be put to death › Those to be stoned › Those sentenced according to their eventual end"
+    }
+   ]
+  },
+  {
+   "head": "פרק ט",
+   "head_de": "Kapitel 9",
+   "head_en": "Chapter 9",
+   "items": [
+    {
+     "ref": "9:1",
+     "text": "אשה ובת,בת כהן,עיר נדחת\\ רוצח וגרמא",
+     "text_de": "Frau und Tochter, Priestertochter, abgefallene Stadt / Mörder und indirekte Verursachung",
+     "text_en": "Wife and daughter, priest's daughter, apostate city / murderer and indirect causation",
+     "desc": "המומתים › הנהרגין › הנשרפין › כיצד מתחייבים › רוצח › החייבים",
+     "desc_de": "Die Hinzurichtenden › Die zu Enthauptenden › Die zu Verbrennenden › Wie man schuldig wird › Mörder › die Verpflichteten",
+     "desc_en": "Those to be put to death › Those to be beheaded › Those to be burned › How one becomes liable › Murderer › those obligated"
+    },
+    {
+     "ref": "9:2",
+     "text": "כוונה לנהרג ולמכת מיתה, הכאת מיתה",
+     "text_de": "Absicht gegenüber dem Getöteten und dem tödlichen Schlag, tödlicher Schlag",
+     "text_en": "Intent regarding the victim and the fatal blow, fatal blow",
+     "desc": "המומתים › הנהרגין › כיצד מתחייבים › רוצח",
+     "desc_de": "Die Hinzurichtenden › Die zu Enthauptenden › Wie man schuldig wird › Mörder",
+     "desc_en": "Those to be put to death › Those to be beheaded › How one becomes liable › Murderer"
+    },
+    {
+     "ref": "9:3",
+     "text": "בפטורים, בחייבי מיתות ודינם לקולא",
+     "text_de": "Bei Straffreien, bei Todesschuldigen und ihre Behandlung zur Milde",
+     "text_en": "Regarding the exempt, those liable to death, and their lenient treatment",
+     "desc": "המומתים › כל המיתות › תערובת חייבי מיתה",
+     "desc_de": "Die Hinzurichtenden › Alle Todesstrafen › Vermischung von Todesschuldigen",
+     "desc_en": "Those to be put to death › All death penalties › Mixture of those liable to death"
+    },
+    {
+     "ref": "9:4",
+     "text": "המתחיב בשתי מיתות",
+     "text_de": "Wer zu zwei Todesstrafen verpflichtet ist",
+     "text_en": "One liable to two death penalties",
+     "desc": "המומתים › כל המיתות › תערובת חייבי מיתה",
+     "desc_de": "Die Hinzurichtenden › Alle Todesstrafen › Vermischung von Todesschuldigen",
+     "desc_en": "Those to be put to death › All death penalties › Mixture of those liable to death"
+    },
+    {
+     "ref": "9:5",
+     "text": "שנלקה כבר פעמיים, רוצח בלא עדים",
+     "text_de": "Wer schon zweimal gegeißelt wurde, Mörder ohne Zeugen",
+     "text_en": "One already lashed twice, murderer without witnesses",
+     "desc": "המומתים › שאינן בד' מיתות › הלכות למשה מסיני › הכנסה לכפה",
+     "desc_de": "Die Hinzurichtenden › Die nicht unter den vier Todesstrafen sind › Halachot Lemosche miSinai (Weisungen an Mose vom Sinai) › Einsperrung in die Zelle (Kippa)",
+     "desc_en": "Those to be put to death › Those not among the four death penalties › Laws given to Moses at Sinai › Confinement in the cell (kippa)"
+    },
+    {
+     "ref": "9:6",
+     "text": "שקנאין פוגעין בו, כהן טמא וזר ששמשו",
+     "text_de": "Den Eiferer treffen dürfen, unreiner Priester und Nichtpriester im Dienst",
+     "text_en": "One whom zealots may strike, impure priest and non-priest who performed service",
+     "desc": "המומתים › שאינן בד' מיתות › הלכות למשה מסיני",
+     "desc_de": "Die Hinzurichtenden › Die nicht unter den vier Todesstrafen sind › Halachot Lemosche miSinai (Weisungen an Mose vom Sinai)",
+     "desc_en": "Those to be put to death › Those not among the four death penalties › Laws given to Moses at Sinai"
+    }
+   ]
+  },
+  {
+   "head": "פרק י",
+   "head_de": "Kapitel 10",
+   "head_en": "Chapter 10",
+   "items": [
+    {
+     "ref": "10:1",
+     "text": "כל ישראל,כופרים,המבזים שם ה' ותורתו",
+     "text_de": "Ganz Israel, Leugner, Verächter des Namens Gottes und seiner Tora",
+     "text_en": "All Israel, deniers, those who disgrace the Name of God and His Torah",
+     "desc": "המומתים › דיני שמים › זכייה לחלק לעוה\"ב › יחידים",
+     "desc_de": "Die Hinzurichtenden › Himmlisches Gericht › Anspruch auf Anteil an der kommenden Welt › Einzelne",
+     "desc_en": "Those to be put to death › Heavenly judgment › Merit of a share in the World to Come › Individuals"
+    },
+    {
+     "ref": "10:2",
+     "text": "שלשה מלכים וארבעה הדיוטות",
+     "text_de": "Drei Könige und vier Gewöhnliche",
+     "text_en": "Three kings and four commoners",
+     "desc": "המומתים › דיני שמים › זכייה לחלק לעוה\"ב › יחידים",
+     "desc_de": "Die Hinzurichtenden › Himmlisches Gericht › Anspruch auf Anteil an der kommenden Welt › Einzelne",
+     "desc_en": "Those to be put to death › Heavenly judgment › Merit of a share in the World to Come › Individuals"
+    },
+    {
+     "ref": "10:3",
+     "text": "דור מבול,הפלגה ומדבר,מרגלים,10 שבט'",
+     "text_de": "Generation der Sintflut, der Zerstreuung und der Wüste, Kundschafter, zehn Stämme",
+     "text_en": "Generation of the Flood, of the Dispersion and of the wilderness, spies, ten tribes",
+     "desc": "המומתים › דיני שמים › זכייה לחלק לעוה\"ב › קבוצות",
+     "desc_de": "Die Hinzurichtenden › Himmlisches Gericht › Anspruch auf Anteil an der kommenden Welt › Gruppen",
+     "desc_en": "Those to be put to death › Heavenly judgment › Merit of a share in the World to Come › Groups"
+    },
+    {
+     "ref": "10:4",
+     "text": "עיר נדחת \\ השוואה לדין יחידים",
+     "text_de": "Abgefallene Stadt / Vergleich mit dem Recht für Einzelne",
+     "text_en": "Apostate city / comparison with the law for individuals",
+     "desc": "המומתים › הנהרגין › דיני שמים › אנשי עיר הנדחת › זכייה לחלק לעוה\"ב › איך מתחיבים › קבוצות",
+     "desc_de": "Die Hinzurichtenden › Die zu Enthauptenden › Himmlisches Gericht › Die Bewohner der abgefallenen Stadt › Anspruch auf Anteil an der kommenden Welt › Wie man schuldig wird › Gruppen",
+     "desc_en": "Those to be put to death › Those to be beheaded › Heavenly judgment › The people of the apostate city › Merit of a share in the World to Come › How one becomes liable › Groups"
+    },
+    {
+     "ref": "10:5",
+     "text": "אי צירוף תושבים ארעים\\ הבעלים,מקומן",
+     "text_de": "Nichtzurechnung vorübergehender Bewohner / Eigentümer, ihr Ort",
+     "text_en": "Non-inclusion of temporary residents / owners, their place",
+     "desc": "המומתים › הנהרגין › אנשי עיר הנדחת › ממונם › איך מתחיבים",
+     "desc_de": "Die Hinzurichtenden › Die zu Enthauptenden › Die Bewohner der abgefallenen Stadt › Ihr Vermögen › Wie man schuldig wird",
+     "desc_en": "Those to be put to death › Those to be beheaded › The people of the apostate city › Their property › How one becomes liable"
+    },
+    {
+     "ref": "10:6",
+     "text": "שריפת השלל,שלל שמים,בנין,איסור הנאה",
+     "text_de": "Verbrennung der Beute, Beute des Himmels, Wiederaufbau, Nutzungsverbot",
+     "text_en": "Burning the spoil, spoil of Heaven, rebuilding, prohibition of benefit",
+     "desc": "המומתים › הנהרגין › אנשי עיר הנדחת › ממונם",
+     "desc_de": "Die Hinzurichtenden › Die zu Enthauptenden › Die Bewohner der abgefallenen Stadt › Ihr Vermögen",
+     "desc_en": "Those to be put to death › Those to be beheaded › The people of the apostate city › Their property"
+    }
+   ]
+  },
+  {
+   "head": "פרק יא",
+   "head_de": "Kapitel 11",
+   "head_en": "Chapter 11",
+   "items": [
+    {
+     "ref": "11:1",
+     "text": "שמונה עבריינים \\ מכה הוריו, גונב נפש",
+     "text_de": "Acht Täter / wer seine Eltern schlägt, Menschenräuber",
+     "text_en": "Eight offenders / one who strikes his parents, kidnapper",
+     "desc": "המומתים › הנחנקין › החייבים",
+     "desc_de": "Die Hinzurichtenden › Die zu Erdrosselnden › die Verpflichteten",
+     "desc_en": "Those to be put to death › Those to be strangled › those obligated"
+    },
+    {
+     "ref": "11:2",
+     "text": "ביאה לב\"ד בהר הבית \\ הוראה לעשות",
+     "text_de": "Gang zum Gericht auf dem Tempelberg / Anweisung zum Handeln",
+     "text_en": "Going to the court on the Temple Mount / ruling to act",
+     "desc": "המומתים › הנחנקין › איך מתחייבים › זקן ממרא › הוראה",
+     "desc_de": "Die Hinzurichtenden › Die zu Erdrosselnden › Wie man schuldig wird › Widerspenstiger Ältester › Rechtsentscheid",
+     "desc_en": "Those to be put to death › Those to be strangled › How one becomes liable › Rebellious elder › Ruling"
+    },
+    {
+     "ref": "11:3",
+     "text": "הוראה נגד דברי תורה ודברי סופרים",
+     "text_de": "Entscheid gegen Worte der Tora und Worte der Schriftgelehrten",
+     "text_en": "Ruling against the words of the Torah and the words of the Scribes",
+     "desc": "המומתים › הנחנקין › איך מתחייבים › זקן ממרא › הוראה",
+     "desc_de": "Die Hinzurichtenden › Die zu Erdrosselnden › Wie man schuldig wird › Widerspenstiger Ältester › Rechtsentscheid",
+     "desc_en": "Those to be put to death › Those to be strangled › How one becomes liable › Rebellious elder › Ruling"
+    },
+    {
+     "ref": "11:4",
+     "text": "מקומו וזמן מיתתו, פרסום",
+     "text_de": "Sein Ort und Zeitpunkt der Hinrichtung, Bekanntmachung",
+     "text_en": "His place and time of execution, publicity",
+     "desc": "המומתים › הנחנקין › איך מתחייבים › זקן ממרא",
+     "desc_de": "Die Hinzurichtenden › Die zu Erdrosselnden › Wie man schuldig wird › Widerspenstiger Ältester",
+     "desc_en": "Those to be put to death › Those to be strangled › How one becomes liable › Rebellious elder"
+    },
+    {
+     "ref": "11:5",
+     "text": "נביא שקר המומתים בידי שמים",
+     "text_de": "Falscher Prophet, die vom Himmel Getöteten",
+     "text_en": "False prophet, those put to death by Heaven",
+     "desc": "המומתים › הנחנקין › איך מתחייבים › נביאים",
+     "desc_de": "Die Hinzurichtenden › Die zu Erdrosselnden › Wie man schuldig wird › Propheten",
+     "desc_en": "Those to be put to death › Those to be strangled › How one becomes liable › Prophets"
+    },
+    {
+     "ref": "11:6",
+     "text": "בשם ע\"ז \\ אשת איש,זומם ובועל בת כהן",
+     "text_de": "Im Namen eines Götzen / Ehefrau, überführter Zeuge und Beischläfer einer Priestertochter",
+     "text_en": "In the name of an idol / married woman, refuted witness and one who has relations with a priest's daughter",
+     "desc": "המומתים › הנחנקין › איך מתחייבים › משום זנות",
+     "desc_de": "Die Hinzurichtenden › Die zu Erdrosselnden › Wie man schuldig wird › Wegen Unzucht",
+     "desc_en": "Those to be put to death › Those to be strangled › How one becomes liable › Because of unchastity"
+    }
+   ]
+  }
+ ]
+}

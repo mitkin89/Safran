@@ -1,0 +1,677 @@
+{
+ "book": "Mishnah Sotah",
+ "title": "משנה סוטה",
+ "title_de": "Mischna Sota – Gliederung",
+ "title_en": "Sotah – outline",
+ "note": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema).",
+ "note_de": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema); ins Deutsche und Englische übersetzt.",
+ "note_en": "Outline after the table “Mishna Sedura”: the central content of each mishnah, with the topic path (main topic to sub-topic); translated into German and English.",
+ "sections": [
+  {
+   "head": "פרק א",
+   "head_de": "Kapitel 1",
+   "head_en": "Chapter 1",
+   "items": [
+    {
+     "ref": "1:1",
+     "text": "מספר העדים הנצרך",
+     "text_de": "Zahl der erforderlichen Zeugen",
+     "text_en": "Number of witnesses required",
+     "desc": "הלכות סוטה › כניסה לגדר סוטה › קינוי וסתירה",
+     "desc_de": "Gesetze der Sota › Eintritt in den Status der Sota › Verwarnung und Abgeschiedenheit",
+     "desc_en": "Laws of the sota › Entry into the status of a sota › Warning and seclusion"
+    },
+    {
+     "ref": "1:2",
+     "text": "לשון הקינוי, הסתירה ותוצאותיה",
+     "text_de": "Wortlaut der Verwarnung und der Abgeschiedenheit und ihre Folgen",
+     "text_en": "Wording of the warning and the seclusion and their consequences",
+     "desc": "הלכות סוטה › כניסה לגדר סוטה › קינוי וסתירה › האסורות בתרומה",
+     "desc_de": "Gesetze der Sota › Eintritt in den Status der Sota › Verwarnung und Abgeschiedenheit › Die für die Teruma Verbotenen",
+     "desc_en": "Laws of the sota › Entry into the status of a sota › Warning and seclusion › Those forbidden to eat terumah"
+    },
+    {
+     "ref": "1:3",
+     "text": "הטמאות, שאינן שותות \\ ליווי לבעל",
+     "text_de": "Die Unreinen, die nicht trinken / Geleit des Ehemanns",
+     "text_en": "The impure who do not drink / escort of the husband",
+     "desc": "הלכות סוטה › סדר השקאת סוטה › כניסה לגדר סוטה › עלייה לירושלים והכנות › קינוי וסתירה › האסורות בתרומה",
+     "desc_de": "Gesetze der Sota › Ablauf der Tränkung der Sota › Eintritt in den Status der Sota › Aufstieg nach Jerusalem und Vorbereitungen › Verwarnung und Abgeschiedenheit › Die für die Teruma Verbotenen",
+     "desc_en": "Laws of the sota › Procedure of giving the sota to drink › Entry into the status of a sota › Ascent to Jerusalem and preparations › Warning and seclusion › Those forbidden to eat terumah"
+    },
+    {
+     "ref": "1:4",
+     "text": "האיום עליה",
+     "text_de": "Die Drohung an sie",
+     "text_en": "The threat against her",
+     "desc": "הלכות סוטה › סדר השקאת סוטה › עלייה לירושלים והכנות",
+     "desc_de": "Gesetze der Sota › Ablauf der Tränkung der Sota › Aufstieg nach Jerusalem und Vorbereitungen",
+     "desc_en": "Laws of the sota › Procedure of giving the sota to drink › Ascent to Jerusalem and preparations"
+    },
+    {
+     "ref": "1:5",
+     "text": "עמידתה, קריעת בגדיה, סתירת שערותיה",
+     "text_de": "Ihr Stehen, Zerreißen ihrer Kleider, Lösen ihrer Haare",
+     "text_en": "Her standing, tearing of her garments, loosening of her hair",
+     "desc": "הלכות סוטה › סדר השקאת סוטה › עלייה לירושלים והכנות › ניוולה",
+     "desc_de": "Gesetze der Sota › Ablauf der Tränkung der Sota › Aufstieg nach Jerusalem und Vorbereitungen › Ihre Entwürdigung",
+     "desc_en": "Laws of the sota › Procedure of giving the sota to drink › Ascent to Jerusalem and preparations › Her humiliation"
+    },
+    {
+     "ref": "1:6",
+     "text": "שינוי בגדיה, תכשיטיה, הבא לראות",
+     "text_de": "Wechsel ihrer Kleider und ihres Schmucks, wer zum Zusehen kommt",
+     "text_en": "Change of her clothing and jewelry, who comes to watch",
+     "desc": "הלכות סוטה › סדר השקאת סוטה › עלייה לירושלים והכנות › ניוולה",
+     "desc_de": "Gesetze der Sota › Ablauf der Tränkung der Sota › Aufstieg nach Jerusalem und Vorbereitungen › Ihre Entwürdigung",
+     "desc_en": "Laws of the sota › Procedure of giving the sota to drink › Ascent to Jerusalem and preparations › Her humiliation"
+    },
+    {
+     "ref": "1:7",
+     "text": "בסוטה",
+     "text_de": "Bei der Sota",
+     "text_en": "Regarding the sota",
+     "desc": "הלכות סוטה › סדר השקאת סוטה › מדה כנגד מדה › עלייה לירושלים והכנות › לפורענות › ניוולה",
+     "desc_de": "Gesetze der Sota › Ablauf der Tränkung der Sota › Maß für Maß › Aufstieg nach Jerusalem und Vorbereitungen › Zum Unheil › Ihre Entwürdigung",
+     "desc_en": "Laws of the sota › Procedure of giving the sota to drink › Measure for measure › Ascent to Jerusalem and preparations › For misfortune › Her humiliation"
+    },
+    {
+     "ref": "1:8",
+     "text": "שמשון ואבשלום",
+     "text_de": "Simson und Absalom",
+     "text_en": "Samson and Absalom",
+     "desc": "הלכות סוטה › סדר השקאת סוטה › מדה כנגד מדה › לפורענות",
+     "desc_de": "Gesetze der Sota › Ablauf der Tränkung der Sota › Maß für Maß › Zum Unheil",
+     "desc_en": "Laws of the sota › Procedure of giving the sota to drink › Measure for measure › For misfortune"
+    },
+    {
+     "ref": "1:9",
+     "text": "מרים, קבורת צדיקים",
+     "text_de": "Mirjam, Bestattung der Gerechten",
+     "text_en": "Miriam, burial of the righteous",
+     "desc": "הלכות סוטה › סדר השקאת סוטה › מדה כנגד מדה › לטובה",
+     "desc_de": "Gesetze der Sota › Ablauf der Tränkung der Sota › Maß für Maß › Zum Guten",
+     "desc_en": "Laws of the sota › Procedure of giving the sota to drink › Measure for measure › For good"
+    }
+   ]
+  },
+  {
+   "head": "פרק ב",
+   "head_de": "Kapitel 2",
+   "head_en": "Chapter 2",
+   "items": [
+    {
+     "ref": "2:1",
+     "text": "כלי המחזיקה, טיבה הגרוע והטעם",
+     "text_de": "Das Gefäß, das sie hält, seine minderwertige Beschaffenheit und der Grund",
+     "text_en": "The vessel that holds it, its inferior quality and the reason",
+     "desc": "הלכות סוטה › סדר השקאת סוטה › הבאת המנחה",
+     "desc_de": "Gesetze der Sota › Ablauf der Tränkung der Sota › Darbringung des Speiseopfers",
+     "desc_en": "Laws of the sota › Procedure of giving the sota to drink › Bringing the meal offering"
+    },
+    {
+     "ref": "2:2",
+     "text": "הכלי, מקורן וכמותן של המים ועפר",
+     "text_de": "Das Gefäß, Herkunft und Menge von Wasser und Staub",
+     "text_en": "The vessel, source and quantity of the water and dust",
+     "desc": "הלכות סוטה › סדר השקאת סוטה › הכנת המים",
+     "desc_de": "Gesetze der Sota › Ablauf der Tränkung der Sota › Zubereitung des Wassers",
+     "desc_en": "Laws of the sota › Procedure of giving the sota to drink › Preparation of the water"
+    },
+    {
+     "ref": "2:3",
+     "text": "מה נכתב",
+     "text_de": "Was geschrieben wird",
+     "text_en": "What is written",
+     "desc": "הלכות סוטה › סדר השקאת סוטה › הכנת המים › כתיבת המגילה",
+     "desc_de": "Gesetze der Sota › Ablauf der Tränkung der Sota › Zubereitung des Wassers › Schreiben der Rolle",
+     "desc_en": "Laws of the sota › Procedure of giving the sota to drink › Preparation of the water › Writing the scroll"
+    },
+    {
+     "ref": "2:4",
+     "text": "על מה ובמה נכתבה",
+     "text_de": "Worauf und womit geschrieben wurde",
+     "text_en": "On what and with what it was written",
+     "desc": "הלכות סוטה › סדר השקאת סוטה › הכנת המים › כתיבת המגילה",
+     "desc_de": "Gesetze der Sota › Ablauf der Tränkung der Sota › Zubereitung des Wassers › Schreiben der Rolle",
+     "desc_en": "Laws of the sota › Procedure of giving the sota to drink › Preparation of the water › Writing the scroll"
+    },
+    {
+     "ref": "2:5",
+     "text": "האלה ושבועה \\ איש אחר, לא נשואה",
+     "text_de": "Der Fluch und der Eid / anderer Mann, nicht Verheiratete",
+     "text_en": "The curse and the oath / another man, unmarried woman",
+     "desc": "הלכות סוטה › סדר השקאת סוטה › השבעתה › גלגול שבועה",
+     "desc_de": "Gesetze der Sota › Ablauf der Tränkung der Sota › Ihre Beschwörung › Ausdehnung des Eides",
+     "desc_en": "Laws of the sota › Procedure of giving the sota to drink › Her adjuration › Extension of the oath"
+    },
+    {
+     "ref": "2:6",
+     "text": "מה לא מתגלגל, כלל",
+     "text_de": "Was sich nicht ausdehnt, Regel",
+     "text_en": "What is not extended, rule",
+     "desc": "הלכות סוטה › סדר השקאת סוטה › השבעתה › גלגול שבועה",
+     "desc_de": "Gesetze der Sota › Ablauf der Tränkung der Sota › Ihre Beschwörung › Ausdehnung des Eides",
+     "desc_en": "Laws of the sota › Procedure of giving the sota to drink › Her adjuration › Extension of the oath"
+    }
+   ]
+  },
+  {
+   "head": "פרק ג",
+   "head_de": "Kapitel 3",
+   "head_en": "Chapter 3",
+   "items": [
+    {
+     "ref": "3:1",
+     "text": "קידוש בכלי שרת, תנופה",
+     "text_de": "Heiligung in Dienstgefäßen, Schwingen",
+     "text_en": "Sanctification in service vessels, waving",
+     "desc": "הלכות סוטה › סדר השקאת סוטה › המנחה › סדר ההקרבה",
+     "desc_de": "Gesetze der Sota › Ablauf der Tränkung der Sota › Das Speiseopfer › Reihenfolge der Darbringung",
+     "desc_en": "Laws of the sota › Procedure of giving the sota to drink › The meal offering › Order of the offering"
+    },
+    {
+     "ref": "3:2",
+     "text": "הקרבה, קדימה להשקאה",
+     "text_de": "Darbringung, Vorrang vor der Tränkung",
+     "text_en": "Offering, precedence over giving to drink",
+     "desc": "הלכות סוטה › סדר השקאת סוטה › המנחה › סדר ההקרבה",
+     "desc_de": "Gesetze der Sota › Ablauf der Tränkung der Sota › Das Speiseopfer › Reihenfolge der Darbringung",
+     "desc_en": "Laws of the sota › Procedure of giving the sota to drink › The meal offering › Order of the offering"
+    },
+    {
+     "ref": "3:3",
+     "text": "המגילה ומנחה כשאינה שותה \\ בעל כרחה",
+     "text_de": "Die Rolle und das Speiseopfer, wenn sie nicht trinkt / gegen ihren Willen",
+     "text_en": "The scroll and the meal offering when she does not drink / against her will",
+     "desc": "הלכות סוטה › סדר השקאת סוטה › השתיה ותוצאותיה",
+     "desc_de": "Gesetze der Sota › Ablauf der Tränkung der Sota › Das Trinken und seine Folgen",
+     "desc_en": "Laws of the sota › Procedure of giving the sota to drink › The drinking and its consequences"
+    },
+    {
+     "ref": "3:4",
+     "text": "מיתתה\\ לכמה זמן, למוד תורה, מבלי עולם",
+     "text_de": "Ihr Tod / für wie lange, Torastudium, Weltzerstörer",
+     "text_en": "Her death / for how long, Torah study, destroyers of the world",
+     "desc": "הלכות סוטה › סדר השקאת סוטה › השתיה ותוצאותיה › תלית זכות",
+     "desc_de": "Gesetze der Sota › Ablauf der Tränkung der Sota › Das Trinken und seine Folgen › Anrechnung eines Verdienstes",
+     "desc_en": "Laws of the sota › Procedure of giving the sota to drink › The drinking and its consequences › Crediting of merit"
+    },
+    {
+     "ref": "3:5",
+     "text": "טעם למיתה מיידית, המתנוונה והולכת",
+     "text_de": "Grund für den sofortigen Tod, für das Dahinsiechen",
+     "text_en": "Reason for immediate death, for wasting away",
+     "desc": "הלכות סוטה › סדר השקאת סוטה › השתיה ותוצאותיה › תלית זכות",
+     "desc_de": "Gesetze der Sota › Ablauf der Tränkung der Sota › Das Trinken und seine Folgen › Anrechnung eines Verdienstes",
+     "desc_en": "Laws of the sota › Procedure of giving the sota to drink › The drinking and its consequences › Crediting of merit"
+    },
+    {
+     "ref": "3:6",
+     "text": "פדיון, נטמאת, שאינן שותות, נשי כהנים",
+     "text_de": "Auslösung, unrein Gewordene, die nicht trinken, Priesterfrauen",
+     "text_en": "Redemption, the defiled, those who do not drink, priests' wives",
+     "desc": "הלכות סוטה › סדר השקאת סוטה › המנחה › הנשרפות",
+     "desc_de": "Gesetze der Sota › Ablauf der Tränkung der Sota › Das Speiseopfer › Die zu Verbrennenden",
+     "desc_en": "Laws of the sota › Procedure of giving the sota to drink › The meal offering › Those to be burned"
+    },
+    {
+     "ref": "3:7",
+     "text": "מנחת כהן וכהנת \\ בני כהנים",
+     "text_de": "Speiseopfer von Priester und Priesterin / Priestersöhne",
+     "text_en": "Meal offering of priest and priestess / priests' sons",
+     "desc": "הלכות סוטה › סדר השקאת סוטה › המנחה › בין איש לאשה › הנשרפות",
+     "desc_de": "Gesetze der Sota › Ablauf der Tränkung der Sota › Das Speiseopfer › Zwischen Mann und Frau › Die zu Verbrennenden",
+     "desc_en": "Laws of the sota › Procedure of giving the sota to drink › The meal offering › Between man and woman › Those to be burned"
+    },
+    {
+     "ref": "3:8",
+     "text": "כל ישראל",
+     "text_de": "Ganz Israel",
+     "text_en": "All Israel",
+     "desc": "הלכות סוטה › סדר השקאת סוטה › המנחה › בין איש לאשה",
+     "desc_de": "Gesetze der Sota › Ablauf der Tränkung der Sota › Das Speiseopfer › Zwischen Mann und Frau",
+     "desc_en": "Laws of the sota › Procedure of giving the sota to drink › The meal offering › Between man and woman"
+    }
+   ]
+  },
+  {
+   "head": "פרק ד",
+   "head_de": "Kapitel 4",
+   "head_en": "Chapter 4",
+   "items": [
+    {
+     "ref": "4:1",
+     "text": "שאינם נשואות, איסורי לאו",
+     "text_de": "Nicht Verheiratete, Verbote durch Verneinung",
+     "text_en": "Unmarried women, negative prohibitions",
+     "desc": "הלכות סוטה › איסור לבעל + התוצאות › שתיה ונטילת הכתובה › שאינן שותות",
+     "desc_de": "Gesetze der Sota › Verbot für den Ehemann + die Folgen › Trinken und Einziehen der Ketubba › Die nicht trinken",
+     "desc_en": "Laws of the sota › Prohibition for the husband + the consequences › Drinking and collecting the ketubba › Those who do not drink"
+    },
+    {
+     "ref": "4:2",
+     "text": "הטמאה או מסרבת, בעל גורם או שמת",
+     "text_de": "Die Verunreinigte oder sich Weigernde, Ehemann verursacht es oder stirbt",
+     "text_en": "The defiled or refusing woman, husband causes it or dies",
+     "desc": "הלכות סוטה › איסור לבעל + התוצאות › שתיה ונטילת הכתובה › שאינן שותות",
+     "desc_de": "Gesetze der Sota › Verbot für den Ehemann + die Folgen › Trinken und Einziehen der Ketubba › Die nicht trinken",
+     "desc_en": "Laws of the sota › Prohibition for the husband + the consequences › Drinking and collecting the ketubba › Those who do not drink"
+    },
+    {
+     "ref": "4:3",
+     "text": "המביאות לאיסור, איסור לקיימה \\ השאר",
+     "text_de": "Die zum Verbot führen, Verbot, sie zu behalten / der Rest",
+     "text_en": "Those leading to prohibition, prohibition of keeping her / the rest",
+     "desc": "הלכות סוטה › איסור לבעל + התוצאות › שתיה ונטילת הכתובה › ששותות › שאינן שותות",
+     "desc_de": "Gesetze der Sota › Verbot für den Ehemann + die Folgen › Trinken und Einziehen der Ketubba › Die trinken › Die nicht trinken",
+     "desc_en": "Laws of the sota › Prohibition for the husband + the consequences › Drinking and collecting the ketubba › Those who drink › Those who do not drink"
+    },
+    {
+     "ref": "4:4",
+     "text": "אשת כהן וסריס \\ עריות, קטן, אינו איש",
+     "text_de": "Frau eines Priesters und Eunuch / Inzestverbote, Minderjähriger, kein „Mann“",
+     "text_en": "Priest's wife and eunuch / forbidden relations, minor, not a \"man\"",
+     "desc": "הלכות סוטה › איסור לבעל + התוצאות › שתיה ונטילת הכתובה › דיני קינוי › ששותות",
+     "desc_de": "Gesetze der Sota › Verbot für den Ehemann + die Folgen › Trinken und Einziehen der Ketubba › Gesetze der Verwarnung › Die trinken",
+     "desc_en": "Laws of the sota › Prohibition for the husband + the consequences › Drinking and collecting the ketubba › Laws of the warning › Those who drink"
+    },
+    {
+     "ref": "4:5",
+     "text": "שבית דין מקנאין להפסיד כתובתן",
+     "text_de": "Fälle, in denen das Gericht sie verwarnt, damit sie ihre Ketubba verwirken",
+     "text_en": "Cases in which the court warns them so that they forfeit their ketubba",
+     "desc": "הלכות סוטה › איסור לבעל + התוצאות › שתיה ונטילת הכתובה › דיני קינוי › לא שותות",
+     "desc_de": "Gesetze der Sota › Verbot für den Ehemann + die Folgen › Trinken und Einziehen der Ketubba › Gesetze der Verwarnung › Die nicht trinken",
+     "desc_en": "Laws of the sota › Prohibition for the husband + the consequences › Drinking and collecting the ketubba › Laws of the warning › Those who do not drink"
+    }
+   ]
+  },
+  {
+   "head": "פרק ה",
+   "head_de": "Kapitel 5",
+   "head_en": "Chapter 5",
+   "items": [
+    {
+     "ref": "5:1",
+     "text": "בדיקת המים ואיסור לבועל",
+     "text_de": "Prüfung des Wassers und Verbot für den Liebhaber",
+     "text_en": "Testing the water and prohibition for the paramour",
+     "desc": "הלכות סוטה › איסור לבעל + התוצאות › דרשות שנדרשו בו ביום › על ידי רבי עקיבא",
+     "desc_de": "Gesetze der Sota › Verbot für den Ehemann + die Folgen › Auslegungen, die an jenem Tag vorgetragen wurden › Durch Rabbi Akiva",
+     "desc_en": "Laws of the sota › Prohibition for the husband + the consequences › Expositions given on that day › By Rabbi Akiva"
+    },
+    {
+     "ref": "5:2",
+     "text": "שלישי לטומאה בחולין",
+     "text_de": "Dritter Grad der Unreinheit bei Profanem",
+     "text_en": "Third degree of impurity in unconsecrated food",
+     "desc": "הלכות סוטה › איסור לבעל + התוצאות › דרשות שנדרשו בו ביום › על ידי רבי עקיבא",
+     "desc_de": "Gesetze der Sota › Verbot für den Ehemann + die Folgen › Auslegungen, die an jenem Tag vorgetragen wurden › Durch Rabbi Akiva",
+     "desc_en": "Laws of the sota › Prohibition for the husband + the consequences › Expositions given on that day › By Rabbi Akiva"
+    },
+    {
+     "ref": "5:3",
+     "text": "תחום שבת",
+     "text_de": "Schabbatgrenze",
+     "text_en": "Sabbath boundary",
+     "desc": "הלכות סוטה › איסור לבעל + התוצאות › דרשות שנדרשו בו ביום › על ידי רבי עקיבא",
+     "desc_de": "Gesetze der Sota › Verbot für den Ehemann + die Folgen › Auslegungen, die an jenem Tag vorgetragen wurden › Durch Rabbi Akiva",
+     "desc_en": "Laws of the sota › Prohibition for the husband + the consequences › Expositions given on that day › By Rabbi Akiva"
+    },
+    {
+     "ref": "5:4",
+     "text": "צורתה של שירת הים",
+     "text_de": "Form des Meerlieds",
+     "text_en": "Form of the Song of the Sea",
+     "desc": "הלכות סוטה › איסור לבעל + התוצאות › דרשות שנדרשו בו ביום › על ידי רבי עקיבא",
+     "desc_de": "Gesetze der Sota › Verbot für den Ehemann + die Folgen › Auslegungen, die an jenem Tag vorgetragen wurden › Durch Rabbi Akiva",
+     "desc_en": "Laws of the sota › Prohibition for the husband + the consequences › Expositions given on that day › By Rabbi Akiva"
+    },
+    {
+     "ref": "5:5",
+     "text": "דרכו של איוב בעבודת ה'",
+     "text_de": "Ijobs Weg im Gottesdienst",
+     "text_en": "Job's way in the service of God",
+     "desc": "הלכות סוטה › איסור לבעל + התוצאות › דרשות שנדרשו בו ביום",
+     "desc_de": "Gesetze der Sota › Verbot für den Ehemann + die Folgen › Auslegungen, die an jenem Tag vorgetragen wurden",
+     "desc_en": "Laws of the sota › Prohibition for the husband + the consequences › Expositions given on that day"
+    }
+   ]
+  },
+  {
+   "head": "פרק ו",
+   "head_de": "Kapitel 6",
+   "head_en": "Chapter 6",
+   "items": [
+    {
+     "ref": "6:1",
+     "text": "עוף, מוזרות בלבנה",
+     "text_de": "Vogel, Absonderliches am Mond",
+     "text_en": "Bird, oddities of the moon",
+     "desc": "הלכות סוטה › איסור לבעל + התוצאות › עדות לסוטה › לסתירה",
+     "desc_de": "Gesetze der Sota › Verbot für den Ehemann + die Folgen › Zeugenaussage über die Sota › Zur Abgeschiedenheit",
+     "desc_en": "Laws of the sota › Prohibition for the husband + the consequences › Testimony about the sota › For the seclusion"
+    },
+    {
+     "ref": "6:2",
+     "text": "פסולי עדות, השונאות אותה",
+     "text_de": "Untaugliche Zeugen, die sie Hassenden",
+     "text_en": "Disqualified witnesses, those who hate her",
+     "desc": "הלכות סוטה › איסור לבעל + התוצאות › עדות לסוטה › לטומאה",
+     "desc_de": "Gesetze der Sota › Verbot für den Ehemann + die Folgen › Zeugenaussage über die Sota › Zur Unreinheit",
+     "desc_en": "Laws of the sota › Prohibition for the husband + the consequences › Testimony about the sota › For impurity"
+    },
+    {
+     "ref": "6:3",
+     "text": "דרשה למספר העדים",
+     "text_de": "Auslegung zur Zahl der Zeugen",
+     "text_en": "Exposition on the number of witnesses",
+     "desc": "הלכות סוטה › איסור לבעל + התוצאות › עדות לסוטה › לטומאה",
+     "desc_de": "Gesetze der Sota › Verbot für den Ehemann + die Folgen › Zeugenaussage über die Sota › Zur Unreinheit",
+     "desc_en": "Laws of the sota › Prohibition for the husband + the consequences › Testimony about the sota › For impurity"
+    },
+    {
+     "ref": "6:4",
+     "text": "פסולי עדות המכחישים זה את זה",
+     "text_de": "Untaugliche Zeugen, die einander widersprechen",
+     "text_en": "Disqualified witnesses who contradict one another",
+     "desc": "הלכות סוטה › איסור לבעל + התוצאות › עדות לסוטה › לטומאה",
+     "desc_de": "Gesetze der Sota › Verbot für den Ehemann + die Folgen › Zeugenaussage über die Sota › Zur Unreinheit",
+     "desc_en": "Laws of the sota › Prohibition for the husband + the consequences › Testimony about the sota › For impurity"
+    }
+   ]
+  },
+  {
+   "head": "פרק ז",
+   "head_de": "Kapitel 7",
+   "head_en": "Chapter 7",
+   "items": [
+    {
+     "ref": "7:1",
+     "text": "סוטה, מעשר, ק\"ש, תפילה, ברהמ\"ז, שבועות",
+     "text_de": "Sota, Zehnt, Schma, Gebet, Tischgebet, Eide",
+     "text_en": "Sota, tithe, Shema, prayer, Grace after Meals, oaths",
+     "desc": "דרשות ותיאורי הנאמרים בלשון הקודש › כותרת › הנאמרין בכל לשון",
+     "desc_de": "Auslegungen und Beschreibungen des in der heiligen Sprache Gesprochenen › Überschrift › Was in jeder Sprache gesprochen werden darf",
+     "desc_en": "Expositions and descriptions of what is said in the holy language › Heading › What may be said in any language"
+    },
+    {
+     "ref": "7:2",
+     "text": "שמונה דברים",
+     "text_de": "Acht Dinge",
+     "text_en": "Eight things",
+     "desc": "דרשות ותיאורי הנאמרים בלשון הקודש › כותרת › הנאמרין בלשון הקודש",
+     "desc_de": "Auslegungen und Beschreibungen des in der heiligen Sprache Gesprochenen › Überschrift › Was in der heiligen Sprache gesprochen wird",
+     "desc_en": "Expositions and descriptions of what is said in the holy language › Heading › What is said in the holy language"
+    },
+    {
+     "ref": "7:3",
+     "text": "היקש לקללות",
+     "text_de": "Analogie zu den Flüchen",
+     "text_en": "Analogy to the curses",
+     "desc": "דרשות ותיאורי הנאמרים בלשון הקודש › הצהרות › ביכורים",
+     "desc_de": "Auslegungen und Beschreibungen des in der heiligen Sprache Gesprochenen › Erklärungen › Erstlingsfrüchte",
+     "desc_en": "Expositions and descriptions of what is said in the holy language › Declarations › First fruits"
+    },
+    {
+     "ref": "7:4",
+     "text": "היקש לקללות, \"ככה\" לעיכובא",
+     "text_de": "Analogie zu den Flüchen, „so“ als unerlässliche Bedingung",
+     "text_en": "Analogy to the curses, \"so\" as an indispensable requirement",
+     "desc": "דרשות ותיאורי הנאמרים בלשון הקודש › הצהרות › חליצה",
+     "desc_de": "Auslegungen und Beschreibungen des in der heiligen Sprache Gesprochenen › Erklärungen › Chalitza",
+     "desc_en": "Expositions and descriptions of what is said in the holy language › Declarations › Halitzah"
+    },
+    {
+     "ref": "7:5",
+     "text": "מקומן, עמידת העם, הקריאה, המזבח",
+     "text_de": "Ihre Orte, Aufstellung des Volkes, die Lesung, der Altar",
+     "text_en": "Their places, the people's positioning, the reading, the altar",
+     "desc": "דרשות ותיאורי הנאמרים בלשון הקודש › ברכות › של כי תבוא",
+     "desc_de": "Auslegungen und Beschreibungen des in der heiligen Sprache Gesprochenen › Segenssprüche › Aus „Ki tawo“",
+     "desc_en": "Expositions and descriptions of what is said in the holy language › Blessings › Of \"Ki Tavo\""
+    },
+    {
+     "ref": "7:6",
+     "text": "בין במקדש ובמדינה, הגבהת ידיהם",
+     "text_de": "Im Heiligtum und in der Provinz, Erheben ihrer Hände",
+     "text_en": "In the Temple and in the provinces, raising of their hands",
+     "desc": "דרשות ותיאורי הנאמרים בלשון הקודש › ברכות › הכהנים",
+     "desc_de": "Auslegungen und Beschreibungen des in der heiligen Sprache Gesprochenen › Segenssprüche › Die Priester",
+     "desc_en": "Expositions and descriptions of what is said in the holy language › Blessings › The priests"
+    },
+    {
+     "ref": "7:7",
+     "text": "קבלת התורה, הקריאה, הברכות",
+     "text_de": "Entgegennahme der Tora, Lesung, Segenssprüche",
+     "text_en": "Receiving the Torah, the reading, the blessings",
+     "desc": "דרשות ותיאורי הנאמרים בלשון הקודש › ברכות › קריאות התורה › הכה\"ג ביו\"כ",
+     "desc_de": "Auslegungen und Beschreibungen des in der heiligen Sprache Gesprochenen › Segenssprüche › Toravorlesungen › Der Hohepriester am Jom Kippur",
+     "desc_en": "Expositions and descriptions of what is said in the holy language › Blessings › Torah readings › The High Priest on Yom Kippur"
+    },
+    {
+     "ref": "7:8",
+     "text": "זמנו, מקומו, קבלת התורה, הקריאה, הברכות",
+     "text_de": "Seine Zeit, sein Ort, Entgegennahme der Tora, Lesung, Segenssprüche",
+     "text_en": "Its time, its place, receiving the Torah, the reading, the blessings",
+     "desc": "דרשות ותיאורי הנאמרים בלשון הקודש › ברכות › קריאות התורה › הקהל",
+     "desc_de": "Auslegungen und Beschreibungen des in der heiligen Sprache Gesprochenen › Segenssprüche › Toravorlesungen › Hakhel",
+     "desc_en": "Expositions and descriptions of what is said in the holy language › Blessings › Torah readings › Hakhel"
+    }
+   ]
+  },
+  {
+   "head": "פרק ח",
+   "head_de": "Kapitel 8",
+   "head_en": "Chapter 8",
+   "items": [
+    {
+     "ref": "8:1",
+     "text": "סכנת שבי, שאוני האויב, בטחון בה'",
+     "text_de": "Gefahr der Gefangenschaft, Getöse des Feindes, Gottvertrauen",
+     "text_en": "Danger of captivity, the enemy's clamor, trust in God",
+     "desc": "דרשות ותיאורי הנאמרים בלשון הקודש › עניני מלחמה › הכנות וחיובים › דברי חיזוק",
+     "desc_de": "Auslegungen und Beschreibungen des in der heiligen Sprache Gesprochenen › Kriegsangelegenheiten › Vorbereitungen und Pflichten › Worte der Ermutigung",
+     "desc_en": "Expositions and descriptions of what is said in the holy language › Matters of war › Preparations and obligations › Words of encouragement"
+    },
+    {
+     "ref": "8:2",
+     "text": "החוזרים",
+     "text_de": "Die Zurückkehrenden",
+     "text_en": "Those who return",
+     "desc": "דרשות ותיאורי הנאמרים בלשון הקודש › עניני מלחמה › הכנות וחיובים › חזרה מן המלחמה",
+     "desc_de": "Auslegungen und Beschreibungen des in der heiligen Sprache Gesprochenen › Kriegsangelegenheiten › Vorbereitungen und Pflichten › Rückkehr aus dem Krieg",
+     "desc_en": "Expositions and descriptions of what is said in the holy language › Matters of war › Preparations and obligations › Return from war"
+    },
+    {
+     "ref": "8:3",
+     "text": "שאינן חוזרים",
+     "text_de": "Die nicht zurückkehren",
+     "text_en": "Those who do not return",
+     "desc": "דרשות ותיאורי הנאמרים בלשון הקודש › עניני מלחמה › הכנות וחיובים › חזרה מן המלחמה",
+     "desc_de": "Auslegungen und Beschreibungen des in der heiligen Sprache Gesprochenen › Kriegsangelegenheiten › Vorbereitungen und Pflichten › Rückkehr aus dem Krieg",
+     "desc_en": "Expositions and descriptions of what is said in the holy language › Matters of war › Preparations and obligations › Return from war"
+    },
+    {
+     "ref": "8:4",
+     "text": "שאינן באין למלחמה",
+     "text_de": "Die nicht in den Krieg ziehen",
+     "text_en": "Those who do not go to war",
+     "desc": "דרשות ותיאורי הנאמרים בלשון הקודש › עניני מלחמה › הכנות וחיובים › חזרה מן המלחמה",
+     "desc_de": "Auslegungen und Beschreibungen des in der heiligen Sprache Gesprochenen › Kriegsangelegenheiten › Vorbereitungen und Pflichten › Rückkehr aus dem Krieg",
+     "desc_en": "Expositions and descriptions of what is said in the holy language › Matters of war › Preparations and obligations › Return from war"
+    },
+    {
+     "ref": "8:5",
+     "text": "הטעם לפחד שלו",
+     "text_de": "Grund seiner Furcht",
+     "text_en": "Reason for his fear",
+     "desc": "דרשות ותיאורי הנאמרים בלשון הקודש › עניני מלחמה › הכנות וחיובים › הירא ורך הלבב",
+     "desc_de": "Auslegungen und Beschreibungen des in der heiligen Sprache Gesprochenen › Kriegsangelegenheiten › Vorbereitungen und Pflichten › Der Furchtsame und Weichherzige",
+     "desc_en": "Expositions and descriptions of what is said in the holy language › Matters of war › Preparations and obligations › The fearful and fainthearted"
+    },
+    {
+     "ref": "8:6",
+     "text": "מניעת ניסה מן המלחמה והטעם",
+     "text_de": "Verhinderung der Flucht aus dem Krieg und der Grund",
+     "text_en": "Preventing flight from war and the reason",
+     "desc": "דרשות ותיאורי הנאמרים בלשון הקודש › עניני מלחמה › הכנות וחיובים › הירא ורך הלבב",
+     "desc_de": "Auslegungen und Beschreibungen des in der heiligen Sprache Gesprochenen › Kriegsangelegenheiten › Vorbereitungen und Pflichten › Der Furchtsame und Weichherzige",
+     "desc_en": "Expositions and descriptions of what is said in the holy language › Matters of war › Preparations and obligations › The fearful and fainthearted"
+    },
+    {
+     "ref": "8:7",
+     "text": "מלחמות שאין פטור מהם",
+     "text_de": "Kriege, von denen es keine Befreiung gibt",
+     "text_en": "Wars from which there is no exemption",
+     "desc": "דרשות ותיאורי הנאמרים בלשון הקודש › עניני מלחמה › הכנות וחיובים › חזרה",
+     "desc_de": "Auslegungen und Beschreibungen des in der heiligen Sprache Gesprochenen › Kriegsangelegenheiten › Vorbereitungen und Pflichten › Rückkehr",
+     "desc_en": "Expositions and descriptions of what is said in the holy language › Matters of war › Preparations and obligations › Return"
+    }
+   ]
+  },
+  {
+   "head": "פרק ט",
+   "head_de": "Kapitel 9",
+   "head_en": "Chapter 9",
+   "items": [
+    {
+     "ref": "9:1",
+     "text": "מספר זקנים למדידה",
+     "text_de": "Zahl der Ältesten für die Vermessung",
+     "text_en": "Number of elders for the measuring",
+     "desc": "דרשות ותיאורי הנאמרים בלשון הקודש › עגלה ערופה › המדידה",
+     "desc_de": "Auslegungen und Beschreibungen des in der heiligen Sprache Gesprochenen › Genickbruchkalb › Das Messen",
+     "desc_en": "Expositions and descriptions of what is said in the holy language › The heifer whose neck is broken › The measuring"
+    },
+    {
+     "ref": "9:2",
+     "text": "נוף סביבתו, העיר הסמוכה",
+     "text_de": "Umgebung, die nächstgelegene Stadt",
+     "text_en": "Surroundings, the nearest city",
+     "desc": "דרשות ותיאורי הנאמרים בלשון הקודש › עגלה ערופה › המדידה › מציאת הגוויה",
+     "desc_de": "Auslegungen und Beschreibungen des in der heiligen Sprache Gesprochenen › Genickbruchkalb › Das Messen › Auffinden der Leiche",
+     "desc_en": "Expositions and descriptions of what is said in the holy language › The heifer whose neck is broken › The measuring › Finding the corpse"
+    },
+    {
+     "ref": "9:3",
+     "text": "קנין מקום מת מצוה",
+     "text_de": "Erwerb des Ortes durch einen Leichnam ohne Bestatter",
+     "text_en": "Acquisition of the place by an unattended corpse",
+     "desc": "דרשות ותיאורי הנאמרים בלשון הקודש › עגלה ערופה › המדידה › מציאת הגוויה",
+     "desc_de": "Auslegungen und Beschreibungen des in der heiligen Sprache Gesprochenen › Genickbruchkalb › Das Messen › Auffinden der Leiche",
+     "desc_en": "Expositions and descriptions of what is said in the holy language › The heifer whose neck is broken › The measuring › Finding the corpse"
+    },
+    {
+     "ref": "9:4",
+     "text": "מהיכן בגוף מודדים",
+     "text_de": "Von welcher Körperstelle man misst",
+     "text_en": "From which part of the body one measures",
+     "desc": "דרשות ותיאורי הנאמרים בלשון הקודש › עגלה ערופה › המדידה",
+     "desc_de": "Auslegungen und Beschreibungen des in der heiligen Sprache Gesprochenen › Genickbruchkalb › Das Messen",
+     "desc_en": "Expositions and descriptions of what is said in the holy language › The heifer whose neck is broken › The measuring"
+    },
+    {
+     "ref": "9:5",
+     "text": "הנחל ואיסורו אחר העריפה",
+     "text_de": "Der Bach und sein Verbot nach dem Genickbruch",
+     "text_en": "The brook and its prohibition after the neck-breaking",
+     "desc": "דרשות ותיאורי הנאמרים בלשון הקודש › עגלה ערופה › העריפה › תיאורה",
+     "desc_de": "Auslegungen und Beschreibungen des in der heiligen Sprache Gesprochenen › Genickbruchkalb › Das Genickbrechen › Seine Beschreibung",
+     "desc_en": "Expositions and descriptions of what is said in the holy language › The heifer whose neck is broken › The neck-breaking › Its description"
+    },
+    {
+     "ref": "9:6",
+     "text": "רחיצת ידים, קריאת הזקינים והכהנים",
+     "text_de": "Händewaschen, Aufruf der Ältesten und der Priester",
+     "text_en": "Washing of hands, summoning of the elders and priests",
+     "desc": "דרשות ותיאורי הנאמרים בלשון הקודש › עגלה ערופה › העריפה › תיאורה",
+     "desc_de": "Auslegungen und Beschreibungen des in der heiligen Sprache Gesprochenen › Genickbruchkalb › Das Genickbrechen › Seine Beschreibung",
+     "desc_en": "Expositions and descriptions of what is said in the holy language › The heifer whose neck is broken › The neck-breaking › Its description"
+    },
+    {
+     "ref": "9:7",
+     "text": "זמן מציאת ההורג",
+     "text_de": "Zeitpunkt des Auffindens des Erschlagenen",
+     "text_en": "Time the slain person is found",
+     "desc": "דרשות ותיאורי הנאמרים בלשון הקודש › עגלה ערופה › העריפה › צורך בעריפה",
+     "desc_de": "Auslegungen und Beschreibungen des in der heiligen Sprache Gesprochenen › Genickbruchkalb › Das Genickbrechen › Notwendigkeit des Genickbrechens",
+     "desc_en": "Expositions and descriptions of what is said in the holy language › The heifer whose neck is broken › The neck-breaking › Necessity of the neck-breaking"
+    },
+    {
+     "ref": "9:8",
+     "text": "עדות על ההורג",
+     "text_de": "Zeugenaussage über den Erschlagenen",
+     "text_en": "Testimony about the slain person",
+     "desc": "דרשות ותיאורי הנאמרים בלשון הקודש › עגלה ערופה › העריפה › צורך בעריפה",
+     "desc_de": "Auslegungen und Beschreibungen des in der heiligen Sprache Gesprochenen › Genickbruchkalb › Das Genickbrechen › Notwendigkeit des Genickbrechens",
+     "desc_en": "Expositions and descriptions of what is said in the holy language › The heifer whose neck is broken › The neck-breaking › Necessity of the neck-breaking"
+    },
+    {
+     "ref": "9:9",
+     "text": "עגלה ערופה, מי סוטה, אנשי האשכולות",
+     "text_de": "Genickbruchkalb, Wasser der Sota, Männer der Trauben",
+     "text_en": "Heifer whose neck is broken, water of the sota, men of the clusters",
+     "desc": "ירידת הדורות › עגלה ערופה › תקנות שונות",
+     "desc_de": "Verfall der Generationen › Genickbruchkalb › Verschiedene Verordnungen",
+     "desc_en": "Decline of the generations › The heifer whose neck is broken › Various ordinances"
+    },
+    {
+     "ref": "9:10",
+     "text": "דמאי - במקדש ובירושלים",
+     "text_de": "Demai im Tempel und in Jerusalem",
+     "text_en": "Demai in the Temple and in Jerusalem",
+     "desc": "ירידת הדורות › תקנות שונות",
+     "desc_de": "Verfall der Generationen › Verschiedene Verordnungen",
+     "desc_en": "Decline of the generations › Various ordinances"
+    },
+    {
+     "ref": "9:11",
+     "text": "שירי משתה",
+     "text_de": "Trinklieder",
+     "text_en": "Banquet songs",
+     "desc": "ירידת הדורות › תקנות שונות › בסביבות החורבן",
+     "desc_de": "Verfall der Generationen › Verschiedene Verordnungen › Zur Zeit der Zerstörung",
+     "desc_en": "Decline of the generations › Various ordinances › Around the time of the destruction"
+    },
+    {
+     "ref": "9:12",
+     "text": "ממיתת נביאים ראשונים, מהחורבן",
+     "text_de": "Seit dem Tod der früheren Propheten, seit der Zerstörung",
+     "text_en": "Since the death of the earlier prophets, since the destruction",
+     "desc": "ירידת הדורות › תקנות שונות › בסביבות החורבן › חוסר טעם באוכל",
+     "desc_de": "Verfall der Generationen › Verschiedene Verordnungen › Zur Zeit der Zerstörung › Geschmacklosigkeit der Speise",
+     "desc_en": "Decline of the generations › Various ordinances › Around the time of the destruction › Tastelessness of food"
+    },
+    {
+     "ref": "9:13",
+     "text": "פירות ודגן",
+     "text_de": "Früchte und Getreide",
+     "text_en": "Fruit and grain",
+     "desc": "ירידת הדורות › תקנות שונות › בסביבות החורבן › חוסר טעם באוכל",
+     "desc_de": "Verfall der Generationen › Verschiedene Verordnungen › Zur Zeit der Zerstörung › Geschmacklosigkeit der Speise",
+     "desc_en": "Decline of the generations › Various ordinances › Around the time of the destruction › Tastelessness of food"
+    },
+    {
+     "ref": "9:14",
+     "text": "עטרות, חכמה יונית, אפיריון",
+     "text_de": "Kränze, griechische Weisheit, Traghimmel",
+     "text_en": "Wreaths, Greek wisdom, bridal canopy",
+     "desc": "ירידת הדורות › תקנות שונות › בסביבות החורבן › שמחה בנישואין",
+     "desc_de": "Verfall der Generationen › Verschiedene Verordnungen › Zur Zeit der Zerstörung › Freude bei der Hochzeit",
+     "desc_en": "Decline of the generations › Various ordinances › Around the time of the destruction › Joy at weddings"
+    },
+    {
+     "ref": "9:15",
+     "text": "מיתת רבנים ומידותיהם שנתבטלו",
+     "text_de": "Tod der Gelehrten und ihre erloschenen Tugenden",
+     "text_en": "Death of the sages and their lost virtues",
+     "desc": "ירידת הדורות › בסביבות החורבן",
+     "desc_de": "Verfall der Generationen › Zur Zeit der Zerstörung",
+     "desc_en": "Decline of the generations › Around the time of the destruction"
+    }
+   ]
+  }
+ ]
+}

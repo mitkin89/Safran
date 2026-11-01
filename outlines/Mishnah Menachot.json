@@ -1,0 +1,939 @@
+{
+ "book": "Mishnah Menachot",
+ "title": "משנה מנחות",
+ "title_de": "Mischna Menachot – Gliederung",
+ "title_en": "Menachot – outline",
+ "note": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema).",
+ "note_de": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema); ins Deutsche und Englische übersetzt.",
+ "note_en": "Outline after the table “Mishna Sedura”: the central content of each mishnah, with the topic path (main topic to sub-topic); translated into German and English.",
+ "sections": [
+  {
+   "head": "פרק א",
+   "head_de": "Kapitel 1",
+   "head_en": "Chapter 1",
+   "items": [
+    {
+     "ref": "1:1",
+     "text": "כל המנחות, מנחת חוטא וקנאות",
+     "text_de": "Alle Mehlopfer, Mehlopfer des Sünders und der Eifersucht",
+     "text_en": "All meal offerings, the sinner's meal offering and the jealousy offering",
+     "desc": "פסול במעשי המנחות › כל המנחות › מחשבה › שלא לשמה",
+     "desc_de": "Untauglichkeit bei den Handlungen der Mehlopfer › Alle Mehlopfer › Gedanke › Nicht in seinem Namen",
+     "desc_en": "Disqualification in the procedures of meal offerings › All meal offerings › Intention › Not for its own sake"
+    },
+    {
+     "ref": "1:2",
+     "text": "פסולים לעבודה,שמאל\\ קומץ ואיך לדייק",
+     "text_de": "Untaugliche für den Dienst, die linke Hand / Handvoll und wie man genau abmisst",
+     "text_en": "Persons unfit for service, the left hand / The handful and how to measure it precisely",
+     "desc": "פסול במעשי המנחות › כל המנחות › מעשה › דיוק במידה",
+     "desc_de": "Untauglichkeit bei den Handlungen der Mehlopfer › Alle Mehlopfer › Handlung › Genauigkeit im Maß",
+     "desc_en": "Disqualification in the procedures of meal offerings › All meal offerings › Act › Exactness in measure"
+    },
+    {
+     "ref": "1:3",
+     "text": "בשמן ובלבונה \\ הגדרות כמצותו",
+     "text_de": "Mit Öl und Weihrauch / Bestimmungen „wie vorgeschrieben“",
+     "text_en": "With oil and frankincense / Definitions of \"as prescribed\"",
+     "desc": "פסול במעשי המנחות › כל המנחות › מחשבה › פיגול › ריצוי לפיגול",
+     "desc_de": "Untauglichkeit bei den Handlungen der Mehlopfer › Alle Mehlopfer › Gedanke › Pigul (verworfene Absicht) › Sühnewirkung bei Piggul",
+     "desc_en": "Disqualification in the procedures of meal offerings › All meal offerings › Intention › Piggul (rejected intention) › Appeasement for piggul"
+    },
+    {
+     "ref": "1:4",
+     "text": "שלא כמצותו",
+     "text_de": "Nicht wie vorgeschrieben",
+     "text_en": "Not as prescribed",
+     "desc": "פסול במעשי המנחות › כל המנחות › מחשבה › פיגול › ריצוי לפיגול",
+     "desc_de": "Untauglichkeit bei den Handlungen der Mehlopfer › Alle Mehlopfer › Gedanke › Pigul (verworfene Absicht) › Sühnewirkung bei Piggul",
+     "desc_en": "Disqualification in the procedures of meal offerings › All meal offerings › Intention › Piggul (rejected intention) › Appeasement for piggul"
+    }
+   ]
+  },
+  {
+   "head": "פרק ב",
+   "head_de": "Kapitel 2",
+   "head_en": "Chapter 2",
+   "items": [
+    {
+     "ref": "2:1",
+     "text": "מתיר מפגל מתיר",
+     "text_de": "Das Erlaubende macht das Erlaubende zu Pigul",
+     "text_en": "The permitting element renders a permitting element piggul",
+     "desc": "פסול במעשי המנחות › כל המנחות › מחשבה › פיגול › שייכות לפיגול",
+     "desc_de": "Untauglichkeit bei den Handlungen der Mehlopfer › Alle Mehlopfer › Gedanke › Pigul (verworfene Absicht) › Zugehörigkeit zu Pigul",
+     "desc_en": "Disqualification in the procedures of meal offerings › All meal offerings › Intention › Piggul (rejected intention) › Connection to piggul"
+    },
+    {
+     "ref": "2:2",
+     "text": "פיגול וטומאה בחצי ניתר",
+     "text_de": "Pigul und Unreinheit bei halb Erlaubtem",
+     "text_en": "Piggul and impurity when half is permitted",
+     "desc": "פסול במעשי המנחות › כל המנחות › מחשבה › פיגול › שייכות לפיגול",
+     "desc_de": "Untauglichkeit bei den Handlungen der Mehlopfer › Alle Mehlopfer › Gedanke › Pigul (verworfene Absicht) › Zugehörigkeit zu Pigul",
+     "desc_en": "Disqualification in the procedures of meal offerings › All meal offerings › Intention › Piggul (rejected intention) › Connection to piggul"
+    },
+    {
+     "ref": "2:3",
+     "text": "זבח ולחמו",
+     "text_de": "Schlachtopfer und sein Brot",
+     "text_en": "Sacrifice and its bread",
+     "desc": "פסול במעשי המנחות › כל המנחות › מחשבה › פיגול › שייכות לפיגול › עיקר מפגל טפל",
+     "desc_de": "Untauglichkeit bei den Handlungen der Mehlopfer › Alle Mehlopfer › Gedanke › Pigul (verworfene Absicht) › Zugehörigkeit zu Pigul › Hauptsache macht Nebensache zu Pigul",
+     "desc_en": "Disqualification in the procedures of meal offerings › All meal offerings › Intention › Piggul (rejected intention) › Connection to piggul › The principal renders the secondary piggul"
+    },
+    {
+     "ref": "2:4",
+     "text": "זבח ונסכיו",
+     "text_de": "Schlachtopfer und seine Trankopfer",
+     "text_en": "Sacrifice and its libations",
+     "desc": "פסול במעשי המנחות › כל המנחות › מחשבה › פיגול › שייכות לפיגול › עיקר מפגל טפל",
+     "desc_de": "Untauglichkeit bei den Handlungen der Mehlopfer › Alle Mehlopfer › Gedanke › Pigul (verworfene Absicht) › Zugehörigkeit zu Pigul › Hauptsache macht Nebensache zu Pigul",
+     "desc_en": "Disqualification in the procedures of meal offerings › All meal offerings › Intention › Piggul (rejected intention) › Connection to piggul › The principal renders the secondary piggul"
+    },
+    {
+     "ref": "2:5",
+     "text": "חצי מתיר",
+     "text_de": "Halbes Erlaubendes",
+     "text_en": "Half of the permitting element",
+     "desc": "פסול במעשי המנחות › כל המנחות › מחשבה › פיגול › שייכות לפיגול",
+     "desc_de": "Untauglichkeit bei den Handlungen der Mehlopfer › Alle Mehlopfer › Gedanke › Pigul (verworfene Absicht) › Zugehörigkeit zu Pigul",
+     "desc_en": "Disqualification in the procedures of meal offerings › All meal offerings › Intention › Piggul (rejected intention) › Connection to piggul"
+    }
+   ]
+  },
+  {
+   "head": "פרק ג",
+   "head_de": "Kapitel 3",
+   "head_en": "Chapter 3",
+   "items": [
+    {
+     "ref": "3:1",
+     "text": "שאין דרכן בכך, שיעור וצירוף",
+     "text_de": "Was nicht üblich ist, Mindestmaß und Zusammenfassung",
+     "text_en": "What is not customary, minimum measure and combining",
+     "desc": "פסול במעשי המנחות › כל המנחות › מחשבה › פיגול › שייכות לפיגול",
+     "desc_de": "Untauglichkeit bei den Handlungen der Mehlopfer › Alle Mehlopfer › Gedanke › Pigul (verworfene Absicht) › Zugehörigkeit zu Pigul",
+     "desc_en": "Disqualification in the procedures of meal offerings › All meal offerings › Intention › Piggul (rejected intention) › Connection to piggul"
+    },
+    {
+     "ref": "3:2",
+     "text": "חסרון עבודות \\ קמצים בנקטרים כליל",
+     "text_de": "Fehlen von Handlungen / Handvoll bei ganz zu Verbrennendem",
+     "text_en": "Omission of procedures / Handfuls from offerings burned entirely",
+     "desc": "פסול במעשי המנחות › כל המנחות › מעשה › עירוב מנחות",
+     "desc_de": "Untauglichkeit bei den Handlungen der Mehlopfer › Alle Mehlopfer › Handlung › Vermischung von Mehlopfern",
+     "desc_en": "Disqualification in the procedures of meal offerings › All meal offerings › Act › Mixture of meal offerings"
+    },
+    {
+     "ref": "3:3",
+     "text": "מנחות וקמצים \\ טומאה, יציאה",
+     "text_de": "Mehlopfer und Handvoll / Unreinheit, Hinausgelangen",
+     "text_en": "Meal offerings and handfuls / Impurity, leaving",
+     "desc": "פסול במעשי המנחות › כל המנחות › מעשה › ריצוי ציץ",
+     "desc_de": "Untauglichkeit bei den Handlungen der Mehlopfer › Alle Mehlopfer › Handlung › Sühne durch das Stirnblech",
+     "desc_en": "Disqualification in the procedures of meal offerings › All meal offerings › Act › Atonement through the frontlet"
+    },
+    {
+     "ref": "3:4",
+     "text": "קומץ בלי שיריים/ קידוש כלי,הקטר חצי",
+     "text_de": "Handvoll ohne Reste / Heiligung des Gefäßes, halbes Räuchern",
+     "text_en": "Handful without remainders / Sanctification of the vessel, half burning",
+     "desc": "פסול במעשי המנחות › כל המנחות › מעשה",
+     "desc_de": "Untauglichkeit bei den Handlungen der Mehlopfer › Alle Mehlopfer › Handlung",
+     "desc_en": "Disqualification in the procedures of meal offerings › All meal offerings › Act"
+    },
+    {
+     "ref": "3:5",
+     "text": "דברים שונים במנחות",
+     "text_de": "Verschiedenes bei Mehlopfern",
+     "text_en": "Various matters in meal offerings",
+     "desc": "עיכוב הדדי › המעכבים",
+     "desc_de": "Gegenseitige Unerlässlichkeit › Das Unerlässliche",
+     "desc_en": "Mutual indispensability › What is indispensable"
+    },
+    {
+     "ref": "3:6",
+     "text": "ד\"ש,בעצרת,בלחם הפנים,בהזאות פנים",
+     "text_de": "Beim Wochenfest, beim Schaubrot, bei den inneren Sprengungen",
+     "text_en": "At Shavuot, the show bread, the inner sprinklings",
+     "desc": "עיכוב הדדי › המעכבים",
+     "desc_de": "Gegenseitige Unerlässlichkeit › Das Unerlässliche",
+     "desc_en": "Mutual indispensability › What is indispensable"
+    },
+    {
+     "ref": "3:7",
+     "text": "במנורה, במזוזה, בתפילין, בציצית",
+     "text_de": "Beim Leuchter, bei der Mesusa, bei den Tefillin, bei den Zizit",
+     "text_en": "On the candelabrum, the mezuzah, tefillin, zizit",
+     "desc": "עיכוב הדדי › המעכבים",
+     "desc_de": "Gegenseitige Unerlässlichkeit › Das Unerlässliche",
+     "desc_en": "Mutual indispensability › What is indispensable"
+    }
+   ]
+  },
+  {
+   "head": "פרק ד",
+   "head_de": "Kapitel 4",
+   "head_en": "Chapter 4",
+   "items": [
+    {
+     "ref": "4:1",
+     "text": "בציצית,בתפילין,במנחות,בהזאה חיצונה",
+     "text_de": "Bei den Zizit, den Tefillin, den Mehlopfern, der äußeren Sprengung",
+     "text_en": "On zizit, tefillin, meal offerings, the outer sprinkling",
+     "desc": "עיכוב הדדי › שאינם מעכבים",
+     "desc_de": "Gegenseitige Unerlässlichkeit › Was nicht unerlässlich ist",
+     "desc_en": "Mutual indispensability › What is not indispensable"
+    },
+    {
+     "ref": "4:2",
+     "text": "מוספים והבאים עם הלחם, זבח ונסכיו",
+     "text_de": "Zusatzopfer und was mit dem Brot dargebracht wird, Schlachtopfer und seine Trankopfer",
+     "text_en": "Additional offerings and those brought with the bread, sacrifice and its libations",
+     "desc": "עיכוב הדדי › שאינם מעכבים › קרבנות עצרת",
+     "desc_de": "Gegenseitige Unerlässlichkeit › Was nicht unerlässlich ist › Opfer des Wochenfestes",
+     "desc_en": "Mutual indispensability › What is not indispensable › Offerings of Shavuot"
+    },
+    {
+     "ref": "4:3",
+     "text": "הבאים עם הלחם והלחם",
+     "text_de": "Was mit dem Brot dargebracht wird, und das Brot",
+     "text_en": "What is brought with the bread, and the bread",
+     "desc": "עיכוב הדדי › שאינם מעכבים › קרבנות עצרת",
+     "desc_de": "Gegenseitige Unerlässlichkeit › Was nicht unerlässlich ist › Opfer des Wochenfestes",
+     "desc_en": "Mutual indispensability › What is not indispensable › Offerings of Shavuot"
+    },
+    {
+     "ref": "4:4",
+     "text": "תמידים ומוספים, חינוך כלי המקדש",
+     "text_de": "Tamidopfer und Zusatzopfer, Einweihung der Tempelgeräte",
+     "text_en": "Daily and additional offerings, inauguration of the Temple vessels",
+     "desc": "עיכוב הדדי › שאינם מעכבים",
+     "desc_de": "Gegenseitige Unerlässlichkeit › Was nicht unerlässlich ist",
+     "desc_en": "Mutual indispensability › What is not indispensable"
+    },
+    {
+     "ref": "4:5",
+     "text": "חביתי כהן גדול לחצאין ואם מת",
+     "text_de": "Pfannenkuchen des Hohenpriesters in Hälften und bei seinem Tod",
+     "text_en": "The High Priest's griddle cake in halves and upon his death",
+     "desc": "עיכוב הדדי › שאינם מעכבים",
+     "desc_de": "Gegenseitige Unerlässlichkeit › Was nicht unerlässlich ist",
+     "desc_en": "Mutual indispensability › What is not indispensable"
+    }
+   ]
+  },
+  {
+   "head": "פרק ה",
+   "head_de": "Kapitel 5",
+   "head_en": "Chapter 5",
+   "items": [
+    {
+     "ref": "5:1",
+     "text": "אלו הן חמץ, כיצד מחמצן",
+     "text_de": "Was Gesäuertes ist, wie man es säuert",
+     "text_en": "What counts as leaven, how one leavens",
+     "desc": "מעשי המנחות לכתחילה › כל המנחות › עיסתן › חמץ",
+     "desc_de": "Handlungen bei Mehlopfern von vornherein › Alle Mehlopfer › Ihr Teig › Gesäuertes",
+     "desc_en": "Procedures of meal offerings ab initio › All meal offerings › Their dough › Leaven"
+    },
+    {
+     "ref": "5:2",
+     "text": "שמירתן מחימוץ, עונש המחמצן",
+     "text_de": "Schutz vor Säuerung, Strafe für den, der säuert",
+     "text_en": "Preventing leavening, penalty for one who leavens",
+     "desc": "מעשי המנחות לכתחילה › כל המנחות › עיסתן › מצה",
+     "desc_de": "Handlungen bei Mehlopfern von vornherein › Alle Mehlopfer › Ihr Teig › Mazza",
+     "desc_en": "Procedures of meal offerings ab initio › All meal offerings › Their dough › Matzah"
+    },
+    {
+     "ref": "5:3",
+     "text": "אלו שטעונים לכתחילה",
+     "text_de": "Diejenigen, die von vornherein erfordert sind",
+     "text_en": "Those required ab initio",
+     "desc": "מעשי המנחות לכתחילה › כל המנחות › תוספת חמרים › שמן ולבונה",
+     "desc_de": "Handlungen bei Mehlopfern von vornherein › Alle Mehlopfer › Zusätzliche Zutaten › Öl und Weihrauch",
+     "desc_en": "Procedures of meal offerings ab initio › All meal offerings › Additional ingredients › Oil and frankincense"
+    },
+    {
+     "ref": "5:4",
+     "text": "נתינה ופסול בשאינה טעונה",
+     "text_de": "Darreichung und Verwerfung bei nicht Erforderlichem",
+     "text_en": "Presentation and disqualification in what is not required",
+     "desc": "מעשי המנחות לכתחילה › כל המנחות › תוספת חמרים › שמן ולבונה",
+     "desc_de": "Handlungen bei Mehlopfern von vornherein › Alle Mehlopfer › Zusätzliche Zutaten › Öl und Weihrauch",
+     "desc_en": "Procedures of meal offerings ab initio › All meal offerings › Additional ingredients › Oil and frankincense"
+    },
+    {
+     "ref": "5:5",
+     "text": "הגשה ולא תנופה",
+     "text_de": "Darreichung ohne Schwingen",
+     "text_en": "Presentation without waving",
+     "desc": "מעשי המנחות לכתחילה › כל המנחות › מעשים שטעונים › הגשה ותנופה",
+     "desc_de": "Handlungen bei Mehlopfern von vornherein › Alle Mehlopfer › Erforderliche Handlungen › Darreichung und Schwingen",
+     "desc_en": "Procedures of meal offerings ab initio › All meal offerings › Required procedures › Presentation and waving"
+    },
+    {
+     "ref": "5:6",
+     "text": "תנופה או הגשה וכיצד מבצען,ל\"צ כלום",
+     "text_de": "Schwingen oder Darreichen und wie man sie ausführt, nicht erforderlich",
+     "text_en": "Waving or presenting and how they are performed, not at all required",
+     "desc": "מעשי המנחות לכתחילה › כל המנחות › מעשים שטעונים › הגשה ותנופה",
+     "desc_de": "Handlungen bei Mehlopfern von vornherein › Alle Mehlopfer › Erforderliche Handlungen › Darreichung und Schwingen",
+     "desc_en": "Procedures of meal offerings ab initio › All meal offerings › Required procedures › Presentation and waving"
+    },
+    {
+     "ref": "5:7",
+     "text": "השוואת שלמי יחיד וצבור ואשם מצורע",
+     "text_de": "Vergleich der Heilsopfer des Einzelnen und der Gemeinschaft und des Schuldopfers des Aussätzigen",
+     "text_en": "Comparison of the peace offerings of the individual and the community and the guilt offering of the leper",
+     "desc": "מעשי המנחות לכתחילה › כל המנחות › מעשים שטעונים › הגשה ותנופה",
+     "desc_de": "Handlungen bei Mehlopfern von vornherein › Alle Mehlopfer › Erforderliche Handlungen › Darreichung und Schwingen",
+     "desc_en": "Procedures of meal offerings ab initio › All meal offerings › Required procedures › Presentation and waving"
+    },
+    {
+     "ref": "5:8",
+     "text": "בין מחבת למרחשת, תיאורן",
+     "text_de": "Zwischen Pfanne und Tiegel, ihre Beschreibung",
+     "text_en": "Between the pan and the deep pan, their description",
+     "desc": "מעשי המנחות לכתחילה › כל המנחות › אפייתן › שינוי בנדר",
+     "desc_de": "Handlungen bei Mehlopfern von vornherein › Alle Mehlopfer › Ihr Backen › Änderung beim Gelübde",
+     "desc_en": "Procedures of meal offerings ab initio › All meal offerings › Their baking › Alteration in a vow"
+    },
+    {
+     "ref": "5:9",
+     "text": "אמצעי אפיה שונים, צרוף חלות ורקיקין",
+     "text_de": "Verschiedene Backmethoden, Zusammenfügen von Broten und Fladen",
+     "text_en": "Various baking methods, joining loaves and wafers",
+     "desc": "מעשי המנחות לכתחילה › כל המנחות › אפייתן › שינוי בנדר",
+     "desc_de": "Handlungen bei Mehlopfern von vornherein › Alle Mehlopfer › Ihr Backen › Änderung beim Gelübde",
+     "desc_en": "Procedures of meal offerings ab initio › All meal offerings › Their baking › Alteration in a vow"
+    }
+   ]
+  },
+  {
+   "head": "פרק ו",
+   "head_de": "Kapitel 6",
+   "head_en": "Chapter 6",
+   "items": [
+    {
+     "ref": "6:1",
+     "text": "הנקמצות, של כהנים",
+     "text_de": "Das Handvoll-Nehmen, durch Priester",
+     "text_en": "Taking the handful, by priests",
+     "desc": "מעשי המנחות לכתחילה › כל המנחות › מעשים שטעונים › הימצאות שיריים",
+     "desc_de": "Handlungen bei Mehlopfern von vornherein › Alle Mehlopfer › Erforderliche Handlungen › Vorhandensein von Resten",
+     "desc_en": "Procedures of meal offerings ab initio › All meal offerings › Required procedures › Presence of remainders"
+    },
+    {
+     "ref": "6:2",
+     "text": "השוואת כחן של הכהנים והמזבח",
+     "text_de": "Vergleich der Kraft der Priester und des Altars",
+     "text_en": "Comparison of the power of the priests and the altar",
+     "desc": "מעשי המנחות לכתחילה › כל המנחות › מעשים שטעונים › הימצאות שיריים",
+     "desc_de": "Handlungen bei Mehlopfern von vornherein › Alle Mehlopfer › Erforderliche Handlungen › Vorhandensein von Resten",
+     "desc_en": "Procedures of meal offerings ab initio › All meal offerings › Required procedures › Presence of remainders"
+    },
+    {
+     "ref": "6:3",
+     "text": "מספרן וסדרן, משיחה, שיריים",
+     "text_de": "Ihre Anzahl und Reihenfolge, Salbung, Reste",
+     "text_en": "Their number and order, anointing, remainders",
+     "desc": "מעשי המנחות לכתחילה › כל המנחות › מעשים שטעונים › מתנות שמן",
+     "desc_de": "Handlungen bei Mehlopfern von vornherein › Alle Mehlopfer › Erforderliche Handlungen › Ölgaben",
+     "desc_en": "Procedures of meal offerings ab initio › All meal offerings › Required procedures › Oil gifts"
+    },
+    {
+     "ref": "6:4",
+     "text": "של ישראל, של כהנים, חביתין, שיעורן",
+     "text_de": "Des Israeliten, der Priester, der Pfannenkuchen, ihre Mengen",
+     "text_en": "Of the Israelite, of the priests, the griddle cakes, their measures",
+     "desc": "מעשי המנחות לכתחילה › כל המנחות › מעשים שטעונים › פתיחה,הכפלה",
+     "desc_de": "Handlungen bei Mehlopfern von vornherein › Alle Mehlopfer › Erforderliche Handlungen › Aufbrechen, Verdoppeln",
+     "desc_en": "Procedures of meal offerings ab initio › All meal offerings › Required procedures › Breaking open, doubling"
+    },
+    {
+     "ref": "6:5",
+     "text": "בעיטה ושיפה \\ מספר החלות",
+     "text_de": "Kneten und Glätten / Anzahl der Brote",
+     "text_en": "Kneading and smoothing / Number of loaves",
+     "desc": "מעשי המנחות לכתחילה › כל המנחות › גודל המנחה › רוב המנחות › מעשים שטעונים",
+     "desc_de": "Handlungen bei Mehlopfern von vornherein › Alle Mehlopfer › Größe des Mehlopfers › Die Mehrzahl der Mehlopfer › Erforderliche Handlungen",
+     "desc_en": "Procedures of meal offerings ab initio › All meal offerings › Size of the meal offering › Most meal offerings › Required procedures"
+    },
+    {
+     "ref": "6:6",
+     "text": "כמות תבואה וקמח",
+     "text_de": "Menge an Getreide und Mehl",
+     "text_en": "Quantity of grain and flour",
+     "desc": "מעשי המנחות לכתחילה › כל המנחות › גודל המנחה › מנחות צבור",
+     "desc_de": "Handlungen bei Mehlopfern von vornherein › Alle Mehlopfer › Größe des Mehlopfers › Gemeinschaftliche Mehlopfer",
+     "desc_en": "Procedures of meal offerings ab initio › All meal offerings › Size of the meal offering › Public meal offerings"
+    },
+    {
+     "ref": "6:7",
+     "text": "מספר הניפויים",
+     "text_de": "Anzahl der Siebungen",
+     "text_en": "Number of siftings",
+     "desc": "מעשי המנחות לכתחילה › כל המנחות › גודל המנחה › מנחות צבור",
+     "desc_de": "Handlungen bei Mehlopfern von vornherein › Alle Mehlopfer › Größe des Mehlopfers › Gemeinschaftliche Mehlopfer",
+     "desc_en": "Procedures of meal offerings ab initio › All meal offerings › Size of the meal offering › Public meal offerings"
+    }
+   ]
+  },
+  {
+   "head": "פרק ז",
+   "head_de": "Kapitel 7",
+   "head_en": "Chapter 7",
+   "items": [
+    {
+     "ref": "7:1",
+     "text": "לחמץ ולמיני מצה",
+     "text_de": "Zum Säuern und zu den Arten von Mazza",
+     "text_en": "For leavening and the kinds of matza",
+     "desc": "מעשי המנחות לכתחילה › לחמי תודה › גודל המנחה › בתודה ובדומה לה",
+     "desc_de": "Handlungen bei Mehlopfern von vornherein › Brote des Dankopfers › Größe des Mehlopfers › Beim Dankopfer und Ähnlichem",
+     "desc_en": "Procedures of meal offerings ab initio › Loaves of the thanksgiving offering › Size of the meal offering › With the thanksgiving offering and the like"
+    },
+    {
+     "ref": "7:2",
+     "text": "במילואים, בנזירות, נטילת תרומתן",
+     "text_de": "Bei den Einsetzungsopfern, beim Nasiräat, Abheben ihrer Abgabe",
+     "text_en": "With the consecration offerings, the Nazirite offering, separating their portion",
+     "desc": "מעשי המנחות לכתחילה › לחמי תודה › גודל המנחה › בתודה ובדומה לה",
+     "desc_de": "Handlungen bei Mehlopfern von vornherein › Brote des Dankopfers › Größe des Mehlopfers › Beim Dankopfer und Ähnlichem",
+     "desc_en": "Procedures of meal offerings ab initio › Loaves of the thanksgiving offering › Size of the meal offering › With the thanksgiving offering and the like"
+    },
+    {
+     "ref": "7:3",
+     "text": "לחמי תודה והבאים עם זבח",
+     "text_de": "Brote des Dankopfers und was mit einem Schlachtopfer dargebracht wird",
+     "text_en": "Loaves of the thanksgiving offering and what is brought with a sacrifice",
+     "desc": "מעשי המנחות לכתחילה › לחמי תודה › זיקת הלחם לזבח › פסול בעיקר וקידוש הטפל",
+     "desc_de": "Handlungen bei Mehlopfern von vornherein › Brote des Dankopfers › Bezug des Brotes zum Schlachtopfer › Untauglichkeit der Hauptsache und Heiligung des Nebensächlichen",
+     "desc_en": "Procedures of meal offerings ab initio › Loaves of the thanksgiving offering › Relation of the bread to the sacrifice › Disqualification of the principal and sanctification of the secondary"
+    },
+    {
+     "ref": "7:4",
+     "text": "נסכים \\ לחם לבאים במקום תודה",
+     "text_de": "Trankopfer / Brot für die, die anstelle eines Dankopfers kommen",
+     "text_en": "Libations / Bread for those brought in place of a thanksgiving offering",
+     "desc": "מעשי המנחות לכתחילה › לחמי תודה › זיקת הלחם לזבח › פסול בעיקר וקידוש הטפל",
+     "desc_de": "Handlungen bei Mehlopfern von vornherein › Brote des Dankopfers › Bezug des Brotes zum Schlachtopfer › Untauglichkeit der Hauptsache und Heiligung des Nebensächlichen",
+     "desc_en": "Procedures of meal offerings ab initio › Loaves of the thanksgiving offering › Relation of the bread to the sacrifice › Disqualification of the principal and sanctification of the secondary"
+    },
+    {
+     "ref": "7:5",
+     "text": "תודה ולחמה",
+     "text_de": "Dankopfer und sein Brot",
+     "text_en": "Thanksgiving offering and its bread",
+     "desc": "מעשי המנחות לכתחילה › לחמי תודה › מוצאו של חומר הנקרב › חולין › דבר שבקדושה מן החולין",
+     "desc_de": "Handlungen bei Mehlopfern von vornherein › Brote des Dankopfers › Herkunft des darzubringenden Materials › Profanes › Heiliges aus Profanem",
+     "desc_en": "Procedures of meal offerings ab initio › Loaves of the thanksgiving offering › Source of the material to be offered › Unconsecrated food › Sanctified matter from the profane"
+    },
+    {
+     "ref": "7:6",
+     "text": "הטעם לדין, זבחים ונסכים",
+     "text_de": "Begründung der Vorschrift, Schlachtopfer und Trankopfer",
+     "text_en": "Reasoning of the law, sacrifices and libations",
+     "desc": "מעשי המנחות לכתחילה › מנחות ונסכים › מוצאו של חומר הנקרב › חולין › דבר שבקדושה מן החולין",
+     "desc_de": "Handlungen bei Mehlopfern von vornherein › Mehlopfer und Trankopfer › Herkunft des darzubringenden Materials › Profanes › Heiliges aus Profanem",
+     "desc_en": "Procedures of meal offerings ab initio › Meal offerings and libations › Source of the material to be offered › Unconsecrated food › Sanctified matter from the profane"
+    }
+   ]
+  },
+  {
+   "head": "פרק ח",
+   "head_de": "Kapitel 8",
+   "head_en": "Chapter 8",
+   "items": [
+    {
+     "ref": "8:1",
+     "text": "ישנותה, מקום גידול התבואה",
+     "text_de": "Alter und Anbauort des Getreides",
+     "text_en": "Age of the grain and its place of growth",
+     "desc": "מעשי המנחות לכתחילה › מנחות ונסכים › מוצאו של חומר הנקרב › מובחר › סולת",
+     "desc_de": "Handlungen bei Mehlopfern von vornherein › Mehlopfer und Trankopfer › Herkunft des darzubringenden Materials › Das Erlesene › Feinmehl",
+     "desc_en": "Procedures of meal offerings ab initio › Meal offerings and libations › Source of the material to be offered › The choicest › Fine flour"
+    },
+    {
+     "ref": "8:2",
+     "text": "טיב השדה וטיפולה, בדיקת הסולת",
+     "text_de": "Beschaffenheit und Behandlung des Feldes, Prüfung des Feinmehls",
+     "text_en": "Quality and treatment of the field, testing of the fine flour",
+     "desc": "מעשי המנחות לכתחילה › מנחות ונסכים › מוצאו של חומר הנקרב › מובחר › סולת",
+     "desc_de": "Handlungen bei Mehlopfern von vornherein › Mehlopfer und Trankopfer › Herkunft des darzubringenden Materials › Das Erlesene › Feinmehl",
+     "desc_en": "Procedures of meal offerings ab initio › Meal offerings and libations › Source of the material to be offered › The choicest › Fine flour"
+    },
+    {
+     "ref": "8:3",
+     "text": "מקום גידולו, טיב השדה, זיתים גרועים",
+     "text_de": "Anbauort, Beschaffenheit des Feldes, schlechte Oliven",
+     "text_en": "Place of growth, quality of the field, inferior olives",
+     "desc": "מעשי המנחות לכתחילה › מנחות ונסכים › מוצאו של חומר הנקרב › מובחר › שמן",
+     "desc_de": "Handlungen bei Mehlopfern von vornherein › Mehlopfer und Trankopfer › Herkunft des darzubringenden Materials › Das Erlesene › Öl",
+     "desc_en": "Procedures of meal offerings ab initio › Meal offerings and libations › Source of the material to be offered › The choicest › Oil"
+    },
+    {
+     "ref": "8:4",
+     "text": "עצירת תשעה מיני שמנים",
+     "text_de": "Auswahl unter neun Ölsorten",
+     "text_en": "Selection among nine kinds of oil",
+     "desc": "מעשי המנחות לכתחילה › מנחות ונסכים › מוצאו של חומר הנקרב › מובחר › שמן",
+     "desc_de": "Handlungen bei Mehlopfern von vornherein › Mehlopfer und Trankopfer › Herkunft des darzubringenden Materials › Das Erlesene › Öl",
+     "desc_en": "Procedures of meal offerings ab initio › Meal offerings and libations › Source of the material to be offered › The choicest › Oil"
+    },
+    {
+     "ref": "8:5",
+     "text": "איכותם היחסי, זך למנורה",
+     "text_de": "Ihre relative Güte, geläutertes Öl für den Leuchter",
+     "text_en": "Their relative quality, refined oil for the candelabrum",
+     "desc": "מעשי המנחות לכתחילה › מנחות ונסכים › מוצאו של חומר הנקרב › מובחר › שמן",
+     "desc_de": "Handlungen bei Mehlopfern von vornherein › Mehlopfer und Trankopfer › Herkunft des darzubringenden Materials › Das Erlesene › Öl",
+     "desc_en": "Procedures of meal offerings ab initio › Meal offerings and libations › Source of the material to be offered › The choicest › Oil"
+    },
+    {
+     "ref": "8:6",
+     "text": "מקום גידולו, טיב השדה, יינות גרועים",
+     "text_de": "Anbauort, Beschaffenheit des Feldes, schlechte Weine",
+     "text_en": "Place of growth, quality of the field, inferior wines",
+     "desc": "מעשי המנחות לכתחילה › מנחות ונסכים › מוצאו של חומר הנקרב › מובחר › יין",
+     "desc_de": "Handlungen bei Mehlopfern von vornherein › Mehlopfer und Trankopfer › Herkunft des darzubringenden Materials › Das Erlesene › Wein",
+     "desc_en": "Procedures of meal offerings ab initio › Meal offerings and libations › Source of the material to be offered › The choicest › Wine"
+    },
+    {
+     "ref": "8:7",
+     "text": "טיפול בו, בדיקתו, עובש",
+     "text_de": "Seine Behandlung, Prüfung, Schimmel",
+     "text_en": "Its treatment, testing, mold",
+     "desc": "מעשי המנחות לכתחילה › מנחות ונסכים › מוצאו של חומר הנקרב › מובחר › יין",
+     "desc_de": "Handlungen bei Mehlopfern von vornherein › Mehlopfer und Trankopfer › Herkunft des darzubringenden Materials › Das Erlesene › Wein",
+     "desc_en": "Procedures of meal offerings ab initio › Meal offerings and libations › Source of the material to be offered › The choicest › Wine"
+    }
+   ]
+  },
+  {
+   "head": "פרק ט",
+   "head_de": "Kapitel 9",
+   "head_en": "Chapter 9",
+   "items": [
+    {
+     "ref": "9:1",
+     "text": "מספרם, שימושן",
+     "text_de": "Ihre Anzahl, ihre Verwendung",
+     "text_en": "Their number, their use",
+     "desc": "מעשי המנחות לכתחילה › מנחות ונסכים › המדות במקדש › יבש",
+     "desc_de": "Handlungen bei Mehlopfern von vornherein › Mehlopfer und Trankopfer › Die Maße im Tempel › Trocken",
+     "desc_en": "Procedures of meal offerings ab initio › Meal offerings and libations › The measures in the Temple › Dry"
+    },
+    {
+     "ref": "9:2",
+     "text": "פירוט שבע מדות, ההין",
+     "text_de": "Aufzählung der sieben Maße, das Hin",
+     "text_en": "Enumeration of the seven measures, the hin",
+     "desc": "מעשי המנחות לכתחילה › מנחות ונסכים › המדות במקדש › לח",
+     "desc_de": "Handlungen bei Mehlopfern von vornherein › Mehlopfer und Trankopfer › Die Maße im Tempel › Flüssig",
+     "desc_en": "Procedures of meal offerings ab initio › Meal offerings and libations › The measures in the Temple › Liquid"
+    },
+    {
+     "ref": "9:3",
+     "text": "שאר המדות ושמושן, שמן למנחה גדולה",
+     "text_de": "Die übrigen Maße und ihre Verwendung, Öl für ein großes Mehlopfer",
+     "text_en": "The other measures and their use, oil for a large meal offering",
+     "desc": "מעשי המנחות לכתחילה › מנחות ונסכים › המדות במקדש › לח",
+     "desc_de": "Handlungen bei Mehlopfern von vornherein › Mehlopfer und Trankopfer › Die Maße im Tempel › Flüssig",
+     "desc_en": "Procedures of meal offerings ab initio › Meal offerings and libations › The measures in the Temple › Liquid"
+    },
+    {
+     "ref": "9:4",
+     "text": "עירוב נסכים, כבש העומר",
+     "text_de": "Vermischung von Trankopfern, das Omerlamm",
+     "text_en": "Mixture of libations, the omer lamb",
+     "desc": "מעשי המנחות לכתחילה › מנחות ונסכים › נסכים › המדות במקדש › מדידה בהן",
+     "desc_de": "Handlungen bei Mehlopfern von vornherein › Mehlopfer und Trankopfer › Trankopfer › Die Maße im Tempel › Messen damit",
+     "desc_en": "Procedures of meal offerings ab initio › Meal offerings and libations › libations › The measures in the Temple › Measuring with them"
+    },
+    {
+     "ref": "9:5",
+     "text": "הנגדשות ובירוציהן",
+     "text_de": "Die gehäuft Gefüllten und ihre Abstreifer",
+     "text_en": "The heaped measures and their strikers",
+     "desc": "מעשי המנחות לכתחילה › מנחות ונסכים › נסכים › המדות במקדש › מדידה בהן",
+     "desc_de": "Handlungen bei Mehlopfern von vornherein › Mehlopfer und Trankopfer › Trankopfer › Die Maße im Tempel › Messen damit",
+     "desc_en": "Procedures of meal offerings ab initio › Meal offerings and libations › libations › The measures in the Temple › Measuring with them"
+    },
+    {
+     "ref": "9:6",
+     "text": "כל הזבחים, היוצא מן הכלל ביחיד",
+     "text_de": "Alle Schlachtopfer, der Ausnahmefall beim Einzelnen",
+     "text_en": "All sacrifices, the exceptional case of the individual",
+     "desc": "מעשי המנחות לכתחילה › מנחות ונסכים › נסכים › קרבנות השייכים",
+     "desc_de": "Handlungen bei Mehlopfern von vornherein › Mehlopfer und Trankopfer › Trankopfer › Zugehörige Opfer",
+     "desc_en": "Procedures of meal offerings ab initio › Meal offerings and libations › libations › Associated offerings"
+    },
+    {
+     "ref": "9:7",
+     "text": "בציבור, ביחיד, ויוצא מה\"כ, דין יורש",
+     "text_de": "Bei der Gemeinschaft, beim Einzelnen, und der Ausnahmefall von Sündopfern der Gemeinschaft, Recht des Erben",
+     "text_en": "Public, individual, the exception of the public sin offering, law of the heir",
+     "desc": "מעשי המנחות לכתחילה › זבחים › סמיכה › קרבנות השייכים",
+     "desc_de": "Handlungen bei Mehlopfern von vornherein › Schlachtopfer › Handaufstemmung › Zugehörige Opfer",
+     "desc_en": "Procedures of meal offerings ab initio › Animal sacrifices › Laying on of hands › Associated offerings"
+    },
+    {
+     "ref": "9:8",
+     "text": "הסומכים וכיצד",
+     "text_de": "Die Handaufstützenden und wie",
+     "text_en": "Those who lean the hands and how",
+     "desc": "מעשי המנחות לכתחילה › זבחים › סמיכה › דיני סמיכה",
+     "desc_de": "Handlungen bei Mehlopfern von vornherein › Schlachtopfer › Handaufstemmung › Gesetze der Handaufstützung",
+     "desc_en": "Procedures of meal offerings ab initio › Animal sacrifices › Laying on of hands › Laws of leaning the hands"
+    },
+    {
+     "ref": "9:9",
+     "text": "השוואה לתנופה",
+     "text_de": "Vergleich mit dem Schwingen",
+     "text_en": "Comparison with waving",
+     "desc": "מעשי המנחות לכתחילה › זבחים › סמיכה › דיני סמיכה",
+     "desc_de": "Handlungen bei Mehlopfern von vornherein › Schlachtopfer › Handaufstemmung › Gesetze der Handaufstützung",
+     "desc_en": "Procedures of meal offerings ab initio › Animal sacrifices › Laying on of hands › Laws of leaning the hands"
+    }
+   ]
+  },
+  {
+   "head": "פרק י",
+   "head_de": "Kapitel 10",
+   "head_en": "Chapter 10",
+   "items": [
+    {
+     "ref": "10:1",
+     "text": "ההבדל בקצירה בשבת",
+     "text_de": "Der Unterschied beim Ernten am Schabbat",
+     "text_en": "The difference regarding reaping on Shabbat",
+     "desc": "מעשי המנחות לכתחילה › מנחות ציבור › העומר › מעשי ההקרבה",
+     "desc_de": "Handlungen bei Mehlopfern von vornherein › Gemeinschaftliche Mehlopfer › Der Omer › Handlungen der Darbringung",
+     "desc_en": "Procedures of meal offerings ab initio › Public meal offerings › The omer › Procedures of the offering"
+    },
+    {
+     "ref": "10:2",
+     "text": "לכתחילה מן הקרוב",
+     "text_de": "Von vornherein aus der Nähe",
+     "text_en": "Ab initio from nearby",
+     "desc": "מעשי המנחות לכתחילה › מנחות ציבור › העומר › מעשי ההקרבה",
+     "desc_de": "Handlungen bei Mehlopfern von vornherein › Gemeinschaftliche Mehlopfer › Der Omer › Handlungen der Darbringung",
+     "desc_en": "Procedures of meal offerings ab initio › Public meal offerings › The omer › Procedures of the offering"
+    },
+    {
+     "ref": "10:3",
+     "text": "ההכנות וטקס הקצירה",
+     "text_de": "Vorbereitungen und Zeremonie des Erntens",
+     "text_en": "Preparations and ceremony of reaping",
+     "desc": "מעשי המנחות לכתחילה › מנחות ציבור › העומר › מעשי ההקרבה",
+     "desc_de": "Handlungen bei Mehlopfern von vornherein › Gemeinschaftliche Mehlopfer › Der Omer › Handlungen der Darbringung",
+     "desc_en": "Procedures of meal offerings ab initio › Public meal offerings › The omer › Procedures of the offering"
+    },
+    {
+     "ref": "10:4",
+     "text": "טיפול בתבואה במקדש, דין המותר",
+     "text_de": "Behandlung des Getreides im Tempel, Gesetz des Übrigen",
+     "text_en": "Treatment of the grain in the Temple, law of the remainder",
+     "desc": "מעשי המנחות לכתחילה › מנחות ציבור › העומר › מעשי ההקרבה",
+     "desc_de": "Handlungen bei Mehlopfern von vornherein › Gemeinschaftliche Mehlopfer › Der Omer › Handlungen der Darbringung",
+     "desc_en": "Procedures of meal offerings ab initio › Public meal offerings › The omer › Procedures of the offering"
+    },
+    {
+     "ref": "10:5",
+     "text": "קצירה לפני הקרבה, שעת תחילת ההיתר",
+     "text_de": "Ernten vor der Darbringung, Zeitpunkt des Beginns der Erlaubnis",
+     "text_en": "Reaping before the offering, time when permission begins",
+     "desc": "מעשי המנחות לכתחילה › מנחות ציבור › העומר › היתר החדש",
+     "desc_de": "Handlungen bei Mehlopfern von vornherein › Gemeinschaftliche Mehlopfer › Der Omer › Erlaubnis des Neuen",
+     "desc_en": "Procedures of meal offerings ab initio › Public meal offerings › The omer › Permission of the new grain"
+    },
+    {
+     "ref": "10:6",
+     "text": "התרת העומר ושתי הלחם ונפקא מינות",
+     "text_de": "Freigabe durch Omer und Zwei Brote und die Folgen",
+     "text_en": "Permission through the omer and the Two Loaves and the consequences",
+     "desc": "מעשי המנחות לכתחילה › מנחות ציבור › העומר › היתר החדש",
+     "desc_de": "Handlungen bei Mehlopfern von vornherein › Gemeinschaftliche Mehlopfer › Der Omer › Erlaubnis des Neuen",
+     "desc_en": "Procedures of meal offerings ab initio › Public meal offerings › The omer › Permission of the new grain"
+    },
+    {
+     "ref": "10:7",
+     "text": "מיני דגן האסורים בחדש",
+     "text_de": "Getreidearten, die im Neuen verboten sind",
+     "text_en": "Grain types forbidden as new produce",
+     "desc": "מעשי המנחות לכתחילה › מנחות ציבור › העומר › היתר החדש",
+     "desc_de": "Handlungen bei Mehlopfern von vornherein › Gemeinschaftliche Mehlopfer › Der Omer › Erlaubnis des Neuen",
+     "desc_en": "Procedures of meal offerings ab initio › Public meal offerings › The omer › Permission of the new grain"
+    },
+    {
+     "ref": "10:8",
+     "text": "שדה או קצירה גרועה",
+     "text_de": "Schlechtes Feld oder schlechte Ernte",
+     "text_en": "Poor field or poor harvest",
+     "desc": "מעשי המנחות לכתחילה › מנחות ציבור › העומר › היתר החדש",
+     "desc_de": "Handlungen bei Mehlopfern von vornherein › Gemeinschaftliche Mehlopfer › Der Omer › Erlaubnis des Neuen",
+     "desc_en": "Procedures of meal offerings ab initio › Public meal offerings › The omer › Permission of the new grain"
+    },
+    {
+     "ref": "10:9",
+     "text": "קצירה של מצוה \\ פרטים בהבאתה",
+     "text_de": "Ernte als Gebot / Einzelheiten bei ihrer Darbringung",
+     "text_en": "Reaping as a commandment / Details of bringing it",
+     "desc": "מעשי המנחות לכתחילה › מנחות ציבור › העומר › היתר החדש",
+     "desc_de": "Handlungen bei Mehlopfern von vornherein › Gemeinschaftliche Mehlopfer › Der Omer › Erlaubnis des Neuen",
+     "desc_en": "Procedures of meal offerings ab initio › Public meal offerings › The omer › Permission of the new grain"
+    }
+   ]
+  },
+  {
+   "head": "פרק יא",
+   "head_de": "Kapitel 11",
+   "head_en": "Chapter 11",
+   "items": [
+    {
+     "ref": "11:1",
+     "text": "מספר הנעשה ביחד, טפוסין",
+     "text_de": "Anzahl des gleichzeitig Hergestellten, Formen",
+     "text_en": "Number made at one time, molds",
+     "desc": "מעשי המנחות לכתחילה › מנחות ציבור › לחם הפנים ושתי הלחם › כיצד נעשות",
+     "desc_de": "Handlungen bei Mehlopfern von vornherein › Gemeinschaftliche Mehlopfer › Schaubrot und Zwei Brote › Wie sie hergestellt werden",
+     "desc_en": "Procedures of meal offerings ab initio › Public meal offerings › Show bread and the Two Loaves › How they are made"
+    },
+    {
+     "ref": "11:2",
+     "text": "היכן מקומם \\ בחול",
+     "text_de": "Wo ihr Ort ist / Im Profanen",
+     "text_en": "Where their place is / In the profane realm",
+     "desc": "מעשי המנחות לכתחילה › מנחות ציבור › לחם הפנים ושתי הלחם › זמן עשייתן › כיצד נעשות",
+     "desc_de": "Handlungen bei Mehlopfern von vornherein › Gemeinschaftliche Mehlopfer › Schaubrot und Zwei Brote › Zeit ihrer Herstellung › Wie sie hergestellt werden",
+     "desc_en": "Procedures of meal offerings ab initio › Public meal offerings › Show bread and the Two Loaves › Time of their preparation › How they are made"
+    },
+    {
+     "ref": "11:3",
+     "text": "מעשי חביתי כה\"ג, כלל לדחיית שבת",
+     "text_de": "Handlungen beim Pfannenkuchen des Hohenpriesters, Grundsatz der Verdrängung des Schabbats",
+     "text_en": "Procedures of the High Priest's griddle cake, principle of overriding Shabbat",
+     "desc": "מעשי המנחות לכתחילה › מנחות ציבור › לחם הפנים ושתי הלחם › זמן עשייתן",
+     "desc_de": "Handlungen bei Mehlopfern von vornherein › Gemeinschaftliche Mehlopfer › Schaubrot und Zwei Brote › Zeit ihrer Herstellung",
+     "desc_en": "Procedures of meal offerings ab initio › Public meal offerings › Show bread and the Two Loaves › Time of their preparation"
+    },
+    {
+     "ref": "11:4",
+     "text": "כלים לעשייתן, מדתן",
+     "text_de": "Geräte für ihre Herstellung, ihr Maß",
+     "text_en": "Vessels for making them, their measure",
+     "desc": "מעשי המנחות לכתחילה › מנחות ציבור › לחם הפנים ושתי הלחם › כיצד נעשות",
+     "desc_de": "Handlungen bei Mehlopfern von vornherein › Gemeinschaftliche Mehlopfer › Schaubrot und Zwei Brote › Wie sie hergestellt werden",
+     "desc_en": "Procedures of meal offerings ab initio › Public meal offerings › Show bread and the Two Loaves › How they are made"
+    },
+    {
+     "ref": "11:5",
+     "text": "גבהן, מידות שולחן \\מקום הנחת הלבונה",
+     "text_de": "Ihre Höhe, Maße des Tisches / Ort der Weihrauchlegung",
+     "text_en": "Their height, measurements of the table / Place of placing the frankincense",
+     "desc": "מעשי המנחות לכתחילה › מנחות ציבור › לחם הפנים ושתי הלחם › סידור לחם הפנים",
+     "desc_de": "Handlungen bei Mehlopfern von vornherein › Gemeinschaftliche Mehlopfer › Schaubrot und Zwei Brote › Anordnung des Schaubrotes",
+     "desc_en": "Procedures of meal offerings ab initio › Public meal offerings › Show bread and the Two Loaves › Arrangement of the show bread"
+    },
+    {
+     "ref": "11:6",
+     "text": "הסניפין, הקנים וסדורן בשבת",
+     "text_de": "Die Stützen, die Röhren und ihre Anordnung am Schabbat",
+     "text_en": "The supports, the tubes and their arrangement on Shabbat",
+     "desc": "מעשי המנחות לכתחילה › מנחות ציבור › לחם הפנים ושתי הלחם › סידור לחם הפנים",
+     "desc_de": "Handlungen bei Mehlopfern von vornherein › Gemeinschaftliche Mehlopfer › Schaubrot und Zwei Brote › Anordnung des Schaubrotes",
+     "desc_en": "Procedures of meal offerings ab initio › Public meal offerings › Show bread and the Two Loaves › Arrangement of the show bread"
+    },
+    {
+     "ref": "11:7",
+     "text": "ג' שלחנות, סידור הלחם, החלוקה",
+     "text_de": "Drei Tische, Anordnung des Brotes, die Verteilung",
+     "text_en": "Three tables, arrangement of the bread, the distribution",
+     "desc": "מעשי המנחות לכתחילה › מנחות ציבור › לחם הפנים ושתי הלחם › סידור לחם הפנים",
+     "desc_de": "Handlungen bei Mehlopfern von vornherein › Gemeinschaftliche Mehlopfer › Schaubrot und Zwei Brote › Anordnung des Schaubrotes",
+     "desc_en": "Procedures of meal offerings ab initio › Public meal offerings › Show bread and the Two Loaves › Arrangement of the show bread"
+    },
+    {
+     "ref": "11:8",
+     "text": "סידור חלקי או לא בזמנו",
+     "text_de": "Teilweise Anordnung oder nicht zur rechten Zeit",
+     "text_en": "Partial arrangement or not at the proper time",
+     "desc": "מעשי המנחות לכתחילה › מנחות ציבור › לחם הפנים ושתי הלחם › סידור לחם הפנים",
+     "desc_de": "Handlungen bei Mehlopfern von vornherein › Gemeinschaftliche Mehlopfer › Schaubrot und Zwei Brote › Anordnung des Schaubrotes",
+     "desc_en": "Procedures of meal offerings ab initio › Public meal offerings › Show bread and the Two Loaves › Arrangement of the show bread"
+    },
+    {
+     "ref": "11:9",
+     "text": "מספר הימים עד אכילתן",
+     "text_de": "Anzahl der Tage bis zu ihrem Verzehr",
+     "text_en": "Number of days until their consumption",
+     "desc": "מעשי המנחות לכתחילה › מנחות ציבור › לחם הפנים ושתי הלחם › זמן עשייתן",
+     "desc_de": "Handlungen bei Mehlopfern von vornherein › Gemeinschaftliche Mehlopfer › Schaubrot und Zwei Brote › Zeit ihrer Herstellung",
+     "desc_en": "Procedures of meal offerings ab initio › Public meal offerings › Show bread and the Two Loaves › Time of their preparation"
+    }
+   ]
+  },
+  {
+   "head": "פרק יב",
+   "head_de": "Kapitel 12",
+   "head_en": "Chapter 12",
+   "items": [
+    {
+     "ref": "12:1",
+     "text": "מנחות, נסכים, דברים שאינן נפדים",
+     "text_de": "Mehlopfer, Trankopfer, Dinge, die nicht ausgelöst werden",
+     "text_en": "Meal offerings, libations, things that are not redeemed",
+     "desc": "מעשי המנחות לכתחילה › הלכות נדבה › פדיון",
+     "desc_de": "Handlungen bei Mehlopfern von vornherein › Gesetze der freiwilligen Opfer › Auslösung",
+     "desc_en": "Procedures of meal offerings ab initio › Laws of voluntary offerings › Redemption"
+    },
+    {
+     "ref": "12:2",
+     "text": "שינוי מלשון הנדר שפוסל",
+     "text_de": "Abweichung vom Wortlaut des Gelübdes, die untauglich macht",
+     "text_en": "Deviation from the wording of the vow that disqualifies",
+     "desc": "מעשי המנחות לכתחילה › הלכות נדבה › נדבות שאינן מתקבלות › מנחות",
+     "desc_de": "Handlungen bei Mehlopfern von vornherein › Gesetze der freiwilligen Opfer › Freiwillige Gaben, die nicht angenommen werden › Mehlopfer",
+     "desc_en": "Procedures of meal offerings ab initio › Laws of voluntary offerings › Voluntary gifts that are not accepted › Meal offerings"
+    },
+    {
+     "ref": "12:3",
+     "text": "לא כדרך המתנדבים",
+     "text_de": "Nicht in der Weise der Spendenden",
+     "text_en": "Not in the manner of donors",
+     "desc": "מעשי המנחות לכתחילה › הלכות נדבה › נדבות שאינן מתקבלות › מנחות",
+     "desc_de": "Handlungen bei Mehlopfern von vornherein › Gesetze der freiwilligen Opfer › Freiwillige Gaben, die nicht angenommen werden › Mehlopfer",
+     "desc_en": "Procedures of meal offerings ab initio › Laws of voluntary offerings › Voluntary gifts that are not accepted › Meal offerings"
+    },
+    {
+     "ref": "12:4",
+     "text": "מספר המרבי של עשרונים בכלי והטעם",
+     "text_de": "Höchstzahl an Zehnteln im Gefäß und der Grund",
+     "text_en": "Maximum number of tenths in a vessel and the reason",
+     "desc": "מעשי המנחות לכתחילה › הלכות נדבה › נדבות שאינן מתקבלות › מנחות",
+     "desc_de": "Handlungen bei Mehlopfern von vornherein › Gesetze der freiwilligen Opfer › Freiwillige Gaben, die nicht angenommen werden › Mehlopfer",
+     "desc_en": "Procedures of meal offerings ab initio › Laws of voluntary offerings › Voluntary gifts that are not accepted › Meal offerings"
+    },
+    {
+     "ref": "12:5",
+     "text": "נדבת יין ושמן, הבא בשותפות",
+     "text_de": "Freiwillige Gabe von Wein und Öl, was in Partnerschaft dargebracht wird",
+     "text_en": "Voluntary gift of wine and oil, what is brought in partnership",
+     "desc": "הלכות נדבה › נדבות שאינן מתקבלות › כמות",
+     "desc_de": "Gesetze der freiwilligen Opfer › Freiwillige Gaben, die nicht angenommen werden › Menge",
+     "desc_en": "Laws of voluntary offerings › Voluntary gifts that are not accepted › Quantity"
+    }
+   ]
+  },
+  {
+   "head": "פרק יג",
+   "head_de": "Kapitel 13",
+   "head_en": "Chapter 13",
+   "items": [
+    {
+     "ref": "13:1",
+     "text": "מספר עשרונים \\ סתם מנחה",
+     "text_de": "Anzahl der Zehntel / Unbestimmtes Mehlopfer",
+     "text_en": "Number of tenths / Unspecified meal offering",
+     "desc": "הלכות נדבה › פירוש לשון הנדר › מין › כמות",
+     "desc_de": "Gesetze der freiwilligen Opfer › Auslegung des Wortlauts des Gelübdes › Art › Menge",
+     "desc_en": "Laws of voluntary offerings › Interpretation of the wording of the vow › Kind › Quantity"
+    },
+    {
+     "ref": "13:2",
+     "text": "מיני מנחות \\ קביעות כלי",
+     "text_de": "Arten von Mehlopfern / Festlegung der Gefäße",
+     "text_en": "Kinds of meal offerings / Determination of vessels",
+     "desc": "הלכות נדבה › פירוש לשון הנדר › מין",
+     "desc_de": "Gesetze der freiwilligen Opfer › Auslegung des Wortlauts des Gelübdes › Art",
+     "desc_en": "Laws of voluntary offerings › Interpretation of the wording of the vow › Kind"
+    },
+    {
+     "ref": "13:3",
+     "text": "עצים, לבונה, חמישה קמצים",
+     "text_de": "Holz, Weihrauch, fünf Handvoll",
+     "text_en": "Wood, frankincense, five handfuls",
+     "desc": "הלכות נדבה › פירוש לשון הנדר › כמות",
+     "desc_de": "Gesetze der freiwilligen Opfer › Auslegung des Wortlauts des Gelübdes › Menge",
+     "desc_en": "Laws of voluntary offerings › Interpretation of the wording of the vow › Quantity"
+    },
+    {
+     "ref": "13:4",
+     "text": "מתכות יקרות",
+     "text_de": "Edelmetalle",
+     "text_en": "Precious metals",
+     "desc": "הלכות נדבה › פירוש לשון הנדר › כמות",
+     "desc_de": "Gesetze der freiwilligen Opfer › Auslegung des Wortlauts des Gelübdes › Menge",
+     "desc_en": "Laws of voluntary offerings › Interpretation of the wording of the vow › Quantity"
+    },
+    {
+     "ref": "13:5",
+     "text": "יין, שמן",
+     "text_de": "Wein, Öl",
+     "text_en": "Wine, oil",
+     "desc": "הלכות נדבה › פירוש לשון הנדר › כמות",
+     "desc_de": "Gesetze der freiwilligen Opfer › Auslegung des Wortlauts des Gelübdes › Menge",
+     "desc_en": "Laws of voluntary offerings › Interpretation of the wording of the vow › Quantity"
+    },
+    {
+     "ref": "13:6",
+     "text": "עולה",
+     "text_de": "Ganzopfer",
+     "text_en": "Burnt offering",
+     "desc": "הלכות נדבה › פירוש לשון הנדר › מין בסתם ובמפורש",
+     "desc_de": "Gesetze der freiwilligen Opfer › Auslegung des Wortlauts des Gelübdes › Gattung unbestimmt und ausdrücklich genannt",
+     "desc_en": "Laws of voluntary offerings › Interpretation of the wording of the vow › Species unspecified and explicitly stated"
+    },
+    {
+     "ref": "13:7",
+     "text": "שלמים",
+     "text_de": "Heilsopfer",
+     "text_en": "Peace offerings",
+     "desc": "הלכות נדבה › פירוש לשון הנדר › מין בסתם ובמפורש",
+     "desc_de": "Gesetze der freiwilligen Opfer › Auslegung des Wortlauts des Gelübdes › Gattung unbestimmt und ausdrücklich genannt",
+     "desc_en": "Laws of voluntary offerings › Interpretation of the wording of the vow › Species unspecified and explicitly stated"
+    },
+    {
+     "ref": "13:8",
+     "text": "ציון מין הבהמה או שויו",
+     "text_de": "Angabe der Tiergattung oder ihres Wertes",
+     "text_en": "Specifying the animal species or its value",
+     "desc": "הלכות נדבה › פירוש לשון הנדר › שווי",
+     "desc_de": "Gesetze der freiwilligen Opfer › Auslegung des Wortlauts des Gelübdes › Wert",
+     "desc_en": "Laws of voluntary offerings › Interpretation of the wording of the vow › Value"
+    },
+    {
+     "ref": "13:9",
+     "text": "אפשרות לשנות אם הומם, גודל יחסי",
+     "text_de": "Möglichkeit des Austauschs bei Fehlerhaftwerden, relative Größe",
+     "text_en": "Possibility of substitution if blemished, relative size",
+     "desc": "הלכות נדבה › פירוש לשון הנדר › שווי",
+     "desc_de": "Gesetze der freiwilligen Opfer › Auslegung des Wortlauts des Gelübdes › Wert",
+     "desc_en": "Laws of voluntary offerings › Interpretation of the wording of the vow › Value"
+    },
+    {
+     "ref": "13:10",
+     "text": "נדבה ונזירות בבית חוניו",
+     "text_de": "Freiwilligengabe und Nasiräat im Haus Chonios",
+     "text_en": "Freewill offering and nazirite vow in the House of Chonio",
+     "desc": "הלכות נדבה › פירוש לשון הנדר › מקום שחיטה",
+     "desc_de": "Gesetze der freiwilligen Opfer › Auslegung des Wortlauts des Gelübdes › Ort der Schlachtung",
+     "desc_en": "Laws of voluntary offerings › Interpretation of the wording of the vow › Place of slaughter"
+    },
+    {
+     "ref": "13:11",
+     "text": "שווי וכוונה לשם שמים",
+     "text_de": "Wert und Absicht zum Wohl des Himmels",
+     "text_en": "Value and intention for the sake of Heaven",
+     "desc": "הלכות נדבה › כוונת הנודר",
+     "desc_de": "Gesetze der freiwilligen Opfer › Absicht des Gelobenden",
+     "desc_en": "Laws of voluntary offerings › Intention of the one making the vow"
+    }
+   ]
+  }
+ ]
+}

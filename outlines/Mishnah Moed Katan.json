@@ -1,0 +1,248 @@
+{
+ "book": "Mishnah Moed Katan",
+ "title": "משנה מועד קטן",
+ "title_de": "Mischna Moed Katan – Gliederung",
+ "title_en": "Moed Katan – outline",
+ "note": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema).",
+ "note_de": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema); ins Deutsche und Englische übersetzt.",
+ "note_en": "Outline after the table “Mishna Sedura”: the central content of each mishnah, with the topic path (main topic to sub-topic); translated into German and English.",
+ "sections": [
+  {
+   "head": "פרק א",
+   "head_de": "Kapitel 1",
+   "head_en": "Chapter 1",
+   "items": [
+    {
+     "ref": "1:1",
+     "text": "מקור המים לבית שלחין, עוגיות",
+     "text_de": "Wasserquelle für das Bewässerungsfeld, Baumgruben",
+     "text_en": "Water source for the irrigated field, basins",
+     "desc": "הלכות חול המועד › מלאכה במועד או בשביעית › הפסד וטרחה › השקאת היבול",
+     "desc_de": "Regeln des Chol Hamoed › Arbeit an Chol Hamoed oder im Sabbatjahr › Verlust und Mühe › Bewässerung der Ernte",
+     "desc_en": "Laws of Chol Hamoed › Work on Chol Hamoed or in the Sabbatical year › Loss and effort › Irrigation of the crop"
+    },
+    {
+     "ref": "1:2",
+     "text": "התחלת אמה, צרכי רבים",
+     "text_de": "Beginn der Wasserrinne, Bedürfnisse der Allgemeinheit",
+     "text_en": "Beginning of the channel, needs of the public",
+     "desc": "הלכות חול המועד › מלאכה במועד או בשביעית › הפסד וטרחה › השקאת היבול",
+     "desc_de": "Regeln des Chol Hamoed › Arbeit an Chol Hamoed oder im Sabbatjahr › Verlust und Mühe › Bewässerung der Ernte",
+     "desc_en": "Laws of Chol Hamoed › Work on Chol Hamoed or in the Sabbatical year › Loss and effort › Irrigation of the crop"
+    },
+    {
+     "ref": "1:3",
+     "text": "המשכה, זרעים המושקאין כבר",
+     "text_de": "Ableitung, bereits bewässerte Saaten",
+     "text_en": "Diversion, already irrigated crops",
+     "desc": "הלכות חול המועד › מלאכה במועד או בשביעית › הפסד וטרחה › השקאת היבול",
+     "desc_de": "Regeln des Chol Hamoed › Arbeit an Chol Hamoed oder im Sabbatjahr › Verlust und Mühe › Bewässerung der Ernte",
+     "desc_en": "Laws of Chol Hamoed › Work on Chol Hamoed or in the Sabbatical year › Loss and effort › Irrigation of the crop"
+    },
+    {
+     "ref": "1:4",
+     "text": "צדיית עכברים ואישות, תיקון גדר",
+     "text_de": "Mäusefang und Ehe, Ausbessern eines Zauns",
+     "text_en": "Trapping mice and marriage, repairing a fence",
+     "desc": "הלכות חול המועד › מלאכה במועד או בשביעית › הפסד וטרחה › מניעת נזק",
+     "desc_de": "Regeln des Chol Hamoed › Arbeit an Chol Hamoed oder im Sabbatjahr › Verlust und Mühe › Schadensverhütung",
+     "desc_en": "Laws of Chol Hamoed › Work on Chol Hamoed or in the Sabbatical year › Loss and effort › Prevention of damage"
+    },
+    {
+     "ref": "1:5",
+     "text": "ראיית נגעים \\ ליקוט עצמות, הספדים",
+     "text_de": "Untersuchung von Aussatzmalen / Sammeln von Gebeinen, Trauerreden",
+     "text_en": "Examination of leprous marks / gathering bones, eulogies",
+     "desc": "הלכות חול המועד › שמחת המועד › צער ושמחה › צרכי המת",
+     "desc_de": "Regeln des Chol Hamoed › Freude des Festes › Leid und Freude › Bedürfnisse des Toten",
+     "desc_en": "Laws of Chol Hamoed › Joy of the festival › Sorrow and joy › Needs of the dead"
+    },
+    {
+     "ref": "1:6",
+     "text": "טרחא בהכנת מקום קבורה",
+     "text_de": "Mühe bei der Vorbereitung der Grabstätte",
+     "text_en": "Effort in preparing the burial place",
+     "desc": "הלכות חול המועד › שמחת המועד › צער ושמחה › צרכי המת",
+     "desc_de": "Regeln des Chol Hamoed › Freude des Festes › Leid und Freude › Bedürfnisse des Toten",
+     "desc_en": "Laws of Chol Hamoed › Joy of the festival › Sorrow and joy › Needs of the dead"
+    },
+    {
+     "ref": "1:7",
+     "text": "נשואין, עשיית תכשיטין",
+     "text_de": "Heirat, Herstellung von Schmuck",
+     "text_en": "Marriage, making jewelry",
+     "desc": "הלכות חול המועד › שמחת המועד › צער ושמחה",
+     "desc_de": "Regeln des Chol Hamoed › Freude des Festes › Leid und Freude",
+     "desc_en": "Laws of Chol Hamoed › Joy of the festival › Sorrow and joy"
+    },
+    {
+     "ref": "1:8",
+     "text": "אומנותיות בתפירה, סירוג מיטות",
+     "text_de": "Handwerkliche Arbeiten im Nähen, Flechten von Betten",
+     "text_en": "Craftwork in sewing, weaving beds",
+     "desc": "הלכות חול המועד › איסור מלאכה › טרחה לצורך המועד › כלי תשמיש",
+     "desc_de": "Regeln des Chol Hamoed › Arbeitsverbot › Mühe für den Bedarf des Festes › Gebrauchsgeräte",
+     "desc_en": "Laws of Chol Hamoed › Prohibition of work › Effort for the needs of the festival › Utensils"
+    },
+    {
+     "ref": "1:9",
+     "text": "העמדת תנורים ורחים ותיקונם",
+     "text_de": "Aufstellen von Öfen und Mühlen und ihre Reparatur",
+     "text_en": "Setting up ovens and mills and repairing them",
+     "desc": "הלכות חול המועד › איסור מלאכה › טרחה לצורך המועד › להכנת אוכל",
+     "desc_de": "Regeln des Chol Hamoed › Arbeitsverbot › Mühe für den Bedarf des Festes › Zur Zubereitung von Speisen",
+     "desc_en": "Laws of Chol Hamoed › Prohibition of work › Effort for the needs of the festival › For preparing food"
+    },
+    {
+     "ref": "1:10",
+     "text": "כבשים \\ בגגות ובדלתות",
+     "text_de": "Rampen / auf Dächern und an Türen",
+     "text_en": "Ramps / on roofs and at doors",
+     "desc": "הלכות חול המועד › איסור מלאכה › דבר האבד › טרחה לצורך המועד › תיקונים",
+     "desc_de": "Regeln des Chol Hamoed › Arbeitsverbot › Verlustgefährdetes (Dawar haawud) › Mühe für den Bedarf des Festes › Reparaturen",
+     "desc_en": "Laws of Chol Hamoed › Prohibition of work › Irretrievable loss (davar ha'avud) › Effort for the needs of the festival › Repairs"
+    }
+   ]
+  },
+  {
+   "head": "פרק ב",
+   "head_de": "Kapitel 2",
+   "head_en": "Chapter 2",
+   "items": [
+    {
+     "ref": "2:1",
+     "text": "הכנת שמן זית",
+     "text_de": "Zubereitung von Olivenöl",
+     "text_en": "Preparing olive oil",
+     "desc": "הלכות חול המועד › איסור מלאכה › דבר האבד › גמר מלאכה",
+     "desc_de": "Regeln des Chol Hamoed › Arbeitsverbot › Verlustgefährdetes (Dawar haawud) › Vollendung der Arbeit",
+     "desc_en": "Laws of Chol Hamoed › Prohibition of work › Irretrievable loss (davar ha'avud) › Completion of the work"
+    },
+    {
+     "ref": "2:2",
+     "text": "הכנת יין",
+     "text_de": "Zubereitung von Wein",
+     "text_en": "Preparing wine",
+     "desc": "הלכות חול המועד › איסור מלאכה › דבר האבד › גמר מלאכה",
+     "desc_de": "Regeln des Chol Hamoed › Arbeitsverbot › Verlustgefährdetes (Dawar haawud) › Vollendung der Arbeit",
+     "desc_en": "Laws of Chol Hamoed › Prohibition of work › Irretrievable loss (davar ha'avud) › Completion of the work"
+    },
+    {
+     "ref": "2:3",
+     "text": "חשש גניבה, פשתן מושרה, כוון מלאכה",
+     "text_de": "Diebstahlgefahr, eingeweichter Flachs, Ausrichtung der Arbeit",
+     "text_en": "Risk of theft, soaked flax, direction of the work",
+     "desc": "הלכות חול המועד › איסור מלאכה › דבר האבד › גמר מלאכה",
+     "desc_de": "Regeln des Chol Hamoed › Arbeitsverbot › Verlustgefährdetes (Dawar haawud) › Vollendung der Arbeit",
+     "desc_en": "Laws of Chol Hamoed › Prohibition of work › Irretrievable loss (davar ha'avud) › Completion of the work"
+    },
+    {
+     "ref": "2:4",
+     "text": "פינוי והבאת הכלים, קנין נכסים",
+     "text_de": "Räumen und Hereinbringen der Geräte, Erwerb von Besitz",
+     "text_en": "Clearing and bringing in utensils, acquisition of property",
+     "desc": "הלכות חול המועד › איסור מלאכה › דבר האבד › מסחר לצורך המועד › מראית עין",
+     "desc_de": "Regeln des Chol Hamoed › Arbeitsverbot › Verlustgefährdetes (Dawar haawud) › Handel für den Bedarf des Festes › Anschein (Marit Ajin)",
+     "desc_en": "Laws of Chol Hamoed › Prohibition of work › Irretrievable loss (davar ha'avud) › Trade for the needs of the festival › Appearance (marit ayin)"
+    },
+    {
+     "ref": "2:5",
+     "text": "חיפוי קציעות, מכירה והכנת אוכלים",
+     "text_de": "Abdecken von Dörrfeigen, Verkauf und Zubereitung von Speisen",
+     "text_en": "Covering dried figs, selling and preparing food",
+     "desc": "הלכות חול המועד › איסור מלאכה › דבר האבד › מסחר לצורך המועד › מראית עין",
+     "desc_de": "Regeln des Chol Hamoed › Arbeitsverbot › Verlustgefährdetes (Dawar haawud) › Handel für den Bedarf des Festes › Anschein (Marit Ajin)",
+     "desc_en": "Laws of Chol Hamoed › Prohibition of work › Irretrievable loss (davar ha'avud) › Trade for the needs of the festival › Appearance (marit ayin)"
+    }
+   ]
+  },
+  {
+   "head": "פרק ג",
+   "head_de": "Kapitel 3",
+   "head_en": "Chapter 3",
+   "items": [
+    {
+     "ref": "3:1",
+     "text": "גילוח",
+     "text_de": "Haareschneiden",
+     "text_en": "Haircutting",
+     "desc": "הלכות חול המועד › איסור מלאכה › גזירות לכבוד כניסת החג › המותרים משום אונס",
+     "desc_de": "Regeln des Chol Hamoed › Arbeitsverbot › Verordnungen zu Ehren des Festeintritts › Erlaubtes wegen höherer Gewalt",
+     "desc_en": "Laws of Chol Hamoed › Prohibition of work › Decrees in honor of the onset of the festival › Permitted due to circumstances beyond control"
+    },
+    {
+     "ref": "3:2",
+     "text": "כיבוס",
+     "text_de": "Wäschewaschen",
+     "text_en": "Laundering",
+     "desc": "הלכות חול המועד › איסור מלאכה › גזירות לכבוד כניסת החג › המותרים משום אונס",
+     "desc_de": "Regeln des Chol Hamoed › Arbeitsverbot › Verordnungen zu Ehren des Festeintritts › Erlaubtes wegen höherer Gewalt",
+     "desc_en": "Laws of Chol Hamoed › Prohibition of work › Decrees in honor of the onset of the festival › Permitted due to circumstances beyond control"
+    },
+    {
+     "ref": "3:3",
+     "text": "מסמכים רשמיים",
+     "text_de": "Amtliche Dokumente",
+     "text_en": "Official documents",
+     "desc": "הלכות חול המועד › איסור מלאכה › כתיבה › דבר האבד",
+     "desc_de": "Regeln des Chol Hamoed › Arbeitsverbot › Schreiben › Verlustgefährdetes (Dawar haawud)",
+     "desc_en": "Laws of Chol Hamoed › Prohibition of work › Writing › Irretrievable loss (davar ha'avud)"
+    },
+    {
+     "ref": "3:4",
+     "text": "שטר חוב, סת\"ם והגהתן, ציצית",
+     "text_de": "Schuldschein, Torarolle/Tefillin/Mesusa und deren Korrektur, Zizit",
+     "text_en": "Promissory note, Torah scroll/tefillin/mezuzah and their correction, tzitzit",
+     "desc": "הלכות חול המועד › איסור מלאכה › כתיבה › שאסור",
+     "desc_de": "Regeln des Chol Hamoed › Arbeitsverbot › Schreiben › Was verboten ist",
+     "desc_en": "Laws of Chol Hamoed › Prohibition of work › Writing › What is forbidden"
+    },
+    {
+     "ref": "3:5",
+     "text": "שאירע ג' או ח' יום קודם, דין שבת",
+     "text_de": "Ereignis drei oder acht Tage zuvor, Recht des Schabbat",
+     "text_en": "Event occurring three or eight days earlier, law of the Sabbath",
+     "desc": "הלכות חול המועד › דחיית אבילות מפני שמחת המועד › גזירות שבעה ושלושים › ביטול ע\"י שבת וחג",
+     "desc_de": "Regeln des Chol Hamoed › Verschiebung der Trauer wegen der Festfreude › Verordnungen der Sieben- und Dreißigtagetrauer › Aufhebung durch Schabbat und Fest",
+     "desc_en": "Laws of Chol Hamoed › Postponement of mourning because of festival joy › Rules of the seven and thirty days of mourning › Cancellation by Sabbath and festival"
+    },
+    {
+     "ref": "3:6",
+     "text": "דינם של עצרת, ר\"ה ויוה\"כ",
+     "text_de": "Regelung für Schawuot, Neujahr und Jom Kippur",
+     "text_en": "Rules for Shavuot, Rosh Hashanah and Yom Kippur",
+     "desc": "הלכות חול המועד › דחיית אבילות מפני שמחת המועד › גזירות שבעה ושלושים › ביטול ע\"י שבת וחג",
+     "desc_de": "Regeln des Chol Hamoed › Verschiebung der Trauer wegen der Festfreude › Verordnungen der Sieben- und Dreißigtagetrauer › Aufhebung durch Schabbat und Fest",
+     "desc_en": "Laws of Chol Hamoed › Postponement of mourning because of festival joy › Rules of the seven and thirty days of mourning › Cancellation by Sabbath and festival"
+    },
+    {
+     "ref": "3:7",
+     "text": "רק קרובים, דיני הבראה, ניחום",
+     "text_de": "Nur Verwandte, Regeln der Erquickungsmahlzeit, Trauertröstung",
+     "text_en": "Relatives only, laws of the meal of consolation, comforting mourners",
+     "desc": "הלכות חול המועד › דחיית אבילות מפני שמחת המועד › מנהגי אבילות",
+     "desc_de": "Regeln des Chol Hamoed › Verschiebung der Trauer wegen der Festfreude › Trauerbräuche",
+     "desc_en": "Laws of Chol Hamoed › Postponement of mourning because of festival joy › Mourning customs"
+    },
+    {
+     "ref": "3:8",
+     "text": "הנחת מטה ברחוב, עינוי וטפוח הנשים",
+     "text_de": "Abstellen der Bahre auf der Straße, Kasteiung und Händeklatschen der Frauen",
+     "text_en": "Setting down the bier in the street, self-affliction and hand-clapping by women",
+     "desc": "הלכות חול המועד › דחיית אבילות מפני שמחת המועד › מנהגי אבילות › הפסד ובכי",
+     "desc_de": "Regeln des Chol Hamoed › Verschiebung der Trauer wegen der Festfreude › Trauerbräuche › Verlust und Weinen",
+     "desc_en": "Laws of Chol Hamoed › Postponement of mourning because of festival joy › Mourning customs › Loss and weeping"
+    },
+    {
+     "ref": "3:9",
+     "text": "ר\"ח, חנוכה ופורים, אחר קבורה,הגדרות",
+     "text_de": "Neumond, Chanukka und Purim, nach der Bestattung, Begriffsbestimmungen",
+     "text_en": "New moon, Hanukkah and Purim, after burial, definitions",
+     "desc": "הלכות חול המועד › דחיית אבילות מפני שמחת המועד › מנהגי אבילות › הפסד ובכי",
+     "desc_de": "Regeln des Chol Hamoed › Verschiebung der Trauer wegen der Festfreude › Trauerbräuche › Verlust und Weinen",
+     "desc_en": "Laws of Chol Hamoed › Postponement of mourning because of festival joy › Mourning customs › Loss and weeping"
+    }
+   ]
+  }
+ ]
+}

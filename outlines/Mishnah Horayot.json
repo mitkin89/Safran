@@ -1,0 +1,212 @@
+{
+ "book": "Mishnah Horayot",
+ "title": "משנה הוריות",
+ "title_de": "Mischna Horajot – Gliederung",
+ "title_en": "Horayot – outline",
+ "note": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema).",
+ "note_de": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema); ins Deutsche und Englische übersetzt.",
+ "note_en": "Outline after the table “Mishna Sedura”: the central content of each mishnah, with the topic path (main topic to sub-topic); translated into German and English.",
+ "sections": [
+  {
+   "head": "פרק א",
+   "head_de": "Kapitel 1",
+   "head_en": "Chapter 1",
+   "items": [
+    {
+     "ref": "1:1",
+     "text": "התולה בבי\"ד, בעצמו, כלל",
+     "text_de": "Wer sich auf das Gericht beruft, auf sich selbst, Grundsatz",
+     "text_en": "One who relies on the court, on himself, general rule",
+     "desc": "כפרה על הנעשה על פי הוראה מוטעית › כיצד נפטרין › היחיד › תלייה בבית דין",
+     "desc_de": "Sühne für das aufgrund einer irrtümlichen Entscheidung Getane › Wie man davon befreit wird › Der Einzelne › Berufung auf das Gericht",
+     "desc_en": "Atonement for what was done on the basis of an erroneous ruling › How one is exempted › The individual › Reliance on the court"
+    },
+    {
+     "ref": "1:2",
+     "text": "חזרת ב\"ד וידיעת החזרה",
+     "text_de": "Rücknahme durch das Gericht und Kenntnis der Rücknahme",
+     "text_en": "Retraction by the court and knowledge of the retraction",
+     "desc": "כפרה על הנעשה על פי הוראה מוטעית › כיצד נפטרין › היחיד › תלייה בבית דין",
+     "desc_de": "Sühne für das aufgrund einer irrtümlichen Entscheidung Getane › Wie man davon befreit wird › Der Einzelne › Berufung auf das Gericht",
+     "desc_en": "Atonement for what was done on the basis of an erroneous ruling › How one is exempted › The individual › Reliance on the court"
+    },
+    {
+     "ref": "1:3",
+     "text": "חלק מהדין",
+     "text_de": "Teil des Rechts",
+     "text_en": "Part of the law",
+     "desc": "כפרה על הנעשה על פי הוראה מוטעית › כיצד נפטרין › בית דין והקהל › הטעות",
+     "desc_de": "Sühne für das aufgrund einer irrtümlichen Entscheidung Getane › Wie man davon befreit wird › Gericht und Gemeinde › Der Irrtum",
+     "desc_en": "Atonement for what was done on the basis of an erroneous ruling › How one is exempted › The court and the congregation › The error"
+    },
+    {
+     "ref": "1:4",
+     "text": "לא שוין או ראויין להוראה,כוונותיהם",
+     "text_de": "Nicht gleich oder nicht geeignet zur Entscheidung, ihre Absichten",
+     "text_en": "Not equal or not qualified to rule, their intentions",
+     "desc": "כפרה על הנעשה על פי הוראה מוטעית › כיצד נפטרין › בית דין והקהל",
+     "desc_de": "Sühne für das aufgrund einer irrtümlichen Entscheidung Getane › Wie man davon befreit wird › Gericht und Gemeinde",
+     "desc_en": "Atonement for what was done on the basis of an erroneous ruling › How one is exempted › The court and the congregation"
+    },
+    {
+     "ref": "1:5",
+     "text": "עשיית רוב הקהל או שבטים, ב\"ד של שבט",
+     "text_de": "Handeln der Mehrheit der Gemeinde oder der Stämme, Gericht eines Stammes",
+     "text_en": "Action by the majority of the congregation or of the tribes, court of a tribe",
+     "desc": "כפרה על הנעשה על פי הוראה מוטעית › במה מתחיבים › בית דין והקהל › הבאת קרבנות",
+     "desc_de": "Sühne für das aufgrund einer irrtümlichen Entscheidung Getane › Wodurch man haftbar wird › Gericht und Gemeinde › Darbringung von Opfern",
+     "desc_en": "Atonement for what was done on the basis of an erroneous ruling › What makes one liable › The court and the congregation › Bringing of offerings"
+    }
+   ]
+  },
+  {
+   "head": "פרק ב",
+   "head_de": "Kapitel 2",
+   "head_en": "Chapter 2",
+   "items": [
+    {
+     "ref": "2:1",
+     "text": "כוונת הוראה ועשייה",
+     "text_de": "Absicht von Entscheidung und Tat",
+     "text_en": "Intention of ruling and deed",
+     "desc": "כפרה על הנעשה על פי הוראה מוטעית › כיצד מתחיבין › המשיח ובית דין › דמיון ביניהם",
+     "desc_de": "Sühne für das aufgrund einer irrtümlichen Entscheidung Getane › Wie man haftbar wird › Der Gesalbte und das Gericht › Ähnlichkeit zwischen ihnen",
+     "desc_en": "Atonement for what was done on the basis of an erroneous ruling › How one becomes liable › The anointed one and the court › Similarity between them"
+    },
+    {
+     "ref": "2:2",
+     "text": "השתתפות עם הציבור\\ ביטול וקיום מקצת",
+     "text_de": "Beteiligung an der Gemeinde / teilweise Aufhebung und Erfüllung",
+     "text_en": "Participation with the community / partial annulment and fulfillment",
+     "desc": "כפרה על הנעשה על פי הוראה מוטעית › כיצד מתחיבין › המשיח ובית דין › דמיון ביניהם",
+     "desc_de": "Sühne für das aufgrund einer irrtümlichen Entscheidung Getane › Wie man haftbar wird › Der Gesalbte und das Gericht › Ähnlichkeit zwischen ihnen",
+     "desc_en": "Atonement for what was done on the basis of an erroneous ruling › How one becomes liable › The anointed one and the court › Similarity between them"
+    },
+    {
+     "ref": "2:3",
+     "text": "הוראה ומעשה,חטא שמחייב כרת וחטאת",
+     "text_de": "Entscheidung und Tat, Sünde mit Karet und Sündopfer",
+     "text_en": "Ruling and deed, sin entailing karet and a sin offering",
+     "desc": "כפרה על הנעשה על פי הוראה מוטעית › כיצד מתחיבין › המשיח ובית דין › דמיון ביניהם › תנאי ופירוט החטאים",
+     "desc_de": "Sühne für das aufgrund einer irrtümlichen Entscheidung Getane › Wie man haftbar wird › Der Gesalbte und das Gericht › Ähnlichkeit zwischen ihnen › Bedingungen und Aufzählung der Sünden",
+     "desc_en": "Atonement for what was done on the basis of an erroneous ruling › How one becomes liable › The anointed one and the court › Similarity between them › Conditions and enumeration of the sins"
+    },
+    {
+     "ref": "2:4",
+     "text": "עשה ולאו שבמקדש ושבנדה",
+     "text_de": "Gebot und Verbot im Heiligtum und bei der Nida",
+     "text_en": "Positive and negative commandment concerning the Sanctuary and the menstruant",
+     "desc": "כפרה על הנעשה על פי הוראה מוטעית › כיצד מתחיבין › המשיח ובית דין › תנאי ופירוט החטאים",
+     "desc_de": "Sühne für das aufgrund einer irrtümlichen Entscheidung Getane › Wie man haftbar wird › Der Gesalbte und das Gericht › Bedingungen und Aufzählung der Sünden",
+     "desc_en": "Atonement for what was done on the basis of an erroneous ruling › How one becomes liable › The anointed one and the court › Conditions and enumeration of the sins"
+    },
+    {
+     "ref": "2:5",
+     "text": "מצוות שחיבין עליהן קרבן עולה ויורד",
+     "text_de": "Gebote, für die ein Opfer nach Vermögen (steigend und fallend) zu bringen ist",
+     "text_en": "Commandments requiring a sliding-scale offering",
+     "desc": "כפרה על הנעשה על פי הוראה מוטעית › כיצד מתחיבין › המשיח ובית דין › תנאי ופירוט החטאים",
+     "desc_de": "Sühne für das aufgrund einer irrtümlichen Entscheidung Getane › Wie man haftbar wird › Der Gesalbte und das Gericht › Bedingungen und Aufzählung der Sünden",
+     "desc_en": "Atonement for what was done on the basis of an erroneous ruling › How one becomes liable › The anointed one and the court › Conditions and enumeration of the sins"
+    },
+    {
+     "ref": "2:6",
+     "text": "מצוות שחיבין עליהן כרת וחטאת",
+     "text_de": "Gebote, für die Karet und Sündopfer gelten",
+     "text_en": "Commandments entailing karet and a sin offering",
+     "desc": "כפרה על הנעשה על פי הוראה מוטעית › במה מתחיבים › יחיד נשיא משיח וב\"ד › כללי חטאות ואשמות",
+     "desc_de": "Sühne für das aufgrund einer irrtümlichen Entscheidung Getane › Wodurch man haftbar wird › Einzelner, Fürst, Gesalbter und Gericht › Regeln zu Sünd- und Schuldopfern",
+     "desc_en": "Atonement for what was done on the basis of an erroneous ruling › What makes one liable › Individual, prince, anointed one and court › Rules of sin offerings and guilt offerings"
+    },
+    {
+     "ref": "2:7",
+     "text": "שחיבין עליהן אשם תלוי,עולה ויורד",
+     "text_de": "Wofür ein Schwebeschuldopfer und ein Opfer nach Vermögen zu bringen ist",
+     "text_en": "For what a suspended guilt offering and a sliding-scale offering are brought",
+     "desc": "כפרה על הנעשה על פי הוראה מוטעית › במה מתחיבים › יחיד נשיא משיח וב\"ד › כללי חטאות ואשמות",
+     "desc_de": "Sühne für das aufgrund einer irrtümlichen Entscheidung Getane › Wodurch man haftbar wird › Einzelner, Fürst, Gesalbter und Gericht › Regeln zu Sünd- und Schuldopfern",
+     "desc_en": "Atonement for what was done on the basis of an erroneous ruling › What makes one liable › Individual, prince, anointed one and court › Rules of sin offerings and guilt offerings"
+    }
+   ]
+  },
+  {
+   "head": "פרק ג",
+   "head_de": "Kapitel 3",
+   "head_en": "Chapter 3",
+   "items": [
+    {
+     "ref": "3:1",
+     "text": "ירד מגדולה לפני שנתכפר",
+     "text_de": "Von der Hoheit herabgestiegen vor der Sühne",
+     "text_en": "Descended from high office before atonement",
+     "desc": "כפרה על הנעשה על פי הוראה מוטעית › מי מתחייב › הגדרת משיח ונשיא › כללי חטאות ואשמות › שינוי במעמד",
+     "desc_de": "Sühne für das aufgrund einer irrtümlichen Entscheidung Getane › Wer haftbar wird › Bestimmung von Gesalbtem und Fürst › Regeln zu Sünd- und Schuldopfern › Wechsel des Standes",
+     "desc_en": "Atonement for what was done on the basis of an erroneous ruling › Who becomes liable › Definition of the anointed one and the prince › Rules of sin offerings and guilt offerings › Change of status"
+    },
+    {
+     "ref": "3:2",
+     "text": "חטא אחר שעבר",
+     "text_de": "Eine andere frühere Sünde",
+     "text_en": "Another earlier sin",
+     "desc": "כפרה על הנעשה על פי הוראה מוטעית › מי מתחייב › הגדרת משיח ונשיא › כללי חטאות ואשמות › שינוי במעמד",
+     "desc_de": "Sühne für das aufgrund einer irrtümlichen Entscheidung Getane › Wer haftbar wird › Bestimmung von Gesalbtem und Fürst › Regeln zu Sünd- und Schuldopfern › Wechsel des Standes",
+     "desc_en": "Atonement for what was done on the basis of an erroneous ruling › Who becomes liable › Definition of the anointed one and the prince › Rules of sin offerings and guilt offerings › Change of status"
+    },
+    {
+     "ref": "3:3",
+     "text": "חטא לפני שנתמנה \\ הנשיא הוא המלך",
+     "text_de": "Sünde vor der Ernennung / der Fürst ist der König",
+     "text_en": "Sin before appointment / the prince is the king",
+     "desc": "כפרה על הנעשה על פי הוראה מוטעית › מי מתחייב › הגדרת משיח ונשיא › כללי חטאות ואשמות › שינוי במעמד",
+     "desc_de": "Sühne für das aufgrund einer irrtümlichen Entscheidung Getane › Wer haftbar wird › Bestimmung von Gesalbtem und Fürst › Regeln zu Sünd- und Schuldopfern › Wechsel des Standes",
+     "desc_en": "Atonement for what was done on the basis of an erroneous ruling › Who becomes liable › Definition of the anointed one and the prince › Rules of sin offerings and guilt offerings › Change of status"
+    },
+    {
+     "ref": "3:4",
+     "text": "המשוח בשמן\\ מרובה בגדים, משמש ושעבר",
+     "text_de": "Der mit Öl Gesalbte / der mit mehreren Gewändern Bekleidete, der Amtierende und der Abgetretene",
+     "text_en": "The one anointed with oil / the one invested with multiple garments, the serving and the retired",
+     "desc": "כפרה על הנעשה על פי הוראה מוטעית › מי מתחייב › הגדרת משיח ונשיא › משרתם",
+     "desc_de": "Sühne für das aufgrund einer irrtümlichen Entscheidung Getane › Wer haftbar wird › Bestimmung von Gesalbtem und Fürst › Ihr Dienst",
+     "desc_en": "Atonement for what was done on the basis of an erroneous ruling › Who becomes liable › Definition of the anointed one and the prince › Their service"
+    },
+    {
+     "ref": "3:5",
+     "text": "כהן גדול והדיוט, פרימה",
+     "text_de": "Hohepriester und gewöhnlicher Priester, Vorrang",
+     "text_en": "High priest and ordinary priest, precedence",
+     "desc": "כפרה על הנעשה על פי הוראה מוטעית › הלכות כהן גדול › דמיון הלכתי חלקי › כהנים",
+     "desc_de": "Sühne für das aufgrund einer irrtümlichen Entscheidung Getane › Gesetze des Hohepriesters › Teilweise halachische Ähnlichkeit › Priester",
+     "desc_en": "Atonement for what was done on the basis of an erroneous ruling › Laws of the high priest › Partial halakhic similarity › priests"
+    },
+    {
+     "ref": "3:6",
+     "text": "כללי תדיר ומקודש, פרי משיח ועדה",
+     "text_de": "Regeln über das Häufigere und das Heiligere, Stier des Gesalbten und der Gemeinde",
+     "text_en": "Rules of the more frequent and the more holy, bull of the anointed and of the congregation",
+     "desc": "כפרה על הנעשה על פי הוראה מוטעית › הלכות כהן גדול › סדרי קדימה › הקרבת קרבנות",
+     "desc_de": "Sühne für das aufgrund einer irrtümlichen Entscheidung Getane › Gesetze des Hohepriesters › Rangfolgen › Darbringung von Opfern",
+     "desc_en": "Atonement for what was done on the basis of an erroneous ruling › Laws of the high priest › Orders of priority › Bringing of offerings"
+    },
+    {
+     "ref": "3:7",
+     "text": "איש ואישה",
+     "text_de": "Mann und Frau",
+     "text_en": "Man and woman",
+     "desc": "כפרה על הנעשה על פי הוראה מוטעית › הלכות כהן גדול › סדרי קדימה › מחיה וממון",
+     "desc_de": "Sühne für das aufgrund einer irrtümlichen Entscheidung Getane › Gesetze des Hohepriesters › Rangfolgen › Lebensrettung und Geld",
+     "desc_en": "Atonement for what was done on the basis of an erroneous ruling › Laws of the high priest › Orders of priority › Saving a life and money"
+    },
+    {
+     "ref": "3:8",
+     "text": "שבעה יוחסין , מעלת התלמיד חכם",
+     "text_de": "Sieben Abstammungsgruppen, Vorzug des Schriftgelehrten",
+     "text_en": "Seven classes of lineage, merit of the Torah scholar",
+     "desc": "כפרה על הנעשה על פי הוראה מוטעית › הלכות כהן גדול › סדרי קדימה › מחיה וממון",
+     "desc_de": "Sühne für das aufgrund einer irrtümlichen Entscheidung Getane › Gesetze des Hohepriesters › Rangfolgen › Lebensrettung und Geld",
+     "desc_en": "Atonement for what was done on the basis of an erroneous ruling › Laws of the high priest › Orders of priority › Saving a life and money"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,237 @@
+{
+ "book": "Mishnah Yadayim",
+ "title": "משנה ידים",
+ "title_de": "Mischna Jadajim – Gliederung",
+ "title_en": "Yadayim – outline",
+ "note": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema).",
+ "note_de": "Gliederung nach der Tabelle „Mischna Sedura“: je Mischna der zentrale Inhalt, darunter der Themenpfad (vom Haupt- zum Nebenthema); ins Deutsche und Englische übersetzt.",
+ "note_en": "Outline after the table “Mishna Sedura”: the central content of each mishnah, with the topic path (main topic to sub-topic); translated into German and English.",
+ "sections": [
+  {
+   "head": "פרק א",
+   "head_de": "Kapitel 1",
+   "head_en": "Chapter 1",
+   "items": [
+    {
+     "ref": "1:1",
+     "text": "שיעור למספר אנשים והוספה",
+     "text_de": "Maß für mehrere Personen und Zugabe",
+     "text_en": "Measure for several people and addition",
+     "desc": "כיצד הידים נטהרים › דיני המים לנטילה › שיעור מים המזערי",
+     "desc_de": "Wie die Hände gereinigt werden › Wassergesetze für die Händewaschung › Mindestmenge Wasser",
+     "desc_en": "How the hands are purified › Laws of water for hand washing › Minimum quantity of water"
+    },
+    {
+     "ref": "1:2",
+     "text": "כלים הטהורים, שברי כלים, נפקא מינות",
+     "text_de": "Reine Gefäße, Gefäßscherben, praktische Folgen",
+     "text_en": "Pure vessels, vessel fragments, practical differences",
+     "desc": "כיצד הידים נטהרים › דיני המים לנטילה › כלים למים",
+     "desc_de": "Wie die Hände gereinigt werden › Wassergesetze für die Händewaschung › Gefäße für Wasser",
+     "desc_en": "How the hands are purified › Laws of water for hand washing › Vessels for water"
+    },
+    {
+     "ref": "1:3",
+     "text": "סרחון, מראה \\ שריית פת",
+     "text_de": "Gestank, Aussehen / Einweichen von Brot",
+     "text_en": "Stench, appearance / soaking bread",
+     "desc": "כיצד הידים נטהרים › דיני המים לנטילה › פסול במים › מלאכה",
+     "desc_de": "Wie die Hände gereinigt werden › Wassergesetze für die Händewaschung › Untauglichkeit des Wassers › Arbeit",
+     "desc_en": "How the hands are purified › Laws of water for hand washing › Disqualification of the water › Labor"
+    },
+    {
+     "ref": "1:4",
+     "text": "הדחת כלים מלוכלכים ונקיים",
+     "text_de": "Abspülen verschmutzter und sauberer Gefäße",
+     "text_en": "Rinsing soiled and clean vessels",
+     "desc": "כיצד הידים נטהרים › דיני המים לנטילה › פסול במים › מלאכה",
+     "desc_de": "Wie die Hände gereinigt werden › Wassergesetze für die Händewaschung › Untauglichkeit des Wassers › Arbeit",
+     "desc_en": "How the hands are purified › Laws of water for hand washing › Disqualification of the water › Labor"
+    },
+    {
+     "ref": "1:5",
+     "text": "שימוש ע\"י נחתום \\ חש\"ו, כח גברא,קוף",
+     "text_de": "Benutzung durch den Bäcker / Taube, Schwachsinnige, Minderjährige, Kraft des Handelnden, Affe",
+     "text_en": "Use by the baker / deaf-mutes, mentally incompetent, minors, force of the agent, monkey",
+     "desc": "כיצד הידים נטהרים › דיני המים לנטילה \\ תיאור ותוצאות הנטילה › פסול במים \\ הנטילה › מלאכה \\ כח הנותן",
+     "desc_de": "Wie die Hände gereinigt werden › Wassergesetze für die Händewaschung / Beschreibung und Folgen des Waschens › Untauglichkeit des Wassers / Das Waschen › Arbeit / Kraft des Gießenden",
+     "desc_en": "How the hands are purified › Laws of water for hand washing / description and results of the washing › Disqualification of the water / the washing › Labor / force of the one pouring"
+    }
+   ]
+  },
+  {
+   "head": "פרק ב",
+   "head_de": "Kapitel 2",
+   "head_en": "Chapter 2",
+   "items": [
+    {
+     "ref": "2:1",
+     "text": "ליד ולידים, ראשונים מרביעית",
+     "text_de": "Für eine Hand und für mehrere Hände, die ersten aus einem Viertel-Log",
+     "text_en": "For one hand and for several hands, the first from a quarter-log",
+     "desc": "כיצד הידים נטהרים › תיאור ותוצאות הנטילה › הנטילה › שיעור",
+     "desc_de": "Wie die Hände gereinigt werden › Beschreibung und Folgen des Waschens › Das Waschen › Mindestmaß",
+     "desc_en": "How the hands are purified › Description and results of the washing › The washing › Minimum measure"
+    },
+    {
+     "ref": "2:2",
+     "text": "טהרת הראשונים הנמצאים בידו",
+     "text_de": "Reinheit der ersten Güsse, die sich an seiner Hand befinden",
+     "text_en": "Purity of the first pourings found on his hand",
+     "desc": "כיצד הידים נטהרים › תיאור ותוצאות הנטילה › אחר הנטילה › טומאה",
+     "desc_de": "Wie die Hände gereinigt werden › Beschreibung und Folgen des Waschens › Nach dem Waschen › Unreinheit",
+     "desc_en": "How the hands are purified › Description and results of the washing › After the washing › Impurity"
+    },
+    {
+     "ref": "2:3",
+     "text": "עד הפרק, לפני השניים \\ הרבה ידיים",
+     "text_de": "Bis zum Gelenk, vor den zweiten / viele Hände",
+     "text_en": "Up to the joint, before the second ones / many hands",
+     "desc": "כיצד הידים נטהרים › תיאור ותוצאות הנטילה › אחר הנטילה \\ הנטילה › טומאה \\ בבת אחת",
+     "desc_de": "Wie die Hände gereinigt werden › Beschreibung und Folgen des Waschens › Nach dem Waschen / Das Waschen › Unreinheit / auf einmal",
+     "desc_en": "How the hands are purified › Description and results of the washing › After the washing / the washing › Impurity / all at once"
+    },
+    {
+     "ref": "2:4",
+     "text": "פסול במים, נגיעה",
+     "text_de": "Untauglichkeit des Wassers, Berührung",
+     "text_en": "Disqualification of the water, contact",
+     "desc": "כיצד הידים נטהרים \\ כיצד הידים נטמאות › תיאור ותוצאות הנטילה › הנטילה › ספק",
+     "desc_de": "Wie die Hände gereinigt werden / wie die Hände unrein werden › Beschreibung und Folgen des Waschens › Das Waschen › Zweifel",
+     "desc_en": "How the hands are purified / how the hands become impure › Description and results of the washing › The washing › Doubt"
+    }
+   ]
+  },
+  {
+   "head": "פרק ג",
+   "head_de": "Kapitel 3",
+   "head_en": "Chapter 3",
+   "items": [
+    {
+     "ref": "3:1",
+     "text": "אב, הנטמא בולד הטומאה",
+     "text_de": "Hauptunreinheit, durch Folgeunreinheit Verunreinigter",
+     "text_en": "Primary impurity, one defiled by a derivative of impurity",
+     "desc": "כיצד הידים נטמאות › מקור הטומאה › הטמא מדאורייתא",
+     "desc_de": "Wie die Hände unrein werden › Quelle der Unreinheit › Das nach der Tora Unreine",
+     "desc_en": "How the hands become impure › Source of impurity › What is impure by Torah law"
+    },
+    {
+     "ref": "3:2",
+     "text": "שני לטומאה, יד לחברתה",
+     "text_de": "Zweiten Grades der Unreinheit, eine Hand der anderen",
+     "text_en": "Second degree of impurity, one hand to the other",
+     "desc": "כיצד הידים נטמאות › מקור הטומאה › הטמא מדרבנן",
+     "desc_de": "Wie die Hände unrein werden › Quelle der Unreinheit › Das rabbinisch Unreine",
+     "desc_en": "How the hands become impure › Source of impurity › What is impure by rabbinic law"
+    },
+    {
+     "ref": "3:3",
+     "text": "רצועות תפילין",
+     "text_de": "Riemen der Tefillin",
+     "text_en": "Straps of the tefillin",
+     "desc": "כיצד הידים נטמאות › מקור הטומאה › הטמא מדרבנן › נגיעה › הטפילים",
+     "desc_de": "Wie die Hände unrein werden › Quelle der Unreinheit › Das rabbinisch Unreine › Berührung › Das Nebensächliche",
+     "desc_en": "How the hands become impure › Source of impurity › What is impure by rabbinic law › Contact › Subsidiary parts"
+    },
+    {
+     "ref": "3:4",
+     "text": "גליון הספר",
+     "text_de": "Rand der Schriftrolle",
+     "text_en": "Margin of the scroll",
+     "desc": "כיצד הידים נטמאות › מקור הטומאה › הטמא מדרבנן › נגיעה › הטפילים",
+     "desc_de": "Wie die Hände unrein werden › Quelle der Unreinheit › Das rabbinisch Unreine › Berührung › Das Nebensächliche",
+     "desc_en": "How the hands become impure › Source of impurity › What is impure by rabbinic law › Contact › Subsidiary parts"
+    },
+    {
+     "ref": "3:5",
+     "text": "שמונים וחמש אותיות, שיר השירים,קהלת",
+     "text_de": "Fünfundachtzig Buchstaben, Hohelied, Kohelet",
+     "text_en": "Eighty-five letters, Song of Songs, Ecclesiastes",
+     "desc": "כיצד הידים נטמאות › מקור הטומאה › הטמא מדרבנן › נגיעה › הגדרת ספר",
+     "desc_de": "Wie die Hände unrein werden › Quelle der Unreinheit › Das rabbinisch Unreine › Berührung › Definition der Schriftrolle",
+     "desc_en": "How the hands become impure › Source of impurity › What is impure by rabbinic law › Contact › Definition of a scroll"
+    }
+   ]
+  },
+  {
+   "head": "פרק ד",
+   "head_de": "Kapitel 4",
+   "head_en": "Chapter 4",
+   "items": [
+    {
+     "ref": "4:1",
+     "text": "מדרס בערבה שנסדקה",
+     "text_de": "Betreten einer gespaltenen Ackerfläche (Arawa)",
+     "text_en": "Treading on a split field (Arava)",
+     "desc": "כיצד הידים נטמאות › מקור הטומאה › הלכות שנאמרו בו ביום",
+     "desc_de": "Wie die Hände unrein werden › Quelle der Unreinheit › Verordnungen, die an jenem Tag gelehrt wurden",
+     "desc_en": "How the hands become impure › Source of impurity › Rulings stated on that day"
+    },
+    {
+     "ref": "4:2",
+     "text": "הזבחים הפסולין שלא לשמן",
+     "text_de": "Untaugliche Schlachtopfer, die nicht in ihrem Namen dargebracht wurden",
+     "text_en": "Invalid sacrifices not offered for their own sake",
+     "desc": "כיצד הידים נטמאות › מקור הטומאה › הלכות שנאמרו בו ביום",
+     "desc_de": "Wie die Hände unrein werden › Quelle der Unreinheit › Verordnungen, die an jenem Tag gelehrt wurden",
+     "desc_en": "How the hands become impure › Source of impurity › Rulings stated on that day"
+    },
+    {
+     "ref": "4:3",
+     "text": "מעשר בעמון ומואב בשביעית",
+     "text_de": "Zehnt in Ammon und Moab im Sabbatjahr",
+     "text_en": "Tithe in Ammon and Moab in the Sabbatical year",
+     "desc": "כיצד הידים נטמאות › מקור הטומאה › הלכות שנאמרו בו ביום",
+     "desc_de": "Wie die Hände unrein werden › Quelle der Unreinheit › Verordnungen, die an jenem Tag gelehrt wurden",
+     "desc_en": "How the hands become impure › Source of impurity › Rulings stated on that day"
+    },
+    {
+     "ref": "4:4",
+     "text": "גר עמוני בזמן הזה",
+     "text_de": "Ammonitischer Proselyt in der heutigen Zeit",
+     "text_en": "Ammonite convert in the present time",
+     "desc": "כיצד הידים נטמאות › מקור הטומאה › הלכות שנאמרו בו ביום",
+     "desc_de": "Wie die Hände unrein werden › Quelle der Unreinheit › Verordnungen, die an jenem Tag gelehrt wurden",
+     "desc_en": "How the hands become impure › Source of impurity › Rulings stated on that day"
+    },
+    {
+     "ref": "4:5",
+     "text": "תרגום, שינוי שפה וכתב",
+     "text_de": "Übersetzung, Wechsel von Sprache und Schrift",
+     "text_en": "Translation, change of language and script",
+     "desc": "כיצד הידים נטמאות › מקור הטומאה › הטמא מדרבנן › נגיעה בספר › הגדרת ספר",
+     "desc_de": "Wie die Hände unrein werden › Quelle der Unreinheit › Das rabbinisch Unreine › Berühren einer Schriftrolle › Definition der Schriftrolle",
+     "desc_en": "How the hands become impure › Source of impurity › What is impure by rabbinic law › Touching a scroll › Definition of a scroll"
+    },
+    {
+     "ref": "4:6",
+     "text": "טעם לטומאת כתבי הקודש",
+     "text_de": "Grund für die Unreinheit der heiligen Schriften",
+     "text_en": "Reason for the impurity of the holy writings",
+     "desc": "כיצד הידים נטמאות › מקור הטומאה › הטמא מדרבנן › נגיעה בספר › טומאה וטהרה",
+     "desc_de": "Wie die Hände unrein werden › Quelle der Unreinheit › Das rabbinisch Unreine › Berühren einer Schriftrolle › Unreinheit und Reinheit",
+     "desc_en": "How the hands become impure › Source of impurity › What is impure by rabbinic law › Touching a scroll › Impurity and purity"
+    },
+    {
+     "ref": "4:7",
+     "text": "טהרת נצוק \\ נזקי עבד",
+     "text_de": "Reinheit des Gegossenen / Schäden durch einen Sklaven",
+     "text_en": "Purity of a poured stream / Damages caused by a slave",
+     "desc": "מחלוקות בין הצדוקים לפרושים › טומאה וטהרה",
+     "desc_de": "Streitfragen zwischen Sadduzäern und Pharisäern › Unreinheit und Reinheit",
+     "desc_en": "Disputes between Sadducees and Pharisees › Impurity and purity"
+    },
+    {
+     "ref": "4:8",
+     "text": "שם מלך בגט",
+     "text_de": "Name des Königs im Scheidebrief",
+     "text_en": "King's name in a bill of divorce",
+     "desc": "מחלוקות בין הצדוקים לפרושים",
+     "desc_de": "Streitfragen zwischen Sadduzäern und Pharisäern",
+     "desc_en": "Disputes between Sadducees and Pharisees"
+    }
+   ]
+  }
+ ]
+}
