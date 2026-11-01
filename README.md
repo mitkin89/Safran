@@ -110,10 +110,6 @@ Also bundled: the Westminster Leningrad Codex with morphology (OSHB), the Aleppo
   <sub>Short tour: commentary and dictionary pinned beside the text, and the outline panel of a book.</sub>
 </p>
 
-<p align="center">
-  <a href="screenshots/split-view-commentary-annotated.jpg"><img src="screenshots/split-view-commentary-annotated.jpg" alt="Two reading windows side by side: Genesis with Hirsch's translation and the German commentary panel on the left, Sanhedrin with English translation on the right" width="900"></a><br>
-  <sub>Two reading windows: Genesis with Hirsch's translation and Rashi in German on the left, Sanhedrin 12a with English translation on the right.</sub>
-</p>
 
 <p align="center">
   <a href="screenshots/dictionary-search.png"><img src="screenshots/dictionary-search.png" alt="Dictionary tab: one search in Levy and Krauss, recent searches on the left, favourites on the right" width="900"></a><br>

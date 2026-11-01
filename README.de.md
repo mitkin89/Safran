@@ -110,10 +110,6 @@ Ebenfalls enthalten: der Westminster Leningrad Codex mit Morphologie (OSHB), der
   <sub>Kurze Tour: Kommentar und Wörterbuch neben dem Text angepinnt, dazu die Gliederung eines Buchs.</sub>
 </p>
 
-<p align="center">
-  <a href="screenshots/split-view-commentary-annotated.jpg"><img src="screenshots/split-view-commentary-annotated.jpg" alt="Zwei Lesefenster nebeneinander: links Genesis mit Hirschs Übersetzung und deutschem Kommentarfenster, rechts Sanhedrin mit englischer Übersetzung" width="900"></a><br>
-  <sub>Zwei Lesefenster: links Genesis mit Hirschs Übersetzung und Raschi auf Deutsch, rechts Sanhedrin 12a mit englischer Übersetzung.</sub>
-</p>
 
 <p align="center">
   <a href="screenshots/dictionary-search.png"><img src="screenshots/dictionary-search.png" alt="Wörterbuch-Reiter: eine Suche in Levy und Krauss, links Letzte Suchen, rechts Favoriten" width="900"></a><br>
