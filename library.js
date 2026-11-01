@@ -4198,9 +4198,15 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
   try { const o = JSON.parse(localStorage.getItem('pins') || '{}'); for (const k in pins) if (typeof o[k] === 'boolean') pins[k] = o[k]; } catch { /* egal */ }
   const pinPair = (a, b) => (a === 'cmt' || a === 'dict') && (b === 'cmt' || b === 'dict');
   let pinBusy = false;
+  const pinVis = { cmt: false, dict: false }; // zuletzt gesehene Sichtbarkeit von Kommentaren/Wörterbuch
   function pinSync(anchor) {
     if (pinBusy) return; pinBusy = true;
     try {
+      { // beide nicht angepinnt: öffnet man das eine, schließt sich das andere (schwebend nie untereinander)
+        const vis = {}; for (const k of ['cmt', 'dict']) vis[k] = !$(PINS[k][0]).hidden;
+        if (anchor !== false) for (const k of ['cmt', 'dict']) { const o = k === 'cmt' ? 'dict' : 'cmt'; if (vis[k] && !pinVis[k] && !pins[k] && vis[o] && !pins[o]) { vis[o] = false; $(PINS[o][1]).click(); } }
+        Object.assign(pinVis, vis);
+      }
       const was = {}, now = {};
       for (const k in PINS) { const el = $(PINS[k][0]); was[k] = el.classList.contains('docked'); now[k] = !el.hidden && pins[k]; }
       const fresh = Object.keys(PINS).filter(k => now[k] && !was[k]);
