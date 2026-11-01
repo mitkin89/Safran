@@ -126,8 +126,8 @@ Also bundled: the Westminster Leningrad Codex with morphology (OSHB), the Aleppo
 </p>
 
 <p align="center">
-  <a href="screenshots/map-israel.png"><img src="screenshots/map-israel.png" alt="Map panel for Joshua 10 with the places of the chapter on a relief map, borders and a place note" width="900"></a><br>
-  <sub>Bible map: the places of the chapter on a relief map, with a note on the selected place.</sub>
+  <a href="screenshots/map-israel.png"><img src="screenshots/map-israel.png" alt="Map panel for Joshua 10 with the southern campaign route on a relief map, distances per leg and the places of the chapter" width="900"></a><br>
+  <sub>Bible map: the southern campaign of Joshua 10 as a route with distances, and all places of the chapter.</sub>
 </p>
 
 <!-- TODO gallery: capture the images below into screenshots/ and replace this comment with a 2-column <table> of thumbnails.
