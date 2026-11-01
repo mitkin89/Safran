@@ -53,7 +53,7 @@ Safran is a free desktop app that keeps your texts on your own computer. Pick th
 </tr>
 <tr>
 <td valign="top"><b>⧉ Second reading window</b><br>Two books side by side, each with its own tabs, history and commentary panel. Page both windows together.</td>
-<td valign="top"><b>📜 Manuscripts and versions</b><br>Aleppo Codex, Qumran scrolls, Septuagint with the Hebrew counterpart per word group, Targum Pseudo-Jonathan and Neofiti with morphology, parallel passages, Sefaria's link data.</td>
+<td valign="top"><b>📜 Manuscripts and versions</b><br>Aleppo Codex, Qumran scrolls, Septuagint with the Hebrew counterpart per word group: an <b>LXX–MT comparison</b> that marks pluses, minuses and alignment (interlinear switchable), Targum Pseudo-Jonathan and Neofiti with morphology, parallel passages, Sefaria's link data.</td>
 </tr>
 <tr>
 <td valign="top"><b>🗺 Bible map and outlines</b><br>The places of each chapter on a map of Israel with distances and elevation profile, a detailed 1865 map of Jerusalem, outlines for 39 books with a 613 Mitzvot switch, and topics.</td>
