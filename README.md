@@ -106,6 +106,11 @@ Also bundled: the Westminster Leningrad Codex with morphology (OSHB), the Aleppo
 ## Screenshots
 
 <p align="center">
+  <img src="screenshots/safran-tour.gif" alt="Short tour: open Genesis, show the commentary, double-click a word and look it up in the dictionary" width="900"><br>
+  <sub>Short tour: open a book, read the commentary, double-click a word, and the dictionary opens.</sub>
+</p>
+
+<p align="center">
   <a href="screenshots/split-view-commentary-annotated.jpg"><img src="screenshots/split-view-commentary-annotated.jpg" alt="Two reading windows side by side: Genesis with Hirsch's translation and the German commentary panel on the left, Sanhedrin with English translation on the right" width="900"></a><br>
   <sub>Two reading windows: Genesis with Hirsch's translation and Rashi in German on the left, Sanhedrin 12a with English translation on the right.</sub>
 </p>
@@ -135,16 +140,6 @@ Also bundled: the Westminster Leningrad Codex with morphology (OSHB), the Aleppo
   <sub>Jerusalem on the 1865 Ordnance Survey map: the gates of Nehemiah 3, switchable layers, and a note per place.</sub>
 </p>
 
-<!-- TODO gallery: capture the images below into screenshots/ and replace this comment with a 2-column <table> of thumbnails.
-     Settings for all captures: macOS, dark theme, window 1600×1000, UI size 100 %, SBL Hebrew installed, no annotations, JPEG q80 or optimised PNG, ≤ 400 KB each.
-     1. dictionary-fulltext.jpg (optional: a version with "auch im Text" ticked; dictionary-search.png is already in)   – Wörterbuch tab, query "אפוטרופוס", "auch im Text" ticked, 📚 showing "3 von 6", hits in Levy, Jastrow and Krauss with highlights, recent searches and favourites visible.
-     2. dictionary-headwords.jpg  – a Krauss article with an abbreviation tooltip open and the ☰ Stichwörter list popped up.
-     3. morphology.jpg            – OSHB column, one word clicked, the morphology popup and the BDB entry in the dictionary panel.
-     4. search-advanced.jpg       – Suche tab, "anf* · gott · erd*" with distance 10, result chips per book.
-     5. map-israel.jpg            – 🗺 map for Joshua 10 with routes and an elevation profile open.
-     6. map-jerusalem.jpg         – 🏛 Jerusalem map (Wilson 1865) at high zoom with a place note.
-     7. safran-tour.gif           – 10–15 s, ≤ 3 MB: open Genesis → Cmd+K → double-click a word → dictionary → pin the panel.
--->
 
 ## FAQ
 

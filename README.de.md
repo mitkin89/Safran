@@ -106,6 +106,11 @@ Ebenfalls enthalten: der Westminster Leningrad Codex mit Morphologie (OSHB), der
 ## Bildschirmfotos
 
 <p align="center">
+  <img src="screenshots/safran-tour.gif" alt="Kurze Tour: Genesis öffnen, Kommentar zeigen, ein Wort doppelklicken und im Wörterbuch nachschlagen" width="900"><br>
+  <sub>Kurze Tour: Buch öffnen, Kommentar lesen, Wort doppelklicken, und das Wörterbuch öffnet sich.</sub>
+</p>
+
+<p align="center">
   <a href="screenshots/split-view-commentary-annotated.jpg"><img src="screenshots/split-view-commentary-annotated.jpg" alt="Zwei Lesefenster nebeneinander: links Genesis mit Hirschs Übersetzung und deutschem Kommentarfenster, rechts Sanhedrin mit englischer Übersetzung" width="900"></a><br>
   <sub>Zwei Lesefenster: links Genesis mit Hirschs Übersetzung und Raschi auf Deutsch, rechts Sanhedrin 12a mit englischer Übersetzung.</sub>
 </p>
@@ -135,16 +140,6 @@ Ebenfalls enthalten: der Westminster Leningrad Codex mit Morphologie (OSHB), der
   <sub>Jerusalem auf der Karte von 1865: die Tore aus Nehemia 3, einschaltbare Ebenen und eine Notiz je Ort.</sub>
 </p>
 
-<!-- TODO Galerie: die folgenden Aufnahmen in screenshots/ ablegen und diesen Kommentar durch eine zweispaltige <table> mit Vorschaubildern ersetzen.
-     Einstellungen für alle Aufnahmen: macOS, dunkles Thema, Fenster 1600×1000, Größe 100 %, SBL Hebrew installiert, ohne Beschriftungen, JPEG q80 oder optimiertes PNG, je ≤ 400 KB.
-     1. dictionary-fulltext.jpg   – Reiter Wörterbuch, Suchwort „אפוטרופוס“, Häkchen „auch im Text“, 📚 zeigt „3 von 6“, Treffer in Levy, Jastrow und Krauss mit Hervorhebung, Letzte Suchen und Favoriten sichtbar.
-     2. dictionary-headwords.jpg  – ein Krauss-Artikel mit geöffnetem Abkürzungs-Tooltip und aufgeklappter Stichwortliste ☰.
-     3. morphology.jpg            – OSHB-Spalte, ein Wort angeklickt, Morphologie-Popup und BDB-Eintrag im Wörterbuchfenster.
-     4. search-advanced.jpg       – Reiter Suche, „anf* · gott · erd*“ mit Abstand 10, Trefferchips je Buch.
-     5. map-israel.jpg            – 🗺 Karte zu Josua 10 mit Routen und geöffnetem Höhenprofil.
-     6. map-jerusalem.jpg         – 🏛 Jerusalem-Karte (Wilson 1865) stark gezoomt mit einer Ortsnotiz.
-     7. safran-tour.gif           – 10–15 s, ≤ 3 MB: Genesis öffnen → Cmd+K → Doppelklick auf ein Wort → Wörterbuch → Fenster anpinnen.
--->
 
 ## Häufige Fragen
 
