@@ -64,20 +64,32 @@ async function downloadFile(fetchFn, url, dest, onBytes, isCancelled) {
   await pipeline(src, fss.createWriteStream(dest));
 }
 
+// Lädt die gewählten Bücher nacheinander. Ein fehlgeschlagenes Buch bricht den Lauf nicht ab: es wird einmal neu geladen
+// (Größe wird gegen die Angabe im Release geprüft); scheitert es erneut, steht es in „failed“ und die übrigen werden trotzdem geladen.
 async function fetchBooks({ fetchFn, items, dir, onProgress, isCancelled }) {
   await fs.mkdir(dir, { recursive: true });
-  let files = 0;
+  let files = 0; const failed = [];
   for (let i = 0; i < items.length; i++) {
-    const it = items[i], tmp = path.join(dir, '.dl-' + it.name);
+    const it = items[i], tmp = path.join(dir, '.dl-' + process.pid + '-' + Date.now() + '-' + it.name);
     const prog = (phase, extra) => onProgress && onProgress({ i, n: items.length, book: it.book, phase, ...extra });
-    try {
-      prog('Lade', { got: 0, total: it.size });
-      await downloadFile(fetchFn, it.url, tmp, (got, total) => prog('Lade', { got, total: total || it.size }), isCancelled);
-      prog('Entpacke', {});
-      files += await unzip(tmp, dir, (d, n) => prog('Entpacke', { d, nf: n }), isCancelled);
-    } finally { await fs.unlink(tmp).catch(() => {}); }
+    let lastErr = null;
+    for (let attempt = 0; attempt < 2; attempt++) {
+      try {
+        prog('Lade', { got: 0, total: it.size });
+        await downloadFile(fetchFn, it.url, tmp, (got, total) => prog('Lade', { got, total: total || it.size }), isCancelled);
+        const have = (await fs.stat(tmp)).size;
+        if (it.size && have !== it.size) throw new Error(`Download unvollständig (${have} von ${it.size} Bytes)`);
+        prog('Entpacke', {});
+        files += await unzip(tmp, dir, (d, n) => prog('Entpacke', { d, nf: n }), isCancelled);
+        lastErr = null; break;
+      } catch (err) {
+        lastErr = err;
+        if (isCancelled && isCancelled()) throw err;
+      } finally { await fs.unlink(tmp).catch(() => {}); }
+    }
+    if (lastErr) failed.push({ book: it.book, error: lastErr.message });
   }
-  return files;
+  return { files, failed };
 }
 
 module.exports = { listAssets, unzip, fetchBooks, bookOf, TAG, REPO };

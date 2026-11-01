@@ -677,10 +677,15 @@ ipcMain.handle('audio:get', async (e, items) => {
   const dir = path.join(app.getPath('userData'), 'audio');
   const list = (Array.isArray(items) ? items : []).filter(i => i && /^Audio_.+\.zip$/i.test(i.name) && /^https:\/\/(github\.com|objects\.githubusercontent\.com)\//.test(String(i.url)));
   try {
-    const n = await AUD.fetchBooks({ fetchFn: (u, o) => net.fetch(u, o), items: list, dir, isCancelled: () => audioCancel, onProgress: p => { if (!e.sender.isDestroyed()) e.sender.send('audio:progress', p); } });
-    await fs.writeFile(audioFile(), dir);
-    return { ...(await audioIndex()), downloaded: n };
-  } catch (err) { return { ...(await audioIndex()), error: err.message }; }
+    const { files: n, failed } = await AUD.fetchBooks({ fetchFn: (u, o) => net.fetch(u, o), items: list, dir, isCancelled: () => audioCancel, onProgress: p => { if (!e.sender.isDestroyed()) e.sender.send('audio:progress', p); } });
+    await fs.writeFile(audioFile(), dir); // auch bei teilweisem Erfolg: schon geladene Bücher sind sofort nutzbar
+    const r = { ...(await audioIndex()), downloaded: n };
+    if (failed.length) r.error = failed.map(f => f.book + ': ' + f.error).join('; ');
+    return r;
+  } catch (err) {
+    try { if ((await fs.readdir(dir)).some(f => /\.(mp3|m4a|wav|ogg|aac)$/i.test(f))) await fs.writeFile(audioFile(), dir); } catch { /* kein Ordner */ }
+    return { ...(await audioIndex()), error: err.message };
+  }
 });
 ipcMain.handle('audio:stop', () => { audioCancel = true; });
 ipcMain.handle('audio:clear', async () => { try { await fs.unlink(audioFile()); } catch { /* egal */ } return audioIndex(); });

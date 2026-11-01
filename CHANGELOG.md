@@ -1,6 +1,7 @@
 # Changelog
 
 ### New in 1.9.5
+- **Audio download:** a book that fails no longer aborts the whole download – each download is checked against its size in the release and retried once, the other books are still loaded, the failed ones are named in the message, and books that are already loaded are usable right away (the audio folder is remembered even after a partial download).
 - **Hebrew in commentaries:** Hebrew words inside German/English commentary and text columns are now set in SBL Hebrew, like everywhere else.
 - **Hirsch on Isaiah (German):** Julius Hirsch's *Jesaia* – the translation (under Isaiah, 1291 verses, divided verse by verse exactly like Sefaria) and the commentary as a separate text (without the Hebrew Bible text).
 - **Breuer on Ezekiel and Breuer on Ezra (German):** Joseph Breuer's commentary on Ezekiel (1921; commentary only, 876 verses, with the four plans/figures embedded) and Raphael Breuer's *Esra* (1933): the translation sits under Ezra, divided verse by verse like Sefaria, the commentary is a separate text (introduction and foreword left out).
