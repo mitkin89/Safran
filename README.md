@@ -125,6 +125,11 @@ Also bundled: the Westminster Leningrad Codex with morphology (OSHB), the Aleppo
   <sub>Advanced search: wildcards and words near each other, a chart of hits per book, and a category filter.</sub>
 </p>
 
+<p align="center">
+  <a href="screenshots/map-israel.png"><img src="screenshots/map-israel.png" alt="Map panel for Joshua 10 with the places of the chapter on a relief map, borders and a place note" width="900"></a><br>
+  <sub>Bible map: the places of the chapter on a relief map, with a note on the selected place.</sub>
+</p>
+
 <!-- TODO gallery: capture the images below into screenshots/ and replace this comment with a 2-column <table> of thumbnails.
      Settings for all captures: macOS, dark theme, window 1600×1000, UI size 100 %, SBL Hebrew installed, no annotations, JPEG q80 or optimised PNG, ≤ 400 KB each.
      1. dictionary-fulltext.jpg (optional: a version with "auch im Text" ticked; dictionary-search.png is already in)   – Wörterbuch tab, query "אפוטרופוס", "auch im Text" ticked, 📚 showing "3 von 6", hits in Levy, Jastrow and Krauss with highlights, recent searches and favourites visible.

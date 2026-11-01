@@ -125,6 +125,11 @@ Ebenfalls enthalten: der Westminster Leningrad Codex mit Morphologie (OSHB), der
   <sub>Erweiterte Suche: Platzhalter und Wörter in der Nähe, Diagramm der Treffer je Buch und Kategorienfilter.</sub>
 </p>
 
+<p align="center">
+  <a href="screenshots/map-israel.png"><img src="screenshots/map-israel.png" alt="Kartenfenster zu Josua 10 mit den Orten des Kapitels auf einer Reliefkarte, Grenzen und Ortsnotiz" width="900"></a><br>
+  <sub>Bibelkarte: die Orte des Kapitels auf einer Reliefkarte, dazu eine Notiz zum gewählten Ort.</sub>
+</p>
+
 <!-- TODO Galerie: die folgenden Aufnahmen in screenshots/ ablegen und diesen Kommentar durch eine zweispaltige <table> mit Vorschaubildern ersetzen.
      Einstellungen für alle Aufnahmen: macOS, dunkles Thema, Fenster 1600×1000, Größe 100 %, SBL Hebrew installiert, ohne Beschriftungen, JPEG q80 oder optimiertes PNG, je ≤ 400 KB.
      1. dictionary-fulltext.jpg   – Reiter Wörterbuch, Suchwort „אפוטרופוס“, Häkchen „auch im Text“, 📚 zeigt „3 von 6“, Treffer in Levy, Jastrow und Krauss mit Hervorhebung, Letzte Suchen und Favoriten sichtbar.
