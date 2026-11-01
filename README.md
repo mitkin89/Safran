@@ -106,8 +106,8 @@ Also bundled: the Westminster Leningrad Codex with morphology (OSHB), the Aleppo
 ## Screenshots
 
 <p align="center">
-  <img src="screenshots/safran-tour.gif" alt="Short tour: open Genesis, show the commentary, double-click a word and look it up in the dictionary" width="900"><br>
-  <sub>Short tour: open a book, read the commentary, double-click a word, and the dictionary opens.</sub>
+  <img src="screenshots/safran-tour.gif" alt="Short tour: Genesis with commentary and dictionary pinned beside the text, then the outline of Jeremiah" width="900"><br>
+  <sub>Short tour: commentary and dictionary pinned beside the text, and the outline panel of a book.</sub>
 </p>
 
 <p align="center">

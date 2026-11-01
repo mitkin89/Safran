@@ -106,8 +106,8 @@ Ebenfalls enthalten: der Westminster Leningrad Codex mit Morphologie (OSHB), der
 ## Bildschirmfotos
 
 <p align="center">
-  <img src="screenshots/safran-tour.gif" alt="Kurze Tour: Genesis öffnen, Kommentar zeigen, ein Wort doppelklicken und im Wörterbuch nachschlagen" width="900"><br>
-  <sub>Kurze Tour: Buch öffnen, Kommentar lesen, Wort doppelklicken, und das Wörterbuch öffnet sich.</sub>
+  <img src="screenshots/safran-tour.gif" alt="Kurze Tour: Genesis mit angepinntem Kommentar und Wörterbuch neben dem Text, dann die Gliederung von Jeremia" width="900"><br>
+  <sub>Kurze Tour: Kommentar und Wörterbuch neben dem Text angepinnt, dazu die Gliederung eines Buchs.</sub>
 </p>
 
 <p align="center">
