@@ -122,6 +122,11 @@ Also bundled: the Westminster Leningrad Codex with morphology (OSHB), the Aleppo
 </p>
 
 <p align="center">
+  <a href="screenshots/lxx-comparison.png"><img src="screenshots/lxx-comparison.png" alt="Genesis 1:20 with the Qumran scrolls on the left and the Septuagint on the right; each Greek word group has its Hebrew counterpart above it, and a clicked plus of the Septuagint shows its likely Hebrew retroversion" width="900"></a><br>
+  <sub>LXX–MT comparison: the Hebrew counterpart above every Greek word group, pluses and minuses of the Septuagint marked, and a click on a plus shows the likely Hebrew retroversion.</sub>
+</p>
+
+<p align="center">
   <a href="screenshots/search-advanced.png"><img src="screenshots/search-advanced.png" alt="Search tab: anf*, gott and erd* within 10 words, distribution chart per book, hits by book and category filter" width="900"></a><br>
   <sub>Advanced search: wildcards and words near each other, a chart of hits per book, and a category filter.</sub>
 </p>

@@ -122,6 +122,11 @@ Ebenfalls enthalten: der Westminster Leningrad Codex mit Morphologie (OSHB), der
 </p>
 
 <p align="center">
+  <a href="screenshots/lxx-comparison.png"><img src="screenshots/lxx-comparison.png" alt="Genesis 1,20 mit den Qumran-Rollen links und der Septuaginta rechts; über jeder griechischen Wortgruppe steht das hebräische Gegenstück, ein angeklicktes Plus der Septuaginta zeigt die vermutliche hebräische Vorlage" width="900"></a><br>
+  <sub>LXX-MT-Vergleich: über jeder griechischen Wortgruppe das hebräische Gegenstück, Plus und Minus der Septuaginta markiert, per Klick auf ein Plus die vermutliche hebräische Vorlage.</sub>
+</p>
+
+<p align="center">
   <a href="screenshots/search-advanced.png"><img src="screenshots/search-advanced.png" alt="Suche: anf*, gott und erd* höchstens 10 Wörter auseinander, Verteilung auf die Bücher, Treffer nach Buch und Kategorienfilter" width="900"></a><br>
   <sub>Erweiterte Suche: Platzhalter und Wörter in der Nähe, Diagramm der Treffer je Buch und Kategorienfilter.</sub>
 </p>
