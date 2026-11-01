@@ -44,7 +44,7 @@
       "!README.md",
       "!screenshots/**",
       "!ud/**",
-      "!bundled/manifest.private.json",
+      "!bundled/manifest.private*.json",
       "!bundled/own/Alter on */**",
       "!bundled/own/Rational Bible on */**",
       "!bundled/own/*/de/Zürcher Bibel (2007).json",
