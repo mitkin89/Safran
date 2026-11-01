@@ -228,6 +228,7 @@
     // ----- Willkommen / Exportieren / Eigene Texte -----
     'Willkommen bei Safran': 'Welcome to Safran', 'Sefaria-Bibliothek': 'Sefaria library',
     'mit Tanach, Talmud, Mischna, Midrasch und Kommentaren ist noch nicht heruntergeladen.': 'with Tanakh, Talmud, Mishnah, Midrash and commentaries has not been downloaded yet.',
+    'Zusätzlich im Reiter „Herunterladen“ (optional): <b>Verknüpfungen</b> (Kommentare, Zitate und Parallelstellen zu jedem Vers, etwa 680 MB), <b>Themen</b> (Personen, Orte, Begriffe, Feiertage) und <b>Audio</b> (hebräische Lesung des Tanach, pro Buch ein Paket).': 'Also available in the “Download” tab (optional): <b>Links</b> (commentaries, quotations and parallel passages for every verse, about 680 MB), <b>Topics</b> (people, places, concepts, holidays) and <b>Audio</b> (Hebrew reading of the Tanakh, one package per book).',
     'Du wählst selbst, welche Bücher und Sprachen du brauchst. Der Katalog hat etwa 22 MB, die Texte kommen danach einzeln dazu. Das geht auch später im Reiter „Herunterladen“ (Menü ⋯).': 'You choose which books and languages you need. The catalog is about 22 MB; the texts come afterwards, one by one. You can also do this later in the “Download” tab (menu ⋯).',
     'Nicht mehr fragen': 'Don’t ask again', 'Bibliothek jetzt auswählen …': 'Choose library now …',
     'Abschnitt exportieren': 'Export section', 'Format': 'Format', 'Word (.doc)': 'Word (.doc)', 'Zeilen von': 'Lines from', 'bis': 'to', 'alle': 'all',
