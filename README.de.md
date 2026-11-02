@@ -23,6 +23,11 @@
   <sub>Genesis 1: Hebräisch und Deutsch (Zunz) nebeneinander, rechts Raschi auf Deutsch im Kommentarfenster.</sub>
 </p>
 
+<p align="center">
+  <a href="https://www.youtube.com/watch?v=_htLzC7Q3Ug"><img src="https://img.youtube.com/vi/_htLzC7Q3Ug/maxresdefault.jpg" alt="Safran-Überblicksvideo auf YouTube ansehen" width="600"></a><br>
+  <sub>▶ Überblicksvideo auf YouTube ansehen</sub>
+</p>
+
 Safran ist eine kostenlose Desktop-App, die deine Texte auf dem eigenen Rechner hält. Du wählst einmal die Bücher und Sprachen aus der [Sefaria](https://www.sefaria.org)-Bibliothek und liest, durchsuchst und kommentierst sie danach ohne Internetverbindung. Dazu bringt Safran **238 deutsche Übersetzungen und Kommentare** mit, die es sonst kaum gibt, und **sechs Wörterbücher** mit über 85.000 Einträgen. Safran ist ein unabhängiges Projekt und nicht mit Sefaria verbunden.
 
 ## Warum Safran?
