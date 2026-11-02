@@ -4657,7 +4657,7 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
       applyDisp(false);
       await loadNotes();
       await restoreSession();
-      if (!tabs.length && !document.documentElement.classList.contains('pane2')) newTab(); // Safran startet nie leer
+      if (!tabs.length) newTab(); // Safran startet nie leer – auch das zweite Fenster öffnet gleich in einem Tab
       await refreshCatalog();
       maybeWelcome();
     } catch (err) {
