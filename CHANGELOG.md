@@ -1,7 +1,14 @@
 # Changelog
 
-### New in 1.9.8
+### New in 1.9.9
 - **Torah in German – Lazarus Goldschmidt (Berlin 1921):** the translation of Genesis, Exodus, Leviticus, Numbers and Deuteronomy (5,846 verses, divided verse by verse exactly like Sefaria), added as a further version under each book. Digitized by Chaim Guski.
+- **Safran never starts empty:** there is always a tab open – at start, in the second window, and after closing the last tab. As long as no Sefaria texts are downloaded, the new tab shows a short guide (⋯ → Download… → load the catalog → select → download).
+- **Second window restores its session:** its tabs and texts come back at the next start, separately from the main window.
+- **Sync (⇅) in four steps:** off, both windows lead each other, only the left window leads, only the right window leads. Each click on the button switches to the next step; the choice is remembered.
+- **Sync by click:** a click on a verse – also on the empty area of the row or in the German text – takes the other window to that verse. The verse lights up briefly, but only if the other window actually has it (e.g. not when an open commentary has no entry for it).
+- **More room for the text:** while the commentary bar is open, the reading area now starts at the left edge instead of being centred.
+
+### New in 1.9.8
 - **New German texts – Raphael Breuer:** *Josua* (1915), *Richter (Schofetim)* and *Nehemia*, each translation divided verse by verse like Sefaria (under Joshua, Judges, Nehemiah) and the commentary as a separate text (Breuer on Joshua / Judges / Nehemiah, without the Hebrew Bible text).
 - **New German texts – Julius Hirsch, *Trei Asar*:** the twelve minor prophets (Hosea to Malachi) – translation under each book (1,045 of 1,050 verses, divided like Sefaria) and the commentary as a separate text (Hirsch on Hosea … Malachi) with the introductions to the books. Gaps in the scan: Hosea 9:2–3 and Amos 7:15–17 are missing; small Hebrew vowel signs in the commentary are not yet fully proofread.
 - **Audio:** no more folder choice – the download always goes to one fixed folder of Safran (on Windows `%APPDATA%\Sefaria\audio`) and is used automatically. Your own audio files can be put into the same folder. A folder chosen in an earlier version keeps working until you download again.
