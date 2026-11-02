@@ -358,6 +358,9 @@ dialog { background: var(--card); color: var(--fg); border: 1px solid var(--line
 #suggest .si .muted { margin-left: auto; font-size: 12px; }
 #suggest .si:hover, #suggest .si.on { background: color-mix(in srgb, var(--accent, #4a7bd0) 18%, transparent); }
 .newtab img.logo { margin: 0 0 18px; }
+#startGuide { max-width: 640px; margin: 18px 0 0; text-align: left; }
+#startGuide h3 { margin: 0 0 8px; font-size: 16px; }
+#startGuide ol { margin: 0 0 10px; padding-left: 22px; line-height: 1.7; }
 
 /* Kommentarleiste: Breite per Ziehen, Schriftgröße per A−/A+ */
 #cmtResize { position: fixed; top: 57px; bottom: 0; right: calc(var(--cmt-off, 0px) + var(--cmt-w, 400px)); width: 8px; margin-right: -4px; cursor: col-resize; z-index: 21; }

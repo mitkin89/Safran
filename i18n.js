@@ -322,6 +322,12 @@
   };
 
   const HTML = {
+    g0: 'How to get your books',
+    g1: 'Click <b>⋯</b> at the top right and choose <b>⬇ Download…</b>',
+    g2: 'Click <b>Katalog laden / aktualisieren</b> (load/update catalog; once, about 22 MB).',
+    g3: 'Under <b>Auswahl</b> (selection) pick the languages and books you want offline, e.g. Tanakh, Mishnah, Talmud, Rashi.',
+    g4: 'Click <b>Herunterladen</b> (download). The books then appear in the list on the left.',
+    g5: 'Add your own texts (TXT, Word, CSV, JSON) via <b>⋯ → ＋ Eigener Text…</b>.',
     h1: 'Choose a book on the left. Nothing downloaded yet? In the <b>Download</b> tab you can choose books and languages.',
     h2: '<b>Wildcards:</b> <code>*</code> stands for any number of letters, <code>?</code> for exactly one. <code>anf*</code> finds Anfang, Anfänge, anfangen; <code>m?er</code> finds Meer and Mehr. Without wildcards the word must match completely (<code>gott</code> finds “Gott” but not “Gottes” – use <code>gott*</code> for that).',
     h3: '<b>Fuzzy:</b> also finds similarly spelled words, e.g. for typos, transliterations or old spellings. Words with 4–6 letters may differ by one letter, words with 7 or more by two; shorter words must match exactly. One difference is a wrong, missing or extra letter. Accents and umlauts are ignored. Examples:',
