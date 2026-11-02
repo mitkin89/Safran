@@ -488,9 +488,15 @@
     return `<div class="cell" data-k="${d.entry.kind}" dir="${rtl ? 'rtl' : 'ltr'}"><div class="txt">${hit ? markHits(linked, hit) : linked}</div></div>`;
   }
 
-  let syncPane = false; // Gleichlauf: Blättern im Hauptfenster blättert im zweiten Fenster mit
+  // Gleichlauf: 'off' | 'both' (beide führen) | 'left' (links führt, rechts folgt) | 'right' (rechts führt, links folgt)
+  let syncMode = 'off', p2Mode = 'off'; // Zustand im Hauptfenster / Kopie im zweiten Fenster
+  try { const sm = localStorage.getItem('syncMode'); if (['off', 'both', 'left', 'right'].includes(sm)) syncMode = sm; } catch { /* egal */ }
+  const SYNC_MODES = ['off', 'both', 'left', 'right'];
+  const myMode = () => (document.documentElement.classList.contains('pane2') ? p2Mode : syncMode);
+  const canSend = () => { const m = myMode(), p = document.documentElement.classList.contains('pane2'); return m === 'both' || (m === 'left' && !p) || (m === 'right' && p); };
+  const canRecv = () => { const m = myMode(), p = document.documentElement.classList.contains('pane2'); return m === 'both' || (m === 'left' && p) || (m === 'right' && !p); };
   function renderSection(rowLabel, quiet) {
-    if (!IS_PANE2 && syncPane && view && p2Frame && !p2Frame.hidden && p2Frame.contentWindow) p2Frame.contentWindow.postMessage({ type: 'sync', idx: view.idx, title: view.group ? view.group.title : '' }, '*');
+    if (!IS_PANE2 && canSend() && view && p2Frame && !p2Frame.hidden && p2Frame.contentWindow) p2Frame.contentWindow.postMessage({ type: 'sync', idx: view.idx, title: view.group ? view.group.title : '' }, '*');
     const s = view.sections[view.idx];
     $('#rSection').value = String(view.idx);
     fitSection();
@@ -2372,15 +2378,15 @@
       if (e.source !== window.parent) return;
       if (m.type === 'find') openFind();
       else if (m.type === 'closeTab') { if (tabIdx >= 0) closeTab(tabIdx); }
-      else if (m.type === 'syncState') p2SyncOn = !!m.on;
-      else if (m.type === 'syncScroll') applySyncScroll(m);
-      else if (m.type === 'sync') { if (view && view.group && relatedTitles(view.group.title, m.title) && m.idx < view.sections.length && m.idx !== view.idx) { view.idx = m.idx; renderSection(); } }
+      else if (m.type === 'syncState') p2Mode = SYNC_MODES.includes(m.mode) ? m.mode : 'off';
+      else if (m.type === 'syncScroll') { if (canRecv()) applySyncScroll(m); }
+      else if (m.type === 'sync') { if (canRecv() && view && view.group && relatedTitles(view.group.title, m.title) && m.idx < view.sections.length && m.idx !== view.idx) { view.idx = m.idx; renderSection(); } }
       else if (m.type === 'dict' && typeof m.q === 'string') openDict(m.q.slice(0, 100)); // Nachschlagen aus dem ersten Fenster
       else if (m.type === 'jump' && typeof m.ref === 'string') jumpTo(m.ref, tabs.some(t => t.group)); // Kommentar aus dem ersten Fenster
       else if (m.type === 'open' && typeof m.key === 'string') { const g = groupsByKey.get(m.key); if (g) openGroup(g, { rel: typeof m.rel === 'string' ? m.rel : undefined, sectionPath: m.sectionPath, rowLabel: m.rowLabel }, tabs.some(t => t.group)); } // schon ein Buch offen: neuer Tab
     } else if (e.source === p2Frame.contentWindow) {
-      if (m.type === 'ready') { p2Ready = true; p2Post({ type: 'syncState', on: syncPane }); }
-      else if (m.type === 'syncScroll') { if (syncPane) applySyncScroll(m); }
+      if (m.type === 'ready') { p2Ready = true; p2Post({ type: 'syncState', mode: syncMode }); }
+      else if (m.type === 'syncScroll') { if (canRecv()) applySyncScroll(m); }
       else if (m.type === 'close') setSplit(false);
     }
   });
@@ -2399,7 +2405,25 @@
   }
   if (!IS_PANE2) {
     $('#splitBtn').onclick = () => setSplit(p2Frame.hidden);
-    $('#syncBtn').onclick = () => { syncPane = !syncPane; $('#syncBtn').setAttribute('aria-pressed', String(syncPane)); p2Post({ type: 'syncState', on: syncPane }); if (syncPane) renderSection(); };
+    const SYNC_UI = {
+      off: ['⇅', 'Gleichlauf', 'Gleichlauf: aus. Klick: beide Fenster führen sich gegenseitig'],
+      both: ['⇅', 'Gleichlauf', 'Gleichlauf: beide Fenster führen sich gegenseitig. Klick: nur das linke führt'],
+      left: ['⇉', 'Links führt', 'Gleichlauf: das linke Fenster führt, das rechte folgt. Klick: nur das rechte führt'],
+      right: ['⇇', 'Rechts führt', 'Gleichlauf: das rechte Fenster führt, das linke folgt. Klick: Gleichlauf aus'],
+    };
+    const applySyncUi = () => {
+      const b = $('#syncBtn'), u = SYNC_UI[syncMode];
+      b.firstChild.nodeValue = u[0]; const T = s => (window.I18N && window.I18N.tr ? window.I18N.tr(s) : s);
+      b.querySelector('.bl').textContent = T(u[1]);
+      b.title = T(u[2]); b.setAttribute('aria-pressed', String(syncMode !== 'off')); b.dataset.mode = syncMode;
+    };
+    applySyncUi();
+    $('#syncBtn').onclick = () => {
+      syncMode = SYNC_MODES[(SYNC_MODES.indexOf(syncMode) + 1) % SYNC_MODES.length];
+      try { localStorage.setItem('syncMode', syncMode); } catch { /* egal */ }
+      applySyncUi(); p2Post({ type: 'syncState', mode: syncMode });
+      if (canSend()) renderSection();
+    };
     $('#splitter').addEventListener('mousedown', ev => {
       ev.preventDefault(); root.classList.add('dragging');
       const mv = e2 => { p2w = Math.min(75, Math.max(25, ((window.innerWidth - e2.clientX) / window.innerWidth) * 100)); root.style.setProperty('--p2w', p2w + 'vw'); };
@@ -2416,7 +2440,7 @@
     }, true);
   }
   // Gleichlauf beim Scrollen (in beide Richtungen): die oberste sichtbare Zeile wird im anderen Fenster an dieselbe Stelle gebracht
-  let p2SyncOn = false, syncQuiet = 0, syncTimer = null;
+  let syncQuiet = 0, syncTimer = null;
   const syncTop = () => (parseFloat(getComputedStyle($('#rOut')).getPropertyValue('--stick-top')) || 100) + 6;
   // Gleichlauf nur bei Texten, die sich auf dieselbe Stelle beziehen: gleiches Buch oder ein Titel enthält den anderen (z. B. „Rashi on Genesis“ und „Genesis“)
   function applySyncScroll(m) {
@@ -2435,7 +2459,7 @@
   }
   // Gleichlauf auch per Klick: ein Klick auf einen Vers (auch auf freie Fläche oder in den deutschen Text) bringt das andere Fenster zu diesem Vers
   document.addEventListener('click', e => {
-    if (!(IS_PANE2 ? p2SyncOn : syncPane) || !view || !view.group) return;
+    if (!canSend() || !view || !view.group) return;
     if (e.target.closest('a, button, input, textarea, select, summary, label, [data-ref], [data-rel], .wordpop')) return; // eigene Funktion
     const sel = window.getSelection && window.getSelection(); if (sel && String(sel).length) return; // Text wird markiert
     const r = e.target.closest('#rOut .row[data-l]'); if (!r) return;
@@ -2444,7 +2468,7 @@
     if (IS_PANE2) window.parent.postMessage(msg, '*'); else p2Post(msg);
   });
   window.addEventListener('scroll', () => {
-    if (!(IS_PANE2 ? p2SyncOn : syncPane) || Date.now() < syncQuiet || !view || !view.group) return;
+    if (!canSend() || Date.now() < syncQuiet || !view || !view.group) return;
     clearTimeout(syncTimer);
     syncTimer = setTimeout(() => {
       const top = syncTop();
