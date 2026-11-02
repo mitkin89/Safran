@@ -863,3 +863,7 @@ body:has(#findBar:not([hidden])) #olBody { padding-bottom: 56px; }
   html[data-tab=dict]:not(.split) #dictSaved .dchip { justify-content: space-between; border-radius: 6px; padding: 1px 4px 1px 8px; }
   html[data-tab=dict]:not(.split) #dictSaved .dchip button { opacity: .5; }
 }
+
+/* Gleichlauf per Klick: Vers im anderen Fenster kurz hervorheben */
+@keyframes syncflash { 0% { background: color-mix(in srgb, var(--accent, #4a7bd0) 35%, transparent); } 100% { background: transparent; } }
+.row.syncflash { animation: syncflash 1.4s ease-out; }

@@ -2431,7 +2431,18 @@
     const r = rows.find(x => x.dataset.l === m.label) || (v != null ? (rows.find(x => rowVerse(x.dataset.l) === v) || rows.find(x => (rowVerse(x.dataset.l) || 0) > v)) : null);
     if (!r) return;
     window.scrollBy(0, r.getBoundingClientRect().top - syncTop() - m.off);
+    if (m.flash) { r.classList.remove('syncflash'); void r.offsetWidth; r.classList.add('syncflash'); setTimeout(() => r.classList.remove('syncflash'), 1400); } // angeklickten Vers kurz markieren
   }
+  // Gleichlauf auch per Klick: ein Klick auf einen Vers (auch auf freie Fläche oder in den deutschen Text) bringt das andere Fenster zu diesem Vers
+  document.addEventListener('click', e => {
+    if (!(IS_PANE2 ? p2SyncOn : syncPane) || !view || !view.group) return;
+    if (e.target.closest('a, button, input, textarea, select, summary, label, [data-ref], [data-rel], .wordpop')) return; // eigene Funktion
+    const sel = window.getSelection && window.getSelection(); if (sel && String(sel).length) return; // Text wird markiert
+    const r = e.target.closest('#rOut .row[data-l]'); if (!r) return;
+    const s = view.sections[view.idx];
+    const msg = { type: 'syncScroll', title: view.group.title, label: r.dataset.l, off: r.getBoundingClientRect().top - syncTop(), idx: view.idx, slabel: s ? s.label : '', flash: true };
+    if (IS_PANE2) window.parent.postMessage(msg, '*'); else p2Post(msg);
+  });
   window.addEventListener('scroll', () => {
     if (!(IS_PANE2 ? p2SyncOn : syncPane) || Date.now() < syncQuiet || !view || !view.group) return;
     clearTimeout(syncTimer);
