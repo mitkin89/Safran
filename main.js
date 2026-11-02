@@ -630,8 +630,10 @@ ipcMain.handle('outline:get', async (_e, book) => {
 // Audio: eigener Ordner mit Versdateien „Genesis_001_001.mp3“ (Buch_Kapitel_Vers)
 const audioFile = () => path.join(app.getPath('userData'), 'audio-dir.txt');
 async function audioIndex() {
-  let dir = ''; try { dir = (await fs.readFile(audioFile(), 'utf8')).trim(); } catch { /* noch keiner gewählt */ }
-  if (!dir) return { dir: '', files: [], chapters: [], books: [], markers: [] };
+  const std = path.join(app.getPath('userData'), 'audio'); // fester Ordner: hierhin lädt der Download, hier liegen auch eigene Dateien
+  let dir = ''; try { dir = (await fs.readFile(audioFile(), 'utf8')).trim(); } catch { /* noch keiner gewählt (frühere Versionen: eigener Ordner) */ }
+  if (!dir) { try { if ((await fs.readdir(std)).length) dir = std; } catch { /* Ordner gibt es noch nicht */ } }
+  if (!dir) return { dir: '', std, files: [], chapters: [], books: [], markers: [] };
   try {
     // Ordner und eine Ebene darunter: Versdateien „Buch_001_002.mp3“, Kapiteldateien „1_Samuel_01.mp3“, Markerlisten *.csv (datei,buch,kapitel,vers,start_ms,dauer_ms)
     const AUD = /\.(mp3|m4a|wav|ogg|aac)$/i, VERSE = /^.+_\d{3}_\d{3}\.[a-z0-9]+$/i, CHAP = /^.+_\d{1,3}\.[a-z0-9]+$/i;
@@ -659,8 +661,8 @@ async function audioIndex() {
       if (iV < 0 || iS < 0 || (iD < 0 && (iB < 0 || iK < 0))) continue; // ohne „datei“: ein Marker pro Vers für eine Datei mit dem ganzen Buch (buch,kapitel,vers,start_ms)
       for (let i = 1; i < lines.length; i++) { const p = lines[i].split(','); if (p.length < h.length - 1) continue; const v = +p[iV], st = +p[iS]; if (Number.isFinite(v) && Number.isFinite(st)) markers.push([iD >= 0 ? p[iD].trim().split('/').pop() : '', iB >= 0 ? p[iB].trim() : '', iK >= 0 ? +p[iK] : 0, v, st]); }
     }
-    return { dir, files, chapters, books, markers };
-  } catch { return { dir, files: [], chapters: [], markers: [], error: true }; }
+    return { dir, std, files, chapters, books, markers };
+  } catch { return { dir, std, files: [], chapters: [], markers: [], error: true }; }
 }
 ipcMain.handle('audio:index', () => audioIndex());
 ipcMain.handle('audio:pick', async e => {

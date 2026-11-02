@@ -254,20 +254,16 @@
 
       <div class="card" id="audioCard">
         <h2>6 · Audio (optional)</h2>
-        <p class="muted">Ordner mit Audiodateien pro Vers, benannt wie <code>Genesis_001_001.mp3</code> (Buchname wie in Safran, Kapitel, Vers). Zu jedem Vers mit Datei erscheint im Reiter „Lesen“ ein ▶. Danach läuft es fortlaufend weiter, auch ins nächste Kapitel.</p>
+        <p class="muted">Die Aufnahme (Hebräisches Altes Testament, gelesen von Abraham Schmueloff) wird aus dem Internet geladen, pro Buch ein Paket von GitHub. Alle Dateien liegen in einem festen Ordner von Safran, du musst keinen Ordner wählen. Zu jedem Vers mit Datei erscheint im Reiter „Lesen“ ein ▶. Danach läuft es fortlaufend weiter, auch ins nächste Kapitel.</p>
         <div class="bar">
-          <button id="auPick" class="primary">Audio-Ordner wählen …</button>
-          <button id="auClear">Entfernen</button>
-          <span id="auInfo" class="muted"></span>
-        </div>
-        <p class="muted" style="margin-top:10px">Oder die Aufnahme aus dem Internet laden (Hebräisches Alten Testament, gelesen von Abraham Schmueloff; Download von GitHub, pro Buch ein Paket):</p>
-        <div class="bar">
-          <button id="auNetList">Verfügbare Bücher anzeigen</button>
+          <button id="auNetList" class="primary">Verfügbare Bücher anzeigen</button>
           <button id="auNetGo" class="primary" hidden>Auswahl herunterladen</button>
           <button id="auNetStop" hidden>Abbrechen</button>
           <progress id="auNetProg" value="0" max="1" hidden></progress>
           <span id="auNetInfo" class="muted"></span>
         </div>
+        <p class="bar" style="margin-top:6px"><span id="auInfo" class="muted"></span> <button id="auClear" hidden>Entfernen</button></p>
+        <p class="muted">Eigene Audiodateien (benannt wie <code>Genesis_001_001.mp3</code>: Buchname wie in Safran, Kapitel, Vers) kannst du in denselben Ordner legen.</p>
         <div id="auNetBooks" hidden></div>
       </div>
 

@@ -1,6 +1,7 @@
 # Changelog
 
 ### New in 1.9.8
+- **Audio:** no more folder choice – the download always goes to one fixed folder of Safran (on Windows `%APPDATA%\Sefaria\audio`) and is used automatically. Your own audio files can be put into the same folder. A folder chosen in an earlier version keeps working until you download again.
 - **Cmd/Ctrl-click opens a background tab – everywhere:** in the search results, library, outlines, notes, commentary and link lists, source links and cross references, a Cmd/Ctrl-click opens the target in a new tab in the background; the current view stays where it is. The tab loads when you switch to it and jumps to the verse.
 
 ### New in 1.9.7

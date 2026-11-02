@@ -1364,7 +1364,9 @@
     AU.chap.forEach(e => e.marks.sort((a, b) => a.v - b.v));
     AU.bk.forEach(l => { l.sort((a, b) => a.ms - b.ms); l.forEach((x, i) => { const e = AU.chap.get(x.book + '|' + x.ch), nx = l.slice(i + 1).find(y => y.ch !== x.ch); if (e && !e.end) e.end = nx ? nx.ms / 1000 : Infinity; }); });
     const total = AU.map.size + AU.chap.size;
-    const el = $('#auInfo'); if (el) el.textContent = !AU.dir ? I18N.t('Kein Audio-Ordner gewählt.') : st.error ? I18N.t('Ordner nicht lesbar.') : AU.dir + ' · ' + I18N.t('{#} Audiodateien gefunden', total);
+    AU.std = st.std || AU.std || '';
+    const el = $('#auInfo'); if (el) el.textContent = st.error ? I18N.t('Ordner nicht lesbar.') + ' ' + AU.dir : !AU.dir ? I18N.t('Noch keine Audiodateien. Speicherort:') + ' ' + AU.std : AU.dir + ' · ' + I18N.t('{#} Audiodateien gefunden', total);
+    const cl = $('#auClear'); if (cl) cl.hidden = !AU.dir || AU.dir === AU.std; // „Entfernen“ nur für einen früher gewählten eigenen Ordner
     markAudio();
   }
   function markAudio() {
@@ -1465,7 +1467,6 @@
   $('#auStop').onclick = auStop; $('#auPrev').onclick = () => auStep(-1); $('#auNext').onclick = () => auStep(1);
   $('#auSpeed').onchange = e => { AU.speed = +e.target.value; AU.el.playbackRate = AU.speed; };
   if (window.audio) {
-    $('#auPick').onclick = async () => auRefresh(await window.audio.pick());
     $('#auClear').onclick = async () => { auStop(); auRefresh(await window.audio.clear()); };
     auRefresh();
   }
