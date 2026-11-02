@@ -49,12 +49,8 @@
     return st;
   }
 
-  // Kurzanleitung auf der leeren Startseite, solange noch keine Sefaria-Texte heruntergeladen sind
-  function updateStartGuide() { const g = $('#startGuide'); if (g) g.hidden = entries.some(e => !e.own); }
-
   async function loadLibrary() {
     entries = await O.library();
-    updateStartGuide();
     const map = new Map();
     for (const e of entries) {
       const k = keyOf(e);
@@ -181,7 +177,6 @@
     updateNav();
     const none = !tabs.length;
     $('#rEmpty').hidden = !none;
-    updateStartGuide();
     $('#rMain').hidden = none;
     $('#stick').classList.toggle('emptytab', !none && !view.group);
     if (!none && view.sres) { if (view.sres.html) $('#rOut').innerHTML = view.sres.html; else if (!view.sres.running) runSres(view); }
