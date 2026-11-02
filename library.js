@@ -183,6 +183,9 @@
     else if (!none && !view.group) {
       $('#rOut').innerHTML = `<div class="newtab"><img class="logo" src="logo.png" alt="talmud.de" width="130"><p class="muted">Neuer Tab – Stelle oder Buch eingeben (z. B. <b>Gen. 1</b>, <b>Berakhot 2a</b>, <b>Mishnah Peah 6:6</b>) und Enter drücken, oder links ein Buch wählen.</p>
         <input id="ntIn" placeholder="Gen. 1:1" autocomplete="off"><p id="ntMsg" class="muted"></p></div>`;
+      // Noch keine Sefaria-Texte heruntergeladen: Kurzanleitung unter dem Eingabefeld
+      const sg = $('#startGuide');
+      if (sg && !entries.some(e => !e.own)) { const c = sg.cloneNode(true); c.removeAttribute('id'); c.hidden = false; c.classList.add('startGuide'); $('#rOut .newtab').appendChild(c); }
       setTimeout(() => { const i = $('#ntIn'); if (i) { attachSuggest(i); i.focus(); } }, 0);
     }
     olBtnRefresh(); if (!none && !view.group) $('#mapBtn').hidden = true;
@@ -209,7 +212,7 @@
     if (!tabs[i]) return;
     const wasActive = i === tabIdx;
     tabs.splice(i, 1);
-    if (!tabs.length) { tabIdx = -1; view = null; showView(); return; }
+    if (!tabs.length) { tabIdx = -1; view = null; if (document.documentElement.classList.contains('pane2')) { showView(); return; } newTab(); return; } // nie ohne Tab
     if (i < tabIdx) tabIdx--;
     if (wasActive) {
       tabIdx = Math.min(i, tabs.length - 1);
@@ -4654,6 +4657,7 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
       applyDisp(false);
       await loadNotes();
       await restoreSession();
+      if (!tabs.length && !document.documentElement.classList.contains('pane2')) newTab(); // Safran startet nie leer
       await refreshCatalog();
       maybeWelcome();
     } catch (err) {
