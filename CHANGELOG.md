@@ -1,6 +1,8 @@
 # Changelog
 
 ### New in 1.9.8
+- **New German texts – Raphael Breuer:** *Josua* (1915), *Richter (Schofetim)* and *Nehemia*, each translation divided verse by verse like Sefaria (under Joshua, Judges, Nehemiah) and the commentary as a separate text (Breuer on Joshua / Judges / Nehemiah, without the Hebrew Bible text).
+- **New German texts – Julius Hirsch, *Trei Asar*:** the twelve minor prophets (Hosea to Malachi) – translation under each book (1,045 of 1,050 verses, divided like Sefaria) and the commentary as a separate text (Hirsch on Hosea … Malachi) with the introductions to the books. Gaps in the scan: Hosea 9:2–3 and Amos 7:15–17 are missing; small Hebrew vowel signs in the commentary are not yet fully proofread.
 - **Audio:** no more folder choice – the download always goes to one fixed folder of Safran (on Windows `%APPDATA%\Sefaria\audio`) and is used automatically. Your own audio files can be put into the same folder. A folder chosen in an earlier version keeps working until you download again.
 - **Cmd/Ctrl-click opens a background tab – everywhere:** in the search results, library, outlines, notes, commentary and link lists, source links and cross references, a Cmd/Ctrl-click opens the target in a new tab in the background; the current view stays where it is. The tab loads when you switch to it and jumps to the verse.
 
