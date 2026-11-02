@@ -4513,11 +4513,10 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
   // ---------- Sitzung merken und beim Start wiederherstellen ----------
   let saveTimer = null;
   function saveSession() {
-    if (document.documentElement.classList.contains('pane2')) return; // das zweite Fenster darf die Sitzung des Hauptfensters nicht überschreiben
-    clearTimeout(saveTimer);
+    clearTimeout(saveTimer); // das zweite Fenster speichert seine eigene Sitzung (Schlüssel session2), damit es das Hauptfenster nicht überschreibt
     saveTimer = setTimeout(() => {
       try {
-        localStorage.setItem('session', JSON.stringify({
+        localStorage.setItem(document.documentElement.classList.contains('pane2') ? 'session2' : 'session', JSON.stringify({
           idx: tabIdx,
           tabs: tabs.map(t => t.group ? { key: t.group.key, rels: [...t.selected], sk: t.key, label: t.label || '', scroll: t.scroll || 0, hit: t.hit || null } : t.sres ? { sres: { q: t.sres.q, he: !!t.sres.he, limit: t.sres.limit || 300, params: t.sres.params } } : { empty: true }),
         }));
@@ -4525,9 +4524,8 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
     }, 300);
   }
   async function restoreSession() {
-    if (document.documentElement.classList.contains('pane2')) return;
     let ses = null;
-    try { ses = JSON.parse(localStorage.getItem('session') || 'null'); } catch { ses = null; }
+    try { ses = JSON.parse(localStorage.getItem(document.documentElement.classList.contains('pane2') ? 'session2' : 'session') || 'null'); } catch { ses = null; }
     if (!ses || !Array.isArray(ses.tabs) || !ses.tabs.length) return;
     for (const t of ses.tabs) {
       if (t.sres && typeof t.sres.q === 'string' && t.sres.params && typeof t.sres.params === 'object') { tabs.push({ group: null, sres: { q: t.sres.q.slice(0, 200), he: !!t.sres.he, limit: Math.min(3000, t.sres.limit | 0 || 300), html: null, params: t.sres.params } }); continue; }

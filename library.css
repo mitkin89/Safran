@@ -206,6 +206,7 @@ html.split #tpResize { right: calc(var(--p2w) + var(--cmt-w, 400px)); }
 /* Kommentar-Bereich (rechts angedockt, schiebt den Text zur Seite) */
 #cmtPanel { position: fixed; top: 57px; right: var(--cmt-off, 0px); bottom: 0; width: var(--cmt-w, 400px); max-width: 90vw; z-index: 20; background: var(--bg); border-left: 1px solid var(--line); padding: 0 14px 14px; overflow: auto; max-height: none; }
 #cmtPanel[hidden] { display: none; }
+body.dock-open main { max-width: none; margin: 0; padding-left: 14px; } /* Kommentarleiste offen: Lesebereich links bündig statt mittig zentriert */
 body.dock-open #tab-read .layout { margin-right: calc(var(--dock-w, var(--cmt-w, 400px)) + 20px); }
 #cmtHead { position: sticky; top: 0; z-index: 3; background: var(--bg); padding: 10px 0 8px; border-bottom: 1px solid var(--line); margin-bottom: 4px; }
 #cmtHead .lhead { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
