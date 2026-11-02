@@ -2452,10 +2452,11 @@
       if (j >= 0 && j !== view.idx) { view.idx = j; renderSection(); }
     }
     const rows = $$('#rOut .row[data-l]'), v = rowVerse(m.label);
-    const r = rows.find(x => x.dataset.l === m.label) || (v != null ? (rows.find(x => rowVerse(x.dataset.l) === v) || rows.find(x => (rowVerse(x.dataset.l) || 0) > v)) : null);
+    const exact = rows.find(x => x.dataset.l === m.label) || (v != null ? rows.find(x => rowVerse(x.dataset.l) === v) : null);
+    const r = exact || (v != null ? rows.find(x => (rowVerse(x.dataset.l) || 0) > v) : null); // ohne den Vers: zur nächsten Zeile scrollen, aber nicht markieren
     if (!r) return;
     window.scrollBy(0, r.getBoundingClientRect().top - syncTop() - m.off);
-    if (m.flash) { r.classList.remove('syncflash'); void r.offsetWidth; r.classList.add('syncflash'); setTimeout(() => r.classList.remove('syncflash'), 1400); } // angeklickten Vers kurz markieren
+    if (m.flash && exact) { r.classList.remove('syncflash'); void r.offsetWidth; r.classList.add('syncflash'); setTimeout(() => r.classList.remove('syncflash'), 1400); } // angeklickten Vers kurz markieren
   }
   // Gleichlauf auch per Klick: ein Klick auf einen Vers (auch auf freie Fläche oder in den deutschen Text) bringt das andere Fenster zu diesem Vers
   document.addEventListener('click', e => {
