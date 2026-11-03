@@ -453,7 +453,7 @@
     const h = e.target.closest('.row.head > div:not(.lab)');
     if (!h || !view || h.closest('#passDlg')) return;
     const g = view.group, kn = v => (['he', 'en', 'de'].includes(v.kind) ? v.kind : 'other');
-    const ci = [...h.parentNode.children].indexOf(h) - 1; // erste Kindzelle ist das Label
+    const ci = h.dataset.ci != null ? +h.dataset.ci : [...h.parentNode.children].indexOf(h) - 1; // erste Kindzelle ist das Label (bei „je Sprache“ steht der Index im Kopf)
     const d = view.loaded[ci]; if (!d) return;
     const k = (['he', 'en', 'de'].includes(d.entry.kind) ? d.entry.kind : 'other');
     const apply = async rels => {
@@ -492,9 +492,27 @@
   let syncMode = 'off', p2Mode = 'off'; // Zustand im Hauptfenster / Kopie im zweiten Fenster
   try { const sm = localStorage.getItem('syncMode'); if (['off', 'both', 'left', 'right'].includes(sm)) syncMode = sm; } catch { /* egal */ }
   const SYNC_MODES = ['off', 'both', 'left', 'right'];
+  document.addEventListener('click', e => {
+    if (!e.target.closest('#layBtn')) return;
+    layoutMode = layoutMode === 'lang' ? 'cols' : 'lang';
+    try { localStorage.setItem('layoutMode', layoutMode); } catch { /* egal */ }
+    layBtnRefresh();
+    if (view && view.sections && view.sections[view.idx]) renderSection(null, true);
+  });
+  document.addEventListener('DOMContentLoaded', layBtnRefresh);
   const myMode = () => (document.documentElement.classList.contains('pane2') ? p2Mode : syncMode);
   const canSend = () => { const m = myMode(), p = document.documentElement.classList.contains('pane2'); return m === 'both' || (m === 'left' && !p) || (m === 'right' && p); };
   const canRecv = () => { const m = myMode(), p = document.documentElement.classList.contains('pane2'); return m === 'both' || (m === 'left' && p) || (m === 'right' && !p); };
+  // Anordnung der Spalten: 'cols' = jede Version eine Spalte; 'lang' = eine Spalte je Sprache, die Versionen darin untereinander
+  let layoutMode = 'cols';
+  try { if (localStorage.getItem('layoutMode') === 'lang') layoutMode = 'lang'; } catch { /* egal */ }
+  const LANG_ORDER = ['he', 'en', 'de', 'other'];
+  const langKind = d => (['he', 'en', 'de'].includes(d.entry.kind) ? d.entry.kind : 'other');
+  function layBtnRefresh() {
+    const b = $('#layBtn'); if (!b) return;
+    b.setAttribute('aria-pressed', layoutMode === 'lang' ? 'true' : 'false'); b.classList.toggle('on', layoutMode === 'lang');
+    b.title = layoutMode === 'lang' ? I18N.t('Anordnung: eine Spalte je Sprache, Versionen untereinander. Klick: jede Version eine Spalte') : I18N.t('Anordnung: jede Version eine Spalte. Klick: eine Spalte je Sprache, Versionen untereinander');
+  }
   function renderSection(rowLabel, quiet) {
     if (!IS_PANE2 && canSend() && view && p2Frame && !p2Frame.hidden && p2Frame.contentWindow) p2Frame.contentWindow.postMessage({ type: 'sync', idx: view.idx, title: view.group ? view.group.title : '' }, '*');
     const s = view.sections[view.idx];
@@ -508,9 +526,20 @@
     const cols = view.loaded.map(d => R.flattenNode(R.getByPath(d.text, s.path)));
     const rows = R.alignRows(cols);
     const vis = view.loaded.map((_, i) => i); // alle gewählten Versionen bleiben als Spalten stehen, auch wenn eine im Abschnitt leer ist
-    const n = vis.length;
-    const head = `<div class="row head" style="--n:${n}"><div class="lab"></div>${vis.map(i => view.loaded[i]).map(d =>
-      `<div title="${esc(I18N.t('Klicken: verfügbare Texte dieser Sprache auswählen'))}">${esc(KIND_LABEL[d.entry.kind])} · ${esc(shortVer(d.versionTitle))}</div>`).join('')}</div>`;
+    // Anordnung „je Sprache“: Gruppen nach Sprache (Hebräisch, Englisch, Deutsch, Andere), die Versionen einer Sprache stehen in einer Spalte untereinander
+    const byLang = layoutMode === 'lang';
+    const groupsL = byLang ? LANG_ORDER.map(k => ({ k, idx: vis.filter(i => langKind(view.loaded[i]) === k) })).filter(g => g.idx.length) : null;
+    const n = byLang ? groupsL.length : vis.length;
+    const headTip = esc(I18N.t('Klicken: verfügbare Texte dieser Sprache auswählen'));
+    const head = byLang
+      ? `<div class="row head" style="--n:${n}"><div class="lab"></div>${groupsL.map(g => `<div data-ci="${g.idx[0]}" title="${headTip}">${esc(g.idx.length === 1 ? KIND_LABEL[g.k] + ' · ' + shortVer(view.loaded[g.idx[0]].versionTitle) : KIND_LABEL[g.k] + ' (' + g.idx.length + ')')}</div>`).join('')}</div>`
+      : `<div class="row head" style="--n:${n}"><div class="lab"></div>${vis.map(i => view.loaded[i]).map(d =>
+      `<div title="${headTip}">${esc(KIND_LABEL[d.entry.kind])} · ${esc(shortVer(d.versionTitle))}</div>`).join('')}</div>`;
+    const langCells = r => groupsL.map(g => {
+      const full = g.idx.filter(i => r.cells[i] != null);
+      if (!full.length) return '<div class="cell empty"></div>';
+      return `<div class="gcell" data-g="${g.k}">${full.map(i => (g.idx.length > 1 ? `<div class="vlab">${esc(shortVer(view.loaded[i].versionTitle))}</div>` : '') + cellHtml(r.cells[i], view.loaded[i])).join('')}</div>`;
+    }).join('');
     if (rowLabel != null && !rows.some(r => r.label === rowLabel)) { // „2“ trifft bei Kommentaren die erste Zeile „2:1“
       const f = rows.find(r => r.label.startsWith(rowLabel + ':'));
       if (f) rowLabel = f.label;
@@ -523,7 +552,7 @@
     if (view.vf && shownRows.length) view.vf.set = new Set(shownRows.map(r => rowVerse(r.label))); // „1-40“ in einem Kapitel mit 31 Versen gilt als 1–31, damit der Favorit überall dieselbe ID hat
     const vfBar = view.vf ? `<div class="vfbar">${esc(I18N.t('Ausgewählte Verse: {}', view.vf.text))} <button id="vfStar" type="button" title="${esc(I18N.t('Als Favorit speichern / entfernen'))}">☆</button> <button id="vfClear" type="button">${esc(I18N.t('Alle Verse zeigen'))}</button></div>` : '';
     const body = shownRows.map(r =>
-      `<div class="row${rowLabel != null && !quiet && r.label === rowLabel ? ' hit' : ''}" data-l="${esc(r.label)}" style="--n:${n}"><div class="lab">${esc(r.label)}</div>${vis.map(i => cellHtml(r.cells[i], view.loaded[i])).join('')}</div>`).join('');
+      `<div class="row${rowLabel != null && !quiet && r.label === rowLabel ? ' hit' : ''}" data-l="${esc(r.label)}" style="--n:${n}"><div class="lab">${esc(r.label)}</div>${byLang ? langCells(r) : vis.map(i => cellHtml(r.cells[i], view.loaded[i])).join('')}</div>`).join('');
     $('#rOut').innerHTML = vfBar + head + body;
     recordNav(s, rowLabel);
     pushHistory(s, rowLabel);

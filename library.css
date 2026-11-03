@@ -868,3 +868,11 @@ body:has(#findBar:not([hidden])) #olBody { padding-bottom: 56px; }
 /* Gleichlauf per Klick: Vers im anderen Fenster kurz hervorheben */
 @keyframes syncflash { 0% { background: color-mix(in srgb, var(--accent, #4a7bd0) 35%, transparent); } 100% { background: transparent; } }
 .row.syncflash { animation: syncflash 1.4s ease-out; }
+
+/* Anordnung „je Sprache“: Versionen einer Sprache stehen in einer Spalte untereinander */
+.gcell { min-width: 0; }
+.gcell .cell + .vlab, .gcell .cell + .cell { margin-top: 8px; }
+.gcell .vlab { font-size: 10.5px; letter-spacing: .04em; text-transform: uppercase; color: var(--muted); margin: 2px 0 1px; }
+.gcell .vlab ~ .cell .txt { border-inline-start: 2px solid color-mix(in srgb, var(--accent) 35%, transparent); padding-inline-start: 8px; }
+.gcell .vlab:not(:first-child) { margin-top: 10px; }
+#layBtn.on { background: color-mix(in srgb, var(--accent) 22%, transparent); }
