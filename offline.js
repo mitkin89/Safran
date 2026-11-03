@@ -367,7 +367,7 @@ class Library {
           const pm = JSON.parse(await fs.readFile(path.join(d, n), 'utf8'));
           for (const it of (pm && Array.isArray(pm.items) ? pm.items : [])) {
             const k = String(it.rel || '').normalize('NFC');
-            if (seenRel.has(k)) { const ex = entries.find(x => String(x.it.rel || '').normalize('NFC') === k); if (ex && !ex.priv) ex.priv = true; continue; }
+            if (seenRel.has(k)) { const ex = entries.find(x => String(x.it.rel || '').normalize('NFC') === k); if (ex) { if (!ex.priv) ex.priv = true; (ex.alt = ex.alt || []).push({ it, src: d }); } continue; } // weitere Quelle derselben Datei: wird probiert, falls die erste fehlt
             seenRel.add(k); entries.push({ it, src: d, priv: true });
           }
         } catch (err) { diag.errors.push(n + ': ' + err.message); }
@@ -379,15 +379,22 @@ class Library {
     const have = new Map(Object.keys(this.index.entries).map(k => [k.normalize('NFC'), k])); // Umlaute: gleiche Datei, unterschiedlich geschrieben
     let n = 0;
     let flagged = 0;
-    for (const { it, src, priv } of entries) {
+    for (const ent of entries) {
+      let { it, src, priv } = ent;
       const rel = String(it.rel || '');
       if (!/^own\/[^\\]+\/(he|en|de|other)\/[^/\\]+\.json$/.test(rel) || rel.includes('..') || skip.has(rel)) continue;
       const cur = this.index.entries[have.get(rel) || rel];
       if (cur && (!cur.bundled || cur.bundledHash === it.hash)) { if (priv && cur.bundled && !cur.private) { cur.private = true; flagged++; } continue; } // eigene Fassung oder schon aktuell
       try {
-        let buf;
-        try { buf = await fs.readFile(path.join(src, rel)); }
-        catch { buf = await fs.readFile(path.join(src, rel.normalize(rel === rel.normalize('NFC') ? 'NFD' : 'NFC'))); } // Umlaute: macOS speichert Dateinamen zerlegt (NFD), Windows/Linux nicht
+        let buf, lastErr;
+        for (const c of [{ it, src }, ...(ent.alt || [])]) { // erste Quelle, sonst die weiteren (z. B. gesicherter Nutzerordner)
+          try {
+            try { buf = await fs.readFile(path.join(c.src, rel)); }
+            catch { buf = await fs.readFile(path.join(c.src, rel.normalize(rel === rel.normalize('NFC') ? 'NFD' : 'NFC'))); } // Umlaute: macOS speichert Dateinamen zerlegt (NFD), Windows/Linux nicht
+            it = c.it; src = c.src; break;
+          } catch (e2) { lastErr = e2; buf = undefined; }
+        }
+        if (!buf) throw lastErr;
         const dest = path.join(this.dir, rel);
         await fs.mkdir(path.dirname(dest), { recursive: true });
         await fs.writeFile(dest, buf);
