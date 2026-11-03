@@ -293,7 +293,7 @@ function getLibrary() {
   })().catch(err => { libraryP = null; throw err; });
   return libraryP;
 }
-const invalidateReads = () => { readCache.clear(); }; // gelesene Dateien im Kommentar-Zwischenspeicher verwerfen (nach Änderungen an der Bibliothek)
+const invalidateReads = () => { readCache.clear(); try { knownCmtCache.clear(); } catch { /* noch nicht angelegt */ } }; // gelesene Dateien im Kommentar-Zwischenspeicher verwerfen (nach Änderungen an der Bibliothek)
 
 let catCache = null; // { catalog, groups, summary }
 async function loadCatalog() {
@@ -734,8 +734,52 @@ async function ownCommentaryLinks(book, chap) {
   }
   return out;
 }
+// Lücken in den Sefaria-Verknüpfungen schließen: Sefaria verknüpft manche Kommentare falsch (Zeiger auf einen leeren Eintrag, z. B. Abarbanel zu Jer 31:2 → 31:1:1)
+// oder gar nicht (Minchat Shai zu Jer 31:2). Schutzmaßnahmen: nur Kommentatoren, die Sefaria in diesem Buch schon als Kommentar verknüpft hat, nur „<Name> on <dasselbe Buch>“,
+// nur Verse mit echtem Text, und was Sefaria richtig verknüpft hat, bleibt unverändert.
+const knownCmtCache = new Map(); // Buch -> Menge der Kommentartitel
+async function knownCommentators(book) {
+  if (knownCmtCache.has(book)) return knownCmtCache.get(book);
+  const map = await (await getLinks()).load(book), s = new Set();
+  for (const rows of map.values()) for (const r of rows) if (r[3] === 'commentary') s.add(LK.splitRef(r[2]).book);
+  knownCmtCache.set(book, s); if (knownCmtCache.size > 8) knownCmtCache.delete(knownCmtCache.keys().next().value);
+  return s;
+}
+async function fillCommentaryGaps(book, chap, base) {
+  if (!/^\d+$/.test(String(chap))) return base;
+  const known = await knownCommentators(book);
+  if (!known.size) return base;
+  const lib = await getLibrary(), list = lib.list();
+  let out = base.slice(); const add = [];
+  for (const title of known) {
+    const m = /^(.+?) on (.+)$/.exec(title);
+    if (!m || m[2] !== book) continue;
+    const cands = list.filter(x => x.title === title);
+    if (!cands.length) continue;
+    let d = null;
+    for (const c of cands.sort((a, b) => (a.kind === 'he' ? 0 : 1) - (b.kind === 'he' ? 0 : 1))) { // lokaler Text des Kommentars (hebräische Fassung zuerst)
+      let x = readCache.get(c.rel);
+      if (!x) { try { x = await lib.read(c.rel); } catch { continue; } readCache.set(c.rel, x); if (readCache.size > 24) readCache.delete(readCache.keys().next().value); }
+      const arr = x && (Array.isArray(x.text) ? x.text : (x.text && Array.isArray(x.text['']) ? x.text[''] : null));
+      if (arr && Array.isArray(arr[parseInt(chap, 10) - 1])) { d = { data: x, node: arr[parseInt(chap, 10) - 1] }; break; }
+    }
+    if (!d) continue;
+    const filled = j => { const v = d.node[j]; return Array.isArray(v) ? v.some(y => String(y || '').trim()) : String(v || '').trim() !== ''; };
+    // Sefaria-Verknüpfungen dieses Kommentars, deren Ziel leer ist, sind Fehlverweise: entfernen
+    out = out.filter(l => {
+      if (l.type !== 'commentary' || LK.splitRef(l.other).book !== title) return true;
+      const sp = LK.splitRef(l.other); const t = LK.resolveText(d.data, sp.tail);
+      return !!t;
+    });
+    const covered = new Set();
+    for (const l of out) if (l.type === 'commentary' && LK.splitRef(l.other).book === title) for (let v = l.v1; v <= Math.min(l.v2, d.node.length); v++) covered.add(v);
+    for (let j = 0; j < d.node.length; j++) if (filled(j) && !covered.has(j + 1)) add.push({ v1: j + 1, v2: j + 1, other: `${title} ${chap}:${j + 1}`, type: 'commentary', cat: 'Commentary' });
+  }
+  return out.concat(add);
+}
 ipcMain.handle('links:section', async (_e, book, chap) => {
-  const base = await (await getLinks()).forSection(book, chap);
+  let base = await (await getLinks()).forSection(book, chap);
+  try { base = await fillCommentaryGaps(book, chap, base); } catch { /* Ergänzung ist nur ein Zusatz */ }
   try { return base.concat(await ownCommentaryLinks(book, chap)); } catch { return base; }
 });
 // Texte mehrerer Stellen auf einmal holen (Kommentar-Bereich): jede Datei wird nur einmal gelesen
