@@ -354,12 +354,14 @@ class Library {
     // Private Texte (nicht im Repository, z. B. urheberrechtlich geschützte, nur für den eigenen Gebrauch):
     // manifest.private*.json im Ordner bundled/ UND in privDir (fester Nutzerordner, übersteht App-Updates).
     // Private Texte werden nie automatisch entfernt und beim Einbinden in privDir gesichert.
+    const diag = this.lastImport = { dir, privDir: privDir || null, manifests: [], items: 0, privItems: 0, imported: 0, flagged: 0, errors: [] };
     const entries = ((man && man.items) || []).map(it => ({ it, src: dir, priv: false }));
     const seenRel = new Set(entries.map(x => String(x.it.rel || '').normalize('NFC')));
     for (const d of [dir, privDir]) {
       if (!d) continue;
       let names = [];
       try { names = (await fs.readdir(d)).filter(n => /^manifest\.private(-[^/\\]*)?\.json$/.test(n)).sort(); } catch { /* kein Ordner */ }
+      diag.manifests.push(d + ' → ' + (names.length ? names.join(', ') : 'keine manifest.private*.json'));
       for (const n of names) {
         try {
           const pm = JSON.parse(await fs.readFile(path.join(d, n), 'utf8'));
@@ -368,9 +370,10 @@ class Library {
             if (seenRel.has(k)) { const ex = entries.find(x => String(x.it.rel || '').normalize('NFC') === k); if (ex && !ex.priv) ex.priv = true; continue; }
             seenRel.add(k); entries.push({ it, src: d, priv: true });
           }
-        } catch { /* defekte Datei überspringen */ }
+        } catch (err) { diag.errors.push(n + ': ' + err.message); }
       }
     }
+    diag.items = entries.length; diag.privItems = entries.filter(x => x.priv).length;
     man = { ...man, items: entries.map(x => x.it) };
     const skip = new Set((this.index.skipBundled || []).map(x => x.normalize('NFC')));
     const have = new Map(Object.keys(this.index.entries).map(k => [k.normalize('NFC'), k])); // Umlaute: gleiche Datei, unterschiedlich geschrieben
@@ -391,7 +394,7 @@ class Library {
         this.index.entries[rel] = { rel, title: it.title, heTitle: it.heTitle || '', language: it.language, versionTitle: it.versionTitle, categories: it.categories, kind: it.kind, bytes: buf.length, own: true, bundled: true, bundledHash: it.hash, ...(priv ? { private: true } : {}) };
         n++;
         if (n % 8 === 0) await this.save().catch(() => {}); // zwischendurch sichern: Abbruch beim ersten Start verliert nichts
-      } catch { /* Datei fehlt im Paket – überspringen */ }
+      } catch (err) { if (priv) diag.errors.push(rel + ': ' + err.message); /* Datei fehlt im Paket – überspringen */ }
     }
     // Mitgelieferte Texte, die es im Paket nicht mehr gibt (umbenannt oder entfernt), auch hier entfernen
     const inPack = new Set(((man && man.items) || []).map(it => String(it.rel || '').normalize('NFC')));
@@ -423,6 +426,7 @@ class Library {
         }
       } catch { /* Sicherung ist nur ein Zusatz */ }
     }
+    diag.imported = n; diag.flagged = flagged;
     if (n || gone || flagged) await this.save();
     return n;
   }

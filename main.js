@@ -285,7 +285,9 @@ let libraryP = null; // Promise: parallele Aufrufe beim Start teilen sich eine B
 function getLibrary() {
   if (!libraryP) libraryP = (async () => {
     const lib = await new OFF.Library(await libraryDir(), fetchBuffer).load();
-    try { await lib.importBundled(path.join(__dirname, 'bundled'), path.join(app.getPath('userData'), 'private')); } catch { /* mitgelieferte Texte sind nur ein Zusatz */ }
+    let impErr = '';
+    try { await lib.importBundled(path.join(__dirname, 'bundled'), path.join(app.getPath('userData'), 'private')); } catch (err) { impErr = String(err && err.stack || err); /* mitgelieferte Texte sind nur ein Zusatz */ }
+    try { require('fs').writeFileSync(path.join(app.getPath('userData'), 'private-import.log'), JSON.stringify({ zeit: new Date().toISOString(), fehler: impErr, ergebnis: lib.lastImport || null, privateInBibliothek: lib.list().filter(e => e.private).length, bibliothek: lib.dir }, null, 1)); } catch { /* Protokoll ist nur eine Hilfe */ }
     setTimeout(() => warmSearchCache(lib), 5000); // Such-Cache im Hintergrund vorbauen
     return lib;
   })().catch(err => { libraryP = null; throw err; });
