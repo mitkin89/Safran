@@ -85,7 +85,6 @@
                   <div id="verList"></div>
                 </details>
                 <button id="bookSearch" title="Nur in diesem Buch suchen">🔎<span class="bl">Im Buch</span></button>
-                <button id="layBtn" title="Anordnung: jede Version eine Spalte / eine Spalte je Sprache (Englisch, Deutsch …), die Versionen darin untereinander" aria-pressed="false">▥<span class="bl">Anordnung</span></button>
                 <button id="cmtBtn" title="Kommentare zum gewählten Vers (Cmd+K)">💬<span class="bl">Kommentare</span></button>
                 <button id="lkBtn" title="Verknüpfungen zu diesem Abschnitt anzeigen" hidden>🔗<span class="bl">Verknüpfungen</span></button>
                 <button id="olBtn" title="Gliederung dieses Buches (Wochenabschnitte, Kapitel, Absätze)">☰ <span class="bl">Gliederung</span></button>
@@ -169,7 +168,7 @@
         <p>Sobald mehrere Wörter, ein Platzhalter oder Fuzzy im Spiel sind, gilt: ganze Wörter statt Wortteile. „Ganze Wörter (mit Vorsilben)“ erlaubt dabei hebräische Vorsilben.</p>
       </details>
       <div id="sChart" hidden></div>
-      <div id="sTools"><button id="sReadBtn" type="button" hidden title="Alle Fundstellen wie beim Lesen untereinander in einem neuen Tab zeigen, nach Buch und Kapitel geordnet, mit den gewählten Versionen nebeneinander und einer Übersicht der Bücher">📖 Alle als Lesetext öffnen</button> <button id="sExport" type="button" hidden title="Alle angezeigten Treffer als CSV-Datei speichern">⤓ Treffer als CSV</button></div>
+      <div id="sTools"><button id="sGroupBtn" type="button" hidden aria-pressed="true" title="Derselbe Vers in mehreren Fassungen erscheint nur einmal; die anderen Fassungen klappen darunter auf">⧉ Fassungen zusammenfassen</button> <button id="sReadBtn" type="button" hidden title="Alle Fundstellen wie beim Lesen untereinander in einem neuen Tab zeigen, nach Buch und Kapitel geordnet, mit den gewählten Versionen nebeneinander und einer Übersicht der Bücher">📖 Alle als Lesetext öffnen</button> <button id="sExport" type="button" hidden title="Alle angezeigten Treffer als CSV-Datei speichern">⤓ Treffer als CSV</button></div>
       <p id="sInfo" class="muted">Durchsucht alle heruntergeladenen Texte der gewählten Sprachen (auch Fußnoten).</p>
       <div id="sOut"></div>
       </div>
@@ -383,6 +382,9 @@
     <label><input type="checkbox" id="dNiq"> Hebräische Vokalzeichen ausblenden</label>
     <label><input type="checkbox" id="dCan"> Betonungszeichen (Teamim) ausblenden</label>
     <label title="Bei der Septuaginta (CATSS): hebräisches Wort über der griechischen Wortgruppe"><input type="checkbox" id="gIlin"> Septuaginta interlinear (Hebräisch über Griechisch)</label>
+    <label title="Jede Version eine Spalte, oder eine Spalte je Sprache (Englisch, Deutsch …) mit den Versionen darin untereinander">Anordnung
+      <select id="layMode"><option value="cols">jede Version eine Spalte</option><option value="lang">eine Spalte je Sprache</option></select>
+    </label>
     <label>Fußnoten
       <select id="noteMode"><option value="click">Klick</option><option value="all">alle anzeigen</option><option value="off">aus</option></select>
     </label>

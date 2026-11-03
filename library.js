@@ -492,11 +492,10 @@
   let syncMode = 'off', p2Mode = 'off'; // Zustand im Hauptfenster / Kopie im zweiten Fenster
   try { const sm = localStorage.getItem('syncMode'); if (['off', 'both', 'left', 'right'].includes(sm)) syncMode = sm; } catch { /* egal */ }
   const SYNC_MODES = ['off', 'both', 'left', 'right'];
-  document.addEventListener('click', e => {
-    if (!e.target.closest('#layBtn')) return;
-    layoutMode = layoutMode === 'lang' ? 'cols' : 'lang';
+  document.addEventListener('change', e => {
+    if (e.target.id !== 'layMode') return;
+    layoutMode = e.target.value === 'lang' ? 'lang' : 'cols';
     try { localStorage.setItem('layoutMode', layoutMode); } catch { /* egal */ }
-    layBtnRefresh();
     if (view && view.sections && view.sections[view.idx]) renderSection(null, true);
   });
   document.addEventListener('DOMContentLoaded', layBtnRefresh);
@@ -508,11 +507,8 @@
   try { if (localStorage.getItem('layoutMode') === 'lang') layoutMode = 'lang'; } catch { /* egal */ }
   const LANG_ORDER = ['he', 'en', 'de', 'other'];
   const langKind = d => (['he', 'en', 'de'].includes(d.entry.kind) ? d.entry.kind : 'other');
-  function layBtnRefresh() {
-    const b = $('#layBtn'); if (!b) return;
-    b.setAttribute('aria-pressed', layoutMode === 'lang' ? 'true' : 'false'); b.classList.toggle('on', layoutMode === 'lang');
-    b.title = layoutMode === 'lang' ? I18N.t('Anordnung: eine Spalte je Sprache, Versionen untereinander. Klick: jede Version eine Spalte') : I18N.t('Anordnung: jede Version eine Spalte. Klick: eine Spalte je Sprache, Versionen untereinander');
-  }
+  function layBtnRefresh() { const s = $('#layMode'); if (s) s.value = layoutMode; }
+  layBtnRefresh();
   function renderSection(rowLabel, quiet) {
     if (!IS_PANE2 && canSend() && view && p2Frame && !p2Frame.hidden && p2Frame.contentWindow) p2Frame.contentWindow.postMessage({ type: 'sync', idx: view.idx, title: view.group ? view.group.title : '' }, '*');
     const s = view.sections[view.idx];
@@ -3282,15 +3278,45 @@
     if (!onlyTitle) renderDist(res);
     $('#sExport').hidden = !sResults.length;
     $('#sReadBtn').hidden = !sResults.length;
+    $('#sGroupBtn').hidden = !sResults.length;
     showSearchResults();
+  }
+  // Treffer pro Vers zusammenfassen: derselbe Vers in mehreren Fassungen erscheint einmal; die übrigen Fassungen klappen darunter auf
+  let sGroupOn = true; try { sGroupOn = localStorage.getItem('searchGroup') !== '0'; } catch { /* egal */ }
+  const sresHtml = (r, i, extra) => {
+    const sn = r.snippet;
+    return `<div class="sres${extra || ''}" data-i="${i}"><span class="t">${esc(r.title)}</span> <span class="muted">${esc(r.where)} · <span class="badge ${r.kind}">${KIND_LABEL[r.kind]}</span>${esc(shortVer(r.versionTitle))}</span><div class="snip" dir="${r.kind === 'he' ? 'rtl' : 'ltr'}">${r.parts ? r.parts.map(x => x.m ? `<mark>${esc(x.t)}</mark>` : esc(x.t)).join('') : `${esc(sn.before)}<mark>${esc(sn.hit)}</mark>${esc(sn.after)}`}</div></div>`;
+  };
+  const sKindOrder = () => (I18N.lang === 'de' ? ['de', 'en', 'he', 'other'] : I18N.lang === 'he' ? ['he', 'de', 'en', 'other'] : ['en', 'de', 'he', 'other']);
+  function searchGroups() {
+    const order = sKindOrder(), map = new Map();
+    sResults.forEach((r, i) => {
+      const key = [r.title, r.loc && r.loc.path ? JSON.stringify(r.loc.path) : '', r.loc && r.loc.label != null ? r.loc.label : r.where].join('\u0001');
+      if (!map.has(key)) map.set(key, []);
+      map.get(key).push(i);
+    });
+    const rank = i => { const r = sResults[i], k = ['he', 'en', 'de'].includes(r.kind) ? r.kind : 'other'; return ((prefVer[k] || []).includes(r.versionTitle) ? 0 : 10) + order.indexOf(k); };
+    return [...map.values()].map(ix => ix.slice().sort((x, y) => rank(x) - rank(y) || x - y)); // die zuletzt gewählte Fassung (sonst die der Oberflächensprache) steht oben
   }
   function renderSearchList() {
     $('#sOut').classList.remove('sread');
-    $('#sOut').innerHTML = sResults.map((r, i) => {
-      const sn = r.snippet;
-      return `<div class="sres" data-i="${i}"><span class="t">${esc(r.title)}</span> <span class="muted">${esc(r.where)} · <span class="badge ${r.kind}">${KIND_LABEL[r.kind]}</span>${esc(shortVer(r.versionTitle))}</span><div class="snip" dir="${r.kind === 'he' ? 'rtl' : 'ltr'}">${r.parts ? r.parts.map(x => x.m ? `<mark>${esc(x.t)}</mark>` : esc(x.t)).join('') : `${esc(sn.before)}<mark>${esc(sn.hit)}</mark>${esc(sn.after)}`}</div></div>`;
+    const gb = $('#sGroupBtn'); if (gb) { gb.setAttribute('aria-pressed', sGroupOn ? 'true' : 'false'); gb.classList.toggle('on', sGroupOn); }
+    if (!sGroupOn) { $('#sOut').innerHTML = sResults.map((r, i) => sresHtml(r, i)).join(''); return; }
+    const groups = searchGroups();
+    const head = groups.length < sResults.length ? `<p class="muted sgsum">${esc(I18N.t('{#} Verse · {#} Fundstellen in verschiedenen Fassungen', groups.length, sResults.length))}</p>` : '';
+    $('#sOut').innerHTML = head + groups.map(ix => {
+      const [first, ...rest] = ix;
+      if (!rest.length) return sresHtml(sResults[first], first);
+      const names = rest.map(i => `${KIND_LABEL[sResults[i].kind] || ''} ${shortVer(sResults[i].versionTitle)}`.trim());
+      return `<div class="sgrp">${sresHtml(sResults[first], first)}<details><summary>${esc(I18N.t('+{#} weitere Fassungen', rest.length))} <span class="muted">${esc(names.slice(0, 3).join(' · '))}${names.length > 3 ? ' …' : ''}</span></summary>${rest.map(i => sresHtml(sResults[i], i, ' alt')).join('')}</details></div>`;
     }).join('');
   }
+  document.addEventListener('click', e => {
+    if (!e.target.closest('#sGroupBtn')) return;
+    sGroupOn = !sGroupOn;
+    try { localStorage.setItem('searchGroup', sGroupOn ? '1' : '0'); } catch { /* egal */ }
+    if (typeof showSearchResults === 'function' && !sRead) showSearchResults(); else renderSearchList();
+  });
   // Treffer als Lesetext: wie beim Lesen, jede Fundstelle als Zeile mit den gewählten Versionen nebeneinander, geordnet nach Buch und Kapitel
   let sRead = false; try { sRead = localStorage.getItem('searchRead') === '1'; } catch { /* egal */ }
   let sReadTok = 0;
@@ -3642,7 +3668,7 @@
     if (id === 'dCan') disp.can = e.target.checked;
     applyDisp(id === 'dNiq' || id === 'dCan');
   });
-  $('#dReset').onclick = () => { disp = { ...DISP0 }; applyDisp(true); };
+  $('#dReset').onclick = () => { disp = { ...DISP0 }; applyDisp(true); layoutMode = 'cols'; try { localStorage.setItem('layoutMode', 'cols'); } catch { /* egal */ } layBtnRefresh(); if (view && view.sections && view.sections[view.idx]) renderSection(null, true); };
   document.addEventListener('click', e => {
     if (!$('#dispPanel').hidden && !e.target.closest('#dispPanel') && !e.target.closest('#dispBtn')) $('#dispPanel').hidden = true;
   });
