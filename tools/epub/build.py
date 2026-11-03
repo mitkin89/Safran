@@ -9,7 +9,7 @@ import xml.etree.ElementTree as ET
 src, proj, out = sys.argv[1:4]
 VERSION = 'Dennis Prager, The Rational Bible (Regnery)'
 BOOKS = {  # Ordnername-Anfang -> (Sefaria-Buch, Kapitelzahl)
-    'Genesis': ('Genesis', 50), 'Exodus': ('Exodus', 40), 'Deuteronomy': ('Deuteronomy', 34),
+    'Genesis': ('Genesis', 50), 'Exodus': ('Exodus', 40), 'Numbers': ('Numbers', 36), 'Deuteronomy': ('Deuteronomy', 34),
 }
 
 man = json.load(open(os.path.join(proj, 'bundled', 'manifest.json'), encoding='utf8'))
@@ -17,6 +17,7 @@ meta = {}
 for it in man['items']:
     if it['kind'] == 'he' and 'Westminster' in it['versionTitle']: meta[it['title']] = it['heTitle']
 
+NODOT = False  # Numbers: Endnoten ohne Punkt nach der Nummer
 SUP = str.maketrans('⁰¹²³⁴⁵⁶⁷⁸⁹', '0123456789')
 SUPRE = re.compile('[⁰¹²³⁴⁵⁶⁷⁸⁹]+')
 
@@ -126,6 +127,7 @@ def convert(d, title, nch):
     for fi, f in enumerate(files):
         s = open(f, encoding='utf8', errors='replace').read()
         s = re.sub(r'<head>.*?</head>', '', s, flags=re.S)
+        s = re.sub(r'(<p class="head" id="num(\d+)-1">)', r'<p>Chapter \2</p>\1', s)  # Numbers (MOBI): Kapitelanfang nur an der Vers-Id erkennbar
         p = Parser(flags); p.feed(s); p.flush()
         bs = p.blocks
         # Seiten, die nicht zum Text gehören
@@ -150,7 +152,7 @@ def convert(d, title, nch):
             if n in ('ABOUTTHEAUTHOR',) or n.startswith('COPYRIGHT'): mode = 'end'; continue
             m = re.fullmatch(r'Chapter\s+(\d+)', plain.strip(), re.I)
             if m: ncur = int(m.group(1)); nnum = None; continue
-            m = re.match(r'^(\d{1,3})\s*\.\s*(.*)$', plain)
+            m = re.match(r'^(\d{1,3})\s*\.\s*(.*)$', plain) or (re.match(r'^(\d{1,3})\s+(\S.*)$', plain) if b['tag'] == 'p' and 'endnote' in ' '.join(sorted(b['flags'])) + 'endnote' and NODOT else None)
             h2 = re.sub(r'^\s*?\d{1,3}?\s*\.?\s*', '', h)
             if m and ncur is not None:
                 nnum = int(m.group(1)); notes.setdefault(ncur, {})[nnum] = [re.sub(r'^\d{1,3}\s*\.\s*', '', h).strip()]
@@ -239,6 +241,7 @@ for name in sorted(os.listdir(src)):
         book = BOOKS['Deuteronomy'] if 'Deuteronomy' in name or 'rational_bible__D' in name else None
     if not book: print('Unbekanntes Buch:', name); continue
     sef, nch = book
+    NODOT = (sef == 'Numbers')
     text, stats, un = convert(d, sef, nch)
     t = 'Rational Bible on ' + sef
     j = {'title': t, 'heTitle': 'המקרא ההגיוני על ' + meta.get(sef, ''), 'language': 'English', 'versionTitle': VERSION,
