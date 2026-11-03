@@ -348,30 +348,47 @@ class Library {
 
   // Mitgelieferte Texte (Ordner bundled/ der App): beim Start einbinden, neue oder geänderte Fassungen übernehmen.
   // Vom Nutzer entfernte Texte (skipBundled) kommen nicht wieder.
-  async importBundled(dir) {
+  async importBundled(dir, privDir) {
     let man;
     try { man = JSON.parse(await fs.readFile(path.join(dir, 'manifest.json'), 'utf8')); } catch { return 0; }
-    // manifest.private.json und manifest.private-*.json (nicht im Repository): zusätzliche eigene Texte, z. B. urheberrechtlich geschützte, nur für den eigenen Gebrauch
-    try {
-      const pf = (await fs.readdir(dir)).filter(n => /^manifest\.private(-[^/\\]*)?\.json$/.test(n)).sort();
-      for (const n of pf) { try { const pm = JSON.parse(await fs.readFile(path.join(dir, n), 'utf8')); if (pm && Array.isArray(pm.items)) man = { ...man, items: [...(man.items || []), ...pm.items] }; } catch { /* defekte Datei überspringen */ } }
-    } catch { /* kein Ordner */ }
+    // Private Texte (nicht im Repository, z. B. urheberrechtlich geschützte, nur für den eigenen Gebrauch):
+    // manifest.private*.json im Ordner bundled/ UND in privDir (fester Nutzerordner, übersteht App-Updates).
+    // Private Texte werden nie automatisch entfernt und beim Einbinden in privDir gesichert.
+    const entries = ((man && man.items) || []).map(it => ({ it, src: dir, priv: false }));
+    const seenRel = new Set(entries.map(x => String(x.it.rel || '').normalize('NFC')));
+    for (const d of [dir, privDir]) {
+      if (!d) continue;
+      let names = [];
+      try { names = (await fs.readdir(d)).filter(n => /^manifest\.private(-[^/\\]*)?\.json$/.test(n)).sort(); } catch { /* kein Ordner */ }
+      for (const n of names) {
+        try {
+          const pm = JSON.parse(await fs.readFile(path.join(d, n), 'utf8'));
+          for (const it of (pm && Array.isArray(pm.items) ? pm.items : [])) {
+            const k = String(it.rel || '').normalize('NFC');
+            if (seenRel.has(k)) { const ex = entries.find(x => String(x.it.rel || '').normalize('NFC') === k); if (ex && !ex.priv) ex.priv = true; continue; }
+            seenRel.add(k); entries.push({ it, src: d, priv: true });
+          }
+        } catch { /* defekte Datei überspringen */ }
+      }
+    }
+    man = { ...man, items: entries.map(x => x.it) };
     const skip = new Set((this.index.skipBundled || []).map(x => x.normalize('NFC')));
     const have = new Map(Object.keys(this.index.entries).map(k => [k.normalize('NFC'), k])); // Umlaute: gleiche Datei, unterschiedlich geschrieben
     let n = 0;
-    for (const it of (man && man.items) || []) {
+    let flagged = 0;
+    for (const { it, src, priv } of entries) {
       const rel = String(it.rel || '');
       if (!/^own\/[^\\]+\/(he|en|de|other)\/[^/\\]+\.json$/.test(rel) || rel.includes('..') || skip.has(rel)) continue;
       const cur = this.index.entries[have.get(rel) || rel];
-      if (cur && (!cur.bundled || cur.bundledHash === it.hash)) continue; // eigene Fassung oder schon aktuell
+      if (cur && (!cur.bundled || cur.bundledHash === it.hash)) { if (priv && cur.bundled && !cur.private) { cur.private = true; flagged++; } continue; } // eigene Fassung oder schon aktuell
       try {
         let buf;
-        try { buf = await fs.readFile(path.join(dir, rel)); }
-        catch { buf = await fs.readFile(path.join(dir, rel.normalize(rel === rel.normalize('NFC') ? 'NFD' : 'NFC'))); } // Umlaute: macOS speichert Dateinamen zerlegt (NFD), Windows/Linux nicht
+        try { buf = await fs.readFile(path.join(src, rel)); }
+        catch { buf = await fs.readFile(path.join(src, rel.normalize(rel === rel.normalize('NFC') ? 'NFD' : 'NFC'))); } // Umlaute: macOS speichert Dateinamen zerlegt (NFD), Windows/Linux nicht
         const dest = path.join(this.dir, rel);
         await fs.mkdir(path.dirname(dest), { recursive: true });
         await fs.writeFile(dest, buf);
-        this.index.entries[rel] = { rel, title: it.title, heTitle: it.heTitle || '', language: it.language, versionTitle: it.versionTitle, categories: it.categories, kind: it.kind, bytes: buf.length, own: true, bundled: true, bundledHash: it.hash };
+        this.index.entries[rel] = { rel, title: it.title, heTitle: it.heTitle || '', language: it.language, versionTitle: it.versionTitle, categories: it.categories, kind: it.kind, bytes: buf.length, own: true, bundled: true, bundledHash: it.hash, ...(priv ? { private: true } : {}) };
         n++;
         if (n % 8 === 0) await this.save().catch(() => {}); // zwischendurch sichern: Abbruch beim ersten Start verliert nichts
       } catch { /* Datei fehlt im Paket – überspringen */ }
@@ -380,11 +397,33 @@ class Library {
     const inPack = new Set(((man && man.items) || []).map(it => String(it.rel || '').normalize('NFC')));
     let gone = 0;
     for (const [k, e] of Object.entries(this.index.entries)) {
-      if (!e.bundled || inPack.has(k.normalize('NFC'))) continue;
+      if (!e.bundled || e.private || inPack.has(k.normalize('NFC'))) continue;
       try { await fs.unlink(path.join(this.dir, k)); } catch { /* war schon weg */ }
       delete this.index.entries[k]; gone++;
     }
-    if (n || gone) await this.save();
+    // Sicherung: private Texte aus bundled/ zusätzlich in den festen Nutzerordner kopieren (übersteht Updates)
+    if (privDir) {
+      try {
+        const mine = entries.filter(x => x.priv && x.src !== privDir);
+        if (mine.length) {
+          const mf = path.join(privDir, 'manifest.private-auto.json');
+          let old = []; try { old = JSON.parse(await fs.readFile(mf, 'utf8')).items || []; } catch { /* neu */ }
+          const items = new Map(old.map(i => [String(i.rel).normalize('NFC'), i]));
+          for (const { it, src } of mine) {
+            const rel = String(it.rel).normalize('NFC');
+            const dest = path.join(privDir, rel);
+            const same = items.get(rel) && items.get(rel).hash === it.hash && await fs.access(dest).then(() => true, () => false);
+            if (same) continue;
+            let buf; try { buf = await fs.readFile(path.join(src, it.rel)); } catch { try { buf = await fs.readFile(path.join(src, it.rel.normalize('NFD'))); } catch { continue; } }
+            await fs.mkdir(path.dirname(dest), { recursive: true }); await fs.writeFile(dest, buf);
+            items.set(rel, { ...it, rel });
+          }
+          await fs.mkdir(privDir, { recursive: true });
+          await fs.writeFile(mf, JSON.stringify({ version: 1, items: [...items.values()] }, null, 1));
+        }
+      } catch { /* Sicherung ist nur ein Zusatz */ }
+    }
+    if (n || gone || flagged) await this.save();
     return n;
   }
 

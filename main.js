@@ -285,7 +285,7 @@ let libraryP = null; // Promise: parallele Aufrufe beim Start teilen sich eine B
 function getLibrary() {
   if (!libraryP) libraryP = (async () => {
     const lib = await new OFF.Library(await libraryDir(), fetchBuffer).load();
-    try { await lib.importBundled(path.join(__dirname, 'bundled')); } catch { /* mitgelieferte Texte sind nur ein Zusatz */ }
+    try { await lib.importBundled(path.join(__dirname, 'bundled'), path.join(app.getPath('userData'), 'private')); } catch { /* mitgelieferte Texte sind nur ein Zusatz */ }
     setTimeout(() => warmSearchCache(lib), 5000); // Such-Cache im Hintergrund vorbauen
     return lib;
   })().catch(err => { libraryP = null; throw err; });
