@@ -400,12 +400,12 @@ dialog .dclose:hover { background: color-mix(in srgb, var(--text, #888) 14%, tra
 .dli button { border: 0; background: none; cursor: pointer; color: var(--muted); }
 
 /* Wörterbuch-Leiste: rechts wie die Kommentarleiste; ist sie offen, teilen sich beide die Spalte (Kommentare oben, Wörterbuch unten) */
-#dictPanel { position: fixed; top: 57px; right: var(--cmt-off, 0px); bottom: 0; width: var(--cmt-w, 400px); max-width: 90vw; z-index: 20; background: var(--bg); border-left: 1px solid var(--line); padding: 0 14px 0; overflow: hidden; display: flex; flex-direction: column; }
+#dictPanel { max-height: none; position: fixed; top: 57px; right: var(--cmt-off, 0px); bottom: 0; width: var(--cmt-w, 400px); max-width: 90vw; z-index: 20; background: var(--bg); border-left: 1px solid var(--line); padding: 0 14px 0; overflow: hidden; display: flex; flex-direction: column; }
 #dictPanel[hidden] { display: none; }
 /* Kopf (Titel, Eingabe, Tabs) bleibt stehen, nur die Treffer scrollen */
 #dictHead { flex: none; display: block; padding-top: 6px; }
 #dictHead #dictBar { position: relative; z-index: 3; background: var(--bg); padding: 8px 0; border-bottom: 1px solid var(--line); margin-bottom: 0; }
-#dictOut { flex: 1 1 auto; min-height: 0; overflow: auto; padding: 8px 0 14px; }
+#dictOut { flex: 1 1 auto; min-height: 0; overflow: auto; padding: 8px 0 4px; }
 #dictSaved { max-height: 26vh; overflow: auto; }
 #dictHead .lhead { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
 #dictHead .bar { display: flex; gap: 6px; margin: 0; }
@@ -471,7 +471,7 @@ body.cmt-open.dict-open #cmtPanel { bottom: 42%; }
 #wpop .wdict:hover { background: color-mix(in srgb, var(--accent) 18%, transparent); }
 
 /* Reiter „Wörterbuch“: volle Breite */
-html[data-tab=dict] #dictPanel { left: 0; right: 0; width: auto; max-width: none; border-left: 0; padding: 0 max(14px, 12vw) 14px; }
+html[data-tab=dict] #dictPanel { left: 0; right: 0; width: auto; max-width: none; border-left: 0; padding: 0 max(14px, 12vw) 0; }
 html[data-tab=dict] body.cmt-open.dict-open #dictPanel { top: 57px; height: auto; border-top: 0; }
 html[data-tab=dict] #cmtPanel, html[data-tab=dict] #cmtResize { display: none; }
 
@@ -500,7 +500,7 @@ html[data-tab=dict] #dictHead .lhead { justify-content: flex-end; margin-bottom:
 #dictSug .sg:hover, #dictSug .sg.on { background: color-mix(in srgb, var(--accent) 22%, transparent); }
 
 /* Reiter „Wörterbuch“ bei geöffnetem zweiten Fenster: nur die linke Hälfte füllen */
-html.split[data-tab=dict] #dictPanel { right: var(--p2w); padding: 0 max(14px, 3vw) 14px; }
+html.split[data-tab=dict] #dictPanel { right: var(--p2w); padding: 0 max(14px, 3vw) 0; }
 
 /* Update-Hinweis */
 #updBanner { display: flex; align-items: center; gap: 10px; padding: 6px 14px; background: color-mix(in srgb, var(--accent) 18%, var(--bg)); border-bottom: 1px solid var(--accent); font-size: 13px; }
