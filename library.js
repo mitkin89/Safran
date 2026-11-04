@@ -444,45 +444,38 @@
     await loadView();
   });
 
-  // ✕ an einer Version in der Lesansicht: nimmt sie aus der Anzeige (die letzte bleibt immer stehen)
-  const vxBtn = d => (view && view.loaded && view.loaded.length > 1 && d && d.entry ? `<button type="button" class="vx" data-rel="${esc(d.entry.rel)}" title="${esc(I18N.t('Diese Version ausblenden'))}">✕</button>` : '');
-  $('#rOut').addEventListener('click', async e => {
-    const x = e.target.closest('.vx');
-    if (!x || !view) return;
-    e.stopImmediatePropagation(); e.preventDefault();
-    const rel = x.dataset.rel;
-    if (view.selected.size <= 1 || !view.selected.has(rel)) return;
-    view.selected.delete(rel);
-    rememberKinds();
-    view.key = view.sections[view.idx] ? view.sections[view.idx].k : null;
-    await loadView();
-  }, true);
   // Klick auf eine Spaltenüberschrift: Liste mit den verfügbaren Texten dieser Sprache (anhaken = zeigen) und Schnellauswahlen
   const HEAD_ALL = {
     he: 'Alle hebräischen Texte anzeigen', de: 'Alle deutschen Texte anzeigen', en: 'Alle englischen Texte anzeigen', other: 'Alle anderen Texte anzeigen',
     hede: 'Alle hebräischen und deutschen Texte anzeigen', heen: 'Alle hebräischen und englischen Texte anzeigen', heother: 'Alle hebräischen und anderen Texte anzeigen'
   };
   $('#rOut').addEventListener('click', e => {
-    const h = e.target.closest('.row.head > div:not(.lab)');
-    if (!h || !view || h.closest('#passDlg')) return;
+    const vl = e.target.closest('.vlab[data-rel]'); // Versionsname über einem Text („je Sprache“)
+    const h = vl ? null : e.target.closest('.row.head > div:not(.lab)');
+    if ((!h && !vl) || !view || (h || vl).closest('#passDlg')) return;
     const g = view.group, kn = v => (['he', 'en', 'de'].includes(v.kind) ? v.kind : 'other');
-    const ci = h.dataset.ci != null ? +h.dataset.ci : [...h.parentNode.children].indexOf(h) - 1; // erste Kindzelle ist das Label (bei „je Sprache“ steht der Index im Kopf)
-    const d = view.loaded[ci]; if (!d) return;
-    const k = (['he', 'en', 'de'].includes(d.entry.kind) ? d.entry.kind : 'other');
+    let d, multi = false;
+    if (vl) d = view.loaded.find(x => x.entry.rel === vl.dataset.rel);
+    else {
+      const ci = h.dataset.ci != null ? +h.dataset.ci : [...h.parentNode.children].indexOf(h) - 1; // erste Kindzelle ist das Label (bei „je Sprache“ steht der Index im Kopf)
+      d = view.loaded[ci]; multi = h.dataset.multi === '1';
+    }
+    if (!d) return;
+    const k = kn(d.entry);
     const apply = async rels => {
       if (!rels.size) return;
       view.selected = rels; rememberKinds();
       view.key = view.sections[view.idx] ? view.sections[view.idx].k : null;
       await loadView();
     };
-    const ofKinds = ks => new Set(g.versions.filter(v => ks.includes(kn(v))).map(v => v.rel));
     const items = [];
-    if (view.selected.size > 1) { items.push({ label: 'Diese Version aus der Anzeige entfernen', fn: () => { const n = new Set(view.selected); n.delete(d.entry.rel); apply(n); } }); items.push({ label: 'Nur diese Version anzeigen', fn: () => apply(new Set([d.entry.rel])) }); items.push({ sep: true }); }
+    if (!multi && view.selected.size > 1) { items.push({ label: 'Diese Version aus der Anzeige entfernen', fn: () => { const n = new Set(view.selected); n.delete(d.entry.rel); apply(n); } }); items.push({ label: 'Nur diese Version anzeigen', fn: () => apply(new Set([d.entry.rel])) }); items.push({ sep: true }); }
+    // alle Versionen dieser Sprache: ✓ = wird gezeigt (Klick nimmt sie heraus), sonst Klick fügt sie hinzu
     for (const v of g.versions.filter(v => kn(v) === k)) {
-      const cur = v.rel === d.entry.rel;
-      items.push({ label: (cur ? '✓ ' : '\u2003 ') + shortVer(v.versionTitle), fn: () => { if (cur) return; const n = new Set(view.selected); n.delete(d.entry.rel); n.add(v.rel); apply(n); } }); // ersetzt die Version dieser Spalte
+      const on = view.selected.has(v.rel);
+      items.push({ label: (on ? '✓ ' : '\u2003 ') + shortVer(v.versionTitle), fn: () => { const n = new Set(view.selected); if (on) n.delete(v.rel); else n.add(v.rel); apply(n); } });
     }
-    const r = h.getBoundingClientRect();
+    const r = (vl || h).getBoundingClientRect();
     setTimeout(() => ctxShow({ clientX: r.left, clientY: r.bottom + 2, preventDefault() {} }, items), 0); // erst nach dem Klick, sonst schließt ihn der Dokument-Klick sofort wieder
   });
 
@@ -541,13 +534,13 @@
     const n = byLang ? groupsL.length : vis.length;
     const headTip = esc(I18N.t('Klicken: verfügbare Texte dieser Sprache auswählen'));
     const head = byLang
-      ? `<div class="row head" style="--n:${n}"><div class="lab"></div>${groupsL.map(g => `<div data-ci="${g.idx[0]}" title="${headTip}">${esc(g.idx.length === 1 ? KIND_LABEL[g.k] + ' · ' + shortVer(view.loaded[g.idx[0]].versionTitle) : KIND_LABEL[g.k] + ' (' + g.idx.length + ')')}${g.idx.length === 1 ? vxBtn(view.loaded[g.idx[0]]) : ''}</div>`).join('')}</div>`
+      ? `<div class="row head" style="--n:${n}"><div class="lab"></div>${groupsL.map(g => `<div data-ci="${g.idx[0]}"${g.idx.length > 1 ? ' data-multi="1"' : ''} title="${headTip}">${esc(g.idx.length === 1 ? KIND_LABEL[g.k] + ' · ' + shortVer(view.loaded[g.idx[0]].versionTitle) : KIND_LABEL[g.k] + ' (' + g.idx.length + ')')}</div>`).join('')}</div>`
       : `<div class="row head" style="--n:${n}"><div class="lab"></div>${vis.map(i => view.loaded[i]).map(d =>
-      `<div title="${headTip}">${esc(KIND_LABEL[d.entry.kind])} · ${esc(shortVer(d.versionTitle))}${vxBtn(d)}</div>`).join('')}</div>`;
+      `<div title="${headTip}">${esc(KIND_LABEL[d.entry.kind])} · ${esc(shortVer(d.versionTitle))}</div>`).join('')}</div>`;
     const langCells = r => groupsL.map(g => {
       const full = g.idx.filter(i => r.cells[i] != null);
       if (!full.length) return '<div class="cell empty"></div>';
-      return `<div class="gcell" data-g="${g.k}">${full.map(i => (g.idx.length > 1 ? `<div class="vlab">${esc(shortVer(view.loaded[i].versionTitle))}${vxBtn(view.loaded[i])}</div>` : '') + cellHtml(r.cells[i], view.loaded[i])).join('')}</div>`;
+      return `<div class="gcell" data-g="${g.k}">${full.map(i => (g.idx.length > 1 ? `<div class="vlab" data-rel="${esc(view.loaded[i].entry.rel)}" title="${esc(I18N.t('Klicken: Version entfernen, nur diese zeigen oder weitere hinzufügen'))}">${esc(shortVer(view.loaded[i].versionTitle))}</div>` : '') + cellHtml(r.cells[i], view.loaded[i])).join('')}</div>`;
     }).join('');
     if (rowLabel != null && !rows.some(r => r.label === rowLabel)) { // „2“ trifft bei Kommentaren die erste Zeile „2:1“
       const f = rows.find(r => r.label.startsWith(rowLabel + ':'));

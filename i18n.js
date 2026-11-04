@@ -37,7 +37,7 @@
     'jede Version eine Spalte': 'one column per version',
     'eine Spalte je Sprache': 'one column per language',
     'Anordnung': 'Layout',
-    'Diese Version ausblenden': 'Hide this version',
+    'Klicken: Version entfernen, nur diese zeigen oder weitere hinzufügen': 'Click: remove this version, show only this one, or add more',
     'Gleichlauf: Blättern im ersten Fenster blättert im zweiten mit (für Parallelstellen)': 'Sync: turning pages in the first window also turns them in the second (for parallel passages)',
     'Zweites Lesefenster rechts ein-/ausblenden – so bleibt das erste Buch offen': 'Show/hide the second reading pane on the right – the first book stays open',
     'Dieses Fenster schließen': 'Close this pane', 'Weitere Funktionen': 'More',
