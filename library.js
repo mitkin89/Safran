@@ -20,12 +20,22 @@
   // ---------- Reiter ----------
   let onTabChange = null; // wird weiter unten für den Reiter „Wörterbuch“ gesetzt
   const tabScroll = {}; // Scrollposition von Notizen/Suche, damit man nach einem Sprung ins Lesen an derselben Stelle zurückkommt
+  // Wörterbuch-Reiter: Fläche beginnt direkt unter der Kopfzeile (Höhe hängt vom Fenster ab), in der Seitenleiste bleibt es beim festen Wert
+  function dictPlace() {
+    const p = document.getElementById('dictPanel'), h = document.querySelector('header');
+    const v = document.documentElement.dataset.tab === 'dict' && h ? Math.round(h.getBoundingClientRect().bottom) + 'px' : '';
+    if (p) p.style.top = v;
+    document.documentElement.style.setProperty('--dict-top', v || '57px');
+  }
+  window.addEventListener('resize', dictPlace);
+  try { const hh = document.querySelector('header'); if (hh && window.ResizeObserver) new ResizeObserver(dictPlace).observe(hh); } catch { /* egal */ }
   function showTab(t) {
     const prevTab = document.documentElement.dataset.tab || 'read'; // vor dem ersten Wechsel steht noch kein data-tab, die Seite zeigt aber „Lesen“
     if (prevTab === 'notes' || prevTab === 'search') tabScroll[prevTab] = window.scrollY;
     $$('nav button').forEach(b => b.classList.toggle('active', b.dataset.tab === t));
     $$('main > section').forEach(s => (s.hidden = s.id !== 'tab-' + t));
     document.documentElement.dataset.tab = t;
+    dictPlace();
     try { renderTabs(); } catch { /* beim ersten Aufruf sind die Tabs noch nicht angelegt */ } // Fenstertitel neu setzen
     $('#togglePanel').hidden = t !== 'read'; // die Bücherliste gibt es nur im Reiter „Lesen“
     if (prevTab && prevTab !== t && (prevTab === 'read' || t === 'read') && panelOpen) { panelOpen = false; applyPanel(); } // beim Verlassen und Zurückkehren ist die Bücherliste zu

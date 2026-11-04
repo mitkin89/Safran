@@ -485,6 +485,8 @@ html[data-tab=dict] #dictBar { flex-wrap: wrap; align-items: center; }
 html[data-tab=dict] #dictBar #dictQ { flex: 0 1 240px; }
 /* im Reiter braucht es weder Anheften noch Schließen; Vor/Zurück und Schriftgröße rechts am Rand */
 html[data-tab=dict] #dictHead .pinB, html[data-tab=dict] #dictClose, html[data-tab=dict] #dictHead .lhead b { display: none; }
+html[data-tab=dict] #dictHead { padding-top: 0; }
+html[data-tab=dict] #dictHead #dictBar { padding: 6px 0; }
 html[data-tab=dict] #dictHead .lhead { justify-content: flex-end; margin-bottom: 0; }
 #dictTabs .dtab { display: inline-flex; align-items: center; gap: 4px; max-width: 200px; padding: 3px 8px; border: 1px solid var(--line); border-radius: 6px; cursor: pointer; background: var(--chip); font-family: "HeDict", inherit; }
 #dictTabs .dtab.active { background: var(--card); border-color: var(--accent); font-weight: 600; }
@@ -866,9 +868,9 @@ body:has(#findBar:not([hidden])) #olBody { padding-bottom: 56px; }
 /* Reiter „Wörterbuch“ (breit): Letzte Suchen links, Favoriten rechts in den Randspalten */
 @media (min-width: 1100px) {
   html[data-tab=dict]:not(.split) #dictSaved { display: block; margin: 0; }
-  html[data-tab=dict]:not(.split) #dictHead .lhead { position: absolute; top: 14px; right: 10px; margin: 0; z-index: 4; }
+  html[data-tab=dict]:not(.split) #dictHead .lhead { position: absolute; top: 6px; right: 10px; margin: 0; z-index: 4; }
   html[data-tab=dict]:not(.split) #dictSaved { max-height: none; overflow: visible; }
-  html[data-tab=dict]:not(.split) #dictSaved .dsv { position: fixed; top: 136px; width: calc(12vw - 30px); min-width: 120px; }
+  html[data-tab=dict]:not(.split) #dictSaved .dsv { position: fixed; top: calc(var(--dict-top, 0px) + 66px); width: calc(12vw - 30px); min-width: 120px; }
   html[data-tab=dict]:not(.split) #dictSaved .dsv:first-child { left: 14px; }
   html[data-tab=dict]:not(.split) #dictSaved .dsv:last-child { right: 14px; }
   html[data-tab=dict]:not(.split) #dictSaved .dchips { flex-direction: column; flex-wrap: nowrap; align-items: stretch; max-height: calc(100vh - 220px); gap: 3px; }
