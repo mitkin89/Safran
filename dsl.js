@@ -31,6 +31,26 @@ function norm(s) {
 
 // ---------- Stichwörter ----------
 // „Wort {(optional)}“ → „Wort“; geschweifte Zusätze und Escapes entfernen; „\(“ „\)“ wieder zu Klammern
+// Suchanfrage: "Phrase in Anführungszeichen" (Wörter in dieser Reihenfolge direkt hintereinander), Platzhalter * (beliebig viele Zeichen) und ? (genau ein Zeichen)
+function normW(s) { return norm(String(s || '').replace(/\*/g, '\u0001').replace(/\?/g, '\u0002')).replace(/\u0001/g, '*').replace(/\u0002/g, '?'); }
+function parseQuery(q) {
+  const items = [], s = String(q || '');
+  const re = /["“„”]([^"“„”]+)["“„”]|["“„”]([^"“„”]+)$|(\S+)/g;
+  let m;
+  while ((m = re.exec(s))) {
+    if (m[1] != null || m[2] != null) { const w = normW(m[1] != null ? m[1] : m[2]).split(' ').filter(Boolean); if (w.length) items.push({ phrase: true, words: w }); }
+    else { const w = normW(m[3]); if (w.replace(/[*?]/g, '')) items.push({ phrase: false, words: [w] }); }
+  }
+  return items;
+}
+const hasWild = w => /[*?]/.test(w);
+const escRx = c => c.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+// Wort mit Platzhaltern -> Regex-Quelltext (Text ist schon normalisiert); ein einzelnes * in einer Phrase steht für genau ein Wort
+function wildRx(w, inPhrase) {
+  if (inPhrase && /^\*+$/.test(w)) return '\\S+';
+  return w.replace(/\*+/g, '*').split('').map(c => c === '*' ? '\\S*' : c === '?' ? '\\S' : escRx(c)).join('');
+}
+function itemRx(it) { return it.phrase ? it.words.map(w => wildRx(w, true)).join(' ') : wildRx(it.words[0], false); }
 function cleanHead(h) {
   return h.replace(/\{\{[\s\S]*?\}\}/g, '').replace(/\{[^}]*\}/g, '').replace(/\\([()\[\]{}~@\\])/g, '$1').replace(/\s+/g, ' ').trim();
 }
@@ -262,8 +282,14 @@ class Dictionaries {
   }
   // Volltext: Suchwörter (alle müssen vorkommen, ohne Vokalzeichen/Endbuchstaben/Groß-Klein) im Artikeltext; skip = schon als Stichwort-Treffer gezeigte (dictId:k)
   async fulltext(query, { limit = 80, only = '', skip = new Set() } = {}) {
-    const terms = norm(query).split(' ').filter(Boolean);
-    if (!terms.length) return [];
+    const items = parseQuery(query);
+    if (!items.length) return [];
+    // je Suchbegriff eine Zählfunktion: einfache Wörter per indexOf, Phrasen und Platzhalter per Regex
+    const counters = items.map(it => {
+      if (!it.phrase && !hasWild(it.words[0])) { const w = it.words[0]; return t => { let i = t.indexOf(w), c = 0; while (i >= 0 && c < 99) { c++; i = t.indexOf(w, i + w.length); } return c; }; }
+      let rx; try { rx = new RegExp(itemRx(it), 'g'); } catch { return () => 0; }
+      return t => { let c = 0; rx.lastIndex = 0; while (c < 99 && rx.exec(t)) { c++; if (rx.lastIndex === 0) break; } return c; };
+    });
     const res = [];
     for (const d of (await this.list())) {
       if (!allowed(only, d.id)) continue;
@@ -273,25 +299,46 @@ class Dictionaries {
       data.plain.forEach((t, k) => {
         if (skip.has(d.id + ':' + k)) return;
         let n = 0;
-        for (const w of terms) { let i = t.indexOf(w), c = 0; if (i < 0) return; while (i >= 0 && c < 99) { c++; i = t.indexOf(w, i + w.length); } n += c; }
+        for (const c of counters) { const x = c(t); if (!x) return; n += x; }
         hits.push([k, n]);
       });
       hits.sort((a, b) => b[1] - a[1] || a[0] - b[0]);
-      for (const [k, n] of hits.slice(0, limit)) res.push({ dict: data.name, dictId: d.id, k, head: data.heads[k].join(' · '), html: markTerms(data.html[k], terms), kind: 'text', note: `Treffer im Text (${n}×)` });
+      for (const [k, n] of hits.slice(0, limit)) res.push({ dict: data.name, dictId: d.id, k, head: data.heads[k].join(' · '), html: markTerms(data.html[k], items), kind: 'text', note: `Treffer im Text (${n}×)` });
     }
     return res;
   }
   // Stichwörter und Volltext gemeinsam, je Wörterbuch zusammenhängend (Reihenfolge der Wörterbücher)
   async search(query, { limit = 40, only = '', full = false } = {}) {
-    const base = await this.lookup(query, { limit, only });
-    if (!full) return base;
+    const items = parseQuery(query);
+    const phrase = items.some(it => it.phrase);
+    // Phrasen gibt es nur im Artikeltext; eine Phrase aus einem einzigen Wort schlägt auch als Stichwort nach
+    const base = (phrase || (items.length > 1 && items.some(it => hasWild(it.words[0])))) && !(items.length === 1 && items[0].words.length === 1) ? [] : await this.lookup(phrase ? items[0].words[0] : query, { limit, only });
+    if (!full && !phrase) return base;
     const skip = new Set(base.map(x => x.dictId + ':' + x.k));
     const text = await this.fulltext(query, { limit: limit * 2, only, skip });
     const order = (await this.list()).map(d => d.id);
     return base.concat(text).map((x, i) => [x, i]).sort((a, b) => order.indexOf(a[0].dictId) - order.indexOf(b[0].dictId) || a[1] - b[1]).map(a => a[0]);
   }
+  // Stichwortsuche mit Platzhaltern: das ganze Stichwort muss passen (* = beliebig viele Zeichen, ? = ein Zeichen)
+  async lookupWild(query, { limit = 40, only = '' } = {}) {
+    const w = normW(String(query).replace(/["“„”]/g, ' '));
+    if (!w.replace(/[*?]/g, '')) return [];
+    let rx; try { rx = new RegExp('^' + wildRx(w, false) + '$'); } catch { return []; }
+    const res = [];
+    for (const d of (await this.list())) {
+      if (!allowed(only, d.id)) continue;
+      const data = await this.load(d.id), seen = new Set();
+      for (const [h, k] of data.idx) {
+        if (seen.has(k) || !rx.test(h)) continue;
+        seen.add(k); res.push({ dict: data.name, dictId: d.id, k, head: data.heads[k].join(' · '), html: data.html[k], kind: 'prefix', note: 'Platzhalter' });
+        if (seen.size >= limit * 2) break;
+      }
+    }
+    return res.slice(0, limit * 2);
+  }
   // Nachschlagen: genau, dann Wortanfang, dann ohne hebräische Vorsilben (ה ו ב כ ל מ ש)
   async lookup(query, { limit = 40, only = '' } = {}) {
+    if (/[*?]/.test(query)) return this.lookupWild(query, { limit, only });
     const q = norm(query);
     if (!q) return [];
     const res = [];
@@ -324,9 +371,21 @@ function htmlText(h) { return String(h).replace(/<[^>]+>/g, ' ').replace(/&lt;/g
 // Treffer im HTML hervorheben (nur in Textstücken, nicht in Tags); hebräisch: Vokalzeichen zwischen den Buchstaben und Endbuchstaben egal
 function markTerms(html, terms) {
   const FIN = { 'כ': 'כך', 'מ': 'מם', 'נ': 'נן', 'פ': 'פף', 'צ': 'צץ' };
-  const rx = terms.map(t => [...t].map(c => /[א-ת]/.test(c) ? '[' + (FIN[c] || c) + '][֑-ׇ]*' : c.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '[\u0300-\u036f]*').join('')).join('|');
-  let re; try { re = new RegExp('(' + rx + ')', 'giu'); } catch { return html; }
-  return String(html).split(/(<[^>]+>)/).map((x, i) => i % 2 ? x : x.normalize('NFD').replace(re, '<mark class="dhit">$1</mark>')).join('');
+  const lit = c => /[א-ת]/.test(c) ? '[' + (FIN[c] || c) + '][֑-ׇ]*' : escRx(c) + '[\u0300-\u036f]*';
+  const word = (w, inPhrase) => inPhrase && /^\*+$/.test(w) ? '\\S+' : w.replace(/\*+/g, '*').split('').map(c => c === '*' ? '\\S*' : c === '?' ? '\\S' : lit(c)).join('');
+  const mk = withWords => {
+    const parts = [];
+    for (const t of terms) {
+      const it = typeof t === 'string' ? { phrase: false, words: [t] } : t;
+      if (it.phrase) { parts.push(it.words.map(w => word(w, true)).join('\\s+')); if (withWords) it.words.filter(w => !/^\*+$/.test(w)).forEach(w => parts.push(word(w, false))); }
+      else parts.push(word(it.words[0], false));
+    }
+    let re; try { re = new RegExp('(' + parts.join('|') + ')', 'giu'); } catch { return html; }
+    return String(html).split(/(<[^>]+>)/).map((x, i) => i % 2 ? x : x.normalize('NFD').replace(re, '<mark class="dhit">$1</mark>')).join('');
+  };
+  const out = mk(false);
+  // Phrase über Tag-Grenzen hinweg nicht gefunden: wenigstens die einzelnen Wörter hervorheben
+  return out.includes('class="dhit"') || !terms.some(t => t && t.phrase) ? out : mk(true);
 }
 function range(idx, q, exact) {
   let lo = 0, hi = idx.length;
@@ -341,4 +400,4 @@ function range(idx, q, exact) {
   return out;
 }
 
-module.exports = { decode, norm, cleanHead, bodyToHtml, parseDsl, Dictionaries, markTerms };
+module.exports = { decode, norm, parseQuery, cleanHead, bodyToHtml, parseDsl, Dictionaries, markTerms };
