@@ -1357,7 +1357,7 @@
     }
     $('#dictOut').addEventListener('mouseout', e => { const a = e.target.closest('.dsrc[data-sref]'); if (a && !a.contains(e.relatedTarget)) hideHov(); });
     $('#dictOut').addEventListener('click', hideHov);
-    $('#dictPanel').addEventListener('scroll', hideHov, { passive: true });
+    $('#dictPanel').addEventListener('scroll', hideHov, { passive: true }); $('#dictOut').addEventListener('scroll', hideHov, { passive: true });
     $('#lkBody').addEventListener('mouseout', e => { const a = e.target.closest('a[data-ref]'); if (a && !a.contains(e.relatedTarget)) hideHov(); });
     $('#linkPanel').addEventListener('scroll', hideHov, { passive: true });
     $('#lkBody').addEventListener('click', hideHov);
@@ -2877,7 +2877,7 @@
       if (x.dictId !== last) { last = x.dictId; sec = `<div class="dsec" style="--dh:${hue(x.dictId)}"><span>${esc(x.dict)}</span><span class="dsr"><button type="button" class="dlist" data-id="${esc(x.dictId)}" data-name="${esc(x.dict)}" title="Alle Stichwörter dieses Wörterbuchs als Liste">☰ Stichwörter</button><small>${cnt[x.dictId]} Treffer</small></span></div>`; }
       return `${sec}<div class="dentry" id="dentry${i}" style="--dh:${hue(x.dictId)}"><div class="dhead"><b dir="auto">${esc(x.head)}</b>${x.note ? ` <span class="muted">${esc(x.note)}</span>` : ''}</div><div class="dbody" dir="ltr">${heFix(/Gesenius/.test(x.dict || '') && window.GAbk ? window.GAbk.mark(x.html) : x.html)}</div></div>`;
     }).join('');
-    $('#dictPanel').scrollTop = 0;
+    $('#dictOut').scrollTop = 0;
   }
   const dictGoHist = d => { const k = dictPos + d; if (k < 0 || k >= dictHist.length) return; dictPos = k; dictLookup(dictHist[k].q, dictHist[k].only, true); };
   // Mehrere Wörterbuch-Tabs – nur im Reiter „Wörterbuch“ sichtbar (die Seitenleiste beim Lesen hat immer nur eine Suche)
@@ -2885,14 +2885,14 @@
   let dcur = 0;
   const dtabSave = () => {
     const t = dtabs[dcur];
-    Object.assign(t, { q: $('#dictQ').value, only: dictOnly, hist: dictHist, pos: dictPos, shown: dictShown, html: $('#dictOut').innerHTML, scroll: $('#dictPanel').scrollTop });
+    Object.assign(t, { q: $('#dictQ').value, only: dictOnly, hist: dictHist, pos: dictPos, shown: dictShown, html: $('#dictOut').innerHTML, scroll: $('#dictOut').scrollTop });
   };
   const dtabLoad = () => {
     const t = dtabs[dcur];
     dictOnly = t.only || null; dictHist = t.hist || []; dictPos = t.pos == null ? -1 : t.pos; dictShown = t.shown || [];
     $('#dictQ').value = t.q || '';
     $('#dictOut').innerHTML = t.html || '<p class="muted">Gib ein hebräisches oder deutsches Wort ein.</p>';
-    $('#dictPanel').scrollTop = t.scroll || 0;
+    $('#dictOut').scrollTop = t.scroll || 0;
     dictNavButtons();
     renderDtabs();
   };
