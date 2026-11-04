@@ -1,5 +1,12 @@
 # Changelog
 
+### New in 2.0
+- **Reading layout "one column per language":** ⚙ Anzeige → *Anordnung*. Instead of one column per version, Hebrew, English and German each get their own column and the versions of a language are stacked below each other, each with its version name.
+- **Version menu:** a click on a version name (or on a column header) opens a menu: remove this version from the view, show only this version, or add/remove any other version of the same language (✓ = shown).
+- **Search – one hit per verse:** the same verse found in several versions appears once, with the version you chose last (otherwise the one in the interface language) on top and "+2 more versions" to unfold the rest. The counter shows verses instead of hits per version. The button **⧉ Fassungen zusammenfassen** switches back to the single list.
+- **Commentaries – gaps in Sefaria's links closed:** where Sefaria links a commentary to an empty entry (e.g. Abarbanel on Jeremiah 31:2) or not at all (e.g. Minchat Shai on Jeremiah 31:2), Safran now takes the entry from the commentary text you have downloaded. Only commentators that Sefaria already links as commentary in this book, only "X on the same book", only verses with real text; correct links stay untouched.
+- **Private texts survive updates:** texts that are not part of the public repository (`manifest.private*.json`) are never removed automatically any more, are also read from the fixed folder `private` in Safran's data folder (macOS: `~/Library/Application Support/Sefaria/private/`, Windows: `%APPDATA%\Sefaria\private\`) and are backed up there at each start. If a text is missing in the bundled folder, the copy in the data folder is used. A short log of the import is written to `private-import.log` in the data folder.
+
 ### New in 1.9.9
 - **Torah in German – Lazarus Goldschmidt (Berlin 1921):** the translation of Genesis, Exodus, Leviticus, Numbers and Deuteronomy (5,846 verses, divided verse by verse exactly like Sefaria), added as a further version under each book. Digitized by Chaim Guski.
 - **Safran never starts empty:** there is always a tab open – at start, in the second window, and after closing the last tab. As long as no Sefaria texts are downloaded, the new tab shows a short guide (⋯ → Download… → load the catalog → select → download).
