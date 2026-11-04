@@ -581,7 +581,7 @@ header { z-index: 50; }
 #dictSaved .dchip:hover button { opacity: 1; }
 #dictStar { min-width: 34px; font-size: 16px; }
 #dictStar.on { color: var(--warn); }
-#dictSaved { margin: 0 0 8px; }
+#dictSaved { display: none; } /* nur als Seitenspalten im Wörterbuch-Reiter (breites Fenster) */
 
 #rOut .vfbar { margin: 4px 0 6px; padding: 4px 10px; border-radius: 8px; background: color-mix(in srgb, var(--accent) 14%, transparent); font-size: 13px; display: flex; gap: 12px; align-items: center; }
 #rOut .vfbar button { border: 0; background: none; color: var(--accent); cursor: pointer; text-decoration: underline; font-size: 13px; }
