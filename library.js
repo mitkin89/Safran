@@ -2842,6 +2842,10 @@
   let dictOnly = null; // { id, name }: Suche nur in diesem Wörterbuch (wird nicht mehr über das Menü gesetzt)
   let dictHist = [], dictPos = -1, dictShown = [];
   function dictNavButtons() { $('#dictBack').disabled = dictPos <= 0; $('#dictFwd').disabled = dictPos >= dictHist.length - 1; }
+  // Hebräischer Satz mit eingeschobenem „l.“ (lies): in einem LTR-Absatz würde das lateinische l. den Satz in zwei Teile zerreißen, deren Reihenfolge dann nicht stimmt – als eigener RTL-Block ordnen
+  const HEBC = '[\\u0590-\\u05FF\\uFB1D-\\uFB4F]', HEBN = '[\\s.,;:!?()\\[\\]\'"„“”—–*-]';
+  const HEBRUN = new RegExp(`${HEBC}(?:${HEBC}|${HEBN})*?(?<![A-Za-z])l\\.(?:${HEBC}|${HEBN})*${HEBC}`, 'g');
+  const heFix = html => String(html).split(/(<[^>]+>)/).map((t, i) => i % 2 ? t : t.replace(HEBRUN, m => `<bdi dir="rtl">${m}</bdi>`)).join('');
   async function dictLookup(q, only = null, fromHist = false) {
     q = String(q || '').trim();
     if (!q) return;
@@ -2871,7 +2875,7 @@
     $('#dictOut').innerHTML = onlyBar + r.results.map((x, i) => {
       let sec = '';
       if (x.dictId !== last) { last = x.dictId; sec = `<div class="dsec" style="--dh:${hue(x.dictId)}"><span>${esc(x.dict)}</span><span class="dsr"><button type="button" class="dlist" data-id="${esc(x.dictId)}" data-name="${esc(x.dict)}" title="Alle Stichwörter dieses Wörterbuchs als Liste">☰ Stichwörter</button><small>${cnt[x.dictId]} Treffer</small></span></div>`; }
-      return `${sec}<div class="dentry" id="dentry${i}" style="--dh:${hue(x.dictId)}"><div class="dhead"><b dir="auto">${esc(x.head)}</b>${x.note ? ` <span class="muted">${esc(x.note)}</span>` : ''}</div><div class="dbody" dir="ltr">${/Gesenius/.test(x.dict || '') && window.GAbk ? window.GAbk.mark(x.html) : x.html}</div></div>`;
+      return `${sec}<div class="dentry" id="dentry${i}" style="--dh:${hue(x.dictId)}"><div class="dhead"><b dir="auto">${esc(x.head)}</b>${x.note ? ` <span class="muted">${esc(x.note)}</span>` : ''}</div><div class="dbody" dir="ltr">${heFix(/Gesenius/.test(x.dict || '') && window.GAbk ? window.GAbk.mark(x.html) : x.html)}</div></div>`;
     }).join('');
     $('#dictPanel').scrollTop = 0;
   }
