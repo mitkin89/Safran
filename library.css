@@ -885,3 +885,8 @@ body:has(#findBar:not([hidden])) #olBody { padding-bottom: 56px; }
 .sgrp details .sres { border-bottom: 0; border-inline-start: 2px solid color-mix(in srgb, var(--accent) 35%, transparent); padding: 4px 0 4px 10px; margin-top: 4px; }
 .sgrp details .sres .snip { font-size: 15.5px; }
 #sGroupBtn.on { background: color-mix(in srgb, var(--accent) 22%, transparent); }
+
+/* ✕ an einer Version: aus der Anzeige nehmen */
+.vx { margin-inline-start: 6px; padding: 0 5px; border: 0; background: transparent; color: var(--muted); font-size: 11px; line-height: 1.4; border-radius: 4px; cursor: pointer; opacity: .35; vertical-align: baseline; }
+.vlab:hover .vx, .row.head > div:hover .vx, .vx:focus-visible { opacity: 1; }
+.vx:hover { background: color-mix(in srgb, var(--warn) 25%, transparent); color: var(--fg, inherit); opacity: 1; }

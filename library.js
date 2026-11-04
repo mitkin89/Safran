@@ -444,6 +444,19 @@
     await loadView();
   });
 
+  // ✕ an einer Version in der Lesansicht: nimmt sie aus der Anzeige (die letzte bleibt immer stehen)
+  const vxBtn = d => (view && view.loaded && view.loaded.length > 1 && d && d.entry ? `<button type="button" class="vx" data-rel="${esc(d.entry.rel)}" title="${esc(I18N.t('Diese Version ausblenden'))}">✕</button>` : '');
+  $('#rOut').addEventListener('click', async e => {
+    const x = e.target.closest('.vx');
+    if (!x || !view) return;
+    e.stopImmediatePropagation(); e.preventDefault();
+    const rel = x.dataset.rel;
+    if (view.selected.size <= 1 || !view.selected.has(rel)) return;
+    view.selected.delete(rel);
+    rememberKinds();
+    view.key = view.sections[view.idx] ? view.sections[view.idx].k : null;
+    await loadView();
+  }, true);
   // Klick auf eine Spaltenüberschrift: Liste mit den verfügbaren Texten dieser Sprache (anhaken = zeigen) und Schnellauswahlen
   const HEAD_ALL = {
     he: 'Alle hebräischen Texte anzeigen', de: 'Alle deutschen Texte anzeigen', en: 'Alle englischen Texte anzeigen', other: 'Alle anderen Texte anzeigen',
@@ -528,13 +541,13 @@
     const n = byLang ? groupsL.length : vis.length;
     const headTip = esc(I18N.t('Klicken: verfügbare Texte dieser Sprache auswählen'));
     const head = byLang
-      ? `<div class="row head" style="--n:${n}"><div class="lab"></div>${groupsL.map(g => `<div data-ci="${g.idx[0]}" title="${headTip}">${esc(g.idx.length === 1 ? KIND_LABEL[g.k] + ' · ' + shortVer(view.loaded[g.idx[0]].versionTitle) : KIND_LABEL[g.k] + ' (' + g.idx.length + ')')}</div>`).join('')}</div>`
+      ? `<div class="row head" style="--n:${n}"><div class="lab"></div>${groupsL.map(g => `<div data-ci="${g.idx[0]}" title="${headTip}">${esc(g.idx.length === 1 ? KIND_LABEL[g.k] + ' · ' + shortVer(view.loaded[g.idx[0]].versionTitle) : KIND_LABEL[g.k] + ' (' + g.idx.length + ')')}${g.idx.length === 1 ? vxBtn(view.loaded[g.idx[0]]) : ''}</div>`).join('')}</div>`
       : `<div class="row head" style="--n:${n}"><div class="lab"></div>${vis.map(i => view.loaded[i]).map(d =>
-      `<div title="${headTip}">${esc(KIND_LABEL[d.entry.kind])} · ${esc(shortVer(d.versionTitle))}</div>`).join('')}</div>`;
+      `<div title="${headTip}">${esc(KIND_LABEL[d.entry.kind])} · ${esc(shortVer(d.versionTitle))}${vxBtn(d)}</div>`).join('')}</div>`;
     const langCells = r => groupsL.map(g => {
       const full = g.idx.filter(i => r.cells[i] != null);
       if (!full.length) return '<div class="cell empty"></div>';
-      return `<div class="gcell" data-g="${g.k}">${full.map(i => (g.idx.length > 1 ? `<div class="vlab">${esc(shortVer(view.loaded[i].versionTitle))}</div>` : '') + cellHtml(r.cells[i], view.loaded[i])).join('')}</div>`;
+      return `<div class="gcell" data-g="${g.k}">${full.map(i => (g.idx.length > 1 ? `<div class="vlab">${esc(shortVer(view.loaded[i].versionTitle))}${vxBtn(view.loaded[i])}</div>` : '') + cellHtml(r.cells[i], view.loaded[i])).join('')}</div>`;
     }).join('');
     if (rowLabel != null && !rows.some(r => r.label === rowLabel)) { // „2“ trifft bei Kommentaren die erste Zeile „2:1“
       const f = rows.find(r => r.label.startsWith(rowLabel + ':'));
