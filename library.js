@@ -2990,8 +2990,10 @@
     el.classList.add('flash'); setTimeout(() => el.classList.remove('flash'), 1200);
   }
   async function renderDictList() {
-    const r = await O.dictList();
-    $('#dictList').innerHTML = r.list.length ? r.list.map((d, i) => `<div class="dli"><span>${esc(d.name)} <span class="muted">· ${d.count.toLocaleString(I18N.loc)} Einträge</span></span><span class="dbtns"><button data-mv="-1" data-id="${esc(d.id)}" title="Nach oben (wird zuerst angezeigt)"${i === 0 ? ' disabled' : ''}>▲</button><button data-mv="1" data-id="${esc(d.id)}" title="Nach unten"${i === r.list.length - 1 ? ' disabled' : ''}>▼</button><button data-id="${esc(d.id)}" title="Wörterbuch entfernen">✕</button></span></div>`).join('') : '<p class="muted">Noch keine Wörterbücher.</p>';
+    const r = await O.dictList(), list = r.list || [];
+    if (dictSel) { dictSel = dictSel.filter(id => list.some(d => d.id === id)); if (!dictSel.length) dictSel = null; }
+    $('#dictList').innerHTML = list.length ? list.map((d, i) => `<div class="dli"><label class="dsl"><input type="checkbox" data-id="${esc(d.id)}"${!dictSel || dictSel.includes(d.id) ? ' checked' : ''}><span class="dsn">${esc(d.name)}</span><small>${d.count.toLocaleString(I18N.loc)}</small></label><span class="dbtns"><button data-mv="-1" data-id="${esc(d.id)}" title="Nach oben (wird zuerst angezeigt)"${i === 0 ? ' disabled' : ''}>▲</button><button data-mv="1" data-id="${esc(d.id)}" title="Nach unten"${i === list.length - 1 ? ' disabled' : ''}>▼</button><button data-rm="1" data-id="${esc(d.id)}" title="Wörterbuch entfernen">✕</button></span></div>`).join('') : '<p class="muted">Noch keine Wörterbücher.</p>';
+    const B = $('#dictSelB'); if (B) B.textContent = (dictSel ? `📚 ${dictSel.length} von ${list.length}` : '📚 Alle Wörterbücher') + ' ▾';
   }
   async function openDict(q) {
     if (!dictOpen) toggleDict(true); else renderDictList();
@@ -3037,23 +3039,17 @@
     fb.addEventListener('change', () => { try { localStorage.setItem('dictFull', fb.checked ? '1' : '0'); } catch { /* egal */ } const q = $('#dictQ').value.trim(); if (q) dictLookup(q, dictOnly); }); }
   { // Auswahl der Wörterbücher: Häkchen je Wörterbuch, wird gemerkt
     const B = $('#dictSelB'), Pn = $('#dictSelP');
-    const label = n => { B.textContent = (dictSel ? `📚 ${dictSel.length} von ${n}` : '📚 Alle Wörterbücher') + ' ▾'; };
-    const paint = async () => {
-      const list = (await O.dictList()).list || [];
-      if (dictSel) dictSel = dictSel.filter(id => list.some(d => d.id === id)); if (dictSel && !dictSel.length) dictSel = null;
-      Pn.innerHTML = `<div class="dsa"><a data-a="all">alle</a> · <a data-a="none">keins</a></div>` + list.map(d => `<label class="dsl"><input type="checkbox" data-id="${esc(d.id)}"${!dictSel || dictSel.includes(d.id) ? ' checked' : ''}><span class="dsn">${esc(d.name)}</span><small>${d.count.toLocaleString(I18N.loc)}</small></label>`).join('');
-      label(list.length);
-    };
+    const paint = renderDictList;
     const save = () => { try { localStorage.setItem('dictSel', JSON.stringify(dictSel || null)); } catch { /* egal */ } };
     B.onclick = async e => { e.stopPropagation(); if (Pn.hidden) { await paint(); Pn.hidden = false; } else Pn.hidden = true; };
-    document.addEventListener('click', e => { if (!Pn.hidden && !Pn.contains(e.target) && e.target !== B) Pn.hidden = true; });
+    document.addEventListener('click', e => { if (!Pn.hidden && !Pn.contains(e.target) && e.target !== B && document.body.contains(e.target)) Pn.hidden = true; });
     Pn.addEventListener('click', async e => {
       const a = e.target.closest('a[data-a]');
       if (a) { dictSel = null; if (a.dataset.a === 'none') { Pn.querySelectorAll('input').forEach(i => { i.checked = false; }); return; } save(); await paint(); const q = $('#dictQ').value.trim(); if (q) dictLookup(q, dictOnly); }
     });
     Pn.addEventListener('change', async e => {
       const ids = [...Pn.querySelectorAll('input')].filter(i => i.checked).map(i => i.dataset.id), all = Pn.querySelectorAll('input').length;
-      dictSel = ids.length && ids.length < all ? ids : null; save(); label(all);
+      dictSel = ids.length && ids.length < all ? ids : null; save(); renderDictList();
       const q = $('#dictQ').value.trim(); if (q) dictLookup(q, dictOnly);
     });
     paint();
@@ -3160,7 +3156,6 @@
     const r = await O.dictAdd();
     if (r.cancelled) return;
     await renderDictList();
-    $('#dictMan').open = true;
     if (r.errors && r.errors.length) alert(r.errors.join('\n'));
     else if (r.added && r.added.length) $('#dictOut').innerHTML = `<p class="muted">Eingebunden: ${r.added.map(a => `${esc(a.name)} (${a.count.toLocaleString(I18N.loc)} Einträge)`).join(', ')}.</p>`;
   };
@@ -3175,7 +3170,7 @@
       if (dictHist[dictPos]) dictLookup(dictHist[dictPos].q, dictHist[dictPos].only, true);
       return;
     }
-    const b = e.target.closest('button[data-id]');
+    const b = e.target.closest('button[data-rm]');
     if (!b || !confirm('Dieses Wörterbuch aus Safran entfernen? Deine DSL-Datei bleibt unberührt.')) return;
     const r = await O.dictRemove(b.dataset.id);
     if (r.error) alert(r.error);

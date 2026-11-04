@@ -396,7 +396,6 @@ dialog .dclose:hover { background: color-mix(in srgb, var(--text, #888) 14%, tra
 .dbody .dcom, .dbody .dp, .dbody .dt { color: var(--muted); }
 .dbody .dc-green { color: #2e8b57; } .dbody .dc-red { color: #c0392b; } .dbody .dc-blue { color: #2c6fbb; } .dbody .dc-brown { color: #8b5a2b; } .dbody .dc-gray, .dbody .dc-grey { color: var(--muted); }
 .dbody .dref { color: var(--accent, #2c6fbb); cursor: pointer; text-decoration: underline dotted; }
-#dictMan { margin-top: 10px; } #dictMan summary { cursor: pointer; color: var(--muted); }
 .dli { display: flex; justify-content: space-between; align-items: center; padding: 4px 0; }
 .dli button { border: 0; background: none; cursor: pointer; color: var(--muted); }
 
@@ -407,7 +406,6 @@ dialog .dclose:hover { background: color-mix(in srgb, var(--text, #888) 14%, tra
 #dictHead { flex: none; display: block; padding-top: 6px; }
 #dictHead #dictBar { position: relative; z-index: 3; background: var(--bg); padding: 8px 0; border-bottom: 1px solid var(--line); margin-bottom: 0; }
 #dictOut { flex: 1 1 auto; min-height: 0; overflow: auto; padding: 8px 0 14px; }
-#dictMan { flex: none; max-height: 45%; overflow: auto; padding-bottom: 8px; }
 #dictSaved { max-height: 26vh; overflow: auto; }
 #dictHead .lhead { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
 #dictHead .bar { display: flex; gap: 6px; margin: 0; }
@@ -900,3 +898,12 @@ body:has(#findBar:not([hidden])) #olBody { padding-bottom: 56px; }
 #sGroupBtn.on { background: color-mix(in srgb, var(--accent) 22%, transparent); }
 .gcell .vlab { cursor: pointer; width: fit-content; }
 .gcell .vlab:hover { color: var(--accent); }
+
+/* Wörterbuch-Auswahl und -Verwaltung in einem Ausklapp-Menü */
+#dictSelP { min-width: 340px; }
+#dictSelP .dli { display: flex; align-items: center; gap: 6px; }
+#dictSelP .dli label.dsl { flex: 1 1 auto; min-width: 0; }
+#dictSelP .dbtns { flex: none; display: flex; gap: 2px; }
+#dictSelP .dbtns button { padding: 1px 6px; font-size: 11px; }
+#dictSelP .dadd { border-top: 1px solid var(--border, #8884); margin-top: 6px; padding-top: 8px; font-size: 12px; }
+#dictSelP .dadd .muted { margin-top: 4px; }
