@@ -9,7 +9,7 @@ jobs:
   build:
     strategy:
       matrix:
-        os: [macos-latest, windows-latest]
+        os: [macos-latest, windows-latest, ubuntu-latest]
     runs-on: ${{ matrix.os }}
     steps:
       # Windows: manche mitgelieferten Texte haben Pfade über 260 Zeichen, ohne diese Einstellung scheitert das Auschecken
@@ -20,13 +20,15 @@ jobs:
         with: { node-version: 20 }
       - run: npm ci || npm install
       - run: npm test
-      - run: npx electron-builder ${{ matrix.os == 'macos-latest' && '--mac' || '--win' }} --publish never
+      - run: npx electron-builder ${{ matrix.os == 'macos-latest' && '--mac' || matrix.os == 'windows-latest' && '--win' || '--linux' }} --publish never
       - uses: actions/upload-artifact@v4
         with:
           name: sefaria-${{ matrix.os }}
           path: |
             dist/*.dmg
             dist/*.exe
+            dist/*.AppImage
+            dist/*.deb
           if-no-files-found: warn
       - name: An das GitHub-Release hängen (nur bei Tag v*)
         if: startsWith(github.ref, 'refs/tags/')
@@ -35,4 +37,6 @@ jobs:
           files: |
             dist/*.dmg
             dist/*.exe
+            dist/*.AppImage
+            dist/*.deb
           generate_release_notes: true
