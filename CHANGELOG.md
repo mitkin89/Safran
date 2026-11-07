@@ -1,5 +1,12 @@
 # Changelog
 
+### New in 2.1.1
+- **Linux:** Safran is now also available for Linux (AppImage and .deb), built automatically together with the macOS and Windows versions.
+- **Dictionary search:** phrases in quotation marks ("…") and the wildcards `*` and `?`.
+- **Levy:** Fleischer's supplements to the letters א–ד (pp. 276–288, 431–444) and ה, ו, ז (pp. 446–556) are now built into the entries. Supplements without a name are now marked "Nachtrag (Goldschmidt)" (previously "Nachtrag des Verfassers"), in Levy vols. 1–4 and in the Targumim dictionary. A Hebrew sentence with an inserted "l." is now shown as its own right-to-left block in the correct order.
+- **Dictionary tab:** the header stays in place while scrolling, tabs sit in the input row, tools on the right. "Manage" (order, remove, add) moved into the selection menu. "Recent searches" and "Favourites" are no longer in the sidebar but columns in the wide dictionary tab. The panel reaches the bottom edge of the window.
+- **Version number:** the 2.1 installers still carried the number 2.0.0, so the update notice never went away. Fixed with 2.1.1.
+
 ### New in 2.0
 - **Reading layout "one column per language":** ⚙ Anzeige → *Anordnung*. Instead of one column per version, Hebrew, English and German each get their own column and the versions of a language are stacked below each other, each with its version name.
 - **Version menu:** a click on a version name (or on a column header) opens a menu: remove this version from the view, show only this version, or add/remove any other version of the same language (✓ = shown).
