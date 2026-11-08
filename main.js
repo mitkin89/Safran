@@ -1,11 +1,4 @@
 const { app, BrowserWindow, ipcMain, dialog, shell, net, session, Menu } = require('electron');
-
-// Linux/Wayland: nativ statt über XWayland laufen, damit die Schrift bei
-// krummer Skalierung (125 %, 150 %) scharf bleibt; Fensterrahmen unter GNOME.
-if (process.platform === 'linux') {
-  app.commandLine.appendSwitch('ozone-platform-hint', 'auto');
-  app.commandLine.appendSwitch('enable-features', 'WaylandWindowDecorations');
-}
 const fs = require('fs/promises');
 const path = require('path');
 const S = require('./sefaria');
@@ -28,6 +21,42 @@ app.setName('Sefaria');
 const keepUserData = app.getPath('userData');
 app.setName('Safran');
 app.setPath('userData', keepUserData);
+
+// ---------- Datei-Dialoge: zuletzt benutzten Ordner merken ----------
+// Seit Electron 43 öffnen Dialoge ohne defaultPath immer im Download-Ordner.
+// Darum merkt sich Safran pro Dialog-Art (Titel bzw. Dateitypen) den letzten Ordner.
+const dialogDirsFile = () => path.join(app.getPath('userData'), 'dialog-dirs.json');
+let dialogDirs = null;
+const loadDialogDirs = () => {
+  if (dialogDirs) return dialogDirs;
+  try { dialogDirs = JSON.parse(require('fs').readFileSync(dialogDirsFile(), 'utf8')) || {}; } catch { dialogDirs = {}; }
+  return dialogDirs;
+};
+const dialogKey = (kind, o) => kind + ':' + (o.title || (o.filters || []).map(f => (f.extensions || []).join(',')).join('|') || (o.defaultPath ? path.extname(String(o.defaultPath)) : '') || 'allgemein');
+const existsDir = d => { try { return require('fs').statSync(d).isDirectory(); } catch { return false; } };
+function withLastDir(kind, orig) {
+  return async (win, opts) => {
+    if (opts === undefined && win && !(win instanceof BrowserWindow)) { opts = win; win = undefined; }
+    const o = { ...(opts || {}) }, key = dialogKey(kind, o), dirs = loadDialogDirs();
+    const last = dirs[key] || dirs[kind + ':*'];
+    if (last && existsDir(last)) {
+      if (!o.defaultPath) o.defaultPath = last;
+      else if (!path.isAbsolute(String(o.defaultPath))) o.defaultPath = path.join(last, String(o.defaultPath));
+    }
+    const r = await (win ? orig(win, o) : orig(o));
+    try {
+      const picked = kind === 'save' ? r.filePath : (r.filePaths || [])[0];
+      if (!r.canceled && picked) {
+        const dir = path.dirname(picked); // bei Ordner-Auswahl: der übergeordnete Ordner
+        dirs[key] = dir; dirs[kind + ':*'] = dir;
+        require('fs').writeFileSync(dialogDirsFile(), JSON.stringify(dirs, null, 1));
+      }
+    } catch { /* nur eine Bequemlichkeit */ }
+    return r;
+  };
+}
+dialog.showOpenDialog = withLastDir('open', dialog.showOpenDialog.bind(dialog));
+dialog.showSaveDialog = withLastDir('save', dialog.showSaveDialog.bind(dialog));
 
 const isSefaria = url => {
   try { const h = new URL(url).hostname; return h === 'sefaria.org' || h.endsWith('.sefaria.org'); } catch { return false; }
