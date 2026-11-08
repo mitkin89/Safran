@@ -34,7 +34,9 @@ aside input { width: 100%; margin-bottom: 8px; }
 #rOut[data-notes="click"] .txt sup[data-fn]:hover, #rOut[data-notes="all"] .txt sup[data-fn]:hover { background: color-mix(in srgb, var(--accent) 18%, transparent); }
 
 /* Kommentar-Bereich: Fußnoten wie im Lesetext */
-#cmtBody .ct .note { font-size: .88em; line-height: 1.5; color: var(--muted); padding: 1px 6px; margin: 0 3px; background: color-mix(in srgb, var(--accent) 10%, transparent); border-radius: 4px; }
+#cmtBody .ct .note { font-size: .9em; line-height: 1.5; color: inherit; padding: 1px 8px; margin: 0 4px; background: color-mix(in srgb, var(--accent) 20%, transparent); border-inline-start: 3px solid var(--accent); border-radius: 4px; }
+#cmtBody .ct .note .nm { font-weight: 700; color: var(--accent); margin-inline-end: 3px; }
+#cmtBody .ct sup[data-fn] { color: var(--accent); font-weight: 700; }
 #cmtBody[data-notes="click"] .note { display: none; }
 #cmtBody[data-notes="click"] .note.open, #cmtBody[data-notes="all"] .note { display: inline; }
 #cmtBody[data-notes="off"] .note, #cmtBody[data-notes="off"] .ct sup { display: none; }
