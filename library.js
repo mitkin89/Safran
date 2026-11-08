@@ -606,6 +606,14 @@
     // Klick in den Fußnotentext schließt nichts – so lässt sich der Text markieren und kopieren
   });
 
+  // Kommentar-Bereich: Klick auf das Fußnotenzeichen öffnet/schließt die Fußnote
+  $('#cmtBody').addEventListener('click', e => {
+    const sup = e.target.closest('sup[data-fn]');
+    if (!sup) return;
+    const note = sup.nextElementSibling && sup.nextElementSibling.classList.contains('note') ? sup.nextElementSibling : null;
+    if (note) note.classList.toggle('open');
+  });
+
   // Wörterbuch-Fußnoten: Klick auf das Zeichen öffnet/schließt die Fußnote
   $('#dictOut').addEventListener('click', e => {
     const sup = e.target.closest('sup.dfn');
@@ -727,7 +735,7 @@
   let noteMode = 'click';
   try { noteMode = localStorage.getItem('noteMode') || 'click'; } catch { /* egal */ }
   if (!['click', 'all', 'off'].includes(noteMode)) noteMode = 'click';
-  const applyNoteMode = () => { $('#rOut').dataset.notes = noteMode; $('#dictOut').dataset.notes = noteMode; if ($('#dictNoteMode')) $('#dictNoteMode').value = noteMode; $('#noteMode').value = noteMode; try { localStorage.setItem('noteMode', noteMode); } catch { /* egal */ } };
+  const applyNoteMode = () => { $('#rOut').dataset.notes = noteMode; $('#dictOut').dataset.notes = noteMode; $('#cmtBody').dataset.notes = noteMode; if ($('#dictNoteMode')) $('#dictNoteMode').value = noteMode; $('#noteMode').value = noteMode; try { localStorage.setItem('noteMode', noteMode); } catch { /* egal */ } };
   $('#noteMode').onchange = () => { noteMode = $('#noteMode').value; applyNoteMode(); };
   if ($('#dictNoteMode')) $('#dictNoteMode').onchange = () => { noteMode = $('#dictNoteMode').value; applyNoteMode(); };
   applyNoteMode();
@@ -4590,7 +4598,12 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
         if (!t || !t.items) return `<div class="none">${esc(r)} – ${t && t.missing ? I18N.t('keine Fassung auf {} geladen', LN) : I18N.t('Vers fehlt in der ' + { en: 'Englischen', de: 'Deutschen', he: 'Hebräischen' }[cmtLang] + ' Fassung')}</div>`;
         const he = t.kind === 'he';
         const sig = t.items.join('\u0001'); if (seenTxt.has(sig)) return ''; seenTxt.add(sig); // gleiche Stelle mehrfach verknüpft: nur einmal zeigen
-        return t.items.map(x => `<div class="ct" dir="${he ? 'rtl' : 'ltr'}">${window.AutoRef.link(R.cleanHtml(R.splitFootnotes(he ? stripHe(x) : x).main).replace(/<sup[^>]*>.*?<\/sup>/g, ''))}</div>`).join('');
+        return t.items.map(x => {
+          // Fußnoten im Kommentar-Bereich: Zeichen im Text, Fußnotentext direkt dahinter (Einstellung „Fußnoten“ wie im Lesetext)
+          const sp = R.splitFootnotes(he ? stripHe(x) : x);
+          const inl = R.cleanHtml(sp.main).replace(/<sup>.*?<\/sup>/g, '').replace(/<sup data-fn="(\d{1,4})">(.*?)<\/sup>/g, (m, i) => { const n = sp.notes[+i]; return n ? `${m}<span class="note" data-fn="${i}"><span class="nm">${esc(n.marker)}</span> ${R.cleanHtml(n.html)}</span>` : m; });
+          return `<div class="ct" dir="${he ? 'rtl' : 'ltr'}">${window.AutoRef.link(inl)}</div>`;
+        }).join('');
       }).join('');
       const cl = cmtClosed.has(g.name);
       return `<div class="cmt${cl ? ' closed' : ''}" data-n="${esc(g.name)}"><h4 data-ref="${esc(g.refs[0])}" title="Klick: Kommentar ein-/ausklappen · ↗: öffnet ${esc(g.book)} in einem neuen Tab · Rechtsklick: weitere Möglichkeiten"><span class="tg">${cl ? '▸' : '▾'}</span> ${esc(dispName(g.name))}${g.refs.length > 1 ? ` <small class="cx">×${g.refs.length}</small>` : ''}<span class="go" title="Buch im neuen Tab öffnen">↗</span></h4>${parts}</div>`;
