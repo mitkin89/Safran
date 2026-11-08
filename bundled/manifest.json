@@ -6529,84 +6529,6 @@
    "hash": "594ec8ad513696206422f6aa723e2a9e96047e52"
   },
   {
-   "rel": "own/I Samuel/de/Wolf, Das Buch Samuel — Übersetzung.json",
-   "title": "I Samuel",
-   "heTitle": "שמואל א",
-   "language": "English",
-   "versionTitle": "Wolf, Das Buch Samuel — Übersetzung",
-   "categories": [
-    "Tanakh",
-    "Prophets"
-   ],
-   "kind": "de",
-   "hash": "56913499262c8c75b3218c8e39b9c3ed1ddef8f5"
-  },
-  {
-   "rel": "own/Wolf on I Samuel/de/Wolf, Das Buch Samuel — Kommentar.json",
-   "title": "Wolf on I Samuel",
-   "heTitle": "וולף שמואל א",
-   "language": "English",
-   "versionTitle": "Wolf, Das Buch Samuel — Kommentar",
-   "categories": [
-    "Eigene Texte",
-    "Kommentare"
-   ],
-   "kind": "de",
-   "hash": "a34781eae47e561b988d766cb837a32736578f69"
-  },
-  {
-   "rel": "own/II Samuel/de/Wolf, Das Buch Samuel — Übersetzung.json",
-   "title": "II Samuel",
-   "heTitle": "שמואל ב",
-   "language": "English",
-   "versionTitle": "Wolf, Das Buch Samuel — Übersetzung",
-   "categories": [
-    "Tanakh",
-    "Prophets"
-   ],
-   "kind": "de",
-   "hash": "2a55631a1dab9215f5b6dceebda906fe25c41da9"
-  },
-  {
-   "rel": "own/Wolf on II Samuel/de/Wolf, Das Buch Samuel — Kommentar.json",
-   "title": "Wolf on II Samuel",
-   "heTitle": "וולף שמואל ב",
-   "language": "English",
-   "versionTitle": "Wolf, Das Buch Samuel — Kommentar",
-   "categories": [
-    "Eigene Texte",
-    "Kommentare"
-   ],
-   "kind": "de",
-   "hash": "71fcf9e885619093f0a3d95ae28849f4da67bc59"
-  },
-  {
-   "rel": "own/Job/de/Ijob, übersetzt (eScriptorium, Dokument 6599) — Übersetzung.json",
-   "title": "Job",
-   "heTitle": "איוב",
-   "language": "English",
-   "versionTitle": "Ijob, übersetzt (eScriptorium, Dokument 6599) — Übersetzung",
-   "categories": [
-    "Tanakh",
-    "Writings"
-   ],
-   "kind": "de",
-   "hash": "d5dc8638c94c3b447c76631f010ce3fb0eadd710"
-  },
-  {
-   "rel": "own/Ijob-Kommentar on Job/de/Ijob, Kommentar (eScriptorium, Dokument 6599).json",
-   "title": "Ijob-Kommentar on Job",
-   "heTitle": " איוב",
-   "language": "English",
-   "versionTitle": "Ijob, Kommentar (eScriptorium, Dokument 6599)",
-   "categories": [
-    "Eigene Texte",
-    "Kommentare"
-   ],
-   "kind": "de",
-   "hash": "734ff8fcd6dd8d55ff1cbea75f57b7e63672be8a"
-  },
-  {
    "rel": "own/Song of Songs/de/Breuer, Arba Megillot — Übersetzung.json",
    "title": "Song of Songs",
    "heTitle": "שיר השירים",
@@ -6709,6 +6631,84 @@
    ],
    "kind": "de",
    "hash": "5f93585e713fd198a7d51e9cca519489faed405e"
+  },
+  {
+   "rel": "own/I Samuel/de/Wolf, Das Buch Samuel — Übersetzung.json",
+   "title": "I Samuel",
+   "heTitle": "שמואל א",
+   "language": "English",
+   "versionTitle": "Wolf, Das Buch Samuel — Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "de",
+   "hash": "56913499262c8c75b3218c8e39b9c3ed1ddef8f5"
+  },
+  {
+   "rel": "own/Wolf on I Samuel/de/Wolf, Das Buch Samuel — Kommentar.json",
+   "title": "Wolf on I Samuel",
+   "heTitle": "וולף שמואל א",
+   "language": "English",
+   "versionTitle": "Wolf, Das Buch Samuel — Kommentar",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "a34781eae47e561b988d766cb837a32736578f69"
+  },
+  {
+   "rel": "own/II Samuel/de/Wolf, Das Buch Samuel — Übersetzung.json",
+   "title": "II Samuel",
+   "heTitle": "שמואל ב",
+   "language": "English",
+   "versionTitle": "Wolf, Das Buch Samuel — Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "de",
+   "hash": "2a55631a1dab9215f5b6dceebda906fe25c41da9"
+  },
+  {
+   "rel": "own/Wolf on II Samuel/de/Wolf, Das Buch Samuel — Kommentar.json",
+   "title": "Wolf on II Samuel",
+   "heTitle": "וולף שמואל ב",
+   "language": "English",
+   "versionTitle": "Wolf, Das Buch Samuel — Kommentar",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "71fcf9e885619093f0a3d95ae28849f4da67bc59"
+  },
+  {
+   "rel": "own/Job/de/David Dawidowicz, Ijob — Übersetzung.json",
+   "title": "Job",
+   "heTitle": "איוב",
+   "language": "English",
+   "versionTitle": "David Dawidowicz, Ijob — Übersetzung",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "de",
+   "hash": "bcf14737f199165ffeeff454d94395079ca0fa80"
+  },
+  {
+   "rel": "own/Dawidowicz on Job/de/David Dawidowicz, Ijob — Kommentar.json",
+   "title": "Dawidowicz on Job",
+   "heTitle": "דוידוביץ איוב",
+   "language": "English",
+   "versionTitle": "David Dawidowicz, Ijob — Kommentar",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "f45273f436c966692197a1fbceae8814bb807504"
   }
  ]
 }
