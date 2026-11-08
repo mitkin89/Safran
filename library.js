@@ -727,8 +727,9 @@
   let noteMode = 'click';
   try { noteMode = localStorage.getItem('noteMode') || 'click'; } catch { /* egal */ }
   if (!['click', 'all', 'off'].includes(noteMode)) noteMode = 'click';
-  const applyNoteMode = () => { $('#rOut').dataset.notes = noteMode; $('#dictOut').dataset.notes = noteMode; $('#noteMode').value = noteMode; try { localStorage.setItem('noteMode', noteMode); } catch { /* egal */ } };
+  const applyNoteMode = () => { $('#rOut').dataset.notes = noteMode; $('#dictOut').dataset.notes = noteMode; if ($('#dictNoteMode')) $('#dictNoteMode').value = noteMode; $('#noteMode').value = noteMode; try { localStorage.setItem('noteMode', noteMode); } catch { /* egal */ } };
   $('#noteMode').onchange = () => { noteMode = $('#noteMode').value; applyNoteMode(); };
+  if ($('#dictNoteMode')) $('#dictNoteMode').onchange = () => { noteMode = $('#dictNoteMode').value; applyNoteMode(); };
   applyNoteMode();
   // Septuaginta interlinear: hebräisches Wort über der griechischen Wortgruppe (Standard: an)
   let gIlin = true;
