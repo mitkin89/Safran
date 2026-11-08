@@ -2683,7 +2683,7 @@
   const sOpen = new Set(); // vom Nutzer aufgeklappte Kategorien in der Suchliste
   $('#sCatTree').addEventListener('toggle', e => { const d = e.target; if (d.dataset && d.dataset.p != null && !$('#sCatFilter').value.trim()) { if (d.open) sOpen.add(d.dataset.p); else sOpen.delete(d.dataset.p); } }, true);
   { let sct = null; $('#sCatFilter').addEventListener('input', () => { clearTimeout(sct); sct = setTimeout(renderSCats, 80); }); }
-  $('#sCatAll').onclick = () => { sCats.clear(); sTitles.clear(); renderSCats(); };
+  $('#sCatAll').onclick = () => { sTitles.clear(); sCats.clear(); groups.forEach(g => { if (g.cats[0]) sCats.add(g.cats[0]); }); renderSCats(); }; // alle Hauptkategorien anhaken; danach z. B. ein Buch anklicken = nur dieses
   $('#sCatTree').addEventListener('change', e => {
     const d = e.target.dataset || {};
     // Ist eine übergeordnete Kategorie gewählt und man klickt etwas darunter, gilt nur dieser Eintrag (statt „alles darunter minus eins“)

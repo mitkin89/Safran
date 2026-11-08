@@ -208,7 +208,7 @@
     '⤓ Treffer als CSV': '⤓ Matches as CSV', 'Alle angezeigten Treffer als CSV-Datei speichern': 'Save all displayed matches as a CSV file',
     'Durchsucht alle heruntergeladenen Texte der gewählten Sprachen (auch Fußnoten).': 'Searches all downloaded texts in the selected languages (footnotes too).',
     'Kategorien: alle': 'Categories: all', 'Kategorien durchsuchen …': 'Filter categories …', 'Alle Kategorien auswählen': 'Select all categories',
-    'Alle Häkchen entfernen: es wird in allen Kategorien gesucht': 'Clear all checks: all categories are searched',
+    'Alle Hauptkategorien anhaken (es wird überall gesucht); danach ein Unterpunkt anklicken = nur dieser': 'Tick all main categories (searches everywhere); then click a sub-item = only that one',
     'Ohne Häkchen wird überall gesucht. Mit Häkchen nur in den gewählten Kategorien; ein Häkchen bei einer Hauptkategorie gilt für alles darunter.': 'Without checks, everything is searched. With checks, only the chosen categories; a check on a main category covers everything below it.',
     'Bitte mindestens eine Sprache wählen.': 'Please choose at least one language.', 'Suche läuft …': 'Searching …', 'Suche …': 'Searching …', 'Suche – {}': 'Search – {}',
     'Durchsuche … {#} von {#} Dateien · {#} Treffer': 'Searching … {} of {} files · {} matches',
