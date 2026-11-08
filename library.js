@@ -1881,7 +1881,7 @@
   }
   function mapRefresh() {
     if (!BM) return; MP.over = null; MP.cur = mapChapPlaces(); $('#mapBtn').hidden = !MP.cur.length && $('#mapPanel').hidden; btnLbl('#mapBtn', '🗺', 'Karte', MP.cur.length);
-    if (!$('#mapPanel').hidden) { MP.sel = -1; mapFit(); mapInfo(); mapDraw(); }
+    if (!$('#mapPanel').hidden) { MP.sel = -1; mapRouteFill(); mapFit(); mapInfo(); mapDraw(); }
   }
   function mapSize() { const cv = $('#mapCv'), r = cv.getBoundingClientRect(), d = window.devicePixelRatio || 1; const w = Math.max(50, Math.round(r.width * d)), h = Math.max(50, Math.round(r.height * d)); if (cv.width !== w || cv.height !== h) { cv.width = w; cv.height = h; } return { w, h, d }; }
   function mapFit() {
@@ -2019,8 +2019,8 @@
   const mapLen = ln => { let s = 0; for (let k = 1; k < ln.length; k++) s += mapKm(ln[k - 1], ln[k]); return s; };
   function mapRouteFill() {
     const sel = $('#mapRoute'), keep = MP.route ? MP.route.id : ''; let h = `<option value="">${esc(I18N.t('Routen …'))}</option>`, cur = null;
-    const bk = r => r.ref.replace(/ \d.*$/, ''), ord = BR.map((r, i) => [r, i]).sort((a, b) => { try { return libCmpGroups(groups.find(g => g.title === bk(a[0])) || null, groups.find(g => g.title === bk(b[0])) || null) || (TANAKH_ORD.indexOf(bk(a[0])) - TANAKH_ORD.indexOf(bk(b[0]))) || a[1] - b[1]; } catch { return a[1] - b[1]; } }).map(x => x[0]); // gleiche Reihenfolge wie die Bücher in der Bibliothek
-    ord.forEach(r => { const b = bk(r); if (b !== cur) { if (cur) h += '</optgroup>'; h += `<optgroup label="${esc(b)}">`; cur = b; } h += `<option value="${esc(r.id)}">${esc(mapRouteTitle(r))}</option>`; });
+    const chNow = auChapter(), bk = r => r.ref.replace(/ \d.*$/, ''), ord = BR.map((r, i) => [r, i]).sort((a, b) => { try { return libCmpGroups(groups.find(g => g.title === bk(a[0])) || null, groups.find(g => g.title === bk(b[0])) || null) || (TANAKH_ORD.indexOf(bk(a[0])) - TANAKH_ORD.indexOf(bk(b[0]))) || a[1] - b[1]; } catch { return a[1] - b[1]; } }).map(x => x[0]); // gleiche Reihenfolge wie die Bücher in der Bibliothek
+    ord.forEach(r => { const b = bk(r); if (b !== cur) { if (cur) h += '</optgroup>'; h += `<optgroup label="${esc(b)}">`; cur = b; } const mm = r.ref.match(/^(.*) (\d+):/), here = mm && view && view.group && mm[1] === view.group.title && +mm[2] === chNow; h += `<option value="${esc(r.id)}">${here ? '● ' : ''}${esc(mapRouteTitle(r))} · ${esc(mm ? mm[1] + ' ' + mm[2] : r.ref)}</option>`; });
     sel.innerHTML = h + '</optgroup>'; sel.value = keep;
   }
   function mapRouteSet(id) {
@@ -2168,8 +2168,8 @@
       g.textAlign = 'start'; }
     g.restore();
   }
-  function mapJerGo() { const { w, h } = mapSize(), s = Math.min(w, h) / 2.44, [x, y] = mapXY(35.2345, 31.7770); MP.s = Math.min(900, s); MP.tx = w / 2 - x * MP.s; MP.ty = h / 2 - y * MP.s; mapDraw(); }
-  function mapZoom(f, mx, my) { const ns = Math.min(900, Math.max(0.12, MP.s * f)); MP.tx = mx - (mx - MP.tx) * ns / MP.s; MP.ty = my - (my - MP.ty) * ns / MP.s; MP.s = ns; mapDraw(); }
+  function mapJerGo() { const { w, h } = mapSize(), s = Math.min(w, h) / 2.44, [x, y] = mapXY(35.2345, 31.7770); MP.s = Math.min(6000, s); MP.tx = w / 2 - x * MP.s; MP.ty = h / 2 - y * MP.s; mapDraw(); }
+  function mapZoom(f, mx, my) { const ns = Math.min(6000, Math.max(0.12, MP.s * f)); MP.tx = mx - (mx - MP.tx) * ns / MP.s; MP.ty = my - (my - MP.ty) * ns / MP.s; MP.s = ns; mapDraw(); }
   function mapOpenFor(title, ref, label) { // aus der Gliederung: nur die Orte dieses Punktes
     if (!BM) return; const list = mapForRef(title, ref); if (!list.length) return;
     MP.over = { label, list }; mapOpen(); MP.over = { label, list }; MP.cur = list; MP.sel = -1; $('#mapOl').hidden = false;
