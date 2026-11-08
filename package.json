@@ -3,6 +3,7 @@
   "version": "2.1.1",
   "description": "Safran – Sefaria-Texte offline lesen, durchsuchen, herunterladen und eigene Texte für den Upload prüfen",
   "main": "main.js",
+  "desktopName": "safran.desktop",
   "scripts": {
     "start": "electron .",
     "test": "node test.js && node test2.js && node test3.js && node test4.js && node test5.js && node test6.js && node test7.js && node test9.js && node test10.js && node test11.js && node test12.js && node test13.js && node test14.js && node test15.js",
@@ -14,8 +15,8 @@
     "mammoth": "^1.8.0"
   },
   "devDependencies": {
-    "electron": "^33.0.0",
-    "electron-builder": "^25.0.0"
+    "electron": "^45.2.3",
+    "electron-builder": "^26.0.0"
   },
   "build": {
     "appId": "de.talmud.safran",
@@ -38,7 +39,9 @@
       "target": ["AppImage", "deb"],
       "category": "Education",
       "icon": "build/icon.png",
-      "maintainer": "Safran <noreply@example.com>"
+      "maintainer": "Safran <noreply@example.com>",
+      "syncDesktopName": true,
+      "executableArgs": ["--ozone-platform-hint=auto", "--enable-features=WaylandWindowDecorations"]
     },
     "nsis": {
       "oneClick": false,

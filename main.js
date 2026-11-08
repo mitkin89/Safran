@@ -1,4 +1,11 @@
 const { app, BrowserWindow, ipcMain, dialog, shell, net, session, Menu } = require('electron');
+
+// Linux/Wayland: nativ statt über XWayland laufen, damit die Schrift bei
+// krummer Skalierung (125 %, 150 %) scharf bleibt; Fensterrahmen unter GNOME.
+if (process.platform === 'linux') {
+  app.commandLine.appendSwitch('ozone-platform-hint', 'auto');
+  app.commandLine.appendSwitch('enable-features', 'WaylandWindowDecorations');
+}
 const fs = require('fs/promises');
 const path = require('path');
 const S = require('./sefaria');
