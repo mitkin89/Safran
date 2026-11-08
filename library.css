@@ -33,6 +33,14 @@ aside input { width: 100%; margin-bottom: 8px; }
 #rOut[data-notes="click"] .txt sup[data-fn], #rOut[data-notes="all"] .txt sup[data-fn] { cursor: pointer; padding: 0 3px; border-radius: 4px; text-decoration: underline dotted; }
 #rOut[data-notes="click"] .txt sup[data-fn]:hover, #rOut[data-notes="all"] .txt sup[data-fn]:hover { background: color-mix(in srgb, var(--accent) 18%, transparent); }
 
+/* Wörterbuch-Fußnoten (Hamburger): gleiche Einstellung wie bei den Haupttexten (Klick / alle anzeigen / aus) */
+#dictOut .dnote { font-size: .85em; line-height: 1.5; color: var(--muted); padding: 1px 6px; margin: 0 3px; background: color-mix(in srgb, var(--accent) 10%, transparent); border-radius: 4px; }
+#dictOut[data-notes="click"] .dnote { display: none; }
+#dictOut[data-notes="click"] .dnote.open, #dictOut[data-notes="all"] .dnote { display: inline; }
+#dictOut[data-notes="off"] .dnote, #dictOut[data-notes="off"] sup.dfn { display: none; }
+#dictOut sup.dfn { cursor: pointer; padding: 0 3px; border-radius: 4px; text-decoration: underline dotted; }
+#dictOut sup.dfn:hover { background: color-mix(in srgb, var(--accent) 18%, transparent); }
+
 /* Bücherliste links ein-/ausklappbar */
 .layout.collapsed { grid-template-columns: 1fr; }
 .layout.collapsed aside { display: none; }

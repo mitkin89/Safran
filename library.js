@@ -606,6 +606,14 @@
     // Klick in den Fußnotentext schließt nichts – so lässt sich der Text markieren und kopieren
   });
 
+  // Wörterbuch-Fußnoten: Klick auf das Zeichen öffnet/schließt die Fußnote
+  $('#dictOut').addEventListener('click', e => {
+    const sup = e.target.closest('sup.dfn');
+    if (!sup) return;
+    const note = sup.nextElementSibling && sup.nextElementSibling.classList.contains('dnote') ? sup.nextElementSibling : null;
+    if (note) note.classList.toggle('open');
+  });
+
   // OSHB-Texte: Klick auf ein Wort zeigt Lemma, Stamm, Zeit und Form; „Im Wörterbuch“ schlägt das Lemma nach
   let wpop = null;
   const closeWpop = () => { if (wpop) { wpop.remove(); wpop = null; } $$('#rOut .w.sel, #rOut .wt.sel, #rOut .wg.sel').forEach(x => x.classList.remove('sel')); };
@@ -719,7 +727,7 @@
   let noteMode = 'click';
   try { noteMode = localStorage.getItem('noteMode') || 'click'; } catch { /* egal */ }
   if (!['click', 'all', 'off'].includes(noteMode)) noteMode = 'click';
-  const applyNoteMode = () => { $('#rOut').dataset.notes = noteMode; $('#noteMode').value = noteMode; try { localStorage.setItem('noteMode', noteMode); } catch { /* egal */ } };
+  const applyNoteMode = () => { $('#rOut').dataset.notes = noteMode; $('#dictOut').dataset.notes = noteMode; $('#noteMode').value = noteMode; try { localStorage.setItem('noteMode', noteMode); } catch { /* egal */ } };
   $('#noteMode').onchange = () => { noteMode = $('#noteMode').value; applyNoteMode(); };
   applyNoteMode();
   // Septuaginta interlinear: hebräisches Wort über der griechischen Wortgruppe (Standard: an)
