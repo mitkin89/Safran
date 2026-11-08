@@ -907,3 +907,10 @@ body:has(#findBar:not([hidden])) #olBody { padding-bottom: 56px; }
 #dictSelP .dbtns button { padding: 1px 6px; font-size: 11px; }
 #dictSelP .dadd { border-top: 1px solid var(--border, #8884); margin-top: 6px; padding-top: 8px; font-size: 12px; }
 #dictSelP .dadd .muted { margin-top: 4px; }
+
+.nitem .vmore { border: 1px dashed var(--line); background: none; color: var(--muted); border-radius: 999px; padding: 0 8px; font-size: 11px; cursor: pointer; }
+.nitem .vlist { margin: 4px 0; padding: 4px; border: 1px solid var(--line); border-radius: 8px; max-height: 190px; overflow-y: auto; background: var(--bg); }
+.nitem .vgrp { font-size: 10px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); padding: 4px 6px 1px; }
+.nitem .vrow { display: block; width: 100%; text-align: left; border: 0; background: none; color: var(--fg); font-size: 12px; padding: 2px 6px; border-radius: 5px; cursor: pointer; }
+.nitem .vrow:hover { background: var(--chip); }
+.nitem .vrow.on { font-weight: 600; }

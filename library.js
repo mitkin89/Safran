@@ -3800,7 +3800,7 @@
     if (changed) { notesAll = await NT.list(); renderNotes(); }
   }
   // Anzeige je Favorit: welche Versionen des Buchs gezeigt werden (Chips, ein Klick schaltet um)
-  const ntTxt = new Map(); let ntTimer = null;
+  const ntTxt = new Map(), ntOpen = new Set(); let ntTimer = null;
   const NV = ['he', 'en', 'de'];
   const noteVers = g => (g ? g.versions.filter(v => NV.includes(v.kind)) : []);
   const defaultVr = vers => { const f = k => vers.find(v => v.kind === k); return [f('he'), f('en') || f('de')].filter(Boolean).map(v => v.rel); };
@@ -3825,7 +3825,10 @@
     const g = groupsByKey.get(n.key), vers = noteVers(g);
     if (!vers.length) return `${n.he ? `<div class="ex he" dir="rtl">${esc(n.he)}</div>` : ''}${n.excerpt ? `<div class="ex">${esc(n.excerpt)}</div>` : ''}`;
     const sel = n.vr || defaultVr(vers);
-    const chips = vers.map(v => `<button class="vchip ${v.kind}${sel.includes(v.rel) ? ' on' : ''}" data-vr="${esc(v.rel)}" title="${esc(shortVer(v.versionTitle))}">${KIND_LABEL[v.kind]}<span class="ut"> ${esc(shortVer(v.versionTitle).slice(0, 22))}</span></button>`).join('');
+    const on = vers.filter(v => sel.includes(v.rel)), open = ntOpen.has(n.id);
+    const chips = on.map(v => `<button class="vchip ${v.kind} on" data-vr="${esc(v.rel)}" title="${esc(shortVer(v.versionTitle))} – ${esc(I18N.t('Klicken: ausblenden'))}">${esc(shortVer(v.versionTitle).slice(0, 22))} ✕</button>`).join('')
+      + `<button class="vmore" data-vopen="1" title="${esc(I18N.t('Versionen auswählen'))}">${esc(I18N.t('Versionen'))} ${on.length}/${vers.length} ${open ? '▴' : '▾'}</button>`;
+    const list = open ? `<div class="vlist">${['he', 'en', 'de'].map(k => { const vs = vers.filter(v => v.kind === k); return vs.length ? `<div class="vgrp">${esc(KIND_LABEL[k])}</div>${vs.map(v => `<button class="vrow${sel.includes(v.rel) ? ' on' : ''}" data-vr="${esc(v.rel)}"><span class="ck">${sel.includes(v.rel) ? '☑' : '☐'}</span> ${esc(shortVer(v.versionTitle))}</button>`).join('')}` : ''; }).join('')}</div>` : '';
     const body = vers.filter(v => sel.includes(v.rel)).map(v => {
       ensureNoteText(n, v.rel);
       const t = ntTxt.get(n.id + '|' + v.rel);
@@ -3833,7 +3836,7 @@
       const he = /[\u0590-\u05FF]/.test(t);
       return `<div class="ex${he ? ' he' : ''}" dir="${he ? 'rtl' : 'ltr'}" style="white-space:pre-line">${esc(t)}</div>`;
     }).join('');
-    return `<div class="vchips">${chips}</div>${body}`;
+    return `<div class="vchips">${chips}</div>${list}${body}`;
   }
   // Notizen-Aufrufe absichern: bei einem Fehler (z. B. beschädigte Datei) wird gemeldet statt still nichts zu tun
   async function ntDo(fn) {
@@ -4153,6 +4156,7 @@
     if (d) { await removeNote(d.dataset.del); return; }
     const mv = e.target.closest('button[data-mv]');
     if (mv && n) { await moveNote(n.id, +mv.dataset.mv); return; }
+    if (e.target.closest('button[data-vopen]') && n) { if (ntOpen.has(n.id)) ntOpen.delete(n.id); else ntOpen.add(n.id); renderNotes(); return; }
     const vb = e.target.closest('button[data-vr]');
     if (vb && n) {
       const vers = noteVers(groupsByKey.get(n.key));
