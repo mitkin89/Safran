@@ -2670,9 +2670,9 @@
       const kids = SefOrder.sortCats([...n.children.keys()], n.name).map(k => node(n.children.get(k), m && !!f)).join('');
       const cov = covered(n.path);
       const books = SefOrder.sortTitles(n.titles.filter(t => !f || m || hit(t)), t => t).map(t =>
-        `<label class="t book"><input type="checkbox" data-st="${esc(t)}" ${cov || sCats.has(n.path) || sTitles.has(t) ? 'checked' : ''} ${cov || sCats.has(n.path) ? 'disabled' : ''}> ${esc(t)}</label>`).join('');
+        `<label class="t book"><input type="checkbox" data-st="${esc(t)}" ${cov || sCats.has(n.path) || sTitles.has(t) ? 'checked' : ''} > ${esc(t)}</label>`).join('');
       const part = !cov && !sCats.has(n.path) && anySel(n); // nur ein Teil darunter gewählt: Teilmarkierung (Strich) statt Häkchen, sonst würde alles darunter durchsucht
-      const cb = `<input type="checkbox" data-sc="${esc(n.path)}" ${cov || sCats.has(n.path) ? 'checked' : ''} ${cov ? 'disabled' : ''} ${part ? 'data-part="1"' : ''}> `;
+      const cb = `<input type="checkbox" data-sc="${esc(n.path)}" ${cov || sCats.has(n.path) ? 'checked' : ''} ${part ? 'data-part="1"' : ''}> `;
       return `<details data-p="${esc(n.path)}" ${f || sOpen.has(n.path) ? 'open' : ''}><summary>${cb}<span class="catname">${esc(n.name)}</span> <small>(${n.count})</small></summary>${kids}${books}</details>`;
     };
     $('#sCatTree').innerHTML = SefOrder.sortCats([...root.children.keys()], '').map(k => node(root.children.get(k), false)).join('') || '<p class="muted">Nichts gefunden.</p>';
@@ -2686,6 +2686,11 @@
   $('#sCatAll').onclick = () => { sCats.clear(); sTitles.clear(); renderSCats(); };
   $('#sCatTree').addEventListener('change', e => {
     const d = e.target.dataset || {};
+    // Ist eine übergeordnete Kategorie gewählt und man klickt etwas darunter, gilt nur dieser Eintrag (statt „alles darunter minus eins“)
+    const own = d.sc !== undefined ? d.sc : (e.target.closest('details') || {}).dataset && e.target.closest('details').dataset.p;
+    if (own != null && (d.sc !== undefined || d.st !== undefined) && [...sCats].some(c => c !== (d.sc !== undefined ? own : null) && (own === c || own.startsWith(c + '/')) && (d.sc === undefined || own !== c))) {
+      sCats.clear(); sTitles.clear(); if (d.sc !== undefined) sCats.add(d.sc); else sTitles.add(d.st); renderSCats(); return;
+    }
     if (d.sc !== undefined) {
       const p = d.sc;
       if (e.target.checked) { sCats.add(p); for (const c of [...sCats]) if (c !== p && c.startsWith(p + '/')) sCats.delete(c); } else sCats.delete(p);
