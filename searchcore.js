@@ -138,13 +138,14 @@ async function searchFiles({ dir, entries, params, cacheDir = null, onProgress =
   if (!q && !gramOn) return { results: [], scanned: 0, total: 0, truncated: false, capped: false, cancelled: false, stats: [] };
   const terms = [query, ...extra].filter(t => String(t || '').trim());
   const advanced = terms.length > 1 || fuzzy || exact || /[*?]/.test(query); // exact: genau dieses Wort (Wortvergleich, keine Vorsilben, keine anderen Formen)
-  const matcher = advanced ? S.makeMatcher({ terms, fuzzy, prefix: exact ? false : prefix, distance, ordered }) : null;
+  const words = terms.flatMap(t => String(t).split(/[\s\u05BE]+/).filter(Boolean)); // „עיר דוד“ = zwei Wörter (ein Suchwort mit Leerzeichen würde sonst nie als Wort gefunden)
+  const matcher = advanced ? S.makeMatcher({ terms: words, fuzzy, prefix: exact ? false : prefix, distance, ordered }) : null;
   // „Ganze Wörter“: Suchwort muss ein ganzes Wort sein (Satzzeichen davor/danach sind erlaubt), hebräische Vorsilben (ו ה ב כ ל מ ש …) davor ebenfalls
   const preRe = !advanced && prefix ? new RegExp('(?:^|[\\s\\p{P}\\p{S}])([והבכלמשד]{0,3})' + escRe(q) + '(?=[\\s\\p{P}\\p{S}]|$)', 'u') : null;
   // Tanach hebräisch nur im Westminster-Text (sonst käme jeder Vers mehrfach, und die Morphologie fehlt)
   const wlcTitles = new Set(wlc ? entries.filter(isWlc).map(e => e.title) : []);
   const skip = e => wlc && e.kind === 'he' && wlcTitles.has(e.title) && !isWlc(e) && /^Tanakh/.test((e.categories || [])[0] || '');
-  const lemMatcher = lemma && !exact ? S.makeMatcher({ terms, fuzzy, prefix, distance, ordered }) : null;
+  const lemMatcher = lemma && !exact ? S.makeMatcher({ terms: words, fuzzy, prefix, distance, ordered }) : null;
   const list = SefOrder.sortTitles(entries.filter(e => (gramOn ? isWlc(e) : !skip(e))), e => e.title); // Treffer in der Reihenfolge wie auf Sefaria
 
   const results = [];
