@@ -2882,6 +2882,7 @@
   $('#dictStack').onclick = () => setStackMode(stackMode === 'tabs' ? 'split' : 'tabs');
   $('#dictMore').onclick = () => $('#dictPanel').classList.toggle('more');
   window.addEventListener('resize', () => syncStack());
+  $('#dictOut').addEventListener('scroll', e => e.target.classList.toggle('scrolled', e.target.scrollTop > 4), { passive: true });
   new MutationObserver(() => syncStack()).observe(document.documentElement, { attributes: true, attributeFilter: ['data-tab'] });
   { // Trenner zwischen Kommentar und Wörterbuch ziehen; Doppelklick: Standard
     const sp = $('#stackSplit');
