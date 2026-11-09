@@ -60,6 +60,11 @@ console.log('refs ok');
   assert.strictEqual(ab, '<span class="ab" data-t="Bereschit Rabba" title="Bereschit Rabba">BR.</span> XII');
   assert.strictEqual(R.cleanHtml(ab), ab);
   assert.strictEqual(R.cleanHtml('<span class="ab" data-t="x" onmouseover="evil()">y</span>'), 'y');
+  // Stellenlinks aus dem Text: erlaubt, idempotent; andere <a> und javascript: fallen weg
+  const ar = R.cleanHtml('<a class="aref" data-sref="Bereshit Rabbah 12:15"><span class="ab" data-t="Bereschit Rabba">BR.</span> XII, 15</a>');
+  assert.strictEqual(ar, '<a class="aref" data-sref="Bereshit Rabbah 12:15" title="Bereshit Rabbah 12:15"><span class="ab" data-t="Bereschit Rabba" title="Bereschit Rabba">BR.</span> XII, 15</a>');
+  assert.strictEqual(R.cleanHtml(ar), ar);
+  assert.strictEqual(R.cleanHtml('<a href="javascript:x">y</a> <a class="aref" data-sref="x&quot;onclick">z</a>'), 'y z');
   console.log('cleanHtml-Härtung ok');
 }
 // deutsche Buchnamen

@@ -123,6 +123,7 @@ function splitFootnotes(html) {
 const ALLOWED_TAGS = ['b', 'i', 'em', 'strong', 'small', 'big', 'sup', 'sub', 'br', 'u', 'span'];
 // Nur einfache Formatierungs-Tags durchlassen; alle anderen Tags und alle Attribute entfernen
 function cleanHtml(s) {
+  let links = 0; // offene, erlaubte <a class="aref">
   let spans = 0; // offene, erlaubte <span class="w">; fremde <span> fallen weg, und ihr </span> darf dann nicht übrig bleiben
   s = String(s ?? '').replace(/<(?![a-z\/])/gi, '&lt;').replace(/<[^>]*$/, m => m.replace(/</g, '&lt;'));
   return s.replace(/<\/?([a-z0-9]+)[^>]*>/gi, (m, t) => {
@@ -131,6 +132,14 @@ function cleanHtml(s) {
     if (t === 'img') {
       const im = m.length < 6e6 && m.match(/\ssrc\s*=\s*["']?(data:image\/(?:png|jpeg|jpg|gif|webp);base64,[A-Za-z0-9+\/=\s]+)["']?/i);
       return im ? `<img${/\sclass\s*=\s*["']?g["'\s>\/]/i.test(m) ? ' class="g"' : ''} src="${im[1].replace(/\s+/g, '')}" alt="">` : '';
+    }
+    // Stellenverweis aus dem Text selbst (z. B. Ginzbergs Noten): <a class="aref" data-sref="Bereshit Rabbah 12:15"> – sonst kein <a>
+    if (t === 'a') {
+      if (m.startsWith('</')) return links > 0 ? (links--, '</a>') : '';
+      const ar = m.match(/^<a class="aref" data-sref="([A-Za-z0-9 ,:'.\-]{1,120})"(?: title="[A-Za-z0-9 ,:'.\-]{0,120}")?>$/);
+      if (!ar) return '';
+      links++;
+      return `<a class="aref" data-sref="${ar[1]}" title="${ar[1]}">`;
     }
     if (!ALLOWED_TAGS.includes(t)) return '';
     if (m.startsWith('</')) return t === 'span' ? (spans > 0 ? (spans--, '</span>') : '') : `</${t}>`;

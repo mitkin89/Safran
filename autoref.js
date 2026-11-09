@@ -22,6 +22,8 @@ for (const [title, s] of Object.entries(EN)) {
   ALIAS.set(title.toLowerCase(), title);
 }
 // deutsche Nummern „1 Mose“ usw.
+// ältere Kürzel (z. B. in Ginzbergs Noten): „Genes.“, „Jerem.“, „Ezech.“, „Jud.“ …
+Object.entries({ 'genes': 'Genesis', 'numb': 'Numbers', 'jerem': 'Jeremiah', 'ezech': 'Ezekiel', 'jud': 'Judges', 'habak': 'Habakkuk', 'eccles': 'Ecclesiastes', 'lament': 'Lamentations', 'nehem': 'Nehemiah', 'is': 'Isaiah' }).forEach(([k, v]) => ALIAS.set(k, v));
 Object.entries({ '1 mose': 'Genesis', '2 mose': 'Exodus', '3 mose': 'Leviticus', '4 mose': 'Numbers', '5 mose': 'Deuteronomy', 'gen': 'Genesis' }).forEach(([k, v]) => ALIAS.set(k, v));
 // hebräische Namen
 const HE = {
@@ -44,6 +46,9 @@ const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(
 const LAT = [...ALIAS.keys()].sort((a, b) => b.length - a.length).map(x => x.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/ /g, '\\s?'));
 const CHVS = '(\\d{1,3})\\s*(?::|,\\s)\\s*(\\d{1,3})(?:\\s*[-–]\\s*(\\d{1,3}))?';
 const LAT_RE = new RegExp('(?<![\\p{L}\\d])(' + LAT.join('|') + ')\\.?\\s*' + CHVS + '(?![\\d])', 'giu');
+// römische Kapitelzahl: „Jerem. XXIII, 24“, „Ps. CXLV, 15“, „I Sam. XIV, 24-25“
+const ROM_RE = new RegExp('(?<![\\p{L}\\d])(' + LAT.join('|') + ')\\.?\\s*([IVXLC]{1,8}),\\s?(\\d{1,3})(?:\\s*[-–]\\s*(\\d{1,3}))?(?![\\d\\p{L}])', 'giu');
+function roman(r) { const v = { I: 1, V: 5, X: 10, L: 50, C: 100 }; let n = 0; for (let i = 0; i < r.length; i++) { const a = v[r[i]], b = v[r[i + 1]] || 0; n += a < b ? -a : a; } return n; }
 const IBID_RE = new RegExp('(?<![\\p{L}\\d])(ibid|ib|ebd|ebenda|idem)\\.?\\s*' + CHVS + '(?![\\d])', 'giu');
 const HEBK = Object.keys(HE).concat(Object.keys(HE2)).sort((a, b) => b.length - a.length).join('|');
 const HE_RE = new RegExp('(?<=[(\\[])(' + HEBK + ')(?:\\s+([אב])(?![\\u05D0-\\u05EA]))?\\s+([א-ת][א-ת׳״\'"]{0,4})[,:]?\\s*([א-ת][א-ת׳״\'"]{0,4})(?![א-ת])', 'g');
@@ -64,6 +69,14 @@ function linkText(text, st) {
     if (/^[a-zäöü]/.test(m[1])) continue; // „Ex. 24:10“, nicht „ex 24:10“ mitten im Satz
     const t = titleOf(m[1]); if (!t) continue;
     const ch = +m[2], v = +m[3]; if (!ch || !v || ch > 150) continue;
+    matches.push({ s: m.index, e: m.index + m[0].length, ref: `${t} ${ch}:${v}` + (m[4] ? '-' + m[4] : ''), book: t });
+  }
+  ROM_RE.lastIndex = 0;
+  while ((m = ROM_RE.exec(text))) {
+    if (/^[a-zäöü]/.test(m[1])) continue;
+    const t = titleOf(m[1]); if (!t) continue;
+    if (!/^[IVXLC]+$/.test(m[2])) continue;
+    const ch = roman(m[2]), v = +m[3]; if (!ch || !v || ch > 150) continue;
     matches.push({ s: m.index, e: m.index + m[0].length, ref: `${t} ${ch}:${v}` + (m[4] ? '-' + m[4] : ''), book: t });
   }
   IBID_RE.lastIndex = 0;

@@ -9,5 +9,7 @@ t('בראשית ברא אלהים שמות בני ישראל (דברים אלו 
 t('um 3:4 Uhr, zwei mal 3, 4 und mi 3:4', []);
 t('<a href="x">Exodus 3:4</a> und Exodus 5:6', ['Exodus 5:6']);
 t('Genesis 1:1-5 und Psalms 23', ['Genesis 1:1-5']);
+t('vgl. Jerem. XXIII, 24; Ps. CXLV, 15 und I Sam. XIV, 24-25; Gen. I, 1', ['Jeremiah 23:24', 'Psalms 145:15', 'I Samuel 14:24-25', 'Genesis 1:1']);
+t('BR. XII, 15 und Kap. IV, 5', []);
 if (A.gem('לא') !== 31 || A.gem('כ״ד') !== 24 || A.gem('קמ') !== 140) { bad++; console.log('gem'); }
 console.log(bad ? 'FEHLER' : 'Stellenerkennung ok'); process.exit(bad ? 1 : 0);
