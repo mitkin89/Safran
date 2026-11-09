@@ -1,7 +1,17 @@
 # Changelog
 
-### Unreleased
-- **Own commentaries on books whose title contains a comma** (e.g. “… on Mishneh Torah, Sanctification of the New Month”) now show their text in the comment bar; the title was wrongly split at the comma.
+### New in 2.2
+- **New German texts:**
+  - *Schulchan Aruch* (Ph. Lederer): Orach Chajim (1897), Jore Deah and Ewen haëser (1900), as own texts under the Sefaria titles.
+  - *Avot DeRabbi Natan* (Pollak, 1905): German translation with notes, aligned to Sefaria's chapter and segment structure.
+  - *Tractate Soferim* (Joel Müller, 1878): German commentary.
+  - *Mishneh Torah, Sanctification of the New Month* (Hildesheimer, 1881): free, summarising German rendering of the astronomical chapters, with notes as footnotes.
+  - *Samuel* (Wolf), *Job* (Dawidowicz) and the *Arba Megillot* (Breuer; Ruth, Song of Songs, Ecclesiastes, Lamentations): translation and commentary, verse by verse like Sefaria.
+- **New dictionary: Hamburger, Real-Encyclopädie für Bibel und Talmud** (vol. 1 and vol. 2, talmudic articles). Footnotes are inline and collapsible, paragraphs and numbering are kept, and references to "Jerus./Jeruschalmi" lead to the Jerusalem Talmud instead of the Bavli.
+- **Footnotes everywhere:** the comment bar and the dictionary now show footnotes collapsibly, with the same "Footnotes" setting (click / all / off) as the reading text. They are set apart by colour (accent colour, margin line, bold number).
+- **Search:** "Select all categories" ticks all main categories; a click below a selected main category selects only that entry; input with spaces is treated as several words in the extended modes.
+- **Version menu:** "Only this version" now applies only within its language.
+- **Own commentaries on books with a comma in the title** (e.g. "Mishneh Torah, Sanctification of the New Month") now show their text in the comment bar; the title was wrongly split at the comma.
 
 ### New in 2.1.1
 - **Linux:** Safran is now also available for Linux (AppImage and .deb), built automatically together with the macOS and Windows versions.
