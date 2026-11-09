@@ -897,6 +897,9 @@
   });
   async function jumpTo(q, inNewTab = false) {
     const q0 = q;
+    // dreistufige Stelle „Titel 1:2:5“ (Band:Kapitel:Absatz, Buch:Kapitel:Abschnitt): Abschnitt [1, 2] öffnen, Zeile 5
+    let tri = null;
+    { const m3 = String(q).trim().match(/^(.*?\D)\s*(\d+):(\d+):(\d+)(?:\s*[-–]\s*\d+)?$/); if (m3) { tri = [+m3[2], +m3[3], m3[4]]; q = m3[1].trim() + ' ' + m3[2] + ':' + m3[3]; } }
     { const ps = window.Parashot && window.Parashot.find(q); if (ps) return jumpTo(window.Parashot.ref(ps), inNewTab); } // Wochenabschnitt: „Noach“, „Parascha Lech Lecha“, „פרשת ויחי“
     { const pm = parseMulti(q); if (pm) return openPassages(pm); }
     // Versauswahl wie „gen 1:1-5,9“: springt zum Kapitel und zeigt nur diese Verse
@@ -934,6 +937,13 @@
       if (!g || cands[0] !== g || inNewTab) { g = cands[0]; await openGroup(g, {}, inNewTab); }
     } else if (inNewTab === 'bg' && g) { openGroupBg(g, { jumpRef: q0 }); return true; }
     if (!g || !view) return false;
+    if (tri) {
+      const i3 = view.sections.findIndex(s => s.path && s.path.length === 2 && s.path[0] === tri[0] - 1 && s.path[1] === tri[1] - 1);
+      if (i3 >= 0) { view.idx = i3; view.vf = null; renderSection(tri[2]); return true; }
+      // Abschnitt = erste Stufe, Zeilen „Kapitel:Absatz“ (z. B. Josephus): Abschnitt [1] öffnen, Zeile „2:5“
+      const i1 = view.sections.findIndex(s => s.path && s.path.length === 1 && s.path[0] === tri[0] - 1);
+      if (i1 >= 0) { view.idx = i1; view.vf = null; renderSection(tri[1] + ':' + tri[2]); return true; }
+    }
     const find = n => view.sections.findIndex(s => { const l = s.label.toLowerCase(); if (partSel) return partSel.endsWith('introduction') ? l === partSel : l.startsWith(partSel) && l.endsWith(' ' + n); return l.endsWith(' ' + n) || l === n; });
     let idx = find(num);
     if (idx < 0 && /^\d+$/.test(num)) idx = find(num + 'a'); // Talmud: „3“ = Daf 3a
