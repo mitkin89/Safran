@@ -955,4 +955,5 @@ body.stack-split #cmtHead .bar label { white-space: nowrap; }
 /* Breites Fenster: nebeneinander statt untereinander */
 body.cmt-open.dict-open.stack-side #cmtPanel { bottom: 0; }
 body.cmt-open.dict-open.stack-side #dictPanel { top: 57px; bottom: 0; height: auto; border-top: 0; right: calc(var(--cmt-off, 0px) + var(--cmt-w, 400px)); }
+body.stack-side { --dock-w: calc(2 * var(--cmt-w, 400px)); }
 body.dock-open.stack-side #tab-read .layout { margin-right: calc(2 * var(--cmt-w, 400px) + 20px); }

@@ -2866,11 +2866,12 @@
     let co = false; try { co = cmtOpen; } catch { /* beim Start noch nicht angelegt */ }
     const both = !!(co && dictOpen) && document.documentElement.dataset.tab !== 'dict';
     const b = document.body.classList;
-    const wide = window.innerWidth >= 1500; // genug Platz: nebeneinander statt untereinander
+    const cw = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--cmt-w')) || 400;
+    const wide = window.innerWidth - 2 * cw >= 900; // nur wenn dem Text daneben noch genug Breite bleibt: nebeneinander statt untereinander
     b.toggle('stack-tabs', both && stackMode === 'tabs'); b.toggle('stack-split', both && stackMode === 'split' && !wide); b.toggle('stack-side', both && stackMode === 'split' && wide);
     b.toggle('stk-cmt', stackActive === 'cmt'); b.toggle('stk-dict', stackActive === 'dict');
     $('#stackBar').hidden = !(both && stackMode === 'tabs'); $('#stackSplit').hidden = !(both && stackMode === 'split' && !wide); $('#dictStack').hidden = !both;
-    $('#stkCmt').classList.toggle('on', stackActive === 'cmt'); $('#stkDict').classList.toggle('on', stackActive === 'dict');
+    $('#stkMode').textContent = I18N.t(wide ? '⇆ Nebeneinander' : '⇅ Untereinander'); $('#stkCmt').classList.toggle('on', stackActive === 'cmt'); $('#stkDict').classList.toggle('on', stackActive === 'dict');
     $('#dictStack').title = stackMode === 'tabs' ? (wide ? 'Kommentar und Wörterbuch nebeneinander zeigen' : 'Kommentar und Wörterbuch untereinander zeigen') : 'Kommentar und Wörterbuch als Reiter zeigen (volle Höhe)';
   }
   function setStackActive(w) { stackActive = w; syncStack(); }

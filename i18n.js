@@ -88,7 +88,7 @@
     // ----- Verknüpfungen -----
     'Verknüpfungen': 'Links', 'Kommentare': 'Commentaries', 'Kommentare zu {}': 'Commentaries on {}', 'Keine Verknüpfungen.': 'No links.',
     '{#} Verknüpfungen': '{} links', '{} – {} Verknüpfungen': '{} – {} links', 'Vorschau': 'Preview', 'Keine Vorschau möglich.': 'No preview available.',
-    '· nicht lokal': '· not local', '… {#} weitere (Filter benutzen)': '… {} more (use the filter)',
+    '· nicht lokal': '· not local', '⇅ Untereinander': '⇅ Stacked', '⇆ Nebeneinander': '⇆ Side by side', '… {#} weitere (Filter benutzen)': '… {} more (use the filter)',
     'Filtern (z. B. Rashi, Midrash) …': 'Filter (e.g. Rashi, Midrash) …',
     '✓ vollständig vorhanden': '✓ complete', '{#} von {#} Dateien verarbeitet': '{} of {} files processed', 'noch nicht heruntergeladen': 'not downloaded yet',
     'Erneut prüfen': 'Check again', 'Fortsetzen': 'Resume', 'Verknüpfungen herunterladen': 'Download links', '{#} Fehler (erneut starten zum Fortsetzen)': '{} errors (start again to resume)',

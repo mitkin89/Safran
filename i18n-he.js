@@ -101,6 +101,8 @@ window.I18N_HE = {
 "Vorschau": "תצוגה מקדימה",
 "Keine Vorschau möglich.": "אין תצוגה מקדימה.",
 "· nicht lokal": "· לא מקומי",
+"⇅ Untereinander": "⇅ זה מתחת לזה",
+"⇆ Nebeneinander": "⇆ זה לצד זה",
 "… {#} weitere (Filter benutzen)": "… עוד {} (השתמש בסינון)",
 "Filtern (z. B. Rashi, Midrash) …": "סינון (למשל רש״י, מדרש) …",
 "✓ vollständig vorhanden": "✓ הושלם",
