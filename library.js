@@ -4822,6 +4822,9 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
     } catch (err) {
       const o = $('#rOut'); // sichtbar statt leerer Oberfläche
       if (o) o.innerHTML = '<p class="muted">' + esc(I18N.t('Die Bibliothek konnte nicht geladen werden: {}', String(err && err.message || err))) + '</p>';
+    } finally {
+      // Große Nachschlagetabellen erst nach dem Start nachladen (nur bei Bedarf gebraucht: Targum-/Lemma-Hover, Parallelstellen, Höhen der Karte)
+      for (const src of ['oshb-lemmas.js', 'targum-lex.js', 'parallels.js', 'map/elev.js']) { const el = document.createElement('script'); el.src = src; el.async = false; document.body.appendChild(el); }
     }
   })();
 })();
