@@ -1122,6 +1122,14 @@
     }
     updateNav();
   }
+  // Vor dem Verlassen per Link: die aktuelle Zeile im Verlauf merken, damit „Zurück“ dorthin führt und nicht an den Kapitelanfang
+  function navRemember(el) {
+    const nav = view && view.nav, top = nav && nav.stack[nav.pos];
+    if (!top || !view.group || top.key !== view.group.key) return;
+    let r = el && el.closest && el.closest('#rOut .row[data-l]');
+    if (!r) { const t = syncTop(); r = $$('#rOut .row[data-l]').find(x => x.getBoundingClientRect().bottom > t + 4); }
+    if (r) top.row = r.dataset.l;
+  }
   function updateNav() {
     const nav = view && view.nav;
     $('#navBack').disabled = !nav || nav.pos <= 0;
@@ -1710,6 +1718,15 @@
     }
     window.__olHold = Date.now() + 1500; // Klick im Panel: Panel bleibt stehen, nur der Text springt
     window.__olClicked = p.dataset.r; // der angeklickte Punkt bleibt bei überlappenden Unterpunkten markiert
+    { // dreistufige Zählung (z. B. Ginzbergs Legenden, Band:Kapitel:Absatz): Abschnitt [Band, Kapitel] öffnen und zum Absatz scrollen
+      const m3 = String(p.dataset.r).match(/^(\d+):(\d+):(\d+)$/);
+      const idx = m3 && view && view.sections ? view.sections.findIndex(s => s.path && s.path.length === 2 && s.path[0] === +m3[1] - 1 && s.path[1] === +m3[2] - 1) : -1;
+      if (idx >= 0) {
+        const goPar = () => { const r = $$('#rOut .row[data-l]').find(x => String(x.dataset.l).split(':').pop() === m3[3]); if (r) window.scrollBy(0, r.getBoundingClientRect().top - syncTop()); olMark(false); };
+        if (idx !== view.idx || view.vf) { view.idx = idx; view.vf = null; renderSection(); requestAnimationFrame(goPar); } else goPar();
+        return;
+      }
+    }
     { // komplexer Text (Teile): Kapitel im geöffneten Teil öffnen und zum Vers scrollen
       const nd = olNode(view && view.group), m = nd && String(p.dataset.r).match(/^(\d+)(?::(\d+))?/);
       if (nd && m && view.sections) {
@@ -3117,6 +3134,7 @@
     if (!a || !a.closest('#rOut, #cmtBody, #linkPanel')) return;
     e.preventDefault(); e.stopPropagation();
     if (e.shiftKey && !IS_PANE2) { toPane2({ type: 'jump', ref: a.dataset.sref.replace(/-.*$/, '') }); return; }
+    if (!BG(e)) navRemember(a); // „Zurück“ führt wieder an diese Stelle
     jumpTo(a.dataset.sref, BG(e)).then(ok => {
       a.classList.toggle('dmiss', !ok);
       a.title = ok ? a.dataset.sref : I18N.t('Dieser Text ist nicht in deiner Bibliothek (Reiter „Herunterladen“).');
