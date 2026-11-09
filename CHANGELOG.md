@@ -1,5 +1,16 @@
 # Changelog
 
+### New in 2.3
+- **New German text: Louis Ginzberg, *Die Legenden der Juden*** (vols. 1–4), a reading edition from Ginzberg's own German manuscript, aligned paragraph by paragraph with Sefaria's *Legends of the Jews*. Over 4,000 of Ginzberg's notes are footnotes. Abbreviations and source titles in the notes show their meaning on hover (e.g. "BR." → Bereschit Rabba, "Wayyosha" → Midrasch Wajoscha).
+- **Ginzberg's sources are linked:** about 2,700 Bible references and 8,900 references to Midrash, Talmud, Josephus, Philo, Enoch and Maccabees open the passage on click. They also appear as **connections in both directions** (10,600 in total): reading e.g. Bereshit Rabbah 12 shows which paragraphs of the *Legends* quote it. These bundled connections work even without downloading Sefaria's links.
+- **Outline for the *Legends*:** volumes, chapters and 450 section headings; a click jumps to the paragraph.
+- **Bible references with Roman chapter numbers** ("Jerem. XXIII, 24", "Ps. CXLV, 15", "I Sam. XIV, 24-25") are now recognised and linked in all texts.
+- **Back after following a link** returns to the paragraph you came from, not to the start of the chapter.
+- **Links into parts of larger works** ("Midrash Tanchuma, Vaera 16", "On the Life of Moses, Book I 5") and **three-level references** (volume:chapter:paragraph, book:chapter:section) now open the right place.
+- **Connections for texts with three levels** (e.g. volume:chapter:paragraph) are now assigned to the right chapter.
+- **Version menu:** "Only this version" closes all other versions if it is the only one of its language; if its language has several versions, only those are reduced and the other languages stay.
+- **Faster start without a white window:** the window appears only once the interface is drawn, in the colour of the chosen appearance, and the large lookup tables (Targum lexicon, OSHB lemmas, parallels, map elevations) load after the start. Start-up times are written to `startup.log` in the data folder.
+
 ### New in 2.2
 - **New German texts:**
   - *Schulchan Aruch* (Ph. Lederer): Orach Chajim (1897), Jore Deah and Ewen haëser (1900), as own texts under the Sefaria titles.
