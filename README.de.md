@@ -7,13 +7,13 @@
 <p align="center">
   <a href="https://github.com/mitkin89/Safran/releases/latest"><img alt="Neueste Version" src="https://img.shields.io/github/v/release/mitkin89/Safran?label=release&color=7b4b1f"></a>
   <a href="https://github.com/mitkin89/Safran/releases"><img alt="Downloads" src="https://img.shields.io/github/downloads/mitkin89/Safran/total?color=7b4b1f"></a>
-  <img alt="macOS und Windows" src="https://img.shields.io/badge/macOS%20%7C%20Windows-lightgrey">
+  <img alt="macOS, Windows und Linux" src="https://img.shields.io/badge/macOS%20%7C%20Windows%20%7C%20Linux-lightgrey">
   <a href="LICENSE"><img alt="MIT-Lizenz" src="https://img.shields.io/badge/license-MIT-blue"></a>
   <a href="https://github.com/mitkin89/Safran/actions/workflows/build.yml"><img alt="Build" src="https://img.shields.io/github/actions/workflow/status/mitkin89/Safran/build.yml"></a>
 </p>
 
 <p align="center">
-  <a href="https://github.com/mitkin89/Safran/releases/latest"><img alt="Safran für macOS oder Windows herunterladen" src="https://img.shields.io/badge/%E2%AC%87%EF%B8%8F%20%20Safran%20herunterladen-macOS%20%C2%B7%20Windows-2ea44f?style=for-the-badge"></a>
+  <a href="https://github.com/mitkin89/Safran/releases/latest"><img alt="Safran für macOS, Windows oder Linux herunterladen" src="https://img.shields.io/badge/%E2%AC%87%EF%B8%8F%20%20Safran%20herunterladen-macOS%20%C2%B7%20Windows%20%C2%B7%20Linux-2ea44f?style=for-the-badge"></a>
 </p>
 
 <p align="center"><a href="README.md">English</a> &nbsp;·&nbsp; <b>Deutsch</b></p>
@@ -28,7 +28,7 @@
   <sub>▶ Überblicksvideo auf YouTube ansehen</sub>
 </p>
 
-Safran ist eine kostenlose Desktop-App, die deine Texte auf dem eigenen Rechner hält. Du wählst einmal die Bücher und Sprachen aus der [Sefaria](https://www.sefaria.org)-Bibliothek und liest, durchsuchst und kommentierst sie danach ohne Internetverbindung. Dazu bringt Safran **345 deutsche Übersetzungen und Kommentare** mit, die es sonst kaum gibt, darunter Louis Ginzbergs *Legenden der Juden* nach seinem deutschen Manuskript, und **sieben Wörterbücher** mit über 88.000 Einträgen. Safran ist ein unabhängiges Projekt und nicht mit Sefaria verbunden.
+Safran ist eine kostenlose Desktop-App für macOS, Windows und Linux, die deine Texte auf dem eigenen Rechner hält. Du wählst einmal die Bücher und Sprachen aus der [Sefaria](https://www.sefaria.org)-Bibliothek und liest, durchsuchst und kommentierst sie danach ohne Internetverbindung. Dazu bringt Safran **345 deutsche Übersetzungen und Kommentare** mit, die es sonst kaum gibt, darunter Louis Ginzbergs *Legenden der Juden* nach seinem deutschen Manuskript, und **sieben Wörterbücher** mit über 88.000 Einträgen. Safran ist ein unabhängiges Projekt und nicht mit Sefaria verbunden.
 
 ## Warum Safran?
 
@@ -154,7 +154,7 @@ Ebenfalls enthalten: der Westminster Leningrad Codex mit Morphologie (OSHB), der
 ## Häufige Fragen
 
 <details>
-<summary><b>Erster Start unter macOS und Windows: „beschädigt“, „Entwickler nicht verifiziert“, SmartScreen</b></summary>
+<summary><b>Erster Start unter macOS, Windows und Linux: „beschädigt“, „Entwickler nicht verifiziert“, SmartScreen, AppImage</b></summary>
 
 Die App hat kein kostenpflichtiges Entwicklerzertifikat (die Zertifikate von Apple und Microsoft kosten Geld), darum ist beim ersten Start ein Schritt mehr nötig. Die App ist nicht defekt. Unter macOS ist sie lokal (ad hoc) signiert.
 
@@ -165,6 +165,8 @@ Die App hat kein kostenpflichtiges Entwicklerzertifikat (die Zertifikate von App
 3. Bei *„Entwickler kann nicht überprüft werden“*: *Systemeinstellungen → Datenschutz & Sicherheit → Trotzdem öffnen* (nach unten scrollen) oder Rechtsklick auf die App → *Öffnen* → *Öffnen*.
 
 **Windows** – SmartScreen zeigt evtl. *„Der Computer wurde durch Windows geschützt“*: **Weitere Informationen** → **Trotzdem ausführen**.
+
+**Linux** – das `.AppImage` muss einmal ausführbar gemacht werden (`chmod +x Safran-*.AppImage` oder im Dateimanager: *Eigenschaften → Zugriffsrechte → Ausführen erlauben*). Das `.deb` wird normal installiert (`sudo apt install ./safran_*.deb`).
 </details>
 
 <details>
@@ -192,9 +194,9 @@ Safran ist ein unabhängiges, quelloffenes Projekt und nicht mit Sefaria verbund
 </details>
 
 <details>
-<summary><b>Welche macOS- und Windows-Versionen?</b></summary>
+<summary><b>Welche Versionen von macOS, Windows und Linux?</b></summary>
 
-Safran ist eine Electron-App; an jedem [Release](https://github.com/mitkin89/Safran/releases) hängen Installer für macOS (`.dmg`) und Windows (Installer und portable `.exe`). Für hebräischen Text lohnt sich die kostenlose Schrift **SBL Hebrew** der Society of Biblical Literature; Safran verwendet sie automatisch.
+Safran ist eine Electron-App; an jedem [Release](https://github.com/mitkin89/Safran/releases) hängen Installer für macOS (`.dmg`), Windows (Installer und portable `.exe`) und Linux (`.AppImage` und `.deb`). Für hebräischen Text lohnt sich die kostenlose Schrift **SBL Hebrew** der Society of Biblical Literature; Safran verwendet sie automatisch.
 </details>
 
 ## Mitwirken
