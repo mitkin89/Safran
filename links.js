@@ -97,13 +97,24 @@ class LinkStore {
     const map = new Map();
     let raw = '';
     try { raw = await fs.readFile(path.join(this.dir, 'by_book', safe(book) + '.tsv'), 'utf8'); } catch { /* keine Links */ }
+    // mitgelieferte Verknüpfungen (bundled/links/<Buch>.tsv, z. B. aus Ginzbergs Noten) kommen dazu
+    if (this.opts.bundled !== false) { try { raw += (raw && !raw.endsWith('\n') ? '\n' : '') + await fs.readFile(path.join(__dirname, 'bundled', 'links', safe(book) + '.tsv'), 'utf8'); } catch { /* keine */ } }
+    const seen = new Set();
     for (const line of raw.split('\n')) {
-      if (!line) continue;
+      if (!line || seen.has(line)) continue;
+      seen.add(line);
       const [tail, other, type, cat] = line.split('\t');
       const p = parseTail(tail);
       if (!p) continue;
       let a = map.get(p.chap); if (!a) map.set(p.chap, (a = []));
       a.push([p.v1, p.v2, other, type, cat]);
+      // dreistufige Zählung (z. B. „Legends of the Jews 1:2:5“ = Band:Kapitel:Absatz): zusätzlich unter „1:2“ mit Absatz 5 ablegen
+      const t3 = String(tail).trim().match(/^(\d+):(\d+):(\d+)(?:-(?:(\d+):(\d+):)?(\d+))?$/);
+      if (t3) {
+        const k = t3[1] + ':' + t3[2], v1 = +t3[3], v2 = t3[6] ? (t3[4] && (t3[4] !== t3[1] || t3[5] !== t3[2]) ? Infinity : +t3[6]) : v1;
+        let b = map.get(k); if (!b) map.set(k, (b = []));
+        b.push([v1, v2, other, type, cat]);
+      }
     }
     if (this.opts.xref !== false && this.xref === undefined) { try { this.xref = JSON.parse(await fs.readFile(path.join(__dirname, 'xref.json'), 'utf8')); } catch { this.xref = null; } }
     this.mergeXref(book, map);

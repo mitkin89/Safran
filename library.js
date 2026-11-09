@@ -1241,11 +1241,12 @@
     $('#lkBtn').hidden = true;
     if (!view) return;
     const first = s.label.split(' › ')[0];
-    const m = s.path.length === 1 && !s.label.includes('›') && first.match(/(\d+[ab]?)$/i);
+    let m = s.path.length === 1 && !s.label.includes('›') && first.match(/(\d+[ab]?)$/i);
+    if (!m && s.path.length === 2 && s.path.every(x => typeof x === 'number')) m = [null, (s.path[0] + 1) + ':' + (s.path[1] + 1)]; // Band:Kapitel (z. B. Ginzbergs Legenden)
     if (!m) return;
     const token = view.idx + ':' + view.group.key;
     let rows;
-    try { rows = linksReady ? await LK.section(view.group.title, m[1]) : []; } catch { rows = []; }
+    try { rows = await LK.section(view.group.title, m[1]); } catch { rows = []; } // auch ohne heruntergeladene Sefaria-Links: mitgelieferte Verknüpfungen
     rows = (Array.isArray(rows) ? rows : []).concat(parRows(view.group.title, m[1]));
     if (!view || token !== view.idx + ':' + view.group.key) return; // inzwischen woanders
     secLinks = rows;
