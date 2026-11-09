@@ -832,8 +832,12 @@ ipcMain.handle('links:texts', async (_e, refs, prefer, strict) => {
   }
   const out = {};
   for (const [book, items] of byBook) {
-    const [baseTitle, nodeName] = String(book).split(/, (.+)/); // „Rav Hirsch on Torah, Genesis“ = Buch + Teilbereich
-    const cand = list.filter(x => x.title === baseTitle && (!strict || x.kind === prefer)).sort((a, b) => rank(a) - rank(b));
+    let [baseTitle, nodeName] = String(book).split(/, (.+)/); // „Rav Hirsch on Torah, Genesis“ = Buch + Teilbereich
+    let cand = list.filter(x => x.title === baseTitle && (!strict || x.kind === prefer)).sort((a, b) => rank(a) - rank(b));
+    if (!cand.length && nodeName) { // der ganze Titel kann selbst ein Komma enthalten („Hildesheimer on Mishneh Torah, Sanctification of the New Month“)
+      const whole = list.filter(x => x.title === book && (!strict || x.kind === prefer)).sort((a, b) => rank(a) - rank(b));
+      if (whole.length) { cand = whole; baseTitle = book; nodeName = undefined; }
+    }
     if (!cand.length) { items.forEach(i => { out[i.ref] = { missing: true }; }); continue; }
     const load = async c => {
       let d = readCache.get(c.rel);
