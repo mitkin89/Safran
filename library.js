@@ -479,7 +479,10 @@
       await loadView();
     };
     const items = [];
-    if (!multi && view.selected.size > 1) { items.push({ label: 'Diese Version aus der Anzeige entfernen', fn: () => { const n = new Set(view.selected); n.delete(d.entry.rel); apply(n); } }); items.push({ label: 'Nur diese Version anzeigen', fn: () => apply(new Set([...view.selected].filter(rel => { const v = g.versions.find(x => x.rel === rel); return !v || kn(v) !== k || rel === d.entry.rel; }))) }); items.push({ sep: true }); } // nur in dieser Sprache: die anderen Sprachen (z. B. Hebräisch) bleiben
+    if (!multi && view.selected.size > 1) { items.push({ label: 'Diese Version aus der Anzeige entfernen', fn: () => { const n = new Set(view.selected); n.delete(d.entry.rel); apply(n); } }); items.push({ label: 'Nur diese Version anzeigen', fn: () => { // mehrere Versionen dieser Sprache: nur in dieser Sprache auf diese eine reduzieren, die anderen Sprachen bleiben; ist sie die einzige ihrer Sprache: alle anderen schließen
+      const same = [...view.selected].filter(rel => { const v = g.versions.find(x => x.rel === rel); return v && kn(v) === k; });
+      apply(same.length > 1 ? new Set([...view.selected].filter(rel => { const v = g.versions.find(x => x.rel === rel); return !v || kn(v) !== k || rel === d.entry.rel; })) : new Set([d.entry.rel]));
+    } }); items.push({ sep: true }); }
     // alle Versionen dieser Sprache: ✓ = wird gezeigt (Klick nimmt sie heraus), sonst Klick fügt sie hinzu
     for (const v of g.versions.filter(v => kn(v) === k)) {
       const on = view.selected.has(v.rel);
