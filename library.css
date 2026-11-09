@@ -430,8 +430,21 @@ dialog .dclose:hover { background: color-mix(in srgb, var(--text, #888) 14%, tra
 #dictHead .lhead { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
 #dictHead .bar { display: flex; gap: 6px; margin: 0; }
 #dictHead input { flex: 1; min-width: 0; }
-body.cmt-open.dict-open #dictPanel { top: auto; height: 42%; border-top: 2px solid var(--line); }
-body.cmt-open.dict-open #cmtPanel { bottom: 42%; }
+body.cmt-open.dict-open #dictPanel { top: auto; height: var(--dict-h, 42%); border-top: 2px solid var(--line); }
+body.cmt-open.dict-open #cmtPanel { bottom: var(--dict-h, 42%); }
+/* Kommentar und Wörterbuch zusammen: als Reiter (volle Höhe, umschaltbar) oder untereinander mit verschiebbarem Trenner */
+#stackBar { position: fixed; top: 57px; right: var(--cmt-off, 0px); width: var(--cmt-w, 400px); max-width: 90vw; height: 36px; box-sizing: border-box; z-index: 31; display: flex; gap: 4px; align-items: center; padding: 3px 14px; background: var(--bg); border-left: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+#stackBar[hidden], #stackSplit[hidden] { display: none; }
+#stackBar button.on { background: color-mix(in srgb, var(--accent) 22%, transparent); font-weight: 600; }
+#stackBar #stkMode { margin-left: auto; }
+body.cmt-open.dict-open.stack-tabs #cmtPanel, body.cmt-open.dict-open.stack-tabs #dictPanel { top: 93px; bottom: 0; height: auto; border-top: 0; }
+body.stack-tabs.stk-cmt #dictPanel, body.stack-tabs.stk-dict #cmtPanel { visibility: hidden; pointer-events: none; }
+#stackSplit { position: fixed; right: var(--cmt-off, 0px); width: var(--cmt-w, 400px); max-width: 90vw; bottom: calc(var(--dict-h, 42%) - 5px); height: 10px; cursor: row-resize; z-index: 32; }
+#stackSplit:hover { background: color-mix(in srgb, var(--accent) 25%, transparent); }
+#dictMore { display: none; }
+body.stack-split #dictMore { display: inline-block; }
+body.stack-split #dictPanel:not(.more) :is(#dictFullL, #dictNoteMode, #dictStar, #dictCut, #dictSaved) { display: none; }
+#dictOut { scroll-padding-top: 10px; }
 
 #ctxMenu hr { border: 0; border-top: 1px solid #8884; margin: 4px 2px; }
 .donly { font-size: 12px; margin: 0 0 6px; } .donly .dall { cursor: pointer; color: var(--accent, #2c6fbb); text-decoration: underline dotted; }
@@ -934,3 +947,12 @@ body:has(#findBar:not([hidden])) #olBody { padding-bottom: 56px; }
 .nitem .vrow { display: block; width: 100%; text-align: left; border: 0; background: none; color: var(--fg); font-size: 12px; padding: 2px 6px; border-radius: 5px; cursor: pointer; }
 .nitem .vrow:hover { background: var(--chip); }
 .nitem .vrow.on { font-weight: 600; }
+/* Kommentar + Wörterbuch untereinander: Kopf des Kommentars kompakter (Sprache und Schriftgröße auf einer Zeile, kleinere Abstände) */
+body.stack-split #cmtHead .lhead, body.stack-side #cmtHead .lhead { padding-top: 6px; padding-bottom: 2px; }
+body.stack-split #cmtHead .bar { flex-wrap: nowrap; gap: 4px; padding: 2px 0 4px; }
+body.stack-split #cmtHead .bar button, body.stack-split #cmtHead .bar select { padding: 2px 6px; white-space: nowrap; }
+body.stack-split #cmtHead .bar label { white-space: nowrap; }
+/* Breites Fenster: nebeneinander statt untereinander */
+body.cmt-open.dict-open.stack-side #cmtPanel { bottom: 0; }
+body.cmt-open.dict-open.stack-side #dictPanel { top: 57px; bottom: 0; height: auto; border-top: 0; right: calc(var(--cmt-off, 0px) + var(--cmt-w, 400px)); }
+body.dock-open.stack-side #tab-read .layout { margin-right: calc(2 * var(--cmt-w, 400px) + 20px); }

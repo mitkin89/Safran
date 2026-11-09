@@ -1325,7 +1325,9 @@
     $('#lkTitle').textContent = `${virt ? virt.title : view.group.title} · ${s ? s.label : ''}${lkVerse != null ? ':' + lkVerse : ''} – ${list.length} Verknüpfungen`;
     const byT = new Map(groups.map(g => [g.title, g]));
     const titleToGroup = t => byT.get(t) || byT.get(String(t).split(', ')[0]) || null;
-    const local = localTitles();
+    const localSet = localTitles();
+    // Teile großer Werke ("Allegorical Interpretation of Genesis, Book III") gehören zum Buch vor dem Komma
+    const local = { has: t => localSet.has(t) || !!titleToGroup(t) };
     const LK_FIRST = ['tanakh', 'mishnah', 'tosefta', 'talmud', 'responsa']; // feste Reihenfolge oben, danach der Rest nach Anzahl
     const lkRank = c => { const i = LK_FIRST.indexOf(String(c).toLowerCase()); return i < 0 ? 99 : i; };
     const cats = new Map();
@@ -2855,7 +2857,47 @@
   const syncDock = () => { // Wörterbuch und Kommentare teilen sich die rechte Spalte
     document.body.classList.toggle('dict-open', dictOpen);
     $('#cmtResize').hidden = !(cmtOpen || dictOpen);
+    syncStack();
   };
+  // Kommentar und Wörterbuch gleichzeitig offen: als Reiter (Standard, volle Höhe) oder untereinander (Trenner verschiebbar)
+  let stackMode = 'tabs', stackActive = 'cmt';
+  try { if (localStorage.getItem('stackMode') === 'split') stackMode = 'split'; const h = +localStorage.getItem('stackDictH'); if (h >= 15 && h <= 85) document.documentElement.style.setProperty('--dict-h', h + '%'); } catch { /* egal */ }
+  function syncStack() {
+    let co = false; try { co = cmtOpen; } catch { /* beim Start noch nicht angelegt */ }
+    const both = !!(co && dictOpen) && document.documentElement.dataset.tab !== 'dict';
+    const b = document.body.classList;
+    const wide = window.innerWidth >= 1500; // genug Platz: nebeneinander statt untereinander
+    b.toggle('stack-tabs', both && stackMode === 'tabs'); b.toggle('stack-split', both && stackMode === 'split' && !wide); b.toggle('stack-side', both && stackMode === 'split' && wide);
+    b.toggle('stk-cmt', stackActive === 'cmt'); b.toggle('stk-dict', stackActive === 'dict');
+    $('#stackBar').hidden = !(both && stackMode === 'tabs'); $('#stackSplit').hidden = !(both && stackMode === 'split' && !wide); $('#dictStack').hidden = !both;
+    $('#stkCmt').classList.toggle('on', stackActive === 'cmt'); $('#stkDict').classList.toggle('on', stackActive === 'dict');
+    $('#dictStack').title = stackMode === 'tabs' ? (wide ? 'Kommentar und Wörterbuch nebeneinander zeigen' : 'Kommentar und Wörterbuch untereinander zeigen') : 'Kommentar und Wörterbuch als Reiter zeigen (volle Höhe)';
+  }
+  function setStackActive(w) { stackActive = w; syncStack(); }
+  function setStackMode(m) { stackMode = m; try { localStorage.setItem('stackMode', m); } catch { /* egal */ } syncStack(); }
+  $('#stkCmt').onclick = () => setStackActive('cmt');
+  $('#stkDict').onclick = () => setStackActive('dict');
+  $('#stkMode').onclick = () => setStackMode('split');
+  $('#dictStack').onclick = () => setStackMode(stackMode === 'tabs' ? 'split' : 'tabs');
+  $('#dictMore').onclick = () => $('#dictPanel').classList.toggle('more');
+  window.addEventListener('resize', () => syncStack());
+  new MutationObserver(() => syncStack()).observe(document.documentElement, { attributes: true, attributeFilter: ['data-tab'] });
+  { // Trenner zwischen Kommentar und Wörterbuch ziehen; Doppelklick: Standard
+    const sp = $('#stackSplit');
+    sp.addEventListener('mousedown', e => {
+      e.preventDefault();
+      const mv = ev => { const h = Math.min(85, Math.max(15, (window.innerHeight - ev.clientY) / window.innerHeight * 100)); document.documentElement.style.setProperty('--dict-h', h.toFixed(1) + '%'); };
+      const up = () => { document.removeEventListener('mousemove', mv); document.removeEventListener('mouseup', up); try { localStorage.setItem('stackDictH', parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--dict-h')) || 42); } catch { /* egal */ } };
+      document.addEventListener('mousemove', mv); document.addEventListener('mouseup', up);
+    });
+    sp.addEventListener('dblclick', () => { document.documentElement.style.removeProperty('--dict-h'); try { localStorage.removeItem('stackDictH'); } catch { /* egal */ } });
+  }
+  // Esc im Wörterbuch-Reiter: zurück zum Kommentar (an dieselbe Stelle)
+  document.addEventListener('keydown', e => {
+    if (e.key !== 'Escape' || !document.body.classList.contains('stack-tabs') || stackActive !== 'dict' || document.querySelector('dialog[open]')) return;
+    if (document.activeElement === $('#dictQ') && !$('#dictSug').hidden) return; // erst die Vorschläge schließen
+    setStackActive('cmt'); e.stopPropagation();
+  }, true);
   // Seitenleisten ändern die Breite des Lesebereichs: die Stelle, an der man gerade liest (markierter Vers, sonst oberster sichtbarer), bleibt dabei auf dem Bildschirm stehen
   function withAnchor(fn) {
     const vis = x => { const r = x.getBoundingClientRect(); return r.bottom > 110 && r.top < window.innerHeight; };
@@ -2871,6 +2913,7 @@
   function toggleDict0(force) {
     dictOpen = force == null ? !dictOpen : force;
     $('#dictPanel').hidden = !dictOpen;
+    if (dictOpen) stackActive = 'dict';
     syncDock();
     $('#dictTabBtn').classList.toggle('sideopen', dictOpen);
     if (dictOpen) { renderDictList(); $('#dictQ').focus({ preventScroll: true }); }
@@ -3063,6 +3106,7 @@
   }
   async function openDict(q) {
     if (!dictOpen) toggleDict(true); else renderDictList();
+    setStackActive('dict'); // als Reiter: zum Wörterbuch wechseln, der Kommentar bleibt an seiner Stelle
     if (q) dictLookup(q); else $('#dictQ').focus({ preventScroll: true });
   }
   $('#openDict').onclick = () => { $('#moreMenu').open = false; toggleDict(); };
@@ -4397,6 +4441,8 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
     $('#cmtPanel').hidden = !cmtOpen;
     document.body.classList.toggle('cmt-open', cmtOpen);
     $('#cmtResize').hidden = !(cmtOpen || (typeof dictOpen !== 'undefined' && dictOpen));
+    if (cmtOpen) stackActive = 'cmt';
+    syncStack();
     $('#cmtBtn').classList.toggle('active', cmtOpen);
     if (cmtOpen) applyCmtRow();
   }
