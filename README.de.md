@@ -28,15 +28,15 @@
   <sub>▶ Überblicksvideo auf YouTube ansehen</sub>
 </p>
 
-Safran ist eine kostenlose Desktop-App, die deine Texte auf dem eigenen Rechner hält. Du wählst einmal die Bücher und Sprachen aus der [Sefaria](https://www.sefaria.org)-Bibliothek und liest, durchsuchst und kommentierst sie danach ohne Internetverbindung. Dazu bringt Safran **238 deutsche Übersetzungen und Kommentare** mit, die es sonst kaum gibt, und **sechs Wörterbücher** mit über 85.000 Einträgen. Safran ist ein unabhängiges Projekt und nicht mit Sefaria verbunden.
+Safran ist eine kostenlose Desktop-App, die deine Texte auf dem eigenen Rechner hält. Du wählst einmal die Bücher und Sprachen aus der [Sefaria](https://www.sefaria.org)-Bibliothek und liest, durchsuchst und kommentierst sie danach ohne Internetverbindung. Dazu bringt Safran **345 deutsche Übersetzungen und Kommentare** mit, die es sonst kaum gibt, darunter Louis Ginzbergs *Legenden der Juden* nach seinem deutschen Manuskript, und **sieben Wörterbücher** mit über 88.000 Einträgen. Safran ist ein unabhängiges Projekt und nicht mit Sefaria verbunden.
 
 ## Warum Safran?
 
 | | |
 | --- | --- |
 | 📴 **Funktioniert offline** | Texte, Verknüpfungen, Wörterbücher, Karten und Audio liegen auf deiner Festplatte. Nichts wird irgendwohin gesendet. |
-| 🇩🇪 **Deutsche Texte, die es sonst nicht gibt** | Zunz, Philippson, Mendelssohns Biur, Herxheimer, Hertz, Hirsch, Raschi nach Bamberger, die Kautzsch-Apokryphen, Midrasch Rabba, More Nevuchim … sofort beim ersten Start da. |
-| 📚 **Ein Wörterbuchregal, nicht nur ein Lexikon** | BDB, Gesenius, Jastrow, Levy und Krauss, durchsuchbar nach Stichwort *und* im Volltext, mit Abkürzungen beim Überfahren und Quellen, die sich im Lesefenster öffnen. |
+| 🇩🇪 **Deutsche Texte, die es sonst nicht gibt** | Zunz, Philippson, Mendelssohns Biur, Herxheimer, Hertz, Hirsch, Raschi nach Bamberger, die Kautzsch-Apokryphen, Midrasch Rabba, More Nevuchim, der Schulchan Aruch (Lederer), Ginzbergs *Legenden der Juden* … sofort beim ersten Start da. |
+| 📚 **Ein Wörterbuchregal, nicht nur ein Lexikon** | BDB, Gesenius, Jastrow, Levy, Krauss und Hamburgers Real-Encyclopädie, durchsuchbar nach Stichwort *und* im Volltext, mit Abkürzungen beim Überfahren und Quellen, die sich im Lesefenster öffnen. |
 | 🔬 **Gemacht zum Lernen** | Vers-für-Vers-Ausrichtung, Morphologie per Klick, zweites Lesefenster, Aleppo-Kodex, Qumran-Rollen, Septuaginta, Bibelkarte, Gliederungen und hebräische Lesung. |
 
 ## Schnellstart
@@ -49,7 +49,7 @@ Safran ist eine kostenlose Desktop-App, die deine Texte auf dem eigenen Rechner 
 
 <table>
 <tr>
-<td width="50%" valign="top"><b>📖 Drei Sprachen, Vers für Vers</b><br>Hebräisch, Englisch und Deutsch nebeneinander, Vers für Vers ausgerichtet. Fußnoten öffnen sich im Text. Kapitel und Talmudseiten per Pfeiltasten.</td>
+<td width="50%" valign="top"><b>📖 Drei Sprachen, Vers für Vers</b><br>Hebräisch, Englisch und Deutsch nebeneinander, Vers für Vers ausgerichtet. Fußnoten öffnen sich im Text. Bibelstellen in allen Texten, auch mit römischer Kapitelzahl (<i>Jerem. XXIII, 24</i>), öffnen sich per Klick. Kapitel und Talmudseiten per Pfeiltasten.</td>
 <td width="50%" valign="top"><b>💬 Kommentarfenster (Cmd+K)</b><br>Raschi, Ibn Esra u. a. unter dem gewählten Vers, auf Hebräisch, Englisch oder Deutsch. Lässt sich neben dem Text anpinnen, zusammen mit dem Wörterbuch.</td>
 </tr>
 <tr>
@@ -61,7 +61,7 @@ Safran ist eine kostenlose Desktop-App, die deine Texte auf dem eigenen Rechner 
 <td valign="top"><b>📜 Handschriften und Fassungen</b><br>Aleppo-Kodex, Qumran-Rollen, Septuaginta mit hebräischem Gegenstück je Wortgruppe: ein <b>LXX-MT-Vergleich</b>, der Plus, Minus und Zuordnung markiert (Interlinear umschaltbar), Targum Pseudo-Jonathan und Neofiti mit Morphologie, Parallelstellen, Sefarias Verknüpfungen.</td>
 </tr>
 <tr>
-<td valign="top"><b>🗺 Bibelkarte und Gliederungen</b><br>Die Orte jedes Kapitels auf einer Karte von Israel mit Entfernungen und Höhenprofil, eine detaillierte Jerusalem-Karte von 1865, Gliederungen für 39 Bücher mit Schalter 613 Mizwot, dazu Themen.</td>
+<td valign="top"><b>🗺 Bibelkarte und Gliederungen</b><br>Die Orte jedes Kapitels auf einer Karte von Israel mit Entfernungen und Höhenprofil, eine detaillierte Jerusalem-Karte von 1865, Gliederungen für 39 Bücher mit Schalter 613 Mizwot und für Ginzbergs <i>Legenden</i>, dazu Themen.</td>
 <td valign="top"><b>🎧 Hebräische Lesung</b><br>Eine Lesung des ganzen Tanach von Abraham Schmueloff, pro Buch herunterladbar. Jeder Vers hat sein eigenes ▶: Ein Klick spielt genau diesen Vers ab, danach läuft die Lesung weiter. Der gelesene Vers wird markiert.</td>
 </tr>
 <tr>
@@ -74,7 +74,7 @@ Safran ist eine kostenlose Desktop-App, die deine Texte auf dem eigenen Rechner 
 
 ## Wörterbücher
 
-Den Reiter *Wörterbuch* öffnen, den Knopf 📖 neben dem Kommentarfenster drücken oder ein Wort in einem Text doppelklicken. Sechs Wörterbücher sind dabei:
+Den Reiter *Wörterbuch* öffnen, den Knopf 📖 neben dem Kommentarfenster drücken oder ein Wort in einem Text doppelklicken. Sieben Wörterbücher sind dabei:
 
 | Wörterbuch | Einträge | Extras |
 | --- | ---: | --- |
@@ -84,6 +84,7 @@ Den Reiter *Wörterbuch* öffnen, den Knopf 📖 neben dem Kommentarfenster drü
 | **Levy**, Wörterbuch über die Talmudim und Midraschim (Bd. 1–4) | 19.503 | Abkürzungen beim Überfahren, Quellen verlinkt |
 | **Levy**, Chaldäisches Wörterbuch über die Targumim (Bd. 1–2) | 7.232 | Abkürzungen beim Überfahren, Quellen verlinkt |
 | **Krauss**, Griechische und lateinische Lehnwörter (Teil II) | 6.329 | Abkürzungen beim Überfahren, Quellen verlinkt, Verweise *s. X* anklickbar |
+| **Hamburger**, Real-Encyclopädie für Bibel und Talmud (Bd. 1, Bd. 2 talmudische Artikel) | 2.753 | Fußnoten im Text, Quellen verlinkt |
 
 - **Kluges Nachschlagen:** Vokalzeichen und Endbuchstaben werden ignoriert, die Präfixe ו ה ב כ ל מ ש abgelöst, und Einträge, die mit deinem Wort beginnen, erscheinen mit. Beim Tippen kommen Vorschläge.
 - **Volltext:** mit dem Häkchen *auch im Text* wird im Artikeltext gesucht, nicht nur in den Stichwörtern. Treffer werden hervorgehoben.
@@ -94,7 +95,7 @@ Den Reiter *Wörterbuch* öffnen, den Knopf 📖 neben dem Kommentarfenster drü
 
 ## Deutsche Texte, die es bei Sefaria nicht gibt
 
-Safran liefert 238 deutsche Textdateien im Ordner `bundled/` mit. Sie werden beim ersten Start importiert und erscheinen unter *Eigene Texte* sowie als zusätzliche Versionen und Kommentatoren neben den Sefaria-Texten:
+Safran liefert 345 deutsche Textdateien im Ordner `bundled/` mit. Sie werden beim ersten Start importiert und erscheinen unter *Eigene Texte* sowie als zusätzliche Versionen und Kommentatoren neben den Sefaria-Texten:
 
 | Werk | Umfang |
 | --- | --- |
@@ -105,6 +106,9 @@ Safran liefert 238 deutsche Textdateien im Ordner `bundled/` mit. Sie werden bei
 | Mendelssohn, *Netivot ha-Schalom* (Übersetzung, Taitsch und Biur) | Tora |
 | Raschi nach Bamberger · Hertz, Pentateuch-Kommentar | Tora |
 | Hirsch, Psalmen · Midrasch Bemidbar und Debarim Rabba (Wünsche) · *Führer der Unschlüssigen* (More Nevuchim) · *Kizzur Schulchan Aruch* (Bamberger) | |
+| Ginzberg, *Die Legenden der Juden*, Lesefassung nach seinem deutschen Manuskript, ausgerichtet an Sefarias *Legends of the Jews* | Bd. 1–4, über 4000 Noten Ginzbergs als Fußnoten; Abkürzungen beim Überfahren; 10.600 Quellen (Bibel, Midrasch, Talmud, Josephus, Philo …) verlinkt und als Verknüpfungen in beide Richtungen; Gliederung |
+| *Schulchan Aruch* (Lederer): Orach Chajim, Jore Deah, Ewen haëser · *Abot de-Rabbi Natan* (Pollak) · Traktat *Soferim* (Müller) · *Heiligung des Neumonds* (Hildesheimer) | |
+| Samuel (Wolf) · Ijob (Dawidowicz) · die *Arba Megillot* (Breuer) | Übersetzung und Kommentar |
 
 Ebenfalls enthalten: der Westminster Leningrad Codex mit Morphologie (OSHB), der Aleppo-Kodex, die Qumran-Rollen, Targum Pseudo-Jonathan und Neofiti sowie die Septuaginta (CATSS). Quellen und Lizenzen: [SOURCES.de.md](SOURCES.de.md).
 

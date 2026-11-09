@@ -28,15 +28,15 @@
   <sub>▶ Watch the overview video on YouTube</sub>
 </p>
 
-Safran is a free desktop app that keeps your texts on your own computer. Pick the books and languages you want from the [Sefaria](https://www.sefaria.org) library once, and read, search and annotate them afterwards without an internet connection. On top of that, Safran ships **238 German translations and commentaries** that are hard to find anywhere else, plus **six dictionaries** with more than 85,000 entries. Safran is an independent project and not affiliated with Sefaria.
+Safran is a free desktop app that keeps your texts on your own computer. Pick the books and languages you want from the [Sefaria](https://www.sefaria.org) library once, and read, search and annotate them afterwards without an internet connection. On top of that, Safran ships **345 German translations and commentaries** that are hard to find anywhere else, among them Louis Ginzberg's *Legenden der Juden* from his German manuscript, plus **seven dictionaries** with more than 88,000 entries. Safran is an independent project and not affiliated with Sefaria.
 
 ## Why Safran?
 
 | | |
 | --- | --- |
 | 📴 **Works offline** | Texts, links, dictionaries, maps and audio live on your disk. Nothing is sent anywhere. |
-| 🇩🇪 **German texts you won't find elsewhere** | Zunz, Philippson, Mendelssohn's Biur, Herxheimer, Hertz, Hirsch, Rashi after Bamberger, the Kautzsch Apocrypha, Midrash Rabbah, More Nevuchim … ready on first start. |
-| 📚 **A dictionary shelf, not a single lookup** | BDB, Gesenius, Jastrow, Levy and Krauss, searchable by headword *and* full text, with abbreviations explained on hover and sources that open in the reader. |
+| 🇩🇪 **German texts you won't find elsewhere** | Zunz, Philippson, Mendelssohn's Biur, Herxheimer, Hertz, Hirsch, Rashi after Bamberger, the Kautzsch Apocrypha, Midrash Rabbah, More Nevuchim, the Schulchan Aruch (Lederer), Ginzberg's *Legenden der Juden* … ready on first start. |
+| 📚 **A dictionary shelf, not a single lookup** | BDB, Gesenius, Jastrow, Levy, Krauss and Hamburger's Real-Encyclopädie, searchable by headword *and* full text, with abbreviations explained on hover and sources that open in the reader. |
 | 🔬 **Built for study** | Verse-by-verse alignment, morphology on click, a second reading window, Aleppo Codex, Dead Sea Scrolls, Septuagint, Bible map, outlines and Hebrew audio. |
 
 ## Quick start
@@ -49,7 +49,7 @@ Safran is a free desktop app that keeps your texts on your own computer. Pick th
 
 <table>
 <tr>
-<td width="50%" valign="top"><b>📖 Three languages, verse by verse</b><br>Hebrew, English and German side by side, aligned verse by verse. Footnotes open inline. Chapters and Talmud pages via arrow keys.</td>
+<td width="50%" valign="top"><b>📖 Three languages, verse by verse</b><br>Hebrew, English and German side by side, aligned verse by verse. Footnotes open inline. Bible references in any text, also with Roman chapter numbers (<i>Jerem. XXIII, 24</i>), open on click. Chapters and Talmud pages via arrow keys.</td>
 <td width="50%" valign="top"><b>💬 Commentary panel (Cmd+K)</b><br>Rashi, Ibn Ezra and more under the selected verse, in Hebrew, English or German. Pin it beside the text, together with the dictionary.</td>
 </tr>
 <tr>
@@ -61,7 +61,7 @@ Safran is a free desktop app that keeps your texts on your own computer. Pick th
 <td valign="top"><b>📜 Manuscripts and versions</b><br>Aleppo Codex, Qumran scrolls, Septuagint with the Hebrew counterpart per word group: an <b>LXX–MT comparison</b> that marks pluses, minuses and alignment (interlinear switchable), Targum Pseudo-Jonathan and Neofiti with morphology, parallel passages, Sefaria's link data.</td>
 </tr>
 <tr>
-<td valign="top"><b>🗺 Bible map and outlines</b><br>The places of each chapter on a map of Israel with distances and elevation profile, a detailed 1865 map of Jerusalem, outlines for 39 books with a 613 Mitzvot switch, and topics.</td>
+<td valign="top"><b>🗺 Bible map and outlines</b><br>The places of each chapter on a map of Israel with distances and elevation profile, a detailed 1865 map of Jerusalem, outlines for 39 books with a 613 Mitzvot switch and for Ginzberg's <i>Legends</i>, and topics.</td>
 <td valign="top"><b>🎧 Hebrew audio</b><br>A reading of the whole Tanakh by Abraham Schmueloff, downloadable per book. Every verse has its own ▶ button: click it to hear exactly that verse, and the reading carries on from there. The verse being read is highlighted.</td>
 </tr>
 <tr>
@@ -74,7 +74,7 @@ Safran is a free desktop app that keeps your texts on your own computer. Pick th
 
 ## Dictionaries
 
-Open the *Wörterbuch* tab, press the 📖 button next to the commentary panel, or double-click a word in any text. Six dictionaries ship with the app:
+Open the *Wörterbuch* tab, press the 📖 button next to the commentary panel, or double-click a word in any text. Seven dictionaries ship with the app:
 
 | Dictionary | Entries | Extras |
 | --- | ---: | --- |
@@ -84,6 +84,7 @@ Open the *Wörterbuch* tab, press the 📖 button next to the commentary panel, 
 | **Levy**, Wörterbuch über die Talmudim und Midraschim (vols. 1–4) | 19,503 | abbreviations on hover, sources linked |
 | **Levy**, Chaldäisches Wörterbuch über die Targumim (vols. 1–2) | 7,232 | abbreviations on hover, sources linked |
 | **Krauss**, Griechische und lateinische Lehnwörter (part II) | 6,329 | abbreviations on hover, sources linked, *s. X* cross-references clickable |
+| **Hamburger**, Real-Encyclopädie für Bibel und Talmud (vol. 1, vol. 2 talmudic articles) | 2,753 | footnotes inline, sources linked |
 
 - **Smart lookup:** vowel points and final-letter forms are ignored, the prefixes ו ה ב כ ל מ ש are stripped, and entries that start with your word are listed too. Suggestions appear while typing.
 - **Full text:** tick *auch im Text* to search inside the articles, not only the headwords. Hits are highlighted.
@@ -94,7 +95,7 @@ Open the *Wörterbuch* tab, press the 📖 button next to the commentary panel, 
 
 ## German texts that are not on Sefaria
 
-Safran bundles 238 German text files in `bundled/`. They are imported on first start and appear under *Eigene Texte* and as extra versions and commentators next to the Sefaria texts:
+Safran bundles 345 German text files in `bundled/`. They are imported on first start and appear under *Eigene Texte* and as extra versions and commentators next to the Sefaria texts:
 
 | Work | Scope |
 | --- | --- |
@@ -105,6 +106,9 @@ Safran bundles 238 German text files in `bundled/`. They are imported on first s
 | Mendelssohn, *Netivot ha-Shalom* (translation, Taitsch and Biur) | Torah |
 | Rashi after Bamberger · Hertz, Pentateuch commentary | Torah |
 | Hirsch, Psalms · Midrash Bemidbar and Devarim Rabbah (Wünsche) · *Führer der Unschlüssigen* (More Nevuchim) · *Kizzur Schulchan Aruch* (Bamberger) | |
+| Ginzberg, *Die Legenden der Juden*, reading edition from his German manuscript, aligned with Sefaria's *Legends of the Jews* | vols. 1–4, with over 4,000 of Ginzberg's notes as footnotes; abbreviations explained on hover; 10,600 sources (Bible, Midrash, Talmud, Josephus, Philo …) linked and shown as connections in both directions; outline |
+| *Schulchan Aruch* (Lederer): Orach Chajim, Jore Deah, Ewen haëser · *Avot DeRabbi Natan* (Pollak) · Tractate *Soferim* (Müller) · *Sanctification of the New Month* (Hildesheimer) | |
+| Samuel (Wolf) · Job (Dawidowicz) · the *Arba Megillot* (Breuer) | translation and commentary |
 
 Also bundled: the Westminster Leningrad Codex with morphology (OSHB), the Aleppo Codex, the Qumran scrolls, Targum Pseudo-Jonathan and Neofiti, and the Septuagint (CATSS). Sources and licenses: [SOURCES.md](SOURCES.md).
 
