@@ -4807,15 +4807,18 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
 
   // ---------- Start ----------
   (async () => {
+    // Startzeiten messen (Millisekunden seit Beginn des Seitenladens); landen in startup.log im Benutzerordner
+    const tm = [['Skripte geladen', performance.now()]], mk = n => tm.push([n, performance.now()]);
     try {
-      await refreshState();
-      await loadLibrary();
+      await refreshState(); mk('refreshState');
+      await loadLibrary(); mk('loadLibrary');
       applyDisp(false);
-      await loadNotes();
-      await restoreSession();
+      await loadNotes(); mk('loadNotes');
+      await restoreSession(); mk('restoreSession');
       if (!tabs.length) newTab(); // Safran startet nie leer – auch das zweite Fenster öffnet gleich in einem Tab
-      await refreshCatalog();
+      await refreshCatalog(); mk('refreshCatalog');
       maybeWelcome();
+      if (!IS_PANE2) try { O.startupLog && O.startupLog(tm.map(([n, t]) => [n, Math.round(t)])); } catch { /* nur Diagnose */ }
     } catch (err) {
       const o = $('#rOut'); // sichtbar statt leerer Oberfläche
       if (o) o.innerHTML = '<p class="muted">' + esc(I18N.t('Die Bibliothek konnte nicht geladen werden: {}', String(err && err.message || err))) + '</p>';

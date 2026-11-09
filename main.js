@@ -8,6 +8,8 @@ const LK = require('./links');
 const TP = require('./topics');
 const DSL = require('./dsl');
 
+const T0 = Date.now(); // Startzeit des Hauptprozesses (für startup.log)
+const tMain = [['Hauptprozess gestartet', 0]]; const mkMain = n => tMain.push([n, Date.now() - T0]);
 const BASE = 'https://www.sefaria.org';
 const CATALOG_URL = 'https://raw.githubusercontent.com/Sefaria/Sefaria-Export/master/books.json';
 let toolsWin = null;
@@ -102,6 +104,15 @@ function winBg() {
   const dark = t === 'dark' || (t !== 'light' && nativeTheme.shouldUseDarkColors);
   return dark ? '#1c1c1e' : '#fbfaf7';
 }
+// Startzeiten: Hauptprozess + Oberfläche (Millisekunden) → startup.log im Benutzerordner
+let tRenderStart = 0;
+ipcMain.handle('app:startupLog', (_e, marks) => {
+  try {
+    const lines = [...tMain.map(([n, t]) => `${String(t).padStart(6)} ms  ${n}`), ...(Array.isArray(marks) ? marks : []).map(([n, t]) => `${String(tRenderStart + (+t || 0)).padStart(6)} ms  Oberfläche: ${n}`)];
+    require('fs').writeFileSync(path.join(app.getPath('userData'), 'startup.log'), new Date().toISOString() + '\n' + lines.join('\n') + '\n');
+  } catch { /* nur Diagnose */ }
+  return true;
+});
 ipcMain.handle('app:setTheme', (_e, t) => { if (['auto', 'light', 'dark'].includes(t)) { try { require('fs').writeFileSync(themeFile(), t); } catch { /* egal */ } } return true; });
 function openOffline() {
   if (offlineWin && !offlineWin.isDestroyed()) { offlineWin.focus(); return; }
@@ -126,7 +137,9 @@ function openOffline() {
   offlineWin.webContents.on('will-navigate', (e, url) => { if (!url.startsWith('file://')) e.preventDefault(); });
   offlineWin.webContents.on('will-frame-navigate', e => { if (!e.url.startsWith('file://')) e.preventDefault(); }); // auch das zweite Lesefenster (iframe) bleibt lokal
   offlineWin.on('closed', () => { offlineWin = null; dlCancel = true; searchCancel = true; if (searchWorker) searchWorker.terminate(); });
-  offlineWin.once('ready-to-show', () => { if (offlineWin && !offlineWin.isDestroyed()) offlineWin.show(); });
+  offlineWin.webContents.once('did-start-loading', () => { tRenderStart = Date.now() - T0; mkMain('Seite beginnt zu laden'); });
+  offlineWin.webContents.once('did-finish-load', () => mkMain('Seite geladen'));
+  offlineWin.once('ready-to-show', () => { mkMain('Fenster sichtbar'); if (offlineWin && !offlineWin.isDestroyed()) offlineWin.show(); });
   setTimeout(() => { if (offlineWin && !offlineWin.isDestroyed() && !offlineWin.isVisible()) offlineWin.show(); }, 4000); // Sicherheitsnetz
   offlineWin.loadFile('library.html');
 }
@@ -332,9 +345,11 @@ const readCache = new Map(); // gelesene Dateien für den Kommentar-Bereich
 let libraryP = null; // Promise: parallele Aufrufe beim Start teilen sich eine Bibliothek
 function getLibrary() {
   if (!libraryP) libraryP = (async () => {
+    mkMain('Bibliothek: Laden beginnt');
     const lib = await new OFF.Library(await libraryDir(), fetchBuffer).load();
+    mkMain('Bibliothek: Index gelesen (' + lib.list().length + ' Texte)');
     let impErr = '';
-    try { await lib.importBundled(path.join(__dirname, 'bundled'), path.join(app.getPath('userData'), 'private')); } catch (err) { impErr = String(err && err.stack || err); /* mitgelieferte Texte sind nur ein Zusatz */ }
+    try { await lib.importBundled(path.join(__dirname, 'bundled'), path.join(app.getPath('userData'), 'private')); mkMain('Bibliothek: mitgelieferte Texte geprüft'); } catch (err) { impErr = String(err && err.stack || err); /* mitgelieferte Texte sind nur ein Zusatz */ }
     try { require('fs').writeFileSync(path.join(app.getPath('userData'), 'private-import.log'), JSON.stringify({ zeit: new Date().toISOString(), fehler: impErr, ergebnis: lib.lastImport || null, privateInBibliothek: lib.list().filter(e => e.private).length, bibliothek: lib.dir }, null, 1)); } catch { /* Protokoll ist nur eine Hilfe */ }
     setTimeout(() => warmSearchCache(lib), 5000); // Such-Cache im Hintergrund vorbauen
     return lib;
@@ -994,6 +1009,7 @@ ipcMain.handle('off:reveal', async () => {
 
 app.whenReady().then(() => { try { if (process.platform === 'darwin' && app.dock) app.dock.setIcon(path.join(__dirname, 'build', 'icon.png')); } catch { /* Symbol nur ein Zusatz */ } }).catch(() => {});
 app.whenReady().then(() => {
+  mkMain('Electron bereit');
   session.defaultSession.setUserAgent(cleanUA(session.defaultSession.getUserAgent()));
   buildMenu();
   openOffline();
