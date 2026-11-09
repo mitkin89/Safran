@@ -30,6 +30,7 @@ aside input { width: 100%; margin-bottom: 8px; }
 #rOut[data-notes="click"] .note.open, #rOut[data-notes="click"] .note.fnd { display: inline; }
 #rOut[data-notes="all"] .note { display: inline; }
 #rOut[data-notes="off"] .note, #rOut[data-notes="off"] .txt sup { display: none; }
+.ab { text-decoration: underline dotted; text-underline-offset: 2px; cursor: help; }
 #rOut[data-notes="click"] .txt sup[data-fn], #rOut[data-notes="all"] .txt sup[data-fn] { cursor: pointer; padding: 0 3px; border-radius: 4px; text-decoration: underline dotted; }
 #rOut[data-notes="click"] .txt sup[data-fn]:hover, #rOut[data-notes="all"] .txt sup[data-fn]:hover { background: color-mix(in srgb, var(--accent) 18%, transparent); }
 

@@ -137,7 +137,10 @@ function cleanHtml(s) {
     // einzige erlaubte Attributform: <sup data-fn="12"> (Fußnotenzeichen, nur Ziffern)
     // OSHB-Wörter: <span class="w" data-l="1254 a" data-m="HVqp3ms"> (Lemma-Nummer und Morphologiecode, nur Ziffern/Buchstaben)
     if (t === 'span') {
-      const tg = m.match(/^<span class="wt" data-l="([0-9a-f]{1,6})" data-m="([a-z-]{1,8}(?:\.[A-Za-z-]{1,4}){4})">$/);
+      // Abkürzung mit Auflösung beim Überfahren: <span class="ab" data-t="Bereschit Rabba">BR.</span>
+      const ab = m.match(/^<span class="ab" data-t="([^"<>&]{1,200})"(?: title="[^"<>&]{0,200}")?>$/);
+      if (ab) { spans++; return `<span class="ab" data-t="${ab[1]}" title="${ab[1]}">`; }
+      const tg =m.match(/^<span class="wt" data-l="([0-9a-f]{1,6})" data-m="([a-z-]{1,8}(?:\.[A-Za-z-]{1,4}){4})">$/);
       if (tg) { spans++; return `<span class="wt" data-l="${tg[1]}" data-m="${tg[2]}">`; }
       const gk = m.match(/^<span class="wg( wm)?" data-h="([\u05D0-\u05EA ]{0,120})"(?: data-f="([a-z]{1,8})")?(?: data-r="([\u05D0-\u05EA ]{0,120})")?>$/);
       if (gk) { spans++; return `<span class="wg${gk[1] || ''}" data-h="${gk[2]}"${gk[3] ? ` data-f="${gk[3]}"` : ''}${gk[4] ? ` data-r="${gk[4]}"` : ''}>`; }

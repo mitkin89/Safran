@@ -55,6 +55,11 @@ console.log('refs ok');
   const R = require('./reader.js'), assert = require('assert');
   assert(!/<img|<a /i.test(R.cleanHtml('x <img src=x onerror=alert(1)//')));
   assert.strictEqual(R.cleanHtml('1 < 2 <b>x</b>'), '1 &lt; 2 <b>x</b>');
+  // Abkürzungs-Hover: bleibt erhalten, bekommt title, ist idempotent; fremde Attribute fallen weg
+  const ab = R.cleanHtml('<span class="ab" data-t="Bereschit Rabba">BR.</span> XII');
+  assert.strictEqual(ab, '<span class="ab" data-t="Bereschit Rabba" title="Bereschit Rabba">BR.</span> XII');
+  assert.strictEqual(R.cleanHtml(ab), ab);
+  assert.strictEqual(R.cleanHtml('<span class="ab" data-t="x" onmouseover="evil()">y</span>'), 'y');
   console.log('cleanHtml-Härtung ok');
 }
 // deutsche Buchnamen
