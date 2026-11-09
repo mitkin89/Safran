@@ -977,9 +977,34 @@ ipcMain.handle('off:reveal', async () => {
 });
 
 app.whenReady().then(() => { try { if (process.platform === 'darwin' && app.dock) app.dock.setIcon(path.join(__dirname, 'build', 'icon.png')); } catch { /* Symbol nur ein Zusatz */ } }).catch(() => {});
-app.whenReady().then(() => {
+// Start aus einem Git-Ordner (npm start): beim Start neue Commits von GitHub holen (nur schnelle Vorwärts-Updates, nie überschreiben).
+// Änderte sich Programmcode, startet Safran einmal neu; bei reinen Textänderungen (bundled/) geht es direkt weiter.
+// Abschalten: Umgebungsvariable SAFRAN_NO_AUTOUPDATE=1. Installierte Pakete (kein .git-Ordner) sind nicht betroffen.
+async function autoUpdateFromGit() {
+  if (app.isPackaged || process.env.SAFRAN_NO_AUTOUPDATE) return false;
+  const { execFile } = require('child_process');
+  const git = (args, ms) => new Promise((resolve, reject) => execFile('git', args, { cwd: __dirname, timeout: ms || 20000, env: { ...process.env, GIT_TERMINAL_PROMPT: '0' } }, (err, out) => err ? reject(err) : resolve(String(out).trim())));
+  try {
+    await fs.access(path.join(__dirname, '.git'));
+    const before = await git(['rev-parse', 'HEAD']);
+    await git(['pull', '--ff-only', '--quiet'], 30000);
+    const after = await git(['rev-parse', 'HEAD']);
+    if (before === after) return false;
+    const changed = (await git(['diff', '--name-only', before, after])).split('\n').filter(Boolean);
+    const code = changed.some(f => !/^(bundled\/|screenshots\/|docs\/|[^/]+\.md$)/.test(f));
+    if (code && !process.env.SAFRAN_UPDATED) { // Programmcode geändert (ggf. neue Abhängigkeiten: dann einmal npm install von Hand)
+      process.env.SAFRAN_UPDATED = '1'; // vor dem Neustart setzen: wird vererbt, verhindert Neustart-Schleifen
+      app.relaunch({ args: process.argv.slice(1), execPath: process.execPath });
+      app.exit(0);
+      return true;
+    }
+    return false;
+  } catch { return false; /* kein Netz, kein git, lokale Änderungen … – der Start läuft normal weiter */ }
+}
+app.whenReady().then(async () => {
   session.defaultSession.setUserAgent(cleanUA(session.defaultSession.getUserAgent()));
   buildMenu();
+  if (await autoUpdateFromGit()) return;
   openOffline();
   app.on('activate', () => { if (BrowserWindow.getAllWindows().length === 0) openOffline(); });
 });

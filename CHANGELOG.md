@@ -1,5 +1,8 @@
 # Changelog
 
+### Unreleased
+- **Automatic update on start (source checkout):** when Safran is started from a Git folder (`npm start`), it fetches new commits from GitHub at launch (fast-forward only, never overwrites local changes). New texts and dictionaries in `bundled/` are picked up immediately; if program code changed, Safran restarts once. Switch off with `SAFRAN_NO_AUTOUPDATE=1`. Installed packages are not affected.
+
 ### New in 2.1.1
 - **Linux:** Safran is now also available for Linux (AppImage and .deb), built automatically together with the macOS and Windows versions.
 - **Dictionary search:** phrases in quotation marks ("…") and the wildcards `*` and `?`.
