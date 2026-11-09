@@ -4008,7 +4008,7 @@
   // Enter bestätigt die Notiz (Umschalt+Enter = neue Zeile)
   $('#ndText').addEventListener('keydown', e => { if (e.key === 'Enter' && !e.shiftKey && !e.isComposing) { e.preventDefault(); $('#ndSave').click(); } });
   $('#ndTitleIn').addEventListener('keydown', e => { if (e.key === 'Enter' && !e.isComposing) { e.preventDefault(); $('#ndText').focus(); } });
-  { const th = $('#uiTheme'); th.value = window.Theme.get(); th.onchange = () => window.Theme.set(th.value); }
+  { const th = $('#uiTheme'); th.value = window.Theme.get(); th.onchange = () => { window.Theme.set(th.value); try { O.setTheme && O.setTheme(th.value); } catch { /* egal */ } }; try { O.setTheme && O.setTheme(th.value); } catch { /* egal */ } }
   $('#nNew').onclick = () => openNoteDlg({ id: newId('free'), kind: 'free', title: '', note: '', order: topOrder() }, {});
 
   // Notizen-Reiter: Reihenfolge (manuell per Ziehen oder ▲▼, neueste, nach Farbe, nach Buch) und Farbfilter

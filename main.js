@@ -1,4 +1,4 @@
-const { app, BrowserWindow, ipcMain, dialog, shell, net, session, Menu } = require('electron');
+const { app, BrowserWindow, ipcMain, dialog, shell, net, session, Menu, nativeTheme } = require('electron');
 const fs = require('fs/promises');
 const path = require('path');
 const S = require('./sefaria');
@@ -95,9 +95,19 @@ function openTools(tab = 'download', title = '') {
 }
 
 // ---------- Offline-Bibliothek ----------
+// Hintergrundfarbe des Fensters schon vor dem ersten Bild: wie die Oberfläche (hell/dunkel), damit beim Start nichts weiß aufblitzt
+const themeFile = () => path.join(app.getPath('userData'), 'ui-theme.txt');
+function winBg() {
+  let t = 'auto'; try { t = require('fs').readFileSync(themeFile(), 'utf8').trim(); } catch { /* noch nie gewählt */ }
+  const dark = t === 'dark' || (t !== 'light' && nativeTheme.shouldUseDarkColors);
+  return dark ? '#1c1c1e' : '#fbfaf7';
+}
+ipcMain.handle('app:setTheme', (_e, t) => { if (['auto', 'light', 'dark'].includes(t)) { try { require('fs').writeFileSync(themeFile(), t); } catch { /* egal */ } } return true; });
 function openOffline() {
   if (offlineWin && !offlineWin.isDestroyed()) { offlineWin.focus(); return; }
   offlineWin = new BrowserWindow({
+    show: false, // erst zeigen, wenn die Oberfläche gezeichnet ist (kein leeres weißes Fenster)
+    backgroundColor: winBg(),
     width: 1250,
     height: 860,
     icon: path.join(__dirname, 'build', 'icon.png'), // Fenstersymbol unter Windows/Linux
@@ -116,6 +126,8 @@ function openOffline() {
   offlineWin.webContents.on('will-navigate', (e, url) => { if (!url.startsWith('file://')) e.preventDefault(); });
   offlineWin.webContents.on('will-frame-navigate', e => { if (!e.url.startsWith('file://')) e.preventDefault(); }); // auch das zweite Lesefenster (iframe) bleibt lokal
   offlineWin.on('closed', () => { offlineWin = null; dlCancel = true; searchCancel = true; if (searchWorker) searchWorker.terminate(); });
+  offlineWin.once('ready-to-show', () => { if (offlineWin && !offlineWin.isDestroyed()) offlineWin.show(); });
+  setTimeout(() => { if (offlineWin && !offlineWin.isDestroyed() && !offlineWin.isVisible()) offlineWin.show(); }, 4000); // Sicherheitsnetz
   offlineWin.loadFile('library.html');
 }
 
