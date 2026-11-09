@@ -925,10 +925,16 @@
     let partSel = '';
     { const nm = String(m[1]).match(/^(.*?)[\s,]*\b(part\s*\d+|teil\s*\d+)\s*[›>,]?\s*(introduction|einleitung)?\s*[›>,]?\s*$/i);
       if (nm) { m[1] = nm[1]; partSel = nm[2].toLowerCase().replace(/^teil/, 'part').replace(/\s+/g, ' ') + (nm[3] ? ' › introduction' : ' ›'); } }
-    const book = normT(m[1]), num = m[2].toLowerCase(), verse = m[3];
+    let book = normT(m[1]); const num = m[2].toLowerCase(), verse = m[3];
+    // Teil eines komplexen Werks hinter dem letzten Komma („Midrash Tanchuma, Vaera 16“, „On the Life of Moses, Book I 5“), wenn der volle Name kein Buch trifft
+    let nodeSel = '';
+    if (book && !partSel && !groups.some(x => titleHit(x.title, book))) {
+      const k = String(m[1]).lastIndexOf(',');
+      if (k > 0) { const base = normT(m[1].slice(0, k)); if (base && groups.some(x => normT(x.title) === base)) { nodeSel = m[1].slice(k + 1).trim().toLowerCase(); book = base; } }
+    }
     let g = view && view.group;
     if (book) {
-      const cands = groups.filter(x => titleHit(x.title, book));
+      const cands = nodeSel ? groups.filter(x => normT(x.title) === book) : groups.filter(x => titleHit(x.title, book));
       cands.sort((a, b) => (normT(a.title) === book ? 0 : 1) - (normT(b.title) === book ? 0 : 1) || (normT(a.title).startsWith(book) ? 0 : 1) - (normT(b.title).startsWith(book) ? 0 : 1) || a.title.length - b.title.length);
       // Kein Treffer auf den Buchnamen selbst, nur Kommentare „X on <Buch>“: nicht den falschen Kommentar öffnen
       if (cands.length && normT(cands[0].title) !== book && !/\bon\b/.test(book) && cands.every(x => /\bon\b/.test(normT(x.title)))) return false;
@@ -943,6 +949,13 @@
       // Abschnitt = erste Stufe, Zeilen „Kapitel:Absatz“ (z. B. Josephus): Abschnitt [1] öffnen, Zeile „2:5“
       const i1 = view.sections.findIndex(s => s.path && s.path.length === 1 && s.path[0] === tri[0] - 1);
       if (i1 >= 0) { view.idx = i1; view.vf = null; renderSection(tri[1] + ':' + tri[2]); return true; }
+    }
+    if (nodeSel) { // Teil eines komplexen Werks: Abschnitt „Teil“ (Zeile n) oder „Teil › n“ (Zeile verse)
+      const lo = s => s.label.toLowerCase();
+      let ix = view.sections.findIndex(s => lo(s) === nodeSel + ' › ' + num || lo(s).startsWith(nodeSel + ' › ') && lo(s).endsWith(' ' + num));
+      if (ix >= 0) { view.idx = ix; view.vf = null; renderSection(verse); return true; }
+      ix = view.sections.findIndex(s => lo(s) === nodeSel);
+      if (ix >= 0) { view.idx = ix; view.vf = null; renderSection(num); return true; }
     }
     const find = n => view.sections.findIndex(s => { const l = s.label.toLowerCase(); if (partSel) return partSel.endsWith('introduction') ? l === partSel : l.startsWith(partSel) && l.endsWith(' ' + n); return l.endsWith(' ' + n) || l === n; });
     let idx = find(num);
