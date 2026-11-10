@@ -1757,7 +1757,24 @@
       const walk = (list, lvl) => list.forEach(it => { add(target(it.ref), lvl, T(it, 'text')); if (it.sub) walk(it.sub, lvl + 1); });
       walk(items, 1);
     }
-    for (const [row, hs] of put) row.insertAdjacentHTML('beforebegin', hs.map(h => `<div class="olhead olh${Math.min(h.lvl, 3)}" dir="auto">${esc(h.text)}</div>`).join(''));
+    // Beginnt das Kapitel mitten in einem Abschnitt der Gliederung: dessen Überschrift(en) trotzdem oben zeigen (als Fortsetzung)
+    { const pos3 = (a, b, c) => a * 1e8 + b * 1e4 + c;
+      const P0 = (() => { const v = vOf(rows[0].dataset.l) || 1; if (nums.length >= 2 && ol.sections.some(x => x.items.some(i => /^\d+:\d+:\d+/.test(String(i.ref))))) return pos3(nums[nums.length - 2], nums[nums.length - 1], v); if (lv2) return bk != null ? pos3(0, bk, v) : null; return ch != null ? pos3(0, ch, v) : null; })();
+      const st = ref => { const r = String(ref).split(/[;,]/)[0].trim(); let m; if ((m = r.match(/^(\d+):(\d+):(\d+)/))) return pos3(+m[1], +m[2], +m[3]); if ((m = r.match(/^(\d+)(?::(\d+))?/))) return pos3(0, +m[1], m[2] ? +m[2] : 1); return null; };
+      const en = ref => { if (lv2 || /^\d+:\d+:\d+/.test(String(ref))) return Infinity; const sp = olSpans(ref); return sp.length ? Math.max(...sp.map(x => x[1])) : Infinity; }; // olSpans: Kapitel*10000+Vers
+      const pick = list => { let best = null; for (const it of list) { const a = st(it.ref); if (a == null || a > P0) continue; if (en(it.ref) < (P0 % 1e8)) continue; best = it; } return best; };
+      if (P0 != null) {
+        const cont = [];
+        const secs = ol.sections.map(x => ({ x, items: x.items.filter(it => !!it.mz === mzOn) })).filter(o => o.items.length);
+        let sc = null; for (const o of secs) { const a = st(o.items[0].ref); if (a != null && a <= P0) sc = o; }
+        if (sc) {
+          if (st(sc.items[0].ref) < P0 && ol.sections.length > 1 && T(sc.x, 'head')) cont.push({ lvl: 0, text: T(sc.x, 'head') });
+          let list = sc.items, lvl = 1;
+          while (list && list.length) { const it = pick(list); if (!it) break; if (st(it.ref) < P0) cont.push({ lvl, text: T(it, 'text') }); list = it.sub; lvl++; }
+        }
+        if (cont.length) { const a = put.get(rows[0]) || []; put.set(rows[0], [...cont.map(c => ({ ...c, cont: true })), ...a.filter(h => !cont.some(c => c.text === h.text))]); }
+      } }
+    for (const [row, hs] of put) row.insertAdjacentHTML('beforebegin', hs.map(h => `<div class="olhead olh${Math.min(h.lvl, 3)}${h.cont ? ' olcont' : ''}" dir="auto">${esc(h.text)}${h.cont ? ` <small>(${esc(I18N.t('Fortsetzung'))})</small>` : ''}</div>`).join(''));
   }
   async function olInline() {
     const g = view && view.group;

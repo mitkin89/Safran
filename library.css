@@ -1052,3 +1052,5 @@ body.stack-split #dictHead #dictQ { min-width: 80px; }
 #rOut .olhead.olh1 { font-size: 1.1em; }
 #rOut .olhead.olh2 { font-size: 1em; font-weight: 600; border-bottom-style: dashed; }
 #rOut .olhead.olh3 { font-size: .92em; font-weight: 600; border-bottom: 0; color: var(--muted); }
+#rOut .olhead { text-align: center; }
+#rOut .olhead.olcont small { font-weight: 400; color: var(--muted); font-size: .8em; }
