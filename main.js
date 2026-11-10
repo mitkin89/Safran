@@ -115,7 +115,7 @@ ipcMain.handle('app:startupLog', (_e, marks) => {
 });
 ipcMain.handle('app:setTheme', (_e, t) => { if (['auto', 'light', 'dark'].includes(t)) { try { require('fs').writeFileSync(themeFile(), t); } catch { /* egal */ } } return true; });
 // Jüdischer Kalender für den neuen Tab (Wochenabschnitt, Haftara, Daf Yomi Bavli und Jeruschalmi) von hebcal.com.
-// Es werden gut zwei Monate auf einmal geladen und in hebcal.json im Benutzerordner gespeichert – so geht es auch eine Weile ohne Internet.
+// Es werden gut 13 Monate auf einmal geladen und in hebcal.json im Benutzerordner gespeichert – so geht es ein Jahr lang auch ohne Internet.
 const calFile = () => path.join(app.getPath('userData'), 'hebcal.json');
 const ymd = d => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
 ipcMain.handle('app:calendar', async () => {
@@ -123,17 +123,17 @@ ipcMain.handle('app:calendar', async () => {
   const now = new Date(), today = ymd(now), plus = n => ymd(new Date(now.getFullYear(), now.getMonth(), now.getDate() + n));
   let cache = null;
   try { cache = JSON.parse(fs.readFileSync(calFile(), 'utf8')); } catch { /* noch keiner */ }
-  const fresh = cache && Array.isArray(cache.items) && cache.start <= today && cache.end >= plus(8) && cache.fetched >= plus(-14);
+  const fresh = cache && Array.isArray(cache.items) && cache.start <= today && cache.end >= plus(8) && cache.fetched >= plus(-30); // monatlich erneuern, solange Internet da ist
   if (!fresh) {
     try {
-      const url = `https://www.hebcal.com/hebcal?v=1&cfg=json&s=on&F=on&yyomi=on&i=off&leyning=on&lg=s&start=${today}&end=${plus(70)}`;
-      const ac = new AbortController(); const to = setTimeout(() => ac.abort(), 8000);
+      const url = `https://www.hebcal.com/hebcal?v=1&cfg=json&s=on&F=on&yyomi=on&i=off&leyning=on&lg=s&start=${today}&end=${plus(400)}`;
+      const ac = new AbortController(); const to = setTimeout(() => ac.abort(), 15000);
       const res = await net.fetch(url, { signal: ac.signal, headers: { 'User-Agent': 'Safran' } }); clearTimeout(to);
       if (!res.ok) throw new Error('HTTP ' + res.status);
       const j = await res.json();
       const items = (j.items || []).filter(x => ['parashat', 'dafyomi', 'yerushalmi'].includes(x.category))
         .map(x => ({ title: x.title, date: x.date, hdate: x.hdate, category: x.category, hebrew: x.hebrew, link: x.link, torah: x.leyning && x.leyning.torah, haftarah: x.leyning && x.leyning.haftarah }));
-      cache = { fetched: today, start: today, end: plus(70), items };
+      cache = { fetched: today, start: today, end: plus(400), items };
       try { fs.writeFileSync(calFile(), JSON.stringify(cache)); } catch { /* egal */ }
     } catch (err) { if (!cache) return { today, items: [], error: err.message }; }
   }
