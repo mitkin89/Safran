@@ -114,13 +114,44 @@ ipcMain.handle('app:startupLog', (_e, marks) => {
   return true;
 });
 ipcMain.handle('app:setTheme', (_e, t) => { if (['auto', 'light', 'dark'].includes(t)) { try { require('fs').writeFileSync(themeFile(), t); } catch { /* egal */ } } return true; });
+// Fenstergröße und -position merken (window-state.json im Benutzerordner) und beim nächsten Start wiederherstellen
+const winStateFile = () => path.join(app.getPath('userData'), 'window-state.json');
+function loadWinState() {
+  try {
+    const st = JSON.parse(require('fs').readFileSync(winStateFile(), 'utf8'));
+    const ok = n => Number.isFinite(n) && Math.abs(n) < 100000;
+    if (!ok(st.width) || !ok(st.height) || st.width < 600 || st.height < 400) return null;
+    const b = { width: Math.round(st.width), height: Math.round(st.height) };
+    if (ok(st.x) && ok(st.y)) { // nur übernehmen, wenn das Fenster noch auf einem vorhandenen Bildschirm liegt (z. B. externer Monitor abgesteckt)
+      const { screen } = require('electron');
+      const on = screen.getAllDisplays().some(d => { const a = d.workArea; return st.x + 80 > a.x && st.x < a.x + a.width - 80 && st.y + 40 > a.y && st.y < a.y + a.height - 40; });
+      if (on) { b.x = Math.round(st.x); b.y = Math.round(st.y); }
+    }
+    return { b, max: !!st.max, full: !!st.full };
+  } catch { return null; }
+}
+function trackWinState(win) {
+  let t = null;
+  const save = () => {
+    if (!win || win.isDestroyed()) return;
+    try {
+      const n = win.getNormalBounds ? win.getNormalBounds() : win.getBounds(); // Größe vor dem Maximieren, damit „wieder verkleinern“ stimmt
+      require('fs').writeFileSync(winStateFile(), JSON.stringify({ ...n, max: win.isMaximized(), full: win.isFullScreen() }));
+    } catch { /* egal */ }
+  };
+  const later = () => { clearTimeout(t); t = setTimeout(save, 400); };
+  for (const ev of ['resize', 'move', 'maximize', 'unmaximize', 'enter-full-screen', 'leave-full-screen']) win.on(ev, later);
+  win.on('close', () => { clearTimeout(t); save(); });
+}
 function openOffline() {
   if (offlineWin && !offlineWin.isDestroyed()) { offlineWin.focus(); return; }
+  const ws = loadWinState();
   offlineWin = new BrowserWindow({
     show: false, // erst zeigen, wenn die Oberfläche gezeichnet ist (kein leeres weißes Fenster)
     backgroundColor: winBg(),
     width: 1250,
     height: 860,
+    ...(ws ? ws.b : {}),
     icon: path.join(__dirname, 'build', 'icon.png'), // Fenstersymbol unter Windows/Linux
     minWidth: 900,
     minHeight: 600,
@@ -139,7 +170,14 @@ function openOffline() {
   offlineWin.on('closed', () => { offlineWin = null; dlCancel = true; searchCancel = true; if (searchWorker) searchWorker.terminate(); });
   offlineWin.webContents.once('did-start-loading', () => { tRenderStart = Date.now() - T0; mkMain('Seite beginnt zu laden'); });
   offlineWin.webContents.once('did-finish-load', () => mkMain('Seite geladen'));
-  offlineWin.once('ready-to-show', () => { mkMain('Fenster sichtbar'); if (offlineWin && !offlineWin.isDestroyed()) offlineWin.show(); });
+  trackWinState(offlineWin);
+  offlineWin.once('ready-to-show', () => {
+    mkMain('Fenster sichtbar');
+    if (!offlineWin || offlineWin.isDestroyed()) return;
+    if (ws && ws.max) offlineWin.maximize(); // maximize() zeigt das Fenster auch – deshalb erst jetzt, wenn die Oberfläche gezeichnet ist
+    offlineWin.show();
+    if (ws && ws.full) offlineWin.setFullScreen(true);
+  });
   setTimeout(() => { if (offlineWin && !offlineWin.isDestroyed() && !offlineWin.isVisible()) offlineWin.show(); }, 4000); // Sicherheitsnetz
   offlineWin.loadFile('library.html');
 }

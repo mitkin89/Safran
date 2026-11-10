@@ -4809,21 +4809,30 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
 
   // ---------- Sitzung merken und beim Start wiederherstellen ----------
   let saveTimer = null;
+  const sesKey = () => (document.documentElement.classList.contains('pane2') ? 'session2' : 'session');
+  function sessionData() {
+    let ui = null;
+    try { // was außer den Tabs offen war: Reiter, Kommentar (Vers, Kommentator), Wörterbuch (Suchwort), welcher der beiden vorn lag
+      ui = { tab: document.documentElement.dataset.tab || 'read', cmt: !!cmtOpen, cmtRow: cmtRow, cmtTop: (() => { const n = cmtTopName(); return n === undefined ? cmtKeepName : n; })(),
+        dict: !!dictOpen, dq: $('#dictQ').value.trim().slice(0, 100), stk: stackActive };
+    } catch { /* beim Start noch nicht alles angelegt */ }
+    return {
+      idx: tabIdx,
+      tabs: tabs.map(t => t.group ? { key: t.group.key, rels: [...t.selected], sk: t.key, label: t.label || '', scroll: t === view ? window.scrollY : (t.scroll || 0), hit: t.hit || null } : t.sres ? { sres: { q: t.sres.q, he: !!t.sres.he, limit: t.sres.limit || 300, params: t.sres.params } } : { empty: true }),
+      ui,
+    };
+  }
   function saveSession() {
     clearTimeout(saveTimer); // das zweite Fenster speichert seine eigene Sitzung (Schlüssel session2), damit es das Hauptfenster nicht überschreibt
-    saveTimer = setTimeout(() => {
-      try {
-        localStorage.setItem(document.documentElement.classList.contains('pane2') ? 'session2' : 'session', JSON.stringify({
-          idx: tabIdx,
-          tabs: tabs.map(t => t.group ? { key: t.group.key, rels: [...t.selected], sk: t.key, label: t.label || '', scroll: t.scroll || 0, hit: t.hit || null } : t.sres ? { sres: { q: t.sres.q, he: !!t.sres.he, limit: t.sres.limit || 300, params: t.sres.params } } : { empty: true }),
-        }));
-      } catch { /* egal */ }
-    }, 300);
+    saveTimer = setTimeout(() => { try { localStorage.setItem(sesKey(), JSON.stringify(sessionData())); } catch { /* egal */ } }, 300);
   }
+  // beim Schließen sofort alles festhalten (auch die Leseposition und offene Seitenleisten)
+  window.addEventListener('beforeunload', () => { if (!sesRestored) return; clearTimeout(saveTimer); try { localStorage.setItem(sesKey(), JSON.stringify(sessionData())); } catch { /* egal */ } });
+  let sesRestored = false;
   async function restoreSession() {
     let ses = null;
     try { ses = JSON.parse(localStorage.getItem(document.documentElement.classList.contains('pane2') ? 'session2' : 'session') || 'null'); } catch { ses = null; }
-    if (!ses || !Array.isArray(ses.tabs) || !ses.tabs.length) return;
+    if (!ses || !Array.isArray(ses.tabs) || !ses.tabs.length) { sesRestored = true; return; }
     for (const t of ses.tabs) {
       if (t.sres && typeof t.sres.q === 'string' && t.sres.params && typeof t.sres.params === 'object') { tabs.push({ group: null, sres: { q: t.sres.q.slice(0, 200), he: !!t.sres.he, limit: Math.min(3000, t.sres.limit | 0 || 300), html: null, params: t.sres.params } }); continue; }
       if (t.empty) { tabs.push({ group: null }); continue; }
@@ -4833,11 +4842,24 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
       if (!sel.size && g.versions[0]) sel.add(g.versions[0].rel);
       tabs.push({ group: g, selected: sel, loaded: [], sections: [], idx: 0, key: t.sk || null, label: t.label || '', scroll: t.scroll || 0, hit: t.hit && typeof t.hit.k === 'string' ? t.hit : null, lazy: true });
     }
-    if (!tabs.length) return;
+    if (!tabs.length) { sesRestored = true; return; }
     tabIdx = Math.min(Math.max(0, ses.idx | 0), tabs.length - 1);
     view = tabs[tabIdx];
+    const ui = ses.ui && typeof ses.ui === 'object' ? ses.ui : null;
+    if (ui && typeof ui.cmtRow === 'string') cmtRow = ui.cmtRow.slice(0, 40); // Vers des Kommentars wie beim Schließen
+    if (ui && typeof ui.cmtTop === 'string') cmtKeepName = ui.cmtTop.slice(0, 200);
     showView();
     if (view.group) { const sc = view.scroll || 0; await loadView({ noKeep: true }); window.scrollTo(0, sc); }
+    if (ui) {
+      try {
+        if (ui.cmt && !cmtOpen) toggleCmt(true);
+        if (ui.dict && !dictOpen) { toggleDict(true); if (typeof ui.dq === 'string' && ui.dq) dictLookup(ui.dq.slice(0, 100)); }
+        if (ui.stk === 'cmt' || ui.stk === 'dict') setStackActive(ui.stk);
+        if (['search', 'dict', 'notes'].includes(ui.tab)) showTab(ui.tab);
+        if (view.group) window.scrollTo(0, view.scroll || 0); // Seitenleisten ändern die Breite: Leseposition danach noch einmal setzen
+      } catch { /* egal */ }
+    }
+    sesRestored = true;
   }
 
   // ---------- Tastatur ----------
