@@ -525,9 +525,15 @@
     const k = kn(d.entry);
     const apply = async rels => {
       if (!rels.size) return;
+      // Leseposition halten: dieselbe Zeile bleibt an derselben Stelle (sonst springt die Ansicht zum markierten Vers oder an den Anfang)
+      const top = $('#stick') ? $('#stick').getBoundingClientRect().bottom : 0;
+      const row = $$('#rOut .row[data-l]').find(r => r.getBoundingClientRect().bottom > top + 4);
+      const label = row ? row.dataset.l : null, off = row ? row.getBoundingClientRect().top : 0;
       view.selected = rels; rememberKinds();
       view.key = view.sections[view.idx] ? view.sections[view.idx].k : null;
       await loadView();
+      const again = label != null ? $$('#rOut .row[data-l]').find(r => r.dataset.l === label) : null;
+      if (again) window.scrollTo(0, window.scrollY + again.getBoundingClientRect().top - off);
     };
     const items = [];
     if (!multi && view.selected.size > 1) { items.push({ label: 'Diese Version aus der Anzeige entfernen', fn: () => { const n = new Set(view.selected); n.delete(d.entry.rel); apply(n); } }); items.push({ label: 'Nur diese Version anzeigen', fn: () => { // mehrere Versionen dieser Sprache: nur in dieser Sprache auf diese eine reduzieren, die anderen Sprachen bleiben; ist sie die einzige ihrer Sprache: alle anderen schließen
