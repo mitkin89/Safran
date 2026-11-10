@@ -1055,8 +1055,9 @@ body.stack-split #dictHead #dictQ { min-width: 80px; }
 #rOut .olhead { text-align: center; }
 #rOut .olhead.olcont small { font-weight: 400; color: var(--muted); font-size: .8em; }
 /* Neuer Tab: feste Größe, unabhängig von der Schriftgröße des Lesetexts (die oft groß eingestellt ist) */
-#rOut .newtab { font-size: 15px; line-height: 1.5; }
-#rOut .newtab input#ntIn { font-size: 17px; }
-#rOut .newtab .calBox { font-size: 14px; }
+#rOut .newtab { font-size: clamp(16px, calc(var(--fs, 16px) * .8), 20px); line-height: 1.5; } /* wächst gedämpft mit der Lesetext-Größe */
+#rOut .newtab input#ntIn { font-size: 1.1em; }
+#rOut .newtab .calBox { font-size: .95em; }
 #rOut .newtab .calNav input[type=date] { flex: 0 0 auto; width: 10.5em; min-width: 10.5em; }
 #rOut .newtab .calNav button { padding: 3px 9px; }
+#rOut .newtab { max-width: 620px; }
