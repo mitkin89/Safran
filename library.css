@@ -1054,3 +1054,9 @@ body.stack-split #dictHead #dictQ { min-width: 80px; }
 #rOut .olhead.olh3 { font-size: .92em; font-weight: 600; border-bottom: 0; color: var(--muted); }
 #rOut .olhead { text-align: center; }
 #rOut .olhead.olcont small { font-weight: 400; color: var(--muted); font-size: .8em; }
+/* Neuer Tab: feste Größe, unabhängig von der Schriftgröße des Lesetexts (die oft groß eingestellt ist) */
+#rOut .newtab { font-size: 15px; line-height: 1.5; }
+#rOut .newtab input#ntIn { font-size: 17px; }
+#rOut .newtab .calBox { font-size: 14px; }
+#rOut .newtab .calNav input[type=date] { flex: 0 0 auto; width: 10.5em; min-width: 10.5em; }
+#rOut .newtab .calNav button { padding: 3px 9px; }
