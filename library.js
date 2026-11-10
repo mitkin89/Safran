@@ -1724,7 +1724,7 @@
     if (window.__olLast) { const el = [...body.querySelectorAll('.olp')].find(x => x.dataset.r === window.__olLast); window.__olLast = null; if (el) el.scrollIntoView({ block: 'center' }); }
   }
   // ---------- Gliederung als Überschriften im Lesetext (Einstellung unter „Anzeige“) ----------
-  const olInlineOn = () => { try { return localStorage.getItem('olInline') === '1'; } catch { return false; } };
+  const olInlineOn = () => { try { return localStorage.getItem('olInline') !== '0'; } catch { return true; } }; // Standard: an; ausschalten unter „Anzeige“
   function olInlineApply(g, ol) {
     $$('#rOut .olhead').forEach(x => x.remove());
     if (!olInlineOn() || !ol || !view || view.group !== g || view.sres) return;
