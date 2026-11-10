@@ -4696,8 +4696,26 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
     if (closed) cmtClosed.add(c.dataset.n); else cmtClosed.delete(c.dataset.n);
     h.querySelector('.tg').textContent = closed ? '▸' : '▾';
   });
+  // Beim Wechsel zu einem anderen Vers: an demselben Kommentator weiterlesen, an dem man gerade war (falls es ihn dort auch gibt)
+  let cmtKeepName = null;
+  function cmtTopName() {
+    const P = $('#cmtPanel'), cs = $$('#cmtBody .cmt');
+    if (!cs.length) return undefined; // gerade nichts angezeigt (z. B. „Lade …“): bisherigen Stand behalten
+    if (P.scrollTop < 8) return null;
+    const hb = $('#cmtHead').getBoundingClientRect().bottom;
+    const c = cs.find(x => x.getBoundingClientRect().bottom > hb + 24);
+    return c ? c.dataset.n : null;
+  }
+  function cmtRestoreTop() {
+    const P = $('#cmtPanel');
+    const c = cmtKeepName ? $$('#cmtBody .cmt').find(x => x.dataset.n === cmtKeepName) : null;
+    if (!c) { P.scrollTop = 0; return; }
+    const top = c.getBoundingClientRect().top - P.getBoundingClientRect().top + P.scrollTop - $('#cmtHead').offsetHeight - 4;
+    P.scrollTop = Math.max(0, top);
+  }
   async function renderCmt() {
     if (!cmtOpen) return;
+    { const n = cmtTopName(); if (n !== undefined) cmtKeepName = n; }
     const token = ++cmtToken;
     const virt = view && view.sres ? cmtVirt : null; // Suchtab: Stelle kommt aus der angeklickten Trefferzeile
     const s = virt ? { label: virt.label } : (view && view.group && view.sections[view.idx]);
@@ -4785,6 +4803,7 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
       const cl = cmtClosed.has(g.name);
       return `<div class="cmt${cl ? ' closed' : ''}" data-n="${esc(g.name)}"><h4 data-ref="${esc(g.refs[0])}" title="Klick: Kommentar ein-/ausklappen · ↗: öffnet ${esc(g.book)} in einem neuen Tab · Rechtsklick: weitere Möglichkeiten"><span class="tg">${cl ? '▸' : '▾'}</span> ${esc(dispName(g.name))}${g.refs.length > 1 ? ` <small class="cx" title="Stellen zu diesem Vers">×${g.refs.length}</small>` : ''}<span class="go" title="Buch im neuen Tab öffnen">↗</span></h4>${parts}</div>`;
     }).join('') + gapNote;
+    cmtRestoreTop();
     if (!fb.hidden && fTerm) runFind(fTerm, true); // Suche im Kommentar-Bereich nach dem Neuaufbau erneuern
   }
 
