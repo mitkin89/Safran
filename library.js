@@ -3079,6 +3079,7 @@
       if (box.hidden) return;
       if (e.key === 'ArrowDown' || e.key === 'ArrowUp') { e.preventDefault(); sugSel = (sugSel + (e.key === 'ArrowDown' ? 1 : -1) + sugItems.length + 1) % (sugItems.length + 1); if (sugSel === sugItems.length) sugSel = -1; paint(); }
       else if (e.key === 'Enter' && sugSel >= 0) { e.preventDefault(); e.stopImmediatePropagation(); pick(sugSel); }
+      else if (e.key === 'Enter') { hideSug(); } // Enter ohne gewählten Vorschlag: nachschlagen (siehe unten), Vorschläge schließen
       else if (e.key === 'Escape') { hideSug(); }
     }, true);
     box.addEventListener('mousedown', e => { const r = e.target.closest('.sg'); if (r) { e.preventDefault(); pick(+r.dataset.i); } });
