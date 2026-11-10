@@ -1,5 +1,25 @@
 # Changelog
 
+### New in 2.3.5
+- **Commentary and dictionary together:** when both are open they appear as **tabs** (default, full height; Esc returns from the dictionary to the commentary at the same place) or **stacked** with a draggable divider (height is remembered; double-click resets). In wide windows they stand **side by side**, but only if the reading text keeps enough room. ⇅ switches between the modes.
+- **Buttons become icons** when the commentary or dictionary column gets narrow, as in the book bar.
+- **Commentary:**
+  - **"⇣ Follow":** while you scroll the text, the commentary shows the verse you are reading.
+  - When you move to another verse, the list opens at the **same commentator** you were reading (if there is one for the new verse).
+  - A commentator with several passages on a verse (×3) shows **which passage you are in** ("2/3"); the passages are separated by a dashed line.
+  - The row of commentator links at the top is gone; **right-click** in the commentary opens the jump list, which now scrolls when it is long.
+- **Dictionary:**
+  - The **dictionary name and headword stay visible** while scrolling an entry.
+  - A word looked up from the text shows **where it came from** ("from Genesis 25:8", click to go back) and stays highlighted in the text.
+  - Look up with **Enter**; the separate button is gone. Calmer typography: links underlined only on hover, Hebrew slightly larger, shorter lines.
+- **Reading text** becomes slightly smaller while a sidebar is pinned, so fewer lines wrap (can be switched off under *Display*). The pinned column is set off slightly from the text.
+- **Safran reopens as you left it:** window size and position (also maximised or full screen), the main tab, the exact reading position, the open commentary (verse and commentator) and the dictionary with its last word.
+- **Fixes:**
+  - The section list of works with several versions is in the order of the work ("Preface" first, then books 1–20), not with missing parts appended at the end (e.g. Josephus).
+  - Parts of larger works (e.g. Philo, "Allegorical Interpretation of Genesis, Book III") are no longer marked "not local" in the connections.
+  - "Follow" and the key **n** (new note) now work right after the start, not only after switching tabs.
+  - Ginzberg, *Legenden* 1:2:119, note 134: two uncertain readings resolved from the manuscript.
+
 ### New in 2.3
 - **New German text: Louis Ginzberg, *Die Legenden der Juden*** (vols. 1–4), a reading edition from Ginzberg's own German manuscript, aligned paragraph by paragraph with Sefaria's *Legends of the Jews*. Over 4,000 of Ginzberg's notes are footnotes. Abbreviations and source titles in the notes show their meaning on hover (e.g. "BR." → Bereschit Rabba, "Wayyosha" → Midrasch Wajoscha).
 - **Ginzberg's sources are linked:** about 2,700 Bible references and 8,900 references to Midrash, Talmud, Josephus, Philo, Enoch and Maccabees open the passage on click. They also appear as **connections in both directions** (10,600 in total): reading e.g. Bereshit Rabbah 12 shows which paragraphs of the *Legends* quote it. These bundled connections work even without downloading Sefaria's links.
