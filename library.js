@@ -4112,7 +4112,7 @@
     document.addEventListener('keydown', e => {
       if (e.key.toLowerCase() !== 'n' || e.metaKey || e.ctrlKey || e.altKey || e.shiftKey || e.isComposing) return;
       if (/^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement.tagName) || document.activeElement.isContentEditable || document.querySelector('dialog[open]')) return;
-      if (document.documentElement.dataset.tab !== 'read' || !view || !view.group) return;
+      if ((document.documentElement.dataset.tab || 'read') !== 'read' || !view || !view.group) return;
       const row = lastRow && lastRow.isConnected ? lastRow : $$('#rOut .row[data-l]').find(x => x.dataset.l === cmtRow);
       const b = row && row.querySelector('.lab .bm');
       if (b) { e.preventDefault(); b.click(); }
@@ -4583,7 +4583,7 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
   syncFollowBtn();
   $('#cmtFollow').onclick = () => { cmtFollow = !cmtFollow; try { localStorage.setItem('cmtFollow', cmtFollow ? '1' : '0'); } catch { /* egal */ } syncFollowBtn(); if (cmtFollow) followNow(); };
   function followNow() {
-    if (!cmtFollow || !cmtOpen || !view || !view.group || view.sres || document.documentElement.dataset.tab !== 'read') return;
+    if (!cmtFollow || !cmtOpen || !view || !view.group || view.sres || (document.documentElement.dataset.tab || 'read') !== 'read') return; // vor dem ersten Reiterwechsel ist data-tab noch leer, gezeigt wird aber „Lesen“
     const top = $('#stick') ? $('#stick').getBoundingClientRect().bottom : 0;
     const y = top + (window.innerHeight - top) * 0.25;
     const rows = $$('#rOut .row[data-l]').filter(x => rowVerse(x.dataset.l) != null);
