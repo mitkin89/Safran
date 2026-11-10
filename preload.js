@@ -52,6 +52,7 @@ contextBridge.exposeInMainWorld('offline', {
   setLang: l => ipcRenderer.invoke('app:setLang', l),
   setTheme: t => ipcRenderer.invoke('app:setTheme', t),
   startupLog: marks => ipcRenderer.invoke('app:startupLog', marks),
+  calendar: () => ipcRenderer.invoke('app:calendar'),
   openRelease: u => ipcRenderer.invoke('app:openRelease', u),
   dictHeads: id => ipcRenderer.invoke('dict:heads', id),
   dictSuggest: q => ipcRenderer.invoke('dict:suggest', q),

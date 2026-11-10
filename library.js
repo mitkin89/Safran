@@ -113,6 +113,36 @@
     renderTree();
   }
 
+  // ---------- Neuer Tab: Wochenabschnitt, Haftara, Daf Yomi (Daten von hebcal.com, siehe main.js) ----------
+  let calData = null, calDay = '';
+  // Sefaria-Link von hebcal → Stelle für Safran: „Bekhorot.53a“ → „Bekhorot 53a“, „Jerusalem_Talmud_Sanhedrin.4.5.2-7.1“ → „Jerusalem Talmud Sanhedrin 4:5:2“
+  const calRef = link => { try { const u = new URL(link); if (!/sefaria\.org$/.test(u.hostname)) return null; const m = decodeURIComponent(u.pathname.slice(1)).match(/^(.+?)\.([\w.]+?)(?:-[\w.]+)?$/); return m ? m[1].replace(/_/g, ' ') + ' ' + m[2].replace(/\./g, ':') : null; } catch { return null; } };
+  const refStart = r => String(r || '').trim().replace(/-\d+(?::\d+)?$/, ''); // „Genesis 25:19-28:9“ → „Genesis 25:19“
+  const fmtD = (d, wd = true) => { try { const [y, m, dd] = d.split('-').map(Number); return new Date(y, m - 1, dd).toLocaleDateString(I18N.loc, { ...(wd ? { weekday: 'long' } : {}), day: 'numeric', month: 'long' }); } catch { return d; } };
+  async function renderNtCal() {
+    const box = $('#ntCal'); if (!box) return;
+    const today = new Date(); const key = today.toDateString();
+    if (!calData || calDay !== key) { try { calData = await O.calendar(); calDay = key; } catch { calData = null; } }
+    if (!$('#ntCal')) return;
+    if (!calData || !calData.items || !calData.items.length) { box.innerHTML = calData && calData.error ? `<p class="muted small">${esc(I18N.t('Kalender (hebcal.com) nicht erreichbar.'))}</p>` : ''; return; }
+    const it = calData.items, t = calData.today;
+    const par = it.find(x => x.category === 'parashat' && x.date >= t);
+    const bav = it.find(x => x.category === 'dafyomi' && x.date === t);
+    const yer = it.find(x => x.category === 'yerushalmi' && x.date === t);
+    const lnk = (ref, txt) => ref ? `<a class="calLink" data-ref="${esc(ref)}" title="${esc(I18N.t('In Safran öffnen'))}: ${esc(ref)}">${esc(txt)}</a>` : esc(txt);
+    const rows = [];
+    if (par) {
+      const name = par.title.replace(/^Parashat /, '');
+      rows.push(`<div class="calRow"><span class="calK">${esc(I18N.t('Wochenabschnitt'))}</span><span class="calV">${lnk(refStart(par.torah), name)} <span class="he" dir="rtl">${esc((par.hebrew || '').replace(/^פרשת /, ''))}</span><small class="muted">${par.torah ? esc(par.torah) + ' · ' : ''}${esc(I18N.t('Schabbat'))}, ${esc(fmtD(par.date, false))}</small></span></div>`);
+      if (par.haftarah) rows.push(`<div class="calRow"><span class="calK">${esc(I18N.t('Haftara'))}</span><span class="calV">${par.haftarah.split(/\s*[;,]\s*(?=[A-Z1-9I])/).map(h => lnk(refStart(h), h)).join(' · ')}</span></div>`);
+    }
+    if (bav) rows.push(`<div class="calRow"><span class="calK">${esc(I18N.t('Daf Yomi (Bavli)'))}</span><span class="calV">${lnk(calRef(bav.link), bav.title)} <span class="he" dir="rtl">${esc(bav.hebrew || '')}</span></span></div>`);
+    if (yer) rows.push(`<div class="calRow"><span class="calK">${esc(I18N.t('Jeruschalmi Yomi'))}</span><span class="calV">${lnk(calRef(yer.link), yer.title)} <span class="he" dir="rtl">${esc(yer.hebrew || '')}</span></span></div>`);
+    const hd = (bav || yer || {}).hdate;
+    box.innerHTML = rows.length ? `<div class="calBox"><div class="calHead">${esc(fmtD(t))}${hd ? ` · <span>${esc(hd)}</span>` : ''}</div>${rows.join('')}<div class="calSrc muted">${esc(I18N.t('Quelle'))}: hebcal.com (${esc(I18N.t('Diaspora'))})</div></div>` : '';
+  }
+  document.addEventListener('click', e => { const a = e.target.closest('#ntCal a.calLink'); if (a) { e.preventDefault(); jumpTo(a.dataset.ref, false); } });
+
   // ---------- Lesen: Bücherliste ----------
   const closedCats = new Set(); // beim Filtern selbst zugeklappte obere Ebenen
   const openCats = new Set(); // vom Nutzer geöffnete Kategorien (bleiben beim Filtern erhalten)
@@ -211,7 +241,8 @@
     if (!none && view.sres) { if (view.sres.html) $('#rOut').innerHTML = view.sres.html; else if (!view.sres.running) runSres(view); }
     else if (!none && !view.group) {
       $('#rOut').innerHTML = `<div class="newtab"><img class="logo" src="logo.png" alt="talmud.de" width="130"><p class="muted">Neuer Tab – Stelle oder Buch eingeben (z. B. <b>Gen. 1</b>, <b>Berakhot 2a</b>, <b>Mishnah Peah 6:6</b>) und Enter drücken, oder links ein Buch wählen.</p>
-        <input id="ntIn" placeholder="Gen. 1:1" autocomplete="off"><p id="ntMsg" class="muted"></p></div>`;
+        <input id="ntIn" placeholder="Gen. 1:1" autocomplete="off"><p id="ntMsg" class="muted"></p><div id="ntCal"></div></div>`;
+      renderNtCal();
       // Noch keine Sefaria-Texte heruntergeladen: Kurzanleitung unter dem Eingabefeld
       const sg = $('#startGuide');
       if (sg && !entries.some(e => !e.own)) { const c = sg.cloneNode(true); c.removeAttribute('id'); c.hidden = false; c.classList.add('startGuide'); $('#rOut .newtab').appendChild(c); }
