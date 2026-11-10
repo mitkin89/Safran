@@ -154,6 +154,8 @@ ipcMain.handle('app:calendar', async (_e, want) => {
   return { today, items: cache.items };
 });
 
+// Fenstersymbol: build/icon.png muss im Paket ausdrücklich mitgeliefert werden (package.json „files“), sonst fehlt es unter Linux
+function winIconPath() { const p = path.join(__dirname, 'build', 'icon.png'); try { require('fs').accessSync(p); return p; } catch { return undefined; } }
 // Fenstergröße und -position merken (window-state.json im Benutzerordner) und beim nächsten Start wiederherstellen
 const winStateFile = () => path.join(app.getPath('userData'), 'window-state.json');
 function loadWinState() {
@@ -192,7 +194,7 @@ function openOffline() {
     width: 1250,
     height: 860,
     ...(ws ? ws.b : {}),
-    icon: path.join(__dirname, 'build', 'icon.png'), // Fenstersymbol unter Windows/Linux
+    icon: winIconPath(), // Fenstersymbol unter Windows/Linux (unter X11 zeigt die Taskleiste dieses Bild)
     minWidth: 900,
     minHeight: 600,
     title: 'Safran',

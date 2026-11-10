@@ -48,6 +48,7 @@
     },
     "files": [
       "**/*",
+      "build/icon.png",
       "!test*.js",
       "!tools/**",
       "!README.md",
