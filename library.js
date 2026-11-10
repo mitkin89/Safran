@@ -4594,9 +4594,20 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
     saveCmt(); renderCmt();
   };
   document.addEventListener('keydown', e => { if ((e.metaKey || e.ctrlKey) && !e.shiftKey && !e.altKey && e.key.toLowerCase() === 'k') { e.preventDefault(); toggleCmt(); } });
+  // Vers, den man gerade liest: Zeile im oberen Viertel des Textes
+  function readingRow(rows) {
+    const top = $('#stick') ? $('#stick').getBoundingClientRect().bottom : 0;
+    const y = top + (window.innerHeight - top) * 0.25;
+    let pick = null;
+    for (const r of rows) { const b = r.getBoundingClientRect(); if (b.bottom < top + 4) continue; pick = r; if (b.bottom >= y) break; }
+    return pick;
+  }
   function stepCmt(d) {
     const rows = $$('#rOut .row[data-l]').filter(x => rowVerse(x.dataset.l) != null);
-    const i = rows.findIndex(x => x.dataset.l === cmtRow);
+    let i = rows.findIndex(x => x.dataset.l === cmtRow);
+    // Liegt der Kommentar-Vers nicht (mehr) auf dem Bildschirm, weil man weitergescrollt hat: vom gerade gelesenen Vers aus weiterschalten, nicht vom Kapitelanfang
+    const vis = r => { const b = r.getBoundingClientRect(), top = $('#stick') ? $('#stick').getBoundingClientRect().bottom : 0; return b.bottom > top + 4 && b.top < window.innerHeight; };
+    if (i < 0 || !vis(rows[i])) { const r = readingRow(rows); if (r) i = rows.indexOf(r); }
     const n = rows[Math.min(rows.length - 1, Math.max(0, (i < 0 ? 0 : i) + d))];
     if (n) { setCmtRow(n.dataset.l); panelScrollTo(n, 'center'); }
   }
@@ -4615,11 +4626,8 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
   $('#cmtFollow').onclick = () => { cmtFollow = !cmtFollow; try { localStorage.setItem('cmtFollow', cmtFollow ? '1' : '0'); } catch { /* egal */ } syncFollowBtn(); if (cmtFollow) followNow(); };
   function followNow() {
     if (!cmtFollow || !cmtOpen || !view || !view.group || view.sres || (document.documentElement.dataset.tab || 'read') !== 'read') return; // vor dem ersten Reiterwechsel ist data-tab noch leer, gezeigt wird aber „Lesen“
-    const top = $('#stick') ? $('#stick').getBoundingClientRect().bottom : 0;
-    const y = top + (window.innerHeight - top) * 0.25;
     const rows = $$('#rOut .row[data-l]').filter(x => rowVerse(x.dataset.l) != null);
-    let pick = null;
-    for (const r of rows) { const b = r.getBoundingClientRect(); if (b.bottom < top + 4) continue; pick = r; if (b.bottom >= y) break; }
+    const pick = readingRow(rows);
     if (pick && pick.dataset.l !== cmtRow) setCmtRow(pick.dataset.l);
   }
   let followT = null;
