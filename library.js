@@ -7,6 +7,25 @@
   const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
   const KIND_LABEL = { he: 'Hebr.', en: 'Engl.', de: 'Deutsch', other: 'Andere' };
   const KIND_RANK = { he: 0, en: 1, de: 2, other: 3 };
+  // Abschnitte mehrerer Versionen in die Reihenfolge des Werks bringen: Schlüssel komplexer Texte nach dem Schema
+  // (z. B. „Preface“ vor den Büchern), Zahlen aufsteigend – sonst stünden Teile, die nur eine Version hat, am Ende
+  function orderSecs(secs, loaded) {
+    const rank = new Map();
+    const walk = (nodes, depth) => (nodes || []).forEach(n => { const k = depth + '\u0000' + (n.enTitle ?? n.key ?? ''); if (!rank.has(k)) rank.set(k, rank.size); walk(n.nodes, depth + 1); });
+    for (const d of loaded) if (d.schema && d.schema.nodes) walk(d.schema.nodes, 0);
+    const first = new Map(); secs.forEach((s, i) => s.path.forEach((p, j) => { const k = j + '\u0000' + p; if (typeof p === 'string' && !first.has(k)) first.set(k, i); }));
+    const keyOf = (p, j) => { const k = j + '\u0000' + p; return rank.has(k) ? rank.get(k) : 1e6 + (first.get(k) || 0); };
+    return secs.map((s, i) => [s, i]).sort(([a, ia], [b, ib]) => {
+      for (let j = 0; j < Math.min(a.path.length, b.path.length); j++) {
+        const x = a.path[j], y = b.path[j];
+        if (x === y) continue;
+        if (typeof x === 'number' && typeof y === 'number') return x - y;
+        if (typeof x === 'string' && typeof y === 'string') return keyOf(x, j) - keyOf(y, j) || ia - ib;
+        return ia - ib;
+      }
+      return a.path.length - b.path.length || ia - ib;
+    }).map(([s]) => s);
+  }
   const fmtSize = b => (b >= 1073741824 ? (b / 1073741824).toFixed(2) + ' GB' : (b / 1048576).toFixed(1) + ' MB');
   const fmtEst = mb => (mb >= 1024 ? (mb / 1024).toFixed(1) + ' GB' : Math.round(mb) + ' MB');
   const shortVer = v => {
@@ -375,9 +394,10 @@
       }
     }
     const prevKey = V.key;
-    V.sections = secs;
+    V.sections = orderSecs(secs, loaded);
     let idx = 0;
     const wanted = target.sectionPath ? JSON.stringify(target.sectionPath) : prevKey;
+    secs.splice(0, secs.length, ...V.sections);
     if (target.sectionPath) {
       const tp = target.sectionPath;
       const i = secs.findIndex(s => s.path.length <= tp.length && s.path.every((p, j) => p === tp[j]));
@@ -861,7 +881,7 @@
           const k = JSON.stringify(path);
           if (!seen.has(k)) { seen.add(k); secs.push({ path, label, k }); }
         }
-        G = { g, loaded, secs }; gcache.set(g.key, G);
+        G = { g, loaded, secs: orderSecs(secs, loaded) }; gcache.set(g.key, G);
       }
       const find = n => G.secs.findIndex(x => x.label.toLowerCase().endsWith(' ' + n) || x.label.toLowerCase() === n);
       const idxs = [], i0 = find(u.chap);

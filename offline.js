@@ -226,6 +226,8 @@ async function renameRetry(from, to, tries = 5) {
   }
 }
 
+const slimNodes = ns => (ns || []).map(n => ({ enTitle: n.enTitle ?? n.title ?? n.key ?? '', ...(n.nodes ? { nodes: slimNodes(n.nodes) } : {}) }));
+
 class Library {
   constructor(dir, fetchBuffer) {
     this.dir = dir;
@@ -543,6 +545,8 @@ class Library {
     return {
       entry, title: d.title, heTitle: d.heTitle, language: d.language, versionTitle: d.versionTitle,
       versionSource: d.versionSource, sectionNames: d.sectionNames || null, text: d.text,
+      // nur die Reihenfolge der Teile komplexer Texte (z. B. „Preface“ vor den Büchern), für die Abschnittsliste
+      schema: d.schema && d.schema.nodes ? { nodes: slimNodes(d.schema.nodes) } : null,
     };
   }
 
