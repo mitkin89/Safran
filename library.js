@@ -843,7 +843,11 @@
     // Buchtitel mit Komma („Mishneh Torah, Vows“, „Pesikta d'Rav Kahana, …“) dürfen nicht an diesem Komma zerteilt werden
     let q0 = String(q);
     { const lo = q0.toLowerCase();
-      for (const g of groups) { if (!g.title.includes(',')) continue; const t = g.title.toLowerCase(), i = lo.indexOf(t); if (i >= 0) q0 = q0.slice(0, i) + g.title.replace(/,/g, '\u0001') + q0.slice(i + t.length); } }
+      for (const g of groups) { if (!g.title.includes(',')) continue; const t = g.title.toLowerCase(), i = lo.indexOf(t); if (i >= 0) q0 = q0.slice(0, i) + g.title.replace(/,/g, '\u0001') + q0.slice(i + t.length); }
+      // Teil eines komplexen Werks: „Rav Hirsch on Torah, Genesis 27:45“, „Midrash Tanchuma, Vaera 16“ – Werktitel ohne Zahl, danach Komma und der Teil: keine zwei Stellen
+      const lo2 = q0.toLowerCase();
+      const w = groups.filter(g => !g.title.includes(',') && lo2.startsWith(g.title.toLowerCase() + ',')).sort((a, b) => b.title.length - a.title.length)[0];
+      if (w) q0 = q0.slice(0, w.title.length) + '\u0001' + q0.slice(w.title.length + 1); }
     for (const chunk of q0.split(';')) {
       let cur = null;
       for (const t of chunk.split(',')) {
@@ -1004,7 +1008,7 @@
     if (nodeSel) { // Teil eines komplexen Werks: Abschnitt „Teil“ (Zeile n) oder „Teil › n“ (Zeile verse)
       const lo = s => s.label.toLowerCase();
       let ix = view.sections.findIndex(s => lo(s) === nodeSel + ' › ' + num || lo(s).startsWith(nodeSel + ' › ') && lo(s).endsWith(' ' + num));
-      if (ix >= 0) { view.idx = ix; view.vf = null; renderSection(verse); return true; }
+      if (ix >= 0) { view.idx = ix; view.vf = null; renderSection(tri && verse ? verse + ':' + tri[2] : verse); return true; } // Kommentar „Teil 27:45:1“: Zeile „45:1“
       ix = view.sections.findIndex(s => lo(s) === nodeSel);
       if (ix >= 0) { view.idx = ix; view.vf = null; renderSection(num); return true; }
     }
