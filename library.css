@@ -1017,3 +1017,5 @@ body.stack-split #dictHead { flex-wrap: wrap; }
 body.stack-split #dictHead #dictBar { flex: 1 1 230px; }
 body.stack-split #dictHead .lhead { flex: none; margin-left: auto; }
 body.stack-split #dictPanel:not(.more) :is(#dictBack, #dictFwd) { display: none; }
+/* lange Kontextmenüs (z. B. 37 Kommentatoren) lassen sich scrollen */
+#ctxMenu { max-height: calc(100vh - 16px); overflow-y: auto; overscroll-behavior: contain; }

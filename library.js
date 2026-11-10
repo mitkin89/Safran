@@ -4679,7 +4679,7 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
     const cs = [...$$('#cmtBody .cmt')];
     if (cs.length) {
       if (items.length) items.push({ sep: true });
-      cs.forEach(c => items.push({ label: (c.classList.contains('closed') ? '▸ ' : '') + c.querySelector('h4').textContent.replace(/[▾▸↗]/g, '').trim(), fn: () => { c.classList.remove('closed'); cmtClosed.delete(c.dataset.n); const t = c.querySelector('.tg'); if (t) t.textContent = '▾'; panelScrollTo(c, 'start'); } }));
+      cs.forEach(c => items.push({ label: (c.classList.contains('closed') ? '▸ ' : '') + dispName(c.dataset.n) + (c.querySelectorAll('.cpart').length > 1 ? ` ×${c.querySelectorAll('.cpart').length}` : ''), fn: () => { c.classList.remove('closed'); cmtClosed.delete(c.dataset.n); const t = c.querySelector('.tg'); if (t) t.textContent = '▾'; panelScrollTo(c, 'start'); } }));
     }
     if (!items.length) return;
     ctxShow(e, items);
@@ -4765,8 +4765,8 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
     if (showAll) chosen = chosen.filter(hasTxt);
     const gapNote = gaps.length ? `<p class="muted">${I18N.t('Kein ' + { en: 'Englischer', de: 'Deutscher', he: 'Hebräischer' }[cmtLang] + ' Text zu diesem Vers:')} ${gaps.map(g => esc(g.name) + ' ' + (g.refs.every(r => res[r] && res[r].missing) ? I18N.t('(keine Fassung in dieser Sprache geladen)') : I18N.t('(Vers fehlt in der Fassung)'))).join(', ')}</p>` : '';
     if (!chosen.length) { $('#cmtBody').innerHTML = gapNote || `<p class="muted">${I18N.t('Keine lokalen Kommentare in der Sprache {} zu diesem Vers.', LN)}</p>`; return; }
-    const jumpBar = chosen.length >= 3 ? `<div class="jbar">${chosen.map(g => `<a class="jl" data-n="${esc(g.name)}">${esc(dispName(g.name))}</a>`).join('')}</div>` : '';
-    $('#cmtBody').innerHTML = jumpBar + chosen.map(g => {
+    // Sprungliste zu den einzelnen Kommentatoren: per Rechtsklick im Kommentarbereich
+    $('#cmtBody').innerHTML = chosen.map(g => {
       const seenTxt = new Set();
       let partNo = 0;
       const parts = g.refs.map(r => {
