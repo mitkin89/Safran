@@ -297,7 +297,7 @@
       <div class="lhead"><b id="cmtTitle">Kommentare</b><button id="cmtClose" title="Schließen">✕</button></div>
       <div class="bar">
         <label>Sprache <select id="cmtLang"><option value="en">Englisch</option><option value="de">Deutsch</option><option value="he">Hebräisch</option></select></label>
-        <button id="cmtPrev" title="Voriger Vers">▲ Vers</button><button id="cmtNext" title="Nächster Vers">▼ Vers</button>
+        <button id="cmtPrev" title="Voriger Vers">▲ Vers</button><button id="cmtNext" title="Nächster Vers">▼ Vers</button><button id="cmtFollow" type="button" title="Kommentar folgt dem Lesen: zeigt beim Scrollen immer den Vers oben im Text">⇣ Folgen</button>
         <button id="cmtFsMinus" class="cfs" title="Kommentartext kleiner">A−</button><button id="cmtFsPlus" class="cfs" title="Kommentartext größer">A+</button>
       </div>
       <div id="cmtSum" title="Kommentatoren ein-/ausklappen"></div>
@@ -381,6 +381,7 @@
     <label>Deutsch – Schriftgröße <input type="range" id="dDe" min="0.7" max="1.6" step="0.05"></label>
     <label><input type="checkbox" id="dNiq"> Hebräische Vokalzeichen ausblenden</label>
     <label><input type="checkbox" id="dCan"> Betonungszeichen (Teamim) ausblenden</label>
+    <label title="Bei angepinntem Kommentar oder Wörterbuch wird der Lesetext etwas kleiner, damit weniger Zeilen umbrechen"><input type="checkbox" id="dShr"> Text kleiner, wenn eine Leiste angepinnt ist</label>
     <label title="Bei der Septuaginta (CATSS): hebräisches Wort über der griechischen Wortgruppe"><input type="checkbox" id="gIlin"> Septuaginta interlinear (Hebräisch über Griechisch)</label>
     <label title="Jede Version eine Spalte, oder eine Spalte je Sprache (Englisch, Deutsch …) mit den Versionen darin untereinander">Anordnung
       <select id="layMode"><option value="cols">jede Version eine Spalte</option><option value="lang">eine Spalte je Sprache</option></select>

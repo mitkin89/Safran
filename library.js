@@ -2839,6 +2839,7 @@
   // Rechtsklick auf einen Vers: Referenz kopieren / auf sefaria.org öffnen
   $('#rOut').addEventListener('contextmenu', e => {
     const row = e.target.closest('.row[data-l]');
+    dictCtxRow = row;
     const selTxt = (window.getSelection() + '').trim();
     const word = selTxt && selTxt.length <= 60 && !/\n/.test(selTxt) ? selTxt : (selTxt ? '' : wordAt(e));
     if (selTxt) { // markierter Text: Nachschlagen und Kopieren anbieten
@@ -2902,7 +2903,6 @@
   $('#dictStack').onclick = () => setStackMode(stackMode === 'tabs' ? 'split' : 'tabs');
   $('#dictMore').onclick = () => $('#dictPanel').classList.toggle('more');
   window.addEventListener('resize', () => syncStack());
-  $('#dictOut').addEventListener('scroll', e => e.target.classList.toggle('scrolled', e.target.scrollTop > 4), { passive: true });
   new MutationObserver(() => syncStack()).observe(document.documentElement, { attributes: true, attributeFilter: ['data-tab'] });
   { // Trenner zwischen Kommentar und Wörterbuch ziehen; Doppelklick: Standard
     const sp = $('#stackSplit');
@@ -2935,6 +2935,7 @@
   function toggleDict0(force) {
     dictOpen = force == null ? !dictOpen : force;
     $('#dictPanel').hidden = !dictOpen;
+    if (!dictOpen) setDictSrc(null);
     if (dictOpen) stackActive = 'dict';
     syncDock();
     $('#dictTabBtn').classList.toggle('sideopen', dictOpen);
@@ -3008,7 +3009,8 @@
       $('#dictOut').innerHTML = n ? `<p class="muted">Kein Eintrag für „${esc(q)}“ gefunden.</p>` : '<p class="muted">Es ist noch kein Wörterbuch eingebunden. Öffne unten „Wörterbücher verwalten“ und füge eine DSL-Datei hinzu.</p>';
       return;
     }
-    const onlyBar = dictOnly ? `<div class="donly muted">Nur in: <b>${esc(dictOnly.name)}</b> · <a class="dall">alle Wörterbücher</a></div>` : '';
+    const onlyBar = (dictSrc && dictSrc.q === q && document.documentElement.dataset.tab !== 'dict' ? `<div class="dsrc muted">aus <a href="#" title="Zur Stelle im Text">${esc(dictSrc.ref)}</a></div>` : '')
+      + (dictOnly ? `<div class="donly muted">Nur in: <b>${esc(dictOnly.name)}</b> · <a class="dall">alle Wörterbücher</a></div>` : '');
     // pro Wörterbuch ein eigener Abschnitt mit Titelleiste und Farbe; jeder Treffer als eigene Karte
     const hue = id => { let h = 0; for (const c of String(id)) h = (h * 31 + c.charCodeAt(0)) % 360; return h; };
     const cnt = {}; r.results.forEach(x => { cnt[x.dictId] = (cnt[x.dictId] || 0) + 1; });
@@ -3126,7 +3128,37 @@
     $('#dictList').innerHTML = list.length ? list.map((d, i) => `<div class="dli"><label class="dsl"><input type="checkbox" data-id="${esc(d.id)}"${!dictSel || dictSel.includes(d.id) ? ' checked' : ''}><span class="dsn">${esc(d.name)}</span><small>${d.count.toLocaleString(I18N.loc)}</small></label><span class="dbtns"><button data-mv="-1" data-id="${esc(d.id)}" title="Nach oben (wird zuerst angezeigt)"${i === 0 ? ' disabled' : ''}>▲</button><button data-mv="1" data-id="${esc(d.id)}" title="Nach unten"${i === list.length - 1 ? ' disabled' : ''}>▼</button><button data-rm="1" data-id="${esc(d.id)}" title="Wörterbuch entfernen">✕</button></span></div>`).join('') : '<p class="muted">Noch keine Wörterbücher.</p>';
     const B = $('#dictSelB'); if (B) B.textContent = (dictSel ? `📚 ${dictSel.length} von ${list.length}` : '📚 Alle Wörterbücher') + ' ▾';
   }
+  // Herkunft des nachgeschlagenen Worts (Stelle im Text): als Feld „aus Genesis 25:8“ im Wörterbuch, das Wort bleibt im Text markiert
+  let dictSrc = null, dictLastWord = null, dictLastAt = 0, dictCtxRow = null;
+  const dictHL = r => { try { if (!window.CSS || !CSS.highlights) return; if (r) CSS.highlights.set('dictsrc', new Highlight(r)); else CSS.highlights.delete('dictsrc'); } catch { /* egal */ } };
+  function captureDictSrc(q) {
+    let range = null, row = null;
+    try {
+      const s = window.getSelection();
+      if (s.rangeCount && !s.isCollapsed) {
+        const r = s.getRangeAt(0), el = r.startContainer.nodeType === 1 ? r.startContainer : r.startContainer.parentElement;
+        if (el && el.closest('#rOut')) { range = r.cloneRange(); row = el.closest('.row[data-l]'); }
+      }
+    } catch { /* egal */ }
+    if (!range && dictLastWord && Date.now() - dictLastAt < 120000 && dictLastWord.isConnected && dictLastWord.closest('#rOut')) { range = document.createRange(); range.selectNodeContents(dictLastWord); row = dictLastWord.closest('.row[data-l]'); }
+    if (!row && dictCtxRow && dictCtxRow.isConnected) row = dictCtxRow;
+    dictLastWord = null; dictCtxRow = null;
+    if (!row || !view || !view.group || view.sres) return null;
+    const sec = view.sections[view.idx];
+    if (!sec) return null;
+    const ref = `${view.group.title} ${String(sec.label).replace(/^\D+/, '') || sec.label}:${row.dataset.l}`.replace(/\s+/g, ' ');
+    return { q: String(q).trim(), ref, range, row };
+  }
+  function setDictSrc(src) { dictSrc = src; dictHL(src && src.range); }
+  $('#rOut').addEventListener('click', e => { const w = e.target.closest('.w, .wt, .wg'); if (w) { dictLastWord = w; dictLastAt = Date.now(); } }, true);
+  $('#dictOut').addEventListener('click', e => {
+    const a = e.target.closest('.dsrc a'); if (!a || !dictSrc) return;
+    e.preventDefault();
+    if (dictSrc.row && dictSrc.row.isConnected) { dictSrc.row.scrollIntoView({ block: 'center', behavior: 'smooth' }); dictSrc.row.classList.add('flash'); setTimeout(() => dictSrc && dictSrc.row && dictSrc.row.classList.remove('flash'), 900); }
+    else jumpTo(dictSrc.ref, false);
+  });
   async function openDict(q) {
+    if (q) setDictSrc(captureDictSrc(q));
     if (!dictOpen) toggleDict(true); else renderDictList();
     setStackActive('dict'); // als Reiter: zum Wörterbuch wechseln, der Kommentar bleibt an seiner Stelle
     if (q) dictLookup(q); else $('#dictQ').focus({ preventScroll: true });
@@ -3148,6 +3180,7 @@
   }
   const manualSearch = (q, only = null) => {
     q = String(q || '').trim();
+    if (!dictSrc || dictSrc.q !== q) setDictSrc(null);
     syncSaved();
     if (q) { dRecent = [q, ...dRecent.filter(x => x !== q)].slice(0, 30); lsSet('dictRecent', dRecent); }
     dictLookup(q, only); renderSaved();
@@ -3783,7 +3816,7 @@
 
 
   // ---------- Anzeigeoptionen ----------
-  const DISP0 = { he: 1.3, en: 1, de: 1, niq: false, can: false };
+  const DISP0 = { he: 1.3, en: 1, de: 1, niq: false, can: false, shr: true };
   let disp = { ...DISP0 };
   try { disp = { ...DISP0, ...JSON.parse(localStorage.getItem('disp') || '{}') }; } catch { /* egal */ }
   const stripHe = h => {
@@ -3795,7 +3828,8 @@
     const o = $('#rOut').style;
     o.setProperty('--hef', disp.he); o.setProperty('--enf', disp.en); o.setProperty('--def', disp.de);
     $('#dHe').value = disp.he; $('#dEn').value = disp.en; $('#dDe').value = disp.de;
-    $('#dNiq').checked = disp.niq; $('#dCan').checked = disp.can;
+    $('#dNiq').checked = disp.niq; $('#dCan').checked = disp.can; $('#dShr').checked = !!disp.shr;
+    document.body.classList.toggle('dock-shrink', !!disp.shr);
     try { localStorage.setItem('disp', JSON.stringify(disp)); } catch { /* egal */ }
     if (rerender && view && view.group) { // Position beim Umschalten behalten: dieselbe Zeile bleibt an derselben Stelle (ohne Vokale sind die Zeilen niedriger, die reine Pixelposition würde springen)
       const top = $('#stick') ? $('#stick').getBoundingClientRect().bottom : 0;
@@ -3814,6 +3848,7 @@
     if (id === 'dDe') disp.de = +e.target.value;
     if (id === 'dNiq') disp.niq = e.target.checked;
     if (id === 'dCan') disp.can = e.target.checked;
+    if (id === 'dShr') disp.shr = e.target.checked;
     applyDisp(id === 'dNiq' || id === 'dCan');
   });
   $('#dReset').onclick = () => { disp = { ...DISP0 }; applyDisp(true); layoutMode = 'cols'; try { localStorage.setItem('layoutMode', 'cols'); } catch { /* egal */ } layBtnRefresh(); if (view && view.sections && view.sections[view.idx]) renderSection(null, true); };
@@ -4540,6 +4575,33 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
     if (tg === 'input' || tg === 'textarea' || tg === 'select' || e.target.isContentEditable) return;
     if (e.key === 'j') stepCmt(1); else if (e.key === 'k') stepCmt(-1);
   });
+  // „Folgen“: der Kommentar zeigt beim Scrollen immer den Vers, den man gerade liest (Zeile im oberen Viertel des Textes)
+  let cmtFollow = false;
+  try { cmtFollow = localStorage.getItem('cmtFollow') === '1'; } catch { /* egal */ }
+  const syncFollowBtn = () => { $('#cmtFollow').classList.toggle('on', cmtFollow); $('#cmtFollow').setAttribute('aria-pressed', cmtFollow ? 'true' : 'false'); };
+  syncFollowBtn();
+  $('#cmtFollow').onclick = () => { cmtFollow = !cmtFollow; try { localStorage.setItem('cmtFollow', cmtFollow ? '1' : '0'); } catch { /* egal */ } syncFollowBtn(); if (cmtFollow) followNow(); };
+  function followNow() {
+    if (!cmtFollow || !cmtOpen || !view || !view.group || view.sres || document.documentElement.dataset.tab !== 'read') return;
+    const top = $('#stick') ? $('#stick').getBoundingClientRect().bottom : 0;
+    const y = top + (window.innerHeight - top) * 0.25;
+    const rows = $$('#rOut .row[data-l]').filter(x => rowVerse(x.dataset.l) != null);
+    let pick = null;
+    for (const r of rows) { const b = r.getBoundingClientRect(); if (b.bottom < top + 4) continue; pick = r; if (b.bottom >= y) break; }
+    if (pick && pick.dataset.l !== cmtRow) setCmtRow(pick.dataset.l);
+  }
+  let followT = null;
+  window.addEventListener('scroll', () => { if (!cmtFollow) return; clearTimeout(followT); followT = setTimeout(followNow, 250); }, { passive: true });
+  // Kommentator mit mehreren Stellen (×3): im festen Kopf anzeigen, in welcher man gerade liest („2/3“)
+  $('#cmtPanel').addEventListener('scroll', () => {
+    for (const c of $$('#cmtBody .cmt')) {
+      const parts = c.querySelectorAll('.cpart'); if (parts.length < 2) continue;
+      const h = c.querySelector('h4'), cx = h && h.querySelector('.cx'); if (!cx) continue;
+      const hb = h.getBoundingClientRect().bottom;
+      let k = 0; parts.forEach((p, i) => { if (p.getBoundingClientRect().top <= hb + 8) k = i; });
+      cx.textContent = (k + 1) + '/' + parts.length;
+    }
+  }, { passive: true });
   $('#cmtPrev').onclick = () => stepCmt(-1);
   $('#cmtNext').onclick = () => stepCmt(1);
   // Klick auf die Versnummer wählt den Vers für den Kommentar-Bereich
@@ -4706,12 +4768,13 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
     const jumpBar = chosen.length >= 3 ? `<div class="jbar">${chosen.map(g => `<a class="jl" data-n="${esc(g.name)}">${esc(dispName(g.name))}</a>`).join('')}</div>` : '';
     $('#cmtBody').innerHTML = jumpBar + chosen.map(g => {
       const seenTxt = new Set();
+      let partNo = 0;
       const parts = g.refs.map(r => {
         const t = res[r];
         if (!t || !t.items) return `<div class="none">${esc(r)} – ${t && t.missing ? I18N.t('keine Fassung auf {} geladen', LN) : I18N.t('Vers fehlt in der ' + { en: 'Englischen', de: 'Deutschen', he: 'Hebräischen' }[cmtLang] + ' Fassung')}</div>`;
         const he = t.kind === 'he';
         const sig = t.items.join('\u0001'); if (seenTxt.has(sig)) return ''; seenTxt.add(sig); // gleiche Stelle mehrfach verknüpft: nur einmal zeigen
-        return t.items.map(x => {
+        return (g.refs.length > 1 ? `<div class="cpart" data-k="${++partNo}"></div>` : '') + t.items.map(x => {
           // Fußnoten im Kommentar-Bereich: Zeichen im Text, Fußnotentext direkt dahinter (Einstellung „Fußnoten“ wie im Lesetext)
           const sp = R.splitFootnotes(he ? stripHe(x) : x);
           const inl = R.cleanHtml(sp.main).replace(/<sup>.*?<\/sup>/g, '').replace(/<sup data-fn="(\d{1,4})">(.*?)<\/sup>/g, (m, i) => { const n = sp.notes[+i]; return n ? `${m}<span class="note" data-fn="${i}"><span class="nm">${esc(n.marker)}</span> ${R.cleanHtml(n.html)}</span>` : m; });
@@ -4719,7 +4782,7 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
         }).join('');
       }).join('');
       const cl = cmtClosed.has(g.name);
-      return `<div class="cmt${cl ? ' closed' : ''}" data-n="${esc(g.name)}"><h4 data-ref="${esc(g.refs[0])}" title="Klick: Kommentar ein-/ausklappen · ↗: öffnet ${esc(g.book)} in einem neuen Tab · Rechtsklick: weitere Möglichkeiten"><span class="tg">${cl ? '▸' : '▾'}</span> ${esc(dispName(g.name))}${g.refs.length > 1 ? ` <small class="cx">×${g.refs.length}</small>` : ''}<span class="go" title="Buch im neuen Tab öffnen">↗</span></h4>${parts}</div>`;
+      return `<div class="cmt${cl ? ' closed' : ''}" data-n="${esc(g.name)}"><h4 data-ref="${esc(g.refs[0])}" title="Klick: Kommentar ein-/ausklappen · ↗: öffnet ${esc(g.book)} in einem neuen Tab · Rechtsklick: weitere Möglichkeiten"><span class="tg">${cl ? '▸' : '▾'}</span> ${esc(dispName(g.name))}${g.refs.length > 1 ? ` <small class="cx" title="Stellen zu diesem Vers">×${g.refs.length}</small>` : ''}<span class="go" title="Buch im neuen Tab öffnen">↗</span></h4>${parts}</div>`;
     }).join('') + gapNote;
     if (!fb.hidden && fTerm) runFind(fTerm, true); // Suche im Kommentar-Bereich nach dem Neuaufbau erneuern
   }
