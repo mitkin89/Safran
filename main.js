@@ -118,7 +118,7 @@ ipcMain.handle('app:setTheme', (_e, t) => { if (['auto', 'light', 'dark'].includ
 // Es werden gut 13 Monate auf einmal geladen und in hebcal.json im Benutzerordner gespeichert – so geht es ein Jahr lang auch ohne Internet.
 const calFile = () => path.join(app.getPath('userData'), 'hebcal.json');
 const ymd = d => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
-ipcMain.handle('app:calendar', async () => {
+ipcMain.handle('app:calendar', async (_e, want) => {
   const fs = require('fs');
   const now = new Date(), today = ymd(now), plus = n => ymd(new Date(now.getFullYear(), now.getMonth(), now.getDate() + n));
   let cache = null;
@@ -136,6 +136,20 @@ ipcMain.handle('app:calendar', async () => {
       cache = { fetched: today, start: today, end: plus(400), items };
       try { fs.writeFileSync(calFile(), JSON.stringify(cache)); } catch { /* egal */ }
     } catch (err) { if (!cache) return { today, items: [], error: err.message }; }
+  }
+  // anderes Datum (vor- oder zurückblättern): aus dem Speicher, wenn er die Woche danach abdeckt, sonst diese Wochen einzeln holen
+  if (typeof want === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(want) && want !== today) {
+    const [y, m, d] = want.split('-').map(Number), w0 = new Date(y, m - 1, d), wp = n => ymd(new Date(w0.getFullYear(), w0.getMonth(), w0.getDate() + n));
+    if (cache && cache.items && cache.start <= want && cache.end >= wp(8)) return { today: want, items: cache.items };
+    try {
+      const url = `https://www.hebcal.com/hebcal?v=1&cfg=json&s=on&F=on&yyomi=on&i=off&leyning=on&lg=s&start=${wp(-1)}&end=${wp(14)}`;
+      const ac = new AbortController(); const to = setTimeout(() => ac.abort(), 15000);
+      const res = await net.fetch(url, { signal: ac.signal, headers: { 'User-Agent': 'Safran' } }); clearTimeout(to);
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      const j = await res.json();
+      return { today: want, items: (j.items || []).filter(x => ['parashat', 'dafyomi', 'yerushalmi'].includes(x.category))
+        .map(x => ({ title: x.title, date: x.date, hdate: x.hdate, category: x.category, hebrew: x.hebrew, link: x.link, torah: x.leyning && x.leyning.torah, haftarah: x.leyning && x.leyning.haftarah })) };
+    } catch (err) { return { today: want, items: [], error: err.message }; }
   }
   return { today, items: cache.items };
 });

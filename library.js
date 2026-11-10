@@ -114,17 +114,22 @@
   }
 
   // ---------- Neuer Tab: Wochenabschnitt, Haftara, Daf Yomi (Daten von hebcal.com, siehe main.js) ----------
-  let calData = null, calDay = '';
+  let calData = null, calDay = '', calDate = null; // calDate: gewähltes Datum (null = heute)
+  const ymdL = d => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+  const addDays = (ds, n) => { const [y, m, d] = ds.split('-').map(Number); return ymdL(new Date(y, m - 1, d + n)); };
   // Sefaria-Link von hebcal → Stelle für Safran: „Bekhorot.53a“ → „Bekhorot 53a“, „Jerusalem_Talmud_Sanhedrin.4.5.2-7.1“ → „Jerusalem Talmud Sanhedrin 4:5:2“
   const calRef = link => { try { const u = new URL(link); if (!/sefaria\.org$/.test(u.hostname)) return null; const m = decodeURIComponent(u.pathname.slice(1)).match(/^(.+?)\.([\w.]+?)(?:-[\w.]+)?$/); return m ? m[1].replace(/_/g, ' ') + ' ' + m[2].replace(/\./g, ':') : null; } catch { return null; } };
   const refStart = r => String(r || '').trim().replace(/-\d+(?::\d+)?$/, ''); // „Genesis 25:19-28:9“ → „Genesis 25:19“
   const fmtD = (d, wd = true) => { try { const [y, m, dd] = d.split('-').map(Number); return new Date(y, m - 1, dd).toLocaleDateString(I18N.loc, { ...(wd ? { weekday: 'long' } : {}), day: 'numeric', month: 'long' }); } catch { return d; } };
   async function renderNtCal() {
     const box = $('#ntCal'); if (!box) return;
-    const today = new Date(); const key = today.toDateString();
-    if (!calData || calDay !== key) { try { calData = await O.calendar(); calDay = key; } catch { calData = null; } }
+    const real = ymdL(new Date());
+    if (calDate === real) calDate = null;
+    const key = (calDate || real);
+    if (!calData || calDay !== key) { try { calData = await O.calendar(calDate || undefined); calDay = key; } catch { calData = null; } }
     if (!$('#ntCal')) return;
-    if (!calData || !calData.items || !calData.items.length) { box.innerHTML = calData && calData.error ? `<p class="muted small">${esc(I18N.t('Kalender (hebcal.com) nicht erreichbar.'))}</p>` : ''; return; }
+    const nav = d => `<div class="calNav"><button type="button" data-cal="-7" title="${esc(I18N.t('Eine Woche zurück'))}">«</button><button type="button" data-cal="-1" title="${esc(I18N.t('Einen Tag zurück'))}">‹</button><input type="date" id="calPick" value="${esc(d)}"><button type="button" data-cal="1" title="${esc(I18N.t('Einen Tag vor'))}">›</button><button type="button" data-cal="7" title="${esc(I18N.t('Eine Woche vor'))}">»</button>${calDate ? `<button type="button" data-cal="0">${esc(I18N.t('Heute'))}</button>` : ''}</div>`;
+    if (!calData || !calData.items || !calData.items.length) { box.innerHTML = calData && calData.error ? `<div class="calBox">${nav(key)}<p class="muted small">${esc(I18N.t('Kalender (hebcal.com) nicht erreichbar.'))}</p></div>` : ''; return; }
     const it = calData.items, t = calData.today;
     const par = it.find(x => x.category === 'parashat' && x.date >= t);
     const bav = it.find(x => x.category === 'dafyomi' && x.date === t);
@@ -139,9 +144,15 @@
     if (bav) rows.push(`<div class="calRow"><span class="calK">${esc(I18N.t('Daf Yomi (Bavli)'))}</span><span class="calV">${lnk(calRef(bav.link), bav.title)} <span class="he" dir="rtl">${esc(bav.hebrew || '')}</span></span></div>`);
     if (yer) rows.push(`<div class="calRow"><span class="calK">${esc(I18N.t('Jeruschalmi Yomi'))}</span><span class="calV">${lnk(calRef(yer.link), yer.title)} <span class="he" dir="rtl">${esc(yer.hebrew || '')}</span></span></div>`);
     const hd = (bav || yer || {}).hdate;
-    box.innerHTML = rows.length ? `<div class="calBox"><div class="calHead">${esc(fmtD(t))}${hd ? ` · <span>${esc(hd)}</span>` : ''}</div>${rows.join('')}<div class="calSrc muted">${esc(I18N.t('Quelle'))}: hebcal.com (${esc(I18N.t('Diaspora'))})</div></div>` : '';
+    box.innerHTML = rows.length ? `<div class="calBox">${nav(t)}<div class="calHead">${esc(fmtD(t))}${hd ? ` · <span>${esc(hd)}</span>` : ''}${calDate ? ` <small class="muted">(${esc(I18N.t(t < real ? 'vergangen' : 'kommend'))})</small>` : ''}</div>${rows.join('')}<div class="calSrc muted">${esc(I18N.t('Quelle'))}: hebcal.com (${esc(I18N.t('Diaspora'))})</div></div>` : '';
   }
-  document.addEventListener('click', e => { const a = e.target.closest('#ntCal a.calLink'); if (a) { e.preventDefault(); jumpTo(a.dataset.ref, false); } });
+  document.addEventListener('click', e => {
+    const a = e.target.closest('#ntCal a.calLink'); if (a) { e.preventDefault(); jumpTo(a.dataset.ref, false); return; }
+    const b = e.target.closest('#ntCal [data-cal]'); if (!b) return;
+    const n = +b.dataset.cal, base = calDate || ymdL(new Date());
+    calDate = n === 0 ? null : addDays(base, n); renderNtCal();
+  });
+  document.addEventListener('change', e => { if (e.target.id === 'calPick' && /^\d{4}-\d{2}-\d{2}$/.test(e.target.value)) { calDate = e.target.value; renderNtCal(); } });
 
   // ---------- Lesen: Bücherliste ----------
   const closedCats = new Set(); // beim Filtern selbst zugeklappte obere Ebenen
@@ -252,6 +263,7 @@
     renderTabs();
   }
   function newTab() {
+    calDate = null; // neuer Tab zeigt wieder den heutigen Kalender
     saveScroll();
     view = { group: null };
     tabs.push(view); tabIdx = tabs.length - 1;

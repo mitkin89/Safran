@@ -1039,3 +1039,9 @@ body.stack-split #dictHead #dictQ { min-width: 80px; }
 .calV .he { margin-inline-start: 6px; font-size: 1.05em; }
 .calV small { display: block; margin-top: 1px; }
 .calSrc { font-size: 11.5px; margin-top: 8px; }
+/* Neuer Tab: Logo mittig, Kalender blättern, hebräische Namen nicht umbrechen */
+.newtab img.logo { display: block; margin: 0 auto 18px; }
+.calV .he { white-space: nowrap; }
+.calNav { display: flex; gap: 4px; align-items: center; justify-content: center; margin-bottom: 10px; }
+.calNav button { min-width: 32px; }
+.calNav input[type=date] { padding: 3px 6px; font: inherit; color-scheme: light dark; width: auto; flex: 0 1 150px; min-width: 0; }
