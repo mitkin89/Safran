@@ -2892,7 +2892,7 @@
     b.toggle('stack-tabs', both && stackMode === 'tabs'); b.toggle('stack-split', both && stackMode === 'split' && !wide); b.toggle('stack-side', both && stackMode === 'split' && wide);
     b.toggle('stk-cmt', stackActive === 'cmt'); b.toggle('stk-dict', stackActive === 'dict');
     $('#stackBar').hidden = !(both && stackMode === 'tabs'); $('#stackSplit').hidden = !(both && stackMode === 'split' && !wide); $('#dictStack').hidden = !both;
-    $('#stkMode').textContent = I18N.t(wide ? '⇆ Nebeneinander' : '⇅ Untereinander'); $('#stkCmt').classList.toggle('on', stackActive === 'cmt'); $('#stkDict').classList.toggle('on', stackActive === 'dict');
+    $('#stkMode').innerHTML = (wide ? '⇆' : '⇅') + `<span class="cl"> ${esc(I18N.t(wide ? 'Nebeneinander' : 'Untereinander'))}</span>`; $('#stkCmt').classList.toggle('on', stackActive === 'cmt'); $('#stkDict').classList.toggle('on', stackActive === 'dict');
     $('#dictStack').title = stackMode === 'tabs' ? (wide ? 'Kommentar und Wörterbuch nebeneinander zeigen' : 'Kommentar und Wörterbuch untereinander zeigen') : 'Kommentar und Wörterbuch als Reiter zeigen (volle Höhe)';
   }
   function setStackActive(w) { stackActive = w; syncStack(); }
@@ -3126,7 +3126,7 @@
     const r = await O.dictList(), list = r.list || [];
     if (dictSel) { dictSel = dictSel.filter(id => list.some(d => d.id === id)); if (!dictSel.length) dictSel = null; }
     $('#dictList').innerHTML = list.length ? list.map((d, i) => `<div class="dli"><label class="dsl"><input type="checkbox" data-id="${esc(d.id)}"${!dictSel || dictSel.includes(d.id) ? ' checked' : ''}><span class="dsn">${esc(d.name)}</span><small>${d.count.toLocaleString(I18N.loc)}</small></label><span class="dbtns"><button data-mv="-1" data-id="${esc(d.id)}" title="Nach oben (wird zuerst angezeigt)"${i === 0 ? ' disabled' : ''}>▲</button><button data-mv="1" data-id="${esc(d.id)}" title="Nach unten"${i === list.length - 1 ? ' disabled' : ''}>▼</button><button data-rm="1" data-id="${esc(d.id)}" title="Wörterbuch entfernen">✕</button></span></div>`).join('') : '<p class="muted">Noch keine Wörterbücher.</p>';
-    const B = $('#dictSelB'); if (B) B.textContent = (dictSel ? `📚 ${dictSel.length} von ${list.length}` : '📚 Alle Wörterbücher') + ' ▾';
+    const B = $('#dictSelB'); if (B) B.innerHTML = `📚<span class="cl"> ${dictSel ? esc(dictSel.length + ' von ' + list.length) : esc(I18N.t('Alle Wörterbücher'))}</span> ▾`;
   }
   // Herkunft des nachgeschlagenen Worts (Stelle im Text): als Feld „aus Genesis 25:8“ im Wörterbuch, das Wort bleibt im Text markiert
   let dictSrc = null, dictLastWord = null, dictLastAt = 0, dictCtxRow = null;
@@ -4591,7 +4591,7 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
     if (pick && pick.dataset.l !== cmtRow) setCmtRow(pick.dataset.l);
   }
   let followT = null;
-  window.addEventListener('scroll', () => { if (!cmtFollow) return; clearTimeout(followT); followT = setTimeout(followNow, 250); }, { passive: true });
+  document.addEventListener('scroll', e => { if (!cmtFollow) return; const t = e.target; if (t && t.nodeType === 1 && t.closest('#cmtPanel, #dictPanel, #linkPanel, #topicPanel, #outlinePanel, aside')) return; clearTimeout(followT); followT = setTimeout(followNow, 200); }, { passive: true, capture: true });
   // Kommentator mit mehreren Stellen (×3): im festen Kopf anzeigen, in welcher man gerade liest („2/3“)
   $('#cmtPanel').addEventListener('scroll', () => {
     for (const c of $$('#cmtBody .cmt')) {

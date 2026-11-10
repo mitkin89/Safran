@@ -986,8 +986,6 @@ body.stack-split #dictHead .lhead > b { display: none; }
 body.stack-split #dictHead #dictBar { order: 1; flex: 1 1 auto; min-width: 0; border-bottom: 0; padding: 4px 0; gap: 4px; }
 body.stack-split #dictHead #dictSaved { order: 3; flex-basis: 100%; }
 body.stack-split #dictPanel.more #dictHead { flex-wrap: wrap; }
-body.stack-split #dictGo { font-size: 0; padding: 3px 9px; }
-body.stack-split #dictGo::before { content: '🔍'; font-size: 13px; }
 body.stack-split #dictSelB { white-space: nowrap; }
 /* doppelte Knöpfe: Schriftgröße des Wörterbuchs hinter ⋯, Anpinnen gilt für die ganze Spalte (Knopf am Kommentar) */
 body.stack-split #dictPanel:not(.more) :is(#dictFsMinus, #dictFsPlus), body.stack-split #dictHead .pinB { display: none; }
@@ -1010,12 +1008,21 @@ body.dock-shrink.dock-open #rOut { font-size: calc(var(--fs) * .88); }
 .cmt h4 + .cpart { border-top: 0; margin: 0; }
 body.stack-split #dictHead #dictBar { flex-wrap: nowrap; }
 body.stack-split #dictHead #dictQ { min-width: 70px; }
-body.stack-split #dictSelB { max-width: 92px; overflow: hidden; text-overflow: ellipsis; }
-body.stack-split #cmtFollow { font-size: 0; }
-body.stack-split #cmtFollow::before { content: '⇣'; font-size: 13px; }
 body.stack-split #dictHead { flex-wrap: wrap; }
 body.stack-split #dictHead #dictBar { flex: 1 1 230px; }
 body.stack-split #dictHead .lhead { flex: none; margin-left: auto; }
 body.stack-split #dictPanel:not(.more) :is(#dictBack, #dictFwd) { display: none; }
 /* lange Kontextmenüs (z. B. 37 Kommentatoren) lassen sich scrollen */
 #ctxMenu { max-height: calc(100vh - 16px); overflow-y: auto; overscroll-behavior: contain; }
+
+/* Knöpfe in Kommentar und Wörterbuch werden bei schmaler Spalte zu Symbolen (wie die Buchzeile oben) */
+#cmtHead { container: cmthead / inline-size; }
+#dictHead { container: dicthead / inline-size; }
+#stackBar { container-type: inline-size; }
+@container cmthead (max-width: 560px) { #cmtHead .cl { display: none; } }
+@container dicthead (max-width: 600px) { #dictHead .cl { display: none; } #dictFullL { font-size: 0; } #dictFullL input { margin: 0; } }
+@container (max-width: 250px) { #stackBar .cl { display: none; } }
+#dictGo .cl, #dictSelB .cl { white-space: nowrap; }
+#dictHead #dictBar { flex-wrap: wrap; row-gap: 6px; }
+#dictHead #dictQ { flex: 1 1 140px; min-width: 110px; }
+body.stack-split #dictHead #dictQ { min-width: 80px; }

@@ -88,7 +88,7 @@
     // ----- Verknüpfungen -----
     'Verknüpfungen': 'Links', 'Kommentare': 'Commentaries', 'Kommentare zu {}': 'Commentaries on {}', 'Keine Verknüpfungen.': 'No links.',
     '{#} Verknüpfungen': '{} links', '{} – {} Verknüpfungen': '{} – {} links', 'Vorschau': 'Preview', 'Keine Vorschau möglich.': 'No preview available.',
-    '· nicht lokal': '· not local', '⇅ Untereinander': '⇅ Stacked', '⇆ Nebeneinander': '⇆ Side by side', '… {#} weitere (Filter benutzen)': '… {} more (use the filter)',
+    '· nicht lokal': '· not local', '⇅ Untereinander': '⇅ Stacked', '⇆ Nebeneinander': '⇆ Side by side', 'Untereinander': 'Stacked', 'Nebeneinander': 'Side by side', 'Vers': 'Verse', 'Folgen': 'Follow', '1. Buchstabe': '1st letter', 'Kommentar und Wörterbuch untereinander zeigen': 'Show commentary and dictionary stacked', 'Kommentar folgt dem Lesen: zeigt beim Scrollen immer den Vers oben im Text': 'Commentary follows your reading: always shows the verse at the top of the text while scrolling', 'Text kleiner, wenn eine Leiste angepinnt ist': 'Smaller text when a sidebar is pinned', 'Zur Stelle im Text': 'Go to the passage in the text', '… {#} weitere (Filter benutzen)': '… {} more (use the filter)',
     'Filtern (z. B. Rashi, Midrash) …': 'Filter (e.g. Rashi, Midrash) …',
     '✓ vollständig vorhanden': '✓ complete', '{#} von {#} Dateien verarbeitet': '{} of {} files processed', 'noch nicht heruntergeladen': 'not downloaded yet',
     'Erneut prüfen': 'Check again', 'Fortsetzen': 'Resume', 'Verknüpfungen herunterladen': 'Download links', '{#} Fehler (erneut starten zum Fortsetzen)': '{} errors (start again to resume)',
