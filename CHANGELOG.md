@@ -3,6 +3,7 @@
 ### New in 2.3.6
 - **New tab shows the Jewish calendar:** the weekly Torah portion (with the Shabbat date), the haftarah, the Daf Yomi (Bavli) and the Yerushalmi Yomi of the day, in English and Hebrew. A click opens the passage in Safran. The data come from hebcal.com (diaspora readings) and are stored for 13 months, so it also works offline; with internet they are renewed monthly.
 - **Commentary ▲/▼ Verse (and j/k):** if the commentary's verse is no longer on screen because you scrolled on, they now step from the verse you are reading, not from the start of the chapter.
+- **Opening a commentary from the commentary bar** (↗ or right-click → Open): references like "Rav Hirsch on Torah, Genesis 27:45" were read as two passages and opened the start of the work; they now open the right chapter and line.
 
 ### New in 2.3.5
 - **Commentary and dictionary together:** when both are open they appear as **tabs** (default, full height; Esc returns from the dictionary to the commentary at the same place) or **stacked** with a draggable divider (height is remembered; double-click resets). In wide windows they stand **side by side**, but only if the reading text keeps enough room. ⇅ switches between the modes.
