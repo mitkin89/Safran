@@ -16,6 +16,8 @@
   <a href="https://github.com/mitkin89/Safran/releases/latest"><img alt="Safran für macOS, Windows oder Linux herunterladen" src="https://img.shields.io/badge/%E2%AC%87%EF%B8%8F%20%20Safran%20herunterladen-macOS%20%C2%B7%20Windows%20%C2%B7%20Linux-2ea44f?style=for-the-badge"></a>
 </p>
 
+<p align="center"><a href="https://www.sefaria.org"><img src="screenshots/powered-by-sefaria.png" alt="Powered by Sefaria" width="180"></a></p>
+
 <p align="center"><a href="README.md">English</a> &nbsp;·&nbsp; <b>Deutsch</b></p>
 
 <p align="center">
