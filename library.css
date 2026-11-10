@@ -1045,3 +1045,10 @@ body.stack-split #dictHead #dictQ { min-width: 80px; }
 .calNav { display: flex; gap: 4px; align-items: center; justify-content: center; margin-bottom: 10px; }
 .calNav button { min-width: 32px; }
 .calNav input[type=date] { padding: 3px 6px; font: inherit; color-scheme: light dark; width: auto; flex: 0 1 150px; min-width: 0; }
+/* Gliederung als Überschriften im Lesetext */
+#rOut .olhead { margin: 18px 0 6px; padding: 0 0 3px; color: var(--accent); font-weight: 700; line-height: 1.35; border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent); }
+#rOut .olhead + .olhead { margin-top: 4px; }
+#rOut .olhead.olh0 { font-size: 1.25em; text-align: center; border-bottom-width: 2px; }
+#rOut .olhead.olh1 { font-size: 1.1em; }
+#rOut .olhead.olh2 { font-size: 1em; font-weight: 600; border-bottom-style: dashed; }
+#rOut .olhead.olh3 { font-size: .92em; font-weight: 600; border-bottom: 0; color: var(--muted); }

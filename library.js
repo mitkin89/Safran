@@ -645,6 +645,7 @@
     markNotes();
     markAudio();
     if (!$('#outlinePanel').hidden) renderOutline();
+    olInline();
     markMismatch();
     loadLinks(s);
     if (window.__refind) setTimeout(window.__refind, 0);
@@ -1721,6 +1722,50 @@
       olMark(true);
     }
     if (window.__olLast) { const el = [...body.querySelectorAll('.olp')].find(x => x.dataset.r === window.__olLast); window.__olLast = null; if (el) el.scrollIntoView({ block: 'center' }); }
+  }
+  // ---------- Gliederung als Überschriften im Lesetext (Einstellung unter „Anzeige“) ----------
+  const olInlineOn = () => { try { return localStorage.getItem('olInline') === '1'; } catch { return false; } };
+  function olInlineApply(g, ol) {
+    $$('#rOut .olhead').forEach(x => x.remove());
+    if (!olInlineOn() || !ol || !view || view.group !== g || view.sres) return;
+    const sec = view.sections[view.idx]; if (!sec) return;
+    const L = I18N.lang, T = (o, k) => (L !== 'he' && o[k + '_' + L]) || o[k];
+    const nums = (sec.path || []).filter(x => typeof x === 'number').map(x => x + 1);
+    const ch = auChapter(), bk = olBookNo(sec), lv2 = ol.levels === 2, mzOn = olMz();
+    const rows = $$('#rOut .row[data-l]'); if (!rows.length) return;
+    const vOf = l => { const m = String(l).match(/^(\d+)/); return m ? +m[1] : null; };
+    // Stelle der Gliederung → erste passende Zeile dieses Abschnitts (oder null)
+    const target = ref => {
+      const r = String(ref).split(/[;,]/)[0].trim(); let m;
+      if ((m = r.match(/^(\d+):(\d+):(\d+)/))) { // Band:Kapitel:Absatz
+        if (nums.length < 2 || +m[1] !== nums[nums.length - 2] || +m[2] !== nums[nums.length - 1]) return null;
+        return rows.find(x => vOf(x.dataset.l) >= +m[3]) || null;
+      }
+      if (lv2) { // Buch:Kapitel (Zeilen „Kapitel:Absatz“)
+        if (!(m = r.match(/^(\d+)(?::(\d+))?/)) || +m[1] !== bk) return null;
+        return m[2] ? rows.find(x => vOf(x.dataset.l) >= +m[2]) || null : rows[0];
+      }
+      if (!(m = r.match(/^(\d+)(?::(\d+))?/)) || +m[1] !== ch) return null; // Kapitel:Vers
+      return m[2] ? rows.find(x => vOf(x.dataset.l) >= +m[2]) || null : rows[0];
+    };
+    const put = new Map(); // Zeile → Überschriften davor (in Reihenfolge)
+    const add = (row, lvl, text) => { if (!row || !text) return; let a = put.get(row); if (!a) put.set(row, (a = [])); if (!a.some(x => x.text === text)) a.push({ lvl, text }); };
+    for (const sct of ol.sections) {
+      const items = sct.items.filter(it => !!it.mz === mzOn); if (!items.length) continue;
+      const r0 = target(items[0].ref);
+      if (r0 && ol.sections.length > 1 && T(sct, 'head') && !(lv2 && r0 !== rows[0])) add(r0, 0, T(sct, 'head'));
+      const walk = (list, lvl) => list.forEach(it => { add(target(it.ref), lvl, T(it, 'text')); if (it.sub) walk(it.sub, lvl + 1); });
+      walk(items, 1);
+    }
+    for (const [row, hs] of put) row.insertAdjacentHTML('beforebegin', hs.map(h => `<div class="olhead olh${Math.min(h.lvl, 3)}" dir="auto">${esc(h.text)}</div>`).join(''));
+  }
+  async function olInline() {
+    const g = view && view.group;
+    if (!g || !olInlineOn()) { $$('#rOut .olhead').forEach(x => x.remove()); return; }
+    const c = olOwnCached(g);
+    if (c !== undefined) { olInlineApply(g, c); return; }
+    const ol = await olOwnFor(g);
+    if (view && view.group === g) withAnchor(() => olInlineApply(g, ol)); // erst geladen: Leseposition beim Einfügen halten
   }
   // aktuelle Stelle: der gerade gespielte Vers, sonst der Vers in der Leseansicht
   // Buch:Kapitel (z. B. Josephus): der Abschnitt ist das Buch („Buch 18“), die Zeilen heißen „Kapitel:Absatz“ („3:5“).
@@ -3882,7 +3927,7 @@
     const o = $('#rOut').style;
     o.setProperty('--hef', disp.he); o.setProperty('--enf', disp.en); o.setProperty('--def', disp.de);
     $('#dHe').value = disp.he; $('#dEn').value = disp.en; $('#dDe').value = disp.de;
-    $('#dNiq').checked = disp.niq; $('#dCan').checked = disp.can; $('#dShr').checked = !!disp.shr;
+    $('#dNiq').checked = disp.niq; $('#dCan').checked = disp.can; $('#dShr').checked = !!disp.shr; $('#dOlIn').checked = olInlineOn();
     document.body.classList.toggle('dock-shrink', !!disp.shr);
     try { localStorage.setItem('disp', JSON.stringify(disp)); } catch { /* egal */ }
     if (rerender && view && view.group) { // Position beim Umschalten behalten: dieselbe Zeile bleibt an derselben Stelle (ohne Vokale sind die Zeilen niedriger, die reine Pixelposition würde springen)
@@ -3903,6 +3948,7 @@
     if (id === 'dNiq') disp.niq = e.target.checked;
     if (id === 'dCan') disp.can = e.target.checked;
     if (id === 'dShr') disp.shr = e.target.checked;
+    if (id === 'dOlIn') { try { localStorage.setItem('olInline', e.target.checked ? '1' : '0'); } catch { /* egal */ } withAnchor(() => olInline()); return; }
     applyDisp(id === 'dNiq' || id === 'dCan');
   });
   $('#dReset').onclick = () => { disp = { ...DISP0 }; applyDisp(true); layoutMode = 'cols'; try { localStorage.setItem('layoutMode', 'cols'); } catch { /* egal */ } layBtnRefresh(); if (view && view.sections && view.sections[view.idx]) renderSection(null, true); };

@@ -105,6 +105,7 @@ window.I18N_HE = {
 "⇆ Nebeneinander": "⇆ זה לצד זה",
 "Untereinander": "זה מתחת לזה",
 "Wochenabschnitt": "פרשת השבוע",
+"Gliederung als Überschriften im Text": "תוכן העניינים ככותרות בטקסט",
 "Eine Woche zurück": "שבוע אחורה",
 "Einen Tag zurück": "יום אחורה",
 "Einen Tag vor": "יום קדימה",
