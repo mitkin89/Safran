@@ -1,5 +1,5 @@
 .layout { display: grid; grid-template-columns: 300px 1fr; gap: 20px; align-items: start; }
-aside { position: sticky; top: 64px; max-height: calc(100vh - 90px); overflow: auto; padding-right: 6px; }
+aside { position: sticky; top: calc(64px - var(--hdoff, 0px)); max-height: calc(100vh - 90px); overflow: auto; padding-right: 6px; }
 aside input { width: 100%; margin-bottom: 8px; }
 #tree details { margin-left: 10px; }
 #tree summary { font-size: 13px; }
@@ -17,7 +17,7 @@ aside input { width: 100%; margin-bottom: 8px; }
 /* Lesebereich: eine Zeile pro Vers, Sprachen nebeneinander */
 #rOut { --fs: 16px; font-size: var(--fs); }
 .row { display: grid; grid-template-columns: 34px repeat(var(--n), minmax(0, 1fr)); gap: 0 22px; padding: 8px 0; border-bottom: 1px solid var(--line); }
-.row.head { position: sticky; top: var(--stick-top, 40px); background: var(--bg); z-index: 2; font-size: 11px; color: var(--muted); padding: 1px 0; font-weight: 600; }
+.row.head { position: static; top: var(--stick-top, 40px); background: var(--bg); z-index: 2; font-size: 11px; color: var(--muted); padding: 1px 0; font-weight: 600; }
 .row.hit { background: color-mix(in srgb, var(--warn) 18%, transparent); }
 .row .lab { font-size: 11px; color: var(--muted); padding-top: .4em; }
 .cell[dir=rtl] .txt { font-size: 1.25em; line-height: 1.75; }
@@ -118,10 +118,10 @@ aside input { width: 100%; margin-bottom: 8px; }
 /* Verknüpfungen */
 .row .lab .lk { display: inline-block; margin-top: 2px; font-size: 10px; padding: 0 5px; border-radius: 999px; cursor: pointer; background: color-mix(in srgb, var(--accent) 22%, transparent); color: var(--accent); }
 .row .lab .lk:hover { background: var(--accent); color: var(--bg); }
-#linkPanel, #topicPanel, #outlinePanel { position: fixed; top: 44px; right: 0; bottom: 0; width: 400px; max-width: 90vw; z-index: 30; background: var(--bg); border-left: 1px solid var(--line); box-shadow: -6px 0 22px rgba(0,0,0,.35); padding: 12px 14px; overflow: auto; max-height: none; }
+#linkPanel, #topicPanel, #outlinePanel { position: fixed; top: calc(44px - var(--hdoff, 0px)); right: 0; bottom: 0; width: 400px; max-width: 90vw; z-index: 30; background: var(--bg); border-left: 1px solid var(--line); box-shadow: -6px 0 22px rgba(0,0,0,.35); padding: 12px 14px; overflow: auto; max-height: none; }
 #linkPanel[hidden], #topicPanel[hidden], #outlinePanel[hidden] { display: none; }
-#topicPanel, #outlinePanel { top: 44px; width: var(--cmt-w, 400px); }
-#tpResize { position: fixed; top: 44px; bottom: 0; right: var(--cmt-w, 400px); width: 8px; margin-right: -4px; cursor: col-resize; z-index: 31; }
+#topicPanel, #outlinePanel { top: calc(44px - var(--hdoff, 0px)); width: var(--cmt-w, 400px); }
+#tpResize { position: fixed; top: calc(44px - var(--hdoff, 0px)); bottom: 0; right: var(--cmt-w, 400px); width: 8px; margin-right: -4px; cursor: col-resize; z-index: 31; }
 #tpResize[hidden] { display: none; }
 #tpResize:hover, html.cmt-dragging #tpResize { background: rgba(120,160,255,.35); }
 html.split #tpResize { right: calc(var(--p2w) + var(--cmt-w, 400px)); }
@@ -224,7 +224,7 @@ html.split #tpResize { right: calc(var(--p2w) + var(--cmt-w, 400px)); }
 ::highlight(find-active) { background: rgba(255, 140, 0, .85); color: inherit; }
 
 /* Kommentar-Bereich (rechts angedockt, schiebt den Text zur Seite) */
-#cmtPanel { position: fixed; top: 57px; right: var(--cmt-off, 0px); bottom: 0; width: var(--cmt-w, 400px); max-width: 90vw; z-index: 20; background: var(--bg); border-left: 1px solid var(--line); padding: 0 14px 14px; overflow: auto; max-height: none; }
+#cmtPanel { position: fixed; top: calc(57px - var(--hdoff, 0px)); right: var(--cmt-off, 0px); bottom: 0; width: var(--cmt-w, 400px); max-width: 90vw; z-index: 20; background: var(--bg); border-left: 1px solid var(--line); padding: 0 14px 14px; overflow: auto; max-height: none; }
 #cmtPanel[hidden] { display: none; }
 body.dock-open main { max-width: none; margin: 0; padding-left: 14px; } /* Kommentarleiste offen: Lesebereich links bündig statt mittig zentriert */
 body.dock-open #tab-read .layout { margin-right: calc(var(--dock-w, var(--cmt-w, 400px)) + 20px); }
@@ -384,7 +384,7 @@ dialog { background: var(--card); color: var(--fg); border: 1px solid var(--line
 #startGuide ol, .startGuide ol { margin: 0 0 10px; padding-left: 22px; line-height: 1.7; }
 
 /* Kommentarleiste: Breite per Ziehen, Schriftgröße per A−/A+ */
-#cmtResize { position: fixed; top: 57px; bottom: 0; right: calc(var(--cmt-off, 0px) + var(--cmt-w, 400px)); width: 8px; margin-right: -4px; cursor: col-resize; z-index: 21; }
+#cmtResize { position: fixed; top: calc(57px - var(--hdoff, 0px)); bottom: 0; right: calc(var(--cmt-off, 0px) + var(--cmt-w, 400px)); width: 8px; margin-right: -4px; cursor: col-resize; z-index: 21; }
 #cmtResize[hidden] { display: none; }
 #cmtResize:hover, html.cmt-dragging #cmtResize { background: rgba(120,160,255,.35); }
 html.cmt-dragging { user-select: none; cursor: col-resize; }
@@ -420,7 +420,7 @@ dialog .dclose:hover { background: color-mix(in srgb, var(--text, #888) 14%, tra
 .dli button { border: 0; background: none; cursor: pointer; color: var(--muted); }
 
 /* Wörterbuch-Leiste: rechts wie die Kommentarleiste; ist sie offen, teilen sich beide die Spalte (Kommentare oben, Wörterbuch unten) */
-#dictPanel { max-height: none; position: fixed; top: 57px; right: var(--cmt-off, 0px); bottom: 0; width: var(--cmt-w, 400px); max-width: 90vw; z-index: 20; background: var(--bg); border-left: 1px solid var(--line); padding: 0 14px 0; overflow: hidden; display: flex; flex-direction: column; }
+#dictPanel { max-height: none; position: fixed; top: calc(57px - var(--hdoff, 0px)); right: var(--cmt-off, 0px); bottom: 0; width: var(--cmt-w, 400px); max-width: 90vw; z-index: 20; background: var(--bg); border-left: 1px solid var(--line); padding: 0 14px 0; overflow: hidden; display: flex; flex-direction: column; }
 #dictPanel[hidden] { display: none; }
 /* Kopf (Titel, Eingabe, Tabs) bleibt stehen, nur die Treffer scrollen */
 #dictHead { flex: none; display: block; padding-top: 6px; }
@@ -433,7 +433,7 @@ dialog .dclose:hover { background: color-mix(in srgb, var(--text, #888) 14%, tra
 body.cmt-open.dict-open #dictPanel { top: auto; height: var(--dict-h, 42%); border-top: 2px solid var(--line); }
 body.cmt-open.dict-open #cmtPanel { bottom: var(--dict-h, 42%); }
 /* Kommentar und Wörterbuch zusammen: als Reiter (volle Höhe, umschaltbar) oder untereinander mit verschiebbarem Trenner */
-#stackBar { position: fixed; top: 57px; right: var(--cmt-off, 0px); width: var(--cmt-w, 400px); max-width: 90vw; height: 36px; box-sizing: border-box; z-index: 31; display: flex; gap: 4px; align-items: center; padding: 3px 14px; background: var(--bg); border-left: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+#stackBar { position: fixed; top: calc(57px - var(--hdoff, 0px)); right: var(--cmt-off, 0px); width: var(--cmt-w, 400px); max-width: 90vw; height: 36px; box-sizing: border-box; z-index: 31; display: flex; gap: 4px; align-items: center; padding: 3px 14px; background: var(--bg); border-left: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 #stackBar[hidden], #stackSplit[hidden] { display: none; }
 #stackBar button.on { background: color-mix(in srgb, var(--accent) 22%, transparent); font-weight: 600; }
 #stackBar #stkMode { margin-left: auto; }
@@ -505,7 +505,7 @@ body.stack-split #dictPanel:not(.more) :is(#dictFullL, #dictNoteMode, #dictStar,
 
 /* Reiter „Wörterbuch“: volle Breite */
 html[data-tab=dict] #dictPanel { left: 0; right: 0; width: auto; max-width: none; border-left: 0; padding: 0 max(14px, 12vw) 0; }
-html[data-tab=dict] body.cmt-open.dict-open #dictPanel { top: 57px; height: auto; border-top: 0; }
+html[data-tab=dict] body.cmt-open.dict-open #dictPanel { top: calc(57px - var(--hdoff, 0px)); height: auto; border-top: 0; }
 html[data-tab=dict] #cmtPanel, html[data-tab=dict] #cmtResize { display: none; }
 
 /* Wörterbuch-Tabs: nur im Reiter „Wörterbuch“ */
@@ -778,7 +778,7 @@ img.g, #rOut img.g, #cmtBody img.g, .sres img.g { display: inline; height: 1.35e
 .row.cmtrow .lab, .row.mismatch .lab, .sread .row.sh.cmtrow .lab { padding-left: 6px; }
 
 /* Karte (OpenBible-Orte auf Höhenmodell-Relief) */
-#mapPanel { position: fixed; top: 44px; right: 0; bottom: 0; width: min(640px, 92vw); z-index: 30; background: var(--bg); border-left: 1px solid var(--line); box-shadow: -6px 0 22px rgba(0,0,0,.35); padding: 10px 12px; display: flex; flex-direction: column; gap: 8px; }
+#mapPanel { position: fixed; top: calc(44px - var(--hdoff, 0px)); right: 0; bottom: 0; width: min(640px, 92vw); z-index: 30; background: var(--bg); border-left: 1px solid var(--line); box-shadow: -6px 0 22px rgba(0,0,0,.35); padding: 10px 12px; display: flex; flex-direction: column; gap: 8px; }
 #mapPanel[hidden] { display: none; }
 html.split #mapPanel { right: var(--p2w); }
 #mapPanel .lhead { display: flex; align-items: center; gap: 12px; }
@@ -848,7 +848,7 @@ html.split #mapPanel { right: var(--p2w); }
 #mapOl { margin-inline: 8px; font-size: 12px; }
 
 /* angepinnte Fenster: rechts neben dem Haupttext, wie Kommentare und Wörterbuch */
-#linkPanel.docked, #topicPanel.docked, #outlinePanel.docked, #mapPanel.docked { top: 57px; right: var(--cmt-off, 0px); box-shadow: none; z-index: 20; }
+#linkPanel.docked, #topicPanel.docked, #outlinePanel.docked, #mapPanel.docked { top: calc(57px - var(--hdoff, 0px)); right: var(--cmt-off, 0px); box-shadow: none; z-index: 20; }
 #linkPanel.docked, #topicPanel.docked, #outlinePanel.docked { width: var(--cmt-w, 400px); }
 #cmtPanel.pinp:not(.docked), #dictPanel.pinp:not(.docked) { z-index: 30; box-shadow: -6px 0 22px rgba(0,0,0,.35); }
 .lhead .pinB, .pinB { width: 26px; height: 24px; display: inline-flex; align-items: center; justify-content: center; margin: 0 4px 0 auto; padding: 0; border: 0; border-radius: 6px; background: none; color: #9a9a9f; cursor: pointer; }
@@ -959,7 +959,7 @@ body.stack-split #cmtHead .bar button, body.stack-split #cmtHead .bar select { p
 body.stack-split #cmtHead .bar label { white-space: nowrap; }
 /* Breites Fenster: nebeneinander statt untereinander */
 body.cmt-open.dict-open.stack-side #cmtPanel { bottom: 0; }
-body.cmt-open.dict-open.stack-side #dictPanel { top: 57px; bottom: 0; height: auto; border-top: 0; right: calc(var(--cmt-off, 0px) + var(--cmt-w, 400px)); }
+body.cmt-open.dict-open.stack-side #dictPanel { top: calc(57px - var(--hdoff, 0px)); bottom: 0; height: auto; border-top: 0; right: calc(var(--cmt-off, 0px) + var(--cmt-w, 400px)); }
 body.stack-side { --dock-w: calc(2 * var(--cmt-w, 400px)); }
 body.dock-open.stack-side #tab-read .layout { margin-right: calc(2 * var(--cmt-w, 400px) + 20px); }
 /* Abgeschnittene Zeilen unter den festen Köpfen sanft ausblenden statt halbe Buchstaben zu zeigen */
@@ -1090,3 +1090,13 @@ body.mar-narrow.dock-open.stack-side #tab-read .layout { margin-right: calc(2 * 
 
 /* Kapitälchen (Goldschmidt-Mischna u. a.): wie gedruckt, nicht blass */
 #rOut .sc, .sc { font-variant: small-caps; color: inherit; }
+
+/* Kopfbereich schlanker (A–D) */
+.row.head > div { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+body.head-stick .row.head { position: sticky; }
+header { padding-top: 2px; padding-bottom: 2px; transition: transform .18s ease; }
+header button, nav button { padding-top: 2px; padding-bottom: 2px; }
+#stick { padding-top: 2px; margin-top: -2px; }
+#stick .bar.compact { margin-bottom: 2px; }
+body.hd-hidden header { transform: translateY(-100%); pointer-events: none; }
+body.hd-hidden { --hdoff: var(--hdh, 0px); }

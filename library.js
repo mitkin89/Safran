@@ -54,6 +54,7 @@
     $$('nav button').forEach(b => b.classList.toggle('active', b.dataset.tab === t));
     $$('main > section').forEach(s => (s.hidden = s.id !== 'tab-' + t));
     document.documentElement.dataset.tab = t;
+    if (t !== 'read' && typeof window.hdShow === 'function') window.hdShow();
     dictPlace();
     try { renderTabs(); } catch { /* beim ersten Aufruf sind die Tabs noch nicht angelegt */ } // Fenstertitel neu setzen
     $('#togglePanel').hidden = t !== 'read'; // die Bücherliste gibt es nur im Reiter „Lesen“
@@ -638,9 +639,9 @@
     document.body.classList.toggle('multicol', n >= 2); // schmaler Rand: ab zwei Spalten volle Fensterbreite
     const headTip = esc(I18N.t('Klicken: verfügbare Texte dieser Sprache auswählen'));
     const head = byLang
-      ? `<div class="row head" style="--n:${n}"><div class="lab"></div>${groupsL.map(g => `<div data-ci="${g.idx[0]}"${g.idx.length > 1 ? ' data-multi="1"' : ''} title="${headTip}">${esc(g.idx.length === 1 ? KIND_LABEL[g.k] + ' · ' + shortVer(view.loaded[g.idx[0]].versionTitle) : KIND_LABEL[g.k] + ' (' + g.idx.length + ')')}</div>`).join('')}</div>`
+      ? `<div class="row head" style="--n:${n}"><div class="lab"></div>${groupsL.map(g => `<div data-ci="${g.idx[0]}"${g.idx.length > 1 ? ' data-multi="1"' : ''} title="${esc(g.idx.map(i => view.loaded[i].versionTitle || '').join(' / '))}&#10;${headTip}">${esc(g.idx.length === 1 ? KIND_LABEL[g.k] + ' · ' + shortVer(view.loaded[g.idx[0]].versionTitle) : KIND_LABEL[g.k] + ' (' + g.idx.length + ')')}</div>`).join('')}</div>`
       : `<div class="row head" style="--n:${n}"><div class="lab"></div>${vis.map(i => view.loaded[i]).map(d =>
-      `<div title="${headTip}">${esc(KIND_LABEL[d.entry.kind])} · ${esc(shortVer(d.versionTitle))}</div>`).join('')}</div>`;
+      `<div title="${esc(KIND_LABEL[d.entry.kind] + ' · ' + (d.versionTitle || ''))}&#10;${headTip}">${esc(KIND_LABEL[d.entry.kind])} · ${esc(shortVer(d.versionTitle))}</div>`).join('')}</div>`;
     const langCells = r => groupsL.map(g => {
       const full = g.idx.filter(i => r.cells[i] != null);
       if (!full.length) return '<div class="cell empty"></div>';
@@ -2529,10 +2530,27 @@
   const fixStick = () => {
     const st = $('#stick'), hd = $('header');
     if (!st || !hd) return;
-    const hh = hd.offsetHeight;
+    const hh = document.body.classList.contains('hd-hidden') ? 0 : hd.offsetHeight;
+    document.documentElement.style.setProperty('--hdh', hd.offsetHeight + 'px');
     $('#rOut').style.setProperty('--stick-top', (hh + st.offsetHeight - 4) + 'px');
     st.style.top = hh + 'px';
   };
+  // Tableiste beim Lesen ausblenden (Anzeige → „Tabs beim Scrollen ausblenden“): nach unten scrollen blendet sie aus,
+  // nach oben scrollen, Maus an den oberen Rand, Seitenanfang oder ein anderer Reiter als „Lesen“ holen sie zurück
+  let hdLastY = window.scrollY;
+  const hdSet = hide => {
+    if (document.body.classList.contains('hd-hidden') === hide) return;
+    document.body.classList.toggle('hd-hidden', hide); fixStick();
+  };
+  const hdAllowed = () => disp.hideTabs && (document.documentElement.dataset.tab || 'read') === 'read';
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY, dy = y - hdLastY; hdLastY = y;
+    if (!hdAllowed() || y < 60) { hdSet(false); return; }
+    if (dy > 6) hdSet(true); else if (dy < -6) hdSet(false);
+  }, { passive: true });
+  document.addEventListener('mousemove', e => { if (e.clientY < 8 && document.body.classList.contains('hd-hidden')) hdSet(false); }, { passive: true });
+  document.addEventListener('keydown', e => { if ((e.metaKey || e.ctrlKey) && /^(t|w|[1-9]|Tab)$/.test(e.key)) hdSet(false); });
+  window.hdShow = () => hdSet(false);
   new ResizeObserver(fixStick).observe($('#stick'));
   new ResizeObserver(fixStick).observe($('header'));
 
@@ -3979,7 +3997,7 @@
 
 
   // ---------- Anzeigeoptionen ----------
-  const DISP0 = { he: 1.3, en: 1, de: 1, niq: false, can: false, shr: true, mar: 'normal' };
+  const DISP0 = { he: 1.3, en: 1, de: 1, niq: false, can: false, shr: true, mar: 'normal', hideTabs: true, headStick: false };
   let disp = { ...DISP0 };
   try { disp = { ...DISP0, ...JSON.parse(localStorage.getItem('disp') || '{}') }; } catch { /* egal */ }
   const stripHe = h => {
@@ -3993,6 +4011,8 @@
     $('#dHe').value = disp.he; $('#dEn').value = disp.en; $('#dDe').value = disp.de;
     $('#dNiq').checked = disp.niq; $('#dCan').checked = disp.can; $('#dShr').checked = !!disp.shr; $('#dOlIn').checked = olInlineOn();
     document.body.classList.toggle('dock-shrink', !!disp.shr);
+    document.body.classList.toggle('head-stick', !!disp.headStick); if ($('#dHdSt')) $('#dHdSt').checked = !!disp.headStick;
+    if ($('#dHideTabs')) $('#dHideTabs').checked = !!disp.hideTabs; if (!disp.hideTabs && typeof window.hdShow === 'function') window.hdShow();
     document.body.classList.toggle('mar-narrow', disp.mar === 'narrow'); if ($('#dMar')) $('#dMar').value = disp.mar === 'narrow' ? 'narrow' : 'normal';
     try { localStorage.setItem('disp', JSON.stringify(disp)); } catch { /* egal */ }
     if (rerender && view && view.group) { // Position beim Umschalten behalten: dieselbe Zeile bleibt an derselben Stelle (ohne Vokale sind die Zeilen niedriger, die reine Pixelposition würde springen)
@@ -4014,6 +4034,8 @@
     if (id === 'dCan') disp.can = e.target.checked;
     if (id === 'dShr') disp.shr = e.target.checked;
     if (id === 'dMar') disp.mar = e.target.value;
+    if (id === 'dHideTabs') disp.hideTabs = e.target.checked;
+    if (id === 'dHdSt') disp.headStick = e.target.checked;
     if (id === 'dOlIn') { try { localStorage.setItem('olInline', e.target.checked ? '1' : '0'); } catch { /* egal */ } withAnchor(() => olInline()); return; }
     applyDisp(id === 'dNiq' || id === 'dCan');
   });
