@@ -228,7 +228,7 @@ html.split #tpResize { right: calc(var(--p2w) + var(--cmt-w, 400px)); }
 #cmtPanel[hidden] { display: none; }
 body.dock-open main { max-width: none; margin: 0; padding-left: 14px; } /* Kommentarleiste offen: Lesebereich links bündig statt mittig zentriert */
 body.dock-open #tab-read .layout { margin-right: calc(var(--dock-w, var(--cmt-w, 400px)) + 20px); }
-#cmtHead { position: sticky; top: 0; z-index: 3; background: var(--bg); padding: 10px 0 8px; border-bottom: 1px solid var(--line); margin-bottom: 4px; }
+#cmtHead { position: sticky; top: 0; z-index: 3; background: var(--bg); padding: 10px 0 8px; border-bottom: 1px solid var(--line); margin-bottom: 0; }
 #cmtHead .lhead { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
 #cmtHead .bar { margin: 0 0 6px; }
 #cmtChips { display: flex; flex-wrap: wrap; gap: 4px; }
@@ -265,8 +265,8 @@ body.dock-open #tab-read .layout { margin-right: calc(var(--dock-w, var(--cmt-w,
 #cmtChips .cq input { flex: 1 1 110px; min-width: 90px; font-size: 12px; padding: 2px 8px; }
 #cmtChips .chip[hidden] { display: none; }
 .cx { font-size: 10px; opacity: .65; font-weight: 400; }
-.cmt { scroll-margin-top: calc(var(--cmt-head-h, 120px) + 10px); margin-bottom: 18px; padding-bottom: 12px; }
-.cmt h4 { position: sticky; top: calc(var(--cmt-head-h, 120px) + 4px); z-index: 2; background: var(--bg); padding: 4px 0; margin-bottom: 10px; user-select: none; } /* +4px: unterer Rand von #cmtHead, sonst rutscht der Name halb darunter */
+.cmt { scroll-margin-top: calc(var(--cmt-head-h, 120px) + 4px); margin-bottom: 18px; padding-bottom: 12px; }
+.cmt h4 { position: sticky; top: var(--cmt-head-h, 120px); z-index: 2; background: var(--bg); padding: 4px 0; margin-bottom: 10px; user-select: none; }
 .cmt h4 .tg { display: inline-block; width: 1em; color: var(--muted); }
 .cmt h4 .go { float: right; padding: 0 6px; color: var(--muted); }
 .cmt h4 .go:hover { color: var(--accent); }
