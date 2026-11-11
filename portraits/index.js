@@ -19,6 +19,8 @@ window.PORTRAITS = [
   { match: 'Zunz', img: 'zunz.jpg', name: 'Leopold Zunz (1794–1886)' },
   { match: 'Wünsche', img: 'wuensche.jpg', name: 'August Wünsche (1838–1912)' },
   { match: 'Hoffmann', img: 'hoffmann.jpg', name: 'David Zvi Hoffmann (1843–1921)' },
+  { match: 'Malbim', img: 'malbim.jpg', name: 'Malbim – Meir Leibusch Weisser (1809–1879)' },
+  { match: 'מלבי"ם', img: 'malbim.jpg', name: 'Malbim – Meir Leibusch Weisser (1809–1879)' },
   { match: 'Rawicz', img: 'rawicz.jpg', name: 'Victor Meyer Rawicz (1846–1915)' },
   { match: 'Hildesheimer', img: 'hildesheimer.jpg', name: 'Esriel Hildesheimer (1820–1899)' },
   { match: 'Bamberger', img: 'bamberger.jpg', name: 'Selig Pinchas Bamberger' },
