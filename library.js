@@ -54,7 +54,7 @@
     $$('nav button').forEach(b => b.classList.toggle('active', b.dataset.tab === t));
     $$('main > section').forEach(s => (s.hidden = s.id !== 'tab-' + t));
     document.documentElement.dataset.tab = t;
-    if (typeof window.hdShow === 'function') window.hdShow(); // beim Reiterwechsel ist die Tableiste immer zu sehen
+    if (prevTab !== t && typeof window.hdShow === 'function') window.hdShow(); // beim Reiterwechsel ist die Tableiste immer zu sehen (Kapitelwechsel im selben Reiter lässt sie, wie sie ist)
     dictPlace();
     try { renderTabs(); } catch { /* beim ersten Aufruf sind die Tabs noch nicht angelegt */ } // Fenstertitel neu setzen
     $('#togglePanel').hidden = t !== 'read'; // die Bücherliste gibt es nur im Reiter „Lesen“
@@ -2574,9 +2574,9 @@
   document.addEventListener('mousedown', e => { if (e.clientX > document.documentElement.clientWidth - 2 || (e.target.id === 'dictOut' && e.offsetX > e.target.clientWidth)) hdDrag = true; });
   document.addEventListener('mouseup', () => { hdDrag = false; });
   const hdScroll = (y, dy) => {
-    if (!hdAllowed() || y < 60) { hdSet(false); return; }
-    if (!hdDrag && Date.now() - hdUser > 400) return; // programmatischer Sprung
-    if (dy > 6) hdSet(true); else if (dy < -6) hdSet(false);
+    if (!hdAllowed()) { hdSet(false); return; }
+    if (!hdDrag && Date.now() - hdUser > 400) return; // programmatischer Sprung (z. B. Kapitelwechsel): Leiste bleibt, wie sie ist
+    if (y < 60 || dy < -6) hdSet(false); else if (dy > 6) hdSet(true);
   };
   window.addEventListener('scroll', () => {
     const y = window.scrollY, dy = y - hdLastY; hdLastY = y;
@@ -2592,6 +2592,8 @@
   // kein Einblenden beim Darüberfahren mit der Maus: die Leiste würde plötzlich unter dem Mauszeiger erscheinen und Fehlklicks auslösen – nur beim Hochscrollen
   document.addEventListener('keydown', e => { if ((e.metaKey || e.ctrlKey) && /^(t|w|[1-9]|Tab)$/.test(e.key)) hdSet(false); });
   window.hdShow = () => hdSet(false);
+  // ganz oben gibt es kein Scroll-Ereignis mehr: Hochscrollen mit Mausrad/Trackpad holt die Leiste dort trotzdem zurück
+  window.addEventListener('wheel', e => { if (e.deltaY < 0 && hdTab() === 'read' && window.scrollY < 60) hdSet(false); }, { passive: true });
   new ResizeObserver(fixStick).observe($('#stick'));
   new ResizeObserver(fixStick).observe($('header'));
 
