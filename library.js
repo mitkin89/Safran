@@ -1906,8 +1906,8 @@
     window.__olClicked = p.dataset.r; // der angeklickte Punkt bleibt bei überlappenden Unterpunkten markiert
     { // dreistufige Zählung (z. B. Ginzbergs Legenden, Band:Kapitel:Absatz): Abschnitt [Band, Kapitel] öffnen und zum Absatz scrollen
       const m3 = String(p.dataset.r).match(/^(\d+):(\d+):(\d+)$/);
-      let idx = m3 && view && view.sections ? view.sections.findIndex(s => s.path && s.path.length === 2 && s.path[0] === +m3[1] - 1 && s.path[1] === +m3[2] - 1) : -1;
-      const byVol = idx < 0 && m3 && view && view.sections ? view.sections.findIndex(s => s.path && s.path.length === 1 && s.path[0] === +m3[1] - 1) : -1; // Abschnitt = Band, Zeilen „Kapitel:Absatz“
+      let idx = m3 && view && view.sections ? view.sections.findIndex(s => { const q = (s.path || []).filter(x => typeof x === 'number'); return q.length === 2 && q[0] === +m3[1] - 1 && q[1] === +m3[2] - 1; }) : -1;
+      const byVol = idx < 0 && m3 && view && view.sections ? view.sections.findIndex(s => { const q = (s.path || []).filter(x => typeof x === 'number'); return q.length === 1 && q[0] === +m3[1] - 1; }) : -1; // Abschnitt = Band, Zeilen „Kapitel:Absatz“
       if (byVol >= 0) idx = byVol;
       if (idx >= 0) {
         const want = byVol >= 0 ? m3[2] + ':' + m3[3] : null;
