@@ -1081,3 +1081,9 @@ body.stack-split #dictHead #dictQ { min-width: 80px; }
 #vpicPop { position: fixed; z-index: 10000; width: 240px; pointer-events: none; background: var(--bg); border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 10px 34px rgba(0,0,0,.45); padding: 8px; text-align: center; }
 #vpicPop img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px; display: block; }
 #vpicPop div { margin-top: 6px; font-size: 13px; color: var(--fg); line-height: 1.3; }
+
+/* Seitenrand „schmal“ (Anzeige): weniger Innenabstand; ab zwei Spalten keine Breitenbegrenzung */
+body.mar-narrow main, body.mar-narrow.dock-open main { padding-left: 6px; padding-right: 6px; }
+body.mar-narrow.multicol main { max-width: none; }
+body.mar-narrow.dock-open #tab-read .layout { margin-right: calc(var(--dock-w, var(--cmt-w, 400px)) + 8px); }
+body.mar-narrow.dock-open.stack-side #tab-read .layout { margin-right: calc(2 * var(--cmt-w, 400px) + 8px); }

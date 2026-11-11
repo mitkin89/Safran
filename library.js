@@ -635,6 +635,7 @@
     const byLang = layoutMode === 'lang';
     const groupsL = byLang ? LANG_ORDER.map(k => ({ k, idx: vis.filter(i => langKind(view.loaded[i]) === k) })).filter(g => g.idx.length) : null;
     const n = byLang ? groupsL.length : vis.length;
+    document.body.classList.toggle('multicol', n >= 2); // schmaler Rand: ab zwei Spalten volle Fensterbreite
     const headTip = esc(I18N.t('Klicken: verfügbare Texte dieser Sprache auswählen'));
     const head = byLang
       ? `<div class="row head" style="--n:${n}"><div class="lab"></div>${groupsL.map(g => `<div data-ci="${g.idx[0]}"${g.idx.length > 1 ? ' data-multi="1"' : ''} title="${headTip}">${esc(g.idx.length === 1 ? KIND_LABEL[g.k] + ' · ' + shortVer(view.loaded[g.idx[0]].versionTitle) : KIND_LABEL[g.k] + ' (' + g.idx.length + ')')}</div>`).join('')}</div>`
@@ -3978,7 +3979,7 @@
 
 
   // ---------- Anzeigeoptionen ----------
-  const DISP0 = { he: 1.3, en: 1, de: 1, niq: false, can: false, shr: true };
+  const DISP0 = { he: 1.3, en: 1, de: 1, niq: false, can: false, shr: true, mar: 'normal' };
   let disp = { ...DISP0 };
   try { disp = { ...DISP0, ...JSON.parse(localStorage.getItem('disp') || '{}') }; } catch { /* egal */ }
   const stripHe = h => {
@@ -3992,6 +3993,7 @@
     $('#dHe').value = disp.he; $('#dEn').value = disp.en; $('#dDe').value = disp.de;
     $('#dNiq').checked = disp.niq; $('#dCan').checked = disp.can; $('#dShr').checked = !!disp.shr; $('#dOlIn').checked = olInlineOn();
     document.body.classList.toggle('dock-shrink', !!disp.shr);
+    document.body.classList.toggle('mar-narrow', disp.mar === 'narrow'); if ($('#dMar')) $('#dMar').value = disp.mar === 'narrow' ? 'narrow' : 'normal';
     try { localStorage.setItem('disp', JSON.stringify(disp)); } catch { /* egal */ }
     if (rerender && view && view.group) { // Position beim Umschalten behalten: dieselbe Zeile bleibt an derselben Stelle (ohne Vokale sind die Zeilen niedriger, die reine Pixelposition würde springen)
       const top = $('#stick') ? $('#stick').getBoundingClientRect().bottom : 0;
@@ -4011,6 +4013,7 @@
     if (id === 'dNiq') disp.niq = e.target.checked;
     if (id === 'dCan') disp.can = e.target.checked;
     if (id === 'dShr') disp.shr = e.target.checked;
+    if (id === 'dMar') disp.mar = e.target.value;
     if (id === 'dOlIn') { try { localStorage.setItem('olInline', e.target.checked ? '1' : '0'); } catch { /* egal */ } withAnchor(() => olInline()); return; }
     applyDisp(id === 'dNiq' || id === 'dCan');
   });
