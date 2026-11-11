@@ -161,7 +161,13 @@ function cleanHtml(s) {
     }
     const fn = t === 'sup' && m.match(/^<sup\s+data-fn="(\d{1,4})"\s*>$/);
     return fn ? `<sup data-fn="${fn[1]}">` : `<${t}>`;
-  });
+  }).replace(/<small>([^<]*)<\/small>/g, smallCaps);
+}
+// Nachgebaute Kapitälchen (Sefaria, z. B. Goldschmidt: „S<small>CHRIEB ER</small>“) -> echte Kapitälchen: Kleinbuchstaben mit font-variant small-caps
+function smallCaps(m, inner) {
+  const letters = inner.replace(/&[a-z]+;|&#\d+;/gi, '').replace(/[^\p{L}]/gu, '');
+  if (letters.length < 1 || letters !== letters.toUpperCase() || letters === letters.toLowerCase()) return m;
+  return `<span class="sc">${inner.replace(/(&[a-z]+;|&#\d+;)|[^&]+/gi, (x, ent) => ent ? x : x.toLowerCase())}</span>`;
 }
 
 // Für die Suche: Tags und hebräische Vokal-/Betonungszeichen entfernen, kleinschreiben

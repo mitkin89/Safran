@@ -13,3 +13,7 @@ const n = R.splitFootnotes('a<sup class="footnote-marker">1</sup><i class="footn
 assert.deepStrictEqual(n.notes, [{ marker: '1', html: 'x <i>y</i> z' }]);
 assert.strictEqual(n.main, 'a<sup data-fn="0">1</sup> b');
 console.log('test17 ok');
+// Kapitälchen
+const c = R.cleanHtml('S<small>CHRIEB ER</small>: W<small>ENN DU</small> &amp;<small>C.</small> <small>klein</small>');
+assert.strictEqual(c, 'S<span class="sc">chrieb er</span>: W<span class="sc">enn du</span> &amp;<span class="sc">c.</span> <small>klein</small>');
+console.log('test17 Kapitälchen ok');

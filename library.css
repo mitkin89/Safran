@@ -1087,3 +1087,6 @@ body.mar-narrow main, body.mar-narrow.dock-open main { padding-left: 6px; paddin
 body.mar-narrow.multicol main { max-width: none; }
 body.mar-narrow.dock-open #tab-read .layout { margin-right: calc(var(--dock-w, var(--cmt-w, 400px)) + 8px); }
 body.mar-narrow.dock-open.stack-side #tab-read .layout { margin-right: calc(2 * var(--cmt-w, 400px) + 8px); }
+
+/* Kapitälchen (Goldschmidt-Mischna u. a.): wie gedruckt, nicht blass */
+#rOut .sc, .sc { font-variant: small-caps; color: inherit; }
