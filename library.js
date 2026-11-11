@@ -1774,7 +1774,11 @@
         }
         if (cont.length) { const a = put.get(rows[0]) || []; put.set(rows[0], [...cont.map(c => ({ ...c, cont: true })), ...a.filter(h => !cont.some(c => c.text === h.text))]); }
       } }
-    for (const [row, hs] of put) row.insertAdjacentHTML('beforebegin', hs.map(h => `<div class="olhead olh${Math.min(h.lvl, 3)}${h.cont ? ' olcont' : ''}" dir="auto">${esc(h.text)}${h.cont ? ` <small>(${esc(I18N.t('Fortsetzung'))})</small>` : ''}</div>`).join(''));
+    for (const [row, hs0] of put) {
+      // mehrere Unterpunkte derselben Ebene vor derselben Zeile (z. B. Frage und Antwort im selben Segment): in einer Zeile zusammenfassen
+      const hs = []; for (const h of hs0) { const last = hs[hs.length - 1]; if (last && h.lvl >= 2 && last.lvl === h.lvl && !last.cont && !h.cont) last.text += ' · ' + h.text; else hs.push({ ...h }); }
+      row.insertAdjacentHTML('beforebegin', hs.map(h => `<div class="olhead olh${Math.min(h.lvl, 3)}${h.cont ? ' olcont' : ''}" dir="auto">${esc(h.text)}${h.cont ? ` <small>(${esc(I18N.t('Fortsetzung'))})</small>` : ''}</div>`).join(''));
+    }
   }
   async function olInline() {
     const g = view && view.group;
