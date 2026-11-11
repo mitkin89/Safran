@@ -1906,9 +1906,12 @@
     window.__olClicked = p.dataset.r; // der angeklickte Punkt bleibt bei überlappenden Unterpunkten markiert
     { // dreistufige Zählung (z. B. Ginzbergs Legenden, Band:Kapitel:Absatz): Abschnitt [Band, Kapitel] öffnen und zum Absatz scrollen
       const m3 = String(p.dataset.r).match(/^(\d+):(\d+):(\d+)$/);
-      const idx = m3 && view && view.sections ? view.sections.findIndex(s => s.path && s.path.length === 2 && s.path[0] === +m3[1] - 1 && s.path[1] === +m3[2] - 1) : -1;
+      let idx = m3 && view && view.sections ? view.sections.findIndex(s => s.path && s.path.length === 2 && s.path[0] === +m3[1] - 1 && s.path[1] === +m3[2] - 1) : -1;
+      const byVol = idx < 0 && m3 && view && view.sections ? view.sections.findIndex(s => s.path && s.path.length === 1 && s.path[0] === +m3[1] - 1) : -1; // Abschnitt = Band, Zeilen „Kapitel:Absatz“
+      if (byVol >= 0) idx = byVol;
       if (idx >= 0) {
-        const goPar = () => { const r = $$('#rOut .row[data-l]').find(x => String(x.dataset.l).split(':').pop() === m3[3]); if (r) window.scrollBy(0, r.getBoundingClientRect().top - syncTop()); olMark(false); };
+        const want = byVol >= 0 ? m3[2] + ':' + m3[3] : null;
+        const goPar = () => { const r = $$('#rOut .row[data-l]').find(x => want ? String(x.dataset.l) === want : String(x.dataset.l).split(':').pop() === m3[3]); if (r) window.scrollBy(0, r.getBoundingClientRect().top - syncTop()); olMark(false); };
         if (idx !== view.idx || view.vf) { view.idx = idx; view.vf = null; renderSection(); requestAnimationFrame(goPar); } else goPar();
         return;
       }
