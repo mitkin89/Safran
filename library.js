@@ -5037,7 +5037,7 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
         }).join('');
       }).join('');
       const cl = cmtClosed.has(g.name);
-      return `<div class="cmt${cl ? ' closed' : ''}" data-n="${esc(g.name)}"><h4 data-ref="${esc(g.refs[0])}" title="Klick: Kommentar ein-/ausklappen · ↗: öffnet ${esc(g.book)} in einem neuen Tab · Rechtsklick: weitere Möglichkeiten"><span class="tg">${cl ? '▸' : '▾'}</span> ${(p => p ? `<img class="vpic" src="portraits/${encodeURIComponent(p.img)}" alt="" data-title="${esc(p.name || '')}" loading="lazy">` : '')(portraitOf(g.name) || portraitOf(g.book))}${esc(dispName(g.name))}${g.refs.length > 1 ? ` <small class="cx" title="Stellen zu diesem Vers">×${g.refs.length}</small>` : ''}<span class="go" title="Buch im neuen Tab öffnen">↗</span></h4>${parts}</div>`;
+      return `<div class="cmt${cl ? ' closed' : ''}" data-n="${esc(g.name)}"><h4 data-ref="${esc(g.refs[0])}" title="Klick: Kommentar ein-/ausklappen · ↗: öffnet ${esc(g.book)} in einem neuen Tab · Rechtsklick: weitere Möglichkeiten"><span class="tg">${cl ? '▸' : '▾'}</span> ${(p => p ? `<img class="vpic" src="portraits/${encodeURIComponent(p.img)}" alt="" data-title="${esc(p.name || '')}" loading="lazy">` : '')(portraitOf(g.name) || g.refs.map(r => res[r] && res[r].versionTitle && portraitOf(res[r].versionTitle)).find(Boolean) || portraitOf(g.book))}${esc(dispName(g.name))}${g.refs.length > 1 ? ` <small class="cx" title="Stellen zu diesem Vers">×${g.refs.length}</small>` : ''}<span class="go" title="Buch im neuen Tab öffnen">↗</span></h4>${parts}</div>`;
     }).join('') + gapNote;
     cmtRestoreTop();
     if (!fb.hidden && fTerm) runFind(fTerm, true); // Suche im Kommentar-Bereich nach dem Neuaufbau erneuern
