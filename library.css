@@ -1110,3 +1110,5 @@ body.hd-hidden { --hdoff: var(--hdh, 0px); }
 #headPop .hpt { font-weight: 600; }
 #headPop .hpn { color: var(--muted); margin-top: 4px; }
 #headPop .hph { color: var(--muted); font-size: 11.5px; margin-top: 8px; }
+html[data-tab=dict] #dictPanel { transition: top .18s ease; }
+html[data-tab=dict] #dictSaved .dsv { transition: top .18s ease; }

@@ -42,7 +42,7 @@
   // Wörterbuch-Reiter: Fläche beginnt direkt unter der Kopfzeile (Höhe hängt vom Fenster ab), in der Seitenleiste bleibt es beim festen Wert
   function dictPlace() {
     const p = document.getElementById('dictPanel'), h = document.querySelector('header');
-    const v = document.documentElement.dataset.tab === 'dict' && h ? Math.round(h.getBoundingClientRect().bottom) + 'px' : '';
+    const v = document.documentElement.dataset.tab === 'dict' && h ? (document.body.classList.contains('hd-hidden') ? 0 : Math.round(Math.max(0, h.offsetTop - window.scrollY) + h.offsetHeight)) + 'px' : ''; // ohne die Verschiebung beim Aus-/Einblenden; ausgeblendet = 0
     if (p) p.style.top = v;
     document.documentElement.style.setProperty('--dict-top', v || '57px');
   }
@@ -54,7 +54,7 @@
     $$('nav button').forEach(b => b.classList.toggle('active', b.dataset.tab === t));
     $$('main > section').forEach(s => (s.hidden = s.id !== 'tab-' + t));
     document.documentElement.dataset.tab = t;
-    if (t !== 'read' && typeof window.hdShow === 'function') window.hdShow();
+    if (typeof window.hdShow === 'function') window.hdShow(); // beim Reiterwechsel ist die Tableiste immer zu sehen
     dictPlace();
     try { renderTabs(); } catch { /* beim ersten Aufruf sind die Tabs noch nicht angelegt */ } // Fenstertitel neu setzen
     $('#togglePanel').hidden = t !== 'read'; // die Bücherliste gibt es nur im Reiter „Lesen“
@@ -2560,9 +2560,10 @@
   let hdLastY = window.scrollY;
   const hdSet = hide => {
     if (document.body.classList.contains('hd-hidden') === hide) return;
-    document.body.classList.toggle('hd-hidden', hide); fixStick();
+    document.body.classList.toggle('hd-hidden', hide); fixStick(); dictPlace();
   };
-  const hdAllowed = () => disp.hideTabs && (document.documentElement.dataset.tab || 'read') === 'read';
+  const hdTab = () => document.documentElement.dataset.tab || 'read';
+  const hdAllowed = () => disp.hideTabs && (hdTab() === 'read' || hdTab() === 'dict');
   // nur vom Nutzer ausgelöstes Scrollen zählt (Mausrad, Trackpad, Tasten, Scrollleiste) – Sprünge beim Tab-Wechsel oder Navigieren blenden nicht aus
   let hdUser = 0;
   const hdMark = () => { hdUser = Date.now(); };
@@ -2570,14 +2571,24 @@
   window.addEventListener('touchmove', hdMark, { passive: true });
   document.addEventListener('keydown', e => { if (/^(ArrowUp|ArrowDown|PageUp|PageDown|Home|End| )$/.test(e.key) && !/^(INPUT|TEXTAREA|SELECT)$/.test((e.target.tagName || ''))) hdMark(); });
   let hdDrag = false; // Scrollleiste gezogen
-  document.addEventListener('mousedown', e => { if (e.clientX > document.documentElement.clientWidth - 2) hdDrag = true; });
+  document.addEventListener('mousedown', e => { if (e.clientX > document.documentElement.clientWidth - 2 || (e.target.id === 'dictOut' && e.offsetX > e.target.clientWidth)) hdDrag = true; });
   document.addEventListener('mouseup', () => { hdDrag = false; });
-  window.addEventListener('scroll', () => {
-    const y = window.scrollY, dy = y - hdLastY; hdLastY = y;
+  const hdScroll = (y, dy) => {
     if (!hdAllowed() || y < 60) { hdSet(false); return; }
     if (!hdDrag && Date.now() - hdUser > 400) return; // programmatischer Sprung
     if (dy > 6) hdSet(true); else if (dy < -6) hdSet(false);
+  };
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY, dy = y - hdLastY; hdLastY = y;
+    if (hdTab() === 'read') hdScroll(y, dy);
   }, { passive: true });
+  // Reiter „Wörterbuch“: dort scrollt die Ergebnisliste selbst, nicht die Seite
+  let hdDictY = 0;
+  document.addEventListener('scroll', e => {
+    if (e.target.id !== 'dictOut' || hdTab() !== 'dict') return;
+    const y = e.target.scrollTop, dy = y - hdDictY; hdDictY = y;
+    hdScroll(y, dy);
+  }, { capture: true, passive: true });
   document.addEventListener('mousemove', e => { if (e.clientY < 8 && document.body.classList.contains('hd-hidden')) hdSet(false); }, { passive: true });
   document.addEventListener('keydown', e => { if ((e.metaKey || e.ctrlKey) && /^(t|w|[1-9]|Tab)$/.test(e.key)) hdSet(false); });
   window.hdShow = () => hdSet(false);
