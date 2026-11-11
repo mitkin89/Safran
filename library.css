@@ -973,8 +973,8 @@ body.dock-open #stick .bar.compact { flex-wrap: wrap; row-gap: 4px; }
 #dictOut .dentry .dhead { position: sticky; top: 26px; z-index: 2; margin: -8px -10px 4px; padding: 8px 10px 4px; border-radius: 6px 6px 0 0; background: color-mix(in srgb, hsl(var(--dh, 210) 55% 55%) 6%, var(--bg)); }
 #dictOut .dsec .dsr small { white-space: nowrap; }
 /* Herkunft des nachgeschlagenen Worts */
-#dictOut .dsrc { margin: 2px 0 6px; font-size: 12.5px; }
-#dictOut .dsrc a { color: var(--accent); cursor: pointer; font-weight: 600; }
+#dictOut div.dsrc { margin: 2px 0 6px; font-size: 12.5px; }
+#dictOut div.dsrc a { color: var(--accent); cursor: pointer; font-weight: 600; }
 ::highlight(dictsrc) { background-color: color-mix(in srgb, var(--accent) 35%, transparent); }
 #rOut .row.flash { background: color-mix(in srgb, var(--accent) 14%, transparent); transition: background .4s; }
 /* ruhigere Schrift: Links nur beim Überfahren unterstrichen, Hebräisch etwas größer, Zeilen nicht zu lang */
