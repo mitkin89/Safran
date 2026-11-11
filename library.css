@@ -589,7 +589,10 @@ nav button.sideopen .tabIcon { opacity: 1; }
 #ndExcerpt { white-space: pre-line; }
 header { z-index: 50; }
 #moreList { z-index: 60; }
-#verList { max-height: calc(100vh - 110px); overflow: auto; }
+#verList { max-height: calc(100vh - 110px); overflow: auto; width: min(620px, calc(100vw - 40px)); }
+#verList img.vpic { width: 34px; height: 34px; border-radius: 50%; object-fit: cover; vertical-align: middle; margin: 0 6px 0 4px; border: 1px solid var(--line); transition: transform .15s; }
+#verList img.vpic:hover { transform: scale(2.4); position: relative; z-index: 2; box-shadow: 0 4px 14px rgba(0,0,0,.4); }
+#verList label.haspic { padding: 3px 0; }
 
 .nitem .vchips { display: flex; flex-wrap: wrap; gap: 4px; margin: 4px 0 2px; }
 .nitem .vchip { border: 1px solid var(--line); background: none; color: var(--muted); border-radius: 999px; padding: 0 8px; font-size: 11px; max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; cursor: pointer; }

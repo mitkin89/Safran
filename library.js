@@ -462,11 +462,14 @@
     renderSection(target.rowLabel != null ? target.rowLabel : keepRow, target.rowLabel == null && keepRow != null && V.keepQuiet);
   }
 
+  // Kleine Bilder zu Versionen (Übersetzer, Ausgabe) – nur in der Versionsliste, nicht im Lesetext; Liste in portraits/index.js
+  const portraitOf = t => { const s = String(t || '').toLowerCase(); return (window.PORTRAITS || []).find(p => p.match && p.img && s.includes(String(p.match).toLowerCase())) || null; };
   function renderVersions() {
     const g = view.group;
     $('#verSummary').innerHTML = `<span class="vi">📚</span> Versionen ${view.selected.size}/${g.versions.length}`;
     const KN = { he: 'Hebräisch', en: 'Englisch', de: 'Deutsch', other: 'Andere' };
-    const itemH = v => `<label><input type="checkbox" data-rel="${esc(v.rel)}" ${view.selected.has(v.rel) ? 'checked' : ''}>${v.own ? '<span class="badge own">eigen</span>' : ''}${esc(shortVer(v.versionTitle))}${v.own ? ` <button class="ownc" data-csv="${esc(v.rel)}" title="Als Upload-CSV für Sefaria speichern (Ref,Text)">CSV</button>` : ''}${v.own && v.source ? ` <button class="ownr" data-rl="${esc(v.rel)}" title="Quelldatei neu einlesen (${esc(v.source)})">⟳</button>` : ''}${v.own ? ` <button class="ownx" data-rm="${esc(v.rel)}" title="Diesen eigenen Text entfernen">✕</button>` : ''}</label>`;
+    const pic = v => { const p = portraitOf(v.versionTitle); return p ? `<img class="vpic" src="portraits/${encodeURIComponent(p.img)}" alt="" title="${esc(p.name || '')}" loading="lazy">` : ''; };
+    const itemH = v => `<label${portraitOf(v.versionTitle) ? ' class="haspic"' : ''}><input type="checkbox" data-rel="${esc(v.rel)}" ${view.selected.has(v.rel) ? 'checked' : ''}>${pic(v)}${v.own ? '<span class="badge own">eigen</span>' : ''}${esc(shortVer(v.versionTitle))}${v.own ? ` <button class="ownc" data-csv="${esc(v.rel)}" title="Als Upload-CSV für Sefaria speichern (Ref,Text)">CSV</button>` : ''}${v.own && v.source ? ` <button class="ownr" data-rl="${esc(v.rel)}" title="Quelldatei neu einlesen (${esc(v.source)})">⟳</button>` : ''}${v.own ? ` <button class="ownx" data-rm="${esc(v.rel)}" title="Diesen eigenen Text entfernen">✕</button>` : ''}</label>`;
     $('#verList').innerHTML = ['he', 'en', 'de', 'other'].map(k => {
       const vs = g.versions.filter(v => (KN[v.kind] ? v.kind : 'other') === k);
       return vs.length ? `<div class="vgrp ${k}">${KN[k]}</div>` + vs.map(itemH).join('') : '';
