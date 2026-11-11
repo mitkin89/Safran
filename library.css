@@ -265,8 +265,8 @@ body.dock-open #tab-read .layout { margin-right: calc(var(--dock-w, var(--cmt-w,
 #cmtChips .cq input { flex: 1 1 110px; min-width: 90px; font-size: 12px; padding: 2px 8px; }
 #cmtChips .chip[hidden] { display: none; }
 .cx { font-size: 10px; opacity: .65; font-weight: 400; }
-.cmt { scroll-margin-top: calc(var(--cmt-head-h, 120px) + 6px); margin-bottom: 18px; padding-bottom: 12px; }
-.cmt h4 { position: sticky; top: var(--cmt-head-h, 120px); z-index: 2; background: var(--bg); padding: 4px 0; user-select: none; }
+.cmt { scroll-margin-top: calc(var(--cmt-head-h, 120px) + 10px); margin-bottom: 18px; padding-bottom: 12px; }
+.cmt h4 { position: sticky; top: calc(var(--cmt-head-h, 120px) + 4px); z-index: 2; background: var(--bg); padding: 6px 0; user-select: none; } /* +4px: unterer Rand von #cmtHead, sonst rutscht der Name halb darunter */
 .cmt h4 .tg { display: inline-block; width: 1em; color: var(--muted); }
 .cmt h4 .go { float: right; padding: 0 6px; color: var(--muted); }
 .cmt h4 .go:hover { color: var(--accent); }
@@ -594,7 +594,7 @@ header { z-index: 50; }
 #verList label.haspic { padding: 3px 0; }
 #dictList img.vpic, #dictOut .dsec img.vpic { width: 26px; height: 26px; border-radius: 50%; object-fit: cover; vertical-align: middle; margin: 0 6px 0 2px; border: 1px solid var(--line); cursor: zoom-in; }
 #dictOut .dsec img.vpic { width: 22px; height: 22px; }
-#cmtBody h4 img.vpic { display: inline-block; max-width: none; width: 24px; height: 24px; border-radius: 50%; object-fit: cover; vertical-align: middle; margin: -4px 6px -2px 0; border: 1px solid var(--line); cursor: zoom-in; }
+#cmtBody h4 img.vpic { display: inline-block; max-width: none; width: 24px; height: 24px; border-radius: 50%; object-fit: cover; vertical-align: middle; margin: -2px 6px 0 0; border: 1px solid var(--line); cursor: zoom-in; }
 #ctxMenu img.vpic { width: 24px; height: 24px; border-radius: 50%; object-fit: cover; vertical-align: middle; margin: -3px 7px -3px 0; border: 1px solid var(--line); }
 
 .nitem .vchips { display: flex; flex-wrap: wrap; gap: 4px; margin: 4px 0 2px; }

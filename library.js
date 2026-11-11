@@ -4948,7 +4948,7 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
     const P = $('#cmtPanel');
     const c = cmtKeepName ? $$('#cmtBody .cmt').find(x => x.dataset.n === cmtKeepName) : null;
     if (!c) { P.scrollTop = 0; return; }
-    const top = c.getBoundingClientRect().top - P.getBoundingClientRect().top + P.scrollTop - $('#cmtHead').offsetHeight - 4;
+    const top = c.getBoundingClientRect().top - P.getBoundingClientRect().top + P.scrollTop - $('#cmtHead').offsetHeight - 8;
     P.scrollTop = Math.max(0, top);
   }
   async function renderCmt() {
