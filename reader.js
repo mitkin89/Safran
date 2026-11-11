@@ -98,7 +98,8 @@ function alignRows(versions) {
 // (der Fußnotentext kann selbst <i>-Tags enthalten, deshalb wird die Verschachtelung gezählt)
 function splitFootnotes(html) {
   const s = String(html ?? '');
-  const markRe = /<sup[^>]*class="footnote-marker"[^>]*>(.*?)<\/sup>\s*<i[^>]*class="footnote"[^>]*>/g;
+  // Zeichen ohne „</sup>“ darin: ein Marker ohne folgende Fußnote (z. B. Goldschmidt Ketubot 51a „viii“) darf nicht bis zum nächsten Marker reichen
+  const markRe = /<sup[^>]*class="footnote-marker"[^>]*>((?:(?!<\/sup>)[\s\S])*?)<\/sup>\s*<i[^>]*class="footnote"[^>]*>/g;
   const notes = [];
   let main = '';
   let last = 0;
