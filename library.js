@@ -3162,7 +3162,7 @@
     let last = null;
     $('#dictOut').innerHTML = onlyBar + r.results.map((x, i) => {
       let sec = '';
-      if (x.dictId !== last) { last = x.dictId; sec = `<div class="dsec" style="--dh:${hue(x.dictId)}"><span>${esc(x.dict)}</span><span class="dsr"><button type="button" class="dlist" data-id="${esc(x.dictId)}" data-name="${esc(x.dict)}" title="Alle Stichwörter dieses Wörterbuchs als Liste">☰ Stichwörter</button><small>${cnt[x.dictId]} Treffer</small></span></div>`; }
+      if (x.dictId !== last) { last = x.dictId; sec = `<div class="dsec" style="--dh:${hue(x.dictId)}"><span>${(p => p ? `<img class="vpic" src="portraits/${encodeURIComponent(p.img)}" alt="" title="${esc(p.name || '')}" loading="lazy">` : '')(portraitOf(x.dict))}${esc(x.dict)}</span><span class="dsr"><button type="button" class="dlist" data-id="${esc(x.dictId)}" data-name="${esc(x.dict)}" title="Alle Stichwörter dieses Wörterbuchs als Liste">☰ Stichwörter</button><small>${cnt[x.dictId]} Treffer</small></span></div>`; }
       return `${sec}<div class="dentry" id="dentry${i}" style="--dh:${hue(x.dictId)}"><div class="dhead"><b dir="auto">${esc(x.head)}</b>${x.note ? ` <span class="muted">${esc(x.note)}</span>` : ''}</div><div class="dbody" dir="ltr">${heFix(/Gesenius/.test(x.dict || '') && window.GAbk ? window.GAbk.mark(x.html) : x.html)}</div></div>`;
     }).join('');
     $('#dictOut').scrollTop = 0;
@@ -3271,7 +3271,7 @@
   async function renderDictList() {
     const r = await O.dictList(), list = r.list || [];
     if (dictSel) { dictSel = dictSel.filter(id => list.some(d => d.id === id)); if (!dictSel.length) dictSel = null; }
-    $('#dictList').innerHTML = list.length ? list.map((d, i) => `<div class="dli"><label class="dsl"><input type="checkbox" data-id="${esc(d.id)}"${!dictSel || dictSel.includes(d.id) ? ' checked' : ''}><span class="dsn">${esc(d.name)}</span><small>${d.count.toLocaleString(I18N.loc)}</small></label><span class="dbtns"><button data-mv="-1" data-id="${esc(d.id)}" title="Nach oben (wird zuerst angezeigt)"${i === 0 ? ' disabled' : ''}>▲</button><button data-mv="1" data-id="${esc(d.id)}" title="Nach unten"${i === list.length - 1 ? ' disabled' : ''}>▼</button><button data-rm="1" data-id="${esc(d.id)}" title="Wörterbuch entfernen">✕</button></span></div>`).join('') : '<p class="muted">Noch keine Wörterbücher.</p>';
+    $('#dictList').innerHTML = list.length ? list.map((d, i) => `<div class="dli"><label class="dsl"><input type="checkbox" data-id="${esc(d.id)}"${!dictSel || dictSel.includes(d.id) ? ' checked' : ''}>${(p => p ? `<img class="vpic" src="portraits/${encodeURIComponent(p.img)}" alt="" title="${esc(p.name || '')}" loading="lazy">` : '')(portraitOf(d.name))}<span class="dsn">${esc(d.name)}</span><small>${d.count.toLocaleString(I18N.loc)}</small></label><span class="dbtns"><button data-mv="-1" data-id="${esc(d.id)}" title="Nach oben (wird zuerst angezeigt)"${i === 0 ? ' disabled' : ''}>▲</button><button data-mv="1" data-id="${esc(d.id)}" title="Nach unten"${i === list.length - 1 ? ' disabled' : ''}>▼</button><button data-rm="1" data-id="${esc(d.id)}" title="Wörterbuch entfernen">✕</button></span></div>`).join('') : '<p class="muted">Noch keine Wörterbücher.</p>';
     const B = $('#dictSelB'); if (B) B.innerHTML = `📚<span class="cl"> ${dictSel ? esc(dictSel.length + ' von ' + list.length) : esc(I18N.t('Alle Wörterbücher'))}</span> ▾`;
   }
   // Herkunft des nachgeschlagenen Worts (Stelle im Text): als Feld „aus Genesis 25:8“ im Wörterbuch, das Wort bleibt im Text markiert
