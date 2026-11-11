@@ -2589,7 +2589,7 @@
     const y = e.target.scrollTop, dy = y - hdDictY; hdDictY = y;
     hdScroll(y, dy);
   }, { capture: true, passive: true });
-  document.addEventListener('mousemove', e => { if (e.clientY < 8 && document.body.classList.contains('hd-hidden')) hdSet(false); }, { passive: true });
+  // kein Einblenden beim Darüberfahren mit der Maus: die Leiste würde plötzlich unter dem Mauszeiger erscheinen und Fehlklicks auslösen – nur beim Hochscrollen
   document.addEventListener('keydown', e => { if ((e.metaKey || e.ctrlKey) && /^(t|w|[1-9]|Tab)$/.test(e.key)) hdSet(false); });
   window.hdShow = () => hdSet(false);
   new ResizeObserver(fixStick).observe($('#stick'));
