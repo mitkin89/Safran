@@ -981,11 +981,7 @@ body.dock-open #stick .bar.compact { flex-wrap: wrap; row-gap: 4px; }
 #dictPanel .dbody .dref, #dictPanel .dbody a.aref { text-decoration: none; color: color-mix(in srgb, var(--accent) 80%, var(--fg)); }
 #dictPanel .dbody .dref:hover, #dictPanel .dbody a.aref:hover { text-decoration: underline; }
 #dictPanel .dbody bdi[dir=rtl] { font-size: 1.12em; }
-#dictPanel .dentry { max-width: 72ch; }
-/* breiter Wörterbuchbereich: Einträge in Spalten nebeneinander (je höchstens ~72 Zeichen), schmal bleibt es eine Spalte */
-#dictPanel #dictOut { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 52ch), 1fr)); column-gap: 12px; align-content: start; align-items: start; }
-#dictPanel #dictOut > :not(.dentry) { grid-column: 1 / -1; }
-#dictPanel #dictOut > .dentry { max-width: none; min-width: 0; }
+#dictPanel .dentry { max-width: none; } /* volle Breite des Wörterbuchbereichs */
 
 /* ---- geteilte Ansicht: Wörterbuchkopf in einer Zeile ---- */
 body.stack-split #dictHead { display: flex; align-items: center; gap: 4px; padding-top: 4px; border-bottom: 1px solid var(--line); }
