@@ -102,7 +102,7 @@ function parseOwn(content, filename = '') {
   const name = String(filename).toLowerCase();
   const warnings = [];
   const meta = {};
-  let text, sectionNames = null;
+  let text, sectionNames = null, isDaf = false;
   const count = n => R.flattenNode(n).length;
   if (name.endsWith('.json') || /^\s*[\[{]/.test(content)) {
     let j;
@@ -137,6 +137,18 @@ function parseOwn(content, filename = '') {
       }
       rows = rows.slice(k);
       if (rows.length && !L.parseRef(rows[0][0]) && /^(ref|stelle|verweis|citation)/i.test(rows[0][0] || '')) rows.shift();
+      // Talmud-Fundstellen „Chullin 2a:1“: Daf/Amud in die Abschnittsnummer der Sefaria-Struktur umrechnen (2a = 3, 2b = 4 …)
+      const DAF = /^(.*?)[\s,]*(\d+)([ab]):(\d+)$/;
+      const withRef = rows.filter(r => String(r[0] ?? '').trim() && String(r[1] ?? '').trim());
+      if (withRef.length && withRef.filter(r => DAF.test(String(r[0]).trim())).length >= withRef.length * 0.8) {
+        isDaf = true;
+        rows = rows.map(r => {
+          const m = String(r[0] ?? '').trim().match(DAF);
+          if (!m) return r;
+          const sec = 2 * Number(m[2]) - (m[3] === 'a' ? 1 : 0);
+          return [`${m[1]}${m[1] ? ' ' : ''}${sec}:${m[4]}`, r[1]];
+        });
+      }
     } else {
       rows = L.textToRows(content, 'T').rows;
     }
@@ -159,7 +171,7 @@ function parseOwn(content, filename = '') {
       });
     }
     if (!R.nonEmpty(text)) throw new Error('Es wurde kein Text erkannt.' + (warnings.length ? ' ' + warnings[0] : ''));
-    sectionNames = ['Chapter', 'Verse'];
+    sectionNames = isDaf ? ['Daf', 'Line'] : ['Chapter', 'Verse'];
   }
   meta.kindGuess = guessKind(meta.language || '', text);
   return { text, sectionNames, segments: count(text), chapters: R.sectionsOf(text, sectionNames).length, warnings, meta };
