@@ -2580,6 +2580,7 @@
   const hdScroll = (y, dy) => {
     if (!hdAllowed()) { hdSet(false); return; }
     if (!hdDrag && Date.now() - hdUser > 400) return; // programmatischer Sprung (z. B. Kapitelwechsel): Leiste bleibt, wie sie ist
+    if (!hdDrag && Math.abs(dy) > window.innerHeight * 0.5) return; // so weit springt kein Mausrad – Kapitelwechsel, während das Trackpad noch nachläuft
     if (y < 60 || dy < -6) hdSet(false); else if (dy > 6) hdSet(true);
   };
   window.addEventListener('scroll', () => {
