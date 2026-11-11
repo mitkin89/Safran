@@ -480,6 +480,27 @@
     document.addEventListener('mouseout', e => { if (pop && e.target.closest && e.target.closest('img.vpic')) pop.hidden = true; });
     const hideP = () => { if (pop) pop.hidden = true; }; document.addEventListener('scroll', hideP, true); document.addEventListener('mousedown', hideP, true);
   }
+  // Spaltenkopf: beim Darüberfahren voller Versionstitel und – falls vorhanden – das Porträt
+  { let hp = null, cur = null;
+    const hideH = () => { if (hp) hp.hidden = true; cur = null; };
+    document.addEventListener('mouseover', e => {
+      const c = e.target.closest && e.target.closest('.row.head > div[data-hv]');
+      if (!c) { if (cur && !(e.target.closest && e.target.closest('#headPop'))) hideH(); return; }
+      if (c === cur) return; cur = c;
+      let vs = []; try { vs = JSON.parse(c.dataset.hv); } catch { /* egal */ }
+      if (!hp) { hp = document.createElement('div'); hp.id = 'headPop'; document.body.appendChild(hp); }
+      const k = c.dataset.hk || '';
+      hp.innerHTML = vs.map(v => { const p = portraitOf(v); return `<div class="hpv">${p ? `<img src="portraits/${encodeURIComponent(p.img)}" alt="">` : ''}<div><div class="hpt">${esc(k)} · ${esc(v)}</div>${p && p.name ? `<div class="hpn">${esc(p.name)}</div>` : ''}</div></div>`; }).join('')
+        + `<div class="hph">${esc(I18N.t('Klicken: verfügbare Texte dieser Sprache auswählen'))}</div>`;
+      hp.hidden = false;
+      const r = c.getBoundingClientRect(), W = Math.min(420, innerWidth - 16);
+      hp.style.width = W + 'px';
+      hp.style.left = Math.max(8, Math.min(innerWidth - W - 8, r.left)) + 'px';
+      const H = hp.offsetHeight;
+      hp.style.top = (r.bottom + 6 + H > innerHeight - 8 ? Math.max(8, r.top - H - 6) : r.bottom + 6) + 'px';
+    });
+    document.addEventListener('scroll', hideH, true); document.addEventListener('mousedown', hideH, true);
+  }
   const portraitOf = t => { const s = String(t || '').toLowerCase(); return (window.PORTRAITS || []).find(p => p.match && p.img && s.includes(String(p.match).toLowerCase())) || null; };
   function renderVersions() {
     const g = view.group;
@@ -637,11 +658,10 @@
     const groupsL = byLang ? LANG_ORDER.map(k => ({ k, idx: vis.filter(i => langKind(view.loaded[i]) === k) })).filter(g => g.idx.length) : null;
     const n = byLang ? groupsL.length : vis.length;
     document.body.classList.toggle('multicol', n >= 2); // schmaler Rand: ab zwei Spalten volle Fensterbreite
-    const headTip = esc(I18N.t('Klicken: verfügbare Texte dieser Sprache auswählen'));
     const head = byLang
-      ? `<div class="row head" style="--n:${n}"><div class="lab"></div>${groupsL.map(g => `<div data-ci="${g.idx[0]}"${g.idx.length > 1 ? ' data-multi="1"' : ''} title="${esc(g.idx.map(i => view.loaded[i].versionTitle || '').join(' / '))}&#10;${headTip}">${esc(g.idx.length === 1 ? KIND_LABEL[g.k] + ' · ' + shortVer(view.loaded[g.idx[0]].versionTitle) : KIND_LABEL[g.k] + ' (' + g.idx.length + ')')}</div>`).join('')}</div>`
+      ? `<div class="row head" style="--n:${n}"><div class="lab"></div>${groupsL.map(g => `<div data-ci="${g.idx[0]}"${g.idx.length > 1 ? ' data-multi="1"' : ''} data-hv="${esc(JSON.stringify(g.idx.map(i => view.loaded[i].versionTitle || '')))}" data-hk="${esc(KIND_LABEL[g.k])}">${esc(g.idx.length === 1 ? KIND_LABEL[g.k] + ' · ' + shortVer(view.loaded[g.idx[0]].versionTitle) : KIND_LABEL[g.k] + ' (' + g.idx.length + ')')}</div>`).join('')}</div>`
       : `<div class="row head" style="--n:${n}"><div class="lab"></div>${vis.map(i => view.loaded[i]).map(d =>
-      `<div title="${esc(KIND_LABEL[d.entry.kind] + ' · ' + (d.versionTitle || ''))}&#10;${headTip}">${esc(KIND_LABEL[d.entry.kind])} · ${esc(shortVer(d.versionTitle))}</div>`).join('')}</div>`;
+      `<div data-hv="${esc(JSON.stringify([d.versionTitle || '']))}" data-hk="${esc(KIND_LABEL[d.entry.kind])}">${esc(KIND_LABEL[d.entry.kind])} · ${esc(shortVer(d.versionTitle))}</div>`).join('')}</div>`;
     const langCells = r => groupsL.map(g => {
       const full = g.idx.filter(i => r.cells[i] != null);
       if (!full.length) return '<div class="cell empty"></div>';

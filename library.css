@@ -1100,3 +1100,13 @@ header button, nav button { padding-top: 2px; padding-bottom: 2px; }
 #stick .bar.compact { margin-bottom: 2px; }
 body.hd-hidden header { transform: translateY(-100%); pointer-events: none; }
 body.hd-hidden { --hdoff: var(--hdh, 0px); }
+
+/* Spaltenkopf-Hover: voller Titel mit Porträt */
+#headPop { position: fixed; z-index: 10000; pointer-events: none; background: var(--bg); border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 10px 34px rgba(0,0,0,.45); padding: 10px 12px; font-size: 13px; line-height: 1.35; color: var(--fg); }
+#headPop[hidden] { display: none; }
+#headPop .hpv { display: flex; gap: 12px; align-items: center; }
+#headPop .hpv + .hpv { margin-top: 10px; }
+#headPop .hpv img { width: 96px; height: 96px; flex: 0 0 96px; border-radius: 10px; object-fit: cover; border: 1px solid var(--line); }
+#headPop .hpt { font-weight: 600; }
+#headPop .hpn { color: var(--muted); margin-top: 4px; }
+#headPop .hph { color: var(--muted); font-size: 11.5px; margin-top: 8px; }
