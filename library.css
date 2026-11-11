@@ -266,7 +266,7 @@ body.dock-open #tab-read .layout { margin-right: calc(var(--dock-w, var(--cmt-w,
 #cmtChips .chip[hidden] { display: none; }
 .cx { font-size: 10px; opacity: .65; font-weight: 400; }
 .cmt { scroll-margin-top: calc(var(--cmt-head-h, 120px) + 10px); margin-bottom: 18px; padding-bottom: 12px; }
-.cmt h4 { position: sticky; top: calc(var(--cmt-head-h, 120px) + 4px); z-index: 2; background: var(--bg); padding: 6px 0; user-select: none; } /* +4px: unterer Rand von #cmtHead, sonst rutscht der Name halb darunter */
+.cmt h4 { position: sticky; top: calc(var(--cmt-head-h, 120px) + 4px); z-index: 2; background: var(--bg); padding: 4px 0; margin-bottom: 10px; user-select: none; } /* +4px: unterer Rand von #cmtHead, sonst rutscht der Name halb darunter */
 .cmt h4 .tg { display: inline-block; width: 1em; color: var(--muted); }
 .cmt h4 .go { float: right; padding: 0 6px; color: var(--muted); }
 .cmt h4 .go:hover { color: var(--accent); }
@@ -965,7 +965,7 @@ body.stack-side { --dock-w: calc(2 * var(--cmt-w, 400px)); }
 body.dock-open.stack-side #tab-read .layout { margin-right: calc(2 * var(--cmt-w, 400px) + 20px); }
 /* Abgeschnittene Zeilen unter den festen Köpfen sanft ausblenden statt halbe Buchstaben zu zeigen */
 #cmtHead { margin-bottom: 0; }
-.cmt h4::after { content: ''; position: absolute; left: 0; right: 0; top: 100%; height: 18px; background: linear-gradient(var(--bg) 35%, transparent); pointer-events: none; }
+.cmt h4::after { content: ''; position: absolute; left: 0; right: 0; top: 100%; height: 9px; /* nur so hoch wie der Abstand unter dem Namen: in Ruhe liegt kein Schatten auf der ersten Textzeile, beim Scrollen blendet er den darunterlaufenden Text aus */ background: linear-gradient(var(--bg) 35%, transparent); pointer-events: none; }
 body.stack-split #cmtPanel::after { content: ''; position: sticky; display: block; bottom: -14px; height: 14px; margin: 0 -14px -14px; background: linear-gradient(transparent, var(--bg)); pointer-events: none; }
 /* angepinnte Seitenleisten machen den Lesebereich schmal: Buchzeile darf dann umbrechen, statt unter der Leiste zu verschwinden */
 body.dock-open #stick .bar.compact { flex-wrap: wrap; row-gap: 4px; }
