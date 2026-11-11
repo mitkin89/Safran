@@ -1797,6 +1797,8 @@
       const hs = []; for (const h of hs0) { const last = hs[hs.length - 1]; if (last && h.lvl >= 2 && last.lvl === h.lvl && !last.cont && !h.cont) last.text += ' · ' + h.text; else hs.push({ ...h }); }
       row.insertAdjacentHTML('beforebegin', hs.map(h => `<div class="olhead olh${Math.min(h.lvl, 3)}${h.cont ? ' olcont' : ''}" dir="auto">${esc(h.text)}${h.cont ? ` <small>(${esc(I18N.t('Fortsetzung'))})</small>` : ''}</div>`).join(''));
     }
+    // gleiches Ebene-2-Etikett direkt hintereinander (z. B. zweimal „Gemara's objection“): nur die Linie zeigen
+    { let prev = null; $$('#rOut .olhead, #rOut .row.olrow').forEach(h => { if (!h.classList.contains('olhead')) { if (h.classList.contains('olh0') || h.classList.contains('olh1')) prev = null; return; } if (h.classList.contains('olh0') || h.classList.contains('olh1')) { prev = null; return; } if (!h.classList.contains('olh2') || h.classList.contains('olcont')) return; if (prev !== null && h.textContent === prev) h.classList.add('olrep'); prev = h.textContent; }); }
   }
   async function olInline() {
     const g = view && view.group;

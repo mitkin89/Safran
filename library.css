@@ -1045,20 +1045,25 @@ body.stack-split #dictHead #dictQ { min-width: 80px; }
 .calNav { display: flex; gap: 4px; align-items: center; justify-content: center; margin-bottom: 10px; }
 .calNav button { min-width: 32px; }
 .calNav input[type=date] { padding: 3px 6px; font: inherit; color-scheme: light dark; width: auto; flex: 0 1 150px; min-width: 0; }
-/* Gliederung als Überschriften im Lesetext */
-#rOut .olhead { margin: 18px 0 6px; padding: 0 0 3px; color: var(--accent); font-weight: 700; line-height: 1.35; border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent); }
-#rOut .olhead + .olhead { margin-top: 4px; }
-#rOut .olhead.olh0 { font-size: 1.25em; text-align: center; border-bottom-width: 2px; }
-#rOut .olhead.olh1 { font-size: 1.1em; }
-#rOut .olhead.olh2 { font-size: 1em; font-weight: 600; border-bottom-style: dashed; }
-#rOut .olhead.olh3 { font-size: .92em; font-weight: 600; border-bottom: 0; color: var(--muted); }
-#rOut .olhead { text-align: center; }
-#rOut .row.olrow > div:not(.lab) { color: var(--accent); font-weight: 700; text-align: center; line-height: 1.35; }
-#rOut .row.olrow { margin-top: 14px; border-bottom: 1px solid color-mix(in srgb, var(--accent) 35%, transparent); }
-#rOut .row.olrow.olh1 > div:not(.lab) { font-size: 1.1em; }
-#rOut .row.olrow.olh3 > div:not(.lab) { font-weight: 600; color: var(--muted); }
-#rOut .row.olrow.olh2, #rOut .row.olrow.olh3 { border-bottom-style: dashed; }
-#rOut .olhead.olcont small { font-weight: 400; color: var(--muted); font-size: .8em; }
+/* Gliederung als Überschriften im Lesetext: Rangfolge über Größe, Gewicht, Farbe und Abstand statt Linien */
+#rOut .row:has(+ .olhead), #rOut .row:has(+ .row.olrow) { border-bottom-color: transparent; } /* die Überschrift ersetzt die Trennlinie */
+#rOut .olhead { display: flex; align-items: center; justify-content: center; gap: .7em; margin: 1.8em 0 .35em; padding: 0; border: 0; color: var(--accent); font-weight: 700; line-height: 1.3; text-align: center; text-wrap: balance; }
+#rOut .olhead + .olhead { margin-top: .1em; }
+#rOut .olhead.olh0 { font-size: 1.3em; margin-top: 2.2em; padding-bottom: .4em; background: linear-gradient(var(--accent), var(--accent)) bottom center / 2.5em 2px no-repeat; }
+#rOut .olhead.olh1 { font-size: 1.12em; }
+#rOut .olhead.olh2 { font-size: .82em; font-weight: 600; margin: .5em 0 .1em; color: color-mix(in srgb, var(--accent) 55%, var(--muted)); }
+#rOut .olhead.olh2::before, #rOut .olhead.olh2::after { content: ""; flex: 1 1 0; min-width: 1.5em; height: 1px; background: var(--line); }
+#rOut .olhead.olh2.olrep { font-size: 0; gap: 0; margin: .5em 0 .1em; } /* gleiches Etikett wie direkt davor: nur die feine Linie */
+#rOut .olhead.olh3 { font-size: .8em; font-weight: 500; margin: .4em 0 0; color: var(--muted); }
+#rOut .olhead.olcont { opacity: .7; }
+#rOut .olhead.olcont small { font-size: .85em; font-weight: 400; color: var(--muted); }
+/* Titelabsätze im Text selbst (z. B. Ginzbergs Abschnittstitel) im selben Stil */
+#rOut .row.olrow { border-bottom-color: transparent; margin-top: 1.4em; padding-bottom: 2px; }
+#rOut .row.olrow > div:not(.lab) { color: var(--accent); font-weight: 700; text-align: center; line-height: 1.3; text-wrap: balance; }
+#rOut .row.olrow.olh0 > div:not(.lab) { font-size: 1.3em; }
+#rOut .row.olrow.olh1 > div:not(.lab) { font-size: 1.12em; }
+#rOut .row.olrow.olh2 > div:not(.lab) { font-size: .95em; font-weight: 600; color: color-mix(in srgb, var(--accent) 70%, var(--muted)); }
+#rOut .row.olrow.olh3 > div:not(.lab) { font-size: .9em; font-weight: 500; color: var(--muted); }
 /* Neuer Tab: feste Größe, unabhängig von der Schriftgröße des Lesetexts (die oft groß eingestellt ist) */
 #rOut .newtab { font-size: clamp(16px, calc(var(--fs, 16px) * .8), 20px); line-height: 1.5; } /* wächst gedämpft mit der Lesetext-Größe */
 #rOut .newtab input#ntIn { font-size: 1.1em; }
