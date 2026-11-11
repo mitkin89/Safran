@@ -32,9 +32,14 @@ function relPathOf(e) {
   }).join('/');
 }
 
+// Versionen, die Safran nie zeigt und nie lädt (bereits geladene werden beim Start gelöscht)
+const BLOCKED_VERSIONS = [/William Grayson/i];
+const isBlocked = e => !!e && !e.own && BLOCKED_VERSIONS.some(r => r.test(String(e.versionTitle || '')));
+
 function buildGroups(catalog) {
   const map = new Map();
   for (const e of catalog.books || []) {
+    if (isBlocked(e)) continue;
     const catPath = e.categories.join('/');
     const key = catPath + '\u0000' + e.title;
     let g = map.get(key);
@@ -243,6 +248,14 @@ class Library {
       const j = JSON.parse(await fs.readFile(this.indexFile, 'utf8'));
       if (j && j.entries) this.index = j;
     } catch { /* noch keine Bibliothek */ }
+    // gesperrte Versionen (s. BLOCKED_VERSIONS): Datei und Eintrag entfernen
+    let gone = 0;
+    for (const [rel, e] of Object.entries(this.index.entries || {})) {
+      if (!isBlocked(e)) continue;
+      try { await fs.unlink(path.join(this.dir, rel)); } catch { /* schon weg */ }
+      delete this.index.entries[rel]; gone++;
+    }
+    if (gone) await this.save();
     return this;
   }
 
@@ -257,7 +270,7 @@ class Library {
     return this._saving;
   }
 
-  list() { return Object.values(this.index.entries); }
+  list() { return Object.values(this.index.entries).filter(e => !isBlocked(e)); }
 
   stats() {
     const l = this.list();
@@ -485,7 +498,7 @@ class Library {
     const byRel = new Map();
     const byGroup = new Map();
     for (const e of catalogBooks) {
-      if (!e.json_url) continue;
+      if (!e.json_url || isBlocked(e)) continue;
       byRel.set(relPathOf(e), e);
       const k = e.categories.join('/') + '\u0000' + e.title;
       if (!byGroup.has(k)) byGroup.set(k, []);
@@ -563,4 +576,4 @@ class Library {
   }
 }
 
-module.exports = { renameRetry, parseOwn, AVG_KB, kindOf, relPathOf, buildGroups, summarize, selectedGroups, pickEntries, planEntries, Library };
+module.exports = { isBlocked, renameRetry, parseOwn, AVG_KB, kindOf, relPathOf, buildGroups, summarize, selectedGroups, pickEntries, planEntries, Library };
