@@ -4805,7 +4805,9 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
     // Liegt der Kommentar-Vers nicht (mehr) auf dem Bildschirm, weil man weitergescrollt hat: vom gerade gelesenen Vers aus weiterschalten, nicht vom Kapitelanfang
     const vis = r => { const b = r.getBoundingClientRect(), top = $('#stick') ? $('#stick').getBoundingClientRect().bottom : 0; return b.bottom > top + 4 && b.top < window.innerHeight; };
     if (i < 0 || !vis(rows[i])) { const r = readingRow(rows); if (r) i = rows.indexOf(r); }
-    const n = rows[Math.min(rows.length - 1, Math.max(0, (i < 0 ? 0 : i) + d))];
+    const at = k => rows[Math.min(rows.length - 1, Math.max(0, k))];
+    let k = (i < 0 ? 0 : i) + d, n = at(k);
+    if (n && n.dataset.l === cmtRow) n = at(k + d); // vom gelesenen Vers aus landete man wieder beim angezeigten Vers (z. B. ▲, während dieser knapp über dem Bildschirm liegt): einen weiter
     if (n) { setCmtRow(n.dataset.l); panelScrollTo(n, 'center'); }
   }
   // j / k: nächster / vorheriger Vers im Kommentar-Bereich (nur wenn kein Eingabefeld den Fokus hat)
