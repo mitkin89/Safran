@@ -2560,7 +2560,11 @@
   let hdLastY = window.scrollY;
   const hdSet = hide => {
     if (document.body.classList.contains('hd-hidden') === hide) return;
+    // ausgeblendet nimmt die Leiste im Reiter „Lesen“ keinen Platz mehr ein (sonst bleibt nach einem Kapitelwechsel oben eine leere Fläche);
+    // die Seite wird um ihre Höhe nachgeführt, damit der Text beim Aus-/Einblenden nicht springt
+    const hd = $('header'), h = hdTab() === 'read' && hd ? hd.offsetHeight : 0;
     document.body.classList.toggle('hd-hidden', hide); fixStick(); dictPlace();
+    if (h) { window.scrollBy(0, hide ? -h : h); hdLastY = window.scrollY; }
   };
   const hdTab = () => document.documentElement.dataset.tab || 'read';
   const hdAllowed = () => disp.hideTabs && (hdTab() === 'read' || hdTab() === 'dict');

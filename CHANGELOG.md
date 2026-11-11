@@ -1,7 +1,7 @@
 # Changelog
 
 ### New in 2.3.8
-- **Hidden tab bar stays hidden when you change chapter:** moving to another chapter (or another book) in the same tab no longer brings it back; scrolling up brings it back, also at the very top of the page.
+- **Hidden tab bar stays hidden when you change chapter:** moving to another chapter (or another book) in the same tab no longer brings it back, and while hidden it leaves no empty space at the top; scrolling up brings it back, also at the very top of the page.
 
 ### New in 2.3.7
 - **Portraits:** small pictures of translators and commentators next to the versions, in the version menu of the column labels, next to the dictionaries and now also next to the commentator's name in the commentary bar (Goldschmidt, S. R. Hirsch, Mendelssohn, Philippson, Zunz, Hoffmann, Rawicz and others, plus the Aleppo and Leningrad codices). Hovering shows a large view; hovering a column label shows the full version title with its picture.
