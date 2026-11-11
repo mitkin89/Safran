@@ -1,5 +1,16 @@
 # Changelog
 
+### New in 2.3.7
+- **Portraits:** small pictures of translators and commentators next to the versions, in the version menu of the column labels, next to the dictionaries and now also next to the commentator's name in the commentary bar (Goldschmidt, S. R. Hirsch, Mendelssohn, Philippson, Zunz, Hoffmann, Rawicz and others, plus the Aleppo and Leningrad codices). Hovering shows a large view; hovering a column label shows the full version title with its picture.
+- **Slimmer header:** column labels take one line (full title on hover) and no longer stay at the top while scrolling (can be switched back under *Display*). The tab bar hides while you scroll down and comes back when you scroll up – also in the dictionary tab; it no longer pops up when the mouse touches the top edge, so nothing gets clicked by accident (switch off under *Display*).
+- **Page margin "normal/narrow"** under *Display*: narrow uses a 6 px margin and, with two or more columns, the full window width.
+- **Small capitals** written as S<small>CHRIEB</small> (Goldschmidt) are shown as real small capitals.
+- **Footnotes:** a marker without a footnote (Goldschmidt, Ketubot 51a) no longer swallows the text up to the next footnote.
+- **Own Talmud CSV files:** references like "Chullin 2a:1" are read as daf/amud.
+- **Dictionary:** entries use the full width; reference links in normal text size.
+- **Legends of the Jews:** the outline appears as headings in the text, and a click in the outline also jumps to another volume; footnotes rebuilt.
+- **Outline headings in the text:** calmer design; several sub-points before the same line are combined into one heading.
+
 ### New in 2.3.6
 - **New tab shows the Jewish calendar:** the weekly Torah portion (with the Shabbat date), the haftarah, the Daf Yomi (Bavli) and the Yerushalmi Yomi of the day, in English and Hebrew. A click opens the passage in Safran. The data come from hebcal.com (diaspora readings) and are stored for 13 months, so it also works offline; with internet they are renewed monthly.
 - **Commentary ▲/▼ Verse (and j/k):** if the commentary's verse is no longer on screen because you scrolled on, they now step from the verse you are reading, not from the start of the chapter.
