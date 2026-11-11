@@ -2543,9 +2543,19 @@
     document.body.classList.toggle('hd-hidden', hide); fixStick();
   };
   const hdAllowed = () => disp.hideTabs && (document.documentElement.dataset.tab || 'read') === 'read';
+  // nur vom Nutzer ausgelöstes Scrollen zählt (Mausrad, Trackpad, Tasten, Scrollleiste) – Sprünge beim Tab-Wechsel oder Navigieren blenden nicht aus
+  let hdUser = 0;
+  const hdMark = () => { hdUser = Date.now(); };
+  window.addEventListener('wheel', hdMark, { passive: true });
+  window.addEventListener('touchmove', hdMark, { passive: true });
+  document.addEventListener('keydown', e => { if (/^(ArrowUp|ArrowDown|PageUp|PageDown|Home|End| )$/.test(e.key) && !/^(INPUT|TEXTAREA|SELECT)$/.test((e.target.tagName || ''))) hdMark(); });
+  let hdDrag = false; // Scrollleiste gezogen
+  document.addEventListener('mousedown', e => { if (e.clientX > document.documentElement.clientWidth - 2) hdDrag = true; });
+  document.addEventListener('mouseup', () => { hdDrag = false; });
   window.addEventListener('scroll', () => {
     const y = window.scrollY, dy = y - hdLastY; hdLastY = y;
     if (!hdAllowed() || y < 60) { hdSet(false); return; }
+    if (!hdDrag && Date.now() - hdUser > 400) return; // programmatischer Sprung
     if (dy > 6) hdSet(true); else if (dy < -6) hdSet(false);
   }, { passive: true });
   document.addEventListener('mousemove', e => { if (e.clientY < 8 && document.body.classList.contains('hd-hidden')) hdSet(false); }, { passive: true });
