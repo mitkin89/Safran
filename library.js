@@ -574,7 +574,7 @@
     // alle Versionen dieser Sprache: ✓ = wird gezeigt (Klick nimmt sie heraus), sonst Klick fügt sie hinzu
     for (const v of g.versions.filter(v => kn(v) === k)) {
       const on = view.selected.has(v.rel);
-      items.push({ label: (on ? '✓ ' : '\u2003 ') + shortVer(v.versionTitle), fn: () => { const n = new Set(view.selected); if (on) n.delete(v.rel); else n.add(v.rel); apply(n); } });
+      items.push({ label: (on ? '✓ ' : '\u2003 ') + shortVer(v.versionTitle), pic: portraitOf(v.versionTitle), fn: () => { const n = new Set(view.selected); if (on) n.delete(v.rel); else n.add(v.rel); apply(n); } });
     }
     const r = (vl || h).getBoundingClientRect();
     setTimeout(() => ctxShow({ clientX: r.left, clientY: r.bottom + 2, preventDefault() {} }, items), 0); // erst nach dem Klick, sonst schließt ihn der Dokument-Klick sofort wieder
@@ -2961,7 +2961,7 @@
     }
     e.preventDefault();
     ctxEl._items = items;
-    ctxEl.innerHTML = items.map((it, i) => it.sep ? '<hr>' : `<button data-n="${i}">${esc(it.label)}</button>`).join('');
+    ctxEl.innerHTML = items.map((it, i) => it.sep ? '<hr>' : `<button data-n="${i}">${it.pic ? `<img class="vpic" src="portraits/${encodeURIComponent(it.pic.img)}" alt="" data-title="${esc(it.pic.name || '')}">` : ''}${esc(it.label)}</button>`).join('');
     ctxEl.hidden = false;
     ctxEl.style.left = '0px'; ctxEl.style.top = '0px';
     const mw = ctxEl.offsetWidth, mh = ctxEl.offsetHeight; // erst messen, dann so setzen, dass das Menü ganz im Fenster bleibt

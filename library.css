@@ -594,6 +594,7 @@ header { z-index: 50; }
 #verList label.haspic { padding: 3px 0; }
 #dictList img.vpic, #dictOut .dsec img.vpic { width: 26px; height: 26px; border-radius: 50%; object-fit: cover; vertical-align: middle; margin: 0 6px 0 2px; border: 1px solid var(--line); cursor: zoom-in; }
 #dictOut .dsec img.vpic { width: 22px; height: 22px; }
+#ctxMenu img.vpic { width: 24px; height: 24px; border-radius: 50%; object-fit: cover; vertical-align: middle; margin: -3px 7px -3px 0; border: 1px solid var(--line); }
 
 .nitem .vchips { display: flex; flex-wrap: wrap; gap: 4px; margin: 4px 0 2px; }
 .nitem .vchip { border: 1px solid var(--line); background: none; color: var(--muted); border-radius: 999px; padding: 0 8px; font-size: 11px; max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; cursor: pointer; }
