@@ -561,6 +561,8 @@
     setTimeout(() => ctxShow({ clientX: r.left, clientY: r.bottom + 2, preventDefault() {} }, items), 0); // erst nach dem Klick, sonst schließt ihn der Dokument-Klick sofort wieder
   });
 
+  // Schlüssel einer Fußnote im Lesetext: Abschnitt | Zeile | Spalte | Nummer (für „bleibt offen“)
+  const fnKey = n => { const row = n.closest('.row[data-l]'), cell = n.closest('.cell'); return [view ? view.idx : '', row ? row.dataset.l : '', row ? [...row.querySelectorAll('.cell')].indexOf(cell) : -1, n.dataset.fn].join('|'); };
   // Fußnoten werden immer mitgerendert; ob sie sichtbar sind, steuert der Modus (data-notes) per CSS
   function cellHtml(html, d, hit) {
     if (html == null) return '<div class="cell empty"></div>';
@@ -638,6 +640,7 @@
     const body = shownRows.map(r =>
       `<div class="row${rowLabel != null && !quiet && r.label === rowLabel ? ' hit' : ''}" data-l="${esc(r.label)}" style="--n:${n}"><div class="lab">${esc(r.label)}</div>${byLang ? langCells(r) : vis.map(i => cellHtml(r.cells[i], view.loaded[i])).join('')}</div>`).join('');
     $('#rOut').innerHTML = vfBar + head + body;
+    if (view.fnOpen && view.fnOpen.size) $$('#rOut .note[data-fn]').forEach(n => { if (view.fnOpen.has(fnKey(n))) n.classList.add('open'); }); // geöffnete Fußnoten bleiben offen (Tabwechsel, neu aufgebaut)
     recordNav(s, rowLabel);
     pushHistory(s, rowLabel);
     renderTabs();
@@ -673,7 +676,7 @@
     const sup = e.target.closest('sup[data-fn]');
     if (sup) {
       const note = sup.nextElementSibling && sup.nextElementSibling.classList.contains('note') ? sup.nextElementSibling : null;
-      if (note) note.classList.toggle('open');
+      if (note) { const o = note.classList.toggle('open'); if (view) { const k = fnKey(note); (view.fnOpen || (view.fnOpen = new Set()))[o ? 'add' : 'delete'](k); } }
       return;
     }
     // Klick in den Fußnotentext schließt nichts – so lässt sich der Text markieren und kopieren
@@ -1726,7 +1729,7 @@
   // ---------- Gliederung als Überschriften im Lesetext (Einstellung unter „Anzeige“) ----------
   const olInlineOn = () => { try { return localStorage.getItem('olInline') !== '0'; } catch { return true; } }; // Standard: an; ausschalten unter „Anzeige“
   function olInlineApply(g, ol) {
-    $$('#rOut .olhead').forEach(x => x.remove());
+    $$('#rOut .olhead').forEach(x => x.remove()); $$('#rOut .row.olrow').forEach(x => x.classList.remove('olrow', 'olh0', 'olh1', 'olh2', 'olh3'));
     if (!olInlineOn() || !ol || !view || view.group !== g || view.sres) return;
     const sec = view.sections[view.idx]; if (!sec) return;
     const L = I18N.lang, T = (o, k) => (L !== 'he' && o[k + '_' + L]) || o[k];
@@ -1738,6 +1741,11 @@
     const target = ref => {
       const r = String(ref).split(/[;,]/)[0].trim(); let m;
       if ((m = r.match(/^(\d+):(\d+):(\d+)/))) { // Band:Kapitel:Absatz
+        if (nums.length === 1) { // Abschnitt = Band, Zeilen „Kapitel:Absatz“ (z. B. Ginzbergs Legenden)
+          if (+m[1] !== nums[0]) return null;
+          const ca = l => { const k = String(l).match(/^(\d+):(\d+)/); return k ? [+k[1], +k[2]] : null; };
+          return rows.find(x => { const k = ca(x.dataset.l); return k && (k[0] > +m[2] || (k[0] === +m[2] && k[1] >= +m[3])); }) || null;
+        }
         if (nums.length < 2 || +m[1] !== nums[nums.length - 2] || +m[2] !== nums[nums.length - 1]) return null;
         return rows.find(x => vOf(x.dataset.l) >= +m[3]) || null;
       }
@@ -1759,7 +1767,7 @@
     }
     // Beginnt das Kapitel mitten in einem Abschnitt der Gliederung: dessen Überschrift(en) trotzdem oben zeigen (als Fortsetzung)
     { const pos3 = (a, b, c) => a * 1e8 + b * 1e4 + c;
-      const P0 = (() => { const v = vOf(rows[0].dataset.l) || 1; if (nums.length >= 2 && ol.sections.some(x => x.items.some(i => /^\d+:\d+:\d+/.test(String(i.ref))))) return pos3(nums[nums.length - 2], nums[nums.length - 1], v); if (lv2) return bk != null ? pos3(0, bk, v) : null; return ch != null ? pos3(0, ch, v) : null; })();
+      const P0 = (() => { const v = vOf(rows[0].dataset.l) || 1; const has3 = ol.sections.some(x => x.items.some(i => /^\d+:\d+:\d+/.test(String(i.ref)))); if (nums.length === 1 && has3) { const k = String(rows[0].dataset.l).match(/^(\d+):(\d+)/); return k ? pos3(nums[0], +k[1], +k[2]) : null; } if (nums.length >= 2 && ol.sections.some(x => x.items.some(i => /^\d+:\d+:\d+/.test(String(i.ref))))) return pos3(nums[nums.length - 2], nums[nums.length - 1], v); if (lv2) return bk != null ? pos3(0, bk, v) : null; return ch != null ? pos3(0, ch, v) : null; })();
       const st = ref => { const r = String(ref).split(/[;,]/)[0].trim(); let m; if ((m = r.match(/^(\d+):(\d+):(\d+)/))) return pos3(+m[1], +m[2], +m[3]); if ((m = r.match(/^(\d+)(?::(\d+))?/))) return pos3(0, +m[1], m[2] ? +m[2] : 1); return null; };
       const en = ref => { if (lv2 || /^\d+:\d+:\d+/.test(String(ref))) return Infinity; const sp = olSpans(ref); return sp.length ? Math.max(...sp.map(x => x[1])) : Infinity; }; // olSpans: Kapitel*10000+Vers
       const pick = list => { let best = null; for (const it of list) { const a = st(it.ref); if (a == null || a > P0) continue; if (en(it.ref) < (P0 % 1e8)) continue; best = it; } return best; };
@@ -1774,7 +1782,17 @@
         }
         if (cont.length) { const a = put.get(rows[0]) || []; put.set(rows[0], [...cont.map(c => ({ ...c, cont: true })), ...a.filter(h => !cont.some(c => c.text === h.text))]); }
       } }
+    // Steht die Überschrift schon als eigener Absatz im Text (z. B. Ginzbergs Abschnittstitel): diesen Absatz als Überschrift zeigen statt sie doppelt einzufügen
+    const nrm = t => String(t || '').replace(/[\[\]⟨⟩()„“”"'’.,;:!?–-]+/g, ' ').replace(/\s+/g, ' ').trim().toLowerCase();
+    const cellTexts = row => [...row.children].filter(c => !c.classList.contains('lab')).map(c => { const k = c.cloneNode(true); k.querySelectorAll('sup, .note, .footnote').forEach(x => x.remove()); return nrm(k.textContent); }).filter(Boolean);
+    for (const [row, hs1] of put) {
+      const ct = cellTexts(row); if (!ct.length) continue;
+      const i = hs1.findIndex(h => !h.cont && ct.includes(nrm(h.text)));
+      if (i < 0) continue;
+      row.classList.add('olrow', 'olh' + Math.min(hs1[i].lvl, 3)); hs1.splice(i, 1);
+    }
     for (const [row, hs0] of put) {
+      if (!hs0.length) continue;
       // mehrere Unterpunkte derselben Ebene vor derselben Zeile (z. B. Frage und Antwort im selben Segment): in einer Zeile zusammenfassen
       const hs = []; for (const h of hs0) { const last = hs[hs.length - 1]; if (last && h.lvl >= 2 && last.lvl === h.lvl && !last.cont && !h.cont) last.text += ' · ' + h.text; else hs.push({ ...h }); }
       row.insertAdjacentHTML('beforebegin', hs.map(h => `<div class="olhead olh${Math.min(h.lvl, 3)}${h.cont ? ' olcont' : ''}" dir="auto">${esc(h.text)}${h.cont ? ` <small>(${esc(I18N.t('Fortsetzung'))})</small>` : ''}</div>`).join(''));
