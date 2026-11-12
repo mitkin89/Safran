@@ -88,6 +88,8 @@ aside input { width: 100%; margin-bottom: 8px; }
 /* Suche im Text (Cmd+F) */
 #findBar { position: fixed; right: 18px; bottom: 18px; z-index: 45; display: flex; align-items: center; gap: 6px; padding: 8px 10px; background: var(--bg); border: 1px solid var(--line); border-radius: 10px; box-shadow: 0 4px 18px rgba(0,0,0,.35); }
 #findBar[hidden] { display: none; }
+#findBar #findWord { font-size: 12px; padding: 3px 8px; white-space: nowrap; }
+#findBar #findWord.on { background: var(--accent); color: #fff; border-color: var(--accent); }
 #findIn { width: 220px; }
 
 /* schlanke Leiste in einer Zeile */

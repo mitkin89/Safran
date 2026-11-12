@@ -2642,6 +2642,12 @@
   // Suche im angezeigten Text (eigene Umsetzung: findet auch geschlossene Fußnoten und springt zuverlässig von Treffer zu Treffer)
   const fb = $('#findBar'), fin = $('#findIn');
   let fTerm = '', fRanges = [], fIdx = -1;
+  // „ganzes Wort“: Treffer nur, wenn davor und danach kein Buchstabe/keine Ziffer steht (Einstellung bleibt gespeichert)
+  let fWhole = false;
+  try { fWhole = localStorage.getItem('findWhole') === '1'; } catch { /* egal */ }
+  const WCH = /[\p{L}\p{N}]/u;
+  const wholeAt = (n, pos, len) => !fWhole || (!(pos > 0 && WCH.test(n[pos - 1])) && !(pos + len < n.length && WCH.test(n[pos + len])));
+  const hasQ = (txt, q) => { const n = normF(txt); if (!fWhole) return n.includes(q); for (let p = n.indexOf(q); p >= 0; p = n.indexOf(q, p + 1)) if (wholeAt(n, p, q.length)) return true; return false; };
   const stripF = ch => /[\u0591-\u05BD\u05BF\u05C1\u05C2\u05C4-\u05C7]/.test(ch) ? '' : ch; // hebräische Zeichen ohne Vokale/Betonung vergleichen
   const normF = str => { let o = ''; for (const ch of str.toLowerCase()) o += stripF(ch); return o.replace(/\u05BE/g, ' '); };
   const hl = (name, ranges) => { try { if (!ranges.length) CSS.highlights.delete(name); else CSS.highlights.set(name, new Highlight(...ranges)); } catch { /* ältere Engine */ } };
@@ -2660,12 +2666,12 @@
     const q = normF(term).trim();
     if (!q) return;
     // geschlossene Fußnoten, die den Begriff enthalten, aufklappen, damit sie sichtbar und markierbar sind
-    $$('#rOut .note').forEach(n => { if (normF(n.textContent).includes(q)) n.classList.add('fnd'); });
+    $$('#rOut .note').forEach(n => { if (hasQ(n.textContent, q)) n.classList.add('fnd'); });
     const roots = [$('#rOut')];
     if (!$('#cmtPanel').hidden) roots.push($('#cmtBody')); // auch der Kommentar-Bereich wird durchsucht
     if (!$('#dictPanel').hidden) roots.push($('#dictOut')); // ebenso die Wörterbuch-Treffer
     if (!$('#outlinePanel').hidden) roots.push($('#olBody')); // und die geöffnete Gliederung
-    if (!$('#outlinePanel').hidden) $$('#olBody .olsubs[hidden]').forEach(w => { if (normF(w.textContent).includes(q)) olToggle(w, true, true, 'find'); }); olChips(); // zugeklappte Unterpunkte mit Treffer aufklappen
+    if (!$('#outlinePanel').hidden) $$('#olBody .olsubs[hidden]').forEach(w => { if (hasQ(w.textContent, q)) olToggle(w, true, true, 'find'); }); olChips(); // zugeklappte Unterpunkte mit Treffer aufklappen
     const ranges = [];
     // Textknoten je Absatz/Zelle sammeln und zusammenhängend durchsuchen, damit auch Wortfolgen über mehrere
     // Wort-Elemente hinweg gefunden werden (Westminster-Text: jedes Wort steckt in einem eigenen <span class="w">)
@@ -2696,6 +2702,7 @@
         }
         let pos = 0;
         while ((pos = n.indexOf(q, pos)) >= 0) {
+          if (!wholeAt(n, pos, q.length)) { pos += 1; continue; }
           let s0 = pos, e0 = pos + q.length - 1;
           while (s0 <= e0 && !map[s0]) s0++;
           while (e0 >= s0 && !map[e0]) e0--;
@@ -2874,6 +2881,14 @@
     if (e.key === 'Escape') closeFind();
   });
   $('#findNext').onclick = () => stepFind(true);
+  const fwPaint = () => $('#findWord').classList.toggle('on', fWhole);
+  fwPaint();
+  $('#findWord').onclick = () => {
+    fWhole = !fWhole; fwPaint();
+    try { localStorage.setItem('findWhole', fWhole ? '1' : '0'); } catch { /* egal */ }
+    const t = fin.value.trim() || fTerm; clearFind(true); if (t) runFind(t);
+    fin.focus();
+  };
   $('#findPrev').onclick = () => stepFind(false);
   $('#findClose').onclick = closeFind;
   // Abschnitt gewechselt: Treffer neu berechnen, wenn die Suchleiste offen ist

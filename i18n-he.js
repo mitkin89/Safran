@@ -441,6 +441,8 @@ window.I18N_HE = {
 "Im Text suchen …": "חיפוש בטקסט …",
 "Vorheriger Treffer": "התוצאה הקודמת",
 "Nächster Treffer": "התוצאה הבאה",
+"ganzes Wort": "מילה שלמה",
+"Nur ganze Wörter finden": "חיפוש מילים שלמות בלבד",
 "Zeitüberschreitung (30 s)": "פסק זמן (30 שניות)",
 "Netzwerkfehler: {}": "שגיאת רשת: {}",
 "Zeitüberschreitung beim Laden": "פסק זמן בטעינה",

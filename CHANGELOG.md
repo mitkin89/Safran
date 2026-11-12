@@ -7,6 +7,7 @@
 - **Smooth tab bar:** when the tab bar slides in or out while scrolling, the toolbar and column labels glide with it and the text no longer jerks.
 - **Dictionary choice:** the selection window is wider; portrait, name and entry count line up.
 - **Dictionary suggestions** while typing are no longer covered by the coloured dictionary heading.
+- **Find in text (Cmd/Ctrl+F): "whole word"** finds only complete words (e.g. "Witz" but not "Witze" or "Mutterwitz"); the setting is remembered.
 - **Hidden tab bar stays hidden when you change chapter:** moving to another chapter (or another book) in the same tab no longer brings it back, and while hidden it leaves no empty space at the top; scrolling up brings it back, also at the very top of the page.
 
 ### New in 2.3.7

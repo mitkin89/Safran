@@ -326,7 +326,7 @@
     'Alle Unterpunkte öffnen': 'Open all subcategories', 'Alle Unterpunkte schließen': 'Close all subcategories',
     'Größe': 'Size', 'Größe der gesamten Oberfläche (Schrift und Bedienelemente)': 'Size of the whole interface (text and controls)',
     // ----- Im Text suchen -----
-    'Im Text suchen …': 'Find in text …', 'Vorheriger Treffer': 'Previous match', 'Nächster Treffer': 'Next match',
+    'Im Text suchen …': 'Find in text …', 'Vorheriger Treffer': 'Previous match', 'Nächster Treffer': 'Next match', 'ganzes Wort': 'whole word', 'Nur ganze Wörter finden': 'Match whole words only',
     // ----- Hauptprozess-Meldungen -----
     'Zeitüberschreitung (30 s)': 'Timeout (30 s)', 'Netzwerkfehler: {}': 'Network error: {}', 'Zeitüberschreitung beim Laden': 'Timeout while loading',
     'Dateityp wird nicht unterstützt (erlaubt: TXT, MD, DOCX, CSV, TSV, JSON)': 'File type not supported (allowed: TXT, MD, DOCX, CSV, TSV, JSON)',
