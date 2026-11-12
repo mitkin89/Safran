@@ -2923,12 +2923,13 @@
     // Textknoten je Absatz/Zelle sammeln und zusammenhängend durchsuchen, damit auch Wortfolgen über mehrere
     // Wort-Elemente hinweg gefunden werden (Westminster-Text: jedes Wort steckt in einem eigenen <span class="w">)
     for (const root of roots) {
-      const groups = new Map();
+      const groups = new Map(), strict = root.id === 'dictOut' || root.id === 'sOut';
       const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
       for (let node = walker.nextNode(); node; node = walker.nextNode()) {
         const el = node.parentElement;
         if (!el || el.offsetParent === null && getComputedStyle(el).display === 'none') continue;
         if (el.closest('.note') && !el.closest('.note').offsetParent) continue;
+        if (strict && el.checkVisibility && !el.checkVisibility()) continue; // Wörterbuch/Trefferliste: ausgeblendete Einträge (z. B. die anderen „N von 8“) nicht mitzählen
         const key = el.closest('.note, .txt, .dbody, .dhead, summary, p, li, td, div') || root;
         if (!groups.has(key)) groups.set(key, []);
         groups.get(key).push(node);
