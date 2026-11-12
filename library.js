@@ -282,9 +282,12 @@
     showView();
     if (view.group) await loadTabView();
   }
+  const closedTabs = []; // zuletzt geschlossene Tabs (Cmd+Shift+T öffnet sie wieder, wie im Browser)
   async function closeTab(i) {
     if (!tabs[i]) return;
     const wasActive = i === tabIdx;
+    if (wasActive) saveScroll();
+    if (tabs[i].group || tabs[i].sres) { closedTabs.push({ t: tabs[i], i }); if (closedTabs.length > 30) closedTabs.shift(); }
     tabs.splice(i, 1);
     if (!tabs.length) { tabIdx = -1; view = null; if (document.documentElement.classList.contains('pane2')) { showView(); return; } newTab(); return; } // nie ohne Tab
     if (i < tabIdx) tabIdx--;
@@ -294,6 +297,17 @@
       showView();
       if (view.group) await loadTabView();
     } else renderTabs();
+  }
+  async function reopenTab() {
+    const c = closedTabs.pop(); if (!c) return;
+    if (tabs.length === 1 && !tabs[0].group && !tabs[0].sres) tabs.length = 0; // nur ein leerer „Neuer Tab“ (z. B. nach dem Schließen des letzten): ersetzen
+    const i = Math.min(c.i, tabs.length);
+    saveScroll();
+    c.t.target = null;
+    tabs.splice(i, 0, c.t); tabIdx = i; view = c.t;
+    showTab('read');
+    showView();
+    if (view.group) await loadTabView();
   }
   $('#tabbar').addEventListener('click', e => {
     if (e.target.id === 'tabNew') return newTab();
@@ -3005,6 +3019,7 @@
       if (e.source !== window.parent) return;
       if (m.type === 'find') openFind();
       else if (m.type === 'closeTab') { if (tabIdx >= 0) closeTab(tabIdx); }
+      else if (m.type === 'reopenTab') reopenTab();
       else if (m.type === 'syncState') p2Mode = SYNC_MODES.includes(m.mode) ? m.mode : 'off';
       else if (m.type === 'syncScroll') { if (canRecv()) applySyncScroll(m); }
       else if (m.type === 'sync') { if (canRecv() && view && view.group && relatedTitles(view.group.title, m.title) && m.idx < view.sections.length && m.idx !== view.idx) { view.idx = m.idx; renderSection(); } }
@@ -5429,6 +5444,12 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
     const p2 = $('#pane2');
     if (p2 && !p2.hidden && document.activeElement === p2) { p2.contentWindow.postMessage({ type: 'closeTab' }, '*'); return; } // Cmd+W gilt für das Fenster, in dem man gerade arbeitet
     if (tabIdx >= 0) closeTab(tabIdx); else window.close();
+  };
+
+  window.__reopenTab = () => {
+    const p2 = $('#pane2');
+    if (p2 && !p2.hidden && document.activeElement === p2) { p2.contentWindow.postMessage({ type: 'reopenTab' }, '*'); return; }
+    reopenTab();
   };
 
   // ---------- Kopfzeile ----------

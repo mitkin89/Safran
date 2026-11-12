@@ -259,6 +259,7 @@ function buildMenu() {
       submenu: [
         { role: 'minimize' }, ...(IS_MAC ? [{ role: 'zoom' }] : []), { type: 'separator' },
         { label: M('Tab schließen', 'Close tab'), accelerator: 'CmdOrCtrl+W', click: (_i, w) => { if (w && !w.isDestroyed()) w.webContents.executeJavaScript('window.__closeCurrentTab ? (window.__closeCurrentTab(), true) : false').then(ok => { if (!ok && !w.isDestroyed()) w.close(); }).catch(() => {}); } },
+        { label: M('Geschlossenen Tab wieder öffnen', 'Reopen closed tab'), accelerator: 'CmdOrCtrl+Shift+T', click: (_i, w) => { if (w && !w.isDestroyed()) w.webContents.executeJavaScript('window.__reopenTab && window.__reopenTab()').catch(() => {}); } },
         { label: M('Fenster schließen', 'Close window'), accelerator: 'CmdOrCtrl+Shift+W', role: 'close' },
         ...(IS_MAC ? [{ type: 'separator' }, { role: 'front' }] : []),
       ],
