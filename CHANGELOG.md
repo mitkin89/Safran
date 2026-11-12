@@ -1,6 +1,7 @@
 # Changelog
 
 ### New in 2.3.8
+- **Portrait of the Malbim** (Meir Leibush Weisser, 1809–1879) next to his commentary.
 - **Hebrew default text:** the Westminster Leningrad Codex is shown by default wherever a book has it; otherwise a real edition (e.g. the vocalized William Davidson text in the Talmud). Sefaria's merged text is only used when there is nothing else – also in previews and the commentary bar.
 - **Hidden tab bar:** changing chapter no longer moves the toolbar or the column labels, and the tab bar no longer flashes up when you scroll on from the start of a chapter.
 - **Recently opened:** the list keeps 100 entries and scrolls.
