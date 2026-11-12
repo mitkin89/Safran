@@ -98,7 +98,7 @@ Open the *Wörterbuch* tab, press the 📖 button next to the commentary panel, 
 - **Choose dictionaries:** the 📚 button selects which dictionaries are searched. The choice is remembered.
 - **Headword list:** *☰ Stichwörter* opens the complete, filterable headword list of a dictionary.
 - **Linked sources:** a citation such as *Rosh Hashanah 18b* opens the passage in the reader, if the text is in your library.
-- **Bring your own:** add `.dsl` / `.dsl.dz` dictionaries (ABBYY Lingvo format) under *Wörterbücher verwalten*. Citations marked `{{ref:…}}` become clickable in Safran.
+- **Bring your own:** add `.dsl` / `.dsl.dz` dictionaries (ABBYY Lingvo format) via the 📚 menu → *DSL-Datei hinzufügen …*. Citations marked `{{ref:…}}` become clickable in Safran.
 
 ## German texts that are not on Sefaria
 

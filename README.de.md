@@ -39,23 +39,23 @@ Safran ist eine kostenlose Desktop-App für macOS, Windows und Linux, die deine 
 | 📴 **Funktioniert offline** | Texte, Verknüpfungen, Wörterbücher, Karten und Audio liegen auf deiner Festplatte. Nichts wird irgendwohin gesendet. |
 | 🇩🇪 **Deutsche Texte, die es sonst nicht gibt** | Zunz, Philippson, Mendelssohns Biur, Herxheimer, Hertz, Hirsch, Raschi nach Bamberger, die Kautzsch-Apokryphen, Midrasch Rabba, More Nevuchim, der Schulchan Aruch (Lederer), Ginzbergs *Legenden der Juden* … sofort beim ersten Start da. |
 | 📚 **Ein Wörterbuchregal, nicht nur ein Lexikon** | BDB, Gesenius, Jastrow, Levy, Krauss und Hamburgers Real-Encyclopädie, durchsuchbar nach Stichwort *und* im Volltext, mit Abkürzungen beim Überfahren und Quellen, die sich im Lesefenster öffnen. |
-| 🔬 **Gemacht zum Lernen** | Vers-für-Vers-Ausrichtung, Morphologie per Klick, zweites Lesefenster, Aleppo-Kodex, Qumran-Rollen, Septuaginta, Bibelkarte, Gliederungen und hebräische Lesung. |
+| 🔬 **Gemacht zum Lernen** | Vers-für-Vers-Ausrichtung, Morphologie per Klick, Grammatiksuche, zweites Lesefenster, Aleppo-Kodex, Qumran-Rollen, Septuaginta, Bibelkarte, Gliederungen und hebräische Lesung. |
 
 ## Schnellstart
 
 1. **Herunterladen und öffnen:** das Installationsprogramm für dein System aus der [neuesten Version](https://github.com/mitkin89/Safran/releases/latest). Die App ist nicht mit einem kostenpflichtigen Zertifikat signiert, darum braucht der erste Start einen Klick mehr, siehe [Häufige Fragen](#häufige-fragen).
 2. **Texte wählen:** *Herunterladen* im ⋯-Menü öffnen, den Katalog einmal laden (etwa 22 MB), Kategorien oder einzelne Bücher ankreuzen und die Sprachen wählen (Hebräisch, Englisch, Deutsch). Die mitgelieferten deutschen Texte und die Wörterbücher sind schon da, bevor du etwas herunterlädst.
-3. **Lesen:** ein Buch wählen, eine Stelle ins Springen-Feld tippen (`2:5`, `Daf 3a`, `gen. 1:1`), Cmd+K für die Kommentare drücken und ein Wort doppelklicken, um es in den Wörterbüchern nachzuschlagen.
+3. **Lesen:** ein Buch wählen, eine Stelle ins Springen-Feld tippen (`2:5`, `Daf 3a`, `gen. 1:1`), Cmd+K (unter Windows und Linux Strg+K) für die Kommentare drücken und ein Wort doppelklicken, um es in den Wörterbüchern nachzuschlagen. Ein neuer Tab zeigt den Wochenabschnitt und das Daf Yomi; ein Klick öffnet sie.
 
 ## Was Safran kann
 
 <table>
 <tr>
-<td width="50%" valign="top"><b>📖 Drei Sprachen, Vers für Vers</b><br>Hebräisch, Englisch und Deutsch nebeneinander, Vers für Vers ausgerichtet. Fußnoten öffnen sich im Text. Bibelstellen in allen Texten, auch mit römischer Kapitelzahl (<i>Jerem. XXIII, 24</i>), öffnen sich per Klick. Kapitel und Talmudseiten per Pfeiltasten.</td>
-<td width="50%" valign="top"><b>💬 Kommentarfenster (Cmd+K)</b><br>Raschi, Ibn Esra u. a. unter dem gewählten Vers, auf Hebräisch, Englisch oder Deutsch. Lässt sich neben dem Text anpinnen, zusammen mit dem Wörterbuch.</td>
+<td width="50%" valign="top"><b>📖 Drei Sprachen, Vers für Vers</b><br>Hebräisch, Englisch und Deutsch nebeneinander, Vers für Vers ausgerichtet, jede Version eine Spalte oder eine Spalte je Sprache. Hebräisch öffnet sich im Westminster Leningrad Codex oder, wo ein Buch ihn nicht hat, in einer echten Ausgabe (im Talmud z. B. der vokalisierte William-Davidson-Text), nicht in Sefarias zusammengeführtem Text. Fußnoten öffnen sich im Text. Bibelstellen in allen Texten, auch mit römischer Kapitelzahl (<i>Jerem. XXIII, 24</i>), öffnen sich per Klick. Kapitel und Talmudseiten per Pfeiltasten.</td>
+<td width="50%" valign="top"><b>💬 Kommentarfenster (Cmd+K)</b><br>Raschi, Ibn Esra u. a. unter dem gewählten Vers, auf Hebräisch, Englisch oder Deutsch. <i>Folgen</i> hält es auf dem Vers, den du gerade liest; ▲/▼ oder <code>j</code>/<code>k</code> gehen Vers für Vers weiter. Lässt sich neben dem Text anpinnen, zusammen mit dem Wörterbuch: als Reiter, untereinander oder nebeneinander.</td>
 </tr>
 <tr>
-<td valign="top"><b>🔎 Volltextsuche</b><br>In allem, was du geladen hast, auch in Fußnoten und eigenen Texten. Ignoriert Vokale und Kantillation. Wörter in der Nähe, Platzhalter, unscharfe Suche für Schreibvarianten.</td>
+<td valign="top"><b>🔎 Volltextsuche</b><br>In allem, was du geladen hast, auch in Fußnoten und eigenen Texten. Ignoriert Vokale und Kantillation. Wörter in der Nähe, Platzhalter, unscharfe Suche für Schreibvarianten, derselbe Vers in mehreren Fassungen nur ein Treffer. Im hebräischen Tanach außerdem <b>alle Formen eines Wortes</b> (über das Lemma) und eine <b>Grammatiksuche</b> nach Wortart, Stamm, Zeitform, Person, Genus und Numerus. Cmd/Strg+F sucht im angezeigten Text, auf Wunsch nur als <i>ganzes Wort</i>.</td>
 <td valign="top"><b>🔤 Morphologie per Klick</b><br>Der OSHB-Tanach trägt zu jedem Wort Lemma und Morphologie: ein Klick zeigt Stamm, Form, Person, Genus und Numerus, und das Lemma öffnet sich im Wörterbuch.</td>
 </tr>
 <tr>
@@ -63,12 +63,16 @@ Safran ist eine kostenlose Desktop-App für macOS, Windows und Linux, die deine 
 <td valign="top"><b>📜 Handschriften und Fassungen</b><br>Aleppo-Kodex, Qumran-Rollen, Septuaginta mit hebräischem Gegenstück je Wortgruppe: ein <b>LXX-MT-Vergleich</b>, der Plus, Minus und Zuordnung markiert (Interlinear umschaltbar), Targum Pseudo-Jonathan und Neofiti mit Morphologie, Parallelstellen, Sefarias Verknüpfungen.</td>
 </tr>
 <tr>
-<td valign="top"><b>🗺 Bibelkarte und Gliederungen</b><br>Die Orte jedes Kapitels auf einer Karte von Israel mit Entfernungen und Höhenprofil, eine detaillierte Jerusalem-Karte von 1865, Gliederungen für 39 Bücher mit Schalter 613 Mizwot und für Ginzbergs <i>Legenden</i>, dazu Themen.</td>
+<td valign="top"><b>🗺 Bibelkarte und Gliederungen</b><br>Die Orte jedes Kapitels auf einer Karte von Israel mit Entfernungen und Höhenprofil, eine detaillierte Jerusalem-Karte von 1865, dazu Themen. Gliederungen für den Tanach (in der Tora mit Schalter 613 Mizwot), die Mischna, die Apokryphen, den <i>Führer der Unschlüssigen</i> und Ginzbergs <i>Legenden</i>, als eigenes Fenster und als Überschriften zwischen den Versen (abschaltbar).</td>
 <td valign="top"><b>🎧 Hebräische Lesung</b><br>Eine Lesung des ganzen Tanach von Abraham Schmueloff, pro Buch herunterladbar. Jeder Vers hat sein eigenes ▶: Ein Klick spielt genau diesen Vers ab, danach läuft die Lesung weiter. Der gelesene Vers wird markiert.</td>
 </tr>
 <tr>
 <td valign="top"><b>✍️ Eigene Texte und Notizen</b><br>TXT, Word, CSV oder JSON als zusätzliche Spalte oder als Kommentar importieren. Lesezeichen und Notizen mit Export nach JSON, Markdown, Word oder PDF.</td>
-<td valign="top"><b>🖥 Gemacht für langes Lesen</b><br>Helles, dunkles oder automatisches Thema, einstellbare Größe, Oberfläche auf Deutsch, Englisch und Hebräisch, Tabs und Sitzung werden beim nächsten Start wiederhergestellt.</td>
+<td valign="top"><b>🖥 Gemacht für langes Lesen</b><br>Helles, dunkles oder automatisches Thema, einstellbare Größe, Seitenrand normal oder schmal, Oberfläche auf Deutsch, Englisch und Hebräisch. Die Tab-Leiste blendet sich beim Scrollen nach unten aus und kommt beim Scrollen nach oben zurück (abschaltbar). Safran öffnet sich so, wie du es verlassen hast: Fenster, Tabs, Lesestelle, Kommentar und Wörterbuch.</td>
+</tr>
+<tr>
+<td valign="top"><b>📅 Jüdischer Kalender im neuen Tab</b><br>Wochenabschnitt, Haftara, Daf Yomi und Jeruschalmi Yomi des Tages; ein Klick öffnet die Stelle. Zu anderen Tagen blättern oder ein Datum wählen. Die Daten stammen von hebcal.com und werden für 13 Monate gespeichert, darum funktioniert der Kalender auch offline.</td>
+<td valign="top"><b>🖼 Porträts</b><br>Kleine Bilder von Übersetzern, Kommentatoren und Lexikografen (Zunz, Mendelssohn, S. R. Hirsch, Goldschmidt, Hoffmann, Malbim, Levy, Jastrow …) sowie des Aleppo- und des Leningrader Kodex neben Versionen, Kommentaren und Wörterbüchern; beim Überfahren erscheint eine große Ansicht.</td>
 </tr>
 </table>
 
@@ -89,11 +93,12 @@ Den Reiter *Wörterbuch* öffnen, den Knopf 📖 neben dem Kommentarfenster drü
 | **Hamburger**, Real-Encyclopädie für Bibel und Talmud (Bd. 1, Bd. 2 talmudische Artikel) | 2.753 | Fußnoten im Text, Quellen verlinkt |
 
 - **Kluges Nachschlagen:** Vokalzeichen und Endbuchstaben werden ignoriert, die Präfixe ו ה ב כ ל מ ש abgelöst, und Einträge, die mit deinem Wort beginnen, erscheinen mit. Beim Tippen kommen Vorschläge.
-- **Volltext:** mit dem Häkchen *auch im Text* wird im Artikeltext gesucht, nicht nur in den Stichwörtern. Treffer werden hervorgehoben.
+- **Volltext:** mit dem Häkchen *auch im Text* wird im Artikeltext gesucht, nicht nur in den Stichwörtern. Treffer werden hervorgehoben. Auch Phrasen in Anführungszeichen und die Platzhalter `*` und `?` funktionieren.
+- **Vom Text und zurück:** ein aus dem Text nachgeschlagenes Wort zeigt, woher es kommt (*aus Genesis 25:8*); ein Klick führt zum Vers zurück.
 - **Wörterbücher wählen:** der Knopf 📚 legt fest, welche Wörterbücher durchsucht werden. Die Auswahl wird gemerkt.
 - **Stichwortliste:** *☰ Stichwörter* öffnet die vollständige, filterbare Stichwortliste eines Wörterbuchs.
 - **Verlinkte Quellen:** eine Stellenangabe wie *Rosh Hashanah 18b* öffnet die Stelle im Lesefenster, sofern der Text in deiner Bibliothek ist.
-- **Eigene mitbringen:** `.dsl`- / `.dsl.dz`-Wörterbücher (ABBYY-Lingvo-Format) unter *Wörterbücher verwalten* hinzufügen. Mit `{{ref:…}}` markierte Stellen werden in Safran anklickbar.
+- **Eigene mitbringen:** `.dsl`- / `.dsl.dz`-Wörterbücher (ABBYY-Lingvo-Format) im Menü 📚 über *DSL-Datei hinzufügen …* einbinden. Mit `{{ref:…}}` markierte Stellen werden in Safran anklickbar.
 
 ## Deutsche Texte, die es bei Sefaria nicht gibt
 
@@ -106,8 +111,12 @@ Safran liefert 345 deutsche Textdateien im Ordner `bundled/` mit. Sie werden bei
 | Herxheimer, *Die vier und zwanzig Bücher der Bibel* (1843), Übersetzung **und** Kommentar | ganzer Tanach |
 | Kautzsch, *Die Apokryphen und Pseudepigraphen des Alten Testaments* (1900) | Ben Sira, Jubiläen, Henoch, Tobit, Judith, Makkabäer, Weisheit Salomos u. a. |
 | Mendelssohn, *Netivot ha-Schalom* (Übersetzung, Taitsch und Biur) | Tora |
-| Raschi nach Bamberger · Hertz, Pentateuch-Kommentar | Tora |
-| Hirsch, Psalmen · Midrasch Bemidbar und Debarim Rabba (Wünsche) · *Führer der Unschlüssigen* (More Nevuchim) · *Kizzur Schulchan Aruch* (Bamberger) | |
+| Raschi nach Bamberger · Hertz, Pentateuch-Kommentar | Raschi: Exodus bis Deuteronomium · Hertz: Exodus, Numeri, Deuteronomium |
+| Goldschmidt, Übersetzung der Tora (1921) | Tora |
+| S. R. Hirsch, Psalmen · Julius Hirsch, Jesaja und die Zwölf Propheten · Joseph und Raphael Breuer: Josua, Richter, Jecheskel, Esra, Nehemia | Übersetzung und Kommentar (Jecheskel: nur Kommentar) |
+| Wünsches Midrasch-Übersetzungen | Bemidbar und Debarim Rabba, die Rabba-Bände zu den fünf Megillot, Pesikta des Rab Kahana, Midrasch Schmuel |
+| *Mischne Tora* (Mandelstamm, 1851) | 39 Abschnitte |
+| *Führer der Unschlüssigen* (More Nevuchim) · *Kizzur Schulchan Aruch* (Bamberger) | |
 | Ginzberg, *Die Legenden der Juden*, Lesefassung nach seinem deutschen Manuskript, ausgerichtet an Sefarias *Legends of the Jews* | Bd. 1–4, über 4000 Noten Ginzbergs als Fußnoten; Abkürzungen beim Überfahren; 10.600 Quellen (Bibel, Midrasch, Talmud, Josephus, Philo …) verlinkt und als Verknüpfungen in beide Richtungen; Gliederung |
 | *Schulchan Aruch* (Lederer): Orach Chajim, Jore Deah, Ewen haëser · *Abot de-Rabbi Natan* (Pollak) · Traktat *Soferim* (Müller) · *Heiligung des Neumonds* (Hildesheimer) | |
 | Samuel (Wolf) · Ijob (Dawidowicz) · die *Arba Megillot* (Breuer) | Übersetzung und Kommentar |
