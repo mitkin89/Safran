@@ -425,7 +425,7 @@ dialog .dclose:hover { background: color-mix(in srgb, var(--text, #888) 14%, tra
 #dictPanel[hidden] { display: none; }
 /* Kopf (Titel, Eingabe, Tabs) bleibt stehen, nur die Treffer scrollen */
 #dictHead { flex: none; display: block; padding-top: 6px; }
-#dictHead #dictBar { position: relative; z-index: 3; background: var(--bg); padding: 8px 0; border-bottom: 1px solid var(--line); margin-bottom: 0; }
+#dictHead #dictBar { position: relative; z-index: 20; background: var(--bg); padding: 8px 0; border-bottom: 1px solid var(--line); margin-bottom: 0; }
 #dictOut { flex: 1 1 auto; min-height: 0; overflow: auto; padding: 8px 0 4px; }
 #dictSaved { max-height: 26vh; overflow: auto; }
 #dictHead .lhead { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; }
