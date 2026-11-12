@@ -3466,11 +3466,11 @@
     });
     sp.addEventListener('dblclick', () => { document.documentElement.style.removeProperty('--dict-h'); try { localStorage.removeItem('stackDictH'); } catch { /* egal */ } });
   }
-  // Esc im Wörterbuch-Reiter: zurück zum Kommentar (an dieselbe Stelle)
+  // Esc bei Kommentar und Wörterbuch als Reiter: das Wörterbuch schließen, der Kommentar bleibt
   document.addEventListener('keydown', e => {
     if (e.key !== 'Escape' || !document.body.classList.contains('stack-tabs') || stackActive !== 'dict' || document.querySelector('dialog[open]')) return;
     if (document.activeElement === $('#dictQ') && !$('#dictSug').hidden) return; // erst die Vorschläge schließen
-    setStackActive('cmt'); e.stopPropagation();
+    e.preventDefault(); e.stopPropagation(); toggleDict(false); // Wörterbuch schließen (auch angepinnt), der Kommentar bleibt
   }, true);
   // Seitenleisten ändern die Breite des Lesebereichs: die Stelle, an der man gerade liest (markierter Vers, sonst oberster sichtbarer), bleibt dabei auf dem Bildschirm stehen
   function withAnchor(fn) {
@@ -3494,8 +3494,10 @@
     if (dictOpen) { renderDictList(); $('#dictQ').focus({ preventScroll: true }); }
   }
   // Doppelklick auf ein Wort im Text oder in den Kommentaren schlägt es nach
+  let fnClickT = 0; // Klick auf eine Fußnotenzahl: ein Doppelklick dort öffnet nicht das Wörterbuch (die Fußnote klappt dabei auf und zu, der Klick landet sonst im Notentext)
+  document.addEventListener('click', e => { if (e.target.closest && e.target.closest('sup, .nm, .footnote-marker, sup.dfn')) fnClickT = Date.now(); }, true);
   const dblWord = e => {
-    if (e.target.closest('a, button, select, input, textarea, .lab, .bm')) return;
+    if (e.target.closest('a, button, select, input, textarea, .lab, .bm, sup, .nm, .footnote-marker') || Date.now() - fnClickT < 700) return;
     const w = (window.getSelection() + '').trim().replace(/^[^\p{L}\p{M}]+|[^\p{L}\p{M}]+$/gu, '');
     if (w.length >= 2 && w.length <= 40 && !/\s/.test(w)) {
       // erneuter Doppelklick auf dasselbe Wort an derselben Stelle schließt das Wörterbuch wieder
@@ -5551,7 +5553,7 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
       if (document.querySelector('dialog[open]') || !$('#findBar').hidden || !$('#dispPanel').hidden || !$('#dictSug').hidden || document.querySelector('#wpop')) return;
       const open = panels.filter(([sel]) => !$(sel).hidden && !(sel === '#dictPanel' && document.documentElement.dataset.tab === 'dict'));
       if (!open.length) return;
-      open.sort((a, b) => (since.get(b[0]) || 0) - (since.get(a[0]) || 0));
+      open.sort((a, b) => (b[0] === '#dictPanel') - (a[0] === '#dictPanel') || (since.get(b[0]) || 0) - (since.get(a[0]) || 0)); // das Wörterbuch zuerst (auch angepinnt), dann das zuletzt geöffnete
       e.preventDefault(); open[0][1]();
     });
   }
