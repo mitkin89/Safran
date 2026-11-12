@@ -340,16 +340,20 @@
     try { localStorage.setItem('prefKinds', JSON.stringify(prefKinds)); } catch { /* egal */ }
   }
   // Voreinstellung der Versionen eines Buchs (Hebräisch immer, dazu die Sprache der Oberfläche)
+  // Reihenfolge der hebräischen Fassungen als Vorgabe: Westminster, vokalisierte Ausgabe, andere, zuletzt „zusammengeführt“
+  function heRank(t) { return /westminster/i.test(t) ? 0 : /vocalized|vokalisiert/i.test(t) ? 1 : t === 'merged' ? 9 : 2; }
   function pickVersions(g) {
     const sel = new Set();
-    // Hebräisch: der Westminster-Text (OSHB) hat Vorrang, sonst die zusammengeführte Fassung
-    const first = k => (k === 'he' && g.versions.find(v => v.kind === 'he' && /westminster/i.test(v.versionTitle))) || g.versions.find(v => v.kind === k && v.versionTitle === 'merged') || g.versions.find(v => v.kind === k);
+    // Hebräisch: der Westminster-Text (OSHB) hat Vorrang, dann eine echte Ausgabe (z. B. William Davidson, vokalisiert);
+    // Sefarias zusammengeführte Fassung nur, wenn es keine andere gibt
+    const first = k => k === 'he' ? [...g.versions.filter(v => v.kind === 'he')].sort((a, b) => heRank(a.versionTitle) - heRank(b.versionTitle))[0]
+      : (g.versions.find(v => v.kind === k && v.versionTitle === 'merged') || g.versions.find(v => v.kind === k));
     // Voreinstellung nach Oberflächensprache: Hebräisch immer, dazu Englisch bzw. Deutsch (Hebräisch-Oberfläche: nur Hebräisch); fehlt Deutsch, hilft Englisch aus
     const want = new Set(['he']);
     if (I18N.lang === 'en') want.add('en'); else if (I18N.lang === 'de') { want.add('de'); if (!first('de')) want.add('en'); }
     // Zuletzt gewählte Versionen gelten in jedem Buch weiter, das sie hat; sonst die Voreinstellung der Sprache
     for (const k of ['he', 'en', 'de', 'other']) {
-      const titles = Array.isArray(prefVer[k]) ? prefVer[k] : [];
+      const titles = (Array.isArray(prefVer[k]) ? prefVer[k] : []).filter(t => !(k === 'he' && t === 'merged')); // zusammengeführt wird nie als Vorgabe übernommen
       const mine = g.versions.filter(v => kindKey(v) === k && titles.includes(v.versionTitle));
       if (mine.length) mine.forEach(v => sel.add(v.rel));
       else if (want.has(k)) { const v = first(k); if (v) sel.add(v.rel); }
@@ -2552,6 +2556,9 @@
     if (!st || !hd) return;
     const hh = document.body.classList.contains('hd-hidden') ? 0 : hd.offsetHeight;
     document.documentElement.style.setProperty('--hdh', hd.offsetHeight + 'px');
+    // Abstand zwischen Kopf und Leiste im Fluss (Innenabstand von <main>): ausgeblendet ebenfalls einsparen, sonst steht die Leiste
+    // am Kapitelanfang tiefer als beim Scrollen und springt
+    try { const m = document.querySelector('main'); const g = Math.max(0, parseFloat(getComputedStyle(m).paddingTop) + parseFloat(getComputedStyle(st).marginTop)); document.documentElement.style.setProperty('--hdgap', g + 'px'); } catch { /* egal */ }
     $('#rOut').style.setProperty('--stick-top', (hh + st.offsetHeight - 4) + 'px');
     st.style.top = hh + 'px';
   };
@@ -2562,7 +2569,7 @@
     if (document.body.classList.contains('hd-hidden') === hide) return;
     // ausgeblendet nimmt die Leiste im Reiter „Lesen“ keinen Platz mehr ein (sonst bleibt nach einem Kapitelwechsel oben eine leere Fläche);
     // die Seite wird um ihre Höhe nachgeführt, damit der Text beim Aus-/Einblenden nicht springt
-    const hd = $('header'), h = hdTab() === 'read' && hd ? hd.offsetHeight : 0;
+    const hd = $('header'), h = hdTab() === 'read' && hd ? hd.offsetHeight + (parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--hdgap')) || 0) : 0;
     document.body.classList.toggle('hd-hidden', hide); fixStick(); dictPlace();
     if (h) { window.scrollBy(0, hide ? -h : h); hdLastY = window.scrollY; }
   };

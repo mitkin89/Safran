@@ -926,11 +926,13 @@ ipcMain.handle('links:section', async (_e, book, chap) => {
   try { return base.concat(await ownCommentaryLinks(book, chap)); } catch { return base; }
 });
 // Texte mehrerer Stellen auf einmal holen (Kommentar-Bereich): jede Datei wird nur einmal gelesen
+// Hebräisch: Westminster vor vokalisierter Ausgabe vor anderen; Sefarias zusammengeführte Fassung zuletzt
+const heRank = t => (/westminster/i.test(t) ? 0 : /vocalized|vokalisiert/i.test(t) ? 1 : t === 'merged' ? 9 : 2);
 ipcMain.handle('links:texts', async (_e, refs, prefer, strict) => {
   const lib = await getLibrary();
   const list = lib.list();
   const order = strict ? [prefer] : [prefer, 'en', 'de', 'he', 'other'].filter((k, i, a) => k && a.indexOf(k) === i);
-  const rank = e => { const r = order.indexOf(e.kind); return (r < 0 ? 9 : r) * 10 + (e.versionTitle === 'merged' ? 0 : 1); };
+  const rank = e => { const r = order.indexOf(e.kind); return (r < 0 ? 9 : r) * 10 + (e.kind === 'he' ? heRank(e.versionTitle) : (e.versionTitle === 'merged' ? 0 : 1)); };
   const byBook = new Map();
   for (const ref of refs) {
     const { book, tail } = LK.splitRef(ref);
@@ -976,7 +978,7 @@ ipcMain.handle('links:preview', async (_e, ref, langs) => {
   const lib = await getLibrary();
   const cand = lib.list().filter(x => x.title === book);
   if (!cand.length) return { missing: true };
-  const merged = x => (x.versionTitle === 'merged' ? 0 : 1);
+  const merged = x => (x.kind === 'he' ? heRank(x.versionTitle) : (x.versionTitle === 'merged' ? 0 : 1));
   // mehrere Sprachen: [hebräisch, zweite Sprache]; fehlt die zweite, nimmt die Vorschau eine andere vorhandene (en/de)
   if (Array.isArray(langs) && langs.length) {
     const parts = [];
