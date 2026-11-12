@@ -2113,13 +2113,74 @@
       Object.entries(w.by).forEach(([k, l]) => l.forEach(n => BM.places[map[n]][4].push(w.depth3 ? [bi, +k, 0] : [bi, Math.floor(k / 1000), k % 1000])));
     });
   }
+  // Orte der rabbinischen Literatur (ALMA, Ido Wachtel/HUJI GIS): je Werk Orte und Abschnittsschlüssel (Pfad des Abschnitts, „|“-getrennt);
+  // Einträge [Buch, Schlüssel, Segment, Stelle] – Schlüssel ist hier eine Zeichenkette, die Stelle dient als Link
+  if (BM && window.BMALMA) {
+    BM.alma = new Set(); const km = (a, b) => Math.hypot((a[0] - b[0]) * 95, (a[1] - b[1]) * 111), nn = s => String(s || '').replace(/\(.*?\)/g, '').toLowerCase().replace(/[^a-z]/g, ''), seen = new Map();
+    // Derselbe Ort schon vorhanden? Gleicher Name; sonst gleicher hebräischer Name (ohne Vokalzeichen und Lesemütter) oder gleiches Umschrift-Gerüst
+    // (Beth-shean = Bet Shean, Lydda = Lod, Jabneh = Yavne), auch über die weiteren Namen – jeweils nur bei nahezu gleicher Lage
+    const FIN = { 'ך': 'כ', 'ם': 'מ', 'ן': 'נ', 'ף': 'פ', 'ץ': 'צ' };
+    const heC = s => String(s || '').replace(/[^א-ת]/g, '').replace(/[ךםןףץ]/g, c => FIN[c]), heS = s => heC(s).replace(/[וי]/g, '').replace(/א$/, 'ה');
+    const enS = s => String(s || '').replace(/\(.*?\)/g, '').toLowerCase().replace(/[^a-z]/g, '').replace(/th/g, 't').replace(/ph/g, 'f').replace(/sh/g, 's').replace(/tz|ts|z/g, 's').replace(/kh|ch/g, 'h').replace(/ck|q|c/g, 'k').replace(/[vw]/g, 'b').replace(/[aeiouyj]/g, '').replace(/(.)\1+/g, '$1').replace(/h$/, '');
+    const alts = s => String(s || '').split(/[,;/]/).map(enS).filter(x => x.length > 2);
+    const mk = (n, h, a, p) => { const ps = String(n || '').replace(/\(.*?\)/g, '').split(/[/,]/).map(x => x.trim()).filter(Boolean); // „Sepphoris/Diocaesarea (Palestine)“ -> zwei Namen
+      return { n: nn(ps[0]), ns: ps.map(nn), s: enS(ps[0]), h: heS(h), hc: heC(h), a: alts(a).concat(ps.slice(1).map(enS).filter(x => x.length > 2)), j: !!(p && p[7] && !p[5]) }; }; // j: Ort nur aus ToposText (Josephus), ohne hebräischen Namen
+    const KEY = BM.places.map(p => mk(p[0], p[5], p[9], p));
+    const AREA = /^(region|region\/people|people group|country|body of water|sea_lake|sea\/strait|lake|river|natural area|mountain range|)$/;
+    const find = pl => {
+      const c = mk(pl[0], pl[4], pl[5]); let best = -1, bs = 1e9;
+      for (let i = 0; i < BM.places.length; i++) {
+        const p = BM.places[i], k = KEY[i], d = km([p[2], p[3]], [pl[2], pl[3]]);
+        if (d >= 10) { if (d < 250 && k.ns.includes(c.n) && c.n.length > 2 && AREA.test(pl[1]) && AREA.test(p[1]) && 500 + d < bs) { bs = 500 + d; best = i; } continue; } // Gebiet/Land/Gewässer: die Quellen setzen den Mittelpunkt verschieden
+        const sc = k.ns.includes(c.n) ? d : c.hc.length > 1 && k.hc === c.hc ? 20 + d : d < 4 && c.h.length > 1 && k.h === c.h ? 30 + d : d < 6 && ((c.s.length > 2 && (k.s === c.s || k.a.includes(c.s))) || (k.s.length > 2 && c.a.includes(k.s))) ? 40 + d
+          : d < 0.55 && k.j && !AREA.test(pl[1]) && !AREA.test(p[1]) && km([pl[2], pl[3]], [35.235, 31.777]) > 3 ? 60 + d : -1; // zuletzt: dieselbe Fundstätte (ToposText und ALMA setzen Orte auf die Ausgrabung), auch bei ganz anderem Namen (Machairous = Mikhvar)
+        if (sc >= 0 && sc < bs) { bs = sc; best = i; }
+      }
+      return best;
+    };
+    window.BMALMA.forEach(w => {
+      let bi = BM.books.indexOf(w.title); if (bi < 0) bi = BM.books.push(w.title) - 1; BM.alma.add(bi);
+      const map = w.places.map(pl => {
+        const key = pl[0] + '|' + pl[2] + '|' + pl[3]; if (seen.has(key)) return seen.get(key);
+        let ix = find(pl);
+        if (ix < 0) { ix = BM.places.push([pl[0], pl[1], pl[2], pl[3], [], pl[4] || '', []]) - 1; KEY.push(mk(pl[0], pl[4], '')); }
+        const p = BM.places[ix]; if (!p[5] && pl[4]) { p[5] = pl[4]; KEY[ix].h = heS(pl[4]); }
+        const more = [nn(pl[0]) !== nn(p[0]) ? pl[0] : '', ...String(pl[5] || '').split(/[,;]/)].map(x => x.trim()).filter(Boolean); // weitere Namen (auch die abweichende ALMA-Umschrift)
+        if (more.length) { const have = String(p[9] || '').split(', ').filter(Boolean); more.forEach(x => { if (!have.some(y => nn(y) === nn(x)) && nn(x) !== nn(p[0])) have.push(x); }); if (have.length) { p[9] = have.join(', '); KEY[ix].a = alts(p[9]); } }
+        seen.set(key, ix); return ix;
+      });
+      Object.entries(w.by).forEach(([k, l]) => l.forEach(([n, v, ref, per]) => BM.places[map[n]][4].push([bi, k, v, ref, per || 'O'])));
+    });
+    // Prüfhilfe: Orte mit verschiedenem Namen, die weniger als 3 km auseinanderliegen (mögliche Doppelgänger: der eine nur aus ALMA, der andere ohne ALMA-Stellen) – in der Konsole: __mapNear()
+    window.__mapNear = (lim = 3) => { const out = [], only = p => p[4].length && p[4].every(e => BM.alma.has(e[0])), none = p => !p[4].some(e => BM.alma.has(e[0])); BM.places.forEach((a, i) => { for (let j = i + 1; j < BM.places.length; j++) { const b = BM.places[j]; if (Math.abs(a[3] - b[3]) > 0.05) continue; const d = km([a[2], a[3]], [b[2], b[3]]); if (d < lim && ((only(a) && none(b)) || (only(b) && none(a)))) out.push([a[0], b[0], +d.toFixed(2), a[5] || '', b[5] || '']); } }); return out; };
+  }
+  // Epoche eines Eintrags [Buch, Kapitel, Vers, Stelle?, Epoche?]: Bibel (OpenBible), 2. Tempel (Josephus/Makkabäer), sonst aus ALMA
+  const MPER = new Set(['B', 'S', 'T', 'A']); try { const v = JSON.parse(localStorage.getItem('mapPer') || 'null'); if (Array.isArray(v)) { MPER.clear(); v.forEach(x => MPER.add(x)); } } catch { /* egal */ }
+  const mapPerOf = e => e[4] || (BM.nOrig != null && e[0] >= BM.nOrig && !(BM.alma && BM.alma.has(e[0])) ? 'S' : 'B');
+  const mapPerOk = e => { const q = mapPerOf(e); return MPER.has(q === 'O' ? 'S' : q); };
+  const mapPlaceOk = p => MPER.size === 4 || p[4].some(mapPerOk);
+  // Farben der Epochen (dieselben wie auf den Epochen-Knöpfen und in der Legende, library.css) und Reihenfolge von früh nach spät
+  const MPCOL = { B: '#d6382f', S: '#8e44ad', T: '#1f6fd8', A: '#2e8b57' }, MPORD = ['B', 'S', 'T', 'A'], MPNAME = { B: 'Tanach', S: '2. Tempel', T: 'Tannaiten', A: 'Amoräer' };
+  const mapPm = i => (MP.pm || (MP.pm = BM.places.map(p => { let m = 0; p[4].forEach(e => { const q = mapPerOf(e); m |= 1 << Math.max(0, MPORD.indexOf(q === 'O' ? 'S' : q)); }); return m; })))[i]; // Epochen eines Ortes als Bitmaske
+  const mapPerMask = () => MPORD.reduce((m, k, n) => m | (MPER.has(k) ? 1 << n : 0), 0);
+  const mapCols = i => { const m = mapPm(i), e = (m & mapPerMask()) || m; return MPORD.filter((k, n) => e >> n & 1).map(k => MPCOL[k]); }; // früheste Epoche zuerst
+  // Ortstypen der Quellen (OpenBible, ToposText, ALMA) auf Deutsch; werden über I18N weiter übersetzt
+  const MTYPE = { settlement: 'Ortschaft', city: 'Stadt', village: 'Dorf', polity: 'Stadt oder Staat', country: 'Land', region: 'Gebiet', 'region/people': 'Gebiet oder Volk', 'people group': 'Volk', river: 'Fluss', 'body of water': 'Gewässer', sea_lake: 'Meer oder See', 'sea/strait': 'Meer', lake: 'See', mountain: 'Berg', 'mountain range': 'Gebirge', hill: 'Hügel', valley: 'Tal', wadi: 'Wadi', campsite: 'Lagerplatz', road: 'Straße', 'pass/road': 'Pass oder Straße', 'mountain pass': 'Pass', canal: 'Kanal', tree: 'Baum', structure: 'Bauwerk', building: 'Gebäude', gate: 'Tor', well: 'Brunnen', spring: 'Wasserquelle', pool: 'Teich', ford: 'Furt', cliff: 'Klippe', island: 'Insel', 'district in settlement': 'Stadtteil', rock: 'Fels', garden: 'Garten', altar: 'Altar', special: 'besonderer Ort', 'natural area': 'Landschaft', hall: 'Halle', field: 'Feld', forest: 'Wald', room: 'Raum', fortification: 'Festung', 'stone heap': 'Steinhaufen', 'sanctuary/temple': 'Heiligtum', deme: 'Demos', battlefield: 'Schlachtfeld', cape: 'Kap', monument: 'Denkmal', harbor: 'Hafen', location: 'Örtlichkeit' };
+  const mapTypeT = ty => { const de = MTYPE[ty]; if (!de) return ty || ''; const k = 'Ortstyp: ' + de, v = I18N.t(k); return v === k ? de : v; }; // Schlüssel mit Vorsatz, damit einzelne Wörter (See, Tor, Land) nicht anderswo in der Oberfläche übersetzt werden
+  const MAREA = /^(region|region\/people|people group|country|body of water|sea_lake|sea\/strait|lake|river|natural area|valley|wadi|canal)$/, MTRI = /^(mountain|mountain range|hill|cliff|rock)$/; // Flächen: kursiver Name ohne Punkt; Berge: Dreieck
+  // feste Grundbeschriftung (Gewässer, Landschaften): [englisch, deutsch, hebräisch, Länge, Breite, ab Zoom, bis Zoom, Wasser?]
+  const MBASE = [['Mediterranean Sea', 'Mittelmeer', 'הים התיכון', 30.6, 33.7, 0, 2.5, 1], ['Mediterranean Sea', 'Mittelmeer', 'הים התיכון', 34.25, 32.35, 2.5, 60, 1], ['Red Sea', 'Rotes Meer', 'ים סוף', 36.2, 25.4, 0, 6, 1], ['Persian Gulf', 'Persischer Golf', 'המפרץ הפרסי', 50.2, 27.9, 0, 6, 1], ['Caspian Sea', 'Kaspisches Meer', 'הים הכספי', 50.7, 40.6, 0, 6, 1], ['Black Sea', 'Schwarzes Meer', 'הים השחור', 34.5, 41.75, 0, 6, 1],
+    ['Cyprus', 'Zypern', 'קפריסין', 33.2, 35.0, 0.3, 20, 0], ['Sinai', 'Sinai', 'סיני', 33.8, 29.5, 0.25, 12, 0], ['Nile', 'Nil', 'נילוס', 31.55, 27.2, 0.3, 30, 1], ['Euphrates', 'Euphrat', 'פרת', 39.75, 35.45, 0.3, 30, 1], ['Tigris', 'Tigris', 'חידקל', 43.2, 35.1, 0.3, 30, 1],
+    ['Dead Sea', 'Totes Meer', 'ים המלח', 35.48, 31.5, 2.2, 200, 1], ['Sea of Galilee', 'See Genezareth', 'כנרת', 35.59, 32.82, 4.5, 200, 1], ['Jordan', 'Jordan', 'ירדן', 35.56, 32.2, 7, 200, 1]];
+  const mapSecKey = () => { const s = view && view.sections && view.sections[view.idx]; return s && s.path ? s.path.filter(x => x !== '').join('|') : null; };
   // Jerusalem: OpenBible kennt für Tore, Türme, Teiche und Paläste nur den Stadtmittelpunkt. Hier sind Lagen nach Neh 3 und der Forschung gesetzt (vermutet, teils umstritten).
   const JERPOS = { 'Sheep Gate': [35.2364, 31.7808], 'Fish Gate': [35.2305, 31.7815], 'Gate of Yeshanah': [35.2290, 31.7800], 'Valley Gate': [35.2263, 31.7720], 'Dung Gate': [35.2325, 31.7690], 'Fountain Gate': [35.2352, 31.7698], 'Water Gate': [35.2370, 31.7728], 'Horse Gate': [35.2368, 31.7770], 'East Gate': [35.2374, 31.7788], 'Muster Gate': [35.2368, 31.7798], 'Corner Gate': [35.2282, 31.7774], 'Ephraim Gate': [35.2275, 31.7790], 'Benjamin Gate': [35.2318, 31.7822], 'Potsherd Gate': [35.2312, 31.7686], 'Shallecheth': [35.2337, 31.7777],
     'Tower of the Ovens': [35.2303, 31.7766], 'Tower of Hananel': [35.2360, 31.7803], 'Tower of the Hundred': [35.2364, 31.7804], 'Millo': [35.2362, 31.7752], 'Jebus': [35.2362, 31.7738], 'Lower Pool': [35.2348, 31.7692],
     'House of the Forest of Lebanon': [35.2363, 31.7764], 'Hall of the Throne': [35.2363, 31.7764], 'Hall of Pillars': [35.2363, 31.7764], 'Hall of Judgment': [35.2363, 31.7764] };
   BM.places.forEach(p => { const q = JERPOS[p[0]]; if (q && !p[7] && Math.abs(p[2] - 35.234) < 0.003 && p[3] > 31.776 && p[3] < 31.781) { p[2] = q[0]; p[3] = q[1]; p[8] = 1; } });
   const mapJosKey = () => { const s = view && view.sections && view.sections[view.idx], p = s && s.path; if (!p) return null; if (p[0] === 'Preface') return 0; const nums = p.filter(x => typeof x === 'number'); return nums.length >= 1 ? nums[0] + 1 : null; }; // Seitenabschnitt = Buch (Kapitel stehen darin)
-  const MP = { img: null, ok: false, s: 1, tx: 0, ty: 0, cur: [], sel: -1, alt: -1, byChap: null, byBook: null, over: null, drag: null, lay: [], rul: null };
+  const MP = { img: null, ok: false, s: 1, tx: 0, ty: 0, cur: [], sel: -1, alt: -1, byChap: null, byBook: null, over: null, drag: null, lay: [], rul: null, grp: null, vsel: null, vnum: 0, hov: -1, rhov: null, sort: 'az', dense: false };
+  try { if (localStorage.getItem('mapSort') === 'occ') MP.sort = 'occ'; } catch { /* egal */ }
   const mapPx = p => [(p[2] - BM.W0) * BM.ppd * BM.k, (BM.N0 - p[3]) * BM.ppd];
   const mapHe = p => p[5] || '';
   const mapXY = (lon, lat) => [(lon - BM.W0) * BM.ppd * BM.k, (BM.N0 - lat) * BM.ppd];
@@ -2132,7 +2193,7 @@
       return [a, b];
     }).filter(Boolean);
   }
-  function mapByBook() { if (MP.byBook) return MP.byBook; MP.byBook = new Map(); BM.places.forEach((p, i) => p[4].forEach(([b, c, v]) => { if (!MP.byBook.has(b)) MP.byBook.set(b, []); MP.byBook.get(b).push([i, c * 10000 + v, c * 10000 + (v ? v : 9999)]); })); return MP.byBook; }
+  function mapByBook() { if (MP.byBook) return MP.byBook; MP.byBook = new Map(); BM.places.forEach((p, i) => p[4].forEach(([b, c, v]) => { if (typeof c !== 'number') return; if (!MP.byBook.has(b)) MP.byBook.set(b, []); MP.byBook.get(b).push([i, c * 10000 + v, c * 10000 + (v ? v : 9999)]); })); return MP.byBook; }
   function mapForRef(title, ref) { // -> [{i, vs}]
     const bi = BM.books.indexOf(title); if (bi < 0) return []; const rg = mapRanges(ref); if (!rg.length) return []; const out = new Map();
     (mapByBook().get(bi) || []).forEach(([i, lo, hi]) => { if (rg.some(([a, b]) => hi >= a && lo <= b)) { if (!out.has(i)) out.set(i, []); out.get(i).push(lo % 10000); } });
@@ -2141,7 +2202,7 @@
   function mapChapPlaces() {
     if (MP.over) return MP.over.list;
     if (!BM || !view || !view.group) return [];
-    const bi = BM.books.indexOf(view.group.title); const jos = bi >= 0 && !!BM.j3 && BM.j3.has(bi), ch = jos ? mapJosKey() : auChapter(); if (bi < 0 || ch == null) return [];
+    const bi = BM.books.indexOf(view.group.title); const jos = bi >= 0 && !!BM.j3 && BM.j3.has(bi), alm = bi >= 0 && !!BM.alma && BM.alma.has(bi), ch = alm ? mapSecKey() : jos ? mapJosKey() : auChapter(); if (bi < 0 || ch == null) return [];
     if (!MP.byChap) { MP.byChap = new Map(); BM.places.forEach((p, i) => p[4].forEach(([b, c, v]) => { const k = b + '|' + c; let m = MP.byChap.get(k); if (!m) MP.byChap.set(k, m = new Map()); if (!m.has(i)) m.set(i, []); m.get(i).push(v); })); }
     if (jos) { // Josephus: alle Kapitel des Buches (bzw. Vorwort)
       const u = new Map(); MP.byChap.forEach((mm, k) => { const [b, c] = k.split('|').map(Number); if (b !== bi || (ch === 0 ? c !== 0 : Math.floor(c / 1000) !== ch)) return; mm.forEach((vs, i) => { if (!u.has(i)) u.set(i, []); u.get(i).push(...vs); }); });
@@ -2150,71 +2211,154 @@
     const m = MP.byChap.get(bi + '|' + ch); return m ? [...m].map(([i, vs]) => ({ i, vs })) : [];
   }
   function mapRefresh() {
-    if (!BM) return; MP.over = null; MP.cur = mapChapPlaces(); $('#mapBtn').hidden = !MP.cur.length && $('#mapPanel').hidden; btnLbl('#mapBtn', '🗺', 'Karte', MP.cur.length);
+    if (!BM) return; MP.over = null; MP.grp = null; MP.vsel = null; MP.cur = mapChapPlaces(); $('#mapBtn').hidden = !MP.cur.length && $('#mapPanel').hidden; btnLbl('#mapBtn', '🗺', 'Karte', MP.cur.length);
     if (!$('#mapPanel').hidden) { MP.sel = -1; mapRouteFill(); mapFit(); mapInfo(); mapDraw(); }
   }
   function mapSize() { const cv = $('#mapCv'), r = cv.getBoundingClientRect(), d = window.devicePixelRatio || 1; const w = Math.max(50, Math.round(r.width * d)), h = Math.max(50, Math.round(r.height * d)); if (cv.width !== w || cv.height !== h) { cv.width = w; cv.height = h; } return { w, h, d }; }
-  function mapFit() {
-    const { w, h } = mapSize(); const pts = MP.cur.map(c => mapPx(BM.places[c.i]));
-    const all = Math.min(w / BM.w, h / BM.h);
-    if (!pts.length) { MP.s = all; MP.tx = (w - BM.w * all) / 2; MP.ty = (h - BM.h * all) / 2; return; }
-    let x0 = Math.min(...pts.map(p => p[0])), x1 = Math.max(...pts.map(p => p[0])), y0 = Math.min(...pts.map(p => p[1])), y1 = Math.max(...pts.map(p => p[1]));
-    const pad = 90, sx = w / (x1 - x0 + 2 * pad), sy = h / (y1 - y0 + 2 * pad);
-    MP.s = Math.min(Math.max(Math.min(sx, sy), all), 1.6); MP.tx = w / 2 - (x0 + x1) / 2 * MP.s; MP.ty = h / 2 - (y0 + y1) / 2 * MP.s;
+  const MAPZ = 14; // größter Zoom außerhalb von Jerusalem (das Relief hat 150 Pixel je Grad; darüber ist nur noch Unschärfe zu sehen)
+  const mapNearJer = (lon, lat) => Math.abs(lon - 35.235) < 0.2 && Math.abs(lat - 31.775) < 0.17;
+  const mapInMap = p => { const [x, y] = mapPx(p); return x >= 0 && y >= 0 && x <= BM.w && y <= BM.h; }; // Rom u. a. liegen außerhalb des Reliefs
+  const mapCur = () => MPER.size === 4 ? MP.cur : MP.cur.filter(c => mapPlaceOk(BM.places[c.i])); // Orte des Kapitels, die der Epochenfilter durchlässt
+  // Die Karte darf nicht aus dem Bild rutschen: ist sie kleiner als die Fläche, wird sie zentriert; sonst bleibt höchstens ein Rand von 30 % frei
+  function mapClamp() {
+    const { w, h } = mapSize(), lo = Math.min(w / BM.w, h / BM.h); if (MP.s < lo) MP.s = lo;
+    const W = BM.w * MP.s, H = BM.h * MP.s, mx = Math.min(w * 0.3, Math.max(0, (W - w) / 2)), my = Math.min(h * 0.3, Math.max(0, (H - h) / 2));
+    MP.tx = W <= w ? (w - W) / 2 : Math.min(mx, Math.max(w - W - mx, MP.tx)); MP.ty = H <= h ? (h - H) / 2 : Math.min(my, Math.max(h - H - my, MP.ty));
   }
-  // Bildschirmpositionen; dicht beieinanderliegende Orte des Kapitels werden zu einem kleinen Kreis auseinandergezogen
+  // Punkte (Kartenpixel) einpassen; die Ränder zählen in Bildschirmpixeln: rechts bleibt Platz für Namen und die Knopfleiste
+  function mapFitPts(pts, cap) {
+    const { w, h, d } = mapSize(), all = Math.min(w / BM.w, h / BM.h);
+    if (!pts.length) { MP.s = all; MP.tx = (w - BM.w * all) / 2; MP.ty = (h - BM.h * all) / 2; return; }
+    const mL = Math.min(44 * d, w * 0.1), mR = Math.min(118 * d, w * 0.24), mT = Math.min(34 * d, h * 0.1), mB = Math.min(40 * d, h * 0.12), aw = w - mL - mR, ah = h - mT - mB;
+    const x0 = Math.min(...pts.map(p => p[0])), x1 = Math.max(...pts.map(p => p[0])), y0 = Math.min(...pts.map(p => p[1])), y1 = Math.max(...pts.map(p => p[1]));
+    MP.s = Math.min(Math.max(Math.min(aw / Math.max(x1 - x0, 1e-9), ah / Math.max(y1 - y0, 1e-9)), all), cap);
+    MP.tx = mL + aw / 2 - (x0 + x1) / 2 * MP.s; MP.ty = mT + ah / 2 - (y0 + y1) / 2 * MP.s;
+  }
+  function mapFit() {
+    let pl = mapCur().map(c => BM.places[c.i]).filter(mapInMap);
+    const inJ = pl.filter(p => p[2] > JER_BOX[0] && p[2] < JER_BOX[2] && p[3] > JER_BOX[1] && p[3] < JER_BOX[3]);
+    if (inJ.length >= 4 && inJ.length >= pl.length * 0.6) pl = inJ; // die meisten Orte liegen in Jerusalem (z. B. Neh 3): dorthin einpassen, Ausreißer bleiben außerhalb des Bildes
+    mapFitPts(pl.map(mapPx), pl.length === 1 ? 3 : pl.length && pl.length === inJ.length ? 3000 : MAPZ);
+  }
+  // Bildschirmpositionen. Orte bleiben an ihrer wahren Lage; nur (nahezu) deckungsgleiche Orte werden zu einem kleinen Kreis aufgefächert (höchstens 8),
+  // größere Haufen werden zu einer Zählblase (Klick zoomt hinein). Die Gruppen entstehen um den jeweils wichtigsten Ort, nicht als Kette.
   function mapLayout() {
-    const { d } = mapSize(), lay = [], inCh = new Set(MP.cur.map(c => c.i));
-    const pts = MP.cur.map(c => { const [x, y] = mapPx(BM.places[c.i]); return { i: c.i, x: x * MP.s + MP.tx, y: y * MP.s + MP.ty, chap: true }; });
-    const near = 17 * d, seen = new Array(pts.length).fill(false);
-    pts.forEach((a, ai) => {
-      if (seen[ai]) return; const grp = [ai]; seen[ai] = true;
-      for (let k = 0; k < grp.length; k++) pts.forEach((b, bi) => { if (!seen[bi] && Math.hypot(pts[grp[k]].x - b.x, pts[grp[k]].y - b.y) < near) { seen[bi] = true; grp.push(bi); } });
+    const { d, w, h } = mapSize(), lay = [], inCh = new Set(MP.cur.map(c => c.i)), e = 14 * d;
+    const pts = mapCur().map(c => { const p = BM.places[c.i], [x, y] = mapPx(p), o = { i: c.i, x: x * MP.s + MP.tx, y: y * MP.s + MP.ty, chap: true, n: p[4].length };
+      if (x < 0 || y < 0 || x > BM.w || y > BM.h) { o.off = Math.atan2(o.y - h / 2, o.x - w / 2); o.x = Math.min(w - e, Math.max(e, o.x)); o.y = Math.min(h - 36 * d, Math.max(e, o.y)); } // außerhalb des Reliefs: Pfeil am Bildrand
+      return o; });
+    const vis = pts.filter(o => o.x > 0 && o.y > 0 && o.x < w && o.y < h).length, dense = vis > 40, near = (dense ? 8 : 13) * d, used = new Array(pts.length).fill(false);
+    MP.dense = dense;
+    const ord = pts.map((_, k) => k).sort((a, b) => (pts[b].i === MP.sel) - (pts[a].i === MP.sel) || pts[b].n - pts[a].n);
+    ord.forEach(ai => {
+      if (used[ai]) return; used[ai] = true; const a = pts[ai]; if (a.i === MP.sel) { lay.push(a); return; } // der gewählte Ort steht immer für sich
+      const grp = [ai]; let ext = 0;
+      ord.forEach(bi => { if (used[bi] || pts[bi].i === MP.sel) return; const dd = Math.hypot(a.x - pts[bi].x, a.y - pts[bi].y); if (dd < near) { used[bi] = true; grp.push(bi); if (dd > ext) ext = dd; } });
       if (grp.length === 1) { lay.push(a); return; }
-      const cx = grp.reduce((t, g) => t + pts[g].x, 0) / grp.length, cy = grp.reduce((t, g) => t + pts[g].y, 0) / grp.length, R = (grp.length === 2 ? 15 : 12 + grp.length * 2) * d;
-      grp.sort((p, q) => BM.places[pts[p].i][0].localeCompare(BM.places[pts[q].i][0])).forEach((g, k) => { const an = -Math.PI / 2 + k * 2 * Math.PI / grp.length + (grp.length === 2 ? Math.PI / 2 : 0); lay.push({ i: pts[g].i, x: cx + R * Math.cos(an), y: cy + R * Math.sin(an), chap: true, spread: true, cx, cy }); });
+      const same = ext < 4 * d, cx = grp.reduce((t, k) => t + pts[k].x, 0) / grp.length, cy = grp.reduce((t, k) => t + pts[k].y, 0) / grp.length;
+      if (grp.length <= 8 && (same || !dense)) { const R = (dense ? (grp.length === 2 ? 7 : 6 + grp.length * 1.4) : (grp.length === 2 ? 11 : 9 + grp.length * 2)) * d;
+        grp.sort((p, q) => BM.places[pts[p].i][0].localeCompare(BM.places[pts[q].i][0])).forEach((k, n) => { const an = -Math.PI / 2 + n * 2 * Math.PI / grp.length + (grp.length === 2 ? Math.PI / 2 : 0); lay.push({ i: pts[k].i, x: cx + R * Math.cos(an), y: cy + R * Math.sin(an), chap: true, n: pts[k].n, spread: true, cx, cy, off: pts[k].off }); });
+      } else if (grp.length > 8 || same) lay.push({ i: a.i, x: cx, y: cy, chap: true, n: a.n, bub: grp.map(k => pts[k].i) });
+      else grp.forEach(k => lay.push(pts[k])); // viele Orte, aber nicht deckungsgleich: an der wahren Lage lassen (kleinere Marker)
     });
-    if ($('#mapAll').checked) BM.places.forEach((p, i) => { if (inCh.has(i)) return; const [x, y] = mapPx(p); lay.push({ i, x: x * MP.s + MP.tx, y: y * MP.s + MP.ty, chap: false }); });
+    if ($('#mapAll').checked) { const mask = mapPerMask(), all = MPER.size === 4; BM.places.forEach((p, i) => { if (inCh.has(i) || !(all || (mapPm(i) & mask))) return; const [x, y] = mapPx(p); lay.push({ i, x: x * MP.s + MP.tx, y: y * MP.s + MP.ty, chap: false, n: p[4].length }); }); }
     return lay;
   }
   function mapDraw() {
     if ($('#mapPanel').hidden || !MP.ok) return; const cv = $('#mapCv'), { w, h, d } = mapSize(), g = cv.getContext('2d');
-    g.setTransform(1, 0, 0, 1, 0, 0); g.fillStyle = '#7aa0be'; g.fillRect(0, 0, w, h);
+    mapClamp();
+    g.setTransform(1, 0, 0, 1, 0, 0); g.globalAlpha = 1; g.fillStyle = '#7aa0be'; g.fillRect(0, 0, w, h);
     g.imageSmoothingQuality = 'high'; g.drawImage(MP.img, MP.tx, MP.ty, BM.w * MP.s, BM.h * MP.s);
-    const r = d, ll = I18N.lang;
-    mapJerDraw(g, r);
+    const r = d, ll = I18N.lang, FONT = '-apple-system, system-ui, sans-serif';
+    MP.lay = mapLayout();
+    const chap = MP.lay.filter(o => o.chap), R0 = (MP.dense ? 4 : 6) * r, fade = o => !!MP.vsel && !MP.vsel.has(o.i);
+    mapJerDraw(g, r, chap);
     if (BB && $('#mapBord').checked) {
       g.save(); g.lineJoin = 'round'; g.setLineDash([6 * r, 4 * r]); g.strokeStyle = 'rgba(120,20,60,.85)'; g.lineWidth = 1.6 * r;
       BB.lines.forEach(l => { g.beginPath(); l.forEach(([x, y], k) => { const X = x * MP.s + MP.tx, Y = y * MP.s + MP.ty; if (k) g.lineTo(X, Y); else g.moveTo(X, Y); }); g.stroke(); });
-      g.restore(); g.font = `italic 600 ${13 * r}px -apple-system, system-ui, sans-serif`; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillStyle = 'rgba(100,15,50,.9)'; g.strokeStyle = 'rgba(255,255,255,.75)'; g.lineWidth = 3 * r; g.lineJoin = 'round';
+      g.restore(); g.font = `italic 600 ${13 * r}px ${FONT}`; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillStyle = 'rgba(100,15,50,.9)'; g.strokeStyle = 'rgba(255,255,255,.75)'; g.lineWidth = 3 * r; g.lineJoin = 'round';
       BB.names.forEach(n => { const t = (ll === 'de' ? n[1] : ll === 'he' && n[2] ? n[2] : n[0]).toUpperCase(), X = n[3] * MP.s + MP.tx, Y = n[4] * MP.s + MP.ty; if (X < 0 || Y < 0 || X > w || Y > h) return; g.strokeText(t, X, Y); g.fillText(t, X, Y); });
       g.textAlign = 'start';
     }
-    MP.lay = mapLayout();
-    g.fillStyle = 'rgba(40,40,40,.55)'; MP.lay.forEach(o => { if (o.chap) return; g.beginPath(); g.arc(o.x, o.y, 2.6 * r, 0, 7); g.fill(); });
-    g.font = `${12 * r}px -apple-system, system-ui, sans-serif`; g.textBaseline = 'middle'; g.lineJoin = 'round';
-    const boxes = [], hit = (a, b) => boxes.some(q => a.x < q.x + q.w && a.x + a.w > q.x && a.y < q.y + q.h && a.y + a.h > q.y);
-    const chap = MP.lay.filter(o => o.chap).sort((a, b) => (a.i === MP.sel) - (b.i === MP.sel) || a.y - b.y);
+    g.textAlign = 'start'; g.textBaseline = 'middle'; g.lineJoin = 'round';
+    // Hindernisse für Namen: Bedienelemente auf der Karte, Maßstab, Marker
+    const boxes = [], hit = a => boxes.some(q => a.x < q.x + q.w && a.x + a.w > q.x && a.y < q.y + q.h && a.y + a.h > q.y), inside = b => b.x >= 3 * r && b.y >= 2 * r && b.x + b.w <= w - 3 * r && b.y + b.h <= h - 2 * r;
+    { const cb = cv.getBoundingClientRect(); ['#mapZoomB', '#mapJer', '#mapRuler', '#mapLegend'].forEach(s => { const el = $(s); if (!el || el.hidden) return; const b = el.getBoundingClientRect(); if (b.width) boxes.push({ x: (b.left - cb.left) * d - 3 * r, y: (b.top - cb.top) * d - 3 * r, w: b.width * d + 6 * r, h: b.height * d + 6 * r }); }); }
+    const sbar = mapScale(w, h, r); boxes.push(sbar.box);
+    const txt = (t, x, y, fill, lw, halo) => { g.lineWidth = (lw || 3.5) * r; g.strokeStyle = halo || 'rgba(255,255,255,.9)'; g.strokeText(t, x, y); g.fillStyle = fill; g.fillText(t, x, y); };
+    // Kandidaten für einen Namen: rechts, links, oben, unten – nur wo frei und ganz im Bild
+    const spot = (o, tw, th, off, force) => {
+      const c = [[o.x + off, o.y - th / 2], [o.x - off - tw, o.y - th / 2], [o.x - tw / 2, o.y - off - th], [o.x - tw / 2, o.y + off]]; if (o.spread && o.x < o.cx - 1) c.unshift(c.splice(1, 1)[0]);
+      const bs = c.map(([bx, by]) => ({ x: bx - 2 * r, y: by, w: tw + 4 * r, h: th })); return bs.find(b => inside(b) && !hit(b)) || (force ? bs.find(inside) || bs[0] : null);
+    };
+    const isArea = o => !o.spread && !o.bub && o.off == null && o.i !== MP.sel && MAREA.test(BM.places[o.i][1]);
+    chap.forEach(o => { if (!isArea(o)) { const R = o.bub ? 13 * r : o.i === MP.sel ? 9 * r : R0 + 2 * r; boxes.push({ x: o.x - R, y: o.y - R, w: 2 * R, h: 2 * R }); } });
+    // gewählter Ort: Platz für Marker und Namen zuerst sichern, gezeichnet wird er zuletzt (über allem)
+    let so = null;
+    if (MP.sel >= 0) { so = MP.lay.find(o => o.i === MP.sel && !o.bub); if (!so) { const [x, y] = mapPx(BM.places[MP.sel]); so = { i: MP.sel, x: x * MP.s + MP.tx, y: y * MP.s + MP.ty, chap: false }; }
+      if (so.x < -20 || so.y < -20 || so.x > w + 20 || so.y > h + 20) so = null;
+      else { if (!so.chap) boxes.push({ x: so.x - 9 * r, y: so.y - 9 * r, w: 18 * r, h: 18 * r }); g.font = `700 ${13 * r}px ${FONT}`; so.name = BM.places[so.i][0]; so.tw = g.measureText(so.name).width; so.lb = spot(so, so.tw, 16 * r, 12 * r, true); boxes.push(so.lb); } }
+    // Flächen (Gebiete, Gewässer, Völker): kursiver Name auf der Lage statt eines Punktes; wo dafür kein Platz ist, bleibt es beim Marker
+    const areaFont = `italic 600 ${12.5 * r}px ${FONT}`; g.font = areaFont;
+    chap.filter(isArea).sort((a, b) => b.n - a.n).forEach(o => { const name = BM.places[o.i][0], tw = g.measureText(name).width, bb = { x: o.x - tw / 2 - 3 * r, y: o.y - 8 * r, w: tw + 6 * r, h: 16 * r };
+      if (inside(bb) && !hit(bb)) { o.area = true; o.lb = bb; o.name = name; boxes.push(bb); } else boxes.push({ x: o.x - R0 - 2 * r, y: o.y - R0 - 2 * r, w: 2 * R0 + 4 * r, h: 2 * R0 + 4 * r }); });
+    // Grundbeschriftung (Gewässer, Landschaften), dezent und nur wo nichts anderes liegt
+    g.font = `italic ${12 * r}px ${FONT}`;
+    const shown = new Set(MP.lay.map(o => BM.places[o.i][0]));
+    MBASE.forEach(b => { if (MP.s < b[5] || MP.s >= b[6] || shown.has(b[0])) return; const t = ll === 'de' ? b[1] : ll === 'he' ? b[2] : b[0], [x, y] = mapXY(b[3], b[4]), X = x * MP.s + MP.tx, Y = y * MP.s + MP.ty, tw = g.measureText(t).width, bb = { x: X - tw / 2 - 3 * r, y: Y - 8 * r, w: tw + 6 * r, h: 16 * r };
+      if (!inside(bb) || hit(bb)) return; boxes.push(bb); g.globalAlpha = 0.85; txt(t, X - tw / 2, Y, b[7] ? '#1f4f7a' : '#5a4524', 2.5, 'rgba(255,255,255,.55)'); g.globalAlpha = 1; });
+    mapRouteDraw(g, r); // Routen liegen unter Markern und Namen
+    // übrige Orte („alle Orte“): kleine Punkte in der Farbe der frühesten Epoche
+    const colc = {}, col1 = i => { const k = mapPm(i); return colc[k] || (colc[k] = mapCols(i)[0] || MPCOL.B); };
+    g.globalAlpha = 0.72; MP.lay.forEach(o => { if (o.chap || o.x < -4 || o.y < -4 || o.x > w + 4 || o.y > h + 4) return; g.beginPath(); g.arc(o.x, o.y, 2.6 * r, 0, 7); g.fillStyle = col1(o.i); g.fill(); }); g.globalAlpha = 1;
     chap.filter(o => o.spread).forEach(o => { g.strokeStyle = 'rgba(255,255,255,.8)'; g.lineWidth = 1.5 * r; g.beginPath(); g.moveTo(o.cx, o.cy); g.lineTo(o.x, o.y); g.stroke(); });
-    chap.forEach(o => {
-      const on = o.i === MP.sel; g.beginPath(); g.arc(o.x, o.y, (on ? 8 : 6) * r, 0, 7); g.fillStyle = on ? '#ffcc00' : mapConf(BM.places[o.i]) < 500 ? '#ee9a94' : '#d6382f'; g.fill(); g.lineWidth = 2 * r; g.strokeStyle = '#fff'; if (!on && mapConf(BM.places[o.i]) < 500) g.setLineDash([3 * r, 2 * r]); g.stroke(); g.setLineDash([]);
-    });
-    if (MP.sel >= 0) { // andere mögliche Lagen des gewählten Ortes
-      const me = MP.lay.find(o => o.i === MP.sel), al = BM.places[MP.sel][6] || [];
-      al.forEach((a, k) => { if (k === 0) return; const [x0, y0] = mapXY(a[1], a[2]), X = x0 * MP.s + MP.tx, Y = y0 * MP.s + MP.ty, on = k === MP.alt;
+    // Marker: Kreis (Ort), Dreieck (Berg), Pfeil (außerhalb der Karte); unsichere Zuordnung als hohler Ring; mehrere Epochen als mehrfarbiger Ring
+    const marker = (o, on) => {
+      const p = BM.places[o.i], cols = on ? ['#ffcc00'] : mapCols(o.i), col = cols[0] || MPCOL.B, unc = !on && mapConf(p) < 500, R = on ? 8 * r : R0;
+      const shape = () => { g.beginPath();
+        if (o.off != null) { const a = o.off, q = k => [o.x + Math.cos(a + k) * R * 1.5, o.y + Math.sin(a + k) * R * 1.5]; g.moveTo(...q(0)); g.lineTo(...q(2.5)); g.lineTo(...q(-2.5)); g.closePath(); }
+        else if (MTRI.test(p[1])) { g.moveTo(o.x, o.y - R * 1.2); g.lineTo(o.x + R * 1.1, o.y + R * 0.8); g.lineTo(o.x - R * 1.1, o.y + R * 0.8); g.closePath(); }
+        else g.arc(o.x, o.y, R, 0, 7); };
+      if (cols.length > 1 && !MP.dense && !unc && o.off == null && !MTRI.test(p[1])) { // Ort kommt in mehreren Epochen vor
+        g.beginPath(); g.arc(o.x, o.y, R + 3.6 * r, 0, 7); g.fillStyle = '#fff'; g.fill(); g.lineWidth = 2.6 * r;
+        cols.forEach((c, k) => { g.beginPath(); g.arc(o.x, o.y, R + 1.6 * r, -Math.PI / 2 + k * 2 * Math.PI / cols.length, -Math.PI / 2 + (k + 1) * 2 * Math.PI / cols.length); g.strokeStyle = c; g.stroke(); });
+        g.beginPath(); g.arc(o.x, o.y, R - 0.6 * r, 0, 7); g.fillStyle = col; g.fill(); return; }
+      shape(); g.fillStyle = unc ? 'rgba(255,255,255,.82)' : col; g.fill(); g.lineWidth = (unc ? 2.4 : MP.dense && !on ? 1.3 : 2) * r; g.strokeStyle = unc ? col : '#fff'; g.stroke();
+      if (on) { g.beginPath(); g.arc(o.x, o.y, R + 1.8 * r, 0, 7); g.lineWidth = 1.2 * r; g.strokeStyle = '#222'; g.stroke(); }
+    };
+    chap.forEach(o => { if (o.bub || o.area || o.i === MP.sel) return; g.globalAlpha = fade(o) ? 0.3 : 1; marker(o, false); }); g.globalAlpha = 1;
+    chap.forEach(o => { if (!o.bub) return; const R = (10 + Math.min(5, o.bub.length / 8)) * r, t = String(o.bub.length); o.R = R; g.beginPath(); g.arc(o.x, o.y, R, 0, 7); g.fillStyle = 'rgba(255,255,255,.94)'; g.fill(); g.lineWidth = 2.4 * r; g.strokeStyle = col1(o.i); g.stroke();
+      g.font = `700 ${11 * r}px ${FONT}`; g.fillStyle = '#222'; g.fillText(t, o.x - g.measureText(t).width / 2, o.y + 0.5 * r); });
+    if (MP.sel >= 0) { // andere mögliche Lagen des gewählten Ortes (unter 5 % nur in der Liste)
+      const me = so, al = BM.places[MP.sel][6] || []; g.font = `${11 * r}px ${FONT}`;
+      al.forEach((a, k) => { if (k === 0 || (a[3] < 50 && k !== MP.alt)) return; const [x0, y0] = mapXY(a[1], a[2]), X = x0 * MP.s + MP.tx, Y = y0 * MP.s + MP.ty, on = k === MP.alt, R = (5 + a[3] / 1000 * 5) * r;
+        if (me && Math.hypot(X - me.x, Y - me.y) < 3 * r && !on) return; // liegt auf dem Ort selbst
         if (me) { g.save(); g.setLineDash([4 * r, 3 * r]); g.strokeStyle = 'rgba(30,30,30,.7)'; g.lineWidth = 1.2 * r; g.beginPath(); g.moveTo(me.x, me.y); g.lineTo(X, Y); g.stroke(); g.restore(); }
-        g.beginPath(); g.arc(X, Y, (5 + a[3] / 1000 * 5) * r, 0, 7); g.fillStyle = on ? '#ffcc00' : 'rgba(255,255,255,.55)'; g.fill(); g.lineWidth = 2 * r; g.strokeStyle = '#222'; g.stroke();
-        const t = a[0] + ' · ' + Math.round(a[3] / 10) + ' %'; g.font = `${11 * r}px -apple-system, system-ui, sans-serif`; g.lineWidth = 3 * r; g.strokeStyle = 'rgba(255,255,255,.9)'; g.strokeText(t, X + 9 * r, Y); g.fillStyle = '#222'; g.fillText(t, X + 9 * r, Y); });
+        g.beginPath(); g.arc(X, Y, R, 0, 7); g.fillStyle = on ? '#ffcc00' : 'rgba(255,255,255,.55)'; g.fill(); g.lineWidth = 2 * r; g.strokeStyle = '#222'; g.stroke();
+        const t = a[0] + ' · ' + Math.round(a[3] / 10) + ' %', bb = spot({ x: X, y: Y }, g.measureText(t).width, 14 * r, R + 4 * r, on); if (bb) { boxes.push(bb); txt(t, bb.x + 2 * r, bb.y + 7 * r, '#222', 3); } });
     }
-    chap.forEach(o => boxes.push({ x: o.x - 8 * r, y: o.y - 8 * r, w: 16 * r, h: 16 * r })); // Marker selbst sind auch Hindernisse für Namen
-    chap.forEach(o => { // Beschriftung: erst rechts, dann links, oben, unten; was nirgends frei ist, bleibt ohne Namen (Hover/Klick zeigt ihn)
-      const name = BM.places[o.i][0], tw = g.measureText(name).width, th = 14 * r, on = o.i === MP.sel, off = 10 * r;
-      const opts = [[o.x + off, o.y - th / 2, 'start'], [o.x - off - tw, o.y - th / 2, 'start'], [o.x - tw / 2, o.y - off - th, 'start'], [o.x - tw / 2, o.y + off, 'start']];
-      for (const [bx, by] of opts) { const bb = { x: bx - 2, y: by, w: tw + 4, h: th }; if (!hit(bb) || (on && opts.indexOf(opts.find(q => q[0] === bx)) === 3)) { boxes.push(bb); g.lineWidth = 3.5 * r; g.strokeStyle = 'rgba(255,255,255,.9)'; g.strokeText(name, bx, by + th / 2); g.fillStyle = '#222'; g.fillText(name, bx, by + th / 2); break; } }
-    });
-    try { const noted = new Set(notesAll.filter(n => n.place).map(n => n.place)); if (noted.size) { g.font = `${12 * r}px -apple-system, sans-serif`; g.textAlign = 'left'; g.textBaseline = 'alphabetic'; MP.lay.forEach(o => { if (noted.has(BM.places[o.i][0])) { g.lineWidth = 3 * r; g.strokeStyle = 'rgba(255,255,255,.95)'; g.strokeText('✎', o.x + 5 * r, o.y - 5 * r); g.fillStyle = '#b8570a'; g.fillText('✎', o.x + 5 * r, o.y - 5 * r); } }); } } catch { /* Notizen noch nicht geladen */ }
-    mapRouteDraw(g, r);
+    // Namen der Kapitelorte, die wichtigsten (meiste Stellen) zuerst; was nirgends Platz findet, bleibt ohne Namen (Hover/Klick zeigt ihn)
+    g.font = `${12 * r}px ${FONT}`;
+    chap.filter(o => !o.bub && !o.area && o.i !== MP.sel).sort((a, b) => fade(a) - fade(b) || b.n - a.n).forEach(o => {
+      const name = BM.places[o.i][0], bb = spot(o, g.measureText(name).width, 14 * r, R0 + 4 * r); if (!bb) return; boxes.push(bb); g.globalAlpha = fade(o) ? 0.45 : 1; txt(name, bb.x + 2 * r, bb.y + 7 * r, '#222'); g.globalAlpha = 1; });
+    g.font = areaFont; chap.forEach(o => { if (!o.area) return; g.globalAlpha = fade(o) ? 0.35 : mapConf(BM.places[o.i]) < 500 ? 0.7 : 1; txt(o.name, o.lb.x + 3 * r, o.y, col1(o.i), 3.5); g.globalAlpha = 1; });
+    // übrige Orte: die meistgenannten beschriften, soweit Platz ist
+    if ($('#mapAll').checked) { let left = chap.length ? 24 : 45, tries = 0; const rest = MP.lay.filter(o => !o.chap && o.i !== MP.sel && o.x > 0 && o.y > 0 && o.x < w && o.y < h).sort((a, b) => b.n - a.n);
+      for (const o of rest) { if (!left || ++tries > 260) break; const p = BM.places[o.i]; g.font = `${MAREA.test(p[1]) ? 'italic ' : ''}${10.5 * r}px ${FONT}`; const bb = spot(o, g.measureText(p[0]).width, 12 * r, 5 * r); if (!bb) continue; boxes.push(bb); left--; txt(p[0], bb.x + 2 * r, bb.y + 6 * r, '#333', 2.6, 'rgba(255,255,255,.8)'); } }
+    if (so) { marker(so, true); g.font = `700 ${13 * r}px ${FONT}`; txt(so.name, so.lb.x + 2 * r, so.lb.y + 8 * r, '#111', 4.5, 'rgba(255,255,255,.96)'); }
+    try { const noted = new Set(notesAll.filter(n => n.place).map(n => n.place)); if (noted.size) { g.font = `${12 * r}px -apple-system, sans-serif`; g.textAlign = 'left'; g.textBaseline = 'alphabetic'; MP.lay.forEach(o => { if (!o.bub && noted.has(BM.places[o.i][0])) { g.lineWidth = 3 * r; g.strokeStyle = 'rgba(255,255,255,.95)'; g.strokeText('✎', o.x + 5 * r, o.y - 5 * r); g.fillStyle = '#b8570a'; g.fillText('✎', o.x + 5 * r, o.y - 5 * r); } }); g.textBaseline = 'middle'; } } catch { /* Notizen noch nicht geladen */ }
+    if (MP.hov >= 0 && MP.hov !== MP.sel) { const o = MP.lay.find(q => q.i === MP.hov && !q.bub) || MP.lay.find(q => q.bub && q.bub.includes(MP.hov)); // Ort unter dem Mauszeiger bzw. dessen Chip in der Liste
+      if (o) { const R = o.area ? 0 : (o.bub ? o.R : o.chap ? R0 : 2.6 * r) + 4 * r; g.beginPath(); if (o.area) g.rect(o.lb.x, o.lb.y, o.lb.w, o.lb.h); else g.arc(o.x, o.y, R, 0, 7); g.lineWidth = 4 * r; g.strokeStyle = 'rgba(255,255,255,.9)'; g.stroke(); g.lineWidth = 1.6 * r; g.strokeStyle = '#222'; g.stroke(); } }
     mapRulDraw(g, r);
+    sbar.draw(g);
+  }
+  // Maßstabsbalken unten rechts (runde Länge, höchstens etwa 110 Bildschirmpixel)
+  function mapScale(w, h, r) {
+    const kpp = 111.2 / (BM.ppd * MP.s), max = 110 * r * kpp, e = Math.pow(10, Math.floor(Math.log10(max))), L = [5, 2, 1].map(m => m * e).find(v => v <= max), px = L / kpp, x1 = w - 12 * r, x0 = x1 - px, y = h - 11 * r;
+    const t = L >= 1 ? L.toLocaleString(I18N.lang === 'de' ? 'de-DE' : 'en-US') + ' km' : Math.round(L * 1000) + ' m';
+    return { box: { x: x0 - 8 * r, y: y - 20 * r, w: px + 20 * r, h: 31 * r }, draw: g => { g.save(); g.lineCap = 'butt'; g.lineJoin = 'miter'; const path = () => { g.beginPath(); g.moveTo(x0, y - 5 * r); g.lineTo(x0, y); g.lineTo(x1, y); g.lineTo(x1, y - 5 * r); };
+      path(); g.lineWidth = 4.5 * r; g.strokeStyle = 'rgba(255,255,255,.9)'; g.stroke(); path(); g.lineWidth = 1.8 * r; g.strokeStyle = '#222'; g.stroke();
+      g.font = `600 ${11 * r}px -apple-system, system-ui, sans-serif`; g.textAlign = 'center'; g.textBaseline = 'alphabetic'; g.lineJoin = 'round'; g.lineWidth = 3.5 * r; g.strokeStyle = 'rgba(255,255,255,.9)'; g.strokeText(t, (x0 + x1) / 2, y - 6 * r); g.fillStyle = '#222'; g.fillText(t, (x0 + x1) / 2, y - 6 * r); g.restore(); } };
   }
   // Entfernungsmessung: Klicks setzen Punkte (rasten auf Orte ein), Luftlinie in km
   // Höhenraster (map/elev.js, zlib+Base64) wird beim ersten Öffnen der Karte entpackt
@@ -2275,13 +2419,22 @@
     if (R.prof) mapProfDraw(null);
   }
   function mapRulToggle(on) { if (on) mapElevLoad(); if (on === undefined) on = !(MP.rul && MP.rul.on); MP.rul = on ? { on: true, pts: [], cur: null } : null; $('#mapRulB').classList.toggle('on', on); $('#mapCv').style.cursor = on ? 'crosshair' : ''; mapRulInfo(); mapDraw(); }
-  function mapPick(ev, all) {
+  function mapPickO(ev) { // Objekte des Layouts unter dem Mauszeiger (nächstes zuerst); Flächennamen zählen mit ihrem ganzen Schriftzug
     const cv = $('#mapCv'), b = cv.getBoundingClientRect(), d = window.devicePixelRatio || 1, mx = (ev.clientX - b.left) * d, my = (ev.clientY - b.top) * d; const out = [];
-    MP.lay.forEach(o => { const dd = Math.hypot(o.x - mx, o.y - my); if (dd < 11 * d) out.push([dd - (o.chap ? 4 * d : 0), o.i]); });
-    out.sort((a, b2) => a[0] - b[0]); return all ? out.map(o => o[1]) : (out.length ? out[0][1] : -1);
+    MP.lay.forEach(o => { let dd = Math.hypot(o.x - mx, o.y - my); if (o.area && o.lb && mx >= o.lb.x && mx <= o.lb.x + o.lb.w && my >= o.lb.y && my <= o.lb.y + o.lb.h) dd = Math.min(dd, 6 * d); if (dd < (o.bub ? 15 : 11) * d) out.push([dd - (o.chap ? 4 * d : 0), o]); });
+    out.sort((a, b2) => a[0] - b2[0] || (b2[1].n || 0) - (a[1].n || 0)); return out.map(o => o[1]); // bei gleichem Abstand der häufiger genannte Ort
   }
-  const mapRefLink = (bi, c, v) => { const t = BM.books[bi]; if (BM.j3 && BM.j3.has(bi)) return c ? `<a data-ref="${esc(t + ' ' + Math.floor(c / 1000) + ':' + (c % 1000))}">${Math.floor(c / 1000)}.${c % 1000}</a>` : `<a data-ref="${esc(t + ', Preface')}">${esc(I18N.t('Vorwort'))}</a>`; return `<a data-ref="${esc(t + ' ' + c + (v ? ':' + v : ''))}">${esc(c + (v ? ':' + v : ''))}</a>`; };
-  const mapName = i => { const p = BM.places[i], he = mapHe(p); return esc(p[0]) + (he ? ` <span class="he" dir="rtl">${esc(he)}</span>` : (p[7] && p[7].g ? ` <span class="he" lang="grc">${esc(p[7].g)}</span>` : '')); };
+  function mapPick(ev, all) { const l = mapPickO(ev).filter(o => !o.bub).map(o => o.i); return all ? l : (l.length ? l[0] : -1); }
+  // Zählblase: auf ihre Orte hineinzoomen; liegen sie (fast) auf demselben Punkt, die Orte stattdessen in der Liste zeigen
+  function mapBubble(o) {
+    const pl = o.bub.map(i => BM.places[i]).filter(mapInMap), s0 = MP.s, tx = MP.tx, ty = MP.ty, ext = pl.length ? Math.max(Math.max(...pl.map(p => p[2])) - Math.min(...pl.map(p => p[2])), Math.max(...pl.map(p => p[3])) - Math.min(...pl.map(p => p[3]))) : 0;
+    MP.sel = -1; MP.grp = null;
+    if (ext > 0.0015) mapFitPts(pl.map(mapPx), Math.min(s0 * 5, pl.every(p => mapNearJer(p[2], p[3])) ? 3000 : MAPZ)); // schrittweise hinein, damit der Zusammenhang sichtbar bleibt
+    if (ext <= 0.0015 || MP.s < s0 * 1.15) { MP.s = s0; MP.tx = tx; MP.ty = ty; MP.grp = o.bub.slice(); }
+    mapDraw(); mapInfo();
+  }
+  const mapRefLink = (bi, c, v, ref) => { const t = BM.books[bi]; if (ref) return `<a data-ref="${esc(ref)}">${esc(ref.slice(t.length).replace(/^[ ,]+/, '') || ref)}</a>`; if (BM.j3 && BM.j3.has(bi)) return c ? `<a data-ref="${esc(t + ' ' + Math.floor(c / 1000) + ':' + (c % 1000))}">${Math.floor(c / 1000)}.${c % 1000}</a>` : `<a data-ref="${esc(t + ', Preface')}">${esc(I18N.t('Vorwort'))}</a>`; return `<a data-ref="${esc(t + ' ' + c + (v ? ':' + v : ''))}">${esc(c + (v ? ':' + v : ''))}</a>`; };
+  const mapName = (i, no) => { const p = BM.places[i], he = mapHe(p); return esc(p[0]) + (no ? `<sup>${no}</sup>` : '') + (he ? ` <span class="he" dir="rtl">${esc(he)}</span>` : (p[7] && p[7].g ? ` <span class="he" lang="grc">${esc(p[7].g)}</span>` : '')); };
   // Routen (UBS MARBLE, CC BY-SA 4.0): ausgewählte Route wird als Linie gezeichnet
   const BR = window.BROUTES || [];
   const TANAKH_ORD = ['Genesis', 'Exodus', 'Leviticus', 'Numbers', 'Deuteronomy', 'Joshua', 'Judges', 'I Samuel', 'II Samuel', 'I Kings', 'II Kings', 'Isaiah', 'Jeremiah', 'Ezekiel', 'Hosea', 'Joel', 'Amos', 'Obadiah', 'Jonah', 'Micah', 'Nahum', 'Habakkuk', 'Zephaniah', 'Haggai', 'Zechariah', 'Malachi', 'Psalms', 'Proverbs', 'Job', 'Song of Songs', 'Ruth', 'Lamentations', 'Ecclesiastes', 'Esther', 'Daniel', 'Ezra', 'Nehemiah', 'I Chronicles', 'II Chronicles']; // Rückfallebene, falls ein Buch nicht in der Bibliothek ist
@@ -2289,7 +2442,7 @@
   const mapLen = ln => { let s = 0; for (let k = 1; k < ln.length; k++) s += mapKm(ln[k - 1], ln[k]); return s; };
   function mapRouteFill() {
     const sel = $('#mapRoute'), keep = MP.route ? MP.route.id : ''; let h = `<option value="">${esc(I18N.t('Routen …'))}</option>`, cur = null;
-    const chNow = auChapter(), bk = r => r.ref.replace(/ \d.*$/, ''), ord = BR.map((r, i) => [r, i]).sort((a, b) => { try { return libCmpGroups(groups.find(g => g.title === bk(a[0])) || null, groups.find(g => g.title === bk(b[0])) || null) || (TANAKH_ORD.indexOf(bk(a[0])) - TANAKH_ORD.indexOf(bk(b[0]))) || a[1] - b[1]; } catch { return a[1] - b[1]; } }).map(x => x[0]); // gleiche Reihenfolge wie die Bücher in der Bibliothek
+    const chNow = auChapter(), bk = r => r.ref.replace(/ \d.*$/, ''), hb = view && view.group ? view.group.title : '', ord = BR.map((r, i) => [r, i]).sort((a, b) => { try { return ((bk(a[0]) === hb ? 0 : 1) - (bk(b[0]) === hb ? 0 : 1)) || libCmpGroups(groups.find(g => g.title === bk(a[0])) || null, groups.find(g => g.title === bk(b[0])) || null) || (TANAKH_ORD.indexOf(bk(a[0])) - TANAKH_ORD.indexOf(bk(b[0]))) || a[1] - b[1]; } catch { return a[1] - b[1]; } }).map(x => x[0]); // das gerade gelesene Buch zuerst, sonst gleiche Reihenfolge wie die Bücher in der Bibliothek
     ord.forEach(r => { const b = bk(r); if (b !== cur) { if (cur) h += '</optgroup>'; h += `<optgroup label="${esc(b)}">`; cur = b; } const mm = r.ref.match(/^(.*) (\d+):/), here = mm && view && view.group && mm[1] === view.group.title && +mm[2] === chNow; h += `<option value="${esc(r.id)}">${here ? '● ' : ''}${esc(mapRouteTitle(r))} · ${esc(mm ? mm[1] + ' ' + mm[2] : r.ref)}</option>`; });
     sel.innerHTML = h + '</optgroup>'; sel.value = keep;
   }
@@ -2301,11 +2454,12 @@
   }
   function mapRouteDraw(g, r) {
     const R = MP.route; if (!R) return; g.save(); g.lineJoin = 'round'; g.lineCap = 'round';
-    R.lines.forEach(ln => { const P = ln.map(c => { const [x, y] = mapXY(c[0], c[1]); return [x * MP.s + MP.tx, y * MP.s + MP.ty]; });
+    R.lines.forEach((ln, li) => { const P = ln.map(c => { const [x, y] = mapXY(c[0], c[1]); return [x * MP.s + MP.tx, y * MP.s + MP.ty]; }), hv = MP.rhov === li; g.globalAlpha = MP.rhov != null && !hv ? 0.3 : 1; // Hover über einem Linien-Chip hebt die Linie hervor
       const path = () => { g.beginPath(); P.forEach((q, k) => k ? g.lineTo(q[0], q[1]) : g.moveTo(q[0], q[1])); };
-      path(); g.lineWidth = 6 * r; g.strokeStyle = 'rgba(255,255,255,.85)'; g.stroke(); path(); g.lineWidth = 3 * r; g.strokeStyle = '#a4161a'; g.stroke();
+      path(); g.lineWidth = (hv ? 8 : 6) * r; g.strokeStyle = 'rgba(255,255,255,.85)'; g.stroke(); path(); g.lineWidth = (hv ? 4.5 : 3) * r; g.strokeStyle = '#a4161a'; g.stroke();
       let acc = 0; for (let k = 1; k < P.length; k++) { const dx = P[k][0] - P[k - 1][0], dy = P[k][1] - P[k - 1][1], L = Math.hypot(dx, dy); acc += L; if (acc > 90 * r && L > 0) { acc = 0; const a = Math.atan2(dy, dx), cx = P[k][0], cy = P[k][1]; g.beginPath(); g.moveTo(cx + Math.cos(a) * 5 * r, cy + Math.sin(a) * 5 * r); g.lineTo(cx + Math.cos(a + 2.5) * 5 * r, cy + Math.sin(a + 2.5) * 5 * r); g.lineTo(cx + Math.cos(a - 2.5) * 5 * r, cy + Math.sin(a - 2.5) * 5 * r); g.closePath(); g.fillStyle = '#a4161a'; g.fill(); g.lineWidth = 1 * r; g.strokeStyle = '#fff'; g.stroke(); } }
-      const s = P[0], e = P[P.length - 1]; g.beginPath(); g.arc(s[0], s[1], 5 * r, 0, 7); g.fillStyle = '#2e7d32'; g.fill(); g.lineWidth = 2 * r; g.strokeStyle = '#fff'; g.stroke(); g.beginPath(); g.arc(e[0], e[1], 5 * r, 0, 7); g.fillStyle = '#222'; g.fill(); g.stroke(); });
+      const s = P[0], e = P[P.length - 1]; g.beginPath(); g.arc(s[0], s[1], 5 * r, 0, 7); g.fillStyle = '#2e7d32'; g.fill(); g.lineWidth = 2 * r; g.strokeStyle = '#fff'; g.stroke(); g.beginPath(); g.arc(e[0], e[1], 5 * r, 0, 7); g.fillStyle = '#222'; g.fill(); g.stroke();
+      if (R.lines.length > 1) { const t = String(li + 1); g.beginPath(); g.arc(s[0], s[1], 7.5 * r, 0, 7); g.fillStyle = '#2e7d32'; g.fill(); g.lineWidth = 2 * r; g.strokeStyle = '#fff'; g.stroke(); g.font = `700 ${10 * r}px -apple-system, system-ui, sans-serif`; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillStyle = '#fff'; g.fillText(t, s[0], s[1] + 0.5 * r); g.textAlign = 'start'; } }); // Nummer am Anfang, passend zu den Chips „📏 1 · 58 km“
     g.restore();
   }
   function mapRoutesHere() { // Routen, deren Anfangsstelle im gerade gelesenen Kapitel liegt
@@ -2320,19 +2474,57 @@
     return h;
   }
   const mapRefLinkTxt = ref => `<a data-ref="${esc(ref)}">${esc(ref)}</a>`;
-  function mapInfo() { mapInfo0(); if (MP.sel < 0) $('#mapInfo').insertAdjacentHTML('afterbegin', mapRouteBox()); }
+  function mapInfo() { MP.rhov = null; mapInfo0(); if (MP.sel < 0) $('#mapInfo').insertAdjacentHTML('afterbegin', mapRouteBox()); }
+  // Zahl der Orte je Epoche in der aktuellen Ansicht auf den Epochen-Knöpfen (die Knöpfe sind zugleich die Farblegende)
+  function mapPerCounts() {
+    const n = [0, 0, 0, 0], add = i => { const m = mapPm(i); for (let k = 0; k < 4; k++) if (m >> k & 1) n[k]++; };
+    if ($('#mapAll').checked) BM.places.forEach((p, i) => add(i)); else MP.cur.forEach(c => add(c.i));
+    $$('#mapPer button').forEach(b => { const s = b.querySelector('.n'); if (s) s.textContent = n[MPORD.indexOf(b.dataset.p)] || ''; });
+  }
+  const mapVn = c => { let v = 0; (c.vs || []).forEach(x => { if (x > 0 && (!v || x < v)) v = x; }); return v; }; // erste Stelle (Vers/Abschnitt) im Kapitel
+  // „another name for X“, „within 2 km of X“ … (OpenBible) auf Deutsch bzw. in der Oberflächensprache
+  const mapLoc = s => { s = String(s || '?'); let m; if ((m = /^another name for (.+)$/.exec(s))) return I18N.t('anderer Name für {}', m[1]); if ((m = /^within (\d+) km of (.+)$/.exec(s))) return I18N.t('im Umkreis von {#} km um {}', m[1], m[2]); if ((m = /^about (\d+) km around (.+)$/.exec(s))) return I18N.t('etwa {#} km rund um {}', m[1], m[2]); return s; };
   function mapInfo0() {
-    const el = $('#mapInfo'), here = view && view.group ? view.group.title : '';
+    const el = $('#mapInfo'), here = view && view.group ? view.group.title : '', t = I18N.t.bind(I18N);
+    mapPerCounts();
     if (MP.sel < 0) {
-      el.innerHTML = MP.cur.length ? `<div class="sub">${MP.over ? esc(I18N.t('Orte dieses Abschnitts')) + ': ' + esc(MP.over.label) + ' · <span class="chip" data-i="-2">← ' + esc(I18N.t('Kapitel')) + '</span>' : esc(I18N.t('Orte in diesem Kapitel')) + ' (' + MP.cur.length + ')'}</div><div class="chips">${MP.cur.map(c => `<span class="chip" data-i="${c.i}">${mapName(c.i)}</span>`).join('')}</div>` : `<div class="sub">${esc(I18N.t('Zu diesem Kapitel sind keine Orte verzeichnet. „Alle Orte“ zeigt die ganze Karte.'))}</div>`;
+      const cur = mapCur(), hid = MP.cur.length - cur.length; let list = MP.grp ? cur.filter(c => MP.grp.includes(c.i)) : cur.slice(); if (MP.grp && !list.length) { MP.grp = null; list = cur.slice(); }
+      if (!MP.cur.length) { el.innerHTML = `<div class="sub">${esc(t('Zu diesem Kapitel sind keine Orte verzeichnet. „Alle Orte“ zeigt die ganze Karte.'))}</div>`; return; }
+      const occ = MP.sort === 'occ' && list.some(c => mapVn(c)), nm = c => BM.places[c.i][0];
+      list.sort((a, b) => (occ ? (mapVn(a) || 1e9) - (mapVn(b) || 1e9) : 0) || nm(a).localeCompare(nm(b)) || a.i - b.i);
+      const cnt = new Map(), no = new Map(); cur.forEach(c => cnt.set(nm(c), (cnt.get(nm(c)) || 0) + 1)); cur.slice().sort((a, b) => a.i - b.i).forEach(c => { if (cnt.get(nm(c)) > 1) { const k = (no.get('#' + nm(c)) || 0) + 1; no.set('#' + nm(c), k); no.set(c.i, k); } }); // gleichnamige Orte: ¹ ² …
+      const chip = c => { const p = BM.places[c.i], v = mapVn(c); return `<span class="chip${MP.vsel && !MP.vsel.has(c.i) ? ' dim' : ''}" data-i="${c.i}" data-k="${esc((p[0] + ' ' + mapHe(p) + ' ' + (p[9] || '')).toLowerCase())}">${mapName(c.i, no.get(c.i))}${v ? `<span class="vn">${v}</span>` : ''}</span>`; };
+      const head = MP.grp ? `${list.length} ${esc(t('Orte an dieser Stelle'))} · <span class="chip" data-i="-3">← ${esc(t('alle Orte des Kapitels'))}</span>`
+        : MP.over ? esc(t('Orte dieses Abschnitts')) + ': ' + esc(MP.over.label) + ' · <span class="chip" data-i="-2">← ' + esc(t('Kapitel')) + '</span>' : esc(t('Orte in diesem Kapitel')) + ' (' + cur.length + ')';
+      el.innerHTML = `<div class="sub">${head}${hid ? ` · ${hid} ${esc(t('durch den Epochenfilter ausgeblendet'))}` : ''}` +
+        (MP.vsel ? ` · <span class="chip on" data-i="-4" title="${esc(t('Hervorhebung aufheben'))}">${esc(t('Vers'))} ${MP.vnum}: ${MP.vsel.size} ✕</span>` : '') +
+        (list.length > 2 && list.some(c => mapVn(c)) ? ` <span class="msort"><span class="chip${occ ? '' : ' on'}" data-sort="az">A–Z</span><span class="chip${occ ? ' on' : ''}" data-sort="occ" title="${esc(t('In der Reihenfolge des Textes; die kleine Zahl ist der Vers bzw. Abschnitt der ersten Nennung'))}">${esc(t('nach Vorkommen'))}</span></span>` : '') + '</div>' +
+        (list.length > 40 ? `<input id="mapFlt" type="search" placeholder="Orte filtern …" autocomplete="off">` : '') +
+        `<div class="chips">${list.map(chip).join('')}</div>`;
       return;
     }
-    const p = BM.places[MP.sel], by = new Map(); p[4].forEach(([b, c, v]) => { if (!by.has(b)) by.set(b, []); by.get(b).push([c, v]); });
-    const me = MP.lay.find(o => o.i === MP.sel), nb = me ? MP.lay.filter(o => o.i !== MP.sel && Math.hypot(o.x - me.x, o.y - me.y) < 26 * (window.devicePixelRatio || 1)).slice(0, 8) : [];
-    el.innerHTML = `<h4>${mapName(MP.sel)}</h4><div class="sub">${esc(p[1])} · ${p[4].length} ${esc(I18N.t('Stellen'))}${ELV ? ' · ' + esc(I18N.t('Höhe')) + ' ≈ ' + mapM(mapElev(...mapLL(...mapPx(p)))) : ''} · <span class="chip" data-i="-1">← ${esc(I18N.t('Liste'))}</span></div>` +
-      (nb.length ? `<div class="sub">${esc(I18N.t('Daneben'))}: ${nb.map(o => `<span class="chip" data-i="${o.i}">${mapName(o.i)}</span>`).join(' ')}</div>` : '') +
-      mapAlts(p) + mapOutRows(MP.sel) + mapNoteRows(p) +
-      [...by].sort((a, b) => (BM.books[a[0]] === here ? -1 : 0) - (BM.books[b[0]] === here ? -1 : 0) || a[0] - b[0]).map(([b, l]) => `<div class="vs"><b>${esc(BM.books[b])}</b> ${l.slice(0, 40).map(([c, v]) => mapRefLink(b, c, v)).join(' ')}${l.length > 40 ? '…' : ''}</div>`).join('');
+    const p = BM.places[MP.sel], n = MPER.size === 4 ? p[4].length : p[4].filter(mapPerOk).length;
+    const me = MP.lay.find(o => o.i === MP.sel), nb = me ? MP.lay.filter(o => !o.bub && o.i !== MP.sel && Math.hypot(o.x - me.x, o.y - me.y) < 26 * (window.devicePixelRatio || 1)).slice(0, 8) : [];
+    el.innerHTML = `<h4>${mapName(MP.sel)}</h4><div class="sub">${[esc(mapTypeT(p[1])), n + ' ' + esc(t(n === 1 ? 'Stelle' : 'Stellen')), ELV && mapInMap(p) ? esc(t('Höhe')) + ' ≈ ' + mapM(mapElev(...mapLL(...mapPx(p)))) : '', mapInMap(p) ? '' : esc(t('liegt außerhalb des Kartenausschnitts'))].filter(Boolean).join(' · ')} · <span class="chip" data-i="-1">← ${esc(t('Liste'))}</span></div>` +
+      (p[9] ? `<div class="sub">${esc(t('Weitere Namen'))}: ${esc(p[9])}</div>` : '') +
+      (nb.length ? `<div class="sub">${esc(t('Daneben'))}: ${nb.map(o => `<span class="chip" data-i="${o.i}">${mapName(o.i)}</span>`).join(' ')}</div>` : '') +
+      mapAlts(p) + mapOutRows(MP.sel) + mapNoteRows(p) + mapRefs(p, here);
+  }
+  // Stellen eines Ortes: nach Epoche und Korpus gegliedert, einklappbar und mit Zählern; das gerade gelesene Werk steht vorn und ist offen
+  const MCORP = [['Mischna', /^Mishnah |^Pirkei Avot$/], ['Tosefta', /^Tosefta /], ['Jerusalemer Talmud', /^Jerusalem Talmud /], ['Targumim', /Targum|^Onkelos /], ['Kleine Traktate', /^Tractate |^Avot DeRabbi Natan/], ['Apokryphen', /^Book of /], ['Midraschim', /Rabbah|Midrash|Mekhilta|Sifr|Pesikta|Tanchuma|Seder Olam|Pirkei DeRabbi/]];
+  const mapCorp = b => { if (!(BM.alma && BM.alma.has(b))) return BM.nOrig == null || b < BM.nOrig ? 'Tanach' : 'Josephus und Makkabäerbücher'; const c = MCORP.find(x => x[1].test(BM.books[b])); return c ? c[0] : 'Babylonischer Talmud'; };
+  const mapRowLinks = (b, l, max) => l.slice(0, max).map(e => mapRefLink(b, e[1], e[2], e[3])).join(' ') + (l.length > max ? ` <a class="more">${esc(I18N.t('alle zeigen'))} (+${l.length - max})</a>` : '');
+  function mapRefs(p, here) {
+    const t = I18N.t.bind(I18N), tree = new Map(), wk = new Set();
+    p[4].forEach(e => { if (!mapPerOk(e)) return; let q = mapPerOf(e); if (q === 'O') q = 'S'; const c = mapCorp(e[0]); let P = tree.get(q); if (!P) tree.set(q, P = new Map()); let C = P.get(c); if (!C) P.set(c, C = new Map()); let W = C.get(e[0]); if (!W) C.set(e[0], W = []); W.push(e); wk.add(e[0]); });
+    MP.refs = tree;
+    const isH = b => BM.books[b] === here, cnt = C => [...C.values()].reduce((s, l) => s + l.length, 0);
+    const rows = (q, C) => [...C].sort((a, b) => isH(b[0]) - isH(a[0]) || (BM.alma && BM.alma.has(a[0]) && BM.alma.has(b[0]) ? BM.books[a[0]].localeCompare(BM.books[b[0]]) : a[0] - b[0]))
+      .map(([b, l]) => `<div class="vs" data-w="${q}|${b}"><b>${esc(BM.books[b])}</b>${l.length > 3 ? ` <span class="n">${l.length}</span>` : ''} <span class="ls">${mapRowLinks(b, l, isH(b) ? 40 : 15)}</span></div>`).join('');
+    if (tree.size <= 1 && wk.size <= 6) return [...tree].map(([q, P]) => [...P.values()].map(C => rows(q, C)).join('')).join('');
+    return MPORD.filter(q => tree.has(q)).map(q => { const P = tree.get(q), nP = [...P.values()].reduce((s, C) => s + cnt(C), 0), hP = [...P.values()].some(C => [...C.keys()].some(isH));
+      const inner = P.size === 1 ? rows(q, [...P.values()][0]) : [...P].sort((a, b) => [...b[1].keys()].some(isH) - [...a[1].keys()].some(isH)).map(([c, C]) => `<details class="cg"${[...C.keys()].some(isH) || cnt(C) <= 40 ? ' open' : ''}><summary>${esc(t(c))} <span class="n">${cnt(C)}</span></summary>${rows(q, C)}</details>`).join('');
+      return `<details class="pg"${hP || tree.size === 1 || nP <= 40 ? ' open' : ''}><summary><i class="pd" style="background:${MPCOL[q]}"></i>${esc(t(MPNAME[q]))} <span class="n">${nP}</span></summary>${inner}</details>`; }).join('');
   }
   // Notizen zu Orten: freie Notizen mit Feld „place“ (= Ortsname), erscheinen auch im Reiter Notizen
   const mapNotesOf = p => { try { return notesAll.filter(n => n.place === p[0]); } catch { return []; } };
@@ -2349,16 +2541,16 @@
   function mapAlts(p) {
     if (p[8]) return `<div class="sub">${esc(I18N.t('Lage vermutet'))}</div><div class="alts"><div class="muted" style="font-size:12px">${esc(I18N.t('Die Quelle kennt hier nur den Stadtmittelpunkt von Jerusalem. Die Lage ist nach Nehemia 3 und der Forschung gesetzt und teils umstritten.'))}</div></div>`;
     const al = p[6] || []; if (!al.length) return '';
-    const rows = al.map((a, k) => `<div class="alt${k === MP.alt ? ' on' : ''}" data-a="${k}"><span class="nm">${esc(a[0] || '?')}${k === 0 && al.length > 1 ? ' ★' : ''}</span><span class="bar"><i style="width:${Math.min(100, Math.round(a[3] / 10))}%"></i></span><span class="pc">${Math.round(a[3] / 10)} %</span></div>`).join('');
+    const rows = al.map((a, k) => `<div class="alt${k === MP.alt ? ' on' : ''}" data-a="${k}"><span class="nm" title="${esc(mapLoc(a[0]))}">${esc(mapLoc(a[0]))}${k === 0 && al.length > 1 ? ' ★' : ''}</span><span class="bar"><i style="width:${Math.min(100, Math.round(a[3] / 10))}%"></i></span><span class="pc">${Math.round(a[3] / 10)} %</span></div>`).join('');
     return `<div class="sub" title="${esc(I18N.t('Sicherheit der Zuordnung nach der Forschung des neuesten Jahrzehnts (OpenBible.info)'))}">${esc(I18N.t('Mögliche Lage'))}${mapConf(p) < 500 ? ' · ' + esc(I18N.t('Zuordnung unsicher')) : ''}</div><div class="alts">${rows}</div>`;
   }
   function mapSelect(i, center) {
     MP.sel = i; MP.alt = -1;
-    if (i >= 0 && center) { // auf den Ort und seine möglichen Lagen einpassen
+    if (i >= 0 && center && mapInMap(BM.places[i])) { // auf den Ort und seine möglichen Lagen einpassen
       const pl = BM.places[i], { w, h } = mapSize(), pts = [mapPx(pl), ...(pl[6] || []).slice(1).map(a => mapXY(a[1], a[2]))];
       const x0 = Math.min(...pts.map(q => q[0])), x1 = Math.max(...pts.map(q => q[0])), y0 = Math.min(...pts.map(q => q[1])), y1 = Math.max(...pts.map(q => q[1]));
       const pad = 110, sx = w / (x1 - x0 + 2 * pad / Math.max(MP.s, 0.5)), sy = h / (y1 - y0 + 2 * pad / Math.max(MP.s, 0.5));
-      MP.s = pts.length > 1 ? Math.min(300, Math.max(Math.min(sx, sy), 1.5)) : Math.max(MP.s, 1.5); if (Math.abs(pl[2] - 35.234) < 0.03 && Math.abs(pl[3] - 31.774) < 0.03 && MP.s < 60) MP.s = 60; /* Jerusalem: so weit hinein, dass Gelände und Wilson-Karte erscheinen */ MP.tx = w / 2 - (x0 + x1) / 2 * MP.s; MP.ty = h / 2 - (y0 + y1) / 2 * MP.s;
+      MP.s = pts.length > 1 ? Math.min(mapNearJer(pl[2], pl[3]) ? 300 : MAPZ, Math.max(Math.min(sx, sy), 1.5)) : Math.max(MP.s, 1.5); if (Math.abs(pl[2] - 35.234) < 0.03 && Math.abs(pl[3] - 31.774) < 0.03 && MP.s < 60) MP.s = 60; /* Jerusalem: so weit hinein, dass Gelände und Wilson-Karte erscheinen */ MP.tx = w / 2 - (x0 + x1) / 2 * MP.s; MP.ty = h / 2 - (y0 + y1) / 2 * MP.s;
     }
     mapDraw(); mapInfo();
   }
@@ -2412,7 +2604,7 @@
   }
   const jerOn = () => MP.s >= JER_T * 0.6 && JER.st !== 3;
   function jerVisible() { const { w, h } = mapSize(), [x0, y0] = mapXY(JER_BOX[0], JER_BOX[3]), [x1, y1] = mapXY(JER_BOX[2], JER_BOX[1]); return MP.s >= JER_T * 0.6 && x1 * MP.s + MP.tx > 0 && x0 * MP.s + MP.tx < w && y1 * MP.s + MP.ty > 0 && y0 * MP.s + MP.ty < h; }
-  function mapJerDraw(g, r) {
+  function mapJerDraw(g, r, chap) {
     const box = $('#mapJer'); const vis = jerVisible(); if (box) box.hidden = !vis; if (!vis) return; if (!JER.st) jerLoad();
     const a = Math.min(1, Math.max(0, (MP.s - JER_T * 0.6) / (JER_T * 0.8))), kx = BM.ppd * BM.k * MP.s, ky = BM.ppd * MP.s, X = lon => (lon - BM.W0) * kx + MP.tx, Y = lat => (BM.N0 - lat) * ky + MP.ty, ppm = ky / 110574, { w, h } = mapSize(), o = JER.opt;
     g.save(); g.globalAlpha = a;
@@ -2433,80 +2625,114 @@
     }
     if (o.lab && JER.meta && JER.meta.labels) { const ll = I18N.lang; g.textAlign = 'center'; g.textBaseline = 'middle'; g.lineJoin = 'round';
       JER.meta.labels.forEach(L => { if (L.z && MP.s < L.z) return; const t = (ll === 'de' ? L.n[1] : ll === 'he' && L.n[2] ? L.n[2] : L.n[0]) || L.n[0], px = X(L.p[0]), py = Y(L.p[1]); if (px < -80 || py < -30 || px > w + 80 || py > h + 30) return;
-        const big = L.t === 'hill' || L.t === 'val', sz = (big ? 13 : 11) * r; g.font = `${big ? 'italic ' : ''}600 ${sz}px -apple-system, system-ui, sans-serif`; g.save(); g.translate(px, py); if (L.a) g.rotate(L.a * Math.PI / 180);
+        const big = L.t === 'hill' || L.t === 'val', sz = (big ? 13 : 11) * r; g.font = `${big ? 'italic ' : ''}600 ${sz}px -apple-system, system-ui, sans-serif`;
+        if (chap && chap.length) { const hw = g.measureText(big ? t.toUpperCase() : t).width / 2 + (big ? t.length * 1.5 * r : 0) + 8 * r; if (chap.some(q => L.a ? Math.hypot(q.x - px, q.y - py) < hw : Math.abs(q.x - px) < hw && Math.abs(q.y - py) < 13 * r)) return; } // Grundname läge unter einem Ort des Kapitels
+        g.save(); g.translate(px, py); if (L.a) g.rotate(L.a * Math.PI / 180);
         const tx = big ? t.toUpperCase() : L.t === 'gate' ? t + (ll === 'de' ? ' (heute)' : ll === 'he' ? ' (כיום)' : ' (today)') : t; if (big && g.letterSpacing !== undefined) g.letterSpacing = (3 * r) + 'px'; g.lineWidth = 3.5 * r; g.strokeStyle = 'rgba(255,255,255,.85)'; g.strokeText(tx, 0, 0); g.fillStyle = L.t === 'val' ? '#2d5f8f' : L.t === 'hill' ? '#5a4524' : L.t === 'wall' ? '#6b1f18' : '#222'; g.fillText(tx, 0, 0); g.restore(); });
       g.textAlign = 'start'; }
     g.restore();
   }
   function mapJerGo() { const { w, h } = mapSize(), s = Math.min(w, h) / 2.44, [x, y] = mapXY(35.2345, 31.7770); MP.s = Math.min(6000, s); MP.tx = w / 2 - x * MP.s; MP.ty = h / 2 - y * MP.s; mapDraw(); }
-  function mapZoom(f, mx, my) { const ns = Math.min(6000, Math.max(0.12, MP.s * f)); MP.tx = mx - (mx - MP.tx) * ns / MP.s; MP.ty = my - (my - MP.ty) * ns / MP.s; MP.s = ns; mapDraw(); }
+  function mapZoom(f, mx, my) { // nicht weiter hinaus, als die ganze Karte passt; hinein bis MAPZ, nur in Jerusalem (Detailkarte) weiter
+    const { w, h } = mapSize(), lo = Math.min(w / BM.w, h / BM.h), [lon, lat] = mapLL((mx - MP.tx) / MP.s, (my - MP.ty) / MP.s), hi = mapNearJer(lon, lat) ? 6000 : MAPZ; let ns = Math.max(lo, MP.s * f); if (ns > hi) ns = Math.max(hi, Math.min(MP.s, ns)); MP.tx = mx - (mx - MP.tx) * ns / MP.s; MP.ty = my - (my - MP.ty) * ns / MP.s; MP.s = ns; mapDraw(); }
   function mapOpenFor(title, ref, label) { // aus der Gliederung: nur die Orte dieses Punktes
     if (!BM) return; const list = mapForRef(title, ref); if (!list.length) return;
-    MP.over = { label, list }; mapOpen(); MP.over = { label, list }; MP.cur = list; MP.sel = -1; $('#mapOl').hidden = false;
+    MP.over = { label, list }; mapOpen(); MP.over = { label, list }; MP.cur = list; MP.sel = -1; MP.grp = null; MP.vsel = null; $('#mapOl').hidden = false;
     requestAnimationFrame(() => { mapFit(); mapInfo(); mapDraw(); });
   }
-  window.__mapOpenFor = mapOpenFor; window.__mapCount = (t, r) => mapForRef(t, r).length;
+  // Orte eines Verses hervorheben (die übrigen Orte des Kapitels werden blass); v = 0 hebt die Hervorhebung auf
+  function mapVerseSet(v) { const st = v ? new Set(MP.cur.filter(c => (c.vs || []).includes(v)).map(c => c.i)) : null; MP.vsel = st && st.size ? st : null; MP.vnum = MP.vsel ? v : 0; if (MP.vsel) { MP.sel = -1; MP.grp = null; } mapDraw(); mapInfo(); }
+  const mapVerseN = v => (BM && !MP.over && v ? MP.cur.filter(c => (c.vs || []).includes(v)).length : 0);
+  function mapVerseShow(v) { if ($('#mapPanel').hidden) mapOpen(); requestAnimationFrame(() => requestAnimationFrame(() => mapVerseSet(v))); }
+  window.__mapOpenFor = mapOpenFor;
+  // Prüfhilfen: Abschnitt eines Werkes mit Zeichenketten-Schlüssel (ALMA: Talmudblatt, Midrasch-Kapitel) öffnen; Zustand der Karte
+  window.__mapOpenKey = (title, key, label) => { const bi = BM.books.indexOf(title), m = new Map(); BM.places.forEach((p, i) => p[4].forEach(e => { if (e[0] === bi && String(e[1]) === String(key)) { if (!m.has(i)) m.set(i, []); m.get(i).push(e[2]); } })); const list = [...m].map(([i, vs]) => ({ i, vs })); if (!list.length) return 0; MP.over = { label: label || title, list }; mapOpen(); MP.over = { label: label || title, list }; MP.cur = list; MP.sel = -1; MP.grp = null; MP.vsel = null; $('#mapOl').hidden = false; requestAnimationFrame(() => { mapFit(); mapInfo(); mapDraw(); }); return list.length; };
+  window.__MP = MP; window.__mapCount = (t, r) => mapForRef(t, r).length;
   function mapOpen() {
     if (!BM) return; $('#topicPanel').hidden = true; $('#outlinePanel').hidden = true; $('#mapPanel').hidden = false; $('#mapOl').hidden = true; mapElevLoad();
     if (!MP.img) { MP.img = new Image(); MP.img.onload = () => { MP.ok = true; mapFit(); mapDraw(); }; MP.img.src = 'map/relief.jpg'; }
-    MP.cur = mapChapPlaces(); MP.sel = -1; mapRouteFill(); requestAnimationFrame(() => { mapFit(); mapDraw(); mapInfo(); });
+    MP.cur = mapChapPlaces(); MP.sel = -1; MP.grp = null; MP.vsel = null; mapRouteFill(); requestAnimationFrame(() => { mapFit(); mapDraw(); mapInfo(); });
   }
   if (BM) {
     if (!BB) $('#mapBordL').hidden = true;
     try { $('#mapBord').checked = localStorage.getItem('mapBord') === '1'; } catch { /* egal */ }
     $('#mapBtn').onclick = () => { if (!$('#mapPanel').hidden) { $('#mapPanel').hidden = true; return; } mapOpen(); };
     $('#mapClose').onclick = () => { $('#mapPanel').hidden = true; };
-    $('#mapAll').onchange = mapDraw;
+    $('#mapAll').onchange = () => { mapDraw(); mapInfo(); };
+    const perPaint = () => $$('#mapPer button').forEach(b => { b.classList.toggle('on', MPER.has(b.dataset.p)); b.style.setProperty('--pc', MPCOL[b.dataset.p]); });
+    perPaint();
+    $('#mapPer').addEventListener('click', e => { const b = e.target.closest('button[data-p]'); if (!b) return; const k = b.dataset.p; if (MPER.has(k)) { if (MPER.size > 1) MPER.delete(k); } else MPER.add(k); perPaint(); try { localStorage.setItem('mapPer', JSON.stringify([...MPER])); } catch { /* egal */ } if (MP.sel >= 0 && !mapPlaceOk(BM.places[MP.sel])) MP.sel = -1; mapDraw(); mapInfo(); }); // die Epochen filtern auch die Orte des Kapitels; „alle Orte“ bleibt ein eigener Schalter
     $('#mapBord').onchange = () => { try { localStorage.setItem('mapBord', $('#mapBord').checked ? '1' : '0'); } catch { /* egal */ } mapDraw(); };
     document.addEventListener('mousedown', e => { const p = $('#mapPanel'); if (p.hidden || p.classList.contains('docked') || !e.target.closest || e.target.closest('#mapPanel, #mapBtn, #suggest, #audioBar, #ctxMenu, #lkHover, #tip, #undoBar, dialog')) return; p.hidden = true; });
     document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('#mapPanel').hidden && !document.querySelector('dialog[open]')) { if (MP.rul) { mapRulToggle(false); e.stopPropagation(); return; } $('#mapPanel').hidden = true; e.stopPropagation(); } }, true);
     window.addEventListener('resize', () => { if (!$('#mapPanel').hidden) mapDraw(); });
     const cv = $('#mapCv'), mc = (e) => { const b = cv.getBoundingClientRect(), d = window.devicePixelRatio || 1; return [(e.clientX - b.left) * d, (e.clientY - b.top) * d]; };
+    // Mausrad zoomt; Zwei-Finger-Wischen auf dem Trackpad verschiebt, Pinch (Strg) bzw. Cmd/Alt + Rad zoomt. Maus oder Trackpad entscheidet das erste Ereignis einer Geste:
+    // ein Mausrad liefert ganze Rasten (wheelDelta ein Vielfaches von 120 bzw. |deltaY| ≥ 50) ohne seitlichen Anteil
+    const wl = { t: 0, mouse: false };
     cv.addEventListener('wheel', e => { e.preventDefault(); const [mx, my] = mc(e);
-      if (!(e.ctrlKey || e.metaKey || e.altKey || e.deltaMode === 1)) { const d = window.devicePixelRatio || 1; MP.tx -= e.deltaX * d; MP.ty -= e.deltaY * d; mapDraw(); return; } // Zwei-Finger-Wischen auf dem Trackpad = Verschieben; Pinch (Strg) bzw. Cmd/Alt + Rad = Zoomen
-      const dy = e.deltaY * (e.deltaMode === 1 ? 16 : e.deltaMode === 2 ? 400 : 1); mapZoom(Math.exp(-Math.max(-300, Math.min(300, dy)) * (e.ctrlKey ? 0.012 : 0.0055)), mx, my); }, { passive: false });
+      if (e.timeStamp - wl.t > 250) wl.mouse = e.deltaMode === 0 && !e.deltaX && ((!!e.wheelDeltaY && Math.abs(e.wheelDeltaY) >= 120 && e.wheelDeltaY % 120 === 0) || (Number.isInteger(e.deltaY) && Math.abs(e.deltaY) >= 50)); wl.t = e.timeStamp;
+      if (!(e.ctrlKey || e.metaKey || e.altKey || e.deltaMode === 1 || wl.mouse)) { const d = window.devicePixelRatio || 1; MP.tx -= e.deltaX * d; MP.ty -= e.deltaY * d; mapDraw(); return; }
+      const dy = e.deltaY * (e.deltaMode === 1 ? 16 : e.deltaMode === 2 ? 400 : 1); mapZoom(Math.exp(-Math.max(-300, Math.min(300, dy)) * (e.ctrlKey ? 0.012 : wl.mouse ? 0.0035 : 0.0055)), mx, my); }, { passive: false });
     $('#mapZin').onclick = () => { const { w, h } = mapSize(); mapZoom(1.8, w / 2, h / 2); };
     $('#mapZout').onclick = () => { const { w, h } = mapSize(); mapZoom(1 / 1.8, w / 2, h / 2); };
     $('#mapZfit').onclick = () => { mapFit(); mapDraw(); };
     $('#mapRulB').onclick = () => mapRulToggle();
     $('#mapJerB').onclick = mapJerGo;
+    $('#mapLegB').onclick = () => { const l = $('#mapLegend'); l.hidden = !l.hidden; $('#mapLegB').classList.toggle('on', !l.hidden); mapDraw(); };
+    { const jb = $('#mapJer'), set = () => jb.classList.toggle('min', !!JER.opt.min); set(); jb.querySelector('b').onclick = () => { JER.opt.min = JER.opt.min ? 0 : 1; try { localStorage.setItem('jerOpt', JSON.stringify(JER.opt)); } catch { /* egal */ } set(); mapDraw(); }; } // Kasten der Jerusalem-Ebenen einklappbar
     { const sv = () => { try { localStorage.setItem('jerOpt', JSON.stringify(JER.opt)); } catch { /* egal */ } }, bind = (id, k) => { const el = $(id); el.checked = !!JER.opt[k]; el.onchange = () => { JER.opt[k] = el.checked ? 1 : 0; sv(); mapDraw(); }; };
       bind('#jerWil', 'wil'); bind('#jerOsm', 'osm'); bind('#jerRel', 'rel'); bind('#jerLab', 'lab'); $('#jerOp').value = JER.opt.op; $('#jerOp').oninput = () => { JER.opt.op = +$('#jerOp').value; sv(); mapDraw(); }; }
     $('#mapRoute').onchange = () => mapRouteSet($('#mapRoute').value);
     if (BM.nOrig && BM.nOrig < BM.books.length) $('#mapCredit').textContent += ' · Orte bei Josephus und in den Makkabäerbüchern: ToposText (topostext.org, ODC-BY)';
+    if (BM.alma && BM.alma.size) $('#mapCredit').textContent += ' · Orte in der rabbinischen Literatur: ALMA (Ido Wachtel, Hebrew University GIS)';
     $('#mapCredit').textContent += ' · Jerusalem: Ordnance Survey of Jerusalem (Wilson 1865, gemeinfrei, Wikimedia Commons) · heutige Stadt: © OpenStreetMap-Mitwirkende (ODbL)';
     // Vorschau der Verse beim Überfahren: Verslinks in der Info und Orte auf der Karte
     $('#mapInfo').addEventListener('mouseover', e => { const a = e.target.closest('a[data-ref], .olr[data-ref]'); if (!a || !hovApi || a.dataset.ref === hovApi.current()) return; hovApi.start(a, a.dataset.ref, false, false); });
     $('#mapInfo').addEventListener('mouseout', e => { if (hovApi && e.target.closest('a[data-ref], .olr[data-ref]')) hovApi.hide(); });
     $('#mapPanel').addEventListener('mouseleave', () => { if (hovApi) hovApi.hide(); });
     // Größe: Breite am linken Rand, Höhe der Karte an der Trennleiste (wird gemerkt)
-    { const P = $('#mapPanel'), W = $('#mapWrap'); let mw = 0, mh = 0; try { mw = +localStorage.getItem('mapW') || 0; mh = +localStorage.getItem('mapH') || 0; } catch { /* egal */ }
+    { const P = $('#mapPanel'), W = $('#mapWrap'); let mw = 0, mh = 0; try { mw = +localStorage.getItem('mapW') || 0; mh = +localStorage.getItem('mapH2') || 0; } catch { /* egal */ }
       const setW = w => { if (!w) { P.style.width = ''; return; } P.style.width = Math.max(360, Math.min(window.innerWidth - 120, w)) + 'px'; };
       const setH = h => { if (!h) { W.style.flex = ''; return; } W.style.flex = `0 0 ${Math.max(140, Math.min(P.clientHeight - 160, h))}px`; };
       setW(mw); setH(mh);
       const drag = (el, move, done) => el.addEventListener('mousedown', ev => { ev.preventDefault(); const rt = document.documentElement; rt.classList.add('cmt-dragging'); const mv = e2 => move(e2), up = () => { rt.classList.remove('cmt-dragging'); document.removeEventListener('mousemove', mv); document.removeEventListener('mouseup', up); done(); }; document.addEventListener('mousemove', mv); document.addEventListener('mouseup', up); });
       drag($('#mapResize'), e2 => { const r = P.getBoundingClientRect(); setW(r.right - e2.clientX); mapDraw(); }, () => { try { localStorage.setItem('mapW', String(parseInt(P.style.width) || 0)); } catch { /* egal */ } });
-      drag($('#mapSplit'), e2 => { setH(e2.clientY - W.getBoundingClientRect().top); mapDraw(); }, () => { try { localStorage.setItem('mapH', String(parseInt(W.style.flex.split(' ')[2]) || 0)); } catch { /* egal */ } });
+      drag($('#mapSplit'), e2 => { setH(e2.clientY - W.getBoundingClientRect().top); mapDraw(); }, () => { try { localStorage.setItem('mapH2', String(parseInt(W.style.flex.split(' ')[2]) || 0)); } catch { /* egal */ } });
       $('#mapResize').addEventListener('dblclick', () => { setW(0); try { localStorage.removeItem('mapW'); } catch { /* egal */ } mapDraw(); });
-      $('#mapSplit').addEventListener('dblclick', () => { setH(0); try { localStorage.removeItem('mapH'); } catch { /* egal */ } mapDraw(); });
+      $('#mapSplit').addEventListener('dblclick', () => { setH(0); try { localStorage.removeItem('mapH2'); } catch { /* egal */ } mapDraw(); });
       if (window.ResizeObserver) new ResizeObserver(() => { if (!P.hidden) mapDraw(); }).observe(W); }
     if (!BR.length) $('#mapRoute').hidden = true;
     $('#mapRuler').addEventListener('mousemove', e => { const c = e.target.closest && e.target.closest('#mapRulProf'), R = MP.rul; if (!c || !R || !R.prof || !R.profX) return; const bx = c.getBoundingClientRect(), x = e.clientX - bx.left, tot = R.prof[R.prof.length - 1].km || 1, km = Math.max(0, Math.min(tot, (x - 34) / (bx.width - 38) * tot)); let k = R.prof.findIndex(p => p.km >= km); if (k < 0) k = R.prof.length - 1; mapProfDraw(k); mapDraw(); });
     $('#mapRuler').addEventListener('mouseleave', () => { const R = MP.rul; if (R && R.hov) { R.hov = null; mapProfDraw(null); mapDraw(); } });
     $('#mapRuler').addEventListener('click', e => { const x = e.target.dataset && e.target.dataset.x; if (x === 'undo' && MP.rul) MP.rul.pts.pop(); else if (x === 'clr' && MP.rul) MP.rul.pts = []; else return; MP.rul.cur = null; mapRulInfo(); mapDraw(); });
-    cv.addEventListener('mousedown', e => { MP.drag = { x: e.clientX, y: e.clientY, tx: MP.tx, ty: MP.ty, moved: false }; cv.classList.add('drag'); });
+    cv.addEventListener('mousedown', e => { if (!(MP.rul && MP.rul.on)) cv.style.cursor = ''; $('#mapHint').style.display = 'none'; MP.drag = { x: e.clientX, y: e.clientY, tx: MP.tx, ty: MP.ty, moved: false }; cv.classList.add('drag'); });
     window.addEventListener('mousemove', e => { if (!MP.drag) return; const d = window.devicePixelRatio || 1; if (Math.abs(e.clientX - MP.drag.x) + Math.abs(e.clientY - MP.drag.y) > 3) MP.drag.moved = true; MP.tx = MP.drag.tx + (e.clientX - MP.drag.x) * d; MP.ty = MP.drag.ty + (e.clientY - MP.drag.y) * d; mapDraw(); });
-    window.addEventListener('mouseup', e => { if (!MP.drag) return; const mv = MP.drag.moved; MP.drag = null; cv.classList.remove('drag'); if (!mv && e.target === cv) { if (MP.rul && MP.rul.on) { const i = mapPick(e), [mx, my] = mc(e); let pt; if (i >= 0) { const [x, y] = mapPx(BM.places[i]); pt = [...mapLL(x, y), BM.places[i][0]]; } else pt = [...mapLL((mx - MP.tx) / MP.s, (my - MP.ty) / MP.s), null]; MP.rul.pts.push(pt); mapRulInfo(); mapDraw(); } else mapSelect(mapPick(e), false); } });
+    window.addEventListener('mouseup', e => { if (!MP.drag) return; const mv = MP.drag.moved; MP.drag = null; cv.classList.remove('drag'); if (!mv && e.target === cv) { if (MP.rul && MP.rul.on) { const i = mapPick(e), [mx, my] = mc(e); let pt; if (i >= 0) { const [x, y] = mapPx(BM.places[i]); pt = [...mapLL(x, y), BM.places[i][0]]; } else pt = [...mapLL((mx - MP.tx) / MP.s, (my - MP.ty) / MP.s), null]; MP.rul.pts.push(pt); mapRulInfo(); mapDraw(); } else { const o = mapPickO(e)[0]; if (o && o.bub) mapBubble(o); else { if (!o) MP.grp = null; mapSelect(o ? o.i : -1, false); } } } });
+    // Hinweis am Mauszeiger (Name, hebräisch, Typ, Zahl der Stellen); der Ort bekommt einen Ring, sein Chip in der Liste wird hervorgehoben
+    const hovSet = i => { if (i === MP.hov) return; MP.hov = i; $$('#mapInfo .chip.hov').forEach(c => c.classList.remove('hov')); if (i >= 0) { const c = $(`#mapInfo .chip[data-i="${i}"]`); if (c) c.classList.add('hov'); } mapDraw(); };
     cv.addEventListener('mousemove', e => { if (MP.drag) return;
-      if (MP.rul && MP.rul.on && MP.rul.pts.length) { MP.rul.cur = mc(e); mapDraw(); } const l = mapPick(e, true), h = $('#mapHint'); if (l.length) { h.textContent = l.slice(0, 4).map(i => BM.places[i][0] + (mapHe(BM.places[i]) ? ' ' + mapHe(BM.places[i]) : '')).join(' · '); h.style.display = 'block'; } else h.style.display = 'none'; });
-    cv.addEventListener('mouseleave', () => { $('#mapHint').style.display = 'none'; });
+      if (MP.rul && MP.rul.on && MP.rul.pts.length) { MP.rul.cur = mc(e); mapDraw(); } const l = mapPickO(e), h = $('#mapHint'), t = I18N.t.bind(I18N);
+      if (!(MP.rul && MP.rul.on)) cv.style.cursor = l.length ? 'pointer' : '';
+      hovSet(l.length && !l[0].bub ? l[0].i : -1);
+      if (!l.length) { h.style.display = 'none'; return; }
+      h.textContent = l.slice(0, 4).map(o => { if (o.bub) return o.bub.length + ' ' + t('Orte') + ': ' + o.bub.slice(0, 6).map(i => BM.places[i][0]).join(', ') + (o.bub.length > 6 ? ' …' : ''); const p = BM.places[o.i]; return [p[0] + (mapHe(p) ? ' ' + mapHe(p) : ''), mapTypeT(p[1]), p[4].length + ' ' + t(p[4].length === 1 ? 'Stelle' : 'Stellen')].filter(Boolean).join(' · '); }).join('\n');
+      h.style.display = 'block'; const wb = $('#mapWrap').getBoundingClientRect(); let x = e.clientX - wb.left + 14, y = e.clientY - wb.top + 16; if (x + h.offsetWidth > wb.width - 4) x = Math.max(4, e.clientX - wb.left - h.offsetWidth - 10); if (y + h.offsetHeight > wb.height - 4) y = Math.max(4, e.clientY - wb.top - h.offsetHeight - 10); h.style.left = x + 'px'; h.style.top = y + 'px'; });
+    cv.addEventListener('mouseleave', () => { $('#mapHint').style.display = 'none'; hovSet(-1); });
+    $('#mapInfo').addEventListener('mouseover', e => { const c = e.target.closest('.chip[data-i]'), rl = e.target.closest('[data-rl]'); if (c && +c.dataset.i >= 0 && +c.dataset.i !== MP.hov) { MP.hov = +c.dataset.i; mapDraw(); } if (rl && MP.rhov !== +rl.dataset.rl) { MP.rhov = +rl.dataset.rl; mapDraw(); } });
+    $('#mapInfo').addEventListener('mouseout', e => { if (e.target.closest('.chip[data-i]') && MP.hov >= 0) { MP.hov = -1; mapDraw(); } if (e.target.closest('[data-rl]') && MP.rhov != null) { MP.rhov = null; mapDraw(); } });
+    $('#mapInfo').addEventListener('input', e => { if (e.target.id !== 'mapFlt') return; const q = e.target.value.trim().toLowerCase(); $$('#mapInfo .chips .chip').forEach(c => { c.hidden = !!q && !(c.dataset.k || '').includes(q); }); });
+    // Karte und Text: Klick auf einen Vers (bei angehefteter Karte) hebt dessen Orte hervor; Rechtsklick → „Orte dieses Verses auf der Karte“
+    $('#rOut').addEventListener('click', e => { if ($('#mapPanel').hidden || MP.over) return; const rw = e.target.closest('.row[data-l]'); if (!rw || (window.getSelection() + '').trim()) return; const v = +String(rw.dataset.l).split(':').pop(); if (v) mapVerseSet(v); });
     cv.addEventListener('dblclick', e => { const [mx, my] = mc(e); mapZoom(2, mx, my); });
     $('#mapInfo').addEventListener('click', e => {
       const rt = e.target.closest('[data-rt]'); if (rt) { mapRouteSet(rt.dataset.rt); return; }
       const rl = e.target.closest('[data-rl]'); if (rl && MP.route) { const ln = MP.route.lines[+rl.dataset.rl]; mapElevLoad(); MP.rul = { on: true, pts: ln.map(c => [c[0], c[1], null]), cur: null, fromRoute: true }; $('#mapRulB').classList.add('on'); $('#mapCv').style.cursor = 'crosshair'; mapRulInfo(); mapDraw(); return; }
       if (e.target.closest('.pnadd') && MP.sel >= 0) { const p = BM.places[MP.sel]; openNoteDlg({ id: newId('free'), kind: 'free', title: p[0], place: p[0], note: '', order: topOrder() }, {}); return; }
       const pn = e.target.closest('.pnote'); if (pn) { const n = notesAll.find(x => x.id === pn.dataset.id); if (n) openNoteDlg(n, { canDelete: true }); return; }
-      const c = e.target.closest('.chip'); if (c) { if (+c.dataset.i === -2) { MP.over = null; MP.cur = mapChapPlaces(); MP.sel = -1; mapFit(); mapDraw(); mapInfo(); return; } mapSelect(+c.dataset.i, +c.dataset.i >= 0); return; }
+      const mo = e.target.closest('a.more'); if (mo) { const rw = mo.closest('.vs'), [q, b] = (rw.dataset.w || '').split('|'), P = MP.refs && MP.refs.get(q), C = P && P.get(mapCorp(+b)), l = C && C.get(+b); if (l) rw.querySelector('.ls').innerHTML = mapRowLinks(+b, l, 1e9); return; }
+      const so = e.target.closest('[data-sort]'); if (so) { MP.sort = so.dataset.sort; try { localStorage.setItem('mapSort', MP.sort); } catch { /* egal */ } mapInfo(); return; }
+      const c = e.target.closest('.chip'); if (c) { if (+c.dataset.i === -3) { MP.grp = null; mapInfo(); return; } if (+c.dataset.i === -4) { mapVerseSet(0); return; } if (+c.dataset.i === -2) { MP.over = null; MP.cur = mapChapPlaces(); MP.sel = -1; mapFit(); mapDraw(); mapInfo(); return; } mapSelect(+c.dataset.i, +c.dataset.i >= 0); return; }
       const orow = e.target.closest('.olr'); if (orow) { jumpTo(orow.dataset.ref, BG(e)); return; }
       const al = e.target.closest('.alt'); if (al && MP.sel >= 0) { const k = +al.dataset.a, a = (BM.places[MP.sel][6] || [])[k]; if (a) { MP.alt = k; const [x, y] = mapXY(a[1], a[2]), { w, h } = mapSize(); MP.tx = w / 2 - x * MP.s; MP.ty = h / 2 - y * MP.s; mapDraw(); mapInfo(); } return; }
       const a = e.target.closest('a[data-ref]'); if (a) jumpTo(a.dataset.ref, BG(e));
@@ -3136,6 +3362,7 @@
       ...(word ? [{ label: `Im Wörterbuch nachschlagen: „${word}“`, fn: () => openDict(word) }] : []),
       { label: I18N.t('Referenz kopieren: {}', ref), fn: () => navigator.clipboard.writeText(ref).catch(() => {}) },
       { label: 'Auf sefaria.org öffnen', fn: () => window.api.openExternal(url) },
+      ...((() => { try { const v = +String(row.dataset.l).split(':').pop(), n = mapVerseN(v); return n ? [{ label: I18N.t('Orte dieses Verses auf der Karte ({#})', n), fn: () => mapVerseShow(v) }] : []; } catch { return []; } })()),
     ]);
   });
 
@@ -4096,7 +4323,7 @@
 
 
   // ---------- Anzeigeoptionen ----------
-  const DISP0 = { he: 1.3, en: 1, de: 1, niq: false, can: false, shr: true, mar: 'normal', hideTabs: true, headStick: false };
+  const DISP0 = { he: 1.3, en: 1, de: 1, niq: false, can: false, shr: true, mar: 'normal', hideTabs: true, headStick: false, hov: 1.15 };
   let disp = { ...DISP0 };
   try { disp = { ...DISP0, ...JSON.parse(localStorage.getItem('disp') || '{}') }; } catch { /* egal */ }
   const stripHe = h => {
@@ -4112,6 +4339,7 @@
     document.body.classList.toggle('dock-shrink', !!disp.shr);
     document.body.classList.toggle('head-stick', !!disp.headStick); if ($('#dHdSt')) $('#dHdSt').checked = !!disp.headStick;
     if ($('#dHideTabs')) $('#dHideTabs').checked = !!disp.hideTabs; if (!disp.hideTabs && typeof window.hdShow === 'function') window.hdShow();
+    document.documentElement.style.setProperty('--hovf', disp.hov || 1.15); if ($('#dHov')) $('#dHov').value = disp.hov || 1.15; // Vorschau-Blase (Stellen)
     document.body.classList.toggle('mar-narrow', disp.mar === 'narrow'); if ($('#dMar')) $('#dMar').value = disp.mar === 'narrow' ? 'narrow' : 'normal';
     try { localStorage.setItem('disp', JSON.stringify(disp)); } catch { /* egal */ }
     if (rerender && view && view.group) { // Position beim Umschalten behalten: dieselbe Zeile bleibt an derselben Stelle (ohne Vokale sind die Zeilen niedriger, die reine Pixelposition würde springen)
@@ -4135,6 +4363,7 @@
     if (id === 'dMar') disp.mar = e.target.value;
     if (id === 'dHideTabs') disp.hideTabs = e.target.checked;
     if (id === 'dHdSt') disp.headStick = e.target.checked;
+    if (id === 'dHov') disp.hov = +e.target.value;
     if (id === 'dOlIn') { try { localStorage.setItem('olInline', e.target.checked ? '1' : '0'); } catch { /* egal */ } withAnchor(() => olInline()); return; }
     applyDisp(id === 'dNiq' || id === 'dCan');
   });

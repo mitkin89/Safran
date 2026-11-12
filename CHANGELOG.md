@@ -1,5 +1,12 @@
 # Changelog
 
+### New in 2.3.9
+- **Places in rabbinic literature on the map:** about 8,200 references from ALMA (Ido Wachtel, Hebrew University GIS) – Talmud Bavli, Mishnah, Tosefta, Midrash Rabbah, Sifre, Seder Olam and more. Opening a daf or a Midrash chapter shows its places; a place's references are grouped by period and work.
+- **Period filter on the map:** Tanakh · 2nd Temple · Tannaim · Amoraim, with colours and counts; markers carry the colour of their earliest period.
+- **Map:** opens large (the place list takes only the room it needs); crowded chapters no longer turn into a giant circle (clusters with counts instead); the selected place is highlighted; zoom and panning have limits, the mouse wheel zooms, scale bar; names for seas, rivers and regions; legend (?); routes lie under the places and are numbered; hover shows the name at the pointer; place list sortable by occurrence, with filter; places outside the map appear as arrows at the edge; clicking a verse highlights its places, and the verse menu offers "places of this verse".
+- **Reference preview:** font size adjustable under *Display* (*Vorschau – Schriftgröße*); the preview window grows with it.
+- **Philippson:** I Kings 4:21–5:32 and I Chronicles 12:4–41 now follow the Hebrew verse numbering (translation and commentary); a few words broken at line ends in the commentary are joined.
+
 ### New in 2.3.8
 - **Portrait of the Malbim** (Meir Leibush Weisser, 1809–1879) next to his commentary.
 - **Hebrew default text:** the Westminster Leningrad Codex is shown by default wherever a book has it; otherwise a real edition (e.g. the vocalized William Davidson text in the Talmud). Sefaria's merged text is only used when there is nothing else – also in previews and the commentary bar.

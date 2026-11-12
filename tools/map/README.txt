@@ -7,6 +7,7 @@ Quellen: Copernicus DEM (EU Copernicus), Natural Earth (gemeinfrei), OpenBible.i
 
   build_elev.py      dem.npy -> map/elev.js (Höhenraster für Profil/Ortshöhen)
   build_routes.py    UBS Bible Routes (github.com/ubsicap/ubs-open-license, CC BY-SA 4.0) -> map/routes.js
+  build_alma.py      ALMA (Ido Wachtel, HUJI GIS; ArcGIS-Layer Place_Name_Alma, Abfrage where=1=1) + Sefaria-API -> map/alma.js
   extract_topostext.py / build_josephus.py  ToposText-Werkseite (HTML) + Gazetteer -> Abschnitt->Orte -> map/josephus.js (ODC-BY)
 
 

@@ -658,11 +658,11 @@ header { z-index: 50; }
 #sStar.on { color: var(--warn); }
 #rOut .row[data-l] { scroll-margin-top: calc(var(--stick-top, 110px) + 24px); }
 
-#lkHover { position: fixed; z-index: 70; width: 420px; max-width: calc(100vw - 16px); max-height: 50vh; overflow: auto; background: var(--card); color: var(--fg); border: 1px solid var(--accent); border-radius: 8px; box-shadow: 0 6px 24px rgba(0,0,0,.3); padding: 8px 12px; font-size: 14px; line-height: 1.5; pointer-events: none; }
-#lkHover b { display: block; margin-bottom: 4px; color: var(--muted); font-size: 12px; }
+#lkHover { position: fixed; z-index: 70; width: calc(420px * var(--hovf, 1.15)); max-width: calc(100vw - 16px); max-height: 50vh; overflow: auto; background: var(--card); color: var(--fg); border: 1px solid var(--accent); border-radius: 8px; box-shadow: 0 6px 24px rgba(0,0,0,.3); padding: 8px 12px; font-size: calc(14px * var(--hovf, 1.15)); line-height: 1.5; pointer-events: none; } /* --hovf: Anzeige → „Vorschau – Schriftgröße“ */
+#lkHover b { display: block; margin-bottom: 4px; color: var(--muted); font-size: calc(12px * var(--hovf, 1.15)); }
 #lkHover div + div { margin-top: 4px; }
 #lkHover hr { border: 0; border-top: 1px solid var(--line); margin: 6px 0; }
-#lkHover .phe { font-size: 18px; line-height: 1.7; }
+#lkHover .phe { font-size: calc(18px * var(--hovf, 1.15)); line-height: 1.7; }
 
 /* Notizen: Tags, Datum, Überschriften, Streifen im Lesetext */
 #ndTags { width: 100%; box-sizing: border-box; margin-top: 6px; }
@@ -788,11 +788,11 @@ html.split #mapPanel { right: var(--p2w); }
 #mapPanel .lhead { display: flex; align-items: center; gap: 12px; }
 #mapPanel .lhead b { flex: 1; }
 #mapPanel .mapAllL { white-space: nowrap; font-size: 12px; color: var(--muted); display: flex; gap: 4px; align-items: center; cursor: pointer; }
-#mapWrap { position: relative; flex: 1 1 55%; min-height: 220px; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: #7aa0be; }
+#mapWrap { position: relative; flex: 1 1 auto; min-height: 220px; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: #7aa0be; }
 #mapCv { width: 100%; height: 100%; display: block; cursor: grab; }
 #mapCv.drag { cursor: grabbing; }
-#mapHint { position: absolute; left: 8px; bottom: 6px; font-size: 11px; background: rgba(0,0,0,.55); color: #fff; padding: 1px 6px; border-radius: 4px; pointer-events: none; display: none; }
-#mapInfo { flex: 1 1 35%; overflow: auto; font-size: 13px; }
+#mapHint { position: absolute; left: 8px; top: 8px; z-index: 4; max-width: 280px; white-space: pre-line; font-size: 11.5px; line-height: 1.35; background: rgba(0,0,0,.72); color: #fff; padding: 2px 7px; border-radius: 4px; pointer-events: none; display: none; } /* folgt dem Mauszeiger */
+#mapInfo { flex: 0 1 auto; max-height: 40%; overflow: auto; font-size: 13px; } /* die Karte nimmt den übrigen Platz, die Ortsliste nur so viel, wie sie braucht */
 #mapInfo .chips { display: flex; flex-wrap: wrap; gap: 4px; }
 #mapInfo .chip { cursor: pointer; padding: 1px 8px; border-radius: 999px; border: 1px solid var(--line); background: color-mix(in srgb, var(--accent) 12%, transparent); }
 #mapInfo .chip:hover, #mapInfo .chip.on { background: var(--accent); color: var(--bg); }
@@ -807,12 +807,12 @@ html.split #mapPanel { right: var(--p2w); }
 #mapInfo .he { font-family: "SBL Hebrew", "Times New Roman", serif; font-size: 1.15em; color: var(--accent); margin-inline-start: 4px; }
 #mapInfo .chip .he { color: inherit; font-size: 1.05em; }
 #mapInfo .alts { margin: 2px 0 8px; }
-#mapInfo .alt { display: grid; grid-template-columns: minmax(0, 1fr) 90px 38px; gap: 8px; align-items: center; padding: 1px 4px; border-radius: 4px; cursor: pointer; font-size: 12.5px; }
+#mapInfo .alt { display: grid; grid-template-columns: minmax(0, 1fr) 90px 44px; gap: 8px; align-items: center; padding: 1px 4px; border-radius: 4px; cursor: pointer; font-size: 12.5px; }
 #mapInfo .alt:hover, #mapInfo .alt.on { background: color-mix(in srgb, var(--accent) 16%, transparent); }
 #mapInfo .alt .nm { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 #mapInfo .alt .bar { height: 6px; border-radius: 3px; background: color-mix(in srgb, var(--fg, #888) 15%, transparent); overflow: hidden; }
 #mapInfo .alt .bar i { display: block; height: 100%; background: var(--accent); }
-#mapInfo .alt .pc { text-align: right; color: var(--muted); font-variant-numeric: tabular-nums; }
+#mapInfo .alt .pc { text-align: right; color: var(--muted); font-variant-numeric: tabular-nums; white-space: nowrap; }
 #olBody .olp .olmap { margin-inline-start: auto; font-size: 11px; padding: 0 6px; border-radius: 999px; background: color-mix(in srgb, var(--accent) 18%, transparent); color: var(--accent); white-space: nowrap; }
 #olBody .olp .olmap:hover { background: var(--accent); color: var(--bg); }
 #mapInfo .olrs { margin: 2px 0 8px; }
@@ -1122,3 +1122,45 @@ body.hd-anim #stick, body.hd-anim.head-stick .row.head { transition: top .18s ea
 #headPop .hph { color: var(--muted); font-size: 11.5px; margin-top: 8px; }
 html[data-tab=dict] #dictPanel { transition: top .18s ease; }
 html[data-tab=dict] #dictSaved .dsv { transition: top .18s ease; }
+
+/* Epochenfilter der Karte */
+#mapPer { display: inline-flex; gap: 2px; margin: 0 6px; }
+#mapPer button { font-size: 11.5px; padding: 2px 7px; opacity: .55; white-space: nowrap; }
+#mapPer button::before { content: ''; display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: var(--pc, #888); margin-inline-end: 5px; } /* Epochenfarbe = Farbe der Marker */
+#mapPer button .n { margin-inline-start: 5px; font-size: 10.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
+#mapPer button .n:empty { display: none; }
+#mapPer button.on { opacity: 1; background: color-mix(in srgb, var(--accent) 22%, transparent); border-color: var(--accent); }
+#mapPanel .mapopts { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 12px; font-size: 12.5px; margin-top: -2px; }
+#mapPanel .mapopts #mapPer { margin: 0; }
+/* Karte: Legende, Ortsliste (Sortierung, Filter), gegliederte Stellenliste */
+#mapLegend { position: absolute; right: 44px; top: 8px; z-index: 3; max-width: min(300px, calc(100% - 60px)); background: rgba(255,255,255,.95); color: #222; border: 1px solid rgba(0,0,0,.25); border-radius: 8px; padding: 6px 10px; font-size: 11.5px; line-height: 1.45; box-shadow: 0 1px 4px rgba(0,0,0,.18); }
+#mapLegend[hidden] { display: none; }
+#mapLegend b { display: block; font-size: 12px; }
+#mapLegend > div { display: flex; flex-wrap: wrap; align-items: center; gap: 2px 10px; margin-top: 3px; }
+#mapLegend .li { display: inline-flex; align-items: center; gap: 5px; }
+#mapLegend .lh { color: #555; font-size: 10.5px; display: block; }
+#mapLegend em { font-weight: 600; color: #d6382f; white-space: nowrap; }
+#mapLegend .ld { --c: #d6382f; display: inline-block; flex: none; width: 11px; height: 11px; border-radius: 50%; background: var(--c); border: 1.5px solid #fff; box-shadow: 0 0 0 1px rgba(0,0,0,.25); font-style: normal; }
+#mapLegend .ld[data-p="B"] { --c: #d6382f; } #mapLegend .ld[data-p="S"] { --c: #8e44ad; } #mapLegend .ld[data-p="T"] { --c: #1f6fd8; } #mapLegend .ld[data-p="A"] { --c: #2e8b57; }
+#mapLegend .ld.sel { --c: #ffcc00; box-shadow: 0 0 0 1px #222; }
+#mapLegend .ld.unc { background: #fff; border: 2px solid var(--c); box-shadow: none; }
+#mapLegend .ld.sm { width: 6px; height: 6px; border: 0; box-shadow: none; opacity: .75; margin: 0 3px; }
+#mapLegend .ld.bub { width: 20px; height: 20px; background: #fff; border: 2px solid var(--c); box-shadow: none; font-size: 10px; font-weight: 700; line-height: 16px; text-align: center; }
+#mapLegend .ld.tri, #mapLegend .ld.arr { width: 0; height: 0; border-radius: 0; background: none; box-shadow: none; border: 6px solid transparent; border-top-width: 0; border-bottom: 11px solid var(--c); }
+#mapLegend .ld.arr { transform: rotate(-90deg); }
+#mapJer b { cursor: pointer; } #mapJer b::after { content: ' ▾'; opacity: .6; }
+#mapJer.min > :not(b) { display: none; } #mapJer.min b::after { content: ' ▸'; }
+#mapInfo .chip sup { font-size: .7em; opacity: .8; }
+#mapInfo .chip .vn { margin-inline-start: 5px; font-size: 10px; opacity: .65; font-variant-numeric: tabular-nums; }
+#mapInfo .chip.hov { outline: 2px solid var(--accent); outline-offset: 1px; }
+#mapInfo .chip.dim { opacity: .45; }
+#mapInfo .msort { margin-inline-start: 6px; white-space: nowrap; } #mapInfo .msort .chip { font-size: 11px; padding: 0 7px; }
+#mapFlt { width: 100%; box-sizing: border-box; margin: 0 0 5px; font-size: 12.5px; padding: 2px 8px; }
+#mapInfo details { margin: 2px 0; }
+#mapInfo summary { cursor: pointer; user-select: none; }
+#mapInfo details.pg > summary { font-weight: 600; }
+#mapInfo details.cg { margin-inline-start: 14px; }
+#mapInfo details.pg > .vs { margin-inline-start: 14px; } #mapInfo details.cg > .vs { margin-inline-start: 14px; }
+#mapInfo .pd { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-inline-end: 6px; }
+#mapInfo .n { color: var(--muted); font-size: 11px; font-weight: 400; font-variant-numeric: tabular-nums; }
+#mapInfo .vs a.more { color: var(--muted); font-style: italic; }
