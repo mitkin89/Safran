@@ -39,23 +39,23 @@ Safran is a free desktop app for macOS, Windows and Linux that keeps your texts 
 | 📴 **Works offline** | Texts, links, dictionaries, maps and audio live on your disk. Nothing is sent anywhere. |
 | 🇩🇪 **German texts you won't find elsewhere** | Zunz, Philippson, Mendelssohn's Biur, Herxheimer, Hertz, Hirsch, Rashi after Bamberger, the Kautzsch Apocrypha, Midrash Rabbah, More Nevuchim, the Schulchan Aruch (Lederer), Ginzberg's *Legenden der Juden* … ready on first start. |
 | 📚 **A dictionary shelf, not a single lookup** | BDB, Gesenius, Jastrow, Levy, Krauss and Hamburger's Real-Encyclopädie, searchable by headword *and* full text, with abbreviations explained on hover and sources that open in the reader. |
-| 🔬 **Built for study** | Verse-by-verse alignment, morphology on click, a second reading window, Aleppo Codex, Dead Sea Scrolls, Septuagint, Bible map, outlines and Hebrew audio. |
+| 🔬 **Built for study** | Verse-by-verse alignment, morphology on click, grammar search, a second reading window, Aleppo Codex, Dead Sea Scrolls, Septuagint, Bible map, outlines and Hebrew audio. |
 
 ## Quick start
 
 1. **Download and open** the installer for your system from the [latest release](https://github.com/mitkin89/Safran/releases/latest). The app is not signed with a paid certificate, so the first start needs one extra click, see [FAQ](#faq).
 2. **Choose your texts.** Open *Download* in the ⋯ menu, load the catalog once (about 22 MB), tick categories or single books, and pick the languages (Hebrew, English, German). The bundled German texts and the dictionaries are there before you download anything.
-3. **Read.** Pick a book, type a passage into the jump field (`2:5`, `Daf 3a`, `gen. 1:1`), press Cmd+K for commentaries, and double-click any word to look it up in the dictionaries.
+3. **Read.** Pick a book, type a passage into the jump field (`2:5`, `Daf 3a`, `gen. 1:1`), press Cmd+K (Ctrl+K on Windows and Linux) for commentaries, and double-click any word to look it up in the dictionaries. A new tab shows the weekly Torah portion and the Daf Yomi; a click opens them.
 
 ## What Safran can do
 
 <table>
 <tr>
-<td width="50%" valign="top"><b>📖 Three languages, verse by verse</b><br>Hebrew, English and German side by side, aligned verse by verse. Footnotes open inline. Bible references in any text, also with Roman chapter numbers (<i>Jerem. XXIII, 24</i>), open on click. Chapters and Talmud pages via arrow keys.</td>
-<td width="50%" valign="top"><b>💬 Commentary panel (Cmd+K)</b><br>Rashi, Ibn Ezra and more under the selected verse, in Hebrew, English or German. Pin it beside the text, together with the dictionary.</td>
+<td width="50%" valign="top"><b>📖 Three languages, verse by verse</b><br>Hebrew, English and German side by side, aligned verse by verse, one column per version or one per language. Hebrew opens in the Westminster Leningrad Codex, or in a real edition where a book has none (e.g. the vocalized William Davidson text in the Talmud), not in Sefaria's merged text. Footnotes open inline. Bible references in any text, also with Roman chapter numbers (<i>Jerem. XXIII, 24</i>), open on click. Chapters and Talmud pages via arrow keys.</td>
+<td width="50%" valign="top"><b>💬 Commentary panel (Cmd+K)</b><br>Rashi, Ibn Ezra and more under the selected verse, in Hebrew, English or German. <i>Follow</i> keeps it on the verse you are reading; ▲/▼ or <code>j</code>/<code>k</code> step verse by verse. Pin it beside the text, together with the dictionary: as tabs, stacked or side by side.</td>
 </tr>
 <tr>
-<td valign="top"><b>🔎 Full-text search</b><br>Across everything you downloaded, including footnotes and your own texts. Ignores vowels and cantillation. Words near each other, wildcards, fuzzy matching for variant spellings.</td>
+<td valign="top"><b>🔎 Full-text search</b><br>Across everything you downloaded, including footnotes and your own texts. Ignores vowels and cantillation. Words near each other, wildcards, fuzzy matching for variant spellings, one hit per verse across versions. In the Hebrew Tanakh also <b>all forms of a word</b> (by lemma) and a <b>grammar search</b> by part of speech, stem, tense, person, gender and number. Cmd/Ctrl+F finds in the displayed text, optionally whole words only.</td>
 <td valign="top"><b>🔤 Morphology at a click</b><br>The OSHB Tanakh carries lemma and morphology for every word: click for stem, form, person, gender and number, and the lemma opens in the dictionary.</td>
 </tr>
 <tr>
@@ -63,12 +63,16 @@ Safran is a free desktop app for macOS, Windows and Linux that keeps your texts 
 <td valign="top"><b>📜 Manuscripts and versions</b><br>Aleppo Codex, Qumran scrolls, Septuagint with the Hebrew counterpart per word group: an <b>LXX–MT comparison</b> that marks pluses, minuses and alignment (interlinear switchable), Targum Pseudo-Jonathan and Neofiti with morphology, parallel passages, Sefaria's link data.</td>
 </tr>
 <tr>
-<td valign="top"><b>🗺 Bible map and outlines</b><br>The places of each chapter on a map of Israel with distances and elevation profile, a detailed 1865 map of Jerusalem, outlines for 39 books with a 613 Mitzvot switch and for Ginzberg's <i>Legends</i>, and topics.</td>
+<td valign="top"><b>🗺 Bible map and outlines</b><br>The places of each chapter on a map of Israel with distances and elevation profile, a detailed 1865 map of Jerusalem, and topics. Outlines for the Tanakh (with a 613 Mitzvot switch in the Torah), the Mishnah, the Apocrypha, the <i>Guide for the Perplexed</i> and Ginzberg's <i>Legends</i>, in a panel and as headings between the verses (can be switched off).</td>
 <td valign="top"><b>🎧 Hebrew audio</b><br>A reading of the whole Tanakh by Abraham Schmueloff, downloadable per book. Every verse has its own ▶ button: click it to hear exactly that verse, and the reading carries on from there. The verse being read is highlighted.</td>
 </tr>
 <tr>
 <td valign="top"><b>✍️ Your own texts and notes</b><br>Import TXT, Word, CSV or JSON as an extra column or as a commentary. Bookmarks and notes with export to JSON, Markdown, Word or PDF.</td>
-<td valign="top"><b>🖥 Made for long reading</b><br>Light, dark or automatic theme, adjustable size, interface in German, English and Hebrew, tabs and sessions restored on the next start.</td>
+<td valign="top"><b>🖥 Made for long reading</b><br>Light, dark or automatic theme, adjustable size, normal or narrow page margin, interface in German, English and Hebrew. The tab bar hides while you scroll down and returns when you scroll up (can be switched off). Safran reopens as you left it: window, tabs, reading position, commentary and dictionary.</td>
+</tr>
+<tr>
+<td valign="top"><b>📅 Jewish calendar on the new tab</b><br>Weekly Torah portion, haftarah, Daf Yomi and Yerushalmi Yomi of the day; a click opens the passage. Browse to other days or pick a date. The data come from hebcal.com and are kept for 13 months, so the calendar also works offline.</td>
+<td valign="top"><b>🖼 Portraits</b><br>Small pictures of translators, commentators and lexicographers (Zunz, Mendelssohn, S. R. Hirsch, Goldschmidt, Hoffmann, Malbim, Levy, Jastrow …) and of the Aleppo and Leningrad codices next to versions, commentaries and dictionaries; hover for a large view.</td>
 </tr>
 </table>
 
@@ -89,7 +93,8 @@ Open the *Wörterbuch* tab, press the 📖 button next to the commentary panel, 
 | **Hamburger**, Real-Encyclopädie für Bibel und Talmud (vol. 1, vol. 2 talmudic articles) | 2,753 | footnotes inline, sources linked |
 
 - **Smart lookup:** vowel points and final-letter forms are ignored, the prefixes ו ה ב כ ל מ ש are stripped, and entries that start with your word are listed too. Suggestions appear while typing.
-- **Full text:** tick *auch im Text* to search inside the articles, not only the headwords. Hits are highlighted.
+- **Full text:** tick *auch im Text* to search inside the articles, not only the headwords. Hits are highlighted. Phrases in quotation marks and the wildcards `*` and `?` work too.
+- **From the text and back:** a word looked up from the text shows where it came from (*from Genesis 25:8*); a click returns to the verse.
 - **Choose dictionaries:** the 📚 button selects which dictionaries are searched. The choice is remembered.
 - **Headword list:** *☰ Stichwörter* opens the complete, filterable headword list of a dictionary.
 - **Linked sources:** a citation such as *Rosh Hashanah 18b* opens the passage in the reader, if the text is in your library.
@@ -106,8 +111,12 @@ Safran bundles 345 German text files in `bundled/`. They are imported on first s
 | Herxheimer, *Die vier und zwanzig Bücher der Bibel* (1843), translation **and** commentary | whole Tanakh |
 | Kautzsch, *Die Apokryphen und Pseudepigraphen des Alten Testaments* (1900) | Ben Sira, Jubilees, Enoch, Tobit, Judith, Maccabees, Wisdom of Solomon and more |
 | Mendelssohn, *Netivot ha-Shalom* (translation, Taitsch and Biur) | Torah |
-| Rashi after Bamberger · Hertz, Pentateuch commentary | Torah |
-| Hirsch, Psalms · Midrash Bemidbar and Devarim Rabbah (Wünsche) · *Führer der Unschlüssigen* (More Nevuchim) · *Kizzur Schulchan Aruch* (Bamberger) | |
+| Rashi after Bamberger · Hertz, Pentateuch commentary | Rashi: Exodus to Deuteronomy · Hertz: Exodus, Numbers, Deuteronomy |
+| Goldschmidt, translation of the Torah (1921) | Torah |
+| S. R. Hirsch, Psalms · Julius Hirsch, Isaiah and the Twelve Prophets · Joseph and Raphael Breuer: Joshua, Judges, Ezekiel, Ezra, Nehemiah | translation and commentary (Ezekiel: commentary only) |
+| Wünsche's Midrash translations | Bemidbar and Devarim Rabbah, the Rabbah volumes on the five Megillot, Pesikta de-Rav Kahana, Midrash Shmuel |
+| *Mischne Tora* (Mandelstamm, 1851) | 39 sections |
+| *Führer der Unschlüssigen* (More Nevuchim) · *Kizzur Schulchan Aruch* (Bamberger) | |
 | Ginzberg, *Die Legenden der Juden*, reading edition from his German manuscript, aligned with Sefaria's *Legends of the Jews* | vols. 1–4, with over 4,000 of Ginzberg's notes as footnotes; abbreviations explained on hover; 10,600 sources (Bible, Midrash, Talmud, Josephus, Philo …) linked and shown as connections in both directions; outline |
 | *Schulchan Aruch* (Lederer): Orach Chajim, Jore Deah, Ewen haëser · *Avot DeRabbi Natan* (Pollak) · Tractate *Soferim* (Müller) · *Sanctification of the New Month* (Hildesheimer) | |
 | Samuel (Wolf) · Job (Dawidowicz) · the *Arba Megillot* (Breuer) | translation and commentary |
