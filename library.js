@@ -2908,11 +2908,12 @@
     const q = normF(term).trim();
     if (!q) return;
     // geschlossene Fußnoten, die den Begriff enthalten, aufklappen, damit sie sichtbar und markierbar sind
-    const onSearch = document.documentElement.dataset.tab === 'search';
+    const curTab = document.documentElement.dataset.tab || 'read', onSearch = curTab === 'search', onDict = curTab === 'dict';
     if (onSearch) $$('#sOut details:not([open])').forEach(d => { if (hasQ(d.textContent, q)) { d.open = true; d.dataset.how = 'find'; } }); // zugeklappte „weitere Fassungen“ mit Treffer aufklappen
-    else $$('#rOut .note').forEach(n => { if (hasQ(n.textContent, q)) n.classList.add('fnd'); });
-    const roots = onSearch ? [$('#sOut')] : [$('#rOut')]; // im Reiter „Suche“: die Trefferliste durchsuchen
-    if (!onSearch) {
+    else if (!onDict) $$('#rOut .note').forEach(n => { if (hasQ(n.textContent, q)) n.classList.add('fnd'); });
+    // nur durchsuchen, was im aktuellen Reiter zu sehen ist (der Lesetext eines anderen Reiters ist bloß versteckt)
+    const roots = onSearch ? [$('#sOut')] : onDict ? [$('#dictOut')] : [$('#rOut')];
+    if (!onSearch && !onDict) {
     if (!$('#cmtPanel').hidden) roots.push($('#cmtBody')); // auch der Kommentar-Bereich wird durchsucht
     if (!$('#dictPanel').hidden) roots.push($('#dictOut')); // ebenso die Wörterbuch-Treffer
     if (!$('#outlinePanel').hidden) roots.push($('#olBody')); // und die geöffnete Gliederung
@@ -3142,7 +3143,8 @@
   window.__refind = () => { clearFind(true); if (!fb.hidden && fTerm) runFind(fTerm); };
   { // Trefferliste der Suche neu aufgebaut (neue Suche, Fassungen zusammenfassen …): Markierungen nachziehen, ohne zu springen
     let t = null;
-    new MutationObserver(() => { clearTimeout(t); t = setTimeout(() => { if (!fb.hidden && fTerm && document.documentElement.dataset.tab === 'search') runFind(fTerm, true); }, 200); }).observe($('#sOut'), { childList: true });
+    const mo = new MutationObserver(() => { clearTimeout(t); t = setTimeout(() => { if (!fb.hidden && fTerm && ['search', 'dict'].includes(document.documentElement.dataset.tab)) runFind(fTerm, true); }, 200); });
+    mo.observe($('#sOut'), { childList: true }); mo.observe($('#dictOut'), { childList: true }); // ebenso im Reiter „Wörterbuch“ nach neuem Nachschlagen
   }
 
   let fs = 16;
