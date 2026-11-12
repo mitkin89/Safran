@@ -47,6 +47,19 @@ pk = f'{B}/own/Philippson on I Chronicles/de/{K}'; c = load(pk); ct = c['text']
 if len(ct[11]) == 40:
     ct[11][4:4] = ['']; save(pk, c); changed.append(pk)
 
+# --- Haftara-Angaben (Randnoten im Druck) standen mitten im Vers: als Fußnote ans Versende
+HAFT = {(1, 1): 'Haphtorah: Jesch. 1, 1 — 27.', (7, 16): 'Haft.: Jesch. 49, 14 — 51, 3.', (31, 2): 'Haphtorah: Jesch. 55, 6—56, 8.',
+        (32, 4): 'Haphtorah: 2 Schem. 22, 1—51. am S. Schubah: Hosch. 14, 2—10. mit Joel 2, 15—27.'}
+p = f'{B}/own/Deuteronomy/de/{T}'; d = load(p); t = d['text']; ch = False
+for (c, v), note in HAFT.items():
+    s = t[c - 1][v - 1]
+    if note in s and 'footnote' not in s:
+        t[c - 1][v - 1] = re.sub(r'\s+', ' ', s.replace(note, ' ')).strip() + f'<sup class="footnote-marker">*</sup><i class="footnote">{note}</i>'; ch = True
+s = t[33][11]; i = s.find('[Ende]')
+if i > 0 and 'footnote' not in s:
+    tail = s[i:].strip(); t[33][11] = s[:i].rstrip() + f'<sup class="footnote-marker">*</sup><i class="footnote">{tail}</i>'; ch = True
+if ch: save(p, d); changed.append(p)
+
 # --- Trennstriche im Kommentar (Zeilenumbruch im Druck): einzeln geprüft – zusammenziehen bzw. Bindestrich behalten
 JOIN = {'bewaff- net': 'bewaffnet', 'Drommeten- zum': 'Drommeten zum', 'west- nord': 'west-nord', 'ent- schieden': 'entschieden', 'Instru- ment': 'Instrument',
         'ring- förmig': 'ringförmig', 'spöttisch- einschüchternden': 'spöttisch-einschüchternden', 'nicht- israelitische': 'nicht-israelitische',
