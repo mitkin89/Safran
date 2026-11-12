@@ -4,6 +4,8 @@
 - **Hebrew default text:** the Westminster Leningrad Codex is shown by default wherever a book has it; otherwise a real edition (e.g. the vocalized William Davidson text in the Talmud). Sefaria's merged text is only used when there is nothing else – also in previews and the commentary bar.
 - **Hidden tab bar:** changing chapter no longer moves the toolbar or the column labels, and the tab bar no longer flashes up when you scroll on from the start of a chapter.
 - **Recently opened:** the list keeps 100 entries and scrolls.
+- **Smooth tab bar:** when the tab bar slides in or out while scrolling, the toolbar and column labels glide with it and the text no longer jerks.
+- **Dictionary choice:** the selection window is wider; portrait, name and entry count line up.
 - **Hidden tab bar stays hidden when you change chapter:** moving to another chapter (or another book) in the same tab no longer brings it back, and while hidden it leaves no empty space at the top; scrolling up brings it back, also at the very top of the page.
 
 ### New in 2.3.7

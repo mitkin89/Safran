@@ -2567,13 +2567,39 @@
   // Tableiste beim Lesen ausblenden (Anzeige → „Tabs beim Scrollen ausblenden“): nach unten scrollen blendet sie aus,
   // nach oben scrollen, Maus an den oberen Rand, Seitenanfang oder ein anderer Reiter als „Lesen“ holen sie zurück
   let hdLastY = window.scrollY;
+  // Layout und Bewegung sind getrennt, damit der Lesetext beim Aus-/Einblenden nie springt:
+  //  • Aus-/Einblenden beim Scrollen ändert nur transform (Tableiste) und top (Werkzeugleiste, Spaltenköpfe) – gleich lang, gleiche Kurve,
+  //    kein Layout-Wechsel und kein Nachführen der Scrollposition mitten im Scrollen
+  //  • „hd-flat“ (Leiste nimmt keinen Platz ein, sonst bliebe nach einem Kapitelwechsel oben eine leere Fläche) wird nur gesetzt,
+  //    wenn die Lücke sichtbar würde, und erst in einer Scrollpause (oder kurz vor dem Seitenanfang) wieder aufgehoben
+  const hdH = () => { const hd = $('header'); return hd ? hd.offsetHeight + (parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--hdgap')) || 0) : 0; };
+  let hdAnimT = 0, hdIdle = 0, hdAnchT = 0;
+  const hdFlat = on => {
+    const b = document.body.classList;
+    if (b.contains('hd-flat') === on) return;
+    // Verschiebung am Text messen und genau diese ausgleichen; die Scroll-Verankerung des Browsers bleibt so lange aus (sonst wird doppelt ausgeglichen)
+    const de = document.documentElement, ref = $('#rOut');
+    de.style.overflowAnchor = 'none';
+    const t0 = ref ? ref.getBoundingClientRect().top : 0;
+    b.toggle('hd-flat', on);
+    const d = ref ? ref.getBoundingClientRect().top - t0 : 0;
+    if (Math.abs(d) > 0.01) window.scrollBy(0, d);
+    hdLastY = window.scrollY;
+    clearTimeout(hdAnchT); hdAnchT = setTimeout(() => { de.style.overflowAnchor = ''; }, 120);
+  };
+  const hdSettle = () => {
+    clearTimeout(hdIdle);
+    const b = document.body.classList, hid = b.contains('hd-hidden'), read = hdTab() === 'read';
+    if (!b.contains('hd-flat')) { if (hid && read && window.scrollY < hdH()) hdFlat(true); return; } // ausgeblendet am Seitenanfang (Kapitelwechsel): keine Lücke
+    if (hid && read) return;
+    if (!read || window.scrollY < 2 * hdH()) hdFlat(false); // kurz vor dem Seitenanfang braucht die Leiste ihren Platz wieder
+    else hdIdle = setTimeout(() => { if (!document.body.classList.contains('hd-hidden')) hdFlat(false); }, 200); // sonst in der nächsten Scrollpause
+  };
   const hdSet = hide => {
     if (document.body.classList.contains('hd-hidden') === hide) return;
-    // ausgeblendet nimmt die Leiste im Reiter „Lesen“ keinen Platz mehr ein (sonst bleibt nach einem Kapitelwechsel oben eine leere Fläche);
-    // die Seite wird um ihre Höhe nachgeführt, damit der Text beim Aus-/Einblenden nicht springt
-    const hd = $('header'), h = hdTab() === 'read' && hd ? hd.offsetHeight + (parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--hdgap')) || 0) : 0;
+    document.body.classList.add('hd-anim'); clearTimeout(hdAnimT); hdAnimT = setTimeout(() => document.body.classList.remove('hd-anim'), 260);
     document.body.classList.toggle('hd-hidden', hide); fixStick(); dictPlace();
-    if (h) { window.scrollBy(0, hide ? -h : h); hdLastY = window.scrollY; }
+    hdSettle();
   };
   const hdTab = () => document.documentElement.dataset.tab || 'read';
   const hdAllowed = () => disp.hideTabs && (hdTab() === 'read' || hdTab() === 'dict');
@@ -2595,7 +2621,7 @@
   };
   window.addEventListener('scroll', () => {
     const y = window.scrollY, dy = y - hdLastY; hdLastY = y;
-    if (hdTab() === 'read') hdScroll(y, dy);
+    if (hdTab() === 'read') { hdScroll(y, dy); hdSettle(); }
   }, { passive: true });
   // Reiter „Wörterbuch“: dort scrollt die Ergebnisliste selbst, nicht die Seite
   let hdDictY = 0;

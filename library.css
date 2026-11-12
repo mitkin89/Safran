@@ -940,7 +940,11 @@ body:has(#findBar:not([hidden])) #olBody { padding-bottom: 56px; }
 .gcell .vlab:hover { color: var(--accent); }
 
 /* Wörterbuch-Auswahl und -Verwaltung in einem Ausklapp-Menü */
-#dictSelP { min-width: 340px; }
+#dictSelP { min-width: 480px; max-width: min(640px, 92vw); }
+#dictSelP label.dsl { grid-template-columns: 18px 26px minmax(0, 1fr) auto; } /* Häkchen · Porträt · Name · Zahl, Name linksbündig neben dem Bild */
+#dictSelP label.dsl img.vpic { grid-column: 2; width: 24px; height: 24px; border-radius: 50%; object-fit: cover; margin: 0; }
+#dictSelP label.dsl .dsn { grid-column: 3; }
+#dictSelP label.dsl small { grid-column: 4; }
 #dictSelP .dli { display: flex; align-items: center; gap: 6px; }
 #dictSelP .dli label.dsl { flex: 1 1 auto; min-width: 0; }
 #dictSelP .dbtns { flex: none; display: flex; gap: 2px; }
@@ -1102,7 +1106,8 @@ header button, nav button { padding-top: 2px; padding-bottom: 2px; }
 #stick .bar.compact { margin-bottom: 2px; }
 body.hd-hidden header { transform: translateY(-100%); pointer-events: none; }
 body.hd-hidden { --hdoff: var(--hdh, 0px); }
-html:not([data-tab]) body.hd-hidden header, html[data-tab=read] body.hd-hidden header { margin-bottom: calc(-1 * var(--hdh, 0px) - var(--hdgap, 0px)); } /* ausgeblendet ohne Platz – keine leere Fläche oben */
+html:not([data-tab]) body.hd-flat header, html[data-tab=read] body.hd-flat header { margin-bottom: calc(-1 * var(--hdh, 0px) - var(--hdgap, 0px)); } /* ohne Platz – keine leere Fläche oben (hd-flat setzt library.js nur, wenn es nicht auffällt) */
+body.hd-anim #stick, body.hd-anim.head-stick .row.head { transition: top .18s ease; } /* Werkzeugleiste und Spaltenköpfe gleiten mit der Tableiste */
 
 /* Spaltenkopf-Hover: voller Titel mit Porträt */
 #headPop { position: fixed; z-index: 10000; pointer-events: none; background: var(--bg); border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 10px 34px rgba(0,0,0,.45); padding: 10px 12px; font-size: 13px; line-height: 1.35; color: var(--fg); }
