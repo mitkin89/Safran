@@ -6801,6 +6801,156 @@
    ],
    "kind": "de",
    "hash": "abe17f8fe3226cacf0c9f8d8cf78a9b32815bfb6"
+  },
+  {
+   "rel": "own/Bava Metzia/de/Talmud Babylonicum, Tractat Baba Mezia, mit deutscher Übersetzung und Erklärung von A. Sammter, Berlin 1876.json",
+   "title": "Bava Metzia",
+   "heTitle": "בבא מציעא",
+   "language": "English",
+   "versionTitle": "Talmud Babylonicum, Tractat Baba Mezia, mit deutscher Übersetzung und Erklärung von A. Sammter, Berlin 1876",
+   "categories": [
+    "Talmud",
+    "Bavli",
+    "Seder Nezikin"
+   ],
+   "kind": "de",
+   "hash": "890f6331cc76d725391d91b01d2ef37ec6ad95d6"
+  },
+  {
+   "rel": "own/Chullin/de/Der talmudische Traktat Chulin, I. Teil, übersetzt von M. Rawicz, 1908.json",
+   "title": "Chullin",
+   "heTitle": "חולין",
+   "language": "English",
+   "versionTitle": "Der talmudische Traktat Chulin, I. Teil, übersetzt von M. Rawicz, 1908",
+   "categories": [
+    "Talmud",
+    "Bavli",
+    "Seder Kodashim"
+   ],
+   "kind": "de",
+   "hash": "1ed2e26ed68f954e278ccaf8cf2d10e8925585dc"
+  },
+  {
+   "rel": "own/David Zvi Hoffmann on Deuteronomy/de/Das Buch Deuteronomium übersetzt und erklärt von D. Hoffmann, Berlin 1913–1922.json",
+   "title": "David Zvi Hoffmann on Deuteronomy",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Das Buch Deuteronomium übersetzt und erklärt von D. Hoffmann, Berlin 1913–1922",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "f5726f6de1144c44c04324903e037fcb60d695fe"
+  },
+  {
+   "rel": "own/David Zvi Hoffmann on Leviticus/de/Das Buch Leviticus übersetzt und erklärt von D. Hoffmann, Berlin 1905–1906.json",
+   "title": "David Zvi Hoffmann on Leviticus",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "Das Buch Leviticus übersetzt und erklärt von D. Hoffmann, Berlin 1905–1906",
+   "categories": [
+    "Eigene Texte",
+    "Kommentare"
+   ],
+   "kind": "de",
+   "hash": "e22803b3c61a370baff73a23d1825e361f072db4"
+  },
+  {
+   "rel": "own/Deuteronomy/de/Das Buch Deuteronomium übersetzt und erklärt von D. Hoffmann, Berlin 1913–1922.json",
+   "title": "Deuteronomy",
+   "heTitle": "דברים",
+   "language": "English",
+   "versionTitle": "Das Buch Deuteronomium übersetzt und erklärt von D. Hoffmann, Berlin 1913–1922",
+   "categories": [
+    "Tanakh",
+    "Torah"
+   ],
+   "kind": "de",
+   "hash": "a6d8cf4e8773eccd07840a1b9849e67117fc134c"
+  },
+  {
+   "rel": "own/Ketubot/de/Der Tractat Kethuboth, übersetzt von M. Rawicz, Frankfurt a. M. 1898_1900.json",
+   "title": "Ketubot",
+   "heTitle": "כתובות",
+   "language": "English",
+   "versionTitle": "Der Tractat Kethuboth, übersetzt von M. Rawicz, Frankfurt a. M. 1898/1900",
+   "categories": [
+    "Talmud",
+    "Bavli",
+    "Seder Nashim"
+   ],
+   "kind": "de",
+   "hash": "80321f1260abd8bec7a7ee5f9eb3abc229775f5c"
+  },
+  {
+   "rel": "own/Leviticus/de/Das Buch Leviticus übersetzt und erklärt von D. Hoffmann, Berlin 1905–1906.json",
+   "title": "Leviticus",
+   "heTitle": "ויקרא",
+   "language": "English",
+   "versionTitle": "Das Buch Leviticus übersetzt und erklärt von D. Hoffmann, Berlin 1905–1906",
+   "categories": [
+    "Tanakh",
+    "Torah"
+   ],
+   "kind": "de",
+   "hash": "6ea455e1210275dfd0706ab0cbea61290748edd6"
+  },
+  {
+   "rel": "own/Megillah/de/Der Traktat Megilla nebst Tosafat, übersetzt von M. Rawicz, Frankfurt a. M. 1883.json",
+   "title": "Megillah",
+   "heTitle": "מגילה",
+   "language": "English",
+   "versionTitle": "Der Traktat Megilla nebst Tosafat, übersetzt von M. Rawicz, Frankfurt a. M. 1883",
+   "categories": [
+    "Talmud",
+    "Bavli",
+    "Seder Moed"
+   ],
+   "kind": "de",
+   "hash": "e4ea7281bcc4bab2f65517b78a0fa8e93d7164c5"
+  },
+  {
+   "rel": "own/Rosh Hashanah/de/Der Traktat Rosch ha-Schanah, übersetzt von M. Rawicz, Frankfurt a. M. 1886.json",
+   "title": "Rosh Hashanah",
+   "heTitle": "ראש השנה",
+   "language": "English",
+   "versionTitle": "Der Traktat Rosch ha-Schanah, übersetzt von M. Rawicz, Frankfurt a. M. 1886",
+   "categories": [
+    "Talmud",
+    "Bavli",
+    "Seder Moed"
+   ],
+   "kind": "de",
+   "hash": "bb8f804c6b69c15ac4dea85ccb285c271aa93935"
+  },
+  {
+   "rel": "own/Sanhedrin/de/Der Traktat Sanhedrin, übersetzt von M. Rawicz, Frankfurt a. M. 1892.json",
+   "title": "Sanhedrin",
+   "heTitle": "סנהדרין",
+   "language": "English",
+   "versionTitle": "Der Traktat Sanhedrin, übersetzt von M. Rawicz, Frankfurt a. M. 1892",
+   "categories": [
+    "Talmud",
+    "Bavli",
+    "Seder Nezikin"
+   ],
+   "kind": "de",
+   "hash": "b665172b29bf8e4870a8b2e882cab61ca62179a3"
+  },
+  {
+   "rel": "own/Taanit/de/Der Tractat Taanit des babylonischen Talmud, übersetzt von D. O. Straschun, Halle 1883.json",
+   "title": "Taanit",
+   "heTitle": "תענית",
+   "language": "English",
+   "versionTitle": "Der Tractat Taanit des babylonischen Talmud, übersetzt von D. O. Straschun, Halle 1883",
+   "categories": [
+    "Talmud",
+    "Bavli",
+    "Seder Moed"
+   ],
+   "kind": "de",
+   "hash": "26d1b3bffafed929eb97bd9b4dc3d24002b2ad33"
   }
  ]
 }
