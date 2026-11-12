@@ -1148,6 +1148,8 @@ html[data-tab=dict] #dictSaved .dsv { transition: top .18s ease; }
 #mapLegend .ld.bub { width: 20px; height: 20px; background: #fff; border: 2px solid var(--c); box-shadow: none; font-size: 10px; font-weight: 700; line-height: 16px; text-align: center; }
 #mapLegend .ld.tri, #mapLegend .ld.arr { width: 0; height: 0; border-radius: 0; background: none; box-shadow: none; border: 6px solid transparent; border-top-width: 0; border-bottom: 11px solid var(--c); }
 #mapLegend .ld.arr { transform: rotate(-90deg); }
+#mapLegend .ld.road { width: 20px; height: 0; border: 0; border-top: 2px dashed #7a4a22; border-radius: 0; background: none; box-shadow: none; }
+#mapLegend .ld.town { width: 7px; height: 7px; border-radius: 0; background: rgba(255,255,255,.6); border: 1px solid #5a5a5a; box-shadow: none; margin: 0 2px; }
 #mapJer b { cursor: pointer; } #mapJer b::after { content: ' ▾'; opacity: .6; }
 #mapJer.min > :not(b) { display: none; } #mapJer.min b::after { content: ' ▸'; }
 #mapInfo .chip sup { font-size: .7em; opacity: .8; }

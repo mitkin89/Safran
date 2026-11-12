@@ -2235,7 +2235,7 @@
     if (!$('#mapPanel').hidden) { MP.sel = -1; mapRouteFill(); mapFit(); mapInfo(); mapDraw(); }
   }
   function mapSize() { const cv = $('#mapCv'), r = cv.getBoundingClientRect(), d = window.devicePixelRatio || 1; const w = Math.max(50, Math.round(r.width * d)), h = Math.max(50, Math.round(r.height * d)); if (cv.width !== w || cv.height !== h) { cv.width = w; cv.height = h; } return { w, h, d }; }
-  const MAPZ = 14; // größter Zoom außerhalb von Jerusalem (das Relief hat 150 Pixel je Grad; darüber ist nur noch Unschärfe zu sehen)
+  const MAPZ = 14; // größter Zoom außerhalb von Jerusalem und der feinen Kacheln (das Relief hat 150 Pixel je Grad; darüber ist nur noch Unschärfe zu sehen)
   const mapNearJer = (lon, lat) => Math.abs(lon - 35.235) < 0.2 && Math.abs(lat - 31.775) < 0.17;
   const mapInMap = p => { const [x, y] = mapPx(p); return x >= 0 && y >= 0 && x <= BM.w && y <= BM.h; }; // Rom u. a. liegen außerhalb des Reliefs
   const mapCur = () => MPER.size === 4 ? MP.cur : MP.cur.filter(c => mapPlaceOk(BM.places[c.i])); // Orte des Kapitels, die der Epochenfilter durchlässt
@@ -2289,6 +2289,7 @@
     mapClamp();
     g.setTransform(1, 0, 0, 1, 0, 0); g.globalAlpha = 1; g.fillStyle = '#7aa0be'; g.fillRect(0, 0, w, h);
     g.imageSmoothingQuality = 'high'; g.drawImage(MP.img, MP.tx, MP.ty, BM.w * MP.s, BM.h * MP.s);
+    mapHiDraw(g, w, h); mapWaterDraw(g, d, w, h); mapRoadsDraw(g, d, w, h); // feines Relief, Gewässer und römische Straßen liegen unter allem anderen
     const r = d, ll = I18N.lang, FONT = '-apple-system, system-ui, sans-serif';
     MP.lay = mapLayout();
     const chap = MP.lay.filter(o => o.chap), R0 = (MP.dense ? 4 : 6) * r, fade = o => !!MP.vsel && !MP.vsel.has(o.i);
@@ -2365,6 +2366,7 @@
     // übrige Orte: die meistgenannten beschriften, soweit Platz ist
     if ($('#mapAll').checked) { let left = chap.length ? 24 : 45, tries = 0; const rest = MP.lay.filter(o => !o.chap && o.i !== MP.sel && o.x > 0 && o.y > 0 && o.x < w && o.y < h).sort((a, b) => b.n - a.n);
       for (const o of rest) { if (!left || ++tries > 260) break; const p = BM.places[o.i]; g.font = `${MAREA.test(p[1]) ? 'italic ' : ''}${10.5 * r}px ${FONT}`; const bb = spot(o, g.measureText(p[0]).width, 12 * r, 5 * r); if (!bb) continue; boxes.push(bb); left--; txt(p[0], bb.x + 2 * r, bb.y + 6 * r, '#333', 2.6, 'rgba(255,255,255,.8)'); } }
+    mapBackLabels(g, r, w, h, { boxes, hit, inside, shown }); g.textAlign = 'start'; g.textBaseline = 'middle';
     if (so) { marker(so, true); g.font = `700 ${13 * r}px ${FONT}`; txt(so.name, so.lb.x + 2 * r, so.lb.y + 8 * r, '#111', 4.5, 'rgba(255,255,255,.96)'); }
     try { const noted = new Set(notesAll.filter(n => n.place).map(n => n.place)); if (noted.size) { g.font = `${12 * r}px -apple-system, sans-serif`; g.textAlign = 'left'; g.textBaseline = 'alphabetic'; MP.lay.forEach(o => { if (!o.bub && noted.has(BM.places[o.i][0])) { g.lineWidth = 3 * r; g.strokeStyle = 'rgba(255,255,255,.95)'; g.strokeText('✎', o.x + 5 * r, o.y - 5 * r); g.fillStyle = '#b8570a'; g.fillText('✎', o.x + 5 * r, o.y - 5 * r); } }); g.textBaseline = 'middle'; } } catch { /* Notizen noch nicht geladen */ }
     if (MP.hov >= 0 && MP.hov !== MP.sel) { const o = MP.lay.find(q => q.i === MP.hov && !q.bub) || MP.lay.find(q => q.bub && q.bub.includes(MP.hov)); // Ort unter dem Mauszeiger bzw. dessen Chip in der Liste
@@ -2652,9 +2654,89 @@
       g.textAlign = 'start'; }
     g.restore();
   }
+  // ===== Feinere Karte: Reliefkacheln für das Land Israel (map/hi), Gewässer (OSM), römische Straßen (Itiner-e), heutige Städte =====
+  // Alles wird erst bei Bedarf geladen; gezeichnet wird nur, was im Bild liegt, und nur so genau, wie der Zoom es zeigt.
+  const HI = window.BMAPHI || null, HIC = new Map(), HIS = { n: 0, raf: 0 }; // Kachel-Cache: „Stufe/x_y“ -> { im, ok, u }
+  const MAPZH = 22; // größter Zoom im Ausschnitt der feinen Kacheln (feinste Stufe: 2400 Pixel je Grad = Zoom 16)
+  const mapInHi = (x, y) => !!HI && x >= HI.x0 && y >= HI.y0 && x <= HI.x0 + HI.w && y <= HI.y0 + HI.h; // Kartenpixel
+  const mapDrawSoon = () => { if (HIS.raf) return; HIS.raf = requestAnimationFrame(() => { HIS.raf = 0; mapDraw(); }); };
+  function mapHiVisible(w, h) { return !!HI && MP.s >= 1.6 && (HI.x0 + HI.w) * MP.s + MP.tx > 0 && HI.x0 * MP.s + MP.tx < w && (HI.y0 + HI.h) * MP.s + MP.ty > 0 && HI.y0 * MP.s + MP.ty < h; }
+  function mapHiDraw(g, w, h) {
+    if (!mapHiVisible(w, h)) return;
+    let li = 0; while (li < HI.lv.length - 1 && HI.lv[li].f < MP.s * 0.8) li++; // Stufe, deren Kacheln höchstens um ein Viertel vergrößert werden
+    const ox = HI.x0 * MP.s + MP.tx, oy = HI.y0 * MP.s + MP.ty, stamp = ++HIS.n;
+    const pass = (k, load) => { // zeichnet die geladenen Kacheln einer Stufe; liefert die Zahl der noch fehlenden
+      const L = HI.lv[k], q = MP.s / L.f, ts = HI.ts * q; let miss = 0;
+      const tx0 = Math.max(0, Math.floor(-ox / ts)), tx1 = Math.min(L.nx - 1, Math.floor((w - ox) / ts)), ty0 = Math.max(0, Math.floor(-oy / ts)), ty1 = Math.min(L.ny - 1, Math.floor((h - oy) / ts));
+      for (let ty = ty0; ty <= ty1; ty++) for (let tx = tx0; tx <= tx1; tx++) {
+        if (L.have.charCodeAt(ty * L.nx + tx) !== 49) continue; // nur offenes Meer: keine Kachel
+        const key = k + '/' + tx + '_' + ty; let t = HIC.get(key);
+        if (!t) { if (!load) continue; t = { im: new Image(), ok: false, u: 0 }; const tt = t; t.im.onload = () => { tt.ok = true; mapDrawSoon(); }; t.im.src = 'map/hi/' + key + '.jpg'; HIC.set(key, t); }
+        t.u = stamp; if (!t.ok) { miss++; continue; }
+        const x = Math.round(ox + tx * ts), y = Math.round(oy + ty * ts); // auf ganze Pixel, damit zwischen den Kacheln keine Fugen entstehen
+        g.drawImage(t.im, x, y, Math.round(ox + tx * ts + t.im.naturalWidth * q) - x, Math.round(oy + ty * ts + t.im.naturalHeight * q) - y);
+      }
+      return miss; };
+    const tiles = () => { // Zielstufe; solange dort Kacheln fehlen, liegen darunter die schon geladenen gröberen
+      let miss = 0; { const L = HI.lv[li], ts = HI.ts * MP.s / L.f; for (let ty = Math.max(0, Math.floor(-oy / ts)); ty <= Math.min(L.ny - 1, Math.floor((h - oy) / ts)) && !miss; ty++) for (let tx = Math.max(0, Math.floor(-ox / ts)); tx <= Math.min(L.nx - 1, Math.floor((w - ox) / ts)); tx++) { if (L.have.charCodeAt(ty * L.nx + tx) !== 49) continue; const t = HIC.get(li + '/' + tx + '_' + ty); if (!t || !t.ok) { miss = 1; break; } } }
+      if (miss) for (let k = 0; k < li; k++) pass(k, k === 0);
+      pass(li, true); };
+    g.save(); g.imageSmoothingEnabled = true; g.imageSmoothingQuality = 'high'; g.globalAlpha = Math.min(1, (MP.s - 1.6) / 0.5); tiles(); g.restore();
+    if (HIC.size > 260) { const old = [...HIC].filter(([, t]) => t.u !== stamp).sort((a, b) => a[1].u - b[1].u); for (let i = 0; i < old.length && HIC.size > 180; i++) { old[i][1].im.onload = null; HIC.delete(old[i][0]); } } // lange nicht gezeigte Kacheln freigeben
+  }
+  // Linien (Gewässer, Straßen): wie map/jer/osm.js gepackt – Differenzen ganzer Zahlen, zlib, Base64
+  const vecDec = (a, c0) => { const n = (a.length - c0) >> 1, x = new Int32Array(n), y = new Int32Array(n); let px = 0, py = 0, x0 = 1e9, y0 = 1e9, x1 = -1e9, y1 = -1e9; for (let i = 0; i < n; i++) { px += a[c0 + 2 * i]; py += a[c0 + 2 * i + 1]; x[i] = px; y[i] = py; if (px < x0) x0 = px; if (px > x1) x1 = px; if (py < y0) y0 = py; if (py > y1) y1 = py; } return { x, y, b: [x0, y0, x1, y1] }; };
+  async function vecLoad(S, src, name, make) { if (S.st) return; S.st = 1; try { if (await jerScript(src) && window[name]) { make(window[name].z ? JSON.parse(new TextDecoder().decode(await jerInfl(window[name].z))) : window[name]); S.st = 2; mapDraw(); } else S.st = 3; } catch { S.st = 3; } }
+  // Abbildung der gepackten Koordinaten auf den Bildschirm und Zeichnen der sichtbaren Linien in einen Pfad; Punkte, die näher als tol Pixel am vorigen liegen, entfallen
+  const vecView = (o, w, h) => { const kx = BM.ppd * BM.k * MP.s, ky = BM.ppd * MP.s, ax = kx / o[2], bx = (o[0] - BM.W0) * kx + MP.tx, ay = -ky / o[2], by = (BM.N0 - o[1]) * ky + MP.ty;
+    return { vis: f => ax * f.b[2] + bx > 0 && ax * f.b[0] + bx < w && ay * f.b[1] + by > 0 && ay * f.b[3] + by < h,
+      path: (g, f, tol) => { const n = f.x.length; let lx = ax * f.x[0] + bx, ly = ay * f.y[0] + by; g.moveTo(lx, ly); for (let i = 1; i < n; i++) { const px = ax * f.x[i] + bx, py = ay * f.y[i] + by; if (i < n - 1 && Math.abs(px - lx) + Math.abs(py - ly) < tol) continue; g.lineTo(px, py); lx = px; ly = py; } } }; };
+  const WAT = { st: 0, cl: null, lab: [], o: null }, WATZ = [2.1, 3.2, 5.5, 8.5, 12]; // Gewässerklassen erscheinen nacheinander: Hauptflüsse zuerst, kleine Wadis erst bei starkem Zoom
+  function mapWaterDraw(g, r, w, h) {
+    if (!mapHiVisible(w, h) || MP.s < WATZ[0]) return; if (!WAT.st) vecLoad(WAT, 'map/water.js', 'BMAPWATER', j => { WAT.o = j.o; WAT.cl = j.cl.map(c => c.map(a => vecDec(a, 0))); WAT.lab = j.lab || []; }); if (WAT.st !== 2) return;
+    const V = vecView(WAT.o, w, h); g.save(); g.lineJoin = 'round'; g.lineCap = 'round';
+    WAT.cl.forEach((c, k) => { const a = Math.min(1, (MP.s - WATZ[k]) / (WATZ[k] * 0.25)); if (a <= 0) return;
+      g.beginPath(); for (const f of c) if (V.vis(f)) V.path(g, f, 1.5 * r);
+      g.globalAlpha = a; g.strokeStyle = k ? 'rgba(74,128,176,.8)' : 'rgba(62,118,172,.95)'; g.lineWidth = (k === 0 ? Math.min(2.6, 1.5 + MP.s / 14) : k === 1 ? 1.25 : k === 2 ? 1.05 : 0.85) * r; g.stroke(); });
+    g.restore();
+  }
+  const ROADS = { st: 0, r: null, o: null };
+  function mapRoadsDraw(g, r, w, h) {
+    if (!$('#mapRoads').checked) return; if (!ROADS.st) vecLoad(ROADS, 'map/roads.js', 'BMAPROADS', j => { ROADS.o = j.o; ROADS.r = j.r.map(a => Object.assign(vecDec(a, 2), { m: a[0] === 2, c: a[1] })); }); if (ROADS.st !== 2) return;
+    const V = vecView(ROADS.o, w, h), small = MP.s < 1.2; g.save(); g.lineJoin = 'round'; g.lineCap = 'butt'; g.strokeStyle = '#7a4a22';
+    // vier Pfade: Haupt-/Nebenstraße × gesichert oder vermutet / hypothetisch; in der Übersicht nur die Hauptstraßen
+    for (let k = 0; k < 4; k++) { const main = k < 2, hyp = k % 2 === 1; if (small && !main) continue; g.beginPath();
+      for (const f of ROADS.r) if (f.m === main && (f.c === 0) === hyp && V.vis(f)) V.path(g, f, 2 * r);
+      g.setLineDash(hyp ? [2 * r, 3.5 * r] : [5.5 * r, 3 * r]); g.globalAlpha = (hyp ? 0.45 : main ? 0.8 : 0.6) * (small ? 0.8 : 1); g.lineWidth = (main ? 1.35 : 0.95) * r; g.stroke(); }
+    g.restore();
+  }
+  // Hintergrundnamen: Flüsse (entlang des Laufs) und heutige Städte (blassgrau) – erst nach allen antiken Namen und nur, wo nichts anderes liegt
+  const TOWNS = { st: 0, l: null };
+  function mapBackLabels(g, r, w, h, E) {
+    const ll = I18N.lang, FONT = '-apple-system, system-ui, sans-serif', X = lon => (lon - BM.W0) * BM.ppd * BM.k * MP.s + MP.tx, Y = lat => (BM.N0 - lat) * BM.ppd * MP.s + MP.ty;
+    const dots = MP.lay.filter(o => !o.chap && o.x > 0 && o.y > 0 && o.x < w && o.y < h), onDot = b => dots.some(o => o.x > b.x - r && o.x < b.x + b.w + r && o.y > b.y - r && o.y < b.y + b.h + r); // Namen decken keine Punkte der übrigen Orte zu
+    if (WAT.st === 2 && mapHiVisible(w, h)) { g.font = `italic ${11 * r}px ${FONT}`; g.textAlign = 'center'; let n = 0;
+      for (const L of WAT.lab) { if (L[6] > MP.s) break; if (n >= 14) break; const px = X(L[3]), py = Y(L[4]); if (px < 0 || py < 0 || px > w || py > h) continue;
+        if (E.shown.has(L[0]) || E.shown.has(L[0].replace(/^Nahal /, '').split(' (')[0])) continue; // steht schon als Ort des Kapitels auf der Karte
+        const t = (ll === 'de' ? L[1] : ll === 'he' ? L[2] : '') || L[0], tw = g.measureText(t).width + 6 * r, an = -L[5] * Math.PI / 180, cw = Math.abs(Math.cos(an)) * tw + Math.abs(Math.sin(an)) * 14 * r, ch = Math.abs(Math.sin(an)) * tw + Math.abs(Math.cos(an)) * 14 * r;
+        const bb = { x: px - cw / 2, y: py - ch / 2, w: cw, h: ch }; if (!E.inside(bb) || E.hit(bb) || onDot(bb)) continue; E.boxes.push(bb); n++;
+        g.save(); g.translate(px, py); g.rotate(an); g.globalAlpha = 0.9; g.lineWidth = 2.6 * r; g.strokeStyle = 'rgba(255,255,255,.6)'; g.strokeText(t, 0, -1 * r); g.fillStyle = '#1f4f7a'; g.fillText(t, 0, -1 * r); g.restore(); }
+      g.textAlign = 'start'; }
+    if ($('#mapTowns').checked) {
+      if (!TOWNS.st) vecLoad(TOWNS, 'map/towns.js', 'BMAPTOWNS', j => { TOWNS.l = j; });
+      if (TOWNS.st === 2) { let n = 0; const names = new Set(MP.lay.filter(o => o.chap).map(o => BM.places[o.i][0]));
+        for (const T of TOWNS.l) { if (T[5] > MP.s) break; if (n >= 36) break; const px = X(T[3]), py = Y(T[4]); if (px < 4 || py < 4 || px > w - 4 || py > h - 4) continue;
+          if (names.has(T[0])) continue; // derselbe Ort steht schon als antiker Ort da
+          const big = T[5] < 1 || T[6] >= 1e6, fs = (big ? 11.5 : 10.5) * r, q = 2.4 * r; g.font = `${big ? '600 ' : ''}${fs}px ${FONT}`;
+          const mb = { x: px - q - r, y: py - q - r, w: 2 * q + 2 * r, h: 2 * q + 2 * r }; if (E.hit(mb)) continue; // der Ort selbst läge unter einem antiken Namen oder einem Ort des Kapitels
+          const t = (ll === 'de' ? T[1] : ll === 'he' ? T[2] : '') || T[0], tw = g.measureText(t).width, c = [[px + q + 3 * r, py - 7 * r], [px - q - 3 * r - tw, py - 7 * r], [px - tw / 2, py - q - 15 * r], [px - tw / 2, py + q + 1 * r]].map(([bx, by]) => ({ x: bx - 2 * r, y: by, w: tw + 4 * r, h: 14 * r }));
+          const bb = c.find(b => E.inside(b) && !E.hit(b) && !onDot(b)); if (!bb) continue; E.boxes.push(bb, mb); n++;
+          g.globalAlpha = 0.9; g.beginPath(); g.rect(px - q + 0.5 * r, py - q + 0.5 * r, 2 * q - r, 2 * q - r); g.fillStyle = 'rgba(255,255,255,.55)'; g.fill(); g.lineWidth = 1.1 * r; g.strokeStyle = 'rgba(90,90,90,.8)'; g.stroke();
+          g.lineWidth = 2.4 * r; g.strokeStyle = 'rgba(255,255,255,.5)'; g.strokeText(t, bb.x + 2 * r, bb.y + 7 * r); g.fillStyle = 'rgba(78,78,78,.92)'; g.fillText(t, bb.x + 2 * r, bb.y + 7 * r); g.globalAlpha = 1; } } }
+  }
   function mapJerGo() { const { w, h } = mapSize(), s = Math.min(w, h) / 2.44, [x, y] = mapXY(35.2345, 31.7770); MP.s = Math.min(6000, s); MP.tx = w / 2 - x * MP.s; MP.ty = h / 2 - y * MP.s; mapDraw(); }
-  function mapZoom(f, mx, my) { // nicht weiter hinaus, als die ganze Karte passt; hinein bis MAPZ, nur in Jerusalem (Detailkarte) weiter
-    const { w, h } = mapSize(), lo = Math.min(w / BM.w, h / BM.h), [lon, lat] = mapLL((mx - MP.tx) / MP.s, (my - MP.ty) / MP.s), hi = mapNearJer(lon, lat) ? 6000 : MAPZ; let ns = Math.max(lo, MP.s * f); if (ns > hi) ns = Math.max(hi, Math.min(MP.s, ns)); MP.tx = mx - (mx - MP.tx) * ns / MP.s; MP.ty = my - (my - MP.ty) * ns / MP.s; MP.s = ns; mapDraw(); }
+  function mapZoom(f, mx, my) { // nicht weiter hinaus, als die ganze Karte passt; hinein bis MAPZ, im Ausschnitt der feinen Kacheln bis MAPZH, nur in Jerusalem (Detailkarte) weiter
+    const { w, h } = mapSize(), lo = Math.min(w / BM.w, h / BM.h), [lon, lat] = mapLL((mx - MP.tx) / MP.s, (my - MP.ty) / MP.s), hi = mapNearJer(lon, lat) ? 6000 : mapInHi((mx - MP.tx) / MP.s, (my - MP.ty) / MP.s) ? MAPZH : MAPZ; let ns = Math.max(lo, MP.s * f); if (ns > hi) ns = Math.max(hi, Math.min(MP.s, ns)); MP.tx = mx - (mx - MP.tx) * ns / MP.s; MP.ty = my - (my - MP.ty) * ns / MP.s; MP.s = ns; mapDraw(); }
   function mapOpenFor(title, ref, label) { // aus der Gliederung: nur die Orte dieses Punktes
     if (!BM) return; const list = mapForRef(title, ref); if (!list.length) return;
     MP.over = { label, list }; mapOpen(); MP.over = { label, list }; MP.cur = list; MP.sel = -1; MP.grp = null; MP.vsel = null; $('#mapOl').hidden = false;
@@ -2682,6 +2764,7 @@
     const perPaint = () => $$('#mapPer button').forEach(b => { b.classList.toggle('on', MPER.has(b.dataset.p)); b.style.setProperty('--pc', MPCOL[b.dataset.p]); });
     perPaint();
     $('#mapPer').addEventListener('click', e => { const b = e.target.closest('button[data-p]'); if (!b) return; const k = b.dataset.p; if (MPER.has(k)) { if (MPER.size > 1) MPER.delete(k); } else MPER.add(k); perPaint(); try { localStorage.setItem('mapPer', JSON.stringify([...MPER])); } catch { /* egal */ } if (MP.sel >= 0 && !mapPlaceOk(BM.places[MP.sel])) MP.sel = -1; mapDraw(); mapInfo(); }); // die Epochen filtern auch die Orte des Kapitels; „alle Orte“ bleibt ein eigener Schalter
+    ['mapTowns', 'mapRoads'].forEach(id => { const el = $('#' + id); try { el.checked = localStorage.getItem(id) !== '0'; } catch { el.checked = true; } el.onchange = () => { try { localStorage.setItem(id, el.checked ? '1' : '0'); } catch { /* egal */ } mapDraw(); }; });
     $('#mapBord').onchange = () => { try { localStorage.setItem('mapBord', $('#mapBord').checked ? '1' : '0'); } catch { /* egal */ } mapDraw(); };
     document.addEventListener('mousedown', e => { const p = $('#mapPanel'); if (p.hidden || p.classList.contains('docked') || !e.target.closest || e.target.closest('#mapPanel, #mapBtn, #suggest, #audioBar, #ctxMenu, #lkHover, #tip, #undoBar, dialog')) return; p.hidden = true; });
     document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('#mapPanel').hidden && !document.querySelector('dialog[open]')) { if (MP.rul) { mapRulToggle(false); e.stopPropagation(); return; } $('#mapPanel').hidden = true; e.stopPropagation(); } }, true);
@@ -2707,6 +2790,7 @@
     if (BM.nOrig && BM.nOrig < BM.books.length) $('#mapCredit').textContent += ' · Orte bei Josephus und in den Makkabäerbüchern: ToposText (topostext.org, ODC-BY)';
     if (BM.alma && BM.alma.size) $('#mapCredit').textContent += ' · Orte in der rabbinischen Literatur: ALMA (Ido Wachtel, Hebrew University GIS)';
     $('#mapCredit').textContent += ' · Jerusalem: Ordnance Survey of Jerusalem (Wilson 1865, gemeinfrei, Wikimedia Commons) · heutige Stadt: © OpenStreetMap-Mitwirkende (ODbL)';
+    $('#mapCredit').textContent += ' · ' + I18N.t('Bäche und Wadis, heutige Orte: © OpenStreetMap-Mitwirkende (ODbL), Natural Earth · Römische Straßen: Itiner-e (de Soto, Pažout, Brughmans u. a. 2025, CC BY 4.0, itiner-e.org)');
     // Vorschau der Verse beim Überfahren: Verslinks in der Info und Orte auf der Karte
     $('#mapInfo').addEventListener('mouseover', e => { const a = e.target.closest('a[data-ref], .olr[data-ref]'); if (!a || !hovApi || a.dataset.ref === hovApi.current()) return; hovApi.start(a, a.dataset.ref, false, false); });
     $('#mapInfo').addEventListener('mouseout', e => { if (hovApi && e.target.closest('a[data-ref], .olr[data-ref]')) hovApi.hide(); });
