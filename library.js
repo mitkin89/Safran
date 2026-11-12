@@ -1312,10 +1312,10 @@
   let history = [];
   try { history = JSON.parse(localStorage.getItem('history') || '[]'); } catch { history = []; }
   if (!Array.isArray(history)) history = [];
-  const saveHistory = () => { try { localStorage.setItem('history', JSON.stringify(history.slice(0, 20))); } catch { /* egal */ } };
+  const saveHistory = () => { try { localStorage.setItem('history', JSON.stringify(history.slice(0, 100))); } catch { /* egal */ } };
   function renderRecent() {
     $('#recentBox').hidden = !history.length;
-    $('#recent').innerHTML = history.slice(0, 15).map((h, i) =>
+    $('#recent').innerHTML = history.slice(0, 100).map((h, i) =>
       `<a data-i="${i}" title="${esc(h.title + ' – ' + h.label)}"><span>${esc(h.title)}</span><small>${esc(h.label)}${h.row ? ' · ' + esc(h.row) : ''}</small></a>`).join('');
   }
   function pushHistory(s, row) {
@@ -1325,7 +1325,7 @@
     // gleiches Buch und gleicher Abschnitt: nur nach vorn holen
     history = history.filter(h => !(h.key === e.key && h.sk === e.sk));
     history.unshift(e);
-    history = history.slice(0, 20);
+    history = history.slice(0, 100);
     saveHistory();
     renderRecent();
   }
@@ -2559,7 +2559,9 @@
     // Abstand zwischen Kopf und Leiste im Fluss (Innenabstand von <main>): ausgeblendet ebenfalls einsparen, sonst steht die Leiste
     // am Kapitelanfang tiefer als beim Scrollen und springt
     try { const m = document.querySelector('main'); const g = Math.max(0, parseFloat(getComputedStyle(m).paddingTop) + parseFloat(getComputedStyle(st).marginTop)); document.documentElement.style.setProperty('--hdgap', g + 'px'); } catch { /* egal */ }
-    $('#rOut').style.setProperty('--stick-top', (hh + st.offsetHeight - 4) + 'px');
+    // Spaltenköpfe haften genau dort, wo sie am Kapitelanfang ohnehin stehen (unmittelbar unter der Leiste, auf den Bruchteil genau) –
+    // sonst rücken sie bei jedem Kapitelwechsel um ein paar Pixel (früher: gerundete Höhe − 4)
+    $('#rOut').style.setProperty('--stick-top', (hh + st.getBoundingClientRect().height) + 'px');
     st.style.top = hh + 'px';
   };
   // Tableiste beim Lesen ausblenden (Anzeige → „Tabs beim Scrollen ausblenden“): nach unten scrollen blendet sie aus,
@@ -2588,7 +2590,8 @@
     if (!hdAllowed()) { hdSet(false); return; }
     if (!hdDrag && Date.now() - hdUser > 400) return; // programmatischer Sprung (z. B. Kapitelwechsel): Leiste bleibt, wie sie ist
     if (!hdDrag && Math.abs(dy) > window.innerHeight * 0.5) return; // so weit springt kein Mausrad – Kapitelwechsel, während das Trackpad noch nachläuft
-    if (y < 60 || dy < -6) hdSet(false); else if (dy > 6) hdSet(true);
+    // ausgeblendet am Kapitelanfang (nach ▶/◀) und dann nach unten gescrollt: Leiste bleibt weg – früher holte „y < 60“ sie kurz zurück (Flackern)
+    if (dy < -6 || (y < 60 && dy < 0)) hdSet(false); else if (dy > 6 && y >= 60) hdSet(true);
   };
   window.addEventListener('scroll', () => {
     const y = window.scrollY, dy = y - hdLastY; hdLastY = y;

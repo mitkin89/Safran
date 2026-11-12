@@ -218,6 +218,7 @@ html.split #tpResize { right: calc(var(--p2w) + var(--cmt-w, 400px)); }
 
 #cmpClose { float: right; border: 0; background: none; cursor: pointer; color: var(--muted); }
 #recent[hidden] { display: none; }
+#recent { max-height: 40vh; overflow-y: auto; overscroll-behavior: contain; } /* bis zu 100 Einträge, scrollbar */
 .cell .note { cursor: text; user-select: text; }
 
 ::highlight(find) { background: rgba(255, 213, 0, .55); color: inherit; }
