@@ -39,6 +39,7 @@ Map of the places of a chapter (🗺 in the reading bar, also from the outline),
 
 - **Audio:** Hebrew reading of the Tanakh by Abraham Schmueloff, source: [archive.org](https://archive.org/details/HebrewOldTestamentReadByAbrahamSchmueloff) (Talking Bibles International). Split into chapters; verse markers in `audio-markers/`. The audio files are not part of the repository but of the GitHub release `audio` (one `Audio_<Book>.zip` per book). The licence information is being clarified with Talking Bibles International.
 - **Outlines (`outlines/`):** outlines of 39 books transcribed from a printed edition; German and English translations are machine-generated and not proofread. Tools: `tools/assemble_outline_photos.py`, `tools/merge_outline_tr.py`.
+- **Talmud outlines (`outlines/Berakhot.json` … `Niddah.json`, 38 tractates):** sugya sections and argument steps from [talmud.dev](https://talmud.dev) (Shaun Regenbaum), AI-generated there; English, Hebrew where talmud.dev has the same division. Pages that talmud.dev has not generated yet (e.g. most of Tamid) are missing. Tools: `tools/talmud_dev/`.
 
 ## Interface language
 

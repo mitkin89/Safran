@@ -39,6 +39,7 @@ Karte der Orte eines Kapitels (🗺 in der Leseleiste, auch aus der Gliederung),
 
 - **Audio:** hebräische Lesung des Tanach von Abraham Schmueloff, Quelle: [archive.org](https://archive.org/details/HebrewOldTestamentReadByAbrahamSchmueloff) (Talking Bibles International). In Kapitel geteilt; die Versmarken liegen in `audio-markers/`. Die Audiodateien gehören nicht ins Repository, sondern ins GitHub-Release `audio` (pro Buch eine Datei `Audio_<Buch>.zip`). Die Lizenzangabe wird mit Talking Bibles International geklärt.
 - **Gliederungen (`outlines/`):** Gliederungen von 39 Büchern, abgeschrieben aus einer gedruckten Ausgabe; die deutschen und englischen Übersetzungen sind maschinell erstellt und nicht durchgesehen. Werkzeuge: `tools/assemble_outline_photos.py`, `tools/merge_outline_tr.py`.
+- **Talmud-Gliederungen (`outlines/Berakhot.json` … `Niddah.json`, 38 Traktate):** Sugja-Abschnitte und Argumentationsschritte von [talmud.dev](https://talmud.dev) (Shaun Regenbaum), dort mit KI erzeugt; englisch, hebräisch wo talmud.dev dieselbe Einteilung hat. Seiten, die talmud.dev noch nicht erzeugt hat (z. B. der größte Teil von Tamid), fehlen. Werkzeuge: `tools/talmud_dev/`.
 
 ## Oberflächensprache
 
