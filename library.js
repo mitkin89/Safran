@@ -60,6 +60,7 @@
     $('#togglePanel').hidden = t !== 'read'; // die Bücherliste gibt es nur im Reiter „Lesen“
     if (prevTab && prevTab !== t && (prevTab === 'read' || t === 'read') && panelOpen) { panelOpen = false; applyPanel(); } // beim Verlassen und Zurückkehren ist die Bücherliste zu
     if (onTabChange) onTabChange(t, prevTab);
+    if (prevTab !== t && typeof window.__refind === 'function') window.__refind(); // offene Suchleiste: im neuen Reiter neu suchen
     if ((t === 'notes' || t === 'search') && prevTab !== t && tabScroll[t]) { const y = tabScroll[t]; requestAnimationFrame(() => window.scrollTo(0, y)); setTimeout(() => window.scrollTo(0, y), 150); }
   }
   $$('nav button').forEach(b => (b.onclick = () => { if (b.dataset.tab === 'read' && b.classList.contains('active')) togglePanel(); else showTab(b.dataset.tab); })); // erneuter Klick auf „Lesen“ blendet die Bücherliste ein/aus
@@ -2881,6 +2882,7 @@
     fRanges = []; fIdx = -1;
     hl('find', []); hl('find-active', []);
     $$('#rOut .note.fnd').forEach(n => n.classList.remove('fnd'));
+    $$('#sOut details[data-how="find"]').forEach(d => { d.open = false; delete d.dataset.how; });
     $$('#olBody .olsubs').forEach(w => { if (w.dataset.how === 'find') olToggle(w, false, true, ''); }); olChips(); // durch die Suche geöffnete Unterpunkte wieder schließen
     $('#findCount').textContent = '';
     if (!keepTerm) fTerm = '';
@@ -2892,12 +2894,16 @@
     const q = normF(term).trim();
     if (!q) return;
     // geschlossene Fußnoten, die den Begriff enthalten, aufklappen, damit sie sichtbar und markierbar sind
-    $$('#rOut .note').forEach(n => { if (hasQ(n.textContent, q)) n.classList.add('fnd'); });
-    const roots = [$('#rOut')];
+    const onSearch = document.documentElement.dataset.tab === 'search';
+    if (onSearch) $$('#sOut details:not([open])').forEach(d => { if (hasQ(d.textContent, q)) { d.open = true; d.dataset.how = 'find'; } }); // zugeklappte „weitere Fassungen“ mit Treffer aufklappen
+    else $$('#rOut .note').forEach(n => { if (hasQ(n.textContent, q)) n.classList.add('fnd'); });
+    const roots = onSearch ? [$('#sOut')] : [$('#rOut')]; // im Reiter „Suche“: die Trefferliste durchsuchen
+    if (!onSearch) {
     if (!$('#cmtPanel').hidden) roots.push($('#cmtBody')); // auch der Kommentar-Bereich wird durchsucht
     if (!$('#dictPanel').hidden) roots.push($('#dictOut')); // ebenso die Wörterbuch-Treffer
     if (!$('#outlinePanel').hidden) roots.push($('#olBody')); // und die geöffnete Gliederung
     if (!$('#outlinePanel').hidden) $$('#olBody .olsubs[hidden]').forEach(w => { if (hasQ(w.textContent, q)) olToggle(w, true, true, 'find'); }); olChips(); // zugeklappte Unterpunkte mit Treffer aufklappen
+    }
     const ranges = [];
     // Textknoten je Absatz/Zelle sammeln und zusammenhängend durchsuchen, damit auch Wortfolgen über mehrere
     // Wort-Elemente hinweg gefunden werden (Westminster-Text: jedes Wort steckt in einem eigenen <span class="w">)
@@ -3119,6 +3125,10 @@
   $('#findClose').onclick = closeFind;
   // Abschnitt gewechselt: Treffer neu berechnen, wenn die Suchleiste offen ist
   window.__refind = () => { clearFind(true); if (!fb.hidden && fTerm) runFind(fTerm); };
+  { // Trefferliste der Suche neu aufgebaut (neue Suche, Fassungen zusammenfassen …): Markierungen nachziehen, ohne zu springen
+    let t = null;
+    new MutationObserver(() => { clearTimeout(t); t = setTimeout(() => { if (!fb.hidden && fTerm && document.documentElement.dataset.tab === 'search') runFind(fTerm, true); }, 200); }).observe($('#sOut'), { childList: true });
+  }
 
   let fs = 16;
   try { fs = +localStorage.getItem('fs') || 16; } catch { /* egal */ }
