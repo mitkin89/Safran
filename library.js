@@ -2981,6 +2981,24 @@
     if (dy < 0 || dy > sc.clientHeight - 100) anchor = owner; // Treffer läge sonst außerhalb: Hauptpunkt des Treffers nach oben
     const hd = sc.querySelector('.lhead'); sc.scrollTop += top(anchor) - st - (hd ? hd.offsetHeight + 12 : 8); // unter die feste Kopfzeile
   }
+  // Treffer selbst (nicht sein Eltern-Element) in die Mitte holen: ein langer Wörterbuch-Artikel ist ein einziges Element –
+  // scrollIntoView darauf zentriert immer den ganzen Artikel, der Treffer bleibt außerhalb des Bildes
+  function rangeScroll(r, el) {
+    const rc = () => r.getClientRects()[0] || r.getBoundingClientRect();
+    let b = rc();
+    if (!b || (!b.width && !b.height)) { el.scrollIntoView({ block: 'center', inline: 'nearest' }); return; }
+    for (let sc = el; sc && sc !== document.body && sc !== document.documentElement; sc = sc.parentElement) { // jeder scrollende Bereich um den Treffer (Wörterbuch, Kommentar, Trefferliste)
+      if (!(sc.scrollHeight > sc.clientHeight + 2 && /(auto|scroll)/.test(getComputedStyle(sc).overflowY))) continue;
+      const sr = sc.getBoundingClientRect();
+      let head = 0; // feste Kopfzeilen (Wörterbuch-Titel, Stichwort) verdecken den oberen Rand
+      sc.querySelectorAll('.dsec, .dhead, .lhead').forEach(h => { if (getComputedStyle(h).position === 'sticky') { const hb = h.getBoundingClientRect(); if (hb.top < sr.top + 120) head = Math.max(head, Math.min(hb.bottom, sr.bottom) - sr.top); } });
+      head = Math.min(Math.max(0, head), sc.clientHeight / 2);
+      sc.scrollTop += b.top - sr.top - head - (sc.clientHeight - head - b.height) / 2;
+      b = rc();
+    }
+    const st = $('#stick'), top = st && st.offsetParent ? Math.max(0, st.getBoundingClientRect().bottom) : 0; // Seite nur bewegen, wenn der Treffer danach noch nicht zu sehen ist (unten liegt die Suchleiste darüber)
+    if (b.top < top + 8 || b.bottom > window.innerHeight - 80) window.scrollBy(0, b.top - (window.innerHeight - b.height) / 2);
+  }
   function goFind(i, scroll = true) {
     if (!fRanges.length) return;
     fIdx = (i + fRanges.length) % fRanges.length;
@@ -2988,7 +3006,7 @@
     hl('find-active', [r]);
     const el = r.startContainer.parentElement;
     if (el && scroll && el.closest('#olBody')) olScrollHit(el);
-    else if (el && scroll) el.scrollIntoView({ block: 'center', inline: 'nearest' });
+    else if (el && scroll) rangeScroll(r, el);
     $('#findCount').textContent = `${fIdx + 1} / ${fRanges.length}`;
   }
   const stepFind = fwd => {
