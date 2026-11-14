@@ -10,6 +10,8 @@ Die Texte fallen **nicht** unter die Lizenz dieses Projekts. Jede Textversion ha
 
 Die Bibel-Querverweise in `xref.json` (nur Tanach, unter den Sefaria-Verknüpfungen angezeigt) stammen von [OpenBible.info](https://www.openbible.info/labs/cross-references/) (überwiegend Treasury of Scripture Knowledge), Lizenz CC BY 4.0. Konverter: `tools/xref/`.
 
+Die Josephus-Verknüpfungen (Altertümer, Jüdischer Krieg ↔ Bibel, Makkabäer und untereinander) stammen aus dem Parallelstellen-Verzeichnis der Ausgabe von B. Niese (Berlin 1885–1895, gemeinfrei); Nieses §-Zählung wird über die Perseus-Texte ([PerseusDL/canonical-greekLit](https://github.com/PerseusDL/canonical-greekLit), CC BY-SA 4.0) auf Whistons Kapitel und Abschnitte (Sefarias Gliederung) abgebildet. Konverter: `tools/josephus/`. Die Verknüpfungen aus Safrans eigenen Texten (`tools/ownlinks/`) stammen aus den Stellenangaben in diesen Texten.
+
 ## Hebräischer Tanach mit Morphologie (OSHB)
 
 Alle 39 Bücher liegen als zusätzliche hebräische Version „Westminster Leningrad Codex (OSHB, mit Morphologie)" unter `bundled/own/…/he/`. Jedes Wort trägt Lemma (Strong-Nummer) und Morphologiecode; ein Klick im Leser zeigt Stamm, Zeit/Form, Person, Genus und Numerus und schlägt das Lemma im Wörterbuch nach.

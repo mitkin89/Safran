@@ -10,6 +10,8 @@ The texts are **not** covered by this project's license. Each text version has i
 
 The Bible cross-references in `xref.json` (Tanakh only, shown among the Sefaria links) come from [OpenBible.info](https://www.openbible.info/labs/cross-references/) (mostly the Treasury of Scripture Knowledge), licensed CC BY 4.0. Converter: `tools/xref/`.
 
+The Josephus links (Antiquities, Jewish War ↔ Bible, Maccabees and each other) come from the parallel-passage index of B. Niese's edition (Berlin 1885–1895, public domain); Niese's § numbers are mapped to Whiston's chapters and sections (Sefaria's structure) with the Perseus texts ([PerseusDL/canonical-greekLit](https://github.com/PerseusDL/canonical-greekLit), CC BY-SA 4.0). Converter: `tools/josephus/`. The links from Safran's own texts (`tools/ownlinks/`) are taken from the passage references in those texts.
+
 ## Hebrew Tanakh with morphology (OSHB)
 
 All 39 books are included as an additional Hebrew version “Westminster Leningrad Codex (OSHB, with morphology)” under `bundled/own/…/he/`. Every word carries a lemma (Strong number) and a morphology code; a click in the reader shows stem, tense/form, person, gender and number and looks the lemma up in the dictionary.
