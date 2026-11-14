@@ -846,7 +846,9 @@
     const mainSeg = d.segs[d.main], lem = mainSeg && mainSeg.lemma && LEM[mainSeg.lemma];
     wpop = document.createElement('div');
     wpop.id = 'wpop';
-    wpop.innerHTML = `<div class="wtop"><span dir="rtl" lang="he" class="wword">${esc(w.textContent)}</span><button class="wx" title="Schließen">✕</button></div>${rows}${lem ? `<button class="wdict" data-q="${esc(lem[0])}">Im Wörterbuch nachschlagen</button>` : ''}`;
+    wpop.innerHTML = `<div class="wtop"><span dir="rtl" lang="he" class="wword">${esc(w.textContent)}</span><button class="wx" title="Schließen">✕</button></div>${rows}${lem ? `<button class="wdict" data-q="${esc(lem[0])}">Im Wörterbuch nachschlagen</button>` : ''}${mainSeg && mainSeg.lemma ? `<button class="wforms" title="Alle im Tanach belegten Formen dieses Wortes als Tabelle">Alle Formen (Tabelle)</button>` : ''}`;
+    if (mainSeg && mainSeg.lemma) loadForms().catch(() => {}); // Formen-Index schon laden, damit die Tabelle sofort da ist
+    const wInfo = { lemma: mainSeg && mainSeg.lemma, word: w.textContent, m: w.dataset.m, l: w.dataset.l };
     document.body.appendChild(wpop);
     const r = w.getBoundingClientRect(), pw = wpop.offsetWidth, ph = wpop.offsetHeight;
     let x = Math.max(8, Math.min(window.innerWidth - pw - 8, r.left + r.width / 2 - pw / 2));
@@ -862,9 +864,78 @@
     wpop.onclick = ev => {
       if (ev.target.closest('.wx')) closeWpop();
       const b = ev.target.closest('.wdict'); if (b) openDict(b.dataset.q);
+      if (ev.target.closest('.wforms')) { closeWpop(); openForms(wInfo.lemma, wInfo); }
     };
   });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeWpop(); });
+
+  // ---------- Formentabelle: alle im Tanach belegten Formen eines Lemmas (forms.js, Index oshb-forms.js) ----------
+  let formsP = null, fmCur = null; // fmCur: { D, mdl } der gezeigten Tabelle
+  function loadForms() { // der Index (ca. 2 MB) wird erst beim ersten Wort-Popup geladen
+    if (!formsP) formsP = new Promise((res, rej) => {
+      if (window.OSHB_FORMS) return res(window.OSHB_FORMS);
+      const el = document.createElement('script'); el.src = 'oshb-forms.js';
+      el.onload = () => (window.OSHB_FORMS ? res(window.OSHB_FORMS) : rej(new Error('oshb-forms.js')));
+      el.onerror = () => { formsP = null; rej(new Error('oshb-forms.js')); };
+      document.body.appendChild(el);
+    });
+    return formsP;
+  }
+  async function openForms(lemma, info) {
+    const p = $('#formsPanel'), body = $('#fmBody'), LEM = window.OSHB_LEMMAS || {}, lem = LEM[lemma];
+    p.hidden = false; fmCur = null;
+    $('#fmHead').innerHTML = lem ? `<span class="fmLem" dir="rtl" lang="he">${esc(lem[0])}</span><span class="fmGloss">${esc(I18N.lang === 'de' && lem[2] ? lem[2] : lem[1])}</span>` : '';
+    body.innerHTML = `<p class="muted">${esc(I18N.t('Lädt …'))}</p>`;
+    let D = null;
+    try { D = await loadForms(); } catch { /* unten gemeldet */ }
+    const mdl = D && window.Forms.model(D, lemma, s => I18N.t(s));
+    if (!mdl) { body.innerHTML = `<p class="muted">${esc(I18N.t('Zu diesem Wort sind keine Formen verzeichnet.'))}</p>`; return; }
+    fmCur = { D, mdl };
+    const cur = info && info.m ? window.Forms.analyze(info.word, info.m, info.l) : null;
+    $('#fmHead').insertAdjacentHTML('beforeend', `${lem ? `<button class="wdict" type="button" data-q="${esc(lem[0])}">Im Wörterbuch nachschlagen</button>` : ''}<span class="fmCnt">${esc(I18N.t('{} Belege im Tanach · {} verschiedene Formen · Strong {}', mdl.total.toLocaleString(I18N.loc), mdl.forms.length.toLocaleString(I18N.loc), lemma))}</span>`);
+    body.innerHTML = window.Forms.render(mdl, { esc, t: s => I18N.t(s), current: cur });
+    p.scrollTop = 0;
+    const c = body.querySelector('.fmF.cur'); if (c) c.scrollIntoView({ block: 'center' });
+  }
+  const closeForms = () => { $('#formsPanel').hidden = true; hovApi && hovApi.hide(); };
+  $('#fmClose').onclick = closeForms;
+  { let wide = false; try { wide = localStorage.getItem('fmWide') === '1'; } catch { /* egal */ }
+    const ap = () => $('#formsPanel').classList.toggle('wide', wide); ap();
+    $('#fmWide').onclick = () => { wide = !wide; ap(); try { localStorage.setItem('fmWide', wide ? '1' : '0'); } catch { /* egal */ } }; }
+  $('#fmHead').addEventListener('click', e => { const b = e.target.closest('.wdict'); if (b) openDict(b.dataset.q); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('#formsPanel').hidden && !document.querySelector('dialog[open]')) closeForms(); });
+  // Belegstellen einer Form: nach Büchern geordnet, als Zeile unter der Tabellenzeile
+  const fmBook = b => (I18N.lang === 'de' && deNames(b).split(' / ')[0]) || b;
+  function fmRefs(chip, all) {
+    const { D, mdl } = fmCur, rs = window.Forms.refs(D, mdl, chip.dataset.i), CAP = 300;
+    const shown = all ? rs : rs.slice(0, CAP), n = rs.reduce((s, r) => s + r.n, 0);
+    const lines = []; let lb = null;
+    for (const r of shown) {
+      if (r.book !== lb) { lines.push(`<b>${esc(fmBook(r.book))}</b> `); lb = r.book; } else lines[lines.length - 1] += ' ';
+      lines[lines.length - 1] += `<span class="fmR"><a data-ref="${esc(r.book + ' ' + r.ch + ':' + r.v)}">${r.ch}${I18N.lang === 'de' ? ',' : ':'}${r.v}</a>${r.n > 1 ? `<small>×${r.n}</small>` : ''}</span>`;
+    }
+    const more = rs.length > shown.length ? `<div><button type="button" class="fmAll">${esc(I18N.t('alle {} Verse zeigen', rs.length.toLocaleString(I18N.loc)))}</button></div>` : '';
+    const tr = document.createElement('tr'); tr.className = 'fmRefRow';
+    tr.innerHTML = `<td colspan="99"><div class="fmRH"><span dir="rtl" lang="he">${esc(chip.querySelector('span').textContent)}</span><span class="muted">${esc(I18N.t('{}× in {} Versen', n.toLocaleString(I18N.loc), rs.length.toLocaleString(I18N.loc)))}</span><button type="button" class="fmRX" title="Schließen">✕</button></div><div class="fmRL">${lines.map(l => `<div>${l}</div>`).join('')}${more}</div></td>`;
+    chip.closest('tr').after(tr);
+  }
+  $('#fmBody').addEventListener('click', e => {
+    const closeRefs = () => { $$('#fmBody .fmRefRow').forEach(x => x.remove()); $$('#fmBody .fmF.sel').forEach(x => x.classList.remove('sel')); };
+    const a = e.target.closest('.fmRL a[data-ref]');
+    if (a) { hovApi && hovApi.hide(); jumpTo(a.dataset.ref, BG(e)); return; }
+    if (e.target.closest('.fmRX')) { closeRefs(); return; }
+    if (e.target.closest('.fmAll')) { const c = $('#fmBody .fmF.sel'); if (c && fmCur) { $$('#fmBody .fmRefRow').forEach(x => x.remove()); fmRefs(c, true); } return; }
+    const mb = e.target.closest('.fmMoreB');
+    if (mb) { const m = mb.previousElementSibling; m.hidden = !m.hidden; mb.textContent = m.hidden ? '+' + mb.dataset.n : '−'; return; }
+    const nv = e.target.closest('.fmNav button');
+    if (nv) { const s = $(`#fmBody .fmSec[data-sec="${nv.dataset.sec}"]`); if (s) { s.open = true; s.scrollIntoView({ block: 'start' }); } return; }
+    const chip = e.target.closest('.fmF');
+    if (chip && fmCur) { const was = chip.classList.contains('sel'); closeRefs(); if (!was) { chip.classList.add('sel'); fmRefs(chip, false); } }
+  });
+  // Vorschau des Verses beim Überfahren einer Belegstelle (wie bei den Verknüpfungen)
+  $('#fmBody').addEventListener('mouseover', e => { const a = e.target.closest('.fmRL a[data-ref]'); if (!a || !hovApi || a.dataset.ref === hovApi.current()) return; hovApi.start(a, a.dataset.ref, true, false); });
+  $('#fmBody').addEventListener('mouseout', e => { const a = e.target.closest('.fmRL a[data-ref]'); if (a && hovApi && !a.contains(e.relatedTarget)) hovApi.hide(); });
+  $('#formsPanel').addEventListener('scroll', () => hovApi && hovApi.hide(), { passive: true });
   window.addEventListener('scroll', closeWpop, { passive: true, capture: true });
 
   // Fußnoten-Modus (per Klick / immer / aus), wird gemerkt

@@ -56,6 +56,7 @@ The short version is in the [README](../README.md). This page lists everything, 
 ## Morphology and manuscripts
 
 - **OSHB Tanakh** (Westminster Leningrad Codex with morphology): every word carries a lemma (Strong number) and a morphology code; a click shows stem, tense/form, person, gender and number and looks the lemma up in the dictionary.
+- **Forms table:** *Alle Formen (Tabelle)* in the word popup lists every form of the lemma attested in the Tanakh: verbs by stem and tense/form with rows for person, gender and number; nouns and adjectives by gender, number and state, with suffixed forms by suffix person. Each form carries its frequency and its verses (preview on hover, click to jump). Built from the bundled OSHB data (`forms.js`, index `oshb-forms.js`), offline.
 - **Aleppo Codex** (all 39 books, Qere in the reading text), **Qumran scrolls** (36 books, all scrolls per verse with sigla), **Targum Pseudo-Jonathan and Neofiti** (Torah, with word morphology), **Septuagint (CATSS)** with the Hebrew counterpart per word group (interlinear switchable; Judges as Codex A and B, Daniel also after Theodotion), **parallel passages** (ETCBC). Sources in [SOURCES.md](../SOURCES.md).
 
 ## Search

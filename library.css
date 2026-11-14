@@ -1179,3 +1179,56 @@ html[data-tab=dict] #dictSaved .dsv { transition: top .18s ease; }
 #mapInfo .pd { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-inline-end: 6px; }
 #mapInfo .n { color: var(--muted); font-size: 11px; font-weight: 400; font-variant-numeric: tabular-nums; }
 #mapInfo .vs a.more { color: var(--muted); font-style: italic; }
+
+/* ---------- Formentabelle (alle belegten Formen eines Lemmas) ---------- */
+#formsPanel { position: fixed; top: calc(44px - var(--hdoff, 0px)); right: 0; bottom: 0; width: min(560px, 94vw); z-index: 40; background: var(--bg); color: var(--fg); border-left: 1px solid var(--line); box-shadow: -6px 0 22px rgba(0,0,0,.35); padding: 12px 14px 24px; overflow: auto; font-size: 13px; line-height: 1.45; }
+#formsPanel[hidden] { display: none; }
+#formsPanel.wide { width: min(1040px, 96vw); }
+html.split #formsPanel { right: var(--p2w); }
+#formsPanel .lhead { position: sticky; top: -12px; z-index: 2; display: flex; justify-content: space-between; align-items: center; background: var(--bg); padding: 4px 0; margin-bottom: 6px; }
+#formsPanel .fmTools { display: flex; gap: 4px; }
+#fmHead { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; margin-bottom: 10px; }
+#fmHead .fmLem { font-family: "HeDict", var(--he-font); font-size: 30px; line-height: 1.3; }
+#fmHead .fmGloss { font-size: 15px; }
+#fmHead .fmCnt { color: var(--muted); flex-basis: 100%; }
+#fmHead .wdict { margin-left: auto; padding: 3px 10px; cursor: pointer; border: 1px solid var(--accent); background: none; color: inherit; border-radius: 5px; }
+#fmBody small { color: var(--muted); font-weight: normal; font-size: .82em; }
+#fmBody .fmNav { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 10px; }
+#fmBody .fmNav button { padding: 2px 9px; border: 1px solid var(--line); border-radius: 12px; background: var(--card); color: inherit; cursor: pointer; font-size: 12.5px; }
+#fmBody .fmNav button:hover { border-color: var(--accent); }
+#fmBody .fmSec { border-top: 2px solid var(--accent); margin-top: 12px; padding-top: 4px; scroll-margin-top: 34px; }
+#fmBody .fmSec > summary { cursor: pointer; font-size: 16px; padding: 3px 0 6px; }
+#fmBody .fmGrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 10px 14px; align-items: start; }
+#fmBody .fmGrid.one { grid-template-columns: 1fr; }
+#fmBody .fmBlk { min-width: 0; }
+#fmBody .fmBlk h4 { margin: 0 0 3px; font-size: 13.5px; }
+#fmBody .fmSub, #fmBody .fmFold > summary { margin: 8px 0 3px; font-weight: 600; font-size: 12.5px; }
+#fmBody .fmFold > summary { cursor: pointer; }
+#fmBody table.fmT { border-collapse: collapse; width: 100%; }
+#fmBody .fmT th, #fmBody .fmT td { border: 1px solid var(--line); padding: 3px 6px; vertical-align: top; }
+#fmBody .fmT th { text-align: left; font-weight: 500; font-size: 12px; white-space: nowrap; background: color-mix(in srgb, var(--card) 70%, transparent); color: color-mix(in srgb, var(--fg) 80%, var(--muted)); }
+#fmBody .fmT tr > th:first-child { width: 1%; }
+#fmBody .fmT td { text-align: right; }
+#fmBody .fmT td.fmE { text-align: center; color: color-mix(in srgb, var(--muted) 55%, transparent); background: color-mix(in srgb, var(--line) 22%, transparent); }
+#fmBody .fmF { display: inline-flex; align-items: baseline; gap: 3px; direction: rtl; margin: 1px 0 1px 4px; padding: 0 5px; border: 1px solid transparent; border-radius: 5px; background: none; color: inherit; cursor: pointer; font: inherit; }
+#fmBody .fmF > span { font-family: "HeDict", var(--he-font); font-size: 20px; line-height: 1.5; }
+#fmBody .fmF > small { direction: ltr; font-size: 10.5px; }
+#fmBody .fmF:hover { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 12%, transparent); }
+#fmBody .fmF.pre > span { color: color-mix(in srgb, var(--fg) 62%, var(--muted)); }
+#fmBody .fmF.cur { background: color-mix(in srgb, var(--accent) 22%, transparent); border-color: color-mix(in srgb, var(--accent) 60%, transparent); }
+#fmBody .fmF.sel { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 30%, transparent); }
+#fmBody .fmMoreB, #fmBody .fmAll { padding: 0 7px; border: 1px solid var(--line); border-radius: 10px; background: var(--card); color: var(--muted); cursor: pointer; font-size: 11.5px; direction: ltr; }
+#fmBody .fmRefRow > td { text-align: left; direction: ltr; background: color-mix(in srgb, var(--accent) 8%, var(--bg)); border-color: var(--accent); padding: 6px 8px; }
+#fmBody .fmRH { display: flex; align-items: baseline; gap: 8px; margin-bottom: 3px; }
+#fmBody .fmRH > span[lang=he] { font-family: "HeDict", var(--he-font); font-size: 22px; }
+#fmBody .fmRH .fmRX { margin-left: auto; border: 0; background: none; color: inherit; cursor: pointer; }
+#fmBody .fmRL { max-height: 40vh; overflow: auto; line-height: 1.7; }
+#fmBody .fmRL > div { padding-left: 1.2em; text-indent: -1.2em; }
+#fmBody .fmRL b { font-weight: 600; margin-right: 4px; }
+#fmBody .fmRL .fmR { white-space: nowrap; margin-right: 6px; }
+#fmBody .fmRL .fmR small { margin-left: 1px; }
+#fmBody .fmRL a { cursor: pointer; color: var(--accent); text-decoration: none; }
+#fmBody .fmRL a:hover { text-decoration: underline; }
+#fmBody .fmNote { margin-top: 16px; color: var(--muted); font-size: 12px; }
+#wpop .wforms { margin-top: 6px; width: 100%; padding: 5px; cursor: pointer; border: 1px solid var(--accent); background: none; color: inherit; border-radius: 5px; }
+#wpop .wforms:hover { background: color-mix(in srgb, var(--accent) 18%, transparent); }
