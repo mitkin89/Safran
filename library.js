@@ -1534,6 +1534,17 @@
       if (!a || a.parentElement.classList.contains('off') || a.dataset.ref === hovRef) return;
       startHov(a, a.dataset.ref, false, false);
     });
+    // Kommentar-Bereich: Vorschau beim Überfahren einer Stellenangabe im Kommentartext (nur wenn der Text lokal vorliegt)
+    $('#cmtBody').addEventListener('mouseover', e => {
+      const a = e.target.closest('a.aref[data-sref]');
+      if (!a) return;
+      const ref = a.dataset.sref.replace(/-.*$/, '');
+      if (ref === hovRef) return;
+      startHov(a, ref, true, false);
+    });
+    $('#cmtBody').addEventListener('mouseout', e => { const a = e.target.closest('a.aref[data-sref]'); if (a && !a.contains(e.relatedTarget)) hideHov(); });
+    $('#cmtBody').addEventListener('click', hideHov);
+    $('#cmtBody').addEventListener('scroll', hideHov, true); $('#cmtPanel').addEventListener('scroll', hideHov);
     // Wörterbuch: Vorschau beim Überfahren einer Bibelstelle oder Quellenangabe (nur wenn der Text lokal vorliegt)
     $('#dictOut').addEventListener('mouseover', e => {
       const a = e.target.closest('.dsrc[data-sref]');

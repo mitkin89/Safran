@@ -1,6 +1,7 @@
 # Changelog
 
 ### New in 2.4.0
+- **Comment bar:** hovering over a passage reference in the commentary text now shows the preview bubble (only when the text is in your library).
 - **Find in the search results (Cmd/Ctrl+F):** in the *Search* tab the find bar now searches the result list; collapsed "+N more versions" that contain the word open automatically and close again with the find bar. When the list is rebuilt (new search, *Combine versions*), the marks follow without jumping.
 - **Find only what you see:** Cmd/Ctrl+F searches only the current tab – the reading text (with commentary, dictionary sidebar and outline when open), the search results, or the dictionary entry. Hidden text of other tabs and hidden elements are no longer counted.
 - **Find in long dictionary articles:** each step now scrolls to the hit itself and places it below the sticky headings (before, a long entry such as *Salomo* in Hamburger stayed where it was while the counter moved on). A hit that is already visible no longer makes the page jump.
