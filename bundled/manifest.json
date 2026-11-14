@@ -6951,6 +6951,46 @@
    ],
    "kind": "de",
    "hash": "26d1b3bffafed929eb97bd9b4dc3d24002b2ad33"
+  },
+  {
+   "rel": "own/Berakhot/de/Talmud Babli. Tractat Berachoth, übersetzt und erläutert von M. Pinner, Berlin 1842.json",
+   "title": "Berakhot",
+   "heTitle": "ברכות",
+   "language": "English",
+   "versionTitle": "Talmud Babli. Tractat Berachoth, übersetzt und erläutert von M. Pinner, Berlin 1842",
+   "categories": [
+    "Talmud",
+    "Bavli",
+    "Seder Zeraim"
+   ],
+   "kind": "de",
+   "hash": "ea31d04ed59e835c756038619ed78da7d060fa34"
+  },
+  {
+   "rel": "own/Pinner, Einleitung in den Talmud/de/M. Pinner, Einleitung in den Talmud (aus: Tractat Berachoth, Berlin 1842).json",
+   "title": "Pinner, Einleitung in den Talmud",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "M. Pinner, Einleitung in den Talmud (aus: Tractat Berachoth, Berlin 1842)",
+   "categories": [
+    "Eigene Texte",
+    "Talmud-Einleitungen"
+   ],
+   "kind": "de",
+   "hash": "545ba8760d47a3bd39660183b22fe5d70fcc0a65"
+  },
+  {
+   "rel": "own/Pinner, Vorrede zu Berachoth/de/M. Pinner, Vorrede zur Talmud-Übersetzung (Berlin 1842).json",
+   "title": "Pinner, Vorrede zu Berachoth",
+   "heTitle": "",
+   "language": "English",
+   "versionTitle": "M. Pinner, Vorrede zur Talmud-Übersetzung (Berlin 1842)",
+   "categories": [
+    "Eigene Texte",
+    "Talmud-Einleitungen"
+   ],
+   "kind": "de",
+   "hash": "1060c27b70c0ab8e0c6e81decdeecb2ff1a4c4da"
   }
  ]
 }

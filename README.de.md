@@ -30,7 +30,7 @@
   <sub>▶ Überblicksvideo auf YouTube ansehen</sub>
 </p>
 
-Safran ist eine kostenlose Desktop-App für macOS, Windows und Linux, die deine Texte auf dem eigenen Rechner hält. Du wählst einmal die Bücher und Sprachen aus der [Sefaria](https://www.sefaria.org)-Bibliothek und liest, durchsuchst und kommentierst sie danach ohne Internetverbindung. Dazu bringt Safran **356 deutsche Übersetzungen und Kommentare** mit, die es sonst kaum gibt, darunter Louis Ginzbergs *Legenden der Juden* nach seinem deutschen Manuskript, und **sieben Wörterbücher** mit über 88.000 Einträgen. Safran ist ein unabhängiges Projekt und nicht mit Sefaria verbunden.
+Safran ist eine kostenlose Desktop-App für macOS, Windows und Linux, die deine Texte auf dem eigenen Rechner hält. Du wählst einmal die Bücher und Sprachen aus der [Sefaria](https://www.sefaria.org)-Bibliothek und liest, durchsuchst und kommentierst sie danach ohne Internetverbindung. Dazu bringt Safran **359 deutsche Übersetzungen und Kommentare** mit, die es sonst kaum gibt, darunter Louis Ginzbergs *Legenden der Juden* nach seinem deutschen Manuskript, und **sieben Wörterbücher** mit über 88.000 Einträgen. Safran ist ein unabhängiges Projekt und nicht mit Sefaria verbunden.
 
 ## Warum Safran?
 
@@ -102,7 +102,7 @@ Den Reiter *Wörterbuch* öffnen, den Knopf 📖 neben dem Kommentarfenster drü
 
 ## Deutsche Texte, die es bei Sefaria nicht gibt
 
-Safran liefert 356 deutsche Textdateien im Ordner `bundled/` mit. Sie werden beim ersten Start importiert und erscheinen unter *Eigene Texte* sowie als zusätzliche Versionen und Kommentatoren neben den Sefaria-Texten:
+Safran liefert 359 deutsche Textdateien im Ordner `bundled/` mit. Sie werden beim ersten Start importiert und erscheinen unter *Eigene Texte* sowie als zusätzliche Versionen und Kommentatoren neben den Sefaria-Texten:
 
 | Werk | Umfang |
 | --- | --- |
@@ -119,7 +119,7 @@ Safran liefert 356 deutsche Textdateien im Ordner `bundled/` mit. Sie werden bei
 | *Führer der Unschlüssigen* (More Nevuchim) · *Kizzur Schulchan Aruch* (Bamberger) | |
 | Ginzberg, *Die Legenden der Juden*, Lesefassung nach seinem deutschen Manuskript, ausgerichtet an Sefarias *Legends of the Jews* | Bd. 1–4, über 4000 Noten Ginzbergs als Fußnoten; Abkürzungen beim Überfahren; 10.600 Quellen (Bibel, Midrasch, Talmud, Josephus, Philo …) verlinkt und als Verknüpfungen in beide Richtungen; Gliederung |
 | *Schulchan Aruch* (Lederer): Orach Chajim, Jore Deah, Ewen haëser · *Abot de-Rabbi Natan* (Pollak) · Traktat *Soferim* (Müller) · *Heiligung des Neumonds* (Hildesheimer) | |
-| Talmud: Rawicz (Megilla, Rosch ha-Schana, Ketubot, Sanhedrin, Chulin I) · Straschun (Taanit) · Sammter (Baba Mezia, 1876) | deutsche Übersetzungen des 19. Jahrhunderts, je Daf und Segment |
+| Talmud: Rawicz (Megilla, Rosch ha-Schana, Ketubot, Sanhedrin, Chulin I) · Straschun (Taanit) · Sammter (Baba Mezia, 1876) · Pinner (Berachot, 1842, mit Erläuterungen, dazu seine *Einleitung in den Talmud* und Vorrede) | deutsche Übersetzungen des 19. Jahrhunderts, je Daf und Segment |
 | D. Hoffmann, *Das Buch Leviticus* und *Das Buch Deuteronomium* | Übersetzung und Kommentar |
 | Samuel (Wolf) · Ijob (Dawidowicz) · die *Arba Megillot* (Breuer) | Übersetzung und Kommentar |
 
