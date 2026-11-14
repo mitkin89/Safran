@@ -30,7 +30,7 @@
   <sub>▶ Watch the overview video on YouTube</sub>
 </p>
 
-Safran is a free desktop app for macOS, Windows and Linux that keeps your texts on your own computer. Pick the books and languages you want from the [Sefaria](https://www.sefaria.org) library once, and read, search and annotate them afterwards without an internet connection. On top of that, Safran ships **405 German translations and commentaries** that are hard to find anywhere else, among them Louis Ginzberg's *Legenden der Juden* from his German manuscript, plus **seven dictionaries** with more than 88,000 entries. Safran is an independent project and not affiliated with Sefaria.
+Safran is a free desktop app for macOS, Windows and Linux that keeps your texts on your own computer. Pick the books and languages you want from the [Sefaria](https://www.sefaria.org) library once, and read, search and annotate them afterwards without an internet connection. On top of that, Safran ships **408 German translations and commentaries** that are hard to find anywhere else, among them Louis Ginzberg's *Legenden der Juden* from his German manuscript, plus **seven dictionaries** with more than 88,000 entries. Safran is an independent project and not affiliated with Sefaria.
 
 ## Why Safran?
 
@@ -102,7 +102,7 @@ Open the *Wörterbuch* tab, press the 📖 button next to the commentary panel, 
 
 ## German texts that are not on Sefaria
 
-Safran bundles 405 German text files in `bundled/`. They are imported on first start and appear under *Eigene Texte* and as extra versions and commentators next to the Sefaria texts:
+Safran bundles 408 German text files in `bundled/`. They are imported on first start and appear under *Eigene Texte* and as extra versions and commentators next to the Sefaria texts:
 
 | Work | Scope |
 | --- | --- |
@@ -121,6 +121,7 @@ Safran bundles 405 German text files in `bundled/`. They are imported on first s
 | *Schulchan Aruch* (Lederer): Orach Chajim, Jore Deah, Ewen haëser · *Avot DeRabbi Natan* (Pollak) · Tractate *Soferim* (Müller) · *Sanctification of the New Month* (Hildesheimer) | |
 | Talmud: Rawicz (Megillah, Rosh Hashanah, Ketubot, Sanhedrin, Chullin I) · Straschun (Taanit) · Sammter (Bava Metzia, 1876) · Pinner (Berakhot, 1842, with notes, plus his *Einleitung in den Talmud* and preface; his translation of Maimonides’ Introduction to the Mishnah, segmented like Sefaria) | 19th-century German translations, by daf and segment |
 | Mishnah from the Talmud: the mishnayot of all 37 tractates in Goldschmidt's translation, plus those of Pinner, Sammter, Rawicz and Straschun, as separate Mishnah versions | by chapter and mishnah, with the translator's footnotes |
+| Josephus, *Antiquities*, *Jewish War* and *Against Apion* (German by Clementz, 1899/1900) | segmented like Sefaria (Whiston), with Niese's section numbers |
 | D. Hoffmann, *Das Buch Leviticus* and *Das Buch Deuteronomium* | translation and commentary |
 | Samuel (Wolf) · Job (Dawidowicz) · the *Arba Megillot* (Breuer) | translation and commentary |
 

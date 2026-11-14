@@ -41,9 +41,11 @@ for (const e of man) {
   if (!e.rel.startsWith('own/') || SKIP.has(e.title)) continue;
   let d;
   try { d = JSON.parse(fs.readFileSync(path.join(ROOT, 'bundled', e.rel), 'utf8')); } catch { continue; }
-  if (!Array.isArray(d.text)) continue; // mehrteilige Werke (Objekt) auslassen
+  // mehrteilige Werke (Objekt): Standardteil „“ unter dem Titel, weitere Teile als „Titel, Teil“ (z. B. „…, Preface“)
+  const parts = Array.isArray(d.text) ? [[e.title, d.text]] : Object.entries(d.text || {}).filter(([, v]) => Array.isArray(v)).map(([k, v]) => [k ? `${e.title}, ${k}` : e.title, v]);
   const daf = (d.sectionNames || [])[0] === 'Daf';
   const base = (e.title.match(/^.+? on (.+)$/) || [])[1] || null; // Kommentar zu …
+  for (const [srcTitle, partText] of parts) {
   const walk = (node, addr) => {
     if (Array.isArray(node)) { node.forEach((x, i) => walk(x, addr.concat(i))); return; }
     if (typeof node !== 'string' || !/\d|[א-ת]/.test(node)) return;
@@ -51,19 +53,20 @@ for (const e of man) {
     const refs = new Set([...html.matchAll(/data-sref="([^"]+)"/g)].map(m => m[1].replace(/&amp;/g, '&').replace(/–/g, '-').trim()));
     if (!refs.size) return;
     const tail = addr.map((x, k) => (k === 0 && daf ? dafOf(x) : String(x + 1))).join(':');
-    const src = `${e.title} ${tail}`;
+    const src = `${srcTitle} ${tail}`;
     for (const r of refs) {
       if (!valid(r)) continue;
       const { book: tb, tail: tt } = LK.splitRef(r);
       if (tb === e.title) continue; // Verweise innerhalb desselben Buchs
       if (base && tb === base && tt.split('-')[0] === tail.split(':').slice(0, 2).join(':')) continue; // Kommentar auf seinen eigenen Vers
-      add(e.title, `${tail}\t${r}\treference\t${cat(tb)}`);
+      add(srcTitle, `${tail}\t${r}\treference\t${cat(tb)}`);
       add(tb, `${tt}\t${src}\treference\t${cat(e.title)}`);
       nRefs++;
       perBook.set(e.title, (perBook.get(e.title) || 0) + 1);
     }
   };
-  walk(d.text, []);
+  walk(partText, []);
+  }
 }
 
 // mit den vorhandenen Dateien zusammenführen (vorhandene Zeilen bleiben, Doppeltes fällt weg)
