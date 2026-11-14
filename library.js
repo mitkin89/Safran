@@ -3368,6 +3368,41 @@
   let sResults = [];
   let fullCache = null; // Ergebnis der letzten Suche über alle Bücher
   let lastSearch = null; // Parameter der letzten Suche (für „Als Lesetext“ im eigenen Tab)
+  // ----- Suchmaske: Sprache und Treffer-Art (zwei Auswahlfelder statt vieler Häkchen) -----
+  let sPending = 0; // laufende Suchen: solange heißt der Knopf „Abbrechen“
+  const sBusy = () => sPending > 0;
+  const sSetBusy = () => { const g = $('#sGo'); g.textContent = I18N.t(sBusy() ? 'Abbrechen' : 'Suchen'); g.classList.toggle('primary', !sBusy()); };
+  const S_KINDS = ['he', 'en', 'de', 'other'], S_LANGS = ['auto', 'he', 'de', 'en', 'other', 'all'], S_MODES = ['lemma', 'prefix', 'exact', 'part'];
+  // gewählte Sprache -> Textarten; „Automatisch“ richtet sich nach der Schrift der Eingabe
+  function sKinds() {
+    const l = $('#sLang').value, v = $('#sq').value;
+    if (l === 'all') return S_KINDS.slice();
+    if (l !== 'auto') return [l];
+    if (/[\u0590-\u05FF]/.test(v)) return ['he'];
+    return /\p{L}/u.test(v) ? ['en', 'de'] : S_KINDS.slice();
+  }
+  // Treffer-Art, getrennt gemerkt für hebräische und andere Suche („Alle Formen“ und „Wort mit Vorsilben“ gibt es nur hebräisch)
+  const sModeSel = { he: 'lemma', ot: 'part' };
+  const sModeOk = (m, he) => S_MODES.includes(m) && (he || m === 'exact' || m === 'part');
+  // Treffer-Art -> Parameter des Suchkerns (parse: Suchfeld zerlegen – mehrere Wörter in der Nähe, "…" = Wortfolge)
+  const sMatchParams = () => { const m = $('#sMode').value; return { prefix: m === 'lemma' || m === 'prefix', exact: m === 'exact', lemma: m === 'lemma', partial: m === 'part', parse: true }; };
+  // Suchfeld grob zerlegen (nur für die Hinweiszeile; die eigentliche Zerlegung macht der Suchkern)
+  const sShape = v => { let ph = 0; const rest = v.replace(/(^|\s)["“„«»].+?["“”»«](?=\s|$)/gu, () => { ph++; return ' '; }); return { n: ph + rest.split(/\s+/).filter(w => /[\p{L}\p{N}]/u.test(w)).length, ph }; };
+  function sRefresh() {
+    const kinds = sKinds(), he = kinds.includes('he'), l = $('#sLang').value, v = $('#sq').value.trim(), gram = gramParams();
+    for (const o of $('#sMode').options) { const off = !he && (o.value === 'lemma' || o.value === 'prefix'); o.hidden = off; o.disabled = off; }
+    $('#sMode').value = he ? sModeSel.he : sModeSel.ot;
+    const m = $('#sMode').value, fuzzy = $('#sFuzzy').checked, d = +$('#sDist').value, sh = sShape(v), p = [];
+    if (gram) p.push(I18N.t('Grammatik-Suche: nur hebräischer Tanach (Westminster)'));
+    else p.push(I18N.t(l === 'auto' && !v ? 'Sprache richtet sich nach der Schrift der Eingabe' : kinds.length > 2 ? 'Sucht in allen Sprachen' : kinds.length === 2 ? 'Sucht deutsch und englisch' : kinds[0] === 'he' ? 'Sucht hebräisch' : kinds[0] === 'de' ? 'Sucht deutsch' : kinds[0] === 'en' ? 'Sucht englisch' : 'Sucht in anderen Sprachen'));
+    if (!gram) p.push(I18N.t(m === 'lemma' ? 'alle Wortformen im Tanach, sonst ganze Wörter (mit Vorsilben)' : m === 'prefix' ? 'ganze Wörter, hebräische Vorsilben erlaubt' : m === 'exact' ? 'nur genau dieses Wort' : fuzzy ? 'ganze Wörter' : 'auch Wortteile'));
+    if (sh.n > 1 && !gram) p.push(I18N.t(d < 0 ? 'alle Wörter im selben Vers' : d === 0 ? 'alle Wörter direkt nebeneinander' : 'alle Wörter nah beieinander (höchstens {#} dazwischen)', d) + ($('#sOrd').checked ? ', ' + I18N.t('in dieser Reihenfolge') : ''));
+    if (sh.ph && !gram) p.push(I18N.t('"…" = genau diese Wortfolge'));
+    if (fuzzy && !gram) p.push(I18N.t('ähnliche Schreibweise (Fuzzy)'));
+    $('#sHint').textContent = p.join(' · ');
+    const act = +$('#sOrd').checked + +fuzzy + +!$('#sWlc').checked + +(d !== 10) + +!!gram; // was unter „Erweitert“ vom Standard abweicht
+    $('#sAdvN').textContent = act ? ' ' + I18N.t('({#} aktiv)', act) : '';
+  }
   O.onSearchProgress(p => { $('#sInfo').textContent = `Durchsuche … ${p.scanned} von ${p.total} Dateien · ${p.found} Treffer`; });
 
   // Kategorien und einzelne Bücher für die Suche: ohne Häkchen wird überall gesucht
@@ -4006,8 +4041,8 @@
     for (const [k, id] of Object.entries(GRAM_IDS)) { const el = $('#' + id); const v = el ? el.value : ''; g[k] = v; if (v) any = true; }
     return any ? g : null;
   }
-  $('#gClear').onclick = () => { for (const id of Object.values(GRAM_IDS)) $('#' + id).value = ''; $('#gramBox').open = false; };
-  $('#gramBox').addEventListener('keydown', e => { if (e.key === 'Enter' && e.target.tagName === 'SELECT') { e.preventDefault(); $('#sGo').click(); } });
+  $('#gClear').onclick = () => { for (const id of Object.values(GRAM_IDS)) $('#' + id).value = ''; $('#gramBox').open = false; sRefresh(); };
+  $('#gramBox').addEventListener('keydown', e => { if (e.key === 'Enter' && e.target.tagName === 'SELECT') { e.preventDefault(); if (!sBusy()) $('#sGo').click(); } });
   // Verteilung des Suchworts auf die Bücher (Balkendiagramm, je Fassung eine Farbe)
   const DIST_COLORS = ['#4c78db', '#e8863a', '#e0b84a', '#5fb3a8', '#8a93a6', '#b86bc4', '#d9534f', '#6aa84f'];
   let distZoom = 1, distMode = 'o', distScale = null, distSel = null, distOpen = false; // distSel: gewählte Fassungen (null = die häufigsten)
@@ -4089,23 +4124,23 @@
     const q = $('#sq').value.trim();
     const gram = gramParams();
     if (!q && !gram) return;
-    const kinds = gram ? ['he'] : $$('.sk').filter(c => c.checked).map(c => c.dataset.k); // Grammatik-Suche: nur hebräischer Westminster-Text
-    if (!kinds.length) { $('#sInfo').textContent = 'Bitte mindestens eine Sprache wählen.'; return; }
-    $('#sGo').disabled = true; $('#sCancel').disabled = false;
+    const kinds = gram ? ['he'] : sKinds(); // Grammatik-Suche: nur hebräischer Westminster-Text
+    sPending++; sSetBusy();
     $('#sInfo').textContent = 'Suche läuft …';
     $('#sOut').innerHTML = ''; $('#sSum').innerHTML = ''; $('#sSumPanel').hidden = true; $('#sExport').hidden = true; if (!only || typeof only !== 'string' || only === 'restore') $('#sChart').hidden = true;
     const sp = {
-      query: q, extra: [$('#sq2').value.trim(), $('#sq3').value.trim()].filter(Boolean), distance: +$('#sDist').value, ordered: $('#sOrd').checked, fuzzy: $('#sFuzzy').checked, kinds,
-      categories: onlyTitle ? [] : [...sCats], titles: onlyTitle ? [onlyTitle] : [...sTitles], prefix: $('#sPre').checked, exact: $('#sExact').checked, wlc: $('#sWlc').checked, lemma: $('#sLem').checked, gram,
+      query: q, extra: [], distance: +$('#sDist').value, ordered: $('#sOrd').checked, fuzzy: $('#sFuzzy').checked, kinds,
+      categories: onlyTitle ? [] : [...sCats], titles: onlyTitle ? [onlyTitle] : [...sTitles], ...sMatchParams(), wlc: $('#sWlc').checked, gram,
       limit: 1000, perFile: onlyTitle ? 1000 : 25, countAll: !onlyTitle,
     };
     lastSearch = { ...sp };
     const fkey = JSON.stringify({ ...sp, titles: 0, perFile: 0, limit: 0, countAll: 0 });
     let res;
     if (only === 'restore' && fullCache && fullCache.key === fkey) res = fullCache.res; // Rückkehr zu „alle Bücher“: gespeichertes Ergebnis, keine neue Suche
-    else res = await O.search(sp);
+    else { try { res = await O.search(sp); } catch { res = null; } }
+    sPending--; sSetBusy();
+    if (!res) { $('#sInfo').textContent = I18N.t('Die Suche ist fehlgeschlagen.'); return; }
     if (!onlyTitle && !res.cancelled) fullCache = { key: fkey, res };
-    $('#sGo').disabled = false; $('#sCancel').disabled = true;
     sResults = res.results;
     const totalHits = res.stats.reduce((a, x) => a + x.n, 0);
     $('#sInfo').textContent = I18N.t('{#} Treffer in {#} {} ({#} von {#} Dateien durchsucht)', totalHits + (res.truncated ? '+' : ''), res.stats.length, res.stats.length === 1 ? 'Buch' : 'Büchern', res.scanned, res.total) + (res.cancelled ? ' ' + I18N.t('– abgebrochen') : '') + (res.truncated ? ' ' + I18N.t('– bei 1000 angezeigten Treffern gestoppt, bitte genauer suchen') : '') + (res.capped && !onlyTitle ? ' ' + I18N.t('– je Buch werden die ersten 25 gezeigt; ein Klick auf den Buchnamen oben zeigt alle') : '') + '.';
@@ -4244,43 +4279,61 @@
   const syncSS = () => { sRecent = lsGet('searchRecent'); sFavs = lsGet('searchFavs'); };
   function renderSearchSaved() {
     syncSS();
-    const chips2 = (a, fav) => a.length ? a.map((w, i) => `<span class="dchip"><a data-w="${esc(w)}" dir="auto">${esc(w)}</a><button data-rm="${i}" title="Entfernen">✕</button></span>`).join('') : `<span class="muted">${fav ? 'Noch keine Favoriten' : 'Noch keine Suchen'}</span>`;
+    const chips2 = (a, fav) => a.length ? a.map((w, i) => `<span class="dchip"><a data-i="${i}" dir="auto"${sEntTitle(w) ? ` title="${esc(sEntTitle(w))}"` : ''}>${esc(sEntQ(w))}</a><button data-rm="${i}" title="Entfernen">✕</button></span>`).join('') : `<span class="muted">${fav ? 'Noch keine Favoriten' : 'Noch keine Suchen'}</span>`;
     $('#sRecentL').innerHTML = chips2(sRecent, false);
     $('#sFavL').innerHTML = chips2(sFavs, true);
-    const q = $('#sq').value.trim(), on = !!q && sFavs.includes(q);
+    const q = $('#sq').value.trim(), on = !!q && sFavs.some(x => sEntQ(x) === q);
     $('#sStar').textContent = on ? '★' : '☆'; $('#sStar').classList.toggle('on', on);
+  }
+  // Ein Eintrag ist entweder nur der Suchtext (frühere Fassungen; heute: Sprache „Automatisch“ und die übliche Treffer-Art)
+  // oder { q, l: Sprache, m: Treffer-Art }, wenn etwas anderes eingestellt war.
+  const sEntQ = e => (typeof e === 'string' ? e : e && typeof e.q === 'string' ? e.q : '');
+  const sLabel = (sel, v) => { const o = [...$(sel).options].find(x => x.value === v); return o ? o.textContent.trim() : ''; };
+  const sEntTitle = e => (e && typeof e === 'object' ? [sLabel('#sLang', e.l), sLabel('#sMode', e.m)].filter(Boolean).join(' · ') : '');
+  const sEntNow = () => {
+    const q = $('#sq').value.trim(), l = $('#sLang').value, m = $('#sMode').value;
+    return l === 'auto' && m === (sKinds().includes('he') ? 'lemma' : 'part') ? q : { q, l, m };
+  };
+  function sEntApply(e) { // gespeicherte Suche wieder einstellen (alte Einträge: Standard)
+    $('#sq').value = sEntQ(e);
+    $('#sLang').value = e && typeof e === 'object' && S_LANGS.includes(e.l) ? e.l : 'auto';
+    const he = sKinds().includes('he'), m = e && typeof e === 'object' ? e.m : '';
+    sModeSel[he ? 'he' : 'ot'] = sModeOk(m, he) ? m : he ? 'lemma' : 'part';
+    sRefresh();
   }
   const manualFind = () => {
     const q = $('#sq').value.trim();
-    if (q) { syncSS(); sRecent = [q, ...sRecent.filter(x => x !== q)].slice(0, 30); lsSet('searchRecent', sRecent); }
+    if (q) { syncSS(); sRecent = [sEntNow(), ...sRecent.filter(x => sEntQ(x) !== q)].slice(0, 30); lsSet('searchRecent', sRecent); }
     renderSearchSaved(); runSearch();
   };
   $('#sStar').onclick = () => {
     const q = $('#sq').value.trim(); if (!q) return;
-    syncSS(); sFavs = sFavs.includes(q) ? sFavs.filter(x => x !== q) : [q, ...sFavs];
+    syncSS(); sFavs = sFavs.some(x => sEntQ(x) === q) ? sFavs.filter(x => sEntQ(x) !== q) : [sEntNow(), ...sFavs];
     lsSet('searchFavs', sFavs); renderSearchSaved();
   };
   $('#sRecentClear').onclick = () => { syncSS(); sRecent = []; lsSet('searchRecent', sRecent); renderSearchSaved(); };
   $('#sSaved').addEventListener('click', e => {
     const rm = e.target.closest('button[data-rm]');
     if (rm) { syncSS(); const fav = !!rm.closest('#sFavL'); const a = fav ? sFavs : sRecent; a.splice(+rm.dataset.rm, 1); lsSet(fav ? 'searchFavs' : 'searchRecent', a); renderSearchSaved(); return; }
-    const a = e.target.closest('a[data-w]'); if (a) { $('#sq').value = a.dataset.w; renderSearchSaved(); runSearch(); }
+    const a = e.target.closest('a[data-i]');
+    if (a) { syncSS(); const ent = (a.closest('#sFavL') ? sFavs : sRecent)[+a.dataset.i]; if (!sEntQ(ent)) return; sEntApply(ent); renderSearchSaved(); runSearch(); }
   });
-  $('#sq').addEventListener('input', renderSearchSaved);
-  // Sprachvorwahl aus der Schrift der Eingabe (nur solange der Nutzer die Haken nicht selbst geändert hat)
-  let sKindsManual = false;
-  $$('.sk').forEach(c => c.addEventListener('change', e => { if (e.isTrusted) sKindsManual = true; }));
-  $('#sq').addEventListener('input', () => {
-    if (sKindsManual) return;
-    const v = $('#sq').value; if (!/\p{L}/u.test(v)) return;
-    const he = /[\u0590-\u05FF]/.test(v), K = k => $(`.sk[data-k="${k}"]`);
-    if (he) { K('he').checked = true; ['en', 'de', 'other'].forEach(k => K(k).checked = false); }
-    else { K('he').checked = false; if (!['en', 'de', 'other'].some(k => K(k).checked)) { K('en').checked = true; K('de').checked = true; } }
+  $('#sq').addEventListener('input', () => { sRefresh(); renderSearchSaved(); }); // „Automatisch“: Sprache und Treffer-Art folgen der Schrift der Eingabe
+  $('#sLang').addEventListener('change', () => { sRefresh(); renderSearchSaved(); });
+  $('#sMode').addEventListener('change', () => {
+    const m = $('#sMode').value, he = sKinds().includes('he');
+    if (m === 'exact') sModeSel.he = sModeSel.ot = m; // „Genau dieses Wort“ gilt in jeder Sprache weiter
+    else { sModeSel[he ? 'he' : 'ot'] = m; if (sModeSel.he === 'exact') sModeSel.he = 'lemma'; if (sModeSel.ot === 'exact') sModeSel.ot = 'part'; }
+    sRefresh(); renderSearchSaved();
   });
+  $('#sAdv').addEventListener('change', sRefresh);
+  // „Erweitert“: auf-/zugeklappt merken
+  try { $('#sAdv').open = localStorage.getItem('searchAdvOpen') === '1'; } catch { /* egal */ }
+  $('#sAdv').addEventListener('toggle', e => { if (e.target.id === 'sAdv') try { localStorage.setItem('searchAdvOpen', e.target.open ? '1' : '0'); } catch { /* egal */ } });
+  sRefresh();
   renderSearchSaved();
-  $('#sGo').onclick = manualFind;
-  ['#sq', '#sq2', '#sq3'].forEach(id => $(id).addEventListener('keydown', e => { if (e.key === 'Enter') manualFind(); }));
-  $('#sCancel').onclick = () => O.cancelSearch();
+  $('#sGo').onclick = () => (sBusy() ? O.cancelSearch() : manualFind()); // derselbe Knopf: während der Suche „Abbrechen“
+  $('#sq').addEventListener('keydown', e => { if (e.key === 'Enter' && !sBusy()) manualFind(); });
   // Rechtsklick auf ein Suchergebnis: hier öffnen, neuer Tab, zweites Fenster
   $('#sOut').addEventListener('contextmenu', e => {
     const el = e.target.closest('.sres');
@@ -4825,7 +4878,7 @@
   };
   let nExp = {}; // Export-Optionen für Markdown/Word/PDF (nicht für die JSON-Sicherung)
   try { nExp = JSON.parse(localStorage.getItem('nExp') || '{}') || {}; } catch { nExp = {}; }
-  const lsArr = k => { try { const a = JSON.parse(localStorage.getItem(k) || '[]'); return Array.isArray(a) ? a.filter(x => typeof x === 'string') : []; } catch { return []; } };
+  const lsArr = k => { try { const a = JSON.parse(localStorage.getItem(k) || '[]'); return Array.isArray(a) ? a.filter(x => typeof x === 'string' || (/^search/.test(k) && x && typeof x === 'object' && typeof x.q === 'string')) : []; } catch { return []; } }; // gespeicherte Suchen dürfen auch { q, l, m } sein
   async function exportNotes(fmt) {
     let list = notesAll.slice().sort((a, b) => (a.order ?? 1e9) - (b.order ?? 1e9) || (b.ts || 0) - (a.ts || 0));
     const day = new Date().toISOString().slice(0, 10);
@@ -4878,7 +4931,8 @@
       const msg = warn + I18N.t('Aus der Sicherung: {#} neu, {#} aktualisiert, {#} unverändert.', nn, nu, ns) + (names.length ? '\n\n' + I18N.t('Neu zum Beispiel:') + '\n• ' + names.join('\n• ') : '') + '\n\n' + I18N.t('Zusammenführen? Vorhandene bleiben erhalten, nur ältere Fassungen werden ersetzt.');
       if (!confirm(msg)) return; }
     // gespeicherte Wörter und Suchen: Einträge der Sicherung kommen dazu (ohne Doppelte), die vorhandenen bleiben vorn
-    for (const k of extra) { try { const have = lsArr(k), add = j[k].filter(x => typeof x === 'string' && !have.includes(x)); localStorage.setItem(k, JSON.stringify([...have, ...add].slice(0, 200))); } catch { /* egal */ } }
+    { const qOf = x => (typeof x === 'string' ? x : x && typeof x === 'object' && typeof x.q === 'string' ? x.q : ''); // Suchen können auch { q, l, m } sein (mit Sprache und Treffer-Art)
+      for (const k of extra) { try { const have = lsArr(k), hq = new Set(have.map(qOf)), obj = /^search/.test(k), add = j[k].filter(x => qOf(x) && (typeof x === 'string' || obj) && !hq.has(qOf(x))).map(x => (typeof x === 'string' ? x : { q: x.q, l: String(x.l || ''), m: String(x.m || '') })); localStorage.setItem(k, JSON.stringify([...have, ...add].slice(0, 200))); } catch { /* egal */ } } }
     const r = items && items.length ? await ntDo(() => NT.merge(items)) : { items: notesAll, stat: { added: 0, updated: 0, same: 0 } };
     if (!r) return;
     notesAll = r.items; refreshNotes(); if (typeof renderSaved === 'function') try { renderSaved(); } catch { /* egal */ } if (typeof renderSearchSaved === 'function') try { renderSearchSaved(); } catch { /* egal */ }

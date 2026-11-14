@@ -132,13 +132,22 @@ const cleanGram = g => { const o = {}; if (g && typeof g === 'object') for (cons
 const escRe = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 
 async function searchFiles({ dir, entries, params, cacheDir = null, onProgress = () => {}, isCancelled = () => false }) {
-  const { query, extra = [], fuzzy = false, distance = -1, ordered = false, prefix = false, exact = false, limit = 1000, perFile = 25, wlc = false, lemma = false, countAll = false } = params;
+  const { extra = [], fuzzy = false, distance = -1, ordered = false, prefix = false, exact = false, limit = 1000, perFile = 25, wlc = false, lemma = false, countAll = false, partial = false } = params;
+  let query = String(params.query == null ? '' : params.query);
+  // parse: das Suchfeld wird zerlegt – mehrere Wörter = alle in der Nähe (beliebig viele), "…" = genau diese Wortfolge.
+  // Ohne parse gilt das frühere Verhalten (ein Suchtext als Textstück, weitere Wörter in extra).
+  const units = params.parse ? S.parseQuery(query) : [];
+  const multi = units.length > 1 || (units.length === 1 && (units[0].words.length > 1 || units[0].quoted));
+  if (units.length === 1 && !multi) query = units[0].words[0]; // ein einzelnes Wort: wie bisher (Satzzeichen drumherum zählen nicht)
   const q = R.normalize(query);
   const G = cleanGram(params.gram), gramOn = !!G;
   if (!q && !gramOn) return { results: [], scanned: 0, total: 0, truncated: false, capped: false, cancelled: false, stats: [] };
   const terms = [query, ...extra].filter(t => String(t || '').trim());
-  const advanced = terms.length > 1 || fuzzy || exact || /[*?]/.test(query); // exact: genau dieses Wort (Wortvergleich, keine Vorsilben, keine anderen Formen)
-  const words = terms.flatMap(t => String(t).split(/[\s\u05BE]+/).filter(Boolean)); // „עיר דוד“ = zwei Wörter (ein Suchwort mit Leerzeichen würde sonst nie als Wort gefunden)
+  const advanced = multi || terms.length > 1 || fuzzy || exact || /[*?]/.test(query); // exact: genau dieses Wort (Wortvergleich, keine Vorsilben, keine anderen Formen)
+  const words = multi
+    ? units.map(u => ({ seq: u.words, partial: partial && !u.quoted && !exact })) // Wortfolge in Anführungszeichen: immer ganze Wörter
+      .concat(extra.flatMap(t => String(t).split(/[\s\u05BE]+/).filter(Boolean)))
+    : terms.flatMap(t => String(t).split(/[\s\u05BE]+/).filter(Boolean)); // „עיר דוד“ = zwei Wörter (ein Suchwort mit Leerzeichen würde sonst nie als Wort gefunden)
   const matcher = advanced ? S.makeMatcher({ terms: words, fuzzy, prefix: exact ? false : prefix, distance, ordered }) : null;
   // „Ganze Wörter“: Suchwort muss ein ganzes Wort sein (Satzzeichen davor/danach sind erlaubt), hebräische Vorsilben (ו ה ב כ ל מ ש …) davor ebenfalls
   const preRe = !advanced && prefix ? new RegExp('(?:^|[\\s\\p{P}\\p{S}])([והבכלמשד]{0,3})' + escRe(q) + '(?=[\\s\\p{P}\\p{S}]|$)', 'u') : null;

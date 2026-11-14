@@ -23,7 +23,7 @@ function lev(a, b, max) { // Levenshtein-Abstand mit frühem Abbruch
 }
 const maxDist = len => (len <= 3 ? 0 : len <= 6 ? 1 : 2);
 
-function compileTerm(raw, { fuzzy = false, prefix = false } = {}) {
+function compileTerm(raw, { fuzzy = false, prefix = false, partial = false } = {}) {
   const t = fold(R.normalize(raw)).trim();
   if (!t) return null;
   const wild = /[*?]/.test(t);
@@ -35,6 +35,9 @@ function compileTerm(raw, { fuzzy = false, prefix = false } = {}) {
   } else if (fuzzy) {
     const m = maxDist([...t].length);
     test = w => w === t || (m > 0 && lev(w, t, m) <= m);
+  } else if (partial) { // „Auch Wortteile“: das Suchwort darf mitten in einem Wort stehen
+    test = w => w.includes(t);
+    literal = t;
   } else {
     test = w => w === t;
     literal = t;
@@ -47,38 +50,69 @@ function compileTerm(raw, { fuzzy = false, prefix = false } = {}) {
   return { raw, test: w => cands(w).some(test), literal: fuzzy && !wild ? '' : literal };
 }
 
+// Suchfeld zerlegen: mehrere Wörter = alle müssen (in der Nähe) vorkommen; "…" = genau diese Wortfolge.
+// Ergebnis: [{ words: [...], quoted }] – eine Einheit mit mehreren Wörtern ist eine Wortfolge (direkt hintereinander).
+// Ein Anführungszeichen mitten im Wort (רש"י) ist kein Begrenzer; solche Wörter werden an der Stelle geteilt und als Wortfolge gesucht,
+// weil auch der Text dort in zwei Wörter zerfällt.
+const QO = '"“„«»', QC = '"“”»«';
+const PHRASE = new RegExp('(^|\\s)[' + QO + '](.+?)[' + QC + '](?=\\s|$)', 'gu');
+const QTOK = /[\p{L}\p{N}\p{M}*?]+/gu;
+function parseQuery(str) {
+  const units = [];
+  const toks = s => (R.normalize(s).match(QTOK) || []).filter(w => /[\p{L}\p{N}]/u.test(w));
+  const plain = s => { for (const w of s.split(/\s+/)) { const t = toks(w); if (t.length) units.push({ words: t, quoted: false }); } };
+  const s = String(str == null ? '' : str);
+  let last = 0;
+  for (const m of s.matchAll(PHRASE)) {
+    plain(s.slice(last, m.index));
+    const t = toks(m[2]); if (t.length) units.push({ words: t, quoted: true });
+    last = m.index + m[0].length;
+  }
+  plain(s.slice(last));
+  return units;
+}
+
 // Gibt eine Funktion zurück: normalisierter Text -> null | { idx: [Token-Nummern], tokens }
+// terms: Wörter; ein Eintrag kann auch eine Wortfolge sein: [wort, wort …] oder { seq: [...], partial, prefix } (Wörter direkt hintereinander)
 function makeMatcher({ terms, fuzzy = false, prefix = false, distance = -1, ordered = false }) {
-  const cs = terms.map(t => compileTerm(t, { fuzzy, prefix })).filter(Boolean);
-  if (!cs.length) return null;
+  const us = terms.map(t => {
+    const o = typeof t === 'string' ? { seq: [t] } : Array.isArray(t) ? { seq: t } : t;
+    const cs = (o.seq || []).map(x => compileTerm(x, { fuzzy, prefix: o.prefix == null ? prefix : !!o.prefix, partial: !!o.partial })).filter(Boolean);
+    return cs.length ? cs : null;
+  }).filter(Boolean);
+  if (!us.length) return null;
+  const all = us.flat();
   const N = distance < 0 ? Infinity : distance;
-  const k = cs.length;
+  const k = us.length;
+  const span = (p, len) => Array.from({ length: len }, (_, j) => p + j);
   return function match(n) {
-    if (cs.some(c => c.literal) && !cs.every(c => !c.literal || fold(n).includes(c.literal))) return null;
+    if (all.some(c => c.literal)) { const f = fold(n); if (!all.every(c => !c.literal || f.includes(c.literal))) return null; }
     const toks = [];
     for (const m of n.matchAll(TOK)) toks.push({ w: fold(m[0]), s: m.index, e: m.index + m[0].length });
-    const pos = cs.map(c => { const o = []; toks.forEach((t, i) => { if (c.test(t.w)) o.push(i); }); return o; });
+    // Startpositionen je Einheit (bei einer Wortfolge: alle Wörter stehen ab dort direkt hintereinander)
+    const pos = us.map(cs => { const o = []; for (let i = 0; i + cs.length <= toks.length; i++) { let ok = true; for (let j = 0; j < cs.length && ok; j++) ok = cs[j].test(toks[i + j].w); if (ok) o.push(i); } return o; });
     if (pos.some(p => !p.length)) return null;
-    if (k === 1) return { idx: [pos[0][0]], toks };
+    if (k === 1) return { idx: span(pos[0][0], us[0].length), toks };
+    const end = (i, p) => p + us[i].length - 1;
     let found = null, budget = 5000;
     const rec = (i, chosen) => {
       if (found || budget-- < 0) return;
       if (i === k) {
         if (!ordered) { // Abstand je benachbartem Paar prüfen (nach Position sortiert), nicht nur die Gesamtspanne
-          const sorted = chosen.slice().sort((a, b) => a - b);
-          for (let j = 1; j < sorted.length; j++) if (sorted[j] - sorted[j - 1] - 1 > N) return;
+          const sorted = chosen.map((p, j) => [p, end(j, p)]).sort((a, b) => a[0] - b[0]);
+          for (let j = 1; j < sorted.length; j++) if (sorted[j][0] - sorted[j - 1][1] - 1 > N) return;
         }
         found = chosen.slice(); return;
       }
       for (const p of pos[i]) {
-        if (chosen.includes(p)) continue;
-        if (ordered && i > 0 && (p <= chosen[i - 1] || p - chosen[i - 1] - 1 > N)) continue;
+        if (chosen.some((c, j) => p <= end(j, c) && c <= end(i, p))) continue; // kein Wort doppelt belegen
+        if (ordered && i > 0 && (p <= end(i - 1, chosen[i - 1]) || p - end(i - 1, chosen[i - 1]) - 1 > N)) continue;
         chosen.push(p); rec(i + 1, chosen); chosen.pop();
         if (found) return;
       }
     };
     rec(0, []);
-    return found ? { idx: found, toks } : null;
+    return found ? { idx: found.flatMap((p, i) => span(p, us[i].length)), toks } : null;
   };
 }
 
@@ -101,4 +135,4 @@ function snippetParts(n, m, ctxBefore = 50, ctxAfter = 70) {
   return parts;
 }
 
-module.exports = { makeMatcher, snippetParts, lev, fold, compileTerm };
+module.exports = { makeMatcher, snippetParts, lev, fold, compileTerm, parseQuery };

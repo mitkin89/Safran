@@ -278,8 +278,21 @@ body.dock-open #tab-read .layout { margin-right: calc(var(--dock-w, var(--cmt-w,
 .jbar a.jl { color: var(--accent); cursor: pointer; }
 .jbar a.jl:hover { text-decoration: underline; }
 
-/* Erweiterte Suche */
-#advBar input[type=text], #advBar input:not([type]) { min-width: 200px; }
+/* Suchmaske: Suchfeld, darunter Sprache und Treffer-Art, Hinweiszeile, „Erweitert“ */
+#sBar { flex-wrap: nowrap; max-width: 900px; margin-bottom: 8px; }
+#sBar #sq { flex: 1 1 auto; min-width: 0; }
+#sBar #sGo { min-width: 96px; white-space: nowrap; }
+#sOpts { gap: 6px 18px; margin-bottom: 4px; font-size: 13px; }
+#sOpts label, #advBar label { display: inline-flex; gap: 6px; align-items: center; white-space: nowrap; color: var(--muted); }
+#sOpts select, #advBar select { font-size: 13px; }
+#sHint { margin: 0 0 8px; font-size: 12.5px; min-height: 1.3em; }
+#sAdv { margin: 0 0 10px; max-width: 900px; font-size: 13px; }
+#sAdv > summary { cursor: pointer; color: var(--muted); user-select: none; width: fit-content; }
+#sAdv[open] { padding: 6px 12px 4px; border: 1px solid var(--line); border-radius: 8px; }
+#sAdv[open] > summary { margin-bottom: 8px; }
+#sAdvN { color: var(--accent); }
+#advBar { gap: 6px 18px; margin-bottom: 8px; }
+#sAdv details.help { margin: 0 0 8px; padding: 0; border: 0; }
 details.help { margin: 6px 0 10px; padding: 6px 12px; border: 1px solid var(--line, #333); border-radius: 8px; font-size: 13px; max-width: 900px; }
 details.help summary { cursor: pointer; color: var(--muted, #aaa); }
 details.help code { background: rgba(127,127,127,.2); padding: 0 4px; border-radius: 4px; }

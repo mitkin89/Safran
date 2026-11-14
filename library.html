@@ -104,69 +104,81 @@
     <!-- SUCHE -->
     <section id="tab-search" hidden>
       <div class="sleft">
-      <div class="bar">
-        <input id="sq" placeholder="Suchbegriff (Hebräische Vokalzeichen werden ignoriert)"><button id="sStar" type="button" title="Suchbegriff zu den Favoriten hinzufügen / entfernen">☆</button>
-        <label><input type="checkbox" class="sk" data-k="he" checked> Hebräisch</label>
-        <label><input type="checkbox" class="sk" data-k="en"> Englisch</label>
-        <label><input type="checkbox" class="sk" data-k="de"> Deutsch</label>
-        <label><input type="checkbox" class="sk" data-k="other"> Andere</label>
-        <label title="Das Suchwort muss ein ganzes Wort sein; hebräische Vorsilben (ו ה ב כ ל מ ש) davor sind erlaubt: ארץ findet auch הארץ und בארץ, aber nicht ארצות"><input type="checkbox" id="sPre"> Ganze Wörter (mit Vorsilben)</label>
-        <label title="Im Tanach wird hebräisch nur der Westminster-Text durchsucht (jeder Vers nur einmal, mit Morphologie)"><input type="checkbox" id="sWlc" checked> Tanach: nur Westminster</label>
-        <label title="Nur genau dieses Wort: ohne Vorsilben und ohne andere Formen. רבה findet dann nicht mehr הרבה (hebräisch und andere Sprachen; schaltet „Ganze Wörter“ und „Alle Formen“ ab)"><input type="checkbox" id="sExact"> Genau dieses Wort</label>
-        <label title="Findet alle Formen eines Wortes: כאב findet auch כאבים und תכאבו (über das Lemma der Westminster-Morphologie; gilt nur für den hebräischen Tanach)"><input type="checkbox" id="sLem" checked> Alle Formen (Lemma)</label>
+      <div class="bar" id="sBar">
+        <input id="sq" placeholder="Suchbegriff – mehrere Wörter oder &quot;genaue Wortfolge&quot;"><button id="sStar" type="button" title="Suche zu den Favoriten hinzufügen / entfernen">☆</button>
         <button id="sGo" class="primary">Suchen</button>
-        <button id="sCancel" disabled>Abbrechen</button>
       </div>
-      <details id="gramBox" class="gram">
-        <summary title="Sucht im hebräischen Tanach (Westminster) nach grammatischen Merkmalen, auch ohne Suchwort. Mit Suchwort: nur Wörter, die dazu passen (Form oder Lemma).">Grammatik (Tanach)</summary>
-        <div class="gramRow">
-          <label>Wortart <select id="gPos"><option value="">–</option><option value="V">Verb</option><option value="Nc">Nomen</option><option value="Np">Eigenname</option><option value="Ng">Gentilizium</option><option value="A">Adjektiv / Zahl</option><option value="P">Pronomen</option><option value="R">Präposition</option><option value="C">Konjunktion</option><option value="D">Adverb</option><option value="T">Partikel</option></select></label>
-          <label>Stamm <select id="gStem"><option value="">–</option><option value="q">Qal</option><option value="N">Nif‘al</option><option value="p">Pi‘el</option><option value="P">Pu‘al</option><option value="h">Hif‘il</option><option value="H">Hof‘al</option><option value="t">Hitpa‘el</option><option value="o">Polel</option><option value="O">Polal</option><option value="r">Hitpolel</option></select></label>
-          <label>Zeitform <select id="gTense"><option value="">–</option><option value="p">Perfekt</option><option value="q">Perfekt consecutivum</option><option value="i">Imperfekt</option><option value="w">Wajjiqtol</option><option value="h">Kohortativ</option><option value="j">Jussiv</option><option value="v">Imperativ</option><option value="r">Partizip aktiv</option><option value="s">Partizip passiv</option><option value="a">Infinitiv absolutus</option><option value="c">Infinitiv constructus</option></select></label>
-          <label>Person <select id="gPerson"><option value="">–</option><option value="1">1.</option><option value="2">2.</option><option value="3">3.</option></select></label>
-          <label>Genus <select id="gGender"><option value="">–</option><option value="m">m.</option><option value="f">f.</option><option value="c">c.</option></select></label>
-          <label>Numerus <select id="gNumber"><option value="">–</option><option value="s">Singular</option><option value="p">Plural</option><option value="d">Dual</option></select></label>
-          <label>Status <select id="gState"><option value="">–</option><option value="a">absolut</option><option value="c">constructus</option><option value="d">bestimmt</option></select></label>
-          <label>Suffix <select id="gSuffix"><option value="">–</option><option value="1">mit</option><option value="0">ohne</option></select></label>
-          <label>Artikel <select id="gArticle"><option value="">–</option><option value="1">mit</option><option value="0">ohne</option></select></label>
-          <button id="gClear" type="button">Zurücksetzen</button>
+      <div class="bar" id="sOpts">
+        <label title="„Automatisch“ richtet sich nach der Schrift der Eingabe: hebräische Buchstaben = hebräische Texte, sonst deutsche und englische">Sprache <select id="sLang">
+          <option value="auto" selected>Automatisch</option>
+          <option value="he">Hebräisch</option>
+          <option value="de">Deutsch</option>
+          <option value="en">Englisch</option>
+          <option value="other">Andere</option>
+          <option value="all">Alle</option>
+        </select></label>
+        <label title="Wie genau muss ein Wort im Text dem Suchwort entsprechen?">Treffer <select id="sMode">
+          <option value="lemma" title="Im hebräischen Tanach jede Form des Wortes: כאב findet auch כאבים und תכאבו (über das Lemma der Westminster-Morphologie). In allen anderen Texten: das ganze Wort, hebräische Vorsilben erlaubt">Alle Formen</option>
+          <option value="prefix" title="Das Suchwort muss ein ganzes Wort sein; hebräische Vorsilben (ו ה ב כ ל מ ש) davor sind erlaubt: ארץ findet auch הארץ und בארץ, aber nicht ארצות">Wort mit Vorsilben</option>
+          <option value="exact" title="Nur genau dieses Wort: ohne Vorsilben und ohne andere Formen. רבה findet dann nicht mehr הרבה">Genau dieses Wort</option>
+          <option value="part" title="Das Suchwort darf auch mitten in einem Wort stehen: gott findet auch „Gottes“ und „Abgott“">Auch Wortteile</option>
+        </select></label>
+      </div>
+      <p id="sHint" class="muted"></p>
+      <details id="sAdv">
+        <summary>Erweitert<span id="sAdvN"></span></summary>
+        <div class="bar" id="advBar">
+          <label title="Gilt, wenn mehrere Wörter im Suchfeld stehen">Abstand <select id="sDist" title="Wie weit dürfen die Wörter höchstens auseinander stehen? Gezählt werden die Wörter dazwischen, innerhalb eines Verses bzw. Absatzes.">
+            <option value="-1">beliebig im Vers</option>
+            <option value="0">direkt nebeneinander</option>
+            <option value="1">höchstens 1 Wort dazwischen</option>
+            <option value="2">höchstens 2 Wörter dazwischen</option>
+            <option value="3">höchstens 3 Wörter dazwischen</option>
+            <option value="5">höchstens 5 Wörter dazwischen</option>
+            <option value="10" selected>höchstens 10 Wörter dazwischen</option>
+            <option value="20">höchstens 20 Wörter dazwischen</option>
+          </select></label>
+          <label title="Die Wörter müssen in der eingegebenen Reihenfolge stehen"><input type="checkbox" id="sOrd"> Reihenfolge einhalten</label>
+          <label title="Findet auch ähnlich geschriebene Wörter (siehe Hilfe unten)"><input type="checkbox" id="sFuzzy"> Fuzzy (ähnliche Schreibweise)</label>
+          <label title="Im Tanach wird hebräisch nur der Westminster-Text durchsucht (jeder Vers nur einmal, mit Morphologie)"><input type="checkbox" id="sWlc" checked> Tanach: nur Westminster</label>
         </div>
+        <details id="gramBox" class="gram">
+          <summary title="Sucht im hebräischen Tanach (Westminster) nach grammatischen Merkmalen, auch ohne Suchwort. Mit Suchwort: nur Wörter, die dazu passen (Form oder Lemma).">Grammatik (Tanach)</summary>
+          <div class="gramRow">
+            <label>Wortart <select id="gPos"><option value="">–</option><option value="V">Verb</option><option value="Nc">Nomen</option><option value="Np">Eigenname</option><option value="Ng">Gentilizium</option><option value="A">Adjektiv / Zahl</option><option value="P">Pronomen</option><option value="R">Präposition</option><option value="C">Konjunktion</option><option value="D">Adverb</option><option value="T">Partikel</option></select></label>
+            <label>Stamm <select id="gStem"><option value="">–</option><option value="q">Qal</option><option value="N">Nif‘al</option><option value="p">Pi‘el</option><option value="P">Pu‘al</option><option value="h">Hif‘il</option><option value="H">Hof‘al</option><option value="t">Hitpa‘el</option><option value="o">Polel</option><option value="O">Polal</option><option value="r">Hitpolel</option></select></label>
+            <label>Zeitform <select id="gTense"><option value="">–</option><option value="p">Perfekt</option><option value="q">Perfekt consecutivum</option><option value="i">Imperfekt</option><option value="w">Wajjiqtol</option><option value="h">Kohortativ</option><option value="j">Jussiv</option><option value="v">Imperativ</option><option value="r">Partizip aktiv</option><option value="s">Partizip passiv</option><option value="a">Infinitiv absolutus</option><option value="c">Infinitiv constructus</option></select></label>
+            <label>Person <select id="gPerson"><option value="">–</option><option value="1">1.</option><option value="2">2.</option><option value="3">3.</option></select></label>
+            <label>Genus <select id="gGender"><option value="">–</option><option value="m">m.</option><option value="f">f.</option><option value="c">c.</option></select></label>
+            <label>Numerus <select id="gNumber"><option value="">–</option><option value="s">Singular</option><option value="p">Plural</option><option value="d">Dual</option></select></label>
+            <label>Status <select id="gState"><option value="">–</option><option value="a">absolut</option><option value="c">constructus</option><option value="d">bestimmt</option></select></label>
+            <label>Suffix <select id="gSuffix"><option value="">–</option><option value="1">mit</option><option value="0">ohne</option></select></label>
+            <label>Artikel <select id="gArticle"><option value="">–</option><option value="1">mit</option><option value="0">ohne</option></select></label>
+            <button id="gClear" type="button">Zurücksetzen</button>
+          </div>
+        </details>
+        <details id="sHelp" class="help">
+          <summary>Hilfe: mehrere Wörter, Wortfolge, Platzhalter und Fuzzy</summary>
+          <p data-i18n="h12"><b>Mehrere Wörter:</b> Schreibe sie einfach hintereinander ins Suchfeld, beliebig viele. Gefunden werden Verse bzw. Absätze, in denen alle Wörter vorkommen und höchstens so weit auseinander stehen, wie unter „Erweitert“ bei „Abstand“ gewählt (Standard: höchstens 10 Wörter dazwischen). Mit „Reihenfolge einhalten“ müssen sie so aufeinander folgen wie eingegeben. Beispiel: <code>anf* gott erd*</code> findet „Am Anfang schuf Gott Himmel und Erde“. Gezählt wird nur innerhalb eines Verses, nicht über Verse hinweg.</p>
+          <p data-i18n="h13"><b>Genaue Wortfolge:</b> Setze sie in Anführungszeichen. <code>"Himmel und Erde"</code> findet nur Stellen, an denen diese Wörter direkt hintereinander stehen (Satzzeichen dazwischen stören nicht). Früher suchte das Feld mehrere Wörter immer als Wortfolge; ohne Anführungszeichen genügt es jetzt, dass alle Wörter in der Nähe stehen. Wortfolgen und einzelne Wörter lassen sich mischen: <code>"die Erde" wüst</code>.</p>
+          <p data-i18n="h14"><b>Treffer:</b> „Alle Formen“ findet im hebräischen Tanach jede Form des Wortes (כאב auch כאבים und תכאבו), in allen anderen Texten das ganze Wort mit Vorsilben. „Wort mit Vorsilben“ erlaubt die hebräischen Vorsilben ו ה ב כ ל מ ש ד (ארץ findet auch הארץ und בארץ, aber nicht ארצות). „Genau dieses Wort“ lässt weder Vorsilben noch andere Formen zu. „Auch Wortteile“ findet das Suchwort auch mitten in einem Wort (<code>gott</code> findet auch „Gottes“ und „Abgott“).</p>
+          <p data-i18n="h2"><b>Platzhalter:</b> <code>*</code> steht für beliebig viele Buchstaben, <code>?</code> für genau einen. <code>anf*</code> findet Anfang, Anfänge, anfangen; <code>m?er</code> findet Meer und Mehr. Ein Wort mit Platzhalter muss als Ganzes passen (<code>gott*</code> findet „Gott“ und „Gottes“, aber nicht „Abgott“).</p>
+          <p data-i18n="h3"><b>Fuzzy:</b> findet auch ähnlich geschriebene Wörter, z. B. bei Tippfehlern, Umschriften oder alten Schreibweisen. Erlaubt ist bei Wörtern mit 4–6 Buchstaben eine Abweichung, ab 7 Buchstaben zwei; kürzere Wörter müssen genau stimmen. Eine Abweichung ist ein falscher, fehlender oder zusätzlicher Buchstabe. Akzente und Umlaute werden ignoriert. Beispiele:</p>
+          <ul>
+            <li data-i18n="h4"><code>raschi</code> findet auch „Rashi“</li>
+            <li data-i18n="h5"><code>avraham</code> findet auch „Abraham“</li>
+            <li data-i18n="h6"><code>semuel</code> findet auch „Šemuél“ und „Shemuel“</li>
+            <li data-i18n="h7"><code>אלהים</code> findet auch „אלוהים“</li>
+            <li data-i18n="h8"><code>gott</code> findet „Gott“, aber nicht „gold“ (zu kurz für Abweichungen)</li>
+          </ul>
+          <p>Wörter mit Platzhaltern werden nicht zusätzlich unscharf gesucht.</p>
+          <p>Mit Platzhalter oder Fuzzy gilt immer: ganze Wörter statt Wortteile.</p>
+        </details>
       </details>
       <div id="sSaved" class="ssaved">
         <div class="dsv"><div class="dsvh"><b>Letzte Suchen</b><button id="sRecentClear" type="button" title="Liste leeren">✕</button></div><div id="sRecentL" class="dchips"></div></div>
         <div class="dsv"><div class="dsvh"><b>Favoriten</b></div><div id="sFavL" class="dchips"></div></div>
       </div>
-      <div class="bar" id="advBar">
-        <input id="sq2" placeholder="Wort 2 (optional), z. B. gott">
-        <input id="sq3" placeholder="Wort 3 (optional), z. B. erd*">
-        <select id="sDist" title="Wie weit dürfen die Wörter höchstens auseinander stehen? Gezählt werden die Wörter dazwischen, innerhalb eines Verses bzw. Absatzes.">
-          <option value="-1">Abstand: beliebig im Vers</option>
-          <option value="0">direkt nebeneinander</option>
-          <option value="1">höchstens 1 Wort dazwischen</option>
-          <option value="2">höchstens 2 Wörter dazwischen</option>
-          <option value="3">höchstens 3 Wörter dazwischen</option>
-          <option value="5">höchstens 5 Wörter dazwischen</option>
-          <option value="10" selected>höchstens 10 Wörter dazwischen</option>
-          <option value="20">höchstens 20 Wörter dazwischen</option>
-        </select>
-        <label title="Die Wörter müssen in der Reihenfolge der Eingabefelder stehen"><input type="checkbox" id="sOrd"> Reihenfolge einhalten</label>
-        <label title="Findet auch ähnlich geschriebene Wörter (siehe Hilfe unten)"><input type="checkbox" id="sFuzzy"> Fuzzy (ähnliche Schreibweise)</label>
-      </div>
-      <details id="sHelp" class="help">
-        <summary>Hilfe: Platzhalter, Fuzzy und Wörter in der Nähe</summary>
-        <p data-i18n="h2"><b>Platzhalter:</b> <code>*</code> steht für beliebig viele Buchstaben, <code>?</code> für genau einen. <code>anf*</code> findet Anfang, Anfänge, anfangen; <code>m?er</code> findet Meer und Mehr. Ohne Platzhalter muss das Wort vollständig übereinstimmen (<code>gott</code> findet „Gott“, aber nicht „Gottes“ – dafür <code>gott*</code>).</p>
-        <p data-i18n="h3"><b>Fuzzy:</b> findet auch ähnlich geschriebene Wörter, z. B. bei Tippfehlern, Umschriften oder alten Schreibweisen. Erlaubt ist bei Wörtern mit 4–6 Buchstaben eine Abweichung, ab 7 Buchstaben zwei; kürzere Wörter müssen genau stimmen. Eine Abweichung ist ein falscher, fehlender oder zusätzlicher Buchstabe. Akzente und Umlaute werden ignoriert. Beispiele:</p>
-        <ul>
-          <li data-i18n="h4"><code>raschi</code> findet auch „Rashi“</li>
-          <li data-i18n="h5"><code>avraham</code> findet auch „Abraham“</li>
-          <li data-i18n="h6"><code>semuel</code> findet auch „Šemuél“ und „Shemuel“</li>
-          <li data-i18n="h7"><code>אלהים</code> findet auch „אלוהים“</li>
-          <li data-i18n="h8"><code>gott</code> findet „Gott“, aber nicht „gold“ (zu kurz für Abweichungen)</li>
-        </ul>
-        <p>Wörter mit Platzhaltern werden nicht zusätzlich unscharf gesucht.</p>
-        <p data-i18n="h9"><b>Wörter in der Nähe:</b> Trage in bis zu drei Feldern Wörter ein. Gefunden werden Verse bzw. Absätze, in denen alle Wörter vorkommen und höchstens so weit auseinander stehen, wie du bei „Abstand“ gewählt hast. Mit „Reihenfolge einhalten“ müssen sie so aufeinander folgen wie in den Feldern. Beispiel: <code>anf*</code> · <code>gott</code> · <code>erd*</code> mit „höchstens 10 Wörter“ und Reihenfolge findet „Am Anfang schuf Gott Himmel und Erde“. Gezählt wird nur innerhalb eines Verses, nicht über Verse hinweg.</p>
-        <p>Sobald mehrere Wörter, ein Platzhalter oder Fuzzy im Spiel sind, gilt: ganze Wörter statt Wortteile. „Ganze Wörter (mit Vorsilben)“ erlaubt dabei hebräische Vorsilben.</p>
-      </details>
       <div id="sChart" hidden></div>
       <div id="sTools"><button id="sGroupBtn" type="button" hidden aria-pressed="true" title="Derselbe Vers in mehreren Fassungen erscheint nur einmal; die anderen Fassungen klappen darunter auf">⧉ Fassungen zusammenfassen</button> <button id="sReadBtn" type="button" hidden title="Alle Fundstellen wie beim Lesen untereinander in einem neuen Tab zeigen, nach Buch und Kapitel geordnet, mit den gewählten Versionen nebeneinander und einer Übersicht der Bücher">📖 Alle als Lesetext öffnen</button> <button id="sExport" type="button" hidden title="Alle angezeigten Treffer als CSV-Datei speichern">⤓ Treffer als CSV</button></div>
       <p id="sInfo" class="muted">Durchsucht alle heruntergeladenen Texte der gewählten Sprachen (auch Fußnoten).</p>
