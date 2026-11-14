@@ -98,9 +98,14 @@ class LinkStore {
     let raw = '';
     try { raw = await fs.readFile(path.join(this.dir, 'by_book', safe(book) + '.tsv'), 'utf8'); } catch { /* keine Links */ }
     // mitgelieferte Verknüpfungen (bundled/links/<Buch>.tsv, z. B. aus Ginzbergs Noten) kommen dazu
-    if (this.opts.bundled !== false) { try { raw += (raw && !raw.endsWith('\n') ? '\n' : '') + await fs.readFile(path.join(__dirname, 'bundled', 'links', safe(book) + '.tsv'), 'utf8'); } catch { /* keine */ } }
+    let extra = '';
+    if (this.opts.bundled !== false) { try { extra = await fs.readFile(path.join(__dirname, 'bundled', 'links', safe(book) + '.tsv'), 'utf8'); } catch { /* keine */ } }
     const seen = new Set();
-    for (const line of raw.split('\n')) {
+    const pair = l => { const [t, o] = l.split('\t'); return t + '\t' + String(o || '').replace(/-.*$/, ''); };
+    const sefPairs = new Set(); // was Sefaria schon verknüpft, wird aus den mitgelieferten Verknüpfungen nicht doppelt angezeigt
+    for (const l of raw.split('\n')) if (l) sefPairs.add(pair(l));
+    const lines = raw.split('\n').concat(extra.split('\n').filter(l => l && !sefPairs.has(pair(l))));
+    for (const line of lines) {
       if (!line || seen.has(line)) continue;
       seen.add(line);
       const [tail, other, type, cat] = line.split('\t');

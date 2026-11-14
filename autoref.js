@@ -24,7 +24,18 @@ for (const [title, s] of Object.entries(EN)) {
 // deutsche Nummern „1 Mose“ usw.
 // ältere Kürzel (z. B. in Ginzbergs Noten): „Genes.“, „Jerem.“, „Ezech.“, „Jud.“ …
 Object.entries({ 'genes': 'Genesis', 'numb': 'Numbers', 'jerem': 'Jeremiah', 'ezech': 'Ezekiel', 'jud': 'Judges', 'habak': 'Habakkuk', 'eccles': 'Ecclesiastes', 'lament': 'Lamentations', 'nehem': 'Nehemiah', 'is': 'Isaiah' }).forEach(([k, v]) => ALIAS.set(k, v));
-Object.entries({ '1 mose': 'Genesis', '2 mose': 'Exodus', '3 mose': 'Leviticus', '4 mose': 'Numbers', '5 mose': 'Deuteronomy', 'gen': 'Genesis' }).forEach(([k, v]) => ALIAS.set(k, v));
+Object.entries({ '1 mose': 'Genesis', '2 mose': 'Exodus', '3 mose': 'Leviticus', '4 mose': 'Numbers', '5 mose': 'Deuteronomy', 'gen': 'Genesis',
+  '1 mos': 'Genesis', '2 mos': 'Exodus', '3 mos': 'Leviticus', '4 mos': 'Numbers', '5 mos': 'Deuteronomy', 'b mos': '' }).forEach(([k, v]) => { if (v) ALIAS.set(k, v); });
+// Schreibweisen des 19. Jahrhunderts (Pinner, Sammter, Rawicz, Kautzsch …)
+Object.entries({ 'jesaia': 'Isaiah', 'jesaias': 'Isaiah', 'jesai': 'Isaiah', 'jeremias': 'Jeremiah', 'ezechiel': 'Ezekiel', 'zacharia': 'Zechariah', 'zachar': 'Zechariah', 'zach': 'Zechariah',
+  'secharja': 'Zechariah', 'zephania': 'Zephaniah', 'zeph': 'Zephaniah', 'klagel': 'Lamentations', 'klagl': 'Lamentations', 'klagelied': 'Lamentations', 'klag': 'Lamentations', 'threni': 'Lamentations',
+  'hohel': 'Song of Songs', 'hoheslied': 'Song of Songs', 'hl': 'Song of Songs', 'kohel': 'Ecclesiastes', 'pred': 'Ecclesiastes', 'richt': 'Judges', 'richter': 'Judges', 'jos': 'Joshua', 'josua': 'Joshua',
+  'exod': 'Exodus', 'levit': 'Leviticus', 'numer': 'Numbers', 'deuter': 'Deuteronomy', 'iob': 'Job', 'esth': 'Esther', 'nehem': 'Nehemiah', 'chron': '', 'spr': 'Proverbs', 'sprüch': 'Proverbs',
+  'obadja': 'Obadiah', 'habakuk': 'Habakkuk', 'jona': 'Jonah', 'maleachi': 'Malachi', 'mich': 'Micah', 'psalm': 'Psalms', 'psalmen': 'Psalms', 'psal': 'Psalms',
+  'jirm': 'Jeremiah', 'jir': 'Jeremiah', 'jirmeja': 'Jeremiah', 'jesch': 'Isaiah', 'jeschaja': 'Isaiah', 'josch': 'Joshua', 'jech': 'Ezekiel', 'jechesk': 'Ezekiel', 'jecheskel': 'Ezekiel',
+  'sech': 'Zechariah', 'hosch': 'Hosea', 'nech': 'Nehemiah', 'chab': 'Habakkuk', 'am': 'Amos', '1 schem': 'I Samuel', '2 schem': 'II Samuel', 'i kön': 'I Kings', 'ii kön': 'II Kings',
+  '1 m': 'Genesis', '2 m': 'Exodus', '3 m': 'Leviticus', '4 m': 'Numbers', '5 m': 'Deuteronomy',
+  '1 sam': 'I Samuel', '2 sam': 'II Samuel', '1 kön': 'I Kings', '2 kön': 'II Kings', '1 könige': 'I Kings', '2 könige': 'II Kings', '1 chron': 'I Chronicles', '2 chron': 'II Chronicles', '1 chronik': 'I Chronicles', '2 chronik': 'II Chronicles' }).forEach(([k, v]) => { if (v && !ALIAS.has(k)) ALIAS.set(k, v); });
 // hebräische Namen
 const HE = {
   'בראשית': 'Genesis', 'שמות': 'Exodus', 'ויקרא': 'Leviticus', 'במדבר': 'Numbers', 'דברים': 'Deuteronomy', 'יהושע': 'Joshua', 'שופטים': 'Judges',
@@ -44,8 +55,8 @@ function gem(s) { // „לא“ -> 31, „כ״ד“ -> 24, „קמ“ -> 140
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
 // Alle lateinischen Namen/Kürzel, längste zuerst (damit „1 Kings“ vor „Kings“ gewinnt)
 const LAT = [...ALIAS.keys()].sort((a, b) => b.length - a.length).map(x => x.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/ /g, '\\s?'));
-const CHVS = '(\\d{1,3})\\s*(?::|,\\s)\\s*(\\d{1,3})(?:\\s*[-–]\\s*(\\d{1,3}))?';
-const LAT_RE = new RegExp('(?<![\\p{L}\\d])(' + LAT.join('|') + ')\\.?\\s*' + CHVS + '(?![\\d])', 'giu');
+const CHVS = '(\\d{1,3})\\s*(?::|,\\s?)\\s*(\\d{1,3})(?:\\s*[-–]\\s*(\\d{1,3}))?';
+const LAT_RE = new RegExp('(?<![\\p{L}\\d])(' + LAT.join('|') + ')\\.?,?\\s*' + CHVS + '(?![\\d])', 'giu');
 // römische Kapitelzahl: „Jerem. XXIII, 24“, „Ps. CXLV, 15“, „I Sam. XIV, 24-25“
 const ROM_RE = new RegExp('(?<![\\p{L}\\d])(' + LAT.join('|') + ')\\.?\\s*([IVXLC]{1,8}),\\s?(\\d{1,3})(?:\\s*[-–]\\s*(\\d{1,3}))?(?![\\d\\p{L}])', 'giu');
 function roman(r) { const v = { I: 1, V: 5, X: 10, L: 50, C: 100 }; let n = 0; for (let i = 0; i < r.length; i++) { const a = v[r[i]], b = v[r[i + 1]] || 0; n += a < b ? -a : a; } return n; }
