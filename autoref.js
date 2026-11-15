@@ -102,6 +102,72 @@ const BAV_RE = new RegExp('(?<![\\p{L}\\d])b' + RN + '\\.?\\s*(\\d{1,3})\\s*(' +
 const YER_RE = new RegExp('(?<![\\p{L}\\d])j' + RN + '\\.?\\s*(\\d{1,2})\\s*,\\s*(\\d{1,3})\\s*([ᵃᵇᶜᵈª])?', 'gu');
 const MIS_RE = new RegExp('(?<![\\p{L}\\d])([MT])' + RN + '\\.?\\s*(?:(bḳ|bk|bm|bb)\\.?\\s*)?(\\d{1,2})\\s*,\\s*(\\d{1,2})(?![\\d])', 'gu');
 const RAB_RE = new RegExp('(?<![\\p{L}\\d])(Gen|Ex|Lev|Num|Dt|Deut|Ḳoh|Koh|Thr|Cant|Esth)\\.? R\\.?\\s*(\\d{1,3})\\s*,\\s*(\\d{1,3})(?![\\d])', 'gu');
+// Bavli-Blattangaben in deutscher/älterer Schreibweise („Sanh. 98a“, „Bab. mez. 96 a“, „Baba bathra 133 b“, „Rosch Hasch. 17a“) und Folgeblätter („bKidd 13ᵃ. 22ᵇ. 25ᵇ. 28ᵃᵇ“)
+const TRF = {};
+const tf = (t, keys) => keys.split('|').forEach(k => { TRF[k.replace(/[\s.]/g, '')] = t; });
+tf('Berakhot', 'berachoth|berakhot|brakhot|berakoth|ber|berach|berakh|brachoth'); tf('Shabbat', 'sabb|sabbath|sabbat|schabbat|schab|shabbat|sab');
+tf('Eruvin', 'erub|erubh|erubin|erubhin|eruw'); tf('Pesachim', 'pes|pesach|pesachim|pesakh'); tf('Yoma', 'joma|yoma|jom'); tf('Sukkah', 'sukka|sukkah|suk|succa');
+tf('Beitzah', 'beza|bez|beitzah|jom tob'); tf('Rosh Hashanah', 'rosch hasch|rosch haschana|rh|r h|rosh hashanah'); tf('Taanit', 'taan|thaan|taanit|thaanith');
+tf('Megillah', 'meg|megilla|megillah'); tf('Moed Katan', 'moed kat|moed katan|mo ed katan|m k|mk'); tf('Chagigah', 'chag|chagiga|chagigah');
+tf('Yevamot', 'jeb|jebam|jebamoth|jebamot'); tf('Ketubot', 'keth|kethub|kethuboth|ketub'); tf('Nedarim', 'ned|nedar|nedarim'); tf('Nazir', 'naz|nasir|nazir');
+tf('Sotah', 'sota|sotah|sot'); tf('Gittin', 'git|gitt|gittin'); tf('Kiddushin', 'kid|kidd|kiddusch|kiddushin|kidduschin');
+tf('Bava Kamma', 'b kam|b kama|bab kam|baba kama|baba kamma|b k|b kamma'); tf('Bava Metzia', 'b mez|b mezia|bab mez|baba mezia|baba metzia|b m|b metzia');
+tf('Bava Batra', 'b bath|b bathra|bab bath|baba bathra|baba batra|b b'); tf('Sanhedrin', 'sanh|sanhedr|sanhedrin|sanhedrim');
+tf('Makkot', 'mak|makk|makkoth|makkot'); tf('Shevuot', 'schebu|schebuoth|sebuoth|schebuot|shevuot'); tf('Avodah Zarah', 'ab sar|aboda sara|abodah sara|abod sar|az|ab zar|aboda zara|abodah zarah|ab sara');
+tf('Horayot', 'hor|horajoth|horayot'); tf('Zevachim', 'seb|sebach|sebachim|zebach|zebachim|zeb|sebah'); tf('Menachot', 'men|menach|menachoth|menachot');
+tf('Chullin', 'chul|chull|chulin|chullin|hul'); tf('Bekhorot', 'bech|bechor|bechoroth|bekhorot'); tf('Arakhin', 'erech|erach|arach|arachin|erachin');
+tf('Temurah', 'tem|temura|temurah'); tf('Keritot', 'ker|kerith|kerithoth|keritot'); tf('Meilah', 'meil|meila|meilah'); tf('Tamid', 'tamid'); tf('Niddah', 'nid|nidda|niddah');
+const FOL_RE = /(?<![\p{L}\d])(\d{1,3})\s?([abᵃᵇª]{1,2})(?![\p{L}\d])/gu;
+const CONT_RE = /^\s*[.;,]?\s*(\d{1,3})\s?([abᵃᵇª]{1,2})(?![\p{L}\d])/u; // Folgeblätter einer Aufzählung
+const sideOf = f => (/^[aᵃª]/.test(f) ? 'a' : 'b');
+function chain(text, end, tract, matches) { // „bKidd 13ᵃ. 22ᵇ. 25ᵇ“: die weiteren Blätter gehören zum selben Traktat
+  let m;
+  while ((m = CONT_RE.exec(text.slice(end)))) {
+    const d = +m[1]; if (!d || d > 176) break;
+    const s0 = end + m[0].search(/\d/), e = end + m[0].length;
+    matches.push({ s: s0, e, ref: `${tract} ${d}${sideOf(m[2])}`, book: tract, nolast: true });
+    end = e;
+  }
+}
+function folios(text, matches) {
+  let m; FOL_RE.lastIndex = 0;
+  while ((m = FOL_RE.exec(text))) {
+    const d = +m[1]; if (!d || d > 176) continue;
+    const from = Math.max(0, m.index - 40);
+    let pre = text.slice(from, m.index), off = from;
+    if (from > 0) { const cut = pre.search(/\s/); if (cut < 0) continue; pre = pre.slice(cut); off += cut; } // angeschnittenes erstes Wort weg
+    if (!/^[\s.,;]*$/.test(pre.replace(/[\p{L}'’ʾʿ.\s]+$/u, ''))) pre = pre.replace(/^[\s\S]*?([\p{L}'’ʾʿ.\s]+)$/u, (x, y) => { off += x.length - y.length; return y; }); // nur das zusammenhängende Wortstück vor der Zahl
+    const toks = [...pre.matchAll(/[\p{L}'’ʾʿ]+\.?/gu)].map(x => ({ t: x[0], i: x.index }));
+    if (!toks.length || !/^[\s]*$/.test(pre.slice(toks[toks.length - 1].i + toks[toks.length - 1].t.length))) continue; // Name muss unmittelbar vor der Zahl stehen
+    let tract = '', st = 0;
+    for (let k = Math.min(3, toks.length); k >= 1; k--) {
+      const part = toks.slice(-k), key = nk(part.map(x => x.t).join('')).replace(/[\s.]/g, '');
+      if (TRF[key]) { tract = TRF[key]; st = off + part[0].i; break; }
+    }
+    if (!tract) continue;
+    const e = m.index + m[0].length;
+    matches.push({ s: st, e, ref: `${tract} ${d}${sideOf(m[2])}`, book: tract, nolast: true });
+    chain(text, e, tract, matches);
+  }
+}
+// Josephus: „Ant. XI, 8, 6“, „Jos. Antt. 14, 9. 4“, „B. J. VI 3, 4“, „c. Ap. II, 24“ – in Whistons Zählung (Buch:Kapitel:Abschnitt)
+const JNUM = '([IVXL]{1,5}|\\d{1,2})';
+const JSEP = '\\s*[,.]?\\s*';
+const JOS_ANT = new RegExp('(?<![\\p{L}\\d])(?:Jos(?:eph)?\\.?,?\\s*)?(?:Antt?|Antiqu?|Antiquit|Alterth|Altert|Jüd\\.?\\s*Altert)\\.?\\s*' + JNUM + JSEP + '(\\d{1,3})(?:' + JSEP + '(\\d{1,3}))?(?![\\d\\p{L}])', 'gu');
+const JOS_BJ = new RegExp('(?<![\\p{L}\\d])(?:Jos(?:eph)?\\.?,?\\s*)?(?:B\\.\\s?J|BJ|Bell\\.?\\s?Jud|Bellum|Jüd\\.?\\s*Krieg)\\.?\\s*' + JNUM + JSEP + '(\\d{1,3})(?:' + JSEP + '(\\d{1,3}))?(?![\\d\\p{L}])', 'gu');
+const JOS_AP = new RegExp('(?<![\\p{L}\\d])(?:(?:Jos(?:eph)?\\.?,?\\s*)?(?:c|cont|contra)\\.?\\s*Ap(?:ion)?|Jos(?:eph)?\\.?\\s*Ap(?:ion)?)\\.?\\s*' + JNUM + JSEP + '(\\d{1,3})(?![\\d\\p{L}])', 'gu');
+const jnum = x => (/^[IVXL]+$/.test(x) ? roman(x) : +x);
+function josephus(text, matches) {
+  let m;
+  for (const [re, title, three] of [[JOS_ANT, 'The Antiquities of the Jews', true], [JOS_BJ, 'The War of the Jews', true], [JOS_AP, 'Against Apion', false]]) {
+    re.lastIndex = 0;
+    while ((m = re.exec(text))) {
+      const b = jnum(m[1]), c = +m[2], p = three && m[3] ? +m[3] : 0;
+      if (!b || !c || b > (title === 'Against Apion' ? 2 : 20)) continue;
+      matches.push({ s: m.index, e: m.index + m[0].length, ref: `${title} ${b}:${c}` + (p ? ':' + p : ''), book: title, nolast: true });
+    }
+  }
+}
 function rabbinic(text, matches) {
   let m;
   BAV_RE.lastIndex = 0;
@@ -110,6 +176,7 @@ function rabbinic(text, matches) {
     const d = +m[2]; if (!d || d > 176) continue;
     const side = /[aᵃª]/.test(m[3]) ? 'a' : 'b';
     matches.push({ s: m.index, e: m.index + m[0].length, ref: `${t[0]} ${d}${side}`, book: t[0], nolast: true });
+    chain(text, m.index + m[0].length, t[0], matches);
   }
   YER_RE.lastIndex = 0;
   while ((m = YER_RE.exec(text))) {
@@ -126,6 +193,8 @@ function rabbinic(text, matches) {
     if (m[1] === 'T') { if (name === 'Kelim' && m[3]) name += ' ' + { bk: 'Bava Kamma', 'bḳ': 'Bava Kamma', bm: 'Bava Metzia', bb: 'Bava Batra' }[m[3]]; name = 'Tosefta ' + name; } else name = 'Mishnah ' + name;
     matches.push({ s: m.index, e: m.index + m[0].length, ref: `${name} ${ch}:${v}`, book: name, nolast: true });
   }
+  folios(text, matches);
+  josephus(text, matches);
   RAB_RE.lastIndex = 0;
   while ((m = RAB_RE.exec(text))) {
     const b = RABBA[nk(m[1])]; if (!b) continue;

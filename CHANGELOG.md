@@ -1,6 +1,8 @@
 # Changelog
 
 ### New in 2.4.0
+- **Citations:** German Talmud folio citations (e.g. „bḲidd 13ᵃ. 22ᵇ. 28ᵃᵇ“) are recognised, continuation folios belong to the same tractate; Josephus citations (Ant., Bell., Ap.) are linked. Own-text links were rebuilt.
+- **Outlines:** the current position is marked in every outline, also those made of single points (e.g. Krauss).
 - **Qumran: parallels:** about 6,000 line parallels (≥ 70 % similarity, ETCBC) between the non-biblical scrolls (e.g. Community Rule 1QS ↔ 4Q258, Damascus Document CD ↔ 4Q266) and to the biblical text appear under *Parallels* in „All about this passage“ and in the Links panel, in both directions.
 - **Word card:** A−/A+ buttons in the header change the text size (double-click resets); the setting is remembered.
 - **Graetz, *Geschichte der Juden*:** all eleven volumes (from zeno.org) with 11,400 footnotes, page marks of the print edition and an outline by period, epoch and chapter. The Hebrew quotations, which zeno stores in visual (reversed) order, are turned around automatically; Bible references are clickable and appear in the *Links* tab. Passage recognition also understands *I. Chronik*, *II. Könige* and similar forms.

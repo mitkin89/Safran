@@ -2482,6 +2482,11 @@
     const g = view && view.group, ol = g && olOwnCached(g), lv2 = !!(ol && ol.levels === 2), pos = olPos(g, lv2), whole = !lv2 && !olPlaying(g); let first = null;
     const hr = !lv2 && !olPlaying(g) ? $('#rOut .row.hit[data-l]') : null, tr = !lv2 && !olPlaying(g) ? (hr && hr.getBoundingClientRect().bottom > 0 && hr.getBoundingClientRect().top < innerHeight ? hr : olTopRow()) : null, tv = tr ? (m => m ? +m[1] : null)(String(tr.dataset.l).match(/(\d+)\s*[a-z]?\s*$/i)) : null, vpos = pos && tv ? { ch: pos.ch, v: tv } : pos; // Unterpunkte: nur der Punkt mit dem Vers am oberen Rand
     $$('#olBody .olc').forEach(el => { const sub = el.classList.contains('olsub'), on = olIn(el.dataset.r, sub || tv ? vpos : pos, whole && !sub && !tv); el.classList.toggle('cur', on); if (on && !first) first = el; });
+    if (!first && vpos) { // Gliederungen aus einzelnen Punkten statt Bereichen (z. B. Krauss: „1:5“, „49:1“): der letzte Punkt vor der aktuellen Stelle gilt als „hier“
+      const key = vpos.ch * 10000 + vpos.v; let best = null, bs = -1;
+      $$('#olBody .olc:not(.olsub)').forEach(el => { const sp = olSpans(el.dataset.r)[0]; if (sp && sp[0] <= key && sp[0] >= bs) { bs = sp[0]; best = el; } });
+      if (best) { best.classList.add('cur'); first = best; }
+    }
     { // überlappende Unterpunkte (z. B. 1:10–20 und 1:12–14): nur den genauesten (schmalsten) markieren
       const wd = el => olSpans(el.dataset.r).reduce((a, [x, y]) => a + (y - x), 0), cs = $$('#olBody .olc.cur.olsub');
       if (cs.length > 1) { const pk = cs.find(el => el.dataset.r === window.__olClicked), mn = Math.min(...cs.map(wd)); let kept = false; cs.forEach(el => { if (pk ? el !== pk : (wd(el) > mn || kept)) el.classList.remove('cur'); else kept = true; }); first = $('#olBody .olc.cur'); }
