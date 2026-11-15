@@ -30,7 +30,7 @@
   <sub>▶ Watch the overview video on YouTube</sub>
 </p>
 
-Safran is a free desktop app for macOS, Windows and Linux that keeps your texts on your own computer. Pick the books and languages you want from the [Sefaria](https://www.sefaria.org) library once, and read, search and annotate them afterwards without an internet connection. On top of that, Safran ships **409 German translations and commentaries** that are hard to find anywhere else, among them Louis Ginzberg's *Legenden der Juden* from his German manuscript, plus **seven dictionaries** with more than 88,000 entries. Safran is an independent project and not affiliated with Sefaria.
+Safran is a free desktop app for macOS, Windows and Linux that keeps your texts on your own computer. Pick the books and languages you want from the [Sefaria](https://www.sefaria.org) library once, and read, search and annotate them afterwards without an internet connection. On top of that, Safran ships **410 German translations and commentaries** that are hard to find anywhere else, among them Louis Ginzberg's *Legenden der Juden* from his German manuscript, plus **seven dictionaries** with more than 88,000 entries. Safran is an independent project and not affiliated with Sefaria.
 
 ## Why Safran?
 
@@ -102,7 +102,7 @@ Open the *Wörterbuch* tab, press the 📖 button next to the commentary panel, 
 
 ## German texts that are not on Sefaria
 
-Safran bundles 409 German text files in `bundled/`. They are imported on first start and appear under *Eigene Texte* and as extra versions and commentators next to the Sefaria texts:
+Safran bundles 410 German text files in `bundled/`. They are imported on first start and appear under *Eigene Texte* and as extra versions and commentators next to the Sefaria texts:
 
 | Work | Scope |
 | --- | --- |
@@ -114,7 +114,7 @@ Safran bundles 409 German text files in `bundled/`. They are imported on first s
 | Rashi after Bamberger · Hertz, Pentateuch commentary | Rashi: Exodus to Deuteronomy · Hertz: Exodus, Numbers, Deuteronomy |
 | Goldschmidt, translation of the Torah (1921) | Torah |
 | S. R. Hirsch, Psalms · Julius Hirsch, Isaiah and the Twelve Prophets · Joseph and Raphael Breuer: Joshua, Judges, Ezekiel, Ezra, Nehemiah | translation and commentary (Ezekiel: commentary only) |
-| Wünsche's Midrash translations | Bemidbar and Devarim Rabbah, the Rabbah volumes on the five Megillot, Pesikta de-Rav Kahana, Midrash Shmuel |
+| Wünsche's Midrash translations | Bemidbar and Devarim Rabbah, the Rabbah volumes on the five Megillot, Pesikta de-Rav Kahana, Midrash Shmuel, *Mechiltha* (Mekhilta de-Rabbi Yishmael, with Jakob Winter, 1909) |
 | *Mischne Tora* (Mandelstamm, 1851) | 39 sections |
 | *Führer der Unschlüssigen* (More Nevuchim) · *Kizzur Schulchan Aruch* (Bamberger) | |
 | Ginzberg, *Die Legenden der Juden*, reading edition from his German manuscript, aligned with Sefaria's *Legends of the Jews* | vols. 1–4, with over 4,000 of Ginzberg's notes as footnotes; abbreviations explained on hover; 10,600 sources (Bible, Midrash, Talmud, Josephus, Philo …) linked and shown as connections in both directions; outline |
