@@ -1410,7 +1410,8 @@ html.split #formsPanel { right: var(--p2w); }
 #formsPanel .fmTools button { font-size: 12px; min-width: 26px; }
 #apBody .apBox[data-b="stats"] h5 { margin: 10px 0 4px; font-size: 12.5px; font-weight: 600; }
 #apBody .apBox[data-b="stats"] .apSum { margin: 0 0 4px; }
-#apBody .apBox[data-b="stats"] .apW small { color: var(--muted, #777); font-size: 11px; }
+#apBody .apBox[data-b="stats"] .apW > small { position: static; margin-top: 1px; font-size: 11px; font-weight: 600; color: var(--accent); font-variant-numeric: tabular-nums; }
+#apBody .apBox[data-b="stats"] .apW { padding-top: 4px; }
 #apBody h5.apGrp { margin: 12px 0 3px; padding-top: 6px; border-top: 1px solid var(--line); font-size: 12.5px; font-weight: 600; }
 #apBody h5.apGrp:first-child { margin-top: 2px; border-top: 0; padding-top: 0; }
 #apBody h5.apGrp small { font-weight: 400; color: var(--muted, #777); }
