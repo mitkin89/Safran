@@ -1929,6 +1929,7 @@
     if (j) jumpTo(j.dataset.ref.replace(/-.*$/, ''), BG(e));
   });
   $('#lkBtn').onclick = () => { lkVerse = null; renderLinkPanel(); };
+  $('#lkWhole').onclick = () => { lkVerse = null; renderLinkPanel(); };
   $('#lkClose').onclick = () => { $('#linkPanel').hidden = true; };
   // Klick außerhalb des Verknüpfungen-Fensters schließt es (Klick auf die Verknüpfungs-Knöpfe, Menüs und Vorschau zählt nicht)
   document.addEventListener('mousedown', e => {
@@ -2042,6 +2043,7 @@
     let list = secLinks.filter(x => lkVerse == null ? true : (x.v1 === 0 || (lkVerse >= x.v1 && lkVerse <= x.v2)));
     if (f) list = list.filter(x => (x.other + ' ' + x.cat + ' ' + x.type + (x.other.startsWith(LEG + ' ') ? ' legenden ginzberg ' + legLabel(x.other).full : '')).toLowerCase().includes(f));
     $('#lkTitle').textContent = `${virt ? virt.title : view.group.title} · ${s ? s.label : ''}${lkVerse != null ? ':' + lkVerse : ''} – ${list.length} Verknüpfungen`;
+    { const wb = $('#lkWhole'); wb.hidden = lkVerse == null; wb.textContent = I18N.t(/[ab]$/i.test(secChapOf(s) || '') ? 'Ganze Seite' : 'Ganzes Kapitel'); wb.title = I18N.t('Wieder das ganze Kapitel bzw. die ganze Seite zeigen'); }
     const byT = new Map(groups.map(g => [g.title, g]));
     const titleToGroup = t => byT.get(t) || byT.get(String(t).split(', ')[0]) || null;
     const localSet = localTitles();
@@ -5834,6 +5836,7 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
     window.addEventListener('resize', applyCw);
   }
   let cmtOpen = false, cmtRow = null, cmtToken = 0;
+  var cmtWhole = false; // Kommentare zum ganzen Kapitel bzw. zur ganzen Seite (über den Knopf), sonst zum gewählten Vers
   let cmtTouched = false, cmtLastChosen = [];
   try { cmtTouched = localStorage.getItem('cmtTouched') === '1'; } catch { /* egal */ }
   let cmtChipsOpen = false;
@@ -5865,13 +5868,14 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
     $$('#rOut .row.cmtrow').forEach(r => r.classList.remove('cmtrow'));
     const r = $$('#rOut .row[data-l]').find(x => x.dataset.l === label);
     if (r) r.classList.add('cmtrow');
-    if (cmtOpen) renderCmt();
+    if (cmtOpen && !cmtWhole) renderCmt(); // ganzes Kapitel: die Markierung wechselt, der Inhalt bleibt
     apSoon();
   }
   function applyCmtRow() {
     const rows = $$('#rOut .row[data-l]');
     let r = rows.find(x => x.dataset.l === cmtRow) || $('#rOut .row.hit') || rows.find(x => rowVerse(x.dataset.l) != null);
-    if (r) setCmtRow(r.dataset.l); else if (cmtOpen) renderCmt();
+    if (r) setCmtRow(r.dataset.l);
+    if (cmtOpen && (cmtWhole || !r)) renderCmt();
   }
   function toggleCmt(force) {
     withAnchor(() => toggleCmt0(force));
@@ -5886,7 +5890,10 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
     $('#cmtBtn').classList.toggle('active', cmtOpen);
     if (cmtOpen) applyCmtRow();
   }
-  $('#cmtBtn').onclick = () => toggleCmt();
+  const cmtFromBtn = () => { if (!cmtOpen) cmtWhole = true; toggleCmt(); }; // Knopf / Cmd+K: das ganze Kapitel; ein Klick auf eine Versnummer: nur dieser Vers
+  $('#cmtBtn').onclick = cmtFromBtn;
+  $('#cmtWhole').onclick = () => { cmtWhole = true; renderCmt(); };
+  $('#cmtBody').addEventListener('click', e => { const h = e.target.closest('.cvn[data-l]'); if (!h) return; const r = $$('#rOut .row[data-l]').find(x => rowVerse(x.dataset.l) === +h.dataset.l); if (r) { r.scrollIntoView({ block: 'center', behavior: 'smooth' }); r.classList.add('flash'); setTimeout(() => r.classList.remove('flash'), 1200); } });
   $('#cmtClose').onclick = () => toggleCmt(false);
   // ---------- Fenster anpinnen: neben dem Text festhalten statt darüber zu schweben ----------
   // Je Fenster wird gemerkt, ob es angepinnt ist. Ein angepinntes Fenster steht rechts neben dem Haupttext; öffnet ein zweites angepinntes Fenster, tritt es an die Stelle des ersten
@@ -5944,7 +5951,7 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
     cmtSel = new Set(s0.sel || []); cmtAll = !!s0.all; cmtTouched = !!s0.touched; cmtLastChosen = [];
     saveCmt(); renderCmt();
   };
-  document.addEventListener('keydown', e => { if ((e.metaKey || e.ctrlKey) && !e.shiftKey && !e.altKey && e.key.toLowerCase() === 'k') { e.preventDefault(); toggleCmt(); } });
+  document.addEventListener('keydown', e => { if ((e.metaKey || e.ctrlKey) && !e.shiftKey && !e.altKey && e.key.toLowerCase() === 'k') { e.preventDefault(); cmtFromBtn(); } });
   // Vers, den man gerade liest: Zeile im oberen Viertel des Textes
   function readingRow(rows) {
     const top = $('#stick') ? $('#stick').getBoundingClientRect().bottom : 0;
@@ -5965,7 +5972,7 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
     const at = k => rows[Math.min(rows.length - 1, Math.max(0, k))];
     let k = (i < 0 ? 0 : i) + d, n = at(k);
     if (n && n.dataset.l === cmtRow) n = at(k + d); // vom gelesenen Vers aus landete man wieder beim angezeigten Vers (z. B. ▲, während dieser knapp über dem Bildschirm liegt): einen weiter
-    if (n) { AP.whole = false; setCmtRow(n.dataset.l); panelScrollTo(n, 'center'); }
+    if (n) { AP.whole = false; cmtWhole = false; setCmtRow(n.dataset.l); panelScrollTo(n, 'center'); }
     cmtStepY = window.scrollY;
   }
   // j / k: nächster / vorheriger Vers im Kommentar-Bereich (nur wenn kein Eingabefeld den Fokus hat)
@@ -6006,7 +6013,7 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
     const lab = e.target.closest('.lab');
     if (!lab || e.target.closest('.bm') || e.target.closest('.lk, .mtj')) return;
     const row = lab.closest('.row[data-l]');
-    if (row) { AP.whole = false; setCmtRow(row.dataset.l); if (!cmtOpen && !AP.open) toggleCmt(true); } // ein Klick auf den Vers öffnet die Kommentare (ist „Alles zu dieser Stelle“ offen, folgt dieses Fenster)
+    if (row) { AP.whole = false; cmtWhole = false; setCmtRow(row.dataset.l); if (!cmtOpen && !AP.open) toggleCmt(true); } // ein Klick auf den Vers öffnet die Kommentare (ist „Alles zu dieser Stelle“ offen, folgt dieses Fenster)
   });
   // Doppelklick auf die Versnummer öffnet den Kommentar-Bereich, derselbe Vers noch einmal schließt ihn
   let lastCmtDbl = null;
@@ -6018,6 +6025,7 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
     const key = (view && view.group ? view.group.key : '') + '|' + (view ? view.key : '') + '|' + row.dataset.l;
     if (cmtOpen && lastCmtDbl === key) { toggleCmt(false); lastCmtDbl = null; return; }
     lastCmtDbl = key;
+    cmtWhole = false;
     setCmtRow(row.dataset.l);
     if (!cmtOpen) toggleCmt(true);
   });
@@ -6115,20 +6123,24 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
     const token = ++cmtToken;
     const virt = view && view.sres ? cmtVirt : null; // Suchtab: Stelle kommt aus der angeklickten Trefferzeile
     const s = virt ? { label: virt.label } : (view && view.group && view.sections[view.idx]);
-    const v = rowVerse(cmtRow);
-    $('#cmtTitle').textContent = s && v != null ? `Kommentare zu ${virt ? virt.title : view.group.title} ${s.label.replace(/^\D+/, '')}:${cmtRow}` : 'Kommentare';
+    const whole = cmtWhole && !virt && !!s && secChapOf(s) != null; // ganzes Kapitel / ganze Seite
+    const v = whole ? 0 : rowVerse(cmtRow), page = whole && /[ab]$/i.test(secChapOf(s));
+    $('#cmtTitle').textContent = whole ? `${I18N.t('Kommentare zu')} ${view.group.title} ${s.label.replace(/^\D+/, '')} · ${I18N.t(page ? 'ganze Seite' : 'ganzes Kapitel')}`
+      : s && v != null ? `Kommentare zu ${virt ? virt.title : view.group.title} ${s.label.replace(/^\D+/, '')}:${cmtRow}` : 'Kommentare';
+    { const wb = $('#cmtWhole'); wb.hidden = whole || virt || !s || secChapOf(s) == null; wb.textContent = I18N.t(s && /[ab]$/i.test(secChapOf(s) || '') ? 'Ganze Seite' : 'Ganzes Kapitel'); wb.title = I18N.t('Kommentare zum ganzen Kapitel bzw. zur ganzen Seite'); }
     if (!s) { $('#cmtChips').innerHTML = ''; $('#cmtSum').innerHTML = ''; $('#cmtBody').innerHTML = '<p class="muted">Öffne ein Buch.</p>'; return; }
     if (!linksReady) { $('#cmtChips').innerHTML = ''; $('#cmtSum').innerHTML = ''; $('#cmtBody').innerHTML = '<p class="muted">Dafür werden die Verknüpfungen gebraucht: Reiter „Herunterladen“ → Karte „4 · Verknüpfungen“.</p>'; return; }
     if (v == null) { $('#cmtChips').innerHTML = ''; $('#cmtSum').innerHTML = ''; $('#cmtBody').innerHTML = '<p class="muted">Klicke links bei einer Zeile auf die Versnummer.</p>'; return; }
     // Kommentare zu diesem Vers, nach Kommentator gruppiert
     const groupsC = new Map();
     for (const x of secLinks) {
-      if (x.type !== 'commentary' || !(x.v1 > 0 && v >= x.v1 && v <= x.v2)) continue;
+      if (x.type !== 'commentary' || !(x.v1 > 0 && (whole || (v >= x.v1 && v <= x.v2)))) continue;
       const book = splitOther(x.other);
       const name = book.replace(/ on .*$/i, '');
-      if (!groupsC.has(name)) groupsC.set(name, { name, book, refs: [] });
-      groupsC.get(name).refs.push(x.other);
+      if (!groupsC.has(name)) groupsC.set(name, { name, book, refs: [], vOf: new Map() });
+      const g0 = groupsC.get(name); if (!g0.vOf.has(x.other)) { g0.refs.push(x.other); g0.vOf.set(x.other, x.v1); }
     }
+    if (whole) for (const g0 of groupsC.values()) g0.refs.sort((a, b) => g0.vOf.get(a) - g0.vOf.get(b)); // im ganzen Kapitel nach Versen
     const local0 = localTitles(); const local = { has: b => local0.has(b) || local0.has(String(b).split(', ')[0]) };
     const listPrio = [...groupsC.values()].sort((a, b) => {
       const ia = CMT_PRIO.indexOf(a.name), ib = CMT_PRIO.indexOf(b.name);
@@ -6189,7 +6201,8 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
         if (!t || !t.items) return `<div class="none">${esc(r)} – ${t && t.missing ? I18N.t('keine Fassung auf {} geladen', LN) : I18N.t('Vers fehlt in der ' + { en: 'Englischen', de: 'Deutschen', he: 'Hebräischen' }[cmtLang] + ' Fassung')}</div>`;
         const he = t.kind === 'he';
         const sig = t.items.join('\u0001'); if (seenTxt.has(sig)) return ''; seenTxt.add(sig); // gleiche Stelle mehrfach verknüpft: nur einmal zeigen
-        return (g.refs.length > 1 ? `<div class="cpart" data-k="${++partNo}"></div>` : '') + t.items.map(x => {
+        const vh = whole ? (vn => vn !== g.lastV ? (g.lastV = vn, `<div class="cvn" data-l="${vn}">${esc(I18N.t(page ? 'Segment' : 'Vers'))} ${vn}</div>`) : '')(g.vOf.get(r)) : '';
+        return vh + (g.refs.length > 1 && !vh ? `<div class="cpart" data-k="${++partNo}"></div>` : '') + t.items.map(x => {
           // Fußnoten im Kommentar-Bereich: Zeichen im Text, Fußnotentext direkt dahinter (Einstellung „Fußnoten“ wie im Lesetext)
           const sp = R.splitFootnotes(he ? stripHe(x) : x);
           const inl = R.cleanHtml(sp.main).replace(/<sup>.*?<\/sup>/g, '').replace(/<sup data-fn="(\d{1,4})">(.*?)<\/sup>/g, (m, i) => { const n = sp.notes[+i]; return n ? `${m}<span class="note" data-fn="${i}"><span class="nm">${esc(n.marker)}</span> ${R.cleanHtml(n.html)}</span>` : m; });

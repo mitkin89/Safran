@@ -85,7 +85,7 @@
                   <div id="verList"></div>
                 </details>
                 <button id="bookSearch" title="Nur in diesem Buch suchen">🔎<span class="bl">Im Buch</span></button>
-                <button id="cmtBtn" title="Kommentare zum gewählten Vers (Cmd+K)">💬<span class="bl">Kommentare</span></button>
+                <button id="cmtBtn" title="Kommentare zum ganzen Kapitel – ein Klick auf eine Versnummer zeigt nur diesen Vers (Cmd+K)">💬<span class="bl">Kommentare</span></button>
                 <button id="apBtn" title="Alles zu dieser Stelle: Kommentare, Parallelstellen, Orte, Themen und Notizen zum ganzen Kapitel – ein Klick auf eine Versnummer zeigt nur diesen Vers (Cmd+I)">✦<span class="bl">Überblick</span></button>
                 <button id="lkBtn" title="Verknüpfungen zu diesem Abschnitt anzeigen" hidden>🔗<span class="bl">Verknüpfungen</span></button>
                 <button id="olBtn" title="Gliederung dieses Buches (Wochenabschnitte, Kapitel, Absätze)">☰ <span class="bl">Gliederung</span></button>
@@ -307,7 +307,7 @@
   <div id="cmtResize" hidden title="Ziehen, um die Breite zu ändern (Doppelklick: Standard)"></div>
   <aside id="cmtPanel" hidden>
     <div id="cmtHead">
-      <div class="lhead"><b id="cmtTitle">Kommentare</b><button id="cmtClose" title="Schließen">✕</button></div>
+      <div class="lhead"><b id="cmtTitle">Kommentare</b><button id="cmtWhole" class="wholeBtn" type="button" hidden></button><button id="cmtClose" title="Schließen">✕</button></div>
       <div class="bar">
         <label><span class="cl">Sprache </span><select id="cmtLang"><option value="en">Englisch</option><option value="de">Deutsch</option><option value="he">Hebräisch</option></select></label>
         <button id="cmtPrev" title="Voriger Vers">▲<span class="cl"> Vers</span></button><button id="cmtNext" title="Nächster Vers">▼<span class="cl"> Vers</span></button><button id="cmtFollow" type="button" title="Kommentar folgt dem Lesen: zeigt beim Scrollen immer den Vers oben im Text">⇣<span class="cl"> Folgen</span></button>
@@ -321,14 +321,14 @@
 
   <aside id="linkPanel" hidden>
     <div id="lkHead">
-      <div class="lhead"><b id="lkTitle">Verknüpfungen</b><button id="lkClose" title="Schließen">✕</button></div>
+      <div class="lhead"><b id="lkTitle">Verknüpfungen</b><button id="lkWhole" class="wholeBtn" type="button" hidden></button><button id="lkClose" title="Schließen">✕</button></div>
       <input id="lkFilter" placeholder="Filtern (z. B. Rashi, Midrash) …">
     </div>
     <div id="lkBody"></div>
   </aside>
 
   <aside id="allPanel" hidden>
-    <div class="lhead"><b id="apTitle">Alles zu dieser Stelle</b><button id="apWhole" type="button" hidden></button><button id="apClose" title="Schließen (Esc)">✕</button></div>
+    <div class="lhead"><b id="apTitle">Alles zu dieser Stelle</b><button id="apWhole" class="wholeBtn" type="button" hidden></button><button id="apClose" title="Schließen (Esc)">✕</button></div>
     <div id="apNav"></div>
     <div id="apBody"></div>
   </aside>
