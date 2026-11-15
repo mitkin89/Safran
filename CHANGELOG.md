@@ -1,7 +1,7 @@
 # Changelog
 
 ### New in 2.4.0
-- **Overview, „Talmud & Midrasch“:** the list is now divided into collapsible groups (closed when the list is long): Mishnah, Babylonian Talmud, Jerusalem Talmud, Tosefta, Midrash Rabbah, halakhic Midrashim, other Midrashim, minor tractates, other works – each with its count.
+- **Overview, „Talmud & Midrasch“:** the list is now divided into groups with a short heading, two entries each and „more“ for the rest: Mishnah, Babylonian Talmud, Jerusalem Talmud, Tosefta, Midrash Rabbah, halakhic Midrashim, other Midrashim, minor tractates, other works – each with its count.
 - **Find in text (Cmd/Ctrl+F)** also searches the open side panel „All about this passage“.
 - **Statistics box (first box) in „All about this passage“:** for every Tanakh chapter (and for a verse, then still for its chapter) the overview shows the number of words, verses and lemmas and the share of core vocabulary, with a switch between *Key words* (much more frequent here than in the rest of the Tanakh, with „n of N in the Tanakh“ and „almost only here“, e.g. מול in Genesis 17), *Vocabulary* (the chapter's words by frequency tier from „only once“ to „over 500×“, words that occur only in this book, button to copy the vocabulary list for the class), *Verbs* (verb stems and most frequent verbs) and *Names*; every word opens its word card.
 - **Qumran: Pesharim:** the quoted lemmata of Pesher Habakkuk (1QpHab) and Pesher Isaiah (4Q163) are matched to the verses of the commented book (word sequences of 4+ words); links in both directions (generator: `tools/dss/pesher.py`).

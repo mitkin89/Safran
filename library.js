@@ -6332,8 +6332,8 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
     const rest = items.slice(cap, 200);
     return items.slice(0, cap).join('') + `<div class="apMore" hidden>${rest.join('')}${items.length > 200 ? `<div class="muted ent">… ${esc(I18N.t('{} weitere (alle anzeigen)', (items.length - 200).toLocaleString(I18N.loc)))}</div>` : ''}</div><button type="button" class="apMoreB" data-n="${items.length - cap}">${esc(I18N.t('+ {} weitere', (items.length - cap).toLocaleString(I18N.loc)))}</button>`;
   };
-  // Fach mit Werkgruppen: je Gruppe eine Überschrift mit Zähler, die ersten Einträge offen, der Rest klappt auf
-  const apGrouped = items => { const few = items.length <= 8; return window.Passage.RGROUPS.map(g => { const xs = items.filter((_, i) => items.grp[i] === g); return xs.length ? `<details class="apGrp"${few ? ' open' : ''}><summary>${esc(I18N.t(g))} <small>${xs.length.toLocaleString(I18N.loc)}</small></summary>${apList(xs, 6)}</details>` : ''; }).join(''); };
+  // Fach mit Werkgruppen: je Gruppe eine Überschrift mit Zähler, die ersten zwei Einträge sichtbar, der Rest klappt mit „weitere“ auf
+  const apGrouped = items => window.Passage.RGROUPS.map(g => { const xs = items.filter((_, i) => items.grp[i] === g); return xs.length ? `<h5 class="apGrp">${esc(I18N.t(g))} <small>${xs.length.toLocaleString(I18N.loc)}</small></h5>${apList(xs, 2)}` : ''; }).join('');
   function apRender() {
     if (!AP.open) return;
     const P = window.Passage, token = ++AP.token, body = $('#apBody'), nav = $('#apNav');
