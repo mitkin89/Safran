@@ -858,9 +858,11 @@ async function ownCommentaryLinks(book, chap) {
   const lib = await getLibrary();
   const seen = new Set(), out = [];
   for (const e of lib.list()) {
-    if (!e.own) continue;
+    // Sefarias Tosefta-Kommentar „Tosefta Kifshutah on Shabbat“ gehört zu „Tosefta Shabbat“ (Sefaria verknüpft ihn nur mit anderen Texten, nicht mit der Tosefta selbst); Kapitel und Halacha stimmen überein
+    const kif = /^Tosefta Kifshutah on (.+)$/.exec(e.title);
+    if (!e.own && !(kif && 'Tosefta ' + kif[1] === book)) continue;
     const m = /^(.+?) on (.+)$/.exec(e.title);
-    if (!m || m[2] !== book || seen.has(e.title)) continue;
+    if (!m || (m[2] !== book && !(kif && 'Tosefta ' + kif[1] === book)) || seen.has(e.title)) continue;
     seen.add(e.title);
     let d = readCache.get(e.rel);
     if (!d) { try { d = await lib.read(e.rel); } catch { continue; } readCache.set(e.rel, d); if (readCache.size > 12) readCache.delete(readCache.keys().next().value); }
@@ -921,10 +923,33 @@ async function fillCommentaryGaps(book, chap, base) {
   }
   return out.concat(add);
 }
+// Gegenrichtung: beim Lesen von „Tosefta Kifshutah on X“ führt jede Halacha zu „Tosefta X“ (gleiche Kapitel- und Halachazählung)
+async function kifshutahToTosefta(book, chap) {
+  const m = /^Tosefta Kifshutah on (.+)$/.exec(book);
+  if (!m || !/^\d+$/.test(String(chap))) return [];
+  const lib = await getLibrary();
+  const tos = lib.list().some(x => x.title === 'Tosefta ' + m[1]);
+  if (!tos) return [];
+  const out = [];
+  for (const e of lib.list().filter(x => x.title === book)) {
+    let d = readCache.get(e.rel);
+    if (!d) { try { d = await lib.read(e.rel); } catch { continue; } readCache.set(e.rel, d); if (readCache.size > 12) readCache.delete(readCache.keys().next().value); }
+    const arr = d && (Array.isArray(d.text) ? d.text : (d.text && Array.isArray(d.text['']) ? d.text[''] : null));
+    const node = arr && arr[parseInt(chap, 10) - 1];
+    if (!Array.isArray(node)) continue;
+    node.forEach((v, j) => {
+      if (Array.isArray(v) ? v.some(x => String(x || '').trim()) : String(v || '').trim()) out.push({ v1: j + 1, v2: j + 1, other: `Tosefta ${m[1]} ${chap}:${j + 1}`, type: 'reference', cat: 'Tosefta' });
+    });
+    if (out.length) break;
+  }
+  return out;
+}
 ipcMain.handle('links:section', async (_e, book, chap) => {
   let base = await (await getLinks()).forSection(book, chap);
   try { base = await fillCommentaryGaps(book, chap, base); } catch { /* Ergänzung ist nur ein Zusatz */ }
-  try { return base.concat(await ownCommentaryLinks(book, chap)); } catch { return base; }
+  try { base = base.concat(await ownCommentaryLinks(book, chap)); } catch { /* Zusatz */ }
+  try { base = base.concat(await kifshutahToTosefta(book, chap)); } catch { /* Zusatz */ }
+  return base;
 });
 // Mischna ↔ Talmud: mitgelieferte Zuordnung (aus Sefarias „mishnah in talmud“), für den Sprung an der Mischna bzw. im Daf – auch ohne heruntergeladene Verknüpfungen
 let mishTalP = null;
