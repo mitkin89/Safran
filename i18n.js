@@ -123,6 +123,8 @@
     'Alles zu dieser Stelle': 'Everything on this passage',
     'Alles zu dieser Stelle: Kommentare, Parallelstellen, Orte, Themen und Notizen zum ganzen Kapitel – ein Klick auf eine Versnummer zeigt nur diesen Vers (Cmd+I)': 'Everything on this passage: commentaries, parallels, places, topics and notes for the whole chapter – click a verse number to see just that verse (Cmd+I)',
     'ganzes Kapitel': 'whole chapter',
+    'Im Wörterbuch öffnen': 'Open in the dictionary',
+    'nur auf sefaria.org': 'only on sefaria.org',
     'ganze Seite': 'whole page',
     'Ganzes Kapitel': 'Whole chapter',
     'Ganze Seite': 'Whole page',

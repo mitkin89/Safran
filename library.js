@@ -1971,6 +1971,68 @@
     const chapTitle = c ? c.t : '';
     return { vol, chap, par, parText, chapTitle, sub, short: `${vol}:${chap}:${par}`, full: `Band ${vol} Volume ${vol} ${chapTitle} ${sub}` };
   }
+  // ----- Wörterbücher im Verknüpfungs-Fenster (Gruppe „Reference“) -----
+  // Sefarias Wörterbuch-Verknüpfungen („Jastrow, אָב I 1“, „BDB Dictionary, …“, „Klein Dictionary, …“) gehen ins eingebundene Wörterbuch,
+  // wenn es dasselbe gibt, sonst nach sefaria.org; dazu kommen die Zitate aus Safrans eigenen Wörterbüchern (Hamburger, Krauss, BDB, Gesenius, Jastrow …).
+  const DICT_REF = /^([^,]+),\s*(.*[֐-׿].*?)(?:\s+\d+)?$/;
+  function dictRefOf(x) {
+    if (String(x.cat || '').toLowerCase() !== 'reference') return null;
+    const m = String(x.other).replace(/-.*$/, '').match(DICT_REF); if (!m) return null;
+    const head = m[2].replace(/\s+[IVX]+$/, '').replace(/\s+\d+$/, '').trim();
+    return head ? { src: m[1].trim(), head } : null;
+  }
+  let lkDicts = null; // eingebundene Wörterbücher [{ id, name }]
+  const lkDictsLoad = () => { if (lkDicts === null) { lkDicts = []; O.dictList().then(r => { lkDicts = (r && r.list) || []; if (!$('#linkPanel').hidden) renderLinkPanel(); apSoon(); }).catch(() => {}); } return lkDicts; };
+  const localDictFor = src => { const k = String(src).toLowerCase().split(/[\s,–-]+/)[0]; return k ? (lkDicts || []).find(d => String(d.name).toLowerCase().split(/[\s,–-]+/)[0] === k) || null : null; };
+  const lkCites = new Map(); // „Buch|Kapitel|Vers“ -> Liste aus dictCites (null = wird geladen)
+  const secChapOf = s => { // wie apChap: „3“, „2a“ oder „1:2“
+    if (!s || !s.label || !s.path) return null; const first = s.label.split(' › ')[0];
+    let m = s.path.length === 1 && !s.label.includes('›') && first.match(/(\d+[ab]?)$/i);
+    if (!m && s.path.length === 2 && s.path.every(x => typeof x === 'number')) m = [null, (s.path[0] + 1) + ':' + (s.path[1] + 1)];
+    return m ? m[1] : null;
+  };
+  async function openDictIn(q, only) { // Stichwort in einem bestimmten Wörterbuch öffnen
+    if (q) setDictSrc(captureDictSrc(q));
+    if (!dictOpen) toggleDict(true); else renderDictList();
+    setStackActive('dict');
+    if (q) dictLookup(q, only || null);
+  }
+  function lkDictBlock(dictRows, f, open) { // -> { html, n } für die Gruppe „Reference“
+    lkDictsLoad();
+    const by = new Map(); // Wörterbuch -> { name, id, local, items: Map(Stichwort -> { exact, sef, url }) }
+    const put = (key, o, head, info) => { if (!by.has(key)) by.set(key, Object.assign({ items: new Map() }, o)); const it = by.get(key).items; const h = it.get(head); if (h) { h.exact = h.exact || info.exact; h.sef = h.sef || info.sef; } else it.set(head, info); };
+    // eigene Wörterbücher
+    const s = view && view.sections && view.sections[view.idx], chap = secChapOf(s), title = view && view.group && view.group.title;
+    if (title && chap && !view.sres) {
+      const key = title + '|' + chap + '|' + (lkVerse == null ? 0 : lkVerse);
+      if (!lkCites.has(key)) {
+        lkCites.set(key, null);
+        O.dictCites(title, chap, lkVerse == null ? 0 : lkVerse).then(r => { lkCites.set(key, (r && r.list) || []); if (lkCites.size > 60) lkCites.delete(lkCites.keys().next().value); if (!$('#linkPanel').hidden) renderLinkPanel(); }).catch(() => lkCites.set(key, []));
+      }
+      for (const x of lkCites.get(key) || []) put('d:' + x.dictId, { name: x.dict, id: x.dictId, local: true }, x.head, { exact: x.exact, sef: false });
+    }
+    // Sefarias Wörterbuch-Verknüpfungen
+    for (const { x, d } of dictRows) {
+      const loc = localDictFor(d.src);
+      if (loc) put('d:' + loc.id, { name: loc.name, id: loc.id, local: true }, d.head, { exact: x.v1 > 0, sef: true });
+      else put('s:' + d.src, { name: d.src, local: false }, d.head, { exact: x.v1 > 0, sef: true, url: sefariaUrl(String(x.other).replace(/-.*$/, '')) });
+    }
+    let n = 0;
+    const html = [...by.values()].sort((a, b) => (b.local - a.local) || a.name.localeCompare(b.name)).map(d => {
+      let items = [...d.items.entries()].sort((a, b) => (b[1].exact - a[1].exact));
+      if (f) items = items.filter(([h]) => (d.name + ' ' + h + ' reference wörterbuch dictionary').toLowerCase().includes(f));
+      if (!items.length) return '';
+      n += items.length;
+      const ents = items.slice(0, 300).map(([h, i]) => {
+        const tag = [i.exact ? '' : I18N.t(/[ab]$/i.test(chap || '') ? 'ganze Seite' : 'ganzes Kapitel'), i.sef && d.local ? 'Sefaria' : ''].filter(Boolean).join(' · ');
+        return d.local
+          ? `<div class="ent"><a class="lkDict" data-did="${esc(d.id)}" data-dn="${esc(d.name)}" data-q="${esc(h)}" dir="auto" title="${esc(I18N.t('Im Wörterbuch öffnen'))}">${esc(h)}</a>${tag ? ` <small class="muted">${esc(tag)}</small>` : ''}</div>`
+          : `<div class="ent"><a class="lkSef" data-url="${esc(i.url)}" dir="auto" title="${esc(I18N.t('Auf sefaria.org öffnen'))}">${esc(h)} ↗</a></div>`;
+      }).join('');
+      return `<details ${f ? 'open' : ''}><summary>📖 ${esc(d.name)} (${items.length})${d.local ? '' : ` <span class="muted">· ${esc(I18N.t('nur auf sefaria.org'))}</span>`}</summary>${ents}</details>`;
+    }).join('');
+    return { html, n };
+  }
   function renderLinkPanel() {
     if (!view) return;
     const virt = view.sres ? cmtVirt : null;
@@ -2004,8 +2066,10 @@
         `<details${f || chaps.size === 1 ? ' open' : ''}><summary>${esc(I18N.t('Band {}', L.vol))} · ${esc(L.chapTitle || I18N.t('Kapitel {}', L.chap))} (${xs.length})</summary>${xs.sort((a, b) => a.L.par - b.L.par).slice(0, 300).map(({ x, L: e }) =>
           `<div class="ent${isLocal ? '' : ' off'}"><a data-ref="${esc(x.other)}">${e.sub ? esc(e.sub) + ' · ' : ''}${esc(I18N.t('Abs. {}', e.parText))}</a>${isLocal ? ` <button data-pv="${esc(x.other)}" title="Vorschau">▸</button>` : ''} <small class="muted">${esc(e.short)}</small></div>`).join('')}</details>`).join('')}</details>`;
     }
+    const dictRows = [];
     for (const x of list) {
       if (legs.length && x.other.startsWith(LEG + ' ') && legs.includes(x)) continue;
+      { const d = dictRefOf(x); if (d) { dictRows.push({ x, d }); continue; } } // Wörterbücher: eigener Block in „Reference“
       const c = x.cat || 'Andere';
       if (!cats.has(c)) cats.set(c, new Map());
       const bk = splitOther(x.other);
@@ -2021,10 +2085,25 @@
           `<div class="ent${local.has(bk) ? '' : ' off'}"><a data-ref="${esc(x.other)}">${esc(x.other)}</a>${local.has(bk) ? ` <button data-pv="${esc(x.other)}" title="Vorschau">▸</button>` : ''}${x.type ? ` <small class="muted">${esc(x.type)}</small>` : ''}</div>`).join('')}${xs.length > 300 ? `<div class="muted ent">… ${xs.length - 300} weitere (Filter benutzen)</div>` : ''}</details>`).join('')}</details>`];
     });
     if (legHtml) { const ti = catHtml.findIndex(e => String(e[0]).toLowerCase() === 'tanakh'); catHtml.splice(ti + 1, 0, ['', legHtml]); } // direkt nach dem Tanach, sonst ganz oben
+    { // Wörterbücher (eigene und Sefarias) oben in die Gruppe „Reference“, die es sonst neu gibt
+      const db = lkDictBlock(dictRows, f, open);
+      if (db.n) {
+        const ri = catHtml.findIndex(e => String(e[0]).toLowerCase() === 'reference');
+        if (ri >= 0) catHtml[ri][1] = catHtml[ri][1].replace(/^(<details [^>]*><summary>)Reference \((\d+)\)(<\/summary>)/, (m, a, k, b) => `${a}Reference (${+k + db.n})${b}${db.html}`);
+        else {
+          const item = ['Reference', `<details ${open} data-c="reference"><summary>Reference (${db.n})</summary>${db.html}</details>`];
+          const order = SefOrder.sortCats(catHtml.map(e => e[0]).filter(Boolean).concat('Reference'), '');
+          const at = catHtml.findIndex(e => e[0] && order.indexOf(e[0]) > order.indexOf('Reference'));
+          if (at < 0) catHtml.push(item); else catHtml.splice(at, 0, item);
+        }
+      }
+    }
     $('#lkBody').innerHTML = catHtml.map(e => e[1]).join('') || '<p class="muted">Keine Verknüpfungen.</p>';
     $('#linkPanel').hidden = false;
   }
   $('#lkBody').addEventListener('click', async e => {
+    const dl = e.target.closest('a.lkDict'); if (dl) { e.preventDefault(); openDictIn(dl.dataset.q, { id: dl.dataset.did, name: dl.dataset.dn }); return; }
+    const sf = e.target.closest('a.lkSef'); if (sf) { e.preventDefault(); window.api.openExternal(sf.dataset.url); return; }
     const a = e.target.closest('a[data-ref]');
     if (a) {
       if (a.parentElement.classList.contains('off')) return;
@@ -6218,7 +6297,12 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
     }
     boxes.rabbinic = sortL(cl.rabbinic).map(x => ent(x, '', vTag(x)));
     boxes.halakhah = sortL(cl.halakhah).map(x => ent(x, '', vTag(x)));
-    boxes.other = sortL(cl.other).map(x => ent(x, '', [vTag(x), x.cat && x.cat !== 'Andere' ? x.cat : ''].filter(Boolean).join(' · ')));
+    lkDictsLoad();
+    boxes.other = sortL(cl.other).map(x => { // Sefarias Wörterbuch-Verknüpfungen: ins eingebundene Wörterbuch, sonst nach sefaria.org
+      const d = dictRefOf(x);
+      if (d) { const loc = localDictFor(d.src); return loc ? `<div class="ent"><a class="lkDict" data-did="${esc(loc.id)}" data-dn="${esc(loc.name)}" data-q="${esc(d.head)}" dir="auto">${esc(d.head)}</a> <small class="muted">${esc(loc.name)}</small></div>` : `<div class="ent"><a class="lkSef" data-url="${esc(sefariaUrl(String(x.other).replace(/-.*$/, '')))}" dir="auto">${esc(d.head)} ↗</a> <small class="muted">${esc(d.src)} · ${esc(I18N.t('nur auf sefaria.org'))}</small></div>`; }
+      return ent(x, '', [vTag(x), x.cat && x.cat !== 'Andere' ? x.cat : ''].filter(Boolean).join(' · '));
+    });
     { // Mischna ↔ Talmud: mitgelieferte Zuordnung und Sefarias „mishnah in talmud“
       const isM = /^Mishnah /.test(title), refs = [];
       const add = r => { if (r && !refs.some(q => q.replace(/-.*$/, '') === r.replace(/-.*$/, ''))) refs.push(r); };
@@ -6304,6 +6388,8 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
   $('#apWhole').onclick = () => { AP.whole = true; apRender(); };
   $('#apNav').addEventListener('click', e => { const b = e.target.closest('button[data-b]'); const box = b && $(`#apBody .apBox[data-b="${b.dataset.b}"]`); if (box && !box.hidden) box.scrollIntoView({ block: 'start', behavior: 'smooth' }); });
   $('#apBody').addEventListener('click', async e => {
+    const dl = e.target.closest('a.lkDict'); if (dl) { e.preventDefault(); openDictIn(dl.dataset.q, { id: dl.dataset.did, name: dl.dataset.dn }); return; }
+    const sf = e.target.closest('a.lkSef'); if (sf) { e.preventDefault(); window.api.openExternal(sf.dataset.url); return; }
     const all = e.target.closest('.apAll'); if (all) { hovApi && hovApi.hide(); apShowAll(all.dataset.b); return; }
     const mb = e.target.closest('.apMoreB'); if (mb) { const m = mb.previousElementSibling; m.hidden = !m.hidden; mb.textContent = m.hidden ? I18N.t('+ {} weitere', (+mb.dataset.n).toLocaleString(I18N.loc)) : I18N.t('weniger'); return; }
     const w = e.target.closest('.apW'); if (w) { openForms(w.dataset.lemma, { lemma: w.dataset.lemma, word: w.dataset.word, m: w.dataset.m, l: w.dataset.l }, 'card'); return; }
