@@ -29,7 +29,7 @@ assert.strictEqual(D.books.length, 39);
 assert(Object.keys(D.lem).length > 8000);
 const sec = (m, title) => m.sections.find(s => s.title === title);
 const blk = (s, title) => s.blocks.find(b => b.title === title);
-const row = (t, label) => t.rows.find(r => r.label === label);
+const row = (t, label) => t.rows.find(r => r.label === label || r.label.startsWith(label + ' – '));
 const fs0 = cell => cell.map(x => x.f);
 
 for (const [lemma, form] of [['559', 'אָמַר'], ['3789', 'כָּתַב']]) {
@@ -45,7 +45,7 @@ for (const [lemma, form] of [['559', 'אָמַר'], ['3789', 'כָּתַב']]) {
   assert.deepStrictEqual(m.sections.map(s => s.title).slice(0, 2), ['Qal', 'Nif‘al']);
   assert.deepStrictEqual(q.blocks.map(b => b.title).slice(0, 4), ['Perfekt', 'Perfekt consecutivum (wᵉqatal)', 'Imperfekt', 'Imperfekt consecutivum (wajjiqtol)']);
   assert(fs0(row(blk(q, 'Perfekt').tables[0], '1. c. Sg.').cells[0]).includes('אָמַרְתִּי'));
-  assert.deepStrictEqual(blk(q, 'Perfekt').tables[0].rows.map(r => r.label).slice(0, 5), ['3. m. Sg.', '3. f. Sg.', '2. m. Sg.', '2. f. Sg.', '1. c. Sg.']);
+  assert.deepStrictEqual(blk(q, 'Perfekt').tables[0].rows.map(r => r.label).slice(0, 5), ['1. c. Sg. – ich', '2. m. Sg. – du', '2. f. Sg. – du', '3. m. Sg. – er', '3. f. Sg. – sie']);
   assert.strictEqual(row(blk(q, 'Imperfekt consecutivum (wajjiqtol)').tables[0], '3. m. Sg.').cells[0][0].f, 'וַיֹּאמֶר');
   const pt = blk(q, 'Partizip aktiv').tables[0];
   assert(pt.cols.includes('st. abs.')); assert(fs0(row(pt, 'm. Sg.').cells[0]).includes('אֹמֵר'));
@@ -73,7 +73,7 @@ for (const [lemma, form] of [['559', 'אָמַר'], ['3789', 'כָּתַב']]) {
 }
 { // Aramäisch getrennt vom Hebräischen; Pronomen als einfache Liste
   assert(sec(F.model(D, '560'), 'Pe‘al (aramäisch)'));
-  assert(F.model(D, '1931').sections[0].blocks[0].tables[0].rows.some(r => r.label === '3. m. Sg.'));
+  assert(F.model(D, '1931').sections[0].blocks[0].tables[0].rows.some(r => r.label.startsWith('3. m. Sg.')));
   assert.strictEqual(F.model(D, 'gibt es nicht'), null);
 }
 // Der Index ist auf dem Stand der mitgelieferten Westminster-Texte (sonst: node tools/oshb/forms.js)

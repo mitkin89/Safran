@@ -121,15 +121,28 @@
   const TENSE_ORDER = 'pqiwjhvcars';
   const TENSE = { p: 'Perfekt', q: 'Perfekt consecutivum (wᵉqatal)', i: 'Imperfekt', w: 'Imperfekt consecutivum (wajjiqtol)', j: 'Jussiv', h: 'Kohortativ', v: 'Imperativ', c: 'Infinitivus constructus', a: 'Infinitivus absolutus', r: 'Partizip aktiv', s: 'Partizip passiv' };
   const ord = (s, c) => { const i = s.indexOf(c); return i < 0 ? 99 : i; };
-  // Person/Genus/Numerus: Reihenfolge Sg. → Du. → Pl., darin 3. → 2. → 1. Person, m. vor f.
-  const pgnRank = x => ord('sdpx', x[2] || 'x') * 100 + ord('321x', x[0] || 'x') * 10 + ord('mfcbx', x[1] || 'x');
+  // Person/Genus/Numerus: Reihenfolge Sg. → Du. → Pl., darin 1. → 2. → 3. Person (wie in deutschen Lehrbüchern), m. vor f.
+  const pgnRank = x => ord('sdpx', x[2] || 'x') * 100 + ord('123x', x[0] || 'x') * 10 + ord('mfcbx', x[1] || 'x');
+  // ausgeschriebenes Personalpronomen zur Zeile (Verbformen): ich, du, er, sie …
+  const PRON = {
+    de: { '1s': 'ich', '2ms': 'du', '2fs': 'du', '2s': 'du', '3ms': 'er', '3fs': 'sie', '3s': 'er/sie', '1p': 'wir', '2mp': 'ihr', '2fp': 'ihr', '2p': 'ihr', '3mp': 'sie', '3fp': 'sie', '3p': 'sie' },
+    en: { '1s': 'I', '2ms': 'you', '2fs': 'you', '2s': 'you', '3ms': 'he', '3fs': 'she', '3s': 'he/she', '1p': 'we', '2mp': 'you', '2fp': 'you', '2p': 'you', '3mp': 'they', '3fp': 'they', '3p': 'they' },
+    he: { '1s': 'אני', '2ms': 'אתה', '2fs': 'את', '2s': 'אתה/את', '3ms': 'הוא', '3fs': 'היא', '3s': 'הוא/היא', '1p': 'אנחנו', '2mp': 'אתם', '2fp': 'אתן', '2p': 'אתם/אתן', '3mp': 'הם', '3fp': 'הן', '3p': 'הם/הן' }
+  };
+  const uiLang = () => { try { return (typeof I18N !== 'undefined' && I18N.lang) || 'de'; } catch { return 'de'; } };
+  const pron = x => {
+    if (!/[123]/.test(x[0] || '') || !/[sdp]/.test(x[2] || '')) return '';
+    const P = PRON[uiLang()] || PRON.de, n = x[2] === 'd' ? 'p' : x[2];
+    return x[0] === '1' ? P['1' + n] : (/[mf]/.test(x[1]) ? P[x[0] + x[1] + n] : P[x[0] + n]) || '';
+  };
   const gnRank = x => ord('sdpx', x[1] || 'x') * 10 + ord('mfcbx', x[0] || 'x');
   const G = { m: 'm.', f: 'f.', c: 'c.', b: 'm./f.' }, N = { s: 'Sg.', d: 'Du.', p: 'Pl.' };
   const join = a => a.filter(Boolean).join(' ');
   function mkLabels(t) {
     const pgn = x => join([/[123]/.test(x[0]) ? x[0] + '.' : '', t(G[x[1]] || ''), t(N[x[2]] || '')]) || '–';
+    const pgnP = x => { const p = pron(x), l = pgn(x); return p ? l + ' – ' + p : l; }; // Verbzeilen mit Pronomen
     const gn = x => join([t(G[x[0]] || ''), t(N[x[1]] || '')]) || '–';
-    return { pgn, gn, suf: s => (s === 'Sd' ? t('He locale') : s === 'Sh' ? t('He paragogicum') : s === 'Sn' ? t('Nun paragogicum') : pgn(s.slice(2))) };
+    return { pgn, pgnP, gn, suf: s => (s === 'Sd' ? t('He locale') : s === 'Sh' ? t('He paragogicum') : s === 'Sn' ? t('Nun paragogicum') : pgn(s.slice(2))) };
   }
 
   function model(data, lemma, t = s => s) {
@@ -199,9 +212,9 @@
         } else {
           const plain = a.filter(x => !x.suf.startsWith('Sp')), sx = a.filter(x => x.suf.startsWith('Sp'));
           tables = [];
-          if (plain.length) tables.push(rowsTable(plain, x => x.code.slice(3, 6), pgnRank, L.pgn));
+          if (plain.length) tables.push(rowsTable(plain, x => x.code.slice(3, 6), pgnRank, L.pgnP));
           if (sx.length) {
-            const tb = rowsTable(sx, x => x.code.slice(3, 6) + '+' + x.suf.slice(2), k => pgnRank(k.slice(0, 3)) * 1000 + pgnRank(k.slice(4)), k => L.pgn(k.slice(0, 3)) + ' + ' + L.pgn(k.slice(4)), t('mit Objektsuffix'));
+            const tb = rowsTable(sx, x => x.code.slice(3, 6) + '+' + x.suf.slice(2), k => pgnRank(k.slice(0, 3)) * 1000 + pgnRank(k.slice(4)), k => L.pgnP(k.slice(0, 3)) + ' + ' + L.pgn(k.slice(4)), t('mit Objektsuffix'));
             tb.fold = true; tables.push(tb);
           }
         }
