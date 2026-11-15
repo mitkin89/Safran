@@ -7,6 +7,7 @@ const R = require('./reader');
 const S = require('./search');
 const SefOrder = require('./order');
 const Morph = require('./morph');
+const GMorph = require('./gmorph');
 
 // Strong-Nummer -> Lemma (nur bei der Lemma-Suche geladen; die Datei ist für die Oberfläche geschrieben: window.OSHB_LEMMAS=…)
 let lemmaTable = null;
@@ -33,9 +34,31 @@ function wlcTokens(str) {
   return forms.length ? { n: forms.join(' '), nl: lems.join(' ') } : null;
 }
 
+// ---------- Septuaginta: Lemma-Suche über die Morphologie (lxx-morph.js, nur bei der Lemma-Suche geladen) ----------
+let lxxData; // undefined = noch nicht versucht, null = nicht vorhanden
+function lxx() {
+  if (lxxData === undefined) {
+    const w = {};
+    try { const f = path.join(__dirname, 'lxx-morph.js'); new Function('window', require('fs').readFileSync(f, 'utf8'))(w); lxxData = w.LXX_MORPH || null; if (lxxData) lxxData.stamp = require('fs').statSync(f).size.toString(36); } catch { lxxData = null; }
+  }
+  return lxxData;
+}
+// griechische Fassung, deren Wörter im Index bestimmt sind (CATSS-Fassungen, Rahlfs-Texte)
+const isLxx = e => e.kind === 'other' && /^Septuaginta \(/.test(e.versionTitle || '') && !!lxx() && GMorph.hasBook(lxx(), e.title, e.versionTitle);
+// ein Vers (Pfad [Kapitel, Vers]) -> zwei gleich lange Wortlisten: Wortformen und Lemmata
+function lxxTokens(bi, str, p) {
+  const ws = GMorph.words(str); if (!ws.length) return null;
+  const one = w => w.normalize('NFC').replace(/[^\p{L}]/gu, '').toLowerCase();
+  const toks = p.length === 2 && Number.isInteger(p[0]) && Number.isInteger(p[1]) ? GMorph.verse(lxx(), bi, p[0] + 1, p[1] + 1) : null;
+  const forms = ws.map(one), ok = toks && toks.length === ws.length;
+  const lems = forms.map((f, i) => (ok && toks[i] ? one(GMorph.info(lxx(), toks[i].id).lemma) || f : f));
+  return { n: forms.map(f => f || '-').join(' '), nl: lems.map(f => f || '-').join(' ') };
+}
+
 // ---------- Such-Cache: normalisierte Zeilen pro Datei, damit nicht jede Suche alles neu parst und normalisiert ----------
 // <cacheDir>/<hash>.n  = normalisierte Textzeilen (eine pro Segment, in Reihenfolge von walkStrings), mit \n getrennt
-// <cacheDir>/<hash>.wn / .wl = nur Westminster: Wortformen bzw. Lemmata je Segment (leer, wenn das Segment keine Wörter hat)
+// <cacheDir>/<hash>.wn / .wl = nur Westminster: Wortformen bzw. Lemmata je Segment (leer, wenn das Segment keine Wörter hat);
+//   für Septuaginta-Fassungen dasselbe als <hash>.g<Stand des Index>.wn / .wl (erst bei der ersten Lemma-Suche gebaut)
 // Der Dateiname enthält Größe und Änderungszeit der Quelldatei; ändert sich die Datei, wird neu gebaut.
 const CACHE_V = 1;
 const crypto = require('crypto');
@@ -44,21 +67,23 @@ async function loadSource(dir, e, cacheDir, wantW) {
   let st = null;
   try { st = await fs.stat(file); } catch { return null; }
   let base = null;
+  const gx = wantW && !isWlc(e) && isLxx(e) ? GMorph.bookIndex(lxx(), e.title, e.versionTitle) : -1; // Septuaginta-Fassung: Wortlisten nur auf Wunsch
+  const wx = gx >= 0 ? '.g' + lxx().stamp : '';
   if (cacheDir) {
     base = path.join(cacheDir, crypto.createHash('sha1').update(e.rel).digest('hex').slice(0, 20) + `-${CACHE_V}-${st.size}-${Math.floor(st.mtimeMs)}`);
     try {
       const n = await fs.readFile(base + '.n', 'utf8');
       if (!wantW) return { n, wn: null, wl: null, d: null, paths: null };
-      const [wn, wl] = await Promise.all([fs.readFile(base + '.wn', 'utf8'), fs.readFile(base + '.wl', 'utf8')]);
+      const [wn, wl] = await Promise.all([fs.readFile(base + wx + '.wn', 'utf8'), fs.readFile(base + wx + '.wl', 'utf8')]);
       return { n, wn, wl, d: null, paths: null };
     } catch { /* kein (vollständiger) Cache: neu bauen */ }
   }
   const d = JSON.parse(await fs.readFile(file, 'utf8'));
   const N = [], WN = [], WL = [], paths = [];
-  const w = isWlc(e) && (wantW || cacheDir);
+  const w = gx >= 0 || (isWlc(e) && (wantW || cacheDir));
   R.walkStrings(d.text, [], (str, p) => {
     paths.push(p); N.push(R.normalize(str));
-    if (w) { const wt = wlcTokens(str); WN.push(wt ? wt.n : ''); WL.push(wt ? wt.nl : ''); }
+    if (w) { const wt = gx >= 0 ? lxxTokens(gx, str, p) : wlcTokens(str); WN.push(wt ? wt.n : ''); WL.push(wt ? wt.nl : ''); }
   });
   const out = { n: N.join('\n'), wn: w ? WN.join('\n') : null, wl: w ? WL.join('\n') : null, d, paths };
   if (cacheDir) {
@@ -67,7 +92,7 @@ async function loadSource(dir, e, cacheDir, wantW) {
       const pre = path.basename(base).split('-')[0] + '-';
       for (const f of await fs.readdir(cacheDir)) if (f.startsWith(pre) && !f.startsWith(path.basename(base) + '.')) fs.unlink(path.join(cacheDir, f)).catch(() => {}); // alte Stände derselben Datei
       const tmp = base + '.tmp' + process.pid + Math.random().toString(36).slice(2);
-      if (w) { await fs.writeFile(base + '.wn', out.wn); await fs.writeFile(base + '.wl', out.wl); }
+      if (w) { await fs.writeFile(base + wx + '.wn', out.wn); await fs.writeFile(base + wx + '.wl', out.wl); }
       await fs.writeFile(tmp, out.n); await fs.rename(tmp, base + '.n'); // .n zuletzt: es gilt als „Cache fertig“
     } catch { /* Cache ist nur Beschleunigung */ }
   }
@@ -191,7 +216,7 @@ async function searchFiles({ dir, entries, params, cacheDir = null, onProgress =
       if (truncated) break;
       await new Promise(r => setImmediate(r)); continue;
     }
-    const needW = !!(lemMatcher && isWlc(e));
+    const needW = !!(lemMatcher && (isWlc(e) || isLxx(e)));
     try { src = await loadSource(dir, e, cacheDir, needW); } catch { /* Datei überspringen */ }
     if (src && !(!matcher && !needW && !src.n.includes(q))) { // einfache Suche: Datei ohne den Suchtext sofort überspringen
       let locator = null, shown = 0, hits = 0, occ = 0;
@@ -204,7 +229,7 @@ async function searchFiles({ dir, entries, params, cacheDir = null, onProgress =
         let n = N[i];
         let mm = null, pos = -1;
         const wt = needW && WN[i] ? { n: WN[i], nl: WL[i] } : null;
-        if (wt) { // Lemma-Suche: gefunden wird die Wortform oder jede Form desselben Lemmas; markiert wird die Wortform im Text
+        if (wt) { // Lemma-Suche (Westminster, Septuaginta): gefunden wird die Wortform oder jede Form desselben Lemmas; markiert wird die Wortform im Text
           n = wt.n;
           mm = lemMatcher(wt.n);
           if (!mm) { const ml = lemMatcher(wt.nl); if (ml) mm = { idx: ml.idx, toks: [...wt.n.matchAll(/[\p{L}\p{N}]+/gu)].map(m => ({ w: m[0], s: m.index, e: m.index + m[0].length })) }; }
