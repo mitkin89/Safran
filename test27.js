@@ -9,6 +9,7 @@ eq('Baba bathra 133 b; Kiddusch. 40a', ['Bava Batra 133b', 'Kiddushin 40a']);
 eq('Bab. mez. 96 a und Sota 49 a, Men. 10a, Rosch Hasch. 17 a', ['Bava Metzia 96a', 'Sotah 49a', 'Menachot 10a', 'Rosh Hashanah 17a']);
 eq('Jos. Ant. IV, 1, 1 und B. J. VI 3, 4 ff.; c. Ap. II, 24; Ant. 14. 9. 4', ['The Antiquities of the Jews 4:1:1', 'The War of the Jews 6:3:4', 'Against Apion 2:24', 'The Antiquities of the Jews 14:9:4']);
 eq('Ant. XI, 8', ['The Antiquities of the Jews 11:8']);
+eq('Mech. Pischa 7, 13; Mechilta Beschallach 3; Mech. R. Jischm. Bachodesch 5, 2', ['Mekhilta DeRabbi Yishmael, Tractate Pischa 7:13', 'Mekhilta DeRabbi Yishmael, Tractate Vayehi Beshalach 3', 'Mekhilta DeRabbi Yishmael, Tractate Bachodesh 5:2']);
 // keine Treffer: Verse, Offenbarung, Fremdes
 eq('in V. 13 a fehlt; Apoc. 14, 13; Justin Ap. I, 12, 10; Seite 12 a', []);
 // Bibelstellen und Krauss-Schreibweise unverändert

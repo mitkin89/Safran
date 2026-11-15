@@ -168,6 +168,18 @@ function josephus(text, matches) {
     }
   }
 }
+// Mechiltha (Winter/Wünsche): „Mech. Pischa 7“, „Mechilta Beschallach 3, 2“, „Mech. R. Jischm. Bachodesch 5“ – Traktat, Kapitel, Abschnitt
+const MEK_TR = { pischa: 'Pischa', bo: 'Pischa', beschallach: 'Vayehi Beshalach', beshalach: 'Vayehi Beshalach', wajehi: 'Vayehi Beshalach', vajehi: 'Vayehi Beshalach', schira: 'Shirah', shirah: 'Shirah', wajissa: 'Vayassa', vajissa: 'Vayassa', wajassa: 'Vayassa', amalek: 'Amalek', bachodesch: 'Bachodesh', bachodesh: 'Bachodesh', jithro: 'Bachodesh', jitro: 'Bachodesh', nesikin: 'Nezikin', nezikin: 'Nezikin', kaspa: 'Kaspa', schabbata: 'Shabbata', shabbata: 'Shabbata' };
+const MEK_RE = new RegExp('(?<![\\p{L}\\d])Me[ch]{1,2}(?:[ih]l[ht]?a?h?)?\\.?\\s*(?:d\\.?\\s*R\\.?\\s*Ji?[sš]ch?m\\.?\\s*|R\\.?\\s*Ji?[sš]ch?m(?:ael|\\.)?\\s*)?(' + Object.keys(MEK_TR).join('|') + ')\\.?\\s*(\\d{1,2})(?:' + JSEP + '(\\d{1,3}))?(?![\\d\\p{L}])', 'giu');
+function mekhilta(text, matches) {
+  let m;
+  MEK_RE.lastIndex = 0;
+  while ((m = MEK_RE.exec(text))) {
+    const t = MEK_TR[m[1].toLowerCase()], c = +m[2], p = m[3] ? +m[3] : 0;
+    if (!t || !c) continue;
+    matches.push({ s: m.index, e: m.index + m[0].length, ref: `Mekhilta DeRabbi Yishmael, Tractate ${t} ${c}` + (p ? ':' + p : ''), book: 'Mekhilta DeRabbi Yishmael', nolast: true });
+  }
+}
 function rabbinic(text, matches) {
   let m;
   BAV_RE.lastIndex = 0;
@@ -195,6 +207,7 @@ function rabbinic(text, matches) {
   }
   folios(text, matches);
   josephus(text, matches);
+  mekhilta(text, matches);
   RAB_RE.lastIndex = 0;
   while ((m = RAB_RE.exec(text))) {
     const b = RABBA[nk(m[1])]; if (!b) continue;
