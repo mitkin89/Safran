@@ -3680,6 +3680,7 @@
     if (!$('#cmtPanel').hidden) roots.push($('#cmtBody')); // auch der Kommentar-Bereich wird durchsucht
     if (!$('#dictPanel').hidden) roots.push($('#dictOut')); // ebenso die Wörterbuch-Treffer
     if (!$('#outlinePanel').hidden) roots.push($('#olBody')); // und die geöffnete Gliederung
+    if (!$('#allPanel').hidden) roots.push($('#apBody')); // und die Seitenleiste „Alles zu dieser Stelle“
     if (!$('#outlinePanel').hidden) $$('#olBody .olsubs[hidden]').forEach(w => { if (hasQ(w.textContent, q)) olToggle(w, true, true, 'find'); }); olChips(); // zugeklappte Unterpunkte mit Treffer aufklappen
     }
     const ranges = [];
@@ -3693,7 +3694,7 @@
         if (!el || el.offsetParent === null && getComputedStyle(el).display === 'none') continue;
         if (el.closest('.note') && !el.closest('.note').offsetParent) continue;
         if (strict && el.checkVisibility && !el.checkVisibility()) continue; // Wörterbuch/Trefferliste: ausgeblendete Einträge (z. B. die anderen „N von 8“) nicht mitzählen
-        const key = el.closest('.note, .txt, .dbody, .dhead, summary, p, li, td, div') || root;
+        const key = el.closest('.note, .txt, .dbody, .dhead, summary, p, li, td, button, div') || root;
         if (!groups.has(key)) groups.set(key, []);
         groups.get(key).push(node);
       }

@@ -1,6 +1,7 @@
 # Changelog
 
 ### New in 2.4.0
+- **Find in text (Cmd/Ctrl+F)** also searches the open side panel „All about this passage“.
 - **Statistics box in „All about this passage“:** for every Tanakh chapter (and for a verse, then still for its chapter) the overview shows the number of words, verses and lemmas, the most frequent words, the words that are typical for the chapter (much more frequent here than in the rest of the Tanakh, e.g. תבה in Genesis 6, מול in Genesis 17) and the hapax legomena; every word opens its word card.
 - **Qumran: Pesharim:** the quoted lemmata of Pesher Habakkuk (1QpHab) and Pesher Isaiah (4Q163) are matched to the verses of the commented book (word sequences of 4+ words); links in both directions (generator: `tools/dss/pesher.py`).
 - **Word card: Targums:** the Hebrew word card lists the verses where a word of Targum Neofiti 1 or Pseudo-Jonathan has the same lexeme or root (Pentateuch, ETCBC Targum Corpus); clickable.
