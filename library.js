@@ -1281,6 +1281,11 @@
   { const refOf = e => { const a = e.target.closest('.fmRL a[data-ref], .dbody .dsrc[data-sref]'); return a ? [a, (a.dataset.ref || a.dataset.sref).replace(/-.*$/, '')] : [null, '']; };
     $('#wcBody').addEventListener('mouseover', e => { const [a, ref] = refOf(e); if (!a || !hovApi || ref === hovApi.current()) return; hovApi.start(a, ref, true, false); });
     $('#wcBody').addEventListener('mouseout', e => { const [a] = refOf(e); if (a && hovApi && !a.contains(e.relatedTarget)) hovApi.hide(); }); }
+  { let z = 1; try { z = +localStorage.getItem('fmZoom') || 1; } catch { /* egal */ }
+    const apz = () => { z = Math.max(0.7, Math.min(2, Math.round(z * 20) / 20)); $('#wcBody').style.zoom = $('#fmBody').style.zoom = z; $('#fmHead').style.zoom = z; try { localStorage.setItem('fmZoom', String(z)); } catch { /* egal */ } };
+    apz();
+    $('#fmSm').onclick = () => { z -= 0.1; apz(); }; $('#fmBg').onclick = () => { z += 0.1; apz(); };
+    $('#fmSm').ondblclick = $('#fmBg').ondblclick = () => { z = 1; apz(); }; }
   { let wide = false; try { wide = localStorage.getItem('fmWide') === '1'; } catch { /* egal */ }
     const ap = () => $('#formsPanel').classList.toggle('wide', wide); ap();
     $('#fmWide').onclick = () => { wide = !wide; ap(); try { localStorage.setItem('fmWide', wide ? '1' : '0'); } catch { /* egal */ } }; }

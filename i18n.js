@@ -89,6 +89,7 @@
     'Im hebräischen Tanach jede Form des Wortes: כאב findet auch כאבים und תכאבו (über das Lemma der Westminster-Morphologie). In der Septuaginta ebenso: ποιέω findet auch ἐποίησεν und ποιήσω (Akzente dürfen fehlen). In allen anderen Texten: das ganze Wort, hebräische Vorsilben erlaubt': 'In the Hebrew Tanakh every form of the word: כאב also finds כאבים and תכאבו (via the lemma of the Westminster morphology). Likewise in the Septuagint: ποιέω also finds ἐποίησεν and ποιήσω (accents may be omitted). In all other texts: the whole word, Hebrew prefixes allowed',
     // ----- Wortkarte -----
     'Wortkarte': 'Word card',
+    'Schrift kleiner': 'Smaller text', 'Schrift größer': 'Larger text',
     'Wortkarte: Wörterbücher, Verteilung und Formen dieses Wortes': 'Word card: dictionaries, distribution and forms of this word',
     'Startet die Suche nach diesem Wort im hebräischen Tanach (Treffer „Alle Formen“)': 'Starts the search for this word in the Hebrew Tanakh (match “All forms”)',
     'Alle Stellen dieses Wortes': 'All occurrences of this word',

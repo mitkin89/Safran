@@ -1,6 +1,7 @@
 # Changelog
 
 ### New in 2.4.0
+- **Word card:** A−/A+ buttons in the header change the text size (double-click resets); the setting is remembered.
 - **Forms table: meaning per stem:** every stem (Qal, Nifal, Piel, Hifil …) of a verb now shows a short German/English meaning next to its heading, for 1,905 verbs and 3,597 verb-stem pairs. Written with Claude (Opus) from the BDB and Gesenius articles; entries the dictionaries do not clearly support are marked with a „?“ (about a quarter).
 - **Dictionary → word card:** Hebrew dictionary entries with a matching word in the Westminster lemma list get a „Word card“ button in the entry header.
 - **All about this passage: dictionaries:** a new box „In dictionaries“ lists the dictionary articles that cite the selected verse or folio segment (BDB, Gesenius, Jastrow, Levy, Krauss, Hamburger and your own dictionaries) – about 375,000 citations indexed on first use. Click an article to open it.
