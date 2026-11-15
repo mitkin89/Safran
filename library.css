@@ -514,8 +514,8 @@ body.stack-split #dictPanel:not(.more) :is(#dictFullL, #dictNoteMode, #dictStar,
 .cmt .ct:not([dir=rtl]), .cell:not([dir=rtl]) .txt { font-family: "HeDict", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", sans-serif; }
 
 /* OSHB-Wörter und Analyse-Popup */
-#rOut .w, #rOut .wt, #rOut .wg { cursor: pointer; border-radius: 3px; }
-#rOut .w:hover, #rOut .wt:hover, #rOut .wg:hover { background: color-mix(in srgb, var(--accent) 18%, transparent); }
+#rOut .w, #rOut .wt, #rOut .wq, #rOut .wg { cursor: pointer; border-radius: 3px; }
+#rOut .w:hover, #rOut .wt:hover, #rOut .wq:hover, #rOut .wg:hover { background: color-mix(in srgb, var(--accent) 18%, transparent); }
 #rOut .w.sel, #rOut .wt.sel, #rOut .wg.sel { background: color-mix(in srgb, var(--accent) 32%, transparent); }
 #wpop { position: fixed; z-index: 60; width: 300px; max-width: calc(100vw - 16px); background: var(--card); color: var(--fg); border: 1px solid var(--accent); border-radius: 8px; box-shadow: 0 6px 24px rgba(0,0,0,.25); padding: 8px 10px; font-size: 13px; line-height: 1.45; }
 #wpop .wtop { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }

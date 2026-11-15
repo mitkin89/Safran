@@ -811,7 +811,7 @@
 
   // OSHB-Texte: Klick auf ein Wort zeigt Lemma, Stamm, Zeit und Form; „Im Wörterbuch“ schlägt das Lemma nach
   let wpop = null;
-  const closeWpop = () => { if (wpop) { wpop.remove(); wpop = null; } $$('#rOut .w.sel, #rOut .wt.sel, #rOut .wg.sel').forEach(x => x.classList.remove('sel')); gSel = null; try { CSS.highlights.delete('gsel'); } catch { /* ältere Engine */ } };
+  const closeWpop = () => { if (wpop) { wpop.remove(); wpop = null; } $$('#rOut .w.sel, #rOut .wt.sel, #rOut .wq.sel, #rOut .wg.sel').forEach(x => x.classList.remove('sel')); gSel = null; try { CSS.highlights.delete('gsel'); } catch { /* ältere Engine */ } };
   // Septuaginta (CATSS): Klick auf eine griechische Wortgruppe zeigt die hebräischen Wörter, denen sie zugeordnet ist
   const GFLAG = { z: 'Zusatz der Septuaginta (kein hebräisches Gegenstück)', m: 'Minus der Septuaginta (hebräisches Wort ohne griechisches Gegenstück)', d: 'Doublette: ein hebräisches Wort ist doppelt übersetzt', i: 'Infinitivus absolutus im Hebräischen', t: 'Transliteriertes hebräisches Wort', v: 'Griechisches Präverb für eine hebräische Präposition', s: 'Komparativ/Superlativ (hebr. מ)', u: 'Gegenstück steht an anderer Stelle im Vers (Umstellung oder Verteilung)' };
   // x (optional, mit Morphologie): { rows: HTML der Wort-Bestimmungen, buttons: HTML, word, at: Element/Range zum Ausrichten, on: Klick-Behandlung }
@@ -959,8 +959,38 @@
       const b = ev.target.closest('.wdict'); if (b) openDict(b.dataset.q);
     };
   }
+  // Qumran (ETCBC DSS): data-l = Lemma, data-m = Wortart.Stamm.Zeit.Person.Genus.Numerus.Status ('-' = ohne Angabe)
+  const Q_SP = { subs: 'Substantiv', verb: 'Verb', ptcl: 'Partikel', adjv: 'Adjektiv', numr: 'Zahlwort', pron: 'Pronomen' };
+  const Q_VS = { qal: 'Qal', hifil: 'Hifil', piel: 'Piel', nifal: 'Nifal', hitpael: 'Hitpael', hofal: 'Hofal', pual: 'Pual', polel: 'Polel', poel: 'Poel', poal: 'Poal', pilpel: 'Pilpel', hitpoel: 'Hitpoel', hitopel: 'Hitpolel', peal: 'Peal (aram.)', pael: 'Pael (aram.)', aphel: 'Afel (aram.)', haphel: 'Hafel (aram.)', shaphel: 'Schafel (aram.)', ithpeel: 'Itpeel (aram.)', ithpaal: 'Itpaal (aram.)', peil: 'Peil (aram.)', passive: 'Passiv' };
+  const Q_VT = { perf: 'Perfekt', impf: 'Imperfekt', wayy: 'Narrativ (wajjiqtol)', impv: 'Imperativ', ptca: 'Partizip aktiv', ptcp: 'Partizip passiv', infc: 'Infinitiv constructus', infa: 'Infinitiv absolutus' };
+  const Q_GN = { m: 'maskulin', f: 'feminin', b: 'beide Geschlechter', c: 'gemeinsam' }, Q_NU = { s: 'Singular', p: 'Plural', d: 'Dual' }, Q_ST = { a: 'Absolutus', c: 'Constructus', d: 'bestimmt' };
+  function showQumranWord(w) {
+    const [sp, vs, vt, ps, gn, nu, st] = w.dataset.m.split('.');
+    const lem = w.dataset.l;
+    w.classList.add('sel');
+    const parts = [];
+    if (sp !== '-') parts.push(`<b>${esc(Q_SP[sp] || sp)}</b>`);
+    if (vs !== '-') parts.push(`Stamm: <b>${esc(Q_VS[vs] || vs)}</b>`);
+    if (vt !== '-') parts.push(`Form: <b>${esc(Q_VT[vt] || vt)}</b>`);
+    if (ps !== '-') parts.push(`${esc(ps)}. Person`);
+    if (gn !== '-') parts.push(esc(Q_GN[gn] || gn));
+    if (nu !== '-') parts.push(esc(Q_NU[nu] || nu));
+    if (st !== '-') parts.push(esc(Q_ST[st] || st));
+    wpop = document.createElement('div');
+    wpop.id = 'wpop';
+    wpop.innerHTML = `<div class="wtop"><span dir="rtl" lang="he" class="wword">${esc(w.textContent)}</span><button class="wx" title="Schließen">✕</button></div><div class="wseg main"><span class="wlem" dir="rtl" lang="he">${esc(lem)}</span><br>${parts.join(' · ')}</div><button class="wdict" data-q="${esc(lem)}">Im Wörterbuch nachschlagen</button>`;
+    document.body.appendChild(wpop);
+    const r = w.getBoundingClientRect(), pw = wpop.offsetWidth, ph = wpop.offsetHeight;
+    const x = Math.max(8, Math.min(window.innerWidth - pw - 8, r.left + r.width / 2 - pw / 2));
+    let y = r.bottom + 6; if (y + ph > window.innerHeight - 8) y = Math.max(8, r.top - ph - 6);
+    wpop.style.left = x + 'px'; wpop.style.top = y + 'px';
+    wpop.onclick = ev => {
+      if (ev.target.closest('.wx')) closeWpop();
+      const b = ev.target.closest('.wdict'); if (b) openDict(b.dataset.q);
+    };
+  }
   $('#rOut').addEventListener('click', e => {
-    const w = e.target.closest('.w[data-m], .wt[data-m], .wg');
+    const w = e.target.closest('.w[data-m], .wt[data-m], .wq[data-m], .wg');
     gTok++; // ein noch ladendes griechisches Wort-Popup gilt nicht mehr
     // griechischer Text ohne Wortgruppen (Rahlfs): jedes Wort ist anklickbar
     const gc = !w && !e.target.closest('#wpop, a, button, small, sup, .note, .lab, .head') ? e.target.closest('.cell[data-gt]') : null;
@@ -971,6 +1001,7 @@
     closeWpop();
     if (same) return;
     if (w.classList.contains('wt')) { showTargumWord(w); return; }
+    if (w.classList.contains('wq')) { showQumranWord(w); return; }
     const d = window.Morph.decode(w.dataset.m, w.dataset.l);
     if (!d) return;
     const LEM = window.OSHB_LEMMAS || {};
@@ -4148,7 +4179,7 @@
   const clickMark = e => {
     if (!window.Highlight || !CSS.highlights) return;
     CSS.highlights.delete('wsel');
-    if (e.target.closest('a, button, select, input, textarea, .lab, .bm, .w[data-m], .wt[data-m], .wg, #wpop, .head')) return;
+    if (e.target.closest('a, button, select, input, textarea, .lab, .bm, .w[data-m], .wt[data-m], .wq[data-m], .wg, #wpop, .head')) return;
     if (String(window.getSelection())) return;
     try {
       const r = document.caretRangeFromPoint(e.clientX, e.clientY);
@@ -4339,7 +4370,7 @@
     return { q: String(q).trim(), ref, range, row };
   }
   function setDictSrc(src) { dictSrc = src; dictHL(src && src.range); }
-  $('#rOut').addEventListener('click', e => { const w = e.target.closest('.w, .wt, .wg'); if (w) { dictLastWord = w; dictLastAt = Date.now(); } }, true);
+  $('#rOut').addEventListener('click', e => { const w = e.target.closest('.w, .wt, .wq, .wg'); if (w) { dictLastWord = w; dictLastAt = Date.now(); } }, true);
   $('#dictOut').addEventListener('click', e => {
     const a = e.target.closest('.dsrc a'); if (!a || !dictSrc) return;
     e.preventDefault();

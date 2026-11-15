@@ -2,8 +2,7 @@
 """Nichtbiblische Qumran-Rollen (ETCBC/CACCHT Dead Sea Scrolls, Abegg-Daten, CC BY-NC 4.0) -> Safran.
 Die großen Schriften (nach Wortzahl) je als eigenes Buch, alle übrigen nichtbiblischen Rollen je Fundort gesammelt.
 Gliederung: Fragment (bei den großen Rollen meist die Kolumne) -> Zeile. Rekonstruktionen in [ ], Korrekturen in ( ) bzw. < >.
-Zusätzlich: bundled/qumran-tags.json.gz = Wortmerkmale (Lemma, Wortart, Stamm, Zeit, Person, Genus, Zahl, Status) je Wort, Zeile für Zeile
-parallel zum Text (für die spätere Wortanzeige).
+Jedes Wort mit Lemma ist ein <span class="wq" data-l="Lemma" data-m="Wortart.Stamm.Zeit.Person.Genus.Numerus.Status"> (Klick: Wortanzeige).
 Aufruf: python3 -I nonbib.py <dss-Ordner mit tf/2.0.2> <Safran-Projektordner>"""
 import sys, os, re, json, hashlib, bisect, gzip, collections
 
@@ -130,21 +129,38 @@ for (sn, l), ws in perline.items():
     scrolls[s][fr.get(f, '?')].append((slots[l][0][0], ln_.get(l, '?'), ws))
 
 
+SP_SKIP = {'', 'unknown', 'suff'}
+OPEN = set('[({<')
+CLOSE = set('])}>')
+
+
+def lemma_of(w):
+    g = FEAT['glex'].get(w) or FEAT['lex'].get(w) or ''
+    return re.sub(r'[^\u05D0-\u05EA]', '', g)
+
+
+def tcode(w):
+    g = lambda k: (FEAT[k].get(w) or '-') if (FEAT[k].get(w) or '') not in ('', 'unknown') else '-'
+    return '.'.join(g(k) for k in ('sp', 'vs', 'vt', 'ps', 'gn', 'nu', 'st'))
+
+
 def line_text(ws):
-    toks = []
+    """Zeile als HTML: jedes Wort mit Lemma ist <span class="wq" data-l="Lemma" data-m="sp.vs.vt.ps.gn.nu.st"> (Klick: Wortanzeige)"""
+    out = ''; prev_sp = False
     for w in ws:
         t = clean(full.get(w) or ''); pc = punc.get(w) or ''
         if pc and not t.endswith(pc): t += pc
-        toks.append(t + (' ' if after.get(w) else ''))
-    txt = re.sub(r'\s+', ' ', ''.join(toks)).strip()
-    txt = re.sub(r'([\[(<{]) ', r'\1', txt); txt = re.sub(r' ([\])>}])', r'\1', txt)
-    return txt.replace('<', '&lt;').replace('>', '&gt;')
-
-
-def tag(w):
-    g = lambda k: FEAT[k].get(w) or ''
-    lex = re.sub(r'[ #]+', '', g('glex') or g('lex'))
-    return [clean(full.get(w) or '').strip(), lex, g('sp'), g('vs'), g('vt'), g('ps'), g('gn'), g('nu'), g('st')]
+        t = t.strip()
+        if not t: continue
+        t = re.sub(r'([\[(<{]) +', r'\1', t); t = re.sub(r' +([\])>}])', r'\1', t)
+        t = re.sub(r' +', ' ', t).replace('<', '&lt;').replace('>', '&gt;')
+        lem = lemma_of(w); sp = FEAT['sp'].get(w) or ''
+        if lem and sp not in SP_SKIP:
+            t = '<span class="wq" data-l="%s" data-m="%s">%s</span>' % (lem, tcode(w), t)
+        if out and prev_sp: out += ' '
+        out += t
+        prev_sp = bool(after.get(w))
+    return re.sub(r' +', ' ', out).strip()
 
 
 order = sorted(nb, key=lambda s: -total[s])
@@ -162,10 +178,10 @@ def group_of(s):
 man_p = os.path.join(proj, 'bundled', 'manifest.json')
 man = json.load(open(man_p))
 man['items'] = [it for it in man['items'] if it['versionTitle'] != VT]
-tags = {}; outlines = {}
+outlines = {}
 
 
-def write_book(title, hetitle, secs, tagsecs, note=None, outline=None):
+def write_book(title, hetitle, secs, outline=None):
     d = {'title': title, 'heTitle': hetitle, 'language': 'Hebrew', 'versionTitle': VT, 'versionSource': SRCURL,
          'sectionNames': ['Fragment', 'Line'], 'text': secs}
     rel = 'own/%s/he/%s.json' % (title, VT)
@@ -173,40 +189,36 @@ def write_book(title, hetitle, secs, tagsecs, note=None, outline=None):
     raw = json.dumps(d, ensure_ascii=False); open(p, 'w', encoding='utf8').write(raw)
     man['items'].append({'rel': rel, 'title': title, 'heTitle': hetitle, 'language': 'Hebrew', 'versionTitle': VT,
                          'categories': CATS, 'kind': 'he', 'hash': hashlib.sha1(raw.encode()).hexdigest()})
-    tags[title] = tagsecs
     if outline: outlines[title] = outline
     print(title, len(secs), 'Fragmente', sum(len(x) for x in secs), 'Zeilen')
 
 
 for s in sorted(big, key=skey):
     en, he = NAMES.get(s, ('Qumran %s' % s, s))
-    secs, tsecs = [], []
+    secs = []
     for f in sorted(scrolls[s], key=num):
         rows = sorted(scrolls[s][f], key=lambda r: r[0])
         secs.append(['<b>%s</b> %s' % (r[1], line_text(r[2])) for r in rows])
-        tsecs.append([[tag(w) for w in r[2]] for r in rows])
-    write_book(en, he, secs, tsecs)
+        
+    write_book(en, he, secs)
 
 groups = collections.defaultdict(list)
 for s in rest:
     g, k = group_of(s); groups[(k, g)].append(s)
 for (k, g), ss in sorted(groups.items()):
     title = 'Qumran, further non-biblical scrolls, %s' % g
-    secs, tsecs, items = [], [], []
+    secs, items = [], []
     for s in sorted(ss, key=skey):
         for f in sorted(scrolls[s], key=num):
             rows = sorted(scrolls[s][f], key=lambda r: r[0])
             if not rows: continue
             if not any(it.get('s') == s for it in items): items.append({'s': s, 'ref': '%d:1' % (len(secs) + 1), 'text': '%s' % s})
             secs.append(['<b>%s %s:%s</b> %s' % (s, f, r[1], line_text(r[2])) for r in rows])
-            tsecs.append([[tag(w) for w in r[2]] for r in rows])
+            
     outline = {'book': title, 'title': title, 'note': 'Gliederung nach den Sigeln der Rollen; Abschnitt = Fragment.',
                'sections': [{'head': g, 'items': [{'ref': it['ref'], 'text': it['text']} for it in items]}]}
-    write_book(title, 'מגילות קומראן נוספות', secs, tsecs, outline=outline)
+    write_book(title, 'מגילות קומראן נוספות', secs, outline=outline)
 
 json.dump(man, open(man_p, 'w', encoding='utf8'), ensure_ascii=False, indent=1)
 for t, o in outlines.items():
     json.dump(o, open(os.path.join(proj, 'outlines', t + '.json'), 'w', encoding='utf8'), ensure_ascii=False, indent=1)
-raw = json.dumps({'fields': ['text', 'lex', 'sp', 'vs', 'vt', 'ps', 'gn', 'nu', 'st'], 'books': tags}, ensure_ascii=False, separators=(',', ':')).encode()
-with gzip.open(os.path.join(proj, 'bundled', 'qumran-tags.json.gz'), 'wb', 9) as fh: fh.write(raw)
-print('Tags:', len(raw) // 1024, 'KB roh')
