@@ -37,6 +37,7 @@ Object.entries({ 'jesaia': 'Isaiah', 'jesaias': 'Isaiah', 'jesai': 'Isaiah', 'je
   'obadja': 'Obadiah', 'habakuk': 'Habakkuk', 'jona': 'Jonah', 'maleachi': 'Malachi', 'mich': 'Micah', 'psalm': 'Psalms', 'psalmen': 'Psalms', 'psal': 'Psalms',
   'jirm': 'Jeremiah', 'jir': 'Jeremiah', 'jirmeja': 'Jeremiah', 'jesch': 'Isaiah', 'jeschaja': 'Isaiah', 'josch': 'Joshua', 'jech': 'Ezekiel', 'jechesk': 'Ezekiel', 'jecheskel': 'Ezekiel',
   'sech': 'Zechariah', 'hosch': 'Hosea', 'nech': 'Nehemiah', 'chab': 'Habakkuk', 'am': 'Amos', '1 schem': 'I Samuel', '2 schem': 'II Samuel', 'i kön': 'I Kings', 'ii kön': 'II Kings',
+  'i chronik': 'I Chronicles', 'ii chronik': 'II Chronicles', 'i chr': 'I Chronicles', 'ii chr': 'II Chronicles', 'i könige': 'I Kings', 'ii könige': 'II Kings', 'i könig': 'I Kings', 'ii könig': 'II Kings', 'i samuel': 'I Samuel', 'ii samuel': 'II Samuel', 'i chronica': 'I Chronicles', 'ii chronica': 'II Chronicles',
   '1 m': 'Genesis', '2 m': 'Exodus', '3 m': 'Leviticus', '4 m': 'Numbers', '5 m': 'Deuteronomy',
   '1 sam': 'I Samuel', '2 sam': 'II Samuel', '1 kön': 'I Kings', '2 kön': 'II Kings', '1 könige': 'I Kings', '2 könige': 'II Kings', '1 chron': 'I Chronicles', '2 chron': 'II Chronicles', '1 chronik': 'I Chronicles', '2 chronik': 'II Chronicles' }).forEach(([k, v]) => { if (v && !ALIAS.has(k)) ALIAS.set(k, v); });
 // hebräische Namen
@@ -57,7 +58,7 @@ function gem(s) { // „לא“ -> 31, „כ״ד“ -> 24, „קמ“ -> 140
 }
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
 // Alle lateinischen Namen/Kürzel, längste zuerst (damit „1 Kings“ vor „Kings“ gewinnt)
-const LAT = [...ALIAS.keys()].sort((a, b) => b.length - a.length).map(x => x.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/ /g, '\\s?'));
+const LAT = [...ALIAS.keys()].sort((a, b) => b.length - a.length).map(x => x.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/^([1-5]|i{1,3}|iv|v) /, '$1\\.?\\s?').replace(/ /g, '\\s?'));
 const CHVS = '(\\d{1,3})\\s*(?::|,\\s?)\\s*(\\d{1,3})(?:\\s*[-–]\\s*(\\d{1,3}))?';
 const LAT_RE = new RegExp('(?<![\\p{L}\\d])(' + LAT.join('|') + ')\\.?,?\\s*' + CHVS + '(?![\\d])', 'giu');
 // römische Kapitelzahl: „Jerem. XXIII, 24“, „Ps. CXLV, 15“, „I Sam. XIV, 24-25“
@@ -66,7 +67,7 @@ function roman(r) { const v = { I: 1, V: 5, X: 10, L: 50, C: 100 }; let n = 0; f
 const IBID_RE = new RegExp('(?<![\\p{L}\\d])(ibid|ib|ebd|ebenda|idem)\\.?\\s*' + CHVS + '(?![\\d])', 'giu');
 const HEBK = Object.keys(HE).concat(Object.keys(HE2)).sort((a, b) => b.length - a.length).join('|');
 const HE_RE = new RegExp('(?<=[(\\[])(' + HEBK + ')(?:\\s+([אב])(?![\\u05D0-\\u05EA]))?\\s+([א-ת][א-ת׳״\'"]{0,4})[,:]?\\s*([א-ת][א-ת׳״\'"]{0,4})(?![א-ת])', 'g');
-function norm(name) { return name.toLowerCase().replace(/\.$/, '').replace(/\s+/g, ' ').trim(); }
+function norm(name) { return name.toLowerCase().replace(/\.$/, '').replace(/^([1-5]|i{1,3}|iv|v)\.\s*/, '$1 ').replace(/\s+/g, ' ').trim(); }
 function titleOf(name) {
   let n = norm(name); if (ALIAS.has(n)) return ALIAS.get(n);
   n = n.replace(/\s/g, ''); for (const [k, v] of ALIAS) if (k.replace(/\s/g, '') === n) return v;

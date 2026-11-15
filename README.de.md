@@ -30,7 +30,7 @@
   <sub>▶ Überblicksvideo auf YouTube ansehen</sub>
 </p>
 
-Safran ist eine kostenlose Desktop-App für macOS, Windows und Linux, die deine Texte auf dem eigenen Rechner hält. Du wählst einmal die Bücher und Sprachen aus der [Sefaria](https://www.sefaria.org)-Bibliothek und liest, durchsuchst und kommentierst sie danach ohne Internetverbindung. Dazu bringt Safran **408 deutsche Übersetzungen und Kommentare** mit, die es sonst kaum gibt, darunter Louis Ginzbergs *Legenden der Juden* nach seinem deutschen Manuskript, und **sieben Wörterbücher** mit über 88.000 Einträgen. Safran ist ein unabhängiges Projekt und nicht mit Sefaria verbunden.
+Safran ist eine kostenlose Desktop-App für macOS, Windows und Linux, die deine Texte auf dem eigenen Rechner hält. Du wählst einmal die Bücher und Sprachen aus der [Sefaria](https://www.sefaria.org)-Bibliothek und liest, durchsuchst und kommentierst sie danach ohne Internetverbindung. Dazu bringt Safran **409 deutsche Übersetzungen und Kommentare** mit, die es sonst kaum gibt, darunter Louis Ginzbergs *Legenden der Juden* nach seinem deutschen Manuskript, und **sieben Wörterbücher** mit über 88.000 Einträgen. Safran ist ein unabhängiges Projekt und nicht mit Sefaria verbunden.
 
 ## Warum Safran?
 
@@ -102,7 +102,7 @@ Den Reiter *Wörterbuch* öffnen, den Knopf 📖 neben dem Kommentarfenster drü
 
 ## Deutsche Texte, die es bei Sefaria nicht gibt
 
-Safran liefert 408 deutsche Textdateien im Ordner `bundled/` mit. Sie werden beim ersten Start importiert und erscheinen unter *Eigene Texte* sowie als zusätzliche Versionen und Kommentatoren neben den Sefaria-Texten:
+Safran liefert 409 deutsche Textdateien im Ordner `bundled/` mit. Sie werden beim ersten Start importiert und erscheinen unter *Eigene Texte* sowie als zusätzliche Versionen und Kommentatoren neben den Sefaria-Texten:
 
 | Werk | Umfang |
 | --- | --- |
@@ -122,6 +122,7 @@ Safran liefert 408 deutsche Textdateien im Ordner `bundled/` mit. Sie werden bei
 | Talmud: Rawicz (Megilla, Rosch ha-Schana, Ketubot, Sanhedrin, Chulin I) · Straschun (Taanit) · Sammter (Baba Mezia, 1876) · Pinner (Berachot, 1842, mit Erläuterungen, dazu seine *Einleitung in den Talmud* und Vorrede; seine Übersetzung von Maimonides’ Einleitung zur Mischna nach Sefarias Gliederung) | deutsche Übersetzungen des 19. Jahrhunderts, je Daf und Segment |
 | Mischna aus dem Talmud: die Mischnajot aller 37 Traktate in Goldschmidts Übersetzung sowie aus Pinner, Sammter, Rawicz und Straschun, als eigene Mischna-Fassungen | je Kapitel und Mischna, mit den Fußnoten des Übersetzers |
 | Josephus, *Jüdische Altertümer*, *Jüdischer Krieg* und *Gegen Apion* (Clementz, 1899/1900) | nach Whistons Gliederung wie bei Sefaria, mit Nieses Paragraphenzahlen |
+| H. Graetz, *Geschichte der Juden* (11 Bände, nach zeno.org) | Kapitel und Noten mit Fußnoten, Seitenmarken der Druckausgabe, Gliederung; das bei zeno rückwärts gespeicherte Hebräisch ist umgedreht |
 | D. Hoffmann, *Das Buch Leviticus* und *Das Buch Deuteronomium* | Übersetzung und Kommentar |
 | Samuel (Wolf) · Ijob (Dawidowicz) · die *Arba Megillot* (Breuer) | Übersetzung und Kommentar |
 
