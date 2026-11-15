@@ -58,17 +58,28 @@ assert.deepStrictEqual(X.pairs(he, '<span class="wg wm" data-h="ברא" data-f="
 assert.deepStrictEqual(X.pairs(he, '<span class="wg" data-h="ברא אלהים">ἐποίησεν ὁ θεὸς</span>'), []); // zwei Wörter für eine Gruppe: nicht eindeutig
 // zweimal dasselbe Schriftbild im Vers: jede griechische Gruppe nur einmal
 assert.deepStrictEqual(X.pairs('<span class="w" data-l="430" data-m="HNcmpa">אֱלֹהִ֑ים</span> <span class="w" data-l="430" data-m="HNcmpa">אֱלֹהִ֑ים</span> <span class="w" data-l="430" data-m="HNcmpa">אֱלֹהִ֑ים</span>', '<span class="wg" data-h="אלהים">θεοῦ</span> <span class="wg" data-h="אלהים">κύριος</span>').map(p => p[1]), ['θεοῦ', 'κύριος']);
-const idx = X.build([{ he: [[he]], gr: [[gr]] }]);
-assert.strictEqual(idx.lem['430'], '1|1|θεός:1');
+// mit den Lemmata der Septuaginta-Morphologie (je griechischem Wort des Verses): Lemma statt Wortform; wo es fehlt, bleibt die Form
+const lems = ['ἐν', 'ἀρχή', 'ποιέω', 'ὁ', 'θεός', 'ὁ', null, 'καί', 'ὁ', 'γῆ'];
+assert.deepStrictEqual(X.pairs(he, gr, lems), [['7225', 'ἀρχή'], ['1254 a', 'ποιέω'], ['430', 'θεός'], ['8064', 'οὐρανόν'], ['776', 'γῆ']]);
+assert.deepStrictEqual(X.pairs(he, gr, lems.slice(1)).map(p => p[1]), ['ἀρχῇ', 'ἐποίησεν', 'θεός', 'οὐρανόν', 'γῆν']); // Wortzahl passt nicht: Wortformen
+assert.deepStrictEqual(X.pick('καὶ τὴν γῆν'), { t: ['γῆν'], i: [2] });
+const idx = X.build([{ he: [[he]], gr: [[gr]], lems: () => lems }]);
+assert.strictEqual(idx.lem['430'], '1|1|θεός:1'); assert.strictEqual(idx.lem['1254 a'], '1|1|ποιέω:1');
+assert.strictEqual(idx.gr['ποιέω'], '1|1|1254 a:1'); // Gegenrichtung: griechisches Lemma -> hebräische Lemmata
+assert.deepStrictEqual(X.hebrew(idx, 'ποιέω'), { total: 1, kinds: 1, list: [{ h: '1254 a', n: 1 }] });
+assert.strictEqual(X.hebrew(idx, 'ἀγαθός'), null);
 assert.deepStrictEqual(X.renderings(idx, '430'), { total: 1, kinds: 1, list: [{ g: 'θεός', n: 1 }] });
 assert.strictEqual(X.renderings(idx, '853'), null);
 // der mitgelieferte Index
 let r = X.renderings(L, '430');
 assert.strictEqual(r.list[0].g, 'θεός'); assert.ok(r.total > 2000 && r.list.length <= 12);
 r = X.renderings(L, '3068'); assert.strictEqual(r.list[0].g, 'κύριος');
-r = X.renderings(L, '8451'); assert.ok(r.list.slice(0, 3).every(x => x.g.startsWith('νόμ'))); // תּוֹרָה → νόμος
+r = X.renderings(L, '8451'); assert.strictEqual(r.list[0].g, 'νόμος'); assert.ok(r.list[0].n > r.total * 0.8); // תּוֹרָה → νόμος: ein Lemma statt νόμον/νόμου/νόμῳ getrennt
+r = X.renderings(L, '1254 a'); assert.deepStrictEqual(r.list.slice(0, 2).map(x => x.g), ['ποιέω', 'κτίζω']); // בָּרָא
+r = X.hebrew(L, 'θεός'); assert.strictEqual(r.list[0].h, '430'); assert.ok(r.list.some(x => x.h === '410')); // θεός ← אֱלֹהִים, אֵל
+assert.ok(Object.keys(L.gr).length > 5000);
 assert.ok(r.list.every((x, i) => !i || r.list[i - 1].n >= x.n));
 assert.ok(Object.keys(L.lem).length > 8000);
-// Der Index ist auf dem Stand der mitgelieferten Texte (sonst: node tools/catss/lxx-lemma.js)
+// Der Index ist auf dem Stand der mitgelieferten Texte und der Septuaginta-Morphologie (sonst: node tools/catss/lxx-lemma.js)
 assert.strictEqual(require('./tools/catss/lxx-lemma.js').make(), fs.readFileSync(path.join(__dirname, 'oshb-lxx.js'), 'utf8'), 'oshb-lxx.js ist veraltet: node tools/catss/lxx-lemma.js');
 console.log(`Wortkarte ok (Verteilung auf ${ds.length} Bücher, ${Object.keys(L.lem).length} Lemmata mit Septuaginta-Wiedergabe)`);
