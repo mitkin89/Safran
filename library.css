@@ -1353,3 +1353,28 @@ html.split #formsPanel { right: var(--p2w); }
 #wcBody .wcDH .vpic { width: 22px; height: 22px; border-radius: 50%; object-fit: cover; flex: none; }
 #wcBody .wcForms { gap: 4px 6px; }
 #wcBody .wcForms .fmF { border-color: var(--line); background: var(--card); margin: 0; padding: 0 7px; }
+
+/* ---------- Septuaginta-Morphologie: griechische Wörter im Wort-Popup, in Wortkarte und Formentabelle ---------- */
+#wpop, #formsPanel { --gr-font: "SBL Greek", "Gentium Plus", "GFS Didot", "Times New Roman", serif; }
+::highlight(gsel) { background-color: color-mix(in srgb, var(--accent) 46%, transparent); color: inherit; }
+#rOut .cell[data-gt] .txt:not(:has(.wg)) { cursor: pointer; } /* Rahlfs-Texte: jedes Wort ist anklickbar */
+#wpop .wword.wgr { font-family: var(--gr-font); }
+#wpop .wgl { font-family: var(--gr-font); font-size: 18px; }
+#wpop .wgs { font-family: var(--gr-font); font-size: 15px; color: var(--muted, #777); }
+#wpop .wgs::after { content: " \2192"; font-size: 12px; }
+#wpop .wseg.wgalt { cursor: pointer; opacity: .82; }
+#wpop .wseg.wgalt:hover { opacity: 1; background: color-mix(in srgb, var(--accent) 7%, transparent); }
+#wpop .wlow { display: inline-block; font-size: 11px; line-height: 1.5; color: var(--muted, #777); border: 1px dotted currentColor; border-radius: 9px; padding: 0 6px; white-space: nowrap; cursor: help; }
+#wpop .wdict[hidden] { display: none; }
+#fmHead .fmLem.fmGr { font-family: var(--gr-font); font-size: 27px; }
+#fmHead .wdict[hidden] { display: none; }
+#fmBody .fmT.fmG td { text-align: left; }
+#fmBody .fmF:has(> span[lang=grc]), #wcBody .fmF:has(> span[lang=grc]) { direction: ltr; margin: 1px 4px 1px 0; }
+#fmBody .fmF > span[lang=grc], #wcBody .fmF > span[lang=grc] { font-family: var(--gr-font); font-size: 16px; line-height: 1.6; }
+#fmBody .fmF.amb > small::after { content: "*"; }
+#fmBody .fmRH > span[lang=grc], #wcBody .fmRH > span[lang=grc] { font-family: var(--gr-font); font-size: 18px; }
+#wcBody .wcLxR button.g { border: 0; background: none; padding: 0; margin: 0; color: var(--accent); cursor: pointer; text-align: start; }
+#wcBody .wcLxR button.g:hover { text-decoration: underline; }
+#wcBody .wcHb .wcLxR { grid-template-columns: minmax(150px, 52%) 1fr 44px; }
+#wcBody .wcHb .wcLxR .g { font-family: inherit; font-size: 12.5px; }
+#wcBody .wcHb .wcLxR .g span[lang=he] { font-family: "HeDict", var(--he-font); font-size: 18px; color: var(--accent); }

@@ -119,7 +119,7 @@
           <option value="all">Alle</option>
         </select></label>
         <label title="Wie genau muss ein Wort im Text dem Suchwort entsprechen?">Treffer <select id="sMode">
-          <option value="lemma" title="Im hebräischen Tanach jede Form des Wortes: כאב findet auch כאבים und תכאבו (über das Lemma der Westminster-Morphologie). In allen anderen Texten: das ganze Wort, hebräische Vorsilben erlaubt">Alle Formen</option>
+          <option value="lemma" title="Im hebräischen Tanach jede Form des Wortes: כאב findet auch כאבים und תכאבו (über das Lemma der Westminster-Morphologie). In der Septuaginta ebenso: ποιέω findet auch ἐποίησεν und ποιήσω (Akzente dürfen fehlen). In allen anderen Texten: das ganze Wort, hebräische Vorsilben erlaubt">Alle Formen</option>
           <option value="prefix" title="Das Suchwort muss ein ganzes Wort sein; hebräische Vorsilben (ו ה ב כ ל מ ש) davor sind erlaubt: ארץ findet auch הארץ und בארץ, aber nicht ארצות">Wort mit Vorsilben</option>
           <option value="exact" title="Nur genau dieses Wort: ohne Vorsilben und ohne andere Formen. רבה findet dann nicht mehr הרבה">Genau dieses Wort</option>
           <option value="part" title="Das Suchwort darf auch mitten in einem Wort stehen: gott findet auch „Gottes“ und „Abgott“">Auch Wortteile</option>
@@ -474,6 +474,7 @@
   <script src="forms.js"></script>
   <script src="passage.js"></script>
   <script src="lxx.js"></script>
+  <script src="gmorph.js"></script>
   <script src="update.js"></script>
   <script src="order.js"></script>
   <script src="mishtal.js"></script>
