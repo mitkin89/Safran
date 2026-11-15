@@ -6324,11 +6324,12 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
     const byT = new Map(groups.map(x => [x.title, x])), tg = t => byT.get(t) || byT.get(String(t).split(', ')[0]) || null;
     const isLocal = bk => !!tg(bk);
     const sortL = a => a.slice().sort((x, y) => { const bx = splitOther(x.other), by = splitOther(y.other); return libCmpGroups(tg(bx), tg(by)) || titleCmp(bx, by); });
-    const ent = (x, text, tag) => { const loc = isLocal(splitOther(x.other)); return `<div class="ent${loc ? '' : ' off'}"><a data-ref="${esc(x.other)}"${loc ? '' : ` title="${esc(I18N.t('nicht in deiner Bibliothek'))}"`}>${text || esc(apRefLabel(x.other))}</a>${loc ? ` <button type="button" data-pv="${esc(x.other)}" title="Vorschau">▸</button>` : ''}${tag ? ` <small class="muted">${esc(tag)}</small>` : ''}</div>`; };
+    const apPic = t => { const p = portraitOf(t); return p ? `<img class="vpic" src="portraits/${encodeURIComponent(p.img)}" alt="" data-title="${esc(p.name || '')}" loading="lazy">` : ''; }; // Porträt, wo es eins gibt (portraits/index.js)
+    const ent = (x, text, tag, pic = true) => { const loc = isLocal(splitOther(x.other)); return `<div class="ent${loc ? '' : ' off'}">${pic ? apPic(splitOther(x.other)) : ''}<a data-ref="${esc(x.other)}"${loc ? '' : ` title="${esc(I18N.t('nicht in deiner Bibliothek'))}"`}>${text || esc(apRefLabel(x.other))}</a>${loc ? ` <button type="button" data-pv="${esc(x.other)}" title="Vorschau">▸</button>` : ''}${tag ? ` <small class="muted">${esc(tag)}</small>` : ''}</div>`; };
     const boxes = {};
     { // Kommentare: je Kommentator eine Zeile (vorhandene zuerst, dann die bekanntesten)
       const cs = P.commentators(cl.commentary).sort((a, b) => { const ia = CMT_PRIO.indexOf(a.name), ib = CMT_PRIO.indexOf(b.name); return (isLocal(b.book) - isLocal(a.book)) || ((ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib)) || titleCmp(a.book, b.book); });
-      boxes.commentary = cs.map(c => ent({ other: c.refs[0] }, esc(dispName(c.name)), c.refs.length > 1 ? '×' + c.refs.length : ''));
+      boxes.commentary = cs.map(c => ent({ other: c.refs[0] }, esc(dispName(c.name)), c.refs.length > 1 ? '×' + c.refs.length : '', false).replace('<div class="ent">', '<div class="ent">' + apPic(c.book)).replace('<div class="ent off">', '<div class="ent off">' + apPic(c.book)));
     }
     { const TAG = x => { const q = P.sourceOf(x); return q.k === 'etcbc' ? 'ETCBC ' + q.sim : q.k === 'josephus' ? 'Josephus' : q.k === 'second' ? I18N.t('2. Tempel') : q.k === 'targum' ? 'Targum' : ''; };
       boxes.parallels = sortL(cl.parallels).map(x => ent(x, '', [vTag(x), TAG(x)].filter(Boolean).join(' · '))); }
@@ -6341,14 +6342,14 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
       if (cl.krauss.length && krOl === undefined) { krOl = null; olOwn(P.KRAUSS).then(o => { krOl = o || null; krIdx = null; if (o) apSoon(); }).catch(() => {}); }
       const pos = r => { const m = String(r).slice(P.KRAUSS.length + 1).match(/^(\d+):?(\d+)?/); return m ? [+m[1], +(m[2] || 1)] : [0, 0]; };
       boxes.krauss = cl.krauss.slice().sort((a, b) => { const p = pos(a.other), q = pos(b.other); return p[0] - q[0] || p[1] - q[1]; })
-        .map(x => { const k = krLabel(x.other); return ent(x, k ? esc(k.t) + ' · ' + esc(I18N.t('Abs. {}', k.par)) : '', [vTag(x), k && k.head].filter(Boolean).join(' · ')); });
+        .map(x => { const k = krLabel(x.other); return ent(x, k ? esc(k.t) + ' · ' + esc(I18N.t('Abs. {}', k.par)) : '', [vTag(x), k && k.head].filter(Boolean).join(' · '), false); }); // das Porträt steht im Kopf des Fachs
     }
     boxes.rabbinic = sortL(cl.rabbinic).map(x => ent(x, '', vTag(x)));
     boxes.halakhah = sortL(cl.halakhah).map(x => ent(x, '', vTag(x)));
     lkDictsLoad();
     boxes.other = sortL(cl.other).map(x => { // Sefarias Wörterbuch-Verknüpfungen: ins eingebundene Wörterbuch, sonst nach sefaria.org
       const d = dictRefOf(x);
-      if (d) { const loc = localDictFor(d.src); return loc ? `<div class="ent"><a class="lkDict" data-did="${esc(loc.id)}" data-dn="${esc(loc.name)}" data-q="${esc(d.head)}" dir="auto">${esc(d.head)}</a> <small class="muted">${esc(loc.name)}</small></div>` : `<div class="ent"><a class="lkSef" data-url="${esc(sefariaUrl(String(x.other).replace(/-.*$/, '')))}" dir="auto">${esc(d.head)} ↗</a> <small class="muted">${esc(d.src)} · ${esc(I18N.t('nur auf sefaria.org'))}</small></div>`; }
+      if (d) { const loc = localDictFor(d.src); return loc ? `<div class="ent">${apPic(loc.name)}<a class="lkDict" data-did="${esc(loc.id)}" data-dn="${esc(loc.name)}" data-q="${esc(d.head)}" dir="auto">${esc(d.head)}</a> <small class="muted">${esc(loc.name)}</small></div>` : `<div class="ent"><a class="lkSef" data-url="${esc(sefariaUrl(String(x.other).replace(/-.*$/, '')))}" dir="auto">${esc(d.head)} ↗</a> <small class="muted">${esc(d.src)} · ${esc(I18N.t('nur auf sefaria.org'))}</small></div>`; }
       return ent(x, '', [vTag(x), x.cat && x.cat !== 'Andere' ? x.cat : ''].filter(Boolean).join(' · '));
     });
     { // Mischna ↔ Talmud: mitgelieferte Zuordnung und Sefarias „mishnah in talmud“
@@ -6369,7 +6370,7 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
     nav.innerHTML = P.BOXES.map(b => { const n = boxes[b] ? boxes[b].length : 0, w = !boxes[b] && wait[b]; return `<button type="button" data-b="${b}" class="${n || w ? '' : 'off'}${w ? ' wait' : ''}"${n || w ? '' : ' disabled'}><span class="ic">${AP_META[b][0]}</span>${esc(apName(b))} <small>${n ? n.toLocaleString(I18N.loc) : w ? '…' : '–'}</small></button>`; }).join('');
     body.innerHTML = P.BOXES.map(b => {
       const items = boxes[b], n = items ? items.length : 0, w = !items && wait[b];
-      return `<section class="apBox${w ? ' wait' : ''}" data-b="${b}"${n || w ? '' : ' hidden'}><h4><span class="ic">${AP_META[b][0]}</span><span class="nm">${esc(apName(b))}</span> <small class="apN">${n ? n.toLocaleString(I18N.loc) : ''}</small>${AP_ALL[b] ? `<button type="button" class="apAll" data-b="${b}" title="${esc(I18N.t(b === 'commentary' ? 'Kommentar-Bereich zu diesem Vers öffnen' : b === 'places' ? 'Orte dieses Verses auf der Karte zeigen' : b === 'topics' ? 'Themen-Fenster öffnen' : b === 'outline' ? 'Gliederung des Buches öffnen' : b === 'notes' ? 'Reiter „Notizen“ öffnen' : 'Im Verknüpfungs-Fenster zeigen'))}">${esc(I18N.t('alle anzeigen'))}</button>` : ''}</h4><div class="apC">${items ? apList(items) : w ? `<p class="muted">${esc(I18N.t('Lädt …'))}</p>` : ''}</div></section>`;
+      return `<section class="apBox${w ? ' wait' : ''}" data-b="${b}"${n || w ? '' : ' hidden'}><h4><span class="ic">${AP_META[b][0]}</span>${b === 'krauss' ? apPic('Krauss') : ''}<span class="nm">${esc(apName(b))}</span> <small class="apN">${n ? n.toLocaleString(I18N.loc) : ''}</small>${AP_ALL[b] ? `<button type="button" class="apAll" data-b="${b}" title="${esc(I18N.t(b === 'commentary' ? 'Kommentar-Bereich zu diesem Vers öffnen' : b === 'places' ? 'Orte dieses Verses auf der Karte zeigen' : b === 'topics' ? 'Themen-Fenster öffnen' : b === 'outline' ? 'Gliederung des Buches öffnen' : b === 'notes' ? 'Reiter „Notizen“ öffnen' : 'Im Verknüpfungs-Fenster zeigen'))}">${esc(I18N.t('alle anzeigen'))}</button>` : ''}</h4><div class="apC">${items ? apList(items) : w ? `<p class="muted">${esc(I18N.t('Lädt …'))}</p>` : ''}</div></section>`;
     }).join('') + (whole ? `<p class="muted apMode">${esc(I18N.t(page ? 'Ganze Seite – ein Klick auf eine Segmentnummer zeigt nur dieses Segment.' : 'Ganzes Kapitel – ein Klick auf eine Versnummer zeigt nur diesen Vers.'))}</p>` : '') + `<p id="apNone" class="muted" hidden>${esc(I18N.t('Zu dieser Stelle ist nichts verzeichnet.'))}</p>`
       + (linksReady ? '' : `<p class="muted apHint">${esc(I18N.t('Sefarias Verknüpfungen sind noch nicht heruntergeladen (Reiter „Herunterladen“ → Karte „4 · Verknüpfungen“); gezeigt wird, was Safran mitliefert.'))}</p>`);
     $('#apNone').hidden = $$('#apBody .apBox').some(x => !x.hidden);
@@ -6393,7 +6394,7 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
         const list = (res && res.list) || [], by = new Map();
         for (const x of list) { if (!by.has(x.dictId)) by.set(x.dictId, { name: x.dict, xs: [] }); by.get(x.dictId).xs.push(x); }
         const CAP = 24;
-        const html = [...by.values()].map(d => `<div class="apDic"><div class="apDicH">${esc(d.name)} <small>${d.xs.length.toLocaleString(I18N.loc)}</small></div><div class="apDicL" dir="auto">${d.xs.slice(0, CAP).map(x => `<button type="button" class="apChip apDE${x.exact ? '' : ' wide'}" data-q="${esc(x.head)}" title="${esc(I18N.t(x.exact ? 'zitiert genau diese Stelle' : 'zitiert das ganze Kapitel oder Blatt'))}">${esc(x.head)}</button>`).join(' ')}${d.xs.length > CAP ? ` <span class="muted">… ${esc(I18N.t('{} weitere', (d.xs.length - CAP).toLocaleString(I18N.loc)))}</span>` : ''}</div></div>`);
+        const html = [...by.values()].map(d => `<div class="apDic"><div class="apDicH">${apPic(d.name)}${esc(d.name)} <small>${d.xs.length.toLocaleString(I18N.loc)}</small></div><div class="apDicL" dir="auto">${d.xs.slice(0, CAP).map(x => `<button type="button" class="apChip apDE${x.exact ? '' : ' wide'}" data-q="${esc(x.head)}" title="${esc(I18N.t(x.exact ? 'zitiert genau diese Stelle' : 'zitiert das ganze Kapitel oder Blatt'))}">${esc(x.head)}</button>`).join(' ')}${d.xs.length > CAP ? ` <span class="muted">… ${esc(I18N.t('{} weitere', (d.xs.length - CAP).toLocaleString(I18N.loc)))}</span>` : ''}</div></div>`);
         apSet('dicts', list.length, html.join(''));
       }).catch(() => { if (token === AP.token) apSet('dicts', 0, ''); });
     }
