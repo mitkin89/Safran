@@ -126,7 +126,7 @@ for (sn, l), ws in perline.items():
     s = sc[sn]
     if s not in nb: continue
     f = find(fst, fr_r, slots[ws[0]][0][0])
-    scrolls[s][fr.get(f, '?')].append((slots[l][0][0], ln_.get(l, '?'), ws))
+    scrolls[s][fr.get(f, '?')].append((slots[l][0][0], ln_.get(l, '?'), ws, l))
 
 
 SP_SKIP = {'', 'unknown', 'suff'}
@@ -182,6 +182,7 @@ man['items'] = [it for it in man['items'] if it['versionTitle'] != VT]
 outlines = {}
 
 
+LINEREF = {}
 LEXB = []; LEX = collections.defaultdict(list)
 FIN = str.maketrans('ךםןףץ', 'כמנפצ')
 
@@ -190,7 +191,7 @@ def index_book(title, secs):
     bi = len(LEXB); LEXB.append(title)
     for fi, sec in enumerate(secs, 1):
         for li, ln in enumerate(sec, 1):
-            for lem in set(re.findall(r'data-l="([^"]+)"', ln)):
+            for lem in sorted(set(re.findall(r'data-l="([^"]+)"', ln))):
                 LEX[lem.translate(FIN)] += [bi, fi, li]
 
 
@@ -213,6 +214,7 @@ for s in sorted(big, key=skey):
     for f in sorted(scrolls[s], key=num):
         rows = sorted(scrolls[s][f], key=lambda r: r[0])
         secs.append(['<b>%s</b> %s' % (r[1], line_text(r[2])) for r in rows])
+        for j, r in enumerate(rows, 1): LINEREF[r[3]] = (en, len(secs), j)
         
     write_book(en, he, secs)
 
@@ -228,6 +230,7 @@ for (k, g), ss in sorted(groups.items()):
             if not rows: continue
             if not any(it.get('s') == s for it in items): items.append({'s': s, 'ref': '%d:1' % (len(secs) + 1), 'text': '%s' % s})
             secs.append(['<b>%s %s:%s</b> %s' % (s, f, r[1], line_text(r[2])) for r in rows])
+            for j, r in enumerate(rows, 1): LINEREF[r[3]] = (title, len(secs), j)
             
     outline = {'book': title, 'title': title, 'note': 'Gliederung nach den Sigeln der Rollen; Abschnitt = Fragment.',
                'sections': [{'head': g, 'items': [{'ref': it['ref'], 'text': it['text']} for it in items]}]}
@@ -241,3 +244,76 @@ for t, o in outlines.items():
 with open(os.path.join(proj, 'qumran-lex.js'), 'w', encoding='utf8') as f:
     f.write('window.QUMRAN_LEX=' + json.dumps({'b': LEXB, 'l': LEX}, ensure_ascii=False, separators=(',', ':')) + ';\n')
 print('qumran-lex.js', len(LEX), 'Lemmata')
+
+
+# ---------- Parallelen aus der Zeilenähnlichkeit (sim.tf, ETCBC): nichtbiblische Zeile <-> nichtbiblische Zeile / Bibelvers ----------
+SIM_MIN = int(os.environ.get('QUMRAN_SIM', '70'))
+BK = {'Gen': 'Genesis', 'Ex': 'Exodus', 'Lev': 'Leviticus', 'Num': 'Numbers', 'Deut': 'Deuteronomy', 'Josh': 'Joshua', 'Judg': 'Judges',
+      '1Sam': 'I Samuel', '2Sam': 'II Samuel', '1Kgs': 'I Kings', '2Kgs': 'II Kings', 'Is': 'Isaiah', 'Jer': 'Jeremiah', 'Ezek': 'Ezekiel',
+      'Hos': 'Hosea', 'Joel': 'Joel', 'Amos': 'Amos', 'Obad': 'Obadiah', 'Jonah': 'Jonah', 'Mic': 'Micah', 'Nah': 'Nahum', 'Hab': 'Habakkuk',
+      'Zeph': 'Zephaniah', 'Hag': 'Haggai', 'Zech': 'Zechariah', 'Mal': 'Malachi', 'Ps': 'Psalms', 'Prov': 'Proverbs', 'Job': 'Job',
+      'Song': 'Song of Songs', 'Ruth': 'Ruth', 'Lam': 'Lamentations', 'Eccl': 'Ecclesiastes', 'Esth': 'Esther', 'Dan': 'Daniel',
+      'Ezra': 'Ezra', 'Neh': 'Nehemiah', '1Chr': 'I Chronicles', '2Chr': 'II Chronicles'}
+SHAPE = json.load(open(os.path.join(proj, 'tools', 'ownlinks', 'tanakh_shape.json'), encoding='utf8'))
+bk_, ch_, vs_ = load(T + 'book.tf'), load(T + 'chapter.tf'), load(T + 'verse.tf')
+
+
+def nodes(x):
+    o = []
+    for p in x.split(','):
+        a, _, b = p.partition('-'); o += range(int(a), int(b or a) + 1)
+    return o
+
+
+WSLOT = [x[0] for x in words]
+
+
+def bible_ref(l):
+    """Bibelvers einer Zeile in einer Bibelrolle (erstes Wort mit Vers) oder None"""
+    w = None
+    lo, hi = slots[l][0][0], slots[l][-1][1]
+    k = bisect.bisect_left(WSLOT, lo)
+    while k < len(words) and words[k][0] <= hi:
+        x = words[k][1]
+        if bk_.get(x) in BK and x in ch_ and x in vs_: w = x; break
+        k += 1
+    if not w: return None
+    bk = BK[bk_[w]]; c, v = int(ch_[w]), int(vs_[w])
+    sh = SHAPE.get(bk)
+    if not sh or not (1 <= c <= len(sh) and 1 <= v <= sh[c - 1]): return None
+    return '%s %d:%d' % (bk, c, v)
+
+
+lines_ = open(T + 'sim.tf', encoding='utf8').read().split('\n'); i = 0
+while lines_[i].strip() != '': i += 1
+pairs = {}; prev = None
+for ln in lines_[i + 1:]:
+    if not ln: continue
+    p = ln.split('\t')
+    if len(p) == 3: a, b, v = nodes(p[0]), nodes(p[1]), int(p[2]); prev = a
+    else: a, b, v = prev, nodes(p[0]), int(p[1])
+    if v < SIM_MIN: continue
+    for x in a:
+        for y in b:
+            rx = LINEREF.get(x); ry = LINEREF.get(y)
+            if not rx and not ry: continue
+            if rx and ry and rx[0] == ry[0]: continue # Wiederholungen innerhalb derselben Rolle sind meist Formeln
+            tx = '%s %d:%d' % rx if rx else bible_ref(x)
+            ty = '%s %d:%d' % ry if ry else bible_ref(y)
+            if not tx or not ty or tx == ty: continue
+            k = tuple(sorted((tx, ty)))
+            pairs[k] = max(v, pairs.get(k, 0))
+print(len(pairs), 'Parallelen ab', SIM_MIN, '%')
+rowsby = collections.defaultdict(set)
+for (x, y), v in pairs.items():
+    for a, b in ((x, y), (y, x)):
+        m = re.match(r'^(.*?)\s+(\d+:\d+)$', a); rowsby[m.group(1)].add((m.group(2), b, 'ETCBC %d%%' % v))
+ldir = os.path.join(proj, 'bundled', 'links')
+for book, rs in rowsby.items():
+    f = os.path.join(ldir, book.replace('/', '_') + '.tsv')
+    old = []
+    if os.path.exists(f):
+        old = [l for l in open(f, encoding='utf8').read().split('\n') if l and not re.search(r'\tETCBC \d+%\tSecond Temple$', l)]
+    new = ['%s\t%s\t%s\tSecond Temple' % r for r in sorted(rs)]
+    open(f, 'w', encoding='utf8').write('\n'.join(old + new) + '\n')
+print(len(rowsby), 'Verknüpfungsdateien geschrieben')

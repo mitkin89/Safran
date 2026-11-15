@@ -1,6 +1,7 @@
 # Changelog
 
 ### New in 2.4.0
+- **Qumran: parallels:** about 6,000 line parallels (≥ 70 % similarity, ETCBC) between the non-biblical scrolls (e.g. Community Rule 1QS ↔ 4Q258, Damascus Document CD ↔ 4Q266) and to the biblical text appear under *Parallels* in „All about this passage“ and in the Links panel, in both directions.
 - **Word card:** A−/A+ buttons in the header change the text size (double-click resets); the setting is remembered.
 - **Forms table: meaning per stem:** every stem (Qal, Nifal, Piel, Hifil …) of a verb now shows a short German/English meaning next to its heading, for 1,905 verbs and 3,597 verb-stem pairs. Written with Claude (Opus) from the BDB and Gesenius articles; entries the dictionaries do not clearly support are marked with a „?“ (about a quarter).
 - **Dictionary → word card:** Hebrew dictionary entries with a matching word in the Westminster lemma list get a „Word card“ button in the entry header.
