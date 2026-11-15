@@ -6099,7 +6099,7 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
   const AP_CAP = 6;
   const AP_META = {
     commentary: ['💬', 'Kommentare'], parallels: ['⇄', 'Parallelstellen'], legends: ['❧', 'Legenden (Ginzberg)'], rabbinic: ['📜', 'Talmud & Midrasch'], halakhah: ['⚖', 'Halacha'],
-    words: ['א', 'Wörter'], places: ['🗺', 'Orte'], topics: ['🏷', 'Themen'], mishtal: ['↔', 'Mischna ↔ Talmud'], outline: ['☰', 'Gliederung / Mizwa'], notes: ['★', 'Notizen'], other: ['🔗', 'Weitere Verknüpfungen'],
+    words: ['א', 'Wörter'], dicts: ['📖', 'In Wörterbüchern'], places: ['🗺', 'Orte'], topics: ['🏷', 'Themen'], mishtal: ['↔', 'Mischna ↔ Talmud'], outline: ['☰', 'Gliederung / Mizwa'], notes: ['★', 'Notizen'], other: ['🔗', 'Weitere Verknüpfungen'],
   };
   const apName = b => { const t = I18N.t(AP_META[b][1]); return t.charAt(0).toUpperCase() + t.slice(1); }; // „Orte“ ist englisch sonst klein („places“)
   const AP_ALL = { commentary: 1, parallels: 1, legends: 1, rabbinic: 1, halakhah: 1, places: 1, topics: 1, outline: 1, notes: 1, other: 1 }; // Fächer mit „alle anzeigen“
@@ -6192,7 +6192,7 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
     { const ns = P.notesAt(notesAll, g.key, s.k, label, v);
       boxes.notes = ns.map(n => `<div class="apNote" data-id="${esc(n.id)}" title="${esc(I18N.t('Klicken: Notiz bearbeiten'))}"><span class="st">★</span> ${n.note ? esc(n.note) : `<span class="muted">${esc(I18N.t(kindOf(n) === 'block' ? 'Favorit (Versauswahl)' : 'Lesezeichen'))}</span>`}${noteTags(n).length ? ` <small class="muted">${noteTags(n).map(t => '#' + esc(t)).join(' ')}</small>` : ''}</div>`); }
     // ----- Gerüst: alle Fächer in fester Reihenfolge; Wörter und Gliederung kommen nach -----
-    const wait = { words: TANAKH_BOOKS.has(title) && v != null && /^\d+$/.test(chap || ''), outline: v != null || /:/.test(label) };
+    const wait = { words: TANAKH_BOOKS.has(title) && v != null && /^\d+$/.test(chap || ''), dicts: v != null && !!chap, outline: v != null || /:/.test(label) };
     nav.innerHTML = P.BOXES.map(b => { const n = boxes[b] ? boxes[b].length : 0, w = !boxes[b] && wait[b]; return `<button type="button" data-b="${b}" class="${n || w ? '' : 'off'}${w ? ' wait' : ''}"${n || w ? '' : ' disabled'}><span class="ic">${AP_META[b][0]}</span>${esc(apName(b))} <small>${n ? n.toLocaleString(I18N.loc) : w ? '…' : '–'}</small></button>`; }).join('');
     body.innerHTML = P.BOXES.map(b => {
       const items = boxes[b], n = items ? items.length : 0, w = !items && wait[b];
@@ -6212,6 +6212,17 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
         const LEM = window.OSHB_LEMMAS || {}, ws = P.words(html);
         apSet('words', ws.length, ws.length ? `<div class="apWords" dir="rtl">${ws.map(w => { const lem = LEM[w.lemma]; return `<button type="button" class="apW" data-lemma="${esc(w.lemma)}" data-l="${esc(w.l)}" data-m="${esc(w.m)}" data-word="${esc(w.raw)}" title="${esc(I18N.t('Wortkarte: Wörterbücher, Verteilung und Formen dieses Wortes'))}"><span class="f" lang="he" dir="rtl">${esc(w.word)}</span>${lem ? `<span class="l"><span lang="he" dir="rtl">${esc(lem[0])}</span> <span class="gl" dir="auto">${esc(L === 'de' && lem[2] ? lem[2] : lem[1])}</span></span>` : ''}${w.n > 1 ? `<small>×${w.n}</small>` : ''}</button>`; }).join('')}</div>` : '');
       }).catch(() => { if (token === AP.token) apSet('words', 0, ''); });
+    }
+    // ----- In Wörterbüchern: Artikel, die diese Stelle zitieren (Rückwärtsindex der Wörterbuch-Zitate) -----
+    if (wait.dicts) {
+      O.dictCites(title, chap, v).then(res => {
+        if (token !== AP.token) return;
+        const list = (res && res.list) || [], by = new Map();
+        for (const x of list) { if (!by.has(x.dictId)) by.set(x.dictId, { name: x.dict, xs: [] }); by.get(x.dictId).xs.push(x); }
+        const CAP = 24;
+        const html = [...by.values()].map(d => `<div class="apDic"><div class="apDicH">${esc(d.name)} <small>${d.xs.length.toLocaleString(I18N.loc)}</small></div><div class="apDicL" dir="auto">${d.xs.slice(0, CAP).map(x => `<button type="button" class="apChip apDE${x.exact ? '' : ' wide'}" data-q="${esc(x.head)}" title="${esc(I18N.t(x.exact ? 'zitiert genau diese Stelle' : 'zitiert das ganze Kapitel oder Blatt'))}">${esc(x.head)}</button>`).join(' ')}${d.xs.length > CAP ? ` <span class="muted">… ${esc(I18N.t('{} weitere', (d.xs.length - CAP).toLocaleString(I18N.loc)))}</span>` : ''}</div></div>`);
+        apSet('dicts', list.length, html.join(''));
+      }).catch(() => { if (token === AP.token) apSet('dicts', 0, ''); });
     }
     // ----- Gliederung / Mizwa -----
     if (wait.outline) {
@@ -6250,6 +6261,7 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
     const all = e.target.closest('.apAll'); if (all) { hovApi && hovApi.hide(); apShowAll(all.dataset.b); return; }
     const mb = e.target.closest('.apMoreB'); if (mb) { const m = mb.previousElementSibling; m.hidden = !m.hidden; mb.textContent = m.hidden ? I18N.t('+ {} weitere', (+mb.dataset.n).toLocaleString(I18N.loc)) : I18N.t('weniger'); return; }
     const w = e.target.closest('.apW'); if (w) { openForms(w.dataset.lemma, { lemma: w.dataset.lemma, word: w.dataset.word, m: w.dataset.m, l: w.dataset.l }, 'card'); return; }
+    const de = e.target.closest('.apDE'); if (de) { openDict(de.dataset.q); return; }
     const pl = e.target.closest('[data-place]'); if (pl) { apPlace(+pl.dataset.place); return; }
     const tp = e.target.closest('[data-slug]'); if (tp) { openTopic(tp.dataset.slug, false); return; }
     const nt = e.target.closest('.apNote'); if (nt) { const n = notesAll.find(x => x.id === nt.dataset.id); if (n) openNoteDlg(n, { canDelete: true }); return; }

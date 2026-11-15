@@ -54,6 +54,7 @@ contextBridge.exposeInMainWorld('offline', {
   startupLog: marks => ipcRenderer.invoke('app:startupLog', marks),
   calendar: date => ipcRenderer.invoke('app:calendar', date),
   openRelease: u => ipcRenderer.invoke('app:openRelease', u),
+  dictCites: (book, chap, v) => ipcRenderer.invoke('dict:cites', book, chap, v),
   dictHeads: id => ipcRenderer.invoke('dict:heads', id),
   dictSuggest: q => ipcRenderer.invoke('dict:suggest', q),
   dictLookup: (q, only, full) => ipcRenderer.invoke('dict:lookup', q, only, full),

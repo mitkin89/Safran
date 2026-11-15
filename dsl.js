@@ -181,7 +181,7 @@ class Dictionaries {
     const data = { name: p.name, indexLang: p.indexLang, contentsLang: p.contentsLang, heads: p.entries.map(e => e.heads), html: p.entries.map(e => e.html) };
     await fs.mkdir(this.dir, { recursive: true });
     await fs.writeFile(this.file(id), JSON.stringify(data));
-    this.cache.delete(id);
+    this.cache.delete(id); this._cites = null;
     const m = await this.meta();
     if (m.removed.includes(id)) { m.removed = m.removed.filter(x => x !== id); await this.saveMeta(m); }
     return { id, name: p.name, count: data.heads.length };
@@ -235,13 +235,13 @@ class Dictionaries {
         n++;
       } catch { /* nächstes */ }
     }
-    if (n) await this.saveMeta(m);
+    if (n) { await this.saveMeta(m); this._cites = null; }
     return n;
   }
   async remove(id) {
     if (!/^[0-9a-f]{12}$/.test(id)) throw new Error('Ungültige Kennung.');
     await fs.unlink(this.file(id)).catch(() => {});
-    this.cache.delete(id);
+    this.cache.delete(id); this._cites = null;
     const m = await this.meta();
     if (m.bundled.includes(id) && !m.removed.includes(id)) m.removed.push(id);
     m.ship = m.ship.filter(x => x !== id);
@@ -279,6 +279,43 @@ class Dictionaries {
       j.hlist = arr.map(a => a[1]);
     }
     return j.hlist;
+  }
+  // Zitat-Index (rückwärts): alle Stellenangaben (a.dsrc[data-sref]) der Wörterbuchartikel, nach Buch und Kapitel/Blatt geordnet.
+  // Wird beim ersten Aufruf aus allen geladenen Wörterbüchern gebaut (ca. 0,5 Mio. Angaben) und danach im Speicher gehalten.
+  async buildCites() {
+    if (this._cites) return this._cites;
+    const idx = new Map(), dicts = [];
+    const rx = /data-sref="([^"]{1,120})"/g, pr = /^(.*?)\s+(\d+[ab]?)(?::(\d+)(?:-(\d+))?)?(?:-.*)?$/i;
+    for (const d of (await this.list())) {
+      const data = await this.load(d.id), di = dicts.length;
+      dicts.push({ id: d.id, name: data.name });
+      data.html.forEach((h, k) => {
+        const seen = new Set(); let m; rx.lastIndex = 0;
+        while ((m = rx.exec(h))) {
+          const p = pr.exec(m[1]); if (!p) continue;
+          const v1 = p[3] ? +p[3] : 0, v2 = p[4] ? +p[4] : v1, key = p[1] + '|' + p[2].toLowerCase(), uk = key + '|' + v1 + '|' + v2;
+          if (seen.has(uk)) continue; seen.add(uk);
+          let a = idx.get(key); if (!a) idx.set(key, a = []);
+          a.push(di, k, v1, v2);
+        }
+      });
+    }
+    return (this._cites = { idx, dicts });
+  }
+  // Artikel, die diese Stelle zitieren: genauer Vers/Segment zuerst, dann Angaben zum ganzen Kapitel/Blatt
+  async citesAt(book, chap, verse) {
+    const C = await this.buildCites(), a = C.idx.get(String(book) + '|' + String(chap).toLowerCase()) || [], out = [], seen = new Set();
+    for (const pass of [1, 0]) {
+      for (let i = 0; i < a.length; i += 4) {
+        const v1 = a[i + 2], v2 = a[i + 3], exact = v1 > 0;
+        if (exact !== !!pass) continue;
+        if (exact && !(verse >= v1 && verse <= v2)) continue;
+        const key = a[i] + ':' + a[i + 1]; if (seen.has(key)) continue; seen.add(key);
+        const dc = C.dicts[a[i]], data = this.cache.get(dc.id);
+        out.push({ dictId: dc.id, dict: dc.name, k: a[i + 1], head: cleanHead(data.heads[a[i + 1]][0]), exact });
+      }
+    }
+    return out;
   }
   // Volltext: Suchwörter (alle müssen vorkommen, ohne Vokalzeichen/Endbuchstaben/Groß-Klein) im Artikeltext; skip = schon als Stichwort-Treffer gezeigte (dictId:k)
   async fulltext(query, { limit = 80, only = '', skip = new Set() } = {}) {

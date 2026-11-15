@@ -1,6 +1,7 @@
 # Changelog
 
 ### New in 2.4.0
+- **All about this passage: dictionaries:** a new box „In dictionaries“ lists the dictionary articles that cite the selected verse or folio segment (BDB, Gesenius, Jastrow, Levy, Krauss, Hamburger and your own dictionaries) – about 375,000 citations indexed on first use. Click an article to open it.
 - **Word card: Qumran:** the word card of a Hebrew word now also lists its occurrences in the non-biblical Qumran scrolls (per book, with a jump to the line).
 - **Display:** a font-size slider for Greek text (Septuagint).
 - **Qumran: non-biblical scrolls:** the 40 largest non-biblical scrolls of the ETCBC dataset (Community Rule 1QS, Damascus Document CD, War Scroll 1QM, Hodayot 1QHa, Temple Scroll 11Q19, Pesher Habakkuk, Genesis Apocryphon, Instruction, Jubilees fragments and others) are bundled as separate Hebrew books under *Second Temple → Dead Sea Scrolls*, with the line numbers of the scrolls and the reconstructions in [ ]; the remaining 695 scrolls are collected per cave (cave 4 alone has 16,000 lines), with an outline by siglum. Click a word for its lemma and morphology (part of speech, stem, form, person, gender, number, state) and jump to the dictionary. License of the data: CC BY-NC 4.0.
