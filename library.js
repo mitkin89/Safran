@@ -1466,6 +1466,40 @@
     return rows;
   };
   const verseOf = lab => (/^\d+$/.test(lab) ? +lab : null);
+  // ---------- Mischna ↔ Talmud: kleiner Sprung „→ Talmud“ an jeder Mischna, „→ Mischna 1:1“ im Daf, wo eine Mischna beginnt ----------
+  // Quelle: mitgelieferte Tabelle (bundled/mishnah_talmud.json) und, wenn heruntergeladen, Sefarias Verknüpfungen vom Typ „mishnah in talmud“.
+  // Der Sprung geht über jumpTo – dort gilt die übliche Fassungswahl (deutsche Fassung, wenn vorhanden und eingestellt).
+  let MT = null;
+  const mtLoad = (async () => { let t = {}; try { if (LK.mishnahTalmud) t = await LK.mishnahTalmud(); } catch { /* ohne Tabelle */ } MT = window.MishTal ? window.MishTal.index(t || {}) : null; })();
+  function markMishTal(chap, rows) {
+    if (!view || !view.group || view.sres) return;
+    const title = view.group.title, isM = /^Mishnah /.test(title);
+    const per = new Map(); // Zeile -> Ziele (ohne Doppelte)
+    const add = (v, ref) => { let a = per.get(v); if (!a) per.set(v, (a = [])); const k = ref.replace(/-.*$/, ''); if (!a.some(x => x.replace(/-.*$/, '') === k)) a.push(ref); };
+    const labs = $$('#rOut .row[data-l]').map(r => verseOf(r.dataset.l)).filter(v => v != null);
+    if (MT && MT.has(title)) {
+      if (isM) { if (/^\d+$/.test(chap)) for (const v of labs) MT.toTalmud(title, chap, v).forEach(r => add(v, r)); }
+      else for (const [seg, ref] of MT.startsOn(title, chap)) add(seg, ref);
+    }
+    for (const x of rows || []) {
+      if (x.type !== 'mishnah in talmud' || !(x.v1 > 0)) continue;
+      if (isM) { if (!/^Mishnah /.test(x.other)) for (const v of labs) if (v >= x.v1 && v <= x.v2) add(v, x.other); }
+      else if (/^Mishnah /.test(x.other)) add(x.v1, x.other);
+    }
+    const have = localTitles();
+    $$('#rOut .row[data-l]').forEach(r => {
+      const lab = r.querySelector('.lab'); if (!lab) return;
+      lab.querySelectorAll('.mtj').forEach(x => x.remove());
+      const v = verseOf(r.dataset.l), refs = v == null ? null : per.get(v);
+      if (!refs) return;
+      const ok = refs.filter(ref => have.has(splitOther(ref)));
+      if (!ok.length) return;
+      const tail = ref => ref.slice(splitOther(ref).length).trim().replace(/-/g, '–');
+      const text = isM ? I18N.t('→ Talmud') : I18N.t('→ Mischna {}', ok.map(tail).join(', '));
+      const tip = (isM ? I18N.t('Diese Mischna im Talmud öffnen: {}', ok.join(' · ')) : I18N.t('Diese Mischna im Mischna-Traktat öffnen: {}', ok.join(' · ')));
+      lab.insertAdjacentHTML('beforeend', `<span class="mtj" dir="auto" data-ref="${esc(ok[0])}" title="${esc(tip)}">${esc(text)}</span>`);
+    });
+  }
   async function loadLinks(s) {
     loadTopics(s).catch(() => {}); try { mapRefresh(); } catch { /* Karte noch nicht bereit */ }
     secLinks = [];
@@ -1477,6 +1511,8 @@
     if (!m) return;
     const token = view.idx + ':' + view.group.key;
     let rows;
+    if (!MT) { try { await mtLoad; } catch { /* ohne Tabelle */ } if (!view || token !== view.idx + ':' + view.group.key) return; }
+    markMishTal(m[1], []); // sofort aus der mitgelieferten Tabelle; Sefarias Verknüpfungen kommen unten dazu
     try { rows = await LK.section(view.group.title, m[1]); } catch { rows = []; } // auch ohne heruntergeladene Sefaria-Links: mitgelieferte Verknüpfungen
     rows = (Array.isArray(rows) ? rows : []).concat(parRows(view.group.title, m[1]));
     if (!view || token !== view.idx + ':' + view.group.key) return; // inzwischen woanders
@@ -1492,12 +1528,15 @@
       lab.querySelectorAll('.lk').forEach(x => { if (x.previousSibling && x.previousSibling.tagName === 'BR') x.previousSibling.remove(); x.remove(); }); // wurde der Abschnitt zweimal geladen, nicht doppelt anzeigen
       if (n) lab.insertAdjacentHTML('beforeend', `<br><span class="lk" data-v="${v}" title="${n} Verknüpfungen">🔗</span>`);
     });
+    markMishTal(m[1], rows); // mit Sefarias Verknüpfungen „mishnah in talmud“ ergänzt; steht unter dem 🔗
     if (!$('#linkPanel').hidden) renderLinkPanel();
     if (cmtOpen) renderCmt();
   }
   $('#rOut').addEventListener('click', e => {
     const b = e.target.closest('.lk');
     if (b) { lkVerse = +b.dataset.v; renderLinkPanel(); }
+    const j = e.target.closest('.mtj');
+    if (j) jumpTo(j.dataset.ref.replace(/-.*$/, ''), BG(e));
   });
   $('#lkBtn').onclick = () => { lkVerse = null; renderLinkPanel(); };
   $('#lkClose').onclick = () => { $('#linkPanel').hidden = true; };
@@ -1522,6 +1561,26 @@
   }
   // nur die 39 Bücher des Tanach selbst klappen im Verknüpfungen-Fenster auf; Kommentare, Targumim und alles andere bleiben zu
   const TANAKH_BOOKS = new Set('Genesis,Exodus,Leviticus,Numbers,Deuteronomy,Joshua,Judges,I Samuel,II Samuel,I Kings,II Kings,Isaiah,Jeremiah,Ezekiel,Hosea,Joel,Amos,Obadiah,Jonah,Micah,Nahum,Habakkuk,Zephaniah,Haggai,Zechariah,Malachi,Psalms,Proverbs,Job,Song of Songs,Ruth,Lamentations,Ecclesiastes,Esther,Daniel,Ezra,Nehemiah,I Chronicles,II Chronicles'.split(','));
+  // Ginzbergs Legenden im Verknüpfungen-Fenster: „Legends of the Jews 1:2:5“ = Band 1, Kapitel II (Adam), Abschnitt der Gliederung, Absatz 5
+  const LEG = 'Legends of the Jews';
+  let legOl, legIdx = null; // Gliederung (outlines/Legends of the Jews.json), beim ersten Bedarf geladen
+  function legLabel(ref) {
+    const m = String(ref).slice(LEG.length + 1).match(/^(\d+):(\d+):(\d+)(?:-(?:\d+:\d+:)?(\d+))?/) || [0, 0, 0, 0];
+    const vol = +m[1], chap = +m[2], par = +m[3];
+    if (!legIdx && legOl) { // „Band:Kapitel“ -> { Titel, Abschnitte [[Absatz, Titel]] }
+      legIdx = new Map();
+      const T = (o, k) => (I18N.lang === 'en' && o[k + '_en']) || o[k + '_de'] || o[k] || '';
+      for (const s of legOl.sections || []) for (const it of s.items || []) {
+        const r = String(it.ref).match(/^(\d+):(\d+)/); if (!r) continue;
+        legIdx.set(r[1] + ':' + r[2], { t: T(it, 'text'), subs: (it.sub || []).map(x => [+(String(x.ref).split(':')[2] || 1), T(x, 'text')]).sort((a, b) => a[0] - b[0]) });
+      }
+    }
+    const c = legIdx && legIdx.get(vol + ':' + chap);
+    let sub = ''; if (c) for (const [p, t] of c.subs) { if (p <= par) sub = t; else break; }
+    const parText = m[4] && +m[4] !== par ? par + '–' + m[4] : String(par);
+    const chapTitle = c ? c.t : '';
+    return { vol, chap, par, parText, chapTitle, sub, short: `${vol}:${chap}:${par}`, full: `Band ${vol} Volume ${vol} ${chapTitle} ${sub}` };
+  }
   function renderLinkPanel() {
     if (!view) return;
     const virt = view.sres ? cmtVirt : null;
@@ -1529,7 +1588,7 @@
     const s = virt ? { label: virt.label } : view.sections[view.idx];
     const f = $('#lkFilter').value.trim().toLowerCase();
     let list = secLinks.filter(x => lkVerse == null ? true : (x.v1 === 0 || (lkVerse >= x.v1 && lkVerse <= x.v2)));
-    if (f) list = list.filter(x => (x.other + ' ' + x.cat + ' ' + x.type).toLowerCase().includes(f));
+    if (f) list = list.filter(x => (x.other + ' ' + x.cat + ' ' + x.type + (x.other.startsWith(LEG + ' ') ? ' legenden ginzberg ' + legLabel(x.other).full : '')).toLowerCase().includes(f));
     $('#lkTitle').textContent = `${virt ? virt.title : view.group.title} · ${s ? s.label : ''}${lkVerse != null ? ':' + lkVerse : ''} – ${list.length} Verknüpfungen`;
     const byT = new Map(groups.map(g => [g.title, g]));
     const titleToGroup = t => byT.get(t) || byT.get(String(t).split(', ')[0]) || null;
@@ -1539,7 +1598,24 @@
     const LK_FIRST = ['tanakh', 'mishnah', 'tosefta', 'talmud', 'responsa']; // feste Reihenfolge oben, danach der Rest nach Anzahl
     const lkRank = c => { const i = LK_FIRST.indexOf(String(c).toLowerCase()); return i < 0 ? 99 : i; };
     const cats = new Map();
+    // Ginzbergs Legenden: eigene Gruppe ganz oben (nach dem Tanach kommt sie als Erstes), aufgeklappt, nach Band und Kapitel, mit den Überschriften der Gliederung
+    const legs = list.filter(x => x.other.startsWith(LEG + ' ') && /^\d+:\d+:\d+/.test(x.other.slice(LEG.length + 1)));
+    let legHtml = '';
+    if (legs.length) {
+      if (legOl === undefined) { legOl = null; olOwn(LEG).then(o => { legOl = o || null; legIdx = null; if (o && !$('#linkPanel').hidden) renderLinkPanel(); }).catch(() => {}); }
+      const isLocal = local.has(LEG), chaps = new Map(), seen = new Set();
+      for (const x of legs) {
+        const k0 = x.other.replace(/-.*$/, ''); if (seen.has(k0)) continue; seen.add(k0); // dieselbe Stelle (von mehreren Versen aus) nur einmal
+        const L = legLabel(x.other), k = L.vol + ':' + L.chap;
+        if (!chaps.has(k)) chaps.set(k, { L, xs: [] });
+        chaps.get(k).xs.push({ x, L });
+      }
+      legHtml = `<details class="lkLeg" open><summary>${esc(I18N.t('Legenden (Ginzberg)'))} (${seen.size})${isLocal ? '' : ' <span class="muted">· nicht lokal</span>'}</summary>${[...chaps.values()].sort((a, b) => a.L.vol - b.L.vol || a.L.chap - b.L.chap).map(({ L, xs }) =>
+        `<details open><summary>${esc(I18N.t('Band {}', L.vol))} · ${esc(L.chapTitle || I18N.t('Kapitel {}', L.chap))} (${xs.length})</summary>${xs.sort((a, b) => a.L.par - b.L.par).slice(0, 300).map(({ x, L: e }) =>
+          `<div class="ent${isLocal ? '' : ' off'}"><a data-ref="${esc(x.other)}">${e.sub ? esc(e.sub) + ' · ' : ''}${esc(I18N.t('Abs. {}', e.parText))}</a>${isLocal ? ` <button data-pv="${esc(x.other)}" title="Vorschau">▸</button>` : ''} <small class="muted">${esc(e.short)}</small></div>`).join('')}</details>`).join('')}</details>`;
+    }
     for (const x of list) {
+      if (legs.length && x.other.startsWith(LEG + ' ') && legs.includes(x)) continue;
       const c = x.cat || 'Andere';
       if (!cats.has(c)) cats.set(c, new Map());
       const bk = splitOther(x.other);
@@ -1548,12 +1624,14 @@
       m.get(bk).push(x);
     }
     const open = f || lkVerse != null ? 'open' : '';
-    $('#lkBody').innerHTML = (() => { const order = SefOrder.sortCats([...cats.keys()], ''); return [...cats.entries()].sort((a, b) => order.indexOf(a[0]) - order.indexOf(b[0])); })().map(([c, books]) => {
+    const catHtml = (() => { const order = SefOrder.sortCats([...cats.keys()], ''); return [...cats.entries()].sort((a, b) => order.indexOf(a[0]) - order.indexOf(b[0])); })().map(([c, books]) => {
       const total = [...books.values()].reduce((a, v) => a + v.length, 0);
-      return `<details ${open}><summary>${esc(c)} (${total})</summary>${[...books.entries()].sort((a, b) => { const ga = titleToGroup(a[0]), gb = titleToGroup(b[0]); return libCmpGroups(ga, gb) || titleCmp(a[0], b[0]); }).map(([bk, xs]) =>
+      return [c, `<details ${open}><summary>${esc(c)} (${total})</summary>${[...books.entries()].sort((a, b) => { const ga = titleToGroup(a[0]), gb = titleToGroup(b[0]); return libCmpGroups(ga, gb) || titleCmp(a[0], b[0]); }).map(([bk, xs]) =>
         `<details ${f || (String(c).toLowerCase() === 'tanakh' && TANAKH_BOOKS.has(bk)) ? 'open' : ''}><summary>${esc(bk)} (${xs.length})${local.has(bk) ? '' : ' <span class="muted">· nicht lokal</span>'}</summary>${xs.slice(0, 300).map(x =>
-          `<div class="ent${local.has(bk) ? '' : ' off'}"><a data-ref="${esc(x.other)}">${esc(x.other)}</a>${local.has(bk) ? ` <button data-pv="${esc(x.other)}" title="Vorschau">▸</button>` : ''}${x.type ? ` <small class="muted">${esc(x.type)}</small>` : ''}</div>`).join('')}${xs.length > 300 ? `<div class="muted ent">… ${xs.length - 300} weitere (Filter benutzen)</div>` : ''}</details>`).join('')}</details>`;
-    }).join('') || '<p class="muted">Keine Verknüpfungen.</p>';
+          `<div class="ent${local.has(bk) ? '' : ' off'}"><a data-ref="${esc(x.other)}">${esc(x.other)}</a>${local.has(bk) ? ` <button data-pv="${esc(x.other)}" title="Vorschau">▸</button>` : ''}${x.type ? ` <small class="muted">${esc(x.type)}</small>` : ''}</div>`).join('')}${xs.length > 300 ? `<div class="muted ent">… ${xs.length - 300} weitere (Filter benutzen)</div>` : ''}</details>`).join('')}</details>`];
+    });
+    if (legHtml) { const ti = catHtml.findIndex(e => String(e[0]).toLowerCase() === 'tanakh'); catHtml.splice(ti + 1, 0, ['', legHtml]); } // direkt nach dem Tanach, sonst ganz oben
+    $('#lkBody').innerHTML = catHtml.map(e => e[1]).join('') || '<p class="muted">Keine Verknüpfungen.</p>';
     $('#linkPanel').hidden = false;
   }
   $('#lkBody').addEventListener('click', async e => {
@@ -5410,7 +5488,7 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
   // Klick auf die Versnummer wählt den Vers für den Kommentar-Bereich
   $('#rOut').addEventListener('click', e => {
     const lab = e.target.closest('.lab');
-    if (!lab || e.target.closest('.bm') || e.target.closest('.lk')) return;
+    if (!lab || e.target.closest('.bm') || e.target.closest('.lk, .mtj')) return;
     const row = lab.closest('.row[data-l]');
     if (row) { setCmtRow(row.dataset.l); if (!cmtOpen) toggleCmt(true); } // ein Klick auf den Vers öffnet die Kommentare
   });
@@ -5418,7 +5496,7 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
   let lastCmtDbl = null;
   $('#rOut').addEventListener('dblclick', e => {
     const lab = e.target.closest('.lab');
-    if (!lab || e.target.closest('.bm') || e.target.closest('.lk')) return;
+    if (!lab || e.target.closest('.bm') || e.target.closest('.lk, .mtj')) return;
     const row = lab.closest('.row[data-l]');
     if (!row) return;
     const key = (view && view.group ? view.group.key : '') + '|' + (view ? view.key : '') + '|' + row.dataset.l;

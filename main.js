@@ -926,6 +926,9 @@ ipcMain.handle('links:section', async (_e, book, chap) => {
   try { base = await fillCommentaryGaps(book, chap, base); } catch { /* Ergänzung ist nur ein Zusatz */ }
   try { return base.concat(await ownCommentaryLinks(book, chap)); } catch { return base; }
 });
+// Mischna ↔ Talmud: mitgelieferte Zuordnung (aus Sefarias „mishnah in talmud“), für den Sprung an der Mischna bzw. im Daf – auch ohne heruntergeladene Verknüpfungen
+let mishTalP = null;
+ipcMain.handle('links:mishnahTalmud', () => mishTalP || (mishTalP = fs.readFile(path.join(__dirname, 'bundled', 'mishnah_talmud.json'), 'utf8').then(t => JSON.parse(t)).catch(() => ({}))));
 // Texte mehrerer Stellen auf einmal holen (Kommentar-Bereich): jede Datei wird nur einmal gelesen
 // Hebräisch: Westminster vor vokalisierter Ausgabe vor anderen; Sefarias zusammengeführte Fassung zuletzt
 const heRank = t => (/westminster/i.test(t) ? 0 : /vocalized|vokalisiert/i.test(t) ? 1 : t === 'merged' ? 9 : 2);
