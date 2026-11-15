@@ -102,6 +102,7 @@ window.I18N_HE = {
 "Alles zu dieser Stelle": "הכול על המקום הזה",
 "Alles zu dieser Stelle: Kommentare, Parallelstellen, Orte, Themen und Notizen zum ganzen Kapitel – ein Klick auf eine Versnummer zeigt nur diesen Vers (Cmd+I)": "הכול על המקום הזה: פרשנים, מקבילות, מקומות, נושאים והערות לכל הפרק – לחיצה על מספר פסוק מציגה רק אותו (Cmd+I)",
 "ganzes Kapitel": "כל הפרק",
+"Talmudische Archäologie (Krauss)": "ארכיאולוגיה תלמודית (קראוס)",
 "Kommentare zu": "פרשנים על",
 "Segment": "קטע",
 "Kommentare zum ganzen Kapitel bzw. zur ganzen Seite": "פרשנים על כל הפרק או העמוד",

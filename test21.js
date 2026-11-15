@@ -33,6 +33,9 @@ assert.deepStrictEqual(cl.halakhah.map(x => x.other), ['Mishneh Torah, Temple 2:
 assert.deepStrictEqual(cl.other.map(x => x.other), ['Guide for the Perplexed 3:24', 'Hertz on Exodus 4:14']);
 assert.strictEqual(P.classify(rows, 5).parallels.length, 2); // Vers 5: eigene Stelle + der Bereich 1–19
 assert.strictEqual(P.classify(rows, 5).commentary.length, 0);
+// Krauss, Talmudische Archäologie: eigenes Fach
+assert.strictEqual(P.boxOf({ other: 'Talmudische Archäologie 12:3', type: 'reference', cat: 'Eigene Texte' }), 'krauss');
+assert.ok(P.BOXES.indexOf('krauss') === P.BOXES.indexOf('legends') + 1);
 // ganzes Kapitel (v = null, all): alle Vers-Kommentare, aber nicht der Kommentar zum ganzen Kapitel; ohne all keine Kommentare
 { const w = P.classify(rows, null, true); assert.strictEqual(w.commentary.length, 4); assert.ok(!w.commentary.some(x => x.other === 'Ramban on Genesis 22'));
   assert.ok(w.parallels.length >= P.classify(rows, 2).parallels.length); assert.strictEqual(P.classify(rows, null).commentary.length, 0); }

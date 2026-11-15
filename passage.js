@@ -6,8 +6,9 @@
   const Morph = typeof module !== 'undefined' && module.exports ? require('./morph') : window.Morph;
 
   // feste Reihenfolge der Fächer
-  const BOXES = ['commentary', 'parallels', 'legends', 'rabbinic', 'halakhah', 'words', 'dicts', 'places', 'topics', 'mishtal', 'outline', 'notes', 'other'];
+  const BOXES = ['commentary', 'parallels', 'legends', 'krauss', 'rabbinic', 'halakhah', 'words', 'dicts', 'places', 'topics', 'mishtal', 'outline', 'notes', 'other'];
   const LEG = 'Legends of the Jews';
+  const KRAUSS = 'Talmudische Archäologie'; // Krauss: eigenes Fach wie Ginzbergs Legenden
   const JOSEPHUS = ['The Antiquities of the Jews', 'The War of the Jews', 'Against Apion', 'The Life of Flavius Josephus'];
   const CAT = {
     parallels: new Set(['tanakh', 'parallelstellen', 'second temple', 'targum', 'apocrypha']),
@@ -23,6 +24,7 @@
     if (type === 'commentary') return 'commentary';
     if (type === 'mishnah in talmud') return 'mishtal';
     if (String(x.other).startsWith(LEG + ' ')) return 'legends';
+    if (bookOf(x.other) === KRAUSS) return 'krauss';
     if (JOSEPHUS.includes(bookOf(x.other))) return 'parallels';
     if (CAT.parallels.has(cat)) return 'parallels';
     if (CAT.rabbinic.has(cat)) return 'rabbinic';
@@ -43,7 +45,7 @@
   // und auf die Fächer verteilen; dieselbe Zielstelle erscheint je Fach nur einmal.
   // all = true (ganzes Kapitel, v = null): auch die Kommentare zu den einzelnen Versen
   function classify(rows, v, all) {
-    const out = { commentary: [], parallels: [], legends: [], rabbinic: [], halakhah: [], mishtal: [], other: [] };
+    const out = { commentary: [], parallels: [], legends: [], krauss: [], rabbinic: [], halakhah: [], mishtal: [], other: [] };
     const seen = new Set();
     for (const x of rows || []) {
       if (!x || !x.other) continue;
@@ -141,6 +143,6 @@
     return { n, shown: BOXES.filter(b => n[b] > 0), total: BOXES.reduce((s, b) => s + n[b], 0) };
   }
 
-  const api = { BOXES, boxOf, sourceOf, classify, commentators, words, bare, outlineAt, spans, secNo, notesAt, placesAt, topicsAt, summary, bookOf };
+  const api = { BOXES, KRAUSS, boxOf, sourceOf, classify, commentators, words, bare, outlineAt, spans, secNo, notesAt, placesAt, topicsAt, summary, bookOf };
   if (typeof module !== 'undefined' && module.exports) module.exports = api; else window.Passage = api;
 })();

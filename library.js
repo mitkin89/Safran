@@ -6222,11 +6222,20 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
   var AP = { open: false, token: 0, t: null, key: '', whole: false }; // whole: ganzes Kapitel bzw. ganze Seite statt eines Verses
   const AP_CAP = 6;
   const AP_META = {
-    commentary: ['💬', 'Kommentare'], parallels: ['⇄', 'Parallelstellen'], legends: ['❧', 'Legenden (Ginzberg)'], rabbinic: ['📜', 'Talmud & Midrasch'], halakhah: ['⚖', 'Halacha'],
+    commentary: ['💬', 'Kommentare'], parallels: ['⇄', 'Parallelstellen'], legends: ['❧', 'Legenden (Ginzberg)'], krauss: ['🏺', 'Talmudische Archäologie (Krauss)'], rabbinic: ['📜', 'Talmud & Midrasch'], halakhah: ['⚖', 'Halacha'],
     words: ['א', 'Wörter'], dicts: ['📖', 'In Wörterbüchern'], places: ['🗺', 'Orte'], topics: ['🏷', 'Themen'], mishtal: ['↔', 'Mischna ↔ Talmud'], outline: ['☰', 'Gliederung / Mizwa'], notes: ['★', 'Notizen'], other: ['🔗', 'Weitere Verknüpfungen'],
   };
   const apName = b => { const t = I18N.t(AP_META[b][1]); return t.charAt(0).toUpperCase() + t.slice(1); }; // „Orte“ ist englisch sonst klein („places“)
-  const AP_ALL = { commentary: 1, parallels: 1, legends: 1, rabbinic: 1, halakhah: 1, places: 1, topics: 1, outline: 1, notes: 1, other: 1 }; // Fächer mit „alle anzeigen“
+  const AP_ALL = { commentary: 1, parallels: 1, legends: 1, krauss: 1, rabbinic: 1, halakhah: 1, places: 1, topics: 1, outline: 1, notes: 1, other: 1 }; // Fächer mit „alle anzeigen“
+  let krOl, krIdx = null; // Gliederung von Krauss (wird beim ersten Bedarf geladen)
+  function krLabel(ref) { // „Talmudische Archäologie 12:3“ -> { t: '12. Bett (S. 64)', head: 'I. Wohnung und Hausgerät', par: 3 }
+    if (!krOl) return null;
+    if (!krIdx) { krIdx = []; for (const s of krOl.sections || []) for (const it of s.items || []) { const m = String(it.ref).match(/^(\d+):(\d+)/); if (m) krIdx.push([+m[1] * 100000 + +m[2], it.text, s.head]); } krIdx.sort((a, b) => a[0] - b[0]); }
+    const m = String(ref).slice(window.Passage.KRAUSS.length + 1).match(/^(\d+):?(\d+)?/); if (!m) return null;
+    const k = +m[1] * 100000 + +(m[2] || 1); let hit = null;
+    for (const e of krIdx) { if (e[0] <= k) hit = e; else break; }
+    return hit ? { t: hit[1], head: hit[2], par: m[2] || '1' } : null;
+  }
   const AP_LKCATS = { parallels: ['tanakh', 'parallelstellen', 'second temple', 'targum'], rabbinic: ['talmud', 'midrash', 'mishnah', 'tosefta'], halakhah: ['halakhah', 'responsa'] };
   const apChap = s => { // Abschnitt als „3“, „2a“ oder „1:2“ (wie loadLinks)
     if (!s) return null; const first = s.label.split(' › ')[0];
@@ -6308,6 +6317,12 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
       boxes.legends = cl.legends.map(x => ({ x, e: legLabel(x.other) })).sort((a, b) => a.e.vol - b.e.vol || a.e.chap - b.e.chap || a.e.par - b.e.par)
         .map(({ x, e }) => ent(x, esc([I18N.t('Band {}', e.vol), e.chapTitle, e.sub, I18N.t('Abs. {}', e.parText)].filter(Boolean).join(' · ')), e.short));
     }
+    { // Krauss, Talmudische Archäologie: Paragraph (aus der Gliederung) und Absatz
+      if (cl.krauss.length && krOl === undefined) { krOl = null; olOwn(P.KRAUSS).then(o => { krOl = o || null; krIdx = null; if (o) apSoon(); }).catch(() => {}); }
+      const pos = r => { const m = String(r).slice(P.KRAUSS.length + 1).match(/^(\d+):?(\d+)?/); return m ? [+m[1], +(m[2] || 1)] : [0, 0]; };
+      boxes.krauss = cl.krauss.slice().sort((a, b) => { const p = pos(a.other), q = pos(b.other); return p[0] - q[0] || p[1] - q[1]; })
+        .map(x => { const k = krLabel(x.other); return ent(x, k ? esc(k.t) + ' · ' + esc(I18N.t('Abs. {}', k.par)) : '', [vTag(x), k && k.head].filter(Boolean).join(' · ')); });
+    }
     boxes.rabbinic = sortL(cl.rabbinic).map(x => ent(x, '', vTag(x)));
     boxes.halakhah = sortL(cl.halakhah).map(x => ent(x, '', vTag(x)));
     lkDictsLoad();
@@ -6386,6 +6401,7 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
     if (b === 'topics') { $('#tpBtn').click(); return; }
     if (b === 'outline') { if ($('#outlinePanel').hidden) $('#olBtn').click(); return; }
     if (b === 'notes') { showTab('notes'); return; }
+    if (b === 'krauss') { lkVerse = v; $('#lkFilter').value = window.Passage.KRAUSS; renderLinkPanel(); return; } // Krauss: Verknüpfungs-Fenster nach dem Titel gefiltert
     lkVerse = v; $('#lkFilter').value = ''; renderLinkPanel(); // Verknüpfungs-Fenster zum Vers, an der passenden Gruppe
     const want = AP_LKCATS[b];
     const d = b === 'legends' ? $('#lkBody > details.lkLeg') : want ? $$('#lkBody > details[data-c]').find(x => want.includes(x.dataset.c)) : $$('#lkBody > details[data-c]').find(x => ![].concat(...Object.values(AP_LKCATS), 'commentary').includes(x.dataset.c));
