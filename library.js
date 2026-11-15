@@ -6293,7 +6293,12 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
     const bookTot = l => { const k = book + '|' + l; if (!apBk.has(k)) { const m = mdl(l); let n = 0; try { const d = m && window.Forms.dist(D, m).find(x => x.book === book); n = d ? d.n : 0; } catch { n = 0; } apBk.set(k, n); } return apBk.get(k); };
     return window.Passage.stats(window.Passage.words(rows.join(' ')), { tot, N: apN, verses: rows.length, bookTot });
   }
-  function apStatsHtml(st) {
+  function apStatsHtml(stC, stV, v) {
+    const scopeHtml = (st, scope) => apStatsScope(st, scope, scope === 'v' ? v : 0);
+    apCur = { c: stC, v: stV };
+    return `${stV ? `<div class="apSeg apScopeSw">${[['v', I18N.t('Vers {}', v)], ['c', I18N.t('Kapitel')]].map(([k, t], i) => `<button type="button" data-scope="${k}"${i ? '' : ' class="on"'}>${esc(t)}</button>`).join('')}</div>` : ''}${stV ? `<div class="apScope" data-scope="v">${scopeHtml(stV, 'v')}</div><div class="apScope" data-scope="c" hidden>${scopeHtml(stC, 'c')}</div>` : `<div class="apScope" data-scope="c">${scopeHtml(stC, 'c')}</div>`}`;
+  }
+  function apStatsScope(st, scope, v) {
     const LEM = window.OSHB_LEMMAS || {}, L = I18N.lang, n = x => x.toLocaleString(I18N.loc);
     const gl = r => { const lem = LEM[r.w.lemma]; return lem ? (L === 'de' && lem[2] ? lem[2] : lem[1]) : ''; };
     // eine Zeile je Wort: Wort mit Bedeutung, wie oft hier, wie oft im Tanach
@@ -6304,7 +6309,7 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
     const list = (xs, mode, cap = 10) => apList(xs.map(r => row(r, mode)), cap);
     const bar = (label, v, pct) => `<div class="apBarRow"><span class="apBl">${esc(label)}</span><i class="apBar"><b style="width:${Math.max(2, Math.min(100, pct))}%"></b></i><span class="apBn">${v}</span></div>`;
     const panes = {
-      lead: `<p class="muted apHow">${esc(I18N.t('Wörter, die in diesem Kapitel viel häufiger vorkommen als im übrigen Tanach – sie tragen das Thema.'))}</p>${st.lead.length ? list(st.lead, 'ratio') : `<p class="muted">${esc(I18N.t('Keine auffälligen Leitwörter.'))}</p>`}`,
+      lead: `<p class="muted apHow">${esc(scope === 'v' ? I18N.t('Leitwörter des Kapitels, die in diesem Vers stehen (Zahlen: im Kapitel, im Tanach).') : I18N.t('Wörter, die in diesem Kapitel viel häufiger vorkommen als im übrigen Tanach – sie tragen das Thema.'))}</p>${st.lead.length ? list(st.lead, 'ratio') : `<p class="muted">${esc(I18N.t('Keine auffälligen Leitwörter.'))}</p>`}`,
       vocab: `<p class="muted apHow">${esc(I18N.t('Wörter des Kapitels nach ihrer Häufigkeit im Tanach – selten ist schwer.'))}</p>${st.tiers.map(t => `<details class="apTier"${t.items.length <= 12 && t.key !== '>500' ? ' open' : ''}><summary><b>${esc(t.key === '1' ? I18N.t('nur einmal im Tanach') : I18N.t('{}× im Tanach', t.key))}</b> <small>${n(t.items.length)}</small></summary>${list(t.items, 'tanakh', 12)}</details>`).join('')}
         ${st.only.length ? `<h6>${esc(I18N.t('Nur in diesem Buch'))} <small>${n(st.only.length)}</small></h6>${list(st.only, 'ratio', 8)}` : ''}
         <button type="button" class="apCopy" data-act="copyvocab">${esc(I18N.t('Vokabelliste kopieren'))} <small>${n(st.vocab.length)}</small></button>`,
@@ -6312,8 +6317,7 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
       names: st.names.length ? `<p class="muted apHow">${esc(I18N.t('Namen von Personen und Orten im Kapitel.'))}</p>${list(st.names, 'ratio', 12)}` : `<p class="muted">${esc(I18N.t('Keine Eigennamen.'))}</p>`,
     };
     const segs = [['lead', 'Leitwörter'], ['vocab', 'Vokabeln'], ['verbs', 'Verben'], ['names', 'Namen']];
-    apCur = st;
-    return `<p class="apSum">${esc(I18N.t('{} Wörter in {} Versen, {} verschiedene Wörter (Lemmata). {} % der Wörter kommen im Tanach mehr als 100-mal vor (Grundwortschatz).', n(st.words), n(st.verses), n(st.lemmas), st.common))}</p>
+    return `<p class="apSum">${esc(scope === 'v' ? I18N.t('{} Wörter, {} verschiedene Wörter (Lemmata). {} % der Wörter kommen im Tanach mehr als 100-mal vor (Grundwortschatz).', n(st.words), n(st.lemmas), st.common) : I18N.t('{} Wörter in {} Versen, {} verschiedene Wörter (Lemmata). {} % der Wörter kommen im Tanach mehr als 100-mal vor (Grundwortschatz).', n(st.words), n(st.verses), n(st.lemmas), st.common))}</p>
       <div class="apSeg" role="tablist">${segs.map(([k, l], i) => `<button type="button" data-seg="${k}"${i ? '' : ' class="on"'}>${esc(I18N.t(l))}</button>`).join('')}</div>
       ${segs.map(([k], i) => `<div class="apPane" data-seg="${k}"${i ? ' hidden' : ''}>${panes[k]}</div>`).join('')}
       <p class="muted apNote">${esc(I18N.t('Gezählt nach dem Westminster-Text (OSHB), pro Lemma; Präpositionen, Partikeln und Pronomen sind ausgelassen.'))}</p>`;
@@ -6424,16 +6428,18 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
         apSet('words', ws.length, ws.length ? `<div class="apWords" dir="rtl">${ws.map(w => { const lem = LEM[w.lemma]; return `<button type="button" class="apW" data-lemma="${esc(w.lemma)}" data-l="${esc(w.l)}" data-m="${esc(w.m)}" data-word="${esc(w.raw)}" title="${esc(I18N.t('Wortkarte: Wörterbücher, Verteilung und Formen dieses Wortes'))}"><span class="f" lang="he" dir="rtl">${esc(w.word)}</span>${lem ? `<span class="l"><span lang="he" dir="rtl">${esc(lem[0])}</span> <span class="gl" dir="auto">${esc(L === 'de' && lem[2] ? lem[2] : lem[1])}</span></span>` : ''}${w.n > 1 ? `<small>×${w.n}</small>` : ''}</button>`; }).join('')}</div>` : '');
       }).catch(() => { if (token === AP.token) apSet('words', 0, ''); });
     }
-    // ----- Statistik des Kapitels: häufigste, typische und einmalige Wörter (Westminster-Text und Formen-Index) -----
+    // ----- Statistik des Kapitels (und, bei angeklicktem Vers, des Verses): Leitwörter, Vokabeln, Verben, Namen -----
     if (wait.stats) {
       const d = view.loaded.find(x => x.entry.kind === 'he' && /westminster/i.test(x.versionTitle || ''));
       const ref = `${title} ${chap}`;
-      const pc = d ? Promise.resolve(R.flattenNode(R.getByPath(d.text, s.path)).map(r => r.html || ''))
-        : LK.texts([ref], 'he', true).then(res => { const t = res && res[ref]; return t && t.items && /westminster/i.test(t.versionTitle || '') ? t.items : []; });
+      const pc = d ? Promise.resolve(R.flattenNode(R.getByPath(d.text, s.path)).map(r => ({ label: r.label, html: r.html || '' })))
+        : LK.texts([ref], 'he', true).then(res => { const t = res && res[ref]; return t && t.items && /westminster/i.test(t.versionTitle || '') ? t.items.map((h, i) => ({ label: String(i + 1), html: h })) : []; });
       Promise.all([pc, loadForms()]).then(([rows, D]) => {
         if (token !== AP.token) return;
-        const st = rows.length && D ? apStats(rows, D, title) : null;
-        apSet('stats', st ? st.words : 0, st ? apStatsHtml(st) : '');
+        const st = rows.length && D ? apStats(rows.map(r => r.html), D, title) : null;
+        let sv = null;
+        if (st && !whole && v != null) { const vr = rows.find(r => r.label === label) || rows[v - 1]; if (vr) { sv = apStats([vr.html], D, title); if (sv) { const here = new Set(sv.vocab.concat(sv.tiers.flatMap(t => t.items)).map(r => r.w.lemma)); sv.lead = st.lead.filter(r => here.has(r.w.lemma)); } } }
+        apSet('stats', st ? st.words : 0, st ? apStatsHtml(st, sv, v) : '');
       }).catch(() => { if (token === AP.token) apSet('stats', 0, ''); });
     }
     // ----- In Wörterbüchern: Artikel, die diese Stelle zitieren (Rückwärtsindex der Wörterbuch-Zitate) -----
@@ -6491,8 +6497,9 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
     const sf = e.target.closest('a.lkSef'); if (sf) { e.preventDefault(); window.api.openExternal(sf.dataset.url); return; }
     const all = e.target.closest('.apAll'); if (all) { hovApi && hovApi.hide(); apShowAll(all.dataset.b); return; }
     const mb = e.target.closest('.apMoreB'); if (mb) { const m = mb.previousElementSibling; m.hidden = !m.hidden; mb.textContent = m.hidden ? I18N.t('+ {} weitere', (+mb.dataset.n).toLocaleString(I18N.loc)) : I18N.t('weniger'); return; }
-    { const sg = e.target.closest('.apSeg button'); if (sg) { const box = sg.closest('.apBox'); box.querySelectorAll('.apSeg button').forEach(b => b.classList.toggle('on', b === sg)); box.querySelectorAll('.apPane').forEach(p => { p.hidden = p.dataset.seg !== sg.dataset.seg; }); return; }
-      const cp = e.target.closest('.apCopy'); if (cp && apCur) { const LEM = window.OSHB_LEMMAS || {}, L = I18N.lang; const txt = apCur.vocab.map(r => { const lem = LEM[r.w.lemma]; return [lem ? lem[0] : r.w.word, lem ? (L === 'de' && lem[2] ? lem[2] : lem[1]) : '', r.T + '×'].join('\t'); }).join('\n'); try { navigator.clipboard.writeText(txt); cp.classList.add('ok'); setTimeout(() => cp.classList.remove('ok'), 1200); } catch { /* egal */ } return; } }
+    { const sc = e.target.closest('.apScopeSw button'); if (sc) { const box = sc.closest('.apBox'); box.querySelectorAll('.apScopeSw button').forEach(b => b.classList.toggle('on', b === sc)); box.querySelectorAll('.apScope').forEach(p => { p.hidden = p.dataset.scope !== sc.dataset.scope; }); return; }
+      const sg = e.target.closest('.apScope .apSeg button'); if (sg) { const box = sg.closest('.apScope'); box.querySelectorAll('.apSeg button').forEach(b => b.classList.toggle('on', b === sg)); box.querySelectorAll('.apPane').forEach(p => { p.hidden = p.dataset.seg !== sg.dataset.seg; }); return; }
+      const cp = e.target.closest('.apCopy'); if (cp && apCur && apCur[cp.closest('.apScope').dataset.scope]) { const LEM = window.OSHB_LEMMAS || {}, L = I18N.lang; const txt = apCur[cp.closest('.apScope').dataset.scope].vocab.map(r => { const lem = LEM[r.w.lemma]; return [lem ? lem[0] : r.w.word, lem ? (L === 'de' && lem[2] ? lem[2] : lem[1]) : '', r.T + '×'].join('\t'); }).join('\n'); try { navigator.clipboard.writeText(txt); cp.classList.add('ok'); setTimeout(() => cp.classList.remove('ok'), 1200); } catch { /* egal */ } return; } }
     const w = e.target.closest('.apW'); if (w) { openForms(w.dataset.lemma, { lemma: w.dataset.lemma, word: w.dataset.word, m: w.dataset.m, l: w.dataset.l }, 'card'); return; }
     const de = e.target.closest('.apDE'); if (de) { openDict(de.dataset.q); return; }
     const pl = e.target.closest('[data-place]'); if (pl) { apPlace(+pl.dataset.place); return; }
