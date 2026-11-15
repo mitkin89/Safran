@@ -1,0 +1,17 @@
+{
+  "about": "Zähltraditionen der Fassungen. Safran zählt wie Sefaria (hebräisch/masoretisch). 'text' = wie eine Fassung eines biblischen Buches ihre Kapitel und Verse selbst zählt; 'cites' = nach welcher Zählung die Stellenangaben in ihrem Text gemeint sind. Werte: heb (Standard), eng (englisch, KJV/NRSV), lat (lateinisch, Vulgata), grk (griechisch, Septuaginta nach Rahlfs). Die erste passende Regel mit dem gefragten Feld gilt; ohne Regel: heb. Vergleichsfelder: rel, title, titlePrefix, versionTitle, versionTitlePrefix. Umrechnung: versemap.js mit der Tabelle versemap-data.js (TVTMS, STEPBible.org / Tyndale House Cambridge, CC BY 4.0). Eine einzelne Datei kann dasselbe im Feld \"versification\": {\"text\": …, \"cites\": …} angeben; in der App: Rechtsklick auf den Spaltenkopf.",
+  "rules": [
+    {
+      "versionTitlePrefix": "Septuaginta (Rahlfs",
+      "text": "grk",
+      "cites": "grk",
+      "note": "Rahlfs zählt griechisch (Psalmen, Jeremia, Exodus 35–40 …). Die beiden mitgelieferten Bücher des Tanach (Hosea, Ester mit Zusätzen) zählen dabei wie der hebräische Text, sie bleiben unverändert."
+    }
+  ],
+  "checked": {
+    "stand": "2026-11",
+    "wie": "Für jede mitgelieferte deutsche Fassung wurden alle erkannten Tanach-Stellen (autoref.js) daraufhin geprüft, ob es sie nur in der hebräischen oder nur in der englischen/lateinischen/griechischen Zählung gibt (Psalmüberschrift als Vers, Joel 3/4, Maleachi 3/4, Kapitelgrenzen); bei den Bibelübersetzungen dazu die Verszahl jedes Kapitels gegen Sefaria.",
+    "ergebnis": "Alle mitgelieferten deutschen Bibeln und Kommentare zählen und zitieren hebräisch – auch Kautzsch. Beispiele (Stellen nur hebräisch gültig / nur englisch gültig): Herxheimer 57/4 von 9357, Philippson 56/13 von 7893, Kautzsch 27/5 von 3175, Hirsch, Psalmen 18/0 von 1255, Mendelssohn (Biur) 27/0 von 3297, Wünsche, Bemidbar Rabba 15/0 von 2663, Hoffmann, Leviticus 13/1 von 2553. Sie stehen deshalb in keiner Regel (Standard heb). Die wenigen Stellen, die es hebräisch nicht gibt (z. B. „1 Kön 4, 24“, „Joel 3, 11“, „Neh 7, 73“), liest Safran als englische Zählung, wenn das eine vorhandene Stelle ergibt (24 Stellen in den mitgelieferten Texten).",
+    "deutsch": "Eine deutsche (Luther-)Tradition führt TVTMS nicht (nur drei Sonderfälle in Ps 54, 64, 127). Ältere Luther-Ausgaben teilen die Kapitel meist wie die englische Zählung und zählen die Psalmüberschriften wie die hebräische; für solche Texte passt je nach Buch 'eng' oder 'heb'."
+  }
+}

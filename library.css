@@ -685,6 +685,10 @@ header { z-index: 50; }
 #lkHover div + div { margin-top: 4px; }
 #lkHover hr { border: 0; border-top: 1px solid var(--line); margin: 6px 0; }
 #lkHover .phe { font-size: calc(18px * var(--hovf, 1.15)); line-height: 1.7; }
+/* Zähltraditionen (versemap.js): umgerechnete Stellenangabe, Hinweis in der Vorschau, Zeichen im Spaltenkopf */
+a.aref[data-oref]::after { content: '⇄'; font-size: .68em; vertical-align: super; margin-inline-start: 1px; color: var(--muted); }
+#lkHover .vnote { margin: -2px 0 6px; padding: 2px 6px; border-inline-start: 3px solid var(--accent); background: color-mix(in srgb, var(--accent) 10%, transparent); color: var(--fg); font-size: calc(12px * var(--hovf, 1.15)); border-radius: 0 4px 4px 0; }
+.row.head .vtrad { font-weight: normal; color: var(--muted); white-space: nowrap; }
 
 /* Notizen: Tags, Datum, Überschriften, Streifen im Lesetext */
 #ndTags { width: 100%; box-sizing: border-box; margin-top: 6px; }

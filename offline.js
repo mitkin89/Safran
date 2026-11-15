@@ -570,6 +570,8 @@ class Library {
     return {
       entry, title: d.title, heTitle: d.heTitle, language: d.language, versionTitle: d.versionTitle,
       versionSource: d.versionSource, sectionNames: d.sectionNames || null, text: d.text,
+      // eigene Angabe zur Zählung: { text: 'grk', cites: 'eng' } (siehe versemap.js; sonst gilt bundled/versification.json)
+      versification: d.versification && typeof d.versification === 'object' ? { text: d.versification.text, cites: d.versification.cites } : undefined,
       // nur die Reihenfolge der Teile komplexer Texte (z. B. „Preface“ vor den Büchern), für die Abschnittsliste
       schema: d.schema && d.schema.nodes ? { nodes: slimNodes(d.schema.nodes) } : null,
     };

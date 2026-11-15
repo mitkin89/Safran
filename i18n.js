@@ -14,6 +14,23 @@
   if (lang === 'de') return;
 
   const EN = {
+    // ----- Zähltraditionen (Versumrechnung, versemap.js) -----
+    'hebräisch (Sefaria)': 'Hebrew (Sefaria)',
+    'englisch (KJV)': 'English (KJV)',
+    'lateinisch (Vulgata)': 'Latin (Vulgate)',
+    'griechisch (Septuaginta)': 'Greek (Septuagint)',
+    'hebräische Zählung': 'Hebrew numbering',
+    'englische Zählung': 'English numbering',
+    'lateinische Zählung (Vulgata)': 'Latin numbering (Vulgate)',
+    'griechische Zählung (Septuaginta)': 'Greek numbering (Septuagint)',
+    'hebr. Zählung': 'Hebrew numbering',
+    'engl. Zählung': 'English numbering',
+    'lat. Zählung': 'Latin numbering',
+    'griech. Zählung': 'Greek numbering',
+    '{} {} = hebr. {}': '{} {} = Hebrew {}',
+    'Verszählung dieser Fassung: {} …': 'Verse numbering of this version: {} …',
+    'Stellenangaben in dieser Fassung zählen: {} …': 'References in this version are numbered: {} …',
+    'Diese Fassung zählt anders ({}). Ihre Verse stehen hier neben dem hebräischen Vers; die eigene Nummer steht klein davor.': 'This version is numbered differently ({}). Its verses are shown next to the Hebrew verse; its own number is printed small in front.',
     // ----- Septuaginta-Morphologie (griechische Wörter: Popup, Wortkarte, Formentabelle, Lemma-Suche) -----
     'Zahlwort': 'Numeral',
     'Präsens': 'Present',

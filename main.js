@@ -957,6 +957,9 @@ ipcMain.handle('links:section', async (_e, book, chap) => {
 });
 // Mischna ↔ Talmud: mitgelieferte Zuordnung (aus Sefarias „mishnah in talmud“), für den Sprung an der Mischna bzw. im Daf – auch ohne heruntergeladene Verknüpfungen
 let mishTalP = null;
+// Zähltraditionen der mitgelieferten Fassungen (bundled/versification.json; Umrechnung: versemap.js)
+let versCfgP = null;
+ipcMain.handle('links:versification', () => versCfgP || (versCfgP = fs.readFile(path.join(__dirname, 'bundled', 'versification.json'), 'utf8').then(t => JSON.parse(t)).catch(() => ({ rules: [] }))));
 ipcMain.handle('links:mishnahTalmud', () => mishTalP || (mishTalP = fs.readFile(path.join(__dirname, 'bundled', 'mishnah_talmud.json'), 'utf8').then(t => JSON.parse(t)).catch(() => ({}))));
 // Texte mehrerer Stellen auf einmal holen (Kommentar-Bereich): jede Datei wird nur einmal gelesen
 // Hebräisch: Westminster vor vokalisierter Ausgabe vor anderen; Sefarias zusammengeführte Fassung zuletzt
@@ -998,7 +1001,7 @@ ipcMain.handle('links:texts', async (_e, refs, prefer, strict) => {
         let dd = d;
         if (nodeName) { const sub = d.text && !Array.isArray(d.text) ? d.text[nodeName] : null; dd = sub ? { ...d, text: sub, sectionNames: [] } : null; }
         const t = dd ? LK.resolveText(dd, i.tail) : null;
-        if (t) { found = { items: t, kind: c.kind, versionTitle: c.versionTitle }; break; }
+        if (t) { found = { items: t, kind: c.kind, versionTitle: c.versionTitle, rel: c.rel }; break; }
       }
       out[i.ref] = found || { nopreview: true };
     }

@@ -1,6 +1,22 @@
 // Hebräische Oberfläche: ergänzt die englische Tabelle (i18n.js); was hier fehlt, bleibt englisch.
 window.I18N_HE = {
 "exact": {
+"hebräisch (Sefaria)": "עברי (Sefaria)",
+"englisch (KJV)": "אנגלי (KJV)",
+"lateinisch (Vulgata)": "לטיני (וולגטה)",
+"griechisch (Septuaginta)": "יווני (תרגום השבעים)",
+"hebräische Zählung": "מספור עברי",
+"englische Zählung": "מספור אנגלי",
+"lateinische Zählung (Vulgata)": "מספור לטיני (וולגטה)",
+"griechische Zählung (Septuaginta)": "מספור יווני (תרגום השבעים)",
+"hebr. Zählung": "מספור עברי",
+"engl. Zählung": "מספור אנגלי",
+"lat. Zählung": "מספור לטיני",
+"griech. Zählung": "מספור יווני",
+"{} {} = hebr. {}": "{} {} = עברי {}",
+"Verszählung dieser Fassung: {} …": "מספור הפסוקים של נוסח זה: {} …",
+"Stellenangaben in dieser Fassung zählen: {} …": "מראי המקומות בנוסח זה ממוספרים: {} …",
+"Diese Fassung zählt anders ({}). Ihre Verse stehen hier neben dem hebräischen Vers; die eigene Nummer steht klein davor.": "נוסח זה ממוספר אחרת ({}). פסוקיו מוצגים כאן לצד הפסוק העברי; המספר שלו עצמו מופיע לפניו באותיות קטנות.",
 "Zahlwort": "שם מספר",
 "Präsens": "הווה",
 "Futur": "עתיד",

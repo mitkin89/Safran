@@ -2,6 +2,9 @@
 // Reine Textfunktion ohne Oberfläche; läuft in Node (Tests: test15.js) und als <script> (window.AutoRef).
 (function () {
 'use strict';
+// Versumrechnung (versemap.js): Stellen aus Texten, die nicht hebräisch zählen, kommen in Sefarias Zählung; fehlt die Tabelle, bleibt alles wie angegeben
+let VM = null;
+try { VM = typeof module !== 'undefined' && module.exports ? require('./versemap.js') : window.VerseMap; } catch { VM = null; }
 // Schreibweisen -> Sefaria-Titel (Kleinbuchstaben, ohne Punkt)
 const EN = {
   'Genesis': 'gen genesis gn', 'Exodus': 'ex exod exodus', 'Leviticus': 'lev leviticus lv', 'Numbers': 'num numbers nu', 'Deuteronomy': 'deut deuteronomy dt dtn',
@@ -172,7 +175,8 @@ function maimonides(text, matches) {
     matches.push({ s: m.index, e: m.index + m[0].length, ref: `Mishneh Torah, ${h} ${ch}:${v}`, book: 'Mishneh Torah, ' + h, nolast: true });
   }
 }
-// text: reiner Text (nach dem Entfernen der Tags); st.last: zuletzt genannte Schrift (für „ibid.“)
+// text: reiner Text (nach dem Entfernen der Tags); st.last: zuletzt genannte Schrift (für „ibid.“); st.trad: Zähltradition der Stellenangaben
+// ('heb' | 'eng' | 'lat' | 'grk', siehe versemap.js); st.vers === false schaltet die Umrechnung ab; st.note(Angabe, hebräische Stelle, Tradition): eigener Hinweistext
 function linkText(text, st) {
   const out = [];
   let i = 0;
@@ -211,7 +215,10 @@ function linkText(text, st) {
     if (x.s < i) continue; // Überlappung: erste gewinnt
     if (x.ibid) { if (!st.last) continue; x.book = st.last; x.ref = st.last + ' ' + x.ref; }
     out.push(esc2(text.slice(i, x.s)));
-    out.push(`<a class="aref" data-sref="${esc(x.ref)}" title="${esc(x.ref)}">${esc2(text.slice(x.s, x.e))}</a>`);
+    // Zählung: st.trad = Tradition, nach der dieser Text zitiert (Standard hebräisch); umgerechnete Stellen behalten die Angabe des Textes in data-oref
+    const r = VM && !x.nolast && st.vers !== false ? VM.resolve(x.ref, st.trad || 'heb') : null;
+    if (r && r.from) out.push(`<a class="aref" data-sref="${esc(r.ref)}" data-oref="${esc(x.ref)}" data-vt="${r.from}" title="${esc((st.note || VM.note)(x.ref, r.ref, r.from))}">${esc2(text.slice(x.s, x.e))}</a>`);
+    else out.push(`<a class="aref" data-sref="${esc(x.ref)}" title="${esc(x.ref)}">${esc2(text.slice(x.s, x.e))}</a>`);
     st.last = x.nolast ? '' : x.book; i = x.e;
   }
   out.push(esc2(text.slice(i)));

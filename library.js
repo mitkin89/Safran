@@ -431,6 +431,7 @@
       let d = cache.get(rel);
       if (!d) {
         try { d = await O.read(rel); } catch { continue; }
+        await versReady; applyVers(d);
         const ver = V.group.versions.find(x => x.rel === rel);
         d.__b = (ver && ver.bytes) || 2e6;
         cache.set(rel, d);
@@ -536,7 +537,7 @@
     const csvRel = e.target.dataset && e.target.dataset.csv;
     if (csvRel) {
       e.preventDefault();
-      const d = view.loaded.find(x => x.entry.rel === csvRel) || await O.read(csvRel);
+      const d = (view.loaded.find(x => x.entry.rel === csvRel && !x.vmoved)) || await O.read(csvRel); // umgestellte Fassung (andere Zählung): die Datei selbst, unverändert
       const q = v => /[",\n\r]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v;
       const rows = R.flattenNode(d.text).map(r => [`${d.entry.title} ${r.label}`, plain(r.html)]);
       const r = await window.api.saveFile(`${d.entry.title.replace(/[\\/:*?"<>|]/g, '_')}_${d.entry.versionTitle.replace(/[\\/:*?"<>|]/g, '_').slice(0, 40)}.csv`, rows.map(x => x.map(q).join(',')).join('\n') + '\n');
@@ -618,8 +619,56 @@
       items.push({ label: (on ? '✓ ' : '\u2003 ') + shortVer(v.versionTitle), pic: portraitOf(v.versionTitle), fn: () => { const n = new Set(view.selected); if (on) n.delete(v.rel); else n.add(v.rel); apply(n); } });
     }
     const r = (vl || h).getBoundingClientRect();
+    if (!multi) { // Zählung dieser Fassung: eigene Verszählung (nur biblische Bücher) und Zählung ihrer Stellenangaben
+      const pick = what => () => setTimeout(() => ctxShow({ clientX: r.left, clientY: r.bottom + 2, preventDefault() {} }, VMAP.TRAD.map(t => ({ label: (versOf(d, what) === t ? '✓ ' : '\u2003 ') + I18N.t(VERS_NAME[t]), fn: () => versSet(d, what, t) }))), 0);
+      const tanakhHe = d.entry.kind === 'he' && /Tanakh/.test((d.entry.categories || []).join());
+      const its = [];
+      if (VMAP.known(d.entry.title) && Array.isArray(d.text)) its.push({ label: I18N.t('Verszählung dieser Fassung: {} …', I18N.t(VERS_NAME[versOf(d, 'text')])), fn: pick('text') });
+      if (!tanakhHe) its.push({ label: I18N.t('Stellenangaben in dieser Fassung zählen: {} …', I18N.t(VERS_NAME[versOf(d, 'cites')])), fn: pick('cites') });
+      if (its.length) { if (items.length) items.push({ sep: true }); items.push(...its); }
+    }
     setTimeout(() => ctxShow({ clientX: r.left, clientY: r.bottom + 2, preventDefault() {} }, items), 0); // erst nach dem Klick, sonst schließt ihn der Dokument-Klick sofort wieder
   });
+
+  // ---------- Zähltraditionen (versemap.js; Tabelle aus TVTMS, STEPBible.org / Tyndale House, CC BY 4.0) ----------
+  // Safran zählt wie Sefaria (hebräisch). Je Fassung gibt es zwei Angaben: 'text' = wie sie selbst zählt (Rahlfs: griechisch) und
+  // 'cites' = nach welcher Zählung ihre Stellenangaben gemeint sind. Quelle: eigene Wahl (Rechtsklick auf den Spaltenkopf, localStorage),
+  // sonst das Feld „versification“ der Datei, sonst bundled/versification.json, sonst hebräisch.
+  const VMAP = window.VerseMap;
+  let VCFG = { rules: [] };
+  const versReady = (async () => { try { const c = window.links && window.links.versification ? await window.links.versification() : null; if (c && Array.isArray(c.rules)) VCFG = c; } catch { /* ohne Tabelle: alles hebräisch */ } })();
+  let versUser = {};
+  try { const j = JSON.parse(localStorage.getItem('versTrad') || '{}'); if (j && typeof j === 'object') versUser = j; } catch { /* egal */ }
+  const VERS_NAME = { heb: 'hebräisch (Sefaria)', eng: 'englisch (KJV)', lat: 'lateinisch (Vulgata)', grk: 'griechisch (Septuaginta)' };
+  function versOf(d, what) {
+    const e = (d && d.entry) || d || {};
+    const u = versUser[e.rel]; if (u && VMAP.TRAD.includes(u[what])) return u[what];
+    const f = d && d.versification; if (f && VMAP.TRAD.includes(f[what])) return f[what];
+    return VMAP.tradOf(VCFG, e, what);
+  }
+  // Fassung eines biblischen Buches, die anders zählt: Verse an ihre hebräische Stelle setzen (die eigene Nummer steht klein davor)
+  function applyVers(d) {
+    if (!d || d.vdone) return d;
+    d.vdone = true;
+    const t = versOf(d, 'text');
+    if (t === 'heb' || !VMAP.known(d.entry.title)) return d;
+    d.vtrad = t;
+    const r = VMAP.remap(d.text, d.entry.title, t);
+    if (r.moved) { d.text = r.text; d.vsrc = r.src; d.vmoved = r.moved; }
+    return d;
+  }
+  function versSet(d, what, val) {
+    const rel = d.entry.rel, u = { ...(versUser[rel] || {}) };
+    if (val === VMAP.tradOf(VCFG, d.entry, what) && !(d.versification && d.versification[what])) delete u[what]; else u[what] = val;
+    if (Object.keys(u).length) versUser[rel] = u; else delete versUser[rel];
+    try { localStorage.setItem('versTrad', JSON.stringify(versUser)); } catch { /* egal */ }
+    cache.delete(rel); // neu lesen: die Verse werden neu eingeordnet
+    if (view && view.selected && view.selected.has(rel)) loadView();
+  }
+  // Hinweis zu einer umgerechneten Stellenangabe: „englische Zählung Joel 3:11 = hebr. 4:11“ (Angabe im Text, hebräische Stelle, Tradition)
+  function versNoteText(orig, mapped, from) { const q = VMAP.parse(mapped), p = VMAP.parse(orig); return I18N.t('{} {} = hebr. {}', I18N.t(VMAP.LABEL[from] || ''), orig, q && p && q.book === p.book ? mapped.slice(q.book.length + 1) : mapped); }
+  // Kleines Zeichen im Spaltenkopf, wenn die Fassung umgestellt wurde
+  const versBadge = d => (d && d.vmoved ? ` <small class="vtrad" title="${esc(I18N.t('Diese Fassung zählt anders ({}). Ihre Verse stehen hier neben dem hebräischen Vers; die eigene Nummer steht klein davor.', I18N.t(VERS_NAME[d.vtrad])))}">⇄ ${esc(I18N.t(VMAP.SHORT[d.vtrad] + ' Zählung'))}</small>` : '');
 
   // Schlüssel einer Fußnote im Lesetext: Abschnitt | Zeile | Spalte | Nummer (für „bleibt offen“)
   const fnKey = n => { const row = n.closest('.row[data-l]'), cell = n.closest('.cell'); return [view ? view.idx : '', row ? row.dataset.l : '', row ? [...row.querySelectorAll('.cell')].indexOf(cell) : -1, n.dataset.fn].join('|'); };
@@ -634,7 +683,7 @@
       const n = notes[+i];
       return n ? `${m}<span class="note" data-fn="${i}"><span class="nm">${esc(n.marker)}</span> ${R.cleanHtml(n.html)}</span>` : m;
     });
-    const linked = d.entry.kind === 'he' && /Tanakh/.test((d.entry.categories || []).join()) ? inline : window.AutoRef.link(inline); // Stellenangaben im Text anklickbar (nicht im Bibeltext selbst)
+    const linked = d.entry.kind === 'he' && /Tanakh/.test((d.entry.categories || []).join()) ? inline : window.AutoRef.link(inline, { last: '', trad: versOf(d, 'cites'), note: versNoteText }); // Stellenangaben im Text anklickbar (nicht im Bibeltext selbst); andere Zählung wird umgerechnet
     const gm = d.entry.language === 'Greek' ? ` data-gt="${esc(d.entry.title)}" data-gv="${esc(d.entry.versionTitle || d.versionTitle || '')}"` : ''; // Septuaginta: Titel und Fassung für die Wort-Bestimmung (lxx-morph.js)
     return `<div class="cell" data-k="${d.entry.kind}"${gm} dir="${rtl ? 'rtl' : 'ltr'}"><div class="txt">${hit ? markHits(linked, hit) : linked}</div></div>`;
   }
@@ -679,9 +728,9 @@
     const n = byLang ? groupsL.length : vis.length;
     document.body.classList.toggle('multicol', n >= 2); // schmaler Rand: ab zwei Spalten volle Fensterbreite
     const head = byLang
-      ? `<div class="row head" style="--n:${n}"><div class="lab"></div>${groupsL.map(g => `<div data-ci="${g.idx[0]}"${g.idx.length > 1 ? ' data-multi="1"' : ''} data-hv="${esc(JSON.stringify(g.idx.map(i => view.loaded[i].versionTitle || '')))}" data-hk="${esc(KIND_LABEL[g.k])}">${esc(g.idx.length === 1 ? KIND_LABEL[g.k] + ' · ' + shortVer(view.loaded[g.idx[0]].versionTitle) : KIND_LABEL[g.k] + ' (' + g.idx.length + ')')}</div>`).join('')}</div>`
+      ? `<div class="row head" style="--n:${n}"><div class="lab"></div>${groupsL.map(g => `<div data-ci="${g.idx[0]}"${g.idx.length > 1 ? ' data-multi="1"' : ''} data-hv="${esc(JSON.stringify(g.idx.map(i => view.loaded[i].versionTitle || '')))}" data-hk="${esc(KIND_LABEL[g.k])}">${esc(g.idx.length === 1 ? KIND_LABEL[g.k] + ' · ' + shortVer(view.loaded[g.idx[0]].versionTitle) : KIND_LABEL[g.k] + ' (' + g.idx.length + ')')}${g.idx.length === 1 ? versBadge(view.loaded[g.idx[0]]) : ''}</div>`).join('')}</div>`
       : `<div class="row head" style="--n:${n}"><div class="lab"></div>${vis.map(i => view.loaded[i]).map(d =>
-      `<div data-hv="${esc(JSON.stringify([d.versionTitle || '']))}" data-hk="${esc(KIND_LABEL[d.entry.kind])}">${esc(KIND_LABEL[d.entry.kind])} · ${esc(shortVer(d.versionTitle))}</div>`).join('')}</div>`;
+      `<div data-hv="${esc(JSON.stringify([d.versionTitle || '']))}" data-hk="${esc(KIND_LABEL[d.entry.kind])}">${esc(KIND_LABEL[d.entry.kind])} · ${esc(shortVer(d.versionTitle))}${versBadge(d)}</div>`).join('')}</div>`;
     const langCells = r => groupsL.map(g => {
       const full = g.idx.filter(i => r.cells[i] != null);
       if (!full.length) return '<div class="cell empty"></div>';
@@ -807,7 +856,11 @@
       else { const h = row.closest('.pgb') && row.closest('.pgb').querySelector('.pgh[data-sk]'); path = h ? JSON.parse(h.dataset.sk) : view && view.sections && view.sections[view.idx] ? view.sections[view.idx].path : null; }
     } catch { path = null; }
     if (!Array.isArray(path) || path.length !== 1 || !Number.isInteger(path[0]) || !/^\d+$/.test(String(label || ''))) return null;
-    return { title: cell.dataset.gt, vt: cell.dataset.gv, ch: path[0] + 1, v: +label };
+    let ch = path[0] + 1, v = +label;
+    // umgestellte Fassung (andere Zählung): die Wort-Bestimmung hängt an der eigenen Stelle des Verses
+    const dv = view && view.loaded ? view.loaded.find(x => x.vsrc && x.entry.title === cell.dataset.gt && (x.entry.versionTitle || x.versionTitle || '') === cell.dataset.gv) : null;
+    if (dv) { const sv = dv.vsrc[ch + ':' + v]; if (sv && sv.length > 1) return null; if (sv) { ch = sv[0][0]; v = sv[0][1]; } }
+    return { title: cell.dataset.gt, vt: cell.dataset.gv, ch, v };
   }
   // Die griechischen Wörter einer Zelle, gezählt wie in gmorph.js (ohne <small>, Fußnoten), und das Wort unter dem Klick
   function greekWordAt(cell, e, w) {
@@ -1928,6 +1981,8 @@
   });
   // Vorschau beim Überfahren eines Querverweises (nur bei lokal vorhandenen Büchern)
   let hovApi = null; // Vorschau-Blase auch für das Themenfenster
+  // Hinweis zu einer umgerechneten Stellenangabe (data-oref = Angabe im Text, data-vt = ihre Zählung, data-sref = hebräische Zählung)
+  const versNote = a => versNoteText(a.dataset.oref, a.dataset.sref, a.dataset.vt);
   { let hov = null, hovT = null, hovRef = null; const pvCache = new Map();
     const hideHov = () => { clearTimeout(hovT); hovRef = null; if (hov) hov.hidden = true; };
     const startHov = (a, ref, quiet, below) => {
@@ -1941,7 +1996,9 @@
         if (!hov) { hov = document.createElement('div'); hov.id = 'lkHover'; document.body.appendChild(hov); }
         const partHtml = p => p.items.map(t => `<div dir="${p.he ? 'rtl' : 'ltr'}"${p.he ? ' lang="he" class="phe"' : ''}>${R.cleanHtml(R.splitFootnotes(p.he ? stripHe(t) : t).main.replace(/<sup[^>]*>.*?<\/sup>/g, ''))}</div>`).join('');
         const html = r.parts && r.parts.length ? r.parts.map((p, i) => (i ? '<hr>' : '') + partHtml(p)).join('') : r.items && r.items.length ? partHtml({ items: r.items, he: r.he }) : `<i>${esc(I18N.t('Keine Vorschau möglich.'))}</i>`;
-        hov.innerHTML = `<b>${esc(ref)}</b>${html}`; hov.hidden = false;
+        // andere Zählung im Text: Hinweis, welche Stelle gemeint ist („englische Zählung Joel 3:11 = hebr. 4:11“)
+        const vn = a && a.dataset && a.dataset.oref ? `<div class="vnote">${esc(versNote(a))}</div>` : '';
+        hov.innerHTML = `<b>${esc(ref)}</b>${vn}${html}`; hov.hidden = false;
         const rc = a.getBoundingClientRect(), w = hov.offsetWidth, h = hov.offsetHeight;
         if (below) { // Wörterbuch-Leiste: unter dem Link, sonst darüber
           hov.style.left = Math.max(8, Math.min(window.innerWidth - w - 8, rc.left)) + 'px';
@@ -4395,7 +4452,7 @@
     if (!BG(e)) navRemember(a); // „Zurück“ führt wieder an diese Stelle
     jumpTo(a.dataset.sref, BG(e)).then(ok => {
       a.classList.toggle('dmiss', !ok);
-      a.title = ok ? a.dataset.sref : I18N.t('Dieser Text ist nicht in deiner Bibliothek (Reiter „Herunterladen“).');
+      a.title = ok ? (a.dataset.oref ? versNote(a) : a.dataset.sref) : I18N.t('Dieser Text ist nicht in deiner Bibliothek (Reiter „Herunterladen“).');
     });
   }, true);
   $('#dictOut').addEventListener('click', e => {
@@ -5971,7 +6028,7 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
           // Fußnoten im Kommentar-Bereich: Zeichen im Text, Fußnotentext direkt dahinter (Einstellung „Fußnoten“ wie im Lesetext)
           const sp = R.splitFootnotes(he ? stripHe(x) : x);
           const inl = R.cleanHtml(sp.main).replace(/<sup>.*?<\/sup>/g, '').replace(/<sup data-fn="(\d{1,4})">(.*?)<\/sup>/g, (m, i) => { const n = sp.notes[+i]; return n ? `${m}<span class="note" data-fn="${i}"><span class="nm">${esc(n.marker)}</span> ${R.cleanHtml(n.html)}</span>` : m; });
-          return `<div class="ct" dir="${he ? 'rtl' : 'ltr'}">${window.AutoRef.link(inl)}</div>`;
+          return `<div class="ct" dir="${he ? 'rtl' : 'ltr'}">${window.AutoRef.link(inl, { last: '', trad: versOf({ entry: { rel: t.rel, title: g.book, versionTitle: t.versionTitle } }, 'cites'), note: versNoteText })}</div>`;
         }).join('');
       }).join('');
       const cl = cmtClosed.has(g.name);

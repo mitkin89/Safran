@@ -83,6 +83,7 @@ contextBridge.exposeInMainWorld('links', {
   texts: (refs, prefer, strict) => ipcRenderer.invoke('links:texts', refs, prefer, !!strict),
   preview: (ref, langs) => ipcRenderer.invoke('links:preview', ref, langs),
   mishnahTalmud: () => ipcRenderer.invoke('links:mishnahTalmud'),
+  versification: () => ipcRenderer.invoke('links:versification'),
   onProgress: cb => ipcRenderer.on('links:progress', (_e, d) => cb(d)),
 });
 
