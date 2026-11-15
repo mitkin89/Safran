@@ -14,6 +14,34 @@
   if (lang === 'de') return;
 
   const EN = {
+    // ----- Alles zu dieser Stelle (Knopf) -----
+    'Überblick': 'Overview',
+    // ----- Alles zu dieser Stelle -----
+    'Alles zu dieser Stelle': 'Everything on this passage',
+    'Alles zu dieser Stelle: Kommentare, Parallelstellen, Wörter, Orte, Themen und Notizen zum gewählten Vers (Cmd+I)': 'Everything on this passage: commentaries, parallels, words, places, topics and notes for the selected verse (Cmd+I)',
+    'Talmud & Midrasch': 'Talmud & Midrash',
+    'Halacha': 'Halakhah',
+    'Wörter': 'Words',
+    'Mischna ↔ Talmud': 'Mishnah ↔ Talmud',
+    'Gliederung / Mizwa': 'Outline / mitzvah',
+    'Weitere Verknüpfungen': 'Other links',
+    '{} weitere (alle anzeigen)': '{} more (show all)',
+    '+ {} weitere': '+ {} more',
+    'weniger': 'less',
+    'Öffne ein Buch und klicke links auf eine Versnummer.': 'Open a book and click a verse number on the left.',
+    'nicht in deiner Bibliothek': 'not in your library',
+    'im Talmud': 'in the Talmud',
+    'in der Mischna': 'in the Mishnah',
+    'Favorit (Versauswahl)': 'Favourite (verse selection)',
+    'Lesezeichen': 'Bookmark',
+    'Kommentar-Bereich zu diesem Vers öffnen': 'Open the commentary panel for this verse',
+    'Orte dieses Verses auf der Karte zeigen': 'Show the places of this verse on the map',
+    'Themen-Fenster öffnen': 'Open the topics panel',
+    'Gliederung des Buches öffnen': 'Open the outline of the book',
+    'Reiter „Notizen“ öffnen': 'Open the “Notes” tab',
+    'Im Verknüpfungs-Fenster zeigen': 'Show in the links panel',
+    'Zu dieser Stelle ist nichts verzeichnet.': 'Nothing is recorded for this passage.',
+    'Sefarias Verknüpfungen sind noch nicht heruntergeladen (Reiter „Herunterladen“ → Karte „4 · Verknüpfungen“); gezeigt wird, was Safran mitliefert.': 'Sefaria\'s links have not been downloaded yet (“Download” tab → card “4 · Links”); shown is what Safran ships with.',
     // ----- Karte -----
     'Orte dieses Abschnitts': 'Places of this section', 'Karte: Orte dieses Abschnitts': 'Map: places of this section', 'In der Gliederung': 'In the outline',
     'Mögliche Lage': 'Possible location', 'Zuordnung unsicher': 'identification uncertain', 'Sicherheit der Zuordnung nach der Forschung des neuesten Jahrzehnts (OpenBible.info)': 'Confidence of the identification according to the most recent decade of scholarship (OpenBible.info)',

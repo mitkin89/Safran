@@ -27,11 +27,19 @@ The short version is in the [README](../README.md). This page lists everything, 
 - **New tab with the Jewish calendar:** weekly Torah portion (with the Shabbat date), haftarah, Daf Yomi (Bavli) and Yerushalmi Yomi of the day; a click opens the passage. ‹ › step one day, « » one week, or pick a date; *Heute* returns. The data come from hebcal.com (diaspora readings) and are stored for 13 months, so the calendar also works offline. As long as no Sefaria texts are downloaded, the new tab shows a short guide.
 - **Tabs, history and sessions:** multiple tabs with back/forward per tab and a *Zuletzt geöffnet* list (100 entries). Safran reopens as you left it: window size and position, tabs (also those of the second window), the exact reading position, the open commentary and the dictionary with its last word. The tab bar hides while you scroll down and returns when you scroll up (*Tabs beim Scrollen ausblenden* under ⚙ *Anzeige*). Right-click on books, history entries and commentator names: *Open*, *Open in new tab*, *Open in second window*.
 - **Second reading window** (*⧉ Zweites Fenster*) with its own tabs, history, commentary panel and book list; Alt-click a book to open it on the right. *⇅ Gleichlauf* has four steps: off, both windows lead each other, only the left leads, only the right leads; a click on a verse takes the other window to that verse.
-- **Pinnable windows:** links, topics, outline, map, commentary and dictionary can be pinned beside the text with the pin next to ✕. The pin is remembered per window; a second pinned window replaces the first. Commentary and dictionary may be pinned together: as tabs (Esc returns from the dictionary to the commentary), stacked with a draggable divider, or side by side in wide windows; ⇅ switches between the modes. Unpinned windows float and close on an outside click.
+- **Pinnable windows:** links, topics, outline, map, commentary, dictionary and *Alles zu dieser Stelle* can be pinned beside the text with the pin next to ✕. The pin is remembered per window; a second pinned window replaces the first. Commentary and dictionary may be pinned together: as tabs (Esc returns from the dictionary to the commentary), stacked with a draggable divider, or side by side in wide windows; ⇅ switches between the modes. Unpinned windows float and close on an outside click.
 - **Display options** (⚙ *Anzeige*): font sizes per language, hide vowels or cantillation, smaller reading text while a panel is pinned, outline headings in the text, Septuagint interlinear, column layout, hiding the tab bar while scrolling, keeping the column headers in place, page margin *normal* or *schmal* (narrow uses the full window width with several columns), footnotes. In the ⋯ menu: overall UI size (*Größe*), light/dark/automatic theme (*Darstellung*), interface language German/English/Hebrew. Hebrew is set in SBL Hebrew if installed.
 - **Portraits:** small pictures of translators, commentators and lexicographers (Zunz, Mendelssohn, S. R. Hirsch, Goldschmidt, Hoffmann, Malbim, Levy, Jastrow and others) and of the Aleppo and Leningrad codices next to versions, commentator names and dictionaries; hovering shows a large view.
-- **Verse context menu:** copy the reference or open the verse on sefaria.org. Clicking a verse number selects it for the commentary panel.
+- **Verse context menu:** *Alles zu dieser Stelle*, copy the reference or open the verse on sefaria.org. Clicking a verse number selects it for the commentary panel (or, while *Alles zu dieser Stelle* is open, for that panel).
 - **Export** the displayed section as PDF or Word (⚙ *Anzeige* → *⤓ Exportieren …*).
+
+## Everything on this passage (Cmd+I)
+
+- **Opening:** right-click a verse or segment → *Alles zu dieser Stelle*, the ✦ *Überblick* button in the toolbar, or Cmd/Ctrl+I. The button and the shortcut take the selected verse, otherwise the highlighted one, otherwise the first verse on screen.
+- **Fixed compartments, each with a count:** *Kommentare* · *Parallelstellen* (Sefaria links, OpenBible cross-references, ETCBC parallels with their similarity, Josephus and other Second Temple texts) · *Legenden (Ginzberg)* · *Talmud & Midrasch* (also Mishnah and Tosefta) · *Halacha* · *Wörter* (the Hebrew words of the verse with lemma and short meaning; Tanakh only) · *Orte* · *Themen* · *Mischna ↔ Talmud* · *Gliederung / Mizwa* (the outline points and the mitzvot of the 613 that cover the verse) · *Notizen* · *Weitere Verknüpfungen* (everything else). The row of chips at the top shows all compartments; empty ones are greyed out there and hidden below. A chip scrolls to its compartment.
+- **Entries** work as in the links panel: a click jumps (Cmd/Ctrl-click: new tab), ▸ unfolds a preview, hovering shows the preview bubble; texts that are not in your library are grey. Each compartment shows its first six entries, *+ n weitere* unfolds the rest, and *alle anzeigen* opens the panel the data come from (commentary panel, links panel at the matching group, map with the places of the verse, topics, outline, *Notizen* tab). A word opens its forms table, a place the map, a topic the topics panel, a note the note window.
+- **Follows the verse:** clicking another verse number, `j`/`k`, changing chapter or jumping elsewhere updates the panel. It is pinned beside the text by default (pin next to ✕; unpinned it floats and closes with Esc).
+- Nothing is fetched twice: the panel is assembled from what the chapter has already loaded (links of the section, topics, places, outline, notes); only the Westminster verse is read from the library when that version is not on screen.
 
 ## Commentary panel (Cmd+K)
 
@@ -111,7 +119,8 @@ On Windows and Linux use Ctrl instead of Cmd.
 | Cmd+[ / Cmd+] | back / forward |
 | Cmd+F | search in the displayed text (also in the commentary panel); Enter / Shift+Enter next / previous hit |
 | Cmd+K | commentary panel |
-| `j` / `k` | commentary panel open: next / previous verse |
+| Cmd+I | *Alles zu dieser Stelle* (everything on the selected verse) |
+| `j` / `k` | commentary panel or *Alles zu dieser Stelle* open: next / previous verse |
 | `n` | bookmark or note on the current verse (*Lesen* tab) |
 | Cmd+B | show / hide book list |
 | Cmd+Shift+O | open the Offline Library |

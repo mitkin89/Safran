@@ -129,8 +129,8 @@ aside input { width: 100%; margin-bottom: 8px; }
 #lkBody > details.lkLeg > summary { color: var(--accent); }
 #lkBody details.lkLeg details > summary { font-weight: 600; }
 #lkBody details.lkLeg .ent small { font-size: 10.5px; opacity: .8; font-variant-numeric: tabular-nums; }
-#linkPanel, #topicPanel, #outlinePanel { position: fixed; top: calc(44px - var(--hdoff, 0px)); right: 0; bottom: 0; width: 400px; max-width: 90vw; z-index: 30; background: var(--bg); border-left: 1px solid var(--line); box-shadow: -6px 0 22px rgba(0,0,0,.35); padding: 12px 14px; overflow: auto; max-height: none; }
-#linkPanel[hidden], #topicPanel[hidden], #outlinePanel[hidden] { display: none; }
+#linkPanel, #topicPanel, #outlinePanel, #allPanel { position: fixed; top: calc(44px - var(--hdoff, 0px)); right: 0; bottom: 0; width: 400px; max-width: 90vw; z-index: 30; background: var(--bg); border-left: 1px solid var(--line); box-shadow: -6px 0 22px rgba(0,0,0,.35); padding: 12px 14px; overflow: auto; max-height: none; }
+#linkPanel[hidden], #topicPanel[hidden], #outlinePanel[hidden], #allPanel[hidden] { display: none; }
 #topicPanel, #outlinePanel { top: calc(44px - var(--hdoff, 0px)); width: var(--cmt-w, 400px); }
 #tpResize { position: fixed; top: calc(44px - var(--hdoff, 0px)); bottom: 0; right: var(--cmt-w, 400px); width: 8px; margin-right: -4px; cursor: col-resize; z-index: 31; }
 #tpResize[hidden] { display: none; }
@@ -319,7 +319,7 @@ html { --p2w: 50vw; }
 #splitter:hover { background: rgba(120,160,255,.35); }
 html.split body { width: calc(100% - var(--p2w)); overflow-x: hidden; }
 html.split { --cmt-off: var(--p2w); }
-html.split #linkPanel, html.split #topicPanel, html.split #outlinePanel { right: var(--p2w); }
+html.split #linkPanel, html.split #topicPanel, html.split #outlinePanel, html.split #allPanel { right: var(--p2w); }
 html.split #findBar, html.split #dispPanel { right: calc(var(--p2w) + 18px); }
 html.dragging #pane2 { pointer-events: none; }
 html.pane2 header > :not(#togglePanel):not(#closePane):not(#tabbar) { display: none; }
@@ -876,8 +876,8 @@ html.split #mapPanel { right: var(--p2w); }
 #mapOl { margin-inline: 8px; font-size: 12px; }
 
 /* angepinnte Fenster: rechts neben dem Haupttext, wie Kommentare und Wörterbuch */
-#linkPanel.docked, #topicPanel.docked, #outlinePanel.docked, #mapPanel.docked { top: calc(57px - var(--hdoff, 0px)); right: var(--cmt-off, 0px); box-shadow: none; z-index: 20; }
-#linkPanel.docked, #topicPanel.docked, #outlinePanel.docked { width: var(--cmt-w, 400px); }
+#linkPanel.docked, #topicPanel.docked, #outlinePanel.docked, #mapPanel.docked, #allPanel.docked { top: calc(57px - var(--hdoff, 0px)); right: var(--cmt-off, 0px); box-shadow: none; z-index: 20; }
+#linkPanel.docked, #topicPanel.docked, #outlinePanel.docked, #allPanel.docked { width: var(--cmt-w, 400px); }
 #cmtPanel.pinp:not(.docked), #dictPanel.pinp:not(.docked) { z-index: 30; box-shadow: -6px 0 22px rgba(0,0,0,.35); }
 .lhead .pinB, .pinB { width: 26px; height: 24px; display: inline-flex; align-items: center; justify-content: center; margin: 0 4px 0 auto; padding: 0; border: 0; border-radius: 6px; background: none; color: #9a9a9f; cursor: pointer; }
 .pinB svg { width: 14px; height: 14px; }
@@ -1243,3 +1243,55 @@ html.split #formsPanel { right: var(--p2w); }
 #fmBody .fmNote { margin-top: 16px; color: var(--muted); font-size: 12px; }
 #wpop .wforms { margin-top: 6px; width: 100%; padding: 5px; cursor: pointer; border: 1px solid var(--accent); background: none; color: inherit; border-radius: 5px; }
 #wpop .wforms:hover { background: color-mix(in srgb, var(--accent) 18%, transparent); }
+
+/* Alles zu dieser Stelle: Fächer zum gewählten Vers */
+#allPanel { width: var(--cmt-w, 400px); z-index: 29; font-size: 13px; line-height: 1.45; padding-top: 0; }
+#allPanel.docked { background: var(--side-bg); }
+#allPanel .lhead { position: sticky; top: 0; z-index: 2; display: flex; justify-content: space-between; align-items: center; gap: 6px; background: var(--bg); padding: 10px 0 6px; }
+#allPanel.docked .lhead, #allPanel.docked #apNav { background: var(--side-bg); }
+#allPanel #apTitle { font-size: 15px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+#apNav { display: flex; flex-wrap: wrap; gap: 4px; padding: 0 0 8px; margin-bottom: 4px; border-bottom: 1px solid var(--line); }
+#apNav button { display: inline-flex; align-items: baseline; gap: 4px; padding: 1px 8px; border: 1px solid var(--line); border-radius: 12px; background: var(--card); color: inherit; cursor: pointer; font-size: 12px; line-height: 1.6; }
+#apNav button:hover:not(:disabled) { border-color: var(--accent); }
+#apNav button small { color: var(--muted); font-variant-numeric: tabular-nums; }
+#apNav button .ic, #apBody h4 .ic { display: inline-block; min-width: 1.1em; text-align: center; font-size: .95em; opacity: .85; }
+#apNav button.off { opacity: .45; cursor: default; background: none; border-style: dashed; }
+#apNav button.wait small { opacity: .6; }
+#apBody .apBox { margin: 10px 0 0; padding: 0 0 8px; border-bottom: 1px solid color-mix(in srgb, var(--line) 70%, transparent); scroll-margin-top: 46px; }
+#apBody .apBox[hidden] { display: none; }
+#apBody .apBox:last-of-type { border-bottom: 0; }
+#apBody h4 { display: flex; align-items: baseline; gap: 6px; margin: 0 0 4px; font-size: 13.5px; font-weight: 600; }
+#apBody h4 .apN { color: var(--muted); font-weight: normal; font-variant-numeric: tabular-nums; }
+#apBody h4 .apAll { margin-inline-start: auto; border: 0; background: none; color: var(--accent); cursor: pointer; font-size: 12px; padding: 0 2px; white-space: nowrap; }
+#apBody h4 .apAll:hover { text-decoration: underline; }
+#apBody .ent { margin: 1px 0 1px 4px; line-height: 1.5; }
+#apBody .ent a, #apBody .apOl a { cursor: pointer; color: var(--accent); text-decoration: none; }
+#apBody .ent a:hover, #apBody .apOl a:hover { text-decoration: underline; }
+#apBody .ent.off a { color: var(--muted); cursor: default; text-decoration: none; }
+#apBody .ent button { border: 0; background: none; cursor: pointer; color: var(--muted); font-size: 11px; padding: 0 4px; min-height: 0; height: auto; line-height: 1.2; }
+#apBody .ent small { font-size: 11px; }
+#apBody .pv { margin: 2px 0 6px 4px; font-size: 12.5px; color: color-mix(in srgb, var(--fg) 78%, var(--muted)); padding: 4px 8px; border-inline-start: 3px solid var(--line); }
+#apBody .pv [dir=rtl] { font-family: var(--he-font); font-size: 16px; line-height: 1.6; }
+#apBody .apMore[hidden] { display: none; }
+#apBody .apMoreB { margin: 3px 0 0 4px; padding: 0 8px; border: 1px solid var(--line); border-radius: 10px; background: var(--card); color: var(--muted); cursor: pointer; font-size: 11.5px; }
+#apBody .apMoreB:hover { border-color: var(--accent); }
+#apBody .apWords { display: flex; flex-wrap: wrap; gap: 5px; }
+#apBody .apW { display: inline-flex; flex-direction: column; align-items: center; gap: 0; min-width: 52px; max-width: 150px; padding: 3px 8px 4px; border: 1px solid var(--line); border-radius: 7px; background: var(--card); color: inherit; cursor: pointer; font: inherit; position: relative; }
+#apBody .apW:hover { border-color: var(--accent); background: color-mix(in srgb, var(--accent) 10%, var(--card)); }
+#apBody .apW .f { font-family: "HeDict", var(--he-font); font-size: 21px; line-height: 1.45; }
+#apBody .apW .l { direction: ltr; font-size: 11px; color: var(--muted); line-height: 1.3; text-align: center; overflow: hidden; text-overflow: ellipsis; max-width: 100%; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; }
+#apBody .apW .l [lang=he] { font-family: "HeDict", var(--he-font); font-size: 13px; color: color-mix(in srgb, var(--fg) 75%, var(--muted)); }
+#apBody .apW .l .gl, #apBody .apW > small { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", sans-serif; }
+#apBody .apW > small { position: absolute; top: 1px; inset-inline-end: 4px; direction: ltr; font-size: 10px; color: var(--muted); }
+#apBody .apChip { margin: 2px 4px 2px 0; padding: 2px 9px; border: 1px solid var(--line); border-radius: 12px; background: var(--card); color: inherit; cursor: pointer; font: inherit; }
+#apBody .apChip:hover { border-color: var(--accent); }
+#apBody .apChip .he { font-family: var(--he-font); }
+#apBody .apOl { margin: 2px 0 2px 4px; }
+#apBody .apOl.sub { margin-inline-start: 18px; }
+#apBody .apOl .r { font-variant-numeric: tabular-nums; color: var(--muted); font-size: 11.5px; }
+#apBody .apOl .he { font-family: var(--he-font); font-size: 15px; }
+#apBody .apOl .mzn { display: inline-block; min-width: 2.2em; text-align: center; font-size: 11px; font-weight: 600; padding: 0 5px; margin-inline-end: 4px; border-radius: 999px; background: color-mix(in srgb, var(--accent) 20%, transparent); color: var(--accent); }
+#apBody .apNote { margin: 2px 0 2px 4px; padding: 3px 8px; border-radius: 6px; background: color-mix(in srgb, var(--warn) 14%, transparent); cursor: pointer; white-space: pre-line; }
+#apBody .apNote .st { color: var(--warn); }
+#apBody .apHint { margin-top: 14px; font-size: 12px; }
+#apBtn.active { background: color-mix(in srgb, var(--accent) 22%, transparent); border-color: var(--accent); }

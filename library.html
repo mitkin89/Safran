@@ -86,6 +86,7 @@
                 </details>
                 <button id="bookSearch" title="Nur in diesem Buch suchen">🔎<span class="bl">Im Buch</span></button>
                 <button id="cmtBtn" title="Kommentare zum gewählten Vers (Cmd+K)">💬<span class="bl">Kommentare</span></button>
+                <button id="apBtn" title="Alles zu dieser Stelle: Kommentare, Parallelstellen, Wörter, Orte, Themen und Notizen zum gewählten Vers (Cmd+I)">✦<span class="bl">Überblick</span></button>
                 <button id="lkBtn" title="Verknüpfungen zu diesem Abschnitt anzeigen" hidden>🔗<span class="bl">Verknüpfungen</span></button>
                 <button id="olBtn" title="Gliederung dieses Buches (Wochenabschnitte, Kapitel, Absätze)">☰ <span class="bl">Gliederung</span></button>
                 <button id="tpBtn" title="Themen (Sefaria Topics) zu diesem Abschnitt" hidden>🏷<span class="bl">Themen</span></button>
@@ -326,6 +327,12 @@
     <div id="lkBody"></div>
   </aside>
 
+  <aside id="allPanel" hidden>
+    <div class="lhead"><b id="apTitle">Alles zu dieser Stelle</b><button id="apClose" title="Schließen (Esc)">✕</button></div>
+    <div id="apNav"></div>
+    <div id="apBody"></div>
+  </aside>
+
   <aside id="outlinePanel" hidden>
     <div class="lhead"><b id="olTitle">Gliederung</b><button id="olClose" title="Schließen">✕</button></div>
     <div id="olMzW" class="olTabs" hidden><button id="olTabT">Themen</button><button id="olTabM">613 Mizwot</button></div>
@@ -463,6 +470,7 @@
   <script src="parashot.js"></script>
   <script src="morph.js"></script>
   <script src="forms.js"></script>
+  <script src="passage.js"></script>
   <script src="update.js"></script>
   <script src="order.js"></script>
   <script src="mishtal.js"></script>

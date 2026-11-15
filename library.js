@@ -710,7 +710,7 @@
     if (!$('#outlinePanel').hidden) renderOutline();
     olInline();
     markMismatch();
-    loadLinks(s);
+    loadLinks(s).then(apSoon, apSoon); // „Alles zu dieser Stelle“ folgt in den neuen Abschnitt
     if (window.__refind) setTimeout(window.__refind, 0);
     { const ck = view.group.key + '|' + s.k; if (ck !== lastCmtKey) { cmtRow = null; lastCmtKey = ck; } }
     applyCmtRowSoon();
@@ -1626,7 +1626,7 @@
     const open = f || lkVerse != null ? 'open' : '';
     const catHtml = (() => { const order = SefOrder.sortCats([...cats.keys()], ''); return [...cats.entries()].sort((a, b) => order.indexOf(a[0]) - order.indexOf(b[0])); })().map(([c, books]) => {
       const total = [...books.values()].reduce((a, v) => a + v.length, 0);
-      return [c, `<details ${open}><summary>${esc(c)} (${total})</summary>${[...books.entries()].sort((a, b) => { const ga = titleToGroup(a[0]), gb = titleToGroup(b[0]); return libCmpGroups(ga, gb) || titleCmp(a[0], b[0]); }).map(([bk, xs]) =>
+      return [c, `<details ${open} data-c="${esc(String(c).toLowerCase())}"><summary>${esc(c)} (${total})</summary>${[...books.entries()].sort((a, b) => { const ga = titleToGroup(a[0]), gb = titleToGroup(b[0]); return libCmpGroups(ga, gb) || titleCmp(a[0], b[0]); }).map(([bk, xs]) =>
         `<details ${f || (String(c).toLowerCase() === 'tanakh' && TANAKH_BOOKS.has(bk)) ? 'open' : ''}><summary>${esc(bk)} (${xs.length})${local.has(bk) ? '' : ' <span class="muted">· nicht lokal</span>'}</summary>${xs.slice(0, 300).map(x =>
           `<div class="ent${local.has(bk) ? '' : ' off'}"><a data-ref="${esc(x.other)}">${esc(x.other)}</a>${local.has(bk) ? ` <button data-pv="${esc(x.other)}" title="Vorschau">▸</button>` : ''}${x.type ? ` <small class="muted">${esc(x.type)}</small>` : ''}</div>`).join('')}${xs.length > 300 ? `<div class="muted ent">… ${xs.length - 300} weitere (Filter benutzen)</div>` : ''}</details>`).join('')}</details>`];
     });
@@ -2205,6 +2205,7 @@
     if (!view || token !== view.idx + ':' + view.group.key) return;
     tpSec = rows; tpSecKey = view.group.title + ' ' + m[1];
     btnLbl('#tpBtn', '🏷', 'Themen', rows.length);
+    apSoon();
     if (!$('#topicPanel').hidden && !tpS.slug) renderTopicPanel();
   }
   const tpSort = (a, b) => {
@@ -3701,6 +3702,7 @@
     const url = sefariaUrl(ref);
     ctxShow(e, [
       ...(word ? [{ label: `Im Wörterbuch nachschlagen: „${word}“`, fn: () => openDict(word) }] : []),
+      { label: I18N.t('Alles zu dieser Stelle'), fn: () => apToggle(true, row.dataset.l) },
       { label: I18N.t('Referenz kopieren: {}', ref), fn: () => navigator.clipboard.writeText(ref).catch(() => {}) },
       { label: 'Auf sefaria.org öffnen', fn: () => window.api.openExternal(url) },
       ...((() => { try { const v = +String(row.dataset.l).split(':').pop(), n = mapVerseN(v); return n ? [{ label: I18N.t('Orte dieses Verses auf der Karte ({#})', n), fn: () => mapVerseShow(v) }] : []; } catch { return []; } })()),
@@ -4963,7 +4965,7 @@
     $('#noteDlg').showModal();
     (k === 'free' ? $('#ndTitleIn') : $('#ndText')).focus();
   }
-  const refreshNotes = () => { markNotes(); renderNotes(); try { if (!$('#mapPanel').hidden) { mapInfo(); mapDraw(); } } catch { /* Karte nicht bereit */ } };
+  const refreshNotes = () => { markNotes(); renderNotes(); apSoon(); try { if (!$('#mapPanel').hidden) { mapInfo(); mapDraw(); } } catch { /* Karte nicht bereit */ } };
   $('#rOut').addEventListener('click', e => {
     const rn = e.target.closest('.rnote');
     if (rn && !window.getSelection().toString()) { const nn = notesAll.find(x => x.id === rn.dataset.id); if (nn) openNoteDlg(nn, { canDelete: true }); return; }
@@ -5362,6 +5364,7 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
     const r = $$('#rOut .row[data-l]').find(x => x.dataset.l === label);
     if (r) r.classList.add('cmtrow');
     if (cmtOpen) renderCmt();
+    apSoon();
   }
   function applyCmtRow() {
     const rows = $$('#rOut .row[data-l]');
@@ -5386,8 +5389,8 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
   // ---------- Fenster anpinnen: neben dem Text festhalten statt darüber zu schweben ----------
   // Je Fenster wird gemerkt, ob es angepinnt ist. Ein angepinntes Fenster steht rechts neben dem Haupttext; öffnet ein zweites angepinntes Fenster, tritt es an die Stelle des ersten
   // (Ausnahme: Kommentare und Wörterbuch dürfen untereinander stehen). Nicht angepinnte Fenster schweben wie bisher über dem Text.
-  const PINS = { link: ['#linkPanel', '#lkClose'], topic: ['#topicPanel', '#tpClose'], outline: ['#outlinePanel', '#olClose'], map: ['#mapPanel', '#mapClose'], cmt: ['#cmtPanel', '#cmtClose'], dict: ['#dictPanel', '#dictClose'] };
-  const pins = { link: false, topic: false, outline: false, map: false, cmt: true, dict: true };
+  const PINS = { all: ['#allPanel', '#apClose'], link: ['#linkPanel', '#lkClose'], topic: ['#topicPanel', '#tpClose'], outline: ['#outlinePanel', '#olClose'], map: ['#mapPanel', '#mapClose'], cmt: ['#cmtPanel', '#cmtClose'], dict: ['#dictPanel', '#dictClose'] };
+  const pins = { all: true, link: false, topic: false, outline: false, map: false, cmt: true, dict: true };
   try { const o = JSON.parse(localStorage.getItem('pins') || '{}'); for (const k in pins) if (typeof o[k] === 'boolean') pins[k] = o[k]; } catch { /* egal */ }
   const pinPair = (a, b) => (a === 'cmt' || a === 'dict') && (b === 'cmt' || b === 'dict');
   let pinBusy = false;
@@ -5465,7 +5468,7 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
   }
   // j / k: nächster / vorheriger Vers im Kommentar-Bereich (nur wenn kein Eingabefeld den Fokus hat)
   document.addEventListener('keydown', e => {
-    if (!cmtOpen || e.metaKey || e.ctrlKey || e.altKey || e.isComposing) return;
+    if (!(cmtOpen || AP.open) || e.metaKey || e.ctrlKey || e.altKey || e.isComposing) return;
     const tg = (e.target.tagName || '').toLowerCase();
     if (tg === 'input' || tg === 'textarea' || tg === 'select' || e.target.isContentEditable) return;
     if (e.key === 'j') stepCmt(1); else if (e.key === 'k') stepCmt(-1);
@@ -5501,7 +5504,7 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
     const lab = e.target.closest('.lab');
     if (!lab || e.target.closest('.bm') || e.target.closest('.lk, .mtj')) return;
     const row = lab.closest('.row[data-l]');
-    if (row) { setCmtRow(row.dataset.l); if (!cmtOpen) toggleCmt(true); } // ein Klick auf den Vers öffnet die Kommentare
+    if (row) { setCmtRow(row.dataset.l); if (!cmtOpen && !AP.open) toggleCmt(true); } // ein Klick auf den Vers öffnet die Kommentare (ist „Alles zu dieser Stelle“ offen, folgt dieses Fenster)
   });
   // Doppelklick auf die Versnummer öffnet den Kommentar-Bereich, derselbe Vers noch einmal schließt ihn
   let lastCmtDbl = null;
@@ -5509,7 +5512,7 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
     const lab = e.target.closest('.lab');
     if (!lab || e.target.closest('.bm') || e.target.closest('.lk, .mtj')) return;
     const row = lab.closest('.row[data-l]');
-    if (!row) return;
+    if (!row || AP.open) return;
     const key = (view && view.group ? view.group.key : '') + '|' + (view ? view.key : '') + '|' + row.dataset.l;
     if (cmtOpen && lastCmtDbl === key) { toggleCmt(false); lastCmtDbl = null; return; }
     lastCmtDbl = key;
@@ -5697,6 +5700,188 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
     cmtRestoreTop();
     if (!fb.hidden && fTerm) runFind(fTerm, true); // Suche im Kommentar-Bereich nach dem Neuaufbau erneuern
   }
+
+  // ---------- Alles zu dieser Stelle: ein Fenster mit festen Fächern zum gewählten Vers / Segment ----------
+  // Zusammengestellt wird nur, was die anderen Fenster ohnehin schon geladen haben (Verknüpfungen des Abschnitts, Themen, Orte, Gliederung, Notizen);
+  // die Verteilung auf die Fächer macht passage.js. Das Fenster folgt dem gewählten Vers (Klick auf die Versnummer, j/k, ▲▼).
+  var AP = { open: false, token: 0, t: null, key: '' };
+  const AP_CAP = 6;
+  const AP_META = {
+    commentary: ['💬', 'Kommentare'], parallels: ['⇄', 'Parallelstellen'], legends: ['❧', 'Legenden (Ginzberg)'], rabbinic: ['📜', 'Talmud & Midrasch'], halakhah: ['⚖', 'Halacha'],
+    words: ['א', 'Wörter'], places: ['🗺', 'Orte'], topics: ['🏷', 'Themen'], mishtal: ['↔', 'Mischna ↔ Talmud'], outline: ['☰', 'Gliederung / Mizwa'], notes: ['★', 'Notizen'], other: ['🔗', 'Weitere Verknüpfungen'],
+  };
+  const apName = b => { const t = I18N.t(AP_META[b][1]); return t.charAt(0).toUpperCase() + t.slice(1); }; // „Orte“ ist englisch sonst klein („places“)
+  const AP_ALL = { commentary: 1, parallels: 1, legends: 1, rabbinic: 1, halakhah: 1, places: 1, topics: 1, outline: 1, notes: 1, other: 1 }; // Fächer mit „alle anzeigen“
+  const AP_LKCATS = { parallels: ['tanakh', 'parallelstellen', 'second temple', 'targum'], rabbinic: ['talmud', 'midrash', 'mishnah', 'tosefta'], halakhah: ['halakhah', 'responsa'] };
+  const apChap = s => { // Abschnitt als „3“, „2a“ oder „1:2“ (wie loadLinks)
+    if (!s) return null; const first = s.label.split(' › ')[0];
+    let m = s.path.length === 1 && !s.label.includes('›') && first.match(/(\d+[ab]?)$/i);
+    if (!m && s.path.length === 2 && s.path.every(x => typeof x === 'number')) m = [null, (s.path[0] + 1) + ':' + (s.path[1] + 1)];
+    return m ? m[1] : null;
+  };
+  const apRefLabel = ref => { const bk = splitOther(ref), de = I18N.lang === 'de' ? deNames(bk).split(' / ')[0] : ''; return (de || bk) + String(ref).slice(bk.length).replace(/-/g, '–'); };
+  function apSoon() { if (!AP || !AP.open) return; clearTimeout(AP.t); AP.t = setTimeout(apRender, 40); }
+  function apPickRow() { // gewählter Vers, sonst der markierte, sonst der gerade gelesene
+    const rows = $$('#rOut .row[data-l]'); if (!rows.length) return null;
+    const onScreen = r => { const b = r.getBoundingClientRect(); return b.bottom > 0 && b.top < window.innerHeight; };
+    const cur = rows.find(x => x.dataset.l === cmtRow);
+    if (cur) return cur;
+    const hit = $('#rOut .row.hit[data-l]'); if (hit && onScreen(hit)) return hit;
+    const top = $('#stick') ? $('#stick').getBoundingClientRect().bottom : 0; // sonst die erste Zeile, die ganz zu sehen ist
+    return rows.find(r => rowVerse(r.dataset.l) != null && r.getBoundingClientRect().top >= top - 4 && onScreen(r)) || readingRow(rows.filter(x => rowVerse(x.dataset.l) != null)) || rows[0];
+  }
+  function apToggle(force, label) {
+    AP.open = force == null ? !AP.open : !!force;
+    $('#allPanel').hidden = !AP.open;
+    $('#apBtn').classList.toggle('active', AP.open);
+    if (!AP.open) { hovApi && hovApi.hide(); return; }
+    if (label != null && label !== cmtRow) setCmtRow(label); // die Markierung der Zeile ist dieselbe wie beim Kommentar-Bereich
+    AP.key = ''; apRender();
+  }
+  function apSet(b, n, html) { // ein Fach füllen (oder ausblenden) und seinen Zähler in der Leiste setzen
+    const box = $(`#apBody .apBox[data-b="${b}"]`), chip = $(`#apNav button[data-b="${b}"]`);
+    if (chip) { chip.classList.toggle('off', !n); chip.disabled = !n; chip.classList.remove('wait'); chip.querySelector('small').textContent = n ? n.toLocaleString(I18N.loc) : '–'; }
+    if (!box) return;
+    box.hidden = !n; box.classList.remove('wait');
+    box.querySelector('.apN').textContent = n ? n.toLocaleString(I18N.loc) : '';
+    box.querySelector('.apC').innerHTML = html || '';
+    const any = $$('#apBody .apBox').some(x => !x.hidden); $('#apNone').hidden = any;
+  }
+  const apList = (items, cap = AP_CAP) => { // die ersten Einträge, der Rest klappt auf
+    if (items.length <= cap) return items.join('');
+    const rest = items.slice(cap, 200);
+    return items.slice(0, cap).join('') + `<div class="apMore" hidden>${rest.join('')}${items.length > 200 ? `<div class="muted ent">… ${esc(I18N.t('{} weitere (alle anzeigen)', (items.length - 200).toLocaleString(I18N.loc)))}</div>` : ''}</div><button type="button" class="apMoreB" data-n="${items.length - cap}">${esc(I18N.t('+ {} weitere', (items.length - cap).toLocaleString(I18N.loc)))}</button>`;
+  };
+  function apRender() {
+    if (!AP.open) return;
+    const P = window.Passage, token = ++AP.token, body = $('#apBody'), nav = $('#apNav');
+    const blank = msg => { $('#apTitle').textContent = I18N.t('Alles zu dieser Stelle'); nav.innerHTML = ''; body.innerHTML = `<p class="muted">${esc(I18N.t(msg))}</p>`; AP.key = ''; };
+    if (!view || !view.group || view.sres || !view.sections) return blank('Öffne ein Buch und klicke links auf eine Versnummer.');
+    const s = view.sections[view.idx], row = s && apPickRow();
+    if (!row) return blank('Öffne ein Buch und klicke links auf eine Versnummer.');
+    const label = row.dataset.l;
+    if (label !== cmtRow) { setCmtRow(label); clearTimeout(AP.t); } // setzt die Markierung der Zeile (dieselbe wie beim Kommentar-Bereich)
+    const g = view.group, title = g.title, chap = apChap(s), v = verseOf(label), L = I18N.lang;
+    const key = g.key + '|' + s.k + '|' + label, keep = key === AP.key ? $('#allPanel').scrollTop : 0;
+    AP.key = key;
+    $('#apTitle').textContent = `${I18N.lang === 'de' ? (deNames(title).split(' / ')[0] || title) : title} ${String(s.label).replace(/^\D+/, '')}${I18N.lang === 'de' ? ',' : ':'}${label}`;
+    $('#apTitle').title = I18N.t('Alles zu dieser Stelle');
+    // ----- was schon da ist -----
+    const cl = P.classify(v != null && chap ? secLinks : [], v);
+    const byT = new Map(groups.map(x => [x.title, x])), tg = t => byT.get(t) || byT.get(String(t).split(', ')[0]) || null;
+    const isLocal = bk => !!tg(bk);
+    const sortL = a => a.slice().sort((x, y) => { const bx = splitOther(x.other), by = splitOther(y.other); return libCmpGroups(tg(bx), tg(by)) || titleCmp(bx, by); });
+    const ent = (x, text, tag) => { const loc = isLocal(splitOther(x.other)); return `<div class="ent${loc ? '' : ' off'}"><a data-ref="${esc(x.other)}"${loc ? '' : ` title="${esc(I18N.t('nicht in deiner Bibliothek'))}"`}>${text || esc(apRefLabel(x.other))}</a>${loc ? ` <button type="button" data-pv="${esc(x.other)}" title="Vorschau">▸</button>` : ''}${tag ? ` <small class="muted">${esc(tag)}</small>` : ''}</div>`; };
+    const boxes = {};
+    { // Kommentare: je Kommentator eine Zeile (vorhandene zuerst, dann die bekanntesten)
+      const cs = P.commentators(cl.commentary).sort((a, b) => { const ia = CMT_PRIO.indexOf(a.name), ib = CMT_PRIO.indexOf(b.name); return (isLocal(b.book) - isLocal(a.book)) || ((ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib)) || titleCmp(a.book, b.book); });
+      boxes.commentary = cs.map(c => ent({ other: c.refs[0] }, esc(dispName(c.name)), c.refs.length > 1 ? '×' + c.refs.length : ''));
+    }
+    { const TAG = x => { const q = P.sourceOf(x); return q.k === 'etcbc' ? 'ETCBC ' + q.sim : q.k === 'josephus' ? 'Josephus' : q.k === 'second' ? I18N.t('2. Tempel') : q.k === 'targum' ? 'Targum' : ''; };
+      boxes.parallels = sortL(cl.parallels).map(x => ent(x, '', TAG(x))); }
+    { // Legenden: Band, Kapitelüberschrift und Absatz wie im Verknüpfungs-Fenster
+      if (cl.legends.length && legOl === undefined) { legOl = null; olOwn(LEG).then(o => { legOl = o || null; legIdx = null; if (o) apSoon(); }).catch(() => {}); }
+      boxes.legends = cl.legends.map(x => ({ x, e: legLabel(x.other) })).sort((a, b) => a.e.vol - b.e.vol || a.e.chap - b.e.chap || a.e.par - b.e.par)
+        .map(({ x, e }) => ent(x, esc([I18N.t('Band {}', e.vol), e.chapTitle, e.sub, I18N.t('Abs. {}', e.parText)].filter(Boolean).join(' · ')), e.short));
+    }
+    boxes.rabbinic = sortL(cl.rabbinic).map(x => ent(x));
+    boxes.halakhah = sortL(cl.halakhah).map(x => ent(x));
+    boxes.other = sortL(cl.other).map(x => ent(x, '', x.cat && x.cat !== 'Andere' ? x.cat : ''));
+    { // Mischna ↔ Talmud: mitgelieferte Zuordnung und Sefarias „mishnah in talmud“
+      const isM = /^Mishnah /.test(title), refs = [];
+      const add = r => { if (r && !refs.some(q => q.replace(/-.*$/, '') === r.replace(/-.*$/, ''))) refs.push(r); };
+      if (MT && MT.has(title) && v != null && chap) { try { (isM ? (/^\d+$/.test(chap) ? MT.toTalmud(title, chap, v) : []) : MT.toMishnah(title, chap, v)).forEach(add); } catch { /* ohne Tabelle */ } }
+      cl.mishtal.filter(x => (isM ? !/^Mishnah /.test(x.other) : /^Mishnah /.test(x.other))).forEach(x => add(x.other));
+      boxes.mishtal = refs.map(r => ent({ other: r }, '', I18N.t(isM ? 'im Talmud' : 'in der Mischna')));
+    }
+    { let ids = []; try { ids = BM && !MP.over && v != null ? P.placesAt(MP.cur, v) : []; } catch { ids = []; }
+      boxes.places = ids.map(i => `<button type="button" class="apChip" data-place="${i}">${mapName(i)}</button>`); }
+    { const ts = chap && v != null && tpSecKey === title + ' ' + chap ? P.topicsAt(tpSec, v) : [];
+      boxes.topics = ts.map(r => `<button type="button" class="apChip" data-slug="${esc(r.slug)}">${esc(tpName(r))}${r.he && L !== 'he' ? ` <span class="he muted" lang="he" dir="rtl">${esc(r.he)}</span>` : ''}</button>`); }
+    { const ns = P.notesAt(notesAll, g.key, s.k, label, v);
+      boxes.notes = ns.map(n => `<div class="apNote" data-id="${esc(n.id)}" title="${esc(I18N.t('Klicken: Notiz bearbeiten'))}"><span class="st">★</span> ${n.note ? esc(n.note) : `<span class="muted">${esc(I18N.t(kindOf(n) === 'block' ? 'Favorit (Versauswahl)' : 'Lesezeichen'))}</span>`}${noteTags(n).length ? ` <small class="muted">${noteTags(n).map(t => '#' + esc(t)).join(' ')}</small>` : ''}</div>`); }
+    // ----- Gerüst: alle Fächer in fester Reihenfolge; Wörter und Gliederung kommen nach -----
+    const wait = { words: TANAKH_BOOKS.has(title) && v != null && /^\d+$/.test(chap || ''), outline: v != null || /:/.test(label) };
+    nav.innerHTML = P.BOXES.map(b => { const n = boxes[b] ? boxes[b].length : 0, w = !boxes[b] && wait[b]; return `<button type="button" data-b="${b}" class="${n || w ? '' : 'off'}${w ? ' wait' : ''}"${n || w ? '' : ' disabled'}><span class="ic">${AP_META[b][0]}</span>${esc(apName(b))} <small>${n ? n.toLocaleString(I18N.loc) : w ? '…' : '–'}</small></button>`; }).join('');
+    body.innerHTML = P.BOXES.map(b => {
+      const items = boxes[b], n = items ? items.length : 0, w = !items && wait[b];
+      return `<section class="apBox${w ? ' wait' : ''}" data-b="${b}"${n || w ? '' : ' hidden'}><h4><span class="ic">${AP_META[b][0]}</span><span class="nm">${esc(apName(b))}</span> <small class="apN">${n ? n.toLocaleString(I18N.loc) : ''}</small>${AP_ALL[b] ? `<button type="button" class="apAll" data-b="${b}" title="${esc(I18N.t(b === 'commentary' ? 'Kommentar-Bereich zu diesem Vers öffnen' : b === 'places' ? 'Orte dieses Verses auf der Karte zeigen' : b === 'topics' ? 'Themen-Fenster öffnen' : b === 'outline' ? 'Gliederung des Buches öffnen' : b === 'notes' ? 'Reiter „Notizen“ öffnen' : 'Im Verknüpfungs-Fenster zeigen'))}">${esc(I18N.t('alle anzeigen'))}</button>` : ''}</h4><div class="apC">${items ? apList(items) : w ? `<p class="muted">${esc(I18N.t('Lädt …'))}</p>` : ''}</div></section>`;
+    }).join('') + `<p id="apNone" class="muted" hidden>${esc(I18N.t('Zu dieser Stelle ist nichts verzeichnet.'))}</p>`
+      + (linksReady ? '' : `<p class="muted apHint">${esc(I18N.t('Sefarias Verknüpfungen sind noch nicht heruntergeladen (Reiter „Herunterladen“ → Karte „4 · Verknüpfungen“); gezeigt wird, was Safran mitliefert.'))}</p>`);
+    $('#apNone').hidden = $$('#apBody .apBox').some(x => !x.hidden);
+    $('#allPanel').scrollTop = keep;
+    // ----- Wörter: Westminster-Text des Verses (aus der Ansicht, sonst aus der Bibliothek) -----
+    if (wait.words) {
+      const d = view.loaded.find(x => x.entry.kind === 'he' && /westminster/i.test(x.versionTitle || ''));
+      const ref = `${title} ${chap}:${v}`;
+      const pw = d ? Promise.resolve((R.flattenNode(R.getByPath(d.text, s.path)).find(r => r.label === label) || {}).html || '')
+        : LK.texts([ref], 'he', true).then(res => { const t = res && res[ref]; return t && t.items && /westminster/i.test(t.versionTitle || '') ? t.items.join(' ') : ''; });
+      pw.then(html => {
+        if (token !== AP.token) return;
+        const LEM = window.OSHB_LEMMAS || {}, ws = P.words(html);
+        apSet('words', ws.length, ws.length ? `<div class="apWords" dir="rtl">${ws.map(w => { const lem = LEM[w.lemma]; return `<button type="button" class="apW" data-lemma="${esc(w.lemma)}" data-l="${esc(w.l)}" data-m="${esc(w.m)}" data-word="${esc(w.raw)}" title="${esc(I18N.t('Alle im Tanach belegten Formen dieses Wortes als Tabelle'))}"><span class="f" lang="he" dir="rtl">${esc(w.word)}</span>${lem ? `<span class="l"><span lang="he" dir="rtl">${esc(lem[0])}</span> <span class="gl" dir="auto">${esc(L === 'de' && lem[2] ? lem[2] : lem[1])}</span></span>` : ''}${w.n > 1 ? `<small>×${w.n}</small>` : ''}</button>`; }).join('')}</div>` : '');
+      }).catch(() => { if (token === AP.token) apSet('words', 0, ''); });
+    }
+    // ----- Gliederung / Mizwa -----
+    if (wait.outline) {
+      olOwnFor(g).then(ol => {
+        if (token !== AP.token) return;
+        const lv2 = !!(ol && ol.levels === 2);
+        const list = !ol ? [] : lv2 ? P.outlineAt(ol, olBookNo(s), +String(label).split(':')[0]) : (v != null && chap ? P.outlineAt(ol, chap, v) : []);
+        const T = (o, k) => (L !== 'he' && (o[k + '_' + L] || o[k + '_en'])) || o[k] || '';
+        const html = list.map(e => { const tx = T(e.it, 'text'), he = /[֐-׿]/.test(tx), hd = !e.depth && !e.mz ? T(e.sec, 'head') : '';
+          return `<div class="apOl${e.depth ? ' sub' : ''}${e.mz ? ' mz' : ''}"><a data-ref="${esc(title + ' ' + String(e.ref).split(/[;,]/)[0].replace(/[-–].*$/, '').trim())}" data-r="${esc(e.ref)}">${e.mz ? `<span class="mzn" title="${esc(I18N.t('613 Mizwot'))}">${esc(e.mz)}</span>` : ''}<span class="r">${esc(String(e.ref).replace(/-/g, '–'))}</span> <span${he ? ' lang="he" dir="rtl" class="he"' : ''}>${esc(tx)}</span></a>${hd ? ` <small class="muted" dir="auto">${esc(hd)}</small>` : ''}</div>`; });
+        apSet('outline', html.length, html.join(''));
+      }).catch(() => { if (token === AP.token) apSet('outline', 0, ''); });
+    }
+  }
+  function apShowAll(b) {
+    const v = verseOf(cmtRow);
+    if (b === 'commentary') { if (!cmtOpen) toggleCmt(true); else renderCmt(); return; }
+    if (b === 'places') { if (v != null) mapVerseShow(v); return; }
+    if (b === 'topics') { $('#tpBtn').click(); return; }
+    if (b === 'outline') { if ($('#outlinePanel').hidden) $('#olBtn').click(); return; }
+    if (b === 'notes') { showTab('notes'); return; }
+    lkVerse = v; $('#lkFilter').value = ''; renderLinkPanel(); // Verknüpfungs-Fenster zum Vers, an der passenden Gruppe
+    const want = AP_LKCATS[b];
+    const d = b === 'legends' ? $('#lkBody > details.lkLeg') : want ? $$('#lkBody > details[data-c]').find(x => want.includes(x.dataset.c)) : $$('#lkBody > details[data-c]').find(x => ![].concat(...Object.values(AP_LKCATS), 'commentary').includes(x.dataset.c));
+    if (d) { d.open = true; requestAnimationFrame(() => d.scrollIntoView({ block: 'start' })); }
+  }
+  function apPlace(i) { // Karte öffnen, die Orte des Verses hervorheben und den angeklickten wählen
+    const v = verseOf(cmtRow); if (!BM) return;
+    if ($('#mapPanel').hidden) mapOpen();
+    requestAnimationFrame(() => requestAnimationFrame(() => { if (v != null) mapVerseSet(v); mapSelect(i, true); }));
+  }
+  $('#apBtn').onclick = () => apToggle();
+  $('#apClose').onclick = () => apToggle(false);
+  $('#apNav').addEventListener('click', e => { const b = e.target.closest('button[data-b]'); const box = b && $(`#apBody .apBox[data-b="${b.dataset.b}"]`); if (box && !box.hidden) box.scrollIntoView({ block: 'start', behavior: 'smooth' }); });
+  $('#apBody').addEventListener('click', async e => {
+    const all = e.target.closest('.apAll'); if (all) { hovApi && hovApi.hide(); apShowAll(all.dataset.b); return; }
+    const mb = e.target.closest('.apMoreB'); if (mb) { const m = mb.previousElementSibling; m.hidden = !m.hidden; mb.textContent = m.hidden ? I18N.t('+ {} weitere', (+mb.dataset.n).toLocaleString(I18N.loc)) : I18N.t('weniger'); return; }
+    const w = e.target.closest('.apW'); if (w) { openForms(w.dataset.lemma, { lemma: w.dataset.lemma, word: w.dataset.word, m: w.dataset.m, l: w.dataset.l }); return; }
+    const pl = e.target.closest('[data-place]'); if (pl) { apPlace(+pl.dataset.place); return; }
+    const tp = e.target.closest('[data-slug]'); if (tp) { openTopic(tp.dataset.slug, false); return; }
+    const nt = e.target.closest('.apNote'); if (nt) { const n = notesAll.find(x => x.id === nt.dataset.id); if (n) openNoteDlg(n, { canDelete: true }); return; }
+    const a = e.target.closest('a[data-ref]');
+    if (a) { hovApi && hovApi.hide(); if (a.parentElement.classList.contains('off')) return; await jumpTo(a.dataset.ref.replace(/-.*$/, ''), BG(e)); return; }
+    const b = e.target.closest('button[data-pv]');
+    if (b) { // Vorschau unter dem Eintrag, wie im Verknüpfungs-Fenster
+      const nxt = b.parentElement.nextElementSibling;
+      if (nxt && nxt.classList.contains('pv')) { nxt.remove(); b.textContent = '▸'; return; }
+      b.textContent = '▾';
+      const r = await LK.preview(b.dataset.pv);
+      const html = r.items ? r.items.map(t => `<div dir="${r.he ? 'rtl' : 'ltr'}">${R.cleanHtml(R.splitFootnotes(r.he ? stripHe(t) : t).main.replace(/<sup[^>]*>.*?<\/sup>/g, ''))}</div>`).join('') : `<i>${esc(I18N.t('Keine Vorschau möglich.'))}</i>`;
+      if (b.isConnected && b.textContent === '▾') b.parentElement.insertAdjacentHTML('afterend', `<div class="pv">${html}</div>`);
+    }
+  });
+  $('#apBody').addEventListener('mouseover', e => { const a = e.target.closest('a[data-ref]'); if (!a || !hovApi || a.parentElement.classList.contains('off') || a.dataset.ref === hovApi.current()) return; hovApi.start(a, a.dataset.ref.replace(/-.*$/, ''), true, false); });
+  $('#apBody').addEventListener('mouseout', e => { const a = e.target.closest('a[data-ref]'); if (a && hovApi && !a.contains(e.relatedTarget)) hovApi.hide(); });
+  $('#allPanel').addEventListener('scroll', () => hovApi && hovApi.hide(), { passive: true });
+  document.addEventListener('keydown', e => {
+    if ((e.metaKey || e.ctrlKey) && !e.shiftKey && !e.altKey && e.key.toLowerCase() === 'i') { e.preventDefault(); apToggle(); return; }
+    if (e.key === 'Escape' && AP.open && $('#formsPanel').hidden && !document.querySelector('dialog[open]') && !$('#allPanel').classList.contains('docked')) apToggle(false);
+  });
+  window.__apState = () => ({ open: AP.open, key: AP.key }); // Prüfhilfe
 
   // ---------- Sitzung merken und beim Start wiederherstellen ----------
   let saveTimer = null;
