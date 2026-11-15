@@ -1,6 +1,7 @@
 # Changelog
 
 ### New in 2.4.0
+- **Word card: Targums:** the Hebrew word card lists the verses where a word of Targum Neofiti 1 or Pseudo-Jonathan has the same lexeme or root (Pentateuch, ETCBC Targum Corpus); clickable.
 - **Citations:** German Talmud folio citations (e.g. „bḲidd 13ᵃ. 22ᵇ. 28ᵃᵇ“) are recognised, continuation folios belong to the same tractate; Josephus citations (Ant., Bell., Ap.) are linked. Own-text links were rebuilt.
 - **Outlines:** the current position is marked in every outline, also those made of single points (e.g. Krauss).
 - **Qumran: parallels:** about 6,000 line parallels (≥ 70 % similarity, ETCBC) between the non-biblical scrolls (e.g. Community Rule 1QS ↔ 4Q258, Damascus Document CD ↔ 4Q266) and to the biblical text appear under *Parallels* in „All about this passage“ and in the Links panel, in both directions.

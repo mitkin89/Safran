@@ -1134,8 +1134,9 @@
         <div class="wcForms" dir="${greek ? 'ltr' : 'rtl'}">${tf.list.map(chip).join('')}</div><div class="wcRefs" id="wcFormRefs"></div></section>
       <section class="wcSec" id="wcLxx" hidden></section>
       <section class="wcSec" id="wcQum" hidden></section>
+      <section class="wcSec" id="wcTg" hidden></section>
       <p class="fmNote">${esc(I18N.t(greek ? 'Belege und Formen nach der Septuaginta-Morphologie lxx-morph (Seth Kushniryk, CC BY 4.0), den Wörtern der mitgelieferten Septuaginta-Fassungen zugeordnet (Tanach: CATSS-Text in hebräischer Zählung; deuterokanonische Bücher: Rahlfs). Richter (A und B), Daniel (Septuaginta und Theodotion), Tobit, Susanna und Bel stehen in zwei Fassungen und zählen je für sich; Kurzbedeutungen englisch (STEPBible).' : 'Belege und Formen nach dem Westminster Leningrad Codex (OSHB); gezählt sind vokalisierte Wörter mit diesem Lemma. Die Suche „Alle Stellen“ geht über das Schriftbild des Lemmas und kann gleich geschriebene Wörter mitfinden.'))}</p>`;
-    wcDicts(token); if (greek) wcHeb(token); else { wcLxx(token); wcQumran(token); }
+    wcDicts(token); if (greek) wcHeb(token); else { wcLxx(token); wcQumran(token); wcTargum(token); }
   }
   // Belegstellen als Zeilen je Buch (wie in der Formentabelle)
   function wcRefList(rs, head, all) {
@@ -1215,6 +1216,25 @@
       ${books.slice(0, 12).map(([b, rs]) => `<details class="wcQ"><summary><b>${esc(Q.b[b])}</b> <small>${wcNum(rs.length)}</small></summary><div class="fmRL">${rs.slice(0, CAP).map(([f, l]) => `<span class="fmR"><a data-ref="${esc(Q.b[b] + ' ' + f + ':' + l)}">${f}:${l}</a></span>`).join(' ')}${rs.length > CAP ? ' …' : ''}</div></details>`).join('')}
       ${books.length > 12 ? `<p class="muted">${esc(I18N.t('… und {} weitere Bücher', wcNum(books.length - 12)))}</p>` : ''}
       <p class="muted wcLxN">${esc(I18N.t('Nichtbiblische Rollen (ETCBC DSS, CC BY-NC 4.0); gezählt nach dem Lemma in Konsonantenschrift, daher können gleich geschriebene Wörter mitgezählt sein.'))}</p>`;
+  }
+  // Targumim (ETCBC, Neofiti 1 und Pseudo-Jonathan zum Pentateuch): Verse, in denen ein Targum-Wort dieses Lemma als Lexem oder Wurzel hat
+  const loadTgIdx = () => tgIdxP || (tgIdxP = lazyScript('targum-idx.js', () => window.TARGUM_IDX).catch(() => { tgIdxP = null; return null; }));
+  let tgIdxP = null;
+  async function wcTargum(token) {
+    const { lem } = fmCur;
+    if (!lem) return;
+    const key = String(lem[0]).replace(/[^\u05D0-\u05EA]/g, '').replace(/[ךםןףץ]/g, c => 'כמנפצ'['ךםןףץ'.indexOf(c)]);
+    const X = await loadTgIdx(), box = $('#wcTg');
+    if (token !== wcToken || !X || !box || !X.r[key]) return;
+    let n = 0; const refs = X.r[key].map(d => (n += d)), TGN = ['Neofiti 1', 'Pseudo-Jonathan'];
+    const by = new Map(); // Vers -> [Targume]
+    refs.forEach(r => { const t = r % 2, q = (r - t) / 2, v = q % 1000, c = Math.floor(q / 1000) % 100, b = Math.floor(q / 100000), k = X.b[b] + ' ' + c + ':' + v; if (!by.has(k)) by.set(k, [b, c, v, []]); by.get(k)[3].push(t); });
+    const verses = [...by.entries()], CAP = 120, cnt = [0, 0]; refs.forEach(r => cnt[r % 2]++);
+    box.hidden = false;
+    box.innerHTML = `<h4>${esc(I18N.t('In den Targumim'))} <small>${esc(I18N.t('{} Verse (Neofiti 1: {}, Pseudo-Jonathan: {})', wcNum(verses.length), wcNum(cnt[0]), wcNum(cnt[1])))}</small></h4>
+      <div class="fmRL">${verses.slice(0, CAP).map(([k, [, , , ts]]) => `<span class="fmR"><a data-ref="${esc(k)}">${esc(k)}</a><small>${ts.map(t => TGN[t][0] === 'N' ? 'N' : 'PJ').join(' ')}</small></span>`).join('')}</div>
+      ${verses.length > CAP ? `<p class="muted">${esc(I18N.t('… und {} weitere Verse', wcNum(verses.length - CAP)))}</p>` : ''}
+      <p class="muted wcLxN">${esc(I18N.t('Targum Neofiti 1 (N) und Pseudo-Jonathan (PJ), ETCBC Targum Corpus (MIT); gezählt nach Lexem oder Wurzel des aramäischen Wortes in Konsonantenschrift, daher können verwandte oder gleich geschriebene Wörter mitgezählt sein.'))}</p>`;
   }
   // Griechische Karte: welche hebräischen Wörter gibt dieses Lemma wieder? (Gegenrichtung desselben Index); Klick öffnet die hebräische Wortkarte
   async function wcHeb(token) {
