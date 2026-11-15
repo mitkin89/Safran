@@ -805,6 +805,8 @@ img.g, #rOut img.g, #cmtBody img.g, .sres img.g { display: inline; height: 1.35e
 .gab { border-bottom: 1px dotted color-mix(in srgb, currentColor 55%, transparent); cursor: help; }
 .gab.g2 { border-bottom: none; cursor: default; }
 .gab:hover { background: color-mix(in srgb, var(--accent) 18%, transparent); border-radius: 3px; }
+/* Kurzzitate mit vollem Titel (Krauss, Talmudische Archäologie): im Lesetext zurückhaltender unterstrichen */
+abbr.gab.kbib { text-decoration: none; border-bottom-color: color-mix(in srgb, currentColor 30%, transparent); }
 #gabTip { position: fixed; z-index: 200; max-width: 340px; padding: 5px 9px; border-radius: 8px; font-size: 12.5px; line-height: 1.35; pointer-events: none; background: var(--panel, #222); color: var(--fg, inherit); border: 1px solid var(--line); box-shadow: 0 4px 14px rgba(0,0,0,.35); }
 
 /* Der farbige Balken am linken Rand (Kommentar offen / Abweichung) darf Vers-Zeichen (▶, ☆, Nummer, Link) nicht überdecken */

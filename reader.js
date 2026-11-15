@@ -126,6 +126,7 @@ const ALLOWED_TAGS = ['b', 'i', 'em', 'strong', 'small', 'big', 'sup', 'sub', 'b
 function cleanHtml(s) {
   let links = 0; // offene, erlaubte <a class="aref">
   let spans = 0; // offene, erlaubte <span class="w">; fremde <span> fallen weg, und ihr </span> darf dann nicht übrig bleiben
+  let abbrs = 0; // offene, erlaubte <abbr class="gab kbib">; fremde <abbr> fallen weg
   s = String(s ?? '').replace(/<(?![a-z\/])/gi, '&lt;').replace(/<[^>]*$/, m => m.replace(/</g, '&lt;'));
   return s.replace(/<\/?([a-z0-9]+)[^>]*>/gi, (m, t) => {
     t = t.toLowerCase();
@@ -141,6 +142,14 @@ function cleanHtml(s) {
       if (!ar) return '';
       links++;
       return `<a class="aref" data-sref="${ar[1]}" title="${ar[1]}">`;
+    }
+    // Kurzzitat mit vollem Titel beim Überfahren (Krauss, Talmudische Archäologie): <abbr class="gab kbib" data-t="…">HELLWALD</abbr>
+    if (t === 'abbr') {
+      if (m.startsWith('</')) return abbrs > 0 ? (abbrs--, '</abbr>') : '';
+      const ka = m.match(/^<abbr class="gab kbib" data-t="([^"<>&]{1,600})">$/);
+      if (!ka) return '';
+      abbrs++;
+      return `<abbr class="gab kbib" data-t="${ka[1]}">`;
     }
     if (!ALLOWED_TAGS.includes(t)) return '';
     if (m.startsWith('</')) return t === 'span' ? (spans > 0 ? (spans--, '</span>') : '') : `</${t}>`;

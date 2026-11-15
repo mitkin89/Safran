@@ -2098,19 +2098,21 @@
       if (ref === hovRef) return;
       startHov(a, ref, true, true);
     });
-    { // Abkürzungen (Gesenius): sofortige Erklärung beim Überfahren
+    { // Abkürzungen (Gesenius u. a.) und Kurzzitate (Krauss, Talmudische Archäologie): sofortige Erklärung beim Überfahren –
+      // im Wörterbuch, im Lesetext, in geöffneten Fußnoten und im Kommentarbereich
       let tip = null;
       const hideTip = () => { if (tip) tip.hidden = true; };
-      $('#dictOut').addEventListener('mouseover', e => {
-        const a = e.target.closest('.gab'); if (!a) return;
+      document.addEventListener('mouseover', e => {
+        const a = e.target.closest && e.target.closest('.gab[data-t]'); if (!a || !a.closest('#dictOut, #rOut, #cmtBody, #lkHover')) return;
         if (!tip) { tip = document.createElement('div'); tip.id = 'gabTip'; tip.hidden = true; document.body.appendChild(tip); }
         tip.textContent = a.dataset.t; tip.hidden = false;
         const r = a.getBoundingClientRect(), w = tip.offsetWidth, h = tip.offsetHeight;
         tip.style.left = Math.max(6, Math.min(innerWidth - w - 6, r.left + r.width / 2 - w / 2)) + 'px';
         tip.style.top = (r.top - h - 6 < 4 ? r.bottom + 6 : r.top - h - 6) + 'px';
       });
-      $('#dictOut').addEventListener('mouseout', e => { const a = e.target.closest('.gab'); if (a && !a.contains(e.relatedTarget)) hideTip(); });
-      $('#dictOut').addEventListener('scroll', hideTip, true); $('#dictPanel').addEventListener('scroll', hideTip);
+      document.addEventListener('mouseout', e => { const a = e.target.closest && e.target.closest('.gab[data-t]'); if (a && !a.contains(e.relatedTarget)) hideTip(); });
+      document.addEventListener('scroll', hideTip, true);
+      document.addEventListener('click', hideTip, true);
     }
     $('#dictOut').addEventListener('mouseout', e => { const a = e.target.closest('.dsrc[data-sref]'); if (a && !a.contains(e.relatedTarget)) hideHov(); });
     $('#dictOut').addEventListener('click', hideHov);
