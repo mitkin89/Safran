@@ -1394,3 +1394,5 @@ html.split #formsPanel { right: var(--p2w); }
 #apBody .apDicH { font-size: 12px; color: var(--muted); }
 #apBody .apDicL { line-height: 2; }
 #apBody .apDE.wide { opacity: .65; }
+
+.dhead .dwk { font-size: 11px; padding: 0 6px; margin-left: 6px; border-radius: 9px; cursor: pointer; }

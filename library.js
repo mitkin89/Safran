@@ -4231,6 +4231,14 @@
   const HEBC = '[\\u0590-\\u05FF\\uFB1D-\\uFB4F]', HEBN = '[\\s.,;:!?()\\[\\]\'"„“”—–*-]';
   const HEBRUN = new RegExp(`${HEBC}(?:${HEBC}|${HEBN})*?(?<![A-Za-z])l\\.(?:${HEBC}|${HEBN})*${HEBC}`, 'g');
   const heFix = html => String(html).split(/(<[^>]+>)/).map((t, i) => i % 2 ? t : t.replace(HEBRUN, m => `<bdi dir="rtl">${m}</bdi>`)).join('');
+  // Wortkarte aus dem Wörterbuch: Stichwort (Konsonanten) -> Westminster-Lemma, falls es eines gibt
+  let lemByCons = null;
+  const consOf = s => String(s).replace(/[^\u05D0-\u05EA]/g, '').replace(/[ךםןףץ]/g, c => 'כמנפצ'['ךםןףץ'.indexOf(c)]);
+  function lemIdsFor(head) {
+    if (!lemByCons) { lemByCons = new Map(); for (const [id, v] of Object.entries(window.OSHB_LEMMAS || {})) { const k = consOf(v[0]); if (k) { if (!lemByCons.has(k)) lemByCons.set(k, []); lemByCons.get(k).push(id); } } }
+    for (const tok of String(head).split(/[·,;/\s]+/)) { if (!/[\u05D0-\u05EA]/.test(tok)) continue; const ids = lemByCons.get(consOf(tok)); if (ids) return ids; }
+    return null;
+  }
   async function dictLookup(q, only = null, fromHist = false) {
     q = String(q || '').trim();
     if (!q) return;
@@ -4261,10 +4269,18 @@
     $('#dictOut').innerHTML = onlyBar + r.results.map((x, i) => {
       let sec = '';
       if (x.dictId !== last) { last = x.dictId; sec = `<div class="dsec" style="--dh:${hue(x.dictId)}"><span>${(p => p ? `<img class="vpic" src="portraits/${encodeURIComponent(p.img)}" alt="" data-title="${esc(p.name || '')}" loading="lazy">` : '')(portraitOf(x.dict))}${esc(x.dict)}</span><span class="dsr"><button type="button" class="dlist" data-id="${esc(x.dictId)}" data-name="${esc(x.dict)}" title="Alle Stichwörter dieses Wörterbuchs als Liste">☰ Stichwörter</button><small>${cnt[x.dictId]} Treffer</small></span></div>`; }
-      return `${sec}<div class="dentry" id="dentry${i}" style="--dh:${hue(x.dictId)}"><div class="dhead"><b dir="auto">${esc(x.head)}</b>${x.note ? ` <span class="muted">${esc(x.note)}</span>` : ''}</div><div class="dbody" dir="ltr">${heFix(/Gesenius/.test(x.dict || '') && window.GAbk ? window.GAbk.mark(x.html) : x.html)}</div></div>`;
+      return `${sec}<div class="dentry" id="dentry${i}" style="--dh:${hue(x.dictId)}"><div class="dhead"><b dir="auto">${esc(x.head)}</b>${(ids => ids ? ` <button type="button" class="dwk" data-ids="${esc(ids.join(','))}" title="${esc(I18N.t('Wortkarte: Wörterbücher, Verteilung, häufigste Formen, Septuaginta'))}">${esc(I18N.t('Wortkarte'))}</button>` : '')(lemIdsFor(x.head))}${x.note ? ` <span class="muted">${esc(x.note)}</span>` : ''}</div><div class="dbody" dir="ltr">${heFix(/Gesenius/.test(x.dict || '') && window.GAbk ? window.GAbk.mark(x.html) : x.html)}</div></div>`;
     }).join('');
     $('#dictOut').scrollTop = 0;
   }
+  $('#dictOut').addEventListener('click', async e => {
+    const b = e.target.closest('.dwk'); if (!b) return;
+    let ids = b.dataset.ids.split(',');
+    if (ids.length > 1) { // mehrere gleich geschriebene Lemmata: das häufigste nehmen
+      try { const D = await loadForms(); let best = -1; for (const id of ids) { const m = window.Forms.model(D, id), n = m ? m.total : 0; if (n > best) { best = n; ids = [id]; } } } catch { ids = [ids[0]]; }
+    }
+    openForms(ids[0], null, 'card');
+  });
   const dictGoHist = d => { const k = dictPos + d; if (k < 0 || k >= dictHist.length) return; dictPos = k; dictLookup(dictHist[k].q, dictHist[k].only, true); };
   // Mehrere Wörterbuch-Tabs – nur im Reiter „Wörterbuch“ sichtbar (die Seitenleiste beim Lesen hat immer nur eine Suche)
   const dtabs = [{ title: 'Neu' }];
