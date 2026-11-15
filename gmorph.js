@@ -234,6 +234,11 @@
         .concat(a.some(y => !y.ft.number) ? [{ n: sum(a.filter(y => !y.ft.number)), cols: null, rows: [{ label: '', cells: [cell(a.filter(y => !y.ft.number))] }] }] : []);
     };
     const sections = [];
+    // ausgeschriebenes Pronomen zur Verbzeile (ich, du, er/sie/es …), Sprache der Oberfläche
+    const GPRON = { de: { '1s': 'ich', '2s': 'du', '3s': 'er/sie/es', '1p': 'wir', '2p': 'ihr', '3p': 'sie', '1d': 'wir beide', '2d': 'ihr beide', '3d': 'sie beide' },
+      en: { '1s': 'I', '2s': 'you', '3s': 'he/she/it', '1p': 'we', '2p': 'you', '3p': 'they', '1d': 'we two', '2d': 'you two', '3d': 'they two' },
+      he: { '1s': 'אני', '2s': 'אתה/את', '3s': 'הוא/היא', '1p': 'אנחנו', '2p': 'אתם/אתן', '3p': 'הם/הן', '1d': 'שנינו', '2d': 'שניכם', '3d': 'שניהם' } };
+    const gpron = (pers, num) => { if (!/[123]/.test(pers)) return ''; let L = 'de'; try { L = (typeof I18N !== 'undefined' && I18N.lang) || 'de'; } catch { /* Node */ } const n = /^p/.test(num) ? 'p' : /^d/.test(num) ? 'd' : /^s/.test(num) ? 's' : ''; const w = n && (GPRON[L] || GPRON.de)[pers + n]; return w ? ' – ' + w : ''; };
     // ----- Verben: Tempus -> Modus -> Person/Numerus × Genus verbi -----
     const verbs = items.filter(y => y.ft.pos === 'V');
     const tg = groupBy(verbs, y => y.ft.tense || '?');
@@ -247,7 +252,7 @@
         else if (mk === 'inf') tables = [{ n: sum(a), cols: voices.map(v => t(VOICE[v])), rows: [{ label: '', cells: voices.map(v => cell(a.filter(y => y.ft.voice === v))) }] }];
         else {
           const pn = [...new Set(a.map(y => (y.ft.number || 'x') + (y.ft.person || 'x')))].sort((p, q) => ord(NUMBER_ORDER, p.slice(0, -1)) - ord(NUMBER_ORDER, q.slice(0, -1)) || (p.slice(-1) < q.slice(-1) ? -1 : 1));
-          tables = [{ n: sum(a), cols: voices.map(v => t(VOICE[v])), rows: pn.map(k => ({ label: (k.slice(-1) === 'x' ? '' : k.slice(-1) + '. ') + (NUMBER[k.slice(0, -1)] ? t(NUMBER[k.slice(0, -1)]) : '') || '–', cells: voices.map(v => cell(a.filter(y => y.ft.voice === v && (y.ft.number || 'x') + (y.ft.person || 'x') === k))) })) }];
+          tables = [{ n: sum(a), cols: voices.map(v => t(VOICE[v])), rows: pn.map(k => ({ label: ((k.slice(-1) === 'x' ? '' : k.slice(-1) + '. ') + (NUMBER[k.slice(0, -1)] ? t(NUMBER[k.slice(0, -1)]) : '') || '–') + gpron(k.slice(-1), k.slice(0, -1)), cells: voices.map(v => cell(a.filter(y => y.ft.voice === v && (y.ft.number || 'x') + (y.ft.person || 'x') === k))) })) }];
         }
         blocks.push({ title: t(MOOD[mk] || mk), n: sum(a), tables });
       }

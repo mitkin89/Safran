@@ -50,7 +50,7 @@ const CATSS = 'Septuaginta (CATSS)', RAHLFS = 'Septuaginta (Rahlfs)';
   assert.deepStrictEqual(m.sections.slice(0, 4).map(s => s.title), ['Präsens', 'Imperfekt', 'Futur', 'Aorist']);
   const aor = m.sections.find(s => s.title === 'Aorist'), ind = aor.blocks.find(b => b.title === 'Indikativ').tables[0];
   assert.ok(ind.cols.includes('Aktiv'));
-  const c3 = ind.rows.find(r => r.label === '3. Sg.').cells[ind.cols.indexOf('Aktiv')];
+  const c3 = ind.rows.find(r => r.label === '3. Sg. – er/sie/es').cells[ind.cols.indexOf('Aktiv')];
   assert.strictEqual(c3[0].f, 'ἐποίησεν'); assert.ok(c3[0].n > 500);
   const rs = G.refs(D, m, c3[0].i);
   assert.deepStrictEqual([rs[0].book, rs[0].ch, rs[0].v], ['Genesis', 1, 1]);
