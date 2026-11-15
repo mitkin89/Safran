@@ -1598,7 +1598,7 @@
     const LK_FIRST = ['tanakh', 'mishnah', 'tosefta', 'talmud', 'responsa']; // feste Reihenfolge oben, danach der Rest nach Anzahl
     const lkRank = c => { const i = LK_FIRST.indexOf(String(c).toLowerCase()); return i < 0 ? 99 : i; };
     const cats = new Map();
-    // Ginzbergs Legenden: eigene Gruppe ganz oben (nach dem Tanach kommt sie als Erstes), aufgeklappt, nach Band und Kapitel, mit den Überschriften der Gliederung
+    // Ginzbergs Legenden: eigene Gruppe ganz oben (nach dem Tanach kommt sie als Erstes), farbig abgesetzt, zugeklappt wie die übrigen Gruppen, nach Band und Kapitel, mit den Überschriften der Gliederung
     const legs = list.filter(x => x.other.startsWith(LEG + ' ') && /^\d+:\d+:\d+/.test(x.other.slice(LEG.length + 1)));
     let legHtml = '';
     if (legs.length) {
@@ -1610,8 +1610,8 @@
         if (!chaps.has(k)) chaps.set(k, { L, xs: [] });
         chaps.get(k).xs.push({ x, L });
       }
-      legHtml = `<details class="lkLeg" open><summary>${esc(I18N.t('Legenden (Ginzberg)'))} (${seen.size})${isLocal ? '' : ' <span class="muted">· nicht lokal</span>'}</summary>${[...chaps.values()].sort((a, b) => a.L.vol - b.L.vol || a.L.chap - b.L.chap).map(({ L, xs }) =>
-        `<details open><summary>${esc(I18N.t('Band {}', L.vol))} · ${esc(L.chapTitle || I18N.t('Kapitel {}', L.chap))} (${xs.length})</summary>${xs.sort((a, b) => a.L.par - b.L.par).slice(0, 300).map(({ x, L: e }) =>
+      legHtml = `<details class="lkLeg"${f || lkVerse != null ? ' open' : ''}><summary>${esc(I18N.t('Legenden (Ginzberg)'))} (${seen.size})${isLocal ? '' : ' <span class="muted">· nicht lokal</span>'}</summary>${[...chaps.values()].sort((a, b) => a.L.vol - b.L.vol || a.L.chap - b.L.chap).map(({ L, xs }) =>
+        `<details${f || chaps.size === 1 ? ' open' : ''}><summary>${esc(I18N.t('Band {}', L.vol))} · ${esc(L.chapTitle || I18N.t('Kapitel {}', L.chap))} (${xs.length})</summary>${xs.sort((a, b) => a.L.par - b.L.par).slice(0, 300).map(({ x, L: e }) =>
           `<div class="ent${isLocal ? '' : ' off'}"><a data-ref="${esc(x.other)}">${e.sub ? esc(e.sub) + ' · ' : ''}${esc(I18N.t('Abs. {}', e.parText))}</a>${isLocal ? ` <button data-pv="${esc(x.other)}" title="Vorschau">▸</button>` : ''} <small class="muted">${esc(e.short)}</small></div>`).join('')}</details>`).join('')}</details>`;
     }
     for (const x of list) {
