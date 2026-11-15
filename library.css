@@ -194,6 +194,7 @@ html.split #tpResize { right: calc(var(--p2w) + var(--cmt-w, 400px)); }
 :root { --he-font: "SBL Hebrew", "SBL BibLit", "Ezra SIL", "Taamey David CLM", "Times New Roman", "Arial Hebrew", serif; }
 .cell[dir=rtl] .txt, [dir=rtl], #rOut .cell[dir=rtl] .note { font-family: var(--he-font); }
 .cell[dir=rtl] .txt { font-size: calc(var(--hef, 1.3) * 1em); line-height: 1.9; }
+.cell[data-gt] .txt { font-size: calc(var(--grf, 1.15) * 1em); line-height: 1.7; }
 .cell[data-k=en] .txt { font-size: calc(var(--enf, 1) * 1em); }
 .cell[data-k=de] .txt { font-size: calc(var(--def, 1) * 1em); }
 
@@ -1382,3 +1383,7 @@ html.split #formsPanel { right: var(--p2w); }
 #wcBody .wcHb .wcLxR { grid-template-columns: minmax(150px, 52%) 1fr 44px; }
 #wcBody .wcHb .wcLxR .g { font-family: inherit; font-size: 12.5px; }
 #wcBody .wcHb .wcLxR .g span[lang=he] { font-family: "HeDict", var(--he-font); font-size: 18px; color: var(--accent); }
+
+#wcBody .wcQ { margin: 2px 0; }
+#wcBody .wcQ summary { cursor: pointer; }
+#wcBody .wcQ .fmRL { margin: 4px 0 6px 14px; line-height: 1.8; }

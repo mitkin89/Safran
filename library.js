@@ -1059,6 +1059,8 @@
     return formsP;
   }
   let lxxP = null;
+  let qumP = null;
+  const loadQum = () => qumP || (qumP = lazyScript('qumran-lex.js', () => window.QUMRAN_LEX).catch(() => { qumP = null; return null; }));
   const loadLxx = () => lxxP || (lxxP = lazyScript('oshb-lxx.js', () => window.OSHB_LXX).catch(() => { lxxP = null; return null; }));
   function fmShowTab(t) {
     fmTab = t === 'forms' ? 'forms' : 'card';
@@ -1127,8 +1129,9 @@
       <section class="wcSec"><h4>${esc(I18N.t('Häufigste Formen'))} <button type="button" class="wcLink" data-go="forms">${esc(I18N.t('alle {} Formen', wcNum(tf.kinds)))} →</button></h4>
         <div class="wcForms" dir="${greek ? 'ltr' : 'rtl'}">${tf.list.map(chip).join('')}</div><div class="wcRefs" id="wcFormRefs"></div></section>
       <section class="wcSec" id="wcLxx" hidden></section>
+      <section class="wcSec" id="wcQum" hidden></section>
       <p class="fmNote">${esc(I18N.t(greek ? 'Belege und Formen nach der Septuaginta-Morphologie lxx-morph (Seth Kushniryk, CC BY 4.0), den Wörtern der mitgelieferten Septuaginta-Fassungen zugeordnet (Tanach: CATSS-Text in hebräischer Zählung; deuterokanonische Bücher: Rahlfs). Richter (A und B), Daniel (Septuaginta und Theodotion), Tobit, Susanna und Bel stehen in zwei Fassungen und zählen je für sich; Kurzbedeutungen englisch (STEPBible).' : 'Belege und Formen nach dem Westminster Leningrad Codex (OSHB); gezählt sind vokalisierte Wörter mit diesem Lemma. Die Suche „Alle Stellen“ geht über das Schriftbild des Lemmas und kann gleich geschriebene Wörter mitfinden.'))}</p>`;
-    wcDicts(token); if (greek) wcHeb(token); else wcLxx(token);
+    wcDicts(token); if (greek) wcHeb(token); else { wcLxx(token); wcQumran(token); }
   }
   // Belegstellen als Zeilen je Buch (wie in der Formentabelle)
   function wcRefList(rs, head, all) {
@@ -1189,6 +1192,25 @@
     box.innerHTML = `<h4>${esc(I18N.t('Wiedergabe in der Septuaginta'))} <small>${esc(I18N.t('{} Zuordnungen · {} griechische Wörter', wcNum(r.total), wcNum(r.kinds)))}</small></h4>
       <div class="wcLx">${r.list.slice(0, 10).map(x => `<div class="wcLxR">${x.g.includes(' ') ? `<span class="g" lang="grc">${esc(x.g)}</span>` : `<button type="button" class="g wcGL" lang="grc" data-gl="${esc(x.g)}" title="${esc(I18N.t('Griechische Wortkarte öffnen'))}">${esc(x.g)}</button>`}<span class="b"><i style="width:${Math.max(2, x.n / mx * 100).toFixed(1)}%"></i></span><small>${wcNum(x.n)}</small></div>`).join('')}</div>
       <p class="muted wcLxN">${esc(I18N.t('Nach der Wort-für-Wort-Zuordnung von CATSS; die griechischen Wörter sind auf ihr Lemma zurückgeführt (lxx-morph), ohne Artikel und – wo das hebräische Wort Vorsilbe oder Suffix hat – ohne Präposition und Pronomen. Klick auf ein Wort öffnet seine Wortkarte.'))}</p>`;
+  }
+  // Qumran (nichtbiblische Rollen, Index qumran-lex.js): Vorkommen des Lemmas (nach Konsonanten) je Buch mit Sprung zur Zeile
+  async function wcQumran(token) {
+    const { lem } = fmCur;
+    if (!lem) return;
+    const key = String(lem[0]).replace(/[^\u05D0-\u05EA]/g, '').replace(/[ךםןףץ]/g, c => 'כמנפצ'['ךםןףץ'.indexOf(c)]);
+    const Q = await loadQum(), box = $('#wcQum');
+    if (token !== wcToken || !Q || !box) return;
+    const a = Q.l[key];
+    if (!a || !a.length) return;
+    const by = new Map();
+    for (let i = 0; i < a.length; i += 3) { const b = a[i]; if (!by.has(b)) by.set(b, []); by.get(b).push([a[i + 1], a[i + 2]]); }
+    const books = [...by.entries()].sort((x, y) => y[1].length - x[1].length);
+    const CAP = 80;
+    box.hidden = false;
+    box.innerHTML = `<h4>${esc(I18N.t('In den Qumran-Rollen'))} <small>${esc(I18N.t('{} Zeilen in {} Büchern', wcNum(a.length / 3), wcNum(books.length)))}</small></h4>
+      ${books.slice(0, 12).map(([b, rs]) => `<details class="wcQ"><summary><b>${esc(Q.b[b])}</b> <small>${wcNum(rs.length)}</small></summary><div class="fmRL">${rs.slice(0, CAP).map(([f, l]) => `<span class="fmR"><a data-ref="${esc(Q.b[b] + ' ' + f + ':' + l)}">${f}:${l}</a></span>`).join(' ')}${rs.length > CAP ? ' …' : ''}</div></details>`).join('')}
+      ${books.length > 12 ? `<p class="muted">${esc(I18N.t('… und {} weitere Bücher', wcNum(books.length - 12)))}</p>` : ''}
+      <p class="muted wcLxN">${esc(I18N.t('Nichtbiblische Rollen (ETCBC DSS, CC BY-NC 4.0); gezählt nach dem Lemma in Konsonantenschrift, daher können gleich geschriebene Wörter mitgezählt sein.'))}</p>`;
   }
   // Griechische Karte: welche hebräischen Wörter gibt dieses Lemma wieder? (Gegenrichtung desselben Index); Klick öffnet die hebräische Wortkarte
   async function wcHeb(token) {
@@ -5054,7 +5076,7 @@
 
 
   // ---------- Anzeigeoptionen ----------
-  const DISP0 = { he: 1.3, en: 1, de: 1, niq: false, can: false, shr: true, mar: 'normal', hideTabs: true, headStick: false, hov: 1.15 };
+  const DISP0 = { he: 1.3, gr: 1.15, en: 1, de: 1, niq: false, can: false, shr: true, mar: 'normal', hideTabs: true, headStick: false, hov: 1.15 };
   let disp = { ...DISP0 };
   try { disp = { ...DISP0, ...JSON.parse(localStorage.getItem('disp') || '{}') }; } catch { /* egal */ }
   const stripHe = h => {
@@ -5064,8 +5086,8 @@
   };
   function applyDisp(rerender) {
     const o = $('#rOut').style;
-    o.setProperty('--hef', disp.he); o.setProperty('--enf', disp.en); o.setProperty('--def', disp.de);
-    $('#dHe').value = disp.he; $('#dEn').value = disp.en; $('#dDe').value = disp.de;
+    o.setProperty('--hef', disp.he); o.setProperty('--grf', disp.gr); o.setProperty('--enf', disp.en); o.setProperty('--def', disp.de);
+    $('#dHe').value = disp.he; $('#dGr').value = disp.gr; $('#dEn').value = disp.en; $('#dDe').value = disp.de;
     $('#dNiq').checked = disp.niq; $('#dCan').checked = disp.can; $('#dShr').checked = !!disp.shr; $('#dOlIn').checked = olInlineOn();
     document.body.classList.toggle('dock-shrink', !!disp.shr);
     document.body.classList.toggle('head-stick', !!disp.headStick); if ($('#dHdSt')) $('#dHdSt').checked = !!disp.headStick;
@@ -5086,6 +5108,7 @@
   $('#dispPanel').addEventListener('input', e => {
     const id = e.target.id;
     if (id === 'dHe') disp.he = +e.target.value;
+    if (id === 'dGr') disp.gr = +e.target.value;
     if (id === 'dEn') disp.en = +e.target.value;
     if (id === 'dDe') disp.de = +e.target.value;
     if (id === 'dNiq') disp.niq = e.target.checked;

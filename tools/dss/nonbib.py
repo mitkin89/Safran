@@ -182,7 +182,20 @@ man['items'] = [it for it in man['items'] if it['versionTitle'] != VT]
 outlines = {}
 
 
+LEXB = []; LEX = collections.defaultdict(list)
+FIN = str.maketrans('ךםןףץ', 'כמנפצ')
+
+
+def index_book(title, secs):
+    bi = len(LEXB); LEXB.append(title)
+    for fi, sec in enumerate(secs, 1):
+        for li, ln in enumerate(sec, 1):
+            for lem in set(re.findall(r'data-l="([^"]+)"', ln)):
+                LEX[lem.translate(FIN)] += [bi, fi, li]
+
+
 def write_book(title, hetitle, secs, outline=None):
+    index_book(title, secs)
     d = {'title': title, 'heTitle': hetitle, 'language': 'Hebrew', 'versionTitle': VT, 'versionSource': SRCURL,
          'sectionNames': ['Fragment', 'Line'], 'text': secs}
     rel = 'own/%s/he/%s.json' % (title, VT)
@@ -223,3 +236,8 @@ for (k, g), ss in sorted(groups.items()):
 json.dump(man, open(man_p, 'w', encoding='utf8'), ensure_ascii=False, indent=1)
 for t, o in outlines.items():
     json.dump(o, open(os.path.join(proj, 'outlines', t + '.json'), 'w', encoding='utf8'), ensure_ascii=False, indent=1)
+
+# Lemma-Index für die Wortkarte: Lemma (Konsonanten) -> [Buch, Fragment, Zeile, ...]; Bücher als Liste von Titeln
+with open(os.path.join(proj, 'qumran-lex.js'), 'w', encoding='utf8') as f:
+    f.write('window.QUMRAN_LEX=' + json.dumps({'b': LEXB, 'l': LEX}, ensure_ascii=False, separators=(',', ':')) + ';\n')
+print('qumran-lex.js', len(LEX), 'Lemmata')

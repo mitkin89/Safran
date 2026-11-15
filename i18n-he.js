@@ -505,6 +505,7 @@ window.I18N_HE = {
 "⤓ Exportieren …": "⤓ ייצוא …",
 "Abschnitt als PDF oder Word exportieren": "ייצוא הקטע כ-PDF או Word",
 "Hebräisch – Schriftgröße": "עברית – גודל גופן",
+"Griechisch – Schriftgröße": "יוונית – גודל גופן",
 "Englisch – Schriftgröße": "אנגלית – גודל גופן",
 "Deutsch – Schriftgröße": "גרמנית – גודל גופן",
 "Hebräische Vokalzeichen ausblenden": "הסתרת ניקוד",
