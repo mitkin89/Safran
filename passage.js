@@ -6,7 +6,7 @@
   const Morph = typeof module !== 'undefined' && module.exports ? require('./morph') : window.Morph;
 
   // feste Reihenfolge der Fächer
-  const BOXES = ['commentary', 'parallels', 'legends', 'krauss', 'rabbinic', 'halakhah', 'words', 'stats', 'dicts', 'places', 'topics', 'mishtal', 'outline', 'notes', 'other'];
+  const BOXES = ['stats', 'commentary', 'parallels', 'legends', 'krauss', 'rabbinic', 'halakhah', 'words', 'dicts', 'places', 'topics', 'mishtal', 'outline', 'notes', 'other'];
   const LEG = 'Legends of the Jews';
   const KRAUSS = 'Talmudische Archäologie'; // Krauss: eigenes Fach wie Ginzbergs Legenden
   const JOSEPHUS = ['The Antiquities of the Jews', 'The War of the Jews', 'Against Apion', 'The Life of Flavius Josephus'];
