@@ -25,6 +25,7 @@ window.PORTRAITS = [
   { match: 'Hildesheimer', img: 'hildesheimer.jpg', name: 'Esriel Hildesheimer (1820–1899)' },
   { match: 'Bamberger', img: 'bamberger.jpg', name: 'Selig Pinchas Bamberger' },
   { match: 'Bernfeld', img: 'bernfeld.jpg', name: 'Simon Bernfeld (1860–1940)' },
+  { match: 'Steinsaltz', img: 'steinsaltz.jpg', name: 'Adin Even-Israel Steinsaltz (1937–2020)' },
   { match: 'Mandelstamm', img: 'mandelstamm.jpg', name: 'Leon Mandelstamm (1819–1889)' },
   // Handschriften
   { match: 'Aleppo', img: 'aleppo.jpg', name: 'Aleppo-Kodex (10. Jh.)' },
