@@ -1,6 +1,7 @@
 # Changelog
 
 ### New in 2.4.0
+- **Qumran: Pesharim:** the quoted lemmata of Pesher Habakkuk (1QpHab) and Pesher Isaiah (4Q163) are matched to the verses of the commented book (word sequences of 4+ words); links in both directions (generator: `tools/dss/pesher.py`).
 - **Word card: Targums:** the Hebrew word card lists the verses where a word of Targum Neofiti 1 or Pseudo-Jonathan has the same lexeme or root (Pentateuch, ETCBC Targum Corpus); clickable.
 - **Citations:** German Talmud folio citations (e.g. „bḲidd 13ᵃ. 22ᵇ. 28ᵃᵇ“) are recognised, continuation folios belong to the same tractate; Josephus citations (Ant., Bell., Ap.) are linked. Own-text links were rebuilt.
 - **Outlines:** the current position is marked in every outline, also those made of single points (e.g. Krauss).
