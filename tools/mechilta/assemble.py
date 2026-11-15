@@ -93,10 +93,10 @@ for u in units:
             n = m.group(1); fn = P[p]['notes'].get(n)
             if fn is None:
                 print('Fußnote fehlt', p, n, file=sys.stderr); return ''
-            return '\x00FN' + json.dumps(fn_html(fn), ensure_ascii=False) + '\x00'
+            return '\x00FN' + n + '\x01' + json.dumps(fn_html(fn), ensure_ascii=False) + '\x00'
         segs.append(re.sub(r'\^(\d+)\)?', rep, l))
     t = join_lines(segs)
-    t = re.sub(r'\x00FN(".*?")\x00', lambda m: '<sup class="footnote-marker">*</sup><i class="footnote">' + json.loads(m.group(1)) + '</i>', t)
+    t = re.sub(r'\x00FN(\d+)\x01(".*?")\x00', lambda m: '<sup class="footnote-marker">' + m.group(1) + '</sup><i class="footnote">' + json.loads(m.group(2)) + '</i>', t)  # Nummer wie im Buch (je Seite)
     out.append({'parascha': u['parascha'], 'abschnitt': u['abschnitt'], 'head': u['head'], 'pages': u['pages'], 'text': t})
 json.dump(out, open(D + '/units.json', 'w'), ensure_ascii=False, indent=1)
 for u in out: print(u['pages'][0], '-', u['pages'][-1], '|', u['parascha'], '|', u['abschnitt'], '|', len(u['text']))
