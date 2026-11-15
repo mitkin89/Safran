@@ -258,6 +258,25 @@
     return nav + secs + `<p class="fmNote">${esc(t('Nur im Tanach belegte Formen (Westminster Leningrad Codex, OSHB), ohne Akzente; die Zahl nennt die Häufigkeit. Vorsilben wie ו, ב, כ, ל, מ, ש sind abgetrennt, wo das Wort dann für sich lesbar bleibt; Artikel, wajjiqtol/wᵉqatal und Infinitiv mit Präposition stehen wie belegt. Unvokalisierte Ketiv-Formen fehlen.'))}</p>`;
   }
 
-  const api = { build, analyze, model, render, refs, clean, parts, strip, keyOf };
+  // ---------- Wortkarte: Verteilung auf die Bücher und häufigste Formen ----------
+  const allForms = mdl => mdl.forms.map((_, i) => i).join(',');
+  // Vorkommen je Buch in der Reihenfolge des Tanach: [{ book, n (Belege), verses (Verse mit Beleg), size (Verse des Buches) }]
+  function dist(data, mdl) {
+    const out = data.books.map(([book, counts]) => ({ book, n: 0, verses: 0, size: counts.reduce((s, x) => s + x, 0) }));
+    const at = new Map(out.map((x, i) => [x.book, i]));
+    for (const r of refs(data, mdl, allForms(mdl))) { const o = out[at.get(r.book)]; o.n += r.n; o.verses++; }
+    return out;
+  }
+  // alle Belegstellen des Lemmas in einem Buch: [{ book, ch, v, n }]
+  const refsIn = (data, mdl, book) => refs(data, mdl, allForms(mdl)).filter(r => r.book === book);
+  // die k häufigsten Formen (gleiche Schreibung zusammengefasst): [{ f, n, i, pre }]
+  function topForms(mdl, k = 8) {
+    const m = new Map();
+    mdl.forms.forEach((x, i) => { const key = (x.pre ? '-' : '') + x.f, y = m.get(key); if (y) { y.n += x.n; y.i += ',' + i; } else m.set(key, { f: x.f, n: x.n, i: String(i), pre: !!x.pre }); });
+    const all = [...m.values()].sort((a, b) => b.n - a.n || (a.f < b.f ? -1 : 1));
+    return { list: all.slice(0, k), kinds: all.length };
+  }
+
+  const api = { build, analyze, model, render, refs, clean, parts, strip, keyOf, dist, refsIn, topForms };
   if (typeof module !== 'undefined' && module.exports) module.exports = api; else window.Forms = api;
 })();

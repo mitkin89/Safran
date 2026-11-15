@@ -14,6 +14,29 @@
   if (lang === 'de') return;
 
   const EN = {
+    // ----- Wortkarte -----
+    'Wortkarte': 'Word card',
+    'Wortkarte: Wörterbücher, Verteilung und Formen dieses Wortes': 'Word card: dictionaries, distribution and forms of this word',
+    'Startet die Suche nach diesem Wort im hebräischen Tanach (Treffer „Alle Formen“)': 'Starts the search for this word in the Hebrew Tanakh (match “All forms”)',
+    'Alle Stellen dieses Wortes': 'All occurrences of this word',
+    'Wörterbücher': 'Dictionaries',
+    'Verteilung im Tanach': 'Distribution in the Tanakh',
+    '{} Belege in {} von 39 Büchern': '{} occurrences in {} of 39 books',
+    'Am häufigsten:': 'Most frequent:',
+    'Klick auf einen Balken zeigt die Stellen des Buches': 'click a bar to list the verses of that book',
+    'Häufigste Formen': 'Most frequent forms',
+    'alle {} Formen': 'all {} forms',
+    'Belege und Formen nach dem Westminster Leningrad Codex (OSHB); gezählt sind vokalisierte Wörter mit diesem Lemma. Die Suche „Alle Stellen“ geht über das Schriftbild des Lemmas und kann gleich geschriebene Wörter mitfinden.': 'Occurrences and forms according to the Westminster Leningrad Codex (OSHB); counted are vocalized words with this lemma. The search “All occurrences” goes by the spelling of the lemma and may also find words spelled the same.',
+    'Kein Eintrag in den Wörterbüchern.': 'No entry in the dictionaries.',
+    'Im Reiter „Wörterbuch“ öffnen': 'Open in the “Dictionary” tab',
+    'Wiedergabe in der Septuaginta': 'Rendering in the Septuagint',
+    '{} Zuordnungen · {} Wortformen': '{} alignments · {} word forms',
+    'Nach der Wort-für-Wort-Zuordnung von CATSS; griechische Wortformen wie im Text (nicht auf Grundformen zurückgeführt), ohne Artikel und – wo das hebräische Wort Vorsilbe oder Suffix hat – ohne Präposition und Pronomen.': 'Based on the word-by-word alignment of CATSS; Greek word forms as in the text (not reduced to dictionary forms), without the article and – where the Hebrew word has a prefix or suffix – without preposition and pronoun.',
+    '{} je 1000 Verse': '{} per 1000 verses',
+    'kein Beleg': 'no occurrence',
+    'Tora': 'Torah',
+    'Propheten': 'Prophets',
+    'Schriften': 'Writings',
     // ----- Alles zu dieser Stelle (Knopf) -----
     'Überblick': 'Overview',
     // ----- Alles zu dieser Stelle -----
