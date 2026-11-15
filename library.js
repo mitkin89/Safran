@@ -1918,13 +1918,14 @@
     const first = s.label.split(' › ')[0];
     let m = s.path.length === 1 && !s.label.includes('›') && first.match(/(\d+[ab]?)$/i);
     if (!m && s.path.length === 2 && s.path.every(x => typeof x === 'number')) m = [null, (s.path[0] + 1) + ':' + (s.path[1] + 1)]; // Band:Kapitel (z. B. Ginzbergs Legenden)
+    if (!m && secNode(s)) m = [null, String(s.path[1] + 1)]; // Knoten:Kapitel (z. B. Mechiltha)
     if (!m) return;
     const token = view.idx + ':' + view.group.key;
     let rows;
     if (!MT) { try { await mtLoad; } catch { /* ohne Tabelle */ } if (!view || token !== view.idx + ':' + view.group.key) return; }
     markMishTal(m[1], []); // sofort aus der mitgelieferten Tabelle; Sefarias Verknüpfungen kommen unten dazu
-    try { rows = await LK.section(view.group.title, m[1]); } catch { rows = []; } // auch ohne heruntergeladene Sefaria-Links: mitgelieferte Verknüpfungen
-    rows = (Array.isArray(rows) ? rows : []).concat(parRows(view.group.title, m[1]));
+    try { rows = await LK.section(secBook(view.group, s), m[1]); } catch { rows = []; } // auch ohne heruntergeladene Sefaria-Links: mitgelieferte Verknüpfungen
+    rows = (Array.isArray(rows) ? rows : []).concat(parRows(secBook(view.group, s), m[1]));
     if (!view || token !== view.idx + ':' + view.group.key) return; // inzwischen woanders
     secLinks = rows;
     if (!rows.length) return;
@@ -2006,10 +2007,13 @@
   const lkDictsLoad = () => { if (lkDicts === null) { lkDicts = []; O.dictList().then(r => { lkDicts = (r && r.list) || []; if (!$('#linkPanel').hidden) renderLinkPanel(); apSoon(); }).catch(() => {}); } return lkDicts; };
   const localDictFor = src => { const k = String(src).toLowerCase().split(/[\s,–-]+/)[0]; return k ? (lkDicts || []).find(d => String(d.name).toLowerCase().split(/[\s,–-]+/)[0] === k) || null : null; };
   const lkCites = new Map(); // „Buch|Kapitel|Vers“ -> Liste aus dictCites (null = wird geladen)
+  const secNode = s => (s && s.path && s.path.length === 2 && typeof s.path[0] === 'string' && s.path[0] && typeof s.path[1] === 'number') ? s.path[0] : ''; // Knoten komplexer Texte (z. B. „Tractate Pischa“ der Mechiltha)
+  const secBook = (g, s) => g.title + (secNode(s) ? ', ' + secNode(s) : '');
   const secChapOf = s => { // wie apChap: „3“, „2a“ oder „1:2“
     if (!s || !s.label || !s.path) return null; const first = s.label.split(' › ')[0];
     let m = s.path.length === 1 && !s.label.includes('›') && first.match(/(\d+[ab]?)$/i);
     if (!m && s.path.length === 2 && s.path.every(x => typeof x === 'number')) m = [null, (s.path[0] + 1) + ':' + (s.path[1] + 1)];
+    if (!m && secNode(s)) m = [null, String(s.path[1] + 1)];
     return m ? m[1] : null;
   };
   async function openDictIn(q, only) { // Stichwort in einem bestimmten Wörterbuch öffnen
@@ -6262,6 +6266,7 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
     if (!s) return null; const first = s.label.split(' › ')[0];
     let m = s.path.length === 1 && !s.label.includes('›') && first.match(/(\d+[ab]?)$/i);
     if (!m && s.path.length === 2 && s.path.every(x => typeof x === 'number')) m = [null, (s.path[0] + 1) + ':' + (s.path[1] + 1)];
+    if (!m && secNode(s)) m = [null, String(s.path[1] + 1)];
     return m ? m[1] : null;
   };
   const apRefLabel = ref => { const bk = splitOther(ref), de = I18N.lang === 'de' ? deNames(bk).split(' / ')[0] : ''; return (de || bk) + String(ref).slice(bk.length).replace(/-/g, '–'); };
