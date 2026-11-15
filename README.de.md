@@ -125,7 +125,7 @@ Safran liefert 408 deutsche Textdateien im Ordner `bundled/` mit. Sie werden bei
 | D. Hoffmann, *Das Buch Leviticus* und *Das Buch Deuteronomium* | Übersetzung und Kommentar |
 | Samuel (Wolf) · Ijob (Dawidowicz) · die *Arba Megillot* (Breuer) | Übersetzung und Kommentar |
 
-Ebenfalls enthalten: der Westminster Leningrad Codex mit Morphologie (OSHB), der Aleppo-Kodex, die Qumran-Rollen, Targum Pseudo-Jonathan und Neofiti sowie die Septuaginta (CATSS). Quellen und Lizenzen: [SOURCES.de.md](SOURCES.de.md).
+Ebenfalls enthalten: der Westminster Leningrad Codex mit Morphologie (OSHB), der Aleppo-Kodex, die Qumran-Rollen, Targum Pseudo-Jonathan und Neofiti sowie die Septuaginta: der CATSS-Text zum Tanach und 21 griechische Dateien nach Rahlfs für Hosea, Ester mit den Zusätzen und die deuterokanonischen Bücher (1.–4. Makkabäer, Sirach, Weisheit, Tobit, Judit, Baruch, Brief Jeremias, Susanna, Bel, 1. Esdras, Oden, Psalmen Salomos), mit Lemma und Bestimmung für jedes griechische Wort (lxx-morph). Quellen und Lizenzen: [SOURCES.de.md](SOURCES.de.md).
 
 ## Bildschirmfotos
 

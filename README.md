@@ -125,7 +125,7 @@ Safran bundles 408 German text files in `bundled/`. They are imported on first s
 | D. Hoffmann, *Das Buch Leviticus* and *Das Buch Deuteronomium* | translation and commentary |
 | Samuel (Wolf) · Job (Dawidowicz) · the *Arba Megillot* (Breuer) | translation and commentary |
 
-Also bundled: the Westminster Leningrad Codex with morphology (OSHB), the Aleppo Codex, the Qumran scrolls, Targum Pseudo-Jonathan and Neofiti, and the Septuagint (CATSS). Sources and licenses: [SOURCES.md](SOURCES.md).
+Also bundled: the Westminster Leningrad Codex with morphology (OSHB), the Aleppo Codex, the Qumran scrolls, Targum Pseudo-Jonathan and Neofiti, and the Septuagint: the CATSS text for the Tanakh and 21 Greek files after Rahlfs for Hosea, Esther with its additions and the deuterocanonical books (Maccabees 1–4, Sirach, Wisdom, Tobit, Judith, Baruch, Letter of Jeremiah, Susanna, Bel, 1 Esdras, Odes, Psalms of Solomon), with lemma and parsing for every Greek word (lxx-morph). Sources and licenses: [SOURCES.md](SOURCES.md).
 
 ## Screenshots
 
