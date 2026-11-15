@@ -854,15 +854,18 @@ ipcMain.handle('topics:get', async (_e, slug) => { try { return await (await get
 ipcMain.handle('topics:section', async (_e, book, chap, verse) => { try { return await (await getTopics()).forSection(String(book || ''), String(chap || ''), verse ? +verse : 0); } catch { return []; } });
 // Eigene Kommentare: ein eigener Text mit dem Titel „<Name> on <Buch>“ (Sefaria-Schreibweise) erscheint in der Kommentarleiste von <Buch>,
 // ohne dass es dafür Verknüpfungen bei Sefaria geben muss. Jeder nicht leere Vers des Kommentars wird zum Vers des Buches verknüpft.
+// Tosefta Kifshutah folgt der Zählung der Lieberman-Ausgabe: Basistext ist „Tosefta X (Lieberman)“, wo es diese Ausgabe in der Bibliothek gibt, sonst „Tosefta X“
+function kifBase(titles, tractate) { return titles.has(`Tosefta ${tractate} (Lieberman)`) ? `Tosefta ${tractate} (Lieberman)` : `Tosefta ${tractate}`; }
 async function ownCommentaryLinks(book, chap) {
   const lib = await getLibrary();
+  const titles = new Set(lib.list().map(x => x.title));
   const seen = new Set(), out = [];
   for (const e of lib.list()) {
     // Sefarias Tosefta-Kommentar „Tosefta Kifshutah on Shabbat“ gehört zu „Tosefta Shabbat“ (Sefaria verknüpft ihn nur mit anderen Texten, nicht mit der Tosefta selbst); Kapitel und Halacha stimmen überein
     const kif = /^Tosefta Kifshutah on (.+)$/.exec(e.title);
-    if (!e.own && !(kif && 'Tosefta ' + kif[1] === book)) continue;
+    if (!e.own && !(kif && kifBase(titles, kif[1]) === book)) continue;
     const m = /^(.+?) on (.+)$/.exec(e.title);
-    if (!m || (m[2] !== book && !(kif && 'Tosefta ' + kif[1] === book)) || seen.has(e.title)) continue;
+    if (!m || (m[2] !== book && !(kif && kifBase(titles, kif[1]) === book)) || seen.has(e.title)) continue;
     seen.add(e.title);
     let d = readCache.get(e.rel);
     if (!d) { try { d = await lib.read(e.rel); } catch { continue; } readCache.set(e.rel, d); if (readCache.size > 12) readCache.delete(readCache.keys().next().value); }
@@ -928,8 +931,9 @@ async function kifshutahToTosefta(book, chap) {
   const m = /^Tosefta Kifshutah on (.+)$/.exec(book);
   if (!m || !/^\d+$/.test(String(chap))) return [];
   const lib = await getLibrary();
-  const tos = lib.list().some(x => x.title === 'Tosefta ' + m[1]);
-  if (!tos) return [];
+  const titles = new Set(lib.list().map(x => x.title));
+  const target = kifBase(titles, m[1]);
+  if (!titles.has(target)) return [];
   const out = [];
   for (const e of lib.list().filter(x => x.title === book)) {
     let d = readCache.get(e.rel);
@@ -938,7 +942,7 @@ async function kifshutahToTosefta(book, chap) {
     const node = arr && arr[parseInt(chap, 10) - 1];
     if (!Array.isArray(node)) continue;
     node.forEach((v, j) => {
-      if (Array.isArray(v) ? v.some(x => String(x || '').trim()) : String(v || '').trim()) out.push({ v1: j + 1, v2: j + 1, other: `Tosefta ${m[1]} ${chap}:${j + 1}`, type: 'reference', cat: 'Tosefta' });
+      if (Array.isArray(v) ? v.some(x => String(x || '').trim()) : String(v || '').trim()) out.push({ v1: j + 1, v2: j + 1, other: `${target} ${chap}:${j + 1}`, type: 'reference', cat: 'Tosefta' });
     });
     if (out.length) break;
   }
