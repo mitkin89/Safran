@@ -309,7 +309,7 @@ class Dictionaries {
       for (let i = 0; i < a.length; i += 4) {
         const v1 = a[i + 2], v2 = a[i + 3], exact = v1 > 0;
         if (exact !== !!pass) continue;
-        if (exact && !(verse >= v1 && verse <= v2)) continue;
+        if (exact && verse > 0 && !(verse >= v1 && verse <= v2)) continue; // verse 0: ganzes Kapitel/Blatt
         const key = a[i] + ':' + a[i + 1]; if (seen.has(key)) continue; seen.add(key);
         const dc = C.dicts[a[i]], data = this.cache.get(dc.id);
         out.push({ dictId: dc.id, dict: dc.name, k: a[i + 1], head: cleanHead(data.heads[a[i + 1]][0]), exact });

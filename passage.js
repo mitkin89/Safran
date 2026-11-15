@@ -41,7 +41,8 @@
 
   // Verknüpfungen eines Abschnitts auf den Vers einschränken (wie das Verknüpfungs-Fenster: Verweise auf den ganzen Abschnitt zählen mit)
   // und auf die Fächer verteilen; dieselbe Zielstelle erscheint je Fach nur einmal.
-  function classify(rows, v) {
+  // all = true (ganzes Kapitel, v = null): auch die Kommentare zu den einzelnen Versen
+  function classify(rows, v, all) {
     const out = { commentary: [], parallels: [], legends: [], rabbinic: [], halakhah: [], mishtal: [], other: [] };
     const seen = new Set();
     for (const x of rows || []) {
@@ -49,7 +50,7 @@
       const whole = !(x.v1 > 0);
       if (v != null && !whole && !(v >= x.v1 && v <= x.v2)) continue;
       const b = boxOf(x);
-      if (b === 'commentary' && (whole || v == null)) continue; // Kommentare gelten nur zum Vers (wie im Kommentar-Bereich)
+      if (b === 'commentary' && (whole || (v == null && !all))) continue; // Kommentare gelten nur zum Vers (wie im Kommentar-Bereich)
       const k = b + '\u0001' + start(x.other);
       if (seen.has(k)) continue;
       seen.add(k);

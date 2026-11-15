@@ -5886,7 +5886,7 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
     const at = k => rows[Math.min(rows.length - 1, Math.max(0, k))];
     let k = (i < 0 ? 0 : i) + d, n = at(k);
     if (n && n.dataset.l === cmtRow) n = at(k + d); // vom gelesenen Vers aus landete man wieder beim angezeigten Vers (z. B. ▲, während dieser knapp über dem Bildschirm liegt): einen weiter
-    if (n) { setCmtRow(n.dataset.l); panelScrollTo(n, 'center'); }
+    if (n) { AP.whole = false; setCmtRow(n.dataset.l); panelScrollTo(n, 'center'); }
     cmtStepY = window.scrollY;
   }
   // j / k: nächster / vorheriger Vers im Kommentar-Bereich (nur wenn kein Eingabefeld den Fokus hat)
@@ -5927,7 +5927,7 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
     const lab = e.target.closest('.lab');
     if (!lab || e.target.closest('.bm') || e.target.closest('.lk, .mtj')) return;
     const row = lab.closest('.row[data-l]');
-    if (row) { setCmtRow(row.dataset.l); if (!cmtOpen && !AP.open) toggleCmt(true); } // ein Klick auf den Vers öffnet die Kommentare (ist „Alles zu dieser Stelle“ offen, folgt dieses Fenster)
+    if (row) { AP.whole = false; setCmtRow(row.dataset.l); if (!cmtOpen && !AP.open) toggleCmt(true); } // ein Klick auf den Vers öffnet die Kommentare (ist „Alles zu dieser Stelle“ offen, folgt dieses Fenster)
   });
   // Doppelklick auf die Versnummer öffnet den Kommentar-Bereich, derselbe Vers noch einmal schließt ihn
   let lastCmtDbl = null;
@@ -6127,7 +6127,7 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
   // ---------- Alles zu dieser Stelle: ein Fenster mit festen Fächern zum gewählten Vers / Segment ----------
   // Zusammengestellt wird nur, was die anderen Fenster ohnehin schon geladen haben (Verknüpfungen des Abschnitts, Themen, Orte, Gliederung, Notizen);
   // die Verteilung auf die Fächer macht passage.js. Das Fenster folgt dem gewählten Vers (Klick auf die Versnummer, j/k, ▲▼).
-  var AP = { open: false, token: 0, t: null, key: '' };
+  var AP = { open: false, token: 0, t: null, key: '', whole: false }; // whole: ganzes Kapitel bzw. ganze Seite statt eines Verses
   const AP_CAP = 6;
   const AP_META = {
     commentary: ['💬', 'Kommentare'], parallels: ['⇄', 'Parallelstellen'], legends: ['❧', 'Legenden (Ginzberg)'], rabbinic: ['📜', 'Talmud & Midrasch'], halakhah: ['⚖', 'Halacha'],
@@ -6155,6 +6155,7 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
   }
   function apToggle(force, label) {
     AP.open = force == null ? !AP.open : !!force;
+    if (AP.open) AP.whole = label == null; // über den Knopf: ganzes Kapitel; über eine Zeile (Kontextmenü): dieser Vers
     $('#allPanel').hidden = !AP.open;
     $('#apBtn').classList.toggle('active', AP.open);
     if (!AP.open) { hovApi && hovApi.hide(); return; }
@@ -6180,17 +6181,25 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
     const P = window.Passage, token = ++AP.token, body = $('#apBody'), nav = $('#apNav');
     const blank = msg => { $('#apTitle').textContent = I18N.t('Alles zu dieser Stelle'); nav.innerHTML = ''; body.innerHTML = `<p class="muted">${esc(I18N.t(msg))}</p>`; AP.key = ''; };
     if (!view || !view.group || view.sres || !view.sections) return blank('Öffne ein Buch und klicke links auf eine Versnummer.');
-    const s = view.sections[view.idx], row = s && apPickRow();
-    if (!row) return blank('Öffne ein Buch und klicke links auf eine Versnummer.');
-    const label = row.dataset.l;
-    if (label !== cmtRow) { setCmtRow(label); clearTimeout(AP.t); } // setzt die Markierung der Zeile (dieselbe wie beim Kommentar-Bereich)
-    const g = view.group, title = g.title, chap = apChap(s), v = verseOf(label), L = I18N.lang;
-    const key = g.key + '|' + s.k + '|' + label, keep = key === AP.key ? $('#allPanel').scrollTop : 0;
+    const s = view.sections[view.idx];
+    if (AP.whole && !apChap(s)) AP.whole = false; // Abschnitt ohne Kapitel-/Blattzählung: weiter Vers für Vers
+    const whole = AP.whole, row = s && !whole && apPickRow();
+    if (!s || (!whole && !row)) return blank('Öffne ein Buch und klicke links auf eine Versnummer.');
+    const label = whole ? '' : row.dataset.l;
+    if (!whole && label !== cmtRow) { setCmtRow(label); clearTimeout(AP.t); } // setzt die Markierung der Zeile (dieselbe wie beim Kommentar-Bereich)
+    const g = view.group, title = g.title, chap = apChap(s), v = whole ? null : verseOf(label), L = I18N.lang;
+    const page = /[ab]$/i.test(chap || ''); // Talmud: Seite statt Kapitel
+    const key = g.key + '|' + s.k + '|' + (whole ? '*' : label), keep = key === AP.key ? $('#allPanel').scrollTop : 0;
     AP.key = key;
-    $('#apTitle').textContent = `${I18N.lang === 'de' ? (deNames(title).split(' / ')[0] || title) : title} ${String(s.label).replace(/^\D+/, '')}${I18N.lang === 'de' ? ',' : ':'}${label}`;
+    const bookName = I18N.lang === 'de' ? (deNames(title).split(' / ')[0] || title) : title, secName = String(s.label).replace(/^\D+/, '');
+    $('#apTitle').textContent = whole ? `${bookName} ${secName} · ${I18N.t(page ? 'ganze Seite' : 'ganzes Kapitel')}` : `${bookName} ${secName}${I18N.lang === 'de' ? ',' : ':'}${label}`;
     $('#apTitle').title = I18N.t('Alles zu dieser Stelle');
+    { const wb = $('#apWhole'); wb.hidden = whole || !chap; wb.textContent = I18N.t(page ? 'Ganze Seite' : 'Ganzes Kapitel'); wb.title = I18N.t('Wieder das ganze Kapitel bzw. die ganze Seite zeigen'); }
+    // Verse des Abschnitts (für das ganze Kapitel: Mischna ↔ Talmud, Gliederung)
+    const secVs = whole ? [...new Set($$('#rOut .row[data-l]').map(r => verseOf(r.dataset.l)).filter(x => x != null))] : [];
+    const vTag = x => (whole && x.v1 > 0 ? (x.v2 > x.v1 && x.v2 < 99999 ? `${x.v1}–${x.v2}` : String(x.v1)) : ''); // im ganzen Kapitel: von welchem Vers aus
     // ----- was schon da ist -----
-    const cl = P.classify(v != null && chap ? secLinks : [], v);
+    const cl = P.classify((v != null || whole) && chap ? secLinks : [], v, whole);
     const byT = new Map(groups.map(x => [x.title, x])), tg = t => byT.get(t) || byT.get(String(t).split(', ')[0]) || null;
     const isLocal = bk => !!tg(bk);
     const sortL = a => a.slice().sort((x, y) => { const bx = splitOther(x.other), by = splitOther(y.other); return libCmpGroups(tg(bx), tg(by)) || titleCmp(bx, by); });
@@ -6201,35 +6210,35 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
       boxes.commentary = cs.map(c => ent({ other: c.refs[0] }, esc(dispName(c.name)), c.refs.length > 1 ? '×' + c.refs.length : ''));
     }
     { const TAG = x => { const q = P.sourceOf(x); return q.k === 'etcbc' ? 'ETCBC ' + q.sim : q.k === 'josephus' ? 'Josephus' : q.k === 'second' ? I18N.t('2. Tempel') : q.k === 'targum' ? 'Targum' : ''; };
-      boxes.parallels = sortL(cl.parallels).map(x => ent(x, '', TAG(x))); }
+      boxes.parallels = sortL(cl.parallels).map(x => ent(x, '', [vTag(x), TAG(x)].filter(Boolean).join(' · '))); }
     { // Legenden: Band, Kapitelüberschrift und Absatz wie im Verknüpfungs-Fenster
       if (cl.legends.length && legOl === undefined) { legOl = null; olOwn(LEG).then(o => { legOl = o || null; legIdx = null; if (o) apSoon(); }).catch(() => {}); }
       boxes.legends = cl.legends.map(x => ({ x, e: legLabel(x.other) })).sort((a, b) => a.e.vol - b.e.vol || a.e.chap - b.e.chap || a.e.par - b.e.par)
         .map(({ x, e }) => ent(x, esc([I18N.t('Band {}', e.vol), e.chapTitle, e.sub, I18N.t('Abs. {}', e.parText)].filter(Boolean).join(' · ')), e.short));
     }
-    boxes.rabbinic = sortL(cl.rabbinic).map(x => ent(x));
-    boxes.halakhah = sortL(cl.halakhah).map(x => ent(x));
-    boxes.other = sortL(cl.other).map(x => ent(x, '', x.cat && x.cat !== 'Andere' ? x.cat : ''));
+    boxes.rabbinic = sortL(cl.rabbinic).map(x => ent(x, '', vTag(x)));
+    boxes.halakhah = sortL(cl.halakhah).map(x => ent(x, '', vTag(x)));
+    boxes.other = sortL(cl.other).map(x => ent(x, '', [vTag(x), x.cat && x.cat !== 'Andere' ? x.cat : ''].filter(Boolean).join(' · ')));
     { // Mischna ↔ Talmud: mitgelieferte Zuordnung und Sefarias „mishnah in talmud“
       const isM = /^Mishnah /.test(title), refs = [];
       const add = r => { if (r && !refs.some(q => q.replace(/-.*$/, '') === r.replace(/-.*$/, ''))) refs.push(r); };
-      if (MT && MT.has(title) && v != null && chap) { try { (isM ? (/^\d+$/.test(chap) ? MT.toTalmud(title, chap, v) : []) : MT.toMishnah(title, chap, v)).forEach(add); } catch { /* ohne Tabelle */ } }
+      if (MT && MT.has(title) && chap) for (const vv of whole ? secVs : v != null ? [v] : []) { try { (isM ? (/^\d+$/.test(chap) ? MT.toTalmud(title, chap, vv) : []) : MT.toMishnah(title, chap, vv)).forEach(add); } catch { /* ohne Tabelle */ } }
       cl.mishtal.filter(x => (isM ? !/^Mishnah /.test(x.other) : /^Mishnah /.test(x.other))).forEach(x => add(x.other));
       boxes.mishtal = refs.map(r => ent({ other: r }, '', I18N.t(isM ? 'im Talmud' : 'in der Mischna')));
     }
-    { let ids = []; try { ids = BM && !MP.over && v != null ? P.placesAt(MP.cur, v) : []; } catch { ids = []; }
+    { let ids = []; try { ids = BM && !MP.over ? (whole ? (MP.cur || []).map(c => c.i) : v != null ? P.placesAt(MP.cur, v) : []) : []; } catch { ids = []; }
       boxes.places = ids.map(i => `<button type="button" class="apChip" data-place="${i}">${mapName(i)}</button>`); }
-    { const ts = chap && v != null && tpSecKey === title + ' ' + chap ? P.topicsAt(tpSec, v) : [];
+    { const ts = chap && (v != null || whole) && tpSecKey === title + ' ' + chap ? (whole ? tpSec : P.topicsAt(tpSec, v)) : [];
       boxes.topics = ts.map(r => `<button type="button" class="apChip" data-slug="${esc(r.slug)}">${esc(tpName(r))}${r.he && L !== 'he' ? ` <span class="he muted" lang="he" dir="rtl">${esc(r.he)}</span>` : ''}</button>`); }
-    { const ns = P.notesAt(notesAll, g.key, s.k, label, v);
+    { const ns = whole ? (notesAll || []).filter(n => n.key === g.key && n.sk === s.k) : P.notesAt(notesAll, g.key, s.k, label, v);
       boxes.notes = ns.map(n => `<div class="apNote" data-id="${esc(n.id)}" title="${esc(I18N.t('Klicken: Notiz bearbeiten'))}"><span class="st">★</span> ${n.note ? esc(n.note) : `<span class="muted">${esc(I18N.t(kindOf(n) === 'block' ? 'Favorit (Versauswahl)' : 'Lesezeichen'))}</span>`}${noteTags(n).length ? ` <small class="muted">${noteTags(n).map(t => '#' + esc(t)).join(' ')}</small>` : ''}</div>`); }
     // ----- Gerüst: alle Fächer in fester Reihenfolge; Wörter und Gliederung kommen nach -----
-    const wait = { words: TANAKH_BOOKS.has(title) && v != null && /^\d+$/.test(chap || ''), dicts: v != null && !!chap, outline: v != null || /:/.test(label) };
+    const wait = { words: TANAKH_BOOKS.has(title) && v != null && /^\d+$/.test(chap || ''), dicts: (v != null || whole) && !!chap, outline: v != null || /:/.test(label) || (whole && secVs.length > 0) };
     nav.innerHTML = P.BOXES.map(b => { const n = boxes[b] ? boxes[b].length : 0, w = !boxes[b] && wait[b]; return `<button type="button" data-b="${b}" class="${n || w ? '' : 'off'}${w ? ' wait' : ''}"${n || w ? '' : ' disabled'}><span class="ic">${AP_META[b][0]}</span>${esc(apName(b))} <small>${n ? n.toLocaleString(I18N.loc) : w ? '…' : '–'}</small></button>`; }).join('');
     body.innerHTML = P.BOXES.map(b => {
       const items = boxes[b], n = items ? items.length : 0, w = !items && wait[b];
       return `<section class="apBox${w ? ' wait' : ''}" data-b="${b}"${n || w ? '' : ' hidden'}><h4><span class="ic">${AP_META[b][0]}</span><span class="nm">${esc(apName(b))}</span> <small class="apN">${n ? n.toLocaleString(I18N.loc) : ''}</small>${AP_ALL[b] ? `<button type="button" class="apAll" data-b="${b}" title="${esc(I18N.t(b === 'commentary' ? 'Kommentar-Bereich zu diesem Vers öffnen' : b === 'places' ? 'Orte dieses Verses auf der Karte zeigen' : b === 'topics' ? 'Themen-Fenster öffnen' : b === 'outline' ? 'Gliederung des Buches öffnen' : b === 'notes' ? 'Reiter „Notizen“ öffnen' : 'Im Verknüpfungs-Fenster zeigen'))}">${esc(I18N.t('alle anzeigen'))}</button>` : ''}</h4><div class="apC">${items ? apList(items) : w ? `<p class="muted">${esc(I18N.t('Lädt …'))}</p>` : ''}</div></section>`;
-    }).join('') + `<p id="apNone" class="muted" hidden>${esc(I18N.t('Zu dieser Stelle ist nichts verzeichnet.'))}</p>`
+    }).join('') + (whole ? `<p class="muted apMode">${esc(I18N.t(page ? 'Ganze Seite – ein Klick auf eine Segmentnummer zeigt nur dieses Segment.' : 'Ganzes Kapitel – ein Klick auf eine Versnummer zeigt nur diesen Vers.'))}</p>` : '') + `<p id="apNone" class="muted" hidden>${esc(I18N.t('Zu dieser Stelle ist nichts verzeichnet.'))}</p>`
       + (linksReady ? '' : `<p class="muted apHint">${esc(I18N.t('Sefarias Verknüpfungen sind noch nicht heruntergeladen (Reiter „Herunterladen“ → Karte „4 · Verknüpfungen“); gezeigt wird, was Safran mitliefert.'))}</p>`);
     $('#apNone').hidden = $$('#apBody .apBox').some(x => !x.hidden);
     $('#allPanel').scrollTop = keep;
@@ -6247,7 +6256,7 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
     }
     // ----- In Wörterbüchern: Artikel, die diese Stelle zitieren (Rückwärtsindex der Wörterbuch-Zitate) -----
     if (wait.dicts) {
-      O.dictCites(title, chap, v).then(res => {
+      O.dictCites(title, chap, whole ? 0 : v).then(res => {
         if (token !== AP.token) return;
         const list = (res && res.list) || [], by = new Map();
         for (const x of list) { if (!by.has(x.dictId)) by.set(x.dictId, { name: x.dict, xs: [] }); by.get(x.dictId).xs.push(x); }
@@ -6261,7 +6270,11 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
       olOwnFor(g).then(ol => {
         if (token !== AP.token) return;
         const lv2 = !!(ol && ol.levels === 2);
-        const list = !ol ? [] : lv2 ? P.outlineAt(ol, olBookNo(s), +String(label).split(':')[0]) : (v != null && chap ? P.outlineAt(ol, chap, v) : []);
+        let list = [];
+        if (ol && whole) { // ganzes Kapitel: alle Punkte, die einen seiner Verse berühren, ohne Doppelte
+          const seen = new Set();
+          for (const vv of secVs) for (const e of (lv2 ? [] : P.outlineAt(ol, chap, vv))) { const k = e.depth + '|' + e.mz + '|' + e.ref; if (!seen.has(k)) { seen.add(k); list.push(e); } }
+        } else list = !ol ? [] : lv2 ? P.outlineAt(ol, olBookNo(s), +String(label).split(':')[0]) : (v != null && chap ? P.outlineAt(ol, chap, v) : []);
         const T = (o, k) => (L !== 'he' && (o[k + '_' + L] || o[k + '_en'])) || o[k] || '';
         const html = list.map(e => { const tx = T(e.it, 'text'), he = /[֐-׿]/.test(tx), hd = !e.depth && !e.mz ? T(e.sec, 'head') : '';
           return `<div class="apOl${e.depth ? ' sub' : ''}${e.mz ? ' mz' : ''}"><a data-ref="${esc(title + ' ' + String(e.ref).split(/[;,]/)[0].replace(/[-–].*$/, '').trim())}" data-r="${esc(e.ref)}">${e.mz ? `<span class="mzn" title="${esc(I18N.t('613 Mizwot'))}">${esc(e.mz)}</span>` : ''}<span class="r">${esc(String(e.ref).replace(/-/g, '–'))}</span> <span${he ? ' lang="he" dir="rtl" class="he"' : ''}>${esc(tx)}</span></a>${hd ? ` <small class="muted" dir="auto">${esc(hd)}</small>` : ''}</div>`; });
@@ -6270,9 +6283,9 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
     }
   }
   function apShowAll(b) {
-    const v = verseOf(cmtRow);
+    const v = AP.whole ? null : verseOf(cmtRow);
     if (b === 'commentary') { if (!cmtOpen) toggleCmt(true); else renderCmt(); return; }
-    if (b === 'places') { if (v != null) mapVerseShow(v); return; }
+    if (b === 'places') { if (v != null) mapVerseShow(v); else if ($('#mapPanel').hidden) mapOpen(); return; }
     if (b === 'topics') { $('#tpBtn').click(); return; }
     if (b === 'outline') { if ($('#outlinePanel').hidden) $('#olBtn').click(); return; }
     if (b === 'notes') { showTab('notes'); return; }
@@ -6282,12 +6295,13 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
     if (d) { d.open = true; requestAnimationFrame(() => d.scrollIntoView({ block: 'start' })); }
   }
   function apPlace(i) { // Karte öffnen, die Orte des Verses hervorheben und den angeklickten wählen
-    const v = verseOf(cmtRow); if (!BM) return;
+    const v = AP.whole ? null : verseOf(cmtRow); if (!BM) return;
     if ($('#mapPanel').hidden) mapOpen();
     requestAnimationFrame(() => requestAnimationFrame(() => { if (v != null) mapVerseSet(v); mapSelect(i, true); }));
   }
   $('#apBtn').onclick = () => apToggle();
   $('#apClose').onclick = () => apToggle(false);
+  $('#apWhole').onclick = () => { AP.whole = true; apRender(); };
   $('#apNav').addEventListener('click', e => { const b = e.target.closest('button[data-b]'); const box = b && $(`#apBody .apBox[data-b="${b.dataset.b}"]`); if (box && !box.hidden) box.scrollIntoView({ block: 'start', behavior: 'smooth' }); });
   $('#apBody').addEventListener('click', async e => {
     const all = e.target.closest('.apAll'); if (all) { hovApi && hovApi.hide(); apShowAll(all.dataset.b); return; }

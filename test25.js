@@ -13,6 +13,9 @@ const D = require('./dsl'), P = require('./passage');
   assert.ok(gen.some(x => x.exact), 'genaue Treffer');
   // genaue Treffer stehen vor Angaben zum ganzen Kapitel
   const firstWide = gen.findIndex(x => !x.exact); assert.ok(firstWide < 0 || gen.slice(firstWide).every(x => !x.exact));
+  // ganzes Kapitel (Vers 0): alle Artikel zu Genesis 12, also mindestens die zu 12,1
+  const gen0 = await ds.citesAt('Genesis', '12', 0);
+  assert.ok(gen0.length >= gen.length && gen0.filter(x => x.exact).length > gen.filter(x => x.exact).length, 'Genesis 12 ganz');
   const bk = await ds.citesAt('Berakhot', '2a', 1);
   assert.ok(Array.isArray(bk));
   assert.deepStrictEqual(await ds.citesAt('Gibt es nicht', '1', 1), []);
