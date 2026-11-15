@@ -5,6 +5,9 @@
 // Versumrechnung (versemap.js): Stellen aus Texten, die nicht hebräisch zählen, kommen in Sefarias Zählung; fehlt die Tabelle, bleibt alles wie angegeben
 let VM = null;
 try { VM = typeof module !== 'undefined' && module.exports ? require('./versemap.js') : window.VerseMap; } catch { VM = null; }
+// Seitenregister zu Graetz, Geschichte der Juden (graetz-pages.js, erzeugt von tools/graetz/pages.py)
+let GP = null;
+try { GP = typeof module !== 'undefined' && module.exports ? require('./graetz-pages.js') : window.GraetzPages; } catch { GP = null; }
 // Schreibweisen -> Sefaria-Titel (Kleinbuchstaben, ohne Punkt)
 const EN = {
   'Genesis': 'gen genesis gn', 'Exodus': 'ex exod exodus', 'Leviticus': 'lev leviticus lv', 'Numbers': 'num numbers nu', 'Deuteronomy': 'deut deuteronomy dt dtn',
@@ -227,10 +230,57 @@ function linkText(text, st) {
 }
 // bereits maskierte Textstücke (HTML-Entitäten) bleiben unverändert, deshalb nur sehr sparsam maskieren
 const esc2 = s => s;
+// Zitate von Graetz, Geschichte der Juden („GRAETZ, Gesch. 4³ 172“, „Grätz, Gesch. d. J. IV. B. S. 244“, „Grätz III² S. 473“,
+// „Grätz, Gesch. II, 1 S. 38“, „Grätz, Geschichte der Juden Band 4, Note 31“) -> Stelle im mitgelieferten Text nach Band und Seite.
+// Die Seiten sind die der Ausgabe auf zeno.org; zitiert ein Text eine andere Auflage, trifft der Sprung nur ungefähr.
+// Band II (zwei Hälften, beide ab S. 1) nur mit Angabe der Hälfte oder bei Seiten, die es nur in II/1 gibt; Band III läuft durch (III/2 ab S. 369).
+const GR_SUP = '(?:[⁰¹²³⁴⁵⁶⁷⁸⁹]+|<sup>\\d</sup>|<sub>\\d</sub>)';
+const GR_RE = new RegExp('(?<![-\\p{L}])(?:GRAETZ|GRÄTZ|Graetz|Grätz)(?:</(?:i|b|abbr|em)>)?' +
+  '(?:,?\\s*Gesch(?:ichte|\\.)?(?:\\s*d(?:er|\\.)\\s*J(?:uden|\\.))?(?:</abbr>)?' + GR_SUP + '?)?[,.]?\\s*' +
+  '(?:Band|Bd\\.|B\\.)?\\s*(XI|X|IX|VIII|VII|VI|V|IV|III|II|I|1[01]|[1-9])(?![\\dA-Za-z])' + // Band
+  '(?:\\s*\\.?\\s*(?:Band|Bd\\.|B\\.))?' +
+  '(?:' + GR_SUP + '|\\.?\\s*,?\\s*\\d\\.\\s*Aufl\\.,?)?' + // Auflage
+  '(?:(?<=II|2)[\\s.,]+([12])(?=[\\s.,]+(?:S\\.\\s*)?\\d))?' + // Hälfte von Band II
+  '\\.?(?:' + GR_SUP + ')?[\\s,.]*(?:(?:Note|Nota)\\s*(\\d{1,2})(?!\\d)|(?:S[.,]|Seite|p\\.)?\\s*(\\d{1,3})(?![\\d,]\\d)(?:\\s*(?:Note|Nota)\\s*(\\d{1,2})(?!\\d))?)', 'gu');
+const ROMV = { I: 1, II: 2, III: 3, IV: 4, V: 5, VI: 6, VII: 7, VIII: 8, IX: 9, X: 10, XI: 11 };
+const RNUM = ['', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI'];
+function graetzRef(vol, half, note, page) {
+  if (!GP) return null;
+  const n = ROMV[vol] || +vol, r = RNUM[n]; if (!r) return null;
+  const parts = r === 'II' ? (half ? ['II/' + half] : ['II/1', 'II/2']) : r === 'III' ? ['III/1', 'III/2'] : [r];
+  if (note) { for (const v of parts) { const s = GP.notes[v] && GP.notes[v][note]; if (s) return { ref: `${GP.title} ${s}:1`, label: `Bd. ${v}, Note ${note}` }; } return null; }
+  const hits = [];
+  for (const v of parts) {
+    const d = GP.vols[v]; if (!d) continue;
+    const a = d.refs.split(' '), i = page - d.from;
+    if (i >= 0 && i < a.length && a[i]) hits.push({ ref: `${GP.title} ${a[i]}`, label: `Bd. ${v}, S. ${page}` });
+  }
+  return hits.length === 1 ? hits[0] : null; // Band II ohne Hälfte und Seite in beiden: offen lassen
+}
+function graetz(html) {
+  if (!GP || !/GRAETZ|GRÄTZ|Graetz|Grätz/.test(html)) return html;
+  let out = '', i = 0, m;
+  GR_RE.lastIndex = 0;
+  while ((m = GR_RE.exec(html))) {
+    const before = html.slice(0, m.index);
+    if (before.lastIndexOf('<') > before.lastIndexOf('>')) continue; // in einem Attribut (z. B. abbr data-t)
+    if ((before.match(/<a[\s>]/gi) || []).length > (before.match(/<\/a>/gi) || []).length) continue; // schon verlinkt
+    const note = m[3] || m[5], page = note ? 0 : +m[4];
+    const g = graetzRef(m[1], m[2], note, page); if (!g) continue;
+    let s = m.index + m[0].search(/(?:Band|Bd\.|B\.)?\s*(?:XI|X|IX|VIII|VII|VI|V|IV|III|II|I|1[01]|[1-9])(?![\dA-Za-z])/), e = m.index + m[0].length;
+    const span = html.slice(s, e); if (span.includes('>')) s += span.lastIndexOf('>') + 1;
+    while (s < e && /\s/.test(html[s])) s++;
+    const tip = `Graetz, Geschichte der Juden, ${g.label} – Seitenzählung der Ausgabe auf zeno.org; die zitierte Auflage kann abweichen`;
+    out += html.slice(i, s) + `<a class="aref" data-sref="${esc(g.ref)}" title="${esc(tip)}">` + html.slice(s, e) + '</a>';
+    i = e;
+  }
+  return i ? out + html.slice(i) : html;
+}
 // html: Zellen-HTML. Tags bleiben unverändert; in Textstücken außerhalb von <a> werden Stellenangaben verlinkt.
 function link(html, st) {
   st = st || { last: '' };
   if (!html || !/[\d׳״א-ת]/.test(html)) return html;
+  html = graetz(String(html));
   const parts = String(html).split(/(<[^>]*>)/);
   let inA = 0, out = '';
   for (const p of parts) {
