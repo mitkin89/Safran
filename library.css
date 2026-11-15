@@ -717,6 +717,8 @@ header { z-index: 50; }
 .sread .sbook .sup { cursor: pointer; font-size: 13px; color: var(--accent); margin-inline-start: 8px; }
 
 /* Kleine eingebettete Bilder im Fließtext (z. B. hebräische Wörter in Kommentaren) */
+/* eingebettete Abbildungen in eigenen Texten (z. B. Krauss): an die Spaltenbreite anpassen */
+.cell .txt img:not(.g), #rOut .txt img:not(.g), #cmtBody img:not(.g) { display: block; max-width: 100%; height: auto; margin: .5em auto; }
 img.g, #rOut img.g, #cmtBody img.g, .sres img.g { display: inline; height: 1.35em; width: auto; max-width: none; margin: 0 .1em; vertical-align: -.35em; border-radius: 0; }
 :root[data-theme=dark] img.g { filter: invert(1); }
 @media (prefers-color-scheme: dark) { :root:not([data-theme=light]) img.g { filter: invert(1); } }

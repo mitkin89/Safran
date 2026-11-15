@@ -11,5 +11,10 @@ t('<a href="x">Exodus 3:4</a> und Exodus 5:6', ['Exodus 5:6']);
 t('Genesis 1:1-5 und Psalms 23', ['Genesis 1:1-5']);
 t('vgl. Jerem. XXIII, 24; Ps. CXLV, 15 und I Sam. XIV, 24-25; Gen. I, 1', ['Jeremiah 23:24', 'Psalms 145:15', 'I Samuel 14:24-25', 'Genesis 1:1']);
 t('BR. XII, 15 und Kap. IV, 5', []);
+t('bSabb 109ᵇ₃ und bBm 144ᵇ, aber b 26ᵃ ohne Traktat', ['Shabbat 109b', 'Bava Metzia 144b']);
+t('jSabb 6,8ᵇ₆₄, jBerakh 1,2, 4ᵃ; jTerum 11, 43ᵇ', ['Jerusalem Talmud Shabbat 6', 'Jerusalem Talmud Berakhot 1:2', 'Jerusalem Talmud Terumot 11']);
+t('MKel 2,3; TKel bḳ. 1,11, 570₉; TSabb 2,4, 112₄', ['Mishnah Kelim 2:3', 'Tosefta Kelim Bava Kamma 1:11', 'Tosefta Shabbat 2:4']);
+t('Gen R 14,6 und Ḳoh R 3,1; Lev R 5,2; Num R 1,2', ['Bereshit Rabbah 14:6', 'Kohelet Rabbah 3:1', 'Vayikra Rabbah 5:2', 'Bamidbar Rabbah 1:2']);
+t('bSabb 12ᵃ, ib. 4,5 und bFoo 3ᵃ', ['Shabbat 12a']);
 if (A.gem('לא') !== 31 || A.gem('כ״ד') !== 24 || A.gem('קמ') !== 140) { bad++; console.log('gem'); }
 console.log(bad ? 'FEHLER' : 'Stellenerkennung ok'); process.exit(bad ? 1 : 0);

@@ -69,6 +69,62 @@ function titleOf(name) {
   n = n.replace(/\s/g, ''); for (const [k, v] of ALIAS) if (k.replace(/\s/g, '') === n) return v;
   return '';
 }
+// Rabbinische Stellen in der Schreibweise von S. Krauss (Talmudische Archäologie): bSabb 109ᵇ, jBerakh 1,2, MKel 2,3, TSabb 2,4, Gen R 14,6
+const nk = s => String(s).normalize('NFD').replace(/[̀-ͯʾʿ'’`]/g, '').toLowerCase();
+const TRK = {}; // normalisiertes Kürzel -> [Sefaria-Titel, Bavli?, Jeruschalmi?]
+const tr = (t, keys, b, j) => keys.split(' ').forEach(k => { TRK[k] = [t, b, j]; });
+tr('Berakhot', 'berakh berakhoth berakhot', 1, 1); tr('Peah', 'pea peah', 0, 1); tr('Demai', 'demai', 0, 1); tr('Kilayim', 'kil kilaim', 0, 1);
+tr('Sheviit', 'sebiith schebiith seb sebiith sebith', 0, 1); tr('Terumot', 'terum terumoth ter', 0, 1); tr('Maasrot', 'maas maaser maaseroth', 0, 1);
+tr('Maaser Sheni', 'ms', 0, 1); tr('Challah', 'challa challah', 0, 1); tr('Orlah', 'orla', 0, 1); tr('Bikkurim', 'bikk bikkurim', 0, 1);
+tr('Shabbat', 'sabb sab saab sabbat sabbath', 1, 1); tr('Eruvin', 'erub erubin', 1, 1); tr('Pesachim', 'pesach pes pesakh pesachim', 1, 1);
+tr('Shekalim', 'sekal sekalim', 0, 1); tr('Yoma', 'joma yoma', 1, 1); tr('Sukkah', 'sukka sukkah', 1, 1); tr('Beitzah', 'beza beitzah', 1, 1);
+tr('Rosh Hashanah', 'rh', 1, 1); tr('Taanit', 'taan taanith thaanith', 1, 1); tr('Megillah', 'meg megilla megillah', 1, 1);
+tr('Moed Katan', 'mk', 1, 1); tr('Chagigah', 'chag chagiga chagigah', 1, 1); tr('Yevamot', 'jebam jeban jebamoth', 1, 1);
+tr('Ketubot', 'keth kethub kethuboth', 1, 1); tr('Nedarim', 'nedar nedarim ned', 1, 1); tr('Nazir', 'nazir', 1, 1); tr('Sotah', 'sota sotah', 1, 1);
+tr('Gittin', 'gitt gittin', 1, 1); tr('Kiddushin', 'kidd kiddushin', 1, 1); tr('Bava Kamma', 'bk', 1, 1); tr('Bava Metzia', 'bm', 1, 1);
+tr('Bava Batra', 'bb babb', 1, 1); tr('Sanhedrin', 'sanh', 1, 1); tr('Makkot', 'makk makkoth', 1, 1); tr('Shevuot', 'sebuoth', 1, 1);
+tr('Avodah Zarah', 'az', 1, 1); tr('Horayot', 'horaj horajoth', 1, 1); tr('Zevachim', 'zebach zeb zebakh zabach', 1, 0); tr('Menachot', 'menach', 1, 0);
+tr('Chullin', 'chull chullin', 1, 0); tr('Bekhorot', 'bekhor', 1, 0); tr('Arakhin', 'arach', 1, 0); tr('Temurah', 'temura', 1, 0); tr('Keritot', 'kerith', 1, 0);
+tr('Meilah', 'meila', 1, 0); tr('Tamid', 'tamid', 1, 0); tr('Niddah', 'nidda niddah', 1, 1); tr('Middot', 'midd', 0, 0);
+tr('Kelim', 'kel kelim', 0, 0); tr('Oholot', 'ohal ohaloth', 0, 0); tr('Negaim', 'neg negaim', 0, 0); tr('Parah', 'para', 0, 0); tr('Tahorot', 'tohar toh toharoth', 0, 0);
+tr('Mikvaot', 'mikw mkw', 0, 0); tr('Makhshirin', 'makhs', 0, 0); tr('Zavim', 'zab zabim', 0, 0); tr('Tevul Yom', 'tj', 0, 0); tr('Yadayim', 'jad', 0, 0);
+const RABBA = { 'gen': 'Bereshit', 'ex': 'Shemot', 'lev': 'Vayikra', 'num': 'Bamidbar', 'dt': 'Devarim', 'deut': 'Devarim', 'koh': 'Kohelet', 'thr': 'Eikhah', 'cant': 'Shir HaShirim', 'esth': 'Esther' };
+const RN = '([A-ZŠḤṢḲ][A-Za-zʾʿ’šṣḳḥŠḤṢḲ]{1,11})';
+const FOLIO = '[abᵃᵇª]';
+const BAV_RE = new RegExp('(?<![\\p{L}\\d])b' + RN + '\\.?\\s*(\\d{1,3})\\s*(' + FOLIO + ')(?![\\p{L}])', 'gu');
+const YER_RE = new RegExp('(?<![\\p{L}\\d])j' + RN + '\\.?\\s*(\\d{1,2})\\s*,\\s*(\\d{1,3})\\s*([ᵃᵇᶜᵈª])?', 'gu');
+const MIS_RE = new RegExp('(?<![\\p{L}\\d])([MT])' + RN + '\\.?\\s*(?:(bḳ|bk|bm|bb)\\.?\\s*)?(\\d{1,2})\\s*,\\s*(\\d{1,2})(?![\\d])', 'gu');
+const RAB_RE = new RegExp('(?<![\\p{L}\\d])(Gen|Ex|Lev|Num|Dt|Deut|Ḳoh|Koh|Thr|Cant|Esth)\\.? R\\.?\\s*(\\d{1,3})\\s*,\\s*(\\d{1,3})(?![\\d])', 'gu');
+function rabbinic(text, matches) {
+  let m;
+  BAV_RE.lastIndex = 0;
+  while ((m = BAV_RE.exec(text))) {
+    const t = TRK[nk(m[1])]; if (!t || !t[1]) continue;
+    const d = +m[2]; if (!d || d > 176) continue;
+    const side = /[aᵃª]/.test(m[3]) ? 'a' : 'b';
+    matches.push({ s: m.index, e: m.index + m[0].length, ref: `${t[0]} ${d}${side}`, book: t[0], nolast: true });
+  }
+  YER_RE.lastIndex = 0;
+  while ((m = YER_RE.exec(text))) {
+    const t = TRK[nk(m[1])]; if (!t || !t[2]) continue;
+    const ch = +m[2], h = +m[3]; if (!ch || !h) continue;
+    const page = !!m[4]; // „jSabb 6,8ᵇ“: Kapitel und Blatt (Halacha fehlt)
+    matches.push({ s: m.index, e: m.index + m[0].length, ref: `Jerusalem Talmud ${t[0]} ${page ? ch : ch + ':' + h}`, book: 'Jerusalem Talmud ' + t[0], nolast: true });
+  }
+  MIS_RE.lastIndex = 0;
+  while ((m = MIS_RE.exec(text))) {
+    const t = TRK[nk(m[2])]; if (!t) continue;
+    const ch = +m[4], v = +m[5]; if (!ch || !v) continue;
+    let name = t[0];
+    if (m[1] === 'T') { if (name === 'Kelim' && m[3]) name += ' ' + { bk: 'Bava Kamma', 'bḳ': 'Bava Kamma', bm: 'Bava Metzia', bb: 'Bava Batra' }[m[3]]; name = 'Tosefta ' + name; } else name = 'Mishnah ' + name;
+    matches.push({ s: m.index, e: m.index + m[0].length, ref: `${name} ${ch}:${v}`, book: name, nolast: true });
+  }
+  RAB_RE.lastIndex = 0;
+  while ((m = RAB_RE.exec(text))) {
+    const b = RABBA[nk(m[1])]; if (!b) continue;
+    matches.push({ s: m.index, e: m.index + m[0].length, ref: `${b} Rabbah ${+m[2]}:${+m[3]}`, book: b + ' Rabbah' });
+  }
+}
 // text: reiner Text (nach dem Entfernen der Tags); st.last: zuletzt genannte Schrift (für „ibid.“)
 function linkText(text, st) {
   const out = [];
@@ -101,13 +157,14 @@ function linkText(text, st) {
     const ch = gem(m[3]), v = gem(m[4]); if (!t || !ch || !v || ch > 150 || v > 176) continue;
     matches.push({ s: m.index, e: m.index + m[0].length, ref: `${t} ${ch}:${v}`, book: t });
   }
+  rabbinic(text, matches);
   matches.sort((a, b) => a.s - b.s || b.e - a.e);
   for (const x of matches) {
     if (x.s < i) continue; // Überlappung: erste gewinnt
     if (x.ibid) { if (!st.last) continue; x.book = st.last; x.ref = st.last + ' ' + x.ref; }
     out.push(esc2(text.slice(i, x.s)));
     out.push(`<a class="aref" data-sref="${esc(x.ref)}" title="${esc(x.ref)}">${esc2(text.slice(x.s, x.e))}</a>`);
-    st.last = x.book; i = x.e;
+    st.last = x.nolast ? '' : x.book; i = x.e;
   }
   out.push(esc2(text.slice(i)));
   return out.join('');
