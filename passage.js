@@ -89,6 +89,21 @@
     return out;
   }
 
+  // ----- „Talmud & Midrasch“ nach Werkgruppen gliedern (Überschriften im Überblick) -----
+  const RGROUPS = ['Mischna', 'Babylonischer Talmud', 'Jerusalemer Talmud', 'Tosefta', 'Midrasch Rabba', 'Halachische Midraschim', 'Weitere Midraschim', 'Kleine Traktate', 'Weitere Werke'];
+  function rabbinicGroup(x) {
+    const b = bookOf(x.other), cat = String(x.cat || '').toLowerCase();
+    if (/^Mishnah |^Pirkei Avot$/.test(b) || cat === 'mishnah') return 'Mischna';
+    if (/^Jerusalem Talmud /.test(b)) return 'Jerusalemer Talmud';
+    if (/^Tosefta /.test(b) || cat === 'tosefta') return 'Tosefta';
+    if (/^Tractate |^Avot DeRabbi Natan|^Derekh Eretz|^Masekhet |^Kallah/.test(b)) return 'Kleine Traktate';
+    if (/Rabbah/.test(b)) return 'Midrasch Rabba';
+    if (/^Mekhilta|^Sifra|^Sifre|^Sifrei/.test(b)) return 'Halachische Midraschim';
+    if (cat === 'midrash') return 'Weitere Midraschim';
+    if (cat === 'talmud') return 'Babylonischer Talmud';
+    return 'Weitere Werke';
+  }
+
   // ----- Statistik eines Kapitels: ws = Ergebnis von words() über das ganze Kapitel, tot(lemma) = Zahl der Belege im Tanach, N = Wörter im Tanach -----
   const FUNC = /^(Präposition|Konjunktion|Artikel|Akkusativ|Relativ|Negation|Bejahung|Aufforder|Frage|Interjektion|Demonstrativ|Partikel|Pronominal|Suffix|Richtungs|He paragog|Nun parag)|pronomen$/i;
   function stats(ws, tot, N, verses) {
@@ -157,6 +172,6 @@
     return { n, shown: BOXES.filter(b => n[b] > 0), total: BOXES.reduce((s, b) => s + n[b], 0) };
   }
 
-  const api = { BOXES, KRAUSS, stats, boxOf, sourceOf, classify, commentators, words, bare, outlineAt, spans, secNo, notesAt, placesAt, topicsAt, summary, bookOf };
+  const api = { BOXES, KRAUSS, stats, rabbinicGroup, RGROUPS, boxOf, sourceOf, classify, commentators, words, bare, outlineAt, spans, secNo, notesAt, placesAt, topicsAt, summary, bookOf };
   if (typeof module !== 'undefined' && module.exports) module.exports = api; else window.Passage = api;
 })();

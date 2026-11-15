@@ -6315,6 +6315,8 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
     const rest = items.slice(cap, 200);
     return items.slice(0, cap).join('') + `<div class="apMore" hidden>${rest.join('')}${items.length > 200 ? `<div class="muted ent">… ${esc(I18N.t('{} weitere (alle anzeigen)', (items.length - 200).toLocaleString(I18N.loc)))}</div>` : ''}</div><button type="button" class="apMoreB" data-n="${items.length - cap}">${esc(I18N.t('+ {} weitere', (items.length - cap).toLocaleString(I18N.loc)))}</button>`;
   };
+  // Fach mit Werkgruppen: je Gruppe eine Überschrift mit Zähler, die ersten Einträge offen, der Rest klappt auf
+  const apGrouped = items => window.Passage.RGROUPS.map(g => { const xs = items.filter((_, i) => items.grp[i] === g); return xs.length ? `<h5 class="apGrp">${esc(I18N.t(g))} <small>${xs.length.toLocaleString(I18N.loc)}</small></h5>${apList(xs, 8)}` : ''; }).join('');
   function apRender() {
     if (!AP.open) return;
     const P = window.Passage, token = ++AP.token, body = $('#apBody'), nav = $('#apNav');
@@ -6362,7 +6364,7 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
       boxes.krauss = cl.krauss.slice().sort((a, b) => { const p = pos(a.other), q = pos(b.other); return p[0] - q[0] || p[1] - q[1]; })
         .map(x => { const k = krLabel(x.other); return ent(x, k ? esc(k.t) + ' · ' + esc(I18N.t('Abs. {}', k.par)) : '', [vTag(x), k && k.head].filter(Boolean).join(' · '), false); }); // das Porträt steht im Kopf des Fachs
     }
-    boxes.rabbinic = sortL(cl.rabbinic).map(x => ent(x, '', vTag(x)));
+    { const rs = sortL(cl.rabbinic); boxes.rabbinic = rs.map(x => ent(x, '', vTag(x))); boxes.rabbinic.grp = rs.map(x => P.rabbinicGroup(x)); } // mit Werkgruppe je Eintrag (Überschriften)
     boxes.halakhah = sortL(cl.halakhah).map(x => ent(x, '', vTag(x)));
     lkDictsLoad();
     boxes.other = sortL(cl.other).map(x => { // Sefarias Wörterbuch-Verknüpfungen: ins eingebundene Wörterbuch, sonst nach sefaria.org
@@ -6388,7 +6390,7 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
     nav.innerHTML = P.BOXES.map(b => { const n = boxes[b] ? boxes[b].length : 0, w = !boxes[b] && wait[b]; return `<button type="button" data-b="${b}" class="${n || w ? '' : 'off'}${w ? ' wait' : ''}"${n || w ? '' : ' disabled'}><span class="ic">${AP_META[b][0]}</span>${esc(apName(b))} <small>${n ? n.toLocaleString(I18N.loc) : w ? '…' : '–'}</small></button>`; }).join('');
     body.innerHTML = P.BOXES.map(b => {
       const items = boxes[b], n = items ? items.length : 0, w = !items && wait[b];
-      return `<section class="apBox${w ? ' wait' : ''}" data-b="${b}"${n || w ? '' : ' hidden'}><h4>${b === 'krauss' && apPic('Krauss') ? apPic('Krauss') : `<span class="ic">${AP_META[b][0]}</span>`}<span class="nm">${esc(apName(b))}</span> <small class="apN">${n ? n.toLocaleString(I18N.loc) : ''}</small>${AP_ALL[b] ? `<button type="button" class="apAll" data-b="${b}" title="${esc(I18N.t(b === 'commentary' ? 'Kommentar-Bereich zu diesem Vers öffnen' : b === 'places' ? 'Orte dieses Verses auf der Karte zeigen' : b === 'topics' ? 'Themen-Fenster öffnen' : b === 'outline' ? 'Gliederung des Buches öffnen' : b === 'notes' ? 'Reiter „Notizen“ öffnen' : 'Im Verknüpfungs-Fenster zeigen'))}">${esc(I18N.t('alle anzeigen'))}</button>` : ''}</h4><div class="apC">${items ? apList(items) : w ? `<p class="muted">${esc(I18N.t('Lädt …'))}</p>` : ''}</div></section>`;
+      return `<section class="apBox${w ? ' wait' : ''}" data-b="${b}"${n || w ? '' : ' hidden'}><h4>${b === 'krauss' && apPic('Krauss') ? apPic('Krauss') : `<span class="ic">${AP_META[b][0]}</span>`}<span class="nm">${esc(apName(b))}</span> <small class="apN">${n ? n.toLocaleString(I18N.loc) : ''}</small>${AP_ALL[b] ? `<button type="button" class="apAll" data-b="${b}" title="${esc(I18N.t(b === 'commentary' ? 'Kommentar-Bereich zu diesem Vers öffnen' : b === 'places' ? 'Orte dieses Verses auf der Karte zeigen' : b === 'topics' ? 'Themen-Fenster öffnen' : b === 'outline' ? 'Gliederung des Buches öffnen' : b === 'notes' ? 'Reiter „Notizen“ öffnen' : 'Im Verknüpfungs-Fenster zeigen'))}">${esc(I18N.t('alle anzeigen'))}</button>` : ''}</h4><div class="apC">${items ? (items.grp ? apGrouped(items) : apList(items)) : w ? `<p class="muted">${esc(I18N.t('Lädt …'))}</p>` : ''}</div></section>`;
     }).join('') + (whole ? `<p class="muted apMode">${esc(I18N.t(page ? 'Ganze Seite – ein Klick auf eine Segmentnummer zeigt nur dieses Segment.' : 'Ganzes Kapitel – ein Klick auf eine Versnummer zeigt nur diesen Vers.'))}</p>` : '') + `<p id="apNone" class="muted" hidden>${esc(I18N.t('Zu dieser Stelle ist nichts verzeichnet.'))}</p>`
       + (linksReady ? '' : `<p class="muted apHint">${esc(I18N.t('Sefarias Verknüpfungen sind noch nicht heruntergeladen (Reiter „Herunterladen“ → Karte „4 · Verknüpfungen“); gezeigt wird, was Safran mitliefert.'))}</p>`);
     $('#apNone').hidden = $$('#apBody .apBox').some(x => !x.hidden);
