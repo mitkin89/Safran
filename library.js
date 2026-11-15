@@ -761,6 +761,7 @@
     if (!$('#outlinePanel').hidden) renderOutline();
     olInline();
     markMismatch();
+    ilRefresh();
     loadLinks(s).then(apSoon, apSoon); // „Alles zu dieser Stelle“ folgt in den neuen Abschnitt
     if (window.__refind) setTimeout(window.__refind, 0);
     { const ck = view.group.key + '|' + s.k; if (ck !== lastCmtKey) { cmtRow = null; lastCmtKey = ck; } }
@@ -768,6 +769,49 @@
     const hit = $('#rOut .row.hit') || (quiet && rowLabel != null ? [...$$('#rOut .row[data-l]')].find(x => x.dataset.l === rowLabel) : null);
     if (hit) hit.scrollIntoView({ block: quiet ? 'start' : 'center' }); else window.scrollTo(0, 0);
   }
+
+  // ---------- Interlinear: deutsche Wörter (Zunz, Berlin 1838) unter den Wörtern des Westminster-Textes ----------
+  // Zuordnung Wort für Wort in interlin-zunz.js (erzeugt von tools/interlinear/build.py); bisher: Rut
+  let ilOn = false; try { ilOn = localStorage.getItem('interlin') === '1'; } catch { /* egal */ }
+  let ilP = null;
+  const loadIL = () => ilP || (ilP = lazyScript('interlin-zunz.js', () => window.INTERLIN_ZUNZ).catch(() => { ilP = null; return null; }));
+  // Segmente mit mehreren Wörtern („als die Richter richteten“) stehen einmal unter der zusammengehörigen Wortgruppe, nicht unter jedem Wort
+  function ilClear() {
+    $$('#rOut .w[data-il]').forEach(w => w.removeAttribute('data-il'));
+    $$('#rOut .ilg').forEach(g => { const inner = g.firstChild; while (inner.firstChild) g.parentNode.insertBefore(inner.firstChild, g); g.remove(); });
+  }
+  const ilJoin = a => a.map(([k, t], j) => (j ? (k === a[j - 1][0] + 1 ? ' ' : ' … ') : '') + t).join(''); // nicht aufeinanderfolgende Teile mit „…“
+  function ilVerse(cell, segs) {
+    const lead = new Map(), memberOf = new Map(); // Anführer-Wort -> [[Nr, Text]]; Mitglieds-Wort -> Anführer
+    segs.forEach(([idx, t], k) => { if (!idx.length) return; const L = Math.min(...idx); (lead.get(L) || lead.set(L, []).get(L)).push([k, t]); idx.forEach(i => { if (i !== L) memberOf.set(i, L); }); });
+    lead.forEach((_, L) => memberOf.delete(L));
+    const ws = [...cell.querySelectorAll('.w')]; if (!ws.length) return;
+    const runs = new Map(); // Anführer -> letztes Wort der zusammenhängenden Gruppe
+    lead.forEach((a, L) => { let e = L; while (memberOf.get(e + 1) === L && ws[e]) e++; runs.set(L, e); });
+    memberOf.forEach((L, i) => { if (!(i > L && i <= runs.get(L)) && ws[i - 1]) ws[i - 1].dataset.il = '…'; }); // gehört zu einer Gruppe, die nicht zusammenhängt
+    lead.forEach((a, L) => {
+      const w = ws[L - 1], e = runs.get(L); if (!w) return;
+      const txt = ilJoin(a);
+      if (e === L) { w.dataset.il = txt; return; }
+      const g = document.createElement('span'), inner = document.createElement('span'); g.className = 'ilg'; g.dataset.il = txt; inner.className = 'ilw'; g.appendChild(inner);
+      w.parentNode.insertBefore(g, w);
+      for (let n = w, last = ws[e - 1]; n; ) { const nx = n.nextSibling; inner.appendChild(n); if (n === last) break; n = nx; }
+    });
+  }
+  async function ilRefresh() {
+    const b = $('#ilBtn'); if (!b) return;
+    const D = await loadIL(), title = view && view.group ? view.group.title : '', has = !!(D && title && D[title]);
+    b.hidden = !has; b.classList.toggle('on', has && ilOn);
+    document.body.classList.toggle('il', has && ilOn);
+    ilClear();
+    if (!has || !ilOn) return;
+    const s = view.sections && view.sections[view.idx], chap = s && apChap(s); if (!chap) return;
+    for (const row of $$('#rOut .row[data-l]')) {
+      const v = verseOf(row.dataset.l), segs = v != null && D[title][chap + ':' + v]; if (!segs) continue;
+      row.querySelectorAll('.cell[data-k="he"]').forEach(cell => ilVerse(cell, segs));
+    }
+  }
+  $('#ilBtn').onclick = () => { ilOn = !ilOn; try { localStorage.setItem('interlin', ilOn ? '1' : '0'); } catch { /* egal */ } ilRefresh(); };
 
   // Die Kapitel-Auswahl ist nur so breit wie der gewählte Eintrag
   let fitSpan = null;
