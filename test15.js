@@ -16,5 +16,7 @@ t('jSabb 6,8ᵇ₆₄, jBerakh 1,2, 4ᵃ; jTerum 11, 43ᵇ', ['Jerusalem Talmud 
 t('MKel 2,3; TKel bḳ. 1,11, 570₉; TSabb 2,4, 112₄', ['Mishnah Kelim 2:3', 'Tosefta Kelim Bava Kamma 1:11', 'Tosefta Shabbat 2:4']);
 t('Gen R 14,6 und Ḳoh R 3,1; Lev R 5,2; Num R 1,2', ['Bereshit Rabbah 14:6', 'Kohelet Rabbah 3:1', 'Vayikra Rabbah 5:2', 'Bamidbar Rabbah 1:2']);
 t('bSabb 12ᵃ, ib. 4,5 und bFoo 3ᵃ', ['Shabbat 12a']);
+t('Maim. zu MKel 5,1; Maim MʾOhal 3,7; (s. Maim. Kel 5,1), Maim. zu MʿEduj 2,8', ['Rambam on Mishnah Kelim 5:1', 'Rambam on Mishnah Oholot 3:7', 'Mishneh Torah, Vessels 5:1', 'Rambam on Mishnah Eduyot 2:8']);
+t('Maim. הל׳ כלים 4,2) und Maim. (הל׳ שבת 22,15) RABD zu Maim. הל׳ כלים 5,1', ['Mishneh Torah, Vessels 4:2', 'Mishneh Torah, Sabbath 22:15', 'Mishneh Torah, Vessels 5:1']);
 if (A.gem('לא') !== 31 || A.gem('כ״ד') !== 24 || A.gem('קמ') !== 140) { bad++; console.log('gem'); }
 console.log(bad ? 'FEHLER' : 'Stellenerkennung ok'); process.exit(bad ? 1 : 0);

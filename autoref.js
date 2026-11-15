@@ -87,9 +87,9 @@ tr('Avodah Zarah', 'az', 1, 1); tr('Horayot', 'horaj horajoth', 1, 1); tr('Zevac
 tr('Chullin', 'chull chullin', 1, 0); tr('Bekhorot', 'bekhor', 1, 0); tr('Arakhin', 'arach', 1, 0); tr('Temurah', 'temura', 1, 0); tr('Keritot', 'kerith', 1, 0);
 tr('Meilah', 'meila', 1, 0); tr('Tamid', 'tamid', 1, 0); tr('Niddah', 'nidda niddah', 1, 1); tr('Middot', 'midd', 0, 0);
 tr('Kelim', 'kel kelim', 0, 0); tr('Oholot', 'ohal ohaloth', 0, 0); tr('Negaim', 'neg negaim', 0, 0); tr('Parah', 'para', 0, 0); tr('Tahorot', 'tohar toh toharoth', 0, 0);
-tr('Mikvaot', 'mikw mkw', 0, 0); tr('Makhshirin', 'makhs', 0, 0); tr('Zavim', 'zab zabim', 0, 0); tr('Tevul Yom', 'tj', 0, 0); tr('Yadayim', 'jad', 0, 0);
+tr('Eduyot', 'eduj eduyot', 0, 0); tr('Oktzin', 'ukz uk ukzin', 0, 0); tr('Avot', 'aboth abot', 0, 0); tr('Kinnim', 'kinnim', 0, 0); tr('Mikvaot', 'mikw mkw', 0, 0); tr('Makhshirin', 'makhs', 0, 0); tr('Zavim', 'zab zabim', 0, 0); tr('Tevul Yom', 'tj', 0, 0); tr('Yadayim', 'jad', 0, 0);
 const RABBA = { 'gen': 'Bereshit', 'ex': 'Shemot', 'lev': 'Vayikra', 'num': 'Bamidbar', 'dt': 'Devarim', 'deut': 'Devarim', 'koh': 'Kohelet', 'thr': 'Eikhah', 'cant': 'Shir HaShirim', 'esth': 'Esther' };
-const RN = '([A-ZŠḤṢḲ][A-Za-zʾʿ’šṣḳḥŠḤṢḲ]{1,11})';
+const RN = '([ʾʿ]?[A-ZŠḤṢḲ][A-Za-zʾʿ’šṣḳḥŠḤṢḲ]{1,11})';
 const FOLIO = '[abᵃᵇª]';
 const BAV_RE = new RegExp('(?<![\\p{L}\\d])b' + RN + '\\.?\\s*(\\d{1,3})\\s*(' + FOLIO + ')(?![\\p{L}])', 'gu');
 const YER_RE = new RegExp('(?<![\\p{L}\\d])j' + RN + '\\.?\\s*(\\d{1,2})\\s*,\\s*(\\d{1,3})\\s*([ᵃᵇᶜᵈª])?', 'gu');
@@ -125,6 +125,53 @@ function rabbinic(text, matches) {
     matches.push({ s: m.index, e: m.index + m[0].length, ref: `${b} Rabbah ${+m[2]}:${+m[3]}`, book: b + ' Rabbah' });
   }
 }
+
+// Maimonides in Krauss' Schreibweise: „Maim. zu MKel 5,1“ (Mischna-Kommentar), „Maim. Kel 5,1“ und „Maim. הל׳ כלים 5,1“ (Mischne Tora)
+const HIL = {
+  'יסודי התורה': 'Foundations of the Torah', 'דעות': 'Human Dispositions', 'תלמוד תורה': 'Torah Study', 'עבודה זרה': 'Foreign Worship and Customs of the Nations', 'ע״ז': 'Foreign Worship and Customs of the Nations', 'תשובה': 'Repentance',
+  'קריאת שמע': 'Reading the Shema', 'תפילה': 'Prayer and the Priestly Blessing', 'תפילין': 'Tefillin, Mezuzah and the Torah Scroll', 'ציצית': 'Fringes', 'ברכות': 'Blessings', 'מילה': 'Circumcision',
+  'שבת': 'Sabbath', 'עירובין': 'Eruvin', 'שביתת עשור': 'Rest on the Tenth of Tishrei', 'שביתת יום טוב': 'Rest on a Holiday', 'חמץ ומצה': 'Leavened and Unleavened Bread', 'שופר': 'Shofar, Sukkah and Lulav', 'סוכה': 'Shofar, Sukkah and Lulav',
+  'שקלים': 'Shekalim', 'קידוש החודש': 'Sanctification of the New Month', 'תעניות': 'Fasts', 'מגילה': 'Scroll of Esther and Hanukkah', 'חנוכה': 'Scroll of Esther and Hanukkah',
+  'אישות': 'Marriage', 'גירושין': 'Divorce', 'יבום': 'Levirate Marriage and Release', 'נערה בתולה': 'Virgin Maiden', 'סוטה': 'Woman Suspected of Infidelity',
+  'איסורי ביאה': 'Forbidden Intercourse', 'מאכלות אסורות': 'Forbidden Foods', 'שחיטה': 'Ritual Slaughter',
+  'שבועות': 'Oaths', 'נדרים': 'Vows', 'נזירות': 'Nazariteship', 'ערכין': 'Appraisals and Devoted Property',
+  'כלאים': 'Diverse Species', 'מתנות עניים': 'Gifts to the Poor', 'תרומות': 'Heave Offerings', 'מעשרות': 'Tithes', 'מעשר שני': 'Second Tithes and Fourth Year\'s Fruit', 'בכורים': 'First Fruits and other Gifts to Priests Outside the Sanctuary', 'שמיטה': 'Sabbatical Year and the Jubilee',
+  'בית הבחירה': 'Chosen Temple', 'כלי המקדש': 'Vessels of the Sanctuary and Those Who Serve Therein', 'ביאת המקדש': 'Admission into the Sanctuary', 'איסורי מזבח': 'Things Forbidden on the Altar', 'מעשה הקרבנות': 'Sacrificial Procedure', 'תמידין': 'Daily Offerings and Additional Offerings', 'פסולי המוקדשין': 'Sacrifices Rendered Unfit', 'עבודת יום הכפורים': 'Service on the Day of Atonement', 'מעילה': 'Trespass',
+  'קרבן פסח': 'Paschal Offering', 'חגיגה': 'Festival Offering', 'בכורות': 'Firstlings', 'שגגות': 'Offerings for Unintentional Transgressions', 'מחוסרי כפרה': 'Offerings for Those with Incomplete Atonement', 'תמורה': 'Substitution',
+  'טומאת מת': 'Defilement by a Corpse', 'פרה אדומה': 'Red Heifer', 'טומאת צרעת': 'Defilement by Leprosy', 'משכב ומושב': 'Those Who Defile Bed and Seat', 'שאר אבות הטומאות': 'Other Sources of Defilement', 'טומאת אוכלין': 'Defilement of Foodstuffs', 'כלים': 'Vessels', 'מקוואות': 'Mikvaot',
+  'נזקי ממון': 'Damages to Property', 'גניבה': 'Theft', 'גזילה': 'Robbery and Lost Property', 'חובל': 'One Who Injures a Person or Property', 'רוצח': 'Murderer and the Preservation of Life',
+  'מכירה': 'Sales', 'זכייה': 'Ownerless Property and Gifts', 'שכנים': 'Neighbors', 'שלוחין': 'Agents and Partners', 'עבדים': 'Slaves',
+  'שכירות': 'Hiring', 'שאלה': 'Borrowing and Deposit', 'מלווה': 'Creditor and Debtor', 'טוען': 'Plaintiff and Defendant', 'נחלות': 'Inheritances',
+  'סנהדרין': 'Sanhedrin and the Penalties Within Their Jurisdiction', 'עדות': 'Testimony', 'ממרים': 'Rebels', 'אבל': 'Mourning', 'מלכים': 'Kings and Wars'
+};
+const HIL_LAT = { kel: 'Vessels', kelim: 'Vessels', sabb: 'Sabbath', erub: 'Eruvin', mikw: 'Mikvaot', mkw: 'Mikvaot' };
+const MAIM = '(?<![\\p{L}\\d])Maim(?:onides|ûnis)?\\.?,?\\s*';
+const MAIM_MIS_RE = new RegExp(MAIM + '(?:zu\\s+|erklärt\\s+)?M' + RN + '\\.?\\s*(\\d{1,2})\\s*,\\s*(\\d{1,2})(?![\\d])', 'gu');
+const MAIM_LAT_RE = new RegExp(MAIM + RN + '\\.?\\s*(\\d{1,2})\\s*,\\s*(\\d{1,3})(?![\\d])', 'gu');
+const MAIM_HE_RE = new RegExp(MAIM + '\\(?הל[׳\'’]\\s*((?:[א-ת״׳\']+\\s*){1,3}?)\\s*(\\d{1,2})\\s*,\\s*(\\d{1,2})(?![\\d])', 'gu');
+function hilTitle(words) { // längste passende Wortfolge (bis 3 Wörter)
+  const w = words.trim().split(/\s+/);
+  for (let n = Math.min(3, w.length); n >= 1; n--) { const k = w.slice(0, n).join(' ').replace(/["״]/g, '״'); if (HIL[k]) return HIL[k]; }
+  return '';
+}
+function maimonides(text, matches) {
+  let m;
+  MAIM_MIS_RE.lastIndex = 0;
+  while ((m = MAIM_MIS_RE.exec(text))) {
+    const t = TRK[nk(m[1])]; if (!t) continue; const ch = +m[2], v = +m[3]; if (!ch || !v) continue;
+    matches.push({ s: m.index, e: m.index + m[0].length, ref: `Rambam on Mishnah ${t[0]} ${ch}:${v}`, book: 'Rambam on Mishnah ' + t[0], nolast: true });
+  }
+  MAIM_LAT_RE.lastIndex = 0;
+  while ((m = MAIM_LAT_RE.exec(text))) {
+    const h = HIL_LAT[nk(m[1])]; if (!h) continue; const ch = +m[2], v = +m[3]; if (!ch || !v) continue;
+    matches.push({ s: m.index, e: m.index + m[0].length, ref: `Mishneh Torah, ${h} ${ch}:${v}`, book: 'Mishneh Torah, ' + h, nolast: true });
+  }
+  MAIM_HE_RE.lastIndex = 0;
+  while ((m = MAIM_HE_RE.exec(text))) {
+    const h = hilTitle(m[1]); if (!h) continue; const ch = +m[2], v = +m[3]; if (!ch || !v) continue;
+    matches.push({ s: m.index, e: m.index + m[0].length, ref: `Mishneh Torah, ${h} ${ch}:${v}`, book: 'Mishneh Torah, ' + h, nolast: true });
+  }
+}
 // text: reiner Text (nach dem Entfernen der Tags); st.last: zuletzt genannte Schrift (für „ibid.“)
 function linkText(text, st) {
   const out = [];
@@ -158,6 +205,7 @@ function linkText(text, st) {
     matches.push({ s: m.index, e: m.index + m[0].length, ref: `${t} ${ch}:${v}`, book: t });
   }
   rabbinic(text, matches);
+  maimonides(text, matches);
   matches.sort((a, b) => a.s - b.s || b.e - a.e);
   for (const x of matches) {
     if (x.s < i) continue; // Überlappung: erste gewinnt

@@ -1694,6 +1694,17 @@
     $('#cmtBody').addEventListener('mouseout', e => { const a = e.target.closest('a.aref[data-sref]'); if (a && !a.contains(e.relatedTarget)) hideHov(); });
     $('#cmtBody').addEventListener('click', hideHov);
     $('#cmtBody').addEventListener('scroll', hideHov, true); $('#cmtPanel').addEventListener('scroll', hideHov);
+    // Lesetext: Vorschau beim Überfahren einer Stellenangabe (Klasse „aref“, z. B. in Krauss, Pinner, Ginzberg) – nur wenn der Text lokal vorliegt
+    $('#rOut').addEventListener('mouseover', e => {
+      const a = e.target.closest && e.target.closest('a.aref[data-sref]');
+      if (!a) return;
+      const ref = a.dataset.sref.replace(/-.*$/, '');
+      if (ref === hovRef) return;
+      startHov(a, ref, true, true);
+    });
+    $('#rOut').addEventListener('mouseout', e => { const a = e.target.closest && e.target.closest('a.aref[data-sref]'); if (a && !a.contains(e.relatedTarget)) hideHov(); });
+    $('#rOut').addEventListener('click', hideHov);
+    $('#rOut').addEventListener('scroll', hideHov, true);
     // Wörterbuch: Vorschau beim Überfahren einer Bibelstelle oder Quellenangabe (nur wenn der Text lokal vorliegt)
     $('#dictOut').addEventListener('mouseover', e => {
       const a = e.target.closest('.dsrc[data-sref]');
