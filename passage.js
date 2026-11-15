@@ -82,8 +82,8 @@
       const seg = d && d.segs[d.main];
       if (!seg || !seg.lemma) continue;
       const have = by.get(seg.lemma);
-      if (have) { have.n++; continue; }
-      const w = { word: bare(m[3]), raw: m[3].replace(/<[^>]*>/g, ''), lemma: seg.lemma, l: m[1], m: m[2], pos: seg.pos || '', n: 1 };
+      if (have) { have.n++; if (seg.stem) have.stems[seg.stem] = (have.stems[seg.stem] || 0) + 1; continue; }
+      const w = { word: bare(m[3]), raw: m[3].replace(/<[^>]*>/g, ''), lemma: seg.lemma, l: m[1], m: m[2], pos: seg.pos || '', n: 1, stems: seg.stem ? { [seg.stem]: 1 } : {} };
       by.set(seg.lemma, w); out.push(w);
     }
     return out;
@@ -104,18 +104,27 @@
     return 'Weitere Werke';
   }
 
-  // ----- Statistik eines Kapitels: ws = Ergebnis von words() über das ganze Kapitel, tot(lemma) = Zahl der Belege im Tanach, N = Wörter im Tanach -----
+  // ----- Statistik eines Kapitels: ws = Ergebnis von words() über das ganze Kapitel; o = { tot(lemma): Belege im Tanach, N: Wörter im Tanach, verses, bookTot(lemma): Belege im selben Buch } -----
   const FUNC = /^(Präposition|Konjunktion|Artikel|Akkusativ|Relativ|Negation|Bejahung|Aufforder|Frage|Interjektion|Demonstrativ|Partikel|Pronominal|Suffix|Richtungs|He paragog|Nun parag)|pronomen$/i;
-  function stats(ws, tot, N, verses) {
-    const rows = (ws || []).map(w => ({ w, n: w.n, T: Math.max(w.n, tot(w.lemma) || w.n), fn: FUNC.test(w.pos || '') }));
+  const TIERS = [['>500', t => t > 500], ['100–500', t => t >= 100 && t <= 500], ['20–99', t => t >= 20 && t < 100], ['2–19', t => t >= 2 && t < 20], ['1', t => t === 1]];
+  function stats(ws, o) {
+    const { tot, N, verses, bookTot } = o;
+    const rows = (ws || []).map(w => ({ w, n: w.n, T: Math.max(w.n, tot(w.lemma) || w.n), fn: FUNC.test(w.pos || ''), name: /^Eigenname$/.test(w.pos || '') }));
     const C = rows.reduce((a, r) => a + r.n, 0);
     if (!C) return null;
-    const by = (x, y) => y.n - x.n || x.T - y.T;
-    const top = rows.filter(r => !r.fn).sort(by).slice(0, 10);
-    const typical = rows.filter(r => !r.fn && r.n >= 2).map(r => ({ ...r, k: r.n * Math.log(r.n * N / (r.T * C)) })).filter(r => r.k > 0).sort((x, y) => y.k - x.k || y.n - x.n).slice(0, 8);
-    const hapax = rows.filter(r => r.T === 1);
+    const words = rows.filter(r => !r.fn && !r.name);
+    // Leitwörter: im Kapitel viel häufiger als im übrigen Tanach (Log-Likelihood); Zufallstreffer durch Mindestzahl ausgeschlossen
+    const lead = words.filter(r => r.n >= 3 || (r.n >= 2 && r.T <= 5)).map(r => ({ ...r, k: r.n * Math.log(r.n * N / (r.T * C)) })).filter(r => r.k > 0).sort((x, y) => y.k - x.k || y.n - x.n);
+    const names = rows.filter(r => r.name).sort((x, y) => y.n - x.n || x.T - y.T);
+    const tiers = TIERS.map(([key, f]) => ({ key, items: words.filter(r => f(r.T)).sort((x, y) => y.n - x.n || x.T - y.T) })).filter(t => t.items.length);
+    const vocab = words.filter(r => r.T < 100).sort((x, y) => x.T - y.T || y.n - x.n);
+    const only = bookTot ? words.filter(r => r.T >= 2 && bookTot(r.w.lemma) === r.T).sort((x, y) => y.n - x.n) : [];
+    const stems = {}; let verbN = 0;
+    for (const r of rows) for (const [k, v] of Object.entries(r.w.stems || {})) { stems[k] = (stems[k] || 0) + v; verbN += v; }
+    const stemList = Object.entries(stems).map(([stem, n]) => ({ stem, n, pct: Math.round(1000 * n / verbN) / 10 })).sort((a, b) => b.n - a.n);
+    const verbs = words.filter(r => /^Verb$/.test(r.w.pos || '')).sort((x, y) => y.n - x.n || x.T - y.T);
     const common = rows.filter(r => r.T >= 100).reduce((a, r) => a + r.n, 0);
-    return { words: C, lemmas: rows.length, verses: verses || 0, top, typical, hapax, common: Math.round(100 * common / C) };
+    return { words: C, lemmas: rows.length, verses: verses || 0, lead, names, tiers, vocab, only, stems: stemList, verbs, common: Math.round(100 * common / C) };
   }
 
   // ----- Gliederung / Mizwa an dieser Stelle -----
