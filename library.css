@@ -1408,3 +1408,6 @@ html.split #formsPanel { right: var(--p2w); }
 #fmBody .fmGl sup { color: var(--muted); }
 
 #formsPanel .fmTools button { font-size: 12px; min-width: 26px; }
+#apBody .apBox[data-b="stats"] h5 { margin: 10px 0 4px; font-size: 12.5px; font-weight: 600; }
+#apBody .apBox[data-b="stats"] .apSum { margin: 0 0 4px; }
+#apBody .apBox[data-b="stats"] .apW small { color: var(--muted, #777); font-size: 11px; }

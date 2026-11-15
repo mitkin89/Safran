@@ -6,7 +6,7 @@
   const Morph = typeof module !== 'undefined' && module.exports ? require('./morph') : window.Morph;
 
   // feste Reihenfolge der Fächer
-  const BOXES = ['commentary', 'parallels', 'legends', 'krauss', 'rabbinic', 'halakhah', 'words', 'dicts', 'places', 'topics', 'mishtal', 'outline', 'notes', 'other'];
+  const BOXES = ['commentary', 'parallels', 'legends', 'krauss', 'rabbinic', 'halakhah', 'words', 'stats', 'dicts', 'places', 'topics', 'mishtal', 'outline', 'notes', 'other'];
   const LEG = 'Legends of the Jews';
   const KRAUSS = 'Talmudische Archäologie'; // Krauss: eigenes Fach wie Ginzbergs Legenden
   const JOSEPHUS = ['The Antiquities of the Jews', 'The War of the Jews', 'Against Apion', 'The Life of Flavius Josephus'];
@@ -89,6 +89,20 @@
     return out;
   }
 
+  // ----- Statistik eines Kapitels: ws = Ergebnis von words() über das ganze Kapitel, tot(lemma) = Zahl der Belege im Tanach, N = Wörter im Tanach -----
+  const FUNC = /^(Präposition|Konjunktion|Artikel|Akkusativ|Relativ|Negation|Bejahung|Aufforder|Frage|Interjektion|Demonstrativ|Partikel|Pronominal|Suffix|Richtungs|He paragog|Nun parag)|pronomen$/i;
+  function stats(ws, tot, N, verses) {
+    const rows = (ws || []).map(w => ({ w, n: w.n, T: Math.max(w.n, tot(w.lemma) || w.n), fn: FUNC.test(w.pos || '') }));
+    const C = rows.reduce((a, r) => a + r.n, 0);
+    if (!C) return null;
+    const by = (x, y) => y.n - x.n || x.T - y.T;
+    const top = rows.filter(r => !r.fn).sort(by).slice(0, 10);
+    const typical = rows.filter(r => !r.fn && r.n >= 2).map(r => ({ ...r, k: r.n * Math.log(r.n * N / (r.T * C)) })).filter(r => r.k > 0).sort((x, y) => y.k - x.k || y.n - x.n).slice(0, 8);
+    const hapax = rows.filter(r => r.T === 1);
+    const common = rows.filter(r => r.T >= 100).reduce((a, r) => a + r.n, 0);
+    return { words: C, lemmas: rows.length, verses: verses || 0, top, typical, hapax, common: Math.round(100 * common / C) };
+  }
+
   // ----- Gliederung / Mizwa an dieser Stelle -----
   // „3“ -> 3, „2a“ -> Blattseite als Zahl (2a = 4, 2b = 5), damit Bereiche über Seiten hinweg vergleichbar sind
   const secNo = s => { const m = String(s).trim().match(/^(\d+)([ab])?$/i); return m ? (m[2] ? +m[1] * 2 + (m[2].toLowerCase() === 'b' ? 1 : 0) : +m[1]) : null; };
@@ -143,6 +157,6 @@
     return { n, shown: BOXES.filter(b => n[b] > 0), total: BOXES.reduce((s, b) => s + n[b], 0) };
   }
 
-  const api = { BOXES, KRAUSS, boxOf, sourceOf, classify, commentators, words, bare, outlineAt, spans, secNo, notesAt, placesAt, topicsAt, summary, bookOf };
+  const api = { BOXES, KRAUSS, stats, boxOf, sourceOf, classify, commentators, words, bare, outlineAt, spans, secNo, notesAt, placesAt, topicsAt, summary, bookOf };
   if (typeof module !== 'undefined' && module.exports) module.exports = api; else window.Passage = api;
 })();

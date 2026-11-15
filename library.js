@@ -6243,7 +6243,7 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
   const AP_CAP = 6;
   const AP_META = {
     commentary: ['💬', 'Kommentare'], parallels: ['⇄', 'Parallelstellen'], legends: ['❧', 'Legenden (Ginzberg)'], krauss: ['🏺', 'Talmudische Archäologie (Krauss)'], rabbinic: ['📜', 'Talmud & Midrasch'], halakhah: ['⚖', 'Halacha'],
-    words: ['א', 'Wörter'], dicts: ['📖', 'In Wörterbüchern'], places: ['🗺', 'Orte'], topics: ['🏷', 'Themen'], mishtal: ['↔', 'Mischna ↔ Talmud'], outline: ['☰', 'Gliederung / Mizwa'], notes: ['★', 'Notizen'], other: ['🔗', 'Weitere Verknüpfungen'],
+    words: ['א', 'Wörter'], stats: ['∑', 'Statistik'], dicts: ['📖', 'In Wörterbüchern'], places: ['🗺', 'Orte'], topics: ['🏷', 'Themen'], mishtal: ['↔', 'Mischna ↔ Talmud'], outline: ['☰', 'Gliederung / Mizwa'], notes: ['★', 'Notizen'], other: ['🔗', 'Weitere Verknüpfungen'],
   };
   const apName = b => { const t = I18N.t(AP_META[b][1]); return t.charAt(0).toUpperCase() + t.slice(1); }; // „Orte“ ist englisch sonst klein („places“)
   const AP_ALL = { commentary: 1, parallels: 1, legends: 1, krauss: 1, rabbinic: 1, halakhah: 1, places: 1, topics: 1, outline: 1, notes: 1, other: 1 }; // Fächer mit „alle anzeigen“
@@ -6282,6 +6282,23 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
     if (!AP.open) { hovApi && hovApi.hide(); return; }
     if (label != null && label !== cmtRow) setCmtRow(label); // die Markierung der Zeile ist dieselbe wie beim Kommentar-Bereich
     AP.key = ''; apRender();
+  }
+  // Statistik: Belege eines Lemmas im Tanach (aus dem Formen-Index, zwischengespeichert) und Zahl aller Wörter
+  const apTot = new Map(); let apN = 0;
+  function apStats(rows, D) {
+    if (!apN) { for (const k of Object.keys(D.lem || {})) { const m = window.Forms.model(D, k); if (m) apN += m.total; } apN = apN || 300000; }
+    const tot = l => { if (!apTot.has(l)) { let m = null; try { m = window.Forms.model(D, l); } catch { m = null; } apTot.set(l, m ? m.total : 0); } return apTot.get(l); };
+    return window.Passage.stats(window.Passage.words(rows.join(' ')), tot, apN, rows.length);
+  }
+  function apStatsHtml(st, chap) {
+    const LEM = window.OSHB_LEMMAS || {}, L = I18N.lang;
+    const chip = (r, note) => { const lem = LEM[r.w.lemma]; return `<button type="button" class="apW" data-lemma="${esc(r.w.lemma)}" data-word="${esc(r.w.raw)}" title="${esc(I18N.t('Wortkarte: Wörterbücher, Verteilung und Formen dieses Wortes'))}"><span class="f" lang="he" dir="rtl">${esc(lem ? lem[0] : r.w.word)}</span>${lem ? `<span class="l"><span class="gl" dir="auto">${esc(L === 'de' && lem[2] ? lem[2] : lem[1])}</span></span>` : ''}<small>${note}</small></button>`; };
+    const n = x => x.toLocaleString(I18N.loc);
+    return `<p class="apSum">${esc(I18N.t('{} Wörter in {} Versen, {} verschiedene Wörter (Lemmata). {} % der Wörter kommen im Tanach mehr als 100-mal vor.', n(st.words), n(st.verses), n(st.lemmas), st.common))}</p>
+      <h5>${esc(I18N.t('Häufigste Wörter'))}</h5><div class="apWords" dir="rtl">${st.top.map(r => chip(r, '×' + r.n)).join('')}</div>
+      ${st.typical.length ? `<h5>${esc(I18N.t('Typisch für dieses Kapitel'))} <small class="muted">${esc(I18N.t('im Kapitel viel häufiger als im übrigen Tanach'))}</small></h5><div class="apWords" dir="rtl">${st.typical.map(r => chip(r, `${r.n}/${n(r.T)}`)).join('')}</div>` : ''}
+      ${st.hapax.length ? `<h5>${esc(I18N.t('Nur einmal im Tanach (Hapax legomena)'))} <small class="muted">${n(st.hapax.length)}</small></h5><div class="apWords" dir="rtl">${st.hapax.slice(0, 24).map(r => chip(r, '1×')).join('')}</div>${st.hapax.length > 24 ? `<p class="muted">${esc(I18N.t('… und {} weitere', n(st.hapax.length - 24)))}</p>` : ''}` : ''}
+      <p class="muted apNote">${esc(I18N.t('Gezählt nach dem Westminster-Text (OSHB), pro Lemma; Präpositionen, Partikeln und Pronomen sind in den Ranglisten ausgelassen. „3/28“ heißt: 3 von 28 Belegen im Tanach stehen in diesem Kapitel.'))}</p>`;
   }
   function apSet(b, n, html) { // ein Fach füllen (oder ausblenden) und seinen Zähler in der Leiste setzen
     const box = $(`#apBody .apBox[data-b="${b}"]`), chip = $(`#apNav button[data-b="${b}"]`);
@@ -6366,7 +6383,7 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
     { const ns = whole ? (notesAll || []).filter(n => n.key === g.key && n.sk === s.k) : P.notesAt(notesAll, g.key, s.k, label, v);
       boxes.notes = ns.map(n => `<div class="apNote" data-id="${esc(n.id)}" title="${esc(I18N.t('Klicken: Notiz bearbeiten'))}"><span class="st">★</span> ${n.note ? esc(n.note) : `<span class="muted">${esc(I18N.t(kindOf(n) === 'block' ? 'Favorit (Versauswahl)' : 'Lesezeichen'))}</span>`}${noteTags(n).length ? ` <small class="muted">${noteTags(n).map(t => '#' + esc(t)).join(' ')}</small>` : ''}</div>`); }
     // ----- Gerüst: alle Fächer in fester Reihenfolge; Wörter und Gliederung kommen nach -----
-    const wait = { words: TANAKH_BOOKS.has(title) && v != null && /^\d+$/.test(chap || ''), dicts: (v != null || whole) && !!chap, outline: v != null || /:/.test(label) || (whole && secVs.length > 0) };
+    const wait = { words: TANAKH_BOOKS.has(title) && v != null && /^\d+$/.test(chap || ''), stats: TANAKH_BOOKS.has(title) && /^\d+$/.test(chap || '') && (v != null || whole), dicts: (v != null || whole) && !!chap, outline: v != null || /:/.test(label) || (whole && secVs.length > 0) };
     nav.innerHTML = P.BOXES.map(b => { const n = boxes[b] ? boxes[b].length : 0, w = !boxes[b] && wait[b]; return `<button type="button" data-b="${b}" class="${n || w ? '' : 'off'}${w ? ' wait' : ''}"${n || w ? '' : ' disabled'}><span class="ic">${AP_META[b][0]}</span>${esc(apName(b))} <small>${n ? n.toLocaleString(I18N.loc) : w ? '…' : '–'}</small></button>`; }).join('');
     body.innerHTML = P.BOXES.map(b => {
       const items = boxes[b], n = items ? items.length : 0, w = !items && wait[b];
@@ -6386,6 +6403,18 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
         const LEM = window.OSHB_LEMMAS || {}, ws = P.words(html);
         apSet('words', ws.length, ws.length ? `<div class="apWords" dir="rtl">${ws.map(w => { const lem = LEM[w.lemma]; return `<button type="button" class="apW" data-lemma="${esc(w.lemma)}" data-l="${esc(w.l)}" data-m="${esc(w.m)}" data-word="${esc(w.raw)}" title="${esc(I18N.t('Wortkarte: Wörterbücher, Verteilung und Formen dieses Wortes'))}"><span class="f" lang="he" dir="rtl">${esc(w.word)}</span>${lem ? `<span class="l"><span lang="he" dir="rtl">${esc(lem[0])}</span> <span class="gl" dir="auto">${esc(L === 'de' && lem[2] ? lem[2] : lem[1])}</span></span>` : ''}${w.n > 1 ? `<small>×${w.n}</small>` : ''}</button>`; }).join('')}</div>` : '');
       }).catch(() => { if (token === AP.token) apSet('words', 0, ''); });
+    }
+    // ----- Statistik des Kapitels: häufigste, typische und einmalige Wörter (Westminster-Text und Formen-Index) -----
+    if (wait.stats) {
+      const d = view.loaded.find(x => x.entry.kind === 'he' && /westminster/i.test(x.versionTitle || ''));
+      const ref = `${title} ${chap}`;
+      const pc = d ? Promise.resolve(R.flattenNode(R.getByPath(d.text, s.path)).map(r => r.html || ''))
+        : LK.texts([ref], 'he', true).then(res => { const t = res && res[ref]; return t && t.items && /westminster/i.test(t.versionTitle || '') ? t.items : []; });
+      Promise.all([pc, loadForms()]).then(([rows, D]) => {
+        if (token !== AP.token) return;
+        const st = rows.length && D ? apStats(rows, D) : null;
+        apSet('stats', st ? st.words : 0, st ? apStatsHtml(st, chap) : '');
+      }).catch(() => { if (token === AP.token) apSet('stats', 0, ''); });
     }
     // ----- In Wörterbüchern: Artikel, die diese Stelle zitieren (Rückwärtsindex der Wörterbuch-Zitate) -----
     if (wait.dicts) {
