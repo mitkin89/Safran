@@ -136,6 +136,7 @@ CLOSE = set('])}>')
 
 def lemma_of(w):
     g = FEAT['glex'].get(w) or FEAT['lex'].get(w) or ''
+    g = g.replace('\uFB2A', '\u05E9').replace('\uFB2B', '\u05E9').replace('\u05E9\u05C1', '\u05E9').replace('\u05E9\u05C2', '\u05E9')
     return re.sub(r'[^\u05D0-\u05EA]', '', g)
 
 
