@@ -7642,6 +7642,279 @@
    ],
    "kind": "de",
    "hash": "d723a43bd5024c7058845144ba7df23fc8019845"
+  },
+  {
+   "rel": "own/Hosea/other/Septuaginta (Rahlfs).json",
+   "title": "Hosea",
+   "heTitle": "הושע",
+   "language": "Greek",
+   "versionTitle": "Septuaginta (Rahlfs)",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "other",
+   "hash": "904b3322f0a909dc316a938ee782fdc946b9022a"
+  },
+  {
+   "rel": "own/Esther/other/Septuaginta (Rahlfs).json",
+   "title": "Esther",
+   "heTitle": "אסתר",
+   "language": "Greek",
+   "versionTitle": "Septuaginta (Rahlfs)",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "other",
+   "hash": "c30b3bd9cade6b762ac0e00a8ffca5723135c4a5"
+  },
+  {
+   "rel": "own/Makkabäer I (Septuaginta)/other/Septuaginta (Rahlfs).json",
+   "title": "Makkabäer I (Septuaginta)",
+   "heTitle": "מקבים א (תרגום השבעים)",
+   "language": "Greek",
+   "versionTitle": "Septuaginta (Rahlfs)",
+   "categories": [
+    "Second Temple",
+    "Apocrypha"
+   ],
+   "kind": "other",
+   "hash": "9b1d46a813bd5f542126d17736c9ad2d584f53c9"
+  },
+  {
+   "rel": "own/Makkabäer II (Septuaginta)/other/Septuaginta (Rahlfs).json",
+   "title": "Makkabäer II (Septuaginta)",
+   "heTitle": "מקבים ב (תרגום השבעים)",
+   "language": "Greek",
+   "versionTitle": "Septuaginta (Rahlfs)",
+   "categories": [
+    "Second Temple",
+    "Apocrypha"
+   ],
+   "kind": "other",
+   "hash": "692defe02d646bf92a63211c6defccb5ca8ea115"
+  },
+  {
+   "rel": "own/Das dritte Buch der Makkabäer/other/Septuaginta (Rahlfs).json",
+   "title": "Das dritte Buch der Makkabäer",
+   "heTitle": "",
+   "language": "Greek",
+   "versionTitle": "Septuaginta (Rahlfs)",
+   "categories": [
+    "Second Temple",
+    "Apocrypha"
+   ],
+   "kind": "other",
+   "hash": "1e180764d0478394a6aae2d0252c35c8b0c5420c"
+  },
+  {
+   "rel": "own/Makkabäer IV (Septuaginta)/other/Septuaginta (Rahlfs).json",
+   "title": "Makkabäer IV (Septuaginta)",
+   "heTitle": "מקבים ד (תרגום השבעים)",
+   "language": "Greek",
+   "versionTitle": "Septuaginta (Rahlfs)",
+   "categories": [
+    "Second Temple",
+    "Apocrypha"
+   ],
+   "kind": "other",
+   "hash": "72b04e6bda944c23bdd005695bbd8e9391ec878a"
+  },
+  {
+   "rel": "own/Jesus Sirach (Septuaginta)/other/Septuaginta (Rahlfs).json",
+   "title": "Jesus Sirach (Septuaginta)",
+   "heTitle": "בן סירא (תרגום השבעים)",
+   "language": "Greek",
+   "versionTitle": "Septuaginta (Rahlfs)",
+   "categories": [
+    "Second Temple",
+    "Apocrypha"
+   ],
+   "kind": "other",
+   "hash": "038a9561e32d198d99ee3c2df7850767a361c041"
+  },
+  {
+   "rel": "own/Weisheit Salomos (Septuaginta)/other/Septuaginta (Rahlfs).json",
+   "title": "Weisheit Salomos (Septuaginta)",
+   "heTitle": "חכמת שלמה (תרגום השבעים)",
+   "language": "Greek",
+   "versionTitle": "Septuaginta (Rahlfs)",
+   "categories": [
+    "Second Temple",
+    "Apocrypha"
+   ],
+   "kind": "other",
+   "hash": "952f7178f984b7591a97dfe73db6d76c77b54db9"
+  },
+  {
+   "rel": "own/Tobit (Septuaginta)/other/Septuaginta (Rahlfs).json",
+   "title": "Tobit (Septuaginta)",
+   "heTitle": "טוביה (תרגום השבעים)",
+   "language": "Greek",
+   "versionTitle": "Septuaginta (Rahlfs)",
+   "categories": [
+    "Second Temple",
+    "Apocrypha"
+   ],
+   "kind": "other",
+   "hash": "299bd0cbd2c2a547f240b0b637927ec313a8519a"
+  },
+  {
+   "rel": "own/Tobit (Septuaginta)/other/Septuaginta (Rahlfs, Codex Sinaiticus).json",
+   "title": "Tobit (Septuaginta)",
+   "heTitle": "טוביה (תרגום השבעים)",
+   "language": "Greek",
+   "versionTitle": "Septuaginta (Rahlfs, Codex Sinaiticus)",
+   "categories": [
+    "Second Temple",
+    "Apocrypha"
+   ],
+   "kind": "other",
+   "hash": "aefb69480886930e900bfa3c99d5d46a732df5b3"
+  },
+  {
+   "rel": "own/Judit (Septuaginta)/other/Septuaginta (Rahlfs).json",
+   "title": "Judit (Septuaginta)",
+   "heTitle": "יהודית (תרגום השבעים)",
+   "language": "Greek",
+   "versionTitle": "Septuaginta (Rahlfs)",
+   "categories": [
+    "Second Temple",
+    "Apocrypha"
+   ],
+   "kind": "other",
+   "hash": "6b4d93db7a325adc02c67f72b3d994f59722868e"
+  },
+  {
+   "rel": "own/Das Buch Baruch/other/Septuaginta (Rahlfs).json",
+   "title": "Das Buch Baruch",
+   "heTitle": "",
+   "language": "Greek",
+   "versionTitle": "Septuaginta (Rahlfs)",
+   "categories": [
+    "Second Temple",
+    "Apocrypha"
+   ],
+   "kind": "other",
+   "hash": "527fd5f1f3d84474f0816754675497e5447fe62a"
+  },
+  {
+   "rel": "own/Der Brief Jeremias/other/Septuaginta (Rahlfs).json",
+   "title": "Der Brief Jeremias",
+   "heTitle": "",
+   "language": "Greek",
+   "versionTitle": "Septuaginta (Rahlfs)",
+   "categories": [
+    "Second Temple",
+    "Apocrypha"
+   ],
+   "kind": "other",
+   "hash": "3615f56286115dc888ca51b09577185c9c02d9aa"
+  },
+  {
+   "rel": "own/Susanna (Septuaginta)/other/Septuaginta (Rahlfs).json",
+   "title": "Susanna (Septuaginta)",
+   "heTitle": "שושנה (תרגום השבעים)",
+   "language": "Greek",
+   "versionTitle": "Septuaginta (Rahlfs)",
+   "categories": [
+    "Second Temple",
+    "Apocrypha"
+   ],
+   "kind": "other",
+   "hash": "1d870fc10a19722e363c146c3f513c88ecd7f601"
+  },
+  {
+   "rel": "own/Susanna (Septuaginta)/other/Septuaginta (Rahlfs, Theodotion).json",
+   "title": "Susanna (Septuaginta)",
+   "heTitle": "שושנה (תרגום השבעים)",
+   "language": "Greek",
+   "versionTitle": "Septuaginta (Rahlfs, Theodotion)",
+   "categories": [
+    "Second Temple",
+    "Apocrypha"
+   ],
+   "kind": "other",
+   "hash": "f506cecb90c520a447784ca000e4c0664c649a04"
+  },
+  {
+   "rel": "own/Bel und der Drache (Septuaginta)/other/Septuaginta (Rahlfs).json",
+   "title": "Bel und der Drache (Septuaginta)",
+   "heTitle": "בל והתנין (תרגום השבעים)",
+   "language": "Greek",
+   "versionTitle": "Septuaginta (Rahlfs)",
+   "categories": [
+    "Second Temple",
+    "Apocrypha"
+   ],
+   "kind": "other",
+   "hash": "105b1b084104d8004f4f5d7d83a18c6e71780304"
+  },
+  {
+   "rel": "own/Bel und der Drache (Septuaginta)/other/Septuaginta (Rahlfs, Theodotion).json",
+   "title": "Bel und der Drache (Septuaginta)",
+   "heTitle": "בל והתנין (תרגום השבעים)",
+   "language": "Greek",
+   "versionTitle": "Septuaginta (Rahlfs, Theodotion)",
+   "categories": [
+    "Second Temple",
+    "Apocrypha"
+   ],
+   "kind": "other",
+   "hash": "964824964efbbf560733410d100b72576906afeb"
+  },
+  {
+   "rel": "own/Esdras I (Septuaginta)/other/Septuaginta (Rahlfs).json",
+   "title": "Esdras I (Septuaginta)",
+   "heTitle": "עזרא החיצוני (תרגום השבעים)",
+   "language": "Greek",
+   "versionTitle": "Septuaginta (Rahlfs)",
+   "categories": [
+    "Second Temple",
+    "Apocrypha"
+   ],
+   "kind": "other",
+   "hash": "045519b9fc628387e2e49342e547bb8ef1e3f8cc"
+  },
+  {
+   "rel": "own/Prayer of Manasseh/other/Septuaginta (Rahlfs).json",
+   "title": "Prayer of Manasseh",
+   "heTitle": "תפילת מנשה",
+   "language": "Greek",
+   "versionTitle": "Septuaginta (Rahlfs)",
+   "categories": [
+    "Second Temple",
+    "Apocrypha"
+   ],
+   "kind": "other",
+   "hash": "42b0348220de5e17f160bfe0c7567430296d7820"
+  },
+  {
+   "rel": "own/Oden (Septuaginta)/other/Septuaginta (Rahlfs).json",
+   "title": "Oden (Septuaginta)",
+   "heTitle": "אודות (תרגום השבעים)",
+   "language": "Greek",
+   "versionTitle": "Septuaginta (Rahlfs)",
+   "categories": [
+    "Second Temple",
+    "Apocrypha"
+   ],
+   "kind": "other",
+   "hash": "9bcc4c2bd873eb01ccd42f48afbf8414f9dd3c7e"
+  },
+  {
+   "rel": "own/Die Psalmen Salomos/other/Septuaginta (Rahlfs).json",
+   "title": "Die Psalmen Salomos",
+   "heTitle": "",
+   "language": "Greek",
+   "versionTitle": "Septuaginta (Rahlfs)",
+   "categories": [
+    "Second Temple",
+    "Apocrypha"
+   ],
+   "kind": "other",
+   "hash": "8b469fb05034f891ca862394f10af2c01ef34f2b"
   }
  ]
 }
