@@ -105,6 +105,7 @@
     'Wiedergabe in der Septuaginta': 'Rendering in the Septuagint',
     'In den Qumran-Rollen': 'In the Qumran scrolls',
     'In Wörterbüchern': 'In dictionaries',
+    'Bedeutung unsicher: im Wörterbuch nicht eindeutig belegt': 'Meaning uncertain: not clearly attested in the dictionary',
     'zitiert genau diese Stelle': 'cites exactly this passage',
     'zitiert das ganze Kapitel oder Blatt': 'cites the whole chapter or folio',
     '{} Zeilen in {} Büchern': '{} lines in {} books',

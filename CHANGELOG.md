@@ -1,6 +1,7 @@
 # Changelog
 
 ### New in 2.4.0
+- **Forms table: meaning per stem:** every stem (Qal, Nifal, Piel, Hifil …) of a verb now shows a short German/English meaning next to its heading, for 1,905 verbs and 3,597 verb-stem pairs. Written with Claude (Opus) from the BDB and Gesenius articles; entries the dictionaries do not clearly support are marked with a „?“ (about a quarter).
 - **Dictionary → word card:** Hebrew dictionary entries with a matching word in the Westminster lemma list get a „Word card“ button in the entry header.
 - **All about this passage: dictionaries:** a new box „In dictionaries“ lists the dictionary articles that cite the selected verse or folio segment (BDB, Gesenius, Jastrow, Levy, Krauss, Hamburger and your own dictionaries) – about 375,000 citations indexed on first use. Click an article to open it.
 - **Krauss, *Talmudische Archäologie* – full titles on hover:** Krauss's short citations of the literature (*HELLWALD S. 147*, *BLÜMNER, Technol. 2,31*, *MARQ., Pl.²*, *RICH s. v. furnus*, journal sigla such as *ZDPV*, *REJ*, *MGWJ* and dictionary sigla such as *Lwr*, *L*, *K*, *J*) now show the full title as he prints it (author, title, place, year) when you hover over them, in the text and in the footnotes – about 9,700 places for some 430 works, built with `tools/krauss_ta` (titles Krauss never prints in full were completed from the standard bibliographies; for an author with several works the last work cited by title is taken, otherwise all candidates are listed).

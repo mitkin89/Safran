@@ -221,7 +221,7 @@
         blocks.push({ title: t(TENSE[tk] || tk), n: sum(a), tables });
       }
       const seg = Morph.segment('V' + sk[1] + 'p3ms', sk[0]);
-      sections.push({ title: t(seg.stem) + (sk[0] === 'A' ? ' (' + t('aramäisch') + ')' : ''), kind: 'verb', n: sum(sv), blocks });
+      sections.push({ sk, title: t(seg.stem) + (sk[0] === 'A' ? ' (' + t('aramäisch') + ')' : ''), kind: 'verb', n: sum(sv), blocks });
     }
     // ----- Nomen, Adjektive, Zahlwörter -----
     const noms = items.filter(x => (x.code[0] === 'N' && x.code[1] !== 'p') || x.code[0] === 'A');
@@ -266,8 +266,9 @@
       if (tb.fold) return `<details class="fmFold"><summary>${esc(tb.title)} <small>${tb.n}×</small></summary>${tab}</details>`;
       return (tb.title ? `<div class="fmSub">${esc(tb.title)} <small>${tb.n}×</small></div>` : '') + tab;
     };
+    const gl = s => { const g = s.sk && o.gloss ? o.gloss(s.sk) : null; return g ? ` <span class="fmGl"${g.u ? ` title="${esc(t('Bedeutung unsicher: im Wörterbuch nicht eindeutig belegt'))}"` : ''}>„${esc(g.text)}“${g.u ? '<sup>?</sup>' : ''}</span>` : ''; };
     const nav = mdl.sections.length > 1 ? `<div class="fmNav">${mdl.sections.map((s, i) => `<button type="button" data-sec="${i}">${esc(s.title)} <small>${s.n}×</small></button>`).join('')}</div>` : '';
-    const secs = mdl.sections.map((s, i) => `<details class="fmSec" data-sec="${i}" open><summary><b>${esc(s.title)}</b> <small>${s.n}×</small></summary><div class="fmGrid${s.kind === 'verb' ? '' : ' one'}">${s.blocks.map(b => `<div class="fmBlk">${b.title ? `<h4>${esc(b.title)} <small>${b.n}×</small></h4>` : ''}${b.tables.map(table).join('')}</div>`).join('')}</div></details>`).join('');
+    const secs = mdl.sections.map((s, i) => `<details class="fmSec" data-sec="${i}" open><summary><b>${esc(s.title)}</b>${gl(s)} <small>${s.n}×</small></summary><div class="fmGrid${s.kind === 'verb' ? '' : ' one'}">${s.blocks.map(b => `<div class="fmBlk">${b.title ? `<h4>${esc(b.title)} <small>${b.n}×</small></h4>` : ''}${b.tables.map(table).join('')}</div>`).join('')}</div></details>`).join('');
     return nav + secs + `<p class="fmNote">${esc(t('Nur im Tanach belegte Formen (Westminster Leningrad Codex, OSHB), ohne Akzente; die Zahl nennt die Häufigkeit. Vorsilben wie ו, ב, כ, ל, מ, ש sind abgetrennt, wo das Wort dann für sich lesbar bleibt; Artikel, wajjiqtol/wᵉqatal und Infinitiv mit Präposition stehen wie belegt. Unvokalisierte Ketiv-Formen fehlen.'))}</p>`;
   }
 

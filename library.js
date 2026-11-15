@@ -1059,6 +1059,8 @@
     return formsP;
   }
   let lxxP = null;
+  let stemP = null;
+  const loadStems = () => stemP || (stemP = lazyScript('oshb-stems.js', () => window.OSHB_STEMS).catch(() => { stemP = null; return null; }));
   let qumP = null;
   const loadQum = () => qumP || (qumP = lazyScript('qumran-lex.js', () => window.QUMRAN_LEX).catch(() => { qumP = null; return null; }));
   const loadLxx = () => lxxP || (lxxP = lazyScript('oshb-lxx.js', () => window.OSHB_LXX).catch(() => { lxxP = null; return null; }));
@@ -1082,7 +1084,9 @@
     fmCur = { D, mdl, lemma, lem, F: window.Forms };
     const cur = info && info.m ? window.Forms.analyze(info.word, info.m, info.l) : null;
     $('#fmHead').insertAdjacentHTML('beforeend', `${lem ? `<button class="wdict" type="button" data-q="${esc(lem[0])}">Im Wörterbuch nachschlagen</button>` : ''}<span class="fmCnt">${esc(I18N.t('{} Belege im Tanach · {} verschiedene Formen · Strong {}', mdl.total.toLocaleString(I18N.loc), mdl.forms.length.toLocaleString(I18N.loc), lemma))}</span>`);
-    body.innerHTML = window.Forms.render(mdl, { esc, t: s => I18N.t(s), current: cur });
+    const ST = await loadStems(); if (token !== wcToken) return;
+    const gloss = sk => { const g = ST && ST[lemma] && ST[lemma][sk]; return g ? { text: I18N.lang === 'de' ? g[0] : g[1], u: !!g[2] } : null; };
+    body.innerHTML = window.Forms.render(mdl, { esc, t: s => I18N.t(s), current: cur, gloss });
     wcRender(token, cur);
     p.scrollTop = 0;
     if (fmTab === 'forms') { const c = body.querySelector('.fmF.cur'); if (c) c.scrollIntoView({ block: 'center' }); }

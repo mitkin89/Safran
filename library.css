@@ -1396,3 +1396,6 @@ html.split #formsPanel { right: var(--p2w); }
 #apBody .apDE.wide { opacity: .65; }
 
 .dhead .dwk { font-size: 11px; padding: 0 6px; margin-left: 6px; border-radius: 9px; cursor: pointer; }
+
+#fmBody .fmSec > summary .fmGl { font-weight: normal; color: var(--accent); margin-left: 6px; }
+#fmBody .fmGl sup { color: var(--muted); }
