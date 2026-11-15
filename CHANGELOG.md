@@ -1,6 +1,7 @@
 # Changelog
 
 ### New in 2.4.0
+- Krauss, Talmudische Archäologie: his Mekhilta citations by Exodus verse ("Mekh zu Exod 15,2") are linked, in both directions, to the Mekhilta passages Sefaria connects with that verse (tools/ownlinks).
 - Citation recognition: Mekhilta references ("Mech. Pischa 7, 13", "Mechilta Beschallach 3", "Mech. R. Jischm. Bachodesch 5") become links.
 - Texts with a tractate level (e.g. the Mekhilta): chapters are recognised together with their tractate, so the "Whole chapter" button, the links and the overview work there too.
 - **Overview, „Talmud & Midrasch“:** the list is now divided into groups with a short heading, two entries each and „more“ for the rest: Mishnah, Babylonian Talmud, Jerusalem Talmud, Tosefta, Midrash Rabbah, halakhic Midrashim, other Midrashim, minor tractates, other works – each with its count.

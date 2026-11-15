@@ -39,6 +39,21 @@ function valid(ref) {
 }
 const dafOf = i => `${Math.floor(i / 2) + 1}${i % 2 ? 'b' : 'a'}`;
 
+// Krauss zitiert die Mechiltha de-R. Jischmael nach Exodusvers und Seite der alten Ausgabe („Mekh zu Exod 15,2 p. 37ᵃ“): ein Vers genügt,
+// um sie den Mechiltha-Stellen zuzuordnen, die Sefaria mit diesem Exodusvers verknüpft (Mechiltha des R. Schimon bar Jochai: „Mekh RSbJ“ – nicht enthalten)
+const MEK_FROM = 'Talmudische Archäologie';
+const MEK_RE = /Mekh(?!\w*\s+R[SŠ])\w*\.?\s+(?:zu\s+|z\.\s*)?(?:Exod|Ex)\.?\s*(\d+)\s*,\s*(\d+)/g;
+const mekByVerse = new Map(); // „15:2“ -> [Mechiltha-Stellen]
+try {
+  for (const l of fs.readFileSync(path.join(ROOT, 'bundled', 'links', 'Exodus.tsv'), 'utf8').split('\n')) {
+    const [t, r] = l.split('\t');
+    if (!r || !/^Mekhilta DeRabbi Yishmael, Tractate /.test(r)) continue;
+    const m = t.match(/^(\d+):(\d+)(?:-(\d+))?$/); if (!m) continue;
+    for (let v = +m[2]; v <= (m[3] ? +m[3] : +m[2]); v++) { const k = `${m[1]}:${v}`; (mekByVerse.get(k) || mekByVerse.set(k, []).get(k)).push(r); }
+  }
+} catch { /* ohne Exodus-Verknüpfungen */ }
+let nMek = 0;
+
 const out = new Map(); // Buch -> Set(Zeilen)
 const add = (book, line) => { let s = out.get(book); if (!s) out.set(book, (s = new Set())); s.add(line); };
 const stale = new Map(); // Buch -> Set(Zeilen mit der nicht umgerechneten Angabe; fallen weg, wenn sie nicht auch richtig entstehen)
@@ -59,6 +74,20 @@ for (const e of man) {
   const walk = (node, addr) => {
     if (Array.isArray(node)) { node.forEach((x, i) => walk(x, addr.concat(i))); return; }
     if (typeof node !== 'string' || !/\d|[א-ת]/.test(node)) return;
+    if (srcTitle === MEK_FROM && mekByVerse.size) {
+      const plain = node.replace(/<[^>]+>/g, '');
+      const mt = addr.map(x => String(x + 1)).join(':');
+      for (const m of plain.matchAll(MEK_RE)) {
+        const sr = (A.link(`Exod. ${m[1]},${m[2]}`, { last: '', trad }).match(/data-sref="([^"]+)"/) || [])[1]; // Zählung des Textes -> Sefaria
+        const e1 = sr && sr.match(/^Exodus (\d+):(\d+)/); if (!e1) continue;
+        for (const r of mekByVerse.get(`${e1[1]}:${e1[2]}`) || []) {
+          const { book: tb, tail: tt } = LK.splitRef(r);
+          add(srcTitle, `${mt}\t${r}\treference\tMidrash`);
+          add(tb, `${tt}\t${srcTitle} ${mt}\treference\t${cat(e.title)}`);
+          nMek++;
+        }
+      }
+    }
     const html = A.link(node, { last: '', trad });
     const clean = x => x.replace(/&amp;/g, '&').replace(/–/g, '-').trim();
     const refs = new Set(), orig = new Map(); // umgerechnete Stelle -> Angabe im Text
@@ -114,6 +143,7 @@ for (const book of new Set([...out.keys(), ...stale.keys()])) {
   fs.writeFileSync(p, keep.concat(neu).join('\n') + '\n');
   files++; lines += neu.length; removed += have.length - keep.length;
 }
+console.log(`Mechiltha-Zuordnungen aus Krauss (über Exodusvers): ${nMek}`);
 console.log(`Stellen ${nRefs}, neue Zeilen ${lines}, entfernte Zeilen ${removed} in ${files} Dateien`);
 console.log(`in Sefarias Zählung umgerechnet: ${nConv} Stellen (davon ${nGuess} in hebräisch zitierenden Texten, weil es die Angabe hebräisch nicht gibt)`);
 if (process.argv.includes('--verbose')) console.log(convEx.join('\n'));
