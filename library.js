@@ -770,11 +770,12 @@
     if (hit) hit.scrollIntoView({ block: quiet ? 'start' : 'center' }); else window.scrollTo(0, 0);
   }
 
-  // ---------- Interlinear: deutsche Wörter (Zunz, Berlin 1838) unter den Wörtern des Westminster-Textes ----------
-  // Zuordnung Wort für Wort in interlin-zunz.js (erzeugt von tools/interlinear/build.py); bisher: Rut
+  // ---------- Interlinear: deutsche Wörter (Zunz, Breuer) unter den Wörtern des Westminster-Textes ----------
+  // Zuordnung Wort für Wort in interlin.js (erzeugt von tools/interlinear/build.py); bisher: Rut
+  let ilTr = 'Zunz'; try { ilTr = localStorage.getItem('interlinTr') || 'Zunz'; } catch { /* egal */ }
   let ilOn = false; try { ilOn = localStorage.getItem('interlin') === '1'; } catch { /* egal */ }
   let ilP = null;
-  const loadIL = () => ilP || (ilP = lazyScript('interlin-zunz.js', () => window.INTERLIN_ZUNZ).catch(() => { ilP = null; return null; }));
+  const loadIL = () => ilP || (ilP = lazyScript('interlin.js', () => window.INTERLIN).catch(() => { ilP = null; return null; }));
   // Segmente mit mehreren Wörtern („als die Richter richteten“) stehen einmal unter der zusammengehörigen Wortgruppe, nicht unter jedem Wort
   function ilClear() {
     $$('#rOut .w[data-il]').forEach(w => w.removeAttribute('data-il'));
@@ -800,8 +801,12 @@
   }
   async function ilRefresh() {
     const b = $('#ilBtn'); if (!b) return;
-    const D = await loadIL(), title = view && view.group ? view.group.title : '', has = !!(D && title && D[title]);
+    const ALL = await loadIL(), title = view && view.group ? view.group.title : '';
+    const names = ALL && title ? Object.keys(ALL).filter(n => ALL[n][title]) : [], has = names.length > 0;
+    if (has && !names.includes(ilTr)) ilTr = names[0];
+    const D = has ? ALL[ilTr] : null, sel = $('#ilSel');
     b.hidden = !has; b.classList.toggle('on', has && ilOn);
+    if (sel) { sel.hidden = !(has && ilOn && names.length > 1); if (sel.dataset.n !== names.join()) { sel.dataset.n = names.join(); sel.innerHTML = names.map(n => `<option>${n}</option>`).join(''); } sel.value = ilTr; }
     document.body.classList.toggle('il', has && ilOn);
     ilClear();
     if (!has || !ilOn) return;
@@ -811,6 +816,7 @@
       row.querySelectorAll('.cell[data-k="he"]').forEach(cell => ilVerse(cell, segs));
     }
   }
+  $('#ilSel').onchange = e => { ilTr = e.target.value; try { localStorage.setItem('interlinTr', ilTr); } catch { /* egal */ } ilRefresh(); };
   $('#ilBtn').onclick = () => { ilOn = !ilOn; try { localStorage.setItem('interlin', ilOn ? '1' : '0'); } catch { /* egal */ } ilRefresh(); };
 
   // Die Kapitel-Auswahl ist nur so breit wie der gewählte Eintrag

@@ -1445,3 +1445,4 @@ body.il .cell[data-k="he"] .ilg { display: inline-flex; flex-direction: column; 
 body.il .cell[data-k="he"] .ilw { display: block; text-align: center; white-space: nowrap; }
 body.il .cell[data-k="he"] .ilw .w { display: inline; margin: 0; }
 #ilBtn.on { background: color-mix(in srgb, var(--accent) 22%, transparent); }
+#ilSel { font: inherit; font-size: .8em; margin-inline-start: 2px; max-width: 7em; } #ilSel[hidden] { display: none; }
