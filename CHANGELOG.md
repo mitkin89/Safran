@@ -1,6 +1,7 @@
 # Changelog
 
 ### New in 2.4.0
+- **Interlinear: Zunz, Prophets word by word (Joshua to Malachi):** all 9,296 verses of the Former and Latter Prophets (21 books) are now aligned word by word with the Westminster text (previously phrase by phrase), including Ketiv/Qere pairs; the translation statistics in the word card now cover the Prophets too.
 - **Interlinear: Zunz, Exodus 15–40, Leviticus, Numbers and Deuteronomy word by word:** about 3,900 verses are now aligned word by word with the Westminster text (previously phrase by phrase); together with Genesis and Exodus 1–14 the whole Pentateuch is word-aligned. The translation statistics of the word card now cover the Pentateuch (Zunz: 4,607 lemmata).
 - Interlinear: Zunz, Job 1–8 now word by word (rest of the book follows)
 - Interlinear: Zunz, Exodus 1–14 now word by word (rest of the book follows)
