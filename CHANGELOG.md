@@ -1,6 +1,7 @@
 # Changelog
 
 ### New in 2.4.0
+- **Interlinear: Zunz, complete Malachi (1–3):** the word-by-word German under the Hebrew text now also covers the whole book of Malachi with Zunz's translation (`tools/interlinear/zunz/Malachi.txt`, 55 verses).
 - **Interlinear: Zunz, complete Haggai (1–2):** the word-by-word German under the Hebrew text now also covers the whole book of Haggai with Zunz's translation (`tools/interlinear/zunz/Haggai.txt`, 38 verses).
 - **Interlinear: Zunz, complete Zephaniah (1–3):** the word-by-word German under the Hebrew text now also covers the whole book of Zephaniah with Zunz's translation (`tools/interlinear/zunz/Zephaniah.txt`, 53 verses).
 - **Interlinear: Zunz, complete Habakkuk (1–3):** the word-by-word German under the Hebrew text now also covers the whole book of Habakkuk with Zunz's translation (`tools/interlinear/zunz/Habakkuk.txt`, 56 verses).
