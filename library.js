@@ -1637,18 +1637,34 @@
         ${fm.length ? `<div class="wcTrFm"><span class="muted">${esc(I18N.t('Formen:'))}</span>${fm.map(([f, n]) => `<span class="fm" lang="de">${esc(f)} <small>${wcNum(n)}</small></span>`).join('')}${sum < gAll ? `<span class="muted">${esc(I18N.t('… und weitere Formen'))}</span>` : ''}${fk.length ? `<span class="muted">(${esc(I18N.t('ohne Filter gezählt'))})</span>` : ''}</div>` : ''}
         ${g.refs ? ctx(g.refs, String(g.g)) : ''}</div>`;
     };
+    // Ring: die häufigsten Wiedergaben (bis 7, ohne die zusammengefassten Einzelbelege) in den Kategorienfarben, der Rest grau; dieselbe Farbe trägt die Zeile in der Liste
+    const TOP = 7, slices = main.filter(g => !g.other).slice(0, TOP).map((g, i) => ({ g, n: g.n, c: i + 1, k: String(g.g), t: lab(g) }));
+    const col = new Map(slices.map(x => [x.g.g, x.c])), restN = tot - slices.reduce((a, x) => a + x.n, 0);
+    if (restN > 0) slices.push({ n: restN, c: 0, k: 'rest', t: I18N.t('Andere') });
+    const R0 = 94, R1 = 60, C = 100; let a0 = 0;
+    const pt = (r, a) => [C + r * Math.sin(a), C - r * Math.cos(a)].map(x => x.toFixed(2)).join(' ');
+    const arcs = tot ? slices.map(x => {
+      const a1 = a0 + x.n / tot * 2 * Math.PI, big = a1 - a0 > Math.PI ? 1 : 0;
+      const d = slices.length === 1 ? `M ${C} ${C - R0} A ${R0} ${R0} 0 1 1 ${C - 0.01} ${C - R0} L ${C - 0.01} ${C - R1} A ${R1} ${R1} 0 1 0 ${C} ${C - R1} Z` : `M ${pt(R0, a0)} A ${R0} ${R0} 0 ${big} 1 ${pt(R0, a1)} L ${pt(R1, a1)} A ${R1} ${R1} 0 ${big} 0 ${pt(R1, a0)} Z`;
+      a0 = a1;
+      return `<path d="${d}" class="wcTrS c${x.c}" data-s="${x.k}"><title>${esc(x.t)}: ${wcNum(x.n)} (${pct(x.n)})</title></path>`;
+    }).join('') : `<circle cx="100" cy="100" r="77" class="wcTrE"/>`;
+    const lemHe = (LEM[S.lemma] || [])[0] || (fmCur && fmCur.lem ? fmCur.lem[0] : '');
+    const ring = `<svg class="wcTrRing" viewBox="0 0 200 200" role="img" aria-label="${esc(I18N.t('Wie wird das Wort übersetzt?'))}">${arcs}<text x="100" y="100" class="wcTrC" lang="he">${esc(lemHe)}</text><text x="100" y="123" class="wcTrT">${esc(wcNum(tot))}</text></svg>`;
+    const cOf = g => col.get(g.g) || 0, sOf = g => col.has(g.g) ? String(g.g) : 'rest';
     const chev = can => `<span class="chev" aria-hidden="true">${can ? '›' : ''}</span>`;
+    const sw = '<i class="sw" aria-hidden="true"></i>';
     const bar = n => `<span class="b"><i style="width:${(n / tot * 100).toFixed(1)}%"></i></span>`;
     const name = g => g.lang === 'arc' && !g.other ? `<button type="button" class="wcTgL" data-q="${esc(g.forms[0])}" title="${esc(I18N.t('Im Wörterbuch nachschlagen'))}">${esc(lab(g))}</button>` : esc(lab(g));
     const row = g => {
       const key = String(g.g), can = !!g.refs && !g.other, open = can && S.open === key, h = hint(g);
-      return `<div class="wcTrR${can ? ' can' : ''}${open ? ' open' : ''}${h ? ' odd' : ''}" data-g="${key}"${can ? ` role="button" tabindex="0" aria-expanded="${open}"${open ? '' : ` title="${esc(I18N.t('Formen und Stellen zeigen'))}"`}` : ''}>${chev(can)}<span class="f"><span lang="${g.lang}"${g.lang === 'arc' ? ' dir="rtl"' : ''}>${name(g)}</span>${g.gl ? ` <small class="muted">${esc(g.gl)}</small>` : ''}${h ? ` <small class="hint" title="${esc(h)}">${esc(h)}</small>` : ''}</span>${bar(g.n)}<small class="n">${wcNum(g.n)}</small><small class="p">${pct(g.n)}</small></div>${open ? detail(g) : ''}`;
+      return `<div class="wcTrR c${cOf(g)}${can ? ' can' : ''}${open ? ' open' : ''}${h ? ' odd' : ''}" data-g="${key}" data-s="${sOf(g)}"${can ? ` role="button" tabindex="0" aria-expanded="${open}"${open ? '' : ` title="${esc(I18N.t('Formen und Stellen zeigen'))}"`}` : ''}>${chev(can)}${sw}<span class="f"><span lang="${g.lang}"${g.lang === 'arc' ? ' dir="rtl"' : ''}>${name(g)}</span>${g.gl ? ` <small class="muted">${esc(g.gl)}</small>` : ''}${h ? ` <small class="hint" title="${esc(h)}">${esc(h)}</small>` : ''}</span>${bar(g.n)}<small class="n">${wcNum(g.n)}</small><small class="p">${pct(g.n)}</small></div>${open ? detail(g) : ''}`;
     };
     const onesRow = () => {
       const open = S.open === 'ones', n = ones.length;
       const body = !open ? '' : de ? `<div class="wcTrX">${ctx(ones.map(g => g.refs[0]).sort((x, y) => x.num - y.num), 'ones', true)}</div>`
         : `<div class="wcTrX"><div class="wcTrFm">${ones.map(g => `<span class="fm" lang="${g.lang}"${g.lang === 'arc' ? ' dir="rtl"' : ''}>${name(g)}${g.gl ? ` <small>${esc(g.gl)}</small>` : ''}</span>`).join('')}</div></div>`;
-      return `<div class="wcTrR can ones${open ? ' open' : ''}" data-g="ones" role="button" tabindex="0" aria-expanded="${open}">${chev(true)}<span class="f"><bdi>${esc(I18N.t('Einzelbelege'))}</bdi> <small class="muted">(${wcNum(n)})</small></span>${bar(n)}<small class="n">${wcNum(n)}</small><small class="p">${pct(n)}</small></div>${body}`;
+      return `<div class="wcTrR c0 can ones${open ? ' open' : ''}" data-g="ones" data-s="rest" role="button" tabindex="0" aria-expanded="${open}">${chev(true)}${sw}<span class="f"><bdi>${esc(I18N.t('Einzelbelege'))}</bdi> <small class="muted">(${wcNum(n)})</small></span>${bar(n)}<small class="n">${wcNum(n)}</small><small class="p">${pct(n)}</small></div>${body}`;
     };
     const others = shown.filter(g => g.other), normal = shown.filter(g => !g.other);
     const list = gs.length ? normal.map(row).join('') + (main.length > shown.length ? `<div class="mr"><button type="button" class="wcTrAllRows" dir="auto">${esc(I18N.t('alle {} Wiedergaben zeigen', wcNum(main.length)))}</button></div>` : '') + (fold ? onesRow() : '') + others.map(row).join('')
@@ -1666,8 +1682,11 @@
     box.innerHTML = `<h4>${esc(I18N.t('Wie wird das Wort übersetzt?'))}${lem ? ` <small class="wcTrLem"><span lang="he" dir="rtl">${esc(lem[0])}</span> ${esc(gloss(S.lemma))}</small>` : ''}</h4>
       ${hom}${tabs}
       <div class="wcTrF">${sum}${mainDims.map(dimRow).join('')}${wcTrMore ? restDims.map(dimRow).join('') : ''}</div>
-      <div class="wcTrL">${list}</div>
+      <div class="wcTrBody"><div class="wcTrRingW">${ring}</div><div class="wcTrL">${list}</div></div>
       <p class="muted wcLxN">${esc(I18N.t(note))}</p>`;
+    // Ring und Liste hängen über die Farbe zusammen: Zeigen auf ein Segment hebt die Zeile hervor und umgekehrt
+    const hl = k => box.querySelectorAll('.wcTrS, .wcTrR').forEach(x => x.classList.toggle('dim', k != null && x.dataset.s !== k));
+    box.querySelectorAll('.wcTrS, .wcTrR').forEach(x => { if (!x.dataset.s) return; x.addEventListener('mouseenter', () => hl(x.dataset.s)); x.addEventListener('mouseleave', () => hl(null)); });
     if (foKey != null) { const n = [...box.querySelectorAll('.wcTrR[data-g]')].find(x => x.dataset.g === foKey); if (n) n.focus({ preventScroll: true }); }
   }
   // Targumim: häufigste aramäische Lexeme, mit denen Onkelos, Pseudo-Jonathan und Neofiti dieses hebräische Lemma wiedergeben
