@@ -1375,7 +1375,8 @@
     body.classList.toggle('fmTrOn', cur !== 'off');
     if (cur === 'off') return;
     const D = S.src[cur], forms = fmCur.mdl.forms, byCode = new Map();
-    D.cells.forEach(c => { let m = byCode.get(c.code); if (!m) byCode.set(c.code, m = new Map()); m.set(c.g, (m.get(c.g) || 0) + c.n); });
+    const topF = new Map(); // je Bestimmung und Gruppe die häufigste wirkliche Form (mit Person: „er ging aus“), sonst die Grundform
+    D.cells.forEach(c => { let m = byCode.get(c.code); if (!m) byCode.set(c.code, m = new Map()); m.set(c.g, (m.get(c.g) || 0) + c.n); if (c.f) topF.set(c.code + '|' + c.g, [c.f, c.n]); });
     const lab = g => { const L = D.labels[g]; return !L || L.other ? I18N.t('Andere') : L.forms[0]; };
     body.querySelectorAll('.fmF[data-i]').forEach(ch => {
       const codes = new Set(String(ch.dataset.i).split(',').map(i => forms[+i] && forms[+i].key.replace('*', '')).filter(Boolean));
@@ -1384,7 +1385,8 @@
       if (!agg.size) return;
       const top = [...agg].sort((a, b) => b[1] - a[1]), tot = top.reduce((a, x) => a + x[1], 0);
       const sp = document.createElement('span'); sp.className = 'fmTrL'; sp.lang = D.lang; sp.dir = D.lang === 'arc' ? 'rtl' : 'ltr';
-      sp.textContent = lab(top[0][0]) + (top.length > 1 ? ' …' : '');
+      let ff = null; codes.forEach(c => { const x = topF.get(c + '|' + top[0][0]); if (x && (!ff || x[1] > ff[1])) ff = x; });
+      sp.textContent = (ff ? ff[0] : lab(top[0][0])) + (top.length > 1 ? ' …' : '');
       sp.title = WC_TR_LABEL[cur] + ': ' + top.slice(0, 3).map(([g, n]) => lab(g) + ' ' + Math.round(n / tot * 100) + ' %').join(' · ');
       ch.appendChild(sp);
     });
@@ -1539,7 +1541,7 @@
   async function wcTrSources(lemma) {
     const [IR, LR, TR] = await Promise.all([loadIlRen(), loadLxxRen(), loadTgRen()]);
     const src = {};
-    if (IR) for (const [tr, M] of Object.entries(IR.tr)) { const x = M[lemma]; if (!x) continue; src[tr] = { lang: 'de', labels: x[0].map(f => ({ forms: f })), cells: x[1].map(([g, code, n, refs]) => ({ g, code, n, refs })) }; }
+    if (IR) for (const [tr, M] of Object.entries(IR.tr)) { const x = M[lemma]; if (!x) continue; src[tr] = { lang: 'de', labels: x[0].map(f => ({ forms: f })), cells: x[1].map(([g, code, n, refs, f]) => ({ g, code, n, refs, f })) }; }
     const lx = LR && LR[lemma];
     if (lx) src.LXX = { lang: 'grc', labels: lx[0].map(g => ({ forms: [g], other: g === '*' })), cells: lx[1].map(([g, code, n, refs]) => ({ g, code, n, refs })) };
     const tg = TR && TR[lemma];

@@ -141,12 +141,13 @@ for NAMES in (None, True):
                 if not cw or (pos in 'VN' and all(w in JUNK for w in form.lower().split())):
                     continue  # nur Partikeln („Und“)
                 key = ' '.join(stem(w) for w in cw)
-                e = acc.setdefault(lems[i - 1], {}).setdefault(key, [0, {}, {}, {}, key])
+                e = acc.setdefault(lems[i - 1], {}).setdefault(key, [0, {}, {}, {}, key, {}])
                 e[0] += 1; fl = form.lower() if not form[:1].isupper() or len(form.split()) > 1 else form
                 e[1][fl] = e[1].get(fl, 0) + 1
                 tt = ' '.join(cw); tt = tt if not form[:1].isupper() or len(cw) > 1 or cw[0] != form.lower() else form
                 e[3][tt] = e[3].get(tt, 0) + 1
                 e[2].setdefault(mcode(*ws[i - 1]), []).append(bi * 1000000 + c * 1000 + v)
+                fc = e[5].setdefault(mcode(*ws[i - 1]), {}); fc[fl] = fc.get(fl, 0) + 1  # häufigste Form je Bestimmung (Paradigmen: „er ging aus“ statt „ausgehen“)
     res = {}
     for lem, groups in acc.items():
         gs = sorted(groups.values(), key=lambda g: -g[0])
@@ -169,11 +170,11 @@ for NAMES in (None, True):
             for code, refs in sorted(g[2].items()):
                 refs = sorted(refs); prev = 0; enc = []
                 for r in refs: enc.append(b36(r - prev)); prev = r
-                cells.append([gi, code, len(refs), '.'.join(enc)])
+                fc = g[5].get(code, {}); cells.append([gi, code, len(refs), '.'.join(enc), max(fc, key=lambda f: (fc[f], -len(f))) if fc else ''])
         res[lem] = [labels, cells]
     out[tr] = res
 p = os.path.join(R, 'interlin-ren.js')
 open(p, 'w', encoding='utf8').write('// Wortkarte: Wiedergabe hebräischer Lemmata in den wortgenau zugeordneten Übersetzungen (interlin.js) – erzeugt von tools/interlinear/renderings.py\n'
-                                    '// Format: {books, tr: {Übersetzung: {Lemma: [[Grundform, [Form, Anzahl] …] je Gruppe …], [[Gruppe, Bestimmung (OSHB-Code des Hauptworts), Anzahl, Stellen] …]]}}}; Stellen: Buch*1000000+Kapitel*1000+Vers als Differenzen (Basis 36)\n'
+                                    '// Format: {books, tr: {Übersetzung: {Lemma: [[Grundform, [Form, Anzahl] …] je Gruppe …], [[Gruppe, Bestimmung (OSHB-Code des Hauptworts), Anzahl, Stellen, häufigste Form bei dieser Bestimmung] …]]}}}; Stellen: Buch*1000000+Kapitel*1000+Vers als Differenzen (Basis 36)\n'
                                     'window.INTERLIN_REN=' + json.dumps({'books': BOOKS, 'tr': out}, ensure_ascii=False, separators=(',', ':')) + ';\n')
 print({k: len(v) for k, v in out.items()}, os.path.getsize(p), 'Bytes')
