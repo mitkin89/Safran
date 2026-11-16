@@ -3,7 +3,7 @@ const assert = require('assert'), fs = require('fs'), path = require('path');
 global.window = {}; require('./interlin.js');
 const ALL = window.INTERLIN, rd = (b, l, re) => { const d = path.join(__dirname, 'bundled', 'own', b, l); return JSON.parse(fs.readFileSync(path.join(d, fs.readdirSync(d).find(f => re.test(f))), 'utf8')).text; };
 const norm = s => s.replace(/<sup class="footnote-marker">.*?<\/sup><i class="footnote">.*?<\/i>/g, '').replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
-const PAT = { Zunz: /Zunz/, Breuer: /^Breuer/, Philippson: /Philippson/, Herxheimer: /ebräischen Texte/, Goldschmidt: /Übersetzung von Lazarus Goldschmidt, Berlin 1921/, Hirsch: /Die Psalmen, übersetzt und erläutert von Samson Raphael Hirsch/, JuliusHirsch: /^Julius Hirsch, Jesaia/ };
+const PAT = { Zunz: /Zunz/, Breuer: /^Breuer/, Philippson: /Philippson/, Herxheimer: /ebräischen Texte/, Goldschmidt: /Übersetzung von Lazarus Goldschmidt, Berlin 1921/, Hirsch: /Die Psalmen, übersetzt und erläutert von Samson Raphael Hirsch/, JuliusHirsch: /^Julius Hirsch, / };
 for (const [tr, D] of Object.entries(ALL)) for (const book of Object.keys(D)) {
   const he = rd(book, 'he', /^Westminster/), de = rd(book, 'de', PAT[tr]);
   let n = 0;
@@ -67,3 +67,15 @@ for (const [book, cases] of Object.entries(KQ)) for (const [verse, ...words] of 
   assert(touched.length, `${book} ${verse}: Ketiv/Qere fehlt`);
   touched.forEach(s => assert(words.every(w => s[0].includes(w)), `${book} ${verse}: Ketiv/Qere getrennt`));
 }
+
+// Trei Asar: sämtliche Versstellen, einschließlich der aus Scans ergänzten Verse.
+const TREI_ASAR = { Hosea: 197, Joel: 73, Amos: 146, Obadiah: 21, Jonah: 48, Micah: 105, Nahum: 47, Habakkuk: 56, Zephaniah: 53, Haggai: 38, Zechariah: 211, Malachi: 55 };
+for (const [book, count] of Object.entries(TREI_ASAR)) assert.strictEqual(Object.keys(ALL.JuliusHirsch[book]).length, count, `Julius Hirsch ${book}`);
+// Die drei wiederhergestellten Amos-Verse müssen Text und sämtliche Wortnummern enthalten.
+for (const [ref, count] of [['7:15', 12], ['7:16', 15], ['7:17', 24]]) {
+  const segs = ALL.JuliusHirsch.Amos[ref];
+  assert.ok(segs.some(s => s[1].length), `Amos ${ref}: ergänzter Text fehlt`);
+  assert.deepStrictEqual([...new Set(segs.flatMap(s => s[0]))].sort((a, b) => a - b), Array.from({ length: count }, (_, i) => i + 1));
+}
+// Habakuks verlorene Fortsetzung enthält nun auch die bisher fehlenden Wörter 11–19.
+assert.ok(Array.from({ length: 9 }, (_, i) => i + 11).every(n => ALL.JuliusHirsch.Habakkuk['2:6'].some(s => s[0].includes(n))));

@@ -1,0 +1,609 @@
+DRUCKABGLEICH DER PRÜFLISTE – JULIUS HIRSCH, TREI ASAR
+Stand: 16. November 2026
+
+Quelle: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/
+Dokument 6601: Trei Asar, Hirsch; 536 Seitenbilder. Zugriff ausschließlich mit GET/lesenden Abrufen; keinerlei Änderungen in eScriptorium. Der API-Schlüssel wird nicht in dieser Lieferung gespeichert.
+Die Bildseiten wurden lokal für einen OCR-Suchindex gelesen. Die kritischen Lesarten wurden am Druckbild kontrolliert, besonders kleine Buchstaben in voller Auflösung. Der lokale Suchindex ist nur eine Suchhilfe und wurde nicht als Originaltext in Safran übernommen.
+
+Dieser Abgleich betrifft die aufgeführten Auffälligkeiten der bestehenden Prüfliste, nicht eine neue vollständige Korrekturlesung aller Übersetzungs- und Kommentarzeilen. Wortnummern und Ketiv/Qere betreffen die bereits erfolgte technische/inhaltliche Interlinear-Prüfung; der neue Abgleich entscheidet über den gedruckten deutschen Wortlaut.
+UMSETZUNGSSTAND NACH FREIGABE: Die nachfolgenden sechs Erfassungsfälle sind behoben; zusätzlich Amos 7:15–17 aus dem gelieferten Scan ergänzt. Übersetzungs-JSON, Interlinear-Zuordnungen, Quellenhinweise und Manifest-Hashes sind aktualisiert. Auffällige, aber druckgetreue Lesarten unverändert. Kein Push. Die zitierten alten Lesarten dokumentieren den Zustand vor der Korrektur.
+
+BESTÄTIGTE ERFASSUNGSFEHLER – UMGESETZT
+
+Joel 4:16: S. 129: gedruckt und es erbeben Himmel und Erde; gespeichert und es erheben Himmel und Erde. Erbeben entspricht ורעשו. Umgesetzt: erheben → erbeben; umgesetzt.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820101/edit/
+
+Amos 4:5: S. 158 schließt die Übersetzung mit Gott. Das gespeicherte abschließende Gott= ist kein gedruckter Worttrenner. Umgesetzt: = durch Punkt ersetzen; umgesetzt.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820226/edit/
+
+Jona 4:2: S. 225: gedruckt sein Werk liebender Gott, gespeichert sein Wert liebender Gott. Werk entspricht der ausdeutenden Wiedergabe von ורחום. Umgesetzt: Wert → Werk; umgesetzt.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820473/edit/
+
+Habakuk 2:6: Der Vers läuft von S. 319 auf S. 320 weiter. Nach verkünden: fehlt im gespeicherten Text der gedruckte Satz: Wehe dem, der da häufet was nicht sein! Wie lange dauert’s und [siehe] Verantwortungsschwere lädt er sich auf! Entspricht הוי המרבה לא לו עד מתי ומכביד עליו עבטיט. Vollständige Fortsetzung aus S. 320 vorhanden; ergänzt.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820952/edit/
+
+Amos 9:7: S. 199 druckt Cafthor (f), gespeichert ist Casthor (s). Der Kommentar schreibt Caphthor; כפתור bestätigt den Namen. Umgesetzt: Casthor → Cafthor, entsprechend der Schreibweise der gedruckten Übersetzung; umgesetzt.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820361/edit/
+
+Haggai 2:2: S. 377 druckt Schalthiels, gespeichert ist Schealthiels. Umgesetzt: Schealthiels → Schalthiels nur in diesem Vers; Namen שאלתיאל geprüft, gedruckte Hirsch-Schreibung übernehmen. Umgesetzt.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/821128/edit/
+
+BEREITS BELEGTE LEERE AMOS-VERSE
+
+Amos 7:15–17 sind jetzt im Safran-Übersetzungstext und interlinear ergänzt. Die gedruckte S. 188 fehlt im verlinkten eScriptorium-Seitenbestand zwischen S. 187 (Element 184) und S. 189 (Element 185). Der Nutzer hat S. 188 inzwischen separat als 8084685-größer.jpeg geliefert; darin sind alle drei Übersetzungsverse vollständig vorhanden. Es handelt sich also um eine Lücke des bereitgestellten Scans bzw. der bisherigen Erfassung, nicht um eine fehlende Übersetzung im Originaldruck. Nach der nun erteilten ausdrücklichen Freigabe sind auch die drei Übersetzungsverse eingefügt. Der Kommentar 7:12–17 ist bereits ergänzt.
+Hosea 9:2–3 und die fehlende Kommentarseite sind anhand der separat gelieferten S. 69 bereits wiederhergestellt. Auch S. 69 fehlt in Dokument 6601 (zwischen Element 66 und 67).
+
+DRUCKBEFUNDE UND AUSLASSUNGEN – EINZELENTSCHEIDUNGEN
+
+Hosea 1:1 – Druckbefund, kein OCR-Fehler
+Im Druck S. 20 steht tatsächlich Nebats. Die Abweichung zum hebräischen יואש ist bereits in der Vorlage vorhanden; nicht stillschweigend durch Joasch ersetzen.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/819792/edit/
+
+Hosea 4:3 – Auslassung bereits im Druck
+S. 38 lässt Tiere des Feldes und Vögel des Himmels auch in der deutschen Druckübersetzung aus; kein verlorener OCR-Text.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/819828/edit/
+
+Hosea 7:9 – Auslassung bereits im Druck
+S. 60 endet die Übersetzung nach es aber merkte es nicht! Der Satz vom grauen Haar fehlt bereits gedruckt; der Kommentar deutet vorzeitiges Altwerden, liefert aber keinen verlorenen Übersetzungssatz.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/819854/edit/
+
+Hosea 10:15 – Druckbefund, kein OCR-Fehler
+S. 83 druckt tatsächlich euer Schlechtigkeit; der Kommentar paraphrasiert eurer Schlechtigkeit. Eine sprachliche Normalisierung wäre ein Eingriff in den Drucktext.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/819885/edit/
+
+Joel 1:11 – Druckbefund, kein OCR-Fehler
+S. 112 druckt tatsächlich des Weines, obwohl חטה Weizen bedeutet. Kein versehentlich verlorenes z in der Erfassung.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820011/edit/
+
+Joel 2:22 – Druckbefund, kein OCR-Fehler
+S. 119 druckt tatsächlich ihre Tiere der Flur. Die grammatische Auffälligkeit stammt aus dem Druck.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820048/edit/
+
+Amos 1:2 – Auslassung bereits im Druck
+S. 138 beginnt die deutsche Übersetzung direkt mit Gott wird von Zion …; ein separates und er sprach fehlt bereits im Druck.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820148/edit/
+
+Amos 4:8 – Auslassung bereits im Druck
+S. 161 endet der deutsche Vers nach zurückgekehrt! Die Gottes-Spruchformel ist erst bei Vers 9 gedruckt, nicht bei Vers 8.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820237/edit/
+
+Amos 6:8 – Auslassung bereits im Druck
+S. 178–179: der gespeicherte verkürzte Schwursatz entspricht dem Druck, einschließlich Liebe statt Gnade. Kein verlorener OCR-Zusatz bei sich oder eine zweite Spruchformel.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820295/edit/
+
+Amos 7:9 – Druckbefund, kein OCR-Fehler
+S. 186 vertauscht bereits im gedruckten Deutschen die Namen: Höhen Jisraels / Heiligtümer Jischaks. Die hebräische Seite hat Höhen Jischaks / Heiligtümer Jisraels. Keine Namen stillschweigend austauschen.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820321/edit/
+
+Amos 8:10 – Druckbefund, kein OCR-Fehler
+S. 193 druckt euer Feste. Nicht als Erfassungsfehler behandeln.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820341/edit/
+
+Micha 1:9 – Auslassung bereits im Druck
+S. 235 fehlt bis Juda bereits in der deutschen Druckübersetzung; der Kommentar bespricht das Vordringen bis Juda ausdrücklich. Kein verlorener OCR-Text.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820550/edit/
+
+Micha 2:4 – Auslassung bereits im Druck
+S. 241 geht die deutsche Übersetzung von der [schon bisher] gesprochen hat unmittelbar zu Das Teil meines Volkes über. Der gedruckte Kommentar bespricht שדוד נשדנו, die gedruckte Übersetzung lässt es aus.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820598/edit/
+
+Micha 4:1 – Druckbefund, kein OCR-Fehler
+S. 254 druckt Spitze des Berges, obwohl ההרים Plural ist. Nicht normalisieren.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820654/edit/
+
+Micha 5:1 – Auslassung bereits im Druck
+S. 262 fehlt ein separates mir/für mich zu לי auch gedruckt.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820681/edit/
+
+Micha 6:6 – Druckbefund, kein OCR-Fehler
+S. 270 druckt tatsächlich einjährigen Schafen. Die Abweichung zu עגלים (Kälbern) ist bereits in der Druckvorlage vorhanden.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820706/edit/
+
+Micha 6:7 – Druckbefund, kein OCR-Fehler
+S. 270 druckt tatsächlich Tausenden von Rindern. Die Abweichung zu אילים (Widdern) ist bereits in der Druckvorlage vorhanden.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820706/edit/
+
+Micha 7:17 – Auslassung bereits im Druck
+S. 281 druckt Lecken werden sie Staub wie die auf der Erde Kriechenden; ein eigener Vergleich wie die Schlange fehlt auch im Druck.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820746/edit/
+
+Nahum 3:3 – Deutende Übersetzung im Druck bestätigt
+S. 298 druckt Sinnlichkeit / durch ihre Sinnlichkeit. Der Kommentar erläutert diese Lesart von גויה ausdrücklich. Kein OCR-Fehler und keine Ersetzung durch Leichname.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820848/edit/
+
+Nahum 3:5 – Druckbefund, kein OCR-Fehler
+S. 299 druckt Völker deiner Blöße schauen; dieselbe grammatische Auffälligkeit wie im Datenbestand.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820854/edit/
+
+Nahum 3:19 – Druckbefund, kein OCR-Fehler
+S. 304 druckt Kein Linderung giebt es deinem, mit Fortsetzung Bruche auf S. 305. Nicht als verlorenes e der Erfassung behandeln.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820875/edit/
+
+Haggai 2:23 – Auslassung bereits im Druck
+S. 387 lässt Sohn Schealthiels, die mittlere Spruchformel und wie ein Siegel auch in der deutschen Druckübersetzung aus. Der Kommentar behandelt das Siegel ausführlich. Keine freie Übersetzung ergänzen.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/821194/edit/
+
+Micha 4:14 – Auslassung bereits im Druck
+S. 261 lässt מצור שם עלינו (eine Belagerung hat er gegen uns gesetzt) auch in der deutschen Druckübersetzung aus. Der Kommentar auf S. 262 bespricht מצור dagegen ausdrücklich.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820679/edit/
+
+Haggai 2:15 – Druckbefund, kein OCR-Fehler
+S. 384 druckt ausdrücklich richtet eurer Herz. Das zusätzliche r stammt bereits aus der Druckvorlage, nicht aus der Erfassung.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/821169/edit/
+
+Haggai 1:1/1:12/1:14/2:2 – Teilweise Druckvariante, teilweise Erfassungsfehler
+S. 369 Schealthiels ist richtig erfasst; S. 374 und 375 drucken Schalthiels, ebenfalls richtig erfasst. In 2:2 (S. 377) steht jedoch ebenfalls Schalthiels, während die JSON Schealthiels enthält. Dieser Einzelfall wurde gesondert korrigiert; die übrigen gedruckten Namensvarianten bleiben erhalten.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/821100/edit/
+
+Sacharja 4:5 – Druckbefund, kein OCR-Fehler
+S. 411 druckt tatsächlich antwortetete. Der Datenbestand ist hier druckgetreu; eine Änderung zu antwortete wäre eine Druckfehlerkorrektur.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/821326/edit/
+
+Sacharja 6:6 – Druckbefund, kein OCR-Fehler
+S. 426 druckt die schwarze Rosse sowie schekigen. Beide Auffälligkeiten sind bereits im Druck vorhanden; nicht stillschweigend grammatisch oder orthographisch normalisieren.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/821399/edit/
+
+Sacharja 5:11 – Auslassung bereits im Druck
+S. 422: Da sprach er: ohne ein separates zu mir zu אלי; der gespeicherte Wortlaut entspricht dem Druck.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/821392/edit/
+
+Sacharja 6:14 – Auslassung bereits im Druck
+S. 434 nennt Chelem, Tobija, Jedaja und dem Sohne Zephanjas, ohne den Namen Chen. Kein OCR-Ausfall eines gedruckten Namens.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/821423/edit/
+
+Sacharja 13:8 – Auslassung bereits im Druck
+S. 494 wiederholt auf ihr nicht in der zweiten Vershälfte. Kein zusätzliches Wort in die deutsche Übersetzung einsetzen.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/821757/edit/
+
+Maleachi 3:21 – Deutende Übersetzung im Druck bestätigt
+S. 534 druckt bildet. Der Kommentar erläutert ausdrücklich עסס als gestalten, formen, bilden. Die Form ist bewusst gewählt und kein Erfassungsfehler für zertretet.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/821999/edit/
+
+EINZELABGLEICH DER VERSE MIT AUFFÄLLIGEM WORTLAUT
+
+„Druckwortlaut bestätigt“ bedeutet: die in der alten Liste markierte ungewöhnliche Übersetzung bzw. nicht gesondert ausgedrückte hebräische Wendung lässt sich im deutschen Druck so wiederfinden. Dies ist keine Behauptung, dass jede Übersetzung sprachlich oder exegetisch alternativlos sei. Ungewöhnliche Deutungen werden nicht an eine andere Bibelübersetzung angeglichen.
+
+Hosea 1:1 | Druck S. 20 | Druckbefund, kein OCR-Fehler
+Gespeichert: Das Wort Gottes, das an Hoschea, den Sohn Beëris, erging in den Tagen Usijas, Jothams, Achas', Jechiskijas, der Könige von Juda, und in den Tagen Jerobeams, des Sohnes Nebats, des Königs von Jisrael.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/819792/edit/
+
+Hosea 1:6 | Druck S. 22, 23 | Druckwortlaut bestätigt
+Gespeichert: Da ward sie nochmals Mutter und gebar eine Tochter, da sagte er zu ihm: „Nenne ihren Namen Lo-Ruchama, [Erbarmensverlustige], denn ich werde nicht fortfahren, mich ferner des Hauses Jisrael als meines Kindes zu erbarmen, …
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/819796/edit/
+
+Hosea 1:7 | Druck S. 23 | Druckwortlaut bestätigt
+Gespeichert: Des Hauses Juda aber werde ich mich wohl als meines Kindes erbarmen, und werde ihnen helfen, weil Gott noch ihr Gott ist — nicht aber werde ich ihnen durch Bogen, Schwert und Krieg, durch Rosse und Reiter helfen.“
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/819798/edit/
+
+Hosea 3:1 | Druck S. 34, 35 | Druckwortlaut bestätigt
+Gespeichert: Gott sprach zu mir: „Gehe noch einmal hin und schließe den Liebesbund mit einer Frau, die aufs innigste geliebt wird und dennoch die Treue bricht, ganz so wie Gott die Söhne Israels liebt, sie jedoch sich anderen Göttern …
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/819820/edit/
+
+Hosea 3:2 | Druck S. 35 | Druckwortlaut bestätigt
+Gespeichert: Da stellte ich sie mir bereit für fünfzehn Silberstücke und ein Chomer Gerste und ein Lethech Gerste.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/819822/edit/
+
+Hosea 4:3 | Druck S. 38 | Auslassung bereits im Druck
+Gespeichert: Deshalb trauert das Land, und ist gebrochen jeder, der darin wohnet, und selbst die Fische des Meeres werden dahingerafft.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/819828/edit/
+
+Hosea 5:1 | Druck S. 45, 46 | Druckwortlaut bestätigt
+Gespeichert: Vernehmet dieses Wort, ihr Priester, und merket auf, Haus Israel, und ihr Glieder des Königshauses, neiget euer Ohr! denn euer ist die Handhabung des Rechtes — denn eine Falle waret ihr für den Ausblick und ein Netz, das …
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/819839/edit/
+
+Hosea 5:13 | Druck S. 50 | Druckwortlaut bestätigt
+Gespeichert: Ephrajim sah seine Krankheit, und Juda dessen Heilmittel, Ephrajim nämlich ging zu Aschur und schickte gerade zu dem Könige, der gegen es kämpfen soll — der wahrlich wird euch nicht heilen können, und aus euch selbst erw …
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/819844/edit/
+
+Hosea 6:6 | Druck S. 54 | Druckwortlaut bestätigt
+Gespeichert: Denn Hingebung habe ich gewollt, und nicht Opfer, und Gotteserkenntnis sollte aus den Emporopfern hervorgehen!
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/819848/edit/
+
+Hosea 6:9 | Druck S. 55 | Druckwortlaut bestätigt
+Gespeichert: doch Menschen angelnden Rotten gleich ist die Genossenschaft der Priester! Auf offener Straße morden sie, um etwas heimzutragen! Denn sie haben das Bubenstück vollbracht.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/819849/edit/
+
+Hosea 7:9 | Druck S. 60 | Auslassung bereits im Druck
+Gespeichert: Bereits haben Fremde seine Kraft verzehrt, es aber merkte es nicht!
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/819854/edit/
+
+Hosea 8:6 | Druck S. 64 | Druckwortlaut bestätigt
+Gespeichert: Denn von Jisrael ist ja auch es! Ein Meister hat es ja gemacht, es ist ja kein Gott! Denn in die Verbannung hätte Schomrons Kalb müssen!
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/819858/edit/
+
+Hosea 10:14 | Druck S. 82 | Druckwortlaut bestätigt
+Gespeichert: So erhebt sich denn Kriegsgetümmel wider deine Volkeskreise, und alle deine Festungen werden wie eine zerstört, gleich dem Untergange eines Harmlosen im Hause eines arglistigen Gewaltigen am Tage des Krieges — die Mutter …
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/819882/edit/
+
+Hosea 10:15 | Druck S. 83 | Druckbefund, kein OCR-Fehler
+Gespeichert: Solches hat euch Bethel gewirkt, wegen der Schlechtigkeit euer Schlechtigkeit — wenn es taget, so ist gänzlich verstummt der König von Jisrael.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/819885/edit/
+
+Hosea 13:14 | Druck S. 101 | Druckwortlaut bestätigt
+Gespeichert: Aus der Gewalt des Grabes möchte ich sie befreien, vom Tode möchte ich sie erretten: jedoch nach deinen Worten soll ich selbst der Tod sein, soll ich es sein der dich tötet, das Grab — deshalb ist jede Änderung meines En …
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/819953/edit/
+
+Hosea 14:3 | Druck S. 103 | Druckwortlaut bestätigt
+Gespeichert: Nehmet Worte mit euch und kehret zurück zu Gott, sprechet zu ihm: Wolle ganz die Sünde hinwegnehmen und nimm als das Gute an, und wir möchten mit Stiereskraft unser Lippenwort erfüllen.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/819964/edit/
+
+Joel 1:11 | Druck S. 112 | Druckbefund, kein OCR-Fehler
+Gespeichert: Es täuschen die Erwartung die Landleute, jammert, ihr Winzer, wegen des Weines und wegen der Gerste, denn verloren ist die Ernte des Feldes.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820011/edit/
+
+Joel 1:17 | Druck S. 113 | Druckwortlaut bestätigt
+Gespeichert: Es faulen die Stückfässer unter ihren Spunden, verödet sind die Speicher, eingerissen die Scheuern, denn die Hoffnungen getäuscht hat das Getreide.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820015/edit/
+
+Joel 2:2 | Druck S. 114 | Druckwortlaut bestätigt
+Gespeichert: Ein Tag der Finsternis und der Dunkelheit, ein Tag des Gewölkes und der Wetterwolke ist [mit diesem Tage des Gottesgerichtes verglichen] wie Morgenrot, das über die Berge gebreitet! Ein Volk, zahlreich und mächtig, seine …
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820021/edit/
+
+Joel 2:22 | Druck S. 119 | Druckbefund, kein OCR-Fehler
+Gespeichert: Fürchtet nicht, ihre Tiere der Flur, denn es grünen die Auen der Trift, denn der Baum trägt wieder seine Frucht, Feigenbaum und Weinstock spenden wieder ihre Kraft.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820048/edit/
+
+Joel 2:23 | Druck S. 120 | Druckwortlaut bestätigt
+Gespeichert: Ihr Söhne Zions aber jauchzet und freuet euch über Gott, euren Gott, daß er euch den Lehrmeister zur Pflichttreue gegeben, er ließ euch auch niederströmen den Regen, den Frühregen und den Spätregen im ersten Monat.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820053/edit/
+
+Joel 4:2 | Druck S. 124, 125 | Druckwortlaut bestätigt
+Gespeichert: werde ich alle Völker versammeln und sie hinabführen in das Thal Jehoschafat und werde mit ihnen ins Gericht gehen wegen meines Volkes und meines Erbteils Israel, das sie unter die Völker zerstreut haben, und mein Land h …
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820074/edit/
+
+Joel 4:13 | Druck S. 129 | Druckwortlaut bestätigt
+Gespeichert: Legt die Sichel an, denn die Ernte ist reif! Kommet herbei, steiget hinab, die Kelter ist voll, die Kufen fließen über, denn groß ist ihr Frevel.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820101/edit/
+
+Joel 4:16 | Druck S. 129 | Erfassungsfehler bestätigt
+Gespeichert: Dann ruft Gott mit Macht von Zion, und von Jeruschalajim läßt er seine Stimme ertönen, und es erbeben Himmel und Erde —: seinem Volke aber ist Gott Zuflucht und ein Quell der Kraft den Söhnen Israels!
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820101/edit/
+
+Joel 4:19 | Druck S. 130, 131 | Druckwortlaut bestätigt
+Gespeichert: Mizrajim wird zur Öde werden und Edom zur Wüstenei der Öde wegen der an den Söhnen Judas verübten Gewalt, weil sie unschuldiges Blut in deren Lande vergossen.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820106/edit/
+
+Amos 1:2 | Druck S. 138 | Auslassung bereits im Druck
+Gespeichert: Gott wird von Zion mit Macht rufen und von Jeruschalajim wird er seine Stimme ertönen lassen, da trauern die Auen der Hirten und es verdorret der Gipfel des Karmel!
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820148/edit/
+
+Amos 4:5 | Druck S. 158 | Erfassungsfehler bestätigt
+Gespeichert: Und lasset von Gesäuertem Dankopfer aufdampfen und nennet es freiwillige Weiheopfer, verkündet es, denn also liebt ihr's ja, Söhne Israels! spricht mein Herr, der seine Liebe als Rechtswaltung offenbarende Gott.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820226/edit/
+
+Amos 4:8 | Druck S. 161 | Auslassung bereits im Druck
+Gespeichert: Und zwei, drei Städte eilten ängstlich zu einer Stadt um Wasser zu trinken, und wurden nicht satt — und ihr seid [dennoch] nicht bis zu mir zurückgekehrt!
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820237/edit/
+
+Amos 6:8 | Druck S. 178, 179 | Auslassung bereits im Druck
+Gespeichert: Geschworen hat's mein Herr, der seine Liebe als Rechtswaltung offenbarende Gott, Gott der Schöpfungsscharen: Ich verabscheue den Hochmut Jakobs und seine Paläste hasse ich längst, [deshalb] gebe ich preis die Stadt und i …
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820295/edit/
+
+Amos 7:9 | Druck S. 186 | Druckbefund, kein OCR-Fehler
+Gespeichert: Verwüstet müssen werden die Höhen Jisraels und zerstört die Heiligtümer Jischaks, und ich stehe wider das Haus Jerobeams auf mit dem Schwerte. —
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820321/edit/
+
+Amos 8:8 | Druck S. 192 | Druckwortlaut bestätigt
+Gespeichert: Muß darob nicht die Erde erbeben und trauern jeder Bewohner auf ihr, und ganz und gar aufwallen wie das Licht und aufgestört werden und niederwogen wie der Strom Mizrajims!?
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820337/edit/
+
+Amos 8:10 | Druck S. 193 | Druckbefund, kein OCR-Fehler
+Gespeichert: Und umwandele euer Feste in Trauer und alle eure Lieder in Klage, und bringe um alle Lenden härenen Gurt und Glatze auf jedes Haupt, und mache es wie die Trauer um ein einziges Kind und ihre Zukunft wie einen bitteren Ta …
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820341/edit/
+
+Amos 9:7 | Druck S. 199 | Erfassungsfehler bestätigt
+Gespeichert: „Gehöret ihr, Söhne Jisraels, nicht [wenigstens] ebenso mir an wie die Söhne der Äthiopier?“ — ist der Ausspruch Gottes — „habe ich nicht Jisrael aus dem Lande Ägypten herausgeführt und die Philister aus Cafthor und Aram …
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820361/edit/
+
+Obadja 1:7 | Druck S. 206 | Druckwortlaut bestätigt
+Gespeichert: Bis an die Grenze hatten dir das Geleite gegeben deine Bundesgenossen, es haben dich verlockt, bis sie dir beikommen konnten, die Männer deines Friedens: die dein Brot schienen, werden die Heilung bewirken, indem sie an  …
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820385/edit/
+
+Jona 2:4 | Druck S. 221 | Druckwortlaut bestätigt
+Gespeichert: Da schleuderte die schattige Tiefe mich hinauf in die Mitte der Meereswogen, und eine Strömung umkreiste mich da, sodaß alle deine Brandungen und Wogen über mich hinglitten.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820449/edit/
+
+Jona 4:2 | Druck S. 225 | Erfassungsfehler bestätigt
+Gespeichert: Und da betete er zu Gott und sprach: „O Gott, war das ja mein Wort, als ich noch in meinem Lande war! Bin ich ja deshalb [der Vollendung des Auftrages] durch Flucht gen Tharschisch zuvorgekommen! Denn ich wußte es ja, da …
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820473/edit/
+
+Jona 4:6 | Druck S. 226 | Druckwortlaut bestätigt
+Gespeichert: Da bestellte Gott ein Kikajon, daß es über Jona aufwuchs, daß es sein Haupt beschatte, ihn von seinem Übel zu retten. Da freute sich Jona mit großer Freude über das Kikajon.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820480/edit/
+
+Micha 1:9 | Druck S. 235 | Auslassung bereits im Druck
+Gespeichert: Denn siech ist sie durch ihre Wunden — denn gekommen ist es bis an das Thor meines Volkes, bis Jeruschalajim.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820550/edit/
+
+Micha 2:4 | Druck S. 241 | Auslassung bereits im Druck
+Gespeichert: [Selbst] an jenem Tage wird über euch den Spruch erheben und wird klagen: „Ein Unglück ist geschehen!“ der [schon bisher] gesprochen hat: „Das Teil meines Volkes will er vertauschen! — Wie könnte der mir etwas wankend ma …
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820598/edit/
+
+Micha 4:1 | Druck S. 254 | Druckbefund, kein OCR-Fehler
+Gespeichert: Und es wird geschehen am Ziele der Tage, da wird der Berg des Hauses Gottes gegründet sein auf die Spitze des Berges und erhaben über Hügel, und zu ihm hinan strömen Völker.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820654/edit/
+
+Micha 4:14 | Druck S. 261 | Auslassung bereits im Druck
+Gespeichert: Deshalb lasse dich jetzt nur von Scharen überziehen, die du den Scharen verfallen bist! Mit dem Stabe schlagen sie auf die Wange den — Richter Israel!
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820679/edit/
+
+Micha 5:1 | Druck S. 262 | Auslassung bereits im Druck
+Gespeichert: Und du, Bethlehem-Ephratha, das zu klein ist, um unter den Tausenden Judas zu sein, aus dir wird hervorgehen der bestimmt ist Herrscher zu sein über Israel, seine Ursprünge sind aus der Urzeit, aus den Tagen der Ewigkeit …
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820681/edit/
+
+Micha 6:6 | Druck S. 270 | Druckbefund, kein OCR-Fehler
+Gespeichert: „Womit soll ich denn Gott entgegenkommen, mich noch tiefer beugen vor dem erhabenen Gotte? Soll ich ihm mit Emporopfern entgegenkommen, mit einjährigen Schafen?
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820706/edit/
+
+Micha 6:7 | Druck S. 270 | Druckbefund, kein OCR-Fehler
+Gespeichert: Oder hat Gott Wohlgefallen an Tausenden von Rindern, an Zehntausenden von Ölströmen? Soll ich etwa meinen Erstgeborenen für meine Missethat dahingeben, meines Leibes Frucht für den Leichtsinn meiner Seele?“ —
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820706/edit/
+
+Micha 7:17 | Druck S. 281 | Auslassung bereits im Druck
+Gespeichert: Lecken werden sie Staub wie die auf der Erde Kriechenden, zagend werden sie aus ihren Burgen kommen, zu Gott unserem Gotte werden sie bebend hineilen und werden vor dir sich fürchten.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820746/edit/
+
+Nahum 1:5 | Druck S. 288 | Druckwortlaut bestätigt
+Gespeichert: Berge erbeben vor ihm und die Hügel zerfließen! — Da wollte sich die Erde seiner Waltung entheben, die Menschenwelt und alle ihre Bewohner?
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820785/edit/
+
+Nahum 1:8 | Druck S. 289 | Druckwortlaut bestätigt
+Gespeichert: Und inmitten der überströmenden Flut macht er die Vernichtung selbst zu ihrer [Rettungs-] Stätte — seine Feinde aber verfolgt Finsternis.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820792/edit/
+
+Nahum 1:10 | Druck S. 290 | Druckwortlaut bestätigt
+Gespeichert: Denn [die Not kommt] bis zu den ineinandergeschlungenen Dornen, die so vollgesogen sind als sie nur fassen können, sie werden verzehrt wie trockenes — volles Stroh.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820798/edit/
+
+Nahum 2:4 | Druck S. 293 | Druckwortlaut bestätigt
+Gespeichert: Der Schild seiner [Ninives] Helden ist gerötet, die Kriegsmänner sind in Purpur gehüllt, in Fackelschein die Wagen am Tage — seiner Bereitmachung! und alles Holzwerk ist verhüllt!
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820817/edit/
+
+Nahum 2:8 | Druck S. 295 | Druckwortlaut bestätigt
+Gespeichert: Er soll zum Stehen gebracht werden — doch sie ist [schon] gefangen, wird hinaufgeführt, und ihre Mägde klagen gleich dem Girren der Tauben, sie schlagen an ihre Brüste.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820829/edit/
+
+Nahum 2:11 | Druck S. 296 | Druckwortlaut bestätigt
+Gespeichert: Leere und Stätte der Entleerung und in sich gespalten! Und geschmolzen der Mut und Schlottern der Kniee und Krampfeswehen in allen Lenden, und aller Antlitz hat die Röte verloren!
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820836/edit/
+
+Nahum 3:3 | Druck S. 298 | Deutende Übersetzung im Druck bestätigt
+Gespeichert: Reiter von Rang und flammende Schwerter und blitzende Speere! Und — Menge der Gemordeten und Masse der Toten! Und kein Ende der Sinnlichkeit, und sie kommen zu Falle durch ihre Sinnlichkeit!
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820848/edit/
+
+Nahum 3:4 | Druck S. 299 | Druckwortlaut bestätigt
+Gespeichert: Durch die Menge der Buhlereien der Unzüchtigen wurde die mit natürlichem Liebreiz Ausgestattete zu einer Meisterin der Zauberkünste, die Völker verkauft für ihre Buhlereien und Familien für ihre Zaubermittel.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820854/edit/
+
+Nahum 3:5 | Druck S. 299 | Druckbefund, kein OCR-Fehler
+Gespeichert: Siehe ich trete dir entgegen, ist der Spruch Gottes der Schöpfungsscharen, und decke auf deine Säume über dein Angesicht und lasse Völker deiner Blöße schauen und Königreiche deine Schmach.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820854/edit/
+
+Nahum 3:12 | Druck S. 302 | Druckwortlaut bestätigt
+Gespeichert: Deine Festungen sind wie Feigen neben frühreifen: wenn sie geschüttelt werden, so fallen sie dem Esser in den Mund!
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820866/edit/
+
+Nahum 3:15 | Druck S. 303 | Druckwortlaut bestätigt
+Gespeichert: Dort wird Feuer dich verzehren, wird das Schwert dich vernichten, wie Heuschrecken! Mach dich nur [männlich] schwer und stark wie die Heuschrecke, mache dich [weiblich] wehrlos schwer wie die Heuschrecke!
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820870/edit/
+
+Nahum 3:19 | Druck S. 304, 305 | Druckbefund, kein OCR-Fehler
+Gespeichert: Kein Linderung giebt es deinem Bruche, unheilbar ist deine Wunde! Alle, die Kunde von dir vernehmen, schlagen die Hände über dich zusammen, denn über wen ist nicht stets ergangen von dir gefügtes Unglück!
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820875/edit/
+
+Habakuk 1:3 | Druck S. 309 | Druckwortlaut bestätigt
+Gespeichert: Warum lässest du mich Machtmißbrauch sehen und wie du dem Unglück zusiehst! und Raub und Gewalt sind [stets] mir gegenüber! und Gegenstand des Streites und der Meinungsverschiedenheit ward, was alles tragen sollte!
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820905/edit/
+
+Habakuk 1:4 | Druck S. 310 | Druckwortlaut bestätigt
+Gespeichert: Dadurch verliert die Thora ihre Kraft und nicht zum Siege tritt hinaus das Recht — wenn der Gottlose den Pflichttreuen zu krönen hat, deshalb muß die Rechtsordnung verkehrt hervorgehn!
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820912/edit/
+
+Habakuk 2:2 | Druck S. 316 | Druckwortlaut bestätigt
+Gespeichert: Da antwortete mir Gott und sprach: Schreibe nieder das Gesicht, und schreibe es deutlich auf die Tafeln, damit geläufig lese der es liest!
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820936/edit/
+
+Habakuk 2:6 | Druck S. 319, 320 | Erfassungslücke bestätigt
+Gespeichert: Wahrlich, diese selben werden noch über ihn [ihren] Spruch erheben und eine Rede, die ihm Rätsel wäre — ja er selbst wird es verkünden: Wehe dem, der da häufet was nicht sein! Wie lange dauert’s und [siehe] Verantwortung …
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820952/edit/
+
+Habakuk 2:17 | Druck S. 325 | Druckwortlaut bestätigt
+Gespeichert: Denn die am Libanon verübte Gewalt wird dich bedecken und der an den zahmen Tieren verübte Raub wird sie in wilde Tiere verwandeln! — wegen des Menschenblutes, wegen der am Lande, an der Stadt und allen ihren Bewohnern v …
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/820988/edit/
+
+Habakuk 3:3 | Druck S. 329 | Druckwortlaut bestätigt
+Gespeichert: Gott wird von Theman kommen, der Heilige vom Gebirge Paran, dann hat seine Majestät die Himmel bedeckt, und sein Thatenlob erfüllt die Erde.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/821012/edit/
+
+Habakuk 3:8 | Druck S. 331 | Druckwortlaut bestätigt
+Gespeichert: Also in Zeitenströmen waltet Gottes Zürnen? Wenn in diesen Strömen dein Zorn, wenn in diesem Meere dein Unwille waltet, wenn du deine Rosse besteigst, so bedeuten deine Lenkungen — Heil!
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/821020/edit/
+
+Habakuk 3:9 | Druck S. 331 | Druckwortlaut bestätigt
+Gespeichert: Unverhüllt wird enthüllt dein Bogen, die den Stämmen geleisteten Schwüre bleiben ein ewig Gotteswort —: die Ströme durchbricht die Erde.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/821020/edit/
+
+Habakuk 3:13 | Druck S. 333 | Druckwortlaut bestätigt
+Gespeichert: so zogst du aus zum Heile deines Volkes, für das Heil deines Gesalbten, zerschmettertest das Haupt vom Hause des Frevlers, um die Grundlagen aufzudecken bis an den Hals.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/821026/edit/
+
+Habakuk 3:15 | Druck S. 333 | Druckwortlaut bestätigt
+Gespeichert: Wenn du deine Rosse das Meer betreten lässest, so werden zu gefügigem Thon die mächtigen Fluten! —
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/821026/edit/
+
+Zephanja 1:2 | Druck S. 338 | Druckwortlaut bestätigt
+Gespeichert: Soll ich denn heimsammelnd alles vernichten von der Fläche des Menschenbodens? — ist der Spruch Gottes.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/821043/edit/
+
+Zephanja 1:3 | Druck S. 338 | Druckwortlaut bestätigt
+Gespeichert: Dann müßte ich vernichten Menschen und Vieh, müßte vernichten den Vogel des Himmels und die Fische des Meeres und was zum Straucheln bringt die Frevler — ich müßte den Menschen vertilgen von der Oberfläche des Menschenbo …
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/821043/edit/
+
+Zephanja 1:11 | Druck S. 343 | Druckwortlaut bestätigt
+Gespeichert: Jammert, Bewohner des — Mörsers! Denn zum Verstummen gebracht ist alles kenaanitische Volk, vernichtet sind alle Silberbarren!
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/821054/edit/
+
+Zephanja 1:14 | Druck S. 344 | Druckwortlaut bestätigt
+Gespeichert: Nahe ist der große Tag Gottes, er ist nahe und eilet sehr. Wer bei dem Rufe: „Der Tag Gottes ist da!“ noch laut aufschreit, wird dort ein Held sein!
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/821055/edit/
+
+Zephanja 2:6 | Druck S. 350 | Druckwortlaut bestätigt
+Gespeichert: Und der Strich am Meere wird zu Stätten, wo Hirten ihr Mahl bereiten, und zu Hürden für die Schafe.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/821061/edit/
+
+Zephanja 2:14 | Druck S. 353 | Druckwortlaut bestätigt
+Gespeichert: Und es lagern in ihrer Mitte Herden, alles Getier in Menge, auch Kaath, auch Kippod nächtigen in ihren Knäufen, durch die Fenster pfeift der Wind, Verödung auf der Schwelle, denn das Cederngebälk ist bloßgelegt.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/821064/edit/
+
+Zephanja 3:1 | Druck S. 354 | Druckwortlaut bestätigt
+Gespeichert: Wehe ihr, sie ist gemästet worden und [glaubt sich] erlöst — die taubeneinfältige Stadt!
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/821065/edit/
+
+Zephanja 3:4 | Druck S. 355 | Druckwortlaut bestätigt
+Gespeichert: Ihre Propheten sind Leichtfertige, Männer — für treulose Frauen! Ihre Priester — entweihen das Heiligtum, sie thun der Thora Gewalt an.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/821066/edit/
+
+Zephanja 3:7 | Druck S. 357 | Druckwortlaut bestätigt
+Gespeichert: da hatte ich gesprochen: du würdest mich dennoch fürchten, würdest Belehrung annehmen, damit nicht ihre [der Thora] Stätte zerstört werde durch alles, was ich über sie [Jerusalem] verhängt habe —: sie jedoch standen nur  …
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/821068/edit/
+
+Zephanja 3:15 | Druck S. 362 | Druckwortlaut bestätigt
+Gespeichert: Entfernt hat Gott deine Strafgerichte, beseitigt hat er deinen Feind: Israels König ist Gott in deiner Mitte, du wirst nicht ferner Böses schauen.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/821076/edit/
+
+Haggai 1:1 | Druck S. 369 | Druckwortlaut bestätigt
+Gespeichert: Im zweiten Jahre des Königs Darjawesch, im sechsten Monat, am ersten Tage des Monats, erging das Wort Gottes durch den Propheten Chaggai an Serubabel, den Sohn Schealthiels, den Statthalter von Juda, und an den Hohenprie …
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/821100/edit/
+
+Haggai 1:4 | Druck S. 371 | Druckwortlaut bestätigt
+Gespeichert: Ihr aber — ist es denn für euch Zeit, wohlverwahrt in euren Häusern zu wohnen, während dieses Haus in Trümmern liegt?
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/821107/edit/
+
+Haggai 1:12 | Druck S. 374 | Druckwortlaut bestätigt
+Gespeichert: Da hörte Serubabel, der Sohn Schalthiels, und der Hohepriester Jehoschua, der Sohn Jehozadaks, und der ganze Überrest des Volkes auf die Stimme Gottes, ihres Gottes, und auf die Worte des Propheten Chaggai, da ihn Gott,  …
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/821117/edit/
+
+Haggai 1:14 | Druck S. 375 | Druckwortlaut bestätigt
+Gespeichert: Da weckte Gott den Geist Serubabels, des Sohnes Schalthiels, des Statthalters von Juda, und den Geist des Hohenpriesters Jehoschua, des Sohnes Jehozadaks, und den Geist des ganzen Überrestes des Volkes, und sie kamen und …
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/821120/edit/
+
+Haggai 2:2 | Druck S. 377 | Erfassungsfehler bestätigt
+Gespeichert: Sprich doch zu Serubabel, dem Sohne Schalthiels, dem Statthalter von Juda, und zu dem Hohenpriester Jehoschua, dem Sohne Jehozadaks, und zu dem Überreste des Volkes:
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/821128/edit/
+
+Haggai 2:6 | Druck S. 378, 379 | Druckwortlaut bestätigt
+Gespeichert: Denn so hat Gott der Schöpfungsscharen gesprochen: Noch eine Weile, nicht lange dauert's, da setze ich in stürmende Bewegung den Himmel und die Erde und das Meer und das Trockene —
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/821134/edit/
+
+Haggai 2:7 | Druck S. 379 | Druckwortlaut bestätigt
+Gespeichert: Und setze in stürmende Bewegung alle Völker, und sie kommen zu dem Strebeziele aller Völker, und ich werde dieses Haus mit Herrlichkeit füllen! — hat Gott der Schöpfungsscharen gesprochen.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/821140/edit/
+
+Haggai 2:15 | Druck S. 384 | Druckbefund, kein OCR-Fehler
+Gespeichert: Und nun richtet eurer Herz von diesem Tage an und aufwärts, da noch nicht Stein zu Stein gelegt ward am Tempel Gottes!
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/821169/edit/
+
+Haggai 2:16 | Druck S. 385 | Druckwortlaut bestätigt
+Gespeichert: Wegen ihres Verhaltens: kam einer zum Garbenhaufen von zwanzig und es waren zehn, kam einer zur Kelter um fünfzig Pura zu schöpfen und es waren zwanzig!
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/821177/edit/
+
+Haggai 2:17 | Druck S. 385 | Druckwortlaut bestätigt
+Gespeichert: Geschlagen habe ich euch mit Getreidebrand und mit Getreidedürre und mit Hagel, alles Werk eurer Hände — und euer Wesen wandte sich nicht mir zu! — ist der Spruch Gottes.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/821177/edit/
+
+Haggai 2:23 | Druck S. 387 | Auslassung bereits im Druck
+Gespeichert: An jenem Tage, ist der Spruch Gottes der Schöpfungsscharen, werde ich dich, Serubabel, meinen Diener, nehmen, denn dich habe ich erwählt! — ist der Spruch Gottes der Schöpfungsscharen.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/821194/edit/
+
+Sacharja 3:4 | Druck S. 407 | Druckwortlaut bestätigt
+Gespeichert: Da hub er an und sprach zu den vor ihm Stehenden: Nehmet ihm die unreinen Gewänder ab! — Dann sprach er zu ihm: „Siehe, deine Sünde habe ich von dir genommen, nun bekleide dich selbst mit reinen („Rüst=“) Gewändern!“
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/821303/edit/
+
+Sacharja 4:5 | Druck S. 411 | Druckbefund, kein OCR-Fehler
+Gespeichert: Da antwortetete der Engel, der mit mir redete und sprach zu mir: Hast du denn nicht begriffen, was diese bedeuten? — Ich sagte: Nein, mein Herr.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/821326/edit/
+
+Sacharja 4:7 | Druck S. 412 | Druckwortlaut bestätigt
+Gespeichert: Wer bist du, großer Berg? Vor Serubabel — zur Ebene! Er führt den Stein empor zur Giebelvollendung, denn reiche Fülle jeglicher Begnadung ist ihm verliehen. —
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/821333/edit/
+
+Sacharja 5:11 | Druck S. 422 | Auslassung bereits im Druck
+Gespeichert: Da sprach er: Um ihm ein Haus zu bauen im Lande Schinear, und ist es gegründet, so wird jenes dort niedergesetzt an seine Stelle.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/821392/edit/
+
+Sacharja 6:6 | Druck S. 426 | Druckbefund, kein OCR-Fehler
+Gespeichert: Daran die schwarze Rosse sind, die ziehen aus in das Land des Nordens, und die weißen sind ihnen nach ausgezogen, und die schekigen sind ausgezogen in das Land des Südens.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/821399/edit/
+
+Sacharja 6:14 | Druck S. 434 | Auslassung bereits im Druck
+Gespeichert: Die Doppelkrone aber verbleibe Chelem und Tobija und Jedaja und dem Sohne Zephanjas, zum Gedächtnisse im Tempel Gottes.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/821423/edit/
+
+Sacharja 7:2 | Druck S. 438 | Druckwortlaut bestätigt
+Gespeichert: Es hatten nämlich zum Hause Gottes Scharezer, Regem=Melech und dessen Männer geschickt, um das Antlitz Gottes anzuflehen,
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/821438/edit/
+
+Sacharja 9:2 | Druck S. 454 | Druckwortlaut bestätigt
+Gespeichert: Und auch Chamath wird mit ihm messen, Zor und Zidon, so weise es auch ist.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/821525/edit/
+
+Sacharja 10:2 | Druck S. 464 | Druckwortlaut bestätigt
+Gespeichert: Denn die Therafim haben Frevel geredet, und die Zauberer Lüge geschaut, und nichtige Träume reden sie, mit Eitlem trösten sie: deshalb sind sie hinweg gewandert wie die Herde, sie verkünden ja, daß es keinen Hirten giebt …
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/821572/edit/
+
+Sacharja 10:11 | Druck S. 468 | Druckwortlaut bestätigt
+Gespeichert: Und Bedrängnis durchzieht das Meer und schlägt im Meere die Wellen, und es versiegen alle dunklen Tiefen des Meeres, und gestürzt wird die Hoheit Aschurs, und der Herrscherstab Mizrajims wird weichen.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/821592/edit/
+
+Sacharja 11:15 | Druck S. 480 | Druckwortlaut bestätigt
+Gespeichert: Da sprach Gott zu mir: Wiederum nimm dir das Gerät eines in meinem Namen thörichten Hirten.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/821656/edit/
+
+Sacharja 11:17 | Druck S. 481 | Druckwortlaut bestätigt
+Gespeichert: Wehe ihm, der sich als mein Hirte giebt, als des Götzen! der in meinem Namen die Schafe verläßt! Das Schwert über seinen Arm und über sein rechtes Auge! Sein Arm soll völlig verdorren und sein rechtes Auge völlig erlösch …
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/821660/edit/
+
+Sacharja 12:5 | Druck S. 484 | Druckwortlaut bestätigt
+Gespeichert: Dann werden die Führer Juda's in ihrem Herzen sprechen: Möge mir, den Bewohnern Jeruschalajims, Kraft werden durch Gott der Schöpfungsscharen, ihren Gott.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/821677/edit/
+
+Sacharja 12:10 | Druck S. 486 | Druckwortlaut bestätigt
+Gespeichert: Da werde ich ausgießen auf das Haus Davids und auf die Bewohner Jeruschalajims den Geist der Huld und des Flehens und sie, die man durchbohrte, werden zu mir aufschauen und werden darüber [über den beschlossenen Untergan …
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/821692/edit/
+
+Sacharja 13:5 | Druck S. 492 | Druckwortlaut bestätigt
+Gespeichert: Er aber wird sprechen: Ich bin gar kein Prophet, ein den Boden bearbeitender Mann bin ich, denn der Menschheit hat Er mich zugeeignet von meiner Jugend an.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/821740/edit/
+
+Sacharja 13:8 | Druck S. 494 | Auslassung bereits im Druck
+Gespeichert: Und es wird geschehen auf der ganzen Erde, ist der Spruch Gottes, zwei Teile auf ihr werden vernichtet werden, werden verschwinden, ein Dritteil aber wird übrig bleiben.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/821757/edit/
+
+Maleachi 1:3 | Druck S. 508 | Druckwortlaut bestätigt
+Gespeichert: Esau aber habe ich gehaßt und machte seine Berge zur Öde und zu seinem Erbe: Wüstenklage.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/821874/edit/
+
+Maleachi 1:13 | Druck S. 514 | Druckwortlaut bestätigt
+Gespeichert: Und ihr saget: Siehe, da ist etwas Abgelebtes! das blaset ihr dann auf, spricht Gott der Schöpfungsscharen, und ihr bringet Geraubtes und das Lahme und das Kranke, und das bringet ihr dar als Huldigungsgabe! — Werde ich  …
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/821905/edit/
+
+Maleachi 3:3 | Druck S. 527 | Druckwortlaut bestätigt
+Gespeichert: Er sitzet und läutert und reinigt Silber! Er reinigt die Söhne Levi und läutert sie, wie das Silber und wie das Gold, auf daß sie Gott Huldigungsgabe in Pflichttreue darbringen werden.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/821963/edit/
+
+Maleachi 3:16 | Druck S. 532 | Druckwortlaut bestätigt
+Gespeichert: Da sprachen sich die Gottesfürchtigen einer gegen den andern aus, und Gott horchte hin und hörte auf sie, und das schrieb sich zusammen zu einem Buche des Gedächtnisses vor Ihm für die, die Gott fürchten und seinen Namen …
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/821991/edit/
+
+Maleachi 3:21 | Druck S. 534 | Deutende Übersetzung im Druck bestätigt
+Gespeichert: Und ihr bildet dann die Frevler, denn sie werden wie Asche sein unter den Sohlen eurer Füße an dem Tage, den ich bereite“ — spricht Gott der Schöpfungsscharen.
+Beleg: https://ocr-bw.bib.uni-mannheim.de/escriptorium/document/6601/part/821999/edit/
+
+WEITERE PUNKTE DER ALTEN LISTE
+
+- Nicht ausdrücklich ausformulierte Einleitungswörter (לאמר), Objektmarker und wiederholte Prädikate begründen für sich keinen OCR-Korrekturfall. Der Druckabgleich gibt keine Berechtigung, die Übersetzung künstlich wortvollständig zu machen.
+- Die bereits genehmigten 20 wortinternen Trennungsbereinigungen bleiben bestehen. Begriffsverbindungen wie Huldigungs= und Gußopfer, Regem=Melech und Rüst= bleiben erhalten.
+- Für druckgetreue grammatische bzw. sachliche Auffälligkeiten wäre eine gesonderte Entscheidung über Druckfehlerkorrektur nötig; sie werden nicht zusammen mit Erfassungsfehlern stillschweigend geändert.
+- Die fünf Wort-/Zeichenfehler und die Habakuk-Fortsetzung oben sind umgesetzt; die drei Amos-Verse ebenfalls ergänzt.
+
+Verifikation nach Umsetzung: build.py und renderings.py erfolgreich; npm test bestanden; library.js Syntaxprüfung und git diff --check bestanden. Alle 1.050 Trei-Asar-Verse enthalten Text. Gegen den Stand vor dieser Freigabe wurden exakt die neun freigegebenen Übersetzungsverse geändert; betroffene Manifest-SHA1 geprüft.
