@@ -889,7 +889,8 @@
       b.onmouseleave = () => $$('#rOut .ildim').forEach(l => l.classList.remove('ildim'));
       leg.appendChild(b);
     });
-    $('#rOut').prepend(leg);
+    const head = $('#rOut .row.head'); // die Legende klebt unter den Spaltenköpfen (Versionsnamen), nicht darüber
+    if (head) { head.after(leg); leg.style.setProperty('--headh', head.offsetHeight + 'px'); } else $('#rOut').prepend(leg);
   }
   async function ilRefresh() {
     const b = $('#ilBtn'); if (!b) return;
