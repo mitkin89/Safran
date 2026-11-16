@@ -1,6 +1,7 @@
 # Changelog
 
 ### New in 2.4.0
+- **Targum Onkelos (Sperber) with morphology:** the ETCBC Targum Corpus release of 2026-10-28 adds Onkelos to the Pentateuch (5,852 verses, vocalized, every word with lexeme, root and parsing); Pseudo-Jonathan and Neofiti 1 updated to the same release. The word card's Targum box now counts Onkelos (O) too. The ETCBC Targum data are now licensed CC BY-NC 4.0 (previously MIT). Fixed missing spaces where a left-out variant carried the word separator (e.g. Onkelos Gen 1:2 „מנַשׁבָא עַל“).
 - **Interlinear: Zunz, complete Genesis (1–50):** the word-by-word German under the Hebrew text now covers the whole book of Genesis with Zunz's translation (`tools/interlinear/zunz/Genesis.txt`, 1533 verses). Long narrative chapters are aligned phrase by phrase. The Interlinear button only appears for chapters that are aligned.
 - **Interlinear: Herxheimer (Ruth):** Herxheimer's *wortgetreue Übersetzung* is now aligned word by word for Ruth as a fourth translation (`tools/interlinear/herxheimer/Ruth.txt`); the introduction to Lamentations that follows 4:22 in the source text is kept as an unaligned segment.
 - **Interlinear: Philippson (Ruth):** Philippson's *Israelitische Bibel* is now aligned word by word for Ruth as a third translation (`tools/interlinear/philippson/Ruth.txt`); Breuer 2:19 corrected (a group was split wrongly, leaving only "…" under עמו).

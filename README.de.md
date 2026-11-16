@@ -60,7 +60,7 @@ Safran ist eine kostenlose Desktop-App für macOS, Windows und Linux, die deine 
 </tr>
 <tr>
 <td valign="top"><b>⧉ Zweites Lesefenster</b><br>Zwei Bücher nebeneinander, jedes mit eigenen Tabs, eigenem Verlauf und Kommentarfenster. Beide Fenster blättern im Gleichlauf.</td>
-<td valign="top"><b>📜 Handschriften und Fassungen</b><br>Aleppo-Kodex, Qumran-Rollen, Septuaginta mit hebräischem Gegenstück je Wortgruppe: ein <b>LXX-MT-Vergleich</b>, der Plus, Minus und Zuordnung markiert (Interlinear umschaltbar), Targum Pseudo-Jonathan und Neofiti mit Morphologie, Parallelstellen, Sefarias Verknüpfungen.</td>
+<td valign="top"><b>📜 Handschriften und Fassungen</b><br>Aleppo-Kodex, Qumran-Rollen, Septuaginta mit hebräischem Gegenstück je Wortgruppe: ein <b>LXX-MT-Vergleich</b>, der Plus, Minus und Zuordnung markiert (Interlinear umschaltbar), Targum Onkelos, Pseudo-Jonathan und Neofiti mit Morphologie, Parallelstellen, Sefarias Verknüpfungen.</td>
 </tr>
 <tr>
 <td valign="top"><b>🗺 Bibelkarte und Gliederungen</b><br>Die Orte jedes Kapitels auf einer Karte von Israel mit Entfernungen und Höhenprofil, eine detaillierte Jerusalem-Karte von 1865, dazu Themen. Gliederungen für den Tanach (in der Tora mit Schalter 613 Mizwot), die Mischna, die Apokryphen, den <i>Führer der Unschlüssigen</i> und Ginzbergs <i>Legenden</i>, als eigenes Fenster und als Überschriften zwischen den Versen (abschaltbar).</td>
@@ -126,7 +126,7 @@ Safran liefert 410 deutsche Textdateien im Ordner `bundled/` mit. Sie werden bei
 | D. Hoffmann, *Das Buch Leviticus* und *Das Buch Deuteronomium* | Übersetzung und Kommentar |
 | Samuel (Wolf) · Ijob (Dawidowicz) · die *Arba Megillot* (Breuer) | Übersetzung und Kommentar |
 
-Ebenfalls enthalten: der Westminster Leningrad Codex mit Morphologie (OSHB), der Aleppo-Kodex, die Qumran-Rollen, Targum Pseudo-Jonathan und Neofiti sowie die Septuaginta: der CATSS-Text zum Tanach und 21 griechische Dateien nach Rahlfs für Hosea, Ester mit den Zusätzen und die deuterokanonischen Bücher (1.–4. Makkabäer, Sirach, Weisheit, Tobit, Judit, Baruch, Brief Jeremias, Susanna, Bel, 1. Esdras, Oden, Psalmen Salomos), mit Lemma und Bestimmung für jedes griechische Wort (lxx-morph). Quellen und Lizenzen: [SOURCES.de.md](SOURCES.de.md).
+Ebenfalls enthalten: der Westminster Leningrad Codex mit Morphologie (OSHB), der Aleppo-Kodex, die Qumran-Rollen, Targum Onkelos, Pseudo-Jonathan und Neofiti sowie die Septuaginta: der CATSS-Text zum Tanach und 21 griechische Dateien nach Rahlfs für Hosea, Ester mit den Zusätzen und die deuterokanonischen Bücher (1.–4. Makkabäer, Sirach, Weisheit, Tobit, Judit, Baruch, Brief Jeremias, Susanna, Bel, 1. Esdras, Oden, Psalmen Salomos), mit Lemma und Bestimmung für jedes griechische Wort (lxx-morph). Quellen und Lizenzen: [SOURCES.de.md](SOURCES.de.md).
 
 ## Bildschirmfotos
 

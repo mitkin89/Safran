@@ -60,7 +60,7 @@ Safran is a free desktop app for macOS, Windows and Linux that keeps your texts 
 </tr>
 <tr>
 <td valign="top"><b>⧉ Second reading window</b><br>Two books side by side, each with its own tabs, history and commentary panel. Page both windows together.</td>
-<td valign="top"><b>📜 Manuscripts and versions</b><br>Aleppo Codex, Qumran scrolls, Septuagint with the Hebrew counterpart per word group: an <b>LXX–MT comparison</b> that marks pluses, minuses and alignment (interlinear switchable), Targum Pseudo-Jonathan and Neofiti with morphology, parallel passages, Sefaria's link data.</td>
+<td valign="top"><b>📜 Manuscripts and versions</b><br>Aleppo Codex, Qumran scrolls, Septuagint with the Hebrew counterpart per word group: an <b>LXX–MT comparison</b> that marks pluses, minuses and alignment (interlinear switchable), Targum Onkelos, Pseudo-Jonathan and Neofiti with morphology, parallel passages, Sefaria's link data.</td>
 </tr>
 <tr>
 <td valign="top"><b>🗺 Bible map and outlines</b><br>The places of each chapter on a map of Israel with distances and elevation profile, a detailed 1865 map of Jerusalem, and topics. Outlines for the Tanakh (with a 613 Mitzvot switch in the Torah), the Mishnah, the Apocrypha, the <i>Guide for the Perplexed</i> and Ginzberg's <i>Legends</i>, in a panel and as headings between the verses (can be switched off).</td>
@@ -126,7 +126,7 @@ Safran bundles 410 German text files in `bundled/`. They are imported on first s
 | D. Hoffmann, *Das Buch Leviticus* and *Das Buch Deuteronomium* | translation and commentary |
 | Samuel (Wolf) · Job (Dawidowicz) · the *Arba Megillot* (Breuer) | translation and commentary |
 
-Also bundled: the Westminster Leningrad Codex with morphology (OSHB), the Aleppo Codex, the Qumran scrolls, Targum Pseudo-Jonathan and Neofiti, and the Septuagint: the CATSS text for the Tanakh and 21 Greek files after Rahlfs for Hosea, Esther with its additions and the deuterocanonical books (Maccabees 1–4, Sirach, Wisdom, Tobit, Judith, Baruch, Letter of Jeremiah, Susanna, Bel, 1 Esdras, Odes, Psalms of Solomon), with lemma and parsing for every Greek word (lxx-morph). Sources and licenses: [SOURCES.md](SOURCES.md).
+Also bundled: the Westminster Leningrad Codex with morphology (OSHB), the Aleppo Codex, the Qumran scrolls, Targum Onkelos, Pseudo-Jonathan and Neofiti, and the Septuagint: the CATSS text for the Tanakh and 21 Greek files after Rahlfs for Hosea, Esther with its additions and the deuterocanonical books (Maccabees 1–4, Sirach, Wisdom, Tobit, Judith, Baruch, Letter of Jeremiah, Susanna, Bel, 1 Esdras, Odes, Psalms of Solomon), with lemma and parsing for every Greek word (lxx-morph). Sources and licenses: [SOURCES.md](SOURCES.md).
 
 ## Screenshots
 
