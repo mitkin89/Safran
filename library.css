@@ -1617,3 +1617,18 @@ body.head-stick .illeg { position: sticky; top: calc(var(--stick-top, 40px) + va
 @media (prefers-color-scheme: light) { :root:not([data-theme=dark]) { --il9: #8c356b; } }
 body.il .cell[data-k="he"] .ilt[data-i="9"] { color: var(--il9); }
 .illc[data-i="9"], .ilpR[data-i="9"] { --c: var(--il9); }
+
+/* Spaltenmenü (Klick auf den Kopf einer Textspalte): Überschrift, Markierungsspalte (● diese Spalte, ✓ andere Spalte), Porträt bzw. Platzhalter, „+“ am Zeilenende */
+#ctxMenu .cm-head { padding: 5px 10px 3px; font-size: 11px; font-weight: 600; letter-spacing: .04em; text-transform: uppercase; color: color-mix(in srgb, var(--fg, #111) 55%, transparent); cursor: default; }
+#ctxMenu button.cm-row { display: flex; align-items: center; gap: 0; padding-block: 5px; padding-inline: 6px 4px; }
+#ctxMenu .cm-mark { flex: none; width: 18px; text-align: center; font-size: 12px; line-height: 1; color: color-mix(in srgb, var(--fg, #111) 50%, transparent); }
+#ctxMenu button.cur .cm-mark { color: var(--accent, #2f6fde); font-size: 11px; }
+#ctxMenu button.cur .cm-lab { font-weight: 600; }
+#ctxMenu button.cm-row .vpic { flex: none; margin: -2px 0; margin-inline-end: 8px; }
+#ctxMenu span.vpic.ph { display: inline-block; width: 24px; height: 24px; border: 1px solid transparent; }
+#ctxMenu .cm-lab { flex: 1 1 auto; min-width: 0; text-align: left; } /* dir=auto nur für die Zeichenfolge; bündig bleibt links, auch bei hebräischen Titeln */
+#ctxMenu .cm-add { flex: none; width: 24px; height: 24px; margin-inline-start: 10px; border-radius: 5px; display: inline-flex; align-items: center; justify-content: center; font-size: 17px; line-height: 1; opacity: 0; color: color-mix(in srgb, var(--fg, #111) 70%, transparent); }
+#ctxMenu .cm-add.none { visibility: hidden; }
+#ctxMenu button.cm-row:hover .cm-add, #ctxMenu button.cm-row:focus-visible .cm-add { opacity: 1; }
+#ctxMenu .cm-add:hover { background: #8884; color: var(--fg, #111); }
+#ctxMenu button:focus-visible { outline: 2px solid var(--accent, #2f6fde); outline-offset: -2px; }

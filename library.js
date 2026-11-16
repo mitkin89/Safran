@@ -339,7 +339,8 @@
   function rememberVersions() {
     if (!view || !view.group) return;
     for (const k of new Set(view.group.versions.map(kindKey))) {
-      const titles = [...new Set(view.group.versions.filter(v => kindKey(v) === k && view.selected.has(v.rel)).map(v => v.versionTitle))];
+      // in der Reihenfolge der Spalten (view.selected), damit Ersetzen/Tauschen im Spaltenmenü auch im nächsten Buch gilt
+      const titles = [...new Set([...view.selected].map(rel => view.group.versions.find(v => v.rel === rel)).filter(v => v && kindKey(v) === k).map(v => v.versionTitle))];
       if (titles.length) prefVer[k] = titles; else delete prefVer[k];
     }
     try { localStorage.setItem('prefVer', JSON.stringify(prefVer)); } catch { /* egal */ }
@@ -369,7 +370,7 @@
     // Zuletzt gewählte Versionen gelten in jedem Buch weiter, das sie hat; sonst die Voreinstellung der Sprache
     for (const k of ['he', 'en', 'de', 'other']) {
       const titles = (Array.isArray(prefVer[k]) ? prefVer[k] : []).filter(t => !(k === 'he' && t === 'merged')); // zusammengeführt wird nie als Vorgabe übernommen
-      const mine = g.versions.filter(v => kindKey(v) === k && titles.includes(v.versionTitle));
+      const mine = g.versions.filter(v => kindKey(v) === k && titles.includes(v.versionTitle)).sort((a, b) => titles.indexOf(a.versionTitle) - titles.indexOf(b.versionTitle)); // gemerkte Spaltenreihenfolge
       if (mine.length) mine.forEach(v => sel.add(v.rel));
       else if (want.has(k)) { const v = first(k); if (v) sel.add(v.rel); }
     }
@@ -613,10 +614,26 @@
       const same = [...view.selected].filter(rel => { const v = g.versions.find(x => x.rel === rel); return v && kn(v) === k; });
       apply(same.length > 1 ? new Set([...view.selected].filter(rel => { const v = g.versions.find(x => x.rel === rel); return !v || kn(v) !== k || rel === d.entry.rel; })) : new Set([d.entry.rel]));
     } }); items.push({ sep: true }); }
-    // alle Versionen dieser Sprache: ✓ = wird gezeigt (Klick nimmt sie heraus), sonst Klick fügt sie hinzu
-    for (const v of g.versions.filter(v => kn(v) === k)) {
-      const on = view.selected.has(v.rel);
-      items.push({ label: (on ? '✓ ' : '\u2003 ') + shortVer(v.versionTitle), pic: portraitOf(v.versionTitle), fn: () => { const n = new Set(view.selected); if (on) n.delete(v.rel); else n.add(v.rel); apply(n); } });
+    const here = d.entry.rel, same = g.versions.filter(v => kn(v) === k);
+    if (multi) { // Kopf einer Sprachspalte mit mehreren Versionen („je Sprache“): ✓ = wird gezeigt (Klick nimmt sie heraus), sonst Klick fügt sie hinzu
+      for (const v of same) {
+        const on = view.selected.has(v.rel);
+        items.push({ label: shortVer(v.versionTitle), mark: on ? '✓' : '', pic: portraitOf(v.versionTitle), ph: true, fn: () => { const n = new Set(view.selected); if (on) n.delete(v.rel); else n.add(v.rel); apply(n); } });
+      }
+    } else if (same.length > 1) {
+      // Spalte einer Version: Klick ersetzt die Version dieser Spalte (steht die gewählte schon in einer anderen Spalte, tauschen beide den Platz);
+      // Cmd/Strg-Klick oder das „+“ am Zeilenende setzt sie als weitere Spalte rechts daneben. ● = diese Spalte, ✓ = in einer anderen Spalte sichtbar.
+      // Die Reihenfolge der Spalten ist die Reihenfolge in view.selected (innerhalb einer Sprache; loadView sortiert stabil nach Sprache).
+      const swapTo = rel => { const a = [...view.selected], i = a.indexOf(here), j = a.indexOf(rel); if (i < 0 || rel === here) return; if (j >= 0) a[j] = here; a[i] = rel; apply(new Set(a)); };
+      const addAfter = rel => { if (view.selected.has(rel)) return; const a = [...view.selected]; a.splice(a.indexOf(here) + 1, 0, rel); apply(new Set(a)); };
+      items.push({ head: 'Spalte ersetzen durch' });
+      for (const v of same) {
+        const cur = v.rel === here, on = view.selected.has(v.rel);
+        items.push({ label: shortVer(v.versionTitle), mark: cur ? '●' : on ? '✓' : '', cur, pic: portraitOf(v.versionTitle), ph: true,
+          title: cur ? 'Version dieser Spalte' : on ? 'Mit dieser Spalte tauschen' : '',
+          fn: ev => { if (ev && (ev.metaKey || ev.ctrlKey) && !on) addAfter(v.rel); else swapTo(v.rel); },
+          add: on ? null : () => addAfter(v.rel) });
+      }
     }
     const r = (vl || h).getBoundingClientRect();
     if (!multi) { // Zählung dieser Fassung: eigene Verszählung (nur biblische Bücher) und Zählung ihrer Stellenangaben
@@ -4903,22 +4920,49 @@
   };
 
   // Kontextmenü (Rechtsklick): kleine Liste von Aktionen an der Mausposition
+  // Einträge: { label, fn(ev) } · { sep: true } · { head: 'Überschrift' }; dazu wahlweise mark (Zeichen in fester Spalte davor: ●/✓), pic (Porträt),
+  // ph (gleich breiter Platzhalter, wenn das Porträt fehlt), cur (hervorgehoben), title, add (Funktion für das „+“ am Zeilenende)
   let ctxEl = null;
   function ctxShow(e, items) {
     if (!ctxEl) {
       ctxEl = document.createElement('div'); ctxEl.id = 'ctxMenu'; ctxEl.hidden = true; document.body.appendChild(ctxEl);
       const hide = () => { ctxEl.hidden = true; };
-      document.addEventListener('click', hide); window.addEventListener('blur', hide); document.addEventListener('keydown', ev => { if (ev.key === 'Escape') hide(); });
-      ctxEl.addEventListener('click', ev => { const b = ev.target.closest('button[data-n]'); hide(); if (b && ctxEl._items[+b.dataset.n]) ctxEl._items[+b.dataset.n].fn(); });
+      document.addEventListener('click', hide); window.addEventListener('blur', hide);
+      // Tastatur: Escape schließt; Pfeile/Pos1/Ende wandern durch die Einträge, Enter/Leertaste löst aus (Cmd/Strg+Enter wie Cmd/Strg-Klick)
+      document.addEventListener('keydown', ev => {
+        if (ctxEl.hidden) return;
+        if (ev.key === 'Escape') { hide(); return; }
+        if (!['ArrowDown', 'ArrowUp', 'Home', 'End'].includes(ev.key)) return;
+        const bs = [...ctxEl.querySelectorAll('button[data-n]')]; if (!bs.length) return;
+        ev.preventDefault(); ev.stopPropagation();
+        const i = bs.indexOf(document.activeElement);
+        const j = ev.key === 'Home' ? 0 : ev.key === 'End' ? bs.length - 1 : ev.key === 'ArrowDown' ? (i + 1) % bs.length : (i < 0 ? bs.length - 1 : (i - 1 + bs.length) % bs.length);
+        bs[j].focus();
+      }, true);
+      ctxEl.addEventListener('click', ev => {
+        const b = ev.target.closest('button[data-n]'), it = b && ctxEl._items[+b.dataset.n];
+        hide();
+        if (!it) return;
+        if (ev.target.closest('.cm-add') && it.add) it.add(ev); else it.fn(ev);
+      });
     }
     e.preventDefault();
     ctxEl._items = items;
-    ctxEl.innerHTML = items.map((it, i) => it.sep ? '<hr>' : `<button data-n="${i}">${it.pic ? `<img class="vpic" src="portraits/${encodeURIComponent(it.pic.img)}" alt="" data-title="${esc(it.pic.name || '')}">` : ''}${esc(it.label)}</button>`).join('');
+    const rich = items.some(it => it.mark != null); // Liste mit Markierungsspalte: alle Zeilen bündig setzen
+    ctxEl.innerHTML = items.map((it, i) => {
+      if (it.sep) return '<hr>';
+      if (it.head) return `<div class="cm-head">${esc(it.head)}</div>`;
+      const pic = it.pic ? `<img class="vpic" src="portraits/${encodeURIComponent(it.pic.img)}" alt="" data-title="${esc(it.pic.name || '')}">` : it.ph ? '<span class="vpic ph"></span>' : '';
+      if (it.mark == null) return `<button data-n="${i}">${pic}${esc(it.label)}</button>`;
+      return `<button data-n="${i}" class="cm-row${it.cur ? ' cur' : ''}"${it.cur ? ' aria-current="true"' : ''}${it.title ? ` title="${esc(it.title)}"` : ''}><span class="cm-mark" aria-hidden="true">${esc(it.mark)}</span>${pic}<span class="cm-lab" dir="auto">${esc(it.label)}</span>${it.add ? `<span class="cm-add" role="button" title="${esc(I18N.t('Als weitere Spalte daneben anzeigen ({}-Klick)', (window.platform && window.platform.mod) || 'Strg'))}">+</span>` : rich ? '<span class="cm-add none"></span>' : ''}</button>`;
+    }).join('');
     ctxEl.hidden = false;
     ctxEl.style.left = '0px'; ctxEl.style.top = '0px';
     const mw = ctxEl.offsetWidth, mh = ctxEl.offsetHeight; // erst messen, dann so setzen, dass das Menü ganz im Fenster bleibt
     ctxEl.style.left = Math.max(4, Math.min(e.clientX, window.innerWidth - mw - 8)) + 'px';
     ctxEl.style.top = Math.max(4, Math.min(e.clientY, window.innerHeight - mh - 8)) + 'px';
+    ctxEl.scrollTop = 0;
+    if (rich) { const c = ctxEl.querySelector('button.cur'); if (c) c.scrollIntoView({ block: 'nearest' }); }
   }
   // Menü für ein Buch (Bücherliste, Verlauf): hier öffnen, neuer Tab, zweites Fenster
   function bookMenu(e, key, target = {}) {

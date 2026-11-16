@@ -29,6 +29,7 @@
     'griech. Zählung': 'Greek numbering',
     '{} {} = hebr. {}': '{} {} = Hebrew {}',
     'Verszählung dieser Fassung: {} …': 'Verse numbering of this version: {} …',
+    'Spalte ersetzen durch': 'Replace column with', 'Version dieser Spalte': 'Version in this column', 'Mit dieser Spalte tauschen': 'Swap with this column', 'Als weitere Spalte daneben anzeigen ({}-Klick)': 'Show as an additional column next to this one ({}-click)',
     'Stellenangaben in dieser Fassung zählen: {} …': 'References in this version are numbered: {} …',
     'Diese Fassung zählt anders ({}). Ihre Verse stehen hier neben dem hebräischen Vers; die eigene Nummer steht klein davor.': 'This version is numbered differently ({}). Its verses are shown next to the Hebrew verse; its own number is printed small in front.',
     // ----- Septuaginta-Morphologie (griechische Wörter: Popup, Wortkarte, Formentabelle, Lemma-Suche) -----
