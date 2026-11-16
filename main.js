@@ -1010,7 +1010,9 @@ ipcMain.handle('links:texts', async (_e, refs, prefer, strict) => {
   return out;
 });
 
-ipcMain.handle('links:preview', async (_e, ref, langs) => {
+// pick (Wortkarte): { vt: Muster des Versionstitels, rtl } – statt der zweiten Sprache die dort gewählte Fassung (Zunz, Hirsch, Septuaginta, Targum …);
+// hat das Buch sie nicht oder fehlt der Vers darin, bleibt es bei der üblichen Auswahl
+ipcMain.handle('links:preview', async (_e, ref, langs, pick) => {
   const { book, tail } = LK.splitRef(ref);
   const lib = await getLibrary();
   const cand = lib.list().filter(x => x.title === book);
@@ -1026,7 +1028,13 @@ ipcMain.handle('links:preview', async (_e, ref, langs) => {
       return false;
     };
     const wanted = langs.filter(k => ['he', 'en', 'de', 'other'].includes(k));
-    for (const k of wanted) await tryKind(k);
+    let picked = null, re = null;
+    if (pick && typeof pick.vt === 'string' && pick.vt.length < 200) { try { re = new RegExp(pick.vt); } catch { re = null; } }
+    if (re) for (const c of cand.filter(x => re.test(String(x.versionTitle || '')))) {
+      try { const d = await lib.read(c.rel); const items = LK.resolveText(d, tail); if (items) { picked = { kind: c.kind, he: c.kind === 'he' || !!pick.rtl, items: items.slice(0, 6), versionTitle: c.versionTitle, picked: true }; break; } } catch { /* nächste Fassung */ }
+    }
+    for (const k of wanted) { if (picked && k !== 'he') continue; await tryKind(k); }
+    if (picked) { parts.push(picked); return { parts, items: parts[0].items, kind: parts[0].kind, he: parts[0].he }; }
     if (parts.length < wanted.length) for (const k of ['en', 'de']) { if (parts.length >= wanted.length) break; if (!wanted.includes(k) && !parts.some(p => p.kind === k)) await tryKind(k); }
     return parts.length ? { parts, items: parts[0].items, kind: parts[0].kind, he: parts[0].he } : { nopreview: true };
   }

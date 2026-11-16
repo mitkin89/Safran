@@ -29,9 +29,13 @@
     return { lang, code: ms[main], pre, suf: post.find(c => c[0] === 'S') || '', lemma };
   }
 
+  // Perfekt mit ו davor, das die OSHB nicht als wᵉqatal bestimmt (וְאָמַרְתָּ „und sprich“ in Ex 9,13 als HC/Vqp2ms): steht wie belegt
+  // und in der Tabelle eigens als „mit ו“ – sonst mischte sich das Waw-Perfekt (Folge, Befehl, Zukunft) unter das einfache Perfekt
+  const wawPerf = p => p.lang === 'H' && p.code[0] === 'V' && p.code[2] === 'p' && p.pre.length === 1 && p.pre[0] === 'C';
   // Wie viele Vorsilben lassen sich abtrennen? Der Artikel bleibt (eigene Spalte), ebenso das ו von wajjiqtol/wᵉqatal
   // und die Präposition vor dem Infinitivus constructus (לִכְתֹּב ist nicht ל + כְּתֹב).
   function stripCount(p) {
+    if (wawPerf(p)) return 0;
     const art = p.pre.findIndex(c => c === 'Td' || c === 'Rd');
     if (art >= 0) return art;
     if (p.code[0] === 'V') {
@@ -57,14 +61,15 @@
     if (BGDKPT.includes(c)) { if (!rest[0].includes('\u05BC')) rest[0] += '\u05BC'; }
     else if (c !== 'ו') rest[0] = rest[0].replace('\u05BC', '');
     // '-' vorn: eine Vorsilbe ließ sich nicht abtrennen (לֵאלֹהִים, וִיהִי) – die Form steht wie belegt
-    return (k < stripCount(p) ? '-' : '') + rest.join('').normalize('NFC');
+    // '+' vorn: Perfekt mit ו (wawPerf), bewusst nicht abgetrennt
+    return (wawPerf(p) ? '+' : k < stripCount(p) ? '-' : '') + rest.join('').normalize('NFC');
   }
   // Schlüssel einer Form: Sprache + Code des Hauptwortes, '*' = mit Artikel, '/S…' = Suffix
   const keyOf = p => p.lang + p.code + (p.pre.some(c => c === 'Td' || c === 'Rd') ? '*' : '') + (p.suf ? '/' + p.suf : '');
   function analyze(word, m, l) {
     const p = parts(m, l); if (!p) return null;
     const form = strip(word, p); if (!form) return null;
-    return { lemma: p.lemma, key: keyOf(p), form: form.replace(/^-/, ''), raw: form };
+    return { lemma: p.lemma, key: keyOf(p), form: form.replace(/^[-+]/, ''), raw: form };
   }
 
   // ---------- Index bauen ----------
@@ -155,17 +160,18 @@
       const [head, suf = ''] = key.split('/');
       const art = head.endsWith('*'), lc = art ? head.slice(0, -1) : head;
       for (const fr of grp.slice(eq + 1).split(',')) {
-        const c = fr.indexOf(':'), pre = fr[0] === '-', f = fr.slice(pre ? 1 : 0, c), r = fr.slice(c + 1);
-        forms.push({ f, r, n: r.length / 3, key, pre });
-        items.push({ i: forms.length - 1, f, n: r.length / 3, key, pre, lang: lc[0], code: lc.slice(1), art, suf });
+        const c = fr.indexOf(':'), pre = fr[0] === '-', waw = fr[0] === '+', f = fr.slice(pre || waw ? 1 : 0, c), r = fr.slice(c + 1);
+        forms.push({ f, r, n: r.length / 3, key, pre, waw });
+        items.push({ i: forms.length - 1, f, n: r.length / 3, key, pre, waw, lang: lc[0], code: lc.slice(1), art, suf });
       }
     }
     const sum = a => a.reduce((s, x) => s + x.n, 0);
-    // Formen einer Zelle: gleiche Schreibung zusammenfassen (z. B. st. abs. und st. cs. mit He locale), häufigste zuerst, nicht abtrennbare Vorsilben zuletzt
+    // Formen einer Zelle: gleiche Schreibung zusammenfassen (z. B. st. abs. und st. cs. mit He locale), häufigste zuerst, nicht abtrennbare Vorsilben danach,
+    // Perfekt mit ו zuletzt (eigene Unterzeile „mit ו“)
     const byN = a => {
       const m = new Map();
-      for (const x of a) { const k = (x.pre ? '-' : '') + x.f, y = m.get(k); if (y) { y.n += x.n; y.i += ',' + x.i; y.keys.push(x.key); } else m.set(k, { f: x.f, n: x.n, i: String(x.i), pre: x.pre, keys: [x.key] }); }
-      return [...m.values()].sort((x, y) => x.pre - y.pre || y.n - x.n || (x.f < y.f ? -1 : 1));
+      for (const x of a) { const k = (x.pre ? '-' : x.waw ? '+' : '') + x.f, y = m.get(k); if (y) { y.n += x.n; y.i += ',' + x.i; y.keys.push(x.key); } else m.set(k, { f: x.f, n: x.n, i: String(x.i), pre: x.pre, waw: !!x.waw, keys: [x.key] }); }
+      return [...m.values()].sort((x, y) => x.waw - y.waw || x.pre - y.pre || y.n - x.n || (x.f < y.f ? -1 : 1));
     };
     const groupBy = (a, fn) => { const m = new Map(); for (const x of a) { const k = fn(x); if (!m.has(k)) m.set(k, []); m.get(k).push(x); } return m; };
     // einfache Tabelle: eine Zeile je Schlüssel
@@ -253,11 +259,14 @@
     const esc = o.esc || (s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c])));
     const t = o.t || (s => s);
     const cur = o.current || null; // { key, form }: die angeklickte Form hervorheben
-    const chip = x => `<button type="button" class="fmF${x.pre ? ' pre' : ''}${cur && cur.form === x.f && x.keys.includes(cur.key) ? ' cur' : ''}"${x.pre ? ` title="${esc(t('mit Vorsilbe (nicht abtrennbar), wie belegt'))}"` : ''} data-i="${x.i}"><span lang="he" dir="rtl">${esc(x.f)}</span><small>${x.n}</small></button>`;
+    const chip = x => `<button type="button" class="fmF${x.pre ? ' pre' : ''}${x.waw ? ' waw' : ''}${cur && cur.form === x.f && x.keys.includes(cur.key) ? ' cur' : ''}"${x.pre ? ` title="${esc(t('mit Vorsilbe (nicht abtrennbar), wie belegt'))}"` : x.waw ? ` title="${esc(t('Perfekt mit ו (in der OSHB nicht als wᵉqatal bestimmt), wie belegt'))}"` : ''} data-i="${x.i}"><span lang="he" dir="rtl">${esc(x.f)}</span><small>${x.n}</small></button>`;
     const cell = a => {
       if (!a.length) return '<td class="fmE">–</td>';
-      const more = a.length > CAP ? `<span class="fmMore" hidden>${a.slice(CAP).map(chip).join('')}</span><button type="button" class="fmMoreB" data-n="${a.length - CAP}">+${a.length - CAP}</button>` : '';
-      return `<td dir="rtl">${a.slice(0, CAP).map(chip).join('')}${more}</td>`;
+      // vor der ersten Form mit ו (Perfekt) beginnt die Unterzeile „mit ו“
+      const w0 = a.findIndex(x => x.waw), wl = `<span class="fmWL" dir="auto">${esc(t('mit ו')).replace('ו', '<span lang="he">ו</span>')}</span>`;
+      const chips = (from, to) => a.slice(from, to).map((x, j) => (from + j === w0 ? wl : '') + chip(x)).join('');
+      const more = a.length > CAP ? `<span class="fmMore" hidden>${chips(CAP, a.length)}</span><button type="button" class="fmMoreB" data-n="${a.length - CAP}">+${a.length - CAP}</button>` : '';
+      return `<td dir="rtl">${chips(0, CAP)}${more}</td>`;
     };
     const table = tb => {
       const head = tb.cols ? `<tr><th class="fmC">${esc(tb.corner || '')}</th>${tb.cols.map(c => `<th>${esc(c)}</th>`).join('')}</tr>` : '';
@@ -269,7 +278,7 @@
     const gl = s => { const g = s.sk && o.gloss ? o.gloss(s.sk) : null; return g ? ` <span class="fmGl"${g.u ? ` title="${esc(t('Bedeutung unsicher: im Wörterbuch nicht eindeutig belegt'))}"` : ''}>„${esc(g.text)}“${g.u ? '<sup>?</sup>' : ''}</span>` : ''; };
     const nav = mdl.sections.length > 1 ? `<div class="fmNav">${mdl.sections.map((s, i) => `<button type="button" data-sec="${i}">${esc(s.title)} <small>${s.n}×</small></button>`).join('')}</div>` : '';
     const secs = mdl.sections.map((s, i) => `<details class="fmSec" data-sec="${i}" open><summary><b>${esc(s.title)}</b>${gl(s)} <small>${s.n}×</small></summary><div class="fmGrid${s.kind === 'verb' ? '' : ' one'}">${s.blocks.map(b => `<div class="fmBlk">${b.title ? `<h4>${esc(b.title)} <small>${b.n}×</small></h4>` : ''}${b.tables.map(table).join('')}</div>`).join('')}</div></details>`).join('');
-    return nav + secs + `<p class="fmNote">${esc(t('Nur im Tanach belegte Formen (Westminster Leningrad Codex, OSHB), ohne Akzente; die Zahl nennt die Häufigkeit. Vorsilben wie ו, ב, כ, ל, מ, ש sind abgetrennt, wo das Wort dann für sich lesbar bleibt; Artikel, wajjiqtol/wᵉqatal und Infinitiv mit Präposition stehen wie belegt. Unvokalisierte Ketiv-Formen fehlen.'))}</p>`;
+    return nav + secs + `<p class="fmNote">${esc(t('Nur im Tanach belegte Formen (Westminster Leningrad Codex, OSHB), ohne Akzente; die Zahl nennt die Häufigkeit. Vorsilben wie ו, ב, כ, ל, מ, ש sind abgetrennt, wo das Wort dann für sich lesbar bleibt; Artikel, wajjiqtol/wᵉqatal und Infinitiv mit Präposition stehen wie belegt, ebenso das Perfekt mit ו, das die OSHB nicht als wᵉqatal bestimmt (Unterzeile „mit ו“). Unvokalisierte Ketiv-Formen fehlen.'))}</p>`;
   }
 
   // ---------- Wortkarte: Verteilung auf die Bücher und häufigste Formen ----------
@@ -286,7 +295,7 @@
   // die k häufigsten Formen (gleiche Schreibung zusammengefasst): [{ f, n, i, pre }]
   function topForms(mdl, k = 8) {
     const m = new Map();
-    mdl.forms.forEach((x, i) => { const key = (x.pre ? '-' : '') + x.f, y = m.get(key); if (y) { y.n += x.n; y.i += ',' + i; } else m.set(key, { f: x.f, n: x.n, i: String(i), pre: !!x.pre }); });
+    mdl.forms.forEach((x, i) => { const key = (x.pre ? '-' : x.waw ? '+' : '') + x.f, y = m.get(key); if (y) { y.n += x.n; y.i += ',' + i; } else m.set(key, { f: x.f, n: x.n, i: String(i), pre: !!x.pre }); });
     const all = [...m.values()].sort((a, b) => b.n - a.n || (a.f < b.f ? -1 : 1));
     return { list: all.slice(0, k), kinds: all.length };
   }

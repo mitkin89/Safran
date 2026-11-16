@@ -1356,8 +1356,11 @@
     if (rest) fmRestBase(rest);
     else if (fmTab === 'forms') { const c = body.querySelector('.fmF.cur'); if (c) c.scrollIntoView({ block: 'center' }); }
   }
-  // Paradigmen: unter jeder Form die häufigste Wiedergabe der gewählten Fassung (Zunz, Breuer …, Septuaginta, Targumim);
-  // zugeordnet über die Bestimmung der Form (OSHB-Code, Suffix eingeschlossen); Darüberfahren zeigt die drei häufigsten
+  // Paradigmen: unter jeder Form die Wiedergabe der gewählten Fassung (Zunz, Breuer …, Septuaginta, Targumim).
+  // Deutsche Fassungen: gezählt an den Stellen genau dieser Form (interlin-ren.js, „Paradigma“ – Schlüssel und Form wie forms.js);
+  // erst die Wiedergabe ohne Bindewort („und“, „da“, „so“ stehen für das ו und erscheinen grau), bei Gleichstand die Grundform statt einer Zufallsform,
+  // bei schwacher Mehrheit (< 40 %) der Anteil dazu; die graue Zeile darunter nennt die Verteilung. Klick auf die Wiedergabe: alle Wiedergaben und Stellen.
+  // Septuaginta/Targumim: häufigstes Lemma in den Versen der Form (über die Bestimmung zugeordnet).
   let fmTrData = null, fmTrPick = null; try { fmTrPick = localStorage.getItem('fmTrSrc'); } catch { /* egal */ }
   async function fmTrInit(token) {
     const body = $('#fmBody'), lemma = fmCur && fmCur.lemma; if (!lemma) return;
@@ -1367,52 +1370,118 @@
     const bar = document.createElement('div'); bar.className = 'fmTrBar';
     body.prepend(bar); fmTrApply();
   }
+  const fmTrCur = () => { const S = fmTrData; return !S ? 'off' : S.keys.includes(fmTrPick) ? fmTrPick : fmTrPick === 'off' ? 'off' : S.keys[0]; };
+  const fmTrLab = (D, g) => { const L = D.labels[g]; return !L || L.other ? I18N.t('Andere') : L.forms[0]; };
+  // Wiedergaben einer Form (Chip der Tabelle) in einer deutschen Fassung: { n, k, cores: [{ t, c, g, cj, cjn }], groups: [[g, n]], col }
+  function fmTrEntryDe(ch, D) {
+    const forms = fmCur.mdl.forms, cm = new Map(), gm = new Map(); let n = 0, k = 0, col = null, parts = 0;
+    for (const i of String(ch.dataset.i).split(',')) {
+      const f = forms[+i], e = f && (D.para[f.key] || {})[(f.pre ? '-' : f.waw ? '+' : '') + f.f]; if (!e) continue;
+      const E = typeof e[0] === 'string' ? [1, 1, [[e[0], 1, e[1], e[2] || '', e[2] ? 1 : 0]]] : e; // Einzelbeleg kurz: [Wiedergabe, Gruppe, Bindewort?]
+      parts++; n += E[0]; k += E[1]; col = parts === 1 ? E[4] || null : null;
+      E[2].forEach(([t, c, g, cj, cjn]) => {
+        const x = cm.get(t); cj = cj || ''; cjn = cjn || 0;
+        if (!x) cm.set(t, { t, c, g, cj, cjn }); else { x.c += c; if (x.cj === cj) x.cjn += cjn; else if (cjn > x.cjn) { x.cj = cj; x.cjn = cjn; } }
+      });
+      (E[3] || E[2].map(x => [x[2], x[1]])).forEach(([g, m]) => gm.set(g, (gm.get(g) || 0) + m));
+    }
+    if (!n) return null;
+    return { n, k: parts === 1 ? k : Math.max(cm.size, k), cores: [...cm.values()].sort((a, b) => b.c - a.c), groups: [...gm].sort((a, b) => b[1] - a[1]), col, de: true };
+  }
+  const fmTrPct = (c, n) => { const p = c / n * 100; return (p < 1 ? '< 1' : String(Math.round(p))) + ' %'; };
+  // Wiedergabe mit grau abgesetztem Bindewort (steht für das ו), wenn es bei mindestens der Hälfte der Stellen steht
+  const fmTrV = x => (x.cj && x.cjn * 2 >= x.c ? `<span class="cj">${esc(x.cj)}</span> ` : '') + `<bdi>${esc(x.t)}</bdi>`;
+  // die beiden Zeilen unter der Form: [Hauptzeile, graue Zeile mit der Verteilung, Tooltip]
+  function fmTrLines(E, D, name) {
+    const cs = E.cores, top = cs[0], pc = c => `<small>${fmTrPct(c, E.n)}</small>`, lab = g => fmTrLab(D, g);
+    const gl = E.groups.slice(0, 3).map(([g, m]) => `<bdi>${esc(lab(g))}</bdi> ${pc(m)}`).join(' · ');
+    const tip = name + ': ' + E.groups.slice(0, 4).map(([g, m]) => lab(g) + ' ' + fmTrPct(m, E.n)).join(' · ') + (E.de ? ' – ' + I18N.t('Klick: alle Wiedergaben und Stellen') : '');
+    if (E.k < 2 || cs.length < 2) return [fmTrV(top), '', tip];
+    const tied = cs.filter(x => x.c === top.c);
+    let l1, l2;
+    if (tied.length > 1) { // Gleichstand: keine Zufallsform, sondern die Grundform(en) – die Formen selbst stehen darunter
+      const gs = [...new Set(tied.map(x => x.g))];
+      l1 = `<i class="gf">${gs.slice(0, 2).map(g => `<bdi>${esc(lab(g))}</bdi>`).join(' / ')}${gs.length > 2 ? ' …' : ''}</i> <small>${esc(I18N.t('{} versch.', wcNum(E.k)))}</small>`;
+      l2 = E.de ? tied.slice(0, 3).map(fmTrV).join(' · ') + (E.k > 3 ? ' …' : '') : '';
+    } else if (top.c / E.n < 0.4) { // schwache Mehrheit: Anteil dazu, die zweite Wiedergabe nur, wenn sie für sich steht
+      const two = cs[1] && (!cs[2] || cs[1].c > cs[2].c);
+      l1 = `${fmTrV(top)} ${pc(top.c)}` + (two ? ` · ${fmTrV(cs[1])} ${pc(cs[1].c)}` : ' …');
+      l2 = E.de ? gl + (E.groups.length === 1 ? ` · ${esc(I18N.t('{} versch.', wcNum(E.k)))}` : '') : cs.slice(two ? 2 : 1, two ? 4 : 3).map(x => `${fmTrV(x)} ${pc(x.c)}`).join(' · ');
+    } else {
+      l1 = fmTrV(top);
+      l2 = pc(top.c) + cs.slice(1, 3).map(x => ` · ${fmTrV(x)} ${pc(x.c)}`).join('') + (E.k > 3 ? ' …' : '');
+    }
+    if (E.col) l2 = fmTrCol(E.col, E.n); // Formel: woran die häufigste Wiedergabe hängt (כֹּה אָמַר „so spricht …“)
+    return [l1, l2, tip];
+  }
+  // Kollokation [Wort davor, Stellen danach, [Wiedergabe, n], [[Wiedergabe sonst, n] …]] -> „nach כֹּה (67 %): spricht 95 % · sonst: spricht 35 %, sprach 15 %“
+  function fmTrCol(col, n) {
+    const [w, pn, [cin, nin], out] = col, on = n - pn;
+    return `${esc(I18N.t('nach'))} <bdi lang="he" class="cw">${esc(w)}</bdi> <small>(${fmTrPct(pn, n)})</small>: <bdi>${esc(cin)}</bdi> <small>${fmTrPct(nin, pn)}</small> · ${esc(I18N.t('sonst'))}: ${out.map(([t, m]) => `<bdi>${esc(t)}</bdi> <small>${fmTrPct(m, on)}</small>`).join(', ')}`;
+  }
   function fmTrApply() {
     const body = $('#fmBody'), S = fmTrData, bar = body.querySelector('.fmTrBar'); if (!S || !bar || !fmCur) return;
-    const cur = S.keys.includes(fmTrPick) ? fmTrPick : fmTrPick === 'off' ? 'off' : S.keys[0];
-    bar.innerHTML = `<span class="muted">${esc(I18N.t('Übersetzung unter den Formen:'))}</span>${S.keys.map(k => `<button type="button" class="wcTrSrc${k === cur ? ' on' : ''}" data-fsrc="${k}">${wcTrPic(k)}${esc(I18N.t(WC_TR_LABEL[k]))}</button>`).join('')}<button type="button" class="wcTrSrc${cur === 'off' ? ' on' : ''}" data-fsrc="off">${esc(I18N.t('aus'))}</button>`;
+    const cur = fmTrCur(), maxTot = Math.max(...S.keys.map(k => S.src[k].total));
+    const few = k => { const n = S.src[k].total; return n < 5 || n < maxTot * 0.05; }; // Fassung mit wenig Belegen für dieses Wort (z. B. nur ein Buch): gekennzeichnet
+    bar.innerHTML = `<span class="muted">${esc(I18N.t('Übersetzung unter den Formen:'))}</span>${S.keys.map(k => `<button type="button" class="wcTrSrc${k === cur ? ' on' : ''}${few(k) ? ' few' : ''}" data-fsrc="${k}"${few(k) ? ` title="${esc(I18N.t('nur wenige Belege für dieses Wort'))}"` : ''}>${wcTrPic(k)}${esc(I18N.t(WC_TR_LABEL[k]))} <small>${wcNum(S.src[k].total)}</small></button>`).join('')}<button type="button" class="wcTrSrc${cur === 'off' ? ' on' : ''}" data-fsrc="off">${esc(I18N.t('aus'))}</button>${cur !== 'off' && S.src[cur].para ? `<span class="fmTrN muted" dir="auto">${esc(I18N.t('Wort für Wort zugeordnet: Subjekt und Hilfsverb stehen oft bei einem anderen Wort. Grau: Bindewort für das ו. Klick auf eine Wiedergabe zeigt alle Wiedergaben und die Stellen.')).replace('ו', '<span lang="he">ו</span>')}</span>` : ''}`;
+    hovApi && hovApi.hide(); // die Vers-Vorschau richtet sich nach der gewählten Fassung
     body.querySelectorAll('.fmTrL').forEach(x => x.remove());
+    body.querySelectorAll('.fmTrRow').forEach(x => x.remove()); body.querySelectorAll('.fmF.trsel').forEach(x => x.classList.remove('sel', 'trsel'));
     body.classList.toggle('fmTrOn', cur !== 'off');
     if (cur === 'off') return;
     const D = S.src[cur], forms = fmCur.mdl.forms, byCode = new Map(), BK = (S.IR && S.IR.books) || [];
-    // Stellen der Wiedergaben (nur deutsche Fassungen, Septuaginta, Targumim): Vers-Nummer -> [[Gruppe, Bestimmung] …]
+    // Septuaginta/Targumim: Stellen der Wiedergaben, Vers-Nummer -> [[Gruppe, Bestimmung] …]
     let atRef = null;
     const refMap = () => { if (atRef) return atRef; atRef = new Map(); D.cells.forEach(c => { if (c.refs) unB36(c.refs).forEach(num => { (atRef.get(num) || atRef.set(num, []).get(num)).push([c.g, c.code]); }); }); return atRef; };
     const numOf = r => { const b = BK.indexOf(r.book); return b < 0 ? null : b * 1e6 + r.ch * 1000 + r.v; };
-    const exact = []; // kleine Formen: Wiedergabe aus den Versen selbst (unten nachgeladen)
-    const topF = new Map(); // je Bestimmung und Gruppe die häufigste wirkliche Form (mit Person: „er ging aus“), sonst die Grundform
-    D.cells.forEach(c => { let m = byCode.get(c.code); if (!m) byCode.set(c.code, m = new Map()); m.set(c.g, (m.get(c.g) || 0) + c.n); if (c.f) topF.set(c.code + '|' + c.g, [c.f, c.n]); });
-    const lab = g => { const L = D.labels[g]; return !L || L.other ? I18N.t('Andere') : L.forms[0]; };
-    body.querySelectorAll('.fmF[data-i]').forEach(ch => {
-      const codes = new Set(String(ch.dataset.i).split(',').map(i => forms[+i] && forms[+i].key.replace('*', '')).filter(Boolean));
-      const agg = new Map();
-      // nur die Verse, in denen diese Form steht (sonst zählten alle Wörter mit derselben Bestimmung mit)
+    if (!D.para) D.cells.forEach(c => { let m = byCode.get(c.code); if (!m) byCode.set(c.code, m = new Map()); m.set(c.g, (m.get(c.g) || 0) + c.n); });
+    const other = ch => { // nur die Verse, in denen diese Form steht (sonst zählten alle Wörter mit derselben Bestimmung mit)
+      const codes = new Set(String(ch.dataset.i).split(',').map(i => forms[+i] && forms[+i].key.replace('*', '')).filter(Boolean)), agg = new Map();
       const rs = !fmCur.greek && D.cells.some(c => c.refs) ? fmCur.F.refs(fmCur.D, fmCur.mdl, ch.dataset.i) : null;
-      if (rs) { const M = refMap(); rs.forEach(r => { const num = numOf(r); (M.get(num) || []).forEach(([g, code]) => { if (codes.has(code)) agg.set(g, (agg.get(g) || 0) + 1); }); }); if (D.lang === 'de' && rs.length <= 40) exact.push({ ch, rs, codes }); }
+      if (rs) { const M = refMap(); rs.forEach(r => { const num = numOf(r); (M.get(num) || []).forEach(([g, code]) => { if (codes.has(code)) agg.set(g, (agg.get(g) || 0) + 1); }); }); }
       else codes.forEach(c => { const m = byCode.get(c); if (m) m.forEach((n, g) => agg.set(g, (agg.get(g) || 0) + n)); });
-      if (!agg.size) return;
-      const top = [...agg].sort((a, b) => b[1] - a[1]), tot = top.reduce((a, x) => a + x[1], 0);
-      const sp = document.createElement('span'); sp.className = 'fmTrL'; sp.lang = D.lang; sp.dir = D.lang === 'arc' ? 'rtl' : 'ltr';
-      let ff = null; codes.forEach(c => { const x = topF.get(c + '|' + top[0][0]); if (x && (!ff || x[1] > ff[1])) ff = x; });
-      sp.textContent = (ff ? ff[0] : lab(top[0][0])) + (top.length > 1 ? ' …' : '');
-      sp.title = WC_TR_LABEL[cur] + ': ' + top.slice(0, 3).map(([g, n]) => lab(g) + ' ' + Math.round(n / tot * 100) + ' %').join(' · ');
+      if (!agg.size) return null;
+      const groups = [...agg].sort((a, b) => b[1] - a[1]);
+      return { n: groups.reduce((a, x) => a + x[1], 0), k: groups.length, cores: groups.map(([g, c]) => ({ t: fmTrLab(D, g), c, g, cj: '', cjn: 0 })), groups, col: null, de: false };
+    };
+    const name = I18N.t(WC_TR_LABEL[cur]);
+    body.querySelectorAll('.fmF[data-i]').forEach(ch => {
+      const E = D.para ? fmTrEntryDe(ch, D) : other(ch); if (!E) return;
+      const [l1, l2, tip] = fmTrLines(E, D, name);
+      const sp = document.createElement('span'); sp.className = 'fmTrL' + (E.de ? ' can' : ''); sp.lang = D.lang; sp.dir = D.lang === 'arc' ? 'rtl' : 'ltr';
+      sp.innerHTML = `<span class="l1">${l1}</span>${l2 ? `<span class="l2">${l2}</span>` : ''}`; sp.title = tip;
       ch.appendChild(sp);
     });
-    // Formen mit wenigen Stellen: die wirkliche deutsche Wiedergabe aus den Versen (z. B. Jes 14,4 „und sprechen“ statt der häufigsten Wiedergabe der Bestimmung)
-    if (exact.length) {
-      const tok = fmCur, all = [...new Set(exact.flatMap(x => x.rs.map(r => r.book + ' ' + r.ch + ':' + r.v)))];
-      Promise.all([loadIL(), wcTrCtxLoad(all)]).then(() => {
-        const on = body.querySelector('.fmTrBar .on'); if (fmCur !== tok || !on || on.dataset.fsrc !== cur) return;
-        exact.forEach(({ ch, rs, codes }) => {
-          const cnt = new Map();
-          rs.forEach(r => wcTrOcc(cur, r.book + ' ' + r.ch + ':' + r.v, fmCur.lemma).forEach(o => { if (codes.has(o.code) && o.de) { const t = o.de.replace(/[,.;:!?]+$/, ''); cnt.set(t, (cnt.get(t) || 0) + 1); } }));
-          if (!cnt.size) return;
-          const top = [...cnt].sort((a, b) => b[1] - a[1]), tot = top.reduce((a, x) => a + x[1], 0), sp = ch.querySelector('.fmTrL'); if (!sp) return;
-          sp.textContent = top[0][0] + (top.length > 1 ? ' …' : '');
-          sp.title = WC_TR_LABEL[cur] + ': ' + top.slice(0, 4).map(([t, n]) => t + ' ' + Math.round(n / tot * 100) + ' %').join(' · ');
-        });
-      }, () => {});
-    }
+  }
+  // Klick auf die Wiedergabe unter einer Form: alle Wiedergaben dieser Form (mit Anteil) und die Stellen mit hebräischem Wort und deutschem Text – als Zeile unter der Tabellenzeile
+  function fmTrRefs(chip, lim = 30) {
+    const S = fmTrData, cur = fmTrCur(), D = S && S.src[cur], E = D && D.para && fmTrEntryDe(chip, D); if (!E) return;
+    const { mdl, lemma } = fmCur, forms = mdl.forms, rs = fmCur.F.refs(fmCur.D, mdl, chip.dataset.i);
+    const mine = new Set(String(chip.dataset.i).split(',').map(i => forms[+i]).filter(Boolean).map(f => f.key + '|' + (f.pre ? '-' : f.waw ? '+' : '') + f.f));
+    const part = rs.slice(0, lim), refs = part.map(r => r.book + ' ' + r.ch + ':' + r.v), ready = !!window.INTERLIN && refs.every(r => wcVerseWords.has(r));
+    const tr = document.createElement('tr'); tr.className = 'fmRefRow fmTrRow';
+    if (!ready) Promise.all([loadIL(), wcTrCtxLoad(refs)]).then(() => { if (tr.isConnected && chip.classList.contains('trsel') && window.INTERLIN) { tr.remove(); fmTrRefs(chip, lim); } }, () => {});
+    const rows = E.cores.map(x => `<span class="t" lang="de">${fmTrV(x)}</span><span class="b"><i style="width:${(x.c / E.n * 100).toFixed(1)}%"></i></span><small class="n">${wcNum(x.c)}</small><small class="p">${fmTrPct(x.c, E.n)}</small>`).join('');
+    const restN = E.n - E.cores.reduce((a, x) => a + x.c, 0);
+    const more = restN > 0 ? `<span class="t muted">${esc(I18N.t('{} weitere Wiedergaben', wcNum(E.k - E.cores.length)))}</span><span class="b"><i class="o" style="width:${(restN / E.n * 100).toFixed(1)}%"></i></span><small class="n">${wcNum(restN)}</small><small class="p">${fmTrPct(restN, E.n)}</small>` : '';
+    const grp = E.k > 1 ? `<div class="fmTrG"><span class="muted">${esc(I18N.t('Nach Grundform:'))}</span> ${E.groups.map(([g, m]) => `<span class="fm" lang="de">${esc(fmTrLab(D, g))} <small>${fmTrPct(m, E.n)}</small></span>`).join(' · ')}${E.groups.reduce((a, x) => a + x[1], 0) < E.n ? ' …' : ''}</div>` : '';
+    const col = E.col ? `<div class="fmTrG">${fmTrCol(E.col, E.n)}</div>` : '';
+    let lines = '', lb = null;
+    if (ready) part.forEach((r, j) => {
+      const ref = refs[j], ws = wcVerseWords.get(ref) || [], occ = new Map(wcTrOcc(cur, ref, lemma).map(o => [o.i, o]));
+      if (r.book !== lb) { lines += `<div class="bk">${esc(fmBook(r.book))}</div>`; lb = r.book; }
+      const cv = r.ch + (I18N.lang === 'de' ? ',' : ':') + r.v; let any = false;
+      ws.forEach((w, k) => {
+        if (!mine.has(w.fk + '|' + w.fr)) return; any = true; const o = occ.get(k + 1);
+        lines += `<div class="ln"><a data-ref="${esc(ref)}">${cv}</a><span class="he" lang="he" dir="rtl">${esc(w.he)}</span><span class="de" lang="de">${o && o.de ? esc(o.de) : `<span class="muted">${esc(I18N.t('(mit anderen Wörtern zusammen übersetzt)'))}</span>`}</span></div>`;
+      });
+      if (!any) lines += `<div class="ln"><a data-ref="${esc(ref)}">${cv}</a><span class="he"></span><span class="de"></span></div>`;
+    });
+    else lines = `<p class="muted">${esc(I18N.t('Lädt …'))}</p>`;
+    const rest = rs.length - part.length, STEP = 300;
+    const moreB = ready && rest > 0 ? `<div class="mr"><button type="button" class="fmTrMore" dir="auto" data-to="${lim + Math.min(rest, STEP)}">${esc(rest <= STEP ? I18N.t('alle {} Verse zeigen', rs.length.toLocaleString(I18N.loc)) : I18N.t('weitere {} Stellen zeigen', wcNum(STEP)))}</button></div>` : '';
+    tr.innerHTML = `<td colspan="99"><div class="fmRH"><span dir="rtl" lang="he">${esc(chip.querySelector('span').textContent)}</span><span class="muted">${esc(I18N.t(WC_TR_LABEL[cur]))} · ${esc(I18N.t('{} Stellen mit eigener Wiedergabe · {} verschiedene', wcNum(E.n), wcNum(E.k)))}</span><button type="button" class="fmRX" title="${esc(I18N.t('Schließen'))}">✕</button></div><div class="fmTrD">${rows}${more}</div>${grp}${col}<div class="fmRL wcTrCx">${lines}${moreB}</div></td>`;
+    chip.closest('tr').after(tr);
   }
   $('#fmBody').addEventListener('click', e => { const b = e.target.closest('.fmTrBar [data-fsrc]'); if (!b) return; e.stopPropagation(); fmTrPick = b.dataset.fsrc; try { localStorage.setItem('fmTrSrc', fmTrPick); } catch { /* egal */ } fmTrApply(); }, true);
   // Griechisch (Septuaginta): dieselbe Karte aus dem Index lxx-morph.js; info = { form, key } der angeklickten Form
@@ -1539,6 +1608,15 @@
   const WC_TR_DE = new Set(['Zunz', 'Breuer', 'Philippson', 'Herxheimer', 'Goldschmidt']);
   const WC_TR_LABEL = { Zunz: 'Zunz (1838)', Breuer: 'Breuer', Philippson: 'Philippson', Herxheimer: 'Herxheimer', Goldschmidt: 'Goldschmidt (1921)', LXX: 'Septuaginta', O: 'Onkelos', PJ: 'Pseudo-Jonathan', N: 'Neofiti 1' };
   // Porträt im Quell-Chip (wie in der Interlinear-Auswahl): Schlüssel der Fassung -> Name in portraits/index.js; fehlt das Bild, bleibt der Chip ohne
+  // Vers-Vorschau in der Wortkarte: Text aus der dort gewählten Fassung (Tabelle: „Übersetzung unter den Formen“, Überblick: Quell-Chip der Übersetzungsstatistik);
+  // der Versionstitel wird wie in der Interlinear-Ansicht über IL_VT erkannt. „aus“ oder keine Auswahl: wie überall (null)
+  const WC_TR_VT = { O: IL_VT.Onkelos, PJ: IL_VT['Pseudo-Jonathan'], N: IL_VT.Neofiti, LXX: /^Septuaginta/ };
+  function wcHovPick(a) {
+    const k = a.closest('#fmBody') ? (fmTrData ? fmTrCur() : 'off') : a.closest('#wcBody') ? (wcTrLive() ? wcTrLive().cur : 'off') : 'off';
+    if (!k || k === 'off' || (fmCur && fmCur.greek)) return null;
+    const re = WC_TR_VT[k] || IL_VT[k] || new RegExp(String(k).replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
+    return { vt: re.source, rtl: k === 'O' || k === 'PJ' || k === 'N' };
+  }
   const WC_TR_PIC = { Zunz: 'Zunz', Breuer: 'Raphael Breuer', Philippson: 'Philippson', Herxheimer: 'Herxheimer', Goldschmidt: 'Goldschmidt', LXX: 'Septuaginta', O: 'Targum Onkelos', PJ: 'Targum Pseudo-Jonathan', N: 'Targum Neofiti' };
   const wcTrPic = k => { const pic = WC_TR_PIC[k] && portraitOf(WC_TR_PIC[k]); return pic ? `<img class="wcTrPic" src="portraits/${encodeURIComponent(pic.img)}" alt="" loading="lazy" onerror="this.remove()">` : ''; };
   // Stellen: Buch*1000000 + Kapitel*1000 + Vers als Differenzen (Basis 36) -> Zahlen
@@ -1564,7 +1642,7 @@
   async function wcTrSources(lemma) {
     const [IR, LR, TR] = await Promise.all([loadIlRen(), loadLxxRen(), loadTgRen()]);
     const src = {};
-    if (IR) for (const [tr, M] of Object.entries(IR.tr)) { const x = M[lemma]; if (!x) continue; src[tr] = { lang: 'de', labels: x[0].map(f => ({ forms: f })), cells: x[1].map(([g, code, n, refs, f]) => ({ g, code, n, refs, f })) }; }
+    if (IR) for (const [tr, M] of Object.entries(IR.tr)) { const x = M[lemma]; if (!x) continue; src[tr] = { lang: 'de', labels: x[0].map(f => ({ forms: f })), cells: x[1].map(([g, code, n, refs, f]) => ({ g, code, n, refs, f })), para: x[2] || {} }; }
     const lx = LR && LR[lemma];
     if (lx) src.LXX = { lang: 'grc', labels: lx[0].map(g => ({ forms: [g], other: g === '*' })), cells: lx[1].map(([g, code, n, refs]) => ({ g, code, n, refs })) };
     const tg = TR && TR[lemma];
@@ -1587,7 +1665,7 @@
     if (fmRest && fmRest.token === token) { fmRestTr(fmRest.h); fmRest = null; } // Zurück/Vor: Fassung, Homonym, Filter und aufgeklappte Zeile des Verlaufseintrags
     box.hidden = false; wcTrRender();
   }
-  function wcTrShow(k) { const S = wcTrState; if (!S || !S.src[k]) return; S.cur = k; S.open = null; S.allRows = false; S.refLim = 12; try { localStorage.setItem('wcTrSrc', k); } catch { /* egal */ } wcTrRender(); }
+  function wcTrShow(k) { const S = wcTrState; if (!S || !S.src[k]) return; hovApi && hovApi.hide(); S.cur = k; S.open = null; S.allRows = false; S.refLim = 12; try { localStorage.setItem('wcTrSrc', k); } catch { /* egal */ } wcTrRender(); }
   function wcTrRefs(key) { const S = wcTrState; if (!S) return; S.open = S.open === key ? null : key; S.refLim = 12; wcTrRender(); }
   function wcTrFilt(dim, val) { const S = wcTrState; if (!S) return; if (dim === '*') S.f = {}; else if (S.f[dim] === val || val == null) delete S.f[dim]; else S.f[dim] = val; S.open = null; S.refLim = 12; wcTrRender(); }
   // Homonym-Umschalter: die Statistik zeigt ein gleich geschriebenes Lemma (die übrige Wortkarte bleibt beim angeklickten Wort)
@@ -1612,7 +1690,10 @@
       const t = res && res[r], ws = [];
       if (t && t.items && /westminster/i.test(t.versionTitle || '')) {
         const re = /<span class="w" data-l="([^"]*)" data-m="([^"]*)"[^>]*>([^<]*)/g, html = t.items.join(' '); let m;
-        while ((m = re.exec(html))) ws.push({ lem: (m[1].split('/').find(x => /\d/.test(x)) || '').trim(), code: wcMcode(m[1], m[2]), he: m[3].replace(/[֑-ֽ֯]/g, '') });
+        while ((m = re.exec(html))) { // fk/fr: Schlüssel und Form wie in der Formentabelle (Forms.analyze) – bindet eine Stelle an genau eine Form
+          const a = window.Forms ? window.Forms.analyze(m[3], m[2], m[1]) : null;
+          ws.push({ lem: (m[1].split('/').find(x => /\d/.test(x)) || '').trim(), code: wcMcode(m[1], m[2]), he: m[3].replace(/[֑-ֽ֯]/g, ''), fk: a ? a.key : '', fr: a ? a.raw : '' });
+        }
       }
       wcVerseWords.set(r, ws);
     }
@@ -2094,7 +2175,7 @@
     $('#wcBody').addEventListener('focusout', e => { const b = e.target.closest('.wcBar'); if (b) tip(b, false); });
   }
   { const refOf = e => { const a = e.target.closest('.fmRL a[data-ref], .dbody .dsrc[data-sref]'); return a ? [a, (a.dataset.ref || a.dataset.sref).replace(/-.*$/, '')] : [null, '']; };
-    $('#wcBody').addEventListener('mouseover', e => { const [a, ref] = refOf(e); if (!a || !hovApi || ref === hovApi.current()) return; hovApi.start(a, ref, true, false); });
+    $('#wcBody').addEventListener('mouseover', e => { const [a, ref] = refOf(e); if (!a || !hovApi || ref === hovApi.current()) return; hovApi.start(a, ref, true, false, wcHovPick(a)); });
     $('#wcBody').addEventListener('mouseout', e => { const [a] = refOf(e); if (a && hovApi && !a.contains(e.relatedTarget)) hovApi.hide(); }); }
   { let z = 1; try { z = +localStorage.getItem('fmZoom') || 1; } catch { /* egal */ }
     const apz = () => { z = Math.max(0.7, Math.min(2, Math.round(z * 20) / 20)); $('#wcBody').style.zoom = $('#fmBody').style.zoom = z; $('#fmHead').style.zoom = z; try { localStorage.setItem('fmZoom', String(z)); } catch { /* egal */ } };
@@ -2125,7 +2206,7 @@
     chip.closest('tr').after(tr);
   }
   $('#fmBody').addEventListener('click', e => {
-    const closeRefs = () => { $$('#fmBody .fmRefRow').forEach(x => x.remove()); $$('#fmBody .fmF.sel').forEach(x => x.classList.remove('sel')); };
+    const closeRefs = () => { $$('#fmBody .fmRefRow').forEach(x => x.remove()); $$('#fmBody .fmF.sel').forEach(x => x.classList.remove('sel', 'trsel')); };
     const a = e.target.closest('.fmRL a[data-ref]');
     if (a) { hovApi && hovApi.hide(); jumpTo(a.dataset.ref, BG(e)); return; }
     if (e.target.closest('.fmRX')) { closeRefs(); return; }
@@ -2134,11 +2215,16 @@
     if (mb) { const m = mb.previousElementSibling; m.hidden = !m.hidden; mb.textContent = m.hidden ? '+' + mb.dataset.n : '−'; return; }
     const nv = e.target.closest('.fmNav button');
     if (nv) { const s = $(`#fmBody .fmSec[data-sec="${nv.dataset.sec}"]`); if (s) { s.open = true; s.scrollIntoView({ block: 'start' }); } return; }
+    const tm = e.target.closest('.fmTrMore[data-to]'); // Wiedergaben einer Form: weitere Stellen
+    if (tm) { const c = $('#fmBody .fmF.trsel'); if (c && fmCur) { $$('#fmBody .fmRefRow').forEach(x => x.remove()); fmTrRefs(c, +tm.dataset.to); } return; }
     const chip = e.target.closest('.fmF');
-    if (chip && fmCur) { const was = chip.classList.contains('sel'); closeRefs(); if (!was) { chip.classList.add('sel'); fmRefs(chip, false); } }
+    if (chip && fmCur && e.target.closest('.fmTrL.can')) { // Klick auf die Wiedergabe: alle Wiedergaben und Stellen dieser Form
+      const was = chip.classList.contains('trsel'); closeRefs(); if (!was) { chip.classList.add('sel', 'trsel'); fmTrRefs(chip); } return;
+    }
+    if (chip && fmCur) { const was = chip.classList.contains('sel') && !chip.classList.contains('trsel'); closeRefs(); if (!was) { chip.classList.add('sel'); fmRefs(chip, false); } }
   });
   // Vorschau des Verses beim Überfahren einer Belegstelle (wie bei den Verknüpfungen)
-  $('#fmBody').addEventListener('mouseover', e => { const a = e.target.closest('.fmRL a[data-ref]'); if (!a || !hovApi || a.dataset.ref === hovApi.current()) return; hovApi.start(a, a.dataset.ref, true, false); });
+  $('#fmBody').addEventListener('mouseover', e => { const a = e.target.closest('.fmRL a[data-ref]'); if (!a || !hovApi || a.dataset.ref === hovApi.current()) return; hovApi.start(a, a.dataset.ref, true, false, wcHovPick(a)); });
   $('#fmBody').addEventListener('mouseout', e => { const a = e.target.closest('.fmRL a[data-ref]'); if (a && hovApi && !a.contains(e.relatedTarget)) hovApi.hide(); });
   $('#formsPanel').addEventListener('scroll', () => hovApi && hovApi.hide(), { passive: true });
   window.addEventListener('scroll', closeWpop, { passive: true, capture: true });
@@ -2947,11 +3033,13 @@
   const versNote = a => versNoteText(a.dataset.oref, a.dataset.sref, a.dataset.vt);
   { let hov = null, hovT = null, hovRef = null; const pvCache = new Map();
     const hideHov = () => { clearTimeout(hovT); hovRef = null; if (hov) hov.hidden = true; };
-    const startHov = (a, ref, quiet, below) => {
+    // pick (Wortkarte): { vt, rtl } – die dort gewählte Fassung statt der üblichen zweiten Sprache (wcHovPick)
+    const startHov = (a, ref, quiet, below, pick) => {
       hideHov(); hovRef = ref;
       hovT = setTimeout(async () => {
-        let r = pvCache.get(ref);
-        if (!r) { try { r = await LK.preview(ref, ['he', I18N.lang === 'de' ? 'de' : 'en']); } catch { r = {}; } pvCache.set(ref, r); if (pvCache.size > 200) pvCache.delete(pvCache.keys().next().value); }
+        const ck = pick ? ref + '\u0001' + pick.vt : ref;
+        let r = pvCache.get(ck);
+        if (!r) { try { r = await LK.preview(ref, ['he', I18N.lang === 'de' ? 'de' : 'en'], pick || undefined); } catch { r = {}; } pvCache.set(ck, r); if (pvCache.size > 200) pvCache.delete(pvCache.keys().next().value); }
         if (hovRef !== ref) return; // Maus ist inzwischen woanders
         const none = !(r.parts && r.parts.length) && !(r.items && r.items.length);
         if (none && quiet) return; // Wörterbuch: ohne Text keine leere Blase

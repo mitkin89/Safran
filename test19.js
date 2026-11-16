@@ -11,8 +11,10 @@ a = F.analyze('וְהָאָ֗רֶץ', 'HC/Td/Ncbsa', 'c/d/776'); // der Artikel 
 assert.deepStrictEqual([a.key, a.form], ['HNcbsa*', 'הָאָרֶץ']);
 a = F.analyze('וַיֹּ֥אמֶר', 'HC/Vqw3ms', 'c/559'); // wajjiqtol steht wie belegt
 assert.deepStrictEqual([a.key, a.form], ['HVqw3ms', 'וַיֹּאמֶר']);
-a = F.analyze('וְכָתַ֥ב', 'HC/Vqp3ms', 'c/3789'); // nach dem ו fehlt das Dagesch; die Form für sich hat es
-assert.strictEqual(a.form, 'כָּתַב');
+a = F.analyze('וְכָתַ֥ב', 'HC/Vqp3ms', 'c/3789'); // Perfekt mit ו (von der OSHB nicht als wᵉqatal bestimmt): wie belegt, als „mit ו“ gekennzeichnet
+assert.deepStrictEqual([a.key, a.form, a.raw], ['HVqp3ms', 'וְכָתַב', '+וְכָתַב']);
+a = F.analyze('וּבְכֹ֖ל', 'HC/R/Ncmsc', 'c/b/3605'); // sonst wird das ו abgetrennt; nach der Vorsilbe fehlt das Dagesch, die Form für sich hat es
+assert.strictEqual(a.form, 'כֹּל');
 a = F.analyze('לִכְתֹּ֛ב', 'HR/Vqc', 'l/3789'); // Infinitiv mit Präposition bleibt zusammen
 assert.strictEqual(a.form, 'לִכְתֹּב');
 a = F.analyze('לֵֽאלֹהִ֑ים', 'HR/Ncmpa', 'l/430'); // nicht abtrennbar (א ohne Vokal): wie belegt, gekennzeichnet
@@ -50,6 +52,14 @@ for (const [lemma, form] of [['559', 'אָמַר'], ['3789', 'כָּתַב']]) {
   const pt = blk(q, 'Partizip aktiv').tables[0];
   assert(pt.cols.includes('st. abs.')); assert(fs0(row(pt, 'm. Sg.').cells[0]).includes('אֹמֵר'));
   assert(blk(q, 'Infinitivus constructus').tables[0].rows[0].cells[0].some(x => x.f === 'לֵאמֹר'));
+}
+{ // Perfekt mit ו steht nicht unter dem einfachen Perfekt: אָמַרְתָּ „du hast gesagt“ 19×, וְאָמַרְתָּ „und sprich“ (Ex 9,13 u. a.) 7× als „mit ו“ dahinter
+  const m = F.model(D, '559'), c = row(blk(sec(m, 'Qal'), 'Perfekt').tables[0], '2. m. Sg.').cells[0];
+  assert.deepStrictEqual(c.map(x => [x.f, x.n, x.waw]), [['אָמַרְתָּ', 19, false], ['וְאָמַרְתָּ', 7, true]]);
+  assert(F.refs(D, m, c[1].i).some(r => r.book === 'Exodus' && r.ch === 9 && r.v === 13));
+  const html = F.render(m);
+  assert(html.includes('<span class="fmWL" dir="auto">mit <span lang="he">ו</span></span><button type="button" class="fmF waw"'));
+  assert(F.topForms(m, 500).list.some(x => x.f === 'וְאָמַרְתָּ' && x.n === 7));
 }
 { // Nomen: Genus/Numerus × Status, Suffixformen nach Person
   const m = F.model(D, '4428'), t = sec(m, 'Nomen').blocks[0].tables;

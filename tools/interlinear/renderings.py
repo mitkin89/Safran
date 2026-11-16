@@ -5,10 +5,19 @@ Je Vorkommen des Lemmas im Westminster-Text werden die deutschen Segmente gesamm
 (Satzzeichen, „und“ und Artikel am Anfang weg, klein geschrieben) und nach einem einfachen Wortstamm gruppiert
 (kehrt, kehrte, kehrten -> eine Gruppe).
 Ausgabe: interlin-ren.js
-  window.INTERLIN_REN = {Übersetzung: {Lemma: "Belege|Gruppen|Form¦Form¦Form~Anzahl~Stellen;…"}}
+  window.INTERLIN_REN = {books, tr: {Übersetzung: {Lemma: [Gruppen, Zellen, Paradigma]}}}
+  Gruppen: [[Grundform, [Form, Anzahl] …] …]; Zellen: [[Gruppe, Bestimmung, Anzahl, Stellen, häufigste Form bei dieser Bestimmung] …]
   Stellen: Vers-Nummern (Buch*1000000 + Kapitel*1000 + Vers) als Differenzen in Basis 36, durch „.“ getrennt; Buch = Index in BOOKS.
-Aufruf: python3 -I tools/interlinear/renderings.py"""
-import json, glob, re, os
+  Paradigma (Formentabelle, „Übersetzung unter den Formen“): je Form der Tabelle – Schlüssel und Form genau wie forms.js sie bildet
+  (Forms.analyze: key, raw) – die Wiedergaben an den Stellen dieser Form:
+    {Schlüssel: {Form: [Belege, verschiedene Wiedergaben, [[Wiedergabe, Anzahl, Gruppe, Bindewort?, Anzahl mit Bindewort?] … bis 6],
+                        [[Gruppe, Anzahl] … bis 4]? (nur bei mehr als 6 Wiedergaben, sonst 0 oder weggelassen), Kollokation?]}}
+    Einzelbeleg kurz: [Wiedergabe, Gruppe, Bindewort?]
+  Wiedergabe: ohne Satzzeichen, Satzanfang klein, ohne das Bindewort am Anfang („und“, „da“, „so“ … – das steht für das ו und wird eigens gezählt).
+  Kollokation (nur wenn ein Wort davor überwiegt und die Wiedergabe daran hängt, z. B. כֹּה אָמַר „spricht“ 94 %, sonst 33 %):
+    [Wort davor, Belege danach, [Wiedergabe, Anzahl], [[Wiedergabe sonst, Anzahl] … bis 2]]
+Aufruf: python3 -I tools/interlinear/renderings.py   (braucht node für forms.js)"""
+import json, glob, re, os, subprocess
 R = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..')
 s = open(os.path.join(R, 'interlin.js'), encoding='utf8').read()
 IL = json.loads(s[s.index('=') + 1:].strip().rstrip(';'))
@@ -93,6 +102,36 @@ def content(form, pos='V'):  # Inhaltswörter einer Wiedergabe in Grundform, tre
     if not out: out = [w.lower() for w in ws]  # Pronomen, Partikeln: die Form selbst
     if part and out: out[0] = part + out[0]
     return out
+# ----- Paradigma: Wiedergabe je Form der Formentabelle -----
+CONJ = {'und', 'da', 'so', 'dann', 'aber', 'nun', 'auch', 'doch', 'also', 'denn'}  # Bindewörter am Anfang: stehen für das ו
+FUNCW = STOPW | AUX | ART | JUNK | PRON | CONJ
+LOWER = set()  # klein geschriebene Wörter der Übersetzungen (erster Durchlauf): „Sprach“ am Satzanfang -> „sprach“, „König“ bleibt
+def para(segs, pos):  # [(Segment-Nummer, Text)] -> (Bindewort, Wiedergabe); nicht benachbarte Segmente mit „…“ verbunden
+    t = ''
+    for j, (k, x) in enumerate(segs): t += ('' if not j else ' ' if k == segs[j - 1][0] + 1 else ' … ') + x
+    t = re.sub(r'\.\.\.|[„“”‚‘"«»,.;:!?()\[\]—–]', ' ', t)
+    w = t.split()
+    while w and w[0] == '…': w = w[1:]
+    while w and w[-1] == '…': w = w[:-1]
+    if not w: return '', ''
+    low = lambda x: x[:1].isupper() and (x.lower().rstrip("'’") in FUNCW or (pos != 'N' and x.lower().rstrip("'’") in LOWER))  # Satzanfang, kein Nomen
+    if low(w[0]): w[0] = w[0].lower()
+    cj = []
+    while len(w) > 1 and w[0].lower() in CONJ:
+        cj.append(w[0].lower()); w = w[1:]
+        while len(w) > 1 and w[0] == '…': w = w[1:]
+        if low(w[0]): w[0] = w[0].lower()
+    return ' '.join(cj), ' '.join(w)
+def formkeys():  # je Buch und Vers: je Wort „Schlüssel|Form|Wort ohne Akzente“ wie Forms.analyze (forms.js) – dieselbe Zerlegung wie in der Formentabelle
+    js = ("const fs=require('fs'),path=require('path'),R=process.argv[1],F=require(path.join(R,'forms.js'));const out={};"
+          "for(const b of JSON.parse(process.argv[2])){const f=fs.readdirSync(path.join(R,'bundled','own',b,'he')).find(x=>x.startsWith('Westminster'));if(!f)continue;"
+          "const T=JSON.parse(fs.readFileSync(path.join(R,'bundled','own',b,'he',f),'utf8')).text,o=out[b]={};"
+          "T.forEach((ch,c)=>(Array.isArray(ch)?ch:[]).forEach((v,i)=>{if(typeof v!=='string')return;"
+          "o[(c+1)+':'+(i+1)]=[...v.matchAll(/<span class=\"w\" data-l=\"([^\"]*)\" data-m=\"([^\"]*)\"[^>]*>(.*?)<\\/span>/g)].map(m=>{const a=F.analyze(m[3],m[2],m[1]);return (a?a.key+'|'+a.raw:'|')+'|'+F.clean(m[3]);});}));}"
+          "process.stdout.write(JSON.stringify(out));")
+    r = subprocess.run(['node', '-e', js, os.path.abspath(R), json.dumps(BOOKS)], capture_output=True, text=True, encoding='utf8', check=True)
+    return json.loads(r.stdout)
+FK = formkeys()
 def mcode(dl, dm):  # Bestimmung des Hauptworts (ohne Vorsilben), Suffix angehängt: „HVqw3ms“, „HNcmsc/Sp3ms“
     ls, ms = dl.split('/'), dm[1:].split('/')
     i = next((k for k, x in enumerate(ls) if re.search(r'\d', x)), len(ls) - 1)
@@ -110,6 +149,7 @@ for NAMES in (None, True):
  if NAMES: NAMESET = {f for f, (a, b) in NAMEC.items() if a >= 3 and a > 4 * b}
  for tr, books in IL.items():
     acc = {}  # Lemma -> Stamm -> [Anzahl, {Form: n}, [Stellen]]
+    pacc = {}  # Lemma -> (Schlüssel, Form) -> [Anzahl, {Wiedergabe: [n, {Bindewort: n}, Stamm]}, {Stamm: n}, {Lemma davor: [n, {Wiedergabe: n}, {Wort: n}]}]
     for book, verses in books.items():
         if book not in BOOKS: continue
         bi = BOOKS.index(book)
@@ -122,15 +162,17 @@ for NAMES in (None, True):
             ws = re.findall(r'<span class="w" data-l="([^"]*)" data-m="([^"]*)"', he[c - 1][v - 1])
             lems = [next((x.strip() for x in l.split('/') if re.search(r'\d', x)), '') for l, m in ws]
             per = {}
-            if NAMES is None:  # erster Durchlauf sammelt nur Eigennamen
+            if NAMES is None:  # erster Durchlauf sammelt nur Eigennamen (und die klein geschriebenen Wörter)
                 for idx, t in segs:
+                    LOWER.update(x for x in re.findall(r'[^\W\d_]+', t) if x == x.lower())
                     if len(idx) == 1 and 1 <= idx[0] <= len(ws) and t[:1].isupper():
                         c = NAMEC.setdefault(clean(t), [0, 0]); c['Np' not in mcode(*ws[idx[0] - 1])] += 1
                 continue
-            for idx, t in segs:
+            perk = {}; fks = FK.get(book, {}).get(k, [])
+            for sk, (idx, t) in enumerate(segs):
                 cidx = [i for i in idx if 1 <= i <= len(lems) and lems[i - 1] and lems[i - 1] not in FUNC]
                 if len(cidx) != 1: continue
-                per.setdefault(cidx[0], []).append(t)
+                per.setdefault(cidx[0], []).append(t); perk.setdefault(cidx[0], []).append((sk, t))
             for i, ts in per.items():
                 form = clean(' '.join(ts))
                 if not form: continue
@@ -148,6 +190,17 @@ for NAMES in (None, True):
                 e[3][tt] = e[3].get(tt, 0) + 1
                 e[2].setdefault(mcode(*ws[i - 1]), []).append(bi * 1000000 + c * 1000 + v)
                 fc = e[5].setdefault(mcode(*ws[i - 1]), {}); fc[fl] = fc.get(fl, 0) + 1  # häufigste Form je Bestimmung (Paradigmen: „er ging aus“ statt „ausgehen“)
+                # Paradigma: Wiedergabe an der Stelle genau dieser Form (Schlüssel und Form wie in der Formentabelle)
+                fk = fks[i - 1].split('|') if len(fks) == len(ws) else None
+                cj, core = para(perk[i], pos)
+                if fk and fk[0] and core:
+                    pe = pacc.setdefault(lems[i - 1], {}).setdefault((fk[0], fk[1]), [0, {}, {}, {}])
+                    pe[0] += 1
+                    ce = pe[1].setdefault(core, [0, {}, key]); ce[0] += 1; ce[1][cj] = ce[1].get(cj, 0) + 1
+                    pe[2][key] = pe[2].get(key, 0) + 1
+                    if i >= 2 and lems[i - 2]:
+                        pv = pe[3].setdefault(lems[i - 2], [0, {}, {}]); pv[0] += 1; pv[1][core] = pv[1].get(core, 0) + 1
+                        hw = fks[i - 2].split('|')[2]; pv[2][hw] = pv[2].get(hw, 0) + 1
     res = {}
     for lem, groups in acc.items():
         gs = sorted(groups.values(), key=lambda g: -g[0])
@@ -171,10 +224,30 @@ for NAMES in (None, True):
                 refs = sorted(refs); prev = 0; enc = []
                 for r in refs: enc.append(b36(r - prev)); prev = r
                 fc = g[5].get(code, {}); cells.append([gi, code, len(refs), '.'.join(enc), max(fc, key=lambda f: (fc[f], -len(f))) if fc else ''])
-        res[lem] = [labels, cells]
+        gix = {g[4]: gi for gi, g in enumerate(gs)}
+        P = {}
+        for (fkey, raw), (n, cores, gn, prev) in sorted(pacc.get(lem, {}).items()):
+            top = sorted(cores.items(), key=lambda x: (-x[1][0], x[0]))
+            cj = lambda v: [x for x in [max(v[1].items(), key=lambda y: (y[1], y[0] != ''))] if x[0]]  # häufigstes Bindewort; fehlt, wenn meist keines steht
+            row = [n, len(cores), [[c, v[0], gix[v[2]]] + [y for x in cj(v) for y in x] for c, v in top[:6]]]
+            if len(cores) > 6: row.append([[gix[g], m] for g, m in sorted(gn.items(), key=lambda x: (-x[1], gix[x[0]]))[:4]])  # sonst aus den Wiedergaben zu zählen
+            # Kollokation: ein Wort davor überwiegt (mindestens die Hälfte der Stellen) und die Wiedergabe hängt daran –
+            # die dort häufigste Wiedergabe ist sonst deutlich seltener (כֹּה אָמַר „spricht“ 94 %, sonst 33 %)
+            if n >= 10 and prev and fkey[1] == 'V':  # nur Verben: bei Nomen hinge daran bloß der Kasus (אֱלֹהֵי אֲבוֹתֵיהֶם „ihrer Väter“)
+                pl, (pn, pc, pw) = max(prev.items(), key=lambda x: (x[1][0], x[0]))
+                if pn * 2 >= n and n - pn >= 5:
+                    cin, nin = max(pc.items(), key=lambda x: (x[1], x[0]))
+                    rest = {c: v[0] - pc.get(c, 0) for c, v in cores.items() if v[0] - pc.get(c, 0) > 0}
+                    if nin >= 5 and nin / pn - rest.get(cin, 0) / (n - pn) >= 0.3:
+                        if len(row) == 3: row.append(0)
+                        row.append([max(pw.items(), key=lambda x: (x[1], x[0]))[0], pn, [cin, nin], [[c, m] for c, m in sorted(rest.items(), key=lambda x: (-x[1], x[0]))[:2]]])
+            if n == 1: row = row[2][0][:1] + row[2][0][2:4]  # Einzelbeleg: [Wiedergabe, Gruppe, Bindewort?]
+            P.setdefault(fkey, {})[raw] = row
+        res[lem] = [labels, cells, P]
     out[tr] = res
 p = os.path.join(R, 'interlin-ren.js')
 open(p, 'w', encoding='utf8').write('// Wortkarte: Wiedergabe hebräischer Lemmata in den wortgenau zugeordneten Übersetzungen (interlin.js) – erzeugt von tools/interlinear/renderings.py\n'
-                                    '// Format: {books, tr: {Übersetzung: {Lemma: [[Grundform, [Form, Anzahl] …] je Gruppe …], [[Gruppe, Bestimmung (OSHB-Code des Hauptworts), Anzahl, Stellen, häufigste Form bei dieser Bestimmung] …]]}}}; Stellen: Buch*1000000+Kapitel*1000+Vers als Differenzen (Basis 36)\n'
+                                    '// Format: {books, tr: {Übersetzung: {Lemma: [[Grundform, [Form, Anzahl] …] je Gruppe …], [[Gruppe, Bestimmung (OSHB-Code des Hauptworts), Anzahl, Stellen, häufigste Form bei dieser Bestimmung] …], Paradigma]}}}; Stellen: Buch*1000000+Kapitel*1000+Vers als Differenzen (Basis 36)\n'
+                                    '// Paradigma (Formentabelle): {Schlüssel: {Form (wie forms.js): [Belege, verschiedene Wiedergaben, [[Wiedergabe, Anzahl, Gruppe, Bindewort?, Anzahl mit Bindewort?] …], [[Gruppe, Anzahl] …]? (nur bei mehr als 6 Wiedergaben), [Wort davor, Belege danach, [Wiedergabe, Anzahl], [[Wiedergabe sonst, Anzahl] …]]?]; Einzelbeleg: [Wiedergabe, Gruppe, Bindewort?]}}\n'
                                     'window.INTERLIN_REN=' + json.dumps({'books': BOOKS, 'tr': out}, ensure_ascii=False, separators=(',', ':')) + ';\n')
 print({k: len(v) for k, v in out.items()}, os.path.getsize(p), 'Bytes')
