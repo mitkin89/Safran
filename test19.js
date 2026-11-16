@@ -87,5 +87,5 @@ for (const [lemma, form] of [['559', 'אָמַר'], ['3789', 'כָּתַב']]) {
   assert.strictEqual(F.model(D, 'gibt es nicht'), null);
 }
 // Der Index ist auf dem Stand der mitgelieferten Westminster-Texte (sonst: node tools/oshb/forms.js)
-assert.strictEqual(require('./tools/oshb/forms.js').make(), fs.readFileSync(path.join(__dirname, 'oshb-forms.js'), 'utf8'), 'oshb-forms.js ist veraltet: node tools/oshb/forms.js');
+assert.strictEqual(require('./tools/oshb/forms.js').make(), fs.readFileSync(path.join(__dirname, 'oshb-forms.js'), 'utf8').replace(/\r\n/g, '\n'), 'oshb-forms.js ist veraltet: node tools/oshb/forms.js');
 console.log('Formentabelle ok');

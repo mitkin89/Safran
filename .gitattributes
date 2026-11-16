@@ -1,0 +1,3 @@
+# Dateien immer genau so auschecken, wie sie im Repo liegen (keine Umwandlung der Zeilenenden, auch nicht unter Windows):
+# erzeugte Daten (oshb-forms.js, Verknüpfungen *.tsv …) werden Zeichen für Zeichen gelesen und verglichen
+* -text

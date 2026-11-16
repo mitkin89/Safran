@@ -81,5 +81,5 @@ assert.ok(Object.keys(L.gr).length > 5000);
 assert.ok(r.list.every((x, i) => !i || r.list[i - 1].n >= x.n));
 assert.ok(Object.keys(L.lem).length > 8000);
 // Der Index ist auf dem Stand der mitgelieferten Texte und der Septuaginta-Morphologie (sonst: node tools/catss/lxx-lemma.js)
-assert.strictEqual(require('./tools/catss/lxx-lemma.js').make(), fs.readFileSync(path.join(__dirname, 'oshb-lxx.js'), 'utf8'), 'oshb-lxx.js ist veraltet: node tools/catss/lxx-lemma.js');
+assert.strictEqual(require('./tools/catss/lxx-lemma.js').make(), fs.readFileSync(path.join(__dirname, 'oshb-lxx.js'), 'utf8').replace(/\r\n/g, '\n'), 'oshb-lxx.js ist veraltet: node tools/catss/lxx-lemma.js');
 console.log(`Wortkarte ok (Verteilung auf ${ds.length} Bücher, ${Object.keys(L.lem).length} Lemmata mit Septuaginta-Wiedergabe)`);
