@@ -1033,10 +1033,11 @@ ipcMain.handle('links:preview', async (_e, ref, langs, pick) => {
     if (re) for (const c of cand.filter(x => re.test(String(x.versionTitle || '')))) {
       try { const d = await lib.read(c.rel); const items = LK.resolveText(d, tail); if (items) { picked = { kind: c.kind, he: c.kind === 'he' || !!pick.rtl, items: items.slice(0, 6), versionTitle: c.versionTitle, picked: true }; break; } } catch { /* nächste Fassung */ }
     }
+    const pickMiss = !!re && !picked; // gewählte Fassung fehlt für dieses Buch oder diesen Vers
     for (const k of wanted) { if (picked && k !== 'he') continue; await tryKind(k); }
     if (picked) { parts.push(picked); return { parts, items: parts[0].items, kind: parts[0].kind, he: parts[0].he, versionTitle: parts[0].versionTitle }; }
     if (parts.length < wanted.length) for (const k of ['en', 'de']) { if (parts.length >= wanted.length) break; if (!wanted.includes(k) && !parts.some(p => p.kind === k)) await tryKind(k); }
-    return parts.length ? { parts, items: parts[0].items, kind: parts[0].kind, he: parts[0].he, versionTitle: parts[0].versionTitle } : { nopreview: true };
+    return parts.length ? { parts, items: parts[0].items, kind: parts[0].kind, he: parts[0].he, versionTitle: parts[0].versionTitle, pickMiss } : { nopreview: true };
   }
   const rank = { en: 0, de: 1, he: 2, other: 3 };
   cand.sort((a, b) => (rank[a.kind] - rank[b.kind]) || (merged(a) - merged(b)));

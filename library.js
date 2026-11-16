@@ -1642,7 +1642,7 @@
     const k = a.closest('#fmBody') ? (fmTrData ? fmTrCur() : 'off') : a.closest('#wcBody') ? (wcTrLive() ? wcTrLive().cur : 'off') : 'off';
     if (!k || k === 'off' || (fmCur && fmCur.greek)) return null;
     const re = WC_TR_VT[k] || IL_VT[k] || new RegExp(String(k).replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
-    return { vt: re.source, rtl: k === 'O' || k === 'PJ' || k === 'N' };
+    return { vt: re.source, rtl: k === 'O' || k === 'PJ' || k === 'N', label: WC_TR_LABEL[k] || k };
   }
   const WC_TR_PIC = { Zunz: 'Zunz', Breuer: 'Raphael Breuer', Philippson: 'Philippson', Herxheimer: 'Herxheimer', Goldschmidt: 'Goldschmidt', Hirsch: 'Samson Raphael Hirsch', JuliusHirsch: 'Julius Hirsch', LXX: 'Septuaginta', O: 'Targum Onkelos', PJ: 'Targum Pseudo-Jonathan', N: 'Targum Neofiti' };
   const wcTrPic = k => { const pic = WC_TR_PIC[k] && portraitOf(WC_TR_PIC[k]); return pic ? `<img class="wcTrPic" src="portraits/${encodeURIComponent(pic.img)}" alt="" loading="lazy" onerror="this.remove()">` : ''; };
@@ -3074,7 +3074,9 @@
         const partHtml = p => p.items.map(t => `<div dir="${p.he ? 'rtl' : 'ltr'}"${p.he ? ' lang="he" class="phe"' : ''}>${R.cleanHtml(R.splitFootnotes(p.he ? stripHe(t) : t).main.replace(/<sup[^>]*>.*?<\/sup>/g, ''))}</div>`).join('');
         const html = r.parts && r.parts.length ? r.parts.map((p, i) => (i ? '<hr>' : '') + pvVer(p.versionTitle) + partHtml(p)).join('') : r.items && r.items.length ? pvVer(r.versionTitle) + partHtml({ items: r.items, he: r.he }) : `<i>${esc(I18N.t('Keine Vorschau möglich.'))}</i>`;
         // andere Zählung im Text: Hinweis, welche Stelle gemeint ist („englische Zählung Joel 3:11 = hebr. 4:11“)
-        const vn = a && a.dataset && a.dataset.oref ? `<div class="vnote">${esc(versNote(a))}</div>` : '';
+        const vn = (a && a.dataset && a.dataset.oref ? `<div class="vnote">${esc(versNote(a))}</div>` : '')
+          // gewählte Fassung (Wortkarte) gibt es für dieses Buch nicht: sagen, statt stillschweigend eine andere zu zeigen
+          + (pick && r.pickMiss ? `<div class="vnote">${esc(I18N.t('{} enthält dieses Buch nicht – stattdessen:', pick.label || ''))}</div>` : '');
         hov.innerHTML = `<b>${esc(ref)}</b>${vn}${html}`; hov.hidden = false;
         const rc = a.getBoundingClientRect(), w = hov.offsetWidth, h = hov.offsetHeight;
         if (below) { // Wörterbuch-Leiste: unter dem Link, sonst darüber

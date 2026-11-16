@@ -786,6 +786,7 @@ window.I18N_HE = {
 "Septuaginta": "תרגום השבעים",
 "Interlinear": "בין השורות",
 "Klick: dieses Werk ausblenden": "לחיצה: הסתרת חיבור זה",
+"{} enthält dieses Buch nicht – stattdessen:": "{} אינו כולל ספר זה – במקומו:",
 "Qumran-Rollen": "מגילות קומראן",
 "Biblische Rollen vom Toten Meer (ETCBC), je Rolle eine Zeile; farbig: abweichende Lesart": "מגילות המקרא ממדבר יהודה (ETCBC), שורה לכל מגילה; בצבע: נוסח שונה",
 "gleich wie im masoretischen Text": "זהה לנוסח המסורה",

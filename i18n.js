@@ -186,6 +186,7 @@
     'Septuaginta': 'Septuagint',
     'Interlinear': 'Interlinear',
     'Klick: dieses Werk ausblenden': 'Click: hide this work',
+    '{} enthält dieses Buch nicht – stattdessen:': '{} does not contain this book – instead:',
     'Qumran-Rollen': 'Qumran scrolls',
     'Biblische Rollen vom Toten Meer (ETCBC), je Rolle eine Zeile; farbig: abweichende Lesart': 'Biblical Dead Sea Scrolls (ETCBC), one line per scroll; coloured: different reading',
     'gleich wie im masoretischen Text': 'same as the Masoretic text',
