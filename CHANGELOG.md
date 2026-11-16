@@ -1,6 +1,7 @@
 # Changelog
 
 ### New in 2.4.0
+- **Interlinear: several translations one below the other, click-to-highlight:** the selector next to *Interlinear* now also offers *All* – Zunz (blue, Z) and Breuer (orange, B) then stand as separate lines under each Hebrew word. Clicking a German word makes the Hebrew word, the matching words of the other translation and the corresponding words in the other open versions (Septuagint/CATSS, Hebrew texts) light up; click again or elsewhere to clear.
 - **Interlinear: choose the translation (Ruth: Zunz or Breuer):** next to the *Interlinear* button a selector appears when a book is aligned in more than one translation; the choice is remembered. Breuer's *Arba Megillot* Ruth is aligned word by word like Zunz (`tools/interlinear/breuer/Ruth.txt`); the data now live in `interlin.js`.
 - **Interlinear (prototype: the Book of Ruth):** a new button *Interlinear* above the text puts the German of Zunz (Berlin 1838) word by word under the Hebrew words of the Westminster text; phrases that belong together ("als die Richter richteten") stand once under their group of words. The word-by-word alignment is in `tools/interlinear/zunz/Ruth.txt` and is checked by `tools/interlinear/build.py` (the segments must reproduce Zunz's verse exactly).
 - Krauss, Talmudische Archäologie: his Mekhilta citations by Exodus verse ("Mekh zu Exod 15,2") are linked, in both directions, to the Mekhilta passages Sefaria connects with that verse (tools/ownlinks).

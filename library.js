@@ -776,46 +776,80 @@
   let ilOn = false; try { ilOn = localStorage.getItem('interlin') === '1'; } catch { /* egal */ }
   let ilP = null;
   const loadIL = () => ilP || (ilP = lazyScript('interlin.js', () => window.INTERLIN).catch(() => { ilP = null; return null; }));
-  // Segmente mit mehreren Wörtern („als die Richter richteten“) stehen einmal unter der zusammengehörigen Wortgruppe, nicht unter jedem Wort
+  // Jede deutsche Übersetzung steht als eigene Zeile unter dem Wort (bzw. unter der Wortgruppe); Segmente mit mehreren Wörtern („als die Richter richteten“) stehen einmal unter der zusammengehörigen Wortgruppe.
+  // Mit mehreren Übersetzungen werden die Gruppen aller Übersetzungen zusammengefasst, jede Übersetzung hat ihre Zeile (Farbe + Kürzel).
+  const ilHlClear = () => $$('#rOut .ilhl').forEach(x => x.classList.remove('ilhl'));
   function ilClear() {
-    $$('#rOut .w[data-il]').forEach(w => w.removeAttribute('data-il'));
+    ilHlClear();
     $$('#rOut .ilg').forEach(g => { const inner = g.firstChild; while (inner.firstChild) g.parentNode.insertBefore(inner.firstChild, g); g.remove(); });
   }
-  const ilJoin = a => a.map(([k, t], j) => (j ? (k === a[j - 1][0] + 1 ? ' ' : ' … ') : '') + t).join(''); // nicht aufeinanderfolgende Teile mit „…“
-  function ilVerse(cell, segs) {
-    const lead = new Map(), memberOf = new Map(); // Anführer-Wort -> [[Nr, Text]]; Mitglieds-Wort -> Anführer
-    segs.forEach(([idx, t], k) => { if (!idx.length) return; const L = Math.min(...idx); (lead.get(L) || lead.set(L, []).get(L)).push([k, t]); idx.forEach(i => { if (i !== L) memberOf.set(i, L); }); });
-    lead.forEach((_, L) => memberOf.delete(L));
-    const ws = [...cell.querySelectorAll('.w')]; if (!ws.length) return;
-    const runs = new Map(); // Anführer -> letztes Wort der zusammenhängenden Gruppe
-    lead.forEach((a, L) => { let e = L; while (memberOf.get(e + 1) === L && ws[e]) e++; runs.set(L, e); });
-    memberOf.forEach((L, i) => { if (!(i > L && i <= runs.get(L)) && ws[i - 1]) ws[i - 1].dataset.il = '…'; }); // gehört zu einer Gruppe, die nicht zusammenhängt
-    lead.forEach((a, L) => {
-      const w = ws[L - 1], e = runs.get(L); if (!w) return;
-      const txt = ilJoin(a);
-      if (e === L) { w.dataset.il = txt; return; }
-      const g = document.createElement('span'), inner = document.createElement('span'); g.className = 'ilg'; g.dataset.il = txt; inner.className = 'ilw'; g.appendChild(inner);
-      w.parentNode.insertBefore(g, w);
-      for (let n = w, last = ws[e - 1]; n; ) { const nx = n.nextSibling; inner.appendChild(n); if (n === last) break; n = nx; }
+  // trs: [[Name, Segmente]] – ein Vers
+  function ilVerse(cell, trs) {
+    const ws = [...cell.querySelectorAll('.w')], n = ws.length; if (!n) return;
+    const par = Array.from({ length: n + 2 }, (_, i) => i), find = x => par[x] === x ? x : (par[x] = find(par[x]));
+    const union = (x, y) => { x = find(x); y = find(y); if (x < y) par[y] = x; else if (y < x) par[x] = y; };
+    const info = trs.map(([name, segs]) => {
+      const lead = new Map(), memberOf = new Map(); // Anführer-Wort -> [[Nr, Text, Wörter]]; Mitglieds-Wort -> Anführer
+      segs.forEach(([idx, t], k) => { if (!idx.length) return; const L = Math.min(...idx); (lead.get(L) || lead.set(L, []).get(L)).push([k, t, idx]); idx.forEach(i => { if (i !== L) memberOf.set(i, L); }); });
+      lead.forEach((_, L) => memberOf.delete(L));
+      const run = new Map(); // Anführer -> letztes Wort der zusammenhängenden Gruppe
+      lead.forEach((_, L) => { let e = L; while (memberOf.get(e + 1) === L && e < n) e++; run.set(L, e); for (let i = L + 1; i <= e; i++) union(L, i); });
+      const marks = new Map(); // Wort, das zu einer nicht zusammenhängenden Gruppe gehört -> Wörter der Gruppe
+      memberOf.forEach((L, i) => { if (!(i > L && i <= run.get(L))) marks.set(i, [...new Set(lead.get(L).flatMap(x => x[2]))]); });
+      return { name, lead, marks };
+    });
+    const units = new Map(); // Anfang -> Ende
+    for (let i = 1; i <= n; i++) { const r = find(i); units.set(r, Math.max(units.get(r) || 0, i)); }
+    const multi = trs.length > 1, mk = (cls, txt, ix) => { const e = document.createElement('span'); e.className = cls; if (txt != null) e.textContent = txt; if (ix) e.dataset.ix = ix.join(','); return e; };
+    [...units].forEach(([st, en]) => {
+      const lines = info.map(({ name, lead, marks }) => {
+        const line = mk('ilt'); line.dataset.tr = name; line.dataset.s = name[0];
+        const parts = []; for (let L = st; L <= en; L++) (lead.get(L) || []).forEach(x => parts.push(x));
+        parts.sort((x, y) => x[0] - y[0]).forEach(([k, t, idx], j) => { if (j) line.append(k === parts[j - 1][0] + 1 ? ' ' : ' … '); line.append(mk('ils', t, idx)); });
+        if (!parts.length) for (let i = st; i <= en; i++) if (marks.has(i)) { line.append(mk('ils ilm', '…', marks.get(i))); break; }
+        return line;
+      });
+      if (!lines.some(l => l.firstChild) && st === en) return; // nichts darunter zu zeigen
+      const g = mk('ilg'), inner = mk('ilw'); g.appendChild(inner); g.dataset.multi = multi ? '1' : '';
+      ws[st - 1].parentNode.insertBefore(g, ws[st - 1]);
+      for (let nd = ws[st - 1], last = ws[en - 1]; nd; ) { const nx = nd.nextSibling; inner.appendChild(nd); if (nd === last) break; nd = nx; }
+      lines.forEach(l => g.appendChild(l));
+    });
+  }
+  // Klick auf ein deutsches Wort: das hebräische Wort, die zugehörigen Wörter der anderen Übersetzungen und die Wörter in den anderen geöffneten Versionen (Septuaginta u. a.) leuchten
+  function ilHighlight(el) {
+    const was = el.classList.contains('ilhl'); ilHlClear(); if (was) return;
+    const cell = el.closest('.cell'), row = el.closest('.row'), ix = (el.dataset.ix || '').split(',').map(Number).filter(Boolean); if (!cell || !row || !ix.length) return;
+    const ws = [...cell.querySelectorAll('.w')], cons = ws.map(w => consOf(w.textContent)), set = new Set(ix);
+    ix.forEach(i => { const w = ws[i - 1]; if (w) w.classList.add('ilhl'); });
+    cell.querySelectorAll('.ils').forEach(x => { if ((x.dataset.ix || '').split(',').some(i => set.has(+i))) x.classList.add('ilhl'); });
+    row.querySelectorAll('.cell').forEach(c => {
+      if (c === cell) return;
+      const tg = [...c.querySelectorAll('.wg, .w, .wq')], get = x => consOf(x.dataset.h != null ? x.dataset.h : x.textContent);
+      ix.forEach(i => { const cw = cons[i - 1]; if (!cw) return; const k = cons.slice(0, i - 1).filter(x => x === cw).length; const hit = tg.filter(x => get(x) === cw)[k]; if (hit) hit.classList.add('ilhl'); });
     });
   }
   async function ilRefresh() {
     const b = $('#ilBtn'); if (!b) return;
     const ALL = await loadIL(), title = view && view.group ? view.group.title : '';
     const names = ALL && title ? Object.keys(ALL).filter(n => ALL[n][title]) : [], has = names.length > 0;
-    if (has && !names.includes(ilTr)) ilTr = names[0];
-    const D = has ? ALL[ilTr] : null, sel = $('#ilSel');
+    if (has && ilTr !== '*' && !names.includes(ilTr)) ilTr = names[0];
+    if (ilTr === '*' && names.length < 2) ilTr = names[0] || 'Zunz';
+    const sel = $('#ilSel');
     b.hidden = !has; b.classList.toggle('on', has && ilOn);
-    if (sel) { sel.hidden = !(has && ilOn && names.length > 1); if (sel.dataset.n !== names.join()) { sel.dataset.n = names.join(); sel.innerHTML = names.map(n => `<option>${n}</option>`).join(''); } sel.value = ilTr; }
+    if (sel) { sel.hidden = !(has && ilOn && names.length > 1); if (sel.dataset.n !== names.join()) { sel.dataset.n = names.join(); sel.innerHTML = names.map(n => `<option value="${n}">${n}</option>`).join('') + (names.length > 1 ? `<option value="*">${esc(I18N.t('Alle'))}</option>` : ''); } sel.value = ilTr; }
     document.body.classList.toggle('il', has && ilOn);
     ilClear();
     if (!has || !ilOn) return;
     const s = view.sections && view.sections[view.idx], chap = s && apChap(s); if (!chap) return;
+    const use = ilTr === '*' ? names : [ilTr];
     for (const row of $$('#rOut .row[data-l]')) {
-      const v = verseOf(row.dataset.l), segs = v != null && D[title][chap + ':' + v]; if (!segs) continue;
-      row.querySelectorAll('.cell[data-k="he"]').forEach(cell => ilVerse(cell, segs));
+      const v = verseOf(row.dataset.l); if (v == null) continue;
+      const trs = use.map(nm => [nm, ALL[nm][title][chap + ':' + v]]).filter(x => x[1]); if (!trs.length) continue;
+      row.querySelectorAll('.cell[data-k="he"]').forEach(cell => ilVerse(cell, trs));
     }
   }
+  $('#rOut').addEventListener('click', e => { const el = e.target.closest('.ils'); if (el) { e.stopPropagation(); ilHighlight(el); } else if ($('#rOut .ilhl')) ilHlClear(); });
   $('#ilSel').onchange = e => { ilTr = e.target.value; try { localStorage.setItem('interlinTr', ilTr); } catch { /* egal */ } ilRefresh(); };
   $('#ilBtn').onclick = () => { ilOn = !ilOn; try { localStorage.setItem('interlin', ilOn ? '1' : '0'); } catch { /* egal */ } ilRefresh(); };
 
