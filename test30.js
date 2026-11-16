@@ -3,7 +3,7 @@ const assert = require('assert'), fs = require('fs'), path = require('path');
 global.window = {}; require('./interlin.js');
 const ALL = window.INTERLIN, rd = (b, l, re) => { const d = path.join(__dirname, 'bundled', 'own', b, l); return JSON.parse(fs.readFileSync(path.join(d, fs.readdirSync(d).find(f => re.test(f))), 'utf8')).text; };
 const norm = s => s.replace(/<sup class="footnote-marker">.*?<\/sup><i class="footnote">.*?<\/i>/g, '').replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
-const PAT = { Zunz: /Zunz/, Breuer: /^Breuer/, Philippson: /Philippson/, Herxheimer: /ebräischen Texte/, Goldschmidt: /Übersetzung von Lazarus Goldschmidt, Berlin 1921/, Hirsch: /Die Psalmen, übersetzt und erläutert von Samson Raphael Hirsch/ };
+const PAT = { Zunz: /Zunz/, Breuer: /^Breuer/, Philippson: /Philippson/, Herxheimer: /ebräischen Texte/, Goldschmidt: /Übersetzung von Lazarus Goldschmidt, Berlin 1921/, Hirsch: /Die Psalmen, übersetzt und erläutert von Samson Raphael Hirsch/, JuliusHirsch: /^Julius Hirsch, Jesaia/ };
 for (const [tr, D] of Object.entries(ALL)) for (const book of Object.keys(D)) {
   const he = rd(book, 'he', /^Westminster/), de = rd(book, 'de', PAT[tr]);
   let n = 0;
@@ -42,3 +42,9 @@ assert.deepStrictEqual(ALL.Hirsch.Psalms['1:1'].find(s => s[1] === 'Aller Fortsc
 assert.deepStrictEqual(ALL.Hirsch.Psalms['23:2'].find(s => s[1] === 'Auf anmuthigen Kräuter-Auen'), [[1, 2], 'Auf anmuthigen Kräuter-Auen']);
 assert.deepStrictEqual(ALL.Hirsch.Psalms['26:2'].find(s => s[1] === 'läutere'), [[4, 5], 'läutere']);
 assert.deepStrictEqual(ALL.Hirsch.Psalms['3:6'].find(s => s[1] === '—'), [[], '—']);
+
+// Julius Hirsch ist eine eigene Quelle; vollständiger Jesaja mit mehrwortigem Ketiv/Qere.
+assert.strictEqual(Object.keys(ALL.JuliusHirsch.Isaiah).length, 1291);
+assert.deepStrictEqual(ALL.JuliusHirsch.Isaiah['3:15'].find(s => s[1] === '„Was maßt ihr euch an,'), [[1, 2, 3], '„Was maßt ihr euch an,']);
+assert.deepStrictEqual(ALL.JuliusHirsch.Isaiah['5:9'].find(s => s[1] === '[tönt das Wort]'), [[], '[tönt das Wort]']);
+assert.deepStrictEqual(ALL.JuliusHirsch.Isaiah['7:14'].find(s => s[1] === '„Immanuel“'), [[14, 15], '„Immanuel“']);

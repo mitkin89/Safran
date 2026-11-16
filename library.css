@@ -1679,3 +1679,10 @@ body.il .cell[data-k="he"] .ilt[data-i="9"] { color: var(--il9); }
 @media (prefers-color-scheme: light) { :root:not([data-theme=dark]) { --il10: #855212; } }
 body.il .cell[data-k="he"] .ilt[data-i="10"] { color: var(--il10); }
 .illc[data-i="10"], .ilpR[data-i="10"] { --c: var(--il10); }
+
+/* Julius Hirsch: Jesaja, eigene Werkfarbe. */
+:root { --il11: #a5b0e7; }
+:root[data-theme=light] { --il11: #4f559b; }
+@media (prefers-color-scheme: light) { :root:not([data-theme=dark]) { --il11: #4f559b; } }
+body.il .cell[data-k="he"] .ilt[data-i="11"] { color: var(--il11); }
+.illc[data-i="11"], .ilpR[data-i="11"] { --c: var(--il11); }
