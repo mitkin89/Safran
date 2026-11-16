@@ -1498,3 +1498,29 @@ body.il .cell[data-k="he"] .ilw .w { display: inline; margin: 0; }
 body.il .cell[data-k="he"] .ilt[lang="grc"] { font-family: var(--gr-font, "Gentium Plus", "Times New Roman", serif); font-size: .68em; }
 
 body.head-stick .illeg { position: sticky; top: calc(var(--stick-top, 40px) + var(--headh, 22px)); }
+
+/* Wortkarte: Wie wird das Wort übersetzt? (Ring + Liste) – Kategorienfarben in fester Reihenfolge, Rest grau */
+#wcBody { --cat1: #2a78d6; --cat2: #eb6834; --cat3: #1baf7a; --cat4: #eda100; --cat5: #e87ba4; --cat6: #008300; --cat7: #6250d6; --cat0: #b9b8b2; }
+@media (prefers-color-scheme: dark) { :root:where(:not([data-theme="light"])) #wcBody { --cat1: #3987e5; --cat2: #d95926; --cat3: #199e70; --cat4: #c98500; --cat5: #d55181; --cat6: #0ca30c; --cat7: #9085e9; --cat0: #5d5c57; } }
+:root[data-theme="dark"] #wcBody { --cat1: #3987e5; --cat2: #d95926; --cat3: #199e70; --cat4: #c98500; --cat5: #d55181; --cat6: #0ca30c; --cat7: #9085e9; --cat0: #5d5c57; }
+#wcBody .c1 { --c: var(--cat1); } #wcBody .c2 { --c: var(--cat2); } #wcBody .c3 { --c: var(--cat3); } #wcBody .c4 { --c: var(--cat4); } #wcBody .c5 { --c: var(--cat5); } #wcBody .c6 { --c: var(--cat6); } #wcBody .c7 { --c: var(--cat7); } #wcBody .c0 { --c: var(--cat0); }
+#wcBody .wcTrTabs { display: flex; flex-wrap: wrap; gap: 4px; margin: 2px 0 10px; }
+#wcBody .wcTrSrc { font: inherit; font-size: 12px; padding: 2px 10px; border: 1px solid var(--line, #8886); border-radius: 999px; background: transparent; color: inherit; cursor: pointer; }
+#wcBody .wcTrSrc small { color: var(--muted, #888); }
+#wcBody .wcTrSrc.on { background: color-mix(in srgb, var(--accent) 18%, transparent); border-color: color-mix(in srgb, var(--accent) 55%, transparent); }
+#wcBody .wcTrBody { display: flex; gap: 18px; align-items: flex-start; flex-wrap: wrap; }
+#wcBody .wcTrRing { width: 190px; height: 190px; flex: none; }
+#wcBody .wcTrS { fill: var(--c); stroke: var(--bg, #fff); stroke-width: 2px; stroke-linejoin: round; transition: opacity .12s; cursor: default; }
+#wcBody .wcTrS.dim, #wcBody .wcTrR.dim { opacity: .3; }
+#wcBody .wcTrC { text-anchor: middle; font: 26px var(--he-font, "SBL Hebrew", serif); fill: var(--fg, currentColor); direction: rtl; }
+#wcBody .wcTrT { text-anchor: middle; font: 12px var(--ui-font, system-ui, sans-serif); fill: var(--muted, #888); }
+#wcBody .wcTrL { flex: 1; min-width: 220px; display: grid; gap: 1px; }
+#wcBody .wcTrR { display: grid; grid-template-columns: 12px 1fr auto 3.2em; gap: 8px; align-items: center; padding: 3px 6px; border-radius: 6px; transition: opacity .12s; }
+#wcBody .wcTrR.can { cursor: pointer; } #wcBody .wcTrR.can:hover, #wcBody .wcTrR.open { background: color-mix(in srgb, var(--accent) 10%, transparent); }
+#wcBody .wcTrR .sw { width: 12px; height: 12px; border-radius: 3px; background: var(--c); }
+#wcBody .wcTrR .f { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+#wcBody .wcTrR .f[lang="arc"] { font-family: var(--he-font, "SBL Hebrew", serif); font-size: 16px; text-align: start; }
+#wcBody .wcTrR .f[lang="grc"] { font-family: var(--gr-font); }
+#wcBody .wcTrR .n, #wcBody .wcTrR .p { text-align: end; font-variant-numeric: tabular-nums; }
+#wcBody .wcTrR .p { color: var(--muted, #888); }
+#wcBody .wcTrRefs { margin: 2px 0 8px 26px; }
