@@ -1403,14 +1403,14 @@
     const tf = F.topForms(mdl, 8);
     const chip = x => `<button type="button" class="fmF${x.pre ? ' pre' : ''}${cur && cur.form === x.f ? ' cur' : ''}" data-i="${x.i}"><span lang="${greek ? 'grc' : 'he'}" dir="${greek ? 'ltr' : 'rtl'}">${esc(x.f)}</span><small>${wcNum(x.n)}</small></button>`;
     card.innerHTML = `<div class="wcAct"><button type="button" class="wcAll" title="${esc(I18N.t(greek ? 'Startet die Suche nach diesem Wort in der Septuaginta (Treffer „Alle Formen“)' : 'Startet die Suche nach diesem Wort im hebräischen Tanach (Treffer „Alle Formen“)'))}">🔎 ${esc(I18N.t('Alle Stellen dieses Wortes'))} <small>${wcNum(mdl.total)}</small></button></div>
-      <section class="wcSec" id="wcDict"><h4>${esc(I18N.t('Wörterbücher'))}</h4><p class="muted">${esc(I18N.t('Lädt …'))}</p></section>
       <section class="wcSec"><h4>${esc(I18N.t(greek ? 'Verteilung in der Septuaginta' : 'Verteilung im Tanach'))} <small>${esc(greek ? I18N.t('{} Belege in {} von {} Büchern', wcNum(mdl.total), nb, ds.length) : I18N.t('{} Belege in {} von 39 Büchern', wcNum(mdl.total), nb))}</small></h4>
         <div class="wcChart"><div class="wcPlot"><span class="wcMax">${wcNum(max)}</span>${groups.map(g => `<div class="wcGrp" style="flex:${g.part.length}"><div class="wcBars">${g.part.map(bar).join('')}</div><div class="wcAx">${esc(I18N.t(g.name))}</div></div>`).join('')}</div><div class="wcTip" hidden></div></div>
         <div class="wcTop"><span class="muted">${esc(I18N.t('Am häufigsten:'))}</span> ${top.map(x => `<a data-b="${esc(x.book)}">${esc(fmBook(x.book))}</a> <small>${wcNum(x.n)}</small>`).join(' · ')} <span class="muted wcHint">· ${esc(I18N.t('Klick auf einen Balken zeigt die Stellen des Buches'))}</span></div>
         <div class="wcRefs" id="wcBookRefs"></div></section>
+      <section class="wcSec" id="wcTr" hidden></section>
+      <section class="wcSec" id="wcDict"><h4>${esc(I18N.t('Wörterbücher'))}</h4><p class="muted">${esc(I18N.t('Lädt …'))}</p></section>
       <section class="wcSec"><h4>${esc(I18N.t('Häufigste Formen'))} <button type="button" class="wcLink" data-go="forms">${esc(I18N.t('alle {} Formen', wcNum(tf.kinds)))} →</button></h4>
         <div class="wcForms" dir="${greek ? 'ltr' : 'rtl'}">${tf.list.map(chip).join('')}</div><div class="wcRefs" id="wcFormRefs"></div></section>
-      <section class="wcSec" id="wcTr" hidden></section>
       <section class="wcSec" id="wcLxx" hidden></section>
       <section class="wcSec" id="wcTgR" hidden></section>
       <section class="wcSec" id="wcQum" hidden></section>
@@ -1702,7 +1702,7 @@
     const ap = () => $('#formsPanel').classList.toggle('wide', wide); ap();
     $('#fmWide').onclick = () => { wide = !wide; ap(); try { localStorage.setItem('fmWide', wide ? '1' : '0'); } catch { /* egal */ } }; }
   $('#fmHead').addEventListener('click', e => { const b = e.target.closest('.wdict'); if (b) openDict(b.dataset.q); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('#formsPanel').hidden && !document.querySelector('dialog[open]')) closeForms(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('#formsPanel').hidden && !$('#formsPanel').classList.contains('docked') && !document.querySelector('dialog[open]')) closeForms(); });
   // Belegstellen einer Form: nach Büchern geordnet, als Zeile unter der Tabellenzeile
   function fmBook(b) { // griechische Bücher in zwei Fassungen tragen ein Kennzeichen: „Judges (B)“, „Daniel (Theodotion)“
     const m = /^(.*?)( \((?:A|B|Theodotion|Sinaiticus)\))?$/.exec(b), base = m[1];
@@ -6315,8 +6315,8 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
   // ---------- Fenster anpinnen: neben dem Text festhalten statt darüber zu schweben ----------
   // Je Fenster wird gemerkt, ob es angepinnt ist. Ein angepinntes Fenster steht rechts neben dem Haupttext; öffnet ein zweites angepinntes Fenster, tritt es an die Stelle des ersten
   // (Ausnahme: Kommentare und Wörterbuch dürfen untereinander stehen). Nicht angepinnte Fenster schweben wie bisher über dem Text.
-  const PINS = { all: ['#allPanel', '#apClose'], link: ['#linkPanel', '#lkClose'], topic: ['#topicPanel', '#tpClose'], outline: ['#outlinePanel', '#olClose'], map: ['#mapPanel', '#mapClose'], cmt: ['#cmtPanel', '#cmtClose'], dict: ['#dictPanel', '#dictClose'] };
-  const pins = { all: true, link: false, topic: false, outline: false, map: false, cmt: true, dict: true };
+  const PINS = { forms: ['#formsPanel', '#fmClose'], all: ['#allPanel', '#apClose'], link: ['#linkPanel', '#lkClose'], topic: ['#topicPanel', '#tpClose'], outline: ['#outlinePanel', '#olClose'], map: ['#mapPanel', '#mapClose'], cmt: ['#cmtPanel', '#cmtClose'], dict: ['#dictPanel', '#dictClose'] };
+  const pins = { forms: false, all: true, link: false, topic: false, outline: false, map: false, cmt: true, dict: true };
   try { const o = JSON.parse(localStorage.getItem('pins') || '{}'); for (const k in pins) if (typeof o[k] === 'boolean') pins[k] = o[k]; } catch { /* egal */ }
   const pinPair = (a, b) => (a === 'cmt' || a === 'dict') && (b === 'cmt' || b === 'dict');
   let pinBusy = false;

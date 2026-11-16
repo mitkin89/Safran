@@ -1203,6 +1203,9 @@ html[data-tab=dict] #dictSaved .dsv { transition: top .18s ease; }
 /* ---------- Formentabelle (alle belegten Formen eines Lemmas) ---------- */
 #formsPanel { position: fixed; top: calc(44px - var(--hdoff, 0px)); right: 0; bottom: 0; width: min(560px, 94vw); z-index: 40; background: var(--bg); color: var(--fg); border-left: 1px solid var(--line); box-shadow: -6px 0 22px rgba(0,0,0,.35); padding: 12px 14px 24px; overflow: auto; font-size: 13px; line-height: 1.45; }
 #formsPanel[hidden] { display: none; }
+#formsPanel.docked { top: calc(57px - var(--hdoff, 0px)); right: var(--cmt-off, 0px); box-shadow: none; z-index: 20; background: var(--side-bg); }
+#formsPanel.docked .lhead { background: var(--side-bg); }
+#formsPanel .pinB { margin-inline-start: 2px; }
 #formsPanel.wide { width: min(1040px, 96vw); }
 html.split #formsPanel { right: var(--p2w); }
 #formsPanel .lhead { position: sticky; top: -12px; z-index: 2; display: flex; justify-content: space-between; align-items: center; background: var(--bg); padding: 4px 0; margin-bottom: 6px; }
