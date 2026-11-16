@@ -1,6 +1,7 @@
 # Changelog
 
 ### New in 2.4.0
+- **Interlinear: Zunz, complete Ezekiel (1–48):** the word-by-word German under the Hebrew text now also covers the whole book of Ezekiel with Zunz's translation (`tools/interlinear/zunz/Ezekiel.txt`, 1273 verses).
 - **Interlinear: Zunz, complete Jeremiah (1–52):** the word-by-word German under the Hebrew text now also covers the whole book of Jeremiah with Zunz's translation (`tools/interlinear/zunz/Jeremiah.txt`, 1364 verses).
 - **Interlinear: Zunz, complete Isaiah (1–66):** the word-by-word German under the Hebrew text now also covers the whole book of Isaiah with Zunz's translation (`tools/interlinear/zunz/Isaiah.txt`, 1291 verses).
 - **Interlinear: Zunz, complete II Kings (1–25):** the word-by-word German under the Hebrew text now also covers the whole book of II Kings with Zunz's translation (`tools/interlinear/zunz/II Kings.txt`, 719 verses).
