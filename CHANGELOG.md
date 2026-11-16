@@ -1,6 +1,7 @@
 # Changelog
 
 ### New in 2.4.0
+- **Interlinear: Zunz, complete Ezra (1–10):** the word-by-word German under the Hebrew text now also covers the whole book of Ezra with Zunz's translation (`tools/interlinear/zunz/Ezra.txt`, 280 verses).
 - **Interlinear: Zunz, complete Esther (1–10):** the word-by-word German under the Hebrew text now also covers the whole book of Esther with Zunz's translation (`tools/interlinear/zunz/Esther.txt`, 167 verses).
 - **Interlinear: Zunz, complete Ecclesiastes (1–12):** the word-by-word German under the Hebrew text now also covers the whole book of Ecclesiastes with Zunz's translation (`tools/interlinear/zunz/Ecclesiastes.txt`, 222 verses).
 - **Interlinear: choose the works with checkboxes, Septuagint included:** the *Interlinear* button now opens a small panel listing every work aligned for the chapter (Zunz, Breuer, Philippson, Herxheimer) with its portrait, a checkbox each and *All* / *None*; the choice is remembered. New: the **Septuagint** (CATSS) can be ticked as its own line – the Greek word groups stand under the Hebrew words of the Westminster text (matched by consonants), without opening the Septuagint column; this works in every Tanakh book. The legend chips under the column heads remove a work with one click. Picture for the Septuagint: Codex Alexandrinus, Gen. 10:19 (public domain).
