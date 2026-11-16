@@ -1686,3 +1686,17 @@ body.il .cell[data-k="he"] .ilt[data-i="10"] { color: var(--il10); }
 @media (prefers-color-scheme: light) { :root:not([data-theme=dark]) { --il11: #4f559b; } }
 body.il .cell[data-k="he"] .ilt[data-i="11"] { color: var(--il11); }
 .illc[data-i="11"], .ilpR[data-i="11"] { --c: var(--il11); }
+
+/* Interlinear: biblische Qumran-Rollen (Farbe 12); je Rolle eine Zeile mit Sigel; Art der Abweichung je Wort */
+:root { --il12: #9fbbd6; }
+:root[data-theme=light] { --il12: #2f5577; }
+@media (prefers-color-scheme: light) { :root:not([data-theme=dark]) { --il12: #2f5577; } }
+body.il .cell[data-k="he"] .ilt[data-i="12"] { color: var(--il12); }
+.illc[data-i="12"], .ilpR[data-i="12"] { --c: var(--il12); }
+body.il .cell[data-k="he"] .ilt.ilq { font-family: var(--he-font, inherit); font-size: .8em; line-height: 1.35; }
+.ilt .ilsig { font: 600 .62em/1 system-ui, sans-serif; direction: ltr; unicode-bidi: isolate; opacity: .75; margin-inline-end: .35em; vertical-align: .15em; }
+.ilt .ilq1 { text-decoration: underline dotted; text-underline-offset: .2em; }
+.ilt .ilq2 { font-weight: 700; background: color-mix(in srgb, var(--il12) 22%, transparent); border-radius: 3px; padding: 0 .12em; }
+.ilt .ilq3 { opacity: .45; }
+.ilt .ilq4 { font-weight: 700; background: color-mix(in srgb, var(--il12) 22%, transparent); border-radius: 3px; padding: 0 .12em; }
+.ilt .ilq4::before { content: "+"; font-weight: 400; opacity: .7; }

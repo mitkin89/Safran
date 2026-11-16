@@ -814,29 +814,33 @@
     ilHlClear();
     $$('#rOut .ilg').forEach(g => { const inner = g.firstChild; while (inner.firstChild) g.parentNode.insertBefore(inner.firstChild, g); g.remove(); });
   }
-  // trs: [[Name, Segmente]] – ein Vers
+  // trs: [[Name, Segmente, Sigel?]] – ein Vers; Segmente [[Wortnummern], Text, Art?] (Art nur bei Qumran: 0 gleich, 1 Schreibweise, 2 Lesart, 3 rekonstruiert, 4 Plus)
   function ilVerse(cell, trs, order) {
     const ws = [...cell.querySelectorAll('.w')], n = ws.length; if (!n) return;
     const par = Array.from({ length: n + 2 }, (_, i) => i), find = x => par[x] === x ? x : (par[x] = find(par[x]));
     const union = (x, y) => { x = find(x); y = find(y); if (x < y) par[y] = x; else if (y < x) par[x] = y; };
-    const info = trs.map(([name, segs]) => {
+    const info = trs.map(([name, segs, sig]) => {
       const lead = new Map(), memberOf = new Map(); // Anführer-Wort -> [[Nr, Text, Wörter]]; Mitglieds-Wort -> Anführer
-      segs.forEach(([idx, t], k) => { if (!idx.length) return; const L = Math.min(...idx); (lead.get(L) || lead.set(L, []).get(L)).push([k, t, idx]); idx.forEach(i => { if (i !== L) memberOf.set(i, L); }); });
+      segs.forEach(([idx, t, kind], k) => { if (!idx.length) return; const L = Math.min(...idx); (lead.get(L) || lead.set(L, []).get(L)).push([k, t, idx, kind]); idx.forEach(i => { if (i !== L) memberOf.set(i, L); }); });
       lead.forEach((_, L) => memberOf.delete(L));
       const run = new Map(); // Anführer -> letztes Wort der zusammenhängenden Gruppe
       lead.forEach((_, L) => { let e = L; while (memberOf.get(e + 1) === L && e < n) e++; run.set(L, e); for (let i = L + 1; i <= e; i++) union(L, i); });
       const marks = new Map(); // Wort, das zu einer nicht zusammenhängenden Gruppe gehört -> Wörter der Gruppe
       memberOf.forEach((L, i) => { if (!(i > L && i <= run.get(L))) marks.set(i, [...new Set(lead.get(L).flatMap(x => x[2]))]); });
-      return { name, lead, marks };
+      // Qumran: Wörter der Rolle ohne Gegenstück (Plus) hängen am vorigen zugeordneten Wort (am Anfang: am ersten)
+      if (sig) segs.forEach(([idx, t, kind], k) => { if (idx.length) return; let j = k - 1; while (j >= 0 && !segs[j][0].length) j--; let L = j >= 0 ? Math.min(...segs[j][0]) : null; if (L == null) { const nx = segs.find(x => x[0].length); L = nx ? Math.min(...nx[0]) : null; } if (L != null) (lead.get(L) || lead.set(L, []).get(L)).push([k, t, [], kind]); });
+      return { name, lead, marks, sig, shown: false };
     });
     const units = new Map(); // Anfang -> Ende
     for (let i = 1; i <= n; i++) { const r = find(i); units.set(r, Math.max(units.get(r) || 0, i)); }
     const multi = trs.length > 1, mk = (cls, txt, ix) => { const e = document.createElement('span'); e.className = cls; if (txt != null) e.textContent = txt; if (ix) e.dataset.ix = ix.join(','); return e; };
     [...units].forEach(([st, en]) => {
-      const lines = info.map(({ name, lead, marks }) => {
-        const line = mk('ilt'); line.dataset.tr = name; line.dataset.i = order.indexOf(name) + 1; line.title = IL_LABEL[name] || name; if (name === 'LXX') line.lang = 'grc'; else if (IL_TG[name]) { line.lang = 'arc'; line.dir = 'rtl'; }
+      const lines = info.map(inf => {
+        const { name, lead, marks, sig } = inf;
+        const line = mk('ilt'); line.dataset.tr = name; line.dataset.i = order.indexOf(name) + 1; line.title = (IL_LABEL[name] || name) + (sig ? ' · ' + sig : ''); if (name === 'LXX') line.lang = 'grc'; else if (IL_TG[name]) { line.lang = 'arc'; line.dir = 'rtl'; } else if (sig) { line.lang = 'he'; line.dir = 'rtl'; line.classList.add('ilq'); }
         const parts = []; for (let L = st; L <= en; L++) (lead.get(L) || []).forEach(x => parts.push(x));
-        parts.sort((x, y) => x[0] - y[0]).forEach(([k, t, idx], j) => { if (j) line.append(k === parts[j - 1][0] + 1 ? ' ' : ' … '); line.append(mk('ils', t, idx)); });
+        if (sig && parts.length && !inf.shown) { inf.shown = true; line.append(mk('ilsig', sig)); } // Sigel der Rolle beim ersten erhaltenen Wort des Verses
+        parts.sort((x, y) => x[0] - y[0]).forEach(([k, t, idx, kind], j) => { if (j) line.append(k === parts[j - 1][0] + 1 ? ' ' : ' … '); const e = mk('ils', t, idx.length ? idx : null); if (kind != null) { e.classList.add('ilq' + kind); e.title = I18N.t(IL_QK[kind]); } line.append(e); });
         if (!parts.length) for (let i = st; i <= en; i++) if (marks.has(i)) { line.append(mk('ils ilm', '…', marks.get(i))); break; }
         return line;
       });
@@ -853,6 +857,11 @@
   const IL_VT = { Zunz: /Zunz/, Breuer: /^Breuer/, Philippson: /Philippson/, Herxheimer: /ebräischen Texte/, Goldschmidt: /Übersetzung von Lazarus Goldschmidt, Berlin 1921/, Hirsch: /Die Psalmen, übersetzt und erläutert von Samson Raphael Hirsch/, JuliusHirsch: /^Julius Hirsch, Jesaia/, Onkelos: /^Targum Onkelos \(ETCBC/, 'Pseudo-Jonathan': /^Targum Pseudo-Jonathan \(ETCBC/, Neofiti: /^Targum Neofiti 1 \(ETCBC/ };
   // Targumim: Zuordnung aramäisches Wort -> Westminster-Wörter (maschinell, tools/targum/align.py), je Vers ein String: „1 2 - 4,5 …“ (ein Eintrag je Wort des Lesetextes)
   const IL_TG = { Onkelos: 'Targum Onkelos (ETCBC', 'Pseudo-Jonathan': 'Targum Pseudo-Jonathan (ETCBC', Neofiti: 'Targum Neofiti 1 (ETCBC' };
+  // Biblische Qumran-Rollen: je Vers und Rolle die Wörter mit Zuordnung und Art der Abweichung (maschinell, tools/dss/il.py)
+  const IL_QK = ['gleich wie im masoretischen Text', 'andere Schreibweise', 'andere Lesart', 'von den Herausgebern ergänzt', 'Plus: ohne Gegenstück im masoretischen Text'];
+  let qIlP = null;
+  const loadQIL = () => qIlP || (qIlP = lazyScript('qumran-il.js', () => window.QUMRAN_IL).catch(() => { qIlP = null; return null; }));
+  const qVer = g => (g && g.versions || []).some(x => x.versionTitle === 'Qumran-Rollen (ETCBC DSS)');
   let tgIlP = null;
   const loadTgIL = () => tgIlP || (tgIlP = lazyScript('targum-il.js', () => window.TARGUM_IL).catch(() => { tgIlP = null; return null; }));
   // Wörter eines Targum-Verses (Lesetext, durch Leerraum getrennt) mit ihrer Zuordnung -> Segmente wie in interlin.js
@@ -920,9 +929,9 @@
     if (src && (src.classList.contains('ilx') || src.closest('.row') && src.closest('.row').querySelector('.ilx'))) ilLink(src); else if ($('#rOut .ilhl')) ilHlClear();
   });
   // Feste Reihenfolge = feste Farbe je Werk (--il1 … --il5); „LXX“ = Septuaginta (CATSS), Wort für Wort unter dem Westminster-Text
-  const IL_ORDER = ['Zunz', 'Breuer', 'Philippson', 'Herxheimer', 'LXX', 'Onkelos', 'Pseudo-Jonathan', 'Neofiti', 'Goldschmidt', 'Hirsch', 'JuliusHirsch'];
-  const IL_LABEL = { Zunz: 'Zunz (1838)', Breuer: 'Breuer', Philippson: 'Philippson', Herxheimer: 'Herxheimer', Goldschmidt: 'Goldschmidt (1921)', Hirsch: 'S. R. Hirsch (1882)', JuliusHirsch: 'Julius Hirsch', LXX: 'Septuaginta', Onkelos: 'Onkelos', 'Pseudo-Jonathan': 'Pseudo-Jonathan', Neofiti: 'Neofiti 1' };
-  const IL_SUB = { Zunz: 'Leopold Zunz, Die vier und zwanzig Bücher der Heiligen Schrift, Berlin 1838', Breuer: 'Raphael Breuer, Arba Megillot', Philippson: 'Ludwig Philippson, Die Israelitische Bibel', Herxheimer: 'Salomon Herxheimer, Die vier und zwanzig Bücher der Bibel', Goldschmidt: 'Lazarus Goldschmidt, Pentateuch, Berlin 1921', Hirsch: 'Samson Raphael Hirsch, Die Psalmen, Frankfurt am Main 1882', JuliusHirsch: 'Julius Hirsch, Jesaia — Übersetzung', LXX: 'Griechisch, Wortgruppen nach der Zuordnung von CATSS', Onkelos: 'Targum Onkelos (Sperber), Wort für Wort maschinell zugeordnet', 'Pseudo-Jonathan': 'Targum Pseudo-Jonathan; Zusätze bleiben ohne Zuordnung', Neofiti: 'Targum Neofiti 1; Zusätze bleiben ohne Zuordnung' };
+  const IL_ORDER = ['Zunz', 'Breuer', 'Philippson', 'Herxheimer', 'LXX', 'Onkelos', 'Pseudo-Jonathan', 'Neofiti', 'Goldschmidt', 'Hirsch', 'JuliusHirsch', 'Qumran'];
+  const IL_LABEL = { Zunz: 'Zunz (1838)', Breuer: 'Breuer', Philippson: 'Philippson', Herxheimer: 'Herxheimer', Goldschmidt: 'Goldschmidt (1921)', Hirsch: 'S. R. Hirsch (1882)', JuliusHirsch: 'Julius Hirsch', LXX: 'Septuaginta', Onkelos: 'Onkelos', 'Pseudo-Jonathan': 'Pseudo-Jonathan', Neofiti: 'Neofiti 1', Qumran: 'Qumran-Rollen' };
+  const IL_SUB = { Zunz: 'Leopold Zunz, Die vier und zwanzig Bücher der Heiligen Schrift, Berlin 1838', Breuer: 'Raphael Breuer, Arba Megillot', Philippson: 'Ludwig Philippson, Die Israelitische Bibel', Herxheimer: 'Salomon Herxheimer, Die vier und zwanzig Bücher der Bibel', Goldschmidt: 'Lazarus Goldschmidt, Pentateuch, Berlin 1921', Hirsch: 'Samson Raphael Hirsch, Die Psalmen, Frankfurt am Main 1882', JuliusHirsch: 'Julius Hirsch, Jesaia — Übersetzung', LXX: 'Griechisch, Wortgruppen nach der Zuordnung von CATSS', Onkelos: 'Targum Onkelos (Sperber), Wort für Wort maschinell zugeordnet', 'Pseudo-Jonathan': 'Targum Pseudo-Jonathan; Zusätze bleiben ohne Zuordnung', Neofiti: 'Targum Neofiti 1; Zusätze bleiben ohne Zuordnung', Qumran: 'Biblische Rollen vom Toten Meer (ETCBC), je Rolle eine Zeile; farbig: abweichende Lesart' };
   const IL_PIC = { Zunz: 'Zunz', Breuer: 'Raphael Breuer', Philippson: 'Philippson', Herxheimer: 'Herxheimer', Goldschmidt: 'Goldschmidt', Hirsch: 'Samson Raphael Hirsch', JuliusHirsch: 'Julius Hirsch', LXX: 'Septuaginta', Onkelos: 'Targum Onkelos', 'Pseudo-Jonathan': 'Targum Pseudo-Jonathan', Neofiti: 'Targum Neofiti' };
   // Auswahl (Häkchen) wird gemerkt; ältere Einstellung (ein Werk oder „Alle“) wird übernommen
   let ilPick = null; try { ilPick = JSON.parse(localStorage.getItem('interlinPick') || 'null'); } catch { /* egal */ }
@@ -1008,7 +1017,10 @@
     const TG = view && view.group && Object.keys(IL_TG).some(n => tgVer(view.group, n)) ? await loadTgIL() : null;
     if (tok !== ilTok) return;
     const tgHas = n => !!(TG && TG[n] && TG[n][title] && c0 && /^\d+$/.test(c0) && TG[n][title][+c0 - 1] && tgVer(view.group, n));
-    ilAvail = IL_ORDER.filter(n => n === 'LXX' ? lxx : IL_TG[n] ? tgHas(n) : names.includes(n));
+    const QIL = view && view.group && qVer(view.group) ? await loadQIL() : null;
+    if (tok !== ilTok) return;
+    const qHas = !!(QIL && QIL[title] && c0 && Object.keys(QIL[title]).some(k => k.startsWith(c0 + ':')));
+    ilAvail = IL_ORDER.filter(n => n === 'LXX' ? lxx : n === 'Qumran' ? qHas : IL_TG[n] ? tgHas(n) : names.includes(n));
     const has = ilAvail.length > 0, use = ilAvail.filter(n => ilPick.includes(n)), on = use.length > 0;
     b.hidden = !has; b.classList.toggle('on', has && on);
     if (!has && !$('#ilPop').hidden) ilPopToggle(false); else ilPopRender();
@@ -1035,7 +1047,7 @@
       row.querySelectorAll('.cell[data-k="he"]').forEach(cell => {
         if (!cell.querySelector('.w')) return;
         const tgv = nm => { const d = tgd[nm], ch = d && d.text[+chap - 1]; return ch ? tgSegs(TG, nm, title, chap, v, tgPlain(ch[v - 1])) : null; };
-        const trs = use.map(nm => [nm, nm === 'LXX' ? (lx && lx.text[+chap - 1] ? ilLxxSegs(cell, lx.text[+chap - 1][v - 1]) : null) : IL_TG[nm] ? tgv(nm) : ALL[nm][title][chap + ':' + v]]).filter(x => x[1] && x[1].length);
+        const trs = use.flatMap(nm => nm === 'Qumran' ? ((QIL[title] || {})[chap + ':' + v] || []).map(([sig, segs]) => [nm, segs, sig]) : [[nm, nm === 'LXX' ? (lx && lx.text[+chap - 1] ? ilLxxSegs(cell, lx.text[+chap - 1][v - 1]) : null) : IL_TG[nm] ? tgv(nm) : ALL[nm][title][chap + ':' + v]]]).filter(x => x[1] && x[1].length);
         if (trs.length) ilVerse(cell, trs, IL_ORDER);
       });
     }

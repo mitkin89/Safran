@@ -106,7 +106,9 @@ for title, vv in sorted(data.items()):
         for s in sorted(rolls, key=skey):
             txt = re.sub(r'\s+', ' ', ''.join(t for _, t in sorted(rolls[s]))).strip()
             # Leerzeichen innen an Klammern weg, auch wenn ein Wort-<span> dazwischen steht („<“ und „>“ im Text sind schon je Wort maskiert)
-            txt = re.sub(r'([\[({]|&lt;)(</span>)? ', r'\1\2', txt); txt = re.sub(r' (<span [^>]*>)?([\])}]|&gt;)', r'\1\2', txt)
+            # steht die Klammer am Ende bzw. Anfang eines Wortes, wandert sie zum Nachbarwort, statt zwei Wörter zusammenzuziehen („צדיק ]עבדי“ -> „צדיק] עבדי“)
+            txt = re.sub(r'([\[({]|&lt;)(</span>)? ', lambda m: m.group(2) + ' ' + m.group(1) if m.group(2) else m.group(1), txt)
+            txt = re.sub(r' (<span [^>]*>)?([\])}]|&gt;)', lambda m: m.group(2) + ' ' + m.group(1) if m.group(1) else m.group(2), txt)
             if txt: parts.append('<b>%s</b> %s' % (s, txt))
         if parts: chs.setdefault(c, {})[v] = '<br>'.join(parts)
     arr = []
