@@ -1,6 +1,7 @@
 # Changelog
 
 ### New in 2.4.0
+- **Interlinear: Zunz, complete Song of Songs (1–8):** the word-by-word German under the Hebrew text now also covers the whole book of Song of Songs with Zunz's translation (`tools/interlinear/zunz/Song of Songs.txt`, 117 verses).
 - **Interlinear: Zunz, complete Zechariah (1–14):** the word-by-word German under the Hebrew text now also covers the whole book of Zechariah with Zunz's translation (`tools/interlinear/zunz/Zechariah.txt`, 211 verses).
 - **Interlinear: Zunz, complete Malachi (1–3):** the word-by-word German under the Hebrew text now also covers the whole book of Malachi with Zunz's translation (`tools/interlinear/zunz/Malachi.txt`, 55 verses).
 - **Interlinear: Zunz, complete Haggai (1–2):** the word-by-word German under the Hebrew text now also covers the whole book of Haggai with Zunz's translation (`tools/interlinear/zunz/Haggai.txt`, 38 verses).
