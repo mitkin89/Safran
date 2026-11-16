@@ -31,6 +31,7 @@ window.PORTRAITS = [
   { match: 'Aleppo', img: 'aleppo.jpg', name: 'Aleppo-Kodex (10. Jh.)' },
   { match: 'Leningrad', img: 'leningrad.jpg', name: 'Leningrader Kodex (1008/09), Teppichseite' },
   { match: 'Qumran', img: 'qumran.jpg', name: 'Schriftrolle vom Toten Meer (Qumran)' },
+  { match: 'Septuaginta', img: 'septuaginta.jpg', name: 'Septuaginta – Codex Alexandrinus (5. Jh.), Gen. 10:19' },
   // Wörterbücher
   { match: 'Levy', img: 'levy.jpg', name: 'Jacob Levy (1819–1892)' },
   { match: 'Krauss', img: 'krauss.jpg', name: 'Samuel Krauss (1866–1948)' },

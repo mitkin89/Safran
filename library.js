@@ -804,7 +804,7 @@
     const multi = trs.length > 1, mk = (cls, txt, ix) => { const e = document.createElement('span'); e.className = cls; if (txt != null) e.textContent = txt; if (ix) e.dataset.ix = ix.join(','); return e; };
     [...units].forEach(([st, en]) => {
       const lines = info.map(({ name, lead, marks }) => {
-        const line = mk('ilt'); line.dataset.tr = name; line.dataset.i = order.indexOf(name) + 1; line.title = name;
+        const line = mk('ilt'); line.dataset.tr = name; line.dataset.i = order.indexOf(name) + 1; line.title = IL_LABEL[name] || name; if (name === 'LXX') line.lang = 'grc';
         const parts = []; for (let L = st; L <= en; L++) (lead.get(L) || []).forEach(x => parts.push(x));
         parts.sort((x, y) => x[0] - y[0]).forEach(([k, t, idx], j) => { if (j) line.append(k === parts[j - 1][0] + 1 ? ' ' : ' … '); line.append(mk('ils', t, idx)); });
         if (!parts.length) for (let i = st; i <= en; i++) if (marks.has(i)) { line.append(mk('ils ilm', '…', marks.get(i))); break; }
@@ -871,20 +871,52 @@
     const src = e.target.closest('.ilx, .w, .wg');
     if (src && (src.classList.contains('ilx') || src.closest('.row') && src.closest('.row').querySelector('.ilx'))) ilLink(src); else if ($('#rOut .ilhl')) ilHlClear();
   });
-  const IL_LABEL = { Zunz: 'Zunz (1838)', Breuer: 'Breuer', Philippson: 'Philippson', Herxheimer: 'Herxheimer' };
-  let ilHide = []; try { ilHide = JSON.parse(localStorage.getItem('interlinHide') || '[]'); } catch { /* egal */ }
-  const ilSetHide = () => { $$('#rOut .ilt').forEach(l => { l.hidden = ilHide.includes(l.dataset.tr); }); try { localStorage.setItem('interlinHide', JSON.stringify(ilHide)); } catch { /* egal */ } };
-  // Legende: ein Schalter je Übersetzung (Farbpunkt + Name); ein Klick blendet die Zeile ein/aus, Überfahren hebt sie hervor
-  function ilLegend(order, use) {
+  // Feste Reihenfolge = feste Farbe je Werk (--il1 … --il5); „LXX“ = Septuaginta (CATSS), Wort für Wort unter dem Westminster-Text
+  const IL_ORDER = ['Zunz', 'Breuer', 'Philippson', 'Herxheimer', 'LXX'];
+  const IL_LABEL = { Zunz: 'Zunz (1838)', Breuer: 'Breuer', Philippson: 'Philippson', Herxheimer: 'Herxheimer', LXX: 'Septuaginta' };
+  const IL_SUB = { Zunz: 'Leopold Zunz, Die vier und zwanzig Bücher der Heiligen Schrift, Berlin 1838', Breuer: 'Raphael Breuer, Arba Megillot', Philippson: 'Ludwig Philippson, Die Israelitische Bibel', Herxheimer: 'Salomon Herxheimer, Die vier und zwanzig Bücher der Bibel', LXX: 'Griechisch, Wortgruppen nach der Zuordnung von CATSS' };
+  const IL_PIC = { Zunz: 'Zunz', Breuer: 'Raphael Breuer', Philippson: 'Philippson', Herxheimer: 'Herxheimer', LXX: 'Septuaginta' };
+  // Auswahl (Häkchen) wird gemerkt; ältere Einstellung (ein Werk oder „Alle“) wird übernommen
+  let ilPick = null; try { ilPick = JSON.parse(localStorage.getItem('interlinPick') || 'null'); } catch { /* egal */ }
+  if (!Array.isArray(ilPick)) ilPick = ilOn ? (ilTr === '*' ? IL_ORDER.slice(0, 4) : [ilTr]) : [];
+  const ilSave = () => { try { localStorage.setItem('interlinPick', JSON.stringify(ilPick)); } catch { /* egal */ } };
+  let ilAvail = []; // für das aktuelle Kapitel vorhandene Werke
+  // Septuaginta: CATSS-Fassung des Buches (Richter: Codex B zuerst nicht nötig – die erste Fassung „Septuaginta (CATSS)“ gilt)
+  const ilLxxVer = g => { const vs = (g && g.versions || []).filter(x => /CATSS/.test(x.versionTitle || '')); return vs.find(x => x.versionTitle === 'Septuaginta (CATSS)') || vs[0] || null; };
+  async function ilLxxDoc(g) {
+    const ver = ilLxxVer(g); if (!ver) return null;
+    let d = cache.get(ver.rel);
+    if (!d) { try { d = await O.read(ver.rel); } catch { return null; } await versReady; applyVers(d); d.__b = ver.bytes || 2e6; cache.set(ver.rel, d); }
+    return d;
+  }
+  // Griechische Wortgruppen eines Verses den Westminster-Wörtern zuordnen (nach Konsonanten, der Reihe nach) -> [[Wortnummern], Griechisch]
+  const ilTpl = document.createElement('template');
+  function ilLxxSegs(cell, html) {
+    const cons = [...cell.querySelectorAll('.w')].map(w => consOf(w.textContent)), segs = []; let p = 0;
+    ilTpl.innerHTML = html || '';
+    for (const g of ilTpl.content.querySelectorAll('.wg')) {
+      if (g.classList.contains('wm')) continue; // hebräisches Wort ohne griechisches Gegenstück
+      const want = consOf(g.dataset.h || ''), gr = g.textContent.trim(); if (!want || !gr) continue;
+      let hit = null;
+      for (let i = p; i < Math.min(cons.length, p + 8) && !hit; i++) {
+        let acc = '';
+        for (let k = i; k < Math.min(cons.length, i + 5); k++) { acc += cons[k]; if (acc === want) { hit = [i, k]; break; } if (!want.startsWith(acc)) break; }
+      }
+      if (!hit) continue;
+      const idx = []; for (let k = hit[0]; k <= hit[1]; k++) idx.push(k + 1);
+      segs.push([idx, gr]); p = hit[1] + 1;
+    }
+    return segs;
+  }
+  // Legende: Farbpunkt + Name je gewähltem Werk; Überfahren hebt die Zeile hervor, Klick nimmt das Werk aus der Auswahl
+  function ilLegend(use) {
     $$('#rOut .illeg').forEach(x => x.remove());
-    ilHide = ilHide.filter(n => use.includes(n)); if (ilHide.length >= use.length) ilHide = [];
-    ilSetHide();
     if (use.length < 2) return;
     const leg = document.createElement('div'); leg.className = 'illeg';
     use.forEach(n => {
-      const b = document.createElement('button'); b.type = 'button'; b.className = 'illc'; b.dataset.i = order.indexOf(n) + 1; b.dataset.tr = n; b.title = n;
-      b.setAttribute('aria-pressed', String(!ilHide.includes(n))); b.innerHTML = `<i></i>${esc(IL_LABEL[n] || n)}`;
-      b.onclick = () => { const off = !ilHide.includes(n); if (off && ilHide.length >= use.length - 1) return; ilHide = off ? [...ilHide, n] : ilHide.filter(x => x !== n); b.setAttribute('aria-pressed', String(!off)); ilSetHide(); };
+      const b = document.createElement('button'); b.type = 'button'; b.className = 'illc'; b.dataset.i = IL_ORDER.indexOf(n) + 1; b.dataset.tr = n;
+      b.title = I18N.t('Klick: dieses Werk ausblenden'); b.innerHTML = `<i></i>${esc(I18N.t(IL_LABEL[n] || n))}`;
+      b.onclick = () => { ilPick = ilPick.filter(x => x !== n); ilSave(); ilRefresh(); ilPopRender(); };
       b.onmouseenter = () => $$('#rOut .ilt').forEach(l => l.classList.toggle('ildim', l.dataset.tr !== n));
       b.onmouseleave = () => $$('#rOut .ildim').forEach(l => l.classList.remove('ildim'));
       leg.appendChild(b);
@@ -892,36 +924,65 @@
     const head = $('#rOut .row.head'); // die Legende klebt unter den Spaltenköpfen (Versionsnamen), nicht darüber
     if (head) { head.after(leg); leg.style.setProperty('--headh', head.offsetHeight + 'px'); } else $('#rOut').prepend(leg);
   }
+  // Auswahlfenster am Interlinear-Knopf: ein Häkchen je Werk (mit Bild), dazu „Alle“ und „Keine“
+  function ilPopRender() {
+    const pop = $('#ilPop'); if (!pop || pop.hidden) return;
+    const row = n => { const pic = portraitOf(IL_PIC[n]), on = ilPick.includes(n);
+      return `<label class="ilpR" data-i="${IL_ORDER.indexOf(n) + 1}"><input type="checkbox" value="${n}"${on ? ' checked' : ''}>${pic ? `<img src="portraits/${encodeURIComponent(pic.img)}" alt="" title="${esc(pic.name || '')}">` : `<span class="ilpPh" lang="grc">Α</span>`}<span class="ilpT"><b>${esc(I18N.t(IL_LABEL[n]))}</b><small>${esc(I18N.t(IL_SUB[n]))}</small></span><i class="ilpDot"></i></label>`; };
+    pop.innerHTML = `<div class="ilpH"><b>${esc(I18N.t('Interlinear'))}</b><span><button type="button" data-a="all">${esc(I18N.t('Alle'))}</button><button type="button" data-a="none">${esc(I18N.t('Keine'))}</button></span></div>${ilAvail.map(row).join('')}<p class="muted ilpN">${esc(I18N.t('Die gewählten Werke stehen Wort für Wort unter dem hebräischen Text (Westminster).'))}</p>`;
+  }
+  function ilPopPlace() {
+    const pop = $('#ilPop'), r = $('#ilBtn').getBoundingClientRect(); if (pop.hidden) return;
+    pop.style.top = Math.round(r.bottom + 4) + 'px';
+    pop.style.left = Math.round(Math.max(8, Math.min(r.left, innerWidth - pop.offsetWidth - 8))) + 'px';
+  }
+  function ilPopToggle(show = $('#ilPop').hidden) { const pop = $('#ilPop'); pop.hidden = !show; $('#ilBtn').setAttribute('aria-expanded', String(show)); if (show) { ilPopRender(); ilPopPlace(); } }
+  $('#ilPop').addEventListener('change', e => {
+    const c = e.target.closest('input[type=checkbox]'); if (!c) return;
+    ilPick = c.checked ? [...new Set([...ilPick, c.value])] : ilPick.filter(x => x !== c.value); ilSave(); ilRefresh();
+  });
+  $('#ilPop').addEventListener('click', e => {
+    const a = e.target.closest('button[data-a]'); if (!a) return;
+    ilPick = a.dataset.a === 'all' ? [...new Set([...ilPick, ...ilAvail])] : ilPick.filter(x => !ilAvail.includes(x)); ilSave(); ilPopRender(); ilRefresh();
+  });
+  document.addEventListener('pointerdown', e => { const pop = $('#ilPop'); if (pop && !pop.hidden && !e.target.closest('#ilPop, #ilBtn')) ilPopToggle(false); }, true);
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('#ilPop').hidden) ilPopToggle(false); });
+  addEventListener('resize', () => ilPopPlace());
+  let ilTok = 0;
   async function ilRefresh() {
     const b = $('#ilBtn'); if (!b) return;
+    const tok = ++ilTok;
     const ALL = await loadIL(), title = view && view.group ? view.group.title : '';
-    const s0 = view && view.sections && view.sections[view.idx], c0 = s0 && apChap(s0), names = ALL && title ? Object.keys(ALL).filter(n => ALL[n][title] && (!c0 || Object.keys(ALL[n][title]).some(k => k.startsWith(c0 + ':')))) : [], has = names.length > 0; // nur Kapitel, für die eine Zuordnung vorliegt
-    if (has && ilTr !== '*' && !names.includes(ilTr)) ilTr = names[0];
-    if (ilTr === '*' && names.length < 2) ilTr = names[0] || 'Zunz';
-    const sel = $('#ilSel');
-    b.hidden = !has; b.classList.toggle('on', has && ilOn);
-    if (sel) { sel.hidden = !(has && ilOn && names.length > 1); if (sel.dataset.n !== names.join()) { sel.dataset.n = names.join(); sel.innerHTML = names.map(n => `<option value="${n}">${n}</option>`).join('') + (names.length > 1 ? `<option value="*">${esc(I18N.t('Alle'))}</option>` : ''); } sel.value = ilTr; }
-    document.body.classList.toggle('il', has && ilOn);
+    if (tok !== ilTok) return;
+    const s0 = view && view.sections && view.sections[view.idx], c0 = s0 && apChap(s0), names = ALL && title ? Object.keys(ALL).filter(n => ALL[n][title] && (!c0 || Object.keys(ALL[n][title]).some(k => k.startsWith(c0 + ':')))) : []; // nur Kapitel, für die eine Zuordnung vorliegt
+    const lxx = !!(view && view.group && ilLxxVer(view.group)) && !!c0 && /^\d+$/.test(c0);
+    ilAvail = IL_ORDER.filter(n => n === 'LXX' ? lxx : names.includes(n));
+    const has = ilAvail.length > 0, use = ilAvail.filter(n => ilPick.includes(n)), on = use.length > 0;
+    b.hidden = !has; b.classList.toggle('on', has && on);
+    if (!has && !$('#ilPop').hidden) ilPopToggle(false); else ilPopRender();
+    document.body.classList.toggle('il', has && on);
     ilClear();
     $$('#rOut .illeg').forEach(x => x.remove());
     if (!has) return;
     const s = view.sections && view.sections[view.idx], chap = s && apChap(s); if (!chap) return;
-    for (const row of $$('#rOut .row[data-l]')) { // deutsche Spalten: Wortgruppen anklickbar machen (unabhängig vom Interlinear-Knopf)
+    if (ALL) for (const row of $$('#rOut .row[data-l]')) { // deutsche Spalten: Wortgruppen anklickbar machen (unabhängig vom Interlinear-Knopf)
       const v = verseOf(row.dataset.l); if (v == null) continue;
       row.querySelectorAll('.cell[data-vt]').forEach(cell => { const nm = ilName(cell.dataset.vt), segs = nm && ALL[nm][title] && ALL[nm][title][chap + ':' + v]; if (segs) ilTagCell(cell, segs); });
     }
-    if (!ilOn) return;
-    const use = ilTr === '*' ? names : [ilTr];
-    ilLegend(names, use);
+    if (!on) return;
+    const lx = use.includes('LXX') ? await ilLxxDoc(view.group) : null;
+    if (tok !== ilTok) return;
+    ilLegend(use);
     for (const row of $$('#rOut .row[data-l]')) {
       const v = verseOf(row.dataset.l); if (v == null) continue;
-      const trs = use.map(nm => [nm, ALL[nm][title][chap + ':' + v]]).filter(x => x[1]); if (!trs.length) continue;
-      row.querySelectorAll('.cell[data-k="he"]').forEach(cell => ilVerse(cell, trs, names));
+      row.querySelectorAll('.cell[data-k="he"]').forEach(cell => {
+        if (!cell.querySelector('.w')) return;
+        const trs = use.map(nm => [nm, nm === 'LXX' ? (lx && lx.text[+chap - 1] ? ilLxxSegs(cell, lx.text[+chap - 1][v - 1]) : null) : ALL[nm][title][chap + ':' + v]]).filter(x => x[1] && x[1].length);
+        if (trs.length) ilVerse(cell, trs, IL_ORDER);
+      });
     }
-    ilSetHide();
   }
-  $('#ilSel').onchange = e => { ilTr = e.target.value; try { localStorage.setItem('interlinTr', ilTr); } catch { /* egal */ } ilRefresh(); };
-  $('#ilBtn').onclick = () => { ilOn = !ilOn; try { localStorage.setItem('interlin', ilOn ? '1' : '0'); } catch { /* egal */ } ilRefresh(); };
+  $('#ilBtn').onclick = () => ilPopToggle();
 
   // Die Kapitel-Auswahl ist nur so breit wie der gewählte Eintrag
   let fitSpan = null;
