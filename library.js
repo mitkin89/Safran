@@ -1331,9 +1331,44 @@
     const gloss = sk => { const g = ST && ST[lemma] && ST[lemma][sk]; return g ? { text: I18N.lang === 'de' ? g[0] : g[1], u: !!g[2] } : null; };
     body.innerHTML = window.Forms.render(mdl, { esc, t: s => I18N.t(s), current: cur, gloss });
     wcRender(token, cur);
+    fmTrInit(token);
     p.scrollTop = 0;
     if (fmTab === 'forms') { const c = body.querySelector('.fmF.cur'); if (c) c.scrollIntoView({ block: 'center' }); }
   }
+  // Paradigmen: unter jeder Form die häufigste Wiedergabe der gewählten Fassung (Zunz, Breuer …, Septuaginta, Targumim);
+  // zugeordnet über die Bestimmung der Form (OSHB-Code, Suffix eingeschlossen); Darüberfahren zeigt die drei häufigsten
+  let fmTrData = null, fmTrPick = null; try { fmTrPick = localStorage.getItem('fmTrSrc'); } catch { /* egal */ }
+  async function fmTrInit(token) {
+    const body = $('#fmBody'), lemma = fmCur && fmCur.lemma; if (!lemma) return;
+    const S = await wcTrSources(lemma); if (token !== wcToken || !fmCur) return;
+    fmTrData = S; body.querySelectorAll('.fmTrBar').forEach(x => x.remove());
+    if (!S.keys.length) return;
+    const bar = document.createElement('div'); bar.className = 'fmTrBar';
+    body.prepend(bar); fmTrApply();
+  }
+  function fmTrApply() {
+    const body = $('#fmBody'), S = fmTrData, bar = body.querySelector('.fmTrBar'); if (!S || !bar || !fmCur) return;
+    const cur = S.keys.includes(fmTrPick) ? fmTrPick : fmTrPick === 'off' ? 'off' : S.keys[0];
+    bar.innerHTML = `<span class="muted">${esc(I18N.t('Übersetzung unter den Formen:'))}</span>${S.keys.map(k => `<button type="button" class="wcTrSrc${k === cur ? ' on' : ''}" data-fsrc="${k}">${esc(I18N.t(WC_TR_LABEL[k]))}</button>`).join('')}<button type="button" class="wcTrSrc${cur === 'off' ? ' on' : ''}" data-fsrc="off">${esc(I18N.t('aus'))}</button>`;
+    body.querySelectorAll('.fmTrL').forEach(x => x.remove());
+    body.classList.toggle('fmTrOn', cur !== 'off');
+    if (cur === 'off') return;
+    const D = S.src[cur], forms = fmCur.mdl.forms, byCode = new Map();
+    D.cells.forEach(c => { let m = byCode.get(c.code); if (!m) byCode.set(c.code, m = new Map()); m.set(c.g, (m.get(c.g) || 0) + c.n); });
+    const lab = g => { const L = D.labels[g]; return !L || L.other ? I18N.t('Andere') : L.forms[0]; };
+    body.querySelectorAll('.fmF[data-i]').forEach(ch => {
+      const codes = new Set(String(ch.dataset.i).split(',').map(i => forms[+i] && forms[+i].key.replace('*', '')).filter(Boolean));
+      const agg = new Map();
+      codes.forEach(c => { const m = byCode.get(c); if (m) m.forEach((n, g) => agg.set(g, (agg.get(g) || 0) + n)); });
+      if (!agg.size) return;
+      const top = [...agg].sort((a, b) => b[1] - a[1]), tot = top.reduce((a, x) => a + x[1], 0);
+      const sp = document.createElement('span'); sp.className = 'fmTrL'; sp.lang = D.lang; sp.dir = D.lang === 'arc' ? 'rtl' : 'ltr';
+      sp.textContent = lab(top[0][0]) + (top.length > 1 ? ' …' : '');
+      sp.title = WC_TR_LABEL[cur] + ': ' + top.slice(0, 3).map(([g, n]) => lab(g) + ' ' + Math.round(n / tot * 100) + ' %').join(' · ');
+      ch.appendChild(sp);
+    });
+  }
+  $('#fmBody').addEventListener('click', e => { const b = e.target.closest('.fmTrBar [data-fsrc]'); if (!b) return; e.stopPropagation(); fmTrPick = b.dataset.fsrc; try { localStorage.setItem('fmTrSrc', fmTrPick); } catch { /* egal */ } fmTrApply(); }, true);
   // Griechisch (Septuaginta): dieselbe Karte aus dem Index lxx-morph.js; info = { form, key } der angeklickten Form
   async function openGForms(lemma, info, tab) {
     const p = $('#formsPanel'), body = $('#fmBody'), card = $('#wcBody'), GM = window.GMorph, t = s => I18N.t(s);
@@ -1467,10 +1502,9 @@
     f.suffix = d && d.segs.some(x => x.suffix) ? 'mit Suffix' : 'ohne Suffix';
     wcFeatCache.set(code, f); return f;
   }
-  async function wcTrans(token) {
-    const { lemma } = fmCur;
+  // Quellen der Übersetzungsstatistik für ein Lemma: {src: {Fassung: {lang, labels, cells}}, keys, IR}
+  async function wcTrSources(lemma) {
     const [IR, LR, TR] = await Promise.all([loadIlRen(), loadLxxRen(), loadTgRen()]);
-    const box = $('#wcTr'); if (token !== wcToken || !box) return;
     const src = {};
     if (IR) for (const [tr, M] of Object.entries(IR.tr)) { const x = M[lemma]; if (!x) continue; src[tr] = { lang: 'de', labels: x[0].map(f => ({ forms: f })), cells: x[1].map(([g, code, n, refs]) => ({ g, code, n, refs })) }; }
     const lx = LR && LR[lemma];
@@ -1478,6 +1512,12 @@
     const tg = TR && TR[lemma];
     if (tg) ['O', 'PJ', 'N'].forEach((k, i) => { const cells = tg[1].map(c => ({ g: c[0], code: c[1], n: c[2 + i] })).filter(c => c.n); if (cells.length) src[k] = { lang: 'arc', labels: tg[0].map(([l, gl]) => ({ forms: [l], gl, other: l === '*' })), cells }; });
     const keys = Object.keys(WC_TR_LABEL).filter(k => src[k] && src[k].cells.reduce((a, c) => a + c.n, 0) >= 2);
+    return { src, keys, IR };
+  }
+  async function wcTrans(token) {
+    const { lemma } = fmCur;
+    const { src, keys, IR } = await wcTrSources(lemma);
+    const box = $('#wcTr'); if (token !== wcToken || !box) return;
     if (!keys.length) return;
     let pick = null; try { pick = localStorage.getItem('wcTrSrc'); } catch { /* egal */ }
     wcTrState = { src, keys, cur: keys.includes(pick) ? pick : keys[0], open: -1, IR, f: {}, lemma };

@@ -1534,3 +1534,12 @@ body.head-stick .illeg { position: sticky; top: calc(var(--stick-top, 40px) + va
 #wcBody .wcTrAll { justify-self: start; margin-top: 2px; }
 #wcBody .wcTrE { fill: none; stroke: var(--cat0); stroke-width: 34; opacity: .35; }
 #wcBody .wcTrR .f .wcTgL { border: 0; background: none; padding: 0; margin: 0; font: inherit; color: var(--accent); cursor: pointer; }
+/* Paradigmen: Wiedergabe unter jeder Form */
+#fmBody .fmTrBar { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; margin: 0 0 10px; font-size: 12px; }
+#fmBody .fmTrBar .muted { margin-inline-end: 4px; }
+#fmBody .wcTrSrc { font: inherit; font-size: 12px; padding: 1px 9px; border: 1px solid var(--line, #8886); border-radius: 999px; background: transparent; color: inherit; cursor: pointer; }
+#fmBody .wcTrSrc.on { background: color-mix(in srgb, var(--accent) 18%, transparent); border-color: color-mix(in srgb, var(--accent) 55%, transparent); }
+#fmBody.fmTrOn .fmF { flex-wrap: wrap; justify-content: center; vertical-align: top; }
+#fmBody .fmTrL { flex-basis: 100%; text-align: center; font: 11px/1.25 var(--ui-font, system-ui, sans-serif); color: var(--accent); max-width: 11em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+#fmBody .fmTrL[lang="grc"] { font-family: var(--gr-font); font-size: 12px; }
+#fmBody .fmTrL[lang="arc"] { font-family: var(--he-font, "SBL Hebrew", serif); font-size: 13px; }

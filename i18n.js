@@ -142,6 +142,7 @@
     'Kleine Traktate': 'Minor tractates',
     'Weitere Werke': 'Other works',
     'Statistik': 'Statistics',
+    "Übersetzung unter den Formen:": "Translation under the forms:",
     "Binjan": "Binyan",
     "{} von {} Belegen": "{} of {} occurrences",
     "Keine Belege für diese Auswahl.": "No occurrences for this selection.",
