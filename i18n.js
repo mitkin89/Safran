@@ -106,7 +106,7 @@
     'Wiedergabe in der Septuaginta': 'Rendering in the Septuagint',
     'In den Qumran-Rollen': 'In the Qumran scrolls',
     'Vers {}': 'Verse {}',
-    'Interlinear: deutsche Wörter (Zunz, Breuer) unter dem hebräischen Text': 'Interlinear: German words (Zunz, Breuer) under the Hebrew text',
+    'Interlinear: deutsche Wörter (Zunz, Breuer, Philippson, Herxheimer) unter dem hebräischen Text': 'Interlinear: German words (Zunz, Breuer, Philippson, Herxheimer) under the Hebrew text',
     'Übersetzung für den Interlinear': 'Translation for the interlinear',
     '{} Wörter, {} verschiedene Wörter (Lemmata). {} % der Wörter kommen im Tanach mehr als 100-mal vor (Grundwortschatz).': '{} words, {} different words (lemmas). {} % of the words occur more than 100 times in the Tanakh (core vocabulary).',
     'Leitwörter des Kapitels, die in diesem Vers stehen (Zahlen: im Kapitel, im Tanach).': 'Key words of the chapter that occur in this verse (numbers: in the chapter, in the Tanakh).',

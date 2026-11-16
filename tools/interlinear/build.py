@@ -12,7 +12,7 @@ norm = lambda s: re.sub(r'\s+', ' ', s).strip()
 def load(book, lang, pat):
     f = glob.glob(os.path.join(R, 'bundled', 'own', book, lang, pat))[0]
     return json.load(open(f, encoding='utf8'))['text']
-TR = {'Zunz': ('zunz', '*Zunz*', 'Zunz, Berlin 1838'), 'Breuer': ('breuer', 'Breuer*', 'Breuer, Arba Megillot'), 'Philippson': ('philippson', 'Die Israelitische Bibel*', 'Philippson')}
+TR = {'Zunz': ('zunz', '*Zunz*', 'Zunz, Berlin 1838'), 'Breuer': ('breuer', 'Breuer*', 'Breuer, Arba Megillot'), 'Philippson': ('philippson', 'Die Israelitische Bibel*', 'Philippson'), 'Herxheimer': ('herxheimer', 'Die vier und zwanzig Bücher der Bibel im ebräischen*', 'Herxheimer')}
 out, bad = {}, 0
 for name, (dirn, pat, label) in TR.items():
   out[name] = {}
@@ -20,7 +20,7 @@ for name, (dirn, pat, label) in TR.items():
     book = os.path.basename(fn)[:-4]
     he = load(book, 'he', 'Westminster*'); de = load(book, 'de', pat)
     nw = lambda c, v: len(re.findall(r'<span class="w"', he[c - 1][v - 1]))
-    dt = lambda c, v: norm(re.sub(r'<[^>]+>', '', de[c - 1][v - 1]))
+    dt = lambda c, v: norm(re.sub(r'<[^>]+>', '', re.sub(r'<sup class="footnote-marker">.*?</sup><i class="footnote">.*?</i>', '', de[c - 1][v - 1])))
     res = {}
     for line in open(fn, encoding='utf8'):
         line = line.rstrip('\n')
