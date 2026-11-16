@@ -1,6 +1,7 @@
 # Changelog
 
 ### New in 2.4.0
+- **Interlinear: Zunz, complete Joshua (1–24):** the word-by-word German under the Hebrew text now also covers the whole book of Joshua with Zunz's translation (`tools/interlinear/zunz/Joshua.txt`, 658 verses).
 - **Interlinear: Zunz, complete Deuteronomy (1–34):** the word-by-word German under the Hebrew text now also covers the whole book of Deuteronomy with Zunz's translation (`tools/interlinear/zunz/Deuteronomy.txt`, 956 verses).
 - **Interlinear: Zunz, complete Numbers (1–36):** the word-by-word German under the Hebrew text now also covers the whole book of Numbers with Zunz's translation (`tools/interlinear/zunz/Numbers.txt`, 1288 verses).
 - **Interlinear: Zunz, complete Leviticus (1–27):** the word-by-word German under the Hebrew text now also covers the whole book of Leviticus with Zunz's translation (`tools/interlinear/zunz/Leviticus.txt`, 859 verses).
