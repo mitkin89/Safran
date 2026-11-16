@@ -2,7 +2,7 @@
 
 <h1 align="center">Safran <span dir="rtl">סַפְרָן</span></h1>
 
-<p align="center"><b>Deine jüdische Bibliothek, offline: Tanach, Talmud, Midrasch und Kommentare auf Hebräisch, Englisch und Deutsch, mit eingebautem Wörterbuchregal.</b></p>
+<p align="center"><b>Deine jüdische Bibliothek, offline – mit dem ganzen Tanach Wort für Wort auf Deutsch.</b><br>Tanach, Talmud, Midrasch und Kommentare auf Hebräisch, Englisch und Deutsch, mit eingebautem Wörterbuchregal.</p>
 
 <p align="center">
   <a href="https://github.com/mitkin89/Safran/releases/latest"><img alt="Neueste Version" src="https://img.shields.io/github/v/release/mitkin89/Safran?label=release&color=7b4b1f"></a>
@@ -16,38 +16,74 @@
   <a href="https://github.com/mitkin89/Safran/releases/latest"><img alt="Safran für macOS, Windows oder Linux herunterladen" src="https://img.shields.io/badge/%E2%AC%87%EF%B8%8F%20%20Safran%20herunterladen-macOS%20%C2%B7%20Windows%20%C2%B7%20Linux-2ea44f?style=for-the-badge"></a>
 </p>
 
-<p align="center"><a href="https://www.sefaria.org"><img src="screenshots/powered-by-sefaria.png" alt="Powered by Sefaria" width="180"></a></p>
-
-<p align="center"><a href="README.md">English</a> &nbsp;·&nbsp; <b>Deutsch</b></p>
+<p align="center"><a href="https://www.youtube.com/watch?v=_htLzC7Q3Ug">▶ Überblicksvideo</a> &nbsp;·&nbsp; <a href="docs/releases/2.5.0.md"><b>Neu in 2.5.0</b></a> (englisch) &nbsp;·&nbsp; <a href="#installation">Installation</a> &nbsp;·&nbsp; <a href="README.md">English</a> &nbsp;·&nbsp; <b>Deutsch</b></p>
 
 <p align="center">
-  <a href="screenshots/hero-reading.png"><img src="screenshots/hero-reading.png" alt="Safran: Genesis 1 auf Hebräisch (Westminster Leningrad Codex) und Deutsch (Zunz), rechts Raschi auf Deutsch" width="900"></a><br>
-  <sub>Genesis 1: Hebräisch und Deutsch (Zunz) nebeneinander, rechts Raschi auf Deutsch im Kommentarfenster.</sub>
+  <a href="screenshots/hero-interlinear.png"><img src="screenshots/hero-interlinear.png" alt="Safran: Genesis 1 als Interlinear – unter jedem hebräischen Wort das Deutsch von Zunz (1838) und Goldschmidt (1921); ein angeklicktes Wort ist im Hebräischen und in der fortlaufenden Übersetzung hervorgehoben" width="900"></a><br>
+  <sub>Genesis 1 als Interlinear: unter jedem hebräischen Wort das Deutsch von Zunz (1838) und Goldschmidt (1921). Ein Klick auf ein Wort hebt sein Gegenstück in der fortlaufenden Übersetzung hervor.</sub>
 </p>
 
-<p align="center">
-  <a href="https://www.youtube.com/watch?v=_htLzC7Q3Ug"><img src="https://img.youtube.com/vi/_htLzC7Q3Ug/maxresdefault.jpg" alt="Safran-Überblicksvideo auf YouTube ansehen" width="600"></a><br>
-  <sub>▶ Überblicksvideo auf YouTube ansehen</sub>
-</p>
-
-Safran ist eine kostenlose Desktop-App für macOS, Windows und Linux, die deine Texte auf dem eigenen Rechner hält. Du wählst einmal die Bücher und Sprachen aus der [Sefaria](https://www.sefaria.org)-Bibliothek und liest, durchsuchst und kommentierst sie danach ohne Internetverbindung. Dazu bringt Safran **410 deutsche Übersetzungen und Kommentare** mit, die es sonst kaum gibt, darunter Louis Ginzbergs *Legenden der Juden* nach seinem deutschen Manuskript, und **sieben Wörterbücher** mit über 88.000 Einträgen. Safran ist ein unabhängiges Projekt und nicht mit Sefaria verbunden.
+Safran ist eine kostenlose Desktop-App für macOS, Windows und Linux, die deine Texte auf dem eigenen Rechner hält. Du wählst einmal die Bücher und Sprachen aus der [Sefaria](https://www.sefaria.org)-Bibliothek und liest, durchsuchst und kommentierst sie danach ohne Internetverbindung. Neu in 2.5.0: der **ganze Tanach Wort für Wort auf Deutsch** (Interlinear) und eine **Wortkarte**, die zeigt, wie ein hebräisches Wort übersetzt wird. Dazu bringt Safran **über 50 deutsche Werke** mit (Übersetzungen, Kommentare und Nachschlagewerke), die es sonst kaum gibt, darunter Louis Ginzbergs *Legenden der Juden* nach seinem deutschen Manuskript, und **acht Wörterbücher und Nachschlagewerke** mit über 100.000 Einträgen. Safran ist ein unabhängiges Projekt und nicht mit Sefaria verbunden.
 
 ## Warum Safran?
 
 | | |
 | --- | --- |
+| 🔡 **Der ganze Tanach Wort für Wort auf Deutsch** | Der Knopf *Interlinear* stellt das Deutsch von Zunz (alle 39 Bücher) unter jedes hebräische Wort; darunter können Goldschmidt zur Tora, S. R. Hirsch zu den Psalmen, Julius Hirsch zu Jesaja sowie Septuaginta, Targumim und Qumran-Rollen stehen. |
+| 🃏 **Eine Wortkarte zu jedem hebräischen Wort** | *Wie wird das Wort übersetzt?* als Diagramm je Übersetzung, das vollständige Paradigma als Tabelle und die Wiedergaben in Septuaginta, Targumim und Qumran-Rollen. |
+| ✦ **Alles zu dieser Stelle** | Ein Fenster (Cmd+I) sammelt Kommentare, Parallelstellen, Legenden, Talmud & Midrasch, Halacha, Wörter, Orte und Wörterbuchartikel zu einem Vers, einem Blatt oder einem Kapitel. |
 | 📴 **Funktioniert offline** | Texte, Verknüpfungen, Wörterbücher, Karten und Audio liegen auf deiner Festplatte. Nichts wird irgendwohin gesendet. |
-| 🇩🇪 **Deutsche Texte, die es sonst nicht gibt** | Zunz, Philippson, Mendelssohns Biur, Herxheimer, Hertz, Hirsch, Raschi nach Bamberger, die Kautzsch-Apokryphen, Midrasch Rabba, More Nevuchim, der Schulchan Aruch (Lederer), Ginzbergs *Legenden der Juden* … sofort beim ersten Start da. |
-| 📚 **Ein Wörterbuchregal, nicht nur ein Lexikon** | BDB, Gesenius, Jastrow, Levy, Krauss und Hamburgers Real-Encyclopädie, durchsuchbar nach Stichwort *und* im Volltext, mit Abkürzungen beim Überfahren und Quellen, die sich im Lesefenster öffnen. |
-| 🔬 **Gemacht zum Lernen** | Vers-für-Vers-Ausrichtung, Morphologie per Klick, Grammatiksuche, zweites Lesefenster, Aleppo-Kodex, Qumran-Rollen, Septuaginta, Bibelkarte, Gliederungen und hebräische Lesung. |
+| 🇩🇪 **Deutsche Texte, die es sonst nicht gibt** | Über 50 Werke: Zunz, Philippson, Mendelssohns Biur, Herxheimer, Hertz, Hirsch, Raschi nach Bamberger, die Kautzsch-Apokryphen, Midrasch Rabba, Josephus, Graetz, der Schulchan Aruch (Lederer), Ginzbergs *Legenden der Juden* … sofort beim ersten Start da. |
+| 📚 **Ein Wörterbuchregal, nicht nur ein Lexikon** | BDB, Gesenius, Jastrow, Levy, Krauss und Hamburgers Real-Encyclopädie: über 100.000 Einträge, durchsuchbar nach Stichwort *und* im Volltext, mit Abkürzungen beim Überfahren und Quellen, die sich im Lesefenster öffnen. |
+| 📜 **Handschriften und alte Übersetzungen** | Aleppo-Kodex, die biblischen Qumran-Rollen und alle 735 nichtbiblischen mit Morphologie, die Septuaginta mit anklickbarer Morphologie und LXX-MT-Vergleich, Targum Onkelos, Pseudo-Jonathan und Neofiti. |
+| 🔎 **Suche, die Grammatik kennt** | Volltextsuche in allem, alle Formen eines Wortes über das Lemma (hebräisch und griechisch) und eine Grammatiksuche nach Stamm, Zeit, Person, Genus und Numerus. |
+| 🗺 **Gemacht zum Lernen** | Vers-für-Vers-Ausrichtung, zweites Lesefenster, Bibelkarte, Gliederungen, jüdischer Kalender und eine hebräische Lesung des ganzen Tanach. |
 
-## Schnellstart
+## Installation
 
-1. **Herunterladen und öffnen:** das Installationsprogramm für dein System aus der [neuesten Version](https://github.com/mitkin89/Safran/releases/latest). Die App ist nicht mit einem kostenpflichtigen Zertifikat signiert, darum braucht der erste Start einen Klick mehr, siehe [Häufige Fragen](#häufige-fragen).
-2. **Texte wählen:** *Herunterladen* im ⋯-Menü öffnen, den Katalog einmal laden (etwa 22 MB), Kategorien oder einzelne Bücher ankreuzen und die Sprachen wählen (Hebräisch, Englisch, Deutsch). Die mitgelieferten deutschen Texte und die Wörterbücher sind schon da, bevor du etwas herunterlädst.
-3. **Lesen:** ein Buch wählen, eine Stelle ins Springen-Feld tippen (`2:5`, `Daf 3a`, `gen. 1:1`), Cmd+K (unter Windows und Linux Strg+K) für die Kommentare drücken und ein Wort doppelklicken, um es in den Wörterbüchern nachzuschlagen. Ein neuer Tab zeigt den Wochenabschnitt und das Daf Yomi; ein Klick öffnet sie.
+Die Datei für dein System aus der [neuesten Version](https://github.com/mitkin89/Safran/releases/latest) herunterladen. Safran hat kein kostenpflichtiges Entwicklerzertifikat, darum braucht der erste Start einen Schritt mehr.
+
+- **macOS** – die `.dmg` öffnen und **Safran** in den Ordner **Programme** ziehen.
+  > ⚠️ **„Safran ist beschädigt und kann nicht geöffnet werden“?** Die App ist nicht defekt; macOS meldet das bei Apps ohne kostenpflichtiges Apple-Zertifikat. Die `.dmg` erneut öffnen und mit Rechtsklick **Safran freischalten.command** → *Öffnen* → *Öffnen*. Oder im Terminal: `xattr -cr /Applications/Safran.app`. Bei *„Entwickler kann nicht überprüft werden“*: *Systemeinstellungen → Datenschutz & Sicherheit → Trotzdem öffnen*.
+- **Windows** – das Installationsprogramm (oder die portable `.exe`) starten. Zeigt SmartScreen *„Der Computer wurde durch Windows geschützt“*: **Weitere Informationen** → **Trotzdem ausführen**.
+- **Linux** – das `.AppImage` einmal ausführbar machen (`chmod +x Safran-*.AppImage`) und starten, oder das `.deb` installieren (`sudo apt install ./safran_*.deb`).
+
+Mehr dazu unter [Häufige Fragen](#häufige-fragen).
+
+### Erste Schritte
+
+Die Oberfläche gibt es auf Deutsch, Englisch und Hebräisch. Sie startet je nach Systemsprache auf Deutsch oder Englisch und lässt sich jederzeit unter ⋯ → *Sprache* umstellen.
+
+1. **Texte wählen:** ⋯ → *Herunterladen…* öffnen, den Katalog einmal laden (etwa 22 MB), Kategorien oder einzelne Bücher ankreuzen und die Sprachen wählen (Hebräisch, Englisch, Deutsch). Die mitgelieferten deutschen Texte und die Wörterbücher sind schon da, bevor du etwas herunterlädst.
+2. **Lesen:** ein Buch wählen, eine Stelle ins Springen-Feld tippen (`2:5`, `Daf 3a`, `gen. 1:1`) und Cmd+K (unter Windows und Linux Strg+K) für die Kommentare drücken. Ein neuer Tab zeigt den Wochenabschnitt und das Daf Yomi; ein Klick öffnet sie.
+3. **Tiefer gehen:** in einem Buch des Tanach *Interlinear* drücken, dann steht das Deutsch unter jedem hebräischen Wort. Ein Klick auf ein hebräisches Wort zeigt Grammatik und *Wortkarte*, ein Doppelklick auf ein beliebiges Wort schlägt es in den Wörterbüchern nach, und Cmd+I (Strg+I) öffnet *Alles zu dieser Stelle*.
 
 ## Was Safran kann
+
+<table>
+<tr>
+<td width="33%" valign="top"><b>🔡 Interlinear: Hebräisch und Deutsch Wort für Wort</b><br>Der Knopf <i>Interlinear</i> stellt eine Übersetzung unter jedes hebräische Wort des Westminster-Textes. In einem kleinen Feld kreuzt du die Werke an; mehrere stehen untereinander, jedes in seiner Farbe. <b>Zunz</b> deckt den ganzen Tanach ab (alle 39 Bücher), <b>Goldschmidt</b> die Tora (alle fünf Bücher), <b>S. R. Hirsch</b> die Psalmen und <b>Julius Hirsch</b> Jesaja. Genauso lassen sich die <b>Septuaginta</b>, die Targumim <b>Onkelos, Pseudo-Jonathan und Neofiti</b> und die <b>Qumran-Rollen</b> dazunehmen; in den Rollen sind die Abweichungen vom masoretischen Text markiert. Ein Klick auf ein Wort hebt seine Gegenstücke in allen Fassungen hervor.</td>
+<td width="33%" valign="top"><b>🃏 Wortkarte</b><br>Ein hebräisches Wort anklicken und seine <i>Wortkarte</i> öffnen. <b>„Wie wird das Wort übersetzt?“</b> zeigt als Ringdiagramm und Liste die Wiedergaben in jeder zugeordneten Übersetzung, in der Septuaginta und in den Targumim; jede Wiedergabe öffnet ihre Stellen. <b>Alle Formen (Tabelle)</b> ist das vollständige Paradigma, geordnet wie in einer Grammatik, mit der üblichen Wiedergabe unter jeder Form. Darunter: Verteilung im Tanach, die Wörterbücher und die Belege in Septuaginta, Targumim und Qumran-Rollen. Die Karte lässt sich neben dem Text anpinnen.</td>
+<td width="33%" valign="top"><b>✦ Alles zu dieser Stelle (Cmd+I)</b><br>Ein Fenster sammelt, was Safran zu einem Vers, einem Blatt oder einem ganzen Kapitel weiß: Kommentare, Parallelstellen, Legenden (Ginzberg), Talmud & Midrasch, Halacha, Leitwörter, Orte, Themen, Wörterbuchartikel, die die Stelle zitieren, und deine Notizen.<br><br><b>Kommentare zum ganzen Kapitel (Cmd+K)</b><br>Das Kommentarfenster zeigt ein Kapitel Kommentator für Kommentator, Vers für Vers; ein Klick auf eine Versnummer beschränkt es auf diesen Vers.</td>
+</tr>
+</table>
+
+<p align="center">
+  <a href="screenshots/word-card.png"><img src="screenshots/word-card.png" alt="Psalm 136, daneben angepinnt die Wortkarte zu Chesed: Verteilung im Tanach als Balkendiagramm und ein Ringdiagramm, wie Zunz das Wort übersetzt (Huld 62 %, Liebe 21 %, Gnade 13 %)" width="900"></a><br>
+  <sub>Wortkarte zu חֶסֶד: Verteilung im Tanach und „Wie wird das Wort übersetzt?“ – hier bei Zunz, umschaltbar auf die anderen Übersetzungen, die Septuaginta und die Targumim.</sub>
+</p>
+
+<p align="center">
+  <a href="screenshots/word-forms.png"><img src="screenshots/word-forms.png" alt="Wortkarte, Reiter Alle Formen (Tabelle), zum Verb amar: das Qal-Paradigma in Spalten für Perfekt, Perfekt consecutivum und Imperfekt, unter jeder Form die deutsche Wiedergabe mit Anteil" width="900"></a><br>
+  <sub>Alle Formen (Tabelle): das Paradigma von אָמַר, unter jeder Form die Wiedergabe der gewählten Übersetzung.</sub>
+</p>
+
+<p align="center">
+  <a href="screenshots/passage-overview.png"><img src="screenshots/passage-overview.png" alt="5. Mose 6 mit dem Fenster Alles zu dieser Stelle zu Vers 6,4: Statistik, Leitwörter, Kommentare, Parallelstellen und weitere Fächer" width="900"></a><br>
+  <sub>Alles zu dieser Stelle (Cmd+I), hier zu 5. Mose 6,4: Kommentare, Parallelstellen, Legenden, Talmud & Midrasch, Halacha, Wörter und mehr in einem Fenster.</sub>
+</p>
+
+Und alles Weitere:
 
 <table>
 <tr>
@@ -56,11 +92,11 @@ Safran ist eine kostenlose Desktop-App für macOS, Windows und Linux, die deine 
 </tr>
 <tr>
 <td valign="top"><b>🔎 Volltextsuche</b><br>In allem, was du geladen hast, auch in Fußnoten und eigenen Texten. Ignoriert Vokale und Kantillation. Wörter in der Nähe, Platzhalter, unscharfe Suche für Schreibvarianten, derselbe Vers in mehreren Fassungen nur ein Treffer. Im hebräischen Tanach außerdem <b>alle Formen eines Wortes</b> (über das Lemma) und eine <b>Grammatiksuche</b> nach Wortart, Stamm, Zeitform, Person, Genus und Numerus. Cmd/Strg+F sucht im angezeigten Text, auf Wunsch nur als <i>ganzes Wort</i>.</td>
-<td valign="top"><b>🔤 Morphologie per Klick</b><br>Der OSHB-Tanach trägt zu jedem Wort Lemma und Morphologie: ein Klick zeigt Stamm, Form, Person, Genus und Numerus, und das Lemma öffnet sich im Wörterbuch.</td>
+<td valign="top"><b>🔤 Morphologie per Klick</b><br>Der OSHB-Tanach trägt zu jedem Wort Lemma und Morphologie: ein Klick zeigt Stamm, Form, Person, Genus und Numerus; von dort öffnet sich das Lemma im Wörterbuch oder in seiner Wortkarte. Ein Klick zeigt auch die Grammatik jedes griechischen Wortes der Septuaginta und der Wörter in den Targumim und den Qumran-Rollen.</td>
 </tr>
 <tr>
 <td valign="top"><b>⧉ Zweites Lesefenster</b><br>Zwei Bücher nebeneinander, jedes mit eigenen Tabs, eigenem Verlauf und Kommentarfenster. Beide Fenster blättern im Gleichlauf.</td>
-<td valign="top"><b>📜 Handschriften und Fassungen</b><br>Aleppo-Kodex, Qumran-Rollen, Septuaginta mit hebräischem Gegenstück je Wortgruppe: ein <b>LXX-MT-Vergleich</b>, der Plus, Minus und Zuordnung markiert (Interlinear umschaltbar), Targum Onkelos, Pseudo-Jonathan und Neofiti mit Morphologie, Parallelstellen, Sefarias Verknüpfungen.</td>
+<td valign="top"><b>📜 Handschriften und Fassungen</b><br>Aleppo-Kodex; die biblischen Qumran-Rollen, jedes Wort anklickbar; <b>alle 735 nichtbiblischen Qumran-Rollen</b> mit Lemma und Morphologie. Septuaginta mit <b>anklickbarer Morphologie</b> und hebräischem Gegenstück je Wortgruppe: ein <b>LXX-MT-Vergleich</b>, der Plus, Minus und Zuordnung markiert. Targum Onkelos, Pseudo-Jonathan und Neofiti mit Morphologie, Parallelstellen, Sefarias Verknüpfungen. Stellenangaben in anderer <b>Verszählung</b> (KJV, Vulgata, Septuaginta) werden automatisch umgerechnet.</td>
 </tr>
 <tr>
 <td valign="top"><b>🗺 Bibelkarte und Gliederungen</b><br>Die Orte jedes Kapitels auf einer Karte von Israel mit Entfernungen und Höhenprofil, eine detaillierte Jerusalem-Karte von 1865, dazu Themen. Gliederungen für den Tanach (in der Tora mit Schalter 613 Mizwot), die Mischna, die Apokryphen, den <i>Führer der Unschlüssigen</i> und Ginzbergs <i>Legenden</i>, als eigenes Fenster und als Überschriften zwischen den Versen (abschaltbar).</td>
@@ -76,11 +112,21 @@ Safran ist eine kostenlose Desktop-App für macOS, Windows und Linux, die deine 
 </tr>
 </table>
 
+<p align="center">
+  <a href="screenshots/qumran-interlinear.png"><img src="screenshots/qumran-interlinear.png" alt="Jesaja 53,11 als Interlinear mit Zunz und den Qumran-Rollen 1Q8, 1QIsaa und 4Q58 unter den hebräischen Wörtern; das Plus or (Licht) der Rollen nach jir’e ist markiert" width="900"></a><br>
+  <sub>Qumran-Rollen im Interlinear, Jesaja 53,11: je Rolle eine Zeile, Abweichungen vom masoretischen Text markiert – hier das Plus אור („Licht“) in 1QIsaᵃ, 1Q8 und 4Q58.</sub>
+</p>
+
+<p align="center">
+  <a href="screenshots/lxx-comparison.png"><img src="screenshots/lxx-comparison.png" alt="Genesis 1,20 mit den Qumran-Rollen links und der Septuaginta rechts; über jeder griechischen Wortgruppe steht das hebräische Gegenstück, und ein angeklicktes Plus der Septuaginta zeigt seine wahrscheinliche hebräische Rückübersetzung" width="900"></a><br>
+  <sub>LXX-MT-Vergleich: das hebräische Gegenstück über jeder griechischen Wortgruppe, Plus und Minus der Septuaginta markiert; ein Klick auf ein Plus zeigt die wahrscheinliche hebräische Rückübersetzung.</sub>
+</p>
+
 <p align="center"><a href="docs/FEATURES.md">Alle Funktionen, Tastenkürzel und das Menü Werkzeuge (englisch) →</a></p>
 
 ## Wörterbücher
 
-Den Reiter *Wörterbuch* öffnen, den Knopf 📖 neben dem Kommentarfenster drücken oder ein Wort in einem Text doppelklicken. Sieben Wörterbücher sind dabei:
+Den Reiter *Wörterbuch* öffnen, den Knopf 📖 neben dem Kommentarfenster drücken oder ein Wort in einem Text doppelklicken. Acht Wörterbücher und Nachschlagewerke mit über 100.000 Einträgen sind dabei:
 
 | Wörterbuch | Einträge | Extras |
 | --- | ---: | --- |
@@ -90,7 +136,15 @@ Den Reiter *Wörterbuch* öffnen, den Knopf 📖 neben dem Kommentarfenster drü
 | **Levy**, Wörterbuch über die Talmudim und Midraschim (Bd. 1–4) | 19.503 | Abkürzungen beim Überfahren, Quellen verlinkt |
 | **Levy**, Chaldäisches Wörterbuch über die Targumim (Bd. 1–2) | 7.232 | Abkürzungen beim Überfahren, Quellen verlinkt |
 | **Krauss**, Griechische und lateinische Lehnwörter (Teil II) | 6.329 | Abkürzungen beim Überfahren, Quellen verlinkt, Verweise *s. X* anklickbar |
-| **Hamburger**, Real-Encyclopädie für Bibel und Talmud (Bd. 1, Bd. 2 talmudische Artikel) | 2.753 | Fußnoten im Text, Quellen verlinkt |
+| **Krauss**, Register der *Talmudischen Archäologie* (Bd. III) | 11.727 | jeder Eintrag führt in die drei Bände |
+| **Hamburger**, Real-Encyclopädie für Bibel und Talmud (Bd. 1; Bd. 2, talmudische Artikel; Supplementbände I–VI) | 3.026 | Fußnoten im Text, Quellen verlinkt |
+
+Krauss’ ***Talmudische Archäologie*** (Bd. I–III, Leipzig 1910–1912) selbst steht in der Bibliothek: der ganze Text mit allen Anmerkungen, Abbildungen und Gliederung. Seine Stellenangaben sind Links, und das Register oben dient als Index dazu.
+
+<p align="center">
+  <a href="screenshots/dictionary-search.png"><img src="screenshots/dictionary-search.png" alt="Wörterbuch-Reiter: eine Suche nach Prosbul, beantwortet von Hamburgers Real-Encyclopädie und Jastrow, links Letzte Suchen, rechts Favoriten" width="900"></a><br>
+  <sub>Wörterbuch-Reiter: eine Suche in allen Wörterbüchern, hier mit Antworten aus Hamburger und Jastrow; links die letzten Suchen, rechts die Favoriten.</sub>
+</p>
 
 - **Kluges Nachschlagen:** Vokalzeichen und Endbuchstaben werden ignoriert, die Präfixe ו ה ב כ ל מ ש abgelöst, und Einträge, die mit deinem Wort beginnen, erscheinen mit. Beim Tippen kommen Vorschläge.
 - **Volltext:** mit dem Häkchen *auch im Text* wird im Artikeltext gesucht, nicht nur in den Stichwörtern. Treffer werden hervorgehoben. Auch Phrasen in Anführungszeichen und die Platzhalter `*` und `?` funktionieren.
@@ -102,7 +156,10 @@ Den Reiter *Wörterbuch* öffnen, den Knopf 📖 neben dem Kommentarfenster drü
 
 ## Deutsche Texte, die es bei Sefaria nicht gibt
 
-Safran liefert 410 deutsche Textdateien im Ordner `bundled/` mit. Sie werden beim ersten Start importiert und erscheinen unter *Eigene Texte* sowie als zusätzliche Versionen und Kommentatoren neben den Sefaria-Texten:
+Safran liefert über 50 deutsche Werke im Ordner `bundled/` mit (mehr als 400 Buchdateien). Sie werden beim ersten Start importiert und erscheinen unter *Eigene Texte* sowie als zusätzliche Versionen und Kommentatoren neben den Sefaria-Texten. Darunter: Zunz, Philippson und Herxheimer zum ganzen Tanach, Mendelssohn, Goldschmidt und Hirsch, die Kautzsch-Apokryphen, Wünsches Midrasch-Übersetzungen, Talmud-Übersetzungen des 19. Jahrhunderts, der Schulchan Aruch, Josephus, Graetz und Ginzberg.
+
+<details>
+<summary><b>Die vollständige Liste der mitgelieferten deutschen Texte</b></summary>
 
 | Werk | Umfang |
 | --- | --- |
@@ -125,35 +182,30 @@ Safran liefert 410 deutsche Textdateien im Ordner `bundled/` mit. Sie werden bei
 | H. Graetz, *Geschichte der Juden* (11 Bände, nach zeno.org) | Kapitel und Noten mit Fußnoten, Seitenmarken der Druckausgabe, Gliederung; das bei zeno rückwärts gespeicherte Hebräisch ist umgedreht |
 | D. Hoffmann, *Das Buch Leviticus* und *Das Buch Deuteronomium* | Übersetzung und Kommentar |
 | Samuel (Wolf) · Ijob (Dawidowicz) · die *Arba Megillot* (Breuer) | Übersetzung und Kommentar |
+| S. Krauss, *Talmudische Archäologie* (Bd. I–III, 1910–1912) | ganzer Text mit Anmerkungen, Abbildungen und Gliederung; das Register ist ein eigenes Wörterbuch |
 
-Ebenfalls enthalten: der Westminster Leningrad Codex mit Morphologie (OSHB), der Aleppo-Kodex, die Qumran-Rollen, Targum Onkelos, Pseudo-Jonathan und Neofiti sowie die Septuaginta: der CATSS-Text zum Tanach und 21 griechische Dateien nach Rahlfs für Hosea, Ester mit den Zusätzen und die deuterokanonischen Bücher (1.–4. Makkabäer, Sirach, Weisheit, Tobit, Judit, Baruch, Brief Jeremias, Susanna, Bel, 1. Esdras, Oden, Psalmen Salomos), mit Lemma und Bestimmung für jedes griechische Wort (lxx-morph). Quellen und Lizenzen: [SOURCES.de.md](SOURCES.de.md).
+</details>
 
-## Bildschirmfotos
+Ebenfalls enthalten: der Westminster Leningrad Codex mit Morphologie (OSHB), der Aleppo-Kodex, die biblischen Qumran-Rollen (36 Bücher) und alle 735 nichtbiblischen Rollen (die 40 größten als eigene Bücher, die übrigen je Höhle) mit Lemma und Morphologie, Targum Onkelos, Pseudo-Jonathan und Neofiti sowie die Septuaginta: der CATSS-Text zum Tanach und 21 griechische Dateien nach Rahlfs für Hosea, Ester mit den Zusätzen und die deuterokanonischen Bücher (1.–4. Makkabäer, Sirach, Weisheit, Tobit, Judit, Baruch, Brief Jeremias, Susanna, Bel, 1. Esdras, Oden, Psalmen Salomos), mit Lemma und Bestimmung für jedes griechische Wort (lxx-morph). Quellen und Lizenzen: [SOURCES.de.md](SOURCES.de.md).
+
+## Weitere Bildschirmfotos
 
 <p align="center">
-  <img src="screenshots/safran-tour.gif" alt="Kurze Tour: Genesis mit angepinntem Kommentar und Wörterbuch neben dem Text, dann die Gliederung von Jeremia" width="900"><br>
-  <sub>Kurze Tour: Kommentar und Wörterbuch neben dem Text angepinnt, dazu die Gliederung eines Buchs.</sub>
+  <img src="screenshots/safran-tour.gif" alt="Kurze Tour: Genesis mit Kommentar und Wörterbuch neben dem Text, danach die Gliederung von Jeremia" width="900"><br>
+  <sub>Kurze Tour: Kommentar und Wörterbuch neben dem Text angepinnt, dazu das Gliederungsfenster eines Buches.</sub>
 </p>
 
+<details>
+<summary><b>Morphologie, Suche und Bibelkarte</b></summary>
 
 <p align="center">
-  <a href="screenshots/dictionary-search.png"><img src="screenshots/dictionary-search.png" alt="Wörterbuch-Reiter: eine Suche in Levy und Krauss, links Letzte Suchen, rechts Favoriten" width="900"></a><br>
-  <sub>Wörterbuch-Reiter: eine Suche in Levy und Krauss, links die letzten Suchen, rechts die Favoriten.</sub>
-</p>
-
-<p align="center">
-  <a href="screenshots/morphology.png"><img src="screenshots/morphology.png" alt="Josua 1,3 auf Hebräisch und Deutsch; ein angeklicktes Wort zeigt Stamm, Zeit und Person, rechts öffnet sich der BDB-Eintrag" width="900"></a><br>
-  <sub>Hebräisches Wort anklicken: die Grammatik auf einen Blick, daneben der BDB-Eintrag.</sub>
-</p>
-
-<p align="center">
-  <a href="screenshots/lxx-comparison.png"><img src="screenshots/lxx-comparison.png" alt="Genesis 1,20 mit den Qumran-Rollen links und der Septuaginta rechts; über jeder griechischen Wortgruppe steht das hebräische Gegenstück, ein angeklicktes Plus der Septuaginta zeigt die vermutliche hebräische Vorlage" width="900"></a><br>
-  <sub>LXX-MT-Vergleich: über jeder griechischen Wortgruppe das hebräische Gegenstück, Plus und Minus der Septuaginta markiert, per Klick auf ein Plus die vermutliche hebräische Vorlage.</sub>
+  <a href="screenshots/morphology.png"><img src="screenshots/morphology.png" alt="Psalm 23,1 auf Hebräisch und Deutsch; ein angeklicktes Wort zeigt Wortart, Stamm und Form mit Knöpfen für Wörterbuch, Wortkarte und Formentabelle, daneben der BDB-Eintrag im Wörterbuchfenster" width="900"></a><br>
+  <sub>Klick auf ein hebräisches Wort: Grammatik auf einen Blick, Knöpfe für Wörterbuch, Wortkarte und Formentabelle, und der BDB-Eintrag neben dem Text.</sub>
 </p>
 
 <p align="center">
-  <a href="screenshots/search-advanced.png"><img src="screenshots/search-advanced.png" alt="Suche: anf*, gott und erd* höchstens 10 Wörter auseinander, Verteilung auf die Bücher, Treffer nach Buch und Kategorienfilter" width="900"></a><br>
-  <sub>Erweiterte Suche: Platzhalter und Wörter in der Nähe, Diagramm der Treffer je Buch und Kategorienfilter.</sub>
+  <a href="screenshots/search-advanced.png"><img src="screenshots/search-advanced.png" alt="Suche-Reiter: anf*, gott und erd* im Abstand von 10 Wörtern, Verteilungsdiagramm je Buch, Treffer nach Buch und Kategorienfilter" width="900"></a><br>
+  <sub>Erweiterte Suche: Platzhalter und Wörter in der Nähe, ein Diagramm der Treffer je Buch und ein Kategorienfilter.</sub>
 </p>
 
 <p align="center">
@@ -161,11 +213,7 @@ Ebenfalls enthalten: der Westminster Leningrad Codex mit Morphologie (OSHB), der
   <sub>Bibelkarte: Routen aus dem Text, Entfernungen messen mit Höhenprofil und alle Orte des Kapitels.</sub>
 </p>
 
-<p align="center">
-  <a href="screenshots/map-jerusalem.png"><img src="screenshots/map-jerusalem.png" alt="Jerusalem-Karte von 1865 (Wilson) mit den Toren aus Nehemia 3, Ebenen für heutige Stadt und Gelände und einer Ortsnotiz zum Osttor" width="900"></a><br>
-  <sub>Jerusalem auf der Karte von 1865: die Tore aus Nehemia 3, einschaltbare Ebenen und eine Notiz je Ort.</sub>
-</p>
-
+</details>
 
 ## Häufige Fragen
 
@@ -223,7 +271,11 @@ Safran ist eine Electron-App; an jedem [Release](https://github.com/mitkin89/Saf
 
 ## Quellen und Lizenz
 
+<p align="center"><a href="https://www.sefaria.org"><img src="screenshots/powered-by-sefaria.png" alt="Powered by Sefaria" width="180"></a></p>
+
 Der Quellcode steht unter der [MIT-Lizenz](LICENSE). Texte, Wörterbücher, Karten und Audio haben eigene Lizenzen: Sefaria-Export, OSHB, ETCBC (Aleppo-Kodex, Qumran-Rollen, Targumim, Parallelstellen), CATSS-Septuaginta ([LICENSE-CATSS.md](LICENSE-CATSS.md)), OpenBible.info, Copernicus DEM, Natural Earth, UBS Bible Routes, ToposText, OpenStreetMap und andere. Alles steht in [SOURCES.de.md](SOURCES.de.md). Die Änderungen stehen in [CHANGELOG.md](CHANGELOG.md) (englisch).
+
+**Einige mitgelieferte Daten dürfen nur nicht kommerziell genutzt werden:** das ETCBC-Targum-Korpus (Onkelos, Pseudo-Jonathan, Neofiti; CC BY-NC 4.0), die ETCBC-Daten der Qumran-Rollen (CC BY-NC 4.0) und die CATSS-Septuaginta (CC BY-NC-SA 3.0). Die MIT-Lizenz gilt für den Code, nicht für diese Daten; wer Safran als Ganzes weitergibt oder weiterverwendet, muss ihre Bedingungen beachten.
 
 ---
 
