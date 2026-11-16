@@ -915,7 +915,8 @@
     const leg = document.createElement('div'); leg.className = 'illeg';
     use.forEach(n => {
       const b = document.createElement('button'); b.type = 'button'; b.className = 'illc'; b.dataset.i = IL_ORDER.indexOf(n) + 1; b.dataset.tr = n;
-      b.title = I18N.t('Klick: dieses Werk ausblenden'); b.innerHTML = `<i></i>${esc(I18N.t(IL_LABEL[n] || n))}`;
+      const pic = portraitOf(IL_PIC[n]);
+      b.title = (pic && pic.name ? pic.name + ' – ' : '') + I18N.t('Klick: dieses Werk ausblenden'); b.innerHTML = `${pic ? `<img src="portraits/${encodeURIComponent(pic.img)}" alt="">` : '<i></i>'}${esc(I18N.t(IL_LABEL[n] || n))}`;
       b.onclick = () => { ilPick = ilPick.filter(x => x !== n); ilSave(); ilRefresh(); ilPopRender(); };
       b.onmouseenter = () => $$('#rOut .ilt').forEach(l => l.classList.toggle('ildim', l.dataset.tr !== n));
       b.onmouseleave = () => $$('#rOut .ildim').forEach(l => l.classList.remove('ildim'));

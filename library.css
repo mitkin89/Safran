@@ -1458,6 +1458,7 @@ body.il .cell[data-k="he"] .ilt[hidden] { display: none; }
 .illc i { width: .7em; height: .7em; border-radius: 50%; background: var(--c); box-shadow: 0 0 0 1px var(--c); }
 .illc[data-i="1"] { --c: var(--il1); } .illc[data-i="2"] { --c: var(--il2); } .illc[data-i="3"] { --c: var(--il3); } .illc[data-i="4"] { --c: var(--il4); } .illc[data-i="5"] { --c: var(--il5); }
 .illc[aria-pressed="false"] { opacity: .5; } .illc[aria-pressed="false"] i { background: none; }
+#rOut .illc img, .illc img { display: block; width: 1.7em; height: 1.7em; max-width: none; margin: -1px 0 -1px -5px; border-radius: 50%; object-fit: cover; box-shadow: 0 0 0 2px var(--c); }
 #rOut .ilx { cursor: pointer; border-radius: 3px; }
 #rOut .ilx:hover { background: color-mix(in srgb, var(--accent) 16%, transparent); }
 #rOut .ilhl, #rOut .w.ilhl, #rOut .wg.ilhl { background: color-mix(in srgb, var(--accent) 38%, transparent) !important; outline: 1px solid var(--accent); border-radius: 3px; }
