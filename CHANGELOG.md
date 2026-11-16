@@ -1,6 +1,7 @@
 # Changelog
 
 ### New in 2.4.0
+- **Interlinear: Zunz, complete I Samuel (1–31):** the word-by-word German under the Hebrew text now also covers the whole book of I Samuel with Zunz's translation (`tools/interlinear/zunz/I Samuel.txt`, 811 verses).
 - **Interlinear: Zunz, complete Judges (1–21):** the word-by-word German under the Hebrew text now also covers the whole book of Judges with Zunz's translation (`tools/interlinear/zunz/Judges.txt`, 618 verses).
 - **Interlinear: Zunz, complete Joshua (1–24):** the word-by-word German under the Hebrew text now also covers the whole book of Joshua with Zunz's translation (`tools/interlinear/zunz/Joshua.txt`, 658 verses).
 - **Interlinear: Zunz, complete Deuteronomy (1–34):** the word-by-word German under the Hebrew text now also covers the whole book of Deuteronomy with Zunz's translation (`tools/interlinear/zunz/Deuteronomy.txt`, 956 verses).
