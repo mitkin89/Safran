@@ -156,7 +156,9 @@ for NAMES in (None, True):
             k = g[4]; low = sum(n for t, n in g[3].items() if t == t.lower())
             mx = max(g[3].values()); inf = [t for t in g[3] if t == t.lower() and ' ' not in t and stem(t) == k and re.search(r'(en|ern|eln)$', t) and g[3][t] * 20 >= mx]
             verb = low * 2 > g[0] and ' ' not in k and (inf or any(re.search(r'(te|ten|test|tet|t)$', t) for t in g[3] if t == t.lower()))
-            if inf and verb: title = min(inf, key=lambda t: (len(t), -g[3][t]))
+            # Präteritum statt Infinitiv („setzten“, wenn auch „setze“/„setzt“ belegt ist) -> setzen
+            inf = [t[:-3] + ('n' if t[:-3].endswith(('er', 'el')) else 'en') if t.endswith('ten') and not t.endswith('eten') and t[:-3] + 'e' in g[3] and len(t) >= 7 else t for t in inf]
+            if inf and verb: title = min(inf, key=lambda t: (len(t), -g[3].get(t, 0)))
             elif verb:  # schwaches Verb ohne Infinitiv-Beleg: zugesagt -> zusagen, antwortete -> antworten
                 t0 = max(g[3], key=lambda t: g[3][t]); b0 = re.sub(r'(eten|ete|et|ten|te|t)$', '', t0); title = b0 + ('n' if b0.endswith(('er', 'el')) else 'en')
                 if not title.endswith(('en', 'ern', 'eln')) or len(title) < 4: title = t0
