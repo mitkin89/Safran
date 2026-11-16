@@ -1,0 +1,108 @@
+Hirsch – Psalmen 1–150: Prüfliste
+
+Status: Alle 2.527 Verse Wort für Wort dem Westminster-Text zugeordnet.
+Der Hirsch-Ausgangstext und der hebräische Ausgangstext bleiben unverändert.
+Die folgenden Befunde sind Prüfhinweise, keine beschlossenen Korrekturen.
+Mögliche Erfassungsfehler sind bei Bedarf an der Druckvorlage zu prüfen.
+
+Hirsch Psalmen 1–37 – Prüfbefunde; keine Ausgangstextänderungen
+
+6:3: Der zweite Gottesname יהוה (Wort 7, nach רפאני) hat im vorhandenen Hirschtext kein Gegenstück. Prüfen, ob bei der Erfassung ausgelassen; nicht ergänzt.
+7:9: Der zweite Gottesname יהוה (Wort 5, nach שפטני) hat im vorhandenen Hirschtext kein Gegenstück. Nicht ergänzt.
+9:6: Versanfang „[?]ist an Völker eine Drohung erlassen“. Gegenüber גערת („du hast gedroht/gescholten“) ist der vorhandene Anfang offensichtlich prüfbedürftig. Die vorhandene Kennzeichnung bleibt bestehen.
+9:18: רשעים (Wort 2, „Gesetzlose“) fehlt als selbständiges Gegenstück im vorhandenen deutschen Vers („Zurück schreiten zum Grabe hin, alle Völker …“). Nicht ergänzt.
+9:20: „gerichet“ gegenüber ישפטו; mögliche Buchstabenauslassung in „gerichtet“. Nicht korrigiert.
+12:1: „Achtseitigen“, während Hirsch in 6:1 „Achtsaitigen“ schreibt, beide Male השמינית. Mögliche Erfassungsabweichung; unverändert.
+13:4: Auffällige Satzzeichenfolge „falle.!“; unverändert.
+17:14: „hint erlassen“ gegenüber והניחו; mögliche Worttrennung in „hinterlassen“. Unverändert.
+19:10–12: Im Text stehen Druckzeilentrennungen mit „= “: „blei= bend“, „Rechtsord= nungen“, „all= seitig“, „Erstrebungswür= digen“, „zu= erst“. Exakt beibehalten.
+20:7: Druckzeilentrennung „All= machtsthaten“ beibehalten.
+30:13: ולא ידם (Wörter 4–5, „und nicht verstumme“) hat im vorhandenen deutschen Vers kein Gegenstück. Nicht ergänzt.
+31:8: „in die Nöthen meine Seele“ gegenüber בצרות נפשי. Mögliche ausgefallene Endung; unverändert.
+36:11: „Verzögere deine Liebe“ gegenüber משך חסדך (fortdauernd gewähren/erstrecken). Lesart anhand des Drucks prüfen; keine Änderung vorgenommen.
+
+Zuordnungshinweise, keine Korrekturvorschläge:
+Hirschs Deutungen (z.B. 2:12 „Mit Lauterkeit rüstet euch“ für נשקו בר; 8:5 „Mensch der Gewaltentartung“ für אנוש; 32:1 „hocherprobt … geschützt“ für נשוי … כסוי) sind bewusst erhalten und an die entsprechenden hebräischen Wörter gebunden.
+Selah wird bei Hirsch meist durch Gedankenstrich ausgedrückt. Diese Striche sind dem hebräischen סלה zugeordnet; andere Gedankenstriche bleiben ohne Wortnummer.
+
+Keine Ausgangstextkorrekturen vorgenommen. Befunde zur späteren Prüfung:
+Ps53:2 »Abschen« bei והתעיבו: vermutlich »Abscheu«.
+Ps51:19 »eingebrochen Gemüth« bei רוח נשברה: vermutlich »ein gebrochen Gemüth« (Getrenntschreibung fehlt).
+Ps46:7 »Auf= ruhr«,46:8 »Em= porhöhe«,47:6 »Therua= Huldigung«: mögliche übernommene Zeilentrennungen; exakt beibehalten.
+Ps54:2 erstes »zu Saul« steht zusätzlich vor »gekommen«; Hebräisch hat לשאול erst bei »sagten zu Saul«. Erstes Vorkommen als Zusatz markiert.
+Ps68:7 »besetzt Vereinzelte zu einem Haus« bei מושיב יחידים ביתה: vermutlich »setzt« statt »besetzt«; unverändert.
+Ps68:26 »Seitenspieler« bei נגנים: vermutlich »Saitenspieler«; unverändert.
+Ps68:26 »mitte innen« bei בתוך: sprachlich auffällig, möglicherweise Trenn-/Erfassungsfehler; unverändert.
+Ps69:20 »meinen Schmach«: grammatisch auffällig (חרפתי), unverändert.
+Ps69:33 »Gedehmüthigte« bei ענוים: vermutlich »Gedemüthigte«; unverändert.
+Ps72:11 erstes »Alle Völker« entspricht כל מלכים (alle Könige); zweites »alle Völker« entspricht כל גוים. Ausgangstext unverändert, erstes »Völker« zu מלכים zugeordnet.
+Ps72:20 »3 Buch.« ist eine mit dem Vers gespeicherte Buchüberschrift ohne hebräisches Gegenstück, als Zusatz markiert.
+Ps74:5 »Ärte« bei קרדמות: vermutlich »Äxte«; unverändert.
+Ps74:8 »verbraunt« bei שרפו: vermutlich »verbrannt«; unverändert.
+Systematische Restwortprüfung: Ps71:19 erstes אלהים (Nr2) im deutschen Wortlaut ohne ausdrückliches Gegenstück; zweites אלהים (Nr8) durch »Gott« wiedergegeben. Nicht ergänzt.
+Ps73:4 כי (Nr1) hat im deutschen Satz keine ausdrückliche Wiedergabe; nicht ergänzt.
+Alle unpunktierten Ketiv-Wörter mit ihren punktierten Qere-Gegenstücken durchgesehen:24Fälle, stets gemeinsam erfasst. Sonderfall55:16 ישימות / ישי מות als gemeinsame Nr1,2,3.
+
+Hirsch Psalmen 76–112: Prüfliste zum unveränderten Ausgangstext
+
+744 Verse manuell am nummerierten Westminster-Hebräisch zugeordnet.
+Bereichsprüfung check_hirsch.py: Text, Wortnummern und Vollständigkeit stimmen.
+Zusatzprüfung: 15 Ketiv/Qere-Paare stehen jeweils gemeinsam in mindestens einem Segment.
+Alle nicht verwendeten hebräischen Nummern wurden systematisch durchgesehen:
+- 83:17 Nr.6 יהוה: expliziter Gottesname im deutschen Vers nicht wiedergegeben.
+- 88:11 Nr.8 סלה: kein deutsches Gegenstück (kein Gedankenstrich wie vielfach sonst).
+- 92:8 Nr.6 כל: 'alle' vor den Machtmißbrauch-Vollbringern fehlt im Deutschen.
+- 105:11 Nr.1 לאמר: 'sprechend'/'indem er sagte' nicht als Wort wiedergegeben; deutsche direkte Rede übernimmt die Funktion.
+Weitere nicht zugeordnete hebräische Wörter gibt es im Teil nicht.
+
+Mögliche Erfassungs-/Textauffälligkeiten, ausdrücklich nicht korrigiert:
+- 76:6 beginnt 'Ich, nein,'. Diese Worte haben kein Gegenstück in אשתוללו אבירי לב und sind als '-' zugeordnet. Vermutlich Erfassungsfehler; Druckvorlage prüfen.
+- 77:3 'gesucht Allein': fehlende Satzinterpunktion möglich.
+- 77:13 'WirkensThaten' ungewöhnliche Binnenmajuskel; unverändert.
+- 81:13 'selbsterfonnenen' unverändert; Druckvorlage prüfen.
+- 89:37 'Sein Name' gegenüber זרעו ('seine Nachkommenschaft/Saat'). Zuordnung an זרעו, aber deutliche lexikalische Abweichung; Druckvorlage prüfen.
+- 90:8 'schlummerden' unverändert; möglich 'schlummernden'.
+- 99:4 'Königs=Macht' und 'Gerad= heit' unverändert, möglicherweise übernommene Trennzeichen.
+- 105:1 'unter die Völkern' unverändert, grammatisch auffällig.
+- 105:12 'anZahl' unverändert.
+- 105:36 'das Erste aller ihre Kraft' unverändert, grammatisch auffällig.
+- 107:41 'empor,gründete' ohne Leerzeichen unverändert, deshalb gemeinsames Segment für die beiden Verben.
+- 109:10 'nnd betteln' unverändert.
+- 109:21 'deines Namen' unverändert.
+
+Auffällige Deutungen/Paraphrasen, keine Korrekturvorschläge:
+- 77:1 ידיתון/ידותון wird als 'Schickungen der Gotteshand' gedeutet.
+- 77:11 שנות als 'Änderung', nicht als 'Jahre'.
+- 80:16 'den Grundbau' für וכנה; 'auf den Sohn herab' nimmt syntaktisch das Schauen aus dem Vorvers auf.
+- 87:3 'Geehrt sind sie durch Den, der in dir ausgesprochen ist' bewahrt Hirschs stark auslegende Konstruktion.
+- 88:8 'allen deinen Wogen hast du die letzte Kraft genommen' für וכל משבריך ענית.
+- 88:17 'haben mich nach und nach gestählt' für צמתותני.
+- 88:19 'bringt mir' ist im deutschen Text hinzugefügtes Prädikat (als '-' zugeordnet).
+- 91:1 enthält hebräische Gottesnamen עליון und שדי innerhalb des deutschen Verses, zu ihren hebräischen Entsprechungen zugeordnet.
+- 92:4 Instrumentbezeichnungen auslegend 'vollem Ton' und 'Leideston'; 92:11 בלתי als 'überdaure'.
+- 104:26 לויתן als 'Thierverein'.
+- 108:4 Westminster enthält 'בַּל' und 'אֻמִּים' als zwei getrennte Wörter, gemeinsam dem deutschen 'unter den Staaten' zugeordnet.
+- 110:4 מלכי צדק auslegend 'mein König in Gerechtigkeit'; 110:6–7 deutsche Subjektdeutung unverändert übernommen.
+
+Hirsch Psalmen 113–150: Befunde zur unveränderten Quelle
+
+Die Zuordnung enthält 589 Verse. Alle Verse wurden mit dem nummerierten Westminster-Hebräisch gelesen. Ausgangstexte wurden nicht verändert.
+
+Im Deutschen fehlende hebräische Wörter (systematische Prüfung sämtlicher nicht zugeordneter Nummern):
+- 117:2 Nr8–9 הללו יה: das abschließende Halleluja ist im Hirsch-Quellvers nicht enthalten; der deutsche Vers endet mit „waltet immerdar.“. Nicht ergänzt.
+- 139:21 Nr3 יהוה: die Anrede Gott fehlt in diesem deutschen Quellvers. Nicht ergänzt.
+- 142:6 Nr3 יהוה: die Anrede Gott fehlt in diesem deutschen Quellvers. Nicht ergänzt.
+- 147:19 Nr5 חקיו: zwischen Wort/Jaakob und Rechtsordnungen/Israel enthält das Hebräische „seine Gesetze“, das im deutschen Quellvers fehlt. Nicht ergänzt. Ketiv/Qere Nr2–3 gemeinsam als „sein einheitlich mannigfaltiges Wort“ zugeordnet.
+Weitere nicht zugeordnete hebräische Wörter gibt es in diesem Block nicht.
+
+Westminster-Auffälligkeit:
+- 149:7 Nr5–6 ist als בל־אמים segmentiert und lexikalisch als Negationspartikel+Völker ausgezeichnet, während der Zusammenhang und Hirsch „an Staaten“ voraussetzen (בלאמים). Beide vorhandenen Nummern gemeinsam „an Staaten“ zugeordnet. Keine Änderung am Hebräischen.
+
+Quelltypographie unverändert erhalten:
+- 116:19 „G o t t e sHauses“ ohne Zwischenraum vor „Hauses“.
+- 118:4 „G o t t e s f ü r c htigen“ mit ungewöhnlicher Buchstabenspationierung.
+- 119 enthält zahlreiche offenbar von Zeilenumbrüchen herrührende Worttrennungen: u.a.111 „an= geeignet“,112 „ge= neigt“,116 „Zu= sage“,118 „Ge= setzen“,119 „Zeug= nisse“,125 „ge= währe“,128 „Be= ziehung“,131 „da= her“,142 „Pflicht= gerechtigkeit“,147 „Früh= dämmerung“,150 „Unzucht= Jäger“,162 „Ueber= lieferung“,163 „verab= scheuen“.
+- 132:12 „ZeugnißGanze“;133:2 „seine Gewänden“;140:3 „im Herzeu“;150:3 „SchofarRuf“ jeweils unverändert.
+- 135:11 sowie136:19 „für Sichon“: auffällige Konstruktion, entspricht dem hebräischen ל und wurde unverändert zugeordnet.
+
+Ketiv/Qere systematisch geprüft:119:79(4,5),119:147(4,5),119:161(4,5),126:4(4,5; gemeinsam mit3 את),129:3(6,7),139:6(1,2),139:16(10,11),140:10(5,6),140:11(1,2),140:13(1,2),145:6(4,5),147:19(2,3),148:2(6,7). Jeweils beide Nummern gemeinsam zugeordnet.

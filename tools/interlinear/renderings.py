@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Wortkarte: Wie gibt eine wortgenau zugeordnete Übersetzung (interlin.js: Zunz, Breuer, Philippson, Herxheimer, Goldschmidt) ein hebräisches Lemma wieder?
+"""Wortkarte: Wie gibt eine wortgenau zugeordnete Übersetzung (interlin.js: Zunz, Breuer, Philippson, Herxheimer, Goldschmidt, Hirsch) ein hebräisches Lemma wieder?
 Je Vorkommen des Lemmas im Westminster-Text werden die deutschen Segmente gesammelt, die diesem Wort zugeordnet sind
 (nur Segmente, deren einziges Inhaltswort dieses Wort ist; את zählt nicht als Inhaltswort). Der Text wird bereinigt
 (Satzzeichen, „und“ und Artikel am Anfang weg, klein geschrieben) und nach einem einfachen Wortstamm gruppiert
