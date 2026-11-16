@@ -1034,16 +1034,16 @@ ipcMain.handle('links:preview', async (_e, ref, langs, pick) => {
       try { const d = await lib.read(c.rel); const items = LK.resolveText(d, tail); if (items) { picked = { kind: c.kind, he: c.kind === 'he' || !!pick.rtl, items: items.slice(0, 6), versionTitle: c.versionTitle, picked: true }; break; } } catch { /* nächste Fassung */ }
     }
     for (const k of wanted) { if (picked && k !== 'he') continue; await tryKind(k); }
-    if (picked) { parts.push(picked); return { parts, items: parts[0].items, kind: parts[0].kind, he: parts[0].he }; }
+    if (picked) { parts.push(picked); return { parts, items: parts[0].items, kind: parts[0].kind, he: parts[0].he, versionTitle: parts[0].versionTitle }; }
     if (parts.length < wanted.length) for (const k of ['en', 'de']) { if (parts.length >= wanted.length) break; if (!wanted.includes(k) && !parts.some(p => p.kind === k)) await tryKind(k); }
-    return parts.length ? { parts, items: parts[0].items, kind: parts[0].kind, he: parts[0].he } : { nopreview: true };
+    return parts.length ? { parts, items: parts[0].items, kind: parts[0].kind, he: parts[0].he, versionTitle: parts[0].versionTitle } : { nopreview: true };
   }
   const rank = { en: 0, de: 1, he: 2, other: 3 };
   cand.sort((a, b) => (rank[a.kind] - rank[b.kind]) || (merged(a) - merged(b)));
   try {
     const d = await lib.read(cand[0].rel);
     const items = LK.resolveText(d, tail);
-    return items ? { items: items.slice(0, 6), kind: cand[0].kind, he: cand[0].kind === 'he' } : { nopreview: true };
+    return items ? { items: items.slice(0, 6), kind: cand[0].kind, he: cand[0].kind === 'he', versionTitle: cand[0].versionTitle } : { nopreview: true };
   } catch { return { nopreview: true }; }
 });
 

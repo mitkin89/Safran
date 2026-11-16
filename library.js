@@ -33,6 +33,8 @@
     const s = String(v || '').replace(/\s*\[[a-z]{2,3}\]\s*$/i, '');
     return s.length > 90 ? s.slice(0, 90) + '…' : s;
   };
+  // Vorschau-Blasen und -Zeilen: jede Fassung mit ihrem Namen kennzeichnen, damit klar ist, woher der Text kommt
+  const pvVer = vt => vt ? `<span class="pvVer">${esc(vt === 'merged' ? I18N.tr('zusammengeführte Fassung') : shortVer(vt))}</span>` : '';
   // Kennung eines Buchs; steht in HTML-Attributen, darf daher kein Steuerzeichen enthalten
   const keyOf = e => e.categories.join('/') + '¦' + e.title;
 
@@ -3023,7 +3025,7 @@
       if (nxt && nxt.classList.contains('pv')) { nxt.remove(); b.textContent = '▸'; return; }
       b.textContent = '▾';
       const r = await LK.preview(b.dataset.pv);
-      const html = r.items ? r.items.map(t => `<div dir="${r.he ? 'rtl' : 'ltr'}">${R.cleanHtml(R.splitFootnotes(t).main.replace(/<sup[^>]*>.*?<\/sup>/g, ''))}</div>`).join('') : '<i>Keine Vorschau möglich.</i>';
+      const html = r.items ? pvVer(r.versionTitle) + r.items.map(t => `<div dir="${r.he ? 'rtl' : 'ltr'}">${R.cleanHtml(R.splitFootnotes(t).main.replace(/<sup[^>]*>.*?<\/sup>/g, ''))}</div>`).join('') : '<i>Keine Vorschau möglich.</i>';
       b.parentElement.insertAdjacentHTML('afterend', `<div class="pv">${html}</div>`);
     }
   });
@@ -3045,7 +3047,7 @@
         if (none && quiet) return; // Wörterbuch: ohne Text keine leere Blase
         if (!hov) { hov = document.createElement('div'); hov.id = 'lkHover'; document.body.appendChild(hov); }
         const partHtml = p => p.items.map(t => `<div dir="${p.he ? 'rtl' : 'ltr'}"${p.he ? ' lang="he" class="phe"' : ''}>${R.cleanHtml(R.splitFootnotes(p.he ? stripHe(t) : t).main.replace(/<sup[^>]*>.*?<\/sup>/g, ''))}</div>`).join('');
-        const html = r.parts && r.parts.length ? r.parts.map((p, i) => (i ? '<hr>' : '') + partHtml(p)).join('') : r.items && r.items.length ? partHtml({ items: r.items, he: r.he }) : `<i>${esc(I18N.t('Keine Vorschau möglich.'))}</i>`;
+        const html = r.parts && r.parts.length ? r.parts.map((p, i) => (i ? '<hr>' : '') + pvVer(p.versionTitle) + partHtml(p)).join('') : r.items && r.items.length ? pvVer(r.versionTitle) + partHtml({ items: r.items, he: r.he }) : `<i>${esc(I18N.t('Keine Vorschau möglich.'))}</i>`;
         // andere Zählung im Text: Hinweis, welche Stelle gemeint ist („englische Zählung Joel 3:11 = hebr. 4:11“)
         const vn = a && a.dataset && a.dataset.oref ? `<div class="vnote">${esc(versNote(a))}</div>` : '';
         hov.innerHTML = `<b>${esc(ref)}</b>${vn}${html}`; hov.hidden = false;
@@ -7429,7 +7431,7 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
       if (nxt && nxt.classList.contains('pv')) { nxt.remove(); b.textContent = '▸'; return; }
       b.textContent = '▾';
       const r = await LK.preview(b.dataset.pv);
-      const html = r.items ? r.items.map(t => `<div dir="${r.he ? 'rtl' : 'ltr'}">${R.cleanHtml(R.splitFootnotes(r.he ? stripHe(t) : t).main.replace(/<sup[^>]*>.*?<\/sup>/g, ''))}</div>`).join('') : `<i>${esc(I18N.t('Keine Vorschau möglich.'))}</i>`;
+      const html = r.items ? pvVer(r.versionTitle) + r.items.map(t => `<div dir="${r.he ? 'rtl' : 'ltr'}">${R.cleanHtml(R.splitFootnotes(r.he ? stripHe(t) : t).main.replace(/<sup[^>]*>.*?<\/sup>/g, ''))}</div>`).join('') : `<i>${esc(I18N.t('Keine Vorschau möglich.'))}</i>`;
       if (b.isConnected && b.textContent === '▾') b.parentElement.insertAdjacentHTML('afterend', `<div class="pv">${html}</div>`);
     }
   });

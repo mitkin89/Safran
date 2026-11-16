@@ -684,6 +684,8 @@ header { z-index: 50; }
 #lkHover { position: fixed; z-index: 70; width: calc(420px * var(--hovf, 1.15)); max-width: calc(100vw - 16px); max-height: 50vh; overflow: auto; background: var(--card); color: var(--fg); border: 1px solid var(--accent); border-radius: 8px; box-shadow: 0 6px 24px rgba(0,0,0,.3); padding: 8px 12px; font-size: calc(14px * var(--hovf, 1.15)); line-height: 1.5; pointer-events: none; } /* --hovf: Anzeige → „Vorschau – Schriftgröße“ */
 #lkHover b { display: block; margin-bottom: 4px; color: var(--muted); font-size: calc(12px * var(--hovf, 1.15)); }
 #lkHover div + div { margin-top: 4px; }
+#lkHover .pvVer, .pv .pvVer { display: block; margin: 0 0 2px; color: var(--muted); font-size: calc(11px * var(--hovf, 1.15)); font-style: italic; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pv .pvVer { font-size: 11px; }
 #lkHover hr { border: 0; border-top: 1px solid var(--line); margin: 6px 0; }
 #lkHover .phe { font-size: calc(18px * var(--hovf, 1.15)); line-height: 1.7; }
 /* Zähltraditionen (versemap.js): umgerechnete Stellenangabe, Hinweis in der Vorschau, Zeichen im Spaltenkopf */
