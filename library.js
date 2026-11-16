@@ -820,7 +820,7 @@
   // ---------- Wörter über alle geöffneten Versionen verbinden ----------
   // In den deutschen Spalten (Zunz, Breuer …) sind die Wortgruppen nach der Zuordnung in interlin.js anklickbar (.ilx, data-ix = Nummern der Westminster-Wörter).
   // Ein Klick auf eine solche Gruppe, auf ein Westminster-Wort oder auf ein Septuaginta-Wort lässt in allen geöffneten Versionen die zugehörigen Wörter leuchten.
-  const IL_VT = { Zunz: /Zunz/, Breuer: /^Breuer/, Philippson: /Philippson/, Herxheimer: /ebräischen Texte/, Onkelos: /^Targum Onkelos \(ETCBC/, 'Pseudo-Jonathan': /^Targum Pseudo-Jonathan \(ETCBC/, Neofiti: /^Targum Neofiti 1 \(ETCBC/ };
+  const IL_VT = { Zunz: /Zunz/, Breuer: /^Breuer/, Philippson: /Philippson/, Herxheimer: /ebräischen Texte/, Goldschmidt: /Übersetzung von Lazarus Goldschmidt, Berlin 1921/, Onkelos: /^Targum Onkelos \(ETCBC/, 'Pseudo-Jonathan': /^Targum Pseudo-Jonathan \(ETCBC/, Neofiti: /^Targum Neofiti 1 \(ETCBC/ };
   // Targumim: Zuordnung aramäisches Wort -> Westminster-Wörter (maschinell, tools/targum/align.py), je Vers ein String: „1 2 - 4,5 …“ (ein Eintrag je Wort des Lesetextes)
   const IL_TG = { Onkelos: 'Targum Onkelos (ETCBC', 'Pseudo-Jonathan': 'Targum Pseudo-Jonathan (ETCBC', Neofiti: 'Targum Neofiti 1 (ETCBC' };
   let tgIlP = null;
@@ -890,10 +890,10 @@
     if (src && (src.classList.contains('ilx') || src.closest('.row') && src.closest('.row').querySelector('.ilx'))) ilLink(src); else if ($('#rOut .ilhl')) ilHlClear();
   });
   // Feste Reihenfolge = feste Farbe je Werk (--il1 … --il5); „LXX“ = Septuaginta (CATSS), Wort für Wort unter dem Westminster-Text
-  const IL_ORDER = ['Zunz', 'Breuer', 'Philippson', 'Herxheimer', 'LXX', 'Onkelos', 'Pseudo-Jonathan', 'Neofiti'];
-  const IL_LABEL = { Zunz: 'Zunz (1838)', Breuer: 'Breuer', Philippson: 'Philippson', Herxheimer: 'Herxheimer', LXX: 'Septuaginta', Onkelos: 'Onkelos', 'Pseudo-Jonathan': 'Pseudo-Jonathan', Neofiti: 'Neofiti 1' };
-  const IL_SUB = { Zunz: 'Leopold Zunz, Die vier und zwanzig Bücher der Heiligen Schrift, Berlin 1838', Breuer: 'Raphael Breuer, Arba Megillot', Philippson: 'Ludwig Philippson, Die Israelitische Bibel', Herxheimer: 'Salomon Herxheimer, Die vier und zwanzig Bücher der Bibel', LXX: 'Griechisch, Wortgruppen nach der Zuordnung von CATSS', Onkelos: 'Targum Onkelos (Sperber), Wort für Wort maschinell zugeordnet', 'Pseudo-Jonathan': 'Targum Pseudo-Jonathan; Zusätze bleiben ohne Zuordnung', Neofiti: 'Targum Neofiti 1; Zusätze bleiben ohne Zuordnung' };
-  const IL_PIC = { Zunz: 'Zunz', Breuer: 'Raphael Breuer', Philippson: 'Philippson', Herxheimer: 'Herxheimer', LXX: 'Septuaginta', Onkelos: 'Targum Onkelos', 'Pseudo-Jonathan': 'Targum Pseudo-Jonathan', Neofiti: 'Targum Neofiti' };
+  const IL_ORDER = ['Zunz', 'Breuer', 'Philippson', 'Herxheimer', 'LXX', 'Onkelos', 'Pseudo-Jonathan', 'Neofiti', 'Goldschmidt'];
+  const IL_LABEL = { Zunz: 'Zunz (1838)', Breuer: 'Breuer', Philippson: 'Philippson', Herxheimer: 'Herxheimer', Goldschmidt: 'Goldschmidt (1921)', LXX: 'Septuaginta', Onkelos: 'Onkelos', 'Pseudo-Jonathan': 'Pseudo-Jonathan', Neofiti: 'Neofiti 1' };
+  const IL_SUB = { Zunz: 'Leopold Zunz, Die vier und zwanzig Bücher der Heiligen Schrift, Berlin 1838', Breuer: 'Raphael Breuer, Arba Megillot', Philippson: 'Ludwig Philippson, Die Israelitische Bibel', Herxheimer: 'Salomon Herxheimer, Die vier und zwanzig Bücher der Bibel', Goldschmidt: 'Lazarus Goldschmidt, Pentateuch, Berlin 1921', LXX: 'Griechisch, Wortgruppen nach der Zuordnung von CATSS', Onkelos: 'Targum Onkelos (Sperber), Wort für Wort maschinell zugeordnet', 'Pseudo-Jonathan': 'Targum Pseudo-Jonathan; Zusätze bleiben ohne Zuordnung', Neofiti: 'Targum Neofiti 1; Zusätze bleiben ohne Zuordnung' };
+  const IL_PIC = { Zunz: 'Zunz', Breuer: 'Raphael Breuer', Philippson: 'Philippson', Herxheimer: 'Herxheimer', Goldschmidt: 'Goldschmidt', LXX: 'Septuaginta', Onkelos: 'Targum Onkelos', 'Pseudo-Jonathan': 'Targum Pseudo-Jonathan', Neofiti: 'Targum Neofiti' };
   // Auswahl (Häkchen) wird gemerkt; ältere Einstellung (ein Werk oder „Alle“) wird übernommen
   let ilPick = null; try { ilPick = JSON.parse(localStorage.getItem('interlinPick') || 'null'); } catch { /* egal */ }
   if (!Array.isArray(ilPick)) ilPick = ilOn ? (ilTr === '*' ? IL_ORDER.slice(0, 4) : [ilTr]) : [];
@@ -1485,7 +1485,7 @@
   let lxxRenP = null;
   const loadLxxRen = () => lxxRenP || (lxxRenP = lazyScript('lxx-ren.js', () => window.LXX_REN).catch(() => { lxxRenP = null; return null; }));
   const loadIlRen = () => ilRenP || (ilRenP = lazyScript('interlin-ren.js', () => window.INTERLIN_REN).catch(() => { ilRenP = null; return null; }));
-  const WC_TR_LABEL = { Zunz: 'Zunz (1838)', Breuer: 'Breuer', Philippson: 'Philippson', Herxheimer: 'Herxheimer', LXX: 'Septuaginta', O: 'Onkelos', PJ: 'Pseudo-Jonathan', N: 'Neofiti 1' };
+  const WC_TR_LABEL = { Zunz: 'Zunz (1838)', Breuer: 'Breuer', Philippson: 'Philippson', Herxheimer: 'Herxheimer', Goldschmidt: 'Goldschmidt (1921)', LXX: 'Septuaginta', O: 'Onkelos', PJ: 'Pseudo-Jonathan', N: 'Neofiti 1' };
   function unB36(str, books) { let prev = 0; return String(str || '').split('.').filter(Boolean).map(x => { prev += parseInt(x, 36); const b = Math.floor(prev / 1e6), c = Math.floor(prev / 1000) % 1000, v = prev % 1000; return books[b] + ' ' + c + ':' + v; }); }
   // Bestimmung des hebräischen Worts -> Filtermerkmale (Binjan, Form, Person, Genus, Numerus, Status, Suffix)
   const WC_TR_DIMS = [['stem', 'Binjan'], ['tense', 'Form'], ['person', 'Person'], ['gender', 'Genus'], ['number', 'Numerus'], ['state', 'Status'], ['suffix', 'Suffix']];
