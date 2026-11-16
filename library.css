@@ -1452,7 +1452,7 @@ body.il .cell[data-k="he"] .ilt[data-i="3"] { color: var(--il3); }
 body.il .cell[data-k="he"] .ilt[data-i="4"] { color: var(--il4); }
 body.il .cell[data-k="he"] .ilt[data-i="5"] { color: var(--il5); }
 body.il .cell[data-k="he"] .ilt.ildim { opacity: .28; }
-#rOut[data-ilh~="Zunz"] .ilt[data-tr="Zunz"], #rOut[data-ilh~="Breuer"] .ilt[data-tr="Breuer"] { display: none; }
+body.il .cell[data-k="he"] .ilt[hidden] { display: none; }
 .illeg { position: static; z-index: 1; display: flex; flex-wrap: wrap; gap: 6px; padding: 4px 0 6px; background: var(--bg); font: 13px var(--ui-font, system-ui, sans-serif); }
 .illc { display: inline-flex; align-items: center; gap: 6px; padding: 2px 10px 2px 8px; border: 1px solid var(--line, #8886); border-radius: 999px; background: transparent; color: var(--fg, inherit); cursor: pointer; font: inherit; }
 .illc i { width: .7em; height: .7em; border-radius: 50%; background: var(--c); box-shadow: 0 0 0 1px var(--c); }

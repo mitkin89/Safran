@@ -820,7 +820,7 @@
   // ---------- Wörter über alle geöffneten Versionen verbinden ----------
   // In den deutschen Spalten (Zunz, Breuer …) sind die Wortgruppen nach der Zuordnung in interlin.js anklickbar (.ilx, data-ix = Nummern der Westminster-Wörter).
   // Ein Klick auf eine solche Gruppe, auf ein Westminster-Wort oder auf ein Septuaginta-Wort lässt in allen geöffneten Versionen die zugehörigen Wörter leuchten.
-  const IL_VT = { Zunz: /Zunz/, Breuer: /^Breuer/ };
+  const IL_VT = { Zunz: /Zunz/, Breuer: /^Breuer/, Philippson: /Philippson/ };
   const ilName = vt => Object.keys(IL_VT).find(n => IL_VT[n].test(vt || ''));
   function ilTagCell(cell, segs) {
     const txt = cell.querySelector('.txt'); if (!txt || txt.dataset.ilx) return; txt.dataset.ilx = '1';
@@ -871,9 +871,9 @@
     const src = e.target.closest('.ilx, .w, .wg');
     if (src && (src.classList.contains('ilx') || src.closest('.row') && src.closest('.row').querySelector('.ilx'))) ilLink(src); else if ($('#rOut .ilhl')) ilHlClear();
   });
-  const IL_LABEL = { Zunz: 'Zunz (1838)', Breuer: 'Breuer' };
+  const IL_LABEL = { Zunz: 'Zunz (1838)', Breuer: 'Breuer', Philippson: 'Philippson' };
   let ilHide = []; try { ilHide = JSON.parse(localStorage.getItem('interlinHide') || '[]'); } catch { /* egal */ }
-  const ilSetHide = () => { const o = $('#rOut'); if (o) o.dataset.ilh = ilHide.join(' '); try { localStorage.setItem('interlinHide', JSON.stringify(ilHide)); } catch { /* egal */ } };
+  const ilSetHide = () => { $$('#rOut .ilt').forEach(l => { l.hidden = ilHide.includes(l.dataset.tr); }); try { localStorage.setItem('interlinHide', JSON.stringify(ilHide)); } catch { /* egal */ } };
   // Legende: ein Schalter je Übersetzung (Farbpunkt + Name); ein Klick blendet die Zeile ein/aus, Überfahren hebt sie hervor
   function ilLegend(order, use) {
     $$('#rOut .illeg').forEach(x => x.remove());
@@ -918,6 +918,7 @@
       const trs = use.map(nm => [nm, ALL[nm][title][chap + ':' + v]]).filter(x => x[1]); if (!trs.length) continue;
       row.querySelectorAll('.cell[data-k="he"]').forEach(cell => ilVerse(cell, trs, names));
     }
+    ilSetHide();
   }
   $('#ilSel').onchange = e => { ilTr = e.target.value; try { localStorage.setItem('interlinTr', ilTr); } catch { /* egal */ } ilRefresh(); };
   $('#ilBtn').onclick = () => { ilOn = !ilOn; try { localStorage.setItem('interlin', ilOn ? '1' : '0'); } catch { /* egal */ } ilRefresh(); };

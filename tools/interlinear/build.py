@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Interlinear: Westminster-Wörter <-> deutsche Wörter (Zunz, Berlin 1838).
-Eingabe: tools/interlinear/<zunz|breuer>/<Buch>.txt, je Vers eine Zeile
+Eingabe: tools/interlinear/<zunz|breuer|philippson>/<Buch>.txt, je Vers eine Zeile
     Kapitel:Vers <TAB> Wort[,Wort…]:deutscher Text | Wort:Text | -:Text
   (Segmente in deutscher Reihenfolge; Wort = laufende Nummer des Westminster-Worts im Vers; „-“ = ohne hebräisches Gegenstück)
 Prüft, dass die Segmente zusammen genau den Vers der Übersetzung ergeben und alle Nummern vorkommen können.
@@ -12,7 +12,7 @@ norm = lambda s: re.sub(r'\s+', ' ', s).strip()
 def load(book, lang, pat):
     f = glob.glob(os.path.join(R, 'bundled', 'own', book, lang, pat))[0]
     return json.load(open(f, encoding='utf8'))['text']
-TR = {'Zunz': ('zunz', '*Zunz*', 'Zunz, Berlin 1838'), 'Breuer': ('breuer', 'Breuer*', 'Breuer, Arba Megillot')}
+TR = {'Zunz': ('zunz', '*Zunz*', 'Zunz, Berlin 1838'), 'Breuer': ('breuer', 'Breuer*', 'Breuer, Arba Megillot'), 'Philippson': ('philippson', 'Die Israelitische Bibel*', 'Philippson')}
 out, bad = {}, 0
 for name, (dirn, pat, label) in TR.items():
   out[name] = {}
