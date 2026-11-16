@@ -895,7 +895,7 @@
   async function ilRefresh() {
     const b = $('#ilBtn'); if (!b) return;
     const ALL = await loadIL(), title = view && view.group ? view.group.title : '';
-    const names = ALL && title ? Object.keys(ALL).filter(n => ALL[n][title]) : [], has = names.length > 0;
+    const s0 = view && view.sections && view.sections[view.idx], c0 = s0 && apChap(s0), names = ALL && title ? Object.keys(ALL).filter(n => ALL[n][title] && (!c0 || Object.keys(ALL[n][title]).some(k => k.startsWith(c0 + ':')))) : [], has = names.length > 0; // nur Kapitel, für die eine Zuordnung vorliegt
     if (has && ilTr !== '*' && !names.includes(ilTr)) ilTr = names[0];
     if (ilTr === '*' && names.length < 2) ilTr = names[0] || 'Zunz';
     const sel = $('#ilSel');

@@ -1,6 +1,7 @@
 # Changelog
 
 ### New in 2.4.0
+- **Interlinear: Zunz, Genesis 1–11:** the word-by-word German under the Hebrew text now also works for Genesis 1–11 with Zunz's translation (`tools/interlinear/zunz/Genesis.txt`, 299 verses). The Interlinear button only appears for chapters that are aligned.
 - **Interlinear: Herxheimer (Ruth):** Herxheimer's *wortgetreue Übersetzung* is now aligned word by word for Ruth as a fourth translation (`tools/interlinear/herxheimer/Ruth.txt`); the introduction to Lamentations that follows 4:22 in the source text is kept as an unaligned segment.
 - **Interlinear: Philippson (Ruth):** Philippson's *Israelitische Bibel* is now aligned word by word for Ruth as a third translation (`tools/interlinear/philippson/Ruth.txt`); Breuer 2:19 corrected (a group was split wrongly, leaving only "…" under עמו).
 - **Interlinear: several translations one below the other, legend, links across versions:** the selector next to *Interlinear* also offers *All* – the translations then stand as separate coloured lines under each Hebrew word, explained by one sticky legend whose chips (colour dot + name) also switch a translation on/off (hover highlights it). The word groups of the aligned German columns (Ruth: Zunz, Breuer) are now clickable in the normal side-by-side view: a click on e.g. "meine Tochter" (Breuer) lights up בתי, θύγατερ in the Septuagint and the matching words of the other translation; clicking a Hebrew (Westminster) or Septuagint word does the same; click again or elsewhere to clear.
