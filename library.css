@@ -1579,3 +1579,10 @@ body.head-stick .illeg { position: sticky; top: calc(var(--stick-top, 40px) + va
 #fmBody .fmTrL { flex-basis: 100%; text-align: center; font: 11px/1.25 var(--ui-font, system-ui, sans-serif); color: var(--accent); max-width: 11em; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 #fmBody .fmTrL[lang="grc"] { font-family: var(--gr-font); font-size: 12px; }
 #fmBody .fmTrL[lang="arc"] { font-family: var(--he-font, "SBL Hebrew", serif); font-size: 13px; }
+
+/* Goldschmidt: eigene Farbe, bestehende Werkfarben bleiben stabil. */
+:root { --il9: #cf94b8; }
+:root[data-theme=light] { --il9: #8c356b; }
+@media (prefers-color-scheme: light) { :root:not([data-theme=dark]) { --il9: #8c356b; } }
+body.il .cell[data-k="he"] .ilt[data-i="9"] { color: var(--il9); }
+.illc[data-i="9"], .ilpR[data-i="9"] { --c: var(--il9); }
