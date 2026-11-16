@@ -1391,6 +1391,15 @@ html.split #formsPanel { right: var(--p2w); }
 #wcBody .wcLxR button.g:hover { text-decoration: underline; }
 #wcBody .wcHb .wcLxR { grid-template-columns: minmax(150px, 52%) 1fr 44px; }
 #wcBody .wcHb .wcLxR .g { font-family: inherit; font-size: 12.5px; }
+#wcBody .wcTgX .wcLxR { grid-template-columns: minmax(150px, 40%) 1fr 44px; }
+#wcBody .wcTgW { display: flex; align-items: baseline; gap: 8px; min-width: 0; }
+#wcBody .wcTgW .g { font-family: var(--he-font, "SBL Hebrew", serif); font-size: 17px; flex: none; }
+#wcBody .wcTgW small { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 11.5px; }
+#wcBody .wcTgX .b { display: flex; }
+#wcBody .wcTgX .b > i { border-radius: 0; opacity: .9; } #wcBody .wcTgX .b > i:last-child { border-radius: 0 4px 4px 0; }
+#wcBody .t0, #wcBody .wcTgX .b > i.t0 { background: var(--il6); } #wcBody .t1, #wcBody .wcTgX .b > i.t1 { background: var(--il7); } #wcBody .t2, #wcBody .wcTgX .b > i.t2 { background: var(--il8); }
+#wcBody .wcTgK { display: flex; flex-wrap: wrap; gap: 14px; margin: 6px 0 0; font-size: 12px; }
+#wcBody .wcTgK span { display: inline-flex; align-items: center; gap: 5px; } #wcBody .wcTgK i { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
 #wcBody .wcHb .wcLxR .g span[lang=he] { font-family: "HeDict", var(--he-font); font-size: 18px; color: var(--accent); }
 
 #wcBody .wcQ { margin: 2px 0; }

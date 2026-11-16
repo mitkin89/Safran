@@ -17,7 +17,7 @@ def jsobj(f):
 HL = jsobj('oshb-lemmas.js'); AL = jsobj('targum-lex.js')
 BOOKS = ['Genesis', 'Exodus', 'Leviticus', 'Numbers', 'Deuteronomy']
 TG = {'Onkelos': 'Targum Onkelos (ETCBC*', 'Pseudo-Jonathan': 'Targum Pseudo-Jonathan (ETCBC*', 'Neofiti': 'Targum Neofiti 1 (ETCBC*'}
-FIN = str.maketrans('ךםןףץ', 'כמנפצ')
+FIN = str.maketrans('ךםןףץ', 'כמנפצ'); FINAL = str.maketrans('כמנפצ', 'ךםןףץ')
 cons = lambda s: re.sub(r'[^א-ת]', '', s or '').translate(FIN)
 def core(s):  # Wurzelkern: Endbuchstaben א/ה/י/ו weg, Lesevokale im Inneren weg
     s = cons(s)
@@ -51,7 +51,7 @@ def heb_words(html):
         pf = {PFX_H[p] for p in parts[:-1] if p in PFX_H}
         txt = cons(t)
         if len(parts) > 1 and txt and txt[0] in 'ובלמכה' and sum(1 for p in parts[:-1] if p in 'cblmkd') : txt = txt[sum(1 for p in parts[:-1] if p in 'cblmkd'):]  # Wortkörper ohne Vorsilben
-        out.append({'sn': sn, 'pf': pf, 'core': core(lem[0]), 'gl': gl(lem[1]), 'txt': txt, 'body': core(txt)})
+        out.append({'key': next((x.strip() for x in parts if re.search(r'\d', x)), ''), 'sn': sn, 'pf': pf, 'core': core(lem[0]), 'gl': gl(lem[1]), 'txt': txt, 'body': core(txt)})
     return out
 def ara_words(html):  # grafische Wörter (durch Leerraum getrennt) mit ihren Morphemen
     plain = re.sub(r'<[^>]+>', '', html); words = plain.split()
@@ -70,7 +70,7 @@ def ara_words(html):  # grafische Wörter (durch Leerraum getrennt) mit ihren Mo
         ms = []
         for lid, pos, t in w:
             L = AL.get(lid, ['', '', ''])
-            ms.append({'lex': cons(L[0]), 'root': cons(L[1]), 'core': core(L[1] or L[0]), 'gl': gl(L[2]), 'pos': pos, 'txt': cons(t)})
+            ms.append({'lex': cons(L[0]), 'root': cons(L[1]), 'core': core(L[1] or L[0]), 'gl': gl(L[2]), 'pos': pos, 'txt': cons(t), 'id': lid, 'voc': re.sub(r'<[^>]+>', '', t), 'gl0': L[2]})
         res.append(ms)
     return words, res
 def msim(h, m):
@@ -132,6 +132,7 @@ def align(H, A):
             if res[y] and any(abs(i - 1 - x) == 1 for i in res[y]) and any(len(mm['txt']) == 1 and (mm['txt'] in FIX[H[x]['sn']] or mm['lex'] in FIX[H[x]['sn']]) for mm in A[y]):
                 res[y] = sorted(set(res[y] + [x + 1])); used.add(x + 1); break
     return res, anchors
+REN, TGI = {}, {'Onkelos': 0, 'Pseudo-Jonathan': 1, 'Neofiti': 2}
 def main():
     out, stat = {}, {}
     for tg, pat in TG.items():
@@ -149,10 +150,31 @@ def main():
                     if not html or not H or A is None: vs.append(''); continue
                     res, _ = align(H, A)
                     vs.append(' '.join(','.join(map(str, r)) if r else '-' for r in res))
+                    for j, r in enumerate(res):  # Wiedergaben je hebräischem Lemma zählen (nur Wortkörper, keine Vorsilben)
+                        if not r: continue
+                        for mm in A[j]:
+                            if not mm['id'] or (len(mm['txt']) <= 1 and mm['pos'] in ('conj', 'prep', 'art')): continue
+                            hs = [H[i - 1] for i in r]
+                            h = hs[0] if len(hs) == 1 else max(hs, key=lambda h: msim(h, mm))
+                            if len(hs) > 1 and msim(h, mm) <= 0: continue
+                            if not h['key']: continue
+                            lk = mm['lex'] or mm['txt']
+                            if lk in ('ייי', 'יהוה'): lk = 'יוי'  # Gottesname: eine Zeile
+                            if len(lk) < 2: continue
+                            e = REN.setdefault(h['key'], {}).setdefault(lk, [0, 0, 0, {}, mm['gl0']])
+                            e[TGI[tg]] += 1; e[3][mm['voc']] = e[3].get(mm['voc'], 0) + 1
                     tot += len(res); cov += sum(1 for r in res if r); hw += len(H); hcov += len({i for r in res for i in r})
                 chs.append(vs)
             out[tg][book] = chs
         stat[tg] = 'aram. Wörter %d, zugeordnet %.1f %%; hebr. Wörter %d, mit Gegenstück %.1f %%' % (tot, 100 * cov / tot, hw, 100 * hcov / hw)
+    ren = {}
+    for k, d in REN.items():
+        items = sorted(d.items(), key=lambda x: -(x[1][0] + x[1][1] + x[1][2]))
+        tot = sum(x[1][0] + x[1][1] + x[1][2] for x in items)
+        ren[k] = '%d|%d|' % (tot, len(items)) + ','.join('%s:%d:%d:%d:%s' % (lk[:-1] + lk[-1].translate(FINAL), e[0], e[1], e[2], (e[4] or '').split(',')[0].split('|')[0].strip().replace(':', ' ').replace(',', ' ')) for lk, e in items[:12])
+    p = os.path.join(proj, 'targum-ren.js')
+    open(p, 'w', encoding='utf8').write('// Wortkarte: Wiedergabe eines hebräischen Lemmas (Strong-Nummer wie in der OSHB) in den Targumim -> "Zuordnungen|verschiedene Lexeme|Lexem:Onkelos:Pseudo-Jonathan:Neofiti:Bedeutung,…" (die zwölf häufigsten); maschinell aus tools/targum/align.py; ETCBC Targum Corpus (CC BY-NC 4.0)\nwindow.TARGUM_REN=' + json.dumps(ren, ensure_ascii=False, separators=(',', ':')) + ';\n')
+    print('targum-ren.js', os.path.getsize(p), 'Bytes', len(ren), 'Lemmata')
     p = os.path.join(proj, 'targum-il.js')
     open(p, 'w', encoding='utf8').write('// Interlinear der Targumim: aramäisches Wort -> Westminster-Wörter (maschinell, tools/targum/align.py); Daten: ETCBC Targum Corpus (CC BY-NC 4.0), OSHB (CC BY 4.0)\nwindow.TARGUM_IL=' + json.dumps(out, ensure_ascii=False, separators=(',', ':')) + ';\n')
     for k, v in stat.items(): print(k, v)

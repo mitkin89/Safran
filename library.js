@@ -1376,10 +1376,11 @@
       <section class="wcSec"><h4>${esc(I18N.t('Häufigste Formen'))} <button type="button" class="wcLink" data-go="forms">${esc(I18N.t('alle {} Formen', wcNum(tf.kinds)))} →</button></h4>
         <div class="wcForms" dir="${greek ? 'ltr' : 'rtl'}">${tf.list.map(chip).join('')}</div><div class="wcRefs" id="wcFormRefs"></div></section>
       <section class="wcSec" id="wcLxx" hidden></section>
+      <section class="wcSec" id="wcTgR" hidden></section>
       <section class="wcSec" id="wcQum" hidden></section>
       <section class="wcSec" id="wcTg" hidden></section>
       <p class="fmNote">${esc(I18N.t(greek ? 'Belege und Formen nach der Septuaginta-Morphologie lxx-morph (Seth Kushniryk, CC BY 4.0), den Wörtern der mitgelieferten Septuaginta-Fassungen zugeordnet (Tanach: CATSS-Text in hebräischer Zählung; deuterokanonische Bücher: Rahlfs). Richter (A und B), Daniel (Septuaginta und Theodotion), Tobit, Susanna und Bel stehen in zwei Fassungen und zählen je für sich; Kurzbedeutungen englisch (STEPBible).' : 'Belege und Formen nach dem Westminster Leningrad Codex (OSHB); gezählt sind vokalisierte Wörter mit diesem Lemma. Die Suche „Alle Stellen“ geht über das Schriftbild des Lemmas und kann gleich geschriebene Wörter mitfinden.'))}</p>`;
-    wcDicts(token); if (greek) wcHeb(token); else { wcLxx(token); wcQumran(token); wcTargum(token); }
+    wcDicts(token); if (greek) wcHeb(token); else { wcLxx(token); wcTgRen(token); wcQumran(token); wcTargum(token); }
   }
   // Belegstellen als Zeilen je Buch (wie in der Formentabelle)
   function wcRefList(rs, head, all) {
@@ -1440,6 +1441,24 @@
     box.innerHTML = `<h4>${esc(I18N.t('Wiedergabe in der Septuaginta'))} <small>${esc(I18N.t('{} Zuordnungen · {} griechische Wörter', wcNum(r.total), wcNum(r.kinds)))}</small></h4>
       <div class="wcLx">${r.list.slice(0, 10).map(x => `<div class="wcLxR">${x.g.includes(' ') ? `<span class="g" lang="grc">${esc(x.g)}</span>` : `<button type="button" class="g wcGL" lang="grc" data-gl="${esc(x.g)}" title="${esc(I18N.t('Griechische Wortkarte öffnen'))}">${esc(x.g)}</button>`}<span class="b"><i style="width:${Math.max(2, x.n / mx * 100).toFixed(1)}%"></i></span><small>${wcNum(x.n)}</small></div>`).join('')}</div>
       <p class="muted wcLxN">${esc(I18N.t('Nach der Wort-für-Wort-Zuordnung von CATSS; die griechischen Wörter sind auf ihr Lemma zurückgeführt (lxx-morph), ohne Artikel und – wo das hebräische Wort Vorsilbe oder Suffix hat – ohne Präposition und Pronomen. Klick auf ein Wort öffnet seine Wortkarte.'))}</p>`;
+  }
+  // Targumim: häufigste aramäische Lexeme, mit denen Onkelos, Pseudo-Jonathan und Neofiti dieses hebräische Lemma wiedergeben
+  // (maschinelle Wortzuordnung tools/targum/align.py, Index targum-ren.js); Klick schlägt das Lexem im Wörterbuch nach
+  let tgRenP = null;
+  const loadTgRen = () => tgRenP || (tgRenP = lazyScript('targum-ren.js', () => window.TARGUM_REN).catch(() => { tgRenP = null; return null; }));
+  async function wcTgRen(token) {
+    const { lemma } = fmCur;
+    const X = await loadTgRen(), box = $('#wcTgR');
+    if (token !== wcToken || !X || !box || !X[lemma]) return;
+    const [tot, kinds, rest] = X[lemma].split('|');
+    const list = rest.split(',').map(x => { const [l, o, p, n, g] = x.split(':'); return { l, c: [+o, +p, +n], n: +o + +p + +n, g: String(g || '').replace(/^[A-Z][a-z]?\s+/, '').trim() }; }).filter(x => x.n);
+    if (!list.length) return;
+    const mx = Math.max(...list.map(x => x.n)), TGN = ['Onkelos', 'Pseudo-Jonathan', 'Neofiti 1'], ct = [0, 0, 0]; list.forEach(x => x.c.forEach((v, i) => { ct[i] += v; }));
+    box.hidden = false;
+    box.innerHTML = `<h4>${esc(I18N.t('Wiedergabe in den Targumim'))} <small>${esc(I18N.t('{} Zuordnungen · {} aramäische Wörter', wcNum(+tot), wcNum(+kinds)))}</small></h4>
+      <div class="wcLx wcTgX">${list.slice(0, 10).map(x => `<div class="wcLxR"><span class="wcTgW"><button type="button" class="g wcTgL" lang="arc" dir="rtl" data-q="${esc(x.l)}" title="${esc(I18N.t('Im Wörterbuch nachschlagen'))}">${esc(x.l)}</button>${x.g ? `<small class="muted">${esc(x.g)}</small>` : ''}</span><span class="b" title="${esc(x.c.map((v, i) => TGN[i] + ': ' + wcNum(v)).join(' · '))}">${x.c.map((v, i) => v ? `<i class="t${i}" style="width:${Math.max(1, v / mx * 100).toFixed(1)}%"></i>` : '').join('')}</span><small>${wcNum(x.n)}</small></div>`).join('')}</div>
+      <p class="wcTgK">${TGN.map((t, i) => `<span><i class="t${i}"></i>${esc(t)} <small>${wcNum(ct[i])}</small></span>`).join('')}</p>
+      <p class="muted wcLxN">${esc(I18N.t('Nach einer maschinellen Wort-für-Wort-Zuordnung der Targumim zum Westminster-Text (gleiche Wurzel, gleiche Bedeutung, feste Wiedergaben, Wortfolge); gezählt sind die aramäischen Lexeme ohne Vorsilben (ETCBC Targum Corpus, CC BY-NC 4.0). Klick auf ein Wort schlägt es im Wörterbuch nach.'))}</p>`;
   }
   // Qumran (nichtbiblische Rollen, Index qumran-lex.js): Vorkommen des Lemmas (nach Konsonanten) je Buch mit Sprung zur Zeile
   async function wcQumran(token) {
@@ -1520,6 +1539,7 @@
     const al = e.target.closest('.fmAll'); if (al) { if (al.closest('#wcBookRefs')) wcBookRefs($('#wcBookRefs').dataset.b, true); else wcFormRefs($('#wcBody .wcForms .fmF.sel'), true); return; }
     if (e.target.closest('.wcAll')) { wcSearchAll(); return; }
     const gl = e.target.closest('.wcGL[data-gl]'); if (gl) { openGForms(gl.dataset.gl, null, 'card'); return; }
+    const tq = e.target.closest('.wcTgL[data-q]'); if (tq) { openDict(tq.dataset.q); return; }
     const hl = e.target.closest('.wcHL[data-hl]'); if (hl) { openForms(hl.dataset.hl, null, 'card'); return; }
     const go = e.target.closest('.wcLink[data-go]'); if (go) { fmShowTab(go.dataset.go); $('#formsPanel').scrollTop = 0; return; }
     const dg = e.target.closest('.wcDGo'); if (dg) { const q = fmCur.lem[0], only = { id: dg.dataset.id, name: dg.dataset.name }; closeForms(); showTab('dict'); dictLookup(q, only); return; }
