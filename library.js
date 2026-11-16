@@ -1374,14 +1374,22 @@
     body.querySelectorAll('.fmTrL').forEach(x => x.remove());
     body.classList.toggle('fmTrOn', cur !== 'off');
     if (cur === 'off') return;
-    const D = S.src[cur], forms = fmCur.mdl.forms, byCode = new Map();
+    const D = S.src[cur], forms = fmCur.mdl.forms, byCode = new Map(), BK = (S.IR && S.IR.books) || [];
+    // Stellen der Wiedergaben (nur deutsche Fassungen, Septuaginta, Targumim): Vers-Nummer -> [[Gruppe, Bestimmung] …]
+    let atRef = null;
+    const refMap = () => { if (atRef) return atRef; atRef = new Map(); D.cells.forEach(c => { if (c.refs) unB36(c.refs).forEach(num => { (atRef.get(num) || atRef.set(num, []).get(num)).push([c.g, c.code]); }); }); return atRef; };
+    const numOf = r => { const b = BK.indexOf(r.book); return b < 0 ? null : b * 1e6 + r.ch * 1000 + r.v; };
+    const exact = []; // kleine Formen: Wiedergabe aus den Versen selbst (unten nachgeladen)
     const topF = new Map(); // je Bestimmung und Gruppe die häufigste wirkliche Form (mit Person: „er ging aus“), sonst die Grundform
     D.cells.forEach(c => { let m = byCode.get(c.code); if (!m) byCode.set(c.code, m = new Map()); m.set(c.g, (m.get(c.g) || 0) + c.n); if (c.f) topF.set(c.code + '|' + c.g, [c.f, c.n]); });
     const lab = g => { const L = D.labels[g]; return !L || L.other ? I18N.t('Andere') : L.forms[0]; };
     body.querySelectorAll('.fmF[data-i]').forEach(ch => {
       const codes = new Set(String(ch.dataset.i).split(',').map(i => forms[+i] && forms[+i].key.replace('*', '')).filter(Boolean));
       const agg = new Map();
-      codes.forEach(c => { const m = byCode.get(c); if (m) m.forEach((n, g) => agg.set(g, (agg.get(g) || 0) + n)); });
+      // nur die Verse, in denen diese Form steht (sonst zählten alle Wörter mit derselben Bestimmung mit)
+      const rs = !fmCur.greek && D.cells.some(c => c.refs) ? fmCur.F.refs(fmCur.D, fmCur.mdl, ch.dataset.i) : null;
+      if (rs) { const M = refMap(); rs.forEach(r => { const num = numOf(r); (M.get(num) || []).forEach(([g, code]) => { if (codes.has(code)) agg.set(g, (agg.get(g) || 0) + 1); }); }); if (D.lang === 'de' && rs.length <= 40) exact.push({ ch, rs, codes }); }
+      else codes.forEach(c => { const m = byCode.get(c); if (m) m.forEach((n, g) => agg.set(g, (agg.get(g) || 0) + n)); });
       if (!agg.size) return;
       const top = [...agg].sort((a, b) => b[1] - a[1]), tot = top.reduce((a, x) => a + x[1], 0);
       const sp = document.createElement('span'); sp.className = 'fmTrL'; sp.lang = D.lang; sp.dir = D.lang === 'arc' ? 'rtl' : 'ltr';
@@ -1390,6 +1398,21 @@
       sp.title = WC_TR_LABEL[cur] + ': ' + top.slice(0, 3).map(([g, n]) => lab(g) + ' ' + Math.round(n / tot * 100) + ' %').join(' · ');
       ch.appendChild(sp);
     });
+    // Formen mit wenigen Stellen: die wirkliche deutsche Wiedergabe aus den Versen (z. B. Jes 14,4 „und sprechen“ statt der häufigsten Wiedergabe der Bestimmung)
+    if (exact.length) {
+      const tok = fmCur, all = [...new Set(exact.flatMap(x => x.rs.map(r => r.book + ' ' + r.ch + ':' + r.v)))];
+      Promise.all([loadIL(), wcTrCtxLoad(all)]).then(() => {
+        const on = body.querySelector('.fmTrBar .on'); if (fmCur !== tok || !on || on.dataset.fsrc !== cur) return;
+        exact.forEach(({ ch, rs, codes }) => {
+          const cnt = new Map();
+          rs.forEach(r => wcTrOcc(cur, r.book + ' ' + r.ch + ':' + r.v, fmCur.lemma).forEach(o => { if (codes.has(o.code) && o.de) { const t = o.de.replace(/[,.;:!?]+$/, ''); cnt.set(t, (cnt.get(t) || 0) + 1); } }));
+          if (!cnt.size) return;
+          const top = [...cnt].sort((a, b) => b[1] - a[1]), tot = top.reduce((a, x) => a + x[1], 0), sp = ch.querySelector('.fmTrL'); if (!sp) return;
+          sp.textContent = top[0][0] + (top.length > 1 ? ' …' : '');
+          sp.title = WC_TR_LABEL[cur] + ': ' + top.slice(0, 4).map(([t, n]) => t + ' ' + Math.round(n / tot * 100) + ' %').join(' · ');
+        });
+      }, () => {});
+    }
   }
   $('#fmBody').addEventListener('click', e => { const b = e.target.closest('.fmTrBar [data-fsrc]'); if (!b) return; e.stopPropagation(); fmTrPick = b.dataset.fsrc; try { localStorage.setItem('fmTrSrc', fmTrPick); } catch { /* egal */ } fmTrApply(); }, true);
   // Griechisch (Septuaginta): dieselbe Karte aus dem Index lxx-morph.js; info = { form, key } der angeklickten Form
