@@ -1,6 +1,7 @@
 # Changelog
 
 ### New in 2.4.0
+- **Interlinear: Zunz, complete Jonah (1–4):** the word-by-word German under the Hebrew text now also covers the whole book of Jonah with Zunz's translation (`tools/interlinear/zunz/Jonah.txt`, 48 verses).
 - **Interlinear: Zunz, complete Obadiah (1):** the word-by-word German under the Hebrew text now also covers the whole book of Obadiah with Zunz's translation (`tools/interlinear/zunz/Obadiah.txt`, 21 verses).
 - **Interlinear: Zunz, complete Amos (1–9):** the word-by-word German under the Hebrew text now also covers the whole book of Amos with Zunz's translation (`tools/interlinear/zunz/Amos.txt`, 146 verses).
 - **Interlinear: Zunz, complete Joel (1–4):** the word-by-word German under the Hebrew text now also covers the whole book of Joel with Zunz's translation (`tools/interlinear/zunz/Joel.txt`, 73 verses).
