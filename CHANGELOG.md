@@ -1,6 +1,7 @@
 # Changelog
 
 ### New in 2.4.0
+- **Interlinear: Zunz, complete Isaiah (1–66):** the word-by-word German under the Hebrew text now also covers the whole book of Isaiah with Zunz's translation (`tools/interlinear/zunz/Isaiah.txt`, 1291 verses).
 - **Interlinear: Zunz, complete II Kings (1–25):** the word-by-word German under the Hebrew text now also covers the whole book of II Kings with Zunz's translation (`tools/interlinear/zunz/II Kings.txt`, 719 verses).
 - **Interlinear: Zunz, complete I Kings (1–22):** the word-by-word German under the Hebrew text now also covers the whole book of I Kings with Zunz's translation (`tools/interlinear/zunz/I Kings.txt`, 817 verses).
 - **Interlinear: Zunz, complete II Samuel (1–24):** the word-by-word German under the Hebrew text now also covers the whole book of II Samuel with Zunz's translation (`tools/interlinear/zunz/II Samuel.txt`, 695 verses).
