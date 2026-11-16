@@ -685,7 +685,7 @@
     });
     const linked = d.entry.kind === 'he' && /Tanakh/.test((d.entry.categories || []).join()) ? inline : window.AutoRef.link(inline, { last: '', trad: versOf(d, 'cites'), note: versNoteText }); // Stellenangaben im Text anklickbar (nicht im Bibeltext selbst); andere Zählung wird umgerechnet
     const gm = d.entry.language === 'Greek' ? ` data-gt="${esc(d.entry.title)}" data-gv="${esc(d.entry.versionTitle || d.versionTitle || '')}"` : ''; // Septuaginta: Titel und Fassung für die Wort-Bestimmung (lxx-morph.js)
-    const vt = d.entry.kind === 'de' && /^own\//.test(d.entry.rel || '') ? ` data-vt="${esc(d.entry.versionTitle || '')}"` : ''; // eigene Übersetzung: für die Wort-Zuordnung (interlin.js)
+    const vt = (d.entry.kind === 'de' || /^Targum .*\(ETCBC/.test(d.entry.versionTitle || '')) && /^own\//.test(d.entry.rel || '') ? ` data-vt="${esc(d.entry.versionTitle || '')}"` : ''; // eigene Übersetzung: für die Wort-Zuordnung (interlin.js)
     return `<div class="cell" data-k="${d.entry.kind}"${gm}${vt} dir="${rtl ? 'rtl' : 'ltr'}"><div class="txt">${hit ? markHits(linked, hit) : linked}</div></div>`;
   }
 
@@ -804,7 +804,7 @@
     const multi = trs.length > 1, mk = (cls, txt, ix) => { const e = document.createElement('span'); e.className = cls; if (txt != null) e.textContent = txt; if (ix) e.dataset.ix = ix.join(','); return e; };
     [...units].forEach(([st, en]) => {
       const lines = info.map(({ name, lead, marks }) => {
-        const line = mk('ilt'); line.dataset.tr = name; line.dataset.i = order.indexOf(name) + 1; line.title = IL_LABEL[name] || name; if (name === 'LXX') line.lang = 'grc';
+        const line = mk('ilt'); line.dataset.tr = name; line.dataset.i = order.indexOf(name) + 1; line.title = IL_LABEL[name] || name; if (name === 'LXX') line.lang = 'grc'; else if (IL_TG[name]) { line.lang = 'arc'; line.dir = 'rtl'; }
         const parts = []; for (let L = st; L <= en; L++) (lead.get(L) || []).forEach(x => parts.push(x));
         parts.sort((x, y) => x[0] - y[0]).forEach(([k, t, idx], j) => { if (j) line.append(k === parts[j - 1][0] + 1 ? ' ' : ' … '); line.append(mk('ils', t, idx)); });
         if (!parts.length) for (let i = st; i <= en; i++) if (marks.has(i)) { line.append(mk('ils ilm', '…', marks.get(i))); break; }
@@ -820,7 +820,25 @@
   // ---------- Wörter über alle geöffneten Versionen verbinden ----------
   // In den deutschen Spalten (Zunz, Breuer …) sind die Wortgruppen nach der Zuordnung in interlin.js anklickbar (.ilx, data-ix = Nummern der Westminster-Wörter).
   // Ein Klick auf eine solche Gruppe, auf ein Westminster-Wort oder auf ein Septuaginta-Wort lässt in allen geöffneten Versionen die zugehörigen Wörter leuchten.
-  const IL_VT = { Zunz: /Zunz/, Breuer: /^Breuer/, Philippson: /Philippson/, Herxheimer: /ebräischen Texte/ };
+  const IL_VT = { Zunz: /Zunz/, Breuer: /^Breuer/, Philippson: /Philippson/, Herxheimer: /ebräischen Texte/, Onkelos: /^Targum Onkelos \(ETCBC/, 'Pseudo-Jonathan': /^Targum Pseudo-Jonathan \(ETCBC/, Neofiti: /^Targum Neofiti 1 \(ETCBC/ };
+  // Targumim: Zuordnung aramäisches Wort -> Westminster-Wörter (maschinell, tools/targum/align.py), je Vers ein String: „1 2 - 4,5 …“ (ein Eintrag je Wort des Lesetextes)
+  const IL_TG = { Onkelos: 'Targum Onkelos (ETCBC', 'Pseudo-Jonathan': 'Targum Pseudo-Jonathan (ETCBC', Neofiti: 'Targum Neofiti 1 (ETCBC' };
+  let tgIlP = null;
+  const loadTgIL = () => tgIlP || (tgIlP = lazyScript('targum-il.js', () => window.TARGUM_IL).catch(() => { tgIlP = null; return null; }));
+  // Wörter eines Targum-Verses (Lesetext, durch Leerraum getrennt) mit ihrer Zuordnung -> Segmente wie in interlin.js
+  function tgSegs(T, name, book, chap, v, text) {
+    const ch = T && T[name] && T[name][book] && T[name][book][+chap - 1], m = ch && ch[v - 1]; if (!m) return null;
+    const ws = String(text || '').trim().split(/\s+/), ks = m.split(' '); if (ws.length !== ks.length) return null;
+    return ws.map((w, k) => [ks[k] === '-' ? [] : ks[k].split(',').map(Number), w]);
+  }
+  const tgVer = (g, name) => (g && g.versions || []).find(x => String(x.versionTitle || '').startsWith(IL_TG[name])) || null;
+  async function tgDoc(g, name) {
+    const ver = tgVer(g, name); if (!ver) return null;
+    let d = cache.get(ver.rel);
+    if (!d) { try { d = await O.read(ver.rel); } catch { return null; } await versReady; applyVers(d); d.__b = ver.bytes || 2e6; cache.set(ver.rel, d); }
+    return d;
+  }
+  const tgPlain = html => { ilTpl.innerHTML = html || ''; return ilTpl.content.textContent; };
   const ilName = vt => Object.keys(IL_VT).find(n => IL_VT[n].test(vt || ''));
   function ilTagCell(cell, segs) {
     const txt = cell.querySelector('.txt'); if (!txt || txt.dataset.ilx) return; txt.dataset.ilx = '1';
@@ -872,10 +890,10 @@
     if (src && (src.classList.contains('ilx') || src.closest('.row') && src.closest('.row').querySelector('.ilx'))) ilLink(src); else if ($('#rOut .ilhl')) ilHlClear();
   });
   // Feste Reihenfolge = feste Farbe je Werk (--il1 … --il5); „LXX“ = Septuaginta (CATSS), Wort für Wort unter dem Westminster-Text
-  const IL_ORDER = ['Zunz', 'Breuer', 'Philippson', 'Herxheimer', 'LXX'];
-  const IL_LABEL = { Zunz: 'Zunz (1838)', Breuer: 'Breuer', Philippson: 'Philippson', Herxheimer: 'Herxheimer', LXX: 'Septuaginta' };
-  const IL_SUB = { Zunz: 'Leopold Zunz, Die vier und zwanzig Bücher der Heiligen Schrift, Berlin 1838', Breuer: 'Raphael Breuer, Arba Megillot', Philippson: 'Ludwig Philippson, Die Israelitische Bibel', Herxheimer: 'Salomon Herxheimer, Die vier und zwanzig Bücher der Bibel', LXX: 'Griechisch, Wortgruppen nach der Zuordnung von CATSS' };
-  const IL_PIC = { Zunz: 'Zunz', Breuer: 'Raphael Breuer', Philippson: 'Philippson', Herxheimer: 'Herxheimer', LXX: 'Septuaginta' };
+  const IL_ORDER = ['Zunz', 'Breuer', 'Philippson', 'Herxheimer', 'LXX', 'Onkelos', 'Pseudo-Jonathan', 'Neofiti'];
+  const IL_LABEL = { Zunz: 'Zunz (1838)', Breuer: 'Breuer', Philippson: 'Philippson', Herxheimer: 'Herxheimer', LXX: 'Septuaginta', Onkelos: 'Onkelos', 'Pseudo-Jonathan': 'Pseudo-Jonathan', Neofiti: 'Neofiti 1' };
+  const IL_SUB = { Zunz: 'Leopold Zunz, Die vier und zwanzig Bücher der Heiligen Schrift, Berlin 1838', Breuer: 'Raphael Breuer, Arba Megillot', Philippson: 'Ludwig Philippson, Die Israelitische Bibel', Herxheimer: 'Salomon Herxheimer, Die vier und zwanzig Bücher der Bibel', LXX: 'Griechisch, Wortgruppen nach der Zuordnung von CATSS', Onkelos: 'Targum Onkelos (Sperber), Wort für Wort maschinell zugeordnet', 'Pseudo-Jonathan': 'Targum Pseudo-Jonathan; Zusätze bleiben ohne Zuordnung', Neofiti: 'Targum Neofiti 1; Zusätze bleiben ohne Zuordnung' };
+  const IL_PIC = { Zunz: 'Zunz', Breuer: 'Raphael Breuer', Philippson: 'Philippson', Herxheimer: 'Herxheimer', LXX: 'Septuaginta', Onkelos: 'Targum Onkelos', 'Pseudo-Jonathan': 'Targum Pseudo-Jonathan', Neofiti: 'Targum Neofiti' };
   // Auswahl (Häkchen) wird gemerkt; ältere Einstellung (ein Werk oder „Alle“) wird übernommen
   let ilPick = null; try { ilPick = JSON.parse(localStorage.getItem('interlinPick') || 'null'); } catch { /* egal */ }
   if (!Array.isArray(ilPick)) ilPick = ilOn ? (ilTr === '*' ? IL_ORDER.slice(0, 4) : [ilTr]) : [];
@@ -929,7 +947,7 @@
   function ilPopRender() {
     const pop = $('#ilPop'); if (!pop || pop.hidden) return;
     const row = n => { const pic = portraitOf(IL_PIC[n]), on = ilPick.includes(n);
-      return `<label class="ilpR" data-i="${IL_ORDER.indexOf(n) + 1}"><input type="checkbox" value="${n}"${on ? ' checked' : ''}>${pic ? `<img src="portraits/${encodeURIComponent(pic.img)}" alt="" title="${esc(pic.name || '')}">` : `<span class="ilpPh" lang="grc">Α</span>`}<span class="ilpT"><b>${esc(I18N.t(IL_LABEL[n]))}</b><small>${esc(I18N.t(IL_SUB[n]))}</small></span><i class="ilpDot"></i></label>`; };
+      return `<label class="ilpR" data-i="${IL_ORDER.indexOf(n) + 1}"><input type="checkbox" value="${n}"${on ? ' checked' : ''}>${pic ? `<img src="portraits/${encodeURIComponent(pic.img)}" alt="" title="${esc(pic.name || '')}">` : (n === 'LXX' ? `<span class="ilpPh" lang="grc">Α</span>` : `<span class="ilpPh" lang="he">א</span>`)}<span class="ilpT"><b>${esc(I18N.t(IL_LABEL[n]))}</b><small>${esc(I18N.t(IL_SUB[n]))}</small></span><i class="ilpDot"></i></label>`; };
     pop.innerHTML = `<div class="ilpH"><b>${esc(I18N.t('Interlinear'))}</b><span><button type="button" data-a="all">${esc(I18N.t('Alle'))}</button><button type="button" data-a="none">${esc(I18N.t('Keine'))}</button></span></div>${ilAvail.map(row).join('')}<p class="muted ilpN">${esc(I18N.t('Die gewählten Werke stehen Wort für Wort unter dem hebräischen Text (Westminster).'))}</p>`;
   }
   function ilPopPlace() {
@@ -957,7 +975,10 @@
     if (tok !== ilTok) return;
     const s0 = view && view.sections && view.sections[view.idx], c0 = s0 && apChap(s0), names = ALL && title ? Object.keys(ALL).filter(n => ALL[n][title] && (!c0 || Object.keys(ALL[n][title]).some(k => k.startsWith(c0 + ':')))) : []; // nur Kapitel, für die eine Zuordnung vorliegt
     const lxx = !!(view && view.group && ilLxxVer(view.group)) && !!c0 && /^\d+$/.test(c0);
-    ilAvail = IL_ORDER.filter(n => n === 'LXX' ? lxx : names.includes(n));
+    const TG = view && view.group && Object.keys(IL_TG).some(n => tgVer(view.group, n)) ? await loadTgIL() : null;
+    if (tok !== ilTok) return;
+    const tgHas = n => !!(TG && TG[n] && TG[n][title] && c0 && /^\d+$/.test(c0) && TG[n][title][+c0 - 1] && tgVer(view.group, n));
+    ilAvail = IL_ORDER.filter(n => n === 'LXX' ? lxx : IL_TG[n] ? tgHas(n) : names.includes(n));
     const has = ilAvail.length > 0, use = ilAvail.filter(n => ilPick.includes(n)), on = use.length > 0;
     b.hidden = !has; b.classList.toggle('on', has && on);
     if (!has && !$('#ilPop').hidden) ilPopToggle(false); else ilPopRender();
@@ -966,19 +987,25 @@
     $$('#rOut .illeg').forEach(x => x.remove());
     if (!has) return;
     const s = view.sections && view.sections[view.idx], chap = s && apChap(s); if (!chap) return;
-    if (ALL) for (const row of $$('#rOut .row[data-l]')) { // deutsche Spalten: Wortgruppen anklickbar machen (unabhängig vom Interlinear-Knopf)
+    for (const row of $$('#rOut .row[data-l]')) { // deutsche und aramäische Spalten: Wortgruppen anklickbar machen (unabhängig vom Interlinear-Knopf)
       const v = verseOf(row.dataset.l); if (v == null) continue;
-      row.querySelectorAll('.cell[data-vt]').forEach(cell => { const nm = ilName(cell.dataset.vt), segs = nm && ALL[nm][title] && ALL[nm][title][chap + ':' + v]; if (segs) ilTagCell(cell, segs); });
+      row.querySelectorAll('.cell[data-vt]').forEach(cell => {
+        const nm = ilName(cell.dataset.vt); if (!nm) return;
+        const segs = IL_TG[nm] ? tgSegs(TG, nm, title, chap, v, (cell.querySelector('.txt') || cell).textContent) : ALL && ALL[nm] && ALL[nm][title] && ALL[nm][title][chap + ':' + v];
+        if (segs) ilTagCell(cell, segs);
+      });
     }
     if (!on) return;
-    const lx = use.includes('LXX') ? await ilLxxDoc(view.group) : null;
+    const lx = use.includes('LXX') ? await ilLxxDoc(view.group) : null, tgd = {};
+    for (const n of use) if (IL_TG[n]) tgd[n] = await tgDoc(view.group, n);
     if (tok !== ilTok) return;
     ilLegend(use);
     for (const row of $$('#rOut .row[data-l]')) {
       const v = verseOf(row.dataset.l); if (v == null) continue;
       row.querySelectorAll('.cell[data-k="he"]').forEach(cell => {
         if (!cell.querySelector('.w')) return;
-        const trs = use.map(nm => [nm, nm === 'LXX' ? (lx && lx.text[+chap - 1] ? ilLxxSegs(cell, lx.text[+chap - 1][v - 1]) : null) : ALL[nm][title][chap + ':' + v]]).filter(x => x[1] && x[1].length);
+        const tgv = nm => { const d = tgd[nm], ch = d && d.text[+chap - 1]; return ch ? tgSegs(TG, nm, title, chap, v, tgPlain(ch[v - 1])) : null; };
+        const trs = use.map(nm => [nm, nm === 'LXX' ? (lx && lx.text[+chap - 1] ? ilLxxSegs(cell, lx.text[+chap - 1][v - 1]) : null) : IL_TG[nm] ? tgv(nm) : ALL[nm][title][chap + ':' + v]]).filter(x => x[1] && x[1].length);
         if (trs.length) ilVerse(cell, trs, IL_ORDER);
       });
     }

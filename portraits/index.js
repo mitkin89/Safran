@@ -28,6 +28,7 @@ window.PORTRAITS = [
   { match: 'Steinsaltz', img: 'steinsaltz.jpg', name: 'Adin Even-Israel Steinsaltz (1937–2020)' },
   { match: 'Mandelstamm', img: 'mandelstamm.jpg', name: 'Leon Mandelstamm (1819–1889)' },
   // Handschriften
+  { match: 'Targum Onkelos', img: 'onkelos.jpg', name: 'Targum Onkelos – mikrographische Figur in einer Pentateuch-Handschrift' },
   { match: 'Aleppo', img: 'aleppo.jpg', name: 'Aleppo-Kodex (10. Jh.)' },
   { match: 'Leningrad', img: 'leningrad.jpg', name: 'Leningrader Kodex (1008/09), Teppichseite' },
   { match: 'Qumran', img: 'qumran.jpg', name: 'Schriftrolle vom Toten Meer (Qumran)' },
