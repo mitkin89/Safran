@@ -1700,3 +1700,6 @@ body.il .cell[data-k="he"] .ilt.ilq { font-family: var(--he-font, inherit); font
 .ilt .ilq3 { opacity: .45; }
 .ilt .ilq4 { font-weight: 700; background: color-mix(in srgb, var(--il12) 22%, transparent); border-radius: 3px; padding: 0 .12em; }
 .ilt .ilq4::before { content: "+"; font-weight: 400; opacity: .7; }
+
+/* Vers-Vorschau aus der Wortkarte: das Wort der Karte im Hebräischen und in der zugeordneten Übersetzung markieren */
+#lkHover .pvhl { background: color-mix(in srgb, var(--accent) 28%, transparent); border-radius: 3px; box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 55%, transparent); }

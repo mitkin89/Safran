@@ -1640,9 +1640,10 @@
   const WC_TR_VT = { O: IL_VT.Onkelos, PJ: IL_VT['Pseudo-Jonathan'], N: IL_VT.Neofiti, LXX: /^Septuaginta/ };
   function wcHovPick(a) {
     const k = a.closest('#fmBody') ? (fmTrData ? fmTrCur() : 'off') : a.closest('#wcBody') ? (wcTrLive() ? wcTrLive().cur : 'off') : 'off';
-    if (!k || k === 'off' || (fmCur && fmCur.greek)) return null;
+    const lem = fmCur && !fmCur.greek ? fmCur.lemma : null; // das Wort der Wortkarte wird in der Vorschau markiert
+    if (!k || k === 'off' || (fmCur && fmCur.greek)) return lem ? { lem } : null;
     const re = WC_TR_VT[k] || IL_VT[k] || new RegExp(String(k).replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
-    return { vt: re.source, rtl: k === 'O' || k === 'PJ' || k === 'N', label: WC_TR_LABEL[k] || k };
+    return { vt: re.source, rtl: k === 'O' || k === 'PJ' || k === 'N', label: WC_TR_LABEL[k] || k, lem };
   }
   const WC_TR_PIC = { Zunz: 'Zunz', Breuer: 'Raphael Breuer', Philippson: 'Philippson', Herxheimer: 'Herxheimer', Goldschmidt: 'Goldschmidt', Hirsch: 'Samson Raphael Hirsch', JuliusHirsch: 'Julius Hirsch', LXX: 'Septuaginta', O: 'Targum Onkelos', PJ: 'Targum Pseudo-Jonathan', N: 'Targum Neofiti' };
   const wcTrPic = k => { const pic = WC_TR_PIC[k] && portraitOf(WC_TR_PIC[k]); return pic ? `<img class="wcTrPic" src="portraits/${encodeURIComponent(pic.img)}" alt="" loading="lazy" onerror="this.remove()">` : ''; };
@@ -3061,23 +3062,43 @@
   { let hov = null, hovT = null, hovRef = null; const pvCache = new Map();
     const hideHov = () => { clearTimeout(hovT); hovRef = null; if (hov) hov.hidden = true; };
     // pick (Wortkarte): { vt, rtl } – die dort gewählte Fassung statt der üblichen zweiten Sprache (wcHovPick)
+    // Wortkarte: in der Vorschau das Wort markieren – im Hebräischen (Westminster, über das Lemma) und, wo die Fassung wortgenau
+    // zugeordnet ist (interlin.js), die zugehörigen deutschen Wörter
+    const pvLemOk = (dl, lem) => String(dl || '').split('/').some(x => { x = x.trim(); return x === lem || (/^\d+$/.test(lem) && x.replace(/\D.*$/, '') === lem); });
+    const pvMark = (box, ref, lem) => {
+      const m = /^(.*) (\d+):(\d+)$/.exec(ref), parts = [...box.querySelectorAll('.pvp')];
+      const he = parts.find(p => p.dataset.he && p.querySelectorAll('.phe').length === 1); if (!he) return;
+      const ix = []; he.querySelectorAll('.w').forEach((w, i) => { if (pvLemOk(w.dataset.l, lem)) { w.classList.add('pvhl'); ix.push(i + 1); } });
+      if (!ix.length || !m) return;
+      const set = new Set(ix);
+      loadIL().then(IL => {
+        if (!IL || !box.isConnected || hovRef !== ref) return;
+        parts.filter(p => !p.dataset.he).forEach(p => {
+          const nm = ilName(p.dataset.vt), segs = nm && IL[nm] && IL[nm][m[1]] && IL[nm][m[1]][m[2] + ':' + m[3]]; if (!segs) return;
+          const d = p.firstElementChild; if (!d || p.children.length !== 1) return;
+          d.classList.add('txt'); ilTagCell(p, segs);
+          p.querySelectorAll('.ilx').forEach(x => { if (x.dataset.ix.split(',').some(i => set.has(+i))) x.classList.add('pvhl'); });
+        });
+      }, () => {});
+    };
     const startHov = (a, ref, quiet, below, pick) => {
       hideHov(); hovRef = ref;
       hovT = setTimeout(async () => {
-        const ck = pick ? ref + '\u0001' + pick.vt : ref;
+        const ck = pick && pick.vt ? ref + '\u0001' + pick.vt : ref;
         let r = pvCache.get(ck);
-        if (!r) { try { r = await LK.preview(ref, ['he', I18N.lang === 'de' ? 'de' : 'en'], pick || undefined); } catch { r = {}; } pvCache.set(ck, r); if (pvCache.size > 200) pvCache.delete(pvCache.keys().next().value); }
+        if (!r) { try { r = await LK.preview(ref, ['he', I18N.lang === 'de' ? 'de' : 'en'], pick && pick.vt ? { vt: pick.vt, rtl: pick.rtl } : undefined); } catch { r = {}; } pvCache.set(ck, r); if (pvCache.size > 200) pvCache.delete(pvCache.keys().next().value); }
         if (hovRef !== ref) return; // Maus ist inzwischen woanders
         const none = !(r.parts && r.parts.length) && !(r.items && r.items.length);
         if (none && quiet) return; // Wörterbuch: ohne Text keine leere Blase
         if (!hov) { hov = document.createElement('div'); hov.id = 'lkHover'; document.body.appendChild(hov); }
         const partHtml = p => p.items.map(t => `<div dir="${p.he ? 'rtl' : 'ltr'}"${p.he ? ' lang="he" class="phe"' : ''}>${R.cleanHtml(R.splitFootnotes(p.he ? stripHe(t) : t).main.replace(/<sup[^>]*>.*?<\/sup>/g, ''))}</div>`).join('');
-        const html = r.parts && r.parts.length ? r.parts.map((p, i) => (i ? '<hr>' : '') + pvVer(p.versionTitle) + partHtml(p)).join('') : r.items && r.items.length ? pvVer(r.versionTitle) + partHtml({ items: r.items, he: r.he }) : `<i>${esc(I18N.t('Keine Vorschau möglich.'))}</i>`;
+        const html = r.parts && r.parts.length ? r.parts.map((p, i) => (i ? '<hr>' : '') + pvVer(p.versionTitle) + `<div class="pvp" data-vt="${esc(p.versionTitle || '')}"${p.he ? ' data-he="1"' : ''}>${partHtml(p)}</div>`).join('') : r.items && r.items.length ? pvVer(r.versionTitle) + partHtml({ items: r.items, he: r.he }) : `<i>${esc(I18N.t('Keine Vorschau möglich.'))}</i>`;
         // andere Zählung im Text: Hinweis, welche Stelle gemeint ist („englische Zählung Joel 3:11 = hebr. 4:11“)
         const vn = (a && a.dataset && a.dataset.oref ? `<div class="vnote">${esc(versNote(a))}</div>` : '')
           // gewählte Fassung (Wortkarte) gibt es für dieses Buch nicht: sagen, statt stillschweigend eine andere zu zeigen
           + (pick && r.pickMiss ? `<div class="vnote">${esc(I18N.t('{} enthält dieses Buch nicht – stattdessen:', pick.label || ''))}</div>` : '');
         hov.innerHTML = `<b>${esc(ref)}</b>${vn}${html}`; hov.hidden = false;
+        if (pick && pick.lem) pvMark(hov, ref, pick.lem);
         const rc = a.getBoundingClientRect(), w = hov.offsetWidth, h = hov.offsetHeight;
         if (below) { // Wörterbuch-Leiste: unter dem Link, sonst darüber
           hov.style.left = Math.max(8, Math.min(window.innerWidth - w - 8, rc.left)) + 'px';
