@@ -1447,49 +1447,81 @@
   // deutsch (interlin-ren.js: Zunz, Breuer, Philippson, Herxheimer; Gruppen nach Wortstamm, mit Stellen), griechisch (Septuaginta, oshb-lxx.js)
   // und aramäisch (Targumim, targum-ren.js). Die sieben häufigsten Gruppen haben eigene Farben, der Rest ist „Andere“.
   let ilRenP = null, wcTrState = null;
+  let lxxRenP = null;
+  const loadLxxRen = () => lxxRenP || (lxxRenP = lazyScript('lxx-ren.js', () => window.LXX_REN).catch(() => { lxxRenP = null; return null; }));
   const loadIlRen = () => ilRenP || (ilRenP = lazyScript('interlin-ren.js', () => window.INTERLIN_REN).catch(() => { ilRenP = null; return null; }));
   const WC_TR_LABEL = { Zunz: 'Zunz (1838)', Breuer: 'Breuer', Philippson: 'Philippson', Herxheimer: 'Herxheimer', LXX: 'Septuaginta', O: 'Onkelos', PJ: 'Pseudo-Jonathan', N: 'Neofiti 1' };
   function unB36(str, books) { let prev = 0; return String(str || '').split('.').filter(Boolean).map(x => { prev += parseInt(x, 36); const b = Math.floor(prev / 1e6), c = Math.floor(prev / 1000) % 1000, v = prev % 1000; return books[b] + ' ' + c + ':' + v; }); }
+  // Bestimmung des hebräischen Worts -> Filtermerkmale (Binjan, Form, Person, Genus, Numerus, Status, Suffix)
+  const WC_TR_DIMS = [['stem', 'Binjan'], ['tense', 'Form'], ['person', 'Person'], ['gender', 'Genus'], ['number', 'Numerus'], ['state', 'Status'], ['suffix', 'Suffix']];
+  const wcFeatCache = new Map();
+  function wcFeat(code, lemma) {
+    if (wcFeatCache.has(code)) return wcFeatCache.get(code);
+    let d = null; try { d = window.Morph && window.Morph.decode(code, lemma); } catch { d = null; }
+    const seg = d && d.segs[d.main] || {}, f = {};
+    if (seg.stem) f.stem = seg.stem;
+    if (seg.tense) f.tense = seg.tense === 'P' ? 'Partizip passiv' : seg.tense;
+    String(seg.info || '').split(', ').forEach(t => {
+      if (/Pers\./.test(t)) f.person = t; else if (/^(m\.|f\.|c\.|m\.\/f\.)$/.test(t)) f.gender = t; else if (/^(Sg\.|Pl\.|Du\.)$/.test(t)) f.number = t; else if (/absolut|constructus|bestimmt/.test(t)) f.state = t;
+    });
+    f.suffix = d && d.segs.some(x => x.suffix) ? 'mit Suffix' : 'ohne Suffix';
+    wcFeatCache.set(code, f); return f;
+  }
   async function wcTrans(token) {
     const { lemma } = fmCur;
-    const [IR, LX, TR] = await Promise.all([loadIlRen(), loadLxx(), loadTgRen()]);
+    const [IR, LR, TR] = await Promise.all([loadIlRen(), loadLxxRen(), loadTgRen()]);
     const box = $('#wcTr'); if (token !== wcToken || !box) return;
     const src = {};
-    if (IR) for (const [tr, M] of Object.entries(IR.tr)) { const x = M[lemma]; if (!x) continue; const [tot, kinds, rest] = x.split('|'); src[tr] = { tot: +tot, kinds: +kinds, groups: rest.split(';').map(g => { const [f, n, r] = g.split('~'); return { forms: f.split('¦'), n: +n, refs: r, lang: 'de' }; }) }; }
-    const lx = LX && window.Lxx && window.Lxx.renderings(LX, lemma);
-    if (lx && lx.list.length) src.LXX = { tot: lx.total, kinds: lx.kinds, groups: lx.list.map(x => ({ forms: [x.g], n: x.n, lang: 'grc' })) };
+    if (IR) for (const [tr, M] of Object.entries(IR.tr)) { const x = M[lemma]; if (!x) continue; src[tr] = { lang: 'de', labels: x[0].map(f => ({ forms: f })), cells: x[1].map(([g, code, n, refs]) => ({ g, code, n, refs })) }; }
+    const lx = LR && LR[lemma];
+    if (lx) src.LXX = { lang: 'grc', labels: lx[0].map(g => ({ forms: [g], other: g === '*' })), cells: lx[1].map(([g, code, n]) => ({ g, code, n })) };
     const tg = TR && TR[lemma];
-    if (tg) { const [, , rest] = tg.split('|'); const L = rest.split(',').map(x => x.split(':')); ['O', 'PJ', 'N'].forEach((k, i) => { const gs = L.map(a => ({ forms: [a[0]], n: +a[1 + i], gl: a[4], lang: 'arc' })).filter(g => g.n).sort((a, b) => b.n - a.n); if (gs.length) src[k] = { tot: gs.reduce((a, g) => a + g.n, 0), kinds: gs.length, groups: gs, part: true }; }); }
-    const keys = Object.keys(WC_TR_LABEL).filter(k => src[k] && src[k].tot >= 2);
+    if (tg) ['O', 'PJ', 'N'].forEach((k, i) => { const cells = tg[1].map(c => ({ g: c[0], code: c[1], n: c[2 + i] })).filter(c => c.n); if (cells.length) src[k] = { lang: 'arc', labels: tg[0].map(([l, gl]) => ({ forms: [l], gl, other: l === '*' })), cells }; });
+    const keys = Object.keys(WC_TR_LABEL).filter(k => src[k] && src[k].cells.reduce((a, c) => a + c.n, 0) >= 2);
     if (!keys.length) return;
     let pick = null; try { pick = localStorage.getItem('wcTrSrc'); } catch { /* egal */ }
-    wcTrState = { src, keys, cur: keys.includes(pick) ? pick : keys[0], open: -1, IR };
+    wcTrState = { src, keys, cur: keys.includes(pick) ? pick : keys[0], open: -1, IR, f: {}, lemma };
     box.hidden = false; wcTrRender();
   }
   function wcTrShow(k) { if (!wcTrState || !wcTrState.src[k]) return; wcTrState.cur = k; wcTrState.open = -1; try { localStorage.setItem('wcTrSrc', k); } catch { /* egal */ } wcTrRender(); }
   function wcTrRefs(i) { if (!wcTrState) return; wcTrState.open = wcTrState.open === i ? -1 : i; wcTrRender(); }
+  function wcTrFilt(dim, val) { if (!wcTrState) return; if (dim === '*') wcTrState.f = {}; else if (wcTrState.f[dim] === val || val == null) delete wcTrState.f[dim]; else wcTrState.f[dim] = val; wcTrState.open = -1; wcTrRender(); }
   function wcTrRender() {
     const S = wcTrState, box = $('#wcTr'); if (!S || !box) return;
-    const D = S.src[S.cur], gs = D.groups, tot = D.tot, TOP = 7;
-    const slices = gs.slice(0, TOP).map((g, i) => ({ ...g, c: i + 1, i }));
+    const D = S.src[S.cur], TOP = 7, fk = Object.keys(S.f);
+    const match = (c, skip) => { const f = wcFeat(c.code, S.lemma); return fk.every(k => k === skip || f[k] === S.f[k]); };
+    // Filterleiste: je Merkmal die vorkommenden Werte mit Anzahl (gezählt unter den übrigen gewählten Filtern)
+    const dims = WC_TR_DIMS.map(([k, name]) => {
+      const cnt = new Map(); let all = 0;
+      D.cells.forEach(c => { all += c.n; if (!match(c, k)) return; const v = wcFeat(c.code, S.lemma)[k]; if (v) cnt.set(v, (cnt.get(v) || 0) + c.n); });
+      return { k, name, vals: [...cnt].sort((a, b) => b[1] - a[1]) };
+    }).filter(d => d.vals.length > 1 || S.f[d.k]);
+    // Gruppen unter dem Filter
+    const gn = new Map(), grefs = new Map();
+    D.cells.forEach(c => { if (!match(c)) return; gn.set(c.g, (gn.get(c.g) || 0) + c.n); if (c.refs) (grefs.get(c.g) || grefs.set(c.g, []).get(c.g)).push(...unB36(c.refs, S.IR.books)); });
+    const gs = [...gn].map(([g, n]) => ({ ...D.labels[g], g, n, lang: D.lang, refs: grefs.get(g) })).sort((a, b) => (a.other - b.other) || b.n - a.n);
+    const tot = gs.reduce((a, g) => a + g.n, 0);
+    const slices = gs.filter(g => !g.other).slice(0, TOP).map((g, i) => ({ ...g, c: i + 1, i }));
     const rest = tot - slices.reduce((a, g) => a + g.n, 0);
     if (rest > 0) slices.push({ forms: [I18N.t('Andere')], n: rest, c: 0, i: -2 });
-    // Ring (SVG): Winkel ab 12 Uhr im Uhrzeigersinn, 2px Lücke zwischen den Stücken
     const R0 = 92, R1 = 58, C = 100; let a0 = 0;
     const pt = (r, a) => [C + r * Math.sin(a), C - r * Math.cos(a)].map(x => x.toFixed(2)).join(' ');
-    const arcs = slices.map(g => {
+    const arcs = tot ? slices.map(g => {
       const a1 = a0 + g.n / tot * 2 * Math.PI, big = a1 - a0 > Math.PI ? 1 : 0;
       const d = slices.length === 1 ? `M ${C} ${C - R0} A ${R0} ${R0} 0 1 1 ${C - 0.01} ${C - R0} L ${C - 0.01} ${C - R1} A ${R1} ${R1} 0 1 0 ${C} ${C - R1} Z` : `M ${pt(R0, a0)} A ${R0} ${R0} 0 ${big} 1 ${pt(R0, a1)} L ${pt(R1, a1)} A ${R1} ${R1} 0 ${big} 0 ${pt(R1, a0)} Z`;
       a0 = a1;
       return `<path d="${d}" class="wcTrS c${g.c}" data-g="${g.i}"><title>${esc(g.forms.join(', '))}: ${wcNum(g.n)} (${Math.round(g.n / tot * 100)} %)</title></path>`;
-    }).join('');
+    }).join('') : `<circle cx="100" cy="100" r="75" class="wcTrE"/>`;
     const lem = fmCur && fmCur.lem ? fmCur.lem[0] : '';
-    const row = (g, i) => `<div class="wcTrR${g.refs ? ' can' : ''}${S.open === i ? ' open' : ''}" data-g="${i}"><i class="sw c${i < TOP ? i + 1 : 0}"></i><span class="f" lang="${g.lang}"${g.lang === 'arc' ? ' dir="rtl"' : ''}>${esc(g.forms.join(', '))}${g.gl ? ` <small class="muted">${esc(g.gl)}</small>` : ''}</span><small class="n">${wcNum(g.n)}</small><small class="p">${Math.round(g.n / tot * 100)} %</small></div>${S.open === i && g.refs ? `<div class="fmRL wcTrRefs">${unB36(g.refs, S.IR.books).map(r => `<span class="fmR"><a data-ref="${esc(r)}">${esc(fmBook(r.replace(/ \d+:\d+$/, '')) + ' ' + r.match(/\d+:\d+$/)[0])}</a></span>`).join(' ')}</div>` : ''}`;
-    const note = S.IR && S.IR.tr && S.cur in S.IR.tr ? 'Gezählt sind die Stellen, an denen die Übersetzung diesem Wort allein (ohne weiteres Inhaltswort) zugeordnet ist; Formen mit demselben Wortstamm sind zusammengefasst, „und“ und Artikel am Anfang weggelassen. Klick auf eine Zeile zeigt die Stellen.' : S.cur === 'LXX' ? 'Septuaginta nach der Wort-für-Wort-Zuordnung von CATSS, griechische Wörter als Lemma (lxx-morph).' : 'Targum nach der maschinellen Wortzuordnung zum Westminster-Text (ETCBC Targum Corpus, CC BY-NC 4.0); nur die zwölf häufigsten Lexeme.';
-    box.innerHTML = `<h4>${esc(I18N.t('Wie wird das Wort übersetzt?'))} <small>${esc(I18N.t('{} Belege · {} Wiedergaben', wcNum(tot), wcNum(D.kinds)))}</small></h4>
-      <div class="wcTrTabs" role="tablist">${S.keys.map(k => `<button type="button" role="tab" class="wcTrSrc${k === S.cur ? ' on' : ''}" aria-selected="${k === S.cur}" data-src="${k}">${esc(I18N.t(WC_TR_LABEL[k]))} <small>${wcNum(S.src[k].tot)}</small></button>`).join('')}</div>
+    const lab = g => g.other ? I18N.t('Andere') : g.forms.join(', ');
+    const row = (g, i) => `<div class="wcTrR${g.refs ? ' can' : ''}${S.open === i ? ' open' : ''}" data-g="${g.other ? 99 : i}"><i class="sw c${i < TOP && !g.other ? i + 1 : 0}"></i><span class="f" lang="${g.lang}"${g.lang === 'arc' ? ' dir="rtl"' : ''}>${g.lang === 'arc' && !g.other ? `<button type="button" class="wcTgL" data-q="${esc(g.forms[0])}" title="${esc(I18N.t('Im Wörterbuch nachschlagen'))}">${esc(lab(g))}</button>` : esc(lab(g))}${g.gl ? ` <small class="muted">${esc(g.gl)}</small>` : ''}</span><small class="n">${wcNum(g.n)}</small><small class="p">${Math.round(g.n / tot * 100)} %</small></div>${S.open === i && g.refs ? `<div class="fmRL wcTrRefs">${[...new Set(g.refs)].map(r => `<span class="fmR"><a data-ref="${esc(r)}">${esc(fmBook(r.replace(/ \d+:\d+$/, '')) + ' ' + r.match(/\d+:\d+$/)[0])}</a></span>`).join(' ')}</div>` : ''}`;
+    const note = S.IR && S.IR.tr && S.cur in S.IR.tr ? 'Gezählt sind die Stellen, an denen die Übersetzung diesem Wort allein (ohne weiteres Inhaltswort) zugeordnet ist; Formen mit demselben Wortstamm sind zusammengefasst, „und“ und Artikel am Anfang weggelassen. Klick auf eine Zeile zeigt die Stellen.' : S.cur === 'LXX' ? 'Septuaginta nach der Wort-für-Wort-Zuordnung von CATSS, griechische Wörter als Lemma (lxx-morph).' : 'Targum nach der maschinellen Wortzuordnung zum Westminster-Text (ETCBC Targum Corpus, CC BY-NC 4.0).';
+    const all = D.cells.reduce((a, c) => a + c.n, 0);
+    box.innerHTML = `<h4>${esc(I18N.t('Wie wird das Wort übersetzt?'))} <small>${esc(fk.length ? I18N.t('{} von {} Belegen', wcNum(tot), wcNum(all)) : I18N.t('{} Belege · {} Wiedergaben', wcNum(tot), wcNum(gs.length)))}</small></h4>
+      <div class="wcTrTabs" role="tablist">${S.keys.map(k => `<button type="button" role="tab" class="wcTrSrc${k === S.cur ? ' on' : ''}" aria-selected="${k === S.cur}" data-src="${k}">${esc(I18N.t(WC_TR_LABEL[k]))} <small>${wcNum(S.src[k].cells.reduce((a, c) => a + c.n, 0))}</small></button>`).join('')}</div>
+      ${dims.length ? `<div class="wcTrF">${dims.map(d => `<div class="wcTrFR"><span class="muted">${esc(I18N.t(d.name))}</span>${d.vals.map(([v, n]) => `<button type="button" class="wcTrFV${S.f[d.k] === v ? ' on' : ''}" data-dim="${d.k}" data-val="${esc(v)}" aria-pressed="${S.f[d.k] === v}">${esc(I18N.t(v))} <small>${wcNum(n)}</small></button>`).join('')}${S.f[d.k] && !d.vals.some(([v]) => v === S.f[d.k]) ? `<button type="button" class="wcTrFV on" data-dim="${d.k}" data-val="${esc(S.f[d.k])}" aria-pressed="true">${esc(I18N.t(S.f[d.k]))} <small>0</small></button>` : ''}</div>`).join('')}${fk.length ? `<button type="button" class="wcTrFV wcTrAll" data-dim="*">↺ ${esc(I18N.t('Alle Formen'))}</button>` : ''}</div>` : ''}
       <div class="wcTrBody"><svg class="wcTrRing" viewBox="0 0 200 200" role="img" aria-label="${esc(I18N.t('Wie wird das Wort übersetzt?'))}">${arcs}<text x="100" y="98" class="wcTrC" lang="he">${esc(lem)}</text><text x="100" y="122" class="wcTrT">${esc(wcNum(tot))}</text></svg>
-      <div class="wcTrL">${gs.slice(0, 20).map(row).join('')}${gs.length > 20 ? `<p class="muted">${esc(I18N.t('… und {} weitere Wiedergaben', wcNum(gs.length - 20)))}</p>` : ''}</div></div>
+      <div class="wcTrL">${gs.length ? gs.slice(0, 20).map(row).join('') : `<p class="muted">${esc(I18N.t('Keine Belege für diese Auswahl.'))}</p>`}${gs.length > 20 ? `<p class="muted">${esc(I18N.t('… und {} weitere Wiedergaben', wcNum(gs.length - 20)))}</p>` : ''}</div></div>
       <p class="muted wcLxN">${esc(I18N.t(note))}</p>`;
     const hl = i => { box.querySelectorAll('.wcTrS, .wcTrR').forEach(x => x.classList.toggle('dim', i != null && +x.dataset.g !== i && !(i === -2 && x.classList.contains('wcTrR') && +x.dataset.g >= TOP))); };
     box.querySelectorAll('.wcTrS, .wcTrR').forEach(x => { x.addEventListener('mouseenter', () => hl(+x.dataset.g >= TOP ? -2 : +x.dataset.g)); x.addEventListener('mouseleave', () => hl(null)); });
@@ -1502,12 +1534,14 @@
     const { lemma } = fmCur;
     const X = await loadTgRen(), box = $('#wcTgR');
     if (token !== wcToken || !X || !box || !X[lemma]) return;
-    const [tot, kinds, rest] = X[lemma].split('|');
-    const list = rest.split(',').map(x => { const [l, o, p, n, g] = x.split(':'); return { l, c: [+o, +p, +n], n: +o + +p + +n, g: String(g || '').replace(/^[A-Z][a-z]?\s+/, '').trim() }; }).filter(x => x.n);
+    const [labels, cells] = X[lemma], agg = labels.map(([l, g]) => ({ l, g, c: [0, 0, 0], n: 0 }));
+    cells.forEach(([gi, , o, p, n]) => { const x = agg[gi]; x.c[0] += o; x.c[1] += p; x.c[2] += n; x.n += o + p + n; });
+    const tot = agg.reduce((a, x) => a + x.n, 0), kinds = agg.filter(x => x.l !== '*').length + (agg.some(x => x.l === '*') ? 1 : 0);
+    const list = agg.filter(x => x.n && x.l !== '*').sort((a, b) => b.n - a.n);
     if (!list.length) return;
     const mx = Math.max(...list.map(x => x.n)), TGN = ['Onkelos', 'Pseudo-Jonathan', 'Neofiti 1'], ct = [0, 0, 0]; list.forEach(x => x.c.forEach((v, i) => { ct[i] += v; }));
     box.hidden = false;
-    box.innerHTML = `<h4>${esc(I18N.t('Wiedergabe in den Targumim'))} <small>${esc(I18N.t('{} Zuordnungen · {} aramäische Wörter', wcNum(+tot), wcNum(+kinds)))}</small></h4>
+    box.innerHTML = `<h4>${esc(I18N.t('Wiedergabe in den Targumim'))} <small>${esc(I18N.t('{} Zuordnungen · {} aramäische Wörter', wcNum(tot), wcNum(kinds)))}</small></h4>
       <div class="wcLx wcTgX">${list.slice(0, 10).map(x => `<div class="wcLxR"><span class="wcTgW"><button type="button" class="g wcTgL" lang="arc" dir="rtl" data-q="${esc(x.l)}" title="${esc(I18N.t('Im Wörterbuch nachschlagen'))}">${esc(x.l)}</button>${x.g ? `<small class="muted">${esc(x.g)}</small>` : ''}</span><span class="b" title="${esc(x.c.map((v, i) => TGN[i] + ': ' + wcNum(v)).join(' · '))}">${x.c.map((v, i) => v ? `<i class="t${i}" style="width:${Math.max(1, v / mx * 100).toFixed(1)}%"></i>` : '').join('')}</span><small>${wcNum(x.n)}</small></div>`).join('')}</div>
       <p class="wcTgK">${TGN.map((t, i) => `<span><i class="t${i}"></i>${esc(t)} <small>${wcNum(ct[i])}</small></span>`).join('')}</p>
       <p class="muted wcLxN">${esc(I18N.t('Nach einer maschinellen Wort-für-Wort-Zuordnung der Targumim zum Westminster-Text (gleiche Wurzel, gleiche Bedeutung, feste Wiedergaben, Wortfolge); gezählt sind die aramäischen Lexeme ohne Vorsilben (ETCBC Targum Corpus, CC BY-NC 4.0). Klick auf ein Wort schlägt es im Wörterbuch nach.'))}</p>`;
@@ -1593,6 +1627,7 @@
     const gl = e.target.closest('.wcGL[data-gl]'); if (gl) { openGForms(gl.dataset.gl, null, 'card'); return; }
     const tq = e.target.closest('.wcTgL[data-q]'); if (tq) { openDict(tq.dataset.q); return; }
     const ts = e.target.closest('.wcTrSrc[data-src]'); if (ts) { wcTrShow(ts.dataset.src); return; }
+    const tf = e.target.closest('.wcTrFV[data-dim]'); if (tf) { wcTrFilt(tf.dataset.dim, tf.dataset.val); return; }
     const tr = e.target.closest('.wcTrR[data-g]'); if (tr && !e.target.closest('a')) { wcTrRefs(+tr.dataset.g); return; }
     const hl = e.target.closest('.wcHL[data-hl]'); if (hl) { openForms(hl.dataset.hl, null, 'card'); return; }
     const go = e.target.closest('.wcLink[data-go]'); if (go) { fmShowTab(go.dataset.go); $('#formsPanel').scrollTop = 0; return; }

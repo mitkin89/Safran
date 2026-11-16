@@ -43,15 +43,21 @@ FIX = {853: 'ית', 834: 'ד די', 3588: 'ארי', 3068: 'יוי יהוה יי�
 FIX = {k: set(v.split()) for k, v in FIX.items()}
 FUNC = {853, 834, 3588, 413, 5921, 3808, 408, 2009, 1571, 518, 854, 5973, 4480, 3651, 5704, 8478, 310, 3644, 1931, 1992, 589, 595, 859, 587, 2088, 428, 3541, 4100, 4310, 3426, 369, 3605}
 PFX_H = {'c': 'ו', 'b': 'ב', 'l': 'ל', 'm': 'מ', 'k': 'כ', 's': 'ד'}
+def mcode(dl, dm):  # Bestimmung des Hauptworts (ohne Vorsilben), Suffix angehängt (wie tools/interlinear/renderings.py)
+    ls, ms = dl.split('/'), dm[1:].split('/')
+    i = next((k for k, x in enumerate(ls) if re.search(r'\d', x)), len(ls) - 1)
+    main = ms[i] if i < len(ms) else ms[-1]
+    suf = [x for x in ms[i + 1:] if x.startswith('S')]
+    return dm[0] + main + ('/' + suf[0] if suf else '')
 def heb_words(html):
     out = []
-    for l, t in re.findall(r'<span class="w" data-l="([^"]*)"[^>]*>(.*?)</span>', html):
+    for l, dm, t in re.findall(r'<span class="w" data-l="([^"]*)" data-m="([^"]*)"[^>]*>(.*?)</span>', html):
         parts = l.split('/'); m = re.match(r'\d+', parts[-1]); sn = int(m.group()) if m else None
         lem = (HL.get(parts[-1].strip()) or HL.get(str(sn)) or HL.get('%s a' % sn) or HL.get('%s b' % sn) or ['', '', '']) if sn else ['', '', '']
         pf = {PFX_H[p] for p in parts[:-1] if p in PFX_H}
         txt = cons(t)
         if len(parts) > 1 and txt and txt[0] in 'ובלמכה' and sum(1 for p in parts[:-1] if p in 'cblmkd') : txt = txt[sum(1 for p in parts[:-1] if p in 'cblmkd'):]  # Wortkörper ohne Vorsilben
-        out.append({'key': next((x.strip() for x in parts if re.search(r'\d', x)), ''), 'sn': sn, 'pf': pf, 'core': core(lem[0]), 'gl': gl(lem[1]), 'txt': txt, 'body': core(txt)})
+        out.append({'key': next((x.strip() for x in parts if re.search(r'\d', x)), ''), 'sn': sn, 'pf': pf, 'core': core(lem[0]), 'gl': gl(lem[1]), 'txt': txt, 'body': core(txt), 'm': mcode(l, dm)})
     return out
 def ara_words(html):  # grafische Wörter (durch Leerraum getrennt) mit ihren Morphemen
     plain = re.sub(r'<[^>]+>', '', html); words = plain.split()
@@ -162,7 +168,7 @@ def main():
                             if lk in ('ייי', 'יהוה'): lk = 'יוי'  # Gottesname: eine Zeile
                             if len(lk) < 2: continue
                             e = REN.setdefault(h['key'], {}).setdefault(lk, [0, 0, 0, {}, mm['gl0']])
-                            e[TGI[tg]] += 1; e[3][mm['voc']] = e[3].get(mm['voc'], 0) + 1
+                            e[TGI[tg]] += 1; c3 = e[3].setdefault(h['m'], [0, 0, 0]); c3[TGI[tg]] += 1
                     tot += len(res); cov += sum(1 for r in res if r); hw += len(H); hcov += len({i for r in res for i in r})
                 chs.append(vs)
             out[tg][book] = chs
@@ -171,9 +177,14 @@ def main():
     for k, d in REN.items():
         items = sorted(d.items(), key=lambda x: -(x[1][0] + x[1][1] + x[1][2]))
         tot = sum(x[1][0] + x[1][1] + x[1][2] for x in items)
-        ren[k] = '%d|%d|' % (tot, len(items)) + ','.join('%s:%d:%d:%d:%s' % (lk[:-1] + lk[-1].translate(FINAL), e[0], e[1], e[2], (e[4] or '').split(',')[0].split('|')[0].strip().replace(':', ' ').replace(',', ' ')) for lk, e in items[:12])
+        labels, cells = [], []
+        for gi, (lk, e) in enumerate(items):
+            g = min(gi, 30)  # ab dem 31. Lexem: „Andere“
+            if gi <= 30: labels.append(['*', ''] if gi == 30 else [lk[:-1] + lk[-1].translate(FINAL), re.sub(r'^[A-Z][a-z]?\s+', '', (e[4] or '').split(',')[0].split('|')[0].strip())])
+            for code, n in sorted(e[3].items()): cells.append([g] + [code] + n)
+        ren[k] = [labels, cells]
     p = os.path.join(proj, 'targum-ren.js')
-    open(p, 'w', encoding='utf8').write('// Wortkarte: Wiedergabe eines hebräischen Lemmas (Strong-Nummer wie in der OSHB) in den Targumim -> "Zuordnungen|verschiedene Lexeme|Lexem:Onkelos:Pseudo-Jonathan:Neofiti:Bedeutung,…" (die zwölf häufigsten); maschinell aus tools/targum/align.py; ETCBC Targum Corpus (CC BY-NC 4.0)\nwindow.TARGUM_REN=' + json.dumps(ren, ensure_ascii=False, separators=(',', ':')) + ';\n')
+    open(p, 'w', encoding='utf8').write('// Wortkarte: Wiedergabe eines hebräischen Lemmas (Strong-Nummer wie in der OSHB) in den Targumim -> [[[Lexem, Bedeutung] …], [[Gruppe, Bestimmung des hebräischen Worts (OSHB-Code), Onkelos, Pseudo-Jonathan, Neofiti] …]] (Gruppe 30 = alle weiteren Lexeme); maschinell aus tools/targum/align.py; ETCBC Targum Corpus (CC BY-NC 4.0)\nwindow.TARGUM_REN=' + json.dumps(ren, ensure_ascii=False, separators=(',', ':')) + ';\n')
     print('targum-ren.js', os.path.getsize(p), 'Bytes', len(ren), 'Lemmata')
     p = os.path.join(proj, 'targum-il.js')
     open(p, 'w', encoding='utf8').write('// Interlinear der Targumim: aramäisches Wort -> Westminster-Wörter (maschinell, tools/targum/align.py); Daten: ETCBC Targum Corpus (CC BY-NC 4.0), OSHB (CC BY 4.0)\nwindow.TARGUM_IL=' + json.dumps(out, ensure_ascii=False, separators=(',', ':')) + ';\n')

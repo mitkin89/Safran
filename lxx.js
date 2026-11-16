@@ -37,7 +37,8 @@
   const greek = (s, o) => pick(s, o).t.join(' ');
   // ein Vers: Westminster-HTML und Septuaginta-HTML -> [[Lemma, griechisches Lemma (oder Wortform)], …]
   // lems: Lemma je griechischem Wort des Verses (in der Reihenfolge von GMorph.words; null = unbekannt) – ohne lems bleiben die Wortformen
-  function pairs(heHtml, grHtml, lems) {
+  // withCode: dritter Eintrag = Bestimmung des hebräischen Hauptworts (OSHB-Code ohne Vorsilben, Suffix angehängt), für die Filter der Wortkarte
+  function pairs(heHtml, grHtml, lems, withCode) {
     const units = new Map(); // Schriftbild -> Liste griechischer Gruppen (in der Reihenfolge des Verses)
     let at = 0;
     for (const m of String(grHtml || '').matchAll(GSPAN)) {
@@ -61,7 +62,8 @@
       used.set(c, k + 1);
       const codes = m[2].slice(1).split('/');
       const p = pick(a[k].g, { prep: codes.slice(0, d.main).some(x => x[0] === 'R'), suf: codes.slice(d.main + 1).some(x => x[0] === 'S') });
-      out.push([seg.lemma, p.t.map((w, j) => (lems && lems[a[k].off + p.i[j]]) || w).join(' ')]);
+      const gr = p.t.map((w, j) => (lems && lems[a[k].off + p.i[j]]) || w).join(' ');
+      if (withCode) { const ms = m[2].slice(1).split('/'), suf = ms.slice(d.main + 1).find(x => x[0] === 'S'); out.push([seg.lemma, gr, m[2][0] + ms[d.main] + (suf ? '/' + suf : '')]); } else out.push([seg.lemma, gr]);
     }
     return out;
   }

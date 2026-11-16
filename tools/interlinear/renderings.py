@@ -31,6 +31,12 @@ def stem(w):
     for x in SUF:
         if w.endswith(x) and len(w) - len(x) >= 4: return w[:-len(x)]
     return w
+def mcode(dl, dm):  # Bestimmung des Hauptworts (ohne Vorsilben), Suffix angehängt: „HVqw3ms“, „HNcmsc/Sp3ms“
+    ls, ms = dl.split('/'), dm[1:].split('/')
+    i = next((k for k, x in enumerate(ls) if re.search(r'\d', x)), len(ls) - 1)
+    main = ms[i] if i < len(ms) else ms[-1]
+    suf = [x for x in ms[i + 1:] if x.startswith('S')]
+    return dm[0] + main + ('/' + suf[0] if suf else '')
 def b36(n):
     d = '0123456789abcdefghijklmnopqrstuvwxyz'; o = ''
     while True:
@@ -48,7 +54,8 @@ for tr, books in IL.items():
         for k, segs in verses.items():
             c, v = map(int, k.split(':'))
             if c > len(he) or v > len(he[c - 1]): continue
-            lems = [next((x.strip() for x in l.split('/') if re.search(r'\d', x)), '') for l in re.findall(r'<span class="w" data-l="([^"]*)"', he[c - 1][v - 1])]
+            ws = re.findall(r'<span class="w" data-l="([^"]*)" data-m="([^"]*)"', he[c - 1][v - 1])
+            lems = [next((x.strip() for x in l.split('/') if re.search(r'\d', x)), '') for l, m in ws]
             per = {}
             for idx, t in segs:
                 content = [i for i in idx if 1 <= i <= len(lems) and lems[i - 1] and lems[i - 1] not in FUNC]
@@ -59,23 +66,24 @@ for tr, books in IL.items():
                 if not form: continue
                 ks = [stem(w) for w in form.split() if w.lower() not in STOPW and not re.match(r'^(mein|dein|sein|unser|euer|eur|ihr)(e|en|em|er|es|m|n|s)?$', w.lower())]
                 key = ' '.join(ks) or ' '.join(stem(w) for w in form.split())
-                e = acc.setdefault(lems[i - 1], {}).setdefault(key, [0, {}, []])
+                e = acc.setdefault(lems[i - 1], {}).setdefault(key, [0, {}, {}])
                 e[0] += 1; fl = form.lower() if not form[:1].isupper() or len(form.split()) > 1 else form
                 e[1][fl] = e[1].get(fl, 0) + 1
-                e[2].append(bi * 1000000 + c * 1000 + v)
+                e[2].setdefault(mcode(*ws[i - 1]), []).append(bi * 1000000 + c * 1000 + v)
     res = {}
     for lem, groups in acc.items():
-        gs = sorted(groups.values(), key=lambda g: -g[0]); tot = sum(g[0] for g in gs)
-        parts = []
-        for g in gs[:40]:
-            forms = '¦'.join(sorted(g[1], key=lambda x: -g[1][x])[:4]).replace('~', ' ').replace(';', ' ').replace('|', ' ')
-            refs = sorted(set(g[2])); prev = 0; enc = []
-            for r in refs[:400]: enc.append(b36(r - prev)); prev = r
-            parts.append('%s~%d~%s' % (forms, g[0], '.'.join(enc)))
-        res[lem] = '%d|%d|%s' % (tot, len(gs), ';'.join(parts))
+        gs = sorted(groups.values(), key=lambda g: -g[0])
+        labels, cells = [], []
+        for gi, g in enumerate(gs):
+            labels.append(sorted(g[1], key=lambda x: -g[1][x])[:4])
+            for code, refs in sorted(g[2].items()):
+                refs = sorted(refs); prev = 0; enc = []
+                for r in refs: enc.append(b36(r - prev)); prev = r
+                cells.append([gi, code, len(refs), '.'.join(enc)])
+        res[lem] = [labels, cells]
     out[tr] = res
 p = os.path.join(R, 'interlin-ren.js')
 open(p, 'w', encoding='utf8').write('// Wortkarte: Wiedergabe hebräischer Lemmata in den wortgenau zugeordneten Übersetzungen (interlin.js) – erzeugt von tools/interlinear/renderings.py\n'
-                                    '// Format: {Übersetzung: {Lemma: "Belege|Gruppen|Form¦Form~Anzahl~Stellen;…"}}; Stellen: Buch*1000000+Kapitel*1000+Vers als Differenzen (Basis 36)\n'
+                                    '// Format: {books, tr: {Übersetzung: {Lemma: [[Formen je Gruppe …], [[Gruppe, Bestimmung (OSHB-Code des Hauptworts), Anzahl, Stellen] …]]}}}; Stellen: Buch*1000000+Kapitel*1000+Vers als Differenzen (Basis 36)\n'
                                     'window.INTERLIN_REN=' + json.dumps({'books': BOOKS, 'tr': out}, ensure_ascii=False, separators=(',', ':')) + ';\n')
 print({k: len(v) for k, v in out.items()}, os.path.getsize(p), 'Bytes')
