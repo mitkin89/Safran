@@ -1,6 +1,7 @@
 # Changelog
 
 ### New in 2.4.0
+- **Interlinear: Zunz, complete Nehemiah (1–13):** the word-by-word German under the Hebrew text now also covers the whole book of Nehemiah with Zunz's translation (`tools/interlinear/zunz/Nehemiah.txt`, 405 verses).
 - **Interlinear: the Targumim (Onkelos, Pseudo-Jonathan, Neofiti 1):** the three Targumim can be ticked in the Interlinear panel; their Aramaic words stand under the Hebrew words of the Westminster text. With a Targum column open, clicking a Hebrew word lights up the matching Aramaic word(s) in the Targum column too, and vice versa. The word alignment is computed by machine (`tools/targum/align.py` → `targum-il.js`): shared roots with the usual sound correspondences, matching English glosses of the OSHB and ETCBC lexemes, a list of fixed renderings (את → ית, אשר → ד, יהוה → יוי, דבר → מלל …) and the word order; additions of Pseudo-Jonathan and Neofiti stay unaligned. Onkelos: 93 % of the Aramaic words aligned. Picture for Onkelos: micrographic figure from a Pentateuch manuscript.
 - **Interlinear: Zunz, complete Ezra (1–10):** the word-by-word German under the Hebrew text now also covers the whole book of Ezra with Zunz's translation (`tools/interlinear/zunz/Ezra.txt`, 280 verses).
 - **Interlinear: Zunz, complete Esther (1–10):** the word-by-word German under the Hebrew text now also covers the whole book of Esther with Zunz's translation (`tools/interlinear/zunz/Esther.txt`, 167 verses).
