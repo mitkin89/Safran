@@ -1487,6 +1487,7 @@
   let wcTrMore = false; try { wcTrMore = localStorage.getItem('wcTrMore') === '1'; } catch { /* egal */ }
   const loadLxxRen = () => lxxRenP || (lxxRenP = lazyScript('lxx-ren.js', () => window.LXX_REN).catch(() => { lxxRenP = null; return null; }));
   const loadIlRen = () => ilRenP || (ilRenP = lazyScript('interlin-ren.js', () => window.INTERLIN_REN).catch(() => { ilRenP = null; return null; }));
+  const WC_TR_DE = new Set(['Zunz', 'Breuer', 'Philippson', 'Herxheimer', 'Goldschmidt']);
   const WC_TR_LABEL = { Zunz: 'Zunz (1838)', Breuer: 'Breuer', Philippson: 'Philippson', Herxheimer: 'Herxheimer', Goldschmidt: 'Goldschmidt (1921)', LXX: 'Septuaginta', O: 'Onkelos', PJ: 'Pseudo-Jonathan', N: 'Neofiti 1' };
   // Stellen: Buch*1000000 + Kapitel*1000 + Vers als Differenzen (Basis 36) -> Zahlen
   function unB36(str) { let prev = 0; return String(str || '').split('.').filter(Boolean).map(x => (prev += parseInt(x, 36))); }
@@ -1513,9 +1514,9 @@
     const src = {};
     if (IR) for (const [tr, M] of Object.entries(IR.tr)) { const x = M[lemma]; if (!x) continue; src[tr] = { lang: 'de', labels: x[0].map(f => ({ forms: f })), cells: x[1].map(([g, code, n, refs]) => ({ g, code, n, refs })) }; }
     const lx = LR && LR[lemma];
-    if (lx) src.LXX = { lang: 'grc', labels: lx[0].map(g => ({ forms: [g], other: g === '*' })), cells: lx[1].map(([g, code, n]) => ({ g, code, n })) };
+    if (lx) src.LXX = { lang: 'grc', labels: lx[0].map(g => ({ forms: [g], other: g === '*' })), cells: lx[1].map(([g, code, n, refs]) => ({ g, code, n, refs })) };
     const tg = TR && TR[lemma];
-    if (tg) ['O', 'PJ', 'N'].forEach((k, i) => { const cells = tg[1].map(c => ({ g: c[0], code: c[1], n: c[2 + i] })).filter(c => c.n); if (cells.length) src[k] = { lang: 'arc', labels: tg[0].map(([l, gl]) => ({ forms: [l], gl, other: l === '*' })), cells }; });
+    if (tg) ['O', 'PJ', 'N'].forEach((k, i) => { const cells = tg[1].map(c => ({ g: c[0], code: c[1], n: c[2 + i], refs: c[5 + i] })).filter(c => c.n); if (cells.length) src[k] = { lang: 'arc', labels: tg[0].map(([l, gl]) => ({ forms: [l], gl, other: l === '*' })), cells }; });
     for (const k in src) src[k].total = src[k].cells.reduce((a, c) => a + c.n, 0);
     const keys = Object.keys(WC_TR_LABEL).filter(k => src[k] && src[k].total >= 2);
     return { src, keys, IR };
@@ -1566,6 +1567,7 @@
   // Vorkommen des Lemmas in einem Vers mit dem deutschen Segment der Fassung (nur Segmente, die diesem Wort allein zugeordnet sind – wie in der Zählung)
   function wcTrOcc(tr, ref, lemma) {
     const IL = window.INTERLIN, ws = wcVerseWords.get(ref) || [], m = /^(.*) (\d+:\d+)$/.exec(ref);
+    if (!WC_TR_DE.has(tr)) return ws.map((w, k) => ({ i: k + 1, he: w.he, code: w.code, de: '', cl: '' })).filter((w, k) => ws[k].lem === lemma); // Septuaginta/Targum: nur die hebräische Form, die Wiedergabe ist die Zeile selbst
     const segs = m && IL && IL[tr] && IL[tr][m[1]] && IL[tr][m[1]][m[2]]; if (!segs || !ws.length) return [];
     const per = new Map();
     segs.forEach(([idx, t], k) => { const c = idx.filter(i => i >= 1 && i <= ws.length && ws[i - 1].lem && ws[i - 1].lem !== '853'); if (c.length === 1) (per.get(c[0]) || per.set(c[0], []).get(c[0])).push([k, t]); });
@@ -1625,7 +1627,7 @@
         if (o) u.add(o.i);
         if (bk !== lb) { html += `<div class="bk">${esc(fmBook(BOOKS[bk]))}</div>`; lb = bk; }
         const cv = (Math.floor(it.num / 1000) % 1000) + (I18N.lang === 'de' ? ',' : ':') + (it.num % 1000);
-        html += `<div class="ln"><a data-ref="${esc(r)}">${cv}</a><span class="he" lang="he" dir="rtl">${o ? esc(o.he) : ''}</span><span class="de" lang="de" dir="ltr">${o ? esc(o.de) : withLabel ? `<span class="muted">${esc(D.labels[it.g].forms[0])}</span>` : ''}${hs && hs.get(it.g) ? ` <small class="hint">${esc(hs.get(it.g))}</small>` : ''}</span></div>`;
+        html += `<div class="ln"><a data-ref="${esc(r)}">${cv}</a><span class="he" lang="he" dir="rtl">${o ? esc(o.he) : ''}</span><span class="de" lang="${de ? 'de' : D.lang}" dir="${D.lang === 'arc' ? 'rtl' : 'ltr'}">${o && o.de ? esc(o.de) : !de ? esc(D.labels[it.g].forms[0]) : withLabel ? `<span class="muted">${esc(D.labels[it.g].forms[0])}</span>` : ''}${hs && hs.get(it.g) ? ` <small class="hint">${esc(hs.get(it.g))}</small>` : ''}</span></div>`;
       });
       const rest = items.length - lim, STEP = 300;
       const more = rest > 0 ? `<div class="mr"><button type="button" class="wcTrMoreRefs" dir="auto" data-to="${lim + Math.min(rest, STEP)}">${esc(rest <= STEP ? I18N.t('alle {} Stellen zeigen', wcNum(items.length)) : I18N.t('weitere {} Stellen zeigen', wcNum(STEP)))}</button></div>` : '';

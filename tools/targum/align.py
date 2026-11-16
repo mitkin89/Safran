@@ -139,6 +139,16 @@ def align(H, A):
                 res[y] = sorted(set(res[y] + [x + 1])); used.add(x + 1); break
     return res, anchors
 REN, TGI = {}, {'Onkelos': 0, 'Pseudo-Jonathan': 1, 'Neofiti': 2}
+RB = ['Genesis', 'Exodus', 'Leviticus', 'Numbers', 'Deuteronomy']  # Anfang der Buchliste von interlin-ren.js: Stellen gleich kodiert
+def b36(refs):
+    d = '0123456789abcdefghijklmnopqrstuvwxyz'; out = []; prev = 0
+    for r in sorted(refs):
+        n, s = r - prev, ''; prev = r
+        while True:
+            n, x = divmod(n, 36); s = d[x] + s
+            if not n: break
+        out.append(s)
+    return '.'.join(out)
 def main():
     out, stat = {}, {}
     for tg, pat in TG.items():
@@ -168,7 +178,8 @@ def main():
                             if lk in ('ייי', 'יהוה'): lk = 'יוי'  # Gottesname: eine Zeile
                             if len(lk) < 2: continue
                             e = REN.setdefault(h['key'], {}).setdefault(lk, [0, 0, 0, {}, mm['gl0']])
-                            e[TGI[tg]] += 1; c3 = e[3].setdefault(h['m'], [0, 0, 0]); c3[TGI[tg]] += 1
+                            e[TGI[tg]] += 1; c3 = e[3].setdefault(h['m'], [0, 0, 0, [], [], []]); c3[TGI[tg]] += 1
+                            c3[3 + TGI[tg]].append(RB.index(book) * 1000000 + (c + 1) * 1000 + v + 1)
                     tot += len(res); cov += sum(1 for r in res if r); hw += len(H); hcov += len({i for r in res for i in r})
                 chs.append(vs)
             out[tg][book] = chs
@@ -181,10 +192,10 @@ def main():
         for gi, (lk, e) in enumerate(items):
             g = min(gi, 30)  # ab dem 31. Lexem: „Andere“
             if gi <= 30: labels.append(['*', ''] if gi == 30 else [lk[:-1] + lk[-1].translate(FINAL), re.sub(r'^[A-Z][a-z]?\s+', '', (e[4] or '').split(',')[0].split('|')[0].strip())])
-            for code, n in sorted(e[3].items()): cells.append([g] + [code] + n)
+            for code, n in sorted(e[3].items()): cells.append([g, code] + n[:3] + [b36(r) for r in n[3:]])
         ren[k] = [labels, cells]
     p = os.path.join(proj, 'targum-ren.js')
-    open(p, 'w', encoding='utf8').write('// Wortkarte: Wiedergabe eines hebräischen Lemmas (Strong-Nummer wie in der OSHB) in den Targumim -> [[[Lexem, Bedeutung] …], [[Gruppe, Bestimmung des hebräischen Worts (OSHB-Code), Onkelos, Pseudo-Jonathan, Neofiti] …]] (Gruppe 30 = alle weiteren Lexeme); maschinell aus tools/targum/align.py; ETCBC Targum Corpus (CC BY-NC 4.0)\nwindow.TARGUM_REN=' + json.dumps(ren, ensure_ascii=False, separators=(',', ':')) + ';\n')
+    open(p, 'w', encoding='utf8').write('// Wortkarte: Wiedergabe eines hebräischen Lemmas (Strong-Nummer wie in der OSHB) in den Targumim -> [[[Lexem, Bedeutung] …], [[Gruppe, Bestimmung des hebräischen Worts (OSHB-Code), Onkelos, Pseudo-Jonathan, Neofiti, Stellen Onkelos, Stellen Pseudo-Jonathan, Stellen Neofiti] …]] (Stellen wie interlin-ren.js: Buch*1000000+Kapitel*1000+Vers, Differenzen Basis 36) (Gruppe 30 = alle weiteren Lexeme); maschinell aus tools/targum/align.py; ETCBC Targum Corpus (CC BY-NC 4.0)\nwindow.TARGUM_REN=' + json.dumps(ren, ensure_ascii=False, separators=(',', ':')) + ';\n')
     print('targum-ren.js', os.path.getsize(p), 'Bytes', len(ren), 'Lemmata')
     p = os.path.join(proj, 'targum-il.js')
     open(p, 'w', encoding='utf8').write('// Interlinear der Targumim: aramäisches Wort -> Westminster-Wörter (maschinell, tools/targum/align.py); Daten: ETCBC Targum Corpus (CC BY-NC 4.0), OSHB (CC BY 4.0)\nwindow.TARGUM_IL=' + json.dumps(out, ensure_ascii=False, separators=(',', ':')) + ';\n')
