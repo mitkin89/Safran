@@ -23,6 +23,11 @@
   <sub>Genesis 1 as an interlinear: under every Hebrew word the German of Zunz (1838) and Goldschmidt (1921). A click on a word highlights its counterpart in the running translation.</sub>
 </p>
 
+<p align="center">
+  <a href="https://www.youtube.com/watch?v=_htLzC7Q3Ug"><img src="https://img.youtube.com/vi/_htLzC7Q3Ug/maxresdefault.jpg" alt="Watch the Safran overview video on YouTube" width="600"></a><br>
+  <sub>▶ Watch the overview video on YouTube</sub>
+</p>
+
 Safran is a free desktop app for macOS, Windows and Linux that keeps your texts on your own computer. Pick the books and languages you want from the [Sefaria](https://www.sefaria.org) library once, and read, search and annotate them afterwards without an internet connection. New in 2.5.0: the **whole Tanakh word by word in German** (interlinear) and a **word card** that shows how a Hebrew word is translated. On top of that, Safran ships **more than 50 German works** (translations, commentaries and reference works) that are hard to find anywhere else, among them Louis Ginzberg's *Legenden der Juden* from his German manuscript, plus **eight dictionaries and reference works** with more than 100,000 entries. Safran is an independent project and not affiliated with Sefaria.
 
 ## Why Safran?
@@ -118,7 +123,7 @@ And everything else:
 </p>
 
 <p align="center">
-  <a href="screenshots/lxx-comparison.png"><img src="screenshots/lxx-comparison.png" alt="Genesis 1:20 with the Qumran scrolls on the left and the Septuagint on the right; each Greek word group has its Hebrew counterpart above it, and a clicked plus of the Septuagint shows its likely Hebrew retroversion" width="900"></a><br>
+  <a href="screenshots/lxx-comparison.png"><img src="screenshots/lxx-comparison.png" alt="Genesis 1:20 with the Qumran scrolls on the left, Zunz in the middle and the Septuagint on the right; each Greek word group has its Hebrew counterpart above it, and a clicked plus of the Septuagint shows its likely Hebrew retroversion" width="900"></a><br>
   <sub>LXX–MT comparison: the Hebrew counterpart above every Greek word group, pluses and minuses of the Septuagint marked, and a click on a plus shows the likely Hebrew retroversion.</sub>
 </p>
 
@@ -191,8 +196,8 @@ Also bundled: the Westminster Leningrad Codex with morphology (OSHB), the Aleppo
 ## More screenshots
 
 <p align="center">
-  <img src="screenshots/safran-tour.gif" alt="Short tour: Genesis with commentary and dictionary pinned beside the text, then the outline of Jeremiah" width="900"><br>
-  <sub>Short tour: commentary and dictionary pinned beside the text, and the outline panel of a book.</sub>
+  <img src="screenshots/safran-tour.gif" alt="Short tour through Genesis 1: switching on the interlinear with Zunz and Goldschmidt, a word card with its forms table, Everything on this passage, and a dictionary lookup" width="900"><br>
+  <sub>Short tour: interlinear, word card with forms table, <i>Everything on this passage</i>, and a dictionary lookup by double-click.</sub>
 </p>
 
 <details>
@@ -204,13 +209,13 @@ Also bundled: the Westminster Leningrad Codex with morphology (OSHB), the Aleppo
 </p>
 
 <p align="center">
-  <a href="screenshots/search-advanced.png"><img src="screenshots/search-advanced.png" alt="Search tab: anf*, gott and erd* within 10 words, distribution chart per book, hits by book and category filter" width="900"></a><br>
+  <a href="screenshots/search-advanced.png"><img src="screenshots/search-advanced.png" alt="Search tab: anf* gott erd* within 10 words in the German texts, distribution chart per book, hits by book and category filter" width="900"></a><br>
   <sub>Advanced search: wildcards and words near each other, a chart of hits per book, and a category filter.</sub>
 </p>
 
 <p align="center">
-  <a href="screenshots/map-israel.png"><img src="screenshots/map-israel.png" alt="Map panel for Joshua 10: the southern campaign route, a distance measurement of 39 km with an elevation profile, and the places of the chapter" width="900"></a><br>
-  <sub>Bible map: routes from the text, distance measuring with an elevation profile, and all places of the chapter.</sub>
+  <a href="screenshots/map-israel.png"><img src="screenshots/map-israel.png" alt="Joshua 10 with the map pinned beside the text: the route of the southern campaign, its first leg measured at 35 km with an elevation profile" width="900"></a><br>
+  <sub>Bible map: routes from the text and distance measuring with an elevation profile; the places of the chapter are listed below the map.</sub>
 </p>
 
 </details>

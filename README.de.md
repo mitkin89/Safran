@@ -23,6 +23,11 @@
   <sub>Genesis 1 als Interlinear: unter jedem hebräischen Wort das Deutsch von Zunz (1838) und Goldschmidt (1921). Ein Klick auf ein Wort hebt sein Gegenstück in der fortlaufenden Übersetzung hervor.</sub>
 </p>
 
+<p align="center">
+  <a href="https://www.youtube.com/watch?v=_htLzC7Q3Ug"><img src="https://img.youtube.com/vi/_htLzC7Q3Ug/maxresdefault.jpg" alt="Safran-Überblicksvideo auf YouTube ansehen" width="600"></a><br>
+  <sub>▶ Überblicksvideo auf YouTube ansehen</sub>
+</p>
+
 Safran ist eine kostenlose Desktop-App für macOS, Windows und Linux, die deine Texte auf dem eigenen Rechner hält. Du wählst einmal die Bücher und Sprachen aus der [Sefaria](https://www.sefaria.org)-Bibliothek und liest, durchsuchst und kommentierst sie danach ohne Internetverbindung. Neu in 2.5.0: der **ganze Tanach Wort für Wort auf Deutsch** (Interlinear) und eine **Wortkarte**, die zeigt, wie ein hebräisches Wort übersetzt wird. Dazu bringt Safran **über 50 deutsche Werke** mit (Übersetzungen, Kommentare und Nachschlagewerke), die es sonst kaum gibt, darunter Louis Ginzbergs *Legenden der Juden* nach seinem deutschen Manuskript, und **acht Wörterbücher und Nachschlagewerke** mit über 100.000 Einträgen. Safran ist ein unabhängiges Projekt und nicht mit Sefaria verbunden.
 
 ## Warum Safran?
@@ -118,7 +123,7 @@ Und alles Weitere:
 </p>
 
 <p align="center">
-  <a href="screenshots/lxx-comparison.png"><img src="screenshots/lxx-comparison.png" alt="Genesis 1,20 mit den Qumran-Rollen links und der Septuaginta rechts; über jeder griechischen Wortgruppe steht das hebräische Gegenstück, und ein angeklicktes Plus der Septuaginta zeigt seine wahrscheinliche hebräische Rückübersetzung" width="900"></a><br>
+  <a href="screenshots/lxx-comparison.png"><img src="screenshots/lxx-comparison.png" alt="Genesis 1,20 mit den Qumran-Rollen links, Zunz in der Mitte und der Septuaginta rechts; über jeder griechischen Wortgruppe steht das hebräische Gegenstück, und ein angeklicktes Plus der Septuaginta zeigt seine wahrscheinliche hebräische Rückübersetzung" width="900"></a><br>
   <sub>LXX-MT-Vergleich: das hebräische Gegenstück über jeder griechischen Wortgruppe, Plus und Minus der Septuaginta markiert; ein Klick auf ein Plus zeigt die wahrscheinliche hebräische Rückübersetzung.</sub>
 </p>
 
@@ -191,8 +196,8 @@ Ebenfalls enthalten: der Westminster Leningrad Codex mit Morphologie (OSHB), der
 ## Weitere Bildschirmfotos
 
 <p align="center">
-  <img src="screenshots/safran-tour.gif" alt="Kurze Tour: Genesis mit Kommentar und Wörterbuch neben dem Text, danach die Gliederung von Jeremia" width="900"><br>
-  <sub>Kurze Tour: Kommentar und Wörterbuch neben dem Text angepinnt, dazu das Gliederungsfenster eines Buches.</sub>
+  <img src="screenshots/safran-tour.gif" alt="Kurze Tour durch Genesis 1: Interlinear mit Zunz und Goldschmidt einschalten, eine Wortkarte mit Formentabelle, Alles zu dieser Stelle und Nachschlagen im Wörterbuch" width="900"><br>
+  <sub>Kurze Tour: Interlinear, Wortkarte mit Formentabelle, <i>Alles zu dieser Stelle</i> und Nachschlagen im Wörterbuch per Doppelklick.</sub>
 </p>
 
 <details>
@@ -204,13 +209,13 @@ Ebenfalls enthalten: der Westminster Leningrad Codex mit Morphologie (OSHB), der
 </p>
 
 <p align="center">
-  <a href="screenshots/search-advanced.png"><img src="screenshots/search-advanced.png" alt="Suche-Reiter: anf*, gott und erd* im Abstand von 10 Wörtern, Verteilungsdiagramm je Buch, Treffer nach Buch und Kategorienfilter" width="900"></a><br>
+  <a href="screenshots/search-advanced.png"><img src="screenshots/search-advanced.png" alt="Suche-Reiter: anf* gott erd* mit höchstens 10 Wörtern Abstand in den deutschen Texten, Verteilungsdiagramm je Buch, Treffer nach Buch und Kategorienfilter" width="900"></a><br>
   <sub>Erweiterte Suche: Platzhalter und Wörter in der Nähe, ein Diagramm der Treffer je Buch und ein Kategorienfilter.</sub>
 </p>
 
 <p align="center">
-  <a href="screenshots/map-israel.png"><img src="screenshots/map-israel.png" alt="Kartenfenster zu Josua 10: Route des Südfeldzugs, eine Messung von 39 km mit Höhenprofil und die Orte des Kapitels" width="900"></a><br>
-  <sub>Bibelkarte: Routen aus dem Text, Entfernungen messen mit Höhenprofil und alle Orte des Kapitels.</sub>
+  <a href="screenshots/map-israel.png"><img src="screenshots/map-israel.png" alt="Josua 10 mit der Karte neben dem Text: die Route des Südfeldzugs, der erste Abschnitt mit 35 km gemessen, dazu das Höhenprofil" width="900"></a><br>
+  <sub>Bibelkarte: Routen aus dem Text und Entfernungen messen mit Höhenprofil; die Orte des Kapitels stehen unter der Karte.</sub>
 </p>
 
 </details>
