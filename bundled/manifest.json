@@ -3781,474 +3781,6 @@
    "hash": "645b6b0ee120b7e945c717ca3d7a7111341fc28c"
   },
   {
-   "rel": "own/Amos/he/Qumran-Rollen (ETCBC DSS).json",
-   "title": "Amos",
-   "heTitle": "עמוס",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
-   "categories": [
-    "Tanakh",
-    "Prophets"
-   ],
-   "kind": "he",
-   "hash": "2d779abd1d5f3775cc33f67ebaf31c0c6dcec8ec"
-  },
-  {
-   "rel": "own/Daniel/he/Qumran-Rollen (ETCBC DSS).json",
-   "title": "Daniel",
-   "heTitle": "דניאל",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
-   "categories": [
-    "Tanakh",
-    "Writings"
-   ],
-   "kind": "he",
-   "hash": "fbfa01571496dff1e6ead471e61c75b90f1cb6e6"
-  },
-  {
-   "rel": "own/Deuteronomy/he/Qumran-Rollen (ETCBC DSS).json",
-   "title": "Deuteronomy",
-   "heTitle": "דברים",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
-   "categories": [
-    "Tanakh",
-    "Torah"
-   ],
-   "kind": "he",
-   "hash": "0c97fd017e46996cec8f1e27b7d3531b3dcad734"
-  },
-  {
-   "rel": "own/Ecclesiastes/he/Qumran-Rollen (ETCBC DSS).json",
-   "title": "Ecclesiastes",
-   "heTitle": "קהלת",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
-   "categories": [
-    "Tanakh",
-    "Writings"
-   ],
-   "kind": "he",
-   "hash": "de8a040c74b8234ea3bd0b98028cb1d3b1b23b53"
-  },
-  {
-   "rel": "own/Exodus/he/Qumran-Rollen (ETCBC DSS).json",
-   "title": "Exodus",
-   "heTitle": "שמות",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
-   "categories": [
-    "Tanakh",
-    "Torah"
-   ],
-   "kind": "he",
-   "hash": "2a04687acbb5cacb738bf3e1d6de9cb32493f40e"
-  },
-  {
-   "rel": "own/Ezekiel/he/Qumran-Rollen (ETCBC DSS).json",
-   "title": "Ezekiel",
-   "heTitle": "יחזקאל",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
-   "categories": [
-    "Tanakh",
-    "Prophets"
-   ],
-   "kind": "he",
-   "hash": "2e88caa6618a59375bd919c6553262b8989c61d5"
-  },
-  {
-   "rel": "own/Ezra/he/Qumran-Rollen (ETCBC DSS).json",
-   "title": "Ezra",
-   "heTitle": "עזרא",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
-   "categories": [
-    "Tanakh",
-    "Writings"
-   ],
-   "kind": "he",
-   "hash": "55a25f65e14024c7c65b93c5f55400f762e06f7d"
-  },
-  {
-   "rel": "own/Genesis/he/Qumran-Rollen (ETCBC DSS).json",
-   "title": "Genesis",
-   "heTitle": "בראשית",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
-   "categories": [
-    "Tanakh",
-    "Torah"
-   ],
-   "kind": "he",
-   "hash": "13189847bd03578a28db2228845b1029cc571613"
-  },
-  {
-   "rel": "own/Habakkuk/he/Qumran-Rollen (ETCBC DSS).json",
-   "title": "Habakkuk",
-   "heTitle": "חבקוק",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
-   "categories": [
-    "Tanakh",
-    "Prophets"
-   ],
-   "kind": "he",
-   "hash": "bc753046b2274121b65a8f9be5293caeb6221433"
-  },
-  {
-   "rel": "own/Haggai/he/Qumran-Rollen (ETCBC DSS).json",
-   "title": "Haggai",
-   "heTitle": "חגי",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
-   "categories": [
-    "Tanakh",
-    "Prophets"
-   ],
-   "kind": "he",
-   "hash": "34a67dbe508615e2fc147f0a1f18f2df2ada305b"
-  },
-  {
-   "rel": "own/Hosea/he/Qumran-Rollen (ETCBC DSS).json",
-   "title": "Hosea",
-   "heTitle": "הושע",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
-   "categories": [
-    "Tanakh",
-    "Prophets"
-   ],
-   "kind": "he",
-   "hash": "fce19a5812878acea2744124600357863cbbaa0e"
-  },
-  {
-   "rel": "own/I Kings/he/Qumran-Rollen (ETCBC DSS).json",
-   "title": "I Kings",
-   "heTitle": "מלכים א",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
-   "categories": [
-    "Tanakh",
-    "Prophets"
-   ],
-   "kind": "he",
-   "hash": "177c555372b26f0614f8cd73b824c9df51156fa9"
-  },
-  {
-   "rel": "own/I Samuel/he/Qumran-Rollen (ETCBC DSS).json",
-   "title": "I Samuel",
-   "heTitle": "שמואל א",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
-   "categories": [
-    "Tanakh",
-    "Prophets"
-   ],
-   "kind": "he",
-   "hash": "a32fbed81d2a35d0d8127a2e4088695ea9414eb6"
-  },
-  {
-   "rel": "own/II Chronicles/he/Qumran-Rollen (ETCBC DSS).json",
-   "title": "II Chronicles",
-   "heTitle": "דברי הימים ב",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
-   "categories": [
-    "Tanakh",
-    "Writings"
-   ],
-   "kind": "he",
-   "hash": "090f207e886c843c55454bf52b3c46be267ac820"
-  },
-  {
-   "rel": "own/II Kings/he/Qumran-Rollen (ETCBC DSS).json",
-   "title": "II Kings",
-   "heTitle": "מלכים ב",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
-   "categories": [
-    "Tanakh",
-    "Prophets"
-   ],
-   "kind": "he",
-   "hash": "daf733a634547b6b487e87d6b2846a2166273026"
-  },
-  {
-   "rel": "own/II Samuel/he/Qumran-Rollen (ETCBC DSS).json",
-   "title": "II Samuel",
-   "heTitle": "שמואל ב",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
-   "categories": [
-    "Tanakh",
-    "Prophets"
-   ],
-   "kind": "he",
-   "hash": "05668004babf3ea507aa1c8c7ce2f97ee818e0dd"
-  },
-  {
-   "rel": "own/Isaiah/he/Qumran-Rollen (ETCBC DSS).json",
-   "title": "Isaiah",
-   "heTitle": "ישעיהו",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
-   "categories": [
-    "Tanakh",
-    "Prophets"
-   ],
-   "kind": "he",
-   "hash": "7d82ecf4d356cbaa7063707dfecb4e7bcbcff480"
-  },
-  {
-   "rel": "own/Jeremiah/he/Qumran-Rollen (ETCBC DSS).json",
-   "title": "Jeremiah",
-   "heTitle": "ירמיהו",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
-   "categories": [
-    "Tanakh",
-    "Prophets"
-   ],
-   "kind": "he",
-   "hash": "612140d8bc162521755edf83ac7b554287301eec"
-  },
-  {
-   "rel": "own/Job/he/Qumran-Rollen (ETCBC DSS).json",
-   "title": "Job",
-   "heTitle": "איוב",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
-   "categories": [
-    "Tanakh",
-    "Writings"
-   ],
-   "kind": "he",
-   "hash": "7dae93a2dbb31f010cdab08779687ab2e071be01"
-  },
-  {
-   "rel": "own/Joel/he/Qumran-Rollen (ETCBC DSS).json",
-   "title": "Joel",
-   "heTitle": "יואל",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
-   "categories": [
-    "Tanakh",
-    "Prophets"
-   ],
-   "kind": "he",
-   "hash": "99027e1b5fd7857c1cb16e97325e682ea8a725c5"
-  },
-  {
-   "rel": "own/Jonah/he/Qumran-Rollen (ETCBC DSS).json",
-   "title": "Jonah",
-   "heTitle": "יונה",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
-   "categories": [
-    "Tanakh",
-    "Prophets"
-   ],
-   "kind": "he",
-   "hash": "56b5bffdbdbf4f4ed45087085679b3626fcf6cbe"
-  },
-  {
-   "rel": "own/Joshua/he/Qumran-Rollen (ETCBC DSS).json",
-   "title": "Joshua",
-   "heTitle": "יהושע",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
-   "categories": [
-    "Tanakh",
-    "Prophets"
-   ],
-   "kind": "he",
-   "hash": "121a1e8d8b436506fdaae72fe1565a0181d5a52b"
-  },
-  {
-   "rel": "own/Judges/he/Qumran-Rollen (ETCBC DSS).json",
-   "title": "Judges",
-   "heTitle": "שופטים",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
-   "categories": [
-    "Tanakh",
-    "Prophets"
-   ],
-   "kind": "he",
-   "hash": "fdf5709173e8445f90e37ae5c8c431301983d339"
-  },
-  {
-   "rel": "own/Lamentations/he/Qumran-Rollen (ETCBC DSS).json",
-   "title": "Lamentations",
-   "heTitle": "איכה",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
-   "categories": [
-    "Tanakh",
-    "Writings"
-   ],
-   "kind": "he",
-   "hash": "fda5683f0fdeb79482f7435e28f4c1146ae12d3e"
-  },
-  {
-   "rel": "own/Leviticus/he/Qumran-Rollen (ETCBC DSS).json",
-   "title": "Leviticus",
-   "heTitle": "ויקרא",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
-   "categories": [
-    "Tanakh",
-    "Torah"
-   ],
-   "kind": "he",
-   "hash": "ad6f4b4c143529ead276c1722c28763b298ede98"
-  },
-  {
-   "rel": "own/Malachi/he/Qumran-Rollen (ETCBC DSS).json",
-   "title": "Malachi",
-   "heTitle": "מלאכי",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
-   "categories": [
-    "Tanakh",
-    "Prophets"
-   ],
-   "kind": "he",
-   "hash": "690df01b92d894fba39835b47fc357ff97bd556b"
-  },
-  {
-   "rel": "own/Micah/he/Qumran-Rollen (ETCBC DSS).json",
-   "title": "Micah",
-   "heTitle": "מיכה",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
-   "categories": [
-    "Tanakh",
-    "Prophets"
-   ],
-   "kind": "he",
-   "hash": "30d2dbcd98c1f33d69101d8f84e71f10ad7cd9ec"
-  },
-  {
-   "rel": "own/Nahum/he/Qumran-Rollen (ETCBC DSS).json",
-   "title": "Nahum",
-   "heTitle": "נחום",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
-   "categories": [
-    "Tanakh",
-    "Prophets"
-   ],
-   "kind": "he",
-   "hash": "cf7c9be23c24abd89f2d3245a5094c9d7a3f1d0e"
-  },
-  {
-   "rel": "own/Numbers/he/Qumran-Rollen (ETCBC DSS).json",
-   "title": "Numbers",
-   "heTitle": "במדבר",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
-   "categories": [
-    "Tanakh",
-    "Torah"
-   ],
-   "kind": "he",
-   "hash": "929444b44ef46864f8ad03c3c63a9bee4ed353aa"
-  },
-  {
-   "rel": "own/Obadiah/he/Qumran-Rollen (ETCBC DSS).json",
-   "title": "Obadiah",
-   "heTitle": "עובדיה",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
-   "categories": [
-    "Tanakh",
-    "Prophets"
-   ],
-   "kind": "he",
-   "hash": "3213ab4504b05bc9b71c9e9f189b56379a3c530a"
-  },
-  {
-   "rel": "own/Proverbs/he/Qumran-Rollen (ETCBC DSS).json",
-   "title": "Proverbs",
-   "heTitle": "משלי",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
-   "categories": [
-    "Tanakh",
-    "Writings"
-   ],
-   "kind": "he",
-   "hash": "495f1e337915c8bf2c36ba5f7a85614468521995"
-  },
-  {
-   "rel": "own/Psalms/he/Qumran-Rollen (ETCBC DSS).json",
-   "title": "Psalms",
-   "heTitle": "תהילים",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
-   "categories": [
-    "Tanakh",
-    "Writings"
-   ],
-   "kind": "he",
-   "hash": "676836733cee5c7d2f81c2cac2bb8941db43a47e"
-  },
-  {
-   "rel": "own/Ruth/he/Qumran-Rollen (ETCBC DSS).json",
-   "title": "Ruth",
-   "heTitle": "רות",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
-   "categories": [
-    "Tanakh",
-    "Writings"
-   ],
-   "kind": "he",
-   "hash": "37017d66b845273941f2a23a1d4fdb852197c751"
-  },
-  {
-   "rel": "own/Song of Songs/he/Qumran-Rollen (ETCBC DSS).json",
-   "title": "Song of Songs",
-   "heTitle": "שיר השירים",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
-   "categories": [
-    "Tanakh",
-    "Writings"
-   ],
-   "kind": "he",
-   "hash": "2d12445174c06ddcb5defe29dd780a583e505a99"
-  },
-  {
-   "rel": "own/Zechariah/he/Qumran-Rollen (ETCBC DSS).json",
-   "title": "Zechariah",
-   "heTitle": "זכריה",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
-   "categories": [
-    "Tanakh",
-    "Prophets"
-   ],
-   "kind": "he",
-   "hash": "7d88dced91977808d1e810b4b7ec45616612eb30"
-  },
-  {
-   "rel": "own/Zephaniah/he/Qumran-Rollen (ETCBC DSS).json",
-   "title": "Zephaniah",
-   "heTitle": "צפניה",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
-   "categories": [
-    "Tanakh",
-    "Prophets"
-   ],
-   "kind": "he",
-   "hash": "14a2410445e1ce71621d0b72be15f0fe575b5370"
-  },
-  {
    "rel": "own/Genesis/other/Septuaginta (CATSS).json",
    "title": "Genesis",
    "heTitle": "בראשית",
@@ -7787,669 +7319,6 @@
    "hash": "8b469fb05034f891ca862394f10af2c01ef34f2b"
   },
   {
-   "rel": "own/Genesis Apocryphon (1Q20)/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
-   "title": "Genesis Apocryphon (1Q20)",
-   "heTitle": "אפוקריפון בראשית",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
-   "categories": [
-    "Second Temple",
-    "Dead Sea Scrolls"
-   ],
-   "kind": "he",
-   "hash": "f2508c9fae328c19e4b1001202e8c58386ead94f"
-  },
-  {
-   "rel": "own/Hodayot (1QHa)/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
-   "title": "Hodayot (1QHa)",
-   "heTitle": "הודיות",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
-   "categories": [
-    "Second Temple",
-    "Dead Sea Scrolls"
-   ],
-   "kind": "he",
-   "hash": "6d2968a8aa17e371940fce7de5703365084fbed3"
-  },
-  {
-   "rel": "own/War Scroll (1QM)/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
-   "title": "War Scroll (1QM)",
-   "heTitle": "מגילת המלחמה",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
-   "categories": [
-    "Second Temple",
-    "Dead Sea Scrolls"
-   ],
-   "kind": "he",
-   "hash": "7bd964d0aa61e6456b2f08d8fba3890dcaf83a02"
-  },
-  {
-   "rel": "own/Community Rule (1QS)/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
-   "title": "Community Rule (1QS)",
-   "heTitle": "סרך היחד",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
-   "categories": [
-    "Second Temple",
-    "Dead Sea Scrolls"
-   ],
-   "kind": "he",
-   "hash": "0896ce91661ad1e2e089691602bd8ec2df9c29fa"
-  },
-  {
-   "rel": "own/Pesher Habakkuk (1QpHab)/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
-   "title": "Pesher Habakkuk (1QpHab)",
-   "heTitle": "פשר חבקוק",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
-   "categories": [
-    "Second Temple",
-    "Dead Sea Scrolls"
-   ],
-   "kind": "he",
-   "hash": "93600d1d04c066d1555a52ab1791210847437d6a"
-  },
-  {
-   "rel": "own/Pesher Isaiah (4Q163)/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
-   "title": "Pesher Isaiah (4Q163)",
-   "heTitle": "פשר ישעיה",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
-   "categories": [
-    "Second Temple",
-    "Dead Sea Scrolls"
-   ],
-   "kind": "he",
-   "hash": "f5889878a07d2f1a8e865a9ccf3d571f1b09929b"
-  },
-  {
-   "rel": "own/Book of Enoch (4Q204)/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
-   "title": "Book of Enoch (4Q204)",
-   "heTitle": "ספר חנוך",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
-   "categories": [
-    "Second Temple",
-    "Dead Sea Scrolls"
-   ],
-   "kind": "he",
-   "hash": "26327b7cc88c5986597eb9ea1896e75574327f1f"
-  },
-  {
-   "rel": "own/Astronomical Enoch (4Q209)/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
-   "title": "Astronomical Enoch (4Q209)",
-   "heTitle": "חנוך האסטרונומי",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
-   "categories": [
-    "Second Temple",
-    "Dead Sea Scrolls"
-   ],
-   "kind": "he",
-   "hash": "ddd2a6bbc3f0862d6224ba0d3f94010f06db3e38"
-  },
-  {
-   "rel": "own/Jubilees (4Q216)/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
-   "title": "Jubilees (4Q216)",
-   "heTitle": "ספר היובלים",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
-   "categories": [
-    "Second Temple",
-    "Dead Sea Scrolls"
-   ],
-   "kind": "he",
-   "hash": "9dd9644592bff238f7b000a0f6cdac5c626bdb1e"
-  },
-  {
-   "rel": "own/Jubilees (4Q223–224)/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
-   "title": "Jubilees (4Q223–224)",
-   "heTitle": "ספר היובלים",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
-   "categories": [
-    "Second Temple",
-    "Dead Sea Scrolls"
-   ],
-   "kind": "he",
-   "hash": "4ef816b736fecc0f7208934e870d5e424ecd4cd1"
-  },
-  {
-   "rel": "own/Qumran 4Q249z/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
-   "title": "Qumran 4Q249z",
-   "heTitle": "4Q249z",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
-   "categories": [
-    "Second Temple",
-    "Dead Sea Scrolls"
-   ],
-   "kind": "he",
-   "hash": "5a5fd18a964e053f4b162553b681b8d7dcc2fd87"
-  },
-  {
-   "rel": "own/Community Rule (4Q258)/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
-   "title": "Community Rule (4Q258)",
-   "heTitle": "סרך היחד",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
-   "categories": [
-    "Second Temple",
-    "Dead Sea Scrolls"
-   ],
-   "kind": "he",
-   "hash": "828621700038c4fe3a97d40d702a3ef3f4121811"
-  },
-  {
-   "rel": "own/Damascus Document (4Q266)/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
-   "title": "Damascus Document (4Q266)",
-   "heTitle": "ברית דמשק",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
-   "categories": [
-    "Second Temple",
-    "Dead Sea Scrolls"
-   ],
-   "kind": "he",
-   "hash": "5a69cef5e5944b15d06e9b4cf1e8ffb5c3228552"
-  },
-  {
-   "rel": "own/Damascus Document (4Q269)/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
-   "title": "Damascus Document (4Q269)",
-   "heTitle": "ברית דמשק",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
-   "categories": [
-    "Second Temple",
-    "Dead Sea Scrolls"
-   ],
-   "kind": "he",
-   "hash": "00c6436e86c8fdfc595708313ccbe7a12c862baf"
-  },
-  {
-   "rel": "own/Damascus Document (4Q270)/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
-   "title": "Damascus Document (4Q270)",
-   "heTitle": "ברית דמשק",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
-   "categories": [
-    "Second Temple",
-    "Dead Sea Scrolls"
-   ],
-   "kind": "he",
-   "hash": "a273e5afd82d611f5ececabc8775ca7be33afe49"
-  },
-  {
-   "rel": "own/Qumran 4Q299/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
-   "title": "Qumran 4Q299",
-   "heTitle": "4Q299",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
-   "categories": [
-    "Second Temple",
-    "Dead Sea Scrolls"
-   ],
-   "kind": "he",
-   "hash": "0084dadd64decc130cadc11296e2acc141780afe"
-  },
-  {
-   "rel": "own/Qumran 4Q317/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
-   "title": "Qumran 4Q317",
-   "heTitle": "4Q317",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
-   "categories": [
-    "Second Temple",
-    "Dead Sea Scrolls"
-   ],
-   "kind": "he",
-   "hash": "ed6d2cd575f1afbca7339edd5ea4440f20731aac"
-  },
-  {
-   "rel": "own/Qumran 4Q321/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
-   "title": "Qumran 4Q321",
-   "heTitle": "4Q321",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
-   "categories": [
-    "Second Temple",
-    "Dead Sea Scrolls"
-   ],
-   "kind": "he",
-   "hash": "1846a794dd20e54151a30a274499079812ca74d4"
-  },
-  {
-   "rel": "own/Reworked Pentateuch (4Q364)/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
-   "title": "Reworked Pentateuch (4Q364)",
-   "heTitle": "תורה משוכתבת",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
-   "categories": [
-    "Second Temple",
-    "Dead Sea Scrolls"
-   ],
-   "kind": "he",
-   "hash": "73fda459a09f05f17e67f4d1f8c5c2bc60f0dad8"
-  },
-  {
-   "rel": "own/Reworked Pentateuch (4Q365)/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
-   "title": "Reworked Pentateuch (4Q365)",
-   "heTitle": "תורה משוכתבת",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
-   "categories": [
-    "Second Temple",
-    "Dead Sea Scrolls"
-   ],
-   "kind": "he",
-   "hash": "8a29870dd6692a499e68118e0c1ac118442641b2"
-  },
-  {
-   "rel": "own/Qumran 4Q381/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
-   "title": "Qumran 4Q381",
-   "heTitle": "4Q381",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
-   "categories": [
-    "Second Temple",
-    "Dead Sea Scrolls"
-   ],
-   "kind": "he",
-   "hash": "3d4824706ba5b79c8edbff38fd0e700a5eb78c52"
-  },
-  {
-   "rel": "own/Qumran 4Q382/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
-   "title": "Qumran 4Q382",
-   "heTitle": "4Q382",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
-   "categories": [
-    "Second Temple",
-    "Dead Sea Scrolls"
-   ],
-   "kind": "he",
-   "hash": "1175b5ea2711ca2594fdde743c77aa9b762bc62f"
-  },
-  {
-   "rel": "own/Songs of the Sabbath Sacrifice (4Q405)/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
-   "title": "Songs of the Sabbath Sacrifice (4Q405)",
-   "heTitle": "שירות עולת השבת",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
-   "categories": [
-    "Second Temple",
-    "Dead Sea Scrolls"
-   ],
-   "kind": "he",
-   "hash": "371dad2269beb8d22e79165fc6d1a43631947e3c"
-  },
-  {
-   "rel": "own/Instruction (4Q417)/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
-   "title": "Instruction (4Q417)",
-   "heTitle": "מוסר למבין",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
-   "categories": [
-    "Second Temple",
-    "Dead Sea Scrolls"
-   ],
-   "kind": "he",
-   "hash": "b8e1031062c1cf35682196ed421fb0443f058682"
-  },
-  {
-   "rel": "own/Instruction (4Q418)/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
-   "title": "Instruction (4Q418)",
-   "heTitle": "מוסר למבין",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
-   "categories": [
-    "Second Temple",
-    "Dead Sea Scrolls"
-   ],
-   "kind": "he",
-   "hash": "da5232189695021a3ea4e19a7dc25f89ac01d512"
-  },
-  {
-   "rel": "own/Qumran 4Q427/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
-   "title": "Qumran 4Q427",
-   "heTitle": "4Q427",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
-   "categories": [
-    "Second Temple",
-    "Dead Sea Scrolls"
-   ],
-   "kind": "he",
-   "hash": "c56ebc8e5b7f8af07648f59ae7a66d05f59ac44b"
-  },
-  {
-   "rel": "own/Qumran 4Q428/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
-   "title": "Qumran 4Q428",
-   "heTitle": "4Q428",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
-   "categories": [
-    "Second Temple",
-    "Dead Sea Scrolls"
-   ],
-   "kind": "he",
-   "hash": "8d682b492910da1e1edf779277c3d21c469af5c7"
-  },
-  {
-   "rel": "own/War Scroll (4Q491)/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
-   "title": "War Scroll (4Q491)",
-   "heTitle": "מגילת המלחמה",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
-   "categories": [
-    "Second Temple",
-    "Dead Sea Scrolls"
-   ],
-   "kind": "he",
-   "hash": "a941cf8d997544fab17b282e0f34d430f767cffa"
-  },
-  {
-   "rel": "own/Qumran 4Q502/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
-   "title": "Qumran 4Q502",
-   "heTitle": "4Q502",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
-   "categories": [
-    "Second Temple",
-    "Dead Sea Scrolls"
-   ],
-   "kind": "he",
-   "hash": "3abf91ecc4ee7c40da4e30073be911acfb37f9c5"
-  },
-  {
-   "rel": "own/Daily Prayers (4Q503)/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
-   "title": "Daily Prayers (4Q503)",
-   "heTitle": "תפילות יומיות",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
-   "categories": [
-    "Second Temple",
-    "Dead Sea Scrolls"
-   ],
-   "kind": "he",
-   "hash": "6a288fcc02a87dd8ac900b44641a9a3d7c7f64f3"
-  },
-  {
-   "rel": "own/Words of the Luminaries (4Q504)/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
-   "title": "Words of the Luminaries (4Q504)",
-   "heTitle": "דברי המאורות",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
-   "categories": [
-    "Second Temple",
-    "Dead Sea Scrolls"
-   ],
-   "kind": "he",
-   "hash": "46675594a5abf23a41d784179d6bfe804f6ffb65"
-  },
-  {
-   "rel": "own/Qumran 4Q509/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
-   "title": "Qumran 4Q509",
-   "heTitle": "4Q509",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
-   "categories": [
-    "Second Temple",
-    "Dead Sea Scrolls"
-   ],
-   "kind": "he",
-   "hash": "7c996834b75b6ce6f0425a0f8c0b756343076b3e"
-  },
-  {
-   "rel": "own/Songs of the Sage (4Q511)/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
-   "title": "Songs of the Sage (4Q511)",
-   "heTitle": "שירי המשכיל",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
-   "categories": [
-    "Second Temple",
-    "Dead Sea Scrolls"
-   ],
-   "kind": "he",
-   "hash": "daefed79f484228096456d1d0cc0a9f18a60ea0e"
-  },
-  {
-   "rel": "own/Qumran 4Q512/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
-   "title": "Qumran 4Q512",
-   "heTitle": "4Q512",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
-   "categories": [
-    "Second Temple",
-    "Dead Sea Scrolls"
-   ],
-   "kind": "he",
-   "hash": "ead0b877bb0aeddf3cde67e1507ed3538ec83163"
-  },
-  {
-   "rel": "own/Beatitudes (4Q525)/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
-   "title": "Beatitudes (4Q525)",
-   "heTitle": "אשרי",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
-   "categories": [
-    "Second Temple",
-    "Dead Sea Scrolls"
-   ],
-   "kind": "he",
-   "hash": "6022316dba0b99f967f9a8614abb02f7d75f7782"
-  },
-  {
-   "rel": "own/Qumran 4Q558/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
-   "title": "Qumran 4Q558",
-   "heTitle": "4Q558",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
-   "categories": [
-    "Second Temple",
-    "Dead Sea Scrolls"
-   ],
-   "kind": "he",
-   "hash": "68c266c1a5e14e55a3030b87ba1d6b5b2a050ac6"
-  },
-  {
-   "rel": "own/Targum of Job (11Q10)/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
-   "title": "Targum of Job (11Q10)",
-   "heTitle": "תרגום איוב",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
-   "categories": [
-    "Second Temple",
-    "Dead Sea Scrolls"
-   ],
-   "kind": "he",
-   "hash": "e4aa7a2ab80a5c27f58bd5e676220b3910baf47b"
-  },
-  {
-   "rel": "own/Temple Scroll (11Q19)/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
-   "title": "Temple Scroll (11Q19)",
-   "heTitle": "מגילת המקדש",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
-   "categories": [
-    "Second Temple",
-    "Dead Sea Scrolls"
-   ],
-   "kind": "he",
-   "hash": "cb7cbf83c763ac2388b2605937ee2781a1b36283"
-  },
-  {
-   "rel": "own/Temple Scroll (11Q20)/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
-   "title": "Temple Scroll (11Q20)",
-   "heTitle": "מגילת המקדש",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
-   "categories": [
-    "Second Temple",
-    "Dead Sea Scrolls"
-   ],
-   "kind": "he",
-   "hash": "ba4dffe80580cc3afdc2951ef8c142eab6147898"
-  },
-  {
-   "rel": "own/Damascus Document (CD)/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
-   "title": "Damascus Document (CD)",
-   "heTitle": "ברית דמשק",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
-   "categories": [
-    "Second Temple",
-    "Dead Sea Scrolls"
-   ],
-   "kind": "he",
-   "hash": "8c13e593752c4144357ff095c7f00af779e29767"
-  },
-  {
-   "rel": "own/Qumran, further non-biblical scrolls, Cave 1/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
-   "title": "Qumran, further non-biblical scrolls, Cave 1",
-   "heTitle": "מגילות קומראן נוספות",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
-   "categories": [
-    "Second Temple",
-    "Dead Sea Scrolls"
-   ],
-   "kind": "he",
-   "hash": "a1d55392a9d77e18ffd25289cacf4ba8b5c5bd1d"
-  },
-  {
-   "rel": "own/Qumran, further non-biblical scrolls, Cave 2/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
-   "title": "Qumran, further non-biblical scrolls, Cave 2",
-   "heTitle": "מגילות קומראן נוספות",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
-   "categories": [
-    "Second Temple",
-    "Dead Sea Scrolls"
-   ],
-   "kind": "he",
-   "hash": "23bbd7b8bc637cf8896a0e6db9c79c57c377ed9c"
-  },
-  {
-   "rel": "own/Qumran, further non-biblical scrolls, Cave 3/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
-   "title": "Qumran, further non-biblical scrolls, Cave 3",
-   "heTitle": "מגילות קומראן נוספות",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
-   "categories": [
-    "Second Temple",
-    "Dead Sea Scrolls"
-   ],
-   "kind": "he",
-   "hash": "7059a6aa2b3073132ebdcd6ecd86b0b2ada1242e"
-  },
-  {
-   "rel": "own/Qumran, further non-biblical scrolls, Cave 4/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
-   "title": "Qumran, further non-biblical scrolls, Cave 4",
-   "heTitle": "מגילות קומראן נוספות",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
-   "categories": [
-    "Second Temple",
-    "Dead Sea Scrolls"
-   ],
-   "kind": "he",
-   "hash": "7aa7047972f96b2cd4e34790698cf69ac8e80f87"
-  },
-  {
-   "rel": "own/Qumran, further non-biblical scrolls, Cave 5/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
-   "title": "Qumran, further non-biblical scrolls, Cave 5",
-   "heTitle": "מגילות קומראן נוספות",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
-   "categories": [
-    "Second Temple",
-    "Dead Sea Scrolls"
-   ],
-   "kind": "he",
-   "hash": "d76817aceaf6a6294714e08a92e671e7a87a9cfb"
-  },
-  {
-   "rel": "own/Qumran, further non-biblical scrolls, Cave 6/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
-   "title": "Qumran, further non-biblical scrolls, Cave 6",
-   "heTitle": "מגילות קומראן נוספות",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
-   "categories": [
-    "Second Temple",
-    "Dead Sea Scrolls"
-   ],
-   "kind": "he",
-   "hash": "e1862e9fb1930d54820ace144ffa347b48fb0614"
-  },
-  {
-   "rel": "own/Qumran, further non-biblical scrolls, Cave 8/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
-   "title": "Qumran, further non-biblical scrolls, Cave 8",
-   "heTitle": "מגילות קומראן נוספות",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
-   "categories": [
-    "Second Temple",
-    "Dead Sea Scrolls"
-   ],
-   "kind": "he",
-   "hash": "2f8c4849912bd041e0770aa74a145f2deb1993d0"
-  },
-  {
-   "rel": "own/Qumran, further non-biblical scrolls, Cave 9/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
-   "title": "Qumran, further non-biblical scrolls, Cave 9",
-   "heTitle": "מגילות קומראן נוספות",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
-   "categories": [
-    "Second Temple",
-    "Dead Sea Scrolls"
-   ],
-   "kind": "he",
-   "hash": "01692896d0a242817d6dabae39a3b59a1f549406"
-  },
-  {
-   "rel": "own/Qumran, further non-biblical scrolls, Cave 10/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
-   "title": "Qumran, further non-biblical scrolls, Cave 10",
-   "heTitle": "מגילות קומראן נוספות",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
-   "categories": [
-    "Second Temple",
-    "Dead Sea Scrolls"
-   ],
-   "kind": "he",
-   "hash": "3e3a2fc7e3175c1c7699724545dfe5cc1be10b5c"
-  },
-  {
-   "rel": "own/Qumran, further non-biblical scrolls, Cave 11/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
-   "title": "Qumran, further non-biblical scrolls, Cave 11",
-   "heTitle": "מגילות קומראן נוספות",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
-   "categories": [
-    "Second Temple",
-    "Dead Sea Scrolls"
-   ],
-   "kind": "he",
-   "hash": "9d5001a9af30a75189c9dfed361fc87d83173b54"
-  },
-  {
-   "rel": "own/Qumran, further non-biblical scrolls, Other sites/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
-   "title": "Qumran, further non-biblical scrolls, Other sites",
-   "heTitle": "מגילות קומראן נוספות",
-   "language": "Hebrew",
-   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
-   "categories": [
-    "Second Temple",
-    "Dead Sea Scrolls"
-   ],
-   "kind": "he",
-   "hash": "ce371fca9018988023ed2866514f018126c29904"
-  },
-  {
    "rel": "own/Graetz, Geschichte der Juden/de/Heinrich Graetz, Geschichte der Juden von den ältesten Zeiten bis auf die Gegenwart, 11 Bände (Leipzig 1853–1876; Text nach zeno.org).json",
    "title": "Graetz, Geschichte der Juden",
    "heTitle": "",
@@ -8669,6 +7538,1137 @@
    ],
    "kind": "other",
    "hash": "ad8815238860d4a4040b1377befcd051c549a6e8"
+  },
+  {
+   "rel": "own/Genesis Apocryphon (1Q20)/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
+   "title": "Genesis Apocryphon (1Q20)",
+   "heTitle": "אפוקריפון בראשית",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
+   "categories": [
+    "Second Temple",
+    "Dead Sea Scrolls"
+   ],
+   "kind": "he",
+   "hash": "cb411339fd7becc887a77ac237fffe81a51f5dad"
+  },
+  {
+   "rel": "own/Hodayot (1QHa)/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
+   "title": "Hodayot (1QHa)",
+   "heTitle": "הודיות",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
+   "categories": [
+    "Second Temple",
+    "Dead Sea Scrolls"
+   ],
+   "kind": "he",
+   "hash": "986b3c4d0ce740e1732c6be64858727cbc8aa45b"
+  },
+  {
+   "rel": "own/War Scroll (1QM)/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
+   "title": "War Scroll (1QM)",
+   "heTitle": "מגילת המלחמה",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
+   "categories": [
+    "Second Temple",
+    "Dead Sea Scrolls"
+   ],
+   "kind": "he",
+   "hash": "0c962bc7ee7ead24df3ffe02419391dd510d020c"
+  },
+  {
+   "rel": "own/Community Rule (1QS)/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
+   "title": "Community Rule (1QS)",
+   "heTitle": "סרך היחד",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
+   "categories": [
+    "Second Temple",
+    "Dead Sea Scrolls"
+   ],
+   "kind": "he",
+   "hash": "1a1e8afc95578cc775159a42fbdc4579e18a949f"
+  },
+  {
+   "rel": "own/Pesher Habakkuk (1QpHab)/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
+   "title": "Pesher Habakkuk (1QpHab)",
+   "heTitle": "פשר חבקוק",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
+   "categories": [
+    "Second Temple",
+    "Dead Sea Scrolls"
+   ],
+   "kind": "he",
+   "hash": "a2f13614774a8579910fd59c6d11ca4658414175"
+  },
+  {
+   "rel": "own/Pesher Isaiah (4Q163)/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
+   "title": "Pesher Isaiah (4Q163)",
+   "heTitle": "פשר ישעיה",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
+   "categories": [
+    "Second Temple",
+    "Dead Sea Scrolls"
+   ],
+   "kind": "he",
+   "hash": "0c7266ff0c3e3d2ecbcb3f67d51063ec32ea05f2"
+  },
+  {
+   "rel": "own/Book of Enoch (4Q204)/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
+   "title": "Book of Enoch (4Q204)",
+   "heTitle": "ספר חנוך",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
+   "categories": [
+    "Second Temple",
+    "Dead Sea Scrolls"
+   ],
+   "kind": "he",
+   "hash": "355ca9bd436a04a51625fe6b49f2e8e6de5a01bd"
+  },
+  {
+   "rel": "own/Astronomical Enoch (4Q209)/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
+   "title": "Astronomical Enoch (4Q209)",
+   "heTitle": "חנוך האסטרונומי",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
+   "categories": [
+    "Second Temple",
+    "Dead Sea Scrolls"
+   ],
+   "kind": "he",
+   "hash": "1ae2fdd8f73fef69fed798ef8c11da1bcfe418e4"
+  },
+  {
+   "rel": "own/Jubilees (4Q216)/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
+   "title": "Jubilees (4Q216)",
+   "heTitle": "ספר היובלים",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
+   "categories": [
+    "Second Temple",
+    "Dead Sea Scrolls"
+   ],
+   "kind": "he",
+   "hash": "a2a9cce512e3410832d5a7732dbc80133b800d58"
+  },
+  {
+   "rel": "own/Jubilees (4Q223–224)/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
+   "title": "Jubilees (4Q223–224)",
+   "heTitle": "ספר היובלים",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
+   "categories": [
+    "Second Temple",
+    "Dead Sea Scrolls"
+   ],
+   "kind": "he",
+   "hash": "8d6450f255ae0ca2d795b21edb749c13a96beb0e"
+  },
+  {
+   "rel": "own/Qumran 4Q249z/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
+   "title": "Qumran 4Q249z",
+   "heTitle": "4Q249z",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
+   "categories": [
+    "Second Temple",
+    "Dead Sea Scrolls"
+   ],
+   "kind": "he",
+   "hash": "5a5fd18a964e053f4b162553b681b8d7dcc2fd87"
+  },
+  {
+   "rel": "own/Community Rule (4Q258)/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
+   "title": "Community Rule (4Q258)",
+   "heTitle": "סרך היחד",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
+   "categories": [
+    "Second Temple",
+    "Dead Sea Scrolls"
+   ],
+   "kind": "he",
+   "hash": "7aa20e8a5c93d958f2f5086ccfb2e89eaaf333e8"
+  },
+  {
+   "rel": "own/Damascus Document (4Q266)/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
+   "title": "Damascus Document (4Q266)",
+   "heTitle": "ברית דמשק",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
+   "categories": [
+    "Second Temple",
+    "Dead Sea Scrolls"
+   ],
+   "kind": "he",
+   "hash": "156e9533982ac9ded6b408ac63017699bb543c8c"
+  },
+  {
+   "rel": "own/Damascus Document (4Q269)/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
+   "title": "Damascus Document (4Q269)",
+   "heTitle": "ברית דמשק",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
+   "categories": [
+    "Second Temple",
+    "Dead Sea Scrolls"
+   ],
+   "kind": "he",
+   "hash": "afdc4455ef76a37a805700885ad68622091e1be2"
+  },
+  {
+   "rel": "own/Damascus Document (4Q270)/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
+   "title": "Damascus Document (4Q270)",
+   "heTitle": "ברית דמשק",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
+   "categories": [
+    "Second Temple",
+    "Dead Sea Scrolls"
+   ],
+   "kind": "he",
+   "hash": "45c998e8668ccc6044f98a170bc2309e51290eaa"
+  },
+  {
+   "rel": "own/Qumran 4Q299/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
+   "title": "Qumran 4Q299",
+   "heTitle": "4Q299",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
+   "categories": [
+    "Second Temple",
+    "Dead Sea Scrolls"
+   ],
+   "kind": "he",
+   "hash": "b2b1bdba276ac15a31f9b3a8546238141cd9b2ae"
+  },
+  {
+   "rel": "own/Qumran 4Q317/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
+   "title": "Qumran 4Q317",
+   "heTitle": "4Q317",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
+   "categories": [
+    "Second Temple",
+    "Dead Sea Scrolls"
+   ],
+   "kind": "he",
+   "hash": "bbc15fafbf2a784e9dcb558525c03f8567e6abee"
+  },
+  {
+   "rel": "own/Qumran 4Q321/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
+   "title": "Qumran 4Q321",
+   "heTitle": "4Q321",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
+   "categories": [
+    "Second Temple",
+    "Dead Sea Scrolls"
+   ],
+   "kind": "he",
+   "hash": "214513d0d5688394754de2bd416a342771065ec3"
+  },
+  {
+   "rel": "own/Reworked Pentateuch (4Q364)/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
+   "title": "Reworked Pentateuch (4Q364)",
+   "heTitle": "תורה משוכתבת",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
+   "categories": [
+    "Second Temple",
+    "Dead Sea Scrolls"
+   ],
+   "kind": "he",
+   "hash": "5f97f6d0829fcd2c995f1d10e1f8d92a4fdcf502"
+  },
+  {
+   "rel": "own/Reworked Pentateuch (4Q365)/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
+   "title": "Reworked Pentateuch (4Q365)",
+   "heTitle": "תורה משוכתבת",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
+   "categories": [
+    "Second Temple",
+    "Dead Sea Scrolls"
+   ],
+   "kind": "he",
+   "hash": "7bf3af65f2ef3b14f0a5bbe559769442ece2d9a7"
+  },
+  {
+   "rel": "own/Qumran 4Q381/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
+   "title": "Qumran 4Q381",
+   "heTitle": "4Q381",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
+   "categories": [
+    "Second Temple",
+    "Dead Sea Scrolls"
+   ],
+   "kind": "he",
+   "hash": "6a045a78a34cafd555e80ca82715b0cd1010781f"
+  },
+  {
+   "rel": "own/Qumran 4Q382/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
+   "title": "Qumran 4Q382",
+   "heTitle": "4Q382",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
+   "categories": [
+    "Second Temple",
+    "Dead Sea Scrolls"
+   ],
+   "kind": "he",
+   "hash": "1d489d4e998a8656e5783712785841863128aa97"
+  },
+  {
+   "rel": "own/Songs of the Sabbath Sacrifice (4Q405)/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
+   "title": "Songs of the Sabbath Sacrifice (4Q405)",
+   "heTitle": "שירות עולת השבת",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
+   "categories": [
+    "Second Temple",
+    "Dead Sea Scrolls"
+   ],
+   "kind": "he",
+   "hash": "19f55801fa38aa64fd504c71b99eba3fbf9789c6"
+  },
+  {
+   "rel": "own/Instruction (4Q417)/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
+   "title": "Instruction (4Q417)",
+   "heTitle": "מוסר למבין",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
+   "categories": [
+    "Second Temple",
+    "Dead Sea Scrolls"
+   ],
+   "kind": "he",
+   "hash": "b22067099e76663506d9fed55cb230a0e53ac867"
+  },
+  {
+   "rel": "own/Instruction (4Q418)/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
+   "title": "Instruction (4Q418)",
+   "heTitle": "מוסר למבין",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
+   "categories": [
+    "Second Temple",
+    "Dead Sea Scrolls"
+   ],
+   "kind": "he",
+   "hash": "e5cceaf506cb8ab3c8f6f651d1d37428ca05880e"
+  },
+  {
+   "rel": "own/Qumran 4Q427/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
+   "title": "Qumran 4Q427",
+   "heTitle": "4Q427",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
+   "categories": [
+    "Second Temple",
+    "Dead Sea Scrolls"
+   ],
+   "kind": "he",
+   "hash": "edc0967bc0f7d8158c145ebd87d4f5a654cb7bc2"
+  },
+  {
+   "rel": "own/Qumran 4Q428/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
+   "title": "Qumran 4Q428",
+   "heTitle": "4Q428",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
+   "categories": [
+    "Second Temple",
+    "Dead Sea Scrolls"
+   ],
+   "kind": "he",
+   "hash": "c5e50cd88041da41adec606bd90eeae26a76925d"
+  },
+  {
+   "rel": "own/War Scroll (4Q491)/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
+   "title": "War Scroll (4Q491)",
+   "heTitle": "מגילת המלחמה",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
+   "categories": [
+    "Second Temple",
+    "Dead Sea Scrolls"
+   ],
+   "kind": "he",
+   "hash": "dfaa145d4508c9ece70957f0cd4fc32591a99947"
+  },
+  {
+   "rel": "own/Qumran 4Q502/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
+   "title": "Qumran 4Q502",
+   "heTitle": "4Q502",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
+   "categories": [
+    "Second Temple",
+    "Dead Sea Scrolls"
+   ],
+   "kind": "he",
+   "hash": "c0e404399bd5b4a50f497ad0474b6b52f10dfdc6"
+  },
+  {
+   "rel": "own/Daily Prayers (4Q503)/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
+   "title": "Daily Prayers (4Q503)",
+   "heTitle": "תפילות יומיות",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
+   "categories": [
+    "Second Temple",
+    "Dead Sea Scrolls"
+   ],
+   "kind": "he",
+   "hash": "d3b2bdd4cd0fd1bd9500d5976ecd236f077bbe27"
+  },
+  {
+   "rel": "own/Words of the Luminaries (4Q504)/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
+   "title": "Words of the Luminaries (4Q504)",
+   "heTitle": "דברי המאורות",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
+   "categories": [
+    "Second Temple",
+    "Dead Sea Scrolls"
+   ],
+   "kind": "he",
+   "hash": "2975eb640a383ef1bd118fc1515930fdf2caa559"
+  },
+  {
+   "rel": "own/Qumran 4Q509/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
+   "title": "Qumran 4Q509",
+   "heTitle": "4Q509",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
+   "categories": [
+    "Second Temple",
+    "Dead Sea Scrolls"
+   ],
+   "kind": "he",
+   "hash": "523ffd11b57a7536f35cb46b2bf6b0cce504428f"
+  },
+  {
+   "rel": "own/Songs of the Sage (4Q511)/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
+   "title": "Songs of the Sage (4Q511)",
+   "heTitle": "שירי המשכיל",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
+   "categories": [
+    "Second Temple",
+    "Dead Sea Scrolls"
+   ],
+   "kind": "he",
+   "hash": "ca620309ac62bf4b5a0b057367a2f4f1986cf3bd"
+  },
+  {
+   "rel": "own/Qumran 4Q512/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
+   "title": "Qumran 4Q512",
+   "heTitle": "4Q512",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
+   "categories": [
+    "Second Temple",
+    "Dead Sea Scrolls"
+   ],
+   "kind": "he",
+   "hash": "f6679892f7ffac1741588b177f0b23a2f9deff29"
+  },
+  {
+   "rel": "own/Beatitudes (4Q525)/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
+   "title": "Beatitudes (4Q525)",
+   "heTitle": "אשרי",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
+   "categories": [
+    "Second Temple",
+    "Dead Sea Scrolls"
+   ],
+   "kind": "he",
+   "hash": "288db02c0085b4db5798b648ea0074e016f54b8b"
+  },
+  {
+   "rel": "own/Qumran 4Q558/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
+   "title": "Qumran 4Q558",
+   "heTitle": "4Q558",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
+   "categories": [
+    "Second Temple",
+    "Dead Sea Scrolls"
+   ],
+   "kind": "he",
+   "hash": "ea4ebded0d716e12727cb05dfd1fe474567e703c"
+  },
+  {
+   "rel": "own/Targum of Job (11Q10)/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
+   "title": "Targum of Job (11Q10)",
+   "heTitle": "תרגום איוב",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
+   "categories": [
+    "Second Temple",
+    "Dead Sea Scrolls"
+   ],
+   "kind": "he",
+   "hash": "0d4057602368e21472b80291d7e802400f21e35c"
+  },
+  {
+   "rel": "own/Temple Scroll (11Q19)/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
+   "title": "Temple Scroll (11Q19)",
+   "heTitle": "מגילת המקדש",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
+   "categories": [
+    "Second Temple",
+    "Dead Sea Scrolls"
+   ],
+   "kind": "he",
+   "hash": "3b747714231ce6b68c293704a680271c8605255f"
+  },
+  {
+   "rel": "own/Temple Scroll (11Q20)/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
+   "title": "Temple Scroll (11Q20)",
+   "heTitle": "מגילת המקדש",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
+   "categories": [
+    "Second Temple",
+    "Dead Sea Scrolls"
+   ],
+   "kind": "he",
+   "hash": "df86e3e99813c05fccc010c505af13a079a1607e"
+  },
+  {
+   "rel": "own/Damascus Document (CD)/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
+   "title": "Damascus Document (CD)",
+   "heTitle": "ברית דמשק",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
+   "categories": [
+    "Second Temple",
+    "Dead Sea Scrolls"
+   ],
+   "kind": "he",
+   "hash": "e2aecd7a2c5c85a78f3eb37a780556e48c0d35b4"
+  },
+  {
+   "rel": "own/Qumran, further non-biblical scrolls, Cave 1/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
+   "title": "Qumran, further non-biblical scrolls, Cave 1",
+   "heTitle": "מגילות קומראן נוספות",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
+   "categories": [
+    "Second Temple",
+    "Dead Sea Scrolls"
+   ],
+   "kind": "he",
+   "hash": "1010749d054cd1ba3130a9b49c9ef086ec0b9937"
+  },
+  {
+   "rel": "own/Qumran, further non-biblical scrolls, Cave 2/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
+   "title": "Qumran, further non-biblical scrolls, Cave 2",
+   "heTitle": "מגילות קומראן נוספות",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
+   "categories": [
+    "Second Temple",
+    "Dead Sea Scrolls"
+   ],
+   "kind": "he",
+   "hash": "5890727a8c4f5546fd8d0f790798c9d54326c9f4"
+  },
+  {
+   "rel": "own/Qumran, further non-biblical scrolls, Cave 3/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
+   "title": "Qumran, further non-biblical scrolls, Cave 3",
+   "heTitle": "מגילות קומראן נוספות",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
+   "categories": [
+    "Second Temple",
+    "Dead Sea Scrolls"
+   ],
+   "kind": "he",
+   "hash": "5de4dd9e865a106195aee1b88b90481faf93bfc7"
+  },
+  {
+   "rel": "own/Qumran, further non-biblical scrolls, Cave 4/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
+   "title": "Qumran, further non-biblical scrolls, Cave 4",
+   "heTitle": "מגילות קומראן נוספות",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
+   "categories": [
+    "Second Temple",
+    "Dead Sea Scrolls"
+   ],
+   "kind": "he",
+   "hash": "65a5206d6d416d4c125110f9694146c4be4739a6"
+  },
+  {
+   "rel": "own/Qumran, further non-biblical scrolls, Cave 5/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
+   "title": "Qumran, further non-biblical scrolls, Cave 5",
+   "heTitle": "מגילות קומראן נוספות",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
+   "categories": [
+    "Second Temple",
+    "Dead Sea Scrolls"
+   ],
+   "kind": "he",
+   "hash": "8de76c233e3b6ee5d31bf1e5c9e39fae74b04153"
+  },
+  {
+   "rel": "own/Qumran, further non-biblical scrolls, Cave 6/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
+   "title": "Qumran, further non-biblical scrolls, Cave 6",
+   "heTitle": "מגילות קומראן נוספות",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
+   "categories": [
+    "Second Temple",
+    "Dead Sea Scrolls"
+   ],
+   "kind": "he",
+   "hash": "6e37a26f87f9d8e57be1ba99afe718ce7b3b9fdd"
+  },
+  {
+   "rel": "own/Qumran, further non-biblical scrolls, Cave 8/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
+   "title": "Qumran, further non-biblical scrolls, Cave 8",
+   "heTitle": "מגילות קומראן נוספות",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
+   "categories": [
+    "Second Temple",
+    "Dead Sea Scrolls"
+   ],
+   "kind": "he",
+   "hash": "39e855a64e0fc2ac7cb45b342375c9f059fe7550"
+  },
+  {
+   "rel": "own/Qumran, further non-biblical scrolls, Cave 9/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
+   "title": "Qumran, further non-biblical scrolls, Cave 9",
+   "heTitle": "מגילות קומראן נוספות",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
+   "categories": [
+    "Second Temple",
+    "Dead Sea Scrolls"
+   ],
+   "kind": "he",
+   "hash": "01692896d0a242817d6dabae39a3b59a1f549406"
+  },
+  {
+   "rel": "own/Qumran, further non-biblical scrolls, Cave 10/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
+   "title": "Qumran, further non-biblical scrolls, Cave 10",
+   "heTitle": "מגילות קומראן נוספות",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
+   "categories": [
+    "Second Temple",
+    "Dead Sea Scrolls"
+   ],
+   "kind": "he",
+   "hash": "3e3a2fc7e3175c1c7699724545dfe5cc1be10b5c"
+  },
+  {
+   "rel": "own/Qumran, further non-biblical scrolls, Cave 11/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
+   "title": "Qumran, further non-biblical scrolls, Cave 11",
+   "heTitle": "מגילות קומראן נוספות",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
+   "categories": [
+    "Second Temple",
+    "Dead Sea Scrolls"
+   ],
+   "kind": "he",
+   "hash": "0e2cc1e25962ba6fa1a923ad6af407888c9960b6"
+  },
+  {
+   "rel": "own/Qumran, further non-biblical scrolls, Other sites/he/Qumran-Rollen, nichtbiblisch (ETCBC DSS).json",
+   "title": "Qumran, further non-biblical scrolls, Other sites",
+   "heTitle": "מגילות קומראן נוספות",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen, nichtbiblisch (ETCBC DSS)",
+   "categories": [
+    "Second Temple",
+    "Dead Sea Scrolls"
+   ],
+   "kind": "he",
+   "hash": "856357195d847fc06a6e944b1cfb1be7a9571987"
+  },
+  {
+   "rel": "own/Amos/he/Qumran-Rollen (ETCBC DSS).json",
+   "title": "Amos",
+   "heTitle": "עמוס",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "he",
+   "hash": "6cf64986110ac5c3e31c61e5567c032a509e22b1"
+  },
+  {
+   "rel": "own/Daniel/he/Qumran-Rollen (ETCBC DSS).json",
+   "title": "Daniel",
+   "heTitle": "דניאל",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "he",
+   "hash": "8ca895cac23e2455a5ad31c17dac2f3e886eecc0"
+  },
+  {
+   "rel": "own/Deuteronomy/he/Qumran-Rollen (ETCBC DSS).json",
+   "title": "Deuteronomy",
+   "heTitle": "דברים",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
+   "categories": [
+    "Tanakh",
+    "Torah"
+   ],
+   "kind": "he",
+   "hash": "271557de91bdc57235feedc7905302e6327ab129"
+  },
+  {
+   "rel": "own/Ecclesiastes/he/Qumran-Rollen (ETCBC DSS).json",
+   "title": "Ecclesiastes",
+   "heTitle": "קהלת",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "he",
+   "hash": "e82ea82f2e917df2a9e6e29533354d4eac47f8bc"
+  },
+  {
+   "rel": "own/Exodus/he/Qumran-Rollen (ETCBC DSS).json",
+   "title": "Exodus",
+   "heTitle": "שמות",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
+   "categories": [
+    "Tanakh",
+    "Torah"
+   ],
+   "kind": "he",
+   "hash": "a81d128a8177e562eefcaef2b110ba22db9aee48"
+  },
+  {
+   "rel": "own/Ezekiel/he/Qumran-Rollen (ETCBC DSS).json",
+   "title": "Ezekiel",
+   "heTitle": "יחזקאל",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "he",
+   "hash": "8f6d2fdc1583b099146daf7bef1d42bb2c270d85"
+  },
+  {
+   "rel": "own/Ezra/he/Qumran-Rollen (ETCBC DSS).json",
+   "title": "Ezra",
+   "heTitle": "עזרא",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "he",
+   "hash": "9c82bd80984b16a872da4d79d9f2c0b154469aa8"
+  },
+  {
+   "rel": "own/Genesis/he/Qumran-Rollen (ETCBC DSS).json",
+   "title": "Genesis",
+   "heTitle": "בראשית",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
+   "categories": [
+    "Tanakh",
+    "Torah"
+   ],
+   "kind": "he",
+   "hash": "05522250a032faef6bbe09b1397f67b9682bf89b"
+  },
+  {
+   "rel": "own/Habakkuk/he/Qumran-Rollen (ETCBC DSS).json",
+   "title": "Habakkuk",
+   "heTitle": "חבקוק",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "he",
+   "hash": "ff6033b993a2072b182747a62e9c26d2b64eea92"
+  },
+  {
+   "rel": "own/Haggai/he/Qumran-Rollen (ETCBC DSS).json",
+   "title": "Haggai",
+   "heTitle": "חגי",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "he",
+   "hash": "b07430f6e018e013272b64b28cc151b37e8cb114"
+  },
+  {
+   "rel": "own/Hosea/he/Qumran-Rollen (ETCBC DSS).json",
+   "title": "Hosea",
+   "heTitle": "הושע",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "he",
+   "hash": "18916bf7741f4e6f50333276359ac1a490925ee5"
+  },
+  {
+   "rel": "own/I Kings/he/Qumran-Rollen (ETCBC DSS).json",
+   "title": "I Kings",
+   "heTitle": "מלכים א",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "he",
+   "hash": "92e08b5bd7314c5ef186e5d3d8af152af4347d28"
+  },
+  {
+   "rel": "own/I Samuel/he/Qumran-Rollen (ETCBC DSS).json",
+   "title": "I Samuel",
+   "heTitle": "שמואל א",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "he",
+   "hash": "fa12a411576c51a71d6512e84404cd7b21d15cdf"
+  },
+  {
+   "rel": "own/II Chronicles/he/Qumran-Rollen (ETCBC DSS).json",
+   "title": "II Chronicles",
+   "heTitle": "דברי הימים ב",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "he",
+   "hash": "6d284a08f0beae2d2cc50125e284eafad91cbb75"
+  },
+  {
+   "rel": "own/II Kings/he/Qumran-Rollen (ETCBC DSS).json",
+   "title": "II Kings",
+   "heTitle": "מלכים ב",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "he",
+   "hash": "4b941edc74227198f62e38ab2bc10ae2f82b0c7c"
+  },
+  {
+   "rel": "own/II Samuel/he/Qumran-Rollen (ETCBC DSS).json",
+   "title": "II Samuel",
+   "heTitle": "שמואל ב",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "he",
+   "hash": "cda15d7b98be3bcfe4d031f0af0b73235692de68"
+  },
+  {
+   "rel": "own/Isaiah/he/Qumran-Rollen (ETCBC DSS).json",
+   "title": "Isaiah",
+   "heTitle": "ישעיהו",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "he",
+   "hash": "785fde111c5ab254aef7da23fbb6b5913c8c17d1"
+  },
+  {
+   "rel": "own/Jeremiah/he/Qumran-Rollen (ETCBC DSS).json",
+   "title": "Jeremiah",
+   "heTitle": "ירמיהו",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "he",
+   "hash": "a5304a59acf257eab518cc8d37e525ad641ef81c"
+  },
+  {
+   "rel": "own/Job/he/Qumran-Rollen (ETCBC DSS).json",
+   "title": "Job",
+   "heTitle": "איוב",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "he",
+   "hash": "8951779428f04a5b2750902ef86a07e24d6372b0"
+  },
+  {
+   "rel": "own/Joel/he/Qumran-Rollen (ETCBC DSS).json",
+   "title": "Joel",
+   "heTitle": "יואל",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "he",
+   "hash": "a75d4518b6cec88f7ed5221af65666e8ff7e94c6"
+  },
+  {
+   "rel": "own/Jonah/he/Qumran-Rollen (ETCBC DSS).json",
+   "title": "Jonah",
+   "heTitle": "יונה",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "he",
+   "hash": "c044116c113f7c1a692e6f84e26556ef365096af"
+  },
+  {
+   "rel": "own/Joshua/he/Qumran-Rollen (ETCBC DSS).json",
+   "title": "Joshua",
+   "heTitle": "יהושע",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "he",
+   "hash": "78f8d802323bac50d42486f28506d90a1b0dc863"
+  },
+  {
+   "rel": "own/Judges/he/Qumran-Rollen (ETCBC DSS).json",
+   "title": "Judges",
+   "heTitle": "שופטים",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "he",
+   "hash": "5adbfd5276fbd95f045676e027727bae9f4d17c7"
+  },
+  {
+   "rel": "own/Lamentations/he/Qumran-Rollen (ETCBC DSS).json",
+   "title": "Lamentations",
+   "heTitle": "איכה",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "he",
+   "hash": "0cdc4868a743a3b117c6cbce3be9e9261c49213a"
+  },
+  {
+   "rel": "own/Leviticus/he/Qumran-Rollen (ETCBC DSS).json",
+   "title": "Leviticus",
+   "heTitle": "ויקרא",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
+   "categories": [
+    "Tanakh",
+    "Torah"
+   ],
+   "kind": "he",
+   "hash": "2902a35c2e892567341df11111bcb6a5b5a45b03"
+  },
+  {
+   "rel": "own/Malachi/he/Qumran-Rollen (ETCBC DSS).json",
+   "title": "Malachi",
+   "heTitle": "מלאכי",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "he",
+   "hash": "fa841d955aebb923b9175acaec05ada15241f48c"
+  },
+  {
+   "rel": "own/Micah/he/Qumran-Rollen (ETCBC DSS).json",
+   "title": "Micah",
+   "heTitle": "מיכה",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "he",
+   "hash": "b1a4d88b0a4defe2b9eaacb797c6043ae63fa8d1"
+  },
+  {
+   "rel": "own/Nahum/he/Qumran-Rollen (ETCBC DSS).json",
+   "title": "Nahum",
+   "heTitle": "נחום",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "he",
+   "hash": "b0520e8ed06a0e5997a81f09470c09c9e5e4cc80"
+  },
+  {
+   "rel": "own/Numbers/he/Qumran-Rollen (ETCBC DSS).json",
+   "title": "Numbers",
+   "heTitle": "במדבר",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
+   "categories": [
+    "Tanakh",
+    "Torah"
+   ],
+   "kind": "he",
+   "hash": "cdbe018c71ecab2f98136f8a738948f1dbeb71e9"
+  },
+  {
+   "rel": "own/Obadiah/he/Qumran-Rollen (ETCBC DSS).json",
+   "title": "Obadiah",
+   "heTitle": "עובדיה",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "he",
+   "hash": "b696f3b8d70dd2a283f00971fd8eb54f5da63fd3"
+  },
+  {
+   "rel": "own/Proverbs/he/Qumran-Rollen (ETCBC DSS).json",
+   "title": "Proverbs",
+   "heTitle": "משלי",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "he",
+   "hash": "5621dd0638c747a39d12b479e544c8c0612d8698"
+  },
+  {
+   "rel": "own/Psalms/he/Qumran-Rollen (ETCBC DSS).json",
+   "title": "Psalms",
+   "heTitle": "תהילים",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "he",
+   "hash": "236986a4be0ec8161ea71ccd04624e8d54327f7e"
+  },
+  {
+   "rel": "own/Ruth/he/Qumran-Rollen (ETCBC DSS).json",
+   "title": "Ruth",
+   "heTitle": "רות",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "he",
+   "hash": "443e5e485d15c3af3e5db558f3f27d201062762c"
+  },
+  {
+   "rel": "own/Song of Songs/he/Qumran-Rollen (ETCBC DSS).json",
+   "title": "Song of Songs",
+   "heTitle": "שיר השירים",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
+   "categories": [
+    "Tanakh",
+    "Writings"
+   ],
+   "kind": "he",
+   "hash": "95700f403f6d85f423a0348dc2c2b530adb46baf"
+  },
+  {
+   "rel": "own/Zechariah/he/Qumran-Rollen (ETCBC DSS).json",
+   "title": "Zechariah",
+   "heTitle": "זכריה",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "he",
+   "hash": "da152f26a4db777677603b2a174260011bbff4b0"
+  },
+  {
+   "rel": "own/Zephaniah/he/Qumran-Rollen (ETCBC DSS).json",
+   "title": "Zephaniah",
+   "heTitle": "צפניה",
+   "language": "Hebrew",
+   "versionTitle": "Qumran-Rollen (ETCBC DSS)",
+   "categories": [
+    "Tanakh",
+    "Prophets"
+   ],
+   "kind": "he",
+   "hash": "cf57243c1404c9557c4b057412cecc2887e3ae3a"
   }
  ]
 }

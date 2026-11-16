@@ -1238,7 +1238,7 @@
   const Q_VT = { perf: 'Perfekt', impf: 'Imperfekt', wayy: 'Narrativ (wajjiqtol)', impv: 'Imperativ', ptca: 'Partizip aktiv', ptcp: 'Partizip passiv', infc: 'Infinitiv constructus', infa: 'Infinitiv absolutus' };
   const Q_GN = { m: 'maskulin', f: 'feminin', b: 'beide Geschlechter', c: 'gemeinsam' }, Q_NU = { s: 'Singular', p: 'Plural', d: 'Dual' }, Q_ST = { a: 'Absolutus', c: 'Constructus', d: 'bestimmt' };
   function showQumranWord(w) {
-    const [sp, vs, vt, ps, gn, nu, st] = w.dataset.m.split('.');
+    const [sp, vs, vt, ps, gn, nu, st, sx] = w.dataset.m.split('.');
     const lem = w.dataset.l;
     w.classList.add('sel');
     const parts = [];
@@ -1249,6 +1249,8 @@
     if (gn !== '-') parts.push(esc(Q_GN[gn] || gn));
     if (nu !== '-') parts.push(esc(Q_NU[nu] || nu));
     if (st !== '-') parts.push(esc(Q_ST[st] || st));
+    // Pronominalsuffix (פשרו, לו, ידו …): Person, Genus, Numerus, z. B. „3ms“
+    if (sx && /^[123]?[mfcb]?[sdp]?$/.test(sx)) parts.push(`Suffix: <b>${esc([sx[0] && /\d/.test(sx[0]) ? sx[0] + '.' : '', Q_GN[sx.replace(/\d/, '')[0]] || '', Q_NU[sx.slice(-1)] || ''].filter(Boolean).join(' '))}</b>`);
     wpop = document.createElement('div');
     wpop.id = 'wpop';
     wpop.innerHTML = `<div class="wtop"><span dir="rtl" lang="he" class="wword">${esc(w.textContent)}</span><button class="wx" title="Schließen">✕</button></div><div class="wseg main"><span class="wlem" dir="rtl" lang="he">${esc(lem)}</span><br>${parts.join(' · ')}</div><button class="wdict" data-q="${esc(lem)}">Im Wörterbuch nachschlagen</button>`;

@@ -2,7 +2,8 @@
 """Nichtbiblische Qumran-Rollen (ETCBC/CACCHT Dead Sea Scrolls, Abegg-Daten, CC BY-NC 4.0) -> Safran.
 Die großen Schriften (nach Wortzahl) je als eigenes Buch, alle übrigen nichtbiblischen Rollen je Fundort gesammelt.
 Gliederung: Fragment (bei den großen Rollen meist die Kolumne) -> Zeile. Rekonstruktionen in [ ], Korrekturen in ( ) bzw. < >.
-Jedes Wort mit Lemma ist ein <span class="wq" data-l="Lemma" data-m="Wortart.Stamm.Zeit.Person.Genus.Numerus.Status"> (Klick: Wortanzeige).
+Jedes Wort mit Lemma ist ein <span class="wq" data-l="Lemma" data-m="Wortart.Stamm.Zeit.Person.Genus.Numerus.Status[.Suffix]"> (Klick: Wortanzeige);
+Suffix = Person, Genus, Numerus des Pronominalsuffixes (z. B. 3ms), nur bei Wörtern mit Suffix.
 Aufruf: python3 -I nonbib.py <dss-Ordner mit tf/2.0.2> <Safran-Projektordner>"""
 import sys, os, re, json, hashlib, bisect, gzip, collections
 
@@ -75,7 +76,7 @@ del lines_
 
 sc = load(T + 'scroll.tf'); fr = load(T + 'fragment.tf'); ln_ = load(T + 'line.tf'); bib = load(T + 'biblical.tf')
 full = load(T + 'full.tf'); after = load(T + 'after.tf'); punc = load(T + 'punc.tf')
-FEAT = {f: load(T + f + '.tf') for f in ('glex', 'lex', 'sp', 'vt', 'vs', 'ps', 'gn', 'nu', 'st')}
+FEAT = {f: load(T + f + '.tf') for f in ('glex', 'lex', 'sp', 'vt', 'vs', 'ps', 'gn', 'nu', 'st', 'morpho', 'ps2', 'gn2', 'nu2')}
 
 
 def index(otype, feat):
@@ -129,7 +130,14 @@ for (sn, l), ws in perline.items():
     scrolls[s][fr.get(f, '?')].append((slots[l][0][0], ln_.get(l, '?'), ws, l))
 
 
-SP_SKIP = {'', 'unknown', 'suff'}
+SP_SKIP = {'', 'unknown'}
+# Wörter mit Pronominalsuffix (פשרו, לו, ידו …) haben bei ETCBC die Wortart „suff“; die eigentliche Wortart steht im ersten Zeichen von morpho (Abegg)
+SP_MORPHO = {'n': 'subs', 'v': 'verb', 'P': 'ptcl', 'a': 'adjv', 'u': 'numr', 'p': 'pron'}
+
+
+def sp_of(w):
+    sp = FEAT['sp'].get(w) or ''
+    return SP_MORPHO.get((FEAT['morpho'].get(w) or '')[:1], '') if sp == 'suff' else sp
 OPEN = set('[({<')
 CLOSE = set('])}>')
 
@@ -142,7 +150,8 @@ def lemma_of(w):
 
 def tcode(w):
     g = lambda k: (FEAT[k].get(w) or '-') if (FEAT[k].get(w) or '') not in ('', 'unknown') else '-'
-    return '.'.join(g(k) for k in ('sp', 'vs', 'vt', 'ps', 'gn', 'nu', 'st'))
+    sx = ''.join(FEAT[k].get(w) or '' for k in ('ps2', 'gn2', 'nu2')) if FEAT['sp'].get(w) == 'suff' else ''
+    return '.'.join([sp_of(w) or '-'] + [g(k) for k in ('vs', 'vt', 'ps', 'gn', 'nu', 'st')] + ([sx] if sx else []))
 
 
 def line_text(ws):
@@ -155,7 +164,7 @@ def line_text(ws):
         if not t: continue
         t = re.sub(r'([\[(<{]) +', r'\1', t); t = re.sub(r' +([\])>}])', r'\1', t)
         t = re.sub(r' +', ' ', t).replace('<', '&lt;').replace('>', '&gt;')
-        lem = lemma_of(w); sp = FEAT['sp'].get(w) or ''
+        lem = lemma_of(w); sp = sp_of(w)
         if lem and sp not in SP_SKIP:
             t = '<span class="wq" data-l="%s" data-m="%s">%s</span>' % (lem, tcode(w), t)
         if out and prev_sp: out += ' '

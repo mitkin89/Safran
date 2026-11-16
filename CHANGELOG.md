@@ -1,6 +1,7 @@
 # Changelog
 
 ### New in 2.5.0
+- **Qumran: morphology for nearly every word:** words with a pronominal suffix (פשרו, לו, ידו, כבודכה …, about 45,700 words) were left without analysis; they are now clickable like the rest, and the popup also names the suffix (*Suffix: 3. maskulin Singular*). Non-biblical scrolls: 92 % of all words analysed (before 82 %; the rest are broken fragments). The biblical scrolls (version *Qumran-Rollen (ETCBC DSS)* in the Tanakh books) are now clickable too, with lemma and morphology for 99.9 % of the words. The word card's Qumran index grows accordingly.
 - **New tabs open next to the active tab** instead of at the end (also Cmd/Ctrl-click background tabs, which line up in order behind the current tab, and new dictionary tabs).
 - **Verse previews name their source:** every hover preview and expandable preview line now shows the version title above each text (Hebrew and translation), so it is always clear where the text comes from.
 - **Julius Hirsch Isaiah 45:9: approved correction:** „habert“ → „hadert“, checked against רב (to contend). Interlinear text, translation statistics, review status and manifest hash updated; other pending textual findings left unchanged.
