@@ -685,7 +685,8 @@
     });
     const linked = d.entry.kind === 'he' && /Tanakh/.test((d.entry.categories || []).join()) ? inline : window.AutoRef.link(inline, { last: '', trad: versOf(d, 'cites'), note: versNoteText }); // Stellenangaben im Text anklickbar (nicht im Bibeltext selbst); andere Zählung wird umgerechnet
     const gm = d.entry.language === 'Greek' ? ` data-gt="${esc(d.entry.title)}" data-gv="${esc(d.entry.versionTitle || d.versionTitle || '')}"` : ''; // Septuaginta: Titel und Fassung für die Wort-Bestimmung (lxx-morph.js)
-    return `<div class="cell" data-k="${d.entry.kind}"${gm} dir="${rtl ? 'rtl' : 'ltr'}"><div class="txt">${hit ? markHits(linked, hit) : linked}</div></div>`;
+    const vt = d.entry.kind === 'de' && /^own\//.test(d.entry.rel || '') ? ` data-vt="${esc(d.entry.versionTitle || '')}"` : ''; // eigene Übersetzung: für die Wort-Zuordnung (interlin.js)
+    return `<div class="cell" data-k="${d.entry.kind}"${gm}${vt} dir="${rtl ? 'rtl' : 'ltr'}"><div class="txt">${hit ? markHits(linked, hit) : linked}</div></div>`;
   }
 
   // Gleichlauf: 'off' | 'both' (beide führen) | 'left' (links führt, rechts folgt) | 'right' (rechts führt, links folgt)
@@ -784,7 +785,7 @@
     $$('#rOut .ilg').forEach(g => { const inner = g.firstChild; while (inner.firstChild) g.parentNode.insertBefore(inner.firstChild, g); g.remove(); });
   }
   // trs: [[Name, Segmente]] – ein Vers
-  function ilVerse(cell, trs) {
+  function ilVerse(cell, trs, order) {
     const ws = [...cell.querySelectorAll('.w')], n = ws.length; if (!n) return;
     const par = Array.from({ length: n + 2 }, (_, i) => i), find = x => par[x] === x ? x : (par[x] = find(par[x]));
     const union = (x, y) => { x = find(x); y = find(y); if (x < y) par[y] = x; else if (y < x) par[x] = y; };
@@ -803,7 +804,7 @@
     const multi = trs.length > 1, mk = (cls, txt, ix) => { const e = document.createElement('span'); e.className = cls; if (txt != null) e.textContent = txt; if (ix) e.dataset.ix = ix.join(','); return e; };
     [...units].forEach(([st, en]) => {
       const lines = info.map(({ name, lead, marks }) => {
-        const line = mk('ilt'); line.dataset.tr = name; line.dataset.s = name[0];
+        const line = mk('ilt'); line.dataset.tr = name; line.dataset.i = order.indexOf(name) + 1; line.title = name;
         const parts = []; for (let L = st; L <= en; L++) (lead.get(L) || []).forEach(x => parts.push(x));
         parts.sort((x, y) => x[0] - y[0]).forEach(([k, t, idx], j) => { if (j) line.append(k === parts[j - 1][0] + 1 ? ' ' : ' … '); line.append(mk('ils', t, idx)); });
         if (!parts.length) for (let i = st; i <= en; i++) if (marks.has(i)) { line.append(mk('ils ilm', '…', marks.get(i))); break; }
@@ -816,18 +817,79 @@
       lines.forEach(l => g.appendChild(l));
     });
   }
-  // Klick auf ein deutsches Wort: das hebräische Wort, die zugehörigen Wörter der anderen Übersetzungen und die Wörter in den anderen geöffneten Versionen (Septuaginta u. a.) leuchten
-  function ilHighlight(el) {
-    const was = el.classList.contains('ilhl'); ilHlClear(); if (was) return;
-    const cell = el.closest('.cell'), row = el.closest('.row'), ix = (el.dataset.ix || '').split(',').map(Number).filter(Boolean); if (!cell || !row || !ix.length) return;
-    const ws = [...cell.querySelectorAll('.w')], cons = ws.map(w => consOf(w.textContent)), set = new Set(ix);
-    ix.forEach(i => { const w = ws[i - 1]; if (w) w.classList.add('ilhl'); });
-    cell.querySelectorAll('.ils').forEach(x => { if ((x.dataset.ix || '').split(',').some(i => set.has(+i))) x.classList.add('ilhl'); });
+  // ---------- Wörter über alle geöffneten Versionen verbinden ----------
+  // In den deutschen Spalten (Zunz, Breuer …) sind die Wortgruppen nach der Zuordnung in interlin.js anklickbar (.ilx, data-ix = Nummern der Westminster-Wörter).
+  // Ein Klick auf eine solche Gruppe, auf ein Westminster-Wort oder auf ein Septuaginta-Wort lässt in allen geöffneten Versionen die zugehörigen Wörter leuchten.
+  const IL_VT = { Zunz: /Zunz/, Breuer: /^Breuer/ };
+  const ilName = vt => Object.keys(IL_VT).find(n => IL_VT[n].test(vt || ''));
+  function ilTagCell(cell, segs) {
+    const txt = cell.querySelector('.txt'); if (!txt || txt.dataset.ilx) return; txt.dataset.ilx = '1';
+    const nodes = [], tw = document.createTreeWalker(txt, NodeFilter.SHOW_TEXT);
+    for (let nd; (nd = tw.nextNode()); ) if (!nd.parentElement.closest('.note, sup')) nodes.push(nd);
+    let full = '', starts = nodes.map(nd => { const p = full.length; full += nd.data; return p; });
+    const hits = []; let pos = 0;
+    for (const [idx, t] of segs) {
+      const w = t.trim(); if (!w) continue;
+      const re = new RegExp(w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/\s+/g, '\\s+'), 'g'); re.lastIndex = pos;
+      const m = re.exec(full); if (!m || m.index - pos > 80) continue;
+      pos = m.index + m[0].length; if (idx.length) hits.push([m.index, pos, idx]);
+    }
+    for (let h = hits.length - 1; h >= 0; h--) { // von hinten, damit die Textknoten davor unverändert bleiben
+      const [s0, e0, idx] = hits[h];
+      for (let k = nodes.length - 1; k >= 0; k--) {
+        const nd = nodes[k], ns = starts[k], ne = ns + nd.data.length, s = Math.max(s0, ns) - ns, e = Math.min(e0, ne) - ns;
+        if (e <= s) continue;
+        let mid = s > 0 ? nd.splitText(s) : nd; if (e - s < mid.data.length) mid.splitText(e - s);
+        const sp = document.createElement('span'); sp.className = 'ilx'; sp.dataset.ix = idx.join(','); mid.replaceWith(sp); sp.appendChild(mid);
+      }
+    }
+  }
+  function ilLink(src) {
+    const row = src.closest('.row'); if (!row) return;
+    const hc = [...row.querySelectorAll('.cell[data-k="he"]')].find(c => c.querySelector('.w')); if (!hc) return;
+    const ws = [...hc.querySelectorAll('.w')], cons = ws.map(w => consOf(w.textContent)), nth = (arr, i) => arr.slice(0, i).filter(x => x === arr[i]).length;
+    let ix = [];
+    if (src.classList.contains('ilx')) ix = src.dataset.ix.split(',').map(Number);
+    else if (src.classList.contains('w') && hc.contains(src)) ix = [ws.indexOf(src) + 1];
+    else if (src.classList.contains('wg')) {
+      const c = consOf(src.dataset.h), same = [...src.closest('.cell').querySelectorAll('.wg')].filter(x => consOf(x.dataset.h) === c), k = same.indexOf(src);
+      const at = cons.map((x, i) => x === c ? i : -1).filter(i => i >= 0)[k]; if (at != null) ix = [at + 1];
+    }
+    ix = ix.filter(i => i >= 1 && i <= ws.length); if (!ix.length) return;
+    const was = src.classList.contains('ilhl'); ilHlClear(); if (was) return;
+    const set = new Set(ix);
+    ix.forEach(i => ws[i - 1].classList.add('ilhl'));
+    row.querySelectorAll('.ilx').forEach(x => { if (x.dataset.ix.split(',').some(i => set.has(+i))) x.classList.add('ilhl'); });
     row.querySelectorAll('.cell').forEach(c => {
-      if (c === cell) return;
-      const tg = [...c.querySelectorAll('.wg, .w, .wq')], get = x => consOf(x.dataset.h != null ? x.dataset.h : x.textContent);
-      ix.forEach(i => { const cw = cons[i - 1]; if (!cw) return; const k = cons.slice(0, i - 1).filter(x => x === cw).length; const hit = tg.filter(x => get(x) === cw)[k]; if (hit) hit.classList.add('ilhl'); });
+      if (c === hc) return;
+      const wg = [...c.querySelectorAll('.wg')]; if (!wg.length) return;
+      ix.forEach(i => { const hit = wg.filter(x => consOf(x.dataset.h) === cons[i - 1])[nth(cons, i - 1)]; if (hit) hit.classList.add('ilhl'); });
     });
+    src.classList.add('ilhl');
+  }
+  $('#rOut').addEventListener('click', e => {
+    const src = e.target.closest('.ilx, .w, .wg');
+    if (src && (src.classList.contains('ilx') || src.closest('.row') && src.closest('.row').querySelector('.ilx'))) ilLink(src); else if ($('#rOut .ilhl')) ilHlClear();
+  });
+  const IL_LABEL = { Zunz: 'Zunz (1838)', Breuer: 'Breuer' };
+  let ilHide = []; try { ilHide = JSON.parse(localStorage.getItem('interlinHide') || '[]'); } catch { /* egal */ }
+  const ilSetHide = () => { const o = $('#rOut'); if (o) o.dataset.ilh = ilHide.join(' '); try { localStorage.setItem('interlinHide', JSON.stringify(ilHide)); } catch { /* egal */ } };
+  // Legende: ein Schalter je Übersetzung (Farbpunkt + Name); ein Klick blendet die Zeile ein/aus, Überfahren hebt sie hervor
+  function ilLegend(order, use) {
+    $$('#rOut .illeg').forEach(x => x.remove());
+    ilHide = ilHide.filter(n => use.includes(n)); if (ilHide.length >= use.length) ilHide = [];
+    ilSetHide();
+    if (use.length < 2) return;
+    const leg = document.createElement('div'); leg.className = 'illeg';
+    use.forEach(n => {
+      const b = document.createElement('button'); b.type = 'button'; b.className = 'illc'; b.dataset.i = order.indexOf(n) + 1; b.dataset.tr = n; b.title = n;
+      b.setAttribute('aria-pressed', String(!ilHide.includes(n))); b.innerHTML = `<i></i>${esc(IL_LABEL[n] || n)}`;
+      b.onclick = () => { const off = !ilHide.includes(n); if (off && ilHide.length >= use.length - 1) return; ilHide = off ? [...ilHide, n] : ilHide.filter(x => x !== n); b.setAttribute('aria-pressed', String(!off)); ilSetHide(); };
+      b.onmouseenter = () => $$('#rOut .ilt').forEach(l => l.classList.toggle('ildim', l.dataset.tr !== n));
+      b.onmouseleave = () => $$('#rOut .ildim').forEach(l => l.classList.remove('ildim'));
+      leg.appendChild(b);
+    });
+    $('#rOut').prepend(leg);
   }
   async function ilRefresh() {
     const b = $('#ilBtn'); if (!b) return;
@@ -840,16 +902,22 @@
     if (sel) { sel.hidden = !(has && ilOn && names.length > 1); if (sel.dataset.n !== names.join()) { sel.dataset.n = names.join(); sel.innerHTML = names.map(n => `<option value="${n}">${n}</option>`).join('') + (names.length > 1 ? `<option value="*">${esc(I18N.t('Alle'))}</option>` : ''); } sel.value = ilTr; }
     document.body.classList.toggle('il', has && ilOn);
     ilClear();
-    if (!has || !ilOn) return;
+    $$('#rOut .illeg').forEach(x => x.remove());
+    if (!has) return;
     const s = view.sections && view.sections[view.idx], chap = s && apChap(s); if (!chap) return;
+    for (const row of $$('#rOut .row[data-l]')) { // deutsche Spalten: Wortgruppen anklickbar machen (unabhängig vom Interlinear-Knopf)
+      const v = verseOf(row.dataset.l); if (v == null) continue;
+      row.querySelectorAll('.cell[data-vt]').forEach(cell => { const nm = ilName(cell.dataset.vt), segs = nm && ALL[nm][title] && ALL[nm][title][chap + ':' + v]; if (segs) ilTagCell(cell, segs); });
+    }
+    if (!ilOn) return;
     const use = ilTr === '*' ? names : [ilTr];
+    ilLegend(names, use);
     for (const row of $$('#rOut .row[data-l]')) {
       const v = verseOf(row.dataset.l); if (v == null) continue;
       const trs = use.map(nm => [nm, ALL[nm][title][chap + ':' + v]]).filter(x => x[1]); if (!trs.length) continue;
-      row.querySelectorAll('.cell[data-k="he"]').forEach(cell => ilVerse(cell, trs));
+      row.querySelectorAll('.cell[data-k="he"]').forEach(cell => ilVerse(cell, trs, names));
     }
   }
-  $('#rOut').addEventListener('click', e => { const el = e.target.closest('.ils'); if (el) { e.stopPropagation(); ilHighlight(el); } else if ($('#rOut .ilhl')) ilHlClear(); });
   $('#ilSel').onchange = e => { ilTr = e.target.value; try { localStorage.setItem('interlinTr', ilTr); } catch { /* egal */ } ilRefresh(); };
   $('#ilBtn').onclick = () => { ilOn = !ilOn; try { localStorage.setItem('interlin', ilOn ? '1' : '0'); } catch { /* egal */ } ilRefresh(); };
 

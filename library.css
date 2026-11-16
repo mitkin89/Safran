@@ -1442,13 +1442,24 @@ html.split #formsPanel { right: var(--p2w); }
 body.il .cell[data-k="he"] .w { display: inline-flex; flex-direction: column; align-items: center; vertical-align: top; margin: 0 .3em .7em; text-align: center; }
 body.il .cell[data-k="he"] .ilt { display: block; direction: ltr; unicode-bidi: isolate; font-family: var(--ui-font, system-ui, sans-serif); font-size: .6em; line-height: 1.25; font-weight: 400; color: var(--muted, #888); max-width: 10em; min-width: 1px; white-space: normal; margin-top: .2em; text-align: center; }
 body.il .cell[data-k="he"] .ilt:empty::before { content: "\00a0"; }
-body.il .cell[data-k="he"] .ilg[data-multi="1"] .ilt::before { content: attr(data-s); text-transform: uppercase; font-size: .8em; font-weight: 700; margin-inline-end: .3em; opacity: .85; }
-body.il .cell[data-k="he"] .ilg[data-multi="1"] .ilt:empty::before { content: attr(data-s); visibility: hidden; }
-body.il .cell[data-k="he"] .ilt[data-tr="Zunz"] { color: #5b9bd5; }
-body.il .cell[data-k="he"] .ilt[data-tr="Breuer"] { color: #d08a4e; }
-body.il .cell[data-k="he"] .ilg[data-multi="1"] .ilt + .ilt { border-top: 1px dotted color-mix(in srgb, var(--muted, #888) 45%, transparent); padding-top: .1em; margin-top: .1em; }
-#rOut .ils { cursor: pointer; border-radius: 3px; }
-#rOut .ils:hover { background: color-mix(in srgb, var(--accent) 18%, transparent); }
+body.il .cell[data-k="he"] .ilt + .ilt { margin-top: .3em; }
+:root { --il1: #5b9bd5; --il2: #d08a4e; --il3: #6fbf8f; --il4: #b48ad6; --il5: #c9b458; }
+:root[data-theme=light] { --il1: #1f5fa8; --il2: #a8571a; --il3: #1f7a4a; --il4: #7445a8; --il5: #7a6a10; }
+@media (prefers-color-scheme: light) { :root:not([data-theme=dark]) { --il1: #1f5fa8; --il2: #a8571a; --il3: #1f7a4a; --il4: #7445a8; --il5: #7a6a10; } }
+body.il .cell[data-k="he"] .ilt[data-i="1"] { color: var(--il1); }
+body.il .cell[data-k="he"] .ilt[data-i="2"] { color: var(--il2); }
+body.il .cell[data-k="he"] .ilt[data-i="3"] { color: var(--il3); }
+body.il .cell[data-k="he"] .ilt[data-i="4"] { color: var(--il4); }
+body.il .cell[data-k="he"] .ilt[data-i="5"] { color: var(--il5); }
+body.il .cell[data-k="he"] .ilt.ildim { opacity: .28; }
+#rOut[data-ilh~="Zunz"] .ilt[data-tr="Zunz"], #rOut[data-ilh~="Breuer"] .ilt[data-tr="Breuer"] { display: none; }
+.illeg { position: sticky; top: var(--stick-top, 40px); z-index: 3; display: flex; flex-wrap: wrap; gap: 6px; padding: 4px 0 6px; background: var(--bg); font: 13px var(--ui-font, system-ui, sans-serif); }
+.illc { display: inline-flex; align-items: center; gap: 6px; padding: 2px 10px 2px 8px; border: 1px solid var(--line, #8886); border-radius: 999px; background: transparent; color: var(--fg, inherit); cursor: pointer; font: inherit; }
+.illc i { width: .7em; height: .7em; border-radius: 50%; background: var(--c); box-shadow: 0 0 0 1px var(--c); }
+.illc[data-i="1"] { --c: var(--il1); } .illc[data-i="2"] { --c: var(--il2); } .illc[data-i="3"] { --c: var(--il3); } .illc[data-i="4"] { --c: var(--il4); } .illc[data-i="5"] { --c: var(--il5); }
+.illc[aria-pressed="false"] { opacity: .5; } .illc[aria-pressed="false"] i { background: none; }
+#rOut .ilx { cursor: pointer; border-radius: 3px; }
+#rOut .ilx:hover { background: color-mix(in srgb, var(--accent) 16%, transparent); }
 #rOut .ilhl, #rOut .w.ilhl, #rOut .wg.ilhl { background: color-mix(in srgb, var(--accent) 38%, transparent) !important; outline: 1px solid var(--accent); border-radius: 3px; }
 body.il .cell[data-k="he"] .ilg { display: inline-flex; flex-direction: column; align-items: center; vertical-align: top; margin: 0 .3em .7em; }
 body.il .cell[data-k="he"] .ilw { display: block; text-align: center; white-space: nowrap; }
