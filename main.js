@@ -1012,7 +1012,8 @@ ipcMain.handle('links:texts', async (_e, refs, prefer, strict) => {
 
 // pick (Wortkarte): { vt: Muster des Versionstitels, rtl } – statt der zweiten Sprache die dort gewählte Fassung (Zunz, Hirsch, Septuaginta, Targum …);
 // hat das Buch sie nicht oder fehlt der Vers darin, bleibt es bei der üblichen Auswahl
-ipcMain.handle('links:preview', async (_e, ref, langs, pick) => {
+// pref: { de: Versionstitel | '' (= Zunz, Standard) | '*' (erste vorhandene, wie früher) } – bevorzugte deutsche Fassung der Vorschau (Anzeige-Einstellung)
+ipcMain.handle('links:preview', async (_e, ref, langs, pick, pref) => {
   const { book, tail } = LK.splitRef(ref);
   const lib = await getLibrary();
   const cand = lib.list().filter(x => x.title === book);
@@ -1021,8 +1022,10 @@ ipcMain.handle('links:preview', async (_e, ref, langs, pick) => {
   // mehrere Sprachen: [hebräisch, zweite Sprache]; fehlt die zweite, nimmt die Vorschau eine andere vorhandene (en/de)
   if (Array.isArray(langs) && langs.length) {
     const parts = [];
+    const pDe = pref && typeof pref.de === 'string' ? pref.de : '';
+    const prefRank = x => x.kind !== 'de' || pDe === '*' ? 1 : (pDe ? x.versionTitle === pDe : /Zunz/.test(String(x.versionTitle || ''))) ? 0 : 1;
     const tryKind = async kind => {
-      for (const c of cand.filter(x => x.kind === kind).sort((a, b) => merged(a) - merged(b))) {
+      for (const c of cand.filter(x => x.kind === kind).sort((a, b) => (prefRank(a) - prefRank(b)) || (merged(a) - merged(b)))) {
         try { const d = await lib.read(c.rel); const items = LK.resolveText(d, tail); if (items) { parts.push({ kind, he: kind === 'he', items: items.slice(0, 6), versionTitle: c.versionTitle }); return true; } } catch { /* nächste Fassung */ }
       }
       return false;
@@ -1034,10 +1037,7 @@ ipcMain.handle('links:preview', async (_e, ref, langs, pick) => {
       try { const d = await lib.read(c.rel); const items = LK.resolveText(d, tail); if (items) { picked = { kind: c.kind, he: c.kind === 'he' || !!pick.rtl, items: items.slice(0, 6), versionTitle: c.versionTitle, picked: true }; break; } } catch { /* nächste Fassung */ }
     }
     const pickMiss = !!re && !picked; // gewählte Fassung fehlt für dieses Buch oder diesen Vers
-    // dann ersatzweise Zunz (wortgenau zugeordnet, ganzer Tanach) statt der zufällig ersten deutschen Fassung
-    if (pickMiss) for (const c of cand.filter(x => x.kind === 'de' && /Zunz/.test(String(x.versionTitle || '')))) {
-      try { const d = await lib.read(c.rel); const items = LK.resolveText(d, tail); if (items) { picked = { kind: c.kind, he: false, items: items.slice(0, 6), versionTitle: c.versionTitle }; break; } } catch { /* nächste Fassung */ }
-    }
+    // dann gilt die bevorzugte deutsche Fassung (Standard: Zunz) wie bei jeder anderen Vorschau
     for (const k of wanted) { if (picked && k !== 'he') continue; await tryKind(k); }
     if (picked) { parts.push(picked); return { parts, items: parts[0].items, kind: parts[0].kind, he: parts[0].he, versionTitle: parts[0].versionTitle, pickMiss }; }
     if (parts.length < wanted.length) for (const k of ['en', 'de']) { if (parts.length >= wanted.length) break; if (!wanted.includes(k) && !parts.some(p => p.kind === k)) await tryKind(k); }

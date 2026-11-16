@@ -3084,9 +3084,9 @@
     const startHov = (a, ref, quiet, below, pick) => {
       hideHov(); hovRef = ref;
       hovT = setTimeout(async () => {
-        const ck = pick && pick.vt ? ref + '\u0001' + pick.vt : ref;
+        const ck = (pick && pick.vt ? ref + '\u0001' + pick.vt : ref) + '\u0002' + (disp.pvDe || '');
         let r = pvCache.get(ck);
-        if (!r) { try { r = await LK.preview(ref, ['he', I18N.lang === 'de' ? 'de' : 'en'], pick && pick.vt ? { vt: pick.vt, rtl: pick.rtl } : undefined); } catch { r = {}; } pvCache.set(ck, r); if (pvCache.size > 200) pvCache.delete(pvCache.keys().next().value); }
+        if (!r) { try { r = await LK.preview(ref, ['he', I18N.lang === 'de' ? 'de' : 'en'], pick && pick.vt ? { vt: pick.vt, rtl: pick.rtl } : undefined, { de: disp.pvDe || '' }); } catch { r = {}; } pvCache.set(ck, r); if (pvCache.size > 200) pvCache.delete(pvCache.keys().next().value); }
         if (hovRef !== ref) return; // Maus ist inzwischen woanders
         const none = !(r.parts && r.parts.length) && !(r.items && r.items.length);
         if (none && quiet) return; // Wörterbuch: ohne Text keine leere Blase
@@ -3110,6 +3110,7 @@
       }, 350);
     };
     hovApi = { start: startHov, hide: hideHov, current: () => hovRef };
+    window.pvClear = () => pvCache.clear(); // nach Wechsel der bevorzugten Vorschau-Fassung
     $('#lkBody').addEventListener('mouseover', e => {
       const a = e.target.closest('a[data-ref]');
       if (!a || a.parentElement.classList.contains('off') || a.dataset.ref === hovRef) return;
@@ -6203,7 +6204,17 @@
       if (again) window.scrollTo(0, window.scrollY + again.getBoundingClientRect().top - off); else window.scrollTo(0, y);
     }
   }
-  $('#dispBtn').onclick = () => { $('#dispPanel').hidden = !$('#dispPanel').hidden; };
+  // Auswahl „Vorschau – deutsche Fassung“: alle deutschen Fassungen des Tanach in der Bibliothek, nach Zahl der Bücher; leer = Zunz (Standard), * = erste vorhandene
+  function pvDeFill() {
+    const sel = $('#dPvDe'); if (!sel) return;
+    const n = new Map();
+    for (const g of groups) { if (!/^Tanakh\//.test(g.key || '')) continue; for (const v of g.versions) if (v.kind === 'de' && v.versionTitle !== 'merged') n.set(v.versionTitle, (n.get(v.versionTitle) || 0) + 1); }
+    const vts = [...n].filter(([vt]) => !/Zunz/.test(vt)).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+    sel.innerHTML = `<option value="">${esc(I18N.t('Zunz (Standard)'))}</option><option value="*">${esc(I18N.t('erste vorhandene Fassung'))}</option>`
+      + vts.map(([vt, c]) => `<option value="${esc(vt)}">${esc(shortVer(vt).slice(0, 70))} (${c})</option>`).join('');
+    sel.value = disp.pvDe && (disp.pvDe === '*' || n.has(disp.pvDe)) ? disp.pvDe : '';
+  }
+  $('#dispBtn').onclick = () => { $('#dispPanel').hidden = !$('#dispPanel').hidden; if (!$('#dispPanel').hidden) pvDeFill(); };
   $('#dispPanel').addEventListener('input', e => {
     const id = e.target.id;
     if (id === 'dHe') disp.he = +e.target.value;
@@ -6217,6 +6228,7 @@
     if (id === 'dHideTabs') disp.hideTabs = e.target.checked;
     if (id === 'dHdSt') disp.headStick = e.target.checked;
     if (id === 'dHov') disp.hov = +e.target.value;
+    if (id === 'dPvDe') { disp.pvDe = e.target.value; if (typeof window.pvClear === 'function') window.pvClear(); }
     if (id === 'dOlIn') { try { localStorage.setItem('olInline', e.target.checked ? '1' : '0'); } catch { /* egal */ } withAnchor(() => olInline()); return; }
     applyDisp(id === 'dNiq' || id === 'dCan');
   });
