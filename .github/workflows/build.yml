@@ -30,10 +30,19 @@ jobs:
             dist/*.AppImage
             dist/*.deb
           if-no-files-found: warn
+      # Release-Notes aus docs/releases/<Tag>.md, falls vorhanden (sonst nur die von GitHub erzeugte Liste)
+      - name: Release-Notes suchen
+        id: notes
+        if: startsWith(github.ref, 'refs/tags/')
+        shell: bash
+        run: |
+          f="docs/releases/${GITHUB_REF_NAME#v}.md"
+          if [ -f "$f" ]; then echo "path=$f" >> "$GITHUB_OUTPUT"; else echo "path=" >> "$GITHUB_OUTPUT"; fi
       - name: An das GitHub-Release hängen (nur bei Tag v*)
         if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v2
         with:
+          body_path: ${{ steps.notes.outputs.path }}
           files: |
             dist/*.dmg
             dist/*.exe
