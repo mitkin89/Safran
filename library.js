@@ -1478,17 +1478,21 @@
       <div class="wcLx">${r.list.slice(0, 10).map(x => `<div class="wcLxR">${x.g.includes(' ') ? `<span class="g" lang="grc">${esc(x.g)}</span>` : `<button type="button" class="g wcGL" lang="grc" data-gl="${esc(x.g)}" title="${esc(I18N.t('Griechische Wortkarte öffnen'))}">${esc(x.g)}</button>`}<span class="b"><i style="width:${Math.max(2, x.n / mx * 100).toFixed(1)}%"></i></span><small>${wcNum(x.n)}</small></div>`).join('')}</div>
       <p class="muted wcLxN">${esc(I18N.t('Nach der Wort-für-Wort-Zuordnung von CATSS; die griechischen Wörter sind auf ihr Lemma zurückgeführt (lxx-morph), ohne Artikel und – wo das hebräische Wort Vorsilbe oder Suffix hat – ohne Präposition und Pronomen. Klick auf ein Wort öffnet seine Wortkarte.'))}</p>`;
   }
-  // Übersetzungsstatistik („Wie wird das Wort übersetzt?“): Ring mit den häufigsten Wiedergaben einer wortgenau zugeordneten Fassung –
-  // deutsch (interlin-ren.js: Zunz, Breuer, Philippson, Herxheimer; Gruppen nach Wortstamm, mit Stellen), griechisch (Septuaginta, oshb-lxx.js)
-  // und aramäisch (Targumim, targum-ren.js). Die sieben häufigsten Gruppen haben eigene Farben, der Rest ist „Andere“.
+  // Übersetzungsstatistik („Wie wird das Wort übersetzt?“): Liste der Wiedergaben einer wortgenau zugeordneten Fassung, je Zeile ein Balken (Breite = Anteil) –
+  // deutsch (interlin-ren.js: Zunz, Breuer, Philippson, Herxheimer; Gruppen nach deutscher Grundform, mit Formen und Stellen), griechisch (Septuaginta, oshb-lxx.js)
+  // und aramäisch (Targumim, targum-ren.js). Zeilen der deutschen Fassungen lassen sich aufklappen (Formen mit Anzahl, Stellen mit hebräischer Form und deutschem Segment);
+  // Wiedergaben mit nur einem Beleg stehen zusammen unter „Einzelbelege“. Gleich geschriebene Lemmata (Homonyme) lassen sich über eine eigene Zeile umschalten.
   let ilRenP = null, wcTrState = null;
   let lxxRenP = null;
+  let wcTrMore = false; try { wcTrMore = localStorage.getItem('wcTrMore') === '1'; } catch { /* egal */ }
   const loadLxxRen = () => lxxRenP || (lxxRenP = lazyScript('lxx-ren.js', () => window.LXX_REN).catch(() => { lxxRenP = null; return null; }));
   const loadIlRen = () => ilRenP || (ilRenP = lazyScript('interlin-ren.js', () => window.INTERLIN_REN).catch(() => { ilRenP = null; return null; }));
   const WC_TR_LABEL = { Zunz: 'Zunz (1838)', Breuer: 'Breuer', Philippson: 'Philippson', Herxheimer: 'Herxheimer', LXX: 'Septuaginta', O: 'Onkelos', PJ: 'Pseudo-Jonathan', N: 'Neofiti 1' };
-  function unB36(str, books) { let prev = 0; return String(str || '').split('.').filter(Boolean).map(x => { prev += parseInt(x, 36); const b = Math.floor(prev / 1e6), c = Math.floor(prev / 1000) % 1000, v = prev % 1000; return books[b] + ' ' + c + ':' + v; }); }
+  // Stellen: Buch*1000000 + Kapitel*1000 + Vers als Differenzen (Basis 36) -> Zahlen
+  function unB36(str) { let prev = 0; return String(str || '').split('.').filter(Boolean).map(x => (prev += parseInt(x, 36))); }
   // Bestimmung des hebräischen Worts -> Filtermerkmale (Binjan, Form, Person, Genus, Numerus, Status, Suffix)
   const WC_TR_DIMS = [['stem', 'Binjan'], ['tense', 'Form'], ['person', 'Person'], ['gender', 'Genus'], ['number', 'Numerus'], ['state', 'Status'], ['suffix', 'Suffix']];
+  const WC_TR_MAIN = new Set(['stem', 'tense']); // immer sichtbar; die übrigen hinter „Weitere Merkmale“
   const wcFeatCache = new Map();
   function wcFeat(code, lemma) {
     if (wcFeatCache.has(code)) return wcFeatCache.get(code);
@@ -1503,6 +1507,7 @@
     wcFeatCache.set(code, f); return f;
   }
   // Quellen der Übersetzungsstatistik für ein Lemma: {src: {Fassung: {lang, labels, cells}}, keys, IR}
+  // labels[g].forms: deutsche Fassungen [Grundform, [Form, Anzahl], …]; Septuaginta und Targumim [Lemma]
   async function wcTrSources(lemma) {
     const [IR, LR, TR] = await Promise.all([loadIlRen(), loadLxxRen(), loadTgRen()]);
     const src = {};
@@ -1511,60 +1516,159 @@
     if (lx) src.LXX = { lang: 'grc', labels: lx[0].map(g => ({ forms: [g], other: g === '*' })), cells: lx[1].map(([g, code, n]) => ({ g, code, n })) };
     const tg = TR && TR[lemma];
     if (tg) ['O', 'PJ', 'N'].forEach((k, i) => { const cells = tg[1].map(c => ({ g: c[0], code: c[1], n: c[2 + i] })).filter(c => c.n); if (cells.length) src[k] = { lang: 'arc', labels: tg[0].map(([l, gl]) => ({ forms: [l], gl, other: l === '*' })), cells }; });
-    const keys = Object.keys(WC_TR_LABEL).filter(k => src[k] && src[k].cells.reduce((a, c) => a + c.n, 0) >= 2);
+    for (const k in src) src[k].total = src[k].cells.reduce((a, c) => a + c.n, 0);
+    const keys = Object.keys(WC_TR_LABEL).filter(k => src[k] && src[k].total >= 2);
     return { src, keys, IR };
   }
   async function wcTrans(token) {
     const { lemma } = fmCur;
-    const { src, keys, IR } = await wcTrSources(lemma);
+    const R = await wcTrSources(lemma);
+    if (token !== wcToken || !$('#wcTr')) return;
+    if (!R.keys.length) return;
+    // Schwester-Lemmata: gleiche Konsonanten, anderes Lemma (עָנָה antworten / singen / gebeugt sein) – nur die, zu denen es eine Statistik gibt
+    const LEM = window.OSHB_LEMMAS || {}, ids = (LEM[lemma] && lemIdsFor(LEM[lemma][0])) || [], sis = [{ id: lemma, ...R }];
+    for (const id of ids) { if (id === lemma) continue; const r = await wcTrSources(id); if (r.keys.length) sis.push({ id, ...r }); }
     const box = $('#wcTr'); if (token !== wcToken || !box) return;
-    if (!keys.length) return;
     let pick = null; try { pick = localStorage.getItem('wcTrSrc'); } catch { /* egal */ }
-    wcTrState = { src, keys, cur: keys.includes(pick) ? pick : keys[0], open: -1, IR, f: {}, lemma };
+    wcTrState = { src: R.src, keys: R.keys, cur: R.keys.includes(pick) ? pick : R.keys[0], open: null, IR: R.IR, f: {}, lemma, sis: sis.length > 1 ? sis : [], allRows: false, refLim: 12 };
     box.hidden = false; wcTrRender();
   }
-  function wcTrShow(k) { if (!wcTrState || !wcTrState.src[k]) return; wcTrState.cur = k; wcTrState.open = -1; try { localStorage.setItem('wcTrSrc', k); } catch { /* egal */ } wcTrRender(); }
-  function wcTrRefs(i) { if (!wcTrState) return; wcTrState.open = wcTrState.open === i ? -1 : i; wcTrRender(); }
-  function wcTrFilt(dim, val) { if (!wcTrState) return; if (dim === '*') wcTrState.f = {}; else if (wcTrState.f[dim] === val || val == null) delete wcTrState.f[dim]; else wcTrState.f[dim] = val; wcTrState.open = -1; wcTrRender(); }
+  function wcTrShow(k) { const S = wcTrState; if (!S || !S.src[k]) return; S.cur = k; S.open = null; S.allRows = false; S.refLim = 12; try { localStorage.setItem('wcTrSrc', k); } catch { /* egal */ } wcTrRender(); }
+  function wcTrRefs(key) { const S = wcTrState; if (!S) return; S.open = S.open === key ? null : key; S.refLim = 12; wcTrRender(); }
+  function wcTrFilt(dim, val) { const S = wcTrState; if (!S) return; if (dim === '*') S.f = {}; else if (S.f[dim] === val || val == null) delete S.f[dim]; else S.f[dim] = val; S.open = null; S.refLim = 12; wcTrRender(); }
+  // Homonym-Umschalter: die Statistik zeigt ein gleich geschriebenes Lemma (die übrige Wortkarte bleibt beim angeklickten Wort)
+  function wcTrLemma(id) {
+    const S = wcTrState, x = S && S.sis.find(s => s.id === id); if (!x || S.lemma === id) return;
+    S.lemma = id; S.src = x.src; S.keys = x.keys; S.IR = x.IR; if (!S.keys.includes(S.cur)) S.cur = S.keys[0];
+    S.f = {}; S.open = null; S.allRows = false; S.refLim = 12; wcTrRender();
+  }
+  // ----- Stellen mit Kontext: Westminster-Wörter des Verses (Lemma, Bestimmung, Form) + Segmente der Fassung aus interlin.js -----
+  const wcVerseWords = new Map(); // „Genesis 18:27“ -> [{lem, code, he}] (leer, wenn der Vers nicht zu lesen war)
+  const wcMcode = (l, m) => { // wie tools/interlinear/renderings.py: Bestimmung des Hauptworts, Suffix angehängt
+    const ls = l.split('/'), ms = m.slice(1).split('/'); let i = ls.findIndex(x => /\d/.test(x)); if (i < 0) i = ls.length - 1;
+    const suf = ms.slice(i + 1).filter(x => x[0] === 'S');
+    return m[0] + (i < ms.length ? ms[i] : ms[ms.length - 1]) + (suf.length ? '/' + suf[0] : '');
+  };
+  const wcClean = t => { const w = String(t).replace(/\.\.\.|[„“”‚‘’"«»,.;:!?()[\]—–…']/g, ' ').split(/\s+/).filter(Boolean); while (w.length > 1 && /^(und|der|die|das|den|dem|des)$/i.test(w[0])) w.shift(); return w.join(' ').toLowerCase(); };
+  async function wcTrCtxLoad(refs) {
+    const need = [...new Set(refs)].filter(r => !wcVerseWords.has(r));
+    if (!need.length) return;
+    let res = null; try { res = await LK.texts(need, 'he', true); } catch { res = null; }
+    for (const r of need) {
+      const t = res && res[r], ws = [];
+      if (t && t.items && /westminster/i.test(t.versionTitle || '')) {
+        const re = /<span class="w" data-l="([^"]*)" data-m="([^"]*)"[^>]*>([^<]*)/g, html = t.items.join(' '); let m;
+        while ((m = re.exec(html))) ws.push({ lem: (m[1].split('/').find(x => /\d/.test(x)) || '').trim(), code: wcMcode(m[1], m[2]), he: m[3].replace(/[֑-ֽ֯]/g, '') });
+      }
+      wcVerseWords.set(r, ws);
+    }
+  }
+  // Vorkommen des Lemmas in einem Vers mit dem deutschen Segment der Fassung (nur Segmente, die diesem Wort allein zugeordnet sind – wie in der Zählung)
+  function wcTrOcc(tr, ref, lemma) {
+    const IL = window.INTERLIN, ws = wcVerseWords.get(ref) || [], m = /^(.*) (\d+:\d+)$/.exec(ref);
+    const segs = m && IL && IL[tr] && IL[tr][m[1]] && IL[tr][m[1]][m[2]]; if (!segs || !ws.length) return [];
+    const per = new Map();
+    segs.forEach(([idx, t], k) => { const c = idx.filter(i => i >= 1 && i <= ws.length && ws[i - 1].lem && ws[i - 1].lem !== '853'); if (c.length === 1) (per.get(c[0]) || per.set(c[0], []).get(c[0])).push([k, t]); });
+    const out = [];
+    per.forEach((xs, i) => { const w = ws[i - 1]; if (w.lem !== lemma) return; out.push({ i, he: w.he, code: w.code, de: xs.map(([k, t], j) => (j ? (k === xs[j - 1][0] + 1 ? ' ' : ' … ') : '') + t).join(''), cl: wcClean(xs.map(x => x[1]).join(' ')) }); });
+    return out.sort((a, b) => a.i - b.i);
+  }
   function wcTrRender() {
     const S = wcTrState, box = $('#wcTr'); if (!S || !box) return;
-    const D = S.src[S.cur], TOP = 7, fk = Object.keys(S.f);
+    const D = S.src[S.cur], fk = Object.keys(S.f), de = D.lang === 'de', LEM = window.OSHB_LEMMAS || {};
+    const gloss = id => { const l = LEM[id]; return l ? (I18N.lang === 'de' && l[2] ? l[2] : l[1]) : ''; };
+    const srcName = k => I18N.t(WC_TR_LABEL[k]).replace(/ \(.*$/, '');
     const match = (c, skip) => { const f = wcFeat(c.code, S.lemma); return fk.every(k => k === skip || f[k] === S.f[k]); };
-    // Filterleiste: je Merkmal die vorkommenden Werte mit Anzahl (gezählt unter den übrigen gewählten Filtern)
+    // Filter: je Merkmal die vorkommenden Werte mit Anzahl (gezählt unter den übrigen gewählten Filtern)
     const dims = WC_TR_DIMS.map(([k, name]) => {
-      const cnt = new Map(); let all = 0;
-      D.cells.forEach(c => { all += c.n; if (!match(c, k)) return; const v = wcFeat(c.code, S.lemma)[k]; if (v) cnt.set(v, (cnt.get(v) || 0) + c.n); });
+      const cnt = new Map();
+      D.cells.forEach(c => { if (!match(c, k)) return; const v = wcFeat(c.code, S.lemma)[k]; if (v) cnt.set(v, (cnt.get(v) || 0) + c.n); });
       return { k, name, vals: [...cnt].sort((a, b) => b[1] - a[1]) };
     }).filter(d => d.vals.length > 1 || S.f[d.k]);
-    // Gruppen unter dem Filter
+    // Gruppen unter dem Filter; Stellen je Gruppe in der Reihenfolge des Tanach (Doppelte bleiben: zwei Vorkommen im Vers = zwei Zeilen)
     const gn = new Map(), grefs = new Map();
-    D.cells.forEach(c => { if (!match(c)) return; gn.set(c.g, (gn.get(c.g) || 0) + c.n); if (c.refs) (grefs.get(c.g) || grefs.set(c.g, []).get(c.g)).push(...unB36(c.refs, S.IR.books)); });
-    const gs = [...gn].map(([g, n]) => ({ ...D.labels[g], g, n, lang: D.lang, refs: grefs.get(g) })).sort((a, b) => (a.other - b.other) || b.n - a.n);
-    const tot = gs.reduce((a, g) => a + g.n, 0);
-    const slices = gs.filter(g => !g.other).slice(0, TOP).map((g, i) => ({ ...g, c: i + 1, i }));
-    const rest = tot - slices.reduce((a, g) => a + g.n, 0);
-    if (rest > 0) slices.push({ forms: [I18N.t('Andere')], n: rest, c: 0, i: -2 });
-    const R0 = 92, R1 = 58, C = 100; let a0 = 0;
-    const pt = (r, a) => [C + r * Math.sin(a), C - r * Math.cos(a)].map(x => x.toFixed(2)).join(' ');
-    const arcs = tot ? slices.map(g => {
-      const a1 = a0 + g.n / tot * 2 * Math.PI, big = a1 - a0 > Math.PI ? 1 : 0;
-      const d = slices.length === 1 ? `M ${C} ${C - R0} A ${R0} ${R0} 0 1 1 ${C - 0.01} ${C - R0} L ${C - 0.01} ${C - R1} A ${R1} ${R1} 0 1 0 ${C} ${C - R1} Z` : `M ${pt(R0, a0)} A ${R0} ${R0} 0 ${big} 1 ${pt(R0, a1)} L ${pt(R1, a1)} A ${R1} ${R1} 0 ${big} 0 ${pt(R1, a0)} Z`;
-      a0 = a1;
-      return `<path d="${d}" class="wcTrS c${g.c}" data-g="${g.i}"><title>${esc(g.forms.join(', '))}: ${wcNum(g.n)} (${Math.round(g.n / tot * 100)} %)</title></path>`;
-    }).join('') : `<circle cx="100" cy="100" r="75" class="wcTrE"/>`;
-    const lem = fmCur && fmCur.lem ? fmCur.lem[0] : '';
-    const lab = g => g.other ? I18N.t('Andere') : g.forms.join(', ');
-    const row = (g, i) => `<div class="wcTrR${g.refs ? ' can' : ''}${S.open === i ? ' open' : ''}" data-g="${g.other ? 99 : i}"><i class="sw c${i < TOP && !g.other ? i + 1 : 0}"></i><span class="f" lang="${g.lang}"${g.lang === 'arc' ? ' dir="rtl"' : ''}>${g.lang === 'arc' && !g.other ? `<button type="button" class="wcTgL" data-q="${esc(g.forms[0])}" title="${esc(I18N.t('Im Wörterbuch nachschlagen'))}">${esc(lab(g))}</button>` : esc(lab(g))}${g.gl ? ` <small class="muted">${esc(g.gl)}</small>` : ''}</span><small class="n">${wcNum(g.n)}</small><small class="p">${Math.round(g.n / tot * 100)} %</small></div>${S.open === i && g.refs ? `<div class="fmRL wcTrRefs">${[...new Set(g.refs)].map(r => `<span class="fmR"><a data-ref="${esc(r)}">${esc(fmBook(r.replace(/ \d+:\d+$/, '')) + ' ' + r.match(/\d+:\d+$/)[0])}</a></span>`).join(' ')}</div>` : ''}`;
-    const note = S.IR && S.IR.tr && S.cur in S.IR.tr ? 'Gezählt sind die Stellen, an denen die Übersetzung diesem Wort allein (ohne weiteres Inhaltswort) zugeordnet ist; Formen mit demselben Wortstamm sind zusammengefasst, „und“ und Artikel am Anfang weggelassen. Klick auf eine Zeile zeigt die Stellen.' : S.cur === 'LXX' ? 'Septuaginta nach der Wort-für-Wort-Zuordnung von CATSS, griechische Wörter als Lemma (lxx-morph).' : 'Targum nach der maschinellen Wortzuordnung zum Westminster-Text (ETCBC Targum Corpus, CC BY-NC 4.0).';
-    const all = D.cells.reduce((a, c) => a + c.n, 0);
-    box.innerHTML = `<h4>${esc(I18N.t('Wie wird das Wort übersetzt?'))} <small>${esc(fk.length ? I18N.t('{} von {} Belegen', wcNum(tot), wcNum(all)) : I18N.t('{} Belege · {} Wiedergaben', wcNum(tot), wcNum(gs.length)))}</small></h4>
-      <div class="wcTrTabs" role="tablist">${S.keys.map(k => `<button type="button" role="tab" class="wcTrSrc${k === S.cur ? ' on' : ''}" aria-selected="${k === S.cur}" data-src="${k}">${esc(I18N.t(WC_TR_LABEL[k]))} <small>${wcNum(S.src[k].cells.reduce((a, c) => a + c.n, 0))}</small></button>`).join('')}</div>
-      ${dims.length ? `<div class="wcTrF">${dims.map(d => `<div class="wcTrFR"><span class="muted">${esc(I18N.t(d.name))}</span>${d.vals.map(([v, n]) => `<button type="button" class="wcTrFV${S.f[d.k] === v ? ' on' : ''}" data-dim="${d.k}" data-val="${esc(v)}" aria-pressed="${S.f[d.k] === v}">${esc(I18N.t(v))} <small>${wcNum(n)}</small></button>`).join('')}${S.f[d.k] && !d.vals.some(([v]) => v === S.f[d.k]) ? `<button type="button" class="wcTrFV on" data-dim="${d.k}" data-val="${esc(S.f[d.k])}" aria-pressed="true">${esc(I18N.t(S.f[d.k]))} <small>0</small></button>` : ''}</div>`).join('')}${fk.length ? `<button type="button" class="wcTrFV wcTrAll" data-dim="*">↺ ${esc(I18N.t('Alle Formen'))}</button>` : ''}</div>` : ''}
-      <div class="wcTrBody"><svg class="wcTrRing" viewBox="0 0 200 200" role="img" aria-label="${esc(I18N.t('Wie wird das Wort übersetzt?'))}">${arcs}<text x="100" y="98" class="wcTrC" lang="he">${esc(lem)}</text><text x="100" y="122" class="wcTrT">${esc(wcNum(tot))}</text></svg>
-      <div class="wcTrL">${gs.length ? gs.slice(0, 20).map(row).join('') : `<p class="muted">${esc(I18N.t('Keine Belege für diese Auswahl.'))}</p>`}${gs.length > 20 ? `<p class="muted">${esc(I18N.t('… und {} weitere Wiedergaben', wcNum(gs.length - 20)))}</p>` : ''}</div></div>
+    D.cells.forEach(c => { if (!match(c)) return; gn.set(c.g, (gn.get(c.g) || 0) + c.n); if (c.refs) { const a = grefs.get(c.g) || grefs.set(c.g, []).get(c.g); unB36(c.refs).forEach(num => a.push({ num, code: c.code, g: c.g })); } });
+    grefs.forEach(a => a.sort((x, y) => x.num - y.num));
+    const gs = [...gn].map(([g, n]) => ({ ...D.labels[g], g, n, lang: D.lang, refs: grefs.get(g) })).sort((a, b) => (!!a.other - !!b.other) || b.n - a.n);
+    const tot = gs.reduce((a, g) => a + g.n, 0), all = D.total;
+    const pct = n => { const p = n / tot * 100; return (p < 1 ? '< 1' : String(Math.round(p))) + ' %'; };
+    const lab = g => g.other ? I18N.t('Andere') : g.forms[0];
+    // Einzelbelege: Wiedergaben mit nur einem Beleg zusammengefasst (wenn es genug sind und daneben noch andere stehen)
+    const ones = gs.filter(g => g.n === 1 && !g.other), fold = ones.length >= 3 && ones.length < gs.length;
+    const main = fold ? gs.filter(g => g.n !== 1 || g.other) : gs, CAP = 20;
+    const shown = S.allRows ? main : main.slice(0, CAP);
+    // abweichende Deutung: dieselbe Grundform ist bei einem gleich geschriebenen Lemma deutlich häufiger -> die Fassung liest hier wohl das andere Wort
+    const sisIdx = S.sis.filter(s => s.id !== S.lemma && s.src[S.cur]).map(s => { const d = s.src[S.cur], m = new Map(); d.cells.forEach(c => { const L = d.labels[c.g]; if (L && !L.other) m.set(L.forms[0], (m.get(L.forms[0]) || 0) + c.n); }); return { id: s.id, m, total: d.total }; });
+    const hint = g => {
+      if (g.other || !sisIdx.length || D.lang === 'arc') return null; // Targum: aramäische Lexeme sind oft selbst Homonyme
+      const share = g.n / tot; if (share >= 0.1) return null; let best = null;
+      for (const s of sisIdx) { const n2 = s.m.get(g.forms[0]) || 0, sh = n2 / s.total; if (n2 >= 3 && n2 > g.n && sh >= 0.1 && sh >= 4 * share && (!best || sh > best.sh)) best = { id: s.id, sh }; }
+      return best && gloss(best.id) ? I18N.t('{} liest hier wohl „{}“', srcName(S.cur), gloss(best.id)) : null;
+    };
+    // ----- Stellen einer aufgeklappten Zeile -----
+    const BOOKS = S.IR && S.IR.books || [];
+    const refOf = num => BOOKS[Math.floor(num / 1e6)] + ' ' + (Math.floor(num / 1000) % 1000) + ':' + (num % 1000);
+    let formSets = null;
+    const fset = g => { if (!formSets) { formSets = new Map(); D.labels.forEach((L, i) => formSets.set(i, new Set(L.forms.slice(1).map(f => String(f[0]).toLowerCase())))); } return formSets.get(g) || new Set(); };
+    const anyForm = cl => { fset(0); for (const s of formSets.values()) if (s.has(cl)) return true; return false; };
+    const ctx = (items, key, withLabel) => {
+      const lim = Math.min(items.length, S.refLim), part = items.slice(0, lim), refs = part.map(it => refOf(it.num));
+      if (refs.some(r => !wcVerseWords.has(r)) || (!window.INTERLIN && !S.ilFail)) { // Kontext nachladen, dann neu zeichnen
+        if (!S.loading) { S.loading = true; Promise.all([loadIL(), wcTrCtxLoad(refs)]).then(([IL]) => { S.loading = false; if (!IL) S.ilFail = true; if (wcTrState === S && S.open === key) wcTrRender(); }, () => { S.loading = false; S.ilFail = true; }); }
+      }
+      const occs = new Map(), used = new Map(), hs = withLabel ? new Map(ones.map(g => [g.g, hint(g)])) : null; let lb = null, html = '';
+      part.forEach((it, j) => {
+        const r = refs[j], bk = Math.floor(it.num / 1e6);
+        if (!occs.has(r)) { occs.set(r, wcTrOcc(S.cur, r, S.lemma)); used.set(r, new Set()); }
+        const u = used.get(r), mine = fset(it.g); let o = null, bs = -1;
+        occs.get(r).forEach(x => { if (u.has(x.i)) return; const s = (x.code === it.code ? 4 : 0) + (mine.has(x.cl) ? 2 : anyForm(x.cl) ? 0 : 1); if (s > bs) { bs = s; o = x; } });
+        if (o) u.add(o.i);
+        if (bk !== lb) { html += `<div class="bk">${esc(fmBook(BOOKS[bk]))}</div>`; lb = bk; }
+        const cv = (Math.floor(it.num / 1000) % 1000) + (I18N.lang === 'de' ? ',' : ':') + (it.num % 1000);
+        html += `<div class="ln"><a data-ref="${esc(r)}">${cv}</a><span class="he" lang="he" dir="rtl">${o ? esc(o.he) : ''}</span><span class="de" lang="de" dir="ltr">${o ? esc(o.de) : withLabel ? `<span class="muted">${esc(D.labels[it.g].forms[0])}</span>` : ''}${hs && hs.get(it.g) ? ` <small class="hint">${esc(hs.get(it.g))}</small>` : ''}</span></div>`;
+      });
+      const rest = items.length - lim, STEP = 300;
+      const more = rest > 0 ? `<div class="mr"><button type="button" class="wcTrMoreRefs" dir="auto" data-to="${lim + Math.min(rest, STEP)}">${esc(rest <= STEP ? I18N.t('alle {} Stellen zeigen', wcNum(items.length)) : I18N.t('weitere {} Stellen zeigen', wcNum(STEP)))}</button></div>` : '';
+      return `<div class="fmRL wcTrCx">${html}${more}</div>`;
+    };
+    const detail = g => {
+      const fm = g.forms.slice(1), sum = fm.reduce((a, f) => a + f[1], 0), gAll = D.cells.reduce((a, c) => a + (c.g === g.g ? c.n : 0), 0), h = hint(g);
+      return `<div class="wcTrX">${h ? `<p class="wcTrHint" dir="auto">${esc(h)} <span class="muted">– ${esc(I18N.t('diese Wiedergabe ist bei dem gleich geschriebenen Wort deutlich häufiger.'))}</span></p>` : ''}
+        ${fm.length ? `<div class="wcTrFm"><span class="muted">${esc(I18N.t('Formen:'))}</span>${fm.map(([f, n]) => `<span class="fm" lang="de">${esc(f)} <small>${wcNum(n)}</small></span>`).join('')}${sum < gAll ? `<span class="muted">${esc(I18N.t('… und weitere Formen'))}</span>` : ''}${fk.length ? `<span class="muted">(${esc(I18N.t('ohne Filter gezählt'))})</span>` : ''}</div>` : ''}
+        ${g.refs ? ctx(g.refs, String(g.g)) : ''}</div>`;
+    };
+    const chev = can => `<span class="chev" aria-hidden="true">${can ? '›' : ''}</span>`;
+    const bar = n => `<span class="b"><i style="width:${(n / tot * 100).toFixed(1)}%"></i></span>`;
+    const name = g => g.lang === 'arc' && !g.other ? `<button type="button" class="wcTgL" data-q="${esc(g.forms[0])}" title="${esc(I18N.t('Im Wörterbuch nachschlagen'))}">${esc(lab(g))}</button>` : esc(lab(g));
+    const row = g => {
+      const key = String(g.g), can = !!g.refs && !g.other, open = can && S.open === key, h = hint(g);
+      return `<div class="wcTrR${can ? ' can' : ''}${open ? ' open' : ''}${h ? ' odd' : ''}" data-g="${key}"${can ? ` role="button" tabindex="0" aria-expanded="${open}"${open ? '' : ` title="${esc(I18N.t('Formen und Stellen zeigen'))}"`}` : ''}>${chev(can)}<span class="f"><span lang="${g.lang}"${g.lang === 'arc' ? ' dir="rtl"' : ''}>${name(g)}</span>${g.gl ? ` <small class="muted">${esc(g.gl)}</small>` : ''}${h ? ` <small class="hint" title="${esc(h)}">${esc(h)}</small>` : ''}</span>${bar(g.n)}<small class="n">${wcNum(g.n)}</small><small class="p">${pct(g.n)}</small></div>${open ? detail(g) : ''}`;
+    };
+    const onesRow = () => {
+      const open = S.open === 'ones', n = ones.length;
+      const body = !open ? '' : de ? `<div class="wcTrX">${ctx(ones.map(g => g.refs[0]).sort((x, y) => x.num - y.num), 'ones', true)}</div>`
+        : `<div class="wcTrX"><div class="wcTrFm">${ones.map(g => `<span class="fm" lang="${g.lang}"${g.lang === 'arc' ? ' dir="rtl"' : ''}>${name(g)}${g.gl ? ` <small>${esc(g.gl)}</small>` : ''}</span>`).join('')}</div></div>`;
+      return `<div class="wcTrR can ones${open ? ' open' : ''}" data-g="ones" role="button" tabindex="0" aria-expanded="${open}">${chev(true)}<span class="f"><bdi>${esc(I18N.t('Einzelbelege'))}</bdi> <small class="muted">(${wcNum(n)})</small></span>${bar(n)}<small class="n">${wcNum(n)}</small><small class="p">${pct(n)}</small></div>${body}`;
+    };
+    const others = shown.filter(g => g.other), normal = shown.filter(g => !g.other);
+    const list = gs.length ? normal.map(row).join('') + (main.length > shown.length ? `<div class="mr"><button type="button" class="wcTrAllRows" dir="auto">${esc(I18N.t('alle {} Wiedergaben zeigen', wcNum(main.length)))}</button></div>` : '') + (fold ? onesRow() : '') + others.map(row).join('')
+      : `<p class="muted">${esc(I18N.t('Keine Belege für diese Auswahl.'))}</p>`;
+    // ----- Kopf: Homonyme, Fassungen, Zählung + Filter -----
+    const lem = LEM[S.lemma], sameVoc = S.sis.every(s => LEM[s.id] && LEM[s.id][0] === (LEM[S.sis[0].id] || [])[0]);
+    const hom = S.sis.length ? `<div class="wcTrHom"><span class="muted">${esc(I18N.t('Gleich geschrieben:'))}</span>${S.sis.map(s => ({ s, n: s.src[S.cur] ? s.src[S.cur].total : 0 })).sort((a, b) => b.n - a.n).slice(0, 8).map(({ s, n }) => `<button type="button" class="wcTrHm${s.id === S.lemma ? ' on' : ''}${n ? '' : ' few'}" data-lem="${esc(s.id)}" aria-pressed="${s.id === S.lemma}">${sameVoc ? '' : `<span lang="he" dir="rtl">${esc(LEM[s.id][0])}</span> `}${esc(gloss(s.id))} <small>${n ? wcNum(n) : '–'}</small></button>`).join('')}</div>` : '';
+    const maxTot = Math.max(...S.keys.map(k => S.src[k].total));
+    const tabs = `<div class="wcTrTabs" role="tablist">${S.keys.map(k => { const n = S.src[k].total; return `<button type="button" role="tab" class="wcTrSrc${k === S.cur ? ' on' : ''}${n < 5 || n < maxTot * 0.05 ? ' few' : ''}" aria-selected="${k === S.cur}" data-src="${k}">${esc(I18N.t(WC_TR_LABEL[k]))} <small>${wcNum(n)}</small></button>`; }).join('')}</div>`;
+    const dimRow = d => `<div class="wcTrFR"><span class="muted">${esc(I18N.t(d.name))}</span>${d.vals.map(([v, n]) => `<button type="button" class="wcTrFV${S.f[d.k] === v ? ' on' : ''}" data-dim="${d.k}" data-val="${esc(v)}" aria-pressed="${S.f[d.k] === v}">${esc(I18N.t(v))} <small>${wcNum(n)}</small></button>`).join('')}${S.f[d.k] && !d.vals.some(([v]) => v === S.f[d.k]) ? `<button type="button" class="wcTrFV on" data-dim="${d.k}" data-val="${esc(S.f[d.k])}" aria-pressed="true">${esc(I18N.t(S.f[d.k]))} <small>0</small></button>` : ''}</div>`;
+    const mainDims = dims.filter(d => WC_TR_MAIN.has(d.k)), restDims = dims.filter(d => !WC_TR_MAIN.has(d.k));
+    const sum = `<div class="wcTrSum"><span class="cnt${fk.length ? ' filt' : ''}" dir="auto">${esc(fk.length ? I18N.t('{} von {} Belegen', wcNum(tot), wcNum(all)) : I18N.t('{} Belege · {} Wiedergaben', wcNum(tot), wcNum(gs.length)))}</span>${fk.map(k => `<button type="button" class="wcTrFV on rm" data-dim="${k}" data-val="${esc(S.f[k])}" title="${esc(I18N.t('Filter entfernen'))}">${esc(I18N.t(S.f[k]))} <span aria-hidden="true">✕</span></button>`).join('')}${fk.length > 1 ? `<button type="button" class="wcTrFV wcTrAll" data-dim="*">↺ ${esc(I18N.t('Alle Formen'))}</button>` : ''}${restDims.length ? `<button type="button" class="wcTrMoreB" aria-expanded="${wcTrMore}"><bdi>${esc(I18N.t('Weitere Merkmale'))}</bdi> <span aria-hidden="true">${wcTrMore ? '▴' : '▾'}</span></button>` : ''}</div>`;
+    const note = de ? 'Gezählt sind die Stellen, an denen die Übersetzung diesem Wort allein (ohne weiteres Inhaltswort) zugeordnet ist; die Formen sind nach ihrer deutschen Grundform zusammengefasst, „und“ und Artikel am Anfang weggelassen. Klick auf eine Zeile zeigt die Formen und die Stellen.' : S.cur === 'LXX' ? 'Septuaginta nach der Wort-für-Wort-Zuordnung von CATSS, griechische Wörter als Lemma (lxx-morph).' : 'Targum nach der maschinellen Wortzuordnung zum Westminster-Text (ETCBC Targum Corpus, CC BY-NC 4.0).';
+    const fo = document.activeElement && box.contains(document.activeElement) && document.activeElement.closest('.wcTrR[data-g]'), foKey = fo && fo.dataset.g; // Tastaturfokus über das Neuzeichnen retten
+    box.innerHTML = `<h4>${esc(I18N.t('Wie wird das Wort übersetzt?'))}${lem ? ` <small class="wcTrLem"><span lang="he" dir="rtl">${esc(lem[0])}</span> ${esc(gloss(S.lemma))}</small>` : ''}</h4>
+      ${hom}${tabs}
+      <div class="wcTrF">${sum}${mainDims.map(dimRow).join('')}${wcTrMore ? restDims.map(dimRow).join('') : ''}</div>
+      <div class="wcTrL">${list}</div>
       <p class="muted wcLxN">${esc(I18N.t(note))}</p>`;
-    const hl = i => { box.querySelectorAll('.wcTrS, .wcTrR').forEach(x => x.classList.toggle('dim', i != null && +x.dataset.g !== i && !(i === -2 && x.classList.contains('wcTrR') && +x.dataset.g >= TOP))); };
-    box.querySelectorAll('.wcTrS, .wcTrR').forEach(x => { x.addEventListener('mouseenter', () => hl(+x.dataset.g >= TOP ? -2 : +x.dataset.g)); x.addEventListener('mouseleave', () => hl(null)); });
+    if (foKey != null) { const n = [...box.querySelectorAll('.wcTrR[data-g]')].find(x => x.dataset.g === foKey); if (n) n.focus({ preventScroll: true }); }
   }
   // Targumim: häufigste aramäische Lexeme, mit denen Onkelos, Pseudo-Jonathan und Neofiti dieses hebräische Lemma wiedergeben
   // (maschinelle Wortzuordnung tools/targum/align.py, Index targum-ren.js); Klick schlägt das Lexem im Wörterbuch nach
@@ -1668,13 +1772,18 @@
     const tq = e.target.closest('.wcTgL[data-q]'); if (tq) { openDict(tq.dataset.q); return; }
     const ts = e.target.closest('.wcTrSrc[data-src]'); if (ts) { wcTrShow(ts.dataset.src); return; }
     const tf = e.target.closest('.wcTrFV[data-dim]'); if (tf) { wcTrFilt(tf.dataset.dim, tf.dataset.val); return; }
-    const tr = e.target.closest('.wcTrR[data-g]'); if (tr && !e.target.closest('a')) { wcTrRefs(+tr.dataset.g); return; }
+    const th = e.target.closest('.wcTrHm[data-lem]'); if (th) { wcTrLemma(th.dataset.lem); return; }
+    if (e.target.closest('.wcTrMoreB')) { wcTrMore = !wcTrMore; try { localStorage.setItem('wcTrMore', wcTrMore ? '1' : '0'); } catch { /* egal */ } wcTrRender(); return; }
+    if (e.target.closest('.wcTrAllRows')) { if (wcTrState) { wcTrState.allRows = true; wcTrRender(); } return; }
+    const tm = e.target.closest('.wcTrMoreRefs[data-to]'); if (tm) { if (wcTrState) { wcTrState.refLim = +tm.dataset.to; wcTrRender(); } return; }
+    const tr = e.target.closest('.wcTrR.can[data-g]'); if (tr && !e.target.closest('a')) { wcTrRefs(tr.dataset.g); return; }
     const hl = e.target.closest('.wcHL[data-hl]'); if (hl) { openForms(hl.dataset.hl, null, 'card'); return; }
     const go = e.target.closest('.wcLink[data-go]'); if (go) { fmShowTab(go.dataset.go); $('#formsPanel').scrollTop = 0; return; }
     const dg = e.target.closest('.wcDGo'); if (dg) { const q = fmCur.lem[0], only = { id: dg.dataset.id, name: dg.dataset.name }; closeForms(); showTab('dict'); dictLookup(q, only); return; }
     const bar = e.target.closest('.wcBar, .wcTop a[data-b]'); if (bar) { wcBookRefs($('#wcBookRefs').dataset.b === bar.dataset.b ? null : bar.dataset.b); return; }
     const chip = e.target.closest('.wcForms .fmF'); if (chip) { wcFormRefs(chip.classList.contains('sel') ? null : chip); }
   });
+  $('#wcBody').addEventListener('keydown', e => { if (e.key !== 'Enter' && e.key !== ' ') return; const tr = e.target.closest && e.target.closest('.wcTrR.can[data-g]'); if (!tr || e.target !== tr) return; e.preventDefault(); wcTrRefs(tr.dataset.g); });
   { // Balken: Buch und Zahl sofort beim Überfahren (und bei Tastaturfokus)
     const tip = (b, on) => {
       const t = $('#wcBody .wcTip'); if (!t) return;
