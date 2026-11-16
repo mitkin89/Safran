@@ -1,6 +1,7 @@
 # Changelog
 
 ### New in 2.4.0
+- Interlinear: Zunz, Job 1–8 now word by word (rest of the book follows)
 - Interlinear: Zunz, Exodus 1–14 now word by word (rest of the book follows)
 - **Interlinear: Zunz, Psalms word by word (1–150):** all 2,527 verses of the Psalms are aligned word by word with the Westminster text (`tools/interlinear/zunz/Psalms.txt`), including superscriptions and Ketiv/Qere pairs; the translation statistics in the word card now cover the Psalms too (Zunz: 3,363 lemmata). Grouping of German renderings improved (endings removed repeatedly, copula and particles ignored).
 - **Word card: pinnable, new order:** the word card has a pin button like the other side panels – pinned, it stands beside the text instead of over it and stays open on clicks in the text and on Esc (remembered). Order of the overview: distribution in the Tanakh, „How is the word translated?“, dictionaries, most frequent forms, Septuagint, Targumim, Qumran.
