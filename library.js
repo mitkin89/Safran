@@ -95,7 +95,7 @@
       groups = groups.filter(g => { const b = base.get(g.title); if (b && b !== g && g.versions.every(v => v.own)) { b.versions.push(...g.versions); return false; } return true; });
     }
     // Eigene Fassung mit demselben Versionsnamen wie eine Sefaria-Version (z. B. korrigierte eigene Übersetzung, die auch auf Sefaria liegt): nur die eigene zeigen, nicht beide nebeneinander
-    groups.forEach(g => { const ownNames = new Set(g.versions.filter(v => v.own).map(v => v.versionTitle)); if (ownNames.size) g.versions = g.versions.filter(v => v.own || !ownNames.has(v.versionTitle)); });
+    groups.forEach(g => { const vn = t => String(t || '').replace(/\s*\[[a-z]{2,3}\]\s*$/i, ''), ownNames = new Set(g.versions.filter(v => v.own).map(v => vn(v.versionTitle))); if (ownNames.size) g.versions = g.versions.filter(v => v.own || !ownNames.has(vn(v.versionTitle))); }); // gleicher Titel (auch mit Sprachkürzel „ [de]“ am Ende): die eigene Fassung hat Vorrang
     groups.forEach(g => g.versions.sort((a, b) =>
       (KIND_RANK[a.kind] - KIND_RANK[b.kind]) || ((a.versionTitle === 'merged' ? 0 : 1) - (b.versionTitle === 'merged' ? 0 : 1)) || a.versionTitle.localeCompare(b.versionTitle)));
     groupsByKey.clear();
