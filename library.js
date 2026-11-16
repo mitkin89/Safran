@@ -266,11 +266,22 @@
     olBtnRefresh(); if (!none && !view.group) $('#mapBtn').hidden = true;
     renderTabs();
   }
+  // Neue Tabs stehen direkt rechts vom aktiven Tab (nicht am Ende); mehrere Hintergrund-Tabs vom selben Tab aus reihen sich der Reihe nach dahinter
+  let bgFrom = null, bgLast = null; // Tab-Objekte statt Nummern: bleiben richtig, wenn dazwischen Tabs geschlossen oder verschoben werden
+  function addTab(nv, bg = false) {
+    let pos = tabs.length ? tabIdx + 1 : 0;
+    const li = bg && bgFrom && bgFrom === tabs[tabIdx] ? tabs.indexOf(bgLast) : -1;
+    if (li >= pos) pos = li + 1;
+    pos = Math.min(Math.max(pos, 0), tabs.length);
+    tabs.splice(pos, 0, nv);
+    if (bg) { bgFrom = tabs[tabIdx]; bgLast = nv; } else { bgFrom = bgLast = null; tabIdx = pos; }
+    return pos;
+  }
   function newTab() {
     calDate = null; // neuer Tab zeigt wieder den heutigen Kalender
     saveScroll();
     view = { group: null };
-    tabs.push(view); tabIdx = tabs.length - 1;
+    addTab(view);
     showTab('read');
     showView();
   }
@@ -385,7 +396,7 @@
     if (inNewTab === 'bg') return openGroupBg(g, target);
     saveScroll();
     const nv = { group: g, selected: new Set(), loaded: [], sections: [], idx: 0, key: null };
-    if (!tabs.length || (tabs[tabIdx] && tabs[tabIdx].sres) || (inNewTab && tabs[tabIdx] && tabs[tabIdx].group)) { tabs.push(nv); tabIdx = tabs.length - 1; }
+    if (!tabs.length || (tabs[tabIdx] && tabs[tabIdx].sres) || (inNewTab && tabs[tabIdx] && tabs[tabIdx].group)) addTab(nv);
     else { nv.nav = tabs[tabIdx] && tabs[tabIdx].nav; tabs[tabIdx] = nv; } // Verlauf des Tabs bleibt beim Buchwechsel erhalten
     view = nv;
     if (target.showCompare) nv.cmpRel = target.rel;
@@ -406,7 +417,7 @@
     if (target.showCompare) nv.cmpRel = target.rel;
     pickVersions(g).forEach(r => nv.selected.add(r));
     if (target.rel) nv.selected.add(target.rel);
-    tabs.push(nv); renderTabs(); saveSession();
+    addTab(nv, true); renderTabs(); saveSession();
   }
   // Tab laden; ein im Hintergrund angelegter Tab springt dabei an seine Stelle (target), sonst an die gemerkte Scrollposition
   async function loadTabView() {
@@ -2475,7 +2486,7 @@
     saveScroll();
     const nv = { group: null, sres: { q, he, limit: 300, html: null, params: { query: q, extra: [], distance: -1, ordered: false, fuzzy: false, prefix: false, kinds: he ? ['he'] : ['de', 'en'], categories: [], titles: [...TANAKH_BOOKS], wlc: true, lemma: he } } };
     if (view && !view.group && tabs[tabIdx] === view) tabs[tabIdx] = nv; // „Neuer Tab“ oder alte Suche wird ersetzt
-    else { tabs.push(nv); tabIdx = tabs.length - 1; }
+    else addTab(nv);
     view = nv;
     showTab('read');
     showView();
@@ -5335,7 +5346,7 @@
     $('#dictTabs').innerHTML = dtabs.map((t, i) => `<span class="dtab${i === dcur ? ' active' : ''}" data-i="${i}" title="${esc(t.title)}"><span class="dtt">${esc(t.title)}</span>${dtabs.length > 1 ? '<button class="dtx" title="Tab schließen">✕</button>' : ''}</span>`).join('') + '<button id="dtabNew" title="Neuer Wörterbuch-Tab">+</button>';
   }
   const dtabGo = i => { if (i === dcur || !dtabs[i]) return; dtabSave(); dcur = i; dtabLoad(); };
-  const dtabAdd = () => { dtabSave(); dtabs.push({ title: 'Neu' }); dcur = dtabs.length - 1; dtabLoad(); $('#dictQ').focus(); };
+  const dtabAdd = () => { dtabSave(); dcur = Math.min(dcur + 1, dtabs.length); dtabs.splice(dcur, 0, { title: 'Neu' }); dtabLoad(); $('#dictQ').focus(); };
   const dtabClose = i => { if (dtabs.length < 2) return; if (i === dcur) { dtabs.splice(i, 1); dcur = Math.min(i, dtabs.length - 1); dtabLoad(); } else { dtabSave(); dtabs.splice(i, 1); if (i < dcur) dcur--; renderDtabs(); } };
   $('#dictTabs').addEventListener('click', e => {
     if (e.target.closest('#dtabNew')) return dtabAdd();
@@ -5862,7 +5873,7 @@
     if (!lastSearch) return;
     saveScroll();
     const nv = { group: null, sres: { q: lastSearch.query || I18N.t('Grammatik'), limit: 300, html: null, params: { ...lastSearch, limit: undefined, perFile: undefined } } };
-    tabs.push(nv); tabIdx = tabs.length - 1; view = nv;
+    addTab(nv); view = nv;
     showTab('read'); showView();
   };
   $('#sOut').addEventListener('click', e => {

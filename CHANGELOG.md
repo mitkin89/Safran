@@ -1,6 +1,7 @@
 # Changelog
 
 ### New in 2.4.0
+- **New tabs open next to the active tab** instead of at the end (also Cmd/Ctrl-click background tabs, which line up in order behind the current tab, and new dictionary tabs).
 - **Verse previews name their source:** every hover preview and expandable preview line now shows the version title above each text (Hebrew and translation), so it is always clear where the text comes from.
 - **Paradigm table: renderings per form, more honest statistics:** each cell now counts only the verses of that exact form (computed from the same form analysis as the table); waw-perfects that the OSHB tags as plain perfect get their own „mit ו“ line; ties show the base form with „n versch.“; the conjunction („und/da/so …“) is counted separately and greyed; collocations are shown where they decide the rendering (e.g. after כֹּה: „spricht 95 %“); a grey distribution line under every rendering, shares for weak majorities, and a click opens all renderings with bars and the verses. Two-line text instead of truncation, muted color, source chips with counts (sparse versions dashed).
 - **Word card: verse preview follows the chosen version** (Zunz, Goldschmidt, Septuagint, Targum …) in the overview and the table.
