@@ -18,7 +18,7 @@ BOOKS = ['Genesis', 'Exodus', 'Leviticus', 'Numbers', 'Deuteronomy', 'Joshua', '
 FUNC = {'853'}  # Akkusativzeichen
 ART = {'der', 'die', 'das', 'den', 'dem', 'des'}
 # für die Gruppierung ohne Bedeutung: Pronomen, Artikel, Partikeln und Präpositionen (die stehen im Hebräischen meist als Vorsilbe oder Suffix)
-STOPW = set('und da so dann nun auch o ja er sie es ich du wir ihr ihn ihm ihnen mich mir dich dir uns euch sich der die das den dem des ein eine einen einem einer eines zu in im an am auf aus von vom mit nach bei beim für um über unter vor wie als zum zur gen denn daß dass'.split())
+STOPW = set('und da so dann nun auch o ja er sie es ich du wir ihr ihn ihm ihnen mich mir dich dir uns euch sich der die das den dem des ein eine einen einem einer eines zu in im an am auf aus von vom mit nach bei beim für um über unter vor wie als zum zur gen denn aber doch daß dass ist sind war waren bin bist sei seid wird werden'.split())
 SUF = ['test', 'ten', 'tet', 'est', 'te', 'et', 'en', 'em', 'er', 'es', 'st', 'e', 'n', 's', 't']
 def clean(t):
     t = re.sub(r'[„“”‚‘’"«»,.;:!?()\[\]—–\-…]|\.\.\.', ' ', t)
@@ -26,11 +26,12 @@ def clean(t):
     w = t.split()
     while w and (w[0].lower() == 'und' or w[0].lower() in ART) and len(w) > 1: w = w[1:]
     return ' '.join(w)
-def stem(w):
+def stem(w):  # Endungen abschneiden, bis nichts mehr passt (segnete -> segne -> segn), Stamm mindestens 4 Buchstaben
     w = w.lower()
-    for x in SUF:
-        if w.endswith(x) and len(w) - len(x) >= 4: return w[:-len(x)]
-    return w
+    while True:
+        x = next((x for x in SUF if w.endswith(x) and len(w) - len(x) >= 4), None)
+        if not x: return w
+        w = w[:-len(x)]
 def mcode(dl, dm):  # Bestimmung des Hauptworts (ohne Vorsilben), Suffix angehängt: „HVqw3ms“, „HNcmsc/Sp3ms“
     ls, ms = dl.split('/'), dm[1:].split('/')
     i = next((k for k, x in enumerate(ls) if re.search(r'\d', x)), len(ls) - 1)
