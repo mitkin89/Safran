@@ -1,6 +1,7 @@
 # Changelog
 
 ### New in 2.4.0
+- **Interlinear: Zunz, complete Numbers (1–36):** the word-by-word German under the Hebrew text now also covers the whole book of Numbers with Zunz's translation (`tools/interlinear/zunz/Numbers.txt`, 1288 verses).
 - **Interlinear: Zunz, complete Leviticus (1–27):** the word-by-word German under the Hebrew text now also covers the whole book of Leviticus with Zunz's translation (`tools/interlinear/zunz/Leviticus.txt`, 859 verses).
 - **Interlinear: Zunz, complete Exodus (1–40):** the word-by-word German under the Hebrew text now also covers the whole book of Exodus with Zunz's translation (`tools/interlinear/zunz/Exodus.txt`, 1210 verses).
 - **Interlinear: Zunz, complete Genesis (1–50):** the word-by-word German under the Hebrew text now covers the whole book of Genesis with Zunz's translation (`tools/interlinear/zunz/Genesis.txt`, 1533 verses). Long narrative chapters are aligned phrase by phrase. The Interlinear button only appears for chapters that are aligned.
