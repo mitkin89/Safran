@@ -1,6 +1,7 @@
 # Changelog
 
 ### New in 2.5.0
+- **Interlinear: Goldschmidt, complete Leviticus, Numbers and Deuteronomy:** All 3,103 verses (859 / 1,288 / 956) aligned against the numbered Westminster text, retaining the bundled German wording. All 39 separately counted Ketiv/Qere occurrences are grouped and tested, including Deuteronomy 33:2. Source discrepancies are listed for user review. Twelve explicitly approved minor corrections were applied to the German JSONs and alignments, with manifest SHA1 hashes updated. Genesis and Exodus are unchanged. See `tools/interlinear/goldschmidt/STATUS-LND.md` for validation and merge instructions.
 - **Qumran: morphology for nearly every word:** words with a pronominal suffix (פשרו, לו, ידו, כבודכה …, about 45,700 words) were left without analysis; they are now clickable like the rest, and the popup also names the suffix (*Suffix: 3. maskulin Singular*). Non-biblical scrolls: 92 % of all words analysed (before 82 %; the rest are broken fragments). The biblical scrolls (version *Qumran-Rollen (ETCBC DSS)* in the Tanakh books) are now clickable too, with lemma and morphology for 99.9 % of the words. The word card's Qumran index grows accordingly.
 - **New tabs open next to the active tab** instead of at the end (also Cmd/Ctrl-click background tabs, which line up in order behind the current tab, and new dictionary tabs).
 - **Verse previews name their source:** every hover preview and expandable preview line now shows the version title above each text (Hebrew and translation), so it is always clear where the text comes from.
