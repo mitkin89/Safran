@@ -1312,10 +1312,13 @@
     $$('#fmTabs button').forEach(b => { const on = b.dataset.t === fmTab; b.classList.toggle('on', on); b.setAttribute('aria-selected', on ? 'true' : 'false'); });
     $('#wcBody').hidden = fmTab !== 'card'; $('#fmBody').hidden = fmTab !== 'forms';
     hovApi && hovApi.hide();
+    wcFindSoon();
   }
-  async function openForms(lemma, info, tab) {
+  async function openForms(lemma, info, tab, rest) { // rest: Verlaufseintrag, dessen Zustand wiederhergestellt wird (Zurück/Vor)
+    fmHistOpen(false, lemma, info, tab, rest);
     const p = $('#formsPanel'), body = $('#fmBody'), card = $('#wcBody'), LEM = window.OSHB_LEMMAS || {}, lem = LEM[lemma];
     const token = ++wcToken;
+    fmRest = rest ? { h: rest, token } : null;
     p.hidden = false; fmCur = null; fmShowTab(tab || 'card');
     $('#fmHead').innerHTML = lem ? `<span class="fmLem" dir="rtl" lang="he">${esc(lem[0])}</span><span class="fmGloss">${esc(I18N.lang === 'de' && lem[2] ? lem[2] : lem[1])}</span>` : '';
     body.innerHTML = card.innerHTML = `<p class="muted">${esc(I18N.t('Lädt …'))}</p>`;
@@ -1333,7 +1336,8 @@
     wcRender(token, cur);
     fmTrInit(token);
     p.scrollTop = 0;
-    if (fmTab === 'forms') { const c = body.querySelector('.fmF.cur'); if (c) c.scrollIntoView({ block: 'center' }); }
+    if (rest) fmRestBase(rest);
+    else if (fmTab === 'forms') { const c = body.querySelector('.fmF.cur'); if (c) c.scrollIntoView({ block: 'center' }); }
   }
   // Paradigmen: unter jeder Form die häufigste Wiedergabe der gewählten Fassung (Zunz, Breuer …, Septuaginta, Targumim);
   // zugeordnet über die Bestimmung der Form (OSHB-Code, Suffix eingeschlossen); Darüberfahren zeigt die drei häufigsten
@@ -1349,7 +1353,7 @@
   function fmTrApply() {
     const body = $('#fmBody'), S = fmTrData, bar = body.querySelector('.fmTrBar'); if (!S || !bar || !fmCur) return;
     const cur = S.keys.includes(fmTrPick) ? fmTrPick : fmTrPick === 'off' ? 'off' : S.keys[0];
-    bar.innerHTML = `<span class="muted">${esc(I18N.t('Übersetzung unter den Formen:'))}</span>${S.keys.map(k => `<button type="button" class="wcTrSrc${k === cur ? ' on' : ''}" data-fsrc="${k}">${esc(I18N.t(WC_TR_LABEL[k]))}</button>`).join('')}<button type="button" class="wcTrSrc${cur === 'off' ? ' on' : ''}" data-fsrc="off">${esc(I18N.t('aus'))}</button>`;
+    bar.innerHTML = `<span class="muted">${esc(I18N.t('Übersetzung unter den Formen:'))}</span>${S.keys.map(k => `<button type="button" class="wcTrSrc${k === cur ? ' on' : ''}" data-fsrc="${k}">${wcTrPic(k)}${esc(I18N.t(WC_TR_LABEL[k]))}</button>`).join('')}<button type="button" class="wcTrSrc${cur === 'off' ? ' on' : ''}" data-fsrc="off">${esc(I18N.t('aus'))}</button>`;
     body.querySelectorAll('.fmTrL').forEach(x => x.remove());
     body.classList.toggle('fmTrOn', cur !== 'off');
     if (cur === 'off') return;
@@ -1370,9 +1374,11 @@
   }
   $('#fmBody').addEventListener('click', e => { const b = e.target.closest('.fmTrBar [data-fsrc]'); if (!b) return; e.stopPropagation(); fmTrPick = b.dataset.fsrc; try { localStorage.setItem('fmTrSrc', fmTrPick); } catch { /* egal */ } fmTrApply(); }, true);
   // Griechisch (Septuaginta): dieselbe Karte aus dem Index lxx-morph.js; info = { form, key } der angeklickten Form
-  async function openGForms(lemma, info, tab) {
+  async function openGForms(lemma, info, tab, rest) {
+    fmHistOpen(true, lemma, info, tab, rest);
     const p = $('#formsPanel'), body = $('#fmBody'), card = $('#wcBody'), GM = window.GMorph, t = s => I18N.t(s);
     const token = ++wcToken;
+    fmRest = null;
     p.hidden = false; fmCur = null; fmShowTab(tab || 'card');
     $('#fmHead').innerHTML = `<span class="fmLem fmGr" lang="grc">${esc(lemma)}</span>`;
     body.innerHTML = card.innerHTML = `<p class="muted">${esc(t('Lädt …'))}</p>`;
@@ -1388,7 +1394,8 @@
     body.innerHTML = GM.render(mdl, { esc, t, current: cur });
     wcRender(token, cur);
     p.scrollTop = 0;
-    if (fmTab === 'forms') { const c = body.querySelector('.fmF.cur'); if (c) c.scrollIntoView({ block: 'center' }); }
+    if (rest) fmRestBase(rest);
+    else if (fmTab === 'forms') { const c = body.querySelector('.fmF.cur'); if (c) c.scrollIntoView({ block: 'center' }); }
   }
   const TANAKH_PARTS = [['Tora', 5], ['Propheten', 21], ['Schriften', 13]];
   const wcNum = n => n.toLocaleString(I18N.loc);
@@ -1489,6 +1496,9 @@
   const loadIlRen = () => ilRenP || (ilRenP = lazyScript('interlin-ren.js', () => window.INTERLIN_REN).catch(() => { ilRenP = null; return null; }));
   const WC_TR_DE = new Set(['Zunz', 'Breuer', 'Philippson', 'Herxheimer', 'Goldschmidt']);
   const WC_TR_LABEL = { Zunz: 'Zunz (1838)', Breuer: 'Breuer', Philippson: 'Philippson', Herxheimer: 'Herxheimer', Goldschmidt: 'Goldschmidt (1921)', LXX: 'Septuaginta', O: 'Onkelos', PJ: 'Pseudo-Jonathan', N: 'Neofiti 1' };
+  // Porträt im Quell-Chip (wie in der Interlinear-Auswahl): Schlüssel der Fassung -> Name in portraits/index.js; fehlt das Bild, bleibt der Chip ohne
+  const WC_TR_PIC = { Zunz: 'Zunz', Breuer: 'Raphael Breuer', Philippson: 'Philippson', Herxheimer: 'Herxheimer', Goldschmidt: 'Goldschmidt', LXX: 'Septuaginta', O: 'Targum Onkelos', PJ: 'Targum Pseudo-Jonathan', N: 'Targum Neofiti' };
+  const wcTrPic = k => { const pic = WC_TR_PIC[k] && portraitOf(WC_TR_PIC[k]); return pic ? `<img class="wcTrPic" src="portraits/${encodeURIComponent(pic.img)}" alt="" loading="lazy" onerror="this.remove()">` : ''; };
   // Stellen: Buch*1000000 + Kapitel*1000 + Vers als Differenzen (Basis 36) -> Zahlen
   function unB36(str) { let prev = 0; return String(str || '').split('.').filter(Boolean).map(x => (prev += parseInt(x, 36))); }
   // Bestimmung des hebräischen Worts -> Filtermerkmale (Binjan, Form, Person, Genus, Numerus, Status, Suffix)
@@ -1531,7 +1541,8 @@
     for (const id of ids) { if (id === lemma) continue; const r = await wcTrSources(id); if (r.keys.length) sis.push({ id, ...r }); }
     const box = $('#wcTr'); if (token !== wcToken || !box) return;
     let pick = null; try { pick = localStorage.getItem('wcTrSrc'); } catch { /* egal */ }
-    wcTrState = { src: R.src, keys: R.keys, cur: R.keys.includes(pick) ? pick : R.keys[0], open: null, IR: R.IR, f: {}, lemma, sis: sis.length > 1 ? sis : [], allRows: false, refLim: 12 };
+    wcTrState = { src: R.src, keys: R.keys, cur: R.keys.includes(pick) ? pick : R.keys[0], open: null, IR: R.IR, f: {}, lemma, sis: sis.length > 1 ? sis : [], allRows: false, refLim: 12, base: lemma, tok: token };
+    if (fmRest && fmRest.token === token) { fmRestTr(fmRest.h); fmRest = null; } // Zurück/Vor: Fassung, Homonym, Filter und aufgeklappte Zeile des Verlaufseintrags
     box.hidden = false; wcTrRender();
   }
   function wcTrShow(k) { const S = wcTrState; if (!S || !S.src[k]) return; S.cur = k; S.open = null; S.allRows = false; S.refLim = 12; try { localStorage.setItem('wcTrSrc', k); } catch { /* egal */ } wcTrRender(); }
@@ -1675,11 +1686,19 @@
     const lem = LEM[S.lemma], sameVoc = S.sis.every(s => LEM[s.id] && LEM[s.id][0] === (LEM[S.sis[0].id] || [])[0]);
     const hom = S.sis.length ? `<div class="wcTrHom"><span class="muted">${esc(I18N.t('Gleich geschrieben:'))}</span>${S.sis.map(s => ({ s, n: s.src[S.cur] ? s.src[S.cur].total : 0 })).sort((a, b) => b.n - a.n).slice(0, 8).map(({ s, n }) => `<button type="button" class="wcTrHm${s.id === S.lemma ? ' on' : ''}${n ? '' : ' few'}" data-lem="${esc(s.id)}" aria-pressed="${s.id === S.lemma}">${sameVoc ? '' : `<span lang="he" dir="rtl">${esc(LEM[s.id][0])}</span> `}${esc(gloss(s.id))} <small>${n ? wcNum(n) : '–'}</small></button>`).join('')}</div>` : '';
     const maxTot = Math.max(...S.keys.map(k => S.src[k].total));
-    const tabs = `<div class="wcTrTabs" role="tablist">${S.keys.map(k => { const n = S.src[k].total; return `<button type="button" role="tab" class="wcTrSrc${k === S.cur ? ' on' : ''}${n < 5 || n < maxTot * 0.05 ? ' few' : ''}" aria-selected="${k === S.cur}" data-src="${k}">${esc(I18N.t(WC_TR_LABEL[k]))} <small>${wcNum(n)}</small></button>`; }).join('')}</div>`;
+    const tabs = `<div class="wcTrTabs" role="tablist">${S.keys.map(k => { const n = S.src[k].total; return `<button type="button" role="tab" class="wcTrSrc${k === S.cur ? ' on' : ''}${n < 5 || n < maxTot * 0.05 ? ' few' : ''}" aria-selected="${k === S.cur}" data-src="${k}">${wcTrPic(k)}${esc(I18N.t(WC_TR_LABEL[k]))} <small>${wcNum(n)}</small></button>`; }).join('')}</div>`;
     const dimRow = d => `<div class="wcTrFR"><span class="muted">${esc(I18N.t(d.name))}</span>${d.vals.map(([v, n]) => `<button type="button" class="wcTrFV${S.f[d.k] === v ? ' on' : ''}" data-dim="${d.k}" data-val="${esc(v)}" aria-pressed="${S.f[d.k] === v}">${esc(I18N.t(v))} <small>${wcNum(n)}</small></button>`).join('')}${S.f[d.k] && !d.vals.some(([v]) => v === S.f[d.k]) ? `<button type="button" class="wcTrFV on" data-dim="${d.k}" data-val="${esc(S.f[d.k])}" aria-pressed="true">${esc(I18N.t(S.f[d.k]))} <small>0</small></button>` : ''}</div>`;
     const mainDims = dims.filter(d => WC_TR_MAIN.has(d.k)), restDims = dims.filter(d => !WC_TR_MAIN.has(d.k));
     const sum = `<div class="wcTrSum"><span class="cnt${fk.length ? ' filt' : ''}" dir="auto">${esc(fk.length ? I18N.t('{} von {} Belegen', wcNum(tot), wcNum(all)) : I18N.t('{} Belege · {} Wiedergaben', wcNum(tot), wcNum(gs.length)))}</span>${fk.map(k => `<button type="button" class="wcTrFV on rm" data-dim="${k}" data-val="${esc(S.f[k])}" title="${esc(I18N.t('Filter entfernen'))}">${esc(I18N.t(S.f[k]))} <span aria-hidden="true">✕</span></button>`).join('')}${fk.length > 1 ? `<button type="button" class="wcTrFV wcTrAll" data-dim="*">↺ ${esc(I18N.t('Alle Formen'))}</button>` : ''}${restDims.length ? `<button type="button" class="wcTrMoreB" aria-expanded="${wcTrMore}"><bdi>${esc(I18N.t('Weitere Merkmale'))}</bdi> <span aria-hidden="true">${wcTrMore ? '▴' : '▾'}</span></button>` : ''}</div>`;
     const note = de ? 'Gezählt sind die Stellen, an denen die Übersetzung diesem Wort allein (ohne weiteres Inhaltswort) zugeordnet ist; die Formen sind nach ihrer deutschen Grundform zusammengefasst, „und“ und Artikel am Anfang weggelassen. Klick auf eine Zeile zeigt die Formen und die Stellen.' : S.cur === 'LXX' ? 'Septuaginta nach der Wort-für-Wort-Zuordnung von CATSS, griechische Wörter als Lemma (lxx-morph).' : 'Targum nach der maschinellen Wortzuordnung zum Westminster-Text (ETCBC Targum Corpus, CC BY-NC 4.0).';
+    { // was gerade eingeklappt ist (Formen einer Zeile, Einzelbelege, weitere Wiedergaben, weitere Merkmale) – die Suche im Fenster (wcFind) findet es und klappt es beim Springen auf
+      const hid = [], gtxt = g => lab(g) + (g.gl ? ' ' + g.gl : '');
+      normal.concat(others).forEach(g => { const fm = g.forms.slice(1); if (g.refs && !g.other && S.open !== String(g.g) && fm.length) hid.push({ act: 'open', key: String(g.g), sel: `.wcTrR[data-g="${g.g}"]`, text: fm.map(f => f[0]).join(' \n ') }); });
+      if (main.length > shown.length) hid.push({ act: 'rows', sel: '.wcTrAllRows', text: main.slice(shown.length).map(gtxt).join(' \n ') });
+      if (fold && S.open !== 'ones') hid.push({ act: 'open', key: 'ones', sel: '.wcTrR.ones', text: ones.map(gtxt).join(' \n ') });
+      if (restDims.length && !wcTrMore) hid.push({ act: 'more', sel: '.wcTrMoreB', text: restDims.map(d => I18N.t(d.name) + ' \n ' + d.vals.map(v => I18N.t(v[0])).join(' \n ')).join(' \n ') });
+      S.hid = hid;
+    }
     const fo = document.activeElement && box.contains(document.activeElement) && document.activeElement.closest('.wcTrR[data-g]'), foKey = fo && fo.dataset.g; // Tastaturfokus über das Neuzeichnen retten
     box.innerHTML = `<h4>${esc(I18N.t('Wie wird das Wort übersetzt?'))}${lem ? ` <small class="wcTrLem"><span lang="he" dir="rtl">${esc(lem[0])}</span> ${esc(gloss(S.lemma))}</small>` : ''}</h4>
       ${hom}${tabs}
@@ -1775,9 +1794,221 @@
     sEntApply({ q: lem[0].replace(/[^א-ת]/g, ''), l: 'he', m: 'lemma' });
     renderSearchSaved(); runSearch();
   }
-  const closeForms = () => { $('#formsPanel').hidden = true; hovApi && hovApi.hide(); wcToken++; };
+  // ---------- Wortkarte: Verlauf (Zurück/Vor) ----------
+  // Wie im Browser: jeder Schritt, der den Inhalt wesentlich wechselt (anderes Wort, anderer Reiter, Homonym, Fassung, Filter), legt einen Eintrag an und
+  // schneidet den Vorwärts-Teil ab. Ein Eintrag hält den ganzen Zustand der Karte (Wort, Reiter, Fassung, Homonym, Filter, aufgeklappte Zeile, gewählte
+  // Stellenlisten, Scrollposition); der Zustand des aktuellen Eintrags wird beim Verlassen nachgetragen. Der Verlauf bleibt über das Schließen hinaus
+  // erhalten (bis zum Neustart), höchstens FM_HMAX Einträge.
+  const FM_HMAX = 50;
+  let fmHist = [], fmHi = -1, fmRest = null, fmActive = false, fmHold = null; // fmActive: die Wortkarte ist das Fenster, in dem man gerade arbeitet
+  const wcTrLive = () => (wcTrState && fmCur && !fmCur.greek && wcTrState.tok === wcToken && wcTrState.base === fmCur.lemma ? wcTrState : null);
+  const fmLemGloss = id => { const l = (window.OSHB_LEMMAS || {})[id]; return l ? (I18N.lang === 'de' && l[2] ? l[2] : l[1]) : ''; };
+  function fmHistLabel(h) { // für den Tooltip: wohin führt der Schritt?
+    const l = !h.greek && (window.OSHB_LEMMAS || {})[h.lemma];
+    let s = h.greek ? h.lemma : l ? l[0] + ' ' + fmLemGloss(h.lemma) : String(h.lemma);
+    if (h.tab === 'forms') s += ' – ' + I18N.t('Alle Formen (Tabelle)');
+    else if (h.tr) {
+      s += ' – ' + I18N.t(WC_TR_LABEL[h.tr.cur] || h.tr.cur);
+      if (h.tr.lemma !== h.lemma && fmLemGloss(h.tr.lemma)) s += ' · ' + fmLemGloss(h.tr.lemma);
+      const fv = Object.values(h.tr.f || {}); if (fv.length) s += ' · ' + fv.map(v => I18N.t(v)).join(', ');
+    }
+    return s;
+  }
+  function fmHistUI() {
+    const mac = !!(window.platform && window.platform.isMac);
+    [['#fmBack', -1, 'Zurück', 'Zurück: {}', mac ? 'Cmd+[' : 'Alt+←'], ['#fmFwd', 1, 'Vor', 'Vor: {}', mac ? 'Cmd+]' : 'Alt+→']].forEach(([id, d, none, to, key]) => {
+      const b = $(id), h = fmHist[fmHi + d]; if (!b) return;
+      b.disabled = !h; b.title = (h ? I18N.t(to, fmHistLabel(h)) : I18N.t(none)) + ' (' + key + ')';
+    });
+  }
+  const fmKey = () => { const S = wcTrLive(); return JSON.stringify([fmTab, S ? [S.lemma, S.cur, S.f] : 0]); };
+  function fmHistSave() { // Zustand der gezeigten Karte in den aktuellen Eintrag schreiben
+    const h = fmHist[fmHi], p = $('#formsPanel');
+    if (!h || p.hidden || !fmCur || fmCur.lemma !== h.lemma || !!fmCur.greek !== h.greek) return; // geschlossen oder noch am Laden
+    h.tab = fmTab; h.scroll = p.scrollTop;
+    const S = wcTrLive(); if (S) h.tr = { lemma: S.lemma, cur: S.cur, f: { ...S.f }, open: S.open, allRows: S.allRows, refLim: S.refLim };
+    const bx = $('#wcBookRefs'), c = $('#wcBody .wcForms .fmF.sel'), fc = $('#fmBody .fmF.sel');
+    h.book = (bx && bx.dataset.b) || ''; h.chip = c ? c.dataset.i : null; h.fchip = fc ? fc.dataset.i : null;
+  }
+  function fmHistPush(e) {
+    fmHist.length = fmHi + 1; fmHist.push(e); // Vorwärts-Teil abschneiden
+    if (fmHist.length > FM_HMAX) fmHist.splice(0, fmHist.length - FM_HMAX);
+    fmHi = fmHist.length - 1; fmHistUI();
+  }
+  function fmHistOpen(greek, lemma, info, tab, rest) { // eine Wortkarte wird geöffnet (aus dem Text, aus einer anderen Karte, aus dem Wörterbuch …)
+    if (rest) return; // Zurück/Vor: kein neuer Eintrag
+    fmActive = !(typeof pins !== 'undefined' && pins.forms) || fmActive; // schwebend liegt die Karte über dem Text und ist damit das aktive Fenster; angepinnt erst nach einem Klick hinein
+    fmHistSave();
+    const fresh = { greek, lemma, info: info || null, tab: tab === 'forms' ? 'forms' : 'card', tr: null, book: '', chip: null, fchip: null, scroll: 0 }, h = fmHist[fmHi];
+    if (h && h.lemma === lemma && h.greek === greek) { Object.assign(h, fresh); fmHistUI(); } else fmHistPush(fresh); // dasselbe Wort noch einmal: kein doppelter Eintrag
+  }
+  // Schritt innerhalb der Karte (Reiter, Fassung, Filter, Homonym): vorher den Stand merken, danach – wenn sich etwas geändert hat – ein neuer Eintrag
+  function fmStep(fn) {
+    const h = fmHist[fmHi];
+    if (!h || !fmCur || fmCur.lemma !== h.lemma) { fn(); return; }
+    fmHistSave(); const before = fmKey(); fn();
+    if (fmKey() === before) return;
+    fmHistPush({ ...h, tr: h.tr ? { ...h.tr, f: { ...h.tr.f } } : null }); fmHistSave(); fmHistUI();
+  }
+  function fmRestTr(h) { // Übersetzungsstatistik: Homonym, Fassung, Filter, aufgeklappte Zeile eines Eintrags einsetzen
+    const S = wcTrState, t = h.tr; if (!S || !t) return;
+    if (t.lemma !== S.lemma) { const x = S.sis.find(s => s.id === t.lemma); if (x) { S.lemma = x.id; S.src = x.src; S.keys = x.keys; S.IR = x.IR; } }
+    S.cur = S.keys.includes(t.cur) ? t.cur : S.keys[0]; S.f = { ...t.f }; S.open = t.open; S.allRows = !!t.allRows; S.refLim = t.refLim || 12;
+  }
+  function fmScrollHold(top) { // Scrollposition halten, bis die nachgeladenen Abschnitte (Wörterbücher, Stellen …) stehen oder man selbst scrollt
+    fmHold = { top, token: wcToken, until: Date.now() + 5000 }; $('#formsPanel').scrollTop = top;
+  }
+  function fmRestBase(h) { // Reiter, gewählte Stellenlisten und Scrollposition eines Eintrags
+    fmShowTab(h.tab);
+    if (fmCur) {
+      if ($('#wcBookRefs')) wcBookRefs(h.book || null);
+      if ($('#wcFormRefs')) wcFormRefs((h.chip != null && $$('#wcBody .wcForms .fmF').find(x => x.dataset.i === h.chip)) || null);
+      $$('#fmBody .fmRefRow').forEach(x => x.remove()); $$('#fmBody .fmF.sel').forEach(x => x.classList.remove('sel'));
+      const fc = h.fchip != null && $$('#fmBody .fmF').find(x => x.dataset.i === h.fchip);
+      if (fc && fc.closest('tr')) { fc.classList.add('sel'); fmRefs(fc, false); }
+    }
+    fmScrollHold(h.scroll || 0);
+  }
+  function fmHistGo(d) {
+    const k = fmHi + d, p = $('#formsPanel'); if (k < 0 || k >= fmHist.length || p.hidden) return;
+    fmHistSave(); fmHi = k; const h = fmHist[k]; fmHistUI();
+    hovApi && hovApi.hide();
+    if (fmCur && fmCur.lemma === h.lemma && !!fmCur.greek === h.greek && $('#wcBody .wcSec') && (!h.tr || wcTrLive())) { // dasselbe Wort: nur den Zustand umstellen
+      if (h.tr) { fmRestTr(h); wcTrRender(); }
+      fmRestBase(h);
+    } else (h.greek ? openGForms : openForms)(h.lemma, h.info, h.tab, h);
+  }
+  $('#fmBack').onclick = () => fmHistGo(-1);
+  $('#fmFwd').onclick = () => fmHistGo(1);
+  fmHistUI();
+  if (window.ResizeObserver) { // nachgeladene Abschnitte ändern die Höhe: die wiederhergestellte Scrollposition nachführen
+    const ro = new ResizeObserver(() => { const p = $('#formsPanel'); if (!fmHold) return; if (fmHold.token !== wcToken || Date.now() > fmHold.until) { fmHold = null; return; } if (Math.abs(p.scrollTop - fmHold.top) > 1) p.scrollTop = fmHold.top; });
+    ro.observe($('#wcBody')); ro.observe($('#fmBody'));
+  }
+  ['wheel', 'pointerdown', 'touchstart', 'keydown'].forEach(ev => $('#formsPanel').addEventListener(ev, () => { fmHold = null; }, { passive: true, capture: true }));
+  document.addEventListener('pointerdown', e => { fmActive = !!(e.target.closest && e.target.closest('#formsPanel')); }, true);
+  $('#formsPanel').addEventListener('focusin', () => { fmActive = true; });
+
+  // ---------- Wortkarte: Suche im Fenster (Cmd/Strg+F, solange die Wortkarte aktiv ist) ----------
+  // Durchsucht Kopf und gezeigten Reiter; verglichen wird ohne Groß-/Kleinschreibung, hebräisch ohne Vokale und Akzente, griechisch ohne Akzente.
+  // Auch Zugeklapptes wird gefunden und beim Springen aufgeklappt: Wörterbuchartikel, „+ weitere“, Abschnitte der Formentabelle sowie – über das
+  // Verzeichnis S.hid aus wcTrRender – die Formen eingeklappter Zeilen, Einzelbelege, weitere Wiedergaben und „Weitere Merkmale“.
+  // Nicht durchsucht werden die Stellen (Verse) eingeklappter Zeilen: sie werden erst beim Aufklappen geladen.
+  const wcF = { hits: [], idx: -1, timer: null };
+  const wcFHl = (name, rs) => { try { if (!rs.length) CSS.highlights.delete(name); else CSS.highlights.set(name, new Highlight(...rs)); } catch { /* ältere Engine */ } };
+  const wcFCh = c => { let o = ''; for (const x of c.toLowerCase().normalize('NFD')) { if (/[̀-֑ͯ-ֽֿׁׂׄ-ׇ]/.test(x)) continue; o += x === 'ς' ? 'σ' : x === '־' || /\s/.test(x) ? ' ' : x; } return o; };
+  const wcFNorm = s => { let o = ''; for (const c of String(s)) o += wcFCh(c); return o.replace(/ +/g, ' '); };
+  const wcFMore = h => h && h.nextElementSibling && h.nextElementSibling.matches('.wcDMoreB, .fmMoreB') ? h.nextElementSibling : null;
+  const wcFindWanted = () => { const p = $('#formsPanel'); return !p.hidden && !document.querySelector('dialog[open]') && (fmActive || p.contains(document.activeElement) || p.matches(':hover')); };
+  function wcFindRun(keep, scroll) {
+    const p = $('#formsPanel'), prev = wcF.idx, cnt = $('#fmFindN'), q = wcFNorm($('#fmFindIn').value).trim();
+    wcF.hits = []; wcF.idx = -1; wcFHl('wcfind', []); wcFHl('wcfind-active', []); cnt.textContent = ''; cnt.title = '';
+    if ($('#fmFind').hidden || p.hidden || !q) return;
+    const hits = [];
+    for (const root of [$('#fmHead'), fmTab === 'forms' ? $('#fmBody') : $('#wcBody')]) {
+      const groups = new Map(), walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+      for (let node = walker.nextNode(); node; node = walker.nextNode()) {
+        const el = node.parentElement; if (!el || el.closest('svg, script, style')) continue;
+        const h = el.closest('[hidden]'); if (h && !wcFMore(h)) continue; // versteckt und nicht aufklappbar
+        if (!h && !el.closest('details:not([open])') && el.checkVisibility && !el.checkVisibility()) continue;
+        const key = el.closest('summary, p, li, td, th, button, h4, .ln, .bk, .wcTrR, .fm, .fmR, div') || root;
+        if (!groups.has(key)) groups.set(key, []);
+        groups.get(key).push(node);
+      }
+      for (const nodes of groups.values()) {
+        let n = ''; const map = []; let last = null; // map[i] = [Textknoten, Position] zu jedem Zeichen von n
+        for (const node of nodes) {
+          if (last && node.parentElement !== last && n && !n.endsWith(' ')) { n += ' '; map.push(null); } // getrennte Elemente (Wort und Zahl daneben) nicht zusammenziehen
+          last = node.parentElement;
+          const txt = node.nodeValue;
+          for (let i = 0; i < txt.length; i++) for (const c of wcFCh(txt[i])) { if (c === ' ' && (!n || n.endsWith(' '))) continue; n += c; map.push([node, i]); }
+        }
+        for (let pos = n.indexOf(q); pos >= 0; pos = n.indexOf(q, pos + q.length)) {
+          let s0 = pos, e0 = pos + q.length - 1;
+          while (s0 <= e0 && !map[s0]) s0++;
+          while (e0 >= s0 && !map[e0]) e0--;
+          if (s0 > e0) continue;
+          const r = document.createRange(); r.setStart(map[s0][0], map[s0][1]); r.setEnd(map[e0][0], map[e0][1] + 1); hits.push({ r });
+        }
+      }
+    }
+    const S = fmTab === 'card' && wcTrLive(); // Eingeklapptes der Übersetzungsstatistik: Treffer ohne Textstelle, an ihrer Zeile verankert
+    if (S && S.hid) for (const x of S.hid) {
+      const a = $('#wcTr ' + x.sel); if (!a) continue;
+      const n = wcFNorm(x.text); let k = 0;
+      for (let pos = n.indexOf(q); pos >= 0; pos = n.indexOf(q, pos + q.length)) { const r = document.createRange(); r.selectNodeContents(a); r.collapse(false); hits.push({ r, v: x, k: k++ }); }
+    }
+    hits.sort((a, b) => a.r.compareBoundaryPoints(Range.START_TO_START, b.r) || (a.k || 0) - (b.k || 0));
+    wcF.hits = hits; wcFHl('wcfind', hits.filter(x => !x.v).map(x => x.r));
+    cnt.title = I18N.t('Eingeklapptes wird mit durchsucht und beim Springen aufgeklappt; die Stellen einer eingeklappten Zeile erst nach dem Aufklappen.');
+    if (!hits.length) { cnt.textContent = I18N.t('keine Treffer'); return; }
+    if (keep && prev >= 0) wcFindGo(Math.min(prev, hits.length - 1), false);
+    else { const j = hits.findIndex(x => !x.v); wcFindGo(j >= 0 ? j : 0, scroll); } // beim Tippen zuerst ein sichtbarer Treffer
+  }
+  function wcFindGo(i, scroll, reveal) {
+    const n = wcF.hits.length, cnt = $('#fmFindN'); if (!n) return;
+    i = ((i % n) + n) % n; const h = wcF.hits[i];
+    if (h.v && reveal) { wcFindReveal(h); return; }
+    wcF.idx = i; cnt.textContent = I18N.t('{} von {}', wcNum(i + 1), wcNum(n));
+    if (h.v) { wcFHl('wcfind-active', []); const a = $('#wcTr ' + h.v.sel); if (a && scroll) a.scrollIntoView({ block: 'center', inline: 'nearest' }); return; }
+    const el = h.r.startContainer.parentElement;
+    if (scroll && el) {
+      for (let d = el.closest('details:not([open])'); d; d = d.parentElement && d.parentElement.closest('details:not([open])')) d.open = true;
+      const mb = wcFMore(el.closest('[hidden]')); if (mb) mb.click();
+      fmHold = null; el.scrollIntoView({ block: 'center', inline: 'nearest' });
+    }
+    wcFHl('wcfind-active', [h.r]);
+  }
+  function wcFindReveal(h) { // Treffer in Eingeklapptem: aufklappen, neu suchen, zum ersten Treffer im Aufgeklappten
+    const S = wcTrLive(), x = h.v; if (!S || !$('#wcTr')) return;
+    const seen = new Set($$('#wcTr .wcTrR[data-g]').map(e => e.dataset.g)), nfr = $$('#wcTr .wcTrFR').length;
+    if (x.act === 'open') { S.open = x.key; S.refLim = 12; } else if (x.act === 'rows') S.allRows = true; else wcTrMore = true;
+    wcTrRender(); wcFindRun(true, false);
+    const inside = r => {
+      const el = r.startContainer.parentElement;
+      if (x.act === 'open') { const X = el.closest('.wcTrX'), R = X && X.previousElementSibling; return !!R && R.dataset.g === x.key; }
+      if (x.act === 'rows') { const R = el.closest('.wcTrR[data-g]'); return !!R && !seen.has(R.dataset.g); }
+      const F = el.closest('.wcTrFR'); return !!F && $$('#wcTr .wcTrFR').indexOf(F) >= nfr;
+    };
+    let j = wcF.hits.findIndex(y => !y.v && inside(y.r));
+    if (j >= 0) { for (let c = 0; c < h.k && wcF.hits[j + 1] && !wcF.hits[j + 1].v && inside(wcF.hits[j + 1].r); c++) j++; wcFindGo(j, true); return; }
+    const a = $('#wcTr ' + (x.act === 'open' ? `.wcTrR[data-g="${x.key}"]` : '.wcTrL')); // noch kein Text dazu (Stellen laden nach): die aufgeklappte Zeile zeigen
+    if (a) { fmHold = null; a.scrollIntoView({ block: 'center', inline: 'nearest' }); const r0 = document.createRange(); r0.selectNode(a); const k = wcF.hits.findIndex(y => y.r.compareBoundaryPoints(Range.START_TO_START, r0) >= 0); if (k >= 0) wcFindGo(k, false); }
+  }
+  function wcFindStep(fwd) {
+    if (!$('#fmFindIn').value.trim()) return;
+    if (!wcF.hits.length) { wcFindRun(false, true); return; }
+    const cur = wcF.hits[wcF.idx];
+    if (cur && cur.v) { wcFindReveal(cur); return; } // der gezeigte Treffer steckt in einer eingeklappten Zeile: erst aufklappen
+    wcFindGo(wcF.idx + (fwd ? 1 : -1), true, true);
+  }
+  function wcFindSoon() { if ($('#fmFind').hidden) return; clearTimeout(wcF.timer); wcF.timer = setTimeout(() => wcFindRun(true, false), 150); } // Inhalt hat sich geändert: Markierungen nachziehen, ohne zu springen
+  function wcFindOpen() { const b = $('#fmFind'), i = $('#fmFindIn'); b.hidden = false; fmActive = true; i.focus(); i.select(); if (i.value.trim()) wcFindRun(true, false); }
+  function wcFindClose() { clearTimeout(wcF.timer); $('#fmFind').hidden = true; wcF.hits = []; wcF.idx = -1; wcFHl('wcfind', []); wcFHl('wcfind-active', []); $('#fmFindN').textContent = ''; }
+  $('#fmFindIn').addEventListener('input', () => wcFindRun(false, true));
+  $('#fmFindIn').addEventListener('keydown', e => {
+    if (e.key === 'Enter') { e.preventDefault(); wcFindStep(!e.shiftKey); }
+    else if (e.key === 'ArrowDown' || e.key === 'ArrowUp') { e.preventDefault(); wcFindStep(e.key === 'ArrowDown'); }
+  });
+  $('#fmFindNext').onclick = () => wcFindStep(true);
+  $('#fmFindPrev').onclick = () => wcFindStep(false);
+  $('#fmFindX').onclick = wcFindClose;
+  { const mo = new MutationObserver(wcFindSoon); ['#fmHead', '#wcBody', '#fmBody'].forEach(s => mo.observe($(s), { childList: true, subtree: true, characterData: true })); }
+  // Tasten der Wortkarte: Zurück/Vor (Alt+←/→, Cmd/Strg+[ / ]), Suche (Cmd/Strg+F), Escape schließt zuerst die Suche – alles nur, solange die Wortkarte aktiv ist
+  document.addEventListener('keydown', e => {
+    const p = $('#formsPanel'); if (p.hidden || document.querySelector('dialog[open]')) return;
+    if (e.key === 'Escape') { if (!$('#fmFind').hidden) { e.preventDefault(); e.stopImmediatePropagation(); wcFindClose(); if (p.contains(document.activeElement)) document.activeElement.blur(); } return; }
+    const mod = e.metaKey || e.ctrlKey;
+    if (mod && !e.shiftKey && !e.altKey && e.key.toLowerCase() === 'f') { if (wcFindWanted()) { e.preventDefault(); e.stopImmediatePropagation(); wcFindOpen(); } return; }
+    let d = 0;
+    if (e.altKey && !mod && !e.shiftKey && (e.key === 'ArrowLeft' || e.key === 'ArrowRight')) { if (e.target.closest && e.target.closest('input, textarea, select, [contenteditable]')) return; d = e.key === 'ArrowLeft' ? -1 : 1; }
+    else if (mod && !e.shiftKey && !e.altKey && (e.key === '[' || e.key === ']')) d = e.key === '[' ? -1 : 1;
+    if (!d || !(fmActive || p.contains(document.activeElement))) return;
+    e.preventDefault(); e.stopImmediatePropagation(); fmHistGo(d);
+  }, true);
+  const closeForms = () => { fmHistSave(); wcFindClose(); fmActive = false; $('#formsPanel').hidden = true; hovApi && hovApi.hide(); wcToken++; };
   $('#fmClose').onclick = closeForms;
-  $('#fmTabs').addEventListener('click', e => { const b = e.target.closest('button[data-t]'); if (!b) return; fmShowTab(b.dataset.t); if (fmTab === 'forms') { const c = $('#fmBody .fmF.cur'); if (c) c.scrollIntoView({ block: 'center' }); } else $('#formsPanel').scrollTop = 0; });
+  $('#fmTabs').addEventListener('click', e => { const b = e.target.closest('button[data-t]'); if (!b) return; fmStep(() => { fmShowTab(b.dataset.t); if (fmTab === 'forms') { const c = $('#fmBody .fmF.cur'); if (c) c.scrollIntoView({ block: 'center' }); } else $('#formsPanel').scrollTop = 0; }); });
   $('#wcBody').addEventListener('click', e => {
     if (!fmCur) return;
     const src = e.target.closest('.dbody .dsrc[data-sref]'); // Stellenangabe im aufgeklappten Wörterbuchartikel
@@ -1791,15 +2022,15 @@
     if (e.target.closest('.wcAll')) { wcSearchAll(); return; }
     const gl = e.target.closest('.wcGL[data-gl]'); if (gl) { openGForms(gl.dataset.gl, null, 'card'); return; }
     const tq = e.target.closest('.wcTgL[data-q]'); if (tq) { openDict(tq.dataset.q); return; }
-    const ts = e.target.closest('.wcTrSrc[data-src]'); if (ts) { wcTrShow(ts.dataset.src); return; }
-    const tf = e.target.closest('.wcTrFV[data-dim]'); if (tf) { wcTrFilt(tf.dataset.dim, tf.dataset.val); return; }
-    const th = e.target.closest('.wcTrHm[data-lem]'); if (th) { wcTrLemma(th.dataset.lem); return; }
+    const ts = e.target.closest('.wcTrSrc[data-src]'); if (ts) { fmStep(() => wcTrShow(ts.dataset.src)); return; }
+    const tf = e.target.closest('.wcTrFV[data-dim]'); if (tf) { fmStep(() => wcTrFilt(tf.dataset.dim, tf.dataset.val)); return; }
+    const th = e.target.closest('.wcTrHm[data-lem]'); if (th) { fmStep(() => wcTrLemma(th.dataset.lem)); return; }
     if (e.target.closest('.wcTrMoreB')) { wcTrMore = !wcTrMore; try { localStorage.setItem('wcTrMore', wcTrMore ? '1' : '0'); } catch { /* egal */ } wcTrRender(); return; }
     if (e.target.closest('.wcTrAllRows')) { if (wcTrState) { wcTrState.allRows = true; wcTrRender(); } return; }
     const tm = e.target.closest('.wcTrMoreRefs[data-to]'); if (tm) { if (wcTrState) { wcTrState.refLim = +tm.dataset.to; wcTrRender(); } return; }
     const tr = e.target.closest('.wcTrR.can[data-g]'); if (tr && !e.target.closest('a')) { wcTrRefs(tr.dataset.g); return; }
     const hl = e.target.closest('.wcHL[data-hl]'); if (hl) { openForms(hl.dataset.hl, null, 'card'); return; }
-    const go = e.target.closest('.wcLink[data-go]'); if (go) { fmShowTab(go.dataset.go); $('#formsPanel').scrollTop = 0; return; }
+    const go = e.target.closest('.wcLink[data-go]'); if (go) { fmStep(() => { fmShowTab(go.dataset.go); $('#formsPanel').scrollTop = 0; }); return; }
     const dg = e.target.closest('.wcDGo'); if (dg) { const q = fmCur.lem[0], only = { id: dg.dataset.id, name: dg.dataset.name }; closeForms(); showTab('dict'); dictLookup(q, only); return; }
     const bar = e.target.closest('.wcBar, .wcTop a[data-b]'); if (bar) { wcBookRefs($('#wcBookRefs').dataset.b === bar.dataset.b ? null : bar.dataset.b); return; }
     const chip = e.target.closest('.wcForms .fmF'); if (chip) { wcFormRefs(chip.classList.contains('sel') ? null : chip); }
@@ -4307,6 +4538,7 @@
   const openFind = () => { if (document.documentElement.dataset.tab === 'notes') { const f = $('#nFilter'); f.focus(); f.select(); return; } fb.hidden = false; fin.focus(); fin.select(); }; // im Notizen-Reiter: Cmd+F = Notizen filtern
   const closeFind = () => { fb.hidden = true; clearFind(false); };
   O.onFindOpen(() => {
+    if (wcFindWanted()) { wcFindOpen(); return; } // Wortkarte aktiv (Fokus oder Maus darüber): Suche im Fenster der Wortkarte
     const p2 = $('#pane2');
     if (p2 && !p2.hidden && document.activeElement === p2 && p2.contentWindow) p2.contentWindow.postMessage({ type: 'find' }, '*'); // Cmd+F gilt für das Fenster, in dem man gerade arbeitet
     else openFind();
