@@ -1,6 +1,7 @@
 # Changelog
 
 ### New in 2.4.0
+- **Interlinear: Zunz, complete Exodus (1–40):** the word-by-word German under the Hebrew text now also covers the whole book of Exodus with Zunz's translation (`tools/interlinear/zunz/Exodus.txt`, 1210 verses).
 - **Interlinear: Zunz, complete Genesis (1–50):** the word-by-word German under the Hebrew text now covers the whole book of Genesis with Zunz's translation (`tools/interlinear/zunz/Genesis.txt`, 1533 verses). Long narrative chapters are aligned phrase by phrase. The Interlinear button only appears for chapters that are aligned.
 - **Interlinear: Herxheimer (Ruth):** Herxheimer's *wortgetreue Übersetzung* is now aligned word by word for Ruth as a fourth translation (`tools/interlinear/herxheimer/Ruth.txt`); the introduction to Lamentations that follows 4:22 in the source text is kept as an unaligned segment.
 - **Interlinear: Philippson (Ruth):** Philippson's *Israelitische Bibel* is now aligned word by word for Ruth as a third translation (`tools/interlinear/philippson/Ruth.txt`); Breuer 2:19 corrected (a group was split wrongly, leaving only "…" under עמו).
