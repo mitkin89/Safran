@@ -3,7 +3,7 @@ const assert = require('assert'), fs = require('fs'), path = require('path');
 global.window = {}; require('./interlin.js');
 const ALL = window.INTERLIN, rd = (b, l, re) => { const d = path.join(__dirname, 'bundled', 'own', b, l); return JSON.parse(fs.readFileSync(path.join(d, fs.readdirSync(d).find(f => re.test(f))), 'utf8')).text; };
 const norm = s => s.replace(/<sup class="footnote-marker">.*?<\/sup><i class="footnote">.*?<\/i>/g, '').replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
-const PAT = { Zunz: /Zunz/, Breuer: /^(?:(?:Raphael )?Breuer|Das Buch Jecheskel, übersetzt und erläutert von Dr\. Joseph Breuer,)/, Philippson: /Philippson/, Herxheimer: /ebräischen Texte/, Goldschmidt: /Übersetzung von Lazarus Goldschmidt, Berlin 1921/, Hirsch: /Die Psalmen, übersetzt und erläutert von Samson Raphael Hirsch/, JuliusHirsch: /^Julius Hirsch, / };
+const PAT = { Zunz: /Zunz/, Breuer: /^(?:(?:Raphael )?Breuer|Das Buch Jecheskel, übersetzt und erläutert von Dr\. Joseph Breuer,)/, Philippson: /Philippson/, Herxheimer: /ebräischen Texte/, Goldschmidt: /Übersetzung von Lazarus Goldschmidt, Berlin 1921/, Hirsch: /^(?:Die Psalmen|Der Pentateuch), übersetzt und erläutert von Samson Raphael Hirsch/, JuliusHirsch: /^Julius Hirsch, / };
 for (const [tr, D] of Object.entries(ALL)) for (const book of Object.keys(D)) {
   const he = rd(book, 'he', /^Westminster/), de = rd(book, 'de', PAT[tr]);
   let n = 0;
@@ -129,3 +129,61 @@ for (const [ref, ...words] of BREUER_NEHEMIA_KQ) {
   touched.forEach(s => assert.ok(words.every(w => s[0].includes(w)), `Breuer Nehemia ${ref}: Ketiv/Qere getrennt`));
 }
 assert.deepStrictEqual(ALL.Breuer.Nehemiah["7:67"].find(s => s[1] === "Pferde hatten sie 736, Maultiere 245."), [[], "Pferde hatten sie 736, Maultiere 245."]);
+
+// Hirsch-Tora: vollständige manuelle Zuordnung aller fünf Bücher.
+assert.deepStrictEqual(Object.keys(ALL.Hirsch).sort(), ['Deuteronomy', 'Exodus', 'Genesis', 'Leviticus', 'Numbers', 'Psalms']);
+const HIRSCH_TORAH_TOTALS = { Genesis:1533, Exodus:1210, Leviticus:859, Numbers:1288, Deuteronomy:956 };
+const manifest = JSON.parse(fs.readFileSync(path.join(__dirname,'bundled/manifest.json'),'utf8'));
+const crypto = require('crypto');
+let hirschOpen = 0;
+for (const [book,total] of Object.entries(HIRSCH_TORAH_TOTALS)) {
+  const source = rd(book,'de',/^Der Pentateuch, übersetzt und erläutert von Samson Raphael Hirsch/);
+  assert.strictEqual(source.flat().length,total, `Hirsch ${book}: Quellumfang`);
+  assert(source.flat().every(s => typeof s === 'string' && norm(s)), `Hirsch ${book}: leeres Quellfeld`);
+  const item = manifest.items.find(i => i.title === book && /^Der Pentateuch, übersetzt und erläutert von Samson Raphael Hirsch/.test(i.versionTitle));
+  assert(item, `Hirsch ${book}: Manifest fehlt`);
+  assert.strictEqual(item.hash,crypto.createHash('sha1').update(fs.readFileSync(path.join(__dirname,'bundled',item.rel))).digest('hex'));
+  const checked = total;
+  assert.strictEqual(Object.keys(ALL.Hirsch[book] || {}).length,checked, `Hirsch ${book}: unerwartete Abdeckung`);
+  hirschOpen += total - checked;
+  console.log(`Hirsch ${book}: Quelle ${total}, manuell geprüft ${checked}, noch ungeprüft ${total-checked}`);
+}
+assert.strictEqual(hirschOpen,0);
+assert.deepStrictEqual(ALL.Hirsch.Genesis['1:26'].find(s => s[1] === 'einen Adam (Stellvertreter)'), [[4], 'einen Adam (Stellvertreter)']);
+assert.deepStrictEqual(ALL.Hirsch.Genesis['10:12'].at(-1), [[], 'Anamer, die Lehaber und die Naftucher,']);
+for (const s of ALL.Hirsch.Genesis['8:17'].filter(s => s[0].includes(14)||s[0].includes(15))) assert(s[0].includes(14)&&s[0].includes(15));
+assert(ALL.Hirsch.Genesis['8:17'].some(s => s[0].includes(14)&&s[0].includes(15)));
+
+// Jede separat gezählte Ketiv-/Qere-Gruppe gemeinsam referenzieren.
+// Mehrwortige Lesungen sind ausdrücklich dreiteilig (Gen30:11, Ex4:2, Dtn33:2).
+const HIRSCH_TORAH_KQ = {
+  Genesis: {'8:17':[[14,15]],'13:3':[[12,13]],'14:2':[[16,17]],'14:8':[[9,10]],'24:33':[[1,2]],'25:23':[[5,6]],'27:3':[[11,12]],'27:29':[[3,4]],'30:11':[[3,4,5]],'36:5':[[4,5]],'36:14':[[14,15]],'39:20':[[11,12]],'43:28':[[8,9]],'49:10':[[11,12]],'49:11':[[3,4],[13,14]]},
+  Exodus: {'4:2':[[4,5,6]],'16:2':[[1,2]],'16:7':[[14,15]],'21:8':[[6,7]],'22:4':[[9,10]],'22:26':[[3,4]],'27:11':[[8,9]],'28:28':[[4,5]],'32:19':[[14,15]],'37:8':[[15,16]],'39:4':[[7,8]],'39:33':[[13,14]]},
+  Leviticus: {'9:22':[[4,5]],'11:21':[[12,13]],'16:21':[[5,6]],'21:5':[[2,3]],'25:30':[[14,15]]},
+  Numbers: {'1:16':[[2,3]],'12:3':[[3,4]],'14:36':[[9,10]],'16:11':[[12,13]],'21:32':[[8,9]],'23:13':[[4,5]],'26:9':[[9,10]],'32:7':[[2,3]],'34:4':[[9,10]]},
+  Deuteronomy: {'2:33':[[8,9]],'5:10':[[6,7]],'7:9':[[14,15]],'8:2':[[21,22]],'13:16':[[6,7]],'21:7':[[5,6]],'22:15':[[3,4],[9,10]],'22:16':[[3,4]],'22:20':[[9,10]],'22:21':[[3,4]],'22:23':[[3,4]],'22:24':[[13,14]],'22:25':[[6,7]],'22:26':[[1,2],[7,8]],'22:27':[[5,6]],'22:28':[[4,5]],'22:29':[[6,7]],'28:27':[[5,6]],'28:30':[[5,6]],'29:22':[[19,20]],'32:13':[[3,4]],'33:2':[[15,16,17]],'33:9':[[11,12]]}
+};
+let hirschKqCount = 0;
+for (const [book, refs] of Object.entries(HIRSCH_TORAH_KQ)) for (const [ref, groups] of Object.entries(refs)) for (const group of groups) {
+  const touched = ALL.Hirsch[book][ref].filter(s => group.some(n => s[0].includes(n)));
+  // Gen14:2: die Namen stehen in Sefaria im vorigen Versfeld14:1; kein Wortgegenstück erfinden.
+  if (book === 'Genesis' && ref === '14:2') {
+    assert.strictEqual(touched.length,0,'Hirsch Gen14:2: verschobenen Namen nicht künstlich zuordnen');
+    assert(ALL.Hirsch.Genesis['14:1'].some(s => !s[0].length && s[1].includes('Zoar')));
+  } else {
+    assert(touched.length,`Hirsch ${book} ${ref}: Ketiv/Qere fehlt`);
+    touched.forEach(s => assert(group.every(n => s[0].includes(n)),`Hirsch ${book} ${ref}: Ketiv/Qere getrennt`));
+  }
+  hirschKqCount++;
+}
+assert.strictEqual(hirschKqCount,67);
+
+// Freigegebene Hirsch-Berichtigungen: richtige Sachwörter und präzise Bezüge nach Worttrennungen.
+assert.deepStrictEqual(ALL.Hirsch.Numbers['14:14'].find(s => s[1] === 'Feuersäule'), [[28,29], 'Feuersäule']);
+assert.deepStrictEqual(ALL.Hirsch.Deuteronomy['20:19'].find(s => s[1] === 'ihren Baum'), [[13], 'ihren Baum']);
+assert.deepStrictEqual(ALL.Hirsch.Numbers['24:21'].find(s => s[1] === 'dein Nest,'), [[11], 'dein Nest,']);
+assert.deepStrictEqual(ALL.Hirsch.Deuteronomy['32:11'].find(s => s[1] === 'sein Nest,'), [[3], 'sein Nest,']);
+assert.deepStrictEqual(ALL.Hirsch.Deuteronomy['12:31'].find(s => s[1] === 'Nicht'), [[1], 'Nicht']);
+assert.deepStrictEqual(ALL.Hirsch.Exodus['14:30'].find(s => s[1] === 'Gott'), [[2], 'Gott']);
+assert.deepStrictEqual(ALL.Hirsch.Deuteronomy['29:21'].find(s => s[1] === 'Lande'), [[11], 'Lande']);
+assert.deepStrictEqual(ALL.Hirsch.Deuteronomy['29:21'].find(s => s[1] === 'kommt,'), [[10], 'kommt,']);

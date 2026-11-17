@@ -1,0 +1,991 @@
+{
+  "date": "2026-11-17",
+  "authorization": "Benutzer: „ok, mache alle außer was am druck zu prüfen ist“",
+  "baselineCommit": "8f5719a",
+  "scope": "Nur eindeutige Berichtigungen; keine Druckfälle, Namensnormalisierung, Versverschiebung oder Ergänzung fehlender Textblöcke.",
+  "changes": [
+    {
+      "book": "Genesis",
+      "ref": "1:28",
+      "old": "verfielfältigt",
+      "new": "vervielfältigt",
+      "reason": "ורבו: vervielfältigen"
+    },
+    {
+      "book": "Genesis",
+      "ref": "4:8",
+      "old": "ihm Felde",
+      "new": "im Felde",
+      "reason": "בשדה: im Felde"
+    },
+    {
+      "book": "Genesis",
+      "ref": "6:5",
+      "old": "Golt",
+      "new": "Gott",
+      "reason": "יהוה: Gottesname"
+    },
+    {
+      "book": "Genesis",
+      "ref": "7:13",
+      "old": "Noach 's",
+      "new": "Noach's",
+      "reason": "נח: getrennter Genitiv zusammengezogen"
+    },
+    {
+      "book": "Genesis",
+      "ref": "11:24",
+      "old": "29. Jahre",
+      "new": "29 Jahre",
+      "reason": "תשע ועשרים: Kardinalzahl"
+    },
+    {
+      "book": "Genesis",
+      "ref": "11:32",
+      "old": "205. Jahre",
+      "new": "205 Jahre",
+      "reason": "חמש שנים ומאתים שנה: Kardinalzahl"
+    },
+    {
+      "book": "Genesis",
+      "ref": "17:23",
+      "old": "Sohn. Jischmael",
+      "new": "Sohn Jischmael",
+      "reason": "ישמעאל בנו: Punkt innerhalb der Apposition entfernt"
+    },
+    {
+      "book": "Genesis",
+      "ref": "19:31",
+      "old": "Altere",
+      "new": "Ältere",
+      "reason": "הבכירה: ältere Tochter"
+    },
+    {
+      "book": "Genesis",
+      "ref": "24:32",
+      "old": "Fütter",
+      "new": "Futter",
+      "reason": "מספוא: Futter"
+    },
+    {
+      "book": "Genesis",
+      "ref": "24:33",
+      "old": "sa gte",
+      "new": "sagte",
+      "reason": "ויאמר: Sprechverb"
+    },
+    {
+      "book": "Genesis",
+      "ref": "25:26",
+      "old": "Händ",
+      "new": "Hand",
+      "reason": "ידו: Hand"
+    },
+    {
+      "book": "Genesis",
+      "ref": "31:41",
+      "old": "erschiedenen",
+      "new": "verschiedenen",
+      "reason": "עשרת מנים: verschiedene Lohnbestimmungen"
+    },
+    {
+      "book": "Genesis",
+      "ref": "31:42",
+      "old": "fortfortgeschickt",
+      "new": "fortgeschickt",
+      "reason": "שלחתני: versehentliche Silbenwiederholung"
+    },
+    {
+      "book": "Genesis",
+      "ref": "33:5",
+      "old": "prach",
+      "new": "sprach",
+      "reason": "ויאמר: Sprechverb"
+    },
+    {
+      "book": "Genesis",
+      "ref": "34:31",
+      "old": "Soller",
+      "new": "Soll er",
+      "reason": "יעשה: Verbperson, fehlendes Leerzeichen"
+    },
+    {
+      "book": "Genesis",
+      "ref": "37:7",
+      "old": "zuzusammen",
+      "new": "zusammen",
+      "reason": "תסבינה: versehentliche Silbenwiederholung"
+    },
+    {
+      "book": "Genesis",
+      "ref": "38:22",
+      "old": "prach",
+      "new": "sprach",
+      "reason": "ויאמר: Sprechverb"
+    },
+    {
+      "book": "Genesis",
+      "ref": "43:5",
+      "old": "lönnen",
+      "new": "können",
+      "reason": "נוכל: können"
+    },
+    {
+      "book": "Genesis",
+      "ref": "43:16",
+      "old": "prach",
+      "new": "sprach",
+      "reason": "ויאמר: Sprechverb"
+    },
+    {
+      "book": "Exodus",
+      "ref": "7:28",
+      "old": "deine Ofen",
+      "new": "deine Öfen",
+      "reason": "ובתנוריך: Plural der Öfen"
+    },
+    {
+      "book": "Exodus",
+      "ref": "14:12",
+      "old": "das Vort",
+      "new": "das Wort",
+      "reason": "הדבר: Wort"
+    },
+    {
+      "book": "Exodus",
+      "ref": "14:30",
+      "old": "Gottan",
+      "new": "Gott an",
+      "reason": "יהוה ביום: Worttrennung"
+    },
+    {
+      "book": "Exodus",
+      "ref": "15:3",
+      "old": "Kriegsmamn",
+      "new": "Kriegsmann",
+      "reason": "איש מלחמה: Kriegsmann"
+    },
+    {
+      "book": "Exodus",
+      "ref": "16:11",
+      "old": "Gottt",
+      "new": "Gott",
+      "reason": "יהוה: zusätzliches t"
+    },
+    {
+      "book": "Exodus",
+      "ref": "17:15",
+      "old": "Gottist",
+      "new": "Gott ist",
+      "reason": "יהוה: Gottesname; Kopula deutsch"
+    },
+    {
+      "book": "Exodus",
+      "ref": "19:7",
+      "old": "Gottaufgetragen",
+      "new": "Gott aufgetragen",
+      "reason": "יהוה צוהו: Worttrennung"
+    },
+    {
+      "book": "Exodus",
+      "ref": "20:4",
+      "old": "in Bild",
+      "new": "ein Bild",
+      "reason": "פסל: ein Bild"
+    },
+    {
+      "book": "Exodus",
+      "ref": "29:18",
+      "old": "Willfahrungsausdrück",
+      "new": "Willfahrungsausdruck",
+      "reason": "ריח ניחוח: Übersetzerterminus ohne falschen Umlaut"
+    },
+    {
+      "book": "Exodus",
+      "ref": "32:10",
+      "old": "ichzu",
+      "new": "ich zu",
+      "reason": "ואעשה לגוי: Worttrennung"
+    },
+    {
+      "book": "Exodus",
+      "ref": "32:14",
+      "old": "Gottzur",
+      "new": "Gott zur",
+      "reason": "יהוה: Gottesname und deutscher Verbzusatz trennen"
+    },
+    {
+      "book": "Exodus",
+      "ref": "38:14",
+      "old": "hre Säulen",
+      "new": "ihre Säulen",
+      "reason": "עמדיהם: ihre Säulen"
+    },
+    {
+      "book": "Exodus",
+      "ref": "39:29",
+      "old": "purpurund",
+      "new": "purpur und",
+      "reason": "וארגמן: Material und folgende Konjunktion trennen"
+    },
+    {
+      "book": "Exodus",
+      "ref": "40:19",
+      "old": "GottMosche",
+      "new": "Gott Mosche",
+      "reason": "יהוה משה: zwei Wörter trennen"
+    },
+    {
+      "book": "Leviticus",
+      "ref": "1:4",
+      "old": "es Emporopfers",
+      "new": "des Emporopfers",
+      "reason": "העלה: des Emporopfers"
+    },
+    {
+      "book": "Leviticus",
+      "ref": "1:14",
+      "old": "demn Geflügel",
+      "new": "dem Geflügel",
+      "reason": "העוף: überzähliges n"
+    },
+    {
+      "book": "Leviticus",
+      "ref": "2:16",
+      "old": "sämt",
+      "new": "samt",
+      "reason": "על: samt"
+    },
+    {
+      "book": "Leviticus",
+      "ref": "3:16",
+      "old": "Willfahrungsausdrück",
+      "new": "Willfahrungsausdruck",
+      "reason": "ריח ניחח: Übersetzerterminus"
+    },
+    {
+      "book": "Leviticus",
+      "ref": "4:22",
+      "old": "lastet; auf",
+      "new": "lastet auf",
+      "reason": "ואשם: Semikolon innerhalb der Verbfügung"
+    },
+    {
+      "book": "Leviticus",
+      "ref": "4:23",
+      "old": "Bewusst sein",
+      "new": "Bewusstsein",
+      "reason": "הודע: zusammengehöriges Substantiv"
+    },
+    {
+      "book": "Leviticus",
+      "ref": "4:28",
+      "old": "Vergehen. das",
+      "new": "Vergehen, das",
+      "reason": "חטאתו אשר חטא: Relativsatz"
+    },
+    {
+      "book": "Leviticus",
+      "ref": "6:20",
+      "old": "werden,und",
+      "new": "werden, und",
+      "reason": "יקדש ואשר: Worttrennung"
+    },
+    {
+      "book": "Leviticus",
+      "ref": "7:2",
+      "old": "Atar",
+      "new": "Altar",
+      "reason": "המזבח: Altar"
+    },
+    {
+      "book": "Leviticus",
+      "ref": "8:28",
+      "old": "Willfahrungsausdrück",
+      "new": "Willfahrungsausdruck",
+      "reason": "ריח ניחח: Übersetzerterminus"
+    },
+    {
+      "book": "Leviticus",
+      "ref": "9:4",
+      "old": "Ol",
+      "new": "Öl",
+      "reason": "שמן: Öl"
+    },
+    {
+      "book": "Leviticus",
+      "ref": "9:8",
+      "old": "Allare",
+      "new": "Altare",
+      "reason": "המזבח: Altar"
+    },
+    {
+      "book": "Leviticus",
+      "ref": "10:19",
+      "old": "Entsündigungsund",
+      "new": "Entsündigungs- und",
+      "reason": "חטאתם ואת: getrennte Aufzählung"
+    },
+    {
+      "book": "Leviticus",
+      "ref": "11:20",
+      "old": "Kreichtier",
+      "new": "Kriechtier",
+      "reason": "שרץ: Kriechtier"
+    },
+    {
+      "book": "Leviticus",
+      "ref": "13:8",
+      "old": "Sieht dann dem Priester",
+      "new": "Sieht dann der Priester",
+      "reason": "וראה הכהן: Priester ist Subjekt"
+    },
+    {
+      "book": "Leviticus",
+      "ref": "13:11",
+      "old": "erllären",
+      "new": "erklären",
+      "reason": "וטמאו: unrein erklären"
+    },
+    {
+      "book": "Leviticus",
+      "ref": "13:52",
+      "old": "dem ein verderblicher",
+      "new": "denn ein verderblicher",
+      "reason": "כי: begründendes denn"
+    },
+    {
+      "book": "Leviticus",
+      "ref": "14:57",
+      "old": "unrein ind",
+      "new": "unrein und",
+      "reason": "וביום: Konjunktion und"
+    },
+    {
+      "book": "Leviticus",
+      "ref": "15:20",
+      "old": "Und allen, worauf",
+      "new": "Und alles, worauf",
+      "reason": "וכל אשר: alles, worauf"
+    },
+    {
+      "book": "Leviticus",
+      "ref": "17:4",
+      "old": "desZusammenkunftsbestimmungszeltes",
+      "new": "des Zusammenkunftsbestimmungszeltes",
+      "reason": "אהל מועד: Worttrennung"
+    },
+    {
+      "book": "Leviticus",
+      "ref": "18:17",
+      "old": "entüllen",
+      "new": "enthüllen",
+      "reason": "לגלות: enthüllen"
+    },
+    {
+      "book": "Leviticus",
+      "ref": "18:18",
+      "old": "entüllen",
+      "new": "enthüllen",
+      "reason": "לגלות: enthüllen"
+    },
+    {
+      "book": "Leviticus",
+      "ref": "18:28",
+      "old": "däs Volk",
+      "new": "das Volk",
+      "reason": "הגוי: das Volk"
+    },
+    {
+      "book": "Leviticus",
+      "ref": "19:27",
+      "old": "Hauptaares",
+      "new": "Haupthaares",
+      "reason": "ראשכם: Haupthaar im Kontext des Scherens"
+    },
+    {
+      "book": "Leviticus",
+      "ref": "20:11",
+      "old": "entüllt",
+      "new": "enthüllt",
+      "reason": "גלה: enthüllt"
+    },
+    {
+      "book": "Leviticus",
+      "ref": "20:18",
+      "old": "entüllt",
+      "new": "enthüllt",
+      "reason": "גלה: enthüllt"
+    },
+    {
+      "book": "Leviticus",
+      "ref": "24:17",
+      "old": "soller",
+      "new": "soll er",
+      "reason": "מות יומת: Worttrennung"
+    },
+    {
+      "book": "Leviticus",
+      "ref": "27:9",
+      "old": "allen, was",
+      "new": "alles, was",
+      "reason": "כל אשר: alles, was"
+    },
+    {
+      "book": "Numbers",
+      "ref": "1:52",
+      "old": "jederbei",
+      "new": "jeder bei",
+      "reason": "ואיש על: Worttrennung"
+    },
+    {
+      "book": "Numbers",
+      "ref": "2:16",
+      "old": "Gezählten:underteinundfünfzigtausendvierhundertundfünfzig",
+      "new": "Gezählten: hunderteinundfünfzigtausendvierhundertundfünfzig",
+      "reason": "פקדים / מאת אלף ואחד וחמשים אלף: Worttrennung und fehlendes h"
+    },
+    {
+      "book": "Numbers",
+      "ref": "2:16",
+      "old": "nachihren",
+      "new": "nach ihren",
+      "reason": "לצבאתם: Worttrennung"
+    },
+    {
+      "book": "Numbers",
+      "ref": "4:11",
+      "old": "himmelblguer",
+      "new": "himmelblauer",
+      "reason": "תכלת: himmelblau"
+    },
+    {
+      "book": "Numbers",
+      "ref": "4:14",
+      "old": "Geräie",
+      "new": "Geräte",
+      "reason": "כלי: Geräte"
+    },
+    {
+      "book": "Numbers",
+      "ref": "4:36",
+      "old": "ihrenFamilien",
+      "new": "ihren Familien",
+      "reason": "למשפחתם: Worttrennung"
+    },
+    {
+      "book": "Numbers",
+      "ref": "4:39",
+      "old": "zurückgelegtet",
+      "new": "zurückgelegten",
+      "reason": "בן: Alter in zurückgelegten Jahren"
+    },
+    {
+      "book": "Numbers",
+      "ref": "7:10",
+      "old": "Eingeihung",
+      "new": "Einweihung",
+      "reason": "חנכת: Einweihung"
+    },
+    {
+      "book": "Numbers",
+      "ref": "7:41",
+      "old": "Schafer",
+      "new": "Schafe",
+      "reason": "כבשים: Schafe"
+    },
+    {
+      "book": "Numbers",
+      "ref": "10:13",
+      "old": "Es was dies",
+      "new": "Es war dies",
+      "reason": "ויסעו: rückbezüglicher Erzählsatz"
+    },
+    {
+      "book": "Numbers",
+      "ref": "10:26",
+      "old": "des Söhne",
+      "new": "der Söhne",
+      "reason": "בני: Plural"
+    },
+    {
+      "book": "Numbers",
+      "ref": "14:14",
+      "old": "Wolkensäule nachts",
+      "new": "Feuersäule nachts",
+      "reason": "עמוד אש לילה: Feuersäule bei Nacht"
+    },
+    {
+      "book": "Numbers",
+      "ref": "17:7",
+      "old": "Da wär es",
+      "new": "Da war es",
+      "reason": "ויהי: Erzählform"
+    },
+    {
+      "book": "Numbers",
+      "ref": "17:8",
+      "old": "Zusammenkunftsbestimniungszelt",
+      "new": "Zusammenkunftsbestimmungszelt",
+      "reason": "אהל מועד: Übersetzerterminus"
+    },
+    {
+      "book": "Numbers",
+      "ref": "17:27",
+      "old": "verlorent!",
+      "new": "verloren!",
+      "reason": "אבדנו: verloren"
+    },
+    {
+      "book": "Numbers",
+      "ref": "18:11",
+      "old": "Haufe",
+      "new": "Hause",
+      "reason": "בביתך: in deinem Hause"
+    },
+    {
+      "book": "Numbers",
+      "ref": "22:31",
+      "old": "entüllte",
+      "new": "enthüllte",
+      "reason": "ויגל: enthüllte"
+    },
+    {
+      "book": "Numbers",
+      "ref": "23:7",
+      "old": "Du hub er",
+      "new": "Da hub er",
+      "reason": "וישא: Erzähleinleitung"
+    },
+    {
+      "book": "Numbers",
+      "ref": "24:21",
+      "old": "dein Rest",
+      "new": "dein Nest",
+      "reason": "קנך: dein Nest"
+    },
+    {
+      "book": "Numbers",
+      "ref": "25:15",
+      "old": "TochterZurs",
+      "new": "Tochter Zurs",
+      "reason": "בת צור: Worttrennung, Name erhalten"
+    },
+    {
+      "book": "Numbers",
+      "ref": "26:35",
+      "old": "Familen",
+      "new": "Familien",
+      "reason": "משפחת: Familien"
+    },
+    {
+      "book": "Numbers",
+      "ref": "28:11",
+      "old": "sieven",
+      "new": "sieben",
+      "reason": "שבעה: sieben"
+    },
+    {
+      "book": "Numbers",
+      "ref": "29:2",
+      "old": "Willfahrungsausdruckר",
+      "new": "Willfahrungsausdruck",
+      "reason": "ריח ניחח: fremdes angehängtes Zeichen entfernt"
+    },
+    {
+      "book": "Numbers",
+      "ref": "29:5",
+      "old": "vollziegen",
+      "new": "vollziehen",
+      "reason": "לכפר: Sühnehandlung vollziehen"
+    },
+    {
+      "book": "Numbers",
+      "ref": "29:11",
+      "old": "vöm",
+      "new": "vom",
+      "reason": "מלבד: im deutschen Satz vom"
+    },
+    {
+      "book": "Numbers",
+      "ref": "29:16",
+      "old": "alsEntsündigungsopfer",
+      "new": "als Entsündigungsopfer",
+      "reason": "חטאת: Worttrennung"
+    },
+    {
+      "book": "Numbers",
+      "ref": "29:28",
+      "old": "beständigenEmporopfer",
+      "new": "beständigen Emporopfer",
+      "reason": "עלת התמיד: Worttrennung"
+    },
+    {
+      "book": "Numbers",
+      "ref": "31:9",
+      "old": "mächten",
+      "new": "machten",
+      "reason": "וישבו: Erzählform"
+    },
+    {
+      "book": "Numbers",
+      "ref": "32:3",
+      "old": "Jaaser,Nimra,Cheschbon",
+      "new": "Jaaser, Nimra, Cheschbon",
+      "reason": "יעזר ונמרה וחשבון: Worttrennung, Namen erhalten"
+    },
+    {
+      "book": "Numbers",
+      "ref": "32:11",
+      "old": "Richt",
+      "new": "Nicht",
+      "reason": "אם יראו: negierter Schwur"
+    },
+    {
+      "book": "Numbers",
+      "ref": "32:36",
+      "old": "undSchafhürden",
+      "new": "und Schafhürden",
+      "reason": "וגדרת צאן: Worttrennung"
+    },
+    {
+      "book": "Deuteronomy",
+      "ref": "1:11",
+      "old": "nöge",
+      "new": "möge",
+      "reason": "ויברך: deutscher Wunschsatz"
+    },
+    {
+      "book": "Deuteronomy",
+      "ref": "1:16",
+      "old": "zivischen",
+      "new": "zwischen",
+      "reason": "בין: zwischen"
+    },
+    {
+      "book": "Deuteronomy",
+      "ref": "4:21",
+      "old": "Vers anlassungen",
+      "new": "Veranlassungen",
+      "reason": "על דבריכם: Veranlassungen"
+    },
+    {
+      "book": "Deuteronomy",
+      "ref": "4:30",
+      "old": "Sitmme",
+      "new": "Stimme",
+      "reason": "בקלו: Stimme"
+    },
+    {
+      "book": "Deuteronomy",
+      "ref": "5:8",
+      "old": "in Bild",
+      "new": "ein Bild",
+      "reason": "פסל: ein Bild"
+    },
+    {
+      "book": "Deuteronomy",
+      "ref": "7:4",
+      "old": "Gott Unwille",
+      "new": "Gottes Unwille",
+      "reason": "אף יהוה: Genitiv"
+    },
+    {
+      "book": "Deuteronomy",
+      "ref": "7:25",
+      "old": "Abscheu Gott,",
+      "new": "Abscheu Gottes,",
+      "reason": "תועבת יהוה: Genitiv"
+    },
+    {
+      "book": "Deuteronomy",
+      "ref": "8:15",
+      "old": "woSchlangen",
+      "new": "wo Schlangen",
+      "reason": "נחש: Worttrennung"
+    },
+    {
+      "book": "Deuteronomy",
+      "ref": "9:3",
+      "old": "Er will. sie",
+      "new": "Er will sie",
+      "reason": "ישמידם: Punkt innerhalb der Verbfügung"
+    },
+    {
+      "book": "Deuteronomy",
+      "ref": "10:4",
+      "old": "äm Tage",
+      "new": "am Tage",
+      "reason": "ביום: am Tage"
+    },
+    {
+      "book": "Deuteronomy",
+      "ref": "11:13",
+      "old": "euret ganzen Herzen",
+      "new": "eurem ganzen Herzen",
+      "reason": "בכל לבבכם: mit eurem Herzen"
+    },
+    {
+      "book": "Deuteronomy",
+      "ref": "11:14",
+      "old": "Frühund",
+      "new": "Früh- und",
+      "reason": "יורה ומלקוש: Aufzählung der Regenzeiten"
+    },
+    {
+      "book": "Deuteronomy",
+      "ref": "12:12",
+      "old": "in, euren",
+      "new": "in euren",
+      "reason": "בשעריכם: in euren Toren"
+    },
+    {
+      "book": "Deuteronomy",
+      "ref": "12:31",
+      "old": "Richt also",
+      "new": "Nicht also",
+      "reason": "לא תעשה כן: Nicht also"
+    },
+    {
+      "book": "Deuteronomy",
+      "ref": "18:18",
+      "old": "was, ich",
+      "new": "was ich",
+      "reason": "אשר: Relativsatz"
+    },
+    {
+      "book": "Deuteronomy",
+      "ref": "20:19",
+      "old": "ihren Mann",
+      "new": "ihren Baum",
+      "reason": "עצה: Baum der Stadt"
+    },
+    {
+      "book": "Deuteronomy",
+      "ref": "22:24",
+      "old": "Mittte",
+      "new": "Mitte",
+      "reason": "מקרבך: aus deiner Mitte"
+    },
+    {
+      "book": "Deuteronomy",
+      "ref": "22:29",
+      "old": "Lebeמ",
+      "new": "Leben",
+      "reason": "ימיו: Lebenszeit"
+    },
+    {
+      "book": "Deuteronomy",
+      "ref": "24:14",
+      "old": "Vorentalte",
+      "new": "Vorenthalte",
+      "reason": "לא תעשק: nicht vorenthalten"
+    },
+    {
+      "book": "Deuteronomy",
+      "ref": "24:15",
+      "old": "wiürde",
+      "new": "würde",
+      "reason": "והיה: würde … sein, überzähliges i"
+    },
+    {
+      "book": "Deuteronomy",
+      "ref": "26:14",
+      "old": "verwendet;ich",
+      "new": "verwendet; ich",
+      "reason": "נתתי / שמעתי: Worttrennung"
+    },
+    {
+      "book": "Deuteronomy",
+      "ref": "28:30",
+      "old": "Umgang, pflegen",
+      "new": "Umgang pflegen",
+      "reason": "ישגלנה / ישכבנה: Verbfügung"
+    },
+    {
+      "book": "Deuteronomy",
+      "ref": "28:48",
+      "old": "Nackteit",
+      "new": "Nacktheit",
+      "reason": "בעירם: Nacktheit"
+    },
+    {
+      "book": "Deuteronomy",
+      "ref": "28:62",
+      "old": "Gottקד",
+      "new": "Gott",
+      "reason": "יהוה: fremde angehängte Zeichen entfernt"
+    },
+    {
+      "book": "Deuteronomy",
+      "ref": "29:3",
+      "old": "es, hatte",
+      "new": "es hatte",
+      "reason": "נתן: deutsches Hilfsverb"
+    },
+    {
+      "book": "Deuteronomy",
+      "ref": "29:21",
+      "old": "Landekommt",
+      "new": "Lande kommt",
+      "reason": "מארץ / יבוא: Worttrennung"
+    },
+    {
+      "book": "Deuteronomy",
+      "ref": "29:28",
+      "old": "alleWorte",
+      "new": "alle Worte",
+      "reason": "כל דברי: Worttrennung"
+    },
+    {
+      "book": "Deuteronomy",
+      "ref": "32:5",
+      "old": "sittlliches",
+      "new": "sittliches",
+      "reason": "מומם: Gebrechen, überzähliges l"
+    },
+    {
+      "book": "Deuteronomy",
+      "ref": "32:11",
+      "old": "sein Rest",
+      "new": "sein Nest",
+      "reason": "קנו: sein Nest"
+    },
+    {
+      "book": "Deuteronomy",
+      "ref": "33:21",
+      "old": "mitt Jisrael",
+      "new": "mit Jisrael",
+      "reason": "עם ישראל: mit Jisrael"
+    },
+    {
+      "book": "Genesis",
+      "ref": "41:45",
+      "old": "die Töchter",
+      "new": "die Tochter",
+      "reason": "בת: Tochter im Singular, die Frau Josefs"
+    }
+  ],
+  "alignmentAdjustments": [
+    {
+      "book": "Exodus",
+      "ref": "14:30",
+      "before": "2,3:Gott an",
+      "after": "2:Gott | 3:an"
+    },
+    {
+      "book": "Exodus",
+      "ref": "17:15",
+      "before": "6:Gott ist",
+      "after": "6:Gott | -:ist"
+    },
+    {
+      "book": "Exodus",
+      "ref": "19:7",
+      "before": "13,14:Gott aufgetragen.",
+      "after": "14:Gott | 13:aufgetragen."
+    },
+    {
+      "book": "Exodus",
+      "ref": "32:10",
+      "before": "8,10:ich zu",
+      "after": "8:ich | 10:zu"
+    },
+    {
+      "book": "Exodus",
+      "ref": "32:14",
+      "before": "1,2:Gott zur",
+      "after": "2:Gott | 1:zur"
+    },
+    {
+      "book": "Exodus",
+      "ref": "40:19",
+      "before": "14,16:Gott Mosche",
+      "after": "14:Gott | 16:Mosche"
+    },
+    {
+      "book": "Leviticus",
+      "ref": "6:20",
+      "before": "5,6:werden, und",
+      "after": "5:werden, | 6:und"
+    },
+    {
+      "book": "Leviticus",
+      "ref": "10:19",
+      "before": "9,10:Entsündigungs- und",
+      "after": "9:Entsündigungs- | 10:und"
+    },
+    {
+      "book": "Numbers",
+      "ref": "1:52",
+      "before": "7,8:und jeder bei",
+      "after": "7:und jeder | 8:bei"
+    },
+    {
+      "book": "Numbers",
+      "ref": "2:16",
+      "before": "2,5,6,7,8,9,10,11,12:Gezählten: hunderteinundfünfzigtausendvierhundertundfünfzig",
+      "after": "2:Gezählten: | 5,6,7,8,9,10,11,12:hunderteinundfünfzigtausendvierhundertundfünfzig"
+    },
+    {
+      "book": "Numbers",
+      "ref": "14:14",
+      "before": "29:Feuersäule",
+      "after": "28,29:Feuersäule"
+    },
+    {
+      "book": "Numbers",
+      "ref": "25:15",
+      "before": "6,7:Tochter Zurs;",
+      "after": "6:Tochter | 7:Zurs;"
+    },
+    {
+      "book": "Numbers",
+      "ref": "29:28",
+      "before": "5,6:dem beständigen Emporopfer,",
+      "after": "5:dem | 6:beständigen | 5:Emporopfer,"
+    },
+    {
+      "book": "Numbers",
+      "ref": "32:3",
+      "before": "3,4,5:Jaaser, Nimra, Cheschbon,",
+      "after": "3:Jaaser, | 4:Nimra, | 5:Cheschbon,"
+    },
+    {
+      "book": "Numbers",
+      "ref": "32:36",
+      "before": "9,10:und Schafhürden",
+      "after": "9:und | 9,10:Schafhürden"
+    },
+    {
+      "book": "Deuteronomy",
+      "ref": "8:15",
+      "before": "5:wo Schlangen,",
+      "after": "-:wo | 5:Schlangen,"
+    },
+    {
+      "book": "Deuteronomy",
+      "ref": "11:14",
+      "before": "5,6:Früh- und",
+      "after": "5:Früh- | 6:und"
+    },
+    {
+      "book": "Deuteronomy",
+      "ref": "26:14",
+      "before": "10,13:verwendet; ich",
+      "after": "10:verwendet; | 13:ich"
+    },
+    {
+      "book": "Deuteronomy",
+      "ref": "29:21",
+      "before": "10,11:Lande kommt,",
+      "after": "11:Lande | 10:kommt,"
+    },
+    {
+      "book": "Deuteronomy",
+      "ref": "29:28",
+      "before": "10,11,12:alle Worte",
+      "after": "11:alle | 10,12:Worte"
+    }
+  ]
+}
