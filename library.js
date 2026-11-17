@@ -1279,8 +1279,8 @@
     };
   }
   // Qumran (ETCBC DSS): data-l = Lemma, data-m = Wortart.Stamm.Zeit.Person.Genus.Numerus.Status ('-' = ohne Angabe)
-  const Q_SP = { subs: 'Substantiv', verb: 'Verb', ptcl: 'Partikel', adjv: 'Adjektiv', numr: 'Zahlwort', pron: 'Pronomen' };
-  const Q_VS = { qal: 'Qal', hifil: 'Hifil', piel: 'Piel', nifal: 'Nifal', hitpael: 'Hitpael', hofal: 'Hofal', pual: 'Pual', polel: 'Polel', poel: 'Poel', poal: 'Poal', pilpel: 'Pilpel', hitpoel: 'Hitpoel', hitopel: 'Hitpolel', peal: 'Peal (aram.)', pael: 'Pael (aram.)', aphel: 'Afel (aram.)', haphel: 'Hafel (aram.)', shaphel: 'Schafel (aram.)', ithpeel: 'Itpeel (aram.)', ithpaal: 'Itpaal (aram.)', peil: 'Peil (aram.)', passive: 'Passiv' };
+  const Q_SP = { subs: 'Substantiv', verb: 'Verb', ptcl: 'Partikel', adjv: 'Adjektiv', numr: 'Zahlwort', pron: 'Pronomen', prep: 'Präposition', conj: 'Konjunktion', art: 'Artikel', advb: 'Adverb', nmpr: 'Eigenname', prps: 'Personalpronomen', prde: 'Demonstrativpronomen', prin: 'Fragepronomen', nega: 'Verneinung', inrg: 'Fragepartikel', intj: 'Interjektion' };
+  const Q_VS = { qal: 'Qal', hif: 'Hifil', nif: 'Nifal', hit: 'Hitpael', hof: 'Hofal', etpe: 'Etpeel (aram.)', hifil: 'Hifil', piel: 'Piel', nifal: 'Nifal', hitpael: 'Hitpael', hofal: 'Hofal', pual: 'Pual', polel: 'Polel', poel: 'Poel', poal: 'Poal', pilpel: 'Pilpel', hitpoel: 'Hitpoel', hitopel: 'Hitpolel', peal: 'Peal (aram.)', pael: 'Pael (aram.)', aphel: 'Afel (aram.)', haphel: 'Hafel (aram.)', shaphel: 'Schafel (aram.)', ithpeel: 'Itpeel (aram.)', ithpaal: 'Itpaal (aram.)', peil: 'Peil (aram.)', passive: 'Passiv' };
   const Q_VT = { perf: 'Perfekt', impf: 'Imperfekt', wayy: 'Narrativ (wajjiqtol)', impv: 'Imperativ', ptca: 'Partizip aktiv', ptcp: 'Partizip passiv', infc: 'Infinitiv constructus', infa: 'Infinitiv absolutus' };
   const Q_GN = { m: 'maskulin', f: 'feminin', b: 'beide Geschlechter', c: 'gemeinsam' }, Q_NU = { s: 'Singular', p: 'Plural', d: 'Dual' }, Q_ST = { a: 'Absolutus', c: 'Constructus', d: 'bestimmt' };
   function showQumranWord(w) {

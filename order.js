@@ -1,5 +1,5 @@
 // Reihenfolge wie auf Sefaria (statt alphabetisch): Hauptkategorien, Tanach, Mischna, Talmud-Traktate
-const TOP = ['Eigene Texte', 'Tanakh', 'Mishnah', 'Talmud', 'Midrash', 'Halakhah', 'Kabbalah', 'Liturgy', 'Jewish Thought', 'Tosefta', 'Chasidut', 'Musar', 'Responsa', 'Second Temple', 'Reference', 'Targum', 'Tanakh Commentary', 'Mishnah Commentary', 'Talmud Commentary', 'Quoting Commentary'];
+const TOP = ['Eigene Texte', 'Tanakh', 'Mishnah', 'Talmud', 'Midrash', 'Halakhah', 'Kabbalah', 'Liturgy', 'Jewish Thought', 'Tosefta', 'Chasidut', 'Musar', 'Responsa', 'Second Temple', 'Ancient Inscriptions', 'Reference', 'Targum', 'Tanakh Commentary', 'Mishnah Commentary', 'Talmud Commentary', 'Quoting Commentary'];
 const SUB = {
   Tanakh: ['Torah', 'Prophets', 'Writings', 'Targum', 'Rishonim on Tanakh', 'Acharonim on Tanakh', 'Modern Commentary on Tanakh', 'Quoting Commentary'],
   Talmud: ['Bavli', 'Yerushalmi'],

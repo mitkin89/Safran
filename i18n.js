@@ -194,6 +194,8 @@
     'Interlinear': 'Interlinear',
     'Klick: dieses Werk ausblenden': 'Click: hide this work',
     'Zunz (Standard)': 'Zunz (default)',
+    'Fragepronomen': 'interrogative pronoun',
+    'Verneinung': 'negation',
     'Umschrift (Aussprache)': 'Transliteration (pronunciation)',
     'Phonetische Umschrift jedes Wortes (ETCBC phono, Dirk Roorda); ˈ Hauptton': 'Phonetic transcription of every word (ETCBC phono, Dirk Roorda); ˈ main stress',
     'Aussprache (phonetische Umschrift, ETCBC phono) – ˈ Hauptton, ˌ Nebenton': 'Pronunciation (phonetic transcription, ETCBC phono) – ˈ main stress, ˌ secondary stress',
