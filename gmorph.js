@@ -4,6 +4,7 @@
 //  - verse(D, bi, ch, v)    Bestimmungen je Wort eines Verses          -> [{ id, low, guess } | null]
 //  - info(D, id)            eine Bestimmung                            -> { lemma, gloss, key, form }
 //  - describe(key, t)       Schlüssel („V aor ind act 3rd sg“) deutsch -> { pos, info }
+//  - dictionaryLemmas(D, head) belegte Lemmata eines Wörterbuch-Stichworts -> Wortkarten
 //  - model / render / refs / dist / refsIn / topForms: Formentabelle und Wortkarte (gleiche Schnittstelle wie forms.js)
 // Es werden nur belegte Formen gezeigt, keine ergänzten Paradigmen.
 (function () {
@@ -96,6 +97,17 @@
     const c = x.foldLem.get(fold(q)); if (!c) return null;
     if (c.length === 1) return c[0];
     const o = occ(D); return c.slice().sort((a, b) => o.lemN[x.byLemma.get(b)] - o.lemN[x.byLemma.get(a)])[0];
+  }
+  // Wörterbuchartikel -> belegte griechische Lemmata. Mehrere Stichwörter
+  // desselben Artikels behalten eigene Zugänge; unbekannte Wörter bleiben ohne Karte.
+  function dictionaryLemmas(D, head) {
+    const found = new Set();
+    for (const h of String(head || '').split(/[·,;/]/)) {
+      if (!GREEK.test(h)) continue;
+      const lemma = findLemma(D, h.trim());
+      if (lemma && occ(D).lemN[ix(D).byLemma.get(lemma)] > 0) found.add(lemma);
+    }
+    return [...found];
   }
   // Buchname eines Stroms: Titel in Safran, bei zwei Fassungen desselben Buches mit Kennzeichen (A, B, Theodotion, Sinaiticus)
   const bookId = b => b[0] + (b[2] ? ' (' + b[2] + ')' : '');
@@ -302,6 +314,6 @@
     return nav + secs + `<p class="fmNote">${esc(t('Nur in der Septuaginta belegte Formen (Rahlfs; Morphologie: lxx-morph), Gravis als Akut; die Zahl nennt die Häufigkeit. Formen, deren Bestimmung mehrere Fälle oder Geschlechter zulässt (z. B. Nom./Akk. Neutrum), stehen in jeder passenden Zeile.'))}</p>`;
   }
 
-  const api = { fold, form, words, wordsOf, plain, WORD, GREEK, ALPH, BASE, encoder, decode, ix, bookIndex, hasBook, bookId, verse, info, lemmaInfo, findLemma, occ, refs, dist, refsIn, topForms, feat, describe, model, render, POS };
+  const api = { fold, form, words, wordsOf, plain, WORD, GREEK, ALPH, BASE, encoder, decode, ix, bookIndex, hasBook, bookId, verse, info, lemmaInfo, findLemma, dictionaryLemmas, occ, refs, dist, refsIn, topForms, feat, describe, model, render, POS };
   if (typeof module !== 'undefined' && module.exports) module.exports = api; else window.GMorph = api;
 })();

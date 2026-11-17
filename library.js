@@ -1644,6 +1644,7 @@
     if (!lem) return done(`<p class="muted">${esc(I18N.t('Kein Eintrag in den Wörterbüchern.'))}</p>`);
     let r = null;
     try { r = await O.dictLookup(lem[0], dictSel && dictSel.length ? dictSel : null, false); } catch { r = null; }
+    if (token !== wcToken) return;
     let res = (r && r.results) || [];
     { // die Suche lässt auch Vorsilben weg und nimmt Stichwörter, die mit dem Wort beginnen – für die Wortkarte nur Stichwörter mit genau diesem Schriftbild (falls es welche gibt)
       const cons = greek ? t => window.GMorph.fold(t) : t => String(t).replace(/[^\u05D0-\u05EA]/g, ''), want = cons(lem[0]);
@@ -5478,9 +5479,17 @@
     for (const tok of String(head).split(/[·,;/\s]+/)) { if (!/[\u05D0-\u05EA]/.test(tok)) continue; const ids = lemByCons.get(consOf(tok)); if (ids) return ids; }
     return null;
   }
+  function dictCardButtons(head, greekIndex) {
+    const ids = lemIdsFor(head);
+    if (ids) return ` <button type="button" class="dwk" data-ids="${esc(ids.join(','))}" title="${esc(I18N.t('Wortkarte: Wörterbücher, Verteilung, häufigste Formen, Septuaginta'))}">${esc(I18N.t('Wortkarte'))}</button>`;
+    const lemmas = greekIndex ? window.GMorph.dictionaryLemmas(greekIndex, head) : [];
+    return lemmas.map(lemma => ` <button type="button" class="dwk" data-gl="${esc(lemma)}" title="${esc(I18N.t('Griechische Wortkarte öffnen'))}">${esc(I18N.t('Wortkarte'))}${lemmas.length > 1 ? ': ' + esc(lemma) : ''}</button>`).join('');
+  }
+  let dictLookupToken = 0;
   async function dictLookup(q, only = null, fromHist = false) {
     q = String(q || '').trim();
     if (!q) return;
+    const token = ++dictLookupToken;
     dictOnly = only;
     dtabs[dcur].title = q;
     renderDtabs();
@@ -5492,12 +5501,19 @@
     if (typeof renderSaved === 'function') renderSaved();
     $('#dictOut').innerHTML = '<p class="muted">Suche …</p>';
     const r = await O.dictLookup(q, only ? only.id : (dictSel && dictSel.length ? dictSel : null), $('#dictFull') && $('#dictFull').checked);
+    if (token !== dictLookupToken) return;
     if (r.error) { $('#dictOut').innerHTML = `<p class="muted">⚠ ${esc(r.error)}</p>`; return; }
     dictShown = r.results;
     if (!r.results.length) {
       const n = (await O.dictList()).list.length;
+      if (token !== dictLookupToken) return;
       $('#dictOut').innerHTML = n ? `<p class="muted">Kein Eintrag für „${esc(q)}“ gefunden.</p>` : '<p class="muted">Es ist noch kein Wörterbuch eingebunden. Öffne unten „Wörterbücher verwalten“ und füge eine DSL-Datei hinzu.</p>';
       return;
+    }
+    let greekIndex = null;
+    if (window.GMorph && r.results.some(x => window.GMorph.GREEK.test(x.head))) {
+      try { greekIndex = await loadGM(); } catch { /* Artikel bleiben auch ohne Formenindex lesbar */ }
+      if (token !== dictLookupToken) return;
     }
     const onlyBar = (dictSrc && dictSrc.q === q && document.documentElement.dataset.tab !== 'dict' ? `<div class="dsrc muted">aus <a href="#" title="Zur Stelle im Text">${esc(dictSrc.ref)}</a></div>` : '')
       + (dictOnly ? `<div class="donly muted">Nur in: <b>${esc(dictOnly.name)}</b> · <a class="dall">alle Wörterbücher</a></div>` : '');
@@ -5508,12 +5524,13 @@
     $('#dictOut').innerHTML = onlyBar + r.results.map((x, i) => {
       let sec = '';
       if (x.dictId !== last) { last = x.dictId; sec = `<div class="dsec" style="--dh:${hue(x.dictId)}"><span>${(p => p ? `<img class="vpic" src="portraits/${encodeURIComponent(p.img)}" alt="" data-title="${esc(p.name || '')}" loading="lazy">` : '')(portraitOf(x.dict))}${esc(x.dict)}</span><span class="dsr"><button type="button" class="dlist" data-id="${esc(x.dictId)}" data-name="${esc(x.dict)}" title="Alle Stichwörter dieses Wörterbuchs als Liste">☰ Stichwörter</button><small>${cnt[x.dictId]} Treffer</small></span></div>`; }
-      return `${sec}<div class="dentry" id="dentry${i}" style="--dh:${hue(x.dictId)}"><div class="dhead"><b dir="auto">${esc(x.head)}</b>${(ids => ids ? ` <button type="button" class="dwk" data-ids="${esc(ids.join(','))}" title="${esc(I18N.t('Wortkarte: Wörterbücher, Verteilung, häufigste Formen, Septuaginta'))}">${esc(I18N.t('Wortkarte'))}</button>` : '')(lemIdsFor(x.head))}${x.note ? ` <span class="muted">${esc(x.note)}</span>` : ''}</div><div class="dbody" dir="ltr">${heFix(/Gesenius/.test(x.dict || '') && window.GAbk ? window.GAbk.mark(x.html) : x.html)}</div></div>`;
+      return `${sec}<div class="dentry" id="dentry${i}" style="--dh:${hue(x.dictId)}"><div class="dhead"><b dir="auto">${esc(x.head)}</b>${dictCardButtons(x.head, greekIndex)}${x.note ? ` <span class="muted">${esc(x.note)}</span>` : ''}</div><div class="dbody" dir="ltr">${heFix(/Gesenius/.test(x.dict || '') && window.GAbk ? window.GAbk.mark(x.html) : x.html)}</div></div>`;
     }).join('');
     $('#dictOut').scrollTop = 0;
   }
   $('#dictOut').addEventListener('click', async e => {
     const b = e.target.closest('.dwk'); if (!b) return;
+    if (b.dataset.gl) { openGForms(b.dataset.gl, null, 'card'); return; }
     let ids = b.dataset.ids.split(',');
     if (ids.length > 1) { // mehrere gleich geschriebene Lemmata: das häufigste nehmen
       try { const D = await loadForms(); let best = -1; for (const id of ids) { const m = window.Forms.model(D, id), n = m ? m.total : 0; if (n > best) { best = n; ids = [id]; } } } catch { ids = [ids[0]]; }
@@ -5529,6 +5546,7 @@
     Object.assign(t, { q: $('#dictQ').value, only: dictOnly, hist: dictHist, pos: dictPos, shown: dictShown, html: $('#dictOut').innerHTML, scroll: $('#dictOut').scrollTop });
   };
   const dtabLoad = () => {
+    ++dictLookupToken;
     const t = dtabs[dcur];
     dictOnly = t.only || null; dictHist = t.hist || []; dictPos = t.pos == null ? -1 : t.pos; dictShown = t.shown || [];
     $('#dictQ').value = t.q || '';

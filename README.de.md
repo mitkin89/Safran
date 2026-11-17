@@ -135,7 +135,7 @@ Den Reiter *Wörterbuch* öffnen, den Knopf 📖 neben dem Kommentarfenster drü
 
 | Wörterbuch | Einträge | Extras |
 | --- | ---: | --- |
-| **Liddell & Scott**, Greek-English Lexicon | 115.617 | 115.628 griechische Stichwörter; Suche ohne Akzente und Spiritus, σ/ς gleichwertig; Querverweise anklickbar, Abkürzungen beim Überfahren |
+| **Liddell & Scott**, Greek-English Lexicon | 115.617 | 115.628 griechische Stichwörter; mit griechischen Wortkarten für belegte Septuaginta-Lemmata verbunden; Suche ohne Akzente und Spiritus, σ/ς gleichwertig; Querverweise anklickbar, Abkürzungen beim Überfahren |
 | **BDB**, Brown-Driver-Briggs (ungekürzt) | 10.022 | auch nach Strong- und BDB-Nummer; Bibelstellen verlinkt |
 | **Gesenius**, Hebräisches Handwörterbuch (1915) | 10.118 | |
 | **Jastrow**, Dictionary of the Targumim, Talmud and Midrash | 32.466 | |

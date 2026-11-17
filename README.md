@@ -137,7 +137,7 @@ Open the *Dictionary* tab (*Wörterbuch*), press the 📖 button next to the com
 
 | Dictionary | Entries | Extras |
 | --- | ---: | --- |
-| **Liddell & Scott**, Greek-English Lexicon | 115,617 | 115,628 Greek headwords; accents and breathings ignored, σ/ς equivalent; clickable cross-references, abbreviations on hover |
+| **Liddell & Scott**, Greek-English Lexicon | 115,617 | 115,628 Greek headwords; linked to Greek word cards for attested Septuagint lemmas; accents and breathings ignored, σ/ς equivalent; clickable cross-references, abbreviations on hover |
 | **BDB**, Brown-Driver-Briggs (unabridged) | 10,022 | also by Strong and BDB number; verses linked |
 | **Gesenius**, Hebräisches Handwörterbuch (1915) | 10,118 | |
 | **Jastrow**, Dictionary of the Targumim, Talmud and Midrash | 32,466 | |
