@@ -3,8 +3,8 @@ const assert = require('assert'), fs = require('fs'), path = require('path');
 global.window = {}; require('./interlin.js');
 const ALL = window.INTERLIN, rd = (b, l, re) => { const d = path.join(__dirname, 'bundled', 'own', b, l); return JSON.parse(fs.readFileSync(path.join(d, fs.readdirSync(d).find(f => re.test(f))), 'utf8')).text; };
 const norm = s => s.replace(/<sup class="footnote-marker">.*?<\/sup><i class="footnote">.*?<\/i>/g, '').replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
-const PARTIAL = { Goldschmidt: { Genesis: 1 } }; // ausdrücklich geprüfter Teilumfang: alle Verse bis einschließlich dieses Kapitels
-const PAT = { Zunz: /Zunz/, Breuer: /^Breuer/, Philippson: /Philippson/, Herxheimer: /ebräischen Texte/, Goldschmidt: /Übersetzung von Lazarus Goldschmidt, Berlin 1921/ };
+const PARTIAL = { Goldschmidt: { Genesis: 1 }, Breuer: { Ezekiel: 24 } }; // ausdrücklich geprüfter Teilumfang: alle Verse bis einschließlich dieses Kapitels
+const PAT = { Zunz: /Zunz/, Breuer: /^(?:Breuer|Das Buch Jecheskel, übersetzt und erläutert von Dr\. Joseph Breuer,)/, Philippson: /Philippson/, Herxheimer: /ebräischen Texte/, Goldschmidt: /Übersetzung von Lazarus Goldschmidt, Berlin 1921/ };
 for (const [tr, D] of Object.entries(ALL)) for (const book of Object.keys(D)) {
   const he = rd(book, 'he', /^Westminster/), de = rd(book, 'de', PAT[tr]);
   let n = 0, pending = 0;
@@ -45,7 +45,7 @@ for (const [book, cases] of Object.entries(KQ)) for (const [verse, ...words] of 
 }
 
 // Breuer: alle verfügbaren Arba-Megillot-Bücher vollständig; Ruth bleibt erhalten.
-assert.deepStrictEqual(Object.keys(ALL.Breuer).sort(), ['Ecclesiastes', 'Lamentations', 'Ruth', 'Song of Songs']);
+assert.deepStrictEqual(Object.keys(ALL.Breuer).sort(), ['Ecclesiastes', 'Ezekiel', 'Lamentations', 'Ruth', 'Song of Songs']);
 for (const [book, count] of Object.entries({ Ruth: 85, 'Song of Songs': 117, Ecclesiastes: 222, Lamentations: 154 })) {
   assert.strictEqual(Object.keys(ALL.Breuer[book]).length, count, `Breuer ${book}: dokumentierter Gesamtumfang`);
 }
@@ -59,3 +59,26 @@ for (const [book, cases] of Object.entries(BREUER_KQ)) for (const [verse, ...wor
   assert(touched.length, `Breuer ${book} ${verse}: Ketiv/Qere fehlt`);
   touched.forEach(s => assert(words.every(w => s[0].includes(w)), `Breuer ${book} ${verse}: Ketiv/Qere getrennt`));
 }
+
+// Ezechiel: überprüfter Anfang, einschließlich der ausdrücklich erhaltenen Quelllücken.
+assert.strictEqual(Object.keys(ALL.Breuer.Ezekiel).length, 619);
+for (let v = 5; v <= 27; v++) assert.deepStrictEqual(ALL.Breuer.Ezekiel[`1:${v}`], [[[], '— —']]);
+assert.deepStrictEqual(ALL.Breuer.Ezekiel['3:13'], [[[], '— —']]);
+for (const [verse, ...words] of [['3:15',10,11],['4:6',7,8],['4:15',7,8],['6:3',15,16],['7:2',14,15],['7:21',8,9],['8:6',7,8,9],['9:4',3,4],['9:5',8,9],['9:5',11,12],['9:11',12,13,14],['12:14',4,5],['14:4',32,33],['14:14',7,8],['14:20',2,3],['16:13',5,6],['16:13',12,13],['16:18',8,9],['16:20',13,14],['16:22',6,7],['16:25',17,18],['16:31',7,8],['16:31',12,13],['16:43',4,5],['16:43',23,24],['16:47',5,6],['16:51',12,13],['16:51',17,18],['16:53',5,6],['16:53',10,11],['16:53',14,15],['16:59',6,7],['17:21',3,4],['18:20',20,21],['18:21',5,6],['18:24',14,15],['18:28',2,3],['21:28',3,4],['22:18',7,8],['23:14',10,11],['23:16',1,2],['23:42',10,11],['23:43',4,5],['23:43',6,7],['24:2',3,4]]) {
+  const touched = ALL.Breuer.Ezekiel[verse].filter(s => words.some(w => s[0].includes(w)));
+  assert(touched.length, `Breuer Ezekiel ${verse}: Ketiv/Qere fehlt`);
+  touched.forEach(s => assert(words.every(w => s[0].includes(w)), `Breuer Ezekiel ${verse}: Ketiv/Qere getrennt`));
+}
+
+for (const v of [5,8,9,10,11,12,13,14,15,16,17,21,22]) assert.deepStrictEqual(ALL.Breuer.Ezekiel[`10:${v}`], [[[], '— —']]);
+// Freigegebene Versaufteilung 5:8–10: die beiden Folgeverse sind an ihrem Ort zugeordnet.
+assert.deepStrictEqual(ALL.Breuer.Ezekiel['5:9'][0], [[1], 'Und tue']);
+assert.deepStrictEqual(ALL.Breuer.Ezekiel['5:10'][0], [[1], 'Deshalb']);
+
+// Freigegebene Schreibkorrekturen: Lesung und getrennte Wortnummern erhalten.
+assert.deepStrictEqual(ALL.Breuer.Ezekiel['9:3'].find(s => s[1] === 'und rief'), [[13], 'und rief']);
+assert.deepStrictEqual(ALL.Breuer.Ezekiel['6:9'].find(s => s[1] === 'eure Entronnenen'), [[2], 'eure Entronnenen']);
+assert.deepStrictEqual(ALL.Breuer.Ezekiel['4:8'].find(s => s[1] === 'Bande'), [[4], 'Bande']);
+assert.deepStrictEqual(ALL.Breuer.Ezekiel['4:8'].find(s => s[1] === 'angelegt,'), [[2], 'angelegt,']);
+assert.deepStrictEqual(ALL.Breuer.Ezekiel['10:4'].find(s => s[1] === 'dem Cherub'), [[5], 'dem Cherub']);
+assert.deepStrictEqual(ALL.Breuer.Ezekiel['10:4'].find(s => s[1] === 'zur'), [[6], 'zur']);
