@@ -3,7 +3,7 @@ const assert = require('assert'), fs = require('fs'), path = require('path');
 global.window = {}; require('./interlin.js');
 const ALL = window.INTERLIN, rd = (b, l, re) => { const d = path.join(__dirname, 'bundled', 'own', b, l); return JSON.parse(fs.readFileSync(path.join(d, fs.readdirSync(d).find(f => re.test(f))), 'utf8')).text; };
 const norm = s => s.replace(/<sup class="footnote-marker">.*?<\/sup><i class="footnote">.*?<\/i>/g, '').replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
-const PAT = { Wolf: /^Wolf, Das Buch Samuel/, Zunz: /Zunz/, Breuer: /^(?:(?:Raphael )?Breuer|Das Buch Jecheskel, übersetzt und erläutert von Dr\. Joseph Breuer,)/, Philippson: /Philippson/, Herxheimer: /ebräischen Texte/, Goldschmidt: /Übersetzung von Lazarus Goldschmidt, Berlin 1921/, Hirsch: /^(?:Die Psalmen|Der Pentateuch), übersetzt und erläutert von Samson Raphael Hirsch/, JuliusHirsch: /^Julius Hirsch, / , Umschrift: /^Umschrift \(ETCBC phono\)/ };
+const PAT = { Wolf: /^Wolf, Das Buch Samuel/, Zunz: /Zunz/, Breuer: /^(?:(?:(?:Raphael|Joseph) )?Breuer|Das Buch Jecheskel, übersetzt und erläutert von Dr\. Joseph Breuer,)/, Philippson: /Philippson/, Herxheimer: /ebräischen Texte/, Goldschmidt: /Übersetzung von Lazarus Goldschmidt, Berlin 1921/, Hirsch: /^(?:Die Psalmen|Der Pentateuch), übersetzt und erläutert von Samson Raphael Hirsch/, JuliusHirsch: /^Julius Hirsch, / , Umschrift: /^Umschrift \(ETCBC phono\)/ };
 for (const [tr, D] of Object.entries(ALL)) for (const book of Object.keys(D)) {
   const he = rd(book, 'he', /^Westminster/), de = rd(book, tr === 'Umschrift' ? 'other' : 'de', PAT[tr]);
   let n = 0;
@@ -105,7 +105,7 @@ for (const [ref, count] of [['7:15', 12], ['7:16', 15], ['7:17', 24]]) {
 assert.ok(Array.from({ length: 9 }, (_, i) => i + 11).every(n => ALL.JuliusHirsch.Habakkuk['2:6'].some(s => s[0].includes(n))));
 
 // Breuer: alle verfügbaren Arba-Megillot-Bücher vollständig; Ruth bleibt erhalten.
-assert.deepStrictEqual(Object.keys(ALL.Breuer).sort(), ['Ecclesiastes', 'Ezekiel', 'Ezra', 'Joshua', 'Judges', 'Lamentations', 'Nehemiah', 'Ruth', 'Song of Songs']);
+assert.deepStrictEqual(Object.keys(ALL.Breuer).sort(), ['Ecclesiastes', 'Ezekiel', 'Ezra', 'Jeremiah', 'Joshua', 'Judges', 'Lamentations', 'Nehemiah', 'Ruth', 'Song of Songs']);
 for (const [book, count] of Object.entries({ Ruth: 85, 'Song of Songs': 117, Ecclesiastes: 222, Lamentations: 154 })) {
   assert.strictEqual(Object.keys(ALL.Breuer[book]).length, count, `Breuer ${book}: dokumentierter Gesamtumfang`);
 }
@@ -287,7 +287,7 @@ assert.deepStrictEqual(ALL.Hirsch.Deuteronomy['29:21'].find(s => s[1] === 'kommt
 // Nach der Zusammenführung müssen auch die erzeugten Wortkartendaten alle neuen Bücher enthalten.
 require('./interlin-ren.js');
 const REN = window.INTERLIN_REN;
-const statsBooks = { Wolf: ['I Samuel', 'II Samuel'], Breuer: ['Judges', 'Ezra'], Hirsch: Object.keys(HIRSCH_TORAH_TOTALS) };
+const statsBooks = { Wolf: ['I Samuel', 'II Samuel'], Breuer: ['Judges', 'Ezra', 'Jeremiah'], Hirsch: Object.keys(HIRSCH_TORAH_TOTALS) };
 for (const [tr, books] of Object.entries(statsBooks)) {
   const seen = new Set();
   assert(REN.tr[tr], `${tr}: Wortkartenstatistik fehlt`);
@@ -303,3 +303,36 @@ for (const [tr, books] of Object.entries(statsBooks)) {
   }
   for (const book of books) assert(seen.has(book), `${tr} ${book}: keine Wortkartenbelege`);
 }
+
+// Joseph Breuer: Jeremia vollständig; auch die besondere Kapitelgrenze 30/31 ist erforderlich.
+const breuerJeremiah = rd('Jeremiah', 'de', /^Joseph Breuer, Das Buch Jirmejah/);
+assert.strictEqual(breuerJeremiah.length, 52);
+assert.strictEqual(breuerJeremiah.flat().length, 1364);
+assert.strictEqual(Object.keys(ALL.Breuer.Jeremiah).length, 1364);
+for (let c = 0; c < breuerJeremiah.length; c++) for (let v = 0; v < breuerJeremiah[c].length; v++) {
+  const ref = `${c + 1}:${v + 1}`;
+  assert.strictEqual(norm(ALL.Breuer.Jeremiah[ref].map(s => s[1]).join(' ')), norm(breuerJeremiah[c][v]), `Breuer Jeremia ${ref}: Quellwortlaut`);
+}
+const breuerJeremiahKq = JSON.parse(fs.readFileSync(path.join(__dirname, 'tools/interlinear/breuer/KETIV-QERE-JEREMIAH.json'), 'utf8'));
+for (const [ref, groups] of Object.entries(breuerJeremiahKq)) for (const group of groups) {
+  const touched = ALL.Breuer.Jeremiah[ref].filter(s => group.some(i => s[0].includes(i)));
+  assert(touched.length, `Breuer Jeremia ${ref}: Ketiv/Qere fehlt`);
+  touched.forEach(s => assert(group.every(i => s[0].includes(i)), `Breuer Jeremia ${ref}: Ketiv/Qere getrennt`));
+}
+assert.strictEqual(Object.values(breuerJeremiahKq).reduce((n, g) => n + g.length, 0), 136);
+// Drei geschriebene Ketiv-Wörter haben ein leeres Qere; zwei Qere-Wörter haben kein Ketiv.
+for (const [ref, word] of [['38:16', 10], ['39:12', 11], ['51:3', 3]]) {
+  assert(ALL.Breuer.Jeremiah[ref].every(s => !s[0].includes(word)), `Breuer Jeremia ${ref}: leeres Qere künstlich referenziert`);
+}
+for (const [ref, word] of [['31:38', 3], ['50:29', 13]]) {
+  assert(ALL.Breuer.Jeremiah[ref].some(s => s[0].includes(word)), `Breuer Jeremia ${ref}: alleinstehendes Qere fehlt`);
+}
+// Quellenfehler bleibt stehen: zweiter Koreach darf nicht als Netanjah getaggt werden.
+assert(ALL.Breuer.Jeremiah['41:16'].some(s => s[1] === 'Koreachs,' && !s[0].length));
+assert(ALL.Breuer.Jeremiah['41:16'].every(s => !s[0].includes(19)));
+// Tatsächliches Auswahlmuster der App, nicht nur der Test-Lader, muss Joseph Breuer erkennen.
+const librarySource = fs.readFileSync(path.join(__dirname, 'library.js'), 'utf8');
+const uiVt = new Function('return ' + librarySource.match(/const IL_VT = (\{[^\n]+\});/)[1])();
+assert(uiVt.Breuer.test('Joseph Breuer, Das Buch Jirmejah — Übersetzung'));
+assert(uiVt.Breuer.test('Raphael Breuer, Das Buch Richter — Übersetzung'));
+assert(uiVt.Umschrift.test('Umschrift (ETCBC phono)'));

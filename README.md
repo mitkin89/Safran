@@ -178,7 +178,7 @@ Safran bundles more than 50 German works in `bundled/` (over 400 book files). Th
 | Mendelssohn, *Netivot ha-Shalom* (translation, Taitsch and Biur) | Torah |
 | Rashi after Bamberger · Hertz, Pentateuch commentary | Rashi: Exodus to Deuteronomy · Hertz: Exodus, Numbers, Deuteronomy |
 | Goldschmidt, translation of the Torah (1921) | Torah |
-| S. R. Hirsch, Torah and Psalms · Julius Hirsch, Isaiah and the Twelve Prophets · Joseph and Raphael Breuer: Joshua, Judges, Ezekiel, Ezra, Nehemiah | translation and commentary (Ezekiel: commentary only) |
+| S. R. Hirsch, Torah and Psalms · Julius Hirsch, Isaiah and the Twelve Prophets · Joseph and Raphael Breuer: Joshua, Judges, Jeremiah, Ezekiel, Ezra, Nehemiah | translation and commentary |
 | Wünsche's Midrash translations | Bemidbar and Devarim Rabbah, the Rabbah volumes on the five Megillot, Pesikta de-Rav Kahana, Midrash Shmuel, *Mechiltha* (Mekhilta de-Rabbi Yishmael, with Jakob Winter, 1909) |
 | *Mischne Tora* (Mandelstamm, 1851) | 39 sections |
 | *Führer der Unschlüssigen* (More Nevuchim) · *Kizzur Schulchan Aruch* (Bamberger) | |
