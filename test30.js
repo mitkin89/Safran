@@ -3,7 +3,7 @@ const assert = require('assert'), fs = require('fs'), path = require('path');
 global.window = {}; require('./interlin.js');
 const ALL = window.INTERLIN, rd = (b, l, re) => { const d = path.join(__dirname, 'bundled', 'own', b, l); return JSON.parse(fs.readFileSync(path.join(d, fs.readdirSync(d).find(f => re.test(f))), 'utf8')).text; };
 const norm = s => s.replace(/<sup class="footnote-marker">.*?<\/sup><i class="footnote">.*?<\/i>/g, '').replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
-const PAT = { Zunz: /Zunz/, Breuer: /^(?:(?:Raphael )?Breuer|Das Buch Jecheskel, übersetzt und erläutert von Dr\. Joseph Breuer,)/, Philippson: /Philippson/, Herxheimer: /ebräischen Texte/, Goldschmidt: /Übersetzung von Lazarus Goldschmidt, Berlin 1921/, Hirsch: /Die Psalmen, übersetzt und erläutert von Samson Raphael Hirsch/, JuliusHirsch: /^Julius Hirsch, / , Umschrift: /^Umschrift \(ETCBC phono\)/ };
+const PAT = { Wolf: /^Wolf, Das Buch Samuel/, Zunz: /Zunz/, Breuer: /^(?:(?:Raphael )?Breuer|Das Buch Jecheskel, übersetzt und erläutert von Dr\. Joseph Breuer,)/, Philippson: /Philippson/, Herxheimer: /ebräischen Texte/, Goldschmidt: /Übersetzung von Lazarus Goldschmidt, Berlin 1921/, Hirsch: /^(?:Die Psalmen|Der Pentateuch), übersetzt und erläutert von Samson Raphael Hirsch/, JuliusHirsch: /^Julius Hirsch, / , Umschrift: /^Umschrift \(ETCBC phono\)/ };
 for (const [tr, D] of Object.entries(ALL)) for (const book of Object.keys(D)) {
   const he = rd(book, 'he', /^Westminster/), de = rd(book, tr === 'Umschrift' ? 'other' : 'de', PAT[tr]);
   let n = 0;
@@ -105,7 +105,7 @@ for (const [ref, count] of [['7:15', 12], ['7:16', 15], ['7:17', 24]]) {
 assert.ok(Array.from({ length: 9 }, (_, i) => i + 11).every(n => ALL.JuliusHirsch.Habakkuk['2:6'].some(s => s[0].includes(n))));
 
 // Breuer: alle verfügbaren Arba-Megillot-Bücher vollständig; Ruth bleibt erhalten.
-assert.deepStrictEqual(Object.keys(ALL.Breuer).sort(), ['Ecclesiastes', 'Ezekiel', 'Joshua', 'Lamentations', 'Nehemiah', 'Ruth', 'Song of Songs']);
+assert.deepStrictEqual(Object.keys(ALL.Breuer).sort(), ['Ecclesiastes', 'Ezekiel', 'Ezra', 'Joshua', 'Judges', 'Lamentations', 'Nehemiah', 'Ruth', 'Song of Songs']);
 for (const [book, count] of Object.entries({ Ruth: 85, 'Song of Songs': 117, Ecclesiastes: 222, Lamentations: 154 })) {
   assert.strictEqual(Object.keys(ALL.Breuer[book]).length, count, `Breuer ${book}: dokumentierter Gesamtumfang`);
 }
@@ -143,6 +143,23 @@ assert.deepStrictEqual(ALL.Breuer.Ezekiel['4:8'].find(s => s[1] === 'angelegt,')
 assert.deepStrictEqual(ALL.Breuer.Ezekiel['10:4'].find(s => s[1] === 'dem Cherub'), [[5], 'dem Cherub']);
 assert.deepStrictEqual(ALL.Breuer.Ezekiel['10:4'].find(s => s[1] === 'zur'), [[6], 'zur']);
 
+// Wolf: beide Samuelbücher vollständig, ohne Teilstand-Ausnahmen.
+assert.strictEqual(Object.keys(ALL.Wolf['I Samuel']).length, 811);
+assert.strictEqual(Object.keys(ALL.Wolf['II Samuel']).length, 695);
+const WOLF_KQ = {
+'I Samuel': [['2:3',13,14],['2:9',2,3],['2:10',3,4],['2:10',5,6],['2:16',14,15],['3:2',7,8],['4:13',7,8],['5:6',9,10],['5:9',21,22],['5:12',6,7],['6:4',12,13],['6:5',3,4],['7:9',6,7],['8:3',4,5],['9:1',3,4,5],['9:26',9,10],['10:7',3,4],['10:21',5,6],['11:6',6,7],['11:9',13,14],['12:10',4,5],['13:8',1,2],['13:19',8,9],['14:27',22,23],['14:32',1,2],['14:32',5,6],['15:16',14,15],['17:7',1,2],['17:23',12,13],['18:1',11,12],['18:6',13,14],['18:7',7,8],['18:9',3,4],['19:18',20,21],['19:19',6,7],['19:22',18,19],['19:23',4,5],['19:23',18,19],['20:1',3,4],['20:2',7,8,9,10],['20:24',8,9],['20:38',13,14],['21:12',17,18],['21:12',20,21],['21:14',7,8],['22:13',2,3],['22:15',3,4],['22:17',23,24],['22:18',3,4],['22:18',10,11],['22:22',9,10],['23:5',3,4],['24:5',15,16],['24:9',6,7,8],['24:19',1,2],['25:3',17,18],['25:18',2,3],['25:18',12,13],['25:34',13,14],['26:5',28,29],['26:7',15,16],['26:7',20,21],['26:11',14,15],['26:16',30,31],['26:22',5,6],['27:4',8,9],['27:8',7,8],['28:8',16,17],['29:5',13,14],['30:6',15,16]],
+'II Samuel': [['1:8',5,6],['1:11',3,4],['1:16',4,5],['2:23',15,16],['3:2',1,2],['3:3',3,4],['3:12',6,7],['3:15',10,11],['3:25',13,14],['5:2',10,11],['5:2',12,13],['5:2',14,15],['5:8',14,15],['5:24',2,3],['10:9',13,14],['11:24',1,2],['11:24',3,4],['12:9',8,9],['12:20',7,8],['12:22',11,12],['12:24',13,14],['12:31',14,15],['13:8',11,12],['13:34',7,8],['13:37',7,8],['14:7',27,28],['14:11',8,9],['14:22',26,27],['14:30',13,14],['15:8',10,11],['15:20',4,5],['15:28',4,5],['16:2',14,15],['16:8',10,11],['16:10',8,9],['16:10',11,12],['16:12',4,5],['16:18',15,16],['17:12',3,4],['18:3',31,32],['18:8',4,5],['18:12',5,6],['18:13',3,4],['18:17',20,21],['18:18',5,6],['18:20',18,19],['19:7',19,20],['19:19',9,10],['19:32',11,12],['19:41',10,11],['20:5',6,7],['20:8',14,15],['20:14',10,11],['20:23',10,11],['20:25',1,2],['21:4',5,6],['21:6',1,2],['21:9',9,10],['21:9',12,13],['21:9',18,19],['21:12',22,23],['21:12',24,25,26,27],['21:16',1,2],['21:20',7,8],['21:21',7,8],['22:8',1,2],['22:15',5,6],['22:23',3,4],['22:33',6,7],['22:34',2,3],['22:51',1,2],['23:8',13,14],['23:8',20,21],['23:9',1,2],['23:9',5,6],['23:9',10,11],['23:13',2,3],['23:18',8,9],['23:20',6,7],['23:20',21,22],['23:21',6,7],['23:35',1,2],['23:37',5,6],['24:14',14,15],['24:16',23,24],['24:18',14,15],['24:22',10,11]]
+};
+for (const [book, cases] of Object.entries(WOLF_KQ)) for (const [verse, ...words] of cases) {
+ const touched = ALL.Wolf[book][verse].filter(s => words.some(w => s[0].includes(w)));
+ assert(touched.length, `Wolf ${book} ${verse}: Ketiv/Qere fehlt`);
+ touched.forEach(s => assert(words.every(w => s[0].includes(w)), `Wolf ${book} ${verse}: Ketiv/Qere getrennt`));
+}
+
+assert.deepStrictEqual(Object.keys(ALL.Wolf).sort(), ['I Samuel', 'II Samuel']);
+// Kompositum, Ausdeutung und echte Ergänzung: deutscher Quellwortlaut bleibt erhalten.
+assert.deepStrictEqual(ALL.Wolf['II Samuel']['21:20'].find(s => s[1] === 'ein streitsüchtiger'), [[7,8], 'ein streitsüchtiger']);
+assert.deepStrictEqual(ALL.Wolf['II Samuel']['23:32'].find(s => s[1] === 'einer der'), [[], 'einer der']);
 // Raphael Breuer: Nehemia einschließlich zweier leerer Quellverse und aller Ketiv/Qere-Lesungen.
 assert.strictEqual(Object.keys(ALL.Breuer.Nehemiah).length, 405);
 for (const ref of ["10:31", "10:32"]) assert.deepStrictEqual(ALL.Breuer.Nehemiah[ref], [[[], ""]]);
@@ -181,3 +198,108 @@ assert.ok(BREUER_JOSHUA_COMMENTARY[9][11].includes('oder später geschah.'));
 assert.deepStrictEqual(ALL.Umschrift.Genesis['1:1'][0], [[1], 'bᵊrēšˌîṯ']);
 assert.deepStrictEqual(ALL.Umschrift.Genesis['8:17'].find(s => s[1].includes('hayṣ')), [[15], '*hayṣˈē']);
 assert.ok(!ALL.Umschrift.Genesis['8:17'].some(s => s[0].includes(14)), 'Ketiv bekommt keine eigene Aussprache');
+
+// Raphael Breuer: Richter vollständig, alle separat gezählten Ketiv-/Qere-Gruppen.
+assert.strictEqual(Object.keys(ALL.Breuer.Judges).length, 618);
+const BREUER_JUDGES_KQ = [['1:27',14,15],['4:11',13,14],['6:5',6,7],['7:13',13,14],['7:21',10,11],['9:8',9,10],['9:12',6,7],['11:37',20,21],['13:17',10,11],['16:18',18,19],['16:21',14,15],['16:25',2,3,4],['16:25',14,15],['16:26',9,10],['17:2',9,10],['19:3',8,9],['19:25',21,22],['21:20',1,2],['21:22',7,8]];
+for (const [ref, ...words] of BREUER_JUDGES_KQ) {
+  const touched = ALL.Breuer.Judges[ref].filter(s => words.some(w => s[0].includes(w)));
+  assert.ok(touched.length, `Breuer Richter ${ref}: Ketiv/Qere fehlt`);
+  touched.forEach(s => assert.ok(words.every(w => s[0].includes(w)), `Breuer Richter ${ref}: Ketiv/Qere getrennt`));
+}
+// Klammerwörter einzeln beurteilt: Zehen sind übersetzt, die Maßeinheit ist ergänzt.
+assert.deepStrictEqual(ALL.Breuer.Judges['1:6'].find(s => s[1] === 'die Daumen (und großen Zehen)'), [[9,10], 'die Daumen (und großen Zehen)']);
+assert.deepStrictEqual(ALL.Breuer.Judges['8:26'].find(s => s[1] === '(Sekel)'), [[], '(Sekel)']);
+assert.deepStrictEqual(ALL.Breuer.Judges['19:26'].find(s => s[1] === 'dort)'), [[11], 'dort)']);
+
+// Raphael Breuer: Esra vollständig, auch die aramäischen Abschnitte und sämtliche Ketiv/Qere.
+assert.strictEqual(Object.keys(ALL.Breuer.Ezra).length, 280);
+const BREUER_EZRA_KQ = [["2:1",9,10],["2:46",4,5],["2:50",4,5],["2:50",7,8],["3:3",10,11],["4:2",15,16],["4:4",8,9],["4:7",8,9],["4:7",11,12],["4:9",13,14],["4:9",17,18],["4:12",15,16],["4:12",18,19],["4:12",20,21],["4:23",7,8],["5:1",3,4],["5:1",8,9],["5:2",16,17],["5:12",14,15],["5:15",3,4],["6:14",7,8],["6:17",15,16],["7:18",3,4],["7:18",6,7],["7:25",12,13],["7:26",20,21],["8:14",4,5],["8:17",1,2],["8:17",16,17],["8:25",1,2],["10:2",6,7],["10:12",8,9],["10:29",8,9],["10:35",3,4],["10:37",3,4],["10:43",7,8],["10:44",3,4]];
+for (const [ref, ...words] of BREUER_EZRA_KQ) {
+  const touched = ALL.Breuer.Ezra[ref].filter(s => words.some(w => s[0].includes(w)));
+  assert.ok(touched.length, `Breuer Esra ${ref}: Ketiv/Qere fehlt`);
+  touched.forEach(s => assert.ok(words.every(w => s[0].includes(w)), `Breuer Esra ${ref}: Ketiv/Qere getrennt`));
+}
+assert.deepStrictEqual(ALL.Breuer.Ezra['2:6'].find(s => s[1] === '(und)'), [[], '(und)']);
+assert.deepStrictEqual(ALL.Breuer.Ezra['6:21'].find(s => s[1] === '(das Peßachopfer),'), [[], '(das Peßachopfer),']);
+assert.deepStrictEqual(ALL.Breuer.Ezra['8:17'].find(s => s[1] === 'eingesetzt waren'), [[16,17], 'eingesetzt waren']);
+// Das fehlende Glied der Ahnenreihe wird weder erfunden noch dem nächsten Namen zugewiesen.
+assert.ok(ALL.Breuer.Ezra['7:2'].every(s => !s[0].includes(3) && !s[0].includes(4)));
+
+// Hirsch-Tora: vollständige manuelle Zuordnung aller fünf Bücher.
+assert.deepStrictEqual(Object.keys(ALL.Hirsch).sort(), ['Deuteronomy', 'Exodus', 'Genesis', 'Leviticus', 'Numbers', 'Psalms']);
+const HIRSCH_TORAH_TOTALS = { Genesis:1533, Exodus:1210, Leviticus:859, Numbers:1288, Deuteronomy:956 };
+const manifest = JSON.parse(fs.readFileSync(path.join(__dirname,'bundled/manifest.json'),'utf8'));
+const crypto = require('crypto');
+let hirschOpen = 0;
+for (const [book,total] of Object.entries(HIRSCH_TORAH_TOTALS)) {
+  const source = rd(book,'de',/^Der Pentateuch, übersetzt und erläutert von Samson Raphael Hirsch/);
+  assert.strictEqual(source.flat().length,total, `Hirsch ${book}: Quellumfang`);
+  assert(source.flat().every(s => typeof s === 'string' && norm(s)), `Hirsch ${book}: leeres Quellfeld`);
+  const item = manifest.items.find(i => i.title === book && /^Der Pentateuch, übersetzt und erläutert von Samson Raphael Hirsch/.test(i.versionTitle));
+  assert(item, `Hirsch ${book}: Manifest fehlt`);
+  assert.strictEqual(item.hash,crypto.createHash('sha1').update(fs.readFileSync(path.join(__dirname,'bundled',item.rel))).digest('hex'));
+  const checked = total;
+  assert.strictEqual(Object.keys(ALL.Hirsch[book] || {}).length,checked, `Hirsch ${book}: unerwartete Abdeckung`);
+  hirschOpen += total - checked;
+  console.log(`Hirsch ${book}: Quelle ${total}, manuell geprüft ${checked}, noch ungeprüft ${total-checked}`);
+}
+assert.strictEqual(hirschOpen,0);
+assert.deepStrictEqual(ALL.Hirsch.Genesis['1:26'].find(s => s[1] === 'einen Adam (Stellvertreter)'), [[4], 'einen Adam (Stellvertreter)']);
+assert.deepStrictEqual(ALL.Hirsch.Genesis['10:12'].at(-1), [[], 'Anamer, die Lehaber und die Naftucher,']);
+for (const s of ALL.Hirsch.Genesis['8:17'].filter(s => s[0].includes(14)||s[0].includes(15))) assert(s[0].includes(14)&&s[0].includes(15));
+assert(ALL.Hirsch.Genesis['8:17'].some(s => s[0].includes(14)&&s[0].includes(15)));
+
+// Jede separat gezählte Ketiv-/Qere-Gruppe gemeinsam referenzieren.
+// Mehrwortige Lesungen sind ausdrücklich dreiteilig (Gen30:11, Ex4:2, Dtn33:2).
+const HIRSCH_TORAH_KQ = {
+  Genesis: {'8:17':[[14,15]],'13:3':[[12,13]],'14:2':[[16,17]],'14:8':[[9,10]],'24:33':[[1,2]],'25:23':[[5,6]],'27:3':[[11,12]],'27:29':[[3,4]],'30:11':[[3,4,5]],'36:5':[[4,5]],'36:14':[[14,15]],'39:20':[[11,12]],'43:28':[[8,9]],'49:10':[[11,12]],'49:11':[[3,4],[13,14]]},
+  Exodus: {'4:2':[[4,5,6]],'16:2':[[1,2]],'16:7':[[14,15]],'21:8':[[6,7]],'22:4':[[9,10]],'22:26':[[3,4]],'27:11':[[8,9]],'28:28':[[4,5]],'32:19':[[14,15]],'37:8':[[15,16]],'39:4':[[7,8]],'39:33':[[13,14]]},
+  Leviticus: {'9:22':[[4,5]],'11:21':[[12,13]],'16:21':[[5,6]],'21:5':[[2,3]],'25:30':[[14,15]]},
+  Numbers: {'1:16':[[2,3]],'12:3':[[3,4]],'14:36':[[9,10]],'16:11':[[12,13]],'21:32':[[8,9]],'23:13':[[4,5]],'26:9':[[9,10]],'32:7':[[2,3]],'34:4':[[9,10]]},
+  Deuteronomy: {'2:33':[[8,9]],'5:10':[[6,7]],'7:9':[[14,15]],'8:2':[[21,22]],'13:16':[[6,7]],'21:7':[[5,6]],'22:15':[[3,4],[9,10]],'22:16':[[3,4]],'22:20':[[9,10]],'22:21':[[3,4]],'22:23':[[3,4]],'22:24':[[13,14]],'22:25':[[6,7]],'22:26':[[1,2],[7,8]],'22:27':[[5,6]],'22:28':[[4,5]],'22:29':[[6,7]],'28:27':[[5,6]],'28:30':[[5,6]],'29:22':[[19,20]],'32:13':[[3,4]],'33:2':[[15,16,17]],'33:9':[[11,12]]}
+};
+let hirschKqCount = 0;
+for (const [book, refs] of Object.entries(HIRSCH_TORAH_KQ)) for (const [ref, groups] of Object.entries(refs)) for (const group of groups) {
+  const touched = ALL.Hirsch[book][ref].filter(s => group.some(n => s[0].includes(n)));
+  // Gen14:2: die Namen stehen in Sefaria im vorigen Versfeld14:1; kein Wortgegenstück erfinden.
+  if (book === 'Genesis' && ref === '14:2') {
+    assert.strictEqual(touched.length,0,'Hirsch Gen14:2: verschobenen Namen nicht künstlich zuordnen');
+    assert(ALL.Hirsch.Genesis['14:1'].some(s => !s[0].length && s[1].includes('Zoar')));
+  } else {
+    assert(touched.length,`Hirsch ${book} ${ref}: Ketiv/Qere fehlt`);
+    touched.forEach(s => assert(group.every(n => s[0].includes(n)),`Hirsch ${book} ${ref}: Ketiv/Qere getrennt`));
+  }
+  hirschKqCount++;
+}
+assert.strictEqual(hirschKqCount,67);
+
+// Freigegebene Hirsch-Berichtigungen: richtige Sachwörter und präzise Bezüge nach Worttrennungen.
+assert.deepStrictEqual(ALL.Hirsch.Numbers['14:14'].find(s => s[1] === 'Feuersäule'), [[28,29], 'Feuersäule']);
+assert.deepStrictEqual(ALL.Hirsch.Deuteronomy['20:19'].find(s => s[1] === 'ihren Baum'), [[13], 'ihren Baum']);
+assert.deepStrictEqual(ALL.Hirsch.Numbers['24:21'].find(s => s[1] === 'dein Nest,'), [[11], 'dein Nest,']);
+assert.deepStrictEqual(ALL.Hirsch.Deuteronomy['32:11'].find(s => s[1] === 'sein Nest,'), [[3], 'sein Nest,']);
+assert.deepStrictEqual(ALL.Hirsch.Deuteronomy['12:31'].find(s => s[1] === 'Nicht'), [[1], 'Nicht']);
+assert.deepStrictEqual(ALL.Hirsch.Exodus['14:30'].find(s => s[1] === 'Gott'), [[2], 'Gott']);
+assert.deepStrictEqual(ALL.Hirsch.Deuteronomy['29:21'].find(s => s[1] === 'Lande'), [[11], 'Lande']);
+assert.deepStrictEqual(ALL.Hirsch.Deuteronomy['29:21'].find(s => s[1] === 'kommt,'), [[10], 'kommt,']);
+
+// Nach der Zusammenführung müssen auch die erzeugten Wortkartendaten alle neuen Bücher enthalten.
+require('./interlin-ren.js');
+const REN = window.INTERLIN_REN;
+const statsBooks = { Wolf: ['I Samuel', 'II Samuel'], Breuer: ['Judges', 'Ezra'], Hirsch: Object.keys(HIRSCH_TORAH_TOTALS) };
+for (const [tr, books] of Object.entries(statsBooks)) {
+  const seen = new Set();
+  assert(REN.tr[tr], `${tr}: Wortkartenstatistik fehlt`);
+  for (const entry of Object.values(REN.tr[tr])) for (const cell of entry[1]) {
+    let ref = 0;
+    for (const delta of cell[3].split('.').filter(Boolean)) {
+      ref += parseInt(delta, 36);
+      const book = REN.books[Math.floor(ref / 1000000)];
+      const ch = Math.floor((ref % 1000000) / 1000), verse = ref % 1000;
+      assert(ALL[tr][book]?.[`${ch}:${verse}`], `${tr}: Statistik verweist auf fehlende Zuordnung ${book} ${ch}:${verse}`);
+      seen.add(book);
+    }
+  }
+  for (const book of books) assert(seen.has(book), `${tr} ${book}: keine Wortkartenbelege`);
+}

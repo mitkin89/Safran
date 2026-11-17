@@ -1759,3 +1759,10 @@ body.il .cell[data-k="he"] .ilt[data-i="13"] { color: var(--il13); }
 body.il .cell[data-k="he"] .ilt[data-i="14"] { color: var(--il14); }
 .illc[data-i="14"], .ilpR[data-i="14"] { --c: var(--il14); }
 #wpop .wphon { margin: -2px 0 6px; color: var(--muted); font-size: .95em; letter-spacing: .01em; }
+
+/* Wolf: Samuel, eigene beständige Quellenfarbe. */
+:root { --il15: #b6c27b; }
+:root[data-theme=light] { --il15: #586b18; }
+@media (prefers-color-scheme: light) { :root:not([data-theme=dark]) { --il15: #586b18; } }
+body.il .cell[data-k="he"] .ilt[data-i="15"] { color: var(--il15); }
+.illc[data-i="15"], .ilpR[data-i="15"] { --c: var(--il15); }

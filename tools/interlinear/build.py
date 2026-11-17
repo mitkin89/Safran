@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-"""Interlinear: Westminster-Wörter <-> deutsche Wörter (Zunz, Breuer, Philippson, Herxheimer, Goldschmidt, Hirsch, Julius Hirsch).
-Eingabe: tools/interlinear/<zunz|breuer|philippson|herxheimer|goldschmidt|hirsch|julius-hirsch>/<Buch>.txt, je Vers eine Zeile
+"""Interlinear: Westminster-Wörter <-> deutsche Wörter (Zunz, Breuer, Philippson, Herxheimer, Goldschmidt, Hirsch, Julius Hirsch, Wolf).
+Eingabe: tools/interlinear/<zunz|breuer|philippson|herxheimer|goldschmidt|hirsch|julius-hirsch|wolf>/<Buch>.txt, je Vers eine Zeile
     Kapitel:Vers <TAB> Wort[,Wort…]:deutscher Text | Wort:Text | -:Text
   (Segmente in deutscher Reihenfolge; Wort = laufende Nummer des Westminster-Worts im Vers; „-“ = ohne hebräisches Gegenstück)
 Prüft, dass die Segmente zusammen genau den Vers der Übersetzung ergeben und alle Nummern vorkommen können.
@@ -12,7 +12,7 @@ norm = lambda s: re.sub(r'\s+', ' ', s).strip()
 def load(book, lang, pat):
     f = glob.glob(os.path.join(R, 'bundled', 'own', book, lang, pat))[0]
     return json.load(open(f, encoding='utf8'))['text']
-TR = {'Zunz': ('zunz', '*Zunz*', 'Zunz, Berlin 1838'), 'Breuer': ('breuer', '*Breuer*', 'Breuer'), 'Philippson': ('philippson', 'Die Israelitische Bibel*', 'Philippson'), 'Herxheimer': ('herxheimer', 'Die vier und zwanzig Bücher der Bibel im ebräischen*', 'Herxheimer'), 'Goldschmidt': ('goldschmidt', '*Goldschmidt*', 'Goldschmidt, Berlin 1921'), 'Hirsch': ('hirsch', '*Samson Raphael Hirsch*', 'Hirsch, Psalmen 1882'), 'JuliusHirsch': ('julius-hirsch', '*Julius Hirsch*', 'Julius Hirsch, Jesaia und Trei Asar'), 'Umschrift': ('phono', 'Umschrift (ETCBC phono)*', 'Umschrift (ETCBC phono)', 'other')}  # Umschrift: maschinell aus tools/phono/build.py
+TR = {'Zunz': ('zunz', '*Zunz*', 'Zunz, Berlin 1838'), 'Breuer': ('breuer', '*Breuer*', 'Breuer'), 'Philippson': ('philippson', 'Die Israelitische Bibel*', 'Philippson'), 'Herxheimer': ('herxheimer', 'Die vier und zwanzig Bücher der Bibel im ebräischen*', 'Herxheimer'), 'Goldschmidt': ('goldschmidt', '*Goldschmidt*', 'Goldschmidt, Berlin 1921'), 'Hirsch': ('hirsch', '*Samson Raphael Hirsch*', 'Hirsch, Pentateuch 1867–1878 und Psalmen 1882'), 'JuliusHirsch': ('julius-hirsch', '*Julius Hirsch*', 'Julius Hirsch, Jesaia und Trei Asar'), 'Wolf': ('wolf', 'Wolf*', 'Wolf, Das Buch Samuel'), 'Umschrift': ('phono', 'Umschrift (ETCBC phono)*', 'Umschrift (ETCBC phono)', 'other')}  # Umschrift: maschinell aus tools/phono/build.py
 out, bad = {}, 0
 for name, (dirn, pat, label, *lng) in TR.items():
   out[name] = {}
@@ -38,5 +38,5 @@ for name, (dirn, pat, label, *lng) in TR.items():
     out[name][book] = res
 if bad: sys.exit('Fehler: %d' % bad)
 p = os.path.join(R, 'interlin.js')
-open(p, 'w', encoding='utf8').write('// Interlinear: Westminster-Wörter mit deutscher Wortzuordnung (Zunz, Breuer, Philippson, Herxheimer, Goldschmidt, Hirsch, Julius Hirsch) – erzeugt von tools/interlinear/build.py\nwindow.INTERLIN=' + json.dumps(out, ensure_ascii=False, separators=(',', ':')) + ';\n')
+open(p, 'w', encoding='utf8').write('// Interlinear: Westminster-Wörter mit deutscher Wortzuordnung (Zunz, Breuer, Philippson, Herxheimer, Goldschmidt, Hirsch, Julius Hirsch, Wolf) – erzeugt von tools/interlinear/build.py\nwindow.INTERLIN=' + json.dumps(out, ensure_ascii=False, separators=(',', ':')) + ';\n')
 print('%s -> interlin.js (%d Bytes)' % ('; '.join('%s: %s %d Verse' % (n, ', '.join(b), sum(len(v) for v in b.values())) for n, b in out.items()), os.path.getsize(p)))
