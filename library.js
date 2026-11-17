@@ -4916,7 +4916,7 @@
 
   let fs = 16;
   try { fs = +localStorage.getItem('fs') || 16; } catch { /* egal */ }
-  const applyFs = () => { $('#rOut').style.setProperty('--fs', fs + 'px'); try { localStorage.setItem('fs', String(fs)); } catch { /* egal */ } };
+  const applyFs = () => { $('#rOut').style.setProperty('--fs', fs + 'px'); if ($('#fsV')) $('#fsV').textContent = fs + ' px'; try { localStorage.setItem('fs', String(fs)); } catch { /* egal */ } };
   $('#fsMinus').onclick = () => { fs = Math.max(11, fs - 1); applyFs(); };
   $('#fsPlus').onclick = () => { fs = Math.min(30, fs + 1); applyFs(); };
   applyFs();
@@ -6234,6 +6234,7 @@
     const o = $('#rOut').style;
     o.setProperty('--hef', disp.he); o.setProperty('--grf', disp.gr); o.setProperty('--enf', disp.en); o.setProperty('--def', disp.de);
     $('#dHe').value = disp.he; $('#dGr').value = disp.gr; $('#dEn').value = disp.en; $('#dDe').value = disp.de;
+    for (const [id, v] of [['dHe', disp.he], ['dGr', disp.gr], ['dEn', disp.en], ['dDe', disp.de], ['dHov', disp.hov || 1.15]]) { const o = $('#' + id + 'V'); if (o) o.textContent = Math.round(v * 100) + ' %'; } // Wert neben dem Regler
     $('#dNiq').checked = disp.niq; $('#dCan').checked = disp.can; $('#dShr').checked = !!disp.shr; $('#dOlIn').checked = olInlineOn();
     document.body.classList.toggle('dock-shrink', !!disp.shr);
     document.body.classList.toggle('head-stick', !!disp.headStick); if ($('#dHdSt')) $('#dHdSt').checked = !!disp.headStick;
@@ -6255,7 +6256,8 @@
     const n = { he: new Map(), en: new Map(), de: new Map(), other: new Map() };
     for (const g of groups) { if (!/^Tanakh\//.test(g.key || '')) continue; for (const v of g.versions) { if (v.versionTitle === 'merged') continue; const m = n[v.kind] || n.other; m.set(v.versionTitle, (m.get(v.versionTitle) || 0) + 1); } }
     const sorted = (m, skip) => [...m].filter(([vt]) => !(skip && skip.test(vt))).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
-    const opt = ([vt, c]) => `<option value="${esc(vt)}">${esc(shortVer(vt).slice(0, 70))} (${c})</option>`;
+    const cut = t => (t.length > 46 ? t.slice(0, 45).trimEnd() + '…' : t); // das Auswahlfeld ist schmal; der volle Name steht im Tooltip
+    const opt = ([vt, c]) => `<option class="ut" value="${esc(vt)}" title="${esc(shortVer(vt))}">${esc(cut(shortVer(vt)))} (${c})</option>`;
     const set = (sel, v, ok) => { sel.value = v && ok(v) ? v : ''; };
     const de = $('#dPvDe'), he = $('#dPvHe'), x = $('#dPvX');
     if (de) {
@@ -6291,7 +6293,12 @@
     if (id === 'dOlIn') { try { localStorage.setItem('olInline', e.target.checked ? '1' : '0'); } catch { /* egal */ } withAnchor(() => olInline()); return; }
     applyDisp(id === 'dNiq' || id === 'dCan');
   });
-  $('#dReset').onclick = () => { disp = { ...DISP0 }; applyDisp(true); layoutMode = 'cols'; try { localStorage.setItem('layoutMode', 'cols'); } catch { /* egal */ } layBtnRefresh(); if (view && view.sections && view.sections[view.idx]) renderSection(null, true); };
+  $('#dispClose').onclick = () => { $('#dispPanel').hidden = true; };
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('#dispPanel').hidden && !document.querySelector('dialog[open]')) { $('#dispPanel').hidden = true; e.stopPropagation(); } }, true);
+  { // Gruppe „Fenster & Leisten“: auf- oder zugeklappt merken
+    const d = $('#dgWin'); try { d.open = localStorage.getItem('dgWin') === '1'; } catch { /* egal */ }
+    d.addEventListener('toggle', () => { try { localStorage.setItem('dgWin', d.open ? '1' : '0'); } catch { /* egal */ } });
+  }
   document.addEventListener('click', e => {
     if (!$('#dispPanel').hidden && !e.target.closest('#dispPanel') && !e.target.closest('#dispBtn')) $('#dispPanel').hidden = true;
   });

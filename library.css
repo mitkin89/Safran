@@ -198,9 +198,29 @@ html.split #tpResize { right: calc(var(--p2w) + var(--cmt-w, 400px)); }
 .cell[data-k=en] .txt { font-size: calc(var(--enf, 1) * 1em); }
 .cell[data-k=de] .txt { font-size: calc(var(--def, 1) * 1em); }
 
-#dispPanel { position: fixed; top: 100px; right: 18px; z-index: 25; width: 280px; background: var(--bg); border: 1px solid var(--line); border-radius: 10px; box-shadow: 0 4px 18px rgba(0,0,0,.35); padding: 12px 14px; display: grid; gap: 8px; font-size: 13px; }
+/* Anzeige-Panel: feste Kopfzeile, Gruppen, Zeilenraster „Label · Regler · Wert“; scrollt, wenn das Fenster niedrig ist */
+#dispPanel { position: fixed; top: 80px; right: 18px; z-index: 25; width: 340px; max-width: calc(100vw - 24px); max-height: calc(100vh - 96px); box-sizing: border-box; background: var(--bg); border: 1px solid var(--line); border-radius: 10px; box-shadow: 0 4px 18px rgba(0,0,0,.35); display: flex; flex-direction: column; font-size: 13px; overflow: hidden; }
 #dispPanel[hidden] { display: none; }
-#dispPanel input[type=range] { width: 100%; }
+html[lang=he] #dispPanel { direction: rtl; }
+#dispPanel .dhead { flex: none; display: flex; align-items: center; justify-content: space-between; gap: 8px; padding: 6px 8px; padding-inline: 14px 8px; border-bottom: 1px solid var(--line); }
+#dispPanel .dhead b { font-size: 14px; }
+#dispPanel #dispClose { border: 0; background: none; padding: 2px 8px; color: var(--muted); }
+#dispPanel #dispClose:hover { color: var(--fg); }
+#dispPanel .dbodyp { flex: 1 1 auto; min-height: 0; overflow-y: auto; overflow-x: hidden; overscroll-behavior: contain; padding: 2px 14px 10px; }
+#dispPanel .dg { display: grid; grid-template-columns: minmax(0, 1fr); gap: 4px; padding: 8px 0; border-bottom: 1px solid var(--line); }
+#dispPanel .dg:last-child { border-bottom: 0; padding-bottom: 2px; }
+#dispPanel .dg h4, #dispPanel .dg summary { margin: 0; font-size: 11px; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; color: var(--muted); }
+#dispPanel .dg summary { cursor: pointer; }
+#dispPanel details.dg:not([open]) { padding-bottom: 8px; }
+#dispPanel .drow { display: grid; grid-template-columns: 7.2em minmax(0, 1fr) 3.4em; align-items: center; column-gap: 8px; min-height: 24px; }
+#dispPanel .drow.dsel { grid-template-columns: 7.2em minmax(0, 1fr); }
+#dispPanel .drow output { text-align: end; font-variant-numeric: tabular-nums; color: var(--muted); font-size: 12px; white-space: nowrap; direction: ltr; }
+#dispPanel input[type=range] { width: 100%; min-width: 0; margin: 0; direction: ltr; }
+#dispPanel select { width: 100%; min-width: 0; max-width: 100%; box-sizing: border-box; margin: 0; padding-block: 3px; text-overflow: ellipsis; }
+#dispPanel .dstep { display: flex; gap: 6px; }
+#dispPanel .dstep button { padding: 2px 12px; }
+#dispPanel .dchk { display: flex; align-items: flex-start; gap: 8px; line-height: 1.35; padding: 2px 0; cursor: pointer; }
+#dispPanel .dchk input { flex: none; margin: 2px 0 0; }
 
 /* Lesezeichen und Notizen */
 .row .lab .bm { display: block; width: fit-content; cursor: pointer; opacity: 0; font-size: 13px; color: var(--muted); line-height: 1.2; }
@@ -376,9 +396,6 @@ html.pane2 #syncBtn { display: none !important; }
 #moreList button { text-align: left; }
 #moreList #stats { font-size: 12px; padding: 4px 6px 0; }
 header > button { padding: 3px 9px; }
-#dispPanel .pbar { display: flex; gap: 8px; align-items: center; }
-#dispPanel label select { margin-left: 6px; }
-#dispPanel { top: 80px; }
 html.split #stick .bar.compact { flex-wrap: wrap; } /* bei zwei Fenstern darf die Buchzeile umbrechen */
 html.split #jump { width: 80px; flex-basis: 80px; }
 html.split #stick h2#rTitle { max-width: 14ch; }

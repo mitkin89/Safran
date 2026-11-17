@@ -27,6 +27,7 @@
       <div id="moreList">
         <button id="goGet" title="Bücher, Verknüpfungen und Updates herunterladen">⬇ Herunterladen…</button>
         <button id="openDict" title="Wörterbuch aufschlagen und DSL-Wörterbücher verwalten">📖 Wörterbuch …</button>
+        <button id="expBtn" title="Abschnitt als PDF oder Word exportieren">⤓ Exportieren …</button>
         <button id="addOwn" title="Eigenen Text (TXT, Word, CSV, JSON) zum Testen einbinden">＋ Eigener Text…</button>
         <button id="importInterlinear" title="Private JSON-Wortzuordnung lokal einbinden">Interlinear-Zuordnung importieren …</button>
         <button id="chooseDir" title="Ordner wählen, in dem die heruntergeladenen Texte liegen (z. B. externe Festplatte)">Speicherort…</button>
@@ -404,33 +405,49 @@
   </dialog>
 
   <div id="dispPanel" hidden>
-    <b>Anzeige</b>
-    <label>Hebräisch – Schriftgröße <input type="range" id="dHe" min="0.9" max="2.2" step="0.05"></label>
-    <label>Griechisch – Schriftgröße <input type="range" id="dGr" min="0.8" max="2.2" step="0.05"></label>
-    <label>Englisch – Schriftgröße <input type="range" id="dEn" min="0.7" max="1.6" step="0.05"></label>
-    <label>Deutsch – Schriftgröße <input type="range" id="dDe" min="0.7" max="1.6" step="0.05"></label>
-    <label title="Schriftgröße der Vorschau, die beim Überfahren einer Stellenangabe erscheint (das Fenster wächst mit)">Vorschau – Schriftgröße <input type="range" id="dHov" min="0.85" max="1.8" step="0.05"></label>
-    <label title="Welche hebräische Fassung die Vorschau beim Überfahren einer Bibelstelle zeigt">Vorschau – hebräische Fassung <select id="dPvHe"></select></label>
-    <label title="Welche deutsche Fassung die Vorschau beim Überfahren einer Bibelstelle zeigt (in der Wortkarte gilt die dort gewählte Fassung, sofern das Buch sie hat)">Vorschau – deutsche Fassung <select id="dPvDe"></select></label>
-    <label title="Eine dritte Fassung unter Hebräisch und Deutsch in der Vorschau, z. B. Englisch, Septuaginta oder ein Targum (nur wo das Buch sie hat)">Vorschau – zusätzliche Fassung <select id="dPvX"></select></label>
-    <label><input type="checkbox" id="dNiq"> Hebräische Vokalzeichen ausblenden</label>
-    <label><input type="checkbox" id="dCan"> Betonungszeichen (Teamim) ausblenden</label>
-    <label title="Bei angepinntem Kommentar oder Wörterbuch wird der Lesetext etwas kleiner, damit weniger Zeilen umbrechen"><input type="checkbox" id="dShr"> Text kleiner, wenn eine Leiste angepinnt ist</label>
-    <label title="Abschnitte der Gliederung (Wochenabschnitte, Themen, Kapitel) als Überschriften zwischen den Versen zeigen"><input type="checkbox" id="dOlIn"> Gliederung als Überschriften im Text</label>
-    <label title="Bei der Septuaginta (CATSS): hebräisches Wort über der griechischen Wortgruppe"><input type="checkbox" id="gIlin"> Septuaginta interlinear (Hebräisch über Griechisch)</label>
-    <label title="Jede Version eine Spalte, oder eine Spalte je Sprache (Englisch, Deutsch …) mit den Versionen darin untereinander">Anordnung
-      <select id="layMode"><option value="cols">jede Version eine Spalte</option><option value="lang">eine Spalte je Sprache</option></select>
-    </label>
-    <label title="Beim Lesen nach unten scrollen blendet die obere Leiste mit Reitern und Tabs aus; nach oben scrollen holt sie zurück"><input type="checkbox" id="dHideTabs"> Tabs beim Scrollen ausblenden</label>
-    <label title="Die Spaltenköpfe (Sprache · Version) bleiben beim Scrollen oben stehen, statt nur am Abschnittsanfang zu erscheinen"><input type="checkbox" id="dHdSt"> Spaltenköpfe beim Scrollen festhalten</label>
-    <label title="Abstand des Lesetextes zum Fensterrand; „schmal“ nutzt bei mehreren Spalten die ganze Fensterbreite">Seitenrand
-      <select id="dMar"><option value="normal">normal</option><option value="narrow">schmal</option></select>
-    </label>
-    <label>Fußnoten
-      <select id="noteMode"><option value="click">Klick</option><option value="all">alle anzeigen</option><option value="off">aus</option></select>
-    </label>
-    <div class="pbar">Grundschrift <button id="fsMinus" title="Schrift kleiner">A−</button><button id="fsPlus" title="Schrift größer">A+</button></div>
-    <div class="pbar"><button id="expBtn" title="Abschnitt als PDF oder Word exportieren">⤓ Exportieren …</button><button id="dReset">Zurücksetzen</button></div>
+    <div class="dhead"><b>Anzeige</b><button id="dispClose" type="button" title="Schließen (Esc)">✕</button></div>
+    <div class="dbodyp">
+      <section class="dg">
+        <h4>Schriftgröße</h4>
+        <div class="drow">Grundschrift <span class="dstep"><button id="fsMinus" type="button" title="Schrift kleiner">A−</button><button id="fsPlus" type="button" title="Schrift größer">A+</button></span><output id="fsV"></output></div>
+        <label class="drow" title="Hebräisch – Schriftgröße">Hebräisch <input type="range" id="dHe" min="0.9" max="2.2" step="0.05"><output id="dHeV"></output></label>
+        <label class="drow" title="Griechisch – Schriftgröße">Griechisch <input type="range" id="dGr" min="0.8" max="2.2" step="0.05"><output id="dGrV"></output></label>
+        <label class="drow" title="Englisch – Schriftgröße">Englisch <input type="range" id="dEn" min="0.7" max="1.6" step="0.05"><output id="dEnV"></output></label>
+        <label class="drow" title="Deutsch – Schriftgröße">Deutsch <input type="range" id="dDe" min="0.7" max="1.6" step="0.05"><output id="dDeV"></output></label>
+      </section>
+      <section class="dg">
+        <h4>Hebräischer Text</h4>
+        <label class="dchk"><input type="checkbox" id="dNiq"> Hebräische Vokalzeichen ausblenden</label>
+        <label class="dchk"><input type="checkbox" id="dCan"> Betonungszeichen (Teamim) ausblenden</label>
+      </section>
+      <section class="dg">
+        <h4>Lesetext</h4>
+        <label class="drow dsel" title="Jede Version eine Spalte, oder eine Spalte je Sprache (Englisch, Deutsch …) mit den Versionen darin untereinander">Anordnung
+          <select id="layMode"><option value="cols">jede Version eine Spalte</option><option value="lang">eine Spalte je Sprache</option></select>
+        </label>
+        <label class="drow dsel" title="Abstand des Lesetextes zum Fensterrand; „schmal“ nutzt bei mehreren Spalten die ganze Fensterbreite">Seitenrand
+          <select id="dMar"><option value="normal">normal</option><option value="narrow">schmal</option></select>
+        </label>
+        <label class="drow dsel">Fußnoten
+          <select id="noteMode"><option value="click">Klick</option><option value="all">alle anzeigen</option><option value="off">aus</option></select>
+        </label>
+        <label class="dchk" title="Abschnitte der Gliederung (Wochenabschnitte, Themen, Kapitel) als Überschriften zwischen den Versen zeigen"><input type="checkbox" id="dOlIn"> Gliederung als Überschriften im Text</label>
+        <label class="dchk" title="Bei der Septuaginta (CATSS): hebräisches Wort über der griechischen Wortgruppe"><input type="checkbox" id="gIlin"> Septuaginta interlinear (Hebräisch über Griechisch)</label>
+      </section>
+      <section class="dg">
+        <h4 title="Die Vorschau, die beim Überfahren einer Stellenangabe erscheint">Vorschau beim Überfahren</h4>
+        <label class="drow" title="Schriftgröße der Vorschau, die beim Überfahren einer Stellenangabe erscheint (das Fenster wächst mit)">Schriftgröße <input type="range" id="dHov" min="0.85" max="1.8" step="0.05"><output id="dHovV"></output></label>
+        <label class="drow dsel" title="Welche hebräische Fassung die Vorschau beim Überfahren einer Bibelstelle zeigt">Hebräisch <select id="dPvHe"></select></label>
+        <label class="drow dsel" title="Welche deutsche Fassung die Vorschau beim Überfahren einer Bibelstelle zeigt (in der Wortkarte gilt die dort gewählte Fassung, sofern das Buch sie hat)">Deutsch <select id="dPvDe"></select></label>
+        <label class="drow dsel" title="Eine dritte Fassung unter Hebräisch und Deutsch in der Vorschau, z. B. Englisch, Septuaginta oder ein Targum (nur wo das Buch sie hat)">Zusätzlich <select id="dPvX"></select></label>
+      </section>
+      <details class="dg" id="dgWin">
+        <summary>Fenster &amp; Leisten</summary>
+        <label class="dchk" title="Beim Lesen nach unten scrollen blendet die obere Leiste mit Reitern und Tabs aus; nach oben scrollen holt sie zurück"><input type="checkbox" id="dHideTabs"> Tabs beim Scrollen ausblenden</label>
+        <label class="dchk" title="Die Spaltenköpfe (Sprache · Version) bleiben beim Scrollen oben stehen, statt nur am Abschnittsanfang zu erscheinen"><input type="checkbox" id="dHdSt"> Spaltenköpfe beim Scrollen festhalten</label>
+        <label class="dchk" title="Bei angepinntem Kommentar oder Wörterbuch wird der Lesetext etwas kleiner, damit weniger Zeilen umbrechen"><input type="checkbox" id="dShr"> Text kleiner, wenn eine Leiste angepinnt ist</label>
+      </details>
+    </div>
   </div>
 
   <div id="findBar" hidden>
