@@ -28,7 +28,7 @@
   <sub>▶ Überblicksvideo auf YouTube ansehen</sub>
 </p>
 
-Safran ist eine kostenlose Desktop-App für macOS, Windows und Linux, die deine Texte auf dem eigenen Rechner hält. Du wählst einmal die Bücher und Sprachen aus der [Sefaria](https://www.sefaria.org)-Bibliothek und liest, durchsuchst und kommentierst sie danach ohne Internetverbindung. Neu in 2.5.0: der **ganze Tanach Wort für Wort auf Deutsch** (Interlinear) und eine **Wortkarte**, die zeigt, wie ein hebräisches Wort übersetzt wird. Dazu bringt Safran **über 50 deutsche Werke** mit (Übersetzungen, Kommentare und Nachschlagewerke), die es sonst kaum gibt, darunter Louis Ginzbergs *Legenden der Juden* nach seinem deutschen Manuskript, und **acht Wörterbücher und Nachschlagewerke** mit über 100.000 Einträgen. Safran ist ein unabhängiges Projekt und nicht mit Sefaria verbunden.
+Safran ist eine kostenlose Desktop-App für macOS, Windows und Linux, die deine Texte auf dem eigenen Rechner hält. Du wählst einmal die Bücher und Sprachen aus der [Sefaria](https://www.sefaria.org)-Bibliothek und liest, durchsuchst und kommentierst sie danach ohne Internetverbindung. Neu in 2.5.0: der **ganze Tanach Wort für Wort auf Deutsch** (Interlinear) und eine **Wortkarte**, die zeigt, wie ein hebräisches Wort übersetzt wird. Dazu bringt Safran **über 50 deutsche Werke** mit (Übersetzungen, Kommentare und Nachschlagewerke), die es sonst kaum gibt, darunter Louis Ginzbergs *Legenden der Juden* nach seinem deutschen Manuskript, und **neun Wörterbücher und Nachschlagewerke** mit über 200.000 Einträgen. Safran ist ein unabhängiges Projekt und nicht mit Sefaria verbunden.
 
 ## Warum Safran?
 
@@ -39,7 +39,7 @@ Safran ist eine kostenlose Desktop-App für macOS, Windows und Linux, die deine 
 | ✦ **Alles zu dieser Stelle** | Ein Fenster (Cmd+I) sammelt Kommentare, Parallelstellen, Legenden, Talmud & Midrasch, Halacha, Wörter, Orte und Wörterbuchartikel zu einem Vers, einem Blatt oder einem Kapitel. |
 | 📴 **Funktioniert offline** | Texte, Verknüpfungen, Wörterbücher, Karten und Audio liegen auf deiner Festplatte. Nichts wird irgendwohin gesendet. |
 | 🇩🇪 **Deutsche Texte, die es sonst nicht gibt** | Über 50 Werke: Zunz, Philippson, Mendelssohns Biur, Herxheimer, Hertz, Hirsch, Raschi nach Bamberger, die Kautzsch-Apokryphen, Midrasch Rabba, Josephus, Graetz, der Schulchan Aruch (Lederer), Ginzbergs *Legenden der Juden* … sofort beim ersten Start da. |
-| 📚 **Ein Wörterbuchregal, nicht nur ein Lexikon** | BDB, Gesenius, Jastrow, Levy, Krauss und Hamburgers Real-Encyclopädie: über 100.000 Einträge, durchsuchbar nach Stichwort *und* im Volltext, mit Abkürzungen beim Überfahren und Quellen, die sich im Lesefenster öffnen. |
+| 📚 **Ein Wörterbuchregal, nicht nur ein Lexikon** | Liddell & Scott, BDB, Gesenius, Jastrow, Levy, Krauss und Hamburgers Real-Encyclopädie: über 200.000 Einträge, durchsuchbar nach Stichwort *und* im Volltext, mit Abkürzungen beim Überfahren und Quellen, die sich im Lesefenster öffnen. |
 | 📜 **Handschriften und alte Übersetzungen** | Aleppo-Kodex, die biblischen Qumran-Rollen und alle 735 nichtbiblischen mit Morphologie, die Septuaginta mit anklickbarer Morphologie und LXX-MT-Vergleich, Targum Onkelos, Pseudo-Jonathan und Neofiti. |
 | 🔎 **Suche, die Grammatik kennt** | Volltextsuche in allem, alle Formen eines Wortes über das Lemma (hebräisch und griechisch) und eine Grammatiksuche nach Stamm, Zeit, Person, Genus und Numerus. |
 | 🗺 **Gemacht zum Lernen** | Vers-für-Vers-Ausrichtung, zweites Lesefenster, Bibelkarte, Gliederungen, jüdischer Kalender und eine hebräische Lesung des ganzen Tanach. |
@@ -131,10 +131,11 @@ Und alles Weitere:
 
 ## Wörterbücher
 
-Den Reiter *Wörterbuch* öffnen, den Knopf 📖 neben dem Kommentarfenster drücken oder ein Wort in einem Text doppelklicken. Acht Wörterbücher und Nachschlagewerke mit über 100.000 Einträgen sind dabei:
+Den Reiter *Wörterbuch* öffnen, den Knopf 📖 neben dem Kommentarfenster drücken oder ein Wort in einem Text doppelklicken. Neun Wörterbücher und Nachschlagewerke mit über 200.000 Einträgen sind dabei:
 
 | Wörterbuch | Einträge | Extras |
 | --- | ---: | --- |
+| **Liddell & Scott**, Greek-English Lexicon | 115.617 | 115.628 griechische Stichwörter; Suche ohne Akzente und Spiritus, σ/ς gleichwertig; Querverweise anklickbar, Abkürzungen beim Überfahren |
 | **BDB**, Brown-Driver-Briggs (ungekürzt) | 10.022 | auch nach Strong- und BDB-Nummer; Bibelstellen verlinkt |
 | **Gesenius**, Hebräisches Handwörterbuch (1915) | 10.118 | |
 | **Jastrow**, Dictionary of the Targumim, Talmud and Midrash | 32.466 | |

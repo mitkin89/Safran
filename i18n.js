@@ -627,8 +627,8 @@
     // ----- Wörterbuch -----
     'Wort eingeben (mit oder ohne Vokalzeichen) …': 'Enter a word (with or without vowel points) …', '„Phrase“ in Anführungszeichen: Wörter in dieser Reihenfolge direkt hintereinander (sucht im Text) · * = beliebig viele Zeichen · ? = ein Zeichen': '“Phrase” in quotation marks: words in exactly this order (searches the text) · * = any number of characters · ? = one character', 'Nachschlagen': 'Look up', 'auch im Text': 'also in text', 'Wählen, welche Wörterbücher durchsucht werden': 'Choose which dictionaries are searched', 'Alle Wörterbücher': 'All dictionaries', 'Auch im Text der Artikel suchen (nicht nur in den Stichwörtern)': 'Also search the article text (not only the headwords)',
     'Ersten Buchstaben entfernen und neu nachschlagen (z. B. בִדְגַת → דְגַת)': 'Remove the first letter and look up again (e.g. בִדְגַת → דְגַת)', '⌫ 1. Buchstabe': '⌫ 1st letter',
-    'Gib ein hebräisches oder deutsches Wort ein, oder markiere ein Wort im Text und wähle mit Rechtsklick „Im Wörterbuch nachschlagen“.': 'Enter a Hebrew or German word, or select a word in the text and choose “Look up in dictionary” from the right-click menu.',
-    'Gib ein hebräisches oder deutsches Wort ein.': 'Enter a Hebrew or German word.',
+    'Gib ein Wort ein, oder markiere ein Wort im Text und wähle mit Rechtsklick „Im Wörterbuch nachschlagen“.': 'Enter a word, or select a word in the text and choose “Look up in dictionary” from the right-click menu.',
+    'Gib ein Wort ein.': 'Enter a word.',
     'Durchsuchte Wörterbücher': 'Dictionaries searched', 'Alle auswählen': 'Select all', 'Alle abwählen': 'Deselect all', 'Alle Wörterbücher sind abgewählt – wähle oben unter „Durchsuchte Wörterbücher“ mindestens eines aus.': 'All dictionaries are deselected – tick at least one under “Dictionaries searched” above.',
     'Wörterbücher verwalten': 'Manage dictionaries', 'DSL-Datei hinzufügen …': 'Add DSL file …', 'Formate: .dsl, .dsl.dz (ABBYY Lingvo)': 'Formats: .dsl, .dsl.dz (ABBYY Lingvo)',
     'Zurück': 'Back', 'Vor': 'Forward', 'Neuer Wörterbuch-Tab': 'New dictionary tab', 'Noch keine Wörterbücher.': 'No dictionaries yet.',
