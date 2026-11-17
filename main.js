@@ -1012,7 +1012,8 @@ ipcMain.handle('links:texts', async (_e, refs, prefer, strict) => {
 
 // pick (Wortkarte): { vt: Muster des Versionstitels, rtl } – statt der zweiten Sprache die dort gewählte Fassung (Zunz, Hirsch, Septuaginta, Targum …);
 // hat das Buch sie nicht oder fehlt der Vers darin, bleibt es bei der üblichen Auswahl
-// pref: { de: Versionstitel | '' (= Zunz, Standard) | '*' (erste vorhandene, wie früher) } – bevorzugte deutsche Fassung der Vorschau (Anzeige-Einstellung)
+// pref (Anzeige-Einstellungen der Vorschau): { he: Versionstitel | '' (Standard: Westminster), de: Versionstitel | '' (= Zunz, Standard) | '*' (erste vorhandene, wie früher),
+//   x: zusätzliche dritte Fassung – Versionstitel oder '@en'/'@de'/'@he'/'@other' (beste vorhandene dieser Sprache); '' = keine }
 ipcMain.handle('links:preview', async (_e, ref, langs, pick, pref) => {
   const { book, tail } = LK.splitRef(ref);
   const lib = await getLibrary();
@@ -1023,7 +1024,21 @@ ipcMain.handle('links:preview', async (_e, ref, langs, pick, pref) => {
   if (Array.isArray(langs) && langs.length) {
     const parts = [];
     const pDe = pref && typeof pref.de === 'string' ? pref.de : '';
-    const prefRank = x => x.kind !== 'de' || pDe === '*' ? 1 : (pDe ? x.versionTitle === pDe : /Zunz/.test(String(x.versionTitle || ''))) ? 0 : 1;
+    const pHe = pref && typeof pref.he === 'string' ? pref.he : '', pX = pref && typeof pref.x === 'string' ? pref.x : '';
+    const prefRank = x => x.kind === 'he' ? (pHe && x.versionTitle === pHe ? 0 : 1)
+      : x.kind !== 'de' || pDe === '*' ? 1 : (pDe ? x.versionTitle === pDe : /Zunz/.test(String(x.versionTitle || ''))) ? 0 : 1;
+    // dritte Fassung (Einstellung „Vorschau – zusätzliche Fassung“): unten angehängt, wenn das Buch sie hat und sie nicht schon gezeigt wird
+    const addExtra = async () => {
+      if (!pX) return;
+      const want = pX.startsWith('@') ? cand.filter(x => x.kind === pX.slice(1)).sort((a, b) => merged(a) - merged(b)) : cand.filter(x => x.versionTitle === pX);
+      for (const c of want) {
+        if (parts.some(p => p.versionTitle === c.versionTitle)) { if (pX.startsWith('@')) continue; return; }
+        try {
+          const d = await lib.read(c.rel); const items = LK.resolveText(d, tail);
+          if (items) { const plain = String(items[0] || '').replace(/<[^>]+>/g, ''); parts.push({ kind: c.kind, he: c.kind === 'he' || ((plain.match(/[\u0590-\u05FF]/g) || []).length > (plain.match(/[A-Za-zÀ-ÿ\u0370-\u03FF\u1F00-\u1FFF]/g) || []).length), items: items.slice(0, 6), versionTitle: c.versionTitle, extra: true }); return; }
+        } catch { /* nächste Fassung */ }
+      }
+    };
     const tryKind = async kind => {
       for (const c of cand.filter(x => x.kind === kind).sort((a, b) => (prefRank(a) - prefRank(b)) || (merged(a) - merged(b)))) {
         try { const d = await lib.read(c.rel); const items = LK.resolveText(d, tail); if (items) { parts.push({ kind, he: kind === 'he', items: items.slice(0, 6), versionTitle: c.versionTitle }); return true; } } catch { /* nächste Fassung */ }
@@ -1039,8 +1054,9 @@ ipcMain.handle('links:preview', async (_e, ref, langs, pick, pref) => {
     const pickMiss = !!re && !picked; // gewählte Fassung fehlt für dieses Buch oder diesen Vers
     // dann gilt die bevorzugte deutsche Fassung (Standard: Zunz) wie bei jeder anderen Vorschau
     for (const k of wanted) { if (picked && k !== 'he') continue; await tryKind(k); }
-    if (picked) { parts.push(picked); return { parts, items: parts[0].items, kind: parts[0].kind, he: parts[0].he, versionTitle: parts[0].versionTitle, pickMiss }; }
+    if (picked) { parts.push(picked); await addExtra(); return { parts, items: parts[0].items, kind: parts[0].kind, he: parts[0].he, versionTitle: parts[0].versionTitle, pickMiss }; }
     if (parts.length < wanted.length) for (const k of ['en', 'de']) { if (parts.length >= wanted.length) break; if (!wanted.includes(k) && !parts.some(p => p.kind === k)) await tryKind(k); }
+    if (parts.length) await addExtra();
     return parts.length ? { parts, items: parts[0].items, kind: parts[0].kind, he: parts[0].he, versionTitle: parts[0].versionTitle, pickMiss } : { nopreview: true };
   }
   const rank = { en: 0, de: 1, he: 2, other: 3 };

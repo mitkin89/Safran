@@ -3084,9 +3084,10 @@
     const startHov = (a, ref, quiet, below, pick) => {
       hideHov(); hovRef = ref;
       hovT = setTimeout(async () => {
-        const ck = (pick && pick.vt ? ref + '\u0001' + pick.vt : ref) + '\u0002' + (disp.pvDe || '');
+        const pref = { he: disp.pvHe || '', de: disp.pvDe || '', x: disp.pvX || '' };
+        const ck = (pick && pick.vt ? ref + '\u0001' + pick.vt : ref) + '\u0002' + JSON.stringify(pref);
         let r = pvCache.get(ck);
-        if (!r) { try { r = await LK.preview(ref, ['he', I18N.lang === 'de' ? 'de' : 'en'], pick && pick.vt ? { vt: pick.vt, rtl: pick.rtl } : undefined, { de: disp.pvDe || '' }); } catch { r = {}; } pvCache.set(ck, r); if (pvCache.size > 200) pvCache.delete(pvCache.keys().next().value); }
+        if (!r) { try { r = await LK.preview(ref, ['he', I18N.lang === 'de' ? 'de' : 'en'], pick && pick.vt ? { vt: pick.vt, rtl: pick.rtl } : undefined, pref); } catch { r = {}; } pvCache.set(ck, r); if (pvCache.size > 200) pvCache.delete(pvCache.keys().next().value); }
         if (hovRef !== ref) return; // Maus ist inzwischen woanders
         const none = !(r.parts && r.parts.length) && !(r.items && r.items.length);
         if (none && quiet) return; // Wörterbuch: ohne Text keine leere Blase
@@ -6206,13 +6207,26 @@
   }
   // Auswahl „Vorschau – deutsche Fassung“: alle deutschen Fassungen des Tanach in der Bibliothek, nach Zahl der Bücher; leer = Zunz (Standard), * = erste vorhandene
   function pvDeFill() {
-    const sel = $('#dPvDe'); if (!sel) return;
-    const n = new Map();
-    for (const g of groups) { if (!/^Tanakh\//.test(g.key || '')) continue; for (const v of g.versions) if (v.kind === 'de' && v.versionTitle !== 'merged') n.set(v.versionTitle, (n.get(v.versionTitle) || 0) + 1); }
-    const vts = [...n].filter(([vt]) => !/Zunz/.test(vt)).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
-    sel.innerHTML = `<option value="">${esc(I18N.t('Zunz (Standard)'))}</option><option value="*">${esc(I18N.t('erste vorhandene Fassung'))}</option>`
-      + vts.map(([vt, c]) => `<option value="${esc(vt)}">${esc(shortVer(vt).slice(0, 70))} (${c})</option>`).join('');
-    sel.value = disp.pvDe && (disp.pvDe === '*' || n.has(disp.pvDe)) ? disp.pvDe : '';
+    const n = { he: new Map(), en: new Map(), de: new Map(), other: new Map() };
+    for (const g of groups) { if (!/^Tanakh\//.test(g.key || '')) continue; for (const v of g.versions) { if (v.versionTitle === 'merged') continue; const m = n[v.kind] || n.other; m.set(v.versionTitle, (m.get(v.versionTitle) || 0) + 1); } }
+    const sorted = (m, skip) => [...m].filter(([vt]) => !(skip && skip.test(vt))).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
+    const opt = ([vt, c]) => `<option value="${esc(vt)}">${esc(shortVer(vt).slice(0, 70))} (${c})</option>`;
+    const set = (sel, v, ok) => { sel.value = v && ok(v) ? v : ''; };
+    const de = $('#dPvDe'), he = $('#dPvHe'), x = $('#dPvX');
+    if (de) {
+      de.innerHTML = `<option value="">${esc(I18N.t('Zunz (Standard)'))}</option><option value="*">${esc(I18N.t('erste vorhandene Fassung'))}</option>` + sorted(n.de, /Zunz/).map(opt).join('');
+      set(de, disp.pvDe, v => v === '*' || n.de.has(v));
+    }
+    if (he) {
+      he.innerHTML = `<option value="">${esc(I18N.t('Westminster (Standard)'))}</option>` + sorted(n.he, /^Westminster/).map(opt).join('');
+      set(he, disp.pvHe, v => n.he.has(v));
+    }
+    if (x) {
+      const KN = { en: 'Englisch', de: 'Deutsch', he: 'Hebräisch / Aramäisch', other: 'Andere (Griechisch, Aramäisch …)' };
+      x.innerHTML = `<option value="">${esc(I18N.t('keine'))}</option>`
+        + ['en', 'other', 'he', 'de'].map(k => n[k].size || k === 'en' ? `<optgroup label="${esc(I18N.t(KN[k]))}"><option value="@${k}">${esc(I18N.t('beste vorhandene'))}</option>${sorted(n[k]).map(opt).join('')}</optgroup>` : '').join('');
+      set(x, disp.pvX, v => /^@(en|de|he|other)$/.test(v) || Object.values(n).some(m => m.has(v)));
+    }
   }
   $('#dispBtn').onclick = () => { $('#dispPanel').hidden = !$('#dispPanel').hidden; if (!$('#dispPanel').hidden) pvDeFill(); };
   $('#dispPanel').addEventListener('input', e => {
@@ -6228,7 +6242,7 @@
     if (id === 'dHideTabs') disp.hideTabs = e.target.checked;
     if (id === 'dHdSt') disp.headStick = e.target.checked;
     if (id === 'dHov') disp.hov = +e.target.value;
-    if (id === 'dPvDe') { disp.pvDe = e.target.value; if (typeof window.pvClear === 'function') window.pvClear(); }
+    if (id === 'dPvDe' || id === 'dPvHe' || id === 'dPvX') { disp[{ dPvDe: 'pvDe', dPvHe: 'pvHe', dPvX: 'pvX' }[id]] = e.target.value; if (typeof window.pvClear === 'function') window.pvClear(); }
     if (id === 'dOlIn') { try { localStorage.setItem('olInline', e.target.checked ? '1' : '0'); } catch { /* egal */ } withAnchor(() => olInline()); return; }
     applyDisp(id === 'dNiq' || id === 'dCan');
   });
