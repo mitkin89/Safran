@@ -14,6 +14,13 @@
   if (lang === 'de') return;
 
   const EN = {
+    "Interlinear-Zuordnung importieren …": "Import interlinear alignment …",
+    "Private JSON-Wortzuordnung lokal einbinden": "Import a private JSON word alignment locally",
+    "Private Interlinear-Zuordnung nicht geladen: {}": "Private interlinear alignment was not loaded: {}",
+    "Interlinear-Import fehlgeschlagen: {}": "Interlinear import failed: {}",
+    "{} Verse lokal für Buber/Rosenzweig eingebunden.": "{} verses imported locally for Buber/Rosenzweig.",
+    "Martin Buber und Franz Rosenzweig · lokale Wortzuordnung": "Martin Buber and Franz Rosenzweig · local word alignment",
+
     // ----- Zähltraditionen (Versumrechnung, versemap.js) -----
     'hebräisch (Sefaria)': 'Hebrew (Sefaria)',
     'englisch (KJV)': 'English (KJV)',
@@ -738,3 +745,4 @@
   window.confirm = m => C(tr(String(m)));
   window.prompt = (m, d) => P(tr(String(m)), d);
 })();
+

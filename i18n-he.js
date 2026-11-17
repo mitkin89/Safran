@@ -1,6 +1,13 @@
 // Hebräische Oberfläche: ergänzt die englische Tabelle (i18n.js); was hier fehlt, bleibt englisch.
 window.I18N_HE = {
 "exact": {
+"Interlinear-Zuordnung importieren …": "ייבוא התאמה בין־שורתית …",
+"Private JSON-Wortzuordnung lokal einbinden": "ייבוא מקומי של התאמת מילים פרטית בקובץ JSON",
+"Private Interlinear-Zuordnung nicht geladen: {}": "ההתאמה הבין־שורתית הפרטית לא נטענה: {}",
+"Interlinear-Import fehlgeschlagen: {}": "ייבוא ההתאמה נכשל: {}",
+"{} Verse lokal für Buber/Rosenzweig eingebunden.": "{} פסוקים של בובר ורוזנצווייג יובאו מקומית.",
+"Martin Buber und Franz Rosenzweig · lokale Wortzuordnung": "מרטין בובר ופרנץ רוזנצווייג · התאמת מילים מקומית",
+
 "hebräisch (Sefaria)": "עברי (Sefaria)",
 "englisch (KJV)": "אנגלי (KJV)",
 "lateinisch (Vulgata)": "לטיני (וולגטה)",
@@ -897,3 +904,4 @@ window.I18N_HE = {
 "h10": "Safran כבר מכיל כמה טקסטים, מילונים ואת התנ״ך העברי עם מורפולוגיה. <b>ספריית Sefaria</b> עם תנ״ך, תלמוד, משנה, מדרש ופרשנים עדיין לא הורדה."
 }
 };
+

@@ -1703,3 +1703,11 @@ body.il .cell[data-k="he"] .ilt.ilq { font-family: var(--he-font, inherit); font
 
 /* Vers-Vorschau aus der Wortkarte: das Wort der Karte im Hebräischen und in der zugeordneten Übersetzung markieren */
 #lkHover .pvhl { background: color-mix(in srgb, var(--accent) 28%, transparent); border-radius: 3px; box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 55%, transparent); }
+
+
+/* Lokal importierte Buber/Rosenzweig-Zuordnung: bestehende Farben bleiben stabil. */
+:root { --il13: #d9a4a4; }
+:root[data-theme=light] { --il13: #925151; }
+@media (prefers-color-scheme: light) { :root:not([data-theme=dark]) { --il13: #925151; } }
+body.il .cell[data-k="he"] .ilt[data-i="13"] { color: var(--il13); }
+.illc[data-i="13"], .ilpR[data-i="13"] { --c: var(--il13); }

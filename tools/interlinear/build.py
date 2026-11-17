@@ -12,7 +12,7 @@ norm = lambda s: re.sub(r'\s+', ' ', s).strip()
 def load(book, lang, pat):
     f = glob.glob(os.path.join(R, 'bundled', 'own', book, lang, pat))[0]
     return json.load(open(f, encoding='utf8'))['text']
-TR = {'Zunz': ('zunz', '*Zunz*', 'Zunz, Berlin 1838'), 'Breuer': ('breuer', 'Breuer*', 'Breuer, Arba Megillot'), 'Philippson': ('philippson', 'Die Israelitische Bibel*', 'Philippson'), 'Herxheimer': ('herxheimer', 'Die vier und zwanzig Bücher der Bibel im ebräischen*', 'Herxheimer'), 'Goldschmidt': ('goldschmidt', '*Goldschmidt*', 'Goldschmidt, Berlin 1921'), 'Hirsch': ('hirsch', '*Samson Raphael Hirsch*', 'Hirsch, Psalmen 1882'), 'JuliusHirsch': ('julius-hirsch', '*Julius Hirsch*', 'Julius Hirsch, Jesaia')}
+TR = {'Zunz': ('zunz', '*Zunz*', 'Zunz, Berlin 1838'), 'Breuer': ('breuer', '*Breuer*', 'Breuer'), 'Philippson': ('philippson', 'Die Israelitische Bibel*', 'Philippson'), 'Herxheimer': ('herxheimer', 'Die vier und zwanzig Bücher der Bibel im ebräischen*', 'Herxheimer'), 'Goldschmidt': ('goldschmidt', '*Goldschmidt*', 'Goldschmidt, Berlin 1921'), 'Hirsch': ('hirsch', '*Samson Raphael Hirsch*', 'Hirsch, Psalmen 1882'), 'JuliusHirsch': ('julius-hirsch', '*Julius Hirsch*', 'Julius Hirsch, Jesaia und Trei Asar')}
 out, bad = {}, 0
 for name, (dirn, pat, label) in TR.items():
   out[name] = {}

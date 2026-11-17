@@ -40,6 +40,9 @@ contextBridge.exposeInMainWorld('offline', {
   search: o => ipcRenderer.invoke('off:search', o),
   cancelSearch: () => ipcRenderer.send('off:cancelSearch'),
   ownPick: () => ipcRenderer.invoke('off:ownPick'),
+  interlinearRead: () => ipcRenderer.invoke('interlinear:read'),
+  interlinearImport: () => ipcRenderer.invoke('interlinear:import'),
+  onInterlinearChanged: cb => ipcRenderer.on('interlinear:changed', () => cb()),
   ownSave: o => ipcRenderer.invoke('off:ownSave', o),
   ownClear: () => ipcRenderer.invoke('off:ownClear'),
   onOwnDrop: cb => { ownDropCb = cb; },
@@ -119,3 +122,4 @@ contextBridge.exposeInMainWorld('api', {
   onProgress: cb => ipcRenderer.on('book:progress', (_e, d) => cb(d)),
   openExternal: u => ipcRenderer.invoke('open:external', u),
 });
+
