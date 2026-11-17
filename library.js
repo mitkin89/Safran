@@ -1182,7 +1182,7 @@
     return { title: cell.dataset.gt, vt: cell.dataset.gv, ch, v };
   }
   // Die griechischen Wörter einer Zelle, gezählt wie in gmorph.js (ohne <small>, Fußnoten), und das Wort unter dem Klick
-  function greekWordAt(cell, e, w) {
+  function greekWordAt(cell, e, w, all = false) {
     const txt = cell.querySelector('.txt') || cell, GM = window.GMorph;
     const nodes = []; let s = '';
     const tw = document.createTreeWalker(txt, NodeFilter.SHOW_TEXT);
@@ -1198,7 +1198,7 @@
       if (!grp.length) return null;
       if (!grp.includes(i)) { const p = window.Lxx ? window.Lxx.pick(w.textContent) : null; i = grp[p && p.i.length ? p.i[0] : 0] != null ? grp[p && p.i.length ? p.i[0] : 0] : grp[0]; } // Klick neben die Wörter: das Hauptwort der Gruppe (ohne Artikel, καί)
     }
-    if (i < 0) return null;
+    if (i < 0 && !all) return null;
     const range = k => { // Wort k als Bereich im Dokument (zum Hervorheben und Ausrichten)
       const find = pos => { let f = nodes[0]; for (const q of nodes) { if (q[1] <= pos) f = q; else break; } return f; };
       const a = find(words[k].s), b = find(Math.max(words[k].s, words[k].e - 1)), rg = document.createRange();
@@ -1267,7 +1267,7 @@
     h += parts.join(' · ') + '</div>';
     wpop = document.createElement('div');
     wpop.id = 'wpop';
-    wpop.innerHTML = `<div class="wtop"><span dir="rtl" lang="he" class="wword">${esc(w.textContent)}</span><button class="wx" title="Schließen">✕</button></div>${h}${lx[0] ? `<button class="wdict" data-q="${esc(lx[0])}">Im Wörterbuch nachschlagen</button>` : ''}`;
+    wpop.innerHTML = `<div class="wtop"><span dir="rtl" lang="he" class="wword">${esc(w.textContent)}</span><button class="wx" title="Schließen">✕</button></div>${h}${lx[0] ? `<button class="wdict" data-q="${esc(lx[0])}">Im Wörterbuch nachschlagen</button>` : ''}${lx[0] ? `<button class="wforms wtcard" data-tl="${esc(w.dataset.l)}">${esc(I18N.t('Wortkarte'))}</button><button class="wforms wttable" data-tl="${esc(w.dataset.l)}">${esc(I18N.t('Alle Formen (Tabelle)'))}</button>` : ''}`;
     document.body.appendChild(wpop);
     const r = w.getBoundingClientRect(), pw = wpop.offsetWidth, ph = wpop.offsetHeight;
     const x = Math.max(8, Math.min(window.innerWidth - pw - 8, r.left + r.width / 2 - pw / 2));
@@ -1276,6 +1276,7 @@
     wpop.onclick = ev => {
       if (ev.target.closest('.wx')) closeWpop();
       const b = ev.target.closest('.wdict'); if (b) openDict(b.dataset.q);
+      const card = ev.target.closest('.wtcard, .wttable'); if (card) { closeWpop(); openTForms(card.dataset.tl, { form: w.textContent }, card.classList.contains('wttable') ? 'forms' : 'card'); }
     };
   }
   // Qumran (ETCBC DSS): data-l = Lemma, data-m = Wortart.Stamm.Zeit.Person.Genus.Numerus.Status ('-' = ohne Angabe)
@@ -1586,20 +1587,39 @@
     if (rest) fmRestBase(rest);
     else if (fmTab === 'forms') { const c = body.querySelector('.fmF.cur'); if (c) c.scrollIntoView({ block: 'center' }); }
   }
+  let targumFormsP = null;
+  const loadTForms = () => targumFormsP || (targumFormsP = lazyScript('targum-forms.js', () => window.TARGUM_FORMS).catch(e => { targumFormsP = null; throw e; }));
+  async function openTForms(id, info, tab, rest) {
+    const lemma = 'tg:' + id;
+    fmHistOpen(false, lemma, { ...(info || {}), targum: true }, tab, rest);
+    const token = ++wcToken, p = $('#formsPanel'), body = $('#fmBody'), card = $('#wcBody');
+    fmRest = null; fmCur = null; p.hidden = false; fmShowTab(tab || 'card');
+    $('#fmHead').innerHTML = ''; body.innerHTML = card.innerHTML = `<p class="muted">${esc(I18N.t('Lädt …'))}</p>`;
+    let D; try { D = await loadTForms(); } catch { /* unten gemeldet */ }
+    if (token !== wcToken) return;
+    const F = window.TargumForms, mdl = D && F.model(D, id);
+    if (!mdl || !mdl.total) { body.innerHTML = card.innerHTML = `<p class="muted">${esc(I18N.t('Zu diesem Wort sind keine Formen verzeichnet.'))}</p>`; return; }
+    const lex = D.L[id][0];
+    fmCur = { D, mdl, lemma, lem: [lex[0], lex[2]], F, targum: id };
+    $('#fmHead').innerHTML = `<span class="fmLem" lang="arc" dir="rtl">${esc(lex[0])}</span><span class="fmGloss">${esc(lex[2])}</span><button type="button" class="wdict" data-q="${esc(lex[0])}">Im Wörterbuch nachschlagen</button><span class="fmCnt">${esc(I18N.t('{} Belege in den Targumim · {} verschiedene Formen', wcNum(mdl.total), wcNum(F.topForms(mdl).kinds)))}</span>`;
+    body.innerHTML = F.render(mdl, { esc, t: s => I18N.t(s), current: info });
+    wcRender(token, info); p.scrollTop = 0;
+    if (rest) fmRestBase(rest);
+  }
   const TANAKH_PARTS = [['Tora', 5], ['Propheten', 21], ['Schriften', 13]];
   const wcNum = n => n.toLocaleString(I18N.loc);
   function wcRender(token, cur) {
-    const { D, mdl, F, greek } = fmCur, card = $('#wcBody');
+    const { D, mdl, F, greek, targum } = fmCur, card = $('#wcBody');
     const ds = F.dist(D, mdl), max = Math.max(1, ...ds.map(x => x.n)), nb = ds.filter(x => x.n).length;
     // Verteilung: ein Balken je Buch (Reihenfolge des Tanach, griechisch dazu die Apokryphen), in Gruppen; Höhe = Zahl der Belege
     let k = 0;
-    const groups = (greek ? D.groups : TANAKH_PARTS).map(([name, cnt]) => { const part = ds.slice(k, k + cnt); k += cnt; return { name, part }; });
+    const groups = (greek || targum ? D.groups : TANAKH_PARTS).map(([name, cnt]) => { const part = ds.slice(k, k + cnt); k += cnt; return { name, part }; });
     const bar = x => `<button type="button" class="wcBar${x.n ? '' : ' zero'}" data-b="${esc(x.book)}" style="--h:${(x.n / max * 100).toFixed(1)}" aria-label="${esc(fmBook(x.book) + ': ' + x.n)}"><i></i></button>`;
     const top = ds.filter(x => x.n).sort((a, b) => b.n - a.n).slice(0, 4);
     const tf = F.topForms(mdl, 8);
-    const chip = x => `<button type="button" class="fmF${x.pre ? ' pre' : ''}${cur && cur.form === x.f ? ' cur' : ''}" data-i="${x.i}"><span lang="${greek ? 'grc' : 'he'}" dir="${greek ? 'ltr' : 'rtl'}">${esc(x.f)}</span><small>${wcNum(x.n)}</small></button>`;
-    card.innerHTML = `<div class="wcAct"><button type="button" class="wcAll" title="${esc(I18N.t(greek ? 'Startet die Suche nach diesem Wort in der Septuaginta (Treffer „Alle Formen“)' : 'Startet die Suche nach diesem Wort im hebräischen Tanach (Treffer „Alle Formen“)'))}">🔎 ${esc(I18N.t('Alle Stellen dieses Wortes'))} <small>${wcNum(mdl.total)}</small></button></div>
-      <section class="wcSec"><h4>${esc(I18N.t(greek ? 'Verteilung in der Septuaginta' : 'Verteilung im Tanach'))} <small>${esc(greek ? I18N.t('{} Belege in {} von {} Büchern', wcNum(mdl.total), nb, ds.length) : I18N.t('{} Belege in {} von 39 Büchern', wcNum(mdl.total), nb))}</small></h4>
+    const chip = x => `<button type="button" class="fmF${x.pre ? ' pre' : ''}${cur && cur.form === x.f ? ' cur' : ''}" data-i="${x.i}"><span lang="${targum ? 'arc' : greek ? 'grc' : 'he'}" dir="${greek ? 'ltr' : 'rtl'}">${esc(x.f)}</span><small>${wcNum(x.n)}</small></button>`;
+    card.innerHTML = `<div class="wcAct"><button type="button" class="wcAll" title="${esc(I18N.t(targum ? 'Alle Stellen dieses Wortes' : greek ? 'Startet die Suche nach diesem Wort in der Septuaginta (Treffer „Alle Formen“)' : 'Startet die Suche nach diesem Wort im hebräischen Tanach (Treffer „Alle Formen“)'))}">🔎 ${esc(I18N.t('Alle Stellen dieses Wortes'))} <small>${wcNum(mdl.total)}</small></button></div>
+      <section class="wcSec"><h4>${esc(I18N.t(targum ? 'Verteilung in den Targumim' : greek ? 'Verteilung in der Septuaginta' : 'Verteilung im Tanach'))} <small>${esc(greek || targum ? I18N.t('{} Belege in {} von {} Büchern', wcNum(mdl.total), nb, ds.length) : I18N.t('{} Belege in {} von 39 Büchern', wcNum(mdl.total), nb))}</small></h4>
         <div class="wcChart"><div class="wcPlot"><span class="wcMax">${wcNum(max)}</span>${groups.map(g => `<div class="wcGrp" style="flex:${g.part.length}"><div class="wcBars">${g.part.map(bar).join('')}</div><div class="wcAx">${esc(I18N.t(g.name))}</div></div>`).join('')}</div><div class="wcTip" hidden></div></div>
         <div class="wcTop"><span class="muted">${esc(I18N.t('Am häufigsten:'))}</span> ${top.map(x => `<a data-b="${esc(x.book)}">${esc(fmBook(x.book))}</a> <small>${wcNum(x.n)}</small>`).join(' · ')} <span class="muted wcHint">· ${esc(I18N.t('Klick auf einen Balken zeigt die Stellen des Buches'))}</span></div>
         <div class="wcRefs" id="wcBookRefs"></div></section>
@@ -1611,8 +1631,8 @@
       <section class="wcSec" id="wcTgR" hidden></section>
       <section class="wcSec" id="wcQum" hidden></section>
       <section class="wcSec" id="wcTg" hidden></section>
-      <p class="fmNote">${esc(I18N.t(greek ? 'Belege und Formen nach der Septuaginta-Morphologie lxx-morph (Seth Kushniryk, CC BY 4.0), den Wörtern der mitgelieferten Septuaginta-Fassungen zugeordnet (Tanach: CATSS-Text in hebräischer Zählung; deuterokanonische Bücher: Rahlfs). Richter (A und B), Daniel (Septuaginta und Theodotion), Tobit, Susanna und Bel stehen in zwei Fassungen und zählen je für sich; Kurzbedeutungen englisch (STEPBible).' : 'Belege und Formen nach dem Westminster Leningrad Codex (OSHB); gezählt sind vokalisierte Wörter mit diesem Lemma. Die Suche „Alle Stellen“ geht über das Schriftbild des Lemmas und kann gleich geschriebene Wörter mitfinden.'))}</p>`;
-    wcDicts(token); if (greek) wcHeb(token); else { wcTrans(token); wcLxx(token); wcTgRen(token); wcQumran(token); wcTargum(token); }
+      <p class="fmNote">${esc(I18N.t(targum ? 'Belegte Wortformen und Bestimmungen aus dem ETCBC Targum Corpus (CC BY-NC 4.0): Onkelos, Neofiti 1 und Pseudo-Jonathan zum Pentateuch. Die Fassungen zählen getrennt; gleich geschriebene Lexeme bleiben getrennt.' : greek ? 'Belege und Formen nach der Septuaginta-Morphologie lxx-morph (Seth Kushniryk, CC BY 4.0), den Wörtern der mitgelieferten Septuaginta-Fassungen zugeordnet (Tanach: CATSS-Text in hebräischer Zählung; deuterokanonische Bücher: Rahlfs). Richter (A und B), Daniel (Septuaginta und Theodotion), Tobit, Susanna und Bel stehen in zwei Fassungen und zählen je für sich; Kurzbedeutungen englisch (STEPBible).' : 'Belege und Formen nach dem Westminster Leningrad Codex (OSHB); gezählt sind vokalisierte Wörter mit diesem Lemma. Die Suche „Alle Stellen“ geht über das Schriftbild des Lemmas und kann gleich geschriebene Wörter mitfinden.'))}</p>`;
+    wcDicts(token); if (greek) wcHeb(token); else if (!targum) { wcTrans(token); wcLxx(token); wcTgRen(token); wcQumran(token); wcTargum(token); }
   }
   // Belegstellen als Zeilen je Buch (wie in der Formentabelle)
   function wcRefList(rs, head, all) {
@@ -1620,7 +1640,7 @@
     const lines = []; let lb = null;
     for (const r of shown) {
       if (r.book !== lb) { lines.push(`<b>${esc(fmBook(r.book))}</b> `); lb = r.book; } else lines[lines.length - 1] += ' ';
-      lines[lines.length - 1] += `<span class="fmR"><a data-ref="${esc((r.title || r.book) + ' ' + r.ch + ':' + r.v)}">${r.ch}${I18N.lang === 'de' ? ',' : ':'}${r.v}</a>${r.n > 1 ? `<small>×${r.n}</small>` : ''}</span>`;
+      lines[lines.length - 1] += `<span class="fmR"><a data-ref="${esc((r.title || r.book) + ' ' + r.ch + ':' + r.v)}"${r.vt ? ` data-gvt="${esc(r.vt)}"` : ''}>${r.ch}${I18N.lang === 'de' ? ',' : ':'}${r.v}</a>${r.n > 1 ? `<small>×${r.n}</small>` : ''}</span>`;
     }
     const more = rs.length > shown.length ? `<div><button type="button" class="fmAll">${esc(I18N.t('alle {} Verse zeigen', wcNum(rs.length)))}</button></div>` : '';
     return `<div class="wcRefBox"><div class="fmRH">${head}<span class="muted">${esc(I18N.t('{}× in {} Versen', wcNum(n), wcNum(rs.length)))}</span><button type="button" class="fmRX" title="Schließen">✕</button></div><div class="fmRL">${lines.map(l => `<div>${l}</div>`).join('')}${more}</div></div>`;
@@ -1629,25 +1649,34 @@
     const { D, mdl } = fmCur, box = $('#wcBookRefs');
     $$('#wcBody .wcBar').forEach(b => b.classList.toggle('sel', b.dataset.b === book));
     if (!book) { box.innerHTML = ''; box.dataset.b = ''; return; }
-    box.dataset.b = book; box.innerHTML = wcRefList(fmCur.F.refsIn(D, mdl, book), `<b>${esc(fmBook(book))}</b>`, all);
+    box.dataset.b = book; box.innerHTML = wcRefList(book === '*' && fmCur.targum ? fmCur.F.refs(D, mdl, mdl.forms.map((_, i) => i).join(',')) : fmCur.F.refsIn(D, mdl, book), `<b>${esc(book === '*' ? I18N.t('Alle Stellen dieses Wortes') : fmBook(book))}</b>`, all);
   }
   function wcFormRefs(chip, all) {
     const { D, mdl } = fmCur, box = $('#wcFormRefs');
     $$('#wcBody .wcForms .fmF').forEach(c => c.classList.toggle('sel', c === chip));
     if (!chip) { box.innerHTML = ''; return; }
-    box.innerHTML = wcRefList(fmCur.F.refs(D, mdl, chip.dataset.i), `<span dir="${fmCur.greek ? 'ltr' : 'rtl'}" lang="${fmCur.greek ? 'grc' : 'he'}">${esc(chip.querySelector('span').textContent)}</span>`, all);
+    box.innerHTML = wcRefList(fmCur.F.refs(D, mdl, chip.dataset.i), `<span dir="${fmCur.greek ? 'ltr' : 'rtl'}" lang="${fmCur.targum ? 'arc' : fmCur.greek ? 'grc' : 'he'}">${esc(chip.querySelector('span').textContent)}</span>`, all);
   }
   // Wörterbücher: Einträge zum Lemma aus den eingebundenen Wörterbüchern (dieselbe Suche wie „Im Wörterbuch nachschlagen“), je Wörterbuch die ersten Treffer
   async function wcDicts(token) {
-    const { lem, greek } = fmCur; const box = () => $('#wcDict');
+    const { lem, greek, targum } = fmCur; const box = () => $('#wcDict');
     const done = html => { if (token === wcToken && box()) box().innerHTML = `<h4>${esc(I18N.t('Wörterbücher'))}</h4>` + html; };
     if (!lem) return done(`<p class="muted">${esc(I18N.t('Kein Eintrag in den Wörterbüchern.'))}</p>`);
     let r = null;
     try { r = await O.dictLookup(lem[0], dictSel && dictSel.length ? dictSel : null, false); } catch { r = null; }
     if (token !== wcToken) return;
     let res = (r && r.results) || [];
+    if (targum && (!dictSel || !dictSel.length || dictSel.includes('9ce7ea6c00f1'))) {
+      // Levy darf nicht durch die Treffergrenze anderer Wörterbücher verdrängt werden.
+      try {
+        const levy = await O.dictLookup(lem[0], '9ce7ea6c00f1', false);
+        if (token !== wcToken) return;
+        const seen = new Set(res.map(x => x.dictId + ':' + x.k));
+        res = res.concat(((levy && levy.results) || []).filter(x => !seen.has(x.dictId + ':' + x.k)));
+      } catch { /* übrige Wörterbücher weiterhin zeigen */ }
+    }
     { // die Suche lässt auch Vorsilben weg und nimmt Stichwörter, die mit dem Wort beginnen – für die Wortkarte nur Stichwörter mit genau diesem Schriftbild (falls es welche gibt)
-      const cons = greek ? t => window.GMorph.fold(t) : t => String(t).replace(/[^\u05D0-\u05EA]/g, ''), want = cons(lem[0]);
+      const cons = greek ? t => window.GMorph.fold(t) : targum ? window.TargumForms.fold : t => String(t).replace(/[^\u05D0-\u05EA]/g, ''), want = cons(lem[0]);
       const exact = res.filter(x => String(x.head).split(/[·,;/]/).some(h => cons(h) === want));
       if (exact.length) res = exact;
     }
@@ -1704,8 +1733,15 @@
   const WC_TR_VT = { O: IL_VT.Onkelos, PJ: IL_VT['Pseudo-Jonathan'], N: IL_VT.Neofiti, LXX: /^Septuaginta/, Q: /^Qumran-Rollen \(ETCBC DSS\)/ };
   const RTL = l => l === 'arc' || l === 'he'; // Quellen in hebräischer Schrift (Targumim, Qumran-Rollen)
   function wcHovPick(a) {
+    if (fmCur && fmCur.targum && a.closest('.fmRL') && a.dataset.gvt) {
+      return { vt: '^' + a.dataset.gvt.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '$', rtl: true, label: 'Targum', targum: fmCur.targum };
+    }
+    if (fmCur && fmCur.greek && a.closest('.fmRL')) {
+      const vt = a.dataset.gvt;
+      return { vt: vt ? '^' + vt.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '$' : '^Septuaginta', rtl: false, label: 'Septuaginta', greek: fmCur.lemma };
+    }
     const k = a.closest('#fmBody') ? (fmTrData ? fmTrCur() : 'off') : a.closest('#wcBody') ? (wcTrLive() ? wcTrLive().cur : 'off') : 'off';
-    const lem = fmCur && !fmCur.greek ? fmCur.lemma : null; // das Wort der Wortkarte wird in der Vorschau markiert
+    const lem = fmCur && !fmCur.greek && !fmCur.targum ? fmCur.lemma : null; // das Wort der Wortkarte wird in der Vorschau markiert
     if (!k || k === 'off' || (fmCur && fmCur.greek)) return lem ? { lem } : null;
     const re = WC_TR_VT[k] || IL_VT[k] || new RegExp(String(k).replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
     return { vt: re.source, rtl: k === 'O' || k === 'PJ' || k === 'N', label: WC_TR_LABEL[k] || k, lem };
@@ -2078,6 +2114,7 @@
   }
   function wcSearchAll() { // Lemma-Suche in der Suchmaske: Hebräisch, Treffer „Alle Formen“
     const { lem } = fmCur; if (!lem) return;
+    if (fmCur.targum) { wcBookRefs('*', true); $('#wcBookRefs').scrollIntoView({ block: 'nearest' }); return; }
     if (fmCur.greek) { gSearchAll(lem[0]); return; }
     closeForms(); showTab('search');
     sEntApply({ q: lem[0].replace(/[^א-ת]/g, ''), l: 'he', m: 'lemma' });
@@ -2094,7 +2131,7 @@
   const fmLemGloss = id => { const l = (window.OSHB_LEMMAS || {})[id]; return l ? (I18N.lang === 'de' && l[2] ? l[2] : l[1]) : ''; };
   function fmHistLabel(h) { // für den Tooltip: wohin führt der Schritt?
     const l = !h.greek && (window.OSHB_LEMMAS || {})[h.lemma];
-    let s = h.greek ? h.lemma : l ? l[0] + ' ' + fmLemGloss(h.lemma) : String(h.lemma);
+    let s = h.info && h.info.targum ? (((window.TARGUM_FORMS || {}).L || {})[h.lemma.slice(3)] || [[h.lemma]])[0][0] : h.greek ? h.lemma : l ? l[0] + ' ' + fmLemGloss(h.lemma) : String(h.lemma);
     if (h.tab === 'forms') s += ' – ' + I18N.t('Alle Formen (Tabelle)');
     else if (h.tr) {
       s += ' – ' + I18N.t(WC_TR_LABEL[h.tr.cur] || h.tr.cur);
@@ -2166,7 +2203,8 @@
     if (fmCur && fmCur.lemma === h.lemma && !!fmCur.greek === h.greek && $('#wcBody .wcSec') && (!h.tr || wcTrLive())) { // dasselbe Wort: nur den Zustand umstellen
       if (h.tr) { fmRestTr(h); wcTrRender(); }
       fmRestBase(h);
-    } else (h.greek ? openGForms : openForms)(h.lemma, h.info, h.tab, h);
+    } else if (h.info && h.info.targum) openTForms(h.lemma.slice(3), h.info, h.tab, h);
+    else (h.greek ? openGForms : openForms)(h.lemma, h.info, h.tab, h);
   }
   $('#fmBack').onclick = () => fmHistGo(-1);
   $('#fmFwd').onclick = () => fmHistGo(1);
@@ -2358,7 +2396,7 @@
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('#formsPanel').hidden && !$('#formsPanel').classList.contains('docked') && !document.querySelector('dialog[open]')) closeForms(); });
   // Belegstellen einer Form: nach Büchern geordnet, als Zeile unter der Tabellenzeile
   function fmBook(b) { // griechische Bücher in zwei Fassungen tragen ein Kennzeichen: „Judges (B)“, „Daniel (Theodotion)“
-    const m = /^(.*?)( \((?:A|B|Theodotion|Sinaiticus)\))?$/.exec(b), base = m[1];
+    const m = /^(.*?)( \((?:A|B|Theodotion|Sinaiticus|Onkelos|Neofiti 1|Pseudo-Jonathan)\))?$/.exec(b), base = m[1];
     return ((I18N.lang === 'de' && deNames(base).split(' / ')[0]) || base) + (m[2] || '');
   }
   function fmRefs(chip, all) {
@@ -2367,11 +2405,11 @@
     const lines = []; let lb = null;
     for (const r of shown) {
       if (r.book !== lb) { lines.push(`<b>${esc(fmBook(r.book))}</b> `); lb = r.book; } else lines[lines.length - 1] += ' ';
-      lines[lines.length - 1] += `<span class="fmR"><a data-ref="${esc((r.title || r.book) + ' ' + r.ch + ':' + r.v)}">${r.ch}${I18N.lang === 'de' ? ',' : ':'}${r.v}</a>${r.n > 1 ? `<small>×${r.n}</small>` : ''}</span>`;
+      lines[lines.length - 1] += `<span class="fmR"><a data-ref="${esc((r.title || r.book) + ' ' + r.ch + ':' + r.v)}"${r.vt ? ` data-gvt="${esc(r.vt)}"` : ''}>${r.ch}${I18N.lang === 'de' ? ',' : ':'}${r.v}</a>${r.n > 1 ? `<small>×${r.n}</small>` : ''}</span>`;
     }
     const more = rs.length > shown.length ? `<div><button type="button" class="fmAll">${esc(I18N.t('alle {} Verse zeigen', rs.length.toLocaleString(I18N.loc)))}</button></div>` : '';
     const tr = document.createElement('tr'); tr.className = 'fmRefRow';
-    tr.innerHTML = `<td colspan="99"><div class="fmRH"><span dir="${fmCur.greek ? 'ltr' : 'rtl'}" lang="${fmCur.greek ? 'grc' : 'he'}">${esc(chip.querySelector('span').textContent)}</span><span class="muted">${esc(I18N.t('{}× in {} Versen', n.toLocaleString(I18N.loc), rs.length.toLocaleString(I18N.loc)))}</span><button type="button" class="fmRX" title="Schließen">✕</button></div><div class="fmRL">${lines.map(l => `<div>${l}</div>`).join('')}${more}</div></td>`;
+    tr.innerHTML = `<td colspan="99"><div class="fmRH"><span dir="${fmCur.greek ? 'ltr' : 'rtl'}" lang="${fmCur.targum ? 'arc' : fmCur.greek ? 'grc' : 'he'}">${esc(chip.querySelector('span').textContent)}</span><span class="muted">${esc(I18N.t('{}× in {} Versen', n.toLocaleString(I18N.loc), rs.length.toLocaleString(I18N.loc)))}</span><button type="button" class="fmRX" title="Schließen">✕</button></div><div class="fmRL">${lines.map(l => `<div>${l}</div>`).join('')}${more}</div></td>`;
     chip.closest('tr').after(tr);
   }
   $('#fmBody').addEventListener('click', e => {
@@ -3237,13 +3275,30 @@
         });
       }, () => {});
     };
+    const pvMarkGreek = async (box, ref, lemma) => {
+      const m = /^(.*) (\d+):(\d+)$/.exec(ref); if (!m) return;
+      let D; try { D = await loadGM(); } catch { return; }
+      if (!D || !box.isConnected || hovRef !== ref) return;
+      const GM = window.GMorph;
+      for (const p of box.querySelectorAll('.pvp[data-vt]')) {
+        const bi = GM.bookIndex(D, m[1], p.dataset.vt); if (bi < 0) continue;
+        const toks = GM.verse(D, bi, +m[2], +m[3]), at = greekWordAt(p, null, null, true);
+        if (!toks || !at || toks.length !== at.words.length) continue;
+        // Nur markieren, wenn Wortfolge und Morphologieindex tatsächlich zusammenpassen.
+        if (!toks.every((t, i) => !t || GM.fold(GM.info(D, t.id).form) === GM.fold(at.words[i].t))) continue;
+        for (let i = toks.length - 1; i >= 0; i--) if (toks[i] && GM.info(D, toks[i].id).lemma === lemma) {
+          const rg = at.range(i), mark = document.createElement('span'); mark.className = 'pvhl';
+          mark.append(rg.extractContents()); rg.insertNode(mark);
+        }
+      }
+    };
     const startHov = (a, ref, quiet, below, pick) => {
       hideHov(); hovRef = ref;
       hovT = setTimeout(async () => {
         const pref = { he: disp.pvHe || '', de: disp.pvDe || '', x: disp.pvX || '' };
-        const ck = (pick && pick.vt ? ref + '\u0001' + pick.vt : ref) + '\u0002' + JSON.stringify(pref);
+        const ck = (pick && pick.vt ? ref + '\u0001' + pick.vt : ref) + '\u0002' + JSON.stringify(pref) + (pick && (pick.greek || pick.targum) ? '\u0003original' : '');
         let r = pvCache.get(ck);
-        if (!r) { try { r = await LK.preview(ref, ['he', I18N.lang === 'de' ? 'de' : 'en'], pick && pick.vt ? { vt: pick.vt, rtl: pick.rtl } : undefined, pref); } catch { r = {}; } pvCache.set(ck, r); if (pvCache.size > 200) pvCache.delete(pvCache.keys().next().value); }
+        if (!r) { try { r = await LK.preview(ref, pick && (pick.greek || pick.targum) ? ['other'] : ['he', I18N.lang === 'de' ? 'de' : 'en'], pick && pick.vt ? { vt: pick.vt, rtl: pick.rtl } : undefined, pref); } catch { r = {}; } pvCache.set(ck, r); if (pvCache.size > 200) pvCache.delete(pvCache.keys().next().value); }
         if (hovRef !== ref) return; // Maus ist inzwischen woanders
         const none = !(r.parts && r.parts.length) && !(r.items && r.items.length);
         if (none && quiet) return; // Wörterbuch: ohne Text keine leere Blase
@@ -3256,6 +3311,8 @@
           + (pick && r.pickMiss ? `<div class="vnote">${esc(I18N.t('{} enthält dieses Buch nicht – stattdessen:', pick.label || ''))}</div>` : '');
         hov.innerHTML = `<b>${esc(ref)}</b>${vn}${html}`; hov.hidden = false;
         if (pick && pick.lem) pvMark(hov, ref, pick.lem);
+        if (pick && pick.greek) pvMarkGreek(hov, ref, pick.greek);
+        if (pick && pick.targum) hov.querySelectorAll('.wt[data-l]').forEach(w => { if (w.dataset.l === pick.targum) w.classList.add('pvhl'); });
         const rc = a.getBoundingClientRect(), w = hov.offsetWidth, h = hov.offsetHeight;
         if (below) { // Wörterbuch-Leiste: unter dem Link, sonst darüber
           hov.style.left = Math.max(8, Math.min(window.innerWidth - w - 8, rc.left)) + 'px';
@@ -5479,7 +5536,11 @@
     for (const tok of String(head).split(/[·,;/\s]+/)) { if (!/[\u05D0-\u05EA]/.test(tok)) continue; const ids = lemByCons.get(consOf(tok)); if (ids) return ids; }
     return null;
   }
-  function dictCardButtons(head, greekIndex) {
+  function dictCardButtons(head, greekIndex, targumIndex, dictId) {
+    if (dictId === '9ce7ea6c00f1') {
+      const ids = targumIndex ? window.TargumForms.dictionaryLemmas(targumIndex, head) : [];
+      return ids.map(id => { const lex = targumIndex.L[id][0]; return ` <button type="button" class="dwk" data-tl="${esc(id)}" title="${esc(lex[0] + ' – ' + lex[2])}">${esc(I18N.t('Aramäische Wortkarte'))}${ids.length > 1 ? ': ' + esc(lex[0] + ' – ' + lex[2]) : ''}</button>`; }).join('');
+    }
     const ids = lemIdsFor(head);
     if (ids) return ` <button type="button" class="dwk" data-ids="${esc(ids.join(','))}" title="${esc(I18N.t('Wortkarte: Wörterbücher, Verteilung, häufigste Formen, Septuaginta'))}">${esc(I18N.t('Wortkarte'))}</button>`;
     const lemmas = greekIndex ? window.GMorph.dictionaryLemmas(greekIndex, head) : [];
@@ -5515,6 +5576,11 @@
       try { greekIndex = await loadGM(); } catch { /* Artikel bleiben auch ohne Formenindex lesbar */ }
       if (token !== dictLookupToken) return;
     }
+    let targumIndex = null;
+    if (window.TargumForms && r.results.some(x => x.dictId === '9ce7ea6c00f1')) {
+      try { targumIndex = await loadTForms(); } catch { /* Artikel bleiben auch ohne Formenindex lesbar */ }
+      if (token !== dictLookupToken) return;
+    }
     const onlyBar = (dictSrc && dictSrc.q === q && document.documentElement.dataset.tab !== 'dict' ? `<div class="dsrc muted">aus <a href="#" title="Zur Stelle im Text">${esc(dictSrc.ref)}</a></div>` : '')
       + (dictOnly ? `<div class="donly muted">Nur in: <b>${esc(dictOnly.name)}</b> · <a class="dall">alle Wörterbücher</a></div>` : '');
     // pro Wörterbuch ein eigener Abschnitt mit Titelleiste und Farbe; jeder Treffer als eigene Karte
@@ -5524,12 +5590,13 @@
     $('#dictOut').innerHTML = onlyBar + r.results.map((x, i) => {
       let sec = '';
       if (x.dictId !== last) { last = x.dictId; sec = `<div class="dsec" style="--dh:${hue(x.dictId)}"><span>${(p => p ? `<img class="vpic" src="portraits/${encodeURIComponent(p.img)}" alt="" data-title="${esc(p.name || '')}" loading="lazy">` : '')(portraitOf(x.dict))}${esc(x.dict)}</span><span class="dsr"><button type="button" class="dlist" data-id="${esc(x.dictId)}" data-name="${esc(x.dict)}" title="Alle Stichwörter dieses Wörterbuchs als Liste">☰ Stichwörter</button><small>${cnt[x.dictId]} Treffer</small></span></div>`; }
-      return `${sec}<div class="dentry" id="dentry${i}" style="--dh:${hue(x.dictId)}"><div class="dhead"><b dir="auto">${esc(x.head)}</b>${dictCardButtons(x.head, greekIndex)}${x.note ? ` <span class="muted">${esc(x.note)}</span>` : ''}</div><div class="dbody" dir="ltr">${heFix(/Gesenius/.test(x.dict || '') && window.GAbk ? window.GAbk.mark(x.html) : x.html)}</div></div>`;
+      return `${sec}<div class="dentry" id="dentry${i}" style="--dh:${hue(x.dictId)}"><div class="dhead"><b dir="auto">${esc(x.head)}</b>${dictCardButtons(x.head, greekIndex, targumIndex, x.dictId)}${x.note ? ` <span class="muted">${esc(x.note)}</span>` : ''}</div><div class="dbody" dir="ltr">${heFix(/Gesenius/.test(x.dict || '') && window.GAbk ? window.GAbk.mark(x.html) : x.html)}</div></div>`;
     }).join('');
     $('#dictOut').scrollTop = 0;
   }
   $('#dictOut').addEventListener('click', async e => {
     const b = e.target.closest('.dwk'); if (!b) return;
+    if (b.dataset.tl) { openTForms(b.dataset.tl, null, 'card'); return; }
     if (b.dataset.gl) { openGForms(b.dataset.gl, null, 'card'); return; }
     let ids = b.dataset.ids.split(',');
     if (ids.length > 1) { // mehrere gleich geschriebene Lemmata: das häufigste nehmen

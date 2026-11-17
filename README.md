@@ -142,7 +142,7 @@ Open the *Dictionary* tab (*Wörterbuch*), press the 📖 button next to the com
 | **Gesenius**, Hebräisches Handwörterbuch (1915) | 10,118 | |
 | **Jastrow**, Dictionary of the Targumim, Talmud and Midrash | 32,466 | |
 | **Levy**, Wörterbuch über die Talmudim und Midraschim (vols. 1–4) | 19,503 | abbreviations on hover, sources linked |
-| **Levy**, Chaldäisches Wörterbuch über die Targumim (vols. 1–2) | 7,232 | abbreviations on hover, sources linked |
+| **Levy**, Chaldäisches Wörterbuch über die Targumim (vols. 1–2) | 7,232 | Aramaic word cards with forms and Targum occurrences, abbreviations on hover, sources linked |
 | **Krauss**, Griechische und lateinische Lehnwörter (part II) | 6,329 | abbreviations on hover, sources linked, *s. X* cross-references clickable |
 | **Krauss**, register of the *Talmudische Archäologie* (vol. III) | 11,727 | every entry leads into the three volumes |
 | **Hamburger**, Real-Encyclopädie für Bibel und Talmud (vol. 1; vol. 2, talmudic articles; supplement volumes I–VI) | 3,026 | footnotes inline, sources linked |

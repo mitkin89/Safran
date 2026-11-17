@@ -142,7 +142,7 @@
     for (const k of String(i).split(',')) { const f = mdl.forms[+k]; if (f) for (let j = o.start[f.id]; j < o.start[f.id + 1]; j++) idx.push(o.list[j]); }
     idx.sort((a, b) => a - b);
     const out = []; let last = -1;
-    for (const n of idx) { if (n === last) out[out.length - 1].n++; else { const b = D.B[o.vb[n]]; out.push({ book: bookId(b), title: b[0], ch: o.vc[n], v: o.vv[n], n: 1 }); last = n; } }
+    for (const n of idx) { if (n === last) out[out.length - 1].n++; else { const b = D.B[o.vb[n]]; out.push({ book: bookId(b), title: b[0], vt: b[1], ch: o.vc[n], v: o.vv[n], n: 1 }); last = n; } }
     return out;
   }
   const allForms = mdl => mdl.forms.map((_, i) => i).join(',');

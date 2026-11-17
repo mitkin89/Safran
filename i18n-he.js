@@ -1,6 +1,12 @@
 // Hebräische Oberfläche: ergänzt die englische Tabelle (i18n.js); was hier fehlt, bleibt englisch.
 window.I18N_HE = {
 "exact": {
+"Belege": "מופעים",
+"Bestimmung": "ניתוח דקדוקי",
+"Aramäische Wortkarte": "כרטיס מילה בארמית",
+"Verteilung in den Targumim": "התפלגות בתרגומים",
+"{} Belege in den Targumim · {} verschiedene Formen": "{} מופעים בתרגומים · {} צורות שונות",
+"Belegte Wortformen und Bestimmungen aus dem ETCBC Targum Corpus (CC BY-NC 4.0): Onkelos, Neofiti 1 und Pseudo-Jonathan zum Pentateuch. Die Fassungen zählen getrennt; gleich geschriebene Lexeme bleiben getrennt.": "צורות מתועדות וניתוח דקדוקי מתוך קורפוס התרגומים של ETCBC (CC BY-NC 4.0): אונקלוס, נאופיטי 1 ותרגום המיוחס ליונתן על התורה. הנוסחים נספרים בנפרד; לקסמות בעלות כתיב זהה נשארות נפרדות.",
 "Schriftgröße": "גודל גופן",
 "Hebräischer Text": "הטקסט העברי",
 "Lesetext": "טקסט הקריאה",

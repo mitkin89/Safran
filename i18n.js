@@ -14,6 +14,12 @@
   if (lang === 'de') return;
 
   const EN = {
+    "Belege": "Occurrences",
+    "Bestimmung": "Parsing",
+    "Aramäische Wortkarte": "Aramaic word card",
+    "Verteilung in den Targumim": "Distribution in the Targumim",
+    "{} Belege in den Targumim · {} verschiedene Formen": "{} occurrences in the Targumim · {} different forms",
+    "Belegte Wortformen und Bestimmungen aus dem ETCBC Targum Corpus (CC BY-NC 4.0): Onkelos, Neofiti 1 und Pseudo-Jonathan zum Pentateuch. Die Fassungen zählen getrennt; gleich geschriebene Lexeme bleiben getrennt.": "Attested forms and parsing from the ETCBC Targum Corpus (CC BY-NC 4.0): Onkelos, Neofiti 1 and Pseudo-Jonathan on the Pentateuch. Versions are counted separately; lexemes with identical spellings remain separate.",
     "Interlinear-Zuordnung importieren …": "Import interlinear alignment …",
     "Private JSON-Wortzuordnung lokal einbinden": "Import a private JSON word alignment locally",
     "Private Interlinear-Zuordnung nicht geladen: {}": "Private interlinear alignment was not loaded: {}",

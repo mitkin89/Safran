@@ -140,7 +140,7 @@ Den Reiter *Wörterbuch* öffnen, den Knopf 📖 neben dem Kommentarfenster drü
 | **Gesenius**, Hebräisches Handwörterbuch (1915) | 10.118 | |
 | **Jastrow**, Dictionary of the Targumim, Talmud and Midrash | 32.466 | |
 | **Levy**, Wörterbuch über die Talmudim und Midraschim (Bd. 1–4) | 19.503 | Abkürzungen beim Überfahren, Quellen verlinkt |
-| **Levy**, Chaldäisches Wörterbuch über die Targumim (Bd. 1–2) | 7.232 | Abkürzungen beim Überfahren, Quellen verlinkt |
+| **Levy**, Chaldäisches Wörterbuch über die Targumim (Bd. 1–2) | 7.232 | aramäische Wortkarten mit Formen und Targum-Belegen, Abkürzungen beim Überfahren, Quellen verlinkt |
 | **Krauss**, Griechische und lateinische Lehnwörter (Teil II) | 6.329 | Abkürzungen beim Überfahren, Quellen verlinkt, Verweise *s. X* anklickbar |
 | **Krauss**, Register der *Talmudischen Archäologie* (Bd. III) | 11.727 | jeder Eintrag führt in die drei Bände |
 | **Hamburger**, Real-Encyclopädie für Bibel und Talmud (Bd. 1; Bd. 2, talmudische Artikel; Supplementbände I–VI) | 3.026 | Fußnoten im Text, Quellen verlinkt |

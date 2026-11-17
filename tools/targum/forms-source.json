@@ -1,0 +1,66 @@
+{
+  "tokens": 379419,
+  "lemmas": 5429,
+  "sources": [
+    {
+      "rel": "bundled/own/Genesis/other/Targum Onkelos (ETCBC Targum Corpus, Sperber).json",
+      "sha1": "e4de06b8f09019ad7d811b81163de253f18129b1"
+    },
+    {
+      "rel": "bundled/own/Exodus/other/Targum Onkelos (ETCBC Targum Corpus, Sperber).json",
+      "sha1": "48089e3a23ac5296c37d640e335dc07b064a9b08"
+    },
+    {
+      "rel": "bundled/own/Leviticus/other/Targum Onkelos (ETCBC Targum Corpus, Sperber).json",
+      "sha1": "919772f9e4aa984296dd4672316286a622ea5f93"
+    },
+    {
+      "rel": "bundled/own/Numbers/other/Targum Onkelos (ETCBC Targum Corpus, Sperber).json",
+      "sha1": "de70fd48bb7ab970026c49154b1f154ec417b9aa"
+    },
+    {
+      "rel": "bundled/own/Deuteronomy/other/Targum Onkelos (ETCBC Targum Corpus, Sperber).json",
+      "sha1": "ad8815238860d4a4040b1377befcd051c549a6e8"
+    },
+    {
+      "rel": "bundled/own/Genesis/other/Targum Neofiti 1 (ETCBC Targum Corpus, Grundtext).json",
+      "sha1": "f982348c522d00579b67fce3a30a71b728bd5e60"
+    },
+    {
+      "rel": "bundled/own/Exodus/other/Targum Neofiti 1 (ETCBC Targum Corpus, Grundtext).json",
+      "sha1": "027d8dfc2aac29ea727aa39fadc2f0fb1bf9abf9"
+    },
+    {
+      "rel": "bundled/own/Leviticus/other/Targum Neofiti 1 (ETCBC Targum Corpus, Grundtext).json",
+      "sha1": "d5b786c432ff422079a07c054169faf7d3d7181e"
+    },
+    {
+      "rel": "bundled/own/Numbers/other/Targum Neofiti 1 (ETCBC Targum Corpus, Grundtext).json",
+      "sha1": "ed2267f39fe5ff5cfc131f9379fae9fef3f030aa"
+    },
+    {
+      "rel": "bundled/own/Deuteronomy/other/Targum Neofiti 1 (ETCBC Targum Corpus, Grundtext).json",
+      "sha1": "aadf8a24e341dee987d7878524a5aaa545340bda"
+    },
+    {
+      "rel": "bundled/own/Genesis/other/Targum Pseudo-Jonathan (ETCBC Targum Corpus, BL Add. Ms. 2703).json",
+      "sha1": "8e7e7e5a8f2a51a5b71ca572c5696a5c7e07c5be"
+    },
+    {
+      "rel": "bundled/own/Exodus/other/Targum Pseudo-Jonathan (ETCBC Targum Corpus, BL Add. Ms. 2703).json",
+      "sha1": "9c2ee400b58d6321f68c9e838982fd5c66be349c"
+    },
+    {
+      "rel": "bundled/own/Leviticus/other/Targum Pseudo-Jonathan (ETCBC Targum Corpus, BL Add. Ms. 2703).json",
+      "sha1": "2e021c77291dc5eaf4c762a276f83663f1e01107"
+    },
+    {
+      "rel": "bundled/own/Numbers/other/Targum Pseudo-Jonathan (ETCBC Targum Corpus, BL Add. Ms. 2703).json",
+      "sha1": "6ac87c7e8e510ce8e968bc853e401cfa95a5f84e"
+    },
+    {
+      "rel": "bundled/own/Deuteronomy/other/Targum Pseudo-Jonathan (ETCBC Targum Corpus, BL Add. Ms. 2703).json",
+      "sha1": "41dec97946fca1c569ba7acd7fcf3815d1ff6ca6"
+    }
+  ]
+}
