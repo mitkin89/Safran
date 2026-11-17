@@ -169,6 +169,9 @@ Krauss's ***Talmudische Archäologie*** (vols. I–III, Leipzig 1910–1912) its
 
 Safran bundles more than 50 German works in `bundled/` (over 400 book files). They are imported on first start and appear under *Own texts* (*Eigene Texte*) and as extra versions and commentators next to the Sefaria texts. Among them: Zunz, Philippson and Herxheimer for the whole Tanakh, Mendelssohn, Goldschmidt and Hirsch, the Kautzsch Apocrypha, Wünsche's Midrash translations, 19th-century Talmud translations, the Schulchan Aruch, Josephus, Graetz and Ginzberg.
 
+When an app update includes a different version of an existing text, Safran asks before replacing it. Books are grouped by translation, including older own-text imports. You can keep the existing version or accept the new one. Before replacement, the old file is backed up under `backups/text-updates` in the library folder. Keeping a version is remembered for that offered version; a later change prompts again.
+
+
 <details>
 <summary><b>The full list of bundled German texts</b></summary>
 

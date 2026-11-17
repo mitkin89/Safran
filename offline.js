@@ -5,6 +5,7 @@ const fs = require('fs/promises');
 const path = require('path');
 const R = require('./reader');
 const L = require('./lib');
+const { TextUpdates } = require('./text-updates');
 
 const BUCKET_PREFIX = '/sefaria-export/';
 // Durchschnittliche Dateigröße in KB (gemessen an der öffentlichen Bucket-Auflistung, nur für die Schätzung)
@@ -375,7 +376,7 @@ class Library {
 
   // Mitgelieferte Texte (Ordner bundled/ der App): beim Start einbinden, neue oder geänderte Fassungen übernehmen.
   // Vom Nutzer entfernte Texte (skipBundled) kommen nicht wieder.
-  async importBundled(dir, privDir) {
+  async importBundled(dir, privDir, confirmUpdates) {
     let man;
     try { man = JSON.parse(await fs.readFile(path.join(dir, 'manifest.json'), 'utf8')); } catch { return 0; }
     // Private Texte (nicht im Repository, z. B. urheberrechtlich geschützte, nur für den eigenen Gebrauch):
@@ -404,14 +405,17 @@ class Library {
     man = { ...man, items: entries.map(x => x.it) };
     const skip = new Set((this.index.skipBundled || []).map(x => x.normalize('NFC')));
     const have = new Map(Object.keys(this.index.entries).map(k => [k.normalize('NFC'), k])); // Umlaute: gleiche Datei, unterschiedlich geschrieben
+    const updates = new TextUpdates(this);
+    await updates.review(entries, have, skip, confirmUpdates);
     let n = 0;
     let flagged = 0;
     for (const ent of entries) {
       let { it, src, priv } = ent;
       const rel = String(it.rel || '');
       if (!/^own\/[^\\]+\/(he|en|de|other)\/[^/\\]+\.json$/.test(rel) || rel.includes('..') || skip.has(rel)) continue;
-      const cur = this.index.entries[have.get(rel) || rel];
-      if (cur && (!cur.bundled || cur.bundledHash === it.hash)) { if (priv && cur.bundled && !cur.private) { cur.private = true; flagged++; } continue; } // eigene Fassung oder schon aktuell
+      const currentKey = have.get(rel.normalize('NFC')) || rel;
+      const cur = this.index.entries[currentKey], plan = updates.plan(rel);
+      if (cur && ((plan && !plan.allowed) || (!cur.bundled && !(plan && plan.allowed)) || (cur.bundled && cur.bundledHash === it.hash))) { if (priv && cur.bundled && !cur.private) { cur.private = true; flagged++; } continue; } // eigene Fassung behalten oder schon aktuell
       try {
         let buf, lastErr;
         for (const c of [{ it, src }, ...(ent.alt || [])]) { // erste Quelle, sonst die weiteren (z. B. gesicherter Nutzerordner)
@@ -422,13 +426,13 @@ class Library {
           } catch (e2) { lastErr = e2; buf = undefined; }
         }
         if (!buf) throw lastErr;
-        const dest = path.join(this.dir, rel);
+        const dest = path.join(this.dir, currentKey);
         await fs.mkdir(path.dirname(dest), { recursive: true });
-        await fs.writeFile(dest, buf);
-        this.index.entries[rel] = { rel, title: it.title, heTitle: it.heTitle || '', language: it.language, versionTitle: it.versionTitle, categories: it.categories, kind: it.kind, bytes: buf.length, own: true, bundled: true, bundledHash: it.hash, ...(priv ? { private: true } : {}) };
+        if (plan) await updates.install(rel, buf); else await fs.writeFile(dest, buf);
+        this.index.entries[currentKey] = { rel: currentKey, title: it.title, heTitle: it.heTitle || '', language: it.language, versionTitle: it.versionTitle, categories: it.categories, kind: it.kind, bytes: buf.length, own: true, bundled: true, bundledHash: it.hash, ...(priv ? { private: true } : {}) };
         n++;
         if (n % 8 === 0) await this.save().catch(() => {}); // zwischendurch sichern: Abbruch beim ersten Start verliert nichts
-      } catch (err) { if (priv) diag.errors.push(rel + ': ' + err.message); /* Datei fehlt im Paket – überspringen */ }
+      } catch (err) { if (plan) updates.errors.push(it.title + ': ' + err.message); else if (priv) diag.errors.push(rel + ': ' + err.message); /* Datei fehlt im Paket – überspringen */ }
     }
     // Mitgelieferte Texte, die es im Paket nicht mehr gibt (umbenannt oder entfernt), auch hier entfernen
     const inPack = new Set(((man && man.items) || []).map(it => String(it.rel || '').normalize('NFC')));
@@ -461,7 +465,8 @@ class Library {
       } catch { /* Sicherung ist nur ein Zusatz */ }
     }
     diag.imported = n; diag.flagged = flagged;
-    if (n || gone || flagged) await this.save();
+    diag.backups = updates.backups; diag.updateErrors = updates.errors;
+    if (n || gone || flagged || updates.changed) await this.save();
     return n;
   }
 

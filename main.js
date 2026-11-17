@@ -8,6 +8,7 @@ const LK = require('./links');
 const TP = require('./topics');
 const DSL = require('./dsl');
 const PIL = require('./private-interlinear');
+const { confirmTextUpdates } = require('./text-updates');
 
 const T0 = Date.now(); // Startzeit des Hauptprozesses (für startup.log)
 const tMain = [['Hauptprozess gestartet', 0]]; const mkMain = n => tMain.push([n, Date.now() - T0]);
@@ -431,7 +432,18 @@ function getLibrary() {
     const lib = await new OFF.Library(await libraryDir(), fetchBuffer).load();
     mkMain('Bibliothek: Index gelesen (' + lib.list().length + ' Texte)');
     let impErr = '';
-    try { await lib.importBundled(path.join(__dirname, 'bundled'), path.join(app.getPath('userData'), 'private')); mkMain('Bibliothek: mitgelieferte Texte geprüft'); } catch (err) { impErr = String(err && err.stack || err); /* mitgelieferte Texte sind nur ein Zusatz */ }
+    try {
+      await lib.importBundled(path.join(__dirname, 'bundled'), path.join(app.getPath('userData'), 'private'), candidates => confirmTextUpdates(candidates, options => {
+        const parent = BrowserWindow.getFocusedWindow();
+        return parent ? dialog.showMessageBox(parent, options) : dialog.showMessageBox(options);
+      }, M));
+      if (lib.lastImport && lib.lastImport.updateErrors.length) await dialog.showMessageBox({
+        type: 'warning', title: M('Textupdate nicht vollständig', 'Text update incomplete'),
+        message: M('Einige Textfassungen konnten nicht ersetzt werden.', 'Some text versions could not be replaced.'),
+        detail: lib.lastImport.updateErrors.join('\n'),
+      });
+      mkMain('Bibliothek: mitgelieferte Texte geprüft');
+    } catch (err) { impErr = String(err && err.stack || err); /* mitgelieferte Texte sind nur ein Zusatz */ }
     try { require('fs').writeFileSync(path.join(app.getPath('userData'), 'private-import.log'), JSON.stringify({ zeit: new Date().toISOString(), fehler: impErr, ergebnis: lib.lastImport || null, privateInBibliothek: lib.list().filter(e => e.private).length, bibliothek: lib.dir }, null, 1)); } catch { /* Protokoll ist nur eine Hilfe */ }
     setTimeout(() => warmSearchCache(lib), 5000); // Such-Cache im Hintergrund vorbauen
     return lib;

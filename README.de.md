@@ -165,6 +165,9 @@ Krauss’ ***Talmudische Archäologie*** (Bd. I–III, Leipzig 1910–1912) selb
 
 Safran liefert über 50 deutsche Werke im Ordner `bundled/` mit (mehr als 400 Buchdateien). Sie werden beim ersten Start importiert und erscheinen unter *Eigene Texte* sowie als zusätzliche Versionen und Kommentatoren neben den Sefaria-Texten. Darunter: Zunz, Philippson und Herxheimer zum ganzen Tanach, Mendelssohn, Goldschmidt und Hirsch, die Kautzsch-Apokryphen, Wünsches Midrasch-Übersetzungen, Talmud-Übersetzungen des 19. Jahrhunderts, der Schulchan Aruch, Josephus, Graetz und Ginzberg.
 
+Wenn ein Update eine andere Fassung eines bereits vorhandenen Textes mitliefert, fragt Safran vor dem Ersetzen. Die Rückfrage fasst die Bücher derselben Übersetzung zusammen und berücksichtigt auch frühere eigene Importe. Du kannst die bisherige Fassung behalten oder die neue übernehmen. Vor dem Ersetzen sichert Safran die alte Datei im Bibliotheksordner unter `backups/text-updates`. „Behalten“ wird für die angebotene Fassung gemerkt; eine spätere Änderung wird erneut angeboten.
+
+
 <details>
 <summary><b>Die vollständige Liste der mitgelieferten deutschen Texte</b></summary>
 
