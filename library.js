@@ -3201,10 +3201,25 @@
     const pvLemOk = (dl, lem) => String(dl || '').split('/').some(x => { x = x.trim(); return x === lem || (/^\d+$/.test(lem) && x.replace(/\D.*$/, '') === lem); });
     const pvMark = (box, ref, lem) => {
       const m = /^(.*) (\d+):(\d+)$/.exec(ref), parts = [...box.querySelectorAll('.pvp')];
-      const he = parts.find(p => p.dataset.he && p.querySelectorAll('.phe').length === 1); if (!he) return;
-      const ix = []; he.querySelectorAll('.w').forEach((w, i) => { if (pvLemOk(w.dataset.l, lem)) { w.classList.add('pvhl'); ix.push(i + 1); } });
+      const he = parts.find(p => p.dataset.he && p.querySelector('.w')) || parts.find(p => p.dataset.he); if (!he) return;
+      const ix = [], hc = new Set(); he.querySelectorAll('.w').forEach((w, i) => { if (pvLemOk(w.dataset.l, lem)) { w.classList.add('pvhl'); ix.push(i + 1); hc.add(consOf(w.textContent)); } });
+      // Qumran-Rollen (und andere Fassungen mit Lemma je Wort): gleiches Lemma wie die Wortkarte
+      const lc = consOf(((window.OSHB_LEMMAS || {})[String(lem).replace(/\D.*$/, '')] || [])[0] || '');
+      if (lc) parts.forEach(p => { if (p !== he) p.querySelectorAll('.wq[data-l]').forEach(x => { if (consOf(x.dataset.l) === lc) x.classList.add('pvhl'); }); });
       if (!ix.length || !m) return;
       const set = new Set(ix);
+      // Septuaginta (CATSS): griechische Wortgruppe, deren hebräisches Gegenstück (data-h) das markierte Wort ist
+      parts.forEach(p => p.querySelectorAll('.wg[data-h]').forEach(g => { if (hc.has(consOf(g.dataset.h))) g.classList.add('pvhl'); }));
+      // Targumim: aramäische Wörter mit maschineller Zuordnung (targum-il.js)
+      const tgParts = parts.filter(p => Object.keys(IL_TG).some(n => String(p.dataset.vt || '').startsWith(IL_TG[n])));
+      if (tgParts.length) loadTgIL().then(TG => {
+        if (!TG || !box.isConnected || hovRef !== ref) return;
+        tgParts.forEach(p => {
+          const nm = Object.keys(IL_TG).find(n => String(p.dataset.vt || '').startsWith(IL_TG[n])), d = p.firstElementChild; if (!d || p.children.length !== 1) return;
+          const segs = tgSegs(TG, nm, m[1], m[2], +m[3], d.textContent); if (!segs) return;
+          d.textContent = ''; segs.forEach(([idx, w], k) => { if (k) d.append(' '); const sp = document.createElement('span'); sp.textContent = w; if (idx.some(i => set.has(i))) sp.className = 'pvhl'; d.append(sp); });
+        });
+      }, () => {});
       loadIL().then(IL => {
         if (!IL || !box.isConnected || hovRef !== ref) return;
         parts.filter(p => !p.dataset.he).forEach(p => {
