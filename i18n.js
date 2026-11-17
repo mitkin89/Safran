@@ -14,6 +14,12 @@
   if (lang === 'de') return;
 
   const EN = {
+    "Wortzuordnung nicht angewendet: {}": "Word alignment not applied: {}",
+    "Quellstand der Wortzuordnung fehlt": "Source fingerprint for the word alignment is missing",
+    "Hebräische Fassung weicht vom Quellstand der Wortzuordnung ab": "Hebrew version differs from the alignment source",
+    "Übersetzung weicht vom Quellstand der Wortzuordnung ab": "Translation differs from the alignment source",
+    "Textfassung konnte nicht geprüft werden": "Text version could not be verified",
+
     "Grammatik (Tanach / Bavli)": "Grammar (Tanakh / Bavli)",
     "Grammatik-Suche: Tanach (Westminster) und Berakhot 2a–10b": "Grammar search: Tanakh (Westminster) and Berakhot 2a–10b",
     "Mehrdeutig: mehrere Analysen": "Ambiguous: multiple analyses",

@@ -9,6 +9,7 @@ const TP = require('./topics');
 const DSL = require('./dsl');
 const PIL = require('./private-interlinear');
 const { confirmTextUpdates } = require('./text-updates');
+const { SearchJobs, ownerOf, runSearchWorker, emptyResult } = require('./search-jobs');
 
 const T0 = Date.now(); // Startzeit des Hauptprozesses (für startup.log)
 const tMain = [['Hauptprozess gestartet', 0]]; const mkMain = n => tMain.push([n, Date.now() - T0]);
@@ -18,7 +19,7 @@ let toolsWin = null;
 let offlineWin = null;
 let cancelFlag = false;
 let dlCancel = false;
-let searchCancel = false;
+const searchJobs = new SearchJobs();
 
 app.setName('Sefaria');
 // Der Datenordner (Bibliothek, Notizen, Einstellungen) bleibt wie bisher, auch wenn die App jetzt „Safran“ heißt
@@ -211,7 +212,7 @@ function openOffline() {
   offlineWin.webContents.setWindowOpenHandler(() => ({ action: 'deny' }));
   offlineWin.webContents.on('will-navigate', (e, url) => { if (!url.startsWith('file://')) e.preventDefault(); });
   offlineWin.webContents.on('will-frame-navigate', e => { if (!e.url.startsWith('file://')) e.preventDefault(); }); // auch das zweite Lesefenster (iframe) bleibt lokal
-  offlineWin.on('closed', () => { offlineWin = null; dlCancel = true; searchCancel = true; if (searchWorker) searchWorker.terminate(); });
+  offlineWin.on('closed', () => { offlineWin = null; dlCancel = true; searchJobs.cancelAll(); if (warming) { warming.terminate(); warming = null; } });
   offlineWin.webContents.once('did-start-loading', () => { tRenderStart = Date.now() - T0; mkMain('Seite beginnt zu laden'); });
   offlineWin.webContents.once('did-finish-load', () => mkMain('Seite geladen'));
   trackWinState(offlineWin);
@@ -430,6 +431,11 @@ function getLibrary() {
   if (!libraryP) libraryP = (async () => {
     mkMain('Bibliothek: Laden beginnt');
     const lib = await new OFF.Library(await libraryDir(), fetchBuffer).load();
+    if (lib.recovery) await dialog.showMessageBox({
+      type: 'warning', title: M('Bibliotheksindex wiederhergestellt', 'Library index recovered'),
+      message: M('Der Bibliotheksindex wurde aus seiner letzten gültigen Sicherung wiederhergestellt.', 'The library index was recovered from its last valid backup.'),
+      detail: lib.recovery.backup + '\n' + M('Eine vorhandene beschädigte Datei bleibt als .broken-Datei erhalten. Die Textdateien wurden nicht verändert.', 'An existing damaged index is retained as a .broken file. Text files have not been changed.'),
+    });
     mkMain('Bibliothek: Index gelesen (' + lib.list().length + ' Texte)');
     let impErr = '';
     try {
@@ -538,7 +544,6 @@ ipcMain.handle('off:library', async () => {
 
 ipcMain.handle('off:read', async (_e, rel) => (await getLibrary()).read(rel));
 
-let searchWorker = null;
 const cacheDirOf = lib => path.join(lib.dir, '.searchcache');
 let warming = null;
 function warmSearchCache(lib) {
@@ -547,38 +552,37 @@ function warmSearchCache(lib) {
     const { Worker } = require('worker_threads');
     const w = new Worker(path.join(__dirname, 'cacheWorker.js'), { workerData: { dir: lib.dir, entries: lib.list().filter(e => e.kind === 'he' || e.kind === 'de' || e.kind === 'en'), cacheDir: cacheDirOf(lib) } });
     warming = w;
-    const done = () => { if (warming === w) warming = null; };
+    const done = () => { if (warming === w) warming = null; Promise.resolve(w.terminate()).catch(() => {}); };
     w.on('message', done); w.on('error', done); w.on('exit', done);
     w.unref && w.unref();
   } catch { /* ohne Cache geht es auch */ }
 }
-ipcMain.handle('off:search', async (e, o) => {
-  searchCancel = false;
-  const lib = await getLibrary();
-  const str = x => String(x == null ? '' : x);
-  const params = {
-    query: str(o.query), extra: Array.isArray(o.extra) ? o.extra.slice(0, 2).map(str) : [], fuzzy: !!o.fuzzy,
-    distance: Number.isFinite(o.distance) ? o.distance : -1, ordered: !!o.ordered, prefix: !!o.prefix, exact: !!o.exact, wlc: !!o.wlc, lemma: !!o.lemma, countAll: !!o.countAll, parse: !!o.parse, partial: !!o.partial, gram: o.gram && typeof o.gram === 'object' ? Object.fromEntries(['pos', 'stem', 'tense', 'person', 'gender', 'number', 'state', 'suffix', 'article'].map(k => [k, String(o.gram[k] == null ? '' : o.gram[k]).slice(0, 3)])) : null,
-    limit: Math.min(5000, +o.limit || 1000), perFile: Math.min(500, +o.perFile || 25),
-  };
-  const entries = lib.entriesFor({ kinds: Array.isArray(o.kinds) ? o.kinds : [], category: str(o.category), categories: Array.isArray(o.categories) ? o.categories.map(str) : [], titles: Array.isArray(o.titles) ? o.titles.map(str) : [] });
-  const progress = p => { if (!e.sender.isDestroyed()) e.sender.send('off:searchProgress', p); };
-  const inline = () => require('./searchcore').searchFiles({ dir: lib.dir, entries, params, cacheDir: cacheDirOf(lib), onProgress: progress, isCancelled: () => searchCancel });
+ipcMain.handle('off:search', async (e, o = {}) => {
+  const job = searchJobs.begin(ownerOf(e), o.requestId);
   try {
-    const { Worker } = require('worker_threads');
-    return await new Promise((resolve, reject) => {
-      const w = new Worker(path.join(__dirname, 'searchWorker.js'), { workerData: { dir: lib.dir, entries, params, cacheDir: cacheDirOf(lib) } });
-      searchWorker = w;
-      let finished = false;
-      const timer = setInterval(() => { if (searchCancel) w.postMessage('cancel'); }, 100);
-      const end = fn => v => { if (finished) return; finished = true; clearInterval(timer); if (searchWorker === w) searchWorker = null; fn(v); };
-      w.on('message', m => { if (m.type === 'progress') progress(m.p); else if (m.type === 'done') end(resolve)(m.res); else if (m.type === 'error') end(reject)(new Error(m.error)); });
-      w.on('error', end(reject));
-      w.on('exit', code => end(reject)(new Error('Such-Prozess beendet (' + code + ')')));
-    });
-  } catch { return inline(); } // falls der Hintergrund-Thread nicht startet: direkt suchen
+    const lib = await getLibrary();
+    if (job.cancelled) return emptyResult();
+    const str = x => String(x == null ? '' : x);
+    const params = {
+      query: str(o.query), extra: Array.isArray(o.extra) ? o.extra.slice(0, 2).map(str) : [], fuzzy: !!o.fuzzy,
+      distance: Number.isFinite(o.distance) ? o.distance : -1, ordered: !!o.ordered, prefix: !!o.prefix, exact: !!o.exact, wlc: !!o.wlc, lemma: !!o.lemma, countAll: !!o.countAll, parse: !!o.parse, partial: !!o.partial, gram: o.gram && typeof o.gram === 'object' ? Object.fromEntries(['pos', 'stem', 'tense', 'person', 'gender', 'number', 'state', 'suffix', 'article'].map(k => [k, String(o.gram[k] == null ? '' : o.gram[k]).slice(0, 3)])) : null,
+      limit: Math.min(5000, +o.limit || 1000), perFile: Math.min(500, +o.perFile || 25),
+    };
+    const entries = lib.entriesFor({ kinds: Array.isArray(o.kinds) ? o.kinds : [], category: str(o.category), categories: Array.isArray(o.categories) ? o.categories.map(str) : [], titles: Array.isArray(o.titles) ? o.titles.map(str) : [] });
+    const progress = p => {
+      if (!searchJobs.current(job) || e.sender.isDestroyed()) return;
+      try { if (e.senderFrame) e.senderFrame.send('off:searchProgress', { ...p, requestId: job.requestId }); }
+      catch { searchJobs.cancel(job.owner, job.requestId); } // Lesefenster während der Suche geschlossen
+    };
+    try {
+      return await runSearchWorker({ dir: lib.dir, entries, params, cacheDir: cacheDirOf(lib) }, job, progress);
+    } catch (err) {
+      if (err.code !== 'WORKER_UNAVAILABLE') throw err;
+      return require('./searchcore').searchFiles({ dir: lib.dir, entries, params, cacheDir: cacheDirOf(lib), onProgress: progress, isCancelled: () => job.cancelled });
+    }
+  } finally { searchJobs.finish(job); }
 });
-ipcMain.on('off:cancelSearch', () => { searchCancel = true; });
+ipcMain.on('off:cancelSearch', (e, requestId) => { searchJobs.cancel(ownerOf(e), requestId); });
 
 
 // Eigene Texte: Dateien wählen (mehrere möglich) -> prüfen (Vorschau) -> speichern
@@ -1172,6 +1176,7 @@ ipcMain.handle('off:chooseDir', async e => {
       if (oldNotes !== newNotes) { try { await fs.access(newNotes); } catch { await fs.copyFile(oldNotes, newNotes); } }
     } catch {}
     await fs.writeFile(configFile(), JSON.stringify({ dir: r.filePaths[0] }));
+    searchJobs.cancelAll(); if (warming) warming.terminate();
     libraryP = null; dictsP = null; warming = null; invalidateReads();
   }
   return offState();

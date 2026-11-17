@@ -25,6 +25,7 @@ contextBridge.exposeInMainWorld('lib', {
   LANG_NAMES: sef.LANG_NAMES,
 });
 
+let searchSeq = 0, activeSearch = null;
 contextBridge.exposeInMainWorld('offline', {
   state: () => ipcRenderer.invoke('off:state'),
   catalogFetch: () => ipcRenderer.invoke('off:catalogFetch'),
@@ -37,8 +38,8 @@ contextBridge.exposeInMainWorld('offline', {
   updateRun: () => ipcRenderer.invoke('off:updateRun'),
   library: () => ipcRenderer.invoke('off:library'),
   read: rel => ipcRenderer.invoke('off:read', rel),
-  search: o => ipcRenderer.invoke('off:search', o),
-  cancelSearch: () => ipcRenderer.send('off:cancelSearch'),
+  search: o => { const requestId = ++searchSeq; activeSearch = requestId; return ipcRenderer.invoke('off:search', { ...o, requestId }).finally(() => { if (activeSearch === requestId) activeSearch = null; }); },
+  cancelSearch: () => { if (activeSearch != null) ipcRenderer.send('off:cancelSearch', activeSearch); },
   ownPick: () => ipcRenderer.invoke('off:ownPick'),
   interlinearRead: () => ipcRenderer.invoke('interlinear:read'),
   interlinearImport: () => ipcRenderer.invoke('interlinear:import'),
@@ -67,7 +68,7 @@ contextBridge.exposeInMainWorld('offline', {
   chooseDir: () => ipcRenderer.invoke('off:chooseDir'),
   reveal: () => ipcRenderer.invoke('off:reveal'),
   onProgress: cb => ipcRenderer.on('off:progress', (_e, d) => cb(d)),
-  onSearchProgress: cb => ipcRenderer.on('off:searchProgress', (_e, d) => cb(d)),
+  onSearchProgress: cb => ipcRenderer.on('off:searchProgress', (_e, d) => { if (d.requestId === activeSearch) cb(d); }),
 });
 
 contextBridge.exposeInMainWorld('uiZoom', { set: f => { const z = Math.min(2, Math.max(0.6, +f || 1)); webFrame.setZoomFactor(z); return z; } });

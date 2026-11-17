@@ -6,6 +6,8 @@ const path = require('path');
 const R = require('./reader');
 const L = require('./lib');
 const { TextUpdates } = require('./text-updates');
+const { randomUUID, createHash } = require('crypto');
+const { parseLibraryIndex, parseDownload } = require('./library-integrity');
 
 const BUCKET_PREFIX = '/sefaria-export/';
 // Durchschnittliche Dateigröße in KB (gemessen an der öffentlichen Bucket-Auflistung, nur für die Schätzung)
@@ -252,15 +254,30 @@ class Library {
     this.fetchBuffer = fetchBuffer;
     this.index = { version: 1, entries: {} };
     this._saving = Promise.resolve();
+    this._indexBlocked = false;
+    this.recovery = null;
   }
 
   get indexFile() { return path.join(this.dir, 'library.json'); }
 
   async load() {
     try {
-      const j = JSON.parse(await fs.readFile(this.indexFile, 'utf8'));
-      if (j && j.entries) this.index = j;
-    } catch { /* noch keine Bibliothek */ }
+      this.index = parseLibraryIndex(await fs.readFile(this.indexFile, 'utf8'));
+    } catch (err) {
+      try {
+        this.index = parseLibraryIndex(await fs.readFile(this.indexFile + '.bak', 'utf8'));
+        this.recovery = { backup: this.indexFile + '.bak', reason: err.message };
+        this._recoveringIndex = true;
+      } catch (backupError) {
+        if (err.code !== 'ENOENT' || backupError.code !== 'ENOENT') {
+          this._indexBlocked = true;
+          const error = new Error(`Bibliotheksindex beschädigt oder nicht lesbar: ${this.indexFile}. Keine gültige Sicherung gefunden. Die vorhandenen Dateien wurden nicht verändert.`, { cause: err });
+          error.code = 'LIBRARY_INDEX_DAMAGED'; throw error;
+        }
+      }
+    }
+    this._indexBlocked = false;
+    if (this.recovery) await this.save();
     // gesperrte Versionen (s. BLOCKED_VERSIONS): Datei und Eintrag entfernen
     let gone = 0;
     for (const [rel, e] of Object.entries(this.index.entries || {})) {
@@ -275,10 +292,22 @@ class Library {
   save() {
     // Speichern nacheinander ausführen, damit parallele Aufrufe sich nicht überschreiben
     this._saving = this._saving.catch(() => {}).then(async () => {
+      if (this._indexBlocked) throw new Error('Beschädigter Bibliotheksindex wird nicht überschrieben');
+      parseLibraryIndex(JSON.stringify(this.index));
       await fs.mkdir(this.dir, { recursive: true });
-      const tmp = this.indexFile + '.tmp';
-      await fs.writeFile(tmp, JSON.stringify(this.index));
-      await renameRetry(tmp, this.indexFile);
+      let old;
+      try { old = await fs.readFile(this.indexFile); } catch (err) { if (err.code !== 'ENOENT') throw err; }
+      if (old) {
+        let valid = true; try { parseLibraryIndex(old.toString('utf8')); } catch { valid = false; }
+        if (!valid && !this._recoveringIndex) throw new Error('Bibliotheksindex wurde beschädigt; nicht überschrieben');
+        const backup = valid ? this.indexFile + '.bak' : this.indexFile + '.broken-' + randomUUID();
+        const backupTmp = backup + '.' + randomUUID() + '.tmp';
+        try { await fs.writeFile(backupTmp, old, { flag: 'wx' }); await renameRetry(backupTmp, backup); }
+        finally { await fs.unlink(backupTmp).catch(() => {}); }
+      }
+      const tmp = this.indexFile + '.' + randomUUID() + '.tmp';
+      try { await fs.writeFile(tmp, JSON.stringify(this.index), { flag: 'wx' }); await renameRetry(tmp, this.indexFile); this._recoveringIndex = false; }
+      finally { await fs.unlink(tmp).catch(() => {}); }
     });
     return this._saving;
   }
@@ -326,12 +355,13 @@ class Library {
           try { const st = await fs.stat(dest); size = st.size; have = st.size > 0 && !!this.index.entries[rel] && !(force && force.has(rel)); } catch { /* noch nicht da */ }
           if (!have) {
             const buf = await this.fetchWithRetry(e.json_url);
+            const doc = parseDownload(buf, e); // vor jedem Ersetzen prüfen, nicht erst beim Lesen
+            if (isCancelled()) return;
             await fs.mkdir(path.dirname(dest), { recursive: true });
             await fs.writeFile(dest + '.part', buf);
             await renameRetry(dest + '.part', dest);
             size = buf.length;
-            let heTitle = '';
-            try { heTitle = JSON.parse(buf.toString('utf8')).heTitle || ''; } catch { /* Meta optional */ }
+            const heTitle = doc.heTitle || '';
             this.index.entries[rel] = {
               rel, title: e.title, heTitle, language: e.language, versionTitle: e.versionTitle,
               categories: e.categories, kind: kindOf(e), bytes: size,
@@ -574,6 +604,7 @@ class Library {
     const d = JSON.parse(await fs.readFile(path.join(this.dir, rel), 'utf8'));
     return {
       entry, title: d.title, heTitle: d.heTitle, language: d.language, versionTitle: d.versionTitle,
+      textHash: createHash('sha256').update(JSON.stringify(d.text)).digest('hex'),
       versionSource: d.versionSource, sectionNames: d.sectionNames || null, text: d.text,
       // eigene Angabe zur Zählung: { text: 'grk', cites: 'eng' } (siehe versemap.js; sonst gilt bundled/versification.json)
       versification: d.versification && typeof d.versification === 'object' ? { text: d.versification.text, cites: d.versification.cites } : undefined,

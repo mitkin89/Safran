@@ -717,7 +717,7 @@
     const gm = d.entry.language === 'Greek' ? ` data-gt="${esc(d.entry.title)}" data-gv="${esc(d.entry.versionTitle || d.versionTitle || '')}"` : ''; // Septuaginta: Titel und Fassung für die Wort-Bestimmung (lxx-morph.js)
     const vt = (d.entry.kind === 'de' || /^Targum .*\(ETCBC/.test(d.entry.versionTitle || '')) && /^own\//.test(d.entry.rel || '') ? ` data-vt="${esc(d.entry.versionTitle || '')}"` : ''; // eigene Übersetzung: für die Wort-Zuordnung (interlin.js)
     const bv = d.entry.title === 'Berakhot' && d.entry.kind === 'he' ? ' data-bavli="1"' : '';
-    return `<div class="cell" data-k="${d.entry.kind}"${gm}${vt}${bv} dir="${rtl ? 'rtl' : 'ltr'}"><div class="txt">${hit ? markHits(linked, hit) : linked}</div></div>`;
+    return `<div class="cell" data-k="${d.entry.kind}" data-rel="${esc(d.entry.rel || '')}"${gm}${vt}${bv} dir="${rtl ? 'rtl' : 'ltr'}"><div class="txt">${hit ? markHits(linked, hit) : linked}</div></div>`;
   }
 
   // Gleichlauf: 'off' | 'both' (beide führen) | 'left' (links führt, rechts folgt) | 'right' (rechts führt, links folgt)
@@ -811,7 +811,7 @@
   let ilPrivateRen = null;
   const loadIL = () => ilP || (ilP = (async () => {
     const revision = ilRevision;
-    const built = await lazyScript('interlin.js', () => window.INTERLIN);
+    const [built] = await Promise.all([lazyScript('interlin.js', () => window.INTERLIN), lazyScript('interlin-sources.js', () => window.INTERLIN_SOURCES)]);
     let local;
     try { local = await O.interlinearRead(); } catch (err) { local = { error: err.message }; }
     if (revision !== ilRevision) return loadIL();
@@ -913,10 +913,13 @@
   const tgPlain = html => { ilTpl.innerHTML = html || ''; return ilTpl.content.textContent; };
   const ilName = vt => Object.keys(IL_VT).find(n => IL_VT[n].test(vt || ''));
   function ilTagCell(cell, segs) {
-    const txt = cell.querySelector('.txt'); if (!txt || txt.dataset.ilx) return; txt.dataset.ilx = '1';
+    const txt = cell.querySelector('.txt'); if (!txt || txt.dataset.ilx) return;
     const nodes = [], tw = document.createTreeWalker(txt, NodeFilter.SHOW_TEXT);
     for (let nd; (nd = tw.nextNode()); ) if (!nd.parentElement.closest('.note, sup')) nodes.push(nd);
     let full = '', starts = nodes.map(nd => { const p = full.length; full += nd.data; return p; });
+    const space = s => String(s).replace(/\s+/g, ' ').trim();
+    if (space(full) !== space(segs.map(([, text]) => text).join(' '))) return;
+    txt.dataset.ilx = '1';
     const hits = []; let pos = 0;
     for (const [idx, t] of segs) {
       const w = t.trim(); if (!w) continue;
@@ -1047,6 +1050,28 @@
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('#ilPop').hidden) ilPopToggle(false); });
   addEventListener('resize', () => ilPopPlace());
   let ilTok = 0;
+  async function ilSourceChecks(names, title) {
+    const checked = new Set(), warnings = [];
+    const loaded = view && view.loaded || [], group = view && view.group;
+    const hebrew = loaded.filter(d => d.entry.kind === 'he' && /^Westminster/.test(d.entry.versionTitle || ''));
+    if (!hebrew.length) return { checked, warnings };
+    for (const name of names) {
+      if (name === 'BuberRosenzweig') { checked.add(name); continue; } // bereits durch matchLibrary geprüft
+      const expected = window.INTERLIN_SOURCES && window.INTERLIN_SOURCES[name] && window.INTERLIN_SOURCES[name][title];
+      let translations = loaded.filter(d => ilName(d.entry.versionTitle) === name);
+      if (!translations.length && expected) {
+        const entry = group && group.versions.find(v => v.versionTitle === expected.translation.versionTitle);
+        if (entry) {
+          try { const doc = cache.get(entry.rel) || await O.read(entry.rel); translations = [doc]; }
+          catch { warnings.push((IL_LABEL[name] || name) + ': ' + I18N.t('Textfassung konnte nicht geprüft werden')); continue; }
+        }
+      }
+      const result = hebrew.map(doc => window.AlignmentSources.check(expected, doc, translations));
+      if (result.every(r => r.ok)) checked.add(name);
+      else warnings.push((IL_LABEL[name] || name) + ': ' + I18N.t(result.find(r => !r.ok).reason));
+    }
+    return { checked, warnings };
+  }
   $('#bavliIlBtn').onclick = async () => {
     const current = view && view.sections && view.sections[view.idx];
     const page = current && apChap(current);
@@ -1071,19 +1096,23 @@
     const QIL = view && view.group && qVer(view.group) ? await loadQIL() : null;
     if (tok !== ilTok) return;
     const qHas = !!(QIL && QIL[title] && c0 && Object.keys(QIL[title]).some(k => k.startsWith(c0 + ':')));
-    ilAvail = IL_ORDER.filter(n => n === 'LXX' ? lxx : n === 'Qumran' ? qHas : IL_TG[n] ? tgHas(n) : names.includes(n));
+    const sourceChecks = await ilSourceChecks(names, title);
+    if (tok !== ilTok) return;
+    ilAvail = IL_ORDER.filter(n => n === 'LXX' ? lxx : n === 'Qumran' ? qHas : IL_TG[n] ? tgHas(n) : sourceChecks.checked.has(n));
     const has = ilAvail.length > 0, use = ilAvail.filter(n => ilPick.includes(n)), on = use.length > 0;
     b.hidden = !has; b.classList.toggle('on', has && on);
     if (!has && !$('#ilPop').hidden) ilPopToggle(false); else ilPopRender();
     document.body.classList.toggle('il', has && on);
     ilClear();
     $$('#rOut .illeg').forEach(x => x.remove());
+    $$('#rOut .il-source-warning').forEach(x => x.remove());
+    if (sourceChecks.warnings.length) { const notice = document.createElement('p'); notice.className = 'il-source-warning muted'; notice.textContent = I18N.t('Wortzuordnung nicht angewendet: {}', sourceChecks.warnings.join('; ')); $('#rOut').prepend(notice); }
     if (!has) return;
     const s = view.sections && view.sections[view.idx], chap = s && apChap(s); if (!chap) return;
     for (const row of $$('#rOut .row[data-l]')) { // deutsche und aramäische Spalten: Wortgruppen anklickbar machen (unabhängig vom Interlinear-Knopf)
       const v = verseOf(row.dataset.l); if (v == null) continue;
       row.querySelectorAll('.cell[data-vt]').forEach(cell => {
-        const nm = ilName(cell.dataset.vt); if (!nm) return;
+        const nm = ilName(cell.dataset.vt); if (!nm || (!IL_TG[nm] && !sourceChecks.checked.has(nm))) return;
         const segs = IL_TG[nm] ? tgSegs(TG, nm, title, chap, v, (cell.querySelector('.txt') || cell).textContent) : ALL && ALL[nm] && ALL[nm][title] && ALL[nm][title][chap + ':' + v];
         if (segs) ilTagCell(cell, segs);
       });
@@ -1097,6 +1126,8 @@
       const v = verseOf(row.dataset.l); if (v == null) continue;
       row.querySelectorAll('.cell[data-k="he"]').forEach(cell => {
         if (!cell.querySelector('.w')) return;
+        const owner = view.loaded.find(d => d.entry.rel === cell.dataset.rel);
+        if (!owner || !/^Westminster/.test(owner.entry.versionTitle || '')) return;
         const tgv = nm => { const d = tgd[nm], ch = d && d.text[+chap - 1]; return ch ? tgSegs(TG, nm, title, chap, v, tgPlain(ch[v - 1])) : null; };
         const trs = use.flatMap(nm => nm === 'Qumran' ? ((QIL[title] || {})[chap + ':' + v] || []).map(([sig, segs]) => [nm, segs, sig]) : [[nm, nm === 'LXX' ? (lx && lx.text[+chap - 1] ? ilLxxSegs(cell, lx.text[+chap - 1][v - 1]) : null) : IL_TG[nm] ? tgv(nm) : ALL[nm][title][chap + ':' + v]]]).filter(x => x[1] && x[1].length);
         if (trs.length) ilVerse(cell, trs, IL_ORDER);

@@ -1,6 +1,12 @@
 // Hebräische Oberfläche: ergänzt die englische Tabelle (i18n.js); was hier fehlt, bleibt englisch.
 window.I18N_HE = {
 "exact": {
+    "Wortzuordnung nicht angewendet: {}": "שיוך המילים לא הוחל: {}",
+    "Quellstand der Wortzuordnung fehlt": "חסרה חתימת המקור של שיוך המילים",
+    "Hebräische Fassung weicht vom Quellstand der Wortzuordnung ab": "הנוסח העברי שונה ממקור שיוך המילים",
+    "Übersetzung weicht vom Quellstand der Wortzuordnung ab": "התרגום שונה ממקור שיוך המילים",
+    "Textfassung konnte nicht geprüft werden": "לא ניתן לאמת את גרסת הטקסט",
+
     "Grammatik (Tanach / Bavli)": "דקדוק (תנ״ך / בבלי)",
     "Grammatik-Suche: Tanach (Westminster) und Berakhot 2a–10b": "חיפוש דקדוקי: תנ״ך (וסטמינסטר) וברכות ב ע״א–י ע״ב",
     "Mehrdeutig: mehrere Analysen": "עמום: כמה ניתוחים אפשריים",
