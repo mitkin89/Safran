@@ -3,7 +3,7 @@ const assert = require('assert'), fs = require('fs'), path = require('path');
 global.window = {}; require('./interlin.js');
 const ALL = window.INTERLIN, rd = (b, l, re) => { const d = path.join(__dirname, 'bundled', 'own', b, l); return JSON.parse(fs.readFileSync(path.join(d, fs.readdirSync(d).find(f => re.test(f))), 'utf8')).text; };
 const norm = s => s.replace(/<sup class="footnote-marker">.*?<\/sup><i class="footnote">.*?<\/i>/g, '').replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
-const PAT = { Zunz: /Zunz/, Breuer: /^(?:(?:Raphael )?Breuer|Das Buch Jecheskel, übersetzt und erläutert von Dr\. Joseph Breuer,)/, Philippson: /Philippson/, Herxheimer: /ebräischen Texte/, Goldschmidt: /Übersetzung von Lazarus Goldschmidt, Berlin 1921/, Hirsch: /Die Psalmen, übersetzt und erläutert von Samson Raphael Hirsch/, JuliusHirsch: /^Julius Hirsch, / };
+const PAT = { Wolf: /^Wolf, Das Buch Samuel/, Zunz: /Zunz/, Breuer: /^(?:(?:Raphael )?Breuer|Das Buch Jecheskel, übersetzt und erläutert von Dr\. Joseph Breuer,)/, Philippson: /Philippson/, Herxheimer: /ebräischen Texte/, Goldschmidt: /Übersetzung von Lazarus Goldschmidt, Berlin 1921/, Hirsch: /Die Psalmen, übersetzt und erläutert von Samson Raphael Hirsch/, JuliusHirsch: /^Julius Hirsch, / };
 for (const [tr, D] of Object.entries(ALL)) for (const book of Object.keys(D)) {
   const he = rd(book, 'he', /^Westminster/), de = rd(book, 'de', PAT[tr]);
   let n = 0;
@@ -119,6 +119,23 @@ assert.deepStrictEqual(ALL.Breuer.Ezekiel['4:8'].find(s => s[1] === 'angelegt,')
 assert.deepStrictEqual(ALL.Breuer.Ezekiel['10:4'].find(s => s[1] === 'dem Cherub'), [[5], 'dem Cherub']);
 assert.deepStrictEqual(ALL.Breuer.Ezekiel['10:4'].find(s => s[1] === 'zur'), [[6], 'zur']);
 
+// Wolf: beide Samuelbücher vollständig, ohne Teilstand-Ausnahmen.
+assert.strictEqual(Object.keys(ALL.Wolf['I Samuel']).length, 811);
+assert.strictEqual(Object.keys(ALL.Wolf['II Samuel']).length, 695);
+const WOLF_KQ = {
+'I Samuel': [['2:3',13,14],['2:9',2,3],['2:10',3,4],['2:10',5,6],['2:16',14,15],['3:2',7,8],['4:13',7,8],['5:6',9,10],['5:9',21,22],['5:12',6,7],['6:4',12,13],['6:5',3,4],['7:9',6,7],['8:3',4,5],['9:1',3,4,5],['9:26',9,10],['10:7',3,4],['10:21',5,6],['11:6',6,7],['11:9',13,14],['12:10',4,5],['13:8',1,2],['13:19',8,9],['14:27',22,23],['14:32',1,2],['14:32',5,6],['15:16',14,15],['17:7',1,2],['17:23',12,13],['18:1',11,12],['18:6',13,14],['18:7',7,8],['18:9',3,4],['19:18',20,21],['19:19',6,7],['19:22',18,19],['19:23',4,5],['19:23',18,19],['20:1',3,4],['20:2',7,8,9,10],['20:24',8,9],['20:38',13,14],['21:12',17,18],['21:12',20,21],['21:14',7,8],['22:13',2,3],['22:15',3,4],['22:17',23,24],['22:18',3,4],['22:18',10,11],['22:22',9,10],['23:5',3,4],['24:5',15,16],['24:9',6,7,8],['24:19',1,2],['25:3',17,18],['25:18',2,3],['25:18',12,13],['25:34',13,14],['26:5',28,29],['26:7',15,16],['26:7',20,21],['26:11',14,15],['26:16',30,31],['26:22',5,6],['27:4',8,9],['27:8',7,8],['28:8',16,17],['29:5',13,14],['30:6',15,16]],
+'II Samuel': [['1:8',5,6],['1:11',3,4],['1:16',4,5],['2:23',15,16],['3:2',1,2],['3:3',3,4],['3:12',6,7],['3:15',10,11],['3:25',13,14],['5:2',10,11],['5:2',12,13],['5:2',14,15],['5:8',14,15],['5:24',2,3],['10:9',13,14],['11:24',1,2],['11:24',3,4],['12:9',8,9],['12:20',7,8],['12:22',11,12],['12:24',13,14],['12:31',14,15],['13:8',11,12],['13:34',7,8],['13:37',7,8],['14:7',27,28],['14:11',8,9],['14:22',26,27],['14:30',13,14],['15:8',10,11],['15:20',4,5],['15:28',4,5],['16:2',14,15],['16:8',10,11],['16:10',8,9],['16:10',11,12],['16:12',4,5],['16:18',15,16],['17:12',3,4],['18:3',31,32],['18:8',4,5],['18:12',5,6],['18:13',3,4],['18:17',20,21],['18:18',5,6],['18:20',18,19],['19:7',19,20],['19:19',9,10],['19:32',11,12],['19:41',10,11],['20:5',6,7],['20:8',14,15],['20:14',10,11],['20:23',10,11],['20:25',1,2],['21:4',5,6],['21:6',1,2],['21:9',9,10],['21:9',12,13],['21:9',18,19],['21:12',22,23],['21:12',24,25,26,27],['21:16',1,2],['21:20',7,8],['21:21',7,8],['22:8',1,2],['22:15',5,6],['22:23',3,4],['22:33',6,7],['22:34',2,3],['22:51',1,2],['23:8',13,14],['23:8',20,21],['23:9',1,2],['23:9',5,6],['23:9',10,11],['23:13',2,3],['23:18',8,9],['23:20',6,7],['23:20',21,22],['23:21',6,7],['23:35',1,2],['23:37',5,6],['24:14',14,15],['24:16',23,24],['24:18',14,15],['24:22',10,11]]
+};
+for (const [book, cases] of Object.entries(WOLF_KQ)) for (const [verse, ...words] of cases) {
+ const touched = ALL.Wolf[book][verse].filter(s => words.some(w => s[0].includes(w)));
+ assert(touched.length, `Wolf ${book} ${verse}: Ketiv/Qere fehlt`);
+ touched.forEach(s => assert(words.every(w => s[0].includes(w)), `Wolf ${book} ${verse}: Ketiv/Qere getrennt`));
+}
+
+assert.deepStrictEqual(Object.keys(ALL.Wolf).sort(), ['I Samuel', 'II Samuel']);
+// Kompositum, Ausdeutung und echte Ergänzung: deutscher Quellwortlaut bleibt erhalten.
+assert.deepStrictEqual(ALL.Wolf['II Samuel']['21:20'].find(s => s[1] === 'ein streitsüchtiger'), [[7,8], 'ein streitsüchtiger']);
+assert.deepStrictEqual(ALL.Wolf['II Samuel']['23:32'].find(s => s[1] === 'einer der'), [[], 'einer der']);
 // Raphael Breuer: Nehemia einschließlich zweier leerer Quellverse und aller Ketiv/Qere-Lesungen.
 assert.strictEqual(Object.keys(ALL.Breuer.Nehemiah).length, 405);
 for (const ref of ["10:31", "10:32"]) assert.deepStrictEqual(ALL.Breuer.Nehemiah[ref], [[[], ""]]);
