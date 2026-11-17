@@ -23,10 +23,10 @@ function norm(s) {
   return String(s || '')
     .normalize('NFD')
     .replace(/[֑-ׇ]/g, '')            // Vokal- und Betonungszeichen
-    .replace(/[̀-ͯ]/g, '')            // lateinische Akzente
+    .replace(/[̀-ͯ]/g, '')            // lateinische und griechische Akzente
     .replace(/[ךםןףץ]/g, c => FINAL[c])        // Endbuchstaben
     .replace(/[־׳״'"“”„‚‘’`´.,;:!?()\[\]{}<>*]/g, '') // Maqaf, Gershayim, Satzzeichen
-    .replace(/\s+/g, ' ').trim().toLowerCase();
+    .replace(/\s+/g, ' ').trim().toLowerCase().replace(/ς/g, 'σ'); // griechisches Schluss-Sigma
 }
 
 // ---------- Stichwörter ----------

@@ -5511,7 +5511,7 @@
     const t = dtabs[dcur];
     dictOnly = t.only || null; dictHist = t.hist || []; dictPos = t.pos == null ? -1 : t.pos; dictShown = t.shown || [];
     $('#dictQ').value = t.q || '';
-    $('#dictOut').innerHTML = t.html || '<p class="muted">Gib ein hebräisches oder deutsches Wort ein.</p>';
+    $('#dictOut').innerHTML = t.html || '<p class="muted">Gib ein Wort ein.</p>';
     $('#dictOut').scrollTop = t.scroll || 0;
     dictNavButtons();
     renderDtabs();
