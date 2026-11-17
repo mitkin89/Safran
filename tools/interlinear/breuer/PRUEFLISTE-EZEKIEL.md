@@ -151,7 +151,63 @@ inzwischen berichtigt; die übrigen Befunde bleiben offen/unverändert.
 | 24:12,14,24,26 | „aus, ihm“, „Fülle.“, „Wegenund“, „werdet, ihr“, „Künde“ | Deutsche Wortgrenzen, Interpunktion und Schreibung erhalten. |
 | 24:13,16–18,21–23,25 | „versucht“, „eines plötzlichen Todes“, „das Haupt“, „[nächsten]“, „hätte sein sollen“, „lassen“, „(doch nur war)“ | Verb-/Sachausdeutungen des Übersetzers erhalten; nicht ausdrücklich vertretene Wörter bei `-`. |
 
-Prüfstand: Ezechiel 1–24, alle 619 Versfelder einzeln mit dem nummerierten
-Westminster-Text verglichen: 582 mit deutschem Übersetzungstext, 37 ausschließlich
-mit Quell-Auslassungszeichen. Teilauslassungen ebenfalls dokumentiert.
-654 weitere Versfelder (Kapitel 25–48) noch nicht zugeordnet oder semantisch geprüft.
+## Fortsetzung: Kapitel 25–48 (Befunde vor der weiteren Freigabe)
+
+Nachträglicher Status: 38 Änderungen in 36 Versen aus den unten dokumentierten
+Befunden wurden nach ausdrücklicher Freigabe umgesetzt. Die genaue Vorher-/Nachher-
+Liste steht in `KORREKTUREN-EZEKIEL.md`. Die übrigen Befunde bleiben offen.
+Die folgenden Angaben dokumentieren den Stand **vor** dieser Freigabe.
+
+Die folgenden Auffälligkeiten wurden bei der Zuordnung am Hebräischen geprüft.
+Sie sind **keine ausgeführten Textkorrekturen**. Die deutschen JSONs bleiben
+gegenüber dem freigegebenen Korrekturstand unverändert. Schreibungen von Namen
+werden nicht vereinheitlicht. Ob ein Fehler bereits im Druck steht, ist hier
+nicht entschieden; insbesondere 7:4 und 14:11 bleiben weiter zum Druckabgleich offen.
+
+| Stelle | Vorhandener deutscher Text / Auffälligkeit | Hebräischer Vergleich und Behandlung |
+|---|---|---|
+| 25:7 | „wehrlosen“ | לבג / לבז (8–9), zur Beute; das zusätzliche Adjektiv steht bei `-`, beide Lesarten gemeinsam bei „zur“ und „Beute“. |
+| 25:8 | „Moab.“ | מואב (5); Interpunktion unverändert zur Prüfung. |
+| 25:13 | „gesprochen,neige“ | נאם … ונטיתי (4–7); fehlende Wortgrenze erhalten. |
+| 26:11 | „sinkt sie“ | תרד (13), sie wird herabsinken; mögliche deutsche Numerus-/Flexionsauffälligkeit unverändert. |
+| 26:16,19,21 | „dennächsten“, „Stadtmache“, „uns“, „öffenbart“ | Die zusammengezogenen Wörter und Schreibungen bleiben erhalten. In 26:21 entspricht „uns“ der Konjunktion ו in ולא (5); zur Prüfung „und“. |
+| 27:10,18 | „Männer,die“, „jeglichem.“, „schimmender“ | Deutsche Wortgrenzen und Schreibung unverändert; in 27:18 entspricht „schimmender“ צחר (11), weiße/helle Wolle. |
+| 27:9,13,15,19,25,27 | Handel als „Pfand“ ausgeführt | Formen von מערב und ערבון: besondere Übersetzungswahl erhalten; nicht automatisch durch andere Handelsbegriffe ersetzen. |
+| 27:17 | „ätherischem Holz“ | ופנג (8); besondere Deutung des unsicheren Sachworts erhalten. |
+| 28:2–3 | Ausdeutungen des Anspruchs, Gott zu sein, sowie der Weisheit | אל … אלוהים (28:2), חכם … מדנאל / מדניאל (28:3, 2–5); erklärende deutsche Zusätze gesondert, beide Namenslesarten gemeinsam. |
+| 28:6 | „gesprochen:weil“ | כה אמר … יען (1–5); deutsche Wortgrenze unverändert. |
+| 28:13,18 | Deutung der Schmuck-/Körperbegriffe; „Heiligtum“ im Singular | תפיך ונקביך (28:13, 25–26), מקדשיך (28:18, 6; Plural). Übersetzungswahl erhalten, keine Quellenkorrektur. |
+| 29:17–18 | „Monats,da“, „Nebukadkezar“ | לחדש היה (29:17, 7–8), נבוכדראצר (29:18, 3). Wortgrenze zur Prüfung; vorhandene Namensschreibung erhalten. |
+| 30:2,7,20,21 | „Tag.!“, „sie;“, „desMonats“, „etgreifen“ | Deutsche Schreibung/Interpunktion erhalten; 30:21 לתפש (18), ergreifen/fassen. |
+| 31:4,17 | „großgezogen,die“, „—,,ihr Arm''!“ | גדלוהו תהום (2–3), וזרעו (9 in 31:17). Zusammenschreibung und ungewöhnliche Anführungszeichen erhalten; „Arm“ hat ein hebräisches Gegenstück. |
+| 32:3,11 | „seine:“, „Königs;“ | יהוה (4 in 32:3), מלך (7 in 32:11); Interpunktion unverändert. |
+| 32:21,25,27 | „Schwverterschlagenen“, „Bestimnmten“, „Schreckender“ | חללי חרב (12–13 in 32:21), יורדי (22 in 32:25), חתית גבורים (22–23 in 32:27); offensichtliche deutsche Schreib-/Wortgrenzenauffälligkeiten erhalten. |
+| 33:2,6,20,28,30 | „dasich“, „herännahen“, „meinies“, „gehe“, „Sühne“ | עליה … אביא (33:2), באה (6 in 33:6), אדני (5 in 33:20), ונתתי (1 in 33:28), בני (4 in 33:30). Zur Prüfung: Worttrennung, „herannahen“, „meines“, „gebe“, „Söhne“. Nichts geändert. |
+| 34:4,8,9 | „und;“, „Getter“, „Gottestwort“ | ואת (16 in 34:4), חית (16 in 34:8), דבר יהוה (4–5 in 34:9); deutsche Auffälligkeiten unverändert. |
+| 35:9 | „als bewohnte“ | Ketiv תישבנה / Qere תשבנה (6–7): Wiedergabe berührt die Ketiv-Lesart; beide Formen gemeinsam zugeordnet, keine Vereinheitlichung auf das Qere. |
+| 36:1–2,6,23–24,34,36 | „Menscheitsohn“, „offenbar“, „Rechts: waltung-“, „Aus. spruch“, „heimbrinigen“, „Landwird“, „ich,Gott“ | Gegenstücke בן אדם; יהוה; נאם; והבאתי; והארץ … תעבד; אני יהוה. Getrennte und zusammengezogene Wörter sowie Schreibungen erhalten. |
+| 37:4,7,9,11,19 | „ihnen:Dürre“, „nähertet ihr“, „Propheterwort“, „Häus“, „Israels,und“ | אליהם … היבשות (8–10 in 37:4), ותקרבו (9 in 37:7), הנבא (3 in 37:9), בית (8 in 37:11), ישראל … ונתתי (17–20 in 37:19). Wortlaut erhalten; Flexion/Wortgrenzen zur Prüfung. |
+| 38:8,18,22 | „forgenfrei“, Literaturhinweis, „überschwemmung“ | לבטח (25 in 38:8), entsprechend sorgenfrei. Der Literaturhinweis vor 38:18 hat kein hebräisches Gegenstück und steht bei `-`. Kleinschreibung in 38:22 bleibt erhalten. |
+| 39:21 | „schauenalle“ | וראו כל (5–6); untrennbares deutsches Wort gemeinsam zugeordnet, nicht korrigiert. |
+| 40:2–3 | „Erscheinungen.“; „dessen Erscheinung — —“ | במראות (1 in 40:2); כמראה נחשת (7–8 in 40:3), wie das Aussehen von Kupfer/Erz, fehlt im deutschen Text. Auslassungszeichen erhalten, fehlenden Text nicht ergänzt. |
+| 40:14,20,21,30,49 | „Pfeilerdes“, „heim“, „25.“, „die.“, „11.“ | איל החצר (7–8 in 40:14), לחצר (6 in 40:20); Wortgrenzen, „heim“ statt möglichem „beim“ und Zahleninterpunktion zur Prüfung. |
+| 41:13,22 | „E.lang“, „Ellen;er;“ | אורך … אמה (4–6 in 41:13), אמות … לו (8–10 in 41:22); deutsche Wortgrenzen erhalten. |
+| 41:24 | „und so zwei die andere.so zwei die andere.“ | וּשְׁתֵּי דְלָתוֹת לָאַחֶרֶת (10–12): Die zweite deutsche Wiederholung hat kein zusätzliches hebräisches Gegenstück; wiederholtes „zwei die andere.“ bei `-`, angehängtes „.so“ bleibt untrennbar. Zur Prüfung der Dopplung. |
+| 42:4 | „Kammernführte“ | הלשכות (2); kein zusätzliches hebräisches „führte“ an dieser Stelle. Zusammenschreibung bleibt erhalten. |
+| 43:13–17 | Erläuterungen der Altarmaße | חיק, גבולה, הראל, אריאל: besondere Fachbegriffe und Klammererläuterungen erhalten; Maße wurden am tatsächlich nummerierten Text geprüft, inklusive Ketiv/Qere 43:16. |
+| 44:19 | „denäußeren“ | החצר החיצונה (3–4); deutsche Wortgrenze erhalten. |
+| 44:22 | „die nur Witwe ist“, „von den Priestern“ | אלמנה … מכהן (13–17): besondere syntaktische Auslegung Breuers erhalten, keine Umformulierung zur üblichen Wiedergabe „Witwe eines Priesters“. |
+| 44:31 | „tötlich“ | טרפה (3), tödlich verletztes/zerrissenes Tier; historische Schreibung erhalten. |
+| 45:6,17–18,22 | „Stadtgebet“, „an en“, „Emporund“, „Gott,der“, „vollziehean“ | העיר תתנו (2–3 in 45:6), בחגים (7 in 45:17), העלה ואת (21–22), יהוה (4 in 45:18), ועשה … ביום (1–3 in 45:22). Wortgrenzen und „en“ zur Prüfung, unverändert. |
+| 45:20 | „an sieben (Tagen)“ | בשבעה (3); Übersetzungsdeutung erhalten, Klammerwort ohne eigenes Tageswort bei `-`. |
+| 46:1,9–10,12–13 | „Rechtswaltung'“, „es;“, „Tör“, „entgesetzte“, „ein.gehen“, „Emporoder“, „amSabbathtage“, „anjedem“ | Deutsche Auffälligkeiten erhalten; נכחו (32 in 46:9), entgegengesetzt/gegenüber, bestätigt die Prüfung von „entgesetzte“. |
+| 43:2; 47:13,22 | „vor Osten“, „enhält“, „Femde“ | מדרך הקדים (6–7 in 43:2), von Osten her; חבלים (16 in 47:13), Teile; הגרים (7 in 47:22), die Fremden/Ansässigen. Zur Prüfung „von“, „erhält“, „Fremde“; nichts geändert. |
+| 48:1–2 | „Ascher“ am Ende von 48:1 und „Aschers Gebiet“ am Anfang von 48:2 | דן (25 in 48:1; 3 in 48:2) ist Dan. Erst אשר (9 in 48:2) bezeichnet Ascher. Beide abweichenden deutschen Namen unverändert zur ausdrücklichen Prüfung. |
+| 48:10 | „Gotttes“ | יהוה (25); zur Prüfung „Gottes“, unverändert. |
+| 48:15,18 | „vor 25000“; „1000 nach Osten“ | על פני (5–6 in 48:15), zur Prüfung „von“; עשרת אלפים (6–7 in 48:18), zehntausend. „1000“ bleibt trotz Zahlenabweichung unverändert. |
+| 48:21–22,27,29 | „25000zur“, „werdedem“, „vonder“, „Rechtswaltungoffenbart“ | Wortgrenzen erhalten; jeweils gemeinsame Nummern für untrennbare deutsche Wortgruppen, keine Änderung der Quelle. |
+| 48:35 | „weilet“ | יהוה שמה (8–9): kein eigenes hebräisches Verb; die ergänzte deutsche Kopula steht bei `-`, Gottesname und Ortsangabe sind zugeordnet. |
+
+Prüfstand: Ezechiel 1–48 bis 48:35, alle 1273 Versfelder einzeln mit dem
+nummerierten Westminster-Text verglichen: 1236 mit deutschem Übersetzungstext,
+37 ausschließlich mit Quell-Auslassungszeichen. Keine offenen Kapitel.

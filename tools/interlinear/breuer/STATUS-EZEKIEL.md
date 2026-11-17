@@ -1,46 +1,63 @@
-# Joseph Breuer: Ezechiel – Teilstand
+# Joseph Breuer: Ezechiel – vollständig bis 48:35
 
 Eigener Checkout `work/safran-breuer-ezekiel`, Branch `codex/breuer-ezekiel`,
-Basis `5d84c01` (fertige Megillot). Keine Änderung an vorhandenen Zuordnungsdateien.
+Basis `5d84c01` (fertige Megillot). Stand: 17.11.2026.
 
-Sefaria-Quelle vollständig abgerufen: 48 Kapitel, 1273 Versfelder.
-Originale Version samt Versionstitel, Herkunft, Lizenz, Fußnoten und Bildern
-als neues kompaktes JSON eingebunden; SHA1 im Manifest. Die ausdrücklich freigegebene Versaufteilung 5:8–10 wurde berichtigt; Wortlaut
-der verschobenen Sätze unverändert. Am 17.11.2026 zusätzlich 38 freigegebene
-kleine Schreib-/Wortgrenzenkorrekturen in 35 Versen umgesetzt, samt Anpassung
-der Zuordnungen und Manifest-SHA1; siehe KORREKTUREN-EZEKIEL.md. Der bereits vorhandene Kommentar bleibt unverändert.
+Die vollständige Sefaria-Ausgabe umfasst 48 Kapitel und 1273 Versfelder.
+Alle Verse wurden einzeln am tatsächlich nummerierten Westminster-Text gelesen
+und zugeordnet. 1236 Felder enthalten deutschen Übersetzungstext; 37 bestehen
+nur aus den vorhandenen Auslassungszeichen `— —`, die mit `-` erhalten sind.
+Keine offenen Kapitel und keine maschinelle Vorfassung.
 
-Rohantwort-SHA256: 2e86ed9859d1b31112c2ef55079f7d0a9442ae80f1fad99768d3d13c94df918a
+Die 654 Versfelder der Kapitel 25–48 ergänzen den früheren Stand 1–24.
+Deutsche Reihenfolge und Wortlaut bleiben erhalten, einschließlich Schreibfehlern,
+zusammengeschriebener Wörter, Übersetzungsdeutungen und Klammern. Zusätze ohne
+eigenes hebräisches Gegenstück stehen bei `-`; Klammerwörter wurden einzeln geprüft.
+Bei untrennbar zusammengeschriebenen deutschen Wörtern können mehrere hebräische
+Nummern gemeinsam nötig sein. Ketiv und Qere stehen in jedem berührenden Segment
+zusammen, auch bei mehrwortigen Gruppen und zusammengesetzten Zahlen.
 
-Geprüfter Interlinear-Umfang: Kapitel 1–24, 619 Versfelder. Davon 582 mit deutschem
-Text zugeordnet, 37 nur mit den vorhandenen Auslassungszeichen `— —` bei `-`.
-Teilauslassungen u. a. in 1:28, 8:2 und 10:1–2,6,19. Solche Lücken sind ausdrücklich keine
-Wortzuordnungen des ausgelassenen hebräischen Textes. Noch offen: Kapitel 25–48,
-654 Versfelder. Keine maschinelle Vorfassung für offene Verse.
+Quelllücken: vollständig 1:5–27, 3:13 sowie 10:5,8–17,21–22; Teilauslassungen
+unter anderem 1:28, 8:2, 10:1–2,6,19 und 40:3. Diese Stellen sind ausdrücklich
+keine Zuordnung der ausgelassenen hebräischen Wörter.
 
-`test30.js` verlangt jeden Vers in Kapitel 1–24 und prüft Wortlaut, Nummerngrenzen,
-Versanzahl, Quellplatzhalter und alle 45 tatsächlich zugeordneten Ketiv-/Qere-
-Stellen. 1:8 hat eine Ketiv-/Qere-Stelle, aber ausschließlich Quellplatzhalter;
-sie ist daher nicht als deutsche Wortzuordnung gezählt. Die offenen Kapitel
-werden im Testergebnis ausdrücklich ausgewiesen.
+`test30.js` verlangt jeden der 1273 Verse, prüft den genauen deutschen Wortlaut,
+Nummerngrenzen, Gesamtzahl, Quellplatzhalter und 133 übersetzte Ketiv-/Qere-Gruppen
+(45 in 1–24, weitere 88 in 25–48). Die Ketiv-/Qere-Stelle in 1:8 ist wegen der
+vollständigen deutschen Quelllücke keine übersetzte Gruppe. Fehlende Verse werden
+nicht übersprungen. Der Teilumfang für Goldschmidt Genesis bleibt ausdrücklich
+auf Kapitel 1 beschränkt und gehört zur parallelen Arbeit.
 
-Technische Einbindung: Builder und deutsche Kreuzhervorhebung erkennen den
-originalen Versionstitel; Ezechiel zeigt Joseph Breuer statt Raphael Breuer als
-Autor und Porträt im Interlinear-Auswahldialog.
+Quellgeschichte: Originaler Versionstitel, Herkunft, Lizenz, Fußnoten und Bilder
+sind im kompakten JSON erhalten. Die freigegebene Versaufteilung 5:8–10 sowie
+38 freigegebene kleine Schreib-/Wortgrenzenkorrekturen in 35 Versen wurden schon
+im vorherigen Stand umgesetzt; siehe `KORREKTUREN-EZEKIEL.md`.
+Nach Abschluss aller Kapitel wurden weitere 38 ausdrücklich freigegebene
+Korrekturen in 36 Versen umgesetzt, einschließlich der Dopplung in 41:24,
+Dan in 48:1–2 und 10000 in 48:18. Zuordnungen und Manifest wurden angepasst.
+SHA1 der Breuer-Übersetzung: `456d4b3c18308d130e6da48ede5e74cea3c2a880`.
+Rohantwort-SHA256: `2e86ed9859d1b31112c2ef55079f7d0a9442ae80f1fad99768d3d13c94df918a`.
+7:4 und 14:11 bleiben für den Druckabgleich unverändert. Die freigegebenen Korrekturen in 25–48 stehen in `KORREKTUREN-EZEKIEL.md`;
+die übrigen Auffälligkeiten aus `PRUEFLISTE-EZEKIEL.md` bleiben unverändert.
+Der vorhandene Kommentar und alle anderen Zuordnungsdateien bleiben unverändert.
 
-Alle vier Prüfungen für diesen Teilumfang bestanden: build.py, renderings.py, test.js und test30.js.
-Keine visuelle App-Prüfung. Gemeinsame Dateien nach Zusammenführung paralleler
-Arbeit aus dem vereinigten Zuordnungsbestand erneut bauen und prüfen.
+Technik: Builder und Kreuzhervorhebung erkennen den originalen Versionstitel;
+Ezechiel zeigt Joseph Breuer als Autor und Porträt im Interlinear-Auswahldialog.
+`interlin.js` und `interlin-ren.js` wurden aus den Zuordnungen neu gebaut.
 
-Die ausdrücklich freigegebene Versaufteilung 5:8–10 ist umgesetzt und geprüft;
-siehe PRUEFLISTE-EZEKIEL.md. 7:4 und 14:11 bleiben für den Druckabgleich unverändert. Keine weiteren
-Quellenkorrekturen über die einzeln dokumentierte Freigabe hinaus.
+Prüfungen über den vollständigen Umfang bestanden:
+- `python3 tools/interlinear/build.py`
+- `python3 -I tools/interlinear/renderings.py`
+- `node test.js`
+- `node test30.js`
 
-Fortsetzung dieses Stands: Kapitel 25, Vers 1. Kapitel 25–48 ist noch nicht zugeordnet
-oder semantisch geprüft. Keine Prüfung dieser Kapitel durch Teilstand-Erfolg impliziert.
+Zusätzlich: Negativprobe mit entferntem Vers 48:35 abgewiesen; exakte Beschränkung der Quell-/Manifest-Änderungen auf die Freigabe und
+Erhalt aller anderen Zuordnungen geprüft. Technische Tests
+prüfen Struktur und Wortlaut; die semantische Prüfung erfolgte beim manuellen
+Versvergleich. Keine visuelle App-Prüfung.
 
-Zusatzprüfungen: Alle vor diesem Teilstand vorhandenen Zuordnungen sind identisch
-geblieben. Bis `36ed57d` waren Quell-JSONs und Manifest gegenüber `4f6faff` unverändert;
-der folgende Korrekturstand ändert ausschließlich die 35 dokumentierten Verse
-der Breuer-Übersetzung und deren einen Manifest-SHA1. Eine
-Negativprobe mit entferntem Vers 24:27 wurde vom Vollständigkeitstest abgewiesen.
+Gemeinsame Dateien (`test30.js`, `CHANGELOG.md`, `interlin.js`, `interlin-ren.js`)
+nach Zusammenführung paralleler Arbeit aus dem vereinigten Zuordnungsbestand
+neu bauen und prüfen. Genesis.txt und Exodus.txt wurden nicht geändert.
+Push des vollständigen Stands einschließlich der weiteren Korrekturen
+am 17.11.2026 ausdrücklich freigegeben.
