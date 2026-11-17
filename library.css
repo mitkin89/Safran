@@ -1728,3 +1728,11 @@ body.il .cell[data-k="he"] .ilt.ilq { font-family: var(--he-font, inherit); font
 @media (prefers-color-scheme: light) { :root:not([data-theme=dark]) { --il13: #925151; } }
 body.il .cell[data-k="he"] .ilt[data-i="13"] { color: var(--il13); }
 .illc[data-i="13"], .ilpR[data-i="13"] { --c: var(--il13); }
+
+/* Interlinear: phonetische Umschrift (Farbe 14); Aussprache im Wort-Popup */
+:root { --il14: #b9c98a; }
+:root[data-theme=light] { --il14: #4c5d17; }
+@media (prefers-color-scheme: light) { :root:not([data-theme=dark]) { --il14: #4c5d17; } }
+body.il .cell[data-k="he"] .ilt[data-i="14"] { color: var(--il14); }
+.illc[data-i="14"], .ilpR[data-i="14"] { --c: var(--il14); }
+#wpop .wphon { margin: -2px 0 6px; color: var(--muted); font-size: .95em; letter-spacing: .01em; }

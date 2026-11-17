@@ -12,13 +12,13 @@ norm = lambda s: re.sub(r'\s+', ' ', s).strip()
 def load(book, lang, pat):
     f = glob.glob(os.path.join(R, 'bundled', 'own', book, lang, pat))[0]
     return json.load(open(f, encoding='utf8'))['text']
-TR = {'Zunz': ('zunz', '*Zunz*', 'Zunz, Berlin 1838'), 'Breuer': ('breuer', '*Breuer*', 'Breuer'), 'Philippson': ('philippson', 'Die Israelitische Bibel*', 'Philippson'), 'Herxheimer': ('herxheimer', 'Die vier und zwanzig Bücher der Bibel im ebräischen*', 'Herxheimer'), 'Goldschmidt': ('goldschmidt', '*Goldschmidt*', 'Goldschmidt, Berlin 1921'), 'Hirsch': ('hirsch', '*Samson Raphael Hirsch*', 'Hirsch, Psalmen 1882'), 'JuliusHirsch': ('julius-hirsch', '*Julius Hirsch*', 'Julius Hirsch, Jesaia und Trei Asar')}
+TR = {'Zunz': ('zunz', '*Zunz*', 'Zunz, Berlin 1838'), 'Breuer': ('breuer', '*Breuer*', 'Breuer'), 'Philippson': ('philippson', 'Die Israelitische Bibel*', 'Philippson'), 'Herxheimer': ('herxheimer', 'Die vier und zwanzig Bücher der Bibel im ebräischen*', 'Herxheimer'), 'Goldschmidt': ('goldschmidt', '*Goldschmidt*', 'Goldschmidt, Berlin 1921'), 'Hirsch': ('hirsch', '*Samson Raphael Hirsch*', 'Hirsch, Psalmen 1882'), 'JuliusHirsch': ('julius-hirsch', '*Julius Hirsch*', 'Julius Hirsch, Jesaia und Trei Asar'), 'Umschrift': ('phono', 'Umschrift (ETCBC phono)*', 'Umschrift (ETCBC phono)', 'other')}  # Umschrift: maschinell aus tools/phono/build.py
 out, bad = {}, 0
-for name, (dirn, pat, label) in TR.items():
+for name, (dirn, pat, label, *lng) in TR.items():
   out[name] = {}
   for fn in sorted(glob.glob(os.path.join(os.path.dirname(__file__), dirn, '*.txt'))):
     book = os.path.basename(fn)[:-4]
-    he = load(book, 'he', 'Westminster*'); de = load(book, 'de', pat)
+    he = load(book, 'he', 'Westminster*'); de = load(book, lng[0] if lng else 'de', pat)
     nw = lambda c, v: len(re.findall(r'<span class="w"', he[c - 1][v - 1]))
     dt = lambda c, v: norm(re.sub(r'<[^>]+>', '', re.sub(r'<sup class="footnote-marker">.*?</sup><i class="footnote">.*?</i>', '', de[c - 1][v - 1])))
     res = {}

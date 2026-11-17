@@ -148,6 +148,7 @@ NAMESET = set(); NAMEC = {}  # Eigennamen (deutsche Form -> [bei Namen, bei ande
 for NAMES in (None, True):
  if NAMES: NAMESET = {f for f, (a, b) in NAMEC.items() if a >= 3 and a > 4 * b}
  for tr, books in IL.items():
+    if tr == 'Umschrift': continue  # Aussprache, keine Übersetzung: keine Übersetzungsstatistik
     acc = {}  # Lemma -> Stamm -> [Anzahl, {Form: n}, [Stellen]]
     pacc = {}  # Lemma -> (Schlüssel, Form) -> [Anzahl, {Wiedergabe: [n, {Bindewort: n}, Stamm]}, {Stamm: n}, {Lemma davor: [n, {Wiedergabe: n}, {Wort: n}]}]
     for book, verses in books.items():

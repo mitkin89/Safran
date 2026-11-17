@@ -3,9 +3,9 @@ const assert = require('assert'), fs = require('fs'), path = require('path');
 global.window = {}; require('./interlin.js');
 const ALL = window.INTERLIN, rd = (b, l, re) => { const d = path.join(__dirname, 'bundled', 'own', b, l); return JSON.parse(fs.readFileSync(path.join(d, fs.readdirSync(d).find(f => re.test(f))), 'utf8')).text; };
 const norm = s => s.replace(/<sup class="footnote-marker">.*?<\/sup><i class="footnote">.*?<\/i>/g, '').replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
-const PAT = { Zunz: /Zunz/, Breuer: /^(?:(?:Raphael )?Breuer|Das Buch Jecheskel, übersetzt und erläutert von Dr\. Joseph Breuer,)/, Philippson: /Philippson/, Herxheimer: /ebräischen Texte/, Goldschmidt: /Übersetzung von Lazarus Goldschmidt, Berlin 1921/, Hirsch: /Die Psalmen, übersetzt und erläutert von Samson Raphael Hirsch/, JuliusHirsch: /^Julius Hirsch, / };
+const PAT = { Zunz: /Zunz/, Breuer: /^(?:(?:Raphael )?Breuer|Das Buch Jecheskel, übersetzt und erläutert von Dr\. Joseph Breuer,)/, Philippson: /Philippson/, Herxheimer: /ebräischen Texte/, Goldschmidt: /Übersetzung von Lazarus Goldschmidt, Berlin 1921/, Hirsch: /Die Psalmen, übersetzt und erläutert von Samson Raphael Hirsch/, JuliusHirsch: /^Julius Hirsch, / , Umschrift: /^Umschrift \(ETCBC phono\)/ };
 for (const [tr, D] of Object.entries(ALL)) for (const book of Object.keys(D)) {
-  const he = rd(book, 'he', /^Westminster/), de = rd(book, 'de', PAT[tr]);
+  const he = rd(book, 'he', /^Westminster/), de = rd(book, tr === 'Umschrift' ? 'other' : 'de', PAT[tr]);
   let n = 0;
   he.forEach((ch, c) => ch.forEach((v, i) => {
     const segs = D[book][`${c + 1}:${i + 1}`]; assert(segs, `${tr} ${book} ${c + 1}:${i + 1} fehlt`);
@@ -129,3 +129,8 @@ for (const [ref, ...words] of BREUER_NEHEMIA_KQ) {
   touched.forEach(s => assert.ok(words.every(w => s[0].includes(w)), `Breuer Nehemia ${ref}: Ketiv/Qere getrennt`));
 }
 assert.deepStrictEqual(ALL.Breuer.Nehemiah["7:67"].find(s => s[1] === "Pferde hatten sie 736, Maultiere 245."), [[], "Pferde hatten sie 736, Maultiere 245."]);
+
+// Umschrift (ETCBC phono): jedes Westminster-Wort mit Aussprache, Ketiv ohne
+assert.deepStrictEqual(ALL.Umschrift.Genesis['1:1'][0], [[1], 'bᵊrēšˌîṯ']);
+assert.deepStrictEqual(ALL.Umschrift.Genesis['8:17'].find(s => s[1].includes('hayṣ')), [[15], '*hayṣˈē']);
+assert.ok(!ALL.Umschrift.Genesis['8:17'].some(s => s[0].includes(14)), 'Ketiv bekommt keine eigene Aussprache');
