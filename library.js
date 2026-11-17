@@ -854,7 +854,7 @@
   // ---------- Wörter über alle geöffneten Versionen verbinden ----------
   // In den deutschen Spalten (Zunz, Breuer …) sind die Wortgruppen nach der Zuordnung in interlin.js anklickbar (.ilx, data-ix = Nummern der Westminster-Wörter).
   // Ein Klick auf eine solche Gruppe, auf ein Westminster-Wort oder auf ein Septuaginta-Wort lässt in allen geöffneten Versionen die zugehörigen Wörter leuchten.
-  const IL_VT = { Zunz: /Zunz/, Breuer: /^Breuer/, Philippson: /Philippson/, Herxheimer: /ebräischen Texte/, Goldschmidt: /Übersetzung von Lazarus Goldschmidt, Berlin 1921/, Hirsch: /Die Psalmen, übersetzt und erläutert von Samson Raphael Hirsch/, JuliusHirsch: /^Julius Hirsch, /, Onkelos: /^Targum Onkelos \(ETCBC/, 'Pseudo-Jonathan': /^Targum Pseudo-Jonathan \(ETCBC/, Neofiti: /^Targum Neofiti 1 \(ETCBC/ };
+  const IL_VT = { Zunz: /Zunz/, Breuer: /^(?:Breuer|Das Buch Jecheskel, übersetzt und erläutert von Dr\. Joseph Breuer,)/, Philippson: /Philippson/, Herxheimer: /ebräischen Texte/, Goldschmidt: /Übersetzung von Lazarus Goldschmidt, Berlin 1921/, Hirsch: /Die Psalmen, übersetzt und erläutert von Samson Raphael Hirsch/, JuliusHirsch: /^Julius Hirsch, /, Onkelos: /^Targum Onkelos \(ETCBC/, 'Pseudo-Jonathan': /^Targum Pseudo-Jonathan \(ETCBC/, Neofiti: /^Targum Neofiti 1 \(ETCBC/ };
   // Targumim: Zuordnung aramäisches Wort -> Westminster-Wörter (maschinell, tools/targum/align.py), je Vers ein String: „1 2 - 4,5 …“ (ein Eintrag je Wort des Lesetextes)
   const IL_TG = { Onkelos: 'Targum Onkelos (ETCBC', 'Pseudo-Jonathan': 'Targum Pseudo-Jonathan (ETCBC', Neofiti: 'Targum Neofiti 1 (ETCBC' };
   // Biblische Qumran-Rollen: je Vers und Rolle die Wörter mit Zuordnung und Art der Abweichung (maschinell, tools/dss/il.py)
@@ -933,6 +933,9 @@
   const IL_LABEL = { Zunz: 'Zunz (1838)', Breuer: 'Breuer', Philippson: 'Philippson', Herxheimer: 'Herxheimer', Goldschmidt: 'Goldschmidt (1921)', Hirsch: 'S. R. Hirsch (1882)', JuliusHirsch: 'Julius Hirsch', LXX: 'Septuaginta', Onkelos: 'Onkelos', 'Pseudo-Jonathan': 'Pseudo-Jonathan', Neofiti: 'Neofiti 1', Qumran: 'Qumran-Rollen' };
   const IL_SUB = { Zunz: 'Leopold Zunz, Die vier und zwanzig Bücher der Heiligen Schrift, Berlin 1838', Breuer: 'Raphael Breuer, Arba Megillot', Philippson: 'Ludwig Philippson, Die Israelitische Bibel', Herxheimer: 'Salomon Herxheimer, Die vier und zwanzig Bücher der Bibel', Goldschmidt: 'Lazarus Goldschmidt, Pentateuch, Berlin 1921', Hirsch: 'Samson Raphael Hirsch, Die Psalmen, Frankfurt am Main 1882', JuliusHirsch: 'Julius Hirsch, Jesaia und die zwölf kleinen Propheten', LXX: 'Griechisch, Wortgruppen nach der Zuordnung von CATSS', Onkelos: 'Targum Onkelos (Sperber), Wort für Wort maschinell zugeordnet', 'Pseudo-Jonathan': 'Targum Pseudo-Jonathan; Zusätze bleiben ohne Zuordnung', Neofiti: 'Targum Neofiti 1; Zusätze bleiben ohne Zuordnung', Qumran: 'Biblische Rollen vom Toten Meer (ETCBC), je Rolle eine Zeile; farbig: abweichende Lesart' };
   const IL_PIC = { Zunz: 'Zunz', Breuer: 'Raphael Breuer', Philippson: 'Philippson', Herxheimer: 'Herxheimer', Goldschmidt: 'Goldschmidt', Hirsch: 'Samson Raphael Hirsch', JuliusHirsch: 'Julius Hirsch', LXX: 'Septuaginta', Onkelos: 'Targum Onkelos', 'Pseudo-Jonathan': 'Targum Pseudo-Jonathan', Neofiti: 'Targum Neofiti', Qumran: 'Qumran' };
+  const ilBreuerEzekiel = () => view && view.group && view.group.title === 'Ezekiel';
+  const ilPic = n => n === 'Breuer' && ilBreuerEzekiel() ? 'Joseph Breuer' : IL_PIC[n];
+  const ilSub = n => n === 'Breuer' && ilBreuerEzekiel() ? 'Joseph Breuer, Das Buch Jecheskel (1921)' : IL_SUB[n];
   // Auswahl (Häkchen) wird gemerkt; ältere Einstellung (ein Werk oder „Alle“) wird übernommen
   let ilPick = null; try { ilPick = JSON.parse(localStorage.getItem('interlinPick') || 'null'); } catch { /* egal */ }
   if (!Array.isArray(ilPick)) ilPick = ilOn ? (ilTr === '*' ? IL_ORDER.slice(0, 4) : [ilTr]) : [];
@@ -972,7 +975,7 @@
     const leg = document.createElement('div'); leg.className = 'illeg';
     use.forEach(n => {
       const b = document.createElement('button'); b.type = 'button'; b.className = 'illc'; b.dataset.i = IL_ORDER.indexOf(n) + 1; b.dataset.tr = n;
-      const pic = portraitOf(IL_PIC[n]);
+      const pic = portraitOf(ilPic(n));
       b.title = (pic && pic.name ? pic.name + ' – ' : '') + I18N.t('Klick: dieses Werk ausblenden'); b.innerHTML = `${pic ? `<img src="portraits/${encodeURIComponent(pic.img)}" alt="">` : '<i></i>'}${esc(I18N.t(IL_LABEL[n] || n))}`;
       b.onclick = () => { ilPick = ilPick.filter(x => x !== n); ilSave(); ilRefresh(); ilPopRender(); };
       b.onmouseenter = () => $$('#rOut .ilt').forEach(l => l.classList.toggle('ildim', l.dataset.tr !== n));
@@ -985,8 +988,8 @@
   // Auswahlfenster am Interlinear-Knopf: ein Häkchen je Werk (mit Bild), dazu „Alle“ und „Keine“
   function ilPopRender() {
     const pop = $('#ilPop'); if (!pop || pop.hidden) return;
-    const row = n => { const pic = portraitOf(IL_PIC[n]), on = ilPick.includes(n);
-      return `<label class="ilpR" data-i="${IL_ORDER.indexOf(n) + 1}"><input type="checkbox" value="${n}"${on ? ' checked' : ''}>${pic ? `<img src="portraits/${encodeURIComponent(pic.img)}" alt="" title="${esc(pic.name || '')}">` : (n === 'LXX' ? `<span class="ilpPh" lang="grc">Α</span>` : `<span class="ilpPh" lang="he">א</span>`)}<span class="ilpT"><b>${esc(I18N.t(IL_LABEL[n]))}</b><small>${esc(I18N.t(IL_SUB[n]))}</small></span><i class="ilpDot"></i></label>`; };
+    const row = n => { const pic = portraitOf(ilPic(n)), on = ilPick.includes(n);
+      return `<label class="ilpR" data-i="${IL_ORDER.indexOf(n) + 1}"><input type="checkbox" value="${n}"${on ? ' checked' : ''}>${pic ? `<img src="portraits/${encodeURIComponent(pic.img)}" alt="" title="${esc(pic.name || '')}">` : (n === 'LXX' ? `<span class="ilpPh" lang="grc">Α</span>` : `<span class="ilpPh" lang="he">א</span>`)}<span class="ilpT"><b>${esc(I18N.t(IL_LABEL[n]))}</b><small>${esc(I18N.t(ilSub(n)))}</small></span><i class="ilpDot"></i></label>`; };
     pop.innerHTML = `<div class="ilpH"><b>${esc(I18N.t('Interlinear'))}</b><span><button type="button" data-a="all">${esc(I18N.t('Alle'))}</button><button type="button" data-a="none">${esc(I18N.t('Keine'))}</button></span></div>${ilAvail.map(row).join('')}<p class="muted ilpN">${esc(I18N.t('Die gewählten Werke stehen Wort für Wort unter dem hebräischen Text (Westminster).'))}</p>`;
   }
   function ilPopPlace() {
