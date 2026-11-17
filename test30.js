@@ -81,7 +81,7 @@ for (const [ref, count] of [['7:15', 12], ['7:16', 15], ['7:17', 24]]) {
 assert.ok(Array.from({ length: 9 }, (_, i) => i + 11).every(n => ALL.JuliusHirsch.Habakkuk['2:6'].some(s => s[0].includes(n))));
 
 // Breuer: alle verfügbaren Arba-Megillot-Bücher vollständig; Ruth bleibt erhalten.
-assert.deepStrictEqual(Object.keys(ALL.Breuer).sort(), ['Ecclesiastes', 'Ezekiel', 'Lamentations', 'Nehemiah', 'Ruth', 'Song of Songs']);
+assert.deepStrictEqual(Object.keys(ALL.Breuer).sort(), ['Ecclesiastes', 'Ezekiel', 'Ezra', 'Judges', 'Lamentations', 'Nehemiah', 'Ruth', 'Song of Songs']);
 for (const [book, count] of Object.entries({ Ruth: 85, 'Song of Songs': 117, Ecclesiastes: 222, Lamentations: 154 })) {
   assert.strictEqual(Object.keys(ALL.Breuer[book]).length, count, `Breuer ${book}: dokumentierter Gesamtumfang`);
 }
@@ -129,3 +129,30 @@ for (const [ref, ...words] of BREUER_NEHEMIA_KQ) {
   touched.forEach(s => assert.ok(words.every(w => s[0].includes(w)), `Breuer Nehemia ${ref}: Ketiv/Qere getrennt`));
 }
 assert.deepStrictEqual(ALL.Breuer.Nehemiah["7:67"].find(s => s[1] === "Pferde hatten sie 736, Maultiere 245."), [[], "Pferde hatten sie 736, Maultiere 245."]);
+
+// Raphael Breuer: Richter vollständig, alle separat gezählten Ketiv-/Qere-Gruppen.
+assert.strictEqual(Object.keys(ALL.Breuer.Judges).length, 618);
+const BREUER_JUDGES_KQ = [['1:27',14,15],['4:11',13,14],['6:5',6,7],['7:13',13,14],['7:21',10,11],['9:8',9,10],['9:12',6,7],['11:37',20,21],['13:17',10,11],['16:18',18,19],['16:21',14,15],['16:25',2,3,4],['16:25',14,15],['16:26',9,10],['17:2',9,10],['19:3',8,9],['19:25',21,22],['21:20',1,2],['21:22',7,8]];
+for (const [ref, ...words] of BREUER_JUDGES_KQ) {
+  const touched = ALL.Breuer.Judges[ref].filter(s => words.some(w => s[0].includes(w)));
+  assert.ok(touched.length, `Breuer Richter ${ref}: Ketiv/Qere fehlt`);
+  touched.forEach(s => assert.ok(words.every(w => s[0].includes(w)), `Breuer Richter ${ref}: Ketiv/Qere getrennt`));
+}
+// Klammerwörter einzeln beurteilt: Zehen sind übersetzt, die Maßeinheit ist ergänzt.
+assert.deepStrictEqual(ALL.Breuer.Judges['1:6'].find(s => s[1] === 'die Daumen (und großen Zehen)'), [[9,10], 'die Daumen (und großen Zehen)']);
+assert.deepStrictEqual(ALL.Breuer.Judges['8:26'].find(s => s[1] === '(Sekel)'), [[], '(Sekel)']);
+assert.deepStrictEqual(ALL.Breuer.Judges['19:26'].find(s => s[1] === 'dort)'), [[11], 'dort)']);
+
+// Raphael Breuer: Esra vollständig, auch die aramäischen Abschnitte und sämtliche Ketiv/Qere.
+assert.strictEqual(Object.keys(ALL.Breuer.Ezra).length, 280);
+const BREUER_EZRA_KQ = [["2:1",9,10],["2:46",4,5],["2:50",4,5],["2:50",7,8],["3:3",10,11],["4:2",15,16],["4:4",8,9],["4:7",8,9],["4:7",11,12],["4:9",13,14],["4:9",17,18],["4:12",15,16],["4:12",18,19],["4:12",20,21],["4:23",7,8],["5:1",3,4],["5:1",8,9],["5:2",16,17],["5:12",14,15],["5:15",3,4],["6:14",7,8],["6:17",15,16],["7:18",3,4],["7:18",6,7],["7:25",12,13],["7:26",20,21],["8:14",4,5],["8:17",1,2],["8:17",16,17],["8:25",1,2],["10:2",6,7],["10:12",8,9],["10:29",8,9],["10:35",3,4],["10:37",3,4],["10:43",7,8],["10:44",3,4]];
+for (const [ref, ...words] of BREUER_EZRA_KQ) {
+  const touched = ALL.Breuer.Ezra[ref].filter(s => words.some(w => s[0].includes(w)));
+  assert.ok(touched.length, `Breuer Esra ${ref}: Ketiv/Qere fehlt`);
+  touched.forEach(s => assert.ok(words.every(w => s[0].includes(w)), `Breuer Esra ${ref}: Ketiv/Qere getrennt`));
+}
+assert.deepStrictEqual(ALL.Breuer.Ezra['2:6'].find(s => s[1] === '(und)'), [[], '(und)']);
+assert.deepStrictEqual(ALL.Breuer.Ezra['6:21'].find(s => s[1] === '(das Peßachopfer),'), [[], '(das Peßachopfer),']);
+assert.deepStrictEqual(ALL.Breuer.Ezra['8:17'].find(s => s[1] === 'eingesetzt waren'), [[16,17], 'eingesetzt waren']);
+// Das fehlende Glied der Ahnenreihe wird weder erfunden noch dem nächsten Namen zugewiesen.
+assert.ok(ALL.Breuer.Ezra['7:2'].every(s => !s[0].includes(3) && !s[0].includes(4)));
