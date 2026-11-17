@@ -716,7 +716,8 @@
     const linked = d.entry.kind === 'he' && /Tanakh/.test((d.entry.categories || []).join()) ? inline : window.AutoRef.link(inline, { last: '', trad: versOf(d, 'cites'), note: versNoteText }); // Stellenangaben im Text anklickbar (nicht im Bibeltext selbst); andere Zählung wird umgerechnet
     const gm = d.entry.language === 'Greek' ? ` data-gt="${esc(d.entry.title)}" data-gv="${esc(d.entry.versionTitle || d.versionTitle || '')}"` : ''; // Septuaginta: Titel und Fassung für die Wort-Bestimmung (lxx-morph.js)
     const vt = (d.entry.kind === 'de' || /^Targum .*\(ETCBC/.test(d.entry.versionTitle || '')) && /^own\//.test(d.entry.rel || '') ? ` data-vt="${esc(d.entry.versionTitle || '')}"` : ''; // eigene Übersetzung: für die Wort-Zuordnung (interlin.js)
-    return `<div class="cell" data-k="${d.entry.kind}"${gm}${vt} dir="${rtl ? 'rtl' : 'ltr'}"><div class="txt">${hit ? markHits(linked, hit) : linked}</div></div>`;
+    const bv = d.entry.title === 'Berakhot' && d.entry.kind === 'he' ? ' data-bavli="1"' : '';
+    return `<div class="cell" data-k="${d.entry.kind}"${gm}${vt}${bv} dir="${rtl ? 'rtl' : 'ltr'}"><div class="txt">${hit ? markHits(linked, hit) : linked}</div></div>`;
   }
 
   // Gleichlauf: 'off' | 'both' (beide führen) | 'left' (links führt, rechts folgt) | 'right' (rechts führt, links folgt)
@@ -793,6 +794,7 @@
     olInline();
     markMismatch();
     ilRefresh();
+    decorateBavliReader();
     loadLinks(s).then(apSoon, apSoon); // „Alles zu dieser Stelle“ folgt in den neuen Abschnitt
     if (window.__refind) setTimeout(window.__refind, 0);
     { const ck = view.group.key + '|' + s.k; if (ck !== lastCmtKey) { cmtRow = null; lastCmtKey = ck; } }
@@ -1050,7 +1052,7 @@
     const page = current && apChap(current);
     try {
       const data = await lazyScript('bavli-il-data.js', () => window.BAVLI_IL);
-      window.BavliInterlinear.open(data, page);
+      window.BavliInterlinear.open(data, page, { onWord: openBavliAnchor });
     } catch (err) { alert(I18N.t('Wortzuordnung nicht geladen: {}', err.message)); }
   };
   async function ilRefresh() {
@@ -1145,7 +1147,7 @@
 
   // OSHB-Texte: Klick auf ein Wort zeigt Lemma, Stamm, Zeit und Form; „Im Wörterbuch“ schlägt das Lemma nach
   let wpop = null;
-  const closeWpop = () => { if (wpop) { wpop.remove(); wpop = null; } $$('#rOut .w.sel, #rOut .wt.sel, #rOut .wq.sel, #rOut .wg.sel').forEach(x => x.classList.remove('sel')); gSel = null; try { CSS.highlights.delete('gsel'); } catch { /* ältere Engine */ } };
+  const closeWpop = () => { if (wpop) { wpop.remove(); wpop = null; } $$('#rOut .w.sel, #rOut .wt.sel, #rOut .wq.sel, #rOut .wg.sel, #bavliInterlinear .bil-heword.sel').forEach(x => x.classList.remove('sel')); gSel = null; try { CSS.highlights.delete('gsel'); } catch { /* ältere Engine */ } };
   // Septuaginta (CATSS): Klick auf eine griechische Wortgruppe zeigt die hebräischen Wörter, denen sie zugeordnet ist
   const GFLAG = { z: 'Zusatz der Septuaginta (kein hebräisches Gegenstück)', m: 'Minus der Septuaginta (hebräisches Wort ohne griechisches Gegenstück)', d: 'Doublette: ein hebräisches Wort ist doppelt übersetzt', i: 'Infinitivus absolutus im Hebräischen', t: 'Transliteriertes hebräisches Wort', v: 'Griechisches Präverb für eine hebräische Präposition', s: 'Komparativ/Superlativ (hebr. מ)', u: 'Gegenstück steht an anderer Stelle im Vers (Umstellung oder Verteilung)' };
   // x (optional, mit Morphologie): { rows: HTML der Wort-Bestimmungen, buttons: HTML, word, at: Element/Range zum Ausrichten, on: Klick-Behandlung }
@@ -1301,9 +1303,45 @@
   const Q_GN = { m: 'maskulin', f: 'feminin', b: 'beide Geschlechter', c: 'gemeinsam' }, Q_NU = { s: 'Singular', p: 'Plural', d: 'Dual' }, Q_ST = { a: 'Absolutus', c: 'Constructus', d: 'bestimmt' };
   let bavliP = null, bavliDialog = null;
   const loadBavli = () => bavliP || (bavliP = lazyScript('bavli-morph.js', () => window.BAVLI_MORPH).catch(e => { bavliP = null; throw e; }));
+  async function decorateBavliReader() {
+    const section = view && view.sections && view.sections[view.idx], page = section && apChap(section);
+    const cells = $$('#rOut .cell[data-bavli]');
+    if (!cells.length || !/^(?:[2-9]|10)[ab]$/.test(page || '')) return;
+    let D; try { D = await loadBavli(); } catch { return; }
+    const B = window.BavliMorph;
+    for (const cell of cells) {
+      if (!cell.isConnected || cell.querySelector('.w')) continue;
+      const row = cell.closest('.row'), verse = row && verseOf(row.dataset.l), text = cell.querySelector('.txt');
+      if (!verse || !text) continue;
+      const nodes = [], tokens = [], walker = document.createTreeWalker(text, NodeFilter.SHOW_TEXT);
+      for (let nd; (nd = walker.nextNode()); ) {
+        if (nd.parentElement.closest('.note, sup')) continue;
+        for (const match of nd.data.matchAll(/\S+/g)) if (/[א-ת]/.test(match[0])) { nodes.push({ nd, start: match.index, end: match.index + match[0].length }); tokens.push(match[0]); }
+      }
+      const matched = B.matchWords(D, `Berakhot ${page}:${verse}`, tokens);
+      if (!matched) continue; // Andere Textfassung: keine bloße Positionszuordnung erzwingen.
+      for (let i = nodes.length - 1; i >= 0; i--) {
+        const { nd, start, end } = nodes[i], occurrence = matched[i];
+        const word = start ? nd.splitText(start) : nd;
+        if (end - start < word.data.length) word.splitText(end - start);
+        const span = document.createElement('span'); span.className = 'w'; span.dataset.l = occurrence.id; span.dataset.m = B.definiteMorph(D.lexicon[occurrence.id]);
+        word.replaceWith(span); span.appendChild(word);
+      }
+    }
+  }
+  async function openBavliAnchor(w, anchor) {
+    const token = ++gTok, same = w.classList.contains('sel'); closeWpop(); if (same) return;
+    try {
+      const D = await loadBavli();
+      if (token !== gTok || !w.isConnected) return;
+      const occurrence = window.BavliMorph.atAnchor(D, anchor); if (!occurrence) return;
+      w.dataset.l = occurrence.id; w.dataset.m = window.BavliMorph.definiteMorph(D.lexicon[occurrence.id]);
+      await showBavliWord(w);
+    } catch { alert(I18N.t('Morphologie konnte nicht geladen werden.')); }
+  }
   const bavliStatus = e => e.status === 'ambiguous' ? 'Mehrdeutig: mehrere Analysen' : e.status === 'partial' ? 'Teilweise bestimmt: Merkmale bleiben offen' : e.status === 'unresolved' ? 'Noch nicht sicher bestimmt' : '';
   async function showBavliWord(w) {
-    const tok = gTok, D = await loadBavli().catch(() => null);
+    const tok = gTok, D = await loadBavli().catch(() => { alert(I18N.t('Morphologie konnte nicht geladen werden.')); return null; });
     if (!D || tok !== gTok || !w.isConnected) return;
     const B = window.BavliMorph, e = D.lexicon[w.dataset.l];
     if (!e) return;
@@ -1320,13 +1358,14 @@
     w.classList.add('sel');
     wpop = document.createElement('div'); wpop.id = 'wpop';
     wpop.innerHTML = `<div class="wtop"><span class="wword" dir="rtl">${esc(w.textContent)}</span><button class="wx" title="${esc(I18N.t('Schließen'))}">✕</button></div>${status ? `<p class="bavliStatus">${esc(I18N.t(status))}</p>` : ''}${body}${allNotes.map(n => `<p>${esc(n)}</p>`).join('')}${choices.map((a, i) => `<button class="wdict" data-q="${esc(a.lemma)}">${esc(I18N.t('Im Wörterbuch nachschlagen'))}${choices.length > 1 ? ': ' + esc(a.lemma) + ' (' + esc(I18N.t(a.lang === 'A' ? 'Aramäisch' : 'Hebräisch')) + ')' : ''}</button> <button class="wforms bvforms" data-i="${i}">${esc(I18N.t('Belegte Formen'))}${choices.length > 1 ? ': ' + esc(a.lemma) + ' (' + esc(I18N.t(a.lang === 'A' ? 'Aramäisch' : 'Hebräisch')) + ')' : ''}</button>`).join('')}${refs.length ? `<details><summary>${esc(I18N.t('Grammatische Belege'))}</summary><ul>${refs.map(r => `<li>${esc(r)}</li>`).join('')}</ul></details>` : ''}<p class="muted">${esc(I18N.t('Eigene Morphologie · Berakhot 2a–10b'))}</p>`;
-    document.body.appendChild(wpop);
+    const host = w.closest('dialog[open]') || document.body;
+    host.appendChild(wpop);
     const r = w.getBoundingClientRect(), pw = wpop.offsetWidth, ph = wpop.offsetHeight;
     wpop.style.left = Math.max(8, Math.min(window.innerWidth - pw - 8, r.left + r.width / 2 - pw / 2)) + 'px';
     wpop.style.top = (r.bottom + ph + 6 < window.innerHeight - 8 ? r.bottom + 6 : Math.max(8, r.top - ph - 6)) + 'px';
     wpop.onclick = ev => {
       if (ev.target.closest('.wx')) closeWpop();
-      const b = ev.target.closest('.wdict'); if (b) openDict(b.dataset.q);
+      const b = ev.target.closest('.wdict'); if (b) { if (host !== document.body) host.close(); openDict(b.dataset.q); }
       const f = ev.target.closest('.bvforms'); if (f) { const a = choices[+f.dataset.i]; closeWpop(); showBavliForms(D, a.lemma, a.lang); }
     };
   }
@@ -1334,7 +1373,7 @@
     const B = window.BavliMorph, rows = B.forms(D, lemma, lang);
     if (!bavliDialog) { bavliDialog = document.createElement('dialog'); bavliDialog.id = 'bavliForms'; document.body.appendChild(bavliDialog); }
     bavliDialog.innerHTML = `<form method="dialog"><button class="bavliClose" aria-label="${esc(I18N.t('Schließen'))}">✕</button></form><h2><bdi>${esc(lemma)}</bdi> · ${esc(I18N.t(lang === 'A' ? 'Aramäisch' : 'Hebräisch'))} · ${esc(I18N.t('Belegte Formen'))}</h2><p>${esc(I18N.t('Nur die in Berakhot 2a–10b belegten Formen; keine ergänzten Paradigmen.'))}</p><table class="fmT"><thead><tr><th>${esc(I18N.t('Form'))}</th><th>${esc(I18N.t('Bestimmung'))}</th><th>${esc(I18N.t('Stellen'))}</th></tr></thead><tbody>${rows.map(r => `<tr><td dir="rtl">${esc(r.word)}</td><td>${B.describe(r, window.Morph, s => I18N.t(s)).map(x => esc(x.label)).join('<br>')}${r.status !== 'reviewed' ? `<br><b>${esc(I18N.t(r.status === 'partial' ? 'Teilweise bestimmt' : 'Mögliche Analyse'))}</b>` : ''}</td><td>${r.refs.map(x => `<button type="button" data-ref="${esc(x.ref)}">${esc(x.ref)} <small>(${x.token})</small></button>`).join(' ')}</td></tr>`).join('')}</tbody></table>`;
-    bavliDialog.onclick = ev => { const b = ev.target.closest('[data-ref]'); if (b) { bavliDialog.close(); jumpTo(b.dataset.ref, false); } };
+    bavliDialog.onclick = ev => { const b = ev.target.closest('[data-ref]'); if (b) { bavliDialog.close(); const origin = document.getElementById('bavliInterlinear'); if (origin && origin.open) origin.close(); jumpTo(b.dataset.ref, false); } };
     if (!bavliDialog.open) bavliDialog.showModal();
   }
   function showQumranWord(w) {
@@ -2488,7 +2527,7 @@
   $('#fmBody').addEventListener('mouseover', e => { const a = e.target.closest('.fmRL a[data-ref]'); if (!a || !hovApi || a.dataset.ref === hovApi.current()) return; hovApi.start(a, a.dataset.ref, true, false, wcHovPick(a)); });
   $('#fmBody').addEventListener('mouseout', e => { const a = e.target.closest('.fmRL a[data-ref]'); if (a && hovApi && !a.contains(e.relatedTarget)) hovApi.hide(); });
   $('#formsPanel').addEventListener('scroll', () => hovApi && hovApi.hide(), { passive: true });
-  window.addEventListener('scroll', closeWpop, { passive: true, capture: true });
+  window.addEventListener('scroll', e => { if (!e.target.closest || !e.target.closest('#wpop')) closeWpop(); }, { passive: true, capture: true });
 
   // Fußnoten-Modus (per Klick / immer / aus), wird gemerkt
   let noteMode = 'click';

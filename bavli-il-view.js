@@ -15,7 +15,7 @@
   }
   const visible = (group, proposals) => group.status === 'reviewed' || proposals;
   const statusLabel = group => group.status === 'reviewed' ? (group.he.length ? 'Im Kontext geprüft' : 'Geprüfter Übersetzerzusatz') : group.status === 'machine' ? 'Maschineller Vorschlag · noch nicht im Kontext geprüft' : 'Zuordnung offen';
-  function open(data, initialPage) {
+  function open(data, initialPage, options = {}) {
     const old = document.getElementById('bavliInterlinear'); if (old) old.remove();
     const dialog = document.createElement('dialog'); dialog.id = 'bavliInterlinear'; dialog.className = 'bil-dialog';
     const make = (tag, cls, text) => { const n = document.createElement(tag); if (cls) n.className = cls; if (text != null) n.textContent = text; return n; };
@@ -75,7 +75,11 @@
       body.querySelectorAll('[data-anchor]').forEach(n => n.classList.toggle('bil-hit', anchors.has(n.dataset.anchor)));
       body.querySelectorAll('[data-group]').forEach(n => n.classList.toggle('bil-hit', keys.has(n.dataset.group)));
     }
-    body.addEventListener('click', e => highlight(e.target.closest('[data-anchor], [data-group]')));
+    body.addEventListener('click', e => {
+      const target = e.target.closest('[data-anchor], [data-group]');
+      highlight(target);
+      if (target && target.dataset.anchor && options.onWord) options.onWord(target, target.dataset.anchor);
+    });
     body.addEventListener('keydown', e => { if ((e.key === 'Enter' || e.key === ' ') && e.target.dataset.group) { e.preventDefault(); highlight(e.target); } });
     select.onchange = paint; check.onchange = paint;
     dialog.addEventListener('close', () => dialog.remove(), { once: true });

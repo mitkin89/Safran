@@ -51,3 +51,5 @@ Siehe [Prüfbericht](PRUEFBERICHT.md) für Umfang, Quellenkonflikte und offene S
 ## Deutsche Wortzuordnung im Test
 
 Goldschmidt und Pinner für 2a–10b: [Prüfstand und Testansicht](interlinear/README.md). Geprüfte Zuordnungen und maschinelle/offene Vorschläge sind ausdrücklich getrennt. Die weitere Bearbeitung ist auf Nutzerwunsch angehalten.
+
+Die Morphologiekarte öffnet sich auch beim Klick auf passende Wörter in der normalen hebräischen Berachot-Ausgabe sowie in **Wortzuordnung · Test**. Bei anderen Textfassungen wird die Zuordnung nur übernommen, wenn der gesamte Segmentwortlaut zur geprüften Quelle passt. HTML-Bereinigung und vollständige Klickwege sind durch `test42.js` und `test44.js` abgesichert.

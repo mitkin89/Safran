@@ -18,6 +18,7 @@ for (const [amud, rows] of Object.entries(source.pages)) {
   rows.forEach((text, vi) => {
     const marked = corpus.text[page][vi], ref = `Berakhot ${amud}:${vi + 1}`;
     assert.strictEqual(marked.replace(span, '$3'), text, ref + ': Original-HTML verändert');
+    assert.deepStrictEqual([...R.cleanHtml(marked).matchAll(span)].map(m => m[1]), [...marked.matchAll(span)].map(m => m[1]), ref + ': HTML-Bereinigung entfernt Bavli-Wortmarkierungen');
     const expected = new Map([...text.replace(/<[^>]*>/g, '').matchAll(/\S+/g)].map((m, i) => [i + 1, m[0]]));
     for (const o of D.occurrences.filter(o => o.ref === ref)) assert.strictEqual(expected.get(o.token), o.word, ref + ': falsche Wortposition');
     for (const m of marked.matchAll(span)) {

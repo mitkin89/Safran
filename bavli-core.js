@@ -3,6 +3,32 @@
 (function () {
   'use strict';
   const own = id => String(id || '').startsWith('bavli:');
+  const refsCache = new WeakMap();
+  function wordsAt(D, ref) {
+    if (!refsCache.has(D)) {
+      const refs = new Map();
+      for (const o of D.occurrences || []) {
+        if (!refs.has(o.ref)) refs.set(o.ref, []);
+        refs.get(o.ref).push(o);
+      }
+      refsCache.set(D, refs);
+    }
+    return refsCache.get(D).get(ref) || [];
+  }
+  function atAnchor(D, anchor) {
+    const m = /^(\d+[ab]:\d+)\/(\d+)$/.exec(String(anchor));
+    return m ? wordsAt(D, 'Berakhot ' + m[1]).find(o => o.token === +m[2]) || null : null;
+  }
+  function matchWords(D, ref, words) {
+    const expected = wordsAt(D, ref);
+    if (!expected.length || expected.length !== words.length) return null;
+    const normalized = (word, vowels) => String(word).normalize('NFD').replace(vowels ? /[^א-ת\u05b0-\u05bc\u05bf\u05c1\u05c2\u05c7]/g : /[^א-ת]/g, '');
+    if (words.some((word, i) => {
+      const vowels = /[\u05b0-\u05bc\u05bf\u05c1\u05c2\u05c7]/.test(word);
+      return normalized(word, vowels) !== normalized(expected[i].word, vowels);
+    })) return null;
+    return expected;
+  }
   const analyses = e => !e || e.status === 'unresolved' ? [] : e.analyses || (e.morph ? [e] : []);
   const mainIndex = morph => {
     const parts = String(morph || '').slice(1).split('/');
@@ -63,7 +89,7 @@
     }
     return [...rows.values()].sort((a, b) => b.n - a.n || a.word.localeCompare(b.word, 'he'));
   }
-  const api = { own, analyses, mainIndex, headLemma, definiteLemma, definiteMorph, describe, occurrences, forms };
+  const api = { own, wordsAt, atAnchor, matchWords, analyses, mainIndex, headLemma, definiteLemma, definiteMorph, describe, occurrences, forms };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   else window.BavliMorph = api;
 })();
