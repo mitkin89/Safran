@@ -982,12 +982,11 @@
   }
   // Griechische Wortgruppen eines Verses den Westminster-Wörtern zuordnen (nach Konsonanten, der Reihe nach) -> [[Wortnummern], Griechisch]
   const ilTpl = document.createElement('template');
-  function ilLxxSegs(cell, html) {
-    const cons = [...cell.querySelectorAll('.w')].map(w => consOf(w.textContent)), segs = []; let p = 0;
-    ilTpl.innerHTML = html || '';
-    for (const g of ilTpl.content.querySelectorAll('.wg')) {
-      if (g.classList.contains('wm')) continue; // hebräisches Wort ohne griechisches Gegenstück
-      const want = consOf(g.dataset.h || ''), gr = g.textContent.trim(); if (!want || !gr) continue;
+  function ilLxxIndices(words, groups) {
+    const cons = words.map(consOf), out = new Map(); let p = 0;
+    for (const g of groups) {
+      if (g.classList.contains('wm')) continue;
+      const want = consOf(g.dataset.h || ''); if (!want || !g.textContent.trim()) continue;
       let hit = null;
       for (let i = p; i < Math.min(cons.length, p + 8) && !hit; i++) {
         let acc = '';
@@ -995,9 +994,14 @@
       }
       if (!hit) continue;
       const idx = []; for (let k = hit[0]; k <= hit[1]; k++) idx.push(k + 1);
-      segs.push([idx, gr]); p = hit[1] + 1;
+      out.set(g, idx); p = hit[1] + 1;
     }
-    return segs;
+    return out;
+  }
+  function ilLxxSegs(cell, html) {
+    ilTpl.innerHTML = html || '';
+    return [...ilLxxIndices([...cell.querySelectorAll('.w')].map(w => w.textContent), ilTpl.content.querySelectorAll('.wg'))]
+      .map(([g, idx]) => [idx, g.textContent.trim()]);
   }
   // Legende: Farbpunkt + Name je gewähltem Werk; Überfahren hebt die Zeile hervor, Klick nimmt das Werk aus der Auswahl
   function ilLegend(use) {
@@ -3279,7 +3283,7 @@
       const m = /^(.*) (\d+):(\d+)$/.exec(ref); if (!m) return;
       let D; try { D = await loadGM(); } catch { return; }
       if (!D || !box.isConnected || hovRef !== ref) return;
-      const GM = window.GMorph;
+      const GM = window.GMorph, targets = new Set();
       for (const p of box.querySelectorAll('.pvp[data-vt]')) {
         const bi = GM.bookIndex(D, m[1], p.dataset.vt); if (bi < 0) continue;
         const toks = GM.verse(D, bi, +m[2], +m[3]), at = greekWordAt(p, null, null, true);
@@ -3288,8 +3292,31 @@
         // dürfen sie nicht unterdrücken (Iota subscriptum/adscriptum ist gleichwertig).
         for (let i = toks.length - 1; i >= 0; i--) if (toks[i] && GM.info(D, toks[i].id).lemma === lemma && GM.sameForm(GM.info(D, toks[i].id).form, at.words[i].t)) {
           const rg = at.range(i), mark = document.createElement('span'); mark.className = 'pvhl';
+          // Vor dem Einfügen die konkrete CATSS-Gruppe merken: gleiche Wörter können mehrfach vorkommen.
+          const group = rg.startContainer && rg.startContainer.parentElement.closest('.wg[data-h]');
+          if (group && p.contains(group)) targets.add(group);
           mark.append(rg.extractContents()); rg.insertNode(mark);
         }
+      }
+      if (!targets.size) return; // andere griechische Fassungen haben keine CATSS-Verknüpfung
+      let IL;
+      try { [IL] = await Promise.all([loadIL(), wcTrCtxLoad([ref])]); } catch { return; }
+      if (!IL || !box.isConnected || hovRef !== ref) return;
+      const words = wcVerseWords.get(ref) || [], set = new Set();
+      for (const p of box.querySelectorAll('.pvp[data-vt]')) {
+        const groups = p.querySelectorAll('.wg[data-h]');
+        for (const [g, idx] of ilLxxIndices(words.map(w => w.he), groups)) if (targets.has(g)) {
+          // CATSS ordnet Wortgruppen zu; die ganze zugehörige deutsche Gruppe markieren.
+          idx.forEach(i => set.add(i));
+        }
+      }
+      if (!set.size) return;
+      for (const p of box.querySelectorAll('.pvp[data-vt]')) {
+        const nm = ilName(p.dataset.vt), segs = nm && IL[nm] && IL[nm][m[1]] && IL[nm][m[1]][m[2] + ':' + m[3]];
+        if (!segs) continue;
+        const d = p.firstElementChild; if (!d || p.children.length !== 1) continue;
+        d.classList.add('txt'); ilTagCell(p, segs);
+        p.querySelectorAll('.ilx').forEach(x => { if (x.dataset.ix.split(',').some(i => set.has(+i))) x.classList.add('pvhl'); });
       }
     };
     const startHov = (a, ref, quiet, below, pick) => {
