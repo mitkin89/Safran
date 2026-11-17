@@ -20,3 +20,10 @@ tools/epub/*.epub
 bundled/own/Alter on */
 tools/epub/*.epub
 bundled/own/Cassuto on */
+
+
+# Lokale Interlinear-Daten enthalten ebenfalls private Übersetzungstexte
+private/
+tools/interlinear/buber/
+interlin.private*
+interlin-buber*

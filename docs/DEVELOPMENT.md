@@ -1,5 +1,9 @@
 # Development
 
+Private Buber/Rosenzweig interlinear alignments can be imported locally; see
+[PRIVATE-INTERLINEAR.md](PRIVATE-INTERLINEAR.md). No private texts or alignments
+are included in the repository or public interlinear build.
+
 ## Run from source
 
 1. Install Node.js 22 LTS.
@@ -32,3 +36,4 @@ The interface is available in German and English. The English strings live in `i
 ## Bundled texts
 
 Texts in `bundled/` are imported automatically on start. Export your own texts via ⋯ → "Eigene Texte für GitHub exportieren …" into that folder.
+

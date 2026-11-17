@@ -7,6 +7,7 @@ const OFF = require('./offline');
 const LK = require('./links');
 const TP = require('./topics');
 const DSL = require('./dsl');
+const PIL = require('./private-interlinear');
 
 const T0 = Date.now(); // Startzeit des Hauptprozesses (für startup.log)
 const tMain = [['Hauptprozess gestartet', 0]]; const mkMain = n => tMain.push([n, Date.now() - T0]);
@@ -438,6 +439,21 @@ function getLibrary() {
   return libraryP;
 }
 const invalidateReads = () => { readCache.clear(); try { knownCmtCache.clear(); } catch { /* noch nicht angelegt */ } }; // gelesene Dateien im Kommentar-Zwischenspeicher verwerfen (nach Änderungen an der Bibliothek)
+
+const privateInterlinear = new PIL.PrivateInterlinear(path.join(app.getPath('userData'), 'private', 'interlinear.json'), getLibrary);
+ipcMain.handle('interlinear:read', async () => {
+  try { return await privateInterlinear.read(); } catch (err) { return { error: err.message }; }
+});
+ipcMain.handle('interlinear:import', async e => {
+  try {
+    const r = await dialog.showOpenDialog(winOf(e), { title: M('Private Interlinear-Zuordnung wählen', 'Choose private interlinear alignment'), properties: ['openFile'], filters: [{ name: 'JSON', extensions: ['json'] }] });
+    if (r.canceled || !r.filePaths.length) return { canceled: true };
+    if ((await fs.stat(r.filePaths[0])).size > PIL.MAX_BYTES) throw new Error('Die Interlinear-Datei ist zu groß.');
+    const result = await privateInterlinear.import(JSON.parse(await fs.readFile(r.filePaths[0], 'utf8')));
+    for (const win of BrowserWindow.getAllWindows()) if (!win.isDestroyed()) win.webContents.send('interlinear:changed');
+    return result;
+  } catch (err) { return { error: err.message }; }
+});
 
 let catCache = null; // { catalog, groups, summary }
 async function loadCatalog() {
@@ -1148,3 +1164,4 @@ app.whenReady().then(() => {
   app.on('activate', () => { if (BrowserWindow.getAllWindows().length === 0) openOffline(); });
 });
 app.on('window-all-closed', () => { if (process.platform !== 'darwin') app.quit(); });
+
