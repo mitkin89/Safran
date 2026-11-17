@@ -831,6 +831,7 @@ window.I18N_HE = {
 "Interlinear": "בין השורות",
 "Klick: dieses Werk ausblenden": "לחיצה: הסתרת חיבור זה",
 "Zunz (Standard)": "צונץ (ברירת מחדל)",
+"gleich (= MT)": "זהה (= נוסח המסורה)",
 "Fragepronomen": "כינוי שאלה",
 "Verneinung": "שלילה",
 "Umschrift (Aussprache)": "תעתיק (הגייה)",

@@ -207,6 +207,8 @@
     'Interlinear': 'Interlinear',
     'Klick: dieses Werk ausblenden': 'Click: hide this work',
     'Zunz (Standard)': 'Zunz (default)',
+    'gleich (= MT)': 'same (= MT)',
+    'Qumran-Rollen: was die biblischen Rollen dort haben, wo der masoretische Text dieses Wort hat – je erhaltene Rolle gezählt (maschinell zugeordnet, ETCBC DSS, CC BY-NC 4.0); von den Herausgebern ergänzte Wörter zählen nicht.': 'Qumran scrolls: what the biblical scrolls have where the Masoretic text has this word – counted per preserved scroll (aligned by machine, ETCBC DSS, CC BY-NC 4.0); words reconstructed by the editors are not counted.',
     'Fragepronomen': 'interrogative pronoun',
     'Verneinung': 'negation',
     'Umschrift (Aussprache)': 'Transliteration (pronunciation)',

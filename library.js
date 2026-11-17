@@ -1526,7 +1526,7 @@
     body.querySelectorAll('.fmF[data-i]').forEach(ch => {
       const E = D.para ? fmTrEntryDe(ch, D) : other(ch); if (!E) return;
       const [l1, l2, tip] = fmTrLines(E, D, name);
-      const sp = document.createElement('span'); sp.className = 'fmTrL' + (E.de ? ' can' : ''); sp.lang = D.lang; sp.dir = D.lang === 'arc' ? 'rtl' : 'ltr';
+      const sp = document.createElement('span'); sp.className = 'fmTrL' + (E.de ? ' can' : ''); sp.lang = D.lang; sp.dir = RTL(D.lang) ? 'rtl' : 'ltr';
       sp.innerHTML = `<span class="l1">${l1}</span>${l2 ? `<span class="l2">${l2}</span>` : ''}`; sp.title = tip;
       ch.appendChild(sp);
     });
@@ -1681,6 +1681,8 @@
   let ilRenP = null, wcTrState = null;
   let lxxRenP = null;
   let wcTrMore = false; try { wcTrMore = localStorage.getItem('wcTrMore') === '1'; } catch { /* egal */ }
+  let qRenP = null; // Lesarten der Qumran-Rollen je Lemma (tools/dss/ren.py)
+  const loadQRen = () => qRenP || (qRenP = lazyScript('qumran-ren.js', () => window.QUMRAN_REN).catch(() => { qRenP = null; return null; }));
   const loadLxxRen = () => lxxRenP || (lxxRenP = lazyScript('lxx-ren.js', () => window.LXX_REN).catch(() => { lxxRenP = null; return null; }));
   const loadIlRen = () => ilRenP || (ilRenP = (async () => {
     const revision = ilRevision;
@@ -1694,11 +1696,12 @@
     return all;
   })().catch(() => { ilRenP = null; return null; }));
   const WC_TR_DE = new Set(['BuberRosenzweig', 'Zunz', 'Breuer', 'Philippson', 'Herxheimer', 'Goldschmidt', 'Hirsch', 'JuliusHirsch']);
-  const WC_TR_LABEL = { BuberRosenzweig: 'Buber/Rosenzweig', Zunz: 'Zunz (1838)', Breuer: 'Breuer', Philippson: 'Philippson', Herxheimer: 'Herxheimer', Goldschmidt: 'Goldschmidt (1921)', Hirsch: 'S. R. Hirsch (1882)', JuliusHirsch: 'Julius Hirsch', LXX: 'Septuaginta', O: 'Onkelos', PJ: 'Pseudo-Jonathan', N: 'Neofiti 1' };
+  const WC_TR_LABEL = { BuberRosenzweig: 'Buber/Rosenzweig', Zunz: 'Zunz (1838)', Breuer: 'Breuer', Philippson: 'Philippson', Herxheimer: 'Herxheimer', Goldschmidt: 'Goldschmidt (1921)', Hirsch: 'S. R. Hirsch (1882)', JuliusHirsch: 'Julius Hirsch', LXX: 'Septuaginta', O: 'Onkelos', PJ: 'Pseudo-Jonathan', N: 'Neofiti 1', Q: 'Qumran-Rollen' };
   // Porträt im Quell-Chip (wie in der Interlinear-Auswahl): Schlüssel der Fassung -> Name in portraits/index.js; fehlt das Bild, bleibt der Chip ohne
   // Vers-Vorschau in der Wortkarte: Text aus der dort gewählten Fassung (Tabelle: „Übersetzung unter den Formen“, Überblick: Quell-Chip der Übersetzungsstatistik);
   // der Versionstitel wird wie in der Interlinear-Ansicht über IL_VT erkannt. „aus“ oder keine Auswahl: wie überall (null)
-  const WC_TR_VT = { O: IL_VT.Onkelos, PJ: IL_VT['Pseudo-Jonathan'], N: IL_VT.Neofiti, LXX: /^Septuaginta/ };
+  const WC_TR_VT = { O: IL_VT.Onkelos, PJ: IL_VT['Pseudo-Jonathan'], N: IL_VT.Neofiti, LXX: /^Septuaginta/, Q: /^Qumran-Rollen \(ETCBC DSS\)/ };
+  const RTL = l => l === 'arc' || l === 'he'; // Quellen in hebräischer Schrift (Targumim, Qumran-Rollen)
   function wcHovPick(a) {
     const k = a.closest('#fmBody') ? (fmTrData ? fmTrCur() : 'off') : a.closest('#wcBody') ? (wcTrLive() ? wcTrLive().cur : 'off') : 'off';
     const lem = fmCur && !fmCur.greek ? fmCur.lemma : null; // das Wort der Wortkarte wird in der Vorschau markiert
@@ -1706,7 +1709,7 @@
     const re = WC_TR_VT[k] || IL_VT[k] || new RegExp(String(k).replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
     return { vt: re.source, rtl: k === 'O' || k === 'PJ' || k === 'N', label: WC_TR_LABEL[k] || k, lem };
   }
-  const WC_TR_PIC = { Zunz: 'Zunz', Breuer: 'Raphael Breuer', Philippson: 'Philippson', Herxheimer: 'Herxheimer', Goldschmidt: 'Goldschmidt', Hirsch: 'Samson Raphael Hirsch', JuliusHirsch: 'Julius Hirsch', LXX: 'Septuaginta', O: 'Targum Onkelos', PJ: 'Targum Pseudo-Jonathan', N: 'Targum Neofiti' };
+  const WC_TR_PIC = { Zunz: 'Zunz', Breuer: 'Raphael Breuer', Philippson: 'Philippson', Herxheimer: 'Herxheimer', Goldschmidt: 'Goldschmidt', Hirsch: 'Samson Raphael Hirsch', JuliusHirsch: 'Julius Hirsch', LXX: 'Septuaginta', O: 'Targum Onkelos', PJ: 'Targum Pseudo-Jonathan', N: 'Targum Neofiti', Q: 'Qumran' };
   const wcTrPic = k => { const pic = WC_TR_PIC[k] && portraitOf(WC_TR_PIC[k]); return pic ? `<img class="wcTrPic" src="portraits/${encodeURIComponent(pic.img)}" alt="" loading="lazy" onerror="this.remove()">` : ''; };
   // Stellen: Buch*1000000 + Kapitel*1000 + Vers als Differenzen (Basis 36) -> Zahlen
   function unB36(str) { let prev = 0; return String(str || '').split('.').filter(Boolean).map(x => (prev += parseInt(x, 36))); }
@@ -1729,13 +1732,16 @@
   // Quellen der Übersetzungsstatistik für ein Lemma: {src: {Fassung: {lang, labels, cells}}, keys, IR}
   // labels[g].forms: deutsche Fassungen [Grundform, [Form, Anzahl], …]; Septuaginta und Targumim [Lemma]
   async function wcTrSources(lemma) {
-    const [IR, LR, TR] = await Promise.all([loadIlRen(), loadLxxRen(), loadTgRen()]);
+    const [IR, LR, TR, QR] = await Promise.all([loadIlRen(), loadLxxRen(), loadTgRen(), loadQRen()]);
     const src = {};
     if (IR) for (const [tr, M] of Object.entries(IR.tr)) { const x = M[lemma]; if (!x) continue; src[tr] = { lang: 'de', labels: x[0].map(f => ({ forms: f })), cells: x[1].map(([g, code, n, refs, f]) => ({ g, code, n, refs, f })), para: x[2] || {} }; }
     const lx = LR && LR[lemma];
     if (lx) src.LXX = { lang: 'grc', labels: lx[0].map(g => ({ forms: [g], other: g === '*' })), cells: lx[1].map(([g, code, n, refs]) => ({ g, code, n, refs })) };
     const tg = TR && TR[lemma];
     if (tg) ['O', 'PJ', 'N'].forEach((k, i) => { const cells = tg[1].map(c => ({ g: c[0], code: c[1], n: c[2 + i], refs: c[5 + i] })).filter(c => c.n); if (cells.length) src[k] = { lang: 'arc', labels: tg[0].map(([l, gl]) => ({ forms: [l], gl, other: l === '*' })), cells }; });
+    // Qumran-Rollen: was die Rollen dort haben, wo der masoretische Text das Wort hat (gleich / andere Schreibweise / andere Lesart)
+    const qr = QR && QR[lemma];
+    if (qr) src.Q = { lang: 'he', labels: qr[0].map(l => { if (l === '*') return { forms: ['*'], other: true }; const k = l[0], w = l.slice(2); return k === '0' ? { forms: [I18N.t('gleich (= MT)')], same: true } : { forms: [w], gl: I18N.t(k === '1' ? 'andere Schreibweise' : 'andere Lesart') }; }), cells: qr[1].map(([g, code, n, refs]) => ({ g, code, n, refs })) };
     for (const k in src) src[k].total = src[k].cells.reduce((a, c) => a + c.n, 0);
     const keys = Object.keys(WC_TR_LABEL).filter(k => src[k] && src[k].total >= 2);
     return { src, keys, IR };
@@ -1829,7 +1835,7 @@
     const gn = new Map(), grefs = new Map();
     D.cells.forEach(c => { if (!match(c)) return; gn.set(c.g, (gn.get(c.g) || 0) + c.n); if (c.refs) { const a = grefs.get(c.g) || grefs.set(c.g, []).get(c.g); unB36(c.refs).forEach(num => a.push({ num, code: c.code, g: c.g })); } });
     grefs.forEach(a => a.sort((x, y) => x.num - y.num));
-    const gs = [...gn].map(([g, n]) => ({ ...D.labels[g], g, n, lang: D.lang, refs: grefs.get(g) })).sort((a, b) => (!!a.other - !!b.other) || b.n - a.n);
+    const gs = [...gn].map(([g, n]) => ({ ...D.labels[g], g, n, lang: D.labels[g] && D.labels[g].same ? I18N.lang : D.lang, refs: grefs.get(g) }))  /* Qumran „gleich …“: Text der Oberfläche, nicht hebräisch */.sort((a, b) => (!!a.other - !!b.other) || b.n - a.n);
     const tot = gs.reduce((a, g) => a + g.n, 0), all = D.total;
     const pct = n => { const p = n / tot * 100; return (p < 1 ? '< 1' : String(Math.round(p))) + ' %'; };
     const lab = g => g.other ? I18N.t('Andere') : g.forms[0];
@@ -1840,7 +1846,7 @@
     // abweichende Deutung: dieselbe Grundform ist bei einem gleich geschriebenen Lemma deutlich häufiger -> die Fassung liest hier wohl das andere Wort
     const sisIdx = S.sis.filter(s => s.id !== S.lemma && s.src[S.cur]).map(s => { const d = s.src[S.cur], m = new Map(); d.cells.forEach(c => { const L = d.labels[c.g]; if (L && !L.other) m.set(L.forms[0], (m.get(L.forms[0]) || 0) + c.n); }); return { id: s.id, m, total: d.total }; });
     const hint = g => {
-      if (g.other || !sisIdx.length || D.lang === 'arc') return null; // Targum: aramäische Lexeme sind oft selbst Homonyme
+      if (g.other || !sisIdx.length || RTL(D.lang)) return null; // Targum: aramäische Lexeme sind oft selbst Homonyme
       const share = g.n / tot; if (share >= 0.1) return null; let best = null;
       for (const s of sisIdx) { const n2 = s.m.get(g.forms[0]) || 0, sh = n2 / s.total; if (n2 >= 3 && n2 > g.n && sh >= 0.1 && sh >= 4 * share && (!best || sh > best.sh)) best = { id: s.id, sh }; }
       return best && gloss(best.id) ? I18N.t('{} liest hier wohl „{}“', srcName(S.cur), gloss(best.id)) : null;
@@ -1865,7 +1871,7 @@
         if (o) u.add(o.i);
         if (bk !== lb) { html += `<div class="bk">${esc(fmBook(BOOKS[bk]))}</div>`; lb = bk; }
         const cv = (Math.floor(it.num / 1000) % 1000) + (I18N.lang === 'de' ? ',' : ':') + (it.num % 1000);
-        html += `<div class="ln"><a data-ref="${esc(r)}">${cv}</a><span class="he" lang="he" dir="rtl">${o ? esc(o.he) : ''}</span><span class="de" lang="${de ? 'de' : D.lang}" dir="${D.lang === 'arc' ? 'rtl' : 'ltr'}">${o && o.de ? esc(o.de) : !de ? esc(D.labels[it.g].forms[0]) : withLabel ? `<span class="muted">${esc(D.labels[it.g].forms[0])}</span>` : ''}${hs && hs.get(it.g) ? ` <small class="hint">${esc(hs.get(it.g))}</small>` : ''}</span></div>`;
+        html += `<div class="ln"><a data-ref="${esc(r)}">${cv}</a><span class="he" lang="he" dir="rtl">${o ? esc(o.he) : ''}</span><span class="de" lang="${de ? 'de' : D.lang}" dir="${RTL(D.lang) ? 'rtl' : 'ltr'}">${o && o.de ? esc(o.de) : S.cur === 'Q' ? (D.labels[it.g].same ? '=' : esc(D.labels[it.g].forms[0])) : !de ? esc(D.labels[it.g].forms[0]) : withLabel ? `<span class="muted">${esc(D.labels[it.g].forms[0])}</span>` : ''}${hs && hs.get(it.g) ? ` <small class="hint">${esc(hs.get(it.g))}</small>` : ''}</span></div>`;
       });
       const rest = items.length - lim, STEP = 300;
       const more = rest > 0 ? `<div class="mr"><button type="button" class="wcTrMoreRefs" dir="auto" data-to="${lim + Math.min(rest, STEP)}">${esc(rest <= STEP ? I18N.t('alle {} Stellen zeigen', wcNum(items.length)) : I18N.t('weitere {} Stellen zeigen', wcNum(STEP)))}</button></div>` : '';
@@ -1898,12 +1904,12 @@
     const name = g => g.lang === 'arc' && !g.other ? `<button type="button" class="wcTgL" data-q="${esc(g.forms[0])}" title="${esc(I18N.t('Im Wörterbuch nachschlagen'))}">${esc(lab(g))}</button>` : esc(lab(g));
     const row = g => {
       const key = String(g.g), can = !!g.refs && !g.other, open = can && S.open === key, h = hint(g);
-      return `<div class="wcTrR c${cOf(g)}${can ? ' can' : ''}${open ? ' open' : ''}${h ? ' odd' : ''}" data-g="${key}" data-s="${sOf(g)}"${can ? ` role="button" tabindex="0" aria-expanded="${open}"${open ? '' : ` title="${esc(I18N.t('Formen und Stellen zeigen'))}"`}` : ''}>${chev(can)}${sw}<span class="f"><span lang="${g.lang}"${g.lang === 'arc' ? ' dir="rtl"' : ''}>${name(g)}</span>${g.gl ? ` <small class="muted">${esc(g.gl)}</small>` : ''}${h ? ` <small class="hint" title="${esc(h)}">${esc(h)}</small>` : ''}</span>${bar(g.n)}<small class="n">${wcNum(g.n)}</small><small class="p">${pct(g.n)}</small></div>${open ? detail(g) : ''}`;
+      return `<div class="wcTrR c${cOf(g)}${can ? ' can' : ''}${open ? ' open' : ''}${h ? ' odd' : ''}" data-g="${key}" data-s="${sOf(g)}"${can ? ` role="button" tabindex="0" aria-expanded="${open}"${open ? '' : ` title="${esc(I18N.t('Formen und Stellen zeigen'))}"`}` : ''}>${chev(can)}${sw}<span class="f"><span lang="${g.lang}"${RTL(g.lang) ? ' dir="rtl"' : ''}>${name(g)}</span>${g.gl ? ` <small class="muted">${esc(g.gl)}</small>` : ''}${h ? ` <small class="hint" title="${esc(h)}">${esc(h)}</small>` : ''}</span>${bar(g.n)}<small class="n">${wcNum(g.n)}</small><small class="p">${pct(g.n)}</small></div>${open ? detail(g) : ''}`;
     };
     const onesRow = () => {
       const open = S.open === 'ones', n = ones.length;
       const body = !open ? '' : de ? `<div class="wcTrX">${ctx(ones.map(g => g.refs[0]).sort((x, y) => x.num - y.num), 'ones', true)}</div>`
-        : `<div class="wcTrX"><div class="wcTrFm">${ones.map(g => `<span class="fm" lang="${g.lang}"${g.lang === 'arc' ? ' dir="rtl"' : ''}>${name(g)}${g.gl ? ` <small>${esc(g.gl)}</small>` : ''}</span>`).join('')}</div></div>`;
+        : `<div class="wcTrX"><div class="wcTrFm">${ones.map(g => `<span class="fm" lang="${g.lang}"${RTL(g.lang) ? ' dir="rtl"' : ''}>${name(g)}${g.gl ? ` <small>${esc(g.gl)}</small>` : ''}</span>`).join('')}</div></div>`;
       return `<div class="wcTrR c0 can ones${open ? ' open' : ''}" data-g="ones" data-s="rest" role="button" tabindex="0" aria-expanded="${open}">${chev(true)}${sw}<span class="f"><bdi>${esc(I18N.t('Einzelbelege'))}</bdi> <small class="muted">(${wcNum(n)})</small></span>${bar(n)}<small class="n">${wcNum(n)}</small><small class="p">${pct(n)}</small></div>${body}`;
     };
     const others = shown.filter(g => g.other), normal = shown.filter(g => !g.other);
@@ -1926,7 +1932,7 @@
       const order = [...ga].sort((x, y) => (!!D.labels[x[0]].other - !!D.labels[y[0]].other) || y[1] - x[1]).map(x => x[0]), rank = new Map(order.map((g, i) => [g, i]));
       const rowsAll = [...pairs.values()].sort((x, y) => rank.get(x.a) - rank.get(y.a) || y.n - x.n), rows = S.allRows ? rowsAll : rowsAll.slice(0, 20);
       const nSame = rowsAll.reduce((a, p) => a + (isSame(p) ? p.n : 0), 0), pc = n => { const q = n / np * 100; return (q > 0 && q < 1 ? '< 1' : String(Math.round(q))) + ' %'; };
-      const span = (Dx, t, other) => `<span lang="${other ? '' : Dx.lang}"${Dx.lang === 'arc' && !other ? ' dir="rtl"' : ''}>${esc(t)}</span>`;
+      const span = (Dx, t, other) => `<span lang="${other ? '' : Dx.lang}"${RTL(Dx.lang) && !other ? ' dir="rtl"' : ''}>${esc(t)}</span>`;
       const cx = p => {
         const lim = Math.min(p.refs.length, S.refLim), part = p.refs.slice(0, lim), refs = part.map(it => refOf(it.num));
         if (refs.some(r => !wcVerseWords.has(r)) || ((de || deB) && !window.INTERLIN && !S.ilFail)) {
@@ -1943,7 +1949,7 @@
           };
         };
         const pa = picker(S.cur, D), pb = picker(kB, B);
-        const cell = (Dx, o, t) => `<span class="de" lang="${Dx.lang}" dir="${Dx.lang === 'arc' ? 'rtl' : 'ltr'}">${o && o.de ? esc(o.de) : `<span class="muted">${esc(t)}</span>`}</span>`;
+        const cell = (Dx, o, t) => `<span class="de" lang="${Dx.lang}" dir="${RTL(Dx.lang) ? 'rtl' : 'ltr'}">${o && o.de ? esc(o.de) : `<span class="muted">${esc(t)}</span>`}</span>`;
         let lb = null, html = `<div class="ln ln2 hd" aria-hidden="true"><span></span><span></span><span>${esc(srcName(S.cur))}</span><span>${esc(srcName(kB))}</span></div>`;
         part.forEach((it, j) => {
           const r = refs[j], bk = Math.floor(it.num / 1e6), oa = pa(r, it.g, it.code), ob = pb(r, it.gb, it.codeB), he = (oa || ob || {}).he || '';
@@ -1971,7 +1977,7 @@
     const mainDims = dims.filter(d => WC_TR_MAIN.has(d.k)), restDims = dims.filter(d => !WC_TR_MAIN.has(d.k));
     const X = S.cmp && S.cmp !== S.cur && S.src[S.cmp] ? cmpView() : null;
     const sum = `<div class="wcTrSum${X ? ' cmp' : ''}">${X ? X.head : `<span class="cnt${fk.length ? ' filt' : ''}" dir="auto">${esc(fk.length ? I18N.t('{} von {} Belegen', wcNum(tot), wcNum(all)) : I18N.t('{} Belege · {} Wiedergaben', wcNum(tot), wcNum(gs.length)))}</span>`}${fk.map(k => `<button type="button" class="wcTrFV on rm" data-dim="${k}" data-val="${esc(S.f[k])}" title="${esc(I18N.t('Filter entfernen'))}">${esc(I18N.t(S.f[k]))} <span aria-hidden="true">✕</span></button>`).join('')}${fk.length > 1 ? `<button type="button" class="wcTrFV wcTrAll" data-dim="*">↺ ${esc(I18N.t('Alle Formen'))}</button>` : ''}${restDims.length ? `<button type="button" class="wcTrMoreB" aria-expanded="${wcTrMore}"><bdi>${esc(I18N.t('Weitere Merkmale'))}</bdi> <span aria-hidden="true">${wcTrMore ? '▴' : '▾'}</span></button>` : ''}</div>`;
-    const note = X ? 'Verglichen sind die Stellen, an denen beide Quellen dieses Wort einzeln wiedergeben: jede Zeile zeigt, welche Wiedergabe der einen auf welche der anderen trifft. Klick auf eine Zeile zeigt die Stellen; Klick auf die zweite Quelle tauscht die Seiten.' : de ? 'Gezählt sind die Stellen, an denen die Übersetzung diesem Wort allein (ohne weiteres Inhaltswort) zugeordnet ist; die Formen sind nach ihrer deutschen Grundform zusammengefasst, „und“ und Artikel am Anfang weggelassen. Klick auf eine Zeile zeigt die Formen und die Stellen.' : S.cur === 'LXX' ? 'Septuaginta nach der Wort-für-Wort-Zuordnung von CATSS, griechische Wörter als Lemma (lxx-morph).' : 'Targum nach der maschinellen Wortzuordnung zum Westminster-Text (ETCBC Targum Corpus, CC BY-NC 4.0).';
+    const note = X ? 'Verglichen sind die Stellen, an denen beide Quellen dieses Wort einzeln wiedergeben: jede Zeile zeigt, welche Wiedergabe der einen auf welche der anderen trifft. Klick auf eine Zeile zeigt die Stellen; Klick auf die zweite Quelle tauscht die Seiten.' : de ? 'Gezählt sind die Stellen, an denen die Übersetzung diesem Wort allein (ohne weiteres Inhaltswort) zugeordnet ist; die Formen sind nach ihrer deutschen Grundform zusammengefasst, „und“ und Artikel am Anfang weggelassen. Klick auf eine Zeile zeigt die Formen und die Stellen.' : S.cur === 'LXX' ? 'Septuaginta nach der Wort-für-Wort-Zuordnung von CATSS, griechische Wörter als Lemma (lxx-morph).' : S.cur === 'Q' ? 'Qumran-Rollen: was die biblischen Rollen dort haben, wo der masoretische Text dieses Wort hat – je erhaltene Rolle gezählt (maschinell zugeordnet, ETCBC DSS, CC BY-NC 4.0); von den Herausgebern ergänzte Wörter zählen nicht.' : 'Targum nach der maschinellen Wortzuordnung zum Westminster-Text (ETCBC Targum Corpus, CC BY-NC 4.0).';
     { // was gerade eingeklappt ist (Formen einer Zeile, Einzelbelege, weitere Wiedergaben, weitere Merkmale) – die Suche im Fenster (wcFind) findet es und klappt es beim Springen auf
       const hid = [], gtxt = g => lab(g) + (g.gl ? ' ' + g.gl : '');
       if (X) { if (X.hidden) hid.push({ act: 'rows', sel: '.wcTrAllRows', text: X.hidden }); }
