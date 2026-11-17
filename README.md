@@ -34,7 +34,7 @@ Safran is a free desktop app for macOS, Windows and Linux that keeps your texts 
 
 | | |
 | --- | --- |
-| 🔡 **The whole Tanakh word by word in German** | The *Interlinear* button offers Zunz and Philippson across all 39 books; Goldschmidt for the Torah, S. R. Hirsch for the Torah and Psalms, Julius Hirsch for Isaiah, Wolf for both books of Samuel, and the Septuagint, the Targumim and the Qumran scrolls can stand below it. |
+| 🔡 **The whole Tanakh word by word in German** | The *Interlinear* button offers Zunz and Philippson across all 39 books; Goldschmidt and German Mendelssohn (Dessau 1815) for the Torah, S. R. Hirsch for the Torah and Psalms, Julius Hirsch for Isaiah, Wolf for both books of Samuel, and the Septuagint, the Targumim and the Qumran scrolls can stand below it. |
 | 🃏 **A word card for every Hebrew word** | *How is the word translated?* as a chart per translation, the complete paradigm as a table, and the renderings in the Septuagint, the Targumim and the Qumran scrolls. |
 | ✦ **Everything on this passage** | One panel (Cmd+I) collects commentaries, parallels, legends, Talmud & Midrash, halakhah, words, places and dictionary articles for a verse, a folio or a chapter. |
 | 📴 **Works offline** | Texts, links, dictionaries, maps and audio live on your disk. Nothing is sent anywhere. |
@@ -67,7 +67,7 @@ The interface comes in German, English and Hebrew. It starts in German or Englis
 
 <table>
 <tr>
-<td width="33%" valign="top"><b>🔡 Interlinear: Hebrew and German word by word</b><br>The <i>Interlinear</i> button puts a translation under every Hebrew word of the Westminster text. Tick the works you want in a small panel; several stand one below the other, each in its own colour. <b>Zunz</b> and <b>Philippson</b> cover all 39 books of the Tanakh, <b>Goldschmidt</b> the Torah (all five books), <b>S. R. Hirsch</b> the Torah and Psalms and <b>Julius Hirsch</b> Isaiah and the twelve minor prophets, and <b>Wolf</b> both books of Samuel. The <b>Septuagint</b>, the Targumim <b>Onkelos, Pseudo-Jonathan and Neofiti</b> and the <b>Qumran scrolls</b> can be added the same way; in the scrolls, differences from the Masoretic text are marked. A click on a word highlights its counterparts in all versions.</td>
+<td width="33%" valign="top"><b>🔡 Interlinear: Hebrew and German word by word</b><br>The <i>Interlinear</i> button puts a translation under every Hebrew word of the Westminster text. Tick the works you want in a small panel; several stand one below the other, each in its own colour. <b>Zunz</b> and <b>Philippson</b> cover all 39 books of the Tanakh, <b>Goldschmidt</b> and the <b>German Mendelssohn translation (Dessau 1815)</b> the Torah (all five books), <b>S. R. Hirsch</b> the Torah and Psalms and <b>Julius Hirsch</b> Isaiah and the twelve minor prophets, and <b>Wolf</b> both books of Samuel. The <b>Septuagint</b>, the Targumim <b>Onkelos, Pseudo-Jonathan and Neofiti</b> and the <b>Qumran scrolls</b> can be added the same way; in the scrolls, differences from the Masoretic text are marked. A click on a word highlights its counterparts in all versions.</td>
 <td width="33%" valign="top"><b>🃏 Word card</b><br>Click a Hebrew word and open its <i>Word card</i>. <b>“How is the word translated?”</b> shows a ring chart and a list of the renderings in each aligned translation, in the Septuagint and in the Targumim; every rendering opens its verses. <b>All forms (table)</b> is the complete paradigm, ordered as in a grammar book, with the usual rendering under each form. Below that: distribution in the Tanakh, the dictionaries, and the occurrences in the Septuagint, the Targumim and the Qumran scrolls. The card can be pinned beside the text.</td>
 <td width="33%" valign="top"><b>✦ Everything on this passage (Cmd+I)</b><br>One panel collects what Safran knows about a verse, a folio or a whole chapter: commentaries, parallels, legends (Ginzberg), Talmud & Midrash, halakhah, key words, places, topics, dictionary articles that cite the passage, and your notes.<br><br><b>Commentaries on the whole chapter (Cmd+K)</b><br>The commentary panel shows a chapter commentator by commentator, verse by verse; a click on a verse number narrows it to that verse.</td>
 </tr>
@@ -131,6 +131,8 @@ And everything else:
 
 Philippson's imported text has been corrected for misplaced verses, duplicated blocks, clear OCR errors and word breaks. Restored verse endings are marked in brackets; uncertain readings and differing translation choices remain documented in the [review and correction lists](tools/interlinear/philippson/PRUEFLISTE-TANACH.md). Editorial section headings have been removed from the verse text.
 
+Mendelssohn's German Pentateuch (Dessau 1815, Latin script) is a separate interlinear source from the Taitsch and Biur. All five books / 5,846 verse fields are aligned against Westminster, including joint Ketiv/Qere segments. Confirmed misplaced sentence continuations have been returned to their verses and realigned; the nonbiblical printing appendix is preserved separately. Existing OCR candidates and possible omissions remain unchanged in the [review and correction lists](tools/interlinear/mendelssohn/PRUEFLISTE-PENTATEUCH.md).
+
 ## Dictionaries
 
 Open the *Dictionary* tab (*Wörterbuch*), press the 📖 button next to the commentary panel, or double-click a word in any text. Nine dictionaries and reference works with more than 200,000 entries ship with the app:
@@ -175,6 +177,7 @@ Safran bundles more than 50 German works in `bundled/` (over 400 book files). Th
 | Philippson, *Die Israelitische Bibel*, translation **and** commentary | whole Tanakh |
 | Herxheimer, *Die vier und zwanzig Bücher der Bibel* (1843), translation **and** commentary | whole Tanakh |
 | Kautzsch, *Die Apokryphen und Pseudepigraphen des Alten Testaments* (1900) | Ben Sira, Jubilees, Enoch, Tobit, Judith, Maccabees, Wisdom of Solomon and more |
+| Mendelssohn, *Die fünf Bücher Mose*, German translation (Dessau 1815) | Torah; interlinear |
 | Mendelssohn, *Netivot ha-Shalom* (translation, Taitsch and Biur) | Torah |
 | Rashi after Bamberger · Hertz, Pentateuch commentary | Rashi: Exodus to Deuteronomy · Hertz: Exodus, Numbers, Deuteronomy |
 | Goldschmidt, translation of the Torah (1921) | Torah |

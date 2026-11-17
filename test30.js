@@ -3,7 +3,7 @@ const assert = require('assert'), fs = require('fs'), path = require('path');
 global.window = {}; require('./interlin.js');
 const ALL = window.INTERLIN, rd = (b, l, re) => { const d = path.join(__dirname, 'bundled', 'own', b, l); return JSON.parse(fs.readFileSync(path.join(d, fs.readdirSync(d).find(f => re.test(f))), 'utf8')).text; };
 const norm = s => s.replace(/<sup class="footnote-marker">.*?<\/sup><i class="footnote">.*?<\/i>/g, '').replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
-const PAT = { Wolf: /^Wolf, Das Buch Samuel/, Zunz: /Zunz/, Breuer: /^(?:(?:(?:Raphael|Joseph) )?Breuer|Das Buch Jecheskel, übersetzt und erläutert von Dr\. Joseph Breuer,)/, Philippson: /Philippson/, Herxheimer: /ebräischen Texte/, Goldschmidt: /Übersetzung von Lazarus Goldschmidt, Berlin 1921/, Hirsch: /^(?:Die Psalmen|Der Pentateuch), übersetzt und erläutert von Samson Raphael Hirsch/, JuliusHirsch: /^Julius Hirsch, / , Umschrift: /^Umschrift \(ETCBC phono\)/ };
+const PAT = { Mendelssohn: /Moses Mendelssohn/, Wolf: /^Wolf, Das Buch Samuel/, Zunz: /Zunz/, Breuer: /^(?:(?:(?:Raphael|Joseph) )?Breuer|Das Buch Jecheskel, übersetzt und erläutert von Dr\. Joseph Breuer,)/, Philippson: /Philippson/, Herxheimer: /ebräischen Texte/, Goldschmidt: /Übersetzung von Lazarus Goldschmidt, Berlin 1921/, Hirsch: /^(?:Die Psalmen|Der Pentateuch), übersetzt und erläutert von Samson Raphael Hirsch/, JuliusHirsch: /^Julius Hirsch, / , Umschrift: /^Umschrift \(ETCBC phono\)/ };
 for (const [tr, D] of Object.entries(ALL)) for (const book of Object.keys(D)) {
   const he = rd(book, 'he', /^Westminster/), de = rd(book, tr === 'Umschrift' ? 'other' : 'de', PAT[tr]);
   let n = 0;
@@ -336,3 +336,25 @@ const uiVt = new Function('return ' + librarySource.match(/const IL_VT = (\{[^\n
 assert(uiVt.Breuer.test('Joseph Breuer, Das Buch Jirmejah — Übersetzung'));
 assert(uiVt.Breuer.test('Raphael Breuer, Das Buch Richter — Übersetzung'));
 assert(uiVt.Umschrift.test('Umschrift (ETCBC phono)'));
+
+// Mendelssohn: deutsche Dessauer Fassung vollständig; bestätigte Versüberhänge repariert.
+assert.deepStrictEqual(Object.keys(ALL.Mendelssohn).sort(), ['Deuteronomy', 'Exodus', 'Genesis', 'Leviticus', 'Numbers']);
+for (const [book, count] of Object.entries({ Genesis: 1533, Exodus: 1210, Leviticus: 859, Numbers: 1288, Deuteronomy: 956 })) {
+  assert.strictEqual(Object.keys(ALL.Mendelssohn[book]).length, count, `Mendelssohn ${book}: vollständiger Umfang`);
+}
+assert.deepStrictEqual(ALL.Mendelssohn.Leviticus['9:22'].find(s => s[1] === 'seine Hände'), [[3,4,5], 'seine Hände']);
+assert.deepStrictEqual(ALL.Mendelssohn.Genesis['49:10'].find(s => s[1] === 'nach Schiloh'), [[11,12], 'nach Schiloh']);
+assert.ok(!ALL.Mendelssohn.Genesis['45:28'].some(s => s[1].includes('Geist ihres Vaters')));
+assert.ok(ALL.Mendelssohn.Genesis['45:27'].some(s => s[0].length && s[1].includes('Geist')));
+assert.deepStrictEqual(ALL.Mendelssohn.Leviticus['9:1'].slice(-2), [[[8], 'Und die Aeltesten'], [[9], 'Jisraels,']]);
+assert.ok(!ALL.Mendelssohn.Leviticus['9:2'].some(s => s[1].includes('Aeltesten')));
+// Druckanhang separat erhalten; der letzte Vers enthält ausschließlich den Bibeltext.
+const mendDeutLast = rd('Deuteronomy', 'de', /Moses Mendelssohn/)[33][11];
+assert.strictEqual(norm(mendDeutLast), 'Und in allen mächtigen und fürchterlichen Thaten, die Moscheh gethan, vor den Augen des ganzen Jisraels.');
+const mendAnnex = fs.readFileSync(path.join(__dirname, 'tools/interlinear/mendelssohn/DRUCKANHANG-DEUTERONOMY.md'), 'utf8');
+assert.ok(mendAnnex.includes('Druckfehler in einigen Abdrücken.') && mendAnnex.includes('An den Buchbinder.') && mendAnnex.includes('damit der Druck nicht unleserlich werde.'));
+assert.deepStrictEqual(ALL.Mendelssohn.Deuteronomy['6:4'].find(s => s[1] === 'unser Gott,'), [[4], 'unser Gott,']);
+// Ein Quellenfehler bleibt erhalten; die Zuordnung darf keine stillschweigende Korrektur verstecken.
+assert.ok(ALL.Mendelssohn.Genesis['49:21'].some(s => s[1] === 'Hündin;'));
+require('./interlin-ren.js');
+assert.ok(window.INTERLIN_REN.tr.Mendelssohn && Object.keys(window.INTERLIN_REN.tr.Mendelssohn).length > 100, 'Mendelssohn: Wortkartenstatistik fehlt');

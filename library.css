@@ -1766,3 +1766,10 @@ body.il .cell[data-k="he"] .ilt[data-i="14"] { color: var(--il14); }
 @media (prefers-color-scheme: light) { :root:not([data-theme=dark]) { --il15: #586b18; } }
 body.il .cell[data-k="he"] .ilt[data-i="15"] { color: var(--il15); }
 .illc[data-i="15"], .ilpR[data-i="15"] { --c: var(--il15); }
+
+/* Mendelssohn: deutsche Pentateuchübersetzung, Dessau 1815. */
+:root { --il16: #b9a0d6; }
+:root[data-theme=light] { --il16: #6c438f; }
+@media (prefers-color-scheme: light) { :root:not([data-theme=dark]) { --il16: #6c438f; } }
+body.il .cell[data-k="he"] .ilt[data-i="16"] { color: var(--il16); }
+.illc[data-i="16"], .ilpR[data-i="16"] { --c: var(--il16); }
