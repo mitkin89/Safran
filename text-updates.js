@@ -100,10 +100,13 @@ async function confirmTextUpdates(candidates, showDialog, translate = de => de) 
         : translate(`${n} vorhandene Texte durch die neuen Fassungen ersetzen?`, `Replace ${n} existing texts with the new versions?`),
       detail: items[0].versionTitle + '\n\n' + books + '\n\n' + translate(
         'Für diese bereits gespeicherten Texte liefert die App eine andere Fassung. Vor dem Ersetzen werden die bisherigen Dateien im Bibliotheksordner unter „backups/text-updates“ gesichert. „Behalten“ gilt für diese angebotene Fassung; bei einer späteren Textänderung wird erneut gefragt.',
-        'The app includes different versions of these texts already in your library. Before replacement, the existing files are backed up under “backups/text-updates” in the library folder. “Keep” applies to this offered version; a later text change will prompt again.'),
-      buttons: [translate('Bisherige Fassung behalten', 'Keep existing version'), translate('Neue Fassung übernehmen', 'Use new version')],
+        'The app includes different versions of these texts already in your library. Before replacement, the existing files are backed up under “backups/text-updates” in the library folder. “Keep” applies to this offered version; a later text change will prompt again.') + '\n\n' + translate(
+        `„Alle neuen Fassungen übernehmen“ übernimmt alle ${candidates.length} angebotenen Texte aus ${groups.size} Fassungen ohne weitere Rückfragen. Die Sicherungen werden auch dabei angelegt.`,
+        `“Use all new versions” accepts all ${candidates.length} offered texts across ${groups.size} versions without further prompts. Backups are still created.`),
+      buttons: [translate('Bisherige Fassung behalten', 'Keep existing version'), translate('Neue Fassung übernehmen', 'Use new version'), translate('Alle neuen Fassungen übernehmen', 'Use all new versions')],
       defaultId: 0, cancelId: 0, noLink: true,
     });
+    if (result && result.response === 2) return candidates.map(x => x.rel);
     if (result && result.response === 1) accepted.push(...items.map(x => x.rel));
   }
   return accepted;

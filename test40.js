@@ -148,6 +148,19 @@ const sha = b => createHash('sha1').update(b).digest('hex');
       assert(dialogs[0].detail.includes('Genesis, Exodus'));
       assert.strictEqual(dialogs[0].defaultId, 0); assert.strictEqual(dialogs[0].cancelId, 0);
       assert.deepStrictEqual(await confirmTextUpdates(rows, async () => ({})), []);
+      // Ein Klick übernimmt alle angebotenen Fassungen und beendet die Dialogfolge.
+      let allDialogs = 0;
+      assert.deepStrictEqual(await confirmTextUpdates(rows, async options => {
+        allDialogs++;
+        assert.strictEqual(options.buttons[2], 'Alle neuen Fassungen übernehmen');
+        assert(options.detail.includes('alle 3 angebotenen Texte aus 2 Fassungen'));
+        return { response: 2 };
+      }), ['a', 'b', 'c']);
+      assert.strictEqual(allDialogs, 1);
+      // Eine spätere ausdrückliche Wahl „alle“ umfasst auch zuvor einzeln behaltene Angebote.
+      let laterDialogs = 0;
+      assert.deepStrictEqual(await confirmTextUpdates(rows, async () => ({ response: ++laterDialogs === 1 ? 0 : 2 })), ['a', 'b', 'c']);
+      assert.strictEqual(laterDialogs, 2);
     }
     console.log('Textupdates: Zustimmung, Sicherung, Behalten, Neustart, neue Ausgabe, lokale Änderungen, Fehler und Unicode geprüft.');
   } finally { await fs.rm(tmp, { recursive: true, force: true }); }
