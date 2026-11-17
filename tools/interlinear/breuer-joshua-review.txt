@@ -1,0 +1,87 @@
+Raphael Breuer – Josua: Interlinear und offene Textprüfung
+
+Ergebnis
+Alle 658 Verse der 24 Kapitel sind am nummerierten Westminster-Text (OSHB)
+Wort für Wort durchgegangen und zugeordnet. Alle deutschen Verse enthalten
+Text; die Segmente ergeben jeweils exakt den gespeicherten deutschen Vers
+(nach Entfernen von HTML und Normalisierung des Leerraums).
+Alle 32 Ketiv/Qere-Vorkommen teilen sich gemeinsam zugeordnete Segmente.
+Die Reihenfolge der deutschen Segmente bleibt erhalten. Gedankenstriche,
+freie Zusätze und Ergänzungen ohne eigenes hebräisches Gegenstück stehen
+mit „-“; nominale Formulierungen bleiben in Breuers deutscher Satzform.
+
+Freigegebene Wiederherstellung nach dem gelieferten Scan
+10:12: Der auf Druckseite 76 sichtbare Satz
+„Und er sprach vor den Augen Jisraels: Sonne, stehe still zu Gibeon,
+und Mond, im Tale Ajalon!“
+war irrtümlich im bisherigen Kommentar 9:12 zwischen „später“ und „geschah“
+gespeichert. Er wurde in die Übersetzung 10:12 zurückgeführt und an den
+hebräischen Wörtern 13–21 geprüft/zugeordnet. Die Ergänzung ist in den
+Quellmetadaten und im Changelog ausdrücklich dokumentiert.
+
+Kommentar neu zugeordnet
+65 Abschnitte wurden an die richtige Stelle versetzt beziehungsweise aus
+vermischten Einträgen herausgelöst. Insbesondere standen Teile von Kapitel
+10 unter 9, von 11 unter 10 und von 20–21 unter 19. Auch der Anfang von
+Kapitel 15 hing am Ende von 14:15. Innerhalb der Kapitel zusammengeklebte
+Verskommentare wurden ebenfalls getrennt. Gruppenkommentare bleiben beim
+ersten behandelten Vers. Jetzt tragen alle 438 belegten Kommentarstellen
+passende Kapitel-/Versüberschriften. Es wurde kein Kommentartext verworfen
+oder dupliziert; nur der genannte Bibelsatz wurde in die Übersetzung versetzt.
+Einzelheiten: tools/interlinear/breuer-joshua-commentary-review.txt.
+
+Offene Auslassungen – vor Ergänzungen am Druck prüfen
+7:19: בני („mein Sohn“) fehlt vor der Aufforderung an Achan.
+9:12: מבתינו („aus unseren Häusern“) wird nach „mitgenommen“ nicht wiedergegeben.
+10:27: גדלות („große“) vor „Steine“ fehlt in der gespeicherten Übersetzung.
+12:7: ירשה („als Besitz/Erbe“) fehlt in der Schlussaussage über die Verteilung.
+13:22: בחרב („mit dem Schwert“) fehlt; „erschlugen sie“ gibt das Verb wieder.
+2:23: ויבאו („und sie kamen“) wird nach „zogen hinüber“ nicht eigens wiederholt.
+7:4: שמה („dorthin“) wird nicht eigens wiedergegeben.
+Diese Auslassungen wurden nicht ergänzt. Direkte-Rede-Einleitungen לאמר,
+Objektpartikeln und nicht nochmals ausgedrückte Präpositionen/Relativwörter
+wurden nicht durch erfundene deutsche Wörter vervollständigt.
+
+Mögliche Lesefehler – keine Änderung ohne Druckbeleg
+16:1: „auf den Weg bis Beth-El“ – בהר bedeutet „auf dem Berg/Gebirge“;
+      „Weg“ könnte ein Lesefehler für „Berg“ sein. Am Druck prüfen.
+19:35: „Zigdim“ – Hebräisch הצדים; Namen am Druck prüfen.
+24:19: „ein sein ausschließender Recht fordernder Gott“ – grammatisch
+       auffällige Endung „ausschließender“; am Druck prüfen.
+24:26: „nieder aus dem Buche der Gotteslehre“ – בספר heißt hier „im Buche“;
+       „aus“ am Druck prüfen, keine eigenmächtige Angleichung.
+15:41: „Beth Dogon“ – Hebräisch בית דגון; Vokal/Schreibung am Druck prüfen.
+11:1: „Achschof“ gegenüber „Achschaf“ in 12:20 – Namenvariante prüfen.
+15:52: „Dumah“ gegenüber רומה – mögliche Text-/Lesungsvariante, nicht
+       allein anhand des Westminster-Textes korrigieren.
+13:14: „die Hingebungen an Gottes Feuer, der Gott Israels“ – syntaktisch
+       auffälliger Anschluss; am Druck prüfen.
+10:6: „im stich“ – Kleinschreibung unverändert.
+Namensvarianten Josua/Jehoschua, Israel/Jisrael, Moscheh/Mosche/Moses,
+Hermon/Chermon, Hebron/Chebron sowie historische Orthographie bleiben erhalten.
+
+Erhaltene Worttrennung
+20:7: „Ge= birge“ steht weiterhin genau so im Quelltext und in der Zuordnung.
+Es wurde für Josua keine Bereinigung dieses Zeichens vorgenommen.
+
+Breuers Auslegungen beibehalten
+2:1, 6:17 usw.: זונה als „Wirtsfrau“.
+3:13/16: נד אחד als „wie eine Mauer“.
+9:2: פה אחד als „auf Grund gemeinsamer Entschließung“.
+11:8, 13:6: משרפות מים als „Wassergräben“.
+12:3/13:20: אשדות הפסגה als „Ausflüsse der Anhöhe“.
+16:10: למס עבד als „zum Tribut des Ackerbauers hingegeben“.
+19:13/29: Ortsbestandteile Hammethoar/Mibzar Zor als in der Quelle benannt.
+20:3/5: גאל הדם als „Annehmer des Blutes“/„Blutannehmer“.
+22:20: גוע als „erstarrte“.
+21:36–37: Die Klammern um die Reuben-Städte bleiben erhalten; diese Verse
+          stehen auch im verwendeten Westminster-Text und sind zugeordnet.
+Diese Wiedergaben wurden nicht nach einer anderen Übersetzung umgeschrieben.
+
+Technische Prüfungen
+build.py: exakte Versgleichheit und gültige hebräische Wortnummern.
+renderings.py: Wortkartenstatistik erneuert.
+test30.js: alle 658 Versschlüssel, alle 32 Ketiv/Qere-Gruppen und sämtliche
+Kommentarüberschriften; Stichproben verhindern erneutes Vertauschen der
+Kapitel 9–11 und 19–21 sowie das Vermischen von Bibeltext und Kommentar.
+Alle bisherigen Interlinear-Zuordnungen bleiben unverändert.

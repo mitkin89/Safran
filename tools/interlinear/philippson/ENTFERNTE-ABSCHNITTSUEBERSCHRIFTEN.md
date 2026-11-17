@@ -1,0 +1,533 @@
+# Philippson: entfernte Abschnittsüberschriften
+
+Auf ausdrücklichen Nutzerwunsch aus den Versfeldern entfernt. Der übrige Wortlaut bleibt erhalten; Kapitel- und Verszählung unverändert. Die Überschriften gehören nicht zum hebräischen Vers. Vorhandene Textdopplungen bleiben zur gesonderten Prüfung erhalten.
+
+- Amos 2:16: II. Erste Strafrede wider Jisrael.
+- Amos 3:15: III. Zweite Strafrede wider Jisrael.
+- Amos 4:13: IV. Dritte Strafrede wider Jisrael.
+- Amos 6:14: V. Gesicht über den Untergang und die einstige Wiederherstellung Jisrael's.
+- Daniel 1:21: II. Nebuchadnezzar's Traum von den Weltreichen, und dessen Deutung durch Danijel.
+- Daniel 2:49: III. Der drei Genossen Danijel's Märtyrerthum und Rettung.
+- Daniel 3:30: IV. Nebuchadnezzar's zweiter Traum, Wahnsinn und Heilung.
+- Daniel 4:34: V. Belschazzar's Gastmahl und Strafe.
+- Daniel 6:1: VI. Danijel's Märtyrerthum und Rettung.
+- Daniel 6:29: VII. Vision von den vier Weltreichen.
+- Daniel 7:28: VIII. Vision von der medo-persischen und griechischen Herrschaft.
+- Daniel 8:27: IX. Die Vision von den siebenzig Jahrwochen.
+- Daniel 9:27: X. Vision von der persischen und griechischen Herrschaft.
+- Ecclesiastes 1:11: II. Der besondere Beweis der Nichtigkeit alles Menschlichen.
+- Ecclesiastes 2:23: III. Die allein richtige Regel für das menschliche Leben.
+- Ecclesiastes 3:22: IV. Die größeren Erscheinungen und Richtungen des menschlichen Lebens unter dem Gesichtspunkte der Nichtigkeit des Lebens.
+- Ecclesiastes 6:12: V. Die Weisheit als die Mittelstraße in den Gegensätzen des menschlichen Lebens.
+- Ecclesiastes 7:29: VI. Die Weisheit lehrt Unterwerfung unter die höheren Mächte im menschlichen Leben.
+- Ecclesiastes 8:15: VII. Folgerung für den rechten Lebensgenuß in Gottwohlgefälligkeit.
+- Ecclesiastes 9:10: VIII. Die Vorzüge der Weisheit gegen die Thorheit.
+- Ecclesiastes 11:8: IX. Die Schlußfolgerung.
+- Ecclesiastes 12:8: X. Das Nachwort.
+- Esther 1:22: II. Die Wahl Esther's zur Königin; die Entdeckung einer Verschwörung durch Mardechai.
+- Esther 2:23: III. Haman's Erhebung und Mordgesetz gegen die Juden.
+- Esther 3:15: IV. Mardechai fordert Esther auf, Gnade beim Könige zu erwirken, und sie verspricht es.
+- Esther 4:17: V. Esther ladet den König und Haman zum einen- und andern Male zum Mahle; Haman läßt einen Galgen für Mardechai bauen.
+- Esther 5:14: VI. Der König läßt dem Mardechai große Ehren erweisen.
+- Esther 6:14: VII. Haman fällt vor der Anklage Esther's und wird gehängt.
+- Esther 7:10: VIII. Mardechai tritt an Haman's Stelle, und erläßt, Betreffs der Juden, einen Gegenbefehl.
+- Esther 8:17: IX. Kampf der Juden mit ihren Feinden; Einsetzung des Purim-Festes; Achaschwerosch' und Mardechai's Größe.
+- Ezekiel 3:27: II. Jeruschalajim belagert und zerstört.
+- Ezekiel 5:17: III. Wider den Götzendienst Israel's.
+- Ezekiel 6:14: IV. Juda's nahes Ende.
+- Ezekiel 7:27: V. Gesicht über Jeruschalajim's Schuld und Strafe.
+- Ezekiel 11:25: VI. Die Flucht des Königs und die Zerstreuung des Volkes.
+- Ezekiel 12:28: VII. Wider die falschen Propheten und Prophetinnen.
+- Ezekiel 13:23: VIII. Die Gerechtigkeit Gottes gegen die jisr. Götzendiener.
+- Ezekiel 14:23: IX. Jeruschalajim wird verbrannt wie nutzloses Rebholz.
+- Ezekiel 15:8: X. Jeruschalajim als treulose Gattin.
+- Ezekiel 16:63: XI. Zidkijah's Abfall von Babel und Strafe.
+- Ezekiel 17:24: XII. Die Gerechtigkeit Gottes.
+- Ezekiel 18:32: XIII. Der Untergang des königlichen Hauses.
+- Ezekiel 19:14: XIV. Bestrafung des Götzendienstes in Jisrael.
+- Ezekiel 20:44: XV. Untergang Juda's.
+- Ezekiel 21:37: XVI. Jisrael's Entartung und Strafe.
+- Ezekiel 22:31: XVII. Der Reiche Jisrael und Juda Entartung und Strafe.
+- Ezekiel 23:49: XVIII. Die Zerstörung Jeruschalajim's.
+- Ezekiel 24:27: XIX. Weißsagung wider Ammon, Moab, Edom und die Pelischthim.
+- Ezekiel 25:17: XX. Vier Weissagungen wider Tyrus, nebst einer wider Sidon.
+- Ezekiel 28:26: XXI. Sieben Weißsagungen wider Aegypten.
+- Ezekiel 32:32: XXII. Der Beruf des Propheten.
+- Ezekiel 33:20: XXIII. Der Juden Schicksal im heil. Lande nach dem Falle Jeruschalajim's.
+- Ezekiel 33:33: XXIV. Der verbannten Juden Zustände und Rettung.
+- Ezekiel 34:31: XXV. Wider Edom.
+- Ezekiel 35:15: XXVI. Jisrael's Wiederherstellung.
+- Ezekiel 36:38: XXVII. Die Wiedererweckung Jisrael's.
+- Ezekiel 37:14: XXVIII. Die Wiedervereinigung Jisrael's und Juda's.
+- Ezekiel 37:28: XXIX. Die Niederlage Gog's aus Magog.
+- Ezra 2:70: II. Beginn des Opferkultus; Grundsteinlegung des Tempels.
+- Ezra 4:24: III. Der Bau, die Vollendung, die Weihe des Tempels und die Pesachfeier.
+- Ezra 6:22: IV. Esra's Zug nach Jeruschalajim.
+- Ezra 8:36: V. Die Entfernung fremder Weiber.
+- Habakkuk 1:17: II. Die Antwort: sie wird enden.
+- Habakkuk 2:20: III. Die Erfüllung feiernder Psalm.
+- Hosea 3:5: II. Die Entartung des Reiches Israel.
+- Hosea 4:19: III. Die Hartnäckigkeit Israel's.
+- Hosea 5:7: IV. Die oberflächliche Bußfertigkeit Juda's und Israel's.
+- Hosea 6:11: V. Die Strafe Israel's.
+- Hosea 11:11: VI. Mahnung zu reuiger Umkehr.
+- I Chronicles 2:2: II. Der Stamm Jehudah.
+- I Chronicles 4:23: III. Der Stamm Schimeon.
+- I Chronicles 4:43: IV. Die dritthalb Stämme jenseits des Jardens.
+- I Chronicles 5:26: V. Der Stamm Levi.
+- I Chronicles 6:66: VI. Der Stamm Jissachar.
+- I Chronicles 7:5: VII. Der Stamm Binjamin.
+- I Chronicles 7:12: VIII. Der Stamm Naphthali.
+- I Chronicles 7:13: IX. Der Stamm Menascheh.
+- I Chronicles 7:19: X. Der Stamm Ephrajim.
+- I Chronicles 7:29: XI. Der Stamm Ascher.
+- I Chronicles 7:40: XII. Noch einmal der Stamm Binjamin.
+- I Chronicles 8:40: XIII. Nacherilische Bewohner Jeruschalajim's.
+- I Chronicles 9:33: XIV. Geschlechtsverzeichniß Schaul's.
+- I Chronicles 9:44: XV. Schaul's und seiner Söhne Tod.
+- I Chronicles 10:14: XVI. David, König von ganz Jisrael. Eroberung Jeruschalajim's.
+- I Chronicles 11:9: XVII. Liste der Helden David's.
+- I Chronicles 11:47: XVIII. Liste derer, die schon zu Ziklag sich zu David schlugen.
+- I Chronicles 12:23: XIX. Die Krieger aller Stämme, die David in Chebron zum Könige von ganz Jisrael machten.
+- I Chronicles 12:41: XX. David bringt die Bundeslade bis zum Hause Obed-Edom's.
+- I Chronicles 13:14: XXI. David's Hausbau, Weiber, Kinder, Krieg mit den Pelischthim.
+- I Chronicles 14:17: XXII. David bringt die Bundeslade nach Jeruschalajim.
+- I Chronicles 16:43: XXIII. David will einen Tempel bauen.
+- I Chronicles 17:27: XXIV. Siege David's.
+- I Chronicles 18:17: XXV. Sieg über die Ammoniter und Syrer.
+- I Chronicles 20:8: XXVII. Zählung des Volkes und Pest.
+- I Chronicles 21:30: XXVIII. Vorbereitungen zum Tempelbau.
+- I Chronicles 22:19: XXIX. Organisation der Priester und Leviten.
+- I Chronicles 26:32: XXX. Das Heer, die Stammfürsten, die Beamten.
+- I Chronicles 27:34: XXXI. Endliche Vorbereitungen David's zum Tempelbau und David's Tod.
+- I Kings 10:29: XI. Schelomoh's Weiber, Abgötterei, Feinde und Tod. —
+- I Kings 12:33: XIII. Ein Prophet weissagt in Bethel. —
+- I Kings 15:34: XVI. Elah, Simri, Omri, Achab, Könige von Jisrael. —
+- I Kings 16:34: XVII—XIX. Thaten Elijahu's, des Propheten. —
+- I Kings 20:43: XXI. Isebel und Naboth.
+- I Samuel 2:36: III. Erste Offenbarung an Schemuel.
+- I Samuel 4:22: V. Die Lade unter den Pelischthim. — Krankheit des Volkes.
+- I Samuel 5:12: VI. Zurücksendung der Lade.
+- I Samuel 7:17: VIII. Das Volk verlangt einen König.
+- I Samuel 8:22: IX. Schaul auf der Wanderung.
+- I Samuel 9:27: X. Salbung und Wahl Schaul's.
+- I Samuel 11:15: XII. Schemuel's Rede an das Volk.
+- I Samuel 16:23: XVII. David und Goliath. —
+- I Samuel 17:58: XVIII—XX. Jonathan's Freundschaft und Schaul's immer größer werdender Haß gegen David. — David's Flucht nach Ramah, Bund mit Jonathan. —
+- I Samuel 19:24: XVIII—XX. Jonathan's Freundschaft und Schaul's immer größer werdender Haß gegen David. — David's Flucht nach Ramah, Bund mit Jonathan. —
+- I Samuel 21:16: XXII. Schaul's Gräuelthat gegen die Priester von Nob. —
+- I Samuel 22:23: XXIII—XXIV. David wird von Schaul in der Wüste verfolgt. — Edelmüthige Schonung David's gegen Schaul.—
+- I Samuel 25:44: XXVI. David beschleicht Schaul im Lager. —
+- I Samuel 26:25: XXVII—XXIX. David bei Achisch von Gath. — Krieg zwischen Schaul und den Pelischthim. — Schaul bei der Todtenbeschwörerin zu Endor. —
+- I Samuel 28:10: XXV. Schemuel's Tod. — David, Nabal und Abigajil. —
+- I Samuel 28:25: XXVI. David beschleicht Schaul im Lager. — / XXVII—XXIX. David bei Achisch von Gath. — Krieg zwischen Schaul und den Pelischthim. — Schaul bei der Todtenbeschwörerin zu Endor. —
+- I Samuel 31:13: XXI. David und Achimelech in Nob — Flucht zu Achisch von Gath. — / XXII. Schaul's Gräuelthat gegen die Priester von Nob. — / XXIII—XXIV. David wird von Schaul in der Wüste verfolgt. — Edelmüthige Schonung David's gegen Schaul. — / XXV. Schemuel's Tod. — David, Nabal und Abigajil. — / XXVI. David beschleicht Schaul im Lager. — / XXVII—XXIX. David bei Achisch von Gath. — Krieg zwischen Schaul und den Pelischthim. — Schaul bei der Todtenbeschwörerin zu Endor. — / XXIX—XXX. David wird von den Pelischthim zurückgeschickt — kommt nach Ziklag und findet es von den Amalekitern verheert — rächet Ziklag. —
+- II Chronicles 1:13: II. Schelomoh's Reiterei und Pracht.
+- II Chronicles 1:18: III. Vorbereitungen zum Tempelbau.
+- II Chronicles 2:17: VI. Der Tempelbau.
+- II Chronicles 4:22: V. Einweihung des Tempels.
+- II Chronicles 7:22: VI. Schelomoh's Städtebau, Frohnen, Schiffahrt, Opfer.
+- II Chronicles 8:18: VII. Besuch der Königin von Scheba; Schelomoh's Reichthum, Schiffahrt, Tod.
+- II Chronicles 9:31: VIII. Die Regierung Rechabeam's.
+- II Chronicles 12:16: IX. Die Regierung Abijah's.
+- II Chronicles 13:23: X. Die Regierung Aßa's.
+- II Chronicles 16:14: XI. Die Regierung Jehoschaphat's.
+- II Chronicles 20:37: XII. Die Regierung Jehoram's.
+- II Chronicles 21:20: XIII. Die Regierung Achasjahu's.
+- II Chronicles 22:9: XIV. Die Regierung Athaljah's.
+- II Chronicles 23:21: XV. Die Regierung Joasch'.
+- II Chronicles 24:27: XVI. Regierung Amazjahu's.
+- II Chronicles 25:28: XVII. Die Regierung Ussijahu's.
+- II Chronicles 26:23: XVIII. Die Regierung Jotham's.
+- II Chronicles 27:9: XIX. Die Regierung Achas'.
+- II Chronicles 28:27: XX. Die Regierung Jechiskijahu's.
+- II Chronicles 32:33: XIX. Die Regierung Menascheh's.
+- II Chronicles 33:20: XXII. Die Regierung Amon's.
+- II Chronicles 33:25: XXIII. Die Regierung Joschijah's.
+- II Chronicles 35:27: XXIV. Die Regierung Jehoachas'.
+- II Chronicles 36:4: XXV. Die Regierung Jehojakim's.
+- II Chronicles 36:8: XXVI. Die Regierung Jehojachin's.
+- II Chronicles 36:10: XXVII. Die Regierung Zidkijahu's. — Die Zerstörung. — Das Exil. —
+- II Chronicles 36:21: XXVIII. Die Rückkehr aus Babel.
+- II Kings 8:29: IX. X. Jehu, König von Jisrael.
+- II Kings 14:29: XV. Asarjah, Jotham, Könige von Juda—Secharjah, Schallum, Menachem, Pekachjah, Pekach, Könige von Jisrael. —
+- II Kings 15:38: XVI. Achas, König von Jehudah.
+- II Samuel 3:39: IV. Ermordung Ischboscheth's. —
+- II Samuel 4:4: II. Zweites Buch Schemuel.
+- II Samuel 4:12: IV. Ermordung Ischboscheth's. —
+- II Samuel 5:25: VI. Die Bundeslade wird nach Jeruschalajim gebracht. —
+- II Samuel 19:44: XX. Rebellion unter Scheba, Sohn Bichri's.
+- II Samuel 21:22: XXII. David's Dankpsalm. —
+- II Samuel 23:39: XXIV. Zählung des Volkes und Pest. —
+- Isaiah 1:31: II. Die religiöse Entartung Jisrael's und ihre Folgen im Gerichte Gottes.
+- Isaiah 5:30: IV. Die Berufung Jeschajah's.
+- Isaiah 6:13: V. Erste Weißsagung gegen das Reich Israel, Syrien und Assyrien.
+- Isaiah 9:6: VI. Zweite Weißsagung wider das Reich Jisrael und Assyrien.
+- Isaiah 12:6: VII. Weißsagung wider Babel.
+- Isaiah 14:23: VIII. Weißsagung wider Aschur.
+- Isaiah 14:27: IX. Weißsagung wider Pelescheth.
+- Isaiah 14:32: X. Weißsagung wider Moab.
+- Isaiah 16:14: XI. Weißsagung wider Syrien, Jisrael und Assyrien.
+- Isaiah 18:7: XII. Weissagung über Aegypten.
+- Isaiah 19:25: VII. Weißsagung wider Babel. / VIII. Weißsagung wider Aschur. / IX. Weißsagung wider Pelescheth. / X. Weißsagung wider Moab. / XI. Weißsagung wider Syrien, Jisrael und Assyrien. / XII. Weißsagung über Aegypten. / XIII. Weißsagung über Aegypten und Aethiopien.
+- Isaiah 20:6: XIV. Weißsagung über Babel.
+- Isaiah 21:10: XV. Weißsagung über Dumah.
+- Isaiah 21:12: XVI. Weißsagung über Arab.
+- Isaiah 21:17: XVII. Weißsagung wider Jerusch alajim.
+- Isaiah 22:14: XVIII. Weißsagung über Schebna, den Palasthauptmann.
+- Isaiah 22:25: XIX. Weißsagung über Tyrus.
+- Isaiah 23:18: XX. Weißsagungen über Juda: die Verwüstung.
+- Isaiah 24:23: XXI. Die Rettung.
+- Isaiah 27:13: XXII. Das Wehe über Ephrajim.
+- Isaiah 28:29: XXIII. Das Wehe über Jeruschalajim.
+- Isaiah 29:24: XXIV. Das erste Wehe über das Bündniß mit Aegypten.
+- Isaiah 30:33: XXV. Das zweite Wehe über das Bündniß mit Aegypten.
+- Isaiah 31:9: XXVI. Die Läuterung Jisrael's im Rechte.
+- Isaiah 32:20: XXVII. Die Läuterung Israel's im Gerichte.
+- Isaiah 33:24: XXVIII. Weißsagung gegen Edom.
+- Isaiah 34:17: XXIX. Siegeslied.
+- Isaiah 35:10: XXX. Die Belagerung Jeruschalajim's durch Sancherib.
+- Isaiah 37:38: XXXI. Krankheit und Genesung Chiskijahu's.
+- Isaiah 38:22: XXXII. Gesandtschaft des Königs von Babel.
+- Isaiah 39:8: XXXIII. Der Trost für Israel.
+- Isaiah 40:31: XXXIV. Die Befreiung Israel's durch einen berufenen Retter.
+- Isaiah 41:29: XXXV. Mahnung an Israel, den Knecht Gottes, vom nichtigen Götzendienst zu lassen, und sich zur Erlösung um den Ewigen zu schaaren.
+- Isaiah 45:25: XXXVI. Abmahnung vom Götzendienste beim nahen Sturze Babel's.
+- Isaiah 46:13: XXXVII. Nahes Ende der Herrschaft Babels.
+- Isaiah 47:15: XXXVIII. Befehl zur Rückkehr aus Babel, das erobert worden.
+- Isaiah 48:22: XXXIX. Der Beruf und die Zukunft Jisrael's.
+- Isaiah 49:26: XL. Vertrauen auf Gott und zum Propheten.
+- Isaiah 50:11: XLI. Feierliche Aufforderung zur Rückkehr nach Jeruschalajim.
+- Isaiah 52:12: XLII. Die Leiden Jisrael's zum Heile der Völker.
+- Isaiah 53:12: XLIII. Die zukünftige Größe Jisrael's.
+- Isaiah 54:17: XLIV. Mahnung, zu Gott zurückzukehren.
+- Isaiah 56:8: XLV. Strafrede an die Götzendiener.
+- Isaiah 57:21: XLVI. Die wahrhafte Heiligung.
+- Isaiah 58:14: XLVII. Strafrede über die Missethaten des Volkes.
+- Isaiah 59:21: XLVIII. Die zukünftige Herrlichkeit Jeruschalajim's.
+- Isaiah 60:22: XLIX. Lohn für das bestandene Elend.
+- Isaiah 61:11: L. Aufruf zur Rückkehr.
+- Isaiah 62:12: LI. Die damaligen Zustände Israel's.
+- Isaiah 65:25: LII. Schlußrede.
+- Jeremiah 1:19: II. Strafrede wider den Abfall von Gott.
+- Jeremiah 3:5: III. Verwüstung Juda's wegen seines Abfalls von Gott.
+- Jeremiah 6:30: IV. Strafe Juda's wegen Sittenlosigkeit und Götzendienst.
+- Jeremiah 9:21: V. Der wahre Ruhm.
+- Jeremiah 9:23: VI. Die Ahndung an den Völkern.
+- Jeremiah 9:25: VII. Die Nichtigkeit der Götzen.
+- Jeremiah 10:16: VIII. Zerstörung Jeruschalajim's verkündet.
+- Jeremiah 10:25: IX. Verheerung Juda's wegen Bruchs des Bundes Gottes.
+- Jeremiah 12:17: X. Wegführung Juda's.
+- Jeremiah 13:27: XI. Bestrafung Juda's, bei einer Dürre ausgesprochen.
+- Jeremiah 15:21: XII. Niederlage und Wegführung Juda's.
+- Jeremiah 17:18: XIII. Entweihung des Schabbath.
+- Jeremiah 17:27: XIV. Verwerfung und Untergang Jehudah's.
+- Jeremiah 19:13: XV. Jirmejah von Paschchur mißhandelt.
+- Jeremiah 20:18: XVI. Jirmejah weißsagt dem Könige Zidkijah den Untergang.
+- Jeremiah 21:14: XVII. Die königliche Familie.
+- Jeremiah 23:8: XVIII. Die falschen Propheten.
+- Jeremiah 23:40: XIX. Die zwei Körbe Feigen.
+- Jeremiah 24:10: XX. Untergang der vorderasiatischen Völker und zuletzt Babel's.
+- Jeremiah 25:38: XXI. Jirmejah angeklagt und frei gesprochen.
+- Jeremiah 26:24: XXII. Rath an Zidkijahu, Babel unterworfen zu bleiben.
+- Jeremiah 28:17: XXIII. Mahnung an die Weggeführten in Babel.
+- Jeremiah 29:32: XXIV. Wiederherstellung Jisrael's.
+- Jeremiah 31:40: XXV. Wiederherstellung Jisrael's.
+- Jeremiah 32:44: XXVI. Wiederherstellung Jisrael's.
+- Jeremiah 33:26: XXVII. Zidkijahu's Unterliegen.
+- Jeremiah 34:7: XXVIII. Untergang Jehudah's wegen Knechtung freigelassener Knechte.
+- Jeremiah 34:22: XXIX. Untergang Juda's wegen Ungehorsams.
+- Jeremiah 35:19: XXX. Die Weißsagungen Jirmejah's niedergeschrieben.
+- Jeremiah 36:32: XXX. Jirmejah gefangen gesetzt.
+- Jeremiah 37:21: XXXI. Jirmejah mißhandelt, vom Könige Zidkijah gerettet.
+- Jeremiah 38:28: XXXII. Schicksal des Königs, der Großen, des Volkes, Ebed=Melechs und des Propheten.
+- Jeremiah 40:6: XXXIII. Amtsführung und Ermordung Gedaljah's.
+- Jeremiah 41:18: XXXIV. Der Zug nach Aegypten von Jirmejah verbo= ten und democh ausgeführt.
+- Jeremiah 43:7: XXXV. Weißsagungen Jirmejah's in Aegypten.
+- Jeremiah 44:30: XXXVI. Tröstung Baruch's.
+- Jeremiah 45:5: XXXVII. Erste Weißsagung wider Aegypten.
+- Jeremiah 46:12: XXXVIII. Zweite Weißsagung wider Aegypten.
+- Jeremiah 46:28: XXXIX. Weißsagung wider die Pelischthim.
+- Jeremiah 47:7: XL. Weißsagung wider Moab.
+- Jeremiah 48:47: XLI. Weißsagung wider Ammon.
+- Jeremiah 49:6: XLII. Weißsagung wider Edom.
+- Jeremiah 49:22: XLIII. Weißsagung wider Damaskus.
+- Jeremiah 49:27: XLIV. Weißsagung wider Arabien.
+- Jeremiah 49:33: XLV. Weißsagung wider Elam.
+- Jeremiah 49:39: XLVI. Weißsagung wider Babel.
+- Jeremiah 51:64: XLVII. Anhang über die Begebenheiten bei und nach der Eroberung Jeruschalajim's.
+- Job 2:13: II. Ijobs Klage.
+- Job 3:26: III. Erste Rede Eliphas'.
+- Job 5:27: IV. Widerrede Ijobs.
+- Job 7:21: V. Erste Rede Bildad's.
+- Job 8:22: VI. Widerrede Ijobs.
+- Job 10:22: VII. Erste Rede Zophar's.
+- Job 11:20: VIII. Widerrede Ijobs.
+- Job 14:22: IX. Zweite Rede Eliphas'.
+- Job 15:35: X. Widerrede Ijobs.
+- Job 17:16: IX. Zweite Rede Bildad's.
+- Job 18:21: XII. Widerrede Ijobs.
+- Job 19:29: XIII. Zweite Rede Zophar's.
+- Job 20:29: XIV. Widerrede Ijobs.
+- Job 21:34: XV. Dritte Rede Eliphas'.
+- Job 22:30: XVI. Widerrede Ijobs.
+- Job 24:25: XVII. Dritte Rede Bildad's.
+- Job 25:6: XVIII. Widerrede Ijobs.
+- Job 26:14: XIX. Letzte Widerrede Ijobs.
+- Job 28:28: XX. Zweite Klage Ijobs.
+- Job 31:40: XXI. Elihus Rede.
+- Job 37:24: XXII. Erste Rede Gottes.
+- Job 40:2: XXII. Erste Antwort Ijobs.
+- Job 40:5: XXIII. Zweite Rede Gottes.
+- Job 41:26: XXIV. Zweite Antwort Ijobs.
+- Job 42:6: XXV. Schlußbericht.
+- Joel 2:27: II. Das Gericht Gottes über die Feinde Jisrael's.
+- Jonah 1:16: II. Jonah im Fische.
+- Jonah 2:11: III. Jonah in Nineveh.
+- Joshua 1:18: II. Absendung der Kundschafter nach Jericho.
+- Joshua 2:24: III. IV. Durchzug durch den Jarden.
+- Joshua 5:15: VI. Eroberung und Zerstörung Jericho's.
+- Joshua 6:27: VII. Achan's Vergehen und Bestrafung. —
+- Joshua 8:35: IX. List der Gibeoniter.
+- Joshua 9:27: X. Sieg über fünf canaanitische Könige.
+- Joshua 11:23: XII. Verzeichniß der besiegten Könige.
+- Joshua 12:24: XIII. Vertheilung des Landes — Grenzen der dritthalb Stämme.
+- Joshua 13:33: XIV. Chebron wird Belohnung Caleb's.
+- Joshua 14:15: XV. Gebiet des Stammes Jehudah.
+- Joshua 16:10: XVII. Stammgebiet Menascheh's.
+- Joshua 19:51: XX. Bestimmung der Zufluchtsstädte.
+- Joshua 20:9: XXI. Levitenstädte.
+- Joshua 21:45: XXII. Rückkehr der drittehalb Stämme und Erbauung eines Altars. —
+- Joshua 22:34: XXIII. Volksversammlung und Ermahnungsrede Jehoschua's.
+- Judges 1:36: II. Jisrael's Abgötterei und Strafe.
+- Judges 2:23: III. Richter: Othniel, Ehud, Schamgar.
+- Judges 3:31: IV. Deborah, Barak.
+- Judges 4:24: V. Siegeslied.
+- Judges 5:31: VI. VII. VIII. Gideon.
+- Judges 8:35: IX. Abimelech.
+- Judges 9:57: X. Thola, Jair. — Ammonitische Dienstbarkeit.
+- Judges 10:18: XI. Jiphthach.
+- Judges 11:40: XII. Ephrajimitischer Bürgerkrieg. — Ibzan, Elon, Abbon.
+- Judges 12:15: XIII. XIV. XV. XVI. Schimschon und die Pelischthim.
+- Judges 16:31: XVII. XVIII. Michah's Bilderdienst, nach der Eroberung von Lajisch dorthin verpflanzt.
+- Judges 18:31: XIX. Schandthat zu Gibeah.
+- Judges 19:30: XX. XXI. Krieg mit Binjamin.
+- Lamentations 1:22: II. Schilderung der Zerstörung.
+- Lamentations 2:22: III. Die Leiden des Einzelnen.
+- Lamentations 3:66: IV. Die verzweifelte Lage der Gemeinde.
+- Lamentations 4:22: V. Die Klage der Gemeinde.
+- Micah 2:13: II. Strafe und Wiederherstellung.
+- Micah 5:14: III. Jisrael's Vergangenheit, Gegenwart und Zukunft.
+- Nehemiah 2:20: II. Der Bau der Thore und Mauer.
+- Nehemiah 4:17: III. Steurung des Wuchers.
+- Nehemiah 5:19: IV. Nachstellungen gegen Nechemjah.
+- Nehemiah 6:19: V. Bewachung der Stadt. Geschlechtsverzeichniß.
+- Nehemiah 7:72: VI. Fest- und Bußversammlungen. Verpflichtung auf das Gesetz. Kultusabgaben.
+- Nehemiah 10:40: VII. Die Bevölkerung Jeruschalajim's und die Einweihung der Mauern; Stammhäupter-, Priester- und LevijimVerzeichnisse.
+- Nehemiah 12:47: VIII. Spätere Einrichtungen Nechemjah's.
+- Proverbs 9:18: III. Erste Spruchsammlung.
+- Proverbs 22:16: IV. Zweite Spruchsammlung.
+- Proverbs 23:14: V. Dritte Spruchsammlung.
+- Proverbs 24:22: VI. Vierte Spruchsammlung.
+- Proverbs 24:34: VII. Fünfte Spruchsammlung.
+- Proverbs 29:27: VIII. Rede gegen Gottesläugner.
+- Proverbs 30:10: IX. Rede über die vier Lasterhaften.
+- Proverbs 30:33: X. Mahnung an einen jungen König.
+- Proverbs 31:9: XI. Lobrede auf das Biederweib.
+- Ruth 1:22: II. Ruth sammelt Aehren auf dem Felde des Boas.
+- Ruth 2:23: III. Ruth fordert von Boas die Ehe und erhält sein Versprechen.
+- Ruth 3:18: IV. Boas löset und heirathet Ruth.
+- Song of Songs 3:5: II. Schelomoh's erste Bewerbung.
+- Song of Songs 6:3: III. Schelomoh's zweite Bewerbung.
+- Song of Songs 8:4: IV. Schluß.
+- Zechariah 1:6: II. Gesicht von den Reitern: die zukünftige Beglückung Jisrael's.
+- Zechariah 1:17: III. Vision von den vier Hörnern: die Vernichtung der Feinde.
+- Zechariah 2:4: IV. Gesicht von der Meßschnur: die zukünftige Größe Jeruschalajim's.
+- Zechariah 2:17: V. Gesicht vom freigesprochenen Hohenpriester: die Entsündigung Jisrael's.
+- Zechariah 3:10: VI. Gesicht vom goldenen Leuchter: die Vollendung des Tempelbaues.
+- Zechariah 4:14: VII. Gesicht von der fliegenden Rolle: der Fluch über Diebe und Meineidige.
+- Zechariah 5:4: VIII. Gesicht vom fliegenden Ephah: die Bosheit soll aus Jisrael hinweggeschafft werden.
+- Zechariah 5:11: IX. Gesicht von den vier Wagen: die Züchtigung Babel's.
+- Zechariah 6:8: X. Die beiden herrschenden Gewalten in Jisrael.
+- Zechariah 6:15: XI. Die wahre Buße und die zukünftige Herrlichkeit Isræl's.
+- Zechariah 8:23: XII. Verheißung des Sieges.
+- Zechariah 10:12: XIII. Der Fall Jisrael's.
+- Zechariah 11:17: XIV. Kampf, Sieg und Läuterung.
+- II Samuel 14:33: XV.—XIX. Abschalom erregt Bürgerkrieg. — David's Flucht. — Abschalom's Tod. — Restauration David's. —
+- II Kings 17:41: XVIII.—XX. Chiskijah, König von Jehudah. — Rettung von den Assyrern. —
+- Genesis 17:27: Eine göttliche Erscheinung. — Untergang des Sibbimthales. — Lot's Rettung. — Abraham in Gerar. — Jizchak's Geburt. — Hagar's Vertreibung. — Bündniß mit Abimelech. — Versuchung Abraham's. — Nachor's Familie. —
+
+- Genesis 44:17: Jehudah's Rede. — Joseph giebt sich zu erkennen. — Jakob zieht nach Aegypten — seine Familie — Audienz bei Pharaoh — Jakob läßt sich in Goschen nieder. — Joseph's Verfahren während der Hungerjahre. —
+
+- Exodus 27:19: Del. Priesterliche Kleidung. Einweihung der Priester und des Altars. Tägliches Opfer. Räucheraltar. —
+- Numbers 4:20: Fortsetzung der Einsetzung der Leviten. — Entfernung der Unreinen aus dem Lager. — Priestereinkünfte. — Beschwörung eines angeschuldigten Weibes. — Der Nasir. — Priestersegen. — Weihgeschenke der Stammfürsten. —
+- Numbers 12:16: Die zwölf Kundschafter, Murren des Volkes, Bestimmung der vierzig Wanderjahre. — Opfergesetze, Schabbathentheiligung, Zizith. —
+- Numbers 15:41: Korach's Empörung. — Der blühende Stab Ahron's. — Der Priester und Leviten Rechte. —
+- Numbers 18:32: Vom Reinigungswasser. — Zweiter Aufenthalt in Kadesch, Tod Mirjam's, Wasser aus dem Felsen, Weigerung Edom's, Jisrael durch sein Land ziehen zu lassen. — Züge der Jisraeliten zum Ostjardenland, Tod Ahron's, Besiegung des Königs von Arad, Plage der Schlangen, Besiegung der Könige Sichon und Og. —
+
+- Leviticus 24:23: Schabbath- und Jobeljahr. — Lösungsrecht. —
+- Ezekiel 42:20: b. Die Tempelweihe.
+- Ezekiel 43:27: c. Das Priester- und Opfergesetz.
+
+- Deuteronomy 21:9: zusätzliche übersehene Überschrift entfernt: „Fortsetzung der RedenMoscheh's, des speziellen Gesetzes: von gefangener Frau, Erbrecht, entartetem Sohne, Gehängtem, Gefundenem, Vogelnest, Dachgeländer, Vermischung des Verschiedenartigen, Jungfräulichkeit, Bürgerrecht, Kriegslager, Wucher, Gelübden, Ehe, Pfand, Menschendiebstahl, Aussatz, Armen, Gerechtigkeit, Schwagerehe, Amalek.“; Quellen-JSON und laufende Interlinear-Zuordnung angepasst.
+- Ezekiel 46:24: d. Die Tempelquelle.
+
+## Psalmen: redaktionelle Einleitungen zum Folgepsalm
+
+Echte hebräische Psalmüberschriften bleiben erhalten. In 47:10 bleibt „ist er.“, in 64:11 „sind.“ als Verswortlaut erhalten.
+
+- Psalms 1:6: Der Gesalbte Gottes und die aufrührerischen Völker.
+- Psalms 2:12: Eines Gottvertrauenden Kämpfers Morgenlied.
+- Psalms 3:9: Eines Gottvertrauenden Kämpfers Abendlied.
+- Psalms 4:9: Ein Morgengebet des Gerechten.
+- Psalms 5:13: Ein Abendgebet des Gerechten.
+- Psalms 6:11: Des Schuldlosen Rettung durch Gottes Gericht.
+- Psalms 7:18: Gottes Herrlichkeit, durch den Menschen anerkannt.
+- Psalms 8:10: Preis des Gerichtes Gottes, das von den Feinden rettete.
+- Psalms 9:21: Aufruf zum Gerichte Gottes, das die lang unbestraften Frevler sicher trifft.
+- Psalms 10:18: Der Gottvertrauende flieht nicht.
+- Psalms 11:7: Bitte, die Trugredner zu tilgen.
+- Psalms 12:9: Vertrauen auf Gott in allen Lagen.
+- Psalms 13:6: Die Schlechtigkeit unter den Menschen.
+- Psalms 14:7: Der wahre Gottesverehrer.
+- Psalms 15:5: Die Ruhe und Unsterblichkeit des Gottgläubigen.
+- Psalms 16:11: Bitte um Gericht und Schutz.
+- Psalms 17:15: Großes Danklied.
+- Psalms 18:51: Gottes Herrlichkeit in Schöpfung und Offenbarung.
+- Psalms 19:15: Bitte des Volkes für das Heil des Königs.
+- Psalms 20:10: Zuversicht, daß der König all seine Feinde besiegen werde.
+- Psalms 21:14: Gebet um Rettung eines Schwerbedrängten.
+- Psalms 22:32: Die Obhut Gottes.
+- Psalms 23:6: Zum Einzug der Bundeslade in Zijon.
+- Psalms 24:10: Bitte um Rettung nach Vergebung der Sünden.
+- Psalms 25:22: Bitte um Rettung aus dem guten Bewußtsein heraus.
+- Psalms 26:12: Furchtlosigkeit in großer Gefahr.
+- Psalms 27:14: Rettung vor den Uebelthätern.
+- Psalms 28:9: Auf Gottes Macht im Gewitter ein Lobgesang.
+- Psalms 29:11: Hülfe Gottes nach Entfernung des Hochmuths.
+- Psalms 30:13: Rettung aus langem, schwerem Leiden.
+- Psalms 31:25: Gott vergiebt dem Reuigen.
+- Psalms 32:11: Gott als Schöpfer und Regierer.
+- Psalms 33:22: Wer reinen Lebenswandel geht, den rettet Gott aus den Gefahren.
+- Psalms 34:23: Rettung vor den Falschen.
+- Psalms 35:28: Der Menschen Bosheit und Gottes Gerechtigkeit.
+- Psalms 36:13: Kurz ist des Sünders, dauernd des Gerechten Bestand.
+- Psalms 37:40: Der Schuldbewußte.
+- Psalms 38:23: Des Menschen Vergänglichkeit.
+- Psalms 39:14: Der Gottvertrauende geht nicht unter.
+- Psalms 40:18: Den Mildthätigen rettet Gott.
+- Psalms 41:14: Zweites Buch. Trauer um das zerstörte Heiligthum.
+- Psalms 42:12: Bitte um Rückkehr zum Heiligthum.
+- Psalms 43:5: Bitte um den Sieg Israel's.
+- Psalms 44:27: Feier des Königs bei seiner Vermählung.
+- Psalms 45:18: Gott ist Schutz Jeruschalajim's.
+- Psalms 46:12: Preis Gottes als Herrn der Völker.
+- Psalms 47:10: Gott, Schützer Zijon's.
+- Psalms 48:15: Der Tod des Sünders, des Gerechten Unsterblichkeit.
+- Psalms 49:21: Die wahre Gottesverehrung.
+- Psalms 50:23: Bitte um Sündenvergebung.
+- Psalms 51:21: Schutz des Gerechten vor den falschen Großen.
+- Psalms 52:11: Hülfe gegen die Schlechtigkeit der Menschen.
+- Psalms 53:7: Bitte um Rettung.
+- Psalms 54:9: Der Menschen Schlechtigkeit und Gottes Hülfe.
+- Psalms 55:24: Gottvertrauen benimmt jegliche Furcht.
+- Psalms 56:14: Gott rettet.
+- Psalms 57:12: Gott straft die Bosheit.
+- Psalms 58:12: Des Sünders Gier wird nicht erfüllt.
+- Psalms 59:18: Gottes ist der Sieg.
+- Psalms 60:14: Gott vollendet sein Rettungswerk.
+- Psalms 61:9: Gottes allein ist die Macht und die Huld und Vergeltung.
+- Psalms 62:13: Die Sehnsucht nach Gott wird befriedigt.
+- Psalms 63:12: Gott vereitelt der Heimtückischen Pläne.
+- Psalms 64:11: Danklied im Frühling.
+- Psalms 65:14: Danklied des Volkes für Rettung.
+- Psalms 66:20: Gottes Segen.
+- Psalms 67:8: Gott hat Zijon zum Sitze erkoren.
+- Psalms 68:36: Des Geschmäheten Rettung durch Gott.
+- Psalms 69:37: Bitte um schleunige Hülfe.
+- Psalms 70:6: Gebet eines Greises um Gottes Hülfe.
+- Psalms 71:24: Des gerechten Königs Regierung.
+- Psalms 72:20: Drittes Buch. Gott ist der gerechte Vergelter.
+- Psalms 73:28: Bitte auf den Trümmern des zerstörten Tempels.
+- Psalms 74:23: Das Gericht Gottes naht.
+- Psalms 75:11: Das Gericht Gottes ist vollbracht.
+- Psalms 76:13: Die Erlösungsmacht Gottes tröstet den Verzweifelnden.
+- Psalms 77:21: Sei eingedenk der Wohlthaten des Herrn.
+- Psalms 78:72: Bitte um Rache und Hülfe auf den Trümmern Jeruschalajim's.
+- Psalms 79:13: Bitte um Wiederherstellung.
+- Psalms 80:20: Festlied zum Pesach.
+- Psalms 81:17: Wider die ungerechten Richter.
+- Psalms 82:8: Wider die verbündeten Feinde.
+- Psalms 83:19: Danklied für die Rückkehr zum Heiligthum.
+- Psalms 84:13: Bitte um Hülfe nach dem Exil.
+- Psalms 85:14: Bitte um Hülfe.
+- Psalms 86:17: Zur Feier Zijon's als Stätte der Gotteserkenntniß.
+- Psalms 87:7: Klage des Schwerbedrängten.
+- Psalms 88:19: Vom Fall der Davidischen Krone.
+- Psalms 89:53: Viertes Buch. Das menschliche Leben.
+- Psalms 90:17: Des Gottvertrauenden Beschützung.
+- Psalms 91:16: Das Heil des Gerechten.
+- Psalms 92:16: Die Weltmacht Gottes.
+- Psalms 93:5: Die rächende Strafe der Frevler.
+- Psalms 94:23: Dem Herrn Preis und Gehorsam.
+- Psalms 95:11: Gott regiert und richtet.
+- Psalms 96:13: Das Gericht Gottes.
+- Psalms 97:12: Die Rettung Jisrael's ist des göttlichen Gerichtes Bürgschaft.
+- Psalms 98:9: Gott waltet in Jisrael.
+- Psalms 99:9: Aufruf zum Gottesdienste.
+- Psalms 100:5: Des Königs Vorsätze.
+- Psalms 101:8: Das Weh des jüdischen Exulanten.
+- Psalms 102:29: Des allmächtigen, allgnädigen und verzeihenden Gottes Lobpreis.
+- Psalms 103:22: Die Schöpfung.
+- Psalms 104:35: Des heiligen Landes Ertheilung an Jisrael.
+- Psalms 105:45: Des heiligen Landes Verlust.
+- Psalms 106:48: Fünftes Buch. Des heiligen Landes Wiedererthcilung an Jisrael.
+- Psalms 107:43: Gottes ist der Sieg.
+- Psalms 108:14: Des Ungerechten Vernichtung.
+- Psalms 109:31: Die Befestigung des Königthums.
+- Psalms 110:7: Die Größe Gottes.
+- Psalms 111:10: Des Gottesfürchtigen Glück.
+- Psalms 112:10: Das große Loblied (113—118.) Aufruf zum Lobe.
+- Psalms 113:9: Der Auszug aus Aegypten.
+- Psalms 114:8: Israel's Segnung durch Gott.
+- Psalms 115:18: Des Israeliten Rettung durch Gott.
+- Psalms 116:19: Aufruf zum Lobe.
+- Psalms 117:2: Lied zur Siegesfeier.
+- Psalms 118:29: Das Heil der göttlichen Offenbarung.
+- Psalms 119:176: Schutz vor verleumderischen Feinden.
+- Psalms 120:7: Gottes Obhut auf der Wallfahrt.
+- Psalms 121:8: Jeruschalajim Heil!
+- Psalms 122:9: Begnadigung in der Erhebung Jisrael's.
+- Psalms 123:4: Alleinige Rettung durch Gott.
+- Psalms 124:8: Gerechtigkeit Gottes.
+- Psalms 125:5: Bitte um Rückkehr.
+- Psalms 126:6: Gottes Wacht und Gabe.
+- Psalms 127:5: Des Gottesfürchtigen Segen.
+- Psalms 128:6: Niederlage und Schmach auf die Dränger Jisrael's.
+- Psalms 129:8: Gott vergiebt die Sünden.
+- Psalms 130:8: Resignation.
+- Psalms 131:3: Bitte für das Davidische Königshaus.
+- Psalms 132:18: Lob der brüderlichen Eintracht.
+- Psalms 133:3: Preis und Segen Gottes.
+- Psalms 134:3: Lob Gottes als Schöpfers und als Schützers Jisrael's.
+- Psalms 135:21: Lob Gottes als Schöpfers und als Schützers Jisrael's.
+- Psalms 136:26: Das Weh um Jeruschalajim.
+- Psalms 137:9: Gottes Treue.
+- Psalms 138:8: Die Allwissenheit Gottes.
+- Psalms 139:24: Bitte um Rettung.
+- Psalms 140:14: Wahrung vor Verführung und Verderben.
+- Psalms 141:10: Bitte um Rettung.
+- Psalms 142:8: Bitte um Rettung.
+- Psalms 143:12: Rettung und Sieg durch Gott.
+- Psalms 144:15: Lob der Größe, Güte, Weltregierung und Gerechtigkeit Gottes.
+- Psalms 145:21: Gottes Weltregierung.
+- Psalms 146:10: Die Wiederherstellung Jisrael's.
+- Psalms 147:20: Aufforderung an alle Wesen und Menschen zum Lobe Gottes.
+- Psalms 148:14: Aufforderung an Jisrael zum Lobe Gottes.
+- Psalms 149:9: Allgemeine Aufforderung zum Lobe Gottes.
+- Ezekiel 47:12: e. Grenzen und Vertheilung des Landes.
+
+- Deuteronomy 29:8: zusätzliche übersehene Überschrift „Schlußrede Moscheh's.“ aus Quellen-JSON entfernt; neue Zuordnung ohne Überschrift erstellt.
+- Deuteronomy 30:20: Vorbereitungen zu Moscheh's Tode.
+- Deuteronomy 31:30: Sang Moscheh's.
+- Deuteronomy 32:52: Der Segen Moscheh's. — Moscheh's Tod. —

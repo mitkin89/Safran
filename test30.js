@@ -18,6 +18,30 @@ for (const [tr, D] of Object.entries(ALL)) for (const book of Object.keys(D)) {
   console.log(`Interlinear ${tr} ${book}: ${n} Verse ok`);
 }
 
+// Philippson: reparierte Versgrenzen dürfen weder leere noch versfremde Gesamtfelder hinterlassen.
+for (const [book, verses] of Object.entries(ALL.Philippson)) for (const [ref, segs] of Object.entries(verses)) {
+  assert.ok(segs.some(s => s[0].length && s[1].trim()), `Philippson ${book} ${ref}: kein zugeordneter Text`);
+}
+const philText = (book, ref) => norm(ALL.Philippson[book][ref].map(s => s[1]).join(' '));
+assert.ok(philText('Isaiah', '19:11').startsWith("Ja, Narren sind"));
+assert.ok(philText('I Samuel', '28:11').includes('Wen soll ich dir heraufbringen?'));
+assert.ok(philText('II Samuel', '4:5').includes('Rechab und Baanah'));
+for (const [book, ref] of [['Hosea','7:13'],['Proverbs','24:20'],['Job','10:10'],['Nehemiah','7:54'],['Nehemiah','11:35']]) {
+  assert.ok(ALL.Philippson[book][ref].some(s => s[0].length), `Philippson ${book} ${ref}: wiederhergestellter Vers fehlt`);
+}
+assert.deepStrictEqual(ALL.Philippson.Psalms['1:4'].find(s => s[1] === '[verjagt].'), [[8], '[verjagt].']);
+assert.deepStrictEqual(ALL.Philippson.Deuteronomy['29:10'].find(s => s[1] === '[deinem Wasserträger],'), [[10,11], '[deinem Wasserträger],']);
+assert.ok(ALL.Philippson.Nehemiah['7:68'].some(s => !s[0].length && /Pferde/.test(s[1])), 'abweichende Pferde-/Maultierangabe erhalten');
+
+// Philippson: der ganze Tanach darf nicht unbemerkt auf einzelne Bücher schrumpfen.
+assert.strictEqual(Object.keys(ALL.Philippson).length, 39);
+assert.deepStrictEqual(Object.keys(ALL.Philippson).sort(), Object.keys(ALL.Zunz).sort());
+assert.strictEqual(Object.values(ALL.Philippson).reduce((n, book) => n + Object.keys(book).length, 0), 23206);
+// Editorische Psalm-Titel bleiben entfernt, echte Versfortsetzungen bleiben erhalten.
+assert.ok(norm(ALL.Philippson.Psalms['47:10'].map(s => s[1]).join(' ')).endsWith('ist er.'));
+assert.ok(norm(ALL.Philippson.Psalms['64:11'].map(s => s[1]).join(' ')).endsWith('sind.'));
+assert.ok(!ALL.Philippson.Psalms['1:6'].some(s => s[1].includes('aufrührerischen Völker')));
+
 assert.ok(ALL.Goldschmidt.Genesis && ALL.Goldschmidt.Exodus, 'Goldschmidt Genesis und Exodus fehlen');
 assert.strictEqual(Object.keys(ALL.Goldschmidt.Exodus).length, 1210);
 assert.strictEqual(Object.keys(ALL.Goldschmidt.Genesis).length, 1533);
@@ -81,7 +105,7 @@ for (const [ref, count] of [['7:15', 12], ['7:16', 15], ['7:17', 24]]) {
 assert.ok(Array.from({ length: 9 }, (_, i) => i + 11).every(n => ALL.JuliusHirsch.Habakkuk['2:6'].some(s => s[0].includes(n))));
 
 // Breuer: alle verfügbaren Arba-Megillot-Bücher vollständig; Ruth bleibt erhalten.
-assert.deepStrictEqual(Object.keys(ALL.Breuer).sort(), ['Ecclesiastes', 'Ezekiel', 'Lamentations', 'Nehemiah', 'Ruth', 'Song of Songs']);
+assert.deepStrictEqual(Object.keys(ALL.Breuer).sort(), ['Ecclesiastes', 'Ezekiel', 'Joshua', 'Lamentations', 'Nehemiah', 'Ruth', 'Song of Songs']);
 for (const [book, count] of Object.entries({ Ruth: 85, 'Song of Songs': 117, Ecclesiastes: 222, Lamentations: 154 })) {
   assert.strictEqual(Object.keys(ALL.Breuer[book]).length, count, `Breuer ${book}: dokumentierter Gesamtumfang`);
 }
@@ -130,6 +154,29 @@ for (const [ref, ...words] of BREUER_NEHEMIA_KQ) {
 }
 assert.deepStrictEqual(ALL.Breuer.Nehemiah["7:67"].find(s => s[1] === "Pferde hatten sie 736, Maultiere 245."), [[], "Pferde hatten sie 736, Maultiere 245."]);
 
+// Raphael Breuer: vollständiger Josua und sämtliche Ketiv/Qere-Gruppen.
+assert.strictEqual(Object.keys(ALL.Breuer.Joshua).length, 658);
+const BREUER_JOSHUA_KQ = [["2:13", 9, 10], ["3:4", 5, 6], ["3:16", 10, 11], ["4:18", 2, 3], ["5:1", 27, 28], ["6:5", 5, 6], ["6:7", 1, 2], ["6:9", 5, 6], ["6:13", 22, 23], ["7:21", 1, 2], ["8:11", 15, 16], ["8:16", 5, 6], ["9:7", 1, 2], ["9:7", 12, 13], ["15:4", 6, 7], ["15:47", 11, 12], ["15:53", 1, 2], ["15:63", 6, 7], ["16:3", 14, 15], ["18:12", 17, 18], ["18:14", 15, 16], ["18:19", 8, 9], ["18:19", 10, 11], ["18:24", 2, 3], ["19:22", 4, 5], ["19:29", 11, 12], ["20:8", 18, 19], ["21:27", 13, 14], ["22:7", 12, 13], ["24:3", 13, 14], ["24:8", 1, 2], ["24:15", 20, 21]];
+for (const [ref, ...words] of BREUER_JOSHUA_KQ) {
+  const touched = ALL.Breuer.Joshua[ref].filter(s => words.some(w => s[0].includes(w)));
+  assert.ok(touched.length, `Breuer Josua ${ref}: Ketiv/Qere fehlt`);
+  touched.forEach(s => assert.ok(words.every(w => s[0].includes(w)), `Breuer Josua ${ref}: Ketiv/Qere getrennt`));
+}
+// Aus dem Kommentar zurückgeführte Fortsetzung muss allen neun hebräischen Wörtern entsprechen.
+for (let n = 13; n <= 21; n++) assert.ok(ALL.Breuer.Joshua['10:12'].some(s => s[0].includes(n)));
+const BREUER_JOSHUA_COMMENTARY = rd('Breuer on Joshua', 'de', /Breuer/);
+BREUER_JOSHUA_COMMENTARY.forEach((ch,c) => ch.forEach((text,v) => {
+  if (!text) return;
+  const m = text.replace(/<[^>]+>/g, '').match(/^(?:Kap\.\s*(\d+)[.,]\s*)?V\.\s*(\d+)/);
+  assert.ok(m, `Breuer-Kommentar Josua ${c+1}:${v+1}: Überschrift fehlt`);
+  assert.strictEqual(Number(m[2]), v+1, `Breuer-Kommentar Josua ${c+1}:${v+1}: falscher Vers`);
+  if (m[1]) assert.strictEqual(Number(m[1]), c+1, 'Kommentar im falschen Kapitel');
+}));
+for (const [c,v,clue] of [[10,3,'עגלון'],[10,12,'Es erscheint rätselhaft'],[11,3,'והחוי תחת חרמון'],[11,5,'מי מרום'],[15,1,'Grenzbestimmung'],[20,4,'Gesetz Num.'],[21,1,'לבהמתם'],[21,20,'שכם']]) {
+  assert.ok(BREUER_JOSHUA_COMMENTARY[c-1][v-1].includes(clue), `Josua-Kommentar ${c}:${v}: richtiger Abschnitt fehlt`);
+}
+assert.ok(!BREUER_JOSHUA_COMMENTARY[9][11].includes('Und er sprach vor den Augen Jisraels:'));
+assert.ok(BREUER_JOSHUA_COMMENTARY[9][11].includes('oder später geschah.'));
 // Umschrift (ETCBC phono): jedes Westminster-Wort mit Aussprache, Ketiv ohne
 assert.deepStrictEqual(ALL.Umschrift.Genesis['1:1'][0], [[1], 'bᵊrēšˌîṯ']);
 assert.deepStrictEqual(ALL.Umschrift.Genesis['8:17'].find(s => s[1].includes('hayṣ')), [[15], '*hayṣˈē']);
