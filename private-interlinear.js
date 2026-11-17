@@ -3,6 +3,7 @@ const fs = require('fs/promises');
 const path = require('path');
 const R = require('./reader');
 const L = require('./lib');
+const { validateRenderings } = require('./private-renderings');
 
 const KEY = 'BuberRosenzweig';
 const VERSION = /Martin Buber.*Franz Rosenzweig/;
@@ -18,7 +19,7 @@ function plain(s) {
   }));
 }
 function validate(raw) {
-  if (!object(raw) || Object.keys(raw).length !== 1 || !Object.hasOwn(raw, KEY) || !object(raw[KEY])) throw new Error('Erwartet wird eine JSON-Wortzuordnung mit dem Schlüssel BuberRosenzweig.');
+  if (!object(raw) || Object.keys(raw).some(k => k !== KEY && k !== 'renderings') || !Object.hasOwn(raw, KEY) || !object(raw[KEY])) throw new Error('Erwartet wird eine JSON-Wortzuordnung mit dem Schlüssel BuberRosenzweig.');
   const books = {}, entries = Object.entries(raw[KEY]);
   if (!entries.length || entries.length > BOOKS.size) throw new Error('Keine gültigen Bücher in der Wortzuordnung.');
   let count = 0;
@@ -34,7 +35,9 @@ function validate(raw) {
       if (++count > 25000) throw new Error('Zu viele Verse in der Wortzuordnung.');
     }
   }
-  return { [KEY]: books };
+  const data = { [KEY]: books };
+  if (Object.hasOwn(raw, 'renderings')) data.renderings = validateRenderings(raw.renderings, books, [...BOOKS], KEY);
+  return data;
 }
 
 // Auf Import und nach Neustart prüfen: keine Zuordnung auf einen anderen Textstand anwenden.
@@ -60,7 +63,7 @@ async function matchLibrary(data, lib, strict = false) {
       skipped.push(err.message);
     }
   }
-  return { data: { [KEY]: books }, skipped };
+  return { data: { [KEY]: books }, skipped, renderings: !skipped.length && data.renderings ? data.renderings : null };
 }
 
 class PrivateInterlinear {
@@ -79,7 +82,8 @@ class PrivateInterlinear {
       const current = await this.saved(), books = { ...current[KEY] };
       // Ein importiertes Buch ersetzt seinen bisherigen Stand vollständig (keine alten Verse zurücklassen).
       Object.assign(books, incoming[KEY]);
-      const data = { [KEY]: books }, json = JSON.stringify(data);
+      // Statistiken gehören genau zum importierten Zuordnungsstand; alte nicht weiterverwenden.
+      const data = { [KEY]: books, ...(incoming.renderings ? { renderings: incoming.renderings } : {}) }, json = JSON.stringify(data);
       if (Buffer.byteLength(json) > MAX_BYTES) throw new Error('Private Wortzuordnung ist zu groß.');
       await fs.mkdir(path.dirname(this.file), { recursive: true });
       const tmp = this.file + '.tmp';
@@ -90,4 +94,4 @@ class PrivateInterlinear {
     this.chain = job; return job;
   }
 }
-module.exports = { KEY, VERSION, MAX_BYTES, validate, plain, matchLibrary, PrivateInterlinear };
+module.exports = { KEY, VERSION, BOOKS: [...BOOKS], MAX_BYTES, validate, plain, matchLibrary, PrivateInterlinear };

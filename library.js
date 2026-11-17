@@ -806,6 +806,7 @@
   let ilTr = 'Zunz'; try { ilTr = localStorage.getItem('interlinTr') || 'Zunz'; } catch { /* egal */ }
   let ilOn = false; try { ilOn = localStorage.getItem('interlin') === '1'; } catch { /* egal */ }
   let ilP = null, ilRevision = 0, ilNotice = '';
+  let ilPrivateRen = null;
   const loadIL = () => ilP || (ilP = (async () => {
     const revision = ilRevision;
     const built = await lazyScript('interlin.js', () => window.INTERLIN);
@@ -817,11 +818,13 @@
     const all = built || {};
     delete all.BuberRosenzweig;
     if (local.data && local.data.BuberRosenzweig) all.BuberRosenzweig = local.data.BuberRosenzweig;
+    ilPrivateRen = local.renderings || null;
     window.INTERLIN = all;
     return all;
   })().catch(err => { ilP = null; throw err; }));
   function resetPrivateIL() {
     ilRevision++; ilP = null; ilNotice = '';
+    ilRenP = null; wcTrState = null; ilPrivateRen = null;
     $$('#rOut .ilx').forEach(n => n.replaceWith(...n.childNodes));
     $$('#rOut .txt[data-ilx]').forEach(n => { delete n.dataset.ilx; });
     return ilRefresh();
@@ -1662,7 +1665,17 @@
   let lxxRenP = null;
   let wcTrMore = false; try { wcTrMore = localStorage.getItem('wcTrMore') === '1'; } catch { /* egal */ }
   const loadLxxRen = () => lxxRenP || (lxxRenP = lazyScript('lxx-ren.js', () => window.LXX_REN).catch(() => { lxxRenP = null; return null; }));
-  const loadIlRen = () => ilRenP || (ilRenP = lazyScript('interlin-ren.js', () => window.INTERLIN_REN).catch(() => { ilRenP = null; return null; }));
+  const loadIlRen = () => ilRenP || (ilRenP = (async () => {
+    const revision = ilRevision;
+    const [built] = await Promise.all([lazyScript('interlin-ren.js', () => window.INTERLIN_REN), loadIL()]);
+    if (revision !== ilRevision) return loadIlRen();
+    const all = built || { books: ilPrivateRen ? ilPrivateRen.books : [], tr: {} };
+    all.tr = all.tr || {};
+    delete all.tr.BuberRosenzweig;
+    if (ilPrivateRen && JSON.stringify(all.books) === JSON.stringify(ilPrivateRen.books)) all.tr.BuberRosenzweig = ilPrivateRen.tr.BuberRosenzweig;
+    window.INTERLIN_REN = all;
+    return all;
+  })().catch(() => { ilRenP = null; return null; }));
   const WC_TR_DE = new Set(['BuberRosenzweig', 'Zunz', 'Breuer', 'Philippson', 'Herxheimer', 'Goldschmidt', 'Hirsch', 'JuliusHirsch']);
   const WC_TR_LABEL = { BuberRosenzweig: 'Buber/Rosenzweig', Zunz: 'Zunz (1838)', Breuer: 'Breuer', Philippson: 'Philippson', Herxheimer: 'Herxheimer', Goldschmidt: 'Goldschmidt (1921)', Hirsch: 'S. R. Hirsch (1882)', JuliusHirsch: 'Julius Hirsch', LXX: 'Septuaginta', O: 'Onkelos', PJ: 'Pseudo-Jonathan', N: 'Neofiti 1' };
   // Porträt im Quell-Chip (wie in der Interlinear-Auswahl): Schlüssel der Fassung -> Name in portraits/index.js; fehlt das Bild, bleibt der Chip ohne

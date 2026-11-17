@@ -58,7 +58,7 @@ const lib = { list: () => entries, read: async rel => docs[rel] };
   let local = { data: raw }, calls = 0;
   const button = {}, built = { Zunz: { synthetic: true } }, alerts = [];
   const ctx = { window: { INTERLIN: built }, $: () => button, $$: () => [],
-    I18N: { t: (s, x) => s.replace('{}', x) }, alert: x => alerts.push(x), ilPick: [], ilSave() {},
+    ilRenP: null, wcTrState: null, I18N: { t: (s, x) => s.replace('{}', x) }, alert: x => alerts.push(x), ilPick: [], ilSave() {},
     lazyScript: async () => built,
     O: { interlinearRead: async () => { calls++; return local; }, onInterlinearChanged() {}, interlinearImport: async () => ({ verses: 1 }) },
   };
