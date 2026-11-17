@@ -7,7 +7,8 @@ function validateRenderings(raw, alignment, books, key) {
   if (!obj(raw) || Object.keys(raw).some(k => !['books', 'tr'].includes(k)) || !Array.isArray(raw.books) || JSON.stringify(raw.books) !== JSON.stringify(books) || !obj(raw.tr) || Object.keys(raw.tr).length !== 1 || !Object.hasOwn(raw.tr, key) || !obj(raw.tr[key]) || !Object.keys(raw.tr[key]).length || Object.keys(raw.tr[key]).length > 10000) fail();
   let nodes = 0;
   function safeTree(v, depth = 0) {
-    if (++nodes > 1000000 || depth > 12) fail();
+    // Vollständige Korpora überschreiten eine Million Knoten; Tiefe und Dateigröße bleiben begrenzt.
+    if (++nodes > 3000000 || depth > 12) fail();
     if (typeof v === 'string') { if (!text(v)) fail(); }
     else if (typeof v === 'number') { if (!int(v)) fail(); }
     else if (Array.isArray(v)) v.forEach(x => safeTree(x, depth + 1));

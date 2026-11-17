@@ -14,6 +14,17 @@ const docs = { de: { text: [['Alpha.', 'Beta.']] }, he: { text: [['<span class="
 const lib = { list: () => entries, read: async rel => docs[rel] };
 (async () => {
   assert.deepStrictEqual(P.validate(bundle), bundle);
+  // Umfang eines vollständigen Korpus: viele Lemmata und Formen, nur künstliche Wiedergaben.
+  const corpusEntry = copy(stats.tr.BuberRosenzweig['1']);
+  const formRow = corpusEntry[2].HNcmsa.synthetic;
+  corpusEntry[2].HNcmsa = Object.fromEntries(Array.from({ length: 12 }, (_, i) => ['form' + i, formRow]));
+  const corpus = { ...alignment, renderings: { books: P.BOOKS, tr: {
+    BuberRosenzweig: Object.fromEntries(Array.from({ length: 8000 }, (_, i) => [String(i + 1), corpusEntry])),
+  } } };
+  assert.equal(Object.keys(P.validate(corpus).renderings.tr.BuberRosenzweig).length, 8000);
+  // Auch mit höherer Grenze bleibt übermäßiger Aufwand abgewiesen.
+  corpusEntry[2].HNcmsa = Object.fromEntries(Array.from({ length: 50 }, (_, i) => ['form' + i, formRow]));
+  assert.throws(() => P.validate(corpus), /Wortkartenstatistik/);
   for (const mutate of [
     x => x.renderings.books.reverse(),
     x => { x.renderings.tr.Zunz = {}; },
