@@ -3284,9 +3284,9 @@
         const bi = GM.bookIndex(D, m[1], p.dataset.vt); if (bi < 0) continue;
         const toks = GM.verse(D, bi, +m[2], +m[3]), at = greekWordAt(p, null, null, true);
         if (!toks || !at || toks.length !== at.words.length) continue;
-        // Nur markieren, wenn Wortfolge und Morphologieindex tatsächlich zusammenpassen.
-        if (!toks.every((t, i) => !t || GM.fold(GM.info(D, t.id).form) === GM.fold(at.words[i].t))) continue;
-        for (let i = toks.length - 1; i >= 0; i--) if (toks[i] && GM.info(D, toks[i].id).lemma === lemma) {
+        // Die konkrete Zielform prüfen: andere orthographische Abweichungen im Vers
+        // dürfen sie nicht unterdrücken (Iota subscriptum/adscriptum ist gleichwertig).
+        for (let i = toks.length - 1; i >= 0; i--) if (toks[i] && GM.info(D, toks[i].id).lemma === lemma && GM.sameForm(GM.info(D, toks[i].id).form, at.words[i].t)) {
           const rg = at.range(i), mark = document.createElement('span'); mark.className = 'pvhl';
           mark.append(rg.extractContents()); rg.insertNode(mark);
         }

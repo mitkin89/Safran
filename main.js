@@ -1046,7 +1046,7 @@ ipcMain.handle('links:preview', async (_e, ref, langs, pick, pref) => {
     // dritte Fassung (Einstellung „Vorschau – zusätzliche Fassung“): unten angehängt, wenn das Buch sie hat und sie nicht schon gezeigt wird
     const addExtra = async () => {
       if (!pX) return;
-      const want = pX.startsWith('@') ? cand.filter(x => x.kind === pX.slice(1)).sort((a, b) => merged(a) - merged(b)) : cand.filter(x => x.versionTitle === pX);
+      const want = pX.startsWith('@') ? cand.filter(x => x.kind === pX.slice(1)).sort((a, b) => (prefRank(a) - prefRank(b)) || (merged(a) - merged(b))) : cand.filter(x => x.versionTitle === pX);
       for (const c of want) {
         if (parts.some(p => p.versionTitle === c.versionTitle)) { if (pX.startsWith('@')) continue; return; }
         try {

@@ -28,7 +28,7 @@
   <sub>▶ Watch the overview video on YouTube</sub>
 </p>
 
-Safran is a free desktop app for macOS, Windows and Linux that keeps your texts on your own computer. Pick the books and languages you want from the [Sefaria](https://www.sefaria.org) library once, and read, search and annotate them afterwards without an internet connection. New in 2.5.0: the **whole Tanakh word by word in German** (interlinear) and a **word card** that shows how a Hebrew word is translated. On top of that, Safran ships **more than 50 German works** (translations, commentaries and reference works) that are hard to find anywhere else, among them Louis Ginzberg's *Legenden der Juden* from his German manuscript, plus **nine dictionaries and reference works** with more than 200,000 entries. Safran is an independent project and not affiliated with Sefaria.
+Safran is a free desktop app for macOS, Windows and Linux that keeps your texts on your own computer. Pick the books and languages you want from the [Sefaria](https://www.sefaria.org) library once, and read, search and annotate them afterwards without an internet connection. New in 2.5.0: the **whole Tanakh word by word in German** (interlinear) and a **word card** that shows how a Hebrew word is translated. On top of that, Safran ships **more than 50 German works** (translations, commentaries and reference works) that are hard to find anywhere else, among them Louis Ginzberg's *Legenden der Juden* from his German manuscript, plus **ten dictionaries and reference works** with more than 300,000 entries. Safran is an independent project and not affiliated with Sefaria.
 
 ## Why Safran?
 
@@ -39,7 +39,7 @@ Safran is a free desktop app for macOS, Windows and Linux that keeps your texts 
 | ✦ **Everything on this passage** | One panel (Cmd+I) collects commentaries, parallels, legends, Talmud & Midrash, halakhah, words, places and dictionary articles for a verse, a folio or a chapter. |
 | 📴 **Works offline** | Texts, links, dictionaries, maps and audio live on your disk. Nothing is sent anywhere. |
 | 🇩🇪 **German texts you won't find elsewhere** | More than 50 works: Zunz, Philippson, Mendelssohn's Biur, Herxheimer, Hertz, Hirsch, Rashi after Bamberger, the Kautzsch Apocrypha, Midrash Rabbah, Josephus, Graetz, the Schulchan Aruch (Lederer), Ginzberg's *Legenden der Juden* … ready on first start. |
-| 📚 **A dictionary shelf, not a single lookup** | Liddell & Scott, BDB, Gesenius, Jastrow, Levy, Krauss and Hamburger's Real-Encyclopädie: more than 200,000 entries, searchable by headword *and* full text, with abbreviations explained on hover and sources that open in the reader. |
+| 📚 **A dictionary shelf, not a single lookup** | Liddell & Scott, BDB, Gesenius, Jastrow, Levy, Krauss and Hamburger's Real-Encyclopädie: more than 300,000 entries, searchable by headword *and* full text, with abbreviations explained on hover and sources that open in the reader. |
 | 📜 **Manuscripts and ancient versions** | Aleppo Codex, the biblical Qumran scrolls and all 735 non-biblical ones with morphology, the Septuagint with clickable morphology and an LXX–MT comparison, Targum Onkelos, Pseudo-Jonathan and Neofiti. |
 | 🔎 **Search that knows grammar** | Full-text search across everything, all forms of a word by lemma (Hebrew and Greek), and a grammar search by stem, tense, person, gender and number. |
 | 🗺 **Built for study** | Verse-by-verse alignment, a second reading window, Bible map, outlines, Jewish calendar and a Hebrew reading of the whole Tanakh. |
@@ -135,10 +135,11 @@ Mendelssohn's German Pentateuch (Dessau 1815, Latin script) is a separate interl
 
 ## Dictionaries
 
-Open the *Dictionary* tab (*Wörterbuch*), press the 📖 button next to the commentary panel, or double-click a word in any text. Nine dictionaries and reference works with more than 200,000 entries ship with the app:
+Open the *Dictionary* tab (*Wörterbuch*), press the 📖 button next to the commentary panel, or double-click a word in any text. Ten dictionaries and reference works with more than 300,000 entries ship with the app:
 
 | Dictionary | Entries | Extras |
 | --- | ---: | --- |
+| **Pape**, Griechisch-deutsches Handwörterbuch (1880/1914) | 98,833 | Greek headwords without joining hyphens; Greek word cards, cross-references, offline images |
 | **Liddell & Scott**, Greek-English Lexicon | 115,617 | 115,628 Greek headwords; linked to Greek word cards for attested Septuagint lemmas; accents and breathings ignored, σ/ς equivalent; clickable cross-references, abbreviations on hover |
 | **BDB**, Brown-Driver-Briggs (unabridged) | 10,022 | also by Strong and BDB number; verses linked |
 | **Gesenius**, Hebräisches Handwörterbuch (1915) | 10,118 | |

@@ -13,6 +13,9 @@
   // ---------- Wörter ----------
   // Vergleichsform: nur Buchstaben, ohne Akzente/Spiritus/Iota subscriptum, klein, σ für ς
   const fold = s => String(s).normalize('NFD').replace(/[^\p{L}]/gu, '').toLowerCase().replace(/ς/g, 'σ');
+  // Iota subscriptum/adscriptum sind im CATSS und Morphologieindex teils verschieden geschrieben:
+  // z. B. αἴσωμεν im Text und ᾄσωμεν im Index. Nur für den Abgleich der belegten Form.
+  const sameForm = (a, b) => fold(a) === fold(b) || fold(String(a).normalize('NFD').replace(/\u0345/g, 'ι')) === fold(String(b).normalize('NFD').replace(/\u0345/g, 'ι'));
   // Anzeigeform einer Wortform: Gravis -> Akut, zweiter Akzent vor Enklitikon weg, Apostroph einheitlich
   function form(s) {
     let d = String(s).normalize('NFD').replace(/̀/g, '́').replace(/[᾿’'ʼ]/g, '’').replace(/[^\p{L}\p{M}’]/gu, '');
@@ -314,6 +317,6 @@
     return nav + secs + `<p class="fmNote">${esc(t('Nur in der Septuaginta belegte Formen (Rahlfs; Morphologie: lxx-morph), Gravis als Akut; die Zahl nennt die Häufigkeit. Formen, deren Bestimmung mehrere Fälle oder Geschlechter zulässt (z. B. Nom./Akk. Neutrum), stehen in jeder passenden Zeile.'))}</p>`;
   }
 
-  const api = { fold, form, words, wordsOf, plain, WORD, GREEK, ALPH, BASE, encoder, decode, ix, bookIndex, hasBook, bookId, verse, info, lemmaInfo, findLemma, dictionaryLemmas, occ, refs, dist, refsIn, topForms, feat, describe, model, render, POS };
+  const api = { fold, sameForm, form, words, wordsOf, plain, WORD, GREEK, ALPH, BASE, encoder, decode, ix, bookIndex, hasBook, bookId, verse, info, lemmaInfo, findLemma, dictionaryLemmas, occ, refs, dist, refsIn, topForms, feat, describe, model, render, POS };
   if (typeof module !== 'undefined' && module.exports) module.exports = api; else window.GMorph = api;
 })();
