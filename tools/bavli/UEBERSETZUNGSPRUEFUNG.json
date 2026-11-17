@@ -1,0 +1,980 @@
+{
+  "date": "2026-11-17",
+  "scope": {
+    "original_ambiguous_positions": 583,
+    "language_or_lemma_positions": 536,
+    "formal_ambiguous_positions": 47,
+    "partial_or_unresolved_positions": 8,
+    "individually_compared_positions": 55,
+    "resolved_positions": 13,
+    "full_second_word_review": false
+  },
+  "sources": [
+    {
+      "key": "english",
+      "versionTitle": "William Davidson Edition - English",
+      "source": "https://www.sefaria.org/Berakhot.2a-10b",
+      "sha256": "0a9d4c2308c678e7e8c9b1cddf3f4681db7ba8411b99641c663a5c8b475ea9cb",
+      "range": "2a-10b",
+      "segments": 490
+    },
+    {
+      "key": "goldschmidt",
+      "versionTitle": "Talmud Bavli. German trans. by Lazarus Goldschmidt,1929[de]",
+      "source": "https://www.sefaria.org/Berakhot.2a-10b",
+      "sha256": "6aeba8d26cec3c3e345cf35d47949000ba3841165cdd7c24111b2995d0ed0fa2",
+      "range": "2a-10b",
+      "segments": 490
+    },
+    {
+      "key": "pinner",
+      "versionTitle": "Talmud Babli. Tractat Berachoth, übersetzt und erläutert von M.Pinner, Berlin1842",
+      "source": "bundled/own/Berakhot/de/",
+      "sha256": "29a7904fbc249fc7fac02a9fd79268af9ce7172fdb7acadb7824bfc9c749c59e",
+      "range": "2a-10b",
+      "segments": 490
+    }
+  ],
+  "provenance_claims_downgraded": 1173,
+  "positions": [
+    {
+      "ref": "Berakhot 2a:6",
+      "token": 1,
+      "word": "גְּמָ׳",
+      "id": "b24:b8ebaf0c7438",
+      "translations": {
+        "english": "2a:6",
+        "goldschmidt": [
+          "2a:6"
+        ],
+        "pinner": [
+          "2a:6"
+        ]
+      },
+      "decision": "retained",
+      "reason": "Alle drei Fassungen markieren den Beginn der Gemara. Redaktionelle Abkürzung, keine erschlossene flektierte Wortform."
+    },
+    {
+      "ref": "Berakhot 2b:3",
+      "token": 8,
+      "word": "שְׁמִיעַ",
+      "id": "b24:3c7cb4930d51",
+      "translations": {
+        "english": "2b:3",
+        "goldschmidt": [
+          "2b:3"
+        ],
+        "pinner": [
+          "2b:3"
+        ]
+      },
+      "decision": "retained",
+      "reason": "Alle drei Fassungen bezeichnen eine ihnen nicht bekannte Erklärung. Das entscheidet weder maskuline qṭil-Form noch apokopiertes Femininum; Alternativen bleiben."
+    },
+    {
+      "ref": "Berakhot 2b:6",
+      "token": 4,
+      "word": "אַמַּתְנִיתִין.",
+      "id": "b24:a336df2fec28",
+      "translations": {
+        "english": "2b:6",
+        "goldschmidt": [
+          "2b:6"
+        ],
+        "pinner": [
+          "2b:6"
+        ]
+      },
+      "decision": "retained",
+      "reason": "Englisch und Goldschmidt formulieren unsere Mischna, Pinner die Mischna. Die Referenz ist klar; produktives 1.Pl.-Suffix gegenüber lexikalisierter Form wird dadurch nicht entschieden."
+    },
+    {
+      "ref": "Berakhot 2b:6",
+      "token": 9,
+      "word": "אַמַּתְנִיתִין?",
+      "id": "b24:a336df2fec28",
+      "translations": {
+        "english": "2b:6",
+        "goldschmidt": [
+          "2b:6"
+        ],
+        "pinner": [
+          "2b:6"
+        ]
+      },
+      "decision": "retained",
+      "reason": "Englisch und Goldschmidt formulieren unsere Mischna, Pinner die Mischna. Die Referenz ist klar; produktives 1.Pl.-Suffix gegenüber lexikalisierter Form wird dadurch nicht entschieden."
+    },
+    {
+      "ref": "Berakhot 2b:6",
+      "token": 5,
+      "word": "רֵישָׁא,",
+      "id": "b24:d94f3bf3d6ed",
+      "translations": {
+        "english": "2b:6",
+        "goldschmidt": [
+          "2b:6"
+        ],
+        "pinner": [
+          "2b:6"
+        ]
+      },
+      "decision": "retained",
+      "reason": "Gemeint ist der erste Textteil/Anfangssatz. Deutsches Genus von Satz und englisches clause beweisen das aramäische Genus nicht."
+    },
+    {
+      "ref": "Berakhot 3a:3",
+      "token": 8,
+      "word": "רֵישָׁא",
+      "id": "b24:d94f3bf3d6ed",
+      "translations": {
+        "english": "3a:3",
+        "goldschmidt": [
+          "3a:3"
+        ],
+        "pinner": [
+          "3a:3"
+        ]
+      },
+      "decision": "retained",
+      "reason": "Gemeint ist der erste Textteil/Anfangssatz. Deutsches Genus von Satz und englisches clause beweisen das aramäische Genus nicht."
+    },
+    {
+      "ref": "Berakhot 2b:19",
+      "token": 13,
+      "word": "אָמֵינָא?",
+      "id": "b24:833e067ede63",
+      "translations": {
+        "english": "2b:19",
+        "goldschmidt": [
+          "2b:19"
+        ],
+        "pinner": [
+          "2b:19"
+        ]
+      },
+      "decision": "retained",
+      "reason": "Alle Fassungen bestätigen ein aktives Sagen/Meinen in der 1.Sg.; Franks konkurrierende morphologische Herleitungen bleiben davon unentschieden."
+    },
+    {
+      "ref": "Berakhot 2b:19",
+      "token": 20,
+      "word": "אָמֵינָא,",
+      "id": "b24:833e067ede63",
+      "translations": {
+        "english": "2b:19",
+        "goldschmidt": [
+          "2b:19"
+        ],
+        "pinner": [
+          "2b:19"
+        ]
+      },
+      "decision": "retained",
+      "reason": "Alle Fassungen bestätigen ein aktives Sagen/Meinen in der 1.Sg.; Franks konkurrierende morphologische Herleitungen bleiben davon unentschieden."
+    },
+    {
+      "ref": "Berakhot 3b:15",
+      "token": 3,
+      "word": "סָבַר",
+      "id": "b24:a9b2b6544417",
+      "translations": {
+        "english": "3b:15",
+        "goldschmidt": [
+          "3b:15"
+        ],
+        "pinner": [
+          "3b:15"
+        ]
+      },
+      "decision": "retained",
+      "reason": "Alle drei Fassungen geben die gegenwärtig vertretene Lehrmeinung wieder. Das deutsche Präsens entscheidet nicht zwischen aramäischer Suffixform und Partizip."
+    },
+    {
+      "ref": "Berakhot 4b:10",
+      "token": 3,
+      "word": "סָבַר",
+      "id": "b24:a9b2b6544417",
+      "translations": {
+        "english": "4b:10",
+        "goldschmidt": [
+          "4b:10"
+        ],
+        "pinner": [
+          "4b:10"
+        ]
+      },
+      "decision": "retained",
+      "reason": "Alle drei Fassungen geben die gegenwärtig vertretene Lehrmeinung wieder. Das deutsche Präsens entscheidet nicht zwischen aramäischer Suffixform und Partizip."
+    },
+    {
+      "ref": "Berakhot 4b:10",
+      "token": 20,
+      "word": "סָבַר",
+      "id": "b24:a9b2b6544417",
+      "translations": {
+        "english": "4b:10",
+        "goldschmidt": [
+          "4b:10"
+        ],
+        "pinner": [
+          "4b:10"
+        ]
+      },
+      "decision": "retained",
+      "reason": "Alle drei Fassungen geben die gegenwärtig vertretene Lehrmeinung wieder. Das deutsche Präsens entscheidet nicht zwischen aramäischer Suffixform und Partizip."
+    },
+    {
+      "ref": "Berakhot 4b:12",
+      "token": 3,
+      "word": "סָבַר:",
+      "id": "b24:a9b2b6544417",
+      "translations": {
+        "english": "4b:12",
+        "goldschmidt": [
+          "4b:12"
+        ],
+        "pinner": [
+          "4b:12"
+        ]
+      },
+      "decision": "retained",
+      "reason": "Alle drei Fassungen geben die gegenwärtig vertretene Lehrmeinung wieder. Das deutsche Präsens entscheidet nicht zwischen aramäischer Suffixform und Partizip."
+    },
+    {
+      "ref": "Berakhot 4b:12",
+      "token": 28,
+      "word": "סָבַר:",
+      "id": "b24:a9b2b6544417",
+      "translations": {
+        "english": "4b:12",
+        "goldschmidt": [
+          "4b:12"
+        ],
+        "pinner": [
+          "4b:12"
+        ]
+      },
+      "decision": "retained",
+      "reason": "Alle drei Fassungen geben die gegenwärtig vertretene Lehrmeinung wieder. Das deutsche Präsens entscheidet nicht zwischen aramäischer Suffixform und Partizip."
+    },
+    {
+      "ref": "Berakhot 3b:28",
+      "token": 28,
+      "word": "מְסַפְּקָא",
+      "id": "b24:f8c9f83fc137",
+      "translations": {
+        "english": "3b:28",
+        "goldschmidt": [
+          "3b:28"
+        ],
+        "pinner": [
+          "3b:28"
+        ]
+      },
+      "decision": "retained",
+      "reason": "Gemeint ist Unsicherheit des Moses. Englisch/Pinner formulieren aktiv, Goldschmidt unpersönlich; dies entscheidet den aramäischen Stamm nicht."
+    },
+    {
+      "ref": "Berakhot 4a:5",
+      "token": 8,
+      "word": "לְאִתְּעוֹרֵי",
+      "id": "b24:d50680d0c386",
+      "translations": {
+        "english": "4a:5",
+        "goldschmidt": [
+          "4a:5"
+        ],
+        "pinner": [
+          "4a:5"
+        ]
+      },
+      "decision": "retained",
+      "reason": "Alle Fassungen beziehen das Erwachen auf David; deutsche kausative Formulierung ihn aufwecken entscheidet nicht den reflexiven aramäischen Stamm."
+    },
+    {
+      "ref": "Berakhot 4b:22",
+      "token": 10,
+      "word": "קוּם",
+      "id": "b24:51fd166d008e",
+      "translations": {
+        "english": "4b:22",
+        "goldschmidt": [
+          "4b:22"
+        ],
+        "pinner": [
+          "4b:22"
+        ]
+      },
+      "decision": "retained",
+      "reason": "Alle drei Fassungen bestätigen die Umdeutung zum Aufruf an die Jungfrau Israel. Femininum des Adressaten ist klar, die unveränderte gedruckte Form קום bleibt formal erklärungsbedürftig."
+    },
+    {
+      "ref": "Berakhot 4b:23",
+      "token": 34,
+      "word": "וְגוֹ׳״.",
+      "id": "b24:66cfb4abcc0b",
+      "translations": {
+        "english": "4b:23",
+        "goldschmidt": [
+          "4b:23"
+        ],
+        "pinner": [
+          "4b:23"
+        ]
+      },
+      "decision": "retained",
+      "reason": "Die älteren Übersetzungen kürzen oder ergänzen den Bibelzitatabschluss unterschiedlich. וגו׳ bleibt als Abkürzung ohne erfundene Vollformmorphologie."
+    },
+    {
+      "ref": "Berakhot 5a:3",
+      "token": 13,
+      "word": "״וְאֶתְּנָה",
+      "id": "b57:64",
+      "translations": {
+        "english": "5a:3",
+        "goldschmidt": [
+          "5a:3"
+        ],
+        "pinner": [
+          "5a:3"
+        ]
+      },
+      "decision": "resolved",
+      "reason": "Exodus 24:12: וְאֶתְּנָה ist Kohortativ 1.Sg. Alle drei Übersetzungen beziehen die Gabe auf die Zukunft; die homographe Erzählform aus II Samuel 12:8 gehört nicht in dieses Zitat."
+    },
+    {
+      "ref": "Berakhot 5a:4",
+      "token": 29,
+      "word": "וְאִיתֵּימָא",
+      "id": "b57:115",
+      "translations": {
+        "english": "5a:4",
+        "goldschmidt": [
+          "5a:4"
+        ],
+        "pinner": [
+          "5a:4"
+        ]
+      },
+      "decision": "retained",
+      "reason": "Alle drei Fassungen markieren wechselnde Überlieferer, nicht eine hier neu zu entscheidende Konditionalfrage. Die bereits aus Frank/PTD bekannte Mehrdeutigkeit der inneren Bildung bleibt offen."
+    },
+    {
+      "ref": "Berakhot 5a:8",
+      "token": 4,
+      "word": "וְאִיתֵּימָא",
+      "id": "b57:115",
+      "translations": {
+        "english": "5a:8",
+        "goldschmidt": [
+          "5a:8"
+        ],
+        "pinner": [
+          "5a:8"
+        ]
+      },
+      "decision": "retained",
+      "reason": "Alle drei Fassungen markieren wechselnde Überlieferer, nicht eine hier neu zu entscheidende Konditionalfrage. Die bereits aus Frank/PTD bekannte Mehrdeutigkeit der inneren Bildung bleibt offen."
+    },
+    {
+      "ref": "Berakhot 5a:9",
+      "token": 3,
+      "word": "וְאִיתֵּימָא",
+      "id": "b57:115",
+      "translations": {
+        "english": "5a:9",
+        "goldschmidt": [
+          "5a:9"
+        ],
+        "pinner": [
+          "5a:9"
+        ]
+      },
+      "decision": "retained",
+      "reason": "Alle drei Fassungen markieren wechselnde Überlieferer, nicht eine hier neu zu entscheidende Konditionalfrage. Die bereits aus Frank/PTD bekannte Mehrdeutigkeit der inneren Bildung bleibt offen."
+    },
+    {
+      "ref": "Berakhot 5b:21",
+      "token": 42,
+      "word": "וְאִיתֵּימָא",
+      "id": "b57:115",
+      "translations": {
+        "english": "5b:21",
+        "goldschmidt": [
+          "5b:21"
+        ],
+        "pinner": [
+          "5b:21"
+        ]
+      },
+      "decision": "retained",
+      "reason": "Alle drei Fassungen markieren wechselnde Überlieferer, nicht eine hier neu zu entscheidende Konditionalfrage. Die bereits aus Frank/PTD bekannte Mehrdeutigkeit der inneren Bildung bleibt offen."
+    },
+    {
+      "ref": "Berakhot 7a:14",
+      "token": 10,
+      "word": "וְאִיתֵּימָא",
+      "id": "b57:115",
+      "translations": {
+        "english": "7a:14",
+        "goldschmidt": [
+          "7a:14"
+        ],
+        "pinner": [
+          "7a:14"
+        ]
+      },
+      "decision": "retained",
+      "reason": "Alle drei Fassungen markieren wechselnde Überlieferer, nicht eine hier neu zu entscheidende Konditionalfrage. Die bereits aus Frank/PTD bekannte Mehrdeutigkeit der inneren Bildung bleibt offen."
+    },
+    {
+      "ref": "Berakhot 5a:10",
+      "token": 13,
+      "word": "אֶת",
+      "id": "b57:261",
+      "translations": {
+        "english": "5a:10",
+        "goldschmidt": [
+          "5a:10"
+        ],
+        "pinner": [
+          "5a:10"
+        ]
+      },
+      "decision": "resolved",
+      "reason": "Proverbs 3:12: אֶת אֲשֶׁר יֶאֱהַב markiert das direkte Objekt zu lieben. Alle drei Übersetzungen geben die geliebte Person als Objekt wieder, nicht als Begleitung mit jemandem."
+    },
+    {
+      "ref": "Berakhot 5a:16",
+      "token": 27,
+      "word": "אֶת",
+      "id": "b57:261",
+      "translations": {
+        "english": "5a:16",
+        "goldschmidt": [
+          "5a:16"
+        ],
+        "pinner": [
+          "5a:16"
+        ]
+      },
+      "decision": "resolved",
+      "reason": "Proverbs 3:12: אֶת אֲשֶׁר יֶאֱהַב markiert das direkte Objekt zu lieben. Alle drei Übersetzungen geben die geliebte Person als Objekt wieder, nicht als Begleitung mit jemandem."
+    },
+    {
+      "ref": "Berakhot 5a:12",
+      "token": 1,
+      "word": "יָכוֹל",
+      "id": "b57:277",
+      "translations": {
+        "english": "5a:12",
+        "goldschmidt": [
+          "5a:12"
+        ],
+        "pinner": [
+          "5a:12"
+        ]
+      },
+      "decision": "retained",
+      "reason": "Die exegetische Formel wird übereinstimmend als hypothetische Annahme verstanden. Das entscheidet nicht zwischen modalem Partizip und lexikalisiertem Adjektiv."
+    },
+    {
+      "ref": "Berakhot 5b:18",
+      "token": 6,
+      "word": "דִּשְׁמִיעַ",
+      "id": "b57:584",
+      "translations": {
+        "english": "5b:18",
+        "goldschmidt": [
+          "5b:19",
+          "5b:20"
+        ],
+        "pinner": [
+          "5b:19",
+          "5b:20"
+        ]
+      },
+      "decision": "retained",
+      "reason": "Die gehörte Information betrifft Huna. Der deutsche Passiv-/Aktivwechsel in derselben Erzählung erlaubt keine sichere Bestimmung des aramäischen Partizipgenus; Grenzen5b17–20 sind verschoben."
+    },
+    {
+      "ref": "Berakhot 5b:18",
+      "token": 14,
+      "word": "שְׁמִיעַ",
+      "id": "b57:588",
+      "translations": {
+        "english": "5b:18",
+        "goldschmidt": [
+          "5b:19",
+          "5b:20"
+        ],
+        "pinner": [
+          "5b:19",
+          "5b:20"
+        ]
+      },
+      "decision": "retained",
+      "reason": "Englisch sowie der Wortlaut der deutschen Fassungen in5b20 bestätigen gehört/vernommen. Genus bleibt morphologisch offen; keine Übernahme der falschen deutschen Segmentnummer5b18."
+    },
+    {
+      "ref": "Berakhot 5b:21",
+      "token": 18,
+      "word": "וְעַל",
+      "id": "b57:625",
+      "translations": {
+        "english": "5b:21",
+        "goldschmidt": [
+          "5b:21"
+        ],
+        "pinner": [
+          "5b:21"
+        ]
+      },
+      "decision": "resolved",
+      "reason": "Hebräisches Baraita-Zitat על שני דברים: וְעַל מִטָּתִי bedeutet und hinsichtlich meines Bettes. Goldschmidt/Pinner und Englisch bestätigen denselben Bezug; kein Verb eintreten."
+    },
+    {
+      "ref": "Berakhot 5b:22",
+      "token": 1,
+      "word": "״וְעַל",
+      "id": "b57:625",
+      "translations": {
+        "english": "5b:22",
+        "goldschmidt": [
+          "5b:22"
+        ],
+        "pinner": [
+          "5b:22"
+        ]
+      },
+      "decision": "resolved",
+      "reason": "Hebräisches Baraita-Zitat על שני דברים: וְעַל מִטָּתִי bedeutet und hinsichtlich meines Bettes. Goldschmidt/Pinner und Englisch bestätigen denselben Bezug; kein Verb eintreten."
+    },
+    {
+      "ref": "Berakhot 6b:10",
+      "token": 14,
+      "word": "אָמֵינָא:",
+      "id": "b57:1055",
+      "translations": {
+        "english": "6b:10",
+        "goldschmidt": [
+          "6b:10"
+        ],
+        "pinner": [
+          "6b:10"
+        ]
+      },
+      "decision": "retained",
+      "reason": "Alle drei Fassungen bestätigen die Sprecherrolle1.Sg. Die aktive/passive historische Herleitung der aktiv gebrauchten Form bleibt offen."
+    },
+    {
+      "ref": "Berakhot 7a:30",
+      "token": 4,
+      "word": "לִרְאוֹת",
+      "id": "b57:1609",
+      "translations": {
+        "english": "7a:30",
+        "goldschmidt": [
+          "7a:30"
+        ],
+        "pinner": [
+          "7a:30"
+        ]
+      },
+      "decision": "resolved",
+      "reason": "Exodus 33:20: לִרְאוֹת ist Qal-Infinitiv sehen, nicht Nifal sich zeigen. Die Übersetzungen haben Moses als Sehenden; OSHB derselben Bibelstelle bestätigt die Form."
+    },
+    {
+      "ref": "Berakhot 7a:30",
+      "token": 6,
+      "word": "פָּנָי״,",
+      "id": "b57:1611",
+      "translations": {
+        "english": "7a:30",
+        "goldschmidt": [
+          "7a:30"
+        ],
+        "pinner": [
+          "7a:30"
+        ]
+      },
+      "decision": "resolved",
+      "reason": "Exodus 33:20: פָּנָי enthält das Suffix 1.Sg. mein. Die Lesarten ohne Suffix aus anderem Zusammenhang sind ausgeschlossen; alle drei Übersetzungen bestätigen mein Angesicht."
+    },
+    {
+      "ref": "Berakhot 7b:8",
+      "token": 6,
+      "word": "דְּעַל",
+      "id": "b57:1768",
+      "translations": {
+        "english": "7b:8",
+        "goldschmidt": [
+          "7b:8"
+        ],
+        "pinner": [
+          "7b:8"
+        ]
+      },
+      "decision": "resolved",
+      "reason": "דְעַל כֻּרְחֵיהּ gehört zur festen Fügung gegen seinen Willen. Joseph ist Subjekt von שַׁקְלֵיהּ. Alle drei Übersetzungen bestätigen die präpositionale Fügung, kein Verb eintreten."
+    },
+    {
+      "ref": "Berakhot 7b:10",
+      "token": 15,
+      "word": "שָׂם",
+      "id": "b57:1798",
+      "translations": {
+        "english": "7b:10",
+        "goldschmidt": [
+          "7b:10"
+        ],
+        "pinner": [
+          "7b:10"
+        ]
+      },
+      "decision": "resolved",
+      "reason": "Psalms 46:9: אֲשֶׁר שָׂם שַׁמּוֹת enthält שׂום setzen/machen im Perfekt 3.m.Sg., nicht das Ortsadverb שָׁם. Vokalisation und alle drei Übersetzungen stimmen darin überein."
+    },
+    {
+      "ref": "Berakhot 8a:16",
+      "token": 11,
+      "word": "מִילֵּי",
+      "id": "b810:f96",
+      "translations": {
+        "english": "8a:16",
+        "goldschmidt": [
+          "8a:16"
+        ],
+        "pinner": [
+          "8a:16"
+        ]
+      },
+      "decision": "resolved",
+      "reason": "מֵהָנֵי מִילֵּי מְעַלְּיָיתָא: Aussprüche mit attributivem Adjektiv, keine Genitivkette. Siegal §§2.2.1, 2.2.3.1.1 und alle drei Übersetzungen stützen die nicht-constructe Plural-Langform."
+    },
+    {
+      "ref": "Berakhot 9a:18",
+      "token": 8,
+      "word": "אָמֵינָא:",
+      "id": "b810:f392",
+      "translations": {
+        "english": "9a:18",
+        "goldschmidt": [
+          "9a:18"
+        ],
+        "pinner": [
+          "9a:18"
+        ]
+      },
+      "decision": "retained",
+      "reason": "Die Übersetzungen bestätigen eine aktive Sprecherform1.Sg., teils als hypothetisches man könnte. Franks morphologische Alternative bleibt bestehen."
+    },
+    {
+      "ref": "Berakhot 9a:21",
+      "token": 7,
+      "word": "אָמֵינָא",
+      "id": "b810:f392",
+      "translations": {
+        "english": "9a:21",
+        "goldschmidt": [
+          "9a:21"
+        ],
+        "pinner": [
+          "9a:21"
+        ]
+      },
+      "decision": "retained",
+      "reason": "Die Übersetzungen bestätigen eine aktive Sprecherform1.Sg., teils als hypothetisches man könnte. Franks morphologische Alternative bleibt bestehen."
+    },
+    {
+      "ref": "Berakhot 10a:24",
+      "token": 6,
+      "word": "אָמֵינָא",
+      "id": "b810:f392",
+      "translations": {
+        "english": "10a:24",
+        "goldschmidt": [
+          "10a:24"
+        ],
+        "pinner": [
+          "10a:24"
+        ]
+      },
+      "decision": "retained",
+      "reason": "Die Übersetzungen bestätigen eine aktive Sprecherform1.Sg., teils als hypothetisches man könnte. Franks morphologische Alternative bleibt bestehen."
+    },
+    {
+      "ref": "Berakhot 9a:28",
+      "token": 30,
+      "word": "מִבָּעֶרֶב.",
+      "id": "b810:f40199",
+      "translations": {
+        "english": "9a:28",
+        "goldschmidt": [
+          "9a:28"
+        ],
+        "pinner": [
+          "9a:28"
+        ]
+      },
+      "decision": "resolved",
+      "reason": "מִבָּעֶרֶב im hebräischen Erklärungssatz bedeutet schon vom Abend an. Rd kodiert die Verschmelzung von ב und Artikel nach OSHB-Konvention; keine zweite konkurrierende Formenbildung. Kein unmittelbares Leviticus-Zitat."
+    },
+    {
+      "ref": "Berakhot 10a:1",
+      "token": 9,
+      "word": "בְּ״אַשְׁרֵי״",
+      "id": "b810:f40212",
+      "translations": {
+        "english": "10a:1",
+        "goldschmidt": [
+          "10a:1"
+        ],
+        "pinner": [
+          "10a:1"
+        ]
+      },
+      "decision": "retained",
+      "reason": "Mit dem zitierten Ausdruck אשְרֵי ist der Wortlaut einer Glücklichpreisung gemeint. Die Übersetzungen entscheiden die Behandlung als erstarrte Zitat-/Nominalform nicht."
+    },
+    {
+      "ref": "Berakhot 10a:1",
+      "token": 12,
+      "word": "בְּ״אַשְׁרֵי״.",
+      "id": "b810:f40213",
+      "translations": {
+        "english": "10a:1",
+        "goldschmidt": [
+          "10a:1"
+        ],
+        "pinner": [
+          "10a:1"
+        ]
+      },
+      "decision": "retained",
+      "reason": "Zitierter Ausdruck אשְרֵי; kein aus dem deutschen Heil/englischen happy ableitbarer Statusentscheid."
+    },
+    {
+      "ref": "Berakhot 10a:1",
+      "token": 14,
+      "word": "בְּ״אַשְׁרֵי״,",
+      "id": "b810:f40214",
+      "translations": {
+        "english": "10a:1",
+        "goldschmidt": [
+          "10a:1"
+        ],
+        "pinner": [
+          "10a:1"
+        ]
+      },
+      "decision": "retained",
+      "reason": "Zitierter Ausdruck אשְרֵי; der anschließende Beleg wird separat analysiert, keine Genitivkette aus der Übersetzung erfunden."
+    },
+    {
+      "ref": "Berakhot 10a:1",
+      "token": 19,
+      "word": "בְּ״אַשְׁרֵי״,",
+      "id": "b810:f40215",
+      "translations": {
+        "english": "10a:1",
+        "goldschmidt": [
+          "10a:1"
+        ],
+        "pinner": [
+          "10a:1"
+        ]
+      },
+      "decision": "retained",
+      "reason": "Zitierter Ausdruck אשְרֵי; beide Analysen bleiben als Behandlung des zitierten Ausdrucks sichtbar."
+    },
+    {
+      "ref": "Berakhot 9b:29",
+      "token": 24,
+      "word": "חַטָּאִים",
+      "id": "b810:amb50178",
+      "translations": {
+        "english": "9b:29",
+        "goldschmidt": [
+          "9b:29"
+        ],
+        "pinner": [
+          "9b:29"
+        ]
+      },
+      "decision": "resolved",
+      "reason": "Das direkte Psalms-104:35-Zitat steht hier beim Fall der Frevler: substantiviertes Adjektiv Sünder (חַטָּאִים), wie OSHB derselben Stelle. Alle drei Übersetzungen bestätigen Personenbezug; der spätere Midrasch wird nicht rückwirkend als zweite Flexion eingetragen."
+    },
+    {
+      "ref": "Berakhot 10a:2",
+      "token": 32,
+      "word": "חַטָּאִים״,",
+      "id": "b810:amb50179",
+      "translations": {
+        "english": "10a:2",
+        "goldschmidt": [
+          "10a:2"
+        ],
+        "pinner": [
+          "10a:2"
+        ]
+      },
+      "decision": "retained",
+      "reason": "Die Frage setzt die konkurrierenden Lesarten Sünder/Sünden ausdrücklich gegeneinander. Das ist Auslegung im Midrasch, nicht Unsicherheit über die unverändert erhaltene dageschierte Quellvokalisation."
+    },
+    {
+      "ref": "Berakhot 10a:2",
+      "token": 36,
+      "word": "״חַטָּאִים״",
+      "id": "b810:amb50180",
+      "translations": {
+        "english": "10a:2",
+        "goldschmidt": [
+          "10a:2"
+        ],
+        "pinner": [
+          "10a:2"
+        ]
+      },
+      "decision": "retained",
+      "reason": "Berurjas Auslegung meint ausdrücklich Sünden gegenüber חוטאים. Nominale Auslegung und literal vokalisiertes Adjektiv werden als unterschiedliche Interpretationsebenen beschriftet; Quelle bleibt unverändert."
+    },
+    {
+      "ref": "Berakhot 10a:3",
+      "token": 10,
+      "word": "חַטָּאִים״",
+      "id": "b810:amb50181",
+      "translations": {
+        "english": "10a:3",
+        "goldschmidt": [
+          "10a:3"
+        ],
+        "pinner": [
+          "10a:3"
+        ]
+      },
+      "decision": "retained",
+      "reason": "Die Umdeutung des Psalmworts wird fortgesetzt. Die Auslegungsalternative bleibt explizit, nicht als durch die Übersetzungen gesicherte zweite Flexion."
+    },
+    {
+      "ref": "Berakhot 10a:18",
+      "token": 9,
+      "word": "חַטָּאִים",
+      "id": "b810:amb50182",
+      "translations": {
+        "english": "10a:18",
+        "goldschmidt": [
+          "10a:18"
+        ],
+        "pinner": [
+          "10a:18"
+        ]
+      },
+      "decision": "resolved",
+      "reason": "Direktes Psalms-104:35-Zitat: Die erhaltene Vokalisation und OSHB bestimmen חַטָּאִים als substantiviertes Adjektiv. Englisch/Pinner haben Sünder, Goldschmidt Sünden. Diese Übersetzungsdifferenz ist eine Bedeutungs-/Auslegungsfrage, kein Beweis einer zweiten Flexionsform der vokalisierten Quelle."
+    },
+    {
+      "ref": "Berakhot 8a:13",
+      "token": 32,
+      "word": "נַשְׁרָא,",
+      "id": "b810:ctx60049",
+      "translations": {
+        "english": "8a:13",
+        "goldschmidt": [
+          "8a:13"
+        ],
+        "pinner": [
+          "8a:13"
+        ]
+      },
+      "decision": "retained",
+      "reason": "Englisch erklärt נשרא verbal als Einreißen der Wolle; Goldschmidt/Pinner geben abweichende Bilder des rückwärts herausgezogenen/weggeworfenen Dornstrauchs. Die lexikalische Entscheidung nach Sokoloff bleibt, die genaue Flexion bleibt partial."
+    },
+    {
+      "ref": "Berakhot 8a:14",
+      "token": 34,
+      "word": "זִיבּוּלָא",
+      "id": "b810:ctx60050",
+      "translations": {
+        "english": "8a:14",
+        "goldschmidt": [
+          "8a:14"
+        ],
+        "pinner": [
+          "8a:14"
+        ]
+      },
+      "decision": "retained",
+      "reason": "Alle Fassungen verstehen die letzte Schaufel/den letzten Spatenstich. Das Genus deutscher Übersetzungswörter beweist das aramäische Genus nicht; lokale feminine Kongruenz bleibt notiert."
+    },
+    {
+      "ref": "Berakhot 10a:26",
+      "token": 32,
+      "word": "אַשְׁכְּחַן",
+      "id": "b810:ctx60051",
+      "translations": {
+        "english": "10a:26",
+        "goldschmidt": [
+          "10a:26"
+        ],
+        "pinner": [
+          "10a:26"
+        ]
+      },
+      "decision": "retained",
+      "reason": "Alle drei Fassungen bestätigen wir finden, also1.Pl. Die lexikalisch-historische Stammzuweisung von אשכח ist daraus nicht abzulesen."
+    },
+    {
+      "ref": "Berakhot 10a:26",
+      "token": 49,
+      "word": "אַשְׁכְּחַן",
+      "id": "b810:ctx60052",
+      "translations": {
+        "english": "10a:26",
+        "goldschmidt": [
+          "10a:26"
+        ],
+        "pinner": [
+          "10a:26"
+        ]
+      },
+      "decision": "retained",
+      "reason": "Alle drei Fassungen bestätigen wir finden, also1.Pl. Kein Schluss auf Peal/Afel aus der deutschen oder englischen Form."
+    },
+    {
+      "ref": "Berakhot 10a:24",
+      "token": 14,
+      "word": "אֲמָרָן",
+      "id": "b810:ctx80012",
+      "translations": {
+        "english": "10a:24",
+        "goldschmidt": [
+          "10a:24"
+        ],
+        "pinner": [
+          "10a:24"
+        ]
+      },
+      "decision": "retained",
+      "reason": "Der Bezug sind die fünf Aussprüche ברכי נפשי. Englisches them/deutsches sie entscheidet nicht das Genus des rabbinisch erweiterten Suffixes־ן."
+    },
+    {
+      "ref": "Berakhot 10a:24",
+      "token": 17,
+      "word": "אֲמָרָן",
+      "id": "b810:ctx80013",
+      "translations": {
+        "english": "10a:24",
+        "goldschmidt": [
+          "10a:24"
+        ],
+        "pinner": [
+          "10a:24"
+        ]
+      },
+      "decision": "retained",
+      "reason": "Der Bezug bleibt dieselbe Gruppe der fünf Aussprüche; Genus der aramäischen/hebräischen Endung wird nicht aus dem Deutschen ergänzt."
+    }
+  ]
+}

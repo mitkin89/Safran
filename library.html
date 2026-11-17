@@ -92,6 +92,7 @@
                 <button id="lkBtn" title="Verknüpfungen zu diesem Abschnitt anzeigen" hidden>🔗<span class="bl">Verknüpfungen</span></button>
                 <button id="olBtn" title="Gliederung dieses Buches (Wochenabschnitte, Kapitel, Absätze)">☰ <span class="bl">Gliederung</span></button>
                 <button id="ilBtn" title="Interlinear: Übersetzungen (Zunz, Breuer, Philippson, Herxheimer) und die Septuaginta Wort für Wort unter dem hebräischen Text – Werke auswählen" aria-haspopup="true" aria-expanded="false" hidden>א<span class="bl">Interlinear</span></button>
+                <button id="bavliIlBtn" title="Goldschmidt und Pinner: geprüfte Wortzuordnungen und getrennt gekennzeichnete Vorschläge für Berachot 2a–10b" hidden>Wortzuordnung · Test</button>
                 <button id="tpBtn" title="Themen (Sefaria Topics) zu diesem Abschnitt" hidden>🏷<span class="bl">Themen</span></button>
                 <button id="mapBtn" title="Karte: Orte in diesem Kapitel" hidden>🗺<span class="bl">Karte</span></button>
                 <span class="spacer"></span>
@@ -147,15 +148,15 @@
           <label title="Im Tanach wird hebräisch nur der Westminster-Text durchsucht (jeder Vers nur einmal, mit Morphologie)"><input type="checkbox" id="sWlc" checked> Tanach: nur Westminster</label>
         </div>
         <details id="gramBox" class="gram">
-          <summary title="Sucht im hebräischen Tanach (Westminster) nach grammatischen Merkmalen, auch ohne Suchwort. Mit Suchwort: nur Wörter, die dazu passen (Form oder Lemma).">Grammatik (Tanach)</summary>
+          <summary title="Sucht im Tanach (Westminster) und in Berakhot 2a–10b (Safran-Morphologie) nach grammatischen Merkmalen, auch ohne Suchwort. Mit Suchwort: nur Wörter, die dazu passen (Form oder Lemma).">Grammatik (Tanach / Bavli)</summary>
           <div class="gramRow">
             <label>Wortart <select id="gPos"><option value="">–</option><option value="V">Verb</option><option value="Nc">Nomen</option><option value="Np">Eigenname</option><option value="Ng">Gentilizium</option><option value="A">Adjektiv / Zahl</option><option value="P">Pronomen</option><option value="R">Präposition</option><option value="C">Konjunktion</option><option value="D">Adverb</option><option value="T">Partikel</option></select></label>
-            <label>Stamm <select id="gStem"><option value="">–</option><option value="q">Qal</option><option value="N">Nif‘al</option><option value="p">Pi‘el</option><option value="P">Pu‘al</option><option value="h">Hif‘il</option><option value="H">Hof‘al</option><option value="t">Hitpa‘el</option><option value="o">Polel</option><option value="O">Polal</option><option value="r">Hitpolel</option></select></label>
+            <label>Stamm <select id="gStem"><option value="">–</option><option value="q">Qal / Pe‘al</option><option value="N">Nif‘al</option><option value="p">Pi‘el / Pa‘el</option><option value="P">Pu‘al / Itpa‘al</option><option value="h">Hif‘il</option><option value="H">Hof‘al</option><option value="t">Hitpa‘el</option><option value="o">Polel</option><option value="O">Polal</option><option value="r">Hitpolel</option><option value="a">Af‘el (aram.)</option><option value="i">Itpe‘el (aram.)</option><option value="G">Itaf‘al (aram.)</option></select></label>
             <label>Zeitform <select id="gTense"><option value="">–</option><option value="p">Perfekt</option><option value="q">Perfekt consecutivum</option><option value="i">Imperfekt</option><option value="w">Wajjiqtol</option><option value="h">Kohortativ</option><option value="j">Jussiv</option><option value="v">Imperativ</option><option value="r">Partizip aktiv</option><option value="s">Partizip passiv</option><option value="a">Infinitiv absolutus</option><option value="c">Infinitiv constructus</option></select></label>
             <label>Person <select id="gPerson"><option value="">–</option><option value="1">1.</option><option value="2">2.</option><option value="3">3.</option></select></label>
             <label>Genus <select id="gGender"><option value="">–</option><option value="m">m.</option><option value="f">f.</option><option value="c">c.</option></select></label>
             <label>Numerus <select id="gNumber"><option value="">–</option><option value="s">Singular</option><option value="p">Plural</option><option value="d">Dual</option></select></label>
-            <label>Status <select id="gState"><option value="">–</option><option value="a">absolut</option><option value="c">constructus</option><option value="d">bestimmt</option></select></label>
+            <label>Status <select id="gState"><option value="">–</option><option value="a">absolut</option><option value="c">constructus</option><option value="d">bestimmt / Emphaticus</option></select></label>
             <label>Suffix <select id="gSuffix"><option value="">–</option><option value="1">mit</option><option value="0">ohne</option></select></label>
             <label>Artikel <select id="gArticle"><option value="">–</option><option value="1">mit</option><option value="0">ohne</option></select></label>
             <button id="gClear" type="button">Zurücksetzen</button>
@@ -497,6 +498,8 @@
   <script src="gabk.js"></script>
   <script src="parashot.js"></script>
   <script src="morph.js"></script>
+  <script src="bavli-core.js"></script>
+  <script src="bavli-il-view.js"></script>
   <script src="forms.js"></script>
   <script src="passage.js"></script>
   <script src="lxx.js"></script>

@@ -8,6 +8,13 @@ const S = require('./search');
 const SefOrder = require('./order');
 const Morph = require('./morph');
 const GMorph = require('./gmorph');
+const Bavli = require('./bavli-core');
+let bavliData = null;
+function bavliLemma(id) {
+  if (!Bavli.own(id)) return '';
+  if (!bavliData) { try { bavliData = require('./bavli-morph'); } catch { bavliData = { lexicon: {} }; } }
+  return Bavli.definiteLemma(bavliData.lexicon[id]);
+}
 
 // Strong-Nummer -> Lemma (nur bei der Lemma-Suche geladen; die Datei ist für die Oberfläche geschrieben: window.OSHB_LEMMAS=…)
 let lemmaTable = null;
@@ -21,13 +28,14 @@ function lemmas() {
 }
 const letters = s => R.normalize(s).replace(/[^\p{L}]/gu, '');
 const isWlc = e => e.kind === 'he' && /Westminster/.test(e.versionTitle || '');
+const isMorph = e => isWlc(e) || (e.kind === 'he' && e.title === 'Berakhot' && /Safran-Morphologie/.test(e.versionTitle || ''));
 const SPAN = /<span class="w" data-l="([^"]*)" data-m="([^"]*)">(.*?)<\/span>/g;
 // Westminster-Zeile -> zwei gleich lange Wortlisten: Wortformen und Lemmata (Wörterbuchform des Hauptwortes)
 function wlcTokens(str) {
   const L = lemmas(), forms = [], lems = [];
   for (const m of str.matchAll(SPAN)) {
     const f = letters(m[3]); if (!f) continue;
-    let lem = '';
+    let lem = letters(bavliLemma(m[1]));
     try { const d = Morph.decode(m[2], m[1]); const sg = d && d.segs[d.main]; if (sg && sg.lemma && L[sg.lemma]) lem = letters(L[sg.lemma][0]); } catch { /* egal */ }
     forms.push(f); lems.push(lem || f);
   }
@@ -80,7 +88,7 @@ async function loadSource(dir, e, cacheDir, wantW) {
   }
   const d = JSON.parse(await fs.readFile(file, 'utf8'));
   const N = [], WN = [], WL = [], paths = [];
-  const w = gx >= 0 || (isWlc(e) && (wantW || cacheDir));
+  const w = gx >= 0 || (isMorph(e) && (wantW || cacheDir));
   R.walkStrings(d.text, [], (str, p) => {
     paths.push(p); N.push(R.normalize(str));
     if (w) { const wt = gx >= 0 ? lxxTokens(gx, str, p) : wlcTokens(str); WN.push(wt ? wt.n : ''); WL.push(wt ? wt.nl : ''); }
@@ -104,13 +112,13 @@ async function buildCache({ dir, entries, cacheDir, isCancelled = () => false })
   let built = 0;
   for (const e of entries) {
     if (isCancelled()) break;
-    try { await loadSource(dir, e, cacheDir, isWlc(e)); built++; } catch { /* egal */ }
+    try { await loadSource(dir, e, cacheDir, isMorph(e)); built++; } catch { /* egal */ }
     await new Promise(r => setImmediate(r));
   }
   return built;
 }
 
-// ---------- Grammatik-Suche (nur Westminster): Wortart, Stamm, Zeitform, Person, Genus, Numerus, Status, Suffix, Artikel ----------
+// ---------- Grammatik-Suche (Westminster und eigene Bavli-Ausgabe): Wortart, Stamm, Zeitform, Person, Genus, Numerus, Status, Suffix, Artikel ----------
 const GRAM_KEYS = ['pos', 'stem', 'tense', 'person', 'gender', 'number', 'state', 'suffix', 'article'];
 // Hauptsegment eines OSHB-Morphcodes ("HVqp3ms", "HR/Td/Ncfsa" …) in seine Merkmale zerlegen
 function gramOf(m, l) {
@@ -119,6 +127,7 @@ function gramOf(m, l) {
   let li = 0, main = -1;
   ms.forEach((c, i) => { if (c[0] === 'S') return; const x = ls[li++] || ''; if (/^\d/.test(x) && main < 0) main = i; });
   if (main < 0) main = Math.max(0, ms.findIndex(c => c[0] !== 'S'));
+  if (Bavli.own(l)) main = Bavli.mainIndex(m);
   const code = ms[main] || '', r = code.slice(1), g = { code, pos: code[0] };
   if (code[0] === 'V') {
     g.stem = r[0]; g.tense = r[1];
@@ -144,7 +153,7 @@ function wlcGram(str, G, qL) {
     const f = letters(m[3]); if (!f) continue;
     let hit = gramTest(G, gramOf(m[2], m[1]));
     if (hit && qL) {
-      let lem = '';
+      let lem = letters(bavliLemma(m[1]));
       try { const d = Morph.decode(m[2], m[1]); const sg = d && d.segs[d.main]; if (sg && sg.lemma && L[sg.lemma]) lem = letters(L[sg.lemma][0]); } catch { /* egal */ }
       hit = f.includes(qL) || lem === qL;
     }
@@ -180,7 +189,7 @@ async function searchFiles({ dir, entries, params, cacheDir = null, onProgress =
   const wlcTitles = new Set(wlc ? entries.filter(isWlc).map(e => e.title) : []);
   const skip = e => wlc && e.kind === 'he' && wlcTitles.has(e.title) && !isWlc(e) && /^Tanakh/.test((e.categories || [])[0] || '');
   const lemMatcher = lemma && !exact ? S.makeMatcher({ terms: words, fuzzy, prefix, distance, ordered }) : null;
-  const list = SefOrder.sortTitles(entries.filter(e => (gramOn ? isWlc(e) : !skip(e))), e => e.title); // Treffer in der Reihenfolge wie auf Sefaria
+  const list = SefOrder.sortTitles(entries.filter(e => (gramOn ? isMorph(e) : !skip(e))), e => e.title); // Treffer in der Reihenfolge wie auf Sefaria
 
   const results = [];
   const dist = new Map(); // Titel \u0000 Version -> { h: Verse mit Treffer, o: Vorkommen } (für die Verteilung auf die Bücher)
@@ -189,7 +198,7 @@ async function searchFiles({ dir, entries, params, cacheDir = null, onProgress =
   for (const e of list) {
     if (isCancelled()) break;
     let src = null;
-    if (gramOn) { // Grammatik-Suche: Westminster-Datei direkt lesen (die Morphologiecodes stehen nur dort)
+    if (gramOn) { // Grammatik-Suche: annotierte Quelldatei direkt lesen
       let d = null;
       try { d = JSON.parse(await fs.readFile(path.join(dir, e.rel), 'utf8')); } catch { /* überspringen */ }
       if (d) {
@@ -216,7 +225,7 @@ async function searchFiles({ dir, entries, params, cacheDir = null, onProgress =
       if (truncated) break;
       await new Promise(r => setImmediate(r)); continue;
     }
-    const needW = !!(lemMatcher && (isWlc(e) || isLxx(e)));
+    const needW = !!(lemMatcher && (isMorph(e) || isLxx(e)));
     try { src = await loadSource(dir, e, cacheDir, needW); } catch { /* Datei überspringen */ }
     if (src && !(!matcher && !needW && !src.n.includes(q))) { // einfache Suche: Datei ohne den Suchtext sofort überspringen
       let locator = null, shown = 0, hits = 0, occ = 0;

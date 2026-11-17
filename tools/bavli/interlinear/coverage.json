@@ -1,0 +1,410 @@
+{
+  "2a": {
+    "goldschmidt": {
+      "germanWords": 450,
+      "groups": 246,
+      "statuses": {
+        "reviewed": 450
+      },
+      "mappedHebrewWords": 236,
+      "unmappedHebrewWords": 3
+    },
+    "pinner": {
+      "germanWords": 482,
+      "groups": 245,
+      "statuses": {
+        "reviewed": 482
+      },
+      "mappedHebrewWords": 239,
+      "unmappedHebrewWords": 0
+    }
+  },
+  "2b": {
+    "goldschmidt": {
+      "germanWords": 744,
+      "groups": 371,
+      "statuses": {
+        "reviewed": 744
+      },
+      "mappedHebrewWords": 397,
+      "unmappedHebrewWords": 6
+    },
+    "pinner": {
+      "germanWords": 797,
+      "groups": 394,
+      "statuses": {
+        "reviewed": 797
+      },
+      "mappedHebrewWords": 396,
+      "unmappedHebrewWords": 7
+    }
+  },
+  "3a": {
+    "goldschmidt": {
+      "germanWords": 707,
+      "groups": 393,
+      "statuses": {
+        "reviewed": 707
+      },
+      "mappedHebrewWords": 413,
+      "unmappedHebrewWords": 22
+    },
+    "pinner": {
+      "germanWords": 781,
+      "groups": 406,
+      "statuses": {
+        "reviewed": 781
+      },
+      "mappedHebrewWords": 419,
+      "unmappedHebrewWords": 16
+    }
+  },
+  "3b": {
+    "goldschmidt": {
+      "germanWords": 831,
+      "groups": 470,
+      "statuses": {
+        "reviewed": 831
+      },
+      "mappedHebrewWords": 513,
+      "unmappedHebrewWords": 8
+    },
+    "pinner": {
+      "germanWords": 939,
+      "groups": 489,
+      "statuses": {
+        "reviewed": 939
+      },
+      "mappedHebrewWords": 518,
+      "unmappedHebrewWords": 3
+    }
+  },
+  "4a": {
+    "goldschmidt": {
+      "germanWords": 694,
+      "groups": 674,
+      "statuses": {
+        "uncertain": 523,
+        "machine": 171
+      },
+      "mappedHebrewWords": 124,
+      "unmappedHebrewWords": 321
+    },
+    "pinner": {
+      "germanWords": 784,
+      "groups": 753,
+      "statuses": {
+        "uncertain": 587,
+        "machine": 197
+      },
+      "mappedHebrewWords": 145,
+      "unmappedHebrewWords": 300
+    }
+  },
+  "4b": {
+    "goldschmidt": {
+      "germanWords": 913,
+      "groups": 866,
+      "statuses": {
+        "uncertain": 678,
+        "machine": 235
+      },
+      "mappedHebrewWords": 163,
+      "unmappedHebrewWords": 381
+    },
+    "pinner": {
+      "germanWords": 1027,
+      "groups": 960,
+      "statuses": {
+        "uncertain": 761,
+        "machine": 266
+      },
+      "mappedHebrewWords": 174,
+      "unmappedHebrewWords": 370
+    }
+  },
+  "5a": {
+    "goldschmidt": {
+      "germanWords": 1229,
+      "groups": 745,
+      "statuses": {
+        "machine": 680,
+        "uncertain": 371,
+        "reviewed": 178
+      },
+      "mappedHebrewWords": 431,
+      "unmappedHebrewWords": 300
+    },
+    "pinner": {
+      "germanWords": 1492,
+      "groups": 875,
+      "statuses": {
+        "machine": 853,
+        "uncertain": 440,
+        "reviewed": 199
+      },
+      "mappedHebrewWords": 494,
+      "unmappedHebrewWords": 237
+    }
+  },
+  "5b": {
+    "goldschmidt": {
+      "germanWords": 978,
+      "groups": 602,
+      "statuses": {
+        "machine": 504,
+        "uncertain": 292,
+        "reviewed": 182
+      },
+      "mappedHebrewWords": 366,
+      "unmappedHebrewWords": 226
+    },
+    "pinner": {
+      "germanWords": 1101,
+      "groups": 678,
+      "statuses": {
+        "machine": 566,
+        "uncertain": 341,
+        "reviewed": 194
+      },
+      "mappedHebrewWords": 412,
+      "unmappedHebrewWords": 180
+    }
+  },
+  "6a": {
+    "goldschmidt": {
+      "germanWords": 953,
+      "groups": 593,
+      "statuses": {
+        "machine": 568,
+        "uncertain": 385
+      },
+      "mappedHebrewWords": 288,
+      "unmappedHebrewWords": 238
+    },
+    "pinner": {
+      "germanWords": 1108,
+      "groups": 624,
+      "statuses": {
+        "machine": 670,
+        "uncertain": 438
+      },
+      "mappedHebrewWords": 282,
+      "unmappedHebrewWords": 244
+    }
+  },
+  "6b": {
+    "goldschmidt": {
+      "germanWords": 1132,
+      "groups": 716,
+      "statuses": {
+        "uncertain": 454,
+        "machine": 678
+      },
+      "mappedHebrewWords": 351,
+      "unmappedHebrewWords": 345
+    },
+    "pinner": {
+      "germanWords": 1279,
+      "groups": 787,
+      "statuses": {
+        "machine": 777,
+        "uncertain": 502
+      },
+      "mappedHebrewWords": 386,
+      "unmappedHebrewWords": 310
+    }
+  },
+  "7a": {
+    "goldschmidt": {
+      "germanWords": 1466,
+      "groups": 897,
+      "statuses": {
+        "machine": 890,
+        "uncertain": 530,
+        "reviewed": 46
+      },
+      "mappedHebrewWords": 454,
+      "unmappedHebrewWords": 403
+    },
+    "pinner": {
+      "germanWords": 1698,
+      "groups": 1007,
+      "statuses": {
+        "machine": 1009,
+        "uncertain": 643,
+        "reviewed": 46
+      },
+      "mappedHebrewWords": 490,
+      "unmappedHebrewWords": 367
+    }
+  },
+  "7b": {
+    "goldschmidt": {
+      "germanWords": 1142,
+      "groups": 681,
+      "statuses": {
+        "machine": 671,
+        "uncertain": 463,
+        "reviewed": 8
+      },
+      "mappedHebrewWords": 338,
+      "unmappedHebrewWords": 356
+    },
+    "pinner": {
+      "germanWords": 1370,
+      "groups": 795,
+      "statuses": {
+        "machine": 808,
+        "uncertain": 552,
+        "reviewed": 10
+      },
+      "mappedHebrewWords": 369,
+      "unmappedHebrewWords": 325
+    }
+  },
+  "8a": {
+    "goldschmidt": {
+      "germanWords": 1088,
+      "groups": 748,
+      "statuses": {
+        "reviewed": 791,
+        "uncertain": 80,
+        "machine": 217
+      },
+      "mappedHebrewWords": 597,
+      "unmappedHebrewWords": 88
+    },
+    "pinner": {
+      "germanWords": 1243,
+      "groups": 814,
+      "statuses": {
+        "reviewed": 915,
+        "uncertain": 98,
+        "machine": 230
+      },
+      "mappedHebrewWords": 608,
+      "unmappedHebrewWords": 77
+    }
+  },
+  "8b": {
+    "goldschmidt": {
+      "germanWords": 817,
+      "groups": 796,
+      "statuses": {
+        "reviewed": 58,
+        "machine": 531,
+        "uncertain": 228
+      },
+      "mappedHebrewWords": 296,
+      "unmappedHebrewWords": 242
+    },
+    "pinner": {
+      "germanWords": 917,
+      "groups": 887,
+      "statuses": {
+        "reviewed": 65,
+        "machine": 604,
+        "uncertain": 248
+      },
+      "mappedHebrewWords": 339,
+      "unmappedHebrewWords": 199
+    }
+  },
+  "9a": {
+    "goldschmidt": {
+      "germanWords": 919,
+      "groups": 884,
+      "statuses": {
+        "reviewed": 85,
+        "machine": 581,
+        "uncertain": 253
+      },
+      "mappedHebrewWords": 358,
+      "unmappedHebrewWords": 184
+    },
+    "pinner": {
+      "germanWords": 1010,
+      "groups": 970,
+      "statuses": {
+        "reviewed": 89,
+        "machine": 635,
+        "uncertain": 286
+      },
+      "mappedHebrewWords": 367,
+      "unmappedHebrewWords": 175
+    }
+  },
+  "9b": {
+    "goldschmidt": {
+      "germanWords": 1042,
+      "groups": 1007,
+      "statuses": {
+        "uncertain": 250,
+        "reviewed": 78,
+        "machine": 714
+      },
+      "mappedHebrewWords": 414,
+      "unmappedHebrewWords": 234
+    },
+    "pinner": {
+      "germanWords": 1168,
+      "groups": 1123,
+      "statuses": {
+        "reviewed": 98,
+        "machine": 797,
+        "uncertain": 273
+      },
+      "mappedHebrewWords": 470,
+      "unmappedHebrewWords": 178
+    }
+  },
+  "10a": {
+    "goldschmidt": {
+      "germanWords": 1374,
+      "groups": 1297,
+      "statuses": {
+        "machine": 757,
+        "uncertain": 417,
+        "reviewed": 200
+      },
+      "mappedHebrewWords": 502,
+      "unmappedHebrewWords": 354
+    },
+    "pinner": {
+      "germanWords": 1545,
+      "groups": 1439,
+      "statuses": {
+        "machine": 820,
+        "uncertain": 491,
+        "reviewed": 234
+      },
+      "mappedHebrewWords": 527,
+      "unmappedHebrewWords": 329
+    }
+  },
+  "10b": {
+    "goldschmidt": {
+      "germanWords": 1411,
+      "groups": 1393,
+      "statuses": {
+        "reviewed": 49,
+        "machine": 916,
+        "uncertain": 446
+      },
+      "mappedHebrewWords": 514,
+      "unmappedHebrewWords": 320
+    },
+    "pinner": {
+      "germanWords": 1581,
+      "groups": 1561,
+      "statuses": {
+        "reviewed": 57,
+        "machine": 1039,
+        "uncertain": 485
+      },
+      "mappedHebrewWords": 560,
+      "unmappedHebrewWords": 274
+    }
+  }
+}

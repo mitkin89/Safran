@@ -129,6 +129,8 @@ Und alles Weitere:
 
 <p align="center"><a href="docs/FEATURES.md">Alle Funktionen, Tastenkürzel und das Menü Werkzeuge (englisch) →</a></p>
 
+Berachot 2a–10b gibt es außerdem als **William Davidson Edition – Safran-Morphologie** mit 10.786 hebräisch-aramäischen Wortannotationen. Ein Wortklick zeigt Lemma, Bestimmung, Alternativen und Quellenhinweise; die Formtabelle enthält ausschließlich Belege aus diesem Bereich. Grammatik- und Lemmasuche berücksichtigen diese Ausgabe. Offene Merkmale bleiben markiert, der Wortlaut einschließlich Vokalisation ist unverändert. Siehe [Methode und Prüfbericht](tools/bavli/PRUEFBERICHT.md).
+
 ## Wörterbücher
 
 Den Reiter *Wörterbuch* öffnen, den Knopf 📖 neben dem Kommentarfenster drücken oder ein Wort in einem Text doppelklicken. Zehn Wörterbücher und Nachschlagewerke mit über 300.000 Einträgen sind dabei:
@@ -290,3 +292,5 @@ Der Quellcode steht unter der [MIT-Lizenz](LICENSE). Texte, Wörterbücher, Kart
 ---
 
 <p align="center"><sub><b>סַפְרָן</b> <i>(safran)</i> ist hebräisch für Schreiber, im modernen Hebräisch Bibliothekar, von derselben Wurzel wie <i>sefer</i>, Buch. Safran entsteht bei <a href="https://talmud.de">talmud.de</a>.</sub></p>
+
+Berachot 2a–10b bietet außerdem **Wortzuordnung · Test** für Goldschmidt und Pinner. 2a–3b sind in beiden Fassungen von Hand zugeordnet; weitere geprüfte Stellen und klar gekennzeichnete Vorschläge sind enthalten. [Prüfstand](tools/bavli/interlinear/README.md).

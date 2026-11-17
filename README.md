@@ -133,6 +133,8 @@ Philippson's imported text has been corrected for misplaced verses, duplicated b
 
 Mendelssohn's German Pentateuch (Dessau 1815, Latin script) is a separate interlinear source from the Taitsch and Biur. All five books / 5,846 verse fields are aligned against Westminster, including joint Ketiv/Qere segments. Confirmed misplaced sentence continuations have been returned to their verses and realigned; the nonbiblical printing appendix is preserved separately. Existing OCR candidates and possible omissions remain unchanged in the [review and correction lists](tools/interlinear/mendelssohn/PRUEFLISTE-PENTATEUCH.md).
 
+Berakhot 2a–10b also has a separate **William Davidson Edition – Safran-Morphologie**: 10,786 Hebrew/Aramaic word annotations with lemma, morphology, explicit alternatives and source notes. Click a word for its analysis or the forms actually attested in the covered passage. Grammar and lemma searches include this edition; unresolved features remain marked. The original wording and vocalization are preserved. See the [method and review report](tools/bavli/PRUEFBERICHT.md).
+
 ## Dictionaries
 
 Open the *Dictionary* tab (*Wörterbuch*), press the 📖 button next to the commentary panel, or double-click a word in any text. Ten dictionaries and reference works with more than 300,000 entries ship with the app:
@@ -295,3 +297,5 @@ The source code is released under the [MIT License](LICENSE). Texts, dictionarie
 ---
 
 <p align="center"><sub><b>סַפְרָן</b> <i>(safran)</i> is Hebrew for a scribe, in modern Hebrew a librarian, from the same root as <i>sefer</i>, book. Safran is built by <a href="https://talmud.de">talmud.de</a>.</sub></p>
+
+Berakhot 2a–10b also offers an experimental **Wortzuordnung · Test** viewer for Goldschmidt and Pinner. Both versions of 2a–3b are manually aligned, with further checked passages and explicitly separate automatic/open proposals. [Review status](tools/bavli/interlinear/README.md).

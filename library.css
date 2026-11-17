@@ -1773,3 +1773,34 @@ body.il .cell[data-k="he"] .ilt[data-i="15"] { color: var(--il15); }
 @media (prefers-color-scheme: light) { :root:not([data-theme=dark]) { --il16: #6c438f; } }
 body.il .cell[data-k="he"] .ilt[data-i="16"] { color: var(--il16); }
 .illc[data-i="16"], .ilpR[data-i="16"] { --c: var(--il16); }
+
+#wpop .bavliStatus { font-weight: 600; border-left: 3px solid var(--accent); padding-left: .6em; }
+#wpop .bavliMain { font-weight: 600; }
+#wpop details { margin-top: .6em; font-size: .9em; }
+#bavliForms { width: min(1000px, 94vw); max-height: 85vh; overflow: auto; }
+#bavliForms .bavliClose { float: right; }
+#bavliForms td { vertical-align: top; }
+/* Bavli: die Testansicht trennt geprüfte Entsprechungen von Vorschlägen. */
+.bil-dialog { width:min(1400px,96vw); max-width:96vw; max-height:94vh; padding:18px; color:var(--fg,#222); background:var(--bg,#fff); border:1px solid #8886; border-radius:12px; }
+.bil-dialog::backdrop { background:#0007; }
+.bil-header { display:flex; align-items:center; flex-wrap:wrap; gap:12px; position:sticky; top:-18px; background:var(--bg,#fff); padding:10px 0; z-index:2; }
+.bil-header h2 { margin:0 auto 0 0; font-size:1.15rem; }
+.bil-header label { font-size:.85rem; }
+.bil-notice { font-size:.85rem; max-width:85em; }
+.bil-he { font-size:1.25rem; }
+.bil-row { border-bottom:1px solid #8884; padding:12px 0; }
+.bil-num { font-size:.7rem; color:#888; margin-inline-end:8px; vertical-align:top; }
+.bil-word { display:inline-flex; flex-direction:column; align-items:center; vertical-align:top; padding:3px 6px; min-width:2.5em; max-width:16em; }
+.bil-heword { font:inherit; }
+.bil-under { display:block; text-align:center; min-height:1.4em; font-size:.68em; line-height:1.4; }
+.bil-goldschmidt { color:#98601f; }
+.bil-pinner { color:#39737d; }
+.bil-piece, .bil-heword { border:0; background:transparent; cursor:pointer; color:inherit; padding:0 2px; font-family:inherit; border-radius:3px; }
+.bil-machine { border-bottom:2px dotted #ad851f; }
+.bil-uncertain { border-bottom:1px dashed #888; }
+.bil-inactive { cursor:default; opacity:.65; }
+.bil-hit { background:#f2d06d88; outline:1px solid #b68d32; }
+.bil-cont { opacity:.6; }
+.bil-translations { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; border-top:2px solid #8885; margin-top:20px; }
+.bil-german { font-size:1rem; line-height:1.8; }
+@media(max-width:750px) { .bil-translations { grid-template-columns:1fr; } }

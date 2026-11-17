@@ -370,7 +370,7 @@
   }
   // Voreinstellung der Versionen eines Buchs (Hebräisch immer, dazu die Sprache der Oberfläche)
   // Reihenfolge der hebräischen Fassungen als Vorgabe: Westminster, vokalisierte Ausgabe, andere, zuletzt „zusammengeführt“
-  function heRank(t) { return /westminster/i.test(t) ? 0 : /vocalized|vokalisiert/i.test(t) ? 1 : t === 'merged' ? 9 : 2; }
+  function heRank(t) { return /Safran-Morphologie/.test(t) ? 3 : /westminster/i.test(t) ? 0 : /vocalized|vokalisiert/i.test(t) ? 1 : t === 'merged' ? 9 : 2; }
   function pickVersions(g) {
     const sel = new Set();
     // Hebräisch: der Westminster-Text (OSHB) hat Vorrang, dann eine echte Ausgabe (z. B. William Davidson, vokalisiert);
@@ -1045,9 +1045,20 @@
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('#ilPop').hidden) ilPopToggle(false); });
   addEventListener('resize', () => ilPopPlace());
   let ilTok = 0;
+  $('#bavliIlBtn').onclick = async () => {
+    const current = view && view.sections && view.sections[view.idx];
+    const page = current && apChap(current);
+    try {
+      const data = await lazyScript('bavli-il-data.js', () => window.BAVLI_IL);
+      window.BavliInterlinear.open(data, page);
+    } catch (err) { alert(I18N.t('Wortzuordnung nicht geladen: {}', err.message)); }
+  };
   async function ilRefresh() {
     const b = $('#ilBtn'); if (!b) return;
     const tok = ++ilTok;
+    const bavliSection = view && view.sections && view.sections[view.idx];
+    const bavliPage = bavliSection && apChap(bavliSection);
+    $('#bavliIlBtn').hidden = !(view && view.group && view.group.title === 'Berakhot' && /^(?:[2-9]|10)[ab]$/.test(bavliPage || ''));
     const ALL = await loadIL(), title = view && view.group ? view.group.title : '';
     if (tok !== ilTok) return;
     const s0 = view && view.sections && view.sections[view.idx], c0 = s0 && apChap(s0), names = ALL && title ? Object.keys(ALL).filter(n => ALL[n][title] && (!c0 || Object.keys(ALL[n][title]).some(k => k.startsWith(c0 + ':')))) : []; // nur Kapitel, für die eine Zuordnung vorliegt
@@ -1288,6 +1299,44 @@
   const Q_VS = { qal: 'Qal', hif: 'Hifil', nif: 'Nifal', hit: 'Hitpael', hof: 'Hofal', etpe: 'Etpeel (aram.)', hifil: 'Hifil', piel: 'Piel', nifal: 'Nifal', hitpael: 'Hitpael', hofal: 'Hofal', pual: 'Pual', polel: 'Polel', poel: 'Poel', poal: 'Poal', pilpel: 'Pilpel', hitpoel: 'Hitpoel', hitopel: 'Hitpolel', peal: 'Peal (aram.)', pael: 'Pael (aram.)', aphel: 'Afel (aram.)', haphel: 'Hafel (aram.)', shaphel: 'Schafel (aram.)', ithpeel: 'Itpeel (aram.)', ithpaal: 'Itpaal (aram.)', peil: 'Peil (aram.)', passive: 'Passiv' };
   const Q_VT = { perf: 'Perfekt', impf: 'Imperfekt', wayy: 'Narrativ (wajjiqtol)', impv: 'Imperativ', ptca: 'Partizip aktiv', ptcp: 'Partizip passiv', infc: 'Infinitiv constructus', infa: 'Infinitiv absolutus' };
   const Q_GN = { m: 'maskulin', f: 'feminin', b: 'beide Geschlechter', c: 'gemeinsam' }, Q_NU = { s: 'Singular', p: 'Plural', d: 'Dual' }, Q_ST = { a: 'Absolutus', c: 'Constructus', d: 'bestimmt' };
+  let bavliP = null, bavliDialog = null;
+  const loadBavli = () => bavliP || (bavliP = lazyScript('bavli-morph.js', () => window.BAVLI_MORPH).catch(e => { bavliP = null; throw e; }));
+  const bavliStatus = e => e.status === 'ambiguous' ? 'Mehrdeutig: mehrere Analysen' : e.status === 'partial' ? 'Teilweise bestimmt: Merkmale bleiben offen' : e.status === 'unresolved' ? 'Noch nicht sicher bestimmt' : '';
+  async function showBavliWord(w) {
+    const tok = gTok, D = await loadBavli().catch(() => null);
+    if (!D || tok !== gTok || !w.isConnected) return;
+    const B = window.BavliMorph, e = D.lexicon[w.dataset.l];
+    if (!e) return;
+    const aa = B.analyses(e), status = bavliStatus(e), allNotes = [...new Set([e.note, ...aa.map(a => a.note)].filter(Boolean))];
+    const refs = [...new Set([...(e.rules || []), ...aa.flatMap(a => a.rules || [])])];
+    const choices = [];
+    const body = aa.map(a => {
+      const lemma = B.headLemma(a), language = a.lang === 'A' ? 'Jüdisch-babylonisches Aramäisch' : 'Hebräisch';
+      if (!choices.some(x => x.lemma === lemma && x.lang === a.lang)) choices.push({ lemma, lang: a.lang });
+      const subject = a.subject || e.subject;
+      const role = subject ? `<p>${esc(I18N.t('Subjektssuffix'))}: ${esc([subject.person && subject.person + '. Person', Q_GN[subject.gender] || subject.gender, Q_NU[subject.number] || subject.number].filter(Boolean).join(' · '))}</p>` : '';
+      return `<div class="wseg main"><span class="wlem" dir="rtl" lang="${a.lang === 'A' ? 'arc' : 'he'}">${esc(lemma)}</span>${a.gloss ? ` <span class="muted">${esc(a.gloss)}</span>` : ''}<br><small>${esc(I18N.t(language))}</small>${a.root ? `<p>${esc(I18N.t('Wurzel'))}: <bdi>${esc(a.root)}</bdi></p>` : ''}${B.describe(a, window.Morph, s => I18N.t(s)).map(s => `<div class="${s.main ? 'bavliMain' : ''}">${esc(s.label)}</div>`).join('')}${role}</div>`;
+    }).join('');
+    w.classList.add('sel');
+    wpop = document.createElement('div'); wpop.id = 'wpop';
+    wpop.innerHTML = `<div class="wtop"><span class="wword" dir="rtl">${esc(w.textContent)}</span><button class="wx" title="${esc(I18N.t('Schließen'))}">✕</button></div>${status ? `<p class="bavliStatus">${esc(I18N.t(status))}</p>` : ''}${body}${allNotes.map(n => `<p>${esc(n)}</p>`).join('')}${choices.map((a, i) => `<button class="wdict" data-q="${esc(a.lemma)}">${esc(I18N.t('Im Wörterbuch nachschlagen'))}${choices.length > 1 ? ': ' + esc(a.lemma) + ' (' + esc(I18N.t(a.lang === 'A' ? 'Aramäisch' : 'Hebräisch')) + ')' : ''}</button> <button class="wforms bvforms" data-i="${i}">${esc(I18N.t('Belegte Formen'))}${choices.length > 1 ? ': ' + esc(a.lemma) + ' (' + esc(I18N.t(a.lang === 'A' ? 'Aramäisch' : 'Hebräisch')) + ')' : ''}</button>`).join('')}${refs.length ? `<details><summary>${esc(I18N.t('Grammatische Belege'))}</summary><ul>${refs.map(r => `<li>${esc(r)}</li>`).join('')}</ul></details>` : ''}<p class="muted">${esc(I18N.t('Eigene Morphologie · Berakhot 2a–10b'))}</p>`;
+    document.body.appendChild(wpop);
+    const r = w.getBoundingClientRect(), pw = wpop.offsetWidth, ph = wpop.offsetHeight;
+    wpop.style.left = Math.max(8, Math.min(window.innerWidth - pw - 8, r.left + r.width / 2 - pw / 2)) + 'px';
+    wpop.style.top = (r.bottom + ph + 6 < window.innerHeight - 8 ? r.bottom + 6 : Math.max(8, r.top - ph - 6)) + 'px';
+    wpop.onclick = ev => {
+      if (ev.target.closest('.wx')) closeWpop();
+      const b = ev.target.closest('.wdict'); if (b) openDict(b.dataset.q);
+      const f = ev.target.closest('.bvforms'); if (f) { const a = choices[+f.dataset.i]; closeWpop(); showBavliForms(D, a.lemma, a.lang); }
+    };
+  }
+  function showBavliForms(D, lemma, lang) {
+    const B = window.BavliMorph, rows = B.forms(D, lemma, lang);
+    if (!bavliDialog) { bavliDialog = document.createElement('dialog'); bavliDialog.id = 'bavliForms'; document.body.appendChild(bavliDialog); }
+    bavliDialog.innerHTML = `<form method="dialog"><button class="bavliClose" aria-label="${esc(I18N.t('Schließen'))}">✕</button></form><h2><bdi>${esc(lemma)}</bdi> · ${esc(I18N.t(lang === 'A' ? 'Aramäisch' : 'Hebräisch'))} · ${esc(I18N.t('Belegte Formen'))}</h2><p>${esc(I18N.t('Nur die in Berakhot 2a–10b belegten Formen; keine ergänzten Paradigmen.'))}</p><table class="fmT"><thead><tr><th>${esc(I18N.t('Form'))}</th><th>${esc(I18N.t('Bestimmung'))}</th><th>${esc(I18N.t('Stellen'))}</th></tr></thead><tbody>${rows.map(r => `<tr><td dir="rtl">${esc(r.word)}</td><td>${B.describe(r, window.Morph, s => I18N.t(s)).map(x => esc(x.label)).join('<br>')}${r.status !== 'reviewed' ? `<br><b>${esc(I18N.t(r.status === 'partial' ? 'Teilweise bestimmt' : 'Mögliche Analyse'))}</b>` : ''}</td><td>${r.refs.map(x => `<button type="button" data-ref="${esc(x.ref)}">${esc(x.ref)} <small>(${x.token})</small></button>`).join(' ')}</td></tr>`).join('')}</tbody></table>`;
+    bavliDialog.onclick = ev => { const b = ev.target.closest('[data-ref]'); if (b) { bavliDialog.close(); jumpTo(b.dataset.ref, false); } };
+    if (!bavliDialog.open) bavliDialog.showModal();
+  }
   function showQumranWord(w) {
     const [sp, vs, vt, ps, gn, nu, st, sx] = w.dataset.m.split('.');
     const lem = w.dataset.l;
@@ -1344,6 +1393,7 @@
     if (same) return;
     if (w.classList.contains('wt')) { showTargumWord(w); return; }
     if (w.classList.contains('wq')) { showQumranWord(w); return; }
+    if (window.BavliMorph && window.BavliMorph.own(w.dataset.l)) { showBavliWord(w); return; }
     const d = window.Morph.decode(w.dataset.m, w.dataset.l);
     if (!d) return;
     const LEM = window.OSHB_LEMMAS || {};
@@ -5243,7 +5293,7 @@
     for (const o of $('#sMode').options) { const off = !sModeOk(o.value, slot); o.hidden = off; o.disabled = off; }
     $('#sMode').value = sModeSel[slot];
     const m = $('#sMode').value, fuzzy = $('#sFuzzy').checked, d = +$('#sDist').value, sh = sShape(v), p = [];
-    if (gram) p.push(I18N.t('Grammatik-Suche: nur hebräischer Tanach (Westminster)'));
+    if (gram) p.push(I18N.t('Grammatik-Suche: Tanach (Westminster) und Berakhot 2a–10b'));
     else p.push(I18N.t(l === 'auto' && !v ? 'Sprache richtet sich nach der Schrift der Eingabe' : kinds.length > 2 ? 'Sucht in allen Sprachen' : kinds.length === 2 ? 'Sucht deutsch und englisch' : kinds[0] === 'he' ? 'Sucht hebräisch' : kinds[0] === 'de' ? 'Sucht deutsch' : kinds[0] === 'en' ? 'Sucht englisch' : 'Sucht in anderen Sprachen'));
     if (!gram) p.push(I18N.t(m === 'lemma' && slot === 'gr' ? 'alle Wortformen in der Septuaginta (Lemma), sonst ganze Wörter' : m === 'lemma' ? 'alle Wortformen im Tanach, sonst ganze Wörter (mit Vorsilben)' : m === 'prefix' ? 'ganze Wörter, hebräische Vorsilben erlaubt' : m === 'exact' ? 'nur genau dieses Wort' : fuzzy ? 'ganze Wörter' : 'auch Wortteile'));
     if (sh.n > 1 && !gram) p.push(I18N.t(d < 0 ? 'alle Wörter im selben Vers' : d === 0 ? 'alle Wörter direkt nebeneinander' : 'alle Wörter nah beieinander (höchstens {#} dazwischen)', d) + ($('#sOrd').checked ? ', ' + I18N.t('in dieser Reihenfolge') : ''));
