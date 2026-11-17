@@ -3,7 +3,7 @@ const assert = require('assert'), fs = require('fs'), path = require('path');
 global.window = {}; require('./interlin.js');
 const ALL = window.INTERLIN, rd = (b, l, re) => { const d = path.join(__dirname, 'bundled', 'own', b, l); return JSON.parse(fs.readFileSync(path.join(d, fs.readdirSync(d).find(f => re.test(f))), 'utf8')).text; };
 const norm = s => s.replace(/<sup class="footnote-marker">.*?<\/sup><i class="footnote">.*?<\/i>/g, '').replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
-const PAT = { Zunz: /Zunz/, Breuer: /^(?:Breuer|Das Buch Jecheskel, übersetzt und erläutert von Dr\. Joseph Breuer,)/, Philippson: /Philippson/, Herxheimer: /ebräischen Texte/, Goldschmidt: /Übersetzung von Lazarus Goldschmidt, Berlin 1921/, Hirsch: /Die Psalmen, übersetzt und erläutert von Samson Raphael Hirsch/, JuliusHirsch: /^Julius Hirsch, / };
+const PAT = { Zunz: /Zunz/, Breuer: /^(?:(?:Raphael )?Breuer|Das Buch Jecheskel, übersetzt und erläutert von Dr\. Joseph Breuer,)/, Philippson: /Philippson/, Herxheimer: /ebräischen Texte/, Goldschmidt: /Übersetzung von Lazarus Goldschmidt, Berlin 1921/, Hirsch: /Die Psalmen, übersetzt und erläutert von Samson Raphael Hirsch/, JuliusHirsch: /^Julius Hirsch, / };
 for (const [tr, D] of Object.entries(ALL)) for (const book of Object.keys(D)) {
   const he = rd(book, 'he', /^Westminster/), de = rd(book, 'de', PAT[tr]);
   let n = 0;
@@ -81,7 +81,7 @@ for (const [ref, count] of [['7:15', 12], ['7:16', 15], ['7:17', 24]]) {
 assert.ok(Array.from({ length: 9 }, (_, i) => i + 11).every(n => ALL.JuliusHirsch.Habakkuk['2:6'].some(s => s[0].includes(n))));
 
 // Breuer: alle verfügbaren Arba-Megillot-Bücher vollständig; Ruth bleibt erhalten.
-assert.deepStrictEqual(Object.keys(ALL.Breuer).sort(), ['Ecclesiastes', 'Ezekiel', 'Lamentations', 'Ruth', 'Song of Songs']);
+assert.deepStrictEqual(Object.keys(ALL.Breuer).sort(), ['Ecclesiastes', 'Ezekiel', 'Lamentations', 'Nehemiah', 'Ruth', 'Song of Songs']);
 for (const [book, count] of Object.entries({ Ruth: 85, 'Song of Songs': 117, Ecclesiastes: 222, Lamentations: 154 })) {
   assert.strictEqual(Object.keys(ALL.Breuer[book]).length, count, `Breuer ${book}: dokumentierter Gesamtumfang`);
 }
@@ -118,3 +118,14 @@ assert.deepStrictEqual(ALL.Breuer.Ezekiel['4:8'].find(s => s[1] === 'Bande'), [[
 assert.deepStrictEqual(ALL.Breuer.Ezekiel['4:8'].find(s => s[1] === 'angelegt,'), [[2], 'angelegt,']);
 assert.deepStrictEqual(ALL.Breuer.Ezekiel['10:4'].find(s => s[1] === 'dem Cherub'), [[5], 'dem Cherub']);
 assert.deepStrictEqual(ALL.Breuer.Ezekiel['10:4'].find(s => s[1] === 'zur'), [[6], 'zur']);
+
+// Raphael Breuer: Nehemia einschließlich zweier leerer Quellverse und aller Ketiv/Qere-Lesungen.
+assert.strictEqual(Object.keys(ALL.Breuer.Nehemiah).length, 405);
+for (const ref of ["10:31", "10:32"]) assert.deepStrictEqual(ALL.Breuer.Nehemiah[ref], [[[], ""]]);
+const BREUER_NEHEMIA_KQ = [["1:1",7,8],["1:9",14,15],["2:13",17,18,19],["3:15",15,16],["3:20",6,7],["3:30",1,2],["3:31",1,2],["4:7",6,7],["4:9",12,13],["5:7",15,16],["5:9",1,2],["7:3",1,2],["7:52",6,7],["9:6",5,6],["9:17",25,26],["10:20",3,4],["11:17",21,22],["12:9",2,3],["12:14",1,2],["12:16",1,2],["12:46",6,7],["13:23",9,10],["13:23",11,12]];
+for (const [ref, ...words] of BREUER_NEHEMIA_KQ) {
+  const touched = ALL.Breuer.Nehemiah[ref].filter(s => words.some(w => s[0].includes(w)));
+  assert.ok(touched.length, `Breuer Nehemia ${ref}: Ketiv/Qere fehlt`);
+  touched.forEach(s => assert.ok(words.every(w => s[0].includes(w)), `Breuer Nehemia ${ref}: Ketiv/Qere getrennt`));
+}
+assert.deepStrictEqual(ALL.Breuer.Nehemiah["7:67"].find(s => s[1] === "Pferde hatten sie 736, Maultiere 245."), [[], "Pferde hatten sie 736, Maultiere 245."]);
