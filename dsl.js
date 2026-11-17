@@ -140,15 +140,45 @@ class Dictionaries {
   constructor(dir) { this.dir = dir; this.cache = new Map(); }
   file(id) { return path.join(this.dir, id + '.json'); }
   async list() {
+    // Gleichzeitige Fenster teilen die Inventur, nicht die großen Artikelbestände.
+    if (this._listing) return this._listing;
+    this._listing = this.listMetadata();
+    try { return await this._listing; } finally { this._listing = null; }
+  }
+  async listMetadata() {
     const meta = await this.meta();
+    let previous = {};
+    try {
+      const c = JSON.parse(await fs.readFile(path.join(this.dir, '_catalog.txt'), 'utf8'));
+      if (c.version === 1 && c.items && typeof c.items === 'object') previous = c.items;
+    } catch { /* abgeleitete Daten: bei Bedarf neu lesen */ }
     let names = [];
     try { names = (await fs.readdir(this.dir)).filter(n => n.endsWith('.json')); } catch { return []; }
-    const out = [];
+    const out = [], items = {};
     for (const n of names) {
       try {
-        const d = await this.load(n.slice(0, -5));
-        out.push({ id: n.slice(0, -5), name: d.name, count: d.heads.length, lang: d.indexLang, bytes: d.bytes || 0, ship: meta.ship.includes(n.slice(0, -5)), bundled: meta.bundled.includes(n.slice(0, -5)) });
+        const id = n.slice(0, -5), st = await fs.stat(this.file(id));
+        const stamp = [st.size, st.mtimeMs, st.ctimeMs].join(':');
+        let d = previous[id];
+        if (!d || d.stamp !== stamp || typeof d.name !== 'string' || !Number.isInteger(d.count) || d.count < 0 || typeof d.lang !== 'string') {
+          // Altes Format bleibt lesbar. Keine Suchindizes bauen und keine Artikel
+          // im Cache halten, nur um Namen und Eintragszahlen anzuzeigen.
+          const j = JSON.parse(await fs.readFile(this.file(id), 'utf8'));
+          if (typeof j.name !== 'string' || !Array.isArray(j.heads) || !Array.isArray(j.html)) continue;
+          d = { stamp, name: j.name, count: j.heads.length, lang: j.indexLang || '' };
+          this.cache.delete(id); this._cites = null;
+        }
+        items[id] = d;
+        out.push({ id, name: d.name, count: d.count, lang: d.lang, bytes: st.size, ship: meta.ship.includes(id), bundled: meta.bundled.includes(id) });
       } catch { /* defekte Datei ignorieren */ }
+    }
+    if (JSON.stringify(items) !== JSON.stringify(previous)) {
+      const tmp = path.join(this.dir, '_catalog-' + crypto.randomUUID() + '.tmp');
+      try {
+        await fs.writeFile(tmp, JSON.stringify({ version: 1, items }), { encoding: 'utf8', flag: 'wx' });
+        await fs.rename(tmp, path.join(this.dir, '_catalog.txt'));
+      } catch { /* schreibgeschützte Bibliotheken funktionieren ohne Katalog */ }
+      finally { await fs.unlink(tmp).catch(() => {}); }
     }
     // eigene Reihenfolge (Datei _order.txt, eine Kennung pro Zeile); Neue ohne Platz kommen ans Ende, alphabetisch
     let order = [];

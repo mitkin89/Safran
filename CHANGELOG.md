@@ -1,6 +1,8 @@
 # Changelog
 
 ### New in 2.5.0
+- **Electron search/download regressions:** exercise real search workers, marked results and verse navigation, independent cancellation in two panes, search failure/retry, catalog error escaping, download cancellation, invalid JSON and retry without re-fetching valid files. The isolated test runner waits for profile cleanup and preserves a failing exit status when its final window closes.
+- **Lazy dictionary inventory:** listing dictionaries no longer retains every article and builds every search index. A small, disposable metadata catalog is checked against file size and timestamps, reused across restarts and rebuilt for changed or legacy dictionaries. Filtered lookup loads only the selected dictionaries; names, counts, ordering and bundled/removal flags remain current.
 - **Library integrity:** validate the library index, retain its previous valid state, recover with a visible warning and preserve damaged bytes; block overwriting when no valid index remains. Validate downloaded JSON, text trees and edition metadata before replacing existing texts.
 - **Search lifecycle:** completed search/cache workers close their ports and terminate. Each reading frame has its own search job and request ID, so cancellation and late progress cannot affect another pane; non-cooperative jobs are terminated after a short grace period.
 - **Public interlinear source binding:** generated text fingerprints bind German alignments to their Hebrew and translated source editions. Retained or locally modified texts remain visible while incompatible alignments are suppressed with a notice; translation wording is unchanged.

@@ -5,6 +5,8 @@ const {app,BrowserWindow,ipcMain,session}=require('electron');
 const fs=require('fs'),fsp=require('fs/promises'),os=require('os'),path=require('path'),crypto=require('crypto'),assert=require('assert/strict');
 const root=path.resolve(__dirname,'../..'),profile=fs.mkdtempSync(path.join(os.tmpdir(),'safran-ui-'));
 app.setPath('userData',profile);
+// Erst nach der Profilbereinigung mit dem tatsächlichen Testergebnis beenden.
+app.on('window-all-closed',()=>{});
 const manifest=require(path.join(root,'bundled/manifest.json'));
 const docs=new Map();let oldTranslation=false,win;
 const hash=text=>crypto.createHash('sha256').update(JSON.stringify(text)).digest('hex');
@@ -33,6 +35,7 @@ async function waitFor(expression,label){const until=Date.now()+20000;while(Date
 async function book(title,prefix='document'){await js(`{const d=${prefix};d.querySelectorAll('dialog[open]').forEach(n=>n.close());const a=[...d.querySelectorAll('#tree .lib-item')].find(a=>a.dataset.key.endsWith('¦'+${JSON.stringify(title)}));if(!a)throw Error('Buch fehlt');a.click();}`);}
 (async()=>{
  await app.whenReady();app.dock?.hide();session.defaultSession.webRequest.onBeforeRequest({urls:['http://*/*','https://*/*']},(_details,cb)=>cb({cancel:true}));
+ const libraryFlows=await require('./library-flows.cjs')({profile,docs,handlers});
  win=new BrowserWindow({show:false,width:1250,height:900,webPreferences:{preload:path.join(__dirname,'preload.cjs'),contextIsolation:true,nodeIntegration:false,nodeIntegrationInSubFrames:true,sandbox:false}});
  const errors=[];win.webContents.on('console-message',event=>{if(event.level==='error')errors.push(event.message)});
  win.webContents.on('render-process-gone',(_e,d)=>{console.error(d);app.exit(1)});
@@ -58,5 +61,6 @@ async function book(title,prefix='document'){await js(`{const d=${prefix};d.quer
  await book('Berakhot',"document.querySelector('#pane2').contentDocument");await waitFor("document.querySelector('#pane2').contentDocument.querySelector('#rOut .w[data-l^=\"bavli:\"]')",'Berachot im zweiten Fenster');
  await js("document.querySelector('#pane2').contentDocument.querySelectorAll('#rOut .w')[1].click()");await waitFor("document.querySelector('#pane2').contentDocument.querySelector('#wpop .bvforms')",'Wortkarte im zweiten Fenster');
  console.log('Electron: Zweites Lesefenster mit eigenständiger Wortkarte bestanden.');
+ await libraryFlows({js,waitFor});
  win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);
 })().catch(async err=>{console.error(err);if(win&&!win.isDestroyed())win.destroy();await fsp.rm(profile,{recursive:true,force:true}).catch(()=>{});app.exit(1)});
