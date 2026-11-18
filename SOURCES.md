@@ -62,3 +62,5 @@ The interface is available in German and English (⋯ menu → Sprache). The Eng
 ## License of this project
 
 The source code of this app is released under the [MIT License](LICENSE).
+
+- **Genesis DSS text-critical adapter** — same ETCBC/Abegg source and **CC BY-NC 4.0** license as the Qumran texts above, with original character-level reconstruction/uncertainty/correction flags and fragment/line provenance. Source version 2.0.2, commit `0b7774a72b6d0e91712aa2156d2a1d354f1f5e6d`. A separate compressed Genesis extract and source/OSHB fingerprints are documented in [tools/dss/README.md](tools/dss/README.md). Automatic MT grouping is an adaptation; source readings and existing bundled reading editions are not silently corrected.

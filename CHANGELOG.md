@@ -1,6 +1,8 @@
 # Changelog
 
 ### New in 2.5.0
+- **Genesis DSS apparatus:** add a separate source-preserving ETCBC/Abegg adapter for 338 verse references and 26 manuscript sigla. Group conservatively located readings with SMR/LXX at MT word positions; retain reconstructed, uncertain, missing, corrected and deleted material with fragment/line citations, source-context hovers and original morphology. Include an independent source extract and provenance hashes. Do not infer manuscript omissions from damage or incomplete coverage.
+- **Clearer Tov reading labels:** replace technical “column b” labels with “erschlossen” for bare Hebrew proposals, explicitly distinguishing them from manuscript attestations in the hover. Other generic column-b remarks use “Tov-Hinweis”.
 - **CATSS interlinear context:** hover an LXX remark to preview the source-aligned Greek/Hebrew word groups, highlight the affected group and label reconstructed Hebrew separately. Preserve source plus/minus and existing morphology access.
 - **Apparatus by MT word position:** group SMR and LXX remarks under their shared MT word or phrase in verse order, with small witness labels and original notes/citations. Distinguish repeated words by their position, place securely anchored additions between MT words, and retain ambiguous positions separately at the verse end. Preserve numbering, hover/morphology and chapter navigation.
 - **CATSS number-difference display:** preserve the source operator `=+` instead of transliterating its plus sign as Hebrew tet. Show code-only column-b remarks as descriptive labels without an empty reconstructed reading.

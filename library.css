@@ -1892,3 +1892,10 @@ html.split #textcritPanel:not(.docked) { right: var(--p2w); }
 #tcHover .tc-tov-il [lang="grc"] { margin: 0; font-size: 1em; }
 #tcHover .tc-il-he { font-size: 1.2em; }
 #tcHover .tc-il-retro { color: var(--muted); font-size: .8em; }
+.tc-dss-token { cursor: help; unicode-bidi: isolate; }
+.tc-dss-word { cursor: pointer; text-decoration: underline dotted var(--muted); text-underline-offset: 3px; }
+.tc-dss-reconstructed { color: var(--muted); }
+.tc-dss-coverage { font-size: .85em; color: var(--muted); line-height: 1.8; }
+.tc-dss-coverage-source { cursor: help; text-decoration: underline dotted; }
+#tcHover .tc-dss-context { margin: 8px 0; font-size: 1.3em; line-height: 1.9; }
+#tcHover .tc-dss-active { border: 1px solid var(--accent); border-radius: 3px; padding: 2px; }

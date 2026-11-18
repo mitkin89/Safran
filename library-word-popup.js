@@ -261,6 +261,9 @@ window.LibraryWordPopup = (() => {
     wpop = document.createElement('div');
     wpop.id = 'wpop';
     wpop.innerHTML = `<div class="wtop"><span dir="rtl" lang="he" class="wword">${esc(w.textContent)}</span><button class="wx" title="Schließen">✕</button></div><div class="wseg main"><span class="wlem" dir="rtl" lang="he">${esc(lem)}</span><br>${parts.join(' · ')}</div><button class="wdict" data-q="${esc(lem)}">Im Wörterbuch nachschlagen</button>`;
+    if(w.dataset.dssSource){
+      const source=document.createElement('p');source.className='muted';source.textContent=[w.dataset.dssStatus,w.dataset.dssSource].filter(Boolean).join(' · ');wpop.appendChild(source);
+    }
     document.body.appendChild(wpop);
     const r = w.getBoundingClientRect(), pw = wpop.offsetWidth, ph = wpop.offsetHeight;
     const x = Math.max(8, Math.min(window.innerWidth - pw - 8, r.left + r.width / 2 - pw / 2));
@@ -376,7 +379,7 @@ window.LibraryWordPopup = (() => {
   });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeWpop(); });
 
-    return { openGreekApparatus(w,source) { return showGreekWord(w,w,null,source); }, openSamaritanWord(w) { gTok++; closeWpop(); return showSamaritanWord(w); }, close: closeWpop, loadGM, greekWordAt, decorateBavliReader, openBavliAnchor };
+    return { openQumranWord(w) { gTok++; closeWpop(); return showQumranWord(w); }, openGreekApparatus(w,source) { return showGreekWord(w,w,null,source); }, openSamaritanWord(w) { gTok++; closeWpop(); return showSamaritanWord(w); }, close: closeWpop, loadGM, greekWordAt, decorateBavliReader, openBavliAnchor };
   }
   return { create };
 })();

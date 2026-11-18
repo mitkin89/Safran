@@ -922,6 +922,7 @@
     refreshFind: () => { if (!fb.hidden && fTerm) runFind(fTerm, true); },
     load: (...args) => wordCardsUI.lazyScript(...args), clean: html => R.cleanHtml(html),
     openWord: w => wordPopupUI.openSamaritanWord(w),
+    openQumran: w => wordPopupUI.openQumranWord(w),
     openGreek: (w, source) => wordPopupUI.openGreekApparatus(w, source),
     selectRow: label => { setCmtRow(label); const row = $$('#rOut .row[data-l]').find(r => r.dataset.l === label); if (row) panelScrollTo(row, 'center'); },
   });

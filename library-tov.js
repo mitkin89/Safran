@@ -11,7 +11,7 @@ function create(host){
     '{...}':'Gegenstück an anderer Stelle','{..d}':'Verteilte Wiedergabe',
     '{..r}':'Wiederholung','{..p}':'Ergänzte Präposition','{..~}':'Sprachliche Umstellung',
     '~~~':'Umstellung','~':'Andere Wortfolge',"''":'Längeres Plus/Minus',
-    '=':'Spalte b','=;':'erschlossen','=@':'Etymologische Deutung',
+    '=':'Tov-Hinweis','=;':'erschlossen','=@':'Etymologische Deutung',
     '=:':'Eigenname (erschlossen)','=v':'Vokalisierung','=r':'erschlossen (unvollständig)',
     '=+':'Zahlenunterschied','=%':'Übersetzungstechnik','=%vap':'Aktiv → Passiv',
     '=%vpa':'Passiv → Aktiv','=%p':'Präposition / Partikel','=%p+':'Ergänzte Präposition / Partikel',
@@ -40,7 +40,10 @@ function create(host){
           const greek=n.g?'<span class="tc-tov-lemma" lang="grc" tabindex="0" data-tc-tov="'+esc(key)+'" data-catss-apparatus="1" data-tc-note="'+i+'" data-h="'+esc(n.h)+'">'+esc(n.g)+'</span>':'';
           const heb=!anchor&&n.h?'<bdi lang="he" dir="rtl">'+esc(n.h)+'</bdi>':'';
           const reading=esc(columnText).replace(/[א-ת]+/g,s=>'<bdi dir="rtl" lang="he">'+s+'</bdi>');
-          const detail=columnText?'<span class="tc-tov-reading"> · <abbr class="ab" title="'+esc(columnCode?explanation(columnCode):n.b)+'">'+esc(shortLabels[columnCode]||'Spalte b')+'</abbr>: <bdi dir="ltr">'+reading+'</bdi></span>':'';
+          const reconstructed=columnCode==='='&&/^[א-ת]/.test(columnText);
+          const columnLabel=reconstructed?'erschlossen':shortLabels[columnCode]||'Tov-Hinweis';
+          const columnTitle=reconstructed?'Von Tov erschlossene hebräische Entsprechung; kein Handschriftenbeleg. Quellcode: =':columnCode?explanation(columnCode):n.b;
+          const detail=columnText?'<span class="tc-tov-reading"> · <abbr class="ab" title="'+esc(columnTitle)+'">'+esc(columnLabel)+'</abbr>: <bdi dir="ltr">'+reading+'</bdi></span>':'';
           const witness=code==='Jdga'?'LXX A':code==='Jdgb'?'LXX B':code==='DanTh'?'LXX Th':'LXX';
           const html='<article class="tc-entry tc-tov-entry" data-witness="'+esc(witness)+'"><div class="tc-note-text"><span class="tc-witness-label">'+esc(witness)+'</span> '+greek+(greek&&heb?' ↔ ':'')+heb+' <span class="tc-tov-codes">'+flags+'</span>'+detail+'</div><small class="tal-cite" tabindex="0" data-tc-tov="'+esc(key)+'" title="'+esc(n.raw.join(' | '))+'">Tov/Kraft · CATSS, '+esc(ref)+' · '+esc(n.file)+':'+n.line+'</small></article>';
           out.set(id,{anchor:anchor?{...anchor,ref}:null,displayRef:ref,rows:[row],html});
