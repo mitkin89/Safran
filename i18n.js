@@ -621,6 +621,7 @@
     'Abschnitt exportieren': 'Export section', 'Format': 'Format', 'Word (.doc)': 'Word (.doc)', 'Zeilen von': 'Lines from', 'bis': 'to', 'alle': 'all',
     'Buch oder Abschnitt exportieren': 'Export book or section', 'Buch oder Abschnitt als PDF oder Word exportieren': 'Export book or section as PDF or Word',
     'Exportbereich': 'Export scope', 'Aktueller Abschnitt': 'Current section', 'Ganzes Buch': 'Whole book', 'Abschnittsbereich': 'Section range', 'Von Abschnitt': 'From section', 'Bis Abschnitt': 'To section',
+    'Schriftgrößen werden aus „Anzeige“ übernommen.': 'Font sizes are taken from “Display”.',
     '{} · {#} Fassungen nebeneinander': '{} · {} versions side by side', 'Export wird vorbereitet …': 'Preparing export …',
     'Kein Text zum Exportieren geöffnet.': 'No text is open for export.', 'Bitte einen gültigen Abschnittsbereich wählen.': 'Please select a valid section range.', 'Ungültiger Exportbereich.': 'Invalid export scope.',
     'Fußnoten (nummeriert unter der Tabelle)': 'Footnotes (numbered below the table)', 'Meine Notizen': 'My notes', 'Verknüpfungen (Liste je Zeile, falls vorhanden)': 'Links (list per line, if available)',

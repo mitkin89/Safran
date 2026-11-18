@@ -6090,6 +6090,16 @@
   window.LibraryExport.create({
     $, getView: () => view, getNotes: () => notesAll, stripHe, noteId,
     labels: KIND_LABEL, shortVer,
+    getTypography: v => {
+      const root = $('#rOut'), basePx = parseFloat(getComputedStyle(root).fontSize) || fs;
+      const cells = $$('.cell[data-rel]', root);
+      return { basePx, columnsPx: v.loaded.map(d => {
+        const text = cells.find(c => c.dataset.rel === d.entry.rel)?.querySelector('.txt');
+        if (text) return parseFloat(getComputedStyle(text).fontSize);
+        const key = ['de', 'en'].includes(d.entry.kind) ? d.entry.kind : d.entry.language === 'Greek' ? 'gr' : ['Hebrew', 'Aramaic'].includes(d.entry.language) ? 'he' : null;
+        return basePx * (key ? disp[key] || 1 : 1);
+      }) };
+    },
     getLinks: (v, section) => { const chap = secChapOf(section); return chap == null ? [] : LK.section(secBook(v.group, section), chap); },
   });
 

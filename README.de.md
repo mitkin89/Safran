@@ -119,6 +119,8 @@ Und alles Weitere:
 
 **Bücher zweisprachig drucken:** Öffne das Buch und wähle die hebräische und deutsche Fassung als Spalten. Unter **⋯ → Exportieren …** kannst du den aktuellen Abschnitt, einen Abschnitts-/Kapitelbereich oder **Ganzes Buch** als PDF oder Word exportieren. Die Fassungen stehen versweise nebeneinander; Fußnoten, eigene Notizen und Verknüpfungen sind optional. Die PDF lässt sich anschließend normal drucken.
 
+Die Textschriftgrößen übernimmt der Export aus **Anzeige**: Grundschrift sowie die getrennten Größen für Hebräisch, Deutsch und die anderen Sprachen. Stelle sie vor dem Export so ein, wie du sie drucken möchtest.
+
 <p align="center">
   <a href="screenshots/qumran-interlinear.png"><img src="screenshots/qumran-interlinear.png" alt="Jesaja 53,11 als Interlinear mit Zunz und den Qumran-Rollen 1Q8, 1QIsaa und 4Q58 unter den hebräischen Wörtern; das Plus or (Licht) der Rollen nach jir’e ist markiert" width="900"></a><br>
   <sub>Qumran-Rollen im Interlinear, Jesaja 53,11: je Rolle eine Zeile, Abweichungen vom masoretischen Text markiert – hier das Plus אור („Licht“) in 1QIsaᵃ, 1Q8 und 4Q58.</sub>

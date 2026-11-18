@@ -629,6 +629,7 @@ window.I18N_HE = {
 "Buch oder Abschnitt exportieren": "ייצוא ספר או קטע",
 "Buch oder Abschnitt als PDF oder Word exportieren": "ייצוא ספר או קטע כ-PDF או Word",
 "Exportbereich": "טווח הייצוא",
+"Schriftgrößen werden aus „Anzeige“ übernommen.": "גודלי הגופנים נלקחים מהגדרות התצוגה.",
 "Aktueller Abschnitt": "הקטע הנוכחי",
 "Ganzes Buch": "הספר כולו",
 "Abschnittsbereich": "טווח קטעים",

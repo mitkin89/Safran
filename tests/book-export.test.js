@@ -8,6 +8,14 @@ function fixture(){
  return {group:{title:'Testbuch'},loaded,sections:[{path:[0],k:'[0]',label:'Kapitel 1'},{path:[1],k:'[1]',label:'Kapitel 2'}],idx:0};
 }
 const count=(s,re)=>[...s.matchAll(re)].length;
+test('Export übernimmt Grundschrift und getrennte Spaltengrößen in Druckpunkten',()=>{
+ const html=buildHtml(fixture(),{scope:'book'},{...helpers,typography:{basePx:20,columnsPx:[30,16]}});
+ assert(html.includes('serif;font-size:15pt;'));
+ assert(html.includes('class="k-he" style="font-size:22.5pt"'));
+ assert(html.includes('class="k-de" style="font-size:12pt"'));
+ const fallback=buildHtml(fixture(),{scope:'book'},{...helpers,typography:{basePx:NaN,columnsPx:[Infinity,-1]}});
+ assert(!/font-size:(NaN|Infinity|-)/.test(fallback));
+});
 test('Buch und Bereich richten sämtliche Verse aus und behalten Lücken als leere Zellen',()=>{
  const view=fixture(),html=buildHtml(view,{scope:'book',from:'2',to:'2'},helpers);
  assert.equal(count(html,/class="chapter"/g),2);assert.equal(count(html,/class="verse"/g),4);assert(html.includes('<td></td>'));
