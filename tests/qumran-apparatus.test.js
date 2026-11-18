@@ -57,3 +57,43 @@ test('Genesis adapter keeps witnesses, source nodes, uncertainty and raw context
   assert(preview.includes('moderne Rekonstruktion'));assert(preview.includes('4Q7'));
   assert(preview.includes('['));assert(!preview.includes('LXX'));
 });
+
+test('DSS reading display renders uncertainty per letter and retains the original encoded transcription',async()=>{
+  const sandbox={window:{QumranApparatus:Q,TextCrit:C}};vm.createContext(sandbox);
+  vm.runInContext(fs.readFileSync(path.join(__dirname,'../library-qumran.js'),'utf8'),sandbox);
+  const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const ui=sandbox.window.LibraryQumran.create({esc,load:async()=>D});await ui.load();
+  const ref='Genesis 4:2';ui.coverage([{ref,row:'2'}]);
+  const i=D.verses[ref].findIndex(s=>s.scroll==='4Q2'&&s.fragment==='f3i');
+  const preview=ui.preview({dataset:{tcDss:ref+'|'+i}}),visible=preview.replace(/<[^>]*>/g,'');
+  assert(!visible.includes('#'));assert(visible.includes('ללדת'));
+  assert(preview.includes('tc-dss-unc'));assert(preview.includes('tc-dss-rec'));
+  assert(preview.includes('Originalnotation:'));assert(preview.includes('ללדת#'));
+  const tokens=D.verses[ref][i].tokens;
+  const word=tokens.find(t=>t.text==='ללדת#');
+  assert.equal(word.parts.flatMap(p=>p.signs).find(s=>s.glyph==='ת').unc,'2');
+});
+test('Existing interlinear positions resolve the illustrated Genesis 1:9 readings by witness and full verse stream',()=>{
+  const ref='Genesis 1:9',ss=D.verses[ref],a=Q.interlinearAnchors(ss,D.mt[ref],D.interlinear['1:9']);
+  for(const [sig,text,at] of [['4Q7','לשמים',5],['4Q8a','מקוה',7],['4Q10','ותרא',9]]){
+    const s=ss.find(s=>s.scroll===sig),t=s.tokens.find(t=>t.text===text),r=Q.remarks(s,D.mt[ref],a).find(r=>r.token===t);
+    assert(r);assert.deepEqual(r.anchor,{kind:'word',start:at,end:at});assert.equal(r.method,'interlinear');
+  }
+  assert.equal(crypto.createHash('sha256').update(fs.readFileSync(path.join(__dirname,'../qumran-il.js'))).digest('hex'),D.source.interlinear.sha256);
+  const s=ss.find(s=>s.scroll==='4Q7'),tampered=structuredClone(D.interlinear['1:9'].filter(r=>r[0]==='4Q7'));tampered[0][1][0][1]='שונה';
+  assert.equal(Q.interlinearAnchors([s],D.mt[ref],tampered).size,0,'Different source text must not inherit a positional assignment');
+});
+test('Uncertain agreement is context metadata, not a variant; interlinear does not turn reconstructions into attestations',()=>{
+  const ref='Genesis 1:10',ss=D.verses[ref],s=ss.find(s=>s.scroll==='4Q2'),a=Q.interlinearAnchors(ss,D.mt[ref],D.interlinear['1:10']);
+  const word=s.tokens.find(t=>t.text==='קרא#');assert(word.flags.unc);assert(!Q.remarks(s,D.mt[ref],a).some(r=>r.token===word));
+  const token=(text,flags={})=>({text,flags,parts:[],letters:Q.cons(text).length,reconstructedLetters:flags.rec?Q.cons(text).length:0});
+  const first=token('כי',{unc:['2']}),last=token('כי',{unc:['2']}),seg={scroll:'X',tokens:[first,token('אמר'),last]},mt=['כי','אמר','כי'];
+  const map=Q.interlinearAnchors([seg],mt,[['X',[[[1],'כי',0],[[2],'אמר',0],[[3],'כי',0]]]]);
+  assert.equal(map.get(first).start,0);assert.equal(map.get(last).start,2);
+  assert.equal(Q.remarks(seg,mt,map).length,0);
+  const reconstructed=token('[כי]',{rec:['1']}),recSeg={scroll:'R',tokens:[reconstructed]};
+  const recMap=Q.interlinearAnchors([recSeg],['כי'],[['R',[[[1],'[כי]',3]]]]);
+  assert.equal(Q.remarks(recSeg,['כי'],recMap).length,0);assert(!Q.certain(reconstructed));
+  const conflict={scroll:'C',tokens:[token('אב'),token('גד')]};
+  assert.equal(Q.interlinearAnchors([conflict],['אב','גד'],[['C',[[[2],'אב',0],[[1],'גד',0]]]]).size,0);
+});

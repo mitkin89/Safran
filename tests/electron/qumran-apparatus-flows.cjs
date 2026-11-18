@@ -23,6 +23,24 @@ module.exports=async({win,js,waitFor,book})=>{
   await js("document.querySelector('#tcDss').checked=true;document.querySelector('#tcDss').dispatchEvent(new Event('change',{bubbles:true}));document.querySelector('#tcWhole').click()");
   await waitFor("document.querySelectorAll('#tcBody .tc-dss-entry').length>10",'DSS-Befunde im ganzen Genesis-Kapitel');
   assert(await js("document.querySelectorAll('#tcBody details,#tcBody summary').length===0&&localStorage.getItem('tcDss')==='1'"));
+  await js("document.querySelector('#rOut .row[data-l=\"9\"] .txt').click()");
+  await waitFor("document.querySelector('#tcPlace').textContent.includes('Genesis 1:9')&&document.querySelector('#tcBody [data-alignment=interlinear]')",'Vorhandene Interlinear-Zuordnung im Apparat');
+  assert(await js("{const e=[...document.querySelectorAll('#tcBody .tc-dss-entry[data-scroll=\"4Q7\"]')].find(n=>n.textContent.includes('לשמים'));e?.dataset.alignment==='interlinear'&&e.closest('.tc-locus').dataset.start==='5'&&e.querySelector('.tal-cite').title.includes('Interlinear (maschinell)')}"),'Illustrated לשמים now belongs to its MT word');
+  await js("document.querySelector('#rOut .row[data-l=\"10\"] .txt').click()");
+  await waitFor("document.querySelector('#tcPlace').textContent.includes('Genesis 1:10')&&document.querySelector('#tcBody .tc-dss-coverage')",'Gleichlautende unsichere Lesung');
+  assert(await js("![...document.querySelectorAll('#tcBody .tc-dss-entry[data-scroll=\"4Q2\"]')].some(n=>n.textContent.replace(/[^א-ת]/g,'').includes('קרא'))"),'קרא agreement is not listed as a variant');
+  await js("document.querySelector('#rSection').value='3';document.querySelector('#rSection').dispatchEvent(new Event('change',{bubbles:true}))");
+  await waitFor("document.querySelector('#rOut .row[data-l=\"2\"]') && document.querySelector('#rSection').value==='3'",'Genesis 4 für Zeichenanzeige');
+  await js("document.querySelector('#rOut .row[data-l=\"2\"] .txt').click()");
+  await waitFor("[...document.querySelectorAll('#tcBody .tc-dss-coverage-source')].some(n=>n.textContent==='4Q2 f3i')",'Originalkontext trotz ausgeblendeter gleichlautender Unsicherheiten');
+  const readable="[...document.querySelectorAll('#tcBody .tc-dss-coverage-source')].find(n=>n.textContent==='4Q2 f3i')";
+  await js(`${readable}.scrollIntoView({block:'center'})`);await js("new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))");
+  const rp=await js(`{const r=${readable}.getBoundingClientRect();({x:Math.round(r.left+r.width/2),y:Math.round(r.top+r.height/2)})}`);
+  win.webContents.sendInputEvent({type:'mouseMove',...rp});
+  await waitFor("document.querySelector('#tcHover .tc-dss-context')?.textContent.includes('ללדת')",'Lesbare Rollen-Vorschau');
+  assert(await js("[...document.querySelectorAll('#tcHover .tc-dss-token')].find(n=>n.textContent==='ללדת')?.querySelector('.tc-dss-unc')?.textContent==='ת'"),'Only the uncertain source letter is marked in context');
+  assert(await js("!document.querySelector('#tcHover .tc-dss-context').textContent.includes('#')&&document.querySelector('#tcHover .tc-dss-rec')&&document.querySelector('#tcHover b').title.includes('ללדת#')"),'Original notation is retained while reader text is clean');
+  if(process.env.SAFRAN_DSS_READABLE_CAPTURE){await js("new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))");fs.writeFileSync(process.env.SAFRAN_DSS_READABLE_CAPTURE,(await win.webContents.capturePage()).toPNG());}
   await js("document.querySelector('#tcClose').click()");
   console.log('Electron: Genesis-DSS, echte Handschriftensiglen, MT-Wortgruppen, Quellzeichen/Hover, Morphologie, Filter und Kapitelansicht bestanden.');
 };

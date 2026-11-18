@@ -761,7 +761,7 @@
   // Targumim: Zuordnung aramäisches Wort -> Westminster-Wörter (maschinell, tools/targum/align.py), je Vers ein String: „1 2 - 4,5 …“ (ein Eintrag je Wort des Lesetextes)
   const IL_TG = { Onkelos: 'Targum Onkelos (ETCBC', 'Pseudo-Jonathan': 'Targum Pseudo-Jonathan (ETCBC', Neofiti: 'Targum Neofiti 1 (ETCBC' };
   // Biblische Qumran-Rollen: je Vers und Rolle die Wörter mit Zuordnung und Art der Abweichung (maschinell, tools/dss/il.py)
-  const IL_QK = ['gleich wie im masoretischen Text', 'andere Schreibweise', 'andere Lesart', 'von den Herausgebern ergänzt', 'Plus: ohne Gegenstück im masoretischen Text'];
+  const IL_QK = ['gleich wie im masoretischen Text', 'möglicher Schreibunterschied (maschineller Vergleich)', 'abweichender Wortlaut (maschineller Vergleich)', 'von den Herausgebern ergänzt', 'Plus: ohne Gegenstück im masoretischen Text'];
   let qIlP = null;
   const loadQIL = () => qIlP || (qIlP = wordCardsUI.lazyScript('qumran-il.js', () => window.QUMRAN_IL).catch(() => { qIlP = null; return null; }));
   const qVer = g => (g && g.versions || []).some(x => x.versionTitle === 'Qumran-Rollen (ETCBC DSS)');

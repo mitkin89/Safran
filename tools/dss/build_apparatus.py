@@ -103,6 +103,10 @@ def build():
         if c>len(mt) or v>len(mt[c-1]):omitted.append({'node':w['node'],'reason':'Bible reference outside OSHB'});continue
         grouped[(w['ref'],loc['scroll'][1],loc['fragment'][1],loc['fragment'][0])].append(w)
     data={'schema':1,'source':{**source['source'],'extractSha256':hashlib.sha256(SOURCE.read_bytes()).hexdigest()},'mt':{},'mtMeta':{},'verses':{}}
+    il_raw=(ROOT/'qumran-il.js').read_bytes()
+    il=json.loads(il_raw.decode().split('window.QUMRAN_IL=',1)[1].strip().rstrip(';'))
+    data['interlinear']=il.get('Genesis',{})
+    data['source']['interlinear']={'file':'qumran-il.js','sha256':hashlib.sha256(il_raw).hexdigest(),'method':'Existing machine alignment; original verse/witness/consonant stream validated before reuse'}
     counts={'segments':0,'tokens':0,'reconstructed':0,'uncertain':0,'damaged':0,'corrected':0};scrolls=set()
     for (ref,scroll,fragment,fragment_id),ww in grouped.items():
         c,v=map(int,ref.split(' ')[1].split(':'))
@@ -130,7 +134,7 @@ def build():
                 morph='.'.join([sp]+[(f.get(k) if f.get(k) not in (None,'','unknown') else '-') for k in ['vs','vt','ps','gn','nu','st']])
                 sx=''.join(f.get(k,'') for k in ['ps2','gn2','nu2']) if f.get('sp')=='suff' else ''
                 if sx:morph+='.'+sx
-                toks.append({'node':p['node'],'text':f.get('full','')+(f.get('punc','') if f.get('punc') and not f.get('full','').endswith(f['punc']) else ''),'lemma':cons(f.get('glex') or f.get('lex','')),'morph':morph})
+                toks.append({'node':p['node'],'signs':p['signs'],'text':f.get('full','')+(f.get('punc','') if f.get('punc') and not f.get('full','').endswith(f['punc']) else ''),'lemma':cons(f.get('glex') or f.get('lex','')),'morph':morph})
             flags={k:v for k,v in flags.items() if v}
             letter_signs=[s for p in parts for s in p['signs'] if cons(s.get('glyph',''))]
             tokens.append({'letters':len(letter_signs),'reconstructedLetters':sum(bool(s.get('rec')) for s in letter_signs),'text':text,'parts':toks,'flags':flags,'locations':locations})

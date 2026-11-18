@@ -44,6 +44,11 @@
       "verse.tf": "d8ad61f1cb0690792b31115c24105d240a4fc5fb0cbea719c1d7a8adc4eab251"
     },
     "extractSha256": "4bb3d02b5b3dd0b9cca3383a8150b769f97b6cb222ccf8fdc553cd014973f255",
+    "interlinear": {
+      "file": "qumran-il.js",
+      "sha256": "c9d71b3a5bb9143400f1b0fddb989134d7460f0ad05281454e3f48cf9d910da1",
+      "method": "Existing machine alignment; original verse/witness/consonant stream validated before reuse"
+    },
     "mt": {
       "rel": "own/Genesis/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
       "sha256": "1f47f49fd727e0813c8d8672c96ca06f75deb2a58f2853cfd25a5249107bca00",

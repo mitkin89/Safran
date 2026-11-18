@@ -1,6 +1,9 @@
 # Changelog
 
 ### New in 2.5.0
+- **DSS apparatus alignment and focus:** reuse existing interlinear MT positions only after checking the complete witness/verse consonant stream and guarding against conflicting anchors. Preserve source uncertainty/reconstruction flags, repeated-word positions and original morphology. Omit same-word uncertainty-only entries; retain their annotations in manuscript context hovers.
+- **Quieter apparatus:** omit the empty-result and missing-DSS-coverage notices in the text-critical pane.
+- **Readable DSS transcription:** render original character-level uncertainty as dotted underlines and reconstructed runs in grey brackets. Remove encoded uncertainty markers and morpheme delimiters from the reading display; retain original transcription in source hovers and preserve source data and morphology.
 - **Genesis DSS apparatus:** add a separate source-preserving ETCBC/Abegg adapter for 338 verse references and 26 manuscript sigla. Group conservatively located readings with SMR/LXX at MT word positions; retain reconstructed, uncertain, missing, corrected and deleted material with fragment/line citations, source-context hovers and original morphology. Include an independent source extract and provenance hashes. Do not infer manuscript omissions from damage or incomplete coverage.
 - **Clearer Tov reading labels:** replace technical “column b” labels with “erschlossen” for bare Hebrew proposals, explicitly distinguishing them from manuscript attestations in the hover. Other generic column-b remarks use “Tov-Hinweis”.
 - **CATSS interlinear context:** hover an LXX remark to preview the source-aligned Greek/Hebrew word groups, highlight the affected group and label reconstructed Hebrew separately. Preserve source plus/minus and existing morphology access.
