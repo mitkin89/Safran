@@ -27,7 +27,6 @@
     }).map(([s]) => s);
   }
   const fmtSize = b => (b >= 1073741824 ? (b / 1073741824).toFixed(2) + ' GB' : (b / 1048576).toFixed(1) + ' MB');
-  const fmtEst = mb => (mb >= 1024 ? (mb / 1024).toFixed(1) + ' GB' : Math.round(mb) + ' MB');
   const shortVer = v => {
     if (v === 'merged') return 'zusammengeführt';
     const s = String(v || '').replace(/\s*\[[a-z]{2,3}\]\s*$/i, '');
@@ -803,10 +802,8 @@
     if (hit) hit.scrollIntoView({ block: quiet ? 'start' : 'center' }); else window.scrollTo(0, 0);
   }
 
-  // ---------- Interlinear: deutsche Wörter (Zunz, Breuer) unter den Wörtern des Westminster-Textes ----------
-  // Zuordnung Wort für Wort in interlin.js (erzeugt von tools/interlinear/build.py); bisher: Rut
-  let ilTr = 'Zunz'; try { ilTr = localStorage.getItem('interlinTr') || 'Zunz'; } catch { /* egal */ }
-  let ilOn = false; try { ilOn = localStorage.getItem('interlin') === '1'; } catch { /* egal */ }
+  // Gemeinsame Interlinear-Quellen für Anzeige, Wortkarten und Vorschauen.
+  // Die eigentliche Anzeige liegt in library-interlinear.js.
   let ilP = null, ilRevision = 0, ilNotice = '';
   let ilPrivateRen = null;
   const loadIL = () => ilP || (ilP = (async () => {
@@ -832,61 +829,6 @@
     return ilRefresh();
   }
   O.onInterlinearChanged(() => { resetPrivateIL().catch(err => alert(err.message)); });
-  $('#importInterlinear').onclick = async () => {
-    const r = await O.interlinearImport();
-    if (r.canceled) return;
-    if (r.error) { alert(I18N.t('Interlinear-Import fehlgeschlagen: {}', r.error)); return; }
-    if (!ilPick.includes('BuberRosenzweig')) { ilPick.push('BuberRosenzweig'); ilSave(); }
-    await resetPrivateIL();
-    alert(I18N.t('{} Verse lokal für Buber/Rosenzweig eingebunden.', r.verses));
-  };
-  // Jede deutsche Übersetzung steht als eigene Zeile unter dem Wort (bzw. unter der Wortgruppe); Segmente mit mehreren Wörtern („als die Richter richteten“) stehen einmal unter der zusammengehörigen Wortgruppe.
-  // Mit mehreren Übersetzungen werden die Gruppen aller Übersetzungen zusammengefasst, jede Übersetzung hat ihre Zeile (Farbe + Kürzel).
-  const ilHlClear = () => $$('#rOut .ilhl').forEach(x => x.classList.remove('ilhl'));
-  function ilClear() {
-    ilHlClear();
-    $$('#rOut .ilg').forEach(g => { const inner = g.firstChild; while (inner.firstChild) g.parentNode.insertBefore(inner.firstChild, g); g.remove(); });
-  }
-  // trs: [[Name, Segmente, Sigel?]] – ein Vers; Segmente [[Wortnummern], Text, Art?] (Art nur bei Qumran: 0 gleich, 1 Schreibweise, 2 Lesart, 3 rekonstruiert, 4 Plus)
-  function ilVerse(cell, trs, order) {
-    const ws = [...cell.querySelectorAll('.w')], n = ws.length; if (!n) return;
-    const par = Array.from({ length: n + 2 }, (_, i) => i), find = x => par[x] === x ? x : (par[x] = find(par[x]));
-    const union = (x, y) => { x = find(x); y = find(y); if (x < y) par[y] = x; else if (y < x) par[x] = y; };
-    const info = trs.map(([name, segs, sig]) => {
-      const lead = new Map(), memberOf = new Map(); // Anführer-Wort -> [[Nr, Text, Wörter]]; Mitglieds-Wort -> Anführer
-      segs.forEach(([idx, t, kind], k) => { if (!idx.length) return; const L = Math.min(...idx); (lead.get(L) || lead.set(L, []).get(L)).push([k, t, idx, kind]); idx.forEach(i => { if (i !== L) memberOf.set(i, L); }); });
-      lead.forEach((_, L) => memberOf.delete(L));
-      const run = new Map(); // Anführer -> letztes Wort der zusammenhängenden Gruppe
-      lead.forEach((_, L) => { let e = L; while (memberOf.get(e + 1) === L && e < n) e++; run.set(L, e); for (let i = L + 1; i <= e; i++) union(L, i); });
-      const marks = new Map(); // Wort, das zu einer nicht zusammenhängenden Gruppe gehört -> Wörter der Gruppe
-      memberOf.forEach((L, i) => { if (!(i > L && i <= run.get(L))) marks.set(i, [...new Set(lead.get(L).flatMap(x => x[2]))]); });
-      // Qumran: Wörter der Rolle ohne Gegenstück (Plus) hängen am vorigen zugeordneten Wort (am Anfang: am ersten)
-      if (sig) segs.forEach(([idx, t, kind], k) => { if (idx.length) return; let j = k - 1; while (j >= 0 && !segs[j][0].length) j--; let L = j >= 0 ? Math.min(...segs[j][0]) : null; if (L == null) { const nx = segs.find(x => x[0].length); L = nx ? Math.min(...nx[0]) : null; } if (L != null) (lead.get(L) || lead.set(L, []).get(L)).push([k, t, [], kind]); });
-      return { name, lead, marks, sig, shown: false };
-    });
-    const units = new Map(); // Anfang -> Ende
-    for (let i = 1; i <= n; i++) { const r = find(i); units.set(r, Math.max(units.get(r) || 0, i)); }
-    const multi = trs.length > 1, mk = (cls, txt, ix) => { const e = document.createElement('span'); e.className = cls; if (txt != null) e.textContent = txt; if (ix) e.dataset.ix = ix.join(','); return e; };
-    [...units].forEach(([st, en]) => {
-      const lines = info.map(inf => {
-        const { name, lead, marks, sig } = inf;
-        const line = mk('ilt'); line.dataset.tr = name; line.dataset.i = order.indexOf(name) + 1; line.title = (IL_LABEL[name] || name) + (sig ? ' · ' + sig : ''); if (name === 'LXX') line.lang = 'grc'; else if (IL_TG[name]) { line.lang = 'arc'; line.dir = 'rtl'; } else if (sig) { line.lang = 'he'; line.dir = 'rtl'; line.classList.add('ilq'); }
-        const parts = []; for (let L = st; L <= en; L++) (lead.get(L) || []).forEach(x => parts.push(x));
-        if (sig && parts.length && !inf.shown) { inf.shown = true; line.append(mk('ilsig', sig)); } // Sigel der Rolle beim ersten erhaltenen Wort des Verses
-        parts.sort((x, y) => x[0] - y[0]).forEach(([k, t, idx, kind], j) => { if (j) line.append(k === parts[j - 1][0] + 1 ? ' ' : ' … '); const e = mk('ils', t, idx.length ? idx : null); if (kind != null) { e.classList.add('ilq' + kind); e.title = I18N.t(IL_QK[kind]); } line.append(e); });
-        if (!parts.length) for (let i = st; i <= en; i++) if (marks.has(i)) { line.append(mk('ils ilm', '…', marks.get(i))); break; }
-        return line;
-      });
-      if (!lines.some(l => l.firstChild) && st === en) return; // nichts darunter zu zeigen
-      const g = mk('ilg'), inner = mk('ilw'); g.appendChild(inner); g.dataset.multi = multi ? '1' : '';
-      ws[st - 1].parentNode.insertBefore(g, ws[st - 1]);
-      for (let nd = ws[st - 1], last = ws[en - 1]; nd; ) { const nx = nd.nextSibling; inner.appendChild(nd); if (nd === last) break; nd = nx; }
-      lines.forEach(l => g.appendChild(l));
-    });
-  }
-  // ---------- Wörter über alle geöffneten Versionen verbinden ----------
-  // In den deutschen Spalten (Zunz, Breuer …) sind die Wortgruppen nach der Zuordnung in interlin.js anklickbar (.ilx, data-ix = Nummern der Westminster-Wörter).
-  // Ein Klick auf eine solche Gruppe, auf ein Westminster-Wort oder auf ein Septuaginta-Wort lässt in allen geöffneten Versionen die zugehörigen Wörter leuchten.
   const IL_VT = { Mendelssohn: /Moses Mendelssohn/, Wolf: /^Wolf, Das Buch Samuel/, BuberRosenzweig: /Martin Buber.*Franz Rosenzweig/, Zunz: /Zunz/, Breuer: /^(?:(?:(?:Raphael|Joseph) )?Breuer|Das Buch Jecheskel, übersetzt und erläutert von Dr\. Joseph Breuer,)/, Philippson: /Philippson/, Herxheimer: /ebräischen Texte/, Goldschmidt: /Übersetzung von Lazarus Goldschmidt, Berlin 1921/, Hirsch: /^(?:Die Psalmen|Der Pentateuch), übersetzt und erläutert von Samson Raphael Hirsch/, JuliusHirsch: /^Julius Hirsch, /, Onkelos: /^Targum Onkelos \(ETCBC/, 'Pseudo-Jonathan': /^Targum Pseudo-Jonathan \(ETCBC/, Neofiti: /^Targum Neofiti 1 \(ETCBC/, Umschrift: /^Umschrift \(ETCBC phono\)/ };
   // Targumim: Zuordnung aramäisches Wort -> Westminster-Wörter (maschinell, tools/targum/align.py), je Vers ein String: „1 2 - 4,5 …“ (ein Eintrag je Wort des Lesetextes)
   const IL_TG = { Onkelos: 'Targum Onkelos (ETCBC', 'Pseudo-Jonathan': 'Targum Pseudo-Jonathan (ETCBC', Neofiti: 'Targum Neofiti 1 (ETCBC' };
@@ -912,71 +854,6 @@
   }
   const tgPlain = html => { ilTpl.innerHTML = html || ''; return ilTpl.content.textContent; };
   const ilName = vt => Object.keys(IL_VT).find(n => IL_VT[n].test(vt || ''));
-  function ilTagCell(cell, segs) {
-    const txt = cell.querySelector('.txt'); if (!txt || txt.dataset.ilx) return;
-    const nodes = [], tw = document.createTreeWalker(txt, NodeFilter.SHOW_TEXT);
-    for (let nd; (nd = tw.nextNode()); ) if (!nd.parentElement.closest('.note, sup')) nodes.push(nd);
-    let full = '', starts = nodes.map(nd => { const p = full.length; full += nd.data; return p; });
-    const space = s => String(s).replace(/\s+/g, ' ').trim();
-    if (space(full) !== space(segs.map(([, text]) => text).join(' '))) return;
-    txt.dataset.ilx = '1';
-    const hits = []; let pos = 0;
-    for (const [idx, t] of segs) {
-      const w = t.trim(); if (!w) continue;
-      const re = new RegExp(w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/\s+/g, '\\s+'), 'g'); re.lastIndex = pos;
-      const m = re.exec(full); if (!m || m.index - pos > 80) continue;
-      pos = m.index + m[0].length; if (idx.length) hits.push([m.index, pos, idx]);
-    }
-    for (let h = hits.length - 1; h >= 0; h--) { // von hinten, damit die Textknoten davor unverändert bleiben
-      const [s0, e0, idx] = hits[h];
-      for (let k = nodes.length - 1; k >= 0; k--) {
-        const nd = nodes[k], ns = starts[k], ne = ns + nd.data.length, s = Math.max(s0, ns) - ns, e = Math.min(e0, ne) - ns;
-        if (e <= s) continue;
-        let mid = s > 0 ? nd.splitText(s) : nd; if (e - s < mid.data.length) mid.splitText(e - s);
-        const sp = document.createElement('span'); sp.className = 'ilx'; sp.dataset.ix = idx.join(','); mid.replaceWith(sp); sp.appendChild(mid);
-      }
-    }
-  }
-  function ilLink(src) {
-    const row = src.closest('.row'); if (!row) return;
-    const hc = [...row.querySelectorAll('.cell[data-k="he"]')].find(c => c.querySelector('.w')); if (!hc) return;
-    const ws = [...hc.querySelectorAll('.w')], cons = ws.map(w => consOf(w.textContent)), nth = (arr, i) => arr.slice(0, i).filter(x => x === arr[i]).length;
-    let ix = [];
-    if (src.classList.contains('ilx')) ix = src.dataset.ix.split(',').map(Number);
-    else if (src.classList.contains('w') && hc.contains(src)) ix = [ws.indexOf(src) + 1];
-    else if (src.classList.contains('wg')) {
-      const c = consOf(src.dataset.h), same = [...src.closest('.cell').querySelectorAll('.wg')].filter(x => consOf(x.dataset.h) === c), k = same.indexOf(src);
-      const at = cons.map((x, i) => x === c ? i : -1).filter(i => i >= 0)[k]; if (at != null) ix = [at + 1];
-    }
-    ix = ix.filter(i => i >= 1 && i <= ws.length); if (!ix.length) return;
-    const was = src.classList.contains('ilhl'); ilHlClear(); if (was) return;
-    const set = new Set(ix);
-    ix.forEach(i => ws[i - 1].classList.add('ilhl'));
-    row.querySelectorAll('.ilx').forEach(x => { if (x.dataset.ix.split(',').some(i => set.has(+i))) x.classList.add('ilhl'); });
-    row.querySelectorAll('.cell').forEach(c => {
-      if (c === hc) return;
-      const wg = [...c.querySelectorAll('.wg')]; if (!wg.length) return;
-      ix.forEach(i => { const hit = wg.filter(x => consOf(x.dataset.h) === cons[i - 1])[nth(cons, i - 1)]; if (hit) hit.classList.add('ilhl'); });
-    });
-    src.classList.add('ilhl');
-  }
-  $('#rOut').addEventListener('click', e => {
-    const src = e.target.closest('.ilx, .w, .wg');
-    if (src && (src.classList.contains('ilx') || src.closest('.row') && src.closest('.row').querySelector('.ilx'))) ilLink(src); else if ($('#rOut .ilhl')) ilHlClear();
-  });
-  // Feste Reihenfolge = feste Farbe je Werk (--il1 … --il16); „LXX“ = Septuaginta (CATSS), Wort für Wort unter dem Westminster-Text
-  const IL_ORDER = ['Zunz', 'Breuer', 'Philippson', 'Herxheimer', 'LXX', 'Onkelos', 'Pseudo-Jonathan', 'Neofiti', 'Goldschmidt', 'Hirsch', 'JuliusHirsch', 'Qumran', 'BuberRosenzweig', 'Umschrift', 'Wolf', 'Mendelssohn'];
-  const IL_LABEL = { Mendelssohn: 'Mendelssohn (1815)', Wolf: 'Wolf', BuberRosenzweig: 'Buber/Rosenzweig', Zunz: 'Zunz (1838)', Breuer: 'Breuer', Philippson: 'Philippson', Herxheimer: 'Herxheimer', Goldschmidt: 'Goldschmidt (1921)', Hirsch: 'S. R. Hirsch', JuliusHirsch: 'Julius Hirsch', LXX: 'Septuaginta', Onkelos: 'Onkelos', 'Pseudo-Jonathan': 'Pseudo-Jonathan', Neofiti: 'Neofiti 1', Qumran: 'Qumran-Rollen', Umschrift: 'Umschrift (Aussprache)' };
-  const IL_SUB = { Mendelssohn: 'Moses Mendelssohn, Die fünf Bücher Mose, Dessau 1815 · deutsche Übersetzung', Wolf: 'Benedikt Pinchas Wolf, Das Buch Samuel', BuberRosenzweig: 'Martin Buber und Franz Rosenzweig · lokale Wortzuordnung', Zunz: 'Leopold Zunz, Die vier und zwanzig Bücher der Heiligen Schrift, Berlin 1838', Breuer: 'Raphael Breuer, Arba Megillot, Josua, Richter, Esra und Nehemia', Philippson: 'Ludwig Philippson, Die Israelitische Bibel', Herxheimer: 'Salomon Herxheimer, Die vier und zwanzig Bücher der Bibel', Goldschmidt: 'Lazarus Goldschmidt, Pentateuch, Berlin 1921', Hirsch: 'Samson Raphael Hirsch, Pentateuch (1867–1878) und Psalmen (1882)', JuliusHirsch: 'Julius Hirsch, Jesaia und die zwölf kleinen Propheten', LXX: 'Griechisch, Wortgruppen nach der Zuordnung von CATSS', Onkelos: 'Targum Onkelos (Sperber), Wort für Wort maschinell zugeordnet', 'Pseudo-Jonathan': 'Targum Pseudo-Jonathan; Zusätze bleiben ohne Zuordnung', Neofiti: 'Targum Neofiti 1; Zusätze bleiben ohne Zuordnung', Qumran: 'Biblische Rollen vom Toten Meer (ETCBC), je Rolle eine Zeile; farbig: abweichende Lesart', Umschrift: 'Phonetische Umschrift jedes Wortes (ETCBC phono, Dirk Roorda); ˈ Hauptton' };
-  const IL_PIC = { Mendelssohn: 'Mendelssohn', Wolf: 'Wolf, Das Buch Samuel', Zunz: 'Zunz', Breuer: 'Raphael Breuer', Philippson: 'Philippson', Herxheimer: 'Herxheimer', Goldschmidt: 'Goldschmidt', Hirsch: 'Samson Raphael Hirsch', JuliusHirsch: 'Julius Hirsch', LXX: 'Septuaginta', Onkelos: 'Targum Onkelos', 'Pseudo-Jonathan': 'Targum Pseudo-Jonathan', Neofiti: 'Targum Neofiti', Qumran: 'Qumran' };
-  const ilBreuerJoseph = () => view && view.group && ['Ezekiel', 'Jeremiah'].includes(view.group.title);
-  const ilPic = n => n === 'Breuer' && ilBreuerJoseph() ? 'Joseph Breuer' : IL_PIC[n];
-  const ilSub = n => n === 'Breuer' && ilBreuerJoseph() ? (view.group.title === 'Jeremiah' ? 'Joseph Breuer, Das Buch Jirmejah' : 'Joseph Breuer, Das Buch Jecheskel (1921)') : IL_SUB[n];
-  // Auswahl (Häkchen) wird gemerkt; ältere Einstellung (ein Werk oder „Alle“) wird übernommen
-  let ilPick = null; try { ilPick = JSON.parse(localStorage.getItem('interlinPick') || 'null'); } catch { /* egal */ }
-  if (!Array.isArray(ilPick)) ilPick = ilOn ? (ilTr === '*' ? IL_ORDER.slice(0, 4) : [ilTr]) : [];
-  const ilSave = () => { try { localStorage.setItem('interlinPick', JSON.stringify(ilPick)); } catch { /* egal */ } };
-  let ilAvail = []; // für das aktuelle Kapitel vorhandene Werke
   // Septuaginta: CATSS-Fassung des Buches (Richter: Codex B zuerst nicht nötig – die erste Fassung „Septuaginta (CATSS)“ gilt)
   const ilLxxVer = g => { const vs = (g && g.versions || []).filter(x => /CATSS/.test(x.versionTitle || '')); return vs.find(x => x.versionTitle === 'Septuaginta (CATSS)') || vs[0] || null; };
   async function ilLxxDoc(g) {
@@ -1008,70 +885,15 @@
     return [...ilLxxIndices([...cell.querySelectorAll('.w')].map(w => w.textContent), ilTpl.content.querySelectorAll('.wg'))]
       .map(([g, idx]) => [idx, g.textContent.trim()]);
   }
-  // Legende: Farbpunkt + Name je gewähltem Werk; Überfahren hebt die Zeile hervor, Klick nimmt das Werk aus der Auswahl
-  function ilLegend(use) {
-    $$('#rOut .illeg').forEach(x => x.remove());
-    if (use.length < 2) return;
-    const leg = document.createElement('div'); leg.className = 'illeg';
-    use.forEach(n => {
-      const b = document.createElement('button'); b.type = 'button'; b.className = 'illc'; b.dataset.i = IL_ORDER.indexOf(n) + 1; b.dataset.tr = n;
-      const pic = portraitOf(ilPic(n));
-      b.title = (pic && pic.name ? pic.name + ' – ' : '') + I18N.t('Klick: dieses Werk ausblenden'); b.innerHTML = `${pic ? `<img src="portraits/${encodeURIComponent(pic.img)}" alt="">` : '<i></i>'}${esc(I18N.t(IL_LABEL[n] || n))}`;
-      b.onclick = () => { ilPick = ilPick.filter(x => x !== n); ilSave(); ilRefresh(); ilPopRender(); };
-      b.onmouseenter = () => $$('#rOut .ilt').forEach(l => l.classList.toggle('ildim', l.dataset.tr !== n));
-      b.onmouseleave = () => $$('#rOut .ildim').forEach(l => l.classList.remove('ildim'));
-      leg.appendChild(b);
-    });
-    const head = $('#rOut .row.head'); // die Legende klebt unter den Spaltenköpfen (Versionsnamen), nicht darüber
-    if (head) { head.after(leg); leg.style.setProperty('--headh', head.offsetHeight + 'px'); } else $('#rOut').prepend(leg);
-  }
-  // Auswahlfenster am Interlinear-Knopf: ein Häkchen je Werk (mit Bild), dazu „Alle“ und „Keine“
-  function ilPopRender() {
-    const pop = $('#ilPop'); if (!pop || pop.hidden) return;
-    const row = n => { const pic = portraitOf(ilPic(n)), on = ilPick.includes(n);
-      return `<label class="ilpR" data-i="${IL_ORDER.indexOf(n) + 1}"><input type="checkbox" value="${n}"${on ? ' checked' : ''}>${pic ? `<img src="portraits/${encodeURIComponent(pic.img)}" alt="" title="${esc(pic.name || '')}">` : (n === 'LXX' ? `<span class="ilpPh" lang="grc">Α</span>` : `<span class="ilpPh" lang="he">א</span>`)}<span class="ilpT"><b>${esc(I18N.t(IL_LABEL[n]))}</b><small>${esc(I18N.t(ilSub(n)))}</small></span><i class="ilpDot"></i></label>`; };
-    pop.innerHTML = `<div class="ilpH"><b>${esc(I18N.t('Interlinear'))}</b><span><button type="button" data-a="all">${esc(I18N.t('Alle'))}</button><button type="button" data-a="none">${esc(I18N.t('Keine'))}</button></span></div>${ilAvail.map(row).join('')}<p class="muted ilpN">${esc(I18N.t('Die gewählten Werke stehen Wort für Wort unter dem hebräischen Text (Westminster).'))}</p>`;
-  }
-  function ilPopPlace() {
-    const pop = $('#ilPop'), r = $('#ilBtn').getBoundingClientRect(); if (pop.hidden) return;
-    pop.style.top = Math.round(r.bottom + 4) + 'px';
-    pop.style.left = Math.round(Math.max(8, Math.min(r.left, innerWidth - pop.offsetWidth - 8))) + 'px';
-  }
-  function ilPopToggle(show = $('#ilPop').hidden) { const pop = $('#ilPop'); pop.hidden = !show; $('#ilBtn').setAttribute('aria-expanded', String(show)); if (show) { ilPopRender(); ilPopPlace(); } }
-  $('#ilPop').addEventListener('change', e => {
-    const c = e.target.closest('input[type=checkbox]'); if (!c) return;
-    ilPick = c.checked ? [...new Set([...ilPick, c.value])] : ilPick.filter(x => x !== c.value); ilSave(); ilRefresh();
+  const interlinearUI = window.LibraryInterlinear.create({
+    $, $$, esc, cache, getView: () => view, portraitOf,
+    consOf: s => consOf(s), apChap: s => apChap(s), verseOf: s => verseOf(s),
+    sources: { loadIL, resetPrivateIL, IL_TG, IL_QK, ilName,
+      loadTgIL, tgVer, tgSegs, tgDoc, tgPlain, loadQIL, qVer,
+      ilLxxVer, ilLxxDoc, ilLxxSegs },
   });
-  $('#ilPop').addEventListener('click', e => {
-    const a = e.target.closest('button[data-a]'); if (!a) return;
-    ilPick = a.dataset.a === 'all' ? [...new Set([...ilPick, ...ilAvail])] : ilPick.filter(x => !ilAvail.includes(x)); ilSave(); ilPopRender(); ilRefresh();
-  });
-  document.addEventListener('pointerdown', e => { const pop = $('#ilPop'); if (pop && !pop.hidden && !e.target.closest('#ilPop, #ilBtn')) ilPopToggle(false); }, true);
-  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('#ilPop').hidden) ilPopToggle(false); });
-  addEventListener('resize', () => ilPopPlace());
-  let ilTok = 0;
-  async function ilSourceChecks(names, title) {
-    const checked = new Set(), warnings = [];
-    const loaded = view && view.loaded || [], group = view && view.group;
-    const hebrew = loaded.filter(d => d.entry.kind === 'he' && /^Westminster/.test(d.entry.versionTitle || ''));
-    if (!hebrew.length) return { checked, warnings };
-    for (const name of names) {
-      if (name === 'BuberRosenzweig') { checked.add(name); continue; } // bereits durch matchLibrary geprüft
-      const expected = window.INTERLIN_SOURCES && window.INTERLIN_SOURCES[name] && window.INTERLIN_SOURCES[name][title];
-      let translations = loaded.filter(d => ilName(d.entry.versionTitle) === name);
-      if (!translations.length && expected) {
-        const entry = group && group.versions.find(v => v.versionTitle === expected.translation.versionTitle);
-        if (entry) {
-          try { const doc = cache.get(entry.rel) || await O.read(entry.rel); translations = [doc]; }
-          catch { warnings.push((IL_LABEL[name] || name) + ': ' + I18N.t('Textfassung konnte nicht geprüft werden')); continue; }
-        }
-      }
-      const result = hebrew.map(doc => window.AlignmentSources.check(expected, doc, translations));
-      if (result.every(r => r.ok)) checked.add(name);
-      else warnings.push((IL_LABEL[name] || name) + ': ' + I18N.t(result.find(r => !r.ok).reason));
-    }
-    return { checked, warnings };
-  }
+  function ilRefresh() { return interlinearUI.refresh(); }
+  function ilTagCell(cell, segments) { return interlinearUI.tagCell(cell, segments); }
   $('#bavliIlBtn').onclick = async () => {
     const current = view && view.sections && view.sections[view.idx];
     const page = current && apChap(current);
@@ -1080,62 +902,6 @@
       window.BavliInterlinear.open(data, page, { onWord: openBavliAnchor });
     } catch (err) { alert(I18N.t('Wortzuordnung nicht geladen: {}', err.message)); }
   };
-  async function ilRefresh() {
-    const b = $('#ilBtn'); if (!b) return;
-    const tok = ++ilTok;
-    const bavliSection = view && view.sections && view.sections[view.idx];
-    const bavliPage = bavliSection && apChap(bavliSection);
-    $('#bavliIlBtn').hidden = !(view && view.group && view.group.title === 'Berakhot' && /^(?:[2-9]|10)[ab]$/.test(bavliPage || ''));
-    const ALL = await loadIL(), title = view && view.group ? view.group.title : '';
-    if (tok !== ilTok) return;
-    const s0 = view && view.sections && view.sections[view.idx], c0 = s0 && apChap(s0), names = ALL && title ? Object.keys(ALL).filter(n => ALL[n][title] && (!c0 || Object.keys(ALL[n][title]).some(k => k.startsWith(c0 + ':')))) : []; // nur Kapitel, für die eine Zuordnung vorliegt
-    const lxx = !!(view && view.group && ilLxxVer(view.group)) && !!c0 && /^\d+$/.test(c0);
-    const TG = view && view.group && Object.keys(IL_TG).some(n => tgVer(view.group, n)) ? await loadTgIL() : null;
-    if (tok !== ilTok) return;
-    const tgHas = n => !!(TG && TG[n] && TG[n][title] && c0 && /^\d+$/.test(c0) && TG[n][title][+c0 - 1] && tgVer(view.group, n));
-    const QIL = view && view.group && qVer(view.group) ? await loadQIL() : null;
-    if (tok !== ilTok) return;
-    const qHas = !!(QIL && QIL[title] && c0 && Object.keys(QIL[title]).some(k => k.startsWith(c0 + ':')));
-    const sourceChecks = await ilSourceChecks(names, title);
-    if (tok !== ilTok) return;
-    ilAvail = IL_ORDER.filter(n => n === 'LXX' ? lxx : n === 'Qumran' ? qHas : IL_TG[n] ? tgHas(n) : sourceChecks.checked.has(n));
-    const has = ilAvail.length > 0, use = ilAvail.filter(n => ilPick.includes(n)), on = use.length > 0;
-    b.hidden = !has; b.classList.toggle('on', has && on);
-    if (!has && !$('#ilPop').hidden) ilPopToggle(false); else ilPopRender();
-    document.body.classList.toggle('il', has && on);
-    ilClear();
-    $$('#rOut .illeg').forEach(x => x.remove());
-    $$('#rOut .il-source-warning').forEach(x => x.remove());
-    if (sourceChecks.warnings.length) { const notice = document.createElement('p'); notice.className = 'il-source-warning muted'; notice.textContent = I18N.t('Wortzuordnung nicht angewendet: {}', sourceChecks.warnings.join('; ')); $('#rOut').prepend(notice); }
-    if (!has) return;
-    const s = view.sections && view.sections[view.idx], chap = s && apChap(s); if (!chap) return;
-    for (const row of $$('#rOut .row[data-l]')) { // deutsche und aramäische Spalten: Wortgruppen anklickbar machen (unabhängig vom Interlinear-Knopf)
-      const v = verseOf(row.dataset.l); if (v == null) continue;
-      row.querySelectorAll('.cell[data-vt]').forEach(cell => {
-        const nm = ilName(cell.dataset.vt); if (!nm || (!IL_TG[nm] && !sourceChecks.checked.has(nm))) return;
-        const segs = IL_TG[nm] ? tgSegs(TG, nm, title, chap, v, (cell.querySelector('.txt') || cell).textContent) : ALL && ALL[nm] && ALL[nm][title] && ALL[nm][title][chap + ':' + v];
-        if (segs) ilTagCell(cell, segs);
-      });
-    }
-    if (!on) return;
-    const lx = use.includes('LXX') ? await ilLxxDoc(view.group) : null, tgd = {};
-    for (const n of use) if (IL_TG[n]) tgd[n] = await tgDoc(view.group, n);
-    if (tok !== ilTok) return;
-    ilLegend(use);
-    for (const row of $$('#rOut .row[data-l]')) {
-      const v = verseOf(row.dataset.l); if (v == null) continue;
-      row.querySelectorAll('.cell[data-k="he"]').forEach(cell => {
-        if (!cell.querySelector('.w')) return;
-        const owner = view.loaded.find(d => d.entry.rel === cell.dataset.rel);
-        if (!owner || !/^Westminster/.test(owner.entry.versionTitle || '')) return;
-        const tgv = nm => { const d = tgd[nm], ch = d && d.text[+chap - 1]; return ch ? tgSegs(TG, nm, title, chap, v, tgPlain(ch[v - 1])) : null; };
-        const trs = use.flatMap(nm => nm === 'Qumran' ? ((QIL[title] || {})[chap + ':' + v] || []).map(([sig, segs]) => [nm, segs, sig]) : [[nm, nm === 'LXX' ? (lx && lx.text[+chap - 1] ? ilLxxSegs(cell, lx.text[+chap - 1][v - 1]) : null) : IL_TG[nm] ? tgv(nm) : ALL[nm][title][chap + ':' + v]]]).filter(x => x[1] && x[1].length);
-        if (trs.length) ilVerse(cell, trs, IL_ORDER);
-      });
-    }
-  }
-  $('#ilBtn').onclick = () => ilPopToggle();
-
   // Die Kapitel-Auswahl ist nur so breit wie der gewählte Eintrag
   let fitSpan = null;
   function fitSection() {
@@ -5329,106 +5095,11 @@
     }
   };
 
-  // ---------- Suche ----------
-  let sResults = [];
-  let fullCache = null; // Ergebnis der letzten Suche über alle Bücher
-  let lastSearch = null; // Parameter der letzten Suche (für „Als Lesetext“ im eigenen Tab)
-  // ----- Suchmaske: Sprache und Treffer-Art (zwei Auswahlfelder statt vieler Häkchen) -----
-  let sPending = 0; // laufende Suchen: solange heißt der Knopf „Abbrechen“
-  const sBusy = () => sPending > 0;
-  const sSetBusy = () => { const g = $('#sGo'); g.textContent = I18N.t(sBusy() ? 'Abbrechen' : 'Suchen'); g.classList.toggle('primary', !sBusy()); };
-  const S_KINDS = ['he', 'en', 'de', 'other'], S_LANGS = ['auto', 'he', 'de', 'en', 'other', 'all'], S_MODES = ['lemma', 'prefix', 'exact', 'part'];
-  // gewählte Sprache -> Textarten; „Automatisch“ richtet sich nach der Schrift der Eingabe
-  function sKinds() {
-    const l = $('#sLang').value, v = $('#sq').value;
-    if (l === 'all') return S_KINDS.slice();
-    if (l !== 'auto') return [l];
-    if (/[\u0590-\u05FF]/.test(v)) return ['he'];
-    if (S_GREEK.test(v)) return ['other']; // griechische Eingabe: Septuaginta und andere griechische Texte
-    return /\p{L}/u.test(v) ? ['en', 'de'] : S_KINDS.slice();
-  }
-  const S_GREEK = /[\u0370-\u03FF\u1F00-\u1FFF]/;
-  // Für welche Texte gilt die Treffer-Art? 'he' = hebräisch, 'gr' = griechische Eingabe in „Andere“/„Alle“ (Lemma-Suche in der Septuaginta), 'ot' = alles Übrige
-  const sSlot = () => { const k = sKinds(); return k.includes('he') ? 'he' : k.includes('other') && S_GREEK.test($('#sq').value) ? 'gr' : 'ot'; };
-  // Treffer-Art, getrennt gemerkt für hebräische, griechische und andere Suche („Alle Formen“ gibt es hebräisch und griechisch, „Wort mit Vorsilben“ nur hebräisch)
-  const sModeSel = { he: 'lemma', gr: 'lemma', ot: 'part' };
-  const sModeOk = (m, slot) => S_MODES.includes(m) && (slot === 'he' || slot === true || m === 'exact' || m === 'part' || (slot === 'gr' && m === 'lemma'));
-  // Treffer-Art -> Parameter des Suchkerns (parse: Suchfeld zerlegen – mehrere Wörter in der Nähe, "…" = Wortfolge)
-  const sMatchParams = () => { const m = $('#sMode').value; return { prefix: m === 'lemma' || m === 'prefix', exact: m === 'exact', lemma: m === 'lemma', partial: m === 'part', parse: true }; };
-  // Suchfeld grob zerlegen (nur für die Hinweiszeile; die eigentliche Zerlegung macht der Suchkern)
-  const sShape = v => { let ph = 0; const rest = v.replace(/(^|\s)["“„«»].+?["“”»«](?=\s|$)/gu, () => { ph++; return ' '; }); return { n: ph + rest.split(/\s+/).filter(w => /[\p{L}\p{N}]/u.test(w)).length, ph }; };
-  function sRefresh() {
-    const kinds = sKinds(), he = kinds.includes('he'), l = $('#sLang').value, v = $('#sq').value.trim(), gram = gramParams();
-    const slot = sSlot();
-    for (const o of $('#sMode').options) { const off = !sModeOk(o.value, slot); o.hidden = off; o.disabled = off; }
-    $('#sMode').value = sModeSel[slot];
-    const m = $('#sMode').value, fuzzy = $('#sFuzzy').checked, d = +$('#sDist').value, sh = sShape(v), p = [];
-    if (gram) p.push(I18N.t('Grammatik-Suche: Tanach (Westminster) und Berakhot 2a–10b'));
-    else p.push(I18N.t(l === 'auto' && !v ? 'Sprache richtet sich nach der Schrift der Eingabe' : kinds.length > 2 ? 'Sucht in allen Sprachen' : kinds.length === 2 ? 'Sucht deutsch und englisch' : kinds[0] === 'he' ? 'Sucht hebräisch' : kinds[0] === 'de' ? 'Sucht deutsch' : kinds[0] === 'en' ? 'Sucht englisch' : 'Sucht in anderen Sprachen'));
-    if (!gram) p.push(I18N.t(m === 'lemma' && slot === 'gr' ? 'alle Wortformen in der Septuaginta (Lemma), sonst ganze Wörter' : m === 'lemma' ? 'alle Wortformen im Tanach, sonst ganze Wörter (mit Vorsilben)' : m === 'prefix' ? 'ganze Wörter, hebräische Vorsilben erlaubt' : m === 'exact' ? 'nur genau dieses Wort' : fuzzy ? 'ganze Wörter' : 'auch Wortteile'));
-    if (sh.n > 1 && !gram) p.push(I18N.t(d < 0 ? 'alle Wörter im selben Vers' : d === 0 ? 'alle Wörter direkt nebeneinander' : 'alle Wörter nah beieinander (höchstens {#} dazwischen)', d) + ($('#sOrd').checked ? ', ' + I18N.t('in dieser Reihenfolge') : ''));
-    if (sh.ph && !gram) p.push(I18N.t('"…" = genau diese Wortfolge'));
-    if (fuzzy && !gram) p.push(I18N.t('ähnliche Schreibweise (Fuzzy)'));
-    $('#sHint').textContent = p.join(' · ');
-    const act = +$('#sOrd').checked + +fuzzy + +!$('#sWlc').checked + +(d !== 10) + +!!gram; // was unter „Erweitert“ vom Standard abweicht
-    $('#sAdvN').textContent = act ? ' ' + I18N.t('({#} aktiv)', act) : '';
-  }
-  O.onSearchProgress(p => { $('#sInfo').textContent = `Durchsuche … ${p.scanned} von ${p.total} Dateien · ${p.found} Treffer`; });
-
-  // Kategorien und einzelne Bücher für die Suche: ohne Häkchen wird überall gesucht
-  const sCats = new Set(), sTitles = new Set();
-  function renderSCats() {
-    const f = $('#sCatFilter').value.trim().toLowerCase();
-    const root = { name: '', path: '', children: new Map(), count: 0, titles: [] };
-    for (const g of groups) {
-      let n = root, p = '';
-      n.count++;
-      for (const c of g.cats.slice(0, 3)) {
-        p = p ? p + '/' + c : c;
-        if (!n.children.has(c)) n.children.set(c, { name: c, path: p, children: new Map(), count: 0, titles: [] });
-        n = n.children.get(c); n.count++;
-      }
-      if (!n.titles.includes(g.title)) n.titles.push(g.title);
-    }
-    const covered = p => [...sCats].some(c => c !== p && (p === c || p.startsWith(c + '/')));
-    const anySel = n => n.titles.some(t => sTitles.has(t)) || [...sCats].some(c => c.startsWith(n.path + '/')) || [...n.children.values()].some(anySel);
-    const hit = (t) => t.toLowerCase().includes(f);
-    const show = (n, anc) => !f || anc || hit(n.name) || n.titles.some(hit) || [...n.children.values()].some(c => show(c, false));
-    const node = (n, parentMatch) => {
-      const m = !f || parentMatch || hit(n.name);
-      if (!show(n, parentMatch)) return '';
-      const kids = SefOrder.sortCats([...n.children.keys()], n.name).map(k => node(n.children.get(k), m && !!f)).join('');
-      const cov = covered(n.path);
-      const books = SefOrder.sortTitles(n.titles.filter(t => !f || m || hit(t)), t => t).map(t =>
-        `<label class="t book"><input type="checkbox" data-st="${esc(t)}" ${cov || sCats.has(n.path) || sTitles.has(t) ? 'checked' : ''} > ${esc(t)}</label>`).join('');
-      const part = !cov && !sCats.has(n.path) && anySel(n); // nur ein Teil darunter gewählt: Teilmarkierung (Strich) statt Häkchen, sonst würde alles darunter durchsucht
-      const cb = `<input type="checkbox" data-sc="${esc(n.path)}" ${cov || sCats.has(n.path) ? 'checked' : ''} ${part ? 'data-part="1"' : ''}> `;
-      return `<details data-p="${esc(n.path)}" ${f || sOpen.has(n.path) ? 'open' : ''}><summary>${cb}<span class="catname">${esc(n.name)}</span> <small>(${n.count})</small></summary>${kids}${books}</details>`;
-    };
-    $('#sCatTree').innerHTML = SefOrder.sortCats([...root.children.keys()], '').map(k => node(root.children.get(k), false)).join('') || '<p class="muted">Nichts gefunden.</p>';
-    $$('#sCatTree input[data-part]').forEach(i => { i.indeterminate = true; });
-    const parts = [sCats.size ? `${sCats.size} Kategorie${sCats.size === 1 ? '' : 'n'}` : '', sTitles.size ? (sTitles.size === 1 ? '1 Buch' : `${sTitles.size} Bücher`) : ''].filter(Boolean);
-    $('#sCatBtn').textContent = parts.length ? `Auswahl: ${parts.join(', ')}` : 'Kategorien: alle';
-  }
-  const sOpen = new Set(); // vom Nutzer aufgeklappte Kategorien in der Suchliste
-  $('#sCatTree').addEventListener('toggle', e => { const d = e.target; if (d.dataset && d.dataset.p != null && !$('#sCatFilter').value.trim()) { if (d.open) sOpen.add(d.dataset.p); else sOpen.delete(d.dataset.p); } }, true);
-  { let sct = null; $('#sCatFilter').addEventListener('input', () => { clearTimeout(sct); sct = setTimeout(renderSCats, 80); }); }
-  $('#sCatAll').onclick = () => { sTitles.clear(); sCats.clear(); groups.forEach(g => { if (g.cats[0]) sCats.add(g.cats[0]); }); renderSCats(); }; // alle Hauptkategorien anhaken; danach z. B. ein Buch anklicken = nur dieses
-  $('#sCatTree').addEventListener('change', e => {
-    const d = e.target.dataset || {};
-    // Ist eine übergeordnete Kategorie gewählt und man klickt etwas darunter, gilt nur dieser Eintrag (statt „alles darunter minus eins“)
-    const own = d.sc !== undefined ? d.sc : (e.target.closest('details') || {}).dataset && e.target.closest('details').dataset.p;
-    if (own != null && (d.sc !== undefined || d.st !== undefined) && [...sCats].some(c => c !== (d.sc !== undefined ? own : null) && (own === c || own.startsWith(c + '/')) && (d.sc === undefined || own !== c))) {
-      sCats.clear(); sTitles.clear(); if (d.sc !== undefined) sCats.add(d.sc); else sTitles.add(d.st); renderSCats(); return;
-    }
-    if (d.sc !== undefined) {
-      const p = d.sc;
-      if (e.target.checked) { sCats.add(p); for (const c of [...sCats]) if (c !== p && c.startsWith(p + '/')) sCats.delete(c); } else sCats.delete(p);
-    } else if (d.st !== undefined) {
-      if (e.target.checked) sTitles.add(d.st); else sTitles.delete(d.st);
-    } else return;
-    renderSCats();
-  });
+  // Suche: eigene Instanz je Lesefenster; Navigation bleibt hier beim Leser.
+  function runSearch(only) { return searchUI.run(only); }
+  function renderSCats() { return searchUI.renderCategories(); }
+  function renderSearchSaved() { return searchUI.renderSaved(); }
+  function sEntApply(entry) { return searchUI.apply(entry); }
 
   // „Nur in diesem Buch suchen“: Suchmaske mit genau diesem Buch vorbelegen
   $('#bookSearch').onclick = () => {
@@ -5437,12 +5108,7 @@
     if (cmtOpen) toggleCmt(false);
     $('#linkPanel').hidden = true;
     showTab('search');
-    sCats.clear(); sTitles.clear(); sTitles.add(view.group.title);
-    { let p = ''; for (const c of view.group.cats.slice(0, 3)) { p = p ? p + '/' + c : c; sOpen.add(p); } } // Pfad bis zum Buch aufklappen (Tanach › Tora › Genesis)
-    renderSCats();
-    { const b = $('#sCatTree input[data-st]:checked'); if (b) b.scrollIntoView({ block: 'center' }); }
-    $('#sq').focus(); $('#sq').select();
-    if ($('#sq').value.trim()) runSearch();
+    searchUI.selectBook(view.group);
   };
 
   // Kontextmenü (Rechtsklick): kleine Liste von Aktionen an der Mausposition
@@ -5668,9 +5334,6 @@
   $('#cmtBody').addEventListener('dblclick', dblWord);
   let dictSel = null; // Auswahl der durchsuchten Wörterbücher (Liste von Kennungen) oder null = alle
   try { const a = JSON.parse(localStorage.getItem('dictSel') || 'null'); if (Array.isArray(a) && a.length) dictSel = a; } catch { /* egal */ }
-  let dictOnly = null; // { id, name }: Suche nur in diesem Wörterbuch (wird nicht mehr über das Menü gesetzt)
-  let dictHist = [], dictPos = -1, dictShown = [];
-  function dictNavButtons() { $('#dictBack').disabled = dictPos <= 0; $('#dictFwd').disabled = dictPos >= dictHist.length - 1; }
   // Hebräischer Satz mit eingeschobenem „l.“ (lies): in einem LTR-Absatz würde das lateinische l. den Satz in zwei Teile zerreißen, deren Reihenfolge dann nicht stimmt – als eigener RTL-Block ordnen
   const HEBC = '[\\u0590-\\u05FF\\uFB1D-\\uFB4F]', HEBN = '[\\s.,;:!?()\\[\\]\'"„“”—–*-]';
   const HEBRUN = new RegExp(`${HEBC}(?:${HEBC}|${HEBN})*?(?<![A-Za-z])l\\.(?:${HEBC}|${HEBN})*${HEBC}`, 'g');
@@ -5683,144 +5346,20 @@
     for (const tok of String(head).split(/[·,;/\s]+/)) { if (!/[\u05D0-\u05EA]/.test(tok)) continue; const ids = lemByCons.get(consOf(tok)); if (ids) return ids; }
     return null;
   }
-  function dictCardButtons(head, greekIndex, targumIndex, dictId) {
-    if (dictId === '9ce7ea6c00f1') {
-      const ids = targumIndex ? window.TargumForms.dictionaryLemmas(targumIndex, head) : [];
-      return ids.map(id => { const lex = targumIndex.L[id][0]; return ` <button type="button" class="dwk" data-tl="${esc(id)}" title="${esc(lex[0] + ' – ' + lex[2])}">${esc(I18N.t('Aramäische Wortkarte'))}${ids.length > 1 ? ': ' + esc(lex[0] + ' – ' + lex[2]) : ''}</button>`; }).join('');
-    }
-    const ids = lemIdsFor(head);
-    if (ids) return ` <button type="button" class="dwk" data-ids="${esc(ids.join(','))}" title="${esc(I18N.t('Wortkarte: Wörterbücher, Verteilung, häufigste Formen, Septuaginta'))}">${esc(I18N.t('Wortkarte'))}</button>`;
-    const lemmas = greekIndex ? window.GMorph.dictionaryLemmas(greekIndex, head) : [];
-    return lemmas.map(lemma => ` <button type="button" class="dwk" data-gl="${esc(lemma)}" title="${esc(I18N.t('Griechische Wortkarte öffnen'))}">${esc(I18N.t('Wortkarte'))}${lemmas.length > 1 ? ': ' + esc(lemma) : ''}</button>`).join('');
-  }
-  let dictLookupToken = 0;
-  async function dictLookup(q, only = null, fromHist = false) {
-    q = String(q || '').trim();
-    if (!q) return;
-    const token = ++dictLookupToken;
-    dictOnly = only;
-    dtabs[dcur].title = q;
-    renderDtabs();
-    if (!fromHist) {
-      if (!(dictPos >= 0 && dictHist[dictPos].q === q)) { dictHist = dictHist.slice(0, dictPos + 1); dictHist.push({ q, only }); dictPos = dictHist.length - 1; }
-    }
-    dictNavButtons();
-    $('#dictQ').value = q;
-    if (typeof renderSaved === 'function') renderSaved();
-    $('#dictOut').innerHTML = '<p class="muted">Suche …</p>';
-    const r = await O.dictLookup(q, only ? only.id : (dictSel && dictSel.length ? dictSel : null), $('#dictFull') && $('#dictFull').checked);
-    if (token !== dictLookupToken) return;
-    if (r.error) { $('#dictOut').innerHTML = `<p class="muted">⚠ ${esc(r.error)}</p>`; return; }
-    dictShown = r.results;
-    if (!r.results.length) {
-      const n = (await O.dictList()).list.length;
-      if (token !== dictLookupToken) return;
-      $('#dictOut').innerHTML = n ? `<p class="muted">Kein Eintrag für „${esc(q)}“ gefunden.</p>` : '<p class="muted">Es ist noch kein Wörterbuch eingebunden. Öffne unten „Wörterbücher verwalten“ und füge eine DSL-Datei hinzu.</p>';
-      return;
-    }
-    let greekIndex = null;
-    if (window.GMorph && r.results.some(x => window.GMorph.GREEK.test(x.head))) {
-      try { greekIndex = await loadGM(); } catch { /* Artikel bleiben auch ohne Formenindex lesbar */ }
-      if (token !== dictLookupToken) return;
-    }
-    let targumIndex = null;
-    if (window.TargumForms && r.results.some(x => x.dictId === '9ce7ea6c00f1')) {
-      try { targumIndex = await loadTForms(); } catch { /* Artikel bleiben auch ohne Formenindex lesbar */ }
-      if (token !== dictLookupToken) return;
-    }
-    const onlyBar = (dictSrc && dictSrc.q === q && document.documentElement.dataset.tab !== 'dict' ? `<div class="dsrc muted">aus <a href="#" title="Zur Stelle im Text">${esc(dictSrc.ref)}</a></div>` : '')
-      + (dictOnly ? `<div class="donly muted">Nur in: <b>${esc(dictOnly.name)}</b> · <a class="dall">alle Wörterbücher</a></div>` : '');
-    // pro Wörterbuch ein eigener Abschnitt mit Titelleiste und Farbe; jeder Treffer als eigene Karte
-    const hue = id => { let h = 0; for (const c of String(id)) h = (h * 31 + c.charCodeAt(0)) % 360; return h; };
-    const cnt = {}; r.results.forEach(x => { cnt[x.dictId] = (cnt[x.dictId] || 0) + 1; });
-    let last = null;
-    $('#dictOut').innerHTML = onlyBar + r.results.map((x, i) => {
-      let sec = '';
-      if (x.dictId !== last) { last = x.dictId; sec = `<div class="dsec" style="--dh:${hue(x.dictId)}"><span>${(p => p ? `<img class="vpic" src="portraits/${encodeURIComponent(p.img)}" alt="" data-title="${esc(p.name || '')}" loading="lazy">` : '')(portraitOf(x.dict))}${esc(x.dict)}</span><span class="dsr"><button type="button" class="dlist" data-id="${esc(x.dictId)}" data-name="${esc(x.dict)}" title="Alle Stichwörter dieses Wörterbuchs als Liste">☰ Stichwörter</button><small>${cnt[x.dictId]} Treffer</small></span></div>`; }
-      return `${sec}<div class="dentry" id="dentry${i}" style="--dh:${hue(x.dictId)}"><div class="dhead"><b dir="auto">${esc(x.head)}</b>${dictCardButtons(x.head, greekIndex, targumIndex, x.dictId)}${x.note ? ` <span class="muted">${esc(x.note)}</span>` : ''}</div><div class="dbody" dir="ltr">${heFix(/Gesenius/.test(x.dict || '') && window.GAbk ? window.GAbk.mark(x.html) : x.html)}</div></div>`;
-    }).join('');
-    $('#dictOut').scrollTop = 0;
-  }
-  $('#dictOut').addEventListener('click', async e => {
-    const b = e.target.closest('.dwk'); if (!b) return;
-    if (b.dataset.tl) { openTForms(b.dataset.tl, null, 'card'); return; }
-    if (b.dataset.gl) { openGForms(b.dataset.gl, null, 'card'); return; }
-    let ids = b.dataset.ids.split(',');
-    if (ids.length > 1) { // mehrere gleich geschriebene Lemmata: das häufigste nehmen
-      try { const D = await loadForms(); let best = -1; for (const id of ids) { const m = window.Forms.model(D, id), n = m ? m.total : 0; if (n > best) { best = n; ids = [id]; } } } catch { ids = [ids[0]]; }
-    }
-    openForms(ids[0], null, 'card');
+  // Eigene Wörterbuchinstanz je Lesefenster, mit schmalen Anschlüssen zum Leser.
+  const lsGet = k => { try { const a = JSON.parse(localStorage.getItem(k) || '[]'); return Array.isArray(a) ? a : []; } catch { return []; } };
+  const lsSet = (k, a) => { try { localStorage.setItem(k, JSON.stringify(a)); } catch { /* egal */ } };
+  const dictionaryUI = window.LibraryDictionary.create({
+    $, esc, heFix, lemIdsFor, portraitOf, loadGM, loadTForms, loadForms,
+    openTForms, openGForms, openForms, panelScrollTo, lsGet, lsSet,
+    getSelection: () => dictSel, setSelection: ids => { dictSel = ids; },
+    getSource: () => dictSrc, setDictSrc,
   });
-  const dictGoHist = d => { const k = dictPos + d; if (k < 0 || k >= dictHist.length) return; dictPos = k; dictLookup(dictHist[k].q, dictHist[k].only, true); };
-  // Mehrere Wörterbuch-Tabs – nur im Reiter „Wörterbuch“ sichtbar (die Seitenleiste beim Lesen hat immer nur eine Suche)
-  const dtabs = [{ title: 'Neu' }];
-  let dcur = 0;
-  const dtabSave = () => {
-    const t = dtabs[dcur];
-    Object.assign(t, { q: $('#dictQ').value, only: dictOnly, hist: dictHist, pos: dictPos, shown: dictShown, html: $('#dictOut').innerHTML, scroll: $('#dictOut').scrollTop });
-  };
-  const dtabLoad = () => {
-    ++dictLookupToken;
-    const t = dtabs[dcur];
-    dictOnly = t.only || null; dictHist = t.hist || []; dictPos = t.pos == null ? -1 : t.pos; dictShown = t.shown || [];
-    $('#dictQ').value = t.q || '';
-    $('#dictOut').innerHTML = t.html || '<p class="muted">Gib ein Wort ein.</p>';
-    $('#dictOut').scrollTop = t.scroll || 0;
-    dictNavButtons();
-    renderDtabs();
-  };
-  function renderDtabs() {
-    $('#dictTabs').innerHTML = dtabs.map((t, i) => `<span class="dtab${i === dcur ? ' active' : ''}" data-i="${i}" title="${esc(t.title)}"><span class="dtt">${esc(t.title)}</span>${dtabs.length > 1 ? '<button class="dtx" title="Tab schließen">✕</button>' : ''}</span>`).join('') + '<button id="dtabNew" title="Neuer Wörterbuch-Tab">+</button>';
-  }
-  const dtabGo = i => { if (i === dcur || !dtabs[i]) return; dtabSave(); dcur = i; dtabLoad(); };
-  const dtabAdd = () => { dtabSave(); dcur = Math.min(dcur + 1, dtabs.length); dtabs.splice(dcur, 0, { title: 'Neu' }); dtabLoad(); $('#dictQ').focus(); };
-  const dtabClose = i => { if (dtabs.length < 2) return; if (i === dcur) { dtabs.splice(i, 1); dcur = Math.min(i, dtabs.length - 1); dtabLoad(); } else { dtabSave(); dtabs.splice(i, 1); if (i < dcur) dcur--; renderDtabs(); } };
-  $('#dictTabs').addEventListener('click', e => {
-    if (e.target.closest('#dtabNew')) return dtabAdd();
-    const t = e.target.closest('.dtab'); if (!t) return;
-    if (e.target.closest('.dtx')) return dtabClose(+t.dataset.i);
-    dtabGo(+t.dataset.i);
-  });
-  $('#dictTabs').addEventListener('auxclick', e => { const t = e.target.closest('.dtab'); if (t && e.button === 1) dtabClose(+t.dataset.i); });
-  // Im Wörterbuch-Reiter öffnet Cmd/Strg/Umschalt + Klick auf einen Verweis (oder Cmd+Enter beim Suchen) einen neuen Tab
-  $('#dictOut').addEventListener('click', e => {
-    const a = e.target.closest('a.dref[data-q]');
-    if (a && document.documentElement.dataset.tab === 'dict' && (e.metaKey || e.ctrlKey)) { e.preventDefault(); e.stopImmediatePropagation(); const q = a.dataset.q; dtabAdd(); dictLookup(q); }
-  }, true);
-  renderDtabs();
-  // Wortvorschläge beim Tippen
-  { let sugTimer = 0, sugSeq = 0, sugItems = [], sugSel = -1;
-    const box = $('#dictSug');
-    const hideSug = () => { box.hidden = true; sugItems = []; sugSel = -1; };
-    const paint = () => { box.innerHTML = sugItems.map((x, i) => `<div class="sg${i === sugSel ? ' on' : ''}" data-i="${i}"><b dir="auto">${esc(x.head)}</b><small>${esc(x.dict)}</small></div>`).join(''); box.hidden = !sugItems.length; };
-    const pick = i => { const x = sugItems[i]; if (!x) return; hideSug(); $('#dictQ').value = x.head; manualSearch(x.head); };
-    $('#dictQ').addEventListener('input', () => {
-      clearTimeout(sugTimer);
-      const v = $('#dictQ').value.trim();
-      if (!v) { hideSug(); return; }
-      sugTimer = setTimeout(async () => {
-        const my = ++sugSeq;
-        const r = await O.dictSuggest(v);
-        if (my !== sugSeq || $('#dictQ').value.trim() !== v) return; // veraltete Antwort
-        sugItems = r.list || []; sugSel = -1; paint();
-      }, 80);
-    });
-    $('#dictQ').addEventListener('keydown', e => {
-      if (box.hidden) return;
-      if (e.key === 'ArrowDown' || e.key === 'ArrowUp') { e.preventDefault(); sugSel = (sugSel + (e.key === 'ArrowDown' ? 1 : -1) + sugItems.length + 1) % (sugItems.length + 1); if (sugSel === sugItems.length) sugSel = -1; paint(); }
-      else if (e.key === 'Enter' && sugSel >= 0) { e.preventDefault(); e.stopImmediatePropagation(); pick(sugSel); }
-      else if (e.key === 'Enter') { hideSug(); } // Enter ohne gewählten Vorschlag: nachschlagen (siehe unten), Vorschläge schließen
-      else if (e.key === 'Escape') { hideSug(); }
-    }, true);
-    box.addEventListener('mousedown', e => { const r = e.target.closest('.sg'); if (r) { e.preventDefault(); pick(+r.dataset.i); } });
-    $('#dictQ').addEventListener('blur', () => setTimeout(hideSug, 120));
-    $('#dictGo').addEventListener('click', hideSug);
-  }
-  // „Erster Buchstabe weg“: Präfix (בְּ, וְ, הַ …) abschneiden und neu nachschlagen, beliebig oft
-  $('#dictCut').onclick = () => {
-    const q = $('#dictQ').value.trim().replace(/^[^\p{L}]*\p{L}\p{M}*/u, '');
-    if (q) dictLookup(q); 
-  };
+  function dictLookup(q, only, fromHist) { return dictionaryUI.lookup(q, only, fromHist); }
+  function renderDictList() { return dictionaryUI.renderList(); }
+  function renderSaved() { return dictionaryUI.renderSaved(); }
+  function dtabAdd() { return dictionaryUI.addTab(); }
+  function dictJump(i) { return dictionaryUI.jump(i); }
   // Reiter „Wörterbuch“: das Wörterbuch füllt die ganze Seite
   { let dictBefore = false;
     onTabChange = (t, prev) => {
@@ -5828,15 +5367,6 @@
       else if (t !== 'dict' && prev === 'dict') toggleDict(dictBefore);
     };
   }
-  $('#dictBack').onclick = () => dictGoHist(-1);
-  $('#dictFwd').onclick = () => dictGoHist(1);
-  // Schriftgröße des Wörterbuchs (wird gemerkt)
-  let dfs = 15;
-  try { dfs = Math.min(26, Math.max(10, +localStorage.getItem('dictFs') || 15)); } catch { /* egal */ }
-  const applyDfs = () => { $('#dictPanel').style.setProperty('--dict-fs', dfs + 'px'); try { localStorage.setItem('dictFs', String(dfs)); } catch { /* egal */ } };
-  applyDfs();
-  $('#dictFsMinus').onclick = () => { dfs = Math.max(10, dfs - 1); applyDfs(); };
-  $('#dictFsPlus').onclick = () => { dfs = Math.min(26, dfs + 1); applyDfs(); };
   // Scrollt nur den umgebenden Panel-Container (nicht das Dokument), damit das Fenster nicht springt
   function panelScrollTo(el, block) {
     let p = el.parentElement;
@@ -5845,19 +5375,6 @@
     const r = el.getBoundingClientRect(), pr = p.getBoundingClientRect();
     const top = r.top - pr.top + p.scrollTop - (block === 'center' ? (p.clientHeight - r.height) / 2 : 0);
     p.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
-  }
-  // zu einem Artikel der aktuellen Trefferliste springen
-  function dictJump(i) {
-    const el = $('#dentry' + i);
-    if (!el) return;
-    panelScrollTo(el, 'start');
-    el.classList.add('flash'); setTimeout(() => el.classList.remove('flash'), 1200);
-  }
-  async function renderDictList() {
-    const r = await O.dictList(), list = r.list || [];
-    if (dictSel) { dictSel = dictSel.filter(id => list.some(d => d.id === id)); if (!dictSel.length) dictSel = null; }
-    $('#dictList').innerHTML = list.length ? list.map((d, i) => `<div class="dli"><label class="dsl"><input type="checkbox" data-id="${esc(d.id)}"${!dictSel || dictSel.includes(d.id) ? ' checked' : ''}>${(p => p ? `<img class="vpic" src="portraits/${encodeURIComponent(p.img)}" alt="" data-title="${esc(p.name || '')}" loading="lazy">` : '')(portraitOf(d.name))}<span class="dsn">${esc(d.name)}</span><small>${d.count.toLocaleString(I18N.loc)}</small></label><span class="dbtns"><button data-mv="-1" data-id="${esc(d.id)}" title="Nach oben (wird zuerst angezeigt)"${i === 0 ? ' disabled' : ''}>▲</button><button data-mv="1" data-id="${esc(d.id)}" title="Nach unten"${i === list.length - 1 ? ' disabled' : ''}>▼</button><button data-rm="1" data-id="${esc(d.id)}" title="Wörterbuch entfernen">✕</button></span></div>`).join('') : '<p class="muted">Noch keine Wörterbücher.</p>';
-    const B = $('#dictSelB'); if (B) B.innerHTML = `📚<span class="cl"> ${dictSel ? esc(dictSel.length + ' von ' + list.length) : esc(I18N.t('Alle Wörterbücher'))}</span> ▾`;
   }
   // Herkunft des nachgeschlagenen Worts (Stelle im Text): als Feld „aus Genesis 25:8“ im Wörterbuch, das Wort bleibt im Text markiert
   let dictSrc = null, dictLastWord = null, dictLastAt = 0, dictCtxRow = null;
@@ -5897,94 +5414,6 @@
   $('#openDict').onclick = () => { $('#moreMenu').open = false; toggleDict(); };
   $('#dictClose').onclick = () => { if (document.documentElement.dataset.tab === 'dict') showTab('read'); else toggleDict(false); };
   // Letzte Suchen (nur selbst eingegebene/ausgewählte, nicht Doppelklick oder Links) und Favoriten
-  const lsGet = k => { try { const a = JSON.parse(localStorage.getItem(k) || '[]'); return Array.isArray(a) ? a : []; } catch { return []; } };
-  const lsSet = (k, a) => { try { localStorage.setItem(k, JSON.stringify(a)); } catch { /* egal */ } };
-  let dRecent = lsGet('dictRecent'), dFavs = lsGet('dictFavs');
-  const chips = (a, fav) => a.length ? a.map((w, i) => `<span class="dchip"><a data-w="${esc(w)}" dir="auto">${esc(w)}</a><button data-rm="${i}" title="Entfernen">✕</button></span>`).join('') : `<span class="muted">${fav ? 'Noch keine Favoriten' : 'Noch keine Suchen'}</span>`;
-  const syncSaved = () => { dRecent = lsGet('dictRecent'); dFavs = lsGet('dictFavs'); }; // beide Fenster teilen den Speicher: vor jeder Änderung frisch lesen
-  function renderSaved() {
-    syncSaved();
-    $('#dictRecentL').innerHTML = chips(dRecent, false);
-    $('#dictFavL').innerHTML = chips(dFavs, true);
-    const q = $('#dictQ').value.trim(), on = !!q && dFavs.includes(q);
-    $('#dictStar').textContent = on ? '★' : '☆'; $('#dictStar').classList.toggle('on', on);
-  }
-  const manualSearch = (q, only = null) => {
-    q = String(q || '').trim();
-    if (!dictSrc || dictSrc.q !== q) setDictSrc(null);
-    syncSaved();
-    if (q) { dRecent = [q, ...dRecent.filter(x => x !== q)].slice(0, 30); lsSet('dictRecent', dRecent); }
-    dictLookup(q, only); renderSaved();
-  };
-  $('#dictStar').onclick = () => {
-    const q = $('#dictQ').value.trim(); if (!q) return;
-    syncSaved();
-    dFavs = dFavs.includes(q) ? dFavs.filter(x => x !== q) : [q, ...dFavs];
-    lsSet('dictFavs', dFavs); renderSaved();
-  };
-  $('#dictRecentClear').onclick = () => { syncSaved(); dRecent = []; lsSet('dictRecent', dRecent); renderSaved(); };
-  $('#dictSaved').addEventListener('click', e => {
-    const rm = e.target.closest('button[data-rm]');
-    if (rm) { syncSaved(); const fav = !!rm.closest('#dictFavL'); const a = fav ? dFavs : dRecent; a.splice(+rm.dataset.rm, 1); lsSet(fav ? 'dictFavs' : 'dictRecent', a); renderSaved(); return; }
-    const a = e.target.closest('a[data-w]'); if (a) dictLookup(a.dataset.w);
-  });
-  $('#dictQ').addEventListener('input', renderSaved);
-  renderSaved();
-  { const fb = $('#dictFull'); // Volltextsuche (Artikeltext) ein/aus, wird gemerkt
-    try { fb.checked = localStorage.getItem('dictFull') === '1'; } catch { /* egal */ }
-    fb.addEventListener('change', () => { try { localStorage.setItem('dictFull', fb.checked ? '1' : '0'); } catch { /* egal */ } const q = $('#dictQ').value.trim(); if (q) dictLookup(q, dictOnly); }); }
-  { // Auswahl der Wörterbücher: Häkchen je Wörterbuch, wird gemerkt
-    const B = $('#dictSelB'), Pn = $('#dictSelP');
-    const paint = renderDictList;
-    const save = () => { try { localStorage.setItem('dictSel', JSON.stringify(dictSel || null)); } catch { /* egal */ } };
-    B.onclick = async e => { e.stopPropagation(); if (Pn.hidden) { await paint(); Pn.hidden = false; } else Pn.hidden = true; };
-    document.addEventListener('click', e => { if (!Pn.hidden && !Pn.contains(e.target) && e.target !== B && document.body.contains(e.target)) Pn.hidden = true; });
-    Pn.addEventListener('click', async e => {
-      const a = e.target.closest('a[data-a]');
-      if (a) { dictSel = null; if (a.dataset.a === 'none') { Pn.querySelectorAll('input').forEach(i => { i.checked = false; }); return; } save(); await paint(); const q = $('#dictQ').value.trim(); if (q) dictLookup(q, dictOnly); }
-    });
-    Pn.addEventListener('change', async e => {
-      const ids = [...Pn.querySelectorAll('input')].filter(i => i.checked).map(i => i.dataset.id), all = Pn.querySelectorAll('input').length;
-      dictSel = ids.length && ids.length < all ? ids : null; save(); renderDictList();
-      const q = $('#dictQ').value.trim(); if (q) dictLookup(q, dictOnly);
-    });
-    paint();
-  }
-
-  { // Stichwortliste eines Wörterbuchs (Knopf in der farbigen Titelleiste): filtern, Klick = nur in diesem Wörterbuch nachschlagen
-    let pop = null, cur = null, all = [], shown = [], pos = 0;
-    const CH = 300;
-    const close = () => { if (pop) pop.hidden = true; };
-    const more = () => { const box = pop.querySelector('.dhl'); const end = Math.min(shown.length, pos + CH); let h = ''; for (let i = pos; i < end; i++) h += `<div class="dhi" dir="auto" data-w="${esc(shown[i])}">${esc(shown[i])}</div>`; box.insertAdjacentHTML('beforeend', h); pos = end; pop.querySelector('.dhc').textContent = `${shown.length.toLocaleString(I18N.loc)} von ${all.length.toLocaleString(I18N.loc)}`; };
-    const refilter = () => {
-      const q = pop.querySelector('input').value.trim().normalize('NFD').replace(/[\u0591-\u05c7\u0300-\u036f]/g, '').replace(/[ךםןףץ]/g, c => ({ 'ך': 'כ', 'ם': 'מ', 'ן': 'נ', 'ף': 'פ', 'ץ': 'צ' }[c])).toLowerCase();
-      shown = q ? all.filter(h => h.normalize('NFD').replace(/[\u0591-\u05c7\u0300-\u036f]/g, '').replace(/[ךםןףץ]/g, c => ({ 'ך': 'כ', 'ם': 'מ', 'ן': 'נ', 'ף': 'פ', 'ץ': 'צ' }[c])).toLowerCase().includes(q)) : all;
-      pos = 0; pop.querySelector('.dhl').innerHTML = ''; pop.querySelector('.dhl').scrollTop = 0; more();
-    };
-    $('#dictOut').addEventListener('click', async e => {
-      const b = e.target.closest('.dlist'); if (!b) return;
-      e.stopPropagation();
-      if (!pop) {
-        pop = document.createElement('div'); pop.id = 'dheadPop'; pop.hidden = true;
-        pop.innerHTML = '<div class="dht"><b></b><button type="button" class="dhx" title="Schließen">✕</button></div><input type="search" placeholder="Stichwörter filtern …" autocomplete="off"><div class="dhc muted"></div><div class="dhl"></div>';
-        document.body.appendChild(pop);
-        pop.querySelector('.dhx').onclick = close;
-        pop.querySelector('input').addEventListener('input', refilter);
-        pop.querySelector('.dhl').addEventListener('scroll', ev => { const l = ev.target; if (pos < shown.length && l.scrollTop + l.clientHeight > l.scrollHeight - 200) more(); });
-        pop.querySelector('.dhl').addEventListener('click', ev => { const it = ev.target.closest('.dhi'); if (!it || !cur) return; const w = it.dataset.w; close(); manualSearch(w); });
-        document.addEventListener('click', ev => { if (pop && !pop.hidden && !pop.contains(ev.target) && !ev.target.closest('.dlist')) close(); });
-        document.addEventListener('keydown', ev => { if (ev.key === 'Escape') close(); });
-      }
-      if (!pop.hidden && cur && cur.id === b.dataset.id) { close(); return; }
-      cur = { id: b.dataset.id, name: b.dataset.name };
-      pop.querySelector('.dht b').textContent = cur.name; pop.querySelector('input').value = '';
-      pop.querySelector('.dhl').innerHTML = '<p class="muted">Lade …</p>'; pop.hidden = false;
-      /* feste Größe und Lage (unabhängig vom Knopf) – siehe CSS */
-      all = (await O.dictHeads(cur.id)).list || []; refilter(); pop.querySelector('input').focus();
-    }, true);
-  }
-  $('#dictGo').onclick = () => manualSearch($('#dictQ').value);
-  $('#dictQ').addEventListener('keydown', e => { if (e.key === 'Enter') manualSearch($('#dictQ').value); });
   // Stellenangaben im Lesetext und in den Kommentaren (Klasse „aref“): im Reader öffnen; Cmd/Strg + Klick = neuer Tab, Umschalt + Klick = im zweiten Fenster rechts
   document.addEventListener('click', e => {
     const a = e.target.closest && e.target.closest('a.aref[data-sref]');
@@ -6042,197 +5471,18 @@
     items.push({ label: 'Alles auswählen', fn: () => { const r = document.createRange(); r.selectNodeContents($('#dictOut')); const s2 = window.getSelection(); s2.removeAllRanges(); s2.addRange(r); } });
     // eine Zeile pro Wörterbuch (springt zum ersten Artikel dieses Wörterbuchs)
     const byDict = [];
-    dictShown.forEach((x, i) => { let g = byDict.find(b => b.dictId === x.dictId); if (!g) byDict.push(g = { dictId: x.dictId, name: x.dict, first: i, n: 0 }); g.n++; });
+    dictionaryUI.getShown().forEach((x, i) => { let g = byDict.find(b => b.dictId === x.dictId); if (!g) byDict.push(g = { dictId: x.dictId, name: x.dict, first: i, n: 0 }); g.n++; });
     if (byDict.length > 1 || (byDict.length === 1 && byDict[0].n > 1)) {
       items.push({ sep: true });
       byDict.forEach(g => items.push({ label: g.n > 1 ? I18N.t('{} ({#} Artikel)', g.name, g.n) : g.name, fn: () => dictJump(g.first) }));
     }
     ctxShow(e, items);
   });
-  $('#dictAdd').onclick = async () => {
-    const r = await O.dictAdd();
-    if (r.cancelled) return;
-    await renderDictList();
-    if (r.errors && r.errors.length) alert(r.errors.join('\n'));
-    else if (r.added && r.added.length) $('#dictOut').innerHTML = `<p class="muted">Eingebunden: ${r.added.map(a => `${esc(a.name)} (${a.count.toLocaleString(I18N.loc)} Einträge)`).join(', ')}.</p>`;
-  };
-  $('#dictList').addEventListener('click', async e => {
-    const mv = e.target.closest('button[data-mv]');
-    if (mv) {   // Reihenfolge ändern
-      const ids = (await O.dictList()).list.map(d => d.id), i = ids.indexOf(mv.dataset.id), k = i + +mv.dataset.mv;
-      if (i < 0 || k < 0 || k >= ids.length) return;
-      [ids[i], ids[k]] = [ids[k], ids[i]];
-      await O.dictOrder(ids);
-      await renderDictList();
-      if (dictHist[dictPos]) dictLookup(dictHist[dictPos].q, dictHist[dictPos].only, true);
-      return;
-    }
-    const b = e.target.closest('button[data-rm]');
-    if (!b || !confirm('Dieses Wörterbuch aus Safran entfernen? Deine DSL-Datei bleibt unberührt.')) return;
-    const r = await O.dictRemove(b.dataset.id);
-    if (r.error) alert(r.error);
-    await renderDictList();
-  });
-
   const plainSnip = r => (r.parts ? r.parts.map(x => x.t).join('') : `${r.snippet.before}${r.snippet.hit}${r.snippet.after}`);
-  // Grammatik-Auswahl der Suche -> { pos, stem, … } oder null, wenn nichts gewählt ist
-  const GRAM_IDS = { pos: 'gPos', stem: 'gStem', tense: 'gTense', person: 'gPerson', gender: 'gGender', number: 'gNumber', state: 'gState', suffix: 'gSuffix', article: 'gArticle' };
-  function gramParams() {
-    const g = {}; let any = false;
-    for (const [k, id] of Object.entries(GRAM_IDS)) { const el = $('#' + id); const v = el ? el.value : ''; g[k] = v; if (v) any = true; }
-    return any ? g : null;
-  }
-  $('#gClear').onclick = () => { for (const id of Object.values(GRAM_IDS)) $('#' + id).value = ''; $('#gramBox').open = false; sRefresh(); };
-  $('#gramBox').addEventListener('keydown', e => { if (e.key === 'Enter' && e.target.tagName === 'SELECT') { e.preventDefault(); if (!sBusy()) $('#sGo').click(); } });
-  // Verteilung des Suchworts auf die Bücher (Balkendiagramm, je Fassung eine Farbe)
-  const DIST_COLORS = ['#4c78db', '#e8863a', '#e0b84a', '#5fb3a8', '#8a93a6', '#b86bc4', '#d9534f', '#6aa84f'];
-  let distZoom = 1, distMode = 'o', distScale = null, distSel = null, distOpen = false; // distSel: gewählte Fassungen (null = die häufigsten)
-  // distScale: null = automatisch (logarithmisch, wenn einzelne Bücher alles überragen)
-  function renderDist(res) {
-    const box = $('#sChart');
-    const rows = (res.dist || []);
-    const books = res.stats.map(x => x.title);
-    if (!rows.length || books.length < 2) { box.hidden = true; return; }
-    const val = r => (distMode === 'o' ? r.o : r.h);
-    const serKey = r => (r.v || '') + '\u0000' + r.k;
-    const tot = new Map(); rows.forEach(r => tot.set(serKey(r), (tot.get(serKey(r)) || 0) + val(r)));
-    const allSers = [...tot.entries()].sort((a, b) => b[1] - a[1]).map(x => x[0]);
-    let sers = distSel ? allSers.filter(k => distSel.has(k)) : allSers.slice(); // von Anfang an alle Fassungen
-    const colOf = i => DIST_COLORS[i % DIST_COLORS.length];
-    const label = k => { const [v, kind] = k.split('\u0000'); return (v ? shortVer(v) : KIND_LABEL[kind] || kind) + (v ? '' : ''); };
-    const cell = new Map(rows.map(r => [r.t + '\u0001' + serKey(r), val(r)]));
-    const vals = rows.map(val).filter(v => v > 0).sort((a, b) => a - b), max = Math.max(1, ...vals);
-    const log = distScale ? distScale === 'log' : max > 30 * Math.max(1, vals[Math.floor(vals.length / 2)] || 1);
-    const nice = m => { const p = Math.pow(10, Math.floor(Math.log10(m))), f = m / p; return (f <= 1 ? 1 : f <= 2 ? 2 : f <= 5 ? 5 : 10) * p; };
-    const step = nice(max / 5), top = log ? Math.ceil(Math.log10(max)) + 1 : Math.ceil(max / step) * step;
-    const shown = b => (b.length > 30 ? b.slice(0, 29) + '…' : b), maxLen = Math.max(...books.map(b => shown(b).length)), PB = Math.min(170, Math.max(60, Math.round(20 + 4.3 * maxLen)));
-    const L = Math.max(46, Math.round(3.5 * shown(books[0]).length)), bw = Math.round((sers.length > 12 ? 4 : sers.length > 6 ? 6 : 9) * distZoom);
-    const present = b => sers.map((k, si) => ({ k, si })).filter(x => (cell.get(b + '\u0001' + x.k) || 0) > 0); // pro Buch nur Fassungen mit Treffern, ohne Lücken
-    const gws = books.map(b => Math.max(1, present(b).length) * bw + Math.round(10 * Math.max(1, distZoom))), gx = []; gws.reduce((a, w, i) => (gx[i] = a, a + w), L);
-    const W = L + gws.reduce((a, w) => a + w, 0) + 14, H = 150 + PB, PT = 10, ih = H - PT - PB;
-    const y = v => PT + ih - ((log ? (v > 0 ? Math.log10(v) + 1 : 0) : v) / top) * ih;
-    let svg = `<svg width="${W}" height="${H}" role="img" aria-label="${esc(I18N.t('Verteilung auf die Bücher'))}">`;
-    const tickVals = log ? Array.from({ length: top }, (_, k) => Math.pow(10, k)) : Array.from({ length: Math.round(top / step) + 1 }, (_, k) => k * step);
-    if (log) tickVals.unshift(0);
-    tickVals.forEach(v => { svg += `<line class="ax" x1="${L - 4}" x2="${W - 6}" y1="${y(v)}" y2="${y(v)}" opacity=".5"/><text x="${L - 8}" y="${y(v) + 4}" text-anchor="end">${v}</text>`; });
-    books.forEach((b, bi) => {
-      const x0 = gx[bi], gw = gws[bi];
-      present(b).forEach(({ k, si }, pi) => {
-        const v = cell.get(b + '\u0001' + k) || 0;
-        svg += `<rect class="bar" data-t="${esc(b)}" x="${x0 + pi * bw}" y="${y(v)}" width="${bw - 1}" height="${Math.max(1, y(0) - y(v))}" fill="${colOf(si)}" data-tip="${esc(b)} · ${esc(label(k))}: ${v}"></rect>`;
-      });
-      svg += `<text transform="translate(${x0 + (gw - 6) / 2},${H - PB + 8}) rotate(-50)" text-anchor="end"><title>${esc(b)}</title>${esc(shown(b))}</text>`;
-    });
-    svg += '</svg>';
-    box.innerHTML = `<div class="chead"><b>${esc(I18N.t('Verteilung auf die Bücher'))}</b>
-      <select id="distScale" title="${esc(I18N.t('Skala'))}"><option value="lin"${!log ? ' selected' : ''}>${esc(I18N.t('Linear'))}</option><option value="log"${log ? ' selected' : ''}>${esc(I18N.t('Logarithmisch'))}</option></select>
-      <select id="distMode"><option value="o"${distMode === 'o' ? ' selected' : ''}>${esc(I18N.t('Vorkommen'))}</option><option value="h"${distMode === 'h' ? ' selected' : ''}>${esc(I18N.t('Verse mit Treffer'))}</option></select>
-      <span class="dzoom"><button data-act="zout" title="${esc(I18N.t('Verkleinern'))}">−</button><span class="muted">${Math.round(distZoom * 100)}%</span><button data-act="zin" title="${esc(I18N.t('Vergrößern'))}">+</button></span>
-      <details id="distVer"${distOpen ? ' open' : ''}><summary>${esc(I18N.t('Fassungen'))} (${sers.length}/${allSers.length})</summary><div class="verlist"><button data-act="serall">${esc(I18N.t('Alle Fassungen'))}</button> <button data-act="sernone">${esc(I18N.t('Keine'))}</button>${allSers.map((k, ai) => { const i = sers.indexOf(k), nm = label(k); return `<label class="cleg" title="${esc(nm)}"><input type="checkbox" data-ser="${ai}"${i >= 0 ? ' checked' : ''}><i style="background:${i >= 0 ? colOf(i) : 'transparent'};border:1px solid ${i >= 0 ? colOf(i) : 'var(--line)'}"></i>${esc(nm.length > 48 ? nm.slice(0, 47) + '…' : nm)}</label>`; }).join('')}</div></details>
-      ${(sers.length > 12 ? [] : sers).map((k, i) => `<span class="cleg" title="${esc(label(k))}"><i style="background:${colOf(i)}"></i>${esc(label(k).length > 38 ? label(k).slice(0, 37) + '…' : label(k))}</span>`).join('')}</div><div class="cwrap">${svg}</div>`;
-    box.hidden = false;
-    box._res = res; box._allSers = allSers;
-  }
-  $('#sChart').addEventListener('toggle', e => { if (e.target.id === 'distVer') distOpen = e.target.open; }, true);
-  $('#sChart').addEventListener('change', e => {
-    const cb = e.target.closest && e.target.closest('input[data-ser]');
-    if (cb) { // Fassungen ein-/ausblenden
-      const all = $('#sChart')._allSers, cur = new Set([...$$('#sChart input[data-ser]')].filter(x => x.checked).map(x => all[+x.dataset.ser]));
-      distSel = cur; renderDist($('#sChart')._res);
-      return;
-    }
-    if (e.target.id === 'distMode') distMode = e.target.value; else if (e.target.id === 'distScale') distScale = e.target.value; else return; renderDist($('#sChart')._res); });
-  // Die Zahl beim Überfahren zeigt die allgemeine Hilfeblase der App (data-tip am Balken)
-  function distSetZoom(nz, ax) { // ax: Mausposition im sichtbaren Ausschnitt (Zoom um diesen Punkt)
-    nz = Math.max(0.5, Math.min(6, nz)); if (nz === distZoom) return;
-    const w = $('#sChart .cwrap'), old = distZoom, x = ax == null ? (w ? w.clientWidth / 2 : 0) : ax, c = w ? (w.scrollLeft + x) / old : 0;
-    distZoom = nz; renderDist($('#sChart')._res);
-    const w2 = $('#sChart .cwrap'); if (w2) w2.scrollLeft = Math.max(0, c * nz - x);
-  }
-  $('#sChart').addEventListener('wheel', e => { const w = e.target.closest && e.target.closest('.cwrap'); if (!w || !(e.ctrlKey || e.metaKey)) return; e.preventDefault(); distSetZoom(distZoom * (e.deltaY < 0 ? 1.15 : 1 / 1.15), e.clientX - w.getBoundingClientRect().left); }, { passive: false });
-  $('#sChart').addEventListener('click', e => { const z = e.target.dataset && e.target.dataset.act; if (z === 'zin') return distSetZoom(distZoom * 1.4); if (z === 'zout') return distSetZoom(distZoom / 1.4); });
-  $('#sChart').addEventListener('click', e => { if (e.target.dataset && e.target.dataset.act === 'serall') { distSel = null; return renderDist($('#sChart')._res); } if (e.target.dataset && e.target.dataset.act === 'sernone') { distSel = new Set(); return renderDist($('#sChart')._res); } const b = e.target.closest('.bar'); if (b) runSearch(b.dataset.t); });
-  let sSumState = null; // zuletzt gezeigte Buchliste (für „… weitere anzeigen“)
-  function renderSum() {
-    const { res, onlyTitle, n } = sSumState;
-    $('#sSum').innerHTML = res.stats.length > 1 || onlyTitle
-      ? (onlyTitle ? `<button class="chip" data-t="">← alle Bücher</button> ` : '') + res.stats.slice(0, n).map(x => `<button class="chip${x.title === onlyTitle ? ' on' : ''}" data-t="${esc(x.title)}" title="Nur in diesem Buch, alle Treffer">${esc(x.title)} (${x.n})</button>`).join(' ') + (res.stats.length > n ? ` <button class="chip more" data-more="1" title="${esc(I18N.t('Weitere Bücher anzeigen'))}">${esc(I18N.t('… und {#} weitere', res.stats.length - n))}</button>` : '')
-      : '';
-    $('#sSumPanel').hidden = !$('#sSum').innerHTML.trim();
-  }
-  async function runSearch(only) {
-    const onlyTitle = typeof only === 'string' && only !== 'restore' ? only : null; // Klick auf einen Buchnamen: nur dieses Buch, mit allen Treffern
-    const q = $('#sq').value.trim();
-    const gram = gramParams();
-    if (!q && !gram) return;
-    const kinds = gram ? ['he'] : sKinds(); // Grammatik-Suche: nur hebräischer Westminster-Text
-    sPending++; sSetBusy();
-    $('#sInfo').textContent = 'Suche läuft …';
-    $('#sOut').innerHTML = ''; $('#sSum').innerHTML = ''; $('#sSumPanel').hidden = true; $('#sExport').hidden = true; if (!only || typeof only !== 'string' || only === 'restore') $('#sChart').hidden = true;
-    const sp = {
-      query: q, extra: [], distance: +$('#sDist').value, ordered: $('#sOrd').checked, fuzzy: $('#sFuzzy').checked, kinds,
-      categories: onlyTitle ? [] : [...sCats], titles: onlyTitle ? [onlyTitle] : [...sTitles], ...sMatchParams(), wlc: $('#sWlc').checked, gram,
-      limit: 1000, perFile: onlyTitle ? 1000 : 25, countAll: !onlyTitle,
-    };
-    lastSearch = { ...sp };
-    const fkey = JSON.stringify({ ...sp, titles: 0, perFile: 0, limit: 0, countAll: 0 });
-    let res;
-    if (only === 'restore' && fullCache && fullCache.key === fkey) res = fullCache.res; // Rückkehr zu „alle Bücher“: gespeichertes Ergebnis, keine neue Suche
-    else { try { res = await O.search(sp); } catch { res = null; } }
-    sPending--; sSetBusy();
-    if (!res) { $('#sInfo').textContent = I18N.t('Die Suche ist fehlgeschlagen.'); return; }
-    if (!onlyTitle && !res.cancelled) fullCache = { key: fkey, res };
-    sResults = res.results;
-    const totalHits = res.stats.reduce((a, x) => a + x.n, 0);
-    $('#sInfo').textContent = I18N.t('{#} Treffer in {#} {} ({#} von {#} Dateien durchsucht)', totalHits + (res.truncated ? '+' : ''), res.stats.length, res.stats.length === 1 ? 'Buch' : 'Büchern', res.scanned, res.total) + (res.cancelled ? ' ' + I18N.t('– abgebrochen') : '') + (res.truncated ? ' ' + I18N.t('– bei 1000 angezeigten Treffern gestoppt, bitte genauer suchen') : '') + (res.capped && !onlyTitle ? ' ' + I18N.t('– je Buch werden die ersten 25 gezeigt; ein Klick auf den Buchnamen oben zeigt alle') : '') + '.';
-    sSumState = { res, onlyTitle, n: 40 };
-    renderSum();
-    if (!onlyTitle) renderDist(res);
-    $('#sExport').hidden = !sResults.length;
-    $('#sReadBtn').hidden = !sResults.length;
-    $('#sGroupBtn').hidden = !sResults.length;
-    showSearchResults();
-  }
-  // Treffer pro Vers zusammenfassen: derselbe Vers in mehreren Fassungen erscheint einmal; die übrigen Fassungen klappen darunter auf
-  let sGroupOn = true; try { sGroupOn = localStorage.getItem('searchGroup') !== '0'; } catch { /* egal */ }
-  const sresHtml = (r, i, extra) => {
-    const sn = r.snippet;
-    return `<div class="sres${extra || ''}" data-i="${i}"><span class="t">${esc(r.title)}</span> <span class="muted">${esc(r.where)} · <span class="badge ${r.kind}">${KIND_LABEL[r.kind]}</span>${esc(shortVer(r.versionTitle))}</span><div class="snip" dir="${r.kind === 'he' ? 'rtl' : 'ltr'}">${r.parts ? r.parts.map(x => x.m ? `<mark>${esc(x.t)}</mark>` : esc(x.t)).join('') : `${esc(sn.before)}<mark>${esc(sn.hit)}</mark>${esc(sn.after)}`}</div></div>`;
-  };
-  const sKindOrder = () => (I18N.lang === 'de' ? ['de', 'en', 'he', 'other'] : I18N.lang === 'he' ? ['he', 'de', 'en', 'other'] : ['en', 'de', 'he', 'other']);
-  function searchGroups() {
-    const order = sKindOrder(), map = new Map();
-    sResults.forEach((r, i) => {
-      const key = [r.title, r.loc && r.loc.path ? JSON.stringify(r.loc.path) : '', r.loc && r.loc.label != null ? r.loc.label : r.where].join('\u0001');
-      if (!map.has(key)) map.set(key, []);
-      map.get(key).push(i);
-    });
-    const rank = i => { const r = sResults[i], k = ['he', 'en', 'de'].includes(r.kind) ? r.kind : 'other'; return ((prefVer[k] || []).includes(r.versionTitle) ? 0 : 10) + order.indexOf(k); };
-    return [...map.values()].map(ix => ix.slice().sort((x, y) => rank(x) - rank(y) || x - y)); // die zuletzt gewählte Fassung (sonst die der Oberflächensprache) steht oben
-  }
-  function renderSearchList() {
-    $('#sOut').classList.remove('sread');
-    const gb = $('#sGroupBtn'); if (gb) { gb.setAttribute('aria-pressed', sGroupOn ? 'true' : 'false'); gb.classList.toggle('on', sGroupOn); }
-    if (!sGroupOn) { $('#sOut').innerHTML = sResults.map((r, i) => sresHtml(r, i)).join(''); return; }
-    const groups = searchGroups();
-    const head = groups.length < sResults.length ? `<p class="muted sgsum">${esc(I18N.t('{#} Verse · {#} Fundstellen in verschiedenen Fassungen', groups.length, sResults.length))}</p>` : '';
-    $('#sOut').innerHTML = head + groups.map(ix => {
-      const [first, ...rest] = ix;
-      if (!rest.length) return sresHtml(sResults[first], first);
-      const names = rest.map(i => `${KIND_LABEL[sResults[i].kind] || ''} ${shortVer(sResults[i].versionTitle)}`.trim());
-      return `<div class="sgrp">${sresHtml(sResults[first], first)}<details><summary>${esc(I18N.t('+{#} weitere Fassungen', rest.length))} <span class="muted">${esc(names.slice(0, 3).join(' · '))}${names.length > 3 ? ' …' : ''}</span></summary>${rest.map(i => sresHtml(sResults[i], i, ' alt')).join('')}</details></div>`;
-    }).join('');
-  }
-  document.addEventListener('click', e => {
-    if (!e.target.closest('#sGroupBtn')) return;
-    sGroupOn = !sGroupOn;
-    try { localStorage.setItem('searchGroup', sGroupOn ? '1' : '0'); } catch { /* egal */ }
-    if (typeof showSearchResults === 'function' && !sRead) showSearchResults(); else renderSearchList();
+  const searchUI = window.LibrarySearch.create({
+    $, $$, esc, KIND_LABEL, shortVer, plainSnip, lsGet, lsSet,
+    getGroups: () => groups, getPreferredVersions: () => prefVer,
   });
-  // Treffer als Lesetext: wie beim Lesen, jede Fundstelle als Zeile mit den gewählten Versionen nebeneinander, geordnet nach Buch und Kapitel
-  let sRead = false; try { sRead = localStorage.getItem('searchRead') === '1'; } catch { /* egal */ }
-  let sReadTok = 0;
-  function showSearchResults() { renderSearchList(); }
   // Gefundene Wörter im Vers markieren: Westminster-Wörter (span.w) exakt, übrige Texte als Textstelle
   function markHits(html, h) {
     if (html == null || !h || !h.words.size) return html;
@@ -6287,16 +5537,8 @@
     }
     return html;
   }
-  async function renderSearchRead() {
-    const tok = ++sReadTok, out = $('#sOut');
-    out.classList.add('sread');
-    ['he', 'en', 'de'].forEach(k => out.style.setProperty('--' + k + 'f', disp[k]));
-    out.innerHTML = '<p class="muted">Lade Lesetext …</p>';
-    const html = await buildReadHtml(sResults, () => tok === sReadTok);
-    if (html == null || tok !== sReadTok) return;
-    out.innerHTML = html || '<p class="muted">Keine Fundstellen mit Kapitelangabe.</p>';
-  }
   $('#sReadBtn').onclick = () => { // alle Treffer als Lesetext in einem neuen Tab im Lesen-Reiter
+    const lastSearch = searchUI.getLastSearch();
     if (!lastSearch) return;
     saveScroll();
     const nv = { group: null, sres: { q: lastSearch.query || I18N.t('Grammatik'), limit: 300, html: null, params: { ...lastSearch, limit: undefined, perFile: undefined } } };
@@ -6309,77 +5551,11 @@
     const g = [...groupsByKey.values()].find(x => x.title === row.dataset.t);
     if (g) { const tg = { sectionPath: JSON.parse(row.dataset.sp), rowLabel: row.dataset.sl }; if (e.metaKey || e.ctrlKey) openGroupBg(g, tg); else openGroup(g, tg, false); }
   });
-  $('#sSum').addEventListener('click', e => { const c = e.target.closest('.chip'); if (c && c.dataset.more) { sSumState.n += 100; renderSum(); return; } if (c) runSearch(c.dataset.t || 'restore'); });
-  $('#sExport').onclick = async () => {
-    const csv = ['Titel;Version;Sprache;Stelle;Text'].concat(sResults.map(r => [r.title, r.versionTitle, KIND_LABEL[r.kind], r.where, plainSnip(r)].map(x => '"' + String(x == null ? '' : x).replace(/"/g, '""') + '"').join(';')));
-    const r = await window.api.saveFile(`Suche – ${$('#sq').value.trim().slice(0, 40).replace(/[\\/:*?"<>|]/g, '_')}.csv`, '\ufeff' + csv.join('\r\n'));
-    if (r && r.error) alert(r.error);
-  };
-  // Verlauf (nur selbst abgeschickte Suchen) und Favoriten der Volltextsuche
-  let sRecent = lsGet('searchRecent'), sFavs = lsGet('searchFavs');
-  const syncSS = () => { sRecent = lsGet('searchRecent'); sFavs = lsGet('searchFavs'); };
-  function renderSearchSaved() {
-    syncSS();
-    const chips2 = (a, fav) => a.length ? a.map((w, i) => `<span class="dchip"><a data-i="${i}" dir="auto"${sEntTitle(w) ? ` title="${esc(sEntTitle(w))}"` : ''}>${esc(sEntQ(w))}</a><button data-rm="${i}" title="Entfernen">✕</button></span>`).join('') : `<span class="muted">${fav ? 'Noch keine Favoriten' : 'Noch keine Suchen'}</span>`;
-    $('#sRecentL').innerHTML = chips2(sRecent, false);
-    $('#sFavL').innerHTML = chips2(sFavs, true);
-    const q = $('#sq').value.trim(), on = !!q && sFavs.some(x => sEntQ(x) === q);
-    $('#sStar').textContent = on ? '★' : '☆'; $('#sStar').classList.toggle('on', on);
-  }
-  // Ein Eintrag ist entweder nur der Suchtext (frühere Fassungen; heute: Sprache „Automatisch“ und die übliche Treffer-Art)
-  // oder { q, l: Sprache, m: Treffer-Art }, wenn etwas anderes eingestellt war.
-  const sEntQ = e => (typeof e === 'string' ? e : e && typeof e.q === 'string' ? e.q : '');
-  const sLabel = (sel, v) => { const o = [...$(sel).options].find(x => x.value === v); return o ? o.textContent.trim() : ''; };
-  const sEntTitle = e => (e && typeof e === 'object' ? [sLabel('#sLang', e.l), sLabel('#sMode', e.m)].filter(Boolean).join(' · ') : '');
-  const sEntNow = () => {
-    const q = $('#sq').value.trim(), l = $('#sLang').value, m = $('#sMode').value;
-    return l === 'auto' && m === (sSlot() === 'ot' ? 'part' : 'lemma') ? q : { q, l, m };
-  };
-  function sEntApply(e) { // gespeicherte Suche wieder einstellen (alte Einträge: Standard)
-    $('#sq').value = sEntQ(e);
-    $('#sLang').value = e && typeof e === 'object' && S_LANGS.includes(e.l) ? e.l : 'auto';
-    const slot = sSlot(), m = e && typeof e === 'object' ? e.m : '';
-    sModeSel[slot] = sModeOk(m, slot) ? m : slot === 'ot' ? 'part' : 'lemma';
-    sRefresh();
-  }
-  const manualFind = () => {
-    const q = $('#sq').value.trim();
-    if (q) { syncSS(); sRecent = [sEntNow(), ...sRecent.filter(x => sEntQ(x) !== q)].slice(0, 30); lsSet('searchRecent', sRecent); }
-    renderSearchSaved(); runSearch();
-  };
-  $('#sStar').onclick = () => {
-    const q = $('#sq').value.trim(); if (!q) return;
-    syncSS(); sFavs = sFavs.some(x => sEntQ(x) === q) ? sFavs.filter(x => sEntQ(x) !== q) : [sEntNow(), ...sFavs];
-    lsSet('searchFavs', sFavs); renderSearchSaved();
-  };
-  $('#sRecentClear').onclick = () => { syncSS(); sRecent = []; lsSet('searchRecent', sRecent); renderSearchSaved(); };
-  $('#sSaved').addEventListener('click', e => {
-    const rm = e.target.closest('button[data-rm]');
-    if (rm) { syncSS(); const fav = !!rm.closest('#sFavL'); const a = fav ? sFavs : sRecent; a.splice(+rm.dataset.rm, 1); lsSet(fav ? 'searchFavs' : 'searchRecent', a); renderSearchSaved(); return; }
-    const a = e.target.closest('a[data-i]');
-    if (a) { syncSS(); const ent = (a.closest('#sFavL') ? sFavs : sRecent)[+a.dataset.i]; if (!sEntQ(ent)) return; sEntApply(ent); renderSearchSaved(); runSearch(); }
-  });
-  $('#sq').addEventListener('input', () => { sRefresh(); renderSearchSaved(); }); // „Automatisch“: Sprache und Treffer-Art folgen der Schrift der Eingabe
-  $('#sLang').addEventListener('change', () => { sRefresh(); renderSearchSaved(); });
-  $('#sMode').addEventListener('change', () => {
-    const m = $('#sMode').value;
-    if (m === 'exact') sModeSel.he = sModeSel.gr = sModeSel.ot = m; // „Genau dieses Wort“ gilt in jeder Sprache weiter
-    else { sModeSel[sSlot()] = m; if (sModeSel.he === 'exact') sModeSel.he = 'lemma'; if (sModeSel.gr === 'exact') sModeSel.gr = 'lemma'; if (sModeSel.ot === 'exact') sModeSel.ot = 'part'; }
-    sRefresh(); renderSearchSaved();
-  });
-  $('#sAdv').addEventListener('change', sRefresh);
-  // „Erweitert“: auf-/zugeklappt merken
-  try { $('#sAdv').open = localStorage.getItem('searchAdvOpen') === '1'; } catch { /* egal */ }
-  $('#sAdv').addEventListener('toggle', e => { if (e.target.id === 'sAdv') try { localStorage.setItem('searchAdvOpen', e.target.open ? '1' : '0'); } catch { /* egal */ } });
-  sRefresh();
-  renderSearchSaved();
-  $('#sGo').onclick = () => (sBusy() ? O.cancelSearch() : manualFind()); // derselbe Knopf: während der Suche „Abbrechen“
-  $('#sq').addEventListener('keydown', e => { if (e.key === 'Enter' && !sBusy()) manualFind(); });
   // Rechtsklick auf ein Suchergebnis: hier öffnen, neuer Tab, zweites Fenster
   $('#sOut').addEventListener('contextmenu', e => {
     const el = e.target.closest('.sres');
     if (!el || (window.getSelection() + '')) return; // bei markiertem Text das normale Menü lassen
-    const r = sResults[+el.dataset.i];
+    const r = searchUI.resultAt(+el.dataset.i);
     const entry = r && entries.find(x => x.rel === r.rel);
     const g = entry && groupsByKey.get(keyOf(entry));
     if (!g) return;
@@ -6393,258 +5569,22 @@
   $('#sOut').addEventListener('click', e => {
     const el = e.target.closest('.sres');
     if (!el) return;
-    const r = sResults[+el.dataset.i];
+    const r = searchUI.resultAt(+el.dataset.i);
     const entry = entries.find(x => x.rel === r.rel);
     if (!entry) return;
     { const tg = { rel: r.rel, sectionPath: r.loc && r.loc.path, rowLabel: r.loc ? r.loc.label : undefined }, gg = groupsByKey.get(keyOf(entry)); if (e.metaKey || e.ctrlKey) openGroupBg(gg, tg); else openGroup(gg, tg, false); }
   });
 
-  // ---------- Herunterladen ----------
-  let summary = [];
-  const selCats = new Set();
-  const selIds = new Set();
-  let planTimer = null;
+  const downloadsUI = window.LibraryDownloads.create({ $, $$, esc, fmtSize, refreshState, loadLibrary });
+  function refreshCatalog() { return downloadsUI.refreshCatalog(); }
 
-  const covers = (c, p) => p === c || p.startsWith(c + '/');
-  const sel = () => ({ cats: [...selCats], ids: [...selIds] });
-  const opts = () => ({ he: $('#oHe').checked, en: $('#oEn').checked, de: $('#oDe').checked, allVersions: $('#oAll').checked });
-
-  async function refreshCatalog() {
-    const st = await O.state();
-    if (st.catalog) {
-      $('#catStatus').textContent = `Katalog vom ${(st.catalog.generated_at || '?').slice(0, 10)} · ${st.catalog.total} Einträge`;
-      if (!summary.length) { summary = await O.summary(); renderPicker(); }
-      $('#pickCard').hidden = false; $('#goCard').hidden = false;
-    } else {
-      $('#catStatus').textContent = 'Noch kein Katalog geladen.';
-    }
-    return st;
-  }
-
-  $('#catFetch').onclick = async () => {
-    $('#catFetch').disabled = true;
-    $('#catStatus').textContent = 'Lade Katalog (ca. 22 MB) …';
-    const r = await O.catalogFetch();
-    $('#catFetch').disabled = false;
-    if (r && r.error) { $('#catStatus').innerHTML = `<span class="err">${esc(r.error)}</span>`; return; }
-    summary = [];
-    await refreshCatalog();
-  };
-
-  const titleRow = (s, showCats) => {
-    const flags = [s.he ? 'H' : '', s.en ? 'E' : '', s.de ? 'D' + (s.de > 1 ? '×' + s.de : '') : ''].filter(Boolean).join(' ');
-    return `<label class="t"><input type="checkbox" data-id="${s.id}" data-cp="${esc(s.cats.join('/'))}"> ${esc(s.title)}<small>${flags}${showCats ? ' · ' + esc(s.cats.join(' › ')) : ''}</small></label>`;
-  };
-
-  function renderPicker() {
-    const root = { name: '', path: '', children: new Map(), titles: [], count: 0 };
-    for (const s of summary) {
-      let n = root, p = '';
-      n.count++;
-      for (const c of s.cats) {
-        p = p ? p + '/' + c : c;
-        if (!n.children.has(c)) n.children.set(c, { name: c, path: p, children: new Map(), titles: [], count: 0 });
-        n = n.children.get(c);
-        n.count++;
-      }
-      n.titles.push(s);
-    }
-    const node = n => {
-      const kids = SefOrder.sortCats([...n.children.keys()], n.name).map(k => n.children.get(k)).map(node).join('');
-      const ts = SefOrder.sortTitles(n.titles).map(s => titleRow(s, false)).join('');
-      if (!n.name) return kids + ts;
-      return `<details><summary><input type="checkbox" data-cat="${esc(n.path)}"> <span class="catname">${esc(n.name)}</span><small>${n.count} Titel</small></summary>${kids}${ts}</details>`;
-    };
-    $('#picker').innerHTML = node(root);
-    refreshChecks();
-  }
-
-  function refreshChecks() {
-    $$('#tab-get input[data-cat]').forEach(i => {
-      const p = i.dataset.cat;
-      const anc = [...selCats].some(c => c !== p && covers(c, p));
-      i.disabled = anc;
-      i.checked = anc || selCats.has(p);
-    });
-    $$('#tab-get input[data-id]').forEach(i => {
-      const cov = [...selCats].some(c => covers(c, i.dataset.cp));
-      i.disabled = cov;
-      i.checked = cov || selIds.has(+i.dataset.id);
-    });
-  }
-
-  function onPick(e) {
-    const t = e.target;
-    if (t.dataset.cat !== undefined) { if (t.checked) selCats.add(t.dataset.cat); else selCats.delete(t.dataset.cat); }
-    else if (t.dataset.id !== undefined) { if (t.checked) selIds.add(+t.dataset.id); else selIds.delete(+t.dataset.id); }
-    else return;
-    refreshChecks();
-    schedulePlan();
-  }
-  $('#picker').addEventListener('change', onPick);
-  $('#flat').addEventListener('change', onPick);
-  ['#oHe', '#oEn', '#oDe', '#oAll'].forEach(id => $(id).addEventListener('change', schedulePlan));
-
-  $('#pickAll').onclick = () => { for (const s of summary) { if (s.cats.length) selCats.add(s.cats[0]); else selIds.add(s.id); } refreshChecks(); schedulePlan(); };
-  $('#pickClear').onclick = () => { selCats.clear(); selIds.clear(); refreshChecks(); schedulePlan(); };
-
-  let flatMatches = [];
-  let filterTimer = null;
-  $('#pickFilter').addEventListener('input', () => {
-    clearTimeout(filterTimer);
-    filterTimer = setTimeout(() => {
-      const f = $('#pickFilter').value.trim().toLowerCase();
-      if (!f) { $('#flat').hidden = true; $('#picker').hidden = false; $('#pickAllHits').hidden = true; return; }
-      flatMatches = summary.filter(s => (s.title + ' ' + s.cats.join(' ')).toLowerCase().includes(f));
-      $('#flat').innerHTML = flatMatches.slice(0, 400).map(s => titleRow(s, true)).join('') ||
-        '<p class="muted">Keine Treffer.</p>';
-      if (flatMatches.length > 400) $('#flat').insertAdjacentHTML('beforeend', `<p class="muted">… ${flatMatches.length - 400} weitere Treffer, bitte genauer suchen oder „Alle Treffer auswählen“.</p>`);
-      $('#flat').hidden = false; $('#picker').hidden = true;
-      $('#pickAllHits').hidden = !flatMatches.length;
-      $('#pickAllHits').textContent = `Alle ${flatMatches.length} Treffer auswählen`;
-      refreshChecks();
-    }, 200);
+  const displayUI = window.LibraryDisplay.create({
+    $, $$, esc, shortVer, getView: () => view, getGroups: () => groups,
+    renderSection, olInlineOn, olInline, withAnchor,
   });
-  $('#pickAllHits').onclick = () => { flatMatches.forEach(s => selIds.add(s.id)); refreshChecks(); schedulePlan(); };
-
-  function schedulePlan() {
-    clearTimeout(planTimer);
-    planTimer = setTimeout(async () => {
-      const p = await O.plan(sel(), opts());
-      $('#planInfo').textContent = p.files
-        ? `${p.titles} Titel · ${p.files} Dateien · etwa ${fmtEst(p.estimateMB)} (grobe Schätzung)`
-        : 'Nichts ausgewählt.';
-      $('#dGo').disabled = !p.files;
-    }, 200);
-  }
-
-  O.onProgress(p => {
-    if ($('#uProg') && !$('#uProg').hidden) { $('#uProg').max = p.total || 1; $('#uProg').value = p.done || 0; if (p.current) $('#uInfo').textContent = p.current; }
-    const bar = $('#dProg');
-    if (p.check) { bar.hidden = false; bar.max = p.total || 1; bar.value = p.done || 0; $('#dInfo').textContent = `Prüfe Dateien … ${p.done || 0} von ${p.total || 0}`; return; } // Update-Prüfung hat keine Byte-Angaben
-    bar.hidden = false; bar.max = p.total; bar.value = p.done;
-    $('#dInfo').textContent = `${p.done} von ${p.total} · ${fmtSize(p.bytes)}${p.failed ? ' · ' + p.failed + ' Fehler' : ''} · ${p.current}`;
-  });
-
-  $('#dGo').onclick = async () => {
-    $('#dGo').disabled = true; $('#dCancel').disabled = false;
-    $('#dWarn').innerHTML = '';
-    $('#dInfo').textContent = 'Starte …';
-    const res = await O.download(sel(), opts());
-    $('#dCancel').disabled = true; $('#dGo').disabled = false;
-    $('#dProg').hidden = true;
-    if (res.error) { $('#dInfo').innerHTML = `<span class="err">${esc(res.error)}</span>`; return; }
-    $('#dInfo').textContent = `${res.cancelled ? 'Abgebrochen' : 'Fertig'}: ${res.done} von ${res.total} Dateien · ${fmtSize(res.bytes)}.`;
-    const stale = res.failed.filter(f => /HTTP 404/.test(f.error)), bad = res.failed.filter(f => !/HTTP 404/.test(f.error));
-    $('#dWarn').innerHTML = (bad.length ? `<p class="err">${bad.length} Dateien konnten nicht geladen werden (erneut „Herunterladen“ versucht es noch einmal):</p><ul>${bad.slice(0, 20).map(f => `<li>${esc(f.title)} (${esc(f.versionTitle)}): ${esc(f.error)}</li>`).join('')}</ul>` : '') +
-      (stale.length ? `<p class="muted">${stale.length} Einträge sind im Sefaria-Katalog veraltet (Datei dort nicht mehr vorhanden, vermutlich umbenannt) und wurden übersprungen:</p><ul class="muted">${stale.slice(0, 20).map(f => `<li>${esc(f.title)} (${esc(f.versionTitle)})</li>`).join('')}</ul>` : '');
-    await refreshState();
-    await loadLibrary();
-  };
-  $('#dCancel').onclick = () => O.cancel();
-
-  // ---------- Aktualisieren ----------
-  $('#uCheck').onclick = async () => {
-    $('#uCheck').disabled = true; $('#uRun').hidden = true; $('#uProg').hidden = false; $('#uProg').value = 0;
-    $('#uInfo').textContent = 'Lade Katalog …';
-    const r = await O.updateCheck();
-    $('#uCheck').disabled = false; $('#uProg').hidden = true;
-    if (r.error) { $('#uInfo').innerHTML = `<span class="err">${esc(r.error)}</span>`; return; }
-    if (!r.changed && !r.added) { $('#uInfo').textContent = `Alles aktuell (${r.checked} Dateien geprüft).`; return; }
-    $('#uInfo').textContent = `${r.changed} geändert, ${r.added} neu (${r.checked} Dateien geprüft).`;
-    $('#uRun').hidden = false;
-  };
-  $('#uRun').onclick = async () => {
-    $('#uRun').disabled = true; $('#uCheck').disabled = true; $('#uProg').hidden = false;
-    const r = await O.updateRun();
-    $('#uRun').disabled = false; $('#uCheck').disabled = false; $('#uProg').hidden = true; $('#uRun').hidden = true;
-    if (r.error) { $('#uInfo').innerHTML = `<span class="err">${esc(r.error)}</span>`; return; }
-    $('#uInfo').textContent = `${r.cancelled ? 'Abgebrochen' : 'Fertig'}: ${r.done} Dateien geladen${r.failed.length ? `, ${r.failed.length} Fehler` : ''}.`;
-    await refreshState(); await loadLibrary();
-  };
-
-
-  // ---------- Anzeigeoptionen ----------
-  const DISP0 = { he: 1.3, gr: 1.15, en: 1, de: 1, niq: false, can: false, shr: true, mar: 'normal', hideTabs: true, headStick: false, hov: 1.15 };
-  let disp = { ...DISP0 };
-  try { disp = { ...DISP0, ...JSON.parse(localStorage.getItem('disp') || '{}') }; } catch { /* egal */ }
-  const stripHe = h => {
-    if (disp.can) h = h.replace(/[\u0591-\u05AF\u05BD]/g, '');
-    if (disp.niq) h = h.replace(/[\u05B0-\u05BC\u05BF\u05C1\u05C2\u05C7]/g, '');
-    return h;
-  };
-  function applyDisp(rerender) {
-    const o = $('#rOut').style;
-    o.setProperty('--hef', disp.he); o.setProperty('--grf', disp.gr); o.setProperty('--enf', disp.en); o.setProperty('--def', disp.de);
-    $('#dHe').value = disp.he; $('#dGr').value = disp.gr; $('#dEn').value = disp.en; $('#dDe').value = disp.de;
-    for (const [id, v] of [['dHe', disp.he], ['dGr', disp.gr], ['dEn', disp.en], ['dDe', disp.de], ['dHov', disp.hov || 1.15]]) { const o = $('#' + id + 'V'); if (o) o.textContent = Math.round(v * 100) + ' %'; } // Wert neben dem Regler
-    $('#dNiq').checked = disp.niq; $('#dCan').checked = disp.can; $('#dShr').checked = !!disp.shr; $('#dOlIn').checked = olInlineOn();
-    document.body.classList.toggle('dock-shrink', !!disp.shr);
-    document.body.classList.toggle('head-stick', !!disp.headStick); if ($('#dHdSt')) $('#dHdSt').checked = !!disp.headStick;
-    if ($('#dHideTabs')) $('#dHideTabs').checked = !!disp.hideTabs; if (!disp.hideTabs && typeof window.hdShow === 'function') window.hdShow();
-    document.documentElement.style.setProperty('--hovf', disp.hov || 1.15); if ($('#dHov')) $('#dHov').value = disp.hov || 1.15; // Vorschau-Blase (Stellen)
-    document.body.classList.toggle('mar-narrow', disp.mar === 'narrow'); if ($('#dMar')) $('#dMar').value = disp.mar === 'narrow' ? 'narrow' : 'normal';
-    try { localStorage.setItem('disp', JSON.stringify(disp)); } catch { /* egal */ }
-    if (rerender && view && view.group) { // Position beim Umschalten behalten: dieselbe Zeile bleibt an derselben Stelle (ohne Vokale sind die Zeilen niedriger, die reine Pixelposition würde springen)
-      const top = $('#stick') ? $('#stick').getBoundingClientRect().bottom : 0;
-      const row = $$('#rOut .row[data-l]').find(r => r.getBoundingClientRect().bottom > top + 4);
-      const label = row ? row.dataset.l : null, off = row ? row.getBoundingClientRect().top : 0, y = window.scrollY;
-      renderSection();
-      const again = label != null ? $$('#rOut .row[data-l]').find(r => r.dataset.l === label) : null;
-      if (again) window.scrollTo(0, window.scrollY + again.getBoundingClientRect().top - off); else window.scrollTo(0, y);
-    }
-  }
-  // Auswahl „Vorschau – deutsche Fassung“: alle deutschen Fassungen des Tanach in der Bibliothek, nach Zahl der Bücher; leer = Zunz (Standard), * = erste vorhandene
-  function pvDeFill() {
-    const n = { he: new Map(), en: new Map(), de: new Map(), other: new Map() };
-    for (const g of groups) { if (!/^Tanakh\//.test(g.key || '')) continue; for (const v of g.versions) { if (v.versionTitle === 'merged') continue; const m = n[v.kind] || n.other; m.set(v.versionTitle, (m.get(v.versionTitle) || 0) + 1); } }
-    const sorted = (m, skip) => [...m].filter(([vt]) => !(skip && skip.test(vt))).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
-    const cut = t => (t.length > 46 ? t.slice(0, 45).trimEnd() + '…' : t); // das Auswahlfeld ist schmal; der volle Name steht im Tooltip
-    const opt = ([vt, c]) => `<option class="ut" value="${esc(vt)}" title="${esc(shortVer(vt))}">${esc(cut(shortVer(vt)))} (${c})</option>`;
-    const set = (sel, v, ok) => { sel.value = v && ok(v) ? v : ''; };
-    const de = $('#dPvDe'), he = $('#dPvHe'), x = $('#dPvX');
-    if (de) {
-      de.innerHTML = `<option value="">${esc(I18N.t('Zunz (Standard)'))}</option><option value="*">${esc(I18N.t('erste vorhandene Fassung'))}</option>` + sorted(n.de, /Zunz/).map(opt).join('');
-      set(de, disp.pvDe, v => v === '*' || n.de.has(v));
-    }
-    if (he) {
-      he.innerHTML = `<option value="">${esc(I18N.t('Westminster (Standard)'))}</option>` + sorted(n.he, /^Westminster/).map(opt).join('');
-      set(he, disp.pvHe, v => n.he.has(v));
-    }
-    if (x) {
-      const KN = { en: 'Englisch', de: 'Deutsch', he: 'Hebräisch / Aramäisch', other: 'Andere (Griechisch, Aramäisch …)' };
-      x.innerHTML = `<option value="">${esc(I18N.t('keine'))}</option>`
-        + ['en', 'other', 'he', 'de'].map(k => n[k].size || k === 'en' ? `<optgroup label="${esc(I18N.t(KN[k]))}"><option value="@${k}">${esc(I18N.t('beste vorhandene'))}</option>${sorted(n[k]).map(opt).join('')}</optgroup>` : '').join('');
-      set(x, disp.pvX, v => /^@(en|de|he|other)$/.test(v) || Object.values(n).some(m => m.has(v)));
-    }
-  }
-  $('#dispBtn').onclick = () => { $('#dispPanel').hidden = !$('#dispPanel').hidden; if (!$('#dispPanel').hidden) pvDeFill(); };
-  $('#dispPanel').addEventListener('input', e => {
-    const id = e.target.id;
-    if (id === 'dHe') disp.he = +e.target.value;
-    if (id === 'dGr') disp.gr = +e.target.value;
-    if (id === 'dEn') disp.en = +e.target.value;
-    if (id === 'dDe') disp.de = +e.target.value;
-    if (id === 'dNiq') disp.niq = e.target.checked;
-    if (id === 'dCan') disp.can = e.target.checked;
-    if (id === 'dShr') disp.shr = e.target.checked;
-    if (id === 'dMar') disp.mar = e.target.value;
-    if (id === 'dHideTabs') disp.hideTabs = e.target.checked;
-    if (id === 'dHdSt') disp.headStick = e.target.checked;
-    if (id === 'dHov') disp.hov = +e.target.value;
-    if (id === 'dPvDe' || id === 'dPvHe' || id === 'dPvX') { disp[{ dPvDe: 'pvDe', dPvHe: 'pvHe', dPvX: 'pvX' }[id]] = e.target.value; if (typeof window.pvClear === 'function') window.pvClear(); }
-    if (id === 'dOlIn') { try { localStorage.setItem('olInline', e.target.checked ? '1' : '0'); } catch { /* egal */ } withAnchor(() => olInline()); return; }
-    applyDisp(id === 'dNiq' || id === 'dCan');
-  });
-  $('#dispClose').onclick = () => { $('#dispPanel').hidden = true; };
-  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('#dispPanel').hidden && !document.querySelector('dialog[open]')) { $('#dispPanel').hidden = true; e.stopPropagation(); } }, true);
-  { // Gruppe „Fenster & Leisten“: auf- oder zugeklappt merken
-    const d = $('#dgWin'); try { d.open = localStorage.getItem('dgWin') === '1'; } catch { /* egal */ }
-    d.addEventListener('toggle', () => { try { localStorage.setItem('dgWin', d.open ? '1' : '0'); } catch { /* egal */ } });
-  }
-  document.addEventListener('click', e => {
-    if (!$('#dispPanel').hidden && !e.target.closest('#dispPanel') && !e.target.closest('#dispBtn')) $('#dispPanel').hidden = true;
-  });
+  const disp = displayUI.state;
+  const stripHe = h => displayUI.stripHe(h);
+  function applyDisp(rerender) { return displayUI.apply(rerender); }
   // Klick außerhalb schließt aufgeklappte Menüs (Versionen, ⋯)
   document.addEventListener('click', e => {
     for (const id of ['#verBox', '#moreMenu']) { const d = $(id); if (d && d.open && !e.target.closest(id)) d.open = false; }
@@ -7147,75 +6087,11 @@
   });
   window.addEventListener('focus', () => { loadNotes().catch(() => {}); }); // Änderungen aus dem anderen Fenster übernehmen
 
-  // ---------- Export (PDF / Word) ----------
-  $('#expBtn').onclick = () => {
-    if (!view || !view.group) return;
-    const s = view.sections[view.idx];
-    $('#expWhat').textContent = `${view.group.title} · ${s ? s.label : ''} – ${view.loaded.length} Spalte(n)`;
-    $('#expMsg').textContent = '';
-    $('#expDlg').showModal();
-  };
-  $('#expClose').onclick = () => $('#expDlg').close();
-  $('#expGo').onclick = async () => {
-    const html = buildExportHtml({
-      from: $('#expFrom').value.trim(), to: $('#expTo').value.trim(),
-      fn: $('#expFn').checked, notes: $('#expNotes').checked, links: $('#expLinks').checked,
-    });
-    const s = view.sections[view.idx];
-    const name = `${view.group.title} ${s ? s.label : ''}`.replace(/[\\/:*?"<>|]+/g, '_').trim();
-    const r = await O.exportSave({ html, format: $('#expFmt').value, name, landscape: view.loaded.length >= 3 });
-    if (r && r.error) { $('#expMsg').textContent = '⚠ ' + r.error; return; }
-    if (r && r.path) $('#expDlg').close();
-  };
-  function buildExportHtml(o) {
-    const s = view.sections[view.idx];
-    const cols = view.loaded.map(d => R.flattenNode(R.getByPath(d.text, s.path)));
-    let rows = R.alignRows(cols);
-    if (o.from || o.to) {
-      const a = o.from ? rows.findIndex(r => r.label === o.from) : 0;
-      let b = o.to ? rows.findIndex(r => r.label === o.to) : rows.length - 1;
-      if (b < 0) b = rows.length - 1;
-      rows = rows.slice(Math.max(0, a), b + 1);
-    }
-    const notesById = new Map(notesAll.map(n => [n.id, n]));
-    const endnotes = [];
-    const cell = (h, d) => {
-      if (h == null) return '<td></td>';
-      if (d.entry.kind === 'he') h = stripHe(h);
-      const sp = R.splitFootnotes(h);
-      let main = R.cleanHtml(sp.main);
-      main = main.replace(/<sup data-fn="(\d{1,4})">.*?<\/sup>/g, (m, i) => {
-        if (!o.fn || !sp.notes[+i]) return '';
-        endnotes.push(R.cleanHtml(sp.notes[+i].html));
-        return `<sup>${endnotes.length}</sup>`;
-      });
-      return `<td dir="${d.entry.language === 'Hebrew' || d.entry.language === 'Aramaic' ? 'rtl' : 'ltr'}" class="k-${d.entry.kind}">${main}</td>`;
-    };
-    const body = rows.map(r => {
-      let extra = '';
-      const v = verseOf(r.label);
-      if (o.notes) { const n = notesById.get(noteId(view.group, s.k, r.label)); if (n && n.note) extra += `<div class="nt">${I18N.t('Notiz:')} ${esc(n.note)}</div>`; }
-      if (o.links && v != null) {
-        const ls = secLinks.filter(x => x.v1 > 0 && v >= x.v1 && v <= x.v2).map(x => x.other);
-        if (ls.length) extra += `<div class="lk">${I18N.t('Verknüpfungen:')} ${esc(ls.slice(0, 30).join('; '))}${ls.length > 30 ? ` … (+${ls.length - 30})` : ''}</div>`;
-      }
-      return `<tr><td class="lab">${esc(r.label)}</td>${r.cells.map((c, i) => cell(c, view.loaded[i])).join('')}</tr>${extra ? `<tr><td></td><td colspan="${view.loaded.length}">${extra}</td></tr>` : ''}`;
-    }).join('');
-    const head = `<tr><th></th>${view.loaded.map(d => `<th>${esc(I18N.tr(KIND_LABEL[d.entry.kind]))} · ${esc(shortVer(d.versionTitle))}</th>`).join('')}</tr>`;
-    const src = view.loaded.map(d => `<li>${esc(I18N.tr(KIND_LABEL[d.entry.kind]))}: ${esc(d.versionTitle === 'merged' ? I18N.tr('zusammengeführte Fassung') : d.versionTitle)}${d.versionSource ? ' – ' + esc(d.versionSource) : ''}</li>`).join('');
-    const css = `body{font-family:"SBL Hebrew","Times New Roman",serif;font-size:11pt;line-height:1.5;color:#000}
-h1{font-size:16pt;margin:0 0 4pt}h1 small{font-size:12pt;color:#555}
-table{border-collapse:collapse;width:100%;table-layout:fixed}th{font-size:9pt;text-align:left;color:#555;border-bottom:1px solid #999;padding:3pt}
-td{vertical-align:top;padding:4pt;border-bottom:1px solid #ddd}td.lab{width:28pt;font-size:8pt;color:#777}
-td.k-he{font-size:14pt;line-height:1.8}.nt{background:#fff6d6;padding:2pt 5pt;font-size:9pt}.lk{font-size:8pt;color:#555}
-ol.fn{font-size:9pt}ul.src{font-size:8pt;color:#555}tr{page-break-inside:avoid}`;
-    return `<!doctype html><html><head><meta charset="utf-8"><title>${esc(view.group.title)}</title><style>${css}</style></head><body>
-<h1>${esc(view.group.title)}${view.group.heTitle ? ` <small dir="rtl">${esc(view.group.heTitle)}</small>` : ''} · ${esc(s.label)}</h1>
-<table><thead>${head}</thead><tbody>${body}</tbody></table>
-${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.map(n => `<li>${n}</li>`).join('')}</ol>` : ''}
-<ul class="src">${src}</ul><p class="src" style="font-size:8pt;color:#777">${I18N.t('Quelle: Sefaria (sefaria.org), Export vom {}', new Date().toLocaleDateString(I18N.loc))}</p></body></html>`;
-  }
-
+  window.LibraryExport.create({
+    $, getView: () => view, getNotes: () => notesAll, stripHe, noteId,
+    labels: KIND_LABEL, shortVer,
+    getLinks: (v, section) => { const chap = secChapOf(section); return chap == null ? [] : LK.section(secBook(v.group, section), chap); },
+  });
 
   let cmtTimer = null, lastCmtKey = '';
   function applyCmtRowSoon() { clearTimeout(cmtTimer); cmtTimer = setTimeout(() => { if (cmtOpen) applyCmtRow(); }, 0); }
@@ -7242,34 +6118,24 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
     window.setPanelW = w => { cw = clampW(w); applyCw(); try { localStorage.setItem('cmtW', String(cw)); } catch { /* egal */ } };
     window.addEventListener('resize', applyCw);
   }
-  let cmtOpen = false, cmtRow = null, cmtToken = 0;
+  let cmtOpen = false, cmtRow = null;
   var cmtWhole = false; // Kommentare zum ganzen Kapitel bzw. zur ganzen Seite (über den Knopf), sonst zum gewählten Vers
-  let cmtTouched = false, cmtLastChosen = [];
-  try { cmtTouched = localStorage.getItem('cmtTouched') === '1'; } catch { /* egal */ }
-  let cmtChipsOpen = false;
-  try { cmtChipsOpen = localStorage.getItem('cmtChipsOpen') === '1'; } catch { /* egal */ }
-  let cmtSel = new Set();
-  let cmtLang = 'en';
-  try { cmtSel = new Set(JSON.parse(localStorage.getItem('cmtSel') || '[]')); cmtLang = localStorage.getItem('cmtLang') || 'en'; } catch { /* egal */ }
-  if (!['en', 'de', 'he'].includes(cmtLang)) cmtLang = 'en';
-  $('#cmtLang').value = cmtLang;
-  // „Alle“ ist jetzt ein eigener Zustand (früher bedeutete eine leere Auswahl „alle“); ältere Einstellungen werden übernommen
-  let cmtAll = false;
-  try { const a = localStorage.getItem('cmtAll'); cmtAll = a === '1' || (a == null && cmtTouched && cmtSel.size === 0); } catch { /* egal */ }
-  let cmtFilterV = '', cmtAvailNames = [];
-  const cmtClosed = new Set(); // eingeklappte Kommentare (nur in dieser Sitzung)
   const dispName = n => String(n).replace(/, [^,]+$/, ''); // „Bekhor Shor, Genesis“ → „Bekhor Shor“
   const CMT_PRIO = ['Rashi', 'Ibn Ezra', 'Ramban', 'Rashbam', 'Sforno', 'Or HaChaim', 'Chizkuni', 'Radak', 'Kli Yakar', 'Bekhor Shor', 'Onkelos'];
-  // Die Kommentar-Auswahl wird pro Sprache gemerkt (z. B. Deutsch: Hirsch, Englisch: etwas anderes) und beim Umschalten der Sprache wiederhergestellt
-  let cmtByLang = {};
-  try { cmtByLang = JSON.parse(localStorage.getItem('cmtByLang') || '{}') || {}; } catch { cmtByLang = {}; }
-  if (!cmtByLang[cmtLang]) cmtByLang[cmtLang] = { sel: [...cmtSel], all: cmtAll, touched: cmtTouched }; // bisherige Einstellung gilt für die zuletzt benutzte Sprache
-  else { const s0 = cmtByLang[cmtLang]; cmtSel = new Set(s0.sel || []); cmtAll = !!s0.all; cmtTouched = !!s0.touched; }
-  const saveCmt = () => { try {
-    cmtByLang[cmtLang] = { sel: [...cmtSel], all: cmtAll, touched: cmtTouched };
-    localStorage.setItem('cmtByLang', JSON.stringify(cmtByLang));
-    localStorage.setItem('cmtSel', JSON.stringify([...cmtSel])); localStorage.setItem('cmtLang', cmtLang); localStorage.setItem('cmtAll', cmtAll ? '1' : '0');
-  } catch { /* egal */ } };
+  const commentSelection = window.LibraryCommentSelection.create({ $, $$, CMT_PRIO, renderCmt });
+  const commentaryUI = window.LibraryCommentary.create({
+    $, $$, esc, R, selection: commentSelection,
+    reader: { get view() { return view; }, get open() { return cmtOpen; },
+      get row() { return cmtRow; }, get whole() { return cmtWhole; },
+      get virtual() { return cmtVirt; }, get linksReady() { return linksReady; },
+      get links() { return secLinks; }, get groups() { return groups; }, localTitles },
+    format: { CMT_PRIO, dispName, splitOther, libCmpGroups, titleCmp, secChapOf,
+      rowVerse, stripHe, versOf, versNoteText, portraitOf },
+    navigation: { jumpTo, openInPane2, ctxShow, panelScrollTo, IS_PANE2 },
+    refreshFind: () => { if (!fb.hidden && fTerm) runFind(fTerm, true); },
+  });
+  function renderCmt() { return commentaryUI.render(); }
+  function cmtTopName() { return commentaryUI.topName(); }
   function setCmtRow(label) {
     cmtRow = label;
     $$('#rOut .row.cmtrow').forEach(r => r.classList.remove('cmtrow'));
@@ -7351,13 +6217,6 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
     if (e.target.closest('#cmtPanel, #dictPanel, #cmtBtn, #cmtResize, #rOut .lab, #suggest, #audioBar, #ctxMenu, #lkHover, #tip, #undoBar, #dheadPop, #dictSelP, dialog')) return;
     for (const k of ['cmt', 'dict']) { const el = $(PINS[k][0]); if (!el.hidden && !el.classList.contains('docked')) $(PINS[k][1]).click(); }
   });
-  $('#cmtLang').onchange = () => {
-    saveCmt(); // Auswahl der bisherigen Sprache sichern
-    cmtLang = $('#cmtLang').value;
-    const s0 = cmtByLang[cmtLang] || { sel: [], all: false, touched: false };
-    cmtSel = new Set(s0.sel || []); cmtAll = !!s0.all; cmtTouched = !!s0.touched; cmtLastChosen = [];
-    saveCmt(); renderCmt();
-  };
   document.addEventListener('keydown', e => { if ((e.metaKey || e.ctrlKey) && !e.shiftKey && !e.altKey && e.key.toLowerCase() === 'k') { e.preventDefault(); cmtFromBtn(); } });
   // Vers, den man gerade liest: Zeile im oberen Viertel des Textes
   function readingRow(rows) {
@@ -7444,185 +6303,6 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
       toggleBlock({ key: view.group.key, title: view.group.title, sk: sc.k, secLabel: sc.label, set: [...view.vf.set].sort((a, b) => a - b), vs: fmtVerses([...view.vf.set]) });
     }
   });
-  $('#cmtSum').onclick = () => {
-    cmtChipsOpen = !cmtChipsOpen;
-    try { localStorage.setItem('cmtChipsOpen', cmtChipsOpen ? '1' : '0'); } catch { /* egal */ }
-    renderCmt();
-  };
-  $('#cmtChips').addEventListener('click', e => {
-    const c = e.target.closest('.chip');
-    if (!c || c.classList.contains('off')) return;
-    const n = c.dataset.n;
-    cmtTouch();
-    if (cmtAll) { cmtAll = false; cmtSel = new Set(cmtAvailNames); }
-    if (cmtSel.has(n)) cmtSel.delete(n); else cmtSel.add(n);
-    saveCmt(); renderCmt();
-  });
-  function cmtTouch() { if (!cmtTouched) { cmtTouched = true; cmtSel = new Set(cmtLastChosen); try { localStorage.setItem('cmtTouched', '1'); } catch { /* egal */ } } }
-  // Schnellauswahl: Alle / Keine / Klassische; Filterfeld für die Namen
-  $('#cmtChips').addEventListener('click', e => {
-    const q = e.target.closest('button[data-q]');
-    if (!q) return;
-    cmtTouch();
-    if (q.dataset.q === 'all') { cmtAll = true; cmtSel = new Set(); }
-    else if (q.dataset.q === 'none') { cmtAll = false; cmtSel = new Set(); }
-    else { cmtAll = false; cmtSel = new Set(cmtAvailNames.filter(n => CMT_PRIO.includes(n))); }
-    saveCmt(); renderCmt();
-  });
-  const applyCmtFilter = () => {
-    const f = cmtFilterV.trim().toLowerCase();
-    $$('#cmtChips .chip').forEach(c => { c.hidden = !!f && !c.dataset.n.toLowerCase().includes(f); });
-  };
-  $('#cmtChips').addEventListener('input', e => { if (e.target.id === 'cmtFilter') { cmtFilterV = e.target.value; applyCmtFilter(); } });
-  // Höhe des festen Kopfes merken, damit die Kommentatornamen darunter hängen bleiben
-  try { new ResizeObserver(() => $('#cmtPanel').style.setProperty('--cmt-head-h', $('#cmtHead').offsetHeight + 'px')).observe($('#cmtHead')); } catch { /* egal */ }
-  // Rechtsklick auf einen Kommentatornamen: im Tab, neuen Tab oder zweiten Fenster öffnen
-  $('#cmtBody').addEventListener('contextmenu', e => {
-    const h = e.target.closest('h4[data-ref]');
-    const items = [];
-    const selTxt = (window.getSelection() + '').trim();
-    if (h) {
-      const ref = h.dataset.ref.replace(/-.*$/, '');
-      items.push({ label: 'Öffnen', fn: () => jumpTo(ref, false) }, { label: 'Im neuen Tab öffnen', fn: () => jumpTo(ref, true) });
-      if (!IS_PANE2) items.push({ label: 'Im zweiten Fenster öffnen', fn: () => openInPane2(null, { jump: ref }) });
-    }
-    if (selTxt) items.push({ label: I18N.t('Kopieren'), fn: () => navigator.clipboard.writeText(selTxt).catch(() => {}) });
-    // eine Zeile pro angezeigtem Kommentar: springt dorthin (klappt ihn bei Bedarf auf)
-    const cs = [...$$('#cmtBody .cmt')];
-    if (cs.length) {
-      if (items.length) items.push({ sep: true });
-      cs.forEach(c => items.push({ label: (c.classList.contains('closed') ? '▸ ' : '') + dispName(c.dataset.n) + (c.querySelectorAll('.cpart').length > 1 ? ` ×${c.querySelectorAll('.cpart').length}` : ''), fn: () => { c.classList.remove('closed'); cmtClosed.delete(c.dataset.n); const t = c.querySelector('.tg'); if (t) t.textContent = '▾'; panelScrollTo(c, 'start'); } }));
-    }
-    if (!items.length) return;
-    ctxShow(e, items);
-  });
-  $('#cmtBody').addEventListener('click', e => {
-    const jl = e.target.closest('a.jl');
-    if (jl) { const t = [...$$('#cmtBody .cmt')].find(x => x.dataset.n === jl.dataset.n); if (t) { t.classList.remove('closed'); cmtClosed.delete(jl.dataset.n); panelScrollTo(t, 'start'); } return; }
-    const h = e.target.closest('h4[data-ref]');
-    if (!h) return;
-    if (e.target.closest('.go')) return jumpTo(h.dataset.ref.replace(/-.*$/, ''), true);
-    const c = h.closest('.cmt'); if (!c) return; // Klick auf den Namen klappt diesen Kommentar ein/aus
-    const closed = c.classList.toggle('closed');
-    if (closed) cmtClosed.add(c.dataset.n); else cmtClosed.delete(c.dataset.n);
-    h.querySelector('.tg').textContent = closed ? '▸' : '▾';
-  });
-  // Beim Wechsel zu einem anderen Vers: an demselben Kommentator weiterlesen, an dem man gerade war (falls es ihn dort auch gibt)
-  let cmtKeepName = null;
-  function cmtTopName() {
-    const P = $('#cmtPanel'), cs = $$('#cmtBody .cmt');
-    if (!cs.length) return undefined; // gerade nichts angezeigt (z. B. „Lade …“): bisherigen Stand behalten
-    if (P.scrollTop < 8) return null;
-    const hb = $('#cmtHead').getBoundingClientRect().bottom;
-    const c = cs.find(x => x.getBoundingClientRect().bottom > hb + 24);
-    return c ? c.dataset.n : null;
-  }
-  function cmtRestoreTop() {
-    const P = $('#cmtPanel');
-    const c = cmtKeepName ? $$('#cmtBody .cmt').find(x => x.dataset.n === cmtKeepName) : null;
-    if (!c) { P.scrollTop = 0; return; }
-    const top = c.getBoundingClientRect().top - P.getBoundingClientRect().top + P.scrollTop - $('#cmtHead').offsetHeight - 8;
-    P.scrollTop = Math.max(0, top);
-  }
-  async function renderCmt() {
-    if (!cmtOpen) return;
-    { const n = cmtTopName(); if (n !== undefined) cmtKeepName = n; }
-    const token = ++cmtToken;
-    const virt = view && view.sres ? cmtVirt : null; // Suchtab: Stelle kommt aus der angeklickten Trefferzeile
-    const s = virt ? { label: virt.label } : (view && view.group && view.sections[view.idx]);
-    const whole = cmtWhole && !virt && !!s && secChapOf(s) != null; // ganzes Kapitel / ganze Seite
-    const v = whole ? 0 : rowVerse(cmtRow), page = whole && /[ab]$/i.test(secChapOf(s));
-    $('#cmtTitle').textContent = whole ? `${I18N.t('Kommentare zu')} ${view.group.title} ${s.label.replace(/^\D+/, '')} · ${I18N.t(page ? 'ganze Seite' : 'ganzes Kapitel')}`
-      : s && v != null ? `Kommentare zu ${virt ? virt.title : view.group.title} ${s.label.replace(/^\D+/, '')}:${cmtRow}` : 'Kommentare';
-    { const wb = $('#cmtWhole'); wb.hidden = whole || virt || !s || secChapOf(s) == null; wb.textContent = I18N.t(s && /[ab]$/i.test(secChapOf(s) || '') ? 'Ganze Seite' : 'Ganzes Kapitel'); wb.title = I18N.t('Kommentare zum ganzen Kapitel bzw. zur ganzen Seite'); }
-    if (!s) { $('#cmtChips').innerHTML = ''; $('#cmtSum').innerHTML = ''; $('#cmtBody').innerHTML = '<p class="muted">Öffne ein Buch.</p>'; return; }
-    if (!linksReady) { $('#cmtChips').innerHTML = ''; $('#cmtSum').innerHTML = ''; $('#cmtBody').innerHTML = '<p class="muted">Dafür werden die Verknüpfungen gebraucht: Reiter „Herunterladen“ → Karte „4 · Verknüpfungen“.</p>'; return; }
-    if (v == null) { $('#cmtChips').innerHTML = ''; $('#cmtSum').innerHTML = ''; $('#cmtBody').innerHTML = '<p class="muted">Klicke links bei einer Zeile auf die Versnummer.</p>'; return; }
-    // Kommentare zu diesem Vers, nach Kommentator gruppiert
-    const groupsC = new Map();
-    for (const x of secLinks) {
-      if (x.type !== 'commentary' || !(x.v1 > 0 && (whole || (v >= x.v1 && v <= x.v2)))) continue;
-      const book = splitOther(x.other);
-      const name = book.replace(/ on .*$/i, '');
-      if (!groupsC.has(name)) groupsC.set(name, { name, book, refs: [], vOf: new Map() });
-      const g0 = groupsC.get(name); if (!g0.vOf.has(x.other)) { g0.refs.push(x.other); g0.vOf.set(x.other, x.v1); }
-    }
-    if (whole) for (const g0 of groupsC.values()) g0.refs.sort((a, b) => g0.vOf.get(a) - g0.vOf.get(b)); // im ganzen Kapitel nach Versen
-    const local0 = localTitles(); const local = { has: b => local0.has(b) || local0.has(String(b).split(', ')[0]) };
-    const listPrio = [...groupsC.values()].sort((a, b) => {
-      const ia = CMT_PRIO.indexOf(a.name), ib = CMT_PRIO.indexOf(b.name);
-      return (local.has(b.book) - local.has(a.book)) || ((ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib)) || (b.refs.length - a.refs.length);
-    });
-    // Anzeige in der Reihenfolge der Bibliotheksliste links; die Rangfolge oben gilt nur für die Vorauswahl
-    const byT = new Map(groups.map(g => [g.title, g]));
-    const titleToGroup = t => byT.get(t) || byT.get(String(t).split(', ')[0]) || null;
-    const list = [...listPrio].sort((a, b) => libCmpGroups(titleToGroup(a.book), titleToGroup(b.book)) || titleCmp(a.book, b.book) || String(a.name).localeCompare(String(b.name)));
-    if (!list.length) { $('#cmtChips').innerHTML = ''; $('#cmtSum').innerHTML = ''; $('#cmtBody').innerHTML = '<p class="muted">Zu diesem Vers gibt es keine Kommentare in den Verknüpfungen.</p>'; return; }
-    // Nur Kommentatoren zählen als „vorhanden“, die lokal in der gewählten Sprache vorliegen (sonst wirkt die Liste vollständiger, als sie ist)
-    const byTitle = byT;
-    const LNm = { en: 'Englisch', de: 'Deutsch', he: 'Hebräisch' }[cmtLang];
-    const hasLang = b => { const g = byTitle.get(b) || byTitle.get(String(b).split(', ')[0]); return !!g && g.versions.some(v => v.kind === cmtLang); };
-    const avail = { has: b => local.has(b) && hasLang(b) };
-    // Auswahl: gemerkte Kommentatoren; beim ersten Mal die bekanntesten vorhandenen
-    cmtAvailNames = list.filter(g => avail.has(g.book)).map(g => g.name);
-    let chosen = cmtAll ? list.filter(g => avail.has(g.book)) : list.filter(g => cmtSel.has(g.name) && avail.has(g.book));
-    if (!cmtTouched) { const pre = new Set(listPrio.filter(g => avail.has(g.book)).slice(0, 2)); chosen = list.filter(g => pre.has(g)); }
-    cmtLastChosen = chosen.map(g => g.name);
-    const showAll = (cmtTouched && cmtAll) || (!cmtTouched && !chosen.length); // „Alle“ (oder nichts Vorausgewähltes): alle in dieser Sprache vorhandenen Kommentare zeigen
-    if (showAll) chosen = list.filter(g => avail.has(g.book));
-    const ok0 = g => avail.has(g.book);
-    const chip = g => {
-      const on = chosen.includes(g) && ok0(g), ok = avail.has(g.book);
-      const why = ok ? g.book : local.has(g.book) ? I18N.t('{} – lokal vorhanden, aber nicht auf {}', g.book, LNm) : I18N.t('{} – nicht in deiner Bibliothek', g.book);
-      return `<button class="chip ${on ? 'on' : ''} ${ok ? '' : 'off'}" data-n="${esc(g.name)}" title="${esc(why)}${g.refs.length > 1 ? ' · ' + I18N.t('{#} Stellen zu diesem Vers', g.refs.length) : ''}">${esc(dispName(g.name))}${g.refs.length > 1 ? ` <small class="cx">×${g.refs.length}</small>` : ''}</button>`;
-    };
-    const localL = list.filter(g => avail.has(g.book)), noLangL = list.filter(g => local.has(g.book) && !hasLang(g.book)), remoteL = list.filter(g => !local.has(g.book));
-    const sumTxt = !localL.length ? I18N.t('keiner auf {} vorhanden', LNm)
-      : showAll ? I18N.t('Alle {#} ({})', localL.length, LNm)
-      : chosen.length ? I18N.t('{#} von {#} gewählt', chosen.length, localL.length) + ': ' + esc(chosen.slice(0, 4).map(g => dispName(g.name)).join(', ')) + (chosen.length > 4 ? ' …' : '')
-      : I18N.t('keiner gewählt');
-    $('#cmtSum').innerHTML = `${cmtChipsOpen ? '▾' : '▸'} <b>Kommentatoren</b> <span class="muted">${sumTxt}</span>`;
-    $('#cmtChips').hidden = !cmtChipsOpen;
-    $('#cmtChips').innerHTML = `<div class="cq"><button data-q="all">Alle</button><button data-q="none">Keine</button><button data-q="classic" title="Rashi, Ibn Ezra, Ramban …">Klassische</button><input id="cmtFilter" type="search" placeholder="Name filtern …" value="${esc(cmtFilterV)}" autocomplete="off"></div>`
-      + localL.map(chip).join('')
-      + (noLangL.length ? `<details><summary>${noLangL.length} lokal, aber nicht auf ${LNm}</summary><div>${noLangL.map(chip).join('')}</div></details>` : '')
-      + (remoteL.length ? `<details><summary>${remoteL.length} nicht in deiner Bibliothek</summary><div>${remoteL.map(chip).join('')}</div></details>` : '');
-    applyCmtFilter();
-    if (!chosen.length) { $('#cmtBody').innerHTML = '<p class="muted">Wähle oben einen Kommentator. Grau dargestellte Kommentatoren musst du erst im Reiter „Herunterladen“ laden.</p>'; return; }
-    $('#cmtBody').innerHTML = '<p class="muted">Lade …</p>';
-    const refs = chosen.flatMap(g => g.refs);
-    const res = await LK.texts(refs, cmtLang, true);
-    if (token !== cmtToken) return; // inzwischen anderer Vers
-    const LN = { en: 'Englisch', de: 'Deutsch', he: 'Hebräisch' }[cmtLang];
-    const hasTxt = g => g.refs.some(r => res[r] && res[r].items);
-    const gaps = showAll ? chosen.filter(g => !hasTxt(g)) : []; // ohne Auswahl: Kommentatoren ohne Text in dieser Sprache nur als Hinweis
-    if (showAll) chosen = chosen.filter(hasTxt);
-    const gapNote = gaps.length ? `<p class="muted">${I18N.t('Kein ' + { en: 'Englischer', de: 'Deutscher', he: 'Hebräischer' }[cmtLang] + ' Text zu diesem Vers:')} ${gaps.map(g => esc(g.name) + ' ' + (g.refs.every(r => res[r] && res[r].missing) ? I18N.t('(keine Fassung in dieser Sprache geladen)') : I18N.t('(Vers fehlt in der Fassung)'))).join(', ')}</p>` : '';
-    if (!chosen.length) { $('#cmtBody').innerHTML = gapNote || `<p class="muted">${I18N.t('Keine lokalen Kommentare in der Sprache {} zu diesem Vers.', LN)}</p>`; return; }
-    // Sprungliste zu den einzelnen Kommentatoren: per Rechtsklick im Kommentarbereich
-    $('#cmtBody').innerHTML = chosen.map(g => {
-      const seenTxt = new Set();
-      let partNo = 0;
-      const parts = g.refs.map(r => {
-        const t = res[r];
-        if (!t || !t.items) return `<div class="none">${esc(r)} – ${t && t.missing ? I18N.t('keine Fassung auf {} geladen', LN) : I18N.t('Vers fehlt in der ' + { en: 'Englischen', de: 'Deutschen', he: 'Hebräischen' }[cmtLang] + ' Fassung')}</div>`;
-        const he = t.kind === 'he';
-        const sig = t.items.join('\u0001'); if (seenTxt.has(sig)) return ''; seenTxt.add(sig); // gleiche Stelle mehrfach verknüpft: nur einmal zeigen
-        const vh = whole ? (vn => vn !== g.lastV ? (g.lastV = vn, `<div class="cvn" data-l="${vn}">${esc(I18N.t(page ? 'Segment' : 'Vers'))} ${vn}</div>`) : '')(g.vOf.get(r)) : '';
-        return vh + (g.refs.length > 1 && !vh ? `<div class="cpart" data-k="${++partNo}"></div>` : '') + t.items.map(x => {
-          // Fußnoten im Kommentar-Bereich: Zeichen im Text, Fußnotentext direkt dahinter (Einstellung „Fußnoten“ wie im Lesetext)
-          const sp = R.splitFootnotes(he ? stripHe(x) : x);
-          const inl = R.cleanHtml(sp.main).replace(/<sup>.*?<\/sup>/g, '').replace(/<sup data-fn="(\d{1,4})">(.*?)<\/sup>/g, (m, i) => { const n = sp.notes[+i]; return n ? `${m}<span class="note" data-fn="${i}"><span class="nm">${esc(n.marker)}</span> ${R.cleanHtml(n.html)}</span>` : m; });
-          return `<div class="ct" dir="${he ? 'rtl' : 'ltr'}">${window.AutoRef.link(inl, { last: '', trad: versOf({ entry: { rel: t.rel, title: g.book, versionTitle: t.versionTitle } }, 'cites'), note: versNoteText })}</div>`;
-        }).join('');
-      }).join('');
-      const cl = cmtClosed.has(g.name);
-      return `<div class="cmt${cl ? ' closed' : ''}" data-n="${esc(g.name)}"><h4 data-ref="${esc(g.refs[0])}" title="Klick: Kommentar ein-/ausklappen · ↗: öffnet ${esc(g.book)} in einem neuen Tab · Rechtsklick: weitere Möglichkeiten"><span class="tg">${cl ? '▸' : '▾'}</span> ${(p => p ? `<img class="vpic" src="portraits/${encodeURIComponent(p.img)}" alt="" data-title="${esc(p.name || '')}" loading="lazy">` : '')(portraitOf(g.name) || g.refs.map(r => res[r] && res[r].versionTitle && portraitOf(res[r].versionTitle)).find(Boolean) || portraitOf(g.book))}${esc(dispName(g.name))}${g.refs.length > 1 ? ` <small class="cx" title="Stellen zu diesem Vers">×${g.refs.length}</small>` : ''}<span class="go" title="Buch im neuen Tab öffnen">↗</span></h4>${parts}</div>`;
-    }).join('') + gapNote;
-    cmtRestoreTop();
-    if (!fb.hidden && fTerm) runFind(fTerm, true); // Suche im Kommentar-Bereich nach dem Neuaufbau erneuern
-  }
-
   // ---------- Alles zu dieser Stelle: ein Fenster mit festen Fächern zum gewählten Vers / Segment ----------
   // Zusammengestellt wird nur, was die anderen Fenster ohnehin schon geladen haben (Verknüpfungen des Abschnitts, Themen, Orte, Gliederung, Notizen);
   // die Verteilung auf die Fächer macht passage.js. Das Fenster folgt dem gewählten Vers (Klick auf die Versnummer, j/k, ▲▼).
@@ -7919,7 +6599,7 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
   function sessionData() {
     let ui = null;
     try { // was außer den Tabs offen war: Reiter, Kommentar (Vers, Kommentator), Wörterbuch (Suchwort), welcher der beiden vorn lag
-      ui = { tab: document.documentElement.dataset.tab || 'read', cmt: !!cmtOpen, cmtRow: cmtRow, cmtTop: (() => { const n = cmtTopName(); return n === undefined ? cmtKeepName : n; })(),
+      ui = { tab: document.documentElement.dataset.tab || 'read', cmt: !!cmtOpen, cmtRow: cmtRow, cmtTop: (() => { const n = cmtTopName(); return n === undefined ? commentaryUI.keepName : n; })(),
         dict: !!dictOpen, dq: $('#dictQ').value.trim().slice(0, 100), stk: stackActive };
     } catch { /* beim Start noch nicht alles angelegt */ }
     return {
@@ -7953,7 +6633,7 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
     view = tabs[tabIdx];
     const ui = ses.ui && typeof ses.ui === 'object' ? ses.ui : null;
     if (ui && typeof ui.cmtRow === 'string') cmtRow = ui.cmtRow.slice(0, 40); // Vers des Kommentars wie beim Schließen
-    if (ui && typeof ui.cmtTop === 'string') cmtKeepName = ui.cmtTop.slice(0, 200);
+    if (ui && typeof ui.cmtTop === 'string') commentaryUI.keepName = ui.cmtTop.slice(0, 200);
     showView();
     if (view.group) { const sc = view.scroll || 0; await loadView({ noKeep: true }); window.scrollTo(0, sc); }
     if (ui) {

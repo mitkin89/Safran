@@ -63,7 +63,10 @@ Object.assign(ctx, { $, $$: () => [], esc: s => String(s).replace(/&/g, '&amp;')
 });
 vm.runInContext(part('  let targumFormsP =', '  // Belegstellen als Zeilen'), ctx);
 vm.runInContext(part('  async function wcDicts(token)', '  // Septuaginta: häufigste griechische Lemmata'), ctx);
-vm.runInContext(part('  let lemByCons = null;', '  const dictGoHist ='), ctx);
+vm.runInContext(part('  let lemByCons = null;', '  // Eigene Wörterbuchinstanz'), ctx);
+const dictionaryUI = fs.readFileSync(path.join(__dirname, 'library-dictionary.js'), 'utf8');
+ctx.getSelection = () => ctx.dictSel; ctx.getSource = () => ctx.dictSrc;
+vm.runInContext(dictionaryUI.slice(dictionaryUI.indexOf('  function dictCardButtons('), dictionaryUI.indexOf('  const dictGoHist =')), ctx);
 (async () => {
   const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'safran-tgcard-'));
   try {

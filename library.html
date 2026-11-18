@@ -27,7 +27,7 @@
       <div id="moreList">
         <button id="goGet" title="Bücher, Verknüpfungen und Updates herunterladen">⬇ Herunterladen…</button>
         <button id="openDict" title="Wörterbuch aufschlagen und DSL-Wörterbücher verwalten">📖 Wörterbuch …</button>
-        <button id="expBtn" title="Abschnitt als PDF oder Word exportieren">⤓ Exportieren …</button>
+        <button id="expBtn" title="Buch oder Abschnitt als PDF oder Word exportieren">⤓ Exportieren …</button>
         <button id="addOwn" title="Eigenen Text (TXT, Word, CSV, JSON) zum Testen einbinden">＋ Eigener Text…</button>
         <button id="importInterlinear" title="Private JSON-Wortzuordnung lokal einbinden">Interlinear-Zuordnung importieren …</button>
         <button id="chooseDir" title="Ordner wählen, in dem die heruntergeladenen Texte liegen (z. B. externe Festplatte)">Speicherort…</button>
@@ -379,12 +379,14 @@
   </dialog>
 
   <dialog id="expDlg">
-    <h2>Abschnitt exportieren</h2>
+    <h2>Buch oder Abschnitt exportieren</h2>
     <p id="expWhat" class="muted"></p>
     <label>Format
       <select id="expFmt"><option value="pdf">PDF</option><option value="doc">Word (.doc)</option></select>
     </label>
-    <div class="bar"><label>Zeilen von <input id="expFrom" size="4" placeholder="alle"></label><label>bis <input id="expTo" size="4" placeholder="alle"></label></div>
+    <div class="bar"><label>Exportbereich <select id="expScope"><option value="current">Aktueller Abschnitt</option><option value="book">Ganzes Buch</option><option value="range">Abschnittsbereich</option></select></label></div>
+    <div class="bar" id="expSections" hidden><label>Von Abschnitt <select id="expSectionFrom"></select></label><label>Bis Abschnitt <select id="expSectionTo"></select></label></div>
+    <div class="bar" id="expRows"><label>Zeilen von <input id="expFrom" size="4" placeholder="alle"></label><label>bis <input id="expTo" size="4" placeholder="alle"></label></div>
     <label><input type="checkbox" id="expFn" checked> Fußnoten (nummeriert unter der Tabelle)</label>
     <label><input type="checkbox" id="expNotes" checked> Meine Notizen</label>
     <label><input type="checkbox" id="expLinks"> Verknüpfungen (Liste je Zeile, falls vorhanden)</label>
@@ -515,6 +517,14 @@
   <iframe id="pane2" hidden title="Zweites Lesefenster"></iframe>
   <script src="portraits/index.js"></script>
   <div id="ilPop" class="ilpop" role="dialog" aria-label="Interlinear" hidden></div>
+  <script src="library-export.js"></script>
+  <script src="library-display.js"></script>
+  <script src="library-commentary.js"></script>
+  <script src="library-comment-selection.js"></script>
+  <script src="library-downloads.js"></script>
+  <script src="library-interlinear.js"></script>
+  <script src="library-dictionary.js"></script>
+  <script src="library-search.js"></script>
   <script src="library.js"></script>
 </body>
 </html>

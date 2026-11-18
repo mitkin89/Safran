@@ -117,6 +117,8 @@ And everything else:
 </tr>
 </table>
 
+**Print books side by side:** Open a book and select its Hebrew and German versions as columns. Under **⋯ → Export …**, choose the current section, a section/chapter range or **Whole book**, then export to PDF or Word. Versions are aligned verse by verse; footnotes, personal notes and links are optional. Print the resulting PDF normally.
+
 <p align="center">
   <a href="screenshots/qumran-interlinear.png"><img src="screenshots/qumran-interlinear.png" alt="Isaiah 53:11 as an interlinear with Zunz and the Qumran scrolls 1Q8, 1QIsaa and 4Q58 under the Hebrew words; the plus or (light) of the scrolls after yir’e is marked" width="900"></a><br>
   <sub>Qumran scrolls in the interlinear, Isaiah 53:11: one line per scroll, differences from the Masoretic text marked – here the plus אור (“light”) in 1QIsaᵃ, 1Q8 and 4Q58.</sub>

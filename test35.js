@@ -18,7 +18,10 @@ Object.assign(ctx, { $, esc, I18N: { t: s => s }, portraitOf: () => null, heFix:
   renderDtabs() {}, dictNavButtons() {}, document: { documentElement: { dataset: { tab: 'dict' } } },
   openGForms: (...args) => calls.push(['greek', ...args]), openForms: (...args) => calls.push(['hebrew', ...args]),
 });
-vm.runInContext(part('  let lemByCons = null;', '  const dictGoHist ='), ctx);
+vm.runInContext(part('  let lemByCons = null;', '  // Eigene Wörterbuchinstanz'), ctx);
+const dictionaryUI = fs.readFileSync(path.join(__dirname, 'library-dictionary.js'), 'utf8');
+ctx.getSelection = () => ctx.dictSel; ctx.getSource = () => ctx.dictSrc;
+vm.runInContext(dictionaryUI.slice(dictionaryUI.indexOf('  function dictCardButtons('), dictionaryUI.indexOf('  const dictGoHist =')), ctx);
 
 (async () => {
   const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'safran-grcard-'));
