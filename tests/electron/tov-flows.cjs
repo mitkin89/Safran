@@ -7,8 +7,10 @@ module.exports=async({docs,win,js,waitFor,book})=>{
   await waitFor("document.querySelector('#rOut .row[data-l=\"6\"]')",'Genesis 1:6 geladen');
   await js("document.querySelector('#rOut .row[data-l=\"6\"] .txt').click()");
   await waitFor("document.querySelector('#tcBody .tc-tov-entry')?.textContent.includes('καὶ ἐγένετο')",'Tovs Plus und Rückübersetzung ohne ausgewählte LXX-Lesespalte');
-  assert(await js("[...document.querySelectorAll('#tcBody abbr')].some(n=>n.textContent==='=;'&&n.title.includes('Rückübersetzung'))"));
+  assert(await js("[...document.querySelectorAll('#tcBody abbr')].some(n=>n.textContent==='erschlossen'&&n.title.includes('=;')&&n.title.includes('Rückübersetzung'))"));
   assert(await js("document.querySelector('#tcBody').textContent.includes('ויהי') && !document.querySelector('#tcBody details, #tcBody summary')"));
+  assert(await js("[...document.querySelectorAll('#tcBody .tc-tov-tag')].some(n=>n.textContent==='LXX-Zusatz'&&n.title.startsWith('--+'))"));
+  assert(await js("{const n=document.querySelector('#tcBody .tc-tov-reading');getComputedStyle(n).display==='inline'&&!n.querySelector('div')&&n.textContent.includes('ויהי')&&!n.textContent.includes('=;')&&n.getBoundingClientRect().height<getComputedStyle(n).fontSize.replace('px','')*2}"),'Compact inline reading with original code in the hover');
   const target="document.querySelector('#tcBody .tc-tov-lemma')";
   await js(`${target}.scrollIntoView({block:'center'})`);
   await js("new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))");
@@ -28,6 +30,9 @@ module.exports=async({docs,win,js,waitFor,book})=>{
   await js("document.querySelector('#tcTov').checked=true;document.querySelector('#tcTov').dispatchEvent(new Event('change',{bubbles:true}));document.querySelector('#rOut .row[data-l=\"6\"] .txt').click()");
   await waitFor("document.querySelector('#tcBody .tc-tov-entry')",'LXX wieder einblenden');
   if(process.env.SAFRAN_TOV_CAPTURE){
+    await js("document.querySelector('#tcSmr').checked=false;document.querySelector('#tcSmr').dispatchEvent(new Event('change',{bubbles:true}))");
+    await waitFor("document.querySelector('#tcBody .tc-tov-entry') && !document.querySelector('#tcBody .tc-entry[data-tc-group]')",'Kompakte LXX-Ansicht für Sichtkontrolle');
+    await js("new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))");
     fs.writeFileSync(process.env.SAFRAN_TOV_CAPTURE,(await win.webContents.capturePage()).toPNG());
   }
   await js("document.querySelector('#tcClose').click()");

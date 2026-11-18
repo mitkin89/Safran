@@ -1,6 +1,7 @@
 # Changelog
 
 ### New in 2.5.0
+- **Readable CATSS remarks:** display descriptive short labels in place of source symbols, retain original codes and explanations in hovers, and keep reconstructed readings inline with their Greek group.
 - **LXX in the textual criticism pane:** add 61,284 Tov/Kraft CATSS source remarks across 36 exact-matched editions, with separate witness filters, Greek verse hovers, code explanations and existing Greek morphology. Preserve original source columns, uncertainty and file/line references; distinguish alignment plus/minus from reconstructed Hebrew readings. Include reproducible Oxford sources and provenance checks. Exclude the mislabeled Esther/Ezra section and report missing coverage. NETS is not included.
 
 - **Text-critical header controls:** mirror the commentary header with whole-chapter view, available source language, previous/next verse, follow-reading mode, persisted A−/A+ size and a collapsible witness selector. Keep remarks flat, chapter source verses deduplicated across MT mappings, and pin/close behavior. Following reader selection in chapter view highlights the matching source passage without rebuilding the chapter.
