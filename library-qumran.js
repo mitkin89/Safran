@@ -36,7 +36,8 @@ function create(host){
   function tokenHtml(t,key,index,interactive=true,different=false){
     const state=labelFlags(t).join(' · ');
     const detail=state+(t.flags.unc?' · Unsicherheitsstufe der Quelle: '+t.flags.unc.join(', '):'');
-    let reconstructed=false;
+    let reconstructed=false,raised=false;
+    const insertion=open=>'<span class="tc-dss-supra" title="Antiker Nachtrag über der Zeile">'+(open?'(':')')+'</span>';
     const bracket=open=>'<span class="tc-dss-rec">'+(open?'[':']')+'</span>';
     const inner=t.parts.map(p=>{
       const canOpen=interactive&&p.lemma&&p.morph.split('.')[0]!=='-';
@@ -44,7 +45,8 @@ function create(host){
         if(sign.type==='empty')return '';
         if(sign.type==='sep'&&sign.glyph==='׳')return ''; // morpheme delimiter
         const rec=!!sign.rec;let h='';
-        if(rec!==reconstructed){h+=bracket(rec);reconstructed=rec;}
+        if(rec!==reconstructed){if(raised){h+=insertion(false);raised=false;}h+=bracket(rec);reconstructed=rec;}
+        const supra=sign.cor==='3';if(supra!==raised){h+=insertion(supra);raised=supra;}
         const glyph=sign.type==='missing'?'…':sign.type==='unc'?'□':sign.glyph||'';
         const classes=[rec?'tc-dss-rec':'',sign.unc||sign.type==='unc'?'tc-dss-unc':'',sign.rem?'tc-dss-deleted':''].filter(Boolean).join(' ');
         const descriptions=[];
@@ -58,7 +60,7 @@ function create(host){
       }).join('');
       return '<span'+(canOpen?' class="tc-dss-word wq" data-l="'+esc(p.lemma)+'" data-m="'+esc(p.morph)+'" data-dss-status="'+esc(state)+'" data-dss-source="'+esc(citation(sources.get(key),t))+'"':'')+'>'+(p.signs?letters:esc(p.text))+'</span>';
     }).join('');
-    return '<span class="tc-dss-token'+(different?' mt-diff':'')+'" tabindex="0" data-tc-dss="'+esc(key)+'" data-tc-token="'+index+'" title="'+esc(detail||'Erhaltener Text')+'" dir="rtl">'+inner+(reconstructed?bracket(false):'')+'</span>';
+    return '<span class="tc-dss-token'+(different?' mt-diff':'')+'" tabindex="0" data-tc-dss="'+esc(key)+'" data-tc-token="'+index+'" title="'+esc(detail||'Erhaltener Text')+'" dir="rtl">'+inner+(raised?insertion(false):'')+(reconstructed?bracket(false):'')+'</span>';
   }
 
   function entries(queries,spelling){
@@ -94,7 +96,7 @@ function create(host){
   function preview(anchor){
     const key=anchor.dataset.tcDss,s=sources.get(key);if(!s)return '';
     const selected=anchor.dataset.tcToken;
-    return '<b title="'+esc('Originalnotation: '+s.tokens.map(t=>t.text).join(' '))+'">'+esc(citation(s))+'</b><div class="tc-dss-context" dir="rtl" lang="he">'+s.tokens.map((t,i)=>'<span class="'+(String(i)===selected?'tc-dss-active':'')+'">'+tokenHtml(t,key,i,false)+'</span>').join(' ')+'</div><small>Lesedarstellung: [ ] = moderne Rekonstruktion; gepunktet = unsicher; … = Lücke; □ = unsicheres Zeichen. Originalnotation über der Quellenangabe. ETCBC/Abegg · CC BY-NC 4.0.</small>';
+    return '<b title="'+esc('Originalnotation: '+s.tokens.map(t=>t.text).join(' '))+'">'+esc(citation(s))+'</b><div class="tc-dss-context" dir="rtl" lang="he">'+s.tokens.map((t,i)=>'<span class="'+(String(i)===selected?'tc-dss-active':'')+'">'+tokenHtml(t,key,i,false)+'</span>').join(' ')+'</div><small>Lesedarstellung: [ ] = moderne Rekonstruktion; gepunktet = unsicher; ( ) = antiker Nachtrag über der Zeile; … = Lücke; □ = unsicheres Zeichen. Originalnotation über der Quellenangabe. ETCBC/Abegg · CC BY-NC 4.0.</small>';
   }
   const credit=()=>'<p class="tc-credit">DSS · ETCBC/Abegg · CC BY-NC 4.0. Maschineller MT-Vergleich. Rekonstruktionen und beschädigte Stellen sind keine erhaltenen Varianten; fehlende MT-Wörter werden nicht automatisch als Auslassung gewertet. Quelltext über den Siglen oder Lesarten ansehen.</p>';
   return {load,entries,coverage,preview,credit,mt:ref=>get(ref)?.mt[ref]};

@@ -48,3 +48,12 @@ test('DSS adapter loads requested books independently, including multiword title
  assert(ui.preview({dataset:{tcDss:ref+'|'+i}}).includes('1Qisaa'));
  await ui.load('Esther');assert.equal(ui.entries([{ref:'Esther 1:1',row:'1'}],true).length,0);assert.equal(ui.coverage([{ref:'Esther 1:1',row:'1'}]),'');
 });
+
+test('DSS preview retains parentheses around antique supralinear insertions (Isaiah 1:1)',async()=>{
+ const sandbox={window:{QumranApparatus:Q,TextCrit:C}};vm.createContext(sandbox);vm.runInContext(fs.readFileSync(path.join(root,'library-qumran.js'),'utf8'),sandbox);
+ const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+ const ui=sandbox.window.LibraryQumran.create({esc,load:async file=>require(path.join(root,file))});await ui.load('Isaiah');
+ const ref='Isaiah 1:1',D=require('../qumran-apparatus/Isaiah'),index=D.verses[ref].findIndex(s=>s.scroll==='1Qisaa');ui.entries([{ref,row:'1'}],true);
+ const preview=ui.preview({dataset:{tcDss:ref+'|'+index}}),text=preview.replace(/<[^>]*>/g,'');
+ assert(text.includes('בי(ו)מי'));assert(text.includes('יש(ע)יהו'));assert(text.includes('(י)חזקיה'));assert(preview.includes('Antiker Nachtrag über der Zeile'));
+});

@@ -50,7 +50,7 @@ function create(host){
     return {book:v.group.title,chapter,ref:v.group.title+' '+chapter+':'+row,numbering,row};
   }
   function load(){
-    return pending||(pending=Promise.all([host.load('textcrit-data.js',()=>window.TEXTCRIT_DATA),host.load('samaritan-data.js',()=>window.SAMARITAN_DATA),tov.load(),ken.load()]).catch(e=>{pending=null;throw e;}));
+    return pending||(pending=Promise.all([host.load('textcrit-data.js',()=>window.TEXTCRIT_DATA),host.load('samaritan-data.js',()=>window.SAMARITAN_DATA),tov.load(),ken.load(),host.load('samaritan-il.js',()=>window.SAMARITAN_IL)]).catch(e=>{pending=null;throw e;}));
   }
   function word(w,interactive=true){
     const [text,mask,id]=w;let inner='',buf='',state=false;
@@ -122,15 +122,18 @@ function create(host){
     try{
       const [[data,notes]]=await Promise.all([load(),dss.load(c.book)]);if(token!==generation||panel.hidden)return;
       previewData=data;
+      const alignment=window.SAMARITAN_IL,smrIL=window.SamaritanInterlinear;
       const showSpelling=$('#tcSpelling').checked;
       const showSmr=$('#tcSmr').checked&&torah.has(c.book),showTov=$('#tcTov').checked,showDss=$('#tcDss').checked,showKen=$('#tcKen').checked&&c.book==='Genesis';
       const tovQueries=[];
       const queries=whole?rows().map(r=>r.dataset.l):[c.row],refs=new Map(),unresolved=[];
       for(const row of queries){
         const ref=c.book+' '+c.chapter+':'+row,resolved=window.TextCrit.resolve(data,ref,c.numbering);
-        if(resolved.unresolved)unresolved.push(ref);
-        if(showTov||showDss||showKen){const bases=c.numbering==='tal'?resolved.baseRefs:[ref];for(const base of bases)tovQueries.push({ref:base,row});}
-        for(const sourceRef of (showSmr?resolved.refs:[])){if(!refs.has(sourceRef))refs.set(sourceRef,[]);refs.get(sourceRef).push(row);}
+        const extra=c.numbering==='mt'?(alignment.index[ref]||[]).filter(r=>smrIL.sourceMatches(alignment,data,r)):[];
+        const sources=[...new Set([...resolved.refs,...extra])];
+        if(!sources.length)unresolved.push(ref);
+        if(showTov||showDss||showKen){const bases=c.numbering==='tal'?[...new Set([...resolved.baseRefs,...smrIL.targetRefs(alignment,data,ref)])]:[ref];for(const base of bases)tovQueries.push({ref:base,row});}
+        for(const sourceRef of (showSmr?sources:[])){if(!refs.has(sourceRef))refs.set(sourceRef,[]);refs.get(sourceRef).push(row);}
       }
       let unresolvedHtml='';
       if(showSmr&&!whole&&unresolved.length){unresolvedHtml='<p class="tc-status">Für diesen MT-Vers liegt keine hinreichend sichere wortlautbasierte Zuordnung vor. Das bedeutet keine Übereinstimmung und keinen fehlenden Text. Über „Zählung“ lässt sich der Tal-Apparat unter seiner eigenen Versangabe öffnen.</p>';}
@@ -139,9 +142,9 @@ function create(host){
       const notices=[];
       for(const [ref,readerRows] of refs){
         const verse=data.verses[ref],groups=window.TextCrit.remarks(data,notes,ref,showSpelling);renderedGroups.set(ref,groups);
-        const bases=verse.mtRefs,targets=bases.flatMap(r=>mtWords(r).map((word,index)=>({ref:r,word,index})));
+        const bases=verse.mtRefs,displayBases=[...new Set([...bases,...smrIL.targetRefs(alignment,data,ref)])],targets=bases.flatMap(r=>mtWords(r).map((word,index)=>({ref:r,word,index})));
         const mapped=window.TextCrit.alignPositions(verse.words.map(w=>w[0]),targets.map(t=>t.word));
-        if(!(bases.length===1&&bases[0]===ref))notices.push('Abweichende Versgrenzen oder Zählung: Tal–Florentin '+ref+'; MT '+(bases.join('; ')||'nicht sicher zugeordnet')+'.');
+        if(!(displayBases.length===1&&displayBases[0]===ref))notices.push('Abweichende Versgrenzen oder Zählung: Tal–Florentin '+ref+'; MT '+(displayBases.join('; ')||'nicht sicher zugeordnet')+'.');
         groups.forEach((g,i)=>{
           const position=window.TextCrit.locate(mapped,g.indices,targets.length);
           let anchor=null;
@@ -152,9 +155,14 @@ function create(host){
             if(left&&(!right||left.ref===right.ref))anchor={kind:'gap',ref:left.ref,start:left.index,end:left.index};
             else if(!left&&right)anchor={kind:'gap',ref:right.ref,start:-1,end:-1};
           }
+          let method='word-anchors';
+          const assisted=smrIL.noteAnchor(alignment,data,ref,g.indices);
+          if(!anchor&&assisted){anchor=assisted;method='samaritan-interlinear';}
+          else if(anchor&&assisted&&JSON.stringify(anchor)!==JSON.stringify(assisted)){if(smrIL.qereExpansion(alignment,anchor,assisted)){anchor=assisted;method='samaritan-interlinear-ketiv-qere';}else{anchor=null;method='conflicting-alignments';}}
+          if(anchor&&c.numbering==='mt'&&!readerRows.some(row=>anchor.ref===c.book+' '+c.chapter+':'+row))return;
           const notesHtml=g.notes.map(n=>'<section class="tc-note"><div class="tc-note-text"><span class="tc-witness-label">SMR</span> '+host.clean(n.html)+'</div><small class="tal-cite">'+esc(n.citation)+'</small></section>').join('');
           const fallback='<section class="tc-note"><div class="tc-note-text"><span class="tc-witness-label">SMR</span> <span class="tc-he" dir="rtl" lang="he">'+g.words.map(w=>word(w)).join(' ')+'</span></div><small class="tal-cite">Tal–Florentin, '+esc(ref)+' · rote Kennzeichnung; keine zugeordnete Anmerkung.</small></section>';
-          records.push({anchor,displayRef:bases[0]||ref,rows:readerRows,html:'<article class="tc-entry" data-witness="SMR" data-tc-ref="'+esc(ref)+'" data-tc-group="'+i+'">'+(notesHtml||fallback)+'</article>'});
+          records.push({anchor,displayRef:displayBases[0]||ref,rows:readerRows,html:'<article class="tc-entry" data-witness="SMR" data-alignment="'+method+'" data-tc-ref="'+esc(ref)+'" data-tc-group="'+i+'">'+(notesHtml||fallback)+'</article>'});
         });
       }
       if(showTov)records.push(...tov.entries(tovQueries));
@@ -175,6 +183,7 @@ function create(host){
       body.innerHTML=unresolvedHtml+(showDss?dss.coverage(tovQueries):'')+(records.length?'<p class="tc-count">'+records.length+' Hinweise · nach MT-Wortposition</p>':'')+notices.map(n=>'<p class="tc-status">'+esc(n)+'</p>').join('')+(sections||(empty?'<p class="muted">'+empty+'</p>':''))+(showTov?tov.credit():'')+(showDss?dss.credit():'')+(showKen?ken.credit():'')+(showSmr?'<p class="tc-credit">Samaritanus, Tal–Florentin · CC BY-NC 4.0. MT-Bezug wortlautbasiert; bei mehrdeutiger Wortposition bleibt die Zuordnung offen.</p>':'');
       body.querySelectorAll('.tc-entry[data-tc-group]').forEach(entry=>{
         const ref=entry.dataset.tcRef,g=renderedGroups.get(ref)[+entry.dataset.tcGroup];
+        if(entry.dataset.alignment?.startsWith('samaritan-interlinear'))entry.querySelectorAll('.tal-cite').forEach(c=>c.title=(c.title?c.title+' · ':'')+'MT-Position aus dem quellengeprüften Samaritanus-Interlinear (maschinell)');
         entry.querySelectorAll('.tc-note').forEach(note=>decorateNote(note,g.words,ref));
       });
       lastContentKey=contentKey;panel.scrollTop=0;markCurrent(c);
@@ -242,7 +251,7 @@ function create(host){
     if(!follow||e.target.closest?.('aside, #tcHover, dialog'))return;
     clearTimeout(followTimer);followTimer=setTimeout(followNow,200);
   },{passive:true,capture:true});
-  return {refresh:render,select:label=>{if(label!=null)selected=String(label);render();},close:()=>toggle(false)};
+  return {open:()=>toggle(true),refresh:render,select:label=>{if(label!=null)selected=String(label);render();},close:()=>toggle(false)};
 
 }
 return {create};

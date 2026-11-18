@@ -106,3 +106,34 @@ by exact full verses at the same coordinate to avoid drift in repeated formulas
 verified textual apparatus. Poorly anchored/displaced passages remain unresolved;
 the UI preserves Tal references and labels that status. `textcrit-core.js` keeps
 reference resolution and source-sign-based filtering independent of the pane.
+
+## MT interlinear and apparatus anchors
+
+`node tools/samaritan/build_interlinear.cjs` creates `samaritan-il.js` and
+`interlinear-audit.json`. It retains all 82,446 source words, IDs and red masks.
+The all-optimal-path alignment maps 80,811 words or their insertion boundaries;
+1,635 words remain in explicit open-position blocks. These are machine positions,
+not a new critical edition. Context substitutions do not establish a textual
+reading. No morphology transfers between editions or onto changed Tal forms.
+
+The runtime verifies the bundled Westminster text hash and the displayed verse
+word stream. Reuse in the apparatus additionally verifies the complete Tal source
+word tuples and Westminster source SHA. `node tools/samaritan/audit_apparatus.cjs`
+rebuilds `apparatus-alignment-audit.json`: 358 previously unlocated remark groups
+obtain positions; 27 anchors expand to a source-marked Ketiv/Qere group. Conflicting
+alignments remain open. This is a reproducible machine audit, not manual review of
+every reading.
+
+Adjacent transpositions require unique source/target tokens. Repeated conjunctions
+must not manufacture transpositions. Merged/split graphic words retain all actual
+Westminster word indices. The documented Tal Exodus 26:35/MT 30:1–10 and Tal
+29:28/MT 29:21 displacements are explicit alignment scopes, not source edits.
+
+`mt-qere.json` derives 67 Ketiv/Qere groups from the pinned Open Scriptures
+morphhb commit `db6c5c9b46b8f39346f10915ddb1a70dcd429901`, CC BY 4.0,
+<https://github.com/openscriptures/morphhb>. Exact XML is archived in
+`mt-qere-source/` with SHA hashes. `python3 tools/samaritan/extract_qere.py`
+extracts these markers (see script for input directory). Indices are accepted only
+when the entire verse consonant stream exactly matches bundled Westminster;
+unique whole-verse matching accommodates existing numbering differences.
+Tal–Florentin alignment data remain CC BY-NC 4.0, DOI 10.11647/OBP.0415.

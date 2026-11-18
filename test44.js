@@ -68,7 +68,7 @@ const tick = () => new Promise(resolve => setImmediate(resolve));
   assert.strictEqual(text.textContent, original);
   const words = text.querySelectorAll('.w'); assert.strictEqual(words.length, B.wordsAt(D, 'Berakhot 2a:7').length);
   const selected = words.find(w => w.dataset.l === B.atAnchor(D, '2a:7/7').id); assert(selected);
-  vm.runInContext(part("  $('#rOut').addEventListener('click', e => {\n    const w = e.target.closest('.w[data-m]", "  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeWpop();"), ctx);
+  vm.runInContext(part("  $('#rOut').addEventListener('click', e => {", "  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeWpop();"), ctx);
   readerClick({ target: selected }); await tick();
   let popup = vm.runInContext('wpop', ctx); assert(popup && popup.parentElement === body);
   assert(popup.innerHTML.includes('Präfixkonjugation (Imperfekt)'));

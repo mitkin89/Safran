@@ -323,6 +323,9 @@ window.LibraryWordPopup = (() => {
     }, () => {});
   }
   $('#rOut').addEventListener('click', e => {
+    // The interlinear controller opens Samaritan words with their own IDs.
+    // Do not invalidate its pending lazy morphology load in this handler.
+    if (e.target.closest('.smr-word')) return;
     const w = e.target.closest('.w[data-m], .wt[data-m], .wq[data-m], .wg');
     gTok++; // ein noch ladendes griechisches Wort-Popup gilt nicht mehr
     // griechischer Text ohne Wortgruppen (Rahlfs): jedes Wort ist anklickbar

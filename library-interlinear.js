@@ -3,11 +3,11 @@
 // und Vorschauen zugänglich und werden über eine explizite Schnittstelle übergeben.
 window.LibraryInterlinear = (() => {
   'use strict';
-  function create({ $, $$, esc, cache, getView, portraitOf, consOf, apChap, verseOf, sources }) {
+  function create({ $, $$, esc, cache, getView, portraitOf, consOf, apChap, verseOf, openSamaritan, sources }) {
     const O = window.offline;
     const { loadIL, resetPrivateIL, IL_TG, IL_QK, ilName,
       loadTgIL, tgVer, tgSegs, tgDoc, tgPlain, loadQIL, qVer,
-      ilLxxVer, ilLxxDoc, ilLxxSegs } = sources;
+      ilLxxVer, ilLxxDoc, ilLxxSegs, loadSmrIL } = sources;
     let ilTr = 'Zunz'; try { ilTr = localStorage.getItem('interlinTr') || 'Zunz'; } catch { /* egal */ }
     let ilOn = false; try { ilOn = localStorage.getItem('interlin') === '1'; } catch { /* egal */ }
     $('#importInterlinear').onclick = async () => {
@@ -32,14 +32,14 @@ window.LibraryInterlinear = (() => {
       const union = (x, y) => { x = find(x); y = find(y); if (x < y) par[y] = x; else if (y < x) par[x] = y; };
       const info = trs.map(([name, segs, sig]) => {
         const lead = new Map(), memberOf = new Map(); // Anführer-Wort -> [[Nr, Text, Wörter]]; Mitglieds-Wort -> Anführer
-        segs.forEach(([idx, t, kind], k) => { if (!idx.length) return; const L = Math.min(...idx); (lead.get(L) || lead.set(L, []).get(L)).push([k, t, idx, kind]); idx.forEach(i => { if (i !== L) memberOf.set(i, L); }); });
+        segs.forEach(([idx, t, kind, meta], k) => { if (!idx.length) return; const L = Math.min(...idx); (lead.get(L) || lead.set(L, []).get(L)).push([k, t, idx, kind, meta]); idx.forEach(i => { if (i !== L) memberOf.set(i, L); }); });
         lead.forEach((_, L) => memberOf.delete(L));
         const run = new Map(); // Anführer -> letztes Wort der zusammenhängenden Gruppe
         lead.forEach((_, L) => { let e = L; while (memberOf.get(e + 1) === L && e < n) e++; run.set(L, e); for (let i = L + 1; i <= e; i++) union(L, i); });
         const marks = new Map(); // Wort, das zu einer nicht zusammenhängenden Gruppe gehört -> Wörter der Gruppe
         memberOf.forEach((L, i) => { if (!(i > L && i <= run.get(L))) marks.set(i, [...new Set(lead.get(L).flatMap(x => x[2]))]); });
         // Qumran: Wörter der Rolle ohne Gegenstück (Plus) hängen am vorigen zugeordneten Wort (am Anfang: am ersten)
-        if (sig) segs.forEach(([idx, t, kind], k) => { if (idx.length) return; let j = k - 1; while (j >= 0 && !segs[j][0].length) j--; let L = j >= 0 ? Math.min(...segs[j][0]) : null; if (L == null) { const nx = segs.find(x => x[0].length); L = nx ? Math.min(...nx[0]) : null; } if (L != null) (lead.get(L) || lead.set(L, []).get(L)).push([k, t, [], kind]); });
+        if (sig) segs.forEach(([idx, t, kind, meta], k) => { if (idx.length) return; let j = k - 1; while (j >= 0 && !segs[j][0].length) j--; let L = meta?.boundary!=null ? Math.max(1,meta.boundary) : j >= 0 ? Math.min(...segs[j][0]) : null; if (L == null) { const nx = segs.find(x => x[0].length); L = nx ? Math.min(...nx[0]) : null; } if (L != null) (lead.get(L) || lead.set(L, []).get(L)).push([k, t, [], kind, meta]); });
         return { name, lead, marks, sig, shown: false };
       });
       const units = new Map(); // Anfang -> Ende
@@ -48,10 +48,10 @@ window.LibraryInterlinear = (() => {
       [...units].forEach(([st, en]) => {
         const lines = info.map(inf => {
           const { name, lead, marks, sig } = inf;
-          const line = mk('ilt'); line.dataset.tr = name; line.dataset.i = order.indexOf(name) + 1; line.title = (IL_LABEL[name] || name) + (sig ? ' · ' + sig : ''); if (name === 'LXX') line.lang = 'grc'; else if (IL_TG[name]) { line.lang = 'arc'; line.dir = 'rtl'; } else if (sig) { line.lang = 'he'; line.dir = 'rtl'; line.classList.add('ilq'); }
+          const line = mk('ilt'); line.dataset.tr = name; line.dataset.i = order.indexOf(name) + 1; line.title = (IL_LABEL[name] || name) + (sig ? ' · ' + sig : ''); if(name==='Samaritan'){line.lang='he';line.dir='rtl';line.classList.add('il-smr');} else if (name === 'LXX') line.lang = 'grc'; else if (IL_TG[name]) { line.lang = 'arc'; line.dir = 'rtl'; } else if (sig) { line.lang = 'he'; line.dir = 'rtl'; line.classList.add('ilq'); }
           const parts = []; for (let L = st; L <= en; L++) (lead.get(L) || []).forEach(x => parts.push(x));
           if (sig && parts.length && !inf.shown) { inf.shown = true; line.append(mk('ilsig', sig)); } // Sigel der Rolle beim ersten erhaltenen Wort des Verses
-          parts.sort((x, y) => x[0] - y[0]).forEach(([k, t, idx, kind], j) => { if (j) line.append(k === parts[j - 1][0] + 1 ? ' ' : ' … '); const e = mk('ils', t, idx.length ? idx : null); if (kind != null) { e.classList.add('ilq' + kind); e.title = I18N.t(IL_QK[kind]) + (kind !== 3 && /[\[\]]/.test(t) ? ' · enthält von den Herausgebern ergänzte Buchstaben' : ''); } line.append(e); });
+          parts.sort((x, y) => x[0] - y[0]).forEach(([k, t, idx, kind, meta], j) => { if (j) line.append(k === parts[j - 1][0] + 1 ? ' ' : ' … '); const e = mk('ils', name==='Samaritan'?null:t, idx.length ? idx : null); if(name==='Samaritan'){e.innerHTML=window.SamaritanInterlinear.wordHtml(t,meta,esc);if(idx.length)e.classList.add('ilx');} if (kind != null) { e.classList.add('ilq' + kind); e.title = I18N.t(IL_QK[kind]) + (kind !== 3 && /[\[\]]/.test(t) ? ' · enthält von den Herausgebern ergänzte Buchstaben' : ''); } line.append(e); });
           if (!parts.length) for (let i = st; i <= en; i++) if (marks.has(i)) { line.append(mk('ils ilm', '…', marks.get(i))); break; }
           return line;
         });
@@ -118,10 +118,10 @@ window.LibraryInterlinear = (() => {
       if (src && (src.classList.contains('ilx') || src.closest('.row') && src.closest('.row').querySelector('.ilx'))) ilLink(src); else if ($('#rOut .ilhl')) ilHlClear();
     });
     // Feste Reihenfolge = feste Farbe je Werk (--il1 … --il16); „LXX“ = Septuaginta (CATSS), Wort für Wort unter dem Westminster-Text
-    const IL_ORDER = ['Zunz', 'Breuer', 'Philippson', 'Herxheimer', 'LXX', 'Onkelos', 'Pseudo-Jonathan', 'Neofiti', 'Goldschmidt', 'Hirsch', 'JuliusHirsch', 'Qumran', 'BuberRosenzweig', 'Umschrift', 'Wolf', 'Mendelssohn'];
-    const IL_LABEL = { Mendelssohn: 'Mendelssohn (1815)', Wolf: 'Wolf', BuberRosenzweig: 'Buber/Rosenzweig', Zunz: 'Zunz (1838)', Breuer: 'Breuer', Philippson: 'Philippson', Herxheimer: 'Herxheimer', Goldschmidt: 'Goldschmidt (1921)', Hirsch: 'S. R. Hirsch', JuliusHirsch: 'Julius Hirsch', LXX: 'Septuaginta', Onkelos: 'Onkelos', 'Pseudo-Jonathan': 'Pseudo-Jonathan', Neofiti: 'Neofiti 1', Qumran: 'Qumran-Rollen', Umschrift: 'Umschrift (Aussprache)' };
-    const IL_SUB = { Mendelssohn: 'Moses Mendelssohn, Die fünf Bücher Mose, Dessau 1815 · deutsche Übersetzung', Wolf: 'Benedikt Pinchas Wolf, Das Buch Samuel', BuberRosenzweig: 'Martin Buber und Franz Rosenzweig · lokale Wortzuordnung', Zunz: 'Leopold Zunz, Die vier und zwanzig Bücher der Heiligen Schrift, Berlin 1838', Breuer: 'Raphael Breuer, Arba Megillot, Josua, Richter, Esra und Nehemia', Philippson: 'Ludwig Philippson, Die Israelitische Bibel', Herxheimer: 'Salomon Herxheimer, Die vier und zwanzig Bücher der Bibel', Goldschmidt: 'Lazarus Goldschmidt, Pentateuch, Berlin 1921', Hirsch: 'Samson Raphael Hirsch, Pentateuch (1867–1878) und Psalmen (1882)', JuliusHirsch: 'Julius Hirsch, Jesaia und die zwölf kleinen Propheten', LXX: 'Griechisch, Wortgruppen nach der Zuordnung von CATSS', Onkelos: 'Targum Onkelos (Sperber), Wort für Wort maschinell zugeordnet', 'Pseudo-Jonathan': 'Targum Pseudo-Jonathan; Zusätze bleiben ohne Zuordnung', Neofiti: 'Targum Neofiti 1; Zusätze bleiben ohne Zuordnung', Qumran: 'Biblische Rollen vom Toten Meer (ETCBC), je Rolle eine Zeile; farbig: abweichende Lesart', Umschrift: 'Phonetische Umschrift jedes Wortes (ETCBC phono, Dirk Roorda); ˈ Hauptton' };
-    const IL_PIC = { Mendelssohn: 'Mendelssohn', Wolf: 'Wolf, Das Buch Samuel', Zunz: 'Zunz', Breuer: 'Raphael Breuer', Philippson: 'Philippson', Herxheimer: 'Herxheimer', Goldschmidt: 'Goldschmidt', Hirsch: 'Samson Raphael Hirsch', JuliusHirsch: 'Julius Hirsch', LXX: 'Septuaginta', Onkelos: 'Targum Onkelos', 'Pseudo-Jonathan': 'Targum Pseudo-Jonathan', Neofiti: 'Targum Neofiti', Qumran: 'Qumran' };
+    const IL_ORDER = ['Zunz', 'Breuer', 'Philippson', 'Herxheimer', 'LXX', 'Onkelos', 'Pseudo-Jonathan', 'Neofiti', 'Goldschmidt', 'Hirsch', 'JuliusHirsch', 'Qumran', 'BuberRosenzweig', 'Umschrift', 'Wolf', 'Mendelssohn', 'Samaritan'];
+    const IL_LABEL = { Samaritan:'Samaritanus · Tal–Florentin', Mendelssohn: 'Mendelssohn (1815)', Wolf: 'Wolf', BuberRosenzweig: 'Buber/Rosenzweig', Zunz: 'Zunz (1838)', Breuer: 'Breuer', Philippson: 'Philippson', Herxheimer: 'Herxheimer', Goldschmidt: 'Goldschmidt (1921)', Hirsch: 'S. R. Hirsch', JuliusHirsch: 'Julius Hirsch', LXX: 'Septuaginta', Onkelos: 'Onkelos', 'Pseudo-Jonathan': 'Pseudo-Jonathan', Neofiti: 'Neofiti 1', Qumran: 'Qumran-Rollen', Umschrift: 'Umschrift (Aussprache)' };
+    const IL_SUB = { Samaritan:'Tal–Florentin (2024), dem Westminster-MT wortweise maschinell zugeordnet; rote Markierungen der Ausgabe bleiben erhalten', Mendelssohn: 'Moses Mendelssohn, Die fünf Bücher Mose, Dessau 1815 · deutsche Übersetzung', Wolf: 'Benedikt Pinchas Wolf, Das Buch Samuel', BuberRosenzweig: 'Martin Buber und Franz Rosenzweig · lokale Wortzuordnung', Zunz: 'Leopold Zunz, Die vier und zwanzig Bücher der Heiligen Schrift, Berlin 1838', Breuer: 'Raphael Breuer, Arba Megillot, Josua, Richter, Esra und Nehemia', Philippson: 'Ludwig Philippson, Die Israelitische Bibel', Herxheimer: 'Salomon Herxheimer, Die vier und zwanzig Bücher der Bibel', Goldschmidt: 'Lazarus Goldschmidt, Pentateuch, Berlin 1921', Hirsch: 'Samson Raphael Hirsch, Pentateuch (1867–1878) und Psalmen (1882)', JuliusHirsch: 'Julius Hirsch, Jesaia und die zwölf kleinen Propheten', LXX: 'Griechisch, Wortgruppen nach der Zuordnung von CATSS', Onkelos: 'Targum Onkelos (Sperber), Wort für Wort maschinell zugeordnet', 'Pseudo-Jonathan': 'Targum Pseudo-Jonathan; Zusätze bleiben ohne Zuordnung', Neofiti: 'Targum Neofiti 1; Zusätze bleiben ohne Zuordnung', Qumran: 'Biblische Rollen vom Toten Meer (ETCBC), je Rolle eine Zeile; farbig: abweichende Lesart', Umschrift: 'Phonetische Umschrift jedes Wortes (ETCBC phono, Dirk Roorda); ˈ Hauptton' };
+    const IL_PIC = { Samaritan:'Samaritanischer Pentateuch', Mendelssohn: 'Mendelssohn', Wolf: 'Wolf, Das Buch Samuel', Zunz: 'Zunz', Breuer: 'Raphael Breuer', Philippson: 'Philippson', Herxheimer: 'Herxheimer', Goldschmidt: 'Goldschmidt', Hirsch: 'Samson Raphael Hirsch', JuliusHirsch: 'Julius Hirsch', LXX: 'Septuaginta', Onkelos: 'Targum Onkelos', 'Pseudo-Jonathan': 'Targum Pseudo-Jonathan', Neofiti: 'Targum Neofiti', Qumran: 'Qumran' };
     const ilBreuerJoseph = () => getView() && getView().group && ['Ezekiel', 'Jeremiah'].includes(getView().group.title);
     const ilPic = n => n === 'Breuer' && ilBreuerJoseph() ? 'Joseph Breuer' : IL_PIC[n];
     const ilSub = n => n === 'Breuer' && ilBreuerJoseph() ? (getView().group.title === 'Jeremiah' ? 'Joseph Breuer, Das Buch Jirmejah' : 'Joseph Breuer, Das Buch Jecheskel (1921)') : IL_SUB[n];
@@ -194,6 +194,24 @@ window.LibraryInterlinear = (() => {
       }
       return { checked, warnings };
     }
+    async function smrPrepare(snapshot) {
+      const book=snapshot?.group?.title;
+      if(!['Genesis','Exodus','Leviticus','Numbers','Deuteronomy'].includes(book))return {data:null,warning:null};
+      const he=snapshot.loaded.filter(d=>d.entry.kind==='he'&&/^Westminster/.test(d.entry.versionTitle||''));
+      if(!he.length)return {data:null,warning:null};
+      const data=await loadSmrIL(),expected=data.source.books[book],translations=snapshot.loaded.filter(d=>d.entry.versionTitle===expected.translation.versionTitle);
+      if(!translations.length){const e=snapshot.group.versions.find(e=>e.versionTitle===expected.translation.versionTitle);if(e){try{translations.push(cache.get(e.rel)||await O.read(e.rel));}catch{return {data:null,warning:'Samaritanus: Textfassung konnte nicht geprüft werden'};}}}
+      const results=he.map(d=>window.AlignmentSources.check(expected,d,translations));
+      return results.every(r=>r.ok)?{data,warning:null}:{data:null,warning:'Samaritanus: '+results.find(r=>!r.ok).reason};
+    }
+    function smrRows(data,ref,cell){
+      if(!data||!window.SamaritanInterlinear.matches(data,ref,[...cell.querySelectorAll('.w')].map(w=>w.textContent)))return [];
+      return window.SamaritanInterlinear.rows(data,ref).map(r=>['Samaritan',r.segs,'SMR'+(r.ref?' '+r.ref.slice(r.ref.lastIndexOf(' ')+1):'')]);
+    }
+    function smrOpen(data,ref,cell){
+      if(!data)return;
+      const html=window.SamaritanInterlinear.openHtml(data,ref,esc);if(html)cell.insertAdjacentHTML('beforeend',html);
+    }
     async function ilRefresh() {
       const b = $('#ilBtn'); if (!b) return;
       const tok = ++ilTok;
@@ -211,13 +229,16 @@ window.LibraryInterlinear = (() => {
       if (tok !== ilTok) return;
       const qHas = !!(QIL && QIL[title] && c0 && Object.keys(QIL[title]).some(k => k.startsWith(c0 + ':')));
       const sourceChecks = await ilSourceChecks(names, title);
+      const smr = await smrPrepare(getView());
+      if(smr.warning)sourceChecks.warnings.push(smr.warning);
       if (tok !== ilTok) return;
-      ilAvail = IL_ORDER.filter(n => n === 'LXX' ? lxx : n === 'Qumran' ? qHas : IL_TG[n] ? tgHas(n) : sourceChecks.checked.has(n));
+      ilAvail = IL_ORDER.filter(n => n === 'Samaritan' ? !!smr.data : n === 'LXX' ? lxx : n === 'Qumran' ? qHas : IL_TG[n] ? tgHas(n) : sourceChecks.checked.has(n));
       const has = ilAvail.length > 0, use = ilAvail.filter(n => ilPick.includes(n)), on = use.length > 0;
       b.hidden = !has; b.classList.toggle('on', has && on);
       if (!has && !$('#ilPop').hidden) ilPopToggle(false); else ilPopRender();
       document.body.classList.toggle('il', has && on);
       ilClear();
+      $$('#rOut .smr-open').forEach(n=>n.remove());
       $$('#rOut .illeg').forEach(x => x.remove());
       $$('#rOut .il-source-warning').forEach(x => x.remove());
       if (sourceChecks.warnings.length) { const notice = document.createElement('p'); notice.className = 'il-source-warning muted'; notice.textContent = I18N.t('Wortzuordnung nicht angewendet: {}', sourceChecks.warnings.join('; ')); $('#rOut').prepend(notice); }
@@ -243,11 +264,14 @@ window.LibraryInterlinear = (() => {
           const owner = getView().loaded.find(d => d.entry.rel === cell.dataset.rel);
           if (!owner || !/^Westminster/.test(owner.entry.versionTitle || '')) return;
           const tgv = nm => { const d = tgd[nm], ch = d && d.text[+chap - 1]; return ch ? tgSegs(TG, nm, title, chap, v, tgPlain(ch[v - 1])) : null; };
-          const trs = use.flatMap(nm => nm === 'Qumran' ? ((QIL[title] || {})[chap + ':' + v] || []).map(([sig, segs]) => [nm, segs, sig]) : [[nm, nm === 'LXX' ? (lx && lx.text[+chap - 1] ? ilLxxSegs(cell, lx.text[+chap - 1][v - 1]) : null) : IL_TG[nm] ? tgv(nm) : ALL[nm][title][chap + ':' + v]]]).filter(x => x[1] && x[1].length);
+          const trs = use.flatMap(nm => nm === 'Samaritan' ? smrRows(smr.data,title+' '+chap+':'+v,cell) : nm === 'Qumran' ? ((QIL[title] || {})[chap + ':' + v] || []).map(([sig, segs]) => [nm, segs, sig]) : [[nm, nm === 'LXX' ? (lx && lx.text[+chap - 1] ? ilLxxSegs(cell, lx.text[+chap - 1][v - 1]) : null) : IL_TG[nm] ? tgv(nm) : ALL[nm][title][chap + ':' + v]]]).filter(x => x[1] && x[1].length);
           if (trs.length) ilVerse(cell, trs, IL_ORDER);
+          if(use.includes('Samaritan'))smrOpen(smr.data,title+' '+chap+':'+v,cell);
         });
       }
     }
+    $('#rOut').addEventListener('click',e=>{const word=e.target.closest('.smr-word');if(word&&!String(window.getSelection()))openSamaritan(word);});
+    $('#rOut').addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.matches('.smr-word')){e.preventDefault();e.target.click();}});
     $('#ilBtn').onclick = () => ilPopToggle();
 
 
@@ -257,6 +281,8 @@ window.LibraryInterlinear = (() => {
       if (!picks.length) return null;
       const ALL = await loadIL(), names = picks.filter(n => ALL?.[n]?.[title]);
       const checks = await ilSourceChecks(names, title, snapshot);
+      const smr = picks.includes('Samaritan') ? await smrPrepare(snapshot) : {data:null,warning:null};
+      if(smr.warning)checks.warnings.push(smr.warning);
       const TG = picks.some(n => IL_TG[n]) ? await loadTgIL() : null;
       const QIL = picks.includes('Qumran') && qVer(snapshot.group) ? await loadQIL() : null;
       const lx = picks.includes('LXX') && ilLxxVer(snapshot.group) ? await ilLxxDoc(snapshot.group) : null;
@@ -268,6 +294,7 @@ window.LibraryInterlinear = (() => {
         if (!/^\d+$/.test(chap) || v == null) return html;
         const cell = document.createElement('div'); cell.innerHTML = html;
         const trs = picks.flatMap(n => {
+          if (n === 'Samaritan') return smrRows(smr.data,title+' '+chap+':'+v,cell);
           if (n === 'Qumran') return ((QIL?.[title] || {})[chap + ':' + v] || []).map(([sig, segs]) => [n, segs, sig]);
           let segs;
           if (n === 'LXX') segs = lx?.text[+chap - 1] ? ilLxxSegs(cell, lx.text[+chap - 1][v - 1]) : null;
@@ -276,10 +303,11 @@ window.LibraryInterlinear = (() => {
           return segs?.length ? [[n, segs]] : [];
         }).filter(x => x[1]?.length);
         if (trs.length) ilVerse(cell, trs, IL_ORDER);
+        if(picks.includes('Samaritan'))smrOpen(smr.data,title+' '+chap+':'+v,cell);
         return cell.innerHTML;
       };
       renderer.warnings = checks.warnings;
-      renderer.labels = picks.filter(n => checks.checked.has(n) || n === 'LXX' && lx || n === 'Qumran' && QIL || tgd[n]).map(n => IL_LABEL[n] || n);
+      renderer.labels = picks.filter(n => checks.checked.has(n) || n === 'Samaritan' && smr.data || n === 'LXX' && lx || n === 'Qumran' && QIL || tgd[n]).map(n => IL_LABEL[n] || n);
       return renderer;
     }
     return { refresh: ilRefresh, tagCell: ilTagCell, exportRenderer };

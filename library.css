@@ -1919,3 +1919,25 @@ html.split #textcritPanel:not(.docked) { right: var(--p2w); }
 .tc-ken-group { unicode-bidi: isolate; }
 .tc-ken-term { cursor: help; }
 .tc-ken-reading bdi[lang="he"], .tc-ken-lemma bdi[lang="he"] { font-size: 1.2em; }
+
+/* All pinned study panels share one tab strip at the top-left of the dock. */
+#dockTabs { position: fixed; top: calc(57px - var(--hdoff, 0px)); right: var(--cmt-off, 0px); width: var(--dock-w, var(--cmt-w, 400px)); max-width: 90vw; box-sizing: border-box; height: 34px; display: flex; gap: 4px; align-items: center; overflow-x: auto; padding: 3px 8px; z-index: 22; background: var(--side-bg); border: 1px solid var(--line); scrollbar-width: thin; }
+#dockTabs[hidden] { display: none; }
+#dockTabs button { flex: 0 0 auto; font: 12px var(--ui-font, system-ui, sans-serif); padding: 3px 8px; border-radius: 6px; white-space: nowrap; }
+#dockTabs button[aria-selected="true"] { color: var(--accent); border-color: var(--accent); background: color-mix(in srgb, var(--accent) 15%, transparent); }
+body.has-dock-tabs .pinp.docked { top: calc(91px - var(--hdoff, 0px)) !important; max-height: calc(100vh - 91px + var(--hdoff, 0px)); }
+body.has-dock-tabs #stackBar { display: none; }
+body.has-dock-tabs.stack-split #dictPanel.docked { top: calc(100% - var(--dict-h, 45%)) !important; }
+html[data-tab=dict] #dockTabs { display: none; }
+
+/* The Samaritan row retains Tal's original red masks and its own word cards. */
+body.il .cell[data-k="he"] .ilt.il-smr { direction: rtl; font-family: var(--he-font, "SBL Hebrew", serif); font-size: .8em; line-height: 1.35; color: var(--fg); }
+.illc[data-i="17"],.ilpR[data-i="17"] { --c: var(--fg); }
+.smr-word { cursor: pointer; border-radius: 3px; }
+.smr-word:hover,.smr-word:focus-visible { background: color-mix(in srgb,var(--accent) 18%,transparent); }
+.smr-plus::before { content: "+"; opacity: .65; font-size: .7em; }
+.smr-transposed::after { content: "↔"; opacity: .65; font-size: .7em; }
+.smr-missing { opacity: .6; }
+.smr-open { margin: .4em 0; padding: .35em .5em; border-inline-start: 2px dotted var(--line); }
+.smr-open small { font: .6em var(--ui-font, system-ui, sans-serif); color: var(--muted); }
+.smr-open > div { font-size: .8em; }

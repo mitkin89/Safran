@@ -11,7 +11,7 @@ const manifest=require(path.join(root,'bundled/manifest.json'));
 const docs=new Map();let oldTranslation=false,win;
 const hash=text=>crypto.createHash('sha256').update(JSON.stringify(text)).digest('hex');
 function add(book,kind,pattern){const item=manifest.items.find(e=>e.title===book&&e.kind===kind&&pattern.test(e.versionTitle));assert(item);const doc=JSON.parse(fs.readFileSync(path.join(root,'bundled',item.rel)));const entry={...item,own:false,bytes:Buffer.byteLength(JSON.stringify(doc))};docs.set(entry.rel,{...doc,entry,textHash:hash(doc.text)});}
-add('Genesis','he',/^Westminster/);add('Genesis','de',/Zunz/);add('Exodus','de',/Zunz/);
+add('Genesis','he',/^Westminster/);add('Genesis','de',/Zunz/);add('Exodus','de',/Zunz/);add('Exodus','he',/^Westminster/);
 const raw=require(path.join(root,'tools/bavli/berakhot/source.json'));
 const bavli={title:'Berakhot',heTitle:'ברכות',language:'Hebrew',versionTitle:raw.versionTitle,sectionNames:['Daf','Line'],text:[[],[],...Object.values(raw.pages)]};
 const be={rel:'fixture/Berakhot/he.json',title:bavli.title,heTitle:bavli.heTitle,language:bavli.language,versionTitle:bavli.versionTitle,kind:'he',categories:['Talmud','Bavli','Seder Zeraim'],bytes:100000};docs.set(be.rel,{...bavli,entry:be,textHash:hash(bavli.text)});
@@ -79,6 +79,8 @@ async function book(title,prefix='document'){await js(`{const d=${prefix};d.quer
  await require('./qumran-apparatus-flows.cjs')({win,js,waitFor,book});
  await require('./kennicott-flows.cjs')({win,js,waitFor,book});
  await require('./qumran-all-flows.cjs')({docs,win,js,waitFor,book});
+ await require('./dock-tabs-flows.cjs')({win,js,waitFor,book});
+ await require('./samaritan-interlinear-flows.cjs')({win,js,waitFor,book});
  assert.deepEqual(errors,[],'Keine unbehandelten Fehler im Renderer');
  await require('./font-restart.cjs')();
  win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);

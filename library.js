@@ -764,6 +764,8 @@
   const IL_QK = ['gleich wie im masoretischen Text', 'möglicher Schreibunterschied (maschineller Vergleich)', 'abweichender Wortlaut (maschineller Vergleich)', 'von den Herausgebern ergänzt', 'Plus: ohne Gegenstück im masoretischen Text'];
   let qIlP = null;
   const loadQIL = () => qIlP || (qIlP = wordCardsUI.lazyScript('qumran-il.js', () => window.QUMRAN_IL).catch(() => { qIlP = null; return null; }));
+  let smrIlP = null;
+  const loadSmrIL = () => smrIlP || (smrIlP = wordCardsUI.lazyScript('samaritan-il.js', () => window.SAMARITAN_IL).catch(e => { smrIlP = null; throw e; }));
   const qVer = g => (g && g.versions || []).some(x => x.versionTitle === 'Qumran-Rollen (ETCBC DSS)');
   let tgIlP = null;
   const loadTgIL = () => tgIlP || (tgIlP = wordCardsUI.lazyScript('targum-il.js', () => window.TARGUM_IL).catch(() => { tgIlP = null; return null; }));
@@ -815,10 +817,11 @@
   }
   const interlinearUI = window.LibraryInterlinear.create({
     $, $$, esc, cache, getView: () => view, portraitOf,
+    openSamaritan: w => wordPopupUI.openSamaritanWord(w),
     consOf: s => consOf(s), apChap: s => apChap(s), verseOf: s => linksUI.verseOf(s),
     sources: { loadIL, resetPrivateIL, IL_TG, IL_QK, ilName,
       loadTgIL, tgVer, tgSegs, tgDoc, tgPlain, loadQIL, qVer,
-      ilLxxVer, ilLxxDoc, ilLxxSegs },
+      ilLxxVer, ilLxxDoc, ilLxxSegs, loadSmrIL },
   });
   function ilRefresh() { return interlinearUI.refresh(); }
   function ilTagCell(cell, segments) { return interlinearUI.tagCell(cell, segments); }
@@ -2837,7 +2840,15 @@
   const pinPair = (a, b) => (a === 'cmt' || a === 'dict') && (b === 'cmt' || b === 'dict');
   let pinBusy = false;
   const pinVis = { cmt: false, dict: false }; // zuletzt gesehene Sichtbarkeit von Kommentaren/Wörterbuch
-  function pinSync(anchor) {
+  const dockTabs = window.LibraryDockTabs.create({
+    $,panels:PINS,pins,automatic:()=>pinBusy,afterOpen:key=>pinSync(undefined,key),
+    activePair: visible => visible.includes('cmt')&&visible.includes('dict')?stackActive:null,
+    open:{textcrit:()=>textcritUI.open(),forms:()=>wordCardsUI.reopen(),all:()=>apToggle(true),
+      cmt:()=>{toggleCmt(true);setStackActive('cmt');},dict:()=>{toggleDict(true);setStackActive('dict');},
+      link:()=>{$('#linkPanel').hidden=false;},topic:()=>{$('#topicPanel').hidden=false;},
+      outline:()=>{$('#outlinePanel').hidden=false;},map:()=>{$('#mapPanel').hidden=false;}}
+  });
+  function pinSync(anchor, preferredKey) {
     if (pinBusy) return; pinBusy = true;
     try {
       { // beide nicht angepinnt: öffnet man das eine, schließt sich das andere (schwebend nie untereinander)
@@ -2847,7 +2858,7 @@
       }
       const was = {}, now = {};
       for (const k in PINS) { const el = $(PINS[k][0]); was[k] = el.classList.contains('docked'); now[k] = !el.hidden && pins[k]; }
-      const fresh = Object.keys(PINS).filter(k => now[k] && !was[k]);
+      const fresh = preferredKey&&now[preferredKey]?[preferredKey]:Object.keys(PINS).filter(k => now[k] && !was[k]);
       for (const k of fresh) for (const o in PINS) if (o !== k && now[o] && !pinPair(k, o) && !fresh.includes(o)) { now[o] = false; $(PINS[o][1]).click(); } // das bisherige angepinnte Fenster schließen
       const apply = () => {
         for (const k in PINS) { const el = $(PINS[k][0]); el.classList.toggle('docked', now[k] && !el.hidden); const b = el.querySelector('.pinB'); if (b) { b.classList.toggle('on', pins[k]); b.title = I18N.t(pins[k] ? 'Lösen: über dem Text schweben' : 'Anpinnen: neben dem Text festhalten'); } }
@@ -2855,6 +2866,7 @@
         document.body.classList.toggle('dock-open', any);
         let w = 0; for (const k in PINS) { const el = $(PINS[k][0]); if (el.classList.contains('docked')) w = Math.max(w, el.getBoundingClientRect().width); }
         document.documentElement.style.setProperty('--dock-w', w ? w + 'px' : '');
+        dockTabs.sync(fresh.at(-1));
       };
       const changed = Object.keys(PINS).some(k => (now[k] && !$(PINS[k][0]).hidden) !== was[k]);
       if (changed && anchor !== false) withAnchor(apply); else apply();
@@ -2864,7 +2876,7 @@
   for (const k in PINS) {
     const el = $(PINS[k][0]), cl = $(PINS[k][1]); if (!el || !cl) continue;
     const b = document.createElement('button'); b.className = 'pinB'; b.type = 'button'; b.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16v6" fill="none"/><path d="M9 3h6l-1 6.5 3.2 3.2V15H6.8v-2.3L10 9.5z"/></svg>';
-    b.onclick = e => { e.stopPropagation(); pins[k] = !pins[k]; try { localStorage.setItem('pins', JSON.stringify(pins)); } catch { /* egal */ } pinSync(); };
+    b.onclick = e => { e.stopPropagation(); pins[k] = !pins[k]; if(!pins[k])dockTabs.remove(k); try { localStorage.setItem('pins', JSON.stringify(pins)); } catch { /* egal */ } pinSync(); };
     cl.before(b);
     el.classList.add('pinp');
     new MutationObserver(() => pinSync()).observe(el, { attributes: true, attributeFilter: ['hidden'] });

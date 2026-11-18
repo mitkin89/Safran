@@ -1,0 +1,1404 @@
+{
+  "source": {
+    "edition": "Tal–Florentin (2024)",
+    "license": "CC BY-NC 4.0",
+    "doi": "10.11647/OBP.0415",
+    "textcritSha256": "5e6f23741c74f535d4660bbeef298b4eb1db956299e5f1ab08b51ca491d33e74",
+    "books": {
+      "Genesis": {
+        "he": {
+          "rel": "own/Genesis/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+          "versionTitle": "Westminster Leningrad Codex (OSHB, mit Morphologie)",
+          "sha256": "1f47f49fd727e0813c8d8672c96ca06f75deb2a58f2853cfd25a5249107bca00",
+          "textHash": "382ea49c24b0a2cee8c36f33815069b9e66aaacbec5ce06f4526b65e4fcf1be6"
+        },
+        "translation": {
+          "rel": "own/Genesis/he/Samaritanischer Pentateuch (CACCHT, DT-UCPH 7.5.0).json",
+          "versionTitle": "Samaritanischer Pentateuch (Tal–Florentin)",
+          "sha256": "7addd03785c7031bb960f52d3c918d702dd75ba0b8ac69e70d31110379bf458c",
+          "textHash": "a3c4d927e1980331f6702a849d34f1110b94ed66c8e5a0f04ce58e199d2b8697"
+        }
+      },
+      "Exodus": {
+        "he": {
+          "rel": "own/Exodus/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+          "versionTitle": "Westminster Leningrad Codex (OSHB, mit Morphologie)",
+          "sha256": "b270922365525339f84e8b10490434556f7116bf2f2a1d42dbf67a47efd25c35",
+          "textHash": "08f9b6a592508de53bbbffe513245ace1002f9e3ffe1343e9e76d09aa5764448"
+        },
+        "translation": {
+          "rel": "own/Exodus/he/Samaritanischer Pentateuch (CACCHT, DT-UCPH 7.5.0).json",
+          "versionTitle": "Samaritanischer Pentateuch (Tal–Florentin)",
+          "sha256": "0bfefa941348e63d8dc951d099863e91833e1d2643c4dcf1c45f3271a54e616f",
+          "textHash": "9564239bf8c8932d1cbcdac999c5444ee9da158f8b38a7fb23c034cf2f1c926f"
+        }
+      },
+      "Leviticus": {
+        "he": {
+          "rel": "own/Leviticus/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+          "versionTitle": "Westminster Leningrad Codex (OSHB, mit Morphologie)",
+          "sha256": "62e26f554f7dba1aac16a0b3b7246bfbf3d17fe179d26f7b9694440c1b0d50de",
+          "textHash": "5cd11669d99d118c83a868958a64bf7164b920d2fb8766c9de3447b5c1479878"
+        },
+        "translation": {
+          "rel": "own/Leviticus/he/Samaritanischer Pentateuch (CACCHT, DT-UCPH 7.5.0).json",
+          "versionTitle": "Samaritanischer Pentateuch (Tal–Florentin)",
+          "sha256": "de8322f5634372a378e0e2d667175435af6bd2f2b0ffd3d9edd4c1b63339cce8",
+          "textHash": "6af25477529000242b16953431a396ae027be04b77c038572cf34dc0c2738c11"
+        }
+      },
+      "Numbers": {
+        "he": {
+          "rel": "own/Numbers/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+          "versionTitle": "Westminster Leningrad Codex (OSHB, mit Morphologie)",
+          "sha256": "9ab02bd4aa4c6969494e85014e98f56ca4ff2cf5d741a34b2911e186866aa1e9",
+          "textHash": "ce5234fb4450799f1b0561c3dbbe8b30e8842a85e8b395f0294b397a1cc88094"
+        },
+        "translation": {
+          "rel": "own/Numbers/he/Samaritanischer Pentateuch (CACCHT, DT-UCPH 7.5.0).json",
+          "versionTitle": "Samaritanischer Pentateuch (Tal–Florentin)",
+          "sha256": "8bb7fef026561e866c017578f104bf53044a1e570fd4d26242fca0828d66a1bb",
+          "textHash": "8087f7a43686261978b249b54a5019be24848bec047a03ee7d3ee37881bf6aa6"
+        }
+      },
+      "Deuteronomy": {
+        "he": {
+          "rel": "own/Deuteronomy/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+          "versionTitle": "Westminster Leningrad Codex (OSHB, mit Morphologie)",
+          "sha256": "b1c198ab82b675fd68722ba7db1fe9188d73b9dc224764cc9873075e6f9ed6a9",
+          "textHash": "270e1c494f9bb427c136b87fe7d30b7c9c0b41f5decc1e9e0efaf2fa562e4d88"
+        },
+        "translation": {
+          "rel": "own/Deuteronomy/he/Samaritanischer Pentateuch (CACCHT, DT-UCPH 7.5.0).json",
+          "versionTitle": "Samaritanischer Pentateuch (Tal–Florentin)",
+          "sha256": "9d7e1ff8f76061bcc2636097644400d1ebf331c87d286fcc6d2253e353cb0d83",
+          "textHash": "dabdb3409b9f376f830e812a3c79ab34637536f82f10ed9060e49c2bafff7730"
+        }
+      }
+    },
+    "qereSource": {
+      "repository": "https://github.com/openscriptures/morphhb",
+      "commit": "db6c5c9b46b8f39346f10915ddb1a70dcd429901",
+      "license": "CC BY 4.0",
+      "sha256": {
+        "Gen.xml.gz": "0526e5c9a5fb4d907847645f954ed3d1268fa69decbd872056cedd2668d86449",
+        "Exod.xml.gz": "04868367cdacb6ccdc61488e923e20f918172042e6437842a0621f63ac5b847f",
+        "Lev.xml.gz": "e21e70265c9ef500182f8ccb4f4e1186e5a79e1169d24cef23cc479baf07b191",
+        "Num.xml.gz": "02e4febfcc027d10b3e35e4f091eae67a40d26f37b6254faac6b4af053fe4896",
+        "Deut.xml.gz": "04f8087442a1e67a631cd70f2ac4e42fe0a780ae132edb165a3a29f3f290358f"
+      }
+    },
+    "method": "Machine alignment, all-optimal-position consensus; source text and red masks unchanged"
+  },
+  "counts": {
+    "sourceWords": 82446,
+    "exact": 72187,
+    "spelling": 3646,
+    "context": 3214,
+    "division": 41,
+    "transposed": 40,
+    "addition": 1683,
+    "unresolved": 1635
+  },
+  "unresolved": [
+    {
+      "ref": "Genesis 1:14",
+      "words": 4
+    },
+    {
+      "ref": "Genesis 2:24",
+      "words": 2
+    },
+    {
+      "ref": "Genesis 5:18",
+      "words": 1
+    },
+    {
+      "ref": "Genesis 5:19",
+      "words": 4
+    },
+    {
+      "ref": "Genesis 5:25",
+      "words": 2
+    },
+    {
+      "ref": "Genesis 5:27",
+      "words": 1
+    },
+    {
+      "ref": "Genesis 5:28",
+      "words": 3
+    },
+    {
+      "ref": "Genesis 5:30",
+      "words": 1
+    },
+    {
+      "ref": "Genesis 6:20",
+      "words": 4
+    },
+    {
+      "ref": "Genesis 7:1",
+      "words": 3
+    },
+    {
+      "ref": "Genesis 7:2",
+      "words": 4
+    },
+    {
+      "ref": "Genesis 7:16",
+      "words": 4
+    },
+    {
+      "ref": "Genesis 8:19",
+      "words": 2
+    },
+    {
+      "ref": "Genesis 9:5",
+      "words": 1
+    },
+    {
+      "ref": "Genesis 9:15",
+      "words": 3
+    },
+    {
+      "ref": "Genesis 10:18",
+      "words": 1
+    },
+    {
+      "ref": "Genesis 10:19",
+      "words": 13
+    },
+    {
+      "ref": "Genesis 11:12",
+      "words": 3
+    },
+    {
+      "ref": "Genesis 11:14",
+      "words": 3
+    },
+    {
+      "ref": "Genesis 11:16",
+      "words": 5
+    },
+    {
+      "ref": "Genesis 11:17",
+      "words": 1
+    },
+    {
+      "ref": "Genesis 11:18",
+      "words": 3
+    },
+    {
+      "ref": "Genesis 11:20",
+      "words": 5
+    },
+    {
+      "ref": "Genesis 11:22",
+      "words": 5
+    },
+    {
+      "ref": "Genesis 11:24",
+      "words": 2
+    },
+    {
+      "ref": "Genesis 11:25",
+      "words": 16
+    },
+    {
+      "ref": "Genesis 11:32",
+      "words": 2
+    },
+    {
+      "ref": "Genesis 12:16",
+      "words": 4
+    },
+    {
+      "ref": "Genesis 14:10",
+      "words": 2
+    },
+    {
+      "ref": "Genesis 14:19",
+      "words": 3
+    },
+    {
+      "ref": "Genesis 15:21",
+      "words": 3
+    },
+    {
+      "ref": "Genesis 18:7",
+      "words": 1
+    },
+    {
+      "ref": "Genesis 18:8",
+      "words": 3
+    },
+    {
+      "ref": "Genesis 20:11",
+      "words": 3
+    },
+    {
+      "ref": "Genesis 20:14",
+      "words": 3
+    },
+    {
+      "ref": "Genesis 21:17",
+      "words": 1
+    },
+    {
+      "ref": "Genesis 22:16",
+      "words": 2
+    },
+    {
+      "ref": "Genesis 23:2",
+      "words": 3
+    },
+    {
+      "ref": "Genesis 23:8",
+      "words": 3
+    },
+    {
+      "ref": "Genesis 24:50",
+      "words": 1
+    },
+    {
+      "ref": "Genesis 24:56",
+      "words": 2
+    },
+    {
+      "ref": "Genesis 25:21",
+      "words": 2
+    },
+    {
+      "ref": "Genesis 26:7",
+      "words": 4
+    },
+    {
+      "ref": "Genesis 27:27",
+      "words": 2
+    },
+    {
+      "ref": "Genesis 30:25",
+      "words": 2
+    },
+    {
+      "ref": "Genesis 30:34",
+      "words": 6
+    },
+    {
+      "ref": "Genesis 30:39",
+      "words": 9
+    },
+    {
+      "ref": "Genesis 31:39",
+      "words": 1
+    },
+    {
+      "ref": "Genesis 31:42",
+      "words": 2
+    },
+    {
+      "ref": "Genesis 32:10",
+      "words": 2
+    },
+    {
+      "ref": "Genesis 34:18",
+      "words": 1
+    },
+    {
+      "ref": "Genesis 36:16",
+      "words": 1
+    },
+    {
+      "ref": "Genesis 37:10",
+      "words": 2
+    },
+    {
+      "ref": "Genesis 38:29",
+      "words": 2
+    },
+    {
+      "ref": "Genesis 38:30",
+      "words": 2
+    },
+    {
+      "ref": "Genesis 39:4",
+      "words": 2
+    },
+    {
+      "ref": "Genesis 39:23",
+      "words": 2
+    },
+    {
+      "ref": "Genesis 41:33",
+      "words": 2
+    },
+    {
+      "ref": "Genesis 41:35",
+      "words": 2
+    },
+    {
+      "ref": "Genesis 41:48",
+      "words": 2
+    },
+    {
+      "ref": "Genesis 41:50",
+      "words": 1
+    },
+    {
+      "ref": "Genesis 42:1",
+      "words": 2
+    },
+    {
+      "ref": "Genesis 42:19",
+      "words": 2
+    },
+    {
+      "ref": "Genesis 42:21",
+      "words": 2
+    },
+    {
+      "ref": "Genesis 47:3",
+      "words": 2
+    },
+    {
+      "ref": "Genesis 50:23",
+      "words": 1
+    },
+    {
+      "ref": "Exodus 1:3",
+      "words": 3
+    },
+    {
+      "ref": "Exodus 1:17",
+      "words": 5
+    },
+    {
+      "ref": "Exodus 1:18",
+      "words": 1
+    },
+    {
+      "ref": "Exodus 1:22",
+      "words": 3
+    },
+    {
+      "ref": "Exodus 2:10",
+      "words": 2
+    },
+    {
+      "ref": "Exodus 3:2",
+      "words": 1
+    },
+    {
+      "ref": "Exodus 3:14",
+      "words": 2
+    },
+    {
+      "ref": "Exodus 3:22",
+      "words": 7
+    },
+    {
+      "ref": "Exodus 4:2",
+      "words": 2
+    },
+    {
+      "ref": "Exodus 6:6",
+      "words": 2
+    },
+    {
+      "ref": "Exodus 6:27",
+      "words": 2
+    },
+    {
+      "ref": "Exodus 6:30",
+      "words": 1
+    },
+    {
+      "ref": "Exodus 7:18",
+      "words": 67
+    },
+    {
+      "ref": "Exodus 7:29",
+      "words": 52
+    },
+    {
+      "ref": "Exodus 8:1",
+      "words": 16
+    },
+    {
+      "ref": "Exodus 8:5",
+      "words": 2
+    },
+    {
+      "ref": "Exodus 8:12",
+      "words": 3
+    },
+    {
+      "ref": "Exodus 8:19",
+      "words": 79
+    },
+    {
+      "ref": "Exodus 8:21",
+      "words": 1
+    },
+    {
+      "ref": "Exodus 9:5",
+      "words": 67
+    },
+    {
+      "ref": "Exodus 9:18",
+      "words": 1
+    },
+    {
+      "ref": "Exodus 9:19",
+      "words": 128
+    },
+    {
+      "ref": "Exodus 9:24",
+      "words": 1
+    },
+    {
+      "ref": "Exodus 9:25",
+      "words": 1
+    },
+    {
+      "ref": "Exodus 10:2",
+      "words": 7
+    },
+    {
+      "ref": "Exodus 10:5",
+      "words": 5
+    },
+    {
+      "ref": "Exodus 10:11",
+      "words": 1
+    },
+    {
+      "ref": "Exodus 10:17",
+      "words": 3
+    },
+    {
+      "ref": "Exodus 10:28",
+      "words": 2
+    },
+    {
+      "ref": "Exodus 11:2",
+      "words": 1
+    },
+    {
+      "ref": "Exodus 11:3",
+      "words": 1
+    },
+    {
+      "ref": "Exodus 11:4",
+      "words": 29
+    },
+    {
+      "ref": "Exodus 11:6",
+      "words": 1
+    },
+    {
+      "ref": "Exodus 12:28",
+      "words": 2
+    },
+    {
+      "ref": "Exodus 12:40",
+      "words": 4
+    },
+    {
+      "ref": "Exodus 12:43",
+      "words": 2
+    },
+    {
+      "ref": "Exodus 13:3",
+      "words": 3
+    },
+    {
+      "ref": "Exodus 13:15",
+      "words": 2
+    },
+    {
+      "ref": "Exodus 13:16",
+      "words": 2
+    },
+    {
+      "ref": "Exodus 16:29",
+      "words": 2
+    },
+    {
+      "ref": "Exodus 17:9",
+      "words": 1
+    },
+    {
+      "ref": "Exodus 17:16",
+      "words": 1
+    },
+    {
+      "ref": "Exodus 18:6",
+      "words": 2
+    },
+    {
+      "ref": "Exodus 18:7",
+      "words": 2
+    },
+    {
+      "ref": "Exodus 18:12",
+      "words": 1
+    },
+    {
+      "ref": "Exodus 18:25",
+      "words": 58
+    },
+    {
+      "ref": "Exodus 19:12",
+      "words": 3
+    },
+    {
+      "ref": "Exodus 19:20",
+      "words": 2
+    },
+    {
+      "ref": "Exodus 20:13",
+      "words": 2
+    },
+    {
+      "ref": "Exodus 20:14",
+      "words": 7
+    },
+    {
+      "ref": "Exodus 20:15",
+      "words": 74
+    },
+    {
+      "ref": "Exodus 20:20",
+      "words": 3
+    },
+    {
+      "ref": "Exodus 22:6",
+      "words": 2
+    },
+    {
+      "ref": "Exodus 22:9",
+      "words": 2
+    },
+    {
+      "ref": "Exodus 22:19",
+      "words": 2
+    },
+    {
+      "ref": "Exodus 22:25",
+      "words": 2
+    },
+    {
+      "ref": "Exodus 23:22",
+      "words": 4
+    },
+    {
+      "ref": "Exodus 23:23",
+      "words": 2
+    },
+    {
+      "ref": "Exodus 26:2",
+      "words": 1
+    },
+    {
+      "ref": "Exodus 26:3",
+      "words": 14
+    },
+    {
+      "ref": "Exodus 26:16",
+      "words": 2
+    },
+    {
+      "ref": "Exodus 26:20",
+      "words": 2
+    },
+    {
+      "ref": "Exodus 26:25",
+      "words": 2
+    },
+    {
+      "ref": "Exodus 26:35",
+      "words": 4
+    },
+    {
+      "ref": "Exodus 27:1",
+      "words": 1
+    },
+    {
+      "ref": "Exodus 27:10",
+      "words": 1
+    },
+    {
+      "ref": "Exodus 27:11",
+      "words": 1
+    },
+    {
+      "ref": "Exodus 27:18",
+      "words": 1
+    },
+    {
+      "ref": "Exodus 27:19",
+      "words": 3
+    },
+    {
+      "ref": "Exodus 28:9",
+      "words": 2
+    },
+    {
+      "ref": "Exodus 28:20",
+      "words": 2
+    },
+    {
+      "ref": "Exodus 28:30",
+      "words": 7
+    },
+    {
+      "ref": "Exodus 29:5",
+      "words": 10
+    },
+    {
+      "ref": "Exodus 29:13",
+      "words": 1
+    },
+    {
+      "ref": "Exodus 29:22",
+      "words": 2
+    },
+    {
+      "ref": "Exodus 29:28",
+      "words": 10
+    },
+    {
+      "ref": "Exodus 29:38",
+      "words": 3
+    },
+    {
+      "ref": "Exodus 30:13",
+      "words": 4
+    },
+    {
+      "ref": "Exodus 30:14",
+      "words": 2
+    },
+    {
+      "ref": "Exodus 30:19",
+      "words": 2
+    },
+    {
+      "ref": "Exodus 32:11",
+      "words": 1
+    },
+    {
+      "ref": "Exodus 32:19",
+      "words": 2
+    },
+    {
+      "ref": "Exodus 32:27",
+      "words": 2
+    },
+    {
+      "ref": "Exodus 34:13",
+      "words": 1
+    },
+    {
+      "ref": "Exodus 34:18",
+      "words": 1
+    },
+    {
+      "ref": "Exodus 34:20",
+      "words": 2
+    },
+    {
+      "ref": "Exodus 34:29",
+      "words": 1
+    },
+    {
+      "ref": "Exodus 35:14",
+      "words": 2
+    },
+    {
+      "ref": "Exodus 35:22",
+      "words": 2
+    },
+    {
+      "ref": "Exodus 35:24",
+      "words": 1
+    },
+    {
+      "ref": "Exodus 35:30",
+      "words": 1
+    },
+    {
+      "ref": "Exodus 36:21",
+      "words": 2
+    },
+    {
+      "ref": "Exodus 36:32",
+      "words": 2
+    },
+    {
+      "ref": "Exodus 36:35",
+      "words": 1
+    },
+    {
+      "ref": "Exodus 38:1",
+      "words": 1
+    },
+    {
+      "ref": "Exodus 38:17",
+      "words": 1
+    },
+    {
+      "ref": "Exodus 39:20",
+      "words": 1
+    },
+    {
+      "ref": "Exodus 39:21",
+      "words": 15
+    },
+    {
+      "ref": "Exodus 39:22",
+      "words": 1
+    },
+    {
+      "ref": "Exodus 39:32",
+      "words": 1
+    },
+    {
+      "ref": "Exodus 39:40",
+      "words": 4
+    },
+    {
+      "ref": "Exodus 40:14",
+      "words": 1
+    },
+    {
+      "ref": "Leviticus 1:10",
+      "words": 1
+    },
+    {
+      "ref": "Leviticus 1:14",
+      "words": 1
+    },
+    {
+      "ref": "Leviticus 3:6",
+      "words": 1
+    },
+    {
+      "ref": "Leviticus 4:7",
+      "words": 1
+    },
+    {
+      "ref": "Leviticus 4:17",
+      "words": 2
+    },
+    {
+      "ref": "Leviticus 4:27",
+      "words": 2
+    },
+    {
+      "ref": "Leviticus 4:30",
+      "words": 2
+    },
+    {
+      "ref": "Leviticus 4:34",
+      "words": 2
+    },
+    {
+      "ref": "Leviticus 5:6",
+      "words": 6
+    },
+    {
+      "ref": "Leviticus 6:8",
+      "words": 2
+    },
+    {
+      "ref": "Leviticus 6:13",
+      "words": 2
+    },
+    {
+      "ref": "Leviticus 7:3",
+      "words": 7
+    },
+    {
+      "ref": "Leviticus 7:29",
+      "words": 1
+    },
+    {
+      "ref": "Leviticus 8:21",
+      "words": 1
+    },
+    {
+      "ref": "Leviticus 9:5",
+      "words": 1
+    },
+    {
+      "ref": "Leviticus 9:13",
+      "words": 1
+    },
+    {
+      "ref": "Leviticus 10:5",
+      "words": 2
+    },
+    {
+      "ref": "Leviticus 10:6",
+      "words": 4
+    },
+    {
+      "ref": "Leviticus 11:28",
+      "words": 1
+    },
+    {
+      "ref": "Leviticus 12:7",
+      "words": 1
+    },
+    {
+      "ref": "Leviticus 13:34",
+      "words": 1
+    },
+    {
+      "ref": "Leviticus 14:29",
+      "words": 1
+    },
+    {
+      "ref": "Leviticus 14:30",
+      "words": 1
+    },
+    {
+      "ref": "Leviticus 14:44",
+      "words": 1
+    },
+    {
+      "ref": "Leviticus 15:2",
+      "words": 1
+    },
+    {
+      "ref": "Leviticus 15:3",
+      "words": 11
+    },
+    {
+      "ref": "Leviticus 17:4",
+      "words": 24
+    },
+    {
+      "ref": "Leviticus 17:10",
+      "words": 2
+    },
+    {
+      "ref": "Leviticus 18:30",
+      "words": 2
+    },
+    {
+      "ref": "Leviticus 20:27",
+      "words": 2
+    },
+    {
+      "ref": "Leviticus 22:18",
+      "words": 2
+    },
+    {
+      "ref": "Leviticus 22:28",
+      "words": 1
+    },
+    {
+      "ref": "Leviticus 24:4",
+      "words": 2
+    },
+    {
+      "ref": "Numbers 1:44",
+      "words": 6
+    },
+    {
+      "ref": "Numbers 1:45",
+      "words": 1
+    },
+    {
+      "ref": "Numbers 3:38",
+      "words": 2
+    },
+    {
+      "ref": "Numbers 4:19",
+      "words": 1
+    },
+    {
+      "ref": "Numbers 11:8",
+      "words": 1
+    },
+    {
+      "ref": "Numbers 12:16",
+      "words": 61
+    },
+    {
+      "ref": "Numbers 13:21",
+      "words": 2
+    },
+    {
+      "ref": "Numbers 14:45",
+      "words": 4
+    },
+    {
+      "ref": "Numbers 16:14",
+      "words": 2
+    },
+    {
+      "ref": "Numbers 20:13",
+      "words": 121
+    },
+    {
+      "ref": "Numbers 21:13",
+      "words": 5
+    },
+    {
+      "ref": "Numbers 21:16",
+      "words": 4
+    },
+    {
+      "ref": "Numbers 21:21",
+      "words": 3
+    },
+    {
+      "ref": "Numbers 21:22",
+      "words": 35
+    },
+    {
+      "ref": "Numbers 21:35",
+      "words": 1
+    },
+    {
+      "ref": "Numbers 22:6",
+      "words": 2
+    },
+    {
+      "ref": "Numbers 22:18",
+      "words": 2
+    },
+    {
+      "ref": "Numbers 22:28",
+      "words": 2
+    },
+    {
+      "ref": "Numbers 22:35",
+      "words": 2
+    },
+    {
+      "ref": "Numbers 22:38",
+      "words": 2
+    },
+    {
+      "ref": "Numbers 23:3",
+      "words": 2
+    },
+    {
+      "ref": "Numbers 23:4",
+      "words": 2
+    },
+    {
+      "ref": "Numbers 23:7",
+      "words": 1
+    },
+    {
+      "ref": "Numbers 23:10",
+      "words": 2
+    },
+    {
+      "ref": "Numbers 23:16",
+      "words": 2
+    },
+    {
+      "ref": "Numbers 23:30",
+      "words": 2
+    },
+    {
+      "ref": "Numbers 24:10",
+      "words": 2
+    },
+    {
+      "ref": "Numbers 24:13",
+      "words": 2
+    },
+    {
+      "ref": "Numbers 24:14",
+      "words": 3
+    },
+    {
+      "ref": "Numbers 24:24",
+      "words": 2
+    },
+    {
+      "ref": "Numbers 25:4",
+      "words": 7
+    },
+    {
+      "ref": "Numbers 25:19",
+      "words": 3
+    },
+    {
+      "ref": "Numbers 26:1",
+      "words": 1
+    },
+    {
+      "ref": "Numbers 26:10",
+      "words": 1
+    },
+    {
+      "ref": "Numbers 26:12",
+      "words": 2
+    },
+    {
+      "ref": "Numbers 26:16",
+      "words": 3
+    },
+    {
+      "ref": "Numbers 26:35",
+      "words": 3
+    },
+    {
+      "ref": "Numbers 26:40",
+      "words": 1
+    },
+    {
+      "ref": "Numbers 27:4",
+      "words": 2
+    },
+    {
+      "ref": "Numbers 27:14",
+      "words": 2
+    },
+    {
+      "ref": "Numbers 28:27",
+      "words": 2
+    },
+    {
+      "ref": "Numbers 29:15",
+      "words": 2
+    },
+    {
+      "ref": "Numbers 29:21",
+      "words": 7
+    },
+    {
+      "ref": "Numbers 29:32",
+      "words": 12
+    },
+    {
+      "ref": "Numbers 29:33",
+      "words": 7
+    },
+    {
+      "ref": "Numbers 29:34",
+      "words": 9
+    },
+    {
+      "ref": "Numbers 30:5",
+      "words": 1
+    },
+    {
+      "ref": "Numbers 31:19",
+      "words": 1
+    },
+    {
+      "ref": "Numbers 31:47",
+      "words": 2
+    },
+    {
+      "ref": "Numbers 32:6",
+      "words": 3
+    },
+    {
+      "ref": "Numbers 32:25",
+      "words": 3
+    },
+    {
+      "ref": "Numbers 32:29",
+      "words": 3
+    },
+    {
+      "ref": "Numbers 32:31",
+      "words": 3
+    },
+    {
+      "ref": "Numbers 32:38",
+      "words": 1
+    },
+    {
+      "ref": "Numbers 34:7",
+      "words": 1
+    },
+    {
+      "ref": "Numbers 34:8",
+      "words": 9
+    },
+    {
+      "ref": "Numbers 35:10",
+      "words": 2
+    },
+    {
+      "ref": "Numbers 36:9",
+      "words": 2
+    },
+    {
+      "ref": "Deuteronomy 1:8",
+      "words": 2
+    },
+    {
+      "ref": "Deuteronomy 1:39",
+      "words": 1
+    },
+    {
+      "ref": "Deuteronomy 1:44",
+      "words": 2
+    },
+    {
+      "ref": "Deuteronomy 2:9",
+      "words": 1
+    },
+    {
+      "ref": "Deuteronomy 2:10",
+      "words": 1
+    },
+    {
+      "ref": "Deuteronomy 2:25",
+      "words": 2
+    },
+    {
+      "ref": "Deuteronomy 5:18",
+      "words": 3
+    },
+    {
+      "ref": "Deuteronomy 9:11",
+      "words": 1
+    },
+    {
+      "ref": "Deuteronomy 9:28",
+      "words": 2
+    },
+    {
+      "ref": "Deuteronomy 10:6",
+      "words": 7
+    },
+    {
+      "ref": "Deuteronomy 10:7",
+      "words": 4
+    },
+    {
+      "ref": "Deuteronomy 11:2",
+      "words": 2
+    },
+    {
+      "ref": "Deuteronomy 11:6",
+      "words": 6
+    },
+    {
+      "ref": "Deuteronomy 11:8",
+      "words": 2
+    },
+    {
+      "ref": "Deuteronomy 11:9",
+      "words": 1
+    },
+    {
+      "ref": "Deuteronomy 11:30",
+      "words": 4
+    },
+    {
+      "ref": "Deuteronomy 12:6",
+      "words": 1
+    },
+    {
+      "ref": "Deuteronomy 12:21",
+      "words": 2
+    },
+    {
+      "ref": "Deuteronomy 13:6",
+      "words": 2
+    },
+    {
+      "ref": "Deuteronomy 13:7",
+      "words": 4
+    },
+    {
+      "ref": "Deuteronomy 14:8",
+      "words": 4
+    },
+    {
+      "ref": "Deuteronomy 14:11",
+      "words": 1
+    },
+    {
+      "ref": "Deuteronomy 14:12",
+      "words": 4
+    },
+    {
+      "ref": "Deuteronomy 14:13",
+      "words": 2
+    },
+    {
+      "ref": "Deuteronomy 14:15",
+      "words": 3
+    },
+    {
+      "ref": "Deuteronomy 14:16",
+      "words": 5
+    },
+    {
+      "ref": "Deuteronomy 14:18",
+      "words": 6
+    },
+    {
+      "ref": "Deuteronomy 14:19",
+      "words": 2
+    },
+    {
+      "ref": "Deuteronomy 14:23",
+      "words": 3
+    },
+    {
+      "ref": "Deuteronomy 14:24",
+      "words": 2
+    },
+    {
+      "ref": "Deuteronomy 16:4",
+      "words": 2
+    },
+    {
+      "ref": "Deuteronomy 16:6",
+      "words": 3
+    },
+    {
+      "ref": "Deuteronomy 16:8",
+      "words": 3
+    },
+    {
+      "ref": "Deuteronomy 16:12",
+      "words": 2
+    },
+    {
+      "ref": "Deuteronomy 16:16",
+      "words": 2
+    },
+    {
+      "ref": "Deuteronomy 17:12",
+      "words": 1
+    },
+    {
+      "ref": "Deuteronomy 18:5",
+      "words": 6
+    },
+    {
+      "ref": "Deuteronomy 18:10",
+      "words": 2
+    },
+    {
+      "ref": "Deuteronomy 18:12",
+      "words": 1
+    },
+    {
+      "ref": "Deuteronomy 20:17",
+      "words": 2
+    },
+    {
+      "ref": "Deuteronomy 22:1",
+      "words": 7
+    },
+    {
+      "ref": "Deuteronomy 22:21",
+      "words": 2
+    },
+    {
+      "ref": "Deuteronomy 23:11",
+      "words": 4
+    },
+    {
+      "ref": "Deuteronomy 23:12",
+      "words": 12
+    },
+    {
+      "ref": "Deuteronomy 24:7",
+      "words": 2
+    },
+    {
+      "ref": "Deuteronomy 27:4",
+      "words": 1
+    },
+    {
+      "ref": "Deuteronomy 27:12",
+      "words": 1
+    },
+    {
+      "ref": "Deuteronomy 27:26",
+      "words": 2
+    },
+    {
+      "ref": "Deuteronomy 28:14",
+      "words": 1
+    },
+    {
+      "ref": "Deuteronomy 28:26",
+      "words": 1
+    },
+    {
+      "ref": "Deuteronomy 28:30",
+      "words": 2
+    },
+    {
+      "ref": "Deuteronomy 32:9",
+      "words": 1
+    },
+    {
+      "ref": "Deuteronomy 32:10",
+      "words": 10
+    },
+    {
+      "ref": "Deuteronomy 32:14",
+      "words": 1
+    },
+    {
+      "ref": "Deuteronomy 32:15",
+      "words": 4
+    },
+    {
+      "ref": "Deuteronomy 32:27",
+      "words": 2
+    },
+    {
+      "ref": "Deuteronomy 32:28",
+      "words": 1
+    },
+    {
+      "ref": "Deuteronomy 32:33",
+      "words": 2
+    },
+    {
+      "ref": "Deuteronomy 32:46",
+      "words": 2
+    },
+    {
+      "ref": "Deuteronomy 33:12",
+      "words": 1
+    },
+    {
+      "ref": "Deuteronomy 34:1",
+      "words": 5
+    }
+  ],
+  "overrides": {
+    "Exodus 26:35": [
+      "Exodus 26:35",
+      "Exodus 30:1",
+      "Exodus 30:2",
+      "Exodus 30:3",
+      "Exodus 30:4",
+      "Exodus 30:5",
+      "Exodus 30:6",
+      "Exodus 30:7",
+      "Exodus 30:8",
+      "Exodus 30:9",
+      "Exodus 30:10"
+    ],
+    "Exodus 29:28": [
+      "Exodus 29:28",
+      "Exodus 29:21"
+    ]
+  }
+}

@@ -24,6 +24,11 @@ module.exports=async({docs,win,js,waitFor,book})=>{
  await js("{const e=[...document.querySelectorAll('#tcBody .tc-dss-entry[data-scroll=\"1Qisaa\"]')].find(e=>e.textContent.includes('אור')),a=e.querySelector('.tc-dss-token');a.focus({preventScroll:true});a.dispatchEvent(new FocusEvent('focusin',{bubbles:true}));}");
  await waitFor("document.querySelector('#tcHover')?.textContent.includes('1Qisaa')",'Handschriftenkontext Jesaja');
  await js("document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true}))");
+ await chapter(0);await verse(1);
+ await waitFor("document.querySelector('#tcBody .tc-dss-entry[data-scroll=\"1Qisaa\"] .tc-dss-token')",'Jesaja 1:1 Nachträge');
+ await js("{const a=document.querySelector('#tcBody .tc-dss-entry[data-scroll=\"1Qisaa\"] .tc-dss-token');a.focus({preventScroll:true});a.dispatchEvent(new FocusEvent('focusin',{bubbles:true}));}");
+ await waitFor("document.querySelector('#tcHover')?.textContent.includes('בי(ו)מי')",'Eingeklammertes Waw im echten Vorschau-Popup');
+ await js("document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true}))");
  await choose('I Samuel');await chapter(0);await verse(24);
  await waitFor("document.querySelector('#tcBody .tc-dss-entry[data-scroll=\"4Q51\"]')",'Mehrteiliger Buchtitel im DSS-Apparat');
  assert(await js("document.querySelector('#tcPlace').textContent.includes('I Samuel 1:24')"));

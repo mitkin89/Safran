@@ -53,13 +53,15 @@ module.exports=async function run({profile,docs,win,js,waitFor,book}){
   await book('Genesis');await waitFor("document.querySelector('#rOut .cell[data-k=he] .w')",'Interlinear-Drucktest nach Neustart');
   await js("document.querySelector('#ilBtn').click()");
   await waitFor("document.querySelector('#ilPop input[value=LXX]')&&document.querySelector('#ilPop input[value=Qumran]')",'LXX und Qumran für Druck auswählbar');
-  await js("for(const n of ['LXX','Qumran']){const c=document.querySelector('#ilPop input[value='+n+']');c.checked=true;c.dispatchEvent(new Event('change',{bubbles:true}));}document.querySelector('#ilBtn').click()");
+  await js("for(const n of ['LXX','Qumran','Samaritan']){const c=document.querySelector('#ilPop input[value='+n+']');c.checked=true;c.dispatchEvent(new Event('change',{bubbles:true}));}document.querySelector('#ilBtn').click()");
   await waitFor("document.querySelector('#rOut .ilt[data-tr=LXX]')&&document.querySelector('#rOut .ilt[data-tr=Qumran]')",'LXX und DSS im Leser');
   await open();await js("document.querySelector('#expFmt').value='pdf';document.querySelector('#expFrom').value='5';document.querySelector('#expTo').value='5'");
   await submit();
   assert(requests.at(-1).html.includes('data-tr="LXX"')&&requests.at(-1).html.includes('data-tr="Qumran"'),'Echte PDF erhält beide Zeugen-Zeilen');
+  assert(requests.at(-1).html.includes('data-tr="Samaritan"')&&requests.at(-1).html.includes('data-smr-ref="Genesis 1:5"'),'Samaritanus erhält eigene Wortgruppen im echten PDF');
+  assert(requests.at(-1).html.includes('10.11647/OBP.0415'),'Tal–Florentin-Quelle im Druck');
   assert(requests.at(-1).html.includes('4Q7'),'Handschriftensigle bleibt im Druck');
   assert(requests.at(-1).html.includes('CC BY-NC-SA 3.0')&&requests.at(-1).html.includes('CC BY-NC 4.0'),'Interlinear-Quellen im Druck');
-  await js("document.querySelector('#ilBtn').click();for(const n of ['LXX','Qumran']){const c=document.querySelector('#ilPop input[value='+n+']');c.checked=false;c.dispatchEvent(new Event('change',{bubbles:true}));}document.querySelector('#ilBtn').click()");
+  await js("document.querySelector('#ilBtn').click();for(const n of ['LXX','Qumran','Samaritan']){const c=document.querySelector('#ilPop input[value='+n+']');c.checked=false;c.dispatchEvent(new Event('change',{bubbles:true}));}document.querySelector('#ilBtn').click()");
   console.log('Electron: Einzelverse, Kapitelbereich und vollständiges zweisprachiges Genesis als echte PDF bestanden.');
 };
