@@ -1836,18 +1836,21 @@ html.split #textcritPanel:not(.docked) { right: var(--p2w); }
 #textcritPanel input[type=checkbox] { width: auto; margin: 0; }
 #tcNumbering { max-width: 100%; }
 #tcBody { line-height: 1.55; }
-.tc-base { border-bottom: 1px solid var(--line); padding: 12px 0; }
-.tc-ref, .tc-kind, .tc-count, .tc-credit { color: var(--muted); font-size: .85em; }
-.tc-base blockquote { margin: 4px 0; font-family: var(--he-font); font-size: 1.35em; }
+.tc-count, .tc-credit { color: var(--muted); font-size: .85em; }
 .tc-witness h3 { font-size: 1em; margin: 12px 0 6px; }
 .tc-status { font-size: .9em; border-left: 2px solid var(--accent); padding-left: 8px; }
-.tc-entry { border: 1px solid var(--line); border-radius: 7px; margin: 8px 0; }
-.tc-entry > summary { cursor: pointer; padding: 8px; }
-.tc-lemma { font-family: var(--he-font); font-size: 1.35em; }
-.tc-siglum { font-size: .8em; background: var(--chip); border-radius: 4px; padding: 2px 4px; }
-.tc-detail { padding: 0 10px 10px; }
 .tc-he { font-family: var(--he-font); font-size: 1.45em; line-height: 1.8; }
 #tcBody .w { cursor: pointer; }
-.tc-note { border-top: 1px solid var(--line); padding-top: 8px; margin-top: 8px; }
 #tcBody .tal-cite { display: block; font: 10px/1.4 system-ui, sans-serif; color: var(--muted); margin-top: 6px; }
 .tc-credit { border-top: 1px solid var(--line); margin-top: 16px; padding-top: 8px; }
+
+/* Flat apparatus: the source remark contains the lemma once; context is on hover. */
+.tc-entry { margin: 0; padding: 9px 0; border-bottom: 1px solid var(--line); }
+.tc-note + .tc-note { margin-top: 10px; }
+.tc-context-word { text-decoration: underline dotted; text-underline-offset: .18em; cursor: help; }
+.tc-context-word.w { cursor: pointer; }
+.tc-context-word:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+#tcHover { position: fixed; z-index: 55; box-sizing: border-box; width: 480px; max-width: calc(100vw - 16px); max-height: min(60vh, calc(100vh - 16px)); overflow: auto; background: var(--card); color: var(--fg); border: 1px solid var(--accent); border-radius: 8px; padding: 12px 14px; box-shadow: 0 6px 24px rgba(0,0,0,.3); font-size: 14px; line-height: 1.55; }
+#tcHover > b, #tcHover > small { display: block; font: 11px/1.5 system-ui, sans-serif; color: var(--muted); }
+#tcHover p { margin: 8px 0; }
+#tcHover .tc-he { margin-top: 6px; }

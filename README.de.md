@@ -304,9 +304,11 @@ Berachot 2a–10b bietet außerdem **Wortzuordnung · Test** für Goldschmidt un
 In den fünf Büchern der Tora öffnet **≠ Textkritik** ein anpinnbares Pane zum
 angeklickten Vers. Der erste erfasste Zeuge ist der Samaritanus nach
 Tal–Florentin. Auch ohne seine Lesespalte sind die Lesarten und Originalanmerkungen
-verfügbar: Textstellen aufklappen, Quellen und Hover-Erklärungen lesen oder ein
-hebräisches Wort für seine Morphologie anklicken. Schreibunterschiede und der
-vollständige hebräisch-englische Zeugen-Kontext lassen sich einblenden.
+verfügbar: Die Anmerkungen stehen direkt untereinander. Beim Überfahren eines
+zitierten hebräischen Wortes erscheint der vollständige Samaritanus-Vers mit
+englischer Übersetzung; ein Klick öffnet seine Morphologie. Quellen und
+Abkürzungserklärungen bleiben sichtbar bzw. per Hover erreichbar. Schreibunterschiede
+lassen sich zusätzlich einblenden.
 Vergleichsbasis ist Westminster / OSHB. Der MT-Stellenbezug wird über gemeinsame
 Wörter ermittelt; abweichende Versgrenzen und nicht sicher zugeordnete Stellen
 bleiben kenntlich. Unter **Zählung** kann man zur eigenen Tal-Zählung wechseln.
