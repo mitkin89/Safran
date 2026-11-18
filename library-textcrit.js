@@ -2,7 +2,7 @@
 window.LibraryTextCrit=(()=>{
 'use strict';
 function create(host){
-  const {$,esc}=host, panel=$('#textcritPanel'), body=$('#tcBody');
+  const {$}=host,esc=s=>host.esc(window.I18N?.textCrit?.(String(s))??s), panel=$('#textcritPanel'), body=$('#tcBody');
   const torah=new Set(['Genesis','Exodus','Leviticus','Numbers','Deuteronomy']);
   const books=new Set([...torah,'Joshua','Judges','I Samuel','II Samuel','I Kings','II Kings','Isaiah','Jeremiah','Ezekiel','Hosea','Joel','Amos','Obadiah','Jonah','Micah','Nahum','Habakkuk','Zephaniah','Haggai','Zechariah','Malachi','Psalms','Proverbs','Job','Ruth','Song of Songs','Ecclesiastes','Lamentations','Esther','Daniel','Ezra','Nehemiah','I Chronicles','II Chronicles']);
   const tov=window.LibraryTov.create(host),dss=window.LibraryQumran.create(host),ken=window.LibraryKennicott.create(host);
@@ -25,7 +25,7 @@ function create(host){
   function syncWitness(){
     const expanded=!$('#tcWitnessOptions').hidden,n=Number($('#tcSmr').checked)+Number($('#tcTov').checked)+Number($('#tcDss').checked)+Number($('#tcKen').checked);
     $('#tcWitnessSummary').setAttribute('aria-expanded',String(expanded));
-    $('#tcWitnessSummary').innerHTML=(expanded?'▾':'▸')+' Textzeugen <span class="muted">'+(n===4?'Alle 4':n?n+' ausgewählt':'Keine')+'</span>';
+    $('#tcWitnessSummary').innerHTML=(expanded?'▾':'▸')+' '+esc('Textzeugen')+' <span class="muted">'+esc(n===4?'Alle 4':n?n+' ausgewählt':'Keine')+'</span>';
   }
   try{$('#tcSmr').checked=localStorage.getItem('tcSmr')!=='0';}catch{}
   try{$('#tcTov').checked=localStorage.getItem('tcTov')!=='0';}catch{}
@@ -111,6 +111,27 @@ function create(host){
     // trigger on their citation; never assign another word's grammatical data.
     contextAnchor(note.querySelector('.tal-cite'),ref);
   }
+  let witnessDialog=null;
+  function openWitness(button){
+    const content=ken.witnessCard(button.dataset.kenWitness);hidePreview();settings.open=false;
+    witnessDialog?.close();const dialog=document.createElement('dialog');dialog.id='kenWitness';dialog.setAttribute('aria-labelledby','kenWitnessTitle');
+    dialog.innerHTML='<button type="button" class="ken-witness-close" aria-label="Schließen" autofocus>✕</button>'+content+'<p class="ken-witness-error" role="status" hidden></p>';
+    document.body.appendChild(dialog);witnessDialog=dialog;
+    dialog.querySelector('.ken-witness-close').onclick=()=>dialog.close();
+    dialog.addEventListener('close',()=>{dialog.remove();if(witnessDialog===dialog)witnessDialog=null;if(button.isConnected)button.focus({preventScroll:true});});
+    dialog.addEventListener('click',async e=>{
+      const link=e.target.closest('[data-ken-url]');if(!link)return;
+      const status=dialog.querySelector('.ken-witness-error');status.hidden=true;link.disabled=true;
+      try{const result=await window.api.openKennicott(link.dataset.kenUrl);if(!result?.opened)throw Error('Link nicht verfügbar');}
+      catch{status.textContent='Der Link konnte nicht geöffnet werden.';status.hidden=false;}
+      finally{link.disabled=false;}
+    });
+    dialog.showModal();
+  }
+  document.addEventListener('click',e=>{
+    const button=e.target.closest('#tcBody [data-ken-witness],#tcHover [data-ken-witness]');if(!button)return;
+    e.preventDefault();e.stopImmediatePropagation();openWitness(button);
+  },true);
   async function render(){
     hidePreview();
     const token=++generation,c=context();$('#tcBtn').hidden=!c;

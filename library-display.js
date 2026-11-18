@@ -5,9 +5,33 @@ window.LibraryDisplay = (() => {
   function create({ $, $$, esc, shortVer, getView, getGroups, renderSection,
     olInlineOn, olInline, withAnchor }) {
     // ---------- Anzeigeoptionen ----------
-    const DISP0 = { he: 1.3, gr: 1.15, en: 1, de: 1, niq: false, can: false, shr: true, mar: 'normal', hideTabs: true, headStick: false, hov: 1.15 };
+    const DISP0 = { he: 1.3, gr: 1.15, en: 1, de: 1, niq: false, can: false, taam: 'off', shr: true, mar: 'normal', hideTabs: true, headStick: false, hov: 1.15 };
     let disp = { ...DISP0 };
     try { disp = { ...DISP0, ...JSON.parse(localStorage.getItem('disp') || '{}') }; } catch { /* egal */ }
+    const taamMode=()=>['major','all'].includes(disp.taam)?disp.taam:'off';
+    function mtHtml(html,book,verse){
+      if(taamMode()==='off')return html;
+      const tpl=document.createElement('template');tpl.innerHTML=html;
+      const words=[...tpl.content.querySelectorAll('.w')];
+      const texts=words.map(w=>{let tail='';for(let n=w.nextSibling;n&&!n.matches?.('.w');n=n.nextSibling)tail+=n.textContent||'';return w.textContent+tail;});
+      const breaks=window.Taamim.boundaries(texts,book,taamMode(),(getView()?.sections?.[getView().idx]?.path?.[0]??-1)+1,+verse);
+      words.forEach((w,i)=>{if(breaks[i])w.dataset.taamBreak=breaks[i];});
+      return tpl.innerHTML;
+    }
+    function taamLayout(){
+      const root=$('#rOut');root.querySelectorAll('.taam-break').forEach(e=>e.remove());
+      if(taamMode()==='off')return;
+      root.querySelectorAll('.cell[data-mt] .txt').forEach(txt=>{
+        const words=[...txt.querySelectorAll('.w')],done=new Set();
+        words.forEach((w,i)=>{
+          if(!w.dataset.taamBreak||i===words.length-1)return;
+          const unit=w.closest('.ilg')||w;if(done.has(unit)||unit.contains(words.at(-1)))return;done.add(unit);
+          // Keep punctuation and qere belonging to the word before the new line.
+          let after=unit;while(after.nextSibling&&!after.nextSibling.matches?.('.w,.ilg')&& !/[א-ת]/.test(after.nextSibling.textContent||''))after=after.nextSibling;
+          const br=document.createElement('br');br.className='taam-break';after.after(br);
+        });
+      });
+    }
     const stripHe = h => {
       if (disp.can) h = h.replace(/[\u0591-\u05AF\u05BD]/g, '');
       if (disp.niq) h = h.replace(/[\u05B0-\u05BC\u05BF\u05C1\u05C2\u05C7]/g, '');
@@ -18,6 +42,7 @@ window.LibraryDisplay = (() => {
       o.setProperty('--hef', disp.he); o.setProperty('--grf', disp.gr); o.setProperty('--enf', disp.en); o.setProperty('--def', disp.de);
       $('#dHe').value = disp.he; $('#dGr').value = disp.gr; $('#dEn').value = disp.en; $('#dDe').value = disp.de;
       for (const [id, v] of [['dHe', disp.he], ['dGr', disp.gr], ['dEn', disp.en], ['dDe', disp.de], ['dHov', disp.hov || 1.15]]) { const o = $('#' + id + 'V'); if (o) o.textContent = Math.round(v * 100) + ' %'; } // Wert neben dem Regler
+      $('#dTaam').value=taamMode();
       $('#dNiq').checked = disp.niq; $('#dCan').checked = disp.can; $('#dShr').checked = !!disp.shr; $('#dOlIn').checked = olInlineOn();
       document.body.classList.toggle('dock-shrink', !!disp.shr);
       document.body.classList.toggle('head-stick', !!disp.headStick); if ($('#dHdSt')) $('#dHdSt').checked = !!disp.headStick;
@@ -67,6 +92,7 @@ window.LibraryDisplay = (() => {
       if (id === 'dDe') disp.de = +e.target.value;
       if (id === 'dNiq') disp.niq = e.target.checked;
       if (id === 'dCan') disp.can = e.target.checked;
+      if (id === 'dTaam') disp.taam = e.target.value;
       if (id === 'dShr') disp.shr = e.target.checked;
       if (id === 'dMar') disp.mar = e.target.value;
       if (id === 'dHideTabs') disp.hideTabs = e.target.checked;
@@ -74,7 +100,7 @@ window.LibraryDisplay = (() => {
       if (id === 'dHov') disp.hov = +e.target.value;
       if (id === 'dPvDe' || id === 'dPvHe' || id === 'dPvX') { disp[{ dPvDe: 'pvDe', dPvHe: 'pvHe', dPvX: 'pvX' }[id]] = e.target.value; if (typeof window.pvClear === 'function') window.pvClear(); }
       if (id === 'dOlIn') { try { localStorage.setItem('olInline', e.target.checked ? '1' : '0'); } catch { /* egal */ } withAnchor(() => olInline()); return; }
-      applyDisp(id === 'dNiq' || id === 'dCan');
+      applyDisp(id === 'dNiq' || id === 'dCan' || id === 'dTaam');
     });
     $('#dispClose').onclick = () => { $('#dispPanel').hidden = true; };
     document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('#dispPanel').hidden && !document.querySelector('dialog[open]')) { $('#dispPanel').hidden = true; e.stopPropagation(); } }, true);
@@ -85,7 +111,7 @@ window.LibraryDisplay = (() => {
     document.addEventListener('click', e => {
       if (!$('#dispPanel').hidden && !e.target.closest('#dispPanel') && !e.target.closest('#dispBtn')) $('#dispPanel').hidden = true;
     });
-    return { state: disp, stripHe, apply: applyDisp };
+    return { state: disp, stripHe, mtHtml, taamLayout, apply: applyDisp };
   }
   return { create };
 })();

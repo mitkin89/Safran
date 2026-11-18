@@ -1,0 +1,28 @@
+'use strict';
+const assert=require('node:assert/strict'),fs=require('node:fs');
+module.exports=async({win,js,waitFor,book})=>{
+ await book('Genesis');await js("document.querySelector('#rSection').value='0';document.querySelector('#rSection').dispatchEvent(new Event('change',{bubbles:true}))");
+ await waitFor("document.querySelector('#rOut .cell[data-mt] .w')",'MT mit Taamim');
+ await waitFor("!document.querySelector('#ilBtn').hidden",'Interlinear verfügbar');
+ await js("document.querySelector('#ilBtn').click()");await waitFor("document.querySelector('#ilPop input[value=Zunz]')",'Zunz verfügbar');
+ await js("{const c=document.querySelector('#ilPop input[value=Zunz]');c.checked=true;c.dispatchEvent(new Event('change',{bubbles:true}));document.querySelector('#ilBtn').click();}");
+ await waitFor("document.querySelector('#rOut .ilt[data-tr=Zunz]')",'Zunz zur Umbruchprüfung');
+ const original=await js("[...document.querySelectorAll('#rOut .row[data-l=\"1\"] .cell[data-mt] .w')].map(w=>[w.textContent,w.dataset.l,w.dataset.m])");
+ await js("document.querySelector('#dTaam').value='all';document.querySelector('#dTaam').dispatchEvent(new Event('input',{bubbles:true}))");
+ await waitFor("document.querySelectorAll('#rOut .row[data-l=\"1\"] .taam-break').length===3",'Kleinere trennende Taamim');
+ assert.deepEqual(await js("[...document.querySelectorAll('#rOut .row[data-l=\"1\"] .cell[data-mt] .w')].map(w=>[w.textContent,w.dataset.l,w.dataset.m])"),original,'Wörter, Morphologie und Indizes unverändert');
+ assert(await js("!document.querySelector('#rOut .ilg .taam-break')"),'Interlineargruppen nicht zerteilt');
+ await js("document.querySelector('#dTaam').value='major';document.querySelector('#dTaam').dispatchEvent(new Event('input',{bubbles:true}))");
+ await waitFor("document.querySelectorAll('#rOut .row[data-l=\"1\"] .taam-break').length===1",'Nur Atnach');
+ await js("document.querySelector('#dTaam').value='all';document.querySelector('#dTaam').dispatchEvent(new Event('input',{bubbles:true}));document.querySelector('#dCan').checked=true;document.querySelector('#dCan').dispatchEvent(new Event('input',{bubbles:true}))");
+ await waitFor("document.querySelectorAll('#rOut .row[data-l=\"1\"] .taam-break').length===3&&!/[\\u0591-\\u05af]/.test(document.querySelector('#rOut .row[data-l=\"1\"] .cell[data-mt]').textContent)",'Umbrüche trotz ausgeblendeter Zeichen');
+ await js("document.querySelector('#dCan').checked=false;document.querySelector('#dCan').dispatchEvent(new Event('input',{bubbles:true}))");
+ await waitFor("/[\\u0591-\\u05af]/.test(document.querySelector('#rOut .row[data-l=\"1\"] .cell[data-mt]').textContent)",'Taamim wieder sichtbar');
+ await js("window.getSelection().removeAllRanges();[...document.querySelectorAll('#rOut .row[data-l=\"1\"] .cell[data-mt] .w')][1].click()");
+ await waitFor("document.querySelector('#wpop .wseg')",'Morphologie bei Taamim-Umbrüchen');await js("document.querySelector('#wpop .wx').click()");
+ await waitFor("document.querySelectorAll('#rOut .row[data-l=\"1\"] .taam-break').length===3",'Layout vor Sichtprüfung');
+ await js("new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))");
+ assert(await js("{const w=[...document.querySelectorAll('#rOut .row[data-l=\"1\"] .cell[data-mt] .w')];w[1].getBoundingClientRect().top>w[0].getBoundingClientRect().top}"),'Sichtbarer Umbruch nach Tipeha');
+ fs.writeFileSync('/tmp/safran-taamim.png',(await win.webContents.capturePage()).toPNG());
+ console.log('Electron: Taamim-Umbrüche, große/kleine Einschnitte, versteckte Akzente, Interlinear und Morphologie bestanden.');
+};

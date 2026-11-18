@@ -43,6 +43,11 @@ async function book(title,prefix='document'){await js(`{const d=${prefix};d.quer
  win.webContents.on('render-process-gone',(_e,d)=>{console.error(d);app.exit(1)});
  await win.loadFile(path.join(root,'library.html'));await waitFor("document.querySelectorAll('#tree .lib-item').length===3",'Start');
  await book('Genesis');await waitFor("document.querySelector('#rOut .w')",'Genesis');
+ if(process.env.SAFRAN_SMOKE_STUDY==='1'){
+  await require('./taamim-flows.cjs')({win,js,waitFor,book});
+  await require('./textcrit-english-flows.cjs')({win,js,waitFor,book});
+  assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;
+ }
  await js("document.querySelector('#rOut .w').click()");await waitFor("document.querySelector('#wpop .wseg')",'Tanach-Morphologie');await js("document.querySelector('#wpop .wx').click()");
  await js("document.querySelector('#ilBtn').click()");await waitFor("document.querySelector('#ilPop input[value=Zunz]')",'Interlinear-Auswahl');
  await js("{const c=document.querySelector('#ilPop input[value=Zunz]');c.checked=true;c.dispatchEvent(new Event('change',{bubbles:true}));document.querySelector('#ilBtn').click();}");
@@ -82,6 +87,8 @@ async function book(title,prefix='document'){await js(`{const d=${prefix};d.quer
  await require('./kennicott-all-flows.cjs')({docs,win,js,waitFor,book});
   await require('./dock-tabs-flows.cjs')({win,js,waitFor,book});
  await require('./samaritan-interlinear-flows.cjs')({win,js,waitFor,book});
+ await require('./taamim-flows.cjs')({win,js,waitFor,book});
+ await require('./textcrit-english-flows.cjs')({win,js,waitFor,book});
  assert.deepEqual(errors,[],'Keine unbehandelten Fehler im Renderer');
  await require('./font-restart.cjs')();
  win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);

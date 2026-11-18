@@ -8,6 +8,7 @@ const LK = require('./links');
 const TP = require('./topics');
 const DSL = require('./dsl');
 const PIL = require('./private-interlinear');
+const KennicottExternal = require('./kennicott-external.cjs');
 const { confirmTextUpdates } = require('./text-updates');
 const { SearchJobs, ownerOf, runSearchWorker, emptyResult } = require('./search-jobs');
 
@@ -313,6 +314,12 @@ ipcMain.handle('api:get', (_e, p) => request('GET', p));
 ipcMain.handle('api:post', (_e, p, b) => request('POST', p, b));
 ipcMain.handle('open:external', (_e, url) => {
   if (isSefaria(url)) return shell.openExternal(url);
+});
+ipcMain.handle('open:kennicott', async (_e, value) => {
+  const url = KennicottExternal.approved(value);
+  if (!url) return { opened: false };
+  await shell.openExternal(url);
+  return { opened: true };
 });
 
 // Update-Hinweis: neueste veröffentlichte Version auf GitHub abfragen (die App installiert nichts selbst)

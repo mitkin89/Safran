@@ -441,6 +441,9 @@
         <h4>Hebräischer Text</h4>
         <label class="dchk"><input type="checkbox" id="dNiq"> Hebräische Vokalzeichen ausblenden</label>
         <label class="dchk"><input type="checkbox" id="dCan"> Betonungszeichen (Teamim) ausblenden</label>
+        <label class="drow dsel" title="Umbrüche nach den trennenden Taamim im Westminster-MT. Interlineargruppen bleiben zusammen.">Zeilen nach Taamim
+          <select id="dTaam"><option value="off">Aus</option><option value="major">Große Einschnitte</option><option value="all">Auch kleinere Einschnitte</option></select>
+        </label>
       </section>
       <section class="dg">
         <h4>Lesetext</h4>
@@ -506,6 +509,7 @@
   </aside>
 
   <script src="i18n-he.js"></script>
+  <script src="i18n-textcrit.js"></script>
   <script src="i18n.js"></script>
   <script src="reader.js"></script>
   <script src="refs.js"></script>
@@ -554,6 +558,7 @@
   <script src="library-word-popup.js"></script>
   <script src="library-tabs.js"></script>
   <script src="library-export.js"></script>
+  <script src="taamim.js"></script>
   <script src="library-display.js"></script>
   <script src="library-commentary.js"></script>
   <script src="library-comment-selection.js"></script>

@@ -14,6 +14,7 @@
   if (lang === 'de') return;
 
   const EN = {
+    ...window.I18N_TEXTCRIT_EN,
     "Samaritanisches Hebräisch": "Samaritan Hebrew",
     "Umschrift der Datenquelle": "Transcription supplied by the source",
     "Umschrift teilweise unlesbar": "Transcription partly illegible",
@@ -785,6 +786,7 @@
     return out === undefined ? s : m[1] + out + m[3];
   };
   api.tr = tr;
+  api.textCrit = s => { const whole=tr(s);return whole!==s?whole:String(s).split(' · ').map(tr).join(' · '); };
   api.t = (s, ...a) => fill(tr(s) || s, a.map(x => (typeof x === 'string' ? tr(x) : x)));
   // t() mit den Werten einsetzen, danach ist der Text schon englisch; der Beobachter lässt ihn unberührt
 
@@ -792,16 +794,17 @@
   const ATTRS = ['title', 'placeholder', 'alt', 'aria-label'];
   const SKIP = new Set(['SCRIPT', 'STYLE', 'TEXTAREA']);
   const SKIPCLS = /\b(cell|ct|dbody|snip|txt|nt|ex|dentry|sg|dtt|ut)\b/; // Buchtexte, Wörterbuchartikel, Notizen des Nutzers
-  const fixAttrs = el => { for (const a of ATTRS) { const v = el.getAttribute && el.getAttribute(a); if (v) { const n = tr(v); if (n !== v) el.setAttribute(a, n); } } };
+  const fixAttrs = el => { for (const a of ATTRS) { const v = el.getAttribute && el.getAttribute(a); if (v) { const n = el.closest?.('#textcritPanel,#tcHover,#kenWitness')?api.textCrit(v):tr(v); if (n !== v) el.setAttribute(a, n); } } };
+  const uiText = node => node.parentElement?.closest('#textcritPanel,#tcHover,#kenWitness')?api.textCrit(node.nodeValue):tr(node.nodeValue);
   function walk(root) {
-    if (root.nodeType === 3) { const n = tr(root.nodeValue); if (n !== root.nodeValue) root.nodeValue = n; return; }
+    if (root.nodeType === 3) { const n = uiText(root); if (n !== root.nodeValue) root.nodeValue = n; return; }
     if (root.nodeType !== 1) return;
     const go = el => {
       if (SKIP.has(el.tagName) || SKIPCLS.test(el.className && el.className.baseVal === undefined ? el.className : '')) return;
       if (el.dataset && el.dataset.i18n && HTML[el.dataset.i18n] && !el.dataset.i18nDone) { el.innerHTML = HTML[el.dataset.i18n]; el.dataset.i18nDone = '1'; return; }
       fixAttrs(el);
       for (let c = el.firstChild; c; c = c.nextSibling) {
-        if (c.nodeType === 3) { const n = tr(c.nodeValue); if (n !== c.nodeValue) c.nodeValue = n; } else if (c.nodeType === 1) go(c);
+        if (c.nodeType === 3) { const n = uiText(c); if (n !== c.nodeValue) c.nodeValue = n; } else if (c.nodeType === 1) go(c);
       }
     };
     go(root);

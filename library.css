@@ -1918,7 +1918,7 @@ html.split #textcritPanel:not(.docked) { right: var(--p2w); }
 .tc-ken-witnesses { color: var(--muted); font-size: .85em; }
 .tc-ken-group { unicode-bidi: isolate; }
 .tc-ken-term { cursor: help; }
-.tc-ken-reading bdi[lang="he"], .tc-ken-lemma bdi[lang="he"] { font-size: 1.2em; }
+#tcBody .tc-dss-token, .tc-ken-reading bdi[lang="he"], .tc-ken-lemma bdi[lang="he"] { font-size: 1.2em; }
 
 /* All pinned study panels share one tab strip at the top-left of the dock. */
 #dockTabs { position: fixed; top: calc(57px - var(--hdoff, 0px)); right: var(--cmt-off, 0px); width: var(--dock-w, var(--cmt-w, 400px)); max-width: 90vw; box-sizing: border-box; height: 34px; display: flex; gap: 4px; align-items: center; overflow-x: auto; padding: 3px 8px; z-index: 22; background: var(--side-bg); border: 1px solid var(--line); scrollbar-width: thin; }
@@ -2006,3 +2006,20 @@ body.il .cell[data-k="he"] .ilt.il-smr { direction: rtl; font-family: var(--he-f
 #tcWitnessOptions label:has(#tcTov) { accent-color: var(--tc-lxx); }
 #tcWitnessOptions label:has(#tcDss) { accent-color: var(--tc-dss); }
 #tcWitnessOptions label:has(#tcKen) { accent-color: var(--tc-ken); }
+
+/* Catalogue cards keep institutional source links separate from text navigation. */
+.tc-ken-witness { font: inherit; padding: 0; border: 0; background: none; cursor: pointer; text-decoration: underline dotted; text-underline-offset: .18em; }
+#kenWitness { box-sizing: border-box; width: 560px; max-width: calc(100vw - 24px); max-height: 85vh; overflow: auto; padding: 20px; background: var(--card); color: var(--fg); border: 1px solid var(--accent); border-radius: 10px; font: 14px/1.5 system-ui, sans-serif; }
+#kenWitness::backdrop { background: #0006; }
+#kenWitness h3 { margin: 0 40px 12px 0; }
+#kenWitness h4 { margin: 0 0 8px; }
+#kenWitness .ken-witness-close { position: absolute; top: 8px; right: 8px; }
+.ken-witness-record { border-top: 1px solid var(--line); padding: 12px 0; }
+.ken-witness-record dl { display: grid; grid-template-columns: minmax(90px, 28%) minmax(0, 1fr); gap: 6px 12px; margin: 8px 0; }
+.ken-witness-record dt { color: var(--muted); }
+.ken-witness-record dd { margin: 0; overflow-wrap: anywhere; }
+.ken-witness-record details { margin: 8px 0; }
+.ken-witness-links { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+#kenWitness small { color: var(--muted); }
+
+#dockTabs .dock-tab-icon { margin-inline-end: .35em; }

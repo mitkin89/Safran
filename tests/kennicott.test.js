@@ -37,3 +37,19 @@ test('Kennicott adapter preserves individual witnesses, uncertainty, source orde
   assert(!preview.includes('data-m='));assert(preview.includes('Handschrift:'));
   const all=ui.entries([{ref:'Genesis 1:2',row:'2'},{ref:'Genesis 1:2',row:'3'}]);assert.equal(all.length,out.length);assert(all.every(e=>e.rows.length===2));
 });
+test('Manuscript cards retain separate catalogue records and original facsimile links',async()=>{
+  const sandbox={window:{Kennicott:K}};vm.createContext(sandbox);vm.runInContext(fs.readFileSync(require.resolve('../library-kennicott.js'),'utf8'),sandbox);
+  const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const ui=sandbox.window.LibraryKennicott.create({esc,load:async()=>D});await ui.load();
+  const card=ui.witnessCard('K2');assert.match(card,/Bodleian Library/);assert.match(card,/Ms\. Arch\. Selden A\. 47/);assert.match(card,/Digitalisat öffnen/);assert.match(card,/Katalogeintrag öffnen · Ktiv/);
+  for(const link of D.witnesses.K2[0].links)assert(card.includes('data-ken-url="'+esc(link.url)+'"'));
+  const one=ui.witnessCard('K1');assert.equal((one.match(/data-ken-url=/g)||[]).length,D.witnesses.K1.reduce((n,d)=>n+new Set(d.links.map(l=>l.url)).size,0));
+  assert.equal((ui.witnessCard('K3').match(/class="ken-witness-record"/g)||[]).length,D.witnesses.K3.length);
+  assert(!ui.witnessCard('unknown').includes('data-ken-url'));assert.match(ui.witnessCard('unknown'),/Kein zugehöriger Katalogeintrag/);
+});
+test('External manuscript links accept only exact catalogue source URLs',()=>{
+  const {approved}=require('../kennicott-external.cjs'),urls=require('../kennicott-links.json');assert(urls.length>100);
+  for(const url of urls)assert.equal(approved(url),new URL(url).href);
+  for(const url of [null,{},'javascript:alert(1)','file:///tmp/a','https://example.com/','https://digital.bodleian.ox.ac.uk/objects/forged/','https://digital.bodleian.ox.ac.uk.evil.example/','https://user:pass@digital.bodleian.ox.ac.uk/'])assert.equal(approved(url),null);
+  assert.equal(approved(urls[0]+'forged'),null);
+});

@@ -60,3 +60,10 @@ Source diagnostics remain available per book. For example, the Genesis TEI
 reference text lacks 24:67 and has an empty 30:37 followed by shifted source base
 verse numbers through 30:44. Matching actual reference text handles the verified
 shifts; missing text is never filled from OSHB.
+
+Witness sigla open manuscript/print cards with the original catalogue metadata and
+external links. These identify manuscripts, not verified verse/folio image positions.
+`build.py --all` regenerates `kennicott-links.json`; the main process accepts only
+these exact source-provided HTTP(S) catalogue/facsimile URLs through its dedicated
+IPC handler. Duplicate links are collapsed within each record; separate manuscript
+parts remain separate. No external images are bundled.

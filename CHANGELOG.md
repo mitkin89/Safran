@@ -1,6 +1,10 @@
 # Changelog
 
 ### Unreleased
+- **MT cantillation layout:** optional line breaks at major or smaller disjunctive accents, with separate poetic/prose rules, saved display settings and intact morphology/interlinear groups, including when accents are hidden.
+- **English apparatus and panel symbols:** translate textual criticism controls, statuses, CATSS explanations, source previews and manuscript cards; add the matching tool icons to pinned panel tabs. Original edition notes and readings remain unchanged.
+- **Kennicott manuscript links:** open witness cards with library, shelfmark and original catalogue/facsimile links; preserve separate manuscript records and restrict external opening to source-provided URLs.
+- **DSS reading size:** display DSS readings at the same Hebrew size as Kennicott readings in the apparatus.
 - **Kennicott across the Tanakh:** include all 39 public TEI book documents, retaining 145,543 entries and 229,750 readings with original witnesses, source text and licences. Load data by book, validate source book titles and map independent verse boundaries before assigning MT word positions. Audit every entry; keep ambiguity open and source-only Numbers entries accessible in chapter view.
 - **Witness colors:** distinguish LXX (gold), DSS (blue), SMR (turquoise) and Kennicott (violet) through labeled badges and quiet margin lines. Separate Kennicott readings, explanations and manuscript sigla without overriding red MT-difference markings.
 - **Samaritanus portrait:** use the supplied manuscript image for Hebrew/English version choices, interlinear selection and portrait previews.

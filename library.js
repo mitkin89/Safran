@@ -629,10 +629,11 @@
   // Schlüssel einer Fußnote im Lesetext: Abschnitt | Zeile | Spalte | Nummer (für „bleibt offen“)
   const fnKey = n => { const row = n.closest('.row[data-l]'), cell = n.closest('.cell'); return [view ? view.idx : '', row ? row.dataset.l : '', row ? [...row.querySelectorAll('.cell')].indexOf(cell) : -1, n.dataset.fn].join('|'); };
   // Fußnoten werden immer mitgerendert; ob sie sichtbar sind, steuert der Modus (data-notes) per CSS
-  function cellHtml(html, d, hit) {
+  function cellHtml(html, d, hit, verse) {
     if (html == null) return '<div class="cell empty"></div>';
     const rtl = d.entry.language === 'Hebrew' || d.entry.language === 'Aramaic';
-    if (d.entry.kind === 'he') html = stripHe(html);
+    const isMt=d.entry.kind==='he'&&/^Westminster/.test(d.entry.versionTitle||'');
+    if (d.entry.kind === 'he'&&!isMt) html = stripHe(html);
     const { main, notes } = R.splitFootnotes(html);
     // Fußnote steht direkt hinter ihrem Zeichen im Text (nicht darunter)
     const inline = R.cleanHtml(d.talWordNotes ? main.replace(/<sup data-fn="\d{1,4}">.*?<\/sup>/g,'') : main).replace(/<sup data-fn="(\d{1,4})">(.*?)<\/sup>/g, (m, i, mk) => {
@@ -640,10 +641,11 @@
       return n ? `${m}<span class="note" data-fn="${i}"><span class="nm">${esc(n.marker)}</span> ${R.cleanHtml(n.html)}</span>` : m;
     });
     const linked = d.entry.kind === 'he' && /Tanakh/.test((d.entry.categories || []).join()) ? inline : window.AutoRef.link(inline, { last: '', trad: versOf(d, 'cites'), note: versNoteText }); // Stellenangaben im Text anklickbar (nicht im Bibeltext selbst); andere Zählung wird umgerechnet
+    const processed=isMt?stripHe(displayUI.mtHtml(linked,d.entry.title,verse)):linked;
     const gm = d.entry.language === 'Greek' ? ` data-gt="${esc(d.entry.title)}" data-gv="${esc(d.entry.versionTitle || d.versionTitle || '')}"` : ''; // Septuaginta: Titel und Fassung für die Wort-Bestimmung (lxx-morph.js)
     const vt = (d.entry.kind === 'de' || /^Targum .*\(ETCBC/.test(d.entry.versionTitle || '')) && /^own\//.test(d.entry.rel || '') ? ` data-vt="${esc(d.entry.versionTitle || '')}"` : ''; // eigene Übersetzung: für die Wort-Zuordnung (interlin.js)
     const bv = d.entry.title === 'Berakhot' && d.entry.kind === 'he' ? ' data-bavli="1"' : '';
-    return `<div class="cell" data-k="${d.entry.kind}" data-rel="${esc(d.entry.rel || '')}"${gm}${vt}${bv} dir="${rtl ? 'rtl' : 'ltr'}"><div class="txt">${hit ? markHits(linked, hit) : linked}</div></div>`;
+    return `<div class="cell" data-k="${d.entry.kind}"${isMt?' data-mt="1"':''} data-rel="${esc(d.entry.rel || '')}"${gm}${vt}${bv} dir="${rtl ? 'rtl' : 'ltr'}"><div class="txt">${hit ? markHits(processed, hit) : processed}</div></div>`;
   }
 
   // Gleichlauf: 'off' | 'both' (beide führen) | 'left' (links führt, rechts folgt) | 'right' (rechts führt, links folgt)
@@ -692,7 +694,7 @@
     const langCells = r => groupsL.map(g => {
       const full = g.idx.filter(i => r.cells[i] != null);
       if (!full.length) return '<div class="cell empty"></div>';
-      return `<div class="gcell" data-g="${g.k}">${full.map(i => (g.idx.length > 1 ? `<div class="vlab" data-rel="${esc(view.loaded[i].entry.rel)}" title="${esc(I18N.t('Klicken: Version entfernen, nur diese zeigen oder weitere hinzufügen'))}">${esc(shortVer(view.loaded[i].versionTitle))}</div>` : '') + cellHtml(r.cells[i], view.loaded[i])).join('')}</div>`;
+      return `<div class="gcell" data-g="${g.k}">${full.map(i => (g.idx.length > 1 ? `<div class="vlab" data-rel="${esc(view.loaded[i].entry.rel)}" title="${esc(I18N.t('Klicken: Version entfernen, nur diese zeigen oder weitere hinzufügen'))}">${esc(shortVer(view.loaded[i].versionTitle))}</div>` : '') + cellHtml(r.cells[i], view.loaded[i],undefined,r.label)).join('')}</div>`;
     }).join('');
     if (rowLabel != null && !rows.some(r => r.label === rowLabel)) { // „2“ trifft bei Kommentaren die erste Zeile „2:1“
       const f = rows.find(r => r.label.startsWith(rowLabel + ':'));
@@ -706,7 +708,7 @@
     if (view.vf && shownRows.length) view.vf.set = new Set(shownRows.map(r => rowVerse(r.label))); // „1-40“ in einem Kapitel mit 31 Versen gilt als 1–31, damit der Favorit überall dieselbe ID hat
     const vfBar = view.vf ? `<div class="vfbar">${esc(I18N.t('Ausgewählte Verse: {}', view.vf.text))} <button id="vfStar" type="button" title="${esc(I18N.t('Als Favorit speichern / entfernen'))}">☆</button> <button id="vfClear" type="button">${esc(I18N.t('Alle Verse zeigen'))}</button></div>` : '';
     const body = shownRows.map(r =>
-      `<div class="row${rowLabel != null && !quiet && r.label === rowLabel ? ' hit' : ''}" data-l="${esc(r.label)}" style="--n:${n}"><div class="lab">${esc(r.label)}</div>${byLang ? langCells(r) : vis.map(i => cellHtml(r.cells[i], view.loaded[i])).join('')}</div>`).join('');
+      `<div class="row${rowLabel != null && !quiet && r.label === rowLabel ? ' hit' : ''}" data-l="${esc(r.label)}" style="--n:${n}"><div class="lab">${esc(r.label)}</div>${byLang ? langCells(r) : vis.map(i => cellHtml(r.cells[i], view.loaded[i],undefined,r.label)).join('')}</div>`).join('');
     $('#rOut').innerHTML = vfBar + head + body;
     if ($('#rOut .cell[data-gt]')) setTimeout(() => loadGM().catch(() => {}), 300); // Septuaginta-Morphologie schon laden, damit das Wort-Popup sofort da ist
     if (view.fnOpen && view.fnOpen.size) $$('#rOut .note[data-fn]').forEach(n => { if (view.fnOpen.has(fnKey(n))) n.classList.add('open'); }); // geöffnete Fußnoten bleiben offen (Tabwechsel, neu aufgebaut)
@@ -719,6 +721,7 @@
     if (!$('#outlinePanel').hidden) outlineUI.renderOutline();
     outlineUI.olInline();
     markMismatch();
+    displayUI.taamLayout();
     ilRefresh();
     decorateBavliReader();
     linksUI.loadLinks(s).then(apSoon, apSoon); // „Alles zu dieser Stelle“ folgt in den neuen Abschnitt
@@ -817,6 +820,7 @@
   }
   const interlinearUI = window.LibraryInterlinear.create({
     $, $$, esc, cache, getView: () => view, portraitOf,
+    afterRefresh:()=>displayUI.taamLayout(),
     openSamaritan: w => wordPopupUI.openSamaritanWord(w),
     consOf: s => consOf(s), apChap: s => apChap(s), verseOf: s => linksUI.verseOf(s),
     sources: { loadIL, resetPrivateIL, IL_TG, IL_QK, ilName,

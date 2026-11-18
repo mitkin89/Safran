@@ -3,7 +3,7 @@
 // und Vorschauen zugänglich und werden über eine explizite Schnittstelle übergeben.
 window.LibraryInterlinear = (() => {
   'use strict';
-  function create({ $, $$, esc, cache, getView, portraitOf, consOf, apChap, verseOf, openSamaritan, sources }) {
+  function create({ $, $$, esc, cache, getView, portraitOf, consOf, apChap, verseOf, openSamaritan, sources, afterRefresh }) {
     const O = window.offline;
     const { loadIL, resetPrivateIL, IL_TG, IL_QK, ilName,
       loadTgIL, tgVer, tgSegs, tgDoc, tgPlain, loadQIL, qVer,
@@ -23,6 +23,7 @@ window.LibraryInterlinear = (() => {
     const ilHlClear = () => $$('#rOut .ilhl').forEach(x => x.classList.remove('ilhl'));
     function ilClear() {
       ilHlClear();
+      $$('#rOut .taam-break').forEach(e=>e.remove());
       $$('#rOut .ilg').forEach(g => { const inner = g.firstChild; while (inner.firstChild) g.parentNode.insertBefore(inner.firstChild, g); g.remove(); });
     }
     // trs: [[Name, Segmente, Sigel?]] – ein Vers; Segmente [[Wortnummern], Text, Art?] (Art nur bei Qumran: 0 gleich, 1 Schreibweise, 2 Lesart, 3 rekonstruiert, 4 Plus)
@@ -213,6 +214,11 @@ window.LibraryInterlinear = (() => {
       const html=window.SamaritanInterlinear.openHtml(data,ref,esc);if(html)cell.insertAdjacentHTML('beforeend',html);
     }
     async function ilRefresh() {
+      try {
+        await refreshContent();
+      } finally { afterRefresh?.(); }
+    }
+    async function refreshContent() {
       const b = $('#ilBtn'); if (!b) return;
       const tok = ++ilTok;
       const bavliSection = getView() && getView().sections && getView().sections[getView().idx];

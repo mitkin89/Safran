@@ -122,5 +122,6 @@ contextBridge.exposeInMainWorld('api', {
   cancelDownload: () => ipcRenderer.send('book:cancel'),
   onProgress: cb => ipcRenderer.on('book:progress', (_e, d) => cb(d)),
   openExternal: u => ipcRenderer.invoke('open:external', u),
+  openKennicott: u => ipcRenderer.invoke('open:kennicott', u),
 });
 

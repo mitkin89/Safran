@@ -13,6 +13,7 @@ ROOT=Path(__file__).resolve().parents[2];HERE=Path(__file__).resolve().parent
 FILE=HERE/'001_gen.xml.gz'
 NS={'t':'http://www.tei-c.org/ns/1.0'};XML='{http://www.w3.org/XML/1998/namespace}'
 URL='https://www.edition-digitalkennicott.unito.it/exist/apps/dike/api/document/001_gen.xml/'
+SOURCE_LINKS=set()
 def text(e):return re.sub(r'\s+',' ',''.join(e.itertext())).strip() if e is not None else ''
 def local(e):return e.tag.rsplit('}',1)[-1]
 def tree(e):
@@ -57,6 +58,7 @@ def build(filename='001_gen.xml',book='Genesis',input_path=None):
                 if e.get('target') and e.get('target').startswith(('https://','http://')):d['links'].append({'label':text(e) or e.get('type','Quelle'),'url':e.get('target')})
             descs.append(d)
         out['witnesses'][ident]=descs
+        SOURCE_LINKS.update(link['url'] for desc in descs for link in desc['links'])
     source=root.find('.//t:text[@type="source"]/t:body',NS)
     for chapter in source.findall('.//t:div[@type="chap"]',NS):
         for verse in chapter.findall('t:ab',NS):out['base'][f'{book} {chapter.get("n")}:{verse.get("n")}']=words(verse)
@@ -124,5 +126,6 @@ if __name__=='__main__':
         for item in catalog['books']:
             incoming=folder/item['file'] if folder else None
             index['books'][item['book']]=build(item['file'],item['book'],incoming if incoming and incoming.exists() else None)
+        (ROOT/'kennicott-links.json').write_text(json.dumps(sorted(SOURCE_LINKS),ensure_ascii=False,indent=2)+'\n')
         (ROOT/'kennicott-index.js').write_text('// Public Digital Kennicott book inventory; lazy source-preserving data.\n(function(d){if(typeof module!=="undefined"&&module.exports)module.exports=d;else window.KENNICOTT_INDEX=d;})('+json.dumps(index,ensure_ascii=False,separators=(',',':'))+');\n')
     else:build(input_path=sys.argv[1] if len(sys.argv)>1 else None)

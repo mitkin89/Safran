@@ -2,7 +2,7 @@
 window.LibraryKennicott=(()=>{
 'use strict';
 function create(host){
-  const {esc}=host;let data=null,wanted='Genesis';const cache=new Map(),pending=new Map();
+  const esc=s=>host.esc(window.I18N?.textCrit?.(String(s))??s);let data=null,wanted='Genesis';const cache=new Map(),pending=new Map();
   const inventory=()=>window.KENNICOTT_INDEX?.books||{Genesis:{file:'kennicott-data.js',counts:{entries:9129}}};
   const available=book=>!!inventory()[book]?.counts.entries;
   function load(book='Genesis'){
@@ -29,7 +29,20 @@ function create(host){
   function witness(id){
     const key=id.replace(/^#/,''),descs=data.witnesses[key];
     const title=descs?.length?descs.map(d=>(d.type==='manuscript'?'Handschrift':'Druckausgabe')+': '+d.description).join('\n'):'Quellsigle '+key+'; kein zugehöriger Katalogeintrag in der Edition';
-    return '<abbr class="ab tc-ken-witness" title="'+esc(title)+'">'+esc(key.replace(/^K/,'K '))+'</abbr>';
+    return '<button type="button" class="ab tc-ken-witness" data-ken-witness="'+esc(key)+'" title="'+esc(title)+'" aria-label="'+esc(key.replace(/^K/,'K ')+': Handschrift oder Druckausgabe anzeigen')+'">'+esc(key.replace(/^K/,'K '))+'</button>';
+  }
+  function witnessCard(id){
+    const key=String(id||'').replace(/^#/,''),descs=data?.witnesses[key]||[];
+    const heading='<h3 id="kenWitnessTitle">Kennicott '+esc(key.replace(/^K/,'K '))+'</h3>';
+    if(!descs.length)return heading+'<p>Kein zugehöriger Katalogeintrag in der Edition.</p>';
+    return heading+descs.map(d=>{
+      const fields=[['Ort',d.settlement],['Bibliothek',d.repository],['Signatur / Kennungen',d.idno],['Datierung',d.origDate||d.date],['Titel',d.title]].filter(([,values])=>values?.length);
+      const seen=new Set(),links=(d.links||[]).filter(l=>/^https?:\/\//.test(l.url)&&!seen.has(l.url)&&seen.add(l.url));
+      return '<section class="ken-witness-record"><h4>'+esc(d.type==='manuscript'?'Handschrift':'Druckausgabe')+'</h4>'+(fields.length?'<dl>'+fields.map(([label,values])=>'<dt>'+esc(label)+'</dt><dd>'+esc(values.join(' · '))+'</dd>').join('')+'</dl>':'')+'<details><summary>Beschreibung der Edition</summary><p>'+esc(d.description)+'</p></details>'+(links.length?'<div class="ken-witness-links">'+links.map(l=>{
+        const digital=/facsimile/i.test(l.label),label=digital?'Digitalisat öffnen':l.label==='ktiv'?'Katalogeintrag öffnen · Ktiv':'Katalogeintrag öffnen · '+l.label;
+        return '<button type="button" data-ken-url="'+esc(l.url)+'" title="'+esc(l.url)+'">'+esc(label)+' ↗</button>';
+      }).join('')+'</div>':'<p class="muted">Kein externer Link in den Quelldaten.</p>')+'</section>';
+    }).join('')+'<small>Digital Kennicott · Katalogangaben der Edition · CC BY-NC-SA 4.0</small>';
   }
   function reading(r,full=false){
     const visible=full?r.witnesses:r.witnesses.slice(0,8),rest=full?[]:r.witnesses.slice(8);
@@ -58,7 +71,7 @@ function create(host){
     return '<b>Kennicott · '+esc(e.refs.join(' – '))+'</b><div class="tc-he" dir="rtl" lang="he">'+esc((data.base[e.refs[0]]||[]).join(' '))+'</div><small>Grundtext der Kennicott-Ausgabe, kein vollständiger Handschriftentext. Von Westminster / OSHB unabhängig.</small><p>'+node(e.lemmaNode)+(e.lemmaNode?' ] ':'')+e.readings.map(r=>reading(r,true)).join(' / ')+'</p><small>Digital Kennicott · Crestani / Legnaioli · CC BY-NC-SA 4.0. Quellensiglen und Zeichen: Erläuterung beim Überfahren.</small>';
   }
   const credit=()=>'<p class="tc-credit">Digital Kennicott · Crestani / Legnaioli, Universitäten Turin und Florenz · CC BY-NC-SA 4.0. Bezugstext: Kennicott / Van der Hooght; MT-Positionen maschinell abgeglichen. Frühere, jetzige und vermutete Lesungen bleiben getrennt; typographische Hinweise sind keine eigenständigen Wortvarianten. Vollständiger Editionskontext über der Zeugensigle.</p>';
-  return {load,available,entries,preview,credit,mt:ref=>cache.get(ref.replace(/ \d+:\d+$/,''))?.mt[ref]};
+  return {load,available,entries,preview,witnessCard,credit,mt:ref=>cache.get(ref.replace(/ \d+:\d+$/,''))?.mt[ref]};
 }
 return {create};
 })();

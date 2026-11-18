@@ -2,7 +2,7 @@
 window.LibraryTov=(()=>{
 'use strict';
 function create(host){
-  const {esc}=host;let data=null,pending=null;
+  const esc=s=>host.esc(window.I18N?.textCrit?.(String(s))??s);let data=null,pending=null;
   const shortLabels={
     '--+':'LXX-Zusatz','---':'LXX-Auslassung','{x}':'Scheinbares Plus/Minus',
     '{d}':'Doublette','{!}':'Infinitivus absolutus','{t}':'Transliteration',

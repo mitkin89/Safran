@@ -2,7 +2,7 @@
 window.LibraryQumran=(()=>{
 'use strict';
 function create(host){
-  const {esc}=host;const loaded=new Map(),pending=new Map();let indexPromise=null;
+  const esc=s=>host.esc(window.I18N?.textCrit?.(String(s))??s);const loaded=new Map(),pending=new Map();let indexPromise=null;
   const bookOf=ref=>ref.replace(/ \d+:\d+$/,'');
   const get=ref=>loaded.get(bookOf(ref));
   const index=()=>indexPromise||(indexPromise=host.load('qumran-apparatus-index.js',()=>window.QUMRAN_APPARATUS_INDEX).catch(e=>{indexPromise=null;throw e;}));

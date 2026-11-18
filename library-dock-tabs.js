@@ -3,6 +3,7 @@ window.LibraryDockTabs=(()=>{
 'use strict';
 function create({$,panels,pins,open,automatic,activePair,afterOpen}){
   const labels={forms:'Wortkarte',cmt:'Kommentare',textcrit:'Textkritik',all:'Überblick',outline:'Gliederung',link:'Verknüpfungen',topic:'Themen',map:'Karte',dict:'Wörterbuch'};
+  const icons={forms:'א',cmt:'💬',textcrit:'≠',all:'✦',outline:'≡',link:'🔗',topic:'🏷',map:'🗺',dict:'📖'};
   const members=new Set(),scrolls=new Map();let preferred=null;
   const bar=document.createElement('nav');bar.id='dockTabs';bar.setAttribute('role','tablist');bar.setAttribute('aria-label','Angepinnte Panels');bar.hidden=true;document.body.appendChild(bar);
   function activate(key){
@@ -23,7 +24,7 @@ function create({$,panels,pins,open,automatic,activePair,afterOpen}){
     bar.hidden=!visible.length;document.body.classList.toggle('has-dock-tabs',!bar.hidden);
     // Stable buttons preserve keyboard focus and avoid spurious scroll changes.
     for(const b of [...bar.children])if(!members.has(b.dataset.panel))b.remove();
-    for(const k of members){let b=bar.querySelector('[data-panel="'+k+'"]');if(!b){b=document.createElement('button');b.type='button';b.id='dock-tab-'+k;b.dataset.panel=k;$(panels[k][0]).setAttribute('role','tabpanel');$(panels[k][0]).setAttribute('aria-labelledby',b.id);b.setAttribute('role','tab');b.setAttribute('aria-controls',panels[k][0].slice(1));b.textContent=I18N.t(labels[k]);b.onclick=()=>activate(k);bar.appendChild(b);}b.setAttribute('aria-selected',String(k===current));b.tabIndex=k===current?0:-1;}
+    for(const k of members){let b=bar.querySelector('[data-panel="'+k+'"]');if(!b){b=document.createElement('button');b.type='button';b.id='dock-tab-'+k;b.dataset.panel=k;$(panels[k][0]).setAttribute('role','tabpanel');$(panels[k][0]).setAttribute('aria-labelledby',b.id);b.setAttribute('role','tab');b.setAttribute('aria-controls',panels[k][0].slice(1));const icon=document.createElement('span');icon.className='dock-tab-icon';icon.setAttribute('aria-hidden','true');icon.textContent=icons[k];const label=document.createElement('span');label.textContent=I18N.t(labels[k]);b.append(icon,label);b.onclick=()=>activate(k);bar.appendChild(b);}b.setAttribute('aria-selected',String(k===current));b.tabIndex=k===current?0:-1;}
   }
   function remove(key){members.delete(key);scrolls.delete(key);sync();}
   for(const k in panels)$(panels[k][1]).addEventListener('click',()=>{if(!automatic()){members.delete(k);scrolls.delete(k);}},true);
