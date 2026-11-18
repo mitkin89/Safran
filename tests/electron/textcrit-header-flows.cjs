@@ -9,6 +9,14 @@ module.exports=async({win,js,waitFor,book})=>{
   await waitFor("document.querySelectorAll('#tcBody .tc-entry').length===3 && !document.querySelector('#tcWhole').hidden",'Einzelvers und Kapitelknopf');
   assert(await js("['tcLang','tcPrev','tcNext','tcFollow','tcFsMinus','tcFsPlus','tcWhole','tcClose','tcWitnessSummary'].every(id=>document.getElementById(id)) && document.querySelector('#textcritPanel .pinB')"));
   assert(await js("[...document.querySelector('#tcLang').options].map(n=>n.value).join(',')==='en'"),'Only actually available source languages');
+  assert(await js("document.querySelector('#textcritPanel .tc-head').getBoundingClientRect().height<=120"),'Kompakter Kopf bei normaler Panelbreite');
+  assert(await js("!document.querySelector('#tcSettings').open && !document.getElementById('tcSpelling')"),'Seltene Einstellungen geschlossen, Schreibunterschiede immer aktiv');
+  if(process.env.SAFRAN_TC_COMPACT_CAPTURE){await js("new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))");fs.writeFileSync(process.env.SAFRAN_TC_COMPACT_CAPTURE,(await win.webContents.capturePage()).toPNG());}
+  assert(await js("document.querySelector('#tcLang').closest('.tc-nav') && document.querySelector('#tcLang').getBoundingClientRect().height>0"),'Sprache ohne Einstellungsmenü direkt sichtbar');
+  await js("document.querySelector('#tcSettings summary').click()");
+  assert(await js("document.querySelector('#tcSettings').open && document.querySelector('#tcNumbering').getBoundingClientRect().height>0"),'Zählung im Einstellungsmenü erreichbar');
+  await js("document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true}))");
+  assert(await js("!document.querySelector('#tcSettings').open && !document.querySelector('#textcritPanel').hidden"),'Escape schließt nur die Einstellungen');
   await js("document.querySelector('#tcWitnessSummary').click()");
   await waitFor("!document.querySelector('#tcWitnessOptions').hidden && document.querySelector('#tcWitnessSummary').getAttribute('aria-expanded')==='true'",'Zeugenauswahl wie Kommentatorenauswahl');
   const oldFont=await js("parseFloat(getComputedStyle(document.querySelector('#tcBody')).fontSize)");

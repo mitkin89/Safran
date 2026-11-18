@@ -60,9 +60,8 @@ module.exports=async({win,js,waitFor,book})=>{
     await new Promise(r=>setTimeout(r,150));fs.writeFileSync(process.env.SAFRAN_CRIT_FLAT_CAPTURE,(await win.webContents.capturePage()).toPNG());
   }
   await js("document.querySelector('#rOut .row[data-l=\"2\"] .txt').click()");
-  await waitFor("document.querySelector('#tcPlace').textContent.includes('Genesis 28:2') && !document.querySelector('#tcBody .tc-entry')",'Schreibungsfilter');
-  await js("document.querySelector('#tcSpelling').checked=true;document.querySelector('#tcSpelling').dispatchEvent(new Event('change',{bubbles:true}))");
-  await waitFor("document.querySelector('#tcBody .tc-entry')?.textContent.includes('בית')",'Schreibunterschiede einblenden');
+  await waitFor("document.querySelector('#tcPlace').textContent.includes('Genesis 28:2') && document.querySelector('#tcBody .tc-entry')?.textContent.includes('בית')",'Schreibunterschiede dauerhaft sichtbar');
+  assert(await js("!document.getElementById('tcSpelling')"),'Kein Schreibungsfilter mehr');
   await js("document.querySelector('#tcSmr').checked=false;document.querySelector('#tcSmr').dispatchEvent(new Event('change',{bubbles:true}))");
   await waitFor("document.querySelector('#tcBody').textContent.includes('SMR ist ausgeblendet')",'Zeugenfilter');
   await js("document.querySelector('#tcSmr').checked=true;document.querySelector('#tcSmr').dispatchEvent(new Event('change',{bubbles:true}))");

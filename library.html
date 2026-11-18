@@ -327,13 +327,16 @@
 
   <aside id="textcritPanel" hidden aria-label="Textkritik">
     <div class="tc-head">
-      <div class="lhead"><b>Textkritik</b><button id="tcWhole" class="wholeBtn" type="button" hidden>Ganzes Kapitel</button><button id="tcClose" type="button" title="Schließen">✕</button></div>
-      <div id="tcPlace" aria-live="polite"></div>
-      <div class="tc-nav"><label>Sprache <select id="tcLang" title="Tal: englische Originalanmerkungen; CATSS: Quellcodes mit deutschen Erläuterungen"><option value="en">Originalhinweise</option></select></label><button id="tcPrev" type="button" title="Voriger Vers">▲ Vers</button><button id="tcNext" type="button" title="Nächster Vers">▼ Vers</button><button id="tcFollow" type="button" title="Textkritik folgt dem Lesen" aria-pressed="false">⇣ Folgen</button><button id="tcFsMinus" type="button" title="Textkritik kleiner">A−</button><button id="tcFsPlus" type="button" title="Textkritik größer">A+</button></div>
-      <label>Zählung <select id="tcNumbering"><option value="auto">Wie angeklickter Lesetext</option><option value="mt">MT</option><option value="tal">Tal–Florentin</option></select></label>
-      <button id="tcWitnessSummary" type="button" aria-expanded="false" aria-controls="tcWitnessOptions">▸ Textzeugen <span class="muted">Alle 1 (Englisch)</span></button>
+      <div class="lhead"><b>Textkritik <span id="tcPlace" aria-live="polite"></span></b><details id="tcSettings"><summary title="Verszählung" aria-label="Textkritik-Einstellungen">⚙</summary><div class="tc-settings-body">
+          <label>Zählung <select id="tcNumbering"><option value="auto">Wie angeklickter Lesetext</option><option value="mt">MT</option><option value="tal">Tal–Florentin</option></select></label>
+        </div></details><button id="tcWhole" class="wholeBtn" type="button" hidden>Ganzes Kapitel</button><button id="tcClose" type="button" title="Schließen">✕</button></div>
+      <div class="tc-nav">
+        <select id="tcLang" aria-label="Sprache" title="Sprache: Tal mit englischen Originalanmerkungen; CATSS mit Quellcodes und deutschen Erläuterungen"><option value="en">Originalhinweise</option></select>
+        <button id="tcPrev" type="button" title="Voriger Vers" aria-label="Voriger Vers">▲</button><button id="tcNext" type="button" title="Nächster Vers" aria-label="Nächster Vers">▼</button><button id="tcFollow" type="button" title="Textkritik folgt dem Lesen" aria-pressed="false">⇣ Folgen</button><button id="tcFsMinus" type="button" title="Textkritik kleiner">A−</button><button id="tcFsPlus" type="button" title="Textkritik größer">A+</button>
+        <button id="tcWitnessSummary" type="button" aria-expanded="false" aria-controls="tcWitnessOptions">▸ Textzeugen</button>
+
+      </div>
       <div id="tcWitnessOptions" class="tc-options" hidden><label><input id="tcSmr" type="checkbox" checked> SMR · Tal–Florentin</label><label><input id="tcTov" type="checkbox" checked> LXX · Tov/Kraft (CATSS)</label><label><input id="tcDss" type="checkbox" checked> DSS · Tanach (ETCBC/Abegg)</label><label><input id="tcKen" type="checkbox" checked> Kennicott · Genesis</label></div>
-      <label class="tc-spelling"><input id="tcSpelling" type="checkbox"> Auch Schreibunterschiede</label>
     </div>
     <div id="tcBody"></div>
   </aside>

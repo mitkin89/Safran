@@ -27,10 +27,13 @@ function create(host){
     $('#tcWitnessSummary').setAttribute('aria-expanded',String(expanded));
     $('#tcWitnessSummary').innerHTML=(expanded?'▾':'▸')+' Textzeugen <span class="muted">'+(n===4?'Alle 4':n?n+' ausgewählt':'Keine')+'</span>';
   }
-  try{$('#tcSmr').checked=localStorage.getItem('tcSmr')!=='0';$('#tcSpelling').checked=localStorage.getItem('tcSpelling')==='1';}catch{}
+  try{$('#tcSmr').checked=localStorage.getItem('tcSmr')!=='0';}catch{}
   try{$('#tcTov').checked=localStorage.getItem('tcTov')!=='0';}catch{}
   try{$('#tcDss').checked=localStorage.getItem('tcDss')!=='0';}catch{}
   try{$('#tcKen').checked=localStorage.getItem('tcKen')!=='0';}catch{}
+  const settings=$('#tcSettings');
+  document.addEventListener('pointerdown',e=>{if(settings.open&&!settings.contains(e.target))settings.open=false;});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&settings.open){settings.open=false;e.stopImmediatePropagation();settings.querySelector('summary').focus();}},true);
   syncWitness();
   $('#tcWitnessSummary').onclick=()=>{
     $('#tcWitnessOptions').hidden=!$('#tcWitnessOptions').hidden;syncWitness();
@@ -114,7 +117,7 @@ function create(host){
     $('#tcWhole').hidden=!c||whole;
     $('#tcPlace').textContent=c?(whole?c.book+' '+c.chapter+' · ganzes Kapitel':c.ref)+' · '+(c.numbering==='tal'?'Tal–Florentin-Zählung':'MT-Zählung'):'Keine Stelle ausgewählt';
     syncWitness();
-    const contentKey=c?[key,whole,c.numbering,whole?'':c.row,$('#tcSpelling').checked,$('#tcSmr').checked,$('#tcTov').checked,$('#tcDss').checked,$('#tcKen').checked,$('#tcLang').value].join('|'):null;
+    const contentKey=c?[key,whole,c.numbering,whole?'':c.row,$('#tcSmr').checked,$('#tcTov').checked,$('#tcDss').checked,$('#tcKen').checked,$('#tcLang').value].join('|'):null;
     if(contentKey&&lastContentKey===contentKey){markCurrent(c);return;}
     lastContentKey=null;
     if(!c){body.innerHTML='<p class="muted">Der Textkritik-Apparat steht für den Tanach zur Verfügung.</p>';return;}
@@ -123,7 +126,7 @@ function create(host){
       const [[data,notes]]=await Promise.all([load(),dss.load(c.book)]);if(token!==generation||panel.hidden)return;
       previewData=data;
       const alignment=window.SAMARITAN_IL,smrIL=window.SamaritanInterlinear;
-      const showSpelling=$('#tcSpelling').checked;
+      const showSpelling=true;
       const showSmr=$('#tcSmr').checked&&torah.has(c.book),showTov=$('#tcTov').checked,showDss=$('#tcDss').checked,showKen=$('#tcKen').checked&&c.book==='Genesis';
       const tovQueries=[];
       const queries=whole?rows().map(r=>r.dataset.l):[c.row],refs=new Map(),unresolved=[];
@@ -196,8 +199,8 @@ function create(host){
     if(!panel.hidden){lastContentKey=null;if(follow)followNow();}render();
   });}
   $('#tcBtn').onclick=()=>toggle();$('#tcClose').onclick=()=>toggle(false);
-  ['#tcNumbering','#tcSpelling','#tcSmr','#tcTov','#tcDss','#tcKen','#tcLang'].forEach(s=>$(s).onchange=()=>{
-    try{localStorage.setItem('tcKen',$('#tcKen').checked?'1':'0');localStorage.setItem('tcDss',$('#tcDss').checked?'1':'0');localStorage.setItem('tcTov',$('#tcTov').checked?'1':'0');localStorage.setItem('tcSmr',$('#tcSmr').checked?'1':'0');localStorage.setItem('tcSpelling',$('#tcSpelling').checked?'1':'0');}catch{}
+  ['#tcNumbering','#tcSmr','#tcTov','#tcDss','#tcKen','#tcLang'].forEach(s=>$(s).onchange=()=>{
+    try{localStorage.setItem('tcKen',$('#tcKen').checked?'1':'0');localStorage.setItem('tcDss',$('#tcDss').checked?'1':'0');localStorage.setItem('tcTov',$('#tcTov').checked?'1':'0');localStorage.setItem('tcSmr',$('#tcSmr').checked?'1':'0');}catch{}
     render();
   });
   $('#rOut').addEventListener('click',e=>{

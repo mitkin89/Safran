@@ -1,6 +1,7 @@
 # Changelog
 
 ### Unreleased
+- **Compact textual criticism header:** keep language selection, navigation, font size and witness selection directly accessible in a compact toolbar; move numbering into an on-demand settings menu. Always include spelling differences and remove their checkbox.
 - **Samaritanus interlinear:** align all 82,446 Tal–Florentin source words across the Pentateuch to the bundled Westminster text. Preserve source red masks and own morphology; keep 1,635 unresolved word positions visible separately. Handle split words, source-proven Ketiv/Qere, numbering differences and documented displaced Exodus passages without changing either edition.
 - **Samaritanus apparatus positions:** reuse checked interlinear positions for 358 formerly unlocated notes; expand 27 anchors to their source-marked Ketiv/Qere group. Keep ambiguous positions open and expose machine-assisted provenance on citations.
 - **Pinned panel tabs:** switch between word cards, comments, textual criticism, overview, outline, links, topics, map and dictionary using a shared tab strip, including keyboard navigation and retained panel content.
