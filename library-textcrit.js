@@ -5,6 +5,7 @@ function create(host){
   const {$}=host,esc=s=>host.esc(window.I18N?.textCrit?.(String(s))??s), panel=$('#textcritPanel'), body=$('#tcBody');
   const torah=new Set(['Genesis','Exodus','Leviticus','Numbers','Deuteronomy']);
   const books=new Set([...torah,'Joshua','Judges','I Samuel','II Samuel','I Kings','II Kings','Isaiah','Jeremiah','Ezekiel','Hosea','Joel','Amos','Obadiah','Jonah','Micah','Nahum','Habakkuk','Zephaniah','Haggai','Zechariah','Malachi','Psalms','Proverbs','Job','Ruth','Song of Songs','Ecclesiastes','Lamentations','Esther','Daniel','Ezra','Nehemiah','I Chronicles','II Chronicles']);
+  const mishnah=window.LibraryMishnahTextCrit.create(host);
   const tov=window.LibraryTov.create(host),dss=window.LibraryQumran.create(host),ken=window.LibraryKennicott.create(host);
   let key='',selected=null,clickedTal=null,generation=0,pending=null,previewData=null,hover=null,hoverAnchor=null,showTimer=null,hideTimer=null;
   let whole=false,follow=false,fontSize=14,lastContentKey=null,followTimer=null;
@@ -23,14 +24,15 @@ function create(host){
   syncFollow();
   try{$('#tcWitnessOptions').hidden=localStorage.getItem('tcWitnessExpanded')!=='1';}catch{}
   function syncWitness(){
-    const expanded=!$('#tcWitnessOptions').hidden,n=Number($('#tcSmr').checked)+Number($('#tcTov').checked)+Number($('#tcDss').checked)+Number($('#tcKen').checked);
+    const expanded=!$('#tcWitnessOptions').hidden,isMishnah=host.getView()?.group?.title==='Mishnah Berakhot',n=isMishnah?1+Number($('#tcMishnahParma').checked)+Number($('#tcMishnahCambridge').checked):Number($('#tcSmr').checked)+Number($('#tcTov').checked)+Number($('#tcDss').checked)+Number($('#tcKen').checked);
     $('#tcWitnessSummary').setAttribute('aria-expanded',String(expanded));
-    $('#tcWitnessSummary').innerHTML=(expanded?'▾':'▸')+' '+esc('Textzeugen')+' <span class="muted">'+esc(n===4?'Alle 4':n?n+' ausgewählt':'Keine')+'</span>';
+    $('#tcWitnessSummary').innerHTML=(expanded?'▾':'▸')+' '+esc('Textzeugen')+' <span class="muted">'+esc(n===(isMishnah?3:4)?'Alle '+n:n?n+' ausgewählt':'Keine')+'</span>';
   }
   try{$('#tcSmr').checked=localStorage.getItem('tcSmr')!=='0';}catch{}
   try{$('#tcTov').checked=localStorage.getItem('tcTov')!=='0';}catch{}
   try{$('#tcDss').checked=localStorage.getItem('tcDss')!=='0';}catch{}
   try{$('#tcKen').checked=localStorage.getItem('tcKen')!=='0';}catch{}
+  for(const [id,key]of [['#tcMishnahParma','tcMP'],['#tcMishnahCambridge','tcMC']]){try{$(id).checked=localStorage.getItem(key)!=='0';}catch{}}
   const settings=$('#tcSettings');
   document.addEventListener('pointerdown',e=>{if(settings.open&&!settings.contains(e.target))settings.open=false;});
   document.addEventListener('keydown',e=>{if(e.key==='Escape'&&settings.open){settings.open=false;e.stopImmediatePropagation();settings.querySelector('summary').focus();}},true);
@@ -43,14 +45,15 @@ function create(host){
   function rows(){return [...$('#rOut').querySelectorAll('.row[data-l]')].filter(r=>/^\d+$/.test(r.dataset.l));}
   function context(){
     const v=host.getView(),s=v?.sections?.[v.idx],chapter=s?.path?.length===1?s.path[0]+1:null;
-    if(!books.has(v?.group?.title)||!Number.isInteger(chapter))return null;
+    const isMishnah=v?.group?.title==='Mishnah Berakhot';
+    if((!books.has(v?.group?.title)&&!isMishnah)||!Number.isInteger(chapter))return null;
     const next=v.group.key+'|'+s.k;
     if(next!==key){key=next;selected=null;clickedTal=null;lastContentKey=null;}
     const row=selected||host.getRow()||$('#rOut .row.hit')?.dataset.l||$('#rOut .row[data-l]')?.dataset.l;
     if(!/^\d+$/.test(row||''))return null;
     const autoTal=clickedTal??(v.loaded?.length>0&&v.loaded.every(d=>d.talWordNotes));
     const numbering=!torah.has(v.group.title)?'mt':$('#tcNumbering').value==='auto'?(autoTal?'tal':'mt'):$('#tcNumbering').value;
-    return {book:v.group.title,chapter,ref:v.group.title+' '+chapter+':'+row,numbering,row};
+    return {book:v.group.title,chapter,ref:v.group.title+' '+chapter+':'+row,numbering:isMishnah?'kaufmann':numbering,row,isMishnah};
   }
   function load(){
     return pending||(pending=Promise.all([host.load('textcrit-data.js',()=>window.TEXTCRIT_DATA),host.load('samaritan-data.js',()=>window.SAMARITAN_DATA),tov.load(),ken.load(),host.load('samaritan-il.js',()=>window.SAMARITAN_IL)]).catch(e=>{pending=null;throw e;}));
@@ -73,9 +76,9 @@ function create(host){
   function showPreview(anchor){
     hidePreview();
     const ref=anchor.dataset.tcRef,verse=previewData?.verses[ref];
-    if((!verse&&!anchor.dataset.tcTov&&!anchor.dataset.tcDss&&!anchor.dataset.tcKen&&!anchor.dataset.tcCitation)||!anchor.isConnected||panel.hidden)return;
+    if((!verse&&!anchor.dataset.tcTov&&!anchor.dataset.tcDss&&!anchor.dataset.tcKen&&!anchor.dataset.tcMishnah&&!anchor.dataset.tcCitation)||!anchor.isConnected||panel.hidden)return;
     hoverAnchor=anchor;hover=document.createElement('div');hover.id='tcHover';hover.setAttribute('role','tooltip');
-    hover.innerHTML=anchor.dataset.tcKen?ken.preview(anchor):anchor.dataset.tcDss?dss.preview(anchor):anchor.dataset.tcTov?tov.preview(anchor):verse?'<b>SMR · '+esc(ref)+'</b><div class="tc-he" dir="rtl" lang="he">'+verse.words.map(w=>word(w,false)).join(' ')+'</div><p lang="en">'+english(verse.en)+'</p><small>Tal–Florentin · CC BY-NC 4.0</small>':'';
+    hover.innerHTML=anchor.dataset.tcMishnah?mishnah.preview(anchor):anchor.dataset.tcKen?ken.preview(anchor):anchor.dataset.tcDss?dss.preview(anchor):anchor.dataset.tcTov?tov.preview(anchor):verse?'<b>SMR · '+esc(ref)+'</b><div class="tc-he" dir="rtl" lang="he">'+verse.words.map(w=>word(w,false)).join(' ')+'</div><p lang="en">'+english(verse.en)+'</p><small>Tal–Florentin · CC BY-NC 4.0</small>':'';
     if(anchor.dataset.tcCitation)hover.insertAdjacentHTML('afterbegin','<div class="tc-source-citation-detail"><b title="'+esc(anchor.dataset.tcSourceDetail||'')+'">'+esc(anchor.dataset.tcCitation)+'</b></div>');
     document.body.appendChild(hover);anchor.setAttribute('aria-describedby','tcHover');
     const r=anchor.getBoundingClientRect(),h=hover.getBoundingClientRect();
@@ -137,8 +140,16 @@ function create(host){
     const token=++generation,c=context();$('#tcBtn').hidden=!c;
     if(panel.hidden)return;
     $('#tcWhole').hidden=!c||whole;
-    $('#tcPlace').textContent=c?(whole?c.book+' '+c.chapter+' · ganzes Kapitel':c.ref)+' · '+(c.numbering==='tal'?'Tal–Florentin-Zählung':'MT-Zählung'):'Keine Stelle ausgewählt';
+    $('#tcLang').title=c?.isMishnah?'Quellenhinweise der Mischna-Transkriptionen':'Sprache: Tal mit englischen Originalanmerkungen; CATSS mit Quellcodes und deutschen Erläuterungen';
+    $('#tcSettings').hidden=!!c?.isMishnah;$('#tcBibleWitnesses').hidden=!!c?.isMishnah;$('#tcMishnahWitnesses').hidden=!c?.isMishnah;
+    $('#tcPlace').textContent=c?(whole?c.book+' '+c.chapter+' · ganzes Kapitel':c.ref)+' · '+(c.isMishnah?'Digital-Mishnah-Zählung':c.numbering==='tal'?'Tal–Florentin-Zählung':'MT-Zählung'):'Keine Stelle ausgewählt';
     syncWitness();
+    if(c?.isMishnah){
+      body.innerHTML='<p class="muted">'+esc('Apparat wird geladen …')+'</p>';
+      try{await mishnah.load();if(token!==generation||panel.hidden)return;const refs=whole?mishnah.refs(c.chapter):[c.chapter+':'+c.row];body.innerHTML=mishnah.render(c.chapter,refs,['K',...($('#tcMishnahParma').checked?['P']:[]),...($('#tcMishnahCambridge').checked?['C']:[])]);markCurrent(c);host.refreshFind?.();}
+      catch{if(token===generation)body.textContent=window.I18N.t('Apparat konnte nicht geladen werden.');}
+      return;
+    }
     const contentKey=c?[key,whole,c.numbering,whole?'':c.row,$('#tcSmr').checked,$('#tcTov').checked,$('#tcDss').checked,$('#tcKen').checked,$('#tcLang').value].join('|'):null;
     if(contentKey&&lastContentKey===contentKey){markCurrent(c);return;}
     lastContentKey=null;
@@ -237,8 +248,8 @@ function create(host){
     if(!panel.hidden){lastContentKey=null;if(follow)followNow();}render();
   });}
   $('#tcBtn').onclick=()=>toggle();$('#tcClose').onclick=()=>toggle(false);
-  ['#tcNumbering','#tcSmr','#tcTov','#tcDss','#tcKen','#tcLang'].forEach(s=>$(s).onchange=()=>{
-    try{localStorage.setItem('tcKen',$('#tcKen').checked?'1':'0');localStorage.setItem('tcDss',$('#tcDss').checked?'1':'0');localStorage.setItem('tcTov',$('#tcTov').checked?'1':'0');localStorage.setItem('tcSmr',$('#tcSmr').checked?'1':'0');}catch{}
+  ['#tcMishnahParma','#tcMishnahCambridge','#tcNumbering','#tcSmr','#tcTov','#tcDss','#tcKen','#tcLang'].forEach(s=>$(s).onchange=()=>{
+    try{localStorage.setItem('tcMP',$('#tcMishnahParma').checked?'1':'0');localStorage.setItem('tcMC',$('#tcMishnahCambridge').checked?'1':'0');localStorage.setItem('tcKen',$('#tcKen').checked?'1':'0');localStorage.setItem('tcDss',$('#tcDss').checked?'1':'0');localStorage.setItem('tcTov',$('#tcTov').checked?'1':'0');localStorage.setItem('tcSmr',$('#tcSmr').checked?'1':'0');}catch{}
     render();
   });
   $('#rOut').addEventListener('click',e=>{
@@ -248,15 +259,15 @@ function create(host){
   });
   body.addEventListener('click',e=>{const source=e.target.closest('.tc-source');if(source){showPreview(source);return;}const mt=e.target.closest('.tc-mt-jump');if(mt){hidePreview();const ref=mt.dataset.ref;host.markMt(ref,+mt.dataset.start,+mt.dataset.end,tov.mt(ref)||dss.mt(ref)||ken.mt(ref)||window.TextCrit.words(window.TEXTCRIT_DATA?.mt?.[ref]||''));return;}const qw=e.target.closest('.tc-dss-word');if(qw&&!String(window.getSelection())){hidePreview();host.openQumran(qw);return;}const greek=e.target.closest('.tc-tov-lemma');if(greek&&!String(window.getSelection())){hidePreview();tov.open(greek);return;}const jump=e.target.closest('.tc-jump');if(jump){host.selectRow(jump.dataset.row);return;}const w=e.target.closest('.w[data-l]');if(w&&!String(window.getSelection())){hidePreview();host.openWord(w);}});
   body.addEventListener('pointerover',e=>{
-    const target=e.target.closest('.tc-source,.tc-context-word,[data-tc-tov],[data-tc-dss],[data-tc-ken]');if(!target||target.contains(e.relatedTarget))return;
+    const target=e.target.closest('.tc-source,.tc-context-word,[data-tc-tov],[data-tc-dss],[data-tc-ken],[data-tc-mishnah]');if(!target||target.contains(e.relatedTarget))return;
     clearTimeout(hideTimer);clearTimeout(showTimer);showTimer=setTimeout(()=>showPreview(target),200);
   });
   body.addEventListener('pointerout',e=>{
-    const target=e.target.closest('.tc-source,.tc-context-word,[data-tc-tov],[data-tc-dss],[data-tc-ken]');if(!target||target.contains(e.relatedTarget))return;
+    const target=e.target.closest('.tc-source,.tc-context-word,[data-tc-tov],[data-tc-dss],[data-tc-ken],[data-tc-mishnah]');if(!target||target.contains(e.relatedTarget))return;
     clearTimeout(showTimer);hideTimer=setTimeout(hidePreview,120);
   });
   body.addEventListener('focusin',e=>{
-    const target=e.target.closest('.tc-source,.tc-context-word,[data-tc-tov],[data-tc-dss],[data-tc-ken]');if(!target)return;
+    const target=e.target.closest('.tc-source,.tc-context-word,[data-tc-tov],[data-tc-dss],[data-tc-ken],[data-tc-mishnah]');if(!target)return;
     // Focusing a word can scroll it into view. Open after that scroll, so the
     // preview is not immediately dismissed by its own focus movement.
     requestAnimationFrame(()=>requestAnimationFrame(()=>{
@@ -264,7 +275,7 @@ function create(host){
     }));
   });
   body.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.matches('.tc-tov-lemma,.tc-dss-word')){e.preventDefault();e.target.click();}});
-  body.addEventListener('focusout',e=>{if(e.target.closest('.tc-source,.tc-context-word,[data-tc-tov],[data-tc-dss],[data-tc-ken]'))hidePreview();});
+  body.addEventListener('focusout',e=>{if(e.target.closest('.tc-source,.tc-context-word,[data-tc-tov],[data-tc-dss],[data-tc-ken],[data-tc-mishnah]'))hidePreview();});
   window.addEventListener('resize',hidePreview);
   document.addEventListener('scroll',e=>{if(!e.target.closest?.('#tcHover'))hidePreview();},true);
   document.addEventListener('keydown',e=>{if(e.key==='Escape'&&hover){hidePreview();e.preventDefault();e.stopImmediatePropagation();}},true);

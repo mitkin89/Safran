@@ -2023,3 +2023,12 @@ body.il .cell[data-k="he"] .ilt.il-smr { direction: rtl; font-family: var(--he-f
 #kenWitness small { color: var(--muted); }
 
 #dockTabs .dock-tab-icon { margin-inline-end: .35em; }
+
+#tcMishnahWitnesses[hidden], #tcBibleWitnesses[hidden] { display:none; }
+#tcMishnahWitnesses { display:flex; flex-wrap:wrap; gap:12px; }
+.tc-mishnah-base, .tc-mishnah-context { font-family:var(--he-font); font-size:1.2em; line-height:1.8; }
+.tc-mishnah-base { margin:8px 0 14px; }
+.tc-mishnah-annotation { margin:8px 0; }
+.tc-mishnah-xml { white-space:pre-wrap; font:11px/1.4 monospace; overflow-wrap:anywhere; }
+#tcBibleWitnesses { display:contents; }
+.tc-mishnah-sources { display:flex; gap:6px; margin:6px 0; }

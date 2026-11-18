@@ -1,6 +1,7 @@
 # Changelog
 
 ### Unreleased
+- **Mishnah Berakhot pilot:** compare Digital Mishnah Kaufmann (57 units), Parma (57) and Cambridge (59) against Kaufmann, preserving full licensed TEI snapshots, source numbering, expansions, deletions, supplements and damage. Separate automated comparison candidates from uncertain material; provide source context, witness filters and chapter navigation without inventing reader-word anchors.
 - **MT cantillation layout:** optional line breaks at major or smaller disjunctive accents, with separate poetic/prose rules, saved display settings and intact morphology/interlinear groups, including when accents are hidden.
 - **English apparatus and panel symbols:** translate textual criticism controls, statuses, CATSS explanations, source previews and manuscript cards; add the matching tool icons to pinned panel tabs. Original edition notes and readings remain unchanged.
 - **Kennicott manuscript links:** open witness cards with library, shelfmark and original catalogue/facsimile links; preserve separate manuscript records and restrict external opening to source-provided URLs.
