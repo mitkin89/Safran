@@ -1,19 +1,43 @@
-# Samaritan Pentateuch
+# Samaritan Pentateuch: Tal–Florentin, Hebrew and English
 
-The five Hebrew editions are built from the CACCHT / DT-UCPH Text-Fabric corpus,
-version **7.5.0**, pinned to the revision and SHA-256 input checksums in
-`source.json`. Christian Canu Højgaard, Martijn Naaijer and Stefan Schorch,
-*Text-Fabric Dataset of the Samaritan Pentateuch*,
-<https://doi.org/10.5281/zenodo.7734632>;
-<https://github.com/DT-UCPH/sp>.
+Safran supplies the five books in **Samaritanischer Pentateuch (Tal–Florentin)**
+and **The Samaritan Pentateuch, Florentin and Tal (2024)**. The Hebrew main text
+applies all **1,074** `var_ft_*` readings in pinned CACCHT / DT-UCPH 7.5.0 and is
+checked chapter by chapter against the independent extraction of the printed
+Tal–Florentin edition. Red letters/words in Hebrew, English and notes reproduce
+**the edition’s differences from MT**, not the differences between CACCHT and
+Tal–Florentin. Original italics, 3,459 footnote blocks and 790 endnotes are kept.
 
-The text follows Dublin, Chester Beatty Library 751, supplemented by Garizim 1
-at Deuteronomy 32:36b–34. It is printed in the Hebrew square script provided by
-the corpus. No Westminster morphology is transferred to it.
+The text follows Tal–Florentin (principally MS Nablus 6). The edition’s numbering
+is retained in both languages, including combined/split verses, the passage
+moved from Exodus 29:21 to 29:28a, the inserted material at 26:35 and the empty
+30:1–10 range. Notes use their original verse labels and printed page numbers.
+The printed Hebrew book-end colophons are retained, without inferred morphology.
 
-## Build
+## Morphology and provenance
 
-From the Safran repository root (Python 3 standard library, curl for downloads):
+The underlying lexical/morphological inventory remains the Text-Fabric corpus
+by Christian Canu Højgaard, Martijn Naaijer and Stefan Schorch, version **7.5.0**,
+pinned in `source.json`: <https://doi.org/10.5281/zenodo.7734632>;
+<https://github.com/DT-UCPH/sp>. Its base is Dublin CBL 751, supplemented by
+Garizim 1. Source analyses survive on **81,328 unchanged graphic words**; **1,118**
+changed/new words receive no transferred analysis. Word divisions inside a
+single source lexical unit (e.g. Tubal Cain) share one clickable word group.
+Missing stems and other source limitations remain explicit. No OSHB analyses
+are invented or copied. The general OSHB grammar search does not cover this
+edition. The morphology inventory and its source variant records are retained
+in the lazy `samaritan-data.js`.
+
+Main text, English translation, red markings and apparatus: Moshe Florentin and
+Abraham Tal, *The Samaritan Pentateuch: An English Translation with a Parallel
+Annotated Hebrew Text*, Open Book Publishers, 2024,
+<https://doi.org/10.11647/OBP.0415>. All these materials are **CC BY-NC 4.0**;
+see the shipped license and attribution under `licenses/`. Safran’s MIT code
+license does not replace the source licenses.
+
+## Rebuild
+
+The ordinary offline build requires Python 3 standard library only:
 
 ```sh
 python3 -I tools/samaritan/fetch.py /tmp/safran-sp-source
@@ -21,76 +45,42 @@ python3 -I tools/samaritan/build.py /tmp/safran-sp-source
 node --test tests/samaritan.test.js
 ```
 
-`build.py` is offline. It verifies the locked inputs, generates the five compact
-bundled JSON editions, updates their manifest SHA-1 hashes, and writes the lazy
-`samaritan-data.js`. The 5,841 verse text hashes in `source.json` preserve an
-independent comparison against the source sign stream. Unicode compatibility
-presentation forms are normalized with NFKC; spelling and unknown analyses are
-not corrected. All non-contiguous slot mappings or invalid variant spans fail
-the build. Prefix morphemes are joined for reading and remain separate in the
-popup data. The bundled HTML uses namespaced `sp:` word identifiers; `data-m`
-is intentionally empty because these are source annotations, not OSHB codes.
-The ordinary OSHB/Bavli grammar-search controls do not apply to this edition.
+`build.py` verifies the pinned Text-Fabric files, rebuilds the source morphology,
+then calls `build_parallel.py`. That stage applies the variant features in
+**physical node order**, verifies all 187 Hebrew chapter streams against the
+PDF-derived text, partitions them into Tal’s verses, and writes both languages
+with their notes, colors and manifest SHA-1 hashes. Final-form letter shapes
+are normalized only for this comparison; displayed text follows the PDF.
+The old Hebrew file paths deliberately remain stable for installed-library
+updates; their edition metadata now identifies Tal–Florentin.
 
-## Numbering and notes
+To regenerate the committed PDF-derived input, use a separate environment with
+**PyMuPDF 2.1** and **fonttools 4.68.0**:
 
-The source verse numbering is retained, including numbering gaps. For example,
-Exodus 30:1–10 is included in the long Exodus 26:35 and is not duplicated in
-chapter 30. Genesis 30:36 combines the additions assigned to 36a–c in some
-editions. No missing slots are filled from the Masoretic text.
+1. Download the PDF to an external directory as `book.pdf`. Its SHA-256 must be
+   `db109c6b620965c36f7b818ad16846ec7b13b8f8e79ebbbb63131bb2665f8d7a`.
+   Publisher: <https://books.openbookpublishers.com/10.11647/obp.0415.pdf>;
+   archive URL is recorded in `tal-notes.json`.
+2. From `scripts/tal_florentin/results` at the DT-UCPH commit in `source.json`,
+   download `tf_verses.json`, `tf_verses_meta.json` and
+   `tf_verses_pages.json` (save the last as `pages.json`) into that directory.
+3. Run `python tools/samaritan/tal_notes.py /path/to/tal/book.pdf /path/to/tal`.
+   This writes the extracted notes and cached PDF spans. Embedded glyph names
+   repair defective small-cap, ligature and Arabic ToUnicode mappings.
+4. Run `python tools/samaritan/extract_parallel.py /path/to/tal`. Every Hebrew
+   letter and its red state is read at its actual page position, checked against
+   the upstream verse text and packed with the complete English translation.
+   English chapter/verse labels are verified; printed discretionary hyphens are
+   resolved from the edition’s own vocabulary plus the audited exceptions in
+   the extractor. Word spelling and names are not corrected.
+5. Copy the generated `parallel.json` to `tools/samaritan/tal-parallel.json`.
+   Run `python3 -I tools/samaritan/build_tal_notes.py /path/to/tal`, then the
+   ordinary build above.
 
-All 1,074 Tal–Florentin comparisons are kept as identified footnotes, with their
-actual source spans, omissions, additions and alternate verse labels. Source:
-Moshe Florentin and Abraham Tal, *The Samaritan Pentateuch: An English
-Translation with a Parallel Annotated Hebrew Text*,
-<https://doi.org/10.11647/OBP.0415>. The English translation itself is not included.
-The comparison categories are mechanical classifications, not independent
-philological judgments. These are differences between Samaritan editions,
-not an apparatus of differences from the Masoretic text.
-
-The corpus is work in progress. Verbal stems are only populated where supplied
-by the source. `unknown`, unavailable features and unreadable phonetic characters
-remain identifiable. `grammar_note` explanations appear in the word popup;
-older `textual_issues` notes are attached to their cited verse, with the original
-data version, rather than assumed to describe the same current word node.
-
-## License
-
-Text, annotations and Tal–Florentin comparisons: **CC BY-NC 4.0**. The complete
-license is shipped in `licenses/samaritan-CC-BY-NC-4.0.txt`. The MIT license of
-Safran's program code does not replace the corpus license. Attribution and
-source revision are included in the editions and popup data.
-
-## Tal–Florentin apparatus
-
-The original English/Hebrew footnotes and longer endnotes from Moshe Florentin
-and Abraham Tal, *The Samaritan Pentateuch* (Open Book Publishers, 2024),
-<https://doi.org/10.11647/OBP.0415>, are included as separately labelled notes.
-They retain the source verse label and printed page. They concern the editors’
-own text (principally Nablus 6), not necessarily the CACCHT reading displayed
-above them. Notes attach to verse contexts; they do not assert a word alignment.
-Split/combined verses can therefore carry the same source note at several
-contexts. The translated running text is not included.
-
-Reproduction (external source directory, PDF not stored in this repository):
-
-1. Download the licensed PDF from the publisher or the archive URL in
-   `tal-notes.json`. Its SHA-256 is locked there and must match the DT-UCPH
-   extraction metadata.
-2. Download `tf_verses.json` and `tf_verses_meta.json` from
-   `scripts/tal_florentin/results` at the DT-UCPH revision in `source.json`.
-3. Install **PyMuPDF 2.1** and **fonttools 4.68.0** in a dedicated environment
-   (use the actual installed versions recorded by the extraction output).
-4. Run `python tools/samaritan/tal_notes.py book.pdf /path/to/tal-source`.
-5. Run `python3 -I tools/samaritan/build_tal_notes.py /path/to/tal-source`, then
-   the ordinary `build.py` command above. The latter now requires the committed
-   `tal-notes.json`; a rebuild must not drop the imported apparatus.
-
-The PDF has defective ToUnicode mappings. The extractor uses embedded glyph
-names/cmaps for ligatures and small capitals and restores Hebrew/Arabic runs
-from the actual glyph sequence. Right-to-left isolates preserve mixed-language
-notes through Safran’s existing HTML cleaner, footnote display and export.
-Printed separators are removed only at note boundaries. No wording is translated
-or corrected. The correspondence is based on matching the Hebrew word streams;
-transposed and blank passage references are explicit exceptions in the audit.
-The resulting note inventory and all source/target references are validated.
+`tal-source.json` records applied variants, morphology coverage, every Hebrew
+verse text/color hash and the packed input hash. In `tal-parallel.json`, Hebrew
+words are `[text, red-bit-mask]` (first letter = highest bit); English spans are
+`[text, flags]` (`1` red, `2` italic). The narrowly allowed `mt-diff` class survives
+HTML cleaning and is red in the reader and PDF/Word exports. RTL isolates keep
+mixed-language notes readable. Corpus and Electron tests cover the actual
+Hebrew/English selection, notes, colors and unchanged-word morphology.

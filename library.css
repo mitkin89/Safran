@@ -1804,3 +1804,8 @@ body.il .cell[data-k="he"] .ilt[data-i="16"] { color: var(--il16); }
 .bil-translations { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; border-top:2px solid #8885; margin-top:20px; }
 .bil-german { font-size:1rem; line-height:1.8; }
 @media(max-width:750px) { .bil-translations { grid-template-columns:1fr; } }
+
+/* Red in Tal–Florentin identifies differences from the Masoretic text. */
+.mt-diff { color: #d00000 !important; }
+:root[data-theme=dark] .mt-diff { color: #ff5555 !important; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme=light]) .mt-diff { color: #ff5555 !important; } }

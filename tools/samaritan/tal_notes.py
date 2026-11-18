@@ -27,7 +27,7 @@ def logical_glyphs(chars):
 class Extractor:
     def __init__(self, pdf):
         self.doc = pymupdf.open(pdf)
-        self.fonts = {}; self.repairs = collections.Counter(); self.unresolved = collections.Counter()
+        self.page_spans = {}; self.fonts = {}; self.repairs = collections.Counter(); self.unresolved = collections.Counter()
 
     def font(self, xref):
         if xref not in self.fonts:
@@ -42,7 +42,7 @@ class Extractor:
         for f in page.get_fonts():
             name = f[3].split('+')[-1].replace(',', '-')
             fonts[name] = self.font(f[0])
-        corrected = {}; rtl = []
+        corrected = {}; rtl = []; seen_rtl=set()
         for s in page.get_texttrace():
             name = s['font'].replace(',', '-')
             if name not in fonts: raise ValueError(('font', name))
@@ -58,7 +58,9 @@ class Extractor:
                     value = chr(cp)
                 if value != chr(cp): self.repairs[(name,glyph,value)] += 1
                 if 'Scheherazade' in name or 'SBLHebrew' in name:
-                    rtl.append((origin, value if cp==65533 else chr(cp), gid, name))
+                    red=s['colorspace']==3 and s['color'][0]>.5 and s['color'][1]<.2 and s['color'][2]<.2
+                    key=(name,gid,round(origin[0],2),round(origin[1],2),red)
+                    if key not in seen_rtl:rtl.append((origin, value if cp==65533 else chr(cp), gid, name, red,s['size']));seen_rtl.add(key)
                 if cp == 65533:
                     corrected[(name, round(origin[0],2),round(origin[1],2))] = value
         out=[]
@@ -82,17 +84,17 @@ class Extractor:
                     # sequence of words in visual order. Reverse this sequence.
                     if 'SBLHebrew' in name and re.search('[א-ת]',text):
                         text=' '.join(reversed(text.split(' ')))
-                    out.append(dict(text=unicodedata.normalize('NFKC',text),font=name,size=s['size'],bbox=s['bbox'],baseline=s['chars'][0]['origin'][1]))
+                    out.append(dict(text=unicodedata.normalize('NFKC',text),font=name,size=s['size'],bbox=s['bbox'],baseline=s['chars'][0]['origin'][1],red=((s['color']>>16)&255)>127 and ((s['color']>>8)&255)<51 and (s['color']&255)<51))
         merged=[]
         for span in out:
-            if ('Scheherazade' in span['font'] or 'SBLHebrew' in span['font']) and merged and merged[-1]['font']==span['font'] and abs(merged[-1]['baseline']-span['baseline'])<5:
+            if ('Scheherazade' in span['font'] or 'SBLHebrew' in span['font']) and merged and merged[-1]['font']==span['font'] and merged[-1]['red']==span['red'] and abs(merged[-1]['size']-span['size'])<.1 and abs(merged[-1]['baseline']-span['baseline'])<5:
                 prev=merged[-1]; prev['text']+=span['text']; prev['bbox']=(min(prev['bbox'][0],span['bbox'][0]),min(prev['bbox'][1],span['bbox'][1]),max(prev['bbox'][2],span['bbox'][2]),max(prev['bbox'][3],span['bbox'][3]))
             else: merged.append(span)
         output=[]
         for span in merged:
             if 'Scheherazade' not in span['font'] and not ('SBLHebrew' in span['font'] and re.search('[א-תﬠ-תּ]',span['text'])):
                 output.append(span);continue
-            chars=[v for o,v,g,name in rtl if name==span['font'] and abs(o[1]-span['baseline'])<5 and span['bbox'][0]-.1<=o[0]<span['bbox'][2]]
+            chars=[v for o,v,g,name,red,size in rtl if name==span['font'] and red==span['red'] and abs(size-span['size'])<.1 and abs(o[1]-span['baseline'])<5 and span['bbox'][0]-.1<=o[0]<span['bbox'][2]]
             visual=''.join(chars)
             # Some Latin delimiters are painted in SBL Hebrew too. Keep them
             # between their Hebrew runs rather than reversing the whole line.
@@ -116,6 +118,7 @@ class Extractor:
             if pi<913: kind='footnote'
             elif kind!='endnote': continue
             spans=self.spans(page)
+            self.page_spans[str(pi+1)]=spans
             pn=next((s['text'] for s in spans if s['font']=='CharisSIL' and abs(s['size']-10)<.1 and s['text'].isdigit() and s['bbox'][1]>640),None)
             if not pn: continue
             if int(pn)>1032: break
@@ -163,7 +166,7 @@ class Extractor:
                     current=prior
                 if int(pn) not in current['pages']:
                     current['pages'].append(int(pn));current['pdfPages'].append(pi+1)
-                current['spans'].append({'text':text,'font':s['font'],'size':round(s['size'],2),'y':round(s['bbox'][1],1),'page':pi+1})
+                current['spans'].append({'text':text,'font':s['font'],'size':round(s['size'],2),'y':round(s['bbox'][1],1),'page':pi+1,'red':s['red']})
         return notes
 
 
@@ -171,6 +174,7 @@ def main(pdf,out):
     ex=Extractor(pdf); notes=ex.extract(); out.mkdir(parents=True,exist_ok=True)
     result={'source':{'doi':'https://doi.org/10.11647/OBP.0415','license':'CC BY-NC 4.0','pdfSha256':hashlib.sha256(pdf.read_bytes()).hexdigest(),'pymupdf':pymupdf.VersionBind,'fonttools':fontTools.__version__},'notes':notes,
             'repairs':[[*k,v] for k,v in ex.repairs.items()], 'unresolved':[[*k,v] for k,v in ex.unresolved.items()]}
+    (out/'pages-spans.json').write_text(json.dumps(ex.page_spans,ensure_ascii=False,separators=(',',':')))
     (out/'extracted.json').write_text(json.dumps(result,ensure_ascii=False,separators=(',',':')))
     print(collections.Counter(n['kind'] for n in notes));print('unresolved',list(ex.unresolved.items())[:50])
 

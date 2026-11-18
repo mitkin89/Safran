@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""DT-UCPH/sp Text-Fabric 7.5.0 -> five Safran editions and popup data.
+"""DT-UCPH/sp Text-Fabric 7.5.0 -> Tal–Florentin Hebrew/English editions and source popup data.
 Usage: python3 -I tools/samaritan/build.py /path/to/sp-source
 Input includes upstream.json (repository, pinned commit, version), LICENSE,
 textual_issues/issues.json, and tf/7.5.0/*.tf. No network access at build time.
@@ -67,11 +67,6 @@ def build(src):
     lexicon = []; lexids = {}; tokens = {}; variants = []; counts = collections.Counter(); verse_hashes = {}
     out = {fs['book'][b]: [] for b in books}
     issues = json.loads((src/'textual_issues/issues.json').read_text())
-    tal = json.loads((ROOT/'tools/samaritan/tal-notes.json').read_text())
-    tal_notes = collections.defaultdict(list)
-    for note in tal['notes']:
-        for ref in note['targets']: tal_notes[ref].append(note)
-    assert set(tal_notes) <= set(json.loads(old.read_text())['verseHashes'])
     all_issues = collections.defaultdict(list)
     for issue in issues.values():
         sec = issue['section']; all_issues[tuple(sec)].append('Hinweis der Datenquelle ('+issue['data_version']+'): '+issue['explanation'])
@@ -121,9 +116,6 @@ def build(src):
             rendered.append(html.escape(trailing))
         for msg in all_issues.get((book,ch,verse),[]):
             note_num += 1; rendered.append(f'<sup class="footnote-marker">{note_num}</sup><i class="footnote">{html.escape(msg)}</i>')
-        for note in tal_notes.get(ref, []):
-            note_num += 1
-            rendered.append(f'<sup class="footnote-marker">{note_num}</sup><i class="footnote">{note["html"]}</i>')
         marked = ''.join(rendered).strip()
         visible = re.sub(r'<sup class="footnote-marker">.*?</sup><i class="footnote">.*?</i>', '', marked)
         visible = html.unescape(re.sub(r'<[^>]+>', '', visible))
@@ -158,5 +150,9 @@ def build(src):
     (ROOT/'licenses').mkdir(exist_ok=True)
     (ROOT/'licenses/samaritan-CC-BY-NC-4.0.txt').write_bytes((src/'LICENSE').read_bytes())
     print(dict(counts),'variants',len(variants),'lexicon',len(lexicon),'data bytes',len(payload.encode()))
+    import importlib.util
+    spec=importlib.util.spec_from_file_location('samaritan_parallel',ROOT/'tools/samaritan/build_parallel.py')
+    module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
+    module.finish(ROOT,data,fs['g_cons_utf8'])
 
 if __name__ == '__main__': build(pathlib.Path(sys.argv[1]))

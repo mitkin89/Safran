@@ -69,7 +69,7 @@ h1{font-size:16pt;margin:0 0 8pt}h1 small{font-size:12pt;color:#555}h2{font-size
 table{border-collapse:collapse;width:100%;table-layout:fixed}col.versecol{width:28pt}thead{display:table-header-group}th{font-size:9pt;text-align:left;color:#555;border-bottom:1px solid #999;padding:3pt}
 td{vertical-align:top;padding:4pt;border-bottom:1px solid #ddd;overflow-wrap:anywhere}td.lab{font-size:8pt;color:#777}
 td.k-he{line-height:1.8}.nt{background:#fff6d6;padding:2pt 5pt;font-size:9pt}.lk{font-size:8pt;color:#555}
-ol.fn{font-size:9pt}ul.src{font-size:8pt;color:#555}tr{break-inside:avoid;page-break-inside:avoid}`;
+.mt-diff{color:#d00000!important}ol.fn{font-size:9pt}ul.src{font-size:8pt;color:#555}tr{break-inside:avoid;page-break-inside:avoid}`;
     return `<!doctype html><html><head><meta charset="utf-8"><title>${esc(view.group.title)}</title><style>${css}</style></head><body><h1>${esc(view.group.title)}${view.group.heTitle ? ` <small dir="rtl">${esc(view.group.heTitle)}</small>` : ''}</h1>${chapters}${endnotes.length ? `<h3>${esc(t('Fußnoten'))}</h3><ol class="fn">${endnotes.map(n => `<li>${n}</li>`).join('')}</ol>` : ''}<ul class="src">${src}</ul><p style="font-size:8pt;color:#777">${esc(t('Quelle: Sefaria (sefaria.org), Export vom {}', new Date().toLocaleDateString(loc)))}</p></body></html>`;
   }
   function create({ $, getView, getNotes, stripHe, noteId, labels, shortVer, getLinks, getTypography }) {

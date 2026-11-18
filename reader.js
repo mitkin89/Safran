@@ -156,6 +156,7 @@ function cleanHtml(s) {
     // einzige erlaubte Attributform: <sup data-fn="12"> (Fußnotenzeichen, nur Ziffern)
     // OSHB-Wörter: <span class="w" data-l="1254 a" data-m="HVqp3ms"> (Lemma-Nummer und Morphologiecode, nur Ziffern/Buchstaben)
     if (t === 'span') {
+      if (m === '<span class="mt-diff">') { spans++; return m; } // red MT differences from the source edition
       // Abkürzung mit Auflösung beim Überfahren: <span class="ab" data-t="Bereschit Rabba">BR.</span>
       const ab = m.match(/^<span class="ab" data-t="([^"<>&]{1,200})"(?: title="[^"<>&]{0,200}")?>$/);
       if (ab) { spans++; return `<span class="ab" data-t="${ab[1]}" title="${ab[1]}">`; }
