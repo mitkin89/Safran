@@ -44,7 +44,7 @@ function create(host){
     const e=data?.entries[anchor.dataset.tcKen];if(!e)return '';
     return '<b>Kennicott · '+esc(e.refs.join(' – '))+'</b><div class="tc-he" dir="rtl" lang="he">'+esc((data.base[e.refs[0]]||[]).join(' '))+'</div><small>Grundtext der Kennicott-Ausgabe, kein vollständiger Handschriftentext. Von Westminster / OSHB unabhängig.</small><p>'+node(e.lemmaNode)+(e.lemmaNode?' ] ':'')+e.readings.map(r=>reading(r,true)).join(' / ')+'</p><small>Digital Kennicott · Crestani / Legnaioli · CC BY-NC-SA 4.0. Quellensiglen und Zeichen: Erläuterung beim Überfahren.</small>';
   }
-  const credit=()=>'<p class="tc-credit">Digital Kennicott · Genesis · Crestani / Legnaioli, Universitäten Turin und Florenz · CC BY-NC-SA 4.0. Bezugstext: Kennicott / Van der Hooght; MT-Positionen maschinell abgeglichen. Frühere, jetzige und vermutete Lesungen bleiben getrennt; typographische Hinweise sind keine eigenständigen Wortvarianten. Vollständiger Editionskontext über der Quellenangabe.</p>';
+  const credit=()=>'<p class="tc-credit">Digital Kennicott · Genesis · Crestani / Legnaioli, Universitäten Turin und Florenz · CC BY-NC-SA 4.0. Bezugstext: Kennicott / Van der Hooght; MT-Positionen maschinell abgeglichen. Frühere, jetzige und vermutete Lesungen bleiben getrennt; typographische Hinweise sind keine eigenständigen Wortvarianten. Vollständiger Editionskontext über der Zeugensigle.</p>';
   return {load,entries,preview,credit,mt:ref=>data?.mt[ref]};
 }
 return {create};

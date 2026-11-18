@@ -1,6 +1,6 @@
 'use strict';
 // Isolierte Kommentar-Metadaten und lokale Textantworten für den echten Renderer.
-const {ipcMain}=require('electron'),assert=require('assert/strict');
+const {ipcMain}=require('electron'),assert=require('assert/strict'),fs=require('node:fs');
 module.exports=async function run({docs,win,js,waitFor,book}){
   const names=['Rashi','Ibn Ezra','UI Extra'];
   for(const name of names)for(const kind of ['en','de']){
@@ -27,7 +27,15 @@ module.exports=async function run({docs,win,js,waitFor,book}){
   await waitFor("document.querySelector('#rOut .row[data-l=\"1\"] .lk')",'Verknüpfte Kommentare');
   await js("document.querySelector('#rOut .row[data-l=\"1\"] .lab').click()");
   await waitFor("!document.querySelector('#cmtPanel').hidden && document.querySelectorAll('#cmtBody .cmt').length===2",'Vorausgewählte klassische Kommentatoren');
+  assert.equal(await js("document.querySelector('#cmtTitle').textContent"),'Genesis 1:1','Kurze Stellenüberschrift');
+  assert(await js("document.querySelector('#cmtSum').tagName==='BUTTON' && document.querySelector('#cmtSum').closest('.bar') && document.querySelector('#cmtLang').getBoundingClientRect().height>0"),'Sprache und Kommentatorenauswahl direkt in der Leiste');
+  assert(await js("Math.abs(document.querySelector('#cmtSum').getBoundingClientRect().top-document.querySelector('#cmtLang').getBoundingClientRect().top)<3"),'Bedienung in einer gemeinsamen Zeile');
+  const textSize=await js("getComputedStyle(document.querySelector('#cmtBody .ct')).fontSize");
+  if(process.env.SAFRAN_CMT_COMPACT_CAPTURE){await js("new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))");fs.writeFileSync(process.env.SAFRAN_CMT_COMPACT_CAPTURE,(await win.webContents.capturePage()).toPNG());}
   await js("document.querySelector('#cmtSum').click()");
+  assert(await js("document.querySelector('#cmtSum').getAttribute('aria-expanded')==='true'"),'Auswahlzustand zugänglich');
+  await waitFor("document.querySelector('#cmtBody .ct')",'Kommentar nach Auswahlöffnung');
+  assert.equal(await js("getComputedStyle(document.querySelector('#cmtBody .ct')).fontSize"),textSize,'Auswahl ändert keine Textgröße');
   await waitFor("!document.querySelector('#cmtChips').hidden && document.querySelector('#cmtChips button[data-q=none]')",'Kommentatorenauswahl');
   assert.equal(await js("document.querySelector('#cmtChips .chip[data-n=\"UI Missing\"]').classList.contains('off')"),true);
   await js("document.querySelector('#cmtChips button[data-q=none]').click()");

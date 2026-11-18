@@ -311,15 +311,15 @@
 
 
   <div id="cmtResize" hidden title="Ziehen, um die Breite zu ändern (Doppelklick: Standard)"></div>
-  <aside id="cmtPanel" hidden>
+  <aside id="cmtPanel" hidden aria-label="Kommentare">
     <div id="cmtHead">
       <div class="lhead"><b id="cmtTitle">Kommentare</b><button id="cmtWhole" class="wholeBtn" type="button" hidden></button><button id="cmtClose" title="Schließen">✕</button></div>
       <div class="bar">
-        <label><span class="cl">Sprache </span><select id="cmtLang"><option value="en">Englisch</option><option value="de">Deutsch</option><option value="he">Hebräisch</option></select></label>
-        <button id="cmtPrev" title="Voriger Vers">▲<span class="cl"> Vers</span></button><button id="cmtNext" title="Nächster Vers">▼<span class="cl"> Vers</span></button><button id="cmtFollow" type="button" title="Kommentar folgt dem Lesen: zeigt beim Scrollen immer den Vers oben im Text">⇣<span class="cl"> Folgen</span></button>
+        <label><select id="cmtLang" aria-label="Kommentarsprache" title="Kommentarsprache"><option value="en">Englisch</option><option value="de">Deutsch</option><option value="he">Hebräisch</option></select></label>
+        <button id="cmtPrev" title="Voriger Vers" aria-label="Voriger Vers">▲</button><button id="cmtNext" title="Nächster Vers" aria-label="Nächster Vers">▼</button><button id="cmtFollow" type="button" title="Kommentar folgt dem Lesen: zeigt beim Scrollen immer den Vers oben im Text">⇣<span class="cl"> Folgen</span></button>
         <button id="cmtFsMinus" class="cfs" title="Kommentartext kleiner">A−</button><button id="cmtFsPlus" class="cfs" title="Kommentartext größer">A+</button>
+        <button id="cmtSum" type="button" title="Kommentatoren auswählen" aria-expanded="false" aria-controls="cmtChips"></button>
       </div>
-      <div id="cmtSum" title="Kommentatoren ein-/ausklappen"></div>
       <div id="cmtChips"></div>
     </div>
     <div id="cmtBody"></div>

@@ -73,9 +73,10 @@ function create(host){
   function showPreview(anchor){
     hidePreview();
     const ref=anchor.dataset.tcRef,verse=previewData?.verses[ref];
-    if((!verse&&!anchor.dataset.tcTov&&!anchor.dataset.tcDss&&!anchor.dataset.tcKen)||!anchor.isConnected||panel.hidden)return;
+    if((!verse&&!anchor.dataset.tcTov&&!anchor.dataset.tcDss&&!anchor.dataset.tcKen&&!anchor.dataset.tcCitation)||!anchor.isConnected||panel.hidden)return;
     hoverAnchor=anchor;hover=document.createElement('div');hover.id='tcHover';hover.setAttribute('role','tooltip');
-    hover.innerHTML=anchor.dataset.tcKen?ken.preview(anchor):anchor.dataset.tcDss?dss.preview(anchor):anchor.dataset.tcTov?tov.preview(anchor):'<b>SMR · '+esc(ref)+'</b><div class="tc-he" dir="rtl" lang="he">'+verse.words.map(w=>word(w,false)).join(' ')+'</div><p lang="en">'+english(verse.en)+'</p><small>Tal–Florentin · CC BY-NC 4.0</small>';
+    hover.innerHTML=anchor.dataset.tcKen?ken.preview(anchor):anchor.dataset.tcDss?dss.preview(anchor):anchor.dataset.tcTov?tov.preview(anchor):verse?'<b>SMR · '+esc(ref)+'</b><div class="tc-he" dir="rtl" lang="he">'+verse.words.map(w=>word(w,false)).join(' ')+'</div><p lang="en">'+english(verse.en)+'</p><small>Tal–Florentin · CC BY-NC 4.0</small>':'';
+    if(anchor.dataset.tcCitation)hover.insertAdjacentHTML('afterbegin','<div class="tc-source-citation-detail"><b title="'+esc(anchor.dataset.tcSourceDetail||'')+'">'+esc(anchor.dataset.tcCitation)+'</b></div>');
     document.body.appendChild(hover);anchor.setAttribute('aria-describedby','tcHover');
     const r=anchor.getBoundingClientRect(),h=hover.getBoundingClientRect();
     hover.style.left=Math.max(8,Math.min(window.innerWidth-h.width-8,r.left+r.width/2-h.width/2))+'px';
@@ -173,21 +174,37 @@ function create(host){
       if(showKen)records.push(...ken.entries(tovQueries));
       const verses=new Map();
       for(const entry of records){const ref=entry.anchor?.ref||entry.displayRef;if(!verses.has(ref))verses.set(ref,[]);verses.get(ref).push(entry);}
+      const coverage=new Map();
+      if(showDss)for(const ref of new Set(tovQueries.map(q=>q.ref))){
+        const html=dss.coverage(tovQueries.filter(q=>q.ref===ref),true);if(!html)continue;
+        coverage.set(ref,html);if(!verses.has(ref))verses.set(ref,[]);
+      }
       const ordered=[...verses].sort(([a],[b])=>{const x=/ (\d+):(\d+)$/.exec(a),y=/ (\d+):(\d+)$/.exec(b);return +x[1]-y[1]||+x[2]-y[2];});
       const sections=ordered.map(([ref,entries])=>{
         const sourceWords=mtWords(ref),readerRows=[...new Set(entries.flatMap(e=>e.rows))];
         const loci=window.TextCrit.groupLoci(entries).map(g=>{
           const lemma=g.kind==='word'?'<bdi lang="he" dir="rtl">'+esc(sourceWords.slice(g.start,g.end+1).join(' '))+'</bdi>':g.kind==='gap'?(g.start<0?'Zusatz vor dem ersten MT-Wort':'Zusatz nach <bdi lang="he" dir="rtl">'+esc(sourceWords[g.start])+'</bdi>'):'Nicht sicher zugeordnet';
-          return '<section class="tc-locus" data-kind="'+g.kind+'"'+(g.kind!=='unresolved'?' data-start="'+g.start+'" data-end="'+g.end+'"':'')+'><h4 class="tc-locus-title">'+(g.kind==='word'?'<button type="button" class="tc-mt-jump" data-ref="'+esc(ref)+'" data-start="'+g.start+'" data-end="'+g.end+'" title="Im MT markieren und anzeigen">'+lemma+'</button>':lemma)+'</h4>'+g.entries.map(e=>e.html).join('')+'</section>';
+          return '<section class="tc-locus" data-kind="'+g.kind+'"'+(g.kind!=='unresolved'?' data-start="'+g.start+'" data-end="'+g.end+'"':'')+'><h4 class="tc-locus-title">'+(g.kind==='word'?'<button type="button" class="tc-mt-jump" data-ref="'+esc(ref)+'" data-start="'+g.start+'" data-end="'+g.end+'" title="Im MT markieren und anzeigen">'+lemma+'</button>':lemma)+'</h4><div class="tc-locus-readings">'+g.entries.map(e=>e.html).join('')+'</div></section>';
         }).join('');
-        return '<section class="tc-reader-verse tc-witness" data-rows="'+esc(readerRows.join(','))+'"><h3><button class="tc-jump" type="button" data-row="'+esc(readerRows[0])+'">'+esc(ref)+' · MT</button></h3>'+loci+'</section>';
+        if(!readerRows.length)readerRows.push(...tovQueries.filter(q=>q.ref===ref).map(q=>q.row));
+        return '<section class="tc-reader-verse tc-witness" data-rows="'+esc(readerRows.join(','))+'"><div class="tc-verse-summary"><button class="tc-jump" type="button" data-row="'+esc(readerRows[0])+'">'+esc(ref)+' · MT</button>'+(entries.length?' <span class="tc-count">· '+entries.length+' Hinweise</span>':'')+(coverage.has(ref)?' · '+coverage.get(ref):'')+'</div>'+loci+'</section>';
       }).join('');
       const empty=!showSmr&&!showTov&&!showDss&&!showKen?'SMR ist ausgeblendet. Wähle einen Zeugen oben aus.':'';
-      body.innerHTML=unresolvedHtml+(showDss?dss.coverage(tovQueries):'')+(records.length?'<p class="tc-count">'+records.length+' Hinweise · nach MT-Wortposition</p>':'')+notices.map(n=>'<p class="tc-status">'+esc(n)+'</p>').join('')+(sections||(empty?'<p class="muted">'+empty+'</p>':''))+(showTov?tov.credit():'')+(showDss?dss.credit():'')+(showKen?ken.credit():'')+(showSmr?'<p class="tc-credit">Samaritanus, Tal–Florentin · CC BY-NC 4.0. MT-Bezug wortlautbasiert; bei mehrdeutiger Wortposition bleibt die Zuordnung offen.</p>':'');
+      body.innerHTML=unresolvedHtml+notices.map(n=>'<p class="tc-status">'+esc(n)+'</p>').join('')+(sections||(empty?'<p class="muted">'+empty+'</p>':''))+(showTov?tov.credit():'')+(showDss?dss.credit():'')+(showKen?ken.credit():'')+(showSmr?'<p class="tc-credit">Samaritanus, Tal–Florentin · CC BY-NC 4.0. MT-Bezug wortlautbasiert; bei mehrdeutiger Wortposition bleibt die Zuordnung offen.</p>':'');
       body.querySelectorAll('.tc-entry[data-tc-group]').forEach(entry=>{
         const ref=entry.dataset.tcRef,g=renderedGroups.get(ref)[+entry.dataset.tcGroup];
         if(entry.dataset.alignment?.startsWith('samaritan-interlinear'))entry.querySelectorAll('.tal-cite').forEach(c=>c.title=(c.title?c.title+' · ':'')+'MT-Position aus dem quellengeprüften Samaritanus-Interlinear (maschinell)');
         entry.querySelectorAll('.tc-note').forEach(note=>decorateNote(note,g.words,ref));
+      });
+      body.querySelectorAll('.tal-cite').forEach(cite=>{
+        const note=cite.closest('.tc-note')||cite.closest('.tc-entry'),label=note?.querySelector('.tc-witness-label');if(!label)return;
+        const button=document.createElement('button');for(const attr of label.attributes)button.setAttribute(attr.name,attr.value);
+        button.type='button';button.classList.add('tc-source');button.textContent=label.textContent;
+        Object.assign(button.dataset,cite.dataset);button.dataset.tcCitation=cite.textContent;
+        button.dataset.tcSourceDetail=cite.title||'';
+        if(!button.dataset.tcRef&&cite.closest('[data-tc-ref]'))button.dataset.tcRef=cite.closest('[data-tc-ref]').dataset.tcRef;
+        button.setAttribute('aria-label',label.textContent+': Quellenbeleg und Kontext anzeigen');label.replaceWith(button);
+        cite.hidden=true;cite.classList.add('tc-source-citation');cite.removeAttribute('tabindex');
       });
       lastContentKey=contentKey;panel.scrollTop=0;markCurrent(c);
       host.refreshFind?.();
@@ -208,17 +225,17 @@ function create(host){
     whole=false;selected=row.dataset.l;const rel=e.target.closest('.cell[data-rel]')?.dataset.rel;
     const doc=host.getView()?.loaded?.find(d=>d.entry.rel===rel);clickedTal=doc?!!doc.talWordNotes:null;render();
   });
-  body.addEventListener('click',e=>{const mt=e.target.closest('.tc-mt-jump');if(mt){hidePreview();const ref=mt.dataset.ref;host.markMt(ref,+mt.dataset.start,+mt.dataset.end,tov.mt(ref)||dss.mt(ref)||ken.mt(ref)||window.TextCrit.words(window.TEXTCRIT_DATA?.mt?.[ref]||''));return;}const qw=e.target.closest('.tc-dss-word');if(qw&&!String(window.getSelection())){hidePreview();host.openQumran(qw);return;}const greek=e.target.closest('.tc-tov-lemma');if(greek&&!String(window.getSelection())){hidePreview();tov.open(greek);return;}const jump=e.target.closest('.tc-jump');if(jump){host.selectRow(jump.dataset.row);return;}const w=e.target.closest('.w[data-l]');if(w&&!String(window.getSelection())){hidePreview();host.openWord(w);}});
+  body.addEventListener('click',e=>{const source=e.target.closest('.tc-source');if(source){showPreview(source);return;}const mt=e.target.closest('.tc-mt-jump');if(mt){hidePreview();const ref=mt.dataset.ref;host.markMt(ref,+mt.dataset.start,+mt.dataset.end,tov.mt(ref)||dss.mt(ref)||ken.mt(ref)||window.TextCrit.words(window.TEXTCRIT_DATA?.mt?.[ref]||''));return;}const qw=e.target.closest('.tc-dss-word');if(qw&&!String(window.getSelection())){hidePreview();host.openQumran(qw);return;}const greek=e.target.closest('.tc-tov-lemma');if(greek&&!String(window.getSelection())){hidePreview();tov.open(greek);return;}const jump=e.target.closest('.tc-jump');if(jump){host.selectRow(jump.dataset.row);return;}const w=e.target.closest('.w[data-l]');if(w&&!String(window.getSelection())){hidePreview();host.openWord(w);}});
   body.addEventListener('pointerover',e=>{
-    const target=e.target.closest('.tc-context-word,[data-tc-tov],[data-tc-dss],[data-tc-ken]');if(!target||target.contains(e.relatedTarget))return;
+    const target=e.target.closest('.tc-source,.tc-context-word,[data-tc-tov],[data-tc-dss],[data-tc-ken]');if(!target||target.contains(e.relatedTarget))return;
     clearTimeout(hideTimer);clearTimeout(showTimer);showTimer=setTimeout(()=>showPreview(target),200);
   });
   body.addEventListener('pointerout',e=>{
-    const target=e.target.closest('.tc-context-word,[data-tc-tov],[data-tc-dss],[data-tc-ken]');if(!target||target.contains(e.relatedTarget))return;
+    const target=e.target.closest('.tc-source,.tc-context-word,[data-tc-tov],[data-tc-dss],[data-tc-ken]');if(!target||target.contains(e.relatedTarget))return;
     clearTimeout(showTimer);hideTimer=setTimeout(hidePreview,120);
   });
   body.addEventListener('focusin',e=>{
-    const target=e.target.closest('.tc-context-word,[data-tc-tov],[data-tc-dss],[data-tc-ken]');if(!target)return;
+    const target=e.target.closest('.tc-source,.tc-context-word,[data-tc-tov],[data-tc-dss],[data-tc-ken]');if(!target)return;
     // Focusing a word can scroll it into view. Open after that scroll, so the
     // preview is not immediately dismissed by its own focus movement.
     requestAnimationFrame(()=>requestAnimationFrame(()=>{
@@ -226,7 +243,7 @@ function create(host){
     }));
   });
   body.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.matches('.tc-tov-lemma,.tc-dss-word')){e.preventDefault();e.target.click();}});
-  body.addEventListener('focusout',e=>{if(e.target.closest('.tc-context-word,[data-tc-tov],[data-tc-dss],[data-tc-ken]'))hidePreview();});
+  body.addEventListener('focusout',e=>{if(e.target.closest('.tc-source,.tc-context-word,[data-tc-tov],[data-tc-dss],[data-tc-ken]'))hidePreview();});
   window.addEventListener('resize',hidePreview);
   document.addEventListener('scroll',e=>{if(!e.target.closest?.('#tcHover'))hidePreview();},true);
   document.addEventListener('keydown',e=>{if(e.key==='Escape'&&hover){hidePreview();e.preventDefault();e.stopImmediatePropagation();}},true);

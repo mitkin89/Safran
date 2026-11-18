@@ -83,13 +83,13 @@ function create(host){
     }
     return [...out.values()];
   }
-  function coverage(queries){
+  function coverage(queries,compact=false){
     const seen=new Set();let out='';
     for(const {ref} of queries){
       const data=get(ref);
       const segments=data?.verses[ref]||[];if(!segments.length)continue;
       const links=segments.map((s,i)=>{const key=sourceKey(ref,i);if(seen.has(key))return '';seen.add(key);sources.set(key,s);return '<span tabindex="0" class="tc-dss-coverage-source" data-tc-dss="'+esc(key)+'">'+esc(s.scroll+' '+s.fragment)+'</span>';}).filter(Boolean);
-      if(links.length)out+='<p class="tc-dss-coverage"><small>DSS · '+esc(ref)+': </small>'+links.join(' · ')+'</p>';
+      if(links.length)out+=compact?'<span class="tc-dss-coverage"><small>DSS: </small>'+links.join(' · ')+'</span>':'<p class="tc-dss-coverage"><small>DSS · '+esc(ref)+': </small>'+links.join(' · ')+'</p>';
     }
     return out;
   }

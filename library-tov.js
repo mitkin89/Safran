@@ -55,7 +55,7 @@ function create(host){
     return [...out.values()];
   }
   const mt=ref=>data?.mt[ref];
-  const credit=()=>'<p class="tc-credit">CATSS · Tov/Kraft · CC BY-NC-SA 3.0. Plus/Minus bezeichnen die Ausrichtung zum MT; erschlossene Lesarten sind keine erhaltenen Handschriftenlesarten. Quellcode und Erklärung beim Überfahren; Originalbeleg über der Quellenzeile. Auszüge aus dem CATSS-Lesetext sind gesondert bezeichnet.</p>';
+  const credit=()=>'<p class="tc-credit">CATSS · Tov/Kraft · CC BY-NC-SA 3.0. Plus/Minus bezeichnen die Ausrichtung zum MT; erschlossene Lesarten sind keine erhaltenen Handschriftenlesarten. Quellcode und Erklärung beim Überfahren; Originalbeleg über der Zeugensigle. Auszüge aus dem CATSS-Lesetext sind gesondert bezeichnet.</p>';
   function preview(anchor){
     const v=data?.verses[anchor.dataset.tcTov];if(!v)return '';
     const note=anchor.dataset.tcNote==null?null:v.remarks[+anchor.dataset.tcNote];

@@ -48,6 +48,13 @@ module.exports=async({win,js,waitFor,book})=>{
   await js("document.querySelector('#rOut .row[data-l=\"4\"] .txt').click()");
   await waitFor("document.querySelector('#tcPlace').textContent.includes('Genesis 28:4') && document.querySelectorAll('#tcBody .tc-entry').length===3",'Drei flache Anmerkungen zum Beispielvers');
   assert(await js("document.querySelectorAll('#tcBody .tc-entry h4, #tcBody .tc-entry .tc-he, #tcBody details').length===0 && document.querySelectorAll('#tcBody .tc-entry .tal-cite').length===3"),'No repeated lemma headings or word blocks');
+  assert(await js("(()=>{const g=document.querySelector('#tcBody .tc-locus'),l=g.querySelector('.tc-locus-title').getBoundingClientRect(),r=g.querySelector('.tc-locus-readings').getBoundingClientRect();return l.right<=r.left&&Math.abs(l.top-r.top)<5})()"),'MT links, Lesarten rechts in derselben Zeile');
+  assert(await js("[...document.querySelectorAll('#tcBody .tal-cite')].every(n=>getComputedStyle(n).display==='none') && !document.querySelector('#tcBody h3') && document.querySelectorAll('#tcBody .tc-verse-summary').length===1"),'Belege ohne eigene Zeile und nur eine Versübersicht');
+  await js("document.querySelector('#tcBody .tc-source').click()");
+  await waitFor("document.querySelector('#tcHover')?.textContent.includes('Fußnote Genesis 28:4 (S. 183)')",'Quellenbeleg beim Klick auf die Sigle');
+  assert(await js("document.querySelector('#tcHover .tc-he') && document.querySelector('#tcHover p[lang=en]')"),'Sigle zeigt auch den vollständigen Originalkontext');
+  await js("document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true}))");
+  if(process.env.SAFRAN_TC_ROWS_CAPTURE){await js("new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))");const rect=await js("{const r=document.querySelector('#textcritPanel').getBoundingClientRect();({x:Math.round(r.x),y:Math.round(r.y),width:Math.round(r.width),height:Math.round(r.height)})}");fs.writeFileSync(process.env.SAFRAN_TC_ROWS_CAPTURE,(await win.webContents.capturePage(rect)).toPNG());}
   await js("document.querySelector('#rOut .row[data-l=\"20\"]').scrollIntoView({block:'center'})");
   await js("{const b=document.querySelector('#tcBody .tc-mt-jump');window.__tcMtRange=[+b.dataset.start,+b.dataset.end];b.click();}");
   await waitFor("document.querySelectorAll('#rOut .tc-mt-selected').length>0",'MT-Wörter aus dem Apparat markiert');

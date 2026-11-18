@@ -1,6 +1,8 @@
 # Changelog
 
 ### Unreleased
+- **Apparatus reading overview:** place each MT lemma beside its witness readings, combine verse/count/DSS coverage into one summary, and move individual citations to accessible witness buttons with source/context previews. Preserve every note, source marker, morphology link and exact MT navigation.
+- **Compact commentary header:** shorten the place heading and place language, verse arrows, follow mode, font size and commentator selection in one compact toolbar. Keep language switching directly accessible, preserve filters and leave commentary text sizes unchanged.
 - **Compact textual criticism header:** keep language selection, navigation, font size and witness selection directly accessible in a compact toolbar; move numbering into an on-demand settings menu. Always include spelling differences and remove their checkbox.
 - **Samaritanus interlinear:** align all 82,446 Tal–Florentin source words across the Pentateuch to the bundled Westminster text. Preserve source red masks and own morphology; keep 1,635 unresolved word positions visible separately. Handle split words, source-proven Ketiv/Qere, numbering differences and documented displaced Exodus passages without changing either edition.
 - **Samaritanus apparatus positions:** reuse checked interlinear positions for 358 formerly unlocated notes; expand 27 anchors to their source-marked Ketiv/Qere group. Keep ambiguous positions open and expose machine-assisted provenance on citations.

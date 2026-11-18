@@ -6,7 +6,7 @@ module.exports=async({win,js,waitFor,book})=>{
   await waitFor("document.querySelector('#tcBody .tc-ken-entry')?.textContent.includes('Kennicott')",'Kennicott Genesis in echter Oberfläche');
   assert(await js("[...document.querySelectorAll('#tcBody .tc-ken-entry')].some(e=>e.textContent.includes('תוהו')&&e.textContent.includes('K 9'))"));
   assert(await js("[...document.querySelectorAll('#tcBody .tc-ken-entry')].some(e=>e.textContent.includes('Auslassung')&&e.textContent.includes('K 665'))"));
-  await js("{const el=document.querySelector('#tcBody [data-ken-id=\"gen-app-4\"] .tal-cite');el.focus({preventScroll:true});el.dispatchEvent(new FocusEvent('focusin',{bubbles:true}));}");
+  await js("{const el=document.querySelector('#tcBody [data-ken-id=\"gen-app-4\"] .tc-source');el.focus({preventScroll:true});el.dispatchEvent(new FocusEvent('focusin',{bubbles:true}));}");
   await waitFor("document.querySelector('#tcHover')?.textContent.includes('kein vollständiger Handschriftentext')",'Kennicott-Editionskontext beim Fokus');
   assert(await js("document.querySelector('#tcHover .tc-ken-witness')?.title.includes('Handschrift')"));
   await js("document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true}));document.querySelector('#tcBody [data-ken-id=\"gen-app-4\"]').closest('.tc-locus').querySelector('.tc-mt-jump').click()");

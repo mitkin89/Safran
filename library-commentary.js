@@ -67,8 +67,8 @@ window.LibraryCommentary = (() => {
       const s = virt ? { label: virt.label } : (reader.view && reader.view.group && reader.view.sections[reader.view.idx]);
       const whole = reader.whole && !virt && !!s && secChapOf(s) != null; // ganzes Kapitel / ganze Seite
       const v = whole ? 0 : rowVerse(reader.row), page = whole && /[ab]$/i.test(secChapOf(s));
-      $('#cmtTitle').textContent = whole ? `${I18N.t('Kommentare zu')} ${reader.view.group.title} ${s.label.replace(/^\D+/, '')} · ${I18N.t(page ? 'ganze Seite' : 'ganzes Kapitel')}`
-        : s && v != null ? `Kommentare zu ${virt ? virt.title : reader.view.group.title} ${s.label.replace(/^\D+/, '')}:${reader.row}` : 'Kommentare';
+      $('#cmtTitle').textContent = whole ? `${reader.view.group.title} ${s.label.replace(/^\D+/, '')} · ${I18N.t(page ? 'Seite' : 'Kapitel')}`
+        : s && v != null ? `${virt ? virt.title : reader.view.group.title} ${s.label.replace(/^\D+/, '')}:${reader.row}` : 'Kommentare';
       { const wb = $('#cmtWhole'); wb.hidden = whole || virt || !s || secChapOf(s) == null; wb.textContent = I18N.t(s && /[ab]$/i.test(secChapOf(s) || '') ? 'Ganze Seite' : 'Ganzes Kapitel'); wb.title = I18N.t('Kommentare zum ganzen Kapitel bzw. zur ganzen Seite'); }
       if (!s) { $('#cmtChips').innerHTML = ''; $('#cmtSum').innerHTML = ''; $('#cmtBody').innerHTML = '<p class="muted">Öffne ein Buch.</p>'; return; }
       if (!reader.linksReady) { $('#cmtChips').innerHTML = ''; $('#cmtSum').innerHTML = ''; $('#cmtBody').innerHTML = '<p class="muted">Dafür werden die Verknüpfungen gebraucht: Reiter „Herunterladen“ → Karte „4 · Verknüpfungen“.</p>'; return; }
@@ -116,7 +116,9 @@ window.LibraryCommentary = (() => {
         : showAll ? I18N.t('Alle {#} ({})', localL.length, LNm)
         : chosen.length ? I18N.t('{#} von {#} gewählt', chosen.length, localL.length) + ': ' + esc(chosen.slice(0, 4).map(g => dispName(g.name)).join(', ')) + (chosen.length > 4 ? ' …' : '')
         : I18N.t('keiner gewählt');
-      $('#cmtSum').innerHTML = `${selection.chipsOpen ? '▾' : '▸'} <b>Kommentatoren</b> <span class="muted">${sumTxt}</span>`;
+      $('#cmtSum').textContent = `${I18N.t('Kommentatoren')}: ${chosen.length} ${selection.chipsOpen ? '▴' : '▾'}`;
+      $('#cmtSum').setAttribute('aria-expanded', String(selection.chipsOpen));
+      { const detail = document.createElement('span'); detail.innerHTML = sumTxt; $('#cmtSum').title = detail.textContent; }
       $('#cmtChips').hidden = !selection.chipsOpen;
       $('#cmtChips').innerHTML = `<div class="cq"><button data-q="all">Alle</button><button data-q="none">Keine</button><button data-q="classic" title="Rashi, Ibn Ezra, Ramban …">Klassische</button><input id="cmtFilter" type="search" placeholder="Name filtern …" value="${esc(selection.filter)}" autocomplete="off"></div>`
         + localL.map(chip).join('')

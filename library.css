@@ -1960,3 +1960,33 @@ body.il .cell[data-k="he"] .ilt.il-smr { direction: rtl; font-family: var(--he-f
 #tcWitnessOptions { font-size: 12px; margin-top: 5px; gap: 3px; }
 
 #textcritPanel .tc-nav > select { font-size: 12px; padding: 3px 6px; min-height: 28px; max-width: 145px; }
+
+/* Two-row commentary header; language remains directly accessible. */
+#cmtHead { padding: 7px 0 5px; }
+#cmtHead .lhead { gap: 5px; margin-bottom: 5px; }
+#cmtTitle { min-width: 0; flex: 1; font-size: 13px; }
+#cmtHead .lhead > button { padding: 3px 6px; }
+#cmtHead .bar { display: flex; align-items: center; flex-wrap: wrap; gap: 4px; margin: 0; }
+#cmtHead .bar button, #cmtHead .bar select { font-size: 12px; padding: 3px 6px; min-height: 28px; white-space: nowrap; }
+#cmtHead .bar button.cfs { padding: 3px 6px; }
+#cmtHead .bar label { display: flex; margin: 0; }
+#cmtLang { width: auto; max-width: 125px; }
+#cmtHead #cmtSum { padding: 3px 4px; border: 0; background: none; font-size: 12px; }
+#cmtSum:empty { display: none; }
+#cmtChips:not([hidden]):not(:empty) { margin-top: 5px; }
+
+/* Apparatus rows: MT lemma at left, all witness readings at right. */
+#tcBody .tc-verse-summary { display: flex; flex-wrap: wrap; align-items: baseline; gap: 3px; color: var(--muted); font-size: .85em; margin: 10px 0 5px; }
+#tcBody .tc-verse-summary .tc-count, #tcBody .tc-verse-summary small { font-size: inherit; }
+#tcBody .tc-verse-summary .tc-jump { color: inherit; }
+#tcBody .tc-locus { display: grid; grid-template-columns: minmax(0, 24%) minmax(0, 1fr); column-gap: 12px; align-items: start; margin: 0; padding: 7px 0; border-bottom: 1px solid var(--line); }
+#tcBody .tc-locus-title { margin: 0; padding: 3px 0; overflow-wrap: anywhere; }
+#tcBody .tc-locus-readings { min-width: 0; }
+#tcBody .tc-locus .tc-entry { padding: 3px 0; border: 0; }
+#tcBody .tc-note + .tc-note { margin-top: 6px; }
+#tcBody .tc-source { cursor: pointer; border: 0; font: .8em/1.3 system-ui, sans-serif; padding: 1px 4px; }
+#tcBody .tc-source-citation { display: none !important; }
+#tcHover .tc-source-citation-detail { border-bottom: 1px solid var(--line); padding-bottom: 8px; margin-bottom: 8px; font-size: .85em; overflow-wrap: anywhere; }
+#tcHover .tc-source-citation-detail > p { white-space: pre-wrap; }
+#tcBody .tc-tov-reading { white-space: nowrap; }
+#tcBody .tc-tov-reading > bdi { white-space: normal; overflow-wrap: anywhere; }
