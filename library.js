@@ -917,7 +917,9 @@
   // end-reader-module:word-cards
 
   const textcritUI = window.LibraryTextCrit.create({
-    $, esc, getView: () => view, getRow: () => cmtRow,
+    $, esc, getView: () => view, getRow: () => cmtRow, withAnchor,
+    readingRow: () => readingRow($$('#rOut .row[data-l]').filter(r => /^\d+$/.test(r.dataset.l))),
+    refreshFind: () => { if (!fb.hidden && fTerm) runFind(fTerm, true); },
     load: (...args) => wordCardsUI.lazyScript(...args), clean: html => R.cleanHtml(html),
     openWord: w => wordPopupUI.openSamaritanWord(w),
     selectRow: label => { setCmtRow(label); const row = $$('#rOut .row[data-l]').find(r => r.dataset.l === label); if (row) panelScrollTo(row, 'center'); },
@@ -2771,7 +2773,7 @@
     if (r) r.classList.add('cmtrow');
     if (cmtOpen && !cmtWhole) renderCmt(); // ganzes Kapitel: die Markierung wechselt, der Inhalt bleibt
     apSoon();
-    textcritUI.refresh();
+    textcritUI.select(label);
   }
   function applyCmtRow() {
     const rows = $$('#rOut .row[data-l]');

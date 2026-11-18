@@ -35,7 +35,9 @@ apparatus, independent of selected reading columns. Read remarks on one level,
 inspect morphology and source citations, and optionally include spelling variants.
 Hover or focus a quoted word for its full Samaritan Hebrew/English verse context. Westminster / OSHB is the MT comparison base;
 word-anchored verse correspondence and uncertain or different numbering remain
-explicit. LXX, Qumran and Kennicott are not yet integrated into this pane.
+explicit. The header also offers whole-chapter view, verse navigation, follow
+reading, saved font size and witness selection, plus the available source language
+(currently English). LXX, Qumran and Kennicott are not yet integrated into this pane.
 
 ## Why Safran?
 

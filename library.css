@@ -1854,3 +1854,17 @@ html.split #textcritPanel:not(.docked) { right: var(--p2w); }
 #tcHover > b, #tcHover > small { display: block; font: 11px/1.5 system-ui, sans-serif; color: var(--muted); }
 #tcHover p { margin: 8px 0; }
 #tcHover .tc-he { margin-top: 6px; }
+
+/* Text-critical header mirrors the commentary controls; remarks remain flat. */
+.tc-nav { flex-wrap: wrap; align-items: center; }
+#tcLang { width: auto; }
+#tcFollow.on { background: color-mix(in srgb, var(--accent) 25%, transparent); border-color: var(--accent); }
+#tcWitnessSummary { border: 0; background: none; color: var(--fg); padding: 5px 0; font: inherit; font-weight: 600; cursor: pointer; }
+#tcWitnessSummary .muted { font-weight: 400; }
+#tcWitnessOptions[hidden] { display: none; }
+.tc-spelling { display: block; margin-top: 4px; }
+#tcBody { font-size: var(--tc-fs, 14px); }
+#tcHover { font-size: var(--tc-fs, 14px); }
+#tcBody .tc-jump { font: inherit; color: inherit; padding: 0; border: 0; background: none; cursor: pointer; text-align: left; }
+#tcBody .tc-reader-verse { scroll-margin-top: var(--tc-head-h, 200px); }
+#tcBody .tc-reader-verse.current { border-left: 2px solid var(--accent); padding-left: 8px; }

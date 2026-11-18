@@ -312,6 +312,11 @@ lassen sich zusätzlich einblenden.
 Vergleichsbasis ist Westminster / OSHB. Der MT-Stellenbezug wird über gemeinsame
 Wörter ermittelt; abweichende Versgrenzen und nicht sicher zugeordnete Stellen
 bleiben kenntlich. Unter **Zählung** kann man zur eigenen Tal-Zählung wechseln.
+Mit **Ganzes Kapitel**, **▲/▼ Vers**, **Folgen** und **A−/A+** bedient sich der
+Kopf wie beim Kommentarfenster. Ein Klick im Lesetext zeigt wieder den Einzelvers;
+die Versüberschriften der Kapitelansicht führen zurück zum Lesetext. Schriftgröße,
+Folgen und Zeugenauswahl werden gespeichert. Unter **Sprache** erscheint derzeit
+Englisch, die tatsächlich vorhandene Sprache der Tal-Originalanmerkungen.
 LXX, Qumran und Kennicott werden in diesem Pane noch nicht zusammengeführt.
 
 ### Samaritanischer Pentateuch
