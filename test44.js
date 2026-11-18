@@ -43,8 +43,9 @@ const ctx = vm.createContext({ document, window: { BavliMorph: B, Morph: M, BAVL
   apChap: s => s.label, verseOf: s => +s, view: { sections: [{ label: '2a' }], idx: 0 },
   openDict: q => { dictQuery = q; }, showBavliForms: (...args) => { formCall = args; }
 });
-vm.runInContext('var gTok=0,wpop=null; function closeWpop(){if(wpop)wpop.remove();wpop=null; $$(".sel").forEach(n=>n.classList.remove("sel"));}', ctx);
-const lib = fs.readFileSync('library.js', 'utf8');
+vm.runInContext('var gTok=0,wpop=null; function closeWpop(){gTok++;if(wpop)wpop.remove();wpop=null; $$(".sel").forEach(n=>n.classList.remove("sel"));}', ctx);
+ctx.reader = { get view() { return ctx.view; } };
+const lib = fs.readFileSync('library-word-popup.js', 'utf8');
 const part = (from, to) => { const start = lib.indexOf(from), end = lib.indexOf(to, start); assert(start >= 0 && end > start); return lib.slice(start, end); };
 vm.runInContext(part('  let bavliP =', '  function showBavliForms('), ctx);
 vm.runInContext(fs.readFileSync('bavli-il-view.js', 'utf8'), ctx);

@@ -44,10 +44,11 @@ const lib = { list: () => entries, read: async rel => docs[rel] };
     await store.import(alignment); // neuer Zuordnungsstand ohne Statistik entfernt den alten Stand
     assert.strictEqual((await store.read()).renderings, null);
   } finally { await fs.rm(dir, { recursive: true, force: true }); }
-  const js = await fs.readFile(path.join(__dirname, 'library.js'), 'utf8');
+  const js = require('./tests/reader-source.cjs')();
   const start = js.indexOf('  const loadIlRen ='), end = js.indexOf('  const WC_TR_DE', start);
   const built = { books: [...P.BOOKS], tr: { Zunz: {} } };
   const ctx = { ilRenP: null, ilRevision: 0, ilPrivateRen: stats, window: {}, loadIL: async () => {}, lazyScript: async () => built };
+  ctx.host = ctx;
   vm.runInNewContext(js.slice(start, end) + '\nglobalThis.ren = loadIlRen;', ctx);
   assert((await ctx.ren()).tr.Zunz);
   assert.equal(Object.keys((await ctx.ren()).tr.BuberRosenzweig).length, 1);

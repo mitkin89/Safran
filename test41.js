@@ -2,9 +2,10 @@
 'use strict';
 const assert = require('assert'), fs = require('fs'), vm = require('vm');
 const G = require('./gmorph');
-const ui = fs.readFileSync('library.js', 'utf8');
+const ui = require('./tests/reader-source.cjs')() + fs.readFileSync('library-word-popup.js', 'utf8');
 const part = (a, b) => ui.slice(ui.indexOf(a), ui.indexOf(b, ui.indexOf(a)));
 const ctx = vm.createContext({ window: { GMorph: G } });
+ctx.host = ctx;
 vm.runInContext(fs.readFileSync('lxx-morph.js', 'utf8'), ctx);
 const manifest = require('./bundled/manifest.json').items.filter(x => x.title === 'Genesis');
 const read = re => JSON.parse(fs.readFileSync('bundled/' + manifest.find(x => re.test(x.versionTitle)).rel, 'utf8')).text[30][24];

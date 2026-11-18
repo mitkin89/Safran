@@ -63,6 +63,7 @@ const lib = { list: () => entries, read: async rel => docs[rel] };
     lazyScript: async () => built,
     O: { interlinearRead: async () => { calls++; return local; }, onInterlinearChanged() {}, interlinearImport: async () => ({ verses: 1 }) },
   };
+  ctx.wordCardsUI = ctx; // live adapter for shared rendering caches
   ctx.ilRefresh = () => ctx.testIL.loadIL();
   const importer = display.slice(display.indexOf("  $('#importInterlinear').onclick"), display.indexOf('  // Jede deutsche Übersetzung'));
   vm.runInNewContext(block + importer + '\nglobalThis.testIL = { loadIL, resetPrivateIL };', ctx);

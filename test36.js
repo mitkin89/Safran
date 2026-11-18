@@ -2,10 +2,11 @@
 'use strict';
 const assert = require('assert'), fs = require('fs'), path = require('path'), vm = require('vm');
 const GM = require('./gmorph'), Links = require('./links');
-const ui = fs.readFileSync(path.join(__dirname, 'library.js'), 'utf8');
+const ui = require('./tests/reader-source.cjs')();
 const main = fs.readFileSync(path.join(__dirname, 'main.js'), 'utf8');
 const part = (s, from, to) => s.slice(s.indexOf(from), s.indexOf(to, s.indexOf(from)));
 const ctx = vm.createContext({ window: { GMorph: GM }, console });
+ctx.host = ctx;
 vm.runInContext(fs.readFileSync(path.join(__dirname, 'lxx-morph.js'), 'utf8'), ctx);
 const D = ctx.window.LXX_MORPH, mdl = GM.model(D, 'ἀδελφός');
 const rs = GM.refsIn(D, mdl, 'Genesis'), reference = rs.find(r => r.ch === 25 && r.v === 18);

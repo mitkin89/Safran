@@ -28,6 +28,7 @@ const handlers={
  'app:calendar':()=>({today:'2026-11-17',items:[]}), 'app:checkUpdate':()=>({current:'2.5.0'}),
  'app:setLang':()=>true,'app:setTheme':()=>true,'app:startupLog':()=>true,
 };
+const readerExtras=require('./reader-extras.cjs')({profile,handlers});
 for(const [channel,fn]of Object.entries(handlers))ipcMain.handle(channel,fn);
 const pause=ms=>new Promise(r=>setTimeout(r,ms));
 async function js(code){return win.webContents.executeJavaScript(code,true);}
@@ -67,7 +68,9 @@ async function book(title,prefix='document'){await js(`{const d=${prefix};d.quer
  await dictionaryFlows({js,waitFor});
  await require('./comment-flows.cjs')({docs,win,js,waitFor,book});
  await require('./display-flows.cjs')({win,js,waitFor,book});
+ await require('./tab-flows.cjs')({win,js,waitFor,book});
  await require('./export-flows.cjs')({profile,js,waitFor,book});
+ await readerExtras({win,js,waitFor,book});
  assert.deepEqual(errors,[],'Keine unbehandelten Fehler im Renderer');
  win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);
 })().catch(async err=>{console.error(err);if(win&&!win.isDestroyed())win.destroy();await fsp.rm(profile,{recursive:true,force:true}).catch(()=>{});app.exit(1)});
