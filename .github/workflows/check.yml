@@ -23,6 +23,13 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm test
+      - name: Prepare Electron sandbox
+        if: runner.os == 'Linux'
+        run: |
+          node node_modules/electron/install.js
+          sudo chown root:root node_modules/electron/dist/chrome-sandbox
+          sudo chmod 4755 node_modules/electron/dist/chrome-sandbox
+          test "$(stat -c '%U:%G:%a' node_modules/electron/dist/chrome-sandbox)" = 'root:root:4755'
       - name: Electron user flows
         if: runner.os == 'Linux'
         run: xvfb-run --auto-servernum npm run test:smoke
