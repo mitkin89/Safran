@@ -1,0 +1,2319 @@
+{
+  "source": {
+    "repository": "https://github.com/ETCBC/dss",
+    "commit": "0b7774a72b6d0e91712aa2156d2a1d354f1f5e6d",
+    "version": "2.0.2",
+    "license": "CC BY-NC 4.0",
+    "authors": "Abegg, Bowley, Cook; Jacobs, Naaijer, Roorda / ETCBC CACCHT",
+    "featureSha256": {
+      "book.tf": "8f075ca9c34167260a911c6bc33fe09088a6cb6abfa19fe50592df58a546d773",
+      "otype.tf": "4f313ee84bb61c9a3adb1fa15acddac781807b7fa59df9d02fb38014174e069a",
+      "oslots.tf": "582165e4f8450677d457816b78225a2d35ad1617e9e97fb98abd9d70ebfd3818",
+      "scroll.tf": "e39d8d38b3f616a4054af682c6191ce1b9acd977f3369fb8f567b6182dbeaf2a",
+      "fragment.tf": "5d1a3177113f4623cb7960af4a589c3a7f375d611f24660d20ff6f74af570bae",
+      "line.tf": "41c82b80c5230491dc4081e266c7c2ebe01ce3ecfb12c696f3eda82ac1c39f0b",
+      "full.tf": "951ed95573ff1f78c468e6fa1b1f1750631287564534155bd5f9f0c8ae6d5542",
+      "fullo.tf": "ac4cab1dfe869f117a1d1ee0a97d6b250850e961adb992baf4e1d30162b10d10",
+      "glyph.tf": "b6dc988801e7145791db68c3004c0c39f30544c97bf3a473a3e18ab96e8d2b92",
+      "after.tf": "8032b08c993a20ce3516c7a9058a26db452c008aaa096506a60243cfd94c705e",
+      "rec.tf": "6ff8311ff809584081f9dd66c5570e353a552b16583bcb30a6c245b5e6fcf335",
+      "unc.tf": "cc7a591edc46c0b38c3aa279fb23051cf2701bccee46cd1f451f0e0cccbb952e",
+      "cor.tf": "fd1f6897a43b242b5ca75823cadb8adfd9a74bff92aaec0a4412dd3c7a11b2d7",
+      "rem.tf": "921e78e2dca9607254675b432faca8e44742e7aec571267c8ce9c4cb2326cdf9",
+      "type.tf": "0df955242141dc68f2cf161e7abacf2758adad072196019d38990e23712e7a49",
+      "vac.tf": "f193cf146850d34030e6c12e19f7b6f8cf3f96eb586214532f554ed7c92555f9",
+      "alt.tf": "f2d661f9a273a338a09067d23a9eade17e93319309f7e5a6e3df9c99f124c389",
+      "glex.tf": "8c2e2d0b9b949e8ef5bb1825a8c4497627188fe89eeb6117980f9ffb3460b119",
+      "lex.tf": "e7759a9fb82e1b8329359619e4cb103b35635d9d600080707b3624165bae1eda",
+      "sp.tf": "4d60bd36ead607c4a633bf4eafc37214855749c12a4653270249c3535b4cda27",
+      "vs.tf": "0eac6e1db03c3ead475b2c0caad3dc39a0a6a9fbcf98adeff64fd80433ca07bc",
+      "vt.tf": "f264591e1d8c8f40527d70b290c54256126fadb5e4497478fff763a38b023e7b",
+      "ps.tf": "73f51c0385fbc357f876b464814dc6dc1c092a3d594cb5beac7172eb035f918f",
+      "gn.tf": "92943e26cd77dc1dd1ce87defe7ee53f1c3cd66df0479877f3986832861d8f6a",
+      "nu.tf": "97ca00176915499392e1ac017a208f40d822211ae43a57200c88c97989ed5f1f",
+      "st.tf": "8602cc98754376f38d39e2d44b0a063fbc965fd8c8564f4f5d39562e0982961d",
+      "morpho.tf": "04150c4c0ed936da55dae9571d8e3226a5cd02494cd320bc04d080dc0c2cac61",
+      "lang.tf": "5695457678db1aa14a384b986f78b691c19156c8214c058333b5f560f89a8220",
+      "punc.tf": "63233337408716657c936b611b090ec8fa3d8ba16247c751604d609906cd9d7a",
+      "biblical.tf": "7a91352439ceb3ac422d879febf232a0717023003e3c70fcfe7691e0d1f5ac69",
+      "srcLn.tf": "e5b2a650f13f059b7e475173d403b38a6ab30759d3237447f43b82bf21376d35",
+      "ps2.tf": "69c7d7f105be5ba75612d646c80eb4dcd289bc472f8dcab276222a1e7edd7b0a",
+      "gn2.tf": "ce03bde422fd8630d92a60fea66bcff078cf2d9cb743c66bf0edc857971b60e5",
+      "nu2.tf": "e84276af13302ae7674dcfaa11eb651e1c55b03a12a9319541336472114d10b8",
+      "chapter.tf": "4b25d3fef227f30b85ba203f10145e0ae072be7547fed6282c64aeddfc78b4f8",
+      "verse.tf": "d8ad61f1cb0690792b31115c24105d240a4fc5fb0cbea719c1d7a8adc4eab251"
+    },
+    "extractSha256": "00643cdbeeac109c0e02fe105efbdde1b074aadc8464271cfe6804ac88c2a8f8",
+    "interlinear": {
+      "file": "qumran-il.js",
+      "sha256": "c9d71b3a5bb9143400f1b0fddb989134d7460f0ad05281454e3f48cf9d910da1",
+      "method": "Existing machine alignment; original verse/witness/consonant stream validated before reuse"
+    },
+    "mt": {
+      "rel": "own/Deuteronomy/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "b1c198ab82b675fd68722ba7db1fe9188d73b9dc224764cc9873075e6f9ed6a9",
+      "license": "CC BY 4.0",
+      "title": "OSHB / Westminster Leningrad Codex"
+    }
+  },
+  "counts": {
+    "segments": 1535,
+    "tokens": 21902,
+    "reconstructed": 14872,
+    "uncertain": 2870,
+    "damaged": 307,
+    "corrected": 124,
+    "verses": 676,
+    "scrolls": [
+      "11Q3",
+      "1Q13",
+      "1Q4",
+      "1Q5",
+      "2Q10",
+      "2Q11",
+      "2Q12",
+      "4Q128",
+      "4Q129",
+      "4Q130",
+      "4Q131",
+      "4Q134",
+      "4Q135",
+      "4Q136",
+      "4Q137",
+      "4Q138",
+      "4Q139",
+      "4Q140",
+      "4Q141",
+      "4Q142",
+      "4Q143",
+      "4Q144",
+      "4Q146",
+      "4Q150",
+      "4Q151",
+      "4Q152",
+      "4Q153",
+      "4Q28",
+      "4Q29",
+      "4Q30",
+      "4Q31",
+      "4Q32",
+      "4Q33",
+      "4Q34",
+      "4Q35",
+      "4Q36",
+      "4Q37",
+      "4Q38",
+      "4Q38a",
+      "4Q38b",
+      "4Q38c",
+      "4Q38d",
+      "4Q39",
+      "4Q40",
+      "4Q41",
+      "4Q42",
+      "4Q43",
+      "4Q44",
+      "4Q45",
+      "4Q46",
+      "5Q1",
+      "6Q3",
+      "8Q3",
+      "8Q4",
+      "Mas1c",
+      "Mur2",
+      "Mur4",
+      "Xhev/se3",
+      "Xhev/se5",
+      "Xq1",
+      "Xq2",
+      "Xq3"
+    ],
+    "sourceWords": 30043
+  },
+  "excluded": [
+    {
+      "node": 1988148,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988149,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988150,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988151,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988152,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988153,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988154,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988155,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988156,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988157,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988158,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988159,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988160,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988161,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988162,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988163,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988164,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988165,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988166,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988167,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988168,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988169,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988170,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988171,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988172,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988173,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988174,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988175,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988176,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988177,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988178,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988179,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988180,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988181,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988182,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988183,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988184,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988185,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988186,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988187,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988188,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988189,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988190,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988191,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988192,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988193,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988194,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988195,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988196,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988197,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988198,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988199,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988200,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988201,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988202,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988203,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988204,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988205,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988206,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988207,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988208,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988209,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988210,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988211,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988212,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988213,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988214,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988215,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1988216,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1989105,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1989106,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1989107,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1989108,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1989109,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1989110,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1989111,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1989112,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1989113,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1989114,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1989115,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1989116,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1989117,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1989118,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1989119,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1989120,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1989121,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1989122,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1989123,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1989124,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1989125,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1989126,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1989127,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1989128,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1989129,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1989130,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1989131,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1989132,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1989133,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1989134,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1989135,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1989136,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1989137,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1989138,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1989139,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1989140,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1989141,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1989142,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1989143,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1989144,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1989145,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1989146,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991782,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991783,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991784,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991785,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991786,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991787,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991788,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991789,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991790,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991791,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991792,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991793,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991794,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991795,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991796,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991797,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991798,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991799,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991800,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991801,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991802,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991803,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991804,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991805,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991806,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991807,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991808,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991809,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991810,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991811,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991812,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991813,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991814,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991815,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991816,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991817,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991818,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991819,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991820,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991821,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991822,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991823,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991824,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991825,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991826,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991827,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991828,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991829,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991830,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991831,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991832,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991833,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991834,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991835,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991836,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991837,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991838,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991839,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991840,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991841,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991842,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991843,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991844,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991845,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991846,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991847,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991848,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991849,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991850,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991851,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 1991852,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2063028,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2063029,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2063030,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2063031,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2063032,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2063033,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2063034,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2063035,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2063036,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2063037,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2063038,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2063039,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2063040,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2063041,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2063042,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2063043,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2063044,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2063045,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2063046,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2063047,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2063048,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2063049,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2063050,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2063051,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2063052,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2063053,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2063054,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2063055,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2063056,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2063057,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2063058,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2063059,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2063060,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2063061,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2063062,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2063063,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2063064,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2063065,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2063066,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2063067,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2063068,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2063069,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2063070,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2063071,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2063072,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2063073,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2063074,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2064762,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2064763,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2064764,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2064765,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2064766,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2064767,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2064768,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2064769,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2064770,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2064771,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2064772,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2064773,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2064774,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2064775,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2064776,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2064777,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2064778,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2064779,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2064780,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2064781,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2064782,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2064783,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2064784,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2064785,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2064786,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2064787,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2064788,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2064789,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2064790,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2064791,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2064792,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2064793,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2064794,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2064795,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2064796,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2064797,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2064798,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2064799,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2064800,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2064801,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2064802,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066700,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066701,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066702,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066703,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066704,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066705,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066706,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066707,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066708,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066709,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066710,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066711,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066712,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066713,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066714,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066715,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066716,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066717,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066718,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066719,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066720,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066721,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066722,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066723,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066724,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066725,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066726,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066727,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066728,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066729,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066730,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066731,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066732,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066733,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066734,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066735,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066736,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066737,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066738,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066739,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066740,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066741,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066742,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066743,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066744,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066745,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066746,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066747,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066748,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066749,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066750,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066751,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066752,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066753,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066754,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066755,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066756,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066757,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066758,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066759,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066760,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066761,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066762,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066763,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066764,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066765,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066766,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066767,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066768,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066769,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066770,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066771,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066772,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066773,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066774,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066775,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066776,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066777,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2066778,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2068130,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2068131,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2068132,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2068133,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2068134,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2068135,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2068136,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2068137,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2068138,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2068139,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2068140,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2068141,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2068142,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2068143,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2068144,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2068145,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2068146,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2068147,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2068148,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2068149,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2068150,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2068151,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2068152,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2068153,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2068154,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2068155,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2068156,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2068157,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2068158,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2068159,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2068160,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2068161,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2068162,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2068163,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2068164,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2068165,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2068166,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2068167,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2068168,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2068169,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2068170,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2068171,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2068172,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2068173,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2068174,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2068175,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2068176,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2069445,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2069446,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2069447,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2069448,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2069449,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2069450,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2069451,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2069452,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2069453,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2069454,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2069455,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2069456,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2069457,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2069458,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2069459,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2069460,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2069461,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2069462,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2069463,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2069464,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2069465,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2069466,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2069467,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2071165,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2071166,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2071167,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2071168,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2071169,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2071170,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2071171,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2071172,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2071173,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2071174,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2071175,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2071176,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2071177,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2071178,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2071179,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2071180,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2071181,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2071182,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2071183,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2071184,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2071185,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2071186,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2071187,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2071188,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2071189,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2071190,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2071191,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2071192,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2071193,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2071194,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2071195,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2071196,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2071197,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2071198,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2071199,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2071200,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2071201,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2071202,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2071203,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2071204,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2071205,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2071206,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2071207,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2071208,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2071209,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2071210,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2071211,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2071212,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2071213,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2071214,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2071215,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2071216,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2071217,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2071218,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2071219,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2071220,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089246,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089247,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089248,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089249,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089250,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089251,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089252,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089253,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089254,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089255,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089256,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089257,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089258,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089259,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089260,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089261,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089262,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089263,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089264,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089265,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089266,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089267,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089268,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089269,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089270,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089271,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089272,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089273,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089274,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089275,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089276,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089277,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089278,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089279,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089280,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089281,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089282,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089283,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089284,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089285,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089286,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089287,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089288,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089289,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089290,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089291,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089292,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089293,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089294,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089295,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089296,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089297,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089298,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089299,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089300,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089301,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089302,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089303,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089304,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089305,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089306,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089307,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089308,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089309,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089310,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089311,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089312,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089313,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089314,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089315,
+      "reason": "Bible reference outside OSHB"
+    },
+    {
+      "node": 2089316,
+      "reason": "Bible reference outside OSHB"
+    }
+  ]
+}

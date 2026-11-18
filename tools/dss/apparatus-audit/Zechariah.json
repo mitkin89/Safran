@@ -1,0 +1,76 @@
+{
+  "source": {
+    "repository": "https://github.com/ETCBC/dss",
+    "commit": "0b7774a72b6d0e91712aa2156d2a1d354f1f5e6d",
+    "version": "2.0.2",
+    "license": "CC BY-NC 4.0",
+    "authors": "Abegg, Bowley, Cook; Jacobs, Naaijer, Roorda / ETCBC CACCHT",
+    "featureSha256": {
+      "book.tf": "8f075ca9c34167260a911c6bc33fe09088a6cb6abfa19fe50592df58a546d773",
+      "otype.tf": "4f313ee84bb61c9a3adb1fa15acddac781807b7fa59df9d02fb38014174e069a",
+      "oslots.tf": "582165e4f8450677d457816b78225a2d35ad1617e9e97fb98abd9d70ebfd3818",
+      "scroll.tf": "e39d8d38b3f616a4054af682c6191ce1b9acd977f3369fb8f567b6182dbeaf2a",
+      "fragment.tf": "5d1a3177113f4623cb7960af4a589c3a7f375d611f24660d20ff6f74af570bae",
+      "line.tf": "41c82b80c5230491dc4081e266c7c2ebe01ce3ecfb12c696f3eda82ac1c39f0b",
+      "full.tf": "951ed95573ff1f78c468e6fa1b1f1750631287564534155bd5f9f0c8ae6d5542",
+      "fullo.tf": "ac4cab1dfe869f117a1d1ee0a97d6b250850e961adb992baf4e1d30162b10d10",
+      "glyph.tf": "b6dc988801e7145791db68c3004c0c39f30544c97bf3a473a3e18ab96e8d2b92",
+      "after.tf": "8032b08c993a20ce3516c7a9058a26db452c008aaa096506a60243cfd94c705e",
+      "rec.tf": "6ff8311ff809584081f9dd66c5570e353a552b16583bcb30a6c245b5e6fcf335",
+      "unc.tf": "cc7a591edc46c0b38c3aa279fb23051cf2701bccee46cd1f451f0e0cccbb952e",
+      "cor.tf": "fd1f6897a43b242b5ca75823cadb8adfd9a74bff92aaec0a4412dd3c7a11b2d7",
+      "rem.tf": "921e78e2dca9607254675b432faca8e44742e7aec571267c8ce9c4cb2326cdf9",
+      "type.tf": "0df955242141dc68f2cf161e7abacf2758adad072196019d38990e23712e7a49",
+      "vac.tf": "f193cf146850d34030e6c12e19f7b6f8cf3f96eb586214532f554ed7c92555f9",
+      "alt.tf": "f2d661f9a273a338a09067d23a9eade17e93319309f7e5a6e3df9c99f124c389",
+      "glex.tf": "8c2e2d0b9b949e8ef5bb1825a8c4497627188fe89eeb6117980f9ffb3460b119",
+      "lex.tf": "e7759a9fb82e1b8329359619e4cb103b35635d9d600080707b3624165bae1eda",
+      "sp.tf": "4d60bd36ead607c4a633bf4eafc37214855749c12a4653270249c3535b4cda27",
+      "vs.tf": "0eac6e1db03c3ead475b2c0caad3dc39a0a6a9fbcf98adeff64fd80433ca07bc",
+      "vt.tf": "f264591e1d8c8f40527d70b290c54256126fadb5e4497478fff763a38b023e7b",
+      "ps.tf": "73f51c0385fbc357f876b464814dc6dc1c092a3d594cb5beac7172eb035f918f",
+      "gn.tf": "92943e26cd77dc1dd1ce87defe7ee53f1c3cd66df0479877f3986832861d8f6a",
+      "nu.tf": "97ca00176915499392e1ac017a208f40d822211ae43a57200c88c97989ed5f1f",
+      "st.tf": "8602cc98754376f38d39e2d44b0a063fbc965fd8c8564f4f5d39562e0982961d",
+      "morpho.tf": "04150c4c0ed936da55dae9571d8e3226a5cd02494cd320bc04d080dc0c2cac61",
+      "lang.tf": "5695457678db1aa14a384b986f78b691c19156c8214c058333b5f560f89a8220",
+      "punc.tf": "63233337408716657c936b611b090ec8fa3d8ba16247c751604d609906cd9d7a",
+      "biblical.tf": "7a91352439ceb3ac422d879febf232a0717023003e3c70fcfe7691e0d1f5ac69",
+      "srcLn.tf": "e5b2a650f13f059b7e475173d403b38a6ab30759d3237447f43b82bf21376d35",
+      "ps2.tf": "69c7d7f105be5ba75612d646c80eb4dcd289bc472f8dcab276222a1e7edd7b0a",
+      "gn2.tf": "ce03bde422fd8630d92a60fea66bcff078cf2d9cb743c66bf0edc857971b60e5",
+      "nu2.tf": "e84276af13302ae7674dcfaa11eb651e1c55b03a12a9319541336472114d10b8",
+      "chapter.tf": "4b25d3fef227f30b85ba203f10145e0ae072be7547fed6282c64aeddfc78b4f8",
+      "verse.tf": "d8ad61f1cb0690792b31115c24105d240a4fc5fb0cbea719c1d7a8adc4eab251"
+    },
+    "extractSha256": "79c4bb8ecc1b68dce7120bdb9c25c49c0f85c8024a345e41e816a77d4668ba0a",
+    "interlinear": {
+      "file": "qumran-il.js",
+      "sha256": "c9d71b3a5bb9143400f1b0fddb989134d7460f0ad05281454e3f48cf9d910da1",
+      "method": "Existing machine alignment; original verse/witness/consonant stream validated before reuse"
+    },
+    "mt": {
+      "rel": "own/Zechariah/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "e354b277e174900d1499522ff29e06e284bfea3e1e45893b9f2e26fc69944ce6",
+      "license": "CC BY 4.0",
+      "title": "OSHB / Westminster Leningrad Codex"
+    }
+  },
+  "counts": {
+    "segments": 60,
+    "tokens": 809,
+    "reconstructed": 696,
+    "uncertain": 73,
+    "damaged": 14,
+    "corrected": 8,
+    "verses": 59,
+    "scrolls": [
+      "4Q76",
+      "4Q80",
+      "4Q82",
+      "Mur88"
+    ],
+    "sourceWords": 1086
+  },
+  "excluded": []
+}

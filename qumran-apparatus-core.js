@@ -50,7 +50,18 @@ function interlinearAnchors(segments,mt,rows){
     for(const token of tokens){
       const start=cursor;cursor+=cons(token.text).length;
       const matches=old.filter(o=>o.start<cursor&&o.end>start);
-      if(!matches.length||matches.some(o=>!o.indices.length))continue;
+      if(!matches.length)continue;
+      if(matches.every(o=>!o.indices.length)&&certain(token)){
+        // A verified legacy plus can identify a gap, never an MT omission.
+        const first=old.indexOf(matches[0]),last=old.indexOf(matches.at(-1));
+        const before=old[first-1]?.indices,after=old[last+1]?.indices;
+        if(before?.length&&after?.length){
+          const left=Math.max(...before),right=Math.min(...after);
+          if(Number.isInteger(left)&&left>=1&&right===left+1&&right<=mt.length)candidates.set(token,{kind:'gap',start:left-1,end:left-1});
+        }
+        continue;
+      }
+      if(matches.some(o=>!o.indices.length))continue;
       const indices=[...new Set(matches.flatMap(o=>o.indices))].sort((a,b)=>a-b);
       if(indices.some((p,i)=>!Number.isInteger(p)||p<1||p>mt.length||(i&&p!==indices[i-1]+1)))continue;
       candidates.set(token,{kind:'word',start:indices[0]-1,end:indices.at(-1)-1});
@@ -60,7 +71,7 @@ function interlinearAnchors(segments,mt,rows){
       const primary=align(segment.tokens,mt);
       segment.tokens.forEach((t,i)=>{
         const j=primary[i],candidate=candidates.get(t);
-        if(candidate&&Number.isInteger(j)&&certain(t)&&cons(t.text)===cons(mt[j])&&(j<candidate.start||j>candidate.end))conflict=true;
+        if(candidate&&Number.isInteger(j)&&certain(t)&&cons(t.text)===cons(mt[j])&&(candidate.kind==='gap'||j<candidate.start||j>candidate.end))conflict=true;
       });
     }
     if(!conflict)for(const [token,anchor] of candidates)out.set(token,anchor);

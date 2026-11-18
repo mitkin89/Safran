@@ -37,7 +37,7 @@ Hover or focus a quoted word for its full Samaritan Hebrew/English verse context
 word-anchored verse correspondence and uncertain or different numbering remain
 explicit. The header also offers whole-chapter view, verse navigation, follow
 reading, saved font size and witness selection, plus the available source language
-(currently English). It also includes Tov/Kraft CATSS notes, Genesis DSS (ETCBC/Abegg), and the Digital Kennicott Genesis apparatus. Hover source sigla for manuscript metadata and source citations for edition context. Securely located MT headings are clickable and mark the corresponding words in the reader.
+(currently English). It also includes Tov/Kraft CATSS notes plus separately labelled CATSS reading-text alignment flags (38 Tanakh books), biblical DSS (ETCBC/Abegg: 36 books, 262 manuscript sigla), and the Digital Kennicott Genesis apparatus. Hover source sigla for manuscript metadata and source citations for edition context. Securely located MT headings are clickable and mark the corresponding words in the reader.
 
 ## Why Safran?
 

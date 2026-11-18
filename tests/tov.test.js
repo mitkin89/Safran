@@ -11,20 +11,21 @@ test('Tov apparatus preserves every imported original row and the licensed sourc
   }
   let count=0;
   for(const v of Object.values(D.verses))for(const n of v.remarks){
+    if(n.origin==='bundled-CATSS'){assert(n.raw.length===1&&n.raw[0].startsWith('<span class="wg'));count++;continue;}
     const line=sources[n.file][n.line-1].replace(/\r$/,'');
     assert.deepEqual(n.raw,[line.slice(0,30).trimEnd(),line.slice(30).trim()],v.ref);
     if(n.b)assert.equal(n.b,n.raw[0].slice(n.raw[0].indexOf('=')));
     if(n.raw.join(' ').includes('?'))assert(n.codes.includes('?'),v.ref);
     count++;
   }
-  assert.equal(count,61284);
+  assert.equal(count,66365);
   assert.match(D.source.license,/BY-NC-SA 3.0/);
 });
 test('Greek contexts and word positions agree with the exact bundled CATSS witness, including A/B and Theodotion',()=>{
   const editions=new Map();
-  for(const [code,e] of Object.entries(D.editions))editions.set(code,JSON.parse(fs.readFileSync(path.join(root,'bundled',e.rel))));
+  for(const [code,e] of Object.entries(D.editions))if(e.rel)editions.set(code,JSON.parse(fs.readFileSync(path.join(root,'bundled',e.rel))));
   for(const v of Object.values(D.verses)){
-    const [,ch,vs]=/ (\d+):(\d+)$/.exec(v.ref),doc=editions.get(v.edition);
+    const [,ch,vs]=/ (\d+):(\d+)$/.exec(v.ref),doc=editions.get(v.edition);if(!doc){assert.equal(D.editions[v.edition].sourceOnly,true);continue;}
     const words=GM.words(doc.text[+ch-1][+vs-1]);assert.deepEqual(GM.words(v.text),words,v.ref);
     for(const n of v.remarks)if(n.g){const group=GM.words(n.g);assert.deepEqual(words.slice(n.start,n.start+group.length),group,v.ref);}
   }
@@ -37,7 +38,9 @@ test('Retroversions, uncertainty and missing coverage remain distinct; mislabele
   assert(D.codes['=;'].includes('Rückübersetzung'));
   assert(D.codes['--+'].includes('kein Nachweis'));
   assert.equal(D.editions.Esth,undefined);assert.match(D.excluded.Esth,/Esra statt Esther/);
-  for(const book of ['Psalms','Proverbs','Job','Hosea','Esther'])assert(!Object.values(D.editions).some(e=>e.book===book));
+  assert.equal(D.editions.Hos.sourceOnly,true);assert.equal(D.editions.Jsha.sourceOnly,true);assert(D.verses['Hos 1:2']);
+  for(const code of ['Ps','Prv','Job'])assert.equal(D.editions[code].origin,'bundled-CATSS');
+  assert(!Object.values(D.editions).some(e=>e.book==='Esther'));
 });
 
 test('Numerical difference operators are preserved, not transliterated as Hebrew tet',()=>{
@@ -60,8 +63,9 @@ test('MT grouping words retain their OSHB provenance and source-row position ran
 
 test('Interlinear preview preserves the exact CATSS groups, counterparts, flags and retroversions',()=>{
   const docs=new Map();
-  for(const [code,e] of Object.entries(D.editions))docs.set(code,JSON.parse(fs.readFileSync(path.join(root,'bundled',e.rel))));
+  for(const [code,e] of Object.entries(D.editions))if(e.rel)docs.set(code,JSON.parse(fs.readFileSync(path.join(root,'bundled',e.rel))));
   for(const v of Object.values(D.verses)){
+    if(D.editions[v.edition].sourceOnly)continue;
     const [,ch,vs]=/ (\d+):(\d+)$/.exec(v.ref),original=docs.get(v.edition).text[+ch-1][+vs-1];
     const groups=[...original.matchAll(/<span class="wg(?: wm)?"([^>]*)>(.*?)<\/span>/g)].map(m=>{
       const attr=k=>new RegExp('data-'+k+'="([^"]*)"').exec(m[1])?.[1]||'';
@@ -69,4 +73,14 @@ test('Interlinear preview preserves the exact CATSS groups, counterparts, flags 
     });
     assert.deepEqual(v.pairs.map(([g,h,f,r])=>[g,h,[...new Set(f)].sort().join(''),r]),groups,v.ref);
   }
+});
+
+test('CATSS reading-text extracts point to exact original groups and keep their provenance',()=>{
+ const docs=new Map();
+ for(const [rel,hash]of Object.entries(D.source.bundled)){const raw=fs.readFileSync(path.join(root,'bundled',rel));assert.equal(crypto.createHash('sha256').update(raw).digest('hex'),hash);docs.set(rel,JSON.parse(raw));}
+ for(const v of Object.values(D.verses))for(const n of v.remarks)if(n.origin==='bundled-CATSS'){
+   const [,ch,vs]=/ (\d+):(\d+)$/.exec(v.ref),original=docs.get(n.file).text[+ch-1][+vs-1];
+   const groups=[...original.matchAll(/<span class="wg(?: wm)?"[^>]*>.*?<\/span>/g)];assert.equal(n.raw[0],groups[n.group-1][0]);
+   assert(n.codes.length);assert(!n.codes.includes('=+'),'No numerical conjecture is invented from a translation');
+ }
 });

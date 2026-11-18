@@ -8,6 +8,11 @@
       "file02-1111.txt": "0dc6b00716de5b2b61a0cf2384243bef24d85b0349f7a0f55e57c826af22087a",
       "file03-1111.txt": "57fcb29df38746d69f559c650ed5c3df3728a608f787c4b404bc6ae0df40be2b",
       "file04-1111.txt": "3c923b7dde8bfe0076f4a6eb0d08fc216b0033e32b02c55d42ebd522e8797af2"
+    },
+    "bundled": {
+      "own/Psalms/other/Septuaginta (CATSS).json": "d4d6d93770b2a3ae73e732fd29a85a21977a0856196fc480285415883eae4ebd",
+      "own/Proverbs/other/Septuaginta (CATSS).json": "4cc198ff799672a42d0daf79714fe990d143434169f894939cfa4dd7bf9e7e09",
+      "own/Job/other/Septuaginta (CATSS).json": "c1905a1a612c5cb3ff25f8010720f1528e40d06fc9c43b3a5632eca9958861b8"
     }
   },
   "excluded": {
@@ -37,6 +42,11 @@
     "Jsh": {
       "verses": 658,
       "remarks": 2701
+    },
+    "Jsha": {
+      "verses": 94,
+      "remarks": 125,
+      "sourceOnly": true
     },
     "Jdga": {
       "verses": 618,
@@ -73,6 +83,11 @@
     "Ezk": {
       "verses": 1272,
       "remarks": 2758
+    },
+    "Hos": {
+      "verses": 197,
+      "remarks": 311,
+      "sourceOnly": true
     },
     "Joel": {
       "verses": 73,
@@ -157,6 +172,21 @@
     "2Ch": {
       "verses": 822,
       "remarks": 1274
+    },
+    "Ps": {
+      "verses": 2527,
+      "remarks": 851,
+      "origin": "bundled-CATSS"
+    },
+    "Prv": {
+      "verses": 915,
+      "remarks": 1888,
+      "origin": "bundled-CATSS"
+    },
+    "Job": {
+      "verses": 1070,
+      "remarks": 1906,
+      "origin": "bundled-CATSS"
     }
   },
   "bundledSha256": {
@@ -195,7 +225,10 @@
     "own/Ezra/other/Septuaginta (CATSS).json": "c7d6289e7a7699cab859522791d0b00d738d1ca7ab362aae9aaa4d99bb10056c",
     "own/Nehemiah/other/Septuaginta (CATSS).json": "9d83ae95f5d97ab10e37a6dc3eb24c962c6bcfd70647432446d52556ff5466e1",
     "own/I Chronicles/other/Septuaginta (CATSS).json": "cdaf189c92c55a10f576d4af6244508f3fbab570fe30838ab5680ba9d3546293",
-    "own/II Chronicles/other/Septuaginta (CATSS).json": "f1f888971ea5a996a4ba27765853b6bb2216dc60e15520f0efafea5ccf9a1999"
+    "own/II Chronicles/other/Septuaginta (CATSS).json": "f1f888971ea5a996a4ba27765853b6bb2216dc60e15520f0efafea5ccf9a1999",
+    "own/Psalms/other/Septuaginta (CATSS).json": "d4d6d93770b2a3ae73e732fd29a85a21977a0856196fc480285415883eae4ebd",
+    "own/Proverbs/other/Septuaginta (CATSS).json": "4cc198ff799672a42d0daf79714fe990d143434169f894939cfa4dd7bf9e7e09",
+    "own/Job/other/Septuaginta (CATSS).json": "c1905a1a612c5cb3ff25f8010720f1528e40d06fc9c43b3a5632eca9958861b8"
   },
   "mtSha256": {
     "own/Genesis/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json": "1f47f49fd727e0813c8d8672c96ca06f75deb2a58f2853cfd25a5249107bca00",
@@ -212,6 +245,7 @@
     "own/Isaiah/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json": "7b2e14ab2b04e2fd5dd4bc1a238af827a5b889e93a51b129bc7f968e66cd3421",
     "own/Jeremiah/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json": "d2a63185291f9c430a6856aa9df34056f73f477e18f3ff7bcf1310c08e650ac4",
     "own/Ezekiel/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json": "7b74ce296a28d046bc5e29be510d4e9ce5316be4662a57b3182b710f66b48e2a",
+    "own/Hosea/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json": "0145d15c27cab0c62f03c0576d42ecbcf43a9548a7487f1cf40b7a568f371a70",
     "own/Joel/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json": "cc05772361af0d88ae496c402e62a49f03739abd7df67b99b6b08291e798e19f",
     "own/Amos/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json": "a51e193357988c4faa9a484f7832bcb6bbf180f63dc502e5910eadb7fbf22656",
     "own/Obadiah/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json": "d81f6725892198c4a64d068a30783e6808a078b773b050c404a6985ede9814d9",
@@ -231,6 +265,9 @@
     "own/Ezra/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json": "e102d39b56fb5007e9fb7400ef3fcd2d7501ff00553a484c5462ae02d63a9b40",
     "own/Nehemiah/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json": "f1c265351827a6df588d891269860c2fe2ef063de4e4ce88f4fb52487059c517",
     "own/I Chronicles/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json": "1760411a19dc820e19940be23530831ce47a22d3f95095a63cb46cb305194bfc",
-    "own/II Chronicles/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json": "cda23541cdd731041e695f5b4804004e04c5fafdc9e0c9ca362889bfa61d54cf"
+    "own/II Chronicles/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json": "cda23541cdd731041e695f5b4804004e04c5fafdc9e0c9ca362889bfa61d54cf",
+    "own/Psalms/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json": "841a816b411a084457e6ec1a7243b8e7744cfe202c0784f7367c1f6b568edb0c",
+    "own/Proverbs/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json": "afbd007dc5f8a05ea9a44bf140005edb528f01ffdf30e4853aaf89e0bb08334b",
+    "own/Job/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json": "e9f5c966d8b5548c7a2c2de5984e75a5909d32ddcd99c6b361eb74cd7d617892"
   }
 }

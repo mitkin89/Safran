@@ -50,7 +50,7 @@ function create(host){
     return {book:v.group.title,chapter,ref:v.group.title+' '+chapter+':'+row,numbering,row};
   }
   function load(){
-    return pending||(pending=Promise.all([host.load('textcrit-data.js',()=>window.TEXTCRIT_DATA),host.load('samaritan-data.js',()=>window.SAMARITAN_DATA),tov.load(),dss.load(),ken.load()]).catch(e=>{pending=null;throw e;}));
+    return pending||(pending=Promise.all([host.load('textcrit-data.js',()=>window.TEXTCRIT_DATA),host.load('samaritan-data.js',()=>window.SAMARITAN_DATA),tov.load(),ken.load()]).catch(e=>{pending=null;throw e;}));
   }
   function word(w,interactive=true){
     const [text,mask,id]=w;let inner='',buf='',state=false;
@@ -120,10 +120,10 @@ function create(host){
     if(!c){body.innerHTML='<p class="muted">Der Textkritik-Apparat steht für den Tanach zur Verfügung.</p>';return;}
     body.innerHTML='<p class="muted">Apparat wird geladen …</p>';
     try{
-      const [data,notes]=await load();if(token!==generation||panel.hidden)return;
+      const [[data,notes]]=await Promise.all([load(),dss.load(c.book)]);if(token!==generation||panel.hidden)return;
       previewData=data;
       const showSpelling=$('#tcSpelling').checked;
-      const showSmr=$('#tcSmr').checked&&torah.has(c.book),showTov=$('#tcTov').checked,showDss=$('#tcDss').checked&&c.book==='Genesis',showKen=$('#tcKen').checked&&c.book==='Genesis';
+      const showSmr=$('#tcSmr').checked&&torah.has(c.book),showTov=$('#tcTov').checked,showDss=$('#tcDss').checked,showKen=$('#tcKen').checked&&c.book==='Genesis';
       const tovQueries=[];
       const queries=whole?rows().map(r=>r.dataset.l):[c.row],refs=new Map(),unresolved=[];
       for(const row of queries){
@@ -172,7 +172,7 @@ function create(host){
         return '<section class="tc-reader-verse tc-witness" data-rows="'+esc(readerRows.join(','))+'"><h3><button class="tc-jump" type="button" data-row="'+esc(readerRows[0])+'">'+esc(ref)+' · MT</button></h3>'+loci+'</section>';
       }).join('');
       const empty=!showSmr&&!showTov&&!showDss&&!showKen?'SMR ist ausgeblendet. Wähle einen Zeugen oben aus.':'';
-      body.innerHTML=unresolvedHtml+(showDss?dss.coverage(tovQueries):'')+(records.length?'<p class="tc-count">'+records.length+' Hinweise · nach MT-Wortposition</p>':'')+notices.map(n=>'<p class="tc-status">'+esc(n)+'</p>').join('')+(sections||(empty?'<p class="muted">'+empty+'</p>':''))+(showTov&&!records.some(e=>e.html.includes('tc-tov-entry'))?'<p class="muted">Tov/CATSS ist für Psalmen, Sprüche, Hiob, Hosea und Esther hier nicht erschlossen.</p>':'')+(showTov?tov.credit():'')+(showDss?dss.credit():'')+(showKen?ken.credit():'')+(showSmr?'<p class="tc-credit">Samaritanus, Tal–Florentin · CC BY-NC 4.0. MT-Bezug wortlautbasiert; bei mehrdeutiger Wortposition bleibt die Zuordnung offen.</p>':'');
+      body.innerHTML=unresolvedHtml+(showDss?dss.coverage(tovQueries):'')+(records.length?'<p class="tc-count">'+records.length+' Hinweise · nach MT-Wortposition</p>':'')+notices.map(n=>'<p class="tc-status">'+esc(n)+'</p>').join('')+(sections||(empty?'<p class="muted">'+empty+'</p>':''))+(showTov?tov.credit():'')+(showDss?dss.credit():'')+(showKen?ken.credit():'')+(showSmr?'<p class="tc-credit">Samaritanus, Tal–Florentin · CC BY-NC 4.0. MT-Bezug wortlautbasiert; bei mehrdeutiger Wortposition bleibt die Zuordnung offen.</p>':'');
       body.querySelectorAll('.tc-entry[data-tc-group]').forEach(entry=>{
         const ref=entry.dataset.tcRef,g=renderedGroups.get(ref)[+entry.dataset.tcGroup];
         entry.querySelectorAll('.tc-note').forEach(note=>decorateNote(note,g.words,ref));

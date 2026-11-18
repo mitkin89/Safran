@@ -18,7 +18,7 @@ function create(host){
     '=p%-':'Ausgelassene Präposition / Partikel',
     '.m':'Metathese','.z':'Mögliche Abkürzung','.s':'Wort aufgeteilt','.j':'Wörter verbunden',
     '.w':'Andere Worttrennung','.rd':'ר / ד','?':'Unsicher',
-    '[n]':'LXX-Verszählung','[[n]]':'MT-Verszählung','G':'Hebräische Variante',
+    '[u]':'CATSS-Platzhalter','[n]':'LXX-Verszählung','[[n]]':'MT-Verszählung','G':'Hebräische Variante',
   };
   const explanation=c=>c+' · '+(data.codes[c]||'Quellcode; keine gesicherte Auflösung im Quellschlüssel');
   const badge=c=>'<abbr class="ab tc-tov-tag" title="'+esc(explanation(c))+'">'+esc(shortLabels[c]||c)+'</abbr>';
@@ -44,8 +44,10 @@ function create(host){
           const columnLabel=reconstructed?'erschlossen':shortLabels[columnCode]||'Tov-Hinweis';
           const columnTitle=reconstructed?'Von Tov erschlossene hebräische Entsprechung; kein Handschriftenbeleg. Quellcode: =':columnCode?explanation(columnCode):n.b;
           const detail=columnText?'<span class="tc-tov-reading"> · <abbr class="ab" title="'+esc(columnTitle)+'">'+esc(columnLabel)+'</abbr>: <bdi dir="ltr">'+reading+'</bdi></span>':'';
-          const witness=code==='Jdga'?'LXX A':code==='Jdgb'?'LXX B':code==='DanTh'?'LXX Th':'LXX';
-          const html='<article class="tc-entry tc-tov-entry" data-witness="'+esc(witness)+'"><div class="tc-note-text"><span class="tc-witness-label">'+esc(witness)+'</span> '+greek+(greek&&heb?' ↔ ':'')+heb+' <span class="tc-tov-codes">'+flags+'</span>'+detail+'</div><small class="tal-cite" tabindex="0" data-tc-tov="'+esc(key)+'" title="'+esc(n.raw.join(' | '))+'">Tov/Kraft · CATSS, '+esc(ref)+' · '+esc(n.file)+':'+n.line+'</small></article>';
+          const witness=code==='Jsha'?'LXX A (Josua)':code==='Jdga'?'LXX A':code==='Jdgb'?'LXX B':code==='DanTh'?'LXX Th':'LXX';
+          const citation=n.origin==='bundled-CATSS'?'CATSS-Lesetext, '+ref+' · Gruppe '+n.group:'Tov/Kraft · CATSS, '+ref+' · '+n.file+':'+n.line;
+          const sourceTitle=n.origin==='bundled-CATSS'?'Erhaltener Hinweis aus dem eingebundenen CATSS-Lesetext; keine vollständige Originalanmerkung. '+n.raw[0]:n.raw.join(' | ');
+          const html='<article class="tc-entry tc-tov-entry" data-witness="'+esc(witness)+'"><div class="tc-note-text"><span class="tc-witness-label">'+esc(witness)+'</span> '+greek+(greek&&heb?' ↔ ':'')+heb+' <span class="tc-tov-codes">'+flags+'</span>'+detail+'</div><small class="tal-cite" tabindex="0" data-tc-tov="'+esc(key)+'" title="'+esc(sourceTitle)+'">'+esc(citation)+'</small></article>';
           out.set(id,{anchor:anchor?{...anchor,ref}:null,displayRef:ref,rows:[row],html});
         });
       }
@@ -53,7 +55,7 @@ function create(host){
     return [...out.values()];
   }
   const mt=ref=>data?.mt[ref];
-  const credit=()=>'<p class="tc-credit">CATSS · Tov/Kraft · CC BY-NC-SA 3.0. Plus/Minus bezeichnen die Ausrichtung zum MT; erschlossene Lesarten sind keine erhaltenen Handschriftenlesarten. Kurzbezeichnungen: Quellcode und Erklärung beim Überfahren; Originalspalten: beim Überfahren der Quellenzeile.</p>';
+  const credit=()=>'<p class="tc-credit">CATSS · Tov/Kraft · CC BY-NC-SA 3.0. Plus/Minus bezeichnen die Ausrichtung zum MT; erschlossene Lesarten sind keine erhaltenen Handschriftenlesarten. Quellcode und Erklärung beim Überfahren; Originalbeleg über der Quellenzeile. Auszüge aus dem CATSS-Lesetext sind gesondert bezeichnet.</p>';
   function preview(anchor){
     const v=data?.verses[anchor.dataset.tcTov];if(!v)return '';
     const note=anchor.dataset.tcNote==null?null:v.remarks[+anchor.dataset.tcNote];
@@ -64,13 +66,13 @@ function create(host){
       const extra=retro?'<small class="tc-il-retro">erschlossen: <bdi lang="he" dir="rtl">'+esc(retro)+'</bdi></small>':'';
       return '<span class="tc-il-unit'+(active?' active':'')+'"><span lang="grc">'+esc(g||'—')+'</span><bdi class="tc-il-he" lang="he" dir="rtl"'+(!h?' title="Kein direktes hebräisches Gegenstück in dieser CATSS-Wortgruppe"':'')+'>'+esc(h||'—')+'</bdi>'+extra+'</span>';
     }).join('');
-    return '<b>LXX · '+esc(v.ref)+' · Tov/CATSS interlinear</b><div class="tc-tov-il" dir="ltr">'+pairs+'</div><small>Griechisch / hebräisches Gegenstück · Tov/Kraft · CATSS · CC BY-NC-SA 3.0</small>';
+    return '<b>LXX · '+esc(v.ref)+(v.origin==='bundled-CATSS'?' · CATSS-Lesetext interlinear':' · Tov/CATSS interlinear')+'</b><div class="tc-tov-il" dir="ltr">'+pairs+'</div><small>Griechisch / hebräisches Gegenstück · Tov/Kraft · CATSS · CC BY-NC-SA 3.0</small>';
 
   }
   function open(anchor){
     const v=data?.verses[anchor.dataset.tcTov],n=v?.remarks[+anchor.dataset.tcNote];
     if(!n)return;
-    const edition=data.editions[v.edition],m=/ (\d+):(\d+)$/.exec(v.ref);
+    const edition=data.editions[v.edition];if(edition.sourceOnly)return;const m=/ (\d+):(\d+)$/.exec(v.ref);
     host.openGreek?.(anchor,{text:v.text,group:n.g,start:n.start,ctx:{title:edition.book,vt:edition.versionTitle,ch:+m[1],v:+m[2]}});
   }
   return {load,entries,mt,credit,preview,open};

@@ -1,9 +1,9 @@
 #!/usr/bin/env python3
-"""Lossless Genesis extract for the apparatus. Existing reading editions stay untouched.
-python3 -I tools/dss/build_apparatus.py --extract /path/to/ETCBC-dss
+"""Lossless biblical DSS extracts for the apparatus. Existing reading editions stay untouched.
+python3 -I tools/dss/build_apparatus.py --all --extract /path/to/ETCBC-dss
 python3 -I tools/dss/build_apparatus.py
 """
-import bisect, gzip, hashlib, html, json, re, sys
+import argparse, bisect, gzip, hashlib, html, json, re, sys
 from collections import defaultdict
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[2]
@@ -12,6 +12,7 @@ COMMIT='0b7774a72b6d0e91712aa2156d2a1d354f1f5e6d'
 VERSION='2.0.2'
 SOURCE=HERE/'genesis-source.json.gz'
 FIELDS='full fullo glyph after rec unc cor rem type vac alt glex lex sp vs vt ps gn nu st morpho lang punc biblical srcLn ps2 gn2 nu2'.split()
+BOOKS={'Gen':'Genesis','Ex':'Exodus','Lev':'Leviticus','Num':'Numbers','Deut':'Deuteronomy','Josh':'Joshua','Judg':'Judges','1Sam':'I Samuel','2Sam':'II Samuel','1Kgs':'I Kings','2Kgs':'II Kings','Is':'Isaiah','Jer':'Jeremiah','Ezek':'Ezekiel','Hos':'Hosea','Joel':'Joel','Amos':'Amos','Obad':'Obadiah','Jonah':'Jonah','Mic':'Micah','Nah':'Nahum','Hab':'Habakkuk','Zeph':'Zephaniah','Hag':'Haggai','Zech':'Zechariah','Mal':'Malachi','Ps':'Psalms','Prov':'Proverbs','Job':'Job','Song':'Song of Songs','Ruth':'Ruth','Lam':'Lamentations','Eccl':'Ecclesiastes','Dan':'Daniel','Ezra':'Ezra','Neh':'Nehemiah','1Chr':'I Chronicles','2Chr':'II Chronicles','Esth':'Esther'}
 FLAGS=['rec','unc','cor','rem','alt','vac','type']
 
 def rows(path):
@@ -42,15 +43,15 @@ def ranges(value):
 
 def slots(rs):return [n for lo,hi in rs for n in range(lo,hi+1)]
 
-def extract(directory):
+def extract(directory,all_books=False):
     folder=Path(directory)/'tf'/VERSION
     hashes={}
     def feature(name,wanted=None,value=None):
         p=folder/(name+'.tf');hashes[p.name]=hashlib.sha256(p.read_bytes()).hexdigest()
         return load(p,wanted,value)
-    candidates=feature('book',value='Gen')
+    candidates=feature('book',value=None if all_books else 'Gen')
     types=feature('otype',wanted=set(candidates))
-    selected={n for n in candidates if types[n]=='word'}
+    selected={n for n in candidates if types[n]=='word' and candidates[n] in BOOKS}
     structures={n:t for n,t in rows(folder/'otype.tf') if t in ('scroll','fragment','line')}
     wanted=selected|set(structures)
     word_slots={};structure_slots={}
@@ -73,25 +74,36 @@ def extract(directory):
     records=[];excluded=[]
     for n in sorted(selected,key=lambda n:word_slots[n][0][0]):
         if not(ch.get(n,'').isdigit() and vs.get(n,'').isdigit()) or min(int(ch.get(n,'0')),int(vs.get(n,'0')))<=0:
-            excluded.append({'node':n,'chapter':ch.get(n),'verse':vs.get(n)});continue
+            excluded.append({'node':n,'book':BOOKS[candidates[n]],'chapter':ch.get(n),'verse':vs.get(n)});continue
         ss=slots(word_slots[n]);locations=[]
         for s in ss:
             loc={k:v for k,v in ancestry[s].items()}
             if loc not in locations:locations.append(loc)
-        records.append({'node':n,'ref':f'Genesis {int(ch[n])}:{int(vs[n])}',
+        records.append({'node':n,'ref':f'{BOOKS[candidates[n]]} {int(ch[n])}:{int(vs[n])}',
             'features':{f:d[n] for f,d in features.items() if n in d},'slots':word_slots[n],
             'locations':locations,'signs':[{'node':s,**{f:features[f][s] for f in ['glyph']+FLAGS if s in features[f]}} for s in ss]})
     source={'schema':1,'source':{'repository':'https://github.com/ETCBC/dss','commit':COMMIT,'version':VERSION,
         'license':'CC BY-NC 4.0','authors':'Abegg, Bowley, Cook; Jacobs, Naaijer, Roorda / ETCBC CACCHT',
         'featureSha256':hashes},'words':records,'excluded':excluded}
-    SOURCE.write_bytes(gzip.compress(json.dumps(source,ensure_ascii=False,separators=(',',':')).encode(),mtime=0))
-    print('Extracted',len(records),'Genesis source word/morpheme nodes;',len(excluded),'without numeric Bible reference')
+    if all_books:
+        folder=HERE/'apparatus-source';folder.mkdir(exist_ok=True)
+        for book in BOOKS.values():
+            subset={**source,'words':[w for w in records if w['ref'].rsplit(' ',1)[0]==book], 'excluded':[e for e in excluded if e['book']==book]}
+            # Genesis stays byte-identical to the already audited extract.
+            if book=='Genesis':
+                previous=json.loads(gzip.decompress(SOURCE.read_bytes()))
+                if previous['words']!=subset['words']:raise ValueError('Genesis extraction changed')
+                continue
+            if not subset['words'] and not subset['excluded']:continue
+            (folder/(book+'.json.gz')).write_bytes(gzip.compress(json.dumps(subset,ensure_ascii=False,separators=(',',':')).encode(),mtime=0))
+    else:SOURCE.write_bytes(gzip.compress(json.dumps(source,ensure_ascii=False,separators=(',',':')).encode(),mtime=0))
+    print('Extracted',len(records),'source word/morpheme nodes;',len(excluded),'without numeric Bible reference')
 
 def cons(s):return ''.join(re.findall('[א-ת]',s))
 
-def build():
-    source=json.loads(gzip.decompress(SOURCE.read_bytes()))
-    item=next(i for i in json.loads((ROOT/'bundled/manifest.json').read_text())['items'] if i['title']=='Genesis' and i['versionTitle'].startswith('Westminster'))
+def build(book='Genesis',source_file=SOURCE,output=None,audit_file=None):
+    source=json.loads(gzip.decompress(source_file.read_bytes()))
+    item=next(i for i in json.loads((ROOT/'bundled/manifest.json').read_text())['items'] if i['title']==book and i['versionTitle'].startswith('Westminster'))
     raw=(ROOT/'bundled'/item['rel']).read_bytes();mt=json.loads(raw)['text']
     lem_text=(ROOT/'oshb-lemmas.js').read_text();lemmas=json.loads(lem_text.split('window.OSHB_LEMMAS=',1)[1].strip().rstrip(';'))
     grouped=defaultdict(list);omitted=[]
@@ -99,17 +111,17 @@ def build():
         loc=w['locations'][0] if w['locations'] else {}
         if not loc.get('scroll') or not loc.get('fragment'):
             omitted.append({'node':w['node'],'reason':'missing physical coordinates'});continue
-        c,v=map(int,w['ref'].split(' ')[1].split(':'))
+        c,v=map(int,w['ref'].rsplit(' ',1)[1].split(':'))
         if c>len(mt) or v>len(mt[c-1]):omitted.append({'node':w['node'],'reason':'Bible reference outside OSHB'});continue
         grouped[(w['ref'],loc['scroll'][1],loc['fragment'][1],loc['fragment'][0])].append(w)
-    data={'schema':1,'source':{**source['source'],'extractSha256':hashlib.sha256(SOURCE.read_bytes()).hexdigest()},'mt':{},'mtMeta':{},'verses':{}}
+    data={'schema':1,'source':{**source['source'],'extractSha256':hashlib.sha256(source_file.read_bytes()).hexdigest()},'mt':{},'mtMeta':{},'verses':{}}
     il_raw=(ROOT/'qumran-il.js').read_bytes()
     il=json.loads(il_raw.decode().split('window.QUMRAN_IL=',1)[1].strip().rstrip(';'))
-    data['interlinear']=il.get('Genesis',{})
+    data['interlinear']=il.get(book,{})
     data['source']['interlinear']={'file':'qumran-il.js','sha256':hashlib.sha256(il_raw).hexdigest(),'method':'Existing machine alignment; original verse/witness/consonant stream validated before reuse'}
     counts={'segments':0,'tokens':0,'reconstructed':0,'uncertain':0,'damaged':0,'corrected':0};scrolls=set()
     for (ref,scroll,fragment,fragment_id),ww in grouped.items():
-        c,v=map(int,ref.split(' ')[1].split(':'))
+        c,v=map(int,ref.rsplit(' ',1)[1].split(':'))
         data['mt'][ref]=[html.unescape(re.sub('<[^>]*>','',m)) for m in re.findall(r'<span class="w"[^>]*>(.*?)</span>',mt[c-1][v-1])]
         data['mtMeta'][ref]=[]
         for attrs,surface in re.findall(r'<span class="w"([^>]*)>(.*?)</span>',mt[c-1][v-1]):
@@ -149,13 +161,29 @@ def build():
         data['verses'].setdefault(ref,[]).append(entry);counts['segments']+=1;scrolls.add(scroll)
     data['source']['mt']={'rel':item['rel'],'sha256':hashlib.sha256(raw).hexdigest(),'license':'CC BY 4.0','title':'OSHB / Westminster Leningrad Codex'}
     audit={'source':data['source'],'counts':{**counts,'verses':len(data['verses']),'scrolls':sorted(scrolls),'sourceWords':len(source['words'])},'excluded':source['excluded']+omitted}
-    (HERE/'genesis-apparatus-audit.json').write_text(json.dumps(audit,ensure_ascii=False,indent=2)+'\n')
+    (audit_file or HERE/'genesis-apparatus-audit.json').write_text(json.dumps(audit,ensure_ascii=False,indent=2)+'\n')
     payload=json.dumps(data,ensure_ascii=False,separators=(',',':'))
-    (ROOT/'qumran-apparatus.js').write_text('/* Genesis: ETCBC DSS / Abegg CC BY-NC 4.0; OSHB CC BY 4.0; tools/dss/build_apparatus.py */\n(function(d){if(typeof module!=="undefined"&&module.exports)module.exports=d;else window.QUMRAN_APPARATUS=d;})('+payload+');\n')
-    print(json.dumps(audit['counts'],ensure_ascii=False))
+    assignment='window.QUMRAN_APPARATUS=d;' if book=='Genesis' else '(window.QUMRAN_APPARATUS_BOOKS||=(Object.create(null)))['+json.dumps(book)+']=d;'
+    (output or ROOT/'qumran-apparatus.js').write_text('/* '+book+': ETCBC DSS / Abegg CC BY-NC 4.0; OSHB CC BY 4.0; tools/dss/build_apparatus.py */\n(function(d){if(typeof module!=="undefined"&&module.exports)module.exports=d;else '+assignment+'})('+payload+');\n')
+    print(book,json.dumps(audit['counts'],ensure_ascii=False))
+    return audit
+
+def build_all():
+    output=ROOT/'qumran-apparatus';output.mkdir(exist_ok=True)
+    audits=HERE/'apparatus-audit';audits.mkdir(exist_ok=True)
+    index={'schema':1,'source':{'repository':'https://github.com/ETCBC/dss','commit':COMMIT,'version':VERSION,'license':'CC BY-NC 4.0'},'books':{},'unavailable':[]}
+    for book in BOOKS.values():
+        source=SOURCE if book=='Genesis' else HERE/'apparatus-source'/(book+'.json.gz')
+        if not source.exists():index['unavailable'].append(book);continue
+        target=ROOT/'qumran-apparatus.js' if book=='Genesis' else output/(book+'.js')
+        audit=build(book,source,target,HERE/'genesis-apparatus-audit.json' if book=='Genesis' else audits/(book+'.json'))
+        index['books'][book]={'file':str(target.relative_to(ROOT)),'sha256':hashlib.sha256(target.read_bytes()).hexdigest(),'counts':audit['counts'],'excluded':len(audit['excluded'])}
+    (ROOT/'qumran-apparatus-index.js').write_text('/* ETCBC DSS / Abegg CC BY-NC 4.0; per-book lazy loading */\n(function(d){if(typeof module!=="undefined"&&module.exports)module.exports=d;else window.QUMRAN_APPARATUS_INDEX=d;})('+json.dumps(index,ensure_ascii=False,separators=(',',':'))+');\n')
+    print('Total:',len(index['books']),'books;',sum(b['counts']['sourceWords'] for b in index['books'].values()),'source nodes')
 
 if __name__=='__main__':
-    if len(sys.argv)>1:
-        if len(sys.argv)!=3 or sys.argv[1]!='--extract':raise SystemExit(__doc__)
-        extract(sys.argv[2])
-    build()
+    args=argparse.ArgumentParser(description=__doc__)
+    args.add_argument('--extract');args.add_argument('--all',action='store_true');o=args.parse_args()
+    if o.extract:extract(o.extract,o.all)
+    if o.all:build_all()
+    else:build()

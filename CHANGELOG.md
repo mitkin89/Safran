@@ -1,6 +1,8 @@
 # Changelog
 
 ### Unreleased
+- **Biblical DSS apparatus:** extend Genesis to the corpus's assigned biblical material across 36 books, 262 sigla and 8,017 verse references. Keep all 212,355 source word/morpheme nodes in audited extracts and load runtime data per book. Preserve original character annotations, morphology, fragments and physical lines; validate old interlinear streams before reusing word or insertion positions. Damaged/unassigned material does not manufacture MT omissions.
+- **Broader LXX apparatus:** import Hosea's original Oxford CATSS notes separately from unrelated reading editions; expose surviving CATSS alignment flags in Psalms, Proverbs and Job with explicit reading-text provenance. The apparatus now covers 38 books / 41 editions; the mislabeled Esther source remains excluded. Retain original text, uncertainty, source hashes and exact Greek word positions.
 - **Genesis Kennicott apparatus:** add all 9,129 Digital Kennicott entries and 721 witness records offline, under CC BY-NC-SA 4.0. Preserve reading groups, individual witnesses, source text and uncertainty; locate edition lemmas before mapping to Westminster. Explain signs and witness sigla on hover and retain ambiguous positions separately.
 - **Search progress:** show a per-window progress bar and percentage of files searched; remove it on completion, cancellation or error.
 - **Interlinear export:** include the chosen word-aligned sources in current-section, chapter-range and whole-book PDF/Word exports. Preserve LXX, Targum and DSS lines, manuscript sigla, reconstruction and plus markings, and reader font sizes.

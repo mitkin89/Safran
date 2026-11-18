@@ -1,9 +1,22 @@
-// Genesis DSS source adapter. No missing MT word is inferred to be an omission.
+// Per-book biblical DSS source adapter. No missing MT word is inferred to be an omission.
 window.LibraryQumran=(()=>{
 'use strict';
 function create(host){
-  const {esc}=host;let data=null,pending=null;
-  const load=()=>pending||(pending=host.load('qumran-apparatus.js',()=>window.QUMRAN_APPARATUS).then(d=>data=d).catch(e=>{pending=null;throw e;}));
+  const {esc}=host;const loaded=new Map(),pending=new Map();let indexPromise=null;
+  const bookOf=ref=>ref.replace(/ \d+:\d+$/,'');
+  const get=ref=>loaded.get(bookOf(ref));
+  const index=()=>indexPromise||(indexPromise=host.load('qumran-apparatus-index.js',()=>window.QUMRAN_APPARATUS_INDEX).catch(e=>{indexPromise=null;throw e;}));
+  function load(book='Genesis'){
+    if(pending.has(book))return pending.get(book);
+    const task=(async()=>{
+      // Genesis keeps its existing, independently audited payload and global.
+      const meta=book==='Genesis'?{file:'qumran-apparatus.js'}:(await index()).books[book];
+      if(!meta)return null;
+      const d=await host.load(meta.file,()=>book==='Genesis'?window.QUMRAN_APPARATUS:window.QUMRAN_APPARATUS_BOOKS?.[book]);
+      loaded.set(book,d);return d;
+    })().catch(e=>{pending.delete(book);throw e;});
+    pending.set(book,task);return task;
+  }
   const sources=new Map();
   const sourceKey=(ref,i)=>ref+'|'+i;
   function labelFlags(t){
@@ -51,7 +64,8 @@ function create(host){
   function entries(queries,spelling){
     const out=new Map();
     for(const {ref,row} of queries){
-      const segments=data?.verses[ref]||[],assistance=window.QumranApparatus.interlinearAnchors(segments,data?.mt[ref]||[],data?.interlinear[ref.split(' ')[1]]);
+      const data=get(ref);
+      const segments=data?.verses[ref]||[],assistance=window.QumranApparatus.interlinearAnchors(segments,data?.mt[ref]||[],data?.interlinear[ref.slice(ref.lastIndexOf(' ')+1)]);
       segments.forEach((s,si)=>{
         const key=sourceKey(ref,si);sources.set(key,s);
         for(const r of window.QumranApparatus.remarks(s,data.mt[ref],assistance)){
@@ -70,6 +84,7 @@ function create(host){
   function coverage(queries){
     const seen=new Set();let out='';
     for(const {ref} of queries){
+      const data=get(ref);
       const segments=data?.verses[ref]||[];if(!segments.length)continue;
       const links=segments.map((s,i)=>{const key=sourceKey(ref,i);if(seen.has(key))return '';seen.add(key);sources.set(key,s);return '<span tabindex="0" class="tc-dss-coverage-source" data-tc-dss="'+esc(key)+'">'+esc(s.scroll+' '+s.fragment)+'</span>';}).filter(Boolean);
       if(links.length)out+='<p class="tc-dss-coverage"><small>DSS · '+esc(ref)+': </small>'+links.join(' · ')+'</p>';
@@ -81,8 +96,8 @@ function create(host){
     const selected=anchor.dataset.tcToken;
     return '<b title="'+esc('Originalnotation: '+s.tokens.map(t=>t.text).join(' '))+'">'+esc(citation(s))+'</b><div class="tc-dss-context" dir="rtl" lang="he">'+s.tokens.map((t,i)=>'<span class="'+(String(i)===selected?'tc-dss-active':'')+'">'+tokenHtml(t,key,i,false)+'</span>').join(' ')+'</div><small>Lesedarstellung: [ ] = moderne Rekonstruktion; gepunktet = unsicher; … = Lücke; □ = unsicheres Zeichen. Originalnotation über der Quellenangabe. ETCBC/Abegg · CC BY-NC 4.0.</small>';
   }
-  const credit=()=>'<p class="tc-credit">DSS Genesis · ETCBC/Abegg · CC BY-NC 4.0. Maschineller MT-Vergleich. Rekonstruktionen und beschädigte Stellen sind keine erhaltenen Varianten; fehlende MT-Wörter werden nicht automatisch als Auslassung gewertet. Quelltext über den Siglen oder Lesarten ansehen.</p>';
-  return {load,entries,coverage,preview,credit,mt:ref=>data?.mt[ref]};
+  const credit=()=>'<p class="tc-credit">DSS · ETCBC/Abegg · CC BY-NC 4.0. Maschineller MT-Vergleich. Rekonstruktionen und beschädigte Stellen sind keine erhaltenen Varianten; fehlende MT-Wörter werden nicht automatisch als Auslassung gewertet. Quelltext über den Siglen oder Lesarten ansehen.</p>';
+  return {load,entries,coverage,preview,credit,mt:ref=>get(ref)?.mt[ref]};
 }
 return {create};
 })();
