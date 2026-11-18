@@ -262,6 +262,35 @@ window.LibraryWordPopup = (() => {
       const b = ev.target.closest('.wdict'); if (b) openDict(b.dataset.q);
     };
   }
+  // Samaritanischer Pentateuch: eigene Textgrundlage und eigene Annotationen.
+  let samaritanP = null;
+  const loadSamaritan = () => samaritanP || (samaritanP = lazyScript('samaritan-data.js', () => window.SAMARITAN_DATA).catch(e => { samaritanP = null; throw e; }));
+  async function showSamaritanWord(w) {
+    const token = gTok;
+    let D;
+    try { D = await loadSamaritan(); }
+    catch { if (token === gTok && w.isConnected) alert(I18N.t('Morphologie konnte nicht geladen werden.')); return; }
+    if (token !== gTok || !w.isConnected) return;
+    const S = window.SamaritanMorph, info = S.word(D, w.dataset.l);
+    if (!info) return;
+    const t = s => I18N.t(s);
+    const rows = info.parts.map(part => `<div class="wseg main"><span class="wlem" dir="rtl" lang="he">${esc(S.lemma(part))}</span>${part[1] ? ` <span class="muted">${esc(part[1])}</span>` : ''}<br>${S.describe(part,t).map(esc).join(' · ')}</div>`).join('');
+    const phono = info.phono.filter(Boolean).join(' · ');
+    const variants = info.variants.map(v => `<p><b>Tal–Florentin:</b> <bdi>${esc(v.base)}</bdi> → <bdi>${esc(v.reading === '-' ? t('ausgelassen') : v.reading)}</bdi></p>`).join('');
+    const lemmas = [...new Set(info.parts.filter(p => !['conj','art','prep'].includes(p[2])).map(S.lemma).filter(Boolean))];
+    if (!lemmas.length) lemmas.push(...new Set(info.parts.map(S.lemma).filter(Boolean)));
+    w.classList.add('sel');
+    wpop = document.createElement('div'); wpop.id = 'wpop';
+    wpop.innerHTML = `<div class="wtop"><span class="wword" dir="rtl" lang="he">${esc(w.textContent)}</span><button class="wx" title="${esc(t('Schließen'))}">✕</button></div><p class="muted">${esc(t('Samaritanisches Hebräisch'))}</p>${phono ? `<div class="wphon" lang="he-Latn" title="${esc(t('Umschrift der Datenquelle'))}">${esc(phono)}</div>${phono.includes('�') ? `<p class="muted">${esc(t('Umschrift teilweise unlesbar'))}</p>` : ''}` : ''}${rows}${variants}${info.notes.map(n=>`<p class="muted">${esc(n)}</p>`).join('')}${lemmas.map(l=>`<button class="wdict" data-q="${esc(l)}">${esc(t('Im Wörterbuch nachschlagen'))}: <bdi>${esc(l)}</bdi></button>`).join('')}<p class="muted">CACCHT / DT-UCPH · ${esc(D.version)} · CC BY-NC 4.0</p>`;
+    document.body.appendChild(wpop);
+    const r = w.getBoundingClientRect(), pw = wpop.offsetWidth, ph = wpop.offsetHeight;
+    wpop.style.left = Math.max(8, Math.min(window.innerWidth - pw - 8, r.left + r.width / 2 - pw / 2)) + 'px';
+    wpop.style.top = (r.bottom + ph + 6 < window.innerHeight - 8 ? r.bottom + 6 : Math.max(8, r.top - ph - 6)) + 'px';
+    wpop.onclick = e => {
+      if (e.target.closest('.wx')) { closeWpop(); return; }
+      const b = e.target.closest('.wdict'); if (b) { closeWpop(); openDict(b.dataset.q); }
+    };
+  }
   // Aussprache (ETCBC phono) im Wort-Popup: aus der Umschrift-Zuordnung in interlin.js (Westminster-Wort Nr. n im Vers)
   function wPhono(w, pop) {
     const cell = w.closest('.cell'), row = w.closest('.row[data-l]'), s = reader.view && reader.view.sections && reader.view.sections[reader.view.idx], chap = s && apChap(s);
@@ -291,6 +320,7 @@ window.LibraryWordPopup = (() => {
     if (same) return;
     if (w.classList.contains('wt')) { showTargumWord(w); return; }
     if (w.classList.contains('wq')) { showQumranWord(w); return; }
+    if (window.SamaritanMorph && window.SamaritanMorph.own(w.dataset.l)) { showSamaritanWord(w); return; }
     if (window.BavliMorph && window.BavliMorph.own(w.dataset.l)) { showBavliWord(w); return; }
     const d = window.Morph.decode(w.dataset.m, w.dataset.l);
     if (!d) return;

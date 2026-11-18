@@ -14,6 +14,10 @@
   if (lang === 'de') return;
 
   const EN = {
+    "Samaritanisches Hebräisch": "Samaritan Hebrew",
+    "Umschrift der Datenquelle": "Transcription supplied by the source",
+    "Umschrift teilweise unlesbar": "Transcription partly illegible",
+    "Nicht bestimmt": "Not determined",
     "Wortzuordnung nicht angewendet: {}": "Word alignment not applied: {}",
     "Quellstand der Wortzuordnung fehlt": "Source fingerprint for the word alignment is missing",
     "Hebräische Fassung weicht vom Quellstand der Wortzuordnung ab": "Hebrew version differs from the alignment source",

@@ -40,7 +40,7 @@ Safran ist eine kostenlose Desktop-App für macOS, Windows und Linux, die deine 
 | 📴 **Funktioniert offline** | Texte, Verknüpfungen, Wörterbücher, Karten und Audio liegen auf deiner Festplatte. Nichts wird irgendwohin gesendet. |
 | 🇩🇪 **Deutsche Texte, die es sonst nicht gibt** | Über 50 Werke: Zunz, Philippson, Mendelssohns Biur, Herxheimer, Hertz, Hirsch, Raschi nach Bamberger, die Kautzsch-Apokryphen, Midrasch Rabba, Josephus, Graetz, der Schulchan Aruch (Lederer), Ginzbergs *Legenden der Juden* … sofort beim ersten Start da. |
 | 📚 **Ein Wörterbuchregal, nicht nur ein Lexikon** | Liddell & Scott, BDB, Gesenius, Jastrow, Levy, Krauss und Hamburgers Real-Encyclopädie: über 300.000 Einträge, durchsuchbar nach Stichwort *und* im Volltext, mit Abkürzungen beim Überfahren und Quellen, die sich im Lesefenster öffnen. |
-| 📜 **Handschriften und alte Übersetzungen** | Aleppo-Kodex, die biblischen Qumran-Rollen und alle 735 nichtbiblischen mit Morphologie, die Septuaginta mit anklickbarer Morphologie und LXX-MT-Vergleich, Targum Onkelos, Pseudo-Jonathan und Neofiti. |
+| 📜 **Handschriften und alte Übersetzungen** | Samaritanischer Pentateuch (CACCHT / DT-UCPH) mit anklickbarer Morphologie und Tal–Florentin-Lesarten als Anmerkungen; Aleppo-Kodex, die biblischen Qumran-Rollen und alle 735 nichtbiblischen mit Morphologie, die Septuaginta mit anklickbarer Morphologie und LXX-MT-Vergleich, Targum Onkelos, Pseudo-Jonathan und Neofiti. |
 | 🔎 **Suche, die Grammatik kennt** | Volltextsuche in allem, alle Formen eines Wortes über das Lemma (hebräisch und griechisch) und eine Grammatiksuche nach Stamm, Zeit, Person, Genus und Numerus. |
 | 🗺 **Gemacht zum Lernen** | Vers-für-Vers-Ausrichtung, zweites Lesefenster, Bibelkarte, Gliederungen, jüdischer Kalender und eine hebräische Lesung des ganzen Tanach. |
 
@@ -298,3 +298,7 @@ Der Quellcode steht unter der [MIT-Lizenz](LICENSE). Texte, Wörterbücher, Kart
 <p align="center"><sub><b>סַפְרָן</b> <i>(safran)</i> ist hebräisch für Schreiber, im modernen Hebräisch Bibliothekar, von derselben Wurzel wie <i>sefer</i>, Buch. Safran entsteht bei <a href="https://talmud.de">talmud.de</a>.</sub></p>
 
 Berachot 2a–10b bietet außerdem **Wortzuordnung · Test** für Goldschmidt und Pinner. 2a–3b sind in beiden Fassungen von Hand zugeordnet; weitere geprüfte Stellen und klar gekennzeichnete Vorschläge sind enthalten. [Prüfstand](tools/bavli/interlinear/README.md).
+
+### Samaritanischer Pentateuch
+
+In Genesis bis Deuteronomium unter **Fassungen** „Samaritanischer Pentateuch (CACCHT, DT-UCPH 7.5.0)“ auswählen. Ein Wortklick zeigt Lexem, englische Bedeutung, die vorhandenen grammatischen Merkmale und die Umschrift der Quelle. Vorsilben werden getrennt bestimmt. Tal–Florentin-Lesarten stehen in den Fußnoten und am betroffenen Wort. Die Verszählung folgt der samaritanischen Datenquelle. Text und Annotationen: [CACCHT / DT-UCPH](https://github.com/DT-UCPH/sp), **CC BY-NC 4.0**; [Quellen und Grenzen](tools/samaritan/README.md).

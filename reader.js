@@ -165,7 +165,7 @@ function cleanHtml(s) {
       if (wq) { spans++; return `<span class="wq" data-l="${wq[1]}" data-m="${wq[2]}">`; }
       const gk = m.match(/^<span class="wg( wm)?" data-h="([\u05D0-\u05EA ]{0,120})"(?: data-f="([a-z]{1,8})")?(?: data-r="([\u05D0-\u05EA ]{0,120})")?>$/);
       if (gk) { spans++; return `<span class="wg${gk[1] || ''}" data-h="${gk[2]}"${gk[3] ? ` data-f="${gk[3]}"` : ''}${gk[4] ? ` data-r="${gk[4]}"` : ''}>`; }
-      const w = m.match(/^<span class="w" data-l="([0-9a-z\/+ ]{0,40}|bavli:[a-z0-9]{1,12}(?::[a-z0-9]{1,40}){1,6})" data-m="([A-Za-z0-9\/]{0,40})">$/);
+      const w = m.match(/^<span class="w" data-l="([0-9a-z\/+ ]{0,40}|sp:[0-9]{6}|bavli:[a-z0-9]{1,12}(?::[a-z0-9]{1,40}){1,6})" data-m="([A-Za-z0-9\/]{0,40})">$/);
       if (!w) return '';
       spans++;
       return `<span class="w" data-l="${w[1]}" data-m="${w[2]}">`;
