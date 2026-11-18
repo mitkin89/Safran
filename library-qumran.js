@@ -8,7 +8,7 @@ function create(host){
   const sourceKey=(ref,i)=>ref+'|'+i;
   function labelFlags(t){
     const f=t.flags,out=[];
-    if(f.rec)out.push(t.reconstructedLetters===t.letters?'Rekonstruiert':'Teilrekonstruiert');
+    if(f.rec&&t.letters>0)out.push(t.reconstructedLetters===t.letters?'Rekonstruiert':'Teilrekonstruiert');
     if(f.unc)out.push('Unsichere Lesung');if(f.missing)out.push('Lücke');
     if(f.cor)for(const c of f.cor)out.push(({'1':'Moderne Korrektur','2':'Antike Korrektur','3':'Antiker Nachtrag über der Zeile'})[c]||'Korrektur');
     if(f.rem)for(const c of f.rem)out.push(c==='1'?'Vom Herausgeber gestrichen':c==='2'?'Antike Streichung':'Gestrichener Text');

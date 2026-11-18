@@ -32,7 +32,7 @@ test('Damaged, reconstructed and ambiguous fragments never manufacture MT omissi
   assert.deepEqual(Q.align(partial,['בראשית','ברא','אלהים','את','השמים']),[1,2]);
   assert.equal(Q.remarks({tokens:partial},['בראשית','ברא','אלהים','את','השמים']).length,0);
   const gap=Q.remarks({tokens:[token('ε',{missing:['1']})]},['אמר']);
-  assert.equal(gap[0].status,'Lücke');assert.equal(gap[0].different,false);assert.equal(gap[0].anchor,null);
+  assert.equal(gap.length,0,'A gap without letters is context information, not a textual variant');
 });
 test('Attested Genesis 1:5 reading and conservative spelling filter have stable MT positions',()=>{
   const ref='Genesis 1:5',s=D.verses[ref].find(s=>s.scroll==='4Q7');
@@ -96,4 +96,14 @@ test('Uncertain agreement is context metadata, not a variant; interlinear does n
   assert.equal(Q.remarks(recSeg,['כי'],recMap).length,0);assert(!Q.certain(reconstructed));
   const conflict={scroll:'C',tokens:[token('אב'),token('גד')]};
   assert.equal(Q.interlinearAnchors([conflict],['אב','גד'],[['C',[[[2],'אב',0],[[1],'גד',0]]]]).size,0);
+});
+
+test('4Q7 gap placeholders remain in context but never become reconstructed-word apparatus entries',()=>{
+  for(const ref of ['Genesis 1:11','Genesis 1:13','Genesis 2:6','Genesis 2:7']){
+    const segments=D.verses[ref],a=Q.interlinearAnchors(segments,D.mt[ref],D.interlinear[ref.split(' ')[1]]);
+    const segment=segments.find(s=>s.scroll==='4Q7');
+    const gaps=segment.tokens.filter(t=>t.flags.missing&&t.flags.rec&&!Q.cons(t.text));assert(gaps.length,ref);
+    const remarks=Q.remarks(segment,D.mt[ref],a);
+    assert(!remarks.some(r=>gaps.includes(r.token)),ref);
+  }
 });

@@ -84,7 +84,7 @@ function remarks(segment,mt,assistance=new Map()){
     const whollyReconstructed=token.letters>0&&token.reconstructedLetters===token.letters;
     const hasStatus=!!(f.unc||f.cor||f.rem||f.alt||f.vac||f.missing);
     if(!hasStatus&&whollyReconstructed)return;
-    if(!c&&!hasStatus)return;
+    if(!c)return; // Non-letter gap/vacat markers belong to the source context.
     const unknown=!anchor;
     const status=f.missing?'Lücke':f.rem?'Gestrichener Text':f.cor?'Korrektur':f.unc?'Unsichere Lesung':f.rec?'Teilrekonstruiert':f.alt?'Alternative Lesung':f.vac?'Unbeschriebener Raum':anchor?.kind==='gap'?'Möglicher Zusatz':unknown?'Zuordnung offen':'Lesartunterschied';
     out.push({token,index,anchor,method,status,different:!same&&certain(token)&&!!anchor,uncertain:!certain(token)||unknown});

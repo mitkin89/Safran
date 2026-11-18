@@ -1,6 +1,7 @@
 # Changelog
 
 ### New in 2.6.0
+- **DSS gap notices:** keep non-letter gap placeholders in manuscript context only, and avoid labeling them as reconstructed words.
 - **Version metadata:** align the internal app/package version with the published 2.6.0 release name; Electron previously still reported 2.5.0.
 - **DSS apparatus alignment and focus:** reuse existing interlinear MT positions only after checking the complete witness/verse consonant stream and guarding against conflicting anchors. Preserve source uncertainty/reconstruction flags, repeated-word positions and original morphology. Omit same-word uncertainty-only entries; retain their annotations in manuscript context hovers.
 - **Quieter apparatus:** omit the empty-result and missing-DSS-coverage notices in the text-critical pane.
