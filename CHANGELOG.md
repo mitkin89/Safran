@@ -1,6 +1,9 @@
 # Changelog
 
 ### New in 2.5.0
+- **CATSS interlinear context:** hover an LXX remark to preview the source-aligned Greek/Hebrew word groups, highlight the affected group and label reconstructed Hebrew separately. Preserve source plus/minus and existing morphology access.
+- **Apparatus by MT word position:** group SMR and LXX remarks under their shared MT word or phrase in verse order, with small witness labels and original notes/citations. Distinguish repeated words by their position, place securely anchored additions between MT words, and retain ambiguous positions separately at the verse end. Preserve numbering, hover/morphology and chapter navigation.
+- **CATSS number-difference display:** preserve the source operator `=+` instead of transliterating its plus sign as Hebrew tet. Show code-only column-b remarks as descriptive labels without an empty reconstructed reading.
 - **Readable CATSS remarks:** display descriptive short labels in place of source symbols, retain original codes and explanations in hovers, and keep reconstructed readings inline with their Greek group.
 - **LXX in the textual criticism pane:** add 61,284 Tov/Kraft CATSS source remarks across 36 exact-matched editions, with separate witness filters, Greek verse hovers, code explanations and existing Greek morphology. Preserve original source columns, uncertainty and file/line references; distinguish alignment plus/minus from reconstructed Hebrew readings. Include reproducible Oxford sources and provenance checks. Exclude the mislabeled Esther/Ezra section and report missing coverage. NETS is not included.
 

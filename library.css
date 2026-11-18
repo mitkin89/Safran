@@ -1879,3 +1879,16 @@ html.split #textcritPanel:not(.docked) { right: var(--p2w); }
 .tc-tov-tag { display: inline-block; padding: 0 5px; border-radius: 4px; background: var(--card); font-style: normal; }
 .tc-tov-reading { display: inline; }
 .tc-tov-reading > abbr { white-space: nowrap; }
+/* Group witnesses by MT word position; keep each original source note flat. */
+.tc-locus { margin: 10px 0 18px; }
+.tc-locus-title { margin: 0 0 6px; font-size: 1em; font-weight: 600; }
+.tc-locus-title bdi[lang="he"] { font-size: 1.35em; }
+.tc-locus[data-kind="unresolved"] > h4 { color: var(--muted); font-weight: 400; }
+.tc-witness-label { display: inline-block; font: .8em/1.3 system-ui, sans-serif; color: var(--muted); background: var(--chip); border-radius: 4px; padding: 1px 4px; vertical-align: middle; }
+.tc-locus .tc-entry { margin: 0; padding: 7px 0; }
+#tcHover .tc-tov-il { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 8px 10px; margin: 8px 0; }
+#tcHover .tc-il-unit { display: inline-flex; flex-direction: column; align-items: center; padding: 3px 5px; border: 1px solid transparent; border-radius: 4px; }
+#tcHover .tc-il-unit.active { border-color: var(--accent); background: var(--chip); }
+#tcHover .tc-tov-il [lang="grc"] { margin: 0; font-size: 1em; }
+#tcHover .tc-il-he { font-size: 1.2em; }
+#tcHover .tc-il-retro { color: var(--muted); font-size: .8em; }

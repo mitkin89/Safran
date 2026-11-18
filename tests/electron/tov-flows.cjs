@@ -17,16 +17,18 @@ module.exports=async({docs,win,js,waitFor,book})=>{
   const point=await js(`{const r=${target}.getBoundingClientRect();({x:Math.round(r.left+r.width/2),y:Math.round(r.top+r.height/2)})}`);
   win.webContents.sendInputEvent({type:'mouseMove',...point});
   await waitFor("document.querySelector('#tcHover')?.textContent.includes('στερέωμα')",'Griechischer Verskontext über dem Lemma');
+  assert(await js("document.querySelectorAll('#tcHover .tc-il-unit').length>5 && document.querySelector('#tcHover .tc-il-unit.active [lang=grc]')?.textContent==='καὶ ἐγένετο' && [...document.querySelectorAll('#tcHover .tc-il-he')].some(n=>n.textContent==='רקיע') && document.querySelector('#tcHover .tc-il-retro')?.textContent.includes('erschlossen')"),'Source-aligned Greek/Hebrew interlinear hover with highlighted group');
   assert(await js("document.querySelector('#tcHover').textContent.includes('Genesis 1:6') && !document.querySelector('#tcHover [lang=en]')"),'No NETS translation');
+  if(process.env.SAFRAN_TOV_HOVER_CAPTURE){await js("new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))");fs.writeFileSync(process.env.SAFRAN_TOV_HOVER_CAPTURE,(await win.webContents.capturePage()).toPNG());}
   await js(`${target}.click()`);
   await waitFor("[...document.querySelectorAll('#wpop .wseg')].some(n=>n.textContent.includes('Verb'))",'Echte LXX-Morphologie aus dem Apparat');
   await js("document.querySelector('#wpop .wx').click()");
   // Multiple witnesses coexist and retain independent filters.
   await js("document.querySelector('#tcSmr').checked=true;document.querySelector('#tcSmr').dispatchEvent(new Event('change',{bubbles:true}));document.querySelector('#tcWhole').click()");
   await waitFor("document.querySelectorAll('#tcBody .tc-tov-entry').length>8",'Tov im ganzen Kapitel');
-  assert(await js("[...document.querySelectorAll('#tcBody .tc-witness h3')].some(n=>n.textContent.includes('SMR')) && [...document.querySelectorAll('#tcBody .tc-witness h3')].some(n=>n.textContent.includes('LXX'))"));
+  assert(await js("document.querySelector('#tcBody [data-witness=SMR]') && document.querySelector('#tcBody [data-witness=LXX]')"));
   await js("document.querySelector('#tcTov').checked=false;document.querySelector('#tcTov').dispatchEvent(new Event('change',{bubbles:true}))");
-  await waitFor("!document.querySelector('#tcBody .tc-tov') && document.querySelector('#tcBody .tc-witness')",'LXX separat ausblenden');
+  await waitFor("!document.querySelector('#tcBody .tc-tov-entry') && document.querySelector('#tcBody .tc-witness')",'LXX separat ausblenden');
   await js("document.querySelector('#tcTov').checked=true;document.querySelector('#tcTov').dispatchEvent(new Event('change',{bubbles:true}));document.querySelector('#rOut .row[data-l=\"6\"] .txt').click()");
   await waitFor("document.querySelector('#tcBody .tc-tov-entry')",'LXX wieder einblenden');
   if(process.env.SAFRAN_TOV_CAPTURE){
@@ -35,6 +37,13 @@ module.exports=async({docs,win,js,waitFor,book})=>{
     await js("new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))");
     fs.writeFileSync(process.env.SAFRAN_TOV_CAPTURE,(await win.webContents.capturePage()).toPNG());
   }
+  await js("document.querySelector('#tcSmr').checked=true;document.querySelector('#tcSmr').dispatchEvent(new Event('change',{bubbles:true}));document.querySelector('#rSection').value='1';document.querySelector('#rSection').dispatchEvent(new Event('change',{bubbles:true}))");
+  await waitFor("document.querySelector('#rOut .row[data-l=\"2\"]') && document.querySelector('#rSection').value==='1'",'Genesis 2 geladen');
+  await js("document.querySelector('#rOut .row[data-l=\"2\"] .txt').click()");
+  await waitFor("document.querySelector('#tcPlace').textContent.includes('Genesis 2:2') && document.querySelector('#tcBody .tc-locus [data-witness=LXX]')",'Gemeinsamer Wortapparat Genesis 2:2');
+  assert(await js("{const g=document.querySelector('#tcBody .tc-locus[data-start=\"3\"]');!!g?.querySelector('[data-witness=SMR]')&&!!g.querySelector('[data-witness=LXX]')&&g.dataset.end==='3'&&g.querySelector('.tc-locus-title').textContent.includes('שְּׁבִיעִ')&&document.querySelectorAll('#tcBody .tc-locus').length===1}"),'Both witnesses belong to the first occurrence of השביעי');
+  assert(await js("!document.querySelector('#tcBody').textContent.includes('=ט') && [...document.querySelectorAll('#tcBody .tc-tov-tag')].some(n=>n.textContent==='Zahlenunterschied')"));
+  if(process.env.SAFRAN_LOCI_CAPTURE){await js("new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))");fs.writeFileSync(process.env.SAFRAN_LOCI_CAPTURE,(await win.webContents.capturePage()).toPNG());}
   await js("document.querySelector('#tcClose').click()");
   const root=path.resolve(__dirname,'../..'),entry=require('../../bundled/manifest.json').items.find(i=>i.title==='Joshua'&&i.versionTitle.startsWith('Westminster'));
   const doc=JSON.parse(fs.readFileSync(path.join(root,'bundled',entry.rel)));

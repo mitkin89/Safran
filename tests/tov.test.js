@@ -39,3 +39,34 @@ test('Retroversions, uncertainty and missing coverage remain distinct; mislabele
   assert.equal(D.editions.Esth,undefined);assert.match(D.excluded.Esth,/Esra statt Esther/);
   for(const book of ['Psalms','Proverbs','Job','Hosea','Esther'])assert(!Object.values(D.editions).some(e=>e.book===book));
 });
+
+test('Numerical difference operators are preserved, not transliterated as Hebrew tet',()=>{
+  const n=D.verses['Gen 2:2'].remarks.find(n=>n.codes.includes('=+'));
+  assert.equal(n.b,'=+');assert.equal(n.bText,'=+');
+  assert.equal(n.h,'השביעי');assert.equal(n.g,'τῇ ἕκτῃ');
+  for(const v of Object.values(D.verses))for(const n of v.remarks){
+    const prefix=n.codes.find(c=>c.startsWith('='));
+    if(prefix)assert(n.bText.startsWith(prefix),v.ref+' '+n.b);
+  }
+});
+
+test('MT grouping words retain their OSHB provenance and source-row position ranges',()=>{
+  for(const [rel,hash] of Object.entries(audit.mtSha256))assert.equal(crypto.createHash('sha256').update(fs.readFileSync(path.join(root,'bundled',rel))).digest('hex'),hash);
+  for(const v of Object.values(D.verses)){
+    assert(Array.isArray(D.mt[v.ref]),v.ref);
+    for(const n of v.remarks)assert.equal(v.hWords.slice(n.hStart,n.hStart+n.hCount).join(' '),n.h,v.ref);
+  }
+});
+
+test('Interlinear preview preserves the exact CATSS groups, counterparts, flags and retroversions',()=>{
+  const docs=new Map();
+  for(const [code,e] of Object.entries(D.editions))docs.set(code,JSON.parse(fs.readFileSync(path.join(root,'bundled',e.rel))));
+  for(const v of Object.values(D.verses)){
+    const [,ch,vs]=/ (\d+):(\d+)$/.exec(v.ref),original=docs.get(v.edition).text[+ch-1][+vs-1];
+    const groups=[...original.matchAll(/<span class="wg(?: wm)?"([^>]*)>(.*?)<\/span>/g)].map(m=>{
+      const attr=k=>new RegExp('data-'+k+'="([^"]*)"').exec(m[1])?.[1]||'';
+      return [m[2],attr('h'),attr('f'),attr('r')];
+    });
+    assert.deepEqual(v.pairs.map(([g,h,f,r])=>[g,h,[...new Set(f)].sort().join(''),r]),groups,v.ref);
+  }
+});

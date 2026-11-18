@@ -90,6 +90,7 @@ function create(host){
     const nodes=[];let node;while((node=walker.nextNode()))nodes.push(node);
     const normalize=s=>s.replace(/[^א-ת]/g,'').replace(/[ךםןףץ]/g,c=>({'ך':'כ','ם':'מ','ן':'נ','ף':'פ','ץ':'צ'})[c]);
     for(const text of nodes){
+      if(text.parentElement.closest('.tc-witness-label'))continue;
       const match=/[א-ת][א-ת\u0591-\u05c7]*/.exec(text.data);
       if(/[A-Za-z]/.test(match?text.data.slice(0,match.index):text.data))break;
       if(!match)continue;
@@ -131,19 +132,43 @@ function create(host){
       }
       let unresolvedHtml='';
       if(showSmr&&!whole&&unresolved.length){unresolvedHtml='<p class="tc-status">Für diesen MT-Vers liegt keine hinreichend sichere wortlautbasierte Zuordnung vor. Das bedeutet keine Übereinstimmung und keinen fehlenden Text. Über „Zählung“ lässt sich der Tal-Apparat unter seiner eigenen Versangabe öffnen.</p>';}
-      let count=0;const renderedGroups=new Map();
-      const sections=[...refs].map(([ref,readerRows])=>{
-        const verse=data.verses[ref],groups=window.TextCrit.remarks(data,notes,ref,showSpelling);count+=groups.length;renderedGroups.set(ref,groups);
-        if(whole&&!groups.length)return '';
-        const shifted=!(verse.mtRefs.length===1&&verse.mtRefs[0]===ref);
-        const rows=groups.map((g,i)=>{
-          const notesHtml=g.notes.map(n=>'<section class="tc-note"><div class="tc-note-text">'+host.clean(n.html)+'</div><small class="tal-cite">'+esc(n.citation)+'</small></section>').join('');
-          const fallback='<section class="tc-note"><div class="tc-note-text"><span class="tc-he" dir="rtl" lang="he">'+g.words.map(w=>word(w)).join(' ')+'</span></div><small class="tal-cite">Tal–Florentin, '+esc(ref)+' · rote Kennzeichnung; keine zugeordnete Anmerkung.</small></section>';
-          return '<article class="tc-entry" data-tc-ref="'+esc(ref)+'" data-tc-group="'+i+'">'+(notesHtml||fallback)+'</article>';
+      const records=[],renderedGroups=new Map();
+      const mtWords=ref=>tov.mt(ref)||window.TextCrit.words(data.mt[ref]||'');
+      const notices=[];
+      for(const [ref,readerRows] of refs){
+        const verse=data.verses[ref],groups=window.TextCrit.remarks(data,notes,ref,showSpelling);renderedGroups.set(ref,groups);
+        const bases=verse.mtRefs,targets=bases.flatMap(r=>mtWords(r).map((word,index)=>({ref:r,word,index})));
+        const mapped=window.TextCrit.alignPositions(verse.words.map(w=>w[0]),targets.map(t=>t.word));
+        if(!(bases.length===1&&bases[0]===ref))notices.push('Abweichende Versgrenzen oder Zählung: Tal–Florentin '+ref+'; MT '+(bases.join('; ')||'nicht sicher zugeordnet')+'.');
+        groups.forEach((g,i)=>{
+          const position=window.TextCrit.locate(mapped,g.indices,targets.length);
+          let anchor=null;
+          if(position?.kind==='word'&&targets[position.start]?.ref===targets[position.end]?.ref){
+            anchor={kind:'word',ref:targets[position.start].ref,start:targets[position.start].index,end:targets[position.end].index};
+          }else if(position?.kind==='gap'){
+            const left=targets[position.start],right=targets[position.start+1];
+            if(left&&(!right||left.ref===right.ref))anchor={kind:'gap',ref:left.ref,start:left.index,end:left.index};
+            else if(!left&&right)anchor={kind:'gap',ref:right.ref,start:-1,end:-1};
+          }
+          const notesHtml=g.notes.map(n=>'<section class="tc-note"><div class="tc-note-text"><span class="tc-witness-label">SMR</span> '+host.clean(n.html)+'</div><small class="tal-cite">'+esc(n.citation)+'</small></section>').join('');
+          const fallback='<section class="tc-note"><div class="tc-note-text"><span class="tc-witness-label">SMR</span> <span class="tc-he" dir="rtl" lang="he">'+g.words.map(w=>word(w)).join(' ')+'</span></div><small class="tal-cite">Tal–Florentin, '+esc(ref)+' · rote Kennzeichnung; keine zugeordnete Anmerkung.</small></section>';
+          records.push({anchor,displayRef:bases[0]||ref,rows:readerRows,html:'<article class="tc-entry" data-witness="SMR" data-tc-ref="'+esc(ref)+'" data-tc-group="'+i+'">'+(notesHtml||fallback)+'</article>'});
+        });
+      }
+      if(showTov)records.push(...tov.entries(tovQueries));
+      const verses=new Map();
+      for(const entry of records){const ref=entry.anchor?.ref||entry.displayRef;if(!verses.has(ref))verses.set(ref,[]);verses.get(ref).push(entry);}
+      const ordered=[...verses].sort(([a],[b])=>{const x=/ (\d+):(\d+)$/.exec(a),y=/ (\d+):(\d+)$/.exec(b);return +x[1]-y[1]||+x[2]-y[2];});
+      const sections=ordered.map(([ref,entries])=>{
+        const sourceWords=mtWords(ref),readerRows=[...new Set(entries.flatMap(e=>e.rows))];
+        const loci=window.TextCrit.groupLoci(entries).map(g=>{
+          const lemma=g.kind==='word'?'<bdi lang="he" dir="rtl">'+esc(sourceWords.slice(g.start,g.end+1).join(' '))+'</bdi>':g.kind==='gap'?(g.start<0?'Zusatz vor dem ersten MT-Wort':'Zusatz nach <bdi lang="he" dir="rtl">'+esc(sourceWords[g.start])+'</bdi>'):'Nicht sicher zugeordnet';
+          return '<section class="tc-locus" data-kind="'+g.kind+'"'+(g.kind!=='unresolved'?' data-start="'+g.start+'" data-end="'+g.end+'"':'')+'><h4 class="tc-locus-title">'+lemma+'</h4>'+g.entries.map(e=>e.html).join('')+'</section>';
         }).join('');
-        return '<section class="tc-witness tc-reader-verse" data-rows="'+esc(readerRows.join(','))+'"><h3><button class="tc-jump" type="button" data-row="'+esc(readerRows[0])+'" title="Im Lesetext anzeigen">SMR · '+esc(ref)+'</button></h3>'+(shifted?'<p class="tc-status">Abweichende Versgrenzen oder Zählung. MT-Bezug über gemeinsame Wörter ermittelt: '+esc(verse.mtRefs.join('; ')||'nicht sicher zugeordnet')+'.</p>':'')+(rows||'<p class="muted">'+(showSpelling?'Keine erfasste Abweichung oder Anmerkung an dieser Stelle.':'Keine Anmerkung bei diesem Filter. Schreibunterschiede können eingeblendet werden.')+' Dies ist kein Nachweis vollständiger Übereinstimmung.</p>')+'</section>';
+        return '<section class="tc-reader-verse tc-witness" data-rows="'+esc(readerRows.join(','))+'"><h3><button class="tc-jump" type="button" data-row="'+esc(readerRows[0])+'">'+esc(ref)+' · MT</button></h3>'+loci+'</section>';
       }).join('');
-      body.innerHTML=unresolvedHtml+(showSmr?'<p class="tc-count">'+count+' '+(count===1?'Textstelle':'Textstellen')+' · Tal–Florentin-Apparat</p>'+sections+(whole&&unresolved.length?'<p class="tc-status">Keine sichere Stellenzuordnung: '+esc(unresolved.join('; '))+'. Diese Stellen lassen sich unter Tals eigener Zählung ansehen.</p>':''):'')+(showTov?tov.render(tovQueries):'')+(showSmr?'<p class="tc-credit">Samaritanus, Tal–Florentin · CC BY-NC 4.0. MT-Bezug über gemeinsame Wörter ermittelt.</p>':'')+(!showSmr&&!showTov?'<p class="muted">SMR ist ausgeblendet. Wähle einen Zeugen oben aus.</p>':'');
+      const empty=!showSmr&&!showTov?'SMR ist ausgeblendet. Wähle einen Zeugen oben aus.':'Keine erfasste Anmerkung bei diesem Filter. Das belegt keine vollständige Übereinstimmung mit dem MT.';
+      body.innerHTML=unresolvedHtml+(records.length?'<p class="tc-count">'+records.length+' Hinweise · nach MT-Wortposition</p>':'')+notices.map(n=>'<p class="tc-status">'+esc(n)+'</p>').join('')+(sections||'<p class="muted">'+empty+'</p>')+(showTov&&!records.some(e=>e.html.includes('tc-tov-entry'))?'<p class="muted">Tov/CATSS ist für Psalmen, Sprüche, Hiob, Hosea und Esther hier nicht erschlossen.</p>':'')+(showTov?tov.credit():'')+(showSmr?'<p class="tc-credit">Samaritanus, Tal–Florentin · CC BY-NC 4.0. MT-Bezug wortlautbasiert; bei mehrdeutiger Wortposition bleibt die Zuordnung offen.</p>':'');
       body.querySelectorAll('.tc-entry[data-tc-group]').forEach(entry=>{
         const ref=entry.dataset.tcRef,g=renderedGroups.get(ref)[+entry.dataset.tcGroup];
         entry.querySelectorAll('.tc-note').forEach(note=>decorateNote(note,g.words,ref));

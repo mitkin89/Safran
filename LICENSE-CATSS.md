@@ -14,3 +14,5 @@ Beta-Code und Umschrift wurden in Unicode umgewandelt (griechisch und hebräisch
 ## Bedingungen
 
 Diese Daten dürfen nur **nicht kommerziell** verwendet werden, mit Namensnennung (siehe oben) und – bei Weitergabe von Bearbeitungen – **unter derselben Lizenz** (CC BY-NC-SA 3.0). Der Quellcode von Safran steht dagegen unter der Lizenz des Projekts (siehe `LICENSE`); diese Einschränkung gilt für die CATSS-Texte, den CATSS-Apparat und seine Quelldaten.
+
+Die im gemeinsamen Apparat ergänzten masoretischen Bezugswörter stammen aus dem Westminster Leningrad Codex / Open Scriptures Hebrew Bible (OSHB, CC BY 4.0). Sie behalten ihre eigene Namensnennung und Lizenz; siehe die OSHB-Lizenzhinweise des Projekts.

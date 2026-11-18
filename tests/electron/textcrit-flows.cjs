@@ -62,7 +62,7 @@ module.exports=async({win,js,waitFor,book})=>{
   await js("document.querySelector('#rSection').value='19';document.querySelector('#rSection').dispatchEvent(new Event('change',{bubbles:true}))");
   await waitFor("document.querySelector('#rOut .row[data-l=\"12\"]')",'Exodus 20');
   await js("document.querySelector('#tcNumbering').value='mt';document.querySelector('#tcNumbering').dispatchEvent(new Event('change',{bubbles:true}));document.querySelector('#rOut .row[data-l=\"12\"] .txt').click()");
-  await waitFor("document.querySelector('#tcBody .tc-witness h3')?.textContent.includes('Exodus 20:11')",'Abweichende Samaritanus-Zählung der Gebote');
+  await waitFor("[...document.querySelectorAll('#tcBody .tc-status')].some(n=>n.textContent.includes('Exodus 20:11')&&n.textContent.includes('Exodus 20:12'))",'Abweichende Samaritanus-Zählung der Gebote');
   assert(await js("document.querySelector('#tcBody .tc-status')?.textContent.includes('Abweichende Versgrenzen')"));
   await js("document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true}))");
   await waitFor("document.querySelector('#textcritPanel').hidden",'Escape schließt Textkritik');
@@ -70,7 +70,9 @@ module.exports=async({win,js,waitFor,book})=>{
   await waitFor("document.querySelector('#pane2').contentDocument?.querySelector('#tcBtn')",'Textkritik im zweiten Fenster verfügbar');
   await book('Genesis',"document.querySelector('#pane2').contentDocument");
   await waitFor("!document.querySelector('#pane2').contentDocument.querySelector('#tcBtn').hidden",'Genesis im zweiten Fenster');
-  await js("document.querySelector('#pane2').contentDocument.querySelector('#tcBtn').click()");
+  await js("{const d=document.querySelector('#pane2').contentDocument;d.querySelector('#rSection').value='27';d.querySelector('#rSection').dispatchEvent(new Event('change',{bubbles:true}));}");
+  await waitFor("document.querySelector('#pane2').contentDocument.querySelector('#rOut .row[data-l=\"10\"]')",'Genesis 28 im zweiten Fenster');
+  await js("{const d=document.querySelector('#pane2').contentDocument;d.querySelector('#tcBtn').click();d.querySelector('#rOut .row[data-l=\"10\"] .txt').click();}");
   await waitFor("document.querySelector('#pane2').contentDocument.querySelector('#tcBody .tc-witness')",'Unabhängiger Apparat im zweiten Fenster');
   assert(await js("document.querySelector('#textcritPanel').hidden"),'Opening second apparatus leaves first pane closed');
   await js("document.querySelector('#pane2').contentDocument.querySelector('#tcClose').click();document.querySelector('#splitBtn').click()");
