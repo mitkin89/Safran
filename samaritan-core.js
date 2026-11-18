@@ -10,13 +10,15 @@
   const TENSE = {perf:'Perfekt',impf:'Präfixkonjugation (Imperfekt)',inf:'Infinitiv',ptca:'Partizip aktiv',ptcp:'Partizip passiv',impv:'Imperativ'};
   const PERSON = {p1:'1. Person',p2:'2. Person',p3:'3. Person'};
   const GENDER = {m:'maskulin',f:'feminin'}, NUMBER = {sg:'Singular',pl:'Plural',du:'Dual'};
-  const own = id => /^sp:\d{6}$/.test(String(id || ''));
+  const own = id => /^(?:sp:\d{6}|tfe?:[A-Za-z]{1,12}:\d{1,3}:\d{1,3}:\d{1,3})$/.test(String(id || ''));
   const present = value => value && value !== 'NA';
   function word(data, id) {
     if (!own(id)) return null;
-    const token = data.words[id.slice(3)];
-    if (!token) return null;
-    return {parts:token[0].map(i=>data.lexicon[i]), phono:token[1] || [], notes:token[2] || [], variants:(token[3] || []).map(i=>data.variants[i])};
+    const extra=data.talWords && data.talWords[id];
+    const token = id.startsWith('sp:') && data.words[id.slice(3)];
+    if (!token && !extra) return null;
+    const talNotes=((data.talWordNotes||{})[id]||[]).map(i=>data.talNotes[i]);
+    return {...extra,parts:token?token[0].map(i=>data.lexicon[i]):[],phono:token?token[1]||[]:[],notes:token?token[2]||[]:[],variants:token?(token[3]||[]).map(i=>data.variants[i]):[],talNotes};
   }
   function describe(part, t = s => s) {
     const [, , sp, stem, tense, person, gender, number, suffixPerson, suffixGender, suffixNumber] = part;

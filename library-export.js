@@ -36,7 +36,7 @@
     const cell = (html, d, i) => {
       if (html == null) return '<td></td>';
       const sp = R.splitFootnotes(d.entry.kind === 'he' ? stripHe(html) : html);
-      const main = R.cleanHtml(sp.main).replace(/<sup data-fn="(\d{1,4})">.*?<\/sup>/g, (_m, i) => {
+      const main = R.cleanHtml(sp.main.replace(/<span class="w tal-note-ref"[^>]*>·<\/span>/g,'')).replace(/<sup data-fn="(\d{1,4})">.*?<\/sup>/g, (_m, i) => {
         if (!o.fn || !sp.notes[+i]) return '';
         endnotes.push(R.cleanHtml(sp.notes[+i].html));
         return `<sup>${endnotes.length}</sup>`;

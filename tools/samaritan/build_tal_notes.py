@@ -5,6 +5,10 @@ Directory: extracted.json, tf_verses.json, tf_verses_meta.json (DT-UCPH pin).
 No network access. Rebuild the editions afterwards with tools/samaritan/build.py.
 """
 import collections, hashlib, html, json, pathlib, re, sys
+import importlib.util
+_glossary_spec=importlib.util.spec_from_file_location('tal_glossary',pathlib.Path(__file__).with_name('tal_glossary.py'))
+_glossary=importlib.util.module_from_spec(_glossary_spec);_glossary_spec.loader.exec_module(_glossary)
+
 ROOT=pathlib.Path(__file__).resolve().parents[2]
 BOOKS=['Genesis','Exodus','Leviticus','Numbers','Deuteronomy']
 PIN='db109c6b620965c36f7b818ad16846ec7b13b8f8e79ebbbb63131bb2665f8d7a'
@@ -44,7 +48,7 @@ def render(spans):
         if last and key!=last and out and not out[-1].endswith(' '):out.append(' ')
         text=span['text'];assert '\ufffd' not in text,('unreadable glyph',span)
         # Do not translate the source or silently alter historical spelling.
-        escaped=html.escape(text)
+        escaped=_glossary.markup(text)
         if 'SBLHebrew' in span['font'] or 'Scheherazade' in span['font']:
             escaped='\u2067'+escaped+'\u2069'
         if 'Italic' in span['font']:escaped='<em>'+escaped+'</em>'
@@ -54,6 +58,33 @@ def render(spans):
     body=''.join(out).strip()
     # A vertical bar separates adjacent apparatus entries on a printed page.
     return '\u2066'+body+'\u2069'
+
+def note_parts(note):
+    # Bars separate apparatus remarks; each remark quotes its own Samaritan
+    # lemma first. Preserve the complete block separately for search/export.
+    spans=[dict(s) for s in note['spans']]
+    while spans and (not spans[0]['text'].strip() or (spans[0]['font']=='CharisSIL-Bold' and re.fullmatch(r'[\d.,\[\] a-j–-]+',spans[0]['text']))):spans.pop(0)
+    parts=[[]]
+    for span in spans:
+        for i,text in enumerate(span['text'].split('|')):
+            if i:parts.append([])
+            if text:parts[-1].append(span|{'text':text})
+    result=[]
+    for part in parts:
+        if not any(s['text'].strip() for s in part):continue
+        anchors=[];prefix='';first=True
+        for span in part:
+            text=span['text']
+            if 'SBLHebrew' in span['font'] and re.search('[א-ת]',text):
+                primary=first and not re.search('[A-Za-z]',prefix)
+                if primary or (span.get('red') and not re.search('[\u0591-\u05c7]',text)):
+                    item=[text.strip(),bool(span.get('red'))]
+                    if item not in anchors:anchors.append(item)
+                first=False
+            prefix+=text
+        result.append({'html':render(part),'anchors':anchors})
+    assert result,note['ref']
+    return result
 
 def build(src):
     data=json.loads((src/'extracted.json').read_text()); meta=json.loads((src/'tf_verses_meta.json').read_text())
@@ -79,12 +110,14 @@ def build(src):
         typ='Fußnote' if n['kind']=='footnote' else 'Endnote'
         header=f'Tal–Florentin, {typ} {book} {n["ref"].split()[1].split(":")[0]}:{label.split(".")[-1]} (S. '+', '.join(map(str,n['pages']))+')'
         result.append({'id':i,'kind':n['kind'],'refs':refs,'targets':targets,'pages':n['pages'],'pdfPages':n['pdfPages'],
+                       'citation':header,'parts':note_parts(n),
                        'html':'<br>\u2066'+html.escape(header)+'<br>'+body+'\u2069<br>'})
     counts=dict(collections.Counter(n['kind'] for n in result));assert counts=={'footnote':3459,'endnote':790},counts
     lock={'source':data['source']|{'title':'The Samaritan Pentateuch: An English Translation with a Parallel Annotated Hebrew Text',
           'authors':['Moshe Florentin','Abraham Tal'],'download':'https://zenodo.org/records/19850840/files/c626ab74-3df2-4291-a871-030f76c129b5_book.pdf',
           'dtUcphCommit':'e8a120f2e92b6558fd39bbe72f830ded871a0a47','talVersesSha256':hashlib.sha256((src/'tf_verses.json').read_bytes()).hexdigest(),
           'changes':'PDF extraction; repaired glyph encodings using embedded fonts; RTL word order restored; original language and readings retained. Original Tal–Florentin verse references; red markings retained from PDF spans.'},
+          'glossary':{'source':'Symbols and Abbreviations, pp. 81–84; References, pp. 71–78','language':'German explanations','sha256':hashlib.sha256(pathlib.Path(_glossary.__file__).read_bytes()).hexdigest()},
           'counts':counts,'sourceBlocks':dict(collections.Counter(n['kind'] for n in original)), 'correspondenceExceptions':evidence,'notes':result}
     dest=ROOT/'tools/samaritan/tal-notes.json';dest.write_text(json.dumps(lock,ensure_ascii=False,separators=(',',':'))+'\n')
     print(counts,'source blocks',lock['sourceBlocks'],'bytes',dest.stat().st_size)

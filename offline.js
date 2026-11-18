@@ -605,6 +605,7 @@ class Library {
     return {
       entry, title: d.title, heTitle: d.heTitle, language: d.language, versionTitle: d.versionTitle,
       textHash: createHash('sha256').update(JSON.stringify(d.text)).digest('hex'),
+      ...(d.talWordNotes === true ? { talWordNotes: true } : {}),
       versionSource: d.versionSource, sectionNames: d.sectionNames || null, text: d.text,
       // eigene Angabe zur Zählung: { text: 'grk', cites: 'eng' } (siehe versemap.js; sonst gilt bundled/versification.json)
       versification: d.versification && typeof d.versification === 'object' ? { text: d.versification.text, cites: d.versification.cites } : undefined,

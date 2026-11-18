@@ -26,6 +26,12 @@ app.setName('Sefaria');
 const keepUserData = app.getPath('userData');
 app.setName('Safran');
 app.setPath('userData', keepUserData);
+// A script launch on macOS otherwise bypasses Finder's single-instance behavior.
+// A second Chromium process must not open the same localStorage profile.
+const { claimSingleInstance, focusWindow } = require('./app-instance');
+const primaryInstance = claimSingleInstance(app, () => {
+  if (!focusWindow(offlineWin)) openOffline();
+});
 
 // ---------- Datei-Dialoge: zuletzt benutzten Ordner merken ----------
 // Seit Electron 43 öffnen Dialoge ohne defaultPath immer im Download-Ordner.
@@ -1188,8 +1194,8 @@ ipcMain.handle('off:reveal', async () => {
   return shell.openPath(lib.dir);
 });
 
-app.whenReady().then(() => { try { if (process.platform === 'darwin' && app.dock) app.dock.setIcon(path.join(__dirname, 'build', 'icon.png')); } catch { /* Symbol nur ein Zusatz */ } }).catch(() => {});
-app.whenReady().then(() => {
+if (primaryInstance) app.whenReady().then(() => { try { if (process.platform === 'darwin' && app.dock) app.dock.setIcon(path.join(__dirname, 'build', 'icon.png')); } catch { /* Symbol nur ein Zusatz */ } }).catch(() => {});
+if (primaryInstance) app.whenReady().then(() => {
   mkMain('Electron bereit');
   session.defaultSession.setUserAgent(cleanUA(session.defaultSession.getUserAgent()));
   buildMenu();

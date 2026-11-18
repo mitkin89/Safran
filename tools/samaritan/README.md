@@ -84,3 +84,15 @@ words are `[text, red-bit-mask]` (first letter = highest bit); English spans are
 HTML cleaning and is red in the reader and PDF/Word exports. RTL isolates keep
 mixed-language notes readable. Corpus and Electron tests cover the actual
 Hebrew/English selection, notes, colors and unchanged-word morphology.
+
+Tal remarks are split at the printed apparatus bars and linked to their quoted
+Hebrew word or phrase. Ambiguous anchors keep a small verse-context trigger.
+The reader opens the remark in the morphology card, with a small source citation;
+complete source blocks remain available in exports. Changed forms receive no
+invented grammatical analysis. Neutral word remarks use a discreet dotted mark.
+
+`tal_glossary.py` supplies German hover explanations from Symbols and
+Abbreviations (printed pp. 81–84) and References (pp. 71–78), with grammatical
+notation and sigla used in the notes. Generation annotates plain text before HTML
+wrapping, preserving source characters, italics, bidi isolates and red differences.
+The existing dictionary `ab` markup is sanitized into native `title` tooltips.

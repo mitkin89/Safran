@@ -134,7 +134,7 @@ class Extractor:
                         if he in s['text'] and b!=book: book=b; chapter=None
             if kind=='footnote':
                 selected=[s for s in spans if s['bbox'][1]<640 and s['bbox'][1]>80 and abs(s['size']-13.5)>.1 and abs(s['size']-18)>.1
-                          and (s['size']<9.6) and (s['size']>6)]
+                          and (s['size']<9.6 or (s['size']<10.1 and s['text'].strip()=='|')) and (s['size']>6)]
                 # Only apparatus lines contain 9.5pt material: exclude 9pt verse
                 # numbers and 6.3pt superscripts in the running Hebrew column.
                 ys=[s['bbox'][1] for s in selected if abs(s['size']-9.5)<.1]

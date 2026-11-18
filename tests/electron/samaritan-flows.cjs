@@ -32,17 +32,31 @@ module.exports=async function run({docs,win,js,waitFor,book}){
   assert(await js("[...document.querySelectorAll('#rOut .cell[data-k=en] .mt-diff')].some(n=>!n.closest('.note')&&n.textContent==='and')"));
   assert(await js("{const n=document.querySelector('#rOut .cell[data-k=he] .w .mt-diff');const c=getComputedStyle(n).color.match(/\\d+/g).map(Number);c[0]>c[1]+50&&c[0]>c[2]+50}"),'Hebrew MT differences are red');
 
-  await js(`{for(const label of ['Fußnote Genesis 1:11','Endnote Genesis 1:11']){const note=[...document.querySelectorAll('#rOut .note')].find(n=>n.textContent.includes(label));if(!note)throw Error('Tal–Florentin note missing: '+label);note.previousElementSibling.click();}}`);
-  await waitFor("[...document.querySelectorAll('#rOut .note.open')].some(n=>n.textContent.includes('syntactic structure'))",'Tal–Florentin-Fußnote und vollständige Endnote geöffnet');
-  assert(await js("[...document.querySelectorAll('#rOut .note.open')].some(n=>n.textContent.includes('S. 899') && n.textContent.includes('clarifies') && n.textContent.includes('ועץ'))"));
-  assert(await js("!!document.querySelector('#rOut .note.open .mt-diff')"),'Footnote red from print retained');
+  assert.equal(await js("document.querySelectorAll('#rOut .note, #rOut sup[data-fn]').length"),0,'No oversized inline Tal footnote numbers');
+  const tree=await js("[...document.querySelectorAll('#rOut .cell[data-k=he] .w')].find(n=>n.textContent==='ועץ').dataset.l");
+  await clickWord(tree);
+  await waitFor("document.querySelector('#wpop .tal-cite')?.textContent.includes('Genesis 1:11')",'Anmerkung in der Morphologiekarte');
+  assert(await js("document.querySelector('#wpop').textContent.includes('syntactic structure') && document.querySelectorAll('#wpop .wseg').length>0"));
+  await js("document.querySelector('#wpop .wx').click();document.querySelector('#rSection').value='27';document.querySelector('#rSection').dispatchEvent(new Event('change',{bubbles:true}))");
+  await waitFor("[...document.querySelectorAll('#rOut .cell[data-k=he] .w')].some(n=>n.textContent==='ללכת')",'Genesis 28');
+  const go=await js("[...document.querySelectorAll('#rOut .cell[data-k=he] .w')].find(n=>n.textContent==='ללכת').dataset.l");
+  await clickWord(go);
+  await waitFor("document.querySelector('#wpop .tal-cite')?.textContent==='Tal–Florentin, Fußnote Genesis 28:10 (S. 184)'",'Quelle klein in der Wortkarte');
+  assert(await js("document.querySelector('#wpop .tal-apparatus').textContent.includes('INF') && parseFloat(getComputedStyle(document.querySelector('#wpop .tal-cite')).fontSize)<parseFloat(getComputedStyle(document.querySelector('#wpop')).fontSize)"));
+  assert(await js("[...document.querySelectorAll('#wpop .tal-apparatus .ab')].some(n=>n.textContent==='INF'&&n.title==='Infinitiv') && [...document.querySelectorAll('#wpop .tal-apparatus .ab')].some(n=>n.textContent===']'&&n.title.includes('Inhaltliche Abweichung')) && [...document.querySelectorAll('#wpop .tal-apparatus .ab')].some(n=>n.textContent==='MT'&&n.title==='Masoretischer Text')"),'Dictionary-style hover explanations in word popup');
   if(process.env.SAFRAN_NOTES_CAPTURE){
-    await js("[...document.querySelectorAll('#rOut .note.open')].find(n=>n.textContent.includes('syntactic structure')).scrollIntoView({block:'center'})");
     await js("new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)))");
+    await new Promise(resolve=>setTimeout(resolve,150));
     fs.writeFileSync(process.env.SAFRAN_NOTES_CAPTURE,(await win.webContents.capturePage()).toPNG());
   }
-  await js("document.querySelectorAll('#rOut .note.open').forEach(n=>n.previousElementSibling.click())");
-
+  await js("document.querySelector('#wpop .wx').click()");
+  const haran=await js("[...document.querySelectorAll('#rOut .cell[data-k=he] .w')].find(n=>n.textContent==='חרנה').dataset.l");
+  assert(await js("{const n=[...document.querySelectorAll('#rOut .cell[data-k=he] .w')].find(n=>n.textContent==='חרנה');n.classList.contains('tal-note')&&!n.querySelector('.mt-diff')}"),'Neutral remark is discreetly marked');
+  await clickWord(haran);
+  await waitFor("document.querySelector('#wpop .tal-apparatus')?.textContent.includes('חרנה')",'Eigene Anmerkung am neutralen Wort');
+  assert.equal(await js("document.querySelector('#wpop .tal-apparatus').textContent.includes('ללכת')"),false);
+  await js("document.querySelector('#wpop .wx').click();document.querySelector('#rSection').value='0';document.querySelector('#rSection').dispatchEvent(new Event('change',{bubbles:true}))");
+  await waitFor("document.querySelector('#rOut .w[data-l=\"sp:405429\"]')",'Zurück zu Genesis 1');
   await clickWord('sp:405429');
   await waitFor("!!window.SAMARITAN_DATA",'Samaritanische Morphologiedaten geladen');
   await waitFor("document.querySelector('#wpop')?.textContent.includes('Stamm: Qal')",'Samaritanische Verbmorphologie');

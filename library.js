@@ -635,7 +635,7 @@
     if (d.entry.kind === 'he') html = stripHe(html);
     const { main, notes } = R.splitFootnotes(html);
     // Fußnote steht direkt hinter ihrem Zeichen im Text (nicht darunter)
-    const inline = R.cleanHtml(main).replace(/<sup data-fn="(\d{1,4})">(.*?)<\/sup>/g, (m, i, mk) => {
+    const inline = R.cleanHtml(d.talWordNotes ? main.replace(/<sup data-fn="\d{1,4}">.*?<\/sup>/g,'') : main).replace(/<sup data-fn="(\d{1,4})">(.*?)<\/sup>/g, (m, i, mk) => {
       const n = notes[+i];
       return n ? `${m}<span class="note" data-fn="${i}"><span class="nm">${esc(n.marker)}</span> ${R.cleanHtml(n.html)}</span>` : m;
     });

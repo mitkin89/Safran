@@ -6,8 +6,8 @@ const R = require('../reader'), S = require('../samaritan-core'), D = require('.
 const source = require('../tools/samaritan/source.json'), manifest = require('../bundled/manifest.json');
 const root = path.resolve(__dirname,'..');
 const items = manifest.items.filter(i=>i.versionTitle==='Samaritanischer Pentateuch (Tal–Florentin)');
-const span = /<span class="w" data-l="(sp:\d{6})" data-m="">/g;
-const plain = html => html.replace(/<sup class="footnote-marker">.*?<\/sup><i class="footnote">.*?<\/i>/g,'').replace(/<[^>]*>/g,'').replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&#x27;/g,"'").replace(/&quot;/g,'"').trim();
+const span = /<span class="w(?: tal-note)?" data-l="(sp:\d{6})" data-m="">/g;
+const plain = html => html.replace(/<span class="w tal-note-ref"[^>]*>·<\/span>/g,'').replace(/<sup class="footnote-marker">.*?<\/sup><i class="footnote">.*?<\/i>/g,'').replace(/<[^>]*>/g,'').replace(/&amp;/g,'&').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&#x27;/g,"'").replace(/&quot;/g,'"').trim();
 const sha = (value,algorithm='sha256')=>crypto.createHash(algorithm).update(value).digest('hex');
 test('All five Tal main texts apply the variants and preserve verified morphology',()=>{
   const tal=require('../tools/samaritan/tal-source.json'),P=require('../tools/samaritan/tal-parallel.json');
@@ -131,6 +131,46 @@ test('Parallel book export keeps MT red in both main texts and the apparatus',()
   assert(result.includes('.mt-diff{color:#d00000!important}'));
   assert(result.includes('<span class="mt-diff">ועץ</span>'));
   assert(result.includes('<span class="mt-diff"><em>and</em></span>'));
+  assert(!result.includes('tal-note-ref'));
   assert(result.includes('Tal–Florentin, Fußnote Genesis 1:11'));
   assert(result.includes('class="fn"'));
+});
+
+test('Tal remarks are anchored to the quoted word, with context fallback and no fabricated morphology',()=>{
+  const all=new Set(Object.values(D.talWordNotes).flat());assert.equal(all.size,D.talNotes.length);
+  const left=S.word(D,'sp:420208'),right=S.word(D,'sp:420210');
+  assert(left.parts.length);assert(left.talNotes.some(n=>n.html.includes('ללכת')&&n.citation==='Tal–Florentin, Fußnote Genesis 28:10 (S. 184)'));
+  assert(right.talNotes.some(n=>n.html.includes('חרנה')));assert(!right.talNotes.some(n=>n.html.includes('ללכת')));
+  const id=Object.keys(D.talWords).find(id=>!D.talWords[id].context);assert(id);
+  const changed=S.word(D,id);assert.deepEqual(changed.parts,[]);assert(changed.surface);
+  const context=Object.keys(D.talWords).find(id=>D.talWords[id].context);assert(S.word(D,context).talNotes.length);
+  assert.equal(S.word(D,'tf:Genesis:999:999:999'),null);
+  const html='<span class="w tal-note" data-l="tf:Genesis:1:12:1" data-m="">word</span>';
+  assert.equal(R.cleanHtml(html),html);
+});
+test('The disk library retains the Tal word-note capability flag',async()=>{
+  const {Library}=require('../offline'),entry=items[0],lib=Object.create(Library.prototype);
+  lib.dir=path.join(root,'bundled');lib.index={entries:{[entry.rel]:entry}};
+  const doc=await lib.read(entry.rel);assert.equal(doc.talWordNotes,true);
+});
+
+test('Tal hover glossary preserves source text, red spans and safe dictionary tooltips',()=>{
+  const {execFileSync}=require('node:child_process');
+  execFileSync('python3',['-I','-c',`
+import html, importlib.util, pathlib, re
+p=pathlib.Path('tools/samaritan/tal_glossary.py')
+s=importlib.util.spec_from_file_location('glossary',p);m=importlib.util.module_from_spec(s);s.loader.exec_module(m)
+for token,tip in m.GLOSSARY.items():
+    value=m.markup(token)
+    assert html.unescape(re.sub('<[^>]*>','',value))==token, token
+    assert 'data-t="'+tip+'"' in value, token
+assert m.markup('simple imperfect office')=='simple imperfect office'
+assert '&lt;script&gt;' in m.markup('<script>MT</script>')
+`],{cwd:root});
+  const note=D.talNotes.find(n=>n.citation==='Tal–Florentin, Fußnote Genesis 28:10 (S. 184)'&&n.html.includes('ללכת'));
+  assert(note);
+  const clean=R.cleanHtml(note.html);
+  for(const tip of ['Infinitiv','Imperfekt','Masoretischer Text','Inhaltliche Abweichung'])assert(clean.includes(`title="${tip}`),tip);
+  assert(clean.includes('class="mt-diff"'));
+  assert(!clean.includes('data-t=""'));
 });

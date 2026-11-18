@@ -1809,3 +1809,12 @@ body.il .cell[data-k="he"] .ilt[data-i="16"] { color: var(--il16); }
 .mt-diff { color: #d00000 !important; }
 :root[data-theme=dark] .mt-diff { color: #ff5555 !important; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme=light]) .mt-diff { color: #ff5555 !important; } }
+
+/* Tal apparatus: quiet word anchors, with the Qumran comparison palette. */
+#rOut .w.tal-note { text-decoration: underline dotted; text-decoration-color: var(--il12); text-underline-offset: .2em; }
+#rOut .w.tal-note:not(:has(.mt-diff)) { color: color-mix(in srgb, var(--fg) 65%, var(--il12)); }
+#rOut .cell .w.tal-note-ref { display: inline; font-size: .55em; line-height: 0; vertical-align: super; color: var(--muted); margin: 0 .1em; cursor: pointer; }
+#wpop:has(.tal-apparatus) { width: 420px; }
+#wpop .tal-apparatus { max-height: 45vh; overflow-y: auto; margin: 8px 0; }
+#wpop .tal-apparatus-entry { border-top: 1px solid var(--line); padding: 8px 0; direction: ltr; }
+#wpop .tal-cite { display: block; color: var(--muted); font-family: system-ui, sans-serif; font-size: 10px; line-height: 1.4; margin-top: 5px; }
