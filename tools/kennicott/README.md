@@ -1,21 +1,62 @@
-# Digital Kennicott · Genesis
+# Digital Kennicott · complete Tanakh apparatus
 
-Original TEI from the Digital Kennicott project (Universities of Turin and Florence):
-https://www.edition-digitalkennicott.unito.it/exist/apps/dike/api/document/001_gen.xml/
+Safran includes all **39 book documents** listed by the public Digital Kennicott
+catalogue, retrieved on 2026-11-18:
+<https://www.edition-digitalkennicott.unito.it/exist/apps/dike/books.html>.
+`catalog.json` records the catalogue filenames and Safran book titles. The four
+original catalogue responses and SHA-256 hashes are in `catalog-sources/`.
 
-Editors: Sebastiano Crestani and Alberto Legnaioli. Luigi Bambaci contributed segmentation, recognition, encoding and reconstruction; see the full TEI header for contributor details.
+The original TEI files are archived unchanged as `001_gen.xml.gz` through
+`039_2chr.xml.gz`. Every individual TEI header explicitly licenses the digital
+edition under **CC BY-NC-SA 4.0**. Editors: Sebastiano Crestani and Alberto
+Legnaioli; Luigi Bambaci contributed segmentation, recognition, encoding and
+reconstruction (see full TEI headers). No unlicensed older GitHub files are used.
 
-The TEI explicitly licenses this digital edition under **CC BY-NC-SA 4.0**:
-https://creativecommons.org/licenses/by-nc-sa/4.0/
-
-`001_gen.xml.gz` contains the unmodified original XML in reproducible gzip storage. `audit.json` records hashes, counts and witness sigla without catalogue entries. Rebuild with:
+## Rebuild offline
 
 ```
-python3 -I tools/kennicott/build.py
+python3 -I tools/kennicott/build.py --all
+node tools/kennicott/audit_alignment.cjs
 ```
 
-Safran's derivative `kennicott-data.js` preserves all 9,129 entries, 13,016 readings, original reading groups, terms, TEI nodes and raw apparatus entries. The full witness metadata and the source glossary remain available offline. This derivative edition data is also CC BY-NC-SA 4.0. Westminster data is separately CC BY 4.0 (see OSHB licence).
+For a new download directory, pass it after `--all`. The default single-book
+command still rebuilds Genesis. `kennicott-index.js` is the small book inventory;
+`kennicott-data.js` retains the original Genesis entry point. Other books in
+`kennicott/` load individually on demand. Per-book source, licence, MT hashes and
+extraction diagnostics are in `audit/` (Genesis: `audit.json`).
 
-The UI uses Kennicott's own reference text before mapping to Westminster/OSHB. Explicit repeated-word ordinals are respected. When the edition has no lemma, a unique consonantal/ו־י spelling match is only a machine positional aid, not a spelling classification or manuscript reconstruction. Ambiguous scopes and cross-verse entries stay unlocated. No morphology is assigned to manuscript variants. Earlier/current/conjectured readings remain distinct. Typographic/erasure notes preserve their source scope, including individual letters; a partial word is not expanded to a complete manuscript reading. Witness lists are never inherited from adjacent groups.
+All **145,543 apparatus entries and 229,750 readings** survive, including original
+reading groups, terms, TEI trees, raw apparatus XML and individual witnesses.
+Each source supplies its own witness catalogue; unidentified sigla are retained
+and explicitly described as lacking a catalogue record. No morphology is
+assigned to manuscript variants. Earlier/current/conjectured readings remain
+distinct; typographic notes and partial letters are not expanded into whole-word
+manuscript variants. Derived data remain CC BY-NC-SA 4.0; Westminster data are
+separately CC BY 4.0.
 
-Source diagnostics: the TEI reference text lacks Genesis 24:67 and has an empty Genesis 30:37 followed by shifted base verse numbers (through 30:44); apparatus references are retained verbatim. No missing base text is filled from OSHB, and insufficiently matching positions remain unresolved.
+## Verse and word positions
+
+Kennicott's reference text remains independent of Westminster/OSHB. Source verse
+references are never overwritten. `reference_map.py` first matches complete
+consonantal verse streams, including exact combinations of up to four adjacent
+source/target verses. Repeated complete verses require adjacent verse anchors.
+For differing reference-text spellings, an unchanged coordinate requires an
+adjacent verified verse anchor and at least 80% whole-verse word agreement.
+These are explicitly machine positional aids, not manuscript reconstructions.
+
+Verified complete character spans retain word positions through split/merged
+verses, e.g. Kennicott Exodus 20:14 at MT 20:13 and Kennicott 20:24 at MT 20:21.
+Otherwise only positions shared by every optimal word alignment survive.
+Explicit repeated-word ordinals remain respected. Ambiguous lemmas, verse ranges,
+missing reference text and conflicting scopes stay open.
+
+The reproducible `alignment-audit.json` checks every entry: **117,705 located**,
+**27,838 unlocated**. This is a machine audit, not a claim of manual philological
+review of every reading. Two Numbers 25:19 entries have no verified MT verse;
+the full chapter view retains them under their own source reference without an
+MT jump or invented base text.
+
+Source diagnostics remain available per book. For example, the Genesis TEI
+reference text lacks 24:67 and has an empty 30:37 followed by shifted source base
+verse numbers through 30:44. Matching actual reference text handles the verified
+shifts; missing text is never filled from OSHB.

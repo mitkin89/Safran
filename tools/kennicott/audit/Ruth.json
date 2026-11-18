@@ -1,0 +1,35 @@
+{
+  "source": {
+    "url": "https://www.edition-digitalkennicott.unito.it/exist/apps/dike/api/document/031_ruth.xml/",
+    "book": "Ruth",
+    "sha256": "19f13426db98bab40a58e998a6e81b09b51e4080970eaa4283c5312dc2ed5ef7",
+    "license": "CC BY-NC-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "title": "The Digital Kennicott. A Digital Edition of Benjamin Kennicott's Vetus Testamentum Hebraicum",
+    "editors": "Sebastiano Crestani, Alberto Legnaioli",
+    "base": "Kennicott / Van der Hooght reference text; distinct from OSHB",
+    "mt": {
+      "rel": "own/Ruth/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "422bf12fa74fe4ce653d3460b00dcd354d0a11b970a5ac6419eedcb6f61718d0",
+      "license": "CC BY 4.0"
+    }
+  },
+  "counts": {
+    "entries": 708,
+    "readings": 1157,
+    "verses": 85,
+    "witnesses": 721,
+    "baseVerses": 85
+  },
+  "unlocated": [],
+  "unidentifiedWitnesses": [
+    "K227m",
+    "K600m"
+  ],
+  "apparatusRefsWithoutBase": [],
+  "baseRefsOutsideMT": [],
+  "unindexedEntries": [],
+  "mappedSourceVerses": 85,
+  "unmappedSourceVerses": [],
+  "shiftedSourceVerses": {}
+}

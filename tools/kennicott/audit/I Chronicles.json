@@ -1,0 +1,302 @@
+{
+  "source": {
+    "url": "https://www.edition-digitalkennicott.unito.it/exist/apps/dike/api/document/038_1chr.xml/",
+    "book": "I Chronicles",
+    "sha256": "3a6a6279d21f5b67d6c988f78e10a13eb213c5ae18991afeab4de96d2951151e",
+    "license": "CC BY-NC-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "title": "The Digital Kennicott. A Digital Edition of Benjamin Kennicott's Vetus Testamentum Hebraicum",
+    "editors": "Sebastiano Crestani, Alberto Legnaioli",
+    "base": "Kennicott / Van der Hooght reference text; distinct from OSHB",
+    "mt": {
+      "rel": "own/I Chronicles/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "1760411a19dc820e19940be23530831ce47a22d3f95095a63cb46cb305194bfc",
+      "license": "CC BY 4.0"
+    }
+  },
+  "counts": {
+    "entries": 5541,
+    "readings": 9240,
+    "verses": 929,
+    "witnesses": 721,
+    "baseVerses": 942
+  },
+  "unlocated": [],
+  "unidentifiedWitnesses": [
+    "K157m",
+    "K198m",
+    "K224m",
+    "K228m",
+    "K251m",
+    "K300m",
+    "K30m",
+    "K559m",
+    "K566m",
+    "K590m",
+    "K606m",
+    "KV.Hooght"
+  ],
+  "apparatusRefsWithoutBase": [],
+  "baseRefsOutsideMT": [],
+  "unindexedEntries": [],
+  "mappedSourceVerses": 928,
+  "unmappedSourceVerses": [
+    "I Chronicles 2:38",
+    "I Chronicles 4:30",
+    "I Chronicles 7:34",
+    "I Chronicles 8:20",
+    "I Chronicles 8:39",
+    "I Chronicles 12:5",
+    "I Chronicles 12:9",
+    "I Chronicles 12:15",
+    "I Chronicles 12:18",
+    "I Chronicles 12:24",
+    "I Chronicles 12:38",
+    "I Chronicles 12:40",
+    "I Chronicles 23:15",
+    "I Chronicles 27:12"
+  ],
+  "shiftedSourceVerses": {
+    "I Chronicles 12:4": {
+      "refs": [
+        "I Chronicles 12:4",
+        "I Chronicles 12:5"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 64
+    },
+    "I Chronicles 12:6": {
+      "refs": [
+        "I Chronicles 12:7"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 35
+    },
+    "I Chronicles 12:7": {
+      "refs": [
+        "I Chronicles 12:8"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 27
+    },
+    "I Chronicles 12:8": {
+      "refs": [
+        "I Chronicles 12:9"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 90
+    },
+    "I Chronicles 12:10": {
+      "refs": [
+        "I Chronicles 12:11"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 21
+    },
+    "I Chronicles 12:11": {
+      "refs": [
+        "I Chronicles 12:12"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 17
+    },
+    "I Chronicles 12:12": {
+      "refs": [
+        "I Chronicles 12:13"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 22
+    },
+    "I Chronicles 12:13": {
+      "refs": [
+        "I Chronicles 12:14"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 24
+    },
+    "I Chronicles 12:14": {
+      "refs": [
+        "I Chronicles 12:15"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 38
+    },
+    "I Chronicles 12:16": {
+      "refs": [
+        "I Chronicles 12:17"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 32
+    },
+    "I Chronicles 12:17": {
+      "refs": [
+        "I Chronicles 12:18"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 107
+    },
+    "I Chronicles 12:19": {
+      "refs": [
+        "I Chronicles 12:20"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 94
+    },
+    "I Chronicles 12:20": {
+      "refs": [
+        "I Chronicles 12:21"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 84
+    },
+    "I Chronicles 12:21": {
+      "refs": [
+        "I Chronicles 12:22"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 47
+    },
+    "I Chronicles 12:22": {
+      "refs": [
+        "I Chronicles 12:23"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 48
+    },
+    "I Chronicles 12:23": {
+      "refs": [
+        "I Chronicles 12:24"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 61
+    },
+    "I Chronicles 12:25": {
+      "refs": [
+        "I Chronicles 12:26"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 35
+    },
+    "I Chronicles 12:26": {
+      "refs": [
+        "I Chronicles 12:27"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 26
+    },
+    "I Chronicles 12:27": {
+      "refs": [
+        "I Chronicles 12:28"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 38
+    },
+    "I Chronicles 12:28": {
+      "refs": [
+        "I Chronicles 12:29"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 37
+    },
+    "I Chronicles 12:29": {
+      "refs": [
+        "I Chronicles 12:30"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 56
+    },
+    "I Chronicles 12:30": {
+      "refs": [
+        "I Chronicles 12:31"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 54
+    },
+    "I Chronicles 12:31": {
+      "refs": [
+        "I Chronicles 12:32"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 51
+    },
+    "I Chronicles 12:32": {
+      "refs": [
+        "I Chronicles 12:33"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 64
+    },
+    "I Chronicles 12:33": {
+      "refs": [
+        "I Chronicles 12:34"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 55
+    },
+    "I Chronicles 12:34": {
+      "refs": [
+        "I Chronicles 12:35"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 41
+    },
+    "I Chronicles 12:35": {
+      "refs": [
+        "I Chronicles 12:36"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 37
+    },
+    "I Chronicles 12:36": {
+      "refs": [
+        "I Chronicles 12:37"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 31
+    },
+    "I Chronicles 12:37": {
+      "refs": [
+        "I Chronicles 12:38"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 61
+    },
+    "I Chronicles 12:39": {
+      "refs": [
+        "I Chronicles 12:40"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 48
+    }
+  }
+}

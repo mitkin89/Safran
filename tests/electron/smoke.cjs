@@ -79,7 +79,8 @@ async function book(title,prefix='document'){await js(`{const d=${prefix};d.quer
  await require('./qumran-apparatus-flows.cjs')({win,js,waitFor,book});
  await require('./kennicott-flows.cjs')({win,js,waitFor,book});
  await require('./qumran-all-flows.cjs')({docs,win,js,waitFor,book});
- await require('./dock-tabs-flows.cjs')({win,js,waitFor,book});
+ await require('./kennicott-all-flows.cjs')({docs,win,js,waitFor,book});
+  await require('./dock-tabs-flows.cjs')({win,js,waitFor,book});
  await require('./samaritan-interlinear-flows.cjs')({win,js,waitFor,book});
  assert.deepEqual(errors,[],'Keine unbehandelten Fehler im Renderer');
  await require('./font-restart.cjs')();

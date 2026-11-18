@@ -1,0 +1,37 @@
+{
+  "source": {
+    "url": "https://www.edition-digitalkennicott.unito.it/exist/apps/dike/api/document/022_hab.xml/",
+    "book": "Habakkuk",
+    "sha256": "c3553af033f98ca60bf468de4e15ea0203742db3c1fc3cf42b6510ec0c108efa",
+    "license": "CC BY-NC-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "title": "The Digital Kennicott. A Digital Edition of Benjamin Kennicott's Vetus Testamentum Hebraicum",
+    "editors": "Sebastiano Crestani, Alberto Legnaioli",
+    "base": "Kennicott / Van der Hooght reference text; distinct from OSHB",
+    "mt": {
+      "rel": "own/Habakkuk/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "081e61ab77e8ed0d0a995b5af3b237cf818b67373cd4523785bab1b0fbd06726",
+      "license": "CC BY 4.0"
+    }
+  },
+  "counts": {
+    "entries": 354,
+    "readings": 575,
+    "verses": 56,
+    "witnesses": 721,
+    "baseVerses": 56
+  },
+  "unlocated": [],
+  "unidentifiedWitnesses": [
+    "K154m",
+    "K182m",
+    "K198m",
+    "K245m"
+  ],
+  "apparatusRefsWithoutBase": [],
+  "baseRefsOutsideMT": [],
+  "unindexedEntries": [],
+  "mappedSourceVerses": 56,
+  "unmappedSourceVerses": [],
+  "shiftedSourceVerses": {}
+}

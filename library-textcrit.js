@@ -124,11 +124,11 @@ function create(host){
     if(!c){body.innerHTML='<p class="muted">Der Textkritik-Apparat steht für den Tanach zur Verfügung.</p>';return;}
     body.innerHTML='<p class="muted">Apparat wird geladen …</p>';
     try{
-      const [[data,notes]]=await Promise.all([load(),dss.load(c.book)]);if(token!==generation||panel.hidden)return;
+      const [[data,notes]]=await Promise.all([load(),dss.load(c.book),ken.load(c.book)]);if(token!==generation||panel.hidden)return;
       previewData=data;
       const alignment=window.SAMARITAN_IL,smrIL=window.SamaritanInterlinear;
       const showSpelling=true;
-      const showSmr=$('#tcSmr').checked&&torah.has(c.book),showTov=$('#tcTov').checked,showDss=$('#tcDss').checked,showKen=$('#tcKen').checked&&c.book==='Genesis';
+      const showSmr=$('#tcSmr').checked&&torah.has(c.book),showTov=$('#tcTov').checked,showDss=$('#tcDss').checked,showKen=$('#tcKen').checked&&ken.available(c.book);
       const tovQueries=[];
       const queries=whole?rows().map(r=>r.dataset.l):[c.row],refs=new Map(),unresolved=[];
       for(const row of queries){
@@ -171,7 +171,7 @@ function create(host){
       }
       if(showTov)records.push(...tov.entries(tovQueries));
       if(showDss)records.push(...dss.entries(tovQueries,showSpelling));
-      if(showKen)records.push(...ken.entries(tovQueries));
+      if(showKen)records.push(...ken.entries(tovQueries,whole));
       const verses=new Map();
       for(const entry of records){const ref=entry.anchor?.ref||entry.displayRef;if(!verses.has(ref))verses.set(ref,[]);verses.get(ref).push(entry);}
       const coverage=new Map();
@@ -181,13 +181,13 @@ function create(host){
       }
       const ordered=[...verses].sort(([a],[b])=>{const x=/ (\d+):(\d+)$/.exec(a),y=/ (\d+):(\d+)$/.exec(b);return +x[1]-y[1]||+x[2]-y[2];});
       const sections=ordered.map(([ref,entries])=>{
-        const sourceWords=mtWords(ref),readerRows=[...new Set(entries.flatMap(e=>e.rows))];
+        const sourceOnly=entries.length>0&&entries.every(e=>e.sourceOnly),sourceWords=mtWords(ref),readerRows=[...new Set(entries.flatMap(e=>e.rows))];
         const loci=window.TextCrit.groupLoci(entries).map(g=>{
           const lemma=g.kind==='word'?'<bdi lang="he" dir="rtl">'+esc(sourceWords.slice(g.start,g.end+1).join(' '))+'</bdi>':g.kind==='gap'?(g.start<0?'Zusatz vor dem ersten MT-Wort':'Zusatz nach <bdi lang="he" dir="rtl">'+esc(sourceWords[g.start])+'</bdi>'):'Nicht sicher zugeordnet';
           return '<section class="tc-locus" data-kind="'+g.kind+'"'+(g.kind!=='unresolved'?' data-start="'+g.start+'" data-end="'+g.end+'"':'')+'><h4 class="tc-locus-title">'+(g.kind==='word'?'<button type="button" class="tc-mt-jump" data-ref="'+esc(ref)+'" data-start="'+g.start+'" data-end="'+g.end+'" title="Im MT markieren und anzeigen">'+lemma+'</button>':lemma)+'</h4><div class="tc-locus-readings">'+g.entries.map(e=>e.html).join('')+'</div></section>';
         }).join('');
         if(!readerRows.length)readerRows.push(...tovQueries.filter(q=>q.ref===ref).map(q=>q.row));
-        return '<section class="tc-reader-verse tc-witness" data-rows="'+esc(readerRows.join(','))+'"><div class="tc-verse-summary"><button class="tc-jump" type="button" data-row="'+esc(readerRows[0])+'">'+esc(ref)+' · MT</button>'+(entries.length?' <span class="tc-count">· '+entries.length+' Hinweise</span>':'')+(coverage.has(ref)?' · '+coverage.get(ref):'')+'</div>'+loci+'</section>';
+        return '<section class="tc-reader-verse tc-witness" data-rows="'+esc(readerRows.join(','))+'"><div class="tc-verse-summary">'+(sourceOnly?'<span>'+esc(ref)+' · Kennicott · MT-Bezug offen</span>':'<button class="tc-jump" type="button" data-row="'+esc(readerRows[0])+'">'+esc(ref)+' · MT</button>')+(entries.length?' <span class="tc-count">· '+entries.length+' Hinweise</span>':'')+(coverage.has(ref)?' · '+coverage.get(ref):'')+'</div>'+loci+'</section>';
       }).join('');
       const empty=!showSmr&&!showTov&&!showDss&&!showKen?'SMR ist ausgeblendet. Wähle einen Zeugen oben aus.':'';
       body.innerHTML=unresolvedHtml+notices.map(n=>'<p class="tc-status">'+esc(n)+'</p>').join('')+(sections||(empty?'<p class="muted">'+empty+'</p>':''))+(showTov?tov.credit():'')+(showDss?dss.credit():'')+(showKen?ken.credit():'')+(showSmr?'<p class="tc-credit">Samaritanus, Tal–Florentin · CC BY-NC 4.0. MT-Bezug wortlautbasiert; bei mehrdeutiger Wortposition bleibt die Zuordnung offen.</p>':'');

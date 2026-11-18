@@ -1,0 +1,39 @@
+{
+  "source": {
+    "url": "https://www.edition-digitalkennicott.unito.it/exist/apps/dike/api/document/036_ezra.xml/",
+    "book": "Ezra",
+    "sha256": "9dc416a6415e5c6b071d7f4432f0306c2236102d1c3229df3f3175db056d40a3",
+    "license": "CC BY-NC-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "title": "The Digital Kennicott. A Digital Edition of Benjamin Kennicott's Vetus Testamentum Hebraicum",
+    "editors": "Sebastiano Crestani, Alberto Legnaioli",
+    "base": "Kennicott / Van der Hooght reference text; distinct from OSHB",
+    "mt": {
+      "rel": "own/Ezra/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "e102d39b56fb5007e9fb7400ef3fcd2d7501ff00553a484c5462ae02d63a9b40",
+      "license": "CC BY 4.0"
+    }
+  },
+  "counts": {
+    "entries": 2211,
+    "readings": 4350,
+    "verses": 280,
+    "witnesses": 721,
+    "baseVerses": 280
+  },
+  "unlocated": [],
+  "unidentifiedWitnesses": [
+    "K235m"
+  ],
+  "apparatusRefsWithoutBase": [],
+  "baseRefsOutsideMT": [],
+  "unindexedEntries": [],
+  "mappedSourceVerses": 276,
+  "unmappedSourceVerses": [
+    "Ezra 2:50",
+    "Ezra 8:14",
+    "Ezra 10:35",
+    "Ezra 10:37"
+  ],
+  "shiftedSourceVerses": {}
+}

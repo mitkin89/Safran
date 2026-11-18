@@ -1,6 +1,7 @@
 {
   "source": {
     "url": "https://www.edition-digitalkennicott.unito.it/exist/apps/dike/api/document/001_gen.xml/",
+    "book": "Genesis",
     "sha256": "df73ab434bf4732a50b09f290a1c6140752832844f84d53c742926e8d4c05a51",
     "license": "CC BY-NC-SA 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
@@ -16,7 +17,7 @@
   "counts": {
     "entries": 9129,
     "readings": 13016,
-    "verses": 1522,
+    "verses": 1521,
     "witnesses": 721,
     "baseVerses": 1533
   },
@@ -48,5 +49,69 @@
   ],
   "baseRefsOutsideMT": [
     "Genesis 30:44"
-  ]
+  ],
+  "unindexedEntries": [],
+  "mappedSourceVerses": 1531,
+  "unmappedSourceVerses": [
+    "Genesis 30:11",
+    "Genesis 30:37"
+  ],
+  "shiftedSourceVerses": {
+    "Genesis 30:38": {
+      "refs": [
+        "Genesis 30:37"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 66
+    },
+    "Genesis 30:39": {
+      "refs": [
+        "Genesis 30:38"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 73
+    },
+    "Genesis 30:40": {
+      "refs": [
+        "Genesis 30:39"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 42
+    },
+    "Genesis 30:41": {
+      "refs": [
+        "Genesis 30:40"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 74
+    },
+    "Genesis 30:42": {
+      "refs": [
+        "Genesis 30:41"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 63
+    },
+    "Genesis 30:43": {
+      "refs": [
+        "Genesis 30:42"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 43
+    },
+    "Genesis 30:44": {
+      "refs": [
+        "Genesis 30:43"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 52
+    }
+  }
 }

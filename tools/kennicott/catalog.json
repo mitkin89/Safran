@@ -1,0 +1,161 @@
+{
+  "source": "https://www.edition-digitalkennicott.unito.it/exist/apps/dike/api/collection",
+  "books": [
+    {
+      "book": "Genesis",
+      "file": "001_gen.xml"
+    },
+    {
+      "book": "Exodus",
+      "file": "002_exod.xml"
+    },
+    {
+      "book": "Leviticus",
+      "file": "003_lev.xml"
+    },
+    {
+      "book": "Numbers",
+      "file": "004_num.xml"
+    },
+    {
+      "book": "Deuteronomy",
+      "file": "005_deut.xml"
+    },
+    {
+      "book": "Joshua",
+      "file": "006_josh.xml"
+    },
+    {
+      "book": "Judges",
+      "file": "007_judg.xml"
+    },
+    {
+      "book": "I Samuel",
+      "file": "008_1sam.xml"
+    },
+    {
+      "book": "II Samuel",
+      "file": "009_2sam.xml"
+    },
+    {
+      "book": "I Kings",
+      "file": "010_1kgs.xml"
+    },
+    {
+      "book": "II Kings",
+      "file": "011_2kgs.xml"
+    },
+    {
+      "book": "Isaiah",
+      "file": "012_isa.xml"
+    },
+    {
+      "book": "Jeremiah",
+      "file": "013_jer.xml"
+    },
+    {
+      "book": "Ezekiel",
+      "file": "014_ezek.xml"
+    },
+    {
+      "book": "Hosea",
+      "file": "015_hos.xml"
+    },
+    {
+      "book": "Joel",
+      "file": "016_joel.xml"
+    },
+    {
+      "book": "Amos",
+      "file": "017_amos.xml"
+    },
+    {
+      "book": "Obadiah",
+      "file": "018_obad.xml"
+    },
+    {
+      "book": "Jonah",
+      "file": "019_jonah.xml"
+    },
+    {
+      "book": "Micah",
+      "file": "020_mic.xml"
+    },
+    {
+      "book": "Nahum",
+      "file": "021_nah.xml"
+    },
+    {
+      "book": "Habakkuk",
+      "file": "022_hab.xml"
+    },
+    {
+      "book": "Zephaniah",
+      "file": "023_zeph.xml"
+    },
+    {
+      "book": "Haggai",
+      "file": "024_hag.xml"
+    },
+    {
+      "book": "Zechariah",
+      "file": "025_zech.xml"
+    },
+    {
+      "book": "Malachi",
+      "file": "026_mal.xml"
+    },
+    {
+      "book": "Psalms",
+      "file": "027_ps.xml"
+    },
+    {
+      "book": "Proverbs",
+      "file": "028_prov.xml"
+    },
+    {
+      "book": "Job",
+      "file": "029_job.xml"
+    },
+    {
+      "book": "Song of Songs",
+      "file": "030_song.xml"
+    },
+    {
+      "book": "Ruth",
+      "file": "031_ruth.xml"
+    },
+    {
+      "book": "Lamentations",
+      "file": "032_lam.xml"
+    },
+    {
+      "book": "Ecclesiastes",
+      "file": "033_eccl.xml"
+    },
+    {
+      "book": "Esther",
+      "file": "034_esth.xml"
+    },
+    {
+      "book": "Daniel",
+      "file": "035_dan.xml"
+    },
+    {
+      "book": "Ezra",
+      "file": "036_ezra.xml"
+    },
+    {
+      "book": "Nehemiah",
+      "file": "037_neh.xml"
+    },
+    {
+      "book": "I Chronicles",
+      "file": "038_1chr.xml"
+    },
+    {
+      "book": "II Chronicles",
+      "file": "039_2chr.xml"
+    }
+  ]
+}

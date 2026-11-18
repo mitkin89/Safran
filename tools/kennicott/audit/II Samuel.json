@@ -1,0 +1,69 @@
+{
+  "source": {
+    "url": "https://www.edition-digitalkennicott.unito.it/exist/apps/dike/api/document/009_2sam.xml/",
+    "book": "II Samuel",
+    "sha256": "b2311a4253468c7c8a0e294795311bc526b97cef4b0382973e029dc078cf98ef",
+    "license": "CC BY-NC-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "title": "The Digital Kennicott. A Digital Edition of Benjamin Kennicott's Vetus Testamentum Hebraicum",
+    "editors": "Sebastiano Crestani, Alberto Legnaioli",
+    "base": "Kennicott / Van der Hooght reference text; distinct from OSHB",
+    "mt": {
+      "rel": "own/II Samuel/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "713b82cc845783b1512c15b21fe2d83f032c70b37e3ea3425c6ddc6279e357de",
+      "license": "CC BY 4.0"
+    }
+  },
+  "counts": {
+    "entries": 4370,
+    "readings": 6497,
+    "verses": 691,
+    "witnesses": 721,
+    "baseVerses": 695
+  },
+  "unlocated": [],
+  "unidentifiedWitnesses": [
+    "K149m",
+    "K154m",
+    "K158m",
+    "K162m",
+    "K168m",
+    "K172m",
+    "K187m",
+    "K198m",
+    "K1m",
+    "K201m",
+    "K206m",
+    "K225m",
+    "K226m",
+    "K227m",
+    "K228m",
+    "K242m",
+    "K246m",
+    "K250B",
+    "K250m",
+    "K252m",
+    "K277m",
+    "K282m",
+    "K309m",
+    "K30m",
+    "K446m",
+    "K530m",
+    "K531m",
+    "K584m",
+    "K601m",
+    "K650",
+    "K93m"
+  ],
+  "apparatusRefsWithoutBase": [],
+  "baseRefsOutsideMT": [],
+  "unindexedEntries": [],
+  "mappedSourceVerses": 691,
+  "unmappedSourceVerses": [
+    "II Samuel 15:37",
+    "II Samuel 22:34",
+    "II Samuel 23:24",
+    "II Samuel 23:37"
+  ],
+  "shiftedSourceVerses": {}
+}

@@ -1990,3 +1990,19 @@ body.il .cell[data-k="he"] .ilt.il-smr { direction: rtl; font-family: var(--he-f
 #tcHover .tc-source-citation-detail > p { white-space: pre-wrap; }
 #tcBody .tc-tov-reading { white-space: nowrap; }
 #tcBody .tc-tov-reading > bdi { white-space: normal; overflow-wrap: anywhere; }
+
+/* Witness identity uses source colors; red remains reserved for MT differences. */
+:root { --tc-lxx: var(--il5, #d2bb65); --tc-dss: var(--il12, #a5c2da); --tc-smr: var(--il7, #6fc7bd); --tc-ken: var(--il4, #ba9add); }
+#tcBody .tc-entry[data-witness="SMR"] { --tc-witness: var(--tc-smr); }
+#tcBody .tc-entry[data-witness^="LXX"] { --tc-witness: var(--tc-lxx); }
+#tcBody .tc-entry[data-witness="DSS"] { --tc-witness: var(--tc-dss); }
+#tcBody .tc-entry[data-witness="Kennicott"] { --tc-witness: var(--tc-ken); }
+#tcBody .tc-entry .tc-witness-label { color: var(--tc-witness, var(--muted)); background: color-mix(in srgb, var(--tc-witness, var(--muted)) 16%, transparent); }
+#tcBody .tc-locus .tc-entry { border-inline-start: 2px solid color-mix(in srgb, var(--tc-witness, var(--muted)) 50%, transparent); padding-inline-start: 7px; }
+#tcBody .tc-ken-reading { color: var(--muted); }
+#tcBody .tc-ken-reading bdi[lang="he"] { color: var(--fg); }
+#tcBody .tc-ken-witness, #tcBody .tc-ken-more { color: var(--tc-ken); }
+#tcWitnessOptions label:has(#tcSmr) { accent-color: var(--tc-smr); }
+#tcWitnessOptions label:has(#tcTov) { accent-color: var(--tc-lxx); }
+#tcWitnessOptions label:has(#tcDss) { accent-color: var(--tc-dss); }
+#tcWitnessOptions label:has(#tcKen) { accent-color: var(--tc-ken); }

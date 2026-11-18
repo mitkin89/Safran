@@ -1,0 +1,38 @@
+{
+  "source": {
+    "url": "https://www.edition-digitalkennicott.unito.it/exist/apps/dike/api/document/017_amos.xml/",
+    "book": "Amos",
+    "sha256": "43901e2ac3699a0598f82d294e9f4e46acecb5f35a8bc0c2a1885507a5ca36b6",
+    "license": "CC BY-NC-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "title": "The Digital Kennicott. A Digital Edition of Benjamin Kennicott's Vetus Testamentum Hebraicum",
+    "editors": "Sebastiano Crestani, Alberto Legnaioli",
+    "base": "Kennicott / Van der Hooght reference text; distinct from OSHB",
+    "mt": {
+      "rel": "own/Amos/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "a51e193357988c4faa9a484f7832bcb6bbf180f63dc502e5910eadb7fbf22656",
+      "license": "CC BY 4.0"
+    }
+  },
+  "counts": {
+    "entries": 945,
+    "readings": 1481,
+    "verses": 146,
+    "witnesses": 721,
+    "baseVerses": 146
+  },
+  "unlocated": [],
+  "unidentifiedWitnesses": [
+    "K160m",
+    "K201m",
+    "K251m",
+    "K300B",
+    "K514m"
+  ],
+  "apparatusRefsWithoutBase": [],
+  "baseRefsOutsideMT": [],
+  "unindexedEntries": [],
+  "mappedSourceVerses": 146,
+  "unmappedSourceVerses": [],
+  "shiftedSourceVerses": {}
+}

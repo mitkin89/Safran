@@ -1,0 +1,25 @@
+{
+  "retrieved": "2026-11-18",
+  "pages": [
+    {
+      "file": "page-1.html.gz",
+      "sha256": "8833011940a05e95dc3fc719d16fe4074dcfc7812f97752f6927817b79f37a3d",
+      "url": "https://www.edition-digitalkennicott.unito.it/exist/apps/dike/api/collection?start=1&per-page=10"
+    },
+    {
+      "file": "page-11.html.gz",
+      "sha256": "a2b2a3e8b439935d2d77e5040941e1651a7b169f9c2858d381e7b0176cc8d3a2",
+      "url": "https://www.edition-digitalkennicott.unito.it/exist/apps/dike/api/collection?start=11&per-page=10"
+    },
+    {
+      "file": "page-21.html.gz",
+      "sha256": "45dcfe67a7cbd83d63fe1329cc67dadab39a624bd17fc0d1d91a13d89090f8f5",
+      "url": "https://www.edition-digitalkennicott.unito.it/exist/apps/dike/api/collection?start=21&per-page=10"
+    },
+    {
+      "file": "page-31.html.gz",
+      "sha256": "ab6c562057e09f0f58146375ea0a3d176958523f871978beaaebb5f8f2690102",
+      "url": "https://www.edition-digitalkennicott.unito.it/exist/apps/dike/api/collection?start=31&per-page=10"
+    }
+  ]
+}

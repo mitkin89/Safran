@@ -1,0 +1,41 @@
+{
+  "source": {
+    "url": "https://www.edition-digitalkennicott.unito.it/exist/apps/dike/api/document/025_zech.xml/",
+    "book": "Zechariah",
+    "sha256": "6c602fb26e23a58961a1dc3ea7ec786832978f842ffc2cf548256827a358fc6f",
+    "license": "CC BY-NC-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "title": "The Digital Kennicott. A Digital Edition of Benjamin Kennicott's Vetus Testamentum Hebraicum",
+    "editors": "Sebastiano Crestani, Alberto Legnaioli",
+    "base": "Kennicott / Van der Hooght reference text; distinct from OSHB",
+    "mt": {
+      "rel": "own/Zechariah/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "e354b277e174900d1499522ff29e06e284bfea3e1e45893b9f2e26fc69944ce6",
+      "license": "CC BY 4.0"
+    }
+  },
+  "counts": {
+    "entries": 1422,
+    "readings": 2238,
+    "verses": 209,
+    "witnesses": 721,
+    "baseVerses": 211
+  },
+  "unlocated": [],
+  "unidentifiedWitnesses": [
+    "K180m",
+    "K198m",
+    "K201m",
+    "K242m",
+    "K251m",
+    "KV.Hooght"
+  ],
+  "apparatusRefsWithoutBase": [],
+  "baseRefsOutsideMT": [],
+  "unindexedEntries": [],
+  "mappedSourceVerses": 210,
+  "unmappedSourceVerses": [
+    "Zechariah 6:3"
+  ],
+  "shiftedSourceVerses": {}
+}

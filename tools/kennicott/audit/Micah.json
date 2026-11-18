@@ -1,0 +1,40 @@
+{
+  "source": {
+    "url": "https://www.edition-digitalkennicott.unito.it/exist/apps/dike/api/document/020_mic.xml/",
+    "book": "Micah",
+    "sha256": "896a2c897058eba8778e4a0d2815321d454765ac1eed4f9ffa9774280dbcc891",
+    "license": "CC BY-NC-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "title": "The Digital Kennicott. A Digital Edition of Benjamin Kennicott's Vetus Testamentum Hebraicum",
+    "editors": "Sebastiano Crestani, Alberto Legnaioli",
+    "base": "Kennicott / Van der Hooght reference text; distinct from OSHB",
+    "mt": {
+      "rel": "own/Micah/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "d1c14fd6d8e2613d88bebac028a4a41cdb0fced5d6e88772355c12c2d8bb859b",
+      "license": "CC BY 4.0"
+    }
+  },
+  "counts": {
+    "entries": 695,
+    "readings": 1157,
+    "verses": 105,
+    "witnesses": 721,
+    "baseVerses": 105
+  },
+  "unlocated": [],
+  "unidentifiedWitnesses": [
+    "K201m",
+    "K230m",
+    "K277m",
+    "K475m"
+  ],
+  "apparatusRefsWithoutBase": [],
+  "baseRefsOutsideMT": [],
+  "unindexedEntries": [],
+  "mappedSourceVerses": 103,
+  "unmappedSourceVerses": [
+    "Micah 2:6",
+    "Micah 7:19"
+  ],
+  "shiftedSourceVerses": {}
+}

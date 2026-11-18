@@ -1,6 +1,9 @@
 # Changelog
 
 ### Unreleased
+- **Kennicott across the Tanakh:** include all 39 public TEI book documents, retaining 145,543 entries and 229,750 readings with original witnesses, source text and licences. Load data by book, validate source book titles and map independent verse boundaries before assigning MT word positions. Audit every entry; keep ambiguity open and source-only Numbers entries accessible in chapter view.
+- **Witness colors:** distinguish LXX (gold), DSS (blue), SMR (turquoise) and Kennicott (violet) through labeled badges and quiet margin lines. Separate Kennicott readings, explanations and manuscript sigla without overriding red MT-difference markings.
+- **Samaritanus portrait:** use the supplied manuscript image for Hebrew/English version choices, interlinear selection and portrait previews.
 - **Apparatus reading overview:** place each MT lemma beside its witness readings, combine verse/count/DSS coverage into one summary, and move individual citations to accessible witness buttons with source/context previews. Preserve every note, source marker, morphology link and exact MT navigation.
 - **Compact commentary header:** shorten the place heading and place language, verse arrows, follow mode, font size and commentator selection in one compact toolbar. Keep language switching directly accessible, preserve filters and leave commentary text sizes unchanged.
 - **Compact textual criticism header:** keep language selection, navigation, font size and witness selection directly accessible in a compact toolbar; move numbering into an on-demand settings menu. Always include spelling differences and remove their checkbox.

@@ -1,0 +1,39 @@
+{
+  "source": {
+    "url": "https://www.edition-digitalkennicott.unito.it/exist/apps/dike/api/document/030_song.xml/",
+    "book": "Song of Songs",
+    "sha256": "7b8b672125e9a3e6abb1d7f7d9b7f9739c2e9787d81bccfd770a6048f7a39573",
+    "license": "CC BY-NC-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "title": "The Digital Kennicott. A Digital Edition of Benjamin Kennicott's Vetus Testamentum Hebraicum",
+    "editors": "Sebastiano Crestani, Alberto Legnaioli",
+    "base": "Kennicott / Van der Hooght reference text; distinct from OSHB",
+    "mt": {
+      "rel": "own/Song of Songs/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "3cce866d5300ca235c0e1f8bd8c2fa5471a2eaa9b397ea94d13c25e8064e2d55",
+      "license": "CC BY 4.0"
+    }
+  },
+  "counts": {
+    "entries": 755,
+    "readings": 1374,
+    "verses": 117,
+    "witnesses": 721,
+    "baseVerses": 117
+  },
+  "unlocated": [],
+  "unidentifiedWitnesses": [
+    "K178m",
+    "K226m",
+    "K399m",
+    "K514m"
+  ],
+  "apparatusRefsWithoutBase": [],
+  "baseRefsOutsideMT": [],
+  "unindexedEntries": [],
+  "mappedSourceVerses": 116,
+  "unmappedSourceVerses": [
+    "Song of Songs 2:15"
+  ],
+  "shiftedSourceVerses": {}
+}

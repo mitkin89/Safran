@@ -1,0 +1,36 @@
+{
+  "source": {
+    "url": "https://www.edition-digitalkennicott.unito.it/exist/apps/dike/api/document/034_esth.xml/",
+    "book": "Esther",
+    "sha256": "ee94b5d2802655f48f6414254dfb6fb269af896689213298750ce8461f7f8ba3",
+    "license": "CC BY-NC-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "title": "The Digital Kennicott. A Digital Edition of Benjamin Kennicott's Vetus Testamentum Hebraicum",
+    "editors": "Sebastiano Crestani, Alberto Legnaioli",
+    "base": "Kennicott / Van der Hooght reference text; distinct from OSHB",
+    "mt": {
+      "rel": "own/Esther/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "fa718418321587e18a1c76230abed9f2f618c8448e56ef40bd3339bc83f832a6",
+      "license": "CC BY 4.0"
+    }
+  },
+  "counts": {
+    "entries": 1256,
+    "readings": 1792,
+    "verses": 166,
+    "witnesses": 721,
+    "baseVerses": 167
+  },
+  "unlocated": [],
+  "unidentifiedWitnesses": [
+    "K164m",
+    "K200m",
+    "K228m"
+  ],
+  "apparatusRefsWithoutBase": [],
+  "baseRefsOutsideMT": [],
+  "unindexedEntries": [],
+  "mappedSourceVerses": 167,
+  "unmappedSourceVerses": [],
+  "shiftedSourceVerses": {}
+}

@@ -1,0 +1,34 @@
+{
+  "source": {
+    "url": "https://www.edition-digitalkennicott.unito.it/exist/apps/dike/api/document/018_obad.xml/",
+    "book": "Obadiah",
+    "sha256": "ddacce5627395f86bb1a2cba513baf15a26aba0610a95bb4a608953d6bcaa336",
+    "license": "CC BY-NC-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "title": "The Digital Kennicott. A Digital Edition of Benjamin Kennicott's Vetus Testamentum Hebraicum",
+    "editors": "Sebastiano Crestani, Alberto Legnaioli",
+    "base": "Kennicott / Van der Hooght reference text; distinct from OSHB",
+    "mt": {
+      "rel": "own/Obadiah/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "d81f6725892198c4a64d068a30783e6808a078b773b050c404a6985ede9814d9",
+      "license": "CC BY 4.0"
+    }
+  },
+  "counts": {
+    "entries": 154,
+    "readings": 254,
+    "verses": 21,
+    "witnesses": 721,
+    "baseVerses": 21
+  },
+  "unlocated": [],
+  "unidentifiedWitnesses": [
+    "K224m"
+  ],
+  "apparatusRefsWithoutBase": [],
+  "baseRefsOutsideMT": [],
+  "unindexedEntries": [],
+  "mappedSourceVerses": 21,
+  "unmappedSourceVerses": [],
+  "shiftedSourceVerses": {}
+}
