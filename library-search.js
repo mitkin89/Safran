@@ -49,7 +49,15 @@ window.LibrarySearch = (() => {
       const act = +$('#sOrd').checked + +fuzzy + +!$('#sWlc').checked + +(d !== 10) + +!!gram; // was unter „Erweitert“ vom Standard abweicht
       $('#sAdvN').textContent = act ? ' ' + I18N.t('({#} aktiv)', act) : '';
     }
-    O.onSearchProgress(p => { $('#sInfo').textContent = `Durchsuche … ${p.scanned} von ${p.total} Dateien · ${p.found} Treffer`; });
+    O.onSearchProgress(p => {
+      if (!sBusy()) return;
+      const total = Math.max(0, Number(p.total) || 0), scanned = Math.min(total, Math.max(0, Number(p.scanned) || 0));
+      const bar = $('#sProgressBar');
+      if (total) { bar.max = total; bar.value = scanned; }
+      else bar.removeAttribute('value');
+      $('#sProgressLabel').textContent = total ? `${Math.floor(scanned / total * 100)} % · ${scanned} / ${total} Dateien` : I18N.t('Suche läuft …');
+      $('#sInfo').textContent = `Durchsuche … ${scanned} von ${total} Dateien · ${p.found} Treffer`;
+    });
 
     // Kategorien und einzelne Bücher für die Suche: ohne Häkchen wird überall gesucht
     const sCats = new Set(), sTitles = new Set();
@@ -198,6 +206,7 @@ window.LibrarySearch = (() => {
       if (!q && !gram) return;
       const kinds = gram ? ['he'] : sKinds(); // Grammatik-Suche: nur hebräischer Westminster-Text
       sPending++; sSetBusy();
+      $('#sProgress').hidden = false; $('#sProgressBar').removeAttribute('value'); $('#sProgressLabel').textContent = I18N.t('Suche läuft …');
       $('#sInfo').textContent = 'Suche läuft …';
       $('#sOut').innerHTML = ''; $('#sSum').innerHTML = ''; $('#sSumPanel').hidden = true; $('#sExport').hidden = true; if (!only || typeof only !== 'string' || only === 'restore') $('#sChart').hidden = true;
       const sp = {
@@ -211,6 +220,7 @@ window.LibrarySearch = (() => {
       if (only === 'restore' && fullCache && fullCache.key === fkey) res = fullCache.res; // Rückkehr zu „alle Bücher“: gespeichertes Ergebnis, keine neue Suche
       else { try { res = await O.search(sp); } catch { res = null; } }
       sPending--; sSetBusy();
+      if (!sBusy()) $('#sProgress').hidden = true;
       if (!res) { $('#sInfo').textContent = I18N.t('Die Suche ist fehlgeschlagen.'); return; }
       if (!onlyTitle && !res.cancelled) fullCache = { key: fkey, res };
       sResults = res.results;

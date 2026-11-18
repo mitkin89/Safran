@@ -33,15 +33,16 @@
     });
     const notesById = new Map((h.notes || []).map(n => [n.id, n])), endnotes = [];
     const links = h.links || new Map();
-    const cell = (html, d, i) => {
+    const cell = (html, d, i, section, label) => {
       if (html == null) return '<td></td>';
       const sp = R.splitFootnotes(d.entry.kind === 'he' ? stripHe(html) : html);
-      const main = R.cleanHtml(sp.main.replace(/<span class="w tal-note-ref"[^>]*>·<\/span>/g,'')).replace(/<sup data-fn="(\d{1,4})">.*?<\/sup>/g, (_m, i) => {
+      let main = R.cleanHtml(sp.main.replace(/<span class="w tal-note-ref"[^>]*>·<\/span>/g,'')).replace(/<sup data-fn="(\d{1,4})">.*?<\/sup>/g, (_m, i) => {
         if (!o.fn || !sp.notes[+i]) return '';
         endnotes.push(R.cleanHtml(sp.notes[+i].html));
         return `<sup>${endnotes.length}</sup>`;
       });
-      return `<td dir="${d.entry.kind === 'he' || d.entry.language === 'Aramaic' ? 'rtl' : 'ltr'}" class="k-${esc(d.entry.kind)}" style="font-size:${columnPt[i]}pt">${main}</td>`;
+      if (h.interlinear) main = h.interlinear(main, d, section, label);
+      return `<td dir="${d.entry.kind === 'he' || d.entry.language === 'Aramaic' ? 'rtl' : 'ltr'}" class="k-${esc(d.entry.kind)}${main.includes('class="ilg"') ? ' ilprint' : ''}" style="font-size:${columnPt[i]}pt">${main}</td>`;
     };
     const head = `<tr><th></th>${view.loaded.map(d => `<th>${esc(tr(labels[d.entry.kind]))} · ${esc(shortVer(d.versionTitle))}</th>`).join('')}</tr>`;
     const chapters = sections.map(s => {
@@ -59,7 +60,7 @@
           const ls = (links.get(s.k) || []).filter(x => x.v1 > 0 && +r.label >= x.v1 && +r.label <= x.v2).map(x => x.other);
           if (ls.length) extra += `<div class="lk">${esc(t('Verknüpfungen:'))} ${esc(ls.slice(0, 30).join('; '))}${ls.length > 30 ? ` … (+${ls.length - 30})` : ''}</div>`;
         }
-        return `<tr class="verse" data-verse="${esc(r.label)}"><td class="lab">${esc(r.label)}</td>${r.cells.map((c, i) => cell(c, view.loaded[i], i)).join('')}</tr>${extra ? `<tr><td></td><td colspan="${view.loaded.length}">${extra}</td></tr>` : ''}`;
+        return `<tr class="verse" data-verse="${esc(r.label)}"><td class="lab">${esc(r.label)}</td>${r.cells.map((c, i) => cell(c, view.loaded[i], i, s, r.label)).join('')}</tr>${extra ? `<tr><td></td><td colspan="${view.loaded.length}">${extra}</td></tr>` : ''}`;
       }).join('');
       return `<section class="chapter" data-section="${esc(s.k)}"><h2>${esc(s.label)}</h2><table><colgroup><col class="versecol">${view.loaded.map(() => '<col>').join('')}</colgroup><thead>${head}</thead><tbody>${body}</tbody></table></section>`;
     }).join('');
@@ -69,10 +70,17 @@ h1{font-size:16pt;margin:0 0 8pt}h1 small{font-size:12pt;color:#555}h2{font-size
 table{border-collapse:collapse;width:100%;table-layout:fixed}col.versecol{width:28pt}thead{display:table-header-group}th{font-size:9pt;text-align:left;color:#555;border-bottom:1px solid #999;padding:3pt}
 td{vertical-align:top;padding:4pt;border-bottom:1px solid #ddd;overflow-wrap:anywhere}td.lab{font-size:8pt;color:#777}
 td.k-he{line-height:1.8}.nt{background:#fff6d6;padding:2pt 5pt;font-size:9pt}.lk{font-size:8pt;color:#555}
-.mt-diff{color:#d00000!important}ol.fn{font-size:9pt}ul.src{font-size:8pt;color:#555}tr{break-inside:avoid;page-break-inside:avoid}`;
-    return `<!doctype html><html><head><meta charset="utf-8"><title>${esc(view.group.title)}</title><style>${css}</style></head><body><h1>${esc(view.group.title)}${view.group.heTitle ? ` <small dir="rtl">${esc(view.group.heTitle)}</small>` : ''}</h1>${chapters}${endnotes.length ? `<h3>${esc(t('Fußnoten'))}</h3><ol class="fn">${endnotes.map(n => `<li>${n}</li>`).join('')}</ol>` : ''}<ul class="src">${src}</ul><p style="font-size:8pt;color:#777">${esc(t('Quelle: Sefaria (sefaria.org), Export vom {}', new Date().toLocaleDateString(loc)))}</p></body></html>`;
+.mt-diff{color:#d00000!important}ol.fn{font-size:9pt}ul.src{font-size:8pt;color:#555}tr{break-inside:avoid;page-break-inside:avoid}
+.ilprint .ilg{display:inline-flex;flex-direction:column;align-items:center;vertical-align:top;margin:0 .3em .7em;break-inside:avoid;page-break-inside:avoid;max-width:100%}
+.ilprint .ilw{display:block;white-space:nowrap;text-align:center}.ilprint .ilw .w{display:inline}
+.ilprint .ilt{display:block;direction:ltr;unicode-bidi:isolate;font-family:Arial,sans-serif;font-size:.6em;line-height:1.3;color:#555;min-height:1.3em;max-width:14em;text-align:center;margin-top:.2em}
+.ilprint .ilt[lang="grc"]{font-family:"Times New Roman",serif;color:#705900;font-size:.72em}
+.ilprint .ilt[lang="he"],.ilprint .ilt[lang="arc"]{direction:rtl;font-family:"SBL Hebrew","Times New Roman",serif;font-size:.72em;color:#305c7e}
+.ilprint .ilq1{text-decoration:underline dotted}.ilprint .ilq3{color:#777}.ilprint .ilq2,.ilprint .ilq4{font-weight:bold}.ilprint .ilq4::before{content:"+"}.ilprint .ilq2,.ilprint .ilq4{background:#e9edf1}.ilprint .ilsig{font-size:.75em;margin-inline-end:.3em}
+tr:has(.ilprint){break-inside:auto;page-break-inside:auto}`;
+    return `<!doctype html><html><head><meta charset="utf-8"><title>${esc(view.group.title)}</title><style>${css}</style></head><body><h1>${esc(view.group.title)}${view.group.heTitle ? ` <small dir="rtl">${esc(view.group.heTitle)}</small>` : ''}</h1>${h.interlinear?.labels?.length ? `<p style="font-size:9pt">Interlinear: ${esc(h.interlinear.labels.join(' · '))}</p>` : ''}${h.interlinear?.warnings?.length ? `<p style="font-size:8pt">${esc(t('Wortzuordnung nicht angewendet: {}', h.interlinear.warnings.join('; ')))}</p>` : ''}${chapters}${endnotes.length ? `<h3>${esc(t('Fußnoten'))}</h3><ol class="fn">${endnotes.map(n => `<li>${n}</li>`).join('')}</ol>` : ''}<ul class="src">${src}${h.interlinear?.labels?.includes('Septuaginta') ? '<li>Septuaginta · Tov/Kraft (CATSS) · CC BY-NC-SA 3.0</li>' : ''}${h.interlinear?.labels?.includes('Qumran-Rollen') ? '<li>Qumran · ETCBC/Abegg · CC BY-NC 4.0</li>' : ''}</ul><p style="font-size:8pt;color:#777">${esc(t('Quelle: Sefaria (sefaria.org), Export vom {}', new Date().toLocaleDateString(loc)))}</p></body></html>`;
   }
-  function create({ $, getView, getNotes, stripHe, noteId, labels, shortVer, getLinks, getTypography }) {
+  function create({ $, getView, getNotes, stripHe, noteId, labels, shortVer, getLinks, getTypography, getInterlinear }) {
     const scope = () => $('#expScope').value;
     function syncScope() {
       $('#expRows').hidden = scope() !== 'current'; $('#expSections').hidden = scope() !== 'range';
@@ -94,11 +102,12 @@ td.k-he{line-height:1.8}.nt{background:#fff6d6;padding:2pt 5pt;font-size:9pt}.lk
         if (!current || !current.group || !current.loaded || !current.loaded.length) throw Error('Kein Text zum Exportieren geöffnet.');
         const v = { ...current, loaded: current.loaded.slice(), sections: current.sections.slice() };
         const typography = getTypography(v);
+        const interlinear = getInterlinear ? await getInterlinear(v) : null;
         const o = { scope: scope(), sectionFrom: $('#expSectionFrom').value, sectionTo: $('#expSectionTo').value,
           from: $('#expFrom').value.trim(), to: $('#expTo').value.trim(), fn: $('#expFn').checked, notes: $('#expNotes').checked, links: $('#expLinks').checked };
         const selected = selectSections(v, o), links = new Map(), notes = getNotes().slice();
         if (o.links) for (const section of selected) links.set(section.k, await getLinks(v, section));
-        const html = buildHtml(v, o, { notes, links, typography, stripHe, noteId, labels, shortVer, t: I18N.t, tr: I18N.tr, loc: I18N.loc });
+        const html = buildHtml(v, o, { notes, links, typography, interlinear, stripHe, noteId, labels, shortVer, t: I18N.t, tr: I18N.tr, loc: I18N.loc });
         const suffix = o.scope === 'book' ? I18N.t('Ganzes Buch') : selected.length === 1 ? selected[0].label : selected[0].label + '–' + selected.at(-1).label;
         const name = `${v.group.title} ${suffix}`.replace(/[\\/:*?"<>|]+/g, '_').trim();
         const r = await window.offline.exportSave({ html, format: $('#expFmt').value, name, landscape: v.loaded.length >= 3 });

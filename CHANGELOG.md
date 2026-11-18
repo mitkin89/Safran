@@ -1,5 +1,11 @@
 # Changelog
 
+### Unreleased
+- **Genesis Kennicott apparatus:** add all 9,129 Digital Kennicott entries and 721 witness records offline, under CC BY-NC-SA 4.0. Preserve reading groups, individual witnesses, source text and uncertainty; locate edition lemmas before mapping to Westminster. Explain signs and witness sigla on hover and retain ambiguous positions separately.
+- **Search progress:** show a per-window progress bar and percentage of files searched; remove it on completion, cancellation or error.
+- **Interlinear export:** include the chosen word-aligned sources in current-section, chapter-range and whole-book PDF/Word exports. Preserve LXX, Targum and DSS lines, manuscript sigla, reconstruction and plus markings, and reader font sizes.
+- **MT navigation from the apparatus:** click a securely located MT word heading to highlight its exact Westminster word or phrase in the reader and scroll it into view when needed. Preserve repeated-word positions and keep unresolved readings unlinked.
+
 ### New in 2.6.0
 - **DSS gap notices:** keep non-letter gap placeholders in manuscript context only, and avoid labeling them as reconstructed words.
 - **Version metadata:** align the internal app/package version with the published 2.6.0 release name; Electron previously still reported 2.5.0.

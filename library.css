@@ -1904,3 +1904,18 @@ html.split #textcritPanel:not(.docked) { right: var(--p2w); }
 .tc-dss-rec { color: var(--muted); }
 .tc-dss-unc { text-decoration: underline dotted; text-underline-offset: .18em; }
 .tc-dss-deleted { text-decoration: line-through; }
+
+/* Apparatus MT anchors use the reader's exact Westminster word positions. */
+.tc-mt-jump { border: 0; padding: 0; background: none; color: inherit; font: inherit; cursor: pointer; }
+.tc-mt-jump:hover, .tc-mt-jump:focus-visible { text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: .2em; }
+#rOut .w.tc-mt-selected { background: color-mix(in srgb, var(--accent) 32%, transparent); border-radius: 3px; outline: 1px solid var(--accent); }
+
+#sProgress { display: flex; align-items: center; gap: 10px; margin: 10px 0; }
+#sProgress[hidden] { display: none; }
+#sProgressBar { flex: 1; min-width: 80px; accent-color: var(--accent); }
+#sProgressLabel { font-variant-numeric: tabular-nums; }
+
+.tc-ken-witnesses { color: var(--muted); font-size: .85em; }
+.tc-ken-group { unicode-bidi: isolate; }
+.tc-ken-term { cursor: help; }
+.tc-ken-reading bdi[lang="he"], .tc-ken-lemma bdi[lang="he"] { font-size: 1.2em; }

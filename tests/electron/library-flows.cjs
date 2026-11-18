@@ -47,7 +47,7 @@ module.exports=async function setup({profile,docs,handlers}){
     const job=jobs.begin(ownerOf(e),params.requestId);
     try{
       if(searchError)throw Error('Suchquelle nicht lesbar (Test)');
-      if(holdSearch){const gate=deferred();gates.push({job,...gate});job.stop=gate.resolve;await gate.promise;job.stop=null;}
+      if(holdSearch){e.senderFrame.send('off:searchProgress',{scanned:5,total:10,found:2,requestId:job.requestId});const gate=deferred();gates.push({job,...gate});job.stop=gate.resolve;await gate.promise;job.stop=null;}
       if(job.cancelled)return emptyResult();
       const selected=[...docs.values()].map(d=>d.entry).filter(d=>(!params.kinds?.length||params.kinds.includes(d.kind))&&(!params.titles?.length||params.titles.includes(d.title)));
       return await runSearchWorker({dir:searchDir,entries:selected,params,cacheDir:null},job,p=>{if(jobs.current(job))e.senderFrame.send('off:searchProgress',{...p,requestId:job.requestId});});
@@ -84,15 +84,19 @@ module.exports=async function setup({profile,docs,handlers}){
     holdSearch=true;await search();await search(pane);
     await until(()=>gates.length===2,'Zwei unabhängige Suchaufträge');
     assert.notEqual(gates[0].job.owner,gates[1].job.owner);
+    await waitFor("!document.querySelector('#sProgress').hidden && document.querySelector('#sProgressBar').value===5 && document.querySelector('#sProgressBar').max===10 && document.querySelector('#sProgressLabel').textContent.includes('50 %')",'Suchfortschritt mit echtem IPC');
     await js("document.querySelector('#sGo').click()");
     await waitFor("document.querySelector('#sInfo').textContent.includes('abgebrochen') && document.querySelector('#sGo').textContent==='Suchen'",'Suchabbruch im ersten Fenster');
     assert.equal(gates[1].job.cancelled,false);
+    assert(await js("document.querySelector('#sProgress').hidden"),'Abgebrochene Suche blendet Fortschrittsbalken aus');
+    assert(await js(`${pane}.querySelector('#sProgress').hidden===false`),'Zweites Fenster behält eigenen Fortschrittsbalken');
     assert.equal(await js(`${pane}.querySelector('#sGo').textContent`),'Abbrechen');
     gates[1].resolve();holdSearch=false;
     await waitFor(`${pane}.querySelector('#sOut .sres mark') && ${pane}.querySelector('#sGo').textContent==='Suchen'`,'Zweites Fenster beendet eigene Suche');
     assert.equal(jobs.jobs.size,0);
     searchError=true;await search();
     await waitFor("document.querySelector('#sInfo').textContent==='Die Suche ist fehlgeschlagen.' && document.querySelector('#sGo').textContent==='Suchen'",'Suchfehler gibt Oberfläche frei');
+    assert(await js("document.querySelector('#sProgress').hidden"),'Fehler blendet Fortschrittsbalken aus');
     searchError=false;await search();
     await waitFor("document.querySelector('#sOut .sres') && document.querySelector('#sGo').textContent==='Suchen'",'Erneute Suche nach Fehler');
     console.log('Electron: Suchabbruch pro Fenster, Fehleranzeige und erneute Suche bestanden.');

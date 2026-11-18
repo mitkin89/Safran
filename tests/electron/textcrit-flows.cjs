@@ -4,6 +4,7 @@ module.exports=async({win,js,waitFor,book})=>{
   await js("if(!document.querySelector('#dictPanel').hidden)document.querySelector('#dictClose').click();if(!document.querySelector('#cmtPanel').hidden)document.querySelector('#cmtClose').click();if(!document.querySelector('#pane2').hidden)document.querySelector('#splitBtn').click()");
   await js("document.querySelector('#tcTov').checked=false;document.querySelector('#tcTov').dispatchEvent(new Event('change',{bubbles:true}))");
   await js("document.querySelector('#tcDss').checked=false;document.querySelector('#tcDss').dispatchEvent(new Event('change',{bubbles:true}))");
+  await js("document.querySelector('#tcKen').checked=false;document.querySelector('#tcKen').dispatchEvent(new Event('change',{bubbles:true}))");
   await book('Genesis');
   await waitFor("[...document.querySelectorAll('#verList input[data-rel]')].some(n=>n.dataset.rel.includes('Westminster'))",'MT-Fassung auswählbar');
   await js("{const mt=[...document.querySelectorAll('#verList input[data-rel]')].find(n=>n.dataset.rel.includes('Westminster'));if(!mt.checked){mt.checked=true;mt.dispatchEvent(new Event('change',{bubbles:true}));}}");
@@ -47,6 +48,13 @@ module.exports=async({win,js,waitFor,book})=>{
   await js("document.querySelector('#rOut .row[data-l=\"4\"] .txt').click()");
   await waitFor("document.querySelector('#tcPlace').textContent.includes('Genesis 28:4') && document.querySelectorAll('#tcBody .tc-entry').length===3",'Drei flache Anmerkungen zum Beispielvers');
   assert(await js("document.querySelectorAll('#tcBody .tc-entry h4, #tcBody .tc-entry .tc-he, #tcBody details').length===0 && document.querySelectorAll('#tcBody .tc-entry .tal-cite').length===3"),'No repeated lemma headings or word blocks');
+  await js("document.querySelector('#rOut .row[data-l=\"20\"]').scrollIntoView({block:'center'})");
+  await js("{const b=document.querySelector('#tcBody .tc-mt-jump');window.__tcMtRange=[+b.dataset.start,+b.dataset.end];b.click();}");
+  await waitFor("document.querySelectorAll('#rOut .tc-mt-selected').length>0",'MT-Wörter aus dem Apparat markiert');
+  assert(await js("(()=>{const cell=document.querySelector('#rOut .row[data-l=\"4\"] .cell');const ws=[...cell.querySelectorAll('.w[data-l]')];return ws.every((w,i)=>w.classList.contains('tc-mt-selected')===(i>=window.__tcMtRange[0]&&i<=window.__tcMtRange[1]));})()"),'Exact MT positions, including phrases');
+  await waitFor("(()=>{const w=document.querySelector('#rOut .tc-mt-selected'),r=w.getBoundingClientRect();return r.top>=0&&r.bottom<=innerHeight})()",'MT-Stelle automatisch ins Sichtfeld gescrollt');
+  await js("document.querySelectorAll('#tcBody .tc-mt-jump')[1].click()");
+  assert(await js("(()=>{const b=document.querySelectorAll('#tcBody .tc-mt-jump')[1],ws=[...document.querySelector('#rOut .row[data-l=\"4\"] .cell').querySelectorAll('.w[data-l]')];return ws.every((w,i)=>w.classList.contains('tc-mt-selected')===(i>=+b.dataset.start&&i<=+b.dataset.end));})()"),'New anchor replaces the previous word highlight');
   if(process.env.SAFRAN_CRIT_FLAT_CAPTURE){
     await js("new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)))");
     await new Promise(r=>setTimeout(r,150));fs.writeFileSync(process.env.SAFRAN_CRIT_FLAT_CAPTURE,(await win.webContents.capturePage()).toPNG());

@@ -1,0 +1,52 @@
+{
+  "source": {
+    "url": "https://www.edition-digitalkennicott.unito.it/exist/apps/dike/api/document/001_gen.xml/",
+    "sha256": "df73ab434bf4732a50b09f290a1c6140752832844f84d53c742926e8d4c05a51",
+    "license": "CC BY-NC-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "title": "The Digital Kennicott. A Digital Edition of Benjamin Kennicott's Vetus Testamentum Hebraicum",
+    "editors": "Sebastiano Crestani, Alberto Legnaioli",
+    "base": "Kennicott / Van der Hooght reference text; distinct from OSHB",
+    "mt": {
+      "rel": "own/Genesis/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "1f47f49fd727e0813c8d8672c96ca06f75deb2a58f2853cfd25a5249107bca00",
+      "license": "CC BY 4.0"
+    }
+  },
+  "counts": {
+    "entries": 9129,
+    "readings": 13016,
+    "verses": 1522,
+    "witnesses": 721,
+    "baseVerses": 1533
+  },
+  "unlocated": [],
+  "unidentifiedWitnesses": [
+    "K151m",
+    "K157m",
+    "K196m",
+    "K198m",
+    "K226m",
+    "K228m",
+    "K237m",
+    "K249m",
+    "K251m",
+    "K277m",
+    "K346m",
+    "K389",
+    "K409m",
+    "K411m",
+    "K572m",
+    "K5q",
+    "K600m",
+    "K612m",
+    "K657T"
+  ],
+  "apparatusRefsWithoutBase": [
+    "Genesis 24:67",
+    "Genesis 30:37"
+  ],
+  "baseRefsOutsideMT": [
+    "Genesis 30:44"
+  ]
+}

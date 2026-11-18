@@ -172,9 +172,9 @@ window.LibraryInterlinear = (() => {
     document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('#ilPop').hidden) ilPopToggle(false); });
     addEventListener('resize', () => ilPopPlace());
     let ilTok = 0;
-    async function ilSourceChecks(names, title) {
+    async function ilSourceChecks(names, title, snapshot = getView()) {
       const checked = new Set(), warnings = [];
-      const loaded = getView() && getView().loaded || [], group = getView() && getView().group;
+      const loaded = snapshot && snapshot.loaded || [], group = snapshot && snapshot.group;
       const hebrew = loaded.filter(d => d.entry.kind === 'he' && /^Westminster/.test(d.entry.versionTitle || ''));
       if (!hebrew.length) return { checked, warnings };
       for (const name of names) {
@@ -251,7 +251,38 @@ window.LibraryInterlinear = (() => {
     $('#ilBtn').onclick = () => ilPopToggle();
 
 
-    return { refresh: ilRefresh, tagCell: ilTagCell };
+    async function exportRenderer(snapshot) {
+      // Snapshot the chosen sources; render detached cells without changing the reader or chapter.
+      const picks = ilPick.slice(), title = snapshot.group.title;
+      if (!picks.length) return null;
+      const ALL = await loadIL(), names = picks.filter(n => ALL?.[n]?.[title]);
+      const checks = await ilSourceChecks(names, title, snapshot);
+      const TG = picks.some(n => IL_TG[n]) ? await loadTgIL() : null;
+      const QIL = picks.includes('Qumran') && qVer(snapshot.group) ? await loadQIL() : null;
+      const lx = picks.includes('LXX') && ilLxxVer(snapshot.group) ? await ilLxxDoc(snapshot.group) : null;
+      const tgd = {};
+      for (const n of picks) if (IL_TG[n] && tgVer(snapshot.group, n)) tgd[n] = await tgDoc(snapshot.group, n);
+      const renderer = (html, doc, section, label) => {
+        if (doc.entry.kind !== 'he' || !/^Westminster/.test(doc.entry.versionTitle || '')) return html;
+        const chap = apChap(section), v = verseOf(label);
+        if (!/^\d+$/.test(chap) || v == null) return html;
+        const cell = document.createElement('div'); cell.innerHTML = html;
+        const trs = picks.flatMap(n => {
+          if (n === 'Qumran') return ((QIL?.[title] || {})[chap + ':' + v] || []).map(([sig, segs]) => [n, segs, sig]);
+          let segs;
+          if (n === 'LXX') segs = lx?.text[+chap - 1] ? ilLxxSegs(cell, lx.text[+chap - 1][v - 1]) : null;
+          else if (IL_TG[n]) { const ch = tgd[n]?.text[+chap - 1]; segs = ch ? tgSegs(TG, n, title, chap, v, tgPlain(ch[v - 1])) : null; }
+          else if (checks.checked.has(n)) segs = ALL[n]?.[title]?.[chap + ':' + v];
+          return segs?.length ? [[n, segs]] : [];
+        }).filter(x => x[1]?.length);
+        if (trs.length) ilVerse(cell, trs, IL_ORDER);
+        return cell.innerHTML;
+      };
+      renderer.warnings = checks.warnings;
+      renderer.labels = picks.filter(n => checks.checked.has(n) || n === 'LXX' && lx || n === 'Qumran' && QIL || tgd[n]).map(n => IL_LABEL[n] || n);
+      return renderer;
+    }
+    return { refresh: ilRefresh, tagCell: ilTagCell, exportRenderer };
   }
   return { create };
 })();

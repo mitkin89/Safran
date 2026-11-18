@@ -187,6 +187,7 @@
       </div>
       <div id="sChart" hidden></div>
       <div id="sTools"><button id="sGroupBtn" type="button" hidden aria-pressed="true" title="Derselbe Vers in mehreren Fassungen erscheint nur einmal; die anderen Fassungen klappen darunter auf">⧉ Fassungen zusammenfassen</button> <button id="sReadBtn" type="button" hidden title="Alle Fundstellen wie beim Lesen untereinander in einem neuen Tab zeigen, nach Buch und Kapitel geordnet, mit den gewählten Versionen nebeneinander und einer Übersicht der Bücher">📖 Alle als Lesetext öffnen</button> <button id="sExport" type="button" hidden title="Alle angezeigten Treffer als CSV-Datei speichern">⤓ Treffer als CSV</button></div>
+      <div id="sProgress" hidden><progress id="sProgressBar" max="1" aria-label="Suchfortschritt"></progress> <span id="sProgressLabel" class="muted"></span></div>
       <p id="sInfo" class="muted">Durchsucht alle heruntergeladenen Texte der gewählten Sprachen (auch Fußnoten).</p>
       <div id="sOut"></div>
       </div>
@@ -331,7 +332,7 @@
       <div class="tc-nav"><label>Sprache <select id="tcLang" title="Tal: englische Originalanmerkungen; CATSS: Quellcodes mit deutschen Erläuterungen"><option value="en">Originalhinweise</option></select></label><button id="tcPrev" type="button" title="Voriger Vers">▲ Vers</button><button id="tcNext" type="button" title="Nächster Vers">▼ Vers</button><button id="tcFollow" type="button" title="Textkritik folgt dem Lesen" aria-pressed="false">⇣ Folgen</button><button id="tcFsMinus" type="button" title="Textkritik kleiner">A−</button><button id="tcFsPlus" type="button" title="Textkritik größer">A+</button></div>
       <label>Zählung <select id="tcNumbering"><option value="auto">Wie angeklickter Lesetext</option><option value="mt">MT</option><option value="tal">Tal–Florentin</option></select></label>
       <button id="tcWitnessSummary" type="button" aria-expanded="false" aria-controls="tcWitnessOptions">▸ Textzeugen <span class="muted">Alle 1 (Englisch)</span></button>
-      <div id="tcWitnessOptions" class="tc-options" hidden><label><input id="tcSmr" type="checkbox" checked> SMR · Tal–Florentin</label><label><input id="tcTov" type="checkbox" checked> LXX · Tov/Kraft (CATSS)</label><label><input id="tcDss" type="checkbox" checked> DSS · Genesis (ETCBC/Abegg)</label></div>
+      <div id="tcWitnessOptions" class="tc-options" hidden><label><input id="tcSmr" type="checkbox" checked> SMR · Tal–Florentin</label><label><input id="tcTov" type="checkbox" checked> LXX · Tov/Kraft (CATSS)</label><label><input id="tcDss" type="checkbox" checked> DSS · Genesis (ETCBC/Abegg)</label><label><input id="tcKen" type="checkbox" checked> Kennicott · Genesis</label></div>
       <label class="tc-spelling"><input id="tcSpelling" type="checkbox"> Auch Schreibunterschiede</label>
     </div>
     <div id="tcBody"></div>
@@ -395,7 +396,7 @@
   <dialog id="expDlg">
     <h2>Buch oder Abschnitt exportieren</h2>
     <p id="expWhat" class="muted"></p>
-    <p class="muted">Schriftgrößen werden aus „Anzeige“ übernommen.</p>
+    <p class="muted">Schriftgrößen werden aus „Anzeige“ übernommen. Eingeblendete Interlinearzeilen werden mit exportiert.</p>
     <label>Format
       <select id="expFmt"><option value="pdf">PDF</option><option value="doc">Word (.doc)</option></select>
     </label>
@@ -538,6 +539,8 @@
   <script src="library-tov.js"></script>
   <script src="qumran-apparatus-core.js"></script>
   <script src="library-qumran.js"></script>
+  <script src="kennicott-core.js"></script>
+  <script src="library-kennicott.js"></script>
   <script src="library-textcrit.js"></script>
   <script src="library-links.js"></script>
   <script src="library-outline.js"></script>

@@ -924,6 +924,32 @@
     openWord: w => wordPopupUI.openSamaritanWord(w),
     openQumran: w => wordPopupUI.openQumranWord(w),
     openGreek: (w, source) => wordPopupUI.openGreekApparatus(w, source),
+    markMt: (ref, start, end, expected) => {
+      const match = /^(.*) (\d+):(\d+)$/.exec(ref);
+      if (!match || view?.group?.title !== match[1] || !expected.length) return;
+      const row = $$('#rOut .row[data-l]').find(r => r.dataset.l === match[3]);
+      if (!row) return;
+      // Only Westminster's actual word spans: never mark a translation or another witness by index.
+      const cell = [...row.querySelectorAll('.cell[data-rel]')].find(c => /Westminster/.test(c.dataset.rel));
+      if (!cell) return;
+      const words = [...cell.querySelectorAll('.w[data-l]')];
+      const norm = s => s.normalize('NFD').replace(/[^\u05d0-\u05ea]/g, '');
+      if (words.length !== expected.length || words.some((w, i) => norm(w.textContent) !== norm(expected[i]))) return;
+      if (start < 0 || end < start || end >= words.length) return;
+      $$('#rOut .tc-mt-selected').forEach(w => w.classList.remove('tc-mt-selected'));
+      const targets = words.slice(start, end + 1);
+      targets.forEach(w => w.classList.add('tc-mt-selected'));
+      setCmtRow(match[3]);
+      const first = targets[0], last = targets[targets.length - 1];
+      let sc = first.parentElement;
+      while (sc && sc !== document.body && !(sc.scrollHeight > sc.clientHeight + 1 && /(auto|scroll)/.test(getComputedStyle(sc).overflowY))) sc = sc.parentElement;
+      const viewport = sc && sc !== document.body ? sc.getBoundingClientRect() : {top: $('#stick')?.getBoundingClientRect().bottom || 0, bottom: window.innerHeight};
+      const a = first.getBoundingClientRect(), b = last.getBoundingClientRect();
+      if (Math.min(a.top, b.top) < viewport.top + 8 || Math.max(a.bottom, b.bottom) > viewport.bottom - 8) {
+        if (sc && sc !== document.body) panelScrollTo(first, 'center');
+        else first.scrollIntoView({block: 'center', inline: 'nearest', behavior: 'smooth'});
+      }
+    },
     selectRow: label => { setCmtRow(label); const row = $$('#rOut .row[data-l]').find(r => r.dataset.l === label); if (row) panelScrollTo(row, 'center'); },
   });
 
@@ -2712,6 +2738,7 @@
   window.LibraryExport.create({
     $, getView: () => view, getNotes: () => notesUI.notesAll, stripHe, noteId,
     labels: KIND_LABEL, shortVer,
+    getInterlinear: v => interlinearUI.exportRenderer(v),
     getTypography: v => {
       const root = $('#rOut'), basePx = parseFloat(getComputedStyle(root).fontSize) || fs;
       const cells = $$('.cell[data-rel]', root);

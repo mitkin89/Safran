@@ -1,6 +1,7 @@
 'use strict';
 const {ipcMain,BrowserWindow}=require('electron'),assert=require('assert/strict'),fs=require('fs/promises'),path=require('path');
-module.exports=async function run({profile,js,waitFor,book}){
+module.exports=async function run({profile,docs,win,js,waitFor,book}){
+  let interlinearPdf=false;
   const requests=[],dir=process.env.SAFRAN_EXPORT_QA_DIR||path.join(profile,'exports');await fs.mkdir(dir,{recursive:true});
   ipcMain.handle('off:exportSave',async(_e,request)=>{
     requests.push(request);
@@ -10,7 +11,7 @@ module.exports=async function run({profile,js,waitFor,book}){
     try{
       await pdfWin.loadFile(htmlFile);
       const buf=await pdfWin.webContents.printToPDF({pageSize:'A4',landscape:!!request.landscape,printBackground:true,margins:{marginType:'default'}});
-      assert.equal(buf.subarray(0,4).toString(),'%PDF');const pdf=path.join(dir,'Genesis-Hebraeisch-Deutsch.pdf');await fs.writeFile(pdf,buf);
+      assert.equal(buf.subarray(0,4).toString(),'%PDF');if(request.html.includes('class="ilg"'))interlinearPdf=true;const pdf=path.join(dir,'Genesis-Hebraeisch-Deutsch.pdf');await fs.writeFile(pdf,buf);
       console.log('Electron: Buch-PDF erzeugt ('+buf.length+' Bytes).');return {path:pdf};
     }finally{pdfWin.destroy();}
   });
@@ -39,5 +40,26 @@ module.exports=async function run({profile,js,waitFor,book}){
   assert.equal(all.chapters.length,50);assert.equal(all.rows,1533);assert.equal(all.he,1533);assert.equal(all.de,1533);
   assert.deepEqual(all.fonts,changedFonts,'PDF verwendet dieselben Schriftgrößen wie Word');
   assert.equal(requests.at(-1).landscape,false);assert(requests.at(-1).name.includes('Ganzes Buch'));
+  assert(interlinearPdf,'Echte PDF enthält die aktuell gewählte Interlinearansicht');
+  assert(requests.at(-1).html.includes('data-tr="Zunz"'),'Interlinear-Übersetzung wird bei ganzem Buch erhalten');
+  // Real bundled CATSS and DSS sources, available as interlinear rows without extra reading columns.
+  const root=path.resolve(__dirname,'../..'),manifest=require(path.join(root,'bundled/manifest.json'));
+  for(const title of ['Septuaginta (CATSS)','Qumran-Rollen (ETCBC DSS)']){
+    const item=manifest.items.find(e=>e.title==='Genesis'&&e.versionTitle===title);
+    const doc=JSON.parse(await fs.readFile(path.join(root,'bundled',item.rel),'utf8'));
+    docs.set(item.rel,{...doc,entry:{...item,own:false}});
+  }
+  {const loaded=new Promise(r=>win.webContents.once('did-finish-load',r));win.reload();await loaded;}
+  await book('Genesis');await waitFor("document.querySelector('#rOut .cell[data-k=he] .w')",'Interlinear-Drucktest nach Neustart');
+  await js("document.querySelector('#ilBtn').click()");
+  await waitFor("document.querySelector('#ilPop input[value=LXX]')&&document.querySelector('#ilPop input[value=Qumran]')",'LXX und Qumran für Druck auswählbar');
+  await js("for(const n of ['LXX','Qumran']){const c=document.querySelector('#ilPop input[value='+n+']');c.checked=true;c.dispatchEvent(new Event('change',{bubbles:true}));}document.querySelector('#ilBtn').click()");
+  await waitFor("document.querySelector('#rOut .ilt[data-tr=LXX]')&&document.querySelector('#rOut .ilt[data-tr=Qumran]')",'LXX und DSS im Leser');
+  await open();await js("document.querySelector('#expFmt').value='pdf';document.querySelector('#expFrom').value='5';document.querySelector('#expTo').value='5'");
+  await submit();
+  assert(requests.at(-1).html.includes('data-tr="LXX"')&&requests.at(-1).html.includes('data-tr="Qumran"'),'Echte PDF erhält beide Zeugen-Zeilen');
+  assert(requests.at(-1).html.includes('4Q7'),'Handschriftensigle bleibt im Druck');
+  assert(requests.at(-1).html.includes('CC BY-NC-SA 3.0')&&requests.at(-1).html.includes('CC BY-NC 4.0'),'Interlinear-Quellen im Druck');
+  await js("document.querySelector('#ilBtn').click();for(const n of ['LXX','Qumran']){const c=document.querySelector('#ilPop input[value='+n+']');c.checked=false;c.dispatchEvent(new Event('change',{bubbles:true}));}document.querySelector('#ilBtn').click()");
   console.log('Electron: Einzelverse, Kapitelbereich und vollständiges zweisprachiges Genesis als echte PDF bestanden.');
 };

@@ -30,14 +30,14 @@
 
 Safran is a free desktop app for macOS, Windows and Linux that keeps your texts on your own computer. Pick the books and languages you want from the [Sefaria](https://www.sefaria.org) library once, and read, search and annotate them afterwards without an internet connection. New in 2.5.0: the **whole Tanakh word by word in German** (interlinear) and a **word card** that shows how a Hebrew word is translated. On top of that, Safran ships **more than 50 German works** (translations, commentaries and reference works) that are hard to find anywhere else, among them Louis Ginzberg's *Legenden der Juden* from his German manuscript, plus **ten dictionaries and reference works** with more than 300,000 entries. Safran is an independent project and not affiliated with Sefaria.
 
-The **≠ Textkritik** pane in the Torah starts with the Samaritanus / Tal–Florentin
+The **≠ Textkritik** development pane on `main` (outside the official 2.6.0 downloads) starts with the Samaritanus / Tal–Florentin
 apparatus, independent of selected reading columns. Read remarks on one level,
 inspect morphology and source citations, and optionally include spelling variants.
 Hover or focus a quoted word for its full Samaritan Hebrew/English verse context. Westminster / OSHB is the MT comparison base;
 word-anchored verse correspondence and uncertain or different numbering remain
 explicit. The header also offers whole-chapter view, verse navigation, follow
 reading, saved font size and witness selection, plus the available source language
-(currently English). LXX, Qumran and Kennicott are not yet integrated into this pane.
+(currently English). It also includes Tov/Kraft CATSS notes, Genesis DSS (ETCBC/Abegg), and the Digital Kennicott Genesis apparatus. Hover source sigla for manuscript metadata and source citations for edition context. Securely located MT headings are clickable and mark the corresponding words in the reader.
 
 ## Why Safran?
 

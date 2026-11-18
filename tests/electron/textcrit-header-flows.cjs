@@ -38,7 +38,7 @@ module.exports=async({win,js,waitFor,book})=>{
   const loaded=new Promise(r=>win.webContents.once('did-finish-load',r));win.reload();await loaded;
   await waitFor("!document.querySelector('#tcBtn').hidden",'Fenster nach Neustart');
   await js("document.querySelector('#tcBtn').click()");
-  await waitFor("document.querySelector('#tcBody .tc-entry')",'Apparat nach Neustart');
+  await waitFor("document.querySelector('#tcBody .tc-credit')",'Apparat nach Neustart (auch für einen Vers ohne Anmerkung)');
   assert.equal(await js("parseFloat(getComputedStyle(document.querySelector('#tcBody')).fontSize)"),oldFont+2);
   assert(await js("document.querySelector('#tcFollow').getAttribute('aria-pressed')==='true' && !document.querySelector('#tcWitnessOptions').hidden"),'Font, follow and witness selection persist');
   await js("document.querySelector('#tcFollow').click();document.querySelector('#tcFsMinus').click();document.querySelector('#tcFsMinus').click();document.querySelector('#tcClose').click()");
