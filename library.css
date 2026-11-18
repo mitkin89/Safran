@@ -1868,3 +1868,10 @@ html.split #textcritPanel:not(.docked) { right: var(--p2w); }
 #tcBody .tc-jump { font: inherit; color: inherit; padding: 0; border: 0; background: none; cursor: pointer; text-align: left; }
 #tcBody .tc-reader-verse { scroll-margin-top: var(--tc-head-h, 200px); }
 #tcBody .tc-reader-verse.current { border-left: 2px solid var(--accent); padding-left: 8px; }
+/* CATSS apparatus: flat source rows; the full Greek verse stays in the hover. */
+.tc-tov-entry .tc-note-text { line-height: 1.65; }
+.tc-tov-entry bdi[lang="he"] { font-family: var(--he-font, serif); font-size: 1.25em; }
+.tc-tov-lemma { cursor: pointer; text-decoration: underline dotted var(--muted); text-underline-offset: 3px; }
+.tc-tov-lemma:hover, .tc-tov-lemma:focus-visible { color: var(--accent); }
+.tc-tov-codes { color: var(--muted); font-size: .9em; }
+#tcHover [lang="grc"] { margin: 8px 0; font-size: 1.1em; }

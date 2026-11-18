@@ -328,10 +328,10 @@
     <div class="tc-head">
       <div class="lhead"><b>Textkritik</b><button id="tcWhole" class="wholeBtn" type="button" hidden>Ganzes Kapitel</button><button id="tcClose" type="button" title="Schließen">✕</button></div>
       <div id="tcPlace" aria-live="polite"></div>
-      <div class="tc-nav"><label>Sprache <select id="tcLang" title="Tal–Florentin: Originalanmerkungen auf Englisch"><option value="en">Englisch</option></select></label><button id="tcPrev" type="button" title="Voriger Vers">▲ Vers</button><button id="tcNext" type="button" title="Nächster Vers">▼ Vers</button><button id="tcFollow" type="button" title="Textkritik folgt dem Lesen" aria-pressed="false">⇣ Folgen</button><button id="tcFsMinus" type="button" title="Textkritik kleiner">A−</button><button id="tcFsPlus" type="button" title="Textkritik größer">A+</button></div>
+      <div class="tc-nav"><label>Sprache <select id="tcLang" title="Tal: englische Originalanmerkungen; CATSS: Quellcodes mit deutschen Erläuterungen"><option value="en">Originalhinweise</option></select></label><button id="tcPrev" type="button" title="Voriger Vers">▲ Vers</button><button id="tcNext" type="button" title="Nächster Vers">▼ Vers</button><button id="tcFollow" type="button" title="Textkritik folgt dem Lesen" aria-pressed="false">⇣ Folgen</button><button id="tcFsMinus" type="button" title="Textkritik kleiner">A−</button><button id="tcFsPlus" type="button" title="Textkritik größer">A+</button></div>
       <label>Zählung <select id="tcNumbering"><option value="auto">Wie angeklickter Lesetext</option><option value="mt">MT</option><option value="tal">Tal–Florentin</option></select></label>
       <button id="tcWitnessSummary" type="button" aria-expanded="false" aria-controls="tcWitnessOptions">▸ Textzeugen <span class="muted">Alle 1 (Englisch)</span></button>
-      <div id="tcWitnessOptions" class="tc-options" hidden><label><input id="tcSmr" type="checkbox" checked> SMR · Tal–Florentin</label></div>
+      <div id="tcWitnessOptions" class="tc-options" hidden><label><input id="tcSmr" type="checkbox" checked> SMR · Tal–Florentin</label><label><input id="tcTov" type="checkbox" checked> LXX · Tov/Kraft (CATSS)</label></div>
       <label class="tc-spelling"><input id="tcSpelling" type="checkbox"> Auch Schreibunterschiede</label>
     </div>
     <div id="tcBody"></div>
@@ -535,6 +535,7 @@
   <script src="library-word-cards.js"></script>
   <script src="library-navigation.js"></script>
   <script src="textcrit-core.js"></script>
+  <script src="library-tov.js"></script>
   <script src="library-textcrit.js"></script>
   <script src="library-links.js"></script>
   <script src="library-outline.js"></script>

@@ -3,7 +3,9 @@ window.LibraryTextCrit=(()=>{
 'use strict';
 function create(host){
   const {$,esc}=host, panel=$('#textcritPanel'), body=$('#tcBody');
-  const books=new Set(['Genesis','Exodus','Leviticus','Numbers','Deuteronomy']);
+  const torah=new Set(['Genesis','Exodus','Leviticus','Numbers','Deuteronomy']);
+  const books=new Set([...torah,'Joshua','Judges','I Samuel','II Samuel','I Kings','II Kings','Isaiah','Jeremiah','Ezekiel','Hosea','Joel','Amos','Obadiah','Jonah','Micah','Nahum','Habakkuk','Zephaniah','Haggai','Zechariah','Malachi','Psalms','Proverbs','Job','Ruth','Song of Songs','Ecclesiastes','Lamentations','Esther','Daniel','Ezra','Nehemiah','I Chronicles','II Chronicles']);
+  const tov=window.LibraryTov.create(host);
   let key='',selected=null,clickedTal=null,generation=0,pending=null,previewData=null,hover=null,hoverAnchor=null,showTimer=null,hideTimer=null;
   let whole=false,follow=false,fontSize=14,lastContentKey=null,followTimer=null;
   try {follow=localStorage.getItem('tcFollow')==='1';fontSize=+localStorage.getItem('tcFs')||14;}catch{}
@@ -21,11 +23,12 @@ function create(host){
   syncFollow();
   try{$('#tcWitnessOptions').hidden=localStorage.getItem('tcWitnessExpanded')!=='1';}catch{}
   function syncWitness(){
-    const expanded=!$('#tcWitnessOptions').hidden,enabled=$('#tcSmr').checked;
+    const expanded=!$('#tcWitnessOptions').hidden,n=Number($('#tcSmr').checked)+Number($('#tcTov').checked);
     $('#tcWitnessSummary').setAttribute('aria-expanded',String(expanded));
-    $('#tcWitnessSummary').innerHTML=(expanded?'▾':'▸')+' Textzeugen <span class="muted">'+(enabled?'Alle 1':'Keine')+' (Englisch)</span>';
+    $('#tcWitnessSummary').innerHTML=(expanded?'▾':'▸')+' Textzeugen <span class="muted">'+(n===2?'Alle 2':n===1?'1 ausgewählt':'Keine')+'</span>';
   }
   try{$('#tcSmr').checked=localStorage.getItem('tcSmr')!=='0';$('#tcSpelling').checked=localStorage.getItem('tcSpelling')==='1';}catch{}
+  try{$('#tcTov').checked=localStorage.getItem('tcTov')!=='0';}catch{}
   syncWitness();
   $('#tcWitnessSummary').onclick=()=>{
     $('#tcWitnessOptions').hidden=!$('#tcWitnessOptions').hidden;syncWitness();
@@ -41,11 +44,11 @@ function create(host){
     const row=selected||host.getRow()||$('#rOut .row.hit')?.dataset.l||$('#rOut .row[data-l]')?.dataset.l;
     if(!/^\d+$/.test(row||''))return null;
     const autoTal=clickedTal??(v.loaded?.length>0&&v.loaded.every(d=>d.talWordNotes));
-    const numbering=$('#tcNumbering').value==='auto'?(autoTal?'tal':'mt'):$('#tcNumbering').value;
+    const numbering=!torah.has(v.group.title)?'mt':$('#tcNumbering').value==='auto'?(autoTal?'tal':'mt'):$('#tcNumbering').value;
     return {book:v.group.title,chapter,ref:v.group.title+' '+chapter+':'+row,numbering,row};
   }
   function load(){
-    return pending||(pending=Promise.all([host.load('textcrit-data.js',()=>window.TEXTCRIT_DATA),host.load('samaritan-data.js',()=>window.SAMARITAN_DATA)]).catch(e=>{pending=null;throw e;}));
+    return pending||(pending=Promise.all([host.load('textcrit-data.js',()=>window.TEXTCRIT_DATA),host.load('samaritan-data.js',()=>window.SAMARITAN_DATA),tov.load()]).catch(e=>{pending=null;throw e;}));
   }
   function word(w,interactive=true){
     const [text,mask,id]=w;let inner='',buf='',state=false;
@@ -65,9 +68,9 @@ function create(host){
   function showPreview(anchor){
     hidePreview();
     const ref=anchor.dataset.tcRef,verse=previewData?.verses[ref];
-    if(!verse||!anchor.isConnected||panel.hidden)return;
+    if((!verse&&!anchor.dataset.tcTov)||!anchor.isConnected||panel.hidden)return;
     hoverAnchor=anchor;hover=document.createElement('div');hover.id='tcHover';hover.setAttribute('role','tooltip');
-    hover.innerHTML='<b>SMR · '+esc(ref)+'</b><div class="tc-he" dir="rtl" lang="he">'+verse.words.map(w=>word(w,false)).join(' ')+'</div><p lang="en">'+english(verse.en)+'</p><small>Tal–Florentin · CC BY-NC 4.0</small>';
+    hover.innerHTML=anchor.dataset.tcTov?tov.preview(anchor):'<b>SMR · '+esc(ref)+'</b><div class="tc-he" dir="rtl" lang="he">'+verse.words.map(w=>word(w,false)).join(' ')+'</div><p lang="en">'+english(verse.en)+'</p><small>Tal–Florentin · CC BY-NC 4.0</small>';
     document.body.appendChild(hover);anchor.setAttribute('aria-describedby','tcHover');
     const r=anchor.getBoundingClientRect(),h=hover.getBoundingClientRect();
     hover.style.left=Math.max(8,Math.min(window.innerWidth-h.width-8,r.left+r.width/2-h.width/2))+'px';
@@ -108,23 +111,26 @@ function create(host){
     $('#tcWhole').hidden=!c||whole;
     $('#tcPlace').textContent=c?(whole?c.book+' '+c.chapter+' · ganzes Kapitel':c.ref)+' · '+(c.numbering==='tal'?'Tal–Florentin-Zählung':'MT-Zählung'):'Keine Stelle ausgewählt';
     syncWitness();
-    const contentKey=c?[key,whole,c.numbering,whole?'':c.row,$('#tcSpelling').checked,$('#tcSmr').checked,$('#tcLang').value].join('|'):null;
+    const contentKey=c?[key,whole,c.numbering,whole?'':c.row,$('#tcSpelling').checked,$('#tcSmr').checked,$('#tcTov').checked,$('#tcLang').value].join('|'):null;
     if(contentKey&&lastContentKey===contentKey){markCurrent(c);return;}
     lastContentKey=null;
-    if(!c){body.innerHTML='<p class="muted">Der Samaritanus-Apparat steht für die fünf Bücher der Tora zur Verfügung.</p>';return;}
+    if(!c){body.innerHTML='<p class="muted">Der Textkritik-Apparat steht für den Tanach zur Verfügung.</p>';return;}
     body.innerHTML='<p class="muted">Apparat wird geladen …</p>';
     try{
       const [data,notes]=await load();if(token!==generation||panel.hidden)return;
       previewData=data;
       const showSpelling=$('#tcSpelling').checked;
-      if(!$('#tcSmr').checked){body.innerHTML='<p class="muted">SMR ist ausgeblendet. Wähle den Zeugen oben aus.</p>';return;}
+      const showSmr=$('#tcSmr').checked&&torah.has(c.book),showTov=$('#tcTov').checked;
+      const tovQueries=[];
       const queries=whole?rows().map(r=>r.dataset.l):[c.row],refs=new Map(),unresolved=[];
       for(const row of queries){
         const ref=c.book+' '+c.chapter+':'+row,resolved=window.TextCrit.resolve(data,ref,c.numbering);
         if(resolved.unresolved)unresolved.push(ref);
-        for(const sourceRef of resolved.refs){if(!refs.has(sourceRef))refs.set(sourceRef,[]);refs.get(sourceRef).push(row);}
+        if(showTov){const bases=c.numbering==='tal'?resolved.baseRefs:[ref];for(const base of bases)tovQueries.push({ref:base,row});}
+        for(const sourceRef of (showSmr?resolved.refs:[])){if(!refs.has(sourceRef))refs.set(sourceRef,[]);refs.get(sourceRef).push(row);}
       }
-      if(!whole&&unresolved.length){body.innerHTML='<p class="tc-status">Für diesen MT-Vers liegt keine hinreichend sichere wortlautbasierte Zuordnung vor. Das bedeutet keine Übereinstimmung und keinen fehlenden Text. Über „Zählung“ lässt sich der Tal-Apparat unter seiner eigenen Versangabe öffnen.</p>';return;}
+      let unresolvedHtml='';
+      if(showSmr&&!whole&&unresolved.length){unresolvedHtml='<p class="tc-status">Für diesen MT-Vers liegt keine hinreichend sichere wortlautbasierte Zuordnung vor. Das bedeutet keine Übereinstimmung und keinen fehlenden Text. Über „Zählung“ lässt sich der Tal-Apparat unter seiner eigenen Versangabe öffnen.</p>';}
       let count=0;const renderedGroups=new Map();
       const sections=[...refs].map(([ref,readerRows])=>{
         const verse=data.verses[ref],groups=window.TextCrit.remarks(data,notes,ref,showSpelling);count+=groups.length;renderedGroups.set(ref,groups);
@@ -137,8 +143,8 @@ function create(host){
         }).join('');
         return '<section class="tc-witness tc-reader-verse" data-rows="'+esc(readerRows.join(','))+'"><h3><button class="tc-jump" type="button" data-row="'+esc(readerRows[0])+'" title="Im Lesetext anzeigen">SMR · '+esc(ref)+'</button></h3>'+(shifted?'<p class="tc-status">Abweichende Versgrenzen oder Zählung. MT-Bezug über gemeinsame Wörter ermittelt: '+esc(verse.mtRefs.join('; ')||'nicht sicher zugeordnet')+'.</p>':'')+(rows||'<p class="muted">'+(showSpelling?'Keine erfasste Abweichung oder Anmerkung an dieser Stelle.':'Keine Anmerkung bei diesem Filter. Schreibunterschiede können eingeblendet werden.')+' Dies ist kein Nachweis vollständiger Übereinstimmung.</p>')+'</section>';
       }).join('');
-      body.innerHTML='<p class="tc-count">'+count+' '+(count===1?'Textstelle':'Textstellen')+' · Tal–Florentin-Apparat</p>'+sections+(whole&&unresolved.length?'<p class="tc-status">Keine sichere Stellenzuordnung: '+esc(unresolved.join('; '))+'. Diese Stellen lassen sich unter Tals eigener Zählung ansehen.</p>':'')+'<p class="tc-credit">Erfasster Zeuge: Samaritanus, Tal–Florentin · CC BY-NC 4.0. MT-Stellenbezug automatisch über gemeinsame Wörter ermittelt. LXX, Qumran und Kennicott sind in diesem Pane noch nicht erschlossen.</p>';
-      body.querySelectorAll('.tc-entry').forEach(entry=>{
+      body.innerHTML=unresolvedHtml+(showSmr?'<p class="tc-count">'+count+' '+(count===1?'Textstelle':'Textstellen')+' · Tal–Florentin-Apparat</p>'+sections+(whole&&unresolved.length?'<p class="tc-status">Keine sichere Stellenzuordnung: '+esc(unresolved.join('; '))+'. Diese Stellen lassen sich unter Tals eigener Zählung ansehen.</p>':''):'')+(showTov?tov.render(tovQueries):'')+(showSmr?'<p class="tc-credit">Samaritanus, Tal–Florentin · CC BY-NC 4.0. MT-Bezug über gemeinsame Wörter ermittelt.</p>':'')+(!showSmr&&!showTov?'<p class="muted">SMR ist ausgeblendet. Wähle einen Zeugen oben aus.</p>':'');
+      body.querySelectorAll('.tc-entry[data-tc-group]').forEach(entry=>{
         const ref=entry.dataset.tcRef,g=renderedGroups.get(ref)[+entry.dataset.tcGroup];
         entry.querySelectorAll('.tc-note').forEach(note=>decorateNote(note,g.words,ref));
       });
@@ -152,8 +158,8 @@ function create(host){
     if(!panel.hidden){lastContentKey=null;if(follow)followNow();}render();
   });}
   $('#tcBtn').onclick=()=>toggle();$('#tcClose').onclick=()=>toggle(false);
-  ['#tcNumbering','#tcSpelling','#tcSmr','#tcLang'].forEach(s=>$(s).onchange=()=>{
-    try{localStorage.setItem('tcSmr',$('#tcSmr').checked?'1':'0');localStorage.setItem('tcSpelling',$('#tcSpelling').checked?'1':'0');}catch{}
+  ['#tcNumbering','#tcSpelling','#tcSmr','#tcTov','#tcLang'].forEach(s=>$(s).onchange=()=>{
+    try{localStorage.setItem('tcTov',$('#tcTov').checked?'1':'0');localStorage.setItem('tcSmr',$('#tcSmr').checked?'1':'0');localStorage.setItem('tcSpelling',$('#tcSpelling').checked?'1':'0');}catch{}
     render();
   });
   $('#rOut').addEventListener('click',e=>{
@@ -161,24 +167,25 @@ function create(host){
     whole=false;selected=row.dataset.l;const rel=e.target.closest('.cell[data-rel]')?.dataset.rel;
     const doc=host.getView()?.loaded?.find(d=>d.entry.rel===rel);clickedTal=doc?!!doc.talWordNotes:null;render();
   });
-  body.addEventListener('click',e=>{const jump=e.target.closest('.tc-jump');if(jump){host.selectRow(jump.dataset.row);return;}const w=e.target.closest('.w[data-l]');if(w&&!String(window.getSelection())){hidePreview();host.openWord(w);}});
+  body.addEventListener('click',e=>{const greek=e.target.closest('.tc-tov-lemma');if(greek&&!String(window.getSelection())){hidePreview();tov.open(greek);return;}const jump=e.target.closest('.tc-jump');if(jump){host.selectRow(jump.dataset.row);return;}const w=e.target.closest('.w[data-l]');if(w&&!String(window.getSelection())){hidePreview();host.openWord(w);}});
   body.addEventListener('pointerover',e=>{
-    const target=e.target.closest('.tc-context-word');if(!target||target.contains(e.relatedTarget))return;
+    const target=e.target.closest('.tc-context-word,[data-tc-tov]');if(!target||target.contains(e.relatedTarget))return;
     clearTimeout(hideTimer);clearTimeout(showTimer);showTimer=setTimeout(()=>showPreview(target),200);
   });
   body.addEventListener('pointerout',e=>{
-    const target=e.target.closest('.tc-context-word');if(!target||target.contains(e.relatedTarget))return;
+    const target=e.target.closest('.tc-context-word,[data-tc-tov]');if(!target||target.contains(e.relatedTarget))return;
     clearTimeout(showTimer);hideTimer=setTimeout(hidePreview,120);
   });
   body.addEventListener('focusin',e=>{
-    const target=e.target.closest('.tc-context-word');if(!target)return;
+    const target=e.target.closest('.tc-context-word,[data-tc-tov]');if(!target)return;
     // Focusing a word can scroll it into view. Open after that scroll, so the
     // preview is not immediately dismissed by its own focus movement.
     requestAnimationFrame(()=>requestAnimationFrame(()=>{
       if(document.activeElement===target&&target.isConnected)showPreview(target);
     }));
   });
-  body.addEventListener('focusout',e=>{if(e.target.closest('.tc-context-word'))hidePreview();});
+  body.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.matches('.tc-tov-lemma')){e.preventDefault();e.target.click();}});
+  body.addEventListener('focusout',e=>{if(e.target.closest('.tc-context-word,[data-tc-tov]'))hidePreview();});
   window.addEventListener('resize',hidePreview);
   document.addEventListener('scroll',e=>{if(!e.target.closest?.('#tcHover'))hidePreview();},true);
   document.addEventListener('keydown',e=>{if(e.key==='Escape'&&hover){hidePreview();e.preventDefault();e.stopImmediatePropagation();}},true);

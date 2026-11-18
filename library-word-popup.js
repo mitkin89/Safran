@@ -16,7 +16,7 @@ window.LibraryWordPopup = (() => {
     wpop.id = 'wpop';
     const btns = a => `<div class="wgh">${a.map(h => `<button class="wdict" dir="rtl" lang="he" data-q="${esc(h)}" title="Im Wörterbuch nachschlagen">${esc(h)}</button>`).join(' ')}</div>`;
     let body = !w ? '' : hs.length ? `<div class="wseg${x ? '' : ' main'}">${fl.includes('m') ? 'Hebräisches Wort (CATSS)' : 'Hebräisches Gegenstück (CATSS)'}</div>${btns(hs)}`
-      : (fl.includes('m') ? '' : `<div class="wseg${x ? '' : ' main'}">Kein hebräisches Gegenstück (Zusatz der Septuaginta)</div>`);
+      : (fl.includes('m') ? '' : `<div class="wseg${x ? '' : ' main'}">${w?.dataset.catssApparatus ? 'Kein direktes hebräisches Gegenstück in dieser CATSS-Quellzeile' : 'Kein hebräisches Gegenstück (Zusatz der Septuaginta)'}</div>`);
     if (rs.length) body += `<div class="wseg">Rückübersetzung (vermutliche hebräische Vorlage)</div>${btns(rs)}`;
     const notes = fl;
     if (notes.length) body += `<div class="wseg">Besonderheiten</div><ul class="gfl">${notes.map(c => `<li>${GFLAG[c]}</li>`).join('')}</ul>`;
@@ -81,12 +81,21 @@ window.LibraryWordPopup = (() => {
     };
     return { i, words, grp, range };
   }
-  async function showGreekWord(cell, w, e) {
-    const at = cell && window.GMorph ? greekWordAt(cell, e, w) : null, was = gSel, wasGroup = w && w.classList.contains('sel');
+  function apparatusGreekAt(w,source) {
+    const GM=window.GMorph,words=GM.words(source.text).map(t=>({t})),group=GM.words(source.group);
+    const start=source.start;
+    // Counts and exact surface must both agree: never borrow a repeated word's
+    // analysis from another position or a different witness edition.
+    if(!group.length||group.some((t,i)=>words[start+i]?.t!==t))return null;
+    const grp=group.map((_,i)=>start+i);
+    return {i:start,words,grp,range:()=>w};
+  }
+  async function showGreekWord(cell, w, e, source = null) {
+    const at = source && window.GMorph ? apparatusGreekAt(w,source) : cell && window.GMorph ? greekWordAt(cell, e, w) : null, was = gSel, wasGroup = w && w.classList.contains('sel');
     closeWpop();
     if (!at) { if (w && !wasGroup) showGreekUnit(w); return; }
     if (was && was.cell === cell && was.i === at.i) return; // dasselbe Wort noch einmal: schließen
-    const ctx = greekCtx(cell), tok = ++gTok;
+    const ctx = source ? source.ctx : greekCtx(cell), tok = ++gTok;
     let D = null;
     if (ctx) { try { D = await loadGM(); } catch { D = null; } }
     if (tok !== gTok || wpop || !cell.isConnected) return; // inzwischen wurde woanders geklickt
@@ -367,7 +376,7 @@ window.LibraryWordPopup = (() => {
   });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeWpop(); });
 
-    return { openSamaritanWord(w) { gTok++; closeWpop(); return showSamaritanWord(w); }, close: closeWpop, loadGM, greekWordAt, decorateBavliReader, openBavliAnchor };
+    return { openGreekApparatus(w,source) { return showGreekWord(w,w,null,source); }, openSamaritanWord(w) { gTok++; closeWpop(); return showSamaritanWord(w); }, close: closeWpop, loadGM, greekWordAt, decorateBavliReader, openBavliAnchor };
   }
   return { create };
 })();

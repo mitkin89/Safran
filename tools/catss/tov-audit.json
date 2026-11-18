@@ -1,0 +1,200 @@
+{
+  "source": {
+    "title": "Tov/Kraft · CATSS",
+    "url": "https://llds.ling-phil.ox.ac.uk/llds/xmlui/handle/20.500.14106/1111",
+    "license": "CC BY-NC-SA 3.0",
+    "sha256": {
+      "file01-1111.txt": "39b0eb8157acf509e1f7635095015e86ee110f13abfd429c9833f03f2a335cc8",
+      "file02-1111.txt": "0dc6b00716de5b2b61a0cf2384243bef24d85b0349f7a0f55e57c826af22087a",
+      "file03-1111.txt": "57fcb29df38746d69f559c650ed5c3df3728a608f787c4b404bc6ae0df40be2b",
+      "file04-1111.txt": "3c923b7dde8bfe0076f4a6eb0d08fc216b0033e32b02c55d42ebd522e8797af2"
+    }
+  },
+  "excluded": {
+    "Esth": "Oxford-Abschnitt Esth enthält Esra statt Esther; nicht als Esther-Apparat verwendet"
+  },
+  "coverage": {
+    "Gen": {
+      "verses": 1533,
+      "remarks": 2953
+    },
+    "Exod": {
+      "verses": 1213,
+      "remarks": 4554
+    },
+    "Lev": {
+      "verses": 858,
+      "remarks": 1710
+    },
+    "Num": {
+      "verses": 1289,
+      "remarks": 2239
+    },
+    "Dt": {
+      "verses": 959,
+      "remarks": 1535
+    },
+    "Jsh": {
+      "verses": 658,
+      "remarks": 2701
+    },
+    "Jdga": {
+      "verses": 618,
+      "remarks": 1104
+    },
+    "Jdgb": {
+      "verses": 617,
+      "remarks": 923
+    },
+    "1Sm": {
+      "verses": 811,
+      "remarks": 2659
+    },
+    "2Sm": {
+      "verses": 695,
+      "remarks": 1186
+    },
+    "1Kg": {
+      "verses": 817,
+      "remarks": 6359
+    },
+    "2Kg": {
+      "verses": 719,
+      "remarks": 1174
+    },
+    "Isa": {
+      "verses": 1289,
+      "remarks": 4608
+    },
+    "Jer": {
+      "verses": 1364,
+      "remarks": 13666
+    },
+    "Ezk": {
+      "verses": 1272,
+      "remarks": 2758
+    },
+    "Joel": {
+      "verses": 73,
+      "remarks": 74
+    },
+    "Amos": {
+      "verses": 146,
+      "remarks": 220
+    },
+    "Obad": {
+      "verses": 21,
+      "remarks": 25
+    },
+    "Jonah": {
+      "verses": 48,
+      "remarks": 78
+    },
+    "Micah": {
+      "verses": 105,
+      "remarks": 194
+    },
+    "Nahum": {
+      "verses": 47,
+      "remarks": 71
+    },
+    "Hab": {
+      "verses": 56,
+      "remarks": 84
+    },
+    "Zeph": {
+      "verses": 52,
+      "remarks": 91
+    },
+    "Hag": {
+      "verses": 38,
+      "remarks": 113
+    },
+    "Zach": {
+      "verses": 211,
+      "remarks": 259
+    },
+    "Mal": {
+      "verses": 55,
+      "remarks": 107
+    },
+    "Ruth": {
+      "verses": 85,
+      "remarks": 142
+    },
+    "Song": {
+      "verses": 117,
+      "remarks": 138
+    },
+    "Qoh": {
+      "verses": 221,
+      "remarks": 103
+    },
+    "Lam": {
+      "verses": 154,
+      "remarks": 182
+    },
+    "Dan": {
+      "verses": 358,
+      "remarks": 4017
+    },
+    "DanTh": {
+      "verses": 356,
+      "remarks": 1784
+    },
+    "Ezr": {
+      "verses": 280,
+      "remarks": 208
+    },
+    "Neh": {
+      "verses": 405,
+      "remarks": 766
+    },
+    "1Ch": {
+      "verses": 943,
+      "remarks": 1225
+    },
+    "2Ch": {
+      "verses": 822,
+      "remarks": 1274
+    }
+  },
+  "bundledSha256": {
+    "own/Genesis/other/Septuaginta (CATSS).json": "f5cb6a37bde725afdfd0710ec03aa21efd8bc6749f89e7f29bd892dbc6553a47",
+    "own/Exodus/other/Septuaginta (CATSS).json": "8f5ea2db086fc0c4e8b60e998b3462e75baac16329c0f105246c884258749ca4",
+    "own/Leviticus/other/Septuaginta (CATSS).json": "32f890428fe3079b746306d2131266fa50c81e2c4b386006e50c4efed601e20a",
+    "own/Numbers/other/Septuaginta (CATSS).json": "1348b0e6a73844ab11ff0a1f82e8d169fcb22fd7f6ebc9bdfb2f2cb5a949c6b9",
+    "own/Deuteronomy/other/Septuaginta (CATSS).json": "f03cdef24a3db5cf61039112538e6232a2ff1645cdab1bee209ab1ada7784649",
+    "own/Joshua/other/Septuaginta (CATSS).json": "67a998e4d19d0b06fa6dff39a2761d652e15412b0af7308cfd04da9dbb6234cb",
+    "own/Judges/other/Septuaginta (CATSS, Judges A (Codex Alexandrinus)).json": "26e64fc5c8458245f969599fb8640667a8fe165f37f87fecf1700df30e62b973",
+    "own/Judges/other/Septuaginta (CATSS, Judges B (Codex Vaticanus)).json": "1c8b24dda0fcda0cc7c14b52685921f37613eea02e4f62060c25ac18573ed2ff",
+    "own/I Samuel/other/Septuaginta (CATSS).json": "58acd8e08f76d4bc909d3af844fd2fcdc1a373d7ebfc034c3661e1d5ace562e3",
+    "own/II Samuel/other/Septuaginta (CATSS).json": "821e28436ec6f5fa03c1ef7cc18d2280d46c22dc5f33ce116d63e558c5852d28",
+    "own/I Kings/other/Septuaginta (CATSS).json": "0c9378419dc799fa1b62649d2066b9e3600d7aaca3c528d98a1ba925b9fc310e",
+    "own/II Kings/other/Septuaginta (CATSS).json": "937ca4ade5b90238793be49447cb14ba2b5a8eaab7cb54974295f7e7bc50ef96",
+    "own/Isaiah/other/Septuaginta (CATSS).json": "2ff5291c3b601af1eecfdaa135669d4e959f8d1498235847b2de700eaadb160a",
+    "own/Jeremiah/other/Septuaginta (CATSS).json": "e091e2df8478878d073e51641e123a1c616bb78f83ae8fa3f451cf37165cd29f",
+    "own/Ezekiel/other/Septuaginta (CATSS).json": "5fa59758348578cd158cf972f926061f58b02180a18c9cdeb8c4702bc4f87651",
+    "own/Joel/other/Septuaginta (CATSS).json": "a7499df7ca11d24f94a637516e21f6f9e36452d55c299a0c2140fb4e59922c57",
+    "own/Amos/other/Septuaginta (CATSS).json": "1bc65c22c6a72a82661ea97d38b064eac503a7052ff98361d92c8a53014c30e6",
+    "own/Obadiah/other/Septuaginta (CATSS).json": "d897fe48b084b060a053159404c3a378c79d4c048084568c0a5acec6dfa91fb3",
+    "own/Jonah/other/Septuaginta (CATSS).json": "c156c8e94cc6e5c44665c521df53294dddfac57728f31bdd245afe84e5d230ab",
+    "own/Micah/other/Septuaginta (CATSS).json": "2b0eea4ad9f9ac217a4eb0398f533d4a31f09b0fb21ade1598c96e3c95c9ff79",
+    "own/Nahum/other/Septuaginta (CATSS).json": "83ba8a8f3a34edbf73dd4ea27bdb89eecf73d43ebded4fe23061d9058a3e3fc4",
+    "own/Habakkuk/other/Septuaginta (CATSS).json": "6fb58feda352082a1a442c76a8e1cc0153369c23a54828c63e53a07a236279e7",
+    "own/Zephaniah/other/Septuaginta (CATSS).json": "e4a5e5209e38e7e4fc1809a080265159579ce3e3d40c36c0d3e2807691fc597b",
+    "own/Haggai/other/Septuaginta (CATSS).json": "ae705e20a7885f1d6db46c6cd42d6bc85d702e99bc593b62523f6a49b542ea16",
+    "own/Zechariah/other/Septuaginta (CATSS).json": "a52b26fe079868756496a1767da832450eeebc65a74cf98bd00b226b4c06018d",
+    "own/Malachi/other/Septuaginta (CATSS).json": "acd235e735dd30c7bee1e8c02546629b59a2eacba200d9aaadbf6712f52b5d7d",
+    "own/Ruth/other/Septuaginta (CATSS).json": "30f449cac9e061bf081706ea923e299eb79e0eff31f06534bac86f436b5624e3",
+    "own/Song of Songs/other/Septuaginta (CATSS).json": "4fbe7085ac9aab68db9120740956bdbc17174ebc76001637289f269cb62fdd40",
+    "own/Ecclesiastes/other/Septuaginta (CATSS).json": "089b5d1237c2bb3d64e69dc9964860219aae23a59a6c29d9920e40c6793eb17c",
+    "own/Lamentations/other/Septuaginta (CATSS).json": "f800088af1e5e0aede67eb4fa03288e70f91c13a674bbc269d1fc5645bcba16f",
+    "own/Daniel/other/Septuaginta (CATSS).json": "1b50a13e74a07403b71d8522958973439009ee3d9a19e1a50f9546dfbda17d39",
+    "own/Daniel/other/Septuaginta (CATSS, Theodotion).json": "0222a03e3f0a823e459c0dd327b8a79ce79dbbf609aea99f99f9d7487a22f4c5",
+    "own/Ezra/other/Septuaginta (CATSS).json": "c7d6289e7a7699cab859522791d0b00d738d1ca7ab362aae9aaa4d99bb10056c",
+    "own/Nehemiah/other/Septuaginta (CATSS).json": "9d83ae95f5d97ab10e37a6dc3eb24c962c6bcfd70647432446d52556ff5466e1",
+    "own/I Chronicles/other/Septuaginta (CATSS).json": "cdaf189c92c55a10f576d4af6244508f3fbab570fe30838ab5680ba9d3546293",
+    "own/II Chronicles/other/Septuaginta (CATSS).json": "f1f888971ea5a996a4ba27765853b6bb2216dc60e15520f0efafea5ccf9a1999"
+  }
+}

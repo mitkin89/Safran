@@ -74,6 +74,7 @@ async function book(title,prefix='document'){await js(`{const d=${prefix};d.quer
  await require('./samaritan-flows.cjs')({docs,win,js,waitFor,book});
  await require('./textcrit-flows.cjs')({win,js,waitFor,book});
  await require('./textcrit-header-flows.cjs')({win,js,waitFor,book});
+ await require('./tov-flows.cjs')({docs,win,js,waitFor,book});
  assert.deepEqual(errors,[],'Keine unbehandelten Fehler im Renderer');
  await require('./font-restart.cjs')();
  win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);
