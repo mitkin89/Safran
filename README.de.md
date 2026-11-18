@@ -299,6 +299,19 @@ Der Quellcode steht unter der [MIT-Lizenz](LICENSE). Texte, Wörterbücher, Kart
 
 Berachot 2a–10b bietet außerdem **Wortzuordnung · Test** für Goldschmidt und Pinner. 2a–3b sind in beiden Fassungen von Hand zugeordnet; weitere geprüfte Stellen und klar gekennzeichnete Vorschläge sind enthalten. [Prüfstand](tools/bavli/interlinear/README.md).
 
+### Textkritik
+
+In den fünf Büchern der Tora öffnet **≠ Textkritik** ein anpinnbares Pane zum
+angeklickten Vers. Der erste erfasste Zeuge ist der Samaritanus nach
+Tal–Florentin. Auch ohne seine Lesespalte sind die Lesarten und Originalanmerkungen
+verfügbar: Textstellen aufklappen, Quellen und Hover-Erklärungen lesen oder ein
+hebräisches Wort für seine Morphologie anklicken. Schreibunterschiede und der
+vollständige hebräisch-englische Zeugen-Kontext lassen sich einblenden.
+Vergleichsbasis ist Westminster / OSHB. Der MT-Stellenbezug wird über gemeinsame
+Wörter ermittelt; abweichende Versgrenzen und nicht sicher zugeordnete Stellen
+bleiben kenntlich. Unter **Zählung** kann man zur eigenen Tal-Zählung wechseln.
+LXX, Qumran und Kennicott werden in diesem Pane noch nicht zusammengeführt.
+
 ### Samaritanischer Pentateuch
 
 In Genesis bis Deuteronomium unter **Fassungen** „Samaritanischer Pentateuch (Tal–Florentin)“ und die englische Fassung „The Samaritan Pentateuch, Florentin and Tal (2024)“ auswählen. Die 1.074 Tal-Lesarten aus den DT-UCPH-Daten sind in den hebräischen Haupttext eingearbeitet. **Rot** kennzeichnet in beiden Sprachen und den Fußnoten die MT-Abweichungen der Druckausgabe. Die 3.459 Fußnoten und 790 Endnoten behalten ihre ursprüngliche Stellenangabe und Druckseite. Unveränderte Wörter bieten weiterhin die CACCHT-Wortkarte mit Lexem, Morphologie und Umschrift; neue oder geänderte Formen erhalten keine ungeprüfte Analyse. Beide Fassungen folgen Tals Verszählung. **CC BY-NC 4.0**; [Quellen und Build](tools/samaritan/README.md).

@@ -1,0 +1,60 @@
+'use strict';
+const assert=require('node:assert/strict'),fs=require('node:fs');
+module.exports=async({win,js,waitFor,book})=>{
+  await js("if(!document.querySelector('#dictPanel').hidden)document.querySelector('#dictClose').click();if(!document.querySelector('#cmtPanel').hidden)document.querySelector('#cmtClose').click();if(!document.querySelector('#pane2').hidden)document.querySelector('#splitBtn').click()");
+  await book('Genesis');
+  await waitFor("[...document.querySelectorAll('#verList input[data-rel]')].some(n=>n.dataset.rel.includes('Westminster'))",'MT-Fassung auswählbar');
+  await js("{const mt=[...document.querySelectorAll('#verList input[data-rel]')].find(n=>n.dataset.rel.includes('Westminster'));if(!mt.checked){mt.checked=true;mt.dispatchEvent(new Event('change',{bubbles:true}));}}");
+  await waitFor("document.querySelector('#rOut .w[data-l=\"b/7225\"]')",'MT-Fassung geladen');
+  const others=await js("[...document.querySelectorAll('#verList input[data-rel]')].filter(n=>n.checked&&!n.dataset.rel.includes('Westminster')).map(n=>n.dataset.rel)");
+  for(const rel of others){
+    await js(`{const c=[...document.querySelectorAll('#verList input[data-rel]')].find(n=>n.dataset.rel===${JSON.stringify(rel)});if(c.checked){c.checked=false;c.dispatchEvent(new Event('change',{bubbles:true}));}}`);
+    await waitFor(`![...document.querySelectorAll('#rOut .cell')].some(n=>n.dataset.rel===${JSON.stringify(rel)})`,'Andere Fassung ausgeblendet');
+  }
+  await waitFor("document.querySelectorAll('#rOut .row[data-l=\"1\"] .cell').length===1 && document.querySelector('#rOut .w[data-l=\"b/7225\"]')",'Nur MT im Lesetext');
+  await js("document.querySelector('#rSection').value='27';document.querySelector('#rSection').dispatchEvent(new Event('change',{bubbles:true}))");
+  await waitFor("!document.querySelector('#tcBtn').hidden && document.querySelector('#rOut .row[data-l=\"10\"]')",'Textkritik für Genesis 28');
+  await js("document.querySelector('#tcBtn').click();document.querySelector('#rOut .row[data-l=\"10\"] .txt').click()");
+  await waitFor("document.querySelector('#tcPlace').textContent.includes('Genesis 28:10') && document.querySelector('#tcBody .tc-entry')",'Apparat ohne ausgewählte Samaritanus-Lesespalte');
+  assert(await js("document.querySelector('#textcritPanel').classList.contains('docked') && document.querySelector('#cmtPanel').hidden"),'Verse selection keeps the apparatus docked');
+  assert(await js("document.querySelector('#tcBody .tc-base').textContent.includes('וַיֵּ֖לֶךְ') && document.querySelector('#tcBody').textContent.includes('ללכת')"));
+  await js("[...document.querySelectorAll('#tcBody .tc-entry')].find(n=>n.querySelector('summary').textContent.includes('ללכת')).open=true");
+  await waitFor("[...document.querySelectorAll('#tcBody .tal-cite')].some(n=>n.textContent.includes('Genesis 28:10 (S. 184)'))",'Originalanmerkung im aufgeklappten Apparat');
+  assert(await js("[...document.querySelectorAll('#tcBody .ab')].some(n=>n.textContent==='INF'&&n.title==='Infinitiv')"));
+  await js("[...document.querySelectorAll('#tcBody .tc-entry[open] .w')].find(n=>n.textContent==='ללכת').click()");
+  await waitFor("document.querySelector('#wpop')?.textContent.includes('Infinitiv')",'Morphologie vom Apparat aus');
+  await js("document.querySelector('#wpop .wx').click();document.querySelector('#tcContext').checked=true;document.querySelector('#tcContext').dispatchEvent(new Event('change',{bubbles:true}))");
+  await waitFor("document.querySelector('#tcBody .tc-context')?.textContent.includes('to go')",'Vollständiger zweisprachiger Zeugen-Kontext');
+  if(process.env.SAFRAN_CRIT_CAPTURE){
+    await js("[...document.querySelectorAll('#tcBody .tc-entry')].find(n=>n.querySelector('summary').textContent.includes('ללכת')).open=true;new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)))");
+    await new Promise(r=>setTimeout(r,150));fs.writeFileSync(process.env.SAFRAN_CRIT_CAPTURE,(await win.webContents.capturePage()).toPNG());
+  }
+  await js("document.querySelector('#tcPrev').click()");
+  await waitFor("document.querySelector('#tcPlace').textContent.includes('Genesis 28:9')",'Voriger Vers im Apparat');
+  await js("document.querySelector('#rOut .row[data-l=\"2\"] .txt').click()");
+  await waitFor("document.querySelector('#tcPlace').textContent.includes('Genesis 28:2') && !document.querySelector('#tcBody .tc-entry')",'Schreibungsfilter');
+  await js("document.querySelector('#tcSpelling').checked=true;document.querySelector('#tcSpelling').dispatchEvent(new Event('change',{bubbles:true}))");
+  await waitFor("document.querySelector('#tcBody .tc-entry')?.textContent.includes('בית')",'Schreibunterschiede einblenden');
+  await js("document.querySelector('#tcSmr').checked=false;document.querySelector('#tcSmr').dispatchEvent(new Event('change',{bubbles:true}))");
+  await waitFor("document.querySelector('#tcBody').textContent.includes('SMR ist ausgeblendet')",'Zeugenfilter');
+  await js("document.querySelector('#tcSmr').checked=true;document.querySelector('#tcSmr').dispatchEvent(new Event('change',{bubbles:true}))");
+  await book('Exodus');
+  await waitFor("document.querySelector('#rSection option[value=\"19\"]')",'Exodus-Kapitelauswahl');
+  await js("document.querySelector('#rSection').value='19';document.querySelector('#rSection').dispatchEvent(new Event('change',{bubbles:true}))");
+  await waitFor("document.querySelector('#rOut .row[data-l=\"12\"]')",'Exodus 20');
+  await js("document.querySelector('#tcNumbering').value='mt';document.querySelector('#tcNumbering').dispatchEvent(new Event('change',{bubbles:true}));document.querySelector('#rOut .row[data-l=\"12\"] .txt').click()");
+  await waitFor("document.querySelector('#tcBody .tc-witness h3')?.textContent.includes('Exodus 20:11')",'Abweichende Samaritanus-Zählung der Gebote');
+  assert(await js("document.querySelector('#tcBody .tc-status')?.textContent.includes('Abweichende Versgrenzen')"));
+  await js("document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true}))");
+  await waitFor("document.querySelector('#textcritPanel').hidden",'Escape schließt Textkritik');
+  await js("document.querySelector('#splitBtn').click()");
+  await waitFor("document.querySelector('#pane2').contentDocument?.querySelector('#tcBtn')",'Textkritik im zweiten Fenster verfügbar');
+  await book('Genesis',"document.querySelector('#pane2').contentDocument");
+  await waitFor("!document.querySelector('#pane2').contentDocument.querySelector('#tcBtn').hidden",'Genesis im zweiten Fenster');
+  await js("document.querySelector('#pane2').contentDocument.querySelector('#tcBtn').click()");
+  await waitFor("document.querySelector('#pane2').contentDocument.querySelector('#tcBody .tc-witness')",'Unabhängiger Apparat im zweiten Fenster');
+  assert(await js("document.querySelector('#textcritPanel').hidden"),'Opening second apparatus leaves first pane closed');
+  await js("document.querySelector('#pane2').contentDocument.querySelector('#tcClose').click();document.querySelector('#splitBtn').click()");
+  await book('Berakhot');await waitFor("document.querySelector('#tcBtn').hidden",'Kein Samaritanus-Apparat im Bavli');
+  console.log('Electron: Textkritik ohne Zeugen-Lesespalte, Verswechsel, Quellen/Hover, Morphologie, Filter, Kontext und abweichende Verszählung bestanden.');
+};

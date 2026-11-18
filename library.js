@@ -725,6 +725,7 @@
     if (window.__refind) setTimeout(window.__refind, 0);
     { const ck = view.group.key + '|' + s.k; if (ck !== lastCmtKey) { cmtRow = null; lastCmtKey = ck; } }
     applyCmtRowSoon();
+    textcritUI.refresh();
     const hit = $('#rOut .row.hit') || (quiet && rowLabel != null ? [...$$('#rOut .row[data-l]')].find(x => x.dataset.l === rowLabel) : null);
     if (hit) hit.scrollIntoView({ block: quiet ? 'start' : 'center' }); else window.scrollTo(0, 0);
   }
@@ -914,6 +915,13 @@
     get showTab() { return showTab; },
   });
   // end-reader-module:word-cards
+
+  const textcritUI = window.LibraryTextCrit.create({
+    $, esc, getView: () => view, getRow: () => cmtRow,
+    load: (...args) => wordCardsUI.lazyScript(...args), clean: html => R.cleanHtml(html),
+    openWord: w => wordPopupUI.openSamaritanWord(w),
+    selectRow: label => { setCmtRow(label); const row = $$('#rOut .row[data-l]').find(r => r.dataset.l === label); if (row) panelScrollTo(row, 'center'); },
+  });
 
   // Fußnoten-Modus (per Klick / immer / aus), wird gemerkt
   let noteMode = 'click';
@@ -2763,6 +2771,7 @@
     if (r) r.classList.add('cmtrow');
     if (cmtOpen && !cmtWhole) renderCmt(); // ganzes Kapitel: die Markierung wechselt, der Inhalt bleibt
     apSoon();
+    textcritUI.refresh();
   }
   function applyCmtRow() {
     const rows = $$('#rOut .row[data-l]');
@@ -2791,8 +2800,8 @@
   // ---------- Fenster anpinnen: neben dem Text festhalten statt darüber zu schweben ----------
   // Je Fenster wird gemerkt, ob es angepinnt ist. Ein angepinntes Fenster steht rechts neben dem Haupttext; öffnet ein zweites angepinntes Fenster, tritt es an die Stelle des ersten
   // (Ausnahme: Kommentare und Wörterbuch dürfen untereinander stehen). Nicht angepinnte Fenster schweben wie bisher über dem Text.
-  const PINS = { forms: ['#formsPanel', '#fmClose'], all: ['#allPanel', '#apClose'], link: ['#linkPanel', '#lkClose'], topic: ['#topicPanel', '#tpClose'], outline: ['#outlinePanel', '#olClose'], map: ['#mapPanel', '#mapClose'], cmt: ['#cmtPanel', '#cmtClose'], dict: ['#dictPanel', '#dictClose'] };
-  const pins = { forms: false, all: true, link: false, topic: false, outline: false, map: false, cmt: true, dict: true };
+  const PINS = { textcrit: ['#textcritPanel', '#tcClose'], forms: ['#formsPanel', '#fmClose'], all: ['#allPanel', '#apClose'], link: ['#linkPanel', '#lkClose'], topic: ['#topicPanel', '#tpClose'], outline: ['#outlinePanel', '#olClose'], map: ['#mapPanel', '#mapClose'], cmt: ['#cmtPanel', '#cmtClose'], dict: ['#dictPanel', '#dictClose'] };
+  const pins = { textcrit: true, forms: false, all: true, link: false, topic: false, outline: false, map: false, cmt: true, dict: true };
   try { const o = JSON.parse(localStorage.getItem('pins') || '{}'); for (const k in pins) if (typeof o[k] === 'boolean') pins[k] = o[k]; } catch { /* egal */ }
   const pinPair = (a, b) => (a === 'cmt' || a === 'dict') && (b === 'cmt' || b === 'dict');
   let pinBusy = false;
@@ -2899,7 +2908,7 @@
     const lab = e.target.closest('.lab');
     if (!lab || e.target.closest('.bm') || e.target.closest('.lk, .mtj')) return;
     const row = lab.closest('.row[data-l]');
-    if (row) { AP.whole = false; cmtWhole = false; setCmtRow(row.dataset.l); if (!cmtOpen && !AP.open) toggleCmt(true); } // ein Klick auf den Vers öffnet die Kommentare (ist „Alles zu dieser Stelle“ offen, folgt dieses Fenster)
+    if (row) { AP.whole = false; cmtWhole = false; setCmtRow(row.dataset.l); if (!cmtOpen && !AP.open && $('#textcritPanel').hidden) toggleCmt(true); } // ein Klick auf den Vers öffnet die Kommentare (ist „Alles zu dieser Stelle“ offen, folgt dieses Fenster)
   });
   // Doppelklick auf die Versnummer öffnet den Kommentar-Bereich, derselbe Vers noch einmal schließt ihn
   let lastCmtDbl = null;
@@ -3319,7 +3328,7 @@
   }
 
   // Esc schließt die zuletzt geöffnete Seitenleiste (Wörterbuch, Kommentare, Verknüpfungen), jedes weitere Esc die davor
-  { const panels = [['#dictPanel', () => toggleDict(false)], ['#cmtPanel', () => toggleCmt(false)], ['#linkPanel', () => { $('#linkPanel').hidden = true; }]];
+  { const panels = [['#dictPanel', () => toggleDict(false)], ['#cmtPanel', () => toggleCmt(false)], ['#linkPanel', () => { $('#linkPanel').hidden = true; }], ['#textcritPanel', () => textcritUI.close()]];
     const since = new Map();
     panels.forEach(([sel]) => { const el = $(sel); new MutationObserver(() => { if (!el.hidden) since.set(sel, Date.now()); }).observe(el, { attributes: true, attributeFilter: ['hidden'] }); });
     document.addEventListener('keydown', e => {

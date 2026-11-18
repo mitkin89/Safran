@@ -96,3 +96,13 @@ Abbreviations (printed pp. 81–84) and References (pp. 71–78), with grammatic
 notation and sigla used in the notes. Generation annotates plain text before HTML
 wrapping, preserving source characters, italics, bidi isolates and red differences.
 The existing dictionary `ab` markup is sanitized into native `title` tooltips.
+
+`build_textcrit.py` also writes the lazy-loaded `textcrit-data.js` witness adapter.
+It retains the complete Tal words/red masks, English context and existing note
+IDs grouped by their word anchors. Westminster files are SHA-256 locked. Verse
+correspondence uses exact consonantal word matches within a chapter, reinforced
+by exact full verses at the same coordinate to avoid drift in repeated formulas
+(Numbers 7). It is a navigation aid, not a reconstructed reading or manually
+verified textual apparatus. Poorly anchored/displaced passages remain unresolved;
+the UI preserves Tal references and labels that status. `textcrit-core.js` keeps
+reference resolution and source-sign-based filtering independent of the pane.

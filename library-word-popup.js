@@ -283,7 +283,7 @@ window.LibraryWordPopup = (() => {
     const apparatus=(info.talNotes||[]).map(n=>`<section class="tal-apparatus-entry"><div>${window.Reader.cleanHtml(n.html)}</div><small class="tal-cite" dir="ltr">${esc(n.citation)}</small></section>`).join('');
     const morphology=rows||(!info.context?`<p class="muted">${esc(t('Für diese Lesart wurde keine CACCHT-Morphologie übernommen.'))}</p>`:'');
     w.classList.add('sel');
-    wpop = document.createElement('div'); wpop.id = 'wpop';
+    wpop = document.createElement('div'); wpop.id = 'wpop'; wpop.classList.add('samaritan-word');
     wpop.innerHTML = `<div class="wtop"><span class="wword" dir="${info.context||info.language==='English'?'ltr':'rtl'}" lang="he">${esc(info.context?info.ref:w.textContent)}</span><button class="wx" title="${esc(t('Schließen'))}">✕</button></div><p class="muted">${esc(t(info.context?'Anmerkungen zum Vers':'Samaritanisches Hebräisch'))}</p>${phono ? `<div class="wphon" lang="he-Latn" title="${esc(t('Umschrift der Datenquelle'))}">${esc(phono)}</div>${phono.includes('�') ? `<p class="muted">${esc(t('Umschrift teilweise unlesbar'))}</p>` : ''}` : ''}${morphology}${apparatus?`<div class="tal-apparatus">${apparatus}</div>`:''}${variants}${info.notes.map(n=>`<p class="muted">${esc(n)}</p>`).join('')}${lemmas.map(l=>`<button class="wdict" data-q="${esc(l)}">${esc(t('Im Wörterbuch nachschlagen'))}: <bdi>${esc(l)}</bdi></button>`).join('')}${info.parts.length?`<p class="muted">CACCHT / DT-UCPH · ${esc(D.version)} · CC BY-NC 4.0</p>`:''}`;
     document.body.appendChild(wpop);
     const r = w.getBoundingClientRect(), pw = wpop.offsetWidth, ph = wpop.offsetHeight;
@@ -367,7 +367,7 @@ window.LibraryWordPopup = (() => {
   });
   document.addEventListener('keydown', e => { if (e.key === 'Escape') closeWpop(); });
 
-    return { close: closeWpop, loadGM, greekWordAt, decorateBavliReader, openBavliAnchor };
+    return { openSamaritanWord(w) { gTok++; closeWpop(); return showSamaritanWord(w); }, close: closeWpop, loadGM, greekWordAt, decorateBavliReader, openBavliAnchor };
   }
   return { create };
 })();

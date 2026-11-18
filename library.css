@@ -1818,3 +1818,36 @@ body.il .cell[data-k="he"] .ilt[data-i="16"] { color: var(--il16); }
 #wpop .tal-apparatus { max-height: 45vh; overflow-y: auto; margin: 8px 0; }
 #wpop .tal-apparatus-entry { border-top: 1px solid var(--line); padding: 8px 0; direction: ltr; }
 #wpop .tal-cite { display: block; color: var(--muted); font-family: system-ui, sans-serif; font-size: 10px; line-height: 1.4; margin-top: 5px; }
+
+/* Samaritan word card: annotation and transcription match the analysis text. */
+#wpop.samaritan-word .wphon, #wpop.samaritan-word .tal-apparatus-entry > div { font-size: 1em; line-height: 1.55; }
+#wpop.samaritan-word .tal-apparatus-entry > div { font-family: "HeDict", system-ui, sans-serif; }
+/* Verse apparatus; participates in the existing dock/pin layout in each frame. */
+#textcritPanel { position: fixed; top: calc(57px - var(--hdoff, 0px)); right: var(--cmt-off, 0px); bottom: 0; width: 440px; max-width: 92vw; max-height: none; z-index: 30; padding: 0 14px 14px; background: var(--bg); border-left: 1px solid var(--line); box-shadow: -6px 0 22px rgba(0,0,0,.3); overflow: auto; font-size: 14px; }
+#textcritPanel[hidden] { display: none; }
+#textcritPanel.docked { width: var(--cmt-w, 440px); z-index: 20; background: var(--side-bg); box-shadow: none; }
+html.split #textcritPanel:not(.docked) { right: var(--p2w); }
+#textcritPanel .tc-head { position: sticky; top: 0; z-index: 1; background: inherit; padding: 12px 0 8px; border-bottom: 1px solid var(--line); }
+#textcritPanel .lhead { display: flex; align-items: center; gap: 8px; }
+#textcritPanel .lhead b { flex: 1; }
+#tcPlace { margin: 6px 0; font-weight: 600; }
+.tc-nav { display: flex; gap: 8px; margin-bottom: 8px; }
+.tc-options { display: grid; gap: 5px; margin-top: 8px; }
+#textcritPanel input[type=checkbox] { width: auto; margin: 0; }
+#tcNumbering { max-width: 100%; }
+#tcBody { line-height: 1.55; }
+.tc-base { border-bottom: 1px solid var(--line); padding: 12px 0; }
+.tc-ref, .tc-kind, .tc-count, .tc-credit { color: var(--muted); font-size: .85em; }
+.tc-base blockquote { margin: 4px 0; font-family: var(--he-font); font-size: 1.35em; }
+.tc-witness h3 { font-size: 1em; margin: 12px 0 6px; }
+.tc-status { font-size: .9em; border-left: 2px solid var(--accent); padding-left: 8px; }
+.tc-entry { border: 1px solid var(--line); border-radius: 7px; margin: 8px 0; }
+.tc-entry > summary { cursor: pointer; padding: 8px; }
+.tc-lemma { font-family: var(--he-font); font-size: 1.35em; }
+.tc-siglum { font-size: .8em; background: var(--chip); border-radius: 4px; padding: 2px 4px; }
+.tc-detail { padding: 0 10px 10px; }
+.tc-he { font-family: var(--he-font); font-size: 1.45em; line-height: 1.8; }
+#tcBody .w { cursor: pointer; }
+.tc-note { border-top: 1px solid var(--line); padding-top: 8px; margin-top: 8px; }
+#tcBody .tal-cite { display: block; font: 10px/1.4 system-ui, sans-serif; color: var(--muted); margin-top: 6px; }
+.tc-credit { border-top: 1px solid var(--line); margin-top: 16px; padding-top: 8px; }

@@ -44,6 +44,7 @@ module.exports=async function run({docs,win,js,waitFor,book}){
   await waitFor("document.querySelector('#wpop .tal-cite')?.textContent==='Tal–Florentin, Fußnote Genesis 28:10 (S. 184)'",'Quelle klein in der Wortkarte');
   assert(await js("document.querySelector('#wpop .tal-apparatus').textContent.includes('INF') && parseFloat(getComputedStyle(document.querySelector('#wpop .tal-cite')).fontSize)<parseFloat(getComputedStyle(document.querySelector('#wpop')).fontSize)"));
   assert(await js("[...document.querySelectorAll('#wpop .tal-apparatus .ab')].some(n=>n.textContent==='INF'&&n.title==='Infinitiv') && [...document.querySelectorAll('#wpop .tal-apparatus .ab')].some(n=>n.textContent===']'&&n.title.includes('Inhaltliche Abweichung')) && [...document.querySelectorAll('#wpop .tal-apparatus .ab')].some(n=>n.textContent==='MT'&&n.title==='Masoretischer Text')"),'Dictionary-style hover explanations in word popup');
+  assert(await js("{const p=document.querySelector('#wpop');const size=n=>getComputedStyle(n).fontSize;size(p.querySelector('.wphon'))===size(p.querySelector('.wseg'))&&size(p.querySelector('.tal-apparatus-entry > div'))===size(p.querySelector('.wseg'))}"),'Transcription and annotation match morphology font size');
   if(process.env.SAFRAN_NOTES_CAPTURE){
     await js("new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)))");
     await new Promise(resolve=>setTimeout(resolve,150));

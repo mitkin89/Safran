@@ -88,6 +88,7 @@
                 </details>
                 <button id="bookSearch" title="Nur in diesem Buch suchen">🔎<span class="bl">Im Buch</span></button>
                 <button id="cmtBtn" title="Kommentare zum ganzen Kapitel – ein Klick auf eine Versnummer zeigt nur diesen Vers (Cmd+K)">💬<span class="bl">Kommentare</span></button>
+                <button id="tcBtn" title="Textkritik: Lesarten und Tal–Florentin-Anmerkungen zum ausgewählten Vers" aria-expanded="false" hidden>≠<span class="bl">Textkritik</span></button>
                 <button id="apBtn" title="Alles zu dieser Stelle: Kommentare, Parallelstellen, Orte, Themen und Notizen zum ganzen Kapitel – ein Klick auf eine Versnummer zeigt nur diesen Vers (Cmd+I)">✦<span class="bl">Überblick</span></button>
                 <button id="lkBtn" title="Verknüpfungen zu diesem Abschnitt anzeigen" hidden>🔗<span class="bl">Verknüpfungen</span></button>
                 <button id="olBtn" title="Gliederung dieses Buches (Wochenabschnitte, Kapitel, Absätze)">☰ <span class="bl">Gliederung</span></button>
@@ -323,6 +324,17 @@
     <div id="cmtBody"></div>
   </aside>
 
+  <aside id="textcritPanel" hidden aria-label="Textkritik">
+    <div class="tc-head">
+      <div class="lhead"><b>Textkritik</b><button id="tcClose" type="button" title="Schließen">✕</button></div>
+      <div id="tcPlace" aria-live="polite"></div>
+      <div class="tc-nav"><button id="tcPrev" type="button" title="Voriger Vers">▲ Vers</button><button id="tcNext" type="button" title="Nächster Vers">▼ Vers</button></div>
+      <label>Zählung <select id="tcNumbering"><option value="auto">Wie angeklickter Lesetext</option><option value="mt">MT</option><option value="tal">Tal–Florentin</option></select></label>
+      <div class="tc-options"><label><input id="tcSmr" type="checkbox" checked> SMR · Tal–Florentin</label><label><input id="tcSpelling" type="checkbox"> Auch Schreibunterschiede</label><label><input id="tcContext" type="checkbox"> Vollständiger Zeugen-Kontext</label></div>
+    </div>
+    <div id="tcBody"></div>
+  </aside>
+
   <aside id="linkPanel" hidden>
     <div id="lkHead">
       <div class="lhead"><b id="lkTitle">Verknüpfungen</b><button id="lkWhole" class="wholeBtn" type="button" hidden></button><button id="lkClose" title="Schließen">✕</button></div>
@@ -520,6 +532,8 @@
   <div id="ilPop" class="ilpop" role="dialog" aria-label="Interlinear" hidden></div>
   <script src="library-word-cards.js"></script>
   <script src="library-navigation.js"></script>
+  <script src="textcrit-core.js"></script>
+  <script src="library-textcrit.js"></script>
   <script src="library-links.js"></script>
   <script src="library-outline.js"></script>
   <script src="library-map.js"></script>

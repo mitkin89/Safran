@@ -63,7 +63,9 @@ module.exports = function setup({profile, handlers}) {
     await waitFor("document.querySelector('#tpTitle').textContent==='Creation'", 'Themenkarte');
     await js("document.querySelector('#tpClose').click();document.querySelector('#mapBtn').click()");
     await waitFor("!document.querySelector('#mapPanel').hidden && document.querySelector('#mapCv').width > 0", 'Karte im echten Fenster');
-    assert(await js("document.querySelector('#mapInfo').textContent.length > 0"));
+    // mapOpen populates the list in requestAnimationFrame. Canvas has a
+    // non-zero default width before that frame, especially under Linux/Xvfb.
+    await waitFor("document.querySelector('#mapInfo .sub')?.textContent.trim().length > 0", 'Karteninformation nach dem ersten Kartendurchlauf');
     await js("document.querySelector('#mapClose').click()");
     // A full reload checks persisted notes and the reader's live module adapters.
     const restored = new Promise(resolve => win.webContents.once('did-finish-load', resolve));
