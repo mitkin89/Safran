@@ -140,13 +140,14 @@ function create(host){
     const token=++generation,c=context();$('#tcBtn').hidden=!c;
     if(panel.hidden)return;
     $('#tcWhole').hidden=!c||whole;
+    $('#tcLang').hidden=!!c?.isMishnah;$('#tcMishnahView').hidden=!c?.isMishnah;
     $('#tcLang').title=c?.isMishnah?'Quellenhinweise der Mischna-Transkriptionen':'Sprache: Tal mit englischen Originalanmerkungen; CATSS mit Quellcodes und deutschen Erläuterungen';
     $('#tcSettings').hidden=!!c?.isMishnah;$('#tcBibleWitnesses').hidden=!!c?.isMishnah;$('#tcMishnahWitnesses').hidden=!c?.isMishnah;
     $('#tcPlace').textContent=c?(whole?c.book+' '+c.chapter+' · ganzes Kapitel':c.ref)+' · '+(c.isMishnah?'Digital-Mishnah-Zählung':c.numbering==='tal'?'Tal–Florentin-Zählung':'MT-Zählung'):'Keine Stelle ausgewählt';
     syncWitness();
     if(c?.isMishnah){
       body.innerHTML='<p class="muted">'+esc('Apparat wird geladen …')+'</p>';
-      try{await mishnah.load();if(token!==generation||panel.hidden)return;const refs=whole?mishnah.refs(c.chapter):[c.chapter+':'+c.row];body.innerHTML=mishnah.render(c.chapter,refs,['K',...($('#tcMishnahParma').checked?['P']:[]),...($('#tcMishnahCambridge').checked?['C']:[])]);markCurrent(c);host.refreshFind?.();}
+      try{await mishnah.load();if(token!==generation||panel.hidden)return;const refs=whole?mishnah.refs(c.chapter):[c.chapter+':'+c.row];body.innerHTML=mishnah.render(c.chapter,refs,['K',...($('#tcMishnahParma').checked?['P']:[]),...($('#tcMishnahCambridge').checked?['C']:[])],$('#tcMishnahView').value);markCurrent(c);host.refreshFind?.();}
       catch{if(token===generation)body.textContent=window.I18N.t('Apparat konnte nicht geladen werden.');}
       return;
     }
@@ -248,8 +249,9 @@ function create(host){
     if(!panel.hidden){lastContentKey=null;if(follow)followNow();}render();
   });}
   $('#tcBtn').onclick=()=>toggle();$('#tcClose').onclick=()=>toggle(false);
-  ['#tcMishnahParma','#tcMishnahCambridge','#tcNumbering','#tcSmr','#tcTov','#tcDss','#tcKen','#tcLang'].forEach(s=>$(s).onchange=()=>{
-    try{localStorage.setItem('tcMP',$('#tcMishnahParma').checked?'1':'0');localStorage.setItem('tcMC',$('#tcMishnahCambridge').checked?'1':'0');localStorage.setItem('tcKen',$('#tcKen').checked?'1':'0');localStorage.setItem('tcDss',$('#tcDss').checked?'1':'0');localStorage.setItem('tcTov',$('#tcTov').checked?'1':'0');localStorage.setItem('tcSmr',$('#tcSmr').checked?'1':'0');}catch{}
+  try{const view=localStorage.getItem('tcMishnahView');if(['interlinear','apparatus','tosefta'].includes(view))$('#tcMishnahView').value=view;}catch{}
+  ['#tcMishnahView','#tcMishnahParma','#tcMishnahCambridge','#tcNumbering','#tcSmr','#tcTov','#tcDss','#tcKen','#tcLang'].forEach(s=>$(s).onchange=()=>{
+    try{localStorage.setItem('tcMishnahView',$('#tcMishnahView').value);localStorage.setItem('tcMP',$('#tcMishnahParma').checked?'1':'0');localStorage.setItem('tcMC',$('#tcMishnahCambridge').checked?'1':'0');localStorage.setItem('tcKen',$('#tcKen').checked?'1':'0');localStorage.setItem('tcDss',$('#tcDss').checked?'1':'0');localStorage.setItem('tcTov',$('#tcTov').checked?'1':'0');localStorage.setItem('tcSmr',$('#tcSmr').checked?'1':'0');}catch{}
     render();
   });
   $('#rOut').addEventListener('click',e=>{
@@ -257,7 +259,7 @@ function create(host){
     whole=false;selected=row.dataset.l;const rel=e.target.closest('.cell[data-rel]')?.dataset.rel;
     const doc=host.getView()?.loaded?.find(d=>d.entry.rel===rel);clickedTal=doc?!!doc.talWordNotes:null;render();
   });
-  body.addEventListener('click',e=>{const source=e.target.closest('.tc-source');if(source){showPreview(source);return;}const mt=e.target.closest('.tc-mt-jump');if(mt){hidePreview();const ref=mt.dataset.ref;host.markMt(ref,+mt.dataset.start,+mt.dataset.end,tov.mt(ref)||dss.mt(ref)||ken.mt(ref)||window.TextCrit.words(window.TEXTCRIT_DATA?.mt?.[ref]||''));return;}const qw=e.target.closest('.tc-dss-word');if(qw&&!String(window.getSelection())){hidePreview();host.openQumran(qw);return;}const greek=e.target.closest('.tc-tov-lemma');if(greek&&!String(window.getSelection())){hidePreview();tov.open(greek);return;}const jump=e.target.closest('.tc-jump');if(jump){host.selectRow(jump.dataset.row);return;}const w=e.target.closest('.w[data-l]');if(w&&!String(window.getSelection())){hidePreview();host.openWord(w);}});
+  body.addEventListener('click',e=>{const source=e.target.closest('.tc-source,[data-tc-mishnah]');if(source){showPreview(source);return;}const mt=e.target.closest('.tc-mt-jump');if(mt){hidePreview();const ref=mt.dataset.ref;host.markMt(ref,+mt.dataset.start,+mt.dataset.end,tov.mt(ref)||dss.mt(ref)||ken.mt(ref)||window.TextCrit.words(window.TEXTCRIT_DATA?.mt?.[ref]||''));return;}const qw=e.target.closest('.tc-dss-word');if(qw&&!String(window.getSelection())){hidePreview();host.openQumran(qw);return;}const greek=e.target.closest('.tc-tov-lemma');if(greek&&!String(window.getSelection())){hidePreview();tov.open(greek);return;}const jump=e.target.closest('.tc-jump');if(jump){host.selectRow(jump.dataset.row);return;}const w=e.target.closest('.w[data-l]');if(w&&!String(window.getSelection())){hidePreview();host.openWord(w);}});
   body.addEventListener('pointerover',e=>{
     const target=e.target.closest('.tc-source,.tc-context-word,[data-tc-tov],[data-tc-dss],[data-tc-ken],[data-tc-mishnah]');if(!target||target.contains(e.relatedTarget))return;
     clearTimeout(hideTimer);clearTimeout(showTimer);showTimer=setTimeout(()=>showPreview(target),200);

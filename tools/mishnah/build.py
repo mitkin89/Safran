@@ -4,6 +4,7 @@ Run with a directory containing the three upstream TEI XML files.
 from pathlib import Path
 import xml.etree.ElementTree as ET
 import re,json,hashlib,gzip,difflib,sys
+import align
 ROOT=Path(__file__).resolve().parents[2];HERE=Path(__file__).resolve().parent
 NS={'t':'http://www.tei-c.org/ns/1.0'};XI='{http://www.w3.org/XML/1998/namespace}id'
 COMMIT='39389be30e93032d722e8dd3b7bcdfe15e76a421'
@@ -37,7 +38,7 @@ def extract(ab):
     words=[]
     for m in re.finditer(r"[א-ת□][א-ת\u0591-\u05c7□'’׳\"]*",text):
         flags=[a['tag'] for a in annotations if a['start']<m.end() and a['end']>m.start()]
-        w={'text':m.group(),'key':re.sub('[^א-ת]','',m.group()),'flags':sorted(set(flags))}
+        w={'start':m.start(),'end':m.end(),'text':m.group(),'key':re.sub('[^א-ת]','',m.group()),'flags':sorted(set(flags))}
         for a in annotations:
             if a['tag']=='choice' and a['start']<=m.start() and a['end']>=m.end() and a.get('expansion'):w['key']=re.sub('[^א-ת]','',a['expansion'])
         words.append(w)
@@ -83,8 +84,14 @@ def build(folder=None):
                 for nearby in [other[c-1] if c else None,other[d] if d<len(other) else None]:
                     if nearby and ('□' in nearby[2]['text'] or set(nearby[2]['flags'])&{'damage','unclear','gap'}):unsafe=True
                 out['records'].append({'ref':anchor,'witness':sig,'operation':op,'base':[[r,i] for r,i,_ in left],'reading':[[r,i] for r,i,_ in right],'sourceRefs':sourceRefs,'after':previous[1] if previous and previous[0]==anchor else -1,'uncertain':unsafe,'method':'chapter sequence comparison (automated)'})
+    out['interlinear']=align.build(out,json.loads((HERE/'alignment-review.json').read_text()))
+    links=json.loads((HERE/'tosefta-links.json').read_text());pd_raw=gzip.decompress((HERE/'sources/tosefta-public-domain.json.gz').read_bytes())
+    assert links['kaufmannSha256']==out['witnesses']['K']['sha256']
+    assert hashlib.sha256(pd_raw).hexdigest()==links['publicDomainSha256']
+    pd=json.loads(pd_raw);assert pd['source']['heLicense']=='Public Domain'
+    out['tosefta']={**links,'reading':pd}
     js='// Digital Mishnah Berakhot pilot. Original TEI and source annotations retained.\nwindow.MISHNAH_TEXTCRIT='+json.dumps(out,ensure_ascii=False,separators=(',',':'))+';\n'
     (ROOT/'mishnah-textcrit-data.js').write_text(js)
-    audit={'commit':COMMIT,'units':{s:len(m['units']) for s,m in out['witnesses'].items()},'records':len(out['records']),'uncertain':sum(r['uncertain'] for r in out['records']),'annotations':{s:sum(len(u['annotations']) for u in m['units'].values()) for s,m in out['witnesses'].items()}}
+    audit={'commit':COMMIT,'units':{s:len(m['units']) for s,m in out['witnesses'].items()},'interlinear':out['interlinear']['counts'],'records':len(out['records']),'uncertain':sum(r['uncertain'] for r in out['records']),'annotations':{s:sum(len(u['annotations']) for u in m['units'].values()) for s,m in out['witnesses'].items()}}
     (HERE/'audit.json').write_text(json.dumps(audit,ensure_ascii=False,indent=2)+'\n');print(json.dumps(audit))
 if __name__=='__main__':build(sys.argv[1] if len(sys.argv)>1 else None)

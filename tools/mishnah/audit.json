@@ -5,6 +5,22 @@
     "P": 57,
     "C": 59
   },
+  "interlinear": {
+    "P": {
+      "words": 2171,
+      "aligned": 2002,
+      "insertions": 32,
+      "open": 137,
+      "reviewed": 2
+    },
+    "C": {
+      "words": 2201,
+      "aligned": 1909,
+      "insertions": 33,
+      "open": 259,
+      "reviewed": 0
+    }
+  },
   "records": 628,
   "uncertain": 52,
   "annotations": {

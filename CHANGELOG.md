@@ -1,6 +1,7 @@
 # Changelog
 
 ### Unreleased
+- **Mishnah Berakhot interlinear:** compare Kaufmann, Parma and Cambridge in word/group columns, mark different readings and additions red, preserve every source token and highlight selected words in the original context. Keep 396 ambiguous/damaged witness tokens unresolved. Add a separate Tosefta view with 53 upstream passage links and a checked Public Domain reading preview for the first relation; retain stale project word IDs as unresolved instead of inventing anchors.
 - **Mishnah Berakhot pilot:** compare Digital Mishnah Kaufmann (57 units), Parma (57) and Cambridge (59) against Kaufmann, preserving full licensed TEI snapshots, source numbering, expansions, deletions, supplements and damage. Separate automated comparison candidates from uncertain material; provide source context, witness filters and chapter navigation without inventing reader-word anchors.
 - **MT cantillation layout:** optional line breaks at major or smaller disjunctive accents, with separate poetic/prose rules, saved display settings and intact morphology/interlinear groups, including when accents are hidden.
 - **English apparatus and panel symbols:** translate textual criticism controls, statuses, CATSS explanations, source previews and manuscript cards; add the matching tool icons to pinned panel tabs. Original edition notes and readings remain unchanged.

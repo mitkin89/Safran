@@ -5,6 +5,11 @@ module.exports=async({docs,win,js,waitFor,book})=>{
  await win.reload();await waitFor("[...document.querySelectorAll('#tree .lib-item')].some(n=>n.dataset.key.endsWith('¦Mishnah Berakhot'))",'Mischna verfügbar');await book('Mishnah Berakhot');
  await waitFor("document.querySelector('#rTitle').textContent.includes('Mishnah Berakhot')&&!document.querySelector('#tcBtn').hidden",'Mischna-Apparat verfügbar');
  await js("document.querySelector('#rSection').value='0';document.querySelector('#rSection').dispatchEvent(new Event('change',{bubbles:true}));if(document.querySelector('#textcritPanel').hidden)document.querySelector('#tcBtn').click();document.querySelector('#rOut .row[data-l=\"1\"] .txt').click()");
+ await waitFor("document.querySelector('#tcBody .mci-column .mci-word')&&document.querySelector('#tcBody .mci-word.mt-diff')",'Mischna-Interlinear und rote Abweichungen');
+ await js("document.querySelector('#tcBody [data-tc-mishnah=\"P|1:1\"][data-tc-mishnah-word=\"1:1|17\"]').click()");await waitFor("document.querySelector('#tcHover mark')?.textContent==='וחכמין'",'Wort im Quellenkontext markiert');
+ await js("document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true}));document.querySelector('#tcMishnahView').value='tosefta';document.querySelector('#tcMishnahView').dispatchEvent(new Event('change',{bubbles:true}))");
+ await waitFor("document.querySelector('#tcBody').textContent.includes('Public Domain')&&document.querySelector('#tcBody').textContent.includes('מאימתי קורין')",'Geprüfte Tosefta-Parallelpassage');
+ await js("document.querySelector('#tcMishnahView').value='apparatus';document.querySelector('#tcMishnahView').dispatchEvent(new Event('change',{bubbles:true}))");
  await waitFor("document.querySelector('#tcBody .tc-mishnah-sources')&&document.querySelector('#tcBody .tc-mishnah-entry')",'Mischna-Apparat geladen');
  assert(await js("document.querySelector('#tcBibleWitnesses').hidden&&!document.querySelector('#tcMishnahWitnesses').hidden&&document.querySelector('#tcSettings').hidden"),'Keine biblischen Zeugen oder MT-Zählung');
  assert(await js("document.querySelector('#tcPlace').textContent.includes('Digital Mishnah numbering')"));
@@ -14,6 +19,7 @@ module.exports=async({docs,win,js,waitFor,book})=>{
  await waitFor("!document.querySelector('#tcBody .tc-mishnah-entry [data-tc-mishnah^=\"C|\"]')",'Cambridge-Filter');
  await js("document.querySelector('#tcNext').click()");await waitFor("document.querySelector('#tcBody .tc-verse-summary')?.textContent.includes('1:2')",'Mischna-Navigation');
  await js("document.querySelector('#tcWhole').click()");await waitFor("document.querySelectorAll('#tcBody .tc-reader-verse').length===5",'Ganzes Mischna-Kapitel');
+ await js("document.querySelector('#tcMishnahView').value='interlinear';document.querySelector('#tcMishnahView').dispatchEvent(new Event('change',{bubbles:true}))");await waitFor("document.querySelector('#tcBody .mci-column')",'Interlinear Kapitel');
  await js("new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))");fs.writeFileSync('/tmp/safran-mishnah-pilot.png',(await win.webContents.capturePage()).toPNG());
  await book('Genesis');await waitFor("!document.querySelector('#tcBibleWitnesses').hidden&&document.querySelector('#tcMishnahWitnesses').hidden",'Zurück zum Tanach');
  console.log('Electron: Mischna Berakhot, Kaufmann/Parma/Cambridge, Quellenzeichen, Filter, Navigation, Kapitel und Tanach-Rückkehr bestanden.');

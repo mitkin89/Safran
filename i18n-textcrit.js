@@ -245,5 +245,20 @@
   "Lesestand mit Nachträgen und Ergänzungen; Abkürzungen bleiben erhalten. Referenzzählung der Transkriptionen, noch kein geprüfter Abgleich mit der Lesefassung. Keine vollständig geprüfte kritische Edition.": "Reading state includes additions and supplements; abbreviations are retained. Transcription reference numbering; correspondence with the reading edition has not yet been verified. Not a fully reviewed critical edition.",
   "Beschädigt / unsicher": "Damaged / uncertain",
   "Zusatz": "Addition",
-  "Form / Wortlaut": "Form / wording"
+  "Form / Wortlaut": "Form / wording",
+  "Vergleichsansicht": "Comparison view",
+  "Apparat": "Apparatus",
+  "Quellenzeichen": "Source annotations",
+  "Bezugstext: Kaufmann A50 · maschinelle Wort- und Gruppenzuordnung": "Reference text: Kaufmann A50 · automated word and group alignment",
+  "Rot: abweichende Lesart oder Zusatz. …: Zuordnung offen. —: kein Gegenstück im maschinellen Vergleich. Quellenzeichen bleiben im Kontext erhalten.": "Red: different reading or addition. …: unresolved alignment. —: no counterpart in the automated comparison. Source annotations remain available in context.",
+  "Zuordnung offen": "Alignment unresolved",
+  "Kein Gegenstück im maschinellen Vergleich": "No counterpart in the automated comparison",
+  "Gruppen statt erzwungener Einzelwortpaare; offene Wörter stehen getrennt. Nicht vollständig philologisch geprüft.": "Groups instead of forced word pairs; unresolved words are listed separately. Not fully reviewed philologically.",
+  "Mischna–Tosefta: vorhandene Passagenverknüpfungen des Projekts, keine Einzelwortvarianten.": "Mishnah–Tosefta: existing project passage links, not individual word variants.",
+  "Projektzählung": "Project numbering",
+  "Wortverweise im Referenztext nicht auflösbar": "Word references cannot be resolved in the reference text",
+  "Projektverweise vorhanden; Wortzuordnung nicht geprüft": "Project references available; word alignment has not been verified",
+  "Geprüfte Parallelpassage; eigene Zählung der Leseausgabe": "Verified parallel passage; reading edition numbering",
+  "Quellenverweise": "Source references",
+  "Projektverknüpfungen und Leseausgabe haben unterschiedliche Textstände und Zählungen. Nur geprüfte Parallelpassagen erhalten eine Textvorschau.": "Project links and the reading edition use different texts and numbering. Only verified parallel passages receive a text preview."
 });

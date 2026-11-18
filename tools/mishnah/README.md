@@ -26,3 +26,53 @@ references. They are automated comparison candidates, not a manually reviewed
 apparatus or a classification of genealogical/semantic significance. Damaged
 and uncertain material is never displayed as a secure omission. This is a pilot:
 complete reference mapping and philological review are still required.
+
+## Word/group alignment
+
+`align.py` compares whole chapters with dynamic programming. Exact consonantal
+forms, explicitly encoded abbreviation expansions, conservative spelling
+similarity and concatenations of up to three source tokens are candidates.
+Only links shared by every minimum-cost path are accepted. Unrelated
+replacements, repeated-word ambiguity and damaged/unclear tokens remain open.
+Source whitespace is not silently edited: joined groups handle split source
+fragments. Two reviewed abbreviation pairs in `alignment-review.json` are bound
+to source SHA-256 and exact token strings. Automatic links remain unreviewed.
+
+All 2,171 Parma tokens and 2,201 Cambridge tokens occur exactly once in linked
+or unresolved material. Parma: 2,002 linked to base words, 32 insertions, 137
+open. Cambridge: 1,909 linked, 33 insertions, 259 open. The full 57-unit Kaufmann
+reference is shown in the interlinear view. The source-context preview highlights
+the selected original token and retains corrections, expansions and original TEI.
+Red marks differing consonantal readings and additions; damage and unresolved
+material remain muted. A dash means no counterpart in the automated comparison,
+not an independently established manuscript omission.
+
+Run `python3 tools/mishnah/test_align.py` for ambiguity, group, insertion and
+damage invariants; `node --test tests/mishnah-textcrit.test.js` checks complete
+source-word conservation, rendering, reviewed pairs and source offsets.
+
+## Mishnah–Tosefta passage links
+
+`tosefta-links.json` retains 53 factual passage relationships from the nine
+upstream `standoff/mtalignment/mtalignment-1.1.N.xml` files at the pinned commit.
+It preserves original word IDs, file hashes, project references, and unresolved
+IDs. Only unambiguous exact/group matches bridge the Mishnah reference to
+Kaufmann. The original reference/Vienna transcriptions and alignment XML have no
+explicit reuse licence in their headers; their transcription text is not bundled
+here and is not labelled CC BY 4.0. These are passage links, not variant readings
+or a word-for-word Mishnah–Tosefta collation.
+
+The supplied Tosefta reference is flattened into six chapter units. Of 791 target
+ID occurrences in the links, 758 do not resolve in that text version. Replacing
+witness prefixes or assuming identical section numbering would invent anchors.
+These remain visibly unresolved; original project IDs are available in details.
+
+The separate reading preview uses only the Hebrew Public Domain edition
+`Tosefta B'rachot` from Sefaria (version source:
+http://mechon-mamre.org/b/f/f11.htm). `sources/tosefta-public-domain.json.gz`
+contains only Hebrew and its edition metadata, not the API's English versions.
+Its seven chapters/151 units differ from the project's six-chapter reference.
+Only the first relation has been checked against reading-edition 1:1; all other
+relations deliberately have no inferred reading-edition reference or preview.
+No red textual-variant classification is applied to these longer parallels.
+The build checks the reading payload hash and Kaufmann bridge source hash.
