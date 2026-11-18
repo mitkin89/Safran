@@ -52,3 +52,32 @@ test('The HTML cleaner only accepts bounded Samaritan word identifiers',()=>{
   assert(!R.cleanHtml('<span class="w" data-l="sp:405429" data-m="" onclick="alert(1)">ברא</span>').includes('onclick'));
   assert(!R.cleanHtml('<span class="w" data-l="sp:405429extra" data-m="">ברא</span>').includes('data-l'));
 });
+test('Tal–Florentin apparatus is complete, source-labelled and attached without text changes',()=>{
+  const tal=require('../tools/samaritan/tal-notes.json');
+  assert.deepEqual(tal.counts,{footnote:3459,endnote:790});
+  assert.equal(tal.notes.length,4249);
+  assert.equal(tal.source.pdfSha256,'db109c6b620965c36f7b818ad16846ec7b13b8f8e79ebbbb63131bb2665f8d7a');
+  const docs=new Map(items.map(i=>[i.title,JSON.parse(fs.readFileSync(path.join(root,'bundled',i.rel)))]));
+  for(const n of tal.notes){
+    assert(n.targets.length&&n.refs.length);
+    assert.deepEqual(n.pdfPages,n.pages.map(p=>p+17));
+    assert(n.pages.every(p=>n.kind==='footnote'?p>=87&&p<=896:p>=899&&p<=1032));
+    assert(!/[\uFFFD\u0900-\u0DFF]/u.test(n.html),'No broken font encoding');
+    let isolates=0;for(const c of n.html){if(/[\u2066-\u2068]/u.test(c))isolates++;if(c==='\u2069')isolates--;assert(isolates>=0);}assert.equal(isolates,0);
+    assert(!R.cleanHtml(n.html).includes('<script'));
+    for(const ref of n.targets){
+      assert(source.verseHashes[ref],ref);const [book,cv]=ref.split(' '),[c,v]=cv.split(':').map(Number);
+      const footnotes=R.splitFootnotes(docs.get(book).text[c-1][v-1]).notes;
+      assert.equal(footnotes.filter(f=>f.html===n.html).length,1,`${ref} note ${n.id}`);
+    }
+  }
+  const first=tal.notes.find(n=>n.kind==='endnote'&&n.refs[0]==='Genesis 1:11');
+  assert(first.html.includes('clarifies'));assert(first.html.includes('syntactic structure'));
+  assert(first.html.includes('Tal–Florentin, Endnote Genesis 1:11 (S. 899)'));
+  const shifted=tal.notes.find(n=>n.refs[0]==='Exodus 20:13');assert.deepEqual(shifted.targets,['Exodus 20:17']);
+  const inserted=tal.notes.find(n=>n.refs[0]==='Exodus 30:1');assert.deepEqual(inserted.targets,['Exodus 26:35']);
+  const moved=tal.notes.find(n=>n.refs[0]==='Exodus 29:28');assert.deepEqual(moved.targets,['Exodus 29:21']);
+  const arabic=tal.notes.find(n=>n.kind==='endnote'&&n.refs[0]==='Genesis 2:14');assert(arabic.html.includes('الدجل'));
+  const quoted=moved.html.replace(/<[^>]+>|[\u2066-\u2069]/g,'').replace(/\s+/g,' ');assert(quoted.includes('ולקחת משמן המשחה ומן הדם אשר על המזבח'));
+  const ligature=tal.notes.find(n=>n.kind==='endnote'&&n.refs[0]==='Genesis 2:7');assert(ligature.html.includes('الانسان'));
+});

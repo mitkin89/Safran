@@ -22,3 +22,13 @@ Safran converts Text-Fabric data to compact JSON/HTML, joins morphemes into
 reading words, normalizes Unicode presentation forms and adds source-labelled
 variant/annotation footnotes. It does not correct source spellings or supply
 missing grammatical features. The source sign stream is verified verse by verse.
+
+Tal–Florentin footnotes and endnotes are additionally extracted directly from
+Moshe Florentin and Abraham Tal, The Samaritan Pentateuch, Open Book Publishers,
+2024, https://doi.org/10.11647/OBP.0415 (CC BY-NC 4.0). Original English, Hebrew,
+Arabic and Greek are retained. PDF font encodings and visual RTL word order are
+converted to Unicode/HTML; source verse labels and printed pages identify each
+note. These are annotations on Tal–Florentin’s text, attached to CACCHT verse
+contexts rather than asserted word-level correspondences. The translated running
+text is not reproduced. The source hash, complete inventory, changes and mapping
+exceptions are recorded in tools/samaritan/tal-notes.json.

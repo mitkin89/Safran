@@ -17,9 +17,20 @@ module.exports=async function run({docs,win,js,waitFor,book}){
     await js("new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)))");
     await js(`{const d=${prefix};d.querySelector('#rOut .w[data-l=\"'+${JSON.stringify(id)}+'\"]').click();}`);
   };
+  await js("if(!document.querySelector('#cmtPanel').hidden)document.querySelector('#cmtClose').click();if(!document.querySelector('#pane2').hidden)document.querySelector('#splitBtn').click()");
   await select();
   await waitFor("document.querySelector('#rOut .w[data-l=\"sp:405429\"]')",'Samaritanischer Lesetext');
   assert(await js("!!window.SamaritanMorph"),'Samaritan morphology adapter loaded');
+  await js(`{for(const label of ['Fußnote Genesis 1:11','Endnote Genesis 1:11']){const note=[...document.querySelectorAll('#rOut .note')].find(n=>n.textContent.includes(label));if(!note)throw Error('Tal–Florentin note missing: '+label);note.previousElementSibling.click();}}`);
+  await waitFor("[...document.querySelectorAll('#rOut .note.open')].some(n=>n.textContent.includes('syntactic structure'))",'Tal–Florentin-Fußnote und vollständige Endnote geöffnet');
+  assert(await js("[...document.querySelectorAll('#rOut .note.open')].some(n=>n.textContent.includes('S. 899') && n.textContent.includes('clarifies') && n.textContent.includes('ועץ'))"));
+  if(process.env.SAFRAN_NOTES_CAPTURE){
+    await js("[...document.querySelectorAll('#rOut .note.open')].find(n=>n.textContent.includes('syntactic structure')).scrollIntoView({block:'center'})");
+    await js("new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)))");
+    fs.writeFileSync(process.env.SAFRAN_NOTES_CAPTURE,(await win.webContents.capturePage()).toPNG());
+  }
+  await js("document.querySelectorAll('#rOut .note.open').forEach(n=>n.previousElementSibling.click())");
+
   await clickWord('sp:405429');
   await waitFor("!!window.SAMARITAN_DATA",'Samaritanische Morphologiedaten geladen');
   await waitFor("document.querySelector('#wpop')?.textContent.includes('Stamm: Qal')",'Samaritanische Verbmorphologie');

@@ -67,6 +67,11 @@ def build(src):
     lexicon = []; lexids = {}; tokens = {}; variants = []; counts = collections.Counter(); verse_hashes = {}
     out = {fs['book'][b]: [] for b in books}
     issues = json.loads((src/'textual_issues/issues.json').read_text())
+    tal = json.loads((ROOT/'tools/samaritan/tal-notes.json').read_text())
+    tal_notes = collections.defaultdict(list)
+    for note in tal['notes']:
+        for ref in note['targets']: tal_notes[ref].append(note)
+    assert set(tal_notes) <= set(json.loads(old.read_text())['verseHashes'])
     all_issues = collections.defaultdict(list)
     for issue in issues.values():
         sec = issue['section']; all_issues[tuple(sec)].append('Hinweis der Datenquelle ('+issue['data_version']+'): '+issue['explanation'])
@@ -116,6 +121,9 @@ def build(src):
             rendered.append(html.escape(trailing))
         for msg in all_issues.get((book,ch,verse),[]):
             note_num += 1; rendered.append(f'<sup class="footnote-marker">{note_num}</sup><i class="footnote">{html.escape(msg)}</i>')
+        for note in tal_notes.get(ref, []):
+            note_num += 1
+            rendered.append(f'<sup class="footnote-marker">{note_num}</sup><i class="footnote">{note["html"]}</i>')
         marked = ''.join(rendered).strip()
         visible = re.sub(r'<sup class="footnote-marker">.*?</sup><i class="footnote">.*?</i>', '', marked)
         visible = html.unescape(re.sub(r'<[^>]+>', '', visible))
@@ -135,7 +143,7 @@ def build(src):
     for book, arr in out.items():
         template = next(i for i in manifest['items'] if i['title']==book and i['kind']=='he')
         doc = {'title':book,'heTitle':template['heTitle'],'language':'Hebrew','versionTitle':VT,
-               'versionSource':source_url+' (CC BY-NC 4.0); Christian Canu Højgaard, Martijn Naaijer, Stefan Schorch; Dublin CBL 751 + Garizim 1; Tal–Florentin-Lesarten als Anmerkungen.',
+               'versionSource':source_url+' (CC BY-NC 4.0); Christian Canu Højgaard, Martijn Naaijer, Stefan Schorch; Dublin CBL 751 + Garizim 1; Tal–Florentin-Lesarten sowie originalsprachige Fuß- und Endnoten (https://doi.org/10.11647/OBP.0415, CC BY-NC 4.0) als gesondert gekennzeichnete Anmerkungen; Zuordnung zum Verskontext, keine Wortzuordnung.',
                'license':'CC BY-NC 4.0','licenseUrl':'https://creativecommons.org/licenses/by-nc/4.0/',
                'sectionNames':['Chapter','Verse'],'text':arr}
         rel=f'own/{book}/he/{VT}.json'; raw=json.dumps(doc,ensure_ascii=False,separators=(',',':')).encode()

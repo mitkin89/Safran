@@ -60,3 +60,37 @@ Text, annotations and Tal–Florentin comparisons: **CC BY-NC 4.0**. The complet
 license is shipped in `licenses/samaritan-CC-BY-NC-4.0.txt`. The MIT license of
 Safran's program code does not replace the corpus license. Attribution and
 source revision are included in the editions and popup data.
+
+## Tal–Florentin apparatus
+
+The original English/Hebrew footnotes and longer endnotes from Moshe Florentin
+and Abraham Tal, *The Samaritan Pentateuch* (Open Book Publishers, 2024),
+<https://doi.org/10.11647/OBP.0415>, are included as separately labelled notes.
+They retain the source verse label and printed page. They concern the editors’
+own text (principally Nablus 6), not necessarily the CACCHT reading displayed
+above them. Notes attach to verse contexts; they do not assert a word alignment.
+Split/combined verses can therefore carry the same source note at several
+contexts. The translated running text is not included.
+
+Reproduction (external source directory, PDF not stored in this repository):
+
+1. Download the licensed PDF from the publisher or the archive URL in
+   `tal-notes.json`. Its SHA-256 is locked there and must match the DT-UCPH
+   extraction metadata.
+2. Download `tf_verses.json` and `tf_verses_meta.json` from
+   `scripts/tal_florentin/results` at the DT-UCPH revision in `source.json`.
+3. Install **PyMuPDF 2.1** and **fonttools 4.68.0** in a dedicated environment
+   (use the actual installed versions recorded by the extraction output).
+4. Run `python tools/samaritan/tal_notes.py book.pdf /path/to/tal-source`.
+5. Run `python3 -I tools/samaritan/build_tal_notes.py /path/to/tal-source`, then
+   the ordinary `build.py` command above. The latter now requires the committed
+   `tal-notes.json`; a rebuild must not drop the imported apparatus.
+
+The PDF has defective ToUnicode mappings. The extractor uses embedded glyph
+names/cmaps for ligatures and small capitals and restores Hebrew/Arabic runs
+from the actual glyph sequence. Right-to-left isolates preserve mixed-language
+notes through Safran’s existing HTML cleaner, footnote display and export.
+Printed separators are removed only at note boundaries. No wording is translated
+or corrected. The correspondence is based on matching the Hebrew word streams;
+transposed and blank passage references are explicit exceptions in the audit.
+The resulting note inventory and all source/target references are validated.
