@@ -3,13 +3,17 @@
 window.LibraryDictionary = (() => {
   'use strict';
   function create({ $, esc, heFix, lemIdsFor, portraitOf, loadGM, loadTForms, loadForms,
-    openTForms, openGForms, openForms, panelScrollTo, lsGet, lsSet,
+    openTForms, openGForms, openSForms, openForms, panelScrollTo, lsGet, lsSet,
     getSelection, setSelection, getSource, setDictSrc }) {
     const O = window.offline;
     let dictOnly = null; // { id, name }: Suche nur in diesem Wörterbuch (wird nicht mehr über das Menü gesetzt)
     let dictHist = [], dictPos = -1, dictShown = [];
     function dictNavButtons() { $('#dictBack').disabled = dictPos <= 0; $('#dictFwd').disabled = dictPos >= dictHist.length - 1; }
-    function dictCardButtons(head, greekIndex, targumIndex, dictId) {
+    function dictCardButtons(head, greekIndex, targumIndex, dictId, html) {
+      if(/[\u0710-\u072f]/.test(head)){
+        const id=dictId==='7fab63c14df2'?String(html||'').match(/data-sedra-id="(\d+)"/)?.[1]:'';
+        return ` <button type="button" class="dwk" data-sy-q="${esc(head)}"${id?` data-sy-id="${id}"`:''}>${esc(I18N.t('Wortkarte'))}</button>`;
+      }
       if (dictId === '9ce7ea6c00f1') {
         const ids = targumIndex ? window.TargumForms.dictionaryLemmas(targumIndex, head) : [];
         return ids.map(id => { const lex = targumIndex.L[id][0]; return ` <button type="button" class="dwk" data-tl="${esc(id)}" title="${esc(lex[0] + ' – ' + lex[2])}">${esc(I18N.t('Aramäische Wortkarte'))}${ids.length > 1 ? ': ' + esc(lex[0] + ' – ' + lex[2]) : ''}</button>`; }).join('');
@@ -65,12 +69,13 @@ window.LibraryDictionary = (() => {
       $('#dictOut').innerHTML = onlyBar + r.results.map((x, i) => {
         let sec = '';
         if (x.dictId !== last) { last = x.dictId; sec = `<div class="dsec" style="--dh:${hue(x.dictId)}"><span>${(p => p ? `<img class="vpic" src="portraits/${encodeURIComponent(p.img)}" alt="" data-title="${esc(p.name || '')}" loading="lazy">` : '')(portraitOf(x.dict))}${esc(x.dict)}</span><span class="dsr"><button type="button" class="dlist" data-id="${esc(x.dictId)}" data-name="${esc(x.dict)}" title="Alle Stichwörter dieses Wörterbuchs als Liste">☰ Stichwörter</button><small>${cnt[x.dictId]} Treffer</small></span></div>`; }
-        return `${sec}<div class="dentry" id="dentry${i}" style="--dh:${hue(x.dictId)}"><div class="dhead"><b dir="auto">${esc(x.head)}</b>${dictCardButtons(x.head, greekIndex, targumIndex, x.dictId)}${x.note ? ` <span class="muted">${esc(x.note)}</span>` : ''}</div><div class="dbody" dir="ltr">${heFix(/Gesenius/.test(x.dict || '') && window.GAbk ? window.GAbk.mark(x.html) : x.html)}</div></div>`;
+        return `${sec}<div class="dentry" id="dentry${i}" style="--dh:${hue(x.dictId)}"><div class="dhead"><b dir="auto"${/[\u0710-\u072f]/.test(x.head)?' lang="syr"':''}>${esc(x.head)}</b>${dictCardButtons(x.head, greekIndex, targumIndex, x.dictId, x.html)}${x.note ? ` <span class="muted">${esc(x.note)}</span>` : ''}</div><div class="dbody" dir="ltr">${heFix(/Gesenius/.test(x.dict || '') && window.GAbk ? window.GAbk.mark(x.html) : x.html)}</div></div>`;
       }).join('');
       $('#dictOut').scrollTop = 0;
     }
     $('#dictOut').addEventListener('click', async e => {
       const b = e.target.closest('.dwk'); if (!b) return;
+      if(b.dataset.syQ){openSForms(b.dataset.syQ,{id:b.dataset.syId},'card');return;}
       if (b.dataset.tl) { openTForms(b.dataset.tl, null, 'card'); return; }
       if (b.dataset.gl) { openGForms(b.dataset.gl, null, 'card'); return; }
       let ids = b.dataset.ids.split(',');

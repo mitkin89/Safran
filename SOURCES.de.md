@@ -18,6 +18,8 @@ Das Offline-Wörterbuch enthält 35.892 geprüfte Lexeme mit mehrsprachigen Bede
 
 Änderungen: Umwandlung in Safrans Wörterbuchformat, Aufbereitung der Glossentexte, erfasste nichttheoretische Wortformen als Suchschlüssel, Nachschlagen belegter Schreibungen aus dem Peschitta-Wortfenster in den ausgewählten Wörterbüchern. Gleich geschriebene Lexeme bleiben getrennt; die kontextuelle ETCBC-Morphologie bleibt unabhängig davon erhalten. Keine Scans, Bibliothekstexte oder generierten Formen werden importiert. Konverter und festgehaltene Prüfsummen: `tools/sedra/`.
 
+Syrische Wortkarten erschließen zusätzlich ausdrücklich erfasste Wurzelfamilien und Wortformen, gruppiert nach SEDRAs grammatischen Angaben, mit westlicher und östlicher Vokalisierung. Der bei Bedarf geladene Index bewahrt IDs und Quellen; Formenzahlen sind keine Häufigkeiten im Lesetext.
+
 ## Hebräischer Tanach mit Morphologie (OSHB)
 
 Alle 39 Bücher liegen als zusätzliche hebräische Version „Westminster Leningrad Codex (OSHB, mit Morphologie)" unter `bundled/own/…/he/`. Jedes Wort trägt Lemma (Strong-Nummer) und Morphologiecode; ein Klick im Leser zeigt Stamm, Zeit/Form, Person, Genus und Numerus und schlägt das Lemma im Wörterbuch nach.

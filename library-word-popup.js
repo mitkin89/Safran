@@ -2,7 +2,7 @@
 window.LibraryWordPopup = (() => {
   'use strict';
   function create({ $, $$, esc, O, reader, lazyScript, apChap, verseOf, loadIL,
-    openDict, loadForms, openForms, openGForms, openTForms, gSearchAll, jumpTo }) {
+    openDict, loadForms, openSForms, openForms, openGForms, openTForms, gSearchAll, jumpTo }) {
   // OSHB-Texte: Klick auf ein Wort zeigt Lemma, Stamm, Zeit und Form; „Im Wörterbuch“ schlägt das Lemma nach
   let wpop = null;
   const closeWpop = () => { gTok++; if (wpop) { wpop.remove(); wpop = null; } $$('#rOut .syw.sel, #rOut .w.sel, #rOut .wt.sel, #rOut .wq.sel, #rOut .wg.sel, #bavliInterlinear .bil-heword.sel').forEach(x => x.classList.remove('sel')); gSel = null; try { CSS.highlights.delete('gsel'); } catch { /* ältere Engine */ } };
@@ -111,9 +111,9 @@ window.LibraryWordPopup = (() => {
     const main=parts.find(p=>['subs','verb','adjv','nmpr','advb'].includes(p.sp));
     const query=main?.form||w.textContent;
     const details=`<details class="sy-details" open><summary>${esc(t('Quelle und Wortanalyse'))}</summary>${translit}${analyses}${source}</details>`;
-    const buttons=`<button class="wdict" data-q="${esc(query)}">${esc(t('Im Wörterbuch nachschlagen'))}</button>`;
+    const buttons=`<button class="wdict" data-q="${esc(query)}">${esc(t('Im Wörterbuch nachschlagen'))}</button><button type="button" class="wforms sy-card">${esc(t('Wortkarte'))}</button>`;
     w.classList.add('sel');gSel={cell,i:w.dataset.si};
-    const place=showGreekUnit(null,{rows:rows+details,buttons,word:w.textContent,at:w,lang:'syr',dir:'rtl'});
+    const place=showGreekUnit(null,{rows:rows+details,buttons,word:w.textContent,at:w,lang:'syr',dir:'rtl',on:ev=>{if(!ev.target.closest('.sy-card'))return false;closeWpop();openSForms(query);return true;}});
     wpop.classList.add('syriac-word');
     const pop=wpop;place();
     pop.addEventListener('toggle',()=>{if(wpop===pop)place();},true);
@@ -432,7 +432,12 @@ window.LibraryWordPopup = (() => {
       const wf = ev.target.closest('.wforms'); if (wf) { closeWpop(); openForms(wInfo.lemma, wInfo, wf.classList.contains('wtable') ? 'forms' : 'card'); }
     };
   });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeWpop(); });
+  // Escape belongs to the topmost word popup; do not let the same key reach pane handlers.
+  window.addEventListener('keydown', e => {
+    if(e.key!=='Escape'||e.defaultPrevented||e.isComposing)return;
+    const shown=!!wpop;closeWpop(); // also cancel a word analysis that is still loading
+    if(shown){e.preventDefault();e.stopImmediatePropagation();}
+  },true);
 
     return { openQumranWord(w) { gTok++; closeWpop(); return showQumranWord(w); }, openGreekApparatus(w,source) { return showGreekWord(w,w,null,source); }, openSamaritanWord(w) { gTok++; closeWpop(); return showSamaritanWord(w); }, close: closeWpop, loadGM, greekWordAt, decorateBavliReader, openBavliAnchor };
   }

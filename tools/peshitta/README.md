@@ -12,7 +12,7 @@ Morphology: ETCBC Syriac Corpus, compiled by Martijn Naaijer, with the contribut
 
 Both text and annotation datasets: CC BY-NC 4.0, https://creativecommons.org/licenses/by-nc/4.0/ . This conversion preserves that license. Safran changes: selection of the 39 Tanakh books, HTML word wrappers, compact annotation tables, exact text matching and reader UI.
 
-Offline font: Serto Jerusalem 1.20 (normal, bold and italic), unmodified Meltho fonts by Beth Mardutho. Copyright, redistribution license and provenance accompany the original fonts at `assets/fonts/SertoJerusalem-LICENSE.txt` and `assets/fonts/SertoJerusalem-SOURCE.json`.
+Offline font: Estrangelo Edessa, the unmodified official Meltho Webfont by Beth Mardutho. Copyright, redistribution license and provenance accompany the original fonts at `assets/fonts/Meltho-LICENSE.txt` and `assets/fonts/EstrangeloEdessa-SOURCE.json`.
 
 ## Reproduce
 

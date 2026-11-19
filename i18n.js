@@ -14,6 +14,22 @@
   if (lang === 'de') return;
 
   const EN = {
+    "Mehrere Wörterbucheinträge für diese Schreibung": "Multiple dictionary entries for this spelling",
+    "Bitte einen Eintrag wählen. Die Schreibung allein bestimmt die Bedeutung nicht.": "Choose an entry. The spelling alone does not determine the meaning.",
+    "Bitte zuerst einen Wörterbucheintrag wählen.": "Choose a dictionary entry first.",
+    "Bedeutungen": "Meanings",
+    "Weitere Bedeutungen": "More meanings",
+    "Keine Bedeutung erfasst.": "No meaning recorded.",
+    "Wortfamilie": "Word family",
+    "Verwandtschaft nach der ausdrücklich erfassten SEDRA-Wurzel.": "Related entries follow the explicitly recorded SEDRA root.",
+    "Keine ausdrückliche Wurzelzuordnung erfasst.": "No explicit root relationship recorded.",
+    "In SEDRA erfasste Wortformen; keine Häufigkeiten im Lesetext und keine erzeugten Paradigmen.": "Word forms recorded in SEDRA; not reading-text frequencies or generated paradigms.",
+    "Grammatische Angaben nicht erfasst": "Grammatical information not recorded",
+    "Konsonanten": "Consonants",
+    "Westliche Vokalisierung": "Western vocalization",
+    "Östliche Vokalisierung": "Eastern vocalization",
+    "Wortformen": "Word forms",
+
     "Quelle und Wortanalyse": "Source and word analysis",
     "SEDRA-Wörterbuch": "SEDRA dictionary",
     "Wurzel": "Root",

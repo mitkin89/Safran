@@ -22,9 +22,14 @@ assigned to a Peshitta token. Homonymous entries remain separate. No theoretical
 or generated word forms are added as lookup aliases. No library texts or lexicon
 scans are imported.
 
-Only an exact normalized spelling match is shown automatically in a Peshitta
-popup. These are dictionary candidates, not a contextual identification of the
-lexeme. ETCBC morphology and its source ids remain unchanged.
+A separate, lazily loaded `sedra-data.js` index retains lexical ids, original
+meaning/source references, explicit root ids and recorded word-form ids with
+both vocalization traditions and their grammatical lookup-table labels.
+Word cards use exact normalized spelling candidates; ambiguous spellings
+require an explicit entry choice. Families follow only shared upstream root ids.
+The forms overview groups recorded non-theoretical forms, not generated paradigms
+or token frequencies. These lexical data do not replace ETCBC passage morphology.
+ETCBC morphology and its source ids remain unchanged.
 
 ## Resource partners and source credits
 

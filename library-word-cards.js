@@ -30,6 +30,25 @@ window.LibraryWordCards = (() => {
     host.hovApi && host.hovApi.hide();
     wcFindSoon();
   }
+  let syCardsP=null;
+  function loadSyriacCards(){return syCardsP||(syCardsP=Promise.all([lazyScript('syriac-cards.js',()=>window.SyriacCards),lazyScript('sedra-data.js',()=>window.SEDRA_DATA)]).then(([api,data])=>api.create(data)).catch(e=>{syCardsP=null;throw e;}));}
+  async function openSForms(query,info={},tab='card',rest){
+    info={...info,syriac:true,query};
+    const key='sy:'+(info.id||query);
+    fmHistOpen(false,key,info,tab,rest);
+    const token=++wcToken,p=host.$('#formsPanel');fmCur=null;fmTrData=null;fmRest=null;
+    p.hidden=false;fmShowTab(tab);host.$('#fmHead').textContent=query;
+    host.$('#wcBody').innerHTML=host.$('#fmBody').innerHTML=`<p class="muted">${host.esc(I18N.t('Lädt …'))}</p>`;
+    try{
+      const model=await loadSyriacCards();if(token!==wcToken||p.hidden)return;
+      const ids=model.lookup(query),id=info.id&&window.SEDRA_DATA.lexemes[info.id]?String(info.id):ids.length===1?ids[0]:null;
+      const out=model.render(id,query,host.esc,s=>I18N.t(s));
+      fmCur={syriac:true,greek:false,lemma:key,model,id,query};
+      host.$('#fmHead').innerHTML=out.head+`<button type="button" class="wdict" data-q="${host.esc(query)}">${host.esc(I18N.t('Im Wörterbuch nachschlagen'))}</button>`;
+      host.$('#wcBody').innerHTML=out.card;host.$('#fmBody').innerHTML=out.forms;
+      if(rest)fmRestBase(rest);else p.scrollTop=0;
+    }catch{if(token===wcToken)host.$('#wcBody').innerHTML=host.$('#fmBody').innerHTML=`<p class="muted">${host.esc(I18N.t('SEDRA konnte nicht geladen werden.'))}</p>`;}
+  }
   function fmHomonyms(D,lemma){
     const LEM=window.OSHB_LEMMAS||{},ids=host.lemIdsFor(LEM[lemma]?.[0]||'');
     const entries=ids.map(id=>({id,lem:LEM[id],total:window.Forms.model(D,id)?.total||0})).filter(e=>e.lem&&e.total).sort((a,b)=>b.total-a.total||a.id.localeCompare(b.id));
@@ -781,9 +800,10 @@ window.LibraryWordCards = (() => {
   // erhalten (bis zum Neustart), höchstens FM_HMAX Einträge.
   const FM_HMAX = 50;
   let fmHist = [], fmHi = -1, fmRest = null, fmActive = false, fmHold = null; // fmActive: die Wortkarte ist das Fenster, in dem man gerade arbeitet
-  const wcTrLive = () => (wcTrState && fmCur && !fmCur.greek && wcTrState.tok === wcToken && wcTrState.base === fmCur.lemma ? wcTrState : null);
+  const wcTrLive = () => (wcTrState && fmCur && !fmCur.greek && !fmCur.syriac && wcTrState.tok === wcToken && wcTrState.base === fmCur.lemma ? wcTrState : null);
   const fmLemGloss = id => { const l = (window.OSHB_LEMMAS || {})[id]; return l ? (I18N.lang === 'de' && l[2] ? l[2] : l[1]) : ''; };
   function fmHistLabel(h) { // für den Tooltip: wohin führt der Schritt?
+    if(h.info?.syriac)return h.info.query+' · SEDRA'+(h.tab==='forms'?' · '+I18N.t('Alle Formen (Tabelle)'):'');
     const l = !h.greek && (window.OSHB_LEMMAS || {})[h.lemma];
     let s = h.info && h.info.targum ? (((window.TARGUM_FORMS || {}).L || {})[h.lemma.slice(3)] || [[h.lemma]])[0][0] : h.greek ? h.lemma : l ? l[0] + ' ' + fmLemGloss(h.lemma) : String(h.lemma);
     if (h.tab === 'forms') s += ' – ' + I18N.t('Alle Formen (Tabelle)');
@@ -858,7 +878,8 @@ window.LibraryWordCards = (() => {
     if (fmCur && fmCur.lemma === h.lemma && !!fmCur.greek === h.greek && host.$('#wcBody .wcSec') && (!h.tr || wcTrLive())) { // dasselbe Wort: nur den Zustand umstellen
       if (h.tr) { fmRestTr(h); wcTrRender(); }
       fmRestBase(h);
-    } else if (h.info && h.info.targum) openTForms(h.lemma.slice(3), h.info, h.tab, h);
+    } else if(h.info?.syriac)openSForms(h.info.query,h.info,h.tab,h);
+    else if (h.info && h.info.targum) openTForms(h.lemma.slice(3), h.info, h.tab, h);
     else (h.greek ? openGForms : openForms)(h.lemma, h.info, h.tab, h);
   }
   host.$('#fmBack').onclick = () => fmHistGo(-1);
@@ -879,7 +900,7 @@ window.LibraryWordCards = (() => {
   // Nicht durchsucht werden die Stellen (Verse) eingeklappter Zeilen: sie werden erst beim Aufklappen geladen.
   const wcF = { hits: [], idx: -1, timer: null };
   const wcFHl = (name, rs) => { try { if (!rs.length) CSS.highlights.delete(name); else CSS.highlights.set(name, new Highlight(...rs)); } catch { /* ältere Engine */ } };
-  const wcFCh = c => { let o = ''; for (const x of c.toLowerCase().normalize('NFD')) { if (/[̀-֑ͯ-ֽֿׁׂׄ-ׇ]/.test(x)) continue; o += x === 'ς' ? 'σ' : x === '־' || /\s/.test(x) ? ' ' : x; } return o; };
+  const wcFCh = c => { let o = ''; for (const x of c.toLowerCase().normalize('NFD')) { if (/[̀-֑ͯ-ֽֿׁׂׄ-ׇ\u0730-\u074a]/.test(x)) continue; o += x === 'ς' ? 'σ' : x === '־' || /\s/.test(x) ? ' ' : x; } return o; };
   const wcFNorm = s => { let o = ''; for (const c of String(s)) o += wcFCh(c); return o.replace(/ +/g, ' '); };
   const wcFMore = h => h && h.nextElementSibling && h.nextElementSibling.matches('.wcDMoreB, .fmMoreB') ? h.nextElementSibling : null;
   const wcFindWanted = () => { const p = host.$('#formsPanel'); return !p.hidden && !document.querySelector('dialog[open]') && (fmActive || p.contains(document.activeElement) || p.matches(':hover')); };
@@ -994,6 +1015,8 @@ window.LibraryWordCards = (() => {
   host.$('#fmTabs').addEventListener('click', e => { const b = e.target.closest('button[data-t]'); if (!b) return; fmStep(() => { fmShowTab(b.dataset.t); if (fmTab === 'forms') { const c = host.$('#fmBody .fmF.cur'); if (c) c.scrollIntoView({ block: 'center' }); } else host.$('#formsPanel').scrollTop = 0; }); });
   host.$('#wcBody').addEventListener('click', e => {
     if (!fmCur) return;
+    if(fmCur.syriac){const b=e.target.closest('[data-sid],[data-family-id]');if(b){const id=b.dataset.sid||b.dataset.familyId,query=b.dataset.familyId?window.SEDRA_DATA.lexemes[id].form:fmCur.query;openSForms(query,{id},'card');}return;}
+
     const src = e.target.closest('.dbody .dsrc[data-sref]'); // Stellenangabe im aufgeklappten Wörterbuchartikel
     if (src) { e.preventDefault(); host.hovApi && host.hovApi.hide(); host.jumpTo(src.dataset.sref, host.BG(e)); return; }
     const dr = e.target.closest('.dbody .dref[data-q]'); if (dr) { closeForms(); host.openDict(dr.dataset.q); return; }
@@ -1102,6 +1125,7 @@ window.LibraryWordCards = (() => {
       get lazyScript() { return lazyScript; },
       get loadForms() { return loadForms; },
       get loadTForms() { return loadTForms; },
+      get openSForms() { return openSForms; },
       get openForms() { return openForms; },
       get openGForms() { return openGForms; },
       get openTForms() { return openTForms; },

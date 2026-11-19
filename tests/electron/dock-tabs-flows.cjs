@@ -6,6 +6,12 @@ module.exports=async({win,js,waitFor,book})=>{
  await waitFor("document.querySelector('#rOut .row[data-l=\"1\"] .w')",'Lesetext für Panels');
  const ensure=async(panel,button)=>{await js(`if(document.querySelector(${JSON.stringify(panel)}).hidden)document.querySelector(${JSON.stringify(button)}).click()`);await waitFor(`!document.querySelector(${JSON.stringify(panel)}).hidden`,'Panel geöffnet');await js(`{const p=document.querySelector(${JSON.stringify(panel)});if(!p.querySelector('.pinB').classList.contains('on'))p.querySelector('.pinB').click();}`);await waitFor(`document.querySelector(${JSON.stringify(panel)}).classList.contains('docked')`,'Panel angepinnt');};
  await ensure('#cmtPanel','#cmtBtn');await ensure('#textcritPanel','#tcBtn');
+ await js("document.querySelector('#rOut .row[data-l=\"1\"] .w').click()");
+ await waitFor("document.querySelector('#wpop')",'Wort-Popup über angepinnter Werkzeug-Pane');
+ await js("document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true,cancelable:true}))");
+ await waitFor("!document.querySelector('#wpop')&&!document.querySelector('#textcritPanel').hidden",'Esc schließt nur das Wort-Popup');
+ assert(await js("document.querySelector('#textcritPanel').classList.contains('docked')&&!document.querySelector('#dockTabs').hidden"),'Angepinnte Pane bleibt nach Popup-Esc sichtbar');
+
  await waitFor("document.querySelector('#dockTabs [data-panel=cmt]')&&document.querySelector('#dockTabs [data-panel=textcrit]')",'Gemeinsame Kommentar-/Textkritik-Tabs');
  await js("document.querySelector('#dockTabs [data-panel=cmt]').click()");
  await waitFor("!document.querySelector('#cmtPanel').hidden&&document.querySelector('#textcritPanel').hidden",'Kommentar über Tab aktiv');

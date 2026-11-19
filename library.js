@@ -912,7 +912,7 @@
     lazyScript: (...args) => wordCardsUI.lazyScript(...args),
     apChap: (...args) => apChap(...args), verseOf: (...args) => linksUI.verseOf(...args),
     loadIL: (...args) => loadIL(...args), openDict,
-    loadForms: (...args) => wordCardsUI.loadForms(...args), openForms: (...args) => wordCardsUI.openForms(...args), openGForms: (...args) => wordCardsUI.openGForms(...args), openTForms: (...args) => wordCardsUI.openTForms(...args),
+    loadForms: (...args) => wordCardsUI.loadForms(...args), openSForms: (...args) => wordCardsUI.openSForms(...args), openForms: (...args) => wordCardsUI.openForms(...args), openGForms: (...args) => wordCardsUI.openGForms(...args), openTForms: (...args) => wordCardsUI.openTForms(...args),
     gSearchAll: (...args) => wordCardsUI.gSearchAll(...args), jumpTo,
   });
   const closeWpop = () => wordPopupUI.close();
@@ -2425,7 +2425,7 @@
   const lsSet = (k, a) => { try { localStorage.setItem(k, JSON.stringify(a)); } catch { /* egal */ } };
   const dictionaryUI = window.LibraryDictionary.create({
     $, esc, heFix, lemIdsFor, portraitOf, loadGM, loadTForms: wordCardsUI.loadTForms, loadForms: wordCardsUI.loadForms,
-    openTForms: wordCardsUI.openTForms, openGForms: wordCardsUI.openGForms, openForms: wordCardsUI.openForms, panelScrollTo, lsGet, lsSet,
+    openTForms: wordCardsUI.openTForms, openGForms: wordCardsUI.openGForms, openSForms: wordCardsUI.openSForms, openForms: wordCardsUI.openForms, panelScrollTo, lsGet, lsSet,
     getSelection: () => dictSel, setSelection: ids => { dictSel = ids; },
     getSource: () => dictSrc, setDictSrc,
   });

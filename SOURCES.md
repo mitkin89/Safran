@@ -18,6 +18,8 @@ The offline SEDRA dictionary contains 35,892 verified lexical entries with multi
 
 Changes: conversion to Safran's bundled dictionary format, plain-text gloss cleanup, recorded non-theoretical word forms as search aliases, recorded spelling lookup from Peshitta word popups in the selected dictionaries. Homonyms stay separate and ETCBC's contextual morphology is retained independently. No scans, library texts or generated forms are imported. Reproducible converter and pinned checksums: `tools/sedra/`.
 
+Syriac word cards additionally expose explicit root families and recorded forms grouped by SEDRA grammatical labels, with Western and Eastern vocalizations. The lazy structured index preserves original ids and sources; word-form counts are not passage frequencies.
+
 ## Hebrew Tanakh with morphology (OSHB)
 
 All 39 books are included as an additional Hebrew version “Westminster Leningrad Codex (OSHB, with morphology)” under `bundled/own/…/he/`. Every word carries a lemma (Strong number) and a morphology code; a click in the reader shows stem, tense/form, person, gender and number and looks the lemma up in the dictionary.

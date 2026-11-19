@@ -32,3 +32,18 @@ the Dictionary pane. No ETCBC-to-SEDRA lemma identity is inferred.
 The data is CC BY-NC 4.0; see `LICENSE-SEDRA.md` for attribution, partner credits
 and the documented changes. This import includes no library texts, scans or
 generated paradigms.
+
+## Syriac word cards
+
+The same converter also writes `sedra-data.js`, loaded only when a Syriac word
+card is opened. `report.json` pins its SHA-256. The structured index preserves
+lexeme/root/word ids and source references; six additional grammatical lookup
+tables are pinned in `source.json`. No live API is needed.
+
+`syriac-cards.js` builds exact spelling and explicit-root indexes. It keeps
+homonyms distinct, requires a candidate selection when spelling is ambiguous,
+and groups recorded non-theoretical forms by their own SEDRA morphology,
+including recorded suffix information. Western and Eastern vocalizations are
+shown independently; missing values stay missing. Counts are dictionary records,
+never passage occurrences. Entry choices, family navigation and forms tabs use
+the existing shared word-card pane, history, pinning and font scaling.

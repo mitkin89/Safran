@@ -71,6 +71,42 @@
       "name": "CITATION.cff",
       "path": "/releases/v5.0/CITATION.cff",
       "bytes": 731
+    },
+    {
+      "name": "stems.jsonl.gz",
+      "path": "/releases/v5.0/stems.jsonl.gz",
+      "rows": 10,
+      "sha256": "13325d1ecabdc858cff1571984a8bc879482a793579a83f4f0eec5ac48c04316"
+    },
+    {
+      "name": "tenses.jsonl.gz",
+      "path": "/releases/v5.0/tenses.jsonl.gz",
+      "rows": 7,
+      "sha256": "490974fea8113be5ede3e659007b1682f3a0712e074ec028a355369e2ad660a6"
+    },
+    {
+      "name": "numbers.jsonl.gz",
+      "path": "/releases/v5.0/numbers.jsonl.gz",
+      "rows": 2,
+      "sha256": "9633249f002b72e5ac0f1113dcaa57fc806985208b0670632c755091ad1e5b53"
+    },
+    {
+      "name": "persons.jsonl.gz",
+      "path": "/releases/v5.0/persons.jsonl.gz",
+      "rows": 3,
+      "sha256": "d7af8c4015560d3c0882b48a544a335e1a4c953700f0fe1e882bc93e9dc77be9"
+    },
+    {
+      "name": "genders.jsonl.gz",
+      "path": "/releases/v5.0/genders.jsonl.gz",
+      "rows": 3,
+      "sha256": "3b583445eb75bbba975cba9e64fa2f82225aa8aa249ff7003fa224d8aa0b7b76"
+    },
+    {
+      "name": "states.jsonl.gz",
+      "path": "/releases/v5.0/states.jsonl.gz",
+      "rows": 3,
+      "sha256": "8cb315eebfd0ec638e3f4b0ac2eb6743deec118566e7e6a4cd98003e5c7203b1"
     }
   ]
 }
