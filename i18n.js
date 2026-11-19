@@ -14,6 +14,22 @@
   if (lang === 'de') return;
 
   const EN = {
+    "Personalpronomen": "Personal pronoun",
+    "Demonstrativpronomen": "Demonstrative pronoun",
+    "Interrogativpronomen": "Interrogative pronoun",
+    "Interrogativpartikel": "Interrogative particle",
+    "Negationspartikel": "Negative particle",
+    "gemeinsam": "common",
+    "1. Person": "1st person",
+    "2. Person": "2nd person",
+    "3. Person": "3rd person",
+    "Peschitta-Zählung": "Peshitta numbering",
+    "Peschitta · eigene Verszählung": "Peshitta · original verse numbering",
+    "Morphologie: ETCBC Syriac Corpus; Kurzglossen auf Englisch.": "Morphology: ETCBC Syriac Corpus; short glosses in English.",
+    "GLAUx / Gorman · manuell annotiert": "GLAUx / Gorman · manually annotated",
+    "OGA · automatisch annotiert": "OGA · automatically annotated",
+    "Für dieses Wort liegt keine sicher zugeordnete Morphologie vor.": "No securely aligned morphology is available for this word.",
+
     "Vergleichen": "Compare",
     "{} Wörter · {} Verse": "{} words · {} verses",
     "A und B tauschen": "Swap A and B",

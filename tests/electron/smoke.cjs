@@ -43,6 +43,14 @@ async function book(title,prefix='document'){await js(`{const d=${prefix};d.quer
  win.webContents.on('render-process-gone',(_e,d)=>{console.error(d);app.exit(1)});
  await win.loadFile(path.join(root,'library.html'));await waitFor("document.querySelectorAll('#tree .lib-item').length===3",'Start');
  await book('Genesis');await waitFor("document.querySelector('#rOut .w')",'Genesis');
+ if(process.env.SAFRAN_SMOKE_PESHITTA==='1'){
+  await require('./peshitta-flows.cjs')({docs,win,js,waitFor,book});
+  assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;
+ }
+ if(process.env.SAFRAN_SMOKE_GREEK==='1'){
+  await require('./greek-corpus-flows.cjs')({docs,win,js,waitFor,book});
+  assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;
+ }
  if(process.env.SAFRAN_SMOKE_STATS==='1'){
   await require('./passage-statistics-flows.cjs')({win,js,waitFor,book});
   assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;
@@ -101,6 +109,10 @@ async function book(title,prefix='document'){await js(`{const d=${prefix};d.quer
  await require('./passage-statistics-flows.cjs')({win,js,waitFor,book});
  await require('./mishnah-textcrit-flows.cjs')({docs,win,js,waitFor,book});
  assert.deepEqual(errors,[],'Keine unbehandelten Fehler im Renderer');
+ await require('./greek-corpus-flows.cjs')({docs,win,js,waitFor,book});
+ assert.deepEqual(errors,[],'Keine unbehandelten Fehler nach griechischer Morphologie');
+ await require('./peshitta-flows.cjs')({docs,win,js,waitFor,book});
+ assert.deepEqual(errors,[],'Keine unbehandelten Fehler nach Peschitta');
  await require('./font-restart.cjs')();
  win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);
 })().catch(async err=>{console.error(err);if(win&&!win.isDestroyed())win.destroy();await fsp.rm(profile,{recursive:true,force:true}).catch(()=>{});app.exit(1)});

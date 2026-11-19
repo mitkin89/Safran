@@ -46,6 +46,8 @@ function sectionsOf(text, sectionNames) {
       }
       kids.forEach(([c, i]) => walk(c, [...path, i]));
     } else if (node && typeof node === 'object') {
+      // Numbered verse dictionaries preserve source verse 0 without shifting later verses.
+      if(Object.keys(node).every(k=>/^\d+$/.test(k))&&Object.values(node).every(v=>typeof v==='string')) { out.push({path,label:path.length?pathLabel(path,sectionNames):'Text'}); return; }
       Object.keys(node).forEach(k => walk(node[k], [...path, k]));
     } else {
       out.push({ path, label: path.length ? pathLabel(path, sectionNames) : 'Text' });
@@ -156,6 +158,7 @@ function cleanHtml(s) {
     // einzige erlaubte Attributform: <sup data-fn="12"> (Fußnotenzeichen, nur Ziffern)
     // OSHB-Wörter: <span class="w" data-l="1254 a" data-m="HVqp3ms"> (Lemma-Nummer und Morphologiecode, nur Ziffern/Buchstaben)
     if (t === 'span') {
+      if (/^<span class="syw" data-si="[1-9][0-9]{0,6}">$/.test(m)) { spans++; return m; }
       if (m === '<span class="mt-diff">') { spans++; return m; } // red MT differences from the source edition
       // Abkürzung mit Auflösung beim Überfahren: <span class="ab" data-t="Bereschit Rabba">BR.</span>
       const ab = m.match(/^<span class="ab" data-t="([^"<>&]{1,200})"(?: title="[^"<>&]{0,200}")?>$/);

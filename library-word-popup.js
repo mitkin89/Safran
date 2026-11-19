@@ -5,7 +5,7 @@ window.LibraryWordPopup = (() => {
     openDict, loadForms, openForms, openGForms, openTForms, gSearchAll, jumpTo }) {
   // OSHB-Texte: Klick auf ein Wort zeigt Lemma, Stamm, Zeit und Form; „Im Wörterbuch“ schlägt das Lemma nach
   let wpop = null;
-  const closeWpop = () => { gTok++; if (wpop) { wpop.remove(); wpop = null; } $$('#rOut .w.sel, #rOut .wt.sel, #rOut .wq.sel, #rOut .wg.sel, #bavliInterlinear .bil-heword.sel').forEach(x => x.classList.remove('sel')); gSel = null; try { CSS.highlights.delete('gsel'); } catch { /* ältere Engine */ } };
+  const closeWpop = () => { gTok++; if (wpop) { wpop.remove(); wpop = null; } $$('#rOut .syw.sel, #rOut .w.sel, #rOut .wt.sel, #rOut .wq.sel, #rOut .wg.sel, #bavliInterlinear .bil-heword.sel').forEach(x => x.classList.remove('sel')); gSel = null; try { CSS.highlights.delete('gsel'); } catch { /* ältere Engine */ } };
   // Septuaginta (CATSS): Klick auf eine griechische Wortgruppe zeigt die hebräischen Wörter, denen sie zugeordnet ist
   const GFLAG = { z: 'Zusatz der Septuaginta (kein hebräisches Gegenstück)', m: 'Minus der Septuaginta (hebräisches Wort ohne griechisches Gegenstück)', d: 'Doublette: ein hebräisches Wort ist doppelt übersetzt', i: 'Infinitivus absolutus im Hebräischen', t: 'Transliteriertes hebräisches Wort', v: 'Griechisches Präverb für eine hebräische Präposition', s: 'Komparativ/Superlativ (hebr. מ)', u: 'Gegenstück steht an anderer Stelle im Vers (Umstellung oder Verteilung)' };
   // x (optional, mit Morphologie): { rows: HTML der Wort-Bestimmungen, buttons: HTML, word, at: Element/Range zum Ausrichten, on: Klick-Behandlung }
@@ -21,7 +21,7 @@ window.LibraryWordPopup = (() => {
     const notes = fl;
     if (notes.length) body += `<div class="wseg">Besonderheiten</div><ul class="gfl">${notes.map(c => `<li>${GFLAG[c]}</li>`).join('')}</ul>`;
     const word = x ? x.word : fl.includes('m') ? hs.join(' ') : w.textContent;
-    wpop.innerHTML = `<div class="wtop"><span dir="${!x && fl.includes('m') ? 'rtl' : 'ltr'}" lang="${!x && fl.includes('m') ? 'he' : 'grc'}" class="wword${x || !fl.includes('m') ? ' wgr' : ''}">${esc(word)}</span><button class="wx" title="Schließen">✕</button></div>${x ? x.rows : ''}${body}${x ? x.buttons : ''}`;
+    wpop.innerHTML = `<div class="wtop"><span dir="${x?.dir||(!x && fl.includes('m') ? 'rtl' : 'ltr')}" lang="${x?.lang||(!x && fl.includes('m') ? 'he' : 'grc')}" class="wword${x || !fl.includes('m') ? ' wgr' : ''}">${esc(word)}</span><button class="wx" title="Schließen">✕</button></div>${x ? x.rows : ''}${body}${x ? x.buttons : ''}`;
     document.body.appendChild(wpop);
     const place = () => {
       if (!wpop) return;
@@ -40,6 +40,8 @@ window.LibraryWordPopup = (() => {
   }
   // ---------- Septuaginta: Bestimmung jedes griechischen Wortes (lxx-morph; Index lxx-morph.js, Auswertung gmorph.js) ----------
   let gmP = null, gSel = null, gTok = 0; // gSel: angeklicktes Wort { cell, i }
+  // A popup belongs to its displayed passage, including when navigation does not scroll.
+  if(typeof MutationObserver==='function')new MutationObserver(()=>{if(gSel&&!gSel.cell.isConnected)closeWpop();}).observe($('#rOut'),{childList:true});
   const loadGM = () => gmP || (gmP = lazyScript('lxx-morph.js', () => window.LXX_MORPH).catch(e => { gmP = null; throw e; }));
   // Kapitel und Vers einer griechischen Zelle (nur Texte mit Kapitel:Vers)
   function greekCtx(cell) {
@@ -90,11 +92,42 @@ window.LibraryWordPopup = (() => {
     const grp=group.map((_,i)=>start+i);
     return {i:start,words,grp,range:()=>w};
   }
+  function showSyriacWord(w){
+    const was=w.classList.contains('sel');closeWpop();if(was)return;
+    const cell=w.closest('.cell'),doc=reader.view?.loaded?.find(d=>d.entry.rel===cell?.dataset.rel),row=w.closest('.row');let path=reader.view?.sections?.[reader.view.idx]?.path;
+    if(row?.classList.contains('sh'))try{path=JSON.parse(row.dataset.sp);}catch{}
+    else{const h=row?.closest('.pgb')?.querySelector('.pgh[data-sk]');if(h)try{path=JSON.parse(h.dataset.sk);}catch{}}
+    const r=window.SyriacMorph.at(doc,w.dataset.si,w.textContent,path,row?.dataset.sl||row?.dataset.l),t=s=>I18N.t(s);
+    const rows=r?.parts.length?r.parts.map(p=>{const d=window.SyriacMorph.describe(p,t),lem=window.SyriacMorph.lemma(p.lex);return `<div class="wseg main"><span class="wlem" lang="syr" dir="rtl">${esc(p.form)} → ${esc(lem)}</span><br>${esc([d.pos,d.info].filter(Boolean).join(' · '))}<br><small>${esc(p.gloss)}</small><br><code>${esc(p.lex)} · ETCBC Syriac #${esc(p.sourceId)}</code></div>`;}).join(''):`<p class="muted">${esc(t('Für dieses Wort liegt keine sicher zugeordnete Morphologie vor.'))}</p>`;
+    const source=`<p class="muted">${esc(t('Peschitta · eigene Verszählung'))}${r?` · ${r.chapter}:${r.verse} · Peshitta #${r.id}`:''}<br>${esc(t('Morphologie: ETCBC Syriac Corpus; Kurzglossen auf Englisch.'))}</p>`;
+    const lemmas=[...new Set((r?.parts||[]).map(p=>window.SyriacMorph.lemma(p.lex)).filter(Boolean))];
+    const buttons=lemmas.map(q=>`<button class="wdict" data-q="${esc(q)}">${esc(t('Im Wörterbuch nachschlagen'))}: <bdi lang="syr" dir="rtl">${esc(q)}</bdi></button>`).join('');
+    w.classList.add('sel');gSel={cell,i:w.dataset.si};showGreekUnit(null,{rows:rows+source,buttons,word:w.textContent,at:w,lang:'syr',dir:'rtl'});wpop.classList.add('syriac-word');
+  }
+  let greekManualP=null;
+  async function showCorpusWord(cell,at,doc){
+    const token=++gTok;let manual=null;
+    if(doc.greekMorphology.work==='tlg0526.tlg004')try{manual=await(greekManualP||(greekManualP=lazyScript('greek-corpus-manual.js',()=>window.GREEK_CORPUS_MANUAL).catch(e=>{greekManualP=null;throw e;})));}catch{}
+    if(token!==gTok||!cell.isConnected)return;
+    const row=cell.closest('.row');let path=reader.view?.sections?.[reader.view.idx]?.path;
+    if(row?.classList.contains('sh'))try{path=JSON.parse(row.dataset.sp);}catch{}
+    else{const heading=row?.closest('.pgb')?.querySelector('.pgh[data-sk]');if(heading)try{path=JSON.parse(heading.dataset.sk);}catch{}}
+    const data=window.GreekCorpus.at(doc,path,row?.dataset.sl||row?.dataset.l,at.words.map(w=>w.t),manual),r=data?.records[at.i],t=s=>I18N.t(s);
+    const described=r?.tag?window.GreekCorpus.describe(r.tag,t):null;
+    const rows=r?.lemma?`<div class="wseg main" data-source="${r.source}" data-analysis="${r.analysis}"><span class="wlem" lang="grc">${esc(r.lemma)}</span><br>${esc([described?.pos,described?.info].filter(Boolean).join(' · '))}</div><p class="muted">${esc(r.source==='gorman'?t('GLAUx / Gorman · manuell annotiert'):t('OGA · automatisch annotiert'))}<br>${esc(data.work)} · ${esc(data.locus)} · <code>${esc(r.tag)}</code></p>`:`<p class="muted">${esc(t('Für dieses Wort liegt keine sicher zugeordnete Morphologie vor.'))}</p>`;
+    const query=r?.lemma?.replace(/[0-9]+$/,'');
+    const ref=data&&doc.greekMorphology.references?.[data.locus];
+    const buttons=(query?`<button type="button" class="wdict" data-q="${esc(query)}">${esc(t('Im Wörterbuch nachschlagen'))}</button>`:'')+(ref?`<button type="button" class="corpus-ref" data-ref="${esc(ref)}">Whiston: ${esc(ref)}</button>`:'');
+    const range=at.range(at.i);try{CSS.highlights.set('gsel',new Highlight(range));}catch{}
+    gSel={cell,i:at.i};showGreekUnit(null,{rows,buttons,word:at.words[at.i].t,at:range,on:ev=>{const b=ev.target.closest('.corpus-ref');if(!b)return false;closeWpop();jumpTo(b.dataset.ref,false);return true;}});
+    wpop?.classList.add('greek-corpus-word');
+  }
   async function showGreekWord(cell, w, e, source = null) {
     const at = source && window.GMorph ? apparatusGreekAt(w,source) : cell && window.GMorph ? greekWordAt(cell, e, w) : null, was = gSel, wasGroup = w && w.classList.contains('sel');
     closeWpop();
     if (!at) { if (w && !wasGroup) showGreekUnit(w); return; }
     if (was && was.cell === cell && was.i === at.i) return; // dasselbe Wort noch einmal: schließen
+    const corpusDoc=!source&&reader.view?.loaded?.find(d=>d.entry.rel===cell.dataset.rel&&d.greekMorphology);if(corpusDoc&&window.GreekCorpus){await showCorpusWord(cell,at,corpusDoc);return;}
     const ctx = source ? source.ctx : greekCtx(cell), tok = ++gTok;
     let D = null;
     if (ctx) { try { D = await loadGM(); } catch { D = null; } }
@@ -326,6 +359,7 @@ window.LibraryWordPopup = (() => {
     // The interlinear controller opens Samaritan words with their own IDs.
     // Do not invalidate its pending lazy morphology load in this handler.
     if (e.target.closest('.smr-word')) return;
+    const sy=e.target.closest('.syw[data-si]');if(sy){showSyriacWord(sy);return;}
     const w = e.target.closest('.w[data-m], .wt[data-m], .wq[data-m], .wg');
     gTok++; // ein noch ladendes griechisches Wort-Popup gilt nicht mehr
     // griechischer Text ohne Wortgruppen (Rahlfs): jedes Wort ist anklickbar

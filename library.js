@@ -606,6 +606,7 @@
   // Fassung eines biblischen Buches, die anders zählt: Verse an ihre hebräische Stelle setzen (die eigene Nummer steht klein davor)
   function applyVers(d) {
     if (!d || d.vdone) return d;
+    if(d.syriacMorphology)return d; // preserve the explicitly labelled source numbering
     d.vdone = true;
     const t = versOf(d, 'text');
     if (t === 'heb' || !VMAP.known(d.entry.title)) return d;
@@ -625,14 +626,14 @@
   // Hinweis zu einer umgerechneten Stellenangabe: „englische Zählung Joel 3:11 = hebr. 4:11“ (Angabe im Text, hebräische Stelle, Tradition)
   function versNoteText(orig, mapped, from) { const q = VMAP.parse(mapped), p = VMAP.parse(orig); return I18N.t('{} {} = hebr. {}', I18N.t(VMAP.LABEL[from] || ''), orig, q && p && q.book === p.book ? mapped.slice(q.book.length + 1) : mapped); }
   // Kleines Zeichen im Spaltenkopf, wenn die Fassung umgestellt wurde
-  const versBadge = d => d?.mishnahWitness&&d.mishnahWitness!=='K'?` <small class="vtrad">${esc(window.I18N.textCrit('Eigene Handschriftenzählung'))}</small>`:(d && d.vmoved ? ` <small class="vtrad" title="${esc(I18N.t('Diese Fassung zählt anders ({}). Ihre Verse stehen hier neben dem hebräischen Vers; die eigene Nummer steht klein davor.', I18N.t(VERS_NAME[d.vtrad])))}">⇄ ${esc(I18N.t(VMAP.SHORT[d.vtrad] + ' Zählung'))}</small>` : '');
+  const versBadge = d => d?.syriacMorphology?` <small class="vtrad">${esc(I18N.t('Peschitta-Zählung'))}</small>`:d?.mishnahWitness&&d.mishnahWitness!=='K'?` <small class="vtrad">${esc(window.I18N.textCrit('Eigene Handschriftenzählung'))}</small>`:(d && d.vmoved ? ` <small class="vtrad" title="${esc(I18N.t('Diese Fassung zählt anders ({}). Ihre Verse stehen hier neben dem hebräischen Vers; die eigene Nummer steht klein davor.', I18N.t(VERS_NAME[d.vtrad])))}">⇄ ${esc(I18N.t(VMAP.SHORT[d.vtrad] + ' Zählung'))}</small>` : '');
 
   // Schlüssel einer Fußnote im Lesetext: Abschnitt | Zeile | Spalte | Nummer (für „bleibt offen“)
   const fnKey = n => { const row = n.closest('.row[data-l]'), cell = n.closest('.cell'); return [view ? view.idx : '', row ? row.dataset.l : '', row ? [...row.querySelectorAll('.cell')].indexOf(cell) : -1, n.dataset.fn].join('|'); };
   // Fußnoten werden immer mitgerendert; ob sie sichtbar sind, steuert der Modus (data-notes) per CSS
   function cellHtml(html, d, hit, verse) {
     if (html == null) return '<div class="cell empty"></div>';
-    const rtl = d.entry.language === 'Hebrew' || d.entry.language === 'Aramaic';
+    const rtl = ['Hebrew','Aramaic','Syriac'].includes(d.entry.language);
     const isMt=d.entry.kind==='he'&&/^Westminster/.test(d.entry.versionTitle||'');
     if (d.entry.kind === 'he'&&!isMt) html = stripHe(html);
     const { main, notes } = R.splitFootnotes(html);
@@ -646,7 +647,7 @@
     const gm = d.entry.language === 'Greek' ? ` data-gt="${esc(d.entry.title)}" data-gv="${esc(d.entry.versionTitle || d.versionTitle || '')}"` : ''; // Septuaginta: Titel und Fassung für die Wort-Bestimmung (lxx-morph.js)
     const vt = (d.entry.kind === 'de' || /^Targum .*\(ETCBC/.test(d.entry.versionTitle || '')) && /^own\//.test(d.entry.rel || '') ? ` data-vt="${esc(d.entry.versionTitle || '')}"` : ''; // eigene Übersetzung: für die Wort-Zuordnung (interlin.js)
     const bv = d.entry.title === 'Berakhot' && d.entry.kind === 'he' ? ' data-bavli="1"' : '';
-    return `<div class="cell" data-k="${d.entry.kind}"${isMt?' data-mt="1"':''} data-rel="${esc(d.entry.rel || '')}"${gm}${vt}${bv} dir="${rtl ? 'rtl' : 'ltr'}"><div class="txt">${hit ? markHits(processed, hit) : processed}</div></div>`;
+    return `<div class="cell" data-k="${d.entry.kind}"${isMt?' data-mt="1"':''}${d.entry.language==='Syriac'?' data-syriac="1" lang="syr"':''} data-rel="${esc(d.entry.rel || '')}"${gm}${vt}${bv} dir="${rtl ? 'rtl' : 'ltr'}"><div class="txt">${hit ? markHits(processed, hit) : processed}</div></div>`;
   }
 
   // Gleichlauf: 'off' | 'both' (beide führen) | 'left' (links führt, rechts folgt) | 'right' (rechts führt, links folgt)
@@ -691,7 +692,7 @@
     const head = byLang
       ? `<div class="row head" style="--n:${n}"><div class="lab"></div>${groupsL.map(g => `<div data-ci="${g.idx[0]}"${g.idx.length > 1 ? ' data-multi="1"' : ''} data-hv="${esc(JSON.stringify(g.idx.map(i => view.loaded[i].versionTitle || '')))}" data-hk="${esc(KIND_LABEL[g.k])}">${esc(g.idx.length === 1 ? KIND_LABEL[g.k] + ' · ' + shortVer(view.loaded[g.idx[0]].versionTitle) : KIND_LABEL[g.k] + ' (' + g.idx.length + ')')}${g.idx.length === 1 ? versBadge(view.loaded[g.idx[0]]) : ''}</div>`).join('')}</div>`
       : `<div class="row head" style="--n:${n}"><div class="lab"></div>${vis.map(i => view.loaded[i]).map(d =>
-      `<div data-hv="${esc(JSON.stringify([d.versionTitle || '']))}" data-hk="${esc(KIND_LABEL[d.entry.kind])}">${esc(KIND_LABEL[d.entry.kind])} · ${esc(shortVer(d.versionTitle))}${versBadge(d)}</div>`).join('')}</div>`;
+      `<div data-hv="${esc(JSON.stringify([d.versionTitle || '']))}" data-hk="${esc(d.entry.language==='Syriac'?'Syr.':KIND_LABEL[d.entry.kind])}">${esc(d.entry.language==='Syriac'?'Syr.':KIND_LABEL[d.entry.kind])} · ${esc(shortVer(d.versionTitle))}${versBadge(d)}</div>`).join('')}</div>`;
     const langCells = r => groupsL.map(g => {
       const full = g.idx.filter(i => r.cells[i] != null);
       if (!full.length) return '<div class="cell empty"></div>';
@@ -1110,7 +1111,7 @@
       if (u.pred) rows = rows.filter(r => { const v = rowVerse(r.label); return v != null && u.pred(v); });
       if (!rows.length) { missing.push(`${g.title} ${u.chap}${u.vs ? ':' + u.vs : ''}`); continue; }
       const n = G.loaded.length;
-      const head = `<div class="row head" style="--n:${n}"><div class="lab"></div>${G.loaded.map(d => `<div>${esc(KIND_LABEL[d.entry.kind])} · ${esc(shortVer(d.versionTitle))}</div>`).join('')}</div>`;
+      const head = `<div class="row head" style="--n:${n}"><div class="lab"></div>${G.loaded.map(d => `<div>${esc(d.entry.language==='Syriac'?'Syr.':KIND_LABEL[d.entry.kind])} · ${esc(shortVer(d.versionTitle))}</div>`).join('')}</div>`;
       const body = rows.map(r => `<div class="row" data-l="${esc(r.label)}" style="--n:${n}"><div class="lab">${esc(r.label)}</div>${G.loaded.map((d, k) => cellHtml(r.cells[k], d)).join('')}</div>`).join('');
       const vset = u.pred ? rows.map(r => rowVerse(r.label)).filter(v => v != null) : [], vtxt = vset.length ? fmtVerses(vset) : '';
       blocks.push(`<section class="pgb"><h3 class="pgh" data-key="${esc(g.key)}" data-sk="${esc(sec.k)}" data-row="${esc(rows[0].label)}" data-set="${esc(JSON.stringify(vset))}" data-vs="${esc(vtxt)}" data-title="${esc(g.title)}" data-sec="${esc(sec.label)}" title="Zum Lesen öffnen"><button class="pstar" type="button" title="Als Favorit speichern / entfernen" data-id="${esc(noteId(g, sec.k, 'blk:' + vtxt))}">☆</button> ${esc(g.title)} · ${esc(sec.label)}${vtxt ? ' · ' + esc(vtxt) : ''}</h3>${head}${body}</section>`);
@@ -2563,7 +2564,7 @@
       ds.sort((a, c) => KIND_RANK[a.entry.kind] - KIND_RANK[c.entry.kind]);
       if (!ds.length) continue;
       const nc = ds.length;
-      html += `<h3 class="sbook" data-t="${esc(title)}">${esc(title)}${g.heTitle ? ` <small dir="rtl">${esc(g.heTitle)}</small>` : ''} <span class="sup" title="${esc(I18N.t('Zur Übersicht'))}">↑</span></h3><div class="row head" style="--n:${nc}"><div class="lab"></div>${ds.map(d => `<div>${esc(KIND_LABEL[d.entry.kind])} · ${esc(shortVer(d.versionTitle))}</div>`).join('')}</div>`;
+      html += `<h3 class="sbook" data-t="${esc(title)}">${esc(title)}${g.heTitle ? ` <small dir="rtl">${esc(g.heTitle)}</small>` : ''} <span class="sup" title="${esc(I18N.t('Zur Übersicht'))}">↑</span></h3><div class="row head" style="--n:${nc}"><div class="lab"></div>${ds.map(d => `<div>${esc(d.entry.language==='Syriac'?'Syr.':KIND_LABEL[d.entry.kind])} · ${esc(shortVer(d.versionTitle))}</div>`).join('')}</div>`;
       const secs = [...b.secs.values()].sort((x, y) => { for (let i = 0; i < Math.max(x.path.length, y.path.length); i++) { const a = x.path[i], c = y.path[i]; if (a === c) continue; return typeof a === 'number' && typeof c === 'number' ? a - c : String(a).localeCompare(String(c)); } return 0; });
       for (const sc of secs) {
         const cols = ds.map(d => R.flattenNode(R.getByPath(d.text, sc.path)));
