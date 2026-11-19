@@ -367,7 +367,8 @@ window.LibraryWordCards = (() => {
     return { vt: re.source, rtl: k === 'O' || k === 'PJ' || k === 'N', label: WC_TR_LABEL[k] || k, lem };
   }
   const WC_TR_PIC = { Mendelssohn: 'Mendelssohn', Wolf: 'Wolf, Das Buch Samuel', Zunz: 'Zunz', Breuer: 'Raphael Breuer', Philippson: 'Philippson', Herxheimer: 'Herxheimer', Goldschmidt: 'Goldschmidt', Hirsch: 'Samson Raphael Hirsch', JuliusHirsch: 'Julius Hirsch', LXX: 'Septuaginta', O: 'Targum Onkelos', PJ: 'Targum Pseudo-Jonathan', N: 'Targum Neofiti', Q: 'Qumran' };
-  const wcTrPic = k => { const pic = WC_TR_PIC[k] && host.portraitOf(WC_TR_PIC[k]); return pic ? `<img class="wcTrPic" src="portraits/${encodeURIComponent(pic.img)}" alt="" loading="lazy" onerror="this.remove()">` : ''; };
+  host.$('#formsPanel').addEventListener('error',e=>{if(e.target.matches?.('img.wcTrPic'))e.target.remove();},true);
+  const wcTrPic = k => { const pic = WC_TR_PIC[k] && host.portraitOf(WC_TR_PIC[k]); return pic ? `<img class="wcTrPic" src="portraits/${encodeURIComponent(pic.img)}" alt="" loading="lazy">` : ''; };
   // Stellen: Buch*1000000 + Kapitel*1000 + Vers als Differenzen (Basis 36) -> Zahlen
   function unB36(str) { let prev = 0; return String(str || '').split('.').filter(Boolean).map(x => (prev += parseInt(x, 36))); }
   // Bestimmung des hebräischen Worts -> Filtermerkmale (Binjan, Form, Person, Genus, Numerus, Status, Suffix)
@@ -434,12 +435,14 @@ window.LibraryWordCards = (() => {
   function wcTrCmpOff() { const S = wcTrState; if (!S) return; S.cmp = null; S.pick = false; S.open = null; S.allRows = false; S.refLim = 12; wcTrRender(); }
   function wcTrRefs(key) { const S = wcTrState; if (!S) return; S.open = S.open === key ? null : key; S.refLim = 12; wcTrRender(); }
   function wcTrFilt(dim, val) { const S = wcTrState; if (!S) return; if (dim === '*') S.f = {}; else if (S.f[dim] === val || val == null) delete S.f[dim]; else S.f[dim] = val; S.open = null; S.refLim = 12; wcTrRender(); }
-  // Homonym-Umschalter: die Statistik zeigt ein gleich geschriebenes Lemma (die übrige Wortkarte bleibt beim angeklickten Wort)
+  // A homonym is a different lexical entry: rebuild the entire card and save
+  // the old one in history. Keep the chosen translation, reset lexical filters.
   function wcTrLemma(id) {
-    const S = wcTrState, x = S && S.sis.find(s => s.id === id); if (!x || S.lemma === id) return;
-    S.lemma = id; S.src = x.src; S.keys = x.keys; S.IR = x.IR; if (!S.keys.includes(S.cur)) S.cur = S.keys[0];
-    if (S.cmp && (!S.keys.includes(S.cmp) || S.cmp === S.cur)) S.cmp = null;
-    S.pick = false; S.f = {}; S.open = null; S.allRows = false; S.refLim = 12; wcTrRender();
+    const S=wcTrLive(),x=S&&S.sis.find(s=>s.id===id);if(!x||fmCur.lemma===id)return;
+    fmHistSave();
+    const next={greek:false,lemma:id,info:null,tab:'card',scroll:0,book:'',chip:null,fchip:null,
+      tr:{lemma:id,cur:S.cur,cmp:S.cmp||null,f:{},open:null,allRows:false,refLim:12}};
+    fmHistPush(next);openForms(id,null,'card',next);
   }
   // ----- Stellen mit Kontext: Westminster-Wörter des Verses (Lemma, Bestimmung, Form) + Segmente der Fassung aus interlin.js -----
   const wcVerseWords = new Map(); // „Genesis 18:27“ -> [{lem, code, he}] (leer, wenn der Vers nicht zu lesen war)
@@ -627,7 +630,7 @@ window.LibraryWordCards = (() => {
     }
     // ----- Kopf: Homonyme, Fassungen, Zählung + Filter -----
     const lem = LEM[S.lemma], sameVoc = S.sis.every(s => LEM[s.id] && LEM[s.id][0] === (LEM[S.sis[0].id] || [])[0]);
-    const hom = S.sis.length ? `<div class="wcTrHom"><span class="muted">${host.esc(I18N.t('Gleich geschrieben:'))}</span>${S.sis.map(s => ({ s, n: s.src[S.cur] ? s.src[S.cur].total : 0 })).sort((a, b) => b.n - a.n).slice(0, 8).map(({ s, n }) => `<button type="button" class="wcTrHm${s.id === S.lemma ? ' on' : ''}${n ? '' : ' few'}" data-lem="${host.esc(s.id)}" aria-pressed="${s.id === S.lemma}">${sameVoc ? '' : `<span lang="he" dir="rtl">${host.esc(LEM[s.id][0])}</span> `}${host.esc(gloss(s.id))} <small>${n ? wcNum(n) : '–'}</small></button>`).join('')}</div>` : '';
+    const hom = S.sis.length ? `<div class="wcTrHom"><span class="muted">${host.esc(I18N.t('Einträge mit denselben Konsonanten:'))}</span>${S.sis.map(s => ({ s, n: s.src[S.cur] ? s.src[S.cur].total : 0 })).sort((a, b) => b.n - a.n).slice(0, 8).map(({ s, n }) => `<button type="button" class="wcTrHm${s.id === S.lemma ? ' on' : ''}${n ? '' : ' few'}" data-lem="${host.esc(s.id)}" aria-pressed="${s.id === S.lemma}" title="${host.esc(I18N.t('Lexikoneintrag wechseln. {} einzeln zugeordnete Belege in {}.',wcNum(n),I18N.t(WC_TR_LABEL[S.cur]||S.cur)))}">${sameVoc ? '' : `<span lang="he" dir="rtl">${host.esc(LEM[s.id][0])}</span> `}${host.esc(gloss(s.id))} <small>${n ? wcNum(n) : '–'}</small></button>`).join('')}</div>` : '';
     const maxTot = Math.max(...S.keys.map(k => S.src[k].total)), cmpOn = !!(S.cmp || S.pick);
     const tabs = `<div class="wcTrTabs" role="tablist">${S.keys.map(k => { const n = S.src[k].total; const cv = cmpOn && k !== S.cur ? wcTrCommon(S, S.cur, k) : -1; return `<button type="button" role="tab" class="wcTrSrc${k === S.cur ? ' on' : ''}${k === S.cmp ? ' cmp' : ''}${cv === 0 ? ' none' : ''}${n < 5 || n < maxTot * 0.05 ? ' few' : ''}" aria-selected="${k === S.cur || k === S.cmp}" data-src="${k}"${cv >= 0 ? ` title="${host.esc(cv ? I18N.t('{} gemeinsame Verse mit {}', wcNum(cv), srcName(S.cur)) : I18N.t('Keine gemeinsamen Verse mit {}', srcName(S.cur)))}"` : ''}>${wcTrPic(k)}${k === S.cmp ? '<span class="x" aria-hidden="true">⇄</span>' : ''}${host.esc(I18N.t(WC_TR_LABEL[k]))} <small>${wcNum(n)}</small></button>`; }).join('')}${S.keys.length > 1 && !S.cmp ? `<button type="button" class="wcTrCmpB${S.pick ? ' on' : ''}" aria-pressed="${!!S.pick}" title="${host.esc(I18N.t('Zwei Quellen vergleichen – auch mit {}-Klick auf eine zweite Quelle', (window.platform && window.platform.mod) || 'Strg'))}"><span aria-hidden="true">⇄</span> <bdi>${host.esc(I18N.t('Vergleichen mit …'))}</bdi></button>` : ''}</div>${S.pick ? `<p class="wcTrPickN muted" dir="auto">${host.esc(I18N.t('Zweite Quelle wählen – ausgegraut: keine gemeinsamen Verse.'))}</p>` : ''}`;
     const dimRow = d => `<div class="wcTrFR"><span class="muted">${host.esc(I18N.t(d.name))}</span>${d.vals.map(([v, n]) => `<button type="button" class="wcTrFV${S.f[d.k] === v ? ' on' : ''}" data-dim="${d.k}" data-val="${host.esc(v)}" aria-pressed="${S.f[d.k] === v}">${host.esc(I18N.t(v))} <small>${wcNum(n)}</small></button>`).join('')}${S.f[d.k] && !d.vals.some(([v]) => v === S.f[d.k]) ? `<button type="button" class="wcTrFV on" data-dim="${d.k}" data-val="${host.esc(S.f[d.k])}" aria-pressed="true">${host.esc(I18N.t(S.f[d.k]))} <small>0</small></button>` : ''}</div>`;
@@ -974,7 +977,7 @@ window.LibraryWordCards = (() => {
     if (e.target.closest('.wcTrCmpB')) { wcTrCmpPick(); return; }
     if (e.target.closest('.wcTrCmpX')) { fmStep(wcTrCmpOff); return; }
     const tf = e.target.closest('.wcTrFV[data-dim]'); if (tf) { fmStep(() => wcTrFilt(tf.dataset.dim, tf.dataset.val)); return; }
-    const th = e.target.closest('.wcTrHm[data-lem]'); if (th) { fmStep(() => wcTrLemma(th.dataset.lem)); return; }
+    const th = e.target.closest('.wcTrHm[data-lem]'); if (th) { wcTrLemma(th.dataset.lem); return; }
     if (e.target.closest('.wcTrMoreB')) { wcTrMore = !wcTrMore; try { localStorage.setItem('wcTrMore', wcTrMore ? '1' : '0'); } catch { /* egal */ } wcTrRender(); return; }
     if (e.target.closest('.wcTrAllRows')) { if (wcTrState) { wcTrState.allRows = true; wcTrRender(); } return; }
     const tm = e.target.closest('.wcTrMoreRefs[data-to]'); if (tm) { if (wcTrState) { wcTrState.refLim = +tm.dataset.to; wcTrRender(); } return; }

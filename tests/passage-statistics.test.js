@@ -47,3 +47,13 @@ test('Concentration badges retain the old half-of-corpus threshold and show the 
  const s=S.analyze(load()[0].text[0].map((html,i)=>({html,label:i+1})),D,'Genesis',1),word=s.all.find(r=>r.w.lemma==='7549');
  assert.notEqual(S.concentration(word.n,word.B),S.concentration(word.n,word.T)); // different corpus shares, not a fixed Tanakh badge
 });
+
+test('Verse profile preserves token totals, corpus-sensitive rarity, commentary ranges and distinct source types',()=>{
+ const rows=load()[0].text[0].map((html,i)=>({html,label:i+1})),links=[{type:'commentary',v1:1,v2:2,other:'Rashi on Genesis 1:1:1'},{type:'commentary',v1:1,v2:1,other:'Rashi on Genesis 1:1:1'},{type:'commentary',v1:0,v2:0,other:'Whole chapter'},{type:'parallel',v1:1,v2:1,other:'Exodus 1:1'}];
+ const profile=S.profile(rows,D,'Genesis',1,links),st=S.analyze(rows,D,'Genesis',1);
+ assert.equal(profile.length,31);assert.equal(profile.reduce((n,p)=>n+p.words,0),st.words);
+ for(const mode of ['book','tanakh'])assert.equal(profile.reduce((n,p)=>n+p.rare[mode],0),st.rareByCorpus[mode].reduce((n,r)=>n+r.n,0));
+ assert.equal(profile[0].words,7);assert.equal(profile[0].comments,1);assert.equal(profile[1].comments,1);assert.equal(profile[2].comments,0);
+ assert(profile.some(p=>p.rare.book!==p.rare.tanakh));for(const p of profile)assert.equal(p.sourceKinds,[1,2,4,8].filter(bit=>p.sources&bit).length);
+ assert.deepEqual(S.profile(rows,D,'Unknown',1,links),[]);
+});

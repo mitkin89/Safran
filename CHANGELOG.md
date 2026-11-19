@@ -1,6 +1,8 @@
 # Changelog
 
 ### Unreleased
+- **Consistent homonym cards:** switching between lexical entries with the same consonants updates the entire word card, including header, total, distribution, forms and source sections. Preserve the translation choice, reset word-specific filters and support Back/Forward across entries.
+- **Clickable verse profile:** chart each verse’s word count, corpus-sensitive rare-word count, recorded verse-specific commentary links and distinct textual-source types. Click or keyboard activation highlights the verse in the reader; keep the full chapter profile available from verse scope.
 - **Restore concentration labels:** show “almost only here” again when at least half the chosen corpus occurrences lie in the selected passage; expose the exact percentage and book/Tanakh basis on hover.
 - **Clear source coverage:** replace ambiguous source badges with a verse-by-source table, full source names, coverage totals and explanations distinguishing editorial notes from potentially reconstructed DSS transcription.
 - **Rarity comparison fix:** filter and sort rare words by the selected book or Tanakh; make vocabulary tiers and export follow the same choice. Retain both counts beside rare words and hide corpus controls on views that have no corpus comparison.

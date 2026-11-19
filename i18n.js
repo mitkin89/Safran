@@ -14,6 +14,14 @@
   if (lang === 'de') return;
 
   const EN = {
+    "Einträge mit denselben Konsonanten:": "Entries with the same consonants:",
+    "Lexikoneintrag wechseln. {} einzeln zugeordnete Belege in {}.": "Switch lexical entry. {} individually aligned occurrences in {}.",
+    "Bei langen Kapiteln seitlich scrollen.": "Scroll sideways for long chapters.",
+    "Versprofil": "Verse profile",
+    "Erfasste Kommentare": "Recorded commentaries",
+    "Quellenarten": "Source types",
+    "Ein Balken pro Vers. Klick führt zum Lesetext; die Balkenhöhe ist je Zeile auf den höchsten Kapitelwert skaliert.": "One bar per verse. Click to jump to the reading text; bar height in each row is scaled to the highest value in the chapter.",
+    "Seltene Wörter: Belege mit 1–19 Vorkommen im gewählten Buch oder Tanach. Kommentare: erfasste versbezogene Verknüpfungen. Quellenarten: Samaritanus, Septuaginta, Qumran und Kennicott, höchstens vier.": "Rare words: tokens with 1–19 occurrences in the selected book or Tanakh. Commentaries: recorded verse-specific links. Source types: Samaritan Pentateuch, Septuagint, Qumran and Kennicott, at most four.",
     "{} % der Belege in {} stehen in dieser Auswahl.": "{} % of the occurrences in {} are in this selection.",
     "Markiert ab 50 % bei mindestens zwei Belegen im Vergleichskorpus.": "Marked from 50 % with at least two occurrences in the comparison corpus.",
     "Quellen pro Vers": "Sources by verse",

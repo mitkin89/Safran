@@ -64,3 +64,11 @@ The restored “almost only here” badge retains its previous threshold: at lea
 half the selected corpus occurrences lie in the local selection, with at least
 two corpus occurrences. Hover gives the rounded actual percentage and selected
 corpus. It is recalculated for book/Tanakh choice, not a significance claim.
+
+The verse-profile chart reuses OSHB token counts and corpus-dependent rarity.
+Each metric scales independently to its chapter maximum. Commentary counts
+deduplicate verse-specific target references and respect encoded verse ranges;
+whole-chapter links are not assigned to individual verses. Source counts are
+types (0–4), not manuscripts or variants. The profile remains chapter-wide when
+the detailed statistics scope is a single verse. All bars are keyboard-accessible
+buttons and navigate to the original reading row.

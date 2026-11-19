@@ -2083,3 +2083,14 @@ body.il .cell[data-k="he"] .ilt.il-smr { direction: rtl; font-family: var(--he-f
 #apBody .apEvidenceMark{color:var(--accent);font-weight:600}
 #apBody .apEvidenceLegend{margin-top:8px;font-size:12px}
 #apBody .apEvidenceLegend summary{cursor:pointer;color:var(--muted)}
+
+#apBody .apProfile{overflow-x:auto;max-width:100%;border:1px solid var(--line);border-radius:6px;margin:8px 0}
+#apBody .apProfileGrid{display:grid;grid-template-columns:90px repeat(var(--profile-verses),minmax(25px,1fr));gap:2px;min-width:max-content;padding:5px}
+#apBody .apProfileLabel{position:sticky;left:0;z-index:1;background:var(--card);font-size:11px;align-content:center;padding:3px}
+#apBody .apProfileVerse{font-size:11px;padding:2px;border:0;background:none;color:var(--muted)}
+#apBody .apProfileBar{height:54px;min-width:25px;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;border:0;background:none;padding:2px;cursor:pointer;font-size:10px;color:var(--fg)}
+#apBody .apProfileBar i{display:block;width:12px;height:var(--bar-height);min-height:1px;background:var(--accent);border-radius:2px}
+#apBody .apProfileBar[data-metric=rare] i{background:#c89e58}#apBody .apProfileBar[data-metric=comments] i{background:#84b29b}#apBody .apProfileBar[data-metric=sources] i{background:#b492cc}
+#apBody .apProfileBar:hover,#apBody .apProfileBar:focus-visible{background:var(--chip);outline:1px solid var(--accent);border-radius:3px}
+
+#apBody .apProfile [data-stat-verse].selected{background:var(--chip);outline:1px solid var(--accent);border-radius:3px}

@@ -42,6 +42,16 @@ function analyze(rows,index,book,chapter){
  for(const f of forms){verbs+=f.n;tenses.set(f.tense,(tenses.get(f.tense)||0)+f.n);}
  return {...stats,book,all,comparisonAvailable:{book:bookData.N>stats.words,tanakh:index.N>stats.words},comparisons:{book:compare('B',bookData.N),tanakh:compare('T',index.N)},rare:rareIn('T'),rareByCorpus:{book:rareIn('B'),tanakh:rareIn('T')},vocabularyByCorpus:{book:vocabularyIn('B'),tanakh:vocabularyIn('T')},families:[...families.values()].sort((a,b)=>b.n-a.n),rootWords:[...families.values()].reduce((n,f)=>n+f.n,0),forms,tenses:[...tenses].map(([tense,n])=>({tense,n,pct:Math.round(1000*n/verbs)/10})).sort((a,b)=>b.n-a.n),phrases:[...phrases.values()].filter(p=>p.n>=2).sort((a,b)=>b.n-a.n||b.length-a.length),evidence:units.map(u=>({verse:u.label,sources:index.coverage[book]?.[chapter+':'+u.label]||0}))};
 }
+function profile(rows,index,book,chapter,links=[]){
+ const bookData=index.books[book];if(!bookData)return [];
+ return rows.map((r,i)=>{
+  const verse=String(r.label??i+1),ts=tokens(r.html).filter(t=>t.lemma),content=ts.filter(t=>t.pos!=='Eigenname'&&!P.isFunction(t.pos));
+  const rare=field=>content.filter(t=>{const n=field[t.lemma]||0;return n>=1&&n<=19;}).length;
+  const comments=new Set(links.filter(l=>l.type==='commentary'&&Number(l.v1)>0&&Number(verse)>=Number(l.v1)&&Number(verse)<=Number(l.v2||l.v1)).map(l=>l.other).filter(Boolean));
+  const sources=index.coverage[book]?.[chapter+':'+verse]||0;
+  return {verse,words:ts.length,rare:{book:rare(bookData.lemmas),tanakh:rare(index.lemmas)},comments:comments.size,sources,sourceKinds:[1,2,4,8].filter(bit=>sources&bit).length};
+ });
+}
 const concentration=(here,total)=>total>1&&here<=total&&here/total>=.5?Math.round(100*here/total):null;
-const api={tokens,analyze,concentration};if(node)module.exports=api;else window.PassageStatistics=api;
+const api={tokens,analyze,concentration,profile};if(node)module.exports=api;else window.PassageStatistics=api;
 })();
