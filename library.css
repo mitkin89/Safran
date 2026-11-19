@@ -1136,8 +1136,10 @@ body.stack-split #dictHead #dictQ { min-width: 80px; }
 #rOut .newtab { max-width: 620px; }
 
 /* Porträt groß beim Darüberfahren */
-#vpicPop { position: fixed; z-index: 10000; width: 240px; pointer-events: none; background: var(--bg); border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 10px 34px rgba(0,0,0,.45); padding: 8px; text-align: center; }
-#vpicPop img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px; display: block; }
+#vpicPop { position: fixed; margin: 0; inset: auto; box-sizing: border-box; z-index: 10000; width: min(240px,calc(100vw - 16px)); pointer-events: none; background: var(--bg); border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 10px 34px rgba(0,0,0,.45); padding: 8px; text-align: center; }
+#vpicPop[popover]:not(:popover-open) { display: none; }
+#vpicPop::backdrop { pointer-events: none; }
+#vpicPop img { width: 100%; max-height: calc(100vh - 100px); aspect-ratio: 1; object-fit: cover; border-radius: 8px; display: block; }
 #vpicPop div { margin-top: 6px; font-size: 13px; color: var(--fg); line-height: 1.3; }
 
 /* Seitenrand „schmal“ (Anzeige): weniger Innenabstand; ab zwei Spalten keine Breitenbegrenzung */

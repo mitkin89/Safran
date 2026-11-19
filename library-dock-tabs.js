@@ -13,7 +13,7 @@ function fitLabels(bar,selector,fits=()=>bar.scrollWidth<=bar.clientWidth+1){
  for(const b of candidates){if(fits())break;b.classList.add('icon-only');}
 }
 function create({$,panels,pins,open,automatic,activePair,afterOpen,available=()=>true,paired=()=>false}){
- const labels={cmt:'Kommentare',dict:'Wörterbuch',outline:'Gliederung',all:'Überblick',topic:'Themen',link:'Verknüpfungen',textcrit:'Apparatus',map:'Karte',forms:'Wortkarte'};
+ const labels={cmt:'Kommentare',dict:'Wörterbuch',all:'Überblick',outline:'Gliederung',topic:'Themen',link:'Verknüpfungen',textcrit:'Apparatus',map:'Karte',forms:'Wortkarte'};
  const icons={forms:'א',cmt:'💬',textcrit:'≠',all:'✦',outline:'≡',link:'🔗',topic:'🏷',map:'🗺',dict:'📖'};
  const order=Object.keys(labels),history=[],scrolls=new Map();let preferred=null,switching=false,frame=0;
  let docked=true;try{docked=localStorage.getItem('studyPinned')!=='0';}catch{}

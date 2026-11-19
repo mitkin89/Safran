@@ -6,7 +6,7 @@ module.exports=async({win,js,waitFor})=>{
  assert.equal(await js("document.querySelectorAll('#dockTabs [data-panel]').length"),9);
  assert.equal(await js("document.querySelectorAll('#dockTabs .dock-pin').length"),1);
  assert(await js("[...document.querySelectorAll('.pinp .pinB')].every(b=>getComputedStyle(b).display==='none')"),'Einzelne Werkzeuge haben keinen eigenen sichtbaren Pin');
- assert.deepEqual(await js("[...document.querySelectorAll('#dockTabs [data-panel]')].map(b=>b.dataset.panel)"),['cmt','dict','outline','all','topic','link','textcrit','map','forms']);
+ assert.deepEqual(await js("[...document.querySelectorAll('#dockTabs [data-panel]')].map(b=>b.dataset.panel)"),['cmt','dict','all','outline','topic','link','textcrit','map','forms']);
  assert(await js("getComputedStyle(document.querySelector('#cmtBtn')).display==='none'"));
  await waitFor("Math.abs(document.querySelector('#dockTabs').getBoundingClientRect().top-document.querySelector('header').getBoundingClientRect().bottom)<2",'Werkzeugleiste unter Buch-Tabs');
  await waitFor("document.querySelector('#dockTabs .icon-only')",'Beschriftungen weichen nur bei Platzmangel');

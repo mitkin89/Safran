@@ -440,19 +440,22 @@
   // Kleine Bilder zu Versionen (Übersetzer, Ausgabe) – nur in der Versionsliste, nicht im Lesetext; Liste in portraits/index.js
   // Porträt beim Darüberfahren groß zeigen (eigene Ebene über allem, damit nichts abgeschnitten wird)
   { let pop = null;
+    const hideP = () => { if (pop) { if(pop.matches(':popover-open'))pop.hidePopover();pop.hidden=true; } };
     document.addEventListener('mouseover', e => {
       const im = e.target.closest && e.target.closest('img.vpic'); if (!im) return;
-      if (!pop) { pop = document.createElement('div'); pop.id = 'vpicPop'; document.body.appendChild(pop); }
+      if (!pop) { pop = document.createElement('div'); pop.id = 'vpicPop'; pop.setAttribute('popover','manual'); document.body.appendChild(pop); }
       pop.innerHTML = `<img src="${im.getAttribute('src')}" alt="">${im.dataset.title ? `<div>${esc(im.dataset.title)}</div>` : ''}`; pop.hidden = false;
-      const r = im.getBoundingClientRect(), W = 240, H = W + (im.dataset.title ? 34 : 0);
+      if(!pop.matches(':popover-open'))pop.showPopover();
+      const r = im.getBoundingClientRect(), W = pop.offsetWidth, H = pop.offsetHeight;
       let x = r.right + 12, y = r.top + r.height / 2 - H / 2;
       if (x + W > innerWidth - 8) x = r.left - W - 12;
       if (x < 8) x = Math.max(8, Math.min(innerWidth - W - 8, r.left));
       y = Math.max(8, Math.min(innerHeight - H - 8, y));
       pop.style.left = x + 'px'; pop.style.top = y + 'px';
     });
-    document.addEventListener('mouseout', e => { if (pop && e.target.closest && e.target.closest('img.vpic')) pop.hidden = true; });
-    const hideP = () => { if (pop) pop.hidden = true; }; document.addEventListener('scroll', hideP, true); document.addEventListener('mousedown', hideP, true);
+    document.addEventListener('mouseout', e => { if (e.target.closest && e.target.closest('img.vpic')) hideP(); });
+    document.addEventListener('scroll', hideP, true); document.addEventListener('mousedown', hideP, true);
+    window.addEventListener('keydown',e=>{if(e.key==='Escape')hideP();},true);
   }
   // Spaltenkopf: beim Darüberfahren voller Versionstitel und – falls vorhanden – das Porträt
   { let hp = null, cur = null;

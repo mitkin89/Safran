@@ -32,6 +32,12 @@ module.exports=async({docs,win,js,waitFor,book})=>{
   assert(await js("!document.querySelector('#dockTabs').hidden"),'Esc lässt die Seitenpane geöffnet');
  }
  await js("document.querySelector('#studyBtn').click();document.querySelector('#verBox').open=true");
+ await js("{const im=document.querySelector('#verList img.vpic');im.dispatchEvent(new MouseEvent('mouseover',{bubbles:true}));}");
+ await waitFor("document.querySelector('#vpicPop')?.matches(':popover-open')",'Porträtvorschau in oberster Ebene');
+ assert(await js("(()=>{const p=document.querySelector('#vpicPop'),r=p.getBoundingClientRect();p.style.pointerEvents='auto';const top=p.contains(document.elementFromPoint(r.left+r.width/2,r.top+r.height/2));p.style.pointerEvents='';return top&&r.left>=8&&r.right<=innerWidth-8&&r.top>=8&&r.bottom<=innerHeight-8})()"),'Porträtvorschau vollständig vor Versionsauswahl sichtbar');
+ fs.writeFileSync('/tmp/safran-portrait-preview.png',(await win.webContents.capturePage()).toPNG());
+ await js("document.querySelector('#verList img.vpic').dispatchEvent(new MouseEvent('mouseout',{bubbles:true}))");
+ assert(await js("!document.querySelector('#vpicPop').matches(':popover-open')"),'Porträtvorschau verschwindet beim Verlassen');
  const zunz=items.find(e=>e.title==='Genesis'&&e.kind==='de'&&/Zunz/.test(e.versionTitle));
  assert(await js("[...document.querySelectorAll('#verList .vname')].some(n=>n.textContent==="+JSON.stringify(zunz.versionTitle)+")"),'Lange Versionsnamen vollständig');
  assert(await js("(()=>{const r=document.querySelector('#verList').getBoundingClientRect();return r.left>=8&&r.right<=innerWidth-8&&document.querySelector('#verList').scrollWidth<=r.width+1})()"),'Menü bleibt vollständig im Fenster');
