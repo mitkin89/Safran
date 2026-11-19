@@ -100,6 +100,33 @@ module.exports=async({win,js,waitFor,book})=>{
  await js("document.querySelector('#rOut .row[data-l=\"1\"] .lab').click()");
  await waitFor("document.querySelector('#apBody .apScope[data-scope=v]')",'Versstatistik');
  assert(await js("document.querySelector('#apBody [data-scope=v] .apSum').textContent!==document.querySelector('#apBody [data-scope=c] .apSum').textContent"));
+ // Direct comparison is chapter-wide even in verse scope; both chapters are editable.
+ await js("document.querySelector('#apBody [data-scope=v] .apSeg [data-seg=chaptercompare]').click()");
+ await waitFor("document.querySelector('#apBody [data-scope=v] .ccRow')",'Zwei Kapitel direkt vergleichen');
+ assert(await js("document.querySelector('#apBody [data-scope=v] [data-cc-chapter=a]').value==='1'&&document.querySelector('#apBody [data-scope=v] [data-cc-chapter=b]').value==='2'"),'Aktuelles und nächstes Kapitel als Startauswahl');
+ assert(await js("document.querySelector('#apBody [data-scope=v] .ccSummary').textContent.includes('427')"),'Vergleich nimmt das vollständige Kapitel statt nur Vers 1');
+ const cc=sel=>`document.querySelector('#apBody [data-scope=v] ${sel}')`;
+ for(const mode of ['differences','onlyA','onlyB','roots','stems','forms']){await js(`${cc('[data-cc-mode='+mode+']')}.click()`);assert(await js(`${cc('[data-cc-mode='+mode+']')}.getAttribute('aria-pressed')==='true'`));}
+ await js(`${cc('[data-cc-mode=shared]')}.click();${cc('.ccRow')}.open=true`);
+ assert(await js(`${cc('.ccRow a[data-ref]')}.dataset.ref.startsWith('Genesis ')`),'Belege mit echten Versreferenzen');
+ await js(`${cc('[data-cc-book=b]')}.value='Exodus';${cc('[data-cc-book=b]')}.dispatchEvent(new Event('change',{bubbles:true}));${cc('[data-cc-chapter=b]')}.value='1';${cc('.ccRun')}.click()`);
+ await waitFor("document.querySelector('#apBody [data-scope=v] .ccSummary')?.textContent.includes('Exodus 1')",'Buchübergreifender Kapitelvergleich');
+ await js(`${cc('.ccSwap')}.click()`);
+ await waitFor("document.querySelector('#apBody [data-scope=v] .ccSummary span:first-child')?.textContent.includes('Exodus 1')",'Kapitel A und B tauschen');
+ await js(`${cc('[data-cc-chapter=b]')}.value='999';${cc('.ccRun')}.click()`);
+ await waitFor("!document.querySelector('#apBody [data-scope=v] .ccRow')&&/konnte nicht|Could not/.test(document.querySelector('#apBody [data-scope=v] .ccResult').textContent)",'Ungültiges Kapitel mit verständlicher Fehlermeldung');
+ await js(`${cc('[data-cc-chapter=b]')}.value='1';${cc('.ccRun')}.click()`);
+ await waitFor("document.querySelector('#apBody [data-scope=v] .ccRow')",'Erneuter Vergleich nach Fehler');
+ await js(`${cc('.ccRow')}.open=true;window.__ccOpenKey=${cc('.ccRow')}.dataset.ccKey;${cc('.ccRow .apW')}.click()`);
+ await waitFor("!document.querySelector('#formsPanel').hidden&&document.querySelector('#fmHead .fmCnt')",'Wortkarte aus Kapitelvergleich');
+ await js("{const p=document.querySelector('#formsPanel');if(!p.classList.contains('docked'))p.querySelector('.pinB').click();}document.querySelector('#dockTabs [data-panel=all]').click()");
+ await waitFor("document.querySelector('#apBody [data-scope=v] .ccRow')",'Kapitelvergleich nach Wortkarten-Rückkehr');
+ assert(await js(`${cc('[data-cc-book=a]')}.value==='Exodus'&&${cc('[data-cc-book=b]')}.value==='Genesis'&&${cc('.ccRow[open]')}.dataset.ccKey===window.__ccOpenKey`),'Kapitelwahl und geöffnete Belegliste bleiben erhalten');
+ const chapterRef=await js("document.querySelector('#apBody [data-scope=v] .ccRow[open] a[data-ref^=\"Genesis \"]').dataset.ref");
+ await js("document.querySelector('#apBody [data-scope=v] .ccRow[open] a[data-ref^=\"Genesis \"]').click()");
+ await waitFor(`document.querySelector('#rOut .row.hit[data-l="${chapterRef.split(':').pop()}"]')`,'Belegstelle aus Kapitelvergleich öffnen');
+ await waitFor("document.querySelector('#apBody [data-scope=v] .ccRow')",'Vergleich nach Stellensprung bleibt offen');
+ await js("document.querySelector('#apBody [data-scope=v] .apChapterCompare').scrollIntoView({block:'start'});new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))");fs.writeFileSync('/tmp/safran-chapter-comparison.png',(await win.webContents.capturePage()).toPNG());
  // Return from a word card to the exact overview pane, expansion and position.
  await js("document.querySelector('#apWhole').click()");await waitFor("document.querySelector('#apBody [data-scope=c] .apSeg button[data-seg=rare]')",'Kapitelübersicht');
  await js("document.querySelector('#apBody [data-scope=c] .apSeg button[data-seg=rare]').click();{const b=document.querySelector('#apBody [data-scope=c] .apPane[data-seg=rare] .apMoreB');if(b)b.click();}document.querySelectorAll('#apBody [data-scope=c] .apPane[data-seg=rare] .apW')[10].scrollIntoView({block:'center'});window.__overviewScroll=document.querySelector('#allPanel').scrollTop;document.querySelectorAll('#apBody [data-scope=c] .apPane[data-seg=rare] .apW')[10].click()");

@@ -39,6 +39,12 @@ The short version is in the [README](../README.md). This page lists everything, 
 - Word card, overview, textual criticism, commentaries, dictionary, outline, links, topics and map support resizing. Drag the left separator of a pinned panel; drag any edge or corner of a floating panel. Sizes are saved per floating panel; pinned panels share their chosen width. Arrow keys resize a focused grip (Shift: larger step), Home or double-click restores the default. Sizes remain within the reading window.
 - Frequency comparisons use labeled blue/gold bars for passage/remainder frequencies per 1,000 words, on one common linear scale across rows. Absolute counts stay visible, and the book/Tanakh selector recalculates the comparison.
 
+## Compare chapters
+
+- The overview statistics include *Kapitel vergleichen*. Choose a book and chapter for A and B from installed Westminster editions; compare across books, or swap the two sides. The comparison always uses whole chapters, even from a single-verse overview.
+- Views show shared words, frequency differences, entries only in A/B, explicitly sourced word families, verb stems and morphological forms. Paired bars use frequencies per 1,000 recognized words and a common linear scale; absolute counts and chapter word totals remain visible. Function words contribute to chapter length but not word lists; proper names remain included.
+- Expand any row for its verse references, or open a lexical entry’s word card. Choices and expanded results are retained during a return from a word card. Source material: installed OSHB texts and the same explicit Open Scriptures root links used in passage statistics.
+
 ## MT word highlights
 
 - In the overview statistics, *MT markieren* highlights either rare words (gold) or unusually frequent words (blue) in the visible Westminster text, using the selected verse/chapter and book/Tanakh comparison. Matching uses the annotated main lemma, including prefixed forms. Translation and witness columns retain their own formatting.

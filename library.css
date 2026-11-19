@@ -2144,3 +2144,32 @@ body .pinp.panel-sized:not(.docked){left:var(--panel-x)!important;top:var(--pane
 #passageMarkStatus[data-mode=rare]{border-inline-start:4px solid #c49b53}
 #passageMarkStatus[data-mode=lead]{border-inline-start:4px solid #69add7}
 #passageMarkStatus button{padding:1px 6px;font:inherit}
+
+#apBody .ccChoices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+#apBody .ccChoices fieldset{min-width:0;border:1px solid var(--line);border-radius:8px;padding:8px}
+#apBody .ccChoices label{display:flex;align-items:center;gap:5px;margin:4px 0;font-size:12px}
+#apBody .ccChoices select{min-width:0;width:100%}
+#apBody .ccChoices input{width:70px;max-width:100%}
+#apBody .ccActions,#apBody .ccModes{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
+#apBody .ccModes button{font-size:12px;padding:4px 8px;border-radius:7px}
+#apBody .ccModes .on{background:var(--chip);color:var(--accent);border-color:var(--accent)}
+#apBody .ccSummary{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:12px;font-size:12px}
+#apBody .ccSummary span{padding:8px;border-inline-start:4px solid #69add7;background:var(--card);border-radius:5px}
+#apBody .ccSummary span+span{border-color:#c49b53}
+#apBody .ccRow{border-top:1px solid var(--line);padding:7px 0}
+#apBody .ccRow summary{display:flex;flex-wrap:wrap;gap:8px;align-items:center;cursor:pointer;list-style:disclosure-closed}
+#apBody .ccWord{flex:1 1 130px;min-width:0;font-size:12px}
+#apBody .ccRoot{font:24px var(--he-font)}
+#apBody .ccBars{flex:1 1 190px;min-width:0}
+#apBody .ccBar{display:grid;grid-template-columns:12px minmax(20px,1fr) 90px;align-items:center;gap:6px;font-size:10px;line-height:1.7}
+#apBody .ccBar i{height:7px;border-radius:3px;background:var(--line);overflow:hidden}
+#apBody .ccBar em{display:block;height:100%;background:#69add7}
+#apBody .ccBar.B em{background:#c49b53}
+#apBody .ccBar small{text-align:end;font:inherit;font-variant-numeric:tabular-nums}
+#apBody .ccRefs{font-size:12px;line-height:1.8;overflow-wrap:anywhere}
+#apBody .ccResult>p.muted{font-size:11px}
+
+#apBody .apMarkTools[hidden]{display:none}
+#apBody .apChapterCompare{scroll-margin-top:70px}
+#apBody .ccRow>summary::before{content:'▸';flex:0 0 10px;color:var(--muted)}
+#apBody .ccRow[open]>summary::before{content:'▾'}

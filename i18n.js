@@ -14,6 +14,21 @@
   if (lang === 'de') return;
 
   const EN = {
+    "Vergleichen": "Compare",
+    "{} Wörter · {} Verse": "{} words · {} verses",
+    "A und B tauschen": "Swap A and B",
+    "Zwei vollständige Kapitel vergleichen – auch wenn im Überblick gerade ein Einzelvers ausgewählt ist.": "Compare two complete chapters, including when the overview shows a single verse.",
+    "Kapitel konnte nicht geladen werden. Prüfe Buch, Kapitelnummer und die installierte MT-Fassung.": "Could not load chapter. Check the book, chapter number and installed MT edition.",
+    "Gezählt nach OSHB-Lexikoneinträgen. Wortlisten ohne Funktionswörter; Namen bleiben enthalten. Häufigkeiten beziehen sich auf alle erkannten Wörter des Kapitels. Unterschiede belegen für sich keine literarische Verbindung.": "Counted by OSHB lexical entry. Word lists exclude function words and include names. Frequencies use all recognized chapter words. Differences alone do not establish a literary relationship.",
+    "A: {} Belege, {} je 1.000. B: {} Belege, {} je 1.000.": "A: {} occurrences, {} per 1,000. B: {} occurrences, {} per 1,000.",
+    "Keine Einträge für diese Auswahl.": "No entries for this selection.",
+    "Balken je 1.000 Wörter, mit gleicher Skala für beide Kapitel und alle Zeilen. A: blau. B: gold.": "Bars per 1,000 words, on the same scale for both chapters and all rows. A: blue. B: gold.",
+    "Wortfamilien": "Word families",
+    "Nur in B": "Only in B",
+    "Nur in A": "Only in A",
+    "Unterschiedliche Häufigkeit": "Frequency differences",
+    "Gemeinsame Wörter": "Shared words",
+    "Kapitel vergleichen": "Compare chapters",
     "MT markieren": "Highlight MT",
     "Erneut klicken: aus. Gilt für die aktuelle Auswahl.": "Click again to turn off. Applies to the current selection.",
     "Wortmarkierungen entfernen": "Clear word highlights",
