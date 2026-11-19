@@ -41,7 +41,7 @@ window.LibraryWordCards = (() => {
     const p = host.$('#formsPanel'), body = host.$('#fmBody'), card = host.$('#wcBody'), LEM = window.OSHB_LEMMAS || {}, lem = LEM[lemma];
     const token = ++wcToken;
     fmRest = rest ? { h: rest, token } : null;
-    p.hidden = false; fmCur = null; fmShowTab(tab || 'card');
+    p.hidden = false; fmCur = null; fmTrData = null; fmShowTab(tab || 'card');
     host.$('#fmHead').innerHTML = lem ? `<span class="fmLem" dir="rtl" lang="he">${host.esc(lem[0])}</span><span class="fmGloss">${host.esc(I18N.lang === 'de' && lem[2] ? lem[2] : lem[1])}</span>` : '';
     body.innerHTML = card.innerHTML = `<p class="muted">${host.esc(I18N.t('Lädt …'))}</p>`;
     let D = null;
@@ -67,7 +67,12 @@ window.LibraryWordCards = (() => {
   // erst die Wiedergabe ohne Bindewort („und“, „da“, „so“ stehen für das ו und erscheinen grau), bei Gleichstand die Grundform statt einer Zufallsform,
   // bei schwacher Mehrheit (< 40 %) der Anteil dazu; die graue Zeile darunter nennt die Verteilung. Klick auf die Wiedergabe: alle Wiedergaben und Stellen.
   // Septuaginta/Targumim: häufigstes Lemma in den Versen der Form (über die Bestimmung zugeordnet).
-  let fmTrData = null, fmTrPick = null; try { fmTrPick = localStorage.getItem('fmTrSrc'); } catch { /* egal */ }
+  let fmTrData = null, fmTrPick = null; try { fmTrPick = localStorage.getItem('fmTrSrc') === 'off' ? 'off' : localStorage.getItem('wcTrSrc') || localStorage.getItem('fmTrSrc'); } catch { /* egal */ }
+  function fmTrSelect(k) {
+    fmTrPick=k;
+    try { localStorage.setItem('fmTrSrc',k); if(k!=='off')localStorage.setItem('wcTrSrc',k); } catch { /* egal */ }
+    fmTrApply();
+  }
   async function fmTrInit(token) {
     const body = host.$('#fmBody'), lemma = fmCur && fmCur.lemma; if (!lemma) return;
     const S = await wcTrSources(lemma); if (token !== wcToken || !fmCur) return;
@@ -189,7 +194,7 @@ window.LibraryWordCards = (() => {
     tr.innerHTML = `<td colspan="99"><div class="fmRH"><span dir="rtl" lang="he">${host.esc(chip.querySelector('span').textContent)}</span><span class="muted">${host.esc(I18N.t(WC_TR_LABEL[cur]))} · ${host.esc(I18N.t('{} Stellen mit eigener Wiedergabe · {} verschiedene', wcNum(E.n), wcNum(E.k)))}</span><button type="button" class="fmRX" title="${host.esc(I18N.t('Schließen'))}">✕</button></div><div class="fmTrD">${rows}${more}</div>${grp}${col}<div class="fmRL wcTrCx">${lines}${moreB}</div></td>`;
     chip.closest('tr').after(tr);
   }
-  host.$('#fmBody').addEventListener('click', e => { const b = e.target.closest('.fmTrBar [data-fsrc]'); if (!b) return; e.stopPropagation(); fmTrPick = b.dataset.fsrc; try { localStorage.setItem('fmTrSrc', fmTrPick); } catch { /* egal */ } fmTrApply(); }, true);
+  host.$('#fmBody').addEventListener('click', e => { const b = e.target.closest('.fmTrBar [data-fsrc]'); if (!b) return; e.stopPropagation(); const k=b.dataset.fsrc,S=wcTrLive(); if(k!=='off'&&S&&S.src[k])fmStep(()=>{S.pick=false;wcTrShow(k,false);});else fmTrSelect(k); }, true);
   // Griechisch (Septuaginta): dieselbe Karte aus dem Index lxx-morph.js; info = { form, key } der angeklickten Form
   async function openGForms(lemma, info, tab, rest) {
     fmHistOpen(true, lemma, info, tab, rest);
@@ -424,6 +429,7 @@ window.LibraryWordCards = (() => {
     let pick = null; try { pick = localStorage.getItem('wcTrSrc'); } catch { /* egal */ }
     wcTrState = { src: R.src, keys: R.keys, cur: R.keys.includes(pick) ? pick : R.keys[0], open: null, IR: R.IR, f: {}, lemma, sis: sis.length > 1 ? sis : [], allRows: false, refLim: 12, base: lemma, tok: token };
     if (fmRest && fmRest.token === token) { fmRestTr(fmRest.h); fmRest = null; } // Zurück/Vor: Fassung, Homonym, Filter und aufgeklappte Zeile des Verlaufseintrags
+    if(fmTrPick!=='off')fmTrSelect(wcTrState.cur);
     box.hidden = false; wcTrRender();
   }
   // Verse (Buch*1000000 + Kapitel*1000 + Vers), in denen eine Fassung das Lemma einzeln wiedergibt – für den Vergleich zweier Fassungen
@@ -437,7 +443,7 @@ window.LibraryWordCards = (() => {
       if (k === S.cmp && second) S.cmp = null; else if (!wcTrCommon(S, S.cur, k)) return; else S.cmp = k;
       S.pick = false;
     } else if (k === S.cmp) { S.cmp = S.cur; S.cur = k; } else S.cur = k;
-    S.same=null;S.sameLimits={};S.open = null; S.allRows = false; S.refLim = 12; try { localStorage.setItem('wcTrSrc', S.cur); } catch { /* egal */ } wcTrRender();
+    S.same=null;S.sameLimits={};S.open = null; S.allRows = false; S.refLim = 12; fmTrSelect(S.cur); wcTrRender();
   }
   function wcTrCmpPick() { const S = wcTrState; if (!S) return; S.pick = !S.pick; wcTrRender(); }
   function wcTrCmpOff() { const S = wcTrState; if (!S) return; S.cmp = null; S.pick = false; S.open = null; S.allRows = false; S.refLim = 12; wcTrRender(); }
@@ -829,6 +835,7 @@ window.LibraryWordCards = (() => {
     const S = wcTrState, t = h.tr; if (!S || !t) return;
     if (t.lemma !== S.lemma) { const x = S.sis.find(s => s.id === t.lemma); if (x) { S.lemma = x.id; S.src = x.src; S.keys = x.keys; S.IR = x.IR; } }
     S.cur = S.keys.includes(t.cur) ? t.cur : S.keys[0]; S.cmp = t.cmp && t.cmp !== S.cur && S.keys.includes(t.cmp) ? t.cmp : null; S.pick = false; S.f = { ...t.f }; S.open = t.open; S.allRows = !!t.allRows; S.refLim = t.refLim || 12;S.same=t.same??null;S.sameLimits={...t.sameLimits};
+    fmTrSelect(S.cur);
   }
   function fmScrollHold(top) { // Scrollposition halten, bis die nachgeladenen Abschnitte (Wörterbücher, Stellen …) stehen oder man selbst scrollt
     fmHold = { top, token: wcToken, until: Date.now() + 5000 }; host.$('#formsPanel').scrollTop = top;
