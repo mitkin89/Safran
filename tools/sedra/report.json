@@ -1,0 +1,21 @@
+{
+  "id": "7fab63c14df2",
+  "name": "SEDRA — Syriac Lexicon (Beth Mardutho)",
+  "lexemes": 35892,
+  "glosses": 67692,
+  "attestedWords": 64585,
+  "sourceHashes": {
+    "sources.jsonl.gz": "08b5cef1e004a8f527878a4d816fcd062dd001b00bcde1388c2d45b9b5cd9eaf",
+    "category_types.jsonl.gz": "74620eb39e08ef65cc06efcf1e0996c66e9e8b2fe6292666f8d21f37a41859e5",
+    "languages.jsonl.gz": "28661c78e5982ded713069490875c2cb4581483a4ddebd8418b9d04286669c22",
+    "kaylos.jsonl.gz": "a0623e790e96d7439e9889a65c81064b469fe8575e0ec8d3906a57b23b0d5939",
+    "roots.jsonl.gz": "c17f39771522b5ded20b086f65424d1fc7a7bc390548f132fd21f174ae8bd905",
+    "lexemes.jsonl.gz": "43b40090c642cc4b8baf147c095f0f37452663c0b86e283ecbaba0652b34802d",
+    "words.jsonl.gz": "aafb6d89352483f5c35e120300649ab4a656dc837c118ac6a487542f78062b74",
+    "glosses.jsonl.gz": "e533ea9b5d089ee20b8ebaeca4941a8cc49bea77dedd1d07fa8317b36f5575cb",
+    "README.md": "40c75ecb4bc2f81ac4df83aa17bc0cbd3d188686b7c99fa1131282fa36cd0d9c",
+    "CITATION.cff": "e0281f72d704445803a54b8edd8c94c95749f220eed23daa87d5c1c381210016"
+  },
+  "sha256": "da62a8acab63ce1c6bd140a3b5a6019d718bfe4ea97d7835405a5430cb34c446",
+  "bytes": 36205826
+}

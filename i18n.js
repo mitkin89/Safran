@@ -14,6 +14,13 @@
   if (lang === 'de') return;
 
   const EN = {
+    "SEDRA-Wörterbuch": "SEDRA dictionary",
+    "Wurzel": "Root",
+    "Vollständiger Wörterbucheintrag": "Full dictionary entry",
+    "Wörterbuchtreffer zur Schreibung, keine Bestimmung dieser Textstelle.": "Dictionary candidates for this spelling, not an analysis of this passage.",
+    "Im SEDRA-Wörterbuch öffnen": "Open in the SEDRA dictionary",
+    "SEDRA konnte nicht geladen werden.": "SEDRA could not be loaded.",
+    "Kein genauer SEDRA-Treffer für diese Schreibung.": "No exact SEDRA match for this spelling.",
     "Wortweise Zuordnung zum Westminster-Text verfügbar": "Word alignment with the Westminster text available",
     "Nur diese hebräische Version anzeigen": "Show only this Hebrew version",
     "Nur diese deutsche Version anzeigen": "Show only this German version",

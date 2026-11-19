@@ -12,6 +12,12 @@ The Bible cross-references in `xref.json` (Tanakh only, shown among the Sefaria 
 
 The Josephus links (Antiquities, Jewish War ↔ Bible, Maccabees and each other) come from the parallel-passage index of B. Niese's edition (Berlin 1885–1895, public domain); Niese's § numbers are mapped to Whiston's chapters and sections (Sefaria's structure) with the Perseus texts ([PerseusDL/canonical-greekLit](https://github.com/PerseusDL/canonical-greekLit), CC BY-SA 4.0). Converter: `tools/josephus/`. Winter/Wünsche, *Mechiltha* (Leipzig 1909): text transcribed from the page images on [archive.org](https://archive.org/details/MechilthaEinTannaitischerMidraschZuExodusVonAugustWnsche) (public domain) with Claude Opus and aligned sentence by sentence to the Sefaria segments of *Mekhilta DeRabbi Yishmael*. Graetz, *Geschichte der Juden*: text from [zeno.org](http://www.zeno.org/Geschichte/M/Graetz,+Heinrich/Geschichte+der+Juden) (public domain); the reversed Hebrew was turned around by `tools/graetz/build.py`. The links from Safran's own texts (`tools/ownlinks/`) are taken from the passage references in those texts. The Mishnah ↔ Talmud table (`bundled/mishnah_talmud.json`) is derived from Sefaria's links of the type *mishnah in talmud* (converter: `tools/mishnah_talmud/`).
 
+## SEDRA Syriac lexicon
+
+The offline SEDRA dictionary contains 35,892 verified lexical entries with multilingual glosses, explicit root relations and recorded vocalizations from **Sedra 5.0 (2026-10-24)**, edited by George A. Kiraz and James Bennett, **Beth Mardutho: The Syriac Institute**. Data: **CC BY-NC 4.0**, https://creativecommons.org/licenses/by-nc/4.0/ . Source: https://sedra.bethmardutho.org/releases/v5.0/ . Original resource partners and per-entry references remain credited; see [LICENSE-SEDRA.md](LICENSE-SEDRA.md).
+
+Changes: conversion to Safran's bundled dictionary format, plain-text gloss cleanup, recorded non-theoretical word forms as search aliases, exact spelling candidates in Peshitta word popups. Homonyms stay separate and ETCBC's contextual morphology is retained independently. No scans, library texts or generated forms are imported. Reproducible converter and pinned checksums: `tools/sedra/`.
+
 ## Hebrew Tanakh with morphology (OSHB)
 
 All 39 books are included as an additional Hebrew version “Westminster Leningrad Codex (OSHB, with morphology)” under `bundled/own/…/he/`. Every word carries a lemma (Strong number) and a morphology code; a click in the reader shows stem, tense/form, person, gender and number and looks the lemma up in the dictionary.

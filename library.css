@@ -2169,7 +2169,9 @@ body .pinp.panel-sized:not(.docked){left:var(--panel-x)!important;top:var(--pane
 #apBody .ccRow[open]>summary::before{content:'▾'}
 
 /* Peshitta: bundled Syriac font and independent RTL word records. */
-@font-face { font-family: "Safran Syriac"; src: url("assets/fonts/NotoSansSyriacEastern.ttf") format("truetype"); font-weight: 100 900; font-display: swap; }
+@font-face { font-family: "Safran Syriac"; src: url("assets/fonts/syrcomjerusalem.woff") format("woff"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Safran Syriac"; src: url("assets/fonts/syrcomjerusalembold.woff") format("woff"); font-weight: 700; font-style: normal; font-display: swap; }
+@font-face { font-family: "Safran Syriac"; src: url("assets/fonts/syrcomjerusalemitalic.woff") format("woff"); font-weight: 400; font-style: italic; font-display: swap; }
 .cell[data-syriac] .txt, [lang=syr] { font-family: "Safran Syriac", sans-serif; }
 .cell[data-syriac] .txt { font-size: calc(var(--hef, 1.3) * 1em); line-height: 1.9; }
 .syw { cursor: pointer; border-radius: 3px; }
@@ -2280,3 +2282,26 @@ body.has-dock-tabs .pinp .pinB { display: none; }
 #verList[popover] { margin: 0; inset: auto; color: var(--fg); }
 #verList[popover]:not(:popover-open) { display: none; }
 #verList .vil { font-size: 10.5px; color: var(--accent); border: 1px solid color-mix(in srgb,var(--accent) 40%,var(--line)); border-radius: 10px; padding: 1px 6px; white-space: nowrap; }
+
+/* SEDRA dictionary: lexical candidates remain distinct from corpus morphology. */
+.sedra-entry .sedra-lemma { font-size: 1.15em; margin-bottom: .45em; }
+.sedra-entry .sedra-lemma bdi, .sedra-entry .sedra-root bdi { font-size: 1.35em; }
+.sedra-entry .sedra-lemma small, .sedra-entry cite, .sedra-entry .sedra-credit { color: var(--muted); font-size: .85em; }
+.sedra-entry cite { font-style: normal; }
+.sedra-entry ul { margin: .2em 0 .6em; padding-inline-start: 1.3em; }
+.sedra-entry .sedra-root { padding-block: .35em; border-top: 1px solid var(--line); }
+.sedra-entry .sedra-forms > div { display: flex; flex-wrap: wrap; gap: .35em; margin-block: .5em; }
+#wpop.syriac-word { width: 390px; }
+#wpop .sy-sedra { border-top: 1px solid var(--line); margin-top: .6em; padding-top: .4em; }
+#wpop .sy-sedra h4 { margin: 0; font-size: 1em; }
+#wpop .sy-sedra-note { color: var(--muted); font-size: .85em; margin: .3em 0; }
+#wpop .sy-sedra-part > summary > bdi { font-size: 1.4em; }
+#wpop .sy-sedra-candidate { padding: .3em .4em; border: 1px solid var(--line); border-radius: 5px; }
+#wpop .sy-sedra-candidate > summary { cursor: pointer; }
+#wpop .sy-sedra-candidate > summary > bdi { font-size: 1.3em; }
+#wpop .sy-sedra-candidate > summary > span { font-weight: 600; }
+#wpop .sy-sedra details { font-size: 1em; }
+#wpop .sy-sedra-glosses { margin: .25em 0 .5em; padding-inline-start: 1.2em; }
+#wpop .sy-sedra-glosses li > span { font-weight: 600; }
+#wpop .sy-sedra-glosses cite { color: var(--muted); font-style: normal; font-size: .8em; }
+.sedra-entry .sedra-language li > span[lang=eng] { font-weight: 600; }

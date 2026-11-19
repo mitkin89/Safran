@@ -1,0 +1,76 @@
+{
+  "version": "5.0",
+  "released": "2026-10-24",
+  "url": "https://sedra.bethmardutho.org/releases/v5.0/",
+  "license": "CC BY-NC 4.0",
+  "licenseUrl": "https://creativecommons.org/licenses/by-nc/4.0/",
+  "files": [
+    {
+      "name": "sources.jsonl.gz",
+      "path": "/releases/v5.0/sources.jsonl.gz",
+      "rows": 32,
+      "bytes": 1550,
+      "sha256": "08b5cef1e004a8f527878a4d816fcd062dd001b00bcde1388c2d45b9b5cd9eaf"
+    },
+    {
+      "name": "category_types.jsonl.gz",
+      "path": "/releases/v5.0/category_types.jsonl.gz",
+      "rows": 20,
+      "bytes": 303,
+      "sha256": "74620eb39e08ef65cc06efcf1e0996c66e9e8b2fe6292666f8d21f37a41859e5"
+    },
+    {
+      "name": "languages.jsonl.gz",
+      "path": "/releases/v5.0/languages.jsonl.gz",
+      "rows": 16,
+      "bytes": 332,
+      "sha256": "28661c78e5982ded713069490875c2cb4581483a4ddebd8418b9d04286669c22"
+    },
+    {
+      "name": "kaylos.jsonl.gz",
+      "path": "/releases/v5.0/kaylos.jsonl.gz",
+      "rows": 28,
+      "bytes": 537,
+      "sha256": "a0623e790e96d7439e9889a65c81064b469fe8575e0ec8d3906a57b23b0d5939"
+    },
+    {
+      "name": "roots.jsonl.gz",
+      "path": "/releases/v5.0/roots.jsonl.gz",
+      "rows": 3465,
+      "bytes": 138518,
+      "sha256": "c17f39771522b5ded20b086f65424d1fc7a7bc390548f132fd21f174ae8bd905"
+    },
+    {
+      "name": "lexemes.jsonl.gz",
+      "path": "/releases/v5.0/lexemes.jsonl.gz",
+      "rows": 35892,
+      "bytes": 2274532,
+      "sha256": "43b40090c642cc4b8baf147c095f0f37452663c0b86e283ecbaba0652b34802d"
+    },
+    {
+      "name": "words.jsonl.gz",
+      "path": "/releases/v5.0/words.jsonl.gz",
+      "rows": 65000,
+      "bytes": 4927123,
+      "sha256": "aafb6d89352483f5c35e120300649ab4a656dc837c118ac6a487542f78062b74"
+    },
+    {
+      "name": "glosses.jsonl.gz",
+      "path": "/releases/v5.0/glosses.jsonl.gz",
+      "rows": 67692,
+      "bytes": 1500772,
+      "sha256": "e533ea9b5d089ee20b8ebaeca4941a8cc49bea77dedd1d07fa8317b36f5575cb"
+    },
+    {
+      "name": "README.md",
+      "path": "/releases/v5.0/README.md",
+      "bytes": 9384,
+      "sha256": "40c75ecb4bc2f81ac4df83aa17bc0cbd3d188686b7c99fa1131282fa36cd0d9c"
+    },
+    {
+      "name": "CITATION.cff",
+      "path": "/releases/v5.0/CITATION.cff",
+      "bytes": 731
+    }
+  ]
+}

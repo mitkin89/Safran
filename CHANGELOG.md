@@ -1,5 +1,10 @@
 # Changelog
 
+### Unreleased
+
+- Use bundled Serto Jerusalem for Syriac text, complete interlinear portrait mappings, and update the Buber/Rosenzweig photograph.
+- **Offline SEDRA dictionary:** bundle 35,892 source-credited Syriac lexical entries, multilingual glosses, vocalizations and root relations from Sedra 5.0 (CC BY-NC 4.0). Match recorded non-theoretical forms without merging homonyms. Add compact lexical candidates to Peshitta word popups, independent of ETCBC morphology, with the full entry in the normal dictionary pane.
+
 ### New in 2.7.0
 - **Official Apparatus release:** include the textual apparatus and its source data in the distributed desktop app, with source-specific coverage and uncertainty retained.
 - **Unified study sidebar:** shared pinning, geometry, Back history and whole-pane close; labels collapse only when space requires it. Place Overview after Dictionary.

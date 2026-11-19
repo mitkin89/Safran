@@ -1,7 +1,19 @@
 'use strict';
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
-module.exports=async({docs,win,js,waitFor,book})=>{
+module.exports=async({profile,docs,win,js,waitFor,book})=>{
  const root=path.resolve(__dirname,'../..'),manifest=require('../../bundled/manifest.json'),entries=[];
+ const {Dictionaries}=require('../../dsl'),{ipcMain}=require('electron'),sid='7fab63c14df2';
+ const staging=path.join(profile,'sedra-bundle'),catalog=require('../../bundled/dict/manifest.json');
+ fs.mkdirSync(path.join(staging,'dict'),{recursive:true});fs.copyFileSync(path.join(root,'bundled/dict',sid+'.json.gz'),path.join(staging,'dict',sid+'.json.gz'));
+ fs.writeFileSync(path.join(staging,'dict/manifest.json'),JSON.stringify({version:1,items:catalog.items.filter(x=>x.id===sid)}));
+ const dictionary=new Dictionaries(path.join(profile,'dictionary-fixture'));await dictionary.importBundled(staging);
+ let delaySedra=false,failSedra=false,pending=[];
+ ipcMain.removeHandler('dict:lookup');ipcMain.handle('dict:lookup',async(_e,q,only,full)=>{
+  if(only===sid&&failSedra)return {results:[],error:'SEDRA fixture unavailable'};
+  const read=async()=>({results:await dictionary.search(q,{only,full})});
+  if(only===sid&&delaySedra)return new Promise(resolve=>pending.push(()=>read().then(resolve)));
+  return read();
+ });
  for(const title of ['Genesis','Exodus','Leviticus','Numbers','Deuteronomy','Isaiah']){
   const e=manifest.items.find(e=>e.title===title&&e.language==='Syriac'),d=JSON.parse(fs.readFileSync(path.join(root,'bundled',e.rel)));entries.push(e);
   docs.set(e.rel,{...d,entry:{...e,own:false},textHash:crypto.createHash('sha256').update(JSON.stringify(d.text)).digest('hex')});
@@ -20,7 +32,7 @@ module.exports=async({docs,win,js,waitFor,book})=>{
  await select('Genesis');
  assert.equal(await js("document.querySelector('#rOut .cell[data-syriac]').dir"),'rtl');
  assert(await js("document.querySelector('#rOut .head').textContent.includes('Peshitta numbering')"));
- assert(await js("document.fonts.load('20px \"Safran Syriac\"','ܒܪܫܝܬ').then(x=>x.length===1)"));
+ assert(await js("Promise.all(['20px \"Safran Syriac\"','bold 20px \"Safran Syriac\"','italic 20px \"Safran Syriac\"'].map(f=>document.fonts.load(f,'ܒܪܫܝܬ'))).then(f=>f.every(x=>x.length===1))"));
  await js("document.querySelector('#rOut .syw[data-si=\"1\"]').scrollIntoView({block:'center'})");
  await js('new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))');
  await js("document.querySelector('#rOut .syw[data-si=\"1\"]').click()");
@@ -29,8 +41,25 @@ module.exports=async({docs,win,js,waitFor,book})=>{
  assert.equal(await js("document.querySelectorAll('#wpop .sy-translit-parts').length"),2);
  assert(await js("document.querySelector('#wpop .wword').lang==='syr'&&document.querySelector('#wpop .wword').dir==='rtl'"));
  assert(await js("document.querySelector('#wpop').textContent.includes('Preposition')"));
- const query=await js("document.querySelector('#wpop .wdict').dataset.q");await js("document.querySelector('#wpop .wdict').click()");
+ await waitFor("document.querySelector('#wpop .sy-sedra-results[data-query=\"ܪܫܝܬ\"] .sy-sedra-candidate[data-sedra-id=\"3019\"]')",'SEDRA-Wörterbuch für die belegte Wortform');
+ assert(await js("document.querySelector('#wpop .sy-sedra').textContent.includes('beginning')&&document.querySelector('#wpop .sy-sedra .sedra-root')&&document.querySelector('#wpop .sy-source').textContent.includes('ETCBC')"),'Lexikalische Bedeutung und Wurzel ergänzen die unveränderte ETCBC-Morphologie');
+ await win.webContents.capturePage().then(i=>fs.writeFileSync('/tmp/safran-sedra-popup.png',i.toPNG()));
+ const query='ܪܫܝܬ';await js("document.querySelector('#wpop .sedra-open[data-q=\"ܪܫܝܬ\"]').click()");
  await waitFor(`document.querySelector('#dictQ').value===${JSON.stringify(query)}`,'Syrisches Lemma im Wörterbuch');
+ await waitFor("document.querySelector('#dictOut .sedra-entry[data-sedra-id=\"3019\"]')",'SEDRA im normalen Wörterbuchpanel');
+ assert(await js("document.querySelector('#dictOut .donly').textContent.includes('SEDRA')"),'Expliziter SEDRA-Knopf beachtet die gewählte Wörterbuchquelle');
+ await js("document.querySelector('#dictClose').click();document.querySelector('#wpop .wx')?.click()");
+ delaySedra=true;
+ await js("document.querySelector('#rOut .syw[data-si=\"1\"]').click()");
+ await waitFor("document.querySelector('#wpop .sy-sedra-results')",'Verzögerte SEDRA-Abfrage');
+ await js("document.querySelector('#wpop .wx').click()");delaySedra=false;
+ await Promise.all(pending.splice(0).map(run=>run()));
+ await js('new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))');
+ assert(await js("!document.querySelector('#wpop')"),'Nachgeladene SEDRA-Treffer öffnen ein geschlossenes Popup nicht wieder');
+ failSedra=true;await js("document.querySelector('#rOut .syw[data-si=\"1\"]').click()");
+ await waitFor("document.querySelector('#wpop')?.textContent.includes('SEDRA could not be loaded.')",'SEDRA-Fehler sichtbar');
+ assert(await js("document.querySelectorAll('#wpop .wseg.main').length===2"),'ETCBC bleibt bei einem SEDRA-Lesefehler verfügbar');
+ await js("document.querySelector('#wpop .wx').click()");failSedra=false;
  await win.webContents.capturePage().then(i=>fs.writeFileSync('/tmp/safran-peshitta-popup.png',i.toPNG()));
  await select('Genesis');
  await waitFor("document.querySelector('.cell[data-syriac] .syw.ilx')",'Peschitta-Zuordnung in geöffneter Spalte');
@@ -40,6 +69,7 @@ module.exports=async({docs,win,js,waitFor,book})=>{
  assert(await js("document.querySelector('#rOut .row[data-l=\"1\"] .cell[data-mt] .w').classList.contains('ilhl')"));
  await js("document.querySelector('#ilBtn').click()");
  await waitFor("document.querySelector('#ilPop input[value=Peshitta]')",'Peschitta-Interlinearoption');
+ assert(await js("document.querySelector('#ilPop input[value=Peshitta]').closest('label').querySelector('img.vpic').getAttribute('src')==='portraits/peshitta.png'"));
  await js("{const c=document.querySelector('#ilPop input[value=Peshitta]');c.checked=true;c.dispatchEvent(new Event('change',{bubbles:true}));}");
  await waitFor("document.querySelector('.ilt.il-ps .syw')",'Peschitta unter dem MT');
  assert.equal(await js("document.querySelector('.ilt.il-ps .ps-translit').textContent"),'ברשית');

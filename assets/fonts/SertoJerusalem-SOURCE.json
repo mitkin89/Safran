@@ -1,0 +1,13 @@
+{
+  "source": "https://sedra.bethmardutho.org/resources/media/fonts.zip",
+  "licenseSource": "https://www.x.org/releases/individual/font/font-misc-meltho-1.0.4.tar.xz",
+  "family": "Serto Jerusalem",
+  "version": "1.20",
+  "modifications": "None; original font files.",
+  "copyright": "\u00a9 2001 by Beth Mardutho: The Syriac Institute. For free distribution. Created by George Kiraz, Christine Kiraz and Paul Nelson. Sponsored by the Syriac Orthodox Archdiocese of the Western United States, through its bishop Mor Clemis Eugene Kaplan.",
+  "sha256": {
+    "syrcomjerusalem.woff": "9276afd415931b57249d9b5a026cdb3ac4e97b94a8c358aa75a145c8d67a9d05",
+    "syrcomjerusalembold.woff": "da145fe200ed9cf7d784bfee5409a3eff51b03eea16f0131b6fefea6eca958cf",
+    "syrcomjerusalemitalic.woff": "8242ab28ce767897e5f714a644e9c2f78b1975cf4897f6e615beb42ef856919a"
+  }
+}

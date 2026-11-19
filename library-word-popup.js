@@ -106,7 +106,40 @@ window.LibraryWordPopup = (() => {
     const source=`<p class="muted">${esc(t('Peschitta · eigene Verszählung'))}${r?` · ${r.chapter}:${r.verse} · Peshitta #${r.id}`:''}<br>${esc(t('Morphologie: ETCBC Syriac Corpus; Kurzglossen auf Englisch.'))}</p>`;
     const lemmas=[...new Set((r?.parts||[]).map(p=>window.SyriacMorph.lemma(p.lex)).filter(Boolean))];
     const buttons=lemmas.map(q=>`<button class="wdict" data-q="${esc(q)}">${esc(t('Im Wörterbuch nachschlagen'))}: <bdi lang="syr" dir="rtl">${esc(q)}</bdi></button>`).join('');
-    w.classList.add('sel');gSel={cell,i:w.dataset.si};showGreekUnit(null,{rows:translit+rows+source,buttons,word:w.textContent,at:w,lang:'syr',dir:'rtl'});wpop.classList.add('syriac-word');
+    // Use the attested surface of each morpheme, not an assumed identity
+    // between ETCBC's lexeme codes and SEDRA's independent lexical entries.
+    const queries=[...new Set((r?.parts?.length?r.parts.map(p=>p.form):[w.textContent]).filter(Boolean))];
+    const sedra=`<section class="sy-sedra"><h4>${esc(t('SEDRA-Wörterbuch'))}</h4><p class="sy-sedra-note">${esc(t('Wörterbuchtreffer zur Schreibung, keine Bestimmung dieser Textstelle.'))}</p>${queries.map((q,i)=>`<details class="sy-sedra-part"${i===queries.length-1?' open':''}><summary><bdi lang="syr" dir="rtl">${esc(q)}</bdi></summary><div class="sy-sedra-results" data-query="${esc(q)}">${esc(t('Lädt …'))}</div></details>`).join('')}</section>`;
+    w.classList.add('sel');gSel={cell,i:w.dataset.si};
+    const place=showGreekUnit(null,{rows:translit+rows+source+sedra,buttons,word:w.textContent,at:w,lang:'syr',dir:'rtl',on:ev=>{
+      const b=ev.target.closest('.sedra-open');if(!b)return false;
+      openDict(b.dataset.q,{id:'7fab63c14df2',name:'SEDRA — Syriac Lexicon (Beth Mardutho)'});return true;
+    }});
+    wpop.classList.add('syriac-word');
+    const pop=wpop,token=gTok;
+    place();
+    pop.addEventListener('toggle',()=>{if(wpop===pop)place();},true);
+    for(const q of queries){
+      const slot=[...pop.querySelectorAll('.sy-sedra-results')].find(el=>el.dataset.query===q);
+      O.dictLookup(q,'7fab63c14df2',false).then(result=>{
+        if(wpop!==pop||gTok!==token||!w.isConnected)return;
+        const hits=(result.results||[]).filter(x=>x.dictId==='7fab63c14df2'&&x.kind==='exact');
+        slot.innerHTML=result.error?`<p class="muted">${esc(t('SEDRA konnte nicht geladen werden.'))}</p>`:hits.length?hits.map(hit=>{
+          const entry=document.createElement('div');entry.innerHTML=hit.html;
+          const gloss=entry.querySelector('.sedra-language [lang=eng]')||entry.querySelector('.sedra-language li > span');
+          const short=gloss?.textContent||'';
+          const primary=gloss?.closest('.sedra-language'),root=entry.querySelector('.sedra-root');
+          if(root?.querySelector('small'))root.querySelector('small').textContent=t('Wurzel');
+          const meanings=primary?[...primary.querySelectorAll('li')].slice(0,3).map(li=>li.outerHTML).join(''):'';
+          const id=entry.querySelector('[data-sedra-id]')?.dataset.sedraId||'';
+          return `<details class="sy-sedra-candidate" data-sedra-id="${esc(id)}"${hits.length===1?' open':''}><summary><bdi lang="syr" dir="rtl">${esc(hit.head)}</bdi>${short?` <span>${esc(short.slice(0,120))}${short.length>120?'…':''}</span>`:''}</summary>${meanings?`<small>${esc(primary.querySelector('small')?.textContent||'')}</small><ul class="sy-sedra-glosses">${meanings}</ul>`:''}${root?.outerHTML||''}<details class="sy-sedra-more"><summary>${esc(t('Vollständiger Wörterbucheintrag'))}</summary>${hit.html}</details></details>`;
+        }).join('')+`<button class="wdict sedra-open" data-q="${esc(q)}">${esc(t('Im SEDRA-Wörterbuch öffnen'))}</button>`:`<p class="muted">${esc(t('Kein genauer SEDRA-Treffer für diese Schreibung.'))}</p>`;
+        place();
+      }).catch(()=>{
+        if(wpop!==pop||gTok!==token)return;
+        slot.innerHTML=`<p class="muted">${esc(t('SEDRA konnte nicht geladen werden.'))}</p>`;place();
+      });
+    }
   }
   let greekManualP=null;
   async function showCorpusWord(cell,at,doc){

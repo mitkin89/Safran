@@ -23,6 +23,7 @@ function norm(s) {
   return String(s || '')
     .normalize('NFD')
     .replace(/[֑-ׇ]/g, '')            // Vokal- und Betonungszeichen
+    .replace(/[\u0730-\u074a]/g, '') // syrische Vokal- und Aussprachezeichen (einschließlich Seyame)
     .replace(/[̀-ͯ]/g, '')            // lateinische und griechische Akzente
     .replace(/[ךםןףץ]/g, c => FINAL[c])        // Endbuchstaben
     .replace(/[־׳״'"“”„‚‘’`´.,;:!?()\[\]{}<>*]/g, '') // Maqaf, Gershayim, Satzzeichen

@@ -31,7 +31,7 @@ const handlers={
 const readerExtras=require('./reader-extras.cjs')({profile,handlers});
 for(const [channel,fn]of Object.entries(handlers))ipcMain.handle(channel,fn);
 const pause=ms=>new Promise(r=>setTimeout(r,ms));
-async function js(code){return win.webContents.executeJavaScript(code,true);}
+async function js(code){try{return await win.webContents.executeJavaScript(code,true);}catch(err){throw new Error('Renderer evaluation failed: '+code,{cause:err});}}
 async function waitFor(expression,label){const until=Date.now()+20000;while(Date.now()<until){if(await js(`Boolean(${expression})`))return;await pause(50);}throw Error('Zeitüberschreitung: '+label+'\n'+await js("document.querySelector('#rOut').textContent.slice(0,500)"));}
 async function book(title,prefix='document'){await js(`{const d=${prefix};d.querySelectorAll('dialog[open]').forEach(n=>n.close());const a=[...d.querySelectorAll('#tree .lib-item')].find(a=>a.dataset.key.endsWith('¦'+${JSON.stringify(title)}));if(!a)throw Error('Buch fehlt');a.click();}`);}
 (async()=>{
@@ -60,7 +60,7 @@ async function book(title,prefix='document'){await js(`{const d=${prefix};d.quer
   assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;
  }
  if(process.env.SAFRAN_SMOKE_PESHITTA==='1'){
-  await require('./peshitta-flows.cjs')({docs,win,js,waitFor,book});
+  await require('./peshitta-flows.cjs')({profile,docs,win,js,waitFor,book});
   assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;
  }
  if(process.env.SAFRAN_SMOKE_GREEK==='1'){
@@ -127,7 +127,7 @@ async function book(title,prefix='document'){await js(`{const d=${prefix};d.quer
  assert.deepEqual(errors,[],'Keine unbehandelten Fehler im Renderer');
  await require('./greek-corpus-flows.cjs')({docs,win,js,waitFor,book});
  assert.deepEqual(errors,[],'Keine unbehandelten Fehler nach griechischer Morphologie');
- await require('./peshitta-flows.cjs')({docs,win,js,waitFor,book});
+ await require('./peshitta-flows.cjs')({profile,docs,win,js,waitFor,book});
  assert.deepEqual(errors,[],'Keine unbehandelten Fehler nach Peschitta');
  await require('./map-navigation-flows.cjs')({win,js,waitFor});
  assert.deepEqual(errors,[],'Keine unbehandelten Fehler nach Karten-Navigation');

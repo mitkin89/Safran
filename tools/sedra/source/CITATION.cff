@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use this data, please cite it as below."
+type: dataset
+title: "Sedra"
+version: "5.0"
+date-released: 2026-10-24
+url: "https://sedra.bethmardutho.org/releases/v5.0/"
+authors:
+  - name: "Beth Mardutho: The Syriac Institute"
+  - family-names: "Kiraz"
+    given-names: "George A."
+  - family-names: "Bennett"
+    given-names: "James"
+abstract: "The lexical database of Classical Syriac: roots, lexemes, word forms with their morphology and vocalization, meanings and etymologies, with references to printed lexicons. Published by Beth Mardutho: The Syriac Institute."
+keywords:
+  - "Syriac"
+  - "Aramaic"
+  - "lexicon"
+  - "dictionary"
+  - "morphology"
+  - "Classical Syriac"
+license: "CC-BY-NC-4.0"
