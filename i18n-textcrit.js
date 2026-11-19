@@ -263,5 +263,10 @@
   "Projektverknüpfungen und Leseausgabe haben unterschiedliche Textstände und Zählungen. Nur geprüfte Parallelpassagen erhalten eine Textvorschau.": "Project links and the reading edition use different texts and numbering. Only verified parallel passages receive a text preview.",
   "Handschriften": "Manuscripts",
   "Eigene Handschriftenzählung": "Manuscript numbering",
-  "Parma und Cambridge stehen wortweise unter Kaufmann. Abweichungen sind rot; offene Zuordnungen bleiben getrennt.": "Parma and Cambridge appear word by word beneath Kaufmann. Differences are red; unresolved alignments remain separate."
+  "Parma und Cambridge stehen wortweise unter Kaufmann. Abweichungen sind rot; offene Zuordnungen bleiben getrennt.": "Parma and Cambridge appear word by word beneath Kaufmann. Differences are red; unresolved alignments remain separate.",
+  "Transkriptionswort": "Transcription word",
+  "Geprüfte Zuordnung": "Reviewed alignment",
+  "Wortgruppe (maschinell)": "Word group (automated)",
+  "Wortzuordnung (maschinell)": "Word alignment (automated)",
+  "Wortdetails und Quelle anzeigen": "Show word details and source"
 });

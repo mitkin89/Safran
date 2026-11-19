@@ -2053,3 +2053,7 @@ body.il .cell[data-k="he"] .ilt.il-smr { direction: rtl; font-family: var(--he-f
 #rOut .mishnah-reader-text .mci-source-ref{font: .55em/1.6 system-ui,sans-serif;color:var(--muted);display:block}
 .mishnah-reader-hover{position:fixed;z-index:55;box-sizing:border-box;width:480px;max-width:calc(100vw - 16px);max-height:min(60vh,calc(100vh - 16px));overflow:auto;background:var(--card);color:var(--fg);border:1px solid var(--accent);border-radius:8px;padding:12px 14px;box-shadow:0 6px 24px #0005;font:14px/1.55 system-ui,sans-serif}
 .mishnah-reader-hover>small{display:block;overflow-wrap:anywhere;color:var(--muted);font-size:.8em}
+
+#rOut .mishnah-reader-text .mci-labels{position:relative;flex-shrink:0}
+#rOut .mishnah-reader-text .mci-label-set{position:absolute;left:0;width:max-content;white-space:nowrap}
+#rOut .mishnah-reader-text .mci-label-set .mci-cell{white-space:nowrap}

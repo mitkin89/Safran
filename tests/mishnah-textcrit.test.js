@@ -39,3 +39,13 @@ test('Interlinear renders every source word once, marks differences red and reta
  const preview=ui.preview({dataset:{tcMishnah:'P|1:1',tcMishnahWord:'1:1|17'}});assert(preview.includes('<mark>וחכמין</mark>'));assert(preview.includes('Original-TEI'));
  const t=ui.render(1,['1:1'],['K'],'tosefta');assert(t.includes('מאימתי קורין'));assert(t.includes('Projektzählung'));assert(t.includes('Public Domain'));assert(!t.includes('mt-diff'));
 });
+
+test('Main-reader hover describes the selected source word without repeating the passage',async()=>{
+ const d=fixture(),sandbox={window:{}};vm.runInNewContext(fs.readFileSync(require.resolve('../library-mishnah-textcrit.js'),'utf8'),sandbox);
+ const ui=sandbox.window.LibraryMishnahTextCrit.create({esc:s=>String(s),load:async()=>d});await ui.load();
+ const reviewed=ui.metadataPreview({dataset:{tcMishnah:'P|1:1',tcMishnahWord:'1:1|17'}});
+ assert(reviewed.includes('Geprüfte Zuordnung'));assert(reviewed.includes('Transkriptionswort 18'));assert(reviewed.includes('S00483.1.1.1.1'));assert(!reviewed.includes(d.witnesses.P.units['1:1'].text));assert(!reviewed.includes('tc-mishnah-context'));assert(!reviewed.includes('Original-TEI'));
+ const k=d.witnesses.P.units['1:1'],choice=k.annotations.find(a=>a.tag==='choice'&&a.expansion),i=k.words.findIndex(w=>w.start<choice.end&&w.end>choice.start);
+ const abbreviation=ui.metadataPreview({dataset:{tcMishnah:'P|1:1',tcMishnahWord:'1:1|'+i}});assert(abbreviation.includes(choice.expansion));assert(abbreviation.includes('Abkürzung und Auflösung'));
+ const o=d.interlinear.chapters['1'].C.open[0];const open=ui.metadataPreview({dataset:{tcMishnah:'C|'+o.reading[0],tcMishnahWord:o.reading.join('|')}});assert(open.includes('Zuordnung offen'));
+});

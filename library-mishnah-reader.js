@@ -21,13 +21,34 @@ function create(host){
  }
  function hide(){clearTimeout(timer);if(anchor)anchor.removeAttribute('aria-describedby');hover?.remove();hover=null;anchor=null;}
  function show(word){
-  hide();if(!word.isConnected)return;const html=adapter.preview(word);if(!html)return;
+  hide();if(!word.isConnected)return;const html=adapter.metadataPreview(word);if(!html)return;
   hover=document.createElement('div');hover.id='mishnahReaderHover';hover.className='mishnah-reader-hover';hover.setAttribute('role','tooltip');hover.innerHTML=html;document.body.append(hover);anchor=word;word.setAttribute('aria-describedby',hover.id);
   const r=word.getBoundingClientRect(),h=hover.getBoundingClientRect();hover.style.left=Math.max(8,Math.min(innerWidth-h.width-8,r.left))+'px';hover.style.top=(r.bottom+h.height+8<innerHeight?r.bottom+8:Math.max(8,r.top-h.height-8))+'px';
   hover.onpointerenter=()=>clearTimeout(timer);hover.onpointerleave=()=>timer=setTimeout(hide,150);
  }
+ let layoutFrame=null;
+ // The flex columns wrap as complete alignment groups. Repeat the source labels
+ // at each measured visual line without duplicating a single source word.
+ function labelLines(){
+  layoutFrame=null;
+  for(const grid of $('#rOut').querySelectorAll('.mci-grid')){
+   const labels=grid.querySelector('.mci-labels'),columns=grid.querySelector('.mci-columns');if(!labels||!columns||!grid.getBoundingClientRect().width)continue;
+   let base=labels.querySelector('.mci-label-set');
+   if(!base){base=document.createElement('div');base.className='mci-label-set';base.append(...labels.children);labels.append(base);}
+   for(const copy of labels.querySelectorAll('.mci-label-repeat'))copy.remove();
+   labels.style.width=base.getBoundingClientRect().width+'px';
+   const top=columns.getBoundingClientRect().top,starts=[];
+   for(const column of columns.children){const y=column.getBoundingClientRect().top-top;if(!starts.some(n=>Math.abs(n-y)<1))starts.push(y);}
+   base.style.top=(starts[0]||0)+'px';
+   for(const y of starts.slice(1)){const copy=base.cloneNode(true);copy.classList.add('mci-label-repeat');copy.style.top=y+'px';labels.append(copy);}
+   labels.style.height=columns.getBoundingClientRect().height+'px';
+  }
+ }
+ const scheduleLabels=()=>{if(layoutFrame===null)layoutFrame=requestAnimationFrame(labelLines);};
+ const observer=typeof ResizeObserver==='function'?new ResizeObserver(scheduleLabels):null;
+ addEventListener('resize',scheduleLabels);
  async function refresh(){
-  const token=++generation;hide();if(!active())return;
+  const token=++generation;hide();observer?.disconnect();if(!active())return;
   const view=getView(),chapter=view.sections[view.idx]?.path?.[0];if(!Number.isInteger(chapter))return;
   $('#ilBtn').hidden=false;$('#ilBtn').classList.toggle('on',hasK()&&picks.length>0);$('#bavliIlBtn').hidden=true;
   const data=await adapter.load();if(token!==generation||getView()!==view||view.sections[view.idx]?.path?.[0]!==chapter)return;
@@ -42,6 +63,8 @@ function create(host){
     txt.innerHTML=adapter.sourceUnit(sig,ref);
    }
   }
+  for(const word of $('#rOut').querySelectorAll('[data-tc-mishnah]'))word.title=tr('Wortdetails und Quelle anzeigen');
+  labelLines();for(const grid of $('#rOut').querySelectorAll('.mci-grid'))observer?.observe(grid);
  }
  function menu(){
   return '<div class="ilpH">'+esc(tr('Handschriften'))+'</div><label class="ilpR"><input type="checkbox" value="K" '+(hasK()?'checked':'')+'> Kaufmann A50</label>'+['P','C'].map(s=>'<label class="ilpR"><input type="checkbox" value="'+s+'" '+(picks.includes(s)?'checked':'')+'> '+name(s)+'</label>').join('')+'<div class="ilpB"><button type="button" data-a="all">'+esc(tr('Alle'))+'</button> <button type="button" data-a="none">'+esc(tr('Keine'))+'</button></div><p class="muted">'+esc(tr('Parma und Cambridge stehen wortweise unter Kaufmann. Abweichungen sind rot; offene Zuordnungen bleiben getrennt.'))+'</p>';
@@ -62,7 +85,7 @@ function create(host){
  document.addEventListener('keydown',e=>{if(e.key==='Escape')hide();});
  document.addEventListener('pointerdown',e=>{if(hover&&!e.target.closest('#mishnahReaderHover,[data-tc-mishnah]'))hide();},true);
  addEventListener('scroll',e=>{if(hover&&!hover.contains(e.target))hide();},true);
- return {active,read,refresh,menu,choose,invalidate:()=>{generation++;hide();}};
+ return {active,read,refresh,menu,choose,invalidate:()=>{generation++;hide();observer?.disconnect();}};
 }
 return {entries,create};
 })();

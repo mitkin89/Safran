@@ -76,11 +76,36 @@ function create(host){
   if(!w||!Number.isInteger(w.start))return esc(u.text);
   return esc(u.offsetText.slice(0,w.start))+'<mark>'+esc(u.offsetText.slice(w.start,w.end))+'</mark>'+esc(u.offsetText.slice(w.end));
  }
+ function metadataPreview(anchor){
+  const [sig,refs]=String(anchor.dataset.tcMishnah||'').split('|'),source=data?.witnesses[sig];if(!source)return '';
+  const [wordRef,index]=String(anchor.dataset.tcMishnahWord||'').split('|'),i=Number(index);
+  const status=l=>!l?'Zuordnung offen':l.checked?'Geprüfte Zuordnung':l.kind==='joined'?'Wortgruppe (maschinell)':l.kind==='form'?'Form / Wortlaut':l.kind==='absent'?'Kein Gegenstück im maschinellen Vergleich':!l.base.length?'Zusatz (maschineller Vergleich)':'Wortzuordnung (maschinell)';
+  return '<b>'+esc(source.name)+'</b>'+String(refs||'').split(',').map(ref=>{
+   const u=source.units[ref];if(!u)return '';const w=wordRef===ref&&index!==undefined?u.words[i]:null;
+   let h='<p>Mishnah Berakhot '+esc(ref)+'</p><small>'+esc(u.id)+'</small>';
+   if(w){
+    h+='<p>'+esc('Transkriptionswort')+' '+(i+1)+'</p>';
+    if(sig!=='K'){
+     const chapter=data.interlinear.chapters[ref.split(':')[0]]?.[sig],link=chapter?.links.find(l=>l.reading.some(([r,n])=>r===ref&&n===i));
+     h+='<p>'+esc(status(link))+'</p>';
+    }else for(const other of ['P','C']){
+     const link=data.interlinear.chapters[ref.split(':')[0]]?.[other]?.links.find(l=>l.base.some(([r,n])=>r===ref&&n===i));
+     h+='<p>'+esc(name(other))+': '+esc(status(link))+'</p>';
+    }
+    const notes=u.annotations.filter(a=>a.start<w.end&&a.end>w.start||a.start===a.end&&a.start>=w.start&&a.start<w.end);
+    h+=notes.map(a=>'<p>'+esc(annotationLabel(a))+(a.expansion?': <bdi lang="he" dir="rtl">'+esc(a.expansion)+'</bdi>':'')+(a.tag==='del'&&a.text?': <bdi lang="he" dir="rtl">'+esc(a.text)+'</bdi>':'')+(Object.keys(a.attrs).length?' <small>'+esc(Object.entries(a.attrs).map(([k,v])=>k+'='+v).join(' · '))+'</small>':'')+'</p>').join('');
+   }else{
+    const counts=new Map();for(const a of u.annotations)counts.set(annotationLabel(a),(counts.get(annotationLabel(a))||0)+1);
+    h+=[...counts].map(([label,n])=>'<p>'+esc(label)+' · '+n+'</p>').join('');
+   }
+   return h;
+  }).join('')+'<small>Digital Mishnah · '+esc(source.license)+'</small>';
+ }
  function preview(anchor){
   const [sig,refs]=anchor.dataset.tcMishnah.split('|'),w=data?.witnesses[sig];if(!w)return '';
   return '<b>'+esc(w.name)+'</b>'+refs.split(',').map(ref=>{const u=w.units[ref];if(!u)return '';return '<p>'+esc('Mishnah Berakhot '+ref)+' · '+esc(u.id)+'</p><div class="tc-mishnah-context" lang="he" dir="rtl">'+contextText(u,ref,anchor)+'</div>'+u.annotations.map(a=>'<p>'+esc(annotationLabel(a))+': <bdi dir="rtl" lang="he">'+esc(a.text||'□')+'</bdi>'+ (a.expansion?' → <bdi dir="rtl" lang="he">'+esc(a.expansion)+'</bdi>':'')+' <small>'+esc(Object.entries(a.attrs).map(([k,v])=>k+'='+v).join(' · '))+'</small></p>').join('')+'<details><summary>'+esc('Original-TEI')+'</summary><pre class="tc-mishnah-xml">'+esc(u.raw)+'</pre></details>';}).join('')+'<small>Digital Mishnah · '+esc(w.license)+' · '+esc(w.url)+'</small>';
  }
- return {load,render,preview,sourceUnit:(sig,ref)=>'<small class="mci-source-ref">'+esc('Mishnah Berakhot '+ref)+' · '+esc('Eigene Handschriftenzählung')+'</small><div dir="rtl">'+data.witnesses[sig].units[ref].words.map((_,i)=>token(sig,[ref,i])).join(' ')+'</div>',refs:ch=>Object.keys(data?.verses||{}).filter(r=>r.startsWith(ch+':'))};
+ return {load,render,preview,metadataPreview,sourceUnit:(sig,ref)=>'<small class="mci-source-ref">'+esc('Mishnah Berakhot '+ref)+' · '+esc('Eigene Handschriftenzählung')+'</small><div dir="rtl">'+data.witnesses[sig].units[ref].words.map((_,i)=>token(sig,[ref,i])).join(' ')+'</div>',refs:ch=>Object.keys(data?.verses||{}).filter(r=>r.startsWith(ch+':'))};
 }
 return {create};
 })();

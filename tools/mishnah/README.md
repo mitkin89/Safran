@@ -87,3 +87,11 @@ source-token previews. Independently opened Parma/Cambridge versions retain
 their own unit numbering (explicitly labelled), rather than pretending that
 equal row numbers imply identical passages. The separate interlinear preference
 is saved per reader frame/session; the apparatus filters remain independent.
+
+Main-reader comparison lines repeat their witness names at each visual wrap,
+recalculated when the grid is resized. The main-reader hover shows only source
+metadata, the mechanical transcription token number, alignment status and
+annotations overlapping that token (including explicit source expansions). It
+does not repeat the paragraph or invent morphology, manuscript dates, folio
+locations or certainty percentages. The apparatus retains its separate full
+source-context preview.
