@@ -102,45 +102,23 @@ window.LibraryWordPopup = (() => {
     if(w.dataset.syRef&&/^[1-9]\d*:[1-9]\d*$/.test(w.dataset.syRef)){const [chapter,verse]=w.dataset.syRef.split(':').map(Number);path=[chapter-1];label=String(verse);}
     const r=window.SyriacMorph.at(sourceDoc,w.dataset.si,w.textContent,path,label),t=s=>I18N.t(s);
     const translit=`<div class="sy-translit"><small>${esc(t('Hebräische Umschrift (Konsonanten)'))}</small><bdi lang="he" dir="rtl">${esc(window.SyriacMorph.hebrew(w.textContent))}</bdi></div>`;
-    const rows=r?.parts.length?r.parts.map(p=>{const d=window.SyriacMorph.describe(p,t),lem=window.SyriacMorph.lemma(p.lex);return `<div class="wseg main"><span class="wlem" lang="syr" dir="rtl">${esc(p.form)} → ${esc(lem)}</span><br><span class="sy-translit-parts" lang="he" dir="rtl">${esc(window.SyriacMorph.hebrew(p.form))} → ${esc(window.SyriacMorph.hebrew(lem))}</span><br><span class="sy-morph">${esc([d.pos,d.info].filter(Boolean).join(' · '))}</span><br><strong class="sy-gloss">${esc(p.gloss)}</strong><br><code class="sy-source">${esc(p.lex)} · ETCBC Syriac #${esc(p.sourceId)}</code></div>`;}).join(''):`<p class="muted">${esc(t('Für dieses Wort liegt keine sicher zugeordnete Morphologie vor.'))}</p>`;
+    const parts=r?.parts||[];
+    const rows=parts.length?parts.map(p=>{const d=window.SyriacMorph.describe(p,t);return `<div class="wseg main"><bdi class="sy-part" lang="syr" dir="rtl">${esc(p.form)}</bdi><strong class="sy-gloss">${esc(p.gloss)}</strong><div class="sy-morph">${esc([d.pos,d.info].filter(Boolean).join(' · '))}</div></div>`;}).join(''):`<p class="muted">${esc(t('Für dieses Wort liegt keine sicher zugeordnete Morphologie vor.'))}</p>`;
     const source=`<p class="muted">${esc(t('Peschitta · eigene Verszählung'))}${r?` · ${r.chapter}:${r.verse} · Peshitta #${r.id}`:''}<br>${esc(t('Morphologie: ETCBC Syriac Corpus; Kurzglossen auf Englisch.'))}</p>`;
-    const lemmas=[...new Set((r?.parts||[]).map(p=>window.SyriacMorph.lemma(p.lex)).filter(Boolean))];
-    const buttons=lemmas.map(q=>`<button class="wdict" data-q="${esc(q)}">${esc(t('Im Wörterbuch nachschlagen'))}: <bdi lang="syr" dir="rtl">${esc(q)}</bdi></button>`).join('');
-    // Use the attested surface of each morpheme, not an assumed identity
-    // between ETCBC's lexeme codes and SEDRA's independent lexical entries.
-    const queries=[...new Set((r?.parts?.length?r.parts.map(p=>p.form):[w.textContent]).filter(Boolean))];
-    const sedra=`<section class="sy-sedra"><h4>${esc(t('SEDRA-Wörterbuch'))}</h4><p class="sy-sedra-note">${esc(t('Wörterbuchtreffer zur Schreibung, keine Bestimmung dieser Textstelle.'))}</p>${queries.map((q,i)=>`<details class="sy-sedra-part"${i===queries.length-1?' open':''}><summary><bdi lang="syr" dir="rtl">${esc(q)}</bdi></summary><div class="sy-sedra-results" data-query="${esc(q)}">${esc(t('Lädt …'))}</div></details>`).join('')}</section>`;
+    const analyses=parts.map(p=>{const lem=window.SyriacMorph.lemma(p.lex);return `<div class="sy-analysis"><bdi lang="syr" dir="rtl">${esc(p.form)} → ${esc(lem)}</bdi><div class="sy-translit-parts" lang="he" dir="rtl">${esc(window.SyriacMorph.hebrew(p.form))} → ${esc(window.SyriacMorph.hebrew(lem))}</div><code class="sy-source">${esc(p.lex)} · ETCBC Syriac #${esc(p.sourceId)}</code></div>`;}).join('');
+    // Search the attested lexical morpheme, never an inferred ETCBC-to-dictionary crosswalk.
+    // Prefer the content word over an attached conjunction, preposition or pronoun.
+    const main=parts.find(p=>['subs','verb','adjv','nmpr','advb'].includes(p.sp));
+    const query=main?.form||w.textContent;
+    const details=`<details class="sy-details"><summary>${esc(t('Quelle und Wortanalyse'))}</summary>${translit}${analyses}${source}</details>`;
+    const buttons=`<button class="wdict" data-q="${esc(query)}">${esc(t('Im Wörterbuch nachschlagen'))}</button>`;
     w.classList.add('sel');gSel={cell,i:w.dataset.si};
-    const place=showGreekUnit(null,{rows:translit+rows+source+sedra,buttons,word:w.textContent,at:w,lang:'syr',dir:'rtl',on:ev=>{
-      const b=ev.target.closest('.sedra-open');if(!b)return false;
-      openDict(b.dataset.q,{id:'7fab63c14df2',name:'SEDRA — Syriac Lexicon (Beth Mardutho)'});return true;
-    }});
+    const place=showGreekUnit(null,{rows:rows+details,buttons,word:w.textContent,at:w,lang:'syr',dir:'rtl'});
     wpop.classList.add('syriac-word');
-    const pop=wpop,token=gTok;
-    place();
+    const pop=wpop;place();
     pop.addEventListener('toggle',()=>{if(wpop===pop)place();},true);
-    for(const q of queries){
-      const slot=[...pop.querySelectorAll('.sy-sedra-results')].find(el=>el.dataset.query===q);
-      O.dictLookup(q,'7fab63c14df2',false).then(result=>{
-        if(wpop!==pop||gTok!==token||!w.isConnected)return;
-        const hits=(result.results||[]).filter(x=>x.dictId==='7fab63c14df2'&&x.kind==='exact');
-        slot.innerHTML=result.error?`<p class="muted">${esc(t('SEDRA konnte nicht geladen werden.'))}</p>`:hits.length?hits.map(hit=>{
-          const entry=document.createElement('div');entry.innerHTML=hit.html;
-          const gloss=entry.querySelector('.sedra-language [lang=eng]')||entry.querySelector('.sedra-language li > span');
-          const short=gloss?.textContent||'';
-          const primary=gloss?.closest('.sedra-language'),root=entry.querySelector('.sedra-root');
-          if(root?.querySelector('small'))root.querySelector('small').textContent=t('Wurzel');
-          const meanings=primary?[...primary.querySelectorAll('li')].slice(0,3).map(li=>li.outerHTML).join(''):'';
-          const id=entry.querySelector('[data-sedra-id]')?.dataset.sedraId||'';
-          return `<details class="sy-sedra-candidate" data-sedra-id="${esc(id)}"${hits.length===1?' open':''}><summary><bdi lang="syr" dir="rtl">${esc(hit.head)}</bdi>${short?` <span>${esc(short.slice(0,120))}${short.length>120?'…':''}</span>`:''}</summary>${meanings?`<small>${esc(primary.querySelector('small')?.textContent||'')}</small><ul class="sy-sedra-glosses">${meanings}</ul>`:''}${root?.outerHTML||''}<details class="sy-sedra-more"><summary>${esc(t('Vollständiger Wörterbucheintrag'))}</summary>${hit.html}</details></details>`;
-        }).join('')+`<button class="wdict sedra-open" data-q="${esc(q)}">${esc(t('Im SEDRA-Wörterbuch öffnen'))}</button>`:`<p class="muted">${esc(t('Kein genauer SEDRA-Treffer für diese Schreibung.'))}</p>`;
-        place();
-      }).catch(()=>{
-        if(wpop!==pop||gTok!==token)return;
-        slot.innerHTML=`<p class="muted">${esc(t('SEDRA konnte nicht geladen werden.'))}</p>`;place();
-      });
-    }
   }
+
   let greekManualP=null;
   async function showCorpusWord(cell,at,doc){
     const token=++gTok;let manual=null;

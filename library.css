@@ -2292,16 +2292,13 @@ body.has-dock-tabs .pinp .pinB { display: none; }
 .sedra-entry .sedra-root { padding-block: .35em; border-top: 1px solid var(--line); }
 .sedra-entry .sedra-forms > div { display: flex; flex-wrap: wrap; gap: .35em; margin-block: .5em; }
 #wpop.syriac-word { width: 390px; }
-#wpop .sy-sedra { border-top: 1px solid var(--line); margin-top: .6em; padding-top: .4em; }
-#wpop .sy-sedra h4 { margin: 0; font-size: 1em; }
-#wpop .sy-sedra-note { color: var(--muted); font-size: .85em; margin: .3em 0; }
-#wpop .sy-sedra-part > summary > bdi { font-size: 1.4em; }
-#wpop .sy-sedra-candidate { padding: .3em .4em; border: 1px solid var(--line); border-radius: 5px; }
-#wpop .sy-sedra-candidate > summary { cursor: pointer; }
-#wpop .sy-sedra-candidate > summary > bdi { font-size: 1.3em; }
-#wpop .sy-sedra-candidate > summary > span { font-weight: 600; }
-#wpop .sy-sedra details { font-size: 1em; }
-#wpop .sy-sedra-glosses { margin: .25em 0 .5em; padding-inline-start: 1.2em; }
-#wpop .sy-sedra-glosses li > span { font-weight: 600; }
-#wpop .sy-sedra-glosses cite { color: var(--muted); font-style: normal; font-size: .8em; }
+#wpop.syriac-word .wseg.main { padding: 7px 9px; }
+#wpop.syriac-word .sy-part { float: inline-end; margin-inline-start: .6em; font-size: 1.3em; }
+#wpop.syriac-word .sy-gloss { display: block; font-size: 1em; }
+#wpop .sy-details { margin: .6em 0; font-size: .85em; }
+#wpop .sy-details > summary { cursor: pointer; color: var(--muted); }
+#wpop .sy-analysis { padding-block: .35em; border-bottom: 1px solid var(--line); }
+/* The full dictionary workspace must not inherit the study pane's saved geometry. */
+html[data-tab=dict] body #dictPanel.pinp:is(.docked,.panel-sized) { left: 0 !important; right: 0 !important; top: calc(57px - var(--hdoff, 0px)) !important; bottom: 0 !important; width: auto !important; height: auto !important; max-width: none !important; max-height: none !important; }
+html.split[data-tab=dict] body #dictPanel.pinp:is(.docked,.panel-sized) { right: var(--p2w) !important; }
 .sedra-entry .sedra-language li > span[lang=eng] { font-weight: 600; }

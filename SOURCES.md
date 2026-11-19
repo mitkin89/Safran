@@ -16,7 +16,7 @@ The Josephus links (Antiquities, Jewish War ↔ Bible, Maccabees and each other)
 
 The offline SEDRA dictionary contains 35,892 verified lexical entries with multilingual glosses, explicit root relations and recorded vocalizations from **Sedra 5.0 (2026-10-24)**, edited by George A. Kiraz and James Bennett, **Beth Mardutho: The Syriac Institute**. Data: **CC BY-NC 4.0**, https://creativecommons.org/licenses/by-nc/4.0/ . Source: https://sedra.bethmardutho.org/releases/v5.0/ . Original resource partners and per-entry references remain credited; see [LICENSE-SEDRA.md](LICENSE-SEDRA.md).
 
-Changes: conversion to Safran's bundled dictionary format, plain-text gloss cleanup, recorded non-theoretical word forms as search aliases, exact spelling candidates in Peshitta word popups. Homonyms stay separate and ETCBC's contextual morphology is retained independently. No scans, library texts or generated forms are imported. Reproducible converter and pinned checksums: `tools/sedra/`.
+Changes: conversion to Safran's bundled dictionary format, plain-text gloss cleanup, recorded non-theoretical word forms as search aliases, recorded spelling lookup from Peshitta word popups in the selected dictionaries. Homonyms stay separate and ETCBC's contextual morphology is retained independently. No scans, library texts or generated forms are imported. Reproducible converter and pinned checksums: `tools/sedra/`.
 
 ## Hebrew Tanakh with morphology (OSHB)
 

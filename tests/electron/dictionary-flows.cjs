@@ -19,6 +19,14 @@ module.exports=async function setup({profile}){
     const article=async (head,count=2)=>waitFor(`document.querySelectorAll('#dictOut .dentry').length===${count} && document.querySelector('#dictOut .dhead b')?.textContent===${JSON.stringify(head)}`,'Wörterbuchartikel '+head);
     await js("document.querySelector('nav [data-tab=dict]').click()");
     await lookup('אב');await article('אב');
+    // Persisted study pane geometry must not constrain the full dictionary workspace.
+    await js("document.body.classList.add('panel-width-chosen');document.documentElement.style.setProperty('--cmt-w','400px')");
+    for(const floating of [false,true]){
+      await js(`{const p=document.querySelector('#dictPanel');p.classList.toggle('docked',!${floating});p.classList.toggle('panel-sized',${floating});p.style.setProperty('--panel-w','400px');p.style.setProperty('--panel-x','30px');}`);
+      assert(await js("(()=>{const p=document.querySelector('#dictPanel').getBoundingClientRect(),right=document.querySelector('#pane2'),available=document.documentElement.classList.contains('split')?right.getBoundingClientRect().left:innerWidth;return p.width>available*.95&&document.querySelector('#dictOut').clientWidth>available*.5})()"),'Vollständige Wörterbuchbreite trotz gespeicherter Pane-Geometrie');
+    }
+    await js("document.querySelector('#dictPanel').classList.remove('panel-sized');document.querySelector('#dictPanel').classList.add('docked');document.body.classList.remove('panel-width-chosen')");
+
     assert((await js("document.querySelector('#dictRecentL').textContent")).includes('אב'));
     await js("document.querySelector('#dictStar').click()");
     assert.equal(await js("document.querySelector('#dictStar').textContent"),'★');

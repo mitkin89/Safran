@@ -80,7 +80,11 @@ module.exports=async({win,js,waitFor,book})=>{
   await waitFor("[...document.querySelectorAll('#tcBody .tc-status')].some(n=>n.textContent.includes('Exodus 20:11')&&n.textContent.includes('Exodus 20:12'))",'Abweichende Samaritanus-Zählung der Gebote');
   assert(await js("document.querySelector('#tcBody .tc-status')?.textContent.includes('Abweichende Versgrenzen')"));
   await js("document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true}))");
-  await waitFor("document.querySelector('#textcritPanel').hidden",'Escape schließt Textkritik');
+  if(await js("document.querySelector('#textcritPanel').classList.contains('docked')")){
+    assert(await js("!document.querySelector('#textcritPanel').hidden"),'Esc schützt die angepinnte Textkritik');
+    await js("document.querySelector('#textcritPanel .pinB').click();document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true,cancelable:true}))");
+  }
+  await waitFor("document.querySelector('#textcritPanel').hidden",'Escape schließt gelöste Textkritik');
   await js("document.querySelector('#splitBtn').click()");
   await waitFor("document.querySelector('#pane2').contentDocument?.querySelector('#tcBtn')",'Textkritik im zweiten Fenster verfügbar');
   await book('Genesis',"document.querySelector('#pane2').contentDocument");

@@ -14,6 +14,7 @@
   if (lang === 'de') return;
 
   const EN = {
+    "Quelle und Wortanalyse": "Source and word analysis",
     "SEDRA-Wörterbuch": "SEDRA dictionary",
     "Wurzel": "Root",
     "Vollständiger Wörterbucheintrag": "Full dictionary entry",

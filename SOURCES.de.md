@@ -16,7 +16,7 @@ Die Josephus-Verknüpfungen (Altertümer, Jüdischer Krieg ↔ Bibel, Makkabäer
 
 Das Offline-Wörterbuch enthält 35.892 geprüfte Lexeme mit mehrsprachigen Bedeutungen, ausdrücklich zugeordneten Wurzeln und erfassten Vokalisierungen aus **Sedra 5.0 (24.10.2026)**, herausgegeben von George A. Kiraz und James Bennett, **Beth Mardutho: The Syriac Institute**. Daten: **CC BY-NC 4.0**, https://creativecommons.org/licenses/by-nc/4.0/ . Quelle: https://sedra.bethmardutho.org/releases/v5.0/ . Quellenpartner und einzelne Belegangaben bleiben erhalten; siehe [LICENSE-SEDRA.md](LICENSE-SEDRA.md).
 
-Änderungen: Umwandlung in Safrans Wörterbuchformat, Aufbereitung der Glossentexte, erfasste nichttheoretische Wortformen als Suchschlüssel, genaue Schreibungstreffer im Peschitta-Wortfenster. Gleich geschriebene Lexeme bleiben getrennt; die kontextuelle ETCBC-Morphologie bleibt unabhängig davon erhalten. Keine Scans, Bibliothekstexte oder generierten Formen werden importiert. Konverter und festgehaltene Prüfsummen: `tools/sedra/`.
+Änderungen: Umwandlung in Safrans Wörterbuchformat, Aufbereitung der Glossentexte, erfasste nichttheoretische Wortformen als Suchschlüssel, Nachschlagen belegter Schreibungen aus dem Peschitta-Wortfenster in den ausgewählten Wörterbüchern. Gleich geschriebene Lexeme bleiben getrennt; die kontextuelle ETCBC-Morphologie bleibt unabhängig davon erhalten. Keine Scans, Bibliothekstexte oder generierten Formen werden importiert. Konverter und festgehaltene Prüfsummen: `tools/sedra/`.
 
 ## Hebräischer Tanach mit Morphologie (OSHB)
 
