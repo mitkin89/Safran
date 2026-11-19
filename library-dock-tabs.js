@@ -77,7 +77,9 @@ function create({$,panels,pins,open,automatic,activePair,afterOpen,available=()=
   if(e.key!=='Escape'||e.defaultPrevented||e.isComposing||!visible().length||document.documentElement.dataset.tab==='dict')return;
   if(document.querySelector('dialog[open],#wpop,#tcHover,#kenWitness,#tcSettings[open]'))return;
   if(['#findBar','#dispPanel','#dictSug','#fmFind','#suggest','#ctxMenu','#dictSelP'].some(s=>{const el=$(s);return el&&!el.hidden&&el.getClientRects().length;}))return;
-  e.preventDefault();e.stopImmediatePropagation();close();
+  e.preventDefault();e.stopImmediatePropagation();
+  // Consume Escape for pinned tools so individual panel handlers cannot close them.
+  if(!docked)close();
  },true);
  bar.addEventListener('keydown',e=>{if(!['ArrowLeft','ArrowRight','Home','End'].includes(e.key))return;const list=[...bar.querySelectorAll('[data-panel]:not(:disabled)')],i=list.indexOf(e.target);if(i<0)return;e.preventDefault();const next=e.key==='Home'?0:e.key==='End'?list.length-1:(i+(e.key==='ArrowRight'?1:-1)+list.length)%list.length;activate(list[next].dataset.panel);list[next].focus({preventScroll:true});});
  // Follow both size changes and position-only updates while a floating pane is dragged.

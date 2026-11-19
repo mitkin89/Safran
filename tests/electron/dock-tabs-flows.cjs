@@ -11,6 +11,14 @@ module.exports=async({win,js,waitFor,book})=>{
  await waitFor("!document.querySelector('#cmtPanel').hidden&&document.querySelector('#textcritPanel').hidden",'Kommentar über Tab aktiv');
  await ensure('#allPanel','#apBtn');await ensure('#outlinePanel','#olBtn');await ensure('#linkPanel','#lkBtn');await ensure('#topicPanel','#tpBtn');await ensure('#mapPanel','#mapBtn');
  for(const k of ['cmt','textcrit','all','outline','link','topic','map'])assert(await js(`!!document.querySelector('#dockTabs [data-panel=${k}]')`),'Tab für '+k);
+ for(const k of ['cmt','dict','all','outline','link','topic','textcrit','map']){
+  if(await js(`document.querySelector('#dockTabs [data-panel=${k}]').disabled`))continue;
+  await js(`document.querySelector('#dockTabs [data-panel=${k}]').click()`);
+  await waitFor(`!document.getElementById(document.querySelector('#dockTabs [data-panel=${k}]').getAttribute('aria-controls')).hidden`,'Angepinntes Werkzeug '+k);
+  await js("document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true,cancelable:true}))");
+  assert(await js(`!document.getElementById(document.querySelector('#dockTabs [data-panel=${k}]').getAttribute('aria-controls')).hidden`),'Esc lässt angepinntes Werkzeug geöffnet: '+k);
+ }
+
  await js("document.querySelector('#dockTabs [data-panel=outline]').click()");
  await waitFor("!document.querySelector('#outlinePanel').hidden&&document.querySelector('#mapPanel').hidden",'Gliederung per Tab');
  const outline=await js("document.querySelector('#olBody').textContent");
@@ -27,7 +35,9 @@ module.exports=async({win,js,waitFor,book})=>{
  await waitFor("document.querySelector('#dockTabs [role=tab][aria-selected=true]')===document.querySelector('#dockTabs [data-panel]')",'Tabwechsel mit Tastatur');
  await js("document.querySelector('#dockTabs [data-panel=forms]').click()");await waitFor("!document.querySelector('#formsPanel').hidden",'Wortkarte aktiv vor Lösen');
  await js("document.querySelector('#formsPanel .pinB').click()");await waitFor("!!document.querySelector('#dockTabs [data-panel=forms]')&&!document.querySelector('#formsPanel').classList.contains('docked')",'Gelöstes Panel behält seinen Werkzeug-Tab');
- await js("document.querySelector('#fmClose').click();document.querySelector('#dockTabs [data-panel=textcrit]').click()");await waitFor("!document.querySelector('#textcritPanel').hidden",'Textkritik für Sichtprüfung');
+ await js("document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true,cancelable:true}))");
+ await waitFor("document.querySelector('#formsPanel').hidden&&document.querySelector('#dockTabs').hidden",'Esc schließt die gelöste Seitenleiste');
+ await js("document.querySelector('#dockTabs [data-panel=textcrit]').click()");await waitFor("!document.querySelector('#textcritPanel').hidden",'Textkritik für Sichtprüfung');
  await js("new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))");
  await waitFor("document.querySelector('#dockTabs').getBoundingClientRect().bottom<=document.querySelector('#textcritPanel').getBoundingClientRect().top+2",'Tab-Leiste überdeckt keinen Panel-Kopf');
  if(process.env.SAFRAN_DOCK_TABS_CAPTURE){await js("new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))");fs.writeFileSync(process.env.SAFRAN_DOCK_TABS_CAPTURE,(await win.webContents.capturePage()).toPNG());}
