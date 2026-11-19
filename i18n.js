@@ -36,7 +36,7 @@
 
     "Fenstergröße ändern": "Resize panel",
     "Ziehen: Fenstergröße ändern. Pfeiltasten: Größe ändern. Doppelklick: Standard.": "Drag to resize. Arrow keys: change size. Double-click: reset.",
-    "sonst": "elsewhere",
+    "im Rest": "elsewhere",
     "Balken: Vorkommen je 1.000 Wörter, für alle Zeilen gleich skaliert. Blau: Auswahl. Gold: übriges Vergleichskorpus.": "Bars: occurrences per 1,000 words, on the same scale across all rows. Blue: selection. Gold: rest of comparison corpus.",
 
     "Gleiche Wiedergabe": "Same rendering",

@@ -37,7 +37,7 @@ The short version is in the [README](../README.md). This page lists everything, 
 ## Resizable study panels
 
 - Word card, overview, textual criticism, commentaries, dictionary, outline, links, topics and map support resizing. Drag the left separator of a pinned panel; drag any edge or corner of a floating panel. Sizes are saved per floating panel; pinned panels share their chosen width. Arrow keys resize a focused grip (Shift: larger step), Home or double-click restores the default. Sizes remain within the reading window.
-- Frequency comparisons use labeled blue/gold bars for passage/remainder frequencies per 1,000 words, on one common linear scale across rows. Absolute counts stay visible, and the book/Tanakh selector recalculates the comparison.
+- Both unusually frequent and rare-word comparisons use labeled blue/gold bars for passage/remainder frequencies per 1,000 words, on one common linear scale across rows. Absolute counts stay visible, and the book/Tanakh selector recalculates the comparison.
 
 ## Compare chapters
 

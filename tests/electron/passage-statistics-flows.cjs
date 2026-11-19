@@ -66,6 +66,10 @@ module.exports=async({win,js,waitFor,book})=>{
  await js("document.querySelector('#apBody [data-scope=c] button[data-compare=tanakh]').click()");
  const after=await js("document.querySelector('#apBody [data-scope=c] .apPane[data-seg=lead]').textContent");assert.notEqual(before,after,'Eigene Buch- und Tanachzahlen');
  await js("document.querySelector('#apBody [data-scope=c] .apSeg button[data-seg=rare]').click()");
+ assert(await js("{const pane=document.querySelector('#apBody [data-scope=c] .apPane[data-seg=rare]');pane.querySelectorAll('.apRow').length===pane.querySelectorAll('.apRateGraph').length&&[...pane.querySelectorAll('.apRateGraph')].every(x=>x.querySelector('.here b')&&x.querySelector('.rest b'))}"),'Auch seltene Wörter haben zwei Vergleichsbalken');
+ if(await js("I18N.lang==='en'"))assert(await js("[...document.querySelectorAll('#apBody [data-scope=c] .apPane[data-seg=rare] .apRateGraph')].every(x=>x.textContent.includes('here')&&x.textContent.includes('elsewhere'))"),'Englische Balkenbeschriftung');
+ await js("document.querySelector('#apBody [data-scope=c] .apPane[data-seg=rare] .apRow').scrollIntoView({block:'center'});new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))");fs.writeFileSync('/tmp/safran-rare-word-bars.png',(await win.webContents.capturePage()).toPNG());
+ assert(await js("[...document.querySelectorAll('#apBody [data-scope=c] .apPane[data-seg=rare] .rest small')].some(x=>/^< 0[.,]1$/.test(x.textContent))"),'Sehr kleine positive Häufigkeiten werden nicht als Null angezeigt');
  const tanakhRare=await js("[...document.querySelectorAll('#apBody [data-scope=c] .apPane[data-seg=rare] .apW')].map(w=>w.dataset.lemma)");
  assert(!tanakhRare.includes('8414'),'תוהו hat 20 Tanachbelege und ist im Tanachfilter nicht selten');
  await js("document.querySelector('#apBody [data-scope=c] button[data-compare=book]').click()");

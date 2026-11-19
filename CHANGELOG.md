@@ -1,6 +1,7 @@
 # Changelog
 
 ### Unreleased
+- **Rare-word comparison bars:** add the same paired, normalized frequency bars used for unusually frequent words, with a common linear scale within the rare list. Keep book and Tanakh counts visible and show no remainder rate when the selection is the whole comparison corpus.
 - **Direct chapter comparison:** choose two installed MT chapters, including across books. Compare shared/exclusive lexical entries, normalized frequency differences, explicitly sourced word families, verb stems and forms. Show absolute counts, common-scale rates per 1,000 and clickable verse references; retain choices and results when returning from a word card.
 - **MT frequency highlights:** optionally mark rare words in gold or unusually frequent words in blue from passage statistics. Use exact OSHB lemma IDs, selected verse/chapter and book/Tanakh corpus; preserve word interaction and layout refreshes. Keep a clear control in the reader and clear the passage-specific marks on chapter changes.
 - **Resizable study panels:** add shared edge/corner grips for all nine auxiliary panels, a shared dock divider, keyboard resizing and reset, saved floating geometry and viewport bounds.

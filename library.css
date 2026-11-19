@@ -2124,7 +2124,7 @@ body.panel-resize-ready #cmtResize,body.panel-resize-ready #tpResize,body.panel-
 body.panel-width-chosen .pinp.docked{width:var(--cmt-w,400px)!important;box-sizing:border-box}
 body .pinp.panel-sized:not(.docked){left:var(--panel-x)!important;top:var(--panel-y)!important;right:auto!important;bottom:auto!important;width:var(--panel-w)!important;height:var(--panel-h)!important;max-width:none!important;max-height:none!important;box-sizing:border-box}
 #apBody .apRateGraph{display:block;width:220px;max-width:100%;margin:5px 0 2px auto}
-#apBody .apRateLine{display:grid;grid-template-columns:38px minmax(30px,1fr) 34px;align-items:center;gap:7px;font-size:10px;text-align:start;line-height:1.6}
+#apBody .apRateLine{display:grid;grid-template-columns:52px minmax(30px,1fr) 34px;align-items:center;gap:7px;font-size:10px;text-align:start;line-height:1.6}
 #apBody .apRateLine i{height:7px;background:var(--line);border-radius:3px;overflow:hidden}
 #apBody .apRateLine b{display:block;height:100%;background:var(--accent);border-radius:3px}
 #apBody .apRateLine.rest b{background:#c49b53}

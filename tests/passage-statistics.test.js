@@ -57,3 +57,13 @@ test('Verse profile preserves token totals, corpus-sensitive rarity, commentary 
  assert(profile.some(p=>p.rare.book!==p.rare.tanakh));for(const p of profile)assert.equal(p.sourceKinds,[1,2,4,8].filter(bit=>p.sources&bit).length);
  assert.deepEqual(S.profile(rows,D,'Unknown',1,links),[]);
 });
+
+
+test('rare-word bars normalize against the remainder of the selected corpus, including singleton and whole-book selections',()=>{
+ assert.deepEqual(S.frequencies(1,3,100,1100),{rateHere:10,rateRest:2});
+ assert.deepEqual(S.frequencies(1,1,100,100),{rateHere:10,rateRest:null});
+ const st=S.analyze(load()[0].text[0].map((html,i)=>({html,label:i+1})),D,'Genesis',1);
+ for(const [mode,field,N]of [['book','B',D.books.Genesis.N],['tanakh','T',D.N]])for(const r of st.rareByCorpus[mode]){
+  assert.equal(r.rateHere,1000*r.n/st.words);assert.equal(r.rateRest,1000*(r[field]-r.n)/(N-st.words));
+ }
+});

@@ -11,6 +11,9 @@ function tokens(html){
  }
  return out;
 }
+function frequencies(here,total,selectionSize,corpusSize){
+ return {rateHere:selectionSize>0?1000*here/selectionSize:0,rateRest:corpusSize>selectionSize?1000*Math.max(0,total-here)/(corpusSize-selectionSize):null};
+}
 function analyze(rows,index,book,chapter){
  const units=rows.map((r,i)=>({label:String(r.label??i+1),tokens:tokens(r.html)})),map=new Map(),formMap=new Map();
  for(const unit of units)for(const t of unit.tokens){
@@ -26,10 +29,10 @@ function analyze(rows,index,book,chapter){
  // smoothing keeps exclusive words finite; this is a ranking, not a p-value.
  const compare=(field,N)=>N<=stats.words?[]:content.filter(r=>r.n>=3||r.n>=2&&r[field]<=5).map(r=>{
   const outside=Math.max(0,r[field]-r.n),size=N-stats.words,fold=((r.n+.5)/(stats.words+1))/((outside+.5)/(size+1));
-  return {...r,fold,k:r.n*Math.log(fold),outside,rateHere:1000*r.n/stats.words,rateRest:1000*outside/size};
+  return {...r,fold,k:r.n*Math.log(fold),outside,...frequencies(r.n,r[field],stats.words,N)};
  }).filter(r=>r.k>0).sort((a,b)=>b.k-a.k||b.n-a.n);
  for(const list of [stats.names,stats.vocab,stats.only,stats.verbs,...stats.tiers.map(t=>t.items)])for(const r of list)r.B=bookData.lemmas[r.w.lemma]||0;
- const rareIn=field=>content.filter(r=>r[field]>0&&r[field]<=19).sort((a,b)=>a[field]-b[field]||b.n-a.n||a.T-b.T||a.w.lemma.localeCompare(b.w.lemma));
+ const rareIn=field=>content.filter(r=>r[field]>0&&r[field]<=19).map(r=>({...r,...frequencies(r.n,r[field],stats.words,field==='B'?bookData.N:index.N)})).sort((a,b)=>a[field]-b[field]||b.n-a.n||a.T-b.T||a.w.lemma.localeCompare(b.w.lemma));
  const vocabularyIn=field=>{const tiers=[['>500',n=>n>500],['100–500',n=>n>=100&&n<=500],['20–99',n=>n>=20&&n<100],['2–19',n=>n>=2&&n<20],['1',n=>n===1]];return {tiers:tiers.map(([key,f])=>({key,items:content.filter(r=>f(r[field])).sort((a,b)=>b.n-a.n||a[field]-b[field])})).filter(t=>t.items.length),vocab:content.filter(r=>r[field]>0&&r[field]<100).sort((a,b)=>a[field]-b[field]||b.n-a.n)};};
  const families=new Map();
  for(const r of content){const family=index.roots[r.w.lemma];if(!family)continue;const key=family.lang+'|'+family.id;let f=families.get(key);if(!f){f={...family,n:0,items:[]};families.set(key,f);}f.n+=r.n;f.items.push(r);}
@@ -53,5 +56,5 @@ function profile(rows,index,book,chapter,links=[]){
  });
 }
 const concentration=(here,total)=>total>1&&here<=total&&here/total>=.5?Math.round(100*here/total):null;
-const api={tokens,analyze,concentration,profile};if(node)module.exports=api;else window.PassageStatistics=api;
+const api={tokens,analyze,concentration,profile,frequencies};if(node)module.exports=api;else window.PassageStatistics=api;
 })();
