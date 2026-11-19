@@ -2071,3 +2071,15 @@ body.il .cell[data-k="he"] .ilt.il-smr { direction: rtl; font-family: var(--he-f
 
 #apBody .apRn{flex-shrink:1;min-width:0;max-width:58%}
 #apBody .apRates{white-space:normal;overflow-wrap:anywhere}
+
+#apBody .apCompare[hidden]{display:none}
+
+#apBody .apEvidenceTable{width:100%;table-layout:fixed;border-collapse:collapse;font-size:12px}
+#apBody .apEvidenceTable caption{text-align:start;color:var(--muted);font-size:11px;padding:0 0 8px}
+#apBody .apEvidenceTable th,#apBody .apEvidenceTable td{text-align:center;padding:6px 3px;border-bottom:1px solid var(--line);overflow-wrap:anywhere}
+#apBody .apEvidenceTable thead th{font-weight:600;vertical-align:top}
+#apBody .apEvidenceTable th:first-child{width:36px}
+#apBody .apEvidenceTable th small{display:block;font-size:10px;font-weight:400;color:var(--muted)}
+#apBody .apEvidenceMark{color:var(--accent);font-weight:600}
+#apBody .apEvidenceLegend{margin-top:8px;font-size:12px}
+#apBody .apEvidenceLegend summary{cursor:pointer;color:var(--muted)}

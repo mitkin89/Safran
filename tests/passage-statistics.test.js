@@ -27,3 +27,23 @@ test('Phrase boundaries, morphological variants and homonymous roots stay distin
  const broken=S.analyze([{label:1,html:a+word('','HX','?')+b},{label:2,html:a+b}],index,'B',1);assert.equal(broken.phrases.length,0);
  const absent={...index,roots:{}};assert.equal(S.analyze([{html:a+b}],absent,'B',1).families.length,0); // spelling alone never invents a root
 });
+
+test('Rarity and vocabulary tiers follow the selected corpus, not a fixed Tanakh list',()=>{
+ const s=S.analyze(load()[0].text[0].map((html,i)=>({html,label:i+1})),D,'Genesis',1);
+ assert(s.rareByCorpus.book.some(r=>r.w.lemma==='8414')); // tohu: once in Genesis, 20 times in Tanakh
+ assert(!s.rareByCorpus.tanakh.some(r=>r.w.lemma==='8414'));
+ assert(s.rareByCorpus.book.length>s.rareByCorpus.tanakh.length);
+ for(const [key,field]of [['book','B'],['tanakh','T']]){
+  const rare=s.rareByCorpus[key];assert(rare.every(r=>r[field]>0&&r[field]<=19));for(let i=1;i<rare.length;i++)assert(rare[i-1][field]<=rare[i][field]);
+  assert(s.vocabularyByCorpus[key].vocab.every(r=>r[field]>0&&r[field]<100));
+  const tier=s.vocabularyByCorpus[key].tiers.find(t=>t.key==='1');assert((tier?.items||[]).every(r=>r[field]===1));if(!tier)assert(!s.all.some(r=>r[field]===1&&!/^Eigenname$/.test(r.w.pos)&&!require('../passage').isFunction(r.w.pos)));
+ }
+ assert.notDeepEqual(s.vocabularyByCorpus.book.vocab.map(r=>r.w.lemma),s.vocabularyByCorpus.tanakh.vocab.map(r=>r.w.lemma));
+});
+
+test('Concentration badges retain the old half-of-corpus threshold and show the exact rounded share',()=>{
+ assert.equal(S.concentration(7,13),54);assert.equal(S.concentration(6,8),75);assert.equal(S.concentration(6,6),100);
+ assert.equal(S.concentration(1,2),50);assert.equal(S.concentration(1,1),null);assert.equal(S.concentration(2,5),null);assert.equal(S.concentration(1,0),null);assert.equal(S.concentration(9,6),null);
+ const s=S.analyze(load()[0].text[0].map((html,i)=>({html,label:i+1})),D,'Genesis',1),word=s.all.find(r=>r.w.lemma==='7549');
+ assert.notEqual(S.concentration(word.n,word.B),S.concentration(word.n,word.T)); // different corpus shares, not a fixed Tanakh badge
+});

@@ -29,6 +29,8 @@ function analyze(rows,index,book,chapter){
   return {...r,fold,k:r.n*Math.log(fold),outside,rateHere:1000*r.n/stats.words,rateRest:1000*outside/size};
  }).filter(r=>r.k>0).sort((a,b)=>b.k-a.k||b.n-a.n);
  for(const list of [stats.names,stats.vocab,stats.only,stats.verbs,...stats.tiers.map(t=>t.items)])for(const r of list)r.B=bookData.lemmas[r.w.lemma]||0;
+ const rareIn=field=>content.filter(r=>r[field]>0&&r[field]<=19).sort((a,b)=>a[field]-b[field]||b.n-a.n||a.T-b.T||a.w.lemma.localeCompare(b.w.lemma));
+ const vocabularyIn=field=>{const tiers=[['>500',n=>n>500],['100–500',n=>n>=100&&n<=500],['20–99',n=>n>=20&&n<100],['2–19',n=>n>=2&&n<20],['1',n=>n===1]];return {tiers:tiers.map(([key,f])=>({key,items:content.filter(r=>f(r[field])).sort((a,b)=>b.n-a.n||a[field]-b[field])})).filter(t=>t.items.length),vocab:content.filter(r=>r[field]>0&&r[field]<100).sort((a,b)=>a[field]-b[field]||b.n-a.n)};};
  const families=new Map();
  for(const r of content){const family=index.roots[r.w.lemma];if(!family)continue;const key=family.lang+'|'+family.id;let f=families.get(key);if(!f){f={...family,n:0,items:[]};families.set(key,f);}f.n+=r.n;f.items.push(r);}
  const phrases=new Map();
@@ -38,7 +40,8 @@ function analyze(rows,index,book,chapter){
  }
  const tenses=new Map(),forms=[...formMap.values()].sort((a,b)=>b.n-a.n||a.code.localeCompare(b.code));let verbs=0;
  for(const f of forms){verbs+=f.n;tenses.set(f.tense,(tenses.get(f.tense)||0)+f.n);}
- return {...stats,book,all,comparisonAvailable:{book:bookData.N>stats.words,tanakh:index.N>stats.words},comparisons:{book:compare('B',bookData.N),tanakh:compare('T',index.N)},rare:content.filter(r=>r.T>0&&r.T<=19).sort((a,b)=>a.T-b.T||b.n-a.n),families:[...families.values()].sort((a,b)=>b.n-a.n),rootWords:[...families.values()].reduce((n,f)=>n+f.n,0),forms,tenses:[...tenses].map(([tense,n])=>({tense,n,pct:Math.round(1000*n/verbs)/10})).sort((a,b)=>b.n-a.n),phrases:[...phrases.values()].filter(p=>p.n>=2).sort((a,b)=>b.n-a.n||b.length-a.length),evidence:units.map(u=>({verse:u.label,sources:index.coverage[book]?.[chapter+':'+u.label]||0}))};
+ return {...stats,book,all,comparisonAvailable:{book:bookData.N>stats.words,tanakh:index.N>stats.words},comparisons:{book:compare('B',bookData.N),tanakh:compare('T',index.N)},rare:rareIn('T'),rareByCorpus:{book:rareIn('B'),tanakh:rareIn('T')},vocabularyByCorpus:{book:vocabularyIn('B'),tanakh:vocabularyIn('T')},families:[...families.values()].sort((a,b)=>b.n-a.n),rootWords:[...families.values()].reduce((n,f)=>n+f.n,0),forms,tenses:[...tenses].map(([tense,n])=>({tense,n,pct:Math.round(1000*n/verbs)/10})).sort((a,b)=>b.n-a.n),phrases:[...phrases.values()].filter(p=>p.n>=2).sort((a,b)=>b.n-a.n||b.length-a.length),evidence:units.map(u=>({verse:u.label,sources:index.coverage[book]?.[chapter+':'+u.label]||0}))};
 }
-const api={tokens,analyze};if(node)module.exports=api;else window.PassageStatistics=api;
+const concentration=(here,total)=>total>1&&here<=total&&here/total>=.5?Math.round(100*here/total):null;
+const api={tokens,analyze,concentration};if(node)module.exports=api;else window.PassageStatistics=api;
 })();

@@ -1,6 +1,9 @@
 # Changelog
 
 ### Unreleased
+- **Restore concentration labels:** show “almost only here” again when at least half the chosen corpus occurrences lie in the selected passage; expose the exact percentage and book/Tanakh basis on hover.
+- **Clear source coverage:** replace ambiguous source badges with a verse-by-source table, full source names, coverage totals and explanations distinguishing editorial notes from potentially reconstructed DSS transcription.
+- **Rarity comparison fix:** filter and sort rare words by the selected book or Tanakh; make vocabulary tiers and export follow the same choice. Retain both counts beside rare words and hide corpus controls on views that have no corpus comparison.
 - **Richer passage statistics:** retain the Tanakh comparison alongside a saved book comparison, normalized by corpus length. Add rare lemmas, explicitly sourced root families, detailed verb forms/stems, repeated within-verse lemma sequences, and verse-level apparatus-source coverage. Rename key words to “unusually frequent” without treating frequency as proof of theme.
 - **Manuscript line labels and compact hover:** repeat Kaufmann/Parma/Cambridge labels at every wrapped comparison line, including after resizing. Show source references, token positions, alignment status and applicable editorial annotations/abbreviation expansions instead of repeating the full passage in the main-reader hover.
 - **Mishnah manuscripts in the main reader:** open Kaufmann, Parma and Cambridge from Versions; use the normal Interlinear chooser to show Parma/Cambridge beneath Kaufmann with the same word/group alignment, red differences and source previews as the apparatus. Retain separate manuscript numbering for independently opened witnesses and restore the selected view after restart.

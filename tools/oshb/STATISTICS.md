@@ -20,9 +20,12 @@ five. This is an exploratory ranking, not a significance test or determination
 of subject/theme. A whole-book selection cannot be compared with the rest of
 that same book. Displayed counts remain original integers, not smoothed values.
 
-Rare means 1–19 total lemma occurrences in the Tanakh; book and Tanakh counts are
-both displayed. Vocabulary tiers and the existing under-100 vocabulary export
-remain available. All frequencies are tied to OSHB, not a translation.
+Rare means 1–19 total lemma occurrences in the selected corpus (book or
+Tanakh); the filter and ascending rarity sort both follow that selection. Book
+and Tanakh counts remain displayed together. Vocabulary tiers and the under-100
+vocabulary export also follow the selected corpus. The comparison controls are
+hidden on roots, morphology, phrases and source-coverage views, whose local
+counts do not change when the external corpus changes. All frequencies are tied to OSHB, not a translation.
 
 Roots are taken only from explicit `etym root=... type=main` entries, or an
 unambiguous chain of `type=sub` references to such an entry. Augmented Strong IDs
@@ -45,10 +48,19 @@ Source coverage is compact metadata derived from existing apparatus payloads:
 Tal note groups mapped to MT references; CATSS remarks; DSS transcription
 coverage; indexed Kennicott entries. It records which verses have source
 material, not the number of established textual variants or agreement with MT.
-The source datasets and their own licences remain authoritative.
+The source datasets and their own licences remain authoritative. The overview
+uses a source-column table (including verses without recorded material),
+explains each source type and shows per-source verse totals. A DSS mark means
+transcription coverage, potentially reconstructed, rather than a claim that
+every word of the verse is preserved on a fragment.
 
 Tests: `node --test tests/passage-statistics.test.js` validates all corpus counts,
 source hashes, separate comparison baselines, whole-book handling, rare words,
 root homonyms, missing-root behavior, morphology, and n-gram boundaries.
 `SAFRAN_SMOKE_STATS=1 npm run test:smoke` checks both comparison choices, all new
 panes, verse navigation, scope separation and restart persistence.
+
+The restored “almost only here” badge retains its previous threshold: at least
+half the selected corpus occurrences lie in the local selection, with at least
+two corpus occurrences. Hover gives the rounded actual percentage and selected
+corpus. It is recalculated for book/Tanakh choice, not a significance claim.
