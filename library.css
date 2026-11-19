@@ -2258,3 +2258,18 @@ body.has-dock-tabs.stack-split #dictPanel { top: auto !important; }
 body.has-dock-tabs .pinp .pinB { display: none; }
 #dockTabs .dock-pin { margin-inline-start: auto; }
 #dockTabs .dock-pin[aria-pressed=true] { background: color-mix(in srgb,var(--accent) 16%,transparent); color: var(--accent); }
+
+/* Edition picker: full names, clear language groups, and morphology availability. */
+#verList { position: fixed; width: min(980px,calc(100vw - 32px)); min-width: 0; box-sizing: border-box; padding: 10px 12px; gap: 4px; overscroll-behavior: contain; }
+#verList .vgrp { position: sticky; top: -10px; z-index: 1; margin: 14px -4px 3px; padding: 8px 10px; border: 1px solid var(--line); border-inline-start: 4px solid var(--accent); border-radius: 6px; background: var(--side-bg); color: var(--fg); font-size: 13px; letter-spacing: .07em; }
+#verList .vgrp:first-child { margin-top: 0; }
+#verList label.voption { display: grid; grid-template-columns: 20px 38px minmax(0,1fr); align-items: center; gap: 8px; padding: 7px 5px; border-radius: 6px; white-space: normal; cursor: pointer; }
+#verList label.voption:hover { background: color-mix(in srgb,var(--accent) 8%,transparent); }
+#verList label.voption:has(input:checked) { background: color-mix(in srgb,var(--accent) 6%,transparent); }
+#verList .voption input { margin: 0; width: 16px; height: 16px; }
+#verList img.vpic { margin: 0; }
+#verList .vtext { min-width: 0; }
+#verList .vname { display: block; line-height: 1.45; overflow-wrap: anywhere; }
+#verList .vmeta { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-top: 3px; }
+#verList .vmeta:empty { display: none; }
+#verList .vmorph { font-size: 10.5px; color: #60ae94; border: 1px solid color-mix(in srgb,#60ae94 40%,var(--line)); border-radius: 10px; padding: 1px 6px; white-space: nowrap; }

@@ -440,12 +440,11 @@
         <label class="drow" title="Deutsch – Schriftgröße">Deutsch <input type="range" id="dDe" min="0.7" max="1.6" step="0.05"><output id="dDeV"></output></label>
       </section>
       <section class="dg">
-        <h4>Hebräischer Text</h4>
-        <label class="dchk"><input type="checkbox" id="dNiq"> Hebräische Vokalzeichen ausblenden</label>
-        <label class="dchk"><input type="checkbox" id="dCan"> Betonungszeichen (Teamim) ausblenden</label>
-        <label class="drow dsel" title="Umbrüche nach den trennenden Taamim im Westminster-MT. Interlineargruppen bleiben zusammen.">Zeilen nach Taamim
-          <select id="dTaam"><option value="off">Aus</option><option value="major">Große Einschnitte</option><option value="all">Auch kleinere Einschnitte</option></select>
-        </label>
+        <h4 title="Die Vorschau, die beim Überfahren einer Stellenangabe erscheint">Vorschau beim Überfahren</h4>
+        <label class="drow" title="Schriftgröße der Vorschau, die beim Überfahren einer Stellenangabe erscheint (das Fenster wächst mit)">Schriftgröße <input type="range" id="dHov" min="0.85" max="1.8" step="0.05"><output id="dHovV"></output></label>
+        <label class="drow dsel" title="Welche hebräische Fassung die Vorschau beim Überfahren einer Bibelstelle zeigt">Hebräisch <select id="dPvHe"></select></label>
+        <label class="drow dsel" title="Welche deutsche Fassung die Vorschau beim Überfahren einer Bibelstelle zeigt (in der Wortkarte gilt die dort gewählte Fassung, sofern das Buch sie hat)">Deutsch <select id="dPvDe"></select></label>
+        <label class="drow dsel" title="Eine dritte Fassung unter Hebräisch und Deutsch in der Vorschau, z. B. Englisch, Septuaginta oder ein Targum (nur wo das Buch sie hat)">Zusätzlich <select id="dPvX"></select></label>
       </section>
       <section class="dg">
         <h4>Lesetext</h4>
@@ -462,11 +461,12 @@
         <label class="dchk" title="Bei der Septuaginta (CATSS): hebräisches Wort über der griechischen Wortgruppe"><input type="checkbox" id="gIlin"> Septuaginta interlinear (Hebräisch über Griechisch)</label>
       </section>
       <section class="dg">
-        <h4 title="Die Vorschau, die beim Überfahren einer Stellenangabe erscheint">Vorschau beim Überfahren</h4>
-        <label class="drow" title="Schriftgröße der Vorschau, die beim Überfahren einer Stellenangabe erscheint (das Fenster wächst mit)">Schriftgröße <input type="range" id="dHov" min="0.85" max="1.8" step="0.05"><output id="dHovV"></output></label>
-        <label class="drow dsel" title="Welche hebräische Fassung die Vorschau beim Überfahren einer Bibelstelle zeigt">Hebräisch <select id="dPvHe"></select></label>
-        <label class="drow dsel" title="Welche deutsche Fassung die Vorschau beim Überfahren einer Bibelstelle zeigt (in der Wortkarte gilt die dort gewählte Fassung, sofern das Buch sie hat)">Deutsch <select id="dPvDe"></select></label>
-        <label class="drow dsel" title="Eine dritte Fassung unter Hebräisch und Deutsch in der Vorschau, z. B. Englisch, Septuaginta oder ein Targum (nur wo das Buch sie hat)">Zusätzlich <select id="dPvX"></select></label>
+        <h4>Hebräischer Text</h4>
+        <label class="dchk"><input type="checkbox" id="dNiq"> Hebräische Vokalzeichen ausblenden</label>
+        <label class="dchk"><input type="checkbox" id="dCan"> Betonungszeichen (Teamim) ausblenden</label>
+        <label class="drow dsel" title="Umbrüche nach den trennenden Taamim im Westminster-MT. Interlineargruppen bleiben zusammen.">Zeilen nach Taamim
+          <select id="dTaam"><option value="off">Aus</option><option value="major">Große Einschnitte</option><option value="all">Auch kleinere Einschnitte</option></select>
+        </label>
       </section>
       <details class="dg" id="dgWin">
         <summary>Fenster &amp; Leisten</summary>

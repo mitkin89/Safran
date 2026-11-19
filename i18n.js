@@ -14,6 +14,19 @@
   if (lang === 'de') return;
 
   const EN = {
+    "Nur diese hebräische Version anzeigen": "Show only this Hebrew version",
+    "Nur diese deutsche Version anzeigen": "Show only this German version",
+    "Nur diese englische Version anzeigen": "Show only this English version",
+    "Nur diese griechische Version anzeigen": "Show only this Greek version",
+    "Nur diese syrische Version anzeigen": "Show only this Syriac version",
+    "Nur diese Version dieser Sprache anzeigen": "Show only this version of this language",
+    "Alle anderen Versionen schließen": "Close all other versions",
+
+    "Morphologie": "Morphology",
+    "Samaritanischer Pentateuch — englische Übersetzung (Florentin und Tal, 2024)": "Samaritan Pentateuch — English translation (Florentin and Tal, 2024)",
+    "Standardtext": "Default text",
+    "Textzeugen & weitere Sprachen": "Textual witnesses & other languages",
+    "Wortformen und grammatische Bestimmungen verfügbar": "Word forms and grammatical analyses available",
     "Lösen": "Unpin",
     "Anpinnen": "Pin",
     "Gesamte Seitenleiste lösen": "Unpin entire sidebar",

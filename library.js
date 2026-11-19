@@ -309,14 +309,14 @@
     // Hebräisch: der Westminster-Text (OSHB) hat Vorrang, dann eine echte Ausgabe (z. B. William Davidson, vokalisiert);
     // Sefarias zusammengeführte Fassung nur, wenn es keine andere gibt
     const first = k => k === 'he' ? [...g.versions.filter(v => v.kind === 'he')].sort((a, b) => heRank(a.versionTitle) - heRank(b.versionTitle))[0]
-      : (g.versions.find(v => v.kind === k && v.versionTitle === 'merged') || g.versions.find(v => v.kind === k));
+      : (g.versions.find(v => v.kind === k && v.versionTitle !== 'merged') || g.versions.find(v => v.kind === k));
     // Voreinstellung nach Oberflächensprache: Hebräisch immer, dazu Englisch bzw. Deutsch (Hebräisch-Oberfläche: nur Hebräisch); fehlt Deutsch, hilft Englisch aus
     const want = new Set(['he']);
     if (I18N.lang === 'en') want.add('en'); else if (I18N.lang === 'de') { want.add('de'); if (!first('de')) want.add('en'); }
     // Zuletzt gewählte Versionen gelten in jedem Buch weiter, das sie hat; sonst die Voreinstellung der Sprache
     for (const k of ['he', 'en', 'de', 'other']) {
       const titles = (Array.isArray(prefVer[k]) ? prefVer[k] : []).filter(t => !(k === 'he' && t === 'merged')); // zusammengeführt wird nie als Vorgabe übernommen
-      const mine = g.versions.filter(v => kindKey(v) === k && titles.includes(v.versionTitle)).sort((a, b) => titles.indexOf(a.versionTitle) - titles.indexOf(b.versionTitle)); // gemerkte Spaltenreihenfolge
+      const mine = g.versions.filter(v => kindKey(v) === k && titles.includes(v.versionTitle) && (v.versionTitle !== 'merged' || !g.versions.some(x=>x.kind===v.kind&&x.versionTitle!=='merged'))).sort((a, b) => titles.indexOf(a.versionTitle) - titles.indexOf(b.versionTitle)); // gemerkte Spaltenreihenfolge
       if (mine.length) mine.forEach(v => sel.add(v.rel));
       else if (want.has(k)) { const v = first(k); if (v) sel.add(v.rel); }
     }
@@ -357,6 +357,7 @@
   async function loadView(target = {}) {
     const V = view; // Tab, für den geladen wird (der Nutzer kann inzwischen woanders sein)
     const tok = V.loadTok = (V.loadTok || 0) + 1;
+    for(const rel of [...V.selected]){const old=V.group.versions.find(v=>v.rel===rel);if(old?.versionTitle!=='merged')continue;const replacement=V.group.versions.filter(v=>v.kind===old.kind&&v.versionTitle!=='merged').sort((a,b)=>heRank(a.versionTitle)-heRank(b.versionTitle))[0];if(replacement){V.selected.delete(rel);V.selected.add(replacement.rel);}}
     // Versionen ändern: an derselben Stelle bleiben (markierter Vers, sonst der oberste sichtbare), statt zu Vers 1 zurückzuspringen
     let keepRow = null;
     if (view === V && !target.noKeep && !target.sectionPath && target.rowLabel == null && V.key) {
@@ -476,54 +477,35 @@
   }
   const portraitOf = t => { const s = String(t || '').toLowerCase(); return (window.PORTRAITS || []).find(p => p.match && p.img && s.includes(String(p.match).toLowerCase())) || null; };
   function renderVersions() {
-    const g = view.group;
-    $('#verSummary').innerHTML = `<span class="vi">📚</span> Versionen ${view.selected.size}/${g.versions.length}`;
+    const g = view.group,versions=g.versions.filter(v=>v.versionTitle!=='merged'||!g.versions.some(x=>x.kind===v.kind&&x.versionTitle!=='merged'));
+    $('#verSummary').innerHTML = `<span class="vi">📚</span> Versionen ${versions.filter(v=>view.selected.has(v.rel)).length}/${versions.length}`;
     const KN = { he: 'Hebräisch', en: 'Englisch', de: 'Deutsch', other: 'Andere' };
     const pic = v => { const p = portraitOf(v.versionTitle); return p ? `<img class="vpic" src="portraits/${encodeURIComponent(p.img)}" alt="" data-title="${esc(p.name || '')}" loading="lazy">` : ''; };
-    const itemH = v => `<label${portraitOf(v.versionTitle) ? ' class="haspic"' : ''}><input type="checkbox" data-rel="${esc(v.rel)}" ${view.selected.has(v.rel) ? 'checked' : ''}>${pic(v)}${v.own ? '<span class="badge own">eigen</span>' : ''}${esc(shortVer(v.versionTitle))}${v.own ? ` <button class="ownc" data-csv="${esc(v.rel)}" title="Als Upload-CSV für Sefaria speichern (Ref,Text)">CSV</button>` : ''}${v.own && v.source ? ` <button class="ownr" data-rl="${esc(v.rel)}" title="Quelldatei neu einlesen (${esc(v.source)})">⟳</button>` : ''}</label>`; // Entfernen eigener Texte nicht hier (Versionsauswahl), sondern in der Bibliothek
+    const hasMorph = v => {
+      const t=v.versionTitle||'',doc=view.loaded.find(d=>d.entry.rel===v.rel)||cache.get(v.rel);
+      if(doc?.greekMorphology||doc?.syriacMorphology)return true;
+      if(v.kind==='he'&&/Westminster.*OSHB|ETCBC-CACCHT|ETCBC DSS|Samaritanischer Pentateuch|Safran-Morphologie/.test(t))return true;
+      if(v.language==='Greek'&&/^(Septuaginta|Open Greek Corpus)/.test(t)||v.language==='Syriac'&&/^ETCBC Peshitta/.test(t)||/^Targum .*ETCBC/.test(t))return true;
+      const annotated=node=>typeof node==='string'?/data-m=["']/.test(node):Array.isArray(node)?node.some(annotated):!!node&&typeof node==='object'&&Object.values(node).some(annotated);
+      return !!doc&&annotated(doc.text);
+    };
+    const versionName=v=>/^The Samaritan Pentateuch/.test(v.versionTitle||'')?I18N.t('Samaritanischer Pentateuch — englische Übersetzung (Florentin und Tal, 2024)'):v.versionTitle==='merged'?I18N.t('Standardtext'):String(v.versionTitle||'').replace(/\s*\[[a-z]{2,3}\]\s*$/i,'');
+    const itemH = v => `<label class="voption${portraitOf(v.versionTitle)?' haspic':''}"><input type="checkbox" data-rel="${esc(v.rel)}" ${view.selected.has(v.rel)?'checked':''}>${pic(v)||'<span class="vpic-gap" aria-hidden="true"></span>'}<span class="vtext"><span class="vname" dir="auto">${esc(versionName(v))}</span><span class="vmeta">${v.own?'<span class="badge own">eigen</span>':''}${hasMorph(v)?`<span class="vmorph" title="${esc(I18N.t('Wortformen und grammatische Bestimmungen verfügbar'))}">✓ ${esc(I18N.t('Morphologie'))}</span>`:''}</span></span></label>`;
     // Group these textual witnesses with the Septuagint in the menu only.
     // Their actual language/kind still controls text rendering and morphology.
     const menuKind = v => /^(?:Qumran-Rollen\b|Samaritanischer Pentateuch\b|The Samaritan Pentateuch\b)/.test(v.versionTitle || '') ? 'other' : (KN[v.kind] ? v.kind : 'other');
     $('#verList').innerHTML = ['he', 'en', 'de', 'other'].map(k => {
-      const vs = g.versions.filter(v => menuKind(v) === k);
-      return vs.length ? `<div class="vgrp ${k}">${KN[k]}</div>` + vs.map(itemH).join('') : '';
+      const vs = versions.filter(v => menuKind(v) === k).sort((a,b)=>Number(/^Westminster/.test(b.versionTitle||''))-Number(/^Westminster/.test(a.versionTitle||'')));
+      return vs.length ? `<div class="vgrp ${k}">${esc(I18N.t(k==='other'?'Textzeugen & weitere Sprachen':KN[k]))}</div>` + vs.map(itemH).join('') : '';
     }).join('');
   }
-  $('#verList').addEventListener('click', async e => {
-    const csvRel = e.target.dataset && e.target.dataset.csv;
-    if (csvRel) {
-      e.preventDefault();
-      const d = (view.loaded.find(x => x.entry.rel === csvRel && !x.vmoved)) || await O.read(csvRel); // umgestellte Fassung (andere Zählung): die Datei selbst, unverändert
-      const q = v => /[",\n\r]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v;
-      const rows = R.flattenNode(d.text).map(r => [`${d.entry.title} ${r.label}`, notesUI.plain(r.html)]);
-      const r = await window.api.saveFile(`${d.entry.title.replace(/[\\/:*?"<>|]/g, '_')}_${d.entry.versionTitle.replace(/[\\/:*?"<>|]/g, '_').slice(0, 40)}.csv`, rows.map(x => x.map(q).join(',')).join('\n') + '\n');
-      return;
-    }
-    const rl = e.target.dataset && e.target.dataset.rl;
-    if (rl) {
-      e.preventDefault();
-      const r = await O.ownReload(rl);
-      if (r.error) return alert(r.error);
-      cache.delete(rl);
-      const key = view.group.key, keepSec = view.sections[view.idx] ? view.sections[view.idx].path : null;
-      await loadLibrary();
-      const g = groupsByKey.get(key);
-      if (g) await openGroup(g, { rel: rl, sectionPath: keepSec || undefined, showCompare: true });
-      refreshState();
-      return;
-    }
-    const rel = e.target.dataset && e.target.dataset.rm;
-    if (!rel) return;
-    e.preventDefault();
-    if (!confirm('Diesen eigenen Text aus der Bibliothek entfernen? (Die Originaldatei bleibt unberührt.)')) return;
-    const r = await O.ownRemove(rel);
-    if (r.error) return alert(r.error);
-    const key = view.group.key;
-    await loadLibrary();
-    const g = groupsByKey.get(key);
-    if (g) openGroup(g); else showView(); // war das Buch weg, hat loadLibrary den Tab schon entfernt
-    refreshState();
-  });
+  function placeVersions(){
+    if(!$('#verBox').open)return;
+    const box=$('#verList'),r=$('#verSummary').getBoundingClientRect(),width=box.getBoundingClientRect().width,top=Math.max(8,r.bottom+6);
+    box.style.left=Math.max(16,Math.min(r.left,innerWidth-width-16))+'px';box.style.top=top+'px';box.style.maxHeight=Math.max(120,innerHeight-top-12)+'px';
+  }
+  $('#verBox').addEventListener('toggle',placeVersions);
+  window.addEventListener('resize',placeVersions);window.addEventListener('scroll',placeVersions,{passive:true});
   $('#verList').addEventListener('change', async e => {
     const rel = e.target.dataset.rel;
     if (!rel || !view) return;
@@ -565,11 +547,18 @@
       if (again) window.scrollTo(0, window.scrollY + again.getBoundingClientRect().top - off);
     };
     const items = [];
-    if (!multi && view.selected.size > 1) { items.push({ label: 'Diese Version aus der Anzeige entfernen', fn: () => { const n = new Set(view.selected); n.delete(d.entry.rel); apply(n); } }); items.push({ label: 'Nur diese Version anzeigen', fn: () => { // mehrere Versionen dieser Sprache: nur in dieser Sprache auf diese eine reduzieren, die anderen Sprachen bleiben; ist sie die einzige ihrer Sprache: alle anderen schließen
-      const same = [...view.selected].filter(rel => { const v = g.versions.find(x => x.rel === rel); return v && kn(v) === k; });
-      apply(same.length > 1 ? new Set([...view.selected].filter(rel => { const v = g.versions.find(x => x.rel === rel); return !v || kn(v) !== k || rel === d.entry.rel; })) : new Set([d.entry.rel]));
-    } }); items.push({ sep: true }); }
-    const here = d.entry.rel, same = g.versions.filter(v => kn(v) === k);
+    if (!multi && view.selected.size > 1) {
+      items.push({label:I18N.t('Diese Version aus der Anzeige entfernen'),mark:'−',fn:()=>{const n=new Set(view.selected);n.delete(d.entry.rel);apply(n);}});
+      const sameLanguage=v=>kn(v)===k&&(k!=='other'||v.language===d.entry.language);
+      const currentLanguage=[...view.selected].filter(rel=>{const v=g.versions.find(x=>x.rel===rel);return v&&sameLanguage(v);});
+      if(currentLanguage.length>1){
+        const label=k==='he'?'Nur diese hebräische Version anzeigen':k==='de'?'Nur diese deutsche Version anzeigen':k==='en'?'Nur diese englische Version anzeigen':d.entry.language==='Greek'?'Nur diese griechische Version anzeigen':d.entry.language==='Syriac'?'Nur diese syrische Version anzeigen':'Nur diese Version dieser Sprache anzeigen';
+        items.push({label:I18N.t(label),mark:'≡',fn:()=>apply(new Set([...view.selected].filter(rel=>{const v=g.versions.find(x=>x.rel===rel);return !v||!sameLanguage(v)||rel===d.entry.rel;})))});
+      }
+      items.push({label:I18N.t('Alle anderen Versionen schließen'),mark:'▣',fn:()=>apply(new Set([d.entry.rel]))});
+      items.push({sep:true});
+    }
+    const here = d.entry.rel, same = g.versions.filter(v => kn(v) === k && (v.versionTitle!=='merged'||!g.versions.some(x=>x.kind===v.kind&&x.versionTitle!=='merged')));
     if (multi) { // Kopf einer Sprachspalte mit mehreren Versionen („je Sprache“): ✓ = wird gezeigt (Klick nimmt sie heraus), sonst Klick fügt sie hinzu
       for (const v of same) {
         const on = view.selected.has(v.rel);
