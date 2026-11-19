@@ -198,6 +198,12 @@ module.exports=async({win,js,waitFor,book})=>{
  await waitFor("document.querySelector('#fmHead').textContent.includes('7878')&&document.querySelector('#wcTr .wcTrSrc[data-src=Zunz]')",'Verbkarte für Wiedergabesuche');
  await js("document.querySelector('#wcTr .wcTrSrc[data-src=Zunz]').click()");
  await waitFor("[...document.querySelectorAll('#wcTr .wcSamePick')].some(x=>x.textContent==='sprechen')",'Deutsche Wiedergabe anklickbar');
+ await js("[...document.querySelectorAll('#wcTr .wcSamePick')].find(x=>x.textContent==='sprechen').dispatchEvent(new MouseEvent('mouseover',{bubbles:true}))");
+ assert(await js("(()=>{const b=[...document.querySelectorAll('#wcTr .wcSamePick')].find(x=>x.textContent==='sprechen');for(let n=b;n;n=n.parentElement)if(n.hasAttribute('title'))return false;return !document.querySelector('#tip').hidden&&document.querySelector('#tip').textContent==='Andere hebräische Wörter mit dieser Wiedergabe zeigen'})()"),'Nur der spezifische Wort-Hinweis, keine geerbten nativen Tooltips');
+ await js("{const b=[...document.querySelectorAll('#wcTr .wcSamePick')].find(x=>x.textContent==='sprechen');b.dispatchEvent(new MouseEvent('mouseout',{bubbles:true,relatedTarget:b.closest('.wcTrR')}));b.closest('.wcTrR').dispatchEvent(new MouseEvent('mouseover',{bubbles:true}));}");
+ assert(await js("!document.querySelector('#tip').hidden&&document.querySelector('#tip').textContent==='Formen und Stellen zeigen'"),'Freie Zeilenfläche zeigt den eigenen Hinweis');
+ await js("{const r=[...document.querySelectorAll('#wcTr .wcSamePick')].find(x=>x.textContent==='sprechen').closest('.wcTrR');r.dispatchEvent(new MouseEvent('mouseout',{bubbles:true,relatedTarget:document.body}));}");
+ assert(await js("document.querySelector('#tip').hidden&&[...document.querySelectorAll('#wcTr .wcSamePick')].find(x=>x.textContent==='sprechen').getAttribute('title')==='Andere hebräische Wörter mit dieser Wiedergabe zeigen'"),'Hinweise nach Verlassen wiederhergestellt');
  await js("[...document.querySelectorAll('#wcTr .wcSamePick')].find(x=>x.textContent==='sprechen').click()");
  await waitFor("document.querySelector('#wcTr .wcSameEntry[data-lemma=\"559\"]')",'Andere hebräische Lemmata derselben Wiedergabe');
  assert(await js("document.querySelector('#fmHead').textContent.includes('7878')&&document.querySelector('#wcTr .wcSame h5').textContent.includes('Zunz')"),'Wiedergabesuche ändert das Hauptlemma nicht');

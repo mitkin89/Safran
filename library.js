@@ -3473,15 +3473,19 @@
   // Sofort-Hinweise: der Titel eines Symbols erscheint ohne Verzögerung (statt des trägen Standard-Tooltips)
   { const tip = document.createElement('div'); tip.id = 'tip'; tip.hidden = true; document.body.appendChild(tip);
     let cur = null;
-    const restore = () => { if (cur) { if (cur.dataset.tip != null && !cur.hasAttribute('title')) cur.setAttribute('title', cur.dataset.tip); delete cur.dataset.tip; cur = null; } tip.hidden = true; };
+    const titles = new Map();
+    const restore = () => { for(const [el,title] of titles)if(!el.hasAttribute('title'))el.setAttribute('title',title);titles.clear();cur=null;tip.hidden=true; };
+    const targetTip = target => { for(let el=target;el instanceof Element;el=el.parentElement)if(el.matches('[title],[data-tip]')||titles.has(el))return el;return null; };
     document.addEventListener('mouseover', e => {
-      const el = e.target.closest ? e.target.closest('[title],[data-tip]') : null;
+      const el = targetTip(e.target);
       if (el === cur) return;
       restore();
       if (!el) return;
       const text = el.getAttribute('title') || el.dataset.tip;
       if (!text) return;
-      el.dataset.tip = text; el.removeAttribute('title'); cur = el;
+      // Native tooltips inherit ancestor titles, so suppress the entire hovered chain.
+      for(let node=el;node;node=node.parentElement)if(node.hasAttribute('title')){titles.set(node,node.getAttribute('title'));node.removeAttribute('title');}
+      cur = el;
       tip.textContent = text; tip.hidden = false;
       const r = el.getBoundingClientRect(), w = tip.offsetWidth, h = tip.offsetHeight;
       let top = r.bottom + 6; if (top + h > window.innerHeight - 4) top = r.top - h - 6;
