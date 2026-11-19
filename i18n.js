@@ -14,6 +14,15 @@
   if (lang === 'de') return;
 
   const EN = {
+    "Gleiche Wiedergabe": "Same rendering",
+    "Andere hebräische Wörter mit dieser Wiedergabe zeigen": "Show other Hebrew words with this rendering",
+    "Gleiche deutsche Grundform in dieser Übersetzung, über alle erfassten Tanachstellen. Das bedeutet keine identische Bedeutung im Kontext; Wortformfilter gelten hier nicht.": "Same German base form in this translation, across all indexed Tanakh passages. This does not imply identical meaning in context; word-form filters do not apply here.",
+    "{} Wörter · {} zugeordnete Belege": "{} words · {} aligned occurrences",
+    "1 Beleg": "1 occurrence",
+    "Aktuelles Wort": "Current word",
+    "Wortkarte öffnen": "Open word card",
+    "{} Belege": "{} occurrences",
+
     "Lexikoneintrag wechseln: {} Belege im Tanach, Strong {}.": "Switch lexical entry: {} occurrences in the Tanakh, Strong {}.",
     "Einträge mit denselben Konsonanten:": "Entries with the same consonants:",
     "Lexikoneintrag wechseln. {} einzeln zugeordnete Belege in {}.": "Switch lexical entry. {} individually aligned occurrences in {}.",

@@ -2099,3 +2099,14 @@ body.il .cell[data-k="he"] .ilt.il-smr { direction: rtl; font-family: var(--he-f
 #fmHead .fmHomonyms button{padding:4px 9px;border:1px solid var(--line);border-radius:7px;background:var(--card);color:var(--fg);cursor:pointer;font:inherit}
 #fmHead .fmHomonyms button.on{border-color:var(--accent);background:var(--chip);color:var(--accent)}
 #fmHead .fmHomonyms small{color:var(--muted);font-size:11px}
+
+#wcTr .wcSamePick{border:0;border-bottom:1px dotted var(--accent);padding:0;background:transparent;color:inherit;font:inherit;cursor:pointer}
+#wcTr .wcSamePick:hover,#wcTr .wcSamePick[aria-pressed=true]{color:var(--accent)}
+#wcTr .wcSame{scroll-margin-top:80px;margin-top:14px;padding:12px;border:1px solid var(--line);border-radius:8px}
+#wcTr .wcSame h5{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:0;font-size:inherit}
+#wcTr .wcSameClose{margin-inline-start:auto}
+#wcTr .wcSameEntry{padding:9px 0;border-top:1px solid var(--line)}
+#wcTr .wcSameEntry summary{cursor:pointer}
+#wcTr .wcSameEntry summary bdi{font-family:var(--he-font);font-size:1.4em}
+#wcTr .wcSameEntry .fmRL{line-height:1.8;overflow-wrap:anywhere}
+#wcTr .wcSameChoices{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:8px}

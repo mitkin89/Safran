@@ -1,6 +1,7 @@
 # Changelog
 
 ### Unreleased
+- **Same rendering:** click a grouped German rendering to find Hebrew lemmas sharing that rendering in the selected translation. Show counts, attested translation forms and expandable references, with word-card navigation and history. Keep source-specific rendering matches distinct from contextual meaning.
 - **Word-card entry chooser:** place entries with identical consonants beside the main lemma, using overall Tanakh totals independently of translation alignment coverage.
 - **Overview return position:** retain the selected statistics tab, expanded lists, scope and scroll position when returning from a word card.
 - **Stable interlinear smoke click:** bring the Samaritan source word into view and finish the layout frames before opening morphology; reader scrolling deliberately dismisses popups.

@@ -368,7 +368,8 @@ window.LibraryWordCards = (() => {
       return { vt: vt ? '^' + vt.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '$' : '^Septuaginta', rtl: false, label: 'Septuaginta', greek: fmCur.lemma };
     }
     const k = a.closest('#fmBody') ? (fmTrData ? fmTrCur() : 'off') : a.closest('#wcBody') ? (wcTrLive() ? wcTrLive().cur : 'off') : 'off';
-    const lem = fmCur && !fmCur.greek && !fmCur.targum ? fmCur.lemma : null; // das Wort der Wortkarte wird in der Vorschau markiert
+    const sameLemma=a.dataset.sameLemma;
+    const lem = sameLemma || (fmCur && !fmCur.greek && !fmCur.targum ? fmCur.lemma : null); // das Wort der Wortkarte wird in der Vorschau markiert
     if (!k || k === 'off' || (fmCur && fmCur.greek)) return lem ? { lem } : null;
     const re = WC_TR_VT[k] || host.IL_VT[k] || new RegExp(String(k).replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
     return { vt: re.source, rtl: k === 'O' || k === 'PJ' || k === 'N', label: WC_TR_LABEL[k] || k, lem };
@@ -436,7 +437,7 @@ window.LibraryWordCards = (() => {
       if (k === S.cmp && second) S.cmp = null; else if (!wcTrCommon(S, S.cur, k)) return; else S.cmp = k;
       S.pick = false;
     } else if (k === S.cmp) { S.cmp = S.cur; S.cur = k; } else S.cur = k;
-    S.open = null; S.allRows = false; S.refLim = 12; try { localStorage.setItem('wcTrSrc', S.cur); } catch { /* egal */ } wcTrRender();
+    S.same=null;S.sameLimits={};S.open = null; S.allRows = false; S.refLim = 12; try { localStorage.setItem('wcTrSrc', S.cur); } catch { /* egal */ } wcTrRender();
   }
   function wcTrCmpPick() { const S = wcTrState; if (!S) return; S.pick = !S.pick; wcTrRender(); }
   function wcTrCmpOff() { const S = wcTrState; if (!S) return; S.cmp = null; S.pick = false; S.open = null; S.allRows = false; S.refLim = 12; wcTrRender(); }
@@ -487,6 +488,22 @@ window.LibraryWordCards = (() => {
     const out = [];
     per.forEach((xs, i) => { const w = ws[i - 1]; if (w.lem !== lemma) return; out.push({ i, he: w.he, code: w.code, de: xs.map(([k, t], j) => (j ? (k === xs[j - 1][0] + 1 ? ' ' : ' … ') : '') + t).join(''), cl: wcClean(xs.map(x => x[1]).join(' ')) }); });
     return out.sort((a, b) => a.i - b.i);
+  }
+  function wcSameHtml(S,D){
+    if(D.lang!=='de'||S.same==null)return '';
+    const label=D.labels[+S.same]?.forms[0];if(!label)return '';
+    const matches=window.RenderingSearch.find(S.IR,S.cur,label),LEM=window.OSHB_LEMMAS||{};
+    const t=(s,...a)=>host.esc(I18N.t(s,...a));
+    return `<section class="wcSame"><h5>${t('Gleiche Wiedergabe')}: <span lang="de">${host.esc(label)}</span> · ${t(WC_TR_LABEL[S.cur])}<button type="button" class="wcSameClose" aria-label="${t('Schließen')}">✕</button></h5>
+      <p class="muted">${t('Gleiche deutsche Grundform in dieser Übersetzung, über alle erfassten Tanachstellen. Das bedeutet keine identische Bedeutung im Kontext; Wortformfilter gelten hier nicht.')}</p>
+      <p>${t('{} Wörter · {} zugeordnete Belege',wcNum(matches.length),wcNum(matches.reduce((n,x)=>n+x.count,0)))}</p>
+      ${matches.map(x=>{const lem=LEM[x.lemma],lim=S.sameLimits?.[x.lemma]||60;
+        return `<details class="wcSameEntry" data-lemma="${host.esc(x.lemma)}"><summary><bdi lang="he" dir="rtl">${host.esc(lem?.[0]||x.lemma)}</bdi> ${host.esc(lem?(I18N.lang==='de'&&lem[2]?lem[2]:lem[1]):'')} ${x.languages.includes('arc')?' ('+t('Aramäisch')+')':''} · ${x.count===1?t('1 Beleg'):t('{} Belege',wcNum(x.count))}${x.lemma===S.lemma?' · '+t('Aktuelles Wort'):''}</summary>
+        <button type="button" class="wcHL" data-hl="${host.esc(x.lemma)}">${t('Wortkarte öffnen')}</button>
+        <p lang="de">${x.forms.map(([f,n])=>host.esc(f)+' ('+wcNum(n)+')').join(' · ')}</p>
+        <div class="fmRL">${x.refs.slice(0,lim).map(num=>{const book=S.IR.books[Math.floor(num/1e6)],c=Math.floor(num/1000)%1000,v=num%1000,ref=book+' '+c+':'+v;return `<a data-ref="${host.esc(ref)}" data-same-lemma="${host.esc(x.lemma)}">${host.esc(fmBook(book))} ${c}:${v}</a>`;}).join(' · ')}${x.refs.length>lim?`<button type="button" class="wcSameMore" data-lemma="${host.esc(x.lemma)}" data-limit="${lim+60}">${t('weitere {} Stellen zeigen',wcNum(Math.min(60,x.refs.length-lim)))}</button>`:''}</div></details>`;
+      }).join('')}
+    </section>`;
   }
   function wcTrRender() {
     const S = wcTrState, box = host.$('#wcTr'); if (!S || !box) return;
@@ -570,14 +587,14 @@ window.LibraryWordCards = (() => {
     const chev = can => `<span class="chev" aria-hidden="true">${can ? '›' : ''}</span>`;
     const sw = '<i class="sw" aria-hidden="true"></i>';
     const bar = n => `<span class="b"><i style="width:${(n / tot * 100).toFixed(1)}%"></i></span>`;
-    const name = g => g.lang === 'arc' && !g.other ? `<button type="button" class="wcTgL" data-q="${host.esc(g.forms[0])}" title="${host.esc(I18N.t('Im Wörterbuch nachschlagen'))}">${host.esc(lab(g))}</button>` : host.esc(lab(g));
+    const name = g => de&&!g.other ? `<button type="button" class="wcSamePick" data-g="${g.g}" aria-pressed="${S.same===String(g.g)}" title="${host.esc(I18N.t('Andere hebräische Wörter mit dieser Wiedergabe zeigen'))}">${host.esc(lab(g))}</button>` : g.lang === 'arc' && !g.other ? `<button type="button" class="wcTgL" data-q="${host.esc(g.forms[0])}" title="${host.esc(I18N.t('Im Wörterbuch nachschlagen'))}">${host.esc(lab(g))}</button>` : host.esc(lab(g));
     const row = g => {
       const key = String(g.g), can = !!g.refs && !g.other, open = can && S.open === key, h = hint(g);
       return `<div class="wcTrR c${cOf(g)}${can ? ' can' : ''}${open ? ' open' : ''}${h ? ' odd' : ''}" data-g="${key}" data-s="${sOf(g)}"${can ? ` role="button" tabindex="0" aria-expanded="${open}"${open ? '' : ` title="${host.esc(I18N.t('Formen und Stellen zeigen'))}"`}` : ''}>${chev(can)}${sw}<span class="f"><span lang="${g.lang}"${RTL(g.lang) ? ' dir="rtl"' : ''}>${name(g)}</span>${g.gl ? ` <small class="muted">${host.esc(g.gl)}</small>` : ''}${h ? ` <small class="hint" title="${host.esc(h)}">${host.esc(h)}</small>` : ''}</span>${bar(g.n)}<small class="n">${wcNum(g.n)}</small><small class="p">${pct(g.n)}</small></div>${open ? detail(g) : ''}`;
     };
     const onesRow = () => {
       const open = S.open === 'ones', n = ones.length;
-      const body = !open ? '' : de ? `<div class="wcTrX">${ctx(ones.map(g => g.refs[0]).sort((x, y) => x.num - y.num), 'ones', true)}</div>`
+      const body = !open ? '' : de ? `<div class="wcTrX"><div class="wcSameChoices">${ones.map(name).join(' ')}</div>${ctx(ones.map(g => g.refs[0]).sort((x, y) => x.num - y.num), 'ones', true)}</div>`
         : `<div class="wcTrX"><div class="wcTrFm">${ones.map(g => `<span class="fm" lang="${g.lang}"${RTL(g.lang) ? ' dir="rtl"' : ''}>${name(g)}${g.gl ? ` <small>${host.esc(g.gl)}</small>` : ''}</span>`).join('')}</div></div>`;
       return `<div class="wcTrR c0 can ones${open ? ' open' : ''}" data-g="ones" data-s="rest" role="button" tabindex="0" aria-expanded="${open}">${chev(true)}${sw}<span class="f"><bdi>${host.esc(I18N.t('Einzelbelege'))}</bdi> <small class="muted">(${wcNum(n)})</small></span>${bar(n)}<small class="n">${wcNum(n)}</small><small class="p">${pct(n)}</small></div>${body}`;
     };
@@ -660,7 +677,7 @@ window.LibraryWordCards = (() => {
       ${hom}${tabs}
       <div class="wcTrF">${sum}${mainDims.map(dimRow).join('')}${wcTrMore ? restDims.map(dimRow).join('') : ''}</div>
       ${X ? `<div class="wcTrBody cmp"><div class="wcTrL">${X.list}</div></div>` : `<div class="wcTrBody"><div class="wcTrRingW">${ring}</div><div class="wcTrL">${list}</div></div>`}
-      <p class="muted wcLxN">${host.esc(I18N.t(note))}</p>`;
+      ${wcSameHtml(S,D)}<p class="muted wcLxN">${host.esc(I18N.t(note))}</p>`;
     // Ring und Liste hängen über die Farbe zusammen: Zeigen auf ein Segment hebt die Zeile hervor und umgekehrt
     const hl = k => box.querySelectorAll('.wcTrS, .wcTrR').forEach(x => x.classList.toggle('dim', k != null && x.dataset.s !== k));
     box.querySelectorAll('.wcTrS, .wcTrR').forEach(x => { if (!x.dataset.s) return; x.addEventListener('mouseenter', () => hl(x.dataset.s)); x.addEventListener('mouseleave', () => hl(null)); });
@@ -784,7 +801,7 @@ window.LibraryWordCards = (() => {
     const h = fmHist[fmHi], p = host.$('#formsPanel');
     if (!h || p.hidden || !fmCur || fmCur.lemma !== h.lemma || !!fmCur.greek !== h.greek) return; // geschlossen oder noch am Laden
     h.tab = fmTab; h.scroll = p.scrollTop;
-    const S = wcTrLive(); if (S) h.tr = { lemma: S.lemma, cur: S.cur, cmp: S.cmp || null, f: { ...S.f }, open: S.open, allRows: S.allRows, refLim: S.refLim };
+    const S = wcTrLive(); if (S) h.tr = { lemma: S.lemma, cur: S.cur, cmp: S.cmp || null, f: { ...S.f }, open: S.open, allRows: S.allRows, refLim: S.refLim, same:S.same??null,sameLimits:{...S.sameLimits} };
     const bx = host.$('#wcBookRefs'), c = host.$('#wcBody .wcForms .fmF.sel'), fc = host.$('#fmBody .fmF.sel');
     h.book = (bx && bx.dataset.b) || ''; h.chip = c ? c.dataset.i : null; h.fchip = fc ? fc.dataset.i : null;
   }
@@ -811,7 +828,7 @@ window.LibraryWordCards = (() => {
   function fmRestTr(h) { // Übersetzungsstatistik: Homonym, Fassung, Filter, aufgeklappte Zeile eines Eintrags einsetzen
     const S = wcTrState, t = h.tr; if (!S || !t) return;
     if (t.lemma !== S.lemma) { const x = S.sis.find(s => s.id === t.lemma); if (x) { S.lemma = x.id; S.src = x.src; S.keys = x.keys; S.IR = x.IR; } }
-    S.cur = S.keys.includes(t.cur) ? t.cur : S.keys[0]; S.cmp = t.cmp && t.cmp !== S.cur && S.keys.includes(t.cmp) ? t.cmp : null; S.pick = false; S.f = { ...t.f }; S.open = t.open; S.allRows = !!t.allRows; S.refLim = t.refLim || 12;
+    S.cur = S.keys.includes(t.cur) ? t.cur : S.keys[0]; S.cmp = t.cmp && t.cmp !== S.cur && S.keys.includes(t.cmp) ? t.cmp : null; S.pick = false; S.f = { ...t.f }; S.open = t.open; S.allRows = !!t.allRows; S.refLim = t.refLim || 12;S.same=t.same??null;S.sameLimits={...t.sameLimits};
   }
   function fmScrollHold(top) { // Scrollposition halten, bis die nachgeladenen Abschnitte (Wörterbücher, Stellen …) stehen oder man selbst scrollt
     fmHold = { top, token: wcToken, until: Date.now() + 5000 }; host.$('#formsPanel').scrollTop = top;
@@ -981,6 +998,9 @@ window.LibraryWordCards = (() => {
     if (e.target.closest('.wcAll')) { wcSearchAll(); return; }
     const gl = e.target.closest('.wcGL[data-gl]'); if (gl) { openGForms(gl.dataset.gl, null, 'card'); return; }
     const tq = e.target.closest('.wcTgL[data-q]'); if (tq) { host.openDict(tq.dataset.q); return; }
+    const same=e.target.closest('.wcSamePick');if(same){const S=wcTrLive();if(S){S.same=S.same===same.dataset.g?null:same.dataset.g;S.sameLimits={};wcTrRender();host.$('#wcTr .wcSame')?.scrollIntoView({block:'nearest'});}return;}
+    if(e.target.closest('.wcSameClose')){if(wcTrState){wcTrState.same=null;wcTrRender();}return;}
+    const moreSame=e.target.closest('.wcSameMore');if(moreSame){const S=wcTrLive();if(S){S.sameLimits={...S.sameLimits,[moreSame.dataset.lemma]:+moreSame.dataset.limit};const opened=[...host.$$('#wcTr .wcSameEntry[open]')].map(x=>x.dataset.lemma);wcTrRender();host.$$('#wcTr .wcSameEntry').forEach(x=>x.open=opened.includes(x.dataset.lemma));}return;}
     const ts = e.target.closest('.wcTrSrc[data-src]'); if (ts) { fmStep(() => wcTrShow(ts.dataset.src, e.ctrlKey || e.metaKey)); return; }
     if (e.target.closest('.wcTrCmpB')) { wcTrCmpPick(); return; }
     if (e.target.closest('.wcTrCmpX')) { fmStep(wcTrCmpOff); return; }

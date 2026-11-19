@@ -86,6 +86,26 @@ module.exports=async({win,js,waitFor,book})=>{
  assert(await js("document.querySelector('#fmHead .fmCnt').textContent.includes('4')"));
  assert(await js("document.querySelector('#fmHead .wcTrHm[data-lem=\"7878\"] small').textContent==='20'&&document.querySelector('#fmHead .wcTrHm[data-lem=\"7879\"] small').textContent==='14'&&document.querySelector('#fmHead .wcTrHm[data-lem=\"7880\"] small').textContent==='4'&&!document.querySelector('#wcTr .wcTrHm')"),'Tanach-Gesamtzahlen ausschließlich im Kopf');
  await js("new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))");fs.writeFileSync('/tmp/safran-word-card-header.png',(await win.webContents.capturePage()).toPNG());
+ // Reverse German rendering search stays separate from the current Hebrew lemma.
+ await js("document.querySelector('#fmHead .wcTrHm[data-lem=\"7878\"]').click()");
+ await waitFor("document.querySelector('#fmHead').textContent.includes('7878')&&document.querySelector('#wcTr .wcTrSrc[data-src=Zunz]')",'Verbkarte für Wiedergabesuche');
+ await js("document.querySelector('#wcTr .wcTrSrc[data-src=Zunz]').click()");
+ await waitFor("[...document.querySelectorAll('#wcTr .wcSamePick')].some(x=>x.textContent==='sprechen')",'Deutsche Wiedergabe anklickbar');
+ await js("[...document.querySelectorAll('#wcTr .wcSamePick')].find(x=>x.textContent==='sprechen').click()");
+ await waitFor("document.querySelector('#wcTr .wcSameEntry[data-lemma=\"559\"]')",'Andere hebräische Lemmata derselben Wiedergabe');
+ assert(await js("document.querySelector('#fmHead').textContent.includes('7878')&&document.querySelector('#wcTr .wcSame h5').textContent.includes('Zunz')"),'Wiedergabesuche ändert das Hauptlemma nicht');
+ await js("document.querySelector('#wcTr .wcSame').scrollIntoView({block:'start'});new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))");fs.writeFileSync('/tmp/safran-same-rendering.png',(await win.webContents.capturePage()).toPNG());
+ await js("document.querySelector('#wcTr .wcSameEntry[data-lemma=\"559\"]').open=true");
+ assert(await js("document.querySelectorAll('#wcTr .wcSameEntry[data-lemma=\"559\"] a[data-ref]').length===60"),'Lange Stellenlisten begrenzt dargestellt');
+ await js("document.querySelector('#wcTr .wcSameEntry[data-lemma=\"559\"] .wcSameMore').click()");
+ assert(await js("document.querySelectorAll('#wcTr .wcSameEntry[data-lemma=\"559\"] a[data-ref]').length===120&&document.querySelector('#wcTr .wcSameEntry[data-lemma=\"559\"]').open"),'Weitere Belege bleiben zugänglich');
+ await js("document.querySelector('#wcTr .wcSameEntry[data-lemma=\"559\"] .wcHL').click()");
+ await waitFor("document.querySelector('#fmHead').textContent.includes('Strong 559')",'Wortkarte aus gleicher Wiedergabe');
+ await js("document.querySelector('#fmBack').click()");
+ await waitFor("document.querySelector('#fmHead').textContent.includes('7878')&&document.querySelector('#wcTr .wcSameEntry[data-lemma=\"559\"]')",'Zurück erhält Wiedergabesuche');
+ await js("document.querySelector('#wcTr .wcTrSrc[data-src=Philippson]').click()");
+ assert(await js("!document.querySelector('#wcTr .wcSame')"),'Quellenwechsel entfernt die vorige Wiedergabesuche');
+ console.log('Electron: Gleiche deutsche Wiedergabe, andere Lemmata, Stellen, Nachladen, Wortkartensprung und Verlauf bestanden.');
  console.log('Electron: Homonyme wechseln die ganze Wortkarte, Quellenwahl bleibt erhalten, Zurück/Vor stellt passende Lemmata wieder her.');
  console.log('Electron: Statistik, Buch/Tanach-Umschaltung, seltene Wörter, Wurzeln, Verbformen, Wortverbindungen, Quellenbelege, Verssprung und gespeicherter Vergleich bestanden.');
 };
