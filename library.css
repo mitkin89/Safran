@@ -2094,3 +2094,8 @@ body.il .cell[data-k="he"] .ilt.il-smr { direction: rtl; font-family: var(--he-f
 #apBody .apProfileBar:hover,#apBody .apProfileBar:focus-visible{background:var(--chip);outline:1px solid var(--accent);border-radius:3px}
 
 #apBody .apProfile [data-stat-verse].selected{background:var(--chip);outline:1px solid var(--accent);border-radius:3px}
+
+#fmHead .fmHomonyms{display:inline-flex;flex-wrap:wrap;gap:5px;align-items:center;margin-inline:10px;font:13px system-ui,sans-serif}
+#fmHead .fmHomonyms button{padding:4px 9px;border:1px solid var(--line);border-radius:7px;background:var(--card);color:var(--fg);cursor:pointer;font:inherit}
+#fmHead .fmHomonyms button.on{border-color:var(--accent);background:var(--chip);color:var(--accent)}
+#fmHead .fmHomonyms small{color:var(--muted);font-size:11px}

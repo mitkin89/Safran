@@ -8,6 +8,9 @@ module.exports=async({win,js,waitFor,book})=>{
  await js("{const c=document.querySelector('#ilPop input[value=Samaritan]');c.checked=true;c.dispatchEvent(new Event('change',{bubbles:true}));document.querySelector('#ilBtn').click();}");
  await waitFor("document.querySelector('#rOut .ilt[data-tr=Samaritan] .smr-word')",'Samaritanus unter dem MT');
  assert(await js("document.querySelector('#rOut .row[data-l=\"1\"] .cell[data-k=he]').querySelectorAll('.w').length===7"),'Keine fremden Wortmarker im MT-Index');
+ // Interlinear layout can queue a reader scroll after inserting the rows.
+ // Wait for that layout before clicking: scrolling deliberately closes word popups.
+ await js("{const w=[...document.querySelectorAll('#rOut .row[data-l=\"1\"] .smr-word')].find(w=>w.textContent==='ברא');w.scrollIntoView({block:'center'});}new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))");
  await js("window.getSelection().removeAllRanges();[...document.querySelectorAll('#rOut .row[data-l=\"1\"] .smr-word')].find(w=>w.textContent==='ברא').click()");
  await waitFor("document.querySelector('#wpop.samaritan-word')?.textContent.includes('Qal')",'Eigene samaritanische Morphologie aus Interlinear');await js("document.querySelector('#wpop .wx').click()");
  await js("[...document.querySelectorAll('#rOut .row[data-l=\"12\"] .smr-word')].find(w=>w.textContent==='ותוציא').click()");

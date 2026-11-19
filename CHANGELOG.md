@@ -1,6 +1,9 @@
 # Changelog
 
 ### Unreleased
+- **Word-card entry chooser:** place entries with identical consonants beside the main lemma, using overall Tanakh totals independently of translation alignment coverage.
+- **Overview return position:** retain the selected statistics tab, expanded lists, scope and scroll position when returning from a word card.
+- **Stable interlinear smoke click:** bring the Samaritan source word into view and finish the layout frames before opening morphology; reader scrolling deliberately dismisses popups.
 - **Consistent homonym cards:** switching between lexical entries with the same consonants updates the entire word card, including header, total, distribution, forms and source sections. Preserve the translation choice, reset word-specific filters and support Back/Forward across entries.
 - **Clickable verse profile:** chart each verse’s word count, corpus-sensitive rare-word count, recorded verse-specific commentary links and distinct textual-source types. Click or keyboard activation highlights the verse in the reader; keep the full chapter profile available from verse scope.
 - **Restore concentration labels:** show “almost only here” again when at least half the chosen corpus occurrences lie in the selected passage; expose the exact percentage and book/Tanakh basis on hover.

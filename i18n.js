@@ -14,6 +14,7 @@
   if (lang === 'de') return;
 
   const EN = {
+    "Lexikoneintrag wechseln: {} Belege im Tanach, Strong {}.": "Switch lexical entry: {} occurrences in the Tanakh, Strong {}.",
     "Einträge mit denselben Konsonanten:": "Entries with the same consonants:",
     "Lexikoneintrag wechseln. {} einzeln zugeordnete Belege in {}.": "Switch lexical entry. {} individually aligned occurrences in {}.",
     "Bei langen Kapiteln seitlich scrollen.": "Scroll sideways for long chapters.",

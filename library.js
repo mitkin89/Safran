@@ -3023,14 +3023,33 @@
     const top = $('#stick') ? $('#stick').getBoundingClientRect().bottom : 0; // sonst die erste Zeile, die ganz zu sehen ist
     return rows.find(r => rowVerse(r.dataset.l) != null && r.getBoundingClientRect().top >= top - 4 && onScreen(r)) || readingRow(rows.filter(x => rowVerse(x.dataset.l) != null)) || rows[0];
   }
+  const apStates=new Map();
+  function apRemember(){
+    if(!AP.key||!$('#apBody .apScope')||!$('#allPanel').getClientRects().length)return;
+    const scopes={};for(const pane of $$('#apBody .apScope'))scopes[pane.dataset.scope]={tab:pane.querySelector('.apSeg button.on')?.dataset.seg,more:[...pane.querySelectorAll('.apMore')].map(x=>!x.hidden),details:[...pane.querySelectorAll('details')].map(x=>x.open),profile:pane.querySelector('.apProfile')?.scrollLeft||0};
+    apStates.delete(AP.key);apStates.set(AP.key,{scopes,scope:$('#apBody .apScopeSw button.on')?.dataset.scope,scroll:$('#allPanel').scrollTop});
+    while(apStates.size>24)apStates.delete(apStates.keys().next().value);
+  }
+  function apRestore(){
+    const state=apStates.get(AP.key);if(!state)return;
+    for(const pane of $$('#apBody .apScope')){const s=state.scopes[pane.dataset.scope];if(!s)continue;
+      pane.querySelector('.apSeg button[data-seg="'+s.tab+'"]')?.click();
+      [...pane.querySelectorAll('.apMore')].forEach((x,i)=>{if(s.more[i]!==undefined&&x.hidden===s.more[i])x.nextElementSibling?.click();});
+      [...pane.querySelectorAll('details')].forEach((x,i)=>{if(s.details[i]!==undefined)x.open=s.details[i];});
+      const profile=pane.querySelector('.apProfile');if(profile)profile.scrollLeft=s.profile;
+    }
+    if(state.scope)$('#apBody .apScopeSw button[data-scope="'+state.scope+'"]')?.click();
+    const key=AP.key,token=AP.token;requestAnimationFrame(()=>{if(key===AP.key&&token===AP.token)$('#allPanel').scrollTop=state.scroll;});
+  }
   function apToggle(force, label) {
+    apRemember();const wasOpen=AP.open;
     AP.open = force == null ? !AP.open : !!force;
-    if (AP.open) AP.whole = label == null; // über den Knopf: ganzes Kapitel; über eine Zeile (Kontextmenü): dieser Vers
+    if (AP.open&&(!wasOpen||label!=null)) AP.whole = label == null; // über den Knopf: ganzes Kapitel; über eine Zeile (Kontextmenü): dieser Vers
     $('#allPanel').hidden = !AP.open;
     $('#apBtn').classList.toggle('active', AP.open);
     if (!AP.open) { linksUI.hovApi && linksUI.hovApi.hide(); return; }
     if (label != null && label !== cmtRow) setCmtRow(label); // die Markierung der Zeile ist dieselbe wie beim Kommentar-Bereich
-    AP.key = ''; apRender();
+    apRender();
   }
   let apCur=null,apComparison='book',apStatsDataPromise=null;
   try{if(localStorage.getItem('passageComparison')==='tanakh')apComparison='tanakh';}catch{}
@@ -3095,6 +3114,7 @@
   const apGrouped = items => window.Passage.RGROUPS.map(g => { const xs = items.filter((_, i) => items.grp[i] === g); return xs.length ? `<h5 class="apGrp">${esc(I18N.t(g))} <small>${xs.length.toLocaleString(I18N.loc)}</small></h5>${apList(xs, 2)}` : ''; }).join('');
   function apRender() {
     if (!AP.open) return;
+    apRemember();
     const P = window.Passage, token = ++AP.token, body = $('#apBody'), nav = $('#apNav');
     const blank = msg => { $('#apTitle').textContent = I18N.t('Alles zu dieser Stelle'); nav.innerHTML = ''; body.innerHTML = `<p class="muted">${esc(I18N.t(msg))}</p>`; AP.key = ''; };
     if (!view || !view.group || view.sres || !view.sections) return blank('Öffne ein Buch und klicke links auf eine Versnummer.');
@@ -3194,7 +3214,7 @@
         const st = rows.length && index ? apStats(rows,index,title,chap) : null;
         let sv = null;
         if(st&&!whole&&v!=null){const vr=rows.find(r=>r.label===label)||rows[v-1];if(vr)sv=apStats([vr],index,title,chap);}
-        apSet('stats', st ? st.words : 0, st ? apStatsHtml(st, sv, v) : '');
+        apSet('stats', st ? st.words : 0, st ? apStatsHtml(st, sv, v) : '');apRestore();
       }).catch(() => { if (token === AP.token) apSet('stats', 0, ''); });
     }
     // ----- In Wörterbüchern: Artikel, die diese Stelle zitieren (Rückwärtsindex der Wörterbuch-Zitate) -----
@@ -3261,7 +3281,7 @@
     { const sc = e.target.closest('.apScopeSw button'); if (sc) { const box = sc.closest('.apBox'); box.querySelectorAll('.apScopeSw button').forEach(b => b.classList.toggle('on', b === sc)); box.querySelectorAll('.apScope').forEach(p => { p.hidden = p.dataset.scope !== sc.dataset.scope; }); return; }
       const sg = e.target.closest('.apScope .apSeg button'); if (sg) { const box = sg.closest('.apScope'); box.querySelectorAll('.apSeg button').forEach(b => b.classList.toggle('on', b === sg)); box.querySelectorAll('.apPane').forEach(p => { p.hidden = p.dataset.seg !== sg.dataset.seg; }); box.querySelector('.apCompare').hidden=!['lead','rare','vocab','names','profile'].includes(sg.dataset.seg);return; }
       const cp = e.target.closest('.apCopy'); if (cp && apCur && apCur[cp.closest('.apScope').dataset.scope]) { const LEM = window.OSHB_LEMMAS || {}, L = I18N.lang; const txt = apCur[cp.closest('.apScope').dataset.scope].vocabularyByCorpus[apComparison].vocab.map(r => { const lem = LEM[r.w.lemma]; return [lem ? lem[0] : r.w.word, lem ? (L === 'de' && lem[2] ? lem[2] : lem[1]) : '', (apComparison==='book'?r.B:r.T) + '×'].join('\t'); }).join('\n'); try { navigator.clipboard.writeText(txt); cp.classList.add('ok'); setTimeout(() => cp.classList.remove('ok'), 1200); } catch { /* egal */ } return; } }
-    const w = e.target.closest('.apW'); if (w) { wordCardsUI.openForms(w.dataset.lemma, { lemma: w.dataset.lemma, word: w.dataset.word, m: w.dataset.m, l: w.dataset.l }, 'card'); return; }
+    const w = e.target.closest('.apW'); if (w) { apRemember();wordCardsUI.openForms(w.dataset.lemma, { lemma: w.dataset.lemma, word: w.dataset.word, m: w.dataset.m, l: w.dataset.l }, 'card'); return; }
     const de = e.target.closest('.apDE'); if (de) { openDict(de.dataset.q); return; }
     const pl = e.target.closest('[data-place]'); if (pl) { apPlace(+pl.dataset.place); return; }
     const tp = e.target.closest('[data-slug]'); if (tp) { outlineUI.openTopic(tp.dataset.slug, false); return; }
