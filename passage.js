@@ -181,6 +181,6 @@
     return { n, shown: BOXES.filter(b => n[b] > 0), total: BOXES.reduce((s, b) => s + n[b], 0) };
   }
 
-  const api = { BOXES, KRAUSS, stats, rabbinicGroup, RGROUPS, boxOf, sourceOf, classify, commentators, words, bare, outlineAt, spans, secNo, notesAt, placesAt, topicsAt, summary, bookOf };
+  const api = { isFunction:pos=>FUNC.test(pos||''), BOXES, KRAUSS, stats, rabbinicGroup, RGROUPS, boxOf, sourceOf, classify, commentators, words, bare, outlineAt, spans, secNo, notesAt, placesAt, topicsAt, summary, bookOf };
   if (typeof module !== 'undefined' && module.exports) module.exports = api; else window.Passage = api;
 })();

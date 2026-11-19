@@ -43,6 +43,10 @@ async function book(title,prefix='document'){await js(`{const d=${prefix};d.quer
  win.webContents.on('render-process-gone',(_e,d)=>{console.error(d);app.exit(1)});
  await win.loadFile(path.join(root,'library.html'));await waitFor("document.querySelectorAll('#tree .lib-item').length===3",'Start');
  await book('Genesis');await waitFor("document.querySelector('#rOut .w')",'Genesis');
+ if(process.env.SAFRAN_SMOKE_STATS==='1'){
+  await require('./passage-statistics-flows.cjs')({win,js,waitFor,book});
+  assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;
+ }
  if(process.env.SAFRAN_SMOKE_MISHNAH==='1'){
   await js("localStorage.setItem('uiLang','en')");
   await require('./mishnah-textcrit-flows.cjs')({docs,win,js,waitFor,book});
@@ -94,6 +98,7 @@ async function book(title,prefix='document'){await js(`{const d=${prefix};d.quer
  await require('./samaritan-interlinear-flows.cjs')({win,js,waitFor,book});
  await require('./taamim-flows.cjs')({win,js,waitFor,book});
  await require('./textcrit-english-flows.cjs')({win,js,waitFor,book});
+ await require('./passage-statistics-flows.cjs')({win,js,waitFor,book});
  await require('./mishnah-textcrit-flows.cjs')({docs,win,js,waitFor,book});
  assert.deepEqual(errors,[],'Keine unbehandelten Fehler im Renderer');
  await require('./font-restart.cjs')();

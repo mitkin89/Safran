@@ -2057,3 +2057,17 @@ body.il .cell[data-k="he"] .ilt.il-smr { direction: rtl; font-family: var(--he-f
 #rOut .mishnah-reader-text .mci-labels{position:relative;flex-shrink:0}
 #rOut .mishnah-reader-text .mci-label-set{position:absolute;left:0;width:max-content;white-space:nowrap}
 #rOut .mishnah-reader-text .mci-label-set .mci-cell{white-space:nowrap}
+
+#apBody .apCompare{display:flex;flex-wrap:wrap;align-items:center;gap:5px;margin:6px 0 9px;font-size:12px}
+#apBody .apCompare button.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+#apBody .apFamily{border-bottom:1px solid var(--line);padding:6px 0}
+#apBody .apFamily summary{cursor:pointer;font-size:13px}#apBody .apFamily summary bdi{font:22px var(--he-font)}
+#apBody .apPhrase,#apBody .apEvidence{padding:6px 0;border-bottom:1px solid var(--line)}
+#apBody .apPhrase>bdi{font:22px var(--he-font);margin-inline-end:12px}
+#apBody .apStatVerse{padding:2px 7px;margin:3px 0;font-size:12px}#apBody .apMorphRow{flex-wrap:wrap}
+#apBody .apMorphRow .apW bdi{font:22px var(--he-font)}
+#apBody .apEvidence .chip{font-size:11px;padding:2px 5px;margin:2px}
+#apBody .apRates{display:block;font-size:10px;line-height:1.4}
+
+#apBody .apRn{flex-shrink:1;min-width:0;max-width:58%}
+#apBody .apRates{white-space:normal;overflow-wrap:anywhere}
