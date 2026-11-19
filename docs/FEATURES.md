@@ -34,6 +34,16 @@ The short version is in the [README](../README.md). This page lists everything, 
 - **Verse context menu:** *Alles zu dieser Stelle*, copy the reference or open the verse on sefaria.org. Clicking a verse number selects it for the commentary panel (or, while *Alles zu dieser Stelle* is open, for that panel).
 - **Export** the displayed section as PDF or Word (⚙ *Anzeige* → *⤓ Exportieren …*).
 
+## Resizable study panels
+
+- Word card, overview, textual criticism, commentaries, dictionary, outline, links, topics and map support resizing. Drag the left separator of a pinned panel; drag any edge or corner of a floating panel. Sizes are saved per floating panel; pinned panels share their chosen width. Arrow keys resize a focused grip (Shift: larger step), Home or double-click restores the default. Sizes remain within the reading window.
+- Frequency comparisons use labeled blue/gold bars for passage/remainder frequencies per 1,000 words, on one common linear scale across rows. Absolute counts stay visible, and the book/Tanakh selector recalculates the comparison.
+
+## MT word highlights
+
+- In the overview statistics, *MT markieren* highlights either rare words (gold) or unusually frequent words (blue) in the visible Westminster text, using the selected verse/chapter and book/Tanakh comparison. Matching uses the annotated main lemma, including prefixed forms. Translation and witness columns retain their own formatting.
+- Click the active mode again or the reader’s clear button to turn highlighting off. A status chip names the mode/corpus and counts visible marked MT words. Word popups and morphology remain available; marks survive layout refreshes and clear when changing chapters.
+
 ## Everything on this passage (Cmd+I)
 
 - **Opening:** right-click a verse or segment → *Alles zu dieser Stelle*, the ✦ *Überblick* button in the toolbar, or Cmd/Ctrl+I. The button and the shortcut take the selected verse, otherwise the highlighted one, otherwise the first verse on screen.

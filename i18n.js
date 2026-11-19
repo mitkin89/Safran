@@ -14,6 +14,16 @@
   if (lang === 'de') return;
 
   const EN = {
+    "MT markieren": "Highlight MT",
+    "Erneut klicken: aus. Gilt für die aktuelle Auswahl.": "Click again to turn off. Applies to the current selection.",
+    "Wortmarkierungen entfernen": "Clear word highlights",
+    "{} · {} markierte MT-Wörter": "{} · {} highlighted MT words",
+
+    "Fenstergröße ändern": "Resize panel",
+    "Ziehen: Fenstergröße ändern. Pfeiltasten: Größe ändern. Doppelklick: Standard.": "Drag to resize. Arrow keys: change size. Double-click: reset.",
+    "sonst": "elsewhere",
+    "Balken: Vorkommen je 1.000 Wörter, für alle Zeilen gleich skaliert. Blau: Auswahl. Gold: übriges Vergleichskorpus.": "Bars: occurrences per 1,000 words, on the same scale across all rows. Blue: selection. Gold: rest of comparison corpus.",
+
     "Gleiche Wiedergabe": "Same rendering",
     "Andere hebräische Wörter mit dieser Wiedergabe zeigen": "Show other Hebrew words with this rendering",
     "Gleiche deutsche Grundform in dieser Übersetzung, über alle erfassten Tanachstellen. Das bedeutet keine identische Bedeutung im Kontext; Wortformfilter gelten hier nicht.": "Same German base form in this translation, across all indexed Tanakh passages. This does not imply identical meaning in context; word-form filters do not apply here.",

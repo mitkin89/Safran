@@ -2772,7 +2772,7 @@
     const rt = document.documentElement;
     let cw = 400, cfs = 14;
     try { cw = +localStorage.getItem('cmtW') || 400; cfs = +localStorage.getItem('cmtFs') || 14; } catch { /* egal */ }
-    const clampW = w => Math.round(Math.min(Math.max(280, w), window.innerWidth * 0.8));
+    const clampW = w => Math.round(Math.min(Math.max(280, w), window.innerWidth * 0.9));
     const applyCw = () => { rt.style.setProperty('--cmt-w', clampW(cw) + 'px'); };
     const applyCfs = () => { rt.style.setProperty('--cmt-fs', cfs + 'px'); try { localStorage.setItem('cmtFs', String(cfs)); } catch { /* egal */ } };
     applyCw(); applyCfs();
@@ -2892,6 +2892,7 @@
     if (window.ResizeObserver) new ResizeObserver(() => { if (el.classList.contains('docked')) { let w = 0; for (const o in PINS) { const e2 = $(PINS[o][0]); if (e2.classList.contains('docked')) w = Math.max(w, e2.getBoundingClientRect().width); } document.documentElement.style.setProperty('--dock-w', w ? w + 'px' : ''); } }).observe(el);
   }
   pinSync(false);
+  window.LibraryPanelResize.create({panels:Object.values(PINS).map(p=>p[0]),setDockWidth:w=>window.setPanelW(w)});
   // nicht angepinnte Kommentare/Wörterbuch schließen beim Klick außerhalb (wie die anderen schwebenden Fenster)
   document.addEventListener('mousedown', e => {
     if (!e.target.closest || document.documentElement.dataset.tab === 'dict') return;
@@ -3052,6 +3053,16 @@
     apRender();
   }
   let apCur=null,apComparison='book',apStatsDataPromise=null;
+  const apMarkKey=()=>view?.group&&view?.sections?.[view.idx]?view.group.key+'|'+view.sections[view.idx].k:'';
+  const apMarks=window.LibraryPassageMarks.create({root:$('#rOut'),getKey:apMarkKey});
+  function apMarkApply(mode,scope){
+    const st=apCur?.[scope];if(!st){apMarks.clear();return;}
+    const xs=mode==='rare'?st.rareByCorpus[apComparison]:st.comparisons[apComparison];
+    const corpus=apComparison==='book'?I18N.t('Buch: {}',st.book):I18N.t('Gesamter Tanach');
+    apMarks.set({key:apMarkKey(),mode,scope,ids:xs.map(r=>r.w.lemma),verses:st.evidence.map(x=>String(x.verse)),label:I18N.t(mode==='rare'?'Seltene Wörter':'Auffällig häufig')+' · '+corpus});
+  }
+  function apMarkRefresh(){const mark=apMarks.snapshot();if(mark&&mark.key===apMarkKey())apMarkApply(mark.mode,mark.scope);else apMarks.sync();}
+
   try{if(localStorage.getItem('passageComparison')==='tanakh')apComparison='tanakh';}catch{}
   const loadPassageStats=()=>apStatsDataPromise||(apStatsDataPromise=wordCardsUI.lazyScript('passage-stats-data.js',()=>window.PASSAGE_STATS_DATA).catch(e=>{apStatsDataPromise=null;throw e;}));
   function apStats(rows,index,book,chapter){const st=window.PassageStatistics.analyze(rows,index,book,chapter);if(st)st.profile=window.PassageStatistics.profile(rows,index,book,chapter,linksUI.secLinks);return st;}
@@ -3068,11 +3079,14 @@
   function apStatsScope(st, scope, v) {
     const LEM = window.OSHB_LEMMAS || {}, L = I18N.lang, n = x => x.toLocaleString(I18N.loc);
     const gl = r => { const lem = LEM[r.w.lemma]; return lem ? (L === 'de' && lem[2] ? lem[2] : lem[1]) : ''; };
+    const rateScale=Math.max(1,...st.comparisons[apComparison].flatMap(x=>[x.rateHere,x.rateRest]));
     const row = (r, mode) => {
       const lem=LEM[r.w.lemma],total=apComparison==='book'?r.B:r.T;
       const txt=mode==='corpus'?`${n(total||0)}× ${esc(I18N.t(apComparison==='book'?'im Buch':'im Tanach'))}`:mode==='here'?`${r.n}× ${esc(I18N.t('hier'))}`:mode==='rare'?`${r.n}× ${esc(I18N.t('hier'))} · ${n(r.B)}× ${esc(I18N.t('im Buch'))} · ${n(r.T)}× ${esc(I18N.t('im Tanach'))}`:`${r.n}× ${esc(I18N.t('hier'))} · ${n(total||0)}× ${esc(I18N.t(apComparison==='book'?'im Buch':'im Tanach'))}`;
       const share=window.PassageStatistics.concentration(r.n,total),only=['ratio','rare'].includes(mode)&&share!==null?` <em class="apOnly" data-corpus="${apComparison}" data-share="${share}" title="${esc(I18N.t('{} % der Belege in {} stehen in dieser Auswahl.',share,apComparison==='book'?st.book:I18N.t('Gesamter Tanach')))} ${esc(I18N.t('Markiert ab 50 % bei mindestens zwei Belegen im Vergleichskorpus.'))}">${esc(I18N.t('fast nur hier'))}</em>`:'';
-      return `<div class="apRow"><button type="button" class="apW" data-lemma="${esc(r.w.lemma)}" data-word="${esc(r.w.raw)}" data-l="${esc(r.w.l)}" data-m="${esc(r.w.m)}"><span class="f" lang="he" dir="rtl">${esc(lem?lem[0]:r.w.word)}</span></button><span class="apRg" dir="auto">${esc(gl(r))}</span><span class="apRn">${txt}${only}${mode==='ratio'&&Number.isFinite(r.rateHere)?`<small class="apRates muted">${esc(I18N.t('Je 1.000: {} hier · {} sonst',r.rateHere.toLocaleString(I18N.loc,{maximumFractionDigits:1}),r.rateRest.toLocaleString(I18N.loc,{maximumFractionDigits:1})))}</small>`:''}</span></div>`;
+      const rates=mode==='ratio'&&Number.isFinite(r.rateHere),scale=rateScale;
+      const graph=rates?`<span class="apRateGraph" role="img" aria-label="${esc(I18N.t('Je 1.000: {} hier · {} sonst',r.rateHere.toLocaleString(I18N.loc,{maximumFractionDigits:1}),r.rateRest.toLocaleString(I18N.loc,{maximumFractionDigits:1})))}">${[[r.rateHere,'hier','here'],[r.rateRest,'sonst','rest']].map(([value,label,kind])=>`<span class="apRateLine ${kind}"><span>${esc(I18N.t(label))}</span><i><b style="width:${100*value/scale}%"></b></i><small>${value.toLocaleString(I18N.loc,{maximumFractionDigits:1})}</small></span>`).join('')}</span>`:'';
+      return `<div class="apRow${rates?' apRateRow':''}"><button type="button" class="apW" data-lemma="${esc(r.w.lemma)}" data-word="${esc(r.w.raw)}" data-l="${esc(r.w.l)}" data-m="${esc(r.w.m)}"><span class="f" lang="he" dir="rtl">${esc(lem?lem[0]:r.w.word)}</span></button><span class="apRg" dir="auto">${esc(gl(r))}</span><span class="apRn">${txt}${only}${graph}</span></div>`;
     };
     const list = (xs, mode, cap = 10) => apList(xs.map(r => row(r, mode)), cap);
     const bar = (label, v, pct) => `<div class="apBarRow"><span class="apBl">${esc(label)}</span><i class="apBar"><b style="width:${Math.max(2, Math.min(100, pct))}%"></b></i><span class="apBn">${v}</span></div>`;
@@ -3080,7 +3094,7 @@
     const lead=st.comparisons[apComparison],rare=st.rareByCorpus[apComparison],vocabulary=st.vocabularyByCorpus[apComparison],sourceLabels=[[1,'Samaritanus','Tal','Anmerkungen von Tal–Florentin zum samaritanischen Text; auch sprachliche Hinweise.'],[2,'Septuaginta','Tov / CATSS','Hinweise von Tov/CATSS zur griechisch-hebräischen Zuordnung und Übersetzung.'],[4,'Qumran','Transkription','Transkriptionsmaterial zu diesem Vers; es kann rekonstruierte Teile enthalten.'],[8,'Kennicott','Anmerkungen','Erfasste Editionsanmerkungen; darunter auch Schreibweisen und Buchstabengestaltung.']];
     const panes = {
       profile:apVerseProfile(st),
-      lead:`<p class="muted apHow">${esc(I18N.t('Nach relativer Häufigkeit gegenüber dem übrigen Vergleichskorpus sortiert. Das ist ein statistischer Hinweis, keine Themenbestimmung.'))}</p>${!st.comparisonAvailable[apComparison]?`<p class="muted">${esc(I18N.t('Die Auswahl umfasst das gesamte Vergleichskorpus.'))}</p>`:lead.length?list(lead,'ratio'):`<p class="muted">${esc(I18N.t('Keine auffällig häufigen Wörter.'))}</p>`}`,
+      lead:`<p class="muted apHow">${esc(I18N.t('Nach relativer Häufigkeit gegenüber dem übrigen Vergleichskorpus sortiert. Das ist ein statistischer Hinweis, keine Themenbestimmung.'))}</p><p class="apRateLegend muted">${esc(I18N.t('Balken: Vorkommen je 1.000 Wörter, für alle Zeilen gleich skaliert. Blau: Auswahl. Gold: übriges Vergleichskorpus.'))}</p>${!st.comparisonAvailable[apComparison]?`<p class="muted">${esc(I18N.t('Die Auswahl umfasst das gesamte Vergleichskorpus.'))}</p>`:lead.length?list(lead,'ratio'):`<p class="muted">${esc(I18N.t('Keine auffällig häufigen Wörter.'))}</p>`}`,
       rare:`<p class="muted apHow">${esc(apComparison==='book'?I18N.t('Selten: 1–19 Belege des Lemmas im Buch {}. Nach Buchhäufigkeit sortiert; Tanachzahlen bleiben sichtbar.',st.book):I18N.t('Selten: 1–19 Belege des Lemmas im gesamten Tanach. Nach Tanachhäufigkeit sortiert; Buchzahlen bleiben sichtbar.'))}</p>${rare.length?list(rare,'rare',15):`<p class="muted">${esc(I18N.t('Keine seltenen Wörter in dieser Auswahl.'))}</p>`}`,
       roots:`<p class="muted apHow">${esc(I18N.t('Wortfamilien nach ausdrücklichen Wurzelverweisen im Open-Scriptures-Lexikon; gleich geschriebene Wurzeln werden nicht automatisch zusammengeführt.'))}</p>${st.families.length?apList(st.families.map(f=>`<details class="apFamily" open><summary><bdi lang="he" dir="rtl">${esc(f.root)}</bdi> · ${f.n}× · ${f.items.length} ${esc(I18N.t('Lemmata'))}</summary>${list(f.items,'here')}</details>`),8):`<p class="muted">${esc(I18N.t('Keine ausdrücklich erfassten Wurzelbezüge in dieser Auswahl.'))}</p>`}<p class="muted apNote">${esc(I18N.t('{} von {} Wörtern mit erfasstem Wurzelbezug.',st.rootWords,st.words))} Open Scriptures HebrewLexicon · CC BY 4.0.</p>`,
       vocab:`<p class="muted apHow">${esc(apComparison==='book'?I18N.t('Vokabular nach der Häufigkeit im Buch {}.',st.book):I18N.t('Vokabular nach der Häufigkeit im gesamten Tanach.'))}</p>${vocabulary.tiers.map(t=>`<details class="apTier"${t.items.length<=12&&t.key!=='>500'?' open':''}><summary><b>${esc(t.key==='1'?I18N.t(apComparison==='book'?'nur einmal im Buch':'nur einmal im Tanach'):I18N.t(apComparison==='book'?'{}× im Buch':'{}× im Tanach',t.key))}</b> <small>${n(t.items.length)}</small></summary>${list(t.items,'corpus',12)}</details>`).join('')}${st.only.length?`<h6>${esc(I18N.t('Nur in diesem Buch'))}</h6>${list(st.only,'ratio',8)}`:''}<button type="button" class="apCopy" data-act="copyvocab">${esc(I18N.t('Vokabelliste kopieren'))} <small>${n(vocabulary.vocab.length)}</small></button>`,
@@ -3092,6 +3106,7 @@
     const segs=[['lead','Auffällig häufig'],['rare','Seltene Wörter'],['roots','Wurzeln'],['vocab','Vokabeln'],['verbs','Verbformen'],['phrases','Wortverbindungen'],['names','Namen'],['evidence','Quellen pro Vers'],['profile','Versprofil']];
     return `<p class="apSum">${esc(scope === 'v' ? I18N.t('{} Wörter, {} verschiedene Wörter (Lemmata). {} % der Wörter kommen im Tanach mindestens 100-mal vor.', n(st.words), n(st.lemmas), st.common) : I18N.t('{} Wörter in {} Versen, {} verschiedene Wörter (Lemmata). {} % der Wörter kommen im Tanach mindestens 100-mal vor.', n(st.words), n(st.verses), n(st.lemmas), st.common))}</p>
       <div class="apCompare"><span>${esc(I18N.t('Vergleich'))}</span> ${[['book',I18N.t('Buch: {}',st.book)],['tanakh',I18N.t('Gesamter Tanach')]].map(([key,label])=>`<button type="button" data-compare="${key}" aria-pressed="${apComparison===key}" class="${apComparison===key?'on':''}">${esc(label)}</button>`).join(' ')}</div>
+      <div class="apMarkTools"><span>${esc(I18N.t('MT markieren'))}</span>${[['lead','Auffällig häufig'],['rare','Seltene Wörter']].map(([mode,label])=>`<button type="button" data-ap-mark="${mode}" aria-pressed="false">${esc(I18N.t(label))}</button>`).join('')}<small class="muted">${esc(I18N.t('Erneut klicken: aus. Gilt für die aktuelle Auswahl.'))}</small></div>
       <div class="apSeg" role="tablist">${segs.map(([k, l], i) => `<button type="button" data-seg="${k}"${i ? '' : ' class="on"'}>${esc(I18N.t(l))}</button>`).join('')}</div>
       ${segs.map(([k], i) => `<div class="apPane" data-seg="${k}"${i ? ' hidden' : ''}>${panes[k]}</div>`).join('')}
       <p class="muted apNote">${esc(I18N.t('OSHB: Gesamtwortzahl einschließlich Funktionswörtern; Wortlisten ohne Präpositionen, Partikeln und Pronomen. Vergleich nach Textlänge normalisiert.'))}</p>`;
@@ -3214,7 +3229,7 @@
         const st = rows.length && index ? apStats(rows,index,title,chap) : null;
         let sv = null;
         if(st&&!whole&&v!=null){const vr=rows.find(r=>r.label===label)||rows[v-1];if(vr)sv=apStats([vr],index,title,chap);}
-        apSet('stats', st ? st.words : 0, st ? apStatsHtml(st, sv, v) : '');apRestore();
+        apSet('stats', st ? st.words : 0, st ? apStatsHtml(st, sv, v) : '');apRestore();apMarkRefresh();
       }).catch(() => { if (token === AP.token) apSet('stats', 0, ''); });
     }
     // ----- In Wörterbüchern: Artikel, die diese Stelle zitieren (Rückwärtsindex der Wörterbuch-Zitate) -----
@@ -3272,10 +3287,11 @@
     const sf = e.target.closest('a.lkSef'); if (sf) { e.preventDefault(); window.api.openExternal(sf.dataset.url); return; }
     const all = e.target.closest('.apAll'); if (all) { linksUI.hovApi && linksUI.hovApi.hide(); apShowAll(all.dataset.b); return; }
     const mb = e.target.closest('.apMoreB'); if (mb) { const m = mb.previousElementSibling; m.hidden = !m.hidden; mb.textContent = m.hidden ? I18N.t('+ {} weitere', (+mb.dataset.n).toLocaleString(I18N.loc)) : I18N.t('weniger'); return; }
+    const mark=e.target.closest('[data-ap-mark]');if(mark){const scope=mark.closest('.apScope').dataset.scope,current=apMarks.snapshot();if(current?.mode===mark.dataset.apMark&&current.scope===scope)apMarks.clear();else apMarkApply(mark.dataset.apMark,scope);return;}
     const cmp=e.target.closest('button[data-compare]');if(cmp&&apCur){
       const scope=cmp.closest('.apScope'),key=scope.dataset.scope,tab=scope.querySelector('.apSeg button.on')?.dataset.seg;
       apComparison=cmp.dataset.compare;try{localStorage.setItem('passageComparison',apComparison);}catch{}
-      for(const pane of $$('#apBody .apScope')){const k=pane.dataset.scope,old=pane.querySelector('.apSeg button.on')?.dataset.seg||tab;pane.innerHTML=apStatsScope(apCur[k],k,linksUI.verseOf(cmtRow));pane.querySelector('.apSeg button[data-seg="'+old+'"]')?.click();}return;
+      for(const pane of $$('#apBody .apScope')){const k=pane.dataset.scope,old=pane.querySelector('.apSeg button.on')?.dataset.seg||tab;pane.innerHTML=apStatsScope(apCur[k],k,linksUI.verseOf(cmtRow));pane.querySelector('.apSeg button[data-seg="'+old+'"]')?.click();}apMarkRefresh();return;
     }
     const statVerse=e.target.closest('[data-stat-verse]');if(statVerse){const profile=statVerse.closest('.apProfile');if(profile)profile.querySelectorAll('[data-stat-verse]').forEach(b=>b.classList.toggle('selected',b.dataset.statVerse===statVerse.dataset.statVerse));const row=$$('#rOut .row[data-l]').find(r=>r.dataset.l===statVerse.dataset.statVerse);if(row){setCmtRow(row.dataset.l);row.scrollIntoView({block:'center',behavior:'smooth'});row.classList.add('flash');setTimeout(()=>row.classList.remove('flash'),1200);}return;}
     { const sc = e.target.closest('.apScopeSw button'); if (sc) { const box = sc.closest('.apBox'); box.querySelectorAll('.apScopeSw button').forEach(b => b.classList.toggle('on', b === sc)); box.querySelectorAll('.apScope').forEach(p => { p.hidden = p.dataset.scope !== sc.dataset.scope; }); return; }

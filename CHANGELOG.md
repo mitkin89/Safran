@@ -1,6 +1,9 @@
 # Changelog
 
 ### Unreleased
+- **MT frequency highlights:** optionally mark rare words in gold or unusually frequent words in blue from passage statistics. Use exact OSHB lemma IDs, selected verse/chapter and book/Tanakh corpus; preserve word interaction and layout refreshes. Keep a clear control in the reader and clear the passage-specific marks on chapter changes.
+- **Resizable study panels:** add shared edge/corner grips for all nine auxiliary panels, a shared dock divider, keyboard resizing and reset, saved floating geometry and viewport bounds.
+- **Visual frequency comparison:** paired, labeled bars show occurrences per 1,000 words in the passage and the remainder of the chosen book/Tanakh, using one linear scale across all rows. Keep absolute counts and concentration labels.
 - **Same rendering:** click a grouped German rendering to find Hebrew lemmas sharing that rendering in the selected translation. Show counts, attested translation forms and expandable references, with word-card navigation and history. Keep source-specific rendering matches distinct from contextual meaning.
 - **Word-card entry chooser:** place entries with identical consonants beside the main lemma, using overall Tanakh totals independently of translation alignment coverage.
 - **Overview return position:** retain the selected statistics tab, expanded lists, scope and scroll position when returning from a word card.
