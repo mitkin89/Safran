@@ -46,10 +46,11 @@ module.exports=async({docs,win,js,waitFor,book})=>{
  const columns=n=>waitFor("document.querySelector('#rOut .row[data-l=\"1\"]').querySelectorAll('.cell').length==="+n,'Spaltenanzahl '+n);
  const addAleppo=async()=>{await js("{document.querySelector('#verBox').open=true;const l=[...document.querySelectorAll('#verList .voption')].find(l=>l.textContent.includes('Aleppo-Kodex')),c=l.querySelector('input');c.checked=true;c.dispatchEvent(new Event('change',{bubbles:true}));}");await columns(3);};
  await menu('Westminster');
+ assert(await js("document.querySelector('#ctxMenu button:has(.vpic) .cm-lab').textContent.startsWith('Westminster')"),'Westminster zuerst bei Spalte ersetzen');
  assert(await js("[...document.querySelectorAll('#ctxMenu [data-n]')].filter(b=>/Diese Version aus|Nur diese hebräische|Alle anderen Versionen/.test(b.textContent)).every(b=>b.querySelector('.cm-mark[aria-hidden=true]')?.textContent)"),'Dezente Symbole an allen drei Aktionen');
  await action('Nur diese hebräische Version anzeigen');await columns(2);
  assert(await js("document.querySelector('#rOut .cell[data-k=de]')&&document.querySelector('#rOut .row.head').textContent.includes('Westminster')&&!document.querySelector('#rOut .row.head').textContent.includes('Aleppo')"),'Sprachfilter behält die deutsche Übersetzung');
- await addAleppo();await menu('Aleppo');await action('Diese Version aus der Anzeige entfernen');await columns(2);
+ await addAleppo();await menu('Aleppo');assert(await js("document.querySelector('#ctxMenu button:has(.vpic) .cm-lab').textContent.startsWith('Westminster')"),'Westminster auch bei anderer aktiver Ausgabe zuerst');await action('Diese Version aus der Anzeige entfernen');await columns(2);
  assert(await js("document.querySelector('#rOut .cell[data-k=de]')&&document.querySelector('#rOut .row.head').textContent.includes('Westminster')"),'Entfernen betrifft nur die gewählte Ausgabe');
  await addAleppo();await menu('Westminster');await action('Alle anderen Versionen schließen');await columns(1);
  assert(await js("document.querySelector('#rOut .row.head').textContent.includes('Westminster')&&!document.querySelector('#rOut .cell[data-k=de]')"),'Alle anderen Versionen schließen lässt genau die gewählte Ausgabe stehen');

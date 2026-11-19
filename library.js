@@ -484,6 +484,7 @@
     if(!view?.group)return;
     for(const row of $$('#verList .voption')){const v=view.group.versions.find(v=>v.rel===row.querySelector('input').dataset.rel),badge=row.querySelector('.vil');if(v&&versionInterlinear(v)){if(!badge)row.querySelector('.vmeta').insertAdjacentHTML('beforeend',`<span class="vil" title="${esc(I18N.t('Wortweise Zuordnung zum Westminster-Text verfügbar'))}">↔ ${esc(I18N.t('Interlinear'))}</span>`);}else badge?.remove();}
   }
+  const westminsterFirst = (a,b) => Number(/^Westminster/.test(b.versionTitle||''))-Number(/^Westminster/.test(a.versionTitle||''));
   function renderVersions() {
     const g = view.group,versions=g.versions.filter(v=>v.versionTitle!=='merged'||!g.versions.some(x=>x.kind===v.kind&&x.versionTitle!=='merged'));
     $('#verSummary').innerHTML = `<span class="vi">📚</span> Versionen ${versions.filter(v=>view.selected.has(v.rel)).length}/${versions.length}`;
@@ -503,7 +504,7 @@
     // Their actual language/kind still controls text rendering and morphology.
     const menuKind = v => /^The Samaritan Pentateuch/.test(v.versionTitle||'')?'en':/^(?:Qumran-Rollen\b|Samaritanischer Pentateuch\b|The Samaritan Pentateuch\b)/.test(v.versionTitle || '') ? 'other' : (KN[v.kind] ? v.kind : 'other');
     $('#verList').innerHTML = ['he', 'en', 'de', 'other'].map(k => {
-      const vs = versions.filter(v => menuKind(v) === k).sort((a,b)=>Number(/^Westminster/.test(b.versionTitle||''))-Number(/^Westminster/.test(a.versionTitle||'')));
+      const vs = versions.filter(v => menuKind(v) === k).sort(westminsterFirst);
       return vs.length ? `<div class="vgrp ${k}">${esc(I18N.t(k==='other'?'Textzeugen & weitere Sprachen':KN[k]))}</div>` + vs.map(itemH).join('') : '';
     }).join('');
     updateVersionInterlinear();
@@ -570,7 +571,7 @@
       items.push({label:I18N.t('Alle anderen Versionen schließen'),mark:'▣',fn:()=>apply(new Set([d.entry.rel]))});
       items.push({sep:true});
     }
-    const here = d.entry.rel, same = g.versions.filter(v => kn(v) === k && (v.versionTitle!=='merged'||!g.versions.some(x=>x.kind===v.kind&&x.versionTitle!=='merged')));
+    const here = d.entry.rel, same = g.versions.filter(v => kn(v) === k && (v.versionTitle!=='merged'||!g.versions.some(x=>x.kind===v.kind&&x.versionTitle!=='merged'))).sort(westminsterFirst);
     if (multi) { // Kopf einer Sprachspalte mit mehreren Versionen („je Sprache“): ✓ = wird gezeigt (Klick nimmt sie heraus), sonst Klick fügt sie hinzu
       for (const v of same) {
         const on = view.selected.has(v.rel);
