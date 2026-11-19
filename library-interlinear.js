@@ -52,7 +52,7 @@ window.LibraryInterlinear = (() => {
           const line = mk('ilt'); line.dataset.tr = name; line.dataset.i = order.indexOf(name) + 1; line.title = (IL_LABEL[name] || name) + (sig ? ' · ' + sig : ''); if(name==='Peshitta'){line.lang='syr';line.dir='rtl';line.classList.add('il-ps');} else if(name==='Samaritan'){line.lang='he';line.dir='rtl';line.classList.add('il-smr');} else if (name === 'LXX') line.lang = 'grc'; else if (IL_TG[name]) { line.lang = 'arc'; line.dir = 'rtl'; } else if (sig) { line.lang = 'he'; line.dir = 'rtl'; line.classList.add('ilq'); }
           const parts = []; for (let L = st; L <= en; L++) (lead.get(L) || []).forEach(x => parts.push(x));
           if (sig && name !== 'Samaritan' && parts.length && !inf.shown) { inf.shown = true; line.append(mk('ilsig', sig)); } // Sigel der Rolle beim ersten erhaltenen Wort des Verses
-          parts.sort((x, y) => x[0] - y[0]).forEach(([k, t, idx, kind, meta], j) => { if (j) line.append(k === parts[j - 1][0] + 1 ? ' ' : ' … '); const e = mk('ils', ['Samaritan','Peshitta'].includes(name)?null:t, idx.length ? idx : null); if(name==='Samaritan'){e.innerHTML=window.SamaritanInterlinear.wordHtml(t,meta,esc);if(idx.length)e.classList.add('ilx');} if(name==='Peshitta'){e.innerHTML=window.PeshittaAlignment.wordHtml(t,meta,esc);if(idx.length)e.classList.add('ilx');e.title=I18N.t('Automatischer Zuordnungsvorschlag (PaTraCoSy), nicht manuell geprüft');} if (kind != null) { e.classList.add('ilq' + kind); e.title = I18N.t(IL_QK[kind]) + (kind !== 3 && /[\[\]]/.test(t) ? ' · enthält von den Herausgebern ergänzte Buchstaben' : ''); } line.append(e); });
+          parts.sort((x, y) => x[0] - y[0]).forEach(([k, t, idx, kind, meta], j) => { if (j) line.append(k === parts[j - 1][0] + 1 ? ' ' : ' … '); const e = mk('ils', ['Samaritan','Peshitta'].includes(name)?null:t, idx.length ? idx : null); if(name==='Samaritan'){e.innerHTML=window.SamaritanInterlinear.wordHtml(t,meta,esc);if(idx.length)e.classList.add('ilx');} if(name==='Peshitta'){e.innerHTML=window.PeshittaAlignment.wordHtml(t,meta,esc);if(idx.length)e.classList.add('ilx');e.dataset.mtRef=meta.mtRef;e.title=I18N.t(meta.reviewed?'Am Text geprüft (Codex)':'Automatischer Zuordnungsvorschlag, nicht manuell geprüft')+' · '+(meta.origin==='patracosy'?'PaTraCoSy':'Onkelos');} if (kind != null) { e.classList.add('ilq' + kind); e.title = I18N.t(IL_QK[kind]) + (kind !== 3 && /[\[\]]/.test(t) ? ' · enthält von den Herausgebern ergänzte Buchstaben' : ''); } line.append(e); });
           if (!parts.length) for (let i = st; i <= en; i++) if (marks.has(i)) { line.append(mk('ils ilm', '…', marks.get(i))); break; }
           return line;
         });
@@ -92,7 +92,8 @@ window.LibraryInterlinear = (() => {
       }
     }
     function ilLink(src) {
-      const row = src.closest('.row'); if (!row) return;
+      let row = src.closest('.row'); if (!row) return;
+      if(src.dataset.mtRef){const section=getView()?.sections?.[getView().idx],chap=section&&apChap(section),[c,v]=src.dataset.mtRef.split(':');if(String(chap)!==c)return;row=[...$$('#rOut .row[data-l]')].find(r=>String(verseOf(r.dataset.l))===v&&r.querySelector('.cell[data-mt]'));if(!row)return;}
       const hc = [...row.querySelectorAll('.cell[data-k="he"]')].find(c => c.querySelector('.w')); if (!hc) return;
       const ws = [...hc.querySelectorAll('.w')], cons = ws.map(w => consOf(w.textContent)), nth = (arr, i) => arr.slice(0, i).filter(x => x === arr[i]).length;
       let ix = [];
@@ -104,14 +105,15 @@ window.LibraryInterlinear = (() => {
       }
       ix = ix.filter(i => i >= 1 && i <= ws.length); if (!ix.length) return;
       const was = src.classList.contains('ilhl'); ilHlClear(); if (was) return;
-      const set = new Set(ix);
+      const set = new Set(ix),section=getView()?.sections?.[getView().idx],mtRef=section?apChap(section)+':'+verseOf(row.dataset.l):null;
       ix.forEach(i => ws[i - 1].classList.add('ilhl'));
-      row.querySelectorAll('.ilx').forEach(x => { if (x.dataset.ix.split(',').some(i => set.has(+i))) x.classList.add('ilhl'); });
+      row.querySelectorAll('.ilx').forEach(x => { if ((!x.dataset.mtRef||x.dataset.mtRef===mtRef)&&x.dataset.ix.split(',').some(i => set.has(+i))) x.classList.add('ilhl'); });
       row.querySelectorAll('.cell').forEach(c => {
         if (c === hc) return;
         const wg = [...c.querySelectorAll('.wg')]; if (!wg.length) return;
         ix.forEach(i => { const hit = wg.filter(x => consOf(x.dataset.h) === cons[i - 1])[nth(cons, i - 1)]; if (hit) hit.classList.add('ilhl'); });
       });
+      if(mtRef)$$('#rOut .syw.ilx[data-mt-ref]').forEach(x=>{if(x.dataset.mtRef===mtRef&&x.dataset.ix.split(',').some(i=>set.has(+i)))x.classList.add('ilhl');});
       src.classList.add('ilhl');
     }
     $('#rOut').addEventListener('click', e => {
@@ -120,8 +122,8 @@ window.LibraryInterlinear = (() => {
     });
     // Feste Reihenfolge = feste Farbe je Werk (--il1 … --il16); „LXX“ = Septuaginta (CATSS), Wort für Wort unter dem Westminster-Text
     const IL_ORDER = ['Zunz', 'Breuer', 'Philippson', 'Herxheimer', 'LXX', 'Onkelos', 'Pseudo-Jonathan', 'Neofiti', 'Goldschmidt', 'Hirsch', 'JuliusHirsch', 'Qumran', 'BuberRosenzweig', 'Umschrift', 'Wolf', 'Mendelssohn', 'Samaritan', 'Peshitta'];
-    const IL_LABEL = { Peshitta:'Peschitta · Genesis (automatisch)', Samaritan:'Samaritanus · Tal–Florentin', Mendelssohn: 'Mendelssohn (1815)', Wolf: 'Wolf', BuberRosenzweig: 'Buber/Rosenzweig', Zunz: 'Zunz (1838)', Breuer: 'Breuer', Philippson: 'Philippson', Herxheimer: 'Herxheimer', Goldschmidt: 'Goldschmidt (1921)', Hirsch: 'S. R. Hirsch', JuliusHirsch: 'Julius Hirsch', LXX: 'Septuaginta', Onkelos: 'Onkelos', 'Pseudo-Jonathan': 'Pseudo-Jonathan', Neofiti: 'Neofiti 1', Qumran: 'Qumran-Rollen', Umschrift: 'Umschrift (Aussprache)' };
-    const IL_SUB = { Peshitta:'PaTraCoSy: automatische Wortgruppen; ungeklärte Stellen bleiben ohne Zuordnung. Hebräische Umschrift: nur Konsonanten.', Samaritan:'Tal–Florentin (2024), dem Westminster-MT wortweise maschinell zugeordnet; rote Markierungen der Ausgabe bleiben erhalten', Mendelssohn: 'Moses Mendelssohn, Die fünf Bücher Mose, Dessau 1815 · deutsche Übersetzung', Wolf: 'Benedikt Pinchas Wolf, Das Buch Samuel', BuberRosenzweig: 'Martin Buber und Franz Rosenzweig · lokale Wortzuordnung', Zunz: 'Leopold Zunz, Die vier und zwanzig Bücher der Heiligen Schrift, Berlin 1838', Breuer: 'Raphael Breuer, Arba Megillot, Josua, Richter, Esra und Nehemia', Philippson: 'Ludwig Philippson, Die Israelitische Bibel', Herxheimer: 'Salomon Herxheimer, Die vier und zwanzig Bücher der Bibel', Goldschmidt: 'Lazarus Goldschmidt, Pentateuch, Berlin 1921', Hirsch: 'Samson Raphael Hirsch, Pentateuch (1867–1878) und Psalmen (1882)', JuliusHirsch: 'Julius Hirsch, Jesaia und die zwölf kleinen Propheten', LXX: 'Griechisch, Wortgruppen nach der Zuordnung von CATSS', Onkelos: 'Targum Onkelos (Sperber), Wort für Wort maschinell zugeordnet', 'Pseudo-Jonathan': 'Targum Pseudo-Jonathan; Zusätze bleiben ohne Zuordnung', Neofiti: 'Targum Neofiti 1; Zusätze bleiben ohne Zuordnung', Qumran: 'Biblische Rollen vom Toten Meer (ETCBC), je Rolle eine Zeile; farbig: abweichende Lesart', Umschrift: 'Phonetische Umschrift jedes Wortes (ETCBC phono, Dirk Roorda); ˈ Hauptton' };
+    const IL_LABEL = { Peshitta:'Peschitta · Pentateuch (automatisch)', Samaritan:'Samaritanus · Tal–Florentin', Mendelssohn: 'Mendelssohn (1815)', Wolf: 'Wolf', BuberRosenzweig: 'Buber/Rosenzweig', Zunz: 'Zunz (1838)', Breuer: 'Breuer', Philippson: 'Philippson', Herxheimer: 'Herxheimer', Goldschmidt: 'Goldschmidt (1921)', Hirsch: 'S. R. Hirsch', JuliusHirsch: 'Julius Hirsch', LXX: 'Septuaginta', Onkelos: 'Onkelos', 'Pseudo-Jonathan': 'Pseudo-Jonathan', Neofiti: 'Neofiti 1', Qumran: 'Qumran-Rollen', Umschrift: 'Umschrift (Aussprache)' };
+    const IL_SUB = { Peshitta:'PaTraCoSy und eigene Vorschläge mit Onkelos als Hilfe; nicht manuell geprüft. Hebräische Umschrift: nur Konsonanten.', Samaritan:'Tal–Florentin (2024), dem Westminster-MT wortweise maschinell zugeordnet; rote Markierungen der Ausgabe bleiben erhalten', Mendelssohn: 'Moses Mendelssohn, Die fünf Bücher Mose, Dessau 1815 · deutsche Übersetzung', Wolf: 'Benedikt Pinchas Wolf, Das Buch Samuel', BuberRosenzweig: 'Martin Buber und Franz Rosenzweig · lokale Wortzuordnung', Zunz: 'Leopold Zunz, Die vier und zwanzig Bücher der Heiligen Schrift, Berlin 1838', Breuer: 'Raphael Breuer, Arba Megillot, Josua, Richter, Esra und Nehemia', Philippson: 'Ludwig Philippson, Die Israelitische Bibel', Herxheimer: 'Salomon Herxheimer, Die vier und zwanzig Bücher der Bibel', Goldschmidt: 'Lazarus Goldschmidt, Pentateuch, Berlin 1921', Hirsch: 'Samson Raphael Hirsch, Pentateuch (1867–1878) und Psalmen (1882)', JuliusHirsch: 'Julius Hirsch, Jesaia und die zwölf kleinen Propheten', LXX: 'Griechisch, Wortgruppen nach der Zuordnung von CATSS', Onkelos: 'Targum Onkelos (Sperber), Wort für Wort maschinell zugeordnet', 'Pseudo-Jonathan': 'Targum Pseudo-Jonathan; Zusätze bleiben ohne Zuordnung', Neofiti: 'Targum Neofiti 1; Zusätze bleiben ohne Zuordnung', Qumran: 'Biblische Rollen vom Toten Meer (ETCBC), je Rolle eine Zeile; farbig: abweichende Lesart', Umschrift: 'Phonetische Umschrift jedes Wortes (ETCBC phono, Dirk Roorda); ˈ Hauptton' };
     const IL_PIC = { Samaritan:'Samaritanischer Pentateuch', Mendelssohn: 'Mendelssohn', Wolf: 'Wolf, Das Buch Samuel', Zunz: 'Zunz', Breuer: 'Raphael Breuer', Philippson: 'Philippson', Herxheimer: 'Herxheimer', Goldschmidt: 'Goldschmidt', Hirsch: 'Samson Raphael Hirsch', JuliusHirsch: 'Julius Hirsch', LXX: 'Septuaginta', Onkelos: 'Targum Onkelos', 'Pseudo-Jonathan': 'Targum Pseudo-Jonathan', Neofiti: 'Targum Neofiti', Qumran: 'Qumran' };
     const ilBreuerJoseph = () => getView() && getView().group && ['Ezekiel', 'Jeremiah'].includes(getView().group.title);
     const ilPic = n => n === 'Breuer' && ilBreuerJoseph() ? 'Joseph Breuer' : IL_PIC[n];
@@ -209,14 +211,14 @@ window.LibraryInterlinear = (() => {
       return results.every(r=>r.ok)?{data,warning:null}:{data:null,warning:'Samaritanus: '+results.find(r=>!r.ok).reason};
     }
     async function psPrepare(snapshot){
-      if(snapshot?.group?.title!=='Genesis')return {data:null};
+      if(!['Genesis','Exodus','Leviticus','Numbers','Deuteronomy'].includes(snapshot?.group?.title))return {data:null};
       const he=snapshot.loaded.filter(d=>d.entry.kind==='he'&&/^Westminster/.test(d.entry.versionTitle||''));
       const entry=snapshot.group.versions.find(e=>e.language==='Syriac'&&e.versionTitle==='ETCBC Peshitta (Syriac, TF 0.2)');
       if(!he.length||!entry)return {data:null};
       try{
-        const data=await loadPsIL(),doc=snapshot.loaded.find(d=>d.entry.rel===entry.rel)||cache.get(entry.rel)||await O.read(entry.rel);
+        const data=window.PeshittaAlignment.book(await loadPsIL(),snapshot.group.title),doc=snapshot.loaded.find(d=>d.entry.rel===entry.rel)||cache.get(entry.rel)||await O.read(entry.rel);
         cache.set(entry.rel,doc);
-        if(he.every(d=>window.PeshittaAlignment.prepare(data,d,doc)))return {data,doc};
+        if(data&&he.every(d=>window.PeshittaAlignment.prepare(data,d,doc)))return {data,doc};
         return {data:null,warning:I18N.t('Peschitta: Textfassung weicht vom Quellstand der Zuordnung ab')};
       }catch{return {data:null,warning:I18N.t('Peschitta: Wortzuordnung konnte nicht geladen werden')};}
     }
@@ -272,20 +274,24 @@ window.LibraryInterlinear = (() => {
       document.body.classList.toggle('il', has && on);
       ilClear();
       $$('#rOut .smr-open, #rOut .ps-unlinked, #rOut .ps-notice').forEach(n=>n.remove());
-      $$('#rOut .syw.ilx').forEach(n=>{n.classList.remove('ilx');delete n.dataset.ix;});
+      $$('#rOut .syw.ilx').forEach(n=>{n.classList.remove('ilx');delete n.dataset.ix;delete n.dataset.mtRef;});
       $$('#rOut .illeg').forEach(x => x.remove());
       $$('#rOut .il-source-warning').forEach(x => x.remove());
       if (sourceChecks.warnings.length) { const notice = document.createElement('p'); notice.className = 'il-source-warning muted'; notice.textContent = I18N.t('Wortzuordnung nicht angewendet: {}', sourceChecks.warnings.join('; ')); $('#rOut').prepend(notice); }
       if (!has) return;
       const s = getView().sections && getView().sections[getView().idx], chap = s && apChap(s); if (!chap) return;
+      const psWords=new Map();
+      if(ps.data)$$('#rOut .cell[data-syriac] .syw').forEach(w=>{const a=psWords.get(w.dataset.si)||[];a.push(w);psWords.set(w.dataset.si,a);});
       for (const row of $$('#rOut .row[data-l]')) { // deutsche und aramäische Spalten: Wortgruppen anklickbar machen (unabhängig vom Interlinear-Knopf)
         const v = verseOf(row.dataset.l); if (v == null) continue;
         if(ps.data){
           const mt=[...row.querySelectorAll('.cell[data-mt]')].find(c=>c.querySelector('.w'));
-          const cell=[...row.querySelectorAll('.cell')].find(c=>c.dataset.rel===ps.doc.entry.rel);
-          if(mt&&cell){
-            const syWords=[...cell.querySelectorAll('.syw')],r=window.PeshittaAlignment.verse(ps.data,chap+':'+v,[...mt.querySelectorAll('.w')].map(w=>w.textContent),syWords.map(w=>w.textContent));
-            if(r)syWords.forEach((w,i)=>{if(r.links[i].length){w.classList.add('ilx');w.dataset.ix=r.links[i].join(',');w.title=I18N.t('Automatischer Zuordnungsvorschlag (PaTraCoSy), nicht manuell geprüft');}});
+          if(mt){
+            const segs=psRows(ps,chap+':'+v,mt);
+            if(segs)for(const [ix,form,kind,meta]of segs){
+              if(!ix.length)continue;
+              (psWords.get(meta.id)||[]).forEach(w=>{if(w.textContent===form){w.classList.add('ilx');w.dataset.ix=ix.join(',');w.dataset.mtRef=meta.mtRef;w.title=I18N.t(meta.reviewed?'Am Text geprüft (Codex)':'Automatischer Zuordnungsvorschlag, nicht manuell geprüft');}});
+            }
           }
         }
         row.querySelectorAll('.cell[data-vt]').forEach(cell => {
@@ -300,7 +306,7 @@ window.LibraryInterlinear = (() => {
       if (tok !== ilTok) return;
       ilLegend(use);
       if(use.includes('Peshitta')){
-        const notice=document.createElement('p');notice.className='ps-notice muted';notice.textContent=I18N.t('Peschitta · automatische Wortgruppen (PaTraCoSy), nicht manuell geprüft. Ohne Zuordnung bedeutet keine nachgewiesene Auslassung oder Ergänzung.');$('#rOut').prepend(notice);
+        const notice=document.createElement('p');notice.className='ps-notice muted';notice.textContent=I18N.t('Peschitta · automatische Vorschläge aus PaTraCoSy und mit Onkelos als Hilfe; einzelne Stellen am Text geprüft (Codex, siehe Tooltip). Ohne Zuordnung bedeutet keine nachgewiesene Auslassung oder Ergänzung.');$('#rOut').prepend(notice);
       }
       for (const row of $$('#rOut .row[data-l]')) {
         const v = verseOf(row.dataset.l); if (v == null) continue;

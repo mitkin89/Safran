@@ -14,6 +14,14 @@
   if (lang === 'de') return;
 
   const EN = {
+    "Am Text geprüft (Codex)": "Checked against the text (Codex)",
+    "Peschitta · automatische Vorschläge aus PaTraCoSy und mit Onkelos als Hilfe; einzelne Stellen am Text geprüft (Codex, siehe Tooltip). Ohne Zuordnung bedeutet keine nachgewiesene Auslassung oder Ergänzung.": "Peshitta · automatic proposals from PaTraCoSy and supported by Onkelos; selected passages checked against the text (Codex, see tooltip). Unaligned does not mean a confirmed omission or addition.",
+
+    "Peschitta · Pentateuch (automatisch)": "Peshitta · Pentateuch (automatic)",
+    "PaTraCoSy und eigene Vorschläge mit Onkelos als Hilfe; nicht manuell geprüft. Hebräische Umschrift: nur Konsonanten.": "PaTraCoSy and additional proposals supported by Onkelos; not manually reviewed. Hebrew transliteration: consonants only.",
+    "Automatischer Zuordnungsvorschlag, nicht manuell geprüft": "Automatic alignment proposal, not manually reviewed",
+    "Peschitta · automatische Vorschläge aus PaTraCoSy und mit Onkelos als Hilfe, nicht manuell geprüft. Ohne Zuordnung bedeutet keine nachgewiesene Auslassung oder Ergänzung.": "Peshitta · automatic proposals from PaTraCoSy and supported by Onkelos, not manually reviewed. Unaligned does not mean a confirmed omission or addition.",
+
     "Peschitta · Genesis (automatisch)": "Peshitta · Genesis (automatic)",
     "PaTraCoSy: automatische Wortgruppen; ungeklärte Stellen bleiben ohne Zuordnung. Hebräische Umschrift: nur Konsonanten.": "PaTraCoSy: automatic word groups; unresolved passages remain unaligned. Hebrew transliteration: consonants only.",
     "Automatischer Zuordnungsvorschlag (PaTraCoSy), nicht manuell geprüft": "Automatic alignment proposal (PaTraCoSy), not manually reviewed",

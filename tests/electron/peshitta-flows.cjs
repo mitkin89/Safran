@@ -2,9 +2,10 @@
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
 module.exports=async({docs,win,js,waitFor,book})=>{
  const root=path.resolve(__dirname,'../..'),manifest=require('../../bundled/manifest.json'),entries=[];
- for(const title of ['Genesis','Isaiah']){
+ for(const title of ['Genesis','Exodus','Leviticus','Numbers','Deuteronomy','Isaiah']){
   const e=manifest.items.find(e=>e.title===title&&e.language==='Syriac'),d=JSON.parse(fs.readFileSync(path.join(root,'bundled',e.rel)));entries.push(e);
   docs.set(e.rel,{...d,entry:{...e,own:false},textHash:crypto.createHash('sha256').update(JSON.stringify(d.text)).digest('hex')});
+  const mt=manifest.items.find(x=>x.title===title&&x.versionTitle.startsWith('Westminster'));if(mt){const h=JSON.parse(fs.readFileSync(path.join(root,'bundled',mt.rel)));docs.set(mt.rel,{...h,entry:{...mt,own:false},textHash:crypto.createHash('sha256').update(JSON.stringify(h.text)).digest('hex')});}
  }
  await js("localStorage.setItem('uiLang','en')");
  const loaded=new Promise(r=>win.webContents.once('did-finish-load',r));win.reload();await loaded;
@@ -42,12 +43,37 @@ module.exports=async({docs,win,js,waitFor,book})=>{
  await js("{const c=document.querySelector('#ilPop input[value=Peshitta]');c.checked=true;c.dispatchEvent(new Event('change',{bubbles:true}));}");
  await waitFor("document.querySelector('.ilt.il-ps .syw')",'Peschitta unter dem MT');
  assert.equal(await js("document.querySelector('.ilt.il-ps .ps-translit').textContent"),'ברשית');
- assert(await js("document.querySelector('.ps-notice').textContent.includes('not manually reviewed')"));
+ assert(await js("document.querySelector('.ps-notice').textContent.includes('automatic proposals')"));
  await js("document.querySelector('#ilBtn').click()");
  await js("document.querySelector('.ilt.il-ps .syw').scrollIntoView({block:'center'});document.querySelector('.ilt.il-ps .syw').click()");
  await waitFor("document.querySelectorAll('#wpop.syriac-word .wseg.main').length===2",'Morphologie aus der Peschitta-Interlinearzeile');
  await win.webContents.capturePage().then(i=>fs.writeFileSync('/tmp/safran-peshitta-alignment.png',i.toPNG()));
  await js("document.querySelector('#wpop .wx').click()");
+ for(const title of ['Exodus','Leviticus','Numbers','Deuteronomy']){
+  await select(title);
+  await waitFor("document.querySelector('.ilt.il-ps .syw')",title+' mit Peschitta-Zuordnung');
+ }
+ await select('Exodus');
+ await js("{const s=document.querySelector('#rSection');s.value='19';s.dispatchEvent(new Event('change'));}");
+ await waitFor("document.querySelector('.row[data-l=\"13\"] .ilt.il-ps .syw[data-sy-ref=\"20:16\"]')",'Vier Peschitta-Verse unter MT Exodus 20:13');
+ await js("document.querySelector('#rOut .head').click();const w=document.querySelector('.row[data-l=\"14\"] .cell[data-syriac] .syw');w.scrollIntoView({block:'center'});");
+ await js('new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))');
+ await js("document.querySelector('.row[data-l=\"14\"] .cell[data-syriac] .syw').click()");
+ assert(await js("document.querySelectorAll('.row[data-l=\"13\"] .cell[data-mt] .w')[2].classList.contains('ilhl')"));
+ assert(await js("!document.querySelector('.row[data-l=\"14\"] .cell[data-mt] .ilhl')"));
+ await js("document.querySelector('#wpop .wx')?.click()");
+ await select('Numbers');
+ await js("{const s=document.querySelector('#rSection');s.value='25';s.dispatchEvent(new Event('change'));}");
+ await waitFor("document.querySelector('.row[data-l=\"1\"] .ilt.il-ps .syw[data-sy-ref=\"25:19\"]')",'Kapitelübergreifende Peschitta-Stelle Numeri 25:19');
+ await js("document.querySelector('.ilt.il-ps .syw[data-sy-ref=\"25:19\"]').scrollIntoView({block:'center'});");
+ await js('new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))');
+ await js("document.querySelector('.ilt.il-ps .syw[data-sy-ref=\"25:19\"]').click()");
+ await waitFor("document.querySelector('#wpop')?.textContent.includes('25:19')",'Morphologie behält native Peschitta-Kapitelzählung');
+ await js("document.querySelector('#wpop .wx').click()");
+ await select('Deuteronomy');
+ await js("{const s=document.querySelector('#rSection');s.value='24';s.dispatchEvent(new Event('change'));}");
+ await waitFor("document.querySelector('.row[data-l=\"2\"] .ilt.il-ps .syw[data-sy-ref=\"25:3\"]')",'Peschitta-Zählwort aus 25:3 unter MT 25:2');
+ assert.equal(await js("document.querySelector('.row[data-l=\"2\"] .ilt.il-ps .syw[data-sy-ref=\"25:3\"]').textContent"),'ܒܡܢܝܢܐ');
  await select('Isaiah');
  await js("document.querySelector('#rOut .syw').scrollIntoView({block:'center'})");
  await js('new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))');
