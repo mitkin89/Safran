@@ -14,6 +14,21 @@ module.exports=async({docs,win,js,waitFor,book})=>{
  assert(await js("document.querySelector('#verList .voption .vmorph')"),'Westminster mit Morphologie');
  assert(await js("[...document.querySelectorAll('#verList .voption')].filter(l=>/Aleppo|Qumran|Samaritanischer Pentateuch|Peshitta|Septuaginta/.test(l.querySelector('.vname').textContent)&&!l.textContent.includes('englische Übersetzung')).every(l=>l.querySelector('.vmorph'))"),'Morphologie in unterstützten Textzeugen gekennzeichnet');
  assert(await js("(()=>{const l=[...document.querySelectorAll('#verList .voption')].find(l=>l.textContent.includes('englische Übersetzung'));return l&&!l.querySelector('.vmorph')})()"),'Englische Samaritanus-Übersetzung klar beschriftet und ohne falsches Morphologie-Badge');
+ assert(await js("(()=>{const row=[...document.querySelectorAll('#verList .voption')].find(l=>l.textContent.includes('englische Übersetzung'));let h=row.previousElementSibling;while(h&&!h.classList.contains('vgrp'))h=h.previousElementSibling;return h?.classList.contains('en')})()"),'Englische Samaritanus-Übersetzung unter Englisch');
+ await waitFor("document.querySelector('#verList .voption .vil')",'Interlinear-Badge für Westminster');
+ assert(await js("![...document.querySelectorAll('#verList .voption')].find(l=>l.textContent.includes('englische Übersetzung')).querySelector('.vil')"),'Kein Interlinear-Badge an englischer Samaritanus-Übersetzung');
+ await js("document.querySelector('#verBox').open=false;document.querySelector('#studyBtn').click()");
+ await waitFor("!document.querySelector('#dockTabs').hidden",'Seitenpane neben Versionsauswahl');
+ for(const floating of [false,true]){
+  if(floating)await js("document.querySelector('#verBox').open=false;document.querySelector('#dockTabs .dock-pin').click()");
+  await js("document.querySelector('#verBox').open=true");
+  await waitFor("document.querySelector('#verList').matches(':popover-open')",'Versionsauswahl in oberster Ebene');
+  assert(await js("(()=>{const box=document.querySelector('#verList'),r=box.getBoundingClientRect(),panels=[...document.querySelectorAll('.pinp')].filter(p=>!p.hidden),p=panels.find(p=>{const q=p.getBoundingClientRect();return q.left<r.right&&q.right>r.left&&q.top<r.bottom&&q.bottom>r.top});if(!p)return false;const q=p.getBoundingClientRect(),x=(Math.max(q.left,r.left)+Math.min(q.right,r.right))/2,y=(Math.max(q.top,r.top)+Math.min(q.bottom,r.bottom))/2;return box.contains(document.elementFromPoint(x,y))})()"),'Versionsauswahl überdeckt die '+(floating?'schwebende':'angepinnte')+' Pane');
+  await win.webContents.sendInputEvent({type:'keyDown',keyCode:'Escape'});
+  await waitFor("!document.querySelector('#verList').matches(':popover-open')",'Esc schließt Versionsauswahl');
+  assert(await js("!document.querySelector('#dockTabs').hidden"),'Esc lässt die Seitenpane geöffnet');
+ }
+ await js("document.querySelector('#studyBtn').click();document.querySelector('#verBox').open=true");
  const zunz=items.find(e=>e.title==='Genesis'&&e.kind==='de'&&/Zunz/.test(e.versionTitle));
  assert(await js("[...document.querySelectorAll('#verList .vname')].some(n=>n.textContent==="+JSON.stringify(zunz.versionTitle)+")"),'Lange Versionsnamen vollständig');
  assert(await js("(()=>{const r=document.querySelector('#verList').getBoundingClientRect();return r.left>=8&&r.right<=innerWidth-8&&document.querySelector('#verList').scrollWidth<=r.width+1})()"),'Menü bleibt vollständig im Fenster');

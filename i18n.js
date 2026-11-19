@@ -14,6 +14,7 @@
   if (lang === 'de') return;
 
   const EN = {
+    "Wortweise Zuordnung zum Westminster-Text verfügbar": "Word alignment with the Westminster text available",
     "Nur diese hebräische Version anzeigen": "Show only this Hebrew version",
     "Nur diese deutsche Version anzeigen": "Show only this German version",
     "Nur diese englische Version anzeigen": "Show only this English version",

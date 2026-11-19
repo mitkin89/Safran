@@ -2273,3 +2273,8 @@ body.has-dock-tabs .pinp .pinB { display: none; }
 #verList .vmeta { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-top: 3px; }
 #verList .vmeta:empty { display: none; }
 #verList .vmorph { font-size: 10.5px; color: #60ae94; border: 1px solid color-mix(in srgb,#60ae94 40%,var(--line)); border-radius: 10px; padding: 1px 6px; white-space: nowrap; }
+
+/* The edition picker must stay above docked and floating study tools. */
+#verList[popover] { margin: 0; inset: auto; color: var(--fg); }
+#verList[popover]:not(:popover-open) { display: none; }
+#verList .vil { font-size: 10.5px; color: var(--accent); border: 1px solid color-mix(in srgb,var(--accent) 40%,var(--line)); border-radius: 10px; padding: 1px 6px; white-space: nowrap; }

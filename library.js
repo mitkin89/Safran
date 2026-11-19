@@ -476,6 +476,14 @@
     document.addEventListener('scroll', hideH, true); document.addEventListener('mousedown', hideH, true);
   }
   const portraitOf = t => { const s = String(t || '').toLowerCase(); return (window.PORTRAITS || []).find(p => p.match && p.img && s.includes(String(p.match).toLowerCase())) || null; };
+  function versionInterlinear(v){
+    const available=interlinearUI.availableSources,t=v.versionTitle||'',name=ilName(t);
+    return !!(name&&available.includes(name)||/^Westminster/.test(t)&&available.length||v.rel===ilLxxVer(view.group)?.rel&&available.includes('LXX')||t==='Qumran-Rollen (ETCBC DSS)'&&available.includes('Qumran')||v.kind==='he'&&/^Samaritanischer Pentateuch/.test(t)&&available.includes('Samaritan')||v.language==='Syriac'&&/^ETCBC Peshitta/.test(t)&&available.includes('Peshitta'));
+  }
+  function updateVersionInterlinear(){
+    if(!view?.group)return;
+    for(const row of $$('#verList .voption')){const v=view.group.versions.find(v=>v.rel===row.querySelector('input').dataset.rel),badge=row.querySelector('.vil');if(v&&versionInterlinear(v)){if(!badge)row.querySelector('.vmeta').insertAdjacentHTML('beforeend',`<span class="vil" title="${esc(I18N.t('Wortweise Zuordnung zum Westminster-Text verfügbar'))}">↔ ${esc(I18N.t('Interlinear'))}</span>`);}else badge?.remove();}
+  }
   function renderVersions() {
     const g = view.group,versions=g.versions.filter(v=>v.versionTitle!=='merged'||!g.versions.some(x=>x.kind===v.kind&&x.versionTitle!=='merged'));
     $('#verSummary').innerHTML = `<span class="vi">📚</span> Versionen ${versions.filter(v=>view.selected.has(v.rel)).length}/${versions.length}`;
@@ -493,18 +501,22 @@
     const itemH = v => `<label class="voption${portraitOf(v.versionTitle)?' haspic':''}"><input type="checkbox" data-rel="${esc(v.rel)}" ${view.selected.has(v.rel)?'checked':''}>${pic(v)||'<span class="vpic-gap" aria-hidden="true"></span>'}<span class="vtext"><span class="vname" dir="auto">${esc(versionName(v))}</span><span class="vmeta">${v.own?'<span class="badge own">eigen</span>':''}${hasMorph(v)?`<span class="vmorph" title="${esc(I18N.t('Wortformen und grammatische Bestimmungen verfügbar'))}">✓ ${esc(I18N.t('Morphologie'))}</span>`:''}</span></span></label>`;
     // Group these textual witnesses with the Septuagint in the menu only.
     // Their actual language/kind still controls text rendering and morphology.
-    const menuKind = v => /^(?:Qumran-Rollen\b|Samaritanischer Pentateuch\b|The Samaritan Pentateuch\b)/.test(v.versionTitle || '') ? 'other' : (KN[v.kind] ? v.kind : 'other');
+    const menuKind = v => /^The Samaritan Pentateuch/.test(v.versionTitle||'')?'en':/^(?:Qumran-Rollen\b|Samaritanischer Pentateuch\b|The Samaritan Pentateuch\b)/.test(v.versionTitle || '') ? 'other' : (KN[v.kind] ? v.kind : 'other');
     $('#verList').innerHTML = ['he', 'en', 'de', 'other'].map(k => {
       const vs = versions.filter(v => menuKind(v) === k).sort((a,b)=>Number(/^Westminster/.test(b.versionTitle||''))-Number(/^Westminster/.test(a.versionTitle||'')));
       return vs.length ? `<div class="vgrp ${k}">${esc(I18N.t(k==='other'?'Textzeugen & weitere Sprachen':KN[k]))}</div>` + vs.map(itemH).join('') : '';
     }).join('');
+    updateVersionInterlinear();
   }
   function placeVersions(){
-    if(!$('#verBox').open)return;
-    const box=$('#verList'),r=$('#verSummary').getBoundingClientRect(),width=box.getBoundingClientRect().width,top=Math.max(8,r.bottom+6);
+    const box=$('#verList');
+    if(!$('#verBox').open){if(box.matches(':popover-open'))box.hidePopover();return;}
+    if(!box.matches(':popover-open'))box.showPopover();
+    const r=$('#verSummary').getBoundingClientRect(),width=box.getBoundingClientRect().width,top=Math.max(8,r.bottom+6);
     box.style.left=Math.max(16,Math.min(r.left,innerWidth-width-16))+'px';box.style.top=top+'px';box.style.maxHeight=Math.max(120,innerHeight-top-12)+'px';
   }
   $('#verBox').addEventListener('toggle',placeVersions);
+  window.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('#verBox').open){e.preventDefault();e.stopImmediatePropagation();$('#verBox').open=false;placeVersions();$('#verSummary').focus();}},true);
   window.addEventListener('resize',placeVersions);window.addEventListener('scroll',placeVersions,{passive:true});
   $('#verList').addEventListener('change', async e => {
     const rel = e.target.dataset.rel;
@@ -833,7 +845,7 @@
   });
   const interlinearUI = window.LibraryInterlinear.create({
     $, $$, esc, cache, getView: () => view, portraitOf, mishnah: mishnahReaderUI,
-    afterRefresh:()=>displayUI.taamLayout(),
+    afterRefresh:()=>{displayUI.taamLayout();updateVersionInterlinear();},
     openSamaritan: w => wordPopupUI.openSamaritanWord(w),
     consOf: s => consOf(s), apChap: s => apChap(s), verseOf: s => linksUI.verseOf(s),
     sources: { loadIL, resetPrivateIL, IL_TG, IL_QK, ilName,

@@ -28,6 +28,8 @@ window.PORTRAITS = [
   { match: 'Steinsaltz', img: 'steinsaltz.jpg', name: 'Adin Even-Israel Steinsaltz (1937–2020)' },
   { match: 'Mandelstamm', img: 'mandelstamm.jpg', name: 'Leon Mandelstamm (1819–1889)' },
   // Handschriften
+  { match: 'Peshitta', img: 'peshitta.png', name: 'Peschitta – syrische Handschrift, Jeremia 17' },
+  { match: 'Peschitta', img: 'peshitta.png', name: 'Peschitta – syrische Handschrift, Jeremia 17' },
   { match: 'Samaritanischer Pentateuch', img: 'samaritan.png', name: 'Samaritanischer Pentateuch – Handschrift' },
   { match: 'Samaritan Pentateuch', img: 'samaritan.png', name: 'Samaritanischer Pentateuch – Handschrift' },
   { match: 'Targum Onkelos', img: 'onkelos.jpg', name: 'Targum Onkelos – mikrographische Figur in einer Pentateuch-Handschrift' },

@@ -4,6 +4,7 @@ module.exports=async({docs,win,js,waitFor,book})=>{
  const root=path.resolve(__dirname,'../..'),manifest=require(path.join(root,'bundled/manifest.json')),entry=manifest.items.find(e=>e.title==='Mishnah Berakhot'&&e.kind==='de'),doc=JSON.parse(fs.readFileSync(path.join(root,'bundled',entry.rel)));docs.set(entry.rel,{...doc,entry:{...entry,own:false,bytes:10000}});
  await win.reload();await waitFor("[...document.querySelectorAll('#tree .lib-item')].some(n=>n.dataset.key.endsWith('¦Mishnah Berakhot'))",'Mischna verfügbar');await book('Mishnah Berakhot');
  await waitFor("document.querySelector('#rTitle').textContent.includes('Mishnah Berakhot')&&!document.querySelector('#tcBtn').hidden",'Mischna-Apparat verfügbar');
+ await waitFor("document.querySelector('#rOut .row[data-l=\"1\"] .txt')",'Mischna-Lesetext geladen');
  await js("document.querySelector('#rSection').value='0';document.querySelector('#rSection').dispatchEvent(new Event('change',{bubbles:true}));if(document.querySelector('#textcritPanel').hidden)document.querySelector('#tcBtn').click();document.querySelector('#rOut .row[data-l=\"1\"] .txt').click()");
  await waitFor("document.querySelector('#tcBody .mci-column .mci-word')&&document.querySelector('#tcBody .mci-word.mt-diff')",'Mischna-Interlinear und rote Abweichungen');
  await js("document.querySelector('#tcBody [data-tc-mishnah=\"P|1:1\"][data-tc-mishnah-word=\"1:1|17\"]').click()");await waitFor("document.querySelector('#tcHover mark')?.textContent==='וחכמין'",'Wort im Quellenkontext markiert');
