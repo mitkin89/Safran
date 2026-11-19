@@ -87,8 +87,9 @@
                   <div id="verList"></div>
                 </details>
                 <button id="bookSearch" title="Nur in diesem Buch suchen">🔎<span class="bl">Im Buch</span></button>
+                <button id="studyBtn" title="Studienwerkzeuge öffnen oder schließen" aria-expanded="false">☷<span class="bl">Werkzeuge</span></button>
                 <button id="cmtBtn" title="Kommentare zum ganzen Kapitel – ein Klick auf eine Versnummer zeigt nur diesen Vers (Cmd+K)">💬<span class="bl">Kommentare</span></button>
-                <button id="tcBtn" title="Textkritik: Lesarten und Tal–Florentin-Anmerkungen zum ausgewählten Vers" aria-expanded="false" hidden>≠<span class="bl">Textkritik</span></button>
+                <button id="tcBtn" title="Apparatus: Lesarten und Tal–Florentin-Anmerkungen zum ausgewählten Vers" aria-expanded="false" hidden>≠<span class="bl">Apparatus</span></button>
                 <button id="apBtn" title="Alles zu dieser Stelle: Kommentare, Parallelstellen, Orte, Themen und Notizen zum ganzen Kapitel – ein Klick auf eine Versnummer zeigt nur diesen Vers (Cmd+I)">✦<span class="bl">Überblick</span></button>
                 <button id="lkBtn" title="Verknüpfungen zu diesem Abschnitt anzeigen" hidden>🔗<span class="bl">Verknüpfungen</span></button>
                 <button id="olBtn" title="Gliederung dieses Buches (Wochenabschnitte, Kapitel, Absätze)">☰ <span class="bl">Gliederung</span></button>
@@ -325,15 +326,15 @@
     <div id="cmtBody"></div>
   </aside>
 
-  <aside id="textcritPanel" hidden aria-label="Textkritik">
+  <aside id="textcritPanel" hidden aria-label="Apparatus">
     <div class="tc-head">
-      <div class="lhead"><b>Textkritik <span id="tcPlace" aria-live="polite"></span></b><details id="tcSettings"><summary title="Verszählung" aria-label="Textkritik-Einstellungen">⚙</summary><div class="tc-settings-body">
+      <div class="lhead"><b>Apparatus <span id="tcPlace" aria-live="polite"></span></b><details id="tcSettings"><summary title="Verszählung" aria-label="Apparatus-Einstellungen">⚙</summary><div class="tc-settings-body">
           <label>Zählung <select id="tcNumbering"><option value="auto">Wie angeklickter Lesetext</option><option value="mt">MT</option><option value="tal">Tal–Florentin</option></select></label>
         </div></details><button id="tcWhole" class="wholeBtn" type="button" hidden>Ganzes Kapitel</button><button id="tcClose" type="button" title="Schließen">✕</button></div>
       <div class="tc-nav">
         <select id="tcMishnahView" aria-label="Vergleichsansicht" hidden><option value="interlinear">Interlinear</option><option value="apparatus">Apparat</option><option value="tosefta">Tosefta</option></select>
         <select id="tcLang" aria-label="Sprache" title="Sprache: Tal mit englischen Originalanmerkungen; CATSS mit Quellcodes und deutschen Erläuterungen"><option value="en">Originalhinweise</option></select>
-        <button id="tcPrev" type="button" title="Voriger Vers" aria-label="Voriger Vers">▲</button><button id="tcNext" type="button" title="Nächster Vers" aria-label="Nächster Vers">▼</button><button id="tcFollow" type="button" title="Textkritik folgt dem Lesen" aria-pressed="false">⇣ Folgen</button><button id="tcFsMinus" type="button" title="Textkritik kleiner">A−</button><button id="tcFsPlus" type="button" title="Textkritik größer">A+</button>
+        <button id="tcPrev" type="button" title="Voriger Vers" aria-label="Voriger Vers">▲</button><button id="tcNext" type="button" title="Nächster Vers" aria-label="Nächster Vers">▼</button><button id="tcFollow" type="button" title="Apparatus folgt dem Lesen" aria-pressed="false">⇣ Folgen</button><button id="tcFsMinus" type="button" title="Apparatus kleiner">A−</button><button id="tcFsPlus" type="button" title="Apparatus größer">A+</button>
         <button id="tcWitnessSummary" type="button" aria-expanded="false" aria-controls="tcWitnessOptions">▸ Textzeugen</button>
 
       </div>

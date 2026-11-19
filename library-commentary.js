@@ -10,7 +10,7 @@ window.LibraryCommentary = (() => {
     const cmtClosed = new Set();
     let cmtToken = 0;
     // Höhe des festen Kopfes merken, damit die Kommentatornamen darunter hängen bleiben
-    try { new ResizeObserver(() => $('#cmtPanel').style.setProperty('--cmt-head-h', $('#cmtHead').offsetHeight + 'px')).observe($('#cmtHead')); } catch { /* egal */ }
+    try { let frame=0;new ResizeObserver(()=>{if(!frame)frame=requestAnimationFrame(()=>{frame=0;$('#cmtPanel').style.setProperty('--cmt-head-h',$('#cmtHead').offsetHeight+'px');});}).observe($('#cmtHead')); } catch { /* egal */ }
     // Rechtsklick auf einen Kommentatornamen: im Tab, neuen Tab oder zweiten Fenster öffnen
     $('#cmtBody').addEventListener('contextmenu', e => {
       const h = e.target.closest('h4[data-ref]');

@@ -48,7 +48,7 @@
     document.documentElement.style.setProperty('--dict-top', v || '57px');
   }
   window.addEventListener('resize', dictPlace);
-  try { const hh = document.querySelector('header'); if (hh && window.ResizeObserver) new ResizeObserver(dictPlace).observe(hh); } catch { /* egal */ }
+  try { const hh = document.querySelector('header'); if (hh && window.ResizeObserver) new ResizeObserver(()=>requestAnimationFrame(dictPlace)).observe(hh); } catch { /* egal */ }
   function showTab(t) {
     const prevTab = document.documentElement.dataset.tab || 'read'; // vor dem ersten Wechsel steht noch kein data-tab, die Seite zeigt aber „Lesen“
     if (prevTab === 'notes' || prevTab === 'search') tabScroll[prevTab] = window.scrollY;
@@ -1762,8 +1762,9 @@
   window.hdShow = () => hdSet(false);
   // ganz oben gibt es kein Scroll-Ereignis mehr: Hochscrollen mit Mausrad/Trackpad holt die Leiste dort trotzdem zurück
   window.addEventListener('wheel', e => { if (e.deltaY < 0 && hdTab() === 'read' && window.scrollY < 60) hdSet(false); }, { passive: true });
-  new ResizeObserver(fixStick).observe($('#stick'));
-  new ResizeObserver(fixStick).observe($('header'));
+  let stickFrame=0;const queueStick=()=>{if(!stickFrame)stickFrame=requestAnimationFrame(()=>{stickFrame=0;fixStick();});};
+  new ResizeObserver(queueStick).observe($('#stick'));
+  new ResizeObserver(queueStick).observe($('header'));
 
   // Suche im angezeigten Text (Cmd/Ctrl+F)
   // Suche im angezeigten Text (eigene Umsetzung: findet auch geschlossene Fußnoten und springt zuverlässig von Treffer zu Treffer)
@@ -2289,9 +2290,9 @@
     $('#cmtResize').hidden = !(cmtOpen || dictOpen);
     syncStack();
   };
-  // Kommentar und Wörterbuch gleichzeitig offen: als Reiter (Standard, volle Höhe) oder untereinander (Trenner verschiebbar)
-  let stackMode = 'tabs', stackActive = 'cmt';
-  try { if (localStorage.getItem('stackMode') === 'split') stackMode = 'split'; const h = +localStorage.getItem('stackDictH'); if (h >= 15 && h <= 85) document.documentElement.style.setProperty('--dict-h', h + '%'); } catch { /* egal */ }
+  // Full-height tool views by default; retain the optional paired comments/dictionary layout.
+  let stackMode = 'tabs', stackActive = 'cmt', dockController=null;
+  try { if(localStorage.getItem('stackMode')==='split')stackMode='split'; const h=+localStorage.getItem('stackDictH');if(h>=15&&h<=85)document.documentElement.style.setProperty('--dict-h',h+'%'); } catch {}
   function syncStack() {
     let co = false; try { co = cmtOpen; } catch { /* beim Start noch nicht angelegt */ }
     const both = !!(co && dictOpen) && document.documentElement.dataset.tab !== 'dict';
@@ -2300,12 +2301,13 @@
     const wide = window.innerWidth - 2 * cw >= 900; // nur wenn dem Text daneben noch genug Breite bleibt: nebeneinander statt untereinander
     b.toggle('stack-tabs', both && stackMode === 'tabs'); b.toggle('stack-split', both && stackMode === 'split' && !wide); b.toggle('stack-side', both && stackMode === 'split' && wide);
     b.toggle('stk-cmt', stackActive === 'cmt'); b.toggle('stk-dict', stackActive === 'dict');
-    $('#stackBar').hidden = !(both && stackMode === 'tabs'); $('#stackSplit').hidden = !(both && stackMode === 'split' && !wide); $('#dictStack').hidden = !both;
+    $('#stackBar').hidden = !(both && stackMode === 'tabs'); $('#stackSplit').hidden = !(both && stackMode === 'split' && !wide); $('#dictStack').hidden = !both; $('#stkMode').hidden = false;
     $('#stkMode').innerHTML = (wide ? '⇆' : '⇅') + `<span class="cl"> ${esc(I18N.t(wide ? 'Nebeneinander' : 'Untereinander'))}</span>`; $('#stkCmt').classList.toggle('on', stackActive === 'cmt'); $('#stkDict').classList.toggle('on', stackActive === 'dict');
-    $('#dictStack').title = stackMode === 'tabs' ? (wide ? 'Kommentar und Wörterbuch nebeneinander zeigen' : 'Kommentar und Wörterbuch untereinander zeigen') : 'Kommentar und Wörterbuch als Reiter zeigen (volle Höhe)';
+    $('#dictStack').title=I18N.t('Kommentar und Wörterbuch: Volle Höhe / Geteilt');
+    $('#dictStack').innerHTML=(stackMode==='tabs'?'⇅':'▣')+`<span class="dock-tab-label">${esc(I18N.t(stackMode==='tabs'?'Geteilt':'Volle Höhe'))}</span>`;
   }
-  function setStackActive(w) { stackActive = w; syncStack(); }
-  function setStackMode(m) { stackMode = m; try { localStorage.setItem('stackMode', m); } catch { /* egal */ } syncStack(); }
+  function setStackActive(w) { stackActive = w; syncStack(); dockController?.sync(w); }
+  function setStackMode(m) { stackMode=m;try{localStorage.setItem('stackMode',m);}catch{}syncStack(); }
   $('#stkCmt').onclick = () => setStackActive('cmt');
   $('#stkDict').onclick = () => setStackActive('dict');
   $('#stkMode').onclick = () => setStackMode('split');
@@ -2860,24 +2862,31 @@
   $('#cmtClose').onclick = () => toggleCmt(false);
   // ---------- Fenster anpinnen: neben dem Text festhalten statt darüber zu schweben ----------
   // Je Fenster wird gemerkt, ob es angepinnt ist. Ein angepinntes Fenster steht rechts neben dem Haupttext; öffnet ein zweites angepinntes Fenster, tritt es an die Stelle des ersten
-  // (Ausnahme: Kommentare und Wörterbuch dürfen untereinander stehen). Nicht angepinnte Fenster schweben wie bisher über dem Text.
+  // Nicht angepinnte Fenster schweben wie bisher über dem Text.
   const PINS = { textcrit: ['#textcritPanel', '#tcClose'], forms: ['#formsPanel', '#fmClose'], all: ['#allPanel', '#apClose'], link: ['#linkPanel', '#lkClose'], topic: ['#topicPanel', '#tpClose'], outline: ['#outlinePanel', '#olClose'], map: ['#mapPanel', '#mapClose'], cmt: ['#cmtPanel', '#cmtClose'], dict: ['#dictPanel', '#dictClose'] };
   const pins = { textcrit: true, forms: false, all: true, link: false, topic: false, outline: false, map: false, cmt: true, dict: true };
   try { const o = JSON.parse(localStorage.getItem('pins') || '{}'); for (const k in pins) if (typeof o[k] === 'boolean') pins[k] = o[k]; } catch { /* egal */ }
-  const pinPair = (a, b) => (a === 'cmt' || a === 'dict') && (b === 'cmt' || b === 'dict');
+  const pinPair = (a,b) => ['cmt','dict'].includes(a)&&['cmt','dict'].includes(b);
   let pinBusy = false;
   const pinVis = { cmt: false, dict: false }; // zuletzt gesehene Sichtbarkeit von Kommentaren/Wörterbuch
   const dockTabs = window.LibraryDockTabs.create({
     $,panels:PINS,pins,automatic:()=>pinBusy,afterOpen:key=>pinSync(undefined,key),
     activePair: visible => visible.includes('cmt')&&visible.includes('dict')?stackActive:null,
+    paired:(a,b)=>pinPair(a,b),
+    available:key=>key==='forms'?wordCardsUI.canReopen:key==='dict'?true:!!view?.group&&!({textcrit:'#tcBtn',link:'#lkBtn',topic:'#tpBtn',map:'#mapBtn'}[key]&&$({textcrit:'#tcBtn',link:'#lkBtn',topic:'#tpBtn',map:'#mapBtn'}[key]).hidden),
     open:{textcrit:()=>textcritUI.open(),forms:()=>wordCardsUI.reopen(),all:()=>apToggle(true,undefined,true),
       cmt:()=>{toggleCmt(true);setStackActive('cmt');},dict:()=>{toggleDict(true);setStackActive('dict');},
-      link:()=>{$('#linkPanel').hidden=false;},topic:()=>{$('#topicPanel').hidden=false;},
-      outline:()=>{$('#outlinePanel').hidden=false;},map:()=>{$('#mapPanel').hidden=false;}}
+      link:()=>{if($('#linkPanel').hidden)$('#lkBtn').click();},topic:()=>{if($('#topicPanel').hidden)$('#tpBtn').click();},
+      outline:()=>{if($('#outlinePanel').hidden)$('#olBtn').click();},map:()=>{if($('#mapPanel').hidden)$('#mapBtn').click();}}
   });
+  dockController=dockTabs;
+  const panelVisible={};
+  for(const id of ['tcBtn','lkBtn','tpBtn','mapBtn'])new MutationObserver(()=>dockTabs.sync()).observe($('#'+id),{attributes:true,attributeFilter:['hidden','disabled']});
+  $('#studyBtn').onclick=()=>dockTabs.toggle();
   function pinSync(anchor, preferredKey) {
     if (pinBusy) return; pinBusy = true;
     try {
+      for(const k in PINS){const shown=!$(PINS[k][0]).hidden;if(shown&&!panelVisible[k]&&k!==preferredKey)pins[k]=dockTabs.pinMode;panelVisible[k]=shown;}
       { // beide nicht angepinnt: öffnet man das eine, schließt sich das andere (schwebend nie untereinander)
         const vis = {}; for (const k of ['cmt', 'dict']) vis[k] = !$(PINS[k][0]).hidden;
         if (anchor !== false) for (const k of ['cmt', 'dict']) { const o = k === 'cmt' ? 'dict' : 'cmt'; if (vis[k] && !pinVis[k] && !pins[k] && vis[o] && !pins[o]) { vis[o] = false; $(PINS[o][1]).click(); } }
@@ -2885,7 +2894,8 @@
       }
       const was = {}, now = {};
       for (const k in PINS) { const el = $(PINS[k][0]); was[k] = el.classList.contains('docked'); now[k] = !el.hidden && pins[k]; }
-      const fresh = preferredKey&&now[preferredKey]?[preferredKey]:Object.keys(PINS).filter(k => now[k] && !was[k]);
+      const candidates=Object.keys(PINS).filter(k=>now[k]&&!was[k]);
+      const fresh = preferredKey&&now[preferredKey]?[preferredKey]:candidates.slice(-1);
       for (const k of fresh) for (const o in PINS) if (o !== k && now[o] && !pinPair(k, o) && !fresh.includes(o)) { now[o] = false; $(PINS[o][1]).click(); } // das bisherige angepinnte Fenster schließen
       const apply = () => {
         for (const k in PINS) { const el = $(PINS[k][0]); el.classList.toggle('docked', now[k] && !el.hidden); const b = el.querySelector('.pinB'); if (b) { b.classList.toggle('on', pins[k]); b.title = I18N.t(pins[k] ? 'Lösen: über dem Text schweben' : 'Anpinnen: neben dem Text festhalten'); } }
@@ -2903,11 +2913,11 @@
   for (const k in PINS) {
     const el = $(PINS[k][0]), cl = $(PINS[k][1]); if (!el || !cl) continue;
     const b = document.createElement('button'); b.className = 'pinB'; b.type = 'button'; b.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16v6" fill="none"/><path d="M9 3h6l-1 6.5 3.2 3.2V15H6.8v-2.3L10 9.5z"/></svg>';
-    b.onclick = e => { e.stopPropagation(); pins[k] = !pins[k]; if(!pins[k])dockTabs.remove(k); try { localStorage.setItem('pins', JSON.stringify(pins)); } catch { /* egal */ } pinSync(); };
+    b.onclick = e => { e.stopPropagation(); pins[k] = !pins[k];for(const o in PINS)pins[o]=pins[k]; if(!pins[k])dockTabs.remove(k); try { localStorage.setItem('pins', JSON.stringify(pins)); } catch { /* egal */ } pinSync(undefined,k); };
     cl.before(b);
     el.classList.add('pinp');
     new MutationObserver(() => pinSync()).observe(el, { attributes: true, attributeFilter: ['hidden'] });
-    if (window.ResizeObserver) new ResizeObserver(() => { if (el.classList.contains('docked')) { let w = 0; for (const o in PINS) { const e2 = $(PINS[o][0]); if (e2.classList.contains('docked')) w = Math.max(w, e2.getBoundingClientRect().width); } document.documentElement.style.setProperty('--dock-w', w ? w + 'px' : ''); } }).observe(el);
+    if (window.ResizeObserver) new ResizeObserver(() => requestAnimationFrame(()=>{ if (el.classList.contains('docked')) { let w = 0; for (const o in PINS) { const e2 = $(PINS[o][0]); if (e2.classList.contains('docked')) w = Math.max(w, e2.getBoundingClientRect().width); } document.documentElement.style.setProperty('--dock-w', w ? w + 'px' : ''); } })).observe(el);
   }
   pinSync(false);
   window.LibraryPanelResize.create({panels:Object.values(PINS).map(p=>p[0]),setDockWidth:w=>window.setPanelW(w)});
@@ -3129,11 +3139,24 @@
       names:st.names.length?list(st.names,'ratio',12):`<p class="muted">${esc(I18N.t('Keine Eigennamen.'))}</p>`,
       evidence:`<p class="muted apHow">${esc(I18N.t('Welche Quellen bieten Material zu diesem Vers? Die Häkchen zeigen erfasste Anmerkungen oder Transkriptionen, nicht automatisch abweichende Lesarten.'))}</p><table class="apEvidenceTable"><caption>${esc(I18N.t('✓ Material erfasst · — nicht erfasst'))}</caption><thead><tr><th scope="col">${esc(I18N.t('Vers'))}</th>${sourceLabels.map(([bit,label,edition,description])=>`<th scope="col" title="${esc(I18N.t(description))}">${esc(I18N.t(label))}<small>${esc(I18N.t(edition))}</small><small>${st.evidence.filter(e=>e.sources&bit).length}/${st.evidence.length} ${esc(I18N.t('Verse'))}</small></th>`).join('')}</tr></thead><tbody>${st.evidence.map(e=>`<tr class="apEvidence"><th scope="row"><button type="button" class="apStatVerse" data-stat-verse="${esc(e.verse)}" aria-label="${esc(I18N.t('Vers {}',e.verse))}">${esc(e.verse)}</button></th>${sourceLabels.map(([bit,label,edition,description])=>`<td>${e.sources&bit?`<span class="apEvidenceMark" title="${esc(I18N.t(description))}" aria-label="${esc(I18N.t(description))}">✓</span>`:`<span class="muted" aria-label="${esc(I18N.t('Nicht erfasst'))}">—</span>`}</td>`).join('')}</tr>`).join('')}</tbody></table><details class="apEvidenceLegend"><summary>${esc(I18N.t('Was wird hier gezählt?'))}</summary>${sourceLabels.map(([,label,,description])=>`<p><b>${esc(I18N.t(label))}:</b> ${esc(I18N.t(description))}</p>`).join('')}</details>`,
     };
-    const segs=[['lead','Auffällig häufig'],['rare','Seltene Wörter'],['roots','Wurzeln'],['vocab','Vokabeln'],['verbs','Verbformen'],['phrases','Wortverbindungen'],['names','Namen'],['evidence','Quellen pro Vers'],['profile','Versprofil'],['chaptercompare','Kapitel vergleichen']];
+    const segs=[
+      ['lead','Auffällig häufig','▥','Hier stärker vertreten als im übrigen Text'],
+      ['rare','Seltene Wörter','◇','Im Buch oder Tanach nur selten belegt'],
+      ['vocab','Vokabeln','א','Alle Wörter nach ihrer Häufigkeit'],
+      ['roots','Wurzeln','⌘','Verwandte Wörter gemeinsam erkunden'],
+      ['verbs','Verbformen','↗','Verbstämme und grammatische Formen'],
+      ['phrases','Wortverbindungen','⋈','Wiederkehrende Wortfolgen entdecken'],
+      ['names','Namen','♙','Personen und Orte im Text'],
+      ['evidence','Quellen pro Vers','▤','Material der Textzeugen im Überblick'],
+      ['profile','Versprofil','▥','Verteilung über die Verse sichtbar machen'],
+      ['chaptercompare','Kapitel vergleichen','⇄','Gemeinsamkeiten zweier Kapitel erkunden']
+    ];
+    const groups=[['Wörter entdecken',['lead','rare','vocab']],['Sprache untersuchen',['roots','verbs','phrases','names']],['Text vergleichen',['evidence','profile','chaptercompare']]];
+    const choice=([k,label,icon,description])=>`<button type="button" data-seg="${k}" title="${esc(I18N.t(description))}" aria-pressed="${k==='lead'}"${k==='lead'?' class="on"':''}><span class="apChoiceIcon" aria-hidden="true">${icon}</span><span>${esc(I18N.t(label))}</span></button>`;
     return `<p class="apSum">${esc(scope === 'v' ? I18N.t('{} Wörter, {} verschiedene Wörter (Lemmata). {} % der Wörter kommen im Tanach mindestens 100-mal vor.', n(st.words), n(st.lemmas), st.common) : I18N.t('{} Wörter in {} Versen, {} verschiedene Wörter (Lemmata). {} % der Wörter kommen im Tanach mindestens 100-mal vor.', n(st.words), n(st.verses), n(st.lemmas), st.common))}</p>
-      <div class="apCompare"><span>${esc(I18N.t('Vergleich'))}</span> ${[['book',I18N.t('Buch: {}',st.book)],['tanakh',I18N.t('Gesamter Tanach')]].map(([key,label])=>`<button type="button" data-compare="${key}" aria-pressed="${apComparison===key}" class="${apComparison===key?'on':''}">${esc(label)}</button>`).join(' ')}</div>
-      <div class="apMarkTools"><span>${esc(I18N.t('MT markieren'))}</span>${[['lead','Auffällig häufig'],['rare','Seltene Wörter']].map(([mode,label])=>`<button type="button" data-ap-mark="${mode}" aria-pressed="false">${esc(I18N.t(label))}</button>`).join('')}<small class="muted">${esc(I18N.t('Erneut klicken: aus. Gilt für die aktuelle Auswahl.'))}</small></div>
-      <div class="apSeg" role="tablist">${segs.map(([k, l], i) => `<button type="button" data-seg="${k}"${i ? '' : ' class="on"'}>${esc(I18N.t(l))}</button>`).join('')}</div>
+      <div class="apSeg apExplorer" role="group" aria-label="${esc(I18N.t('Statistik'))}">${groups.map(([label,keys],i)=>`<div class="apChoiceGroup apChoiceGroup-${i}"><h5>${esc(I18N.t(label))}</h5><div class="apChoices">${keys.map(k=>choice(segs.find(s=>s[0]===k))).join('')}</div></div>`).join('')}</div>
+      <div class="apCompare"><span>${esc(I18N.t('Vergleichen mit'))}</span> ${[['book',I18N.t('Buch: {}',st.book)],['tanakh',I18N.t('Gesamter Tanach')]].map(([key,label])=>`<button type="button" data-compare="${key}" aria-pressed="${apComparison===key}" class="${apComparison===key?'on':''}">${esc(label)}</button>`).join(' ')}</div>
+      <div class="apMarkTools"><span>${esc(I18N.t('Im hebräischen Text hervorheben'))}</span>${[['lead','Auffällig häufig'],['rare','Seltene Wörter']].map(([mode,label])=>`<button type="button" data-ap-mark="${mode}" aria-pressed="false"><span aria-hidden="true">${mode==='lead'?'▥':'◇'}</span> ${esc(I18N.t(label))}</button>`).join('')}<small class="muted">${esc(I18N.t('Erneut klicken: aus. Gilt für die aktuelle Auswahl.'))}</small></div>
       ${segs.map(([k], i) => `<div class="apPane" data-seg="${k}"${i ? ' hidden' : ''}>${panes[k]}</div>`).join('')}
       <p class="muted apNote">${esc(I18N.t('OSHB: Gesamtwortzahl einschließlich Funktionswörtern; Wortlisten ohne Präpositionen, Partikeln und Pronomen. Vergleich nach Textlänge normalisiert.'))}</p>`;
   }
@@ -3223,27 +3246,17 @@
     { const ns = whole ? (notesUI.notesAll || []).filter(n => n.key === g.key && n.sk === s.k) : P.notesAt(notesUI.notesAll, g.key, s.k, label, v);
       boxes.notes = ns.map(n => `<div class="apNote" data-id="${esc(n.id)}" title="${esc(I18N.t('Klicken: Notiz bearbeiten'))}"><span class="st">★</span> ${n.note ? esc(n.note) : `<span class="muted">${esc(I18N.t(notesUI.kindOf(n) === 'block' ? 'Favorit (Versauswahl)' : 'Lesezeichen'))}</span>`}${notesUI.noteTags(n).length ? ` <small class="muted">${notesUI.noteTags(n).map(t => '#' + esc(t)).join(' ')}</small>` : ''}</div>`); }
     // ----- Gerüst: alle Fächer in fester Reihenfolge; Wörter und Gliederung kommen nach -----
-    const wait = { words: linksUI.TANAKH_BOOKS.has(title) && v != null && /^\d+$/.test(chap || ''), stats: linksUI.TANAKH_BOOKS.has(title) && /^\d+$/.test(chap || '') && (v != null || whole), dicts: (v != null || whole) && !!chap, outline: v != null || /:/.test(label) || (whole && secVs.length > 0) };
-    nav.innerHTML = P.BOXES.map(b => { const n = boxes[b] ? boxes[b].length : 0, w = !boxes[b] && wait[b]; return `<button type="button" data-b="${b}" class="${n || w ? '' : 'off'}${w ? ' wait' : ''}"${n || w ? '' : ' disabled'}><span class="ic">${AP_META[b][0]}</span>${esc(apName(b))} <small>${n ? n.toLocaleString(I18N.loc) : w ? '…' : '–'}</small></button>`; }).join('');
-    body.innerHTML = P.BOXES.map(b => {
+    const wait = { stats: linksUI.TANAKH_BOOKS.has(title) && /^\d+$/.test(chap || '') && (v != null || whole), dicts: (v != null || whole) && !!chap, outline: v != null || /:/.test(label) || (whole && secVs.length > 0) };
+    nav.hidden = true; nav.replaceChildren();
+    const overviewSections = P.BOXES.filter(b => b !== 'words' && b !== 'dicts');
+    overviewSections.splice(overviewSections.indexOf('krauss') + 1, 0, 'dicts');
+    body.innerHTML = overviewSections.map(b => {
       const items = boxes[b], n = items ? items.length : 0, w = !items && wait[b];
       return `<section class="apBox${w ? ' wait' : ''}" data-b="${b}"${n || w ? '' : ' hidden'}><h4>${b === 'krauss' && apPic('Krauss') ? apPic('Krauss') : `<span class="ic">${AP_META[b][0]}</span>`}<span class="nm">${esc(apName(b))}</span> <small class="apN">${n ? n.toLocaleString(I18N.loc) : ''}</small>${AP_ALL[b] ? `<button type="button" class="apAll" data-b="${b}" title="${esc(I18N.t(b === 'commentary' ? 'Kommentar-Bereich zu diesem Vers öffnen' : b === 'places' ? 'Orte dieses Verses auf der Karte zeigen' : b === 'topics' ? 'Themen-Fenster öffnen' : b === 'outline' ? 'Gliederung des Buches öffnen' : b === 'notes' ? 'Reiter „Notizen“ öffnen' : 'Im Verknüpfungs-Fenster zeigen'))}">${esc(I18N.t('alle anzeigen'))}</button>` : ''}</h4><div class="apC">${items ? (items.grp ? apGrouped(items) : apList(items)) : w ? `<p class="muted">${esc(I18N.t('Lädt …'))}</p>` : ''}</div></section>`;
     }).join('') + (whole ? `<p class="muted apMode">${esc(I18N.t(page ? 'Ganze Seite – ein Klick auf eine Segmentnummer zeigt nur dieses Segment.' : 'Ganzes Kapitel – ein Klick auf eine Versnummer zeigt nur diesen Vers.'))}</p>` : '') + `<p id="apNone" class="muted" hidden>${esc(I18N.t('Zu dieser Stelle ist nichts verzeichnet.'))}</p>`
       + (linksUI.linksReady ? '' : `<p class="muted apHint">${esc(I18N.t('Sefarias Verknüpfungen sind noch nicht heruntergeladen (Reiter „Herunterladen“ → Karte „4 · Verknüpfungen“); gezeigt wird, was Safran mitliefert.'))}</p>`);
     $('#apNone').hidden = $$('#apBody .apBox').some(x => !x.hidden);
     $('#allPanel').scrollTop = keep;
-    // ----- Wörter: Westminster-Text des Verses (aus der Ansicht, sonst aus der Bibliothek) -----
-    if (wait.words) {
-      const d = view.loaded.find(x => x.entry.kind === 'he' && /westminster/i.test(x.versionTitle || ''));
-      const ref = `${title} ${chap}:${v}`;
-      const pw = d ? Promise.resolve((R.flattenNode(R.getByPath(d.text, s.path)).find(r => r.label === label) || {}).html || '')
-        : linksUI.LK.texts([ref], 'he', true).then(res => { const t = res && res[ref]; return t && t.items && /westminster/i.test(t.versionTitle || '') ? t.items.join(' ') : ''; });
-      pw.then(html => {
-        if (token !== AP.token) return;
-        const LEM = window.OSHB_LEMMAS || {}, ws = P.words(html);
-        apSet('words', ws.length, ws.length ? `<div class="apWords" dir="rtl">${ws.map(w => { const lem = LEM[w.lemma]; return `<button type="button" class="apW" data-lemma="${esc(w.lemma)}" data-l="${esc(w.l)}" data-m="${esc(w.m)}" data-word="${esc(w.raw)}" title="${esc(I18N.t('Wortkarte: Wörterbücher, Verteilung und Formen dieses Wortes'))}"><span class="f" lang="he" dir="rtl">${esc(w.word)}</span>${lem ? `<span class="l"><span lang="he" dir="rtl">${esc(lem[0])}</span> <span class="gl" dir="auto">${esc(L === 'de' && lem[2] ? lem[2] : lem[1])}</span></span>` : ''}${w.n > 1 ? `<small>×${w.n}</small>` : ''}</button>`; }).join('')}</div>` : '');
-      }).catch(() => { if (token === AP.token) apSet('words', 0, ''); });
-    }
     // ----- Statistik des Kapitels (und, bei angeklicktem Vers, des Verses): Leitwörter, Vokabeln, Verben, Namen -----
     if (wait.stats) {
       const d = view.loaded.find(x => x.entry.kind === 'he' && /westminster/i.test(x.versionTitle || ''));
@@ -3321,7 +3334,7 @@
     }
     const statVerse=e.target.closest('[data-stat-verse]');if(statVerse){const profile=statVerse.closest('.apProfile');if(profile)profile.querySelectorAll('[data-stat-verse]').forEach(b=>b.classList.toggle('selected',b.dataset.statVerse===statVerse.dataset.statVerse));const row=$$('#rOut .row[data-l]').find(r=>r.dataset.l===statVerse.dataset.statVerse);if(row){setCmtRow(row.dataset.l);row.scrollIntoView({block:'center',behavior:'smooth'});row.classList.add('flash');setTimeout(()=>row.classList.remove('flash'),1200);}return;}
     { const sc = e.target.closest('.apScopeSw button'); if (sc) { const box = sc.closest('.apBox'); box.querySelectorAll('.apScopeSw button').forEach(b => b.classList.toggle('on', b === sc)); box.querySelectorAll('.apScope').forEach(p => { p.hidden = p.dataset.scope !== sc.dataset.scope; }); return; }
-      const sg = e.target.closest('.apScope .apSeg button'); if (sg) { const box = sg.closest('.apScope'); box.querySelectorAll('.apSeg button').forEach(b => b.classList.toggle('on', b === sg)); box.querySelectorAll('.apPane').forEach(p => { p.hidden = p.dataset.seg !== sg.dataset.seg; }); box.querySelector('.apCompare').hidden=!['lead','rare','vocab','names','profile'].includes(sg.dataset.seg);box.querySelector('.apMarkTools').hidden=sg.dataset.seg==='chaptercompare';if(sg.dataset.seg==='chaptercompare')apChapterCompareMount(box);return; }
+      const sg = e.target.closest('.apScope .apSeg button'); if (sg) { const box = sg.closest('.apScope'); box.querySelectorAll('.apSeg button').forEach(b => { b.classList.toggle('on', b === sg); b.setAttribute('aria-pressed',String(b === sg)); }); box.querySelectorAll('.apPane').forEach(p => { p.hidden = p.dataset.seg !== sg.dataset.seg; }); box.querySelector('.apCompare').hidden=!['lead','rare','vocab','names','profile'].includes(sg.dataset.seg);box.querySelector('.apMarkTools').hidden=sg.dataset.seg==='chaptercompare';if(sg.dataset.seg==='chaptercompare')apChapterCompareMount(box);return; }
       const cp = e.target.closest('.apCopy'); if (cp && apCur && apCur[cp.closest('.apScope').dataset.scope]) { const LEM = window.OSHB_LEMMAS || {}, L = I18N.lang; const txt = apCur[cp.closest('.apScope').dataset.scope].vocabularyByCorpus[apComparison].vocab.map(r => { const lem = LEM[r.w.lemma]; return [lem ? lem[0] : r.w.word, lem ? (L === 'de' && lem[2] ? lem[2] : lem[1]) : '', (apComparison==='book'?r.B:r.T) + '×'].join('\t'); }).join('\n'); try { navigator.clipboard.writeText(txt); cp.classList.add('ok'); setTimeout(() => cp.classList.remove('ok'), 1200); } catch { /* egal */ } return; } }
     const w = e.target.closest('.apW'); if (w) { apRemember();wordCardsUI.openForms(w.dataset.lemma, { lemma: w.dataset.lemma, word: w.dataset.word, m: w.dataset.m, l: w.dataset.l }, 'card'); return; }
     const de = e.target.closest('.apDE'); if (de) { openDict(de.dataset.q); return; }

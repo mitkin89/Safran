@@ -20,15 +20,16 @@ module.exports=async({win,js,waitFor,book})=>{
  await waitFor("!document.querySelector('#formsPanel').hidden&&document.querySelector('#wcBody .wcSec')",'Wortkarte bereit');
  await js("if(!document.querySelector('#formsPanel .pinB').classList.contains('on'))document.querySelector('#formsPanel .pinB').click()");
  await waitFor("document.querySelector('#dockTabs [data-panel=forms]')",'Wortkarte als Panel-Tab');
- const card=await js("document.querySelector('#wcBody').textContent");
+ const card=await js("document.querySelector('#fmHead').textContent");
  await js("document.querySelector('#dockTabs [data-panel=textcrit]').click();document.querySelector('#dockTabs [data-panel=forms]').click()");
- await waitFor("!document.querySelector('#formsPanel').hidden",'Wortkarte über Tab zurück');assert.equal(await js("document.querySelector('#wcBody').textContent"),card,'Wortkarteninhalt bleibt erhalten');
+ await waitFor("!document.querySelector('#formsPanel').hidden",'Wortkarte über Tab zurück');assert.equal(await js("document.querySelector('#fmHead').textContent"),card,'Wortkarteninhalt bleibt erhalten');
  await js("document.querySelector('#dockTabs [data-panel=textcrit]').focus();document.querySelector('#dockTabs [data-panel=textcrit]').dispatchEvent(new KeyboardEvent('keydown',{key:'Home',bubbles:true}))");
- await waitFor("document.querySelector('#dockTabs [role=tab][aria-selected=true]')===document.querySelector('#dockTabs button')",'Tabwechsel mit Tastatur');
+ await waitFor("document.querySelector('#dockTabs [role=tab][aria-selected=true]')===document.querySelector('#dockTabs [data-panel]')",'Tabwechsel mit Tastatur');
  await js("document.querySelector('#dockTabs [data-panel=forms]').click()");await waitFor("!document.querySelector('#formsPanel').hidden",'Wortkarte aktiv vor Lösen');
- await js("document.querySelector('#formsPanel .pinB').click()");await waitFor("!document.querySelector('#dockTabs [data-panel=forms]')&&!document.querySelector('#formsPanel').classList.contains('docked')",'Gelöstes Panel verliert seinen Tab');
+ await js("document.querySelector('#formsPanel .pinB').click()");await waitFor("!!document.querySelector('#dockTabs [data-panel=forms]')&&!document.querySelector('#formsPanel').classList.contains('docked')",'Gelöstes Panel behält seinen Werkzeug-Tab');
  await js("document.querySelector('#fmClose').click();document.querySelector('#dockTabs [data-panel=textcrit]').click()");await waitFor("!document.querySelector('#textcritPanel').hidden",'Textkritik für Sichtprüfung');
- assert(await js("document.querySelector('#dockTabs').getBoundingClientRect().bottom<=document.querySelector('#textcritPanel').getBoundingClientRect().top+2"),'Tab-Leiste überdeckt keinen Panel-Kopf');
+ await js("new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))");
+ await waitFor("document.querySelector('#dockTabs').getBoundingClientRect().bottom<=document.querySelector('#textcritPanel').getBoundingClientRect().top+2",'Tab-Leiste überdeckt keinen Panel-Kopf');
  if(process.env.SAFRAN_DOCK_TABS_CAPTURE){await js("new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))");fs.writeFileSync(process.env.SAFRAN_DOCK_TABS_CAPTURE,(await win.webContents.capturePage()).toPNG());}
  console.log('Electron: Gemeinsame Panel-Tabs für Kommentare, Textkritik, Überblick, Gliederung, Verknüpfungen, Themen, Karte und Wortkarte; Zustand, Tastatur und Lösen bestanden.');
 };

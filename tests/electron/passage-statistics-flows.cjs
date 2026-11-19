@@ -3,6 +3,14 @@ const assert=require('node:assert/strict'),fs=require('node:fs');
 module.exports=async({win,js,waitFor,book})=>{
  await book('Genesis');await js("document.querySelector('#rSection').value='0';document.querySelector('#rSection').dispatchEvent(new Event('change',{bubbles:true}));if(document.querySelector('#allPanel').hidden)document.querySelector('#apBtn').click();else if(!document.querySelector('#apWhole').hidden)document.querySelector('#apWhole').click()");
  await waitFor("document.querySelector('#apBody .apScope[data-scope=c] [data-seg=roots]')",'Erweiterte Kapitelstatistik');
+ assert(await js("document.querySelector('#apNav').hidden&&!document.querySelector('#apBody .apBox[data-b=words]')"),'Keine Sprungleiste oder doppelte Wörterliste');
+ assert(await js("(()=>{const keys=[...document.querySelectorAll('#apBody .apBox')].map(b=>b.dataset.b);return keys.indexOf('dicts')===keys.indexOf('krauss')+1&&keys.indexOf('rabbinic')===keys.indexOf('dicts')+1})()"),'Wörterbuchzitate folgen Krauss vor Talmud und Midrasch');
+ assert.equal(await js("document.querySelectorAll('#apBody [data-scope=c] .apChoiceGroup').length"),3);
+ assert(await js("[...document.querySelectorAll('#apBody [data-scope=c] .apExplorer button')].every(b=>b.querySelector('.apChoiceIcon')&&b.title)"),'Jede Ansicht hat Symbol und erklärenden Tooltip');
+ await js("document.querySelector('#allPanel').scrollTop=0;new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))");
+ fs.writeFileSync('/tmp/safran-statistics-explorer.png',(await win.webContents.capturePage()).toPNG());
+ await js("if(!document.querySelector('#allPanel').classList.contains('docked'))document.querySelector('#allPanel .pinB').click()");
+ await waitFor("document.querySelector('#allPanel').classList.contains('docked')",'Überblick für Größenprüfung angepinnt');
  // Shared panel handles support dock width and free floating dimensions.
  await waitFor("document.querySelector('.panel-resize-handle[data-panel=allPanel][data-edge=w]:not([hidden])')",'Überblick-Trennkante');
  assert.equal(await js("document.querySelectorAll('.panel-resize-handle').length"),72,'Acht Größenkanten für neun Panels');

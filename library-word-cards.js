@@ -1088,6 +1088,7 @@ window.LibraryWordCards = (() => {
   window.addEventListener('scroll', e => { if (!e.target.closest || !e.target.closest('#wpop')) host.closeWpop(); }, { passive: true, capture: true });
 
     return {
+      get canReopen(){return !!fmCur||fmHi>=0;},
       reopen() { if(!fmCur&&fmHi<0)return false;host.$('#formsPanel').hidden=false;fmActive=true;if(!fmCur)fmHistGo(0);return true; },
       get gSearchAll() { return gSearchAll; },
       get ilRenP() { return ilRenP; }, set ilRenP(value) { ilRenP = value; },

@@ -95,3 +95,11 @@ test('Josephus morphology resolves flattened whole-book rows, including Antiquit
   }
  }
 });
+
+test('corpus glosses use exact STEPBible lemmas without guessing unknown or numbered homonyms',()=>{
+ const box={window:{}};vm.runInNewContext(fs.readFileSync(require.resolve('../lxx-morph'),'utf8'),box);const D=box.window.LXX_MORPH;
+ assert.equal(C.gloss(D,'συμπαραλαμβάνω'),'to take along with');
+ assert.equal(C.gloss(D,'συμπαραλαμβάνω'.normalize('NFD')),'to take along with');
+ assert.equal(C.gloss(D,'συμπαραλαμβάνω999'),'');assert.equal(C.gloss(D,'ἀνύπαρκτονλημμα'),'');
+ assert.equal(C.gloss(null,'συμπαραλαμβάνω'),'');assert.equal(C.gloss(D,''),'');
+});

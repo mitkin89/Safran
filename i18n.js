@@ -14,6 +14,32 @@
   if (lang === 'de') return;
 
   const EN = {
+    "Wörter entdecken": "Discover words",
+    "Sprache untersuchen": "Explore language",
+    "Text vergleichen": "Compare texts",
+    "Hier stärker vertreten als im übrigen Text": "More prominent here than in the rest of the text",
+    "Im Buch oder Tanach nur selten belegt": "Rarely attested in the book or Tanakh",
+    "Alle Wörter nach ihrer Häufigkeit": "All words by frequency",
+    "Verwandte Wörter gemeinsam erkunden": "Explore related words together",
+    "Verbstämme und grammatische Formen": "Verb stems and grammatical forms",
+    "Wiederkehrende Wortfolgen entdecken": "Discover recurring word sequences",
+    "Personen und Orte im Text": "People and places in the text",
+    "Material der Textzeugen im Überblick": "An overview of witness material",
+    "Verteilung über die Verse sichtbar machen": "See the distribution across verses",
+    "Gemeinsamkeiten zweier Kapitel erkunden": "Explore what two chapters share",
+    "Vergleichen mit": "Compare with",
+    "Im hebräischen Text hervorheben": "Highlight in the Hebrew text",
+
+    "Geteilt": "Split",
+    "Volle Höhe": "Full height",
+    "Kommentar und Wörterbuch: Volle Höhe / Geteilt": "Commentary and dictionary: Full height / Split",
+    "Studienwerkzeuge": "Study tools",
+    "Studienwerkzeuge öffnen oder schließen": "Open or close study tools",
+    "Werkzeuge": "Tools",
+    "Zurück zu {}": "Back to {}",
+    "Zuerst ein Wort im Text auswählen": "Select a word in the text first",
+    "Für diesen Text nicht verfügbar": "Not available for this text",
+    "Kurzbedeutung (Englisch) · STEPBible": "Short meaning (English) · STEPBible",
     "Am Text geprüft (Codex)": "Checked against the text (Codex)",
     "Peschitta · automatische Vorschläge aus PaTraCoSy und mit Onkelos als Hilfe; einzelne Stellen am Text geprüft (Codex, siehe Tooltip). Ohne Zuordnung bedeutet keine nachgewiesene Auslassung oder Ergänzung.": "Peshitta · automatic proposals from PaTraCoSy and supported by Onkelos; selected passages checked against the text (Codex, see tooltip). Unaligned does not mean a confirmed omission or addition.",
 

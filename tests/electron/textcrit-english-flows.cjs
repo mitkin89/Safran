@@ -12,7 +12,7 @@ module.exports=async({win,js,waitFor,book})=>{
  const text=await js("document.querySelector('#textcritPanel').textContent");
  for(const german of ['Textkritik','MT-Zählung','Hinweise','Textzeugen','Auslassung','Lesartunterschied','Quelltext','Maschineller','Über Rasur','Wortvorkommen'])assert(!text.includes(german),'Keine deutsche UI: '+german);
  assert(text.includes('Witnesses'));assert(text.includes('notes'));assert(text.includes('automated')||text.includes('Automated'));
- assert(await js("[...document.querySelectorAll('#dockTabs button')].every(b=>b.querySelector('.dock-tab-icon[aria-hidden=true]'))"),'Symbole in Panel-Tabs');
+ assert(await js("[...document.querySelectorAll('#dockTabs button[data-panel]')].every(b=>b.querySelector('.dock-tab-icon[aria-hidden=true]'))"),'Symbole in Panel-Tabs');
  await js("{const el=document.querySelector('#tcBody .tc-tov-entry .tc-source');el.focus();el.dispatchEvent(new FocusEvent('focusin',{bubbles:true}));}");
  await waitFor("document.querySelector('#tcHover')",'Englische LXX-Vorschau');
  assert(!await js("document.querySelector('#tcHover').textContent.includes('Gegenstück')"));

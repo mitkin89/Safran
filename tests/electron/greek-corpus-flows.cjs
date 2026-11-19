@@ -22,6 +22,7 @@ module.exports=async({docs,win,js,waitFor,book})=>{
   const doc=JSON.parse(fs.readFileSync(path.join(root,'bundled',entry.rel)));
   docs.set(entry.rel,{...doc,entry:{...entry,own:false},textHash:crypto.createHash('sha256').update(JSON.stringify(doc.text)).digest('hex')});
  }
+ await js("localStorage.setItem('stackMode','split');localStorage.setItem('stackDictH','42')");
  const loaded=new Promise(r=>win.webContents.once('did-finish-load',r));win.reload();await loaded;
  await waitFor("document.querySelector('#rOut .cell')",'Wiederhergestellter Leser');
  await waitFor("[...document.querySelectorAll('#tree .lib-item')].some(n=>n.dataset.key.includes('Philo:'))",'Griechische Bibliothek');
@@ -39,12 +40,27 @@ module.exports=async({docs,win,js,waitFor,book})=>{
   win.webContents.sendInputEvent({type:'mouseDown',...point,button:'left',clickCount:1});
   win.webContents.sendInputEvent({type:'mouseUp',...point,button:'left',clickCount:1});
  }
- await book(added[0].title);await clickFirst(added[0].rel);
+ await book(added[0].title);
+ await waitFor(`[...document.querySelectorAll('#verList input[data-rel]')].some(c=>c.dataset.rel===${JSON.stringify(added[0].rel)})`,'Philo für Wörterbuchpanel');
+ await js("if(document.querySelector('#cmtPanel').hidden)document.querySelector('#cmtBtn').click();if(!document.querySelector('#cmtPanel .pinB').classList.contains('on'))document.querySelector('#cmtPanel .pinB').click()");
+ await clickFirst(added[0].rel);
  await waitFor("document.querySelector('#wpop [data-source=oga]')",'Philo OGA-Morphologie');
  const lemma=await js("document.querySelector('#wpop .wlem').textContent.replace(/[0-9]+$/,'')");
  assert(lemma);
+ const meaning=await js("document.querySelector('#wpop .corpus-gloss')?.textContent");assert(meaning);
+ assert(await js("parseFloat(getComputedStyle(document.querySelector('#wpop .corpus-gloss')).fontSize)>parseFloat(getComputedStyle(document.querySelector('#wpop .corpus-morph')).fontSize)"));
  await js("document.querySelector('#wpop .wdict').click()");
  await waitFor(`document.querySelector('#dictQ')?.value===${JSON.stringify(lemma)}`,'Griechisches Lemma im Wörterbuch');
+ await waitFor("!document.querySelector('#dictPanel').hidden",'Wörterbuchpanel');
+ await js("if(document.body.classList.contains('stack-split')||document.body.classList.contains('stack-side'))document.querySelector('#dictStack').click()");
+ await waitFor("getComputedStyle(document.querySelector('#dictPanel')).visibility==='visible'",'Wörterbuch in voller Höhe');
+ assert(await js("(()=>{const r=document.querySelector('#dictPanel').getBoundingClientRect();return r.height>innerHeight-r.top-3;})()"));
+ await js("document.querySelector('#dockTabs [data-panel=cmt]').click()");
+ await waitFor("getComputedStyle(document.querySelector('#dictPanel')).visibility==='hidden'",'Kommentar über Panel-Tab');
+ await js("document.querySelector('#dockTabs [data-panel=dict]').click()");
+ await waitFor("getComputedStyle(document.querySelector('#dictPanel')).visibility==='visible'",'Wörterbuchinhalt über Panel-Tab zurück');
+ assert.equal(await js("document.querySelector('#dictQ').value"),lemma);
+
  const sirach=manifest.items.find(e=>e.title==='Ben Sira'&&e.language==='Greek');
  await book('Ben Sira');await clickFirst(sirach.rel);
  await waitFor("document.querySelector('#wpop .wlem.wgl')",'Sirach-Morphologie unter Ben Sira');

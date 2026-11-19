@@ -34,6 +34,9 @@ function at(doc,path,label,displayWords,manual){
  if(out.length!==displayWords.length||out.some((r,i)=>!r||r.form?.normalize('NFC')!==displayWords[i].normalize('NFC')))return null;
  return {work:D.work,locus:loci.join(', '),loci,records:out};
 }
+// Meanings are lexical glosses from the existing STEPBible index, not corpus translations.
+// Require the exact lemma; do not guess a homonym from spelling or frequency.
+function gloss(D,lemma){return D&&lemma?GM.lemmaInfo(D,String(lemma).normalize('NFC'))?.gloss?.trim()||'':'';}
 function key(tag){
  if(!/^[a-z0-9-]{9}$/.test(tag||''))return '';
  const pos={n:'N',v:'V',a:'A',l:'T',p:'P',r:'R',c:'C',d:'D',g:'X',i:'I',m:'M',x:'X'}[tag[0]]||'X',parts=[pos];
@@ -43,5 +46,5 @@ function key(tag){
  for(const x of [number[tag[2]],gender[tag[6]],cas[tag[7]],degree[tag[8]]])if(x)parts.push(x);
  return parts.join(' ');
 }
-const api={at,key,describe:(tag,t)=>GM.describe(key(tag),t),entries};if(node)module.exports=api;else global.GreekCorpus=api;
+const api={at,key,gloss,describe:(tag,t)=>GM.describe(key(tag),t),entries};if(node)module.exports=api;else global.GreekCorpus=api;
 })(typeof window==='object'?window:globalThis);

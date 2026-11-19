@@ -41,7 +41,7 @@ function create(host){
     $('#tcWitnessOptions').hidden=!$('#tcWitnessOptions').hidden;syncWitness();
     try{localStorage.setItem('tcWitnessExpanded',$('#tcWitnessOptions').hidden?'0':'1');}catch{}
   };
-  try{new ResizeObserver(()=>panel.style.setProperty('--tc-head-h',panel.querySelector('.tc-head').offsetHeight+'px')).observe(panel.querySelector('.tc-head'));}catch{}
+  try{let frame=0;new ResizeObserver(()=>{if(!frame)frame=requestAnimationFrame(()=>{frame=0;panel.style.setProperty('--tc-head-h',panel.querySelector('.tc-head').offsetHeight+'px');});}).observe(panel.querySelector('.tc-head'));}catch{}
   function rows(){return [...$('#rOut').querySelectorAll('.row[data-l]')].filter(r=>/^\d+$/.test(r.dataset.l));}
   function context(){
     const v=host.getView(),s=v?.sections?.[v.idx],chapter=s?.path?.length===1?s.path[0]+1:null;
@@ -154,7 +154,7 @@ function create(host){
     const contentKey=c?[key,whole,c.numbering,whole?'':c.row,$('#tcSmr').checked,$('#tcTov').checked,$('#tcDss').checked,$('#tcKen').checked,$('#tcLang').value].join('|'):null;
     if(contentKey&&lastContentKey===contentKey){markCurrent(c);return;}
     lastContentKey=null;
-    if(!c){body.innerHTML='<p class="muted">Der Textkritik-Apparat steht für den Tanach zur Verfügung.</p>';return;}
+    if(!c){body.innerHTML='<p class="muted">Der Apparatus-Apparat steht für den Tanach zur Verfügung.</p>';return;}
     body.innerHTML='<p class="muted">Apparat wird geladen …</p>';
     try{
       const [[data,notes]]=await Promise.all([load(),dss.load(c.book),ken.load(c.book)]);if(token!==generation||panel.hidden)return;

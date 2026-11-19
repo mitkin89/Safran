@@ -117,8 +117,11 @@ window.LibraryWordPopup = (() => {
     if(row?.classList.contains('sh'))try{path=JSON.parse(row.dataset.sp);}catch{}
     else{const heading=row?.closest('.pgb')?.querySelector('.pgh[data-sk]');if(heading)try{path=JSON.parse(heading.dataset.sk);}catch{}}
     const data=window.GreekCorpus.at(doc,path,row?.dataset.sl||row?.dataset.l,at.words.map(w=>w.t),manual),r=data?.records[at.i],t=s=>I18N.t(s);
+    let meaning='';
+    if(r?.lemma)try{meaning=window.GreekCorpus.gloss(await loadGM(),r.lemma);}catch{}
+    if(token!==gTok||!cell.isConnected)return;
     const described=r?.tag?window.GreekCorpus.describe(r.tag,t):null;
-    const rows=r?.lemma?`<div class="wseg main" data-source="${r.source}" data-analysis="${r.analysis}"><span class="wlem" lang="grc">${esc(r.lemma)}</span><br>${esc([described?.pos,described?.info].filter(Boolean).join(' · '))}</div><p class="muted">${esc(r.source==='gorman'?t('GLAUx / Gorman · manuell annotiert'):t('OGA · automatisch annotiert'))}<br>${esc(data.work)} · ${esc(r.locus||data.locus)} · <code>${esc(r.tag)}</code></p>`:`<p class="muted">${esc(t('Für dieses Wort liegt keine sicher zugeordnete Morphologie vor.'))}</p>`;
+    const rows=r?.lemma?`<div class="wseg main" data-source="${r.source}" data-analysis="${r.analysis}"><span class="wlem" lang="grc">${esc(r.lemma)}</span>${meaning?`<div class="corpus-meaning"><strong class="corpus-gloss" lang="en">${esc(meaning)}</strong><small class="corpus-gloss-source">${esc(t('Kurzbedeutung (Englisch) · STEPBible'))}</small></div>`:'<br>'}<span class="corpus-morph">${esc([described?.pos,described?.info].filter(Boolean).join(' · '))}</span></div><p class="muted">${esc(r.source==='gorman'?t('GLAUx / Gorman · manuell annotiert'):t('OGA · automatisch annotiert'))}<br>${esc(data.work)} · ${esc(r.locus||data.locus)} · <code>${esc(r.tag)}</code></p>`:`<p class="muted">${esc(t('Für dieses Wort liegt keine sicher zugeordnete Morphologie vor.'))}</p>`;
     const query=r?.lemma?.replace(/[0-9]+$/,'');
     const ref=data&&doc.greekMorphology.references?.[r?.locus||data.locus];
     const buttons=(query?`<button type="button" class="wdict" data-q="${esc(query)}">${esc(t('Im Wörterbuch nachschlagen'))}</button>`:'')+(ref?`<button type="button" class="corpus-ref" data-ref="${esc(ref)}">${data.work==='tlg0526.tlg003'?esc(t('Übersetzung öffnen')):'Whiston:'} ${esc(ref)}</button>`:'');
