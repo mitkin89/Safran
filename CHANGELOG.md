@@ -1,6 +1,11 @@
 # Changelog
 
-### Unreleased
+### New in 2.7.0
+- **Official Apparatus release:** include the textual apparatus and its source data in the distributed desktop app, with source-specific coverage and uncertainty retained.
+- **Unified study sidebar:** shared pinning, geometry, Back history and whole-pane close; labels collapse only when space requires it. Place Overview after Dictionary.
+- **Version picker:** compact wrapped full titles, left-aligned Hebrew labels, Westminster first in both menus, morphology/interlinear badges, correct English Samaritan grouping, refreshed portraits and unobscured previews.
+- **Shared word-card translation:** synchronize overview and forms-table source choices, including Back/Forward history; suppress overlapping inherited native tooltips.
+- **Ubuntu regression check:** compare hover text in the active UI language.
 - **Rare-word comparison bars:** add the same paired, normalized frequency bars used for unusually frequent words, with a common linear scale within the rare list. Keep book and Tanakh counts visible and show no remainder rate when the selection is the whole comparison corpus.
 - **Direct chapter comparison:** choose two installed MT chapters, including across books. Compare shared/exclusive lexical entries, normalized frequency differences, explicitly sourced word families, verb stems and forms. Show absolute counts, common-scale rates per 1,000 and clickable verse references; retain choices and results when returning from a word card.
 - **MT frequency highlights:** optionally mark rare words in gold or unusually frequent words in blue from passage statistics. Use exact OSHB lemma IDs, selected verse/chapter and book/Tanakh corpus; preserve word interaction and layout refreshes. Keep a clear control in the reader and clear the passage-specific marks on chapter changes.

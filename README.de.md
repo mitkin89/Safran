@@ -16,7 +16,7 @@
   <a href="https://github.com/mitkin89/Safran/releases/latest"><img alt="Safran für macOS, Windows oder Linux herunterladen" src="https://img.shields.io/badge/%E2%AC%87%EF%B8%8F%20%20Safran%20herunterladen-macOS%20%C2%B7%20Windows%20%C2%B7%20Linux-2ea44f?style=for-the-badge"></a>
 </p>
 
-<p align="center"><a href="https://www.youtube.com/watch?v=_htLzC7Q3Ug">▶ Überblicksvideo</a> &nbsp;·&nbsp; <a href="docs/releases/2.5.0.md"><b>Neu in 2.5.0</b></a> (englisch) &nbsp;·&nbsp; <a href="#installation">Installation</a> &nbsp;·&nbsp; <a href="README.md">English</a> &nbsp;·&nbsp; <b>Deutsch</b></p>
+<p align="center"><a href="https://www.youtube.com/watch?v=_htLzC7Q3Ug">▶ Überblicksvideo</a> &nbsp;·&nbsp; <a href="docs/releases/2.7.0.md"><b>Neu in 2.7.0</b></a> (englisch) &nbsp;·&nbsp; <a href="#installation">Installation</a> &nbsp;·&nbsp; <a href="README.md">English</a> &nbsp;·&nbsp; <b>Deutsch</b></p>
 
 <p align="center">
   <a href="screenshots/hero-interlinear.png"><img src="screenshots/hero-interlinear.png" alt="Safran: Genesis 1 als Interlinear – unter jedem hebräischen Wort das Deutsch von Zunz (1838) und Goldschmidt (1921); ein angeklicktes Wort ist im Hebräischen und in der fortlaufenden Übersetzung hervorgehoben" width="900"></a><br>
@@ -28,7 +28,9 @@
   <sub>▶ Überblicksvideo auf YouTube ansehen</sub>
 </p>
 
-Safran ist eine kostenlose Desktop-App für macOS, Windows und Linux, die deine Texte auf dem eigenen Rechner hält. Du wählst einmal die Bücher und Sprachen aus der [Sefaria](https://www.sefaria.org)-Bibliothek und liest, durchsuchst und kommentierst sie danach ohne Internetverbindung. Neu in 2.5.0: der **ganze Tanach Wort für Wort auf Deutsch** (Interlinear) und eine **Wortkarte**, die zeigt, wie ein hebräisches Wort übersetzt wird. Dazu bringt Safran **über 50 deutsche Werke** mit (Übersetzungen, Kommentare und Nachschlagewerke), die es sonst kaum gibt, darunter Louis Ginzbergs *Legenden der Juden* nach seinem deutschen Manuskript, und **zehn Wörterbücher und Nachschlagewerke** mit über 300.000 Einträgen. Safran ist ein unabhängiges Projekt und nicht mit Sefaria verbunden.
+Safran ist eine kostenlose Desktop-App für macOS, Windows und Linux, die deine Texte auf dem eigenen Rechner hält. Du wählst einmal die Bücher und Sprachen aus der [Sefaria](https://www.sefaria.org)-Bibliothek und liest, durchsuchst und kommentierst sie danach ohne Internetverbindung. Neu in 2.7.0: der **Apparatus** mit Handschriften- und Versionslesarten, ein gemeinsames Seitenpanel und erweiterte Stellenstatistiken. Der **ganze Tanach Wort für Wort auf Deutsch** (Interlinear) und die **Wortkarte** zeigen, wie hebräische Wörter übersetzt werden. Dazu bringt Safran **über 50 deutsche Werke** mit (Übersetzungen, Kommentare und Nachschlagewerke), die es sonst kaum gibt, darunter Louis Ginzbergs *Legenden der Juden* nach seinem deutschen Manuskript, und **zehn Wörterbücher und Nachschlagewerke** mit über 300.000 Einträgen. Safran ist ein unabhängiges Projekt und nicht mit Sefaria verbunden.
+
+Der **≠ Apparatus** gehört ab 2.7.0 zur offiziellen Version: mit Samaritanus / Tal–Florentin, Septuaginta (CATSS), biblischen Qumran-Rollen und den verfügbaren Kennicott-Büchern. Quellen, abweichende Verszählung, Rekonstruktionen und unsichere Zuordnungen bleiben erkennbar. Für Mischna Berakhot gibt es außerdem einen Handschriftenvergleich von Kaufmann, Parma und Cambridge. Der Umfang hängt von Buch und Quelle ab.
 
 ## Warum Safran?
 

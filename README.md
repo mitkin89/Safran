@@ -16,7 +16,7 @@
   <a href="https://github.com/mitkin89/Safran/releases/latest"><img alt="Download Safran for macOS, Windows or Linux" src="https://img.shields.io/badge/%E2%AC%87%EF%B8%8F%20%20Download%20Safran-macOS%20%C2%B7%20Windows%20%C2%B7%20Linux-2ea44f?style=for-the-badge"></a>
 </p>
 
-<p align="center"><a href="https://www.youtube.com/watch?v=_htLzC7Q3Ug">▶ Overview video</a> &nbsp;·&nbsp; <a href="docs/releases/2.5.0.md"><b>New in 2.5.0</b></a> &nbsp;·&nbsp; <a href="#install">Install</a> &nbsp;·&nbsp; <b>English</b> &nbsp;·&nbsp; <a href="README.de.md">Deutsch</a></p>
+<p align="center"><a href="https://www.youtube.com/watch?v=_htLzC7Q3Ug">▶ Overview video</a> &nbsp;·&nbsp; <a href="docs/releases/2.7.0.md"><b>New in 2.7.0</b></a> &nbsp;·&nbsp; <a href="#install">Install</a> &nbsp;·&nbsp; <b>English</b> &nbsp;·&nbsp; <a href="README.de.md">Deutsch</a></p>
 
 <p align="center">
   <a href="screenshots/hero-interlinear.png"><img src="screenshots/hero-interlinear.png" alt="Safran: Genesis 1 as an interlinear – under every Hebrew word the German of Zunz (1838) and Goldschmidt (1921); a clicked word is highlighted in the Hebrew and in the running translation" width="900"></a><br>
@@ -28,16 +28,16 @@
   <sub>▶ Watch the overview video on YouTube</sub>
 </p>
 
-Safran is a free desktop app for macOS, Windows and Linux that keeps your texts on your own computer. Pick the books and languages you want from the [Sefaria](https://www.sefaria.org) library once, and read, search and annotate them afterwards without an internet connection. New in 2.5.0: the **whole Tanakh word by word in German** (interlinear) and a **word card** that shows how a Hebrew word is translated. On top of that, Safran ships **more than 50 German works** (translations, commentaries and reference works) that are hard to find anywhere else, among them Louis Ginzberg's *Legenden der Juden* from his German manuscript, plus **ten dictionaries and reference works** with more than 300,000 entries. Safran is an independent project and not affiliated with Sefaria.
+Safran is a free desktop app for macOS, Windows and Linux that keeps your texts on your own computer. Pick the books and languages you want from the [Sefaria](https://www.sefaria.org) library once, and read, search and annotate them afterwards without an internet connection. New in 2.7.0: the **Apparatus** with manuscript and ancient-version readings, a shared study sidebar and richer passage statistics. The **whole Tanakh word by word in German** (interlinear) and a **word card** show how Hebrew words are translated. On top of that, Safran ships **more than 50 German works** (translations, commentaries and reference works) that are hard to find anywhere else, among them Louis Ginzberg's *Legenden der Juden* from his German manuscript, plus **ten dictionaries and reference works** with more than 300,000 entries. Safran is an independent project and not affiliated with Sefaria.
 
-The **≠ Textkritik** development pane on `main` (outside the official 2.6.0 downloads) starts with the Samaritanus / Tal–Florentin
+The **≠ Apparatus** pane is included in the official 2.7.0 release. It includes the Samaritanus / Tal–Florentin
 apparatus, independent of selected reading columns. Read remarks on one level,
 inspect morphology and source citations, and optionally include spelling variants.
 Hover or focus a quoted word for its full Samaritan Hebrew/English verse context. Westminster / OSHB is the MT comparison base;
 word-anchored verse correspondence and uncertain or different numbering remain
 explicit. The header also offers whole-chapter view, verse navigation, follow
 reading, saved font size and witness selection, plus the available source language
-(currently English). It also includes Tov/Kraft CATSS notes plus separately labelled CATSS reading-text alignment flags (38 Tanakh books), biblical DSS (ETCBC/Abegg: 36 books, 262 manuscript sigla), and the Digital Kennicott Genesis apparatus. Hover source sigla for manuscript metadata and source citations for edition context. Securely located MT headings are clickable and mark the corresponding words in the reader.
+(currently English). It also includes Tov/Kraft CATSS notes plus separately labelled CATSS reading-text alignment flags (38 Tanakh books), biblical DSS (ETCBC/Abegg: 36 books, 262 manuscript sigla), and the available Digital Kennicott book apparatuses. Hover source sigla for manuscript metadata and source citations for edition context. Securely located MT headings are clickable and mark the corresponding words in the reader.
 
 ## Why Safran?
 
