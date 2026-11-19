@@ -1,0 +1,68 @@
+// The same source-preserving comparison in the main reader; no new alignment.
+window.LibraryMishnahReader=(()=>{
+'use strict';
+const prefix='digital-mishnah/berakhot/';
+function entries(group){
+ if(group.title!=='Mishnah Berakhot')return [];
+ return [['K','Kaufmann A50'],['P','Parma, de Rossi 138'],['C','Cambridge Add. 470.1']].map(([sig,name])=>({title:group.title,categories:group.cats,heTitle:group.heTitle,kind:'he',language:'Hebrew',rel:prefix+sig,versionTitle:name+' · Digital Mishnah',mishnahWitness:sig,bytes:100000}));
+}
+function create(host){
+ const {$,esc,getView}=host,adapter=window.LibraryMishnahTextCrit.create(host),tr=s=>window.I18N?.textCrit?.(s)??s;
+ let picks=['P','C'],generation=0,hover=null,anchor=null,timer=null;
+ try{const p=JSON.parse(localStorage.getItem('mishnahReaderWitnesses')||'null');if(Array.isArray(p))picks=['P','C'].filter(s=>p.includes(s));}catch{}
+ const active=()=>getView()?.group?.title==='Mishnah Berakhot';
+ const hasK=()=>getView()?.selected.has(prefix+'K');
+ const name=s=>s==='K'?'Kaufmann':s==='P'?'Parma':'Cambridge';
+ async function read(entry){
+  if(!entry?.mishnahWitness)return null;
+  const data=await adapter.load(),sig=entry.mishnahWitness,w=data.witnesses[sig],text=Array.from({length:9},()=>[]);
+  for(const [ref,u]of Object.entries(w.units)){const [ch,m]=ref.split(':').map(Number);text[ch-1][m-1]=esc(u.text);}
+  return {entry,versionTitle:entry.versionTitle,language:'he',sectionNames:['Chapter','Mishnah'],text,mishnahWitness:sig,license:w.license,versionSource:w.url};
+ }
+ function hide(){clearTimeout(timer);if(anchor)anchor.removeAttribute('aria-describedby');hover?.remove();hover=null;anchor=null;}
+ function show(word){
+  hide();if(!word.isConnected)return;const html=adapter.preview(word);if(!html)return;
+  hover=document.createElement('div');hover.id='mishnahReaderHover';hover.className='mishnah-reader-hover';hover.setAttribute('role','tooltip');hover.innerHTML=html;document.body.append(hover);anchor=word;word.setAttribute('aria-describedby',hover.id);
+  const r=word.getBoundingClientRect(),h=hover.getBoundingClientRect();hover.style.left=Math.max(8,Math.min(innerWidth-h.width-8,r.left))+'px';hover.style.top=(r.bottom+h.height+8<innerHeight?r.bottom+8:Math.max(8,r.top-h.height-8))+'px';
+  hover.onpointerenter=()=>clearTimeout(timer);hover.onpointerleave=()=>timer=setTimeout(hide,150);
+ }
+ async function refresh(){
+  const token=++generation;hide();if(!active())return;
+  const view=getView(),chapter=view.sections[view.idx]?.path?.[0];if(!Number.isInteger(chapter))return;
+  $('#ilBtn').hidden=false;$('#ilBtn').classList.toggle('on',hasK()&&picks.length>0);$('#bavliIlBtn').hidden=true;
+  const data=await adapter.load();if(token!==generation||getView()!==view||view.sections[view.idx]?.path?.[0]!==chapter)return;
+  for(const cell of $('#rOut').querySelectorAll('.cell[data-rel]')){
+   const doc=view.loaded.find(d=>d.entry.rel===cell.dataset.rel),sig=doc?.mishnahWitness;if(!sig)continue;
+   const row=cell.closest('.row'),ref=(chapter+1)+':'+row.dataset.l,u=data.witnesses[sig].units[ref],txt=cell.querySelector('.txt');if(!u||!txt)continue;
+   txt.classList.add('mishnah-reader-text');
+   if(sig==='K'){
+    const template=document.createElement('template');template.innerHTML=adapter.render(chapter+1,[ref],['K',...picks]);
+    const source=template.content.querySelector('.tc-reader-verse');txt.replaceChildren(...source.querySelectorAll('.mci-grid,.mci-open'));
+   }else{
+    txt.innerHTML=adapter.sourceUnit(sig,ref);
+   }
+  }
+ }
+ function menu(){
+  return '<div class="ilpH">'+esc(tr('Handschriften'))+'</div><label class="ilpR"><input type="checkbox" value="K" '+(hasK()?'checked':'')+'> Kaufmann A50</label>'+['P','C'].map(s=>'<label class="ilpR"><input type="checkbox" value="'+s+'" '+(picks.includes(s)?'checked':'')+'> '+name(s)+'</label>').join('')+'<div class="ilpB"><button type="button" data-a="all">'+esc(tr('Alle'))+'</button> <button type="button" data-a="none">'+esc(tr('Keine'))+'</button></div><p class="muted">'+esc(tr('Parma und Cambridge stehen wortweise unter Kaufmann. Abweichungen sind rot; offene Zuordnungen bleiben getrennt.'))+'</p>';
+ }
+ async function choose(value,on){
+  if(!active())return;const view=getView();
+  if(value==='K'){if(on)view.selected.add(prefix+'K');else if(view.selected.size>1)view.selected.delete(prefix+'K');}
+  else{if(value==='all')picks=['P','C'];else if(value==='none')picks=[];else picks=on?[...new Set([...picks,value])]:picks.filter(s=>s!==value);if(picks.length)view.selected.add(prefix+'K');}
+  try{localStorage.setItem('mishnahReaderWitnesses',JSON.stringify(picks));}catch{}
+  host.remember();await host.reload(view);
+  if(getView()===view&&!$('#ilPop').hidden)$('#ilPop').innerHTML=menu();
+ }
+ $('#rOut').addEventListener('click',e=>{const w=e.target.closest('[data-tc-mishnah]');if(w)show(w);});
+ $('#rOut').addEventListener('pointerover',e=>{const w=e.target.closest('[data-tc-mishnah]');if(w&&!w.contains(e.relatedTarget)){clearTimeout(timer);timer=setTimeout(()=>show(w),220);}});
+ $('#rOut').addEventListener('pointerout',e=>{if(e.target.closest('[data-tc-mishnah]')){clearTimeout(timer);timer=setTimeout(hide,180);}});
+ $('#rOut').addEventListener('focusin',e=>{const w=e.target.closest('[data-tc-mishnah]');if(w)show(w);});
+ $('#rOut').addEventListener('focusout',e=>{if(e.target.closest('[data-tc-mishnah]'))timer=setTimeout(hide,180);});
+ document.addEventListener('keydown',e=>{if(e.key==='Escape')hide();});
+ document.addEventListener('pointerdown',e=>{if(hover&&!e.target.closest('#mishnahReaderHover,[data-tc-mishnah]'))hide();},true);
+ addEventListener('scroll',e=>{if(hover&&!hover.contains(e.target))hide();},true);
+ return {active,read,refresh,menu,choose,invalidate:()=>{generation++;hide();}};
+}
+return {entries,create};
+})();

@@ -1,6 +1,7 @@
 # Changelog
 
 ### Unreleased
+- **Mishnah manuscripts in the main reader:** open Kaufmann, Parma and Cambridge from Versions; use the normal Interlinear chooser to show Parma/Cambridge beneath Kaufmann with the same word/group alignment, red differences and source previews as the apparatus. Retain separate manuscript numbering for independently opened witnesses and restore the selected view after restart.
 - **Mishnah Berakhot interlinear:** compare Kaufmann, Parma and Cambridge in word/group columns, mark different readings and additions red, preserve every source token and highlight selected words in the original context. Keep 396 ambiguous/damaged witness tokens unresolved. Add a separate Tosefta view with 53 upstream passage links and a checked Public Domain reading preview for the first relation; retain stale project word IDs as unresolved instead of inventing anchors.
 - **Mishnah Berakhot pilot:** compare Digital Mishnah Kaufmann (57 units), Parma (57) and Cambridge (59) against Kaufmann, preserving full licensed TEI snapshots, source numbering, expansions, deletions, supplements and damage. Separate automated comparison candidates from uncertain material; provide source context, witness filters and chapter navigation without inventing reader-word anchors.
 - **MT cantillation layout:** optional line breaks at major or smaller disjunctive accents, with separate poetic/prose rules, saved display settings and intact morphology/interlinear groups, including when accents are hidden.

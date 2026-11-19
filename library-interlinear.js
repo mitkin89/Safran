@@ -3,7 +3,7 @@
 // und Vorschauen zugänglich und werden über eine explizite Schnittstelle übergeben.
 window.LibraryInterlinear = (() => {
   'use strict';
-  function create({ $, $$, esc, cache, getView, portraitOf, consOf, apChap, verseOf, openSamaritan, sources, afterRefresh }) {
+  function create({ $, $$, esc, cache, getView, portraitOf, consOf, apChap, verseOf, openSamaritan, sources, afterRefresh, mishnah }) {
     const O = window.offline;
     const { loadIL, resetPrivateIL, IL_TG, IL_QK, ilName,
       loadTgIL, tgVer, tgSegs, tgDoc, tgPlain, loadQIL, qVer,
@@ -151,6 +151,7 @@ window.LibraryInterlinear = (() => {
     // Auswahlfenster am Interlinear-Knopf: ein Häkchen je Werk (mit Bild), dazu „Alle“ und „Keine“
     function ilPopRender() {
       const pop = $('#ilPop'); if (!pop || pop.hidden) return;
+      if(mishnah?.active()){pop.innerHTML=mishnah.menu();return;}
       const row = n => { const pic = portraitOf(ilPic(n)), on = ilPick.includes(n);
         return `<label class="ilpR" data-i="${IL_ORDER.indexOf(n) + 1}"><input type="checkbox" value="${n}"${on ? ' checked' : ''}>${pic ? `<img src="portraits/${encodeURIComponent(pic.img)}" alt="" title="${esc(pic.name || '')}">` : (n === 'LXX' ? `<span class="ilpPh" lang="grc">Α</span>` : `<span class="ilpPh" lang="he">א</span>`)}<span class="ilpT"><b>${esc(I18N.t(IL_LABEL[n]))}</b><small>${esc(I18N.t(ilSub(n)))}</small></span><i class="ilpDot"></i></label>`; };
       pop.innerHTML = `<div class="ilpH"><b>${esc(I18N.t('Interlinear'))}</b><span><button type="button" data-a="all">${esc(I18N.t('Alle'))}</button><button type="button" data-a="none">${esc(I18N.t('Keine'))}</button></span></div>${ilAvail.map(row).join('')}<p class="muted ilpN">${esc(I18N.t('Die gewählten Werke stehen Wort für Wort unter dem hebräischen Text (Westminster).'))}</p>`;
@@ -163,10 +164,12 @@ window.LibraryInterlinear = (() => {
     function ilPopToggle(show = $('#ilPop').hidden) { const pop = $('#ilPop'); pop.hidden = !show; $('#ilBtn').setAttribute('aria-expanded', String(show)); if (show) { ilPopRender(); ilPopPlace(); } }
     $('#ilPop').addEventListener('change', e => {
       const c = e.target.closest('input[type=checkbox]'); if (!c) return;
+      if(mishnah?.active()){mishnah.choose(c.value,c.checked);return;}
       ilPick = c.checked ? [...new Set([...ilPick, c.value])] : ilPick.filter(x => x !== c.value); ilSave(); ilRefresh();
     });
     $('#ilPop').addEventListener('click', e => {
       const a = e.target.closest('button[data-a]'); if (!a) return;
+      if(mishnah?.active()){mishnah.choose(a.dataset.a,true);return;}
       ilPick = a.dataset.a === 'all' ? [...new Set([...ilPick, ...ilAvail])] : ilPick.filter(x => !ilAvail.includes(x)); ilSave(); ilPopRender(); ilRefresh();
     });
     document.addEventListener('pointerdown', e => { const pop = $('#ilPop'); if (pop && !pop.hidden && !e.target.closest('#ilPop, #ilBtn')) ilPopToggle(false); }, true);
@@ -221,6 +224,8 @@ window.LibraryInterlinear = (() => {
     async function refreshContent() {
       const b = $('#ilBtn'); if (!b) return;
       const tok = ++ilTok;
+      if(mishnah?.active()){await mishnah.refresh();ilPopRender();return;}
+      mishnah?.invalidate();
       const bavliSection = getView() && getView().sections && getView().sections[getView().idx];
       const bavliPage = bavliSection && apChap(bavliSection);
       $('#bavliIlBtn').hidden = !(getView() && getView().group && getView().group.title === 'Berakhot' && /^(?:[2-9]|10)[ab]$/.test(bavliPage || ''));

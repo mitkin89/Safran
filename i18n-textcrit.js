@@ -260,5 +260,8 @@
   "Projektverweise vorhanden; Wortzuordnung nicht geprüft": "Project references available; word alignment has not been verified",
   "Geprüfte Parallelpassage; eigene Zählung der Leseausgabe": "Verified parallel passage; reading edition numbering",
   "Quellenverweise": "Source references",
-  "Projektverknüpfungen und Leseausgabe haben unterschiedliche Textstände und Zählungen. Nur geprüfte Parallelpassagen erhalten eine Textvorschau.": "Project links and the reading edition use different texts and numbering. Only verified parallel passages receive a text preview."
+  "Projektverknüpfungen und Leseausgabe haben unterschiedliche Textstände und Zählungen. Nur geprüfte Parallelpassagen erhalten eine Textvorschau.": "Project links and the reading edition use different texts and numbering. Only verified parallel passages receive a text preview.",
+  "Handschriften": "Manuscripts",
+  "Eigene Handschriftenzählung": "Manuscript numbering",
+  "Parma und Cambridge stehen wortweise unter Kaufmann. Abweichungen sind rot; offene Zuordnungen bleiben getrennt.": "Parma and Cambridge appear word by word beneath Kaufmann. Differences are red; unresolved alignments remain separate."
 });

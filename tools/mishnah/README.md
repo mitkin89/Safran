@@ -76,3 +76,14 @@ Only the first relation has been checked against reading-edition 1:1; all other
 relations deliberately have no inferred reading-edition reference or preview.
 No red textual-variant classification is applied to these longer parallels.
 The build checks the reading payload hash and Kaufmann bridge source hash.
+
+## Main reader
+
+`library-mishnah-reader.js` exposes the three licensed transcriptions as local
+reading versions without modifying the library files or source payload. Kaufmann
+is the preferred reference. The normal Interlinear chooser controls Parma and
+Cambridge beneath Kaufmann, reusing the apparatus renderer and its original
+source-token previews. Independently opened Parma/Cambridge versions retain
+their own unit numbering (explicitly labelled), rather than pretending that
+equal row numbers imply identical passages. The separate interlinear preference
+is saved per reader frame/session; the apparatus filters remain independent.

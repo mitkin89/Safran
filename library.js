@@ -95,6 +95,7 @@
       const base = new Map(); groups.forEach(g => { if (g.versions.some(v => !v.own) && !base.has(g.title)) base.set(g.title, g); });
       groups = groups.filter(g => { const b = base.get(g.title); if (b && b !== g && g.versions.every(v => v.own)) { b.versions.push(...g.versions); return false; } return true; });
     }
+    for(const g of groups)g.versions.push(...window.LibraryMishnahReader.entries(g));
     // Eigene Fassung mit demselben Versionsnamen wie eine Sefaria-Version (z. B. korrigierte eigene Übersetzung, die auch auf Sefaria liegt): nur die eigene zeigen, nicht beide nebeneinander
     groups.forEach(g => { const vn = t => String(t || '').replace(/\s*\[[a-z]{2,3}\]\s*$/i, ''), ownNames = new Set(g.versions.filter(v => v.own).map(v => vn(v.versionTitle))); if (ownNames.size) g.versions = g.versions.filter(v => v.own || !ownNames.has(vn(v.versionTitle))); }); // gleicher Titel (auch mit Sprachkürzel „ [de]“ am Ende): die eigene Fassung hat Vorrang
     groups.forEach(g => g.versions.sort((a, b) =>
@@ -302,7 +303,7 @@
   }
   // Voreinstellung der Versionen eines Buchs (Hebräisch immer, dazu die Sprache der Oberfläche)
   // Reihenfolge der hebräischen Fassungen als Vorgabe: Westminster, vokalisierte Ausgabe, andere, zuletzt „zusammengeführt“
-  function heRank(t) { return /Safran-Morphologie/.test(t) ? 3 : /westminster/i.test(t) ? 0 : /vocalized|vokalisiert/i.test(t) ? 1 : t === 'merged' ? 9 : 2; }
+  function heRank(t) { return /^Kaufmann A50 · Digital Mishnah$/.test(t)?0:/Safran-Morphologie/.test(t) ? 3 : /westminster/i.test(t) ? 0 : /vocalized|vokalisiert/i.test(t) ? 1 : t === 'merged' ? 9 : 2; }
   function pickVersions(g) {
     const sel = new Set();
     // Hebräisch: der Westminster-Text (OSHB) hat Vorrang, dann eine echte Ausgabe (z. B. William Davidson, vokalisiert);
@@ -370,7 +371,7 @@
     for (const rel of [...V.selected]) {
       let d = cache.get(rel);
       if (!d) {
-        try { d = await O.read(rel); } catch { continue; }
+        try { const entry=V.group.versions.find(e=>e.rel===rel);d=entry?.mishnahWitness?await mishnahReaderUI.read(entry):await O.read(rel); } catch { continue; }
         await versReady; applyVers(d);
         const ver = V.group.versions.find(x => x.rel === rel);
         d.__b = (ver && ver.bytes) || 2e6;
@@ -624,7 +625,7 @@
   // Hinweis zu einer umgerechneten Stellenangabe: „englische Zählung Joel 3:11 = hebr. 4:11“ (Angabe im Text, hebräische Stelle, Tradition)
   function versNoteText(orig, mapped, from) { const q = VMAP.parse(mapped), p = VMAP.parse(orig); return I18N.t('{} {} = hebr. {}', I18N.t(VMAP.LABEL[from] || ''), orig, q && p && q.book === p.book ? mapped.slice(q.book.length + 1) : mapped); }
   // Kleines Zeichen im Spaltenkopf, wenn die Fassung umgestellt wurde
-  const versBadge = d => (d && d.vmoved ? ` <small class="vtrad" title="${esc(I18N.t('Diese Fassung zählt anders ({}). Ihre Verse stehen hier neben dem hebräischen Vers; die eigene Nummer steht klein davor.', I18N.t(VERS_NAME[d.vtrad])))}">⇄ ${esc(I18N.t(VMAP.SHORT[d.vtrad] + ' Zählung'))}</small>` : '');
+  const versBadge = d => d?.mishnahWitness&&d.mishnahWitness!=='K'?` <small class="vtrad">${esc(window.I18N.textCrit('Eigene Handschriftenzählung'))}</small>`:(d && d.vmoved ? ` <small class="vtrad" title="${esc(I18N.t('Diese Fassung zählt anders ({}). Ihre Verse stehen hier neben dem hebräischen Vers; die eigene Nummer steht klein davor.', I18N.t(VERS_NAME[d.vtrad])))}">⇄ ${esc(I18N.t(VMAP.SHORT[d.vtrad] + ' Zählung'))}</small>` : '');
 
   // Schlüssel einer Fußnote im Lesetext: Abschnitt | Zeile | Spalte | Nummer (für „bleibt offen“)
   const fnKey = n => { const row = n.closest('.row[data-l]'), cell = n.closest('.cell'); return [view ? view.idx : '', row ? row.dataset.l : '', row ? [...row.querySelectorAll('.cell')].indexOf(cell) : -1, n.dataset.fn].join('|'); };
@@ -818,8 +819,12 @@
     return [...ilLxxIndices([...cell.querySelectorAll('.w')].map(w => w.textContent), ilTpl.content.querySelectorAll('.wg'))]
       .map(([g, idx]) => [idx, g.textContent.trim()]);
   }
+  const mishnahReaderUI=window.LibraryMishnahReader.create({
+    $,esc,getView:()=>view,load:(...args)=>wordCardsUI.lazyScript(...args),
+    remember:()=>rememberKinds(),reload:async expected=>{if(view===expected)await loadView();},
+  });
   const interlinearUI = window.LibraryInterlinear.create({
-    $, $$, esc, cache, getView: () => view, portraitOf,
+    $, $$, esc, cache, getView: () => view, portraitOf, mishnah: mishnahReaderUI,
     afterRefresh:()=>displayUI.taamLayout(),
     openSamaritan: w => wordPopupUI.openSamaritanWord(w),
     consOf: s => consOf(s), apChap: s => apChap(s), verseOf: s => linksUI.verseOf(s),
