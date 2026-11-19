@@ -14,6 +14,16 @@
   if (lang === 'de') return;
 
   const EN = {
+    "Peschitta · Genesis (automatisch)": "Peshitta · Genesis (automatic)",
+    "PaTraCoSy: automatische Wortgruppen; ungeklärte Stellen bleiben ohne Zuordnung. Hebräische Umschrift: nur Konsonanten.": "PaTraCoSy: automatic word groups; unresolved passages remain unaligned. Hebrew transliteration: consonants only.",
+    "Automatischer Zuordnungsvorschlag (PaTraCoSy), nicht manuell geprüft": "Automatic alignment proposal (PaTraCoSy), not manually reviewed",
+    "Peschitta: Textfassung weicht vom Quellstand der Zuordnung ab": "Peshitta: text edition differs from the alignment source",
+    "Peschitta: Wortzuordnung konnte nicht geladen werden": "Peshitta: word alignment could not be loaded",
+    "Peschitta: Für diesen Vers liegt keine passende Wortzuordnung vor.": "Peshitta: no matching word alignment is available for this verse.",
+    "Peschitta · ohne Zuordnung": "Peshitta · unaligned",
+    "Peschitta · automatische Wortgruppen (PaTraCoSy), nicht manuell geprüft. Ohne Zuordnung bedeutet keine nachgewiesene Auslassung oder Ergänzung.": "Peshitta · automatic word groups (PaTraCoSy), not manually reviewed. Unaligned does not mean a confirmed omission or addition.",
+    "Prolog (griechisch)": "Prologue (Greek)",
+
     "Personalpronomen": "Personal pronoun",
     "Demonstrativpronomen": "Demonstrative pronoun",
     "Interrogativpronomen": "Interrogative pronoun",

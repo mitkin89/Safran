@@ -2185,3 +2185,10 @@ body .pinp.panel-sized:not(.docked){left:var(--panel-x)!important;top:var(--pane
 #wpop .sy-translit { margin: 4px 0 10px; }
 #wpop .sy-translit small { display: block; color: var(--muted); }
 #wpop .sy-translit bdi, #wpop .sy-translit-parts { font-family: "HeDict", var(--he-font); font-size: 1.5em; line-height: 1.4; }
+/* PaTraCoSy suggestions: Syriac and consonantal Hebrew remain separate scripts. */
+body.il .cell[data-k="he"] .ilt.il-ps { direction: rtl; font-family: "Safran Syriac", serif; font-size: .8em; line-height: 1.45; color: var(--fg); }
+.il-ps .ils { border-bottom: 1px dotted var(--muted); }
+.ps-translit { display: block; font-family: var(--he-font, "SBL Hebrew", serif); font-size: .8em; color: var(--muted); }
+.ps-unlinked { margin-top: .5em; padding: .35em; border: 1px dashed var(--muted); font-size: .65em; }
+.ps-unlinked .syw { font-family: "Safran Syriac", serif; }
+.ps-unlinked .ps-translit { display: inline; margin-inline: .2em .7em; }

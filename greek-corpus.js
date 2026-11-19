@@ -10,7 +10,12 @@ function entries(D,locus){
 function at(doc,path,label,displayWords,manual){
  const D=doc?.greekMorphology;
  if(D?.version!==1||!doc.textHash||D.textHash!==doc.textHash||!Array.isArray(path))return null;
- const selected=D.locator?.[JSON.stringify([...path,String(label)])],loci=Array.isArray(selected)?selected:[selected],out=[];
+ // Reader sections stop at the first array level (a whole book). Flattened
+ // row labels therefore contain the remaining chapter/paragraph coordinates.
+ const parts=String(label).split(':'),tail=parts.slice(0,-1);
+ if(tail.some(p=>!(/^[1-9]\d*$/.test(p))))return null;
+ const address=[...path,...tail.map(p=>Number(p)-1),parts.at(-1)];
+ const selected=D.locator?.[JSON.stringify(address)],loci=Array.isArray(selected)?selected:[selected],out=[];
  if(!loci.length)return null;
  for(const locus of loci){
   const base=entries(D,locus);if(!base||base.some(r=>!r||typeof r.form!=='string'))return null;

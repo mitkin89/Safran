@@ -37,7 +37,7 @@ const DEUTERO = [
   { title: 'Makkabäer II (Septuaginta)', he: 'מקבים ב (תרגום השבעים)', slug: '2-maccabees' },
   { title: 'Das dritte Buch der Makkabäer', slug: '3-maccabees', attach: true },
   { title: 'Makkabäer IV (Septuaginta)', he: 'מקבים ד (תרגום השבעים)', slug: '4-maccabees' },
-  { title: 'Jesus Sirach (Septuaginta)', he: 'בן סירא (תרגום השבעים)', slug: 'sirach' },
+  { title: 'Ben Sira', he: 'בן סירא', slug: 'sirach', rel: 'own/Jesus Sirach (Septuaginta)/other/Septuaginta (Rahlfs).json' },
   { title: 'Weisheit Salomos (Septuaginta)', he: 'חכמת שלמה (תרגום השבעים)', slug: 'wisdom' },
   { title: 'Tobit (Septuaginta)', he: 'טוביה (תרגום השבעים)', slug: 'tobit' },
   { title: 'Tobit (Septuaginta)', he: 'טוביה (תרגום השבעים)', slug: 'tobit-sinaiticus', version: SIN, tag: 'Sinaiticus' },
@@ -286,7 +286,7 @@ if (require.main === module) {
     const data = { title: d.title, heTitle: he, language: 'Greek', versionTitle: version,
       versionSource: 'https://github.com/OpenScriptorium/lxx-morph (Rahlfs, Septuaginta 1935, gemeinfrei; digitale Ausgabe Eliran Wong; Wortlaut aus lxx-morph von Seth Kushniryk, CC BY 4.0)',
       sectionNames: ['Chapter', 'Verse'], text: html };
-    const rel = `own/${d.title}/other/${version}.json`, p = path.join(root, 'bundled', rel);
+    const rel = d.rel || `own/${d.title}/other/${version}.json`, p = path.join(root, 'bundled', rel);
     fs.mkdirSync(path.dirname(p), { recursive: true });
     const raw = JSON.stringify(data); fs.writeFileSync(p, raw);
     man.items.push({ rel, title: d.title, heTitle: he, language: 'Greek', versionTitle: version, categories: (d.attach && (meta.get(d.title) || {}).categories) || ['Second Temple', 'Apocrypha'], kind: 'other', hash: crypto.createHash('sha1').update(raw).digest('hex') });

@@ -382,6 +382,17 @@
       loaded.push(d);
     }
     if (V.loadTok !== tok) return; // ein neuerer Ladevorgang für diesen Tab läuft
+    // An imported edition can also be shipped under another filename. Hide
+    // only exact copies of the same named edition; keep both files intact.
+    const unique=[];
+    for(const d of loaded){
+      const twin=unique.find(x=>d.textHash&&x.textHash===d.textHash&&x.entry.kind===d.entry.kind&&x.versionTitle===d.versionTitle);
+      if(twin){
+        V.selected.delete(d.entry.rel);
+        V.group.versions=V.group.versions.filter(e=>e.rel!==d.entry.rel);
+      }else unique.push(d);
+    }
+    loaded.splice(0,loaded.length,...unique);
     loaded.sort((a, b) => KIND_RANK[a.entry.kind] - KIND_RANK[b.entry.kind]);
     V.loaded = loaded;
 
@@ -393,9 +404,10 @@
         // Auswahl nur bis zur ersten Listenebene (Kapitel/Daf) – Verse und Kommentare stehen dann untereinander im Abschnitt
         const fi = s0.path.findIndex(p => typeof p === 'number');
         const path = fi >= 0 ? s0.path.slice(0, fi + 1) : s0.path;
-        const label = fi >= 0 && fi + 1 < s0.path.length ? R.pathLabel(path, d.sectionNames) : s0.label;
+        const label = V.group.title==='Ben Sira'&&d.entry.language==='Greek'&&path.length===1&&path[0]===51 ? I18N.t('Prolog (griechisch)') : fi >= 0 && fi + 1 < s0.path.length ? R.pathLabel(path, d.sectionNames) : s0.label;
         const k = JSON.stringify(path);
         if (!seen.has(k)) { seen.add(k); secs.push({ path, label, k }); }
+        else if(d.greekMorphology?.work?.startsWith('tlg0526.'))secs.find(s=>s.k===k).label=label;
       }
     }
     const prevKey = V.key;
@@ -769,6 +781,8 @@
   const IL_QK = ['gleich wie im masoretischen Text', 'möglicher Schreibunterschied (maschineller Vergleich)', 'abweichender Wortlaut (maschineller Vergleich)', 'von den Herausgebern ergänzt', 'Plus: ohne Gegenstück im masoretischen Text'];
   let qIlP = null;
   const loadQIL = () => qIlP || (qIlP = wordCardsUI.lazyScript('qumran-il.js', () => window.QUMRAN_IL).catch(() => { qIlP = null; return null; }));
+  let psIlP = null;
+  const loadPsIL = () => psIlP || (psIlP = wordCardsUI.lazyScript('peshitta-alignment-data.js', () => window.PESHITTA_ALIGNMENT_DATA).catch(e => { psIlP = null; throw e; }));
   let smrIlP = null;
   const loadSmrIL = () => smrIlP || (smrIlP = wordCardsUI.lazyScript('samaritan-il.js', () => window.SAMARITAN_IL).catch(e => { smrIlP = null; throw e; }));
   const qVer = g => (g && g.versions || []).some(x => x.versionTitle === 'Qumran-Rollen (ETCBC DSS)');
@@ -831,7 +845,7 @@
     consOf: s => consOf(s), apChap: s => apChap(s), verseOf: s => linksUI.verseOf(s),
     sources: { loadIL, resetPrivateIL, IL_TG, IL_QK, ilName,
       loadTgIL, tgVer, tgSegs, tgDoc, tgPlain, loadQIL, qVer,
-      ilLxxVer, ilLxxDoc, ilLxxSegs, loadSmrIL },
+      ilLxxVer, ilLxxDoc, ilLxxSegs, loadSmrIL, loadPsIL },
   });
   function ilRefresh() { return interlinearUI.refresh(); }
   function ilTagCell(cell, segments) { return interlinearUI.tagCell(cell, segments); }
@@ -885,7 +899,7 @@
 
   const wordPopupUI = window.LibraryWordPopup.create({
     $, $$, esc, O,
-    reader: { get view() { return view; }, get dictSel() { return dictSel; } },
+    reader: { cache, get view() { return view; }, get dictSel() { return dictSel; } },
     lazyScript: (...args) => wordCardsUI.lazyScript(...args),
     apChap: (...args) => apChap(...args), verseOf: (...args) => linksUI.verseOf(...args),
     loadIL: (...args) => loadIL(...args), openDict,
@@ -1093,7 +1107,7 @@
         for (const d of loaded) for (const s0 of R.sectionsOf(d.text, d.sectionNames)) {
           const fi = s0.path.findIndex(p => typeof p === 'number');
           const path = fi >= 0 ? s0.path.slice(0, fi + 1) : s0.path;
-          const label = fi >= 0 && fi + 1 < s0.path.length ? R.pathLabel(path, d.sectionNames) : s0.label;
+          const label = g.title==='Ben Sira'&&d.entry.language==='Greek'&&path.length===1&&path[0]===51 ? I18N.t('Prolog (griechisch)') : fi >= 0 && fi + 1 < s0.path.length ? R.pathLabel(path, d.sectionNames) : s0.label;
           const k = JSON.stringify(path);
           if (!seen.has(k)) { seen.add(k); secs.push({ path, label, k }); }
         }

@@ -77,3 +77,21 @@ test('bundled Josephus update replaces old separate titles at the same paths',as
  assert.equal(Object.keys(lib.index.entries).length,4);assert(lib.list().every(e=>!e.title.startsWith('Josephus: old')));
  assert.equal(buildGroups({books:lib.list()}).length,4);
 });
+
+test('Josephus morphology resolves flattened whole-book rows, including Antiquities book 8',()=>{
+ for(const item of items.filter(e=>e.categories.includes('Josephus'))){
+  const d=JSON.parse(fs.readFileSync(path.join(__dirname,'../bundled',item.rel)));d.textHash=hash(d.text);
+  const seen=new Set();
+  for(const section of R.sectionsOf(d.text,d.sectionNames)){
+   const fi=section.path.findIndex(p=>typeof p==='number'),book=fi<0?section.path:section.path.slice(0,fi+1),key=JSON.stringify(book);
+   if(seen.has(key))continue;seen.add(key);
+   for(const row of R.flattenNode(R.getByPath(d.text,book))){
+    const at=C.at(d,book,row.label,G.words(row.html),manual);assert(at,item.title+' '+key+' '+row.label);
+    if(d.greekMorphology.work==='tlg0526.tlg001'&&book.at(-1)===7&&row.label==='1:1'){
+     assert(at.records.some(r=>r.locus==='8.2'&&r.form==='αὐτοῦ'&&r.lemma&&r.tag));
+     assert.equal(C.at(d,book,'99999:'+row.label,G.words(row.html)),null);
+    }
+   }
+  }
+ }
+});

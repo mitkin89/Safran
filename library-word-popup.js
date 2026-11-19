@@ -94,10 +94,11 @@ window.LibraryWordPopup = (() => {
   }
   function showSyriacWord(w){
     const was=w.classList.contains('sel');closeWpop();if(was)return;
-    const cell=w.closest('.cell'),doc=reader.view?.loaded?.find(d=>d.entry.rel===cell?.dataset.rel),row=w.closest('.row');let path=reader.view?.sections?.[reader.view.idx]?.path;
+    const cell=w.closest('.cell'),doc=reader.view?.loaded?.find(d=>d.entry.rel===(w.dataset.syRel||cell?.dataset.rel)),row=w.closest('.row');let path=reader.view?.sections?.[reader.view.idx]?.path;
     if(row?.classList.contains('sh'))try{path=JSON.parse(row.dataset.sp);}catch{}
     else{const h=row?.closest('.pgb')?.querySelector('.pgh[data-sk]');if(h)try{path=JSON.parse(h.dataset.sk);}catch{}}
-    const r=window.SyriacMorph.at(doc,w.dataset.si,w.textContent,path,row?.dataset.sl||row?.dataset.l),t=s=>I18N.t(s);
+    const sourceDoc=doc||(w.dataset.syRel&&reader.cache?.get(w.dataset.syRel));
+    const r=window.SyriacMorph.at(sourceDoc,w.dataset.si,w.textContent,path,row?.dataset.sl||row?.dataset.l),t=s=>I18N.t(s);
     const translit=`<div class="sy-translit"><small>${esc(t('Hebräische Umschrift (Konsonanten)'))}</small><bdi lang="he" dir="rtl">${esc(window.SyriacMorph.hebrew(w.textContent))}</bdi></div>`;
     const rows=r?.parts.length?r.parts.map(p=>{const d=window.SyriacMorph.describe(p,t),lem=window.SyriacMorph.lemma(p.lex);return `<div class="wseg main"><span class="wlem" lang="syr" dir="rtl">${esc(p.form)} → ${esc(lem)}</span><br><span class="sy-translit-parts" lang="he" dir="rtl">${esc(window.SyriacMorph.hebrew(p.form))} → ${esc(window.SyriacMorph.hebrew(lem))}</span><br>${esc([d.pos,d.info].filter(Boolean).join(' · '))}<br><small>${esc(p.gloss)}</small><br><code>${esc(p.lex)} · ETCBC Syriac #${esc(p.sourceId)}</code></div>`;}).join(''):`<p class="muted">${esc(t('Für dieses Wort liegt keine sicher zugeordnete Morphologie vor.'))}</p>`;
     const source=`<p class="muted">${esc(t('Peschitta · eigene Verszählung'))}${r?` · ${r.chapter}:${r.verse} · Peshitta #${r.id}`:''}<br>${esc(t('Morphologie: ETCBC Syriac Corpus; Kurzglossen auf Englisch.'))}</p>`;

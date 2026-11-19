@@ -11,6 +11,16 @@ module.exports=async({docs,win,js,waitFor,book})=>{
  for(const title of ['The Antiquities of the Jews','The War of the Jews','Against Apion']){
   const entry=manifest.items.find(e=>e.title===title&&e.kind==='de'),doc=JSON.parse(fs.readFileSync(path.join(root,'bundled',entry.rel)));
   docs.set(entry.rel,{...doc,entry:{...entry,own:false},textHash:crypto.createHash('sha256').update(JSON.stringify(doc.text)).digest('hex')});
+  if(title==='The Antiquities of the Jews'){
+   const copy={...entry,rel:entry.rel.replace(/[^/]+$/, 'imported-copy.json')};
+   docs.set(copy.rel,{...doc,entry:{...copy,own:false},textHash:crypto.createHash('sha256').update(JSON.stringify(doc.text)).digest('hex')});
+   const en={...entry,rel:'fixture/Josephus/en/merged.json',kind:'en',language:'English',versionTitle:'merged'};
+   docs.set(en.rel,{...doc,sectionNames:null,entry:en,textHash:'english-fixture',versionTitle:'merged'});
+  }
+ }
+ for(const entry of manifest.items.filter(e=>e.title==='Ben Sira')){
+  const doc=JSON.parse(fs.readFileSync(path.join(root,'bundled',entry.rel)));
+  docs.set(entry.rel,{...doc,entry:{...entry,own:false},textHash:crypto.createHash('sha256').update(JSON.stringify(doc.text)).digest('hex')});
  }
  const loaded=new Promise(r=>win.webContents.once('did-finish-load',r));win.reload();await loaded;
  await waitFor("document.querySelector('#rOut .cell')",'Wiederhergestellter Leser');
@@ -35,6 +45,24 @@ module.exports=async({docs,win,js,waitFor,book})=>{
  assert(lemma);
  await js("document.querySelector('#wpop .wdict').click()");
  await waitFor(`document.querySelector('#dictQ')?.value===${JSON.stringify(lemma)}`,'Griechisches Lemma im Wörterbuch');
+ const sirach=manifest.items.find(e=>e.title==='Ben Sira'&&e.language==='Greek');
+ await book('Ben Sira');await clickFirst(sirach.rel);
+ await waitFor("document.querySelector('#wpop .wlem.wgl')",'Sirach-Morphologie unter Ben Sira');
+ assert(await js("![...document.querySelectorAll('#tree .lib-item')].some(n=>n.dataset.key.includes('Jesus Sirach (Septuaginta)'))"));
+ assert(await js("[...document.querySelector('#rSection').options].some(o=>o.textContent===I18N.t('Prolog (griechisch)'))"));
+ await js("document.querySelector('#wpop .wx').click()");
+ await book(added[2].title);
+ await js(`{for(const c of [...document.querySelectorAll('#verList input[data-rel]')].filter(c=>c.dataset.rel.includes('Clementz')||c.dataset.rel.endsWith('imported-copy.json'))){if(!c.checked){c.checked=true;c.dispatchEvent(new Event('change',{bubbles:true}));}}}`);
+ await waitFor("[...document.querySelectorAll('#verList input[data-rel]')].filter(c=>c.dataset.rel.includes('Clementz')||c.dataset.rel.endsWith('imported-copy.json')).length===1",'Identische Clementz-Kopien zusammengeblendet');
+ await clickFirst(added[2].rel);
+ await waitFor("document.querySelector('#wpop [data-source=oga]')",'Josephus Morphologie in einer ganzen Buchansicht');
+ assert.equal(await js("[...document.querySelectorAll('#rOut .row.head > div[data-hv]')].filter(n=>n.dataset.hv.includes('Clementz')).length"),1);
+ await js("document.querySelector('#wpop .wx').click()");
+ await js(`{const s=document.querySelector('#rSection'),o=[...s.options].find(o=>/^(Buch|Book) 8$/.test(o.textContent));if(!o)throw Error('Buch 8 missing');s.value=o.value;s.dispatchEvent(new Event('change'));}`);
+ await clickFirst(added[2].rel);
+ await waitFor("document.querySelector('#wpop [data-source=oga]')",'Antiquities Buch 8 Morphologie');
+ assert(await js("document.querySelector('#wpop').textContent.includes('8.1')"));
+ await js("document.querySelector('#wpop .wx').click()");
  await book(added[1].title);await clickFirst(added[1].rel);
  await waitFor("document.querySelector('#wpop [data-source=gorman]')",'Josephus manuelle Morphologie');
  assert(await js("document.querySelector('#wpop').textContent.includes('Whiston:')"));
