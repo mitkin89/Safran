@@ -24,7 +24,7 @@ entries. No crosswalk from ETCBC lexeme ids is guessed.
 English glosses come first, followed by the other supplied languages. No German
 translations are invented. All glosses retain source credits and references;
 root links use only upstream root ids. The compact popup shows ETCBC's contextual meanings and grammar, with source
-ids and transliterations in a collapsed details section. A single dictionary
+ids and transliterations in an initially expanded details section. A single dictionary
 action searches the attested content morpheme in the selected dictionaries,
 including SEDRA when selected. Full lexical entries and roots appear only in
 the Dictionary pane. No ETCBC-to-SEDRA lemma identity is inferred.

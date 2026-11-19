@@ -110,7 +110,7 @@ window.LibraryWordPopup = (() => {
     // Prefer the content word over an attached conjunction, preposition or pronoun.
     const main=parts.find(p=>['subs','verb','adjv','nmpr','advb'].includes(p.sp));
     const query=main?.form||w.textContent;
-    const details=`<details class="sy-details"><summary>${esc(t('Quelle und Wortanalyse'))}</summary>${translit}${analyses}${source}</details>`;
+    const details=`<details class="sy-details" open><summary>${esc(t('Quelle und Wortanalyse'))}</summary>${translit}${analyses}${source}</details>`;
     const buttons=`<button class="wdict" data-q="${esc(query)}">${esc(t('Im Wörterbuch nachschlagen'))}</button>`;
     w.classList.add('sel');gSel={cell,i:w.dataset.si};
     const place=showGreekUnit(null,{rows:rows+details,buttons,word:w.textContent,at:w,lang:'syr',dir:'rtl'});

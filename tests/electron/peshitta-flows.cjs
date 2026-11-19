@@ -37,13 +37,12 @@ module.exports=async({profile,docs,win,js,waitFor,book})=>{
  await waitFor("document.querySelectorAll('#wpop.syriac-word .wseg.main').length===2",'Präfix und Hauptwort der Peschitta');
  assert(await js("document.querySelector('#wpop .wword').lang==='syr'&&document.querySelector('#wpop .wword').dir==='rtl'"));
  assert(await js("document.querySelector('#wpop').textContent.includes('Preposition')"));
- assert(await js("!document.querySelector('#wpop .sy-details').open&&document.querySelectorAll('#wpop .wdict').length===1&&!document.querySelector('#wpop .sedra-entry')"),'Kompakte Karte mit genau einem Wörterbuch-Zugang');
+ assert(await js("document.querySelector('#wpop .sy-details').open&&document.querySelectorAll('#wpop .wdict').length===1&&!document.querySelector('#wpop .sedra-entry')"),'Kompakte Karte mit genau einem Wörterbuch-Zugang');
  assert.equal(requests.length,beforeCardRequests,'Die Karte lädt keine Wörterbuchartikel automatisch');
  await js("document.querySelector('#wpop .sy-details').open=true");
  assert.equal(await js("document.querySelector('#wpop .sy-translit bdi').textContent"),'ברשית');
  assert.equal(await js("document.querySelectorAll('#wpop .sy-translit-parts').length"),2);
  assert(await js("document.querySelector('#wpop .sy-details').textContent.includes('ETCBC')"),'Quellen und technische Analyse bleiben zugänglich');
- await js("document.querySelector('#wpop .sy-details').open=false");
  await js('new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))');
  await win.webContents.capturePage().then(i=>fs.writeFileSync('/tmp/safran-sedra-popup.png',i.toPNG()));
  const query='ܪܫܝܬ';await js("document.querySelector('#wpop .wdict').click()");
@@ -60,7 +59,7 @@ module.exports=async({profile,docs,win,js,waitFor,book})=>{
  await js("document.querySelector('#dictSelB').click();document.querySelector('#dictClose').click();document.querySelector('#wpop .wx')?.click()");
  await js("document.querySelector('#rOut .syw[data-si=\"16\"]').scrollIntoView({block:'center'});document.querySelector('#rOut .syw[data-si=\"16\"]').click()");
  await waitFor("document.querySelectorAll('#wpop .wseg.main').length===3",'Konjunktion, Hauptwort und Suffix bleiben analysiert');
- assert(await js("document.querySelector('#wpop .wdict').dataset.q==='ܪܘܚ'&&!document.querySelector('#wpop .sy-details').open"),'Bei angehängtem Pronomen wird das Hauptwort gesucht, nicht der Buchstabe He');
+ assert(await js("document.querySelector('#wpop .wdict').dataset.q==='ܪܘܚ'&&document.querySelector('#wpop .sy-details').open"),'Bei angehängtem Pronomen wird das Hauptwort gesucht, nicht der Buchstabe He');
  await js('new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))');
  await win.webContents.capturePage().then(i=>fs.writeFileSync('/tmp/safran-syriac-compact-card.png',i.toPNG()));
  await js("document.querySelector('#wpop .wx').click()");
