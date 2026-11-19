@@ -14,6 +14,13 @@
   if (lang === 'de') return;
 
   const EN = {
+    "Lösen": "Unpin",
+    "Anpinnen": "Pin",
+    "Gesamte Seitenleiste lösen": "Unpin entire sidebar",
+    "Gesamte Seitenleiste anpinnen": "Pin entire sidebar",
+    "Im Lesetext markieren": "Highlight in the reading text",
+    "Wortfamilie im Lesetext markieren": "Highlight word family in the reading text",
+    "Wortverbindung im Lesetext markieren": "Highlight phrase in the reading text",
     "Wörter entdecken": "Discover words",
     "Sprache untersuchen": "Explore language",
     "Text vergleichen": "Compare texts",

@@ -1,4 +1,4 @@
-// Optional frequency marks decorate existing MT words without replacing their text.
+// Contextual passage marks decorate existing MT words without replacing their text.
 window.LibraryPassageMarks=(()=>{
 'use strict';
 function create({root,getKey}){
@@ -12,14 +12,22 @@ function create({root,getKey}){
     let count=0;
     if(state)for(const row of root.querySelectorAll('.row[data-l]')){
       if(!state.verses.has(row.dataset.l))continue;
-      for(const w of row.querySelectorAll('.cell[data-mt="1"] .txt .w[data-l][data-m]')){
-        // Interlinear witness spans have their own IDs and must never receive MT marks.
-        if(w.closest('.ilt'))continue;
-        const decoded=window.Morph.decode(w.dataset.m,w.dataset.l),lemma=decoded?.segs[decoded.main]?.lemma;
-        if(state.ids.has(lemma)){w.dataset.passageMark=state.mode;count++;}
+      for(const cell of row.querySelectorAll('.cell[data-mt="1"] .txt')){
+        const words=[...cell.querySelectorAll('.w[data-l][data-m]')].filter(w=>!w.closest('.ilt')).map(node=>{
+          const d=window.Morph.decode(node.dataset.m,node.dataset.l),seg=d?.segs[d.main];
+          return {node,lemma:seg?.lemma,lang:d?.lang,stem:seg?.stem,tense:seg?.tense,code:d?d.lang+node.dataset.m.slice(1).split('/')[d.main]:''};
+        });
+        const marked=new Set();
+        if(state.sequence){
+          for(let i=0;i+state.sequence.length<=words.length;i++)if(state.sequence.every((t,j)=>t.lemma===words[i+j].lemma&&t.lang===words[i+j].lang))for(let j=0;j<state.sequence.length;j++)marked.add(words[i+j].node);
+        }else for(const w of words)if(state.ids.has(w.lemma)||state.code&&state.code===w.code||state.stem&&state.stem===w.stem||state.tense&&state.tense===w.tense)marked.add(w.node);
+        for(const w of marked){w.dataset.passageMark=state.mode;count++;}
       }
     }
-    document.querySelectorAll('[data-ap-mark]').forEach(b=>{const active=state&&b.closest('.apScope')?.dataset.scope===state.scope&&b.dataset.apMark===state.mode;b.setAttribute('aria-pressed',String(!!active));b.classList.toggle('on',!!active);b.disabled=!root.querySelector('.cell[data-mt="1"] .w');});
+    document.querySelectorAll('#apBody [data-ap-select]').forEach(b=>{
+      const active=!!(state&&b.closest('.apScope')?.dataset.scope===state.scope&&b.dataset.apSelect+':'+b.dataset.value===state.selection);
+      b.classList.toggle('apSelected',active);if(b.tagName==='BUTTON')b.setAttribute('aria-pressed',String(active));
+    });
     document.querySelectorAll('#apBody .apW[data-lemma]').forEach(w=>{const active=state&&state.ids.has(w.dataset.lemma);if(active)w.dataset.passageMark=state.mode;else delete w.dataset.passageMark;});
     bar.hidden=!state;if(state){text.textContent=I18N.t('{} · {} markierte MT-Wörter',state.label,count);bar.dataset.mode=state.mode;bar.style.left=Math.max(8,root.getBoundingClientRect().left+8)+'px';}
   }

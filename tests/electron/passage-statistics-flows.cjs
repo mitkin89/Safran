@@ -28,8 +28,9 @@ module.exports=async({win,js,waitFor,book})=>{
  await js("document.querySelector('.panel-resize-handle[data-panel=allPanel][data-edge=w]').dispatchEvent(new KeyboardEvent('keydown',{key:'Home',bubbles:true}))");
  await waitFor("document.querySelector('#apBody [data-scope=c] .apRateGraph')",'Grafischer Häufigkeitsvergleich');
  assert(await js("[...document.querySelectorAll('#apBody [data-scope=c] .apRateGraph')].every(x=>x.querySelector('.here b')&&x.querySelector('.rest b')&&x.getAttribute('aria-label').length>10)"),'Beschriftete Vergleichsbalken mit Zahlen');
+ assert(await js("!document.querySelector('#apBody .apMarkTools')"),'Keine doppelte Auswahl für Markierungen');
  // Reader marks use the exact lemma of MT words, including prefixes.
- await js("document.querySelector('#apBody [data-scope=c] [data-compare=book]').click();document.querySelector('#apBody [data-scope=c] [data-ap-mark=rare]').click()");
+ await js("document.querySelector('#apBody [data-scope=c] [data-compare=book]').click();document.querySelector('#apBody [data-scope=c] .apSeg [data-seg=rare]').click()");
  await waitFor("document.querySelector('#rOut .w[data-passage-mark=rare]')",'Seltene MT-Wörter farbig markiert');
  assert(await js("[...document.querySelectorAll('#rOut .w[data-passage-mark]')].some(w=>w.dataset.l==='8414')&&!document.querySelector('#rOut .cell:not([data-mt]) [data-passage-mark]')"),'Buchseltenheit, keine Markierung fremder Fassungen');
  await js("document.querySelector('#apBody [data-scope=c] [data-compare=tanakh]').click()");
@@ -44,14 +45,13 @@ module.exports=async({win,js,waitFor,book})=>{
  assert.equal(await js("[...document.querySelectorAll('#rOut .w[data-passage-mark]')].map(w=>w.dataset.l).join('|')"),marksBefore,'Gleiche Markierungen nach neuem Layout');
  await js("document.querySelector('#passageMarkStatus button').click()");
  assert(await js("!document.querySelector('#rOut [data-passage-mark]')&&document.querySelector('#passageMarkStatus').hidden"),'Markierungen jederzeit ausschaltbar');
- await js("document.querySelector('#apBody [data-scope=c] [data-ap-mark=lead]').click()");
+ await js("document.querySelector('#apBody [data-scope=c] .apSeg [data-seg=lead]').click()");
  assert(await js("document.querySelector('#rOut .w[data-passage-mark=lead]')&&!document.querySelector('#rOut .w[data-passage-mark=rare]')"),'Häufigkeitsmarkierung eigener Modus');
  await js("new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))");fs.writeFileSync('/tmp/safran-mt-highlights.png',(await win.webContents.capturePage()).toPNG());
- await js("document.querySelector('#apBody [data-scope=c] [data-ap-mark=lead]').click()");
- assert(await js("!document.querySelector('#rOut [data-passage-mark]')"),'Erneuter Klick entfernt den Modus');
- await js("document.querySelector('#apBody [data-scope=c] [data-ap-mark=rare]').click();document.querySelector('#rSection').value='1';document.querySelector('#rSection').dispatchEvent(new Event('change',{bubbles:true}))");
- await waitFor("document.querySelector('#rOut .w[data-l=\"7880\"]')&&document.querySelector('#passageMarkStatus').hidden",'Kapitelwechsel entfernt vorige Auswahlmarkierung');
- assert(await js("!document.querySelector('#rOut [data-passage-mark]')"));
+ await js("document.querySelector('#apBody [data-scope=c] .apSeg [data-seg=vocab]').click()");
+ assert(await js("!document.querySelector('#rOut [data-passage-mark]')"),'Andere Statistikansicht entfernt Markierungen');
+ await js("document.querySelector('#apBody [data-scope=c] .apSeg [data-seg=rare]').click();document.querySelector('#rSection').value='1';document.querySelector('#rSection').dispatchEvent(new Event('change',{bubbles:true}))");
+ await waitFor("document.querySelector('#rOut .w[data-l=\"7880\"]')&&document.querySelector('#apBody [data-scope=c] .apSeg [data-seg=lead].on')&&document.querySelector('#passageMarkStatus')?.dataset.mode==='lead'",'Kapitelwechsel markiert die neue Auswahl');
  await js("document.querySelector('#rSection').value='0';document.querySelector('#rSection').dispatchEvent(new Event('change',{bubbles:true}))");
  await waitFor("document.querySelector('#apBody [data-scope=c] .apEvidenceTable tbody tr:nth-child(31)')",'Kapitelstatistik nach Rückkehr');
  assert(await js("!document.querySelector('#apBody .apBox[data-b=stats]').textContent.includes('carry the theme')&&!document.querySelector('#apBody .apBox[data-b=stats]').textContent.includes('tragen das Thema')"));
@@ -150,6 +150,25 @@ module.exports=async({win,js,waitFor,book})=>{
  await js("new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))");
  assert(await js("Math.abs(document.querySelector('#allPanel').scrollTop-window.__overviewScroll)<5"),'Scrollposition des Überblicks bleibt erhalten');
  assert(await js("!document.querySelector('#apBody [data-scope=c] .apPane[data-seg=rare] .apMore')?.hidden"),'Aufgeklappte seltene Wörter bleiben geöffnet');
+ // Each language view marks the selected item and retains a separate word-card action.
+ await js("document.querySelector('#apBody [data-scope=c] .apSeg [data-seg=roots]').click();document.querySelector('#apBody [data-scope=c] summary[data-ap-select=roots]').click()");
+ assert(await js("document.querySelector('#rOut [data-passage-mark=roots]')&&document.querySelector('#apBody [data-scope=c] summary.apSelected')"),'Wortfamilie markiert');
+ assert(await js("(()=>{const ids=[...document.querySelector('#apBody [data-scope=c] summary.apSelected').closest('.apFamily').querySelectorAll('.apW')].map(b=>b.dataset.lemma);return [...document.querySelectorAll('#rOut [data-passage-mark=roots]')].every(w=>{const d=Morph.decode(w.dataset.m,w.dataset.l);return ids.includes(d.segs[d.main].lemma)})})()"),'Nur Mitglieder der gewählten Wortfamilie');
+ await js("document.querySelector('#apBody [data-scope=c] .apSeg [data-seg=verbs]').click();document.querySelector('#apBody [data-scope=c] [data-ap-select=verbs]').click()");
+ assert(await js("(()=>{const b=document.querySelector('#apBody [data-scope=c] [data-ap-select=verbs].apSelected'),d=Morph.decode(b.dataset.m,b.dataset.l),code=d.lang+b.dataset.m.slice(1).split('/')[d.main],words=[...document.querySelectorAll('#rOut [data-passage-mark=verbs]')];return words.length===parseInt(b.closest('.apMorphRow').querySelector('b').textContent)&&words.every(w=>{const m=Morph.decode(w.dataset.m,w.dataset.l);return m.lang+w.dataset.m.slice(1).split('/')[m.main]===code})})()"),'Verbform markiert exakt ihren Morphologietyp');
+ await js("document.querySelector('#apBody [data-scope=c] [data-ap-select=stem]').click()");
+ assert(await js("document.querySelectorAll('#rOut [data-passage-mark=verbs]').length>0"),'Verbstamm auswählbar');
+ await js("document.querySelector('#apBody [data-scope=c] .apSeg [data-seg=phrases]').click();document.querySelector('#apBody [data-scope=c] [data-ap-select=phrases]').click()");
+ assert(await js("(()=>{const b=document.querySelector('#apBody [data-scope=c] [data-ap-select=phrases].apSelected'),len=b.querySelector('bdi').textContent.trim().split(/\\s+/).length,n=parseInt(b.querySelector('b').textContent);return document.querySelectorAll('#rOut [data-passage-mark=phrases]').length===len*n})()"),'Wortverbindung markiert nur zusammenhängende Fundstellen');
+ assert(await js("!document.querySelector('#rOut .ilt [data-passage-mark]')"),'Keine Markierung der Interlinear-Zeugen');
+ await js("document.querySelector('#rSection').value='1';document.querySelector('#rSection').dispatchEvent(new Event('change',{bubbles:true}));if(!document.querySelector('#apWhole').hidden)document.querySelector('#apWhole').click()");
+ await waitFor("document.querySelector('#apBody [data-scope=c] [data-ap-select=names]')",'Namen in Genesis 2');
+ await js("document.querySelector('#apBody [data-scope=c] .apSeg [data-seg=names]').click();document.querySelector('#apBody [data-scope=c] [data-ap-select=names]').click()");
+ assert(await js("document.querySelector('#rOut [data-passage-mark=names]')"),'Name im Lesetext markiert');
+ assert(await js("(()=>{const id=document.querySelector('#apBody [data-scope=c] [data-ap-select=names].apSelected').dataset.value;return [...document.querySelectorAll('#rOut [data-passage-mark=names]')].every(w=>{const d=Morph.decode(w.dataset.m,w.dataset.l);return d.segs[d.main].lemma===id})})()"),'Name ohne fremde Lemmata');
+ await js("document.querySelector('#apBody [data-scope=c] .apPane[data-seg=names] .apCardOpen').click()");
+ await waitFor("!document.querySelector('#formsPanel').hidden",'Wortkarte separat erreichbar');
+ console.log('Electron: Kontextmarkierungen für Wurzeln, exakte Verbformen, Verbstämme, Namen und zusammenhängende Wortverbindungen bestanden.');
  // A homonym selector must switch the complete word card, not just its chart.
  await book('Genesis');await js("document.querySelector('#rSection').value='1';document.querySelector('#rSection').dispatchEvent(new Event('change',{bubbles:true}))");
  await waitFor("document.querySelector('#rOut .w[data-l=\"7880\"]')",'שיח im Lesetext');

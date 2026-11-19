@@ -596,10 +596,8 @@ html.split[data-tab=dict] #dictPanel { right: var(--p2w); padding: 0 max(14px, 3
 
 /* Beschriftungen neben den Symbolen; bei wenig Platz (zwei Fenster, schmales Fenster) nur das Symbol */
 .bl { margin-left: 5px; font-size: .85em; }
-html.split #stick .bl, html.pane2 .bl { display: none; }
 #reader { container-type: inline-size; }
 #stick .bar button, header > button { white-space: nowrap; }
-@container (max-width: 960px) { #stick .bl { display: none; } }
 @media (max-width: 800px) { header .bl { display: none; } }
 #moreList #uiLang { margin-left: 6px; font-size: 13px; }
 
@@ -2131,10 +2129,6 @@ body .pinp.panel-sized:not(.docked){left:var(--panel-x)!important;top:var(--pane
 #apBody .apRateLegend{font-size:11px}
 #apBody .apRateRow{padding-block:6px}
 
-#apBody .apMarkTools{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:8px 0 10px;font-size:12px}
-#apBody .apMarkTools button{font:inherit;padding:3px 8px;border:1px solid var(--line);border-radius:7px;background:var(--card);color:var(--fg);cursor:pointer}
-#apBody [data-ap-mark=lead].on{border-color:#69add7;background:color-mix(in srgb,#69add7 20%,var(--bg))}
-#apBody [data-ap-mark=rare].on{border-color:#c49b53;background:color-mix(in srgb,#c49b53 20%,var(--bg))}
 [data-passage-mark=lead]{--passage-mark:#69add7}
 [data-passage-mark=rare]{--passage-mark:#c49b53}
 #rOut .w[data-passage-mark],#apBody .apW[data-passage-mark]{background:color-mix(in srgb,var(--passage-mark) 22%,transparent);text-decoration-line:underline;text-decoration-color:var(--passage-mark);text-decoration-thickness:3px;text-underline-offset:5px;border-radius:4px}
@@ -2168,7 +2162,6 @@ body .pinp.panel-sized:not(.docked){left:var(--panel-x)!important;top:var(--pane
 #apBody .ccRefs{font-size:12px;line-height:1.8;overflow-wrap:anywhere}
 #apBody .ccResult>p.muted{font-size:11px}
 
-#apBody .apMarkTools[hidden]{display:none}
 #apBody .apChapterCompare{scroll-margin-top:70px}
 #apBody .ccRow>summary::before{content:'▸';flex:0 0 10px;color:var(--muted)}
 #apBody .ccRow[open]>summary::before{content:'▾'}
@@ -2213,10 +2206,10 @@ body.has-dock-tabs #stackBar { display: none; }
 body.has-dock-tabs.stack-split #dictPanel.docked { top: auto !important; }
 body.has-dock-tabs .pinp:not(.docked):not(.panel-sized) { top: calc(var(--study-top, 40px) + var(--dock-tabs-h, 38px)) !important; }
 #dockTabs.floating { z-index: 45; background: var(--bg); box-shadow: 0 -2px 12px #0003; }
-@container study-tools (max-width: 850px) {
- #dockTabs .dock-tab-label { display: none; }
- #dockTabs button { padding: 3px 3px; min-width: 22px; }
-}
+#dockTabs button.icon-only .dock-tab-label { display: none; }
+#dockTabs button.icon-only { padding-inline: 3px; min-width: 22px; }
+#stick button.icon-only .bl { display: none; }
+#stick .bar.compact > button { flex: 0 0 auto; }
 
 body.has-dock-tabs.stack-split #dictPanel { top: auto !important; }
 
@@ -2232,10 +2225,9 @@ body.has-dock-tabs.stack-split #dictPanel { top: auto !important; }
 #apBody .apExplorer button:hover { border-color: var(--choice-accent); background: color-mix(in srgb,var(--choice-accent) 9%,var(--card)); }
 #apBody .apExplorer button.on { color: var(--fg); border-color: var(--choice-accent); background: color-mix(in srgb,var(--choice-accent) 19%,var(--card)); box-shadow: inset 0 -2px var(--choice-accent); }
 #apBody .apChoiceIcon { color: var(--choice-accent); font-size: 16px; line-height: 1; }
-#apBody .apCompare, #apBody .apMarkTools { padding: 9px 10px; border: 1px solid var(--line); border-radius: 8px; gap: 7px; }
-#apBody .apCompare > span, #apBody .apMarkTools > span { flex-basis: 100%; font-size: 11px; color: var(--muted); font-weight: 600; }
-#apBody .apCompare button, #apBody .apMarkTools button { border-radius: 6px; }
-#apBody .apMarkTools small { flex-basis: 100%; font-size: 10px; }
+#apBody .apCompare { padding: 9px 10px; border: 1px solid var(--line); border-radius: 8px; gap: 7px; }
+#apBody .apCompare > span { flex-basis: 100%; font-size: 11px; color: var(--muted); font-weight: 600; }
+#apBody .apCompare button { border-radius: 6px; }
 #apBody .apExplorer button:focus-visible { outline: 2px solid var(--choice-accent); outline-offset: 2px; }
 
 /* Compact dictionary controls; article type remains independently adjustable. */
@@ -2253,3 +2245,16 @@ body.has-dock-tabs.stack-split #dictPanel { top: auto !important; }
 #dictHead #dictCut .cl { display: none; }
 #dictHead #dictFullL { gap: 4px; font-size: 11px; white-space: nowrap; }
 @container dicthead (max-width: 600px) { #dictHead #dictFullL { font-size: 0; } }
+/* Statistics selections highlight their own occurrences; word cards remain separate. */
+[data-passage-mark=roots],[data-passage-mark=verbs],[data-passage-mark=names],[data-passage-mark=phrases]{--passage-mark:#64b6a2}
+#apBody .apPhraseChoice{display:inline-flex;align-items:baseline;gap:10px;padding:3px 7px;margin-bottom:3px;background:transparent;border:1px solid transparent;border-radius:6px;color:inherit;font:inherit;cursor:pointer}
+#apBody .apPhraseChoice bdi{font:22px var(--he-font)}
+#apBody .apBarChoice{width:100%;background:transparent;border:1px solid transparent;border-radius:5px;color:inherit;font:inherit;cursor:pointer;text-align:start}
+#apBody [data-ap-select]:hover{background:color-mix(in srgb,#64b6a2 9%,transparent)}
+#apBody [data-ap-select].apSelected{background:color-mix(in srgb,#64b6a2 16%,transparent);outline:1px solid #64b6a2;border-radius:5px}
+#apBody .apRow .apCardOpen{min-width:0;flex:0 0 auto;font-size:12px;padding:2px 5px;margin-inline-start:5px;color:var(--accent)}
+
+/* Pinning belongs to the shared sidebar, across all tool views. */
+body.has-dock-tabs .pinp .pinB { display: none; }
+#dockTabs .dock-pin { margin-inline-start: auto; }
+#dockTabs .dock-pin[aria-pressed=true] { background: color-mix(in srgb,var(--accent) 16%,transparent); color: var(--accent); }
