@@ -4,9 +4,12 @@ module.exports=async({docs,win,js,waitFor,book})=>{
  const root=path.resolve(__dirname,'../..'),items=require(path.join(root,'bundled/manifest.json')).items;
  const patterns=[/^Aleppo-Kodex/,/^Qumran-Rollen/,/^Samaritanischer Pentateuch/,/^The Samaritan Pentateuch/,/^ETCBC Peshitta/,/^Septuaginta/];
  for(const pattern of patterns){const e=items.find(x=>x.title==='Genesis'&&pattern.test(x.versionTitle));assert(e);const d=JSON.parse(fs.readFileSync(path.join(root,'bundled',e.rel)));docs.set(e.rel,{...d,entry:{...e,own:true,source:'/fixture/source.json'}});}
+ {const d=[...docs.values()].find(d=>d.entry.title==='Genesis'&&d.entry.kind==='he'),rel='fixture/Genesis/he/mendelssohn.json',versionTitle='תרגום אשכנזי מאת משה מדעסויא. Wien 1795';docs.set(rel,{...d,versionTitle,entry:{...d.entry,rel,versionTitle}});}
  for(const kind of ['he','de','en']){const d=[...docs.values()].find(d=>d.entry.title==='Genesis'&&d.entry.kind===kind);const rel='fixture/Genesis/'+kind+'/merged.json';docs.set(rel,{...d,versionTitle:'merged',entry:{...d.entry,rel,own:false,versionTitle:'merged'}});}
  await js("localStorage.setItem('prefVer',JSON.stringify({he:['merged'],de:['merged']}))");await win.reload();await waitFor("document.querySelector('#tree .lib-item')",'Bibliothek mit Ausgaben');await book('Genesis');
- await js("document.querySelector('#verBox').open=true");await waitFor("document.querySelector('#verList .voption')&&document.querySelector('#verList').getBoundingClientRect().width>800",'Breite Versionsauswahl');
+ await js("document.querySelector('#verBox').open=true");await waitFor("document.querySelector('#verList .voption')&&document.querySelector('#verList').getBoundingClientRect().width>650&&document.querySelector('#verList').getBoundingClientRect().width<=720",'Kompakte Versionsauswahl');
+ assert(await js("(()=>{const n=[...document.querySelectorAll('#verList .vname')].find(n=>n.textContent.includes('Wien 1795'));return n&&getComputedStyle(n).direction==='rtl'&&getComputedStyle(n).textAlign==='left'})()"),'Hebräischer Versionsname linksbündig mit erhaltener Leserichtung');
+ assert(await js("[...document.querySelectorAll('#verList .vname')].some(n=>n.getBoundingClientRect().height>parseFloat(getComputedStyle(n).lineHeight)*1.5)"),'Lange Namen brechen mehrzeilig um');
  assert(await js("!document.querySelector('#verList [data-csv],#verList [data-rl]')"),'Keine Dateiverwaltung im Versionsmenü');
  assert(await js("document.querySelector('#verSummary').textContent.trim().endsWith('/'+document.querySelectorAll('#verList input[data-rel]').length)"),'Versionszähler zählt die sichtbaren Ausgaben');
  assert(await js("![...document.querySelectorAll('#verList input')].some(b=>b.dataset.rel.endsWith('/merged.json'))"),'Zusammengeführte Fassungen durch Ausgaben ersetzt');
@@ -50,5 +53,5 @@ module.exports=async({docs,win,js,waitFor,book})=>{
  assert(await js("document.querySelector('#rOut .cell[data-k=de]')&&document.querySelector('#rOut .row.head').textContent.includes('Westminster')"),'Entfernen betrifft nur die gewählte Ausgabe');
  await addAleppo();await menu('Westminster');await action('Alle anderen Versionen schließen');await columns(1);
  assert(await js("document.querySelector('#rOut .row.head').textContent.includes('Westminster')&&!document.querySelector('#rOut .cell[data-k=de]')"),'Alle anderen Versionen schließen lässt genau die gewählte Ausgabe stehen');
- console.log('Electron: Breite Versionsauswahl, volle Namen, Westminster-Vorrang, Morphologie, Samaritanus-Übersetzung und Reihenfolge der Anzeigeoptionen bestanden.');
+ console.log('Electron: Kompakte linksbündige Versionsauswahl mit Zeilenumbruch, volle Namen, Westminster-Vorrang, Morphologie, Samaritanus-Übersetzung und Reihenfolge der Anzeigeoptionen bestanden.');
 };
