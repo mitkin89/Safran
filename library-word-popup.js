@@ -98,11 +98,12 @@ window.LibraryWordPopup = (() => {
     if(row?.classList.contains('sh'))try{path=JSON.parse(row.dataset.sp);}catch{}
     else{const h=row?.closest('.pgb')?.querySelector('.pgh[data-sk]');if(h)try{path=JSON.parse(h.dataset.sk);}catch{}}
     const r=window.SyriacMorph.at(doc,w.dataset.si,w.textContent,path,row?.dataset.sl||row?.dataset.l),t=s=>I18N.t(s);
-    const rows=r?.parts.length?r.parts.map(p=>{const d=window.SyriacMorph.describe(p,t),lem=window.SyriacMorph.lemma(p.lex);return `<div class="wseg main"><span class="wlem" lang="syr" dir="rtl">${esc(p.form)} → ${esc(lem)}</span><br>${esc([d.pos,d.info].filter(Boolean).join(' · '))}<br><small>${esc(p.gloss)}</small><br><code>${esc(p.lex)} · ETCBC Syriac #${esc(p.sourceId)}</code></div>`;}).join(''):`<p class="muted">${esc(t('Für dieses Wort liegt keine sicher zugeordnete Morphologie vor.'))}</p>`;
+    const translit=`<div class="sy-translit"><small>${esc(t('Hebräische Umschrift (Konsonanten)'))}</small><bdi lang="he" dir="rtl">${esc(window.SyriacMorph.hebrew(w.textContent))}</bdi></div>`;
+    const rows=r?.parts.length?r.parts.map(p=>{const d=window.SyriacMorph.describe(p,t),lem=window.SyriacMorph.lemma(p.lex);return `<div class="wseg main"><span class="wlem" lang="syr" dir="rtl">${esc(p.form)} → ${esc(lem)}</span><br><span class="sy-translit-parts" lang="he" dir="rtl">${esc(window.SyriacMorph.hebrew(p.form))} → ${esc(window.SyriacMorph.hebrew(lem))}</span><br>${esc([d.pos,d.info].filter(Boolean).join(' · '))}<br><small>${esc(p.gloss)}</small><br><code>${esc(p.lex)} · ETCBC Syriac #${esc(p.sourceId)}</code></div>`;}).join(''):`<p class="muted">${esc(t('Für dieses Wort liegt keine sicher zugeordnete Morphologie vor.'))}</p>`;
     const source=`<p class="muted">${esc(t('Peschitta · eigene Verszählung'))}${r?` · ${r.chapter}:${r.verse} · Peshitta #${r.id}`:''}<br>${esc(t('Morphologie: ETCBC Syriac Corpus; Kurzglossen auf Englisch.'))}</p>`;
     const lemmas=[...new Set((r?.parts||[]).map(p=>window.SyriacMorph.lemma(p.lex)).filter(Boolean))];
     const buttons=lemmas.map(q=>`<button class="wdict" data-q="${esc(q)}">${esc(t('Im Wörterbuch nachschlagen'))}: <bdi lang="syr" dir="rtl">${esc(q)}</bdi></button>`).join('');
-    w.classList.add('sel');gSel={cell,i:w.dataset.si};showGreekUnit(null,{rows:rows+source,buttons,word:w.textContent,at:w,lang:'syr',dir:'rtl'});wpop.classList.add('syriac-word');
+    w.classList.add('sel');gSel={cell,i:w.dataset.si};showGreekUnit(null,{rows:translit+rows+source,buttons,word:w.textContent,at:w,lang:'syr',dir:'rtl'});wpop.classList.add('syriac-word');
   }
   let greekManualP=null;
   async function showCorpusWord(cell,at,doc){
@@ -114,10 +115,10 @@ window.LibraryWordPopup = (() => {
     else{const heading=row?.closest('.pgb')?.querySelector('.pgh[data-sk]');if(heading)try{path=JSON.parse(heading.dataset.sk);}catch{}}
     const data=window.GreekCorpus.at(doc,path,row?.dataset.sl||row?.dataset.l,at.words.map(w=>w.t),manual),r=data?.records[at.i],t=s=>I18N.t(s);
     const described=r?.tag?window.GreekCorpus.describe(r.tag,t):null;
-    const rows=r?.lemma?`<div class="wseg main" data-source="${r.source}" data-analysis="${r.analysis}"><span class="wlem" lang="grc">${esc(r.lemma)}</span><br>${esc([described?.pos,described?.info].filter(Boolean).join(' · '))}</div><p class="muted">${esc(r.source==='gorman'?t('GLAUx / Gorman · manuell annotiert'):t('OGA · automatisch annotiert'))}<br>${esc(data.work)} · ${esc(data.locus)} · <code>${esc(r.tag)}</code></p>`:`<p class="muted">${esc(t('Für dieses Wort liegt keine sicher zugeordnete Morphologie vor.'))}</p>`;
+    const rows=r?.lemma?`<div class="wseg main" data-source="${r.source}" data-analysis="${r.analysis}"><span class="wlem" lang="grc">${esc(r.lemma)}</span><br>${esc([described?.pos,described?.info].filter(Boolean).join(' · '))}</div><p class="muted">${esc(r.source==='gorman'?t('GLAUx / Gorman · manuell annotiert'):t('OGA · automatisch annotiert'))}<br>${esc(data.work)} · ${esc(r.locus||data.locus)} · <code>${esc(r.tag)}</code></p>`:`<p class="muted">${esc(t('Für dieses Wort liegt keine sicher zugeordnete Morphologie vor.'))}</p>`;
     const query=r?.lemma?.replace(/[0-9]+$/,'');
-    const ref=data&&doc.greekMorphology.references?.[data.locus];
-    const buttons=(query?`<button type="button" class="wdict" data-q="${esc(query)}">${esc(t('Im Wörterbuch nachschlagen'))}</button>`:'')+(ref?`<button type="button" class="corpus-ref" data-ref="${esc(ref)}">Whiston: ${esc(ref)}</button>`:'');
+    const ref=data&&doc.greekMorphology.references?.[r?.locus||data.locus];
+    const buttons=(query?`<button type="button" class="wdict" data-q="${esc(query)}">${esc(t('Im Wörterbuch nachschlagen'))}</button>`:'')+(ref?`<button type="button" class="corpus-ref" data-ref="${esc(ref)}">${data.work==='tlg0526.tlg003'?esc(t('Übersetzung öffnen')):'Whiston:'} ${esc(ref)}</button>`:'');
     const range=at.range(at.i);try{CSS.highlights.set('gsel',new Highlight(range));}catch{}
     gSel={cell,i:at.i};showGreekUnit(null,{rows,buttons,word:at.words[at.i].t,at:range,on:ev=>{const b=ev.target.closest('.corpus-ref');if(!b)return false;closeWpop();jumpTo(b.dataset.ref,false);return true;}});
     wpop?.classList.add('greek-corpus-word');

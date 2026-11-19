@@ -24,6 +24,8 @@ module.exports=async({docs,win,js,waitFor,book})=>{
  await js('new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))');
  await js("document.querySelector('#rOut .syw[data-si=\"1\"]').click()");
  await waitFor("document.querySelectorAll('#wpop.syriac-word .wseg.main').length===2",'Präfix und Hauptwort der Peschitta');
+ assert.equal(await js("document.querySelector('#wpop .sy-translit bdi').textContent"),'ברשית');
+ assert.equal(await js("document.querySelectorAll('#wpop .sy-translit-parts').length"),2);
  assert(await js("document.querySelector('#wpop .wword').lang==='syr'&&document.querySelector('#wpop .wword').dir==='rtl'"));
  assert(await js("document.querySelector('#wpop').textContent.includes('Preposition')"));
  const query=await js("document.querySelector('#wpop .wdict').dataset.q");await js("document.querySelector('#wpop .wdict').click()");

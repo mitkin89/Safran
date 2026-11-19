@@ -10,19 +10,24 @@ function entries(D,locus){
 function at(doc,path,label,displayWords,manual){
  const D=doc?.greekMorphology;
  if(D?.version!==1||!doc.textHash||D.textHash!==doc.textHash||!Array.isArray(path))return null;
- const locus=D.locator?.[JSON.stringify([...path,String(label)])],base=entries(D,locus);
- if(!base||base.length!==displayWords.length||base.some((r,i)=>!r||r.form?.normalize('NFC')!==displayWords[i].normalize('NFC')))return null;
- const out=base.map(r=>({...r,analysis:'auto',source:'oga'}));
- if(manual?.work===D.work){
-  const ms=entries(manual,locus);
-  if(ms&&ms.every(r=>r&&typeof r.form==='string')&&ms.map(r=>norm(r.form)).join('')===base.map(r=>norm(r.form)).join('')){
-   const spans=new Map();let offset=0;
-   for(const r of ms){const size=norm(r.form).length;spans.set(offset+':'+(offset+size),r);offset+=size;}
-   offset=0;
-   base.forEach((r,i)=>{const size=norm(r.form).length,m=spans.get(offset+':'+(offset+size));if(m?.lemma&&m.tag)out[i]={...m,form:r.form,analysis:'manual',source:'gorman'};offset+=size;});
+ const selected=D.locator?.[JSON.stringify([...path,String(label)])],loci=Array.isArray(selected)?selected:[selected],out=[];
+ if(!loci.length)return null;
+ for(const locus of loci){
+  const base=entries(D,locus);if(!base||base.some(r=>!r||typeof r.form!=='string'))return null;
+  const part=base.map(r=>({...r,analysis:'auto',source:'oga',locus}));
+  if(manual?.work===D.work){
+   const ms=entries(manual,locus);
+   if(ms&&ms.every(r=>r&&typeof r.form==='string')&&ms.map(r=>norm(r.form)).join('')===base.map(r=>norm(r.form)).join('')){
+    const spans=new Map();let offset=0;
+    for(const r of ms){const size=norm(r.form).length;spans.set(offset+':'+(offset+size),r);offset+=size;}
+    offset=0;
+    base.forEach((r,i)=>{const size=norm(r.form).length,m=spans.get(offset+':'+(offset+size));if(m?.lemma&&m.tag)part[i]={...m,form:r.form,analysis:'manual',source:'gorman',locus};offset+=size;});
+   }
   }
+  out.push(...part);
  }
- return {work:D.work,locus,records:out};
+ if(out.length!==displayWords.length||out.some((r,i)=>!r||r.form?.normalize('NFC')!==displayWords[i].normalize('NFC')))return null;
+ return {work:D.work,locus:loci.join(', '),loci,records:out};
 }
 function key(tag){
  if(!/^[a-z0-9-]{9}$/.test(tag||''))return '';

@@ -2181,3 +2181,7 @@ body .pinp.panel-sized:not(.docked){left:var(--panel-x)!important;top:var(--pane
 .syw { cursor: pointer; border-radius: 3px; }
 .syw:hover, .syw.sel { background: color-mix(in srgb, var(--accent) 25%, transparent); }
 #wpop.syriac-word .wword { font-family: "Safran Syriac", sans-serif; }
+
+#wpop .sy-translit { margin: 4px 0 10px; }
+#wpop .sy-translit small { display: block; color: var(--muted); }
+#wpop .sy-translit bdi, #wpop .sy-translit-parts { font-family: "HeDict", var(--he-font); font-size: 1.5em; line-height: 1.4; }

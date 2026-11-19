@@ -1,6 +1,6 @@
 # Josephus and Philo: Greek text and morphology
 
-35 Greek reading editions: four Josephus works and 31 Philo works. These are separate editions with their own section numbering; Josephus Antiquities and War retain Niese book/section numbering. The existing `tools/josephus/niese_whiston.json` supplies checked cross-references to Whiston where available. No missing reference is clamped to another section.
+35 Greek reading editions: four Josephus works and 31 Philo works. Josephus Greek versions share the existing work entries with Clementz. Antiquities and War use checked Niese-to-Whiston mappings for the reader layout; Against Apion uses the explicit Niese superscripts in Clementz. Original Niese section numbers remain visible and attached to each morphology record. Unmapped source passages are preserved in a separate `Niese §§` branch; no missing reference is clamped to another section. The Life remains its own work.
 
 ## Attribution and licenses
 
@@ -28,4 +28,4 @@ Require an identical normalized passage word stream before aligning character bo
 
 For War, complete passages marked manual/Gorman are checked against the displayed edition before overriding the automatic baseline. Where no safe override exists, OGA remains. Annotation gaps stay visibly unresolved and are not inferred.
 
-Antiquities argumenta are preserved in a separate text branch so their nonnumeric loci do not shift numbered sections. Greek editions are independent of existing translations; an annotation is never attached to a translation's section numbers implicitly.
+Antiquities argumenta are preserved in a separate text branch so their nonnumeric loci do not shift numbered sections. All annotations remain tied to the Greek edition; bundling versions changes the reader layout only. Each reader row lists its original Greek loci, and runtime verifies their complete word stream. The edition file and SHA256 used for the layout are recorded in `layoutSource`.

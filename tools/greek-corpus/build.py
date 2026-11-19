@@ -72,6 +72,49 @@ def references(work,loci):
             c,n=int(chapter),int(section)
             if book<=len(shape['books'])and 1<=c<=len(shape['books'][book-1])and 1<=n<=shape['books'][book-1][c-1]:out[locus]=f'{title} {book}:{c}:{n}'
     return out
+JOSEPHUS_TITLES={'tlg0526.tlg001':'The Antiquities of the Jews','tlg0526.tlg002':'The Life of Flavius Josephus','tlg0526.tlg003':'Against Apion','tlg0526.tlg004':'The War of the Jews'}
+def blank_shape(node):
+    if isinstance(node,list):return [blank_shape(n)for n in node]
+    if isinstance(node,dict):return {k:blank_shape(v)for k,v in node.items()}
+    return ''
+def josephus_layout(w,source,original,locator,refs):
+    title=JOSEPHUS_TITLES.get(w['id'])
+    if not title:return w['title'],original,locator,refs,None
+    edition=next((e for e in manifest['items']if e['title']==title and '/de/'in e['rel']),None)
+    if not edition:return title,original,locator,refs,None
+    raw=(ROOT/'bundled'/edition['rel']).read_bytes();translated=json.loads(raw);layout=blank_shape(translated['text']);dest={};groups=collections.defaultdict(list);remaining=[]
+    if w['id']=='tlg0526.tlg003':
+        # Each printed superscript is the explicit Niese section at this German paragraph.
+        numbered=collections.defaultdict(list)
+        for b,book in enumerate(translated['text']):
+            for c,chapter in enumerate(book):
+                for p,paragraph in enumerate(chapter):
+                    for n in re.findall(r'<sup>([0-9]+)</sup>',paragraph):numbered[f'{b+1}.{n}'].append([b,c,str(p+1)])
+        for r in source:
+            paths=numbered.get(r['locus'],[])
+            if len(paths)==1:dest[r['locus']]=paths[0];refs[r['locus']]=title+' '+':'.join(str(n+1)if isinstance(n,int)else n for n in paths[0])
+    else:
+        for locus,ref in refs.items():
+            if ', Preface 'in ref:dest[locus]=['Preface',ref.rsplit(' ',1)[1]]
+            else:
+                b,c,p=map(int,ref.rsplit(' ',1)[1].split(':'));dest[locus]=['',b-1,c-1,str(p)]
+    for r in source:
+        if r['locus']in dest:groups[js(dest[r['locus']])].append(r)
+        else:remaining.append(r)
+    out={}
+    for key,rs in groups.items():
+        path=json.loads(key);node=layout
+        for part in path[:-1]:node=node[part]
+        i=int(path[-1])-1
+        if not 0<=i<len(node):raise ValueError('Out-of-range Josephus mapping '+key)
+        node[i]='<br>'.join('<small>§ '+r['locus']+'</small> '+html.escape(r['text'],quote=False)for r in rs)
+        out[key]=[r['locus']for r in rs]
+    if remaining:
+        # Keep all source material lacking an explicit target, including book argumenta.
+        if not isinstance(layout,dict):layout={'':layout};out={js(['']+json.loads(k)):v for k,v in out.items()}
+        layout['Niese §§']=['<small>§ '+r['locus']+'</small> '+html.escape(r['text'],quote=False)for r in remaining]
+        for i,r in enumerate(remaining):out[js(['Niese §§',str(i+1)])]=[r['locus']]
+    return title,layout,out,refs,dict(rel=edition['rel'],sha256=hashlib.sha256(raw).hexdigest(),mapped=len(source)-len(remaining),unmapped=len(remaining))
 manifest=json.loads((ROOT/'bundled/manifest.json').read_text());manifest['items']=[x for x in manifest['items']if not x['rel'].startswith('own/GreekCorpus-')]
 report={'works':[]};all_texts={}
 for w in C['works']:
@@ -96,11 +139,13 @@ for w in C['works']:
         paths={locus:['Text']+path for locus,path in paths.items()}
         for i,r in enumerate(extra):paths[r['locus']]=['Argumenta',str(i+1)]
     locator={js(path):locus for locus,path in paths.items()}
-    title=w['title'];version='Open Greek Corpus - OGA ('+w['edition']+')'
-    data=dict(title=title,heTitle='',language='Greek',versionTitle=version,versionSource='Open Greek Corpus / '+w['edition']+'; '+C['corpusCommit']+'. Morphology: Opera Graeca Adnotata 0.2.0, oga-v1; '+w['annotationSha256']+'. CC BY-SA 4.0. https://github.com/open-greek/open-greek-corpus; https://huggingface.co/datasets/ciscoriordan/open-greek-corpus-annotation-exports',sectionNames=['Book','Section']if depth==2 else['Section'],text=text,greekMorphology=dict(version=1,work=w['id'],textHash=hashlib.sha256(js(text).encode()).hexdigest(),locator=locator,references=references(w['id'],paths),**table.data()))
+    title,text,locator,refs,layoutSource=josephus_layout(w,source,text,locator,references(w['id'],paths))
+    version='Open Greek Corpus - OGA ('+('Niese; 'if w['author']=='Josephus'else'')+w['edition']+')'
+    data=dict(title=title,heTitle='',language='Greek',versionTitle=version,versionSource='Open Greek Corpus / '+w['edition']+'; '+C['corpusCommit']+'. Morphology: Opera Graeca Adnotata 0.2.0, oga-v1; '+w['annotationSha256']+'. CC BY-SA 4.0. https://github.com/open-greek/open-greek-corpus; https://huggingface.co/datasets/ciscoriordan/open-greek-corpus-annotation-exports',sectionNames=['Book','Chapter','Section']if layoutSource else(['Book','Section']if depth==2 else['Section']),text=text,greekMorphology=dict(version=1,work=w['id'],textHash=hashlib.sha256(js(text).encode()).hexdigest(),locator=locator,references=refs,layoutSource=layoutSource,**table.data()))
+    if layoutSource is None:data['greekMorphology'].pop('layoutSource',None)
     rel='own/GreekCorpus-'+w['id']+'/other/Open Greek Corpus - OGA.json';out=ROOT/'bundled'/rel;out.parent.mkdir(parents=True,exist_ok=True);payload=js(data);out.write_text(payload)
     manifest['items'].append(dict(rel=rel,title=title,heTitle='',language='Greek',versionTitle=version,categories=['Second Temple',w['author']],kind='other',hash=hashlib.sha1(payload.encode()).hexdigest()))
-    report['works'].append(dict(id=w['id'],title=title,rel=rel,words=total,annotated=matched,passages=len(source),unresolved=unresolved));all_texts[w['id']]=bylocus
+    report['works'].append(dict(id=w['id'],title=title,rel=rel,words=total,annotated=matched,passages=len(source),unresolved=unresolved,**({'layoutSource':layoutSource}if layoutSource else{})));all_texts[w['id']]=bylocus
     print(w['id'],total,matched,'unresolved',total-matched,flush=True)
 # Publish manual annotations independently, under their original NC-SA terms.
 manualraw=gzip.decompress((CACHE/'war.manual.jsonl.gz').read_bytes())

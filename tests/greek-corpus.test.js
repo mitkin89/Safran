@@ -51,3 +51,29 @@ test('Josephus cross-references preserve known Whiston numbers without clamping 
  }
  assert(count>10000);
 });
+
+test('Josephus translations and Greek editions form four works with explicit original loci',()=>{
+ const OFF=require('../offline'),groups=OFF.buildGroups({books:manifest.items.filter(e=>e.categories?.includes('Josephus'))});
+ assert.equal(groups.length,4);
+ for(const title of ['The Antiquities of the Jews','The War of the Jews','Against Apion']){
+  const g=groups.find(g=>g.title===title);assert(g);assert(g.entries.some(e=>e.kind==='de'));assert(g.entries.some(e=>e.language==='Greek'));
+  const entry=g.entries.find(e=>e.language==='Greek'),d=JSON.parse(fs.readFileSync(path.join(__dirname,'../bundled',entry.rel)));d.textHash=hash(d.text);
+  const source=d.greekMorphology.layoutSource;assert(source);assert.equal(source.sha256,crypto.createHash('sha256').update(fs.readFileSync(path.join(__dirname,'../bundled',source.rel))).digest('hex'));
+  const all=Object.values(d.greekMorphology.locator).flat();assert.equal(new Set(all).size,all.length);assert.equal(all.length,report.works.find(w=>w.id===d.greekMorphology.work).passages);
+  assert(Object.values(d.greekMorphology.locator).some(l=>Array.isArray(l)&&l.length>1));
+ }
+});
+test('bundled Josephus update replaces old separate titles at the same paths',async t=>{
+ const fsp=require('node:fs/promises'),os=require('node:os'),{Library,buildGroups}=require('../offline');
+ const dir=await fsp.mkdtemp(path.join(os.tmpdir(),'safran-josephus-group-'));t.after(()=>fsp.rm(dir,{recursive:true,force:true}));
+ const lib=await new Library(path.join(dir,'library')).load(),pack=path.join(dir,'bundle'),works=items.filter(e=>e.categories.includes('Josephus'));
+ await fsp.mkdir(pack,{recursive:true});await fsp.writeFile(path.join(pack,'manifest.json'),JSON.stringify({items:works}));
+ for(const e of works){
+  const source=fs.readFileSync(path.join(__dirname,'../bundled',e.rel));await fsp.mkdir(path.dirname(path.join(pack,e.rel)),{recursive:true});await fsp.writeFile(path.join(pack,e.rel),source);
+  const old={...JSON.parse(source),title:'Josephus: old '+e.title},bytes=Buffer.from(JSON.stringify(old)),dest=path.join(lib.dir,e.rel);await fsp.mkdir(path.dirname(dest),{recursive:true});await fsp.writeFile(dest,bytes);
+  lib.index.entries[e.rel]={...e,title:old.title,own:true,bundled:true,bundledHash:crypto.createHash('sha1').update(bytes).digest('hex'),bytes:bytes.length};
+ }
+ assert.equal(await lib.importBundled(pack),4);
+ assert.equal(Object.keys(lib.index.entries).length,4);assert(lib.list().every(e=>!e.title.startsWith('Josephus: old')));
+ assert.equal(buildGroups({books:lib.list()}).length,4);
+});

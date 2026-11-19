@@ -10187,7 +10187,7 @@
     },
     {
       "id": "tlg0526.tlg001",
-      "title": "Josephus: Antiquitates Judaicae (Niese)",
+      "title": "The Antiquities of the Jews",
       "rel": "own/GreekCorpus-tlg0526.tlg001/other/Open Greek Corpus - OGA.json",
       "words": 311205,
       "annotated": 307107,
@@ -17328,11 +17328,17 @@
           "words": 51,
           "unresolved": 1
         }
-      ]
+      ],
+      "layoutSource": {
+        "rel": "own/The Antiquities of the Jews/de/Flavius Josephus, The Antiquities of the Jews – deutsch von Heinrich Clementz (Halle 1899).json",
+        "sha256": "71970afca833e307ceda2f05e10b7a7eea3cf0a8fe8b2d0f89bdad8adc5cd801",
+        "mapped": 7332,
+        "unmapped": 62
+      }
     },
     {
       "id": "tlg0526.tlg002",
-      "title": "Josephus: Josephi Vita (Niese)",
+      "title": "The Life of Flavius Josephus",
       "rel": "own/GreekCorpus-tlg0526.tlg002/other/Open Greek Corpus - OGA.json",
       "words": 15781,
       "annotated": 15682,
@@ -17752,7 +17758,7 @@
     },
     {
       "id": "tlg0526.tlg003",
-      "title": "Josephus: Contra Apionem (= De Judaeorum Vetustate) (Niese)",
+      "title": "Against Apion",
       "rel": "own/GreekCorpus-tlg0526.tlg003/other/Open Greek Corpus - OGA.json",
       "words": 20501,
       "annotated": 20234,
@@ -18608,11 +18614,17 @@
           "words": 39,
           "unresolved": 2
         }
-      ]
+      ],
+      "layoutSource": {
+        "rel": "own/Against Apion/de/Flavius Josephus, Gegen Apion – deutsch von Heinrich Clementz (Halle 1900).json",
+        "sha256": "bde815ee20587e1cb0e5668e7d536d148e0a14a579882939ae8f528272120b26",
+        "mapped": 555,
+        "unmapped": 0
+      }
     },
     {
       "id": "tlg0526.tlg004",
-      "title": "Josephus: De Bello Judaico Libri Vii (Niese)",
+      "title": "The War of the Jews",
       "rel": "own/GreekCorpus-tlg0526.tlg004/other/Open Greek Corpus - OGA.json",
       "words": 125211,
       "annotated": 124224,
@@ -22158,7 +22170,13 @@
           "words": 37,
           "unresolved": 1
         }
-      ]
+      ],
+      "layoutSource": {
+        "rel": "own/The War of the Jews/de/Flavius Josephus, The War of the Jews – deutsch von Heinrich Clementz (Halle 1900).json",
+        "sha256": "0c6101f0fc6c5f8ea01c041e5580fd38449db3831f9b7a64f029d19b9f19be59",
+        "mapped": 4001,
+        "unmapped": 0
+      }
     }
   ],
   "manual": {

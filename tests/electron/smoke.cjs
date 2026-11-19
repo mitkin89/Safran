@@ -43,6 +43,10 @@ async function book(title,prefix='document'){await js(`{const d=${prefix};d.quer
  win.webContents.on('render-process-gone',(_e,d)=>{console.error(d);app.exit(1)});
  await win.loadFile(path.join(root,'library.html'));await waitFor("document.querySelectorAll('#tree .lib-item').length===3",'Start');
  await book('Genesis');await waitFor("document.querySelector('#rOut .w')",'Genesis');
+ if(process.env.SAFRAN_SMOKE_MAP==='1'){
+  await require('./map-navigation-flows.cjs')({win,js,waitFor});
+  assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;
+ }
  if(process.env.SAFRAN_SMOKE_PESHITTA==='1'){
   await require('./peshitta-flows.cjs')({docs,win,js,waitFor,book});
   assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;
@@ -113,6 +117,8 @@ async function book(title,prefix='document'){await js(`{const d=${prefix};d.quer
  assert.deepEqual(errors,[],'Keine unbehandelten Fehler nach griechischer Morphologie');
  await require('./peshitta-flows.cjs')({docs,win,js,waitFor,book});
  assert.deepEqual(errors,[],'Keine unbehandelten Fehler nach Peschitta');
+ await require('./map-navigation-flows.cjs')({win,js,waitFor});
+ assert.deepEqual(errors,[],'Keine unbehandelten Fehler nach Karten-Navigation');
  await require('./font-restart.cjs')();
  win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);
 })().catch(async err=>{console.error(err);if(win&&!win.isDestroyed())win.destroy();await fsp.rm(profile,{recursive:true,force:true}).catch(()=>{});app.exit(1)});

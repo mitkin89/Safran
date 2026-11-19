@@ -14,5 +14,11 @@ function describe(p,t=s=>s){
 }
 const alphabet={'>':'ܐ',B:'ܒ',G:'ܓ',D:'ܕ',H:'ܗ',W:'ܘ',Z:'ܙ',X:'ܚ',V:'ܛ',J:'ܝ',K:'ܟ',L:'ܠ',M:'ܡ',N:'ܢ',S:'ܣ','<':'ܥ',P:'ܦ',Y:'ܨ',Q:'ܩ',R:'ܪ',C:'ܫ',T:'ܬ'};
 function lemma(s){return [...String(s||'')].map(c=>alphabet[c]||'').join('');}
-const api={at,describe,lemma};if(typeof module==='object'&&module.exports)module.exports=api;else global.SyriacMorph=api;
+// Consonantal Hebrew transliteration. Syriac pointing (including seyame) has no inferred Hebrew vowels.
+const hebrewLetters=Object.fromEntries([..."ܐܒܓܕܗܘܙܚܛܝܟܠܡܢܣܥܦܨܩܪܫܬ"].map((c,i)=>[c,[..."אבגדהוזחטיכלמנסעפצקרשת"][i]]));
+function hebrew(s){
+ const finals={'כ':'ך','מ':'ם','נ':'ן','פ':'ף','צ':'ץ'};
+ return [...String(s||'').normalize('NFC')].map(c=>hebrewLetters[c]||(/\p{M}/u.test(c)?'':c)).join('').replace(/[כמנפצ](?=$|[^א-ת])/g,c=>finals[c]);
+}
+const api={at,describe,lemma,hebrew};if(typeof module==='object'&&module.exports)module.exports=api;else global.SyriacMorph=api;
 })(typeof window==='object'?window:globalThis);

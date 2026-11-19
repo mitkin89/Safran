@@ -33,3 +33,9 @@ test('numbered verse zero dictionaries are one chapter and preserve later labels
  const text=[{'0':'heading','1':'first','2':'second'}];assert.deepEqual(R.sectionsOf(text,['Chapter','Verse']).map(x=>x.path),[[0]]);
  assert.deepEqual(R.flattenNode(text[0]).map(r=>r.label),['0','1','2']);
 });
+
+test('Syriac words and lemmas have consonantal Hebrew transliteration without invented vowels',()=>{
+ assert.equal(S.hebrew('ܒܪܫܝܬ'),'ברשית');assert.equal(S.hebrew('ܐܠܗܐ'),'אלהא');
+ assert.equal(S.hebrew('ܟܐܦ̈ܐ'),'כאפא');assert.equal(S.hebrew('ܡܢ'),'מן');assert.equal(S.hebrew('ܡܠܟ.'),'מלך.');
+ for(const e of items){const d=JSON.parse(fs.readFileSync(path.join(__dirname,'../bundled',e.rel)));for(const [form]of Object.values(d.syriacMorphology.words))assert(!/[\u0710-\u072f]/.test(S.hebrew(form)),form);}
+});
