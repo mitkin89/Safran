@@ -695,6 +695,7 @@
     $('#prevSec').disabled = view.idx <= 0;
     $('#nextSec').disabled = view.idx >= view.sections.length - 1;
     if (!s) { $('#rOut').innerHTML = '<p class="muted">In den gewählten Versionen ist kein Text vorhanden.</p>'; return; }
+    if(AP&&AP.sectionKey!==view.group.key+'|'+s.k){apRemember();AP.sectionKey=view.group.key+'|'+s.k;AP.whole=true;}
     view.key = s.k;
     const cols = view.loaded.map(d => R.flattenNode(R.getByPath(d.text, s.path)));
     const rows = R.alignRows(cols);
@@ -3093,11 +3094,11 @@
   const apMarks=window.LibraryPassageMarks.create({root:$('#rOut'),getKey:apMarkKey});
   function apMarkApply(mode,scope){
     const st=apCur?.[scope];if(!st){apMarks.clear();return;}
-    const xs=mode==='rare'?st.rareByCorpus[apComparison]:st.comparisons[apComparison];
+    const xs=mode==='names'?st.names:mode==='rare'?st.rareByCorpus[apComparison]:st.comparisons[apComparison];
     const corpus=apComparison==='book'?I18N.t('Buch: {}',st.book):I18N.t('Gesamter Tanach');
-    apMarks.set({key:apMarkKey(),mode,scope,ids:xs.map(r=>r.w.lemma),verses:st.evidence.map(x=>String(x.verse)),label:I18N.t(mode==='rare'?'Seltene Wörter':'Auffällig häufig')+' · '+corpus});
+    apMarks.set({key:apMarkKey(),mode,scope,ids:xs.map(r=>r.w.lemma),verses:st.evidence.map(x=>String(x.verse)),label:I18N.t(mode==='names'?'Namen':mode==='rare'?'Seltene Wörter':'Auffällig häufig')+' · '+corpus});
   }
-  function apMarkRefresh(){if(!AP.open){apMarks.sync();return;}const pane=$$('#apBody .apScope').find(p=>!p.hidden),mode=pane?.querySelector('.apSeg button.on')?.dataset.seg;if(pane&&['lead','rare'].includes(mode))apMarkApply(mode,pane.dataset.scope);else{const mark=apMarks.snapshot();if(pane&&mark?.key===apMarkKey()&&mark.scope===pane.dataset.scope&&mark.mode===mode)apMarks.sync();else apMarks.clear();}}
+  function apMarkRefresh(){if(!AP.open){apMarks.sync();return;}const pane=$$('#apBody .apScope').find(p=>!p.hidden),mode=pane?.querySelector('.apSeg button.on')?.dataset.seg;if(pane&&['lead','rare','names'].includes(mode))apMarkApply(mode,pane.dataset.scope);else{const mark=apMarks.snapshot();if(pane&&mark?.key===apMarkKey()&&mark.scope===pane.dataset.scope&&mark.mode===mode)apMarks.sync();else apMarks.clear();}}
 
   function apSelectEntry(button){
     const scope=button.closest('.apScope')?.dataset.scope,st=apCur?.[scope];if(!st)return;

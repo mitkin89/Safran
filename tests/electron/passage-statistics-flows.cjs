@@ -22,7 +22,7 @@ module.exports=async({win,js,waitFor,book})=>{
  await waitFor("!document.querySelector('#allPanel').classList.contains('docked')&&!document.querySelector('.panel-resize-handle[data-panel=allPanel][data-edge=se]').hidden",'Schwebendes Panel mit Eckgriff');
  await js("{const h=document.querySelector('.panel-resize-handle[data-panel=allPanel][data-edge=se]'),r=document.querySelector('#allPanel').getBoundingClientRect();window.__floatSize={w:r.width,h:r.height};h.dispatchEvent(new PointerEvent('pointerdown',{button:0,pointerId:7,clientX:r.right,clientY:r.bottom,bubbles:true}));h.dispatchEvent(new PointerEvent('pointermove',{pointerId:7,clientX:r.right-60,clientY:r.bottom-90,bubbles:true}));h.dispatchEvent(new PointerEvent('pointerup',{pointerId:7,bubbles:true}));}");
  assert(await js("{const r=document.querySelector('#allPanel').getBoundingClientRect();r.width<window.__floatSize.w-40&&r.height<window.__floatSize.h-60}"),'Eckgriff ändert Breite und Höhe');
- assert(await js("JSON.parse(localStorage.getItem('panelSize:allPanel')).height>0"),'Schwebende Größe gespeichert');
+ assert(await js("JSON.parse(localStorage.getItem('studyPanelSize')).height>0"),'Schwebende Größe gespeichert');
  await js("document.querySelector('#allPanel .pinB').click()");
  await waitFor("document.querySelector('#allPanel').classList.contains('docked')",'Überblick erneut angepinnt');
  await js("document.querySelector('.panel-resize-handle[data-panel=allPanel][data-edge=w]').dispatchEvent(new KeyboardEvent('keydown',{key:'Home',bubbles:true}))");
@@ -163,11 +163,17 @@ module.exports=async({win,js,waitFor,book})=>{
  assert(await js("!document.querySelector('#rOut .ilt [data-passage-mark]')"),'Keine Markierung der Interlinear-Zeugen');
  await js("document.querySelector('#rSection').value='1';document.querySelector('#rSection').dispatchEvent(new Event('change',{bubbles:true}));if(!document.querySelector('#apWhole').hidden)document.querySelector('#apWhole').click()");
  await waitFor("document.querySelector('#apBody [data-scope=c] [data-ap-select=names]')",'Namen in Genesis 2');
- await js("document.querySelector('#apBody [data-scope=c] .apSeg [data-seg=names]').click();document.querySelector('#apBody [data-scope=c] [data-ap-select=names]').click()");
+ await js("document.querySelector('#apBody [data-scope=c] .apSeg [data-seg=names]').click()");
+ assert(await js("(()=>{const ids=[...document.querySelectorAll('#apBody [data-scope=c] [data-ap-select=names]')].map(b=>b.dataset.value),all=[...document.querySelectorAll('#rOut .cell[data-mt] .txt .w[data-m]')].filter(w=>{const d=Morph.decode(w.dataset.m,w.dataset.l);return ids.includes(d.segs[d.main].lemma)});return all.length>0&&all.every(w=>w.dataset.passageMark==='names')})()"),'Namenansicht markiert automatisch alle Namen');
+ await js("document.querySelector('#apBody [data-scope=c] [data-ap-select=names]').click()");
  assert(await js("document.querySelector('#rOut [data-passage-mark=names]')"),'Name im Lesetext markiert');
  assert(await js("(()=>{const id=document.querySelector('#apBody [data-scope=c] [data-ap-select=names].apSelected').dataset.value;return [...document.querySelectorAll('#rOut [data-passage-mark=names]')].every(w=>{const d=Morph.decode(w.dataset.m,w.dataset.l);return d.segs[d.main].lemma===id})})()"),'Name ohne fremde Lemmata');
  await js("document.querySelector('#apBody [data-scope=c] .apPane[data-seg=names] .apCardOpen').click()");
  await waitFor("!document.querySelector('#formsPanel').hidden",'Wortkarte separat erreichbar');
+ await js("document.querySelector('#dockTabs [data-panel=all]').click();document.querySelector('#rOut .row[data-l=\"1\"] .lab').click()");
+ await waitFor("document.querySelector('#apBody .apScopeSw button[data-scope=v].on')",'Bewusster Klick auf Versnummer zeigt Versstatistik');
+ await js("document.querySelector('#rSection').value='0';document.querySelector('#rSection').dispatchEvent(new Event('change',{bubbles:true}))");
+ await waitFor("document.querySelector('#apWhole').hidden&&document.querySelector('#apBody [data-scope=c] .apExplorer')&&!document.querySelector('#apBody .apScope[data-scope=v]')",'Neues Kapitel startet mit ganzer Kapitelstatistik');
  console.log('Electron: Kontextmarkierungen für Wurzeln, exakte Verbformen, Verbstämme, Namen und zusammenhängende Wortverbindungen bestanden.');
  // A homonym selector must switch the complete word card, not just its chart.
  await book('Genesis');await js("document.querySelector('#rSection').value='1';document.querySelector('#rSection').dispatchEvent(new Event('change',{bubbles:true}))");

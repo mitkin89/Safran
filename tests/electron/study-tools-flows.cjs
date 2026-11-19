@@ -10,6 +10,12 @@ module.exports=async({win,js,waitFor})=>{
  assert(await js("getComputedStyle(document.querySelector('#cmtBtn')).display==='none'"));
  await waitFor("Math.abs(document.querySelector('#dockTabs').getBoundingClientRect().top-document.querySelector('header').getBoundingClientRect().bottom)<2",'Werkzeugleiste unter Buch-Tabs');
  await waitFor("document.querySelector('#dockTabs .icon-only')",'Beschriftungen weichen nur bei Platzmangel');
+ assert(await js("document.querySelector('#dockTabs [data-panel=forms]').disabled"),'Wortkarte ohne Wort nicht verfügbar');
+ await js("document.querySelector('#dockTabs .dock-pin').click();document.querySelector('#lkBtn').click()");
+ await waitFor("!document.querySelector('#linkPanel').hidden&&!document.querySelector('#linkPanel').classList.contains('docked')",'Schwebende Verknüpfungen ohne ausgewähltes Wort');
+ await js("document.querySelector('#dockTabs [data-panel=forms] .dock-tab-icon').dispatchEvent(new MouseEvent('mousedown',{bubbles:true}));document.querySelector('#dockTabs [data-panel=forms]').click()");
+ assert(await js("!document.querySelector('#linkPanel').hidden&&!document.querySelector('#dockTabs').hidden"),'Unverfügbare Wortkarte schließt die Pane nicht');
+ await js("document.querySelector('#dockTabs .dock-pin').click()");
  await js("document.querySelector('#dockTabs [data-panel=outline]').click()");await waitFor("!document.querySelector('#outlinePanel').hidden",'Gliederung');
  await js("document.querySelector('#dockTabs [data-panel=dict]').click()");await waitFor("!document.querySelector('#dictPanel').hidden",'Wörterbuch');
  await js("document.querySelector('#dockTabs .dock-back').click()");await waitFor("!document.querySelector('#outlinePanel').hidden&&document.querySelector('#dictPanel').hidden",'Zurück zur Gliederung');
@@ -41,6 +47,24 @@ module.exports=async({win,js,waitFor})=>{
  await js("document.querySelector('#dockTabs [data-panel=outline]').dispatchEvent(new MouseEvent('mousedown',{bubbles:true}))");
  assert(await js("!document.querySelector('#cmtPanel').hidden"),'Klick auf schwebende Werkzeugleiste schließt den Kommentar nicht vor dem Wechsel');
  await js("document.querySelector('#dockTabs [data-panel=outline]').click()");await waitFor("!document.querySelector('#outlinePanel').hidden&&!document.querySelector('#outlinePanel').classList.contains('docked')",'Gelöster Zustand bleibt beim Wechsel');
+ // Resizing from the west moves the floating pane's left edge without a window resize.
+ await js("{const h=document.querySelector('.panel-resize-handle[data-panel=outlinePanel][data-edge=w]'),r=document.querySelector('#outlinePanel').getBoundingClientRect();h.dispatchEvent(new PointerEvent('pointerdown',{button:0,pointerId:19,clientX:r.left,clientY:r.top+80,bubbles:true}));h.dispatchEvent(new PointerEvent('pointermove',{pointerId:19,clientX:r.left-120,clientY:r.top+80,bubbles:true}));h.dispatchEvent(new PointerEvent('pointerup',{pointerId:19,bubbles:true}));}");
+ const follows="(()=>{const t=document.querySelector('#dockTabs').getBoundingClientRect(),p=document.querySelector('#outlinePanel').getBoundingClientRect();return Math.abs(t.left-p.left)<2&&Math.abs(t.width-p.width)<2&&Math.abs(t.bottom-p.top)<2})()";
+ await waitFor(follows,'Werkzeugleiste folgt der verschobenen und verbreiterten Pane');
+ const geometry=await js("{const r=document.querySelector('#outlinePanel').getBoundingClientRect();[r.left,r.top,r.width,r.height]}");
+ await js("document.querySelector('#dockTabs [data-panel=dict]').click()");
+ await waitFor("!document.querySelector('#dictPanel').hidden",'Wörterbuch mit gemeinsamer Fenstergröße');
+ assert(await js("{const r=document.querySelector('#dictPanel').getBoundingClientRect();[r.left,r.top,r.width,r.height].every((v,i)=>Math.abs(v-"+JSON.stringify(geometry)+"[i])<2)}"),'Wörterbuch übernimmt Position und Größe');
+ await js("document.querySelector('#lkBtn').click()");await waitFor("!document.querySelector('#linkPanel').hidden",'Verknüpfungen mit gemeinsamer Fenstergröße');
+ assert(await js("{const r=document.querySelector('#linkPanel').getBoundingClientRect();[r.left,r.top,r.width,r.height].every((v,i)=>Math.abs(v-"+JSON.stringify(geometry)+"[i])<2)}"),'Verknüpfungen übernehmen Position und Größe');
+ await js("document.querySelector('#dockTabs [data-panel=outline]').click()");
+ await waitFor(follows,'Gemeinsame Fenstergröße nach Rückkehr');
+ // Position alone can change, e.g. when a saved floating window is moved.
+ await js("document.querySelector('#outlinePanel').style.setProperty('--panel-y','180px');document.querySelector('#outlinePanel').style.setProperty('--panel-x','100px')");
+ await waitFor(follows,'Werkzeugleiste folgt reiner Positionsänderung');
+ await js("document.querySelector('#outlinePanel').style.setProperty('--panel-y','4px')");
+ await waitFor(follows+"&&document.querySelector('#dockTabs').getBoundingClientRect().top>=document.querySelector('header').getBoundingClientRect().bottom-1",'Gespeicherte Position lässt Platz für die gemeinsame Leiste');
+ await js("document.querySelector('.panel-resize-handle[data-panel=outlinePanel][data-edge=w]').dispatchEvent(new KeyboardEvent('keydown',{key:'Home',bubbles:true}))");
  await js("document.querySelector('#dockTabs .dock-pin').click()");await waitFor("document.querySelector('#outlinePanel').classList.contains('docked')",'Seitenleiste wieder angepinnt');
  win.setSize(1800,1000);await js("window.setPanelW(1100)");
  await waitFor("getComputedStyle(document.querySelector('#dockTabs [data-panel=dict] .dock-tab-label')).display!=='none'",'Breite Werkzeugleiste mit Beschriftungen');

@@ -1042,7 +1042,7 @@ window.LibraryWordCards = (() => {
     host.$('#fmSm').ondblclick = host.$('#fmBg').ondblclick = () => { z = 1; apz(); }; }
   { let wide = false; try { wide = localStorage.getItem('fmWide') === '1'; } catch { /* egal */ }
     const ap = () => host.$('#formsPanel').classList.toggle('wide', wide); ap();
-    host.$('#fmWide').onclick = () => { wide = !wide; const panel=host.$('#formsPanel');panel.classList.remove('panel-sized');ap();if(panel.classList.contains('docked')&&document.body.classList.contains('panel-width-chosen'))window.setPanelW?.(wide?1040:560);try { localStorage.removeItem('panelSize:formsPanel');localStorage.setItem('fmWide', wide ? '1' : '0'); } catch { /* egal */ } }; }
+    host.$('#fmWide').onclick = () => { wide = !wide; const panel=host.$('#formsPanel');panel.classList.remove('panel-sized');ap();window.dispatchEvent(new CustomEvent('study-panel-width',{detail:wide?1040:560}));try { localStorage.removeItem('panelSize:formsPanel');localStorage.setItem('fmWide', wide ? '1' : '0'); } catch { /* egal */ } }; }
   host.$('#fmHead').addEventListener('click', e => { const hom=e.target.closest('.wcTrHm[data-lem]');if(hom){wcTrLemma(hom.dataset.lem);return;}const b = e.target.closest('.wdict'); if (b) host.openDict(b.dataset.q); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && !host.$('#formsPanel').hidden && !host.$('#formsPanel').classList.contains('docked') && !document.querySelector('dialog[open]')) closeForms(); });
   // Belegstellen einer Form: nach Büchern geordnet, als Zeile unter der Tabellenzeile

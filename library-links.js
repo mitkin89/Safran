@@ -113,7 +113,7 @@ window.LibraryLinks = (() => {
   // Klick außerhalb des Verknüpfungen-Fensters schließt es (Klick auf die Verknüpfungs-Knöpfe, Menüs und Vorschau zählt nicht)
   document.addEventListener('mousedown', e => {
     if (host.$('#linkPanel').hidden || host.$('#linkPanel').classList.contains('docked') || !e.target.closest) return;
-    if (e.target.closest('#linkPanel, #lkBtn, .lk, .slk, #ctxMenu, #lkHover, #suggest, #tip, #undoBar, dialog')) return;
+    if (e.target.closest('#dockTabs, #studyBtn, #linkPanel, #lkBtn, .lk, .slk, #ctxMenu, #lkHover, #suggest, #tip, #undoBar, dialog')) return;
     host.$('#linkPanel').hidden = true;
   }, true);
   host.$('#lkFilter').addEventListener('input', () => renderLinkPanel());

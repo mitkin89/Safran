@@ -29,7 +29,9 @@ function create({$,panels,pins,open,automatic,activePair,afterOpen,available=()=
  function remember(k){const el=$(panels[k][0]);if(el.hidden)return;scrolls.set(k,[el,...el.querySelectorAll('*')].filter(e=>e.scrollTop||e.scrollLeft).map(e=>[e,e.scrollTop,e.scrollLeft]));}
  function layout(){frame=0;const shown=visible();if(!shown.length)return;const head=Math.max(0,header?.getBoundingClientRect().bottom||0);document.documentElement.style.setProperty('--study-top',head+'px');
   const pinned=shown.some(k=>$(panels[k][0]).classList.contains('docked'));bar.classList.toggle('floating',!pinned);
-  if(!pinned){const r=shown.map(k=>$(panels[k][0]).getBoundingClientRect()).sort((a,b)=>a.top-b.top)[0];bar.style.width=r.width+'px';bar.style.right=(innerWidth-r.right)+'px';bar.style.top=Math.max(head,r.top-bar.offsetHeight)+'px';}
+  if(!pinned){const el=shown.map(k=>$(panels[k][0])).sort((a,b)=>a.getBoundingClientRect().top-b.getBoundingClientRect().top)[0];let r=el.getBoundingClientRect();const minTop=head+bar.offsetHeight;
+   if(el.classList.contains('panel-sized')&&r.top<minTop){el.style.setProperty('--panel-y',minTop+'px');el.style.setProperty('--panel-h',Math.min(r.height,innerHeight-minTop-4)+'px');r=el.getBoundingClientRect();}
+   bar.style.width=r.width+'px';bar.style.right=(innerWidth-r.right)+'px';bar.style.top=Math.max(head,r.top-bar.offsetHeight)+'px';}
   else{bar.style.width='';bar.style.right='';bar.style.top='';}
   fitLabels(bar,'.dock-tab-label');
   document.documentElement.style.setProperty('--dock-tabs-h',bar.getBoundingClientRect().height+'px');
@@ -78,6 +80,8 @@ function create({$,panels,pins,open,automatic,activePair,afterOpen,available=()=
   e.preventDefault();e.stopImmediatePropagation();close();
  },true);
  bar.addEventListener('keydown',e=>{if(!['ArrowLeft','ArrowRight','Home','End'].includes(e.key))return;const list=[...bar.querySelectorAll('[data-panel]:not(:disabled)')],i=list.indexOf(e.target);if(i<0)return;e.preventDefault();const next=e.key==='Home'?0:e.key==='End'?list.length-1:(i+(e.key==='ArrowRight'?1:-1)+list.length)%list.length;activate(list[next].dataset.panel);list[next].focus({preventScroll:true});});
+ // Follow both size changes and position-only updates while a floating pane is dragged.
+ for(const [selector]of Object.values(panels)){const el=$(selector);new ResizeObserver(schedule).observe(el);new MutationObserver(schedule).observe(el,{attributes:true,attributeFilter:['style','class','hidden']});}
  new ResizeObserver(schedule).observe(bar);if(header){new ResizeObserver(schedule).observe(header);header.addEventListener('transitionend',schedule);}
  addEventListener('resize',schedule);addEventListener('scroll',schedule,{passive:true});
  new MutationObserver(schedule).observe(document.body,{attributes:true,attributeFilter:['class']});

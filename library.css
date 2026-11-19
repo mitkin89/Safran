@@ -2205,7 +2205,7 @@ body.has-dock-tabs .pinp.docked { top: calc(var(--study-top, 40px) + var(--dock-
 body.has-dock-tabs #stackBar { display: none; }
 body.has-dock-tabs.stack-split #dictPanel.docked { top: auto !important; }
 body.has-dock-tabs .pinp:not(.docked):not(.panel-sized) { top: calc(var(--study-top, 40px) + var(--dock-tabs-h, 38px)) !important; }
-#dockTabs.floating { z-index: 45; background: var(--bg); box-shadow: 0 -2px 12px #0003; }
+#dockTabs.floating { max-width: none; z-index: 45; background: var(--bg); box-shadow: 0 -2px 12px #0003; }
 #dockTabs button.icon-only .dock-tab-label { display: none; }
 #dockTabs button.icon-only { padding-inline: 3px; min-width: 22px; }
 #stick button.icon-only .bl { display: none; }
