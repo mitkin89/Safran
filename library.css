@@ -2181,6 +2181,9 @@ body .pinp.panel-sized:not(.docked){left:var(--panel-x)!important;top:var(--pane
 .syw { cursor: pointer; border-radius: 3px; }
 .syw:hover, .syw.sel { background: color-mix(in srgb, var(--accent) 25%, transparent); }
 #wpop.syriac-word .wword { font-family: "Safran Syriac", sans-serif; }
+#wpop.syriac-word .sy-gloss { font-size: 1.15em; line-height: 1.4; font-weight: 600; }
+#wpop.syriac-word .sy-morph { font-size: .85em; color: var(--muted); }
+#wpop.syriac-word .sy-source { font-size: .8em; color: var(--muted); }
 
 #wpop .sy-translit { margin: 4px 0 10px; }
 #wpop .sy-translit small { display: block; color: var(--muted); }
