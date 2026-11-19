@@ -481,8 +481,11 @@
     const KN = { he: 'Hebräisch', en: 'Englisch', de: 'Deutsch', other: 'Andere' };
     const pic = v => { const p = portraitOf(v.versionTitle); return p ? `<img class="vpic" src="portraits/${encodeURIComponent(p.img)}" alt="" data-title="${esc(p.name || '')}" loading="lazy">` : ''; };
     const itemH = v => `<label${portraitOf(v.versionTitle) ? ' class="haspic"' : ''}><input type="checkbox" data-rel="${esc(v.rel)}" ${view.selected.has(v.rel) ? 'checked' : ''}>${pic(v)}${v.own ? '<span class="badge own">eigen</span>' : ''}${esc(shortVer(v.versionTitle))}${v.own ? ` <button class="ownc" data-csv="${esc(v.rel)}" title="Als Upload-CSV für Sefaria speichern (Ref,Text)">CSV</button>` : ''}${v.own && v.source ? ` <button class="ownr" data-rl="${esc(v.rel)}" title="Quelldatei neu einlesen (${esc(v.source)})">⟳</button>` : ''}</label>`; // Entfernen eigener Texte nicht hier (Versionsauswahl), sondern in der Bibliothek
+    // Group these textual witnesses with the Septuagint in the menu only.
+    // Their actual language/kind still controls text rendering and morphology.
+    const menuKind = v => /^(?:Qumran-Rollen\b|Samaritanischer Pentateuch\b|The Samaritan Pentateuch\b)/.test(v.versionTitle || '') ? 'other' : (KN[v.kind] ? v.kind : 'other');
     $('#verList').innerHTML = ['he', 'en', 'de', 'other'].map(k => {
-      const vs = g.versions.filter(v => (KN[v.kind] ? v.kind : 'other') === k);
+      const vs = g.versions.filter(v => menuKind(v) === k);
       return vs.length ? `<div class="vgrp ${k}">${KN[k]}</div>` + vs.map(itemH).join('') : '';
     }).join('');
   }
