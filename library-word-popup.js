@@ -2,7 +2,7 @@
 window.LibraryWordPopup = (() => {
   'use strict';
   function create({ $, $$, esc, O, reader, lazyScript, apChap, verseOf, loadIL,
-    openDict, loadForms, openSForms, openForms, openGForms, openTForms, gSearchAll, jumpTo }) {
+    openDict, canOpenCard, loadForms, openSForms, openForms, openGForms, openTForms, gSearchAll, jumpTo }) {
   // OSHB-Texte: Klick auf ein Wort zeigt Lemma, Stamm, Zeit und Form; „Im Wörterbuch“ schlägt das Lemma nach
   let wpop = null;
   const closeWpop = () => { gTok++; if (wpop) { wpop.remove(); wpop = null; } $$('#rOut .syw.sel, #rOut .w.sel, #rOut .wt.sel, #rOut .wq.sel, #rOut .wg.sel, #bavliInterlinear .bil-heword.sel').forEach(x => x.classList.remove('sel')); gSel = null; try { CSS.highlights.delete('gsel'); } catch { /* ältere Engine */ } };
@@ -165,7 +165,7 @@ window.LibraryWordPopup = (() => {
           + (f ? `<span class="wlem wgl" lang="grc">${esc(f.lemma)}</span> <span class="muted">${esc(f.gloss)}</span><br><b>${esc(d.pos)}</b>${d.info ? ' · ' + esc(d.info) : ''} ${hint(k)}` : `<span class="muted">${esc(t('ohne Bestimmung'))}</span>`) + '</div>';
       }).join('');
       const m = inf(main);
-      const buttons = m ? `<button class="wdict wglex" data-q="${esc(m.lemma)}" hidden>Im Wörterbuch nachschlagen</button><button class="wforms wcard" title="${esc(t('Wortkarte: Wörterbücher, Verteilung und Formen dieses Wortes'))}">Wortkarte</button><button class="wforms wtable" title="${esc(t('Alle in der Septuaginta belegten Formen dieses Wortes als Tabelle'))}">Alle Formen (Tabelle)</button><button class="wforms wall" title="${esc(t('Startet die Suche nach diesem Wort in der Septuaginta (Treffer „Alle Formen“)'))}">🔎 ${esc(t('Alle Stellen dieses Wortes'))}</button>` : '';
+      const buttons = m ? `<button class="wdict wglex" data-q="${esc(m.lemma)}" hidden>Im Wörterbuch nachschlagen</button><button class="wforms wcard" data-gr-lemma="${esc(m.lemma)}" title="${esc(t('Wortkarte: Wörterbücher, Verteilung und Formen dieses Wortes'))}">Wortkarte</button><button class="wforms wtable" title="${esc(t('Alle in der Septuaginta belegten Formen dieses Wortes als Tabelle'))}">Alle Formen (Tabelle)</button><button class="wforms wall" title="${esc(t('Startet die Suche nach diesem Wort in der Septuaginta (Treffer „Alle Formen“)'))}">🔎 ${esc(t('Alle Stellen dieses Wortes'))}</button>` : '';
       const rg = at.range(main);
       try { CSS.highlights.set('gsel', new Highlight(rg)); } catch { /* ältere Engine */ }
       const place = showGreekUnit(w, { rows, buttons, word: at.words[main].t, at: rg, on: ev => {
@@ -373,25 +373,26 @@ window.LibraryWordPopup = (() => {
       const top = pop.querySelector('.wtop'); if (top) top.after(e);
     }, () => {});
   }
-  $('#rOut').addEventListener('click', e => {
+  function showReaderWord(e,force=false) {
+    if(force)closeWpop();
     // The interlinear controller opens Samaritan words with their own IDs.
     // Do not invalidate its pending lazy morphology load in this handler.
-    if (e.target.closest('.smr-word')) return;
+    const smr=e.target.closest('.smr-word');if(smr)return force?showSamaritanWord(smr):undefined;
     const sy=e.target.closest('.syw[data-si]');if(sy){showSyriacWord(sy);return;}
     const w = e.target.closest('.w[data-m], .wt[data-m], .wq[data-m], .wg');
     gTok++; // ein noch ladendes griechisches Wort-Popup gilt nicht mehr
     // griechischer Text ohne Wortgruppen (Rahlfs): jedes Wort ist anklickbar
     const gc = !w && !e.target.closest('#wpop, a, button, small, sup, .note, .lab, .head') ? e.target.closest('.cell[data-gt]') : null;
     if (!w && !gc) { if (!e.target.closest('#wpop')) closeWpop(); return; }
-    if (window.getSelection && String(window.getSelection())) return; // beim Markieren nicht stören
-    if (gc || w.classList.contains('wg')) { showGreekWord(gc || w.closest('.cell'), gc ? null : w, e); return; }
+    if (!force && window.getSelection && String(window.getSelection())) return; // beim Markieren nicht stören
+    if (gc || w.classList.contains('wg')) { return showGreekWord(gc || w.closest('.cell'), gc ? null : w, e); }
     const same = w.classList.contains('sel');
     closeWpop();
     if (same) return;
     if (w.classList.contains('wt')) { showTargumWord(w); return; }
-    if (w.classList.contains('wq')) { showQumranWord(w); return; }
-    if (window.SamaritanMorph && window.SamaritanMorph.own(w.dataset.l)) { showSamaritanWord(w); return; }
-    if (window.BavliMorph && window.BavliMorph.own(w.dataset.l)) { showBavliWord(w); return; }
+    if (w.classList.contains('wq')) { return showQumranWord(w); }
+    if (window.SamaritanMorph && window.SamaritanMorph.own(w.dataset.l)) { return showSamaritanWord(w); }
+    if (window.BavliMorph && window.BavliMorph.own(w.dataset.l)) { return showBavliWord(w); }
     const d = window.Morph.decode(w.dataset.m, w.dataset.l);
     if (!d) return;
     const LEM = window.OSHB_LEMMAS || {};
@@ -410,7 +411,7 @@ window.LibraryWordPopup = (() => {
     const mainSeg = d.segs[d.main], lem = mainSeg && mainSeg.lemma && LEM[mainSeg.lemma];
     wpop = document.createElement('div');
     wpop.id = 'wpop';
-    wpop.innerHTML = `<div class="wtop"><span dir="rtl" lang="he" class="wword">${esc(w.textContent)}</span><button class="wx" title="Schließen">✕</button></div>${rows}${lem ? `<button class="wdict" data-q="${esc(lem[0])}">Im Wörterbuch nachschlagen</button>` : ''}${mainSeg && mainSeg.lemma ? `<button class="wforms wcard" title="Wortkarte: Wörterbücher, Verteilung und Formen dieses Wortes">Wortkarte</button><button class="wforms wtable" title="Alle im Tanach belegten Formen dieses Wortes als Tabelle">Alle Formen (Tabelle)</button>` : ''}`;
+    wpop.innerHTML = `<div class="wtop"><span dir="rtl" lang="he" class="wword">${esc(w.textContent)}</span><button class="wx" title="Schließen">✕</button></div>${rows}${lem ? `<button class="wdict" data-q="${esc(lem[0])}">Im Wörterbuch nachschlagen</button>` : ''}${mainSeg && mainSeg.lemma ? `<button class="wforms wcard" data-he-lemma="${esc(mainSeg.lemma)}" title="Wortkarte: Wörterbücher, Verteilung und Formen dieses Wortes">Wortkarte</button><button class="wforms wtable" title="Alle im Tanach belegten Formen dieses Wortes als Tabelle">Alle Formen (Tabelle)</button>` : ''}`;
     if (mainSeg && mainSeg.lemma) loadForms().catch(() => {}); // Formen-Index schon laden, damit die Tabelle sofort da ist
     const wInfo = { lemma: mainSeg && mainSeg.lemma, word: w.textContent, m: w.dataset.m, l: w.dataset.l };
     document.body.appendChild(wpop);
@@ -431,7 +432,26 @@ window.LibraryWordPopup = (() => {
       const b = ev.target.closest('.wdict'); if (b) openDict(b.dataset.q);
       const wf = ev.target.closest('.wforms'); if (wf) { closeWpop(); openForms(wInfo.lemma, wInfo, wf.classList.contains('wtable') ? 'forms' : 'card'); }
     };
-  });
+  }
+  $('#rOut').addEventListener('click',e=>{if(e.detail>1)return;showReaderWord(e);});
+  async function openPreferred(e,current=()=>true){
+    const context=!!e.target.closest('.w[data-m],.wt[data-m],.wq[data-m],.wg,.syw[data-si],.smr-word,.cell[data-gt]');
+    if(!context)return {context:false};
+    const loading=showReaderWord(e,true),token=gTok;
+    await loading;
+    if(token!==gTok||!e.target.isConnected||!current())return {cancelled:true};
+    const pop=wpop,button=pop?.querySelector('.wcard,.wtcard,.sy-card');
+    const query=pop?.querySelector('.wdict')?.dataset.q;
+    if(button){
+      const kind=button.classList.contains('sy-card')?'syriac':button.dataset.tl?'targum':button.dataset.grLemma?'greek':'hebrew';
+      const key=button.dataset.tl||button.dataset.grLemma||button.dataset.heLemma||query;
+      const ready=key&&await canOpenCard(kind,key);
+      if(token!==gTok||wpop!==pop||!e.target.isConnected||!current())return {cancelled:true};
+      if(ready){button.click();return {opened:true};}
+    }
+    closeWpop();return {context,query};
+  }
+
   // Escape belongs to the topmost word popup; do not let the same key reach pane handlers.
   window.addEventListener('keydown', e => {
     if(e.key!=='Escape'||e.defaultPrevented||e.isComposing)return;
@@ -439,7 +459,7 @@ window.LibraryWordPopup = (() => {
     if(shown){e.preventDefault();e.stopImmediatePropagation();}
   },true);
 
-    return { openQumranWord(w) { gTok++; closeWpop(); return showQumranWord(w); }, openGreekApparatus(w,source) { return showGreekWord(w,w,null,source); }, openSamaritanWord(w) { gTok++; closeWpop(); return showSamaritanWord(w); }, close: closeWpop, loadGM, greekWordAt, decorateBavliReader, openBavliAnchor };
+    return { openPreferred, openQumranWord(w) { gTok++; closeWpop(); return showQumranWord(w); }, openGreekApparatus(w,source) { return showGreekWord(w,w,null,source); }, openSamaritanWord(w) { gTok++; closeWpop(); return showSamaritanWord(w); }, close: closeWpop, loadGM, greekWordAt, decorateBavliReader, openBavliAnchor };
   }
   return { create };
 })();

@@ -107,6 +107,24 @@
       "path": "/releases/v5.0/states.jsonl.gz",
       "rows": 3,
       "sha256": "8cb315eebfd0ec638e3f4b0ac2eb6743deec118566e7e6a4cd98003e5c7203b1"
+    },
+    {
+      "name": "etymologies.jsonl.gz",
+      "path": "/releases/v5.0/etymologies.jsonl.gz",
+      "rows": 3078,
+      "sha256": "53f5c308e110dc6a96c087503a723fa15dd3b26e4f3f9727fc0caddb71cf698a"
+    },
+    {
+      "name": "transliteration_schemes.jsonl.gz",
+      "path": "/releases/v5.0/transliteration_schemes.jsonl.gz",
+      "rows": 5,
+      "sha256": "99e9dab72a1840a13f102c753848bdef55515a30a60597d590429b0283687ce4"
+    },
+    {
+      "name": "transliteration_patterns.jsonl.gz",
+      "path": "/releases/v5.0/transliteration_patterns.jsonl.gz",
+      "rows": 335,
+      "sha256": "1ae24373bcde42e351532f39d61bb622849cd1fca88727072f76023bdb06fd06"
     }
   ]
 }

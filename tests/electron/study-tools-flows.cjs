@@ -6,7 +6,7 @@ module.exports=async({win,js,waitFor})=>{
  assert.equal(await js("document.querySelectorAll('#dockTabs [data-panel]').length"),9);
  assert.equal(await js("document.querySelectorAll('#dockTabs .dock-pin').length"),1);
  assert(await js("[...document.querySelectorAll('.pinp .pinB')].every(b=>getComputedStyle(b).display==='none')"),'Einzelne Werkzeuge haben keinen eigenen sichtbaren Pin');
- assert.deepEqual(await js("[...document.querySelectorAll('#dockTabs [data-panel]')].map(b=>b.dataset.panel)"),['cmt','dict','all','outline','topic','link','textcrit','map','forms']);
+ assert.deepEqual(await js("[...document.querySelectorAll('#dockTabs [data-panel]')].map(b=>b.dataset.panel)"),['cmt','forms','all','outline','topic','link','textcrit','map','dict']);
  assert(await js("getComputedStyle(document.querySelector('#cmtBtn')).display==='none'"));
  await waitFor("Math.abs(document.querySelector('#dockTabs').getBoundingClientRect().top-document.querySelector('header').getBoundingClientRect().bottom)<2",'Werkzeugleiste unter Buch-Tabs');
  await waitFor("document.querySelector('#dockTabs .icon-only')",'Beschriftungen weichen nur bei Platzmangel');
@@ -27,8 +27,11 @@ module.exports=async({win,js,waitFor})=>{
  await js("document.querySelector('#dictClose').click()");await waitFor("document.querySelector('#dockTabs').hidden&&document.querySelector('#cmtPanel').hidden&&document.querySelector('#dictPanel').hidden",'X schließt die gesamte Pane');
  await js("document.querySelector('#studyBtn').click()");await waitFor("!document.querySelector('#dictPanel').hidden",'Letztes Werkzeug wieder öffnen');
  await js("document.querySelector('#dockTabs .dock-back').click()");await waitFor("!document.querySelector('#cmtPanel').hidden",'Zurück bleibt eine eigene Aktion');
- await js("window.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true}))");await waitFor("document.querySelector('#dockTabs').hidden",'Esc schließt die gesamte Pane');
+ await js("window.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true}))");
+ assert(await js("!document.querySelector('#dockTabs').hidden&&!document.querySelector('#cmtPanel').hidden"),'Esc lässt die angepinnte Pane offen');
+ await js("document.querySelector('#dockTabs .dock-pin').click();window.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true}))");await waitFor("document.querySelector('#dockTabs').hidden",'Esc schließt die gelöste Pane');
  await js("document.querySelector('#studyBtn').click()");await waitFor("!document.querySelector('#cmtPanel').hidden",'Pane nach Esc wieder geöffnet');
+ await js("document.querySelector('#dockTabs .dock-pin').click()");
  await js("document.querySelector('#rOut .w').click()");await waitFor("document.querySelector('#wpop .wcard')",'Wortkarte verfügbar');
  await js("document.querySelector('#wpop .wcard').click()");await waitFor("!document.querySelector('#formsPanel').hidden&&document.querySelector('#fmHead').textContent.length>0",'Wortkarte geöffnet');
  await waitFor("document.querySelector('#fmHead .fmCnt')",'Wortkartenkopf geladen');

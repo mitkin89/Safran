@@ -14,6 +14,24 @@
   if (lang === 'de') return;
 
   const EN = {
+    "Wortherkunft": "Etymology",
+    "Lateinische Umschrift": "Latin transliteration",
+    "Sprache nicht erfasst": "Language not recorded",
+    "Herkunftsangabe": "Etymology record",
+    "Keine Herkunftsangabe in SEDRA erfasst.": "No etymology recorded in SEDRA.",
+    "Originalschrift": "Original script",
+    "Eingabeschrift": "Input script",
+    "Syrisch: SEDRA IV": "Syriac: SEDRA IV",
+    "Syrisch: CAL": "Syriac: CAL",
+    "Syrisch: Leiden": "Syriac: Leiden",
+    "Syrische Umschrift: Groß-/Kleinschreibung beachten.": "Syriac transliteration is case-sensitive.",
+    "Zeichen „{}“ gehört nicht zu dieser Umschrift.": "Character \u201c{}\u201d does not belong to this transliteration scheme.",
+    "Diese Umschrift ist nicht eindeutig umsetzbar.": "This transliteration cannot be converted unambiguously.",
+    "Umschrift konnte nicht geladen werden.": "Transliteration could not be loaded.",
+    "Nachschlagen als:": "Look up as:",
+    "Ost": "East",
+    "West": "West",
+
     "Mehrere Wörterbucheinträge für diese Schreibung": "Multiple dictionary entries for this spelling",
     "Bitte einen Eintrag wählen. Die Schreibung allein bestimmt die Bedeutung nicht.": "Choose an entry. The spelling alone does not determine the meaning.",
     "Bitte zuerst einen Wörterbucheintrag wählen.": "Choose a dictionary entry first.",

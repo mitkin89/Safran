@@ -2321,3 +2321,14 @@ html.split[data-tab=dict] body #dictPanel.pinp:is(.docked,.panel-sized) { right:
 .sc-table :is(td,th) { border: 1px solid var(--line); padding: .4em .6em; text-align: start; }
 .sc-table td bdi { font-size: 1.8em; line-height: 1.5; }
 .sc-credit { font-size: .85em; }
+/* Explicit transliteration input; normal dictionary queries stay unchanged. */
+#dictHead #dictInputScheme { max-width: 170px; min-width: 100px; }
+#dictInputPreview { flex: 1 0 100%; font-size: 11px; overflow-wrap: anywhere; }
+#dictInputPreview bdi { font-size: 1.5em; line-height: 1.5; }
+#dictInputPreview[hidden] { display: none; }
+.sc-transliterations dl > div { display: flex; flex-wrap: wrap; gap: .6em; margin-block: .35em; }
+.sc-transliterations dt { min-width: 6em; color: var(--muted); }
+.sc-transliterations dd { margin: 0; overflow-wrap: anywhere; }
+.sc-form-translit { display: block; font-family: system-ui, sans-serif; font-size: .7em; color: var(--muted); }
+.sc-etymologies bdi { font-size: 1.25em; }
+.sc-etymologies bdi[lang=heb] { font-family: "HeDict",var(--he-font); }

@@ -9,7 +9,7 @@ function setup() {
   const events = new Map();
   let release, anchors = 0;
   const data = new Promise(resolve => {release = resolve;});
-  const context = {window: {BavliMorph: {atAnchor() {anchors++; return null;}}},
+  const context = {window: {addEventListener: (type, fn) => events.set(type, fn), BavliMorph: {atAnchor() {anchors++; return null;}}},
     CSS: {highlights: {delete() {}}},
     document: {addEventListener: (type, fn) => events.set(type, fn),
       createElement() {throw Error('Ein geschlossenes Popup darf nicht wieder erscheinen');}},

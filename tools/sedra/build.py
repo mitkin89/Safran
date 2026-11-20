@@ -77,6 +77,28 @@ def main():
         if r["review_status"] == "verified" and r["is_theoretical"] is False and not r.get("merged_into_id"):
             words[r["lexeme_id"]].append(r)
 
+    etymologies = collections.defaultdict(list)
+    for e in sorted(tables["etymologies"], key=lambda r: (r["sort_order"], r["id"])):
+        if e["review_status"] == "verified":
+            language = langs.get(e.get("language_id"), {})
+            etymologies[e["lexeme_id"]].append(dict(id=e["id"], language=language.get("name"),
+                lang=language.get("iso_code"), rtl=bool(language.get("is_rtl")), word=plain(e.get("source_word")),
+                meaning=plain(e.get("meaning")), notes=plain(e.get("notes")), bracket=e.get("bracket")))
+
+    def translits(row):
+        return {code: row[field] for code, field in [("sedra3", "translit_sedra3"), ("sedra4", "translit_sedra4"),
+                ("calcode", "transliteration_cal"), ("leiden", "translit_leiden"), ("hugoye", "translit_hugoye")]
+                if row.get(field)}
+
+    def etym_html(lid):
+        rows = []
+        for e in etymologies[lid]:
+            word = esc(e["word"])
+            if e["bracket"] == "parenthesized": word = "(" + word + ")"
+            if e["bracket"] == "bracketed": word = "[" + word + "]"
+            rows.append(f'<li data-etymology-id="{e["id"]}"><small>{esc(e["language"])}</small> <bdi lang="{esc(e["lang"])}" dir="{"rtl" if e["rtl"] else "ltr"}">{word}</bdi>{" — " + esc(e["meaning"]) if e["meaning"] else ""}{" · " + esc(e["notes"]) if e["notes"] else ""} <cite>SEDRA · Etymology #{e["id"]}</cite></li>')
+        return '<section class="sedra-etymologies"><h4>Etymology</h4><ul>' + ''.join(rows) + '</ul></section>' if rows else ''
+
     def credit(source_id, reference):
         source = sources.get(source_id, {})
         name = source.get("abbreviation") or source.get("full_name") or "SEDRA"
@@ -120,7 +142,7 @@ def main():
         cat = " · ".join(x for x in [categories.get(lex.get("category_type_id")), kaylos.get(lex.get("kaylo_id"))] if x)
         forms = sorted({w.get("syriac_vocalized_west") or w.get("syriac_vocalized_east") or w["syriac"] for w in words[lid]})
         forms_html = '<details class="sedra-forms"><summary>Forms · ' + str(len(forms)) + '</summary><div>' + ' · '.join(syr(f) for f in forms) + '</div></details>' if forms else ''
-        articles.append(f'<div class="sedra-entry" data-sedra-id="{lid}"><div class="sedra-lemma">{syr(vocal)} <small>{esc(cat)}</small></div>{"".join(sections)}{root_html}{forms_html}<p class="sedra-credit">{credit(lex.get("source_id"),lex.get("source_reference"))} · SEDRA #{lid} · Beth Mardutho · CC BY-NC 4.0 · 5.0 (2026-10-24)</p></div>')
+        articles.append(f'<div class="sedra-entry" data-sedra-id="{lid}"><div class="sedra-lemma">{syr(vocal)} <small>{esc(cat)}</small></div>{"".join(sections)}{root_html}{etym_html(lid)}{forms_html}<p class="sedra-credit">{credit(lex.get("source_id"),lex.get("source_reference"))} · SEDRA #{lid} · Beth Mardutho · CC BY-NC 4.0 · 5.0 (2026-10-24)</p></div>')
         count_glosses += len(glosses[lid])
         count_words += len(words[lid])
     data = dict(name=NAME, indexLang="Syriac", contentsLang="Multilingual", heads=heads, keys=keys, html=articles,
@@ -149,16 +171,21 @@ def main():
                 meanings.append([text, langs[g["language_id"]]["name"], g.get("source_id"), g.get("source_reference")])
         card_lex[lid] = dict(form=lex["syriac"], vocal=lex.get("syriac_vocalized"), root=lex.get("root_id") if lex.get("root_id") in roots else None,
                              category=categories.get(lex.get("category_type_id")), stem=kaylos.get(lex.get("kaylo_id")),
-                             meanings=meanings, source=lex.get("source_id"), reference=lex.get("source_reference"))
-    fields = ["id", "syriac", "syriac_vocalized_west", "syriac_vocalized_east", "stem_id", "kaylo_id", "tense_id", "person_id", "gender_id", "number_id", "state_id", "suffix_type", "suffix_person_id", "suffix_gender_id", "suffix_number_id", "source_id", "source_reference"]
+                             meanings=meanings, source=lex.get("source_id"), reference=lex.get("source_reference"),
+                             etymologies=etymologies[lid], transliterations=translits(lex))
+    fields = ["id", "syriac", "syriac_vocalized_west", "syriac_vocalized_east", "stem_id", "kaylo_id", "tense_id", "person_id", "gender_id", "number_id", "state_id", "suffix_type", "suffix_person_id", "suffix_gender_id", "suffix_number_id", "source_id", "source_reference", "transliteration_east", "transliteration_west"]
     card_data = dict(version=1, release=manifest["version"], source=manifest["url"], license=manifest["license"],
         lexemes=card_lex, roots={i: {k: r.get(k) for k in ["syriac", "kind", "source_id", "source_reference"]} for i,r in roots.items()},
         wordFields=fields, words={i: [[w.get(k) for k in fields] for w in rows] for i,rows in words.items() if i in set_ids},
         tables={name:{r["id"]:r for r in tables[name]} for name in ["stems", "kaylos", "tenses", "persons", "genders", "numbers", "states", "sources"]})
+    translit_data = dict(version=1, release=manifest["version"], source=manifest["url"], license=manifest["license"],
+        schemes=tables["transliteration_schemes"], patterns=tables["transliteration_patterns"])
+    translit_bytes = ("// Original SEDRA transliteration mappings, CC BY-NC 4.0.\nwindow.SYRIAC_TRANSLITERATION_DATA=" + json.dumps(translit_data, ensure_ascii=False, separators=(",", ":")) + ";\n").encode()
+    (ROOT / "syriac-transliteration-data.js").write_bytes(translit_bytes)
     card_bytes = ("// Generated by tools/sedra/build.py; SEDRA 5.0, CC BY-NC 4.0.\nwindow.SEDRA_DATA=" + json.dumps(card_data, ensure_ascii=False, separators=(",", ":")) + ";\n").encode()
     (ROOT / "sedra-data.js").write_bytes(card_bytes)
     report = dict(id=ID, name=NAME, lexemes=len(ids), glosses=count_glosses, attestedWords=count_words,
-                  sourceHashes=hashes, cardSha256=hashlib.sha256(card_bytes).hexdigest(), sha256=hashlib.sha256(buf).hexdigest(), bytes=len(buf))
+                  sourceHashes=hashes, etymologies=sum(len(v) for v in etymologies.values()), transliterationSha256=hashlib.sha256(translit_bytes).hexdigest(), cardSha256=hashlib.sha256(card_bytes).hexdigest(), sha256=hashlib.sha256(buf).hexdigest(), bytes=len(buf))
     (HERE / "report.json").write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n")
     print(json.dumps({k: v for k, v in report.items() if k != "sourceHashes"}, ensure_ascii=False))
 

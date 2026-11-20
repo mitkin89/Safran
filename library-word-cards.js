@@ -32,6 +32,20 @@ window.LibraryWordCards = (() => {
   }
   let syCardsP=null;
   function loadSyriacCards(){return syCardsP||(syCardsP=Promise.all([lazyScript('syriac-cards.js',()=>window.SyriacCards),lazyScript('sedra-data.js',()=>window.SEDRA_DATA)]).then(([api,data])=>api.create(data)).catch(e=>{syCardsP=null;throw e;}));}
+  async function canOpenCard(kind,key){
+    try{
+      if(kind==='syriac')return (await loadSyriacCards()).lookup(key).length>0;
+      if(kind==='hebrew')return !!window.Forms.model(await loadForms(),key)?.total;
+      if(kind==='greek')return !!window.GMorph.model(await host.loadGM(),key)?.total;
+      if(kind==='targum')return !!window.TargumForms.model(await loadTForms(),key)?.total;
+    }catch{}return false;
+  }
+  async function openTextCard(word,current=()=>true){
+    if(/[\u0710-\u072f]/u.test(word)&&await canOpenCard('syriac',word)&&current()){openSForms(word);return true;}
+    if(/[\u05d0-\u05ea]/u.test(word)){const ids=host.lemIdsFor(word)||[];if(ids.length===1&&await canOpenCard('hebrew',ids[0])&&current()){openForms(ids[0],{word},'card');return true;}}
+    if(/[\u0370-\u03ff\u1f00-\u1fff]/u.test(word)){try{const D=await host.loadGM(),ids=window.GMorph.dictionaryLemmas(D,word);if(ids.length===1&&await canOpenCard('greek',ids[0])&&current()){openGForms(ids[0],null,'card');return true;}}catch{}}
+    return false;
+  }
   async function openSForms(query,info={},tab='card',rest){
     info={...info,syriac:true,query};
     const key='sy:'+(info.id||query);
@@ -1125,6 +1139,8 @@ window.LibraryWordCards = (() => {
       get lazyScript() { return lazyScript; },
       get loadForms() { return loadForms; },
       get loadTForms() { return loadTForms; },
+      get canOpenCard(){return canOpenCard;},
+      get openTextCard(){return openTextCard;},
       get openSForms() { return openSForms; },
       get openForms() { return openForms; },
       get openGForms() { return openGForms; },

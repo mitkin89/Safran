@@ -39,17 +39,19 @@ module.exports=async({docs,win,js,waitFor,book})=>{
   const point=await js(`(()=>{const marker=document.querySelector('#greekClickTarget'),b=marker.getBoundingClientRect(),point={x:Math.round(b.left+b.width/2),y:Math.round(b.top+b.height/2)},parent=marker.parentNode;if(!document.elementFromPoint(point.x,point.y)?.closest('.cell[data-gt]'))throw Error('Greek word is not visible');marker.replaceWith(document.createTextNode(marker.textContent));parent.normalize();return point;})()`);
   win.webContents.sendInputEvent({type:'mouseDown',...point,button:'left',clickCount:1});
   win.webContents.sendInputEvent({type:'mouseUp',...point,button:'left',clickCount:1});
+  return point;
  }
  await book(added[0].title);
  await waitFor(`[...document.querySelectorAll('#verList input[data-rel]')].some(c=>c.dataset.rel===${JSON.stringify(added[0].rel)})`,'Philo für Wörterbuchpanel');
  await js("if(document.querySelector('#cmtPanel').hidden)document.querySelector('#cmtBtn').click();if(!document.querySelector('#cmtPanel .pinB').classList.contains('on'))document.querySelector('#cmtPanel .pinB').click()");
- await clickFirst(added[0].rel);
+ const dblPoint=await clickFirst(added[0].rel);
  await waitFor("document.querySelector('#wpop [data-source=oga]')",'Philo OGA-Morphologie');
  const lemma=await js("document.querySelector('#wpop .wlem').textContent.replace(/[0-9]+$/,'')");
  assert(lemma);
  const meaning=await js("document.querySelector('#wpop .corpus-gloss')?.textContent");assert(meaning);
  assert(await js("parseFloat(getComputedStyle(document.querySelector('#wpop .corpus-gloss')).fontSize)>parseFloat(getComputedStyle(document.querySelector('#wpop .corpus-morph')).fontSize)"));
- await js("document.querySelector('#wpop .wdict').click()");
+ win.webContents.sendInputEvent({type:'mouseDown',...dblPoint,button:'left',clickCount:2});
+ win.webContents.sendInputEvent({type:'mouseUp',...dblPoint,button:'left',clickCount:2});
  await waitFor(`document.querySelector('#dictQ')?.value===${JSON.stringify(lemma)}`,'Griechisches Lemma im Wörterbuch');
  await waitFor("!document.querySelector('#dictPanel').hidden",'Wörterbuchpanel');
  await js("if(document.body.classList.contains('stack-split')||document.body.classList.contains('stack-side'))document.querySelector('#dictStack').click()");

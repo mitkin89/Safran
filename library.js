@@ -911,7 +911,7 @@
     reader: { cache, get view() { return view; }, get dictSel() { return dictSel; } },
     lazyScript: (...args) => wordCardsUI.lazyScript(...args),
     apChap: (...args) => apChap(...args), verseOf: (...args) => linksUI.verseOf(...args),
-    loadIL: (...args) => loadIL(...args), openDict,
+    loadIL: (...args) => loadIL(...args), openDict, canOpenCard:(...args)=>wordCardsUI.canOpenCard(...args),
     loadForms: (...args) => wordCardsUI.loadForms(...args), openSForms: (...args) => wordCardsUI.openSForms(...args), openForms: (...args) => wordCardsUI.openForms(...args), openGForms: (...args) => wordCardsUI.openGForms(...args), openTForms: (...args) => wordCardsUI.openTForms(...args),
     gSearchAll: (...args) => wordCardsUI.gSearchAll(...args), jumpTo,
   });
@@ -2366,23 +2366,23 @@
     $('#dictTabBtn').classList.toggle('sideopen', dictOpen);
     if (dictOpen) { renderDictList(); $('#dictQ').focus({ preventScroll: true }); }
   }
-  // Doppelklick auf ein Wort im Text oder in den Kommentaren schlägt es nach
-  let fnClickT = 0; // Klick auf eine Fußnotenzahl: ein Doppelklick dort öffnet nicht das Wörterbuch (die Fußnote klappt dabei auf und zu, der Klick landet sonst im Notentext)
+  // Double-click opens an available word card; otherwise look up the source lemma/word.
+  let fnClickT = 0,wordOpenToken=0;
   document.addEventListener('click', e => { if (e.target.closest && e.target.closest('sup, .nm, .footnote-marker, sup.dfn')) fnClickT = Date.now(); }, true);
-  const dblWord = e => {
-    if (e.target.closest('a, button, select, input, textarea, .lab, .bm, sup, .nm, .footnote-marker') || Date.now() - fnClickT < 700) return;
-    const w = (window.getSelection() + '').trim().replace(/^[^\p{L}\p{M}]+|[^\p{L}\p{M}]+$/gu, '');
-    if (w.length >= 2 && w.length <= 40 && !/\s/.test(w)) {
-      // erneuter Doppelklick auf dasselbe Wort an derselben Stelle schließt das Wörterbuch wieder
-      let pos = null;
-      try { const r = window.getSelection().getRangeAt(0); pos = { node: r.startContainer, off: r.startOffset, w }; } catch { /* egal */ }
-      const same = pos && lastDictDbl && lastDictDbl.node === pos.node && lastDictDbl.off === pos.off && lastDictDbl.w === pos.w;
-      if (same && dictOpen && document.documentElement.dataset.tab !== 'dict') { toggleDict(false); lastDictDbl = null; return; }
-      lastDictDbl = pos;
-      openDict(w);
-    }
+  document.addEventListener('pointerdown',()=>{wordOpenToken++;},true);
+  window.addEventListener('keydown',e=>{if(e.key==='Escape')wordOpenToken++;},true);
+  const dblWord = async e => {
+    if(e.target.closest('a,button,select,input,textarea,.lab,.bm,sup,.nm,.footnote-marker')||Date.now()-fnClickT<700)return;
+    const marked=e.target.closest('.w[data-m],.wt[data-m],.wq[data-m],.syw[data-si],.smr-word');
+    const w=(String(window.getSelection()).trim()||marked?.textContent||'').replace(/^[^\p{L}\p{M}]+|[^\p{L}\p{M}]+$/gu,'');
+    if(!w||w.length>80||/\s/.test(w))return;
+    const token=++wordOpenToken;
+    const current=()=>token===wordOpenToken&&e.target.isConnected;
+    const result=await wordPopupUI.openPreferred(e,current);
+    if(token!==wordOpenToken||result.opened||result.cancelled)return;
+    if(!result.context&&await wordCardsUI.openTextCard(w,current))return;
+    if(token===wordOpenToken)openDict(result.query||w);
   };
-  let lastDictDbl = null;
   // Einfacher Klick auf ein Wort (nicht hebräisch-morphologisch) markiert es wie bei den hebräischen Wörtern
   const clickMark = e => {
     if (!window.Highlight || !CSS.highlights) return;

@@ -2,6 +2,10 @@
 
 ### Unreleased
 
+- **Word-card first navigation:** swap Word Card and Dictionary in the study toolbar. Double-click opens an available card for the current text source, otherwise the dictionary; repeated double-clicks keep pinned tools open.
+
+- **Syriac word origins and Latin input:** add SEDRA etymologies with original source words and identifiers, preserve lexical transliterations, and offer explicit SEDRA IV/CAL/Leiden input with a Syriac preview. Keep input modes in history, tabs and saved searches; respect dictionary selection and reject unsupported characters.
+
 - Escape closes a word popup without passing the same key to the pinned study pane.
 
 - **Syriac word cards:** offline SEDRA lexical meanings, explicit root families with navigation, recorded forms grouped by grammar, Western/Eastern vocalization, source credits and homonym selection. Reuse the shared word-card pane and history; open from Peshitta words or Syriac dictionary entries.

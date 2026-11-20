@@ -22,6 +22,8 @@ Object.assign(ctx, { $, esc, I18N: { t: s => s }, portraitOf: () => null, heFix:
 vm.runInContext(part('  let lemByCons = null;', '  // Eigene Wörterbuchinstanz'), ctx);
 const dictionaryUI = fs.readFileSync(path.join(__dirname, 'library-dictionary.js'), 'utf8');
 ctx.getSelection = () => ctx.dictSel; ctx.getSource = () => ctx.dictSrc;
+ctx.lsGet = () => []; ctx.lsSet = () => {};
+vm.runInContext(dictionaryUI.slice(dictionaryUI.indexOf('    let dictScheme='), dictionaryUI.indexOf('    let dictOnly =')), ctx);
 vm.runInContext(dictionaryUI.slice(dictionaryUI.indexOf('  function dictCardButtons('), dictionaryUI.indexOf('  const dictGoHist =')), ctx);
 
 (async () => {

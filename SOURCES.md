@@ -20,6 +20,8 @@ Changes: conversion to Safran's bundled dictionary format, plain-text gloss clea
 
 Syriac word cards additionally expose explicit root families and recorded forms grouped by SEDRA grammatical labels, with Western and Eastern vocalizations. The lazy structured index preserves original ids and sources; word-form counts are not passage frequencies.
 
+The etymology extension imports the 3,078 verified SEDRA origin records with language, source word, notes, bracket status and permanent etymology id; no missing source citations are invented. Original transliterations and the five published mapping schemes are preserved. Explicit SEDRA IV, CAL and Leiden input searches the selected dictionaries after case-sensitive conversion; it does not infer vowels.
+
 ## Hebrew Tanakh with morphology (OSHB)
 
 All 39 books are included as an additional Hebrew version “Westminster Leningrad Codex (OSHB, with morphology)” under `bundled/own/…/he/`. Every word carries a lemma (Strong number) and a morphology code; a click in the reader shows stem, tense/form, person, gender and number and looks the lemma up in the dictionary.

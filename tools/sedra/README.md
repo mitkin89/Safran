@@ -47,3 +47,30 @@ including recorded suffix information. Western and Eastern vocalizations are
 shown independently; missing values stay missing. Counts are dictionary records,
 never passage occurrences. Entry choices, family navigation and forms tabs use
 the existing shared word-card pane, history, pinning and font scaling.
+
+## Etymology and transliteration
+
+The pinned `etymologies` table adds original language, source word, notes and
+bracket status to dictionary articles and word cards. Attribution is to the
+SEDRA etymology id and release; these records do not provide an individual
+bibliographic source id, so no such reference is inferred from the lexeme.
+Contributor ids and account-related fields are excluded from runtime output.
+Missing origins or explanations remain missing.
+
+Original lexeme transliterations (SEDRA III/IV, CAL, Leiden and Hugoye) are
+shown without inventing pronunciation. Recorded Eastern/Western form
+transliterations are retained with their tradition label.
+
+`syriac-transliteration-data.js` contains the original five schemes and 335
+mapping records; its hash is in `report.json`. The explicit dictionary input
+modes SEDRA IV, CAL and Leiden convert Latin input before searching all selected
+dictionaries. Case distinctions are preserved. Multiple mapped Syriac letters
+remain separate query candidates; results are deduplicated by dictionary/id.
+Whitespace variants are canonicalized to ASCII spaces for input. Unsupported
+characters and excessive ambiguity report an error rather than silently dropping
+input. Dictionary wildcards and phrase quotes are preserved. Hugoye and SEDRA III
+remain display-only. This does not generate vocalization.
+
+Input mode and original query are retained in dictionary history, tabs and
+saved-query metadata. Programmatic lookups in original script reset to direct
+input. Ordinary Latin queries are never auto-detected as Syriac.

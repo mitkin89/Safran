@@ -31,6 +31,14 @@ The forms overview groups recorded non-theoretical forms, not generated paradigm
 or token frequencies. These lexical data do not replace ETCBC passage morphology.
 ETCBC morphology and its source ids remain unchanged.
 
+The etymology extension retains the published origin language, original word,
+notes, bracket status and SEDRA etymology id. No missing etymology source references
+are inferred from lexical references, and contributor/account fields are omitted.
+Original transliteration fields remain unchanged. The separate
+`syriac-transliteration-data.js` contains the published schemes and mappings;
+explicit input conversion preserves case, reports unsupported input and
+canonicalizes mapped whitespace. It does not infer vocalization or pronunciation.
+
 ## Resource partners and source credits
 
 The following upstream source inventory is retained verbatim in the pinned source

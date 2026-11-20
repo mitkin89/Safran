@@ -43,6 +43,7 @@ async function book(title,prefix='document'){await js(`{const d=${prefix};d.quer
  win.webContents.on('render-process-gone',(_e,d)=>{console.error(d);app.exit(1)});
  await win.loadFile(path.join(root,'library.html'));await waitFor("document.querySelectorAll('#tree .lib-item').length===3",'Start');
  await book('Genesis');await waitFor("document.querySelector('#rOut .w')",'Genesis');
+ if(process.env.SAFRAN_SMOKE_WORD_DBL==='1'){await require('./word-double-click-flows.cjs')({js,waitFor,book});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}
  if(process.env.SAFRAN_SMOKE_VERSIONS==='1'){
   await require('./version-menu-flows.cjs')({docs,win,js,waitFor,book});
   assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;
@@ -87,6 +88,7 @@ async function book(title,prefix='document'){await js(`{const d=${prefix};d.quer
  await waitFor("document.querySelector('#rOut .ilt[data-tr=Zunz]')",'Gebundener Zunz-Text');
  console.log('Electron: Tanach-Klick und geprüfter Interlinear-Quellstand bestanden.');
  await require('./interlinear-flows.cjs')({js,waitFor});
+ await require('./word-double-click-flows.cjs')({js,waitFor,book});
  oldTranslation=true;await win.reload();await waitFor("document.querySelector('#rOut .il-source-warning')",'Abweichende beibehaltene Fassung');
  assert(await js("document.querySelector('#rOut').textContent.includes('[abweichende Fassung]')"));assert.equal(await js("!!document.querySelector('#rOut .ilt[data-tr=Zunz]')"),false);
  console.log('Electron: Abweichende Textfassung bleibt sichtbar, fremde Wortzuordnung unterbleibt.');
