@@ -62,6 +62,7 @@ contextBridge.exposeInMainWorld('offline', {
   dictHeads: id => ipcRenderer.invoke('dict:heads', id),
   dictSuggest: q => ipcRenderer.invoke('dict:suggest', q),
   dictLookup: (q, only, full) => ipcRenderer.invoke('dict:lookup', q, only, full),
+  dictSyriacMentions: (queries, only) => ipcRenderer.invoke('dict:syriacMentions', queries, only),
   ownRemove: rel => ipcRenderer.invoke('off:ownRemove', rel),
   ownReload: rel => ipcRenderer.invoke('off:ownReload', rel),
   onFindOpen: cb => ipcRenderer.on('find:open', () => cb()),

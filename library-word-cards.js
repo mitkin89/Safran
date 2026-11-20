@@ -60,6 +60,8 @@ window.LibraryWordCards = (() => {
       fmCur={syriac:true,greek:false,lemma:key,lem:[query],model,id,query};
       host.$('#fmHead').innerHTML=out.head+`<button type="button" class="wdict" data-q="${host.esc(query)}"${id?` data-sedra-id="${id}"`:''}>${host.esc(I18N.t('Im Wörterbuch nachschlagen'))}</button>`;
       host.$('#wcBody').innerHTML=out.card+`<section class="wcSec" id="wcDict"><h4>${host.esc(I18N.t('Wörterbücher'))}</h4><p class="muted">${host.esc(I18N.t('Lädt …'))}</p></section>`;host.$('#fmBody').innerHTML=out.forms;
+      host.$('#wcBody').insertAdjacentHTML('beforeend',`<section class="wcSec" id="wcSyriacMentions"><h4>${host.esc(I18N.t('Syrische Belege in anderen Wörterbüchern'))}</h4><p class="muted">${host.esc(I18N.t('Lädt …'))}</p></section>`);
+      wcSyriacMentions(token);
       wcDicts(token);
       if(rest)fmRestBase(rest);else p.scrollTop=0;
     }catch{if(token===wcToken)host.$('#wcBody').innerHTML=host.$('#fmBody').innerHTML=`<p class="muted">${host.esc(I18N.t('SEDRA konnte nicht geladen werden.'))}</p>`;}
@@ -362,6 +364,26 @@ window.LibraryWordCards = (() => {
       const pic = host.portraitOf(d.name);
       return `<div class="wcD" style="--dh:${hue(d.id)}"><div class="wcDH"><span>${pic ? `<img class="vpic" src="portraits/${encodeURIComponent(pic.img)}" alt="" data-title="${host.esc(pic.name || '')}" loading="lazy">` : ''}${host.esc(d.name)}</span><button type="button" class="wcDGo" data-id="${host.esc(d.id)}" data-name="${host.esc(d.name)}" title="${host.esc(I18N.t('Im Reiter „Wörterbuch“ öffnen'))}">↗ ${host.esc(I18N.t('Wörterbuch'))}</button></div>${d.xs.slice(0, 3).map(entry).join('')}${d.xs.length > 3 ? `<div class="wcDMore" hidden>${d.xs.slice(3).map(entry).join('')}</div><button type="button" class="fmAll wcDMoreB" data-n="${d.xs.length - 3}">${host.esc(I18N.t('+ {} weitere', d.xs.length - 3))}</button>` : ''}</div>`;
     }).join(''));
+  }
+  async function wcSyriacMentions(token){
+    const {query,id}=fmCur,box=()=>host.$('#wcSyriacMentions');
+    const title=`<h4>${host.esc(I18N.t('Syrische Belege in anderen Wörterbüchern'))}</h4><p class="muted">${host.esc(I18N.t('Artikel, die diese syrische Schreibung erwähnen; die Zuordnung der Bedeutung bleibt beim jeweiligen Wörterbuch.'))}</p>`;
+    const done=html=>{if(token===wcToken&&box())box().innerHTML=title+html;};
+    const queries=[...new Set([query,id&&window.SEDRA_DATA.lexemes[id]?.form].filter(Boolean))];
+    let answer;try{answer=await host.O.dictSyriacMentions(queries,host.dictSel?.length?host.dictSel:null);}catch{answer={error:true};}
+    if(token!==wcToken)return;
+    if(answer.error)return done(`<p class="muted">${host.esc(I18N.t('Wörterbuchbelege konnten nicht geladen werden.'))}</p>`);
+    if(!answer.results?.length)return done(`<p class="muted">${host.esc(I18N.t('Keine weiteren syrischen Belege in den ausgewählten Wörterbüchern.'))}</p>`);
+    const fold=window.SyriacCards.norm,by=new Map();
+    for(const x of answer.results){if(!by.has(x.dictId))by.set(x.dictId,{name:x.dict,xs:[]});by.get(x.dictId).xs.push(x);}
+    const entry=x=>{
+      const plain=x.html.replace(/<[^>]+>/g,' ').replace(/&(?:amp|lt|gt|quot|nbsp);/g,e=>({'&amp;':'&','&lt;':'<','&gt;':'>','&quot;':'"','&nbsp;':' '}[e])).replace(/\s+/g,' ').trim(),matches=[...plain.matchAll(/[\u0710-\u072f][\u0710-\u074f\u0300-\u036f\u200c\u200d]*/gu)],at=matches.find(m=>x.matched.includes(fold(m[0])))?.index||0,start=Math.max(0,at-45);
+      const text=(start?'… ':'')+plain.slice(start,start+190)+(plain.length>start+190?' …':'');
+      const snip=host.heFix(host.esc(text)).replace(/[\u0710-\u074f]+/gu,'<bdi lang="syr" dir="rtl">$&</bdi>');
+      const html=host.heFix(/Gesenius/.test(x.dict)&&window.GAbk?window.GAbk.mark(x.html):x.html);
+      return `<details class="wcDE"><summary><b dir="auto">${host.esc(x.head)}</b> <span class="snip" dir="ltr">${snip}</span></summary><button type="button" class="wcDGo wcSyDictGo" data-id="${host.esc(x.dictId)}" data-name="${host.esc(x.dict)}" data-q="${host.esc(x.query)}">↗ ${host.esc(I18N.t('Wörterbuch'))}</button><div class="dbody" dir="ltr">${html}</div></details>`;
+    };
+    done([...by].map(([id,d])=>`<div class="wcD" data-sy-dict="${host.esc(id)}"><div class="wcDH"><span>${host.esc(d.name)}</span><small>${d.xs.length}</small></div>${d.xs.slice(0,3).map(entry).join('')}${d.xs.length>3?`<div class="wcDMore" hidden>${d.xs.slice(3).map(entry).join('')}</div><button type="button" class="fmAll wcDMoreB" data-n="${d.xs.length-3}">${host.esc(I18N.t('+ {} weitere',d.xs.length-3))}</button>`:''}</div>`).join(''));
   }
   // Septuaginta: häufigste griechische Lemmata für dieses hebräische Lemma (CATSS-Zuordnung + lxx-morph, Index oshb-lxx.js); Klick öffnet die griechische Wortkarte
   async function wcLxx(token) {
@@ -1036,8 +1058,9 @@ window.LibraryWordCards = (() => {
   host.$('#fmTabs').addEventListener('click', e => { const b = e.target.closest('button[data-t]'); if (!b) return; fmStep(() => { fmShowTab(b.dataset.t); if (fmTab === 'forms') { const c = host.$('#fmBody .fmF.cur'); if (c) c.scrollIntoView({ block: 'center' }); } else host.$('#formsPanel').scrollTop = 0; }); });
   host.$('#wcBody').addEventListener('click', e => {
     if (!fmCur) return;
-    if(fmCur.syriac){const b=e.target.closest('[data-sid],[data-family-id]');if(b){const id=b.dataset.sid||b.dataset.familyId,query=b.dataset.familyId?window.SEDRA_DATA.lexemes[id].form:fmCur.query;openSForms(query,{id},'card');return;}if(!e.target.closest('#wcDict'))return;}
+    if(fmCur.syriac){const b=e.target.closest('[data-sid],[data-family-id]');if(b){const id=b.dataset.sid||b.dataset.familyId,query=b.dataset.familyId?window.SEDRA_DATA.lexemes[id].form:fmCur.query;openSForms(query,{id},'card');return;}if(!e.target.closest('#wcDict,#wcSyriacMentions'))return;}
 
+    const syGo=e.target.closest('.wcSyDictGo');if(syGo){const q=syGo.dataset.q,only={id:syGo.dataset.id,name:syGo.dataset.name};closeForms();host.showTab('dict');host.dictLookup(q,only);return;}
     const src = e.target.closest('.dbody .dsrc[data-sref]'); // Stellenangabe im aufgeklappten Wörterbuchartikel
     if (src) { e.preventDefault(); host.hovApi && host.hovApi.hide(); host.jumpTo(src.dataset.sref, host.BG(e)); return; }
     const dr = e.target.closest('.dbody .dref[data-q]'); if (dr) { closeForms(); host.openDict(dr.dataset.q); return; }

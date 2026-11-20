@@ -2429,7 +2429,7 @@
     getSelection: () => dictSel, setSelection: ids => { dictSel = ids; },
     getSource: () => dictSrc, setDictSrc,
   });
-  function dictLookup(q, only, fromHist, sedraId) { return dictionaryUI.lookup(q, only, fromHist, '', sedraId); }
+  function dictLookup(q, only, fromHist, sedraId) { return dictionaryUI.lookup(q, only, fromHist, sedraId); }
   function renderDictList() { return dictionaryUI.renderList(); }
   function renderSaved() { return dictionaryUI.renderSaved(); }
   function dtabAdd() { return dictionaryUI.addTab(); }

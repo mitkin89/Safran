@@ -693,6 +693,8 @@ ipcMain.handle('dict:order', async (_e, ids) => { try { await (await getDicts())
 ipcMain.handle('dict:remove', async (_e, id) => { try { await (await getDicts()).remove(String(id)); return {}; } catch (err) { return { error: err.message }; } });
 ipcMain.handle('dict:lookup', async (_e, q, only, full) => { try { return { results: await (await getDicts()).search(String(q || '').slice(0, 100), { only: Array.isArray(only) ? only.filter(x => /^[0-9a-f]{12}$/.test(String(x))).map(String) : (/^[0-9a-f]{12}$/.test(String(only || '')) ? String(only) : ''), full: !!full }) }; } catch (err) { return { results: [], error: err.message }; } });
 
+ipcMain.handle('dict:syriacMentions', async (_e, queries, only) => { try { return { results: await (await getDicts()).syriacMentions((Array.isArray(queries)?queries:[]).slice(0,8).map(q=>String(q).slice(0,100)), { only: Array.isArray(only)?only.map(String).filter(id=>/^[0-9a-f]{12}$/.test(id)):'' }) }; } catch(err) { return {results:[],error:err.message}; } });
+
 ipcMain.handle('dict:heads', async (_e, id) => { try { return { list: /^[0-9a-f]{12}$/.test(String(id || '')) ? await (await getDicts()).headList(String(id)) : [] }; } catch (err) { return { list: [], error: err.message }; } });
 ipcMain.handle('dict:cites', async (_e, book, chap, v) => { try { return { list: await (await getDicts()).citesAt(String(book || '').slice(0, 120), String(chap || '').slice(0, 12), +v || 0) }; } catch (err) { return { list: [], error: err.message }; } });
 ipcMain.handle('dict:suggest', async (_e, q) => { try { return { list: await (await getDicts()).suggest(String(q || '').slice(0, 60)) }; } catch { return { list: [] }; } });

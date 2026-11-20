@@ -348,6 +348,33 @@ class Dictionaries {
     }
     return out;
   }
+  // Exact Syriac tokens inside articles, independent of the Hebrew/Aramaic headword.
+  async syriacMentions(queries, {only='', limit=30}={}) {
+    const key=s=>norm(s).replace(/[\u200c\u200d]/g,'');
+    const wanted=new Set((Array.isArray(queries)?queries:[queries]).slice(0,8).map(key).filter(q=>/^[\u0710-\u072f]+$/u.test(q)));
+    if(!wanted.size)return [];
+    const tokens=/[\u0710-\u072f][\u0710-\u074f\u0300-\u036f\u200c\u200d]*/gu;
+    const results=[];
+    for(const d of await this.list()){
+      if(d.id==='7fab63c14df2'||!allowed(only,d.id))continue;
+      const data=await this.load(d.id);
+      if(!data.syriacIndex){
+        const index=new Map();
+        data.html.forEach((html,k)=>{
+          if(!/[\u0710-\u072f]/u.test(html))return;
+          const counts=new Map();for(const part of String(html).split(/(<[^>]+>)/))if(!part.startsWith('<'))for(const m of part.matchAll(tokens)){const q=key(m[0]);counts.set(q,(counts.get(q)||0)+1);}
+          for(const [q,n]of counts){if(!index.has(q))index.set(q,[]);index.get(q).push([k,n]);}
+        });
+        data.syriacIndex=index;
+      }
+      const hits=new Map();for(const q of wanted)for(const [k,n]of data.syriacIndex.get(q)||[]){const hit=hits.get(k)||{n:0,matched:[]};hit.n+=n;hit.matched.push(q);hits.set(k,hit);}
+      for(const [k,hit]of [...hits].sort((a,b)=>b[1].n-a[1].n||a[0]-b[0]).filter(([k])=>!data.heads[k].some(h=>wanted.has(key(h)))).slice(0,limit)){
+        const html=String(data.html[k]).split(/(<[^>]+>)/).map(part=>part.startsWith('<')?part:part.replace(tokens,t=>wanted.has(key(t))?'<mark class="dhit">'+t+'</mark>':t)).join('');
+        results.push({dictId:d.id,dict:d.name,k,head:data.heads[k].join(' · '),query:data.heads[k][0],html,kind:'syriac-mention',matched:hit.matched,n:hit.n});
+      }
+    }
+    return results;
+  }
   // Volltext: Suchwörter (alle müssen vorkommen, ohne Vokalzeichen/Endbuchstaben/Groß-Klein) im Artikeltext; skip = schon als Stichwort-Treffer gezeigte (dictId:k)
   async fulltext(query, { limit = 80, only = '', skip = new Set() } = {}) {
     const items = parseQuery(query);

@@ -6,23 +6,7 @@ window.LibraryDictionary = (() => {
     openTForms, openGForms, openSForms, openForms, panelScrollTo, lsGet, lsSet,
     getSelection, setSelection, getSource, setDictSrc }) {
     const O = window.offline;
-    let dictScheme='',previewToken=0,dictSedraId=null;
-    const schemeInput=$('#dictInputScheme'),previewBox=$('#dictInputPreview');
-    const validScheme=s=>['sedra4','calcode','leiden'].includes(s)?s:'';
-    const readSavedSchemes=()=>new Map(lsGet('dictInputSchemes').filter(x=>Array.isArray(x)&&x.length===2&&typeof x[0]==='string').map(([q,s])=>[q,validScheme(s)]));
-    let savedSchemes=readSavedSchemes();
-    const saveScheme=(q,s)=>{savedSchemes=readSavedSchemes();savedSchemes.delete(q);savedSchemes.set(q,s);while(savedSchemes.size>200)savedSchemes.delete(savedSchemes.keys().next().value);lsSet('dictInputSchemes',[...savedSchemes]);};
-    async function prepare(q,scheme){
-      if(!scheme||/[\u0590-\u05ff\u0370-\u03ff\u1f00-\u1fff\u0700-\u074f]/u.test(q))return {queries:[q]};
-      const result=(await window.SyriacTransliteration.load()).convert(q,scheme);
-      if(result.error)return {error:result.error==='character'?I18N.t('Zeichen „{}“ gehört nicht zu dieser Umschrift.',result.character):I18N.t('Diese Umschrift ist nicht eindeutig umsetzbar.')};
-      return result;
-    }
-    function paintInput(q,scheme,result){
-      previewBox.hidden=!scheme||!q;
-      previewBox.innerHTML=result.error?esc(result.error):`${esc(I18N.t('Nachschlagen als:'))} ${(result.queries||[]).map(v=>`<bdi lang="syr" dir="rtl">${esc(v)}</bdi>`).join(' / ')}`;
-    }
-    async function previewInput(){const seq=++previewToken,q=$('#dictQ').value.trim(),scheme=validScheme(schemeInput.value);try{const result=await prepare(q,scheme);if(seq===previewToken)paintInput(q,scheme,result);}catch{if(seq===previewToken){previewBox.hidden=false;previewBox.textContent=I18N.t('Umschrift konnte nicht geladen werden.');}}}
+    let dictSedraId=null;
     let dictOnly = null; // { id, name }: Suche nur in diesem Wörterbuch (wird nicht mehr über das Menü gesetzt)
     let dictHist = [], dictPos = -1, dictShown = [];
     function dictNavButtons() { $('#dictBack').disabled = dictPos <= 0; $('#dictFwd').disabled = dictPos >= dictHist.length - 1; }
@@ -41,33 +25,24 @@ window.LibraryDictionary = (() => {
       return lemmas.map(lemma => ` <button type="button" class="dwk" data-gl="${esc(lemma)}" title="${esc(I18N.t('Griechische Wortkarte öffnen'))}">${esc(I18N.t('Wortkarte'))}${lemmas.length > 1 ? ': ' + esc(lemma) : ''}</button>`).join('');
     }
     let dictLookupToken = 0;
-    async function dictLookup(q, only = null, fromHist = false, scheme = '', sedraId = null) {
+    async function dictLookup(q, only = null, fromHist = false, sedraId = null) {
       q = String(q || '').trim();
       if (!q) return;
       const token = ++dictLookupToken;
       dictSedraId=/^[1-9][0-9]*$/.test(String(sedraId))?String(sedraId):null;
       const preferredId=dictSedraId;
-      ++previewToken;dictScheme=validScheme(scheme);schemeInput.value=dictScheme;
       const dictSel = getSelection();
       dictOnly = only;
       dtabs[dcur].title = q;
       renderDtabs();
       if (!fromHist) {
-        if (!(dictPos >= 0 && dictHist[dictPos].q === q && (dictHist[dictPos].scheme||'') === dictScheme && (dictHist[dictPos].sedraId||null) === preferredId)) { dictHist = dictHist.slice(0, dictPos + 1); dictHist.push({ q, only, scheme:dictScheme, sedraId:preferredId }); dictPos = dictHist.length - 1; }
+        if (!(dictPos >= 0 && dictHist[dictPos].q === q && (dictHist[dictPos].sedraId||null) === preferredId)) { dictHist = dictHist.slice(0, dictPos + 1); dictHist.push({ q, only, sedraId:preferredId }); dictPos = dictHist.length - 1; }
       }
       dictNavButtons();
       $('#dictQ').value = q;
       if (typeof renderSaved === 'function') renderSaved();
       $('#dictOut').innerHTML = '<p class="muted">Suche …</p>';
-      let prepared;
-      try{prepared=await prepare(q,dictScheme);}catch{prepared={error:I18N.t('Umschrift konnte nicht geladen werden.')};}
-      if(token!==dictLookupToken)return;
-      paintInput(q,dictScheme,prepared);
-      if(prepared.error){$('#dictOut').innerHTML=`<p class="muted">${esc(prepared.error)}</p>`;return;}
-      const results=await Promise.all(prepared.queries.map(query=>O.dictLookup(query,only?only.id:(dictSel&&dictSel.length?dictSel:null),$('#dictFull')&&$('#dictFull').checked)));
-      const seen=new Map();for(const answer of results)for(const hit of answer.results||[]){const key=hit.dictId+'\0'+hit.k;if(!seen.has(key)||hit.kind==='exact')seen.set(key,hit);}
-      const rank=new Map();for(const hit of seen.values())if(!rank.has(hit.dictId))rank.set(hit.dictId,rank.size);
-      const r={results:[...seen.values()].sort((a,b)=>rank.get(a.dictId)-rank.get(b.dictId)||(a.kind===b.kind?0:a.kind==='exact'?-1:1)),error:results.find(x=>x.error)?.error};
+      const r=await O.dictLookup(q,only?only.id:(dictSel&&dictSel.length?dictSel:null),$('#dictFull')&&$('#dictFull').checked);
       if (token !== dictLookupToken) return;
       if (r.error) { $('#dictOut').innerHTML = `<p class="muted">⚠ ${esc(r.error)}</p>`; return; }
       // Keep homonyms as separate entries; carry the card's stable SEDRA identity.
@@ -117,19 +92,19 @@ window.LibraryDictionary = (() => {
       }
       openForms(ids[0], null, 'card');
     });
-    const dictGoHist = d => { const k = dictPos + d; if (k < 0 || k >= dictHist.length) return; dictPos = k; dictLookup(dictHist[k].q, dictHist[k].only, true, dictHist[k].scheme, dictHist[k].sedraId); };
+    const dictGoHist = d => { const k = dictPos + d; if (k < 0 || k >= dictHist.length) return; dictPos = k; dictLookup(dictHist[k].q, dictHist[k].only, true, dictHist[k].sedraId); };
     // Mehrere Wörterbuch-Tabs – nur im Reiter „Wörterbuch“ sichtbar (die Seitenleiste beim Lesen hat immer nur eine Suche)
     const dtabs = [{ title: 'Neu' }];
     let dcur = 0;
     const dtabSave = () => {
       const t = dtabs[dcur];
-      Object.assign(t, { q: $('#dictQ').value, scheme:validScheme(schemeInput.value), sedraId:dictSedraId, only: dictOnly, hist: dictHist, pos: dictPos, shown: dictShown, html: $('#dictOut').innerHTML, scroll: $('#dictOut').scrollTop });
+      Object.assign(t, { q: $('#dictQ').value, sedraId:dictSedraId, only: dictOnly, hist: dictHist, pos: dictPos, shown: dictShown, html: $('#dictOut').innerHTML, scroll: $('#dictOut').scrollTop });
     };
     const dtabLoad = () => {
       ++dictLookupToken;
       const t = dtabs[dcur];
       dictOnly = t.only || null;dictSedraId=t.sedraId||null; dictHist = t.hist || []; dictPos = t.pos == null ? -1 : t.pos; dictShown = t.shown || [];
-      $('#dictQ').value = t.q || '';dictScheme=validScheme(t.scheme);schemeInput.value=dictScheme;previewInput();
+      $('#dictQ').value = t.q || '';
       $('#dictOut').innerHTML = t.html || '<p class="muted">Gib ein Wort ein.</p>';
       $('#dictOut').scrollTop = t.scroll || 0;
       dictNavButtons();
@@ -161,19 +136,13 @@ window.LibraryDictionary = (() => {
       const paint = () => { box.innerHTML = sugItems.map((x, i) => `<div class="sg${i === sugSel ? ' on' : ''}" data-i="${i}"><b dir="auto">${esc(x.head)}</b><small>${esc(x.dict)}</small></div>`).join(''); box.hidden = !sugItems.length; };
       const pick = i => { const x = sugItems[i]; if (!x) return; hideSug(); $('#dictQ').value = x.head; manualSearch(x.head); };
       $('#dictQ').addEventListener('input', () => {
-        clearTimeout(sugTimer);++sugSeq;previewInput();
+        clearTimeout(sugTimer);++sugSeq;
         const v = $('#dictQ').value.trim();
         if (!v) { hideSug(); return; }
         sugTimer = setTimeout(async () => {
           const my = ++sugSeq;
-          const scheme=validScheme(schemeInput.value);
-          let prepared;try{prepared=await prepare(v,scheme);}catch{prepared={error:true};}
-          if(my!==sugSeq||$('#dictQ').value.trim()!==v||scheme!==schemeInput.value)return;
-          if(prepared.error){hideSug();return;}
-          const answers=await Promise.all(prepared.queries.map(q=>O.dictSuggest(q))),seen=new Map();
-          for(const answer of answers)for(const hit of answer.list||[])seen.set(hit.dict+'\0'+hit.head,hit);
-          const r={list:[...seen.values()]};
-          if (my !== sugSeq || $('#dictQ').value.trim() !== v || schemeInput.value!==scheme) return; // veraltete Antwort
+          const r=await O.dictSuggest(v);
+          if(my!==sugSeq||$('#dictQ').value.trim()!==v)return;
           sugItems = r.list || []; sugSel = -1; paint();
         }, 80);
       });
@@ -233,12 +202,11 @@ window.LibraryDictionary = (() => {
       if (!dictSrc || dictSrc.q !== q) setDictSrc(null);
       syncSaved();
       if (q) { dRecent = [q, ...dRecent.filter(x => x !== q)].slice(0, 30); lsSet('dictRecent', dRecent); }
-      const scheme=validScheme(schemeInput.value);saveScheme(q,scheme);dictLookup(q, only, false, scheme); renderSaved();
+      dictLookup(q, only); renderSaved();
     };
-    schemeInput.addEventListener('change',()=>{++previewToken;$('#dictSug').hidden=true;const q=$('#dictQ').value.trim();if(q)manualSearch(q,dictOnly);else previewInput();});
     $('#dictStar').onclick = () => {
       const q = $('#dictQ').value.trim(); if (!q) return;
-      syncSaved();saveScheme(q,dictScheme);
+      syncSaved();
       dFavs = dFavs.includes(q) ? dFavs.filter(x => x !== q) : [q, ...dFavs];
       lsSet('dictFavs', dFavs); renderSaved();
     };
@@ -246,13 +214,13 @@ window.LibraryDictionary = (() => {
     $('#dictSaved').addEventListener('click', e => {
       const rm = e.target.closest('button[data-rm]');
       if (rm) { syncSaved(); const fav = !!rm.closest('#dictFavL'); const a = fav ? dFavs : dRecent; a.splice(+rm.dataset.rm, 1); lsSet(fav ? 'dictFavs' : 'dictRecent', a); renderSaved(); return; }
-      const a = e.target.closest('a[data-w]'); if (a) dictLookup(a.dataset.w,null,false,readSavedSchemes().get(a.dataset.w)||'');
+      const a = e.target.closest('a[data-w]'); if (a) dictLookup(a.dataset.w);
     });
     $('#dictQ').addEventListener('input', renderSaved);
     renderSaved();
     { const fb = $('#dictFull'); // Volltextsuche (Artikeltext) ein/aus, wird gemerkt
       try { fb.checked = localStorage.getItem('dictFull') === '1'; } catch { /* egal */ }
-      fb.addEventListener('change', () => { try { localStorage.setItem('dictFull', fb.checked ? '1' : '0'); } catch { /* egal */ } const q = $('#dictQ').value.trim(); if (q) dictLookup(q, dictOnly, false, dictScheme, dictSedraId); }); }
+      fb.addEventListener('change', () => { try { localStorage.setItem('dictFull', fb.checked ? '1' : '0'); } catch { /* egal */ } const q = $('#dictQ').value.trim(); if (q) dictLookup(q, dictOnly, false, dictSedraId); }); }
     { // Auswahl der Wörterbücher: Häkchen je Wörterbuch, wird gemerkt
       const B = $('#dictSelB'), Pn = $('#dictSelP');
       const paint = renderDictList;
@@ -264,12 +232,12 @@ window.LibraryDictionary = (() => {
       document.addEventListener('click', e => { if (!Pn.hidden && !Pn.contains(e.target) && e.target !== B && document.body.contains(e.target)) Pn.hidden = true; });
       Pn.addEventListener('click', async e => {
         const a = e.target.closest('a[data-a]');
-        if (a) { setSelection(null); if (a.dataset.a === 'none') { Pn.querySelectorAll('input').forEach(i => { i.checked = false; }); return; } save(); await paint(); const q = $('#dictQ').value.trim(); if (q) dictLookup(q, dictOnly, false, dictScheme, dictSedraId); }
+        if (a) { setSelection(null); if (a.dataset.a === 'none') { Pn.querySelectorAll('input').forEach(i => { i.checked = false; }); return; } save(); await paint(); const q = $('#dictQ').value.trim(); if (q) dictLookup(q, dictOnly, false, dictSedraId); }
       });
       Pn.addEventListener('change', async e => {
         const ids = [...Pn.querySelectorAll('input')].filter(i => i.checked).map(i => i.dataset.id), all = Pn.querySelectorAll('input').length;
         setSelection(ids.length && ids.length < all ? ids : null); save(); renderDictList();
-        const q = $('#dictQ').value.trim(); if (q) dictLookup(q, dictOnly, false, dictScheme, dictSedraId);
+        const q = $('#dictQ').value.trim(); if (q) dictLookup(q, dictOnly, false, dictSedraId);
       });
       paint();
     }
@@ -323,7 +291,7 @@ window.LibraryDictionary = (() => {
         [ids[i], ids[k]] = [ids[k], ids[i]];
         await O.dictOrder(ids);
         await renderDictList();
-        if (dictHist[dictPos]) dictLookup(dictHist[dictPos].q, dictHist[dictPos].only, true, dictHist[dictPos].scheme, dictHist[dictPos].sedraId);
+        if (dictHist[dictPos]) dictLookup(dictHist[dictPos].q, dictHist[dictPos].only, true, dictHist[dictPos].sedraId);
         return;
       }
       const b = e.target.closest('button[data-rm]');

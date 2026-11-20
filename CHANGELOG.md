@@ -1,5 +1,10 @@
 # Changelog
 
+### Unreleased
+
+- Show Syriac comparison forms inside other selected dictionary articles from the Syriac word card, with full-word matching, pointing-insensitive lookup, highlighted original text and direct article navigation.
+- Remove Latin transliteration displays from Syriac word cards and their forms overview, and the input-script selector from the dictionary toolbar.
+
 ### New in 2.7.1
 
 - Enlarge dictionary previews and expanded articles in word cards, and show abbreviation hover explanations there as in the dictionary pane.

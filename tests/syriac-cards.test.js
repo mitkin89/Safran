@@ -27,7 +27,7 @@ test('Word origin and transliteration preserve recorded lexical data without add
  const lex=JSON.parse(require('node:zlib').gunzipSync(fs.readFileSync(require.resolve('../tools/sedra/source/lexemes.jsonl.gz'))).toString().split('\n')[0]);
  assert.equal(D.lexemes['1'].transliterations.sedra4,lex.translit_sedra4);
  const origin=D.lexemes['1'].etymologies.find(e=>e.id===1);assert(origin);assert.equal(origin.word,'ἀήρ');assert.equal(origin.language,'Greek');assert.equal(origin.meaning,'');assert(!('contributor_id' in origin));assert(!('source_id' in origin));
- const out=M.render('1',lex.syriac,esc);assert(out.card.includes('data-etymology-id="1"'));assert(out.card.includes('ἀήρ'));assert(out.card.includes('SEDRA IV'));assert(out.card.includes('))r'));
+ const out=M.render('1',lex.syriac,esc);assert(out.card.includes('data-etymology-id="1"'));assert(out.card.includes('ἀήρ'));assert(!out.card.includes('sc-transliterations'));assert(!out.forms.includes('sc-form-translit'));
  const missing=Object.entries(D.lexemes).find(([,l])=>!l.etymologies.length);assert(missing);assert(M.render(missing[0],missing[1].form,esc).card.includes('Keine Herkunftsangabe in SEDRA erfasst.'));
  const bracketed=Object.entries(D.lexemes).find(([,l])=>l.etymologies.some(e=>e.bracket==='bracketed'));assert(bracketed);assert(M.render(bracketed[0],bracketed[1].form,esc).card.includes('['));
 });
