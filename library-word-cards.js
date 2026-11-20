@@ -57,9 +57,10 @@ window.LibraryWordCards = (() => {
       const model=await loadSyriacCards();if(token!==wcToken||p.hidden)return;
       const ids=model.lookup(query),id=info.id&&window.SEDRA_DATA.lexemes[info.id]?String(info.id):ids.length===1?ids[0]:null;
       const out=model.render(id,query,host.esc,s=>I18N.t(s));
-      fmCur={syriac:true,greek:false,lemma:key,model,id,query};
+      fmCur={syriac:true,greek:false,lemma:key,lem:[query],model,id,query};
       host.$('#fmHead').innerHTML=out.head+`<button type="button" class="wdict" data-q="${host.esc(query)}"${id?` data-sedra-id="${id}"`:''}>${host.esc(I18N.t('Im Wörterbuch nachschlagen'))}</button>`;
-      host.$('#wcBody').innerHTML=out.card;host.$('#fmBody').innerHTML=out.forms;
+      host.$('#wcBody').innerHTML=out.card+`<section class="wcSec" id="wcDict"><h4>${host.esc(I18N.t('Wörterbücher'))}</h4><p class="muted">${host.esc(I18N.t('Lädt …'))}</p></section>`;host.$('#fmBody').innerHTML=out.forms;
+      wcDicts(token);
       if(rest)fmRestBase(rest);else p.scrollTop=0;
     }catch{if(token===wcToken)host.$('#wcBody').innerHTML=host.$('#fmBody').innerHTML=`<p class="muted">${host.esc(I18N.t('SEDRA konnte nicht geladen werden.'))}</p>`;}
   }
@@ -324,7 +325,7 @@ window.LibraryWordCards = (() => {
   }
   // Wörterbücher: Einträge zum Lemma aus den eingebundenen Wörterbüchern (dieselbe Suche wie „Im Wörterbuch nachschlagen“), je Wörterbuch die ersten Treffer
   async function wcDicts(token) {
-    const { lem, greek, targum } = fmCur; const box = () => host.$('#wcDict');
+    const { lem, greek, targum, syriac, id } = fmCur; const box = () => host.$('#wcDict');
     const done = html => { if (token === wcToken && box()) box().innerHTML = `<h4>${host.esc(I18N.t('Wörterbücher'))}</h4>` + html; };
     if (!lem) return done(`<p class="muted">${host.esc(I18N.t('Kein Eintrag in den Wörterbüchern.'))}</p>`);
     let r = null;
@@ -340,7 +341,13 @@ window.LibraryWordCards = (() => {
         res = res.concat(((levy && levy.results) || []).filter(x => !seen.has(x.dictId + ':' + x.k)));
       } catch { /* übrige Wörterbücher weiterhin zeigen */ }
     }
-    { // die Suche lässt auch Vorsilben weg und nimmt Stichwörter, die mit dem Wort beginnen – für die Wortkarte nur Stichwörter mit genau diesem Schriftbild (falls es welche gibt)
+    if(syriac){
+      // A SEDRA spelling can denote unrelated lexemes. Preview only the chosen entry.
+      if(id)res=res.filter(x=>x.dictId!=='7fab63c14df2'||new RegExp('data-sedra-id="'+id+'"').test(x.html||''));
+      const fold=window.SyriacCards.norm,want=new Set([lem[0],id&&window.SEDRA_DATA.lexemes[id]?.form].filter(Boolean).map(fold));
+      const exact=res.filter(x=>x.dictId==='7fab63c14df2'||String(x.head).split(/[·,;/]/).some(h=>want.has(fold(h))));
+      if(exact.length)res=exact;
+    }else { // die Suche lässt auch Vorsilben weg und nimmt Stichwörter, die mit dem Wort beginnen – für die Wortkarte nur Stichwörter mit genau diesem Schriftbild (falls es welche gibt)
       const cons = greek ? t => window.GMorph.fold(t) : targum ? window.TargumForms.fold : t => String(t).replace(/[^\u05D0-\u05EA]/g, ''), want = cons(lem[0]);
       const exact = res.filter(x => String(x.head).split(/[·,;/]/).some(h => cons(h) === want));
       if (exact.length) res = exact;
@@ -350,7 +357,7 @@ window.LibraryWordCards = (() => {
     const by = new Map(); for (const x of res) { if (!by.has(x.dictId)) by.set(x.dictId, { id: x.dictId, name: x.dict, xs: [] }); by.get(x.dictId).xs.push(x); }
     const hue = id => { let h = 0; for (const c of String(id)) h = (h * 31 + c.charCodeAt(0)) % 360; return h; };
     const snip = h => { const t = String(h).replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ').trim(); return t.length > 190 ? t.slice(0, 190).replace(/\s+\S*$/, '') + ' …' : t; };
-    const entry = x => `<details class="wcDE"><summary><b dir="auto">${host.esc(x.head)}</b> <span class="snip" dir="ltr">${host.heFix(snip(x.html))}</span></summary><div class="dbody" dir="ltr">${host.heFix(/Gesenius/.test(x.dict || '') && window.GAbk ? window.GAbk.mark(x.html) : x.html)}</div></details>`;
+    const entry = x => `<details class="wcDE"><summary><b dir="auto"${syriac?' lang="syr"':''}>${host.esc(x.head)}</b> <span class="snip" dir="ltr">${host.heFix(snip(x.html))}</span></summary><div class="dbody" dir="ltr">${host.heFix(/Gesenius/.test(x.dict || '') && window.GAbk ? window.GAbk.mark(x.html) : x.html)}</div></details>`;
     done([...by.values()].map(d => {
       const pic = host.portraitOf(d.name);
       return `<div class="wcD" style="--dh:${hue(d.id)}"><div class="wcDH"><span>${pic ? `<img class="vpic" src="portraits/${encodeURIComponent(pic.img)}" alt="" data-title="${host.esc(pic.name || '')}" loading="lazy">` : ''}${host.esc(d.name)}</span><button type="button" class="wcDGo" data-id="${host.esc(d.id)}" data-name="${host.esc(d.name)}" title="${host.esc(I18N.t('Im Reiter „Wörterbuch“ öffnen'))}">↗ ${host.esc(I18N.t('Wörterbuch'))}</button></div>${d.xs.slice(0, 3).map(entry).join('')}${d.xs.length > 3 ? `<div class="wcDMore" hidden>${d.xs.slice(3).map(entry).join('')}</div><button type="button" class="fmAll wcDMoreB" data-n="${d.xs.length - 3}">${host.esc(I18N.t('+ {} weitere', d.xs.length - 3))}</button>` : ''}</div>`;
@@ -1029,7 +1036,7 @@ window.LibraryWordCards = (() => {
   host.$('#fmTabs').addEventListener('click', e => { const b = e.target.closest('button[data-t]'); if (!b) return; fmStep(() => { fmShowTab(b.dataset.t); if (fmTab === 'forms') { const c = host.$('#fmBody .fmF.cur'); if (c) c.scrollIntoView({ block: 'center' }); } else host.$('#formsPanel').scrollTop = 0; }); });
   host.$('#wcBody').addEventListener('click', e => {
     if (!fmCur) return;
-    if(fmCur.syriac){const b=e.target.closest('[data-sid],[data-family-id]');if(b){const id=b.dataset.sid||b.dataset.familyId,query=b.dataset.familyId?window.SEDRA_DATA.lexemes[id].form:fmCur.query;openSForms(query,{id},'card');}return;}
+    if(fmCur.syriac){const b=e.target.closest('[data-sid],[data-family-id]');if(b){const id=b.dataset.sid||b.dataset.familyId,query=b.dataset.familyId?window.SEDRA_DATA.lexemes[id].form:fmCur.query;openSForms(query,{id},'card');return;}if(!e.target.closest('#wcDict'))return;}
 
     const src = e.target.closest('.dbody .dsrc[data-sref]'); // Stellenangabe im aufgeklappten Wörterbuchartikel
     if (src) { e.preventDefault(); host.hovApi && host.hovApi.hide(); host.jumpTo(src.dataset.sref, host.BG(e)); return; }
@@ -1056,7 +1063,7 @@ window.LibraryWordCards = (() => {
     const tr = e.target.closest('.wcTrR.can[data-g]'); if (tr && !e.target.closest('a')) { wcTrRefs(tr.dataset.g); return; }
     const hl = e.target.closest('.wcHL[data-hl]'); if (hl) { openForms(hl.dataset.hl, null, 'card'); return; }
     const go = e.target.closest('.wcLink[data-go]'); if (go) { fmStep(() => { fmShowTab(go.dataset.go); host.$('#formsPanel').scrollTop = 0; }); return; }
-    const dg = e.target.closest('.wcDGo'); if (dg) { const q = fmCur.lem[0], only = { id: dg.dataset.id, name: dg.dataset.name }; closeForms(); host.showTab('dict'); host.dictLookup(q, only); return; }
+    const dg = e.target.closest('.wcDGo'); if (dg) { const q = fmCur.lem[0], only = { id: dg.dataset.id, name: dg.dataset.name }; closeForms(); host.showTab('dict'); host.dictLookup(q, only, false, fmCur.syriac ? fmCur.id : undefined); return; }
     const bar = e.target.closest('.wcBar, .wcTop a[data-b]'); if (bar) { wcBookRefs(host.$('#wcBookRefs').dataset.b === bar.dataset.b ? null : bar.dataset.b); return; }
     const chip = e.target.closest('.wcForms .fmF'); if (chip) { wcFormRefs(chip.classList.contains('sel') ? null : chip); }
   });

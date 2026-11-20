@@ -10,7 +10,7 @@ module.exports=async({js,waitFor,book})=>{
  await js("if(!document.querySelector('#formsPanel .pinB').classList.contains('on'))document.querySelector('#formsPanel .pinB').click()");
  await dbl('#rOut .cell[data-mt] .w');
  await waitFor("!document.querySelector('#formsPanel').hidden&&document.querySelector('#formsPanel').classList.contains('docked')",'Erneuter Doppelklick hält die angepinnte Wortkarte offen');
- assert.deepEqual(await js("[...document.querySelectorAll('#dockTabs [data-panel]')].map(b=>b.dataset.panel)"),['cmt','forms','all','outline','topic','link','textcrit','map','dict']);
+ assert.deepEqual(await js("[...document.querySelectorAll('#dockTabs [data-panel]')].map(b=>b.dataset.panel)"),['cmt','forms','all','outline','dict','topic','link','textcrit','map']);
  await js("{const span=document.createElement('span');span.id='doubleClickPlainWord';span.textContent='DictionaryFallback';document.querySelector('#rOut').append(span);}");
  await dbl('#doubleClickPlainWord');
  await waitFor("!document.querySelector('#dictPanel').hidden&&document.querySelector('#dictQ').value==='DictionaryFallback'",'Ohne Wortkarte öffnet Doppelklick das Wörterbuch');

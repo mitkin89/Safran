@@ -2,6 +2,10 @@
 
 ### Unreleased
 
+- Place Dictionary directly after Outline in the study toolbar.
+
+- Add dictionary article previews to Syriac word cards, using the selected dictionaries and preserving the chosen SEDRA lexeme when opening a full article.
+
 - Preserve the selected Syriac lexeme when opening the dictionary from its word card; show that entry first and retain its identity in dictionary history and tabs.
 
 - **Word-card first navigation:** swap Word Card and Dictionary in the study toolbar. Double-click opens an available card for the current text source, otherwise the dictionary; repeated double-clicks keep pinned tools open.

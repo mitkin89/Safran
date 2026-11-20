@@ -48,6 +48,9 @@ module.exports=async({profile,docs,win,js,waitFor,book})=>{
  await js("document.querySelector('#wpop .sy-card').click()");
  await waitFor("document.querySelector('#wcBody .sc-card[data-sedra-id=\"3019\"]')",'Syrische Wortkarte mit eigenständigem SEDRA-Lexem');
  assert(await js("document.querySelector('#wcBody .sc-card').textContent.includes('beginning')&&document.querySelectorAll('#wcBody [data-family-id]').length>1"),'Bedeutung und ausdrücklich belegte Wortfamilie');
+ await waitFor("document.querySelector('#wcDict .sedra-entry[data-sedra-id=\"3019\"]')&&document.querySelector('#wcDict').textContent.includes('Another Syriac dictionary')",'Syrische Wortkarte zeigt Vorschauen aus allen ausgewählten Wörterbüchern');
+ await js("document.querySelector('#wcDict .wcDE').open=true");
+ assert(await js("document.querySelector('#wcDict .wcDE[open] .dbody')"),'Artikelvorschau lässt sich aufklappen');
  await win.webContents.capturePage().then(i=>fs.writeFileSync('/tmp/safran-syriac-word-card.png',i.toPNG()));
  await js("document.querySelector('#fmTabs [data-t=forms]').click()");
  await waitFor("!document.querySelector('#fmBody').hidden&&document.querySelector('#fmBody .sc-forms [data-sedra-word]')",'SEDRA-Formenübersicht');
@@ -182,7 +185,13 @@ module.exports=async({profile,docs,win,js,waitFor,book})=>{
  for(const id of ['470','467']){
   await js(`document.querySelector('#wcBody [data-sid="${id}"]').click()`);
   await waitFor(`document.querySelector('#fmHead .wdict')?.dataset.sedraId==='${id}'`,'Lookup carries selected SEDRA identity');
-  await js("document.querySelector('#fmHead .wdict').click()");
+  await waitFor(`document.querySelector('#wcDict .sedra-entry[data-sedra-id="${id}"]')`,'Vorschau folgt dem ausgewählten Homonym');
+  assert.equal(await js("document.querySelectorAll('#wcDict .sedra-entry').length"),1,'Andere SEDRA-Homonyme werden nicht als gewähltes Lexem dargestellt');
+  if(id==='470'){
+   await js("document.querySelector('#formsPanel').scrollTop=document.querySelector('#formsPanel').scrollHeight;new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))");
+   await win.webContents.capturePage().then(i=>fs.writeFileSync('/tmp/safran-syriac-dictionary-preview.png',i.toPNG()));
+   await js("document.querySelector('#wcDict .wcDGo').click()");
+  }else await js("document.querySelector('#fmHead .wdict').click()");
   await waitFor(`!document.querySelector('#dictPanel').hidden&&document.querySelector('#dictOut .sedra-entry')?.dataset.sedraId==='${id}'`,'Chosen homonym appears first in dictionary');
   assert(await js("!!document.querySelector('#dictOut .sedra-entry[data-sedra-id=\"460\"]')&&!!document.querySelector('#dictOut .sedra-entry[data-sedra-id=\"470\"]')&&!!document.querySelector('#dictOut .sedra-entry[data-sedra-id=\"467\"]')"),'Other homonyms remain available');
   if(id==='470')await js("document.querySelector('#dockTabs [data-panel=forms]').click()");
