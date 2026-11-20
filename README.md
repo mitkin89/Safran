@@ -172,7 +172,7 @@ Krauss's ***Talmudische Archäologie*** (vols. I–III, Leipzig 1910–1912) its
   <sub>Dictionary tab: one search across all dictionaries, here answered by Hamburger and Jastrow, with recent searches on the left and favourites on the right.</sub>
 </p>
 
-- **Smart lookup:** vowel points and final-letter forms are ignored, entries that start with your word are listed too, and the “Remove first letter” button lets you shorten a query explicitly. Suggestions appear while typing.
+- **Smart lookup:** vowel points and final-letter forms are ignored, complete headwords are matched by default. Use `*` for word beginnings (for example `שיח*`); the “Remove first letter” button lets you shorten a query explicitly. Suggestions appear while typing.
 - **Full text:** tick *also in text* (*auch im Text*) to search inside the articles, not only the headwords. Hits are highlighted. Phrases in quotation marks and the wildcards `*` and `?` work too.
 - **From the text and back:** a word looked up from the text shows where it came from (*from Genesis 25:8*); a click returns to the verse.
 - **Choose dictionaries:** the 📚 button selects which dictionaries are searched. The choice is remembered.

@@ -7,6 +7,7 @@ module.exports=async function setup({profile}){
   const service=new Dictionaries(path.join(profile,'dictionary-fixture'));
   const make=name=>Buffer.from(`#NAME "${name}"\n#INDEX_LANGUAGE "Hebrew"\n\nאב\n\t[m1]Vatertext <<בית>> {{ref:Exodus 1:1}}Exodus 1:1{{/ref}}[/m]\nבית\n\t[m1]Haustext[/m]\n`);
   const a=await service.add(make('UI Lexikon A'),'a.dsl'),b=await service.add(make('UI Lexikon B'),'b.dsl'),requests=[];
+  {const {idx,bytes,...data}=await service.load(a.id);data.html[0]+=' '+require('../../gabk').mark('vgl.');await require('fs/promises').writeFile(service.file(a.id),JSON.stringify(data));service.cache.delete(a.id);}
   const handle=(channel,fn)=>{ipcMain.removeHandler(channel);ipcMain.handle(channel,fn);};
   handle('dict:list',async()=>({list:await service.list()}));
   handle('dict:lookup',async(_e,q,only,full)=>{requests.push({q,only,full});return {results:await service.search(q,{only,full})};});
@@ -59,6 +60,14 @@ module.exports=async function setup({profile}){
     await lookup('אב');await article('אב',1);
     await js("document.querySelector('#dictOut .dwk[data-ids]').click()");
     await waitFor("!document.querySelector('#formsPanel').hidden && document.querySelector('#wcBody .wcDGo')",'Wortkarte aus Wörterbuch');
+
+    await waitFor("document.querySelector('#wcDict .wcDE .gab[data-t]')",'Abkürzung in der Wörterbuchvorschau');
+    await js("document.querySelector('#wcDict .wcDE').open=true");
+    assert(await js("parseFloat(getComputedStyle(document.querySelector('#wcDict .dbody')).fontSize)>=16&&parseFloat(getComputedStyle(document.querySelector('#wcDict .snip')).fontSize)>=14"),'Gut lesbare Artikel und Vorschautexte');
+    await js("document.querySelector('#wcDict .gab[data-t]').dispatchEvent(new MouseEvent('mouseover',{bubbles:true}))");
+    await waitFor("document.querySelector('#gabTip')?.hidden===false&&document.querySelector('#gabTip').textContent==='vergleiche'",'Abkürzungserklärung auch innerhalb der Wortkarte');
+    await js("document.querySelector('#wcDict .gab[data-t]').dispatchEvent(new MouseEvent('mouseout',{bubbles:true,relatedTarget:document.body}))");
+    assert(await js("document.querySelector('#gabTip').hidden"),'Abkürzungshinweis verschwindet beim Verlassen');
     await js("document.querySelector('#wcBody .wcDGo').click()");await article('אב',1);
     assert.equal(await js("document.documentElement.dataset.tab"),'dict');
     assert.equal(requests.at(-1).only,a.id);

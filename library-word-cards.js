@@ -347,7 +347,7 @@ window.LibraryWordCards = (() => {
       const fold=window.SyriacCards.norm,want=new Set([lem[0],id&&window.SEDRA_DATA.lexemes[id]?.form].filter(Boolean).map(fold));
       const exact=res.filter(x=>x.dictId==='7fab63c14df2'||String(x.head).split(/[·,;/]/).some(h=>want.has(fold(h))));
       if(exact.length)res=exact;
-    }else { // die Suche findet auch Stichwörter, die mit dem Wort beginnen – für die Wortkarte nur Stichwörter mit genau diesem Schriftbild (falls es welche gibt)
+    }else { // für die Wortkarte nur Stichwörter mit genau diesem Schriftbild (falls es welche gibt)
       const cons = greek ? t => window.GMorph.fold(t) : targum ? window.TargumForms.fold : t => String(t).replace(/[^\u05D0-\u05EA]/g, ''), want = cons(lem[0]);
       const exact = res.filter(x => String(x.head).split(/[·,;/]/).some(h => cons(h) === want));
       if (exact.length) res = exact;

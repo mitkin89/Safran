@@ -404,7 +404,7 @@ class Dictionaries {
     }
     return res.slice(0, limit * 2);
   }
-  // Nachschlagen: genau, dann Wortanfang; die Anfrage wird nicht automatisch gekürzt.
+  // Nachschlagen: vollständiges Stichwort; Wortanfänge nur ausdrücklich mit *.
   async lookup(query, { limit = 40, only = '' } = {}) {
     if (/[*?]/.test(query)) return this.lookupWild(query, { limit, only });
     const q = norm(query);
@@ -415,9 +415,8 @@ class Dictionaries {
       const data = await this.load(d.id);
       const seen = new Set();
       const add = (k, kind, note) => { if (seen.has(k)) return; seen.add(k); res.push({ dict: data.name, dictId: d.id, k, head: data.heads[k].join(' · '), html: data.html[k], kind, note }); };
-      const exact = range(data.idx, q, true), pre = range(data.idx, q, false);
+      const exact = range(data.idx, q, true);
       for (const k of exact) add(k, 'exact', '');
-      for (const k of pre.slice(0, limit)) add(k, 'prefix', '');
     }
     // Reihenfolge der Wörterbücher bleibt maßgeblich; innerhalb eines Wörterbuchs kommen genaue Treffer zuerst
     const rank = new Map(); res.forEach(x => { if (!rank.has(x.dictId)) rank.set(x.dictId, rank.size); });

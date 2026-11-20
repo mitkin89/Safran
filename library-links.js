@@ -454,11 +454,11 @@ window.LibraryLinks = (() => {
       startHov(a, ref, true, true);
     });
     { // Abkürzungen (Gesenius u. a.) und Kurzzitate (Krauss, Talmudische Archäologie): sofortige Erklärung beim Überfahren –
-      // im Wörterbuch, im Lesetext, in geöffneten Fußnoten und im Kommentarbereich
+      // im Wörterbuch, in Wortkarten, im Lesetext, in geöffneten Fußnoten und im Kommentarbereich
       let tip = null;
       const hideTip = () => { if (tip) tip.hidden = true; };
       document.addEventListener('mouseover', e => {
-        const a = e.target.closest && e.target.closest('.gab[data-t]'); if (!a || !a.closest('#dictOut, #rOut, #cmtBody, #lkHover')) return;
+        const a = e.target.closest && e.target.closest('.gab[data-t]'); if (!a || !a.closest('#dictOut, #wcBody, #rOut, #cmtBody, #lkHover')) return;
         if (!tip) { tip = document.createElement('div'); tip.id = 'gabTip'; tip.hidden = true; document.body.appendChild(tip); }
         tip.textContent = a.dataset.t; tip.hidden = false;
         const r = a.getBoundingClientRect(), w = tip.offsetWidth, h = tip.offsetHeight;

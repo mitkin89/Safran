@@ -1374,9 +1374,9 @@ html.split #formsPanel { right: var(--p2w); }
 #wcBody .wcDE { margin: 2px 0; }
 #wcBody .wcDE > summary { cursor: pointer; line-height: 1.45; }
 #wcBody .wcDE > summary b { font-family: "HeDict", var(--he-font); font-size: 17px; font-weight: 600; }
-#wcBody .wcDE > summary .snip { color: color-mix(in srgb, var(--fg) 72%, var(--muted)); font-size: 12.5px; }
+#wcBody .wcDE > summary .snip { color: color-mix(in srgb, var(--fg) 72%, var(--muted)); font-size: 14.5px; }
 #wcBody .wcDE[open] > summary .snip { display: none; }
-#wcBody .wcDE .dbody { margin: 4px 0 8px 14px; font-size: 14px; max-height: 46vh; overflow: auto; padding-inline-end: 6px; font-family: "HeDict", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", sans-serif; }
+#wcBody .wcDE .dbody { margin: 4px 0 8px 14px; font-size: 16px; max-height: 46vh; overflow: auto; padding-inline-end: 6px; font-family: "HeDict", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", sans-serif; }
 #wcBody .wcDMore[hidden] { display: none; }
 #wcBody .wcLx { display: grid; gap: 2px; max-width: 460px; }
 #wcBody .wcLxR { display: grid; grid-template-columns: minmax(90px, 34%) 1fr 44px; align-items: center; gap: 8px; }
