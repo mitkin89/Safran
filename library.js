@@ -2429,7 +2429,7 @@
     getSelection: () => dictSel, setSelection: ids => { dictSel = ids; },
     getSource: () => dictSrc, setDictSrc,
   });
-  function dictLookup(q, only, fromHist) { return dictionaryUI.lookup(q, only, fromHist); }
+  function dictLookup(q, only, fromHist, sedraId) { return dictionaryUI.lookup(q, only, fromHist, '', sedraId); }
   function renderDictList() { return dictionaryUI.renderList(); }
   function renderSaved() { return dictionaryUI.renderSaved(); }
   function dtabAdd() { return dictionaryUI.addTab(); }
@@ -2479,11 +2479,11 @@
     if (dictSrc.row && dictSrc.row.isConnected) { dictSrc.row.scrollIntoView({ block: 'center', behavior: 'smooth' }); dictSrc.row.classList.add('flash'); setTimeout(() => dictSrc && dictSrc.row && dictSrc.row.classList.remove('flash'), 900); }
     else jumpTo(dictSrc.ref, false);
   });
-  async function openDict(q, only = null) {
+  async function openDict(q, only = null, sedraId = null) {
     if (q) setDictSrc(captureDictSrc(q));
     if (!dictOpen) toggleDict(true); else renderDictList();
     setStackActive('dict'); // als Reiter: zum Wörterbuch wechseln, der Kommentar bleibt an seiner Stelle
-    if (q) dictLookup(q, only); else $('#dictQ').focus({ preventScroll: true });
+    if (q) dictLookup(q, only, false, sedraId); else $('#dictQ').focus({ preventScroll: true });
   }
   $('#openDict').onclick = () => { $('#moreMenu').open = false; toggleDict(); };
   $('#dictClose').onclick = () => { if (document.documentElement.dataset.tab === 'dict') showTab('read'); else toggleDict(false); };

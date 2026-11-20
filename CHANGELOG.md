@@ -2,6 +2,8 @@
 
 ### Unreleased
 
+- Preserve the selected Syriac lexeme when opening the dictionary from its word card; show that entry first and retain its identity in dictionary history and tabs.
+
 - **Word-card first navigation:** swap Word Card and Dictionary in the study toolbar. Double-click opens an available card for the current text source, otherwise the dictionary; repeated double-clicks keep pinned tools open.
 
 - **Syriac word origins and Latin input:** add SEDRA etymologies with original source words and identifiers, preserve lexical transliterations, and offer explicit SEDRA IV/CAL/Leiden input with a Syriac preview. Keep input modes in history, tabs and saved searches; respect dictionary selection and reject unsupported characters.

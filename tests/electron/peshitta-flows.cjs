@@ -178,7 +178,22 @@ module.exports=async({profile,docs,win,js,waitFor,book})=>{
  assert(await js("!document.querySelector('#wcBody .sc-family')&&!document.querySelector('#fmBody [data-sedra-word]')"),'Keine stillschweigende Homonymbestimmung');
  await js("document.querySelector('#wcBody [data-sid=\"467\"]').click()");
  await waitFor("document.querySelector('#wcBody .sc-card[data-sedra-id=\"467\"]')",'Gewähltes Homonym steuert Familie und Formen');
- await js("document.querySelector('#fmClose').click()");
+ // A selected homonym must survive the round trip into the shared dictionary.
+ for(const id of ['470','467']){
+  await js(`document.querySelector('#wcBody [data-sid="${id}"]').click()`);
+  await waitFor(`document.querySelector('#fmHead .wdict')?.dataset.sedraId==='${id}'`,'Lookup carries selected SEDRA identity');
+  await js("document.querySelector('#fmHead .wdict').click()");
+  await waitFor(`!document.querySelector('#dictPanel').hidden&&document.querySelector('#dictOut .sedra-entry')?.dataset.sedraId==='${id}'`,'Chosen homonym appears first in dictionary');
+  assert(await js("!!document.querySelector('#dictOut .sedra-entry[data-sedra-id=\"460\"]')&&!!document.querySelector('#dictOut .sedra-entry[data-sedra-id=\"470\"]')&&!!document.querySelector('#dictOut .sedra-entry[data-sedra-id=\"467\"]')"),'Other homonyms remain available');
+  if(id==='470')await js("document.querySelector('#dockTabs [data-panel=forms]').click()");
+ }
+ await js("document.querySelector('#dictBack').click()");
+ await waitFor("document.querySelector('#dictOut .sedra-entry')?.dataset.sedraId==='470'",'Dictionary Back restores chosen homonym with same spelling');
+ await js("document.querySelector('#dictFwd').click()");
+ await waitFor("document.querySelector('#dictOut .sedra-entry')?.dataset.sedraId==='467'",'Dictionary Forward restores another homonym');
+ await js("document.querySelector('#dictGo').click()");
+ await waitFor("document.querySelector('#dictOut .sedra-entry')?.dataset.sedraId==='460'",'Manual spelling search does not inherit a previous homonym');
+ await js("document.querySelector('#dictClose').click()");
  await book('Genesis');
  console.log('Electron: Peschitta RTL, Offline-Schrift, eigene Zählung, Wortbestandteile, englische Morphologie, Wörterbuch und Lücken bestanden.');
 };

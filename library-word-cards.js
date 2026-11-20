@@ -58,7 +58,7 @@ window.LibraryWordCards = (() => {
       const ids=model.lookup(query),id=info.id&&window.SEDRA_DATA.lexemes[info.id]?String(info.id):ids.length===1?ids[0]:null;
       const out=model.render(id,query,host.esc,s=>I18N.t(s));
       fmCur={syriac:true,greek:false,lemma:key,model,id,query};
-      host.$('#fmHead').innerHTML=out.head+`<button type="button" class="wdict" data-q="${host.esc(query)}">${host.esc(I18N.t('Im Wörterbuch nachschlagen'))}</button>`;
+      host.$('#fmHead').innerHTML=out.head+`<button type="button" class="wdict" data-q="${host.esc(query)}"${id?` data-sedra-id="${id}"`:''}>${host.esc(I18N.t('Im Wörterbuch nachschlagen'))}</button>`;
       host.$('#wcBody').innerHTML=out.card;host.$('#fmBody').innerHTML=out.forms;
       if(rest)fmRestBase(rest);else p.scrollTop=0;
     }catch{if(token===wcToken)host.$('#wcBody').innerHTML=host.$('#fmBody').innerHTML=`<p class="muted">${host.esc(I18N.t('SEDRA konnte nicht geladen werden.'))}</p>`;}
@@ -1087,7 +1087,7 @@ window.LibraryWordCards = (() => {
   { let wide = false; try { wide = localStorage.getItem('fmWide') === '1'; } catch { /* egal */ }
     const ap = () => host.$('#formsPanel').classList.toggle('wide', wide); ap();
     host.$('#fmWide').onclick = () => { wide = !wide; const panel=host.$('#formsPanel');panel.classList.remove('panel-sized');ap();window.dispatchEvent(new CustomEvent('study-panel-width',{detail:wide?1040:560}));try { localStorage.removeItem('panelSize:formsPanel');localStorage.setItem('fmWide', wide ? '1' : '0'); } catch { /* egal */ } }; }
-  host.$('#fmHead').addEventListener('click', e => { const hom=e.target.closest('.wcTrHm[data-lem]');if(hom){wcTrLemma(hom.dataset.lem);return;}const b = e.target.closest('.wdict'); if (b) host.openDict(b.dataset.q); });
+  host.$('#fmHead').addEventListener('click', e => { const hom=e.target.closest('.wcTrHm[data-lem]');if(hom){wcTrLemma(hom.dataset.lem);return;}const b = e.target.closest('.wdict'); if (b) host.openDict(b.dataset.q,null,b.dataset.sedraId); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && !host.$('#formsPanel').hidden && !host.$('#formsPanel').classList.contains('docked') && !document.querySelector('dialog[open]')) closeForms(); });
   // Belegstellen einer Form: nach Büchern geordnet, als Zeile unter der Tabellenzeile
   function fmBook(b) { // griechische Bücher in zwei Fassungen tragen ein Kennzeichen: „Judges (B)“, „Daniel (Theodotion)“
