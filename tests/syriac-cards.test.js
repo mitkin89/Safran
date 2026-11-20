@@ -31,3 +31,13 @@ test('Word origin and transliteration preserve recorded lexical data without add
  const missing=Object.entries(D.lexemes).find(([,l])=>!l.etymologies.length);assert(missing);assert(M.render(missing[0],missing[1].form,esc).card.includes('Keine Herkunftsangabe in SEDRA erfasst.'));
  const bracketed=Object.entries(D.lexemes).find(([,l])=>l.etymologies.some(e=>e.bracket==='bracketed'));assert(bracketed);assert(M.render(bracketed[0],bracketed[1].form,esc).card.includes('['));
 });
+
+test('Morphology lookup prefers only a unique recorded form with matching grammatical fields',()=>{
+ const p={form:'ܒܪܐ',sp:'verb',vs:'pe',vt:'pf',ps:'third',gn:'m',nu:'sg',vo:'act'};
+ assert.equal(M.matchAnalysis(p.form,p),'470');
+ assert.equal(M.matchAnalysis(p.form,{...p,sp:'subs',st:'emph'}),null,'outside and son remain ambiguous');
+ assert.equal(M.matchAnalysis(p.form,{...p,vs:'unsupported'}),null);
+ assert.equal(M.matchAnalysis(p.form,{...p,ps:''}),null,'incomplete verbal analysis cannot choose a homonym');
+ assert.equal(M.matchAnalysis('ܫܡܝܐ',p),null,'analysis from another form is rejected');
+ assert.equal(M.matchAnalysis(p.form,null),null);
+});

@@ -911,7 +911,7 @@
     reader: { cache, get view() { return view; }, get dictSel() { return dictSel; } },
     lazyScript: (...args) => wordCardsUI.lazyScript(...args),
     apChap: (...args) => apChap(...args), verseOf: (...args) => linksUI.verseOf(...args),
-    loadIL: (...args) => loadIL(...args), openDict, canOpenCard:(...args)=>wordCardsUI.canOpenCard(...args),
+    loadIL: (...args) => loadIL(...args), openDict, matchSyriacAnalysis:(...args)=>wordCardsUI.matchSyriacAnalysis(...args), canOpenCard:(...args)=>wordCardsUI.canOpenCard(...args),
     loadForms: (...args) => wordCardsUI.loadForms(...args), openSForms: (...args) => wordCardsUI.openSForms(...args), openForms: (...args) => wordCardsUI.openForms(...args), openGForms: (...args) => wordCardsUI.openGForms(...args), openTForms: (...args) => wordCardsUI.openTForms(...args),
     gSearchAll: (...args) => wordCardsUI.gSearchAll(...args), jumpTo,
   });

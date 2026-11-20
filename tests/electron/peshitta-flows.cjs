@@ -117,7 +117,9 @@ module.exports=async({profile,docs,win,js,waitFor,book})=>{
  await waitFor("document.querySelector('#dictInputScheme').value===''&&!document.querySelector('#dictPanel').hidden",'Programmgesteuerte Originalschrift setzt den Eingabemodus zurück');
 
  await js("document.querySelector('#dictClose').click();document.querySelector('#fmClose').click();document.querySelector('#wpop .wx')?.click()");
- await js("document.querySelector('#rOut .syw[data-si=\"16\"]').scrollIntoView({block:'center'});document.querySelector('#rOut .syw[data-si=\"16\"]').click()");
+ await js("document.querySelector('#rOut .syw[data-si=\"16\"]').scrollIntoView({block:'center'})");
+ await js('new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))');
+ await js("document.querySelector('#rOut .syw[data-si=\"16\"]').click()");
  await waitFor("document.querySelectorAll('#wpop .wseg.main').length===3",'Konjunktion, Hauptwort und Suffix bleiben analysiert');
  assert(await js("document.querySelector('#wpop .wdict').dataset.q==='ܪܘܚ'&&document.querySelector('#wpop .sy-details').open"),'Bei angehängtem Pronomen wird das Hauptwort gesucht, nicht der Buchstabe He');
  await js('new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))');
@@ -137,7 +139,9 @@ module.exports=async({profile,docs,win,js,waitFor,book})=>{
  assert.equal(await js("document.querySelector('.ilt.il-ps .ps-translit').textContent"),'ברשית');
  assert(await js("document.querySelector('.ps-notice').textContent.includes('automatic proposals')"));
  await js("document.querySelector('#ilBtn').click()");
- await js("document.querySelector('.ilt.il-ps .syw').scrollIntoView({block:'center'});document.querySelector('.ilt.il-ps .syw').click()");
+ await js("document.querySelector('.ilt.il-ps .syw').scrollIntoView({block:'center'})");
+ await js('new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))');
+ await js("document.querySelector('.ilt.il-ps .syw').click()");
  await waitFor("document.querySelectorAll('#wpop.syriac-word .wseg.main').length===2",'Morphologie aus der Peschitta-Interlinearzeile');
  await win.webContents.capturePage().then(i=>fs.writeFileSync('/tmp/safran-peshitta-alignment.png',i.toPNG()));
  await js("document.querySelector('#wpop .wx').click()");
@@ -174,8 +178,14 @@ module.exports=async({profile,docs,win,js,waitFor,book})=>{
  assert(await js("document.querySelectorAll('#wpop .wdict').length===1&&document.querySelector('#wpop .wdict').dataset.q===document.querySelector('#wpop .wword').textContent"),'Ohne Morphologie wird nur die belegte Wortform gesucht');
  await js("document.querySelector('#wpop .wx').click()");
  await select('Genesis');
- await js("document.querySelector('#rOut .syw[data-si=\"2\"]').scrollIntoView({block:'center'});document.querySelector('#rOut .syw[data-si=\"2\"]').click()");
+ await js("document.querySelector('#rOut .syw[data-si=\"2\"]').scrollIntoView({block:'center'})");
+ await js('new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))');
+ await js("document.querySelector('#rOut .syw[data-si=\"2\"]').click()");
  await waitFor("document.querySelector('#wpop .sy-card')",'Mehrdeutiges syrisches Wort');
+ await js("document.querySelector('#wpop .wdict').click()");
+ await waitFor("!document.querySelector('#dictPanel').hidden&&document.querySelector('#dictOut .sedra-entry')?.dataset.sedraId==='470'",'Wortanalyse öffnet das Verb create statt des gleich geschriebenen Nomens outside');
+ assert(await js("!!document.querySelector('#dictOut .sedra-entry[data-sedra-id=\"460\"]')"),'Andere Wörterbuchtreffer bleiben erreichbar');
+ await js("document.querySelector('#dictClose').click();document.querySelector('#wpop .wx')?.click()");
  await js("{const w=document.querySelector('#rOut .syw[data-si=\"2\"]'),r=document.createRange();r.selectNodeContents(w);window.getSelection().removeAllRanges();window.getSelection().addRange(r);w.dispatchEvent(new MouseEvent('dblclick',{bubbles:true,cancelable:true,detail:2}));}");
  await waitFor("document.querySelector('#wcBody [data-sid=\"467\"]')&&document.querySelector('#wcBody [data-sid=\"470\"]')",'Gleich geschriebene SEDRA-Lexeme bleiben zur Auswahl getrennt');
  assert(await js("!document.querySelector('#wcBody .sc-family')&&!document.querySelector('#fmBody [data-sedra-word]')"),'Keine stillschweigende Homonymbestimmung');

@@ -1146,6 +1146,7 @@ window.LibraryWordCards = (() => {
       get lazyScript() { return lazyScript; },
       get loadForms() { return loadForms; },
       get loadTForms() { return loadTForms; },
+      async matchSyriacAnalysis(query,part){if(!part)return null;try{return (await loadSyriacCards()).matchAnalysis(query,part);}catch{return null;}},
       get canOpenCard(){return canOpenCard;},
       get openTextCard(){return openTextCard;},
       get openSForms() { return openSForms; },

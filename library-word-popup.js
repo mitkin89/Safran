@@ -2,7 +2,7 @@
 window.LibraryWordPopup = (() => {
   'use strict';
   function create({ $, $$, esc, O, reader, lazyScript, apChap, verseOf, loadIL,
-    openDict, canOpenCard, loadForms, openSForms, openForms, openGForms, openTForms, gSearchAll, jumpTo }) {
+    openDict, matchSyriacAnalysis, canOpenCard, loadForms, openSForms, openForms, openGForms, openTForms, gSearchAll, jumpTo }) {
   // OSHB-Texte: Klick auf ein Wort zeigt Lemma, Stamm, Zeit und Form; „Im Wörterbuch“ schlägt das Lemma nach
   let wpop = null;
   const closeWpop = () => { gTok++; if (wpop) { wpop.remove(); wpop = null; } $$('#rOut .syw.sel, #rOut .w.sel, #rOut .wt.sel, #rOut .wq.sel, #rOut .wg.sel, #bavliInterlinear .bil-heword.sel').forEach(x => x.classList.remove('sel')); gSel = null; try { CSS.highlights.delete('gsel'); } catch { /* ältere Engine */ } };
@@ -113,7 +113,7 @@ window.LibraryWordPopup = (() => {
     const details=`<details class="sy-details" open><summary>${esc(t('Quelle und Wortanalyse'))}</summary>${translit}${analyses}${source}</details>`;
     const buttons=`<button class="wdict" data-q="${esc(query)}">${esc(t('Im Wörterbuch nachschlagen'))}</button><button type="button" class="wforms sy-card">${esc(t('Wortkarte'))}</button>`;
     w.classList.add('sel');gSel={cell,i:w.dataset.si};
-    const place=showGreekUnit(null,{rows:rows+details,buttons,word:w.textContent,at:w,lang:'syr',dir:'rtl',on:ev=>{if(!ev.target.closest('.sy-card'))return false;closeWpop();openSForms(query);return true;}});
+    const place=showGreekUnit(null,{rows:rows+details,buttons,word:w.textContent,at:w,lang:'syr',dir:'rtl',on:ev=>{const dict=ev.target.closest('.wdict');if(dict){const pop=wpop,token=gTok;Promise.resolve(matchSyriacAnalysis(query,main)).then(id=>{if(wpop===pop&&token===gTok&&w.isConnected)openDict(query,null,id);});return true;}if(!ev.target.closest('.sy-card'))return false;closeWpop();openSForms(query);return true;}});
     wpop.classList.add('syriac-word');
     const pop=wpop;place();
     pop.addEventListener('toggle',()=>{if(wpop===pop)place();},true);
