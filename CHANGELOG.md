@@ -1,8 +1,14 @@
 # Changelog
 
-### Unreleased
+### New in 2.7.1
 
-- Stop automatic dictionary prefix stripping, which could turn שמיא into יא and return unrelated entries. Keep exact and word-start matches; shortening remains an explicit action.
+- Enlarge dictionary previews and expanded articles in word cards, and show abbreviation hover explanations there as in the dictionary pane.
+
+- Match complete dictionary headwords by default: שיח no longer returns שיחור. Keep homonyms and vowel-insensitive matching; use an explicit * for word beginnings.
+
+- The Syriac morphology popup carries a unique recorded-form and grammar match into dictionary lookup, so the create verb opens before unrelated spelling homonyms; incomplete and ambiguous analyses remain unselected.
+
+- Stop automatic dictionary prefix stripping, which could turn שמיא into יא and return unrelated entries. Keep complete headword matches; shortening and word-start searches remain explicit actions.
 
 - Place Dictionary directly after Outline in the study toolbar.
 
@@ -10,7 +16,7 @@
 
 - Preserve the selected Syriac lexeme when opening the dictionary from its word card; show that entry first and retain its identity in dictionary history and tabs.
 
-- **Word-card first navigation:** swap Word Card and Dictionary in the study toolbar. Double-click opens an available card for the current text source, otherwise the dictionary; repeated double-clicks keep pinned tools open.
+- **Word-card first navigation:** put Word Card after Comments and Dictionary after Outline in the study toolbar. Double-click opens an available card for the current text source, otherwise the dictionary; repeated double-clicks keep pinned tools open.
 
 - **Syriac word origins and Latin input:** add SEDRA etymologies with original source words and identifiers, preserve lexical transliterations, and offer explicit SEDRA IV/CAL/Leiden input with a Syriac preview. Keep input modes in history, tabs and saved searches; respect dictionary selection and reject unsupported characters.
 
