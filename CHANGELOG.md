@@ -2,6 +2,8 @@
 
 ### Unreleased
 
+- Stop automatic dictionary prefix stripping, which could turn שמיא into יא and return unrelated entries. Keep exact and word-start matches; shortening remains an explicit action.
+
 - Place Dictionary directly after Outline in the study toolbar.
 
 - Add dictionary article previews to Syriac word cards, using the selected dictionaries and preserving the chosen SEDRA lexeme when opening a full article.

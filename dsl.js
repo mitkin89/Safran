@@ -404,29 +404,20 @@ class Dictionaries {
     }
     return res.slice(0, limit * 2);
   }
-  // Nachschlagen: genau, dann Wortanfang, dann ohne hebräische Vorsilben (ה ו ב כ ל מ ש)
+  // Nachschlagen: genau, dann Wortanfang; die Anfrage wird nicht automatisch gekürzt.
   async lookup(query, { limit = 40, only = '' } = {}) {
     if (/[*?]/.test(query)) return this.lookupWild(query, { limit, only });
     const q = norm(query);
     if (!q) return [];
     const res = [];
-    const prefixes = ['ו', 'ה', 'ב', 'כ', 'ל', 'מ', 'ש'];
-    const variants = [{ q, note: '' }];
-    for (let k = 1; k <= 2 && k < q.length - 1; k++) {
-      const head = q.slice(0, k);
-      if ([...head].every(c => prefixes.includes(c))) variants.push({ q: q.slice(k), note: `ohne Vorsilbe „${head}“` });
-    }
     for (const d of (await this.list())) {
       if (!allowed(only, d.id)) continue;
       const data = await this.load(d.id);
       const seen = new Set();
       const add = (k, kind, note) => { if (seen.has(k)) return; seen.add(k); res.push({ dict: data.name, dictId: d.id, k, head: data.heads[k].join(' · '), html: data.html[k], kind, note }); };
-      for (const v of variants) {
-        const exact = range(data.idx, v.q, true), pre = range(data.idx, v.q, false);
-        for (const k of exact) add(k, 'exact', v.note);
-        if (exact.length === 0 || v === variants[0]) for (const k of pre.slice(0, limit)) add(k, 'prefix', v.note);
-        if (exact.length) break;
-      }
+      const exact = range(data.idx, q, true), pre = range(data.idx, q, false);
+      for (const k of exact) add(k, 'exact', '');
+      for (const k of pre.slice(0, limit)) add(k, 'prefix', '');
     }
     // Reihenfolge der Wörterbücher bleibt maßgeblich; innerhalb eines Wörterbuchs kommen genaue Treffer zuerst
     const rank = new Map(); res.forEach(x => { if (!rank.has(x.dictId)) rank.set(x.dictId, rank.size); });
