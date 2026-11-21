@@ -40,7 +40,7 @@ window.LibraryInterlinear = (() => {
         const marks = new Map(); // Wort, das zu einer nicht zusammenhängenden Gruppe gehört -> Wörter der Gruppe
         memberOf.forEach((L, i) => { if (!(i > L && i <= run.get(L))) marks.set(i, [...new Set(lead.get(L).flatMap(x => x[2]))]); });
         // Qumran: Wörter der Rolle ohne Gegenstück (Plus) hängen am vorigen zugeordneten Wort (am Anfang: am ersten)
-        if (sig) segs.forEach(([idx, t, kind, meta], k) => { if (idx.length) return; let j = k - 1; while (j >= 0 && !segs[j][0].length) j--; let L = meta?.boundary!=null ? Math.max(1,meta.boundary) : j >= 0 ? Math.min(...segs[j][0]) : null; if (L == null) { const nx = segs.find(x => x[0].length); L = nx ? Math.min(...nx[0]) : null; } if (L != null) (lead.get(L) || lead.set(L, []).get(L)).push([k, t, [], kind, meta]); });
+        segs.forEach(([idx, t, kind, meta], k) => { if (idx.length || !(sig || meta?.kind === 'addition')) return; let j = k - 1; while (j >= 0 && !segs[j][0].length) j--; let L = meta?.boundary!=null ? Math.max(1,meta.boundary) : j >= 0 ? Math.min(...segs[j][0]) : null; if (L == null) { const nx = segs.find(x => x[0].length); L = nx ? Math.min(...nx[0]) : null; } if (L != null) (lead.get(L) || lead.set(L, []).get(L)).push([k, t, [], kind, meta]); });
         return { name, lead, marks, sig, shown: false };
       });
       const units = new Map(); // Anfang -> Ende
@@ -52,7 +52,10 @@ window.LibraryInterlinear = (() => {
           const line = mk('ilt'); line.dataset.tr = name; line.dataset.i = order.indexOf(name) + 1; line.title = (IL_LABEL[name] || name) + (sig ? ' · ' + sig : ''); if(name==='Peshitta'){line.lang='syr';line.dir='rtl';line.classList.add('il-ps');} else if(name==='Samaritan'){line.lang='he';line.dir='rtl';line.classList.add('il-smr');} else if (name === 'LXX') line.lang = 'grc'; else if (IL_TG[name]) { line.lang = 'arc'; line.dir = 'rtl'; } else if (sig) { line.lang = 'he'; line.dir = 'rtl'; line.classList.add('ilq'); }
           const parts = []; for (let L = st; L <= en; L++) (lead.get(L) || []).forEach(x => parts.push(x));
           if (sig && name !== 'Samaritan' && parts.length && !inf.shown) { inf.shown = true; line.append(mk('ilsig', sig)); } // Sigel der Rolle beim ersten erhaltenen Wort des Verses
-          parts.sort((x, y) => x[0] - y[0]).forEach(([k, t, idx, kind, meta], j) => { if (j) line.append(k === parts[j - 1][0] + 1 ? ' ' : ' … '); const e = mk('ils', ['Samaritan','Peshitta'].includes(name)?null:t, idx.length ? idx : null); if(name==='Samaritan'){e.innerHTML=window.SamaritanInterlinear.wordHtml(t,meta,esc);if(idx.length)e.classList.add('ilx');} if(name==='Peshitta'){e.innerHTML=window.PeshittaAlignment.wordHtml(t,meta,esc);if(idx.length)e.classList.add('ilx');e.dataset.mtRef=meta.mtRef;e.title=I18N.t(meta.reviewed?(meta.reviewedBy==='Claude'?'Am Text geprüft (Claude)':'Am Text geprüft (Codex)'):'Automatischer Zuordnungsvorschlag, nicht manuell geprüft')+' · '+(meta.origin==='patracosy'?'PaTraCoSy':'Onkelos');} if (kind != null) { e.classList.add('ilq' + kind); e.title = I18N.t(IL_QK[kind]) + (kind !== 3 && /[\[\]]/.test(t) ? ' · enthält von den Herausgebern ergänzte Buchstaben' : ''); } line.append(e); });
+          const sorted = parts.sort((x, y) => x[0] - y[0]), runEnd = new Map(); // lange Zusätze (ab 4 Wörtern) eingeklappt
+          for (let j = 0; j < sorted.length; ) { if (sorted[j][4]?.kind !== 'addition') { j++; continue; } let e = j; while (e + 1 < sorted.length && sorted[e + 1][4]?.kind === 'addition' && sorted[e + 1][0] === sorted[e][0] + 1) e++; if (e - j >= 3) runEnd.set(j, e); j = e + 1; }
+          let tgt = line, openEnd = -1;
+          sorted.forEach(([k, t, idx, kind, meta], j) => { if (runEnd.has(j)) { const d = document.createElement('details'), su = document.createElement('summary'); d.className = 'il-plusrun'; su.textContent = '+' + (runEnd.get(j) - j + 1); su.title = I18N.t('Zusatz gegenüber dem MT'); d.append(su); if (j) line.append(' '); line.append(d); tgt = d; openEnd = runEnd.get(j); } if (j && !runEnd.has(j)) tgt.append(k === parts[j - 1][0] + 1 ? ' ' : ' … '); const e = mk('ils', ['Samaritan','Peshitta'].includes(name)?null:t, idx.length ? idx : null); if(name==='Samaritan'){e.innerHTML=window.SamaritanInterlinear.wordHtml(t,meta,esc);if(idx.length)e.classList.add('ilx');} if(name==='Peshitta'&&meta?.kind!=='missing'){e.innerHTML=window.PeshittaAlignment.wordHtml(t,meta,esc);if(idx.length)e.classList.add('ilx');e.dataset.mtRef=meta.mtRef;e.title=I18N.t(meta.reviewed?(meta.reviewedBy==='Claude'?'Am Text geprüft (Claude)':'Am Text geprüft (Codex)'):'Automatischer Zuordnungsvorschlag, nicht manuell geprüft')+' · '+(meta.origin==='patracosy'?'PaTraCoSy':'Onkelos');} if (kind != null) { e.classList.add('ilq' + kind); e.title = I18N.t(IL_QK[kind]) + (kind !== 3 && /[\[\]]/.test(t) ? ' · enthält von den Herausgebern ergänzte Buchstaben' : ''); } if (meta?.kind === 'addition' && name !== 'Samaritan') { e.classList.add('il-plus'); e.title = I18N.t('Zusatz gegenüber dem MT') + (e.title ? ' · ' + e.title : ''); } else if (meta?.kind === 'missing' && name !== 'Samaritan') { e.className = 'ils il-minus'; e.textContent = '—'; e.title = I18N.t('Im MT vorhanden, in dieser Fassung ohne Wiedergabe'); } tgt.append(e);  if (j === openEnd) { tgt = line; openEnd = -1; } });
           if (!parts.length) for (let i = st; i <= en; i++) if (marks.has(i)) { line.append(mk('ils ilm', '…', marks.get(i))); break; }
           return line;
         });
@@ -225,10 +228,15 @@ window.LibraryInterlinear = (() => {
     function psRows(ps,ref,cell){
       return ps.data?window.PeshittaAlignment.segments(ps.data,ref,cell,ps.doc):null;
     }
+    // Interlinear: Peschitta-Wörter ohne Gegenstück erscheinen als Zusatz, MT-Wörter ohne Wiedergabe als „—“ (das Akkusativzeichen את ausgenommen).
+    function psIlRows(ps,ref,cell){
+      const rows=psRows(ps,ref,cell);if(!rows)return [];
+      const used=new Set(rows.flatMap(r=>r[0])),out=rows.map(r=>r[0].length?r:[r[0],r[1],r[2],{...r[3],kind:'addition'}]);
+      [...cell.querySelectorAll('.w')].forEach((w,i)=>{const c=consOf(w.textContent);if(!used.has(i+1)&&c!=='את'&&c!=='ואת')out.push([[i+1],'—',null,{kind:'missing'}]);});
+      return out;
+    }
     function psUnlinked(ps,ref,cell){
-      const rows=psRows(ps,ref,cell);
-      if(!rows){cell.insertAdjacentHTML('beforeend',`<div class="ps-unlinked muted">${esc(I18N.t('Peschitta: Für diesen Vers liegt keine passende Wortzuordnung vor.'))}</div>`);return;}
-      const rest=rows.filter(r=>!r[0].length);if(rest.length)cell.insertAdjacentHTML('beforeend',`<div class="ps-unlinked"><small>${esc(I18N.t('Peschitta · ohne Zuordnung'))}</small> ${rest.map(r=>window.PeshittaAlignment.wordHtml(r[1],r[3],esc)).join(' ')}</div>`);
+      if(!psRows(ps,ref,cell))cell.insertAdjacentHTML('beforeend',`<div class="ps-unlinked muted">${esc(I18N.t('Peschitta: Für diesen Vers liegt keine passende Wortzuordnung vor.'))}</div>`);
     }
     function smrRows(data,ref,cell){
       if(!data||!window.SamaritanInterlinear.matches(data,ref,[...cell.querySelectorAll('.w')].map(w=>w.textContent)))return [];
@@ -315,7 +323,7 @@ window.LibraryInterlinear = (() => {
           const owner = getView().loaded.find(d => d.entry.rel === cell.dataset.rel);
           if (!owner || !/^Westminster/.test(owner.entry.versionTitle || '')) return;
           const tgv = nm => { const d = tgd[nm], ch = d && d.text[+chap - 1]; return ch ? tgSegs(TG, nm, title, chap, v, tgPlain(ch[v - 1])) : null; };
-          const trs = use.flatMap(nm => nm === 'Peshitta' ? [['Peshitta',(psRows(ps,chap+':'+v,cell)||[]).filter(r=>r[0].length)]] : nm === 'Samaritan' ? smrRows(smr.data,title+' '+chap+':'+v,cell) : nm === 'Qumran' ? ((QIL[title] || {})[chap + ':' + v] || []).map(([sig, segs]) => [nm, segs, sig]) : [[nm, nm === 'LXX' ? (lx && lx.text[+chap - 1] ? ilLxxSegs(cell, lx.text[+chap - 1][v - 1]) : null) : IL_TG[nm] ? tgv(nm) : ALL[nm][title][chap + ':' + v]]]).filter(x => x[1] && x[1].length);
+          const trs = use.flatMap(nm => nm === 'Peshitta' ? [['Peshitta',psIlRows(ps,chap+':'+v,cell)]] : nm === 'Samaritan' ? smrRows(smr.data,title+' '+chap+':'+v,cell) : nm === 'Qumran' ? ((QIL[title] || {})[chap + ':' + v] || []).map(([sig, segs]) => [nm, segs, sig]) : [[nm, nm === 'LXX' ? (lx && lx.text[+chap - 1] ? ilLxxSegs(cell, lx.text[+chap - 1][v - 1]) : null) : IL_TG[nm] ? tgv(nm) : ALL[nm][title][chap + ':' + v]]]).filter(x => x[1] && x[1].length);
           if (trs.length) ilVerse(cell, trs, IL_ORDER);
           if(use.includes('Peshitta'))psUnlinked(ps,chap+':'+v,cell);
           if(use.includes('Samaritan'))smrOpen(smr.data,title+' '+chap+':'+v,cell);
@@ -348,7 +356,7 @@ window.LibraryInterlinear = (() => {
         if (!/^\d+$/.test(chap) || v == null) return html;
         const cell = document.createElement('div'); cell.innerHTML = html;
         const trs = picks.flatMap(n => {
-          if (n === 'Peshitta') return [['Peshitta',(psRows(ps,chap+':'+v,cell)||[]).filter(r=>r[0].length)]];
+          if (n === 'Peshitta') return [['Peshitta',psIlRows(ps,chap+':'+v,cell)]];
           if (n === 'Samaritan') return smrRows(smr.data,title+' '+chap+':'+v,cell);
           if (n === 'Qumran') return ((QIL?.[title] || {})[chap + ':' + v] || []).map(([sig, segs]) => [n, segs, sig]);
           let segs;

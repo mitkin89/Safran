@@ -822,11 +822,11 @@
   }
   // Griechische Wortgruppen eines Verses den Westminster-Wörtern zuordnen (nach Konsonanten, der Reihe nach) -> [[Wortnummern], Griechisch]
   const ilTpl = document.createElement('template');
-  function ilLxxIndices(words, groups) {
+  function ilLxxIndices(words, groups, withEmpty = false) {
     const cons = words.map(consOf), out = new Map(); let p = 0;
     for (const g of groups) {
-      if (g.classList.contains('wm')) continue;
-      const want = consOf(g.dataset.h || ''); if (!want || !g.textContent.trim()) continue;
+      if (!withEmpty && g.classList.contains('wm')) continue;
+      const want = consOf(g.dataset.h || ''); if (!want || (!withEmpty && !g.textContent.trim())) continue;
       let hit = null;
       for (let i = p; i < Math.min(cons.length, p + 8) && !hit; i++) {
         let acc = '';
@@ -838,10 +838,16 @@
     }
     return out;
   }
+  // Tov/CATSS: griechische Gruppen ohne hebräisches Gegenstück sind Zusätze, hebräische Gruppen ohne Griechisch fehlen in der LXX.
   function ilLxxSegs(cell, html) {
     ilTpl.innerHTML = html || '';
-    return [...ilLxxIndices([...cell.querySelectorAll('.w')].map(w => w.textContent), ilTpl.content.querySelectorAll('.wg'))]
-      .map(([g, idx]) => [idx, g.textContent.trim()]);
+    const groups = [...ilTpl.content.querySelectorAll('.wg')], hit = ilLxxIndices([...cell.querySelectorAll('.w')].map(w => w.textContent), groups, true), out = [];
+    for (const g of groups) {
+      const t = g.textContent.trim(), idx = hit.get(g);
+      if (idx) { if (t) out.push([idx, t]); else idx.forEach(i => out.push([[i], '—', null, { kind: 'missing' }])); }
+      else if (t && !consOf(g.dataset.h || '')) out.push([[], t, null, { kind: 'addition' }]);
+    }
+    return out;
   }
   const mishnahReaderUI=window.LibraryMishnahReader.create({
     $,esc,getView:()=>view,load:(...args)=>wordCardsUI.lazyScript(...args),

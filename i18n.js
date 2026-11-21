@@ -119,6 +119,8 @@
     "Peschitta: Wortzuordnung konnte nicht geladen werden": "Peshitta: word alignment could not be loaded",
     "Peschitta: Für diesen Vers liegt keine passende Wortzuordnung vor.": "Peshitta: no matching word alignment is available for this verse.",
     "Peschitta · ohne Zuordnung": "Peshitta · unaligned",
+    "Zusatz gegenüber dem MT": "Plus compared to the MT",
+    "Im MT vorhanden, in dieser Fassung ohne Wiedergabe": "Present in the MT, not rendered in this version",
     "Peschitta · automatische Wortgruppen (PaTraCoSy), nicht manuell geprüft. Ohne Zuordnung bedeutet keine nachgewiesene Auslassung oder Ergänzung.": "Peshitta · automatic word groups (PaTraCoSy), not manually reviewed. Unaligned does not mean a confirmed omission or addition.",
     "Prolog (griechisch)": "Prologue (Greek)",
 
