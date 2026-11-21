@@ -1937,6 +1937,12 @@ body.il .cell[data-k="he"] .ilt.il-smr { direction: rtl; font-family: var(--he-f
 .smr-plus::before { content: "+"; opacity: .65; font-size: .7em; }
 .smr-transposed::after { content: "↔"; opacity: .65; font-size: .7em; }
 .smr-missing { opacity: .6; }
+/* Apparat: Peschitta als Textzeuge */
+.tc-ps-sy { font-family: "Safran Syriac", sans-serif; font-size: 1.1em; }
+.tc-ps-long { display: inline; }
+.tc-ps-long > summary { display: inline; cursor: pointer; list-style: none; }
+.tc-ps-long > summary::-webkit-details-marker { display: none; }
+.tc-ps-long[open] > summary { display: none; }
 /* Zusätze und Minus gegenüber dem MT in LXX (Tov/CATSS) und Peschitta */
 .ilt .il-plus { font-style: normal; background: color-mix(in srgb, var(--accent) 10%, transparent); border-radius: 3px; }
 .ilt .il-plus::before { content: "+"; opacity: .65; font-size: .7em; margin-inline-end: .1em; }
