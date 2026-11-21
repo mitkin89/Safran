@@ -1,0 +1,77 @@
+{
+  "source": {
+    "url": "https://www.edition-digitalkennicott.unito.it/exist/apps/dike/api/document/037_neh.xml/",
+    "book": "Nehemiah",
+    "sha256": "c3324b6cc3985d24a8b08f5ebf52ef720c9c38b3af7bfbf67a60adac779275e8",
+    "license": "CC BY-NC-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "title": "The Digital Kennicott. A Digital Edition of Benjamin Kennicott's Vetus Testamentum Hebraicum",
+    "editors": "Sebastiano Crestani, Alberto Legnaioli",
+    "base": "Kennicott / Van der Hooght reference text; distinct from OSHB",
+    "mt": {
+      "rel": "own/Nehemiah/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "f1c265351827a6df588d891269860c2fe2ef063de4e4ce88f4fb52487059c517",
+      "license": "CC BY 4.0"
+    }
+  },
+  "counts": {
+    "entries": 2886,
+    "readings": 5017,
+    "verses": 402,
+    "witnesses": 721,
+    "baseVerses": 406
+  },
+  "unlocated": [],
+  "unidentifiedWitnesses": [
+    "K170m",
+    "K198m",
+    "K201m",
+    "K207m",
+    "K224m",
+    "K240m",
+    "K300m",
+    "K590m",
+    "K601m",
+    "K93m"
+  ],
+  "apparatusRefsWithoutBase": [],
+  "baseRefsOutsideMT": [
+    "Nehemiah 7:73"
+  ],
+  "unindexedEntries": [],
+  "mappedSourceVerses": 400,
+  "unmappedSourceVerses": [
+    "Nehemiah 7:48",
+    "Nehemiah 7:68",
+    "Nehemiah 7:71",
+    "Nehemiah 7:72",
+    "Nehemiah 10:20",
+    "Nehemiah 11:26"
+  ],
+  "shiftedSourceVerses": {
+    "Nehemiah 7:69": {
+      "refs": [
+        "Nehemiah 7:68"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 49
+    },
+    "Nehemiah 7:70": {
+      "refs": [
+        "Nehemiah 7:69"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 85
+    },
+    "Nehemiah 7:73": {
+      "refs": [
+        "Nehemiah 7:72"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 90
+    }
+  }
+}

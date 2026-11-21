@@ -1,0 +1,482 @@
+{
+  "source": {
+    "repository": "https://github.com/openscriptures/morphhb",
+    "commit": "db6c5c9b46b8f39346f10915ddb1a70dcd429901",
+    "license": "CC BY 4.0",
+    "sha256": {
+      "Gen.xml.gz": "0526e5c9a5fb4d907847645f954ed3d1268fa69decbd872056cedd2668d86449",
+      "Exod.xml.gz": "04868367cdacb6ccdc61488e923e20f918172042e6437842a0621f63ac5b847f",
+      "Lev.xml.gz": "e21e70265c9ef500182f8ccb4f4e1186e5a79e1169d24cef23cc479baf07b191",
+      "Num.xml.gz": "02e4febfcc027d10b3e35e4f091eae67a40d26f37b6254faac6b4af053fe4896",
+      "Deut.xml.gz": "04f8087442a1e67a631cd70f2ac4e42fe0a780ae132edb165a3a29f3f290358f"
+    }
+  },
+  "groups": {
+    "Genesis 8:17": [
+      [
+        14,
+        15
+      ]
+    ],
+    "Genesis 13:3": [
+      [
+        12,
+        13
+      ]
+    ],
+    "Genesis 14:2": [
+      [
+        16,
+        17
+      ]
+    ],
+    "Genesis 14:8": [
+      [
+        9,
+        10
+      ]
+    ],
+    "Genesis 24:33": [
+      [
+        1,
+        2
+      ]
+    ],
+    "Genesis 25:23": [
+      [
+        5,
+        6
+      ]
+    ],
+    "Genesis 27:3": [
+      [
+        11,
+        12
+      ]
+    ],
+    "Genesis 27:29": [
+      [
+        3,
+        4
+      ]
+    ],
+    "Genesis 30:11": [
+      [
+        3,
+        4,
+        5
+      ]
+    ],
+    "Genesis 36:5": [
+      [
+        4,
+        5
+      ]
+    ],
+    "Genesis 36:14": [
+      [
+        14,
+        15
+      ]
+    ],
+    "Genesis 39:20": [
+      [
+        11,
+        12
+      ]
+    ],
+    "Genesis 43:28": [
+      [
+        8,
+        9
+      ]
+    ],
+    "Genesis 49:10": [
+      [
+        11,
+        12
+      ]
+    ],
+    "Genesis 49:11": [
+      [
+        3,
+        4
+      ],
+      [
+        13,
+        14
+      ]
+    ],
+    "Exodus 4:2": [
+      [
+        4,
+        5,
+        6
+      ]
+    ],
+    "Exodus 16:2": [
+      [
+        1,
+        2
+      ]
+    ],
+    "Exodus 16:7": [
+      [
+        14,
+        15
+      ]
+    ],
+    "Exodus 21:8": [
+      [
+        6,
+        7
+      ]
+    ],
+    "Exodus 22:4": [
+      [
+        9,
+        10
+      ]
+    ],
+    "Exodus 22:26": [
+      [
+        3,
+        4
+      ]
+    ],
+    "Exodus 27:11": [
+      [
+        8,
+        9
+      ]
+    ],
+    "Exodus 28:28": [
+      [
+        4,
+        5
+      ]
+    ],
+    "Exodus 32:19": [
+      [
+        14,
+        15
+      ]
+    ],
+    "Exodus 37:8": [
+      [
+        15,
+        16
+      ]
+    ],
+    "Exodus 39:4": [
+      [
+        7,
+        8
+      ]
+    ],
+    "Exodus 39:33": [
+      [
+        13,
+        14
+      ]
+    ],
+    "Leviticus 9:22": [
+      [
+        4,
+        5
+      ]
+    ],
+    "Leviticus 11:21": [
+      [
+        12,
+        13
+      ]
+    ],
+    "Leviticus 16:21": [
+      [
+        5,
+        6
+      ]
+    ],
+    "Leviticus 21:5": [
+      [
+        2,
+        3
+      ]
+    ],
+    "Leviticus 25:30": [
+      [
+        14,
+        15
+      ]
+    ],
+    "Numbers 1:16": [
+      [
+        2,
+        3
+      ]
+    ],
+    "Numbers 12:3": [
+      [
+        3,
+        4
+      ]
+    ],
+    "Numbers 14:36": [
+      [
+        9,
+        10
+      ]
+    ],
+    "Numbers 16:11": [
+      [
+        12,
+        13
+      ]
+    ],
+    "Numbers 21:32": [
+      [
+        8,
+        9
+      ]
+    ],
+    "Numbers 23:13": [
+      [
+        4,
+        5
+      ]
+    ],
+    "Numbers 26:9": [
+      [
+        9,
+        10
+      ]
+    ],
+    "Numbers 32:7": [
+      [
+        2,
+        3
+      ]
+    ],
+    "Numbers 34:4": [
+      [
+        9,
+        10
+      ]
+    ],
+    "Deuteronomy 2:33": [
+      [
+        8,
+        9
+      ]
+    ],
+    "Deuteronomy 5:10": [
+      [
+        6,
+        7
+      ]
+    ],
+    "Deuteronomy 7:9": [
+      [
+        14,
+        15
+      ]
+    ],
+    "Deuteronomy 8:2": [
+      [
+        21,
+        22
+      ]
+    ],
+    "Deuteronomy 13:16": [
+      [
+        6,
+        7
+      ]
+    ],
+    "Deuteronomy 21:7": [
+      [
+        5,
+        6
+      ]
+    ],
+    "Deuteronomy 22:15": [
+      [
+        3,
+        4
+      ],
+      [
+        9,
+        10
+      ]
+    ],
+    "Deuteronomy 22:16": [
+      [
+        3,
+        4
+      ]
+    ],
+    "Deuteronomy 22:20": [
+      [
+        9,
+        10
+      ]
+    ],
+    "Deuteronomy 22:21": [
+      [
+        3,
+        4
+      ]
+    ],
+    "Deuteronomy 22:23": [
+      [
+        3,
+        4
+      ]
+    ],
+    "Deuteronomy 22:24": [
+      [
+        13,
+        14
+      ]
+    ],
+    "Deuteronomy 22:25": [
+      [
+        6,
+        7
+      ]
+    ],
+    "Deuteronomy 22:26": [
+      [
+        1,
+        2
+      ],
+      [
+        7,
+        8
+      ]
+    ],
+    "Deuteronomy 22:27": [
+      [
+        5,
+        6
+      ]
+    ],
+    "Deuteronomy 22:28": [
+      [
+        4,
+        5
+      ]
+    ],
+    "Deuteronomy 22:29": [
+      [
+        6,
+        7
+      ]
+    ],
+    "Deuteronomy 28:27": [
+      [
+        5,
+        6
+      ]
+    ],
+    "Deuteronomy 28:30": [
+      [
+        5,
+        6
+      ]
+    ],
+    "Deuteronomy 29:22": [
+      [
+        19,
+        20
+      ]
+    ],
+    "Deuteronomy 32:13": [
+      [
+        3,
+        4
+      ]
+    ],
+    "Deuteronomy 33:2": [
+      [
+        15,
+        16,
+        17
+      ]
+    ],
+    "Deuteronomy 33:9": [
+      [
+        11,
+        12
+      ]
+    ]
+  },
+  "sourceRefs": {
+    "Genesis 8:17": "Gen.8.17",
+    "Genesis 13:3": "Gen.13.3",
+    "Genesis 14:2": "Gen.14.2",
+    "Genesis 14:8": "Gen.14.8",
+    "Genesis 24:33": "Gen.24.33",
+    "Genesis 25:23": "Gen.25.23",
+    "Genesis 27:3": "Gen.27.3",
+    "Genesis 27:29": "Gen.27.29",
+    "Genesis 30:11": "Gen.30.11",
+    "Genesis 36:5": "Gen.36.5",
+    "Genesis 36:14": "Gen.36.14",
+    "Genesis 39:20": "Gen.39.20",
+    "Genesis 43:28": "Gen.43.28",
+    "Genesis 49:10": "Gen.49.10",
+    "Genesis 49:11": "Gen.49.11",
+    "Exodus 4:2": "Exod.4.2",
+    "Exodus 16:2": "Exod.16.2",
+    "Exodus 16:7": "Exod.16.7",
+    "Exodus 21:8": "Exod.21.8",
+    "Exodus 22:4": "Exod.22.4",
+    "Exodus 22:26": "Exod.22.26",
+    "Exodus 27:11": "Exod.27.11",
+    "Exodus 28:28": "Exod.28.28",
+    "Exodus 32:19": "Exod.32.19",
+    "Exodus 37:8": "Exod.37.8",
+    "Exodus 39:4": "Exod.39.4",
+    "Exodus 39:33": "Exod.39.33",
+    "Leviticus 9:22": "Lev.9.22",
+    "Leviticus 11:21": "Lev.11.21",
+    "Leviticus 16:21": "Lev.16.21",
+    "Leviticus 21:5": "Lev.21.5",
+    "Leviticus 25:30": "Lev.25.30",
+    "Numbers 1:16": "Num.1.16",
+    "Numbers 12:3": "Num.12.3",
+    "Numbers 14:36": "Num.14.36",
+    "Numbers 16:11": "Num.16.11",
+    "Numbers 21:32": "Num.21.32",
+    "Numbers 23:13": "Num.23.13",
+    "Numbers 26:9": "Num.26.9",
+    "Numbers 32:7": "Num.32.7",
+    "Numbers 34:4": "Num.34.4",
+    "Deuteronomy 2:33": "Deut.2.33",
+    "Deuteronomy 5:10": "Deut.5.10",
+    "Deuteronomy 7:9": "Deut.7.9",
+    "Deuteronomy 8:2": "Deut.8.2",
+    "Deuteronomy 13:16": "Deut.13.16",
+    "Deuteronomy 21:7": "Deut.21.7",
+    "Deuteronomy 22:15": "Deut.22.15",
+    "Deuteronomy 22:16": "Deut.22.16",
+    "Deuteronomy 22:20": "Deut.22.20",
+    "Deuteronomy 22:21": "Deut.22.21",
+    "Deuteronomy 22:23": "Deut.22.23",
+    "Deuteronomy 22:24": "Deut.22.24",
+    "Deuteronomy 22:25": "Deut.22.25",
+    "Deuteronomy 22:26": "Deut.22.26",
+    "Deuteronomy 22:27": "Deut.22.27",
+    "Deuteronomy 22:28": "Deut.22.28",
+    "Deuteronomy 22:29": "Deut.22.29",
+    "Deuteronomy 28:27": "Deut.28.27",
+    "Deuteronomy 28:30": "Deut.28.30",
+    "Deuteronomy 29:22": "Deut.29.22",
+    "Deuteronomy 32:13": "Deut.32.13",
+    "Deuteronomy 33:2": "Deut.33.2",
+    "Deuteronomy 33:9": "Deut.33.9"
+  },
+  "excluded": []
+}

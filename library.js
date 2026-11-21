@@ -27,7 +27,6 @@
     }).map(([s]) => s);
   }
   const fmtSize = b => (b >= 1073741824 ? (b / 1073741824).toFixed(2) + ' GB' : (b / 1048576).toFixed(1) + ' MB');
-  const fmtEst = mb => (mb >= 1024 ? (mb / 1024).toFixed(1) + ' GB' : Math.round(mb) + ' MB');
   const shortVer = v => {
     if (v === 'merged') return 'zusammengeführt';
     const s = String(v || '').replace(/\s*\[[a-z]{2,3}\]\s*$/i, '');
@@ -49,7 +48,7 @@
     document.documentElement.style.setProperty('--dict-top', v || '57px');
   }
   window.addEventListener('resize', dictPlace);
-  try { const hh = document.querySelector('header'); if (hh && window.ResizeObserver) new ResizeObserver(dictPlace).observe(hh); } catch { /* egal */ }
+  try { const hh = document.querySelector('header'); if (hh && window.ResizeObserver) new ResizeObserver(()=>requestAnimationFrame(dictPlace)).observe(hh); } catch { /* egal */ }
   function showTab(t) {
     const prevTab = document.documentElement.dataset.tab || 'read'; // vor dem ersten Wechsel steht noch kein data-tab, die Seite zeigt aber „Lesen“
     if (prevTab === 'notes' || prevTab === 'search') tabScroll[prevTab] = window.scrollY;
@@ -96,6 +95,7 @@
       const base = new Map(); groups.forEach(g => { if (g.versions.some(v => !v.own) && !base.has(g.title)) base.set(g.title, g); });
       groups = groups.filter(g => { const b = base.get(g.title); if (b && b !== g && g.versions.every(v => v.own)) { b.versions.push(...g.versions); return false; } return true; });
     }
+    for(const g of groups)g.versions.push(...window.LibraryMishnahReader.entries(g));
     // Eigene Fassung mit demselben Versionsnamen wie eine Sefaria-Version (z. B. korrigierte eigene Übersetzung, die auch auf Sefaria liegt): nur die eigene zeigen, nicht beide nebeneinander
     groups.forEach(g => { const vn = t => String(t || '').replace(/\s*\[[a-z]{2,3}\]\s*$/i, ''), ownNames = new Set(g.versions.filter(v => v.own).map(v => vn(v.versionTitle))); if (ownNames.size) g.versions = g.versions.filter(v => v.own || !ownNames.has(vn(v.versionTitle))); }); // gleicher Titel (auch mit Sprachkürzel „ [de]“ am Ende): die eigene Fassung hat Vorrang
     groups.forEach(g => g.versions.sort((a, b) =>
@@ -229,26 +229,20 @@
   // ---------- Tabs ----------
   const tabs = [];
   let tabIdx = -1;
-  // Fenstertitel: zeigt, wo man gerade liest („Mishneh Torah, Foundations of the Torah · Kapitel 1“); in den anderen Reitern der App-Name
-  function updateTitle(name) {
-    if (IS_PANE2) return;
-    const base = 'Offline-Bibliothek', onRead = (document.documentElement.dataset.tab || 'read') === 'read';
-    document.title = onRead && name && name !== 'Neuer Tab' ? name : base;
-  }
-  function renderTabs() {
-    $('#tabbar').innerHTML = tabs.map((t, i) => {
-      const s = t.group && t.sections && t.sections[t.idx];
-      if (s) t.label = s.label;
-      const name = t.group ? t.group.title + (t.label ? ' · ' + t.label : '') : t.sres ? I18N.t('Suche') + ': ' + t.sres.q : 'Neuer Tab';
-      if (i === tabIdx) updateTitle(t.group || t.sres ? name : ''); // erst hier: t.label ist oben gerade aktualisiert worden
-      return `<div class="tab${i === tabIdx ? ' active' : ''}" data-i="${i}" title="${esc(name)}"><span>${esc(name)}</span><button data-x="${i}" title="Tab schließen">✕</button></div>`;
-    }).join('') + '<button id="tabNew" title="Neuer Tab (Cmd+T)">＋</button>';
-    if (!tabs.length) updateTitle('');
-    const act = $('#tabbar .tab.active'); if (act) act.scrollIntoView({ inline: 'nearest', block: 'nearest' }); // bei vielen Tabs immer den geöffneten zeigen
-  }
+  const tabsUI = window.LibraryTabs.create({
+    $, esc, isPane2: () => IS_PANE2,
+    state: {
+      tabs,
+      get tabIdx() { return tabIdx; }, set tabIdx(i) { tabIdx = i; },
+      get view() { return view; }, set view(v) { view = v; },
+    },
+    showTab, showView, saveSession: () => navigationUI.saveSession(), resetCalendar: () => { calDate = null; },
+    loadView, jumpTo,
+  });
+  function renderTabs() { return tabsUI.render(); }
   function showView() {
-    saveSession();
-    updateNav();
+    navigationUI.saveSession();
+    navigationUI.updateNav();
     const none = !tabs.length;
     $('#rEmpty').hidden = !none;
     $('#rMain').hidden = none;
@@ -263,76 +257,15 @@
       if (sg && !entries.some(e => !e.own)) { const c = sg.cloneNode(true); c.removeAttribute('id'); c.hidden = false; c.classList.add('startGuide'); $('#rOut .newtab').appendChild(c); }
       setTimeout(() => { const i = $('#ntIn'); if (i) { attachSuggest(i); i.focus(); } }, 0);
     }
-    olBtnRefresh(); if (!none && !view.group) $('#mapBtn').hidden = true;
+    outlineUI.olBtnRefresh(); if (!none && !view.group) $('#mapBtn').hidden = true;
     renderTabs();
   }
-  // Neue Tabs stehen direkt rechts vom aktiven Tab (nicht am Ende); mehrere Hintergrund-Tabs vom selben Tab aus reihen sich der Reihe nach dahinter
-  let bgFrom = null, bgLast = null; // Tab-Objekte statt Nummern: bleiben richtig, wenn dazwischen Tabs geschlossen oder verschoben werden
-  function addTab(nv, bg = false) {
-    let pos = tabs.length ? tabIdx + 1 : 0;
-    const li = bg && bgFrom && bgFrom === tabs[tabIdx] ? tabs.indexOf(bgLast) : -1;
-    if (li >= pos) pos = li + 1;
-    pos = Math.min(Math.max(pos, 0), tabs.length);
-    tabs.splice(pos, 0, nv);
-    if (bg) { bgFrom = tabs[tabIdx]; bgLast = nv; } else { bgFrom = bgLast = null; tabIdx = pos; }
-    return pos;
-  }
-  function newTab() {
-    calDate = null; // neuer Tab zeigt wieder den heutigen Kalender
-    saveScroll();
-    view = { group: null };
-    addTab(view);
-    showTab('read');
-    showView();
-  }
-  function saveScroll() { if (view) { view.scroll = window.scrollY; saveSession(); } }
-  async function switchTab(i) {
-    if (!tabs[i]) return;
-    if (i === tabIdx) { if (document.documentElement.dataset.tab !== 'read') showTab('read'); return; }
-    saveScroll();
-    tabIdx = i; view = tabs[i];
-    showTab('read');
-    showView();
-    if (view.group) await loadTabView();
-  }
-  const closedTabs = []; // zuletzt geschlossene Tabs (Cmd+Shift+T öffnet sie wieder, wie im Browser)
-  async function closeTab(i) {
-    if (!tabs[i]) return;
-    const wasActive = i === tabIdx;
-    if (wasActive) saveScroll();
-    if (tabs[i].group || tabs[i].sres) { closedTabs.push({ t: tabs[i], i }); if (closedTabs.length > 30) closedTabs.shift(); }
-    tabs.splice(i, 1);
-    if (!tabs.length) { tabIdx = -1; view = null; if (document.documentElement.classList.contains('pane2')) { showView(); return; } newTab(); return; } // nie ohne Tab
-    if (i < tabIdx) tabIdx--;
-    if (wasActive) {
-      tabIdx = Math.min(i, tabs.length - 1);
-      view = tabs[tabIdx];
-      showView();
-      if (view.group) await loadTabView();
-    } else renderTabs();
-  }
-  async function reopenTab() {
-    const c = closedTabs.pop(); if (!c) return;
-    if (tabs.length === 1 && !tabs[0].group && !tabs[0].sres) tabs.length = 0; // nur ein leerer „Neuer Tab“ (z. B. nach dem Schließen des letzten): ersetzen
-    const i = Math.min(c.i, tabs.length);
-    saveScroll();
-    c.t.target = null;
-    tabs.splice(i, 0, c.t); tabIdx = i; view = c.t;
-    showTab('read');
-    showView();
-    if (view.group) await loadTabView();
-  }
-  $('#tabbar').addEventListener('click', e => {
-    if (e.target.id === 'tabNew') return newTab();
-    const x = e.target.closest('button[data-x]');
-    if (x) return closeTab(+x.dataset.x);
-    const t = e.target.closest('.tab');
-    if (t) switchTab(+t.dataset.i);
-  });
-  $('#tabbar').addEventListener('auxclick', e => { const t = e.target.closest('.tab'); if (t && e.button === 1) closeTab(+t.dataset.i); });
-  document.addEventListener('keydown', e => {
-    if ((e.metaKey || e.ctrlKey) && !e.shiftKey && !e.altKey && e.key.toLowerCase() === 't') { e.preventDefault(); newTab(); }
-  });
+  function addTab(nv, bg = false) { return tabsUI.add(nv, bg); }
+  function newTab() { return tabsUI.newTab(); }
+  function saveScroll() { return tabsUI.saveScroll(); }
+  function switchTab(i) { return tabsUI.switchTab(i); }
+  function closeTab(i) { return tabsUI.closeTab(i); }
+  function reopenTab() { return tabsUI.reopenTab(); }
 
   $('#rOut').addEventListener('keydown', async e => {
     if (e.key !== 'Enter' || e.target.id !== 'ntIn') return;
@@ -370,20 +303,20 @@
   }
   // Voreinstellung der Versionen eines Buchs (Hebräisch immer, dazu die Sprache der Oberfläche)
   // Reihenfolge der hebräischen Fassungen als Vorgabe: Westminster, vokalisierte Ausgabe, andere, zuletzt „zusammengeführt“
-  function heRank(t) { return /Safran-Morphologie/.test(t) ? 3 : /westminster/i.test(t) ? 0 : /vocalized|vokalisiert/i.test(t) ? 1 : t === 'merged' ? 9 : 2; }
+  function heRank(t) { return /^Kaufmann A50 · Digital Mishnah$/.test(t)?0:/Safran-Morphologie/.test(t) ? 3 : /westminster/i.test(t) ? 0 : /vocalized|vokalisiert/i.test(t) ? 1 : t === 'merged' ? 9 : 2; }
   function pickVersions(g) {
     const sel = new Set();
     // Hebräisch: der Westminster-Text (OSHB) hat Vorrang, dann eine echte Ausgabe (z. B. William Davidson, vokalisiert);
     // Sefarias zusammengeführte Fassung nur, wenn es keine andere gibt
     const first = k => k === 'he' ? [...g.versions.filter(v => v.kind === 'he')].sort((a, b) => heRank(a.versionTitle) - heRank(b.versionTitle))[0]
-      : (g.versions.find(v => v.kind === k && v.versionTitle === 'merged') || g.versions.find(v => v.kind === k));
+      : (g.versions.find(v => v.kind === k && v.versionTitle !== 'merged') || g.versions.find(v => v.kind === k));
     // Voreinstellung nach Oberflächensprache: Hebräisch immer, dazu Englisch bzw. Deutsch (Hebräisch-Oberfläche: nur Hebräisch); fehlt Deutsch, hilft Englisch aus
     const want = new Set(['he']);
     if (I18N.lang === 'en') want.add('en'); else if (I18N.lang === 'de') { want.add('de'); if (!first('de')) want.add('en'); }
     // Zuletzt gewählte Versionen gelten in jedem Buch weiter, das sie hat; sonst die Voreinstellung der Sprache
     for (const k of ['he', 'en', 'de', 'other']) {
       const titles = (Array.isArray(prefVer[k]) ? prefVer[k] : []).filter(t => !(k === 'he' && t === 'merged')); // zusammengeführt wird nie als Vorgabe übernommen
-      const mine = g.versions.filter(v => kindKey(v) === k && titles.includes(v.versionTitle)).sort((a, b) => titles.indexOf(a.versionTitle) - titles.indexOf(b.versionTitle)); // gemerkte Spaltenreihenfolge
+      const mine = g.versions.filter(v => kindKey(v) === k && titles.includes(v.versionTitle) && (v.versionTitle !== 'merged' || !g.versions.some(x=>x.kind===v.kind&&x.versionTitle!=='merged'))).sort((a, b) => titles.indexOf(a.versionTitle) - titles.indexOf(b.versionTitle)); // gemerkte Spaltenreihenfolge
       if (mine.length) mine.forEach(v => sel.add(v.rel));
       else if (want.has(k)) { const v = first(k); if (v) sel.add(v.rel); }
     }
@@ -417,19 +350,14 @@
     if (target.showCompare) nv.cmpRel = target.rel;
     pickVersions(g).forEach(r => nv.selected.add(r));
     if (target.rel) nv.selected.add(target.rel);
-    addTab(nv, true); renderTabs(); saveSession();
+    addTab(nv, true); renderTabs(); navigationUI.saveSession();
   }
-  // Tab laden; ein im Hintergrund angelegter Tab springt dabei an seine Stelle (target), sonst an die gemerkte Scrollposition
-  async function loadTabView() {
-    const sc = view.scroll || 0, tg = view.target || {}; view.target = null;
-    await loadView({ noKeep: true, ...tg });
-    if (tg.jumpRef) { await jumpTo(tg.jumpRef, false); return; } // Verweis (z. B. „Gen. 1:3“): im geladenen Tab an die Stelle springen
-    if (!tg.sectionPath && tg.rowLabel == null) window.scrollTo(0, sc);
-  }
+  function loadTabView() { return tabsUI.load(); }
 
   async function loadView(target = {}) {
     const V = view; // Tab, für den geladen wird (der Nutzer kann inzwischen woanders sein)
     const tok = V.loadTok = (V.loadTok || 0) + 1;
+    for(const rel of [...V.selected]){const old=V.group.versions.find(v=>v.rel===rel);if(old?.versionTitle!=='merged')continue;const replacement=V.group.versions.filter(v=>v.kind===old.kind&&v.versionTitle!=='merged').sort((a,b)=>heRank(a.versionTitle)-heRank(b.versionTitle))[0];if(replacement){V.selected.delete(rel);V.selected.add(replacement.rel);}}
     // Versionen ändern: an derselben Stelle bleiben (markierter Vers, sonst der oberste sichtbare), statt zu Vers 1 zurückzuspringen
     let keepRow = null;
     if (view === V && !target.noKeep && !target.sectionPath && target.rowLabel == null && V.key) {
@@ -444,7 +372,7 @@
     for (const rel of [...V.selected]) {
       let d = cache.get(rel);
       if (!d) {
-        try { d = await O.read(rel); } catch { continue; }
+        try { const entry=V.group.versions.find(e=>e.rel===rel);d=entry?.mishnahWitness?await mishnahReaderUI.read(entry):await O.read(rel); } catch { continue; }
         await versReady; applyVers(d);
         const ver = V.group.versions.find(x => x.rel === rel);
         d.__b = (ver && ver.bytes) || 2e6;
@@ -455,6 +383,17 @@
       loaded.push(d);
     }
     if (V.loadTok !== tok) return; // ein neuerer Ladevorgang für diesen Tab läuft
+    // An imported edition can also be shipped under another filename. Hide
+    // only exact copies of the same named edition; keep both files intact.
+    const unique=[];
+    for(const d of loaded){
+      const twin=unique.find(x=>d.textHash&&x.textHash===d.textHash&&x.entry.kind===d.entry.kind&&x.versionTitle===d.versionTitle);
+      if(twin){
+        V.selected.delete(d.entry.rel);
+        V.group.versions=V.group.versions.filter(e=>e.rel!==d.entry.rel);
+      }else unique.push(d);
+    }
+    loaded.splice(0,loaded.length,...unique);
     loaded.sort((a, b) => KIND_RANK[a.entry.kind] - KIND_RANK[b.entry.kind]);
     V.loaded = loaded;
 
@@ -466,9 +405,10 @@
         // Auswahl nur bis zur ersten Listenebene (Kapitel/Daf) – Verse und Kommentare stehen dann untereinander im Abschnitt
         const fi = s0.path.findIndex(p => typeof p === 'number');
         const path = fi >= 0 ? s0.path.slice(0, fi + 1) : s0.path;
-        const label = fi >= 0 && fi + 1 < s0.path.length ? R.pathLabel(path, d.sectionNames) : s0.label;
+        const label = V.group.title==='Ben Sira'&&d.entry.language==='Greek'&&path.length===1&&path[0]===51 ? I18N.t('Prolog (griechisch)') : fi >= 0 && fi + 1 < s0.path.length ? R.pathLabel(path, d.sectionNames) : s0.label;
         const k = JSON.stringify(path);
         if (!seen.has(k)) { seen.add(k); secs.push({ path, label, k }); }
+        else if(d.greekMorphology?.work?.startsWith('tlg0526.'))secs.find(s=>s.k===k).label=label;
       }
     }
     const prevKey = V.key;
@@ -500,19 +440,22 @@
   // Kleine Bilder zu Versionen (Übersetzer, Ausgabe) – nur in der Versionsliste, nicht im Lesetext; Liste in portraits/index.js
   // Porträt beim Darüberfahren groß zeigen (eigene Ebene über allem, damit nichts abgeschnitten wird)
   { let pop = null;
+    const hideP = () => { if (pop) { if(pop.matches(':popover-open'))pop.hidePopover();pop.hidden=true; } };
     document.addEventListener('mouseover', e => {
       const im = e.target.closest && e.target.closest('img.vpic'); if (!im) return;
-      if (!pop) { pop = document.createElement('div'); pop.id = 'vpicPop'; document.body.appendChild(pop); }
+      if (!pop) { pop = document.createElement('div'); pop.id = 'vpicPop'; pop.setAttribute('popover','manual'); document.body.appendChild(pop); }
       pop.innerHTML = `<img src="${im.getAttribute('src')}" alt="">${im.dataset.title ? `<div>${esc(im.dataset.title)}</div>` : ''}`; pop.hidden = false;
-      const r = im.getBoundingClientRect(), W = 240, H = W + (im.dataset.title ? 34 : 0);
+      if(!pop.matches(':popover-open'))pop.showPopover();
+      const r = im.getBoundingClientRect(), W = pop.offsetWidth, H = pop.offsetHeight;
       let x = r.right + 12, y = r.top + r.height / 2 - H / 2;
       if (x + W > innerWidth - 8) x = r.left - W - 12;
       if (x < 8) x = Math.max(8, Math.min(innerWidth - W - 8, r.left));
       y = Math.max(8, Math.min(innerHeight - H - 8, y));
       pop.style.left = x + 'px'; pop.style.top = y + 'px';
     });
-    document.addEventListener('mouseout', e => { if (pop && e.target.closest && e.target.closest('img.vpic')) pop.hidden = true; });
-    const hideP = () => { if (pop) pop.hidden = true; }; document.addEventListener('scroll', hideP, true); document.addEventListener('mousedown', hideP, true);
+    document.addEventListener('mouseout', e => { if (e.target.closest && e.target.closest('img.vpic')) hideP(); });
+    document.addEventListener('scroll', hideP, true); document.addEventListener('mousedown', hideP, true);
+    window.addEventListener('keydown',e=>{if(e.key==='Escape')hideP();},true);
   }
   // Spaltenkopf: beim Darüberfahren voller Versionstitel und – falls vorhanden – das Porträt
   { let hp = null, cur = null;
@@ -536,52 +479,49 @@
     document.addEventListener('scroll', hideH, true); document.addEventListener('mousedown', hideH, true);
   }
   const portraitOf = t => { const s = String(t || '').toLowerCase(); return (window.PORTRAITS || []).find(p => p.match && p.img && s.includes(String(p.match).toLowerCase())) || null; };
+  function versionInterlinear(v){
+    const available=interlinearUI.availableSources,t=v.versionTitle||'',name=ilName(t);
+    return !!(name&&available.includes(name)||/^Westminster/.test(t)&&available.length||v.rel===ilLxxVer(view.group)?.rel&&available.includes('LXX')||t==='Qumran-Rollen (ETCBC DSS)'&&available.includes('Qumran')||v.kind==='he'&&/^Samaritanischer Pentateuch/.test(t)&&available.includes('Samaritan')||v.language==='Syriac'&&/^ETCBC Peshitta/.test(t)&&available.includes('Peshitta'));
+  }
+  function updateVersionInterlinear(){
+    if(!view?.group)return;
+    for(const row of $$('#verList .voption')){const v=view.group.versions.find(v=>v.rel===row.querySelector('input').dataset.rel),badge=row.querySelector('.vil');if(v&&versionInterlinear(v)){if(!badge)row.querySelector('.vmeta').insertAdjacentHTML('beforeend',`<span class="vil" title="${esc(I18N.t('Wortweise Zuordnung zum Westminster-Text verfügbar'))}">↔ ${esc(I18N.t('Interlinear'))}</span>`);}else badge?.remove();}
+  }
+  const westminsterFirst = (a,b) => Number(/^Westminster/.test(b.versionTitle||''))-Number(/^Westminster/.test(a.versionTitle||''));
   function renderVersions() {
-    const g = view.group;
-    $('#verSummary').innerHTML = `<span class="vi">📚</span> Versionen ${view.selected.size}/${g.versions.length}`;
+    const g = view.group,versions=g.versions.filter(v=>v.versionTitle!=='merged'||!g.versions.some(x=>x.kind===v.kind&&x.versionTitle!=='merged'));
+    $('#verSummary').innerHTML = `<span class="vi">📚</span> Versionen ${versions.filter(v=>view.selected.has(v.rel)).length}/${versions.length}`;
     const KN = { he: 'Hebräisch', en: 'Englisch', de: 'Deutsch', other: 'Andere' };
     const pic = v => { const p = portraitOf(v.versionTitle); return p ? `<img class="vpic" src="portraits/${encodeURIComponent(p.img)}" alt="" data-title="${esc(p.name || '')}" loading="lazy">` : ''; };
-    const itemH = v => `<label${portraitOf(v.versionTitle) ? ' class="haspic"' : ''}><input type="checkbox" data-rel="${esc(v.rel)}" ${view.selected.has(v.rel) ? 'checked' : ''}>${pic(v)}${v.own ? '<span class="badge own">eigen</span>' : ''}${esc(shortVer(v.versionTitle))}${v.own ? ` <button class="ownc" data-csv="${esc(v.rel)}" title="Als Upload-CSV für Sefaria speichern (Ref,Text)">CSV</button>` : ''}${v.own && v.source ? ` <button class="ownr" data-rl="${esc(v.rel)}" title="Quelldatei neu einlesen (${esc(v.source)})">⟳</button>` : ''}</label>`; // Entfernen eigener Texte nicht hier (Versionsauswahl), sondern in der Bibliothek
+    const hasMorph = v => {
+      const t=v.versionTitle||'',doc=view.loaded.find(d=>d.entry.rel===v.rel)||cache.get(v.rel);
+      if(doc?.greekMorphology||doc?.syriacMorphology)return true;
+      if(v.kind==='he'&&/Westminster.*OSHB|ETCBC-CACCHT|ETCBC DSS|Samaritanischer Pentateuch|Safran-Morphologie/.test(t))return true;
+      if(v.language==='Greek'&&/^(Septuaginta|Open Greek Corpus)/.test(t)||v.language==='Syriac'&&/^ETCBC Peshitta/.test(t)||/^Targum .*ETCBC/.test(t))return true;
+      const annotated=node=>typeof node==='string'?/data-m=["']/.test(node):Array.isArray(node)?node.some(annotated):!!node&&typeof node==='object'&&Object.values(node).some(annotated);
+      return !!doc&&annotated(doc.text);
+    };
+    const versionName=v=>/^The Samaritan Pentateuch/.test(v.versionTitle||'')?I18N.t('Samaritanischer Pentateuch — englische Übersetzung (Florentin und Tal, 2024)'):v.versionTitle==='merged'?I18N.t('Standardtext'):String(v.versionTitle||'').replace(/\s*\[[a-z]{2,3}\]\s*$/i,'');
+    const itemH = v => `<label class="voption${portraitOf(v.versionTitle)?' haspic':''}"><input type="checkbox" data-rel="${esc(v.rel)}" ${view.selected.has(v.rel)?'checked':''}>${pic(v)||'<span class="vpic-gap" aria-hidden="true"></span>'}<span class="vtext"><span class="vname" dir="auto">${esc(versionName(v))}</span><span class="vmeta">${v.own?'<span class="badge own">eigen</span>':''}${hasMorph(v)?`<span class="vmorph" title="${esc(I18N.t('Wortformen und grammatische Bestimmungen verfügbar'))}">✓ ${esc(I18N.t('Morphologie'))}</span>`:''}</span></span></label>`;
+    // Group these textual witnesses with the Septuagint in the menu only.
+    // Their actual language/kind still controls text rendering and morphology.
+    const menuKind = v => /^The Samaritan Pentateuch/.test(v.versionTitle||'')?'en':/^(?:Qumran-Rollen\b|Samaritanischer Pentateuch\b|The Samaritan Pentateuch\b)/.test(v.versionTitle || '') ? 'other' : (KN[v.kind] ? v.kind : 'other');
     $('#verList').innerHTML = ['he', 'en', 'de', 'other'].map(k => {
-      const vs = g.versions.filter(v => (KN[v.kind] ? v.kind : 'other') === k);
-      return vs.length ? `<div class="vgrp ${k}">${KN[k]}</div>` + vs.map(itemH).join('') : '';
+      const vs = versions.filter(v => menuKind(v) === k).sort(westminsterFirst);
+      return vs.length ? `<div class="vgrp ${k}">${esc(I18N.t(k==='other'?'Textzeugen & weitere Sprachen':KN[k]))}</div>` + vs.map(itemH).join('') : '';
     }).join('');
+    updateVersionInterlinear();
   }
-  $('#verList').addEventListener('click', async e => {
-    const csvRel = e.target.dataset && e.target.dataset.csv;
-    if (csvRel) {
-      e.preventDefault();
-      const d = (view.loaded.find(x => x.entry.rel === csvRel && !x.vmoved)) || await O.read(csvRel); // umgestellte Fassung (andere Zählung): die Datei selbst, unverändert
-      const q = v => /[",\n\r]/.test(v) ? '"' + v.replace(/"/g, '""') + '"' : v;
-      const rows = R.flattenNode(d.text).map(r => [`${d.entry.title} ${r.label}`, plain(r.html)]);
-      const r = await window.api.saveFile(`${d.entry.title.replace(/[\\/:*?"<>|]/g, '_')}_${d.entry.versionTitle.replace(/[\\/:*?"<>|]/g, '_').slice(0, 40)}.csv`, rows.map(x => x.map(q).join(',')).join('\n') + '\n');
-      return;
-    }
-    const rl = e.target.dataset && e.target.dataset.rl;
-    if (rl) {
-      e.preventDefault();
-      const r = await O.ownReload(rl);
-      if (r.error) return alert(r.error);
-      cache.delete(rl);
-      const key = view.group.key, keepSec = view.sections[view.idx] ? view.sections[view.idx].path : null;
-      await loadLibrary();
-      const g = groupsByKey.get(key);
-      if (g) await openGroup(g, { rel: rl, sectionPath: keepSec || undefined, showCompare: true });
-      refreshState();
-      return;
-    }
-    const rel = e.target.dataset && e.target.dataset.rm;
-    if (!rel) return;
-    e.preventDefault();
-    if (!confirm('Diesen eigenen Text aus der Bibliothek entfernen? (Die Originaldatei bleibt unberührt.)')) return;
-    const r = await O.ownRemove(rel);
-    if (r.error) return alert(r.error);
-    const key = view.group.key;
-    await loadLibrary();
-    const g = groupsByKey.get(key);
-    if (g) openGroup(g); else showView(); // war das Buch weg, hat loadLibrary den Tab schon entfernt
-    refreshState();
-  });
+  function placeVersions(){
+    const box=$('#verList');
+    if(!$('#verBox').open){if(box.matches(':popover-open'))box.hidePopover();return;}
+    if(!box.matches(':popover-open'))box.showPopover();
+    const r=$('#verSummary').getBoundingClientRect(),width=box.getBoundingClientRect().width,top=Math.max(8,r.bottom+6);
+    box.style.left=Math.max(16,Math.min(r.left,innerWidth-width-16))+'px';box.style.top=top+'px';box.style.maxHeight=Math.max(120,innerHeight-top-12)+'px';
+  }
+  $('#verBox').addEventListener('toggle',placeVersions);
+  window.addEventListener('keydown',e=>{if(e.key==='Escape'&&$('#verBox').open){e.preventDefault();e.stopImmediatePropagation();$('#verBox').open=false;placeVersions();$('#verSummary').focus();}},true);
+  window.addEventListener('resize',placeVersions);window.addEventListener('scroll',placeVersions,{passive:true});
   $('#verList').addEventListener('change', async e => {
     const rel = e.target.dataset.rel;
     if (!rel || !view) return;
@@ -623,11 +563,18 @@
       if (again) window.scrollTo(0, window.scrollY + again.getBoundingClientRect().top - off);
     };
     const items = [];
-    if (!multi && view.selected.size > 1) { items.push({ label: 'Diese Version aus der Anzeige entfernen', fn: () => { const n = new Set(view.selected); n.delete(d.entry.rel); apply(n); } }); items.push({ label: 'Nur diese Version anzeigen', fn: () => { // mehrere Versionen dieser Sprache: nur in dieser Sprache auf diese eine reduzieren, die anderen Sprachen bleiben; ist sie die einzige ihrer Sprache: alle anderen schließen
-      const same = [...view.selected].filter(rel => { const v = g.versions.find(x => x.rel === rel); return v && kn(v) === k; });
-      apply(same.length > 1 ? new Set([...view.selected].filter(rel => { const v = g.versions.find(x => x.rel === rel); return !v || kn(v) !== k || rel === d.entry.rel; })) : new Set([d.entry.rel]));
-    } }); items.push({ sep: true }); }
-    const here = d.entry.rel, same = g.versions.filter(v => kn(v) === k);
+    if (!multi && view.selected.size > 1) {
+      items.push({label:I18N.t('Diese Version aus der Anzeige entfernen'),mark:'−',fn:()=>{const n=new Set(view.selected);n.delete(d.entry.rel);apply(n);}});
+      const sameLanguage=v=>kn(v)===k&&(k!=='other'||v.language===d.entry.language);
+      const currentLanguage=[...view.selected].filter(rel=>{const v=g.versions.find(x=>x.rel===rel);return v&&sameLanguage(v);});
+      if(currentLanguage.length>1){
+        const label=k==='he'?'Nur diese hebräische Version anzeigen':k==='de'?'Nur diese deutsche Version anzeigen':k==='en'?'Nur diese englische Version anzeigen':d.entry.language==='Greek'?'Nur diese griechische Version anzeigen':d.entry.language==='Syriac'?'Nur diese syrische Version anzeigen':'Nur diese Version dieser Sprache anzeigen';
+        items.push({label:I18N.t(label),mark:'≡',fn:()=>apply(new Set([...view.selected].filter(rel=>{const v=g.versions.find(x=>x.rel===rel);return !v||!sameLanguage(v)||rel===d.entry.rel;})))});
+      }
+      items.push({label:I18N.t('Alle anderen Versionen schließen'),mark:'▣',fn:()=>apply(new Set([d.entry.rel]))});
+      items.push({sep:true});
+    }
+    const here = d.entry.rel, same = g.versions.filter(v => kn(v) === k && (v.versionTitle!=='merged'||!g.versions.some(x=>x.kind===v.kind&&x.versionTitle!=='merged'))).sort(westminsterFirst);
     if (multi) { // Kopf einer Sprachspalte mit mehreren Versionen („je Sprache“): ✓ = wird gezeigt (Klick nimmt sie heraus), sonst Klick fügt sie hinzu
       for (const v of same) {
         const on = view.selected.has(v.rel);
@@ -679,6 +626,7 @@
   // Fassung eines biblischen Buches, die anders zählt: Verse an ihre hebräische Stelle setzen (die eigene Nummer steht klein davor)
   function applyVers(d) {
     if (!d || d.vdone) return d;
+    if(d.syriacMorphology)return d; // preserve the explicitly labelled source numbering
     d.vdone = true;
     const t = versOf(d, 'text');
     if (t === 'heb' || !VMAP.known(d.entry.title)) return d;
@@ -698,26 +646,28 @@
   // Hinweis zu einer umgerechneten Stellenangabe: „englische Zählung Joel 3:11 = hebr. 4:11“ (Angabe im Text, hebräische Stelle, Tradition)
   function versNoteText(orig, mapped, from) { const q = VMAP.parse(mapped), p = VMAP.parse(orig); return I18N.t('{} {} = hebr. {}', I18N.t(VMAP.LABEL[from] || ''), orig, q && p && q.book === p.book ? mapped.slice(q.book.length + 1) : mapped); }
   // Kleines Zeichen im Spaltenkopf, wenn die Fassung umgestellt wurde
-  const versBadge = d => (d && d.vmoved ? ` <small class="vtrad" title="${esc(I18N.t('Diese Fassung zählt anders ({}). Ihre Verse stehen hier neben dem hebräischen Vers; die eigene Nummer steht klein davor.', I18N.t(VERS_NAME[d.vtrad])))}">⇄ ${esc(I18N.t(VMAP.SHORT[d.vtrad] + ' Zählung'))}</small>` : '');
+  const versBadge = d => d?.syriacMorphology?` <small class="vtrad">${esc(I18N.t('Peschitta-Zählung'))}</small>`:d?.mishnahWitness&&d.mishnahWitness!=='K'?` <small class="vtrad">${esc(window.I18N.textCrit('Eigene Handschriftenzählung'))}</small>`:(d && d.vmoved ? ` <small class="vtrad" title="${esc(I18N.t('Diese Fassung zählt anders ({}). Ihre Verse stehen hier neben dem hebräischen Vers; die eigene Nummer steht klein davor.', I18N.t(VERS_NAME[d.vtrad])))}">⇄ ${esc(I18N.t(VMAP.SHORT[d.vtrad] + ' Zählung'))}</small>` : '');
 
   // Schlüssel einer Fußnote im Lesetext: Abschnitt | Zeile | Spalte | Nummer (für „bleibt offen“)
   const fnKey = n => { const row = n.closest('.row[data-l]'), cell = n.closest('.cell'); return [view ? view.idx : '', row ? row.dataset.l : '', row ? [...row.querySelectorAll('.cell')].indexOf(cell) : -1, n.dataset.fn].join('|'); };
   // Fußnoten werden immer mitgerendert; ob sie sichtbar sind, steuert der Modus (data-notes) per CSS
-  function cellHtml(html, d, hit) {
+  function cellHtml(html, d, hit, verse) {
     if (html == null) return '<div class="cell empty"></div>';
-    const rtl = d.entry.language === 'Hebrew' || d.entry.language === 'Aramaic';
-    if (d.entry.kind === 'he') html = stripHe(html);
+    const rtl = ['Hebrew','Aramaic','Syriac'].includes(d.entry.language);
+    const isMt=d.entry.kind==='he'&&/^Westminster/.test(d.entry.versionTitle||'');
+    if (d.entry.kind === 'he'&&!isMt) html = stripHe(html);
     const { main, notes } = R.splitFootnotes(html);
     // Fußnote steht direkt hinter ihrem Zeichen im Text (nicht darunter)
-    const inline = R.cleanHtml(main).replace(/<sup data-fn="(\d{1,4})">(.*?)<\/sup>/g, (m, i, mk) => {
+    const inline = R.cleanHtml(d.talWordNotes ? main.replace(/<sup data-fn="\d{1,4}">.*?<\/sup>/g,'') : main).replace(/<sup data-fn="(\d{1,4})">(.*?)<\/sup>/g, (m, i, mk) => {
       const n = notes[+i];
       return n ? `${m}<span class="note" data-fn="${i}"><span class="nm">${esc(n.marker)}</span> ${R.cleanHtml(n.html)}</span>` : m;
     });
     const linked = d.entry.kind === 'he' && /Tanakh/.test((d.entry.categories || []).join()) ? inline : window.AutoRef.link(inline, { last: '', trad: versOf(d, 'cites'), note: versNoteText }); // Stellenangaben im Text anklickbar (nicht im Bibeltext selbst); andere Zählung wird umgerechnet
+    const processed=isMt?stripHe(displayUI.mtHtml(linked,d.entry.title,verse)):linked;
     const gm = d.entry.language === 'Greek' ? ` data-gt="${esc(d.entry.title)}" data-gv="${esc(d.entry.versionTitle || d.versionTitle || '')}"` : ''; // Septuaginta: Titel und Fassung für die Wort-Bestimmung (lxx-morph.js)
     const vt = (d.entry.kind === 'de' || /^Targum .*\(ETCBC/.test(d.entry.versionTitle || '')) && /^own\//.test(d.entry.rel || '') ? ` data-vt="${esc(d.entry.versionTitle || '')}"` : ''; // eigene Übersetzung: für die Wort-Zuordnung (interlin.js)
     const bv = d.entry.title === 'Berakhot' && d.entry.kind === 'he' ? ' data-bavli="1"' : '';
-    return `<div class="cell" data-k="${d.entry.kind}"${gm}${vt}${bv} dir="${rtl ? 'rtl' : 'ltr'}"><div class="txt">${hit ? markHits(linked, hit) : linked}</div></div>`;
+    return `<div class="cell" data-k="${d.entry.kind}"${isMt?' data-mt="1"':''}${d.entry.language==='Syriac'?' data-syriac="1" lang="syr"':''} data-rel="${esc(d.entry.rel || '')}"${gm}${vt}${bv} dir="${rtl ? 'rtl' : 'ltr'}"><div class="txt">${hit ? markHits(processed, hit) : processed}</div></div>`;
   }
 
   // Gleichlauf: 'off' | 'both' (beide führen) | 'left' (links führt, rechts folgt) | 'right' (rechts führt, links folgt)
@@ -746,10 +696,11 @@
     const s = view.sections[view.idx];
     $('#rSection').value = String(view.idx);
     fitSection();
-    olBtnRefresh();
+    outlineUI.olBtnRefresh();
     $('#prevSec').disabled = view.idx <= 0;
     $('#nextSec').disabled = view.idx >= view.sections.length - 1;
     if (!s) { $('#rOut').innerHTML = '<p class="muted">In den gewählten Versionen ist kein Text vorhanden.</p>'; return; }
+    if(AP&&AP.sectionKey!==view.group.key+'|'+s.k){apRemember();AP.sectionKey=view.group.key+'|'+s.k;AP.whole=true;}
     view.key = s.k;
     const cols = view.loaded.map(d => R.flattenNode(R.getByPath(d.text, s.path)));
     const rows = R.alignRows(cols);
@@ -762,11 +713,11 @@
     const head = byLang
       ? `<div class="row head" style="--n:${n}"><div class="lab"></div>${groupsL.map(g => `<div data-ci="${g.idx[0]}"${g.idx.length > 1 ? ' data-multi="1"' : ''} data-hv="${esc(JSON.stringify(g.idx.map(i => view.loaded[i].versionTitle || '')))}" data-hk="${esc(KIND_LABEL[g.k])}">${esc(g.idx.length === 1 ? KIND_LABEL[g.k] + ' · ' + shortVer(view.loaded[g.idx[0]].versionTitle) : KIND_LABEL[g.k] + ' (' + g.idx.length + ')')}${g.idx.length === 1 ? versBadge(view.loaded[g.idx[0]]) : ''}</div>`).join('')}</div>`
       : `<div class="row head" style="--n:${n}"><div class="lab"></div>${vis.map(i => view.loaded[i]).map(d =>
-      `<div data-hv="${esc(JSON.stringify([d.versionTitle || '']))}" data-hk="${esc(KIND_LABEL[d.entry.kind])}">${esc(KIND_LABEL[d.entry.kind])} · ${esc(shortVer(d.versionTitle))}${versBadge(d)}</div>`).join('')}</div>`;
+      `<div data-hv="${esc(JSON.stringify([d.versionTitle || '']))}" data-hk="${esc(d.entry.language==='Syriac'?'Syr.':KIND_LABEL[d.entry.kind])}">${esc(d.entry.language==='Syriac'?'Syr.':KIND_LABEL[d.entry.kind])} · ${esc(shortVer(d.versionTitle))}${versBadge(d)}</div>`).join('')}</div>`;
     const langCells = r => groupsL.map(g => {
       const full = g.idx.filter(i => r.cells[i] != null);
       if (!full.length) return '<div class="cell empty"></div>';
-      return `<div class="gcell" data-g="${g.k}">${full.map(i => (g.idx.length > 1 ? `<div class="vlab" data-rel="${esc(view.loaded[i].entry.rel)}" title="${esc(I18N.t('Klicken: Version entfernen, nur diese zeigen oder weitere hinzufügen'))}">${esc(shortVer(view.loaded[i].versionTitle))}</div>` : '') + cellHtml(r.cells[i], view.loaded[i])).join('')}</div>`;
+      return `<div class="gcell" data-g="${g.k}">${full.map(i => (g.idx.length > 1 ? `<div class="vlab" data-rel="${esc(view.loaded[i].entry.rel)}" title="${esc(I18N.t('Klicken: Version entfernen, nur diese zeigen oder weitere hinzufügen'))}">${esc(shortVer(view.loaded[i].versionTitle))}</div>` : '') + cellHtml(r.cells[i], view.loaded[i],undefined,r.label)).join('')}</div>`;
     }).join('');
     if (rowLabel != null && !rows.some(r => r.label === rowLabel)) { // „2“ trifft bei Kommentaren die erste Zeile „2:1“
       const f = rows.find(r => r.label.startsWith(rowLabel + ':'));
@@ -780,38 +731,38 @@
     if (view.vf && shownRows.length) view.vf.set = new Set(shownRows.map(r => rowVerse(r.label))); // „1-40“ in einem Kapitel mit 31 Versen gilt als 1–31, damit der Favorit überall dieselbe ID hat
     const vfBar = view.vf ? `<div class="vfbar">${esc(I18N.t('Ausgewählte Verse: {}', view.vf.text))} <button id="vfStar" type="button" title="${esc(I18N.t('Als Favorit speichern / entfernen'))}">☆</button> <button id="vfClear" type="button">${esc(I18N.t('Alle Verse zeigen'))}</button></div>` : '';
     const body = shownRows.map(r =>
-      `<div class="row${rowLabel != null && !quiet && r.label === rowLabel ? ' hit' : ''}" data-l="${esc(r.label)}" style="--n:${n}"><div class="lab">${esc(r.label)}</div>${byLang ? langCells(r) : vis.map(i => cellHtml(r.cells[i], view.loaded[i])).join('')}</div>`).join('');
+      `<div class="row${rowLabel != null && !quiet && r.label === rowLabel ? ' hit' : ''}" data-l="${esc(r.label)}" style="--n:${n}"><div class="lab">${esc(r.label)}</div>${byLang ? langCells(r) : vis.map(i => cellHtml(r.cells[i], view.loaded[i],undefined,r.label)).join('')}</div>`).join('');
     $('#rOut').innerHTML = vfBar + head + body;
     if ($('#rOut .cell[data-gt]')) setTimeout(() => loadGM().catch(() => {}), 300); // Septuaginta-Morphologie schon laden, damit das Wort-Popup sofort da ist
     if (view.fnOpen && view.fnOpen.size) $$('#rOut .note[data-fn]').forEach(n => { if (view.fnOpen.has(fnKey(n))) n.classList.add('open'); }); // geöffnete Fußnoten bleiben offen (Tabwechsel, neu aufgebaut)
-    recordNav(s, rowLabel);
-    pushHistory(s, rowLabel);
+    navigationUI.recordNav(s, rowLabel);
+    navigationUI.pushHistory(s, rowLabel);
     renderTabs();
-    saveSession();
-    markNotes();
+    navigationUI.saveSession();
+    notesUI.markNotes();
     markAudio();
-    if (!$('#outlinePanel').hidden) renderOutline();
-    olInline();
+    if (!$('#outlinePanel').hidden) outlineUI.renderOutline();
+    outlineUI.olInline();
     markMismatch();
+    displayUI.taamLayout();
     ilRefresh();
     decorateBavliReader();
-    loadLinks(s).then(apSoon, apSoon); // „Alles zu dieser Stelle“ folgt in den neuen Abschnitt
+    linksUI.loadLinks(s).then(apSoon, apSoon); // „Alles zu dieser Stelle“ folgt in den neuen Abschnitt
     if (window.__refind) setTimeout(window.__refind, 0);
     { const ck = view.group.key + '|' + s.k; if (ck !== lastCmtKey) { cmtRow = null; lastCmtKey = ck; } }
     applyCmtRowSoon();
+    textcritUI.refresh();
     const hit = $('#rOut .row.hit') || (quiet && rowLabel != null ? [...$$('#rOut .row[data-l]')].find(x => x.dataset.l === rowLabel) : null);
     if (hit) hit.scrollIntoView({ block: quiet ? 'start' : 'center' }); else window.scrollTo(0, 0);
   }
 
-  // ---------- Interlinear: deutsche Wörter (Zunz, Breuer) unter den Wörtern des Westminster-Textes ----------
-  // Zuordnung Wort für Wort in interlin.js (erzeugt von tools/interlinear/build.py); bisher: Rut
-  let ilTr = 'Zunz'; try { ilTr = localStorage.getItem('interlinTr') || 'Zunz'; } catch { /* egal */ }
-  let ilOn = false; try { ilOn = localStorage.getItem('interlin') === '1'; } catch { /* egal */ }
+  // Gemeinsame Interlinear-Quellen für Anzeige, Wortkarten und Vorschauen.
+  // Die eigentliche Anzeige liegt in library-interlinear.js.
   let ilP = null, ilRevision = 0, ilNotice = '';
   let ilPrivateRen = null;
   const loadIL = () => ilP || (ilP = (async () => {
     const revision = ilRevision;
-    const built = await lazyScript('interlin.js', () => window.INTERLIN);
+    const [built] = await Promise.all([wordCardsUI.lazyScript('interlin.js', () => window.INTERLIN), wordCardsUI.lazyScript('interlin-sources.js', () => window.INTERLIN_SOURCES)]);
     let local;
     try { local = await O.interlinearRead(); } catch (err) { local = { error: err.message }; }
     if (revision !== ilRevision) return loadIL();
@@ -826,77 +777,26 @@
   })().catch(err => { ilP = null; throw err; }));
   function resetPrivateIL() {
     ilRevision++; ilP = null; ilNotice = '';
-    ilRenP = null; wcTrState = null; ilPrivateRen = null;
+    wordCardsUI.ilRenP = null; wordCardsUI.wcTrState = null; ilPrivateRen = null;
     $$('#rOut .ilx').forEach(n => n.replaceWith(...n.childNodes));
     $$('#rOut .txt[data-ilx]').forEach(n => { delete n.dataset.ilx; });
     return ilRefresh();
   }
   O.onInterlinearChanged(() => { resetPrivateIL().catch(err => alert(err.message)); });
-  $('#importInterlinear').onclick = async () => {
-    const r = await O.interlinearImport();
-    if (r.canceled) return;
-    if (r.error) { alert(I18N.t('Interlinear-Import fehlgeschlagen: {}', r.error)); return; }
-    if (!ilPick.includes('BuberRosenzweig')) { ilPick.push('BuberRosenzweig'); ilSave(); }
-    await resetPrivateIL();
-    alert(I18N.t('{} Verse lokal für Buber/Rosenzweig eingebunden.', r.verses));
-  };
-  // Jede deutsche Übersetzung steht als eigene Zeile unter dem Wort (bzw. unter der Wortgruppe); Segmente mit mehreren Wörtern („als die Richter richteten“) stehen einmal unter der zusammengehörigen Wortgruppe.
-  // Mit mehreren Übersetzungen werden die Gruppen aller Übersetzungen zusammengefasst, jede Übersetzung hat ihre Zeile (Farbe + Kürzel).
-  const ilHlClear = () => $$('#rOut .ilhl').forEach(x => x.classList.remove('ilhl'));
-  function ilClear() {
-    ilHlClear();
-    $$('#rOut .ilg').forEach(g => { const inner = g.firstChild; while (inner.firstChild) g.parentNode.insertBefore(inner.firstChild, g); g.remove(); });
-  }
-  // trs: [[Name, Segmente, Sigel?]] – ein Vers; Segmente [[Wortnummern], Text, Art?] (Art nur bei Qumran: 0 gleich, 1 Schreibweise, 2 Lesart, 3 rekonstruiert, 4 Plus)
-  function ilVerse(cell, trs, order) {
-    const ws = [...cell.querySelectorAll('.w')], n = ws.length; if (!n) return;
-    const par = Array.from({ length: n + 2 }, (_, i) => i), find = x => par[x] === x ? x : (par[x] = find(par[x]));
-    const union = (x, y) => { x = find(x); y = find(y); if (x < y) par[y] = x; else if (y < x) par[x] = y; };
-    const info = trs.map(([name, segs, sig]) => {
-      const lead = new Map(), memberOf = new Map(); // Anführer-Wort -> [[Nr, Text, Wörter]]; Mitglieds-Wort -> Anführer
-      segs.forEach(([idx, t, kind], k) => { if (!idx.length) return; const L = Math.min(...idx); (lead.get(L) || lead.set(L, []).get(L)).push([k, t, idx, kind]); idx.forEach(i => { if (i !== L) memberOf.set(i, L); }); });
-      lead.forEach((_, L) => memberOf.delete(L));
-      const run = new Map(); // Anführer -> letztes Wort der zusammenhängenden Gruppe
-      lead.forEach((_, L) => { let e = L; while (memberOf.get(e + 1) === L && e < n) e++; run.set(L, e); for (let i = L + 1; i <= e; i++) union(L, i); });
-      const marks = new Map(); // Wort, das zu einer nicht zusammenhängenden Gruppe gehört -> Wörter der Gruppe
-      memberOf.forEach((L, i) => { if (!(i > L && i <= run.get(L))) marks.set(i, [...new Set(lead.get(L).flatMap(x => x[2]))]); });
-      // Qumran: Wörter der Rolle ohne Gegenstück (Plus) hängen am vorigen zugeordneten Wort (am Anfang: am ersten)
-      if (sig) segs.forEach(([idx, t, kind], k) => { if (idx.length) return; let j = k - 1; while (j >= 0 && !segs[j][0].length) j--; let L = j >= 0 ? Math.min(...segs[j][0]) : null; if (L == null) { const nx = segs.find(x => x[0].length); L = nx ? Math.min(...nx[0]) : null; } if (L != null) (lead.get(L) || lead.set(L, []).get(L)).push([k, t, [], kind]); });
-      return { name, lead, marks, sig, shown: false };
-    });
-    const units = new Map(); // Anfang -> Ende
-    for (let i = 1; i <= n; i++) { const r = find(i); units.set(r, Math.max(units.get(r) || 0, i)); }
-    const multi = trs.length > 1, mk = (cls, txt, ix) => { const e = document.createElement('span'); e.className = cls; if (txt != null) e.textContent = txt; if (ix) e.dataset.ix = ix.join(','); return e; };
-    [...units].forEach(([st, en]) => {
-      const lines = info.map(inf => {
-        const { name, lead, marks, sig } = inf;
-        const line = mk('ilt'); line.dataset.tr = name; line.dataset.i = order.indexOf(name) + 1; line.title = (IL_LABEL[name] || name) + (sig ? ' · ' + sig : ''); if (name === 'LXX') line.lang = 'grc'; else if (IL_TG[name]) { line.lang = 'arc'; line.dir = 'rtl'; } else if (sig) { line.lang = 'he'; line.dir = 'rtl'; line.classList.add('ilq'); }
-        const parts = []; for (let L = st; L <= en; L++) (lead.get(L) || []).forEach(x => parts.push(x));
-        if (sig && parts.length && !inf.shown) { inf.shown = true; line.append(mk('ilsig', sig)); } // Sigel der Rolle beim ersten erhaltenen Wort des Verses
-        parts.sort((x, y) => x[0] - y[0]).forEach(([k, t, idx, kind], j) => { if (j) line.append(k === parts[j - 1][0] + 1 ? ' ' : ' … '); const e = mk('ils', t, idx.length ? idx : null); if (kind != null) { e.classList.add('ilq' + kind); e.title = I18N.t(IL_QK[kind]); } line.append(e); });
-        if (!parts.length) for (let i = st; i <= en; i++) if (marks.has(i)) { line.append(mk('ils ilm', '…', marks.get(i))); break; }
-        return line;
-      });
-      if (!lines.some(l => l.firstChild) && st === en) return; // nichts darunter zu zeigen
-      const g = mk('ilg'), inner = mk('ilw'); g.appendChild(inner); g.dataset.multi = multi ? '1' : '';
-      ws[st - 1].parentNode.insertBefore(g, ws[st - 1]);
-      for (let nd = ws[st - 1], last = ws[en - 1]; nd; ) { const nx = nd.nextSibling; inner.appendChild(nd); if (nd === last) break; nd = nx; }
-      lines.forEach(l => g.appendChild(l));
-    });
-  }
-  // ---------- Wörter über alle geöffneten Versionen verbinden ----------
-  // In den deutschen Spalten (Zunz, Breuer …) sind die Wortgruppen nach der Zuordnung in interlin.js anklickbar (.ilx, data-ix = Nummern der Westminster-Wörter).
-  // Ein Klick auf eine solche Gruppe, auf ein Westminster-Wort oder auf ein Septuaginta-Wort lässt in allen geöffneten Versionen die zugehörigen Wörter leuchten.
   const IL_VT = { Mendelssohn: /Moses Mendelssohn/, Wolf: /^Wolf, Das Buch Samuel/, BuberRosenzweig: /Martin Buber.*Franz Rosenzweig/, Zunz: /Zunz/, Breuer: /^(?:(?:(?:Raphael|Joseph) )?Breuer|Das Buch Jecheskel, übersetzt und erläutert von Dr\. Joseph Breuer,)/, Philippson: /Philippson/, Herxheimer: /ebräischen Texte/, Goldschmidt: /Übersetzung von Lazarus Goldschmidt, Berlin 1921/, Hirsch: /^(?:Die Psalmen|Der Pentateuch), übersetzt und erläutert von Samson Raphael Hirsch/, JuliusHirsch: /^Julius Hirsch, /, Onkelos: /^Targum Onkelos \(ETCBC/, 'Pseudo-Jonathan': /^Targum Pseudo-Jonathan \(ETCBC/, Neofiti: /^Targum Neofiti 1 \(ETCBC/, Umschrift: /^Umschrift \(ETCBC phono\)/ };
   // Targumim: Zuordnung aramäisches Wort -> Westminster-Wörter (maschinell, tools/targum/align.py), je Vers ein String: „1 2 - 4,5 …“ (ein Eintrag je Wort des Lesetextes)
   const IL_TG = { Onkelos: 'Targum Onkelos (ETCBC', 'Pseudo-Jonathan': 'Targum Pseudo-Jonathan (ETCBC', Neofiti: 'Targum Neofiti 1 (ETCBC' };
   // Biblische Qumran-Rollen: je Vers und Rolle die Wörter mit Zuordnung und Art der Abweichung (maschinell, tools/dss/il.py)
-  const IL_QK = ['gleich wie im masoretischen Text', 'andere Schreibweise', 'andere Lesart', 'von den Herausgebern ergänzt', 'Plus: ohne Gegenstück im masoretischen Text'];
+  const IL_QK = ['gleich wie im masoretischen Text', 'möglicher Schreibunterschied (maschineller Vergleich)', 'abweichender Wortlaut (maschineller Vergleich)', 'von den Herausgebern ergänzt', 'Plus: ohne Gegenstück im masoretischen Text'];
   let qIlP = null;
-  const loadQIL = () => qIlP || (qIlP = lazyScript('qumran-il.js', () => window.QUMRAN_IL).catch(() => { qIlP = null; return null; }));
+  const loadQIL = () => qIlP || (qIlP = wordCardsUI.lazyScript('qumran-il.js', () => window.QUMRAN_IL).catch(() => { qIlP = null; return null; }));
+  let psIlP = null;
+  const loadPsIL = () => psIlP || (psIlP = wordCardsUI.lazyScript('peshitta-alignment-data.js', () => window.PESHITTA_ALIGNMENT_DATA).catch(e => { psIlP = null; throw e; }));
+  let smrIlP = null;
+  const loadSmrIL = () => smrIlP || (smrIlP = wordCardsUI.lazyScript('samaritan-il.js', () => window.SAMARITAN_IL).catch(e => { smrIlP = null; throw e; }));
   const qVer = g => (g && g.versions || []).some(x => x.versionTitle === 'Qumran-Rollen (ETCBC DSS)');
   let tgIlP = null;
-  const loadTgIL = () => tgIlP || (tgIlP = lazyScript('targum-il.js', () => window.TARGUM_IL).catch(() => { tgIlP = null; return null; }));
+  const loadTgIL = () => tgIlP || (tgIlP = wordCardsUI.lazyScript('targum-il.js', () => window.TARGUM_IL).catch(() => { tgIlP = null; return null; }));
   // Wörter eines Targum-Verses (Lesetext, durch Leerraum getrennt) mit ihrer Zuordnung -> Segmente wie in interlin.js
   function tgSegs(T, name, book, chap, v, text) {
     const ch = T && T[name] && T[name][book] && T[name][book][+chap - 1], m = ch && ch[v - 1]; if (!m) return null;
@@ -912,68 +812,6 @@
   }
   const tgPlain = html => { ilTpl.innerHTML = html || ''; return ilTpl.content.textContent; };
   const ilName = vt => Object.keys(IL_VT).find(n => IL_VT[n].test(vt || ''));
-  function ilTagCell(cell, segs) {
-    const txt = cell.querySelector('.txt'); if (!txt || txt.dataset.ilx) return; txt.dataset.ilx = '1';
-    const nodes = [], tw = document.createTreeWalker(txt, NodeFilter.SHOW_TEXT);
-    for (let nd; (nd = tw.nextNode()); ) if (!nd.parentElement.closest('.note, sup')) nodes.push(nd);
-    let full = '', starts = nodes.map(nd => { const p = full.length; full += nd.data; return p; });
-    const hits = []; let pos = 0;
-    for (const [idx, t] of segs) {
-      const w = t.trim(); if (!w) continue;
-      const re = new RegExp(w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&').replace(/\s+/g, '\\s+'), 'g'); re.lastIndex = pos;
-      const m = re.exec(full); if (!m || m.index - pos > 80) continue;
-      pos = m.index + m[0].length; if (idx.length) hits.push([m.index, pos, idx]);
-    }
-    for (let h = hits.length - 1; h >= 0; h--) { // von hinten, damit die Textknoten davor unverändert bleiben
-      const [s0, e0, idx] = hits[h];
-      for (let k = nodes.length - 1; k >= 0; k--) {
-        const nd = nodes[k], ns = starts[k], ne = ns + nd.data.length, s = Math.max(s0, ns) - ns, e = Math.min(e0, ne) - ns;
-        if (e <= s) continue;
-        let mid = s > 0 ? nd.splitText(s) : nd; if (e - s < mid.data.length) mid.splitText(e - s);
-        const sp = document.createElement('span'); sp.className = 'ilx'; sp.dataset.ix = idx.join(','); mid.replaceWith(sp); sp.appendChild(mid);
-      }
-    }
-  }
-  function ilLink(src) {
-    const row = src.closest('.row'); if (!row) return;
-    const hc = [...row.querySelectorAll('.cell[data-k="he"]')].find(c => c.querySelector('.w')); if (!hc) return;
-    const ws = [...hc.querySelectorAll('.w')], cons = ws.map(w => consOf(w.textContent)), nth = (arr, i) => arr.slice(0, i).filter(x => x === arr[i]).length;
-    let ix = [];
-    if (src.classList.contains('ilx')) ix = src.dataset.ix.split(',').map(Number);
-    else if (src.classList.contains('w') && hc.contains(src)) ix = [ws.indexOf(src) + 1];
-    else if (src.classList.contains('wg')) {
-      const c = consOf(src.dataset.h), same = [...src.closest('.cell').querySelectorAll('.wg')].filter(x => consOf(x.dataset.h) === c), k = same.indexOf(src);
-      const at = cons.map((x, i) => x === c ? i : -1).filter(i => i >= 0)[k]; if (at != null) ix = [at + 1];
-    }
-    ix = ix.filter(i => i >= 1 && i <= ws.length); if (!ix.length) return;
-    const was = src.classList.contains('ilhl'); ilHlClear(); if (was) return;
-    const set = new Set(ix);
-    ix.forEach(i => ws[i - 1].classList.add('ilhl'));
-    row.querySelectorAll('.ilx').forEach(x => { if (x.dataset.ix.split(',').some(i => set.has(+i))) x.classList.add('ilhl'); });
-    row.querySelectorAll('.cell').forEach(c => {
-      if (c === hc) return;
-      const wg = [...c.querySelectorAll('.wg')]; if (!wg.length) return;
-      ix.forEach(i => { const hit = wg.filter(x => consOf(x.dataset.h) === cons[i - 1])[nth(cons, i - 1)]; if (hit) hit.classList.add('ilhl'); });
-    });
-    src.classList.add('ilhl');
-  }
-  $('#rOut').addEventListener('click', e => {
-    const src = e.target.closest('.ilx, .w, .wg');
-    if (src && (src.classList.contains('ilx') || src.closest('.row') && src.closest('.row').querySelector('.ilx'))) ilLink(src); else if ($('#rOut .ilhl')) ilHlClear();
-  });
-  // Feste Reihenfolge = feste Farbe je Werk (--il1 … --il16); „LXX“ = Septuaginta (CATSS), Wort für Wort unter dem Westminster-Text
-  const IL_ORDER = ['Zunz', 'Breuer', 'Philippson', 'Herxheimer', 'LXX', 'Onkelos', 'Pseudo-Jonathan', 'Neofiti', 'Goldschmidt', 'Hirsch', 'JuliusHirsch', 'Qumran', 'BuberRosenzweig', 'Umschrift', 'Wolf', 'Mendelssohn'];
-  const IL_LABEL = { Mendelssohn: 'Mendelssohn (1815)', Wolf: 'Wolf', BuberRosenzweig: 'Buber/Rosenzweig', Zunz: 'Zunz (1838)', Breuer: 'Breuer', Philippson: 'Philippson', Herxheimer: 'Herxheimer', Goldschmidt: 'Goldschmidt (1921)', Hirsch: 'S. R. Hirsch', JuliusHirsch: 'Julius Hirsch', LXX: 'Septuaginta', Onkelos: 'Onkelos', 'Pseudo-Jonathan': 'Pseudo-Jonathan', Neofiti: 'Neofiti 1', Qumran: 'Qumran-Rollen', Umschrift: 'Umschrift (Aussprache)' };
-  const IL_SUB = { Mendelssohn: 'Moses Mendelssohn, Die fünf Bücher Mose, Dessau 1815 · deutsche Übersetzung', Wolf: 'Benedikt Pinchas Wolf, Das Buch Samuel', BuberRosenzweig: 'Martin Buber und Franz Rosenzweig · lokale Wortzuordnung', Zunz: 'Leopold Zunz, Die vier und zwanzig Bücher der Heiligen Schrift, Berlin 1838', Breuer: 'Raphael Breuer, Arba Megillot, Josua, Richter, Esra und Nehemia', Philippson: 'Ludwig Philippson, Die Israelitische Bibel', Herxheimer: 'Salomon Herxheimer, Die vier und zwanzig Bücher der Bibel', Goldschmidt: 'Lazarus Goldschmidt, Pentateuch, Berlin 1921', Hirsch: 'Samson Raphael Hirsch, Pentateuch (1867–1878) und Psalmen (1882)', JuliusHirsch: 'Julius Hirsch, Jesaia und die zwölf kleinen Propheten', LXX: 'Griechisch, Wortgruppen nach der Zuordnung von CATSS', Onkelos: 'Targum Onkelos (Sperber), Wort für Wort maschinell zugeordnet', 'Pseudo-Jonathan': 'Targum Pseudo-Jonathan; Zusätze bleiben ohne Zuordnung', Neofiti: 'Targum Neofiti 1; Zusätze bleiben ohne Zuordnung', Qumran: 'Biblische Rollen vom Toten Meer (ETCBC), je Rolle eine Zeile; farbig: abweichende Lesart', Umschrift: 'Phonetische Umschrift jedes Wortes (ETCBC phono, Dirk Roorda); ˈ Hauptton' };
-  const IL_PIC = { Mendelssohn: 'Mendelssohn', Wolf: 'Wolf, Das Buch Samuel', Zunz: 'Zunz', Breuer: 'Raphael Breuer', Philippson: 'Philippson', Herxheimer: 'Herxheimer', Goldschmidt: 'Goldschmidt', Hirsch: 'Samson Raphael Hirsch', JuliusHirsch: 'Julius Hirsch', LXX: 'Septuaginta', Onkelos: 'Targum Onkelos', 'Pseudo-Jonathan': 'Targum Pseudo-Jonathan', Neofiti: 'Targum Neofiti', Qumran: 'Qumran' };
-  const ilBreuerJoseph = () => view && view.group && ['Ezekiel', 'Jeremiah'].includes(view.group.title);
-  const ilPic = n => n === 'Breuer' && ilBreuerJoseph() ? 'Joseph Breuer' : IL_PIC[n];
-  const ilSub = n => n === 'Breuer' && ilBreuerJoseph() ? (view.group.title === 'Jeremiah' ? 'Joseph Breuer, Das Buch Jirmejah' : 'Joseph Breuer, Das Buch Jecheskel (1921)') : IL_SUB[n];
-  // Auswahl (Häkchen) wird gemerkt; ältere Einstellung (ein Werk oder „Alle“) wird übernommen
-  let ilPick = null; try { ilPick = JSON.parse(localStorage.getItem('interlinPick') || 'null'); } catch { /* egal */ }
-  if (!Array.isArray(ilPick)) ilPick = ilOn ? (ilTr === '*' ? IL_ORDER.slice(0, 4) : [ilTr]) : [];
-  const ilSave = () => { try { localStorage.setItem('interlinPick', JSON.stringify(ilPick)); } catch { /* egal */ } };
-  let ilAvail = []; // für das aktuelle Kapitel vorhandene Werke
   // Septuaginta: CATSS-Fassung des Buches (Richter: Codex B zuerst nicht nötig – die erste Fassung „Septuaginta (CATSS)“ gilt)
   const ilLxxVer = g => { const vs = (g && g.versions || []).filter(x => /CATSS/.test(x.versionTitle || '')); return vs.find(x => x.versionTitle === 'Septuaginta (CATSS)') || vs[0] || null; };
   async function ilLxxDoc(g) {
@@ -1005,106 +843,29 @@
     return [...ilLxxIndices([...cell.querySelectorAll('.w')].map(w => w.textContent), ilTpl.content.querySelectorAll('.wg'))]
       .map(([g, idx]) => [idx, g.textContent.trim()]);
   }
-  // Legende: Farbpunkt + Name je gewähltem Werk; Überfahren hebt die Zeile hervor, Klick nimmt das Werk aus der Auswahl
-  function ilLegend(use) {
-    $$('#rOut .illeg').forEach(x => x.remove());
-    if (use.length < 2) return;
-    const leg = document.createElement('div'); leg.className = 'illeg';
-    use.forEach(n => {
-      const b = document.createElement('button'); b.type = 'button'; b.className = 'illc'; b.dataset.i = IL_ORDER.indexOf(n) + 1; b.dataset.tr = n;
-      const pic = portraitOf(ilPic(n));
-      b.title = (pic && pic.name ? pic.name + ' – ' : '') + I18N.t('Klick: dieses Werk ausblenden'); b.innerHTML = `${pic ? `<img src="portraits/${encodeURIComponent(pic.img)}" alt="">` : '<i></i>'}${esc(I18N.t(IL_LABEL[n] || n))}`;
-      b.onclick = () => { ilPick = ilPick.filter(x => x !== n); ilSave(); ilRefresh(); ilPopRender(); };
-      b.onmouseenter = () => $$('#rOut .ilt').forEach(l => l.classList.toggle('ildim', l.dataset.tr !== n));
-      b.onmouseleave = () => $$('#rOut .ildim').forEach(l => l.classList.remove('ildim'));
-      leg.appendChild(b);
-    });
-    const head = $('#rOut .row.head'); // die Legende klebt unter den Spaltenköpfen (Versionsnamen), nicht darüber
-    if (head) { head.after(leg); leg.style.setProperty('--headh', head.offsetHeight + 'px'); } else $('#rOut').prepend(leg);
-  }
-  // Auswahlfenster am Interlinear-Knopf: ein Häkchen je Werk (mit Bild), dazu „Alle“ und „Keine“
-  function ilPopRender() {
-    const pop = $('#ilPop'); if (!pop || pop.hidden) return;
-    const row = n => { const pic = portraitOf(ilPic(n)), on = ilPick.includes(n);
-      return `<label class="ilpR" data-i="${IL_ORDER.indexOf(n) + 1}"><input type="checkbox" value="${n}"${on ? ' checked' : ''}>${pic ? `<img src="portraits/${encodeURIComponent(pic.img)}" alt="" title="${esc(pic.name || '')}">` : (n === 'LXX' ? `<span class="ilpPh" lang="grc">Α</span>` : `<span class="ilpPh" lang="he">א</span>`)}<span class="ilpT"><b>${esc(I18N.t(IL_LABEL[n]))}</b><small>${esc(I18N.t(ilSub(n)))}</small></span><i class="ilpDot"></i></label>`; };
-    pop.innerHTML = `<div class="ilpH"><b>${esc(I18N.t('Interlinear'))}</b><span><button type="button" data-a="all">${esc(I18N.t('Alle'))}</button><button type="button" data-a="none">${esc(I18N.t('Keine'))}</button></span></div>${ilAvail.map(row).join('')}<p class="muted ilpN">${esc(I18N.t('Die gewählten Werke stehen Wort für Wort unter dem hebräischen Text (Westminster).'))}</p>`;
-  }
-  function ilPopPlace() {
-    const pop = $('#ilPop'), r = $('#ilBtn').getBoundingClientRect(); if (pop.hidden) return;
-    pop.style.top = Math.round(r.bottom + 4) + 'px';
-    pop.style.left = Math.round(Math.max(8, Math.min(r.left, innerWidth - pop.offsetWidth - 8))) + 'px';
-  }
-  function ilPopToggle(show = $('#ilPop').hidden) { const pop = $('#ilPop'); pop.hidden = !show; $('#ilBtn').setAttribute('aria-expanded', String(show)); if (show) { ilPopRender(); ilPopPlace(); } }
-  $('#ilPop').addEventListener('change', e => {
-    const c = e.target.closest('input[type=checkbox]'); if (!c) return;
-    ilPick = c.checked ? [...new Set([...ilPick, c.value])] : ilPick.filter(x => x !== c.value); ilSave(); ilRefresh();
+  const mishnahReaderUI=window.LibraryMishnahReader.create({
+    $,esc,getView:()=>view,load:(...args)=>wordCardsUI.lazyScript(...args),
+    remember:()=>rememberKinds(),reload:async expected=>{if(view===expected)await loadView();},
   });
-  $('#ilPop').addEventListener('click', e => {
-    const a = e.target.closest('button[data-a]'); if (!a) return;
-    ilPick = a.dataset.a === 'all' ? [...new Set([...ilPick, ...ilAvail])] : ilPick.filter(x => !ilAvail.includes(x)); ilSave(); ilPopRender(); ilRefresh();
+  const interlinearUI = window.LibraryInterlinear.create({
+    $, $$, esc, cache, getView: () => view, portraitOf, mishnah: mishnahReaderUI,
+    afterRefresh:()=>{displayUI.taamLayout();updateVersionInterlinear();},
+    openSamaritan: w => wordPopupUI.openSamaritanWord(w),
+    consOf: s => consOf(s), apChap: s => apChap(s), verseOf: s => linksUI.verseOf(s),
+    sources: { loadIL, resetPrivateIL, IL_TG, IL_QK, ilName,
+      loadTgIL, tgVer, tgSegs, tgDoc, tgPlain, loadQIL, qVer,
+      ilLxxVer, ilLxxDoc, ilLxxSegs, loadSmrIL, loadPsIL },
   });
-  document.addEventListener('pointerdown', e => { const pop = $('#ilPop'); if (pop && !pop.hidden && !e.target.closest('#ilPop, #ilBtn')) ilPopToggle(false); }, true);
-  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('#ilPop').hidden) ilPopToggle(false); });
-  addEventListener('resize', () => ilPopPlace());
-  let ilTok = 0;
+  function ilRefresh() { return interlinearUI.refresh(); }
+  function ilTagCell(cell, segments) { return interlinearUI.tagCell(cell, segments); }
   $('#bavliIlBtn').onclick = async () => {
     const current = view && view.sections && view.sections[view.idx];
     const page = current && apChap(current);
     try {
-      const data = await lazyScript('bavli-il-data.js', () => window.BAVLI_IL);
+      const data = await wordCardsUI.lazyScript('bavli-il-data.js', () => window.BAVLI_IL);
       window.BavliInterlinear.open(data, page, { onWord: openBavliAnchor });
     } catch (err) { alert(I18N.t('Wortzuordnung nicht geladen: {}', err.message)); }
   };
-  async function ilRefresh() {
-    const b = $('#ilBtn'); if (!b) return;
-    const tok = ++ilTok;
-    const bavliSection = view && view.sections && view.sections[view.idx];
-    const bavliPage = bavliSection && apChap(bavliSection);
-    $('#bavliIlBtn').hidden = !(view && view.group && view.group.title === 'Berakhot' && /^(?:[2-9]|10)[ab]$/.test(bavliPage || ''));
-    const ALL = await loadIL(), title = view && view.group ? view.group.title : '';
-    if (tok !== ilTok) return;
-    const s0 = view && view.sections && view.sections[view.idx], c0 = s0 && apChap(s0), names = ALL && title ? Object.keys(ALL).filter(n => ALL[n][title] && (!c0 || Object.keys(ALL[n][title]).some(k => k.startsWith(c0 + ':')))) : []; // nur Kapitel, für die eine Zuordnung vorliegt
-    const lxx = !!(view && view.group && ilLxxVer(view.group)) && !!c0 && /^\d+$/.test(c0);
-    const TG = view && view.group && Object.keys(IL_TG).some(n => tgVer(view.group, n)) ? await loadTgIL() : null;
-    if (tok !== ilTok) return;
-    const tgHas = n => !!(TG && TG[n] && TG[n][title] && c0 && /^\d+$/.test(c0) && TG[n][title][+c0 - 1] && tgVer(view.group, n));
-    const QIL = view && view.group && qVer(view.group) ? await loadQIL() : null;
-    if (tok !== ilTok) return;
-    const qHas = !!(QIL && QIL[title] && c0 && Object.keys(QIL[title]).some(k => k.startsWith(c0 + ':')));
-    ilAvail = IL_ORDER.filter(n => n === 'LXX' ? lxx : n === 'Qumran' ? qHas : IL_TG[n] ? tgHas(n) : names.includes(n));
-    const has = ilAvail.length > 0, use = ilAvail.filter(n => ilPick.includes(n)), on = use.length > 0;
-    b.hidden = !has; b.classList.toggle('on', has && on);
-    if (!has && !$('#ilPop').hidden) ilPopToggle(false); else ilPopRender();
-    document.body.classList.toggle('il', has && on);
-    ilClear();
-    $$('#rOut .illeg').forEach(x => x.remove());
-    if (!has) return;
-    const s = view.sections && view.sections[view.idx], chap = s && apChap(s); if (!chap) return;
-    for (const row of $$('#rOut .row[data-l]')) { // deutsche und aramäische Spalten: Wortgruppen anklickbar machen (unabhängig vom Interlinear-Knopf)
-      const v = verseOf(row.dataset.l); if (v == null) continue;
-      row.querySelectorAll('.cell[data-vt]').forEach(cell => {
-        const nm = ilName(cell.dataset.vt); if (!nm) return;
-        const segs = IL_TG[nm] ? tgSegs(TG, nm, title, chap, v, (cell.querySelector('.txt') || cell).textContent) : ALL && ALL[nm] && ALL[nm][title] && ALL[nm][title][chap + ':' + v];
-        if (segs) ilTagCell(cell, segs);
-      });
-    }
-    if (!on) return;
-    const lx = use.includes('LXX') ? await ilLxxDoc(view.group) : null, tgd = {};
-    for (const n of use) if (IL_TG[n]) tgd[n] = await tgDoc(view.group, n);
-    if (tok !== ilTok) return;
-    ilLegend(use);
-    for (const row of $$('#rOut .row[data-l]')) {
-      const v = verseOf(row.dataset.l); if (v == null) continue;
-      row.querySelectorAll('.cell[data-k="he"]').forEach(cell => {
-        if (!cell.querySelector('.w')) return;
-        const tgv = nm => { const d = tgd[nm], ch = d && d.text[+chap - 1]; return ch ? tgSegs(TG, nm, title, chap, v, tgPlain(ch[v - 1])) : null; };
-        const trs = use.flatMap(nm => nm === 'Qumran' ? ((QIL[title] || {})[chap + ':' + v] || []).map(([sig, segs]) => [nm, segs, sig]) : [[nm, nm === 'LXX' ? (lx && lx.text[+chap - 1] ? ilLxxSegs(cell, lx.text[+chap - 1][v - 1]) : null) : IL_TG[nm] ? tgv(nm) : ALL[nm][title][chap + ':' + v]]]).filter(x => x[1] && x[1].length);
-        if (trs.length) ilVerse(cell, trs, IL_ORDER);
-      });
-    }
-  }
-  $('#ilBtn').onclick = () => ilPopToggle();
-
   // Die Kapitel-Auswahl ist nur so breit wie der gewählte Eintrag
   let fitSpan = null;
   function fitSection() {
@@ -1145,1389 +906,88 @@
     if (note) note.classList.toggle('open');
   });
 
-  // OSHB-Texte: Klick auf ein Wort zeigt Lemma, Stamm, Zeit und Form; „Im Wörterbuch“ schlägt das Lemma nach
-  let wpop = null;
-  const closeWpop = () => { if (wpop) { wpop.remove(); wpop = null; } $$('#rOut .w.sel, #rOut .wt.sel, #rOut .wq.sel, #rOut .wg.sel, #bavliInterlinear .bil-heword.sel').forEach(x => x.classList.remove('sel')); gSel = null; try { CSS.highlights.delete('gsel'); } catch { /* ältere Engine */ } };
-  // Septuaginta (CATSS): Klick auf eine griechische Wortgruppe zeigt die hebräischen Wörter, denen sie zugeordnet ist
-  const GFLAG = { z: 'Zusatz der Septuaginta (kein hebräisches Gegenstück)', m: 'Minus der Septuaginta (hebräisches Wort ohne griechisches Gegenstück)', d: 'Doublette: ein hebräisches Wort ist doppelt übersetzt', i: 'Infinitivus absolutus im Hebräischen', t: 'Transliteriertes hebräisches Wort', v: 'Griechisches Präverb für eine hebräische Präposition', s: 'Komparativ/Superlativ (hebr. מ)', u: 'Gegenstück steht an anderer Stelle im Vers (Umstellung oder Verteilung)' };
-  // x (optional, mit Morphologie): { rows: HTML der Wort-Bestimmungen, buttons: HTML, word, at: Element/Range zum Ausrichten, on: Klick-Behandlung }
-  function showGreekUnit(w, x) {
-    const hs = w ? (w.dataset.h || '').split(' ').filter(Boolean) : [], rs = w ? (w.dataset.r || '').split(' ').filter(Boolean) : [], fl = w ? (w.dataset.f || '').split('').filter(c => GFLAG[c]) : [];
-    if (w) w.classList.add('sel');
-    wpop = document.createElement('div');
-    wpop.id = 'wpop';
-    const btns = a => `<div class="wgh">${a.map(h => `<button class="wdict" dir="rtl" lang="he" data-q="${esc(h)}" title="Im Wörterbuch nachschlagen">${esc(h)}</button>`).join(' ')}</div>`;
-    let body = !w ? '' : hs.length ? `<div class="wseg${x ? '' : ' main'}">${fl.includes('m') ? 'Hebräisches Wort (CATSS)' : 'Hebräisches Gegenstück (CATSS)'}</div>${btns(hs)}`
-      : (fl.includes('m') ? '' : `<div class="wseg${x ? '' : ' main'}">Kein hebräisches Gegenstück (Zusatz der Septuaginta)</div>`);
-    if (rs.length) body += `<div class="wseg">Rückübersetzung (vermutliche hebräische Vorlage)</div>${btns(rs)}`;
-    const notes = fl;
-    if (notes.length) body += `<div class="wseg">Besonderheiten</div><ul class="gfl">${notes.map(c => `<li>${GFLAG[c]}</li>`).join('')}</ul>`;
-    const word = x ? x.word : fl.includes('m') ? hs.join(' ') : w.textContent;
-    wpop.innerHTML = `<div class="wtop"><span dir="${!x && fl.includes('m') ? 'rtl' : 'ltr'}" lang="${!x && fl.includes('m') ? 'he' : 'grc'}" class="wword${x || !fl.includes('m') ? ' wgr' : ''}">${esc(word)}</span><button class="wx" title="Schließen">✕</button></div>${x ? x.rows : ''}${body}${x ? x.buttons : ''}`;
-    document.body.appendChild(wpop);
-    const place = () => {
-      if (!wpop) return;
-      const r = (x && x.at ? x.at : w).getBoundingClientRect(), pw = wpop.offsetWidth, ph = wpop.offsetHeight;
-      const px = Math.max(8, Math.min(window.innerWidth - pw - 8, r.left + r.width / 2 - pw / 2));
-      let y = r.bottom + 6; if (y + ph > window.innerHeight - 8) y = Math.max(8, r.top - ph - 6);
-      wpop.style.left = px + 'px'; wpop.style.top = y + 'px';
-    };
-    place();
-    wpop.onclick = ev => {
-      if (ev.target.closest('.wx')) { closeWpop(); return; }
-      if (x && x.on && x.on(ev)) return;
-      const b = ev.target.closest('.wdict'); if (b) openDict(b.dataset.q);
-    };
-    return place;
-  }
-  // ---------- Septuaginta: Bestimmung jedes griechischen Wortes (lxx-morph; Index lxx-morph.js, Auswertung gmorph.js) ----------
-  let gmP = null, gSel = null, gTok = 0; // gSel: angeklicktes Wort { cell, i }
-  const loadGM = () => gmP || (gmP = lazyScript('lxx-morph.js', () => window.LXX_MORPH).catch(e => { gmP = null; throw e; }));
-  // Kapitel und Vers einer griechischen Zelle (nur Texte mit Kapitel:Vers)
-  function greekCtx(cell) {
-    const row = cell.closest('.row'); if (!row || !cell.dataset.gt) return null;
-    let path = null, label = row.dataset.l;
-    try {
-      if (row.classList.contains('sh')) { path = JSON.parse(row.dataset.sp); label = row.dataset.sl; }
-      else { const h = row.closest('.pgb') && row.closest('.pgb').querySelector('.pgh[data-sk]'); path = h ? JSON.parse(h.dataset.sk) : view && view.sections && view.sections[view.idx] ? view.sections[view.idx].path : null; }
-    } catch { path = null; }
-    if (!Array.isArray(path) || path.length !== 1 || !Number.isInteger(path[0]) || !/^\d+$/.test(String(label || ''))) return null;
-    let ch = path[0] + 1, v = +label;
-    // umgestellte Fassung (andere Zählung): die Wort-Bestimmung hängt an der eigenen Stelle des Verses
-    const dv = view && view.loaded ? view.loaded.find(x => x.vsrc && x.entry.title === cell.dataset.gt && (x.entry.versionTitle || x.versionTitle || '') === cell.dataset.gv) : null;
-    if (dv) { const sv = dv.vsrc[ch + ':' + v]; if (sv && sv.length > 1) return null; if (sv) { ch = sv[0][0]; v = sv[0][1]; } }
-    return { title: cell.dataset.gt, vt: cell.dataset.gv, ch, v };
-  }
-  // Die griechischen Wörter einer Zelle, gezählt wie in gmorph.js (ohne <small>, Fußnoten), und das Wort unter dem Klick
-  function greekWordAt(cell, e, w, all = false) {
-    const txt = cell.querySelector('.txt') || cell, GM = window.GMorph;
-    const nodes = []; let s = '';
-    const tw = document.createTreeWalker(txt, NodeFilter.SHOW_TEXT);
-    for (let n; (n = tw.nextNode());) { if (n.parentElement.closest('small, sup, .note')) { s += ' '; continue; } nodes.push([n, s.length]); s += n.nodeValue; }
-    const words = []; for (const m of s.matchAll(GM.WORD)) if (GM.GREEK.test(m[0])) words.push({ t: m[0], s: m.index, e: m.index + m[0].length });
-    let at = -1;
-    try { const r = e && document.caretRangeFromPoint(e.clientX, e.clientY); if (r && r.startContainer.nodeType === 3) { const f = nodes.find(q => q[0] === r.startContainer); if (f) at = f[1] + r.startOffset; } } catch { /* ohne Klickstelle: erstes Wort der Gruppe */ }
-    let i = at < 0 ? -1 : words.findIndex(q => q.s <= at && at <= q.e), grp = null;
-    if (w) {
-      const inW = nodes.filter(q => w.contains(q[0])); if (!inW.length) return null;
-      const a = inW[0][1], b = inW[inW.length - 1][1] + inW[inW.length - 1][0].nodeValue.length;
-      grp = words.map((q, k) => (q.s >= a && q.e <= b ? k : -1)).filter(k => k >= 0);
-      if (!grp.length) return null;
-      if (!grp.includes(i)) { const p = window.Lxx ? window.Lxx.pick(w.textContent) : null; i = grp[p && p.i.length ? p.i[0] : 0] != null ? grp[p && p.i.length ? p.i[0] : 0] : grp[0]; } // Klick neben die Wörter: das Hauptwort der Gruppe (ohne Artikel, καί)
-    }
-    if (i < 0 && !all) return null;
-    const range = k => { // Wort k als Bereich im Dokument (zum Hervorheben und Ausrichten)
-      const find = pos => { let f = nodes[0]; for (const q of nodes) { if (q[1] <= pos) f = q; else break; } return f; };
-      const a = find(words[k].s), b = find(Math.max(words[k].s, words[k].e - 1)), rg = document.createRange();
-      rg.setStart(a[0], words[k].s - a[1]); rg.setEnd(b[0], words[k].e - b[1]); return rg;
-    };
-    return { i, words, grp, range };
-  }
-  async function showGreekWord(cell, w, e) {
-    const at = cell && window.GMorph ? greekWordAt(cell, e, w) : null, was = gSel, wasGroup = w && w.classList.contains('sel');
-    closeWpop();
-    if (!at) { if (w && !wasGroup) showGreekUnit(w); return; }
-    if (was && was.cell === cell && was.i === at.i) return; // dasselbe Wort noch einmal: schließen
-    const ctx = greekCtx(cell), tok = ++gTok;
-    let D = null;
-    if (ctx) { try { D = await loadGM(); } catch { D = null; } }
-    if (tok !== gTok || wpop) return; // inzwischen wurde woanders geklickt
-    const GM = window.GMorph, bi = D ? GM.bookIndex(D, ctx.title, ctx.vt) : -1;
-    const toks = bi >= 0 ? GM.verse(D, bi, ctx.ch, ctx.v) : null;
-    if (!toks || toks.length !== at.words.length) { if (w) showGreekUnit(w); return; } // Fassung ohne Bestimmung (oder Vers passt nicht zum Index): wie bisher nur das hebräische Gegenstück
-    const t = s => I18N.t(s), idx = w ? at.grp : [at.i];
-    const show = main => {
-      if (wpop) { wpop.remove(); wpop = null; }
-      gSel = { cell, i: main };
-      const inf = k => (toks[k] ? GM.info(D, toks[k].id) : null);
-      const hint = k => (toks[k].low ? `<span class="wlow" title="${esc(t('lxx-morph stuft diese Bestimmung als unsicher ein'))}">${esc(t('unsicher'))}</span>` : toks[k].guess ? `<span class="wlow" title="${esc(t('Das Wort ließ sich im Vers nicht zuordnen; die Bestimmung ist die häufigste dieser Wortform'))}">${esc(t('nach der Wortform'))}</span>` : '');
-      const rows = idx.map(k => {
-        const f = inf(k), d = f && GM.describe(f.key, t);
-        return `<div class="wseg${k === main ? ' main' : ' wgalt'}" data-k="${k}"${k === main ? '' : ` title="${esc(t('Dieses Wort wählen'))}"`}>${idx.length > 1 ? `<span class="wgs" lang="grc">${esc(at.words[k].t)}</span> ` : ''}`
-          + (f ? `<span class="wlem wgl" lang="grc">${esc(f.lemma)}</span> <span class="muted">${esc(f.gloss)}</span><br><b>${esc(d.pos)}</b>${d.info ? ' · ' + esc(d.info) : ''} ${hint(k)}` : `<span class="muted">${esc(t('ohne Bestimmung'))}</span>`) + '</div>';
-      }).join('');
-      const m = inf(main);
-      const buttons = m ? `<button class="wdict wglex" data-q="${esc(m.lemma)}" hidden>Im Wörterbuch nachschlagen</button><button class="wforms wcard" title="${esc(t('Wortkarte: Wörterbücher, Verteilung und Formen dieses Wortes'))}">Wortkarte</button><button class="wforms wtable" title="${esc(t('Alle in der Septuaginta belegten Formen dieses Wortes als Tabelle'))}">Alle Formen (Tabelle)</button><button class="wforms wall" title="${esc(t('Startet die Suche nach diesem Wort in der Septuaginta (Treffer „Alle Formen“)'))}">🔎 ${esc(t('Alle Stellen dieses Wortes'))}</button>` : '';
-      const rg = at.range(main);
-      try { CSS.highlights.set('gsel', new Highlight(rg)); } catch { /* ältere Engine */ }
-      const place = showGreekUnit(w, { rows, buttons, word: at.words[main].t, at: rg, on: ev => {
-        const alt = ev.target.closest('.wgalt[data-k]'); if (alt && !ev.target.closest('button')) { show(+alt.dataset.k); return true; }
-        const wf = ev.target.closest('.wforms');
-        if (wf && m) { const info = { lemma: m.lemma, form: m.form, key: m.key }; closeWpop(); if (wf.classList.contains('wall')) gSearchAll(m.lemma); else openGForms(m.lemma, info, wf.classList.contains('wtable') ? 'forms' : 'card'); return true; }
-        return false;
-      } });
-      if (m) O.dictLookup(m.lemma, dictSel && dictSel.length ? dictSel : null, false).then(r => { // Lexikon-Knopf nur, wenn ein eingebundenes Wörterbuch das Wort kennt
-        const b = wpop && wpop.querySelector('.wglex'); if (b && b.dataset.q === m.lemma && r && r.results && r.results.length) { b.hidden = false; place(); }
-      }).catch(() => {});
-    };
-    show(at.i);
-  }
-  // Targum-Wörter (ETCBC): Lexem, Wurzel, Bedeutung, Wortart, Stamm, Genus/Numerus/Status
-  const T_SP = { subs: 'Substantiv', verb: 'Verb', prep: 'Präposition', conj: 'Konjunktion', pron: 'Pronomen', advb: 'Adverb', adjv: 'Adjektiv', intj: 'Interjektion', nmpr: 'Eigenname', art: 'Artikel', unknown: 'unbekannt' };
-  const T_VS = { G: 'Peal (G)', D: 'Pael (D)', C: 'Aphel (C)', Gt: 'Ethpeel (Gt)', Dt: 'Ethpaal (Dt)', Ct: 'Ittaphal (Ct)', DD: 'Pael-Variante (DD)', PO: 'Pol (PO)', POT: 'Ethpol (POT)' };
-  const T_ST = { e: 'Emphaticus', a: 'Absolutus', c: 'Constructus', x: 'Absolutus oder Constructus' };
-  const T_NU = { s: 'Singular', pl: 'Plural' }, T_GN = { m: 'maskulin', f: 'feminin' };
-  function showTargumWord(w) {
-    const [sp, vs, st, nu, gn] = w.dataset.m.split('.');
-    const lx = (window.TARGUM_LEX || {})[w.dataset.l] || ['', '', ''];
-    w.classList.add('sel');
-    const parts = [];
-    if (sp !== '-') parts.push(`<b>${esc(T_SP[sp] || sp)}</b>`);
-    if (vs !== '-') parts.push(`Stamm: <b>${esc(T_VS[vs] || vs)}</b>`);
-    if (gn !== '-') parts.push(esc(T_GN[gn] || gn));
-    if (nu !== '-') parts.push(esc(T_NU[nu] || nu));
-    if (st !== '-') parts.push(esc(T_ST[st] || st));
-    let h = '<div class="wseg main">';
-    if (lx[0]) h += `<span class="wlem" dir="rtl" lang="he">${esc(lx[0])}</span> `;
-    if (lx[2]) h += `<span class="muted">${esc(lx[2])}</span><br>`;
-    if (lx[1] && lx[1] !== lx[0]) h += `Wurzel: <span dir="rtl" lang="he" class="wlem">${esc(lx[1])}</span><br>`;
-    h += parts.join(' · ') + '</div>';
-    wpop = document.createElement('div');
-    wpop.id = 'wpop';
-    wpop.innerHTML = `<div class="wtop"><span dir="rtl" lang="he" class="wword">${esc(w.textContent)}</span><button class="wx" title="Schließen">✕</button></div>${h}${lx[0] ? `<button class="wdict" data-q="${esc(lx[0])}">Im Wörterbuch nachschlagen</button>` : ''}${lx[0] ? `<button class="wforms wtcard" data-tl="${esc(w.dataset.l)}">${esc(I18N.t('Wortkarte'))}</button><button class="wforms wttable" data-tl="${esc(w.dataset.l)}">${esc(I18N.t('Alle Formen (Tabelle)'))}</button>` : ''}`;
-    document.body.appendChild(wpop);
-    const r = w.getBoundingClientRect(), pw = wpop.offsetWidth, ph = wpop.offsetHeight;
-    const x = Math.max(8, Math.min(window.innerWidth - pw - 8, r.left + r.width / 2 - pw / 2));
-    let y = r.bottom + 6; if (y + ph > window.innerHeight - 8) y = Math.max(8, r.top - ph - 6);
-    wpop.style.left = x + 'px'; wpop.style.top = y + 'px';
-    wpop.onclick = ev => {
-      if (ev.target.closest('.wx')) closeWpop();
-      const b = ev.target.closest('.wdict'); if (b) openDict(b.dataset.q);
-      const card = ev.target.closest('.wtcard, .wttable'); if (card) { closeWpop(); openTForms(card.dataset.tl, { form: w.textContent }, card.classList.contains('wttable') ? 'forms' : 'card'); }
-    };
-  }
-  // Qumran (ETCBC DSS): data-l = Lemma, data-m = Wortart.Stamm.Zeit.Person.Genus.Numerus.Status ('-' = ohne Angabe)
-  const Q_SP = { subs: 'Substantiv', verb: 'Verb', ptcl: 'Partikel', adjv: 'Adjektiv', numr: 'Zahlwort', pron: 'Pronomen', prep: 'Präposition', conj: 'Konjunktion', art: 'Artikel', advb: 'Adverb', nmpr: 'Eigenname', prps: 'Personalpronomen', prde: 'Demonstrativpronomen', prin: 'Fragepronomen', nega: 'Verneinung', inrg: 'Fragepartikel', intj: 'Interjektion' };
-  const Q_VS = { qal: 'Qal', hif: 'Hifil', nif: 'Nifal', hit: 'Hitpael', hof: 'Hofal', etpe: 'Etpeel (aram.)', hifil: 'Hifil', piel: 'Piel', nifal: 'Nifal', hitpael: 'Hitpael', hofal: 'Hofal', pual: 'Pual', polel: 'Polel', poel: 'Poel', poal: 'Poal', pilpel: 'Pilpel', hitpoel: 'Hitpoel', hitopel: 'Hitpolel', peal: 'Peal (aram.)', pael: 'Pael (aram.)', aphel: 'Afel (aram.)', haphel: 'Hafel (aram.)', shaphel: 'Schafel (aram.)', ithpeel: 'Itpeel (aram.)', ithpaal: 'Itpaal (aram.)', peil: 'Peil (aram.)', passive: 'Passiv' };
-  const Q_VT = { perf: 'Perfekt', impf: 'Imperfekt', wayy: 'Narrativ (wajjiqtol)', impv: 'Imperativ', ptca: 'Partizip aktiv', ptcp: 'Partizip passiv', infc: 'Infinitiv constructus', infa: 'Infinitiv absolutus' };
-  const Q_GN = { m: 'maskulin', f: 'feminin', b: 'beide Geschlechter', c: 'gemeinsam' }, Q_NU = { s: 'Singular', p: 'Plural', d: 'Dual' }, Q_ST = { a: 'Absolutus', c: 'Constructus', d: 'bestimmt' };
-  let bavliP = null, bavliDialog = null;
-  const loadBavli = () => bavliP || (bavliP = lazyScript('bavli-morph.js', () => window.BAVLI_MORPH).catch(e => { bavliP = null; throw e; }));
-  async function decorateBavliReader() {
-    const section = view && view.sections && view.sections[view.idx], page = section && apChap(section);
-    const cells = $$('#rOut .cell[data-bavli]');
-    if (!cells.length || !/^(?:[2-9]|10)[ab]$/.test(page || '')) return;
-    let D; try { D = await loadBavli(); } catch { return; }
-    const B = window.BavliMorph;
-    for (const cell of cells) {
-      if (!cell.isConnected || cell.querySelector('.w')) continue;
-      const row = cell.closest('.row'), verse = row && verseOf(row.dataset.l), text = cell.querySelector('.txt');
-      if (!verse || !text) continue;
-      const nodes = [], tokens = [], walker = document.createTreeWalker(text, NodeFilter.SHOW_TEXT);
-      for (let nd; (nd = walker.nextNode()); ) {
-        if (nd.parentElement.closest('.note, sup')) continue;
-        for (const match of nd.data.matchAll(/\S+/g)) if (/[א-ת]/.test(match[0])) { nodes.push({ nd, start: match.index, end: match.index + match[0].length }); tokens.push(match[0]); }
-      }
-      const matched = B.matchWords(D, `Berakhot ${page}:${verse}`, tokens);
-      if (!matched) continue; // Andere Textfassung: keine bloße Positionszuordnung erzwingen.
-      for (let i = nodes.length - 1; i >= 0; i--) {
-        const { nd, start, end } = nodes[i], occurrence = matched[i];
-        const word = start ? nd.splitText(start) : nd;
-        if (end - start < word.data.length) word.splitText(end - start);
-        const span = document.createElement('span'); span.className = 'w'; span.dataset.l = occurrence.id; span.dataset.m = B.definiteMorph(D.lexicon[occurrence.id]);
-        word.replaceWith(span); span.appendChild(word);
-      }
-    }
-  }
-  async function openBavliAnchor(w, anchor) {
-    const token = ++gTok, same = w.classList.contains('sel'); closeWpop(); if (same) return;
-    try {
-      const D = await loadBavli();
-      if (token !== gTok || !w.isConnected) return;
-      const occurrence = window.BavliMorph.atAnchor(D, anchor); if (!occurrence) return;
-      w.dataset.l = occurrence.id; w.dataset.m = window.BavliMorph.definiteMorph(D.lexicon[occurrence.id]);
-      await showBavliWord(w);
-    } catch { alert(I18N.t('Morphologie konnte nicht geladen werden.')); }
-  }
-  const bavliStatus = e => e.status === 'ambiguous' ? 'Mehrdeutig: mehrere Analysen' : e.status === 'partial' ? 'Teilweise bestimmt: Merkmale bleiben offen' : e.status === 'unresolved' ? 'Noch nicht sicher bestimmt' : '';
-  async function showBavliWord(w) {
-    const tok = gTok, D = await loadBavli().catch(() => { alert(I18N.t('Morphologie konnte nicht geladen werden.')); return null; });
-    if (!D || tok !== gTok || !w.isConnected) return;
-    const B = window.BavliMorph, e = D.lexicon[w.dataset.l];
-    if (!e) return;
-    const aa = B.analyses(e), status = bavliStatus(e), allNotes = [...new Set([e.note, ...aa.map(a => a.note)].filter(Boolean))];
-    const refs = [...new Set([...(e.rules || []), ...aa.flatMap(a => a.rules || [])])];
-    const choices = [];
-    const body = aa.map(a => {
-      const lemma = B.headLemma(a), language = a.lang === 'A' ? 'Jüdisch-babylonisches Aramäisch' : 'Hebräisch';
-      if (!choices.some(x => x.lemma === lemma && x.lang === a.lang)) choices.push({ lemma, lang: a.lang });
-      const subject = a.subject || e.subject;
-      const role = subject ? `<p>${esc(I18N.t('Subjektssuffix'))}: ${esc([subject.person && subject.person + '. Person', Q_GN[subject.gender] || subject.gender, Q_NU[subject.number] || subject.number].filter(Boolean).join(' · '))}</p>` : '';
-      return `<div class="wseg main"><span class="wlem" dir="rtl" lang="${a.lang === 'A' ? 'arc' : 'he'}">${esc(lemma)}</span>${a.gloss ? ` <span class="muted">${esc(a.gloss)}</span>` : ''}<br><small>${esc(I18N.t(language))}</small>${a.root ? `<p>${esc(I18N.t('Wurzel'))}: <bdi>${esc(a.root)}</bdi></p>` : ''}${B.describe(a, window.Morph, s => I18N.t(s)).map(s => `<div class="${s.main ? 'bavliMain' : ''}">${esc(s.label)}</div>`).join('')}${role}</div>`;
-    }).join('');
-    w.classList.add('sel');
-    wpop = document.createElement('div'); wpop.id = 'wpop';
-    wpop.innerHTML = `<div class="wtop"><span class="wword" dir="rtl">${esc(w.textContent)}</span><button class="wx" title="${esc(I18N.t('Schließen'))}">✕</button></div>${status ? `<p class="bavliStatus">${esc(I18N.t(status))}</p>` : ''}${body}${allNotes.map(n => `<p>${esc(n)}</p>`).join('')}${choices.map((a, i) => `<button class="wdict" data-q="${esc(a.lemma)}">${esc(I18N.t('Im Wörterbuch nachschlagen'))}${choices.length > 1 ? ': ' + esc(a.lemma) + ' (' + esc(I18N.t(a.lang === 'A' ? 'Aramäisch' : 'Hebräisch')) + ')' : ''}</button> <button class="wforms bvforms" data-i="${i}">${esc(I18N.t('Belegte Formen'))}${choices.length > 1 ? ': ' + esc(a.lemma) + ' (' + esc(I18N.t(a.lang === 'A' ? 'Aramäisch' : 'Hebräisch')) + ')' : ''}</button>`).join('')}${refs.length ? `<details><summary>${esc(I18N.t('Grammatische Belege'))}</summary><ul>${refs.map(r => `<li>${esc(r)}</li>`).join('')}</ul></details>` : ''}<p class="muted">${esc(I18N.t('Eigene Morphologie · Berakhot 2a–10b'))}</p>`;
-    const host = w.closest('dialog[open]') || document.body;
-    host.appendChild(wpop);
-    const r = w.getBoundingClientRect(), pw = wpop.offsetWidth, ph = wpop.offsetHeight;
-    wpop.style.left = Math.max(8, Math.min(window.innerWidth - pw - 8, r.left + r.width / 2 - pw / 2)) + 'px';
-    wpop.style.top = (r.bottom + ph + 6 < window.innerHeight - 8 ? r.bottom + 6 : Math.max(8, r.top - ph - 6)) + 'px';
-    wpop.onclick = ev => {
-      if (ev.target.closest('.wx')) closeWpop();
-      const b = ev.target.closest('.wdict'); if (b) { if (host !== document.body) host.close(); openDict(b.dataset.q); }
-      const f = ev.target.closest('.bvforms'); if (f) { const a = choices[+f.dataset.i]; closeWpop(); showBavliForms(D, a.lemma, a.lang); }
-    };
-  }
-  function showBavliForms(D, lemma, lang) {
-    const B = window.BavliMorph, rows = B.forms(D, lemma, lang);
-    if (!bavliDialog) { bavliDialog = document.createElement('dialog'); bavliDialog.id = 'bavliForms'; document.body.appendChild(bavliDialog); }
-    bavliDialog.innerHTML = `<form method="dialog"><button class="bavliClose" aria-label="${esc(I18N.t('Schließen'))}">✕</button></form><h2><bdi>${esc(lemma)}</bdi> · ${esc(I18N.t(lang === 'A' ? 'Aramäisch' : 'Hebräisch'))} · ${esc(I18N.t('Belegte Formen'))}</h2><p>${esc(I18N.t('Nur die in Berakhot 2a–10b belegten Formen; keine ergänzten Paradigmen.'))}</p><table class="fmT"><thead><tr><th>${esc(I18N.t('Form'))}</th><th>${esc(I18N.t('Bestimmung'))}</th><th>${esc(I18N.t('Stellen'))}</th></tr></thead><tbody>${rows.map(r => `<tr><td dir="rtl">${esc(r.word)}</td><td>${B.describe(r, window.Morph, s => I18N.t(s)).map(x => esc(x.label)).join('<br>')}${r.status !== 'reviewed' ? `<br><b>${esc(I18N.t(r.status === 'partial' ? 'Teilweise bestimmt' : 'Mögliche Analyse'))}</b>` : ''}</td><td>${r.refs.map(x => `<button type="button" data-ref="${esc(x.ref)}">${esc(x.ref)} <small>(${x.token})</small></button>`).join(' ')}</td></tr>`).join('')}</tbody></table>`;
-    bavliDialog.onclick = ev => { const b = ev.target.closest('[data-ref]'); if (b) { bavliDialog.close(); const origin = document.getElementById('bavliInterlinear'); if (origin && origin.open) origin.close(); jumpTo(b.dataset.ref, false); } };
-    if (!bavliDialog.open) bavliDialog.showModal();
-  }
-  function showQumranWord(w) {
-    const [sp, vs, vt, ps, gn, nu, st, sx] = w.dataset.m.split('.');
-    const lem = w.dataset.l;
-    w.classList.add('sel');
-    const parts = [];
-    if (sp !== '-') parts.push(`<b>${esc(Q_SP[sp] || sp)}</b>`);
-    if (vs !== '-') parts.push(`Stamm: <b>${esc(Q_VS[vs] || vs)}</b>`);
-    if (vt !== '-') parts.push(`Form: <b>${esc(Q_VT[vt] || vt)}</b>`);
-    if (ps !== '-') parts.push(`${esc(ps)}. Person`);
-    if (gn !== '-') parts.push(esc(Q_GN[gn] || gn));
-    if (nu !== '-') parts.push(esc(Q_NU[nu] || nu));
-    if (st !== '-') parts.push(esc(Q_ST[st] || st));
-    // Pronominalsuffix (פשרו, לו, ידו …): Person, Genus, Numerus, z. B. „3ms“
-    if (sx && /^[123]?[mfcb]?[sdp]?$/.test(sx)) parts.push(`Suffix: <b>${esc([sx[0] && /\d/.test(sx[0]) ? sx[0] + '.' : '', Q_GN[sx.replace(/\d/, '')[0]] || '', Q_NU[sx.slice(-1)] || ''].filter(Boolean).join(' '))}</b>`);
-    wpop = document.createElement('div');
-    wpop.id = 'wpop';
-    wpop.innerHTML = `<div class="wtop"><span dir="rtl" lang="he" class="wword">${esc(w.textContent)}</span><button class="wx" title="Schließen">✕</button></div><div class="wseg main"><span class="wlem" dir="rtl" lang="he">${esc(lem)}</span><br>${parts.join(' · ')}</div><button class="wdict" data-q="${esc(lem)}">Im Wörterbuch nachschlagen</button>`;
-    document.body.appendChild(wpop);
-    const r = w.getBoundingClientRect(), pw = wpop.offsetWidth, ph = wpop.offsetHeight;
-    const x = Math.max(8, Math.min(window.innerWidth - pw - 8, r.left + r.width / 2 - pw / 2));
-    let y = r.bottom + 6; if (y + ph > window.innerHeight - 8) y = Math.max(8, r.top - ph - 6);
-    wpop.style.left = x + 'px'; wpop.style.top = y + 'px';
-    wpop.onclick = ev => {
-      if (ev.target.closest('.wx')) closeWpop();
-      const b = ev.target.closest('.wdict'); if (b) openDict(b.dataset.q);
-    };
-  }
-  // Aussprache (ETCBC phono) im Wort-Popup: aus der Umschrift-Zuordnung in interlin.js (Westminster-Wort Nr. n im Vers)
-  function wPhono(w, pop) {
-    const cell = w.closest('.cell'), row = w.closest('.row[data-l]'), s = view && view.sections && view.sections[view.idx], chap = s && apChap(s);
-    if (!cell || !row || !chap || !view.group) return;
-    const box = w.closest('[data-vt]') || cell; // Spalte je Sprache: nur die Wörter derselben Fassung zählen
-    if (box.dataset.vt && !/^Westminster/.test(box.dataset.vt)) return;
-    const v = verseOf(row.dataset.l), i = [...box.querySelectorAll('.w[data-m]')].indexOf(w) + 1, book = view.group.title;
-    if (v == null || i < 1) return;
-    loadIL().then(IL => {
-      const segs = IL && IL.Umschrift && IL.Umschrift[book] && IL.Umschrift[book][chap + ':' + v]; if (!segs || !pop.isConnected) return;
-      const t = segs.filter(x => x[0].includes(i)).map(x => x[1].replace(/^\*/, '').replace(/-$/, '')).join(' '); if (!t) return;
-      const e = document.createElement('div'); e.className = 'wphon'; e.lang = 'he-Latn'; e.textContent = t;
-      e.title = I18N.t('Aussprache (phonetische Umschrift, ETCBC phono) – ˈ Hauptton, ˌ Nebenton');
-      const top = pop.querySelector('.wtop'); if (top) top.after(e);
-    }, () => {});
-  }
-  $('#rOut').addEventListener('click', e => {
-    const w = e.target.closest('.w[data-m], .wt[data-m], .wq[data-m], .wg');
-    gTok++; // ein noch ladendes griechisches Wort-Popup gilt nicht mehr
-    // griechischer Text ohne Wortgruppen (Rahlfs): jedes Wort ist anklickbar
-    const gc = !w && !e.target.closest('#wpop, a, button, small, sup, .note, .lab, .head') ? e.target.closest('.cell[data-gt]') : null;
-    if (!w && !gc) { if (!e.target.closest('#wpop')) closeWpop(); return; }
-    if (window.getSelection && String(window.getSelection())) return; // beim Markieren nicht stören
-    if (gc || w.classList.contains('wg')) { showGreekWord(gc || w.closest('.cell'), gc ? null : w, e); return; }
-    const same = w.classList.contains('sel');
-    closeWpop();
-    if (same) return;
-    if (w.classList.contains('wt')) { showTargumWord(w); return; }
-    if (w.classList.contains('wq')) { showQumranWord(w); return; }
-    if (window.BavliMorph && window.BavliMorph.own(w.dataset.l)) { showBavliWord(w); return; }
-    const d = window.Morph.decode(w.dataset.m, w.dataset.l);
-    if (!d) return;
-    const LEM = window.OSHB_LEMMAS || {};
-    w.classList.add('sel');
-    const rows = d.segs.map((s, i) => {
-      const lem = s.lemma && LEM[s.lemma] ? LEM[s.lemma] : null;
-      const parts = [`<b>${esc(s.pos)}</b>`];
-      if (s.stem) parts.push(`Stamm: <b>${esc(s.stem)}</b>`);
-      if (s.tense) parts.push(`Zeit/Form: <b>${esc(s.tense)}</b>`);
-      if (s.info) parts.push(esc(s.info));
-      let h = `<div class="wseg${i === d.main ? ' main' : ''}">`;
-      if (s.prefix) h += `<span class="wpre">${esc(s.prefix)}</span> `;
-      if (lem) h += `<span class="wlem" dir="rtl" lang="he">${esc(lem[0])}</span> <span class="muted">${esc(I18N.lang === 'de' && lem[2] ? lem[2] : lem[1])}</span><br>`;
-      return h + parts.join(' · ') + '</div>';
-    }).join('');
-    const mainSeg = d.segs[d.main], lem = mainSeg && mainSeg.lemma && LEM[mainSeg.lemma];
-    wpop = document.createElement('div');
-    wpop.id = 'wpop';
-    wpop.innerHTML = `<div class="wtop"><span dir="rtl" lang="he" class="wword">${esc(w.textContent)}</span><button class="wx" title="Schließen">✕</button></div>${rows}${lem ? `<button class="wdict" data-q="${esc(lem[0])}">Im Wörterbuch nachschlagen</button>` : ''}${mainSeg && mainSeg.lemma ? `<button class="wforms wcard" title="Wortkarte: Wörterbücher, Verteilung und Formen dieses Wortes">Wortkarte</button><button class="wforms wtable" title="Alle im Tanach belegten Formen dieses Wortes als Tabelle">Alle Formen (Tabelle)</button>` : ''}`;
-    if (mainSeg && mainSeg.lemma) loadForms().catch(() => {}); // Formen-Index schon laden, damit die Tabelle sofort da ist
-    const wInfo = { lemma: mainSeg && mainSeg.lemma, word: w.textContent, m: w.dataset.m, l: w.dataset.l };
-    document.body.appendChild(wpop);
-    wPhono(w, wpop);
-    const r = w.getBoundingClientRect(), pw = wpop.offsetWidth, ph = wpop.offsetHeight;
-    let x = Math.max(8, Math.min(window.innerWidth - pw - 8, r.left + r.width / 2 - pw / 2));
-    let y = r.bottom + 6; if (y + ph > window.innerHeight - 8) y = Math.max(8, r.top - ph - 6);
-    wpop.style.left = x + 'px'; wpop.style.top = y + 'px';
-    wpop.ondblclick = ev => { // Doppelklick auf ein Wort im Popup schlägt es im Wörterbuch nach (das Lemma als Ganzes mit seinen Zeichen)
-      if (ev.target.closest('button')) return;
-      const lw = ev.target.closest('.wlem');
-      const sel = (window.getSelection() + '').trim().replace(/^[^\p{L}\p{M}]+|[^\p{L}\p{M}]+$/gu, '');
-      const q = lw ? lw.textContent.trim() : sel;
-      if (q && q.length <= 40 && !/\s/.test(q)) openDict(q);
-    };
-    wpop.onclick = ev => {
-      if (ev.target.closest('.wx')) closeWpop();
-      const b = ev.target.closest('.wdict'); if (b) openDict(b.dataset.q);
-      const wf = ev.target.closest('.wforms'); if (wf) { closeWpop(); openForms(wInfo.lemma, wInfo, wf.classList.contains('wtable') ? 'forms' : 'card'); }
-    };
+  const wordPopupUI = window.LibraryWordPopup.create({
+    $, $$, esc, O,
+    reader: { cache, get view() { return view; }, get dictSel() { return dictSel; } },
+    lazyScript: (...args) => wordCardsUI.lazyScript(...args),
+    apChap: (...args) => apChap(...args), verseOf: (...args) => linksUI.verseOf(...args),
+    loadIL: (...args) => loadIL(...args), openDict, matchSyriacAnalysis:(...args)=>wordCardsUI.matchSyriacAnalysis(...args), canOpenCard:(...args)=>wordCardsUI.canOpenCard(...args),
+    loadForms: (...args) => wordCardsUI.loadForms(...args), openSForms: (...args) => wordCardsUI.openSForms(...args), openForms: (...args) => wordCardsUI.openForms(...args), openGForms: (...args) => wordCardsUI.openGForms(...args), openTForms: (...args) => wordCardsUI.openTForms(...args),
+    gSearchAll: (...args) => wordCardsUI.gSearchAll(...args), jumpTo,
   });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeWpop(); });
+  const closeWpop = () => wordPopupUI.close();
+  const loadGM = () => wordPopupUI.loadGM();
+  const greekWordAt = (...args) => wordPopupUI.greekWordAt(...args);
+  const decorateBavliReader = () => wordPopupUI.decorateBavliReader();
+  const openBavliAnchor = (...args) => wordPopupUI.openBavliAnchor(...args);
 
-  // ---------- Wortkarte: Überblick zu einem Lemma (Wörterbücher, Verteilung, häufigste Formen, Septuaginta) + Formentabelle ----------
-  // Ein Fenster mit zwei Reitern: „Überblick“ (die Wortkarte) und „Alle Formen (Tabelle)“. Grundlage sind der Formen-Index (oshb-forms.js),
-  // die eingebundenen Wörterbücher (dict:lookup wie „Im Wörterbuch nachschlagen“) und für die Septuaginta der Index oshb-lxx.js.
-  let formsP = null, fmCur = null, fmTab = 'card', wcToken = 0; // fmCur: { D, mdl, lemma, lem } des gezeigten Wortes
-  const lazyScript = (src, get) => new Promise((res, rej) => {
-    if (get()) return res(get());
-    const el = document.createElement('script'); el.src = src;
-    el.onload = () => (get() ? res(get()) : rej(new Error(src)));
-    el.onerror = () => rej(new Error(src));
-    document.body.appendChild(el);
+  // reader-module:word-cards
+  const wordCardsUI = window.LibraryWordCards.create({
+    get $() { return $; },
+    get $$() { return $$; },
+    get BG() { return BG; },
+    get closeWpop() { return closeWpop; },
+    get deNames() { return deNames; },
+    get dictLookup() { return dictLookup; },
+    get dictSel() { return dictSel; }, set dictSel(value) { dictSel = value; },
+    get esc() { return esc; },
+    get heFix() { return heFix; },
+    get hovApi() { return linksUI.hovApi; }, set hovApi(value) { linksUI.hovApi = value; },
+    get IL_VT() { return IL_VT; },
+    get ilPrivateRen() { return ilPrivateRen; }, set ilPrivateRen(value) { ilPrivateRen = value; },
+    get ilRevision() { return ilRevision; }, set ilRevision(value) { ilRevision = value; },
+    get jumpTo() { return jumpTo; },
+    get lemIdsFor() { return lemIdsFor; },
+    get LK() { return linksUI.LK; },
+    get loadGM() { return loadGM; },
+    get loadIL() { return loadIL; },
+    get O() { return O; },
+    get openDict() { return openDict; },
+    get pins() { return pins; },
+    get portraitOf() { return portraitOf; },
+    get renderSearchSaved() { return renderSearchSaved; },
+    get runSearch() { return runSearch; },
+    get sEntApply() { return sEntApply; },
+    get showTab() { return showTab; },
   });
-  function loadForms() { // der Index (ca. 2 MB) wird erst beim ersten Wort-Popup geladen
-    if (!formsP) formsP = lazyScript('oshb-forms.js', () => window.OSHB_FORMS).catch(e => { formsP = null; throw e; });
-    return formsP;
-  }
-  let lxxP = null;
-  let stemP = null;
-  const loadStems = () => stemP || (stemP = lazyScript('oshb-stems.js', () => window.OSHB_STEMS).catch(() => { stemP = null; return null; }));
-  let qumP = null;
-  const loadQum = () => qumP || (qumP = lazyScript('qumran-lex.js', () => window.QUMRAN_LEX).catch(() => { qumP = null; return null; }));
-  const loadLxx = () => lxxP || (lxxP = lazyScript('oshb-lxx.js', () => window.OSHB_LXX).catch(() => { lxxP = null; return null; }));
-  function fmShowTab(t) {
-    fmTab = t === 'forms' ? 'forms' : 'card';
-    $$('#fmTabs button').forEach(b => { const on = b.dataset.t === fmTab; b.classList.toggle('on', on); b.setAttribute('aria-selected', on ? 'true' : 'false'); });
-    $('#wcBody').hidden = fmTab !== 'card'; $('#fmBody').hidden = fmTab !== 'forms';
-    hovApi && hovApi.hide();
-    wcFindSoon();
-  }
-  async function openForms(lemma, info, tab, rest) { // rest: Verlaufseintrag, dessen Zustand wiederhergestellt wird (Zurück/Vor)
-    fmHistOpen(false, lemma, info, tab, rest);
-    const p = $('#formsPanel'), body = $('#fmBody'), card = $('#wcBody'), LEM = window.OSHB_LEMMAS || {}, lem = LEM[lemma];
-    const token = ++wcToken;
-    fmRest = rest ? { h: rest, token } : null;
-    p.hidden = false; fmCur = null; fmShowTab(tab || 'card');
-    $('#fmHead').innerHTML = lem ? `<span class="fmLem" dir="rtl" lang="he">${esc(lem[0])}</span><span class="fmGloss">${esc(I18N.lang === 'de' && lem[2] ? lem[2] : lem[1])}</span>` : '';
-    body.innerHTML = card.innerHTML = `<p class="muted">${esc(I18N.t('Lädt …'))}</p>`;
-    let D = null;
-    try { D = await loadForms(); } catch { /* unten gemeldet */ }
-    if (token !== wcToken) return;
-    const mdl = D && window.Forms.model(D, lemma, s => I18N.t(s));
-    if (!mdl) { body.innerHTML = card.innerHTML = `<p class="muted">${esc(I18N.t('Zu diesem Wort sind keine Formen verzeichnet.'))}</p>`; return; }
-    fmCur = { D, mdl, lemma, lem, F: window.Forms };
-    const cur = info && info.m ? window.Forms.analyze(info.word, info.m, info.l) : null;
-    $('#fmHead').insertAdjacentHTML('beforeend', `${lem ? `<button class="wdict" type="button" data-q="${esc(lem[0])}">Im Wörterbuch nachschlagen</button>` : ''}<span class="fmCnt">${esc(I18N.t('{} Belege im Tanach · {} verschiedene Formen · Strong {}', mdl.total.toLocaleString(I18N.loc), mdl.forms.length.toLocaleString(I18N.loc), lemma))}</span>`);
-    const ST = await loadStems(); if (token !== wcToken) return;
-    const gloss = sk => { const g = ST && ST[lemma] && ST[lemma][sk]; return g ? { text: I18N.lang === 'de' ? g[0] : g[1], u: !!g[2] } : null; };
-    body.innerHTML = window.Forms.render(mdl, { esc, t: s => I18N.t(s), current: cur, gloss });
-    wcRender(token, cur);
-    fmTrInit(token);
-    p.scrollTop = 0;
-    if (rest) fmRestBase(rest);
-    else if (fmTab === 'forms') { const c = body.querySelector('.fmF.cur'); if (c) c.scrollIntoView({ block: 'center' }); }
-  }
-  // Paradigmen: unter jeder Form die Wiedergabe der gewählten Fassung (Zunz, Breuer …, Septuaginta, Targumim).
-  // Deutsche Fassungen: gezählt an den Stellen genau dieser Form (interlin-ren.js, „Paradigma“ – Schlüssel und Form wie forms.js);
-  // erst die Wiedergabe ohne Bindewort („und“, „da“, „so“ stehen für das ו und erscheinen grau), bei Gleichstand die Grundform statt einer Zufallsform,
-  // bei schwacher Mehrheit (< 40 %) der Anteil dazu; die graue Zeile darunter nennt die Verteilung. Klick auf die Wiedergabe: alle Wiedergaben und Stellen.
-  // Septuaginta/Targumim: häufigstes Lemma in den Versen der Form (über die Bestimmung zugeordnet).
-  let fmTrData = null, fmTrPick = null; try { fmTrPick = localStorage.getItem('fmTrSrc'); } catch { /* egal */ }
-  async function fmTrInit(token) {
-    const body = $('#fmBody'), lemma = fmCur && fmCur.lemma; if (!lemma) return;
-    const S = await wcTrSources(lemma); if (token !== wcToken || !fmCur) return;
-    fmTrData = S; body.querySelectorAll('.fmTrBar').forEach(x => x.remove());
-    if (!S.keys.length) return;
-    const bar = document.createElement('div'); bar.className = 'fmTrBar';
-    body.prepend(bar); fmTrApply();
-  }
-  const fmTrCur = () => { const S = fmTrData; return !S ? 'off' : S.keys.includes(fmTrPick) ? fmTrPick : fmTrPick === 'off' ? 'off' : S.keys[0]; };
-  const fmTrLab = (D, g) => { const L = D.labels[g]; return !L || L.other ? I18N.t('Andere') : L.forms[0]; };
-  // Wiedergaben einer Form (Chip der Tabelle) in einer deutschen Fassung: { n, k, cores: [{ t, c, g, cj, cjn }], groups: [[g, n]], col }
-  function fmTrEntryDe(ch, D) {
-    const forms = fmCur.mdl.forms, cm = new Map(), gm = new Map(); let n = 0, k = 0, col = null, parts = 0;
-    for (const i of String(ch.dataset.i).split(',')) {
-      const f = forms[+i], e = f && (D.para[f.key] || {})[(f.pre ? '-' : f.waw ? '+' : '') + f.f]; if (!e) continue;
-      const E = typeof e[0] === 'string' ? [1, 1, [[e[0], 1, e[1], e[2] || '', e[2] ? 1 : 0]]] : e; // Einzelbeleg kurz: [Wiedergabe, Gruppe, Bindewort?]
-      parts++; n += E[0]; k += E[1]; col = parts === 1 ? E[4] || null : null;
-      E[2].forEach(([t, c, g, cj, cjn]) => {
-        const x = cm.get(t); cj = cj || ''; cjn = cjn || 0;
-        if (!x) cm.set(t, { t, c, g, cj, cjn }); else { x.c += c; if (x.cj === cj) x.cjn += cjn; else if (cjn > x.cjn) { x.cj = cj; x.cjn = cjn; } }
-      });
-      (E[3] || E[2].map(x => [x[2], x[1]])).forEach(([g, m]) => gm.set(g, (gm.get(g) || 0) + m));
-    }
-    if (!n) return null;
-    return { n, k: parts === 1 ? k : Math.max(cm.size, k), cores: [...cm.values()].sort((a, b) => b.c - a.c), groups: [...gm].sort((a, b) => b[1] - a[1]), col, de: true };
-  }
-  const fmTrPct = (c, n) => { const p = c / n * 100; return (p < 1 ? '< 1' : String(Math.round(p))) + ' %'; };
-  // Wiedergabe mit grau abgesetztem Bindewort (steht für das ו), wenn es bei mindestens der Hälfte der Stellen steht
-  const fmTrV = x => (x.cj && x.cjn * 2 >= x.c ? `<span class="cj">${esc(x.cj)}</span> ` : '') + `<bdi>${esc(x.t)}</bdi>`;
-  // die beiden Zeilen unter der Form: [Hauptzeile, graue Zeile mit der Verteilung, Tooltip]
-  function fmTrLines(E, D, name) {
-    const cs = E.cores, top = cs[0], pc = c => `<small>${fmTrPct(c, E.n)}</small>`, lab = g => fmTrLab(D, g);
-    const gl = E.groups.slice(0, 3).map(([g, m]) => `<bdi>${esc(lab(g))}</bdi> ${pc(m)}`).join(' · ');
-    const tip = name + ': ' + E.groups.slice(0, 4).map(([g, m]) => lab(g) + ' ' + fmTrPct(m, E.n)).join(' · ') + (E.de ? ' – ' + I18N.t('Klick: alle Wiedergaben und Stellen') : '');
-    if (E.k < 2 || cs.length < 2) return [fmTrV(top), '', tip];
-    const tied = cs.filter(x => x.c === top.c);
-    let l1, l2;
-    if (tied.length > 1) { // Gleichstand: keine Zufallsform, sondern die Grundform(en) – die Formen selbst stehen darunter
-      const gs = [...new Set(tied.map(x => x.g))];
-      l1 = `<i class="gf">${gs.slice(0, 2).map(g => `<bdi>${esc(lab(g))}</bdi>`).join(' / ')}${gs.length > 2 ? ' …' : ''}</i> <small>${esc(I18N.t('{} versch.', wcNum(E.k)))}</small>`;
-      l2 = E.de ? tied.slice(0, 3).map(fmTrV).join(' · ') + (E.k > 3 ? ' …' : '') : '';
-    } else if (top.c / E.n < 0.4) { // schwache Mehrheit: Anteil dazu, die zweite Wiedergabe nur, wenn sie für sich steht
-      const two = cs[1] && (!cs[2] || cs[1].c > cs[2].c);
-      l1 = `${fmTrV(top)} ${pc(top.c)}` + (two ? ` · ${fmTrV(cs[1])} ${pc(cs[1].c)}` : ' …');
-      l2 = E.de ? gl + (E.groups.length === 1 ? ` · ${esc(I18N.t('{} versch.', wcNum(E.k)))}` : '') : cs.slice(two ? 2 : 1, two ? 4 : 3).map(x => `${fmTrV(x)} ${pc(x.c)}`).join(' · ');
-    } else {
-      l1 = fmTrV(top);
-      l2 = pc(top.c) + cs.slice(1, 3).map(x => ` · ${fmTrV(x)} ${pc(x.c)}`).join('') + (E.k > 3 ? ' …' : '');
-    }
-    if (E.col) l2 = fmTrCol(E.col, E.n); // Formel: woran die häufigste Wiedergabe hängt (כֹּה אָמַר „so spricht …“)
-    return [l1, l2, tip];
-  }
-  // Kollokation [Wort davor, Stellen danach, [Wiedergabe, n], [[Wiedergabe sonst, n] …]] -> „nach כֹּה (67 %): spricht 95 % · sonst: spricht 35 %, sprach 15 %“
-  function fmTrCol(col, n) {
-    const [w, pn, [cin, nin], out] = col, on = n - pn;
-    return `${esc(I18N.t('nach'))} <bdi lang="he" class="cw">${esc(w)}</bdi> <small>(${fmTrPct(pn, n)})</small>: <bdi>${esc(cin)}</bdi> <small>${fmTrPct(nin, pn)}</small> · ${esc(I18N.t('sonst'))}: ${out.map(([t, m]) => `<bdi>${esc(t)}</bdi> <small>${fmTrPct(m, on)}</small>`).join(', ')}`;
-  }
-  function fmTrApply() {
-    const body = $('#fmBody'), S = fmTrData, bar = body.querySelector('.fmTrBar'); if (!S || !bar || !fmCur) return;
-    const cur = fmTrCur(), maxTot = Math.max(...S.keys.map(k => S.src[k].total));
-    const few = k => { const n = S.src[k].total; return n < 5 || n < maxTot * 0.05; }; // Fassung mit wenig Belegen für dieses Wort (z. B. nur ein Buch): gekennzeichnet
-    bar.innerHTML = `<span class="muted">${esc(I18N.t('Übersetzung unter den Formen:'))}</span>${S.keys.map(k => `<button type="button" class="wcTrSrc${k === cur ? ' on' : ''}${few(k) ? ' few' : ''}" data-fsrc="${k}"${few(k) ? ` title="${esc(I18N.t('nur wenige Belege für dieses Wort'))}"` : ''}>${wcTrPic(k)}${esc(I18N.t(WC_TR_LABEL[k]))} <small>${wcNum(S.src[k].total)}</small></button>`).join('')}<button type="button" class="wcTrSrc${cur === 'off' ? ' on' : ''}" data-fsrc="off">${esc(I18N.t('aus'))}</button>${cur !== 'off' && S.src[cur].para ? `<span class="fmTrN muted" dir="auto">${esc(I18N.t('Wort für Wort zugeordnet: Subjekt und Hilfsverb stehen oft bei einem anderen Wort. Grau: Bindewort für das ו. Klick auf eine Wiedergabe zeigt alle Wiedergaben und die Stellen.')).replace('ו', '<span lang="he">ו</span>')}</span>` : ''}`;
-    hovApi && hovApi.hide(); // die Vers-Vorschau richtet sich nach der gewählten Fassung
-    body.querySelectorAll('.fmTrL').forEach(x => x.remove());
-    body.querySelectorAll('.fmTrRow').forEach(x => x.remove()); body.querySelectorAll('.fmF.trsel').forEach(x => x.classList.remove('sel', 'trsel'));
-    body.classList.toggle('fmTrOn', cur !== 'off');
-    if (cur === 'off') return;
-    const D = S.src[cur], forms = fmCur.mdl.forms, byCode = new Map(), BK = (S.IR && S.IR.books) || [];
-    // Septuaginta/Targumim: Stellen der Wiedergaben, Vers-Nummer -> [[Gruppe, Bestimmung] …]
-    let atRef = null;
-    const refMap = () => { if (atRef) return atRef; atRef = new Map(); D.cells.forEach(c => { if (c.refs) unB36(c.refs).forEach(num => { (atRef.get(num) || atRef.set(num, []).get(num)).push([c.g, c.code]); }); }); return atRef; };
-    const numOf = r => { const b = BK.indexOf(r.book); return b < 0 ? null : b * 1e6 + r.ch * 1000 + r.v; };
-    if (!D.para) D.cells.forEach(c => { let m = byCode.get(c.code); if (!m) byCode.set(c.code, m = new Map()); m.set(c.g, (m.get(c.g) || 0) + c.n); });
-    const other = ch => { // nur die Verse, in denen diese Form steht (sonst zählten alle Wörter mit derselben Bestimmung mit)
-      const codes = new Set(String(ch.dataset.i).split(',').map(i => forms[+i] && forms[+i].key.replace('*', '')).filter(Boolean)), agg = new Map();
-      const rs = !fmCur.greek && D.cells.some(c => c.refs) ? fmCur.F.refs(fmCur.D, fmCur.mdl, ch.dataset.i) : null;
-      if (rs) { const M = refMap(); rs.forEach(r => { const num = numOf(r); (M.get(num) || []).forEach(([g, code]) => { if (codes.has(code)) agg.set(g, (agg.get(g) || 0) + 1); }); }); }
-      else codes.forEach(c => { const m = byCode.get(c); if (m) m.forEach((n, g) => agg.set(g, (agg.get(g) || 0) + n)); });
-      if (!agg.size) return null;
-      const groups = [...agg].sort((a, b) => b[1] - a[1]);
-      return { n: groups.reduce((a, x) => a + x[1], 0), k: groups.length, cores: groups.map(([g, c]) => ({ t: fmTrLab(D, g), c, g, cj: '', cjn: 0 })), groups, col: null, de: false };
-    };
-    const name = I18N.t(WC_TR_LABEL[cur]);
-    body.querySelectorAll('.fmF[data-i]').forEach(ch => {
-      const E = D.para ? fmTrEntryDe(ch, D) : other(ch); if (!E) return;
-      const [l1, l2, tip] = fmTrLines(E, D, name);
-      const sp = document.createElement('span'); sp.className = 'fmTrL' + (E.de ? ' can' : ''); sp.lang = D.lang; sp.dir = RTL(D.lang) ? 'rtl' : 'ltr';
-      sp.innerHTML = `<span class="l1">${l1}</span>${l2 ? `<span class="l2">${l2}</span>` : ''}`; sp.title = tip;
-      ch.appendChild(sp);
-    });
-  }
-  // Klick auf die Wiedergabe unter einer Form: alle Wiedergaben dieser Form (mit Anteil) und die Stellen mit hebräischem Wort und deutschem Text – als Zeile unter der Tabellenzeile
-  function fmTrRefs(chip, lim = 30) {
-    const S = fmTrData, cur = fmTrCur(), D = S && S.src[cur], E = D && D.para && fmTrEntryDe(chip, D); if (!E) return;
-    const { mdl, lemma } = fmCur, forms = mdl.forms, rs = fmCur.F.refs(fmCur.D, mdl, chip.dataset.i);
-    const mine = new Set(String(chip.dataset.i).split(',').map(i => forms[+i]).filter(Boolean).map(f => f.key + '|' + (f.pre ? '-' : f.waw ? '+' : '') + f.f));
-    const part = rs.slice(0, lim), refs = part.map(r => r.book + ' ' + r.ch + ':' + r.v), ready = !!window.INTERLIN && refs.every(r => wcVerseWords.has(r));
-    const tr = document.createElement('tr'); tr.className = 'fmRefRow fmTrRow';
-    if (!ready) Promise.all([loadIL(), wcTrCtxLoad(refs)]).then(() => { if (tr.isConnected && chip.classList.contains('trsel') && window.INTERLIN) { tr.remove(); fmTrRefs(chip, lim); } }, () => {});
-    const rows = E.cores.map(x => `<span class="t" lang="de">${fmTrV(x)}</span><span class="b"><i style="width:${(x.c / E.n * 100).toFixed(1)}%"></i></span><small class="n">${wcNum(x.c)}</small><small class="p">${fmTrPct(x.c, E.n)}</small>`).join('');
-    const restN = E.n - E.cores.reduce((a, x) => a + x.c, 0);
-    const more = restN > 0 ? `<span class="t muted">${esc(I18N.t('{} weitere Wiedergaben', wcNum(E.k - E.cores.length)))}</span><span class="b"><i class="o" style="width:${(restN / E.n * 100).toFixed(1)}%"></i></span><small class="n">${wcNum(restN)}</small><small class="p">${fmTrPct(restN, E.n)}</small>` : '';
-    const grp = E.k > 1 ? `<div class="fmTrG"><span class="muted">${esc(I18N.t('Nach Grundform:'))}</span> ${E.groups.map(([g, m]) => `<span class="fm" lang="de">${esc(fmTrLab(D, g))} <small>${fmTrPct(m, E.n)}</small></span>`).join(' · ')}${E.groups.reduce((a, x) => a + x[1], 0) < E.n ? ' …' : ''}</div>` : '';
-    const col = E.col ? `<div class="fmTrG">${fmTrCol(E.col, E.n)}</div>` : '';
-    let lines = '', lb = null;
-    if (ready) part.forEach((r, j) => {
-      const ref = refs[j], ws = wcVerseWords.get(ref) || [], occ = new Map(wcTrOcc(cur, ref, lemma).map(o => [o.i, o]));
-      if (r.book !== lb) { lines += `<div class="bk">${esc(fmBook(r.book))}</div>`; lb = r.book; }
-      const cv = r.ch + (I18N.lang === 'de' ? ',' : ':') + r.v; let any = false;
-      ws.forEach((w, k) => {
-        if (!mine.has(w.fk + '|' + w.fr)) return; any = true; const o = occ.get(k + 1);
-        lines += `<div class="ln"><a data-ref="${esc(ref)}">${cv}</a><span class="he" lang="he" dir="rtl">${esc(w.he)}</span><span class="de" lang="de">${o && o.de ? esc(o.de) : `<span class="muted">${esc(I18N.t('(mit anderen Wörtern zusammen übersetzt)'))}</span>`}</span></div>`;
-      });
-      if (!any) lines += `<div class="ln"><a data-ref="${esc(ref)}">${cv}</a><span class="he"></span><span class="de"></span></div>`;
-    });
-    else lines = `<p class="muted">${esc(I18N.t('Lädt …'))}</p>`;
-    const rest = rs.length - part.length, STEP = 300;
-    const moreB = ready && rest > 0 ? `<div class="mr"><button type="button" class="fmTrMore" dir="auto" data-to="${lim + Math.min(rest, STEP)}">${esc(rest <= STEP ? I18N.t('alle {} Verse zeigen', rs.length.toLocaleString(I18N.loc)) : I18N.t('weitere {} Stellen zeigen', wcNum(STEP)))}</button></div>` : '';
-    tr.innerHTML = `<td colspan="99"><div class="fmRH"><span dir="rtl" lang="he">${esc(chip.querySelector('span').textContent)}</span><span class="muted">${esc(I18N.t(WC_TR_LABEL[cur]))} · ${esc(I18N.t('{} Stellen mit eigener Wiedergabe · {} verschiedene', wcNum(E.n), wcNum(E.k)))}</span><button type="button" class="fmRX" title="${esc(I18N.t('Schließen'))}">✕</button></div><div class="fmTrD">${rows}${more}</div>${grp}${col}<div class="fmRL wcTrCx">${lines}${moreB}</div></td>`;
-    chip.closest('tr').after(tr);
-  }
-  $('#fmBody').addEventListener('click', e => { const b = e.target.closest('.fmTrBar [data-fsrc]'); if (!b) return; e.stopPropagation(); fmTrPick = b.dataset.fsrc; try { localStorage.setItem('fmTrSrc', fmTrPick); } catch { /* egal */ } fmTrApply(); }, true);
-  // Griechisch (Septuaginta): dieselbe Karte aus dem Index lxx-morph.js; info = { form, key } der angeklickten Form
-  async function openGForms(lemma, info, tab, rest) {
-    fmHistOpen(true, lemma, info, tab, rest);
-    const p = $('#formsPanel'), body = $('#fmBody'), card = $('#wcBody'), GM = window.GMorph, t = s => I18N.t(s);
-    const token = ++wcToken;
-    fmRest = null;
-    p.hidden = false; fmCur = null; fmShowTab(tab || 'card');
-    $('#fmHead').innerHTML = `<span class="fmLem fmGr" lang="grc">${esc(lemma)}</span>`;
-    body.innerHTML = card.innerHTML = `<p class="muted">${esc(t('Lädt …'))}</p>`;
-    let D = null;
-    try { D = await loadGM(); } catch { /* unten gemeldet */ }
-    if (token !== wcToken) return;
-    const li = D && GM.lemmaInfo(D, lemma), mdl = li && GM.model(D, lemma, t);
-    if (!mdl || !mdl.total) { body.innerHTML = card.innerHTML = `<p class="muted">${esc(t('Zu diesem Wort sind keine Formen verzeichnet.'))}</p>`; return; }
-    fmCur = { D, mdl, lemma, lem: [lemma, li.gloss], F: GM, greek: true };
-    const cur = info && info.form ? { form: info.form, key: info.key } : null;
-    const kinds = GM.topForms(mdl, 1).kinds, pos = [...new Set(mdl.forms.filter(f => f.n).map(f => GM.describe(f.key, t).pos))].join(', ');
-    $('#fmHead').innerHTML = `<span class="fmLem fmGr" lang="grc">${esc(lemma)}</span><span class="fmGloss">${esc(li.gloss)}</span><button class="wdict" type="button" data-q="${esc(lemma)}" hidden>Im Wörterbuch nachschlagen</button><span class="fmCnt">${esc(I18N.t('{} Belege in der Septuaginta · {} verschiedene Formen · {}', mdl.total.toLocaleString(I18N.loc), kinds.toLocaleString(I18N.loc), pos))}</span>`;
-    body.innerHTML = GM.render(mdl, { esc, t, current: cur });
-    wcRender(token, cur);
-    p.scrollTop = 0;
-    if (rest) fmRestBase(rest);
-    else if (fmTab === 'forms') { const c = body.querySelector('.fmF.cur'); if (c) c.scrollIntoView({ block: 'center' }); }
-  }
-  let targumFormsP = null;
-  const loadTForms = () => targumFormsP || (targumFormsP = lazyScript('targum-forms.js', () => window.TARGUM_FORMS).catch(e => { targumFormsP = null; throw e; }));
-  async function openTForms(id, info, tab, rest) {
-    const lemma = 'tg:' + id;
-    fmHistOpen(false, lemma, { ...(info || {}), targum: true }, tab, rest);
-    const token = ++wcToken, p = $('#formsPanel'), body = $('#fmBody'), card = $('#wcBody');
-    fmRest = null; fmCur = null; p.hidden = false; fmShowTab(tab || 'card');
-    $('#fmHead').innerHTML = ''; body.innerHTML = card.innerHTML = `<p class="muted">${esc(I18N.t('Lädt …'))}</p>`;
-    let D; try { D = await loadTForms(); } catch { /* unten gemeldet */ }
-    if (token !== wcToken) return;
-    const F = window.TargumForms, mdl = D && F.model(D, id);
-    if (!mdl || !mdl.total) { body.innerHTML = card.innerHTML = `<p class="muted">${esc(I18N.t('Zu diesem Wort sind keine Formen verzeichnet.'))}</p>`; return; }
-    const lex = D.L[id][0];
-    fmCur = { D, mdl, lemma, lem: [lex[0], lex[2]], F, targum: id };
-    $('#fmHead').innerHTML = `<span class="fmLem" lang="arc" dir="rtl">${esc(lex[0])}</span><span class="fmGloss">${esc(lex[2])}</span><button type="button" class="wdict" data-q="${esc(lex[0])}">Im Wörterbuch nachschlagen</button><span class="fmCnt">${esc(I18N.t('{} Belege in den Targumim · {} verschiedene Formen', wcNum(mdl.total), wcNum(F.topForms(mdl).kinds)))}</span>`;
-    body.innerHTML = F.render(mdl, { esc, t: s => I18N.t(s), current: info });
-    wcRender(token, info); p.scrollTop = 0;
-    if (rest) fmRestBase(rest);
-  }
-  const TANAKH_PARTS = [['Tora', 5], ['Propheten', 21], ['Schriften', 13]];
-  const wcNum = n => n.toLocaleString(I18N.loc);
-  function wcRender(token, cur) {
-    const { D, mdl, F, greek, targum } = fmCur, card = $('#wcBody');
-    const ds = F.dist(D, mdl), max = Math.max(1, ...ds.map(x => x.n)), nb = ds.filter(x => x.n).length;
-    // Verteilung: ein Balken je Buch (Reihenfolge des Tanach, griechisch dazu die Apokryphen), in Gruppen; Höhe = Zahl der Belege
-    let k = 0;
-    const groups = (greek || targum ? D.groups : TANAKH_PARTS).map(([name, cnt]) => { const part = ds.slice(k, k + cnt); k += cnt; return { name, part }; });
-    const bar = x => `<button type="button" class="wcBar${x.n ? '' : ' zero'}" data-b="${esc(x.book)}" style="--h:${(x.n / max * 100).toFixed(1)}" aria-label="${esc(fmBook(x.book) + ': ' + x.n)}"><i></i></button>`;
-    const top = ds.filter(x => x.n).sort((a, b) => b.n - a.n).slice(0, 4);
-    const tf = F.topForms(mdl, 8);
-    const chip = x => `<button type="button" class="fmF${x.pre ? ' pre' : ''}${cur && cur.form === x.f ? ' cur' : ''}" data-i="${x.i}"><span lang="${targum ? 'arc' : greek ? 'grc' : 'he'}" dir="${greek ? 'ltr' : 'rtl'}">${esc(x.f)}</span><small>${wcNum(x.n)}</small></button>`;
-    card.innerHTML = `<div class="wcAct"><button type="button" class="wcAll" title="${esc(I18N.t(targum ? 'Alle Stellen dieses Wortes' : greek ? 'Startet die Suche nach diesem Wort in der Septuaginta (Treffer „Alle Formen“)' : 'Startet die Suche nach diesem Wort im hebräischen Tanach (Treffer „Alle Formen“)'))}">🔎 ${esc(I18N.t('Alle Stellen dieses Wortes'))} <small>${wcNum(mdl.total)}</small></button></div>
-      <section class="wcSec"><h4>${esc(I18N.t(targum ? 'Verteilung in den Targumim' : greek ? 'Verteilung in der Septuaginta' : 'Verteilung im Tanach'))} <small>${esc(greek || targum ? I18N.t('{} Belege in {} von {} Büchern', wcNum(mdl.total), nb, ds.length) : I18N.t('{} Belege in {} von 39 Büchern', wcNum(mdl.total), nb))}</small></h4>
-        <div class="wcChart"><div class="wcPlot"><span class="wcMax">${wcNum(max)}</span>${groups.map(g => `<div class="wcGrp" style="flex:${g.part.length}"><div class="wcBars">${g.part.map(bar).join('')}</div><div class="wcAx">${esc(I18N.t(g.name))}</div></div>`).join('')}</div><div class="wcTip" hidden></div></div>
-        <div class="wcTop"><span class="muted">${esc(I18N.t('Am häufigsten:'))}</span> ${top.map(x => `<a data-b="${esc(x.book)}">${esc(fmBook(x.book))}</a> <small>${wcNum(x.n)}</small>`).join(' · ')} <span class="muted wcHint">· ${esc(I18N.t('Klick auf einen Balken zeigt die Stellen des Buches'))}</span></div>
-        <div class="wcRefs" id="wcBookRefs"></div></section>
-      <section class="wcSec"><h4>${esc(I18N.t('Häufigste Formen'))} <button type="button" class="wcLink" data-go="forms">${esc(I18N.t('alle {} Formen', wcNum(tf.kinds)))} →</button></h4>
-        <div class="wcForms" dir="${greek ? 'ltr' : 'rtl'}">${tf.list.map(chip).join('')}</div><div class="wcRefs" id="wcFormRefs"></div></section>
-      <section class="wcSec" id="wcTr" hidden></section>
-      <section class="wcSec" id="wcDict"><h4>${esc(I18N.t('Wörterbücher'))}</h4><p class="muted">${esc(I18N.t('Lädt …'))}</p></section>
-      <section class="wcSec" id="wcLxx" hidden></section>
-      <section class="wcSec" id="wcTgR" hidden></section>
-      <section class="wcSec" id="wcQum" hidden></section>
-      <section class="wcSec" id="wcTg" hidden></section>
-      <p class="fmNote">${esc(I18N.t(targum ? 'Belegte Wortformen und Bestimmungen aus dem ETCBC Targum Corpus (CC BY-NC 4.0): Onkelos, Neofiti 1 und Pseudo-Jonathan zum Pentateuch. Die Fassungen zählen getrennt; gleich geschriebene Lexeme bleiben getrennt.' : greek ? 'Belege und Formen nach der Septuaginta-Morphologie lxx-morph (Seth Kushniryk, CC BY 4.0), den Wörtern der mitgelieferten Septuaginta-Fassungen zugeordnet (Tanach: CATSS-Text in hebräischer Zählung; deuterokanonische Bücher: Rahlfs). Richter (A und B), Daniel (Septuaginta und Theodotion), Tobit, Susanna und Bel stehen in zwei Fassungen und zählen je für sich; Kurzbedeutungen englisch (STEPBible).' : 'Belege und Formen nach dem Westminster Leningrad Codex (OSHB); gezählt sind vokalisierte Wörter mit diesem Lemma. Die Suche „Alle Stellen“ geht über das Schriftbild des Lemmas und kann gleich geschriebene Wörter mitfinden.'))}</p>`;
-    wcDicts(token); if (greek) wcHeb(token); else if (!targum) { wcTrans(token); wcLxx(token); wcTgRen(token); wcQumran(token); wcTargum(token); }
-  }
-  // Belegstellen als Zeilen je Buch (wie in der Formentabelle)
-  function wcRefList(rs, head, all) {
-    const CAP = 300, shown = all ? rs : rs.slice(0, CAP), n = rs.reduce((s, r) => s + r.n, 0);
-    const lines = []; let lb = null;
-    for (const r of shown) {
-      if (r.book !== lb) { lines.push(`<b>${esc(fmBook(r.book))}</b> `); lb = r.book; } else lines[lines.length - 1] += ' ';
-      lines[lines.length - 1] += `<span class="fmR"><a data-ref="${esc((r.title || r.book) + ' ' + r.ch + ':' + r.v)}"${r.vt ? ` data-gvt="${esc(r.vt)}"` : ''}>${r.ch}${I18N.lang === 'de' ? ',' : ':'}${r.v}</a>${r.n > 1 ? `<small>×${r.n}</small>` : ''}</span>`;
-    }
-    const more = rs.length > shown.length ? `<div><button type="button" class="fmAll">${esc(I18N.t('alle {} Verse zeigen', wcNum(rs.length)))}</button></div>` : '';
-    return `<div class="wcRefBox"><div class="fmRH">${head}<span class="muted">${esc(I18N.t('{}× in {} Versen', wcNum(n), wcNum(rs.length)))}</span><button type="button" class="fmRX" title="Schließen">✕</button></div><div class="fmRL">${lines.map(l => `<div>${l}</div>`).join('')}${more}</div></div>`;
-  }
-  function wcBookRefs(book, all) {
-    const { D, mdl } = fmCur, box = $('#wcBookRefs');
-    $$('#wcBody .wcBar').forEach(b => b.classList.toggle('sel', b.dataset.b === book));
-    if (!book) { box.innerHTML = ''; box.dataset.b = ''; return; }
-    box.dataset.b = book; box.innerHTML = wcRefList(book === '*' && fmCur.targum ? fmCur.F.refs(D, mdl, mdl.forms.map((_, i) => i).join(',')) : fmCur.F.refsIn(D, mdl, book), `<b>${esc(book === '*' ? I18N.t('Alle Stellen dieses Wortes') : fmBook(book))}</b>`, all);
-  }
-  function wcFormRefs(chip, all) {
-    const { D, mdl } = fmCur, box = $('#wcFormRefs');
-    $$('#wcBody .wcForms .fmF').forEach(c => c.classList.toggle('sel', c === chip));
-    if (!chip) { box.innerHTML = ''; return; }
-    box.innerHTML = wcRefList(fmCur.F.refs(D, mdl, chip.dataset.i), `<span dir="${fmCur.greek ? 'ltr' : 'rtl'}" lang="${fmCur.targum ? 'arc' : fmCur.greek ? 'grc' : 'he'}">${esc(chip.querySelector('span').textContent)}</span>`, all);
-  }
-  // Wörterbücher: Einträge zum Lemma aus den eingebundenen Wörterbüchern (dieselbe Suche wie „Im Wörterbuch nachschlagen“), je Wörterbuch die ersten Treffer
-  async function wcDicts(token) {
-    const { lem, greek, targum } = fmCur; const box = () => $('#wcDict');
-    const done = html => { if (token === wcToken && box()) box().innerHTML = `<h4>${esc(I18N.t('Wörterbücher'))}</h4>` + html; };
-    if (!lem) return done(`<p class="muted">${esc(I18N.t('Kein Eintrag in den Wörterbüchern.'))}</p>`);
-    let r = null;
-    try { r = await O.dictLookup(lem[0], dictSel && dictSel.length ? dictSel : null, false); } catch { r = null; }
-    if (token !== wcToken) return;
-    let res = (r && r.results) || [];
-    if (targum && (!dictSel || !dictSel.length || dictSel.includes('9ce7ea6c00f1'))) {
-      // Levy darf nicht durch die Treffergrenze anderer Wörterbücher verdrängt werden.
-      try {
-        const levy = await O.dictLookup(lem[0], '9ce7ea6c00f1', false);
-        if (token !== wcToken) return;
-        const seen = new Set(res.map(x => x.dictId + ':' + x.k));
-        res = res.concat(((levy && levy.results) || []).filter(x => !seen.has(x.dictId + ':' + x.k)));
-      } catch { /* übrige Wörterbücher weiterhin zeigen */ }
-    }
-    { // die Suche lässt auch Vorsilben weg und nimmt Stichwörter, die mit dem Wort beginnen – für die Wortkarte nur Stichwörter mit genau diesem Schriftbild (falls es welche gibt)
-      const cons = greek ? t => window.GMorph.fold(t) : targum ? window.TargumForms.fold : t => String(t).replace(/[^\u05D0-\u05EA]/g, ''), want = cons(lem[0]);
-      const exact = res.filter(x => String(x.head).split(/[·,;/]/).some(h => cons(h) === want));
-      if (exact.length) res = exact;
-    }
-    if (!res.length) return done(`<p class="muted">${esc(I18N.t('Kein Eintrag in den Wörterbüchern.'))}</p>`);
-    if (greek) { const b = $('#fmHead .wdict'); if (b) b.hidden = false; } // „Im Wörterbuch nachschlagen“ nur, wenn ein eingebundenes Wörterbuch das griechische Wort kennt
-    const by = new Map(); for (const x of res) { if (!by.has(x.dictId)) by.set(x.dictId, { id: x.dictId, name: x.dict, xs: [] }); by.get(x.dictId).xs.push(x); }
-    const hue = id => { let h = 0; for (const c of String(id)) h = (h * 31 + c.charCodeAt(0)) % 360; return h; };
-    const snip = h => { const t = String(h).replace(/<[^>]+>/g, ' ').replace(/&nbsp;/g, ' ').replace(/\s+/g, ' ').trim(); return t.length > 190 ? t.slice(0, 190).replace(/\s+\S*$/, '') + ' …' : t; };
-    const entry = x => `<details class="wcDE"><summary><b dir="auto">${esc(x.head)}</b> <span class="snip" dir="ltr">${heFix(snip(x.html))}</span></summary><div class="dbody" dir="ltr">${heFix(/Gesenius/.test(x.dict || '') && window.GAbk ? window.GAbk.mark(x.html) : x.html)}</div></details>`;
-    done([...by.values()].map(d => {
-      const pic = portraitOf(d.name);
-      return `<div class="wcD" style="--dh:${hue(d.id)}"><div class="wcDH"><span>${pic ? `<img class="vpic" src="portraits/${encodeURIComponent(pic.img)}" alt="" data-title="${esc(pic.name || '')}" loading="lazy">` : ''}${esc(d.name)}</span><button type="button" class="wcDGo" data-id="${esc(d.id)}" data-name="${esc(d.name)}" title="${esc(I18N.t('Im Reiter „Wörterbuch“ öffnen'))}">↗ ${esc(I18N.t('Wörterbuch'))}</button></div>${d.xs.slice(0, 3).map(entry).join('')}${d.xs.length > 3 ? `<div class="wcDMore" hidden>${d.xs.slice(3).map(entry).join('')}</div><button type="button" class="fmAll wcDMoreB" data-n="${d.xs.length - 3}">${esc(I18N.t('+ {} weitere', d.xs.length - 3))}</button>` : ''}</div>`;
-    }).join(''));
-  }
-  // Septuaginta: häufigste griechische Lemmata für dieses hebräische Lemma (CATSS-Zuordnung + lxx-morph, Index oshb-lxx.js); Klick öffnet die griechische Wortkarte
-  async function wcLxx(token) {
-    const { lemma } = fmCur;
-    const X = await loadLxx();
-    if (token !== wcToken || !X || !window.Lxx) return;
-    const r = window.Lxx.renderings(X, lemma), box = $('#wcLxx');
-    if (!r || !r.list.length || !box) return;
-    const mx = r.list[0].n;
-    box.hidden = false;
-    box.innerHTML = `<h4>${esc(I18N.t('Wiedergabe in der Septuaginta'))} <small>${esc(I18N.t('{} Zuordnungen · {} griechische Wörter', wcNum(r.total), wcNum(r.kinds)))}</small></h4>
-      <div class="wcLx">${r.list.slice(0, 10).map(x => `<div class="wcLxR">${x.g.includes(' ') ? `<span class="g" lang="grc">${esc(x.g)}</span>` : `<button type="button" class="g wcGL" lang="grc" data-gl="${esc(x.g)}" title="${esc(I18N.t('Griechische Wortkarte öffnen'))}">${esc(x.g)}</button>`}<span class="b"><i style="width:${Math.max(2, x.n / mx * 100).toFixed(1)}%"></i></span><small>${wcNum(x.n)}</small></div>`).join('')}</div>
-      <p class="muted wcLxN">${esc(I18N.t('Nach der Wort-für-Wort-Zuordnung von CATSS; die griechischen Wörter sind auf ihr Lemma zurückgeführt (lxx-morph), ohne Artikel und – wo das hebräische Wort Vorsilbe oder Suffix hat – ohne Präposition und Pronomen. Klick auf ein Wort öffnet seine Wortkarte.'))}</p>`;
-  }
-  // Übersetzungsstatistik („Wie wird das Wort übersetzt?“): Liste der Wiedergaben einer wortgenau zugeordneten Fassung, je Zeile ein Balken (Breite = Anteil) –
-  // deutsch (interlin-ren.js: Zunz, Breuer, Philippson, Herxheimer; Gruppen nach deutscher Grundform, mit Formen und Stellen), griechisch (Septuaginta, oshb-lxx.js)
-  // und aramäisch (Targumim, targum-ren.js). Zeilen der deutschen Fassungen lassen sich aufklappen (Formen mit Anzahl, Stellen mit hebräischer Form und deutschem Segment);
-  // Wiedergaben mit nur einem Beleg stehen zusammen unter „Einzelbelege“. Gleich geschriebene Lemmata (Homonyme) lassen sich über eine eigene Zeile umschalten.
-  let ilRenP = null, wcTrState = null;
-  let lxxRenP = null;
-  let wcTrMore = false; try { wcTrMore = localStorage.getItem('wcTrMore') === '1'; } catch { /* egal */ }
-  let qRenP = null; // Lesarten der Qumran-Rollen je Lemma (tools/dss/ren.py)
-  const loadQRen = () => qRenP || (qRenP = lazyScript('qumran-ren.js', () => window.QUMRAN_REN).catch(() => { qRenP = null; return null; }));
-  const loadLxxRen = () => lxxRenP || (lxxRenP = lazyScript('lxx-ren.js', () => window.LXX_REN).catch(() => { lxxRenP = null; return null; }));
-  const loadIlRen = () => ilRenP || (ilRenP = (async () => {
-    const revision = ilRevision;
-    const [built] = await Promise.all([lazyScript('interlin-ren.js', () => window.INTERLIN_REN), loadIL()]);
-    if (revision !== ilRevision) return loadIlRen();
-    const all = built || { books: ilPrivateRen ? ilPrivateRen.books : [], tr: {} };
-    all.tr = all.tr || {};
-    delete all.tr.BuberRosenzweig;
-    if (ilPrivateRen && JSON.stringify(all.books) === JSON.stringify(ilPrivateRen.books)) all.tr.BuberRosenzweig = ilPrivateRen.tr.BuberRosenzweig;
-    window.INTERLIN_REN = all;
-    return all;
-  })().catch(() => { ilRenP = null; return null; }));
-  const WC_TR_DE = new Set(['Mendelssohn', 'BuberRosenzweig', 'Zunz', 'Breuer', 'Philippson', 'Herxheimer', 'Goldschmidt', 'Hirsch', 'JuliusHirsch', 'Wolf']);
-  const WC_TR_LABEL = { Mendelssohn: 'Mendelssohn (1815)', Wolf: 'Wolf', BuberRosenzweig: 'Buber/Rosenzweig', Zunz: 'Zunz (1838)', Breuer: 'Breuer', Philippson: 'Philippson', Herxheimer: 'Herxheimer', Goldschmidt: 'Goldschmidt (1921)', Hirsch: 'S. R. Hirsch', JuliusHirsch: 'Julius Hirsch', LXX: 'Septuaginta', O: 'Onkelos', PJ: 'Pseudo-Jonathan', N: 'Neofiti 1', Q: 'Qumran-Rollen' };
-  // Porträt im Quell-Chip (wie in der Interlinear-Auswahl): Schlüssel der Fassung -> Name in portraits/index.js; fehlt das Bild, bleibt der Chip ohne
-  // Vers-Vorschau in der Wortkarte: Text aus der dort gewählten Fassung (Tabelle: „Übersetzung unter den Formen“, Überblick: Quell-Chip der Übersetzungsstatistik);
-  // der Versionstitel wird wie in der Interlinear-Ansicht über IL_VT erkannt. „aus“ oder keine Auswahl: wie überall (null)
-  const WC_TR_VT = { O: IL_VT.Onkelos, PJ: IL_VT['Pseudo-Jonathan'], N: IL_VT.Neofiti, LXX: /^Septuaginta/, Q: /^Qumran-Rollen \(ETCBC DSS\)/ };
-  const RTL = l => l === 'arc' || l === 'he'; // Quellen in hebräischer Schrift (Targumim, Qumran-Rollen)
-  function wcHovPick(a) {
-    if (fmCur && fmCur.targum && a.closest('.fmRL') && a.dataset.gvt) {
-      return { vt: '^' + a.dataset.gvt.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '$', rtl: true, label: 'Targum', targum: fmCur.targum };
-    }
-    if (fmCur && fmCur.greek && a.closest('.fmRL')) {
-      const vt = a.dataset.gvt;
-      return { vt: vt ? '^' + vt.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '$' : '^Septuaginta', rtl: false, label: 'Septuaginta', greek: fmCur.lemma };
-    }
-    const k = a.closest('#fmBody') ? (fmTrData ? fmTrCur() : 'off') : a.closest('#wcBody') ? (wcTrLive() ? wcTrLive().cur : 'off') : 'off';
-    const lem = fmCur && !fmCur.greek && !fmCur.targum ? fmCur.lemma : null; // das Wort der Wortkarte wird in der Vorschau markiert
-    if (!k || k === 'off' || (fmCur && fmCur.greek)) return lem ? { lem } : null;
-    const re = WC_TR_VT[k] || IL_VT[k] || new RegExp(String(k).replace(/[.*+?^${}()|[\]\\]/g, '\\$&'));
-    return { vt: re.source, rtl: k === 'O' || k === 'PJ' || k === 'N', label: WC_TR_LABEL[k] || k, lem };
-  }
-  const WC_TR_PIC = { Mendelssohn: 'Mendelssohn', Wolf: 'Wolf, Das Buch Samuel', Zunz: 'Zunz', Breuer: 'Raphael Breuer', Philippson: 'Philippson', Herxheimer: 'Herxheimer', Goldschmidt: 'Goldschmidt', Hirsch: 'Samson Raphael Hirsch', JuliusHirsch: 'Julius Hirsch', LXX: 'Septuaginta', O: 'Targum Onkelos', PJ: 'Targum Pseudo-Jonathan', N: 'Targum Neofiti', Q: 'Qumran' };
-  const wcTrPic = k => { const pic = WC_TR_PIC[k] && portraitOf(WC_TR_PIC[k]); return pic ? `<img class="wcTrPic" src="portraits/${encodeURIComponent(pic.img)}" alt="" loading="lazy" onerror="this.remove()">` : ''; };
-  // Stellen: Buch*1000000 + Kapitel*1000 + Vers als Differenzen (Basis 36) -> Zahlen
-  function unB36(str) { let prev = 0; return String(str || '').split('.').filter(Boolean).map(x => (prev += parseInt(x, 36))); }
-  // Bestimmung des hebräischen Worts -> Filtermerkmale (Binjan, Form, Person, Genus, Numerus, Status, Suffix)
-  const WC_TR_DIMS = [['stem', 'Binjan'], ['tense', 'Form'], ['person', 'Person'], ['gender', 'Genus'], ['number', 'Numerus'], ['state', 'Status'], ['suffix', 'Suffix']];
-  const WC_TR_MAIN = new Set(['stem', 'tense']); // immer sichtbar; die übrigen hinter „Weitere Merkmale“
-  const wcFeatCache = new Map();
-  function wcFeat(code, lemma) {
-    if (wcFeatCache.has(code)) return wcFeatCache.get(code);
-    let d = null; try { d = window.Morph && window.Morph.decode(code, lemma); } catch { d = null; }
-    const seg = d && d.segs[d.main] || {}, f = {};
-    if (seg.stem) f.stem = seg.stem;
-    if (seg.tense) f.tense = seg.tense === 'P' ? 'Partizip passiv' : seg.tense;
-    String(seg.info || '').split(', ').forEach(t => {
-      if (/Pers\./.test(t)) f.person = t; else if (/^(m\.|f\.|c\.|m\.\/f\.)$/.test(t)) f.gender = t; else if (/^(Sg\.|Pl\.|Du\.)$/.test(t)) f.number = t; else if (/absolut|constructus|bestimmt/.test(t)) f.state = t;
-    });
-    f.suffix = d && d.segs.some(x => x.suffix) ? 'mit Suffix' : 'ohne Suffix';
-    wcFeatCache.set(code, f); return f;
-  }
-  // Quellen der Übersetzungsstatistik für ein Lemma: {src: {Fassung: {lang, labels, cells}}, keys, IR}
-  // labels[g].forms: deutsche Fassungen [Grundform, [Form, Anzahl], …]; Septuaginta und Targumim [Lemma]
-  async function wcTrSources(lemma) {
-    const [IR, LR, TR, QR] = await Promise.all([loadIlRen(), loadLxxRen(), loadTgRen(), loadQRen()]);
-    const src = {};
-    if (IR) for (const [tr, M] of Object.entries(IR.tr)) { const x = M[lemma]; if (!x) continue; src[tr] = { lang: 'de', labels: x[0].map(f => ({ forms: f })), cells: x[1].map(([g, code, n, refs, f]) => ({ g, code, n, refs, f })), para: x[2] || {} }; }
-    const lx = LR && LR[lemma];
-    if (lx) src.LXX = { lang: 'grc', labels: lx[0].map(g => ({ forms: [g], other: g === '*' })), cells: lx[1].map(([g, code, n, refs]) => ({ g, code, n, refs })) };
-    const tg = TR && TR[lemma];
-    if (tg) ['O', 'PJ', 'N'].forEach((k, i) => { const cells = tg[1].map(c => ({ g: c[0], code: c[1], n: c[2 + i], refs: c[5 + i] })).filter(c => c.n); if (cells.length) src[k] = { lang: 'arc', labels: tg[0].map(([l, gl]) => ({ forms: [l], gl, other: l === '*' })), cells }; });
-    // Qumran-Rollen: was die Rollen dort haben, wo der masoretische Text das Wort hat (gleich / andere Schreibweise / andere Lesart)
-    const qr = QR && QR[lemma];
-    if (qr) src.Q = { lang: 'he', labels: qr[0].map(l => { if (l === '*') return { forms: ['*'], other: true }; const k = l[0], w = l.slice(2); return k === '0' ? { forms: [I18N.t('gleich (= MT)')], same: true } : { forms: [w], gl: I18N.t(k === '1' ? 'andere Schreibweise' : 'andere Lesart') }; }), cells: qr[1].map(([g, code, n, refs]) => ({ g, code, n, refs })) };
-    for (const k in src) src[k].total = src[k].cells.reduce((a, c) => a + c.n, 0);
-    const keys = Object.keys(WC_TR_LABEL).filter(k => src[k] && src[k].total >= 2);
-    return { src, keys, IR };
-  }
-  async function wcTrans(token) {
-    const { lemma } = fmCur;
-    const R = await wcTrSources(lemma);
-    if (token !== wcToken || !$('#wcTr')) return;
-    if (!R.keys.length) return;
-    // Schwester-Lemmata: gleiche Konsonanten, anderes Lemma (עָנָה antworten / singen / gebeugt sein) – nur die, zu denen es eine Statistik gibt
-    const LEM = window.OSHB_LEMMAS || {}, ids = (LEM[lemma] && lemIdsFor(LEM[lemma][0])) || [], sis = [{ id: lemma, ...R }];
-    for (const id of ids) { if (id === lemma) continue; const r = await wcTrSources(id); if (r.keys.length) sis.push({ id, ...r }); }
-    const box = $('#wcTr'); if (token !== wcToken || !box) return;
-    let pick = null; try { pick = localStorage.getItem('wcTrSrc'); } catch { /* egal */ }
-    wcTrState = { src: R.src, keys: R.keys, cur: R.keys.includes(pick) ? pick : R.keys[0], open: null, IR: R.IR, f: {}, lemma, sis: sis.length > 1 ? sis : [], allRows: false, refLim: 12, base: lemma, tok: token };
-    if (fmRest && fmRest.token === token) { fmRestTr(fmRest.h); fmRest = null; } // Zurück/Vor: Fassung, Homonym, Filter und aufgeklappte Zeile des Verlaufseintrags
-    box.hidden = false; wcTrRender();
-  }
-  // Verse (Buch*1000000 + Kapitel*1000 + Vers), in denen eine Fassung das Lemma einzeln wiedergibt – für den Vergleich zweier Fassungen
-  function wcTrVerses(S, k) { const c = S.vs || (S.vs = {}), key = S.lemma + '|' + k; if (!c[key]) { const s = new Set(); S.src[k].cells.forEach(x => unB36(x.refs).forEach(n => s.add(n))); c[key] = s; } return c[key]; }
-  function wcTrCommon(S, a, b) { const A = wcTrVerses(S, a), B = wcTrVerses(S, b); let n = 0; A.forEach(x => { if (B.has(x)) n++; }); return n; }
-  // Fassung wählen; second (Strg/Cmd-Klick oder nach „Vergleichen mit …“): als zweite Fassung daneben (Vergleich) – ein Klick auf die zweite Fassung tauscht die beiden
-  function wcTrShow(k, second) {
-    const S = wcTrState; if (!S || !S.src[k]) return; hovApi && hovApi.hide();
-    if (second || S.pick) {
-      if (k === S.cur) { if (!S.pick) return; S.pick = false; wcTrRender(); return; }
-      if (k === S.cmp && second) S.cmp = null; else if (!wcTrCommon(S, S.cur, k)) return; else S.cmp = k;
-      S.pick = false;
-    } else if (k === S.cmp) { S.cmp = S.cur; S.cur = k; } else S.cur = k;
-    S.open = null; S.allRows = false; S.refLim = 12; try { localStorage.setItem('wcTrSrc', S.cur); } catch { /* egal */ } wcTrRender();
-  }
-  function wcTrCmpPick() { const S = wcTrState; if (!S) return; S.pick = !S.pick; wcTrRender(); }
-  function wcTrCmpOff() { const S = wcTrState; if (!S) return; S.cmp = null; S.pick = false; S.open = null; S.allRows = false; S.refLim = 12; wcTrRender(); }
-  function wcTrRefs(key) { const S = wcTrState; if (!S) return; S.open = S.open === key ? null : key; S.refLim = 12; wcTrRender(); }
-  function wcTrFilt(dim, val) { const S = wcTrState; if (!S) return; if (dim === '*') S.f = {}; else if (S.f[dim] === val || val == null) delete S.f[dim]; else S.f[dim] = val; S.open = null; S.refLim = 12; wcTrRender(); }
-  // Homonym-Umschalter: die Statistik zeigt ein gleich geschriebenes Lemma (die übrige Wortkarte bleibt beim angeklickten Wort)
-  function wcTrLemma(id) {
-    const S = wcTrState, x = S && S.sis.find(s => s.id === id); if (!x || S.lemma === id) return;
-    S.lemma = id; S.src = x.src; S.keys = x.keys; S.IR = x.IR; if (!S.keys.includes(S.cur)) S.cur = S.keys[0];
-    if (S.cmp && (!S.keys.includes(S.cmp) || S.cmp === S.cur)) S.cmp = null;
-    S.pick = false; S.f = {}; S.open = null; S.allRows = false; S.refLim = 12; wcTrRender();
-  }
-  // ----- Stellen mit Kontext: Westminster-Wörter des Verses (Lemma, Bestimmung, Form) + Segmente der Fassung aus interlin.js -----
-  const wcVerseWords = new Map(); // „Genesis 18:27“ -> [{lem, code, he}] (leer, wenn der Vers nicht zu lesen war)
-  const wcMcode = (l, m) => { // wie tools/interlinear/renderings.py: Bestimmung des Hauptworts, Suffix angehängt
-    const ls = l.split('/'), ms = m.slice(1).split('/'); let i = ls.findIndex(x => /\d/.test(x)); if (i < 0) i = ls.length - 1;
-    const suf = ms.slice(i + 1).filter(x => x[0] === 'S');
-    return m[0] + (i < ms.length ? ms[i] : ms[ms.length - 1]) + (suf.length ? '/' + suf[0] : '');
-  };
-  const wcClean = t => { const w = String(t).replace(/\.\.\.|[„“”‚‘’"«»,.;:!?()[\]—–…']/g, ' ').split(/\s+/).filter(Boolean); while (w.length > 1 && /^(und|der|die|das|den|dem|des)$/i.test(w[0])) w.shift(); return w.join(' ').toLowerCase(); };
-  async function wcTrCtxLoad(refs) {
-    const need = [...new Set(refs)].filter(r => !wcVerseWords.has(r));
-    if (!need.length) return;
-    let res = null; try { res = await LK.texts(need, 'he', true); } catch { res = null; }
-    for (const r of need) {
-      const t = res && res[r], ws = [];
-      if (t && t.items && /westminster/i.test(t.versionTitle || '')) {
-        const re = /<span class="w" data-l="([^"]*)" data-m="([^"]*)"[^>]*>([^<]*)/g, html = t.items.join(' '); let m;
-        while ((m = re.exec(html))) { // fk/fr: Schlüssel und Form wie in der Formentabelle (Forms.analyze) – bindet eine Stelle an genau eine Form
-          const a = window.Forms ? window.Forms.analyze(m[3], m[2], m[1]) : null;
-          ws.push({ lem: (m[1].split('/').find(x => /\d/.test(x)) || '').trim(), code: wcMcode(m[1], m[2]), he: m[3].replace(/[֑-ֽ֯]/g, ''), fk: a ? a.key : '', fr: a ? a.raw : '' });
-        }
-      }
-      wcVerseWords.set(r, ws);
-    }
-  }
-  // Vorkommen des Lemmas in einem Vers mit dem deutschen Segment der Fassung (nur Segmente, die diesem Wort allein zugeordnet sind – wie in der Zählung)
-  function wcTrOcc(tr, ref, lemma) {
-    const IL = window.INTERLIN, ws = wcVerseWords.get(ref) || [], m = /^(.*) (\d+:\d+)$/.exec(ref);
-    if (!WC_TR_DE.has(tr)) return ws.map((w, k) => ({ i: k + 1, he: w.he, code: w.code, de: '', cl: '' })).filter((w, k) => ws[k].lem === lemma); // Septuaginta/Targum: nur die hebräische Form, die Wiedergabe ist die Zeile selbst
-    const segs = m && IL && IL[tr] && IL[tr][m[1]] && IL[tr][m[1]][m[2]]; if (!segs || !ws.length) return [];
-    const per = new Map();
-    segs.forEach(([idx, t], k) => { const c = idx.filter(i => i >= 1 && i <= ws.length && ws[i - 1].lem && ws[i - 1].lem !== '853'); if (c.length === 1) (per.get(c[0]) || per.set(c[0], []).get(c[0])).push([k, t]); });
-    const out = [];
-    per.forEach((xs, i) => { const w = ws[i - 1]; if (w.lem !== lemma) return; out.push({ i, he: w.he, code: w.code, de: xs.map(([k, t], j) => (j ? (k === xs[j - 1][0] + 1 ? ' ' : ' … ') : '') + t).join(''), cl: wcClean(xs.map(x => x[1]).join(' ')) }); });
-    return out.sort((a, b) => a.i - b.i);
-  }
-  function wcTrRender() {
-    const S = wcTrState, box = $('#wcTr'); if (!S || !box) return;
-    const D = S.src[S.cur], fk = Object.keys(S.f), de = D.lang === 'de', LEM = window.OSHB_LEMMAS || {};
-    const gloss = id => { const l = LEM[id]; return l ? (I18N.lang === 'de' && l[2] ? l[2] : l[1]) : ''; };
-    const srcName = k => I18N.t(WC_TR_LABEL[k]).replace(/ \(.*$/, '');
-    const match = (c, skip) => { const f = wcFeat(c.code, S.lemma); return fk.every(k => k === skip || f[k] === S.f[k]); };
-    // Filter: je Merkmal die vorkommenden Werte mit Anzahl (gezählt unter den übrigen gewählten Filtern)
-    const dims = WC_TR_DIMS.map(([k, name]) => {
-      const cnt = new Map();
-      D.cells.forEach(c => { if (!match(c, k)) return; const v = wcFeat(c.code, S.lemma)[k]; if (v) cnt.set(v, (cnt.get(v) || 0) + c.n); });
-      return { k, name, vals: [...cnt].sort((a, b) => b[1] - a[1]) };
-    }).filter(d => d.vals.length > 1 || S.f[d.k]);
-    // Gruppen unter dem Filter; Stellen je Gruppe in der Reihenfolge des Tanach (Doppelte bleiben: zwei Vorkommen im Vers = zwei Zeilen)
-    const gn = new Map(), grefs = new Map();
-    D.cells.forEach(c => { if (!match(c)) return; gn.set(c.g, (gn.get(c.g) || 0) + c.n); if (c.refs) { const a = grefs.get(c.g) || grefs.set(c.g, []).get(c.g); unB36(c.refs).forEach(num => a.push({ num, code: c.code, g: c.g })); } });
-    grefs.forEach(a => a.sort((x, y) => x.num - y.num));
-    const gs = [...gn].map(([g, n]) => ({ ...D.labels[g], g, n, lang: D.labels[g] && D.labels[g].same ? I18N.lang : D.lang, refs: grefs.get(g) }))  /* Qumran „gleich …“: Text der Oberfläche, nicht hebräisch */.sort((a, b) => (!!a.other - !!b.other) || b.n - a.n);
-    const tot = gs.reduce((a, g) => a + g.n, 0), all = D.total;
-    const pct = n => { const p = n / tot * 100; return (p < 1 ? '< 1' : String(Math.round(p))) + ' %'; };
-    const lab = g => g.other ? I18N.t('Andere') : g.forms[0];
-    // Einzelbelege: Wiedergaben mit nur einem Beleg zusammengefasst (wenn es genug sind und daneben noch andere stehen)
-    const ones = gs.filter(g => g.n === 1 && !g.other), fold = ones.length >= 3 && ones.length < gs.length;
-    const main = fold ? gs.filter(g => g.n !== 1 || g.other) : gs, CAP = 20;
-    const shown = S.allRows ? main : main.slice(0, CAP);
-    // abweichende Deutung: dieselbe Grundform ist bei einem gleich geschriebenen Lemma deutlich häufiger -> die Fassung liest hier wohl das andere Wort
-    const sisIdx = S.sis.filter(s => s.id !== S.lemma && s.src[S.cur]).map(s => { const d = s.src[S.cur], m = new Map(); d.cells.forEach(c => { const L = d.labels[c.g]; if (L && !L.other) m.set(L.forms[0], (m.get(L.forms[0]) || 0) + c.n); }); return { id: s.id, m, total: d.total }; });
-    const hint = g => {
-      if (g.other || !sisIdx.length || RTL(D.lang)) return null; // Targum: aramäische Lexeme sind oft selbst Homonyme
-      const share = g.n / tot; if (share >= 0.1) return null; let best = null;
-      for (const s of sisIdx) { const n2 = s.m.get(g.forms[0]) || 0, sh = n2 / s.total; if (n2 >= 3 && n2 > g.n && sh >= 0.1 && sh >= 4 * share && (!best || sh > best.sh)) best = { id: s.id, sh }; }
-      return best && gloss(best.id) ? I18N.t('{} liest hier wohl „{}“', srcName(S.cur), gloss(best.id)) : null;
-    };
-    // ----- Stellen einer aufgeklappten Zeile -----
-    const BOOKS = S.IR && S.IR.books || [];
-    const refOf = num => BOOKS[Math.floor(num / 1e6)] + ' ' + (Math.floor(num / 1000) % 1000) + ':' + (num % 1000);
-    let formSets = null;
-    const fset = g => { if (!formSets) { formSets = new Map(); D.labels.forEach((L, i) => formSets.set(i, new Set(L.forms.slice(1).map(f => String(f[0]).toLowerCase())))); } return formSets.get(g) || new Set(); };
-    const anyForm = cl => { fset(0); for (const s of formSets.values()) if (s.has(cl)) return true; return false; };
-    const ctx = (items, key, withLabel) => {
-      const lim = Math.min(items.length, S.refLim), part = items.slice(0, lim), refs = part.map(it => refOf(it.num));
-      if (refs.some(r => !wcVerseWords.has(r)) || (!window.INTERLIN && !S.ilFail)) { // Kontext nachladen, dann neu zeichnen
-        if (!S.loading) { S.loading = true; Promise.all([loadIL(), wcTrCtxLoad(refs)]).then(([IL]) => { S.loading = false; if (!IL) S.ilFail = true; if (wcTrState === S && S.open === key) wcTrRender(); }, () => { S.loading = false; S.ilFail = true; }); }
-      }
-      const occs = new Map(), used = new Map(), hs = withLabel ? new Map(ones.map(g => [g.g, hint(g)])) : null; let lb = null, html = '';
-      part.forEach((it, j) => {
-        const r = refs[j], bk = Math.floor(it.num / 1e6);
-        if (!occs.has(r)) { occs.set(r, wcTrOcc(S.cur, r, S.lemma)); used.set(r, new Set()); }
-        const u = used.get(r), mine = fset(it.g); let o = null, bs = -1;
-        occs.get(r).forEach(x => { if (u.has(x.i)) return; const s = (x.code === it.code ? 4 : 0) + (mine.has(x.cl) ? 2 : anyForm(x.cl) ? 0 : 1); if (s > bs) { bs = s; o = x; } });
-        if (o) u.add(o.i);
-        if (bk !== lb) { html += `<div class="bk">${esc(fmBook(BOOKS[bk]))}</div>`; lb = bk; }
-        const cv = (Math.floor(it.num / 1000) % 1000) + (I18N.lang === 'de' ? ',' : ':') + (it.num % 1000);
-        html += `<div class="ln"><a data-ref="${esc(r)}">${cv}</a><span class="he" lang="he" dir="rtl">${o ? esc(o.he) : ''}</span><span class="de" lang="${de ? 'de' : D.lang}" dir="${RTL(D.lang) ? 'rtl' : 'ltr'}">${o && o.de ? esc(o.de) : S.cur === 'Q' ? (D.labels[it.g].same ? '=' : esc(D.labels[it.g].forms[0])) : !de ? esc(D.labels[it.g].forms[0]) : withLabel ? `<span class="muted">${esc(D.labels[it.g].forms[0])}</span>` : ''}${hs && hs.get(it.g) ? ` <small class="hint">${esc(hs.get(it.g))}</small>` : ''}</span></div>`;
-      });
-      const rest = items.length - lim, STEP = 300;
-      const more = rest > 0 ? `<div class="mr"><button type="button" class="wcTrMoreRefs" dir="auto" data-to="${lim + Math.min(rest, STEP)}">${esc(rest <= STEP ? I18N.t('alle {} Stellen zeigen', wcNum(items.length)) : I18N.t('weitere {} Stellen zeigen', wcNum(STEP)))}</button></div>` : '';
-      return `<div class="fmRL wcTrCx">${html}${more}</div>`;
-    };
-    const detail = g => {
-      const fm = g.forms.slice(1), sum = fm.reduce((a, f) => a + f[1], 0), gAll = D.cells.reduce((a, c) => a + (c.g === g.g ? c.n : 0), 0), h = hint(g);
-      return `<div class="wcTrX">${h ? `<p class="wcTrHint" dir="auto">${esc(h)} <span class="muted">– ${esc(I18N.t('diese Wiedergabe ist bei dem gleich geschriebenen Wort deutlich häufiger.'))}</span></p>` : ''}
-        ${fm.length ? `<div class="wcTrFm"><span class="muted">${esc(I18N.t('Formen:'))}</span>${fm.map(([f, n]) => `<span class="fm" lang="de">${esc(f)} <small>${wcNum(n)}</small></span>`).join('')}${sum < gAll ? `<span class="muted">${esc(I18N.t('… und weitere Formen'))}</span>` : ''}${fk.length ? `<span class="muted">(${esc(I18N.t('ohne Filter gezählt'))})</span>` : ''}</div>` : ''}
-        ${g.refs ? ctx(g.refs, String(g.g)) : ''}</div>`;
-    };
-    // Ring: die häufigsten Wiedergaben (bis 7, ohne die zusammengefassten Einzelbelege) in den Kategorienfarben, der Rest grau; dieselbe Farbe trägt die Zeile in der Liste
-    const TOP = 7, slices = main.filter(g => !g.other).slice(0, TOP).map((g, i) => ({ g, n: g.n, c: i + 1, k: String(g.g), t: lab(g) }));
-    const col = new Map(slices.map(x => [x.g.g, x.c])), restN = tot - slices.reduce((a, x) => a + x.n, 0);
-    if (restN > 0) slices.push({ n: restN, c: 0, k: 'rest', t: I18N.t('Andere') });
-    const R0 = 94, R1 = 60, C = 100; let a0 = 0;
-    const pt = (r, a) => [C + r * Math.sin(a), C - r * Math.cos(a)].map(x => x.toFixed(2)).join(' ');
-    const arcs = tot ? slices.map(x => {
-      const a1 = a0 + x.n / tot * 2 * Math.PI, big = a1 - a0 > Math.PI ? 1 : 0;
-      const d = slices.length === 1 ? `M ${C} ${C - R0} A ${R0} ${R0} 0 1 1 ${C - 0.01} ${C - R0} L ${C - 0.01} ${C - R1} A ${R1} ${R1} 0 1 0 ${C} ${C - R1} Z` : `M ${pt(R0, a0)} A ${R0} ${R0} 0 ${big} 1 ${pt(R0, a1)} L ${pt(R1, a1)} A ${R1} ${R1} 0 ${big} 0 ${pt(R1, a0)} Z`;
-      a0 = a1;
-      return `<path d="${d}" class="wcTrS c${x.c}" data-s="${x.k}"><title>${esc(x.t)}: ${wcNum(x.n)} (${pct(x.n)})</title></path>`;
-    }).join('') : `<circle cx="100" cy="100" r="77" class="wcTrE"/>`;
-    const lemHe = (LEM[S.lemma] || [])[0] || (fmCur && fmCur.lem ? fmCur.lem[0] : '');
-    const ring = `<svg class="wcTrRing" viewBox="0 0 200 200" role="img" aria-label="${esc(I18N.t('Wie wird das Wort übersetzt?'))}">${arcs}<text x="100" y="100" class="wcTrC" lang="he">${esc(lemHe)}</text><text x="100" y="123" class="wcTrT">${esc(wcNum(tot))}</text></svg>`;
-    const cOf = g => col.get(g.g) || 0, sOf = g => col.has(g.g) ? String(g.g) : 'rest';
-    const chev = can => `<span class="chev" aria-hidden="true">${can ? '›' : ''}</span>`;
-    const sw = '<i class="sw" aria-hidden="true"></i>';
-    const bar = n => `<span class="b"><i style="width:${(n / tot * 100).toFixed(1)}%"></i></span>`;
-    const name = g => g.lang === 'arc' && !g.other ? `<button type="button" class="wcTgL" data-q="${esc(g.forms[0])}" title="${esc(I18N.t('Im Wörterbuch nachschlagen'))}">${esc(lab(g))}</button>` : esc(lab(g));
-    const row = g => {
-      const key = String(g.g), can = !!g.refs && !g.other, open = can && S.open === key, h = hint(g);
-      return `<div class="wcTrR c${cOf(g)}${can ? ' can' : ''}${open ? ' open' : ''}${h ? ' odd' : ''}" data-g="${key}" data-s="${sOf(g)}"${can ? ` role="button" tabindex="0" aria-expanded="${open}"${open ? '' : ` title="${esc(I18N.t('Formen und Stellen zeigen'))}"`}` : ''}>${chev(can)}${sw}<span class="f"><span lang="${g.lang}"${RTL(g.lang) ? ' dir="rtl"' : ''}>${name(g)}</span>${g.gl ? ` <small class="muted">${esc(g.gl)}</small>` : ''}${h ? ` <small class="hint" title="${esc(h)}">${esc(h)}</small>` : ''}</span>${bar(g.n)}<small class="n">${wcNum(g.n)}</small><small class="p">${pct(g.n)}</small></div>${open ? detail(g) : ''}`;
-    };
-    const onesRow = () => {
-      const open = S.open === 'ones', n = ones.length;
-      const body = !open ? '' : de ? `<div class="wcTrX">${ctx(ones.map(g => g.refs[0]).sort((x, y) => x.num - y.num), 'ones', true)}</div>`
-        : `<div class="wcTrX"><div class="wcTrFm">${ones.map(g => `<span class="fm" lang="${g.lang}"${RTL(g.lang) ? ' dir="rtl"' : ''}>${name(g)}${g.gl ? ` <small>${esc(g.gl)}</small>` : ''}</span>`).join('')}</div></div>`;
-      return `<div class="wcTrR c0 can ones${open ? ' open' : ''}" data-g="ones" data-s="rest" role="button" tabindex="0" aria-expanded="${open}">${chev(true)}${sw}<span class="f"><bdi>${esc(I18N.t('Einzelbelege'))}</bdi> <small class="muted">(${wcNum(n)})</small></span>${bar(n)}<small class="n">${wcNum(n)}</small><small class="p">${pct(n)}</small></div>${body}`;
-    };
-    const others = shown.filter(g => g.other), normal = shown.filter(g => !g.other);
-    const list = gs.length ? normal.map(row).join('') + (main.length > shown.length ? `<div class="mr"><button type="button" class="wcTrAllRows" dir="auto">${esc(I18N.t('alle {} Wiedergaben zeigen', wcNum(main.length)))}</button></div>` : '') + (fold ? onesRow() : '') + others.map(row).join('')
-      : `<p class="muted">${esc(I18N.t('Keine Belege für diese Auswahl.'))}</p>`;
-    // ----- Vergleich zweier Fassungen: an denselben Stellen gibt A das Wort mit X wieder, B mit Y (Paare nach A gruppiert); Klick auf ein Paar zeigt die Stellen mit beiden Wiedergaben -----
-    function cmpView() {
-      const kB = S.cmp, B = S.src[kB], deB = B.lang === 'de';
-      const per = Dx => { const m = new Map(); let n = 0; Dx.cells.forEach(c => { if (!match(c)) return; n += c.n; unB36(c.refs).forEach(num => (m.get(num) || m.set(num, []).get(num)).push({ g: c.g, code: c.code })); }); return { m, n }; };
-      const PA = per(D), PB = per(B), pairs = new Map(); let np = 0;
-      PA.m.forEach((as, num) => { // mehrere Vorkommen im Vers: erst die mit gleicher Bestimmung zusammen, dann der Reihe nach
-        const bs = PB.m.get(num); if (!bs) return; const free = bs.slice(), pr = [], left = [];
-        as.forEach(a => { const j = free.findIndex(b => b.code === a.code); if (j >= 0) pr.push([a, free.splice(j, 1)[0]]); else left.push(a); });
-        left.forEach(a => { if (free.length) pr.push([a, free.shift()]); });
-        pr.forEach(([a, b]) => { const key = 'x' + a.g + '-' + b.g, p = pairs.get(key) || pairs.set(key, { key, a: a.g, b: b.g, n: 0, refs: [] }).get(key); p.n++; p.refs.push({ num, code: a.code, codeB: b.code, g: a.g, gb: b.g }); np++; });
-      });
-      const lA = g => D.labels[g].other ? I18N.t('Andere') : D.labels[g].forms[0], lB = g => B.labels[g].other ? I18N.t('Andere') : B.labels[g].forms[0];
-      const sameLang = D.lang === B.lang, isSame = p => sameLang && !D.labels[p.a].other && !B.labels[p.b].other && String(lA(p.a)).toLowerCase() === String(lB(p.b)).toLowerCase();
-      const ga = new Map(); pairs.forEach(p => { p.refs.sort((x, y) => x.num - y.num); ga.set(p.a, (ga.get(p.a) || 0) + p.n); });
-      const order = [...ga].sort((x, y) => (!!D.labels[x[0]].other - !!D.labels[y[0]].other) || y[1] - x[1]).map(x => x[0]), rank = new Map(order.map((g, i) => [g, i]));
-      const rowsAll = [...pairs.values()].sort((x, y) => rank.get(x.a) - rank.get(y.a) || y.n - x.n), rows = S.allRows ? rowsAll : rowsAll.slice(0, 20);
-      const nSame = rowsAll.reduce((a, p) => a + (isSame(p) ? p.n : 0), 0), pc = n => { const q = n / np * 100; return (q > 0 && q < 1 ? '< 1' : String(Math.round(q))) + ' %'; };
-      const span = (Dx, t, other) => `<span lang="${other ? '' : Dx.lang}"${RTL(Dx.lang) && !other ? ' dir="rtl"' : ''}>${esc(t)}</span>`;
-      const cx = p => {
-        const lim = Math.min(p.refs.length, S.refLim), part = p.refs.slice(0, lim), refs = part.map(it => refOf(it.num));
-        if (refs.some(r => !wcVerseWords.has(r)) || ((de || deB) && !window.INTERLIN && !S.ilFail)) {
-          if (!S.loading) { S.loading = true; Promise.all([de || deB ? loadIL() : true, wcTrCtxLoad(refs)]).then(([IL]) => { S.loading = false; if (!IL) S.ilFail = true; if (wcTrState === S && S.open === p.key) wcTrRender(); }, () => { S.loading = false; S.ilFail = true; }); }
-        }
-        const picker = (k, Dx) => { // das Vorkommen im Vers, das zu dieser Zeile gehört (wie in der einfachen Stellenliste)
-          const sets = new Map(Dx.labels.map((L, i) => [i, new Set(L.forms.slice(1).map(f => String(f[0]).toLowerCase()))])), any = cl => { for (const s of sets.values()) if (s.has(cl)) return true; return false; };
-          const occs = new Map(), used = new Map();
-          return (r, g, code) => {
-            if (!occs.has(r)) { occs.set(r, wcTrOcc(k, r, S.lemma)); used.set(r, new Set()); }
-            const u = used.get(r), mine = sets.get(g) || new Set(); let o = null, bs = -1;
-            occs.get(r).forEach(x => { if (u.has(x.i)) return; const s = (x.code === code ? 4 : 0) + (mine.has(x.cl) ? 2 : any(x.cl) ? 0 : 1); if (s > bs) { bs = s; o = x; } });
-            if (o) u.add(o.i); return o;
-          };
-        };
-        const pa = picker(S.cur, D), pb = picker(kB, B);
-        const cell = (Dx, o, t) => `<span class="de" lang="${Dx.lang}" dir="${RTL(Dx.lang) ? 'rtl' : 'ltr'}">${o && o.de ? esc(o.de) : `<span class="muted">${esc(t)}</span>`}</span>`;
-        let lb = null, html = `<div class="ln ln2 hd" aria-hidden="true"><span></span><span></span><span>${esc(srcName(S.cur))}</span><span>${esc(srcName(kB))}</span></div>`;
-        part.forEach((it, j) => {
-          const r = refs[j], bk = Math.floor(it.num / 1e6), oa = pa(r, it.g, it.code), ob = pb(r, it.gb, it.codeB), he = (oa || ob || {}).he || '';
-          if (bk !== lb) { html += `<div class="bk">${esc(fmBook(BOOKS[bk]))}</div>`; lb = bk; }
-          const cv = (Math.floor(it.num / 1000) % 1000) + (I18N.lang === 'de' ? ',' : ':') + (it.num % 1000);
-          html += `<div class="ln ln2"><a data-ref="${esc(r)}">${cv}</a><span class="he" lang="he" dir="rtl">${esc(he)}</span>${cell(D, oa, lA(it.g))}${cell(B, ob, lB(it.gb))}</div>`;
-        });
-        const rest = p.refs.length - lim, STEP = 300;
-        return `<div class="wcTrX"><div class="fmRL wcTrCx">${html}${rest > 0 ? `<div class="mr"><button type="button" class="wcTrMoreRefs" dir="auto" data-to="${lim + Math.min(rest, STEP)}">${esc(rest <= STEP ? I18N.t('alle {} Stellen zeigen', wcNum(p.refs.length)) : I18N.t('weitere {} Stellen zeigen', wcNum(STEP)))}</button></div>` : ''}</div></div>`;
-      };
-      let prev = null;
-      const list = !np ? `<p class="muted" dir="auto">${esc(I18N.t('Keine gemeinsamen Belege für diese Auswahl.'))}</p>` : rows.map(p => {
-        const open = S.open === p.key, first = p.a !== prev, same = isSame(p), i = rank.get(p.a), c = D.labels[p.a].other || i >= 7 ? 0 : i + 1; prev = p.a;
-        return `<div class="wcTrR wcTrP can c${c}${first ? ' first' : ''}${same ? ' same' : ''}${open ? ' open' : ''}" data-g="${p.key}" role="button" tabindex="0" aria-expanded="${open}"${open ? '' : ` title="${esc(I18N.t('Stellen zeigen'))}"`}><span class="chev" aria-hidden="true">›</span><i class="sw" aria-hidden="true"></i><span class="f fa">${span(D, lA(p.a), D.labels[p.a].other)}</span><span class="ar"${same ? ` title="${esc(I18N.t('gleiche Wiedergabe'))}"` : ''}>${same ? '=' : '→'}</span><span class="f fb">${span(B, lB(p.b), B.labels[p.b].other)}${B.labels[p.b].gl ? ` <small class="muted">${esc(B.labels[p.b].gl)}</small>` : ''}</span><span class="b"><i style="width:${(p.n / np * 100).toFixed(1)}%"></i></span><small class="n">${wcNum(p.n)}</small><small class="p">${pc(p.n)}</small></div>${open ? cx(p) : ''}`;
-      }).join('') + (rowsAll.length > rows.length ? `<div class="mr"><button type="button" class="wcTrAllRows" dir="auto">${esc(I18N.t('alle {} Paare zeigen', wcNum(rowsAll.length)))}</button></div>` : '');
-      const head = `<span class="cnt${fk.length ? ' filt' : ''}" dir="auto"><bdi>${esc(srcName(S.cur))}</bdi> ↔ <bdi>${esc(srcName(kB))}</bdi> <span class="muted">· ${esc(I18N.t('{} gemeinsame Belege (von {} / {})', wcNum(np), wcNum(PA.n), wcNum(PB.n)))}</span></span><button type="button" class="wcTrCmpX" title="${esc(I18N.t('Vergleich beenden'))}" aria-label="${esc(I18N.t('Vergleich beenden'))}">✕</button>${sameLang && np ? `<span class="wcTrAgree" dir="auto">${esc(I18N.t('stimmen überein: {} ({} von {})', pc(nSame), wcNum(nSame), wcNum(np)))}</span>` : ''}`;
-      return { head, list, hidden: rowsAll.slice(rows.length).map(p => lA(p.a) + ' \n ' + lB(p.b)).join(' \n ') };
-    }
-    // ----- Kopf: Homonyme, Fassungen, Zählung + Filter -----
-    const lem = LEM[S.lemma], sameVoc = S.sis.every(s => LEM[s.id] && LEM[s.id][0] === (LEM[S.sis[0].id] || [])[0]);
-    const hom = S.sis.length ? `<div class="wcTrHom"><span class="muted">${esc(I18N.t('Gleich geschrieben:'))}</span>${S.sis.map(s => ({ s, n: s.src[S.cur] ? s.src[S.cur].total : 0 })).sort((a, b) => b.n - a.n).slice(0, 8).map(({ s, n }) => `<button type="button" class="wcTrHm${s.id === S.lemma ? ' on' : ''}${n ? '' : ' few'}" data-lem="${esc(s.id)}" aria-pressed="${s.id === S.lemma}">${sameVoc ? '' : `<span lang="he" dir="rtl">${esc(LEM[s.id][0])}</span> `}${esc(gloss(s.id))} <small>${n ? wcNum(n) : '–'}</small></button>`).join('')}</div>` : '';
-    const maxTot = Math.max(...S.keys.map(k => S.src[k].total)), cmpOn = !!(S.cmp || S.pick);
-    const tabs = `<div class="wcTrTabs" role="tablist">${S.keys.map(k => { const n = S.src[k].total; const cv = cmpOn && k !== S.cur ? wcTrCommon(S, S.cur, k) : -1; return `<button type="button" role="tab" class="wcTrSrc${k === S.cur ? ' on' : ''}${k === S.cmp ? ' cmp' : ''}${cv === 0 ? ' none' : ''}${n < 5 || n < maxTot * 0.05 ? ' few' : ''}" aria-selected="${k === S.cur || k === S.cmp}" data-src="${k}"${cv >= 0 ? ` title="${esc(cv ? I18N.t('{} gemeinsame Verse mit {}', wcNum(cv), srcName(S.cur)) : I18N.t('Keine gemeinsamen Verse mit {}', srcName(S.cur)))}"` : ''}>${wcTrPic(k)}${k === S.cmp ? '<span class="x" aria-hidden="true">⇄</span>' : ''}${esc(I18N.t(WC_TR_LABEL[k]))} <small>${wcNum(n)}</small></button>`; }).join('')}${S.keys.length > 1 && !S.cmp ? `<button type="button" class="wcTrCmpB${S.pick ? ' on' : ''}" aria-pressed="${!!S.pick}" title="${esc(I18N.t('Zwei Quellen vergleichen – auch mit {}-Klick auf eine zweite Quelle', (window.platform && window.platform.mod) || 'Strg'))}"><span aria-hidden="true">⇄</span> <bdi>${esc(I18N.t('Vergleichen mit …'))}</bdi></button>` : ''}</div>${S.pick ? `<p class="wcTrPickN muted" dir="auto">${esc(I18N.t('Zweite Quelle wählen – ausgegraut: keine gemeinsamen Verse.'))}</p>` : ''}`;
-    const dimRow = d => `<div class="wcTrFR"><span class="muted">${esc(I18N.t(d.name))}</span>${d.vals.map(([v, n]) => `<button type="button" class="wcTrFV${S.f[d.k] === v ? ' on' : ''}" data-dim="${d.k}" data-val="${esc(v)}" aria-pressed="${S.f[d.k] === v}">${esc(I18N.t(v))} <small>${wcNum(n)}</small></button>`).join('')}${S.f[d.k] && !d.vals.some(([v]) => v === S.f[d.k]) ? `<button type="button" class="wcTrFV on" data-dim="${d.k}" data-val="${esc(S.f[d.k])}" aria-pressed="true">${esc(I18N.t(S.f[d.k]))} <small>0</small></button>` : ''}</div>`;
-    const mainDims = dims.filter(d => WC_TR_MAIN.has(d.k)), restDims = dims.filter(d => !WC_TR_MAIN.has(d.k));
-    const X = S.cmp && S.cmp !== S.cur && S.src[S.cmp] ? cmpView() : null;
-    const sum = `<div class="wcTrSum${X ? ' cmp' : ''}">${X ? X.head : `<span class="cnt${fk.length ? ' filt' : ''}" dir="auto">${esc(fk.length ? I18N.t('{} von {} Belegen', wcNum(tot), wcNum(all)) : I18N.t('{} Belege · {} Wiedergaben', wcNum(tot), wcNum(gs.length)))}</span>`}${fk.map(k => `<button type="button" class="wcTrFV on rm" data-dim="${k}" data-val="${esc(S.f[k])}" title="${esc(I18N.t('Filter entfernen'))}">${esc(I18N.t(S.f[k]))} <span aria-hidden="true">✕</span></button>`).join('')}${fk.length > 1 ? `<button type="button" class="wcTrFV wcTrAll" data-dim="*">↺ ${esc(I18N.t('Alle Formen'))}</button>` : ''}${restDims.length ? `<button type="button" class="wcTrMoreB" aria-expanded="${wcTrMore}"><bdi>${esc(I18N.t('Weitere Merkmale'))}</bdi> <span aria-hidden="true">${wcTrMore ? '▴' : '▾'}</span></button>` : ''}</div>`;
-    const note = X ? 'Verglichen sind die Stellen, an denen beide Quellen dieses Wort einzeln wiedergeben: jede Zeile zeigt, welche Wiedergabe der einen auf welche der anderen trifft. Klick auf eine Zeile zeigt die Stellen; Klick auf die zweite Quelle tauscht die Seiten.' : de ? 'Gezählt sind die Stellen, an denen die Übersetzung diesem Wort allein (ohne weiteres Inhaltswort) zugeordnet ist; die Formen sind nach ihrer deutschen Grundform zusammengefasst, „und“ und Artikel am Anfang weggelassen. Klick auf eine Zeile zeigt die Formen und die Stellen.' : S.cur === 'LXX' ? 'Septuaginta nach der Wort-für-Wort-Zuordnung von CATSS, griechische Wörter als Lemma (lxx-morph).' : S.cur === 'Q' ? 'Qumran-Rollen: was die biblischen Rollen dort haben, wo der masoretische Text dieses Wort hat – je erhaltene Rolle gezählt (maschinell zugeordnet, ETCBC DSS, CC BY-NC 4.0); von den Herausgebern ergänzte Wörter zählen nicht.' : 'Targum nach der maschinellen Wortzuordnung zum Westminster-Text (ETCBC Targum Corpus, CC BY-NC 4.0).';
-    { // was gerade eingeklappt ist (Formen einer Zeile, Einzelbelege, weitere Wiedergaben, weitere Merkmale) – die Suche im Fenster (wcFind) findet es und klappt es beim Springen auf
-      const hid = [], gtxt = g => lab(g) + (g.gl ? ' ' + g.gl : '');
-      if (X) { if (X.hidden) hid.push({ act: 'rows', sel: '.wcTrAllRows', text: X.hidden }); }
-      else normal.concat(others).forEach(g => { const fm = g.forms.slice(1); if (g.refs && !g.other && S.open !== String(g.g) && fm.length) hid.push({ act: 'open', key: String(g.g), sel: `.wcTrR[data-g="${g.g}"]`, text: fm.map(f => f[0]).join(' \n ') }); });
-      if (!X && main.length > shown.length) hid.push({ act: 'rows', sel: '.wcTrAllRows', text: main.slice(shown.length).map(gtxt).join(' \n ') });
-      if (!X && fold && S.open !== 'ones') hid.push({ act: 'open', key: 'ones', sel: '.wcTrR.ones', text: ones.map(gtxt).join(' \n ') });
-      if (restDims.length && !wcTrMore) hid.push({ act: 'more', sel: '.wcTrMoreB', text: restDims.map(d => I18N.t(d.name) + ' \n ' + d.vals.map(v => I18N.t(v[0])).join(' \n ')).join(' \n ') });
-      S.hid = hid;
-    }
-    const fo = document.activeElement && box.contains(document.activeElement) && document.activeElement.closest('.wcTrR[data-g]'), foKey = fo && fo.dataset.g; // Tastaturfokus über das Neuzeichnen retten
-    box.innerHTML = `<h4>${esc(I18N.t('Wie wird das Wort übersetzt?'))}${lem ? ` <small class="wcTrLem"><span lang="he" dir="rtl">${esc(lem[0])}</span> ${esc(gloss(S.lemma))}</small>` : ''}</h4>
-      ${hom}${tabs}
-      <div class="wcTrF">${sum}${mainDims.map(dimRow).join('')}${wcTrMore ? restDims.map(dimRow).join('') : ''}</div>
-      ${X ? `<div class="wcTrBody cmp"><div class="wcTrL">${X.list}</div></div>` : `<div class="wcTrBody"><div class="wcTrRingW">${ring}</div><div class="wcTrL">${list}</div></div>`}
-      <p class="muted wcLxN">${esc(I18N.t(note))}</p>`;
-    // Ring und Liste hängen über die Farbe zusammen: Zeigen auf ein Segment hebt die Zeile hervor und umgekehrt
-    const hl = k => box.querySelectorAll('.wcTrS, .wcTrR').forEach(x => x.classList.toggle('dim', k != null && x.dataset.s !== k));
-    box.querySelectorAll('.wcTrS, .wcTrR').forEach(x => { if (!x.dataset.s) return; x.addEventListener('mouseenter', () => hl(x.dataset.s)); x.addEventListener('mouseleave', () => hl(null)); });
-    if (foKey != null) { const n = [...box.querySelectorAll('.wcTrR[data-g]')].find(x => x.dataset.g === foKey); if (n) n.focus({ preventScroll: true }); }
-  }
-  // Targumim: häufigste aramäische Lexeme, mit denen Onkelos, Pseudo-Jonathan und Neofiti dieses hebräische Lemma wiedergeben
-  // (maschinelle Wortzuordnung tools/targum/align.py, Index targum-ren.js); Klick schlägt das Lexem im Wörterbuch nach
-  let tgRenP = null;
-  const loadTgRen = () => tgRenP || (tgRenP = lazyScript('targum-ren.js', () => window.TARGUM_REN).catch(() => { tgRenP = null; return null; }));
-  async function wcTgRen(token) {
-    const { lemma } = fmCur;
-    const X = await loadTgRen(), box = $('#wcTgR');
-    if (token !== wcToken || !X || !box || !X[lemma]) return;
-    const [labels, cells] = X[lemma], agg = labels.map(([l, g]) => ({ l, g, c: [0, 0, 0], n: 0 }));
-    cells.forEach(([gi, , o, p, n]) => { const x = agg[gi]; x.c[0] += o; x.c[1] += p; x.c[2] += n; x.n += o + p + n; });
-    const tot = agg.reduce((a, x) => a + x.n, 0), kinds = agg.filter(x => x.l !== '*').length + (agg.some(x => x.l === '*') ? 1 : 0);
-    const list = agg.filter(x => x.n && x.l !== '*').sort((a, b) => b.n - a.n);
-    if (!list.length) return;
-    const mx = Math.max(...list.map(x => x.n)), TGN = ['Onkelos', 'Pseudo-Jonathan', 'Neofiti 1'], ct = [0, 0, 0]; list.forEach(x => x.c.forEach((v, i) => { ct[i] += v; }));
-    box.hidden = false;
-    box.innerHTML = `<h4>${esc(I18N.t('Wiedergabe in den Targumim'))} <small>${esc(I18N.t('{} Zuordnungen · {} aramäische Wörter', wcNum(tot), wcNum(kinds)))}</small></h4>
-      <div class="wcLx wcTgX">${list.slice(0, 10).map(x => `<div class="wcLxR"><span class="wcTgW"><button type="button" class="g wcTgL" lang="arc" dir="rtl" data-q="${esc(x.l)}" title="${esc(I18N.t('Im Wörterbuch nachschlagen'))}">${esc(x.l)}</button>${x.g ? `<small class="muted">${esc(x.g)}</small>` : ''}</span><span class="b" title="${esc(x.c.map((v, i) => TGN[i] + ': ' + wcNum(v)).join(' · '))}">${x.c.map((v, i) => v ? `<i class="t${i}" style="width:${Math.max(1, v / mx * 100).toFixed(1)}%"></i>` : '').join('')}</span><small>${wcNum(x.n)}</small></div>`).join('')}</div>
-      <p class="wcTgK">${TGN.map((t, i) => `<span><i class="t${i}"></i>${esc(t)} <small>${wcNum(ct[i])}</small></span>`).join('')}</p>
-      <p class="muted wcLxN">${esc(I18N.t('Nach einer maschinellen Wort-für-Wort-Zuordnung der Targumim zum Westminster-Text (gleiche Wurzel, gleiche Bedeutung, feste Wiedergaben, Wortfolge); gezählt sind die aramäischen Lexeme ohne Vorsilben (ETCBC Targum Corpus, CC BY-NC 4.0). Klick auf ein Wort schlägt es im Wörterbuch nach.'))}</p>`;
-  }
-  // Qumran (nichtbiblische Rollen, Index qumran-lex.js): Vorkommen des Lemmas (nach Konsonanten) je Buch mit Sprung zur Zeile
-  async function wcQumran(token) {
-    const { lem } = fmCur;
-    if (!lem) return;
-    const key = String(lem[0]).replace(/[^\u05D0-\u05EA]/g, '').replace(/[ךםןףץ]/g, c => 'כמנפצ'['ךםןףץ'.indexOf(c)]);
-    const Q = await loadQum(), box = $('#wcQum');
-    if (token !== wcToken || !Q || !box) return;
-    const a = Q.l[key];
-    if (!a || !a.length) return;
-    const by = new Map();
-    for (let i = 0; i < a.length; i += 3) { const b = a[i]; if (!by.has(b)) by.set(b, []); by.get(b).push([a[i + 1], a[i + 2]]); }
-    const books = [...by.entries()].sort((x, y) => y[1].length - x[1].length);
-    const CAP = 80;
-    box.hidden = false;
-    box.innerHTML = `<h4>${esc(I18N.t('In den Qumran-Rollen'))} <small>${esc(I18N.t('{} Zeilen in {} Büchern', wcNum(a.length / 3), wcNum(books.length)))}</small></h4>
-      ${books.slice(0, 12).map(([b, rs]) => `<details class="wcQ"><summary><b>${esc(Q.b[b])}</b> <small>${wcNum(rs.length)}</small></summary><div class="fmRL">${rs.slice(0, CAP).map(([f, l]) => `<span class="fmR"><a data-ref="${esc(Q.b[b] + ' ' + f + ':' + l)}">${f}:${l}</a></span>`).join(' ')}${rs.length > CAP ? ' …' : ''}</div></details>`).join('')}
-      ${books.length > 12 ? `<p class="muted">${esc(I18N.t('… und {} weitere Bücher', wcNum(books.length - 12)))}</p>` : ''}
-      <p class="muted wcLxN">${esc(I18N.t('Nichtbiblische Rollen (ETCBC DSS, CC BY-NC 4.0); gezählt nach dem Lemma in Konsonantenschrift, daher können gleich geschriebene Wörter mitgezählt sein.'))}</p>`;
-  }
-  // Targumim (ETCBC, Neofiti 1, Pseudo-Jonathan und Onkelos zum Pentateuch): Verse, in denen ein Targum-Wort dieses Lemma als Lexem oder Wurzel hat
-  const loadTgIdx = () => tgIdxP || (tgIdxP = lazyScript('targum-idx.js', () => window.TARGUM_IDX).catch(() => { tgIdxP = null; return null; }));
-  let tgIdxP = null;
-  async function wcTargum(token) {
-    const { lem } = fmCur;
-    if (!lem) return;
-    const key = String(lem[0]).replace(/[^\u05D0-\u05EA]/g, '').replace(/[ךםןףץ]/g, c => 'כמנפצ'['ךםןףץ'.indexOf(c)]);
-    const X = await loadTgIdx(), box = $('#wcTg');
-    if (token !== wcToken || !X || !box || !X.r[key]) return;
-    let n = 0; const refs = X.r[key].map(d => (n += d)), TGN = ['N', 'PJ', 'O'];
-    const by = new Map(); // Vers -> [Targume]
-    refs.forEach(r => { const t = r % 4, q = (r - t) / 4, v = q % 1000, c = Math.floor(q / 1000) % 100, b = Math.floor(q / 100000), k = X.b[b] + ' ' + c + ':' + v; if (!by.has(k)) by.set(k, [b, c, v, []]); by.get(k)[3].push(t); });
-    const verses = [...by.entries()], CAP = 120, cnt = [0, 0, 0]; refs.forEach(r => cnt[r % 4]++);
-    box.hidden = false;
-    box.innerHTML = `<h4>${esc(I18N.t('In den Targumim'))} <small>${esc(I18N.t('{} Verse (Onkelos: {}, Neofiti 1: {}, Pseudo-Jonathan: {})', wcNum(verses.length), wcNum(cnt[2]), wcNum(cnt[0]), wcNum(cnt[1])))}</small></h4>
-      <div class="fmRL">${verses.slice(0, CAP).map(([k, [, , , ts]]) => `<span class="fmR"><a data-ref="${esc(k)}">${esc(k)}</a><small>${[...new Set(ts)].sort((a, b) => (b === 2) - (a === 2) || a - b).map(t => TGN[t]).join(' ')}</small></span>`).join('')}</div>
-      ${verses.length > CAP ? `<p class="muted">${esc(I18N.t('… und {} weitere Verse', wcNum(verses.length - CAP)))}</p>` : ''}
-      <p class="muted wcLxN">${esc(I18N.t('Targum Onkelos (O, Ausgabe Sperber), Neofiti 1 (N) und Pseudo-Jonathan (PJ), ETCBC Targum Corpus (CC BY-NC 4.0); gezählt nach Lexem oder Wurzel des aramäischen Wortes in Konsonantenschrift, daher können verwandte oder gleich geschriebene Wörter mitgezählt sein.'))}</p>`;
-  }
-  // Griechische Karte: welche hebräischen Wörter gibt dieses Lemma wieder? (Gegenrichtung desselben Index); Klick öffnet die hebräische Wortkarte
-  async function wcHeb(token) {
-    const { lemma } = fmCur;
-    const X = await loadLxx();
-    if (token !== wcToken || !X || !window.Lxx) return;
-    const r = window.Lxx.hebrew(X, lemma), box = $('#wcLxx'), LEM = window.OSHB_LEMMAS || {};
-    if (!r || !r.list.length || !box) return;
-    const mx = r.list[0].n;
-    box.hidden = false;
-    box.innerHTML = `<h4>${esc(I18N.t('Hebräische Vorlage'))} <small>${esc(I18N.t('{} Zuordnungen · {} hebräische Wörter', wcNum(r.total), wcNum(r.kinds)))}</small></h4>
-      <div class="wcLx wcHb">${r.list.slice(0, 10).map(x => { const l = LEM[x.h]; return `<div class="wcLxR"><button type="button" class="g wcHL" data-hl="${esc(x.h)}" title="${esc(I18N.t('Hebräische Wortkarte öffnen'))}"><span lang="he" dir="rtl">${esc(l ? l[0] : x.h)}</span> <span class="muted">${esc(l ? (I18N.lang === 'de' && l[2] ? l[2] : l[1]) : '')}</span></button><span class="b"><i style="width:${Math.max(2, x.n / mx * 100).toFixed(1)}%"></i></span><small>${wcNum(x.n)}</small></div>`; }).join('')}</div>
-      <p class="muted wcLxN">${esc(I18N.t('Hebräische Wörter (Westminster-Lemma), denen CATSS dieses griechische Wort Wort für Wort zuordnet – nur Bücher des Tanach mit CATSS-Fassung. Klick auf ein Wort öffnet seine Wortkarte.'))}</p>`;
-  }
-  // Lemma-Suche griechisch: Sprache „Andere“, Treffer „Alle Formen“
-  function gSearchAll(lemma) {
-    closeForms(); showTab('search');
-    sEntApply({ q: lemma, l: 'other', m: 'lemma' });
-    renderSearchSaved(); runSearch();
-  }
-  function wcSearchAll() { // Lemma-Suche in der Suchmaske: Hebräisch, Treffer „Alle Formen“
-    const { lem } = fmCur; if (!lem) return;
-    if (fmCur.targum) { wcBookRefs('*', true); $('#wcBookRefs').scrollIntoView({ block: 'nearest' }); return; }
-    if (fmCur.greek) { gSearchAll(lem[0]); return; }
-    closeForms(); showTab('search');
-    sEntApply({ q: lem[0].replace(/[^א-ת]/g, ''), l: 'he', m: 'lemma' });
-    renderSearchSaved(); runSearch();
-  }
-  // ---------- Wortkarte: Verlauf (Zurück/Vor) ----------
-  // Wie im Browser: jeder Schritt, der den Inhalt wesentlich wechselt (anderes Wort, anderer Reiter, Homonym, Fassung, Filter), legt einen Eintrag an und
-  // schneidet den Vorwärts-Teil ab. Ein Eintrag hält den ganzen Zustand der Karte (Wort, Reiter, Fassung, Homonym, Filter, aufgeklappte Zeile, gewählte
-  // Stellenlisten, Scrollposition); der Zustand des aktuellen Eintrags wird beim Verlassen nachgetragen. Der Verlauf bleibt über das Schließen hinaus
-  // erhalten (bis zum Neustart), höchstens FM_HMAX Einträge.
-  const FM_HMAX = 50;
-  let fmHist = [], fmHi = -1, fmRest = null, fmActive = false, fmHold = null; // fmActive: die Wortkarte ist das Fenster, in dem man gerade arbeitet
-  const wcTrLive = () => (wcTrState && fmCur && !fmCur.greek && wcTrState.tok === wcToken && wcTrState.base === fmCur.lemma ? wcTrState : null);
-  const fmLemGloss = id => { const l = (window.OSHB_LEMMAS || {})[id]; return l ? (I18N.lang === 'de' && l[2] ? l[2] : l[1]) : ''; };
-  function fmHistLabel(h) { // für den Tooltip: wohin führt der Schritt?
-    const l = !h.greek && (window.OSHB_LEMMAS || {})[h.lemma];
-    let s = h.info && h.info.targum ? (((window.TARGUM_FORMS || {}).L || {})[h.lemma.slice(3)] || [[h.lemma]])[0][0] : h.greek ? h.lemma : l ? l[0] + ' ' + fmLemGloss(h.lemma) : String(h.lemma);
-    if (h.tab === 'forms') s += ' – ' + I18N.t('Alle Formen (Tabelle)');
-    else if (h.tr) {
-      s += ' – ' + I18N.t(WC_TR_LABEL[h.tr.cur] || h.tr.cur);
-      if (h.tr.cmp) s += ' ↔ ' + I18N.t(WC_TR_LABEL[h.tr.cmp] || h.tr.cmp);
-      if (h.tr.lemma !== h.lemma && fmLemGloss(h.tr.lemma)) s += ' · ' + fmLemGloss(h.tr.lemma);
-      const fv = Object.values(h.tr.f || {}); if (fv.length) s += ' · ' + fv.map(v => I18N.t(v)).join(', ');
-    }
-    return s;
-  }
-  function fmHistUI() {
-    const mac = !!(window.platform && window.platform.isMac);
-    [['#fmBack', -1, 'Zurück', 'Zurück: {}', mac ? 'Cmd+[' : 'Alt+←'], ['#fmFwd', 1, 'Vor', 'Vor: {}', mac ? 'Cmd+]' : 'Alt+→']].forEach(([id, d, none, to, key]) => {
-      const b = $(id), h = fmHist[fmHi + d]; if (!b) return;
-      b.disabled = !h; b.title = (h ? I18N.t(to, fmHistLabel(h)) : I18N.t(none)) + ' (' + key + ')';
-    });
-  }
-  const fmKey = () => { const S = wcTrLive(); return JSON.stringify([fmTab, S ? [S.lemma, S.cur, S.f, S.cmp || 0] : 0]); };
-  function fmHistSave() { // Zustand der gezeigten Karte in den aktuellen Eintrag schreiben
-    const h = fmHist[fmHi], p = $('#formsPanel');
-    if (!h || p.hidden || !fmCur || fmCur.lemma !== h.lemma || !!fmCur.greek !== h.greek) return; // geschlossen oder noch am Laden
-    h.tab = fmTab; h.scroll = p.scrollTop;
-    const S = wcTrLive(); if (S) h.tr = { lemma: S.lemma, cur: S.cur, cmp: S.cmp || null, f: { ...S.f }, open: S.open, allRows: S.allRows, refLim: S.refLim };
-    const bx = $('#wcBookRefs'), c = $('#wcBody .wcForms .fmF.sel'), fc = $('#fmBody .fmF.sel');
-    h.book = (bx && bx.dataset.b) || ''; h.chip = c ? c.dataset.i : null; h.fchip = fc ? fc.dataset.i : null;
-  }
-  function fmHistPush(e) {
-    fmHist.length = fmHi + 1; fmHist.push(e); // Vorwärts-Teil abschneiden
-    if (fmHist.length > FM_HMAX) fmHist.splice(0, fmHist.length - FM_HMAX);
-    fmHi = fmHist.length - 1; fmHistUI();
-  }
-  function fmHistOpen(greek, lemma, info, tab, rest) { // eine Wortkarte wird geöffnet (aus dem Text, aus einer anderen Karte, aus dem Wörterbuch …)
-    if (rest) return; // Zurück/Vor: kein neuer Eintrag
-    fmActive = !(typeof pins !== 'undefined' && pins.forms) || fmActive; // schwebend liegt die Karte über dem Text und ist damit das aktive Fenster; angepinnt erst nach einem Klick hinein
-    fmHistSave();
-    const fresh = { greek, lemma, info: info || null, tab: tab === 'forms' ? 'forms' : 'card', tr: null, book: '', chip: null, fchip: null, scroll: 0 }, h = fmHist[fmHi];
-    if (h && h.lemma === lemma && h.greek === greek) { Object.assign(h, fresh); fmHistUI(); } else fmHistPush(fresh); // dasselbe Wort noch einmal: kein doppelter Eintrag
-  }
-  // Schritt innerhalb der Karte (Reiter, Fassung, Filter, Homonym): vorher den Stand merken, danach – wenn sich etwas geändert hat – ein neuer Eintrag
-  function fmStep(fn) {
-    const h = fmHist[fmHi];
-    if (!h || !fmCur || fmCur.lemma !== h.lemma) { fn(); return; }
-    fmHistSave(); const before = fmKey(); fn();
-    if (fmKey() === before) return;
-    fmHistPush({ ...h, tr: h.tr ? { ...h.tr, f: { ...h.tr.f } } : null }); fmHistSave(); fmHistUI();
-  }
-  function fmRestTr(h) { // Übersetzungsstatistik: Homonym, Fassung, Filter, aufgeklappte Zeile eines Eintrags einsetzen
-    const S = wcTrState, t = h.tr; if (!S || !t) return;
-    if (t.lemma !== S.lemma) { const x = S.sis.find(s => s.id === t.lemma); if (x) { S.lemma = x.id; S.src = x.src; S.keys = x.keys; S.IR = x.IR; } }
-    S.cur = S.keys.includes(t.cur) ? t.cur : S.keys[0]; S.cmp = t.cmp && t.cmp !== S.cur && S.keys.includes(t.cmp) ? t.cmp : null; S.pick = false; S.f = { ...t.f }; S.open = t.open; S.allRows = !!t.allRows; S.refLim = t.refLim || 12;
-  }
-  function fmScrollHold(top) { // Scrollposition halten, bis die nachgeladenen Abschnitte (Wörterbücher, Stellen …) stehen oder man selbst scrollt
-    fmHold = { top, token: wcToken, until: Date.now() + 5000 }; $('#formsPanel').scrollTop = top;
-  }
-  function fmRestBase(h) { // Reiter, gewählte Stellenlisten und Scrollposition eines Eintrags
-    fmShowTab(h.tab);
-    if (fmCur) {
-      if ($('#wcBookRefs')) wcBookRefs(h.book || null);
-      if ($('#wcFormRefs')) wcFormRefs((h.chip != null && $$('#wcBody .wcForms .fmF').find(x => x.dataset.i === h.chip)) || null);
-      $$('#fmBody .fmRefRow').forEach(x => x.remove()); $$('#fmBody .fmF.sel').forEach(x => x.classList.remove('sel'));
-      const fc = h.fchip != null && $$('#fmBody .fmF').find(x => x.dataset.i === h.fchip);
-      if (fc && fc.closest('tr')) { fc.classList.add('sel'); fmRefs(fc, false); }
-    }
-    fmScrollHold(h.scroll || 0);
-  }
-  function fmHistGo(d) {
-    const k = fmHi + d, p = $('#formsPanel'); if (k < 0 || k >= fmHist.length || p.hidden) return;
-    fmHistSave(); fmHi = k; const h = fmHist[k]; fmHistUI();
-    hovApi && hovApi.hide();
-    if (fmCur && fmCur.lemma === h.lemma && !!fmCur.greek === h.greek && $('#wcBody .wcSec') && (!h.tr || wcTrLive())) { // dasselbe Wort: nur den Zustand umstellen
-      if (h.tr) { fmRestTr(h); wcTrRender(); }
-      fmRestBase(h);
-    } else if (h.info && h.info.targum) openTForms(h.lemma.slice(3), h.info, h.tab, h);
-    else (h.greek ? openGForms : openForms)(h.lemma, h.info, h.tab, h);
-  }
-  $('#fmBack').onclick = () => fmHistGo(-1);
-  $('#fmFwd').onclick = () => fmHistGo(1);
-  fmHistUI();
-  if (window.ResizeObserver) { // nachgeladene Abschnitte ändern die Höhe: die wiederhergestellte Scrollposition nachführen
-    const ro = new ResizeObserver(() => { const p = $('#formsPanel'); if (!fmHold) return; if (fmHold.token !== wcToken || Date.now() > fmHold.until) { fmHold = null; return; } if (Math.abs(p.scrollTop - fmHold.top) > 1) p.scrollTop = fmHold.top; });
-    ro.observe($('#wcBody')); ro.observe($('#fmBody'));
-  }
-  ['wheel', 'pointerdown', 'touchstart', 'keydown'].forEach(ev => $('#formsPanel').addEventListener(ev, () => { fmHold = null; }, { passive: true, capture: true }));
-  document.addEventListener('pointerdown', e => { fmActive = !!(e.target.closest && e.target.closest('#formsPanel')); }, true);
-  $('#formsPanel').addEventListener('focusin', () => { fmActive = true; });
+  // end-reader-module:word-cards
 
-  // ---------- Wortkarte: Suche im Fenster (Cmd/Strg+F, solange die Wortkarte aktiv ist) ----------
-  // Durchsucht Kopf und gezeigten Reiter; verglichen wird ohne Groß-/Kleinschreibung, hebräisch ohne Vokale und Akzente, griechisch ohne Akzente.
-  // Auch Zugeklapptes wird gefunden und beim Springen aufgeklappt: Wörterbuchartikel, „+ weitere“, Abschnitte der Formentabelle sowie – über das
-  // Verzeichnis S.hid aus wcTrRender – die Formen eingeklappter Zeilen, Einzelbelege, weitere Wiedergaben und „Weitere Merkmale“.
-  // Nicht durchsucht werden die Stellen (Verse) eingeklappter Zeilen: sie werden erst beim Aufklappen geladen.
-  const wcF = { hits: [], idx: -1, timer: null };
-  const wcFHl = (name, rs) => { try { if (!rs.length) CSS.highlights.delete(name); else CSS.highlights.set(name, new Highlight(...rs)); } catch { /* ältere Engine */ } };
-  const wcFCh = c => { let o = ''; for (const x of c.toLowerCase().normalize('NFD')) { if (/[̀-֑ͯ-ֽֿׁׂׄ-ׇ]/.test(x)) continue; o += x === 'ς' ? 'σ' : x === '־' || /\s/.test(x) ? ' ' : x; } return o; };
-  const wcFNorm = s => { let o = ''; for (const c of String(s)) o += wcFCh(c); return o.replace(/ +/g, ' '); };
-  const wcFMore = h => h && h.nextElementSibling && h.nextElementSibling.matches('.wcDMoreB, .fmMoreB') ? h.nextElementSibling : null;
-  const wcFindWanted = () => { const p = $('#formsPanel'); return !p.hidden && !document.querySelector('dialog[open]') && (fmActive || p.contains(document.activeElement) || p.matches(':hover')); };
-  function wcFindRun(keep, scroll) {
-    const p = $('#formsPanel'), prev = wcF.idx, cnt = $('#fmFindN'), q = wcFNorm($('#fmFindIn').value).trim();
-    wcF.hits = []; wcF.idx = -1; wcFHl('wcfind', []); wcFHl('wcfind-active', []); cnt.textContent = ''; cnt.title = '';
-    if ($('#fmFind').hidden || p.hidden || !q) return;
-    const hits = [];
-    for (const root of [$('#fmHead'), fmTab === 'forms' ? $('#fmBody') : $('#wcBody')]) {
-      const groups = new Map(), walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
-      for (let node = walker.nextNode(); node; node = walker.nextNode()) {
-        const el = node.parentElement; if (!el || el.closest('svg, script, style')) continue;
-        const h = el.closest('[hidden]'); if (h && !wcFMore(h)) continue; // versteckt und nicht aufklappbar
-        if (!h && !el.closest('details:not([open])') && el.checkVisibility && !el.checkVisibility()) continue;
-        const key = el.closest('summary, p, li, td, th, button, h4, .ln, .bk, .wcTrR, .fm, .fmR, div') || root;
-        if (!groups.has(key)) groups.set(key, []);
-        groups.get(key).push(node);
+  const textcritUI = window.LibraryTextCrit.create({
+    $, esc, getView: () => view, getRow: () => cmtRow, withAnchor,
+    readingRow: () => readingRow($$('#rOut .row[data-l]').filter(r => /^\d+$/.test(r.dataset.l))),
+    refreshFind: () => { if (!fb.hidden && fTerm) runFind(fTerm, true); },
+    load: (...args) => wordCardsUI.lazyScript(...args), clean: html => R.cleanHtml(html),
+    openWord: w => wordPopupUI.openSamaritanWord(w),
+    openQumran: w => wordPopupUI.openQumranWord(w),
+    openGreek: (w, source) => wordPopupUI.openGreekApparatus(w, source),
+    markMt: (ref, start, end, expected) => {
+      const match = /^(.*) (\d+):(\d+)$/.exec(ref);
+      if (!match || view?.group?.title !== match[1] || !expected.length) return;
+      const row = $$('#rOut .row[data-l]').find(r => r.dataset.l === match[3]);
+      if (!row) return;
+      // Only Westminster's actual word spans: never mark a translation or another witness by index.
+      const cell = [...row.querySelectorAll('.cell[data-rel]')].find(c => /Westminster/.test(c.dataset.rel));
+      if (!cell) return;
+      const words = [...cell.querySelectorAll('.w[data-l]')];
+      const norm = s => s.normalize('NFD').replace(/[^\u05d0-\u05ea]/g, '');
+      if (words.length !== expected.length || words.some((w, i) => norm(w.textContent) !== norm(expected[i]))) return;
+      if (start < 0 || end < start || end >= words.length) return;
+      $$('#rOut .tc-mt-selected').forEach(w => w.classList.remove('tc-mt-selected'));
+      const targets = words.slice(start, end + 1);
+      targets.forEach(w => w.classList.add('tc-mt-selected'));
+      setCmtRow(match[3]);
+      const first = targets[0], last = targets[targets.length - 1];
+      let sc = first.parentElement;
+      while (sc && sc !== document.body && !(sc.scrollHeight > sc.clientHeight + 1 && /(auto|scroll)/.test(getComputedStyle(sc).overflowY))) sc = sc.parentElement;
+      const viewport = sc && sc !== document.body ? sc.getBoundingClientRect() : {top: $('#stick')?.getBoundingClientRect().bottom || 0, bottom: window.innerHeight};
+      const a = first.getBoundingClientRect(), b = last.getBoundingClientRect();
+      if (Math.min(a.top, b.top) < viewport.top + 8 || Math.max(a.bottom, b.bottom) > viewport.bottom - 8) {
+        if (sc && sc !== document.body) panelScrollTo(first, 'center');
+        else first.scrollIntoView({block: 'center', inline: 'nearest', behavior: 'smooth'});
       }
-      for (const nodes of groups.values()) {
-        let n = ''; const map = []; let last = null; // map[i] = [Textknoten, Position] zu jedem Zeichen von n
-        for (const node of nodes) {
-          if (last && node.parentElement !== last && n && !n.endsWith(' ')) { n += ' '; map.push(null); } // getrennte Elemente (Wort und Zahl daneben) nicht zusammenziehen
-          last = node.parentElement;
-          const txt = node.nodeValue;
-          for (let i = 0; i < txt.length; i++) for (const c of wcFCh(txt[i])) { if (c === ' ' && (!n || n.endsWith(' '))) continue; n += c; map.push([node, i]); }
-        }
-        for (let pos = n.indexOf(q); pos >= 0; pos = n.indexOf(q, pos + q.length)) {
-          let s0 = pos, e0 = pos + q.length - 1;
-          while (s0 <= e0 && !map[s0]) s0++;
-          while (e0 >= s0 && !map[e0]) e0--;
-          if (s0 > e0) continue;
-          const r = document.createRange(); r.setStart(map[s0][0], map[s0][1]); r.setEnd(map[e0][0], map[e0][1] + 1); hits.push({ r });
-        }
-      }
-    }
-    const S = fmTab === 'card' && wcTrLive(); // Eingeklapptes der Übersetzungsstatistik: Treffer ohne Textstelle, an ihrer Zeile verankert
-    if (S && S.hid) for (const x of S.hid) {
-      const a = $('#wcTr ' + x.sel); if (!a) continue;
-      const n = wcFNorm(x.text); let k = 0;
-      for (let pos = n.indexOf(q); pos >= 0; pos = n.indexOf(q, pos + q.length)) { const r = document.createRange(); r.selectNodeContents(a); r.collapse(false); hits.push({ r, v: x, k: k++ }); }
-    }
-    hits.sort((a, b) => a.r.compareBoundaryPoints(Range.START_TO_START, b.r) || (a.k || 0) - (b.k || 0));
-    wcF.hits = hits; wcFHl('wcfind', hits.filter(x => !x.v).map(x => x.r));
-    cnt.title = I18N.t('Eingeklapptes wird mit durchsucht und beim Springen aufgeklappt; die Stellen einer eingeklappten Zeile erst nach dem Aufklappen.');
-    if (!hits.length) { cnt.textContent = I18N.t('keine Treffer'); return; }
-    if (keep && prev >= 0) wcFindGo(Math.min(prev, hits.length - 1), false);
-    else { const j = hits.findIndex(x => !x.v); wcFindGo(j >= 0 ? j : 0, scroll); } // beim Tippen zuerst ein sichtbarer Treffer
-  }
-  function wcFindGo(i, scroll, reveal) {
-    const n = wcF.hits.length, cnt = $('#fmFindN'); if (!n) return;
-    i = ((i % n) + n) % n; const h = wcF.hits[i];
-    if (h.v && reveal) { wcFindReveal(h); return; }
-    wcF.idx = i; cnt.textContent = I18N.t('{} von {}', wcNum(i + 1), wcNum(n));
-    if (h.v) { wcFHl('wcfind-active', []); const a = $('#wcTr ' + h.v.sel); if (a && scroll) a.scrollIntoView({ block: 'center', inline: 'nearest' }); return; }
-    const el = h.r.startContainer.parentElement;
-    if (scroll && el) {
-      for (let d = el.closest('details:not([open])'); d; d = d.parentElement && d.parentElement.closest('details:not([open])')) d.open = true;
-      const mb = wcFMore(el.closest('[hidden]')); if (mb) mb.click();
-      fmHold = null; el.scrollIntoView({ block: 'center', inline: 'nearest' });
-    }
-    wcFHl('wcfind-active', [h.r]);
-  }
-  function wcFindReveal(h) { // Treffer in Eingeklapptem: aufklappen, neu suchen, zum ersten Treffer im Aufgeklappten
-    const S = wcTrLive(), x = h.v; if (!S || !$('#wcTr')) return;
-    const seen = new Set($$('#wcTr .wcTrR[data-g]').map(e => e.dataset.g)), nfr = $$('#wcTr .wcTrFR').length;
-    if (x.act === 'open') { S.open = x.key; S.refLim = 12; } else if (x.act === 'rows') S.allRows = true; else wcTrMore = true;
-    wcTrRender(); wcFindRun(true, false);
-    const inside = r => {
-      const el = r.startContainer.parentElement;
-      if (x.act === 'open') { const X = el.closest('.wcTrX'), R = X && X.previousElementSibling; return !!R && R.dataset.g === x.key; }
-      if (x.act === 'rows') { const R = el.closest('.wcTrR[data-g]'); return !!R && !seen.has(R.dataset.g); }
-      const F = el.closest('.wcTrFR'); return !!F && $$('#wcTr .wcTrFR').indexOf(F) >= nfr;
-    };
-    let j = wcF.hits.findIndex(y => !y.v && inside(y.r));
-    if (j >= 0) { for (let c = 0; c < h.k && wcF.hits[j + 1] && !wcF.hits[j + 1].v && inside(wcF.hits[j + 1].r); c++) j++; wcFindGo(j, true); return; }
-    const a = $('#wcTr ' + (x.act === 'open' ? `.wcTrR[data-g="${x.key}"]` : '.wcTrL')); // noch kein Text dazu (Stellen laden nach): die aufgeklappte Zeile zeigen
-    if (a) { fmHold = null; a.scrollIntoView({ block: 'center', inline: 'nearest' }); const r0 = document.createRange(); r0.selectNode(a); const k = wcF.hits.findIndex(y => y.r.compareBoundaryPoints(Range.START_TO_START, r0) >= 0); if (k >= 0) wcFindGo(k, false); }
-  }
-  function wcFindStep(fwd) {
-    if (!$('#fmFindIn').value.trim()) return;
-    if (!wcF.hits.length) { wcFindRun(false, true); return; }
-    const cur = wcF.hits[wcF.idx];
-    if (cur && cur.v) { wcFindReveal(cur); return; } // der gezeigte Treffer steckt in einer eingeklappten Zeile: erst aufklappen
-    wcFindGo(wcF.idx + (fwd ? 1 : -1), true, true);
-  }
-  function wcFindSoon() { if ($('#fmFind').hidden) return; clearTimeout(wcF.timer); wcF.timer = setTimeout(() => wcFindRun(true, false), 150); } // Inhalt hat sich geändert: Markierungen nachziehen, ohne zu springen
-  function wcFindOpen() { const b = $('#fmFind'), i = $('#fmFindIn'); b.hidden = false; fmActive = true; i.focus(); i.select(); if (i.value.trim()) wcFindRun(true, false); }
-  function wcFindClose() { clearTimeout(wcF.timer); $('#fmFind').hidden = true; wcF.hits = []; wcF.idx = -1; wcFHl('wcfind', []); wcFHl('wcfind-active', []); $('#fmFindN').textContent = ''; }
-  $('#fmFindIn').addEventListener('input', () => wcFindRun(false, true));
-  $('#fmFindIn').addEventListener('keydown', e => {
-    if (e.key === 'Enter') { e.preventDefault(); wcFindStep(!e.shiftKey); }
-    else if (e.key === 'ArrowDown' || e.key === 'ArrowUp') { e.preventDefault(); wcFindStep(e.key === 'ArrowDown'); }
+    },
+    selectRow: label => { setCmtRow(label); const row = $$('#rOut .row[data-l]').find(r => r.dataset.l === label); if (row) panelScrollTo(row, 'center'); },
   });
-  $('#fmFindNext').onclick = () => wcFindStep(true);
-  $('#fmFindPrev').onclick = () => wcFindStep(false);
-  $('#fmFindX').onclick = wcFindClose;
-  { const mo = new MutationObserver(wcFindSoon); ['#fmHead', '#wcBody', '#fmBody'].forEach(s => mo.observe($(s), { childList: true, subtree: true, characterData: true })); }
-  // Tasten der Wortkarte: Zurück/Vor (Alt+←/→, Cmd/Strg+[ / ]), Suche (Cmd/Strg+F), Escape schließt zuerst die Suche – alles nur, solange die Wortkarte aktiv ist
-  document.addEventListener('keydown', e => {
-    const p = $('#formsPanel'); if (p.hidden || document.querySelector('dialog[open]')) return;
-    if (e.key === 'Escape') { if (!$('#fmFind').hidden) { e.preventDefault(); e.stopImmediatePropagation(); wcFindClose(); if (p.contains(document.activeElement)) document.activeElement.blur(); } return; }
-    const mod = e.metaKey || e.ctrlKey;
-    if (mod && !e.shiftKey && !e.altKey && e.key.toLowerCase() === 'f') { if (wcFindWanted()) { e.preventDefault(); e.stopImmediatePropagation(); wcFindOpen(); } return; }
-    let d = 0;
-    if (e.altKey && !mod && !e.shiftKey && (e.key === 'ArrowLeft' || e.key === 'ArrowRight')) { if (e.target.closest && e.target.closest('input, textarea, select, [contenteditable]')) return; d = e.key === 'ArrowLeft' ? -1 : 1; }
-    else if (mod && !e.shiftKey && !e.altKey && (e.key === '[' || e.key === ']')) d = e.key === '[' ? -1 : 1;
-    if (!d || !(fmActive || p.contains(document.activeElement))) return;
-    e.preventDefault(); e.stopImmediatePropagation(); fmHistGo(d);
-  }, true);
-  const closeForms = () => { fmHistSave(); wcFindClose(); fmActive = false; $('#formsPanel').hidden = true; hovApi && hovApi.hide(); wcToken++; };
-  $('#fmClose').onclick = closeForms;
-  $('#fmTabs').addEventListener('click', e => { const b = e.target.closest('button[data-t]'); if (!b) return; fmStep(() => { fmShowTab(b.dataset.t); if (fmTab === 'forms') { const c = $('#fmBody .fmF.cur'); if (c) c.scrollIntoView({ block: 'center' }); } else $('#formsPanel').scrollTop = 0; }); });
-  $('#wcBody').addEventListener('click', e => {
-    if (!fmCur) return;
-    const src = e.target.closest('.dbody .dsrc[data-sref]'); // Stellenangabe im aufgeklappten Wörterbuchartikel
-    if (src) { e.preventDefault(); hovApi && hovApi.hide(); jumpTo(src.dataset.sref, BG(e)); return; }
-    const dr = e.target.closest('.dbody .dref[data-q]'); if (dr) { closeForms(); openDict(dr.dataset.q); return; }
-    const a = e.target.closest('.fmRL a[data-ref]');
-    if (a) { hovApi && hovApi.hide(); jumpTo(a.dataset.ref, BG(e)); return; }
-    const rx = e.target.closest('.fmRX'); if (rx) { if (rx.closest('#wcBookRefs')) wcBookRefs(null); else wcFormRefs(null); return; }
-    const mb = e.target.closest('.wcDMoreB'); if (mb) { const m = mb.previousElementSibling; m.hidden = !m.hidden; mb.textContent = m.hidden ? I18N.t('+ {} weitere', mb.dataset.n) : I18N.t('weniger'); return; }
-    const al = e.target.closest('.fmAll'); if (al) { if (al.closest('#wcBookRefs')) wcBookRefs($('#wcBookRefs').dataset.b, true); else wcFormRefs($('#wcBody .wcForms .fmF.sel'), true); return; }
-    if (e.target.closest('.wcAll')) { wcSearchAll(); return; }
-    const gl = e.target.closest('.wcGL[data-gl]'); if (gl) { openGForms(gl.dataset.gl, null, 'card'); return; }
-    const tq = e.target.closest('.wcTgL[data-q]'); if (tq) { openDict(tq.dataset.q); return; }
-    const ts = e.target.closest('.wcTrSrc[data-src]'); if (ts) { fmStep(() => wcTrShow(ts.dataset.src, e.ctrlKey || e.metaKey)); return; }
-    if (e.target.closest('.wcTrCmpB')) { wcTrCmpPick(); return; }
-    if (e.target.closest('.wcTrCmpX')) { fmStep(wcTrCmpOff); return; }
-    const tf = e.target.closest('.wcTrFV[data-dim]'); if (tf) { fmStep(() => wcTrFilt(tf.dataset.dim, tf.dataset.val)); return; }
-    const th = e.target.closest('.wcTrHm[data-lem]'); if (th) { fmStep(() => wcTrLemma(th.dataset.lem)); return; }
-    if (e.target.closest('.wcTrMoreB')) { wcTrMore = !wcTrMore; try { localStorage.setItem('wcTrMore', wcTrMore ? '1' : '0'); } catch { /* egal */ } wcTrRender(); return; }
-    if (e.target.closest('.wcTrAllRows')) { if (wcTrState) { wcTrState.allRows = true; wcTrRender(); } return; }
-    const tm = e.target.closest('.wcTrMoreRefs[data-to]'); if (tm) { if (wcTrState) { wcTrState.refLim = +tm.dataset.to; wcTrRender(); } return; }
-    const tr = e.target.closest('.wcTrR.can[data-g]'); if (tr && !e.target.closest('a')) { wcTrRefs(tr.dataset.g); return; }
-    const hl = e.target.closest('.wcHL[data-hl]'); if (hl) { openForms(hl.dataset.hl, null, 'card'); return; }
-    const go = e.target.closest('.wcLink[data-go]'); if (go) { fmStep(() => { fmShowTab(go.dataset.go); $('#formsPanel').scrollTop = 0; }); return; }
-    const dg = e.target.closest('.wcDGo'); if (dg) { const q = fmCur.lem[0], only = { id: dg.dataset.id, name: dg.dataset.name }; closeForms(); showTab('dict'); dictLookup(q, only); return; }
-    const bar = e.target.closest('.wcBar, .wcTop a[data-b]'); if (bar) { wcBookRefs($('#wcBookRefs').dataset.b === bar.dataset.b ? null : bar.dataset.b); return; }
-    const chip = e.target.closest('.wcForms .fmF'); if (chip) { wcFormRefs(chip.classList.contains('sel') ? null : chip); }
-  });
-  $('#wcBody').addEventListener('keydown', e => { if (e.key !== 'Enter' && e.key !== ' ') return; const tr = e.target.closest && e.target.closest('.wcTrR.can[data-g]'); if (!tr || e.target !== tr) return; e.preventDefault(); wcTrRefs(tr.dataset.g); });
-  { // Balken: Buch und Zahl sofort beim Überfahren (und bei Tastaturfokus)
-    const tip = (b, on) => {
-      const t = $('#wcBody .wcTip'); if (!t) return;
-      if (!on || !fmCur) { t.hidden = true; return; }
-      const x = fmCur.F.dist(fmCur.D, fmCur.mdl).find(q => q.book === b.dataset.b); if (!x) return;
-      t.innerHTML = `<b>${esc(fmBook(x.book))}</b> ${x.n ? esc(I18N.t('{}× in {} Versen', wcNum(x.n), wcNum(x.verses))) + ` <span class="muted">· ${esc(I18N.t('{} je 1000 Verse', (x.verses / x.size * 1000).toLocaleString(I18N.loc, { maximumFractionDigits: 1 })))}</span>` : esc(I18N.t('kein Beleg'))}`;
-      t.hidden = false;
-      const c = t.parentElement.getBoundingClientRect(), r = b.getBoundingClientRect();
-      t.style.left = Math.max(0, Math.min(c.width - t.offsetWidth, r.left - c.left + r.width / 2 - t.offsetWidth / 2)) + 'px';
-    };
-    $('#wcBody').addEventListener('mouseover', e => { const b = e.target.closest('.wcBar'); if (b) tip(b, true); });
-    $('#wcBody').addEventListener('mouseout', e => { const b = e.target.closest('.wcBar'); if (b && !b.contains(e.relatedTarget)) tip(b, false); });
-    $('#wcBody').addEventListener('focusin', e => { const b = e.target.closest('.wcBar'); if (b) tip(b, true); });
-    $('#wcBody').addEventListener('focusout', e => { const b = e.target.closest('.wcBar'); if (b) tip(b, false); });
-  }
-  { const refOf = e => { const a = e.target.closest('.fmRL a[data-ref], .dbody .dsrc[data-sref]'); return a ? [a, (a.dataset.ref || a.dataset.sref).replace(/-.*$/, '')] : [null, '']; };
-    $('#wcBody').addEventListener('mouseover', e => { const [a, ref] = refOf(e); if (!a || !hovApi || ref === hovApi.current()) return; hovApi.start(a, ref, true, false, wcHovPick(a)); });
-    $('#wcBody').addEventListener('mouseout', e => { const [a] = refOf(e); if (a && hovApi && !a.contains(e.relatedTarget)) hovApi.hide(); }); }
-  { let z = 1; try { z = +localStorage.getItem('fmZoom') || 1; } catch { /* egal */ }
-    const apz = () => { z = Math.max(0.7, Math.min(2, Math.round(z * 20) / 20)); $('#wcBody').style.zoom = $('#fmBody').style.zoom = z; $('#fmHead').style.zoom = z; try { localStorage.setItem('fmZoom', String(z)); } catch { /* egal */ } };
-    apz();
-    $('#fmSm').onclick = () => { z -= 0.1; apz(); }; $('#fmBg').onclick = () => { z += 0.1; apz(); };
-    $('#fmSm').ondblclick = $('#fmBg').ondblclick = () => { z = 1; apz(); }; }
-  { let wide = false; try { wide = localStorage.getItem('fmWide') === '1'; } catch { /* egal */ }
-    const ap = () => $('#formsPanel').classList.toggle('wide', wide); ap();
-    $('#fmWide').onclick = () => { wide = !wide; ap(); try { localStorage.setItem('fmWide', wide ? '1' : '0'); } catch { /* egal */ } }; }
-  $('#fmHead').addEventListener('click', e => { const b = e.target.closest('.wdict'); if (b) openDict(b.dataset.q); });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('#formsPanel').hidden && !$('#formsPanel').classList.contains('docked') && !document.querySelector('dialog[open]')) closeForms(); });
-  // Belegstellen einer Form: nach Büchern geordnet, als Zeile unter der Tabellenzeile
-  function fmBook(b) { // griechische Bücher in zwei Fassungen tragen ein Kennzeichen: „Judges (B)“, „Daniel (Theodotion)“
-    const m = /^(.*?)( \((?:A|B|Theodotion|Sinaiticus|Onkelos|Neofiti 1|Pseudo-Jonathan)\))?$/.exec(b), base = m[1];
-    return ((I18N.lang === 'de' && deNames(base).split(' / ')[0]) || base) + (m[2] || '');
-  }
-  function fmRefs(chip, all) {
-    const { D, mdl } = fmCur, rs = fmCur.F.refs(D, mdl, chip.dataset.i), CAP = 300;
-    const shown = all ? rs : rs.slice(0, CAP), n = rs.reduce((s, r) => s + r.n, 0);
-    const lines = []; let lb = null;
-    for (const r of shown) {
-      if (r.book !== lb) { lines.push(`<b>${esc(fmBook(r.book))}</b> `); lb = r.book; } else lines[lines.length - 1] += ' ';
-      lines[lines.length - 1] += `<span class="fmR"><a data-ref="${esc((r.title || r.book) + ' ' + r.ch + ':' + r.v)}"${r.vt ? ` data-gvt="${esc(r.vt)}"` : ''}>${r.ch}${I18N.lang === 'de' ? ',' : ':'}${r.v}</a>${r.n > 1 ? `<small>×${r.n}</small>` : ''}</span>`;
-    }
-    const more = rs.length > shown.length ? `<div><button type="button" class="fmAll">${esc(I18N.t('alle {} Verse zeigen', rs.length.toLocaleString(I18N.loc)))}</button></div>` : '';
-    const tr = document.createElement('tr'); tr.className = 'fmRefRow';
-    tr.innerHTML = `<td colspan="99"><div class="fmRH"><span dir="${fmCur.greek ? 'ltr' : 'rtl'}" lang="${fmCur.targum ? 'arc' : fmCur.greek ? 'grc' : 'he'}">${esc(chip.querySelector('span').textContent)}</span><span class="muted">${esc(I18N.t('{}× in {} Versen', n.toLocaleString(I18N.loc), rs.length.toLocaleString(I18N.loc)))}</span><button type="button" class="fmRX" title="Schließen">✕</button></div><div class="fmRL">${lines.map(l => `<div>${l}</div>`).join('')}${more}</div></td>`;
-    chip.closest('tr').after(tr);
-  }
-  $('#fmBody').addEventListener('click', e => {
-    const closeRefs = () => { $$('#fmBody .fmRefRow').forEach(x => x.remove()); $$('#fmBody .fmF.sel').forEach(x => x.classList.remove('sel', 'trsel')); };
-    const a = e.target.closest('.fmRL a[data-ref]');
-    if (a) { hovApi && hovApi.hide(); jumpTo(a.dataset.ref, BG(e)); return; }
-    if (e.target.closest('.fmRX')) { closeRefs(); return; }
-    if (e.target.closest('.fmAll')) { const c = $('#fmBody .fmF.sel'); if (c && fmCur) { $$('#fmBody .fmRefRow').forEach(x => x.remove()); fmRefs(c, true); } return; }
-    const mb = e.target.closest('.fmMoreB');
-    if (mb) { const m = mb.previousElementSibling; m.hidden = !m.hidden; mb.textContent = m.hidden ? '+' + mb.dataset.n : '−'; return; }
-    const nv = e.target.closest('.fmNav button');
-    if (nv) { const s = $(`#fmBody .fmSec[data-sec="${nv.dataset.sec}"]`); if (s) { s.open = true; s.scrollIntoView({ block: 'start' }); } return; }
-    const tm = e.target.closest('.fmTrMore[data-to]'); // Wiedergaben einer Form: weitere Stellen
-    if (tm) { const c = $('#fmBody .fmF.trsel'); if (c && fmCur) { $$('#fmBody .fmRefRow').forEach(x => x.remove()); fmTrRefs(c, +tm.dataset.to); } return; }
-    const chip = e.target.closest('.fmF');
-    if (chip && fmCur && e.target.closest('.fmTrL.can')) { // Klick auf die Wiedergabe: alle Wiedergaben und Stellen dieser Form
-      const was = chip.classList.contains('trsel'); closeRefs(); if (!was) { chip.classList.add('sel', 'trsel'); fmTrRefs(chip); } return;
-    }
-    if (chip && fmCur) { const was = chip.classList.contains('sel') && !chip.classList.contains('trsel'); closeRefs(); if (!was) { chip.classList.add('sel'); fmRefs(chip, false); } }
-  });
-  // Vorschau des Verses beim Überfahren einer Belegstelle (wie bei den Verknüpfungen)
-  $('#fmBody').addEventListener('mouseover', e => { const a = e.target.closest('.fmRL a[data-ref]'); if (!a || !hovApi || a.dataset.ref === hovApi.current()) return; hovApi.start(a, a.dataset.ref, true, false, wcHovPick(a)); });
-  $('#fmBody').addEventListener('mouseout', e => { const a = e.target.closest('.fmRL a[data-ref]'); if (a && hovApi && !a.contains(e.relatedTarget)) hovApi.hide(); });
-  $('#formsPanel').addEventListener('scroll', () => hovApi && hovApi.hide(), { passive: true });
-  window.addEventListener('scroll', e => { if (!e.target.closest || !e.target.closest('#wpop')) closeWpop(); }, { passive: true, capture: true });
 
   // Fußnoten-Modus (per Klick / immer / aus), wird gemerkt
   let noteMode = 'click';
@@ -2635,8 +1095,8 @@
   }
   function toggleBlock(b) { // b: { key, title, sk, secLabel, set: [Verse], vs }
     const id = noteId({ key: b.key }, b.sk, 'blk:' + b.vs);
-    const old = notesAll.find(n => n.id === id);
-    openNoteDlg(old || { id, kind: 'block', key: b.key, title: b.title, sk: b.sk, secLabel: b.secLabel, row: String(b.set.length ? Math.min(...b.set) : ''), vs: b.vs, set: b.set, excerpt: '', note: '', order: topOrder() }, { canDelete: !!old });
+    const old = notesUI.notesAll.find(n => n.id === id);
+    notesUI.openNoteDlg(old || { id, kind: 'block', key: b.key, title: b.title, sk: b.sk, secLabel: b.secLabel, row: String(b.set.length ? Math.min(...b.set) : ''), vs: b.vs, set: b.set, excerpt: '', note: '', order: notesUI.topOrder() }, { canDelete: !!old });
   }
   async function openPassages(pm) {
     const gcache = new Map(), blocks = [], missing = [...pm.bad];
@@ -2656,7 +1116,7 @@
         for (const d of loaded) for (const s0 of R.sectionsOf(d.text, d.sectionNames)) {
           const fi = s0.path.findIndex(p => typeof p === 'number');
           const path = fi >= 0 ? s0.path.slice(0, fi + 1) : s0.path;
-          const label = fi >= 0 && fi + 1 < s0.path.length ? R.pathLabel(path, d.sectionNames) : s0.label;
+          const label = g.title==='Ben Sira'&&d.entry.language==='Greek'&&path.length===1&&path[0]===51 ? I18N.t('Prolog (griechisch)') : fi >= 0 && fi + 1 < s0.path.length ? R.pathLabel(path, d.sectionNames) : s0.label;
           const k = JSON.stringify(path);
           if (!seen.has(k)) { seen.add(k); secs.push({ path, label, k }); }
         }
@@ -2674,7 +1134,7 @@
       if (u.pred) rows = rows.filter(r => { const v = rowVerse(r.label); return v != null && u.pred(v); });
       if (!rows.length) { missing.push(`${g.title} ${u.chap}${u.vs ? ':' + u.vs : ''}`); continue; }
       const n = G.loaded.length;
-      const head = `<div class="row head" style="--n:${n}"><div class="lab"></div>${G.loaded.map(d => `<div>${esc(KIND_LABEL[d.entry.kind])} · ${esc(shortVer(d.versionTitle))}</div>`).join('')}</div>`;
+      const head = `<div class="row head" style="--n:${n}"><div class="lab"></div>${G.loaded.map(d => `<div>${esc(d.entry.language==='Syriac'?'Syr.':KIND_LABEL[d.entry.kind])} · ${esc(shortVer(d.versionTitle))}</div>`).join('')}</div>`;
       const body = rows.map(r => `<div class="row" data-l="${esc(r.label)}" style="--n:${n}"><div class="lab">${esc(r.label)}</div>${G.loaded.map((d, k) => cellHtml(r.cells[k], d)).join('')}</div>`).join('');
       const vset = u.pred ? rows.map(r => rowVerse(r.label)).filter(v => v != null) : [], vtxt = vset.length ? fmtVerses(vset) : '';
       blocks.push(`<section class="pgb"><h3 class="pgh" data-key="${esc(g.key)}" data-sk="${esc(sec.k)}" data-row="${esc(rows[0].label)}" data-set="${esc(JSON.stringify(vset))}" data-vs="${esc(vtxt)}" data-title="${esc(g.title)}" data-sec="${esc(sec.label)}" title="Zum Lesen öffnen"><button class="pstar" type="button" title="Als Favorit speichern / entfernen" data-id="${esc(noteId(g, sec.k, 'blk:' + vtxt))}">☆</button> ${esc(g.title)} · ${esc(sec.label)}${vtxt ? ' · ' + esc(vtxt) : ''}</h3>${head}${body}</section>`);
@@ -2682,7 +1142,7 @@
     }
     if (!blocks.length) return false;
     $('#passOut').innerHTML = blocks.join('') + (missing.length ? `<p class="muted">${esc(I18N.t('Nicht gefunden: {}', missing.join(', ')))}</p>` : '');
-    markNotes();
+    notesUI.markNotes();
     if (!$('#passDlg').open) $('#passDlg').showModal();
     $('#passOut').scrollTop = 0; $('#passOut').focus(); // Fokus nicht auf den ✕-Knopf, sonst schließt das Enter-Loslassen das Fenster sofort
     return true;
@@ -2771,7 +1231,7 @@
     if (!q || !/\p{L}/u.test(q)) return false;
     const he = /[֐-׿]/.test(q);
     saveScroll();
-    const nv = { group: null, sres: { q, he, limit: 300, html: null, params: { query: q, extra: [], distance: -1, ordered: false, fuzzy: false, prefix: false, kinds: he ? ['he'] : ['de', 'en'], categories: [], titles: [...TANAKH_BOOKS], wlc: true, lemma: he } } };
+    const nv = { group: null, sres: { q, he, limit: 300, html: null, params: { query: q, extra: [], distance: -1, ordered: false, fuzzy: false, prefix: false, kinds: he ? ['he'] : ['de', 'en'], categories: [], titles: [...linksUI.TANAKH_BOOKS], wlc: true, lemma: he } } };
     if (view && !view.group && tabs[tabIdx] === view) tabs[tabIdx] = nv; // „Neuer Tab“ oder alte Suche wird ersetzt
     else addTab(nv);
     view = nv;
@@ -2822,12 +1282,12 @@
     if (v == null || !view || !view.sres) return;
     cmtVirt = { title: row.dataset.t, ch: row.dataset.ch, label: row.dataset.sec };
     cmtRow = String(v);
-    secLinks = [];
-    if (linksReady) { try { secLinks = await LK.section(cmtVirt.title, cmtVirt.ch); } catch { secLinks = []; } }
-    secLinks = secLinks.concat(parRows(cmtVirt.title, cmtVirt.ch));
+    linksUI.secLinks = [];
+    if (linksUI.linksReady) { try { linksUI.secLinks = await linksUI.LK.section(cmtVirt.title, cmtVirt.ch); } catch { linksUI.secLinks = []; } }
+    linksUI.secLinks = linksUI.secLinks.concat(linksUI.parRows(cmtVirt.title, cmtVirt.ch));
     $$('#rOut .row.cmtrow').forEach(r => r.classList.remove('cmtrow'));
     row.classList.add('cmtrow');
-    if (what === 'lk') { lkVerse = v; renderLinkPanel(); }
+    if (what === 'lk') { linksUI.lkVerse = v; linksUI.renderLinkPanel(); }
     else if (!cmtOpen) toggleCmt(true); else renderCmt();
   }
   $('#rOut').addEventListener('change', e => { if (e.target.id !== 'sresVer' || !view || !view.sres || !view.sres.res) return; view.sres.ver = e.target.value; view.sres.html = null; renderSres(view); });
@@ -2930,578 +1390,81 @@
 
 
 
-  // ---------- Vor/Zurück im Verlauf des Tabs ----------
-  let navSuppress = false;
-  function recordNav(s, row) {
-    if (!view) return;
-    const nav = view.nav || (view.nav = { stack: [], pos: -1 });
-    if (!navSuppress) {
-      const top = nav.stack[nav.pos];
-      if (top && top.key === view.group.key && top.sk === s.k) { if (row) top.row = row; }
-      else {
-        nav.stack.length = nav.pos + 1; // Vorwärts-Verlauf abschneiden
-        nav.stack.push({ key: view.group.key, sk: s.k, row: row || '' });
-        if (nav.stack.length > 100) nav.stack.shift();
-        nav.pos = nav.stack.length - 1;
-      }
-    }
-    updateNav();
-  }
-  // Vor dem Verlassen per Link: die aktuelle Zeile im Verlauf merken, damit „Zurück“ dorthin führt und nicht an den Kapitelanfang
-  function navRemember(el) {
-    const nav = view && view.nav, top = nav && nav.stack[nav.pos];
-    if (!top || !view.group || top.key !== view.group.key) return;
-    let r = el && el.closest && el.closest('#rOut .row[data-l]');
-    if (!r) { const t = syncTop(); r = $$('#rOut .row[data-l]').find(x => x.getBoundingClientRect().bottom > t + 4); }
-    if (r) top.row = r.dataset.l;
-  }
-  function updateNav() {
-    const nav = view && view.nav;
-    $('#navBack').disabled = !nav || nav.pos <= 0;
-    $('#navFwd').disabled = !nav || nav.pos >= nav.stack.length - 1;
-  }
-  async function navGo(delta) {
-    const nav = view && view.nav;
-    if (!nav) return;
-    const p = nav.pos + delta;
-    if (p < 0 || p >= nav.stack.length) return;
-    nav.pos = p;
-    const e = nav.stack[p];
-    navSuppress = true;
-    try {
-      if (view.group && e.key === view.group.key) {
-        const i = view.sections.findIndex(s => s.k === e.sk);
-        if (i >= 0) { view.idx = i; renderSection(e.row || undefined); }
-      } else {
-        const g = groupsByKey.get(e.key);
-        if (g) await openGroup(g, { sectionPath: JSON.parse(e.sk), rowLabel: e.row || undefined });
-      }
-    } finally { navSuppress = false; updateNav(); }
-  }
-  $('#navBack').onclick = () => navGo(-1);
-  $('#navFwd').onclick = () => navGo(1);
-  document.addEventListener('keydown', e => {
-    if ((e.metaKey || e.ctrlKey) && !e.shiftKey && !e.altKey && (e.key === '[' || e.key === ']')) { e.preventDefault(); navGo(e.key === '[' ? -1 : 1); }
+  // reader-module:navigation
+  const navigationUI = window.LibraryNavigation.create({
+    get $() { return $; },
+    get $$() { return $$; },
+    get BG() { return BG; },
+    get cmtOpen() { return cmtOpen; }, set cmtOpen(value) { cmtOpen = value; },
+    get cmtRow() { return cmtRow; }, set cmtRow(value) { cmtRow = value; },
+    get cmtTopName() { return cmtTopName; },
+    get commentaryUI() { return commentaryUI; },
+    get dictLookup() { return dictLookup; },
+    get dictOpen() { return dictOpen; }, set dictOpen(value) { dictOpen = value; },
+    get esc() { return esc; },
+    get groupsByKey() { return groupsByKey; },
+    get loadView() { return loadView; },
+    get openGroup() { return openGroup; },
+    get renderSection() { return renderSection; },
+    get setStackActive() { return setStackActive; },
+    get showTab() { return showTab; },
+    get showView() { return showView; },
+    get stackActive() { return stackActive; }, set stackActive(value) { stackActive = value; },
+    get syncTop() { return syncTop; },
+    get tabIdx() { return tabIdx; }, set tabIdx(value) { tabIdx = value; },
+    get tabs() { return tabs; },
+    get toggleCmt() { return toggleCmt; },
+    get toggleDict() { return toggleDict; },
+    get view() { return view; }, set view(value) { view = value; },
   });
-  document.addEventListener('mouseup', e => { if (e.button === 3) navGo(-1); if (e.button === 4) navGo(1); });
+  // end-reader-module:navigation
 
-  // ---------- Verlauf ----------
-  let history = [];
-  try { history = JSON.parse(localStorage.getItem('history') || '[]'); } catch { history = []; }
-  if (!Array.isArray(history)) history = [];
-  const saveHistory = () => { try { localStorage.setItem('history', JSON.stringify(history.slice(0, 100))); } catch { /* egal */ } };
-  function renderRecent() {
-    $('#recentBox').hidden = !history.length;
-    $('#recent').innerHTML = history.slice(0, 100).map((h, i) =>
-      `<a data-i="${i}" title="${esc(h.title + ' – ' + h.label)}"><span>${esc(h.title)}</span><small>${esc(h.label)}${h.row ? ' · ' + esc(h.row) : ''}</small></a>`).join('');
-  }
-  function pushHistory(s, row) {
-    if (!view) return;
-    const g = view.group;
-    const e = { key: g.key, title: g.title, label: s.label, sk: s.k, row: row || '' };
-    // gleiches Buch und gleicher Abschnitt: nur nach vorn holen
-    history = history.filter(h => !(h.key === e.key && h.sk === e.sk));
-    history.unshift(e);
-    history = history.slice(0, 100);
-    saveHistory();
-    renderRecent();
-  }
-  $('#recent').addEventListener('click', e => {
-    const a = e.target.closest('a[data-i]');
-    const h = a && history[+a.dataset.i];
-    if (!h) return;
-    const g = groupsByKey.get(h.key);
-    if (g) openGroup(g, { sectionPath: JSON.parse(h.sk), rowLabel: h.row || undefined }, BG(e));
+  // reader-module:links
+  const linksUI = window.LibraryLinks.create({
+    get $() { return $; },
+    get $$() { return $$; },
+    get apSoon() { return apSoon; },
+    get BG() { return BG; },
+    get btnLbl() { return outlineUI.btnLbl; },
+    get captureDictSrc() { return captureDictSrc; },
+    get cmtOpen() { return cmtOpen; }, set cmtOpen(value) { cmtOpen = value; },
+    get cmtVirt() { return cmtVirt; }, set cmtVirt(value) { cmtVirt = value; },
+    get consOf() { return consOf; },
+    get dictLookup() { return dictLookup; },
+    get dictOpen() { return dictOpen; }, set dictOpen(value) { dictOpen = value; },
+    get disp() { return disp; },
+    get esc() { return esc; },
+    get greekWordAt() { return greekWordAt; },
+    get groups() { return groups; }, set groups(value) { groups = value; },
+    get IL_TG() { return IL_TG; },
+    get ilLxxIndices() { return ilLxxIndices; },
+    get ilName() { return ilName; },
+    get ilTagCell() { return ilTagCell; },
+    get jumpTo() { return jumpTo; },
+    get loadGM() { return loadGM; },
+    get loadIL() { return loadIL; },
+    get loadTgIL() { return loadTgIL; },
+    get loadTopics() { return outlineUI.loadTopics; },
+    get mapRefresh() { return mapUI.mapRefresh; },
+    get O() { return O; },
+    get olOwn() { return outlineUI.olOwn; },
+    get pvVer() { return pvVer; },
+    get R() { return R; },
+    get renderCmt() { return renderCmt; },
+    get renderDictList() { return renderDictList; },
+    get renderSection() { return renderSection; },
+    get sefariaUrl() { return sefariaUrl; },
+    get setDictSrc() { return setDictSrc; },
+    get setStackActive() { return setStackActive; },
+    get stripHe() { return stripHe; },
+    get tgSegs() { return tgSegs; },
+    get toggleDict() { return toggleDict; },
+    get versNoteText() { return versNoteText; },
+    get view() { return view; }, set view(value) { view = value; },
+    get wcTrCtxLoad() { return wordCardsUI.wcTrCtxLoad; },
+    get wcVerseWords() { return wordCardsUI.wcVerseWords; },
   });
-  let recentOpen = true;
-  try { recentOpen = localStorage.getItem('recentOpen3') !== '0'; } catch { /* egal */ }
-  const applyRecent = () => {
-    $('#recent').hidden = !recentOpen;
-    $('#recentArrow').textContent = recentOpen ? '▾' : '▸';
-    try { localStorage.setItem('recentOpen3', recentOpen ? '1' : '0'); } catch { /* egal */ }
-  };
-  $('#recentHead').onclick = () => { recentOpen = !recentOpen; applyRecent(); };
-  applyRecent();
-  $('#recentClear').onclick = () => { history = []; saveHistory(); renderRecent(); };
-  renderRecent();
-
-  // ---------- Verknüpfungen ----------
-  const LK = window.links;
-  let linksReady = false;
-  let secLinks = [];   // Verknüpfungen des angezeigten Abschnitts
-  let lkVerse = null;  // null = ganzer Abschnitt
-  async function refreshLinkStatus() {
-    const st = await LK.status();
-    linksReady = st.complete;
-    $('#lkInfo').textContent = st.complete ? '✓ vollständig vorhanden' : st.done.length ? `${st.done.length} von ${st.total} Dateien verarbeitet` : 'noch nicht heruntergeladen';
-    $('#lkGet').textContent = st.complete ? 'Erneut prüfen' : st.done.length ? 'Fortsetzen' : 'Verknüpfungen herunterladen';
-    $('#lkGet').disabled = st.complete;
-    return st;
-  }
-  $('#lkGet').onclick = async () => {
-    $('#lkGet').disabled = true; $('#lkStop').disabled = false; $('#lkProg').hidden = false;
-    const r = await LK.build();
-    $('#lkStop').disabled = true; $('#lkProg').hidden = true;
-    await refreshLinkStatus();
-    if (r.error) $('#lkInfo').textContent = '⚠ ' + r.error;
-    else if (r.failed && r.failed.length) $('#lkInfo').textContent += ` · ${r.failed.length} Fehler (erneut starten zum Fortsetzen)`;
-    if (view) renderSection();
-  };
-  $('#lkStop').onclick = () => LK.cancel();
-  LK.onProgress(p => { $('#lkProg').value = p.file - (/fertig/.test(p.phase) ? 0 : 1); $('#lkInfo').textContent = `${p.phase} (${p.file}/${p.total})`; });
-
-  // Parallelstellen (ETCBC Parallels, ab 75 % Ähnlichkeit) als zusätzliche Verknüpfungen
-  const parRows = (title, ch) => {
-    const P = (window.PARALLELS || {})[title + ' ' + ch], rows = [];
-    if (P) for (const v of Object.keys(P)) for (const s of P[v]) { const [ref, sim] = s.split('~'); rows.push({ v1: +v, v2: +v, other: ref, type: sim + ' %', cat: 'Parallelstellen' }); }
-    return rows;
-  };
-  const verseOf = lab => (/^\d+$/.test(lab) ? +lab : null);
-  // ---------- Mischna ↔ Talmud: kleiner Sprung „→ Talmud“ an jeder Mischna, „→ Mischna 1:1“ im Daf, wo eine Mischna beginnt ----------
-  // Quelle: mitgelieferte Tabelle (bundled/mishnah_talmud.json) und, wenn heruntergeladen, Sefarias Verknüpfungen vom Typ „mishnah in talmud“.
-  // Der Sprung geht über jumpTo – dort gilt die übliche Fassungswahl (deutsche Fassung, wenn vorhanden und eingestellt).
-  let MT = null;
-  const mtLoad = (async () => { let t = {}; try { if (LK.mishnahTalmud) t = await LK.mishnahTalmud(); } catch { /* ohne Tabelle */ } MT = window.MishTal ? window.MishTal.index(t || {}) : null; })();
-  function markMishTal(chap, rows) {
-    if (!view || !view.group || view.sres) return;
-    const title = view.group.title, isM = /^Mishnah /.test(title);
-    const per = new Map(); // Zeile -> Ziele (ohne Doppelte)
-    const add = (v, ref) => { let a = per.get(v); if (!a) per.set(v, (a = [])); const k = ref.replace(/-.*$/, ''); if (!a.some(x => x.replace(/-.*$/, '') === k)) a.push(ref); };
-    const labs = $$('#rOut .row[data-l]').map(r => verseOf(r.dataset.l)).filter(v => v != null);
-    if (MT && MT.has(title)) {
-      if (isM) { if (/^\d+$/.test(chap)) for (const v of labs) MT.toTalmud(title, chap, v).forEach(r => add(v, r)); }
-      else for (const [seg, ref] of MT.startsOn(title, chap)) add(seg, ref);
-    }
-    for (const x of rows || []) {
-      if (x.type !== 'mishnah in talmud' || !(x.v1 > 0)) continue;
-      if (isM) { if (!/^Mishnah /.test(x.other)) for (const v of labs) if (v >= x.v1 && v <= x.v2) add(v, x.other); }
-      else if (/^Mishnah /.test(x.other)) add(x.v1, x.other);
-    }
-    const have = localTitles();
-    $$('#rOut .row[data-l]').forEach(r => {
-      const lab = r.querySelector('.lab'); if (!lab) return;
-      lab.querySelectorAll('.mtj').forEach(x => x.remove());
-      const v = verseOf(r.dataset.l), refs = v == null ? null : per.get(v);
-      if (!refs) return;
-      const ok = refs.filter(ref => have.has(splitOther(ref)));
-      if (!ok.length) return;
-      const tail = ref => ref.slice(splitOther(ref).length).trim().replace(/-/g, '–');
-      const text = isM ? I18N.t('→ Talmud') : I18N.t('→ Mischna {}', ok.map(tail).join(', '));
-      const tip = (isM ? I18N.t('Diese Mischna im Talmud öffnen: {}', ok.join(' · ')) : I18N.t('Diese Mischna im Mischna-Traktat öffnen: {}', ok.join(' · ')));
-      lab.insertAdjacentHTML('beforeend', `<span class="mtj" dir="auto" data-ref="${esc(ok[0])}" title="${esc(tip)}">${esc(text)}</span>`);
-    });
-  }
-  async function loadLinks(s) {
-    loadTopics(s).catch(() => {}); try { mapRefresh(); } catch { /* Karte noch nicht bereit */ }
-    secLinks = [];
-    $('#lkBtn').hidden = true;
-    if (!view) return;
-    const first = s.label.split(' › ')[0];
-    let m = s.path.length === 1 && !s.label.includes('›') && first.match(/(\d+[ab]?)$/i);
-    if (!m && s.path.length === 2 && s.path.every(x => typeof x === 'number')) m = [null, (s.path[0] + 1) + ':' + (s.path[1] + 1)]; // Band:Kapitel (z. B. Ginzbergs Legenden)
-    if (!m && secNode(s)) m = [null, String(s.path[1] + 1)]; // Knoten:Kapitel (z. B. Mechiltha)
-    if (!m) return;
-    const token = view.idx + ':' + view.group.key;
-    let rows;
-    if (!MT) { try { await mtLoad; } catch { /* ohne Tabelle */ } if (!view || token !== view.idx + ':' + view.group.key) return; }
-    markMishTal(m[1], []); // sofort aus der mitgelieferten Tabelle; Sefarias Verknüpfungen kommen unten dazu
-    try { rows = await LK.section(secBook(view.group, s), m[1]); } catch { rows = []; } // auch ohne heruntergeladene Sefaria-Links: mitgelieferte Verknüpfungen
-    rows = (Array.isArray(rows) ? rows : []).concat(parRows(secBook(view.group, s), m[1]));
-    if (!view || token !== view.idx + ':' + view.group.key) return; // inzwischen woanders
-    secLinks = rows;
-    if (!rows.length) return;
-    $('#lkBtn').hidden = false;
-    btnLbl('#lkBtn', '🔗', 'Verknüpfungen', rows.length);
-    $$('#rOut .row[data-l]').forEach(r => {
-      const v = verseOf(r.dataset.l);
-      if (v == null) return;
-      const n = rows.filter(x => v >= x.v1 && v <= x.v2 && x.v1 > 0).length;
-      const lab = r.querySelector('.lab');
-      lab.querySelectorAll('.lk').forEach(x => { if (x.previousSibling && x.previousSibling.tagName === 'BR') x.previousSibling.remove(); x.remove(); }); // wurde der Abschnitt zweimal geladen, nicht doppelt anzeigen
-      if (n) lab.insertAdjacentHTML('beforeend', `<br><span class="lk" data-v="${v}" title="${n} Verknüpfungen">🔗</span>`);
-    });
-    markMishTal(m[1], rows); // mit Sefarias Verknüpfungen „mishnah in talmud“ ergänzt; steht unter dem 🔗
-    if (!$('#linkPanel').hidden) renderLinkPanel();
-    if (cmtOpen) renderCmt();
-  }
-  $('#rOut').addEventListener('click', e => {
-    const b = e.target.closest('.lk');
-    if (b) { lkVerse = +b.dataset.v; renderLinkPanel(); }
-    const j = e.target.closest('.mtj');
-    if (j) jumpTo(j.dataset.ref.replace(/-.*$/, ''), BG(e));
-  });
-  $('#lkBtn').onclick = () => { lkVerse = null; renderLinkPanel(); };
-  $('#lkWhole').onclick = () => { lkVerse = null; renderLinkPanel(); };
-  $('#lkClose').onclick = () => { $('#linkPanel').hidden = true; };
-  // Klick außerhalb des Verknüpfungen-Fensters schließt es (Klick auf die Verknüpfungs-Knöpfe, Menüs und Vorschau zählt nicht)
-  document.addEventListener('mousedown', e => {
-    if ($('#linkPanel').hidden || $('#linkPanel').classList.contains('docked') || !e.target.closest) return;
-    if (e.target.closest('#linkPanel, #lkBtn, .lk, .slk, #ctxMenu, #lkHover, #suggest, #tip, #undoBar, dialog')) return;
-    $('#linkPanel').hidden = true;
-  }, true);
-  $('#lkFilter').addEventListener('input', () => renderLinkPanel());
-  const localTitles = () => new Set(groups.map(g => g.title));
-  const splitOther = ref => { const m = String(ref).match(/^(.*?)\s+\d+[ab]?(?::\d+)*(?:-.*)?$/i); return m ? m[1] : ref; };
-  // Reihenfolge wie in der Bibliotheksliste links: Kategorien und Buchtitel in derselben Sortierung
-  const catCmp = (x, y, parent) => x === y ? 0 : (SefOrder.sortCats([x, y], parent)[0] === x ? -1 : 1);
-  const titleCmp = (x, y) => x === y ? 0 : (SefOrder.sortTitles([x, y], t => t)[0] === x ? -1 : 1);
-  function libCmpGroups(ga, gb) { // ga, gb: Bibliotheksbücher (oder null, wenn nicht in der Bibliothek)
-    if (ga && !gb) return -1; if (!ga && gb) return 1; if (!ga) return 0;
-    const pa = ga.categories || [], pb = gb.categories || [];
-    for (let i = 0; i < Math.min(pa.length, pb.length); i++) { const c = catCmp(pa[i], pb[i], i ? pa[i - 1] : ''); if (c) return c; }
-    if (pa.length !== pb.length) return pa.length < pb.length ? -1 : 1; // Bücher vor Unterkategorien
-    return titleCmp(ga.title, gb.title);
-  }
-  // nur die 39 Bücher des Tanach selbst klappen im Verknüpfungen-Fenster auf; Kommentare, Targumim und alles andere bleiben zu
-  const TANAKH_BOOKS = new Set('Genesis,Exodus,Leviticus,Numbers,Deuteronomy,Joshua,Judges,I Samuel,II Samuel,I Kings,II Kings,Isaiah,Jeremiah,Ezekiel,Hosea,Joel,Amos,Obadiah,Jonah,Micah,Nahum,Habakkuk,Zephaniah,Haggai,Zechariah,Malachi,Psalms,Proverbs,Job,Song of Songs,Ruth,Lamentations,Ecclesiastes,Esther,Daniel,Ezra,Nehemiah,I Chronicles,II Chronicles'.split(','));
-  // Ginzbergs Legenden im Verknüpfungen-Fenster: „Legends of the Jews 1:2:5“ = Band 1, Kapitel II (Adam), Abschnitt der Gliederung, Absatz 5
-  const LEG = 'Legends of the Jews';
-  let legOl, legIdx = null; // Gliederung (outlines/Legends of the Jews.json), beim ersten Bedarf geladen
-  function legLabel(ref) {
-    const m = String(ref).slice(LEG.length + 1).match(/^(\d+):(\d+):(\d+)(?:-(?:\d+:\d+:)?(\d+))?/) || [0, 0, 0, 0];
-    const vol = +m[1], chap = +m[2], par = +m[3];
-    if (!legIdx && legOl) { // „Band:Kapitel“ -> { Titel, Abschnitte [[Absatz, Titel]] }
-      legIdx = new Map();
-      const T = (o, k) => (I18N.lang === 'en' && o[k + '_en']) || o[k + '_de'] || o[k] || '';
-      for (const s of legOl.sections || []) for (const it of s.items || []) {
-        const r = String(it.ref).match(/^(\d+):(\d+)/); if (!r) continue;
-        legIdx.set(r[1] + ':' + r[2], { t: T(it, 'text'), subs: (it.sub || []).map(x => [+(String(x.ref).split(':')[2] || 1), T(x, 'text')]).sort((a, b) => a[0] - b[0]) });
-      }
-    }
-    const c = legIdx && legIdx.get(vol + ':' + chap);
-    let sub = ''; if (c) for (const [p, t] of c.subs) { if (p <= par) sub = t; else break; }
-    const parText = m[4] && +m[4] !== par ? par + '–' + m[4] : String(par);
-    const chapTitle = c ? c.t : '';
-    return { vol, chap, par, parText, chapTitle, sub, short: `${vol}:${chap}:${par}`, full: `Band ${vol} Volume ${vol} ${chapTitle} ${sub}` };
-  }
-  // ----- Wörterbücher im Verknüpfungs-Fenster (Gruppe „Reference“) -----
-  // Sefarias Wörterbuch-Verknüpfungen („Jastrow, אָב I 1“, „BDB Dictionary, …“, „Klein Dictionary, …“) gehen ins eingebundene Wörterbuch,
-  // wenn es dasselbe gibt, sonst nach sefaria.org; dazu kommen die Zitate aus Safrans eigenen Wörterbüchern (Hamburger, Krauss, BDB, Gesenius, Jastrow …).
-  const DICT_REF = /^([^,]+),\s*(.*[֐-׿].*?)(?:\s+\d+)?$/;
-  function dictRefOf(x) {
-    if (String(x.cat || '').toLowerCase() !== 'reference') return null;
-    const m = String(x.other).replace(/-.*$/, '').match(DICT_REF); if (!m) return null;
-    const head = m[2].replace(/\s+[IVX]+$/, '').replace(/\s+\d+$/, '').trim();
-    return head ? { src: m[1].trim(), head } : null;
-  }
-  let lkDicts = null; // eingebundene Wörterbücher [{ id, name }]
-  const lkDictsLoad = () => { if (lkDicts === null) { lkDicts = []; O.dictList().then(r => { lkDicts = (r && r.list) || []; if (!$('#linkPanel').hidden) renderLinkPanel(); apSoon(); }).catch(() => {}); } return lkDicts; };
-  const localDictFor = src => { const k = String(src).toLowerCase().split(/[\s,–-]+/)[0]; return k ? (lkDicts || []).find(d => String(d.name).toLowerCase().split(/[\s,–-]+/)[0] === k) || null : null; };
-  const lkCites = new Map(); // „Buch|Kapitel|Vers“ -> Liste aus dictCites (null = wird geladen)
-  const secNode = s => (s && s.path && s.path.length === 2 && typeof s.path[0] === 'string' && s.path[0] && typeof s.path[1] === 'number') ? s.path[0] : ''; // Knoten komplexer Texte (z. B. „Tractate Pischa“ der Mechiltha)
-  const secBook = (g, s) => g.title + (secNode(s) ? ', ' + secNode(s) : '');
-  const secChapOf = s => { // wie apChap: „3“, „2a“ oder „1:2“
-    if (!s || !s.label || !s.path) return null; const first = s.label.split(' › ')[0];
-    let m = s.path.length === 1 && !s.label.includes('›') && first.match(/(\d+[ab]?)$/i);
-    if (!m && s.path.length === 2 && s.path.every(x => typeof x === 'number')) m = [null, (s.path[0] + 1) + ':' + (s.path[1] + 1)];
-    if (!m && secNode(s)) m = [null, String(s.path[1] + 1)];
-    return m ? m[1] : null;
-  };
-  async function openDictIn(q, only) { // Stichwort in einem bestimmten Wörterbuch öffnen
-    if (q) setDictSrc(captureDictSrc(q));
-    if (!dictOpen) toggleDict(true); else renderDictList();
-    setStackActive('dict');
-    if (q) dictLookup(q, only || null);
-  }
-  function lkDictBlock(dictRows, f, open) { // -> { html, n } für die Gruppe „Reference“
-    lkDictsLoad();
-    const by = new Map(); // Wörterbuch -> { name, id, local, items: Map(Stichwort -> { exact, sef, url }) }
-    const put = (key, o, head, info) => { if (!by.has(key)) by.set(key, Object.assign({ items: new Map() }, o)); const it = by.get(key).items; const h = it.get(head); if (h) { h.exact = h.exact || info.exact; h.sef = h.sef || info.sef; } else it.set(head, info); };
-    // eigene Wörterbücher
-    const s = view && view.sections && view.sections[view.idx], chap = secChapOf(s), title = view && view.group && view.group.title;
-    if (title && chap && !view.sres) {
-      const key = title + '|' + chap + '|' + (lkVerse == null ? 0 : lkVerse);
-      if (!lkCites.has(key)) {
-        lkCites.set(key, null);
-        O.dictCites(title, chap, lkVerse == null ? 0 : lkVerse).then(r => { lkCites.set(key, (r && r.list) || []); if (lkCites.size > 60) lkCites.delete(lkCites.keys().next().value); if (!$('#linkPanel').hidden) renderLinkPanel(); }).catch(() => lkCites.set(key, []));
-      }
-      for (const x of lkCites.get(key) || []) put('d:' + x.dictId, { name: x.dict, id: x.dictId, local: true }, x.head, { exact: x.exact, sef: false });
-    }
-    // Sefarias Wörterbuch-Verknüpfungen
-    for (const { x, d } of dictRows) {
-      const loc = localDictFor(d.src);
-      if (loc) put('d:' + loc.id, { name: loc.name, id: loc.id, local: true }, d.head, { exact: x.v1 > 0, sef: true });
-      else put('s:' + d.src, { name: d.src, local: false }, d.head, { exact: x.v1 > 0, sef: true, url: sefariaUrl(String(x.other).replace(/-.*$/, '')) });
-    }
-    let n = 0;
-    const html = [...by.values()].sort((a, b) => (b.local - a.local) || a.name.localeCompare(b.name)).map(d => {
-      let items = [...d.items.entries()].sort((a, b) => (b[1].exact - a[1].exact));
-      if (f) items = items.filter(([h]) => (d.name + ' ' + h + ' reference wörterbuch dictionary').toLowerCase().includes(f));
-      if (!items.length) return '';
-      n += items.length;
-      const ents = items.slice(0, 300).map(([h, i]) => {
-        const tag = [i.exact ? '' : I18N.t(/[ab]$/i.test(chap || '') ? 'ganze Seite' : 'ganzes Kapitel'), i.sef && d.local ? 'Sefaria' : ''].filter(Boolean).join(' · ');
-        return d.local
-          ? `<div class="ent"><a class="lkDict" data-did="${esc(d.id)}" data-dn="${esc(d.name)}" data-q="${esc(h)}" dir="auto" title="${esc(I18N.t('Im Wörterbuch öffnen'))}">${esc(h)}</a>${tag ? ` <small class="muted">${esc(tag)}</small>` : ''}</div>`
-          : `<div class="ent"><a class="lkSef" data-url="${esc(i.url)}" dir="auto" title="${esc(I18N.t('Auf sefaria.org öffnen'))}">${esc(h)} ↗</a></div>`;
-      }).join('');
-      return `<details ${f ? 'open' : ''}><summary>📖 ${esc(d.name)} (${items.length})${d.local ? '' : ` <span class="muted">· ${esc(I18N.t('nur auf sefaria.org'))}</span>`}</summary>${ents}</details>`;
-    }).join('');
-    return { html, n };
-  }
-  function renderLinkPanel() {
-    if (!view) return;
-    const virt = view.sres ? cmtVirt : null;
-    if (view.sres && !virt) return;
-    const s = virt ? { label: virt.label } : view.sections[view.idx];
-    const f = $('#lkFilter').value.trim().toLowerCase();
-    let list = secLinks.filter(x => lkVerse == null ? true : (x.v1 === 0 || (lkVerse >= x.v1 && lkVerse <= x.v2)));
-    if (f) list = list.filter(x => (x.other + ' ' + x.cat + ' ' + x.type + (x.other.startsWith(LEG + ' ') ? ' legenden ginzberg ' + legLabel(x.other).full : '')).toLowerCase().includes(f));
-    $('#lkTitle').textContent = `${virt ? virt.title : view.group.title} · ${s ? s.label : ''}${lkVerse != null ? ':' + lkVerse : ''} – ${list.length} Verknüpfungen`;
-    { const wb = $('#lkWhole'); wb.hidden = lkVerse == null; wb.textContent = I18N.t(/[ab]$/i.test(secChapOf(s) || '') ? 'Ganze Seite' : 'Ganzes Kapitel'); wb.title = I18N.t('Wieder das ganze Kapitel bzw. die ganze Seite zeigen'); }
-    const byT = new Map(groups.map(g => [g.title, g]));
-    const titleToGroup = t => byT.get(t) || byT.get(String(t).split(', ')[0]) || null;
-    const localSet = localTitles();
-    // Teile großer Werke ("Allegorical Interpretation of Genesis, Book III") gehören zum Buch vor dem Komma
-    const local = { has: t => localSet.has(t) || !!titleToGroup(t) };
-    const LK_FIRST = ['tanakh', 'mishnah', 'tosefta', 'talmud', 'responsa']; // feste Reihenfolge oben, danach der Rest nach Anzahl
-    const lkRank = c => { const i = LK_FIRST.indexOf(String(c).toLowerCase()); return i < 0 ? 99 : i; };
-    const cats = new Map();
-    // Ginzbergs Legenden: eigene Gruppe ganz oben (nach dem Tanach kommt sie als Erstes), farbig abgesetzt, zugeklappt wie die übrigen Gruppen, nach Band und Kapitel, mit den Überschriften der Gliederung
-    const legs = list.filter(x => x.other.startsWith(LEG + ' ') && /^\d+:\d+:\d+/.test(x.other.slice(LEG.length + 1)));
-    let legHtml = '';
-    if (legs.length) {
-      if (legOl === undefined) { legOl = null; olOwn(LEG).then(o => { legOl = o || null; legIdx = null; if (o && !$('#linkPanel').hidden) renderLinkPanel(); }).catch(() => {}); }
-      const isLocal = local.has(LEG), chaps = new Map(), seen = new Set();
-      for (const x of legs) {
-        const k0 = x.other.replace(/-.*$/, ''); if (seen.has(k0)) continue; seen.add(k0); // dieselbe Stelle (von mehreren Versen aus) nur einmal
-        const L = legLabel(x.other), k = L.vol + ':' + L.chap;
-        if (!chaps.has(k)) chaps.set(k, { L, xs: [] });
-        chaps.get(k).xs.push({ x, L });
-      }
-      legHtml = `<details class="lkLeg"${f || lkVerse != null ? ' open' : ''}><summary>${esc(I18N.t('Legenden (Ginzberg)'))} (${seen.size})${isLocal ? '' : ' <span class="muted">· nicht lokal</span>'}</summary>${[...chaps.values()].sort((a, b) => a.L.vol - b.L.vol || a.L.chap - b.L.chap).map(({ L, xs }) =>
-        `<details${f || chaps.size === 1 ? ' open' : ''}><summary>${esc(I18N.t('Band {}', L.vol))} · ${esc(L.chapTitle || I18N.t('Kapitel {}', L.chap))} (${xs.length})</summary>${xs.sort((a, b) => a.L.par - b.L.par).slice(0, 300).map(({ x, L: e }) =>
-          `<div class="ent${isLocal ? '' : ' off'}"><a data-ref="${esc(x.other)}">${e.sub ? esc(e.sub) + ' · ' : ''}${esc(I18N.t('Abs. {}', e.parText))}</a>${isLocal ? ` <button data-pv="${esc(x.other)}" title="Vorschau">▸</button>` : ''} <small class="muted">${esc(e.short)}</small></div>`).join('')}</details>`).join('')}</details>`;
-    }
-    const dictRows = [];
-    for (const x of list) {
-      if (legs.length && x.other.startsWith(LEG + ' ') && legs.includes(x)) continue;
-      { const d = dictRefOf(x); if (d) { dictRows.push({ x, d }); continue; } } // Wörterbücher: eigener Block in „Reference“
-      const c = x.cat || 'Andere';
-      if (!cats.has(c)) cats.set(c, new Map());
-      const bk = splitOther(x.other);
-      const m = cats.get(c);
-      if (!m.has(bk)) m.set(bk, []);
-      m.get(bk).push(x);
-    }
-    const open = f || lkVerse != null ? 'open' : '';
-    const catHtml = (() => { const order = SefOrder.sortCats([...cats.keys()], ''); return [...cats.entries()].sort((a, b) => order.indexOf(a[0]) - order.indexOf(b[0])); })().map(([c, books]) => {
-      const total = [...books.values()].reduce((a, v) => a + v.length, 0);
-      return [c, `<details ${open} data-c="${esc(String(c).toLowerCase())}"><summary>${esc(c)} (${total})</summary>${[...books.entries()].sort((a, b) => { const ga = titleToGroup(a[0]), gb = titleToGroup(b[0]); return libCmpGroups(ga, gb) || titleCmp(a[0], b[0]); }).map(([bk, xs]) =>
-        `<details ${f || (String(c).toLowerCase() === 'tanakh' && TANAKH_BOOKS.has(bk)) ? 'open' : ''}><summary>${esc(bk)} (${xs.length})${local.has(bk) ? '' : ' <span class="muted">· nicht lokal</span>'}</summary>${xs.slice(0, 300).map(x =>
-          `<div class="ent${local.has(bk) ? '' : ' off'}"><a data-ref="${esc(x.other)}">${esc(x.other)}</a>${local.has(bk) ? ` <button data-pv="${esc(x.other)}" title="Vorschau">▸</button>` : ''}${x.type ? ` <small class="muted">${esc(x.type)}</small>` : ''}</div>`).join('')}${xs.length > 300 ? `<div class="muted ent">… ${xs.length - 300} weitere (Filter benutzen)</div>` : ''}</details>`).join('')}</details>`];
-    });
-    if (legHtml) { const ti = catHtml.findIndex(e => String(e[0]).toLowerCase() === 'tanakh'); catHtml.splice(ti + 1, 0, ['', legHtml]); } // direkt nach dem Tanach, sonst ganz oben
-    { // Wörterbücher (eigene und Sefarias) oben in die Gruppe „Reference“, die es sonst neu gibt
-      const db = lkDictBlock(dictRows, f, open);
-      if (db.n) {
-        const ri = catHtml.findIndex(e => String(e[0]).toLowerCase() === 'reference');
-        if (ri >= 0) catHtml[ri][1] = catHtml[ri][1].replace(/^(<details [^>]*><summary>)Reference \((\d+)\)(<\/summary>)/, (m, a, k, b) => `${a}Reference (${+k + db.n})${b}${db.html}`);
-        else {
-          const item = ['Reference', `<details ${open} data-c="reference"><summary>Reference (${db.n})</summary>${db.html}</details>`];
-          const order = SefOrder.sortCats(catHtml.map(e => e[0]).filter(Boolean).concat('Reference'), '');
-          const at = catHtml.findIndex(e => e[0] && order.indexOf(e[0]) > order.indexOf('Reference'));
-          if (at < 0) catHtml.push(item); else catHtml.splice(at, 0, item);
-        }
-      }
-    }
-    $('#lkBody').innerHTML = catHtml.map(e => e[1]).join('') || '<p class="muted">Keine Verknüpfungen.</p>';
-    $('#linkPanel').hidden = false;
-  }
-  $('#lkBody').addEventListener('click', async e => {
-    const dl = e.target.closest('a.lkDict'); if (dl) { e.preventDefault(); openDictIn(dl.dataset.q, { id: dl.dataset.did, name: dl.dataset.dn }); return; }
-    const sf = e.target.closest('a.lkSef'); if (sf) { e.preventDefault(); window.api.openExternal(sf.dataset.url); return; }
-    const a = e.target.closest('a[data-ref]');
-    if (a) {
-      if (a.parentElement.classList.contains('off')) return;
-      await jumpTo(a.dataset.ref.replace(/-.*$/, ''), BG(e));
-      return;
-    }
-    const b = e.target.closest('button[data-pv]');
-    if (b) {
-      const nxt = b.parentElement.nextElementSibling;
-      if (nxt && nxt.classList.contains('pv')) { nxt.remove(); b.textContent = '▸'; return; }
-      b.textContent = '▾';
-      const r = await LK.preview(b.dataset.pv);
-      const html = r.items ? pvVer(r.versionTitle) + r.items.map(t => `<div dir="${r.he ? 'rtl' : 'ltr'}">${R.cleanHtml(R.splitFootnotes(t).main.replace(/<sup[^>]*>.*?<\/sup>/g, ''))}</div>`).join('') : '<i>Keine Vorschau möglich.</i>';
-      b.parentElement.insertAdjacentHTML('afterend', `<div class="pv">${html}</div>`);
-    }
-  });
-  // Vorschau beim Überfahren eines Querverweises (nur bei lokal vorhandenen Büchern)
-  let hovApi = null; // Vorschau-Blase auch für das Themenfenster
-  // Hinweis zu einer umgerechneten Stellenangabe (data-oref = Angabe im Text, data-vt = ihre Zählung, data-sref = hebräische Zählung)
-  const versNote = a => versNoteText(a.dataset.oref, a.dataset.sref, a.dataset.vt);
-  { let hov = null, hovT = null, hovRef = null; const pvCache = new Map();
-    const hideHov = () => { clearTimeout(hovT); hovRef = null; if (hov) hov.hidden = true; };
-    // pick (Wortkarte): { vt, rtl } – die dort gewählte Fassung statt der üblichen zweiten Sprache (wcHovPick)
-    // Wortkarte: in der Vorschau das Wort markieren – im Hebräischen (Westminster, über das Lemma) und, wo die Fassung wortgenau
-    // zugeordnet ist (interlin.js), die zugehörigen deutschen Wörter
-    const pvLemOk = (dl, lem) => String(dl || '').split('/').some(x => { x = x.trim(); return x === lem || (/^\d+$/.test(lem) && x.replace(/\D.*$/, '') === lem); });
-    const pvMark = (box, ref, lem) => {
-      const m = /^(.*) (\d+):(\d+)$/.exec(ref), parts = [...box.querySelectorAll('.pvp')];
-      const he = parts.find(p => p.dataset.he && p.querySelector('.w')) || parts.find(p => p.dataset.he); if (!he) return;
-      const ix = [], hc = new Set(); he.querySelectorAll('.w').forEach((w, i) => { if (pvLemOk(w.dataset.l, lem)) { w.classList.add('pvhl'); ix.push(i + 1); hc.add(consOf(w.textContent)); } });
-      // Qumran-Rollen (und andere Fassungen mit Lemma je Wort): gleiches Lemma wie die Wortkarte
-      const lc = consOf(((window.OSHB_LEMMAS || {})[String(lem).replace(/\D.*$/, '')] || [])[0] || '');
-      if (lc) parts.forEach(p => { if (p !== he) p.querySelectorAll('.wq[data-l]').forEach(x => { if (consOf(x.dataset.l) === lc) x.classList.add('pvhl'); }); });
-      if (!ix.length || !m) return;
-      const set = new Set(ix);
-      // Septuaginta (CATSS): griechische Wortgruppe, deren hebräisches Gegenstück (data-h) das markierte Wort ist
-      parts.forEach(p => p.querySelectorAll('.wg[data-h]').forEach(g => { if (hc.has(consOf(g.dataset.h))) g.classList.add('pvhl'); }));
-      // Targumim: aramäische Wörter mit maschineller Zuordnung (targum-il.js)
-      const tgParts = parts.filter(p => Object.keys(IL_TG).some(n => String(p.dataset.vt || '').startsWith(IL_TG[n])));
-      if (tgParts.length) loadTgIL().then(TG => {
-        if (!TG || !box.isConnected || hovRef !== ref) return;
-        tgParts.forEach(p => {
-          const nm = Object.keys(IL_TG).find(n => String(p.dataset.vt || '').startsWith(IL_TG[n])), d = p.firstElementChild; if (!d || p.children.length !== 1) return;
-          const segs = tgSegs(TG, nm, m[1], m[2], +m[3], d.textContent); if (!segs) return;
-          d.textContent = ''; segs.forEach(([idx, w], k) => { if (k) d.append(' '); const sp = document.createElement('span'); sp.textContent = w; if (idx.some(i => set.has(i))) sp.className = 'pvhl'; d.append(sp); });
-        });
-      }, () => {});
-      loadIL().then(IL => {
-        if (!IL || !box.isConnected || hovRef !== ref) return;
-        parts.filter(p => !p.dataset.he).forEach(p => {
-          const nm = ilName(p.dataset.vt), segs = nm && IL[nm] && IL[nm][m[1]] && IL[nm][m[1]][m[2] + ':' + m[3]]; if (!segs) return;
-          const d = p.firstElementChild; if (!d || p.children.length !== 1) return;
-          d.classList.add('txt'); ilTagCell(p, segs);
-          p.querySelectorAll('.ilx').forEach(x => { if (x.dataset.ix.split(',').some(i => set.has(+i))) x.classList.add('pvhl'); });
-        });
-      }, () => {});
-    };
-    const pvMarkGreek = async (box, ref, lemma) => {
-      const m = /^(.*) (\d+):(\d+)$/.exec(ref); if (!m) return;
-      let D; try { D = await loadGM(); } catch { return; }
-      if (!D || !box.isConnected || hovRef !== ref) return;
-      const GM = window.GMorph, targets = new Set();
-      for (const p of box.querySelectorAll('.pvp[data-vt]')) {
-        const bi = GM.bookIndex(D, m[1], p.dataset.vt); if (bi < 0) continue;
-        const toks = GM.verse(D, bi, +m[2], +m[3]), at = greekWordAt(p, null, null, true);
-        if (!toks || !at || toks.length !== at.words.length) continue;
-        // Die konkrete Zielform prüfen: andere orthographische Abweichungen im Vers
-        // dürfen sie nicht unterdrücken (Iota subscriptum/adscriptum ist gleichwertig).
-        for (let i = toks.length - 1; i >= 0; i--) if (toks[i] && GM.info(D, toks[i].id).lemma === lemma && GM.sameForm(GM.info(D, toks[i].id).form, at.words[i].t)) {
-          const rg = at.range(i), mark = document.createElement('span'); mark.className = 'pvhl';
-          // Vor dem Einfügen die konkrete CATSS-Gruppe merken: gleiche Wörter können mehrfach vorkommen.
-          const group = rg.startContainer && rg.startContainer.parentElement.closest('.wg[data-h]');
-          if (group && p.contains(group)) targets.add(group);
-          mark.append(rg.extractContents()); rg.insertNode(mark);
-        }
-      }
-      if (!targets.size) return; // andere griechische Fassungen haben keine CATSS-Verknüpfung
-      let IL;
-      try { [IL] = await Promise.all([loadIL(), wcTrCtxLoad([ref])]); } catch { return; }
-      if (!IL || !box.isConnected || hovRef !== ref) return;
-      const words = wcVerseWords.get(ref) || [], set = new Set();
-      for (const p of box.querySelectorAll('.pvp[data-vt]')) {
-        const groups = p.querySelectorAll('.wg[data-h]');
-        for (const [g, idx] of ilLxxIndices(words.map(w => w.he), groups)) if (targets.has(g)) {
-          // CATSS ordnet Wortgruppen zu; die ganze zugehörige deutsche Gruppe markieren.
-          idx.forEach(i => set.add(i));
-        }
-      }
-      if (!set.size) return;
-      for (const p of box.querySelectorAll('.pvp[data-vt]')) {
-        const nm = ilName(p.dataset.vt), segs = nm && IL[nm] && IL[nm][m[1]] && IL[nm][m[1]][m[2] + ':' + m[3]];
-        if (!segs) continue;
-        const d = p.firstElementChild; if (!d || p.children.length !== 1) continue;
-        d.classList.add('txt'); ilTagCell(p, segs);
-        p.querySelectorAll('.ilx').forEach(x => { if (x.dataset.ix.split(',').some(i => set.has(+i))) x.classList.add('pvhl'); });
-      }
-    };
-    const startHov = (a, ref, quiet, below, pick) => {
-      hideHov(); hovRef = ref;
-      hovT = setTimeout(async () => {
-        const pref = { he: disp.pvHe || '', de: disp.pvDe || '', x: disp.pvX || '' };
-        const ck = (pick && pick.vt ? ref + '\u0001' + pick.vt : ref) + '\u0002' + JSON.stringify(pref) + (pick && (pick.greek || pick.targum) ? '\u0003original' : '');
-        let r = pvCache.get(ck);
-        if (!r) { try { r = await LK.preview(ref, pick && (pick.greek || pick.targum) ? ['other'] : ['he', I18N.lang === 'de' ? 'de' : 'en'], pick && pick.vt ? { vt: pick.vt, rtl: pick.rtl } : undefined, pref); } catch { r = {}; } pvCache.set(ck, r); if (pvCache.size > 200) pvCache.delete(pvCache.keys().next().value); }
-        if (hovRef !== ref) return; // Maus ist inzwischen woanders
-        const none = !(r.parts && r.parts.length) && !(r.items && r.items.length);
-        if (none && quiet) return; // Wörterbuch: ohne Text keine leere Blase
-        if (!hov) { hov = document.createElement('div'); hov.id = 'lkHover'; document.body.appendChild(hov); }
-        const partHtml = p => p.items.map(t => `<div dir="${p.he ? 'rtl' : 'ltr'}"${p.he ? ' lang="he" class="phe"' : ''}>${R.cleanHtml(R.splitFootnotes(p.he ? stripHe(t) : t).main.replace(/<sup[^>]*>.*?<\/sup>/g, ''))}</div>`).join('');
-        const html = r.parts && r.parts.length ? r.parts.map((p, i) => (i ? '<hr>' : '') + pvVer(p.versionTitle) + `<div class="pvp" data-vt="${esc(p.versionTitle || '')}"${p.he ? ' data-he="1"' : ''}>${partHtml(p)}</div>`).join('') : r.items && r.items.length ? pvVer(r.versionTitle) + partHtml({ items: r.items, he: r.he }) : `<i>${esc(I18N.t('Keine Vorschau möglich.'))}</i>`;
-        // andere Zählung im Text: Hinweis, welche Stelle gemeint ist („englische Zählung Joel 3:11 = hebr. 4:11“)
-        const vn = (a && a.dataset && a.dataset.oref ? `<div class="vnote">${esc(versNote(a))}</div>` : '')
-          // gewählte Fassung (Wortkarte) gibt es für dieses Buch nicht: sagen, statt stillschweigend eine andere zu zeigen
-          + (pick && r.pickMiss ? `<div class="vnote">${esc(I18N.t('{} enthält dieses Buch nicht – stattdessen:', pick.label || ''))}</div>` : '');
-        hov.innerHTML = `<b>${esc(ref)}</b>${vn}${html}`; hov.hidden = false;
-        if (pick && pick.lem) pvMark(hov, ref, pick.lem);
-        if (pick && pick.greek) pvMarkGreek(hov, ref, pick.greek);
-        if (pick && pick.targum) hov.querySelectorAll('.wt[data-l]').forEach(w => { if (w.dataset.l === pick.targum) w.classList.add('pvhl'); });
-        const rc = a.getBoundingClientRect(), w = hov.offsetWidth, h = hov.offsetHeight;
-        if (below) { // Wörterbuch-Leiste: unter dem Link, sonst darüber
-          hov.style.left = Math.max(8, Math.min(window.innerWidth - w - 8, rc.left)) + 'px';
-          hov.style.top = Math.max(8, rc.bottom + 6 + h > window.innerHeight - 8 ? rc.top - h - 6 : rc.bottom + 6) + 'px';
-        } else {
-          hov.style.left = Math.max(8, Math.min(window.innerWidth - w - 8, rc.left - w - 10 > 8 ? rc.left - w - 10 : rc.right + 10)) + 'px'; // bevorzugt links vom Panel
-          hov.style.top = Math.max(8, Math.min(window.innerHeight - h - 8, rc.top - 8)) + 'px';
-        }
-      }, 350);
-    };
-    hovApi = { start: startHov, hide: hideHov, current: () => hovRef };
-    window.pvClear = () => pvCache.clear(); // nach Wechsel der bevorzugten Vorschau-Fassung
-    $('#lkBody').addEventListener('mouseover', e => {
-      const a = e.target.closest('a[data-ref]');
-      if (!a || a.parentElement.classList.contains('off') || a.dataset.ref === hovRef) return;
-      startHov(a, a.dataset.ref, false, false);
-    });
-    // Kommentar-Bereich: Vorschau beim Überfahren einer Stellenangabe im Kommentartext (nur wenn der Text lokal vorliegt)
-    $('#cmtBody').addEventListener('mouseover', e => {
-      const a = e.target.closest('a.aref[data-sref]');
-      if (!a) return;
-      const ref = a.dataset.sref.replace(/-.*$/, '');
-      if (ref === hovRef) return;
-      startHov(a, ref, true, false);
-    });
-    $('#cmtBody').addEventListener('mouseout', e => { const a = e.target.closest('a.aref[data-sref]'); if (a && !a.contains(e.relatedTarget)) hideHov(); });
-    $('#cmtBody').addEventListener('click', hideHov);
-    $('#cmtBody').addEventListener('scroll', hideHov, true); $('#cmtPanel').addEventListener('scroll', hideHov);
-    // Lesetext: Vorschau beim Überfahren einer Stellenangabe (Klasse „aref“, z. B. in Krauss, Pinner, Ginzberg) – nur wenn der Text lokal vorliegt
-    $('#rOut').addEventListener('mouseover', e => {
-      const a = e.target.closest && e.target.closest('a.aref[data-sref]');
-      if (!a) return;
-      const ref = a.dataset.sref.replace(/-.*$/, '');
-      if (ref === hovRef) return;
-      startHov(a, ref, true, true);
-    });
-    $('#rOut').addEventListener('mouseout', e => { const a = e.target.closest && e.target.closest('a.aref[data-sref]'); if (a && !a.contains(e.relatedTarget)) hideHov(); });
-    $('#rOut').addEventListener('click', hideHov);
-    $('#rOut').addEventListener('scroll', hideHov, true);
-    // Wörterbuch: Vorschau beim Überfahren einer Bibelstelle oder Quellenangabe (nur wenn der Text lokal vorliegt)
-    $('#dictOut').addEventListener('mouseover', e => {
-      const a = e.target.closest('.dsrc[data-sref]');
-      if (!a) return;
-      const ref = a.dataset.sref.replace(/-.*$/, '');
-      if (ref === hovRef) return;
-      startHov(a, ref, true, true);
-    });
-    { // Abkürzungen (Gesenius u. a.) und Kurzzitate (Krauss, Talmudische Archäologie): sofortige Erklärung beim Überfahren –
-      // im Wörterbuch, im Lesetext, in geöffneten Fußnoten und im Kommentarbereich
-      let tip = null;
-      const hideTip = () => { if (tip) tip.hidden = true; };
-      document.addEventListener('mouseover', e => {
-        const a = e.target.closest && e.target.closest('.gab[data-t]'); if (!a || !a.closest('#dictOut, #rOut, #cmtBody, #lkHover')) return;
-        if (!tip) { tip = document.createElement('div'); tip.id = 'gabTip'; tip.hidden = true; document.body.appendChild(tip); }
-        tip.textContent = a.dataset.t; tip.hidden = false;
-        const r = a.getBoundingClientRect(), w = tip.offsetWidth, h = tip.offsetHeight;
-        tip.style.left = Math.max(6, Math.min(innerWidth - w - 6, r.left + r.width / 2 - w / 2)) + 'px';
-        tip.style.top = (r.top - h - 6 < 4 ? r.bottom + 6 : r.top - h - 6) + 'px';
-      });
-      document.addEventListener('mouseout', e => { const a = e.target.closest && e.target.closest('.gab[data-t]'); if (a && !a.contains(e.relatedTarget)) hideTip(); });
-      document.addEventListener('scroll', hideTip, true);
-      document.addEventListener('click', hideTip, true);
-    }
-    $('#dictOut').addEventListener('mouseout', e => { const a = e.target.closest('.dsrc[data-sref]'); if (a && !a.contains(e.relatedTarget)) hideHov(); });
-    $('#dictOut').addEventListener('click', hideHov);
-    $('#dictPanel').addEventListener('scroll', hideHov, { passive: true }); $('#dictOut').addEventListener('scroll', hideHov, { passive: true });
-    $('#lkBody').addEventListener('mouseout', e => { const a = e.target.closest('a[data-ref]'); if (a && !a.contains(e.relatedTarget)) hideHov(); });
-    $('#linkPanel').addEventListener('scroll', hideHov, { passive: true });
-    $('#lkBody').addEventListener('click', hideHov);
-  }
-  refreshLinkStatus().then(() => { if (view) renderSection(); });
-
-  // ---------- Themen (Sefaria Topics) ----------
+  // end-reader-module:links
 
   // ---------- Audio: eigener Ordner mit Versdateien (Buch_Kapitel_Vers.mp3), ▶ in der Zeilenbeschriftung, fortlaufendes Abspielen ----------
   const AU = { dir: '', map: new Map(), chap: new Map(), chapRel: '', pendingSeek: null, el: new Audio(), cur: null, speed: 1, paused: false };
@@ -3561,7 +1524,7 @@
     const c = AU.cur; if (!c || !view || !view.group || view.group.title !== c.book || auChapter() !== c.ch) return;
     const r = [...$$('#rOut .row[data-l]')].find(x => x.dataset.l === String(c.v));
     if (r) { r.classList.add('playing'); r.scrollIntoView({ block: 'center', behavior: 'smooth' }); }
-    olMark();
+    outlineUI.olMark();
   }
   function auBar() {
     const c = AU.cur; $('#audioBar').hidden = !c; if (!c) return;
@@ -3677,1155 +1640,59 @@
     $('#auNetStop').onclick = () => window.audio.stop();
   }
 
-  // ---------- Gliederung: Wochenabschnitte, Kapitel und Absätze (offen/geschlossen: פ ס) des gewählten Buches ----------
-  const olOwnCache = new Map();
-  const olMz = () => { try { return localStorage.getItem('olMz') === '1'; } catch { return false; } };
-  // Komplexe Texte (z. B. Testamente der zwölf Patriarchen): die Gliederung gehört zum gerade geöffneten Teil („Titel, Teil“)
-  const olNode = g => { const sc = view && view.sections && view.sections[view.idx]; return g && sc && sc.path && typeof sc.path[0] === 'string' && sc.path[0] ? g.title + ', ' + sc.path[0] : null; };
-  const olOwnCached = g => { const n = olNode(g); if (n && olOwnCache.get(n)) return olOwnCache.get(n); return g ? olOwnCache.get(g.title) : undefined; };
-  async function olOwnFor(g) { const n = olNode(g); if (n) { const o = await olOwn(n); if (o) return o; } return olOwn(g.title); }
-  async function olOwn(book) { if (!window.outline) return null; if (!olOwnCache.has(book)) olOwnCache.set(book, await window.outline.get(book)); return olOwnCache.get(book); }
-  function olContentHtml(g, ol) {
-    const lv2 = ol.levels === 2; // Gliederung nach Buch:Kapitel (z. B. Josephus), nicht nach Kapitel:Vers
-    const L = I18N.lang;
-    const T = (o, k) => (L !== 'he' && (o[k + '_' + L] || o[k + '_en'])) || o[k]; // Text in der Oberflächensprache, sonst Englisch, sonst Hebräisch (z. B. talmud.dev-Gliederungen ohne deutsche Fassung)
-    const heUi = L === 'he' || !ol.sections[0] || !ol.sections[0]['head_' + L];
-    const first = r => { const m = String(r).match(/^(\d+)(?::(\d+))?/); return m ? { ch: +m[1], v: m[2] ? +m[2] : 1 } : null; };
-    const mzOn = olMz() && ol.sections.some(x => x.items.some(i => i.mz));
-    const anySub = ol.sections.some(x => x.items.some(i => i.sub));
-    const olRows = (list, lvl) => { let pb = null; if (lvl && list.some(x => x.blk)) { const ks = []; list.forEach(x => { const k = T(x, 'blk') || ''; if (!ks.includes(k)) ks.push(k); }); const st = x => { const sp = olSpans(x.ref)[0]; return sp ? sp[0] : 0; }; list = [...list].sort((a, b) => ks.indexOf(T(a, 'blk') || '') - ks.indexOf(T(b, 'blk') || '') || st(a) - st(b)); } /* nach Überschrift gruppieren */ return list.map(it => { const f = first(it.ref); const ih = (heUi || !(it['text_' + L] || it.text_en)) && /[\u0590-\u05FF]/.test(it.text); const meta = [T(it, 'speaker'), T(it, 'author'), T(it, 'kind'), T(it, 'place'), T(it, 'time'), T(it, 'par'), T(it, 'desc'), it.seg ? (L === 'he' ? 'סגולה: ' : L === 'de' ? 'Segula: ' : 'Segula: ') + T(it, 'seg') : ''].filter(Boolean).map(esc).join(' · '); const np = !lvl && window.__mapCount ? window.__mapCount(g.title, it.ref) : 0; const bk = lvl && it.blk ? T(it, 'blk') : null; const chip = bk && bk !== pb ? `<div class="olchip" dir="auto" data-blk="${esc(bk)}">${esc(bk.replace(/(\d)-(?=\d)/g, '$1–'))}</div>` : ''; if (bk) pb = bk; return chip + `<div role="link" tabindex="0" class="olp olc${ih ? '' : ' lt'}${it.mz ? ' olmz' : ''}${lvl ? ' olsub olsub1' : ''}${it.orph ? ' olorph' : ''}" data-r="${esc(it.ref)}"${lv2 ? ` data-sec="${esc(it.ref)}"` : ''} data-ref="${esc(g.title + ' ' + (/^\d+[ab]/.test(String(it.ref)) ? String(it.ref).split(/[-–]/)[0] : f ? f.ch + ':' + f.v : it.ref))}">${!lvl && anySub ? `<span class="oltg"${it.sub ? ` title="${esc(I18N.t('Unterpunkte'))}" aria-label="${esc(I18N.t('Unterpunkte'))}" role="button" tabindex="0" aria-expanded="false"` : ' style="visibility:hidden" aria-hidden="true"'}>${it.sub ? '▸' : ''}</span>` : ''}<span class="ref">${esc(String(it.ref).replace(/-/g, '–'))}</span><span class="${ih ? 'he' : 'tx'}"${ih ? ' lang="he"' : ''}>${it.mz ? `<b class="mzn">${it.mz}</b> ` : ''}${esc(T(it, 'text'))}${meta ? `<small class="olm"${ih ? '' : ' style="direction:ltr"'}>${meta}</small>` : ''}</span>${np ? `<span class="olmap" data-n="${np}" title="${esc(I18N.t('Karte: Orte dieses Abschnitts'))}">🗺 ${np}</span>` : ''}</div>` + (it.sub ? `<div class="olsubs" hidden>${olRows(it.sub, lvl + 1)}</div>` : ''); }).join(''); };
-    return (T(ol, 'title') ? `<p class="${heUi ? 'he' : ''}" ${heUi ? 'lang="he"' : ''}><b>${esc(T(ol, 'title'))}</b></p>` : '') + ol.sections.filter(s => s.items.some(it => !!it.mz === mzOn)).map(s => {
-      return `<details open><summary>${heUi ? `<span class="he" lang="he">${esc(s.head)}</span>` : `${esc(T(s, 'head'))} <small class="he" lang="he">${esc(s.head)}</small>`}</summary>${s.desc ? `<p class="he olnote" lang="he">${esc(s.desc)}</p>` : ''}${olRows(s.items.filter(it => !!it.mz === mzOn), 0)}</details>`;
-    }).join('') + (T(ol, 'note') ? `<p class="muted olnote">${esc(T(ol, 'note'))}</p>` : '');
-  }
-  // „Gliederung“-Knopf nur, wenn es für das Buch eine gibt (Karte: siehe mapRefresh)
-  async function olBtnRefresh() {
-    const g = view && view.group, b = $('#olBtn'); if (!b) return;
-    if (!g) { b.hidden = true; return; }
-    const ol = await olOwnFor(g);
-    if (view && view.group === g) b.hidden = !ol && $('#outlinePanel').hidden;
-  }
-  async function renderOutline() {
-    const body = $('#olBody'); const g = view && view.group;
-    if (!g) { body.innerHTML = ''; return; }
-    $('#olTitle').textContent = I18N.t('Gliederung') + ' · ' + g.title;
-    const ol = await olOwnFor(g);
-    if (!view || view.group !== g) return; // inzwischen anderes Buch
-    const hasMz = !!(ol && ol.sections.some(x => x.items.some(i => i.mz))); $('#olMzW').hidden = !hasMz; $('#olTabT').classList.toggle('on', !olMz() || !hasMz); $('#olTabM').classList.toggle('on', olMz() && hasMz);
-    const key = g.title + '|' + (olNode(g) || '') + '|' + I18N.lang + '|' + olMz();
-    if (body.dataset.key === key && ol && body.firstElementChild) olMark(true); // unverändert: nicht neu aufbauen (Zustand der Unterpunkte bleibt)
-    else {
-      if (body.dataset.book !== g.title) window.__olClicked = null;
-      body.dataset.book = g.title; body.dataset.key = ol ? key : '';
-      body.innerHTML = ol ? olContentHtml(g, ol) : `<p class="muted">${esc(I18N.t('Keine Gliederung verfügbar.'))}</p>`;
-      olMark(true);
-    }
-    if (window.__olLast) { const el = [...body.querySelectorAll('.olp')].find(x => x.dataset.r === window.__olLast); window.__olLast = null; if (el) el.scrollIntoView({ block: 'center' }); }
-  }
-  // ---------- Gliederung als Überschriften im Lesetext (Einstellung unter „Anzeige“) ----------
-  const olInlineOn = () => { try { return localStorage.getItem('olInline') !== '0'; } catch { return true; } }; // Standard: an; ausschalten unter „Anzeige“
-  function olInlineApply(g, ol) {
-    $$('#rOut .olhead').forEach(x => x.remove()); $$('#rOut .row.olrow').forEach(x => x.classList.remove('olrow', 'olh0', 'olh1', 'olh2', 'olh3'));
-    if (!olInlineOn() || !ol || !view || view.group !== g || view.sres) return;
-    const sec = view.sections[view.idx]; if (!sec) return;
-    const L = I18N.lang, T = (o, k) => (L !== 'he' && (o[k + '_' + L] || o[k + '_en'])) || o[k];
-    const nums = (sec.path || []).filter(x => typeof x === 'number').map(x => x + 1);
-    const ch = auChapter(), bk = olBookNo(sec), lv2 = ol.levels === 2, mzOn = olMz();
-    const rows = $$('#rOut .row[data-l]'); if (!rows.length) return;
-    const vOf = l => { const m = String(l).match(/^(\d+)/); return m ? +m[1] : null; };
-    // Stelle der Gliederung → erste passende Zeile dieses Abschnitts (oder null)
-    const dafM = String(sec.label || '').match(/(\d+)([ab])\s*$/), dafCur = dafM ? dafM[1] + dafM[2] : null;
-    const target = ref => {
-      const r = String(ref).split(/[;,]/)[0].trim(); let m;
-      if ((m = r.match(/^(\d+[ab])(?::(\d+))?/))) { // Talmud: Amud(:Segment)
-        if (m[1] !== dafCur) return null;
-        return m[2] ? rows.find(x => vOf(x.dataset.l) >= +m[2]) || null : rows[0];
-      }
-      if ((m = r.match(/^(\d+):(\d+):(\d+)/))) { // Band:Kapitel:Absatz
-        if (nums.length === 1) { // Abschnitt = Band, Zeilen „Kapitel:Absatz“ (z. B. Ginzbergs Legenden)
-          if (+m[1] !== nums[0]) return null;
-          const ca = l => { const k = String(l).match(/^(\d+):(\d+)/); return k ? [+k[1], +k[2]] : null; };
-          return rows.find(x => { const k = ca(x.dataset.l); return k && (k[0] > +m[2] || (k[0] === +m[2] && k[1] >= +m[3])); }) || null;
-        }
-        if (nums.length < 2 || +m[1] !== nums[nums.length - 2] || +m[2] !== nums[nums.length - 1]) return null;
-        return rows.find(x => vOf(x.dataset.l) >= +m[3]) || null;
-      }
-      if (lv2) { // Buch:Kapitel (Zeilen „Kapitel:Absatz“)
-        if (!(m = r.match(/^(\d+)(?::(\d+))?/)) || +m[1] !== bk) return null;
-        return m[2] ? rows.find(x => vOf(x.dataset.l) >= +m[2]) || null : rows[0];
-      }
-      if (!(m = r.match(/^(\d+)(?::(\d+))?/)) || +m[1] !== ch) return null; // Kapitel:Vers
-      return m[2] ? rows.find(x => vOf(x.dataset.l) >= +m[2]) || null : rows[0];
-    };
-    const put = new Map(); // Zeile → Überschriften davor (in Reihenfolge)
-    const add = (row, lvl, text) => { if (!row || !text) return; let a = put.get(row); if (!a) put.set(row, (a = [])); if (!a.some(x => x.text === text)) a.push({ lvl, text }); };
-    for (const sct of ol.sections) {
-      const items = sct.items.filter(it => !!it.mz === mzOn); if (!items.length) continue;
-      const r0 = target(items[0].ref);
-      if (r0 && ol.sections.length > 1 && T(sct, 'head') && !(lv2 && r0 !== rows[0])) add(r0, 0, T(sct, 'head'));
-      const walk = (list, lvl) => list.forEach(it => { add(target(it.ref), lvl, T(it, 'text')); if (it.sub) walk(it.sub, lvl + 1); });
-      walk(items, 1);
-    }
-    // Beginnt das Kapitel mitten in einem Abschnitt der Gliederung: dessen Überschrift(en) trotzdem oben zeigen (als Fortsetzung)
-    { const pos3 = (a, b, c) => a * 1e8 + b * 1e4 + c;
-      const P0 = (() => { const v = vOf(rows[0].dataset.l) || 1; const has3 = ol.sections.some(x => x.items.some(i => /^\d+:\d+:\d+/.test(String(i.ref)))); if (nums.length === 1 && has3) { const k = String(rows[0].dataset.l).match(/^(\d+):(\d+)/); return k ? pos3(nums[0], +k[1], +k[2]) : null; } if (nums.length >= 2 && ol.sections.some(x => x.items.some(i => /^\d+:\d+:\d+/.test(String(i.ref))))) return pos3(nums[nums.length - 2], nums[nums.length - 1], v); if (lv2) return bk != null ? pos3(0, bk, v) : null; return ch != null ? pos3(0, ch, v) : null; })();
-      const st = ref => { const r = String(ref).split(/[;,]/)[0].trim(); let m; if ((m = r.match(/^(\d+):(\d+):(\d+)/))) return pos3(+m[1], +m[2], +m[3]); if ((m = r.match(/^(\d+)(?::(\d+))?/))) return pos3(0, +m[1], m[2] ? +m[2] : 1); return null; };
-      const en = ref => { if (lv2 || /^\d+:\d+:\d+/.test(String(ref))) return Infinity; const sp = olSpans(ref); return sp.length ? Math.max(...sp.map(x => x[1])) : Infinity; }; // olSpans: Kapitel*10000+Vers
-      const pick = list => { let best = null; for (const it of list) { const a = st(it.ref); if (a == null || a > P0) continue; if (en(it.ref) < (P0 % 1e8)) continue; best = it; } return best; };
-      if (P0 != null && !dafCur) {
-        const cont = [];
-        const secs = ol.sections.map(x => ({ x, items: x.items.filter(it => !!it.mz === mzOn) })).filter(o => o.items.length);
-        let sc = null; for (const o of secs) { const a = st(o.items[0].ref); if (a != null && a <= P0) sc = o; }
-        if (sc) {
-          if (st(sc.items[0].ref) < P0 && ol.sections.length > 1 && T(sc.x, 'head')) cont.push({ lvl: 0, text: T(sc.x, 'head') });
-          let list = sc.items, lvl = 1;
-          while (list && list.length) { const it = pick(list); if (!it) break; if (st(it.ref) < P0) cont.push({ lvl, text: T(it, 'text') }); list = it.sub; lvl++; }
-        }
-        if (cont.length) { const a = put.get(rows[0]) || []; put.set(rows[0], [...cont.map(c => ({ ...c, cont: true })), ...a.filter(h => !cont.some(c => c.text === h.text))]); }
-      } }
-    // Steht die Überschrift schon als eigener Absatz im Text (z. B. Ginzbergs Abschnittstitel): diesen Absatz als Überschrift zeigen statt sie doppelt einzufügen
-    const nrm = t => String(t || '').replace(/[\[\]⟨⟩()„“”"'’.,;:!?–-]+/g, ' ').replace(/\s+/g, ' ').trim().toLowerCase();
-    const cellTexts = row => [...row.children].filter(c => !c.classList.contains('lab')).map(c => { const k = c.cloneNode(true); k.querySelectorAll('sup, .note, .footnote').forEach(x => x.remove()); return nrm(k.textContent); }).filter(Boolean);
-    for (const [row, hs1] of put) {
-      const ct = cellTexts(row); if (!ct.length) continue;
-      const i = hs1.findIndex(h => !h.cont && ct.includes(nrm(h.text)));
-      if (i < 0) continue;
-      row.classList.add('olrow', 'olh' + Math.min(hs1[i].lvl, 3)); hs1.splice(i, 1);
-    }
-    for (const [row, hs0] of put) {
-      if (!hs0.length) continue;
-      // mehrere Unterpunkte derselben Ebene vor derselben Zeile (z. B. Frage und Antwort im selben Segment): in einer Zeile zusammenfassen
-      const hs = []; for (const h of hs0) { const last = hs[hs.length - 1]; if (last && h.lvl >= 2 && last.lvl === h.lvl && !last.cont && !h.cont) last.text += ' · ' + h.text; else hs.push({ ...h }); }
-      row.insertAdjacentHTML('beforebegin', hs.map(h => `<div class="olhead olh${Math.min(h.lvl, 3)}${h.cont ? ' olcont' : ''}" dir="auto">${esc(h.text)}${h.cont ? ` <small>(${esc(I18N.t('Fortsetzung'))})</small>` : ''}</div>`).join(''));
-    }
-    // gleiches Ebene-2-Etikett direkt hintereinander (z. B. zweimal „Gemara's objection“): nur die Linie zeigen
-    { let prev = null; $$('#rOut .olhead, #rOut .row.olrow').forEach(h => { if (!h.classList.contains('olhead')) { if (h.classList.contains('olh0') || h.classList.contains('olh1')) prev = null; return; } if (h.classList.contains('olh0') || h.classList.contains('olh1')) { prev = null; return; } if (!h.classList.contains('olh2') || h.classList.contains('olcont')) return; if (prev !== null && h.textContent === prev) h.classList.add('olrep'); prev = h.textContent; }); }
-  }
-  async function olInline() {
-    const g = view && view.group;
-    if (!g || !olInlineOn()) { $$('#rOut .olhead').forEach(x => x.remove()); return; }
-    const c = olOwnCached(g);
-    if (c !== undefined) { olInlineApply(g, c); return; }
-    const ol = await olOwnFor(g);
-    if (view && view.group === g) withAnchor(() => olInlineApply(g, ol)); // erst geladen: Leseposition beim Einfügen halten
-  }
-  // aktuelle Stelle: der gerade gespielte Vers, sonst der Vers in der Leseansicht
-  // Buch:Kapitel (z. B. Josephus): der Abschnitt ist das Buch („Buch 18“), die Zeilen heißen „Kapitel:Absatz“ („3:5“).
-  // Stelle = Buch aus dem Abschnitt, Kapitel aus der obersten sichtbaren Zeile → {ch: 18, v: 3}
-  const olBookNo = s => { const n = s ? String(s.label || '').match(/\d+/g) : null; return n ? +n[n.length - 1] : null; };
-  function olTopRow() { const top = syncTop(); return $$('#rOut .row[data-l]').find(x => x.getBoundingClientRect().bottom > top + 4) || null; }
-  function olSecPos() {
-    const b = olBookNo(view && view.sections && view.sections[view.idx]); if (b == null) return null;
-    const r = olTopRow(), m = r && String(r.dataset.l).match(/^(\d+)/);
-    return { ch: b, v: m ? +m[1] : 1 };
-  }
-  function olPos(g, lv2) { if (lv2) return olSecPos(); const c = AU.cur; if (c && g && c.book === g.title) return { ch: c.ch, v: c.v }; return auChapterSafe(); }
-  // liegt die Stelle (Kapitel, Vers) im ref der Gliederung? („1:27-2:5“, „4-5“, „3“, „15:32-37, 16:14-19“)
-  const olPlaying = g => !!(AU.cur && g && AU.cur.book === g.title);
-  const olSpanCache = new Map(); // ref-Text → Liste von [von, bis] als Kapitel*10000+Vers (einmal geparst)
-  function olSpans(ref) {
-    ref = String(ref); let r = olSpanCache.get(ref); if (r) return r; r = [];
-    for (const part of ref.split(/[;,]/)) {
-      const m = part.trim().match(/^(\d+)(?::(\d+))?(?:\s*[-–]\s*(\d+)(?::(\d+))?)?$/); if (!m) continue;
-      let a, b;
-      if (m[2]) { a = [+m[1], +m[2]]; b = m[4] ? [+m[3], +m[4]] : m[3] ? [+m[1], +m[3]] : a; } else { a = [+m[1], 0]; b = [m[3] ? +m[3] : +m[1], 9999]; }
-      r.push([a[0] * 10000 + a[1], b[0] * 10000 + b[1]]);
-    }
-    olSpanCache.set(ref, r); return r;
-  }
-  function olIn(ref, pos, wholeCh) { // wholeCh: alle Punkte, die das Kapitel berühren; sonst nur der Punkt mit dem Vers
-    if (!pos) return false;
-    const lo = pos.ch * 10000 + (wholeCh ? 0 : pos.v), hi = pos.ch * 10000 + (wholeCh ? 9999 : pos.v);
-    return olSpans(ref).some(([x, y]) => hi >= x && lo <= y);
-  }
-  function olChips() { if ($('#outlinePanel').hidden) return; // gleiche Überschriftzeile nicht in direkt aufeinanderfolgenden, aufgeklappten Gruppen wiederholen
-    let last = null;
-    $$('#olBody .olsubs').forEach(w => { const cs = [...w.querySelectorAll(':scope > .olchip')]; cs.forEach(c => { c.hidden = false; }); if (w.hidden) return; if (cs[0] && cs[0].dataset.blk === last) cs[0].hidden = true; if (cs.length) last = cs[cs.length - 1].dataset.blk; });
-  }
-  function olToggle(w, open, silent, how) { w.hidden = !open; if (how) w.dataset.how = how; if (!silent) olChips(); const t = w.previousElementSibling && w.previousElementSibling.querySelector('.oltg'); if (t) { t.textContent = open ? '▾' : '▸'; t.setAttribute('aria-expanded', open ? 'true' : 'false'); } }
-  function olMark(scroll) {
-    const pnl = $('#outlinePanel'); if (!pnl || pnl.hidden) return;
-    // Nach Klick im Panel: angeklickten Punkt auf dem Bildschirm festhalten, auch wenn andere Gruppen auf-/zuklappen
-    const holdEl = window.__olHold && Date.now() < window.__olHold ? $$('#olBody .olc').find(x => x.dataset.r === window.__olClicked) : null;
-    let holdBox = null, holdTop = 0; if (holdEl) { holdBox = holdEl.parentElement; while (holdBox && holdBox !== document.body && !(holdBox.scrollHeight > holdBox.clientHeight + 2 && /auto|scroll/.test(getComputedStyle(holdBox).overflowY))) holdBox = holdBox.parentElement; if (holdBox === document.body) holdBox = null; holdTop = holdEl.getBoundingClientRect().top; }
-    const g = view && view.group, ol = g && olOwnCached(g), lv2 = !!(ol && ol.levels === 2), pos = olPos(g, lv2), whole = !lv2 && !olPlaying(g); let first = null;
-    const hr = !lv2 && !olPlaying(g) ? $('#rOut .row.hit[data-l]') : null, tr = !lv2 && !olPlaying(g) ? (hr && hr.getBoundingClientRect().bottom > 0 && hr.getBoundingClientRect().top < innerHeight ? hr : olTopRow()) : null, tv = tr ? (m => m ? +m[1] : null)(String(tr.dataset.l).match(/(\d+)\s*[a-z]?\s*$/i)) : null, vpos = pos && tv ? { ch: pos.ch, v: tv } : pos; // Unterpunkte: nur der Punkt mit dem Vers am oberen Rand
-    $$('#olBody .olc').forEach(el => { const sub = el.classList.contains('olsub'), on = olIn(el.dataset.r, sub || tv ? vpos : pos, whole && !sub && !tv); el.classList.toggle('cur', on); if (on && !first) first = el; });
-    if (!first && vpos) { // Gliederungen aus einzelnen Punkten statt Bereichen (z. B. Krauss: „1:5“, „49:1“): der letzte Punkt vor der aktuellen Stelle gilt als „hier“
-      const key = vpos.ch * 10000 + vpos.v; let best = null, bs = -1;
-      $$('#olBody .olc:not(.olsub)').forEach(el => { const sp = olSpans(el.dataset.r)[0]; if (sp && sp[0] <= key && sp[0] >= bs) { bs = sp[0]; best = el; } });
-      if (best) { best.classList.add('cur'); first = best; }
-    }
-    { // überlappende Unterpunkte (z. B. 1:10–20 und 1:12–14): nur den genauesten (schmalsten) markieren
-      const wd = el => olSpans(el.dataset.r).reduce((a, [x, y]) => a + (y - x), 0), cs = $$('#olBody .olc.cur.olsub');
-      if (cs.length > 1) { const pk = cs.find(el => el.dataset.r === window.__olClicked), mn = Math.min(...cs.map(wd)); let kept = false; cs.forEach(el => { if (pk ? el !== pk : (wd(el) > mn || kept)) el.classList.remove('cur'); else kept = true; }); first = $('#olBody .olc.cur'); }
-    }
-    const curW = new Set(); // Gruppen mit markiertem Punkt: automatisch aufklappen, außer der Nutzer hat sie bei unverändertem Punkt zugeklappt
-    $$('#olBody .olc.cur').forEach(el => { const w = el.classList.contains('olsub') ? el.closest('.olsubs') : (el.nextElementSibling && el.nextElementSibling.classList.contains('olsubs') ? el.nextElementSibling : null); if (!w) return; curW.add(w); if (w.hidden && !(w.dataset.how === 'user-closed' && w.dataset.seen === '1')) olToggle(w, true, true, w.dataset.how === 'user-open' ? 'user-open' : 'auto'); });
-    $$('#olBody .olsubs').forEach(w => { if (curW.has(w)) w.dataset.seen = '1'; else { delete w.dataset.seen; if (!w.hidden && w.dataset.how === 'auto') olToggle(w, false, true, ''); } }); // selbst aufgeklappte Gruppen ohne Markierung wieder schließen
-    olChips();
-    if (holdBox && holdEl.isConnected) holdBox.scrollTop += holdEl.getBoundingClientRect().top - holdTop;
-    if (first) olKeepVisible(first, scroll); // nur das Gliederungs-Panel scrollen, nie das Lesefenster
-  }
-  // markierten Eintrag in der Gliederung sichtbar halten, ohne die Leseansicht zu verschieben
-  function olKeepVisible(el, center) {
-    let box = el.parentElement; while (box && box !== document.body && !(box.scrollHeight > box.clientHeight + 2 && /auto|scroll/.test(getComputedStyle(box).overflowY))) box = box.parentElement;
-    if (!box || box === document.body) return;
-    const r = el.getBoundingClientRect(), b = box.getBoundingClientRect();
-    if (window.__olHold && Date.now() < window.__olHold) return; // gerade im Panel geklickt: nicht nachscrollen
-    if (center ? (r.top < b.top || r.bottom > b.bottom) : (r.top < b.top || r.bottom > b.bottom)) box.scrollTop += r.top - b.top - (b.height - r.height) / 2;
-  }
-  // beim Lesen (Scrollen) die Markierung in Buch:Kapitel-Gliederungen mitführen
-  { let olScrollT = null, olLastPos = '';
-    window.addEventListener('scroll', () => {
-      if ($('#outlinePanel').hidden) return;
-      clearTimeout(olScrollT);
-      olScrollT = setTimeout(() => {
-        const g = view && view.group, ol = g && olOwnCached(g); if (!ol) return;
-        let k; if (ol.levels === 2) { const p = olSecPos(); k = p ? p.ch + ':' + p.v : ''; } else { const r = olTopRow(); k = (view.idx) + '|' + (r ? r.dataset.l : ''); } if (k === olLastPos) return; olLastPos = k; olMark(false);
-      }, 120);
-    }, { passive: true });
-  }
-  function auChapterSafe() { const ch = typeof auChapter === 'function' ? auChapter() : null; if (ch == null || !view) return null; const l = $('#rOut .row.hit[data-l]') || $('#rOut .row[data-l]'); return { ch, v: l && /^\d+$/.test(l.dataset.l) ? +l.dataset.l : 1 }; }
-  const olPlace = () => { const h = document.querySelector('header'); const t = (h ? h.getBoundingClientRect().bottom : 44) + 'px'; $('#outlinePanel').style.top = t; $('#tpResize').style.top = t; };
-  $('#olBtn').onclick = () => { if (!$('#outlinePanel').hidden) { $('#outlinePanel').hidden = true; return; } $('#topicPanel').hidden = true; $('#mapPanel').hidden = true; olPlace(); $('#outlinePanel').hidden = false; renderOutline(); };
-  $('#olClose').onclick = () => { $('#outlinePanel').hidden = true; };
-  // Klick außerhalb oder Esc schließt die Gliederung
-  document.addEventListener('mousedown', e => { const p = $('#outlinePanel'); if (p.hidden || p.classList.contains('docked') || e.target.closest('#outlinePanel, #olBtn, #tpResize, #suggest, #audioBar')) return; p.hidden = true; });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('#outlinePanel').hidden) { $('#outlinePanel').hidden = true; e.stopPropagation(); } }, true);
-  new MutationObserver(() => { $('#tpResize').hidden = $('#topicPanel').hidden && $('#outlinePanel').hidden; }).observe($('#outlinePanel'), { attributes: true, attributeFilter: ['hidden'] });
-  const olSetMz = on => { try { localStorage.setItem('olMz', on ? '1' : '0'); } catch { /* ohne Speicher */ } renderOutline(); };
-  $('#olTabT').onclick = () => olSetMz(false); $('#olTabM').onclick = () => olSetMz(true);
-  $('#mapOl').onclick = () => { $('#mapPanel').hidden = true; $('#olBtn').click(); };
-  $('#olBody').addEventListener('keydown', e => { if ((e.key === 'Enter' || e.key === ' ') && e.target.closest && e.target.closest('.oltg, .olp')) { e.preventDefault(); e.target.click(); } });
-  $('#olBody').addEventListener('click', e => {
-    const mp = e.target.closest('.olmap'); if (mp) { const q = mp.closest('.olp'); e.stopPropagation(); window.__olLast = q.dataset.r; window.__mapOpenFor && window.__mapOpenFor(view.group.title, q.dataset.r, q.querySelector('.ref').textContent + ' ' + (q.querySelector('.tx, .he')?.firstChild?.textContent || '')); return; }
-    const tg = e.target.closest('.oltg'); if (tg) { const w = tg.closest('.olp').nextElementSibling; if (w && w.classList.contains('olsubs')) { e.stopPropagation(); olToggle(w, w.hidden, false, w.hidden ? 'user-open' : 'user-closed'); } return; }
-    const p = e.target.closest('.olp'); if (!p) return;
-    if (p.dataset.sec) { // Buch:Kapitel → Abschnitt „Buch b“ öffnen und zur ersten Zeile von Kapitel c („c:1“) scrollen
-      const [b, c] = p.dataset.sec.split(':').map(Number);
-      const idx = view && view.sections ? view.sections.findIndex(s => olBookNo(s) === b) : -1;
-      if (idx < 0) return;
-      const goRow = () => { const r = $$('#rOut .row[data-l]').find(x => +String(x.dataset.l).split(':')[0] === c); if (r) window.scrollBy(0, r.getBoundingClientRect().top - syncTop()); olMark(false); };
-      if (idx !== view.idx || view.vf) { view.idx = idx; view.vf = null; renderSection(); requestAnimationFrame(goRow); } else goRow();
-      return;
-    }
-    window.__olHold = Date.now() + 1500; // Klick im Panel: Panel bleibt stehen, nur der Text springt
-    window.__olClicked = p.dataset.r; // der angeklickte Punkt bleibt bei überlappenden Unterpunkten markiert
-    { // dreistufige Zählung (z. B. Ginzbergs Legenden, Band:Kapitel:Absatz): Abschnitt [Band, Kapitel] öffnen und zum Absatz scrollen
-      const m3 = String(p.dataset.r).match(/^(\d+):(\d+):(\d+)$/);
-      let idx = m3 && view && view.sections ? view.sections.findIndex(s => { const q = (s.path || []).filter(x => typeof x === 'number'); return q.length === 2 && q[0] === +m3[1] - 1 && q[1] === +m3[2] - 1; }) : -1;
-      const byVol = idx < 0 && m3 && view && view.sections ? view.sections.findIndex(s => { const q = (s.path || []).filter(x => typeof x === 'number'); return q.length === 1 && q[0] === +m3[1] - 1; }) : -1; // Abschnitt = Band, Zeilen „Kapitel:Absatz“
-      if (byVol >= 0) idx = byVol;
-      if (idx >= 0) {
-        const want = byVol >= 0 ? m3[2] + ':' + m3[3] : null;
-        const goPar = () => { const r = $$('#rOut .row[data-l]').find(x => want ? String(x.dataset.l) === want : String(x.dataset.l).split(':').pop() === m3[3]); if (r) window.scrollBy(0, r.getBoundingClientRect().top - syncTop()); olMark(false); };
-        if (idx !== view.idx || view.vf) { view.idx = idx; view.vf = null; renderSection(); requestAnimationFrame(goPar); } else goPar();
-        return;
-      }
-    }
-    { // komplexer Text (Teile): Kapitel im geöffneten Teil öffnen und zum Vers scrollen
-      const nd = olNode(view && view.group), m = nd && String(p.dataset.r).match(/^(\d+)(?::(\d+))?/);
-      if (nd && m && view.sections) {
-        const key = nd.slice(view.group.title.length + 2), ch = +m[1] - 1, vs = m[2] || '1';
-        const idx = view.sections.findIndex(s => s.path && s.path[0] === key && (s.path.length < 2 || s.path[1] === ch));
-        if (idx >= 0) {
-          const goVerse = () => { const r = $$('#rOut .row[data-l]').find(x => String(x.dataset.l).split(':').pop() === vs); if (r) window.scrollBy(0, r.getBoundingClientRect().top - syncTop()); olMark(false); };
-          if (idx !== view.idx || view.vf) { view.idx = idx; view.vf = null; renderSection(); requestAnimationFrame(goVerse); } else goVerse();
-          return;
-        }
-      }
-    }
-    jumpTo(p.dataset.ref, BG(e));
+  // reader-module:outline
+  const outlineUI = window.LibraryOutline.create({
+    get $() { return $; },
+    get $$() { return $$; },
+    get apSoon() { return apSoon; },
+    get AU() { return AU; },
+    get auChapter() { return auChapter; },
+    get BG() { return BG; },
+    get ctxShow() { return ctxShow; },
+    get esc() { return esc; },
+    get hovApi() { return linksUI.hovApi; }, set hovApi(value) { linksUI.hovApi = value; },
+    get IS_PANE2() { return IS_PANE2; },
+    get jumpTo() { return jumpTo; },
+    get openInPane2() { return openInPane2; },
+    get renderSection() { return renderSection; },
+    get syncTop() { return syncTop; },
+    get view() { return view; }, set view(value) { view = value; },
+    get withAnchor() { return withAnchor; },
   });
-  const TPS = window.topics;
-  let topicsReady = false, tpIdx = null, tpSec = [], tpSecKey = '';
-  const tpS = { slug: null, data: null, tab: 'notable', sort: 'rel', n: 60, q: '', sq: '', books: new Set(), booksOpen: false, stack: [] };
-  const tpBookOf = ref => ref.replace(/\s+[\dIVXLC][\dabIVXLC:.,\- ]*$/, '').split(', ')[0];
-  const tpLang = () => (I18N.lang === 'he' ? 'he' : 'en');
-  const tpName = t => (I18N.lang === 'he' && t.he) ? t.he : (t.en || t.slug || t.s);
-  async function refreshTopicStatus() {
-    const st = await TPS.status();
-    topicsReady = st.complete;
-    $('#tpInfo').textContent = st.complete ? I18N.t('✓ vollständig vorhanden') : st.count ? `${st.count} / ${st.total}` : I18N.t('noch nicht heruntergeladen');
-    $('#tpGet').textContent = st.complete ? I18N.t('Erneut laden') : st.count ? I18N.t('Fortsetzen') : I18N.t('Themen herunterladen');
-    return st;
-  }
-  $('#tpGet').onclick = async () => {
-    $('#tpGet').disabled = true; $('#tpStop').disabled = false; $('#tpProg').hidden = false;
-    const r = await TPS.build();
-    $('#tpStop').disabled = true; $('#tpProg').hidden = true; $('#tpGet').disabled = false; tpIdx = null;
-    await refreshTopicStatus();
-    if (r.error) $('#tpInfo').textContent = '⚠ ' + r.error;
-    else if (r.failed) $('#tpInfo').textContent += ' · ' + I18N.t('{} Fehler (erneut starten zum Fortsetzen)', r.failed);
-    if (view) loadTopics(view.sections[view.idx]);
-  };
-  $('#tpStop').onclick = () => TPS.cancel();
-  TPS.onProgress(p => { $('#tpProg').max = p.total || 1; $('#tpProg').value = p.file; $('#tpInfo').textContent = `${I18N.t(p.phase)} (${p.file}/${p.total})`; });
+  // end-reader-module:outline
 
-  function btnLbl(sel, icon, key, n) { const el = $(sel); if (el) el.innerHTML = `${icon}<span class="bl">${esc(I18N.t(key))}</span>${n ? ' ' + n : ''}`; }
-  async function loadTopics(s) {
-    $('#tpBtn').hidden = !topicsReady; tpSec = []; tpSecKey = '';
-    if (!topicsReady || !view || !s) return;
-    const first = s.label.split(' › ')[0];
-    const m = s.path.length === 1 && !s.label.includes('›') && first.match(/(\d+[ab]?)$/i);
-    if (!m) { btnLbl('#tpBtn', '🏷', 'Themen', 0); return; }
-    const token = view.idx + ':' + view.group.key;
-    let rows = []; try { rows = await TPS.section(view.group.title, m[1]); } catch { rows = []; }
-    if (!view || token !== view.idx + ':' + view.group.key) return;
-    tpSec = rows; tpSecKey = view.group.title + ' ' + m[1];
-    btnLbl('#tpBtn', '🏷', 'Themen', rows.length);
-    apSoon();
-    if (!$('#topicPanel').hidden && !tpS.slug) renderTopicPanel();
-  }
-  const tpSort = (a, b) => {
-    const A = a.o, B = b.o, lang = tpLang();
-    if (!A && !B) return 0;
-    if (!A !== !B) return A ? -1 : 1;
-    if (tpS.sort === 'chrono') return A.d === B.d ? (A.id < B.id ? -1 : A.id > B.id ? 1 : 0) : A.d - B.d;
-    const i = lang === 'he' ? 1 : 0;
-    if (A.cp[i] > 0 || B.cp[i] > 0) return B.cp[i] - A.cp[i];
-    if (lang === 'en' && A.al.length !== B.al.length) return A.al.includes('en') ? -1 : B.al.includes('en') ? 1 : 0;
-    if (A.pr !== B.pr) return B.pr - A.pr;
-    return B.s - A.s;
-  };
-  const tpPara = s => esc(s || '').trim().replace(/\n\s*\n/g, '<br><br>');
-  const REL = { 'is-a': 'Ist ein', 'parent-of': 'Übergeordnet zu', 'child-of': 'Untergeordnet zu', 'related-to': 'Verwandt', 'member-of': 'Gehört zu', 'has-role': 'Rolle', 'participates-in': 'Beteiligt an', 'person-participates-in-event': 'Beteiligte', 'spouse-of': 'Ehepartner', 'sibling-of': 'Geschwister', 'opposed': 'Gegensatz', 'has-relationship': 'Beziehungen' };
-  async function renderTopicPanel() {
-    const body = $('#tpBody'); const fl = $('#tpFilter'); fl.hidden = !!tpS.slug; fl.placeholder = I18N.t('Thema suchen (z. B. Abraham, Pessach) …'); if (fl.value !== tpS.q) fl.value = tpS.q;
-    if (!tpS.slug) {
-      $('#tpTitle').textContent = I18N.t('Themen');
-      let rows, head = '';
-      if (tpS.q) {
-        if (!tpIdx) tpIdx = await TPS.list();
-        const q = tpS.q.toLowerCase();
-        rows = tpIdx.filter(x => (x.en || '').toLowerCase().includes(q) || (x.he || '').includes(tpS.q)).sort((a, b) => (b.n - a.n)).slice(0, 80).map(x => ({ slug: x.s, en: x.en, he: x.he, n: x.n }));
-        head = `<p class="muted">${esc(I18N.t('{} Treffer', rows.length))}</p>`;
-      } else {
-        rows = tpSec; head = `<p class="muted">${esc(tpSecKey ? I18N.t('Themen in {}', tpSecKey) : I18N.t('Gib einen Namen ein, um ein Thema zu suchen.'))}</p>`;
-        if (tpSecKey && !rows.length) head += `<p class="muted">${esc(I18N.t('Keine Themen zu diesem Abschnitt.'))}</p>`;
-      }
-      body.innerHTML = head + rows.map(r => `<button class="tpItem" data-slug="${esc(r.slug)}"><b>${esc(tpName(r))}</b>${r.he && I18N.lang !== 'he' ? ` <span class="he muted" lang="he">${esc(r.he)}</span>` : ''}${r.verses ? ` <span class="muted">· ${esc(I18N.t('V. {}', r.verses.slice(0, 6).join(', ') + (r.verses.length > 6 ? ' …' : '')))}</span>` : ''}</button>`).join('');
-      return;
-    }
-    if (!tpS.data || tpS.data.slug !== tpS.slug) { body.innerHTML = `<p class="muted">…</p>`; tpS.data = await TPS.get(tpS.slug); }
-    const d = tpS.data;
-    if (!d) { body.innerHTML = `<p class="muted">${esc(I18N.t('Thema nicht gefunden.'))}</p><button data-act="back">←</button>`; return; }
-    $('#tpTitle').textContent = tpName(d);
-    const lang = tpLang(), allN = d.notable, allO = d.sources;
-    const bookCount = new Map(); allN.concat(allO).forEach(x => { const b = tpBookOf(x.r); bookCount.set(b, (bookCount.get(b) || 0) + 1); });
-    const bookList = [...bookCount.entries()].sort((a, b) => b[1] - a[1] || (a[0] < b[0] ? -1 : 1));
-    tpS.bookList = bookList.map(x => x[0]);
-    const sqq = tpS.sq.toLowerCase();
-    const keep = x => (!tpS.books.size || tpS.books.has(tpBookOf(x.r))) && (!sqq || x.r.toLowerCase().includes(sqq) || JSON.stringify(x.d || '').toLowerCase().includes(sqq));
-    const notable = allN.filter(keep), others = allO.filter(keep);
-    const tab = tpS.tab === 'notable' && !allN.length ? 'sources' : tpS.tab;
-    if (tpS.auto !== d.slug + '|' + tab) { tpS.auto = d.slug + '|' + tab; tpS.sort = tab === 'sources' ? 'chrono' : 'rel'; } // „Alle Quellen“ zuerst chronologisch, „Notable Sources“ nach Relevanz
-    const notableSorted = notable.slice().sort(tpSort), othersSorted = others.slice().sort(tpSort);
-    const list = tab === 'notable' ? notableSorted : notable.concat(others).sort(tpSort);
-    const text = d.desc && (d.desc[lang] || d.desc.en || d.desc.he);
-    const chips = Object.entries(d.links || {}).map(([k, arr]) => `<div><span class="muted">${esc(I18N.t(REL[k] || k))}:</span> <span class="tpChips">${arr.slice(0, 14).map(x => `<button data-slug="${esc(x.t)}">${esc(I18N.lang === 'he' && x.he ? x.he : x.en)}</button>`).join('')}</span></div>`).join('');
-    body.innerHTML = `<button data-act="back">←</button>
-      ${d.he && I18N.lang !== 'he' ? `<div class="he" lang="he"><b>${esc(d.he)}</b></div>` : ''}
-      ${text ? `<p>${tpPara(text)}</p>` : ''}
-      ${chips}
-      <input id="tpSq" class="tpSq" value="${esc(tpS.sq)}" placeholder="${esc(I18N.t('Quellen filtern (z. B. Rashi, Genesis) …'))}">
-      <div class="tpTabs">
-        ${allN.length ? `<button data-tab="notable" class="${tab === 'notable' ? 'on' : ''}">${esc(I18N.t('Notable Sources'))} (${notable.length})</button>` : ''}
-        <button data-tab="sources" class="${tab === 'sources' ? 'on' : ''}">${esc(I18N.t(allN.length ? 'Alle Quellen' : 'Quellen'))} (${notable.length + others.length})</button>
-        <span class="spacer"></span>
-        <select data-act="sort"><option value="rel"${tpS.sort === 'rel' ? ' selected' : ''}>${esc(I18N.t('Relevanz'))}</option><option value="chrono"${tpS.sort === 'chrono' ? ' selected' : ''}>${esc(I18N.t('Chronologisch'))}</option></select>
-      </div>` + list.slice(0, tpS.n).map(x => {
-        const de = x.d && (x.d[lang] || x.d.en || x.d.he);
-        return `<div class="tpSrc"><a data-ref="${esc(x.r)}">${esc(x.r)}</a>${de ? `<div class="tpD">${de.t ? `<b>${esc(de.t)}</b><br>` : ''}${tpPara(de.p)}</div>` : ''}</div>`;
-      }).join('') + (!list.length ? `<p class="muted">${esc(I18N.t('Keine Quellen für diesen Filter.'))}</p>` : '') + (list.length > tpS.n ? `<button data-act="more">${esc(I18N.t('Mehr anzeigen'))} (${list.length - tpS.n})</button>` : '');
-  }
-  function openTopic(slug, push = true) {
-    if (push && tpS.slug) tpS.stack.push(tpS.slug);
-    tpS.slug = slug; tpS.data = null; tpS.n = 60; tpS.tab = 'notable'; tpS.sq = ''; tpS.books = new Set();
-    placeTp(); $('#topicPanel').hidden = false; renderTopicPanel(); $('#topicPanel').scrollTop = 0;
-  }
-  const placeTp = () => { const h = document.querySelector('header'); const t = (h ? h.getBoundingClientRect().bottom : 44) + 'px'; $('#topicPanel').style.top = t; $('#tpResize').style.top = t; };
-  // Breite per Ziehen am linken Rand (gemeinsam mit Kommentar- und Wörterbuchleiste)
-  new MutationObserver(() => { $('#tpResize').hidden = $('#topicPanel').hidden && $('#outlinePanel').hidden; }).observe($('#topicPanel'), { attributes: true, attributeFilter: ['hidden'] });
-  $('#tpResize').addEventListener('mousedown', ev => {
-    ev.preventDefault(); const rt = document.documentElement; rt.classList.add('cmt-dragging');
-    const off = IS_PANE2 ? 0 : (rt.classList.contains('split') ? window.innerWidth * (parseFloat(getComputedStyle(rt).getPropertyValue('--p2w')) / 100) : 0);
-    const mv = e2 => window.setPanelW(window.innerWidth - off - e2.clientX);
-    const up = () => { rt.classList.remove('cmt-dragging'); document.removeEventListener('mousemove', mv); document.removeEventListener('mouseup', up); };
-    document.addEventListener('mousemove', mv); document.addEventListener('mouseup', up);
+  // reader-module:map
+  const mapUI = window.LibraryMap.create({
+    get $() { return $; },
+    get $$() { return $$; },
+    get auChapter() { return auChapter; },
+    get BG() { return BG; },
+    get btnLbl() { return outlineUI.btnLbl; },
+    get esc() { return esc; },
+    get groups() { return groups; }, set groups(value) { groups = value; },
+    get hovApi() { return linksUI.hovApi; }, set hovApi(value) { linksUI.hovApi = value; },
+    get jumpTo() { return jumpTo; },
+    get libCmpGroups() { return linksUI.libCmpGroups; },
+    get newId() { return notesUI.newId; },
+    get notesAll() { return notesUI.notesAll; }, set notesAll(value) { notesUI.notesAll = value; },
+    get olOwn() { return outlineUI.olOwn; },
+    get olOwnCache() { return outlineUI.olOwnCache; },
+    get openNoteDlg() { return notesUI.openNoteDlg; },
+    get topOrder() { return notesUI.topOrder; },
+    get view() { return view; }, set view(value) { view = value; },
   });
-  $('#tpResize').addEventListener('dblclick', () => window.setPanelW(400));
-  $('#tpBtn').onclick = () => { $('#outlinePanel').hidden = true; $('#mapPanel').hidden = true; placeTp(); tpS.slug = null; tpS.stack = []; tpS.q = ''; $('#tpFilter').value = ''; $('#topicPanel').hidden = false; renderTopicPanel(); };
-  $('#tpClose').onclick = () => { $('#topicPanel').hidden = true; };
-
-  // ---------- Karte: Orte des Kapitels (OpenBible.info) auf einem Relief aus dem Copernicus-Höhenmodell ----------
-  const BM = window.BMAP, BB = window.BBORD;
-  // Orte der Werke des Josephus (ToposText, ODC-BY) werden zu den Bibelorten hinzugefügt; „Kapitel“ = Buch*1000+Kapitel (0 = Vorwort)
-  if (BM && window.BMJOS) {
-    BM.nOrig = BM.books.length; BM.j3 = new Set(); const km = (a, b) => Math.hypot((a[0] - b[0]) * 95, (a[1] - b[1]) * 111), nn = s => String(s).replace(/\(.*?\)/g, '').split('/')[0].toLowerCase().replace(/[^a-z]/g, ''), seen = new Map();
-    window.BMJOS.forEach(w => {
-      const bi = BM.books.push(w.title) - 1; if (w.depth3) BM.j3.add(bi); const map = w.places.map(pl => {
-        const key = pl[0] + '|' + pl[2] + '|' + pl[3]; if (seen.has(key)) return seen.get(key);
-        let ix = BM.places.findIndex(p => !p[7] && nn(p[0]) === nn(pl[0]) && km([p[2], p[3]], [pl[2], pl[3]]) < 25); // gleicher Ort schon aus OpenBible?
-        if (ix < 0) { ix = BM.places.push([pl[0], pl[1], pl[2], pl[3], [], '', []]) - 1; }
-        if (!BM.places[ix][7]) BM.places[ix][7] = { g: pl[4], pl: pl[5], wd: pl[6] };
-        seen.set(key, ix); return ix;
-      });
-      Object.entries(w.by).forEach(([k, l]) => l.forEach(n => BM.places[map[n]][4].push(w.depth3 ? [bi, +k, 0] : [bi, Math.floor(k / 1000), k % 1000])));
-    });
-  }
-  // Orte der rabbinischen Literatur (ALMA, Ido Wachtel/HUJI GIS): je Werk Orte und Abschnittsschlüssel (Pfad des Abschnitts, „|“-getrennt);
-  // Einträge [Buch, Schlüssel, Segment, Stelle] – Schlüssel ist hier eine Zeichenkette, die Stelle dient als Link
-  if (BM && window.BMALMA) {
-    BM.alma = new Set(); const km = (a, b) => Math.hypot((a[0] - b[0]) * 95, (a[1] - b[1]) * 111), nn = s => String(s || '').replace(/\(.*?\)/g, '').toLowerCase().replace(/[^a-z]/g, ''), seen = new Map();
-    // Derselbe Ort schon vorhanden? Gleicher Name; sonst gleicher hebräischer Name (ohne Vokalzeichen und Lesemütter) oder gleiches Umschrift-Gerüst
-    // (Beth-shean = Bet Shean, Lydda = Lod, Jabneh = Yavne), auch über die weiteren Namen – jeweils nur bei nahezu gleicher Lage
-    const FIN = { 'ך': 'כ', 'ם': 'מ', 'ן': 'נ', 'ף': 'פ', 'ץ': 'צ' };
-    const heC = s => String(s || '').replace(/[^א-ת]/g, '').replace(/[ךםןףץ]/g, c => FIN[c]), heS = s => heC(s).replace(/[וי]/g, '').replace(/א$/, 'ה');
-    const enS = s => String(s || '').replace(/\(.*?\)/g, '').toLowerCase().replace(/[^a-z]/g, '').replace(/th/g, 't').replace(/ph/g, 'f').replace(/sh/g, 's').replace(/tz|ts|z/g, 's').replace(/kh|ch/g, 'h').replace(/ck|q|c/g, 'k').replace(/[vw]/g, 'b').replace(/[aeiouyj]/g, '').replace(/(.)\1+/g, '$1').replace(/h$/, '');
-    const alts = s => String(s || '').split(/[,;/]/).map(enS).filter(x => x.length > 2);
-    const mk = (n, h, a, p) => { const ps = String(n || '').replace(/\(.*?\)/g, '').split(/[/,]/).map(x => x.trim()).filter(Boolean); // „Sepphoris/Diocaesarea (Palestine)“ -> zwei Namen
-      return { n: nn(ps[0]), ns: ps.map(nn), s: enS(ps[0]), h: heS(h), hc: heC(h), a: alts(a).concat(ps.slice(1).map(enS).filter(x => x.length > 2)), j: !!(p && p[7] && !p[5]) }; }; // j: Ort nur aus ToposText (Josephus), ohne hebräischen Namen
-    const KEY = BM.places.map(p => mk(p[0], p[5], p[9], p));
-    const AREA = /^(region|region\/people|people group|country|body of water|sea_lake|sea\/strait|lake|river|natural area|mountain range|)$/;
-    const find = pl => {
-      const c = mk(pl[0], pl[4], pl[5]); let best = -1, bs = 1e9;
-      for (let i = 0; i < BM.places.length; i++) {
-        const p = BM.places[i], k = KEY[i], d = km([p[2], p[3]], [pl[2], pl[3]]);
-        if (d >= 10) { if (d < 250 && k.ns.includes(c.n) && c.n.length > 2 && AREA.test(pl[1]) && AREA.test(p[1]) && 500 + d < bs) { bs = 500 + d; best = i; } continue; } // Gebiet/Land/Gewässer: die Quellen setzen den Mittelpunkt verschieden
-        const sc = k.ns.includes(c.n) ? d : c.hc.length > 1 && k.hc === c.hc ? 20 + d : d < 4 && c.h.length > 1 && k.h === c.h ? 30 + d : d < 6 && ((c.s.length > 2 && (k.s === c.s || k.a.includes(c.s))) || (k.s.length > 2 && c.a.includes(k.s))) ? 40 + d
-          : d < 0.55 && k.j && !AREA.test(pl[1]) && !AREA.test(p[1]) && km([pl[2], pl[3]], [35.235, 31.777]) > 3 ? 60 + d : -1; // zuletzt: dieselbe Fundstätte (ToposText und ALMA setzen Orte auf die Ausgrabung), auch bei ganz anderem Namen (Machairous = Mikhvar)
-        if (sc >= 0 && sc < bs) { bs = sc; best = i; }
-      }
-      return best;
-    };
-    window.BMALMA.forEach(w => {
-      let bi = BM.books.indexOf(w.title); if (bi < 0) bi = BM.books.push(w.title) - 1; BM.alma.add(bi);
-      const map = w.places.map(pl => {
-        const key = pl[0] + '|' + pl[2] + '|' + pl[3]; if (seen.has(key)) return seen.get(key);
-        let ix = find(pl);
-        if (ix < 0) { ix = BM.places.push([pl[0], pl[1], pl[2], pl[3], [], pl[4] || '', []]) - 1; KEY.push(mk(pl[0], pl[4], '')); }
-        const p = BM.places[ix]; if (!p[5] && pl[4]) { p[5] = pl[4]; KEY[ix].h = heS(pl[4]); }
-        const more = [nn(pl[0]) !== nn(p[0]) ? pl[0] : '', ...String(pl[5] || '').split(/[,;]/)].map(x => x.trim()).filter(Boolean); // weitere Namen (auch die abweichende ALMA-Umschrift)
-        if (more.length) { const have = String(p[9] || '').split(', ').filter(Boolean); more.forEach(x => { if (!have.some(y => nn(y) === nn(x)) && nn(x) !== nn(p[0])) have.push(x); }); if (have.length) { p[9] = have.join(', '); KEY[ix].a = alts(p[9]); } }
-        seen.set(key, ix); return ix;
-      });
-      Object.entries(w.by).forEach(([k, l]) => l.forEach(([n, v, ref, per]) => BM.places[map[n]][4].push([bi, k, v, ref, per || 'O'])));
-    });
-    // Prüfhilfe: Orte mit verschiedenem Namen, die weniger als 3 km auseinanderliegen (mögliche Doppelgänger: der eine nur aus ALMA, der andere ohne ALMA-Stellen) – in der Konsole: __mapNear()
-    window.__mapNear = (lim = 3) => { const out = [], only = p => p[4].length && p[4].every(e => BM.alma.has(e[0])), none = p => !p[4].some(e => BM.alma.has(e[0])); BM.places.forEach((a, i) => { for (let j = i + 1; j < BM.places.length; j++) { const b = BM.places[j]; if (Math.abs(a[3] - b[3]) > 0.05) continue; const d = km([a[2], a[3]], [b[2], b[3]]); if (d < lim && ((only(a) && none(b)) || (only(b) && none(a)))) out.push([a[0], b[0], +d.toFixed(2), a[5] || '', b[5] || '']); } }); return out; };
-  }
-  // Epoche eines Eintrags [Buch, Kapitel, Vers, Stelle?, Epoche?]: Bibel (OpenBible), 2. Tempel (Josephus/Makkabäer), sonst aus ALMA
-  const MPER = new Set(['B', 'S', 'T', 'A']); try { const v = JSON.parse(localStorage.getItem('mapPer') || 'null'); if (Array.isArray(v)) { MPER.clear(); v.forEach(x => MPER.add(x)); } } catch { /* egal */ }
-  const mapPerOf = e => e[4] || (BM.nOrig != null && e[0] >= BM.nOrig && !(BM.alma && BM.alma.has(e[0])) ? 'S' : 'B');
-  const mapPerOk = e => { const q = mapPerOf(e); return MPER.has(q === 'O' ? 'S' : q); };
-  const mapPlaceOk = p => MPER.size === 4 || p[4].some(mapPerOk);
-  // Farben der Epochen (dieselben wie auf den Epochen-Knöpfen und in der Legende, library.css) und Reihenfolge von früh nach spät
-  const MPCOL = { B: '#d6382f', S: '#8e44ad', T: '#1f6fd8', A: '#2e8b57' }, MPORD = ['B', 'S', 'T', 'A'], MPNAME = { B: 'Tanach', S: '2. Tempel', T: 'Tannaiten', A: 'Amoräer' };
-  const mapPm = i => (MP.pm || (MP.pm = BM.places.map(p => { let m = 0; p[4].forEach(e => { const q = mapPerOf(e); m |= 1 << Math.max(0, MPORD.indexOf(q === 'O' ? 'S' : q)); }); return m; })))[i]; // Epochen eines Ortes als Bitmaske
-  const mapPerMask = () => MPORD.reduce((m, k, n) => m | (MPER.has(k) ? 1 << n : 0), 0);
-  const mapCols = i => { const m = mapPm(i), e = (m & mapPerMask()) || m; return MPORD.filter((k, n) => e >> n & 1).map(k => MPCOL[k]); }; // früheste Epoche zuerst
-  // Ortstypen der Quellen (OpenBible, ToposText, ALMA) auf Deutsch; werden über I18N weiter übersetzt
-  const MTYPE = { settlement: 'Ortschaft', city: 'Stadt', village: 'Dorf', polity: 'Stadt oder Staat', country: 'Land', region: 'Gebiet', 'region/people': 'Gebiet oder Volk', 'people group': 'Volk', river: 'Fluss', 'body of water': 'Gewässer', sea_lake: 'Meer oder See', 'sea/strait': 'Meer', lake: 'See', mountain: 'Berg', 'mountain range': 'Gebirge', hill: 'Hügel', valley: 'Tal', wadi: 'Wadi', campsite: 'Lagerplatz', road: 'Straße', 'pass/road': 'Pass oder Straße', 'mountain pass': 'Pass', canal: 'Kanal', tree: 'Baum', structure: 'Bauwerk', building: 'Gebäude', gate: 'Tor', well: 'Brunnen', spring: 'Wasserquelle', pool: 'Teich', ford: 'Furt', cliff: 'Klippe', island: 'Insel', 'district in settlement': 'Stadtteil', rock: 'Fels', garden: 'Garten', altar: 'Altar', special: 'besonderer Ort', 'natural area': 'Landschaft', hall: 'Halle', field: 'Feld', forest: 'Wald', room: 'Raum', fortification: 'Festung', 'stone heap': 'Steinhaufen', 'sanctuary/temple': 'Heiligtum', deme: 'Demos', battlefield: 'Schlachtfeld', cape: 'Kap', monument: 'Denkmal', harbor: 'Hafen', location: 'Örtlichkeit' };
-  const mapTypeT = ty => { const de = MTYPE[ty]; if (!de) return ty || ''; const k = 'Ortstyp: ' + de, v = I18N.t(k); return v === k ? de : v; }; // Schlüssel mit Vorsatz, damit einzelne Wörter (See, Tor, Land) nicht anderswo in der Oberfläche übersetzt werden
-  const MAREA = /^(region|region\/people|people group|country|body of water|sea_lake|sea\/strait|lake|river|natural area|valley|wadi|canal)$/, MTRI = /^(mountain|mountain range|hill|cliff|rock)$/; // Flächen: kursiver Name ohne Punkt; Berge: Dreieck
-  // feste Grundbeschriftung (Gewässer, Landschaften): [englisch, deutsch, hebräisch, Länge, Breite, ab Zoom, bis Zoom, Wasser?]
-  const MBASE = [['Mediterranean Sea', 'Mittelmeer', 'הים התיכון', 30.6, 33.7, 0, 2.5, 1], ['Mediterranean Sea', 'Mittelmeer', 'הים התיכון', 34.25, 32.35, 2.5, 60, 1], ['Red Sea', 'Rotes Meer', 'ים סוף', 36.2, 25.4, 0, 6, 1], ['Persian Gulf', 'Persischer Golf', 'המפרץ הפרסי', 50.2, 27.9, 0, 6, 1], ['Caspian Sea', 'Kaspisches Meer', 'הים הכספי', 50.7, 40.6, 0, 6, 1], ['Black Sea', 'Schwarzes Meer', 'הים השחור', 34.5, 41.75, 0, 6, 1],
-    ['Cyprus', 'Zypern', 'קפריסין', 33.2, 35.0, 0.3, 20, 0], ['Sinai', 'Sinai', 'סיני', 33.8, 29.5, 0.25, 12, 0], ['Nile', 'Nil', 'נילוס', 31.55, 27.2, 0.3, 30, 1], ['Euphrates', 'Euphrat', 'פרת', 39.75, 35.45, 0.3, 30, 1], ['Tigris', 'Tigris', 'חידקל', 43.2, 35.1, 0.3, 30, 1],
-    ['Dead Sea', 'Totes Meer', 'ים המלח', 35.48, 31.5, 2.2, 200, 1], ['Sea of Galilee', 'See Genezareth', 'כנרת', 35.59, 32.82, 4.5, 200, 1], ['Jordan', 'Jordan', 'ירדן', 35.56, 32.2, 7, 200, 1]];
-  const mapSecKey = () => { const s = view && view.sections && view.sections[view.idx]; return s && s.path ? s.path.filter(x => x !== '').join('|') : null; };
-  // Jerusalem: OpenBible kennt für Tore, Türme, Teiche und Paläste nur den Stadtmittelpunkt. Hier sind Lagen nach Neh 3 und der Forschung gesetzt (vermutet, teils umstritten).
-  const JERPOS = { 'Sheep Gate': [35.2364, 31.7808], 'Fish Gate': [35.2305, 31.7815], 'Gate of Yeshanah': [35.2290, 31.7800], 'Valley Gate': [35.2263, 31.7720], 'Dung Gate': [35.2325, 31.7690], 'Fountain Gate': [35.2352, 31.7698], 'Water Gate': [35.2370, 31.7728], 'Horse Gate': [35.2368, 31.7770], 'East Gate': [35.2374, 31.7788], 'Muster Gate': [35.2368, 31.7798], 'Corner Gate': [35.2282, 31.7774], 'Ephraim Gate': [35.2275, 31.7790], 'Benjamin Gate': [35.2318, 31.7822], 'Potsherd Gate': [35.2312, 31.7686], 'Shallecheth': [35.2337, 31.7777],
-    'Tower of the Ovens': [35.2303, 31.7766], 'Tower of Hananel': [35.2360, 31.7803], 'Tower of the Hundred': [35.2364, 31.7804], 'Millo': [35.2362, 31.7752], 'Jebus': [35.2362, 31.7738], 'Lower Pool': [35.2348, 31.7692],
-    'House of the Forest of Lebanon': [35.2363, 31.7764], 'Hall of the Throne': [35.2363, 31.7764], 'Hall of Pillars': [35.2363, 31.7764], 'Hall of Judgment': [35.2363, 31.7764] };
-  BM.places.forEach(p => { const q = JERPOS[p[0]]; if (q && !p[7] && Math.abs(p[2] - 35.234) < 0.003 && p[3] > 31.776 && p[3] < 31.781) { p[2] = q[0]; p[3] = q[1]; p[8] = 1; } });
-  const mapJosKey = () => { const s = view && view.sections && view.sections[view.idx], p = s && s.path; if (!p) return null; if (p[0] === 'Preface') return 0; const nums = p.filter(x => typeof x === 'number'); return nums.length >= 1 ? nums[0] + 1 : null; }; // Seitenabschnitt = Buch (Kapitel stehen darin)
-  const MP = { img: null, ok: false, s: 1, tx: 0, ty: 0, cur: [], sel: -1, alt: -1, byChap: null, byBook: null, over: null, drag: null, lay: [], rul: null, grp: null, vsel: null, vnum: 0, hov: -1, rhov: null, sort: 'az', dense: false };
-  try { if (localStorage.getItem('mapSort') === 'occ') MP.sort = 'occ'; } catch { /* egal */ }
-  const mapPx = p => [(p[2] - BM.W0) * BM.ppd * BM.k, (BM.N0 - p[3]) * BM.ppd];
-  const mapHe = p => p[5] || '';
-  const mapXY = (lon, lat) => [(lon - BM.W0) * BM.ppd * BM.k, (BM.N0 - lat) * BM.ppd];
-  const mapConf = p => p[8] ? 400 : (p[6] && p[6][0] ? p[6][0][3] : 1000);   // Sicherheit der wahrscheinlichsten Zuordnung (Promille, neuestes Jahrzehnt)
-  // Orte, deren Verse in einem Gliederungs-ref liegen („1:27-2:5“, „15:32-37, 16:14-19“)
-  function mapRanges(ref) {
-    return String(ref).split(',').map(part => {
-      const m = part.trim().match(/^(\d+)(?::(\d+))?(?:\s*[-–]\s*(\d+)(?::(\d+))?)?$/); if (!m) return null; let a, b;
-      if (m[2]) { a = +m[1] * 10000 + +m[2]; b = m[4] ? +m[3] * 10000 + +m[4] : m[3] ? +m[1] * 10000 + +m[3] : a; } else { a = +m[1] * 10000; b = (m[3] ? +m[3] : +m[1]) * 10000 + 9999; }
-      return [a, b];
-    }).filter(Boolean);
-  }
-  function mapByBook() { if (MP.byBook) return MP.byBook; MP.byBook = new Map(); BM.places.forEach((p, i) => p[4].forEach(([b, c, v]) => { if (typeof c !== 'number') return; if (!MP.byBook.has(b)) MP.byBook.set(b, []); MP.byBook.get(b).push([i, c * 10000 + v, c * 10000 + (v ? v : 9999)]); })); return MP.byBook; }
-  function mapForRef(title, ref) { // -> [{i, vs}]
-    const bi = BM.books.indexOf(title); if (bi < 0) return []; const rg = mapRanges(ref); if (!rg.length) return []; const out = new Map();
-    (mapByBook().get(bi) || []).forEach(([i, lo, hi]) => { if (rg.some(([a, b]) => hi >= a && lo <= b)) { if (!out.has(i)) out.set(i, []); out.get(i).push(lo % 10000); } });
-    return [...out].map(([i, vs]) => ({ i, vs }));
-  }
-  function mapChapPlaces() {
-    if (MP.over) return MP.over.list;
-    if (!BM || !view || !view.group) return [];
-    const bi = BM.books.indexOf(view.group.title); const jos = bi >= 0 && !!BM.j3 && BM.j3.has(bi), alm = bi >= 0 && !!BM.alma && BM.alma.has(bi), ch = alm ? mapSecKey() : jos ? mapJosKey() : auChapter(); if (bi < 0 || ch == null) return [];
-    if (!MP.byChap) { MP.byChap = new Map(); BM.places.forEach((p, i) => p[4].forEach(([b, c, v]) => { const k = b + '|' + c; let m = MP.byChap.get(k); if (!m) MP.byChap.set(k, m = new Map()); if (!m.has(i)) m.set(i, []); m.get(i).push(v); })); }
-    if (jos) { // Josephus: alle Kapitel des Buches (bzw. Vorwort)
-      const u = new Map(); MP.byChap.forEach((mm, k) => { const [b, c] = k.split('|').map(Number); if (b !== bi || (ch === 0 ? c !== 0 : Math.floor(c / 1000) !== ch)) return; mm.forEach((vs, i) => { if (!u.has(i)) u.set(i, []); u.get(i).push(...vs); }); });
-      return [...u].map(([i, vs]) => ({ i, vs }));
-    }
-    const m = MP.byChap.get(bi + '|' + ch); return m ? [...m].map(([i, vs]) => ({ i, vs })) : [];
-  }
-  function mapRefresh() {
-    if (!BM) return; MP.over = null; MP.grp = null; MP.vsel = null; MP.cur = mapChapPlaces(); $('#mapBtn').hidden = !MP.cur.length && $('#mapPanel').hidden; btnLbl('#mapBtn', '🗺', 'Karte', MP.cur.length);
-    if (!$('#mapPanel').hidden) { MP.sel = -1; mapRouteFill(); mapFit(); mapInfo(); mapDraw(); }
-  }
-  function mapSize() { const cv = $('#mapCv'), r = cv.getBoundingClientRect(), d = window.devicePixelRatio || 1; const w = Math.max(50, Math.round(r.width * d)), h = Math.max(50, Math.round(r.height * d)); if (cv.width !== w || cv.height !== h) { cv.width = w; cv.height = h; } return { w, h, d }; }
-  const MAPZ = 14; // größter Zoom außerhalb von Jerusalem und der feinen Kacheln (das Relief hat 150 Pixel je Grad; darüber ist nur noch Unschärfe zu sehen)
-  const mapNearJer = (lon, lat) => Math.abs(lon - 35.235) < 0.2 && Math.abs(lat - 31.775) < 0.17;
-  const mapInMap = p => { const [x, y] = mapPx(p); return x >= 0 && y >= 0 && x <= BM.w && y <= BM.h; }; // Rom u. a. liegen außerhalb des Reliefs
-  const mapCur = () => MPER.size === 4 ? MP.cur : MP.cur.filter(c => mapPlaceOk(BM.places[c.i])); // Orte des Kapitels, die der Epochenfilter durchlässt
-  // Die Karte darf nicht aus dem Bild rutschen: ist sie kleiner als die Fläche, wird sie zentriert; sonst bleibt höchstens ein Rand von 30 % frei
-  function mapClamp() {
-    const { w, h } = mapSize(), lo = Math.min(w / BM.w, h / BM.h); if (MP.s < lo) MP.s = lo;
-    const W = BM.w * MP.s, H = BM.h * MP.s, mx = Math.min(w * 0.3, Math.max(0, (W - w) / 2)), my = Math.min(h * 0.3, Math.max(0, (H - h) / 2));
-    MP.tx = W <= w ? (w - W) / 2 : Math.min(mx, Math.max(w - W - mx, MP.tx)); MP.ty = H <= h ? (h - H) / 2 : Math.min(my, Math.max(h - H - my, MP.ty));
-  }
-  // Punkte (Kartenpixel) einpassen; die Ränder zählen in Bildschirmpixeln: rechts bleibt Platz für Namen und die Knopfleiste
-  function mapFitPts(pts, cap) {
-    const { w, h, d } = mapSize(), all = Math.min(w / BM.w, h / BM.h);
-    if (!pts.length) { MP.s = all; MP.tx = (w - BM.w * all) / 2; MP.ty = (h - BM.h * all) / 2; return; }
-    const mL = Math.min(44 * d, w * 0.1), mR = Math.min(118 * d, w * 0.24), mT = Math.min(34 * d, h * 0.1), mB = Math.min(40 * d, h * 0.12), aw = w - mL - mR, ah = h - mT - mB;
-    const x0 = Math.min(...pts.map(p => p[0])), x1 = Math.max(...pts.map(p => p[0])), y0 = Math.min(...pts.map(p => p[1])), y1 = Math.max(...pts.map(p => p[1]));
-    MP.s = Math.min(Math.max(Math.min(aw / Math.max(x1 - x0, 1e-9), ah / Math.max(y1 - y0, 1e-9)), all), cap);
-    MP.tx = mL + aw / 2 - (x0 + x1) / 2 * MP.s; MP.ty = mT + ah / 2 - (y0 + y1) / 2 * MP.s;
-  }
-  function mapFit() {
-    let pl = mapCur().map(c => BM.places[c.i]).filter(mapInMap);
-    const inJ = pl.filter(p => p[2] > JER_BOX[0] && p[2] < JER_BOX[2] && p[3] > JER_BOX[1] && p[3] < JER_BOX[3]);
-    if (inJ.length >= 4 && inJ.length >= pl.length * 0.6) pl = inJ; // die meisten Orte liegen in Jerusalem (z. B. Neh 3): dorthin einpassen, Ausreißer bleiben außerhalb des Bildes
-    mapFitPts(pl.map(mapPx), pl.length === 1 ? 3 : pl.length && pl.length === inJ.length ? 3000 : MAPZ);
-  }
-  // Bildschirmpositionen. Orte bleiben an ihrer wahren Lage; nur (nahezu) deckungsgleiche Orte werden zu einem kleinen Kreis aufgefächert (höchstens 8),
-  // größere Haufen werden zu einer Zählblase (Klick zoomt hinein). Die Gruppen entstehen um den jeweils wichtigsten Ort, nicht als Kette.
-  function mapLayout() {
-    const { d, w, h } = mapSize(), lay = [], inCh = new Set(MP.cur.map(c => c.i)), e = 14 * d;
-    const pts = mapCur().map(c => { const p = BM.places[c.i], [x, y] = mapPx(p), o = { i: c.i, x: x * MP.s + MP.tx, y: y * MP.s + MP.ty, chap: true, n: p[4].length };
-      if (x < 0 || y < 0 || x > BM.w || y > BM.h) { o.off = Math.atan2(o.y - h / 2, o.x - w / 2); o.x = Math.min(w - e, Math.max(e, o.x)); o.y = Math.min(h - 36 * d, Math.max(e, o.y)); } // außerhalb des Reliefs: Pfeil am Bildrand
-      return o; });
-    const vis = pts.filter(o => o.x > 0 && o.y > 0 && o.x < w && o.y < h).length, dense = vis > 40, near = (dense ? 8 : 13) * d, used = new Array(pts.length).fill(false);
-    MP.dense = dense;
-    const ord = pts.map((_, k) => k).sort((a, b) => (pts[b].i === MP.sel) - (pts[a].i === MP.sel) || pts[b].n - pts[a].n);
-    ord.forEach(ai => {
-      if (used[ai]) return; used[ai] = true; const a = pts[ai]; if (a.i === MP.sel) { lay.push(a); return; } // der gewählte Ort steht immer für sich
-      const grp = [ai]; let ext = 0;
-      ord.forEach(bi => { if (used[bi] || pts[bi].i === MP.sel) return; const dd = Math.hypot(a.x - pts[bi].x, a.y - pts[bi].y); if (dd < near) { used[bi] = true; grp.push(bi); if (dd > ext) ext = dd; } });
-      if (grp.length === 1) { lay.push(a); return; }
-      const same = ext < 4 * d, cx = grp.reduce((t, k) => t + pts[k].x, 0) / grp.length, cy = grp.reduce((t, k) => t + pts[k].y, 0) / grp.length;
-      if (grp.length <= 8 && (same || !dense)) { const R = (dense ? (grp.length === 2 ? 7 : 6 + grp.length * 1.4) : (grp.length === 2 ? 11 : 9 + grp.length * 2)) * d;
-        grp.sort((p, q) => BM.places[pts[p].i][0].localeCompare(BM.places[pts[q].i][0])).forEach((k, n) => { const an = -Math.PI / 2 + n * 2 * Math.PI / grp.length + (grp.length === 2 ? Math.PI / 2 : 0); lay.push({ i: pts[k].i, x: cx + R * Math.cos(an), y: cy + R * Math.sin(an), chap: true, n: pts[k].n, spread: true, cx, cy, off: pts[k].off }); });
-      } else if (grp.length > 8 || same) lay.push({ i: a.i, x: cx, y: cy, chap: true, n: a.n, bub: grp.map(k => pts[k].i) });
-      else grp.forEach(k => lay.push(pts[k])); // viele Orte, aber nicht deckungsgleich: an der wahren Lage lassen (kleinere Marker)
-    });
-    if ($('#mapAll').checked) { const mask = mapPerMask(), all = MPER.size === 4; BM.places.forEach((p, i) => { if (inCh.has(i) || !(all || (mapPm(i) & mask))) return; const [x, y] = mapPx(p); lay.push({ i, x: x * MP.s + MP.tx, y: y * MP.s + MP.ty, chap: false, n: p[4].length }); }); }
-    return lay;
-  }
-  function mapDraw() {
-    if ($('#mapPanel').hidden || !MP.ok) return; const cv = $('#mapCv'), { w, h, d } = mapSize(), g = cv.getContext('2d');
-    mapClamp();
-    g.setTransform(1, 0, 0, 1, 0, 0); g.globalAlpha = 1; g.fillStyle = '#7aa0be'; g.fillRect(0, 0, w, h);
-    g.imageSmoothingQuality = 'high'; g.drawImage(MP.img, MP.tx, MP.ty, BM.w * MP.s, BM.h * MP.s);
-    mapHiDraw(g, w, h); mapWaterDraw(g, d, w, h); mapRoadsDraw(g, d, w, h); // feines Relief, Gewässer und römische Straßen liegen unter allem anderen
-    const r = d, ll = I18N.lang, FONT = '-apple-system, system-ui, sans-serif';
-    MP.lay = mapLayout();
-    const chap = MP.lay.filter(o => o.chap), R0 = (MP.dense ? 4 : 6) * r, fade = o => !!MP.vsel && !MP.vsel.has(o.i);
-    mapJerDraw(g, r, chap);
-    if (BB && $('#mapBord').checked) {
-      g.save(); g.lineJoin = 'round'; g.setLineDash([6 * r, 4 * r]); g.strokeStyle = 'rgba(120,20,60,.85)'; g.lineWidth = 1.6 * r;
-      BB.lines.forEach(l => { g.beginPath(); l.forEach(([x, y], k) => { const X = x * MP.s + MP.tx, Y = y * MP.s + MP.ty; if (k) g.lineTo(X, Y); else g.moveTo(X, Y); }); g.stroke(); });
-      g.restore(); g.font = `italic 600 ${13 * r}px ${FONT}`; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillStyle = 'rgba(100,15,50,.9)'; g.strokeStyle = 'rgba(255,255,255,.75)'; g.lineWidth = 3 * r; g.lineJoin = 'round';
-      BB.names.forEach(n => { const t = (ll === 'de' ? n[1] : ll === 'he' && n[2] ? n[2] : n[0]).toUpperCase(), X = n[3] * MP.s + MP.tx, Y = n[4] * MP.s + MP.ty; if (X < 0 || Y < 0 || X > w || Y > h) return; g.strokeText(t, X, Y); g.fillText(t, X, Y); });
-      g.textAlign = 'start';
-    }
-    g.textAlign = 'start'; g.textBaseline = 'middle'; g.lineJoin = 'round';
-    // Hindernisse für Namen: Bedienelemente auf der Karte, Maßstab, Marker
-    const boxes = [], hit = a => boxes.some(q => a.x < q.x + q.w && a.x + a.w > q.x && a.y < q.y + q.h && a.y + a.h > q.y), inside = b => b.x >= 3 * r && b.y >= 2 * r && b.x + b.w <= w - 3 * r && b.y + b.h <= h - 2 * r;
-    { const cb = cv.getBoundingClientRect(); ['#mapZoomB', '#mapJer', '#mapRuler', '#mapLegend'].forEach(s => { const el = $(s); if (!el || el.hidden) return; const b = el.getBoundingClientRect(); if (b.width) boxes.push({ x: (b.left - cb.left) * d - 3 * r, y: (b.top - cb.top) * d - 3 * r, w: b.width * d + 6 * r, h: b.height * d + 6 * r }); }); }
-    const sbar = mapScale(w, h, r); boxes.push(sbar.box);
-    const txt = (t, x, y, fill, lw, halo) => { g.lineWidth = (lw || 3.5) * r; g.strokeStyle = halo || 'rgba(255,255,255,.9)'; g.strokeText(t, x, y); g.fillStyle = fill; g.fillText(t, x, y); };
-    // Kandidaten für einen Namen: rechts, links, oben, unten – nur wo frei und ganz im Bild
-    const spot = (o, tw, th, off, force) => {
-      const c = [[o.x + off, o.y - th / 2], [o.x - off - tw, o.y - th / 2], [o.x - tw / 2, o.y - off - th], [o.x - tw / 2, o.y + off]]; if (o.spread && o.x < o.cx - 1) c.unshift(c.splice(1, 1)[0]);
-      const bs = c.map(([bx, by]) => ({ x: bx - 2 * r, y: by, w: tw + 4 * r, h: th })); return bs.find(b => inside(b) && !hit(b)) || (force ? bs.find(inside) || bs[0] : null);
-    };
-    const isArea = o => !o.spread && !o.bub && o.off == null && o.i !== MP.sel && MAREA.test(BM.places[o.i][1]);
-    chap.forEach(o => { if (!isArea(o)) { const R = o.bub ? 13 * r : o.i === MP.sel ? 9 * r : R0 + 2 * r; boxes.push({ x: o.x - R, y: o.y - R, w: 2 * R, h: 2 * R }); } });
-    // gewählter Ort: Platz für Marker und Namen zuerst sichern, gezeichnet wird er zuletzt (über allem)
-    let so = null;
-    if (MP.sel >= 0) { so = MP.lay.find(o => o.i === MP.sel && !o.bub); if (!so) { const [x, y] = mapPx(BM.places[MP.sel]); so = { i: MP.sel, x: x * MP.s + MP.tx, y: y * MP.s + MP.ty, chap: false }; }
-      if (so.x < -20 || so.y < -20 || so.x > w + 20 || so.y > h + 20) so = null;
-      else { if (!so.chap) boxes.push({ x: so.x - 9 * r, y: so.y - 9 * r, w: 18 * r, h: 18 * r }); g.font = `700 ${13 * r}px ${FONT}`; so.name = BM.places[so.i][0]; so.tw = g.measureText(so.name).width; so.lb = spot(so, so.tw, 16 * r, 12 * r, true); boxes.push(so.lb); } }
-    // Flächen (Gebiete, Gewässer, Völker): kursiver Name auf der Lage statt eines Punktes; wo dafür kein Platz ist, bleibt es beim Marker
-    const areaFont = `italic 600 ${12.5 * r}px ${FONT}`; g.font = areaFont;
-    chap.filter(isArea).sort((a, b) => b.n - a.n).forEach(o => { const name = BM.places[o.i][0], tw = g.measureText(name).width, bb = { x: o.x - tw / 2 - 3 * r, y: o.y - 8 * r, w: tw + 6 * r, h: 16 * r };
-      if (inside(bb) && !hit(bb)) { o.area = true; o.lb = bb; o.name = name; boxes.push(bb); } else boxes.push({ x: o.x - R0 - 2 * r, y: o.y - R0 - 2 * r, w: 2 * R0 + 4 * r, h: 2 * R0 + 4 * r }); });
-    // Grundbeschriftung (Gewässer, Landschaften), dezent und nur wo nichts anderes liegt
-    g.font = `italic ${12 * r}px ${FONT}`;
-    const shown = new Set(MP.lay.map(o => BM.places[o.i][0]));
-    MBASE.forEach(b => { if (MP.s < b[5] || MP.s >= b[6] || shown.has(b[0])) return; const t = ll === 'de' ? b[1] : ll === 'he' ? b[2] : b[0], [x, y] = mapXY(b[3], b[4]), X = x * MP.s + MP.tx, Y = y * MP.s + MP.ty, tw = g.measureText(t).width, bb = { x: X - tw / 2 - 3 * r, y: Y - 8 * r, w: tw + 6 * r, h: 16 * r };
-      if (!inside(bb) || hit(bb)) return; boxes.push(bb); g.globalAlpha = 0.85; txt(t, X - tw / 2, Y, b[7] ? '#1f4f7a' : '#5a4524', 2.5, 'rgba(255,255,255,.55)'); g.globalAlpha = 1; });
-    mapRouteDraw(g, r); // Routen liegen unter Markern und Namen
-    // übrige Orte („alle Orte“): kleine Punkte in der Farbe der frühesten Epoche
-    const colc = {}, col1 = i => { const k = mapPm(i); return colc[k] || (colc[k] = mapCols(i)[0] || MPCOL.B); };
-    g.globalAlpha = 0.72; MP.lay.forEach(o => { if (o.chap || o.x < -4 || o.y < -4 || o.x > w + 4 || o.y > h + 4) return; g.beginPath(); g.arc(o.x, o.y, 2.6 * r, 0, 7); g.fillStyle = col1(o.i); g.fill(); }); g.globalAlpha = 1;
-    chap.filter(o => o.spread).forEach(o => { g.strokeStyle = 'rgba(255,255,255,.8)'; g.lineWidth = 1.5 * r; g.beginPath(); g.moveTo(o.cx, o.cy); g.lineTo(o.x, o.y); g.stroke(); });
-    // Marker: Kreis (Ort), Dreieck (Berg), Pfeil (außerhalb der Karte); unsichere Zuordnung als hohler Ring; mehrere Epochen als mehrfarbiger Ring
-    const marker = (o, on) => {
-      const p = BM.places[o.i], cols = on ? ['#ffcc00'] : mapCols(o.i), col = cols[0] || MPCOL.B, unc = !on && mapConf(p) < 500, R = on ? 8 * r : R0;
-      const shape = () => { g.beginPath();
-        if (o.off != null) { const a = o.off, q = k => [o.x + Math.cos(a + k) * R * 1.5, o.y + Math.sin(a + k) * R * 1.5]; g.moveTo(...q(0)); g.lineTo(...q(2.5)); g.lineTo(...q(-2.5)); g.closePath(); }
-        else if (MTRI.test(p[1])) { g.moveTo(o.x, o.y - R * 1.2); g.lineTo(o.x + R * 1.1, o.y + R * 0.8); g.lineTo(o.x - R * 1.1, o.y + R * 0.8); g.closePath(); }
-        else g.arc(o.x, o.y, R, 0, 7); };
-      if (cols.length > 1 && !MP.dense && !unc && o.off == null && !MTRI.test(p[1])) { // Ort kommt in mehreren Epochen vor
-        g.beginPath(); g.arc(o.x, o.y, R + 3.6 * r, 0, 7); g.fillStyle = '#fff'; g.fill(); g.lineWidth = 2.6 * r;
-        cols.forEach((c, k) => { g.beginPath(); g.arc(o.x, o.y, R + 1.6 * r, -Math.PI / 2 + k * 2 * Math.PI / cols.length, -Math.PI / 2 + (k + 1) * 2 * Math.PI / cols.length); g.strokeStyle = c; g.stroke(); });
-        g.beginPath(); g.arc(o.x, o.y, R - 0.6 * r, 0, 7); g.fillStyle = col; g.fill(); return; }
-      shape(); g.fillStyle = unc ? 'rgba(255,255,255,.82)' : col; g.fill(); g.lineWidth = (unc ? 2.4 : MP.dense && !on ? 1.3 : 2) * r; g.strokeStyle = unc ? col : '#fff'; g.stroke();
-      if (on) { g.beginPath(); g.arc(o.x, o.y, R + 1.8 * r, 0, 7); g.lineWidth = 1.2 * r; g.strokeStyle = '#222'; g.stroke(); }
-    };
-    chap.forEach(o => { if (o.bub || o.area || o.i === MP.sel) return; g.globalAlpha = fade(o) ? 0.3 : 1; marker(o, false); }); g.globalAlpha = 1;
-    chap.forEach(o => { if (!o.bub) return; const R = (10 + Math.min(5, o.bub.length / 8)) * r, t = String(o.bub.length); o.R = R; g.beginPath(); g.arc(o.x, o.y, R, 0, 7); g.fillStyle = 'rgba(255,255,255,.94)'; g.fill(); g.lineWidth = 2.4 * r; g.strokeStyle = col1(o.i); g.stroke();
-      g.font = `700 ${11 * r}px ${FONT}`; g.fillStyle = '#222'; g.fillText(t, o.x - g.measureText(t).width / 2, o.y + 0.5 * r); });
-    if (MP.sel >= 0) { // andere mögliche Lagen des gewählten Ortes (unter 5 % nur in der Liste)
-      const me = so, al = BM.places[MP.sel][6] || []; g.font = `${11 * r}px ${FONT}`;
-      al.forEach((a, k) => { if (k === 0 || (a[3] < 50 && k !== MP.alt)) return; const [x0, y0] = mapXY(a[1], a[2]), X = x0 * MP.s + MP.tx, Y = y0 * MP.s + MP.ty, on = k === MP.alt, R = (5 + a[3] / 1000 * 5) * r;
-        if (me && Math.hypot(X - me.x, Y - me.y) < 3 * r && !on) return; // liegt auf dem Ort selbst
-        if (me) { g.save(); g.setLineDash([4 * r, 3 * r]); g.strokeStyle = 'rgba(30,30,30,.7)'; g.lineWidth = 1.2 * r; g.beginPath(); g.moveTo(me.x, me.y); g.lineTo(X, Y); g.stroke(); g.restore(); }
-        g.beginPath(); g.arc(X, Y, R, 0, 7); g.fillStyle = on ? '#ffcc00' : 'rgba(255,255,255,.55)'; g.fill(); g.lineWidth = 2 * r; g.strokeStyle = '#222'; g.stroke();
-        const t = a[0] + ' · ' + Math.round(a[3] / 10) + ' %', bb = spot({ x: X, y: Y }, g.measureText(t).width, 14 * r, R + 4 * r, on); if (bb) { boxes.push(bb); txt(t, bb.x + 2 * r, bb.y + 7 * r, '#222', 3); } });
-    }
-    // Namen der Kapitelorte, die wichtigsten (meiste Stellen) zuerst; was nirgends Platz findet, bleibt ohne Namen (Hover/Klick zeigt ihn)
-    g.font = `${12 * r}px ${FONT}`;
-    chap.filter(o => !o.bub && !o.area && o.i !== MP.sel).sort((a, b) => fade(a) - fade(b) || b.n - a.n).forEach(o => {
-      const name = BM.places[o.i][0], bb = spot(o, g.measureText(name).width, 14 * r, R0 + 4 * r); if (!bb) return; boxes.push(bb); g.globalAlpha = fade(o) ? 0.45 : 1; txt(name, bb.x + 2 * r, bb.y + 7 * r, '#222'); g.globalAlpha = 1; });
-    g.font = areaFont; chap.forEach(o => { if (!o.area) return; g.globalAlpha = fade(o) ? 0.35 : mapConf(BM.places[o.i]) < 500 ? 0.7 : 1; txt(o.name, o.lb.x + 3 * r, o.y, col1(o.i), 3.5); g.globalAlpha = 1; });
-    // übrige Orte: die meistgenannten beschriften, soweit Platz ist
-    if ($('#mapAll').checked) { let left = chap.length ? 24 : 45, tries = 0; const rest = MP.lay.filter(o => !o.chap && o.i !== MP.sel && o.x > 0 && o.y > 0 && o.x < w && o.y < h).sort((a, b) => b.n - a.n);
-      for (const o of rest) { if (!left || ++tries > 260) break; const p = BM.places[o.i]; g.font = `${MAREA.test(p[1]) ? 'italic ' : ''}${10.5 * r}px ${FONT}`; const bb = spot(o, g.measureText(p[0]).width, 12 * r, 5 * r); if (!bb) continue; boxes.push(bb); left--; txt(p[0], bb.x + 2 * r, bb.y + 6 * r, '#333', 2.6, 'rgba(255,255,255,.8)'); } }
-    mapBackLabels(g, r, w, h, { boxes, hit, inside, shown }); g.textAlign = 'start'; g.textBaseline = 'middle';
-    if (so) { marker(so, true); g.font = `700 ${13 * r}px ${FONT}`; txt(so.name, so.lb.x + 2 * r, so.lb.y + 8 * r, '#111', 4.5, 'rgba(255,255,255,.96)'); }
-    try { const noted = new Set(notesAll.filter(n => n.place).map(n => n.place)); if (noted.size) { g.font = `${12 * r}px -apple-system, sans-serif`; g.textAlign = 'left'; g.textBaseline = 'alphabetic'; MP.lay.forEach(o => { if (!o.bub && noted.has(BM.places[o.i][0])) { g.lineWidth = 3 * r; g.strokeStyle = 'rgba(255,255,255,.95)'; g.strokeText('✎', o.x + 5 * r, o.y - 5 * r); g.fillStyle = '#b8570a'; g.fillText('✎', o.x + 5 * r, o.y - 5 * r); } }); g.textBaseline = 'middle'; } } catch { /* Notizen noch nicht geladen */ }
-    if (MP.hov >= 0 && MP.hov !== MP.sel) { const o = MP.lay.find(q => q.i === MP.hov && !q.bub) || MP.lay.find(q => q.bub && q.bub.includes(MP.hov)); // Ort unter dem Mauszeiger bzw. dessen Chip in der Liste
-      if (o) { const R = o.area ? 0 : (o.bub ? o.R : o.chap ? R0 : 2.6 * r) + 4 * r; g.beginPath(); if (o.area) g.rect(o.lb.x, o.lb.y, o.lb.w, o.lb.h); else g.arc(o.x, o.y, R, 0, 7); g.lineWidth = 4 * r; g.strokeStyle = 'rgba(255,255,255,.9)'; g.stroke(); g.lineWidth = 1.6 * r; g.strokeStyle = '#222'; g.stroke(); } }
-    mapRulDraw(g, r);
-    sbar.draw(g);
-  }
-  // Maßstabsbalken unten rechts (runde Länge, höchstens etwa 110 Bildschirmpixel)
-  function mapScale(w, h, r) {
-    const kpp = 111.2 / (BM.ppd * MP.s), max = 110 * r * kpp, e = Math.pow(10, Math.floor(Math.log10(max))), L = [5, 2, 1].map(m => m * e).find(v => v <= max), px = L / kpp, x1 = w - 12 * r, x0 = x1 - px, y = h - 11 * r;
-    const t = L >= 1 ? L.toLocaleString(I18N.lang === 'de' ? 'de-DE' : 'en-US') + ' km' : Math.round(L * 1000) + ' m';
-    return { box: { x: x0 - 8 * r, y: y - 20 * r, w: px + 20 * r, h: 31 * r }, draw: g => { g.save(); g.lineCap = 'butt'; g.lineJoin = 'miter'; const path = () => { g.beginPath(); g.moveTo(x0, y - 5 * r); g.lineTo(x0, y); g.lineTo(x1, y); g.lineTo(x1, y - 5 * r); };
-      path(); g.lineWidth = 4.5 * r; g.strokeStyle = 'rgba(255,255,255,.9)'; g.stroke(); path(); g.lineWidth = 1.8 * r; g.strokeStyle = '#222'; g.stroke();
-      g.font = `600 ${11 * r}px -apple-system, system-ui, sans-serif`; g.textAlign = 'center'; g.textBaseline = 'alphabetic'; g.lineJoin = 'round'; g.lineWidth = 3.5 * r; g.strokeStyle = 'rgba(255,255,255,.9)'; g.strokeText(t, (x0 + x1) / 2, y - 6 * r); g.fillStyle = '#222'; g.fillText(t, (x0 + x1) / 2, y - 6 * r); g.restore(); } };
-  }
-  // Entfernungsmessung: Klicks setzen Punkte (rasten auf Orte ein), Luftlinie in km
-  // Höhenraster (map/elev.js, zlib+Base64) wird beim ersten Öffnen der Karte entpackt
-  let ELV = null;
-  async function mapElevLoad() {
-    if (ELV !== null || !window.BELEV) return; ELV = false;
-    try { const E = window.BELEV, bin = Uint8Array.from(atob(E.z), c => c.charCodeAt(0)), ds = new DecompressionStream('deflate'); const buf = await new Response(new Blob([bin]).stream().pipeThrough(ds)).arrayBuffer(); ELV = { E, a: new Uint8Array(buf) }; if (!$('#mapPanel').hidden) { mapInfo(); mapRulInfo(); } } catch { ELV = false; }
-  }
-  function mapElev(lon, lat) { // Höhe in m (bilinear), null wenn nicht geladen/außerhalb
-    if (!ELV) return null;
-    const { E, a } = ELV, x = (lon - E.W0) * E.ppd - 0.5, y = (E.N0 - lat) * E.ppd - 0.5; if (x < 0 || y < 0 || x >= E.w - 1 || y >= E.h - 1) return null;
-    const x0 = Math.floor(x), y0 = Math.floor(y), fx = x - x0, fy = y - y0, g = (i, j) => a[(y0 + j) * E.w + x0 + i];
-    const v = g(0, 0) * (1 - fx) * (1 - fy) + g(1, 0) * fx * (1 - fy) + g(0, 1) * (1 - fx) * fy + g(1, 1) * fx * fy; return Math.round(v * E.step + E.off);
-  }
-  const mapM = m => m === null ? '' : (m < 0 ? '−' : '') + Math.abs(m).toLocaleString(I18N.lang === 'de' ? 'de-DE' : 'en-US') + ' m';
-  const mapLL = (x, y) => [BM.W0 + x / (BM.ppd * BM.k), BM.N0 - y / BM.ppd];
-  function mapKm(a, b) { const R = 6371, t = Math.PI / 180, dl = (b[1] - a[1]) * t, dn = (b[0] - a[0]) * t, s = Math.sin(dl / 2) ** 2 + Math.cos(a[1] * t) * Math.cos(b[1] * t) * Math.sin(dn / 2) ** 2; return 2 * R * Math.asin(Math.sqrt(s)); }
-  function mapRulDraw(g, r) {
-    const R = MP.rul; if (!R || !R.pts.length) return; const sc = p => { const [x, y] = mapXY(p[0], p[1]); return [x * MP.s + MP.tx, y * MP.s + MP.ty]; };
-    const P = R.pts.map(sc); g.save(); g.lineJoin = 'round'; g.lineCap = 'round';
-    const line = (pts, dash) => { g.beginPath(); pts.forEach((q, k) => k ? g.lineTo(q[0], q[1]) : g.moveTo(q[0], q[1])); g.setLineDash(dash); g.stroke(); };
-    g.lineWidth = 5 * r; g.strokeStyle = 'rgba(255,255,255,.9)'; if (P.length > 1) line(P, []);
-    g.lineWidth = 2.5 * r; g.strokeStyle = '#1f4fd8'; if (P.length > 1) line(P, [7 * r, 4 * r]);
-    if (R.cur) { const q = [R.cur[0], R.cur[1]], a = P[P.length - 1]; g.lineWidth = 2 * r; g.strokeStyle = 'rgba(31,79,216,.6)'; line([a, q], [3 * r, 4 * r]); const km = mapKm(R.pts[R.pts.length - 1], mapLL((q[0] - MP.tx) / MP.s, (q[1] - MP.ty) / MP.s)); g.setLineDash([]); g.font = `600 ${12 * r}px -apple-system, sans-serif`; const tx = Math.round(km) + ' km'; g.lineWidth = 3.5 * r; g.strokeStyle = 'rgba(255,255,255,.95)'; g.strokeText(tx, q[0] + 10 * r, q[1] - 8 * r); g.fillStyle = '#1f4fd8'; g.fillText(tx, q[0] + 10 * r, q[1] - 8 * r); }
-    g.setLineDash([]); g.font = `600 ${12 * r}px -apple-system, sans-serif`;
-    const many = P.length > 12;
-    for (let k = 1; !many && k < P.length; k++) { const km = Math.round(mapKm(R.pts[k - 1], R.pts[k])) + ' km', mx = (P[k - 1][0] + P[k][0]) / 2, my = (P[k - 1][1] + P[k][1]) / 2; g.lineWidth = 3.5 * r; g.strokeStyle = 'rgba(255,255,255,.95)'; g.strokeText(km, mx + 4 * r, my - 5 * r); g.fillStyle = '#1f4fd8'; g.fillText(km, mx + 4 * r, my - 5 * r); }
-    P.forEach((q, k) => { if (many && k && k < P.length - 1) return; g.beginPath(); g.arc(q[0], q[1], 5 * r, 0, 7); g.fillStyle = k ? '#fff' : '#1f4fd8'; g.fill(); g.lineWidth = 2.5 * r; g.strokeStyle = '#1f4fd8'; g.stroke(); });
-    if (R.hov) { const q = sc([R.hov.lon, R.hov.lat]); g.beginPath(); g.arc(q[0], q[1], 7 * r, 0, 7); g.fillStyle = 'rgba(31,79,216,.3)'; g.fill(); g.lineWidth = 2 * r; g.strokeStyle = '#1f4fd8'; g.stroke(); }
-    g.restore();
-  }
-  function mapProfile(pts) { // Stützpunkte alle ~2 km entlang der Linie
-    const out = []; let km = 0;
-    for (let k = 1; k < pts.length; k++) { const a = pts[k - 1], b = pts[k], L = mapKm(a, b), n = Math.max(1, Math.min(400, Math.ceil(L / 2)));
-      for (let s = k === 1 ? 0 : 1; s <= n; s++) { const t = s / n, lon = a[0] + (b[0] - a[0]) * t, lat = a[1] + (b[1] - a[1]) * t; out.push({ km: km + L * t, lon, lat, e: mapElev(lon, lat) }); } km += L; }
-    return out;
-  }
-  function mapProfDraw(hov) {
-    const R = MP.rul, cv = $('#mapRulProf'); if (!R || !cv || !R.prof) return; const d = window.devicePixelRatio || 1, W = cv.clientWidth, H = cv.clientHeight; cv.width = W * d; cv.height = H * d; const g = cv.getContext('2d'); g.scale(d, d);
-    const P = R.prof.filter(p => p.e !== null); if (P.length < 2) return; const tot = R.prof[R.prof.length - 1].km || 1; let lo = Math.min(...P.map(p => p.e)), hi = Math.max(...P.map(p => p.e)); lo = Math.min(lo, 0); hi = Math.max(hi, lo + 100); const padL = 34, padB = 12, X = km => padL + (km / tot) * (W - padL - 4), Y = e => 4 + (1 - (e - lo) / (hi - lo)) * (H - 4 - padB);
-    g.fillStyle = '#9db8d6'; g.fillRect(padL, Y(0), W - padL - 4, H - padB - Y(0) + 0.5); // unter dem Meeresspiegel
-    g.beginPath(); g.moveTo(X(P[0].km), Y(lo)); P.forEach(p => g.lineTo(X(p.km), Y(p.e))); g.lineTo(X(P[P.length - 1].km), Y(lo)); g.closePath(); g.fillStyle = 'rgba(150,120,70,.55)'; g.fill();
-    g.beginPath(); P.forEach((p, k) => k ? g.lineTo(X(p.km), Y(p.e)) : g.moveTo(X(p.km), Y(p.e))); g.lineWidth = 1.5; g.strokeStyle = '#6b4a1e'; g.stroke();
-    g.font = '10px -apple-system, sans-serif'; g.fillStyle = '#444'; g.textAlign = 'right'; g.fillText(Math.round(hi) + '', padL - 3, 10); g.fillText(Math.round(lo) + '', padL - 3, H - padB); if (lo < 0 && hi > 0) g.fillText('0', padL - 3, Y(0) + 3);
-    g.textAlign = 'left'; g.fillText('0', padL, H - 1); g.textAlign = 'right'; g.fillText(Math.round(tot) + ' km', W - 4, H - 1);
-    R.hov = null; if (hov !== undefined && hov !== null) { const p = R.prof[hov]; if (p && p.e !== null) { R.hov = p; g.strokeStyle = '#1f4fd8'; g.lineWidth = 1; g.beginPath(); g.moveTo(X(p.km), 2); g.lineTo(X(p.km), H - padB); g.stroke(); g.beginPath(); g.arc(X(p.km), Y(p.e), 3, 0, 7); g.fillStyle = '#1f4fd8'; g.fill(); const t = Math.round(p.km) + ' km · ' + mapM(p.e); g.textAlign = X(p.km) > W / 2 ? 'right' : 'left'; g.fillStyle = '#1f4fd8'; g.fillText(t, X(p.km) + (X(p.km) > W / 2 ? -4 : 4), 11); } }
-    R.profX = X;
-  }
-  function mapRulInfo() {
-    const R = MP.rul, b = $('#mapRuler'); if (!R || !R.on) { b.hidden = true; return; } b.hidden = false; const t = I18N.t.bind(I18N); let tot = 0, rows = '';
-    for (let k = 1; k < R.pts.length; k++) { const km = mapKm(R.pts[k - 1], R.pts[k]); tot += km; if (R.pts.length <= 12) rows += `<div>${esc(R.pts[k - 1][2] || t('Punkt') + ' ' + k)} → ${esc(R.pts[k][2] || t('Punkt') + ' ' + (k + 1))}: <b>${Math.round(km)} km</b></div>`; }
-    b.innerHTML = R.pts.length < 2 ? `<div class="rh">${esc(t('Entfernung messen'))}</div><div class="rs">${esc(t('Klicke Orte oder Punkte auf der Karte an. Esc beendet.'))}</div>`
-      : `<div class="rh">${esc(t('Luftlinie'))}: <b>${Math.round(tot)} km</b></div>${rows}<div class="rs">≈ ${(tot / 30).toFixed(1)} ${esc(t('Tagesreisen zu Fuß (je 30 km, grob; echte Wege sind länger)'))}</div>`;
-    R.prof = null;
-    if (R.pts.length >= 2 && ELV) { R.prof = mapProfile(R.pts); const P = R.prof.filter(p => p.e !== null); if (P.length > 1) { let up = 0, dn = 0, ref = P[0].e; P.forEach(p => { if (p.e - ref > 30) { up += p.e - ref; ref = p.e; } else if (ref - p.e > 30) { dn += ref - p.e; ref = p.e; } });
-        b.innerHTML += `<canvas id="mapRulProf"></canvas><div class="rs">${esc(t('Höhenprofil'))}: ↑ ${Math.round(up)} m · ↓ ${Math.round(dn)} m · ${esc(t('höchster Punkt'))} ${mapM(Math.max(...P.map(p => p.e)))} · ${esc(t('tiefster Punkt'))} ${mapM(Math.min(...P.map(p => p.e)))}</div>`; } }
-    b.innerHTML += `<div class="rb"><button data-x="undo">${esc(t('Letzter Punkt zurück'))}</button><button data-x="clr">${esc(t('Neu'))}</button></div>`;
-    if (R.prof) mapProfDraw(null);
-  }
-  function mapRulToggle(on) { if (on) mapElevLoad(); if (on === undefined) on = !(MP.rul && MP.rul.on); MP.rul = on ? { on: true, pts: [], cur: null } : null; $('#mapRulB').classList.toggle('on', on); $('#mapCv').style.cursor = on ? 'crosshair' : ''; mapRulInfo(); mapDraw(); }
-  function mapPickO(ev) { // Objekte des Layouts unter dem Mauszeiger (nächstes zuerst); Flächennamen zählen mit ihrem ganzen Schriftzug
-    const cv = $('#mapCv'), b = cv.getBoundingClientRect(), d = window.devicePixelRatio || 1, mx = (ev.clientX - b.left) * d, my = (ev.clientY - b.top) * d; const out = [];
-    MP.lay.forEach(o => { let dd = Math.hypot(o.x - mx, o.y - my); if (o.area && o.lb && mx >= o.lb.x && mx <= o.lb.x + o.lb.w && my >= o.lb.y && my <= o.lb.y + o.lb.h) dd = Math.min(dd, 6 * d); if (dd < (o.bub ? 15 : 11) * d) out.push([dd - (o.chap ? 4 * d : 0), o]); });
-    out.sort((a, b2) => a[0] - b2[0] || (b2[1].n || 0) - (a[1].n || 0)); return out.map(o => o[1]); // bei gleichem Abstand der häufiger genannte Ort
-  }
-  function mapPick(ev, all) { const l = mapPickO(ev).filter(o => !o.bub).map(o => o.i); return all ? l : (l.length ? l[0] : -1); }
-  // Zählblase: auf ihre Orte hineinzoomen; liegen sie (fast) auf demselben Punkt, die Orte stattdessen in der Liste zeigen
-  function mapBubble(o) {
-    const pl = o.bub.map(i => BM.places[i]).filter(mapInMap), s0 = MP.s, tx = MP.tx, ty = MP.ty, ext = pl.length ? Math.max(Math.max(...pl.map(p => p[2])) - Math.min(...pl.map(p => p[2])), Math.max(...pl.map(p => p[3])) - Math.min(...pl.map(p => p[3]))) : 0;
-    MP.sel = -1; MP.grp = null;
-    if (ext > 0.0015) mapFitPts(pl.map(mapPx), Math.min(s0 * 5, pl.every(p => mapNearJer(p[2], p[3])) ? 3000 : MAPZ)); // schrittweise hinein, damit der Zusammenhang sichtbar bleibt
-    if (ext <= 0.0015 || MP.s < s0 * 1.15) { MP.s = s0; MP.tx = tx; MP.ty = ty; MP.grp = o.bub.slice(); }
-    mapDraw(); mapInfo();
-  }
-  const mapRefLink = (bi, c, v, ref) => { const t = BM.books[bi]; if (ref) return `<a data-ref="${esc(ref)}">${esc(ref.slice(t.length).replace(/^[ ,]+/, '') || ref)}</a>`; if (BM.j3 && BM.j3.has(bi)) return c ? `<a data-ref="${esc(t + ' ' + Math.floor(c / 1000) + ':' + (c % 1000))}">${Math.floor(c / 1000)}.${c % 1000}</a>` : `<a data-ref="${esc(t + ', Preface')}">${esc(I18N.t('Vorwort'))}</a>`; return `<a data-ref="${esc(t + ' ' + c + (v ? ':' + v : ''))}">${esc(c + (v ? ':' + v : ''))}</a>`; };
-  const mapName = (i, no) => { const p = BM.places[i], he = mapHe(p); return esc(p[0]) + (no ? `<sup>${no}</sup>` : '') + (he ? ` <span class="he" dir="rtl">${esc(he)}</span>` : (p[7] && p[7].g ? ` <span class="he" lang="grc">${esc(p[7].g)}</span>` : '')); };
-  // Routen (UBS MARBLE, CC BY-SA 4.0): ausgewählte Route wird als Linie gezeichnet
-  const BR = window.BROUTES || [];
-  const TANAKH_ORD = ['Genesis', 'Exodus', 'Leviticus', 'Numbers', 'Deuteronomy', 'Joshua', 'Judges', 'I Samuel', 'II Samuel', 'I Kings', 'II Kings', 'Isaiah', 'Jeremiah', 'Ezekiel', 'Hosea', 'Joel', 'Amos', 'Obadiah', 'Jonah', 'Micah', 'Nahum', 'Habakkuk', 'Zephaniah', 'Haggai', 'Zechariah', 'Malachi', 'Psalms', 'Proverbs', 'Job', 'Song of Songs', 'Ruth', 'Lamentations', 'Ecclesiastes', 'Esther', 'Daniel', 'Ezra', 'Nehemiah', 'I Chronicles', 'II Chronicles']; // Rückfallebene, falls ein Buch nicht in der Bibliothek ist
-  const mapRouteTitle = r => I18N.lang === 'de' ? r.de : r.en;
-  const mapLen = ln => { let s = 0; for (let k = 1; k < ln.length; k++) s += mapKm(ln[k - 1], ln[k]); return s; };
-  function mapRouteFill() {
-    const sel = $('#mapRoute'), keep = MP.route ? MP.route.id : ''; let h = `<option value="">${esc(I18N.t('Routen …'))}</option>`, cur = null;
-    const chNow = auChapter(), bk = r => r.ref.replace(/ \d.*$/, ''), hb = view && view.group ? view.group.title : '', ord = BR.map((r, i) => [r, i]).sort((a, b) => { try { return ((bk(a[0]) === hb ? 0 : 1) - (bk(b[0]) === hb ? 0 : 1)) || libCmpGroups(groups.find(g => g.title === bk(a[0])) || null, groups.find(g => g.title === bk(b[0])) || null) || (TANAKH_ORD.indexOf(bk(a[0])) - TANAKH_ORD.indexOf(bk(b[0]))) || a[1] - b[1]; } catch { return a[1] - b[1]; } }).map(x => x[0]); // das gerade gelesene Buch zuerst, sonst gleiche Reihenfolge wie die Bücher in der Bibliothek
-    ord.forEach(r => { const b = bk(r); if (b !== cur) { if (cur) h += '</optgroup>'; h += `<optgroup label="${esc(b)}">`; cur = b; } const mm = r.ref.match(/^(.*) (\d+):/), here = mm && view && view.group && mm[1] === view.group.title && +mm[2] === chNow; h += `<option value="${esc(r.id)}">${here ? '● ' : ''}${esc(mapRouteTitle(r))} · ${esc(mm ? mm[1] + ' ' + mm[2] : r.ref)}</option>`; });
-    sel.innerHTML = h + '</optgroup>'; sel.value = keep;
-  }
-  function mapRouteSet(id) {
-    if (MP.rul && MP.rul.fromRoute) mapRulToggle(false);
-    MP.route = BR.find(r => r.id === id) || null; $('#mapRoute').value = MP.route ? MP.route.id : ''; MP.sel = -1;
-    if (MP.route) { const pts = MP.route.lines.flat().map(c => mapXY(c[0], c[1])), { w, h } = mapSize(); const x0 = Math.min(...pts.map(p => p[0])), x1 = Math.max(...pts.map(p => p[0])), y0 = Math.min(...pts.map(p => p[1])), y1 = Math.max(...pts.map(p => p[1])), pad = 60; MP.s = Math.min(Math.max(Math.min(w / (x1 - x0 + 2 * pad), h / (y1 - y0 + 2 * pad)), Math.min(w / BM.w, h / BM.h)), 3); MP.tx = w / 2 - (x0 + x1) / 2 * MP.s; MP.ty = h / 2 - (y0 + y1) / 2 * MP.s; }
-    mapDraw(); mapInfo();
-  }
-  function mapRouteDraw(g, r) {
-    const R = MP.route; if (!R) return; g.save(); g.lineJoin = 'round'; g.lineCap = 'round';
-    R.lines.forEach((ln, li) => { const P = ln.map(c => { const [x, y] = mapXY(c[0], c[1]); return [x * MP.s + MP.tx, y * MP.s + MP.ty]; }), hv = MP.rhov === li; g.globalAlpha = MP.rhov != null && !hv ? 0.3 : 1; // Hover über einem Linien-Chip hebt die Linie hervor
-      const path = () => { g.beginPath(); P.forEach((q, k) => k ? g.lineTo(q[0], q[1]) : g.moveTo(q[0], q[1])); };
-      path(); g.lineWidth = (hv ? 8 : 6) * r; g.strokeStyle = 'rgba(255,255,255,.85)'; g.stroke(); path(); g.lineWidth = (hv ? 4.5 : 3) * r; g.strokeStyle = '#a4161a'; g.stroke();
-      let acc = 0; for (let k = 1; k < P.length; k++) { const dx = P[k][0] - P[k - 1][0], dy = P[k][1] - P[k - 1][1], L = Math.hypot(dx, dy); acc += L; if (acc > 90 * r && L > 0) { acc = 0; const a = Math.atan2(dy, dx), cx = P[k][0], cy = P[k][1]; g.beginPath(); g.moveTo(cx + Math.cos(a) * 5 * r, cy + Math.sin(a) * 5 * r); g.lineTo(cx + Math.cos(a + 2.5) * 5 * r, cy + Math.sin(a + 2.5) * 5 * r); g.lineTo(cx + Math.cos(a - 2.5) * 5 * r, cy + Math.sin(a - 2.5) * 5 * r); g.closePath(); g.fillStyle = '#a4161a'; g.fill(); g.lineWidth = 1 * r; g.strokeStyle = '#fff'; g.stroke(); } }
-      const s = P[0], e = P[P.length - 1]; g.beginPath(); g.arc(s[0], s[1], 5 * r, 0, 7); g.fillStyle = '#2e7d32'; g.fill(); g.lineWidth = 2 * r; g.strokeStyle = '#fff'; g.stroke(); g.beginPath(); g.arc(e[0], e[1], 5 * r, 0, 7); g.fillStyle = '#222'; g.fill(); g.stroke();
-      if (R.lines.length > 1) { const t = String(li + 1); g.beginPath(); g.arc(s[0], s[1], 7.5 * r, 0, 7); g.fillStyle = '#2e7d32'; g.fill(); g.lineWidth = 2 * r; g.strokeStyle = '#fff'; g.stroke(); g.font = `700 ${10 * r}px -apple-system, system-ui, sans-serif`; g.textAlign = 'center'; g.textBaseline = 'middle'; g.fillStyle = '#fff'; g.fillText(t, s[0], s[1] + 0.5 * r); g.textAlign = 'start'; } }); // Nummer am Anfang, passend zu den Chips „📏 1 · 58 km“
-    g.restore();
-  }
-  function mapRoutesHere() { // Routen, deren Anfangsstelle im gerade gelesenen Kapitel liegt
-    if (!view || !view.group) return []; const ch = auChapter(); if (ch == null) return [];
-    return BR.filter(r => { const m = r.ref.match(/^(.*) (\d+):/); return m && m[1] === view.group.title && +m[2] === ch; });
-  }
-  function mapRouteBox() {
-    const R = MP.route, t = I18N.t.bind(I18N); let h = '';
-    if (R) { const tot = R.lines.map(mapLen); h += `<div class="rt"><h4>${esc(mapRouteTitle(R))}${I18N.lang === 'de' ? '' : ''} <span class="chip" data-rt="">✕ ${esc(t('Route ausblenden'))}</span></h4><div class="sub">${mapRefLinkTxt(R.ref)} · ${R.lines.length} ${esc(t(R.lines.length > 1 ? 'Linien' : 'Linie'))} · ≈ ${Math.round(tot.reduce((a, b) => a + b, 0))} km (${esc(t('Luftlinie'))})<br>${R.lines.map((l, k) => `<span class="chip" data-rl="${k}" title="${esc(t('Als Messung übernehmen (Länge, Höhenprofil)'))}">📏 ${k + 1} · ${Math.round(tot[k])} km</span>`).join(' ')}</div><div class="sub rcred">${esc(t('Routen: UBS MARBLE / Leen Ritmeyer (CC BY-SA 4.0). Bibelstelle von Safran zugeordnet, ungefähr.'))}</div></div>`; }
-    const here = mapRoutesHere().filter(r => !R || r.id !== R.id);
-    if (here.length) h += `<div class="sub">${esc(t('Routen in diesem Kapitel'))}: ${here.map(r => `<span class="chip" data-rt="${esc(r.id)}">🧭 ${esc(mapRouteTitle(r))}</span>`).join(' ')}</div>`;
-    return h;
-  }
-  const mapRefLinkTxt = ref => `<a data-ref="${esc(ref)}">${esc(ref)}</a>`;
-  function mapInfo() { MP.rhov = null; mapInfo0(); if (MP.sel < 0) $('#mapInfo').insertAdjacentHTML('afterbegin', mapRouteBox()); }
-  // Zahl der Orte je Epoche in der aktuellen Ansicht auf den Epochen-Knöpfen (die Knöpfe sind zugleich die Farblegende)
-  function mapPerCounts() {
-    const n = [0, 0, 0, 0], add = i => { const m = mapPm(i); for (let k = 0; k < 4; k++) if (m >> k & 1) n[k]++; };
-    if ($('#mapAll').checked) BM.places.forEach((p, i) => add(i)); else MP.cur.forEach(c => add(c.i));
-    $$('#mapPer button').forEach(b => { const s = b.querySelector('.n'); if (s) s.textContent = n[MPORD.indexOf(b.dataset.p)] || ''; });
-  }
-  const mapVn = c => { let v = 0; (c.vs || []).forEach(x => { if (x > 0 && (!v || x < v)) v = x; }); return v; }; // erste Stelle (Vers/Abschnitt) im Kapitel
-  // „another name for X“, „within 2 km of X“ … (OpenBible) auf Deutsch bzw. in der Oberflächensprache
-  const mapLoc = s => { s = String(s || '?'); let m; if ((m = /^another name for (.+)$/.exec(s))) return I18N.t('anderer Name für {}', m[1]); if ((m = /^within (\d+) km of (.+)$/.exec(s))) return I18N.t('im Umkreis von {#} km um {}', m[1], m[2]); if ((m = /^about (\d+) km around (.+)$/.exec(s))) return I18N.t('etwa {#} km rund um {}', m[1], m[2]); return s; };
-  function mapInfo0() {
-    const el = $('#mapInfo'), here = view && view.group ? view.group.title : '', t = I18N.t.bind(I18N);
-    mapPerCounts();
-    if (MP.sel < 0) {
-      const cur = mapCur(), hid = MP.cur.length - cur.length; let list = MP.grp ? cur.filter(c => MP.grp.includes(c.i)) : cur.slice(); if (MP.grp && !list.length) { MP.grp = null; list = cur.slice(); }
-      if (!MP.cur.length) { el.innerHTML = `<div class="sub">${esc(t('Zu diesem Kapitel sind keine Orte verzeichnet. „Alle Orte“ zeigt die ganze Karte.'))}</div>`; return; }
-      const occ = MP.sort === 'occ' && list.some(c => mapVn(c)), nm = c => BM.places[c.i][0];
-      list.sort((a, b) => (occ ? (mapVn(a) || 1e9) - (mapVn(b) || 1e9) : 0) || nm(a).localeCompare(nm(b)) || a.i - b.i);
-      const cnt = new Map(), no = new Map(); cur.forEach(c => cnt.set(nm(c), (cnt.get(nm(c)) || 0) + 1)); cur.slice().sort((a, b) => a.i - b.i).forEach(c => { if (cnt.get(nm(c)) > 1) { const k = (no.get('#' + nm(c)) || 0) + 1; no.set('#' + nm(c), k); no.set(c.i, k); } }); // gleichnamige Orte: ¹ ² …
-      const chip = c => { const p = BM.places[c.i], v = mapVn(c); return `<span class="chip${MP.vsel && !MP.vsel.has(c.i) ? ' dim' : ''}" data-i="${c.i}" data-k="${esc((p[0] + ' ' + mapHe(p) + ' ' + (p[9] || '')).toLowerCase())}">${mapName(c.i, no.get(c.i))}${v ? `<span class="vn">${v}</span>` : ''}</span>`; };
-      const head = MP.grp ? `${list.length} ${esc(t('Orte an dieser Stelle'))} · <span class="chip" data-i="-3">← ${esc(t('alle Orte des Kapitels'))}</span>`
-        : MP.over ? esc(t('Orte dieses Abschnitts')) + ': ' + esc(MP.over.label) + ' · <span class="chip" data-i="-2">← ' + esc(t('Kapitel')) + '</span>' : esc(t('Orte in diesem Kapitel')) + ' (' + cur.length + ')';
-      el.innerHTML = `<div class="sub">${head}${hid ? ` · ${hid} ${esc(t('durch den Epochenfilter ausgeblendet'))}` : ''}` +
-        (MP.vsel ? ` · <span class="chip on" data-i="-4" title="${esc(t('Hervorhebung aufheben'))}">${esc(t('Vers'))} ${MP.vnum}: ${MP.vsel.size} ✕</span>` : '') +
-        (list.length > 2 && list.some(c => mapVn(c)) ? ` <span class="msort"><span class="chip${occ ? '' : ' on'}" data-sort="az">A–Z</span><span class="chip${occ ? ' on' : ''}" data-sort="occ" title="${esc(t('In der Reihenfolge des Textes; die kleine Zahl ist der Vers bzw. Abschnitt der ersten Nennung'))}">${esc(t('nach Vorkommen'))}</span></span>` : '') + '</div>' +
-        (list.length > 40 ? `<input id="mapFlt" type="search" placeholder="Orte filtern …" autocomplete="off">` : '') +
-        `<div class="chips">${list.map(chip).join('')}</div>`;
-      return;
-    }
-    const p = BM.places[MP.sel], n = MPER.size === 4 ? p[4].length : p[4].filter(mapPerOk).length;
-    const me = MP.lay.find(o => o.i === MP.sel), nb = me ? MP.lay.filter(o => !o.bub && o.i !== MP.sel && Math.hypot(o.x - me.x, o.y - me.y) < 26 * (window.devicePixelRatio || 1)).slice(0, 8) : [];
-    el.innerHTML = `<h4>${mapName(MP.sel)}</h4><div class="sub">${[esc(mapTypeT(p[1])), n + ' ' + esc(t(n === 1 ? 'Stelle' : 'Stellen')), ELV && mapInMap(p) ? esc(t('Höhe')) + ' ≈ ' + mapM(mapElev(...mapLL(...mapPx(p)))) : '', mapInMap(p) ? '' : esc(t('liegt außerhalb des Kartenausschnitts'))].filter(Boolean).join(' · ')} · <span class="chip" data-i="-1">← ${esc(t('Liste'))}</span></div>` +
-      (p[9] ? `<div class="sub">${esc(t('Weitere Namen'))}: ${esc(p[9])}</div>` : '') +
-      (nb.length ? `<div class="sub">${esc(t('Daneben'))}: ${nb.map(o => `<span class="chip" data-i="${o.i}">${mapName(o.i)}</span>`).join(' ')}</div>` : '') +
-      mapAlts(p) + mapOutRows(MP.sel) + mapNoteRows(p) + mapRefs(p, here);
-  }
-  // Stellen eines Ortes: nach Epoche und Korpus gegliedert, einklappbar und mit Zählern; das gerade gelesene Werk steht vorn und ist offen
-  const MCORP = [['Mischna', /^Mishnah |^Pirkei Avot$/], ['Tosefta', /^Tosefta /], ['Jerusalemer Talmud', /^Jerusalem Talmud /], ['Targumim', /Targum|^Onkelos /], ['Kleine Traktate', /^Tractate |^Avot DeRabbi Natan/], ['Apokryphen', /^Book of /], ['Midraschim', /Rabbah|Midrash|Mekhilta|Sifr|Pesikta|Tanchuma|Seder Olam|Pirkei DeRabbi/]];
-  const mapCorp = b => { if (!(BM.alma && BM.alma.has(b))) return BM.nOrig == null || b < BM.nOrig ? 'Tanach' : 'Josephus und Makkabäerbücher'; const c = MCORP.find(x => x[1].test(BM.books[b])); return c ? c[0] : 'Babylonischer Talmud'; };
-  const mapRowLinks = (b, l, max) => l.slice(0, max).map(e => mapRefLink(b, e[1], e[2], e[3])).join(' ') + (l.length > max ? ` <a class="more">${esc(I18N.t('alle zeigen'))} (+${l.length - max})</a>` : '');
-  function mapRefs(p, here) {
-    const t = I18N.t.bind(I18N), tree = new Map(), wk = new Set();
-    p[4].forEach(e => { if (!mapPerOk(e)) return; let q = mapPerOf(e); if (q === 'O') q = 'S'; const c = mapCorp(e[0]); let P = tree.get(q); if (!P) tree.set(q, P = new Map()); let C = P.get(c); if (!C) P.set(c, C = new Map()); let W = C.get(e[0]); if (!W) C.set(e[0], W = []); W.push(e); wk.add(e[0]); });
-    MP.refs = tree;
-    const isH = b => BM.books[b] === here, cnt = C => [...C.values()].reduce((s, l) => s + l.length, 0);
-    const rows = (q, C) => [...C].sort((a, b) => isH(b[0]) - isH(a[0]) || (BM.alma && BM.alma.has(a[0]) && BM.alma.has(b[0]) ? BM.books[a[0]].localeCompare(BM.books[b[0]]) : a[0] - b[0]))
-      .map(([b, l]) => `<div class="vs" data-w="${q}|${b}"><b>${esc(BM.books[b])}</b>${l.length > 3 ? ` <span class="n">${l.length}</span>` : ''} <span class="ls">${mapRowLinks(b, l, isH(b) ? 40 : 15)}</span></div>`).join('');
-    if (tree.size <= 1 && wk.size <= 6) return [...tree].map(([q, P]) => [...P.values()].map(C => rows(q, C)).join('')).join('');
-    return MPORD.filter(q => tree.has(q)).map(q => { const P = tree.get(q), nP = [...P.values()].reduce((s, C) => s + cnt(C), 0), hP = [...P.values()].some(C => [...C.keys()].some(isH));
-      const inner = P.size === 1 ? rows(q, [...P.values()][0]) : [...P].sort((a, b) => [...b[1].keys()].some(isH) - [...a[1].keys()].some(isH)).map(([c, C]) => `<details class="cg"${[...C.keys()].some(isH) || cnt(C) <= 40 ? ' open' : ''}><summary>${esc(t(c))} <span class="n">${cnt(C)}</span></summary>${rows(q, C)}</details>`).join('');
-      return `<details class="pg"${hP || tree.size === 1 || nP <= 40 ? ' open' : ''}><summary><i class="pd" style="background:${MPCOL[q]}"></i>${esc(t(MPNAME[q]))} <span class="n">${nP}</span></summary>${inner}</details>`; }).join('');
-  }
-  // Notizen zu Orten: freie Notizen mit Feld „place“ (= Ortsname), erscheinen auch im Reiter Notizen
-  const mapNotesOf = p => { try { return notesAll.filter(n => n.place === p[0]); } catch { return []; } };
-  function mapNoteRows(p) {
-    const ns = mapNotesOf(p); return `<div class="pn"><div class="sub"><b>${esc(I18N.t('Notizen'))}</b> <span class="chip pnadd">＋ ${esc(I18N.t('Notiz zu diesem Ort'))}</span></div>` + ns.map(n => `<div class="pnote" data-id="${esc(n.id)}">${n.title && n.title !== p[0] ? '<b>' + esc(n.title) + '</b> ' : ''}${esc((n.note || '').slice(0, 200))}</div>`).join('') + '</div>';
-  }
-  function mapOutRows(i) { // Punkte der Gliederung dieses Buches, in denen der Ort vorkommt
-    const g = view && view.group; if (!g || !BM.books.includes(g.title) || typeof olOwnCache === 'undefined') return '';
-    const ol = olOwnCache.get(g.title); if (ol === undefined) { olOwn(g.title).then(() => { if (MP.sel === i) mapInfo(); }).catch(() => {}); return ''; } if (!ol) return '';
-    const L = I18N.lang, T = (o, k) => (L !== 'he' && (o[k + '_' + L] || o[k + '_en'])) || o[k], rows = [];
-    ol.sections.forEach(sec => sec.items.forEach(it => { if (mapForRef(g.title, it.ref).some(c => c.i === i)) rows.push(`<div class="olr" data-ref="${esc(g.title + ' ' + String(it.ref).split(/[-–,]/)[0])}"><span class="rf">${esc(String(it.ref).replace('-', '–'))}</span> ${esc(T(it, 'text') || '')}</div>`); }));
-    return rows.length ? `<div class="sub">${esc(I18N.t('In der Gliederung'))}</div><div class="olrs">${rows.slice(0, 12).join('')}</div>` : '';
-  }
-  function mapAlts(p) {
-    if (p[8]) return `<div class="sub">${esc(I18N.t('Lage vermutet'))}</div><div class="alts"><div class="muted" style="font-size:12px">${esc(I18N.t('Die Quelle kennt hier nur den Stadtmittelpunkt von Jerusalem. Die Lage ist nach Nehemia 3 und der Forschung gesetzt und teils umstritten.'))}</div></div>`;
-    const al = p[6] || []; if (!al.length) return '';
-    const rows = al.map((a, k) => `<div class="alt${k === MP.alt ? ' on' : ''}" data-a="${k}"><span class="nm" title="${esc(mapLoc(a[0]))}">${esc(mapLoc(a[0]))}${k === 0 && al.length > 1 ? ' ★' : ''}</span><span class="bar"><i style="width:${Math.min(100, Math.round(a[3] / 10))}%"></i></span><span class="pc">${Math.round(a[3] / 10)} %</span></div>`).join('');
-    return `<div class="sub" title="${esc(I18N.t('Sicherheit der Zuordnung nach der Forschung des neuesten Jahrzehnts (OpenBible.info)'))}">${esc(I18N.t('Mögliche Lage'))}${mapConf(p) < 500 ? ' · ' + esc(I18N.t('Zuordnung unsicher')) : ''}</div><div class="alts">${rows}</div>`;
-  }
-  function mapSelect(i, center) {
-    MP.sel = i; MP.alt = -1;
-    if (i >= 0 && center && mapInMap(BM.places[i])) { // auf den Ort und seine möglichen Lagen einpassen
-      const pl = BM.places[i], { w, h } = mapSize(), pts = [mapPx(pl), ...(pl[6] || []).slice(1).map(a => mapXY(a[1], a[2]))];
-      const x0 = Math.min(...pts.map(q => q[0])), x1 = Math.max(...pts.map(q => q[0])), y0 = Math.min(...pts.map(q => q[1])), y1 = Math.max(...pts.map(q => q[1]));
-      const pad = 110, sx = w / (x1 - x0 + 2 * pad / Math.max(MP.s, 0.5)), sy = h / (y1 - y0 + 2 * pad / Math.max(MP.s, 0.5));
-      MP.s = pts.length > 1 ? Math.min(mapNearJer(pl[2], pl[3]) ? 300 : MAPZ, Math.max(Math.min(sx, sy), 1.5)) : Math.max(MP.s, 1.5); if (Math.abs(pl[2] - 35.234) < 0.03 && Math.abs(pl[3] - 31.774) < 0.03 && MP.s < 60) MP.s = 60; /* Jerusalem: so weit hinein, dass Gelände und Wilson-Karte erscheinen */ MP.tx = w / 2 - (x0 + x1) / 2 * MP.s; MP.ty = h / 2 - (y0 + y1) / 2 * MP.s;
-    }
-    mapDraw(); mapInfo();
-  }
-  // ===== Jerusalem-Detailkarte: Gelände (Copernicus), Wilson 1865, heutiges OSM, Namen =====
-  const JER = { st: 0, rel: null, osm: null, wil: null, meta: null, opt: { wil: 1, osm: 1, rel: 1, lab: 1, op: 80 } };
-  try { Object.assign(JER.opt, JSON.parse(localStorage.getItem('jerOpt') || '{}')); } catch { /* egal */ }
-  const JER_T = 22, JER_BOX = [35.19, 31.74, 35.28, 31.81]; // ab diesem Zoom setzen die Detailebenen ein; Ausschnitt des Höhenrasters
-  const jerInfl = async z => { const bin = Uint8Array.from(atob(z), c => c.charCodeAt(0)); return new Uint8Array(await new Response(new Blob([bin]).stream().pipeThrough(new DecompressionStream('deflate'))).arrayBuffer()); };
-  const jerScript = src => new Promise(ok => { const s = document.createElement('script'); s.src = src; s.onload = () => ok(true); s.onerror = () => ok(false); document.head.appendChild(s); });
-  async function jerLoad() {
-    if (JER.st) return; JER.st = 1;
-    try {
-      await Promise.all([jerScript('map/jer/dem.js'), jerScript('map/jer/osm.js'), jerScript('map/jer/meta.js')]);
-      if (window.BJERDEM) JER.rel = await jerRelief(window.BJERDEM);
-      if (window.BJEROSM) JER.osm = await jerOsm(window.BJEROSM);
-      JER.meta = window.BJERMETA || null;
-      if (JER.meta && JER.meta.wil) { const im = new Image(); im.onload = () => { JER.wil = im; mapDraw(); }; im.src = 'map/jer/' + JER.meta.wil.file; }
-    } catch { /* ohne Detailebenen weiter */ }
-    JER.st = 2; mapDraw();
-  }
-  // Schummerung + Höhenlinien aus dem 30-m-Raster (geglättet, bikubisch auf das Sechsfache vergrößert)
-  async function jerRelief(D) {
-    const by = await jerInfl(D.z), u = new Uint16Array(by.buffer, by.byteOffset, by.length >> 1), w = D.w, h = D.h, F = 6, cw = w * F, ch = h * F;
-    let e = new Float32Array(w * h); for (let i = 0; i < e.length; i++) e[i] = D.off + u[i] * D.step;
-    const K = [0.054, 0.244, 0.403, 0.244, 0.054], blur = (src, dx, dy) => { const o = new Float32Array(src.length); for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) { let t = 0; for (let k = -2; k <= 2; k++) { const xx = Math.min(w - 1, Math.max(0, x + k * dx)), yy = Math.min(h - 1, Math.max(0, y + k * dy)); t += K[k + 2] * src[yy * w + xx]; } o[y * w + x] = t; } return o; };
-    e = blur(blur(e, 1, 0), 0, 1);
-    const cr = (p0, p1, p2, p3, t) => p1 + 0.5 * t * (p2 - p0 + t * (2 * p0 - 5 * p1 + 4 * p2 - p3 + t * (3 * (p1 - p2) + p3 - p0)));
-    const g = (x, y) => e[Math.min(h - 1, Math.max(0, y)) * w + Math.min(w - 1, Math.max(0, x))];
-    const Z = new Float32Array(cw * ch);
-    for (let Y = 0; Y < ch; Y++) { const sy = (Y + 0.5) / F - 0.5, y0 = Math.floor(sy), ty = sy - y0; for (let X = 0; X < cw; X++) { const sx = (X + 0.5) / F - 0.5, x0 = Math.floor(sx), tx = sx - x0; const r = [-1, 0, 1, 2].map(j => cr(g(x0 - 1, y0 + j), g(x0, y0 + j), g(x0 + 1, y0 + j), g(x0 + 2, y0 + j), tx)); Z[Y * cw + X] = cr(r[0], r[1], r[2], r[3], ty); } }
-    const mx = (D.E - D.W) / cw * 111320 * Math.cos(31.77 * Math.PI / 180), my = (D.N - D.S) / ch * 110574, zen = 50 * Math.PI / 180, az = 315 * Math.PI / 180, zf = 2.2;
-    const cv = document.createElement('canvas'); cv.width = cw; cv.height = ch; const c = cv.getContext('2d'), im = c.createImageData(cw, ch), P = im.data, f = Math.round(Math.min(cw, ch) * 0.05);
-    for (let Y = 0; Y < ch; Y++) for (let X = 0; X < cw; X++) {
-      const x1 = Math.max(0, X - 1), x2 = Math.min(cw - 1, X + 1), y1 = Math.max(0, Y - 1), y2 = Math.min(ch - 1, Y + 1), q = (xx, yy) => Z[yy * cw + xx];
-      const dzx = ((q(x2, y1) + 2 * q(x2, Y) + q(x2, y2)) - (q(x1, y1) + 2 * q(x1, Y) + q(x1, y2))) / (8 * mx) * zf, dzy = ((q(x1, y2) + 2 * q(X, y2) + q(x2, y2)) - (q(x1, y1) + 2 * q(X, y1) + q(x2, y1))) / (8 * my) * zf;
-      const sl = Math.atan(Math.hypot(dzx, dzy)), as = Math.atan2(dzy, -dzx), hs = Math.max(0, Math.cos(zen) * Math.cos(sl) + Math.sin(zen) * Math.sin(sl) * Math.cos(az - as));
-      const z = Z[Y * cw + X], t = Math.min(1, Math.max(0, (z - 420) / 400)), sh = 0.38 + 0.9 * hs;
-      let R = (226 + 24 * t) * sh, Gc = (222 + 24 * t) * sh, B = (190 + 36 * t) * sh;
-      const zr = Z[Y * cw + Math.min(cw - 1, X + 1)], zb = Z[Math.min(ch - 1, Y + 1) * cw + X]; // Höhenlinien alle 10 m (alle 50 m kräftiger)
-      const c10 = Math.floor(z / 10), a10 = c10 !== Math.floor(zr / 10) || c10 !== Math.floor(zb / 10);
-      if (a10) { const k = (Math.floor(z / 50) !== Math.floor(Math.min(z, Math.max(zr, zb)) / 50) || Math.floor(Math.max(z, zr, zb) / 50) !== Math.floor(Math.min(z, zr, zb) / 50)) ? 0.34 : 0.14; R = R * (1 - k) + 120 * k; Gc = Gc * (1 - k) + 85 * k; B = B * (1 - k) + 45 * k; }
-      const o = (Y * cw + X) * 4, ed = Math.min(1, Math.min(X, Y, cw - 1 - X, ch - 1 - Y) / f); P[o] = R; P[o + 1] = Gc; P[o + 2] = B; P[o + 3] = 255 * ed * ed * (3 - 2 * ed);
-    }
-    c.putImageData(im, 0, 0); return cv;
-  }
-  async function jerOsm(D) {
-    const j = JSON.parse(new TextDecoder().decode(await jerInfl(D.z))), O = j.o, out = {};
-    const dec = (a, c0) => { const n = (a.length - c0) >> 1, x = new Int32Array(n), y = new Int32Array(n); let px = 0, py = 0, x0 = 1e9, y0 = 1e9, x1 = -1e9, y1 = -1e9; for (let i = 0; i < n; i++) { px += a[c0 + 2 * i]; py += a[c0 + 2 * i + 1]; x[i] = px; y[i] = py; if (px < x0) x0 = px; if (px > x1) x1 = px; if (py < y0) y0 = py; if (py > y1) y1 = py; } return { x, y, b: [x0, y0, x1, y1] }; };
-    out.o = O; ['bld', 'wall', 'water', 'cem', 'park'].forEach(k => { out[k] = j[k].map(a => dec(a, 0)); }); out.hw = j.hw.map(a => Object.assign(dec(a, 1), { c: a[0] }));
-    return out;
-  }
-  const jerOn = () => MP.s >= JER_T * 0.6 && JER.st !== 3;
-  function jerVisible() { const { w, h } = mapSize(), [x0, y0] = mapXY(JER_BOX[0], JER_BOX[3]), [x1, y1] = mapXY(JER_BOX[2], JER_BOX[1]); return MP.s >= JER_T * 0.6 && x1 * MP.s + MP.tx > 0 && x0 * MP.s + MP.tx < w && y1 * MP.s + MP.ty > 0 && y0 * MP.s + MP.ty < h; }
-  function mapJerDraw(g, r, chap) {
-    const box = $('#mapJer'); const vis = jerVisible(); if (box) box.hidden = !vis; if (!vis) return; if (!JER.st) jerLoad();
-    const a = Math.min(1, Math.max(0, (MP.s - JER_T * 0.6) / (JER_T * 0.8))), kx = BM.ppd * BM.k * MP.s, ky = BM.ppd * MP.s, X = lon => (lon - BM.W0) * kx + MP.tx, Y = lat => (BM.N0 - lat) * ky + MP.ty, ppm = ky / 110574, { w, h } = mapSize(), o = JER.opt;
-    g.save(); g.globalAlpha = a;
-    if (JER.rel && o.rel) { const [W, S, E, N] = JER_BOX; g.imageSmoothingEnabled = true; g.drawImage(JER.rel, X(W), Y(N), X(E) - X(W), Y(S) - Y(N)); }
-    const M = JER.meta && JER.meta.wil;
-    if (JER.wil && M && o.wil) { const A = M.A, B = M.B; g.save(); g.globalAlpha = a * o.op / 100; g.setTransform(kx * A[1], -ky * B[1], kx * A[2], -ky * B[2], kx * (A[0] - BM.W0) + MP.tx, ky * (BM.N0 - B[0]) + MP.ty); g.imageSmoothingQuality = 'high'; g.drawImage(JER.wil, 0, 0); g.restore(); }
-    const S = JER.osm; if (S && o.osm) {
-      const ax = kx / S.o[2], bx = (S.o[0] - BM.W0) * kx + MP.tx, ay = -ky / S.o[2], by = (BM.N0 - S.o[1]) * ky + MP.ty, vis = f => { const x0 = ax * f.b[0] + bx, x1 = ax * f.b[2] + bx, y1 = ay * f.b[1] + by, y0 = ay * f.b[3] + by; return x1 > 0 && x0 < w && y1 > 0 && y0 < h; };
-      const path = (f, close) => { g.beginPath(); for (let i = 0; i < f.x.length; i++) { const px = ax * f.x[i] + bx, py = ay * f.y[i] + by; if (i) g.lineTo(px, py); else g.moveTo(px, py); } if (close) g.closePath(); };
-      g.lineJoin = 'round'; g.lineCap = 'round';
-      if (ppm > 0.05) { g.fillStyle = 'rgba(120,160,90,.22)'; S.park.forEach(f => { if (vis(f)) { path(f, true); g.fill(); } }); g.fillStyle = 'rgba(110,110,110,.2)'; S.cem.forEach(f => { if (vis(f)) { path(f, true); g.fill(); } }); }
-      const ov = !!(JER.wil && M && o.wil && o.op > 25); // über der Wilson-Karte nur die heutigen Hauptstraßen in Blau (Gebäude und Gassen stehen schon auf Wilsons Karte)
-      if (ppm > 0.45 && !ov) { g.fillStyle = 'rgba(176,150,118,.5)'; g.strokeStyle = 'rgba(110,85,55,.7)'; g.lineWidth = 0.8 * r; S.bld.forEach(f => { if (vis(f)) { path(f, true); g.fill(); g.stroke(); } }); }
-      const minC = ov ? 3 : ppm > 0.25 ? 1 : ppm > 0.08 ? 3 : 4; g.strokeStyle = ov ? 'rgba(30,80,170,.6)' : 'rgba(95,80,65,.75)';
-      S.hw.forEach(f => { if (f.c < minC || !vis(f)) return; g.lineWidth = (f.c >= 4 ? 2.6 : f.c === 3 ? 1.8 : 1) * r * Math.min(2.2, Math.max(0.8, ppm * 2)); path(f, false); g.stroke(); });
-      g.strokeStyle = 'rgba(75,25,20,.9)'; g.lineWidth = 3 * r; S.wall.forEach(f => { if (vis(f)) { path(f, false); g.stroke(); } });
-      g.strokeStyle = 'rgba(40,110,190,.8)'; g.lineWidth = 2 * r; S.water.forEach(f => { if (vis(f)) { path(f, false); g.stroke(); } });
-    }
-    if (o.lab && JER.meta && JER.meta.labels) { const ll = I18N.lang; g.textAlign = 'center'; g.textBaseline = 'middle'; g.lineJoin = 'round';
-      JER.meta.labels.forEach(L => { if (L.z && MP.s < L.z) return; const t = (ll === 'de' ? L.n[1] : ll === 'he' && L.n[2] ? L.n[2] : L.n[0]) || L.n[0], px = X(L.p[0]), py = Y(L.p[1]); if (px < -80 || py < -30 || px > w + 80 || py > h + 30) return;
-        const big = L.t === 'hill' || L.t === 'val', sz = (big ? 13 : 11) * r; g.font = `${big ? 'italic ' : ''}600 ${sz}px -apple-system, system-ui, sans-serif`;
-        if (chap && chap.length) { const hw = g.measureText(big ? t.toUpperCase() : t).width / 2 + (big ? t.length * 1.5 * r : 0) + 8 * r; if (chap.some(q => L.a ? Math.hypot(q.x - px, q.y - py) < hw : Math.abs(q.x - px) < hw && Math.abs(q.y - py) < 13 * r)) return; } // Grundname läge unter einem Ort des Kapitels
-        g.save(); g.translate(px, py); if (L.a) g.rotate(L.a * Math.PI / 180);
-        const tx = big ? t.toUpperCase() : L.t === 'gate' ? t + (ll === 'de' ? ' (heute)' : ll === 'he' ? ' (כיום)' : ' (today)') : t; if (big && g.letterSpacing !== undefined) g.letterSpacing = (3 * r) + 'px'; g.lineWidth = 3.5 * r; g.strokeStyle = 'rgba(255,255,255,.85)'; g.strokeText(tx, 0, 0); g.fillStyle = L.t === 'val' ? '#2d5f8f' : L.t === 'hill' ? '#5a4524' : L.t === 'wall' ? '#6b1f18' : '#222'; g.fillText(tx, 0, 0); g.restore(); });
-      g.textAlign = 'start'; }
-    g.restore();
-  }
-  // ===== Feinere Karte: Reliefkacheln für das Land Israel (map/hi), Gewässer (OSM), römische Straßen (Itiner-e), heutige Städte =====
-  // Alles wird erst bei Bedarf geladen; gezeichnet wird nur, was im Bild liegt, und nur so genau, wie der Zoom es zeigt.
-  const HI = window.BMAPHI || null, HIC = new Map(), HIS = { n: 0, raf: 0 }; // Kachel-Cache: „Stufe/x_y“ -> { im, ok, u }
-  const MAPZH = 22; // größter Zoom im Ausschnitt der feinen Kacheln (feinste Stufe: 2400 Pixel je Grad = Zoom 16)
-  const mapInHi = (x, y) => !!HI && x >= HI.x0 && y >= HI.y0 && x <= HI.x0 + HI.w && y <= HI.y0 + HI.h; // Kartenpixel
-  const mapDrawSoon = () => { if (HIS.raf) return; HIS.raf = requestAnimationFrame(() => { HIS.raf = 0; mapDraw(); }); };
-  function mapHiVisible(w, h) { return !!HI && MP.s >= 1.6 && (HI.x0 + HI.w) * MP.s + MP.tx > 0 && HI.x0 * MP.s + MP.tx < w && (HI.y0 + HI.h) * MP.s + MP.ty > 0 && HI.y0 * MP.s + MP.ty < h; }
-  function mapHiDraw(g, w, h) {
-    if (!mapHiVisible(w, h)) return;
-    let li = 0; while (li < HI.lv.length - 1 && HI.lv[li].f < MP.s * 0.8) li++; // Stufe, deren Kacheln höchstens um ein Viertel vergrößert werden
-    const ox = HI.x0 * MP.s + MP.tx, oy = HI.y0 * MP.s + MP.ty, stamp = ++HIS.n;
-    const pass = (k, load) => { // zeichnet die geladenen Kacheln einer Stufe; liefert die Zahl der noch fehlenden
-      const L = HI.lv[k], q = MP.s / L.f, ts = HI.ts * q; let miss = 0;
-      const tx0 = Math.max(0, Math.floor(-ox / ts)), tx1 = Math.min(L.nx - 1, Math.floor((w - ox) / ts)), ty0 = Math.max(0, Math.floor(-oy / ts)), ty1 = Math.min(L.ny - 1, Math.floor((h - oy) / ts));
-      for (let ty = ty0; ty <= ty1; ty++) for (let tx = tx0; tx <= tx1; tx++) {
-        if (L.have.charCodeAt(ty * L.nx + tx) !== 49) continue; // nur offenes Meer: keine Kachel
-        const key = k + '/' + tx + '_' + ty; let t = HIC.get(key);
-        if (!t) { if (!load) continue; t = { im: new Image(), ok: false, u: 0 }; const tt = t; t.im.onload = () => { tt.ok = true; mapDrawSoon(); }; t.im.src = 'map/hi/' + key + '.jpg'; HIC.set(key, t); }
-        t.u = stamp; if (!t.ok) { miss++; continue; }
-        const x = Math.round(ox + tx * ts), y = Math.round(oy + ty * ts); // auf ganze Pixel, damit zwischen den Kacheln keine Fugen entstehen
-        g.drawImage(t.im, x, y, Math.round(ox + tx * ts + t.im.naturalWidth * q) - x, Math.round(oy + ty * ts + t.im.naturalHeight * q) - y);
-      }
-      return miss; };
-    const tiles = () => { // Zielstufe; solange dort Kacheln fehlen, liegen darunter die schon geladenen gröberen
-      let miss = 0; { const L = HI.lv[li], ts = HI.ts * MP.s / L.f; for (let ty = Math.max(0, Math.floor(-oy / ts)); ty <= Math.min(L.ny - 1, Math.floor((h - oy) / ts)) && !miss; ty++) for (let tx = Math.max(0, Math.floor(-ox / ts)); tx <= Math.min(L.nx - 1, Math.floor((w - ox) / ts)); tx++) { if (L.have.charCodeAt(ty * L.nx + tx) !== 49) continue; const t = HIC.get(li + '/' + tx + '_' + ty); if (!t || !t.ok) { miss = 1; break; } } }
-      if (miss) for (let k = 0; k < li; k++) pass(k, k === 0);
-      pass(li, true); };
-    g.save(); g.imageSmoothingEnabled = true; g.imageSmoothingQuality = 'high'; g.globalAlpha = Math.min(1, (MP.s - 1.6) / 0.5); tiles(); g.restore();
-    if (HIC.size > 260) { const old = [...HIC].filter(([, t]) => t.u !== stamp).sort((a, b) => a[1].u - b[1].u); for (let i = 0; i < old.length && HIC.size > 180; i++) { old[i][1].im.onload = null; HIC.delete(old[i][0]); } } // lange nicht gezeigte Kacheln freigeben
-  }
-  // Linien (Gewässer, Straßen): wie map/jer/osm.js gepackt – Differenzen ganzer Zahlen, zlib, Base64
-  const vecDec = (a, c0) => { const n = (a.length - c0) >> 1, x = new Int32Array(n), y = new Int32Array(n); let px = 0, py = 0, x0 = 1e9, y0 = 1e9, x1 = -1e9, y1 = -1e9; for (let i = 0; i < n; i++) { px += a[c0 + 2 * i]; py += a[c0 + 2 * i + 1]; x[i] = px; y[i] = py; if (px < x0) x0 = px; if (px > x1) x1 = px; if (py < y0) y0 = py; if (py > y1) y1 = py; } return { x, y, b: [x0, y0, x1, y1] }; };
-  async function vecLoad(S, src, name, make) { if (S.st) return; S.st = 1; try { if (await jerScript(src) && window[name]) { make(window[name].z ? JSON.parse(new TextDecoder().decode(await jerInfl(window[name].z))) : window[name]); S.st = 2; mapDraw(); } else S.st = 3; } catch { S.st = 3; } }
-  // Abbildung der gepackten Koordinaten auf den Bildschirm und Zeichnen der sichtbaren Linien in einen Pfad; Punkte, die näher als tol Pixel am vorigen liegen, entfallen
-  const vecView = (o, w, h) => { const kx = BM.ppd * BM.k * MP.s, ky = BM.ppd * MP.s, ax = kx / o[2], bx = (o[0] - BM.W0) * kx + MP.tx, ay = -ky / o[2], by = (BM.N0 - o[1]) * ky + MP.ty;
-    return { vis: f => ax * f.b[2] + bx > 0 && ax * f.b[0] + bx < w && ay * f.b[1] + by > 0 && ay * f.b[3] + by < h,
-      path: (g, f, tol) => { const n = f.x.length; let lx = ax * f.x[0] + bx, ly = ay * f.y[0] + by; g.moveTo(lx, ly); for (let i = 1; i < n; i++) { const px = ax * f.x[i] + bx, py = ay * f.y[i] + by; if (i < n - 1 && Math.abs(px - lx) + Math.abs(py - ly) < tol) continue; g.lineTo(px, py); lx = px; ly = py; } } }; };
-  const WAT = { st: 0, cl: null, lab: [], o: null }, WATZ = [2.1, 3.2, 5.5, 8.5, 12]; // Gewässerklassen erscheinen nacheinander: Hauptflüsse zuerst, kleine Wadis erst bei starkem Zoom
-  function mapWaterDraw(g, r, w, h) {
-    if (!mapHiVisible(w, h) || MP.s < WATZ[0]) return; if (!WAT.st) vecLoad(WAT, 'map/water.js', 'BMAPWATER', j => { WAT.o = j.o; WAT.cl = j.cl.map(c => c.map(a => vecDec(a, 0))); WAT.lab = j.lab || []; }); if (WAT.st !== 2) return;
-    const V = vecView(WAT.o, w, h); g.save(); g.lineJoin = 'round'; g.lineCap = 'round';
-    WAT.cl.forEach((c, k) => { const a = Math.min(1, (MP.s - WATZ[k]) / (WATZ[k] * 0.25)); if (a <= 0) return;
-      g.beginPath(); for (const f of c) if (V.vis(f)) V.path(g, f, 1.5 * r);
-      g.globalAlpha = a; g.strokeStyle = k ? 'rgba(74,128,176,.8)' : 'rgba(62,118,172,.95)'; g.lineWidth = (k === 0 ? Math.min(2.6, 1.5 + MP.s / 14) : k === 1 ? 1.25 : k === 2 ? 1.05 : 0.85) * r; g.stroke(); });
-    g.restore();
-  }
-  const ROADS = { st: 0, r: null, o: null };
-  function mapRoadsDraw(g, r, w, h) {
-    if (!$('#mapRoads').checked) return; if (!ROADS.st) vecLoad(ROADS, 'map/roads.js', 'BMAPROADS', j => { ROADS.o = j.o; ROADS.r = j.r.map(a => Object.assign(vecDec(a, 2), { m: a[0] === 2, c: a[1] })); }); if (ROADS.st !== 2) return;
-    const V = vecView(ROADS.o, w, h), small = MP.s < 1.2; g.save(); g.lineJoin = 'round'; g.lineCap = 'butt'; g.strokeStyle = '#7a4a22';
-    // vier Pfade: Haupt-/Nebenstraße × gesichert oder vermutet / hypothetisch; in der Übersicht nur die Hauptstraßen
-    for (let k = 0; k < 4; k++) { const main = k < 2, hyp = k % 2 === 1; if (small && !main) continue; g.beginPath();
-      for (const f of ROADS.r) if (f.m === main && (f.c === 0) === hyp && V.vis(f)) V.path(g, f, 2 * r);
-      g.setLineDash(hyp ? [2 * r, 3.5 * r] : [5.5 * r, 3 * r]); g.globalAlpha = (hyp ? 0.45 : main ? 0.8 : 0.6) * (small ? 0.8 : 1); g.lineWidth = (main ? 1.35 : 0.95) * r; g.stroke(); }
-    g.restore();
-  }
-  // Hintergrundnamen: Flüsse (entlang des Laufs) und heutige Städte (blassgrau) – erst nach allen antiken Namen und nur, wo nichts anderes liegt
-  const TOWNS = { st: 0, l: null };
-  function mapBackLabels(g, r, w, h, E) {
-    const ll = I18N.lang, FONT = '-apple-system, system-ui, sans-serif', X = lon => (lon - BM.W0) * BM.ppd * BM.k * MP.s + MP.tx, Y = lat => (BM.N0 - lat) * BM.ppd * MP.s + MP.ty;
-    const dots = MP.lay.filter(o => !o.chap && o.x > 0 && o.y > 0 && o.x < w && o.y < h), onDot = b => dots.some(o => o.x > b.x - r && o.x < b.x + b.w + r && o.y > b.y - r && o.y < b.y + b.h + r); // Namen decken keine Punkte der übrigen Orte zu
-    if (WAT.st === 2 && mapHiVisible(w, h)) { g.font = `italic ${11 * r}px ${FONT}`; g.textAlign = 'center'; let n = 0;
-      for (const L of WAT.lab) { if (L[6] > MP.s) break; if (n >= 14) break; const px = X(L[3]), py = Y(L[4]); if (px < 0 || py < 0 || px > w || py > h) continue;
-        if (E.shown.has(L[0]) || E.shown.has(L[0].replace(/^Nahal /, '').split(' (')[0])) continue; // steht schon als Ort des Kapitels auf der Karte
-        const t = (ll === 'de' ? L[1] : ll === 'he' ? L[2] : '') || L[0], tw = g.measureText(t).width + 6 * r, an = -L[5] * Math.PI / 180, cw = Math.abs(Math.cos(an)) * tw + Math.abs(Math.sin(an)) * 14 * r, ch = Math.abs(Math.sin(an)) * tw + Math.abs(Math.cos(an)) * 14 * r;
-        const bb = { x: px - cw / 2, y: py - ch / 2, w: cw, h: ch }; if (!E.inside(bb) || E.hit(bb) || onDot(bb)) continue; E.boxes.push(bb); n++;
-        g.save(); g.translate(px, py); g.rotate(an); g.globalAlpha = 0.9; g.lineWidth = 2.6 * r; g.strokeStyle = 'rgba(255,255,255,.6)'; g.strokeText(t, 0, -1 * r); g.fillStyle = '#1f4f7a'; g.fillText(t, 0, -1 * r); g.restore(); }
-      g.textAlign = 'start'; }
-    if ($('#mapTowns').checked) {
-      if (!TOWNS.st) vecLoad(TOWNS, 'map/towns.js', 'BMAPTOWNS', j => { TOWNS.l = j; });
-      if (TOWNS.st === 2) { let n = 0; const names = new Set(MP.lay.filter(o => o.chap).map(o => BM.places[o.i][0]));
-        for (const T of TOWNS.l) { if (T[5] > MP.s) break; if (n >= 36) break; const px = X(T[3]), py = Y(T[4]); if (px < 4 || py < 4 || px > w - 4 || py > h - 4) continue;
-          if (names.has(T[0])) continue; // derselbe Ort steht schon als antiker Ort da
-          const big = T[5] < 1 || T[6] >= 1e6, fs = (big ? 11.5 : 10.5) * r, q = 2.4 * r; g.font = `${big ? '600 ' : ''}${fs}px ${FONT}`;
-          const mb = { x: px - q - r, y: py - q - r, w: 2 * q + 2 * r, h: 2 * q + 2 * r }; if (E.hit(mb)) continue; // der Ort selbst läge unter einem antiken Namen oder einem Ort des Kapitels
-          const t = (ll === 'de' ? T[1] : ll === 'he' ? T[2] : '') || T[0], tw = g.measureText(t).width, c = [[px + q + 3 * r, py - 7 * r], [px - q - 3 * r - tw, py - 7 * r], [px - tw / 2, py - q - 15 * r], [px - tw / 2, py + q + 1 * r]].map(([bx, by]) => ({ x: bx - 2 * r, y: by, w: tw + 4 * r, h: 14 * r }));
-          const bb = c.find(b => E.inside(b) && !E.hit(b) && !onDot(b)); if (!bb) continue; E.boxes.push(bb, mb); n++;
-          g.globalAlpha = 0.9; g.beginPath(); g.rect(px - q + 0.5 * r, py - q + 0.5 * r, 2 * q - r, 2 * q - r); g.fillStyle = 'rgba(255,255,255,.55)'; g.fill(); g.lineWidth = 1.1 * r; g.strokeStyle = 'rgba(90,90,90,.8)'; g.stroke();
-          g.lineWidth = 2.4 * r; g.strokeStyle = 'rgba(255,255,255,.5)'; g.strokeText(t, bb.x + 2 * r, bb.y + 7 * r); g.fillStyle = 'rgba(78,78,78,.92)'; g.fillText(t, bb.x + 2 * r, bb.y + 7 * r); g.globalAlpha = 1; } } }
-  }
-  function mapJerGo() { const { w, h } = mapSize(), s = Math.min(w, h) / 2.44, [x, y] = mapXY(35.2345, 31.7770); MP.s = Math.min(6000, s); MP.tx = w / 2 - x * MP.s; MP.ty = h / 2 - y * MP.s; mapDraw(); }
-  function mapZoom(f, mx, my) { // nicht weiter hinaus, als die ganze Karte passt; hinein bis MAPZ, im Ausschnitt der feinen Kacheln bis MAPZH, nur in Jerusalem (Detailkarte) weiter
-    const { w, h } = mapSize(), lo = Math.min(w / BM.w, h / BM.h), [lon, lat] = mapLL((mx - MP.tx) / MP.s, (my - MP.ty) / MP.s), hi = mapNearJer(lon, lat) ? 6000 : mapInHi((mx - MP.tx) / MP.s, (my - MP.ty) / MP.s) ? MAPZH : MAPZ; let ns = Math.max(lo, MP.s * f); if (ns > hi) ns = Math.max(hi, Math.min(MP.s, ns)); MP.tx = mx - (mx - MP.tx) * ns / MP.s; MP.ty = my - (my - MP.ty) * ns / MP.s; MP.s = ns; mapDraw(); }
-  function mapOpenFor(title, ref, label) { // aus der Gliederung: nur die Orte dieses Punktes
-    if (!BM) return; const list = mapForRef(title, ref); if (!list.length) return;
-    MP.over = { label, list }; mapOpen(); MP.over = { label, list }; MP.cur = list; MP.sel = -1; MP.grp = null; MP.vsel = null; $('#mapOl').hidden = false;
-    requestAnimationFrame(() => { mapFit(); mapInfo(); mapDraw(); });
-  }
-  // Orte eines Verses hervorheben (die übrigen Orte des Kapitels werden blass); v = 0 hebt die Hervorhebung auf
-  function mapVerseSet(v) { const st = v ? new Set(MP.cur.filter(c => (c.vs || []).includes(v)).map(c => c.i)) : null; MP.vsel = st && st.size ? st : null; MP.vnum = MP.vsel ? v : 0; if (MP.vsel) { MP.sel = -1; MP.grp = null; } mapDraw(); mapInfo(); }
-  const mapVerseN = v => (BM && !MP.over && v ? MP.cur.filter(c => (c.vs || []).includes(v)).length : 0);
-  function mapVerseShow(v) { if ($('#mapPanel').hidden) mapOpen(); requestAnimationFrame(() => requestAnimationFrame(() => mapVerseSet(v))); }
-  window.__mapOpenFor = mapOpenFor;
-  // Prüfhilfen: Abschnitt eines Werkes mit Zeichenketten-Schlüssel (ALMA: Talmudblatt, Midrasch-Kapitel) öffnen; Zustand der Karte
-  window.__mapOpenKey = (title, key, label) => { const bi = BM.books.indexOf(title), m = new Map(); BM.places.forEach((p, i) => p[4].forEach(e => { if (e[0] === bi && String(e[1]) === String(key)) { if (!m.has(i)) m.set(i, []); m.get(i).push(e[2]); } })); const list = [...m].map(([i, vs]) => ({ i, vs })); if (!list.length) return 0; MP.over = { label: label || title, list }; mapOpen(); MP.over = { label: label || title, list }; MP.cur = list; MP.sel = -1; MP.grp = null; MP.vsel = null; $('#mapOl').hidden = false; requestAnimationFrame(() => { mapFit(); mapInfo(); mapDraw(); }); return list.length; };
-  window.__MP = MP; window.__mapCount = (t, r) => mapForRef(t, r).length;
-  function mapOpen() {
-    if (!BM) return; $('#topicPanel').hidden = true; $('#outlinePanel').hidden = true; $('#mapPanel').hidden = false; $('#mapOl').hidden = true; mapElevLoad();
-    if (!MP.img) { MP.img = new Image(); MP.img.onload = () => { MP.ok = true; mapFit(); mapDraw(); }; MP.img.src = 'map/relief.jpg'; }
-    MP.cur = mapChapPlaces(); MP.sel = -1; MP.grp = null; MP.vsel = null; mapRouteFill(); requestAnimationFrame(() => { mapFit(); mapDraw(); mapInfo(); });
-  }
-  if (BM) {
-    if (!BB) $('#mapBordL').hidden = true;
-    try { $('#mapBord').checked = localStorage.getItem('mapBord') === '1'; } catch { /* egal */ }
-    $('#mapBtn').onclick = () => { if (!$('#mapPanel').hidden) { $('#mapPanel').hidden = true; return; } mapOpen(); };
-    $('#mapClose').onclick = () => { $('#mapPanel').hidden = true; };
-    $('#mapAll').onchange = () => { mapDraw(); mapInfo(); };
-    const perPaint = () => $$('#mapPer button').forEach(b => { b.classList.toggle('on', MPER.has(b.dataset.p)); b.style.setProperty('--pc', MPCOL[b.dataset.p]); });
-    perPaint();
-    $('#mapPer').addEventListener('click', e => { const b = e.target.closest('button[data-p]'); if (!b) return; const k = b.dataset.p; if (MPER.has(k)) { if (MPER.size > 1) MPER.delete(k); } else MPER.add(k); perPaint(); try { localStorage.setItem('mapPer', JSON.stringify([...MPER])); } catch { /* egal */ } if (MP.sel >= 0 && !mapPlaceOk(BM.places[MP.sel])) MP.sel = -1; mapDraw(); mapInfo(); }); // die Epochen filtern auch die Orte des Kapitels; „alle Orte“ bleibt ein eigener Schalter
-    ['mapTowns', 'mapRoads'].forEach(id => { const el = $('#' + id); try { el.checked = localStorage.getItem(id) !== '0'; } catch { el.checked = true; } el.onchange = () => { try { localStorage.setItem(id, el.checked ? '1' : '0'); } catch { /* egal */ } mapDraw(); }; });
-    $('#mapBord').onchange = () => { try { localStorage.setItem('mapBord', $('#mapBord').checked ? '1' : '0'); } catch { /* egal */ } mapDraw(); };
-    document.addEventListener('mousedown', e => { const p = $('#mapPanel'); if (p.hidden || p.classList.contains('docked') || !e.target.closest || e.target.closest('#mapPanel, #mapBtn, #suggest, #audioBar, #ctxMenu, #lkHover, #tip, #undoBar, dialog')) return; p.hidden = true; });
-    document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('#mapPanel').hidden && !document.querySelector('dialog[open]')) { if (MP.rul) { mapRulToggle(false); e.stopPropagation(); return; } $('#mapPanel').hidden = true; e.stopPropagation(); } }, true);
-    window.addEventListener('resize', () => { if (!$('#mapPanel').hidden) mapDraw(); });
-    const cv = $('#mapCv'), mc = (e) => { const b = cv.getBoundingClientRect(), d = window.devicePixelRatio || 1; return [(e.clientX - b.left) * d, (e.clientY - b.top) * d]; };
-    // Mausrad zoomt; Zwei-Finger-Wischen auf dem Trackpad verschiebt, Pinch (Strg) bzw. Cmd/Alt + Rad zoomt. Maus oder Trackpad entscheidet das erste Ereignis einer Geste:
-    // ein Mausrad liefert ganze Rasten (wheelDelta ein Vielfaches von 120 bzw. |deltaY| ≥ 50) ohne seitlichen Anteil
-    const wl = { t: 0, mouse: false };
-    cv.addEventListener('wheel', e => { e.preventDefault(); const [mx, my] = mc(e);
-      if (e.timeStamp - wl.t > 250) wl.mouse = e.deltaMode === 0 && !e.deltaX && ((!!e.wheelDeltaY && Math.abs(e.wheelDeltaY) >= 120 && e.wheelDeltaY % 120 === 0) || (Number.isInteger(e.deltaY) && Math.abs(e.deltaY) >= 50)); wl.t = e.timeStamp;
-      if (!(e.ctrlKey || e.metaKey || e.altKey || e.deltaMode === 1 || wl.mouse)) { const d = window.devicePixelRatio || 1; MP.tx -= e.deltaX * d; MP.ty -= e.deltaY * d; mapDraw(); return; }
-      const dy = e.deltaY * (e.deltaMode === 1 ? 16 : e.deltaMode === 2 ? 400 : 1); mapZoom(Math.exp(-Math.max(-300, Math.min(300, dy)) * (e.ctrlKey ? 0.012 : wl.mouse ? 0.0035 : 0.0055)), mx, my); }, { passive: false });
-    $('#mapZin').onclick = () => { const { w, h } = mapSize(); mapZoom(1.8, w / 2, h / 2); };
-    $('#mapZout').onclick = () => { const { w, h } = mapSize(); mapZoom(1 / 1.8, w / 2, h / 2); };
-    $('#mapZfit').onclick = () => { mapFit(); mapDraw(); };
-    $('#mapRulB').onclick = () => mapRulToggle();
-    $('#mapJerB').onclick = mapJerGo;
-    $('#mapLegB').onclick = () => { const l = $('#mapLegend'); l.hidden = !l.hidden; $('#mapLegB').classList.toggle('on', !l.hidden); mapDraw(); };
-    { const jb = $('#mapJer'), set = () => jb.classList.toggle('min', !!JER.opt.min); set(); jb.querySelector('b').onclick = () => { JER.opt.min = JER.opt.min ? 0 : 1; try { localStorage.setItem('jerOpt', JSON.stringify(JER.opt)); } catch { /* egal */ } set(); mapDraw(); }; } // Kasten der Jerusalem-Ebenen einklappbar
-    { const sv = () => { try { localStorage.setItem('jerOpt', JSON.stringify(JER.opt)); } catch { /* egal */ } }, bind = (id, k) => { const el = $(id); el.checked = !!JER.opt[k]; el.onchange = () => { JER.opt[k] = el.checked ? 1 : 0; sv(); mapDraw(); }; };
-      bind('#jerWil', 'wil'); bind('#jerOsm', 'osm'); bind('#jerRel', 'rel'); bind('#jerLab', 'lab'); $('#jerOp').value = JER.opt.op; $('#jerOp').oninput = () => { JER.opt.op = +$('#jerOp').value; sv(); mapDraw(); }; }
-    $('#mapRoute').onchange = () => mapRouteSet($('#mapRoute').value);
-    if (BM.nOrig && BM.nOrig < BM.books.length) $('#mapCredit').textContent += ' · Orte bei Josephus und in den Makkabäerbüchern: ToposText (topostext.org, ODC-BY)';
-    if (BM.alma && BM.alma.size) $('#mapCredit').textContent += ' · Orte in der rabbinischen Literatur: ALMA (Ido Wachtel, Hebrew University GIS)';
-    $('#mapCredit').textContent += ' · Jerusalem: Ordnance Survey of Jerusalem (Wilson 1865, gemeinfrei, Wikimedia Commons) · heutige Stadt: © OpenStreetMap-Mitwirkende (ODbL)';
-    $('#mapCredit').textContent += ' · ' + I18N.t('Bäche und Wadis, heutige Orte: © OpenStreetMap-Mitwirkende (ODbL), Natural Earth · Römische Straßen: Itiner-e (de Soto, Pažout, Brughmans u. a. 2025, CC BY 4.0, itiner-e.org)');
-    // Vorschau der Verse beim Überfahren: Verslinks in der Info und Orte auf der Karte
-    $('#mapInfo').addEventListener('mouseover', e => { const a = e.target.closest('a[data-ref], .olr[data-ref]'); if (!a || !hovApi || a.dataset.ref === hovApi.current()) return; hovApi.start(a, a.dataset.ref, false, false); });
-    $('#mapInfo').addEventListener('mouseout', e => { if (hovApi && e.target.closest('a[data-ref], .olr[data-ref]')) hovApi.hide(); });
-    $('#mapPanel').addEventListener('mouseleave', () => { if (hovApi) hovApi.hide(); });
-    // Größe: Breite am linken Rand, Höhe der Karte an der Trennleiste (wird gemerkt)
-    { const P = $('#mapPanel'), W = $('#mapWrap'); let mw = 0, mh = 0; try { mw = +localStorage.getItem('mapW') || 0; mh = +localStorage.getItem('mapH2') || 0; } catch { /* egal */ }
-      const setW = w => { if (!w) { P.style.width = ''; return; } P.style.width = Math.max(360, Math.min(window.innerWidth - 120, w)) + 'px'; };
-      const setH = h => { if (!h) { W.style.flex = ''; return; } W.style.flex = `0 0 ${Math.max(140, Math.min(P.clientHeight - 160, h))}px`; };
-      setW(mw); setH(mh);
-      const drag = (el, move, done) => el.addEventListener('mousedown', ev => { ev.preventDefault(); const rt = document.documentElement; rt.classList.add('cmt-dragging'); const mv = e2 => move(e2), up = () => { rt.classList.remove('cmt-dragging'); document.removeEventListener('mousemove', mv); document.removeEventListener('mouseup', up); done(); }; document.addEventListener('mousemove', mv); document.addEventListener('mouseup', up); });
-      drag($('#mapResize'), e2 => { const r = P.getBoundingClientRect(); setW(r.right - e2.clientX); mapDraw(); }, () => { try { localStorage.setItem('mapW', String(parseInt(P.style.width) || 0)); } catch { /* egal */ } });
-      drag($('#mapSplit'), e2 => { setH(e2.clientY - W.getBoundingClientRect().top); mapDraw(); }, () => { try { localStorage.setItem('mapH2', String(parseInt(W.style.flex.split(' ')[2]) || 0)); } catch { /* egal */ } });
-      $('#mapResize').addEventListener('dblclick', () => { setW(0); try { localStorage.removeItem('mapW'); } catch { /* egal */ } mapDraw(); });
-      $('#mapSplit').addEventListener('dblclick', () => { setH(0); try { localStorage.removeItem('mapH2'); } catch { /* egal */ } mapDraw(); });
-      if (window.ResizeObserver) new ResizeObserver(() => { if (!P.hidden) mapDraw(); }).observe(W); }
-    if (!BR.length) $('#mapRoute').hidden = true;
-    $('#mapRuler').addEventListener('mousemove', e => { const c = e.target.closest && e.target.closest('#mapRulProf'), R = MP.rul; if (!c || !R || !R.prof || !R.profX) return; const bx = c.getBoundingClientRect(), x = e.clientX - bx.left, tot = R.prof[R.prof.length - 1].km || 1, km = Math.max(0, Math.min(tot, (x - 34) / (bx.width - 38) * tot)); let k = R.prof.findIndex(p => p.km >= km); if (k < 0) k = R.prof.length - 1; mapProfDraw(k); mapDraw(); });
-    $('#mapRuler').addEventListener('mouseleave', () => { const R = MP.rul; if (R && R.hov) { R.hov = null; mapProfDraw(null); mapDraw(); } });
-    $('#mapRuler').addEventListener('click', e => { const x = e.target.dataset && e.target.dataset.x; if (x === 'undo' && MP.rul) MP.rul.pts.pop(); else if (x === 'clr' && MP.rul) MP.rul.pts = []; else return; MP.rul.cur = null; mapRulInfo(); mapDraw(); });
-    cv.addEventListener('mousedown', e => { if (!(MP.rul && MP.rul.on)) cv.style.cursor = ''; $('#mapHint').style.display = 'none'; MP.drag = { x: e.clientX, y: e.clientY, tx: MP.tx, ty: MP.ty, moved: false }; cv.classList.add('drag'); });
-    window.addEventListener('mousemove', e => { if (!MP.drag) return; const d = window.devicePixelRatio || 1; if (Math.abs(e.clientX - MP.drag.x) + Math.abs(e.clientY - MP.drag.y) > 3) MP.drag.moved = true; MP.tx = MP.drag.tx + (e.clientX - MP.drag.x) * d; MP.ty = MP.drag.ty + (e.clientY - MP.drag.y) * d; mapDraw(); });
-    window.addEventListener('mouseup', e => { if (!MP.drag) return; const mv = MP.drag.moved; MP.drag = null; cv.classList.remove('drag'); if (!mv && e.target === cv) { if (MP.rul && MP.rul.on) { const i = mapPick(e), [mx, my] = mc(e); let pt; if (i >= 0) { const [x, y] = mapPx(BM.places[i]); pt = [...mapLL(x, y), BM.places[i][0]]; } else pt = [...mapLL((mx - MP.tx) / MP.s, (my - MP.ty) / MP.s), null]; MP.rul.pts.push(pt); mapRulInfo(); mapDraw(); } else { const o = mapPickO(e)[0]; if (o && o.bub) mapBubble(o); else { if (!o) MP.grp = null; mapSelect(o ? o.i : -1, false); } } } });
-    // Hinweis am Mauszeiger (Name, hebräisch, Typ, Zahl der Stellen); der Ort bekommt einen Ring, sein Chip in der Liste wird hervorgehoben
-    const hovSet = i => { if (i === MP.hov) return; MP.hov = i; $$('#mapInfo .chip.hov').forEach(c => c.classList.remove('hov')); if (i >= 0) { const c = $(`#mapInfo .chip[data-i="${i}"]`); if (c) c.classList.add('hov'); } mapDraw(); };
-    cv.addEventListener('mousemove', e => { if (MP.drag) return;
-      if (MP.rul && MP.rul.on && MP.rul.pts.length) { MP.rul.cur = mc(e); mapDraw(); } const l = mapPickO(e), h = $('#mapHint'), t = I18N.t.bind(I18N);
-      if (!(MP.rul && MP.rul.on)) cv.style.cursor = l.length ? 'pointer' : '';
-      hovSet(l.length && !l[0].bub ? l[0].i : -1);
-      if (!l.length) { h.style.display = 'none'; return; }
-      h.textContent = l.slice(0, 4).map(o => { if (o.bub) return o.bub.length + ' ' + t('Orte') + ': ' + o.bub.slice(0, 6).map(i => BM.places[i][0]).join(', ') + (o.bub.length > 6 ? ' …' : ''); const p = BM.places[o.i]; return [p[0] + (mapHe(p) ? ' ' + mapHe(p) : ''), mapTypeT(p[1]), p[4].length + ' ' + t(p[4].length === 1 ? 'Stelle' : 'Stellen')].filter(Boolean).join(' · '); }).join('\n');
-      h.style.display = 'block'; const wb = $('#mapWrap').getBoundingClientRect(); let x = e.clientX - wb.left + 14, y = e.clientY - wb.top + 16; if (x + h.offsetWidth > wb.width - 4) x = Math.max(4, e.clientX - wb.left - h.offsetWidth - 10); if (y + h.offsetHeight > wb.height - 4) y = Math.max(4, e.clientY - wb.top - h.offsetHeight - 10); h.style.left = x + 'px'; h.style.top = y + 'px'; });
-    cv.addEventListener('mouseleave', () => { $('#mapHint').style.display = 'none'; hovSet(-1); });
-    $('#mapInfo').addEventListener('mouseover', e => { const c = e.target.closest('.chip[data-i]'), rl = e.target.closest('[data-rl]'); if (c && +c.dataset.i >= 0 && +c.dataset.i !== MP.hov) { MP.hov = +c.dataset.i; mapDraw(); } if (rl && MP.rhov !== +rl.dataset.rl) { MP.rhov = +rl.dataset.rl; mapDraw(); } });
-    $('#mapInfo').addEventListener('mouseout', e => { if (e.target.closest('.chip[data-i]') && MP.hov >= 0) { MP.hov = -1; mapDraw(); } if (e.target.closest('[data-rl]') && MP.rhov != null) { MP.rhov = null; mapDraw(); } });
-    $('#mapInfo').addEventListener('input', e => { if (e.target.id !== 'mapFlt') return; const q = e.target.value.trim().toLowerCase(); $$('#mapInfo .chips .chip').forEach(c => { c.hidden = !!q && !(c.dataset.k || '').includes(q); }); });
-    // Karte und Text: Klick auf einen Vers (bei angehefteter Karte) hebt dessen Orte hervor; Rechtsklick → „Orte dieses Verses auf der Karte“
-    $('#rOut').addEventListener('click', e => { if ($('#mapPanel').hidden || MP.over) return; const rw = e.target.closest('.row[data-l]'); if (!rw || (window.getSelection() + '').trim()) return; const v = +String(rw.dataset.l).split(':').pop(); if (v) mapVerseSet(v); });
-    cv.addEventListener('dblclick', e => { const [mx, my] = mc(e); mapZoom(2, mx, my); });
-    $('#mapInfo').addEventListener('click', e => {
-      const rt = e.target.closest('[data-rt]'); if (rt) { mapRouteSet(rt.dataset.rt); return; }
-      const rl = e.target.closest('[data-rl]'); if (rl && MP.route) { const ln = MP.route.lines[+rl.dataset.rl]; mapElevLoad(); MP.rul = { on: true, pts: ln.map(c => [c[0], c[1], null]), cur: null, fromRoute: true }; $('#mapRulB').classList.add('on'); $('#mapCv').style.cursor = 'crosshair'; mapRulInfo(); mapDraw(); return; }
-      if (e.target.closest('.pnadd') && MP.sel >= 0) { const p = BM.places[MP.sel]; openNoteDlg({ id: newId('free'), kind: 'free', title: p[0], place: p[0], note: '', order: topOrder() }, {}); return; }
-      const pn = e.target.closest('.pnote'); if (pn) { const n = notesAll.find(x => x.id === pn.dataset.id); if (n) openNoteDlg(n, { canDelete: true }); return; }
-      const mo = e.target.closest('a.more'); if (mo) { const rw = mo.closest('.vs'), [q, b] = (rw.dataset.w || '').split('|'), P = MP.refs && MP.refs.get(q), C = P && P.get(mapCorp(+b)), l = C && C.get(+b); if (l) rw.querySelector('.ls').innerHTML = mapRowLinks(+b, l, 1e9); return; }
-      const so = e.target.closest('[data-sort]'); if (so) { MP.sort = so.dataset.sort; try { localStorage.setItem('mapSort', MP.sort); } catch { /* egal */ } mapInfo(); return; }
-      const c = e.target.closest('.chip'); if (c) { if (+c.dataset.i === -3) { MP.grp = null; mapInfo(); return; } if (+c.dataset.i === -4) { mapVerseSet(0); return; } if (+c.dataset.i === -2) { MP.over = null; MP.cur = mapChapPlaces(); MP.sel = -1; mapFit(); mapDraw(); mapInfo(); return; } mapSelect(+c.dataset.i, +c.dataset.i >= 0); return; }
-      const orow = e.target.closest('.olr'); if (orow) { jumpTo(orow.dataset.ref, BG(e)); return; }
-      const al = e.target.closest('.alt'); if (al && MP.sel >= 0) { const k = +al.dataset.a, a = (BM.places[MP.sel][6] || [])[k]; if (a) { MP.alt = k; const [x, y] = mapXY(a[1], a[2]), { w, h } = mapSize(); MP.tx = w / 2 - x * MP.s; MP.ty = h / 2 - y * MP.s; mapDraw(); mapInfo(); } return; }
-      const a = e.target.closest('a[data-ref]'); if (a) jumpTo(a.dataset.ref, BG(e));
-    });
-  }
-
-  // Klick außerhalb oder Esc schließt das Themen-Fenster
-  document.addEventListener('mousedown', e => { const p = $('#topicPanel'); if (p.hidden || p.classList.contains('docked') || !e.target.closest || e.target.closest('#topicPanel, #tpBtn, #tpResize, #suggest, #audioBar, #ctxMenu, #lkHover, #tip, #undoBar, dialog')) return; p.hidden = true; });
-  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('#topicPanel').hidden && !document.querySelector('dialog[open]')) { $('#topicPanel').hidden = true; e.stopPropagation(); } }, true);
-  $('#tpFilter').oninput = e => { tpS.q = e.target.value.trim(); renderTopicPanel(); };
-  $('#tpBody').addEventListener('input', async e => { if (e.target.id !== 'tpSq') return; const p = e.target.selectionStart; tpS.sq = e.target.value.trim(); tpS.n = 60; await renderTopicPanel(); const n = $('#tpSq'); if (n) { n.focus(); n.setSelectionRange(p, p); } });
-  $('#tpBody').addEventListener('click', e => {
-    const t = e.target.closest('button, a'); if (!t) return;
-    if (t.dataset.slug) return openTopic(t.dataset.slug);
-    if (t.dataset.ref) { hovApi && hovApi.hide(); return jumpTo(t.dataset.ref.replace(/-.*$/, ''), BG(e)); }
-    if (t.dataset.tab) { tpS.tab = t.dataset.tab; tpS.n = 60; return renderTopicPanel(); }
-    if (t.dataset.act === 'allbooks') { tpS.books = new Set(); tpS.n = 60; return renderTopicPanel(); }
-    if (t.dataset.act === 'more') { tpS.n += 100; return renderTopicPanel(); }
-    if (t.dataset.act === 'back') { tpS.slug = tpS.stack.pop() || null; tpS.data = null; return renderTopicPanel(); }
-  });
-  // Vorschau beim Überfahren einer Quelle (nur wenn der Text lokal vorliegt), Rechtsklick wie bei den Kommentaren
-  $('#tpBody').addEventListener('mouseover', e => {
-    const a = e.target.closest('a[data-ref]');
-    if (!a || !hovApi || a.dataset.ref === hovApi.current()) return;
-    hovApi.start(a, a.dataset.ref, true, false);
-  });
-  $('#tpBody').addEventListener('mouseout', e => { const a = e.target.closest('a[data-ref]'); if (a && hovApi && !a.contains(e.relatedTarget)) hovApi.hide(); });
-  $('#topicPanel').addEventListener('scroll', () => hovApi && hovApi.hide(), { passive: true });
-  $('#tpBody').addEventListener('contextmenu', e => {
-    const a = e.target.closest('a[data-ref]');
-    if (!a || (window.getSelection() + '')) return;
-    const ref = a.dataset.ref.replace(/-.*$/, '');
-    hovApi && hovApi.hide();
-    const items = [{ label: 'Öffnen', fn: () => jumpTo(ref, false) }, { label: 'Im neuen Tab öffnen', fn: () => jumpTo(ref, true) }];
-    if (!IS_PANE2) items.push({ label: 'Im zweiten Fenster öffnen', fn: () => openInPane2(null, { jump: ref }) });
-    ctxShow(e, items);
-  });
-  $('#tpBody').addEventListener('toggle', e => { if (e.target.id === 'tpBooks') tpS.booksOpen = e.target.open; }, true);
-  $('#tpBody').addEventListener('change', e => {
-    if (e.target.dataset.bk != null) { const b = tpS.bookList[+e.target.dataset.bk]; if (e.target.checked) tpS.books.add(b); else tpS.books.delete(b); tpS.n = 60; return renderTopicPanel(); }
-    if (e.target.dataset.act === 'sort') { tpS.sort = e.target.value; renderTopicPanel(); } });
-  refreshTopicStatus().then(() => { if (view) loadTopics(view.sections[view.idx]); });
+  // end-reader-module:map
 
   // Höhe der festen Leiste messen, damit die Spaltenköpfe direkt darunter haften
   const fixStick = () => {
     const st = $('#stick'), hd = $('header');
     if (!st || !hd) return;
+    const bar=st.querySelector('.bar.compact');
+    if(bar)window.LibraryDockTabs.fitLabels(bar,'.bl',()=>{
+      const children=[...bar.children].filter(e=>!e.classList.contains('spacer')&&e.getClientRects().length);
+      const gap=parseFloat(getComputedStyle(bar).columnGap)||0;
+      return children.reduce((w,e)=>w+e.getBoundingClientRect().width,0)+gap*Math.max(0,children.length-1)<=bar.clientWidth+1;
+    });
     const hh = document.body.classList.contains('hd-hidden') ? 0 : hd.offsetHeight;
     document.documentElement.style.setProperty('--hdh', hd.offsetHeight + 'px');
     // Abstand zwischen Kopf und Leiste im Fluss (Innenabstand von <main>): ausgeblendet ebenfalls einsparen, sonst steht die Leiste
@@ -4907,8 +1774,11 @@
   window.hdShow = () => hdSet(false);
   // ganz oben gibt es kein Scroll-Ereignis mehr: Hochscrollen mit Mausrad/Trackpad holt die Leiste dort trotzdem zurück
   window.addEventListener('wheel', e => { if (e.deltaY < 0 && hdTab() === 'read' && window.scrollY < 60) hdSet(false); }, { passive: true });
-  new ResizeObserver(fixStick).observe($('#stick'));
-  new ResizeObserver(fixStick).observe($('header'));
+  let stickFrame=0;const queueStick=()=>{if(!stickFrame)stickFrame=requestAnimationFrame(()=>{stickFrame=0;fixStick();});};
+  new ResizeObserver(queueStick).observe($('#stick'));
+  new ResizeObserver(queueStick).observe($('header'));
+  new MutationObserver(queueStick).observe($('#stick'),{subtree:true,childList:true,characterData:true,attributes:true,attributeFilter:['hidden']});
+  document.fonts.ready.then(()=>{queueStick();window.dispatchEvent(new Event('resize'));});
 
   // Suche im angezeigten Text (Cmd/Ctrl+F)
   // Suche im angezeigten Text (eigene Umsetzung: findet auch geschlossene Fußnoten und springt zuverlässig von Treffer zu Treffer)
@@ -4928,7 +1798,7 @@
     hl('find', []); hl('find-active', []);
     $$('#rOut .note.fnd').forEach(n => n.classList.remove('fnd'));
     $$('#sOut details[data-how="find"]').forEach(d => { d.open = false; delete d.dataset.how; });
-    $$('#olBody .olsubs').forEach(w => { if (w.dataset.how === 'find') olToggle(w, false, true, ''); }); olChips(); // durch die Suche geöffnete Unterpunkte wieder schließen
+    $$('#olBody .olsubs').forEach(w => { if (w.dataset.how === 'find') outlineUI.olToggle(w, false, true, ''); }); outlineUI.olChips(); // durch die Suche geöffnete Unterpunkte wieder schließen
     $('#findCount').textContent = '';
     if (!keepTerm) fTerm = '';
   }
@@ -4949,7 +1819,7 @@
     if (!$('#dictPanel').hidden) roots.push($('#dictOut')); // ebenso die Wörterbuch-Treffer
     if (!$('#outlinePanel').hidden) roots.push($('#olBody')); // und die geöffnete Gliederung
     if (!$('#allPanel').hidden) roots.push($('#apBody')); // und die Seitenleiste „Alles zu dieser Stelle“
-    if (!$('#outlinePanel').hidden) $$('#olBody .olsubs[hidden]').forEach(w => { if (hasQ(w.textContent, q)) olToggle(w, true, true, 'find'); }); olChips(); // zugeklappte Unterpunkte mit Treffer aufklappen
+    if (!$('#outlinePanel').hidden) $$('#olBody .olsubs[hidden]').forEach(w => { if (hasQ(w.textContent, q)) outlineUI.olToggle(w, true, true, 'find'); }); outlineUI.olChips(); // zugeklappte Unterpunkte mit Treffer aufklappen
     }
     const ranges = [];
     // Textknoten je Absatz/Zelle sammeln und zusammenhängend durchsuchen, damit auch Wortfolgen über mehrere
@@ -5049,7 +1919,7 @@
   const openFind = () => { if (document.documentElement.dataset.tab === 'notes') { const f = $('#nFilter'); f.focus(); f.select(); return; } fb.hidden = false; fin.focus(); fin.select(); }; // im Notizen-Reiter: Cmd+F = Notizen filtern
   const closeFind = () => { fb.hidden = true; clearFind(false); };
   O.onFindOpen(() => {
-    if (wcFindWanted()) { wcFindOpen(); return; } // Wortkarte aktiv (Fokus oder Maus darüber): Suche im Fenster der Wortkarte
+    if (wordCardsUI.wcFindWanted()) { wordCardsUI.wcFindOpen(); return; } // Wortkarte aktiv (Fokus oder Maus darüber): Suche im Fenster der Wortkarte
     const p2 = $('#pane2');
     if (p2 && !p2.hidden && document.activeElement === p2 && p2.contentWindow) p2.contentWindow.postMessage({ type: 'find' }, '*'); // Cmd+F gilt für das Fenster, in dem man gerade arbeitet
     else openFind();
@@ -5298,106 +2168,11 @@
     }
   };
 
-  // ---------- Suche ----------
-  let sResults = [];
-  let fullCache = null; // Ergebnis der letzten Suche über alle Bücher
-  let lastSearch = null; // Parameter der letzten Suche (für „Als Lesetext“ im eigenen Tab)
-  // ----- Suchmaske: Sprache und Treffer-Art (zwei Auswahlfelder statt vieler Häkchen) -----
-  let sPending = 0; // laufende Suchen: solange heißt der Knopf „Abbrechen“
-  const sBusy = () => sPending > 0;
-  const sSetBusy = () => { const g = $('#sGo'); g.textContent = I18N.t(sBusy() ? 'Abbrechen' : 'Suchen'); g.classList.toggle('primary', !sBusy()); };
-  const S_KINDS = ['he', 'en', 'de', 'other'], S_LANGS = ['auto', 'he', 'de', 'en', 'other', 'all'], S_MODES = ['lemma', 'prefix', 'exact', 'part'];
-  // gewählte Sprache -> Textarten; „Automatisch“ richtet sich nach der Schrift der Eingabe
-  function sKinds() {
-    const l = $('#sLang').value, v = $('#sq').value;
-    if (l === 'all') return S_KINDS.slice();
-    if (l !== 'auto') return [l];
-    if (/[\u0590-\u05FF]/.test(v)) return ['he'];
-    if (S_GREEK.test(v)) return ['other']; // griechische Eingabe: Septuaginta und andere griechische Texte
-    return /\p{L}/u.test(v) ? ['en', 'de'] : S_KINDS.slice();
-  }
-  const S_GREEK = /[\u0370-\u03FF\u1F00-\u1FFF]/;
-  // Für welche Texte gilt die Treffer-Art? 'he' = hebräisch, 'gr' = griechische Eingabe in „Andere“/„Alle“ (Lemma-Suche in der Septuaginta), 'ot' = alles Übrige
-  const sSlot = () => { const k = sKinds(); return k.includes('he') ? 'he' : k.includes('other') && S_GREEK.test($('#sq').value) ? 'gr' : 'ot'; };
-  // Treffer-Art, getrennt gemerkt für hebräische, griechische und andere Suche („Alle Formen“ gibt es hebräisch und griechisch, „Wort mit Vorsilben“ nur hebräisch)
-  const sModeSel = { he: 'lemma', gr: 'lemma', ot: 'part' };
-  const sModeOk = (m, slot) => S_MODES.includes(m) && (slot === 'he' || slot === true || m === 'exact' || m === 'part' || (slot === 'gr' && m === 'lemma'));
-  // Treffer-Art -> Parameter des Suchkerns (parse: Suchfeld zerlegen – mehrere Wörter in der Nähe, "…" = Wortfolge)
-  const sMatchParams = () => { const m = $('#sMode').value; return { prefix: m === 'lemma' || m === 'prefix', exact: m === 'exact', lemma: m === 'lemma', partial: m === 'part', parse: true }; };
-  // Suchfeld grob zerlegen (nur für die Hinweiszeile; die eigentliche Zerlegung macht der Suchkern)
-  const sShape = v => { let ph = 0; const rest = v.replace(/(^|\s)["“„«»].+?["“”»«](?=\s|$)/gu, () => { ph++; return ' '; }); return { n: ph + rest.split(/\s+/).filter(w => /[\p{L}\p{N}]/u.test(w)).length, ph }; };
-  function sRefresh() {
-    const kinds = sKinds(), he = kinds.includes('he'), l = $('#sLang').value, v = $('#sq').value.trim(), gram = gramParams();
-    const slot = sSlot();
-    for (const o of $('#sMode').options) { const off = !sModeOk(o.value, slot); o.hidden = off; o.disabled = off; }
-    $('#sMode').value = sModeSel[slot];
-    const m = $('#sMode').value, fuzzy = $('#sFuzzy').checked, d = +$('#sDist').value, sh = sShape(v), p = [];
-    if (gram) p.push(I18N.t('Grammatik-Suche: Tanach (Westminster) und Berakhot 2a–10b'));
-    else p.push(I18N.t(l === 'auto' && !v ? 'Sprache richtet sich nach der Schrift der Eingabe' : kinds.length > 2 ? 'Sucht in allen Sprachen' : kinds.length === 2 ? 'Sucht deutsch und englisch' : kinds[0] === 'he' ? 'Sucht hebräisch' : kinds[0] === 'de' ? 'Sucht deutsch' : kinds[0] === 'en' ? 'Sucht englisch' : 'Sucht in anderen Sprachen'));
-    if (!gram) p.push(I18N.t(m === 'lemma' && slot === 'gr' ? 'alle Wortformen in der Septuaginta (Lemma), sonst ganze Wörter' : m === 'lemma' ? 'alle Wortformen im Tanach, sonst ganze Wörter (mit Vorsilben)' : m === 'prefix' ? 'ganze Wörter, hebräische Vorsilben erlaubt' : m === 'exact' ? 'nur genau dieses Wort' : fuzzy ? 'ganze Wörter' : 'auch Wortteile'));
-    if (sh.n > 1 && !gram) p.push(I18N.t(d < 0 ? 'alle Wörter im selben Vers' : d === 0 ? 'alle Wörter direkt nebeneinander' : 'alle Wörter nah beieinander (höchstens {#} dazwischen)', d) + ($('#sOrd').checked ? ', ' + I18N.t('in dieser Reihenfolge') : ''));
-    if (sh.ph && !gram) p.push(I18N.t('"…" = genau diese Wortfolge'));
-    if (fuzzy && !gram) p.push(I18N.t('ähnliche Schreibweise (Fuzzy)'));
-    $('#sHint').textContent = p.join(' · ');
-    const act = +$('#sOrd').checked + +fuzzy + +!$('#sWlc').checked + +(d !== 10) + +!!gram; // was unter „Erweitert“ vom Standard abweicht
-    $('#sAdvN').textContent = act ? ' ' + I18N.t('({#} aktiv)', act) : '';
-  }
-  O.onSearchProgress(p => { $('#sInfo').textContent = `Durchsuche … ${p.scanned} von ${p.total} Dateien · ${p.found} Treffer`; });
-
-  // Kategorien und einzelne Bücher für die Suche: ohne Häkchen wird überall gesucht
-  const sCats = new Set(), sTitles = new Set();
-  function renderSCats() {
-    const f = $('#sCatFilter').value.trim().toLowerCase();
-    const root = { name: '', path: '', children: new Map(), count: 0, titles: [] };
-    for (const g of groups) {
-      let n = root, p = '';
-      n.count++;
-      for (const c of g.cats.slice(0, 3)) {
-        p = p ? p + '/' + c : c;
-        if (!n.children.has(c)) n.children.set(c, { name: c, path: p, children: new Map(), count: 0, titles: [] });
-        n = n.children.get(c); n.count++;
-      }
-      if (!n.titles.includes(g.title)) n.titles.push(g.title);
-    }
-    const covered = p => [...sCats].some(c => c !== p && (p === c || p.startsWith(c + '/')));
-    const anySel = n => n.titles.some(t => sTitles.has(t)) || [...sCats].some(c => c.startsWith(n.path + '/')) || [...n.children.values()].some(anySel);
-    const hit = (t) => t.toLowerCase().includes(f);
-    const show = (n, anc) => !f || anc || hit(n.name) || n.titles.some(hit) || [...n.children.values()].some(c => show(c, false));
-    const node = (n, parentMatch) => {
-      const m = !f || parentMatch || hit(n.name);
-      if (!show(n, parentMatch)) return '';
-      const kids = SefOrder.sortCats([...n.children.keys()], n.name).map(k => node(n.children.get(k), m && !!f)).join('');
-      const cov = covered(n.path);
-      const books = SefOrder.sortTitles(n.titles.filter(t => !f || m || hit(t)), t => t).map(t =>
-        `<label class="t book"><input type="checkbox" data-st="${esc(t)}" ${cov || sCats.has(n.path) || sTitles.has(t) ? 'checked' : ''} > ${esc(t)}</label>`).join('');
-      const part = !cov && !sCats.has(n.path) && anySel(n); // nur ein Teil darunter gewählt: Teilmarkierung (Strich) statt Häkchen, sonst würde alles darunter durchsucht
-      const cb = `<input type="checkbox" data-sc="${esc(n.path)}" ${cov || sCats.has(n.path) ? 'checked' : ''} ${part ? 'data-part="1"' : ''}> `;
-      return `<details data-p="${esc(n.path)}" ${f || sOpen.has(n.path) ? 'open' : ''}><summary>${cb}<span class="catname">${esc(n.name)}</span> <small>(${n.count})</small></summary>${kids}${books}</details>`;
-    };
-    $('#sCatTree').innerHTML = SefOrder.sortCats([...root.children.keys()], '').map(k => node(root.children.get(k), false)).join('') || '<p class="muted">Nichts gefunden.</p>';
-    $$('#sCatTree input[data-part]').forEach(i => { i.indeterminate = true; });
-    const parts = [sCats.size ? `${sCats.size} Kategorie${sCats.size === 1 ? '' : 'n'}` : '', sTitles.size ? (sTitles.size === 1 ? '1 Buch' : `${sTitles.size} Bücher`) : ''].filter(Boolean);
-    $('#sCatBtn').textContent = parts.length ? `Auswahl: ${parts.join(', ')}` : 'Kategorien: alle';
-  }
-  const sOpen = new Set(); // vom Nutzer aufgeklappte Kategorien in der Suchliste
-  $('#sCatTree').addEventListener('toggle', e => { const d = e.target; if (d.dataset && d.dataset.p != null && !$('#sCatFilter').value.trim()) { if (d.open) sOpen.add(d.dataset.p); else sOpen.delete(d.dataset.p); } }, true);
-  { let sct = null; $('#sCatFilter').addEventListener('input', () => { clearTimeout(sct); sct = setTimeout(renderSCats, 80); }); }
-  $('#sCatAll').onclick = () => { sTitles.clear(); sCats.clear(); groups.forEach(g => { if (g.cats[0]) sCats.add(g.cats[0]); }); renderSCats(); }; // alle Hauptkategorien anhaken; danach z. B. ein Buch anklicken = nur dieses
-  $('#sCatTree').addEventListener('change', e => {
-    const d = e.target.dataset || {};
-    // Ist eine übergeordnete Kategorie gewählt und man klickt etwas darunter, gilt nur dieser Eintrag (statt „alles darunter minus eins“)
-    const own = d.sc !== undefined ? d.sc : (e.target.closest('details') || {}).dataset && e.target.closest('details').dataset.p;
-    if (own != null && (d.sc !== undefined || d.st !== undefined) && [...sCats].some(c => c !== (d.sc !== undefined ? own : null) && (own === c || own.startsWith(c + '/')) && (d.sc === undefined || own !== c))) {
-      sCats.clear(); sTitles.clear(); if (d.sc !== undefined) sCats.add(d.sc); else sTitles.add(d.st); renderSCats(); return;
-    }
-    if (d.sc !== undefined) {
-      const p = d.sc;
-      if (e.target.checked) { sCats.add(p); for (const c of [...sCats]) if (c !== p && c.startsWith(p + '/')) sCats.delete(c); } else sCats.delete(p);
-    } else if (d.st !== undefined) {
-      if (e.target.checked) sTitles.add(d.st); else sTitles.delete(d.st);
-    } else return;
-    renderSCats();
-  });
+  // Suche: eigene Instanz je Lesefenster; Navigation bleibt hier beim Leser.
+  function runSearch(only) { return searchUI.run(only); }
+  function renderSCats() { return searchUI.renderCategories(); }
+  function renderSearchSaved() { return searchUI.renderSaved(); }
+  function sEntApply(entry) { return searchUI.apply(entry); }
 
   // „Nur in diesem Buch suchen“: Suchmaske mit genau diesem Buch vorbelegen
   $('#bookSearch').onclick = () => {
@@ -5406,12 +2181,7 @@
     if (cmtOpen) toggleCmt(false);
     $('#linkPanel').hidden = true;
     showTab('search');
-    sCats.clear(); sTitles.clear(); sTitles.add(view.group.title);
-    { let p = ''; for (const c of view.group.cats.slice(0, 3)) { p = p ? p + '/' + c : c; sOpen.add(p); } } // Pfad bis zum Buch aufklappen (Tanach › Tora › Genesis)
-    renderSCats();
-    { const b = $('#sCatTree input[data-st]:checked'); if (b) b.scrollIntoView({ block: 'center' }); }
-    $('#sq').focus(); $('#sq').select();
-    if ($('#sq').value.trim()) runSearch();
+    searchUI.selectBook(view.group);
   };
 
   // Kontextmenü (Rechtsklick): kleine Liste von Aktionen an der Mausposition
@@ -5485,7 +2255,7 @@
   }
   $('#tree').addEventListener('contextmenu', e => { const a = e.target.closest('.lib-item'); if (a) bookMenu(e, a.dataset.key); });
   $('#recent').addEventListener('contextmenu', e => {
-    const a = e.target.closest('a[data-i]'); const h = a && history[+a.dataset.i];
+    const a = e.target.closest('a[data-i]'); const h = a && navigationUI.history[+a.dataset.i];
     if (h) bookMenu(e, h.key, { sectionPath: JSON.parse(h.sk), rowLabel: h.row || undefined });
   });
   // Rechtsklick auf einen Vers: Referenz kopieren / auf sefaria.org öffnen
@@ -5510,7 +2280,7 @@
       { label: I18N.t('Alles zu dieser Stelle'), fn: () => apToggle(true, row.dataset.l) },
       { label: I18N.t('Referenz kopieren: {}', ref), fn: () => navigator.clipboard.writeText(ref).catch(() => {}) },
       { label: 'Auf sefaria.org öffnen', fn: () => window.api.openExternal(url) },
-      ...((() => { try { const v = +String(row.dataset.l).split(':').pop(), n = mapVerseN(v); return n ? [{ label: I18N.t('Orte dieses Verses auf der Karte ({#})', n), fn: () => mapVerseShow(v) }] : []; } catch { return []; } })()),
+      ...((() => { try { const v = +String(row.dataset.l).split(':').pop(), n = mapUI.mapVerseN(v); return n ? [{ label: I18N.t('Orte dieses Verses auf der Karte ({#})', n), fn: () => mapUI.mapVerseShow(v) }] : []; } catch { return []; } })()),
     ]);
   });
 
@@ -5534,9 +2304,9 @@
     $('#cmtResize').hidden = !(cmtOpen || dictOpen);
     syncStack();
   };
-  // Kommentar und Wörterbuch gleichzeitig offen: als Reiter (Standard, volle Höhe) oder untereinander (Trenner verschiebbar)
-  let stackMode = 'tabs', stackActive = 'cmt';
-  try { if (localStorage.getItem('stackMode') === 'split') stackMode = 'split'; const h = +localStorage.getItem('stackDictH'); if (h >= 15 && h <= 85) document.documentElement.style.setProperty('--dict-h', h + '%'); } catch { /* egal */ }
+  // Full-height tool views by default; retain the optional paired comments/dictionary layout.
+  let stackMode = 'tabs', stackActive = 'cmt', dockController=null;
+  try { if(localStorage.getItem('stackMode')==='split')stackMode='split'; const h=+localStorage.getItem('stackDictH');if(h>=15&&h<=85)document.documentElement.style.setProperty('--dict-h',h+'%'); } catch {}
   function syncStack() {
     let co = false; try { co = cmtOpen; } catch { /* beim Start noch nicht angelegt */ }
     const both = !!(co && dictOpen) && document.documentElement.dataset.tab !== 'dict';
@@ -5545,12 +2315,13 @@
     const wide = window.innerWidth - 2 * cw >= 900; // nur wenn dem Text daneben noch genug Breite bleibt: nebeneinander statt untereinander
     b.toggle('stack-tabs', both && stackMode === 'tabs'); b.toggle('stack-split', both && stackMode === 'split' && !wide); b.toggle('stack-side', both && stackMode === 'split' && wide);
     b.toggle('stk-cmt', stackActive === 'cmt'); b.toggle('stk-dict', stackActive === 'dict');
-    $('#stackBar').hidden = !(both && stackMode === 'tabs'); $('#stackSplit').hidden = !(both && stackMode === 'split' && !wide); $('#dictStack').hidden = !both;
+    $('#stackBar').hidden = !(both && stackMode === 'tabs'); $('#stackSplit').hidden = !(both && stackMode === 'split' && !wide); $('#dictStack').hidden = !both; $('#stkMode').hidden = false;
     $('#stkMode').innerHTML = (wide ? '⇆' : '⇅') + `<span class="cl"> ${esc(I18N.t(wide ? 'Nebeneinander' : 'Untereinander'))}</span>`; $('#stkCmt').classList.toggle('on', stackActive === 'cmt'); $('#stkDict').classList.toggle('on', stackActive === 'dict');
-    $('#dictStack').title = stackMode === 'tabs' ? (wide ? 'Kommentar und Wörterbuch nebeneinander zeigen' : 'Kommentar und Wörterbuch untereinander zeigen') : 'Kommentar und Wörterbuch als Reiter zeigen (volle Höhe)';
+    $('#dictStack').title=I18N.t('Kommentar und Wörterbuch: Volle Höhe / Geteilt');
+    $('#dictStack').innerHTML=(stackMode==='tabs'?'⇅':'▣')+`<span class="dock-tab-label">${esc(I18N.t(stackMode==='tabs'?'Geteilt':'Volle Höhe'))}</span>`;
   }
-  function setStackActive(w) { stackActive = w; syncStack(); }
-  function setStackMode(m) { stackMode = m; try { localStorage.setItem('stackMode', m); } catch { /* egal */ } syncStack(); }
+  function setStackActive(w) { stackActive = w; syncStack(); dockController?.sync(w); }
+  function setStackMode(m) { stackMode=m;try{localStorage.setItem('stackMode',m);}catch{}syncStack(); }
   $('#stkCmt').onclick = () => setStackActive('cmt');
   $('#stkDict').onclick = () => setStackActive('dict');
   $('#stkMode').onclick = () => setStackMode('split');
@@ -5595,23 +2366,23 @@
     $('#dictTabBtn').classList.toggle('sideopen', dictOpen);
     if (dictOpen) { renderDictList(); $('#dictQ').focus({ preventScroll: true }); }
   }
-  // Doppelklick auf ein Wort im Text oder in den Kommentaren schlägt es nach
-  let fnClickT = 0; // Klick auf eine Fußnotenzahl: ein Doppelklick dort öffnet nicht das Wörterbuch (die Fußnote klappt dabei auf und zu, der Klick landet sonst im Notentext)
+  // Double-click opens an available word card; otherwise look up the source lemma/word.
+  let fnClickT = 0,wordOpenToken=0;
   document.addEventListener('click', e => { if (e.target.closest && e.target.closest('sup, .nm, .footnote-marker, sup.dfn')) fnClickT = Date.now(); }, true);
-  const dblWord = e => {
-    if (e.target.closest('a, button, select, input, textarea, .lab, .bm, sup, .nm, .footnote-marker') || Date.now() - fnClickT < 700) return;
-    const w = (window.getSelection() + '').trim().replace(/^[^\p{L}\p{M}]+|[^\p{L}\p{M}]+$/gu, '');
-    if (w.length >= 2 && w.length <= 40 && !/\s/.test(w)) {
-      // erneuter Doppelklick auf dasselbe Wort an derselben Stelle schließt das Wörterbuch wieder
-      let pos = null;
-      try { const r = window.getSelection().getRangeAt(0); pos = { node: r.startContainer, off: r.startOffset, w }; } catch { /* egal */ }
-      const same = pos && lastDictDbl && lastDictDbl.node === pos.node && lastDictDbl.off === pos.off && lastDictDbl.w === pos.w;
-      if (same && dictOpen && document.documentElement.dataset.tab !== 'dict') { toggleDict(false); lastDictDbl = null; return; }
-      lastDictDbl = pos;
-      openDict(w);
-    }
+  document.addEventListener('pointerdown',()=>{wordOpenToken++;},true);
+  window.addEventListener('keydown',e=>{if(e.key==='Escape')wordOpenToken++;},true);
+  const dblWord = async e => {
+    if(e.target.closest('a,button,select,input,textarea,.lab,.bm,sup,.nm,.footnote-marker')||Date.now()-fnClickT<700)return;
+    const marked=e.target.closest('.w[data-m],.wt[data-m],.wq[data-m],.syw[data-si],.smr-word');
+    const w=(String(window.getSelection()).trim()||marked?.textContent||'').replace(/^[^\p{L}\p{M}]+|[^\p{L}\p{M}]+$/gu,'');
+    if(!w||w.length>80||/\s/.test(w))return;
+    const token=++wordOpenToken;
+    const current=()=>token===wordOpenToken&&e.target.isConnected;
+    const result=await wordPopupUI.openPreferred(e,current);
+    if(token!==wordOpenToken||result.opened||result.cancelled)return;
+    if(!result.context&&await wordCardsUI.openTextCard(w,current))return;
+    if(token===wordOpenToken)openDict(result.query||w);
   };
-  let lastDictDbl = null;
   // Einfacher Klick auf ein Wort (nicht hebräisch-morphologisch) markiert es wie bei den hebräischen Wörtern
   const clickMark = e => {
     if (!window.Highlight || !CSS.highlights) return;
@@ -5637,9 +2408,6 @@
   $('#cmtBody').addEventListener('dblclick', dblWord);
   let dictSel = null; // Auswahl der durchsuchten Wörterbücher (Liste von Kennungen) oder null = alle
   try { const a = JSON.parse(localStorage.getItem('dictSel') || 'null'); if (Array.isArray(a) && a.length) dictSel = a; } catch { /* egal */ }
-  let dictOnly = null; // { id, name }: Suche nur in diesem Wörterbuch (wird nicht mehr über das Menü gesetzt)
-  let dictHist = [], dictPos = -1, dictShown = [];
-  function dictNavButtons() { $('#dictBack').disabled = dictPos <= 0; $('#dictFwd').disabled = dictPos >= dictHist.length - 1; }
   // Hebräischer Satz mit eingeschobenem „l.“ (lies): in einem LTR-Absatz würde das lateinische l. den Satz in zwei Teile zerreißen, deren Reihenfolge dann nicht stimmt – als eigener RTL-Block ordnen
   const HEBC = '[\\u0590-\\u05FF\\uFB1D-\\uFB4F]', HEBN = '[\\s.,;:!?()\\[\\]\'"„“”—–*-]';
   const HEBRUN = new RegExp(`${HEBC}(?:${HEBC}|${HEBN})*?(?<![A-Za-z])l\\.(?:${HEBC}|${HEBN})*${HEBC}`, 'g');
@@ -5652,144 +2420,20 @@
     for (const tok of String(head).split(/[·,;/\s]+/)) { if (!/[\u05D0-\u05EA]/.test(tok)) continue; const ids = lemByCons.get(consOf(tok)); if (ids) return ids; }
     return null;
   }
-  function dictCardButtons(head, greekIndex, targumIndex, dictId) {
-    if (dictId === '9ce7ea6c00f1') {
-      const ids = targumIndex ? window.TargumForms.dictionaryLemmas(targumIndex, head) : [];
-      return ids.map(id => { const lex = targumIndex.L[id][0]; return ` <button type="button" class="dwk" data-tl="${esc(id)}" title="${esc(lex[0] + ' – ' + lex[2])}">${esc(I18N.t('Aramäische Wortkarte'))}${ids.length > 1 ? ': ' + esc(lex[0] + ' – ' + lex[2]) : ''}</button>`; }).join('');
-    }
-    const ids = lemIdsFor(head);
-    if (ids) return ` <button type="button" class="dwk" data-ids="${esc(ids.join(','))}" title="${esc(I18N.t('Wortkarte: Wörterbücher, Verteilung, häufigste Formen, Septuaginta'))}">${esc(I18N.t('Wortkarte'))}</button>`;
-    const lemmas = greekIndex ? window.GMorph.dictionaryLemmas(greekIndex, head) : [];
-    return lemmas.map(lemma => ` <button type="button" class="dwk" data-gl="${esc(lemma)}" title="${esc(I18N.t('Griechische Wortkarte öffnen'))}">${esc(I18N.t('Wortkarte'))}${lemmas.length > 1 ? ': ' + esc(lemma) : ''}</button>`).join('');
-  }
-  let dictLookupToken = 0;
-  async function dictLookup(q, only = null, fromHist = false) {
-    q = String(q || '').trim();
-    if (!q) return;
-    const token = ++dictLookupToken;
-    dictOnly = only;
-    dtabs[dcur].title = q;
-    renderDtabs();
-    if (!fromHist) {
-      if (!(dictPos >= 0 && dictHist[dictPos].q === q)) { dictHist = dictHist.slice(0, dictPos + 1); dictHist.push({ q, only }); dictPos = dictHist.length - 1; }
-    }
-    dictNavButtons();
-    $('#dictQ').value = q;
-    if (typeof renderSaved === 'function') renderSaved();
-    $('#dictOut').innerHTML = '<p class="muted">Suche …</p>';
-    const r = await O.dictLookup(q, only ? only.id : (dictSel && dictSel.length ? dictSel : null), $('#dictFull') && $('#dictFull').checked);
-    if (token !== dictLookupToken) return;
-    if (r.error) { $('#dictOut').innerHTML = `<p class="muted">⚠ ${esc(r.error)}</p>`; return; }
-    dictShown = r.results;
-    if (!r.results.length) {
-      const n = (await O.dictList()).list.length;
-      if (token !== dictLookupToken) return;
-      $('#dictOut').innerHTML = n ? `<p class="muted">Kein Eintrag für „${esc(q)}“ gefunden.</p>` : '<p class="muted">Es ist noch kein Wörterbuch eingebunden. Öffne unten „Wörterbücher verwalten“ und füge eine DSL-Datei hinzu.</p>';
-      return;
-    }
-    let greekIndex = null;
-    if (window.GMorph && r.results.some(x => window.GMorph.GREEK.test(x.head))) {
-      try { greekIndex = await loadGM(); } catch { /* Artikel bleiben auch ohne Formenindex lesbar */ }
-      if (token !== dictLookupToken) return;
-    }
-    let targumIndex = null;
-    if (window.TargumForms && r.results.some(x => x.dictId === '9ce7ea6c00f1')) {
-      try { targumIndex = await loadTForms(); } catch { /* Artikel bleiben auch ohne Formenindex lesbar */ }
-      if (token !== dictLookupToken) return;
-    }
-    const onlyBar = (dictSrc && dictSrc.q === q && document.documentElement.dataset.tab !== 'dict' ? `<div class="dsrc muted">aus <a href="#" title="Zur Stelle im Text">${esc(dictSrc.ref)}</a></div>` : '')
-      + (dictOnly ? `<div class="donly muted">Nur in: <b>${esc(dictOnly.name)}</b> · <a class="dall">alle Wörterbücher</a></div>` : '');
-    // pro Wörterbuch ein eigener Abschnitt mit Titelleiste und Farbe; jeder Treffer als eigene Karte
-    const hue = id => { let h = 0; for (const c of String(id)) h = (h * 31 + c.charCodeAt(0)) % 360; return h; };
-    const cnt = {}; r.results.forEach(x => { cnt[x.dictId] = (cnt[x.dictId] || 0) + 1; });
-    let last = null;
-    $('#dictOut').innerHTML = onlyBar + r.results.map((x, i) => {
-      let sec = '';
-      if (x.dictId !== last) { last = x.dictId; sec = `<div class="dsec" style="--dh:${hue(x.dictId)}"><span>${(p => p ? `<img class="vpic" src="portraits/${encodeURIComponent(p.img)}" alt="" data-title="${esc(p.name || '')}" loading="lazy">` : '')(portraitOf(x.dict))}${esc(x.dict)}</span><span class="dsr"><button type="button" class="dlist" data-id="${esc(x.dictId)}" data-name="${esc(x.dict)}" title="Alle Stichwörter dieses Wörterbuchs als Liste">☰ Stichwörter</button><small>${cnt[x.dictId]} Treffer</small></span></div>`; }
-      return `${sec}<div class="dentry" id="dentry${i}" style="--dh:${hue(x.dictId)}"><div class="dhead"><b dir="auto">${esc(x.head)}</b>${dictCardButtons(x.head, greekIndex, targumIndex, x.dictId)}${x.note ? ` <span class="muted">${esc(x.note)}</span>` : ''}</div><div class="dbody" dir="ltr">${heFix(/Gesenius/.test(x.dict || '') && window.GAbk ? window.GAbk.mark(x.html) : x.html)}</div></div>`;
-    }).join('');
-    $('#dictOut').scrollTop = 0;
-  }
-  $('#dictOut').addEventListener('click', async e => {
-    const b = e.target.closest('.dwk'); if (!b) return;
-    if (b.dataset.tl) { openTForms(b.dataset.tl, null, 'card'); return; }
-    if (b.dataset.gl) { openGForms(b.dataset.gl, null, 'card'); return; }
-    let ids = b.dataset.ids.split(',');
-    if (ids.length > 1) { // mehrere gleich geschriebene Lemmata: das häufigste nehmen
-      try { const D = await loadForms(); let best = -1; for (const id of ids) { const m = window.Forms.model(D, id), n = m ? m.total : 0; if (n > best) { best = n; ids = [id]; } } } catch { ids = [ids[0]]; }
-    }
-    openForms(ids[0], null, 'card');
+  // Eigene Wörterbuchinstanz je Lesefenster, mit schmalen Anschlüssen zum Leser.
+  const lsGet = k => { try { const a = JSON.parse(localStorage.getItem(k) || '[]'); return Array.isArray(a) ? a : []; } catch { return []; } };
+  const lsSet = (k, a) => { try { localStorage.setItem(k, JSON.stringify(a)); } catch { /* egal */ } };
+  const dictionaryUI = window.LibraryDictionary.create({
+    $, esc, heFix, lemIdsFor, portraitOf, loadGM, loadTForms: wordCardsUI.loadTForms, loadForms: wordCardsUI.loadForms,
+    openTForms: wordCardsUI.openTForms, openGForms: wordCardsUI.openGForms, openSForms: wordCardsUI.openSForms, openForms: wordCardsUI.openForms, panelScrollTo, lsGet, lsSet,
+    getSelection: () => dictSel, setSelection: ids => { dictSel = ids; },
+    getSource: () => dictSrc, setDictSrc,
   });
-  const dictGoHist = d => { const k = dictPos + d; if (k < 0 || k >= dictHist.length) return; dictPos = k; dictLookup(dictHist[k].q, dictHist[k].only, true); };
-  // Mehrere Wörterbuch-Tabs – nur im Reiter „Wörterbuch“ sichtbar (die Seitenleiste beim Lesen hat immer nur eine Suche)
-  const dtabs = [{ title: 'Neu' }];
-  let dcur = 0;
-  const dtabSave = () => {
-    const t = dtabs[dcur];
-    Object.assign(t, { q: $('#dictQ').value, only: dictOnly, hist: dictHist, pos: dictPos, shown: dictShown, html: $('#dictOut').innerHTML, scroll: $('#dictOut').scrollTop });
-  };
-  const dtabLoad = () => {
-    ++dictLookupToken;
-    const t = dtabs[dcur];
-    dictOnly = t.only || null; dictHist = t.hist || []; dictPos = t.pos == null ? -1 : t.pos; dictShown = t.shown || [];
-    $('#dictQ').value = t.q || '';
-    $('#dictOut').innerHTML = t.html || '<p class="muted">Gib ein Wort ein.</p>';
-    $('#dictOut').scrollTop = t.scroll || 0;
-    dictNavButtons();
-    renderDtabs();
-  };
-  function renderDtabs() {
-    $('#dictTabs').innerHTML = dtabs.map((t, i) => `<span class="dtab${i === dcur ? ' active' : ''}" data-i="${i}" title="${esc(t.title)}"><span class="dtt">${esc(t.title)}</span>${dtabs.length > 1 ? '<button class="dtx" title="Tab schließen">✕</button>' : ''}</span>`).join('') + '<button id="dtabNew" title="Neuer Wörterbuch-Tab">+</button>';
-  }
-  const dtabGo = i => { if (i === dcur || !dtabs[i]) return; dtabSave(); dcur = i; dtabLoad(); };
-  const dtabAdd = () => { dtabSave(); dcur = Math.min(dcur + 1, dtabs.length); dtabs.splice(dcur, 0, { title: 'Neu' }); dtabLoad(); $('#dictQ').focus(); };
-  const dtabClose = i => { if (dtabs.length < 2) return; if (i === dcur) { dtabs.splice(i, 1); dcur = Math.min(i, dtabs.length - 1); dtabLoad(); } else { dtabSave(); dtabs.splice(i, 1); if (i < dcur) dcur--; renderDtabs(); } };
-  $('#dictTabs').addEventListener('click', e => {
-    if (e.target.closest('#dtabNew')) return dtabAdd();
-    const t = e.target.closest('.dtab'); if (!t) return;
-    if (e.target.closest('.dtx')) return dtabClose(+t.dataset.i);
-    dtabGo(+t.dataset.i);
-  });
-  $('#dictTabs').addEventListener('auxclick', e => { const t = e.target.closest('.dtab'); if (t && e.button === 1) dtabClose(+t.dataset.i); });
-  // Im Wörterbuch-Reiter öffnet Cmd/Strg/Umschalt + Klick auf einen Verweis (oder Cmd+Enter beim Suchen) einen neuen Tab
-  $('#dictOut').addEventListener('click', e => {
-    const a = e.target.closest('a.dref[data-q]');
-    if (a && document.documentElement.dataset.tab === 'dict' && (e.metaKey || e.ctrlKey)) { e.preventDefault(); e.stopImmediatePropagation(); const q = a.dataset.q; dtabAdd(); dictLookup(q); }
-  }, true);
-  renderDtabs();
-  // Wortvorschläge beim Tippen
-  { let sugTimer = 0, sugSeq = 0, sugItems = [], sugSel = -1;
-    const box = $('#dictSug');
-    const hideSug = () => { box.hidden = true; sugItems = []; sugSel = -1; };
-    const paint = () => { box.innerHTML = sugItems.map((x, i) => `<div class="sg${i === sugSel ? ' on' : ''}" data-i="${i}"><b dir="auto">${esc(x.head)}</b><small>${esc(x.dict)}</small></div>`).join(''); box.hidden = !sugItems.length; };
-    const pick = i => { const x = sugItems[i]; if (!x) return; hideSug(); $('#dictQ').value = x.head; manualSearch(x.head); };
-    $('#dictQ').addEventListener('input', () => {
-      clearTimeout(sugTimer);
-      const v = $('#dictQ').value.trim();
-      if (!v) { hideSug(); return; }
-      sugTimer = setTimeout(async () => {
-        const my = ++sugSeq;
-        const r = await O.dictSuggest(v);
-        if (my !== sugSeq || $('#dictQ').value.trim() !== v) return; // veraltete Antwort
-        sugItems = r.list || []; sugSel = -1; paint();
-      }, 80);
-    });
-    $('#dictQ').addEventListener('keydown', e => {
-      if (box.hidden) return;
-      if (e.key === 'ArrowDown' || e.key === 'ArrowUp') { e.preventDefault(); sugSel = (sugSel + (e.key === 'ArrowDown' ? 1 : -1) + sugItems.length + 1) % (sugItems.length + 1); if (sugSel === sugItems.length) sugSel = -1; paint(); }
-      else if (e.key === 'Enter' && sugSel >= 0) { e.preventDefault(); e.stopImmediatePropagation(); pick(sugSel); }
-      else if (e.key === 'Enter') { hideSug(); } // Enter ohne gewählten Vorschlag: nachschlagen (siehe unten), Vorschläge schließen
-      else if (e.key === 'Escape') { hideSug(); }
-    }, true);
-    box.addEventListener('mousedown', e => { const r = e.target.closest('.sg'); if (r) { e.preventDefault(); pick(+r.dataset.i); } });
-    $('#dictQ').addEventListener('blur', () => setTimeout(hideSug, 120));
-    $('#dictGo').addEventListener('click', hideSug);
-  }
-  // „Erster Buchstabe weg“: Präfix (בְּ, וְ, הַ …) abschneiden und neu nachschlagen, beliebig oft
-  $('#dictCut').onclick = () => {
-    const q = $('#dictQ').value.trim().replace(/^[^\p{L}]*\p{L}\p{M}*/u, '');
-    if (q) dictLookup(q); 
-  };
+  function dictLookup(q, only, fromHist, sedraId) { return dictionaryUI.lookup(q, only, fromHist, sedraId); }
+  function renderDictList() { return dictionaryUI.renderList(); }
+  function renderSaved() { return dictionaryUI.renderSaved(); }
+  function dtabAdd() { return dictionaryUI.addTab(); }
+  function dictJump(i) { return dictionaryUI.jump(i); }
   // Reiter „Wörterbuch“: das Wörterbuch füllt die ganze Seite
   { let dictBefore = false;
     onTabChange = (t, prev) => {
@@ -5797,15 +2441,6 @@
       else if (t !== 'dict' && prev === 'dict') toggleDict(dictBefore);
     };
   }
-  $('#dictBack').onclick = () => dictGoHist(-1);
-  $('#dictFwd').onclick = () => dictGoHist(1);
-  // Schriftgröße des Wörterbuchs (wird gemerkt)
-  let dfs = 15;
-  try { dfs = Math.min(26, Math.max(10, +localStorage.getItem('dictFs') || 15)); } catch { /* egal */ }
-  const applyDfs = () => { $('#dictPanel').style.setProperty('--dict-fs', dfs + 'px'); try { localStorage.setItem('dictFs', String(dfs)); } catch { /* egal */ } };
-  applyDfs();
-  $('#dictFsMinus').onclick = () => { dfs = Math.max(10, dfs - 1); applyDfs(); };
-  $('#dictFsPlus').onclick = () => { dfs = Math.min(26, dfs + 1); applyDfs(); };
   // Scrollt nur den umgebenden Panel-Container (nicht das Dokument), damit das Fenster nicht springt
   function panelScrollTo(el, block) {
     let p = el.parentElement;
@@ -5814,19 +2449,6 @@
     const r = el.getBoundingClientRect(), pr = p.getBoundingClientRect();
     const top = r.top - pr.top + p.scrollTop - (block === 'center' ? (p.clientHeight - r.height) / 2 : 0);
     p.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
-  }
-  // zu einem Artikel der aktuellen Trefferliste springen
-  function dictJump(i) {
-    const el = $('#dentry' + i);
-    if (!el) return;
-    panelScrollTo(el, 'start');
-    el.classList.add('flash'); setTimeout(() => el.classList.remove('flash'), 1200);
-  }
-  async function renderDictList() {
-    const r = await O.dictList(), list = r.list || [];
-    if (dictSel) { dictSel = dictSel.filter(id => list.some(d => d.id === id)); if (!dictSel.length) dictSel = null; }
-    $('#dictList').innerHTML = list.length ? list.map((d, i) => `<div class="dli"><label class="dsl"><input type="checkbox" data-id="${esc(d.id)}"${!dictSel || dictSel.includes(d.id) ? ' checked' : ''}>${(p => p ? `<img class="vpic" src="portraits/${encodeURIComponent(p.img)}" alt="" data-title="${esc(p.name || '')}" loading="lazy">` : '')(portraitOf(d.name))}<span class="dsn">${esc(d.name)}</span><small>${d.count.toLocaleString(I18N.loc)}</small></label><span class="dbtns"><button data-mv="-1" data-id="${esc(d.id)}" title="Nach oben (wird zuerst angezeigt)"${i === 0 ? ' disabled' : ''}>▲</button><button data-mv="1" data-id="${esc(d.id)}" title="Nach unten"${i === list.length - 1 ? ' disabled' : ''}>▼</button><button data-rm="1" data-id="${esc(d.id)}" title="Wörterbuch entfernen">✕</button></span></div>`).join('') : '<p class="muted">Noch keine Wörterbücher.</p>';
-    const B = $('#dictSelB'); if (B) B.innerHTML = `📚<span class="cl"> ${dictSel ? esc(dictSel.length + ' von ' + list.length) : esc(I18N.t('Alle Wörterbücher'))}</span> ▾`;
   }
   // Herkunft des nachgeschlagenen Worts (Stelle im Text): als Feld „aus Genesis 25:8“ im Wörterbuch, das Wort bleibt im Text markiert
   let dictSrc = null, dictLastWord = null, dictLastAt = 0, dictCtxRow = null;
@@ -5857,113 +2479,25 @@
     if (dictSrc.row && dictSrc.row.isConnected) { dictSrc.row.scrollIntoView({ block: 'center', behavior: 'smooth' }); dictSrc.row.classList.add('flash'); setTimeout(() => dictSrc && dictSrc.row && dictSrc.row.classList.remove('flash'), 900); }
     else jumpTo(dictSrc.ref, false);
   });
-  async function openDict(q) {
+  async function openDict(q, only = null, sedraId = null) {
     if (q) setDictSrc(captureDictSrc(q));
     if (!dictOpen) toggleDict(true); else renderDictList();
     setStackActive('dict'); // als Reiter: zum Wörterbuch wechseln, der Kommentar bleibt an seiner Stelle
-    if (q) dictLookup(q); else $('#dictQ').focus({ preventScroll: true });
+    if (q) dictLookup(q, only, false, sedraId); else $('#dictQ').focus({ preventScroll: true });
   }
   $('#openDict').onclick = () => { $('#moreMenu').open = false; toggleDict(); };
   $('#dictClose').onclick = () => { if (document.documentElement.dataset.tab === 'dict') showTab('read'); else toggleDict(false); };
   // Letzte Suchen (nur selbst eingegebene/ausgewählte, nicht Doppelklick oder Links) und Favoriten
-  const lsGet = k => { try { const a = JSON.parse(localStorage.getItem(k) || '[]'); return Array.isArray(a) ? a : []; } catch { return []; } };
-  const lsSet = (k, a) => { try { localStorage.setItem(k, JSON.stringify(a)); } catch { /* egal */ } };
-  let dRecent = lsGet('dictRecent'), dFavs = lsGet('dictFavs');
-  const chips = (a, fav) => a.length ? a.map((w, i) => `<span class="dchip"><a data-w="${esc(w)}" dir="auto">${esc(w)}</a><button data-rm="${i}" title="Entfernen">✕</button></span>`).join('') : `<span class="muted">${fav ? 'Noch keine Favoriten' : 'Noch keine Suchen'}</span>`;
-  const syncSaved = () => { dRecent = lsGet('dictRecent'); dFavs = lsGet('dictFavs'); }; // beide Fenster teilen den Speicher: vor jeder Änderung frisch lesen
-  function renderSaved() {
-    syncSaved();
-    $('#dictRecentL').innerHTML = chips(dRecent, false);
-    $('#dictFavL').innerHTML = chips(dFavs, true);
-    const q = $('#dictQ').value.trim(), on = !!q && dFavs.includes(q);
-    $('#dictStar').textContent = on ? '★' : '☆'; $('#dictStar').classList.toggle('on', on);
-  }
-  const manualSearch = (q, only = null) => {
-    q = String(q || '').trim();
-    if (!dictSrc || dictSrc.q !== q) setDictSrc(null);
-    syncSaved();
-    if (q) { dRecent = [q, ...dRecent.filter(x => x !== q)].slice(0, 30); lsSet('dictRecent', dRecent); }
-    dictLookup(q, only); renderSaved();
-  };
-  $('#dictStar').onclick = () => {
-    const q = $('#dictQ').value.trim(); if (!q) return;
-    syncSaved();
-    dFavs = dFavs.includes(q) ? dFavs.filter(x => x !== q) : [q, ...dFavs];
-    lsSet('dictFavs', dFavs); renderSaved();
-  };
-  $('#dictRecentClear').onclick = () => { syncSaved(); dRecent = []; lsSet('dictRecent', dRecent); renderSaved(); };
-  $('#dictSaved').addEventListener('click', e => {
-    const rm = e.target.closest('button[data-rm]');
-    if (rm) { syncSaved(); const fav = !!rm.closest('#dictFavL'); const a = fav ? dFavs : dRecent; a.splice(+rm.dataset.rm, 1); lsSet(fav ? 'dictFavs' : 'dictRecent', a); renderSaved(); return; }
-    const a = e.target.closest('a[data-w]'); if (a) dictLookup(a.dataset.w);
-  });
-  $('#dictQ').addEventListener('input', renderSaved);
-  renderSaved();
-  { const fb = $('#dictFull'); // Volltextsuche (Artikeltext) ein/aus, wird gemerkt
-    try { fb.checked = localStorage.getItem('dictFull') === '1'; } catch { /* egal */ }
-    fb.addEventListener('change', () => { try { localStorage.setItem('dictFull', fb.checked ? '1' : '0'); } catch { /* egal */ } const q = $('#dictQ').value.trim(); if (q) dictLookup(q, dictOnly); }); }
-  { // Auswahl der Wörterbücher: Häkchen je Wörterbuch, wird gemerkt
-    const B = $('#dictSelB'), Pn = $('#dictSelP');
-    const paint = renderDictList;
-    const save = () => { try { localStorage.setItem('dictSel', JSON.stringify(dictSel || null)); } catch { /* egal */ } };
-    B.onclick = async e => { e.stopPropagation(); if (Pn.hidden) { await paint(); Pn.hidden = false; } else Pn.hidden = true; };
-    document.addEventListener('click', e => { if (!Pn.hidden && !Pn.contains(e.target) && e.target !== B && document.body.contains(e.target)) Pn.hidden = true; });
-    Pn.addEventListener('click', async e => {
-      const a = e.target.closest('a[data-a]');
-      if (a) { dictSel = null; if (a.dataset.a === 'none') { Pn.querySelectorAll('input').forEach(i => { i.checked = false; }); return; } save(); await paint(); const q = $('#dictQ').value.trim(); if (q) dictLookup(q, dictOnly); }
-    });
-    Pn.addEventListener('change', async e => {
-      const ids = [...Pn.querySelectorAll('input')].filter(i => i.checked).map(i => i.dataset.id), all = Pn.querySelectorAll('input').length;
-      dictSel = ids.length && ids.length < all ? ids : null; save(); renderDictList();
-      const q = $('#dictQ').value.trim(); if (q) dictLookup(q, dictOnly);
-    });
-    paint();
-  }
-
-  { // Stichwortliste eines Wörterbuchs (Knopf in der farbigen Titelleiste): filtern, Klick = nur in diesem Wörterbuch nachschlagen
-    let pop = null, cur = null, all = [], shown = [], pos = 0;
-    const CH = 300;
-    const close = () => { if (pop) pop.hidden = true; };
-    const more = () => { const box = pop.querySelector('.dhl'); const end = Math.min(shown.length, pos + CH); let h = ''; for (let i = pos; i < end; i++) h += `<div class="dhi" dir="auto" data-w="${esc(shown[i])}">${esc(shown[i])}</div>`; box.insertAdjacentHTML('beforeend', h); pos = end; pop.querySelector('.dhc').textContent = `${shown.length.toLocaleString(I18N.loc)} von ${all.length.toLocaleString(I18N.loc)}`; };
-    const refilter = () => {
-      const q = pop.querySelector('input').value.trim().normalize('NFD').replace(/[\u0591-\u05c7\u0300-\u036f]/g, '').replace(/[ךםןףץ]/g, c => ({ 'ך': 'כ', 'ם': 'מ', 'ן': 'נ', 'ף': 'פ', 'ץ': 'צ' }[c])).toLowerCase();
-      shown = q ? all.filter(h => h.normalize('NFD').replace(/[\u0591-\u05c7\u0300-\u036f]/g, '').replace(/[ךםןףץ]/g, c => ({ 'ך': 'כ', 'ם': 'מ', 'ן': 'נ', 'ף': 'פ', 'ץ': 'צ' }[c])).toLowerCase().includes(q)) : all;
-      pos = 0; pop.querySelector('.dhl').innerHTML = ''; pop.querySelector('.dhl').scrollTop = 0; more();
-    };
-    $('#dictOut').addEventListener('click', async e => {
-      const b = e.target.closest('.dlist'); if (!b) return;
-      e.stopPropagation();
-      if (!pop) {
-        pop = document.createElement('div'); pop.id = 'dheadPop'; pop.hidden = true;
-        pop.innerHTML = '<div class="dht"><b></b><button type="button" class="dhx" title="Schließen">✕</button></div><input type="search" placeholder="Stichwörter filtern …" autocomplete="off"><div class="dhc muted"></div><div class="dhl"></div>';
-        document.body.appendChild(pop);
-        pop.querySelector('.dhx').onclick = close;
-        pop.querySelector('input').addEventListener('input', refilter);
-        pop.querySelector('.dhl').addEventListener('scroll', ev => { const l = ev.target; if (pos < shown.length && l.scrollTop + l.clientHeight > l.scrollHeight - 200) more(); });
-        pop.querySelector('.dhl').addEventListener('click', ev => { const it = ev.target.closest('.dhi'); if (!it || !cur) return; const w = it.dataset.w; close(); manualSearch(w); });
-        document.addEventListener('click', ev => { if (pop && !pop.hidden && !pop.contains(ev.target) && !ev.target.closest('.dlist')) close(); });
-        document.addEventListener('keydown', ev => { if (ev.key === 'Escape') close(); });
-      }
-      if (!pop.hidden && cur && cur.id === b.dataset.id) { close(); return; }
-      cur = { id: b.dataset.id, name: b.dataset.name };
-      pop.querySelector('.dht b').textContent = cur.name; pop.querySelector('input').value = '';
-      pop.querySelector('.dhl').innerHTML = '<p class="muted">Lade …</p>'; pop.hidden = false;
-      /* feste Größe und Lage (unabhängig vom Knopf) – siehe CSS */
-      all = (await O.dictHeads(cur.id)).list || []; refilter(); pop.querySelector('input').focus();
-    }, true);
-  }
-  $('#dictGo').onclick = () => manualSearch($('#dictQ').value);
-  $('#dictQ').addEventListener('keydown', e => { if (e.key === 'Enter') manualSearch($('#dictQ').value); });
   // Stellenangaben im Lesetext und in den Kommentaren (Klasse „aref“): im Reader öffnen; Cmd/Strg + Klick = neuer Tab, Umschalt + Klick = im zweiten Fenster rechts
   document.addEventListener('click', e => {
     const a = e.target.closest && e.target.closest('a.aref[data-sref]');
     if (!a || !a.closest('#rOut, #cmtBody, #linkPanel')) return;
     e.preventDefault(); e.stopPropagation();
     if (e.shiftKey && !IS_PANE2) { toPane2({ type: 'jump', ref: a.dataset.sref.replace(/-.*$/, '') }); return; }
-    if (!BG(e)) navRemember(a); // „Zurück“ führt wieder an diese Stelle
+    if (!BG(e)) navigationUI.navRemember(a); // „Zurück“ führt wieder an diese Stelle
     jumpTo(a.dataset.sref, BG(e)).then(ok => {
       a.classList.toggle('dmiss', !ok);
-      a.title = ok ? (a.dataset.oref ? versNote(a) : a.dataset.sref) : I18N.t('Dieser Text ist nicht in deiner Bibliothek (Reiter „Herunterladen“).');
+      a.title = ok ? (a.dataset.oref ? linksUI.versNote(a) : a.dataset.sref) : I18N.t('Dieser Text ist nicht in deiner Bibliothek (Reiter „Herunterladen“).');
     });
   }, true);
   $('#dictOut').addEventListener('click', e => {
@@ -6011,197 +2545,18 @@
     items.push({ label: 'Alles auswählen', fn: () => { const r = document.createRange(); r.selectNodeContents($('#dictOut')); const s2 = window.getSelection(); s2.removeAllRanges(); s2.addRange(r); } });
     // eine Zeile pro Wörterbuch (springt zum ersten Artikel dieses Wörterbuchs)
     const byDict = [];
-    dictShown.forEach((x, i) => { let g = byDict.find(b => b.dictId === x.dictId); if (!g) byDict.push(g = { dictId: x.dictId, name: x.dict, first: i, n: 0 }); g.n++; });
+    dictionaryUI.getShown().forEach((x, i) => { let g = byDict.find(b => b.dictId === x.dictId); if (!g) byDict.push(g = { dictId: x.dictId, name: x.dict, first: i, n: 0 }); g.n++; });
     if (byDict.length > 1 || (byDict.length === 1 && byDict[0].n > 1)) {
       items.push({ sep: true });
       byDict.forEach(g => items.push({ label: g.n > 1 ? I18N.t('{} ({#} Artikel)', g.name, g.n) : g.name, fn: () => dictJump(g.first) }));
     }
     ctxShow(e, items);
   });
-  $('#dictAdd').onclick = async () => {
-    const r = await O.dictAdd();
-    if (r.cancelled) return;
-    await renderDictList();
-    if (r.errors && r.errors.length) alert(r.errors.join('\n'));
-    else if (r.added && r.added.length) $('#dictOut').innerHTML = `<p class="muted">Eingebunden: ${r.added.map(a => `${esc(a.name)} (${a.count.toLocaleString(I18N.loc)} Einträge)`).join(', ')}.</p>`;
-  };
-  $('#dictList').addEventListener('click', async e => {
-    const mv = e.target.closest('button[data-mv]');
-    if (mv) {   // Reihenfolge ändern
-      const ids = (await O.dictList()).list.map(d => d.id), i = ids.indexOf(mv.dataset.id), k = i + +mv.dataset.mv;
-      if (i < 0 || k < 0 || k >= ids.length) return;
-      [ids[i], ids[k]] = [ids[k], ids[i]];
-      await O.dictOrder(ids);
-      await renderDictList();
-      if (dictHist[dictPos]) dictLookup(dictHist[dictPos].q, dictHist[dictPos].only, true);
-      return;
-    }
-    const b = e.target.closest('button[data-rm]');
-    if (!b || !confirm('Dieses Wörterbuch aus Safran entfernen? Deine DSL-Datei bleibt unberührt.')) return;
-    const r = await O.dictRemove(b.dataset.id);
-    if (r.error) alert(r.error);
-    await renderDictList();
-  });
-
   const plainSnip = r => (r.parts ? r.parts.map(x => x.t).join('') : `${r.snippet.before}${r.snippet.hit}${r.snippet.after}`);
-  // Grammatik-Auswahl der Suche -> { pos, stem, … } oder null, wenn nichts gewählt ist
-  const GRAM_IDS = { pos: 'gPos', stem: 'gStem', tense: 'gTense', person: 'gPerson', gender: 'gGender', number: 'gNumber', state: 'gState', suffix: 'gSuffix', article: 'gArticle' };
-  function gramParams() {
-    const g = {}; let any = false;
-    for (const [k, id] of Object.entries(GRAM_IDS)) { const el = $('#' + id); const v = el ? el.value : ''; g[k] = v; if (v) any = true; }
-    return any ? g : null;
-  }
-  $('#gClear').onclick = () => { for (const id of Object.values(GRAM_IDS)) $('#' + id).value = ''; $('#gramBox').open = false; sRefresh(); };
-  $('#gramBox').addEventListener('keydown', e => { if (e.key === 'Enter' && e.target.tagName === 'SELECT') { e.preventDefault(); if (!sBusy()) $('#sGo').click(); } });
-  // Verteilung des Suchworts auf die Bücher (Balkendiagramm, je Fassung eine Farbe)
-  const DIST_COLORS = ['#4c78db', '#e8863a', '#e0b84a', '#5fb3a8', '#8a93a6', '#b86bc4', '#d9534f', '#6aa84f'];
-  let distZoom = 1, distMode = 'o', distScale = null, distSel = null, distOpen = false; // distSel: gewählte Fassungen (null = die häufigsten)
-  // distScale: null = automatisch (logarithmisch, wenn einzelne Bücher alles überragen)
-  function renderDist(res) {
-    const box = $('#sChart');
-    const rows = (res.dist || []);
-    const books = res.stats.map(x => x.title);
-    if (!rows.length || books.length < 2) { box.hidden = true; return; }
-    const val = r => (distMode === 'o' ? r.o : r.h);
-    const serKey = r => (r.v || '') + '\u0000' + r.k;
-    const tot = new Map(); rows.forEach(r => tot.set(serKey(r), (tot.get(serKey(r)) || 0) + val(r)));
-    const allSers = [...tot.entries()].sort((a, b) => b[1] - a[1]).map(x => x[0]);
-    let sers = distSel ? allSers.filter(k => distSel.has(k)) : allSers.slice(); // von Anfang an alle Fassungen
-    const colOf = i => DIST_COLORS[i % DIST_COLORS.length];
-    const label = k => { const [v, kind] = k.split('\u0000'); return (v ? shortVer(v) : KIND_LABEL[kind] || kind) + (v ? '' : ''); };
-    const cell = new Map(rows.map(r => [r.t + '\u0001' + serKey(r), val(r)]));
-    const vals = rows.map(val).filter(v => v > 0).sort((a, b) => a - b), max = Math.max(1, ...vals);
-    const log = distScale ? distScale === 'log' : max > 30 * Math.max(1, vals[Math.floor(vals.length / 2)] || 1);
-    const nice = m => { const p = Math.pow(10, Math.floor(Math.log10(m))), f = m / p; return (f <= 1 ? 1 : f <= 2 ? 2 : f <= 5 ? 5 : 10) * p; };
-    const step = nice(max / 5), top = log ? Math.ceil(Math.log10(max)) + 1 : Math.ceil(max / step) * step;
-    const shown = b => (b.length > 30 ? b.slice(0, 29) + '…' : b), maxLen = Math.max(...books.map(b => shown(b).length)), PB = Math.min(170, Math.max(60, Math.round(20 + 4.3 * maxLen)));
-    const L = Math.max(46, Math.round(3.5 * shown(books[0]).length)), bw = Math.round((sers.length > 12 ? 4 : sers.length > 6 ? 6 : 9) * distZoom);
-    const present = b => sers.map((k, si) => ({ k, si })).filter(x => (cell.get(b + '\u0001' + x.k) || 0) > 0); // pro Buch nur Fassungen mit Treffern, ohne Lücken
-    const gws = books.map(b => Math.max(1, present(b).length) * bw + Math.round(10 * Math.max(1, distZoom))), gx = []; gws.reduce((a, w, i) => (gx[i] = a, a + w), L);
-    const W = L + gws.reduce((a, w) => a + w, 0) + 14, H = 150 + PB, PT = 10, ih = H - PT - PB;
-    const y = v => PT + ih - ((log ? (v > 0 ? Math.log10(v) + 1 : 0) : v) / top) * ih;
-    let svg = `<svg width="${W}" height="${H}" role="img" aria-label="${esc(I18N.t('Verteilung auf die Bücher'))}">`;
-    const tickVals = log ? Array.from({ length: top }, (_, k) => Math.pow(10, k)) : Array.from({ length: Math.round(top / step) + 1 }, (_, k) => k * step);
-    if (log) tickVals.unshift(0);
-    tickVals.forEach(v => { svg += `<line class="ax" x1="${L - 4}" x2="${W - 6}" y1="${y(v)}" y2="${y(v)}" opacity=".5"/><text x="${L - 8}" y="${y(v) + 4}" text-anchor="end">${v}</text>`; });
-    books.forEach((b, bi) => {
-      const x0 = gx[bi], gw = gws[bi];
-      present(b).forEach(({ k, si }, pi) => {
-        const v = cell.get(b + '\u0001' + k) || 0;
-        svg += `<rect class="bar" data-t="${esc(b)}" x="${x0 + pi * bw}" y="${y(v)}" width="${bw - 1}" height="${Math.max(1, y(0) - y(v))}" fill="${colOf(si)}" data-tip="${esc(b)} · ${esc(label(k))}: ${v}"></rect>`;
-      });
-      svg += `<text transform="translate(${x0 + (gw - 6) / 2},${H - PB + 8}) rotate(-50)" text-anchor="end"><title>${esc(b)}</title>${esc(shown(b))}</text>`;
-    });
-    svg += '</svg>';
-    box.innerHTML = `<div class="chead"><b>${esc(I18N.t('Verteilung auf die Bücher'))}</b>
-      <select id="distScale" title="${esc(I18N.t('Skala'))}"><option value="lin"${!log ? ' selected' : ''}>${esc(I18N.t('Linear'))}</option><option value="log"${log ? ' selected' : ''}>${esc(I18N.t('Logarithmisch'))}</option></select>
-      <select id="distMode"><option value="o"${distMode === 'o' ? ' selected' : ''}>${esc(I18N.t('Vorkommen'))}</option><option value="h"${distMode === 'h' ? ' selected' : ''}>${esc(I18N.t('Verse mit Treffer'))}</option></select>
-      <span class="dzoom"><button data-act="zout" title="${esc(I18N.t('Verkleinern'))}">−</button><span class="muted">${Math.round(distZoom * 100)}%</span><button data-act="zin" title="${esc(I18N.t('Vergrößern'))}">+</button></span>
-      <details id="distVer"${distOpen ? ' open' : ''}><summary>${esc(I18N.t('Fassungen'))} (${sers.length}/${allSers.length})</summary><div class="verlist"><button data-act="serall">${esc(I18N.t('Alle Fassungen'))}</button> <button data-act="sernone">${esc(I18N.t('Keine'))}</button>${allSers.map((k, ai) => { const i = sers.indexOf(k), nm = label(k); return `<label class="cleg" title="${esc(nm)}"><input type="checkbox" data-ser="${ai}"${i >= 0 ? ' checked' : ''}><i style="background:${i >= 0 ? colOf(i) : 'transparent'};border:1px solid ${i >= 0 ? colOf(i) : 'var(--line)'}"></i>${esc(nm.length > 48 ? nm.slice(0, 47) + '…' : nm)}</label>`; }).join('')}</div></details>
-      ${(sers.length > 12 ? [] : sers).map((k, i) => `<span class="cleg" title="${esc(label(k))}"><i style="background:${colOf(i)}"></i>${esc(label(k).length > 38 ? label(k).slice(0, 37) + '…' : label(k))}</span>`).join('')}</div><div class="cwrap">${svg}</div>`;
-    box.hidden = false;
-    box._res = res; box._allSers = allSers;
-  }
-  $('#sChart').addEventListener('toggle', e => { if (e.target.id === 'distVer') distOpen = e.target.open; }, true);
-  $('#sChart').addEventListener('change', e => {
-    const cb = e.target.closest && e.target.closest('input[data-ser]');
-    if (cb) { // Fassungen ein-/ausblenden
-      const all = $('#sChart')._allSers, cur = new Set([...$$('#sChart input[data-ser]')].filter(x => x.checked).map(x => all[+x.dataset.ser]));
-      distSel = cur; renderDist($('#sChart')._res);
-      return;
-    }
-    if (e.target.id === 'distMode') distMode = e.target.value; else if (e.target.id === 'distScale') distScale = e.target.value; else return; renderDist($('#sChart')._res); });
-  // Die Zahl beim Überfahren zeigt die allgemeine Hilfeblase der App (data-tip am Balken)
-  function distSetZoom(nz, ax) { // ax: Mausposition im sichtbaren Ausschnitt (Zoom um diesen Punkt)
-    nz = Math.max(0.5, Math.min(6, nz)); if (nz === distZoom) return;
-    const w = $('#sChart .cwrap'), old = distZoom, x = ax == null ? (w ? w.clientWidth / 2 : 0) : ax, c = w ? (w.scrollLeft + x) / old : 0;
-    distZoom = nz; renderDist($('#sChart')._res);
-    const w2 = $('#sChart .cwrap'); if (w2) w2.scrollLeft = Math.max(0, c * nz - x);
-  }
-  $('#sChart').addEventListener('wheel', e => { const w = e.target.closest && e.target.closest('.cwrap'); if (!w || !(e.ctrlKey || e.metaKey)) return; e.preventDefault(); distSetZoom(distZoom * (e.deltaY < 0 ? 1.15 : 1 / 1.15), e.clientX - w.getBoundingClientRect().left); }, { passive: false });
-  $('#sChart').addEventListener('click', e => { const z = e.target.dataset && e.target.dataset.act; if (z === 'zin') return distSetZoom(distZoom * 1.4); if (z === 'zout') return distSetZoom(distZoom / 1.4); });
-  $('#sChart').addEventListener('click', e => { if (e.target.dataset && e.target.dataset.act === 'serall') { distSel = null; return renderDist($('#sChart')._res); } if (e.target.dataset && e.target.dataset.act === 'sernone') { distSel = new Set(); return renderDist($('#sChart')._res); } const b = e.target.closest('.bar'); if (b) runSearch(b.dataset.t); });
-  let sSumState = null; // zuletzt gezeigte Buchliste (für „… weitere anzeigen“)
-  function renderSum() {
-    const { res, onlyTitle, n } = sSumState;
-    $('#sSum').innerHTML = res.stats.length > 1 || onlyTitle
-      ? (onlyTitle ? `<button class="chip" data-t="">← alle Bücher</button> ` : '') + res.stats.slice(0, n).map(x => `<button class="chip${x.title === onlyTitle ? ' on' : ''}" data-t="${esc(x.title)}" title="Nur in diesem Buch, alle Treffer">${esc(x.title)} (${x.n})</button>`).join(' ') + (res.stats.length > n ? ` <button class="chip more" data-more="1" title="${esc(I18N.t('Weitere Bücher anzeigen'))}">${esc(I18N.t('… und {#} weitere', res.stats.length - n))}</button>` : '')
-      : '';
-    $('#sSumPanel').hidden = !$('#sSum').innerHTML.trim();
-  }
-  async function runSearch(only) {
-    const onlyTitle = typeof only === 'string' && only !== 'restore' ? only : null; // Klick auf einen Buchnamen: nur dieses Buch, mit allen Treffern
-    const q = $('#sq').value.trim();
-    const gram = gramParams();
-    if (!q && !gram) return;
-    const kinds = gram ? ['he'] : sKinds(); // Grammatik-Suche: nur hebräischer Westminster-Text
-    sPending++; sSetBusy();
-    $('#sInfo').textContent = 'Suche läuft …';
-    $('#sOut').innerHTML = ''; $('#sSum').innerHTML = ''; $('#sSumPanel').hidden = true; $('#sExport').hidden = true; if (!only || typeof only !== 'string' || only === 'restore') $('#sChart').hidden = true;
-    const sp = {
-      query: q, extra: [], distance: +$('#sDist').value, ordered: $('#sOrd').checked, fuzzy: $('#sFuzzy').checked, kinds,
-      categories: onlyTitle ? [] : [...sCats], titles: onlyTitle ? [onlyTitle] : [...sTitles], ...sMatchParams(), wlc: $('#sWlc').checked, gram,
-      limit: 1000, perFile: onlyTitle ? 1000 : 25, countAll: !onlyTitle,
-    };
-    lastSearch = { ...sp };
-    const fkey = JSON.stringify({ ...sp, titles: 0, perFile: 0, limit: 0, countAll: 0 });
-    let res;
-    if (only === 'restore' && fullCache && fullCache.key === fkey) res = fullCache.res; // Rückkehr zu „alle Bücher“: gespeichertes Ergebnis, keine neue Suche
-    else { try { res = await O.search(sp); } catch { res = null; } }
-    sPending--; sSetBusy();
-    if (!res) { $('#sInfo').textContent = I18N.t('Die Suche ist fehlgeschlagen.'); return; }
-    if (!onlyTitle && !res.cancelled) fullCache = { key: fkey, res };
-    sResults = res.results;
-    const totalHits = res.stats.reduce((a, x) => a + x.n, 0);
-    $('#sInfo').textContent = I18N.t('{#} Treffer in {#} {} ({#} von {#} Dateien durchsucht)', totalHits + (res.truncated ? '+' : ''), res.stats.length, res.stats.length === 1 ? 'Buch' : 'Büchern', res.scanned, res.total) + (res.cancelled ? ' ' + I18N.t('– abgebrochen') : '') + (res.truncated ? ' ' + I18N.t('– bei 1000 angezeigten Treffern gestoppt, bitte genauer suchen') : '') + (res.capped && !onlyTitle ? ' ' + I18N.t('– je Buch werden die ersten 25 gezeigt; ein Klick auf den Buchnamen oben zeigt alle') : '') + '.';
-    sSumState = { res, onlyTitle, n: 40 };
-    renderSum();
-    if (!onlyTitle) renderDist(res);
-    $('#sExport').hidden = !sResults.length;
-    $('#sReadBtn').hidden = !sResults.length;
-    $('#sGroupBtn').hidden = !sResults.length;
-    showSearchResults();
-  }
-  // Treffer pro Vers zusammenfassen: derselbe Vers in mehreren Fassungen erscheint einmal; die übrigen Fassungen klappen darunter auf
-  let sGroupOn = true; try { sGroupOn = localStorage.getItem('searchGroup') !== '0'; } catch { /* egal */ }
-  const sresHtml = (r, i, extra) => {
-    const sn = r.snippet;
-    return `<div class="sres${extra || ''}" data-i="${i}"><span class="t">${esc(r.title)}</span> <span class="muted">${esc(r.where)} · <span class="badge ${r.kind}">${KIND_LABEL[r.kind]}</span>${esc(shortVer(r.versionTitle))}</span><div class="snip" dir="${r.kind === 'he' ? 'rtl' : 'ltr'}">${r.parts ? r.parts.map(x => x.m ? `<mark>${esc(x.t)}</mark>` : esc(x.t)).join('') : `${esc(sn.before)}<mark>${esc(sn.hit)}</mark>${esc(sn.after)}`}</div></div>`;
-  };
-  const sKindOrder = () => (I18N.lang === 'de' ? ['de', 'en', 'he', 'other'] : I18N.lang === 'he' ? ['he', 'de', 'en', 'other'] : ['en', 'de', 'he', 'other']);
-  function searchGroups() {
-    const order = sKindOrder(), map = new Map();
-    sResults.forEach((r, i) => {
-      const key = [r.title, r.loc && r.loc.path ? JSON.stringify(r.loc.path) : '', r.loc && r.loc.label != null ? r.loc.label : r.where].join('\u0001');
-      if (!map.has(key)) map.set(key, []);
-      map.get(key).push(i);
-    });
-    const rank = i => { const r = sResults[i], k = ['he', 'en', 'de'].includes(r.kind) ? r.kind : 'other'; return ((prefVer[k] || []).includes(r.versionTitle) ? 0 : 10) + order.indexOf(k); };
-    return [...map.values()].map(ix => ix.slice().sort((x, y) => rank(x) - rank(y) || x - y)); // die zuletzt gewählte Fassung (sonst die der Oberflächensprache) steht oben
-  }
-  function renderSearchList() {
-    $('#sOut').classList.remove('sread');
-    const gb = $('#sGroupBtn'); if (gb) { gb.setAttribute('aria-pressed', sGroupOn ? 'true' : 'false'); gb.classList.toggle('on', sGroupOn); }
-    if (!sGroupOn) { $('#sOut').innerHTML = sResults.map((r, i) => sresHtml(r, i)).join(''); return; }
-    const groups = searchGroups();
-    const head = groups.length < sResults.length ? `<p class="muted sgsum">${esc(I18N.t('{#} Verse · {#} Fundstellen in verschiedenen Fassungen', groups.length, sResults.length))}</p>` : '';
-    $('#sOut').innerHTML = head + groups.map(ix => {
-      const [first, ...rest] = ix;
-      if (!rest.length) return sresHtml(sResults[first], first);
-      const names = rest.map(i => `${KIND_LABEL[sResults[i].kind] || ''} ${shortVer(sResults[i].versionTitle)}`.trim());
-      return `<div class="sgrp">${sresHtml(sResults[first], first)}<details><summary>${esc(I18N.t('+{#} weitere Fassungen', rest.length))} <span class="muted">${esc(names.slice(0, 3).join(' · '))}${names.length > 3 ? ' …' : ''}</span></summary>${rest.map(i => sresHtml(sResults[i], i, ' alt')).join('')}</details></div>`;
-    }).join('');
-  }
-  document.addEventListener('click', e => {
-    if (!e.target.closest('#sGroupBtn')) return;
-    sGroupOn = !sGroupOn;
-    try { localStorage.setItem('searchGroup', sGroupOn ? '1' : '0'); } catch { /* egal */ }
-    if (typeof showSearchResults === 'function' && !sRead) showSearchResults(); else renderSearchList();
+  const searchUI = window.LibrarySearch.create({
+    $, $$, esc, KIND_LABEL, shortVer, plainSnip, lsGet, lsSet,
+    getGroups: () => groups, getPreferredVersions: () => prefVer,
   });
-  // Treffer als Lesetext: wie beim Lesen, jede Fundstelle als Zeile mit den gewählten Versionen nebeneinander, geordnet nach Buch und Kapitel
-  let sRead = false; try { sRead = localStorage.getItem('searchRead') === '1'; } catch { /* egal */ }
-  let sReadTok = 0;
-  function showSearchResults() { renderSearchList(); }
   // Gefundene Wörter im Vers markieren: Westminster-Wörter (span.w) exakt, übrige Texte als Textstelle
   function markHits(html, h) {
     if (html == null || !h || !h.words.size) return html;
@@ -6242,7 +2597,7 @@
       ds.sort((a, c) => KIND_RANK[a.entry.kind] - KIND_RANK[c.entry.kind]);
       if (!ds.length) continue;
       const nc = ds.length;
-      html += `<h3 class="sbook" data-t="${esc(title)}">${esc(title)}${g.heTitle ? ` <small dir="rtl">${esc(g.heTitle)}</small>` : ''} <span class="sup" title="${esc(I18N.t('Zur Übersicht'))}">↑</span></h3><div class="row head" style="--n:${nc}"><div class="lab"></div>${ds.map(d => `<div>${esc(KIND_LABEL[d.entry.kind])} · ${esc(shortVer(d.versionTitle))}</div>`).join('')}</div>`;
+      html += `<h3 class="sbook" data-t="${esc(title)}">${esc(title)}${g.heTitle ? ` <small dir="rtl">${esc(g.heTitle)}</small>` : ''} <span class="sup" title="${esc(I18N.t('Zur Übersicht'))}">↑</span></h3><div class="row head" style="--n:${nc}"><div class="lab"></div>${ds.map(d => `<div>${esc(d.entry.language==='Syriac'?'Syr.':KIND_LABEL[d.entry.kind])} · ${esc(shortVer(d.versionTitle))}</div>`).join('')}</div>`;
       const secs = [...b.secs.values()].sort((x, y) => { for (let i = 0; i < Math.max(x.path.length, y.path.length); i++) { const a = x.path[i], c = y.path[i]; if (a === c) continue; return typeof a === 'number' && typeof c === 'number' ? a - c : String(a).localeCompare(String(c)); } return 0; });
       for (const sc of secs) {
         const cols = ds.map(d => R.flattenNode(R.getByPath(d.text, sc.path)));
@@ -6256,16 +2611,8 @@
     }
     return html;
   }
-  async function renderSearchRead() {
-    const tok = ++sReadTok, out = $('#sOut');
-    out.classList.add('sread');
-    ['he', 'en', 'de'].forEach(k => out.style.setProperty('--' + k + 'f', disp[k]));
-    out.innerHTML = '<p class="muted">Lade Lesetext …</p>';
-    const html = await buildReadHtml(sResults, () => tok === sReadTok);
-    if (html == null || tok !== sReadTok) return;
-    out.innerHTML = html || '<p class="muted">Keine Fundstellen mit Kapitelangabe.</p>';
-  }
   $('#sReadBtn').onclick = () => { // alle Treffer als Lesetext in einem neuen Tab im Lesen-Reiter
+    const lastSearch = searchUI.getLastSearch();
     if (!lastSearch) return;
     saveScroll();
     const nv = { group: null, sres: { q: lastSearch.query || I18N.t('Grammatik'), limit: 300, html: null, params: { ...lastSearch, limit: undefined, perFile: undefined } } };
@@ -6278,77 +2625,11 @@
     const g = [...groupsByKey.values()].find(x => x.title === row.dataset.t);
     if (g) { const tg = { sectionPath: JSON.parse(row.dataset.sp), rowLabel: row.dataset.sl }; if (e.metaKey || e.ctrlKey) openGroupBg(g, tg); else openGroup(g, tg, false); }
   });
-  $('#sSum').addEventListener('click', e => { const c = e.target.closest('.chip'); if (c && c.dataset.more) { sSumState.n += 100; renderSum(); return; } if (c) runSearch(c.dataset.t || 'restore'); });
-  $('#sExport').onclick = async () => {
-    const csv = ['Titel;Version;Sprache;Stelle;Text'].concat(sResults.map(r => [r.title, r.versionTitle, KIND_LABEL[r.kind], r.where, plainSnip(r)].map(x => '"' + String(x == null ? '' : x).replace(/"/g, '""') + '"').join(';')));
-    const r = await window.api.saveFile(`Suche – ${$('#sq').value.trim().slice(0, 40).replace(/[\\/:*?"<>|]/g, '_')}.csv`, '\ufeff' + csv.join('\r\n'));
-    if (r && r.error) alert(r.error);
-  };
-  // Verlauf (nur selbst abgeschickte Suchen) und Favoriten der Volltextsuche
-  let sRecent = lsGet('searchRecent'), sFavs = lsGet('searchFavs');
-  const syncSS = () => { sRecent = lsGet('searchRecent'); sFavs = lsGet('searchFavs'); };
-  function renderSearchSaved() {
-    syncSS();
-    const chips2 = (a, fav) => a.length ? a.map((w, i) => `<span class="dchip"><a data-i="${i}" dir="auto"${sEntTitle(w) ? ` title="${esc(sEntTitle(w))}"` : ''}>${esc(sEntQ(w))}</a><button data-rm="${i}" title="Entfernen">✕</button></span>`).join('') : `<span class="muted">${fav ? 'Noch keine Favoriten' : 'Noch keine Suchen'}</span>`;
-    $('#sRecentL').innerHTML = chips2(sRecent, false);
-    $('#sFavL').innerHTML = chips2(sFavs, true);
-    const q = $('#sq').value.trim(), on = !!q && sFavs.some(x => sEntQ(x) === q);
-    $('#sStar').textContent = on ? '★' : '☆'; $('#sStar').classList.toggle('on', on);
-  }
-  // Ein Eintrag ist entweder nur der Suchtext (frühere Fassungen; heute: Sprache „Automatisch“ und die übliche Treffer-Art)
-  // oder { q, l: Sprache, m: Treffer-Art }, wenn etwas anderes eingestellt war.
-  const sEntQ = e => (typeof e === 'string' ? e : e && typeof e.q === 'string' ? e.q : '');
-  const sLabel = (sel, v) => { const o = [...$(sel).options].find(x => x.value === v); return o ? o.textContent.trim() : ''; };
-  const sEntTitle = e => (e && typeof e === 'object' ? [sLabel('#sLang', e.l), sLabel('#sMode', e.m)].filter(Boolean).join(' · ') : '');
-  const sEntNow = () => {
-    const q = $('#sq').value.trim(), l = $('#sLang').value, m = $('#sMode').value;
-    return l === 'auto' && m === (sSlot() === 'ot' ? 'part' : 'lemma') ? q : { q, l, m };
-  };
-  function sEntApply(e) { // gespeicherte Suche wieder einstellen (alte Einträge: Standard)
-    $('#sq').value = sEntQ(e);
-    $('#sLang').value = e && typeof e === 'object' && S_LANGS.includes(e.l) ? e.l : 'auto';
-    const slot = sSlot(), m = e && typeof e === 'object' ? e.m : '';
-    sModeSel[slot] = sModeOk(m, slot) ? m : slot === 'ot' ? 'part' : 'lemma';
-    sRefresh();
-  }
-  const manualFind = () => {
-    const q = $('#sq').value.trim();
-    if (q) { syncSS(); sRecent = [sEntNow(), ...sRecent.filter(x => sEntQ(x) !== q)].slice(0, 30); lsSet('searchRecent', sRecent); }
-    renderSearchSaved(); runSearch();
-  };
-  $('#sStar').onclick = () => {
-    const q = $('#sq').value.trim(); if (!q) return;
-    syncSS(); sFavs = sFavs.some(x => sEntQ(x) === q) ? sFavs.filter(x => sEntQ(x) !== q) : [sEntNow(), ...sFavs];
-    lsSet('searchFavs', sFavs); renderSearchSaved();
-  };
-  $('#sRecentClear').onclick = () => { syncSS(); sRecent = []; lsSet('searchRecent', sRecent); renderSearchSaved(); };
-  $('#sSaved').addEventListener('click', e => {
-    const rm = e.target.closest('button[data-rm]');
-    if (rm) { syncSS(); const fav = !!rm.closest('#sFavL'); const a = fav ? sFavs : sRecent; a.splice(+rm.dataset.rm, 1); lsSet(fav ? 'searchFavs' : 'searchRecent', a); renderSearchSaved(); return; }
-    const a = e.target.closest('a[data-i]');
-    if (a) { syncSS(); const ent = (a.closest('#sFavL') ? sFavs : sRecent)[+a.dataset.i]; if (!sEntQ(ent)) return; sEntApply(ent); renderSearchSaved(); runSearch(); }
-  });
-  $('#sq').addEventListener('input', () => { sRefresh(); renderSearchSaved(); }); // „Automatisch“: Sprache und Treffer-Art folgen der Schrift der Eingabe
-  $('#sLang').addEventListener('change', () => { sRefresh(); renderSearchSaved(); });
-  $('#sMode').addEventListener('change', () => {
-    const m = $('#sMode').value;
-    if (m === 'exact') sModeSel.he = sModeSel.gr = sModeSel.ot = m; // „Genau dieses Wort“ gilt in jeder Sprache weiter
-    else { sModeSel[sSlot()] = m; if (sModeSel.he === 'exact') sModeSel.he = 'lemma'; if (sModeSel.gr === 'exact') sModeSel.gr = 'lemma'; if (sModeSel.ot === 'exact') sModeSel.ot = 'part'; }
-    sRefresh(); renderSearchSaved();
-  });
-  $('#sAdv').addEventListener('change', sRefresh);
-  // „Erweitert“: auf-/zugeklappt merken
-  try { $('#sAdv').open = localStorage.getItem('searchAdvOpen') === '1'; } catch { /* egal */ }
-  $('#sAdv').addEventListener('toggle', e => { if (e.target.id === 'sAdv') try { localStorage.setItem('searchAdvOpen', e.target.open ? '1' : '0'); } catch { /* egal */ } });
-  sRefresh();
-  renderSearchSaved();
-  $('#sGo').onclick = () => (sBusy() ? O.cancelSearch() : manualFind()); // derselbe Knopf: während der Suche „Abbrechen“
-  $('#sq').addEventListener('keydown', e => { if (e.key === 'Enter' && !sBusy()) manualFind(); });
   // Rechtsklick auf ein Suchergebnis: hier öffnen, neuer Tab, zweites Fenster
   $('#sOut').addEventListener('contextmenu', e => {
     const el = e.target.closest('.sres');
     if (!el || (window.getSelection() + '')) return; // bei markiertem Text das normale Menü lassen
-    const r = sResults[+el.dataset.i];
+    const r = searchUI.resultAt(+el.dataset.i);
     const entry = r && entries.find(x => x.rel === r.rel);
     const g = entry && groupsByKey.get(keyOf(entry));
     if (!g) return;
@@ -6362,258 +2643,22 @@
   $('#sOut').addEventListener('click', e => {
     const el = e.target.closest('.sres');
     if (!el) return;
-    const r = sResults[+el.dataset.i];
+    const r = searchUI.resultAt(+el.dataset.i);
     const entry = entries.find(x => x.rel === r.rel);
     if (!entry) return;
     { const tg = { rel: r.rel, sectionPath: r.loc && r.loc.path, rowLabel: r.loc ? r.loc.label : undefined }, gg = groupsByKey.get(keyOf(entry)); if (e.metaKey || e.ctrlKey) openGroupBg(gg, tg); else openGroup(gg, tg, false); }
   });
 
-  // ---------- Herunterladen ----------
-  let summary = [];
-  const selCats = new Set();
-  const selIds = new Set();
-  let planTimer = null;
+  const downloadsUI = window.LibraryDownloads.create({ $, $$, esc, fmtSize, refreshState, loadLibrary });
+  function refreshCatalog() { return downloadsUI.refreshCatalog(); }
 
-  const covers = (c, p) => p === c || p.startsWith(c + '/');
-  const sel = () => ({ cats: [...selCats], ids: [...selIds] });
-  const opts = () => ({ he: $('#oHe').checked, en: $('#oEn').checked, de: $('#oDe').checked, allVersions: $('#oAll').checked });
-
-  async function refreshCatalog() {
-    const st = await O.state();
-    if (st.catalog) {
-      $('#catStatus').textContent = `Katalog vom ${(st.catalog.generated_at || '?').slice(0, 10)} · ${st.catalog.total} Einträge`;
-      if (!summary.length) { summary = await O.summary(); renderPicker(); }
-      $('#pickCard').hidden = false; $('#goCard').hidden = false;
-    } else {
-      $('#catStatus').textContent = 'Noch kein Katalog geladen.';
-    }
-    return st;
-  }
-
-  $('#catFetch').onclick = async () => {
-    $('#catFetch').disabled = true;
-    $('#catStatus').textContent = 'Lade Katalog (ca. 22 MB) …';
-    const r = await O.catalogFetch();
-    $('#catFetch').disabled = false;
-    if (r && r.error) { $('#catStatus').innerHTML = `<span class="err">${esc(r.error)}</span>`; return; }
-    summary = [];
-    await refreshCatalog();
-  };
-
-  const titleRow = (s, showCats) => {
-    const flags = [s.he ? 'H' : '', s.en ? 'E' : '', s.de ? 'D' + (s.de > 1 ? '×' + s.de : '') : ''].filter(Boolean).join(' ');
-    return `<label class="t"><input type="checkbox" data-id="${s.id}" data-cp="${esc(s.cats.join('/'))}"> ${esc(s.title)}<small>${flags}${showCats ? ' · ' + esc(s.cats.join(' › ')) : ''}</small></label>`;
-  };
-
-  function renderPicker() {
-    const root = { name: '', path: '', children: new Map(), titles: [], count: 0 };
-    for (const s of summary) {
-      let n = root, p = '';
-      n.count++;
-      for (const c of s.cats) {
-        p = p ? p + '/' + c : c;
-        if (!n.children.has(c)) n.children.set(c, { name: c, path: p, children: new Map(), titles: [], count: 0 });
-        n = n.children.get(c);
-        n.count++;
-      }
-      n.titles.push(s);
-    }
-    const node = n => {
-      const kids = SefOrder.sortCats([...n.children.keys()], n.name).map(k => n.children.get(k)).map(node).join('');
-      const ts = SefOrder.sortTitles(n.titles).map(s => titleRow(s, false)).join('');
-      if (!n.name) return kids + ts;
-      return `<details><summary><input type="checkbox" data-cat="${esc(n.path)}"> <span class="catname">${esc(n.name)}</span><small>${n.count} Titel</small></summary>${kids}${ts}</details>`;
-    };
-    $('#picker').innerHTML = node(root);
-    refreshChecks();
-  }
-
-  function refreshChecks() {
-    $$('#tab-get input[data-cat]').forEach(i => {
-      const p = i.dataset.cat;
-      const anc = [...selCats].some(c => c !== p && covers(c, p));
-      i.disabled = anc;
-      i.checked = anc || selCats.has(p);
-    });
-    $$('#tab-get input[data-id]').forEach(i => {
-      const cov = [...selCats].some(c => covers(c, i.dataset.cp));
-      i.disabled = cov;
-      i.checked = cov || selIds.has(+i.dataset.id);
-    });
-  }
-
-  function onPick(e) {
-    const t = e.target;
-    if (t.dataset.cat !== undefined) { if (t.checked) selCats.add(t.dataset.cat); else selCats.delete(t.dataset.cat); }
-    else if (t.dataset.id !== undefined) { if (t.checked) selIds.add(+t.dataset.id); else selIds.delete(+t.dataset.id); }
-    else return;
-    refreshChecks();
-    schedulePlan();
-  }
-  $('#picker').addEventListener('change', onPick);
-  $('#flat').addEventListener('change', onPick);
-  ['#oHe', '#oEn', '#oDe', '#oAll'].forEach(id => $(id).addEventListener('change', schedulePlan));
-
-  $('#pickAll').onclick = () => { for (const s of summary) { if (s.cats.length) selCats.add(s.cats[0]); else selIds.add(s.id); } refreshChecks(); schedulePlan(); };
-  $('#pickClear').onclick = () => { selCats.clear(); selIds.clear(); refreshChecks(); schedulePlan(); };
-
-  let flatMatches = [];
-  let filterTimer = null;
-  $('#pickFilter').addEventListener('input', () => {
-    clearTimeout(filterTimer);
-    filterTimer = setTimeout(() => {
-      const f = $('#pickFilter').value.trim().toLowerCase();
-      if (!f) { $('#flat').hidden = true; $('#picker').hidden = false; $('#pickAllHits').hidden = true; return; }
-      flatMatches = summary.filter(s => (s.title + ' ' + s.cats.join(' ')).toLowerCase().includes(f));
-      $('#flat').innerHTML = flatMatches.slice(0, 400).map(s => titleRow(s, true)).join('') ||
-        '<p class="muted">Keine Treffer.</p>';
-      if (flatMatches.length > 400) $('#flat').insertAdjacentHTML('beforeend', `<p class="muted">… ${flatMatches.length - 400} weitere Treffer, bitte genauer suchen oder „Alle Treffer auswählen“.</p>`);
-      $('#flat').hidden = false; $('#picker').hidden = true;
-      $('#pickAllHits').hidden = !flatMatches.length;
-      $('#pickAllHits').textContent = `Alle ${flatMatches.length} Treffer auswählen`;
-      refreshChecks();
-    }, 200);
+  const displayUI = window.LibraryDisplay.create({
+    $, $$, esc, shortVer, getView: () => view, getGroups: () => groups,
+    renderSection, olInlineOn: outlineUI.olInlineOn, olInline: outlineUI.olInline, withAnchor,
   });
-  $('#pickAllHits').onclick = () => { flatMatches.forEach(s => selIds.add(s.id)); refreshChecks(); schedulePlan(); };
-
-  function schedulePlan() {
-    clearTimeout(planTimer);
-    planTimer = setTimeout(async () => {
-      const p = await O.plan(sel(), opts());
-      $('#planInfo').textContent = p.files
-        ? `${p.titles} Titel · ${p.files} Dateien · etwa ${fmtEst(p.estimateMB)} (grobe Schätzung)`
-        : 'Nichts ausgewählt.';
-      $('#dGo').disabled = !p.files;
-    }, 200);
-  }
-
-  O.onProgress(p => {
-    if ($('#uProg') && !$('#uProg').hidden) { $('#uProg').max = p.total || 1; $('#uProg').value = p.done || 0; if (p.current) $('#uInfo').textContent = p.current; }
-    const bar = $('#dProg');
-    if (p.check) { bar.hidden = false; bar.max = p.total || 1; bar.value = p.done || 0; $('#dInfo').textContent = `Prüfe Dateien … ${p.done || 0} von ${p.total || 0}`; return; } // Update-Prüfung hat keine Byte-Angaben
-    bar.hidden = false; bar.max = p.total; bar.value = p.done;
-    $('#dInfo').textContent = `${p.done} von ${p.total} · ${fmtSize(p.bytes)}${p.failed ? ' · ' + p.failed + ' Fehler' : ''} · ${p.current}`;
-  });
-
-  $('#dGo').onclick = async () => {
-    $('#dGo').disabled = true; $('#dCancel').disabled = false;
-    $('#dWarn').innerHTML = '';
-    $('#dInfo').textContent = 'Starte …';
-    const res = await O.download(sel(), opts());
-    $('#dCancel').disabled = true; $('#dGo').disabled = false;
-    $('#dProg').hidden = true;
-    if (res.error) { $('#dInfo').innerHTML = `<span class="err">${esc(res.error)}</span>`; return; }
-    $('#dInfo').textContent = `${res.cancelled ? 'Abgebrochen' : 'Fertig'}: ${res.done} von ${res.total} Dateien · ${fmtSize(res.bytes)}.`;
-    const stale = res.failed.filter(f => /HTTP 404/.test(f.error)), bad = res.failed.filter(f => !/HTTP 404/.test(f.error));
-    $('#dWarn').innerHTML = (bad.length ? `<p class="err">${bad.length} Dateien konnten nicht geladen werden (erneut „Herunterladen“ versucht es noch einmal):</p><ul>${bad.slice(0, 20).map(f => `<li>${esc(f.title)} (${esc(f.versionTitle)}): ${esc(f.error)}</li>`).join('')}</ul>` : '') +
-      (stale.length ? `<p class="muted">${stale.length} Einträge sind im Sefaria-Katalog veraltet (Datei dort nicht mehr vorhanden, vermutlich umbenannt) und wurden übersprungen:</p><ul class="muted">${stale.slice(0, 20).map(f => `<li>${esc(f.title)} (${esc(f.versionTitle)})</li>`).join('')}</ul>` : '');
-    await refreshState();
-    await loadLibrary();
-  };
-  $('#dCancel').onclick = () => O.cancel();
-
-  // ---------- Aktualisieren ----------
-  $('#uCheck').onclick = async () => {
-    $('#uCheck').disabled = true; $('#uRun').hidden = true; $('#uProg').hidden = false; $('#uProg').value = 0;
-    $('#uInfo').textContent = 'Lade Katalog …';
-    const r = await O.updateCheck();
-    $('#uCheck').disabled = false; $('#uProg').hidden = true;
-    if (r.error) { $('#uInfo').innerHTML = `<span class="err">${esc(r.error)}</span>`; return; }
-    if (!r.changed && !r.added) { $('#uInfo').textContent = `Alles aktuell (${r.checked} Dateien geprüft).`; return; }
-    $('#uInfo').textContent = `${r.changed} geändert, ${r.added} neu (${r.checked} Dateien geprüft).`;
-    $('#uRun').hidden = false;
-  };
-  $('#uRun').onclick = async () => {
-    $('#uRun').disabled = true; $('#uCheck').disabled = true; $('#uProg').hidden = false;
-    const r = await O.updateRun();
-    $('#uRun').disabled = false; $('#uCheck').disabled = false; $('#uProg').hidden = true; $('#uRun').hidden = true;
-    if (r.error) { $('#uInfo').innerHTML = `<span class="err">${esc(r.error)}</span>`; return; }
-    $('#uInfo').textContent = `${r.cancelled ? 'Abgebrochen' : 'Fertig'}: ${r.done} Dateien geladen${r.failed.length ? `, ${r.failed.length} Fehler` : ''}.`;
-    await refreshState(); await loadLibrary();
-  };
-
-
-  // ---------- Anzeigeoptionen ----------
-  const DISP0 = { he: 1.3, gr: 1.15, en: 1, de: 1, niq: false, can: false, shr: true, mar: 'normal', hideTabs: true, headStick: false, hov: 1.15 };
-  let disp = { ...DISP0 };
-  try { disp = { ...DISP0, ...JSON.parse(localStorage.getItem('disp') || '{}') }; } catch { /* egal */ }
-  const stripHe = h => {
-    if (disp.can) h = h.replace(/[\u0591-\u05AF\u05BD]/g, '');
-    if (disp.niq) h = h.replace(/[\u05B0-\u05BC\u05BF\u05C1\u05C2\u05C7]/g, '');
-    return h;
-  };
-  function applyDisp(rerender) {
-    const o = $('#rOut').style;
-    o.setProperty('--hef', disp.he); o.setProperty('--grf', disp.gr); o.setProperty('--enf', disp.en); o.setProperty('--def', disp.de);
-    $('#dHe').value = disp.he; $('#dGr').value = disp.gr; $('#dEn').value = disp.en; $('#dDe').value = disp.de;
-    for (const [id, v] of [['dHe', disp.he], ['dGr', disp.gr], ['dEn', disp.en], ['dDe', disp.de], ['dHov', disp.hov || 1.15]]) { const o = $('#' + id + 'V'); if (o) o.textContent = Math.round(v * 100) + ' %'; } // Wert neben dem Regler
-    $('#dNiq').checked = disp.niq; $('#dCan').checked = disp.can; $('#dShr').checked = !!disp.shr; $('#dOlIn').checked = olInlineOn();
-    document.body.classList.toggle('dock-shrink', !!disp.shr);
-    document.body.classList.toggle('head-stick', !!disp.headStick); if ($('#dHdSt')) $('#dHdSt').checked = !!disp.headStick;
-    if ($('#dHideTabs')) $('#dHideTabs').checked = !!disp.hideTabs; if (!disp.hideTabs && typeof window.hdShow === 'function') window.hdShow();
-    document.documentElement.style.setProperty('--hovf', disp.hov || 1.15); if ($('#dHov')) $('#dHov').value = disp.hov || 1.15; // Vorschau-Blase (Stellen)
-    document.body.classList.toggle('mar-narrow', disp.mar === 'narrow'); if ($('#dMar')) $('#dMar').value = disp.mar === 'narrow' ? 'narrow' : 'normal';
-    try { localStorage.setItem('disp', JSON.stringify(disp)); } catch { /* egal */ }
-    if (rerender && view && view.group) { // Position beim Umschalten behalten: dieselbe Zeile bleibt an derselben Stelle (ohne Vokale sind die Zeilen niedriger, die reine Pixelposition würde springen)
-      const top = $('#stick') ? $('#stick').getBoundingClientRect().bottom : 0;
-      const row = $$('#rOut .row[data-l]').find(r => r.getBoundingClientRect().bottom > top + 4);
-      const label = row ? row.dataset.l : null, off = row ? row.getBoundingClientRect().top : 0, y = window.scrollY;
-      renderSection();
-      const again = label != null ? $$('#rOut .row[data-l]').find(r => r.dataset.l === label) : null;
-      if (again) window.scrollTo(0, window.scrollY + again.getBoundingClientRect().top - off); else window.scrollTo(0, y);
-    }
-  }
-  // Auswahl „Vorschau – deutsche Fassung“: alle deutschen Fassungen des Tanach in der Bibliothek, nach Zahl der Bücher; leer = Zunz (Standard), * = erste vorhandene
-  function pvDeFill() {
-    const n = { he: new Map(), en: new Map(), de: new Map(), other: new Map() };
-    for (const g of groups) { if (!/^Tanakh\//.test(g.key || '')) continue; for (const v of g.versions) { if (v.versionTitle === 'merged') continue; const m = n[v.kind] || n.other; m.set(v.versionTitle, (m.get(v.versionTitle) || 0) + 1); } }
-    const sorted = (m, skip) => [...m].filter(([vt]) => !(skip && skip.test(vt))).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]));
-    const cut = t => (t.length > 46 ? t.slice(0, 45).trimEnd() + '…' : t); // das Auswahlfeld ist schmal; der volle Name steht im Tooltip
-    const opt = ([vt, c]) => `<option class="ut" value="${esc(vt)}" title="${esc(shortVer(vt))}">${esc(cut(shortVer(vt)))} (${c})</option>`;
-    const set = (sel, v, ok) => { sel.value = v && ok(v) ? v : ''; };
-    const de = $('#dPvDe'), he = $('#dPvHe'), x = $('#dPvX');
-    if (de) {
-      de.innerHTML = `<option value="">${esc(I18N.t('Zunz (Standard)'))}</option><option value="*">${esc(I18N.t('erste vorhandene Fassung'))}</option>` + sorted(n.de, /Zunz/).map(opt).join('');
-      set(de, disp.pvDe, v => v === '*' || n.de.has(v));
-    }
-    if (he) {
-      he.innerHTML = `<option value="">${esc(I18N.t('Westminster (Standard)'))}</option>` + sorted(n.he, /^Westminster/).map(opt).join('');
-      set(he, disp.pvHe, v => n.he.has(v));
-    }
-    if (x) {
-      const KN = { en: 'Englisch', de: 'Deutsch', he: 'Hebräisch / Aramäisch', other: 'Andere (Griechisch, Aramäisch …)' };
-      x.innerHTML = `<option value="">${esc(I18N.t('keine'))}</option>`
-        + ['en', 'other', 'he', 'de'].map(k => n[k].size || k === 'en' ? `<optgroup label="${esc(I18N.t(KN[k]))}"><option value="@${k}">${esc(I18N.t('beste vorhandene'))}</option>${sorted(n[k]).map(opt).join('')}</optgroup>` : '').join('');
-      set(x, disp.pvX, v => /^@(en|de|he|other)$/.test(v) || Object.values(n).some(m => m.has(v)));
-    }
-  }
-  $('#dispBtn').onclick = () => { $('#dispPanel').hidden = !$('#dispPanel').hidden; if (!$('#dispPanel').hidden) pvDeFill(); };
-  $('#dispPanel').addEventListener('input', e => {
-    const id = e.target.id;
-    if (id === 'dHe') disp.he = +e.target.value;
-    if (id === 'dGr') disp.gr = +e.target.value;
-    if (id === 'dEn') disp.en = +e.target.value;
-    if (id === 'dDe') disp.de = +e.target.value;
-    if (id === 'dNiq') disp.niq = e.target.checked;
-    if (id === 'dCan') disp.can = e.target.checked;
-    if (id === 'dShr') disp.shr = e.target.checked;
-    if (id === 'dMar') disp.mar = e.target.value;
-    if (id === 'dHideTabs') disp.hideTabs = e.target.checked;
-    if (id === 'dHdSt') disp.headStick = e.target.checked;
-    if (id === 'dHov') disp.hov = +e.target.value;
-    if (id === 'dPvDe' || id === 'dPvHe' || id === 'dPvX') { disp[{ dPvDe: 'pvDe', dPvHe: 'pvHe', dPvX: 'pvX' }[id]] = e.target.value; if (typeof window.pvClear === 'function') window.pvClear(); }
-    if (id === 'dOlIn') { try { localStorage.setItem('olInline', e.target.checked ? '1' : '0'); } catch { /* egal */ } withAnchor(() => olInline()); return; }
-    applyDisp(id === 'dNiq' || id === 'dCan');
-  });
-  $('#dispClose').onclick = () => { $('#dispPanel').hidden = true; };
-  document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('#dispPanel').hidden && !document.querySelector('dialog[open]')) { $('#dispPanel').hidden = true; e.stopPropagation(); } }, true);
-  { // Gruppe „Fenster & Leisten“: auf- oder zugeklappt merken
-    const d = $('#dgWin'); try { d.open = localStorage.getItem('dgWin') === '1'; } catch { /* egal */ }
-    d.addEventListener('toggle', () => { try { localStorage.setItem('dgWin', d.open ? '1' : '0'); } catch { /* egal */ } });
-  }
-  document.addEventListener('click', e => {
-    if (!$('#dispPanel').hidden && !e.target.closest('#dispPanel') && !e.target.closest('#dispBtn')) $('#dispPanel').hidden = true;
-  });
+  const disp = displayUI.state;
+  const stripHe = h => displayUI.stripHe(h);
+  function applyDisp(rerender) { return displayUI.apply(rerender); }
   // Klick außerhalb schließt aufgeklappte Menüs (Versionen, ⋯)
   document.addEventListener('click', e => {
     for (const id of ['#verBox', '#moreMenu']) { const d = $(id); if (d && d.open && !e.target.closest(id)) d.open = false; }
@@ -6682,7 +2727,7 @@
     const parts = [];
     for (const r of A) {
       if (!B.has(r.label)) continue;
-      const a = plain(r.html), b = plain(B.get(r.label));
+      const a = notesUI.plain(r.html), b = notesUI.plain(B.get(r.label));
       if (a !== b) parts.push(`<div><b>${esc(r.label)}</b> ${DiffLib.diffHtml(a, b)}</div>`);
     }
     if (parts.length) box.innerHTML = `<p class="muted">Wortvergleich dieses Abschnitts mit „${esc(shortVer(other.versionTitle))}“ (<del class="wd">nur dort</del>, <ins class="wd">nur in deinem Text</ins>):</p>` + parts.slice(0, 60).join('');
@@ -6700,491 +2745,58 @@
     $$('#rOut .row[data-l]').forEach(r => r.classList.toggle('mismatch', bad.has(r.dataset.l)));
   }
 
-  // ---------- Lesezeichen und Notizen ----------
-  const NT = window.notes;
-  let notesAll = [];
-  const noteTags = n => (Array.isArray(n.tags) ? n.tags : []);
-  const kindOf = n => n.kind || 'row'; // 'row' = Lesezeichen an einer Zeile, 'free' = freie Notiz ('hl' = frühere Farbmarkierungen: bleiben in der Datei, werden aber nicht mehr angezeigt)
-  const newId = p => p + '|' + Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
-  const topOrder = () => Math.min(0, ...notesAll.map(n => (n.order == null ? 0 : n.order))) - 1;
-  const plain = h => R.cleanHtml(R.splitFootnotes(h).main).replace(/<sup[^>]*>.*?<\/sup>/g, '').replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
-  // Ältere Notizen ohne hebräischen Text: einmal aus der hebräischen Version nachtragen
-  const heTried = new Set();
-  async function backfillHe() {
-    let changed = false;
-    for (const n of notesAll) {
-      if (kindOf(n) !== 'row' || n.he || heTried.has(n.id)) continue;
-      heTried.add(n.id);
-      try {
-        const g = groupsByKey.get(n.key); const v = g && g.versions.find(x => x.kind === 'he');
-        if (!v) continue;
-        let d = cache.get(v.rel); if (!d) { d = await O.read(v.rel); d.__b = v.bytes || 2e6; cache.set(v.rel, d); }
-        const row = R.flattenNode(R.getByPath(d.text, JSON.parse(n.sk))).find(r => r.label === n.row);
-        const he = row ? plain(row.html).slice(0, 200) : '';
-        if (/[\u0590-\u05FF]/.test(he)) { await NT.save({ ...n, he, keepTs: true }); changed = true; }
-      } catch { /* egal */ }
-    }
-    if (changed) { notesAll = await NT.list(); renderNotes(); }
-  }
-  // Anzeige je Favorit: welche Versionen des Buchs gezeigt werden (Chips, ein Klick schaltet um)
-  const ntTxt = new Map(), ntOpen = new Set(); let ntTimer = null;
-  const NV = ['he', 'en', 'de'];
-  const noteVers = g => (g ? g.versions.filter(v => NV.includes(v.kind)) : []);
-  const defaultVr = vers => { const f = k => vers.find(v => v.kind === k); return [f('he'), f('en') || f('de')].filter(Boolean).map(v => v.rel); };
-  async function ensureNoteText(n, rel) {
-    const key = n.id + '|' + rel;
-    if (ntTxt.has(key)) return;
-    ntTxt.set(key, null);
-    let txt = '';
-    try {
-      const v = groupsByKey.get(n.key).versions.find(x => x.rel === rel);
-      let d = cache.get(rel); if (!d) { d = await O.read(rel); d.__b = (v && v.bytes) || 2e6; cache.set(rel, d); }
-      const all = R.flattenNode(R.getByPath(d.text, JSON.parse(n.sk)));
-      if (kindOf(n) === 'block') {
-        const want = new Set(n.set || []);
-        txt = all.filter(r => { const v = rowVerse(r.label); return !want.size || (v != null && want.has(v)); }).map(r => `${r.label} ${plain(r.html)}`).join('\n').slice(0, 1500);
-      } else { const row = all.find(r => r.label === n.row); txt = row ? plain(row.html).slice(0, 400) : ''; }
-    } catch { /* egal */ }
-    ntTxt.set(key, txt);
-    clearTimeout(ntTimer); ntTimer = setTimeout(renderNotes, 60);
-  }
-  function noteBody(n) {
-    const g = groupsByKey.get(n.key), vers = noteVers(g);
-    if (!vers.length) return `${n.he ? `<div class="ex he" dir="rtl">${esc(n.he)}</div>` : ''}${n.excerpt ? `<div class="ex">${esc(n.excerpt)}</div>` : ''}`;
-    const sel = n.vr || defaultVr(vers);
-    const on = vers.filter(v => sel.includes(v.rel)), open = ntOpen.has(n.id);
-    const chips = on.map(v => `<button class="vchip ${v.kind} on" data-vr="${esc(v.rel)}" title="${esc(shortVer(v.versionTitle))} – ${esc(I18N.t('Klicken: ausblenden'))}">${esc(shortVer(v.versionTitle).slice(0, 22))} ✕</button>`).join('')
-      + `<button class="vmore" data-vopen="1" title="${esc(I18N.t('Versionen auswählen'))}">${esc(I18N.t('Versionen'))} ${on.length}/${vers.length} ${open ? '▴' : '▾'}</button>`;
-    const list = open ? `<div class="vlist">${['he', 'en', 'de'].map(k => { const vs = vers.filter(v => v.kind === k); return vs.length ? `<div class="vgrp">${esc(KIND_LABEL[k])}</div>${vs.map(v => `<button class="vrow${sel.includes(v.rel) ? ' on' : ''}" data-vr="${esc(v.rel)}"><span class="ck">${sel.includes(v.rel) ? '☑' : '☐'}</span> ${esc(shortVer(v.versionTitle))}</button>`).join('')}` : ''; }).join('')}</div>` : '';
-    const body = vers.filter(v => sel.includes(v.rel)).map(v => {
-      ensureNoteText(n, v.rel);
-      const t = ntTxt.get(n.id + '|' + v.rel);
-      if (!t) return '';
-      const he = /[\u0590-\u05FF]/.test(t);
-      return `<div class="ex${he ? ' he' : ''}" dir="${he ? 'rtl' : 'ltr'}" style="white-space:pre-line">${esc(t)}</div>`;
-    }).join('');
-    return `<div class="vchips">${chips}</div>${list}${body}`;
-  }
-  // Notizen-Aufrufe absichern: bei einem Fehler (z. B. beschädigte Datei) wird gemeldet statt still nichts zu tun
-  async function ntDo(fn) {
-    try { return await fn(); } catch (e) {
-      const m = String((e && e.message) || e).replace(/^Error invoking remote method '[^']*': (Error: )?/, '');
-      alert(I18N.t('Die Notizen konnten nicht gespeichert werden:') + '\n' + m);
-      return null;
-    }
-  }
-  // Gelöscht-Hinweis mit „Rückgängig“
-  let undoT = null;
-  function showUndo(n, msg) {
-    let bar = $('#undoBar');
-    if (!bar) { bar = document.createElement('div'); bar.id = 'undoBar'; document.body.appendChild(bar); }
-    bar.innerHTML = `<span>${esc(I18N.t(msg || 'Notiz gelöscht'))}</span> <button type="button">${esc(I18N.t('Rückgängig'))}</button>`;
-    bar.classList.add('on');
-    clearTimeout(undoT); undoT = setTimeout(() => bar.classList.remove('on'), 10000);
-    bar.querySelector('button').onclick = async () => {
-      bar.classList.remove('on'); clearTimeout(undoT);
-      const r = await ntDo(() => NT.save({ ...n, keepTs: true }));
-      if (r) { notesAll = r; refreshNotes(); }
-    };
-  }
-  async function removeNote(id) {
-    const n = notesAll.find(x => x.id === id);
-    const r = await ntDo(() => NT.remove(id));
-    if (r) { notesAll = r; refreshNotes(); if (n) showUndo(n); }
-  }
-  // Cmd/Strg+Z, solange die Rückgängig-Leiste zu sehen ist
-  document.addEventListener('keydown', e => {
-    const bar = $('#undoBar');
-    if (!(e.metaKey || e.ctrlKey) || e.shiftKey || e.altKey || e.key.toLowerCase() !== 'z' || !bar || !bar.classList.contains('on')) return;
-    if (/^(INPUT|TEXTAREA)$/.test(document.activeElement.tagName)) return;
-    e.preventDefault(); bar.querySelector('button').click();
+  // reader-module:notes
+  const notesUI = window.LibraryNotes.create({
+    get $() { return $; },
+    get $$() { return $$; },
+    get apSoon() { return apSoon; },
+    get BG() { return BG; },
+    get cache() { return cache; },
+    get cmtRow() { return cmtRow; }, set cmtRow(value) { cmtRow = value; },
+    get ctxShow() { return ctxShow; },
+    get esc() { return esc; },
+    get fmtVerses() { return fmtVerses; },
+    get groups() { return groups; }, set groups(value) { groups = value; },
+    get groupsByKey() { return groupsByKey; },
+    get jumpTo() { return jumpTo; },
+    get KIND_LABEL() { return KIND_LABEL; },
+    get libCmpGroups() { return linksUI.libCmpGroups; },
+    get mapDraw() { return mapUI.mapDraw; },
+    get mapInfo() { return mapUI.mapInfo; },
+    get normT() { return normT; },
+    get noteId() { return noteId; },
+    get noteUrl() { return noteUrl; },
+    get O() { return O; },
+    get openGroup() { return openGroup; },
+    get R() { return R; },
+    get renderSaved() { return renderSaved; },
+    get renderSearchSaved() { return renderSearchSaved; },
+    get renderSection() { return renderSection; },
+    get rowVerse() { return rowVerse; },
+    get setCmtRow() { return setCmtRow; },
+    get shortVer() { return shortVer; },
+    get showTab() { return showTab; },
+    get toggleCmt() { return toggleCmt; },
+    get view() { return view; }, set view(value) { view = value; },
   });
-  async function loadNotes() { notesAll = await NT.list(); renderNotes(); markNotes(); backfillHe(); }
-  function markNotes() {
-    { const bl = new Set(notesAll.filter(n => kindOf(n) === 'block').map(n => n.id)); $$('#passOut .pstar').forEach(b => { const on = bl.has(b.dataset.id); b.textContent = on ? '★' : '☆'; b.classList.toggle('on', on); }); }
-    if (!view || !view.group) return;
-    const s = view.sections[view.idx];
-    if (!s) return;
-    const blk = new Set(notesAll.filter(n => kindOf(n) === 'block').map(n => n.id));
-    const vfs = $('#vfStar');
-    if (vfs && view.vf) { const on = blk.has(noteId(view.group, s.k, 'blk:' + fmtVerses([...view.vf.set]))); vfs.textContent = on ? '★' : '☆'; vfs.classList.toggle('on', on); }
-    const rowNotes = new Map(notesAll.filter(n => kindOf(n) === 'row').map(n => [n.id, n]));
-    $$('#rOut .row[data-l]').forEach(r => {
-      const nid = noteId(view.group, s.k, r.dataset.l), nn = rowNotes.get(nid);
-      const on = !!nn;
-      // der Notiztext steht unter der Zeile (Klick öffnet die Notiz) und als Tooltip am Stern
-      let st = r.querySelector(':scope > .rnote');
-      if (nn && nn.note) { if (!st) { st = document.createElement('div'); st.className = 'rnote'; r.appendChild(st); } st.textContent = nn.note; st.dataset.id = nid; st.title = I18N.t('Klicken: Notiz bearbeiten'); }
-      else if (st) st.remove();
-      r.classList.toggle('noted', on);
-      const lab = r.querySelector('.lab');
-      if (!lab.querySelector('.bm')) lab.insertAdjacentHTML('afterbegin', '<span class="bm" title="Lesezeichen / Notiz">☆</span>');
-      const b = lab.querySelector('.bm');
-      b.title = nn && nn.note ? nn.note : I18N.t('Lesezeichen / Notiz');
-      b.classList.toggle('on', on);
-      b.textContent = on ? '★' : '☆';
-    });
-  }
+  // end-reader-module:notes
 
-  // Notiz-Fenster für alle drei Arten
-  let editing = null, editingOld = null;
-  function openNoteDlg(it, o = {}) {
-    editing = it;
-    editingOld = notesAll.some(x => x.id === it.id) ? JSON.parse(JSON.stringify(it)) : null; // für „Rückgängig“ beim Überschreiben
-    const k = kindOf(it);
-    $('#ndTitle').textContent = k === 'free' ? I18N.t('Eigene Notiz') : `${it.title} · ${it.secLabel} · ${k === 'block' ? (it.vs || I18N.t('ganzes Kapitel')) : it.row}`;
-    $('#ndExcerpt').textContent = k === 'free' ? '' : [it.he, it.excerpt].filter(Boolean).join('\n');
-    $('#ndTitleIn').hidden = k !== 'free';
-    $('#ndTitleIn').value = it.title || '';
-    $('#ndText').value = it.note || '';
-    $('#ndTags').value = noteTags(it).join(', ');
-    $('#ndText').placeholder = I18N.t(k === 'row' ? 'Eigene Notiz (leer lassen = nur Lesezeichen)' : 'Notiz');
-    $('#ndDel').hidden = !o.canDelete;
-    $('#ndDel').textContent = I18N.t(k === 'free' ? 'Notiz entfernen' : 'Lesezeichen entfernen');
-    $('#ndClose').textContent = I18N.t(o.optional ? 'Ohne Notiz' : 'Abbrechen');
-    $('#noteDlg').showModal();
-    (k === 'free' ? $('#ndTitleIn') : $('#ndText')).focus();
-  }
-  const refreshNotes = () => { markNotes(); renderNotes(); apSoon(); try { if (!$('#mapPanel').hidden) { mapInfo(); mapDraw(); } } catch { /* Karte nicht bereit */ } };
-  $('#rOut').addEventListener('click', e => {
-    const rn = e.target.closest('.rnote');
-    if (rn && !window.getSelection().toString()) { const nn = notesAll.find(x => x.id === rn.dataset.id); if (nn) openNoteDlg(nn, { canDelete: true }); return; }
-    const b = e.target.closest('.bm');
-    if (!b || !view || !view.group) return;
-    const row = b.closest('.row');
-    const s = view.sections[view.idx];
-    const label = row.dataset.l;
-    const id = noteId(view.group, s.k, label);
-    const old = notesAll.find(n => n.id === id);
-    const cells = [...row.querySelectorAll('.cell .txt')];
-    const excerpt = cells.length ? plain(cells[Math.min(1, cells.length - 1)].innerHTML.replace(/<span class="note"[\s\S]*?<\/span><\/span>/g, '')).slice(0, 200) : '';
-    const clean = c => plain(c.innerHTML.replace(/<span class="note"[\s\S]*?<\/span><\/span>/g, '')).slice(0, 200);
-    const heCell = cells.find(c => /[\u0590-\u05FF]/.test(c.textContent));
-    const he = heCell ? clean(heCell) : '';
-    if (old && !old.he && he) old.he = he;
-    openNoteDlg(old || { id, key: view.group.key, title: view.group.title, sk: s.k, secLabel: s.label, row: label, excerpt, he: he && he !== excerpt ? he : '', note: '', order: topOrder() }, { canDelete: !!old });
+  window.LibraryExport.create({
+    $, getView: () => view, getNotes: () => notesUI.notesAll, stripHe, noteId,
+    labels: KIND_LABEL, shortVer,
+    getInterlinear: v => interlinearUI.exportRenderer(v),
+    getTypography: v => {
+      const root = $('#rOut'), basePx = parseFloat(getComputedStyle(root).fontSize) || fs;
+      const cells = $$('.cell[data-rel]', root);
+      return { basePx, columnsPx: v.loaded.map(d => {
+        const text = cells.find(c => c.dataset.rel === d.entry.rel)?.querySelector('.txt');
+        if (text) return parseFloat(getComputedStyle(text).fontSize);
+        const key = ['de', 'en'].includes(d.entry.kind) ? d.entry.kind : d.entry.language === 'Greek' ? 'gr' : ['Hebrew', 'Aramaic'].includes(d.entry.language) ? 'he' : null;
+        return basePx * (key ? disp[key] || 1 : 1);
+      }) };
+    },
+    getLinks: (v, section) => { const chap = linksUI.secChapOf(section); return chap == null ? [] : linksUI.LK.section(linksUI.secBook(v.group, section), chap); },
   });
-  // N im Lesetext: Notiz zur Zeile unter dem Zeiger (oder zur zuletzt gewählten Zeile)
-  { let lastRow = null;
-    $('#rOut').addEventListener('mouseover', e => { const r = e.target.closest('.row[data-l]'); if (r) lastRow = r; });
-    document.addEventListener('keydown', e => {
-      if (e.key.toLowerCase() !== 'n' || e.metaKey || e.ctrlKey || e.altKey || e.shiftKey || e.isComposing) return;
-      if (/^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement.tagName) || document.activeElement.isContentEditable || document.querySelector('dialog[open]')) return;
-      if ((document.documentElement.dataset.tab || 'read') !== 'read' || !view || !view.group) return;
-      const row = lastRow && lastRow.isConnected ? lastRow : $$('#rOut .row[data-l]').find(x => x.dataset.l === cmtRow);
-      const b = row && row.querySelector('.lab .bm');
-      if (b) { e.preventDefault(); b.click(); }
-    });
-  }
-  $('#ndSave').onclick = async () => {
-    editing.note = $('#ndText').value.trim();
-    { const tg = [...new Set($('#ndTags').value.split(/[,;]/).map(x => x.trim()).filter(Boolean))]; if (tg.length) editing.tags = tg; else delete editing.tags; }
-    if (kindOf(editing) === 'free') {
-      editing.title = $('#ndTitleIn').value.trim();
-      if (!editing.note && !editing.title) { $('#noteDlg').close(); return; }
-    }
-    const old = editingOld;
-    const r = await ntDo(() => NT.save(editing)); if (!r) return; notesAll = r; $('#noteDlg').close(); refreshNotes();
-    if (old && old.note && old.note !== editing.note) showUndo(old, 'Notiz geändert');
-  };
-  $('#ndDel').onclick = async () => { const id = editing.id; $('#noteDlg').close(); await removeNote(id); };
-  $('#ndClose').onclick = () => $('#noteDlg').close();
-  // Enter bestätigt die Notiz (Umschalt+Enter = neue Zeile)
-  $('#ndText').addEventListener('keydown', e => { if (e.key === 'Enter' && !e.shiftKey && !e.isComposing) { e.preventDefault(); $('#ndSave').click(); } });
-  $('#ndTitleIn').addEventListener('keydown', e => { if (e.key === 'Enter' && !e.isComposing) { e.preventDefault(); $('#ndText').focus(); } });
-  { const th = $('#uiTheme'); th.value = window.Theme.get(); th.onchange = () => { window.Theme.set(th.value); try { O.setTheme && O.setTheme(th.value); } catch { /* egal */ } }; try { O.setTheme && O.setTheme(th.value); } catch { /* egal */ } }
-  $('#nNew').onclick = () => openNoteDlg({ id: newId('free'), kind: 'free', title: '', note: '', order: topOrder() }, {});
-
-  // Notizen-Reiter: Reihenfolge (manuell per Ziehen oder ▲▼, neueste, nach Farbe, nach Buch) und Farbfilter
-  let nfs = 15;
-  try { nfs = Math.min(28, Math.max(10, +localStorage.getItem('noteFs') || 15)); } catch { /* egal */ }
-  const applyNfs = () => { $('#nOut').style.setProperty('--nfs', nfs + 'px'); try { localStorage.setItem('noteFs', String(nfs)); } catch { /* egal */ } };
-  applyNfs();
-  $('#nFsMinus').onclick = () => { nfs = Math.max(10, nfs - 1); applyNfs(); };
-
-  // Sichern / Exportieren / Importieren der Notizen und Favoriten
-  $('#nIO').onclick = e => {
-    const r = e.currentTarget.getBoundingClientRect();
-    const items = [
-      { label: 'Sicherung speichern (JSON)', fn: () => exportNotes('json') },
-      { label: 'Als Markdown speichern', fn: () => exportNotes('md') },
-      { label: 'Als Word-Datei speichern', fn: () => exportNotes('doc') },
-      { label: 'Als PDF speichern', fn: () => exportNotes('pdf') },
-      { sep: true },
-      ...[['filtered', 'Nur die angezeigten (gefilterten) Notizen exportieren'], ['noNote', 'Ohne meine Notizen exportieren (Arbeitsblatt)'], ['heOnly', 'Nur Stelle und Hebräisch, ohne Übersetzung']].map(([k, t]) => ({ label: (nExp[k] ? '✓ ' : '\u2003 ') + t, fn: () => { nExp[k] = !nExp[k]; try { localStorage.setItem('nExp', JSON.stringify(nExp)); } catch { /* egal */ } } })),
-      { sep: true },
-      { label: 'Sicherung einlesen …', fn: importNotes },
-    ];
-    e.stopPropagation();
-    ctxShow({ clientX: r.left, clientY: r.bottom + 2, preventDefault() {} }, items);
-  };
-  let nExp = {}; // Export-Optionen für Markdown/Word/PDF (nicht für die JSON-Sicherung)
-  try { nExp = JSON.parse(localStorage.getItem('nExp') || '{}') || {}; } catch { nExp = {}; }
-  const lsArr = k => { try { const a = JSON.parse(localStorage.getItem(k) || '[]'); return Array.isArray(a) ? a.filter(x => typeof x === 'string' || (/^search/.test(k) && x && typeof x === 'object' && typeof x.q === 'string')) : []; } catch { return []; } }; // gespeicherte Suchen dürfen auch { q, l, m } sein
-  async function exportNotes(fmt) {
-    let list = notesAll.slice().sort((a, b) => (a.order ?? 1e9) - (b.order ?? 1e9) || (b.ts || 0) - (a.ts || 0));
-    const day = new Date().toISOString().slice(0, 10);
-    if (fmt !== 'json') {
-      if (nExp.filtered) list = filteredNotes().list;
-      if (nExp.noNote) list = list.filter(n => kindOf(n) !== 'free').map(n => ({ ...n, note: '' }));
-      if (nExp.heOnly) list = list.map(n => ({ ...n, excerpt: n.he ? '' : n.excerpt }));
-      list = list.filter(n => kindOf(n) !== 'hl');
-    }
-    if (fmt === 'json') {
-      await window.api.saveFile(`Safran-Notizen-${day}.json`, JSON.stringify({ app: 'Safran', kind: 'notes', version: 1, exported: new Date().toISOString(), items: list, dictFavs: lsArr('dictFavs'), dictRecent: lsArr('dictRecent'), searchFavs: lsArr('searchFavs'), searchRecent: lsArr('searchRecent') }, null, 1));
-      return;
-    }
-    const day2 = new Date().toLocaleDateString(I18N.loc);
-    const whereOf = n => { const k = kindOf(n); return k === 'free' ? '' : [n.title, n.secLabel, k === 'block' ? (n.vs || 'ganzes Kapitel') : n.row].filter(Boolean).join(' · '); };
-    if (fmt === 'md') {
-      const md = ['# Safran – Notizen und Favoriten', '', `Exportiert am ${day}`, ''];
-      for (const n of list) {
-        const where = whereOf(n), url = noteUrl(n);
-        md.push('## ' + (where ? (url ? `[${where}](${url})` : where) : 'Notiz'), '');
-        if (n.he) md.push('> ' + String(n.he).replace(/\n+/g, ' '), '');
-        if (n.excerpt) md.push('> ' + String(n.excerpt).replace(/\n+/g, ' '), '');
-        if (n.note) md.push(String(n.note), '');
-        if (noteTags(n).length) md.push('Tags: ' + noteTags(n).join(', '), '');
-        if (n.ts) md.push(`*${new Date(n.ts).toLocaleDateString('de-DE')}*`, '');
-      }
-      await window.api.saveFile(`Safran-Notizen-${day}.md`, md.join('\n'));
-      return;
-    }
-    // Word / PDF
-    const body = list.map(n => {
-      const where = whereOf(n), url = noteUrl(n);
-      return `<div class="n"><h2>${url ? `<a href="${esc(url)}">${esc(where)}</a>` : esc(where || 'Notiz')}</h2>${n.he ? `<p class="he" dir="rtl">${esc(n.he)}</p>` : ''}${n.excerpt ? `<p class="ex">${esc(n.excerpt)}</p>` : ''}${n.note ? `<p class="nt">${esc(n.note).replace(/\n/g, '<br>')}</p>` : ''}${noteTags(n).length ? `<p class="ex">Tags: ${esc(noteTags(n).join(', '))}</p>` : ''}</div>`;
-    }).join('');
-    const css = `body{font-family:"Times New Roman",serif;font-size:11pt;line-height:1.45;color:#000}h1{font-size:16pt}h2{font-size:12pt;margin:14pt 0 3pt}h2 a{color:#1a4f9c;text-decoration:none}.he{font-family:"SBL Hebrew","Times New Roman",serif;font-size:14pt;line-height:1.7;margin:2pt 0}.ex{color:#333;margin:2pt 0}.nt{background:#fff6d6;padding:3pt 6pt;margin:3pt 0}.n{page-break-inside:avoid}`;
-    const html = `<!doctype html><html><head><meta charset="utf-8"><title>Safran – Notizen</title><style>${css}</style></head><body><h1>Safran – Notizen und Favoriten</h1><p style="font-size:9pt;color:#666">${esc(I18N.t('Exportiert am {}', day2))}</p>${body}</body></html>`;
-    const r = await O.exportSave({ html, format: fmt === 'pdf' ? 'pdf' : 'doc', name: `Safran-Notizen-${day}` });
-    if (r && r.error) alert(r.error);
-  }
-  async function importNotes() {
-    const f = await window.api.openFile('json'); if (!f) return;
-    let j; try { j = JSON.parse(f.text); } catch { j = null; }
-    const items = j && Array.isArray(j.items) ? j.items.filter(x => x && typeof x.id === 'string') : null;
-    const extra = j && typeof j === 'object' ? ['dictFavs', 'dictRecent', 'searchFavs', 'searchRecent'].filter(k => Array.isArray(j[k]) && j[k].length) : [];
-    if ((!items || !items.length) && !extra.length) return alert(I18N.t('Diese Datei ist keine Notizsicherung.'));
-    // Vorschau: was würde neu, aktualisiert oder bliebe gleich?
-    { const have = new Map(notesAll.map(n => [n.id, n])); let nn = 0, nu = 0, ns = 0; const names = [];
-      for (const it of items || []) { const c = have.get(it.id); if (!c) { nn++; if (names.length < 6) names.push([it.title, it.secLabel, it.vs || it.row].filter(Boolean).join(' · ') || I18N.t('Eigene Notiz')); } else if ((it.ts || 0) > (c.ts || 0)) nu++; else ns++; }
-      const warn = j && j.app && j.app !== 'Safran' ? I18N.t('Achtung: Die Datei stammt nicht aus Safran.') + '\n\n' : '';
-      const msg = warn + I18N.t('Aus der Sicherung: {#} neu, {#} aktualisiert, {#} unverändert.', nn, nu, ns) + (names.length ? '\n\n' + I18N.t('Neu zum Beispiel:') + '\n• ' + names.join('\n• ') : '') + '\n\n' + I18N.t('Zusammenführen? Vorhandene bleiben erhalten, nur ältere Fassungen werden ersetzt.');
-      if (!confirm(msg)) return; }
-    // gespeicherte Wörter und Suchen: Einträge der Sicherung kommen dazu (ohne Doppelte), die vorhandenen bleiben vorn
-    { const qOf = x => (typeof x === 'string' ? x : x && typeof x === 'object' && typeof x.q === 'string' ? x.q : ''); // Suchen können auch { q, l, m } sein (mit Sprache und Treffer-Art)
-      for (const k of extra) { try { const have = lsArr(k), hq = new Set(have.map(qOf)), obj = /^search/.test(k), add = j[k].filter(x => qOf(x) && (typeof x === 'string' || obj) && !hq.has(qOf(x))).map(x => (typeof x === 'string' ? x : { q: x.q, l: String(x.l || ''), m: String(x.m || '') })); localStorage.setItem(k, JSON.stringify([...have, ...add].slice(0, 200))); } catch { /* egal */ } } }
-    const r = items && items.length ? await ntDo(() => NT.merge(items)) : { items: notesAll, stat: { added: 0, updated: 0, same: 0 } };
-    if (!r) return;
-    notesAll = r.items; refreshNotes(); if (typeof renderSaved === 'function') try { renderSaved(); } catch { /* egal */ } if (typeof renderSearchSaved === 'function') try { renderSearchSaved(); } catch { /* egal */ }
-    alert(I18N.t('Eingelesen: {#} neu, {#} aktualisiert, {#} unverändert.', r.stat.added, r.stat.updated, r.stat.same));
-  }
-  $('#nFsPlus').onclick = () => { nfs = Math.min(28, nfs + 1); applyNfs(); };
-  let nSort = 'manual';
-  try { nSort = localStorage.getItem('nSort') || 'manual'; } catch { /* egal */ }
-  $('#nSort').value = nSort;
-  $('#nSort').onchange = () => { nSort = $('#nSort').value; try { localStorage.setItem('nSort', nSort); } catch { /* egal */ } renderNotes(); };
-  const byManual = (a, b) => ((a.order == null ? Infinity : a.order) - (b.order == null ? Infinity : b.order)) || ((b.ts || 0) - (a.ts || 0));
-  const manualAll = () => [...notesAll].sort(byManual);
-  // Filter: Text, Art, Tag, „nur mit Notiz“
-  let nKind = 'all', nOnly = false, nTag = '';
-  const secNum = n => { const m = String(n.secLabel || '').match(/(\d+)([ab])?/); return m ? +m[1] * 2 + (m[2] === 'b' ? 1 : 0) : 0; };
-  const noteFilterOn = () => !!($('#nFilter').value.trim() || nKind !== 'all' || nOnly || nTag);
-  function filteredNotes() {
-    const f = $('#nFilter').value.trim().toLowerCase();
-    const shown = notesAll.filter(n => kindOf(n) !== 'hl');
-    let list = shown.filter(n => (!f || [n.title, n.secLabel, n.row, n.vs, n.he, n.excerpt, n.note, noteTags(n).join(' ')].join(' ').toLowerCase().includes(f))
-      && (nKind === 'all' || kindOf(n) === nKind) && (!nOnly || n.note) && (!nTag || noteTags(n).includes(nTag)));
-    if (nSort === 'new') list.sort((a, b) => (b.ts || 0) - (a.ts || 0));
-    else if (nSort === 'book') list.sort((a, b) => ((kindOf(a) === 'free') - (kindOf(b) === 'free')) || libCmpGroups(groupsByKey.get(a.key) || null, groupsByKey.get(b.key) || null) || String(a.title || '~').localeCompare(String(b.title || '~')) || secNum(a) - secNum(b) || ((rowVerse(a.row) || 0) - (rowVerse(b.row) || 0)) || byManual(a, b));
-    else list.sort(byManual);
-    return { f, shown, list };
-  }
-  const escRe = x => x.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  // Text mit hervorgehobenem Suchwort
-  const hlTxt = (t, f) => { t = String(t ?? ''); if (!f) return esc(t); return t.split(new RegExp('(' + escRe(f) + ')', 'gi')).map((p, i) => i % 2 ? `<mark>${esc(p)}</mark>` : esc(p)).join(''); };
-  // Notiztext: **fett**, *kursiv*, Aufzählungen („- …“) und Stellenangaben („Gen 3:5“, „Psalms 23“) als Link
-  const REF_RE = /\b((?:[1-3]\s?)?[A-Z][a-z]+(?:\sof\s[A-Z][a-z]+)?)\.?\s(\d+[ab]?)(?::(\d+(?:\s?[-–]\s?\d+)?(?:,\s?\d+)*))?/;
-  const noteRefOk = book => { const b = normT(book); if (b.length < 2) return false; const g = groups.find(x => normT(x.title).startsWith(b) && !/ on /.test(x.title)); return !!g; };
-  function ntHtml(text, f) {
-    const tok = /(\*\*[^*\n]+\*\*)|(\*[^*\s][^*\n]*\*)|((?:[1-3]\s?)?[A-Z][a-z]+(?:\sof\s[A-Z][a-z]+)?\.?\s\d+[ab]?(?::\d+(?:\s?[-–]\s?\d+)?(?:,\s?\d+)*)?)/g;
-    return String(text ?? '').split('\n').map(line => {
-      let bullet = '';
-      const m = line.match(/^\s*[-•]\s+(.*)$/); if (m) { bullet = '• '; line = m[1]; }
-      let out = '', last = 0, x;
-      tok.lastIndex = 0;
-      while ((x = tok.exec(line))) {
-        out += hlTxt(line.slice(last, x.index), f); last = tok.lastIndex;
-        if (x[1]) out += `<b>${hlTxt(x[1].slice(2, -2), f)}</b>`;
-        else if (x[2]) out += `<i>${hlTxt(x[2].slice(1, -1), f)}</i>`;
-        else { const r = x[3].match(REF_RE); out += r && noteRefOk(r[1]) ? `<a class="nref" data-q="${esc(x[3].replace(/\.\s/, ' '))}">${hlTxt(x[3], f)}</a>` : hlTxt(x[3], f); }
-      }
-      return bullet + out + hlTxt(line.slice(last), f);
-    }).join('\n');
-  }
-  function renderNotes() {
-    const { f, shown, list } = filteredNotes();
-    const book = nSort === 'book';
-    { const nb = new Set(list.filter(n => kindOf(n) !== 'free').map(n => n.title)).size;
-      $('#nCount').textContent = book && nb ? I18N.t('{#} von {#} · {#} Bücher', list.length, shown.length, nb) : I18N.t('{#} von {#}', list.length, shown.length); }
-    // Tags: Auswahlleiste und Vorschläge im Dialog
-    { const cnt = new Map(); shown.forEach(n => noteTags(n).forEach(t => cnt.set(t, (cnt.get(t) || 0) + 1)));
-      if (nTag && !cnt.has(nTag)) nTag = '';
-      $('#nTags').hidden = !cnt.size;
-      $('#nTags').innerHTML = [...cnt.entries()].sort((a, b) => a[0].localeCompare(b[0])).map(([t, c]) => `<button class="ntag${t === nTag ? ' on' : ''}" data-tag="${esc(t)}">${esc(t)} <small>${c}</small></button>`).join('');
-      $('#ndTagList').innerHTML = [...cnt.keys()].map(t => `<option value="${esc(t)}">`).join(''); }
-    const man = nSort === 'manual';
-    const dFmt = ts => ts ? new Date(ts).toLocaleDateString(I18N.loc, { day: 'numeric', month: 'short', year: 'numeric' }) : '';
-    const item = n => {
-      const k = kindOf(n);
-      const head = k === 'free' ? hlTxt(n.title || I18N.t('Eigene Notiz'), f) : `${hlTxt(n.title, f)} · ${hlTxt(n.secLabel, f)} · ${hlTxt(k === 'block' ? (n.vs || I18N.t('ganzes Kapitel')) : n.row, f)}`;
-      const g = groupsByKey.get(n.key);
-      const tags = noteTags(n);
-      const orphan = (k === 'row' || k === 'block') && !noteVers(g).length;
-      return `<div class="nitem" data-id="${esc(n.id)}"${man ? ' draggable="true"' : ''}><span class="nbtns">${man ? `<button data-mv="-1" title="Nach oben schieben">▲</button><button data-mv="1" title="Nach unten schieben">▼</button>` : ''}${g && (k === 'row' || k === 'block') ? `<button data-cmt="${esc(n.id)}" title="Kommentare zu dieser Stelle">💬</button>` : ''}<button data-edit="${esc(n.id)}" title="Notiz bearbeiten">✎</button><button data-del="${esc(n.id)}" title="Entfernen">✕</button></span><div class="t">${k === 'row' || k === 'block' ? '☆ ' : k === 'free' ? '✎ ' : ''}<span class="ut">${head}</span>${n.ts ? ` <span class="nts" title="${esc(I18N.t('zuletzt geändert'))}">${esc(dFmt(n.ts))}</span>` : ''}</div>${tags.length ? `<div class="ntags">${tags.map(t => `<button class="ntag${t === nTag ? ' on' : ''}" data-tag="${esc(t)}">${hlTxt(t, f)}</button>`).join('')}</div>` : ''}${k === 'row' || k === 'block' ? noteBody(n) : ''}${orphan ? `<div class="orph muted">${esc(I18N.t('Text nicht geladen – im Reiter „Herunterladen“ laden.'))} <a data-dl="1">${esc(I18N.t('Zum Herunterladen'))}</a></div>` : ''}${n.note ? `<div class="nt">${ntHtml(n.note, f)}</div>` : ''}</div>`;
-    };
-    let html = '', lastHead = null;
-    for (const n of list) {
-      if (book) { const h = kindOf(n) === 'free' ? '\u0000free' : `${n.title} · ${n.secLabel}`; if (h !== lastHead) { lastHead = h; html += `<div class="nhead">${h === '\u0000free' ? esc(I18N.t('Eigene Notizen')) : esc(h)}</div>`; } }
-      html += item(n);
-    }
-    $('#nOut').innerHTML = html || (shown.length && noteFilterOn()
-      ? `<p class="muted">${esc(I18N.t('Keine Treffer.'))} <button id="nClear">${esc(I18N.t('Filter löschen'))}</button></p>`
-      : `<p class="muted">${I18N.t('Noch keine Lesezeichen. Im Lesen-Reiter erscheint beim Überfahren einer Zeile links ein ☆.')}</p>`);
-  }
-  $('#nKind').onchange = () => { nKind = $('#nKind').value; renderNotes(); };
-  $('#nOnly').onchange = () => { nOnly = $('#nOnly').checked; renderNotes(); };
-  $('#nTags').addEventListener('click', e => { const b = e.target.closest('button[data-tag]'); if (b) { nTag = nTag === b.dataset.tag ? '' : b.dataset.tag; renderNotes(); } });
-  $('#nFilter').addEventListener('input', renderNotes);
-  async function moveNote(id, dir, beforeId) {
-    const ids = manualAll().map(n => n.id);
-    const i = ids.indexOf(id); if (i < 0) return;
-    ids.splice(i, 1);
-    if (beforeId !== undefined) { const j = beforeId ? ids.indexOf(beforeId) : ids.length; ids.splice(j < 0 ? ids.length : j, 0, id); }
-    else ids.splice(Math.max(0, Math.min(ids.length, i + dir)), 0, id);
-    { const r = await ntDo(() => NT.reorder(ids)); if (r) notesAll = r; } renderNotes();
-  }
-  $('#nOut').addEventListener('click', async e => {
-    const it = e.target.closest('.nitem');
-    const n = it && notesAll.find(x => x.id === it.dataset.id);
-    if (e.target.id === 'nClear') { $('#nFilter').value = ''; nKind = 'all'; $('#nKind').value = 'all'; nOnly = false; $('#nOnly').checked = false; nTag = ''; renderNotes(); return; }
-    const tg = e.target.closest('button[data-tag]');
-    if (tg) { nTag = nTag === tg.dataset.tag ? '' : tg.dataset.tag; renderNotes(); return; }
-    const rf = e.target.closest('a.nref');
-    if (rf) { e.preventDefault(); if (!BG(e)) showTab('read'); await jumpTo(rf.dataset.q, BG(e)); return; }
-    if (e.target.closest('a[data-dl]')) { showTab('get'); return; }
-    const cm = e.target.closest('button[data-cmt]');
-    if (cm) {
-      const nn = notesAll.find(x => x.id === cm.dataset.cmt), gg = nn && groupsByKey.get(nn.key);
-      if (gg) { await openGroup(gg, { sectionPath: JSON.parse(nn.sk), rowLabel: nn.row }); setCmtRow(nn.row); toggleCmt(true); }
-      return;
-    }
-    const d = e.target.closest('button[data-del]');
-    if (d) { await removeNote(d.dataset.del); return; }
-    const mv = e.target.closest('button[data-mv]');
-    if (mv && n) { await moveNote(n.id, +mv.dataset.mv); return; }
-    if (e.target.closest('button[data-vopen]') && n) { if (ntOpen.has(n.id)) ntOpen.delete(n.id); else ntOpen.add(n.id); renderNotes(); return; }
-    const vb = e.target.closest('button[data-vr]');
-    if (vb && n) {
-      const vers = noteVers(groupsByKey.get(n.key));
-      const cur = new Set(n.vr || defaultVr(vers)); const rel = vb.dataset.vr;
-      if (cur.has(rel)) cur.delete(rel); else cur.add(rel);
-      n.vr = vers.filter(v => cur.has(v.rel)).map(v => v.rel);
-      { const r = await ntDo(() => NT.save({ ...n, keepTs: true })); if (r) notesAll = r; } renderNotes(); return;
-    }
-    if (e.target.closest('button[data-edit]') && n) { openNoteDlg(n, { canDelete: true }); return; }
-    if (!n) return;
-    if (e.target.closest('.ex, .nt')) return; // Text anklicken/markieren springt nicht; nur Titel und Rand öffnen die Stelle
-    if (kindOf(n) === 'free') { openNoteDlg(n, { canDelete: true }); return; }
-    const g = groupsByKey.get(n.key);
-    if (g) {
-      const bgn = BG(e);
-      await openGroup(g, { sectionPath: JSON.parse(n.sk), rowLabel: n.row }, bgn);
-      if (!bgn && kindOf(n) === 'block' && n.set && n.set.length && view && view.group === g) { view.vf = { k: view.sections[view.idx].k, set: new Set(n.set), text: String(view.sections[view.idx].label || '').replace(/^\D+/, '') + ':' + n.vs }; renderSection(n.row); }
-    }
-  });
-  let dragId = null;
-  $('#nOut').addEventListener('mousedown', e => { const it = e.target.closest('.nitem[draggable]'); if (it) it.draggable = !e.target.closest('.ex, .nt'); }); // Text lässt sich markieren, ohne dass die Karte gezogen wird
-  $('#nOut').addEventListener('dragstart', e => { const it = e.target.closest('.nitem'); if (!it) return; dragId = it.dataset.id; it.classList.add('dragging'); e.dataTransfer.effectAllowed = 'move'; try { e.dataTransfer.setData('text/plain', dragId); } catch { /* egal */ } });
-  $('#nOut').addEventListener('dragend', () => { dragId = null; $$('#nOut .dragging, #nOut .dragover').forEach(x => x.classList.remove('dragging', 'dragover')); });
-  $('#nOut').addEventListener('dragover', e => { if (!dragId) return; e.preventDefault(); $$('#nOut .dragover').forEach(x => x.classList.remove('dragover')); const it = e.target.closest('.nitem'); if (it && it.dataset.id !== dragId) it.classList.add('dragover'); });
-  $('#nOut').addEventListener('drop', async e => {
-    if (!dragId) return; e.preventDefault();
-    const it = e.target.closest('.nitem'); const id = dragId; dragId = null;
-    await moveNote(id, 0, it ? it.dataset.id : null);
-  });
-  window.addEventListener('focus', () => { loadNotes().catch(() => {}); }); // Änderungen aus dem anderen Fenster übernehmen
-
-  // ---------- Export (PDF / Word) ----------
-  $('#expBtn').onclick = () => {
-    if (!view || !view.group) return;
-    const s = view.sections[view.idx];
-    $('#expWhat').textContent = `${view.group.title} · ${s ? s.label : ''} – ${view.loaded.length} Spalte(n)`;
-    $('#expMsg').textContent = '';
-    $('#expDlg').showModal();
-  };
-  $('#expClose').onclick = () => $('#expDlg').close();
-  $('#expGo').onclick = async () => {
-    const html = buildExportHtml({
-      from: $('#expFrom').value.trim(), to: $('#expTo').value.trim(),
-      fn: $('#expFn').checked, notes: $('#expNotes').checked, links: $('#expLinks').checked,
-    });
-    const s = view.sections[view.idx];
-    const name = `${view.group.title} ${s ? s.label : ''}`.replace(/[\\/:*?"<>|]+/g, '_').trim();
-    const r = await O.exportSave({ html, format: $('#expFmt').value, name, landscape: view.loaded.length >= 3 });
-    if (r && r.error) { $('#expMsg').textContent = '⚠ ' + r.error; return; }
-    if (r && r.path) $('#expDlg').close();
-  };
-  function buildExportHtml(o) {
-    const s = view.sections[view.idx];
-    const cols = view.loaded.map(d => R.flattenNode(R.getByPath(d.text, s.path)));
-    let rows = R.alignRows(cols);
-    if (o.from || o.to) {
-      const a = o.from ? rows.findIndex(r => r.label === o.from) : 0;
-      let b = o.to ? rows.findIndex(r => r.label === o.to) : rows.length - 1;
-      if (b < 0) b = rows.length - 1;
-      rows = rows.slice(Math.max(0, a), b + 1);
-    }
-    const notesById = new Map(notesAll.map(n => [n.id, n]));
-    const endnotes = [];
-    const cell = (h, d) => {
-      if (h == null) return '<td></td>';
-      if (d.entry.kind === 'he') h = stripHe(h);
-      const sp = R.splitFootnotes(h);
-      let main = R.cleanHtml(sp.main);
-      main = main.replace(/<sup data-fn="(\d{1,4})">.*?<\/sup>/g, (m, i) => {
-        if (!o.fn || !sp.notes[+i]) return '';
-        endnotes.push(R.cleanHtml(sp.notes[+i].html));
-        return `<sup>${endnotes.length}</sup>`;
-      });
-      return `<td dir="${d.entry.language === 'Hebrew' || d.entry.language === 'Aramaic' ? 'rtl' : 'ltr'}" class="k-${d.entry.kind}">${main}</td>`;
-    };
-    const body = rows.map(r => {
-      let extra = '';
-      const v = verseOf(r.label);
-      if (o.notes) { const n = notesById.get(noteId(view.group, s.k, r.label)); if (n && n.note) extra += `<div class="nt">${I18N.t('Notiz:')} ${esc(n.note)}</div>`; }
-      if (o.links && v != null) {
-        const ls = secLinks.filter(x => x.v1 > 0 && v >= x.v1 && v <= x.v2).map(x => x.other);
-        if (ls.length) extra += `<div class="lk">${I18N.t('Verknüpfungen:')} ${esc(ls.slice(0, 30).join('; '))}${ls.length > 30 ? ` … (+${ls.length - 30})` : ''}</div>`;
-      }
-      return `<tr><td class="lab">${esc(r.label)}</td>${r.cells.map((c, i) => cell(c, view.loaded[i])).join('')}</tr>${extra ? `<tr><td></td><td colspan="${view.loaded.length}">${extra}</td></tr>` : ''}`;
-    }).join('');
-    const head = `<tr><th></th>${view.loaded.map(d => `<th>${esc(I18N.tr(KIND_LABEL[d.entry.kind]))} · ${esc(shortVer(d.versionTitle))}</th>`).join('')}</tr>`;
-    const src = view.loaded.map(d => `<li>${esc(I18N.tr(KIND_LABEL[d.entry.kind]))}: ${esc(d.versionTitle === 'merged' ? I18N.tr('zusammengeführte Fassung') : d.versionTitle)}${d.versionSource ? ' – ' + esc(d.versionSource) : ''}</li>`).join('');
-    const css = `body{font-family:"SBL Hebrew","Times New Roman",serif;font-size:11pt;line-height:1.5;color:#000}
-h1{font-size:16pt;margin:0 0 4pt}h1 small{font-size:12pt;color:#555}
-table{border-collapse:collapse;width:100%;table-layout:fixed}th{font-size:9pt;text-align:left;color:#555;border-bottom:1px solid #999;padding:3pt}
-td{vertical-align:top;padding:4pt;border-bottom:1px solid #ddd}td.lab{width:28pt;font-size:8pt;color:#777}
-td.k-he{font-size:14pt;line-height:1.8}.nt{background:#fff6d6;padding:2pt 5pt;font-size:9pt}.lk{font-size:8pt;color:#555}
-ol.fn{font-size:9pt}ul.src{font-size:8pt;color:#555}tr{page-break-inside:avoid}`;
-    return `<!doctype html><html><head><meta charset="utf-8"><title>${esc(view.group.title)}</title><style>${css}</style></head><body>
-<h1>${esc(view.group.title)}${view.group.heTitle ? ` <small dir="rtl">${esc(view.group.heTitle)}</small>` : ''} · ${esc(s.label)}</h1>
-<table><thead>${head}</thead><tbody>${body}</tbody></table>
-${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.map(n => `<li>${n}</li>`).join('')}</ol>` : ''}
-<ul class="src">${src}</ul><p class="src" style="font-size:8pt;color:#777">${I18N.t('Quelle: Sefaria (sefaria.org), Export vom {}', new Date().toLocaleDateString(I18N.loc))}</p></body></html>`;
-  }
-
 
   let cmtTimer = null, lastCmtKey = '';
   function applyCmtRowSoon() { clearTimeout(cmtTimer); cmtTimer = setTimeout(() => { if (cmtOpen) applyCmtRow(); }, 0); }
@@ -7194,7 +2806,7 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
     const rt = document.documentElement;
     let cw = 400, cfs = 14;
     try { cw = +localStorage.getItem('cmtW') || 400; cfs = +localStorage.getItem('cmtFs') || 14; } catch { /* egal */ }
-    const clampW = w => Math.round(Math.min(Math.max(280, w), window.innerWidth * 0.8));
+    const clampW = w => Math.round(Math.min(Math.max(280, w), window.innerWidth * 0.9));
     const applyCw = () => { rt.style.setProperty('--cmt-w', clampW(cw) + 'px'); };
     const applyCfs = () => { rt.style.setProperty('--cmt-fs', cfs + 'px'); try { localStorage.setItem('cmtFs', String(cfs)); } catch { /* egal */ } };
     applyCw(); applyCfs();
@@ -7211,34 +2823,24 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
     window.setPanelW = w => { cw = clampW(w); applyCw(); try { localStorage.setItem('cmtW', String(cw)); } catch { /* egal */ } };
     window.addEventListener('resize', applyCw);
   }
-  let cmtOpen = false, cmtRow = null, cmtToken = 0;
+  let cmtOpen = false, cmtRow = null;
   var cmtWhole = false; // Kommentare zum ganzen Kapitel bzw. zur ganzen Seite (über den Knopf), sonst zum gewählten Vers
-  let cmtTouched = false, cmtLastChosen = [];
-  try { cmtTouched = localStorage.getItem('cmtTouched') === '1'; } catch { /* egal */ }
-  let cmtChipsOpen = false;
-  try { cmtChipsOpen = localStorage.getItem('cmtChipsOpen') === '1'; } catch { /* egal */ }
-  let cmtSel = new Set();
-  let cmtLang = 'en';
-  try { cmtSel = new Set(JSON.parse(localStorage.getItem('cmtSel') || '[]')); cmtLang = localStorage.getItem('cmtLang') || 'en'; } catch { /* egal */ }
-  if (!['en', 'de', 'he'].includes(cmtLang)) cmtLang = 'en';
-  $('#cmtLang').value = cmtLang;
-  // „Alle“ ist jetzt ein eigener Zustand (früher bedeutete eine leere Auswahl „alle“); ältere Einstellungen werden übernommen
-  let cmtAll = false;
-  try { const a = localStorage.getItem('cmtAll'); cmtAll = a === '1' || (a == null && cmtTouched && cmtSel.size === 0); } catch { /* egal */ }
-  let cmtFilterV = '', cmtAvailNames = [];
-  const cmtClosed = new Set(); // eingeklappte Kommentare (nur in dieser Sitzung)
   const dispName = n => String(n).replace(/, [^,]+$/, ''); // „Bekhor Shor, Genesis“ → „Bekhor Shor“
   const CMT_PRIO = ['Rashi', 'Ibn Ezra', 'Ramban', 'Rashbam', 'Sforno', 'Or HaChaim', 'Chizkuni', 'Radak', 'Kli Yakar', 'Bekhor Shor', 'Onkelos'];
-  // Die Kommentar-Auswahl wird pro Sprache gemerkt (z. B. Deutsch: Hirsch, Englisch: etwas anderes) und beim Umschalten der Sprache wiederhergestellt
-  let cmtByLang = {};
-  try { cmtByLang = JSON.parse(localStorage.getItem('cmtByLang') || '{}') || {}; } catch { cmtByLang = {}; }
-  if (!cmtByLang[cmtLang]) cmtByLang[cmtLang] = { sel: [...cmtSel], all: cmtAll, touched: cmtTouched }; // bisherige Einstellung gilt für die zuletzt benutzte Sprache
-  else { const s0 = cmtByLang[cmtLang]; cmtSel = new Set(s0.sel || []); cmtAll = !!s0.all; cmtTouched = !!s0.touched; }
-  const saveCmt = () => { try {
-    cmtByLang[cmtLang] = { sel: [...cmtSel], all: cmtAll, touched: cmtTouched };
-    localStorage.setItem('cmtByLang', JSON.stringify(cmtByLang));
-    localStorage.setItem('cmtSel', JSON.stringify([...cmtSel])); localStorage.setItem('cmtLang', cmtLang); localStorage.setItem('cmtAll', cmtAll ? '1' : '0');
-  } catch { /* egal */ } };
+  const commentSelection = window.LibraryCommentSelection.create({ $, $$, CMT_PRIO, renderCmt });
+  const commentaryUI = window.LibraryCommentary.create({
+    $, $$, esc, R, selection: commentSelection,
+    reader: { get view() { return view; }, get open() { return cmtOpen; },
+      get row() { return cmtRow; }, get whole() { return cmtWhole; },
+      get virtual() { return cmtVirt; }, get linksReady() { return linksUI.linksReady; },
+      get links() { return linksUI.secLinks; }, get groups() { return groups; }, localTitles: linksUI.localTitles },
+    format: { CMT_PRIO, dispName, splitOther: linksUI.splitOther, libCmpGroups: linksUI.libCmpGroups, titleCmp: linksUI.titleCmp, secChapOf: linksUI.secChapOf,
+      rowVerse, stripHe, versOf, versNoteText, portraitOf },
+    navigation: { jumpTo, openInPane2, ctxShow, panelScrollTo, IS_PANE2 },
+    refreshFind: () => { if (!fb.hidden && fTerm) runFind(fTerm, true); },
+  });
+  function renderCmt() { return commentaryUI.render(); }
+  function cmtTopName() { return commentaryUI.topName(); }
   function setCmtRow(label) {
     cmtRow = label;
     $$('#rOut .row.cmtrow').forEach(r => r.classList.remove('cmtrow'));
@@ -7246,6 +2848,7 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
     if (r) r.classList.add('cmtrow');
     if (cmtOpen && !cmtWhole) renderCmt(); // ganzes Kapitel: die Markierung wechselt, der Inhalt bleibt
     apSoon();
+    textcritUI.select(label);
   }
   function applyCmtRow() {
     const rows = $$('#rOut .row[data-l]');
@@ -7273,16 +2876,31 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
   $('#cmtClose').onclick = () => toggleCmt(false);
   // ---------- Fenster anpinnen: neben dem Text festhalten statt darüber zu schweben ----------
   // Je Fenster wird gemerkt, ob es angepinnt ist. Ein angepinntes Fenster steht rechts neben dem Haupttext; öffnet ein zweites angepinntes Fenster, tritt es an die Stelle des ersten
-  // (Ausnahme: Kommentare und Wörterbuch dürfen untereinander stehen). Nicht angepinnte Fenster schweben wie bisher über dem Text.
-  const PINS = { forms: ['#formsPanel', '#fmClose'], all: ['#allPanel', '#apClose'], link: ['#linkPanel', '#lkClose'], topic: ['#topicPanel', '#tpClose'], outline: ['#outlinePanel', '#olClose'], map: ['#mapPanel', '#mapClose'], cmt: ['#cmtPanel', '#cmtClose'], dict: ['#dictPanel', '#dictClose'] };
-  const pins = { forms: false, all: true, link: false, topic: false, outline: false, map: false, cmt: true, dict: true };
+  // Nicht angepinnte Fenster schweben wie bisher über dem Text.
+  const PINS = { textcrit: ['#textcritPanel', '#tcClose'], forms: ['#formsPanel', '#fmClose'], all: ['#allPanel', '#apClose'], link: ['#linkPanel', '#lkClose'], topic: ['#topicPanel', '#tpClose'], outline: ['#outlinePanel', '#olClose'], map: ['#mapPanel', '#mapClose'], cmt: ['#cmtPanel', '#cmtClose'], dict: ['#dictPanel', '#dictClose'] };
+  const pins = { textcrit: true, forms: false, all: true, link: false, topic: false, outline: false, map: false, cmt: true, dict: true };
   try { const o = JSON.parse(localStorage.getItem('pins') || '{}'); for (const k in pins) if (typeof o[k] === 'boolean') pins[k] = o[k]; } catch { /* egal */ }
-  const pinPair = (a, b) => (a === 'cmt' || a === 'dict') && (b === 'cmt' || b === 'dict');
+  const pinPair = (a,b) => ['cmt','dict'].includes(a)&&['cmt','dict'].includes(b);
   let pinBusy = false;
   const pinVis = { cmt: false, dict: false }; // zuletzt gesehene Sichtbarkeit von Kommentaren/Wörterbuch
-  function pinSync(anchor) {
+  const dockTabs = window.LibraryDockTabs.create({
+    $,panels:PINS,pins,automatic:()=>pinBusy,afterOpen:key=>pinSync(undefined,key),
+    activePair: visible => visible.includes('cmt')&&visible.includes('dict')?stackActive:null,
+    paired:(a,b)=>pinPair(a,b),
+    available:key=>key==='forms'?wordCardsUI.canReopen:key==='dict'?true:!!view?.group&&!({textcrit:'#tcBtn',link:'#lkBtn',topic:'#tpBtn',map:'#mapBtn'}[key]&&$({textcrit:'#tcBtn',link:'#lkBtn',topic:'#tpBtn',map:'#mapBtn'}[key]).hidden),
+    open:{textcrit:()=>textcritUI.open(),forms:()=>wordCardsUI.reopen(),all:()=>apToggle(true,undefined,true),
+      cmt:()=>{toggleCmt(true);setStackActive('cmt');},dict:()=>{toggleDict(true);setStackActive('dict');},
+      link:()=>{if($('#linkPanel').hidden)$('#lkBtn').click();},topic:()=>{if($('#topicPanel').hidden)$('#tpBtn').click();},
+      outline:()=>{if($('#outlinePanel').hidden)$('#olBtn').click();},map:()=>{if($('#mapPanel').hidden)$('#mapBtn').click();}}
+  });
+  dockController=dockTabs;
+  const panelVisible={};
+  for(const id of ['tcBtn','lkBtn','tpBtn','mapBtn'])new MutationObserver(()=>dockTabs.sync()).observe($('#'+id),{attributes:true,attributeFilter:['hidden','disabled']});
+  $('#studyBtn').onclick=()=>dockTabs.toggle();
+  function pinSync(anchor, preferredKey) {
     if (pinBusy) return; pinBusy = true;
     try {
+      for(const k in PINS){const shown=!$(PINS[k][0]).hidden;if(shown&&!panelVisible[k]&&k!==preferredKey)pins[k]=dockTabs.pinMode;panelVisible[k]=shown;}
       { // beide nicht angepinnt: öffnet man das eine, schließt sich das andere (schwebend nie untereinander)
         const vis = {}; for (const k of ['cmt', 'dict']) vis[k] = !$(PINS[k][0]).hidden;
         if (anchor !== false) for (const k of ['cmt', 'dict']) { const o = k === 'cmt' ? 'dict' : 'cmt'; if (vis[k] && !pinVis[k] && !pins[k] && vis[o] && !pins[o]) { vis[o] = false; $(PINS[o][1]).click(); } }
@@ -7290,7 +2908,8 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
       }
       const was = {}, now = {};
       for (const k in PINS) { const el = $(PINS[k][0]); was[k] = el.classList.contains('docked'); now[k] = !el.hidden && pins[k]; }
-      const fresh = Object.keys(PINS).filter(k => now[k] && !was[k]);
+      const candidates=Object.keys(PINS).filter(k=>now[k]&&!was[k]);
+      const fresh = preferredKey&&now[preferredKey]?[preferredKey]:candidates.slice(-1);
       for (const k of fresh) for (const o in PINS) if (o !== k && now[o] && !pinPair(k, o) && !fresh.includes(o)) { now[o] = false; $(PINS[o][1]).click(); } // das bisherige angepinnte Fenster schließen
       const apply = () => {
         for (const k in PINS) { const el = $(PINS[k][0]); el.classList.toggle('docked', now[k] && !el.hidden); const b = el.querySelector('.pinB'); if (b) { b.classList.toggle('on', pins[k]); b.title = I18N.t(pins[k] ? 'Lösen: über dem Text schweben' : 'Anpinnen: neben dem Text festhalten'); } }
@@ -7298,6 +2917,7 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
         document.body.classList.toggle('dock-open', any);
         let w = 0; for (const k in PINS) { const el = $(PINS[k][0]); if (el.classList.contains('docked')) w = Math.max(w, el.getBoundingClientRect().width); }
         document.documentElement.style.setProperty('--dock-w', w ? w + 'px' : '');
+        dockTabs.sync(fresh.at(-1));
       };
       const changed = Object.keys(PINS).some(k => (now[k] && !$(PINS[k][0]).hidden) !== was[k]);
       if (changed && anchor !== false) withAnchor(apply); else apply();
@@ -7307,26 +2927,20 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
   for (const k in PINS) {
     const el = $(PINS[k][0]), cl = $(PINS[k][1]); if (!el || !cl) continue;
     const b = document.createElement('button'); b.className = 'pinB'; b.type = 'button'; b.innerHTML = '<svg viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 16v6" fill="none"/><path d="M9 3h6l-1 6.5 3.2 3.2V15H6.8v-2.3L10 9.5z"/></svg>';
-    b.onclick = e => { e.stopPropagation(); pins[k] = !pins[k]; try { localStorage.setItem('pins', JSON.stringify(pins)); } catch { /* egal */ } pinSync(); };
+    b.onclick = e => { e.stopPropagation(); pins[k] = !pins[k];for(const o in PINS)pins[o]=pins[k]; if(!pins[k])dockTabs.remove(k); try { localStorage.setItem('pins', JSON.stringify(pins)); } catch { /* egal */ } pinSync(undefined,k); };
     cl.before(b);
     el.classList.add('pinp');
     new MutationObserver(() => pinSync()).observe(el, { attributes: true, attributeFilter: ['hidden'] });
-    if (window.ResizeObserver) new ResizeObserver(() => { if (el.classList.contains('docked')) { let w = 0; for (const o in PINS) { const e2 = $(PINS[o][0]); if (e2.classList.contains('docked')) w = Math.max(w, e2.getBoundingClientRect().width); } document.documentElement.style.setProperty('--dock-w', w ? w + 'px' : ''); } }).observe(el);
+    if (window.ResizeObserver) new ResizeObserver(() => requestAnimationFrame(()=>{ if (el.classList.contains('docked')) { let w = 0; for (const o in PINS) { const e2 = $(PINS[o][0]); if (e2.classList.contains('docked')) w = Math.max(w, e2.getBoundingClientRect().width); } document.documentElement.style.setProperty('--dock-w', w ? w + 'px' : ''); } })).observe(el);
   }
   pinSync(false);
+  window.LibraryPanelResize.create({panels:Object.values(PINS).map(p=>p[0]),setDockWidth:w=>window.setPanelW(w)});
   // nicht angepinnte Kommentare/Wörterbuch schließen beim Klick außerhalb (wie die anderen schwebenden Fenster)
   document.addEventListener('mousedown', e => {
     if (!e.target.closest || document.documentElement.dataset.tab === 'dict') return;
     if (e.target.closest('#cmtPanel, #dictPanel, #cmtBtn, #cmtResize, #rOut .lab, #suggest, #audioBar, #ctxMenu, #lkHover, #tip, #undoBar, #dheadPop, #dictSelP, dialog')) return;
     for (const k of ['cmt', 'dict']) { const el = $(PINS[k][0]); if (!el.hidden && !el.classList.contains('docked')) $(PINS[k][1]).click(); }
   });
-  $('#cmtLang').onchange = () => {
-    saveCmt(); // Auswahl der bisherigen Sprache sichern
-    cmtLang = $('#cmtLang').value;
-    const s0 = cmtByLang[cmtLang] || { sel: [], all: false, touched: false };
-    cmtSel = new Set(s0.sel || []); cmtAll = !!s0.all; cmtTouched = !!s0.touched; cmtLastChosen = [];
-    saveCmt(); renderCmt();
-  };
   document.addEventListener('keydown', e => { if ((e.metaKey || e.ctrlKey) && !e.shiftKey && !e.altKey && e.key.toLowerCase() === 'k') { e.preventDefault(); cmtFromBtn(); } });
   // Vers, den man gerade liest: Zeile im oberen Viertel des Textes
   function readingRow(rows) {
@@ -7389,7 +3003,7 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
     const lab = e.target.closest('.lab');
     if (!lab || e.target.closest('.bm') || e.target.closest('.lk, .mtj')) return;
     const row = lab.closest('.row[data-l]');
-    if (row) { AP.whole = false; cmtWhole = false; setCmtRow(row.dataset.l); if (!cmtOpen && !AP.open) toggleCmt(true); } // ein Klick auf den Vers öffnet die Kommentare (ist „Alles zu dieser Stelle“ offen, folgt dieses Fenster)
+    if (row) { AP.whole = false; cmtWhole = false; setCmtRow(row.dataset.l); if (!cmtOpen && !AP.open && $('#textcritPanel').hidden) toggleCmt(true); } // ein Klick auf den Vers öffnet die Kommentare (ist „Alles zu dieser Stelle“ offen, folgt dieses Fenster)
   });
   // Doppelklick auf die Versnummer öffnet den Kommentar-Bereich, derselbe Vers noch einmal schließt ihn
   let lastCmtDbl = null;
@@ -7413,185 +3027,6 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
       toggleBlock({ key: view.group.key, title: view.group.title, sk: sc.k, secLabel: sc.label, set: [...view.vf.set].sort((a, b) => a - b), vs: fmtVerses([...view.vf.set]) });
     }
   });
-  $('#cmtSum').onclick = () => {
-    cmtChipsOpen = !cmtChipsOpen;
-    try { localStorage.setItem('cmtChipsOpen', cmtChipsOpen ? '1' : '0'); } catch { /* egal */ }
-    renderCmt();
-  };
-  $('#cmtChips').addEventListener('click', e => {
-    const c = e.target.closest('.chip');
-    if (!c || c.classList.contains('off')) return;
-    const n = c.dataset.n;
-    cmtTouch();
-    if (cmtAll) { cmtAll = false; cmtSel = new Set(cmtAvailNames); }
-    if (cmtSel.has(n)) cmtSel.delete(n); else cmtSel.add(n);
-    saveCmt(); renderCmt();
-  });
-  function cmtTouch() { if (!cmtTouched) { cmtTouched = true; cmtSel = new Set(cmtLastChosen); try { localStorage.setItem('cmtTouched', '1'); } catch { /* egal */ } } }
-  // Schnellauswahl: Alle / Keine / Klassische; Filterfeld für die Namen
-  $('#cmtChips').addEventListener('click', e => {
-    const q = e.target.closest('button[data-q]');
-    if (!q) return;
-    cmtTouch();
-    if (q.dataset.q === 'all') { cmtAll = true; cmtSel = new Set(); }
-    else if (q.dataset.q === 'none') { cmtAll = false; cmtSel = new Set(); }
-    else { cmtAll = false; cmtSel = new Set(cmtAvailNames.filter(n => CMT_PRIO.includes(n))); }
-    saveCmt(); renderCmt();
-  });
-  const applyCmtFilter = () => {
-    const f = cmtFilterV.trim().toLowerCase();
-    $$('#cmtChips .chip').forEach(c => { c.hidden = !!f && !c.dataset.n.toLowerCase().includes(f); });
-  };
-  $('#cmtChips').addEventListener('input', e => { if (e.target.id === 'cmtFilter') { cmtFilterV = e.target.value; applyCmtFilter(); } });
-  // Höhe des festen Kopfes merken, damit die Kommentatornamen darunter hängen bleiben
-  try { new ResizeObserver(() => $('#cmtPanel').style.setProperty('--cmt-head-h', $('#cmtHead').offsetHeight + 'px')).observe($('#cmtHead')); } catch { /* egal */ }
-  // Rechtsklick auf einen Kommentatornamen: im Tab, neuen Tab oder zweiten Fenster öffnen
-  $('#cmtBody').addEventListener('contextmenu', e => {
-    const h = e.target.closest('h4[data-ref]');
-    const items = [];
-    const selTxt = (window.getSelection() + '').trim();
-    if (h) {
-      const ref = h.dataset.ref.replace(/-.*$/, '');
-      items.push({ label: 'Öffnen', fn: () => jumpTo(ref, false) }, { label: 'Im neuen Tab öffnen', fn: () => jumpTo(ref, true) });
-      if (!IS_PANE2) items.push({ label: 'Im zweiten Fenster öffnen', fn: () => openInPane2(null, { jump: ref }) });
-    }
-    if (selTxt) items.push({ label: I18N.t('Kopieren'), fn: () => navigator.clipboard.writeText(selTxt).catch(() => {}) });
-    // eine Zeile pro angezeigtem Kommentar: springt dorthin (klappt ihn bei Bedarf auf)
-    const cs = [...$$('#cmtBody .cmt')];
-    if (cs.length) {
-      if (items.length) items.push({ sep: true });
-      cs.forEach(c => items.push({ label: (c.classList.contains('closed') ? '▸ ' : '') + dispName(c.dataset.n) + (c.querySelectorAll('.cpart').length > 1 ? ` ×${c.querySelectorAll('.cpart').length}` : ''), fn: () => { c.classList.remove('closed'); cmtClosed.delete(c.dataset.n); const t = c.querySelector('.tg'); if (t) t.textContent = '▾'; panelScrollTo(c, 'start'); } }));
-    }
-    if (!items.length) return;
-    ctxShow(e, items);
-  });
-  $('#cmtBody').addEventListener('click', e => {
-    const jl = e.target.closest('a.jl');
-    if (jl) { const t = [...$$('#cmtBody .cmt')].find(x => x.dataset.n === jl.dataset.n); if (t) { t.classList.remove('closed'); cmtClosed.delete(jl.dataset.n); panelScrollTo(t, 'start'); } return; }
-    const h = e.target.closest('h4[data-ref]');
-    if (!h) return;
-    if (e.target.closest('.go')) return jumpTo(h.dataset.ref.replace(/-.*$/, ''), true);
-    const c = h.closest('.cmt'); if (!c) return; // Klick auf den Namen klappt diesen Kommentar ein/aus
-    const closed = c.classList.toggle('closed');
-    if (closed) cmtClosed.add(c.dataset.n); else cmtClosed.delete(c.dataset.n);
-    h.querySelector('.tg').textContent = closed ? '▸' : '▾';
-  });
-  // Beim Wechsel zu einem anderen Vers: an demselben Kommentator weiterlesen, an dem man gerade war (falls es ihn dort auch gibt)
-  let cmtKeepName = null;
-  function cmtTopName() {
-    const P = $('#cmtPanel'), cs = $$('#cmtBody .cmt');
-    if (!cs.length) return undefined; // gerade nichts angezeigt (z. B. „Lade …“): bisherigen Stand behalten
-    if (P.scrollTop < 8) return null;
-    const hb = $('#cmtHead').getBoundingClientRect().bottom;
-    const c = cs.find(x => x.getBoundingClientRect().bottom > hb + 24);
-    return c ? c.dataset.n : null;
-  }
-  function cmtRestoreTop() {
-    const P = $('#cmtPanel');
-    const c = cmtKeepName ? $$('#cmtBody .cmt').find(x => x.dataset.n === cmtKeepName) : null;
-    if (!c) { P.scrollTop = 0; return; }
-    const top = c.getBoundingClientRect().top - P.getBoundingClientRect().top + P.scrollTop - $('#cmtHead').offsetHeight - 8;
-    P.scrollTop = Math.max(0, top);
-  }
-  async function renderCmt() {
-    if (!cmtOpen) return;
-    { const n = cmtTopName(); if (n !== undefined) cmtKeepName = n; }
-    const token = ++cmtToken;
-    const virt = view && view.sres ? cmtVirt : null; // Suchtab: Stelle kommt aus der angeklickten Trefferzeile
-    const s = virt ? { label: virt.label } : (view && view.group && view.sections[view.idx]);
-    const whole = cmtWhole && !virt && !!s && secChapOf(s) != null; // ganzes Kapitel / ganze Seite
-    const v = whole ? 0 : rowVerse(cmtRow), page = whole && /[ab]$/i.test(secChapOf(s));
-    $('#cmtTitle').textContent = whole ? `${I18N.t('Kommentare zu')} ${view.group.title} ${s.label.replace(/^\D+/, '')} · ${I18N.t(page ? 'ganze Seite' : 'ganzes Kapitel')}`
-      : s && v != null ? `Kommentare zu ${virt ? virt.title : view.group.title} ${s.label.replace(/^\D+/, '')}:${cmtRow}` : 'Kommentare';
-    { const wb = $('#cmtWhole'); wb.hidden = whole || virt || !s || secChapOf(s) == null; wb.textContent = I18N.t(s && /[ab]$/i.test(secChapOf(s) || '') ? 'Ganze Seite' : 'Ganzes Kapitel'); wb.title = I18N.t('Kommentare zum ganzen Kapitel bzw. zur ganzen Seite'); }
-    if (!s) { $('#cmtChips').innerHTML = ''; $('#cmtSum').innerHTML = ''; $('#cmtBody').innerHTML = '<p class="muted">Öffne ein Buch.</p>'; return; }
-    if (!linksReady) { $('#cmtChips').innerHTML = ''; $('#cmtSum').innerHTML = ''; $('#cmtBody').innerHTML = '<p class="muted">Dafür werden die Verknüpfungen gebraucht: Reiter „Herunterladen“ → Karte „4 · Verknüpfungen“.</p>'; return; }
-    if (v == null) { $('#cmtChips').innerHTML = ''; $('#cmtSum').innerHTML = ''; $('#cmtBody').innerHTML = '<p class="muted">Klicke links bei einer Zeile auf die Versnummer.</p>'; return; }
-    // Kommentare zu diesem Vers, nach Kommentator gruppiert
-    const groupsC = new Map();
-    for (const x of secLinks) {
-      if (x.type !== 'commentary' || !(x.v1 > 0 && (whole || (v >= x.v1 && v <= x.v2)))) continue;
-      const book = splitOther(x.other);
-      const name = book.replace(/ on .*$/i, '');
-      if (!groupsC.has(name)) groupsC.set(name, { name, book, refs: [], vOf: new Map() });
-      const g0 = groupsC.get(name); if (!g0.vOf.has(x.other)) { g0.refs.push(x.other); g0.vOf.set(x.other, x.v1); }
-    }
-    if (whole) for (const g0 of groupsC.values()) g0.refs.sort((a, b) => g0.vOf.get(a) - g0.vOf.get(b)); // im ganzen Kapitel nach Versen
-    const local0 = localTitles(); const local = { has: b => local0.has(b) || local0.has(String(b).split(', ')[0]) };
-    const listPrio = [...groupsC.values()].sort((a, b) => {
-      const ia = CMT_PRIO.indexOf(a.name), ib = CMT_PRIO.indexOf(b.name);
-      return (local.has(b.book) - local.has(a.book)) || ((ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib)) || (b.refs.length - a.refs.length);
-    });
-    // Anzeige in der Reihenfolge der Bibliotheksliste links; die Rangfolge oben gilt nur für die Vorauswahl
-    const byT = new Map(groups.map(g => [g.title, g]));
-    const titleToGroup = t => byT.get(t) || byT.get(String(t).split(', ')[0]) || null;
-    const list = [...listPrio].sort((a, b) => libCmpGroups(titleToGroup(a.book), titleToGroup(b.book)) || titleCmp(a.book, b.book) || String(a.name).localeCompare(String(b.name)));
-    if (!list.length) { $('#cmtChips').innerHTML = ''; $('#cmtSum').innerHTML = ''; $('#cmtBody').innerHTML = '<p class="muted">Zu diesem Vers gibt es keine Kommentare in den Verknüpfungen.</p>'; return; }
-    // Nur Kommentatoren zählen als „vorhanden“, die lokal in der gewählten Sprache vorliegen (sonst wirkt die Liste vollständiger, als sie ist)
-    const byTitle = byT;
-    const LNm = { en: 'Englisch', de: 'Deutsch', he: 'Hebräisch' }[cmtLang];
-    const hasLang = b => { const g = byTitle.get(b) || byTitle.get(String(b).split(', ')[0]); return !!g && g.versions.some(v => v.kind === cmtLang); };
-    const avail = { has: b => local.has(b) && hasLang(b) };
-    // Auswahl: gemerkte Kommentatoren; beim ersten Mal die bekanntesten vorhandenen
-    cmtAvailNames = list.filter(g => avail.has(g.book)).map(g => g.name);
-    let chosen = cmtAll ? list.filter(g => avail.has(g.book)) : list.filter(g => cmtSel.has(g.name) && avail.has(g.book));
-    if (!cmtTouched) { const pre = new Set(listPrio.filter(g => avail.has(g.book)).slice(0, 2)); chosen = list.filter(g => pre.has(g)); }
-    cmtLastChosen = chosen.map(g => g.name);
-    const showAll = (cmtTouched && cmtAll) || (!cmtTouched && !chosen.length); // „Alle“ (oder nichts Vorausgewähltes): alle in dieser Sprache vorhandenen Kommentare zeigen
-    if (showAll) chosen = list.filter(g => avail.has(g.book));
-    const ok0 = g => avail.has(g.book);
-    const chip = g => {
-      const on = chosen.includes(g) && ok0(g), ok = avail.has(g.book);
-      const why = ok ? g.book : local.has(g.book) ? I18N.t('{} – lokal vorhanden, aber nicht auf {}', g.book, LNm) : I18N.t('{} – nicht in deiner Bibliothek', g.book);
-      return `<button class="chip ${on ? 'on' : ''} ${ok ? '' : 'off'}" data-n="${esc(g.name)}" title="${esc(why)}${g.refs.length > 1 ? ' · ' + I18N.t('{#} Stellen zu diesem Vers', g.refs.length) : ''}">${esc(dispName(g.name))}${g.refs.length > 1 ? ` <small class="cx">×${g.refs.length}</small>` : ''}</button>`;
-    };
-    const localL = list.filter(g => avail.has(g.book)), noLangL = list.filter(g => local.has(g.book) && !hasLang(g.book)), remoteL = list.filter(g => !local.has(g.book));
-    const sumTxt = !localL.length ? I18N.t('keiner auf {} vorhanden', LNm)
-      : showAll ? I18N.t('Alle {#} ({})', localL.length, LNm)
-      : chosen.length ? I18N.t('{#} von {#} gewählt', chosen.length, localL.length) + ': ' + esc(chosen.slice(0, 4).map(g => dispName(g.name)).join(', ')) + (chosen.length > 4 ? ' …' : '')
-      : I18N.t('keiner gewählt');
-    $('#cmtSum').innerHTML = `${cmtChipsOpen ? '▾' : '▸'} <b>Kommentatoren</b> <span class="muted">${sumTxt}</span>`;
-    $('#cmtChips').hidden = !cmtChipsOpen;
-    $('#cmtChips').innerHTML = `<div class="cq"><button data-q="all">Alle</button><button data-q="none">Keine</button><button data-q="classic" title="Rashi, Ibn Ezra, Ramban …">Klassische</button><input id="cmtFilter" type="search" placeholder="Name filtern …" value="${esc(cmtFilterV)}" autocomplete="off"></div>`
-      + localL.map(chip).join('')
-      + (noLangL.length ? `<details><summary>${noLangL.length} lokal, aber nicht auf ${LNm}</summary><div>${noLangL.map(chip).join('')}</div></details>` : '')
-      + (remoteL.length ? `<details><summary>${remoteL.length} nicht in deiner Bibliothek</summary><div>${remoteL.map(chip).join('')}</div></details>` : '');
-    applyCmtFilter();
-    if (!chosen.length) { $('#cmtBody').innerHTML = '<p class="muted">Wähle oben einen Kommentator. Grau dargestellte Kommentatoren musst du erst im Reiter „Herunterladen“ laden.</p>'; return; }
-    $('#cmtBody').innerHTML = '<p class="muted">Lade …</p>';
-    const refs = chosen.flatMap(g => g.refs);
-    const res = await LK.texts(refs, cmtLang, true);
-    if (token !== cmtToken) return; // inzwischen anderer Vers
-    const LN = { en: 'Englisch', de: 'Deutsch', he: 'Hebräisch' }[cmtLang];
-    const hasTxt = g => g.refs.some(r => res[r] && res[r].items);
-    const gaps = showAll ? chosen.filter(g => !hasTxt(g)) : []; // ohne Auswahl: Kommentatoren ohne Text in dieser Sprache nur als Hinweis
-    if (showAll) chosen = chosen.filter(hasTxt);
-    const gapNote = gaps.length ? `<p class="muted">${I18N.t('Kein ' + { en: 'Englischer', de: 'Deutscher', he: 'Hebräischer' }[cmtLang] + ' Text zu diesem Vers:')} ${gaps.map(g => esc(g.name) + ' ' + (g.refs.every(r => res[r] && res[r].missing) ? I18N.t('(keine Fassung in dieser Sprache geladen)') : I18N.t('(Vers fehlt in der Fassung)'))).join(', ')}</p>` : '';
-    if (!chosen.length) { $('#cmtBody').innerHTML = gapNote || `<p class="muted">${I18N.t('Keine lokalen Kommentare in der Sprache {} zu diesem Vers.', LN)}</p>`; return; }
-    // Sprungliste zu den einzelnen Kommentatoren: per Rechtsklick im Kommentarbereich
-    $('#cmtBody').innerHTML = chosen.map(g => {
-      const seenTxt = new Set();
-      let partNo = 0;
-      const parts = g.refs.map(r => {
-        const t = res[r];
-        if (!t || !t.items) return `<div class="none">${esc(r)} – ${t && t.missing ? I18N.t('keine Fassung auf {} geladen', LN) : I18N.t('Vers fehlt in der ' + { en: 'Englischen', de: 'Deutschen', he: 'Hebräischen' }[cmtLang] + ' Fassung')}</div>`;
-        const he = t.kind === 'he';
-        const sig = t.items.join('\u0001'); if (seenTxt.has(sig)) return ''; seenTxt.add(sig); // gleiche Stelle mehrfach verknüpft: nur einmal zeigen
-        const vh = whole ? (vn => vn !== g.lastV ? (g.lastV = vn, `<div class="cvn" data-l="${vn}">${esc(I18N.t(page ? 'Segment' : 'Vers'))} ${vn}</div>`) : '')(g.vOf.get(r)) : '';
-        return vh + (g.refs.length > 1 && !vh ? `<div class="cpart" data-k="${++partNo}"></div>` : '') + t.items.map(x => {
-          // Fußnoten im Kommentar-Bereich: Zeichen im Text, Fußnotentext direkt dahinter (Einstellung „Fußnoten“ wie im Lesetext)
-          const sp = R.splitFootnotes(he ? stripHe(x) : x);
-          const inl = R.cleanHtml(sp.main).replace(/<sup>.*?<\/sup>/g, '').replace(/<sup data-fn="(\d{1,4})">(.*?)<\/sup>/g, (m, i) => { const n = sp.notes[+i]; return n ? `${m}<span class="note" data-fn="${i}"><span class="nm">${esc(n.marker)}</span> ${R.cleanHtml(n.html)}</span>` : m; });
-          return `<div class="ct" dir="${he ? 'rtl' : 'ltr'}">${window.AutoRef.link(inl, { last: '', trad: versOf({ entry: { rel: t.rel, title: g.book, versionTitle: t.versionTitle } }, 'cites'), note: versNoteText })}</div>`;
-        }).join('');
-      }).join('');
-      const cl = cmtClosed.has(g.name);
-      return `<div class="cmt${cl ? ' closed' : ''}" data-n="${esc(g.name)}"><h4 data-ref="${esc(g.refs[0])}" title="Klick: Kommentar ein-/ausklappen · ↗: öffnet ${esc(g.book)} in einem neuen Tab · Rechtsklick: weitere Möglichkeiten"><span class="tg">${cl ? '▸' : '▾'}</span> ${(p => p ? `<img class="vpic" src="portraits/${encodeURIComponent(p.img)}" alt="" data-title="${esc(p.name || '')}" loading="lazy">` : '')(portraitOf(g.name) || g.refs.map(r => res[r] && res[r].versionTitle && portraitOf(res[r].versionTitle)).find(Boolean) || portraitOf(g.book))}${esc(dispName(g.name))}${g.refs.length > 1 ? ` <small class="cx" title="Stellen zu diesem Vers">×${g.refs.length}</small>` : ''}<span class="go" title="Buch im neuen Tab öffnen">↗</span></h4>${parts}</div>`;
-    }).join('') + gapNote;
-    cmtRestoreTop();
-    if (!fb.hidden && fTerm) runFind(fTerm, true); // Suche im Kommentar-Bereich nach dem Neuaufbau erneuern
-  }
-
   // ---------- Alles zu dieser Stelle: ein Fenster mit festen Fächern zum gewählten Vers / Segment ----------
   // Zusammengestellt wird nur, was die anderen Fenster ohnehin schon geladen haben (Verknüpfungen des Abschnitts, Themen, Orte, Gliederung, Notizen);
   // die Verteilung auf die Fächer macht passage.js. Das Fenster folgt dem gewählten Vers (Klick auf die Versnummer, j/k, ▲▼).
@@ -7617,10 +3052,10 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
     if (!s) return null; const first = s.label.split(' › ')[0];
     let m = s.path.length === 1 && !s.label.includes('›') && first.match(/(\d+[ab]?)$/i);
     if (!m && s.path.length === 2 && s.path.every(x => typeof x === 'number')) m = [null, (s.path[0] + 1) + ':' + (s.path[1] + 1)];
-    if (!m && secNode(s)) m = [null, String(s.path[1] + 1)];
+    if (!m && linksUI.secNode(s)) m = [null, String(s.path[1] + 1)];
     return m ? m[1] : null;
   };
-  const apRefLabel = ref => { const bk = splitOther(ref), de = I18N.lang === 'de' ? deNames(bk).split(' / ')[0] : ''; return (de || bk) + String(ref).slice(bk.length).replace(/-/g, '–'); };
+  const apRefLabel = ref => { const bk = linksUI.splitOther(ref), de = I18N.lang === 'de' ? deNames(bk).split(' / ')[0] : ''; return (de || bk) + String(ref).slice(bk.length).replace(/-/g, '–'); };
   function apSoon() { if (!AP || !AP.open) return; clearTimeout(AP.t); AP.t = setTimeout(apRender, 40); }
   function apPickRow() { // gewählter Vers, sonst der markierte, sonst der gerade gelesene
     const rows = $$('#rOut .row[data-l]'); if (!rows.length) return null;
@@ -7631,52 +3066,124 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
     const top = $('#stick') ? $('#stick').getBoundingClientRect().bottom : 0; // sonst die erste Zeile, die ganz zu sehen ist
     return rows.find(r => rowVerse(r.dataset.l) != null && r.getBoundingClientRect().top >= top - 4 && onScreen(r)) || readingRow(rows.filter(x => rowVerse(x.dataset.l) != null)) || rows[0];
   }
-  function apToggle(force, label) {
+  const apStates=new Map();
+  function apRemember(){
+    if(!AP.key||!$('#apBody .apScope')||!$('#allPanel').getClientRects().length)return;
+    const scopes={};for(const pane of $$('#apBody .apScope'))scopes[pane.dataset.scope]={tab:pane.querySelector('.apSeg button.on')?.dataset.seg,more:[...pane.querySelectorAll('.apMore')].map(x=>!x.hidden),details:[...pane.querySelectorAll('details')].map(x=>x.open),profile:pane.querySelector('.apProfile')?.scrollLeft||0};
+    apStates.delete(AP.key);apStates.set(AP.key,{scopes,scope:$('#apBody .apScopeSw button.on')?.dataset.scope,scroll:$('#allPanel').scrollTop});
+    while(apStates.size>24)apStates.delete(apStates.keys().next().value);
+  }
+  function apRestore(){
+    const state=apStates.get(AP.key);if(!state)return;
+    for(const pane of $$('#apBody .apScope')){const s=state.scopes[pane.dataset.scope];if(!s)continue;
+      pane.querySelector('.apSeg button[data-seg="'+s.tab+'"]')?.click();
+      [...pane.querySelectorAll('.apMore')].forEach((x,i)=>{if(s.more[i]!==undefined&&x.hidden===s.more[i])x.nextElementSibling?.click();});
+      [...pane.querySelectorAll('details')].forEach((x,i)=>{if(s.details[i]!==undefined)x.open=s.details[i];});
+      const profile=pane.querySelector('.apProfile');if(profile)profile.scrollLeft=s.profile;
+    }
+    if(state.scope)$('#apBody .apScopeSw button[data-scope="'+state.scope+'"]')?.click();
+    const key=AP.key,token=AP.token;requestAnimationFrame(()=>{if(key===AP.key&&token===AP.token)$('#allPanel').scrollTop=state.scroll;});
+  }
+  function apToggle(force, label, restore) {
+    apRemember();const wasOpen=AP.open;
     AP.open = force == null ? !AP.open : !!force;
-    if (AP.open) AP.whole = label == null; // über den Knopf: ganzes Kapitel; über eine Zeile (Kontextmenü): dieser Vers
+    if (AP.open&&!restore&&(!wasOpen||label!=null)) AP.whole = label == null; // über den Knopf: ganzes Kapitel; über eine Zeile (Kontextmenü): dieser Vers
     $('#allPanel').hidden = !AP.open;
     $('#apBtn').classList.toggle('active', AP.open);
-    if (!AP.open) { hovApi && hovApi.hide(); return; }
+    if (!AP.open) { linksUI.hovApi && linksUI.hovApi.hide(); return; }
     if (label != null && label !== cmtRow) setCmtRow(label); // die Markierung der Zeile ist dieselbe wie beim Kommentar-Bereich
-    AP.key = ''; apRender();
+    apRender();
   }
-  // Statistik: Belege eines Lemmas im Tanach (aus dem Formen-Index, zwischengespeichert) und Zahl aller Wörter
-  const apTot = new Map(), apBk = new Map(); let apN = 0, apCur = null;
-  function apStats(rows, D, book) {
-    if (!apN) { for (const k of Object.keys(D.lem || {})) { const m = window.Forms.model(D, k); if (m) apN += m.total; } apN = apN || 300000; }
-    const mdl = l => { let m = null; try { m = window.Forms.model(D, l); } catch { m = null; } return m; };
-    const tot = l => { if (!apTot.has(l)) { const m = mdl(l); apTot.set(l, m ? m.total : 0); } return apTot.get(l); };
-    const bookTot = l => { const k = book + '|' + l; if (!apBk.has(k)) { const m = mdl(l); let n = 0; try { const d = m && window.Forms.dist(D, m).find(x => x.book === book); n = d ? d.n : 0; } catch { n = 0; } apBk.set(k, n); } return apBk.get(k); };
-    return window.Passage.stats(window.Passage.words(rows.join(' ')), { tot, N: apN, verses: rows.length, bookTot });
+  let apCur=null,apComparison='book',apStatsDataPromise=null;
+  const apMarkKey=()=>view?.group&&view?.sections?.[view.idx]?view.group.key+'|'+view.sections[view.idx].k:'';
+  const apMarks=window.LibraryPassageMarks.create({root:$('#rOut'),getKey:apMarkKey});
+  function apMarkApply(mode,scope){
+    const st=apCur?.[scope];if(!st){apMarks.clear();return;}
+    const xs=mode==='names'?st.names:mode==='rare'?st.rareByCorpus[apComparison]:st.comparisons[apComparison];
+    const corpus=apComparison==='book'?I18N.t('Buch: {}',st.book):I18N.t('Gesamter Tanach');
+    apMarks.set({key:apMarkKey(),mode,scope,ids:xs.map(r=>r.w.lemma),verses:st.evidence.map(x=>String(x.verse)),label:I18N.t(mode==='names'?'Namen':mode==='rare'?'Seltene Wörter':'Auffällig häufig')+' · '+corpus});
+  }
+  function apMarkRefresh(){if(!AP.open){apMarks.sync();return;}const pane=$$('#apBody .apScope').find(p=>!p.hidden),mode=pane?.querySelector('.apSeg button.on')?.dataset.seg;if(pane&&['lead','rare','names'].includes(mode))apMarkApply(mode,pane.dataset.scope);else{const mark=apMarks.snapshot();if(pane&&mark?.key===apMarkKey()&&mark.scope===pane.dataset.scope&&mark.mode===mode)apMarks.sync();else apMarks.clear();}}
+
+  function apSelectEntry(button){
+    const scope=button.closest('.apScope')?.dataset.scope,st=apCur?.[scope];if(!st)return;
+    const kind=button.dataset.apSelect,value=button.dataset.value,base={key:apMarkKey(),scope,selection:kind+':'+value,mode:kind,verses:st.evidence.map(e=>String(e.verse)),ids:[]};
+    const lem=window.OSHB_LEMMAS||{};
+    if(kind==='roots'){const f=st.families[+value];if(!f)return;base.ids=f.items.map(r=>r.w.lemma);base.label=I18N.t('Wurzeln')+' · '+f.root;}
+    if(kind==='names'){base.ids=[value];base.label=I18N.t('Namen')+' · '+(lem[value]?.[0]||button.textContent);}
+    if(kind==='verbs'){const f=st.forms[+value];if(!f)return;base.code=f.code;base.label=I18N.t('Verbformen')+' · '+[f.stem,I18N.t(f.tense),f.info].filter(Boolean).join(' · ');}
+    if(kind==='stem'||kind==='tense'){base[kind]=value;base.label=I18N.t('Verbformen')+' · '+I18N.t(value);base.mode='verbs';}
+    if(kind==='phrases'){const p=st.phrases[+value];if(!p)return;base.sequence=p.tokens.map(t=>({lang:t.lang,lemma:t.lemma}));base.label=I18N.t('Wortverbindungen')+' · '+p.tokens.map(t=>lem[t.lemma]?.[0]||t.word).join(' ');}
+    apMarks.set(base);
+  }
+
+  try{if(localStorage.getItem('passageComparison')==='tanakh')apComparison='tanakh';}catch{}
+  const loadPassageStats=()=>apStatsDataPromise||(apStatsDataPromise=wordCardsUI.lazyScript('passage-stats-data.js',()=>window.PASSAGE_STATS_DATA).catch(e=>{apStatsDataPromise=null;throw e;}));
+  function apStats(rows,index,book,chapter){const st=window.PassageStatistics.analyze(rows,index,book,chapter);if(st){st.chapter=Number(chapter);st.profile=window.PassageStatistics.profile(rows,index,book,chapter,linksUI.secLinks);}return st;}
+  const chapterCompareDocs=new Map();
+  const chapterCompare=window.LibraryChapterComparison.create({root:$('#apBody'),esc,index:loadPassageStats,
+    books:()=>[...new Set(groups.filter(g=>linksUI.TANAKH_BOOKS.has(g.title)&&g.versions.some(v=>v.kind==='he'&&/^Westminster/.test(v.versionTitle||''))).map(g=>g.title))],
+    load:async book=>{const entry=groups.find(g=>g.title===book&&g.versions.some(v=>v.kind==='he'&&/^Westminster/.test(v.versionTitle||'')))?.versions.find(v=>v.kind==='he'&&/^Westminster/.test(v.versionTitle||''));if(!entry)throw Error('MT missing');if(!chapterCompareDocs.has(entry.rel))chapterCompareDocs.set(entry.rel,Promise.resolve(cache.get(entry.rel)||O.read(entry.rel)).catch(e=>{chapterCompareDocs.delete(entry.rel);throw e;}));return chapterCompareDocs.get(entry.rel);}
+  });
+  function apChapterCompareMount(pane){const box=pane.querySelector('.apChapterCompare');if(box&&apCur?.c)chapterCompare.mount(box,{book:apCur.c.book,chapter:apCur.c.chapter,scope:pane.dataset.scope});}
+  function apVerseProfile(st){
+    const metrics=[['words','Wörter',p=>p.words],['rare','Seltene Wörter',p=>p.rare[apComparison]],['comments','Erfasste Kommentare',p=>p.comments],['sources','Quellenarten',p=>p.sourceKinds]],ps=st.profile||[];
+    return `<p class="muted apHow">${esc(I18N.t('Ein Balken pro Vers. Klick führt zum Lesetext; die Balkenhöhe ist je Zeile auf den höchsten Kapitelwert skaliert.'))} ${esc(I18N.t('Bei langen Kapiteln seitlich scrollen.'))}</p><div class="apProfile" role="group" aria-label="${esc(I18N.t('Versprofil'))}"><div class="apProfileGrid" style="--profile-verses:${ps.length}"><span class="apProfileLabel">${esc(I18N.t('Vers'))}</span>${ps.map(p=>`<button type="button" data-stat-verse="${esc(p.verse)}" class="apProfileVerse" aria-label="${esc(I18N.t('Vers {}',p.verse))}">${esc(p.verse)}</button>`).join('')}${metrics.map(([key,label,value])=>{const max=Math.max(1,...ps.map(value));return `<span class="apProfileLabel">${esc(I18N.t(label))}</span>`+ps.map(p=>{const n=value(p),description=I18N.t('Vers {}',p.verse)+' · '+I18N.t(label)+': '+n;return `<button type="button" class="apProfileBar" data-metric="${key}" data-stat-verse="${esc(p.verse)}" data-count="${n}" style="--bar-height:${35*n/max}px" title="${esc(description)}" aria-label="${esc(description)}"><span>${n}</span><i aria-hidden="true"></i></button>`;}).join('');}).join('')}</div></div><p class="muted apNote">${esc(I18N.t('Seltene Wörter: Belege mit 1–19 Vorkommen im gewählten Buch oder Tanach. Kommentare: erfasste versbezogene Verknüpfungen. Quellenarten: Samaritanus, Septuaginta, Qumran und Kennicott, höchstens vier.'))}</p>`;
   }
   function apStatsHtml(stC, stV, v) {
     const scopeHtml = (st, scope) => apStatsScope(st, scope, scope === 'v' ? v : 0);
+    if(stV)stV.profile=stC.profile;
     apCur = { c: stC, v: stV };
     return `${stV ? `<div class="apSeg apScopeSw">${[['v', I18N.t('Vers {}', v)], ['c', I18N.t('Kapitel')]].map(([k, t], i) => `<button type="button" data-scope="${k}"${i ? '' : ' class="on"'}>${esc(t)}</button>`).join('')}</div>` : ''}${stV ? `<div class="apScope" data-scope="v">${scopeHtml(stV, 'v')}</div><div class="apScope" data-scope="c" hidden>${scopeHtml(stC, 'c')}</div>` : `<div class="apScope" data-scope="c">${scopeHtml(stC, 'c')}</div>`}`;
   }
   function apStatsScope(st, scope, v) {
     const LEM = window.OSHB_LEMMAS || {}, L = I18N.lang, n = x => x.toLocaleString(I18N.loc);
     const gl = r => { const lem = LEM[r.w.lemma]; return lem ? (L === 'de' && lem[2] ? lem[2] : lem[1]) : ''; };
-    // eine Zeile je Wort: Wort mit Bedeutung, wie oft hier, wie oft im Tanach
-    const row = (r, mode) => { const lem = LEM[r.w.lemma], share = r.T ? r.n / r.T : 0;
-      const txt = mode === 'tanakh' ? `<b>${n(r.T)}×</b> <span class="muted">${esc(I18N.t('im Tanach'))}</span>` : mode === 'here' ? `<b>${r.n}×</b> <span class="muted">${esc(I18N.t('hier'))}</span>`
-        : `<b>${r.n}×</b> <span class="muted">${esc(I18N.t('hier'))} · ${esc(I18N.t('von {} im Tanach', n(r.T)))}</span>${share >= 0.5 && r.T > 1 ? ` <em class="apOnly">${esc(I18N.t('fast nur hier'))}</em>` : ''}`;
-      return `<div class="apRow" title="${esc(I18N.t('{} der {} Belege im ganzen Tanach stehen in diesem Kapitel', r.n, n(r.T)))}"><button type="button" class="apW" data-lemma="${esc(r.w.lemma)}" data-word="${esc(r.w.raw)}"><span class="f" lang="he" dir="rtl">${esc(lem ? lem[0] : r.w.word)}</span></button><span class="apRg" dir="auto">${esc(gl(r))}</span><span class="apRn">${txt}</span></div>`; };
-    const list = (xs, mode, cap = 10) => apList(xs.map(r => row(r, mode)), cap);
-    const bar = (label, v, pct) => `<div class="apBarRow"><span class="apBl">${esc(label)}</span><i class="apBar"><b style="width:${Math.max(2, Math.min(100, pct))}%"></b></i><span class="apBn">${v}</span></div>`;
-    const panes = {
-      lead: `<p class="muted apHow">${esc(scope === 'v' ? I18N.t('Leitwörter des Kapitels, die in diesem Vers stehen (Zahlen: im Kapitel, im Tanach).') : I18N.t('Wörter, die in diesem Kapitel viel häufiger vorkommen als im übrigen Tanach – sie tragen das Thema.'))}</p>${st.lead.length ? list(st.lead, 'ratio') : `<p class="muted">${esc(I18N.t('Keine auffälligen Leitwörter.'))}</p>`}`,
-      vocab: `<p class="muted apHow">${esc(I18N.t('Wörter des Kapitels nach ihrer Häufigkeit im Tanach – selten ist schwer.'))}</p>${st.tiers.map(t => `<details class="apTier"${t.items.length <= 12 && t.key !== '>500' ? ' open' : ''}><summary><b>${esc(t.key === '1' ? I18N.t('nur einmal im Tanach') : I18N.t('{}× im Tanach', t.key))}</b> <small>${n(t.items.length)}</small></summary>${list(t.items, 'tanakh', 12)}</details>`).join('')}
-        ${st.only.length ? `<h6>${esc(I18N.t('Nur in diesem Buch'))} <small>${n(st.only.length)}</small></h6>${list(st.only, 'ratio', 8)}` : ''}
-        <button type="button" class="apCopy" data-act="copyvocab">${esc(I18N.t('Vokabelliste kopieren'))} <small>${n(st.vocab.length)}</small></button>`,
-      verbs: `${st.stems.length ? `<p class="muted apHow">${esc(I18N.t('Verbformen im Kapitel nach Stamm'))}</p>${st.stems.map(x => bar(x.stem, n(x.n), x.pct)).join('')}<h6>${esc(I18N.t('Häufigste Verben'))}</h6>${list(st.verbs, 'here')}` : `<p class="muted">${esc(I18N.t('Keine Verben.'))}</p>`}`,
-      names: st.names.length ? `<p class="muted apHow">${esc(I18N.t('Namen von Personen und Orten im Kapitel.'))}</p>${list(st.names, 'ratio', 12)}` : `<p class="muted">${esc(I18N.t('Keine Eigennamen.'))}</p>`,
+    const rateLabel=value=>value==null?'—':value>0&&value<0.1?'< '+(0.1).toLocaleString(I18N.loc):value.toLocaleString(I18N.loc,{maximumFractionDigits:1});
+    const rateScales={ratio:Math.max(1,...st.comparisons[apComparison].flatMap(x=>[x.rateHere,x.rateRest])),rare:Math.max(1,...st.rareByCorpus[apComparison].flatMap(x=>[x.rateHere,x.rateRest??0]))};
+    const row = (r, mode, select = false) => {
+      const lem=LEM[r.w.lemma],total=apComparison==='book'?r.B:r.T;
+      const txt=mode==='corpus'?`${n(total||0)}× ${esc(I18N.t(apComparison==='book'?'im Buch':'im Tanach'))}`:mode==='here'?`${r.n}× ${esc(I18N.t('hier'))}`:mode==='rare'?`${r.n}× ${esc(I18N.t('hier'))} · ${n(r.B)}× ${esc(I18N.t('im Buch'))} · ${n(r.T)}× ${esc(I18N.t('im Tanach'))}`:`${r.n}× ${esc(I18N.t('hier'))} · ${n(total||0)}× ${esc(I18N.t(apComparison==='book'?'im Buch':'im Tanach'))}`;
+      const share=window.PassageStatistics.concentration(r.n,total),only=['ratio','rare'].includes(mode)&&share!==null?` <em class="apOnly" data-corpus="${apComparison}" data-share="${share}" title="${esc(I18N.t('{} % der Belege in {} stehen in dieser Auswahl.',share,apComparison==='book'?st.book:I18N.t('Gesamter Tanach')))} ${esc(I18N.t('Markiert ab 50 % bei mindestens zwei Belegen im Vergleichskorpus.'))}">${esc(I18N.t('fast nur hier'))}</em>`:'';
+      const rates=['ratio','rare'].includes(mode)&&Number.isFinite(r.rateHere),scale=rateScales[mode]||1;
+      const graph=rates?`<span class="apRateGraph" role="img" aria-label="${esc(I18N.t('Je 1.000: {} hier · {} sonst',rateLabel(r.rateHere),rateLabel(r.rateRest)))}">${[[r.rateHere,'hier','here'],[r.rateRest,'im Rest','rest']].map(([value,label,kind])=>`<span class="apRateLine ${kind}"><span>${esc(I18N.t(label))}</span><i><b style="width:${100*(value??0)/scale}%"></b></i><small>${esc(rateLabel(value))}</small></span>`).join('')}</span>`:'';
+      return `<div class="apRow${rates?' apRateRow':''}"><button type="button" class="apW"${select?` data-ap-select="names" data-value="${esc(r.w.lemma)}" title="${esc(I18N.t('Im Lesetext markieren'))}"`:""} data-lemma="${esc(r.w.lemma)}" data-word="${esc(r.w.raw)}" data-l="${esc(r.w.l)}" data-m="${esc(r.w.m)}"><span class="f" lang="he" dir="rtl">${esc(lem?lem[0]:r.w.word)}</span></button><span class="apRg" dir="auto">${esc(gl(r))}</span><span class="apRn">${txt}${only}${graph}</span>${select?`<button type="button" class="apW apCardOpen" data-lemma="${esc(r.w.lemma)}" data-word="${esc(r.w.raw)}" data-l="${esc(r.w.l)}" data-m="${esc(r.w.m)}" title="${esc(I18N.t('Wortkarte'))}" aria-label="${esc(I18N.t('Wortkarte'))}">א↗</button>`:""}</div>`;
     };
-    const segs = [['lead', 'Leitwörter'], ['vocab', 'Vokabeln'], ['verbs', 'Verben'], ['names', 'Namen']];
-    return `<p class="apSum">${esc(scope === 'v' ? I18N.t('{} Wörter, {} verschiedene Wörter (Lemmata). {} % der Wörter kommen im Tanach mehr als 100-mal vor (Grundwortschatz).', n(st.words), n(st.lemmas), st.common) : I18N.t('{} Wörter in {} Versen, {} verschiedene Wörter (Lemmata). {} % der Wörter kommen im Tanach mehr als 100-mal vor (Grundwortschatz).', n(st.words), n(st.verses), n(st.lemmas), st.common))}</p>
-      <div class="apSeg" role="tablist">${segs.map(([k, l], i) => `<button type="button" data-seg="${k}"${i ? '' : ' class="on"'}>${esc(I18N.t(l))}</button>`).join('')}</div>
+    const list = (xs, mode, cap = 10, select = false) => apList(xs.map(r => row(r, mode, select)), cap);
+    const bar = (label, v, pct, kind, value) => `<button type="button" class="apBarRow apBarChoice" data-ap-select="${kind}" data-value="${esc(value)}" title="${esc(I18N.t('Im Lesetext markieren'))}"><span class="apBl">${esc(label)}</span><i class="apBar"><b style="width:${Math.max(2, Math.min(100, pct))}%"></b></i><span class="apBn">${v}</span></button>`;
+    const verseButton=verse=>`<button type="button" class="apStatVerse" data-stat-verse="${esc(verse)}">${esc(I18N.t('Vers {}',verse))}</button>`;
+    const lead=st.comparisons[apComparison],rare=st.rareByCorpus[apComparison],vocabulary=st.vocabularyByCorpus[apComparison],sourceLabels=[[1,'Samaritanus','Tal','Anmerkungen von Tal–Florentin zum samaritanischen Text; auch sprachliche Hinweise.'],[2,'Septuaginta','Tov / CATSS','Hinweise von Tov/CATSS zur griechisch-hebräischen Zuordnung und Übersetzung.'],[4,'Qumran','Transkription','Transkriptionsmaterial zu diesem Vers; es kann rekonstruierte Teile enthalten.'],[8,'Kennicott','Anmerkungen','Erfasste Editionsanmerkungen; darunter auch Schreibweisen und Buchstabengestaltung.']];
+    const panes = {
+      chaptercompare:'<div class="apChapterCompare"></div>',
+      profile:apVerseProfile(st),
+      lead:`<p class="muted apHow">${esc(I18N.t('Nach relativer Häufigkeit gegenüber dem übrigen Vergleichskorpus sortiert. Das ist ein statistischer Hinweis, keine Themenbestimmung.'))}</p><p class="apRateLegend muted">${esc(I18N.t('Balken: Vorkommen je 1.000 Wörter, für alle Zeilen gleich skaliert. Blau: Auswahl. Gold: übriges Vergleichskorpus.'))}</p>${!st.comparisonAvailable[apComparison]?`<p class="muted">${esc(I18N.t('Die Auswahl umfasst das gesamte Vergleichskorpus.'))}</p>`:lead.length?list(lead,'ratio'):`<p class="muted">${esc(I18N.t('Keine auffällig häufigen Wörter.'))}</p>`}`,
+      rare:`<p class="muted apHow">${esc(apComparison==='book'?I18N.t('Selten: 1–19 Belege des Lemmas im Buch {}. Nach Buchhäufigkeit sortiert; Tanachzahlen bleiben sichtbar.',st.book):I18N.t('Selten: 1–19 Belege des Lemmas im gesamten Tanach. Nach Tanachhäufigkeit sortiert; Buchzahlen bleiben sichtbar.'))}</p><p class="apRateLegend muted">${esc(I18N.t('Balken: Vorkommen je 1.000 Wörter, für alle Zeilen gleich skaliert. Blau: Auswahl. Gold: übriges Vergleichskorpus.'))}</p>${!st.comparisonAvailable[apComparison]?`<p class="muted">${esc(I18N.t('Die Auswahl umfasst das gesamte Vergleichskorpus.'))}</p>`:''}${rare.length?list(rare,'rare',15):`<p class="muted">${esc(I18N.t('Keine seltenen Wörter in dieser Auswahl.'))}</p>`}`,
+      roots:`<p class="muted apHow">${esc(I18N.t('Wortfamilien nach ausdrücklichen Wurzelverweisen im Open-Scriptures-Lexikon; gleich geschriebene Wurzeln werden nicht automatisch zusammengeführt.'))}</p>${st.families.length?apList(st.families.map((f,i)=>`<details class="apFamily" open><summary data-ap-select="roots" data-value="${i}" title="${esc(I18N.t('Wortfamilie im Lesetext markieren'))}"><bdi lang="he" dir="rtl">${esc(f.root)}</bdi> · ${f.n}× · ${f.items.length} ${esc(I18N.t('Lemmata'))}</summary>${list(f.items,'here')}</details>`),8):`<p class="muted">${esc(I18N.t('Keine ausdrücklich erfassten Wurzelbezüge in dieser Auswahl.'))}</p>`}<p class="muted apNote">${esc(I18N.t('{} von {} Wörtern mit erfasstem Wurzelbezug.',st.rootWords,st.words))} Open Scriptures HebrewLexicon · CC BY 4.0.</p>`,
+      vocab:`<p class="muted apHow">${esc(apComparison==='book'?I18N.t('Vokabular nach der Häufigkeit im Buch {}.',st.book):I18N.t('Vokabular nach der Häufigkeit im gesamten Tanach.'))}</p>${vocabulary.tiers.map(t=>`<details class="apTier"${t.items.length<=12&&t.key!=='>500'?' open':''}><summary><b>${esc(t.key==='1'?I18N.t(apComparison==='book'?'nur einmal im Buch':'nur einmal im Tanach'):I18N.t(apComparison==='book'?'{}× im Buch':'{}× im Tanach',t.key))}</b> <small>${n(t.items.length)}</small></summary>${list(t.items,'corpus',12)}</details>`).join('')}${st.only.length?`<h6>${esc(I18N.t('Nur in diesem Buch'))}</h6>${list(st.only,'ratio',8)}`:''}<button type="button" class="apCopy" data-act="copyvocab">${esc(I18N.t('Vokabelliste kopieren'))} <small>${n(vocabulary.vocab.length)}</small></button>`,
+      verbs:st.stems.length?`<h6>${esc(I18N.t('Verbstämme'))}</h6>${st.stems.map(x=>bar(x.stem,n(x.n),x.pct,'stem',x.stem)).join('')}<h6>${esc(I18N.t('Verbformen'))}</h6>${st.tenses.map(x=>bar(I18N.t(x.tense),n(x.n),x.pct,'tense',x.tense)).join('')}${apList(st.forms.map((f,i)=>`<div class="apRow apMorphRow"><small>${esc(I18N.t('z. B.'))}</small><button type="button" title="${esc(I18N.t('Im Lesetext markieren'))} · ${esc(I18N.t('Beispielform; die Anzahl gilt für diesen Morphologietyp.'))}" class="apW" data-ap-select="verbs" data-value="${i}" data-lemma="${esc(f.lemma)}" data-word="${esc(f.raw)}" data-l="${esc(f.l)}" data-m="${esc(f.m)}"><bdi lang="he" dir="rtl">${esc(f.word)}</bdi></button><span>${esc(f.stem)} · ${esc(I18N.t(f.tense))} · ${esc(L==='de'?f.info:f.info.replace(/Pers\./g,'pers.').replace(/Sg\./g,'sg.').replace(/Pl\./g,'pl.').replace(/Du\./g,'du.'))}</span><b>${f.n}×</b><button type="button" class="apW apCardOpen" data-lemma="${esc(f.lemma)}" data-word="${esc(f.raw)}" data-l="${esc(f.l)}" data-m="${esc(f.m)}" title="${esc(I18N.t('Wortkarte'))}" aria-label="${esc(I18N.t('Wortkarte'))}">א↗</button></div>`),12)}`:`<p class="muted">${esc(I18N.t('Keine Verben.'))}</p>`,
+      phrases:`<p class="muted apHow">${esc(I18N.t('Wiederkehrende Folgen von 2–3 Lemmata innerhalb eines Verses; Flexionsformen können abweichen.'))}</p>${st.phrases.length?apList(st.phrases.map((p,i)=>`<div class="apPhrase"><button type="button" class="apPhraseChoice" data-ap-select="phrases" data-value="${i}" title="${esc(I18N.t('Wortverbindung im Lesetext markieren'))}"><bdi dir="rtl" lang="he">${p.tokens.map(t=>esc(LEM[t.lemma]?.[0]||t.word)).join(' ')}</bdi> <b>${p.n}×</b></button><div>${p.refs.map(verseButton).join(' ')}</div></div>`),12):`<p class="muted">${esc(I18N.t('Keine wiederkehrenden Wortverbindungen in dieser Auswahl.'))}</p>`}`,
+      names:st.names.length?list(st.names,'ratio',12,true):`<p class="muted">${esc(I18N.t('Keine Eigennamen.'))}</p>`,
+      evidence:`<p class="muted apHow">${esc(I18N.t('Welche Quellen bieten Material zu diesem Vers? Die Häkchen zeigen erfasste Anmerkungen oder Transkriptionen, nicht automatisch abweichende Lesarten.'))}</p><table class="apEvidenceTable"><caption>${esc(I18N.t('✓ Material erfasst · — nicht erfasst'))}</caption><thead><tr><th scope="col">${esc(I18N.t('Vers'))}</th>${sourceLabels.map(([bit,label,edition,description])=>`<th scope="col" title="${esc(I18N.t(description))}">${esc(I18N.t(label))}<small>${esc(I18N.t(edition))}</small><small>${st.evidence.filter(e=>e.sources&bit).length}/${st.evidence.length} ${esc(I18N.t('Verse'))}</small></th>`).join('')}</tr></thead><tbody>${st.evidence.map(e=>`<tr class="apEvidence"><th scope="row"><button type="button" class="apStatVerse" data-stat-verse="${esc(e.verse)}" aria-label="${esc(I18N.t('Vers {}',e.verse))}">${esc(e.verse)}</button></th>${sourceLabels.map(([bit,label,edition,description])=>`<td>${e.sources&bit?`<span class="apEvidenceMark" title="${esc(I18N.t(description))}" aria-label="${esc(I18N.t(description))}">✓</span>`:`<span class="muted" aria-label="${esc(I18N.t('Nicht erfasst'))}">—</span>`}</td>`).join('')}</tr>`).join('')}</tbody></table><details class="apEvidenceLegend"><summary>${esc(I18N.t('Was wird hier gezählt?'))}</summary>${sourceLabels.map(([,label,,description])=>`<p><b>${esc(I18N.t(label))}:</b> ${esc(I18N.t(description))}</p>`).join('')}</details>`,
+    };
+    const segs=[
+      ['lead','Auffällig häufig','▥','Hier stärker vertreten als im übrigen Text'],
+      ['rare','Seltene Wörter','◇','Im Buch oder Tanach nur selten belegt'],
+      ['vocab','Vokabeln','א','Alle Wörter nach ihrer Häufigkeit'],
+      ['roots','Wurzeln','⌘','Verwandte Wörter gemeinsam erkunden'],
+      ['verbs','Verbformen','↗','Verbstämme und grammatische Formen'],
+      ['phrases','Wortverbindungen','⋈','Wiederkehrende Wortfolgen entdecken'],
+      ['names','Namen','♙','Personen und Orte im Text'],
+      ['evidence','Quellen pro Vers','▤','Material der Textzeugen im Überblick'],
+      ['profile','Versprofil','▥','Verteilung über die Verse sichtbar machen'],
+      ['chaptercompare','Kapitel vergleichen','⇄','Gemeinsamkeiten zweier Kapitel erkunden']
+    ];
+    const groups=[['Wörter entdecken',['lead','rare','vocab']],['Sprache untersuchen',['roots','verbs','phrases','names']],['Text vergleichen',['evidence','profile','chaptercompare']]];
+    const choice=([k,label,icon,description])=>`<button type="button" data-seg="${k}" title="${esc(I18N.t(description))}" aria-pressed="${k==='lead'}"${k==='lead'?' class="on"':''}><span class="apChoiceIcon" aria-hidden="true">${icon}</span><span>${esc(I18N.t(label))}</span></button>`;
+    return `<p class="apSum">${esc(scope === 'v' ? I18N.t('{} Wörter, {} verschiedene Wörter (Lemmata). {} % der Wörter kommen im Tanach mindestens 100-mal vor.', n(st.words), n(st.lemmas), st.common) : I18N.t('{} Wörter in {} Versen, {} verschiedene Wörter (Lemmata). {} % der Wörter kommen im Tanach mindestens 100-mal vor.', n(st.words), n(st.verses), n(st.lemmas), st.common))}</p>
+      <div class="apSeg apExplorer" role="group" aria-label="${esc(I18N.t('Statistik'))}">${groups.map(([label,keys],i)=>`<div class="apChoiceGroup apChoiceGroup-${i}"><h5>${esc(I18N.t(label))}</h5><div class="apChoices">${keys.map(k=>choice(segs.find(s=>s[0]===k))).join('')}</div></div>`).join('')}</div>
+      <div class="apCompare"><span>${esc(I18N.t('Vergleichen mit'))}</span> ${[['book',I18N.t('Buch: {}',st.book)],['tanakh',I18N.t('Gesamter Tanach')]].map(([key,label])=>`<button type="button" data-compare="${key}" aria-pressed="${apComparison===key}" class="${apComparison===key?'on':''}">${esc(label)}</button>`).join(' ')}</div>
       ${segs.map(([k], i) => `<div class="apPane" data-seg="${k}"${i ? ' hidden' : ''}>${panes[k]}</div>`).join('')}
-      <p class="muted apNote">${esc(I18N.t('Gezählt nach dem Westminster-Text (OSHB), pro Lemma; Präpositionen, Partikeln und Pronomen sind ausgelassen.'))}</p>`;
+      <p class="muted apNote">${esc(I18N.t('OSHB: Gesamtwortzahl einschließlich Funktionswörtern; Wortlisten ohne Präpositionen, Partikeln und Pronomen. Vergleich nach Textlänge normalisiert.'))}</p>`;
   }
   function apSet(b, n, html) { // ein Fach füllen (oder ausblenden) und seinen Zähler in der Leiste setzen
     const box = $(`#apBody .apBox[data-b="${b}"]`), chip = $(`#apNav button[data-b="${b}"]`);
@@ -7696,6 +3203,7 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
   const apGrouped = items => window.Passage.RGROUPS.map(g => { const xs = items.filter((_, i) => items.grp[i] === g); return xs.length ? `<h5 class="apGrp">${esc(I18N.t(g))} <small>${xs.length.toLocaleString(I18N.loc)}</small></h5>${apList(xs, 2)}` : ''; }).join('');
   function apRender() {
     if (!AP.open) return;
+    apRemember();
     const P = window.Passage, token = ++AP.token, body = $('#apBody'), nav = $('#apNav');
     const blank = msg => { $('#apTitle').textContent = I18N.t('Alles zu dieser Stelle'); nav.innerHTML = ''; body.innerHTML = `<p class="muted">${esc(I18N.t(msg))}</p>`; AP.key = ''; };
     if (!view || !view.group || view.sres || !view.sections) return blank('Öffne ein Buch und klicke links auf eine Versnummer.');
@@ -7705,7 +3213,7 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
     if (!s || (!whole && !row)) return blank('Öffne ein Buch und klicke links auf eine Versnummer.');
     const label = whole ? '' : row.dataset.l;
     if (!whole && label !== cmtRow) { setCmtRow(label); clearTimeout(AP.t); } // setzt die Markierung der Zeile (dieselbe wie beim Kommentar-Bereich)
-    const g = view.group, title = g.title, chap = apChap(s), v = whole ? null : verseOf(label), L = I18N.lang;
+    const g = view.group, title = g.title, chap = apChap(s), v = whole ? null : linksUI.verseOf(label), L = I18N.lang;
     const page = /[ab]$/i.test(chap || ''); // Talmud: Seite statt Kapitel
     const key = g.key + '|' + s.k + '|' + (whole ? '*' : label), keep = key === AP.key ? $('#allPanel').scrollTop : 0;
     AP.key = key;
@@ -7714,88 +3222,78 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
     $('#apTitle').title = I18N.t('Alles zu dieser Stelle');
     { const wb = $('#apWhole'); wb.hidden = whole || !chap; wb.textContent = I18N.t(page ? 'Ganze Seite' : 'Ganzes Kapitel'); wb.title = I18N.t('Wieder das ganze Kapitel bzw. die ganze Seite zeigen'); }
     // Verse des Abschnitts (für das ganze Kapitel: Mischna ↔ Talmud, Gliederung)
-    const secVs = whole ? [...new Set($$('#rOut .row[data-l]').map(r => verseOf(r.dataset.l)).filter(x => x != null))] : [];
+    const secVs = whole ? [...new Set($$('#rOut .row[data-l]').map(r => linksUI.verseOf(r.dataset.l)).filter(x => x != null))] : [];
     const vTag = x => (whole && x.v1 > 0 ? (x.v2 > x.v1 && x.v2 < 99999 ? `${x.v1}–${x.v2}` : String(x.v1)) : ''); // im ganzen Kapitel: von welchem Vers aus
     // ----- was schon da ist -----
-    const cl = P.classify((v != null || whole) && chap ? secLinks : [], v, whole);
+    const cl = P.classify((v != null || whole) && chap ? linksUI.secLinks : [], v, whole);
     const byT = new Map(groups.map(x => [x.title, x])), tg = t => byT.get(t) || byT.get(String(t).split(', ')[0]) || null;
     const isLocal = bk => !!tg(bk);
-    const sortL = a => a.slice().sort((x, y) => { const bx = splitOther(x.other), by = splitOther(y.other); return libCmpGroups(tg(bx), tg(by)) || titleCmp(bx, by); });
+    const sortL = a => a.slice().sort((x, y) => { const bx = linksUI.splitOther(x.other), by = linksUI.splitOther(y.other); return linksUI.libCmpGroups(tg(bx), tg(by)) || linksUI.titleCmp(bx, by); });
     const apPic = t => { const p = portraitOf(t); return p ? `<img class="vpic" src="portraits/${encodeURIComponent(p.img)}" alt="" data-title="${esc(p.name || '')}" loading="lazy">` : ''; }; // Porträt, wo es eins gibt (portraits/index.js)
-    const ent = (x, text, tag, pic = true) => { const loc = isLocal(splitOther(x.other)); return `<div class="ent${loc ? '' : ' off'}">${pic ? apPic(splitOther(x.other)) : ''}<a data-ref="${esc(x.other)}"${loc ? '' : ` title="${esc(I18N.t('nicht in deiner Bibliothek'))}"`}>${text || esc(apRefLabel(x.other))}</a>${loc ? ` <button type="button" data-pv="${esc(x.other)}" title="Vorschau">▸</button>` : ''}${tag ? ` <small class="muted">${esc(tag)}</small>` : ''}</div>`; };
+    const ent = (x, text, tag, pic = true) => { const loc = isLocal(linksUI.splitOther(x.other)); return `<div class="ent${loc ? '' : ' off'}">${pic ? apPic(linksUI.splitOther(x.other)) : ''}<a data-ref="${esc(x.other)}"${loc ? '' : ` title="${esc(I18N.t('nicht in deiner Bibliothek'))}"`}>${text || esc(apRefLabel(x.other))}</a>${loc ? ` <button type="button" data-pv="${esc(x.other)}" title="Vorschau">▸</button>` : ''}${tag ? ` <small class="muted">${esc(tag)}</small>` : ''}</div>`; };
     const boxes = {};
     { // Kommentare: je Kommentator eine Zeile (vorhandene zuerst, dann die bekanntesten)
-      const cs = P.commentators(cl.commentary).sort((a, b) => { const ia = CMT_PRIO.indexOf(a.name), ib = CMT_PRIO.indexOf(b.name); return (isLocal(b.book) - isLocal(a.book)) || ((ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib)) || titleCmp(a.book, b.book); });
+      const cs = P.commentators(cl.commentary).sort((a, b) => { const ia = CMT_PRIO.indexOf(a.name), ib = CMT_PRIO.indexOf(b.name); return (isLocal(b.book) - isLocal(a.book)) || ((ia < 0 ? 99 : ia) - (ib < 0 ? 99 : ib)) || linksUI.titleCmp(a.book, b.book); });
       boxes.commentary = cs.map(c => ent({ other: c.refs[0] }, esc(dispName(c.name)), c.refs.length > 1 ? '×' + c.refs.length : '', false).replace('<div class="ent">', '<div class="ent">' + apPic(c.book)).replace('<div class="ent off">', '<div class="ent off">' + apPic(c.book)));
     }
     { const TAG = x => { const q = P.sourceOf(x); return q.k === 'etcbc' ? 'ETCBC ' + q.sim : q.k === 'josephus' ? 'Josephus' : q.k === 'second' ? I18N.t('2. Tempel') : q.k === 'targum' ? 'Targum' : ''; };
       boxes.parallels = sortL(cl.parallels).map(x => ent(x, '', [vTag(x), TAG(x)].filter(Boolean).join(' · '))); }
     { // Legenden: Band, Kapitelüberschrift und Absatz wie im Verknüpfungs-Fenster
-      if (cl.legends.length && legOl === undefined) { legOl = null; olOwn(LEG).then(o => { legOl = o || null; legIdx = null; if (o) apSoon(); }).catch(() => {}); }
-      boxes.legends = cl.legends.map(x => ({ x, e: legLabel(x.other) })).sort((a, b) => a.e.vol - b.e.vol || a.e.chap - b.e.chap || a.e.par - b.e.par)
+      if (cl.legends.length && linksUI.legOl === undefined) { linksUI.legOl = null; outlineUI.olOwn(linksUI.LEG).then(o => { linksUI.legOl = o || null; linksUI.legIdx = null; if (o) apSoon(); }).catch(() => {}); }
+      boxes.legends = cl.legends.map(x => ({ x, e: linksUI.legLabel(x.other) })).sort((a, b) => a.e.vol - b.e.vol || a.e.chap - b.e.chap || a.e.par - b.e.par)
         .map(({ x, e }) => ent(x, esc([I18N.t('Band {}', e.vol), e.chapTitle, e.sub, I18N.t('Abs. {}', e.parText)].filter(Boolean).join(' · ')), e.short));
     }
     { // Krauss, Talmudische Archäologie: Paragraph (aus der Gliederung) und Absatz
-      if (cl.krauss.length && krOl === undefined) { krOl = null; olOwn(P.KRAUSS).then(o => { krOl = o || null; krIdx = null; if (o) apSoon(); }).catch(() => {}); }
+      if (cl.krauss.length && krOl === undefined) { krOl = null; outlineUI.olOwn(P.KRAUSS).then(o => { krOl = o || null; krIdx = null; if (o) apSoon(); }).catch(() => {}); }
       const pos = r => { const m = String(r).slice(P.KRAUSS.length + 1).match(/^(\d+):?(\d+)?/); return m ? [+m[1], +(m[2] || 1)] : [0, 0]; };
       boxes.krauss = cl.krauss.slice().sort((a, b) => { const p = pos(a.other), q = pos(b.other); return p[0] - q[0] || p[1] - q[1]; })
         .map(x => { const k = krLabel(x.other); return ent(x, k ? esc(k.t) + ' · ' + esc(I18N.t('Abs. {}', k.par)) : '', [vTag(x), k && k.head].filter(Boolean).join(' · '), false); }); // das Porträt steht im Kopf des Fachs
     }
     { const rs = sortL(cl.rabbinic); boxes.rabbinic = rs.map(x => ent(x, '', vTag(x))); boxes.rabbinic.grp = rs.map(x => P.rabbinicGroup(x)); } // mit Werkgruppe je Eintrag (Überschriften)
     boxes.halakhah = sortL(cl.halakhah).map(x => ent(x, '', vTag(x)));
-    lkDictsLoad();
+    linksUI.lkDictsLoad();
     boxes.other = sortL(cl.other).map(x => { // Sefarias Wörterbuch-Verknüpfungen: ins eingebundene Wörterbuch, sonst nach sefaria.org
-      const d = dictRefOf(x);
-      if (d) { const loc = localDictFor(d.src); return loc ? `<div class="ent">${apPic(loc.name)}<a class="lkDict" data-did="${esc(loc.id)}" data-dn="${esc(loc.name)}" data-q="${esc(d.head)}" dir="auto">${esc(d.head)}</a> <small class="muted">${esc(loc.name)}</small></div>` : `<div class="ent"><a class="lkSef" data-url="${esc(sefariaUrl(String(x.other).replace(/-.*$/, '')))}" dir="auto">${esc(d.head)} ↗</a> <small class="muted">${esc(d.src)} · ${esc(I18N.t('nur auf sefaria.org'))}</small></div>`; }
+      const d = linksUI.dictRefOf(x);
+      if (d) { const loc = linksUI.localDictFor(d.src); return loc ? `<div class="ent">${apPic(loc.name)}<a class="lkDict" data-did="${esc(loc.id)}" data-dn="${esc(loc.name)}" data-q="${esc(d.head)}" dir="auto">${esc(d.head)}</a> <small class="muted">${esc(loc.name)}</small></div>` : `<div class="ent"><a class="lkSef" data-url="${esc(sefariaUrl(String(x.other).replace(/-.*$/, '')))}" dir="auto">${esc(d.head)} ↗</a> <small class="muted">${esc(d.src)} · ${esc(I18N.t('nur auf sefaria.org'))}</small></div>`; }
       return ent(x, '', [vTag(x), x.cat && x.cat !== 'Andere' ? x.cat : ''].filter(Boolean).join(' · '));
     });
     { // Mischna ↔ Talmud: mitgelieferte Zuordnung und Sefarias „mishnah in talmud“
       const isM = /^Mishnah /.test(title), refs = [];
       const add = r => { if (r && !refs.some(q => q.replace(/-.*$/, '') === r.replace(/-.*$/, ''))) refs.push(r); };
-      if (MT && MT.has(title) && chap) for (const vv of whole ? secVs : v != null ? [v] : []) { try { (isM ? (/^\d+$/.test(chap) ? MT.toTalmud(title, chap, vv) : []) : MT.toMishnah(title, chap, vv)).forEach(add); } catch { /* ohne Tabelle */ } }
+      if (linksUI.MT && linksUI.MT.has(title) && chap) for (const vv of whole ? secVs : v != null ? [v] : []) { try { (isM ? (/^\d+$/.test(chap) ? linksUI.MT.toTalmud(title, chap, vv) : []) : linksUI.MT.toMishnah(title, chap, vv)).forEach(add); } catch { /* ohne Tabelle */ } }
       cl.mishtal.filter(x => (isM ? !/^Mishnah /.test(x.other) : /^Mishnah /.test(x.other))).forEach(x => add(x.other));
       boxes.mishtal = refs.map(r => ent({ other: r }, '', I18N.t(isM ? 'im Talmud' : 'in der Mischna')));
     }
-    { let ids = []; try { ids = BM && !MP.over ? (whole ? (MP.cur || []).map(c => c.i) : v != null ? P.placesAt(MP.cur, v) : []) : []; } catch { ids = []; }
-      boxes.places = ids.map(i => `<button type="button" class="apChip" data-place="${i}">${mapName(i)}</button>`); }
-    { const ts = chap && (v != null || whole) && tpSecKey === title + ' ' + chap ? (whole ? tpSec : P.topicsAt(tpSec, v)) : [];
-      boxes.topics = ts.map(r => `<button type="button" class="apChip" data-slug="${esc(r.slug)}">${esc(tpName(r))}${r.he && L !== 'he' ? ` <span class="he muted" lang="he" dir="rtl">${esc(r.he)}</span>` : ''}</button>`); }
-    { const ns = whole ? (notesAll || []).filter(n => n.key === g.key && n.sk === s.k) : P.notesAt(notesAll, g.key, s.k, label, v);
-      boxes.notes = ns.map(n => `<div class="apNote" data-id="${esc(n.id)}" title="${esc(I18N.t('Klicken: Notiz bearbeiten'))}"><span class="st">★</span> ${n.note ? esc(n.note) : `<span class="muted">${esc(I18N.t(kindOf(n) === 'block' ? 'Favorit (Versauswahl)' : 'Lesezeichen'))}</span>`}${noteTags(n).length ? ` <small class="muted">${noteTags(n).map(t => '#' + esc(t)).join(' ')}</small>` : ''}</div>`); }
+    { let ids = []; try { ids = mapUI.BM && !mapUI.MP.over ? (whole ? (mapUI.MP.cur || []).map(c => c.i) : v != null ? P.placesAt(mapUI.MP.cur, v) : []) : []; } catch { ids = []; }
+      boxes.places = ids.map(i => `<button type="button" class="apChip" data-place="${i}">${mapUI.mapName(i)}</button>`); }
+    { const ts = chap && (v != null || whole) && outlineUI.tpSecKey === title + ' ' + chap ? (whole ? outlineUI.tpSec : P.topicsAt(outlineUI.tpSec, v)) : [];
+      boxes.topics = ts.map(r => `<button type="button" class="apChip" data-slug="${esc(r.slug)}">${esc(outlineUI.tpName(r))}${r.he && L !== 'he' ? ` <span class="he muted" lang="he" dir="rtl">${esc(r.he)}</span>` : ''}</button>`); }
+    { const ns = whole ? (notesUI.notesAll || []).filter(n => n.key === g.key && n.sk === s.k) : P.notesAt(notesUI.notesAll, g.key, s.k, label, v);
+      boxes.notes = ns.map(n => `<div class="apNote" data-id="${esc(n.id)}" title="${esc(I18N.t('Klicken: Notiz bearbeiten'))}"><span class="st">★</span> ${n.note ? esc(n.note) : `<span class="muted">${esc(I18N.t(notesUI.kindOf(n) === 'block' ? 'Favorit (Versauswahl)' : 'Lesezeichen'))}</span>`}${notesUI.noteTags(n).length ? ` <small class="muted">${notesUI.noteTags(n).map(t => '#' + esc(t)).join(' ')}</small>` : ''}</div>`); }
     // ----- Gerüst: alle Fächer in fester Reihenfolge; Wörter und Gliederung kommen nach -----
-    const wait = { words: TANAKH_BOOKS.has(title) && v != null && /^\d+$/.test(chap || ''), stats: TANAKH_BOOKS.has(title) && /^\d+$/.test(chap || '') && (v != null || whole), dicts: (v != null || whole) && !!chap, outline: v != null || /:/.test(label) || (whole && secVs.length > 0) };
-    nav.innerHTML = P.BOXES.map(b => { const n = boxes[b] ? boxes[b].length : 0, w = !boxes[b] && wait[b]; return `<button type="button" data-b="${b}" class="${n || w ? '' : 'off'}${w ? ' wait' : ''}"${n || w ? '' : ' disabled'}><span class="ic">${AP_META[b][0]}</span>${esc(apName(b))} <small>${n ? n.toLocaleString(I18N.loc) : w ? '…' : '–'}</small></button>`; }).join('');
-    body.innerHTML = P.BOXES.map(b => {
+    const wait = { stats: linksUI.TANAKH_BOOKS.has(title) && /^\d+$/.test(chap || '') && (v != null || whole), dicts: (v != null || whole) && !!chap, outline: v != null || /:/.test(label) || (whole && secVs.length > 0) };
+    nav.hidden = true; nav.replaceChildren();
+    const overviewSections = P.BOXES.filter(b => b !== 'words' && b !== 'dicts');
+    overviewSections.splice(overviewSections.indexOf('krauss') + 1, 0, 'dicts');
+    body.innerHTML = overviewSections.map(b => {
       const items = boxes[b], n = items ? items.length : 0, w = !items && wait[b];
       return `<section class="apBox${w ? ' wait' : ''}" data-b="${b}"${n || w ? '' : ' hidden'}><h4>${b === 'krauss' && apPic('Krauss') ? apPic('Krauss') : `<span class="ic">${AP_META[b][0]}</span>`}<span class="nm">${esc(apName(b))}</span> <small class="apN">${n ? n.toLocaleString(I18N.loc) : ''}</small>${AP_ALL[b] ? `<button type="button" class="apAll" data-b="${b}" title="${esc(I18N.t(b === 'commentary' ? 'Kommentar-Bereich zu diesem Vers öffnen' : b === 'places' ? 'Orte dieses Verses auf der Karte zeigen' : b === 'topics' ? 'Themen-Fenster öffnen' : b === 'outline' ? 'Gliederung des Buches öffnen' : b === 'notes' ? 'Reiter „Notizen“ öffnen' : 'Im Verknüpfungs-Fenster zeigen'))}">${esc(I18N.t('alle anzeigen'))}</button>` : ''}</h4><div class="apC">${items ? (items.grp ? apGrouped(items) : apList(items)) : w ? `<p class="muted">${esc(I18N.t('Lädt …'))}</p>` : ''}</div></section>`;
     }).join('') + (whole ? `<p class="muted apMode">${esc(I18N.t(page ? 'Ganze Seite – ein Klick auf eine Segmentnummer zeigt nur dieses Segment.' : 'Ganzes Kapitel – ein Klick auf eine Versnummer zeigt nur diesen Vers.'))}</p>` : '') + `<p id="apNone" class="muted" hidden>${esc(I18N.t('Zu dieser Stelle ist nichts verzeichnet.'))}</p>`
-      + (linksReady ? '' : `<p class="muted apHint">${esc(I18N.t('Sefarias Verknüpfungen sind noch nicht heruntergeladen (Reiter „Herunterladen“ → Karte „4 · Verknüpfungen“); gezeigt wird, was Safran mitliefert.'))}</p>`);
+      + (linksUI.linksReady ? '' : `<p class="muted apHint">${esc(I18N.t('Sefarias Verknüpfungen sind noch nicht heruntergeladen (Reiter „Herunterladen“ → Karte „4 · Verknüpfungen“); gezeigt wird, was Safran mitliefert.'))}</p>`);
     $('#apNone').hidden = $$('#apBody .apBox').some(x => !x.hidden);
     $('#allPanel').scrollTop = keep;
-    // ----- Wörter: Westminster-Text des Verses (aus der Ansicht, sonst aus der Bibliothek) -----
-    if (wait.words) {
-      const d = view.loaded.find(x => x.entry.kind === 'he' && /westminster/i.test(x.versionTitle || ''));
-      const ref = `${title} ${chap}:${v}`;
-      const pw = d ? Promise.resolve((R.flattenNode(R.getByPath(d.text, s.path)).find(r => r.label === label) || {}).html || '')
-        : LK.texts([ref], 'he', true).then(res => { const t = res && res[ref]; return t && t.items && /westminster/i.test(t.versionTitle || '') ? t.items.join(' ') : ''; });
-      pw.then(html => {
-        if (token !== AP.token) return;
-        const LEM = window.OSHB_LEMMAS || {}, ws = P.words(html);
-        apSet('words', ws.length, ws.length ? `<div class="apWords" dir="rtl">${ws.map(w => { const lem = LEM[w.lemma]; return `<button type="button" class="apW" data-lemma="${esc(w.lemma)}" data-l="${esc(w.l)}" data-m="${esc(w.m)}" data-word="${esc(w.raw)}" title="${esc(I18N.t('Wortkarte: Wörterbücher, Verteilung und Formen dieses Wortes'))}"><span class="f" lang="he" dir="rtl">${esc(w.word)}</span>${lem ? `<span class="l"><span lang="he" dir="rtl">${esc(lem[0])}</span> <span class="gl" dir="auto">${esc(L === 'de' && lem[2] ? lem[2] : lem[1])}</span></span>` : ''}${w.n > 1 ? `<small>×${w.n}</small>` : ''}</button>`; }).join('')}</div>` : '');
-      }).catch(() => { if (token === AP.token) apSet('words', 0, ''); });
-    }
     // ----- Statistik des Kapitels (und, bei angeklicktem Vers, des Verses): Leitwörter, Vokabeln, Verben, Namen -----
     if (wait.stats) {
       const d = view.loaded.find(x => x.entry.kind === 'he' && /westminster/i.test(x.versionTitle || ''));
       const ref = `${title} ${chap}`;
       const pc = d ? Promise.resolve(R.flattenNode(R.getByPath(d.text, s.path)).map(r => ({ label: r.label, html: r.html || '' })))
-        : LK.texts([ref], 'he', true).then(res => { const t = res && res[ref]; return t && t.items && /westminster/i.test(t.versionTitle || '') ? t.items.map((h, i) => ({ label: String(i + 1), html: h })) : []; });
-      Promise.all([pc, loadForms()]).then(([rows, D]) => {
+        : linksUI.LK.texts([ref], 'he', true).then(res => { const t = res && res[ref]; return t && t.items && /westminster/i.test(t.versionTitle || '') ? t.items.map((h, i) => ({ label: String(i + 1), html: h })) : []; });
+      Promise.all([pc, loadPassageStats(),wordCardsUI.lazyScript('oshb-lemmas.js',()=>window.OSHB_LEMMAS)]).then(([rows, index]) => {
         if (token !== AP.token) return;
-        const st = rows.length && D ? apStats(rows.map(r => r.html), D, title) : null;
+        const st = rows.length && index ? apStats(rows,index,title,chap) : null;
         let sv = null;
-        if (st && !whole && v != null) { const vr = rows.find(r => r.label === label) || rows[v - 1]; if (vr) { sv = apStats([vr.html], D, title); if (sv) { const here = new Set(sv.vocab.concat(sv.tiers.flatMap(t => t.items)).map(r => r.w.lemma)); sv.lead = st.lead.filter(r => here.has(r.w.lemma)); } } }
-        apSet('stats', st ? st.words : 0, st ? apStatsHtml(st, sv, v) : '');
+        if(st&&!whole&&v!=null){const vr=rows.find(r=>r.label===label)||rows[v-1];if(vr)sv=apStats([vr],index,title,chap);}
+        apSet('stats', st ? st.words : 0, st ? apStatsHtml(st, sv, v) : '');apRestore();apMarkRefresh();
       }).catch(() => { if (token === AP.token) apSet('stats', 0, ''); });
     }
     // ----- In Wörterbüchern: Artikel, die diese Stelle zitieren (Rückwärtsindex der Wörterbuch-Zitate) -----
@@ -7811,14 +3309,14 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
     }
     // ----- Gliederung / Mizwa -----
     if (wait.outline) {
-      olOwnFor(g).then(ol => {
+      outlineUI.olOwnFor(g).then(ol => {
         if (token !== AP.token) return;
         const lv2 = !!(ol && ol.levels === 2);
         let list = [];
         if (ol && whole) { // ganzes Kapitel: alle Punkte, die einen seiner Verse berühren, ohne Doppelte
           const seen = new Set();
           for (const vv of secVs) for (const e of (lv2 ? [] : P.outlineAt(ol, chap, vv))) { const k = e.depth + '|' + e.mz + '|' + e.ref; if (!seen.has(k)) { seen.add(k); list.push(e); } }
-        } else list = !ol ? [] : lv2 ? P.outlineAt(ol, olBookNo(s), +String(label).split(':')[0]) : (v != null && chap ? P.outlineAt(ol, chap, v) : []);
+        } else list = !ol ? [] : lv2 ? P.outlineAt(ol, outlineUI.olBookNo(s), +String(label).split(':')[0]) : (v != null && chap ? P.outlineAt(ol, chap, v) : []);
         const T = (o, k) => (L !== 'he' && (o[k + '_' + L] || o[k + '_en'])) || o[k] || '';
         const html = list.map(e => { const tx = T(e.it, 'text'), he = /[֐-׿]/.test(tx), hd = !e.depth && !e.mz ? T(e.sec, 'head') : '';
           return `<div class="apOl${e.depth ? ' sub' : ''}${e.mz ? ' mz' : ''}"><a data-ref="${esc(title + ' ' + String(e.ref).split(/[;,]/)[0].replace(/[-–].*$/, '').trim())}" data-r="${esc(e.ref)}">${e.mz ? `<span class="mzn" title="${esc(I18N.t('613 Mizwot'))}">${esc(e.mz)}</span>` : ''}<span class="r">${esc(String(e.ref).replace(/-/g, '–'))}</span> <span${he ? ' lang="he" dir="rtl" class="he"' : ''}>${esc(tx)}</span></a>${hd ? ` <small class="muted" dir="auto">${esc(hd)}</small>` : ''}</div>`; });
@@ -7827,115 +3325,67 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
     }
   }
   function apShowAll(b) {
-    const v = AP.whole ? null : verseOf(cmtRow);
+    const v = AP.whole ? null : linksUI.verseOf(cmtRow);
     if (b === 'commentary') { if (!cmtOpen) toggleCmt(true); else renderCmt(); return; }
-    if (b === 'places') { if (v != null) mapVerseShow(v); else if ($('#mapPanel').hidden) mapOpen(); return; }
+    if (b === 'places') { if (v != null) mapUI.mapVerseShow(v); else if ($('#mapPanel').hidden) mapUI.mapOpen(); return; }
     if (b === 'topics') { $('#tpBtn').click(); return; }
     if (b === 'outline') { if ($('#outlinePanel').hidden) $('#olBtn').click(); return; }
     if (b === 'notes') { showTab('notes'); return; }
-    if (b === 'krauss') { lkVerse = v; $('#lkFilter').value = window.Passage.KRAUSS; renderLinkPanel(); return; } // Krauss: Verknüpfungs-Fenster nach dem Titel gefiltert
-    lkVerse = v; $('#lkFilter').value = ''; renderLinkPanel(); // Verknüpfungs-Fenster zum Vers, an der passenden Gruppe
+    if (b === 'krauss') { linksUI.lkVerse = v; $('#lkFilter').value = window.Passage.KRAUSS; linksUI.renderLinkPanel(); return; } // Krauss: Verknüpfungs-Fenster nach dem Titel gefiltert
+    linksUI.lkVerse = v; $('#lkFilter').value = ''; linksUI.renderLinkPanel(); // Verknüpfungs-Fenster zum Vers, an der passenden Gruppe
     const want = AP_LKCATS[b];
     const d = b === 'legends' ? $('#lkBody > details.lkLeg') : want ? $$('#lkBody > details[data-c]').find(x => want.includes(x.dataset.c)) : $$('#lkBody > details[data-c]').find(x => ![].concat(...Object.values(AP_LKCATS), 'commentary').includes(x.dataset.c));
     if (d) { d.open = true; requestAnimationFrame(() => d.scrollIntoView({ block: 'start' })); }
   }
   function apPlace(i) { // Karte öffnen, die Orte des Verses hervorheben und den angeklickten wählen
-    const v = AP.whole ? null : verseOf(cmtRow); if (!BM) return;
-    if ($('#mapPanel').hidden) mapOpen();
-    requestAnimationFrame(() => requestAnimationFrame(() => { if (v != null) mapVerseSet(v); mapSelect(i, true); }));
+    const v = AP.whole ? null : linksUI.verseOf(cmtRow); if (!mapUI.BM) return;
+    if ($('#mapPanel').hidden) mapUI.mapOpen();
+    requestAnimationFrame(() => requestAnimationFrame(() => { if (v != null) mapUI.mapVerseSet(v); mapUI.mapSelect(i, true); }));
   }
   $('#apBtn').onclick = () => apToggle();
   $('#apClose').onclick = () => apToggle(false);
   $('#apWhole').onclick = () => { AP.whole = true; apRender(); };
   $('#apNav').addEventListener('click', e => { const b = e.target.closest('button[data-b]'); const box = b && $(`#apBody .apBox[data-b="${b.dataset.b}"]`); if (box && !box.hidden) box.scrollIntoView({ block: 'start', behavior: 'smooth' }); });
   $('#apBody').addEventListener('click', async e => {
-    const dl = e.target.closest('a.lkDict'); if (dl) { e.preventDefault(); openDictIn(dl.dataset.q, { id: dl.dataset.did, name: dl.dataset.dn }); return; }
+    const dl = e.target.closest('a.lkDict'); if (dl) { e.preventDefault(); linksUI.openDictIn(dl.dataset.q, { id: dl.dataset.did, name: dl.dataset.dn }); return; }
     const sf = e.target.closest('a.lkSef'); if (sf) { e.preventDefault(); window.api.openExternal(sf.dataset.url); return; }
-    const all = e.target.closest('.apAll'); if (all) { hovApi && hovApi.hide(); apShowAll(all.dataset.b); return; }
+    const all = e.target.closest('.apAll'); if (all) { linksUI.hovApi && linksUI.hovApi.hide(); apShowAll(all.dataset.b); return; }
     const mb = e.target.closest('.apMoreB'); if (mb) { const m = mb.previousElementSibling; m.hidden = !m.hidden; mb.textContent = m.hidden ? I18N.t('+ {} weitere', (+mb.dataset.n).toLocaleString(I18N.loc)) : I18N.t('weniger'); return; }
-    { const sc = e.target.closest('.apScopeSw button'); if (sc) { const box = sc.closest('.apBox'); box.querySelectorAll('.apScopeSw button').forEach(b => b.classList.toggle('on', b === sc)); box.querySelectorAll('.apScope').forEach(p => { p.hidden = p.dataset.scope !== sc.dataset.scope; }); return; }
-      const sg = e.target.closest('.apScope .apSeg button'); if (sg) { const box = sg.closest('.apScope'); box.querySelectorAll('.apSeg button').forEach(b => b.classList.toggle('on', b === sg)); box.querySelectorAll('.apPane').forEach(p => { p.hidden = p.dataset.seg !== sg.dataset.seg; }); return; }
-      const cp = e.target.closest('.apCopy'); if (cp && apCur && apCur[cp.closest('.apScope').dataset.scope]) { const LEM = window.OSHB_LEMMAS || {}, L = I18N.lang; const txt = apCur[cp.closest('.apScope').dataset.scope].vocab.map(r => { const lem = LEM[r.w.lemma]; return [lem ? lem[0] : r.w.word, lem ? (L === 'de' && lem[2] ? lem[2] : lem[1]) : '', r.T + '×'].join('\t'); }).join('\n'); try { navigator.clipboard.writeText(txt); cp.classList.add('ok'); setTimeout(() => cp.classList.remove('ok'), 1200); } catch { /* egal */ } return; } }
-    const w = e.target.closest('.apW'); if (w) { openForms(w.dataset.lemma, { lemma: w.dataset.lemma, word: w.dataset.word, m: w.dataset.m, l: w.dataset.l }, 'card'); return; }
+    const cmp=e.target.closest('button[data-compare]');if(cmp&&apCur){
+      const scope=cmp.closest('.apScope'),key=scope.dataset.scope,tab=scope.querySelector('.apSeg button.on')?.dataset.seg;
+      apComparison=cmp.dataset.compare;try{localStorage.setItem('passageComparison',apComparison);}catch{}
+      for(const pane of $$('#apBody .apScope')){const k=pane.dataset.scope,old=pane.querySelector('.apSeg button.on')?.dataset.seg||tab;pane.innerHTML=apStatsScope(apCur[k],k,linksUI.verseOf(cmtRow));pane.querySelector('.apSeg button[data-seg="'+old+'"]')?.click();}apMarkRefresh();return;
+    }
+    const selection=e.target.closest('[data-ap-select]');if(selection){apSelectEntry(selection);return;}
+    const statVerse=e.target.closest('[data-stat-verse]');if(statVerse){const profile=statVerse.closest('.apProfile');if(profile)profile.querySelectorAll('[data-stat-verse]').forEach(b=>b.classList.toggle('selected',b.dataset.statVerse===statVerse.dataset.statVerse));const row=$$('#rOut .row[data-l]').find(r=>r.dataset.l===statVerse.dataset.statVerse);if(row){setCmtRow(row.dataset.l);row.scrollIntoView({block:'center',behavior:'smooth'});row.classList.add('flash');setTimeout(()=>row.classList.remove('flash'),1200);}return;}
+    { const sc = e.target.closest('.apScopeSw button'); if (sc) { const box = sc.closest('.apBox'); box.querySelectorAll('.apScopeSw button').forEach(b => b.classList.toggle('on', b === sc)); box.querySelectorAll('.apScope').forEach(p => { p.hidden = p.dataset.scope !== sc.dataset.scope; }); apMarkRefresh(); return; }
+      const sg = e.target.closest('.apScope .apSeg button'); if (sg) { const box = sg.closest('.apScope'); box.querySelectorAll('.apSeg button').forEach(b => { b.classList.toggle('on', b === sg); b.setAttribute('aria-pressed',String(b === sg)); }); box.querySelectorAll('.apPane').forEach(p => { p.hidden = p.dataset.seg !== sg.dataset.seg; }); box.querySelector('.apCompare').hidden=!['lead','rare','vocab','names','profile'].includes(sg.dataset.seg);apMarkRefresh();if(sg.dataset.seg==='chaptercompare')apChapterCompareMount(box);return; }
+      const cp = e.target.closest('.apCopy'); if (cp && apCur && apCur[cp.closest('.apScope').dataset.scope]) { const LEM = window.OSHB_LEMMAS || {}, L = I18N.lang; const txt = apCur[cp.closest('.apScope').dataset.scope].vocabularyByCorpus[apComparison].vocab.map(r => { const lem = LEM[r.w.lemma]; return [lem ? lem[0] : r.w.word, lem ? (L === 'de' && lem[2] ? lem[2] : lem[1]) : '', (apComparison==='book'?r.B:r.T) + '×'].join('\t'); }).join('\n'); try { navigator.clipboard.writeText(txt); cp.classList.add('ok'); setTimeout(() => cp.classList.remove('ok'), 1200); } catch { /* egal */ } return; } }
+    const w = e.target.closest('.apW'); if (w) { apRemember();wordCardsUI.openForms(w.dataset.lemma, { lemma: w.dataset.lemma, word: w.dataset.word, m: w.dataset.m, l: w.dataset.l }, 'card'); return; }
     const de = e.target.closest('.apDE'); if (de) { openDict(de.dataset.q); return; }
     const pl = e.target.closest('[data-place]'); if (pl) { apPlace(+pl.dataset.place); return; }
-    const tp = e.target.closest('[data-slug]'); if (tp) { openTopic(tp.dataset.slug, false); return; }
-    const nt = e.target.closest('.apNote'); if (nt) { const n = notesAll.find(x => x.id === nt.dataset.id); if (n) openNoteDlg(n, { canDelete: true }); return; }
+    const tp = e.target.closest('[data-slug]'); if (tp) { outlineUI.openTopic(tp.dataset.slug, false); return; }
+    const nt = e.target.closest('.apNote'); if (nt) { const n = notesUI.notesAll.find(x => x.id === nt.dataset.id); if (n) notesUI.openNoteDlg(n, { canDelete: true }); return; }
     const a = e.target.closest('a[data-ref]');
-    if (a) { hovApi && hovApi.hide(); if (a.parentElement.classList.contains('off')) return; await jumpTo(a.dataset.ref.replace(/-.*$/, ''), BG(e)); return; }
+    if (a) { linksUI.hovApi && linksUI.hovApi.hide(); if (a.parentElement.classList.contains('off')) return; await jumpTo(a.dataset.ref.replace(/-.*$/, ''), BG(e)); return; }
     const b = e.target.closest('button[data-pv]');
     if (b) { // Vorschau unter dem Eintrag, wie im Verknüpfungs-Fenster
       const nxt = b.parentElement.nextElementSibling;
       if (nxt && nxt.classList.contains('pv')) { nxt.remove(); b.textContent = '▸'; return; }
       b.textContent = '▾';
-      const r = await LK.preview(b.dataset.pv);
+      const r = await linksUI.LK.preview(b.dataset.pv);
       const html = r.items ? pvVer(r.versionTitle) + r.items.map(t => `<div dir="${r.he ? 'rtl' : 'ltr'}">${R.cleanHtml(R.splitFootnotes(r.he ? stripHe(t) : t).main.replace(/<sup[^>]*>.*?<\/sup>/g, ''))}</div>`).join('') : `<i>${esc(I18N.t('Keine Vorschau möglich.'))}</i>`;
       if (b.isConnected && b.textContent === '▾') b.parentElement.insertAdjacentHTML('afterend', `<div class="pv">${html}</div>`);
     }
   });
-  $('#apBody').addEventListener('mouseover', e => { const a = e.target.closest('a[data-ref]'); if (!a || !hovApi || a.parentElement.classList.contains('off') || a.dataset.ref === hovApi.current()) return; hovApi.start(a, a.dataset.ref.replace(/-.*$/, ''), true, false); });
-  $('#apBody').addEventListener('mouseout', e => { const a = e.target.closest('a[data-ref]'); if (a && hovApi && !a.contains(e.relatedTarget)) hovApi.hide(); });
-  $('#allPanel').addEventListener('scroll', () => hovApi && hovApi.hide(), { passive: true });
+  $('#apBody').addEventListener('mouseover', e => { const a = e.target.closest('a[data-ref]'); if (!a || !linksUI.hovApi || a.parentElement.classList.contains('off') || a.dataset.ref === linksUI.hovApi.current()) return; linksUI.hovApi.start(a, a.dataset.ref.replace(/-.*$/, ''), true, false); });
+  $('#apBody').addEventListener('mouseout', e => { const a = e.target.closest('a[data-ref]'); if (a && linksUI.hovApi && !a.contains(e.relatedTarget)) linksUI.hovApi.hide(); });
+  $('#allPanel').addEventListener('scroll', () => linksUI.hovApi && linksUI.hovApi.hide(), { passive: true });
   document.addEventListener('keydown', e => {
     if ((e.metaKey || e.ctrlKey) && !e.shiftKey && !e.altKey && e.key.toLowerCase() === 'i') { e.preventDefault(); apToggle(); return; }
     if (e.key === 'Escape' && AP.open && $('#formsPanel').hidden && !document.querySelector('dialog[open]') && !$('#allPanel').classList.contains('docked')) apToggle(false);
   });
   window.__apState = () => ({ open: AP.open, key: AP.key }); // Prüfhilfe
-
-  // ---------- Sitzung merken und beim Start wiederherstellen ----------
-  let saveTimer = null;
-  const sesKey = () => (document.documentElement.classList.contains('pane2') ? 'session2' : 'session');
-  function sessionData() {
-    let ui = null;
-    try { // was außer den Tabs offen war: Reiter, Kommentar (Vers, Kommentator), Wörterbuch (Suchwort), welcher der beiden vorn lag
-      ui = { tab: document.documentElement.dataset.tab || 'read', cmt: !!cmtOpen, cmtRow: cmtRow, cmtTop: (() => { const n = cmtTopName(); return n === undefined ? cmtKeepName : n; })(),
-        dict: !!dictOpen, dq: $('#dictQ').value.trim().slice(0, 100), stk: stackActive };
-    } catch { /* beim Start noch nicht alles angelegt */ }
-    return {
-      idx: tabIdx,
-      tabs: tabs.map(t => t.group ? { key: t.group.key, rels: [...t.selected], sk: t.key, label: t.label || '', scroll: t === view ? window.scrollY : (t.scroll || 0), hit: t.hit || null } : t.sres ? { sres: { q: t.sres.q, he: !!t.sres.he, limit: t.sres.limit || 300, params: t.sres.params } } : { empty: true }),
-      ui,
-    };
-  }
-  function saveSession() {
-    clearTimeout(saveTimer); // das zweite Fenster speichert seine eigene Sitzung (Schlüssel session2), damit es das Hauptfenster nicht überschreibt
-    saveTimer = setTimeout(() => { try { localStorage.setItem(sesKey(), JSON.stringify(sessionData())); } catch { /* egal */ } }, 300);
-  }
-  // beim Schließen sofort alles festhalten (auch die Leseposition und offene Seitenleisten)
-  window.addEventListener('beforeunload', () => { if (!sesRestored) return; clearTimeout(saveTimer); try { localStorage.setItem(sesKey(), JSON.stringify(sessionData())); } catch { /* egal */ } });
-  let sesRestored = false;
-  async function restoreSession() {
-    let ses = null;
-    try { ses = JSON.parse(localStorage.getItem(document.documentElement.classList.contains('pane2') ? 'session2' : 'session') || 'null'); } catch { ses = null; }
-    if (!ses || !Array.isArray(ses.tabs) || !ses.tabs.length) { sesRestored = true; return; }
-    for (const t of ses.tabs) {
-      if (t.sres && typeof t.sres.q === 'string' && t.sres.params && typeof t.sres.params === 'object') { tabs.push({ group: null, sres: { q: t.sres.q.slice(0, 200), he: !!t.sres.he, limit: Math.min(3000, t.sres.limit | 0 || 300), html: null, params: t.sres.params } }); continue; }
-      if (t.empty) { tabs.push({ group: null }); continue; }
-      const g = groupsByKey.get(t.key);
-      if (!g) continue;
-      const sel = new Set((t.rels || []).filter(r => g.versions.some(v => v.rel === r)));
-      if (!sel.size && g.versions[0]) sel.add(g.versions[0].rel);
-      tabs.push({ group: g, selected: sel, loaded: [], sections: [], idx: 0, key: t.sk || null, label: t.label || '', scroll: t.scroll || 0, hit: t.hit && typeof t.hit.k === 'string' ? t.hit : null, lazy: true });
-    }
-    if (!tabs.length) { sesRestored = true; return; }
-    tabIdx = Math.min(Math.max(0, ses.idx | 0), tabs.length - 1);
-    view = tabs[tabIdx];
-    const ui = ses.ui && typeof ses.ui === 'object' ? ses.ui : null;
-    if (ui && typeof ui.cmtRow === 'string') cmtRow = ui.cmtRow.slice(0, 40); // Vers des Kommentars wie beim Schließen
-    if (ui && typeof ui.cmtTop === 'string') cmtKeepName = ui.cmtTop.slice(0, 200);
-    showView();
-    if (view.group) { const sc = view.scroll || 0; await loadView({ noKeep: true }); window.scrollTo(0, sc); }
-    if (ui) {
-      try {
-        if (ui.cmt && !cmtOpen) toggleCmt(true);
-        if (ui.dict && !dictOpen) { toggleDict(true); if (typeof ui.dq === 'string' && ui.dq) dictLookup(ui.dq.slice(0, 100)); }
-        if (ui.stk === 'cmt' || ui.stk === 'dict') setStackActive(ui.stk);
-        if (['search', 'dict', 'notes'].includes(ui.tab)) showTab(ui.tab);
-        if (view.group) window.scrollTo(0, view.scroll || 0); // Seitenleisten ändern die Breite: Leseposition danach noch einmal setzen
-      } catch { /* egal */ }
-    }
-    sesRestored = true;
-  }
 
   // ---------- Tastatur ----------
   document.addEventListener('keydown', e => {
@@ -8023,15 +3473,19 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
   // Sofort-Hinweise: der Titel eines Symbols erscheint ohne Verzögerung (statt des trägen Standard-Tooltips)
   { const tip = document.createElement('div'); tip.id = 'tip'; tip.hidden = true; document.body.appendChild(tip);
     let cur = null;
-    const restore = () => { if (cur) { if (cur.dataset.tip != null && !cur.hasAttribute('title')) cur.setAttribute('title', cur.dataset.tip); delete cur.dataset.tip; cur = null; } tip.hidden = true; };
+    const titles = new Map();
+    const restore = () => { for(const [el,title] of titles)if(!el.hasAttribute('title'))el.setAttribute('title',title);titles.clear();cur=null;tip.hidden=true; };
+    const targetTip = target => { for(let el=target;el instanceof Element;el=el.parentElement)if(el.matches('[title],[data-tip]')||titles.has(el))return el;return null; };
     document.addEventListener('mouseover', e => {
-      const el = e.target.closest ? e.target.closest('[title],[data-tip]') : null;
+      const el = targetTip(e.target);
       if (el === cur) return;
       restore();
       if (!el) return;
       const text = el.getAttribute('title') || el.dataset.tip;
       if (!text) return;
-      el.dataset.tip = text; el.removeAttribute('title'); cur = el;
+      // Native tooltips inherit ancestor titles, so suppress the entire hovered chain.
+      for(let node=el;node;node=node.parentElement)if(node.hasAttribute('title')){titles.set(node,node.getAttribute('title'));node.removeAttribute('title');}
+      cur = el;
       tip.textContent = text; tip.hidden = false;
       const r = el.getBoundingClientRect(), w = tip.offsetWidth, h = tip.offsetHeight;
       let top = r.bottom + 6; if (top + h > window.innerHeight - 4) top = r.top - h - 6;
@@ -8043,7 +3497,7 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
   }
 
   // Esc schließt die zuletzt geöffnete Seitenleiste (Wörterbuch, Kommentare, Verknüpfungen), jedes weitere Esc die davor
-  { const panels = [['#dictPanel', () => toggleDict(false)], ['#cmtPanel', () => toggleCmt(false)], ['#linkPanel', () => { $('#linkPanel').hidden = true; }]];
+  { const panels = [['#dictPanel', () => toggleDict(false)], ['#cmtPanel', () => toggleCmt(false)], ['#linkPanel', () => { $('#linkPanel').hidden = true; }], ['#textcritPanel', () => textcritUI.close()]];
     const since = new Map();
     panels.forEach(([sel]) => { const el = $(sel); new MutationObserver(() => { if (!el.hidden) since.set(sel, Date.now()); }).observe(el, { attributes: true, attributeFilter: ['hidden'] }); });
     document.addEventListener('keydown', e => {
@@ -8091,8 +3545,8 @@ ${endnotes.length ? `<h3>${I18N.t('Fußnoten')}</h3><ol class="fn">${endnotes.ma
       await refreshState(); mk('refreshState');
       await loadLibrary(); mk('loadLibrary');
       applyDisp(false);
-      await loadNotes(); mk('loadNotes');
-      await restoreSession(); mk('restoreSession');
+      await notesUI.loadNotes(); mk('loadNotes');
+      await navigationUI.restoreSession(); mk('restoreSession');
       if (!tabs.length) newTab(); // Safran startet nie leer – auch das zweite Fenster öffnet gleich in einem Tab
       await refreshCatalog(); mk('refreshCatalog');
       maybeWelcome();

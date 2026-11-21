@@ -1,0 +1,367 @@
+{
+  "version": 1,
+  "corpusCommit": "951ffef8365298f4fc124d977eb1794f3c66601f",
+  "ogaRelease": "oga-v1",
+  "ogaHash": "sha256:52e7e350692a3af1e391552db023dde00c5a7b1d655b146991d4dcae75e5db37",
+  "works": [
+    {
+      "id": "tlg0018.tlg001",
+      "title": "Philo: De Opificio Mundi",
+      "author": "Philo",
+      "edition": "1st1K-grc1",
+      "textPath": "data/corpus/philo-judaeus-philosophy.de-opificio-mundi.jsonl",
+      "textBlob": "cd1543b9d805c646c9585b3a539767f2e725f5ba",
+      "annotationFile": "tlg0018.tlg001.1st1K-grc1.jsonl.gz",
+      "annotationSha256": "97bf2d02cc67b5b99a5d070c5c6a283a7b18e717b64f0df797daf28f5a8c194a"
+    },
+    {
+      "id": "tlg0018.tlg002",
+      "title": "Philo: Legum Allegoriarum Libri I-Iii",
+      "author": "Philo",
+      "edition": "1st1K-grc1",
+      "textPath": "data/corpus/philo-judaeus-philosophy.legum-allegoriarum-libri-iiii.jsonl",
+      "textBlob": "e1f20dda5dfb965d5fad867490f161982be789e1",
+      "annotationFile": "tlg0018.tlg002.1st1K-grc1.jsonl.gz",
+      "annotationSha256": "1a4367c0573682484ab1e951647bb08990d4d534be9fb8c0dd22e5e100d75da3"
+    },
+    {
+      "id": "tlg0018.tlg003",
+      "title": "Philo: De Cherubim",
+      "author": "Philo",
+      "edition": "1st1K-grc1",
+      "textPath": "data/corpus/philo-judaeus-philosophy.de-cherubim.jsonl",
+      "textBlob": "1d7509f22dcc380bc1c13c5982a8afe06514f61f",
+      "annotationFile": "tlg0018.tlg003.1st1K-grc1.jsonl.gz",
+      "annotationSha256": "90c97384950ff6978a39fb9017d0024f3365e39e1be35f48f738073d86a7ade8"
+    },
+    {
+      "id": "tlg0018.tlg004",
+      "title": "Philo: De Sacrificiis Abelis Et Caini",
+      "author": "Philo",
+      "edition": "1st1K-grc1",
+      "textPath": "data/corpus/philo-judaeus-philosophy.de-sacrificiis-abelis-et-caini.jsonl",
+      "textBlob": "1d8c6caa405f4b657082606e2d6d89feaae8a500",
+      "annotationFile": "tlg0018.tlg004.1st1K-grc1.jsonl.gz",
+      "annotationSha256": "7214b81fbd23f30be4965f6c19d7a5d4d083cca6c60ea8748a85fd02e81cce6e"
+    },
+    {
+      "id": "tlg0018.tlg005",
+      "title": "Philo: Quod Deterius Potiori Insidiari Soleat",
+      "author": "Philo",
+      "edition": "1st1K-grc1",
+      "textPath": "data/corpus/philo-judaeus-philosophy.quod-deterius-potiori-insidiari-soleat.jsonl",
+      "textBlob": "857a6f270c4acbaae94cbf20cb9a21d4ee82f0aa",
+      "annotationFile": "tlg0018.tlg005.1st1K-grc1.jsonl.gz",
+      "annotationSha256": "938252994c7434b4bd9f92ac5c9ac924bf78a1195283e3be5f14cae05afbbe31"
+    },
+    {
+      "id": "tlg0018.tlg006",
+      "title": "Philo: De Posteritate Caini",
+      "author": "Philo",
+      "edition": "1st1K-grc1",
+      "textPath": "data/corpus/philo-judaeus-philosophy.de-posteritate-caini.jsonl",
+      "textBlob": "bf6bf790471fc1e53cb124c26e1978de3fac9900",
+      "annotationFile": "tlg0018.tlg006.1st1K-grc1.jsonl.gz",
+      "annotationSha256": "232afc6370102fdece97ed7330a47170a29851a11206662c7c62660b7f3dc2b6"
+    },
+    {
+      "id": "tlg0018.tlg007",
+      "title": "Philo: De Gigantibus",
+      "author": "Philo",
+      "edition": "1st1K-grc1",
+      "textPath": "data/corpus/philo-judaeus-philosophy.de-gigantibus.jsonl",
+      "textBlob": "16460dfa93502ae17a66915f6955db4f969ce08f",
+      "annotationFile": "tlg0018.tlg007.1st1K-grc1.jsonl.gz",
+      "annotationSha256": "d71784ef18a204a656d15a4c7b9fc60e19da8f06097ec2b4784ebce5ed7aa481"
+    },
+    {
+      "id": "tlg0018.tlg008",
+      "title": "Philo: Quod Deus Sit Immutabilis",
+      "author": "Philo",
+      "edition": "1st1K-grc1",
+      "textPath": "data/corpus/philo-judaeus-philosophy.quod-deus-sit-immutabilis.jsonl",
+      "textBlob": "332193247c77f15d07f604eaf4891375abfb2b8f",
+      "annotationFile": "tlg0018.tlg008.1st1K-grc1.jsonl.gz",
+      "annotationSha256": "b2bc8f579e36f6cdcec9d922915952ffaacc765d430b455798fad92fb8b4ac14"
+    },
+    {
+      "id": "tlg0018.tlg009",
+      "title": "Philo: De Agricultura",
+      "author": "Philo",
+      "edition": "1st1K-grc1",
+      "textPath": "data/corpus/philo-judaeus-philosophy.de-agricultura.jsonl",
+      "textBlob": "d0f33fb405476f9a94bc6131cef1b729a83c8084",
+      "annotationFile": "tlg0018.tlg009.1st1K-grc1.jsonl.gz",
+      "annotationSha256": "33fd6c979e30533d8b8a331dc617d89c3b80ecb83cca5f77c10abc9a633b08f4"
+    },
+    {
+      "id": "tlg0018.tlg010",
+      "title": "Philo: De Plantatione",
+      "author": "Philo",
+      "edition": "1st1K-grc1",
+      "textPath": "data/corpus/philo-judaeus-philosophy.de-plantatione.jsonl",
+      "textBlob": "6bd549c2a69e52d064032ee7d05f94ae42f15e23",
+      "annotationFile": "tlg0018.tlg010.1st1K-grc1.jsonl.gz",
+      "annotationSha256": "9714b9cfe4a19638faa69335ea266d9e33feab6f4d44feeba75285b5e71f99e0"
+    },
+    {
+      "id": "tlg0018.tlg011",
+      "title": "Philo: De Ebrietate",
+      "author": "Philo",
+      "edition": "1st1K-grc1",
+      "textPath": "data/corpus/philo-judaeus-philosophy.de-ebrietate.jsonl",
+      "textBlob": "a07ef8ded53110019bf7b743364c35da9657c6a7",
+      "annotationFile": "tlg0018.tlg011.1st1K-grc1.jsonl.gz",
+      "annotationSha256": "a7e05b6c00e044fb9a34db4101b392e632310ce0e5b270c5f45c632fdf8c576d"
+    },
+    {
+      "id": "tlg0018.tlg012",
+      "title": "Philo: De Sobrietate",
+      "author": "Philo",
+      "edition": "1st1K-grc1",
+      "textPath": "data/corpus/philo-judaeus-philosophy.de-sobrietate.jsonl",
+      "textBlob": "fbced725a1b26bb135c60eaeb713c8a47e9fa5ca",
+      "annotationFile": "tlg0018.tlg012.1st1K-grc1.jsonl.gz",
+      "annotationSha256": "7d3348b16caff31a227cdf07513c43a8482e9fae96801a1f224126181aee192d"
+    },
+    {
+      "id": "tlg0018.tlg013",
+      "title": "Philo: De Confusione Linguarum",
+      "author": "Philo",
+      "edition": "1st1K-grc1",
+      "textPath": "data/corpus/philo-judaeus-philosophy.de-confusione-linguarum.jsonl",
+      "textBlob": "81a6ea824643f55d1b1d69097c0e0e492c3950f7",
+      "annotationFile": "tlg0018.tlg013.1st1K-grc1.jsonl.gz",
+      "annotationSha256": "a2dfc6b2af30aa5208a688ba06e1814c74f9dc1af5f36cf2f4f2fb0419b853a6"
+    },
+    {
+      "id": "tlg0018.tlg014",
+      "title": "Philo: De Migratione Abrahami",
+      "author": "Philo",
+      "edition": "1st1K-grc1",
+      "textPath": "data/corpus/philo-judaeus-philosophy.de-migratione-abrahami.jsonl",
+      "textBlob": "026321d3e977584b7cbba9922b2c976cedaa6c7d",
+      "annotationFile": "tlg0018.tlg014.1st1K-grc1.jsonl.gz",
+      "annotationSha256": "b7211595e44274a32ce6552817e30881ac54ddaa737c5abc24843707052e84b8"
+    },
+    {
+      "id": "tlg0018.tlg015",
+      "title": "Philo: Quis Rerum Divinarum Heres Sit",
+      "author": "Philo",
+      "edition": "1st1K-grc1",
+      "textPath": "data/corpus/philo-judaeus-philosophy.quis-rerum-divinarum-heres-sit.jsonl",
+      "textBlob": "ad27582299d45c79926e09701a77177ba8a0d902",
+      "annotationFile": "tlg0018.tlg015.1st1K-grc1.jsonl.gz",
+      "annotationSha256": "2e796203ac87e518d7a60e60bf6d69d9de30295037c64a68b2fe60319e61f5c4"
+    },
+    {
+      "id": "tlg0018.tlg016",
+      "title": "Philo: De Congressu Eruditionis Gratia",
+      "author": "Philo",
+      "edition": "1st1K-grc1",
+      "textPath": "data/corpus/philo-judaeus-philosophy.de-congressu-eruditionis-gratia.jsonl",
+      "textBlob": "a80a579cb313b93b2e1b02109b85edd713dec5ef",
+      "annotationFile": "tlg0018.tlg016.1st1K-grc1.jsonl.gz",
+      "annotationSha256": "2e3f8a2c7afd2487ce7d2e6506ef12753910061e0efa7aba6354e69d7c2eae89"
+    },
+    {
+      "id": "tlg0018.tlg017",
+      "title": "Philo: De Fuga Et Inventione",
+      "author": "Philo",
+      "edition": "1st1K-grc1",
+      "textPath": "data/corpus/philo-judaeus-philosophy.de-fuga-et-inventione.jsonl",
+      "textBlob": "d7aa59ca935e2c1947868900421179ba0c73f2e1",
+      "annotationFile": "tlg0018.tlg017.1st1K-grc1.jsonl.gz",
+      "annotationSha256": "50fcc9b49f1e605452a000b368663becafc4a1810f94f2c32202ee166e188ae0"
+    },
+    {
+      "id": "tlg0018.tlg018",
+      "title": "Philo: De Mutatione Nominum",
+      "author": "Philo",
+      "edition": "1st1K-grc1",
+      "textPath": "data/corpus/philo-judaeus-philosophy.de-mutatione-nominum.jsonl",
+      "textBlob": "fc6480b0e134edc1fbe96863cc4c4dfcc8ebb39a",
+      "annotationFile": "tlg0018.tlg018.1st1K-grc1.jsonl.gz",
+      "annotationSha256": "9c4df9e188d2a350532d90d7e1ec411088ee3723973eff59cda84c3ada08c9ed"
+    },
+    {
+      "id": "tlg0018.tlg019",
+      "title": "Philo: De Somniis (Lib. I-Ii)",
+      "author": "Philo",
+      "edition": "1st1K-grc1",
+      "textPath": "data/corpus/philo-judaeus-philosophy.de-somniis-lib-iii.jsonl",
+      "textBlob": "f5a78c0d2b5e5fdca8c144b84af31d198bdd0062",
+      "annotationFile": "tlg0018.tlg019.1st1K-grc1.jsonl.gz",
+      "annotationSha256": "bf540b5a237d5374bfca173f19626cd16f403ddc5a9dd0cbb182a718c5c5e392"
+    },
+    {
+      "id": "tlg0018.tlg020",
+      "title": "Philo: De Abrahamo",
+      "author": "Philo",
+      "edition": "1st1K-grc1",
+      "textPath": "data/corpus/philo-judaeus-philosophy.de-abrahamo.jsonl",
+      "textBlob": "d0132154140f8d4417dce991ceb227771f618139",
+      "annotationFile": "tlg0018.tlg020.1st1K-grc1.jsonl.gz",
+      "annotationSha256": "ca8a98b62c78c447beec9a4f84101be63326032491e1ddec96c23e3e85e493e0"
+    },
+    {
+      "id": "tlg0018.tlg021",
+      "title": "Philo: De Josepho",
+      "author": "Philo",
+      "edition": "1st1K-grc1",
+      "textPath": "data/corpus/philo-judaeus-philosophy.de-josepho.jsonl",
+      "textBlob": "ceaf3a9aacecc179e082bb0c9967c9f596184463",
+      "annotationFile": "tlg0018.tlg021.1st1K-grc1.jsonl.gz",
+      "annotationSha256": "b4c062601b4cc61ada3822e58c62bff84e99441523a23afb794e55c7bd34a090"
+    },
+    {
+      "id": "tlg0018.tlg022",
+      "title": "Philo: De Vita Mosis (Lib. I-Ii)",
+      "author": "Philo",
+      "edition": "1st1K-grc1",
+      "textPath": "data/corpus/philo-judaeus-philosophy.de-vita-mosis-lib-iii.jsonl",
+      "textBlob": "428bf6fcc86d92cada125bb40233a4661be73ef7",
+      "annotationFile": "tlg0018.tlg022.1st1K-grc1.jsonl.gz",
+      "annotationSha256": "888f425e56c0837ba921eb922be6143145d488d22664218a41bd05c3b4047923"
+    },
+    {
+      "id": "tlg0018.tlg023",
+      "title": "Philo: De Decalogo",
+      "author": "Philo",
+      "edition": "1st1K-grc1",
+      "textPath": "data/corpus/philo-judaeus-philosophy.de-decalogo.jsonl",
+      "textBlob": "966897db9dcaa92d6ed2ab7807fc326f736ed7ef",
+      "annotationFile": "tlg0018.tlg023.1st1K-grc1.jsonl.gz",
+      "annotationSha256": "8fb827a445468b43266ed3067fa27123454ee0a11cfd71908af8de5fc8656acb"
+    },
+    {
+      "id": "tlg0018.tlg024",
+      "title": "Philo: De Specialibus Legibus (Lib. I-Iv)",
+      "author": "Philo",
+      "edition": "1st1K-grc1",
+      "textPath": "data/corpus/philo-judaeus-philosophy.de-specialibus-legibus-lib-iiv.jsonl",
+      "textBlob": "952c4b135f9ea64906173772b56e4d8dadde378b",
+      "annotationFile": "tlg0018.tlg024.1st1K-grc1.jsonl.gz",
+      "annotationSha256": "b14fa26f7a0c012d52ef7fbd0ebc96daa9b0c18b17d1156e1f552280415bcf5c"
+    },
+    {
+      "id": "tlg0018.tlg025",
+      "title": "Philo: De Virtutibus",
+      "author": "Philo",
+      "edition": "1st1K-grc1",
+      "textPath": "data/corpus/philo-judaeus-philosophy.de-virtutibus.jsonl",
+      "textBlob": "63e701b44330d7fc76cc31f87db0126abafcd918",
+      "annotationFile": "tlg0018.tlg025.1st1K-grc1.jsonl.gz",
+      "annotationSha256": "0d058095fbfac58834cd71379f2b77b15ab7f81157d52e3fc89fa6a7d08264e5"
+    },
+    {
+      "id": "tlg0018.tlg026",
+      "title": "Philo: De Praemiis Et Poenis + De Exsecrationibus",
+      "author": "Philo",
+      "edition": "1st1K-grc1",
+      "textPath": "data/corpus/philo-judaeus-philosophy.de-praemiis-et-poenis-de-exsecrationibus.jsonl",
+      "textBlob": "c4d537ba584d930f736f12266c0e60ce221d8b78",
+      "annotationFile": "tlg0018.tlg026.1st1K-grc1.jsonl.gz",
+      "annotationSha256": "6ac8e053a4c7e0fea766c9d7dd115b94a5143e7668a474b324cf751aa06a52a3"
+    },
+    {
+      "id": "tlg0018.tlg027",
+      "title": "Philo: Quod Omnis Probus Liber Sit",
+      "author": "Philo",
+      "edition": "1st1K-grc1",
+      "textPath": "data/corpus/philo-judaeus-philosophy.quod-omnis-probus-liber-sit.jsonl",
+      "textBlob": "0963d5fe7166320d04abf254b616b153ab3c9466",
+      "annotationFile": "tlg0018.tlg027.1st1K-grc1.jsonl.gz",
+      "annotationSha256": "ebbe116e6a569000df249c6a3dfa99fccfda39578625a9a5cadb18c970956e03"
+    },
+    {
+      "id": "tlg0018.tlg028",
+      "title": "Philo: De Vita Contemplativa",
+      "author": "Philo",
+      "edition": "1st1K-grc1",
+      "textPath": "data/corpus/philo-judaeus-philosophy.de-vita-contemplativa.jsonl",
+      "textBlob": "aeb4d2e6f2977eb779fb556de333a5bc5001b866",
+      "annotationFile": "tlg0018.tlg028.1st1K-grc1.jsonl.gz",
+      "annotationSha256": "6a6730f31dedaa6c6625e76b29993a27072931ee8b37ac60fc27d3c1fb816de1"
+    },
+    {
+      "id": "tlg0018.tlg029",
+      "title": "Philo: De Aeternitate Mundi",
+      "author": "Philo",
+      "edition": "1st1K-grc1",
+      "textPath": "data/corpus/philo-judaeus-philosophy.de-aeternitate-mundi.jsonl",
+      "textBlob": "1ff6c95c7251e8a536c6135777507292624a75b0",
+      "annotationFile": "tlg0018.tlg029.1st1K-grc1.jsonl.gz",
+      "annotationSha256": "8d219e54d074283d12e36e56ed420b749fc73553a745e90da49241a0c4d845e2"
+    },
+    {
+      "id": "tlg0018.tlg030",
+      "title": "Philo: In Flaccum",
+      "author": "Philo",
+      "edition": "1st1K-grc1",
+      "textPath": "data/corpus/philo-judaeus-philosophy.in-flaccum.jsonl",
+      "textBlob": "1b92e39ac390cd0a517f46147f4e41336cdeb9c9",
+      "annotationFile": "tlg0018.tlg030.1st1K-grc1.jsonl.gz",
+      "annotationSha256": "2d3e64d245fefb3cecfc628ca19f52805577a22193c594aab59c35a102c7b0d1"
+    },
+    {
+      "id": "tlg0018.tlg031",
+      "title": "Philo: Legatio Ad Gaium",
+      "author": "Philo",
+      "edition": "1st1K-grc1",
+      "textPath": "data/corpus/philo-judaeus-philosophy.legatio-ad-gaium.jsonl",
+      "textBlob": "d71ca66e44dfc6e69eb3c53574ddba0e1fef5297",
+      "annotationFile": "tlg0018.tlg031.1st1K-grc1.jsonl.gz",
+      "annotationSha256": "8badd1b7125cd744a3b5a067ef3de76e8a7d3574adacc183d6ec788743f3084a"
+    },
+    {
+      "id": "tlg0526.tlg001",
+      "title": "Josephus: Antiquitates Judaicae (Niese)",
+      "author": "Josephus",
+      "edition": "perseus-grc2",
+      "textPath": "data/corpus/flavius-josephus.antiquitates-judaicae.jsonl",
+      "textBlob": "6304a6364fdedfe3fd2dea218184a36d4768633b",
+      "annotationFile": "tlg0526.tlg001.perseus-grc2.jsonl.gz",
+      "annotationSha256": "2e60dc1bba72c2fc6ac8402e9e85e4711d9a275d6f3f9169b8c27f647239d7ee"
+    },
+    {
+      "id": "tlg0526.tlg002",
+      "title": "Josephus: Josephi Vita (Niese)",
+      "author": "Josephus",
+      "edition": "perseus-grc2",
+      "textPath": "data/corpus/flavius-josephus.josephi-vita.jsonl",
+      "textBlob": "84293962e5e7459696d380dac3bfe30a0dfe470a",
+      "annotationFile": "tlg0526.tlg002.perseus-grc2.jsonl.gz",
+      "annotationSha256": "d10bd0360067e1296b93e14d2d11b0dbc89906e75d6faf321270bafb51794ad8"
+    },
+    {
+      "id": "tlg0526.tlg003",
+      "title": "Josephus: Contra Apionem (= De Judaeorum Vetustate) (Niese)",
+      "author": "Josephus",
+      "edition": "perseus-grc2",
+      "textPath": "data/corpus/flavius-josephus.contra-apionem-de-judaeorum-vetustate.jsonl",
+      "textBlob": "35fd0b9b562d0c25c19a2fb40f417d5e223ae418",
+      "annotationFile": "tlg0526.tlg003.perseus-grc2.jsonl.gz",
+      "annotationSha256": "75b22f78abc639c757e2f1a42f433102d89965d5ad6210d4927f1b2a27e58c71"
+    },
+    {
+      "id": "tlg0526.tlg004",
+      "title": "Josephus: De Bello Judaico Libri Vii (Niese)",
+      "author": "Josephus",
+      "edition": "perseus-grc2",
+      "textPath": "data/corpus/flavius-josephus.de-bello-judaico-libri-vii.jsonl",
+      "textBlob": "edbe002aded7efcc25723073dbcff7113116a89a",
+      "annotationFile": "tlg0526.tlg004.perseus-grc2.jsonl.gz",
+      "annotationSha256": "a06c64b16bd68173682e04d0280f27a51fd301f6c623e7fab920e5cd911f29e9"
+    }
+  ],
+  "manual": {
+    "work": "tlg0526.tlg004",
+    "release": "glaux-v1",
+    "file": "tlg0526.tlg004.jsonl.gz",
+    "sha256": "1006f2d791d354e635394807b66871e3e1ed1115e05f8816d80220d0c9840831",
+    "sourceCommit": "b077d8f6ff429a5c7245954bc16bb7d1d7948823",
+    "license": "CC BY-NC-SA 4.0",
+    "original": "https://github.com/vgorman1/Greek-Dependency-Trees"
+  }
+}

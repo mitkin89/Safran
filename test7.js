@@ -42,10 +42,25 @@ assert.throws(() => D.parseDsl(Buffer.from('nur ein Satz', 'utf8'), 'z.dsl'));
   assert.strictEqual((await ds.list()).length, 1);
   assert.strictEqual((await ds.lookup('אב'))[0].head, 'אָב · אַבָּא');   // ohne Vokalzeichen
   assert.strictEqual((await ds.lookup('אבא'))[0].kind, 'exact');           // zweites Stichwort
-  assert.strictEqual((await ds.lookup('ובית'))[0].head, 'בַּיִת');          // Vorsilbe ו
-  assert.ok((await ds.lookup('ובית'))[0].note.includes('Vorsilbe'));
-  assert.strictEqual((await ds.lookup('א')).length, 2);                    // Wortanfang: אב/אבא-Eintrag und אם
+  assert.strictEqual((await ds.lookup('ובית')).length, 0, 'Keine automatische Vorsilbenkürzung');
+  assert.strictEqual((await ds.lookup('בית'))[0].head, 'בַּיִת', 'Bewusst gekürzte Anfrage findet den Eintrag');
+  assert.strictEqual((await ds.lookup('א')).length, 0, 'Keine automatischen Wortanfangstreffer');
+  assert.strictEqual((await ds.lookup('א*')).length, 2, 'Explizite Wortanfangssuche: אב/אבא und אם');
   assert.strictEqual((await ds.lookup('xyz')).length, 0);
+  const unrelated = await ds.add(Buffer.from('#NAME "Prefix regression"\n\nיאב\n\tUnrelated A\nיאה\n\tUnrelated B\n'), 'prefix.dsl');
+  assert.strictEqual((await ds.lookup('שמיא', {only:unrelated.id})).length, 0, 'שמיא darf nicht zu יא gekürzt werden');
+  assert.strictEqual((await ds.search('שמיא', {only:unrelated.id})).length, 0, 'Normale Wörterbuchsuche liefert keine Wortreste');
+  assert.strictEqual((await ds.lookup('יא', {only:unrelated.id})).length, 0, 'Keine Treffer auf einen bloßen Wortanfang');
+  assert.strictEqual((await ds.lookup('יא*', {only:unrelated.id})).length, 2, 'Wortanfang bleibt mit Platzhalter suchbar');
+  await ds.remove(unrelated.id);
+  const homonyms = await ds.add(Buffer.from('#NAME "Whole headword regression"\n\nשִׂיחַ\n\tExact one\nשִׁיחַ\n\tExact two\nשִׁיחוֹר\n\tOther word\nשיחה\n\tLonger word\n'), 'whole.dsl');
+  for(const q of ['שיח','שִׂיחַ']){
+    const hits = await ds.search(q,{only:homonyms.id});
+    assert.strictEqual(hits.length,2,'Alle genauen Homonyme bleiben erhalten');
+    assert(hits.every(x=>D.norm(x.head)==='שיח'&&x.kind==='exact'),'שיח findet weder שיחור noch שיחה');
+  }
+  assert.strictEqual((await ds.lookup('שיח*',{only:homonyms.id})).length,4,'Ausdrückliche Erweiterung mit *');
+  await ds.remove(homonyms.id);
   { const sg = await ds.suggest('א'); assert.ok(sg.length >= 2 && sg.every(x => D.norm(x.head).startsWith('א'))); assert.strictEqual((await ds.suggest('xyz')).length, 0); }
   await ds.remove(r.id);
   assert.strictEqual((await ds.list()).length, 0);

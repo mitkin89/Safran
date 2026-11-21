@@ -1,0 +1,23 @@
+'use strict';
+const assert=require('node:assert/strict');
+module.exports=async({js,waitFor,book})=>{
+ await book('Genesis');await waitFor("document.querySelector('#rOut .cell[data-mt] .w')",'Hebräischer Text für Doppelklick');
+ await js("window.getSelection().removeAllRanges();document.querySelector('#rOut .cell[data-mt] .w').dispatchEvent(new MouseEvent('click',{bubbles:true,detail:1}))");
+ await waitFor("document.querySelector('#wpop .wcard')",'Wortkarte verfügbar');
+ const dbl=async selector=>js(`{const el=document.querySelector(${JSON.stringify(selector)}),r=document.createRange();r.selectNodeContents(el);const s=window.getSelection();s.removeAllRanges();s.addRange(r);const b=el.getBoundingClientRect();el.dispatchEvent(new MouseEvent('click',{bubbles:true,detail:2,clientX:b.left+b.width/2,clientY:b.top+b.height/2}));el.dispatchEvent(new MouseEvent('dblclick',{bubbles:true,cancelable:true,detail:2,clientX:b.left+b.width/2,clientY:b.top+b.height/2}));}`);
+ await dbl('#rOut .cell[data-mt] .w');
+ await waitFor("!document.querySelector('#formsPanel').hidden&&document.querySelector('#wcBody .wcSec')",'Doppelklick öffnet die hebräische Wortkarte');
+ await js("if(!document.querySelector('#formsPanel .pinB').classList.contains('on'))document.querySelector('#formsPanel .pinB').click()");
+ await dbl('#rOut .cell[data-mt] .w');
+ await waitFor("!document.querySelector('#formsPanel').hidden&&document.querySelector('#formsPanel').classList.contains('docked')",'Erneuter Doppelklick hält die angepinnte Wortkarte offen');
+ assert.deepEqual(await js("[...document.querySelectorAll('#dockTabs [data-panel]')].map(b=>b.dataset.panel)"),['cmt','forms','all','outline','dict','topic','link','textcrit','map']);
+ await js("{const span=document.createElement('span');span.id='doubleClickPlainWord';span.textContent='DictionaryFallback';document.querySelector('#rOut').append(span);}");
+ await dbl('#doubleClickPlainWord');
+ await waitFor("!document.querySelector('#dictPanel').hidden&&document.querySelector('#dictQ').value==='DictionaryFallback'",'Ohne Wortkarte öffnet Doppelklick das Wörterbuch');
+ assert(await js("document.querySelector('#dictPanel').classList.contains('docked')"));
+ await dbl('#doubleClickPlainWord');
+ await js('new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))');
+ assert(await js("!document.querySelector('#dictPanel').hidden&&document.querySelector('#dictPanel').classList.contains('docked')"),'Derselbe Doppelklick schließt das angepinnte Wörterbuch nicht');
+ await js("document.querySelector('#doubleClickPlainWord').remove();window.getSelection().removeAllRanges();document.querySelector('#dictClose').click()");
+ console.log('Electron: Wortkarte vor Wörterbuch, Doppelklick mit Kontext, sichere Rückfall-Suche und wiederholter Doppelklick auf angepinnte Werkzeuge bestanden.');
+};

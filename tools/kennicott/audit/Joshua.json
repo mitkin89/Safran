@@ -1,0 +1,67 @@
+{
+  "source": {
+    "url": "https://www.edition-digitalkennicott.unito.it/exist/apps/dike/api/document/006_josh.xml/",
+    "book": "Joshua",
+    "sha256": "81316dde52fde1a4e4617bfab8e616602fe4443c842553c4e25ffe149c857133",
+    "license": "CC BY-NC-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "title": "The Digital Kennicott. A Digital Edition of Benjamin Kennicott's Vetus Testamentum Hebraicum",
+    "editors": "Sebastiano Crestani, Alberto Legnaioli",
+    "base": "Kennicott / Van der Hooght reference text; distinct from OSHB",
+    "mt": {
+      "rel": "own/Joshua/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "01954265baa600b7520f15f13aaadc9448904a4f6f82399bba9c3c79685f165b",
+      "license": "CC BY 4.0"
+    }
+  },
+  "counts": {
+    "entries": 3954,
+    "readings": 5932,
+    "verses": 648,
+    "witnesses": 721,
+    "baseVerses": 658
+  },
+  "unlocated": [],
+  "unidentifiedWitnesses": [
+    "K145m",
+    "K154m",
+    "K155m",
+    "K182m",
+    "K198m",
+    "K223m",
+    "K224m",
+    "K228m",
+    "K249m",
+    "K250m",
+    "K251m",
+    "K252m",
+    "K277m",
+    "K296m",
+    "K322m",
+    "K375m",
+    "K434m",
+    "K461m",
+    "K476m",
+    "K491m",
+    "K506m",
+    "K540m",
+    "K580m",
+    "K583m",
+    "K601m",
+    "K659B",
+    "K741",
+    "K89m",
+    "K93m"
+  ],
+  "apparatusRefsWithoutBase": [],
+  "baseRefsOutsideMT": [],
+  "unindexedEntries": [],
+  "mappedSourceVerses": 654,
+  "unmappedSourceVerses": [
+    "Joshua 15:52",
+    "Joshua 18:24",
+    "Joshua 19:19",
+    "Joshua 21:37"
+  ],
+  "shiftedSourceVerses": {}
+}

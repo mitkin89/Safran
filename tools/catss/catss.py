@@ -22,8 +22,8 @@ def greek(tok):
     s = re.sub(r'σ(?=[.,;:·]+$)', 'ς', s)
     return unicodedata.normalize('NFC', s)
 NAMES = {  # CATSS-Kürzel -> Sefaria-Titel, Tanach-Bücher
- 'Gen': 'Genesis', 'Exod': 'Exodus', 'Lev': 'Leviticus', 'Num': 'Numbers', 'Dt': 'Deuteronomy', 'Jsh': 'Joshua', 'Jdga': 'Judges', 'Jdgb': 'Judges', '1Sm': 'I Samuel', '2Sm': 'II Samuel',
- '1Kg': 'I Kings', '2Kg': 'II Kings', 'Ps': 'Psalms', 'Prv': 'Proverbs', 'Job': 'Job', 'Isa': 'Isaiah', 'Jer': 'Jeremiah', 'Ezk': 'Ezekiel', 'Joel': 'Joel', 'Amos': 'Amos', 'Obad': 'Obadiah',
+ 'Gen': 'Genesis', 'Exod': 'Exodus', 'Lev': 'Leviticus', 'Num': 'Numbers', 'Dt': 'Deuteronomy', 'Jsh': 'Joshua', 'Jsha': 'Joshua', 'Jdga': 'Judges', 'Jdgb': 'Judges', '1Sm': 'I Samuel', '2Sm': 'II Samuel',
+ '1Kg': 'I Kings', '2Kg': 'II Kings', 'Ps': 'Psalms', 'Prv': 'Proverbs', 'Job': 'Job', 'Isa': 'Isaiah', 'Jer': 'Jeremiah', 'Ezk': 'Ezekiel', 'Hos': 'Hosea', 'Joel': 'Joel', 'Amos': 'Amos', 'Obad': 'Obadiah',
  'Jonah': 'Jonah', 'Micah': 'Micah', 'Nahum': 'Nahum', 'Hab': 'Habakkuk', 'Zeph': 'Zephaniah', 'Hag': 'Haggai', 'Zach': 'Zechariah', 'Mal': 'Malachi', 'Ruth': 'Ruth',
  'Song': 'Song of Songs', 'Qoh': 'Ecclesiastes', 'Lam': 'Lamentations', 'Esth': 'Esther', 'Dan': 'Daniel', 'DanTh': 'Daniel', 'Ezr': 'Ezra', 'Neh': 'Nehemiah', '1Ch': 'I Chronicles', '2Ch': 'II Chronicles'}
 HEB = {')': 'א', 'B': 'ב', 'G': 'ג', 'D': 'ד', 'H': 'ה', 'W': 'ו', 'Z': 'ז', 'X': 'ח', '+': 'ט', 'Y': 'י', 'K': 'כ', 'L': 'ל', 'M': 'מ', 'N': 'נ', 'S': 'ס', '(': 'ע',
@@ -96,7 +96,7 @@ def verse_html(units, note=''):
         f = ''.join(sorted(set(u.get('f', ''))))
         out.append('<span class="wg%s" data-h="%s"%s%s>%s</span>' % (' wm' if 'm' in f else '', ' '.join(u['h']), ' data-f="%s"' % f if f else '', ' data-r="%s"' % ' '.join(u['r']) if u.get('r') else '', t))
     return ' '.join(out)
-VERS = {'Jdga': 'Judges A (Codex Alexandrinus)', 'Jdgb': 'Judges B (Codex Vaticanus)', 'DanTh': 'Theodotion'}
+VERS = {'Jsha': 'Joshua A', 'Jdga': 'Judges A (Codex Alexandrinus)', 'Jdgb': 'Judges B (Codex Vaticanus)', 'DanTh': 'Theodotion'}
 if __name__ == '__main__' and proj and '--check' not in sys.argv:
     man_p = os.path.join(proj, 'bundled', 'manifest.json')
     man = json.load(open(man_p)) if os.path.exists(man_p) else {'version': 1, 'items': []}

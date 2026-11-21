@@ -1,0 +1,273 @@
+{
+  "source": {
+    "title": "Tov/Kraft · CATSS",
+    "url": "https://llds.ling-phil.ox.ac.uk/llds/xmlui/handle/20.500.14106/1111",
+    "license": "CC BY-NC-SA 3.0",
+    "sha256": {
+      "file01-1111.txt": "39b0eb8157acf509e1f7635095015e86ee110f13abfd429c9833f03f2a335cc8",
+      "file02-1111.txt": "0dc6b00716de5b2b61a0cf2384243bef24d85b0349f7a0f55e57c826af22087a",
+      "file03-1111.txt": "57fcb29df38746d69f559c650ed5c3df3728a608f787c4b404bc6ae0df40be2b",
+      "file04-1111.txt": "3c923b7dde8bfe0076f4a6eb0d08fc216b0033e32b02c55d42ebd522e8797af2"
+    },
+    "bundled": {
+      "own/Psalms/other/Septuaginta (CATSS).json": "d4d6d93770b2a3ae73e732fd29a85a21977a0856196fc480285415883eae4ebd",
+      "own/Proverbs/other/Septuaginta (CATSS).json": "4cc198ff799672a42d0daf79714fe990d143434169f894939cfa4dd7bf9e7e09",
+      "own/Job/other/Septuaginta (CATSS).json": "c1905a1a612c5cb3ff25f8010720f1528e40d06fc9c43b3a5632eca9958861b8"
+    }
+  },
+  "excluded": {
+    "Esth": "Oxford-Abschnitt Esth enthält Esra statt Esther; nicht als Esther-Apparat verwendet"
+  },
+  "coverage": {
+    "Gen": {
+      "verses": 1533,
+      "remarks": 2953
+    },
+    "Exod": {
+      "verses": 1213,
+      "remarks": 4554
+    },
+    "Lev": {
+      "verses": 858,
+      "remarks": 1710
+    },
+    "Num": {
+      "verses": 1289,
+      "remarks": 2239
+    },
+    "Dt": {
+      "verses": 959,
+      "remarks": 1535
+    },
+    "Jsh": {
+      "verses": 658,
+      "remarks": 2701
+    },
+    "Jsha": {
+      "verses": 94,
+      "remarks": 125,
+      "sourceOnly": true
+    },
+    "Jdga": {
+      "verses": 618,
+      "remarks": 1104
+    },
+    "Jdgb": {
+      "verses": 617,
+      "remarks": 923
+    },
+    "1Sm": {
+      "verses": 811,
+      "remarks": 2659
+    },
+    "2Sm": {
+      "verses": 695,
+      "remarks": 1186
+    },
+    "1Kg": {
+      "verses": 817,
+      "remarks": 6359
+    },
+    "2Kg": {
+      "verses": 719,
+      "remarks": 1174
+    },
+    "Isa": {
+      "verses": 1289,
+      "remarks": 4608
+    },
+    "Jer": {
+      "verses": 1364,
+      "remarks": 13666
+    },
+    "Ezk": {
+      "verses": 1272,
+      "remarks": 2758
+    },
+    "Hos": {
+      "verses": 197,
+      "remarks": 311,
+      "sourceOnly": true
+    },
+    "Joel": {
+      "verses": 73,
+      "remarks": 74
+    },
+    "Amos": {
+      "verses": 146,
+      "remarks": 220
+    },
+    "Obad": {
+      "verses": 21,
+      "remarks": 25
+    },
+    "Jonah": {
+      "verses": 48,
+      "remarks": 78
+    },
+    "Micah": {
+      "verses": 105,
+      "remarks": 194
+    },
+    "Nahum": {
+      "verses": 47,
+      "remarks": 71
+    },
+    "Hab": {
+      "verses": 56,
+      "remarks": 84
+    },
+    "Zeph": {
+      "verses": 52,
+      "remarks": 91
+    },
+    "Hag": {
+      "verses": 38,
+      "remarks": 113
+    },
+    "Zach": {
+      "verses": 211,
+      "remarks": 259
+    },
+    "Mal": {
+      "verses": 55,
+      "remarks": 107
+    },
+    "Ruth": {
+      "verses": 85,
+      "remarks": 142
+    },
+    "Song": {
+      "verses": 117,
+      "remarks": 138
+    },
+    "Qoh": {
+      "verses": 221,
+      "remarks": 103
+    },
+    "Lam": {
+      "verses": 154,
+      "remarks": 182
+    },
+    "Dan": {
+      "verses": 358,
+      "remarks": 4017
+    },
+    "DanTh": {
+      "verses": 356,
+      "remarks": 1784
+    },
+    "Ezr": {
+      "verses": 280,
+      "remarks": 208
+    },
+    "Neh": {
+      "verses": 405,
+      "remarks": 766
+    },
+    "1Ch": {
+      "verses": 943,
+      "remarks": 1225
+    },
+    "2Ch": {
+      "verses": 822,
+      "remarks": 1274
+    },
+    "Ps": {
+      "verses": 2527,
+      "remarks": 851,
+      "origin": "bundled-CATSS"
+    },
+    "Prv": {
+      "verses": 915,
+      "remarks": 1888,
+      "origin": "bundled-CATSS"
+    },
+    "Job": {
+      "verses": 1070,
+      "remarks": 1906,
+      "origin": "bundled-CATSS"
+    }
+  },
+  "bundledSha256": {
+    "own/Genesis/other/Septuaginta (CATSS).json": "f5cb6a37bde725afdfd0710ec03aa21efd8bc6749f89e7f29bd892dbc6553a47",
+    "own/Exodus/other/Septuaginta (CATSS).json": "8f5ea2db086fc0c4e8b60e998b3462e75baac16329c0f105246c884258749ca4",
+    "own/Leviticus/other/Septuaginta (CATSS).json": "32f890428fe3079b746306d2131266fa50c81e2c4b386006e50c4efed601e20a",
+    "own/Numbers/other/Septuaginta (CATSS).json": "1348b0e6a73844ab11ff0a1f82e8d169fcb22fd7f6ebc9bdfb2f2cb5a949c6b9",
+    "own/Deuteronomy/other/Septuaginta (CATSS).json": "f03cdef24a3db5cf61039112538e6232a2ff1645cdab1bee209ab1ada7784649",
+    "own/Joshua/other/Septuaginta (CATSS).json": "67a998e4d19d0b06fa6dff39a2761d652e15412b0af7308cfd04da9dbb6234cb",
+    "own/Judges/other/Septuaginta (CATSS, Judges A (Codex Alexandrinus)).json": "26e64fc5c8458245f969599fb8640667a8fe165f37f87fecf1700df30e62b973",
+    "own/Judges/other/Septuaginta (CATSS, Judges B (Codex Vaticanus)).json": "1c8b24dda0fcda0cc7c14b52685921f37613eea02e4f62060c25ac18573ed2ff",
+    "own/I Samuel/other/Septuaginta (CATSS).json": "58acd8e08f76d4bc909d3af844fd2fcdc1a373d7ebfc034c3661e1d5ace562e3",
+    "own/II Samuel/other/Septuaginta (CATSS).json": "821e28436ec6f5fa03c1ef7cc18d2280d46c22dc5f33ce116d63e558c5852d28",
+    "own/I Kings/other/Septuaginta (CATSS).json": "0c9378419dc799fa1b62649d2066b9e3600d7aaca3c528d98a1ba925b9fc310e",
+    "own/II Kings/other/Septuaginta (CATSS).json": "937ca4ade5b90238793be49447cb14ba2b5a8eaab7cb54974295f7e7bc50ef96",
+    "own/Isaiah/other/Septuaginta (CATSS).json": "2ff5291c3b601af1eecfdaa135669d4e959f8d1498235847b2de700eaadb160a",
+    "own/Jeremiah/other/Septuaginta (CATSS).json": "e091e2df8478878d073e51641e123a1c616bb78f83ae8fa3f451cf37165cd29f",
+    "own/Ezekiel/other/Septuaginta (CATSS).json": "5fa59758348578cd158cf972f926061f58b02180a18c9cdeb8c4702bc4f87651",
+    "own/Joel/other/Septuaginta (CATSS).json": "a7499df7ca11d24f94a637516e21f6f9e36452d55c299a0c2140fb4e59922c57",
+    "own/Amos/other/Septuaginta (CATSS).json": "1bc65c22c6a72a82661ea97d38b064eac503a7052ff98361d92c8a53014c30e6",
+    "own/Obadiah/other/Septuaginta (CATSS).json": "d897fe48b084b060a053159404c3a378c79d4c048084568c0a5acec6dfa91fb3",
+    "own/Jonah/other/Septuaginta (CATSS).json": "c156c8e94cc6e5c44665c521df53294dddfac57728f31bdd245afe84e5d230ab",
+    "own/Micah/other/Septuaginta (CATSS).json": "2b0eea4ad9f9ac217a4eb0398f533d4a31f09b0fb21ade1598c96e3c95c9ff79",
+    "own/Nahum/other/Septuaginta (CATSS).json": "83ba8a8f3a34edbf73dd4ea27bdb89eecf73d43ebded4fe23061d9058a3e3fc4",
+    "own/Habakkuk/other/Septuaginta (CATSS).json": "6fb58feda352082a1a442c76a8e1cc0153369c23a54828c63e53a07a236279e7",
+    "own/Zephaniah/other/Septuaginta (CATSS).json": "e4a5e5209e38e7e4fc1809a080265159579ce3e3d40c36c0d3e2807691fc597b",
+    "own/Haggai/other/Septuaginta (CATSS).json": "ae705e20a7885f1d6db46c6cd42d6bc85d702e99bc593b62523f6a49b542ea16",
+    "own/Zechariah/other/Septuaginta (CATSS).json": "a52b26fe079868756496a1767da832450eeebc65a74cf98bd00b226b4c06018d",
+    "own/Malachi/other/Septuaginta (CATSS).json": "acd235e735dd30c7bee1e8c02546629b59a2eacba200d9aaadbf6712f52b5d7d",
+    "own/Ruth/other/Septuaginta (CATSS).json": "30f449cac9e061bf081706ea923e299eb79e0eff31f06534bac86f436b5624e3",
+    "own/Song of Songs/other/Septuaginta (CATSS).json": "4fbe7085ac9aab68db9120740956bdbc17174ebc76001637289f269cb62fdd40",
+    "own/Ecclesiastes/other/Septuaginta (CATSS).json": "089b5d1237c2bb3d64e69dc9964860219aae23a59a6c29d9920e40c6793eb17c",
+    "own/Lamentations/other/Septuaginta (CATSS).json": "f800088af1e5e0aede67eb4fa03288e70f91c13a674bbc269d1fc5645bcba16f",
+    "own/Daniel/other/Septuaginta (CATSS).json": "1b50a13e74a07403b71d8522958973439009ee3d9a19e1a50f9546dfbda17d39",
+    "own/Daniel/other/Septuaginta (CATSS, Theodotion).json": "0222a03e3f0a823e459c0dd327b8a79ce79dbbf609aea99f99f9d7487a22f4c5",
+    "own/Ezra/other/Septuaginta (CATSS).json": "c7d6289e7a7699cab859522791d0b00d738d1ca7ab362aae9aaa4d99bb10056c",
+    "own/Nehemiah/other/Septuaginta (CATSS).json": "9d83ae95f5d97ab10e37a6dc3eb24c962c6bcfd70647432446d52556ff5466e1",
+    "own/I Chronicles/other/Septuaginta (CATSS).json": "cdaf189c92c55a10f576d4af6244508f3fbab570fe30838ab5680ba9d3546293",
+    "own/II Chronicles/other/Septuaginta (CATSS).json": "f1f888971ea5a996a4ba27765853b6bb2216dc60e15520f0efafea5ccf9a1999",
+    "own/Psalms/other/Septuaginta (CATSS).json": "d4d6d93770b2a3ae73e732fd29a85a21977a0856196fc480285415883eae4ebd",
+    "own/Proverbs/other/Septuaginta (CATSS).json": "4cc198ff799672a42d0daf79714fe990d143434169f894939cfa4dd7bf9e7e09",
+    "own/Job/other/Septuaginta (CATSS).json": "c1905a1a612c5cb3ff25f8010720f1528e40d06fc9c43b3a5632eca9958861b8"
+  },
+  "mtSha256": {
+    "own/Genesis/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json": "1f47f49fd727e0813c8d8672c96ca06f75deb2a58f2853cfd25a5249107bca00",
+    "own/Exodus/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json": "b270922365525339f84e8b10490434556f7116bf2f2a1d42dbf67a47efd25c35",
+    "own/Leviticus/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json": "62e26f554f7dba1aac16a0b3b7246bfbf3d17fe179d26f7b9694440c1b0d50de",
+    "own/Numbers/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json": "9ab02bd4aa4c6969494e85014e98f56ca4ff2cf5d741a34b2911e186866aa1e9",
+    "own/Deuteronomy/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json": "b1c198ab82b675fd68722ba7db1fe9188d73b9dc224764cc9873075e6f9ed6a9",
+    "own/Joshua/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json": "01954265baa600b7520f15f13aaadc9448904a4f6f82399bba9c3c79685f165b",
+    "own/Judges/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json": "db9695f400b78c24d3f4327952641b97733aa991875c5ae497284e077fb6b9c6",
+    "own/I Samuel/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json": "7a7542070c81e1cac84eea6720f28bed85082c429360fdb2179618c8c74f4a54",
+    "own/II Samuel/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json": "713b82cc845783b1512c15b21fe2d83f032c70b37e3ea3425c6ddc6279e357de",
+    "own/I Kings/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json": "67f13503eb41d5fc67941cd41bf5a86b605ca3bc8371e38e558129c6538d8d15",
+    "own/II Kings/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json": "0b58661591e225c147c09a490c47dc81bc2cb90df076cc95914d085bad996882",
+    "own/Isaiah/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json": "7b2e14ab2b04e2fd5dd4bc1a238af827a5b889e93a51b129bc7f968e66cd3421",
+    "own/Jeremiah/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json": "d2a63185291f9c430a6856aa9df34056f73f477e18f3ff7bcf1310c08e650ac4",
+    "own/Ezekiel/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json": "7b74ce296a28d046bc5e29be510d4e9ce5316be4662a57b3182b710f66b48e2a",
+    "own/Hosea/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json": "0145d15c27cab0c62f03c0576d42ecbcf43a9548a7487f1cf40b7a568f371a70",
+    "own/Joel/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json": "cc05772361af0d88ae496c402e62a49f03739abd7df67b99b6b08291e798e19f",
+    "own/Amos/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json": "a51e193357988c4faa9a484f7832bcb6bbf180f63dc502e5910eadb7fbf22656",
+    "own/Obadiah/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json": "d81f6725892198c4a64d068a30783e6808a078b773b050c404a6985ede9814d9",
+    "own/Jonah/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json": "909e73570212a453b059c15ee1250853661b5a27de5c4c4ff5a2bd677097d9e5",
+    "own/Micah/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json": "d1c14fd6d8e2613d88bebac028a4a41cdb0fced5d6e88772355c12c2d8bb859b",
+    "own/Nahum/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json": "6371a199639dfbb24e9bc726a5cf2e1869b7e7d182303f350caa5d2443dcba31",
+    "own/Habakkuk/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json": "081e61ab77e8ed0d0a995b5af3b237cf818b67373cd4523785bab1b0fbd06726",
+    "own/Zephaniah/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json": "4989cc8bb392efbdc7583ffdc77101e2d6a065b54325cd9995746611c64e4856",
+    "own/Haggai/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json": "a209975c420661c701d7243c5746176a6d7cdfa2e6ea343591626f77f4c3cd1c",
+    "own/Zechariah/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json": "e354b277e174900d1499522ff29e06e284bfea3e1e45893b9f2e26fc69944ce6",
+    "own/Malachi/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json": "e9a4056fa7e096eab3f685554f9184d6cbe0d8888c203156a0f617f25302bbe0",
+    "own/Ruth/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json": "422bf12fa74fe4ce653d3460b00dcd354d0a11b970a5ac6419eedcb6f61718d0",
+    "own/Song of Songs/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json": "3cce866d5300ca235c0e1f8bd8c2fa5471a2eaa9b397ea94d13c25e8064e2d55",
+    "own/Ecclesiastes/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json": "ced59c2bca61a41b1b9bc8f19967e42f0376cc1d3a372905b300c4b2c0424cc3",
+    "own/Lamentations/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json": "3d054fea92aeda421cc8883786f0bcda609512c5df33b7eb694c0b2e92953093",
+    "own/Daniel/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json": "0ec64754aa4ab3d197b2992a33398cddc4615bfb5c19cb6e5b6e575c748dc3fd",
+    "own/Ezra/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json": "e102d39b56fb5007e9fb7400ef3fcd2d7501ff00553a484c5462ae02d63a9b40",
+    "own/Nehemiah/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json": "f1c265351827a6df588d891269860c2fe2ef063de4e4ce88f4fb52487059c517",
+    "own/I Chronicles/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json": "1760411a19dc820e19940be23530831ce47a22d3f95095a63cb46cb305194bfc",
+    "own/II Chronicles/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json": "cda23541cdd731041e695f5b4804004e04c5fafdc9e0c9ca362889bfa61d54cf",
+    "own/Psalms/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json": "841a816b411a084457e6ec1a7243b8e7744cfe202c0784f7367c1f6b568edb0c",
+    "own/Proverbs/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json": "afbd007dc5f8a05ea9a44bf140005edb528f01ffdf30e4853aaf89e0bb08334b",
+    "own/Job/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json": "e9f5c966d8b5548c7a2c2de5984e75a5909d32ddcd99c6b361eb74cd7d617892"
+  }
+}

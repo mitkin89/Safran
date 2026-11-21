@@ -27,7 +27,13 @@ window.PORTRAITS = [
   { match: 'Bernfeld', img: 'bernfeld.jpg', name: 'Simon Bernfeld (1860–1940)' },
   { match: 'Steinsaltz', img: 'steinsaltz.jpg', name: 'Adin Even-Israel Steinsaltz (1937–2020)' },
   { match: 'Mandelstamm', img: 'mandelstamm.jpg', name: 'Leon Mandelstamm (1819–1889)' },
+  { match: 'Martin Buber gemeinsam mit Franz Rosenzweig', img: 'buber_rosenzweig.png', name: 'Buber–Rosenzweig – Die Schrift' },
+  { match: 'Wohlgemuth', img: 'wohlgemuth.png', name: 'Joseph Wohlgemuth' },
   // Handschriften
+  { match: 'Peshitta', img: 'peshitta.png', name: 'Peschitta – syrische Handschrift, Jeremia 17' },
+  { match: 'Peschitta', img: 'peshitta.png', name: 'Peschitta – syrische Handschrift, Jeremia 17' },
+  { match: 'Samaritanischer Pentateuch', img: 'samaritan.png', name: 'Samaritanischer Pentateuch – Handschrift' },
+  { match: 'Samaritan Pentateuch', img: 'samaritan.png', name: 'Samaritanischer Pentateuch – Handschrift' },
   { match: 'Targum Onkelos', img: 'onkelos.jpg', name: 'Targum Onkelos – mikrographische Figur in einer Pentateuch-Handschrift' },
   { match: 'Aleppo', img: 'aleppo.jpg', name: 'Aleppo-Kodex (10. Jh.)' },
   { match: 'Leningrad', img: 'leningrad.jpg', name: 'Leningrader Kodex (1008/09), Teppichseite' },

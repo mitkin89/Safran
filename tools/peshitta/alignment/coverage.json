@@ -1,0 +1,1497 @@
+{
+  "sourceVerses": 1533,
+  "accepted": 1161,
+  "rejected": [
+    {
+      "ref": "1:5",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "1:8",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "1:13",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "1:14",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "1:19",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "1:23",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "1:26",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "1:28",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "1:30",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "1:31",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "2:3",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "2:20",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "3:15",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "3:16",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "3:21",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "3:24",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "4:2",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "4:8",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "4:10",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "4:22",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "4:26",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "5:2",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "5:5",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "5:8",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "5:11",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "5:14",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "5:17",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "5:20",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "5:24",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "5:27",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "5:31",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "6:4",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "6:8",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "6:12",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "6:17",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "6:18",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "6:22",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "7:3",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "7:16",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "7:20",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "8:5",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "8:14",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "8:17",
+      "reason": "No exact phonetic bridge"
+    },
+    {
+      "ref": "9:2",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "9:7",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "9:11",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "9:16",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "9:17",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "9:21",
+      "reason": "No exact phonetic bridge"
+    },
+    {
+      "ref": "9:29",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "10:11",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "10:14",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "10:20",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "10:22",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "10:32",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "11:2",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "11:9",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "11:11",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "11:13",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "11:15",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "11:17",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "11:19",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "11:21",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "11:23",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "11:25",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "11:32",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "12:8",
+      "reason": "No exact phonetic bridge"
+    },
+    {
+      "ref": "12:9",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "13:3",
+      "reason": "No exact phonetic bridge"
+    },
+    {
+      "ref": "13:6",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "13:10",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "13:18",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "14:2",
+      "reason": "No exact phonetic bridge"
+    },
+    {
+      "ref": "14:5",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "14:6",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "14:7",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "14:8",
+      "reason": "No exact phonetic bridge"
+    },
+    {
+      "ref": "14:16",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "14:18",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "14:24",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "15:4",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "15:7",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "15:11",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "15:20",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "15:21",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "16:6",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "16:14",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "16:16",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "17:2",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "17:6",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "17:14",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "17:27",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "18:14",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "18:15",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "18:20",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "18:22",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "18:31",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "19:7",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "19:11",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "19:14",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "19:15",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "19:18",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "19:38",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "20:1",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "20:8",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "20:13",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "20:15",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "20:18",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "21:1",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "21:6",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "21:7",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "21:17",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "21:21",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "21:34",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "22:1",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "22:6",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "22:9",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "22:12",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "22:19",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "22:24",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "23:2",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "23:10",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "23:20",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "24:2",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "24:12",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "24:14",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "24:16",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "24:17",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "24:26",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "24:29",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "24:30",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "24:31",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "24:33",
+      "reason": "No exact phonetic bridge"
+    },
+    {
+      "ref": "24:34",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "24:37",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "24:38",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "24:40",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "24:43",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "24:45",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "24:48",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "24:49",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "24:50",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "24:54",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "24:55",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "24:62",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "24:67",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "25:10",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "25:11",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "25:18",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "25:23",
+      "reason": "No exact phonetic bridge"
+    },
+    {
+      "ref": "25:32",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "25:34",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "26:12",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "26:18",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "26:28",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "26:31",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "26:33",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "26:35",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "27:2",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "27:3",
+      "reason": "No exact phonetic bridge"
+    },
+    {
+      "ref": "27:15",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "27:20",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "27:21",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "27:25",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "27:29",
+      "reason": "No exact phonetic bridge"
+    },
+    {
+      "ref": "27:31",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "27:35",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "27:36",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "27:38",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "28:1",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "28:3",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "28:9",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "28:17",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "28:18",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "28:19",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "28:20",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "29:3",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "29:5",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "29:6",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "29:7",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "29:8",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "29:12",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "29:17",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "29:26",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "29:31",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "30:2",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "30:3",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "30:4",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "30:11",
+      "reason": "No exact phonetic bridge"
+    },
+    {
+      "ref": "30:13",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "30:15",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "30:16",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "30:27",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "30:30",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "30:31",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "30:39",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "30:40",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "30:43",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "31:1",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "31:12",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "31:13",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "31:14",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "31:28",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "31:38",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "31:49",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "32:1",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "32:3",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "32:5",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "32:9",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "32:10",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "32:21",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "32:23",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "32:24",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "32:25",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "32:27",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "32:29",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "32:30",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "33:1",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "33:4",
+      "reason": "No exact phonetic bridge"
+    },
+    {
+      "ref": "33:5",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "33:8",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "33:9",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "33:15",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "33:17",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "33:20",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "34:8",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "34:15",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "34:19",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "34:24",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "34:27",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "34:31",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "35:1",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "35:2",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "35:3",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "35:4",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "35:6",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "35:7",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "35:8",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "35:9",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "35:11",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "35:15",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "35:16",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "35:18",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "35:19",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "35:20",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "35:21",
+      "reason": "No exact phonetic bridge"
+    },
+    {
+      "ref": "35:22",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "35:27",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "35:29",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "36:5",
+      "reason": "No exact phonetic bridge"
+    },
+    {
+      "ref": "36:6",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "36:10",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "36:14",
+      "reason": "No exact phonetic bridge"
+    },
+    {
+      "ref": "36:18",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "36:19",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "36:21",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "36:28",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "36:29",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "36:30",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "36:38",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "36:39",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "36:41",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "36:43",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "37:9",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "37:14",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "37:15",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "37:21",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "37:22",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "37:30",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "37:36",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "38:8",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "38:14",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "38:16",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "38:25",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "38:30",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "39:14",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "39:15",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "39:20",
+      "reason": "No exact phonetic bridge"
+    },
+    {
+      "ref": "39:23",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "40:3",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "40:5",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "40:7",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "40:8",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "40:12",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "40:15",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "40:18",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "40:23",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "41:1",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "41:4",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "41:8",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "41:13",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "41:19",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "41:34",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "41:45",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "41:50",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "41:57",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "42:4",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "42:8",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "42:12",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "42:14",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "42:19",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "42:20",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "42:29",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "42:38",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "43:6",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "43:11",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "43:15",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "43:20",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "43:27",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "43:28",
+      "reason": "No exact phonetic bridge"
+    },
+    {
+      "ref": "43:29",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "43:34",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "44:2",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "44:3",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "44:7",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "44:8",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "44:10",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "44:11",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "44:16",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "44:17",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "44:18",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "44:19",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "44:31",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "45:1",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "45:3",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "45:4",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "45:6",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "45:17",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "45:26",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "45:28",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "46:3",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "46:7",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "46:17",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "46:20",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "46:27",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "46:33",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "46:34",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "47:1",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "47:3",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "47:15",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "47:17",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "47:29",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "47:30",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "47:31",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "48:5",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "48:7",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "48:8",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "48:10",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "48:15",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "48:17",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "48:22",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "49:1",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "49:4",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "49:7",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "49:10",
+      "reason": "No exact phonetic bridge"
+    },
+    {
+      "ref": "49:11",
+      "reason": "No exact phonetic bridge"
+    },
+    {
+      "ref": "49:12",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "49:13",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "49:15",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "49:17",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "49:19",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "49:20",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "49:21",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "49:26",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "50:5",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "50:6",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "50:8",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "50:9",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "50:11",
+      "reason": "Hebrew word boundaries differ"
+    },
+    {
+      "ref": "50:15",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "50:20",
+      "reason": "Syriac text or word boundaries differ"
+    },
+    {
+      "ref": "50:25",
+      "reason": "Syriac text or word boundaries differ"
+    }
+  ],
+  "links": 18003,
+  "unlinkedMT": 612,
+  "unlinkedSyriac": 234
+}

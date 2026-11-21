@@ -1,0 +1,71 @@
+{
+  "source": {
+    "url": "https://www.edition-digitalkennicott.unito.it/exist/apps/dike/api/document/010_1kgs.xml/",
+    "book": "I Kings",
+    "sha256": "2f390189a73495e0be6a9e0e95d98c037a4166c5d913919b9de1aa57fb2f2059",
+    "license": "CC BY-NC-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "title": "The Digital Kennicott. A Digital Edition of Benjamin Kennicott's Vetus Testamentum Hebraicum",
+    "editors": "Sebastiano Crestani, Alberto Legnaioli",
+    "base": "Kennicott / Van der Hooght reference text; distinct from OSHB",
+    "mt": {
+      "rel": "own/I Kings/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "67f13503eb41d5fc67941cd41bf5a86b605ca3bc8371e38e558129c6538d8d15",
+      "license": "CC BY 4.0"
+    }
+  },
+  "counts": {
+    "entries": 5125,
+    "readings": 7613,
+    "verses": 811,
+    "witnesses": 721,
+    "baseVerses": 817
+  },
+  "unlocated": [],
+  "unidentifiedWitnesses": [
+    "K145m",
+    "K151m",
+    "K154m",
+    "K158m",
+    "K168m",
+    "K172m",
+    "K176m",
+    "K187m",
+    "K198m",
+    "K202m",
+    "K205m",
+    "K210m",
+    "K223m",
+    "K224m",
+    "K225m",
+    "K227m",
+    "K240m",
+    "K242m",
+    "K246m",
+    "K249m",
+    "K251m",
+    "K277m",
+    "K300m",
+    "K30m",
+    "K310m",
+    "K330m",
+    "K375m",
+    "K403m",
+    "K419m",
+    "K514m",
+    "K601m",
+    "K602m",
+    "K611m",
+    "K632m",
+    "K93m",
+    "KV.Hooght"
+  ],
+  "apparatusRefsWithoutBase": [],
+  "baseRefsOutsideMT": [],
+  "unindexedEntries": [],
+  "mappedSourceVerses": 816,
+  "unmappedSourceVerses": [
+    "I Kings 9:18"
+  ],
+  "shiftedSourceVerses": {}
+}

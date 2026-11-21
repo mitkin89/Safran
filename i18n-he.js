@@ -1,6 +1,12 @@
 // Hebräische Oberfläche: ergänzt die englische Tabelle (i18n.js); was hier fehlt, bleibt englisch.
 window.I18N_HE = {
 "exact": {
+    "Wortzuordnung nicht angewendet: {}": "שיוך המילים לא הוחל: {}",
+    "Quellstand der Wortzuordnung fehlt": "חסרה חתימת המקור של שיוך המילים",
+    "Hebräische Fassung weicht vom Quellstand der Wortzuordnung ab": "הנוסח העברי שונה ממקור שיוך המילים",
+    "Übersetzung weicht vom Quellstand der Wortzuordnung ab": "התרגום שונה ממקור שיוך המילים",
+    "Textfassung konnte nicht geprüft werden": "לא ניתן לאמת את גרסת הטקסט",
+
     "Grammatik (Tanach / Bavli)": "דקדוק (תנ״ך / בבלי)",
     "Grammatik-Suche: Tanach (Westminster) und Berakhot 2a–10b": "חיפוש דקדוקי: תנ״ך (וסטמינסטר) וברכות ב ע״א–י ע״ב",
     "Mehrdeutig: mehrere Analysen": "עמום: כמה ניתוחים אפשריים",
@@ -620,6 +626,20 @@ window.I18N_HE = {
 "Nicht mehr fragen": "אל תשאל שוב",
 "Bibliothek jetzt auswählen …": "בחירת ספרייה עכשיו …",
 "Abschnitt exportieren": "ייצוא קטע",
+"Buch oder Abschnitt exportieren": "ייצוא ספר או קטע",
+"Buch oder Abschnitt als PDF oder Word exportieren": "ייצוא ספר או קטע כ-PDF או Word",
+"Exportbereich": "טווח הייצוא",
+"Schriftgrößen werden aus „Anzeige“ übernommen.": "גודלי הגופנים נלקחים מהגדרות התצוגה.",
+"Aktueller Abschnitt": "הקטע הנוכחי",
+"Ganzes Buch": "הספר כולו",
+"Abschnittsbereich": "טווח קטעים",
+"Von Abschnitt": "מקטע",
+"Bis Abschnitt": "עד קטע",
+"{} · {#} Fassungen nebeneinander": "{} · {} גרסאות זו לצד זו",
+"Export wird vorbereitet …": "הייצוא בהכנה …",
+"Kein Text zum Exportieren geöffnet.": "אין טקסט פתוח לייצוא.",
+"Bitte einen gültigen Abschnittsbereich wählen.": "נא לבחור טווח קטעים תקין.",
+"Ungültiger Exportbereich.": "טווח ייצוא לא תקין.",
 "Format": "פורמט",
 "Word (.doc)": "Word (.doc)",
 "Zeilen von": "שורות מ-",

@@ -8,6 +8,7 @@ permissions:
 jobs:
   build:
     strategy:
+      fail-fast: false
       matrix:
         os: [macos-latest, windows-latest, ubuntu-latest]
     runs-on: ${{ matrix.os }}
@@ -18,7 +19,7 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
-      - run: npm ci || npm install
+      - run: npm ci
       - run: npm test
       - run: npx electron-builder ${{ matrix.os == 'macos-latest' && '--mac' || matrix.os == 'windows-latest' && '--win' || '--linux' }} --publish never
       - uses: actions/upload-artifact@v4
@@ -48,4 +49,4 @@ jobs:
             dist/*.exe
             dist/*.AppImage
             dist/*.deb
-          generate_release_notes: true
+          generate_release_notes: ${{ steps.notes.outputs.path == '' }}

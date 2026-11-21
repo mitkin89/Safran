@@ -1,6 +1,6 @@
 # Septuaginta (CATSS) – Lizenz und Namensnennung
 
-Die Dateien `bundled/own/*/other/Septuaginta (CATSS*.json` sind eine Bearbeitung der **parallel ausgerichteten Texte der Septuaginta und des masoretischen Textes** des Projekts CATSS (Computer Assisted Tools for Septuagint Studies, Leitung Emanuel Tov, Robert A. Kraft).
+Die Dateien `bundled/own/*/other/Septuaginta (CATSS*.json`, der separate Apparat `tov-data.js` und seine Quelldaten unter `tools/catss/tov-source/` sind eine Bearbeitung der **parallel ausgerichteten Texte der Septuaginta und des masoretischen Textes** des Projekts CATSS (Computer Assisted Tools for Septuagint Studies, Leitung Emanuel Tov, Robert A. Kraft).
 
 - Quelle: Oxford Text Archive, [Eintrag 1111](https://ota.bodleian.ox.ac.uk/repository/xmlui/handle/20.500.12024/1111) (Parallel aligned text of the Greek and Hebrew Bible)
 - Lizenz laut Oxford Text Archive: **Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported** (CC BY-NC-SA 3.0), <https://creativecommons.org/licenses/by-nc-sa/3.0/>
@@ -9,8 +9,10 @@ Die Dateien `bundled/own/*/other/Septuaginta (CATSS*.json` sind eine Bearbeitung
 
 ## Bearbeitung durch Safran
 
-Beta-Code und Umschrift wurden in Unicode umgewandelt (griechisch und hebräisch), die Ausrichtung wurde zu Wortgruppen je Vers zusammengefasst (Konverter: `tools/catss/catss.py`). Spaltenangaben (Rückübersetzungen, Marken wie Doublette, Plus, Minus) wurden teilweise übernommen, Übersetzungstechnik-Notizen nicht. Die Bearbeitung kann Fehler enthalten.
+Beta-Code und Umschrift wurden in Unicode umgewandelt (griechisch und hebräisch), die Ausrichtung wurde zu Wortgruppen je Vers zusammengefasst (Konverter: `tools/catss/catss.py`). Im Lesetext wurden Spaltenangaben (Rückübersetzungen, Marken wie Doublette, Plus, Minus) teilweise übernommen. Der separate Textkritik-Apparat `tov-data.js` übernimmt zusätzlich die erfassten Spaltenhinweise einschließlich Übersetzungstechnik aus den vier Oxford-Quelldateien; Originalspalten und Zeilenbelege bleiben erhalten. Reproduzierbarer Import, komprimierte Originale und Prüfsummen: `tools/catss/`. Hosea wird aus dem vorhandenen Originalabschnitt zusätzlich erschlossen. Für Psalmen, Sprüche und Hiob werden nur die in den vorhandenen CATSS-Lesetexten erhaltenen Ausrichtungsmarken übernommen und ausdrücklich als Lesetextauszüge zitiert; fehlende Originalanmerkungen werden nicht erfunden. Der falsch als Esther bezeichnete Esra-Abschnitt ist vom Apparat ausgeschlossen. Die Bearbeitung kann Fehler enthalten.
 
 ## Bedingungen
 
-Diese Daten dürfen nur **nicht kommerziell** verwendet werden, mit Namensnennung (siehe oben) und – bei Weitergabe von Bearbeitungen – **unter derselben Lizenz** (CC BY-NC-SA 3.0). Der Quellcode von Safran steht dagegen unter der Lizenz des Projekts (siehe `LICENSE`); diese Einschränkung gilt nur für die Septuaginta-Dateien.
+Diese Daten dürfen nur **nicht kommerziell** verwendet werden, mit Namensnennung (siehe oben) und – bei Weitergabe von Bearbeitungen – **unter derselben Lizenz** (CC BY-NC-SA 3.0). Der Quellcode von Safran steht dagegen unter der Lizenz des Projekts (siehe `LICENSE`); diese Einschränkung gilt für die CATSS-Texte, den CATSS-Apparat und seine Quelldaten.
+
+Die im gemeinsamen Apparat ergänzten masoretischen Bezugswörter stammen aus dem Westminster Leningrad Codex / Open Scriptures Hebrew Bible (OSHB, CC BY 4.0). Sie behalten ihre eigene Namensnennung und Lizenz; siehe die OSHB-Lizenzhinweise des Projekts.

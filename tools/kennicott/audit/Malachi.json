@@ -1,0 +1,34 @@
+{
+  "source": {
+    "url": "https://www.edition-digitalkennicott.unito.it/exist/apps/dike/api/document/026_mal.xml/",
+    "book": "Malachi",
+    "sha256": "9ca94454fd0fd1ac9ca2efa03c509eb9e0a111634af28253c8ba364cdf5d661d",
+    "license": "CC BY-NC-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "title": "The Digital Kennicott. A Digital Edition of Benjamin Kennicott's Vetus Testamentum Hebraicum",
+    "editors": "Sebastiano Crestani, Alberto Legnaioli",
+    "base": "Kennicott / Van der Hooght reference text; distinct from OSHB",
+    "mt": {
+      "rel": "own/Malachi/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "e9a4056fa7e096eab3f685554f9184d6cbe0d8888c203156a0f617f25302bbe0",
+      "license": "CC BY 4.0"
+    }
+  },
+  "counts": {
+    "entries": 399,
+    "readings": 619,
+    "verses": 55,
+    "witnesses": 721,
+    "baseVerses": 55
+  },
+  "unlocated": [],
+  "unidentifiedWitnesses": [
+    "K198m"
+  ],
+  "apparatusRefsWithoutBase": [],
+  "baseRefsOutsideMT": [],
+  "unindexedEntries": [],
+  "mappedSourceVerses": 55,
+  "unmappedSourceVerses": [],
+  "shiftedSourceVerses": {}
+}

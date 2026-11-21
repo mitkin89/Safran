@@ -1,0 +1,52 @@
+{
+  "source": {
+    "url": "https://www.edition-digitalkennicott.unito.it/exist/apps/dike/api/document/035_dan.xml/",
+    "book": "Daniel",
+    "sha256": "2bcfe4ed0d12e354c0f58eb71944f0240ef12413fbcfa217579afd543188727e",
+    "license": "CC BY-NC-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "title": "The Digital Kennicott. A Digital Edition of Benjamin Kennicott's Vetus Testamentum Hebraicum",
+    "editors": "Sebastiano Crestani, Alberto Legnaioli",
+    "base": "Kennicott / Van der Hooght reference text; distinct from OSHB",
+    "mt": {
+      "rel": "own/Daniel/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "0ec64754aa4ab3d197b2992a33398cddc4615bfb5c19cb6e5b6e575c748dc3fd",
+      "license": "CC BY 4.0"
+    }
+  },
+  "counts": {
+    "entries": 3496,
+    "readings": 6908,
+    "verses": 356,
+    "witnesses": 721,
+    "baseVerses": 357
+  },
+  "unlocated": [],
+  "unidentifiedWitnesses": [
+    "K145m",
+    "K158m",
+    "K168m",
+    "K207m",
+    "K224m",
+    "K227m",
+    "K228m",
+    "K240m",
+    "K249m",
+    "K250m",
+    "K474m"
+  ],
+  "apparatusRefsWithoutBase": [],
+  "baseRefsOutsideMT": [],
+  "unindexedEntries": [],
+  "mappedSourceVerses": 350,
+  "unmappedSourceVerses": [
+    "Daniel 2:42",
+    "Daniel 2:43",
+    "Daniel 3:21",
+    "Daniel 4:24",
+    "Daniel 5:18",
+    "Daniel 5:30",
+    "Daniel 9:5"
+  ],
+  "shiftedSourceVerses": {}
+}

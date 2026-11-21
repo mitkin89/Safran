@@ -1,0 +1,50 @@
+{
+  "source": {
+    "url": "https://www.edition-digitalkennicott.unito.it/exist/apps/dike/api/document/011_2kgs.xml/",
+    "book": "II Kings",
+    "sha256": "f6e3666ec33e5e08c066e9febd3b16848a0db6498cab5a4b1131401b18530499",
+    "license": "CC BY-NC-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "title": "The Digital Kennicott. A Digital Edition of Benjamin Kennicott's Vetus Testamentum Hebraicum",
+    "editors": "Sebastiano Crestani, Alberto Legnaioli",
+    "base": "Kennicott / Van der Hooght reference text; distinct from OSHB",
+    "mt": {
+      "rel": "own/II Kings/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "0b58661591e225c147c09a490c47dc81bc2cb90df076cc95914d085bad996882",
+      "license": "CC BY 4.0"
+    }
+  },
+  "counts": {
+    "entries": 4961,
+    "readings": 7360,
+    "verses": 715,
+    "witnesses": 721,
+    "baseVerses": 719
+  },
+  "unlocated": [],
+  "unidentifiedWitnesses": [
+    "K154m",
+    "K155m",
+    "K158m",
+    "K168m",
+    "K180m",
+    "K201m",
+    "K224m",
+    "K226m",
+    "K228m",
+    "K246m",
+    "K249m",
+    "K251m",
+    "K277m",
+    "K355m",
+    "K360m",
+    "K375m",
+    "K602m"
+  ],
+  "apparatusRefsWithoutBase": [],
+  "baseRefsOutsideMT": [],
+  "unindexedEntries": [],
+  "mappedSourceVerses": 719,
+  "unmappedSourceVerses": [],
+  "shiftedSourceVerses": {}
+}

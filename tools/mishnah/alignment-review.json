@@ -1,0 +1,53 @@
+{
+  "groups": [
+    {
+      "witness": "P",
+      "base": [
+        [
+          "1:1",
+          17
+        ]
+      ],
+      "reading": [
+        [
+          "1:1",
+          17
+        ]
+      ],
+      "expectedBase": [
+        "וחכ'"
+      ],
+      "expectedReading": [
+        "וחכמין"
+      ],
+      "reason": "Reviewed Berakhot 1:1: explicit abbreviated וחכ' corresponds to Parma וחכמין between אליעזר and the speech formula."
+    },
+    {
+      "witness": "P",
+      "base": [
+        [
+          "1:1",
+          18
+        ]
+      ],
+      "reading": [
+        [
+          "1:1",
+          18
+        ]
+      ],
+      "expectedBase": [
+        "אומ'"
+      ],
+      "expectedReading": [
+        "אומרין"
+      ],
+      "reason": "Reviewed Berakhot 1:1 speech formula: אומ' and אומרין precede עד חצות."
+    }
+  ],
+  "sourceSha256": {
+    "K": "c476b656dbd5cd397f8641685723d3262fd82a33d3369af0ca7a5cb9df256102",
+    "P": "b0b2c7b8e76ae49579b909ef3587cf0ddc6c9429965e2ab3badb1a4b926256c0",
+    "C": "e3dc0ee0ad5bcc2508105f3aa1e2be0ee17ca01a2cb02e7c4ad9804c5868e35a"
+  }
+}

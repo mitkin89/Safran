@@ -1,0 +1,42 @@
+{
+  "source": {
+    "url": "https://www.edition-digitalkennicott.unito.it/exist/apps/dike/api/document/021_nah.xml/",
+    "book": "Nahum",
+    "sha256": "e4d96b65a795b2dc00c5588c313997068209dee9a13f6fe8354c4532aec24747",
+    "license": "CC BY-NC-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "title": "The Digital Kennicott. A Digital Edition of Benjamin Kennicott's Vetus Testamentum Hebraicum",
+    "editors": "Sebastiano Crestani, Alberto Legnaioli",
+    "base": "Kennicott / Van der Hooght reference text; distinct from OSHB",
+    "mt": {
+      "rel": "own/Nahum/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "6371a199639dfbb24e9bc726a5cf2e1869b7e7d182303f350caa5d2443dcba31",
+      "license": "CC BY 4.0"
+    }
+  },
+  "counts": {
+    "entries": 308,
+    "readings": 525,
+    "verses": 47,
+    "witnesses": 721,
+    "baseVerses": 47
+  },
+  "unlocated": [],
+  "unidentifiedWitnesses": [
+    "K154m",
+    "K201m",
+    "K224m",
+    "K228m",
+    "K277m"
+  ],
+  "apparatusRefsWithoutBase": [],
+  "baseRefsOutsideMT": [],
+  "unindexedEntries": [],
+  "mappedSourceVerses": 44,
+  "unmappedSourceVerses": [
+    "Nahum 2:4",
+    "Nahum 2:5",
+    "Nahum 2:6"
+  ],
+  "shiftedSourceVerses": {}
+}

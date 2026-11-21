@@ -1,0 +1,71 @@
+{
+  "source": {
+    "url": "https://www.edition-digitalkennicott.unito.it/exist/apps/dike/api/document/013_jer.xml/",
+    "book": "Jeremiah",
+    "sha256": "9ede3f6bf34840dbb4bfef102d9def8a854db09aaa77e2dc6bc1b37e882a910a",
+    "license": "CC BY-NC-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "title": "The Digital Kennicott. A Digital Edition of Benjamin Kennicott's Vetus Testamentum Hebraicum",
+    "editors": "Sebastiano Crestani, Alberto Legnaioli",
+    "base": "Kennicott / Van der Hooght reference text; distinct from OSHB",
+    "mt": {
+      "rel": "own/Jeremiah/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "d2a63185291f9c430a6856aa9df34056f73f477e18f3ff7bcf1310c08e650ac4",
+      "license": "CC BY 4.0"
+    }
+  },
+  "counts": {
+    "entries": 9619,
+    "readings": 15979,
+    "verses": 1348,
+    "witnesses": 721,
+    "baseVerses": 1364
+  },
+  "unlocated": [],
+  "unidentifiedWitnesses": [
+    "K100m",
+    "K145m",
+    "K154m",
+    "K155m",
+    "K158m",
+    "K180m",
+    "K198m",
+    "K1m",
+    "K201m",
+    "K204m",
+    "K224m",
+    "K225m",
+    "K227m",
+    "K228m",
+    "K23m",
+    "K242m",
+    "K249m",
+    "K250m",
+    "K251m",
+    "K277m",
+    "K30m",
+    "K355m",
+    "K409m",
+    "K434m",
+    "K602m",
+    "K659m",
+    "K84m",
+    "KV.Hooght"
+  ],
+  "apparatusRefsWithoutBase": [],
+  "baseRefsOutsideMT": [],
+  "unindexedEntries": [],
+  "mappedSourceVerses": 1355,
+  "unmappedSourceVerses": [
+    "Jeremiah 4:19",
+    "Jeremiah 5:24",
+    "Jeremiah 10:17",
+    "Jeremiah 18:9",
+    "Jeremiah 22:23",
+    "Jeremiah 29:23",
+    "Jeremiah 48:20",
+    "Jeremiah 50:11",
+    "Jeremiah 51:34"
+  ],
+  "shiftedSourceVerses": {}
+}

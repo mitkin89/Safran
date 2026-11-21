@@ -23,6 +23,7 @@ function norm(s) {
   return String(s || '')
     .normalize('NFD')
     .replace(/[֑-ׇ]/g, '')            // Vokal- und Betonungszeichen
+    .replace(/[\u0730-\u074a]/g, '') // syrische Vokal- und Aussprachezeichen (einschließlich Seyame)
     .replace(/[̀-ͯ]/g, '')            // lateinische und griechische Akzente
     .replace(/[ךםןףץ]/g, c => FINAL[c])        // Endbuchstaben
     .replace(/[־׳״'"“”„‚‘’`´.,;:!?()\[\]{}<>*]/g, '') // Maqaf, Gershayim, Satzzeichen
@@ -140,15 +141,45 @@ class Dictionaries {
   constructor(dir) { this.dir = dir; this.cache = new Map(); }
   file(id) { return path.join(this.dir, id + '.json'); }
   async list() {
+    // Gleichzeitige Fenster teilen die Inventur, nicht die großen Artikelbestände.
+    if (this._listing) return this._listing;
+    this._listing = this.listMetadata();
+    try { return await this._listing; } finally { this._listing = null; }
+  }
+  async listMetadata() {
     const meta = await this.meta();
+    let previous = {};
+    try {
+      const c = JSON.parse(await fs.readFile(path.join(this.dir, '_catalog.txt'), 'utf8'));
+      if (c.version === 1 && c.items && typeof c.items === 'object') previous = c.items;
+    } catch { /* abgeleitete Daten: bei Bedarf neu lesen */ }
     let names = [];
     try { names = (await fs.readdir(this.dir)).filter(n => n.endsWith('.json')); } catch { return []; }
-    const out = [];
+    const out = [], items = {};
     for (const n of names) {
       try {
-        const d = await this.load(n.slice(0, -5));
-        out.push({ id: n.slice(0, -5), name: d.name, count: d.heads.length, lang: d.indexLang, bytes: d.bytes || 0, ship: meta.ship.includes(n.slice(0, -5)), bundled: meta.bundled.includes(n.slice(0, -5)) });
+        const id = n.slice(0, -5), st = await fs.stat(this.file(id));
+        const stamp = [st.size, st.mtimeMs, st.ctimeMs].join(':');
+        let d = previous[id];
+        if (!d || d.stamp !== stamp || typeof d.name !== 'string' || !Number.isInteger(d.count) || d.count < 0 || typeof d.lang !== 'string') {
+          // Altes Format bleibt lesbar. Keine Suchindizes bauen und keine Artikel
+          // im Cache halten, nur um Namen und Eintragszahlen anzuzeigen.
+          const j = JSON.parse(await fs.readFile(this.file(id), 'utf8'));
+          if (typeof j.name !== 'string' || !Array.isArray(j.heads) || !Array.isArray(j.html)) continue;
+          d = { stamp, name: j.name, count: j.heads.length, lang: j.indexLang || '' };
+          this.cache.delete(id); this._cites = null;
+        }
+        items[id] = d;
+        out.push({ id, name: d.name, count: d.count, lang: d.lang, bytes: st.size, ship: meta.ship.includes(id), bundled: meta.bundled.includes(id) });
       } catch { /* defekte Datei ignorieren */ }
+    }
+    if (JSON.stringify(items) !== JSON.stringify(previous)) {
+      const tmp = path.join(this.dir, '_catalog-' + crypto.randomUUID() + '.tmp');
+      try {
+        await fs.writeFile(tmp, JSON.stringify({ version: 1, items }), { encoding: 'utf8', flag: 'wx' });
+        await fs.rename(tmp, path.join(this.dir, '_catalog.txt'));
+      } catch { /* schreibgeschützte Bibliotheken funktionieren ohne Katalog */ }
+      finally { await fs.unlink(tmp).catch(() => {}); }
     }
     // eigene Reihenfolge (Datei _order.txt, eine Kennung pro Zeile); Neue ohne Platz kommen ans Ende, alphabetisch
     let order = [];
@@ -317,6 +348,33 @@ class Dictionaries {
     }
     return out;
   }
+  // Exact Syriac tokens inside articles, independent of the Hebrew/Aramaic headword.
+  async syriacMentions(queries, {only='', limit=30}={}) {
+    const key=s=>norm(s).replace(/[\u200c\u200d]/g,'');
+    const wanted=new Set((Array.isArray(queries)?queries:[queries]).slice(0,8).map(key).filter(q=>/^[\u0710-\u072f]+$/u.test(q)));
+    if(!wanted.size)return [];
+    const tokens=/[\u0710-\u072f][\u0710-\u074f\u0300-\u036f\u200c\u200d]*/gu;
+    const results=[];
+    for(const d of await this.list()){
+      if(d.id==='7fab63c14df2'||!allowed(only,d.id))continue;
+      const data=await this.load(d.id);
+      if(!data.syriacIndex){
+        const index=new Map();
+        data.html.forEach((html,k)=>{
+          if(!/[\u0710-\u072f]/u.test(html))return;
+          const counts=new Map();for(const part of String(html).split(/(<[^>]+>)/))if(!part.startsWith('<'))for(const m of part.matchAll(tokens)){const q=key(m[0]);counts.set(q,(counts.get(q)||0)+1);}
+          for(const [q,n]of counts){if(!index.has(q))index.set(q,[]);index.get(q).push([k,n]);}
+        });
+        data.syriacIndex=index;
+      }
+      const hits=new Map();for(const q of wanted)for(const [k,n]of data.syriacIndex.get(q)||[]){const hit=hits.get(k)||{n:0,matched:[]};hit.n+=n;hit.matched.push(q);hits.set(k,hit);}
+      for(const [k,hit]of [...hits].sort((a,b)=>b[1].n-a[1].n||a[0]-b[0]).filter(([k])=>!data.heads[k].some(h=>wanted.has(key(h)))).slice(0,limit)){
+        const html=String(data.html[k]).split(/(<[^>]+>)/).map(part=>part.startsWith('<')?part:part.replace(tokens,t=>wanted.has(key(t))?'<mark class="dhit">'+t+'</mark>':t)).join('');
+        results.push({dictId:d.id,dict:d.name,k,head:data.heads[k].join(' · '),query:data.heads[k][0],html,kind:'syriac-mention',matched:hit.matched,n:hit.n});
+      }
+    }
+    return results;
+  }
   // Volltext: Suchwörter (alle müssen vorkommen, ohne Vokalzeichen/Endbuchstaben/Groß-Klein) im Artikeltext; skip = schon als Stichwort-Treffer gezeigte (dictId:k)
   async fulltext(query, { limit = 80, only = '', skip = new Set() } = {}) {
     const items = parseQuery(query);
@@ -373,29 +431,19 @@ class Dictionaries {
     }
     return res.slice(0, limit * 2);
   }
-  // Nachschlagen: genau, dann Wortanfang, dann ohne hebräische Vorsilben (ה ו ב כ ל מ ש)
+  // Nachschlagen: vollständiges Stichwort; Wortanfänge nur ausdrücklich mit *.
   async lookup(query, { limit = 40, only = '' } = {}) {
     if (/[*?]/.test(query)) return this.lookupWild(query, { limit, only });
     const q = norm(query);
     if (!q) return [];
     const res = [];
-    const prefixes = ['ו', 'ה', 'ב', 'כ', 'ל', 'מ', 'ש'];
-    const variants = [{ q, note: '' }];
-    for (let k = 1; k <= 2 && k < q.length - 1; k++) {
-      const head = q.slice(0, k);
-      if ([...head].every(c => prefixes.includes(c))) variants.push({ q: q.slice(k), note: `ohne Vorsilbe „${head}“` });
-    }
     for (const d of (await this.list())) {
       if (!allowed(only, d.id)) continue;
       const data = await this.load(d.id);
       const seen = new Set();
       const add = (k, kind, note) => { if (seen.has(k)) return; seen.add(k); res.push({ dict: data.name, dictId: d.id, k, head: data.heads[k].join(' · '), html: data.html[k], kind, note }); };
-      for (const v of variants) {
-        const exact = range(data.idx, v.q, true), pre = range(data.idx, v.q, false);
-        for (const k of exact) add(k, 'exact', v.note);
-        if (exact.length === 0 || v === variants[0]) for (const k of pre.slice(0, limit)) add(k, 'prefix', v.note);
-        if (exact.length) break;
-      }
+      const exact = range(data.idx, q, true);
+      for (const k of exact) add(k, 'exact', '');
     }
     // Reihenfolge der Wörterbücher bleibt maßgeblich; innerhalb eines Wörterbuchs kommen genaue Treffer zuerst
     const rank = new Map(); res.forEach(x => { if (!rank.has(x.dictId)) rank.set(x.dictId, rank.size); });

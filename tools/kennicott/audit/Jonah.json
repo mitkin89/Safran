@@ -1,0 +1,32 @@
+{
+  "source": {
+    "url": "https://www.edition-digitalkennicott.unito.it/exist/apps/dike/api/document/019_jonah.xml/",
+    "book": "Jonah",
+    "sha256": "3a90aca0fe12e9e587daff9766532581615821b3d9e13650f5a19e4210ed02d1",
+    "license": "CC BY-NC-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "title": "The Digital Kennicott. A Digital Edition of Benjamin Kennicott's Vetus Testamentum Hebraicum",
+    "editors": "Sebastiano Crestani, Alberto Legnaioli",
+    "base": "Kennicott / Van der Hooght reference text; distinct from OSHB",
+    "mt": {
+      "rel": "own/Jonah/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "909e73570212a453b059c15ee1250853661b5a27de5c4c4ff5a2bd677097d9e5",
+      "license": "CC BY 4.0"
+    }
+  },
+  "counts": {
+    "entries": 320,
+    "readings": 514,
+    "verses": 48,
+    "witnesses": 721,
+    "baseVerses": 48
+  },
+  "unlocated": [],
+  "unidentifiedWitnesses": [],
+  "apparatusRefsWithoutBase": [],
+  "baseRefsOutsideMT": [],
+  "unindexedEntries": [],
+  "mappedSourceVerses": 48,
+  "unmappedSourceVerses": [],
+  "shiftedSourceVerses": {}
+}

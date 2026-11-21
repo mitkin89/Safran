@@ -596,10 +596,8 @@ html.split[data-tab=dict] #dictPanel { right: var(--p2w); padding: 0 max(14px, 3
 
 /* Beschriftungen neben den Symbolen; bei wenig Platz (zwei Fenster, schmales Fenster) nur das Symbol */
 .bl { margin-left: 5px; font-size: .85em; }
-html.split #stick .bl, html.pane2 .bl { display: none; }
 #reader { container-type: inline-size; }
 #stick .bar button, header > button { white-space: nowrap; }
-@container (max-width: 960px) { #stick .bl { display: none; } }
 @media (max-width: 800px) { header .bl { display: none; } }
 #moreList #uiLang { margin-left: 6px; font-size: 13px; }
 
@@ -1138,8 +1136,10 @@ body.stack-split #dictHead #dictQ { min-width: 80px; }
 #rOut .newtab { max-width: 620px; }
 
 /* Porträt groß beim Darüberfahren */
-#vpicPop { position: fixed; z-index: 10000; width: 240px; pointer-events: none; background: var(--bg); border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 10px 34px rgba(0,0,0,.45); padding: 8px; text-align: center; }
-#vpicPop img { width: 100%; aspect-ratio: 1; object-fit: cover; border-radius: 8px; display: block; }
+#vpicPop { position: fixed; margin: 0; inset: auto; box-sizing: border-box; z-index: 10000; width: min(240px,calc(100vw - 16px)); pointer-events: none; background: var(--bg); border: 1px solid var(--line); border-radius: 12px; box-shadow: 0 10px 34px rgba(0,0,0,.45); padding: 8px; text-align: center; }
+#vpicPop[popover]:not(:popover-open) { display: none; }
+#vpicPop::backdrop { pointer-events: none; }
+#vpicPop img { width: 100%; max-height: calc(100vh - 100px); aspect-ratio: 1; object-fit: cover; border-radius: 8px; display: block; }
 #vpicPop div { margin-top: 6px; font-size: 13px; color: var(--fg); line-height: 1.3; }
 
 /* Seitenrand „schmal“ (Anzeige): weniger Innenabstand; ab zwei Spalten keine Breitenbegrenzung */
@@ -1374,9 +1374,9 @@ html.split #formsPanel { right: var(--p2w); }
 #wcBody .wcDE { margin: 2px 0; }
 #wcBody .wcDE > summary { cursor: pointer; line-height: 1.45; }
 #wcBody .wcDE > summary b { font-family: "HeDict", var(--he-font); font-size: 17px; font-weight: 600; }
-#wcBody .wcDE > summary .snip { color: color-mix(in srgb, var(--fg) 72%, var(--muted)); font-size: 12.5px; }
+#wcBody .wcDE > summary .snip { color: color-mix(in srgb, var(--fg) 72%, var(--muted)); font-size: 14.5px; }
 #wcBody .wcDE[open] > summary .snip { display: none; }
-#wcBody .wcDE .dbody { margin: 4px 0 8px 14px; font-size: 14px; max-height: 46vh; overflow: auto; padding-inline-end: 6px; font-family: "HeDict", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", sans-serif; }
+#wcBody .wcDE .dbody { margin: 4px 0 8px 14px; font-size: 16px; max-height: 46vh; overflow: auto; padding-inline-end: 6px; font-family: "HeDict", -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", sans-serif; }
 #wcBody .wcDMore[hidden] { display: none; }
 #wcBody .wcLx { display: grid; gap: 2px; max-width: 460px; }
 #wcBody .wcLxR { display: grid; grid-template-columns: minmax(90px, 34%) 1fr 44px; align-items: center; gap: 8px; }
@@ -1804,3 +1804,523 @@ body.il .cell[data-k="he"] .ilt[data-i="16"] { color: var(--il16); }
 .bil-translations { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; border-top:2px solid #8885; margin-top:20px; }
 .bil-german { font-size:1rem; line-height:1.8; }
 @media(max-width:750px) { .bil-translations { grid-template-columns:1fr; } }
+
+/* Red in Tal–Florentin identifies differences from the Masoretic text. */
+.mt-diff { color: #d00000 !important; }
+:root[data-theme=dark] .mt-diff { color: #ff5555 !important; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme=light]) .mt-diff { color: #ff5555 !important; } }
+
+/* Tal apparatus: quiet word anchors, with the Qumran comparison palette. */
+#rOut .w.tal-note { text-decoration: underline dotted; text-decoration-color: var(--il12); text-underline-offset: .2em; }
+#rOut .w.tal-note:not(:has(.mt-diff)) { color: color-mix(in srgb, var(--fg) 65%, var(--il12)); }
+#rOut .cell .w.tal-note-ref { display: inline; font-size: .55em; line-height: 0; vertical-align: super; color: var(--muted); margin: 0 .1em; cursor: pointer; }
+#wpop:has(.tal-apparatus) { width: 420px; }
+#wpop .tal-apparatus { max-height: 45vh; overflow-y: auto; margin: 8px 0; }
+#wpop .tal-apparatus-entry { border-top: 1px solid var(--line); padding: 8px 0; direction: ltr; }
+#wpop .tal-cite { display: block; color: var(--muted); font-family: system-ui, sans-serif; font-size: 10px; line-height: 1.4; margin-top: 5px; }
+
+/* Samaritan word card: annotation and transcription match the analysis text. */
+#wpop.samaritan-word .wphon, #wpop.samaritan-word .tal-apparatus-entry > div { font-size: 1em; line-height: 1.55; }
+#wpop.samaritan-word .tal-apparatus-entry > div { font-family: "HeDict", system-ui, sans-serif; }
+/* Verse apparatus; participates in the existing dock/pin layout in each frame. */
+#textcritPanel { position: fixed; top: calc(57px - var(--hdoff, 0px)); right: var(--cmt-off, 0px); bottom: 0; width: 440px; max-width: 92vw; max-height: none; z-index: 30; padding: 0 14px 14px; background: var(--bg); border-left: 1px solid var(--line); box-shadow: -6px 0 22px rgba(0,0,0,.3); overflow: auto; font-size: 14px; }
+#textcritPanel[hidden] { display: none; }
+#textcritPanel.docked { width: var(--cmt-w, 440px); z-index: 20; background: var(--side-bg); box-shadow: none; }
+html.split #textcritPanel:not(.docked) { right: var(--p2w); }
+#textcritPanel .tc-head { position: sticky; top: 0; z-index: 1; background: inherit; padding: 12px 0 8px; border-bottom: 1px solid var(--line); }
+#textcritPanel .lhead { display: flex; align-items: center; gap: 8px; }
+#textcritPanel .lhead b { flex: 1; }
+#tcPlace { display: block; margin-top: 2px; font-size: 12px; font-weight: 400; color: var(--muted); }
+.tc-nav { display: flex; gap: 8px; margin-bottom: 8px; }
+.tc-options { display: grid; gap: 5px; margin-top: 8px; }
+#textcritPanel input[type=checkbox] { width: auto; margin: 0; }
+#tcNumbering { max-width: 100%; }
+#tcBody { line-height: 1.55; }
+.tc-count, .tc-credit { color: var(--muted); font-size: .85em; }
+.tc-witness h3 { font-size: 1em; margin: 12px 0 6px; }
+.tc-status { font-size: .9em; border-left: 2px solid var(--accent); padding-left: 8px; }
+.tc-he { font-family: var(--he-font); font-size: 1.45em; line-height: 1.8; }
+#tcBody .w { cursor: pointer; }
+#tcBody .tal-cite { display: block; font: 10px/1.4 system-ui, sans-serif; color: var(--muted); margin-top: 6px; }
+.tc-credit { border-top: 1px solid var(--line); margin-top: 16px; padding-top: 8px; }
+
+/* Flat apparatus: the source remark contains the lemma once; context is on hover. */
+.tc-entry { margin: 0; padding: 9px 0; border-bottom: 1px solid var(--line); }
+.tc-note + .tc-note { margin-top: 10px; }
+.tc-context-word { text-decoration: underline dotted; text-underline-offset: .18em; cursor: help; }
+.tc-context-word.w { cursor: pointer; }
+.tc-context-word:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+#tcHover { position: fixed; z-index: 55; box-sizing: border-box; width: 480px; max-width: calc(100vw - 16px); max-height: min(60vh, calc(100vh - 16px)); overflow: auto; background: var(--card); color: var(--fg); border: 1px solid var(--accent); border-radius: 8px; padding: 12px 14px; box-shadow: 0 6px 24px rgba(0,0,0,.3); font-size: 14px; line-height: 1.55; }
+#tcHover > b, #tcHover > small { display: block; font: 11px/1.5 system-ui, sans-serif; color: var(--muted); }
+#tcHover p { margin: 8px 0; }
+#tcHover .tc-he { margin-top: 6px; }
+
+/* Text-critical header mirrors the commentary controls; remarks remain flat. */
+.tc-nav { flex-wrap: wrap; align-items: center; }
+#tcLang { width: auto; }
+#tcFollow.on { background: color-mix(in srgb, var(--accent) 25%, transparent); border-color: var(--accent); }
+#tcWitnessSummary { border: 0; background: none; color: var(--fg); padding: 5px 0; font: inherit; font-weight: 600; cursor: pointer; }
+#tcWitnessSummary .muted { font-weight: 400; }
+#tcWitnessOptions[hidden] { display: none; }
+
+#tcBody { font-size: var(--tc-fs, 14px); }
+#tcHover { font-size: var(--tc-fs, 14px); }
+#tcBody .tc-jump { font: inherit; color: inherit; padding: 0; border: 0; background: none; cursor: pointer; text-align: left; }
+#tcBody .tc-reader-verse { scroll-margin-top: var(--tc-head-h, 200px); }
+#tcBody .tc-reader-verse.current { border-left: 2px solid var(--accent); padding-left: 8px; }
+/* CATSS apparatus: flat source rows; the full Greek verse stays in the hover. */
+.tc-tov-entry .tc-note-text { line-height: 1.65; }
+.tc-tov-entry bdi[lang="he"] { font-family: var(--he-font, serif); font-size: 1.25em; }
+.tc-tov-lemma { cursor: pointer; text-decoration: underline dotted var(--muted); text-underline-offset: 3px; }
+.tc-tov-lemma:hover, .tc-tov-lemma:focus-visible { color: var(--accent); }
+.tc-tov-codes { color: var(--muted); font-size: .9em; }
+#tcHover [lang="grc"] { margin: 8px 0; font-size: 1.1em; }
+
+.tc-tov-tag { display: inline-block; padding: 0 5px; border-radius: 4px; background: var(--card); font-style: normal; }
+.tc-tov-reading { display: inline; }
+.tc-tov-reading > abbr { white-space: nowrap; }
+/* Group witnesses by MT word position; keep each original source note flat. */
+.tc-locus { margin: 10px 0 18px; }
+.tc-locus-title { margin: 0 0 6px; font-size: 1em; font-weight: 600; }
+.tc-locus-title bdi[lang="he"] { font-size: 1.35em; }
+.tc-locus[data-kind="unresolved"] > h4 { color: var(--muted); font-weight: 400; }
+.tc-witness-label { display: inline-block; font: .8em/1.3 system-ui, sans-serif; color: var(--muted); background: var(--chip); border-radius: 4px; padding: 1px 4px; vertical-align: middle; }
+.tc-locus .tc-entry { margin: 0; padding: 7px 0; }
+#tcHover .tc-tov-il { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 8px 10px; margin: 8px 0; }
+#tcHover .tc-il-unit { display: inline-flex; flex-direction: column; align-items: center; padding: 3px 5px; border: 1px solid transparent; border-radius: 4px; }
+#tcHover .tc-il-unit.active { border-color: var(--accent); background: var(--chip); }
+#tcHover .tc-tov-il [lang="grc"] { margin: 0; font-size: 1em; }
+#tcHover .tc-il-he { font-size: 1.2em; }
+#tcHover .tc-il-retro { color: var(--muted); font-size: .8em; }
+.tc-dss-token { cursor: help; unicode-bidi: isolate; }
+.tc-dss-word { cursor: pointer; }
+.tc-dss-word:hover { background: var(--chip); }
+.tc-dss-reconstructed { color: var(--muted); }
+.tc-dss-coverage { font-size: .85em; color: var(--muted); line-height: 1.8; }
+.tc-dss-coverage-source { cursor: help; text-decoration: underline dotted; }
+#tcHover .tc-dss-context { margin: 8px 0; font-size: 1.3em; line-height: 1.9; }
+#tcHover .tc-dss-active { border: 1px solid var(--accent); border-radius: 3px; padding: 2px; }
+
+.tc-dss-rec { color: var(--muted); }
+.tc-dss-unc { text-decoration: underline dotted; text-underline-offset: .18em; }
+.tc-dss-deleted { text-decoration: line-through; }
+
+/* Apparatus MT anchors use the reader's exact Westminster word positions. */
+.tc-mt-jump { border: 0; padding: 0; background: none; color: inherit; font: inherit; cursor: pointer; }
+.tc-mt-jump:hover, .tc-mt-jump:focus-visible { text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: .2em; }
+#rOut .w.tc-mt-selected { background: color-mix(in srgb, var(--accent) 32%, transparent); border-radius: 3px; outline: 1px solid var(--accent); }
+
+#sProgress { display: flex; align-items: center; gap: 10px; margin: 10px 0; }
+#sProgress[hidden] { display: none; }
+#sProgressBar { flex: 1; min-width: 80px; accent-color: var(--accent); }
+#sProgressLabel { font-variant-numeric: tabular-nums; }
+
+.tc-ken-witnesses { color: var(--muted); font-size: .85em; }
+.tc-ken-group { unicode-bidi: isolate; }
+.tc-ken-term { cursor: help; }
+#tcBody .tc-dss-token, .tc-ken-reading bdi[lang="he"], .tc-ken-lemma bdi[lang="he"] { font-size: 1.2em; }
+
+/* All pinned study panels share one tab strip at the top-left of the dock. */
+#dockTabs { position: fixed; top: calc(57px - var(--hdoff, 0px)); right: var(--cmt-off, 0px); width: var(--dock-w, var(--cmt-w, 400px)); max-width: 90vw; box-sizing: border-box; height: 34px; display: flex; gap: 4px; align-items: center; overflow-x: auto; padding: 3px 8px; z-index: 22; background: var(--side-bg); border: 1px solid var(--line); scrollbar-width: thin; }
+#dockTabs[hidden] { display: none; }
+#dockTabs button { flex: 0 0 auto; font: 12px var(--ui-font, system-ui, sans-serif); padding: 3px 8px; border-radius: 6px; white-space: nowrap; }
+#dockTabs button[aria-selected="true"] { color: var(--accent); border-color: var(--accent); background: color-mix(in srgb, var(--accent) 15%, transparent); }
+body.has-dock-tabs .pinp.docked { top: calc(91px - var(--hdoff, 0px)) !important; max-height: calc(100vh - 91px + var(--hdoff, 0px)); }
+body.has-dock-tabs #stackBar { display: none; }
+html[data-tab=dict] #dockTabs { display: none; }
+
+/* The Samaritan row retains Tal's original red masks and its own word cards. */
+body.il .cell[data-k="he"] .ilt.il-smr { direction: rtl; font-family: var(--he-font, "SBL Hebrew", serif); font-size: .8em; line-height: 1.35; color: var(--fg); }
+.illc[data-i="17"],.ilpR[data-i="17"] { --c: var(--fg); }
+.smr-word { cursor: pointer; border-radius: 3px; }
+.smr-word:hover,.smr-word:focus-visible { background: color-mix(in srgb,var(--accent) 18%,transparent); }
+.smr-plus::before { content: "+"; opacity: .65; font-size: .7em; }
+.smr-transposed::after { content: "↔"; opacity: .65; font-size: .7em; }
+.smr-missing { opacity: .6; }
+.smr-open { margin: .4em 0; padding: .35em .5em; border-inline-start: 2px dotted var(--line); }
+.smr-open small { font: .6em var(--ui-font, system-ui, sans-serif); color: var(--muted); }
+.smr-open > div { font-size: .8em; }
+
+/* Compact apparatus controls: reading actions stay visible; edition settings open on demand. */
+#textcritPanel .tc-head { padding: 7px 0 5px; }
+#textcritPanel .lhead { gap: 5px; margin-bottom: 5px; }
+#textcritPanel .lhead b { min-width: 0; font-size: 13px; }
+#textcritPanel .lhead > button { padding: 3px 6px; }
+#textcritPanel .tc-nav { gap: 4px; margin: 0; }
+#textcritPanel .tc-nav > button, #tcSettings > summary { font-size: 12px; padding: 3px 6px; min-height: 28px; white-space: nowrap; }
+#textcritPanel #tcWitnessSummary { padding: 3px 2px; font-size: 12px; }
+#tcSettings { margin-inline-start: auto; }
+#tcSettings > summary { list-style: none; cursor: pointer; border: 1px solid var(--line); border-radius: 6px; box-sizing: border-box; }
+#tcSettings > summary::-webkit-details-marker { display: none; }
+.tc-settings-body { position: absolute; right: 0; top: 100%; z-index: 5; width: min(320px, 100%); box-sizing: border-box; padding: 12px; background: var(--card); border: 1px solid var(--line); border-radius: 6px; box-shadow: 0 5px 18px #0004; }
+.tc-settings-body label { display: grid; gap: 4px; margin-bottom: 8px; font-size: 12px; }
+.tc-settings-body label:last-child { margin-bottom: 0; }
+.tc-settings-body select { width: 100%; min-width: 0; font-size: 12px; padding: 5px; }
+#tcWitnessOptions { font-size: 12px; margin-top: 5px; gap: 3px; }
+
+#textcritPanel .tc-nav > select { font-size: 12px; padding: 3px 6px; min-height: 28px; max-width: 145px; }
+
+/* Two-row commentary header; language remains directly accessible. */
+#cmtHead { padding: 7px 0 5px; }
+#cmtHead .lhead { gap: 5px; margin-bottom: 5px; }
+#cmtTitle { min-width: 0; flex: 1; font-size: 13px; }
+#cmtHead .lhead > button { padding: 3px 6px; }
+#cmtHead .bar { display: flex; align-items: center; flex-wrap: wrap; gap: 4px; margin: 0; }
+#cmtHead .bar button, #cmtHead .bar select { font-size: 12px; padding: 3px 6px; min-height: 28px; white-space: nowrap; }
+#cmtHead .bar button.cfs { padding: 3px 6px; }
+#cmtHead .bar label { display: flex; margin: 0; }
+#cmtLang { width: auto; max-width: 125px; }
+#cmtHead #cmtSum { padding: 3px 4px; border: 0; background: none; font-size: 12px; }
+#cmtSum:empty { display: none; }
+#cmtChips:not([hidden]):not(:empty) { margin-top: 5px; }
+
+/* Apparatus rows: MT lemma at left, all witness readings at right. */
+#tcBody .tc-verse-summary { display: flex; flex-wrap: wrap; align-items: baseline; gap: 3px; color: var(--muted); font-size: .85em; margin: 10px 0 5px; }
+#tcBody .tc-verse-summary .tc-count, #tcBody .tc-verse-summary small { font-size: inherit; }
+#tcBody .tc-verse-summary .tc-jump { color: inherit; }
+#tcBody .tc-locus { display: grid; grid-template-columns: minmax(0, 24%) minmax(0, 1fr); column-gap: 12px; align-items: start; margin: 0; padding: 7px 0; border-bottom: 1px solid var(--line); }
+#tcBody .tc-locus-title { margin: 0; padding: 3px 0; overflow-wrap: anywhere; }
+#tcBody .tc-locus-readings { min-width: 0; }
+#tcBody .tc-locus .tc-entry { padding: 3px 0; border: 0; }
+#tcBody .tc-note + .tc-note { margin-top: 6px; }
+#tcBody .tc-source { cursor: pointer; border: 0; font: .8em/1.3 system-ui, sans-serif; padding: 1px 4px; }
+#tcBody .tc-source-citation { display: none !important; }
+#tcHover .tc-source-citation-detail { border-bottom: 1px solid var(--line); padding-bottom: 8px; margin-bottom: 8px; font-size: .85em; overflow-wrap: anywhere; }
+#tcHover .tc-source-citation-detail > p { white-space: pre-wrap; }
+#tcBody .tc-tov-reading { white-space: nowrap; }
+#tcBody .tc-tov-reading > bdi { white-space: normal; overflow-wrap: anywhere; }
+
+/* Witness identity uses source colors; red remains reserved for MT differences. */
+:root { --tc-lxx: var(--il5, #d2bb65); --tc-dss: var(--il12, #a5c2da); --tc-smr: var(--il7, #6fc7bd); --tc-ken: var(--il4, #ba9add); }
+#tcBody .tc-entry[data-witness="SMR"] { --tc-witness: var(--tc-smr); }
+#tcBody .tc-entry[data-witness^="LXX"] { --tc-witness: var(--tc-lxx); }
+#tcBody .tc-entry[data-witness="DSS"] { --tc-witness: var(--tc-dss); }
+#tcBody .tc-entry[data-witness="Kennicott"] { --tc-witness: var(--tc-ken); }
+#tcBody .tc-entry .tc-witness-label { color: var(--tc-witness, var(--muted)); background: color-mix(in srgb, var(--tc-witness, var(--muted)) 16%, transparent); }
+#tcBody .tc-locus .tc-entry { border-inline-start: 2px solid color-mix(in srgb, var(--tc-witness, var(--muted)) 50%, transparent); padding-inline-start: 7px; }
+#tcBody .tc-ken-reading { color: var(--muted); }
+#tcBody .tc-ken-reading bdi[lang="he"] { color: var(--fg); }
+#tcBody .tc-ken-witness, #tcBody .tc-ken-more { color: var(--tc-ken); }
+#tcWitnessOptions label:has(#tcSmr) { accent-color: var(--tc-smr); }
+#tcWitnessOptions label:has(#tcTov) { accent-color: var(--tc-lxx); }
+#tcWitnessOptions label:has(#tcDss) { accent-color: var(--tc-dss); }
+#tcWitnessOptions label:has(#tcKen) { accent-color: var(--tc-ken); }
+
+/* Catalogue cards keep institutional source links separate from text navigation. */
+.tc-ken-witness { font: inherit; padding: 0; border: 0; background: none; cursor: pointer; text-decoration: underline dotted; text-underline-offset: .18em; }
+#kenWitness { box-sizing: border-box; width: 560px; max-width: calc(100vw - 24px); max-height: 85vh; overflow: auto; padding: 20px; background: var(--card); color: var(--fg); border: 1px solid var(--accent); border-radius: 10px; font: 14px/1.5 system-ui, sans-serif; }
+#kenWitness::backdrop { background: #0006; }
+#kenWitness h3 { margin: 0 40px 12px 0; }
+#kenWitness h4 { margin: 0 0 8px; }
+#kenWitness .ken-witness-close { position: absolute; top: 8px; right: 8px; }
+.ken-witness-record { border-top: 1px solid var(--line); padding: 12px 0; }
+.ken-witness-record dl { display: grid; grid-template-columns: minmax(90px, 28%) minmax(0, 1fr); gap: 6px 12px; margin: 8px 0; }
+.ken-witness-record dt { color: var(--muted); }
+.ken-witness-record dd { margin: 0; overflow-wrap: anywhere; }
+.ken-witness-record details { margin: 8px 0; }
+.ken-witness-links { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+#kenWitness small { color: var(--muted); }
+
+#dockTabs .dock-tab-icon { margin-inline-end: .35em; }
+
+#tcMishnahWitnesses[hidden], #tcBibleWitnesses[hidden] { display:none; }
+#tcMishnahWitnesses { display:flex; flex-wrap:wrap; gap:12px; }
+.tc-mishnah-base, .tc-mishnah-context { font-family:var(--he-font); font-size:1.2em; line-height:1.8; }
+.tc-mishnah-base { margin:8px 0 14px; }
+.tc-mishnah-annotation { margin:8px 0; }
+.tc-mishnah-xml { white-space:pre-wrap; font:11px/1.4 monospace; overflow-wrap:anywhere; }
+#tcBibleWitnesses { display:contents; }
+.tc-mishnah-sources { display:flex; gap:6px; margin:6px 0; }
+
+/* Source-preserving Mishnah word/group comparison. Columns wrap as whole groups. */
+.mci-grid{display:flex;gap:.5em;align-items:flex-start;margin:.6em 0}
+.mci-labels{flex:0 0 auto}.mci-columns{display:flex;flex-wrap:wrap;gap:.5em 1em;flex:1;min-width:0;align-items:flex-start}
+.mci-column{display:grid;max-width:100%;border-bottom:1px solid var(--border,#444)}
+.mci-cell{min-height:2.2em;line-height:2.2em;white-space:normal;text-align:center}
+.mci-word{font:inherit;font-family:var(--he-font,'SBL Hebrew',serif);font-size:1.15em;color:inherit;border:0;background:none;padding:0 .08em;cursor:pointer;line-height:inherit}
+.mci-word.mt-diff{color:var(--diff-color,#ff5555)}.mci-word.muted{color:var(--muted,#999)}
+.mci-word:hover,.mci-word:focus-visible{outline:1px solid var(--accent,#78aaff);border-radius:3px}
+.mci-annotation{font-size:.6em;color:var(--muted,#999)}.mci-open{margin:.5em 0;color:var(--muted,#999)}
+#tcMishnahView[hidden]{display:none}.tc-mishnah-context mark{background:#56729566;color:inherit;outline:1px solid #78aaff}
+
+/* Manuscripts use the shared comparison renderer inside a normal reading cell. */
+#rOut .mishnah-reader-text{direction:ltr;text-align:start}
+#rOut .mishnah-reader-text .mci-grid{margin:0}
+#rOut .mishnah-reader-text .mci-cell{line-height:1.9;min-height:1.9em}
+#rOut .mishnah-reader-text .tc-source{font: .55em/1.6 system-ui,sans-serif;padding:.12em .35em;cursor:pointer;color:var(--muted);background:var(--chip);border:0;border-radius:4px}
+#rOut .mishnah-reader-text .mci-open{font-size:.75em}
+#rOut .mishnah-reader-text .mci-source-ref{font: .55em/1.6 system-ui,sans-serif;color:var(--muted);display:block}
+.mishnah-reader-hover{position:fixed;z-index:55;box-sizing:border-box;width:480px;max-width:calc(100vw - 16px);max-height:min(60vh,calc(100vh - 16px));overflow:auto;background:var(--card);color:var(--fg);border:1px solid var(--accent);border-radius:8px;padding:12px 14px;box-shadow:0 6px 24px #0005;font:14px/1.55 system-ui,sans-serif}
+.mishnah-reader-hover>small{display:block;overflow-wrap:anywhere;color:var(--muted);font-size:.8em}
+
+#rOut .mishnah-reader-text .mci-labels{position:relative;flex-shrink:0}
+#rOut .mishnah-reader-text .mci-label-set{position:absolute;left:0;width:max-content;white-space:nowrap}
+#rOut .mishnah-reader-text .mci-label-set .mci-cell{white-space:nowrap}
+
+#apBody .apCompare{display:flex;flex-wrap:wrap;align-items:center;gap:5px;margin:6px 0 9px;font-size:12px}
+#apBody .apCompare button.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+#apBody .apFamily{border-bottom:1px solid var(--line);padding:6px 0}
+#apBody .apFamily summary{cursor:pointer;font-size:13px}#apBody .apFamily summary bdi{font:22px var(--he-font)}
+#apBody .apPhrase,#apBody .apEvidence{padding:6px 0;border-bottom:1px solid var(--line)}
+#apBody .apPhrase>bdi{font:22px var(--he-font);margin-inline-end:12px}
+#apBody .apStatVerse{padding:2px 7px;margin:3px 0;font-size:12px}#apBody .apMorphRow{flex-wrap:wrap}
+#apBody .apMorphRow .apW bdi{font:22px var(--he-font)}
+#apBody .apEvidence .chip{font-size:11px;padding:2px 5px;margin:2px}
+#apBody .apRates{display:block;font-size:10px;line-height:1.4}
+
+#apBody .apRn{flex-shrink:1;min-width:0;max-width:58%}
+#apBody .apRates{white-space:normal;overflow-wrap:anywhere}
+
+#apBody .apCompare[hidden]{display:none}
+
+#apBody .apEvidenceTable{width:100%;table-layout:fixed;border-collapse:collapse;font-size:12px}
+#apBody .apEvidenceTable caption{text-align:start;color:var(--muted);font-size:11px;padding:0 0 8px}
+#apBody .apEvidenceTable th,#apBody .apEvidenceTable td{text-align:center;padding:6px 3px;border-bottom:1px solid var(--line);overflow-wrap:anywhere}
+#apBody .apEvidenceTable thead th{font-weight:600;vertical-align:top}
+#apBody .apEvidenceTable th:first-child{width:36px}
+#apBody .apEvidenceTable th small{display:block;font-size:10px;font-weight:400;color:var(--muted)}
+#apBody .apEvidenceMark{color:var(--accent);font-weight:600}
+#apBody .apEvidenceLegend{margin-top:8px;font-size:12px}
+#apBody .apEvidenceLegend summary{cursor:pointer;color:var(--muted)}
+
+#apBody .apProfile{overflow-x:auto;max-width:100%;border:1px solid var(--line);border-radius:6px;margin:8px 0}
+#apBody .apProfileGrid{display:grid;grid-template-columns:90px repeat(var(--profile-verses),minmax(25px,1fr));gap:2px;min-width:max-content;padding:5px}
+#apBody .apProfileLabel{position:sticky;left:0;z-index:1;background:var(--card);font-size:11px;align-content:center;padding:3px}
+#apBody .apProfileVerse{font-size:11px;padding:2px;border:0;background:none;color:var(--muted)}
+#apBody .apProfileBar{height:54px;min-width:25px;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;border:0;background:none;padding:2px;cursor:pointer;font-size:10px;color:var(--fg)}
+#apBody .apProfileBar i{display:block;width:12px;height:var(--bar-height);min-height:1px;background:var(--accent);border-radius:2px}
+#apBody .apProfileBar[data-metric=rare] i{background:#c89e58}#apBody .apProfileBar[data-metric=comments] i{background:#84b29b}#apBody .apProfileBar[data-metric=sources] i{background:#b492cc}
+#apBody .apProfileBar:hover,#apBody .apProfileBar:focus-visible{background:var(--chip);outline:1px solid var(--accent);border-radius:3px}
+
+#apBody .apProfile [data-stat-verse].selected{background:var(--chip);outline:1px solid var(--accent);border-radius:3px}
+
+#fmHead .fmHomonyms{display:inline-flex;flex-wrap:wrap;gap:5px;align-items:center;margin-inline:10px;font:13px system-ui,sans-serif}
+#fmHead .fmHomonyms button{padding:4px 9px;border:1px solid var(--line);border-radius:7px;background:var(--card);color:var(--fg);cursor:pointer;font:inherit}
+#fmHead .fmHomonyms button.on{border-color:var(--accent);background:var(--chip);color:var(--accent)}
+#fmHead .fmHomonyms small{color:var(--muted);font-size:11px}
+
+#wcTr .wcSamePick{border:0;border-bottom:1px dotted var(--accent);padding:0;background:transparent;color:inherit;font:inherit;cursor:pointer}
+#wcTr .wcSamePick:hover,#wcTr .wcSamePick[aria-pressed=true]{color:var(--accent)}
+#wcTr .wcSame{scroll-margin-top:80px;margin-top:14px;padding:12px;border:1px solid var(--line);border-radius:8px}
+#wcTr .wcSame h5{display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin:0;font-size:inherit}
+#wcTr .wcSameClose{margin-inline-start:auto}
+#wcTr .wcSameEntry{padding:9px 0;border-top:1px solid var(--line)}
+#wcTr .wcSameEntry summary{cursor:pointer}
+#wcTr .wcSameEntry summary bdi{font-family:var(--he-font);font-size:1.4em}
+#wcTr .wcSameEntry .fmRL{line-height:1.8;overflow-wrap:anywhere}
+#wcTr .wcSameChoices{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:8px}
+
+/* Shared panel sizing: layout handles remain fixed while panel content scrolls. */
+.panel-resize-handle{position:fixed;touch-action:none;background:transparent;cursor:ew-resize}
+.panel-resize-handle[hidden]{display:none}
+.panel-resize-handle.edge-n,.panel-resize-handle.edge-s{cursor:ns-resize}
+.panel-resize-handle.edge-ne,.panel-resize-handle.edge-sw{cursor:nesw-resize}
+.panel-resize-handle.edge-nw,.panel-resize-handle.edge-se{cursor:nwse-resize}
+.panel-resize-handle:hover,.panel-resize-handle:focus-visible{background:color-mix(in srgb,var(--accent) 45%,transparent);outline:none}
+html.panel-dragging{user-select:none}
+html.panel-dragging iframe{pointer-events:none}
+body.panel-resize-ready #cmtResize,body.panel-resize-ready #tpResize,body.panel-resize-ready #mapResize{display:none}
+body.panel-width-chosen .pinp.docked{width:var(--cmt-w,400px)!important;box-sizing:border-box}
+body .pinp.panel-sized:not(.docked){left:var(--panel-x)!important;top:var(--panel-y)!important;right:auto!important;bottom:auto!important;width:var(--panel-w)!important;height:var(--panel-h)!important;max-width:none!important;max-height:none!important;box-sizing:border-box}
+#apBody .apRateGraph{display:block;width:220px;max-width:100%;margin:5px 0 2px auto}
+#apBody .apRateLine{display:grid;grid-template-columns:52px minmax(30px,1fr) 34px;align-items:center;gap:7px;font-size:10px;text-align:start;line-height:1.6}
+#apBody .apRateLine i{height:7px;background:var(--line);border-radius:3px;overflow:hidden}
+#apBody .apRateLine b{display:block;height:100%;background:var(--accent);border-radius:3px}
+#apBody .apRateLine.rest b{background:#c49b53}
+#apBody .apRateLine small{text-align:end;font:inherit;font-variant-numeric:tabular-nums}
+#apBody .apRateLegend{font-size:11px}
+#apBody .apRateRow{padding-block:6px}
+
+[data-passage-mark=lead]{--passage-mark:#69add7}
+[data-passage-mark=rare]{--passage-mark:#c49b53}
+#rOut .w[data-passage-mark],#apBody .apW[data-passage-mark]{background:color-mix(in srgb,var(--passage-mark) 22%,transparent);text-decoration-line:underline;text-decoration-color:var(--passage-mark);text-decoration-thickness:3px;text-underline-offset:5px;border-radius:4px}
+#passageMarkStatus{position:fixed;bottom:12px;z-index:25;max-width:min(600px,85vw);display:flex;gap:8px;align-items:center;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:6px 10px;font-size:12px;box-shadow:0 2px 12px #0003}
+#passageMarkStatus[hidden]{display:none}
+#passageMarkStatus[data-mode=rare]{border-inline-start:4px solid #c49b53}
+#passageMarkStatus[data-mode=lead]{border-inline-start:4px solid #69add7}
+#passageMarkStatus button{padding:1px 6px;font:inherit}
+
+#apBody .ccChoices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+#apBody .ccChoices fieldset{min-width:0;border:1px solid var(--line);border-radius:8px;padding:8px}
+#apBody .ccChoices label{display:flex;align-items:center;gap:5px;margin:4px 0;font-size:12px}
+#apBody .ccChoices select{min-width:0;width:100%}
+#apBody .ccChoices input{width:70px;max-width:100%}
+#apBody .ccActions,#apBody .ccModes{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
+#apBody .ccModes button{font-size:12px;padding:4px 8px;border-radius:7px}
+#apBody .ccModes .on{background:var(--chip);color:var(--accent);border-color:var(--accent)}
+#apBody .ccSummary{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:12px;font-size:12px}
+#apBody .ccSummary span{padding:8px;border-inline-start:4px solid #69add7;background:var(--card);border-radius:5px}
+#apBody .ccSummary span+span{border-color:#c49b53}
+#apBody .ccRow{border-top:1px solid var(--line);padding:7px 0}
+#apBody .ccRow summary{display:flex;flex-wrap:wrap;gap:8px;align-items:center;cursor:pointer;list-style:disclosure-closed}
+#apBody .ccWord{flex:1 1 130px;min-width:0;font-size:12px}
+#apBody .ccRoot{font:24px var(--he-font)}
+#apBody .ccBars{flex:1 1 190px;min-width:0}
+#apBody .ccBar{display:grid;grid-template-columns:12px minmax(20px,1fr) 90px;align-items:center;gap:6px;font-size:10px;line-height:1.7}
+#apBody .ccBar i{height:7px;border-radius:3px;background:var(--line);overflow:hidden}
+#apBody .ccBar em{display:block;height:100%;background:#69add7}
+#apBody .ccBar.B em{background:#c49b53}
+#apBody .ccBar small{text-align:end;font:inherit;font-variant-numeric:tabular-nums}
+#apBody .ccRefs{font-size:12px;line-height:1.8;overflow-wrap:anywhere}
+#apBody .ccResult>p.muted{font-size:11px}
+
+#apBody .apChapterCompare{scroll-margin-top:70px}
+#apBody .ccRow>summary::before{content:'▸';flex:0 0 10px;color:var(--muted)}
+#apBody .ccRow[open]>summary::before{content:'▾'}
+
+/* Peshitta: bundled Syriac font and independent RTL word records. */
+@font-face { font-family: "Safran Syriac"; src: url("assets/fonts/syrcomedessa.woff") format("woff"); font-weight: 400; font-style: normal; font-display: swap; }
+.cell[data-syriac] .txt, [lang=syr] { font-family: "Safran Syriac", sans-serif; }
+.cell[data-syriac] .txt { font-size: calc(var(--hef, 1.3) * 1em); line-height: 1.9; }
+.syw { cursor: pointer; border-radius: 3px; }
+.syw:hover, .syw.sel { background: color-mix(in srgb, var(--accent) 25%, transparent); }
+#wpop.syriac-word .wword { font-family: "Safran Syriac", sans-serif; font-size: 2.8em; line-height: 1.5; }
+#wpop.syriac-word .sy-gloss { font-size: 1.15em; line-height: 1.4; font-weight: 600; }
+#wpop.syriac-word .sy-morph { font-size: .85em; color: var(--muted); }
+#wpop.syriac-word .sy-source { font-size: .8em; color: var(--muted); }
+
+#wpop .sy-translit { margin: 4px 0 10px; }
+#wpop .sy-translit small { display: block; color: var(--muted); }
+#wpop .sy-translit bdi, #wpop .sy-translit-parts { font-family: "HeDict", var(--he-font); font-size: 1.5em; line-height: 1.4; }
+/* PaTraCoSy suggestions: Syriac and consonantal Hebrew remain separate scripts. */
+body.il .cell[data-k="he"] .ilt.il-ps { direction: rtl; font-family: "Safran Syriac", serif; font-size: .8em; line-height: 1.45; color: var(--fg); }
+.il-ps .ils { border-bottom: 1px dotted var(--muted); }
+.ps-translit { display: block; font-family: var(--he-font, "SBL Hebrew", serif); font-size: .8em; color: var(--muted); }
+.ps-unlinked { margin-top: .5em; padding: .35em; border: 1px dashed var(--muted); font-size: .65em; }
+.ps-unlinked .syw { font-family: "Safran Syriac", serif; }
+.ps-unlinked .ps-translit { display: inline; margin-inline: .2em .7em; }
+
+#wpop.greek-corpus-word .corpus-meaning { margin: .25em 0; }
+#wpop.greek-corpus-word .corpus-gloss { display: block; font-size: 1.15em; line-height: 1.4; font-weight: 600; }
+#wpop.greek-corpus-word .corpus-morph { font-size: .85em; color: var(--muted); }
+#wpop.greek-corpus-word .corpus-gloss-source { display: block; font-size: .75em; color: var(--muted); }
+
+/* One study toolbar, aligned directly below the book tabs. */
+#stick :is(#cmtBtn,#tcBtn,#apBtn,#lkBtn,#olBtn,#tpBtn,#mapBtn) { display: none; }
+#dockTabs { top: var(--study-top, 40px); height: 38px; min-height: 38px; gap: 4px; padding: 4px 8px; container: study-tools / inline-size; box-shadow: 0 1px 5px #0002; }
+#dockTabs button { border: 0; background: transparent; display: inline-flex; align-items: center; justify-content: center; gap: 6px; min-height: 28px; padding: 3px 8px; font-size: 12px; border-radius: 7px; }
+#dockTabs button:hover:not(:disabled) { background: color-mix(in srgb, var(--accent) 9%, transparent); }
+#dockTabs button[aria-selected="true"] { background: color-mix(in srgb, var(--accent) 18%, transparent); color: var(--accent); box-shadow: inset 0 -2px var(--accent); }
+#dockTabs button:disabled { opacity: .38; }
+#dockTabs .dock-back { border-inline-end: 1px solid var(--line); border-radius: 0; margin-inline-end: 3px; }
+body.has-dock-tabs .pinp.docked { top: calc(var(--study-top, 40px) + var(--dock-tabs-h, 38px)) !important; max-height: calc(100vh - var(--study-top, 40px) - var(--dock-tabs-h, 38px)); }
+body.has-dock-tabs #stackBar { display: none; }
+body.has-dock-tabs.stack-split #dictPanel.docked { top: auto !important; }
+body.has-dock-tabs .pinp:not(.docked):not(.panel-sized) { top: calc(var(--study-top, 40px) + var(--dock-tabs-h, 38px)) !important; }
+#dockTabs.floating { max-width: none; z-index: 45; background: var(--bg); box-shadow: 0 -2px 12px #0003; }
+#dockTabs button.icon-only .dock-tab-label { display: none; }
+#dockTabs button.icon-only { padding-inline: 3px; min-width: 22px; }
+#stick button.icon-only .bl { display: none; }
+#stick .bar.compact > button { flex: 0 0 auto; }
+
+body.has-dock-tabs.stack-split #dictPanel { top: auto !important; }
+
+/* Statistics views: compact direct access, separated by purpose. */
+#dockTabs button[hidden] { display: none; }
+#apBody .apExplorer { display: grid; gap: 9px; margin: 14px 0; }
+#apBody .apChoiceGroup { --choice-accent: var(--accent); padding: 9px 10px 10px; border: 1px solid var(--line); border-inline-start: 3px solid var(--choice-accent); border-radius: 9px; background: color-mix(in srgb,var(--choice-accent) 3%,var(--card)); }
+#apBody .apChoiceGroup-1 { --choice-accent: #64b6a2; }
+#apBody .apChoiceGroup-2 { --choice-accent: #b798d9; }
+#apBody .apChoiceGroup h5 { margin: 0 0 7px; font-size: 10.5px; font-weight: 600; color: var(--muted); }
+#apBody .apChoices { display: flex; flex-wrap: wrap; gap: 6px; }
+#apBody .apExplorer button { display: inline-flex; align-items: center; gap: 6px; text-align: start; padding: 5px 9px; border-radius: 7px; min-width: 0; background: var(--card); transition: border-color .15s, background .15s; }
+#apBody .apExplorer button:hover { border-color: var(--choice-accent); background: color-mix(in srgb,var(--choice-accent) 9%,var(--card)); }
+#apBody .apExplorer button.on { color: var(--fg); border-color: var(--choice-accent); background: color-mix(in srgb,var(--choice-accent) 19%,var(--card)); box-shadow: inset 0 -2px var(--choice-accent); }
+#apBody .apChoiceIcon { color: var(--choice-accent); font-size: 16px; line-height: 1; }
+#apBody .apCompare { padding: 9px 10px; border: 1px solid var(--line); border-radius: 8px; gap: 7px; }
+#apBody .apCompare > span { flex-basis: 100%; font-size: 11px; color: var(--muted); font-weight: 600; }
+#apBody .apCompare button { border-radius: 6px; }
+#apBody .apExplorer button:focus-visible { outline: 2px solid var(--choice-accent); outline-offset: 2px; }
+
+/* Compact dictionary controls; article type remains independently adjustable. */
+#dictHead { padding-top: 4px; }
+#dictHead .lhead { margin-bottom: 3px; gap: 6px; }
+#dictHead .lhead > b { font-size: 13px; }
+#dictHead :is(button,select,input[type=text],input:not([type])) { font-size: 12px; min-height: 28px; padding: 3px 7px; border-radius: 6px; }
+#dictHead .dtools { gap: 3px; }
+#dictHead .dtools button { min-width: 27px; padding-inline: 5px; }
+#dictHead #dictBar { padding: 4px 0 6px; gap: 5px; row-gap: 5px; align-items: center; }
+#dictHead #dictQ { flex: 1 1 150px; min-width: 100px; font-size: 13px; }
+#dictHead #dictSelB { max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+#dictHead #dictSelW { max-width: 60%; }
+#dictHead #dictNoteMode { max-width: 138px; }
+#dictHead #dictCut .cl { display: none; }
+#dictHead #dictFullL { gap: 4px; font-size: 11px; white-space: nowrap; }
+@container dicthead (max-width: 600px) { #dictHead #dictFullL { font-size: 0; } }
+/* Statistics selections highlight their own occurrences; word cards remain separate. */
+[data-passage-mark=roots],[data-passage-mark=verbs],[data-passage-mark=names],[data-passage-mark=phrases]{--passage-mark:#64b6a2}
+#apBody .apPhraseChoice{display:inline-flex;align-items:baseline;gap:10px;padding:3px 7px;margin-bottom:3px;background:transparent;border:1px solid transparent;border-radius:6px;color:inherit;font:inherit;cursor:pointer}
+#apBody .apPhraseChoice bdi{font:22px var(--he-font)}
+#apBody .apBarChoice{width:100%;background:transparent;border:1px solid transparent;border-radius:5px;color:inherit;font:inherit;cursor:pointer;text-align:start}
+#apBody [data-ap-select]:hover{background:color-mix(in srgb,#64b6a2 9%,transparent)}
+#apBody [data-ap-select].apSelected{background:color-mix(in srgb,#64b6a2 16%,transparent);outline:1px solid #64b6a2;border-radius:5px}
+#apBody .apRow .apCardOpen{min-width:0;flex:0 0 auto;font-size:12px;padding:2px 5px;margin-inline-start:5px;color:var(--accent)}
+
+/* Pinning belongs to the shared sidebar, across all tool views. */
+body.has-dock-tabs .pinp .pinB { display: none; }
+#dockTabs .dock-pin { margin-inline-start: auto; }
+#dockTabs .dock-pin[aria-pressed=true] { background: color-mix(in srgb,var(--accent) 16%,transparent); color: var(--accent); }
+
+/* Edition picker: full names, clear language groups, and morphology availability. */
+#verList { position: fixed; width: min(720px,calc(100vw - 32px)); min-width: 0; box-sizing: border-box; padding: 10px 12px; gap: 4px; overscroll-behavior: contain; }
+#verList .vgrp { position: sticky; top: -10px; z-index: 1; margin: 14px -4px 3px; padding: 8px 10px; border: 1px solid var(--line); border-inline-start: 4px solid var(--accent); border-radius: 6px; background: var(--side-bg); color: var(--fg); font-size: 13px; letter-spacing: .07em; }
+#verList .vgrp:first-child { margin-top: 0; }
+#verList label.voption { display: grid; grid-template-columns: 20px 38px minmax(0,1fr); align-items: center; gap: 8px; padding: 7px 5px; border-radius: 6px; white-space: normal; cursor: pointer; }
+#verList label.voption:hover { background: color-mix(in srgb,var(--accent) 8%,transparent); }
+#verList label.voption:has(input:checked) { background: color-mix(in srgb,var(--accent) 6%,transparent); }
+#verList .voption input { margin: 0; width: 16px; height: 16px; }
+#verList img.vpic { margin: 0; }
+#verList .vtext { min-width: 0; }
+#verList .vname { display: block; text-align: left; line-height: 1.45; overflow-wrap: anywhere; }
+#verList .vmeta { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin-top: 3px; }
+#verList .vmeta:empty { display: none; }
+#verList .vmorph { font-size: 10.5px; color: #60ae94; border: 1px solid color-mix(in srgb,#60ae94 40%,var(--line)); border-radius: 10px; padding: 1px 6px; white-space: nowrap; }
+
+/* The edition picker must stay above docked and floating study tools. */
+#verList[popover] { margin: 0; inset: auto; color: var(--fg); }
+#verList[popover]:not(:popover-open) { display: none; }
+#verList .vil { font-size: 10.5px; color: var(--accent); border: 1px solid color-mix(in srgb,var(--accent) 40%,var(--line)); border-radius: 10px; padding: 1px 6px; white-space: nowrap; }
+
+/* SEDRA dictionary: lexical candidates remain distinct from corpus morphology. */
+.sedra-entry .sedra-lemma { font-size: 1.15em; margin-bottom: .45em; }
+.sedra-entry .sedra-lemma bdi, .sedra-entry .sedra-root bdi { font-size: 1.35em; }
+.sedra-entry .sedra-lemma small, .sedra-entry cite, .sedra-entry .sedra-credit { color: var(--muted); font-size: .85em; }
+.sedra-entry cite { font-style: normal; }
+.sedra-entry ul { margin: .2em 0 .6em; padding-inline-start: 1.3em; }
+.sedra-entry .sedra-root { padding-block: .35em; border-top: 1px solid var(--line); }
+.sedra-entry .sedra-forms > div { display: flex; flex-wrap: wrap; gap: .35em; margin-block: .5em; }
+#wpop.syriac-word { width: 390px; }
+#wpop.syriac-word .wseg.main { display: flow-root; padding: 7px 9px; }
+#wpop.syriac-word .sy-part { float: inline-end; margin-inline-start: .4em; font-size: 2.3em; line-height: 1.5; }
+#wpop.syriac-word .sy-gloss { display: block; font-size: 1em; }
+#wpop .sy-details { margin: .6em 0; font-size: .85em; }
+#wpop .sy-details > summary { cursor: pointer; color: var(--muted); }
+#wpop .sy-analysis { padding-block: .35em; border-bottom: 1px solid var(--line); }
+#wpop.syriac-word .sy-analysis > bdi[lang=syr] { display: block; font-size: 2.7em; line-height: 1.5; overflow-wrap: anywhere; }
+/* The full dictionary workspace must not inherit the study pane's saved geometry. */
+html[data-tab=dict] body #dictPanel.pinp:is(.docked,.panel-sized) { left: 0 !important; right: 0 !important; top: calc(57px - var(--hdoff, 0px)) !important; bottom: 0 !important; width: auto !important; height: auto !important; max-width: none !important; max-height: none !important; }
+html.split[data-tab=dict] body #dictPanel.pinp:is(.docked,.panel-sized) { right: var(--p2w) !important; }
+.sedra-entry .sedra-language li > span[lang=eng] { font-weight: 600; }
+
+/* Syriac word cards share the existing pane, scale and navigation. */
+#fmHead > bdi[lang=syr] { font-size: 2.5em; line-height: 1.5; }
+#fmHead > small { display: block; flex-basis: 100%; color: var(--muted); }
+.sc-card section, .sc-forms section { margin: 1em 0; }
+.sc-card h4, .sc-forms h4 { border-bottom: 1px solid var(--line); padding-bottom: .4em; }
+.sc-card cite, .sc-forms cite { font-style: normal; color: var(--muted); font-size: .85em; }
+.sc-card li { margin: .4em 0; }
+.sc-card li > small { color: var(--muted); }
+.sc-candidates button, .sc-members button { display: inline-flex; flex-direction: column; align-items: flex-start; text-align: start; gap: .25em; padding: .6em .8em; margin: 0; min-width: 0; }
+.sc-candidates, .sc-members { display: flex; flex-wrap: wrap; gap: .5em; }
+.sc-candidates h4, .sc-candidates p { flex-basis: 100%; margin: .3em 0; }
+.sc-candidates button.on, .sc-members button.on { border-color: var(--accent); background: color-mix(in srgb,var(--accent) 14%,var(--card)); }
+.sc-candidates button bdi, .sc-members button bdi, .sc-family h4 bdi { font-size: 1.7em; line-height: 1.5; }
+.sc-candidates button small, .sc-members button small { color: var(--muted); font-size: .8em; }
+.sc-table { overflow-x: auto; }
+.sc-table table { width: 100%; border-collapse: collapse; }
+.sc-table :is(td,th) { border: 1px solid var(--line); padding: .4em .6em; text-align: start; }
+.sc-table td bdi { font-size: 1.8em; line-height: 1.5; }
+.sc-credit { font-size: .85em; }
+/* Explicit transliteration input; normal dictionary queries stay unchanged. */
+.sc-etymologies bdi { font-size: 1.25em; }
+.sc-etymologies bdi[lang=heb] { font-family: "HeDict",var(--he-font); }

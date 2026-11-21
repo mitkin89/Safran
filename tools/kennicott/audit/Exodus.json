@@ -1,0 +1,332 @@
+{
+  "source": {
+    "url": "https://www.edition-digitalkennicott.unito.it/exist/apps/dike/api/document/002_exod.xml/",
+    "book": "Exodus",
+    "sha256": "bc6b80f29a062083b905d7407240f4ffa152badc389b01f9a8da570b27e34123",
+    "license": "CC BY-NC-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "title": "The Digital Kennicott. A Digital Edition of Benjamin Kennicott's Vetus Testamentum Hebraicum",
+    "editors": "Sebastiano Crestani, Alberto Legnaioli",
+    "base": "Kennicott / Van der Hooght reference text; distinct from OSHB",
+    "mt": {
+      "rel": "own/Exodus/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "b270922365525339f84e8b10490434556f7116bf2f2a1d42dbf67a47efd25c35",
+      "license": "CC BY 4.0"
+    }
+  },
+  "counts": {
+    "entries": 8109,
+    "readings": 11809,
+    "verses": 1193,
+    "witnesses": 721,
+    "baseVerses": 1215
+  },
+  "unlocated": [],
+  "unidentifiedWitnesses": [
+    "K136m",
+    "K152m",
+    "K160m",
+    "K168m",
+    "K170m",
+    "K181m",
+    "K191m",
+    "K199m",
+    "K1m",
+    "K206m",
+    "K236m",
+    "K277m",
+    "K319m",
+    "K380m",
+    "K472m",
+    "K485m",
+    "K541m",
+    "K546m",
+    "K59q",
+    "K600m",
+    "K615m",
+    "K688q",
+    "K689q",
+    "K693q",
+    "K69m",
+    "K9m",
+    "KSamar."
+  ],
+  "apparatusRefsWithoutBase": [
+    "Exodus 26:36",
+    "Exodus 29:29"
+  ],
+  "baseRefsOutsideMT": [
+    "Exodus 20:24",
+    "Exodus 20:25",
+    "Exodus 20:26",
+    "Exodus 26:38",
+    "Exodus 29:47"
+  ],
+  "unindexedEntries": [],
+  "mappedSourceVerses": 1210,
+  "unmappedSourceVerses": [
+    "Exodus 4:2",
+    "Exodus 16:36",
+    "Exodus 26:36",
+    "Exodus 29:29",
+    "Exodus 29:41"
+  ],
+  "shiftedSourceVerses": {
+    "Exodus 20:14": {
+      "refs": [
+        "Exodus 20:13"
+      ],
+      "method": "complete consecutive verse text",
+      "sourceStart": 6,
+      "sourceEnd": 12
+    },
+    "Exodus 20:15": {
+      "refs": [
+        "Exodus 20:13"
+      ],
+      "method": "complete consecutive verse text",
+      "sourceStart": 12,
+      "sourceEnd": 18
+    },
+    "Exodus 20:16": {
+      "refs": [
+        "Exodus 20:13"
+      ],
+      "method": "complete consecutive verse text",
+      "sourceStart": 18,
+      "sourceEnd": 33
+    },
+    "Exodus 20:17": {
+      "refs": [
+        "Exodus 20:14"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 54
+    },
+    "Exodus 20:18": {
+      "refs": [
+        "Exodus 20:15"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 67
+    },
+    "Exodus 20:19": {
+      "refs": [
+        "Exodus 20:16"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 49
+    },
+    "Exodus 20:20": {
+      "refs": [
+        "Exodus 20:17"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 76
+    },
+    "Exodus 20:21": {
+      "refs": [
+        "Exodus 20:18"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 37
+    },
+    "Exodus 20:22": {
+      "refs": [
+        "Exodus 20:19"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 56
+    },
+    "Exodus 20:23": {
+      "refs": [
+        "Exodus 20:20"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 34
+    },
+    "Exodus 20:24": {
+      "refs": [
+        "Exodus 20:21"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 87
+    },
+    "Exodus 20:25": {
+      "refs": [
+        "Exodus 20:22"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 52
+    },
+    "Exodus 20:26": {
+      "refs": [
+        "Exodus 20:23"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 37
+    },
+    "Exodus 26:37": {
+      "refs": [
+        "Exodus 26:36"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 49
+    },
+    "Exodus 26:38": {
+      "refs": [
+        "Exodus 26:37"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 61
+    },
+    "Exodus 29:30": {
+      "refs": [
+        "Exodus 29:29"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 51
+    },
+    "Exodus 29:31": {
+      "refs": [
+        "Exodus 29:30"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 50
+    },
+    "Exodus 29:32": {
+      "refs": [
+        "Exodus 29:31"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 33
+    },
+    "Exodus 29:33": {
+      "refs": [
+        "Exodus 29:32"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 45
+    },
+    "Exodus 29:34": {
+      "refs": [
+        "Exodus 29:33"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 49
+    },
+    "Exodus 29:35": {
+      "refs": [
+        "Exodus 29:34"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 59
+    },
+    "Exodus 29:36": {
+      "refs": [
+        "Exodus 29:35"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 49
+    },
+    "Exodus 29:37": {
+      "refs": [
+        "Exodus 29:36"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 57
+    },
+    "Exodus 29:38": {
+      "refs": [
+        "Exodus 29:37"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 59
+    },
+    "Exodus 29:39": {
+      "refs": [
+        "Exodus 29:38"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 40
+    },
+    "Exodus 29:40": {
+      "refs": [
+        "Exodus 29:39"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 42
+    },
+    "Exodus 29:42": {
+      "refs": [
+        "Exodus 29:41"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 61
+    },
+    "Exodus 29:43": {
+      "refs": [
+        "Exodus 29:42"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 55
+    },
+    "Exodus 29:44": {
+      "refs": [
+        "Exodus 29:43"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 28
+    },
+    "Exodus 29:45": {
+      "refs": [
+        "Exodus 29:44"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 47
+    },
+    "Exodus 29:46": {
+      "refs": [
+        "Exodus 29:45"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 33
+    },
+    "Exodus 29:47": {
+      "refs": [
+        "Exodus 29:46"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 64
+    }
+  }
+}

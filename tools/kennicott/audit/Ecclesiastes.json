@@ -1,0 +1,41 @@
+{
+  "source": {
+    "url": "https://www.edition-digitalkennicott.unito.it/exist/apps/dike/api/document/033_eccl.xml/",
+    "book": "Ecclesiastes",
+    "sha256": "6489363ffffdf4eb0802cd5be95a44c853a0e1eec58f1faa0a5ed496464aba04",
+    "license": "CC BY-NC-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "title": "The Digital Kennicott. A Digital Edition of Benjamin Kennicott's Vetus Testamentum Hebraicum",
+    "editors": "Sebastiano Crestani, Alberto Legnaioli",
+    "base": "Kennicott / Van der Hooght reference text; distinct from OSHB",
+    "mt": {
+      "rel": "own/Ecclesiastes/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "ced59c2bca61a41b1b9bc8f19967e42f0376cc1d3a372905b300c4b2c0424cc3",
+      "license": "CC BY 4.0"
+    }
+  },
+  "counts": {
+    "entries": 1824,
+    "readings": 2858,
+    "verses": 222,
+    "witnesses": 721,
+    "baseVerses": 222
+  },
+  "unlocated": [],
+  "unidentifiedWitnesses": [
+    "K151m",
+    "K180m",
+    "K1m",
+    "K201m",
+    "K224m",
+    "K384m",
+    "K601m",
+    "K665m"
+  ],
+  "apparatusRefsWithoutBase": [],
+  "baseRefsOutsideMT": [],
+  "unindexedEntries": [],
+  "mappedSourceVerses": 222,
+  "unmappedSourceVerses": [],
+  "shiftedSourceVerses": {}
+}

@@ -16,7 +16,7 @@
   <a href="https://github.com/mitkin89/Safran/releases/latest"><img alt="Safran für macOS, Windows oder Linux herunterladen" src="https://img.shields.io/badge/%E2%AC%87%EF%B8%8F%20%20Safran%20herunterladen-macOS%20%C2%B7%20Windows%20%C2%B7%20Linux-2ea44f?style=for-the-badge"></a>
 </p>
 
-<p align="center"><a href="https://www.youtube.com/watch?v=_htLzC7Q3Ug">▶ Überblicksvideo</a> &nbsp;·&nbsp; <a href="docs/releases/2.5.0.md"><b>Neu in 2.5.0</b></a> (englisch) &nbsp;·&nbsp; <a href="#installation">Installation</a> &nbsp;·&nbsp; <a href="README.md">English</a> &nbsp;·&nbsp; <b>Deutsch</b></p>
+<p align="center"><a href="https://www.youtube.com/watch?v=_htLzC7Q3Ug">▶ Überblicksvideo</a> &nbsp;·&nbsp; <a href="docs/releases/2.7.0.md"><b>Neu in 2.7.0</b></a> (englisch) &nbsp;·&nbsp; <a href="#installation">Installation</a> &nbsp;·&nbsp; <a href="README.md">English</a> &nbsp;·&nbsp; <b>Deutsch</b></p>
 
 <p align="center">
   <a href="screenshots/hero-interlinear.png"><img src="screenshots/hero-interlinear.png" alt="Safran: Genesis 1 als Interlinear – unter jedem hebräischen Wort das Deutsch von Zunz (1838) und Goldschmidt (1921); ein angeklicktes Wort ist im Hebräischen und in der fortlaufenden Übersetzung hervorgehoben" width="900"></a><br>
@@ -28,7 +28,9 @@
   <sub>▶ Überblicksvideo auf YouTube ansehen</sub>
 </p>
 
-Safran ist eine kostenlose Desktop-App für macOS, Windows und Linux, die deine Texte auf dem eigenen Rechner hält. Du wählst einmal die Bücher und Sprachen aus der [Sefaria](https://www.sefaria.org)-Bibliothek und liest, durchsuchst und kommentierst sie danach ohne Internetverbindung. Neu in 2.5.0: der **ganze Tanach Wort für Wort auf Deutsch** (Interlinear) und eine **Wortkarte**, die zeigt, wie ein hebräisches Wort übersetzt wird. Dazu bringt Safran **über 50 deutsche Werke** mit (Übersetzungen, Kommentare und Nachschlagewerke), die es sonst kaum gibt, darunter Louis Ginzbergs *Legenden der Juden* nach seinem deutschen Manuskript, und **zehn Wörterbücher und Nachschlagewerke** mit über 300.000 Einträgen. Safran ist ein unabhängiges Projekt und nicht mit Sefaria verbunden.
+Safran ist eine kostenlose Desktop-App für macOS, Windows und Linux, die deine Texte auf dem eigenen Rechner hält. Du wählst einmal die Bücher und Sprachen aus der [Sefaria](https://www.sefaria.org)-Bibliothek und liest, durchsuchst und kommentierst sie danach ohne Internetverbindung. Neu in 2.7.0: der **Apparatus** mit Handschriften- und Versionslesarten, ein gemeinsames Seitenpanel und erweiterte Stellenstatistiken. Der **ganze Tanach Wort für Wort auf Deutsch** (Interlinear) und die **Wortkarte** zeigen, wie hebräische Wörter übersetzt werden. Dazu bringt Safran **über 50 deutsche Werke** mit (Übersetzungen, Kommentare und Nachschlagewerke), die es sonst kaum gibt, darunter Louis Ginzbergs *Legenden der Juden* nach seinem deutschen Manuskript, und **zehn Wörterbücher und Nachschlagewerke** mit über 300.000 Einträgen. Safran ist ein unabhängiges Projekt und nicht mit Sefaria verbunden.
+
+Der **≠ Apparatus** gehört ab 2.7.0 zur offiziellen Version: mit Samaritanus / Tal–Florentin, Septuaginta (CATSS), biblischen Qumran-Rollen und den verfügbaren Kennicott-Büchern. Quellen, abweichende Verszählung, Rekonstruktionen und unsichere Zuordnungen bleiben erkennbar. Für Mischna Berakhot gibt es außerdem einen Handschriftenvergleich von Kaufmann, Parma und Cambridge. Der Umfang hängt von Buch und Quelle ab.
 
 ## Warum Safran?
 
@@ -40,7 +42,7 @@ Safran ist eine kostenlose Desktop-App für macOS, Windows und Linux, die deine 
 | 📴 **Funktioniert offline** | Texte, Verknüpfungen, Wörterbücher, Karten und Audio liegen auf deiner Festplatte. Nichts wird irgendwohin gesendet. |
 | 🇩🇪 **Deutsche Texte, die es sonst nicht gibt** | Über 50 Werke: Zunz, Philippson, Mendelssohns Biur, Herxheimer, Hertz, Hirsch, Raschi nach Bamberger, die Kautzsch-Apokryphen, Midrasch Rabba, Josephus, Graetz, der Schulchan Aruch (Lederer), Ginzbergs *Legenden der Juden* … sofort beim ersten Start da. |
 | 📚 **Ein Wörterbuchregal, nicht nur ein Lexikon** | Liddell & Scott, BDB, Gesenius, Jastrow, Levy, Krauss und Hamburgers Real-Encyclopädie: über 300.000 Einträge, durchsuchbar nach Stichwort *und* im Volltext, mit Abkürzungen beim Überfahren und Quellen, die sich im Lesefenster öffnen. |
-| 📜 **Handschriften und alte Übersetzungen** | Aleppo-Kodex, die biblischen Qumran-Rollen und alle 735 nichtbiblischen mit Morphologie, die Septuaginta mit anklickbarer Morphologie und LXX-MT-Vergleich, Targum Onkelos, Pseudo-Jonathan und Neofiti. |
+| 📜 **Handschriften und alte Übersetzungen** | Samaritanischer Pentateuch (CACCHT / DT-UCPH) mit Tal–Florentin als hebräischem Haupttext, englischer Parallelübersetzung, roten MT-Abweichungen und Morphologie unveränderter Wörter; Aleppo-Kodex, die biblischen Qumran-Rollen und alle 735 nichtbiblischen mit Morphologie, die Septuaginta mit anklickbarer Morphologie und LXX-MT-Vergleich, Targum Onkelos, Pseudo-Jonathan und Neofiti. |
 | 🔎 **Suche, die Grammatik kennt** | Volltextsuche in allem, alle Formen eines Wortes über das Lemma (hebräisch und griechisch) und eine Grammatiksuche nach Stamm, Zeit, Person, Genus und Numerus. |
 | 🗺 **Gemacht zum Lernen** | Vers-für-Vers-Ausrichtung, zweites Lesefenster, Bibelkarte, Gliederungen, jüdischer Kalender und eine hebräische Lesung des ganzen Tanach. |
 
@@ -116,6 +118,10 @@ Und alles Weitere:
 <td valign="top"><b>🖼 Porträts</b><br>Kleine Bilder von Übersetzern, Kommentatoren und Lexikografen (Zunz, Mendelssohn, S. R. Hirsch, Goldschmidt, Hoffmann, Malbim, Levy, Jastrow …) sowie des Aleppo- und des Leningrader Kodex neben Versionen, Kommentaren und Wörterbüchern; beim Überfahren erscheint eine große Ansicht.</td>
 </tr>
 </table>
+
+**Bücher zweisprachig drucken:** Öffne das Buch und wähle die hebräische und deutsche Fassung als Spalten. Unter **⋯ → Exportieren …** kannst du den aktuellen Abschnitt, einen Abschnitts-/Kapitelbereich oder **Ganzes Buch** als PDF oder Word exportieren. Die Fassungen stehen versweise nebeneinander; Fußnoten, eigene Notizen und Verknüpfungen sind optional. Die PDF lässt sich anschließend normal drucken.
+
+Die Textschriftgrößen übernimmt der Export aus **Anzeige**: Grundschrift sowie die getrennten Größen für Hebräisch, Deutsch und die anderen Sprachen. Stelle sie vor dem Export so ein, wie du sie drucken möchtest.
 
 <p align="center">
   <a href="screenshots/qumran-interlinear.png"><img src="screenshots/qumran-interlinear.png" alt="Jesaja 53,11 als Interlinear mit Zunz und den Qumran-Rollen 1Q8, 1QIsaa und 4Q58 unter den hebräischen Wörtern; das Plus or (Licht) der Rollen nach jir’e ist markiert" width="900"></a><br>
@@ -294,3 +300,27 @@ Der Quellcode steht unter der [MIT-Lizenz](LICENSE). Texte, Wörterbücher, Kart
 <p align="center"><sub><b>סַפְרָן</b> <i>(safran)</i> ist hebräisch für Schreiber, im modernen Hebräisch Bibliothekar, von derselben Wurzel wie <i>sefer</i>, Buch. Safran entsteht bei <a href="https://talmud.de">talmud.de</a>.</sub></p>
 
 Berachot 2a–10b bietet außerdem **Wortzuordnung · Test** für Goldschmidt und Pinner. 2a–3b sind in beiden Fassungen von Hand zugeordnet; weitere geprüfte Stellen und klar gekennzeichnete Vorschläge sind enthalten. [Prüfstand](tools/bavli/interlinear/README.md).
+
+### Textkritik
+
+In den fünf Büchern der Tora öffnet **≠ Textkritik** ein anpinnbares Pane zum
+angeklickten Vers. Der erste erfasste Zeuge ist der Samaritanus nach
+Tal–Florentin. Auch ohne seine Lesespalte sind die Lesarten und Originalanmerkungen
+verfügbar: Die Anmerkungen stehen direkt untereinander. Beim Überfahren eines
+zitierten hebräischen Wortes erscheint der vollständige Samaritanus-Vers mit
+englischer Übersetzung; ein Klick öffnet seine Morphologie. Quellen und
+Abkürzungserklärungen bleiben sichtbar bzw. per Hover erreichbar. Schreibunterschiede
+lassen sich zusätzlich einblenden.
+Vergleichsbasis ist Westminster / OSHB. Der MT-Stellenbezug wird über gemeinsame
+Wörter ermittelt; abweichende Versgrenzen und nicht sicher zugeordnete Stellen
+bleiben kenntlich. Unter **Zählung** kann man zur eigenen Tal-Zählung wechseln.
+Mit **Ganzes Kapitel**, **▲/▼ Vers**, **Folgen** und **A−/A+** bedient sich der
+Kopf wie beim Kommentarfenster. Ein Klick im Lesetext zeigt wieder den Einzelvers;
+die Versüberschriften der Kapitelansicht führen zurück zum Lesetext. Schriftgröße,
+Folgen und Zeugenauswahl werden gespeichert. Unter **Sprache** erscheint derzeit
+Englisch, die tatsächlich vorhandene Sprache der Tal-Originalanmerkungen.
+LXX, Qumran und Kennicott werden in diesem Pane noch nicht zusammengeführt.
+
+### Samaritanischer Pentateuch
+
+In Genesis bis Deuteronomium unter **Fassungen** „Samaritanischer Pentateuch (Tal–Florentin)“ und die englische Fassung „The Samaritan Pentateuch, Florentin and Tal (2024)“ auswählen. Die 1.074 Tal-Lesarten aus den DT-UCPH-Daten sind in den hebräischen Haupttext eingearbeitet. **Rot** kennzeichnet in beiden Sprachen und den Fußnoten die MT-Abweichungen der Druckausgabe. Die 3.459 Fußnoten und 790 Endnoten behalten ihre ursprüngliche Stellenangabe und Druckseite. Unveränderte Wörter bieten weiterhin die CACCHT-Wortkarte mit Lexem, Morphologie und Umschrift; neue oder geänderte Formen erhalten keine ungeprüfte Analyse. Beide Fassungen folgen Tals Verszählung. **CC BY-NC 4.0**; [Quellen und Build](tools/samaritan/README.md).

@@ -78,7 +78,7 @@ assert.strictEqual(B.headLemma({ lemma: 'ד/קא/תני', morph: 'ATr/T/Vqrmsa' 
 const forms = B.forms(D, 'קום', 'A');
 assert(forms.some(f => f.refs.some(r => r.ref === 'Berakhot 8a:28')));
 assert(forms.every(f => f.refs.every(r => /^Berakhot (?:[2-9]|10)[ab]:\d+$/.test(r.ref))));
-const lib = fs.readFileSync(path.join(__dirname, 'library.js'), 'utf8');
+const lib = fs.readFileSync(path.join(__dirname, 'library-word-popup.js'), 'utf8');
 assert(lib.includes('window.BavliMorph.own(w.dataset.l)'));
 assert(lib.includes('showBavliWord(w)'));
 assert(lib.includes('showBavliForms(D, a.lemma, a.lang)'));

@@ -1,0 +1,241 @@
+{
+  "books": [
+    {
+      "book": "Genesis",
+      "verses": 1533,
+      "patracosy": 1161,
+      "proposals": 372,
+      "syWords": 20080,
+      "linkedSyriac": 18547,
+      "unlinkedSyriac": 1533,
+      "unlinkedMT": 1817,
+      "emptyVerses": [],
+      "referenceGroups": []
+    },
+    {
+      "book": "Exodus",
+      "verses": 1210,
+      "patracosy": 0,
+      "proposals": 1210,
+      "syWords": 16337,
+      "linkedSyriac": 12091,
+      "unlinkedSyriac": 4246,
+      "unlinkedMT": 4334,
+      "emptyVerses": [],
+      "referenceGroups": [
+        {
+          "mt": "20:13",
+          "peshitta": [
+            "20:13",
+            "20:14",
+            "20:15",
+            "20:16"
+          ]
+        },
+        {
+          "mt": "20:14",
+          "peshitta": [
+            "20:17"
+          ]
+        },
+        {
+          "mt": "20:15",
+          "peshitta": [
+            "20:18"
+          ]
+        },
+        {
+          "mt": "20:16",
+          "peshitta": [
+            "20:19"
+          ]
+        },
+        {
+          "mt": "20:17",
+          "peshitta": [
+            "20:20"
+          ]
+        },
+        {
+          "mt": "20:18",
+          "peshitta": [
+            "20:21"
+          ]
+        },
+        {
+          "mt": "20:19",
+          "peshitta": [
+            "20:22"
+          ]
+        },
+        {
+          "mt": "20:20",
+          "peshitta": [
+            "20:23"
+          ]
+        },
+        {
+          "mt": "20:21",
+          "peshitta": [
+            "20:24"
+          ]
+        },
+        {
+          "mt": "20:22",
+          "peshitta": [
+            "20:25"
+          ]
+        },
+        {
+          "mt": "20:23",
+          "peshitta": [
+            "20:26"
+          ]
+        }
+      ]
+    },
+    {
+      "book": "Leviticus",
+      "verses": 859,
+      "patracosy": 0,
+      "proposals": 859,
+      "syWords": 11834,
+      "linkedSyriac": 8384,
+      "unlinkedSyriac": 3450,
+      "unlinkedMT": 3355,
+      "emptyVerses": [],
+      "referenceGroups": []
+    },
+    {
+      "book": "Numbers",
+      "verses": 1288,
+      "patracosy": 0,
+      "proposals": 1288,
+      "syWords": 16539,
+      "linkedSyriac": 12113,
+      "unlinkedSyriac": 4426,
+      "unlinkedMT": 3968,
+      "emptyVerses": [],
+      "referenceGroups": [
+        {
+          "mt": "26:1",
+          "peshitta": [
+            "25:19",
+            "26:1"
+          ]
+        }
+      ]
+    },
+    {
+      "book": "Deuteronomy",
+      "verses": 956,
+      "patracosy": 0,
+      "proposals": 956,
+      "syWords": 14136,
+      "linkedSyriac": 10032,
+      "unlinkedSyriac": 4104,
+      "unlinkedMT": 3974,
+      "emptyVerses": [
+        "14:16",
+        "14:17"
+      ],
+      "referenceGroups": [
+        {
+          "mt": "5:17",
+          "peshitta": [
+            "5:17",
+            "5:18",
+            "5:19",
+            "5:20"
+          ]
+        },
+        {
+          "mt": "5:18",
+          "peshitta": [
+            "5:21"
+          ]
+        },
+        {
+          "mt": "5:19",
+          "peshitta": [
+            "5:22"
+          ]
+        },
+        {
+          "mt": "5:20",
+          "peshitta": [
+            "5:23"
+          ]
+        },
+        {
+          "mt": "5:21",
+          "peshitta": [
+            "5:24"
+          ]
+        },
+        {
+          "mt": "5:22",
+          "peshitta": [
+            "5:25"
+          ]
+        },
+        {
+          "mt": "5:23",
+          "peshitta": [
+            "5:26"
+          ]
+        },
+        {
+          "mt": "5:24",
+          "peshitta": [
+            "5:27"
+          ]
+        },
+        {
+          "mt": "5:25",
+          "peshitta": [
+            "5:28"
+          ]
+        },
+        {
+          "mt": "5:26",
+          "peshitta": [
+            "5:29"
+          ]
+        },
+        {
+          "mt": "5:27",
+          "peshitta": [
+            "5:30"
+          ]
+        },
+        {
+          "mt": "5:28",
+          "peshitta": [
+            "5:31"
+          ]
+        },
+        {
+          "mt": "5:29",
+          "peshitta": [
+            "5:32"
+          ]
+        },
+        {
+          "mt": "5:30",
+          "peshitta": [
+            "5:33"
+          ]
+        },
+        {
+          "mt": "25:2",
+          "peshitta": [
+            "25:2",
+            "25:3"
+          ]
+        }
+      ]
+    }
+  ],
+  "method": "Automatic proposals; no gap filling or manual-review claim"
+}

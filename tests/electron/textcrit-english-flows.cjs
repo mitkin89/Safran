@@ -1,0 +1,24 @@
+'use strict';
+const assert=require('node:assert/strict'),fs=require('node:fs');
+module.exports=async({win,js,waitFor,book})=>{
+ await js("localStorage.setItem('uiLang','en')");await win.reload();
+ await waitFor("document.documentElement.lang==='en'&&document.querySelector('#tree .lib-item')",'Englische Oberfläche');
+ await book('Genesis');await waitFor("document.querySelector('#rOut .row[data-l=\"1\"] .w')",'Genesis nach Neustart');
+ assert.equal(await js("document.querySelector('#dTaam').value"),'all','Taamim-Einstellung gespeichert');
+ await waitFor("document.querySelector('#rOut .taam-break')",'Taamim nach Neustart');
+ await js("document.querySelector('#dTaam').value='off';document.querySelector('#dTaam').dispatchEvent(new Event('input',{bubbles:true}));if(document.querySelector('#textcritPanel').hidden)document.querySelector('#tcBtn').click();for(const id of ['tcSmr','tcTov','tcDss','tcKen']){document.getElementById(id).checked=true;document.getElementById(id).dispatchEvent(new Event('change',{bubbles:true}));}document.querySelector('#rOut .row[data-l=\"2\"] .txt').click();document.querySelector('#tcWhole').click()");
+ await waitFor("document.querySelector('#tcBody .tc-ken-entry')&&document.querySelector('#tcBody .tc-tov-entry')",'Englischer Apparat aller Zeugen');
+ await waitFor("document.querySelector('#textcritPanel').textContent.includes('MT numbering')",'Übersetzte Zählung');
+ const text=await js("document.querySelector('#textcritPanel').textContent");
+ for(const german of ['Textkritik','MT-Zählung','Hinweise','Textzeugen','Auslassung','Lesartunterschied','Quelltext','Maschineller','Über Rasur','Wortvorkommen'])assert(!text.includes(german),'Keine deutsche UI: '+german);
+ assert(text.includes('Witnesses'));assert(text.includes('notes'));assert(text.includes('automated')||text.includes('Automated'));
+ assert(await js("[...document.querySelectorAll('#dockTabs button[data-panel]')].every(b=>b.querySelector('.dock-tab-icon[aria-hidden=true]'))"),'Symbole in Panel-Tabs');
+ await js("{const el=document.querySelector('#tcBody .tc-tov-entry .tc-source');el.focus();el.dispatchEvent(new FocusEvent('focusin',{bubbles:true}));}");
+ await waitFor("document.querySelector('#tcHover')",'Englische LXX-Vorschau');
+ assert(!await js("document.querySelector('#tcHover').textContent.includes('Gegenstück')"));
+ await js("document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true}));document.querySelector('#tcBody [data-ken-witness=K9]').click()");
+ await waitFor("document.querySelector('#kenWitness')?.textContent.includes('Manuscript')",'Englische Handschriftenkarte');
+ assert(await js("document.querySelector('#kenWitness').textContent.includes('Open digitization')"));await js("document.querySelector('#kenWitness .ken-witness-close').click()");
+ fs.writeFileSync('/tmp/safran-textcrit-english.png',(await win.webContents.capturePage()).toPNG());
+ console.log('Electron: Englische Textkritik, Erklärungen, Quellen, Karten, Panel-Symbole und gespeicherte Taamim bestanden.');
+};

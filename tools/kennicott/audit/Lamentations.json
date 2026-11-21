@@ -1,0 +1,39 @@
+{
+  "source": {
+    "url": "https://www.edition-digitalkennicott.unito.it/exist/apps/dike/api/document/032_lam.xml/",
+    "book": "Lamentations",
+    "sha256": "ad2b6e4d53ef7131b1ac5eff0764f00d1985f28f609f351c0320143dbff35ada",
+    "license": "CC BY-NC-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "title": "The Digital Kennicott. A Digital Edition of Benjamin Kennicott's Vetus Testamentum Hebraicum",
+    "editors": "Sebastiano Crestani, Alberto Legnaioli",
+    "base": "Kennicott / Van der Hooght reference text; distinct from OSHB",
+    "mt": {
+      "rel": "own/Lamentations/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "3d054fea92aeda421cc8883786f0bcda609512c5df33b7eb694c0b2e92953093",
+      "license": "CC BY 4.0"
+    }
+  },
+  "counts": {
+    "entries": 872,
+    "readings": 1456,
+    "verses": 154,
+    "witnesses": 721,
+    "baseVerses": 154
+  },
+  "unlocated": [],
+  "unidentifiedWitnesses": [
+    "K225m",
+    "K228m"
+  ],
+  "apparatusRefsWithoutBase": [],
+  "baseRefsOutsideMT": [],
+  "unindexedEntries": [],
+  "mappedSourceVerses": 151,
+  "unmappedSourceVerses": [
+    "Lamentations 3:13",
+    "Lamentations 4:3",
+    "Lamentations 5:7"
+  ],
+  "shiftedSourceVerses": {}
+}

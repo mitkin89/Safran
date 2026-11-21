@@ -1,0 +1,251 @@
+{
+  "source": {
+    "url": "https://www.edition-digitalkennicott.unito.it/exist/apps/dike/api/document/007_judg.xml/",
+    "book": "Judges",
+    "sha256": "eafdada83a81204e90dc646963d51277da60811c730f1d8a6bb6178254cd522a",
+    "license": "CC BY-NC-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "title": "The Digital Kennicott. A Digital Edition of Benjamin Kennicott's Vetus Testamentum Hebraicum",
+    "editors": "Sebastiano Crestani, Alberto Legnaioli",
+    "base": "Kennicott / Van der Hooght reference text; distinct from OSHB",
+    "mt": {
+      "rel": "own/Judges/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "db9695f400b78c24d3f4327952641b97733aa991875c5ae497284e077fb6b9c6",
+      "license": "CC BY 4.0"
+    }
+  },
+  "counts": {
+    "entries": 4053,
+    "readings": 5931,
+    "verses": 608,
+    "witnesses": 721,
+    "baseVerses": 619
+  },
+  "unlocated": [],
+  "unidentifiedWitnesses": [
+    "K145m",
+    "K154m",
+    "K170m",
+    "K196m",
+    "K223m",
+    "K224m",
+    "K226m",
+    "K227m",
+    "K250m",
+    "K308m",
+    "K375m",
+    "K506m",
+    "K601m"
+  ],
+  "apparatusRefsWithoutBase": [
+    "Judges 19:1"
+  ],
+  "baseRefsOutsideMT": [
+    "Judges 19:31"
+  ],
+  "unindexedEntries": [],
+  "mappedSourceVerses": 612,
+  "unmappedSourceVerses": [
+    "Judges 19:1",
+    "Judges 19:2",
+    "Judges 19:4",
+    "Judges 19:10",
+    "Judges 19:16",
+    "Judges 19:18",
+    "Judges 19:26"
+  ],
+  "shiftedSourceVerses": {
+    "Judges 19:3": {
+      "refs": [
+        "Judges 19:2"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 65
+    },
+    "Judges 19:5": {
+      "refs": [
+        "Judges 19:4"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 53
+    },
+    "Judges 19:6": {
+      "refs": [
+        "Judges 19:5"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 71
+    },
+    "Judges 19:7": {
+      "refs": [
+        "Judges 19:6"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 61
+    },
+    "Judges 19:8": {
+      "refs": [
+        "Judges 19:7"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 33
+    },
+    "Judges 19:9": {
+      "refs": [
+        "Judges 19:8"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 74
+    },
+    "Judges 19:11": {
+      "refs": [
+        "Judges 19:10"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 73
+    },
+    "Judges 19:12": {
+      "refs": [
+        "Judges 19:11"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 67
+    },
+    "Judges 19:13": {
+      "refs": [
+        "Judges 19:12"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 58
+    },
+    "Judges 19:14": {
+      "refs": [
+        "Judges 19:13"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 43
+    },
+    "Judges 19:15": {
+      "refs": [
+        "Judges 19:14"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 39
+    },
+    "Judges 19:17": {
+      "refs": [
+        "Judges 19:16"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 71
+    },
+    "Judges 19:19": {
+      "refs": [
+        "Judges 19:18"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 105
+    },
+    "Judges 19:20": {
+      "refs": [
+        "Judges 19:19"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 68
+    },
+    "Judges 19:21": {
+      "refs": [
+        "Judges 19:20"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 44
+    },
+    "Judges 19:22": {
+      "refs": [
+        "Judges 19:21"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 47
+    },
+    "Judges 19:23": {
+      "refs": [
+        "Judges 19:22"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 116
+    },
+    "Judges 19:24": {
+      "refs": [
+        "Judges 19:23"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 81
+    },
+    "Judges 19:25": {
+      "refs": [
+        "Judges 19:24"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 84
+    },
+    "Judges 19:27": {
+      "refs": [
+        "Judges 19:26"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 48
+    },
+    "Judges 19:28": {
+      "refs": [
+        "Judges 19:27"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 75
+    },
+    "Judges 19:29": {
+      "refs": [
+        "Judges 19:28"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 54
+    },
+    "Judges 19:30": {
+      "refs": [
+        "Judges 19:29"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 77
+    },
+    "Judges 19:31": {
+      "refs": [
+        "Judges 19:30"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 87
+    }
+  }
+}

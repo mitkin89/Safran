@@ -3,6 +3,7 @@
 const fs = require('fs'), path = require('path'), vm = require('vm'), assert = require('assert'), crypto = require('crypto'), os = require('os'), zlib = require('zlib');
 const F = require('./targum-forms-core'), DSL = require('./dsl');
 const ctx = vm.createContext({ window: { TargumForms: F, OSHB_LEMMAS: { '1': ['אמר', 'Hebrew homograph'] } }, console });
+ctx.host = ctx;
 vm.runInContext(fs.readFileSync(path.join(__dirname, 'targum-forms.js'), 'utf8'), ctx);
 const D = ctx.window.TARGUM_FORMS;
 const source = require('./tools/targum/forms-source.json');
@@ -48,7 +49,7 @@ assert(F.dist(D, model).filter(x => x.n).length > 5);
 assert(F.refsIn(D, model, 'Genesis (Onkelos)').every(r => /Onkelos/.test(r.vt)));
 assert(F.render(model).includes('lang="arc"') && F.render(model).includes('data-i='));
 
-const ui = fs.readFileSync(path.join(__dirname, 'library.js'), 'utf8');
+const ui = require('./tests/reader-source.cjs')() + fs.readFileSync(path.join(__dirname, 'library-word-popup.js'), 'utf8');
 const part = (from, to) => { const start = ui.indexOf(from), end = ui.indexOf(to, start); assert(start >= 0 && end > start, from + ' … ' + to); return ui.slice(start, end); };
 const nodes = new Map(), handlers = new Map(), calls = [];
 const node = () => ({ innerHTML: '', hidden: true, dataset: {}, style: {}, value: '', scrollTop: 0, querySelector: () => null, classList: { toggle() {}, contains: () => false }, addEventListener() {}, scrollIntoView() {} });
@@ -63,7 +64,12 @@ Object.assign(ctx, { $, $$: () => [], esc: s => String(s).replace(/&/g, '&amp;')
 });
 vm.runInContext(part('  let targumFormsP =', '  // Belegstellen als Zeilen'), ctx);
 vm.runInContext(part('  async function wcDicts(token)', '  // Septuaginta: häufigste griechische Lemmata'), ctx);
-vm.runInContext(part('  let lemByCons = null;', '  const dictGoHist ='), ctx);
+vm.runInContext(part('  let lemByCons = null;', '  // Eigene Wörterbuchinstanz'), ctx);
+const dictionaryUI = fs.readFileSync(path.join(__dirname, 'library-dictionary.js'), 'utf8');
+ctx.getSelection = () => ctx.dictSel; ctx.getSource = () => ctx.dictSrc;
+ctx.lsGet = () => []; ctx.lsSet = () => {};
+vm.runInContext(dictionaryUI.slice(dictionaryUI.indexOf('    let dictSedraId='), dictionaryUI.indexOf('    let dictOnly =')), ctx);
+vm.runInContext(dictionaryUI.slice(dictionaryUI.indexOf('  function dictCardButtons('), dictionaryUI.indexOf('  const dictGoHist =')), ctx);
 (async () => {
   const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'safran-tgcard-'));
   try {
@@ -119,7 +125,7 @@ vm.runInContext(part('  let lemByCons = null;', '  const dictGoHist ='), ctx);
     ctx.fmHist = [{ lemma: 'tg:1a', info: { targum: true }, tab: 'forms', scroll: 0 }, { lemma: '1', greek: false }];
     ctx.fmHi = 1; ctx.fmCur = null; ctx.fmHistSave = () => {}; ctx.fmHistUI = () => {}; ctx.hovApi = null;
     ctx.fmShowTab = tab => { ctx.fmTab = tab; };
-    vm.runInContext(part('  function fmHistGo(d)', "  $('#fmBack').onclick"), ctx);
+    vm.runInContext(part('  function fmHistGo(d)', "  host.$('#fmBack').onclick"), ctx);
     ctx.fmHistGo(-1); await navigation; await dictionaryReady;
     assert.strictEqual(ctx.fmCur.lemma, 'tg:1a'); assert.strictEqual(ctx.fmTab, 'forms');
     // Vorschau des Belegs wählt den konkreten Targum statt Westminster.

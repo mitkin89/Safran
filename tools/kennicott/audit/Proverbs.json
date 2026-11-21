@@ -1,0 +1,57 @@
+{
+  "source": {
+    "url": "https://www.edition-digitalkennicott.unito.it/exist/apps/dike/api/document/028_prov.xml/",
+    "book": "Proverbs",
+    "sha256": "9234049202994e44df99489cf154f58538358d86bfcf2612458578858e0bafe1",
+    "license": "CC BY-NC-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "title": "The Digital Kennicott. A Digital Edition of Benjamin Kennicott's Vetus Testamentum Hebraicum",
+    "editors": "Sebastiano Crestani, Alberto Legnaioli",
+    "base": "Kennicott / Van der Hooght reference text; distinct from OSHB",
+    "mt": {
+      "rel": "own/Proverbs/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "afbd007dc5f8a05ea9a44bf140005edb528f01ffdf30e4853aaf89e0bb08334b",
+      "license": "CC BY 4.0"
+    }
+  },
+  "counts": {
+    "entries": 3575,
+    "readings": 6152,
+    "verses": 911,
+    "witnesses": 721,
+    "baseVerses": 915
+  },
+  "unlocated": [],
+  "unidentifiedWitnesses": [
+    "K145m",
+    "K147m",
+    "K157m",
+    "K170m",
+    "K201m",
+    "K224m",
+    "K239m",
+    "K249m",
+    "K252m",
+    "K277m",
+    "K30m",
+    "K362m",
+    "K587m",
+    "K602m"
+  ],
+  "apparatusRefsWithoutBase": [],
+  "baseRefsOutsideMT": [],
+  "unindexedEntries": [],
+  "mappedSourceVerses": 906,
+  "unmappedSourceVerses": [
+    "Proverbs 6:13",
+    "Proverbs 8:15",
+    "Proverbs 8:16",
+    "Proverbs 11:3",
+    "Proverbs 11:15",
+    "Proverbs 13:20",
+    "Proverbs 20:21",
+    "Proverbs 22:20",
+    "Proverbs 23:24"
+  ],
+  "shiftedSourceVerses": {}
+}

@@ -1,0 +1,33 @@
+{
+  "id": "7fab63c14df2",
+  "name": "SEDRA — Syriac Lexicon (Beth Mardutho)",
+  "lexemes": 35892,
+  "glosses": 67692,
+  "attestedWords": 64585,
+  "sourceHashes": {
+    "sources.jsonl.gz": "08b5cef1e004a8f527878a4d816fcd062dd001b00bcde1388c2d45b9b5cd9eaf",
+    "category_types.jsonl.gz": "74620eb39e08ef65cc06efcf1e0996c66e9e8b2fe6292666f8d21f37a41859e5",
+    "languages.jsonl.gz": "28661c78e5982ded713069490875c2cb4581483a4ddebd8418b9d04286669c22",
+    "kaylos.jsonl.gz": "a0623e790e96d7439e9889a65c81064b469fe8575e0ec8d3906a57b23b0d5939",
+    "roots.jsonl.gz": "c17f39771522b5ded20b086f65424d1fc7a7bc390548f132fd21f174ae8bd905",
+    "lexemes.jsonl.gz": "43b40090c642cc4b8baf147c095f0f37452663c0b86e283ecbaba0652b34802d",
+    "words.jsonl.gz": "aafb6d89352483f5c35e120300649ab4a656dc837c118ac6a487542f78062b74",
+    "glosses.jsonl.gz": "e533ea9b5d089ee20b8ebaeca4941a8cc49bea77dedd1d07fa8317b36f5575cb",
+    "README.md": "40c75ecb4bc2f81ac4df83aa17bc0cbd3d188686b7c99fa1131282fa36cd0d9c",
+    "CITATION.cff": "e0281f72d704445803a54b8edd8c94c95749f220eed23daa87d5c1c381210016",
+    "stems.jsonl.gz": "13325d1ecabdc858cff1571984a8bc879482a793579a83f4f0eec5ac48c04316",
+    "tenses.jsonl.gz": "490974fea8113be5ede3e659007b1682f3a0712e074ec028a355369e2ad660a6",
+    "numbers.jsonl.gz": "9633249f002b72e5ac0f1113dcaa57fc806985208b0670632c755091ad1e5b53",
+    "persons.jsonl.gz": "d7af8c4015560d3c0882b48a544a335e1a4c953700f0fe1e882bc93e9dc77be9",
+    "genders.jsonl.gz": "3b583445eb75bbba975cba9e64fa2f82225aa8aa249ff7003fa224d8aa0b7b76",
+    "states.jsonl.gz": "8cb315eebfd0ec638e3f4b0ac2eb6743deec118566e7e6a4cd98003e5c7203b1",
+    "etymologies.jsonl.gz": "53f5c308e110dc6a96c087503a723fa15dd3b26e4f3f9727fc0caddb71cf698a",
+    "transliteration_schemes.jsonl.gz": "99e9dab72a1840a13f102c753848bdef55515a30a60597d590429b0283687ce4",
+    "transliteration_patterns.jsonl.gz": "1ae24373bcde42e351532f39d61bb622849cd1fca88727072f76023bdb06fd06"
+  },
+  "etymologies": 3078,
+  "transliterationSha256": "4dfd18586856478d6451c7deb5aa442e218363cf4127a75f1b5de013299457ef",
+  "cardSha256": "ed353f53e07e829a30bd4b210a632e1ec41c590c0027ec88f851273da36ec465",
+  "sha256": "41e6d4dbcd9e5577dda2ef862e3d965a3244e27b6ecc896ba785f808eebf2726",
+  "bytes": 36874884
+}

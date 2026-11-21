@@ -1,0 +1,172 @@
+{
+  "source": {
+    "url": "https://www.edition-digitalkennicott.unito.it/exist/apps/dike/api/document/005_deut.xml/",
+    "book": "Deuteronomy",
+    "sha256": "ff820256a47b23166f4f6b8acb33240b104fe23faeda20ce2adbebd8e2413a86",
+    "license": "CC BY-NC-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "title": "The Digital Kennicott. A Digital Edition of Benjamin Kennicott's Vetus Testamentum Hebraicum",
+    "editors": "Sebastiano Crestani, Alberto Legnaioli",
+    "base": "Kennicott / Van der Hooght reference text; distinct from OSHB",
+    "mt": {
+      "rel": "own/Deuteronomy/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "b1c198ab82b675fd68722ba7db1fe9188d73b9dc224764cc9873075e6f9ed6a9",
+      "license": "CC BY 4.0"
+    }
+  },
+  "counts": {
+    "entries": 7402,
+    "readings": 11070,
+    "verses": 952,
+    "witnesses": 721,
+    "baseVerses": 959
+  },
+  "unlocated": [],
+  "unidentifiedWitnesses": [
+    "K191m",
+    "K198m",
+    "K236m",
+    "K244m",
+    "K277m",
+    "K389",
+    "K600m",
+    "K650",
+    "K69m",
+    "K80m",
+    "K931",
+    "K9m"
+  ],
+  "apparatusRefsWithoutBase": [],
+  "baseRefsOutsideMT": [
+    "Deuteronomy 5:31",
+    "Deuteronomy 5:32",
+    "Deuteronomy 5:33"
+  ],
+  "unindexedEntries": [],
+  "mappedSourceVerses": 958,
+  "unmappedSourceVerses": [
+    "Deuteronomy 5:28"
+  ],
+  "shiftedSourceVerses": {
+    "Deuteronomy 5:18": {
+      "refs": [
+        "Deuteronomy 5:17"
+      ],
+      "method": "complete consecutive verse text",
+      "sourceStart": 6,
+      "sourceEnd": 13
+    },
+    "Deuteronomy 5:19": {
+      "refs": [
+        "Deuteronomy 5:17"
+      ],
+      "method": "complete consecutive verse text",
+      "sourceStart": 13,
+      "sourceEnd": 20
+    },
+    "Deuteronomy 5:20": {
+      "refs": [
+        "Deuteronomy 5:17"
+      ],
+      "method": "complete consecutive verse text",
+      "sourceStart": 20,
+      "sourceEnd": 36
+    },
+    "Deuteronomy 5:21": {
+      "refs": [
+        "Deuteronomy 5:18"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 60
+    },
+    "Deuteronomy 5:22": {
+      "refs": [
+        "Deuteronomy 5:19"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 88
+    },
+    "Deuteronomy 5:23": {
+      "refs": [
+        "Deuteronomy 5:20"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 63
+    },
+    "Deuteronomy 5:24": {
+      "refs": [
+        "Deuteronomy 5:21"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 86
+    },
+    "Deuteronomy 5:25": {
+      "refs": [
+        "Deuteronomy 5:22"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 70
+    },
+    "Deuteronomy 5:26": {
+      "refs": [
+        "Deuteronomy 5:23"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 46
+    },
+    "Deuteronomy 5:27": {
+      "refs": [
+        "Deuteronomy 5:24"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 80
+    },
+    "Deuteronomy 5:29": {
+      "refs": [
+        "Deuteronomy 5:26"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 69
+    },
+    "Deuteronomy 5:30": {
+      "refs": [
+        "Deuteronomy 5:27"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 22
+    },
+    "Deuteronomy 5:31": {
+      "refs": [
+        "Deuteronomy 5:28"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 80
+    },
+    "Deuteronomy 5:32": {
+      "refs": [
+        "Deuteronomy 5:29"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 47
+    },
+    "Deuteronomy 5:33": {
+      "refs": [
+        "Deuteronomy 5:30"
+      ],
+      "method": "complete verse text",
+      "sourceStart": 0,
+      "sourceEnd": 71
+    }
+  }
+}

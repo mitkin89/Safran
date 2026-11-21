@@ -16,7 +16,7 @@
   <a href="https://github.com/mitkin89/Safran/releases/latest"><img alt="Download Safran for macOS, Windows or Linux" src="https://img.shields.io/badge/%E2%AC%87%EF%B8%8F%20%20Download%20Safran-macOS%20%C2%B7%20Windows%20%C2%B7%20Linux-2ea44f?style=for-the-badge"></a>
 </p>
 
-<p align="center"><a href="https://www.youtube.com/watch?v=_htLzC7Q3Ug">▶ Overview video</a> &nbsp;·&nbsp; <a href="docs/releases/2.5.0.md"><b>New in 2.5.0</b></a> &nbsp;·&nbsp; <a href="#install">Install</a> &nbsp;·&nbsp; <b>English</b> &nbsp;·&nbsp; <a href="README.de.md">Deutsch</a></p>
+<p align="center"><a href="https://www.youtube.com/watch?v=_htLzC7Q3Ug">▶ Overview video</a> &nbsp;·&nbsp; <a href="docs/releases/2.7.0.md"><b>New in 2.7.0</b></a> &nbsp;·&nbsp; <a href="#install">Install</a> &nbsp;·&nbsp; <b>English</b> &nbsp;·&nbsp; <a href="README.de.md">Deutsch</a></p>
 
 <p align="center">
   <a href="screenshots/hero-interlinear.png"><img src="screenshots/hero-interlinear.png" alt="Safran: Genesis 1 as an interlinear – under every Hebrew word the German of Zunz (1838) and Goldschmidt (1921); a clicked word is highlighted in the Hebrew and in the running translation" width="900"></a><br>
@@ -28,7 +28,16 @@
   <sub>▶ Watch the overview video on YouTube</sub>
 </p>
 
-Safran is a free desktop app for macOS, Windows and Linux that keeps your texts on your own computer. Pick the books and languages you want from the [Sefaria](https://www.sefaria.org) library once, and read, search and annotate them afterwards without an internet connection. New in 2.5.0: the **whole Tanakh word by word in German** (interlinear) and a **word card** that shows how a Hebrew word is translated. On top of that, Safran ships **more than 50 German works** (translations, commentaries and reference works) that are hard to find anywhere else, among them Louis Ginzberg's *Legenden der Juden* from his German manuscript, plus **ten dictionaries and reference works** with more than 300,000 entries. Safran is an independent project and not affiliated with Sefaria.
+Safran is a free desktop app for macOS, Windows and Linux that keeps your texts on your own computer. Pick the books and languages you want from the [Sefaria](https://www.sefaria.org) library once, and read, search and annotate them afterwards without an internet connection. New in 2.7.0: the **Apparatus** with manuscript and ancient-version readings, a shared study sidebar and richer passage statistics. The **whole Tanakh word by word in German** (interlinear) and a **word card** show how Hebrew words are translated. On top of that, Safran ships **more than 50 German works** (translations, commentaries and reference works) that are hard to find anywhere else, among them Louis Ginzberg's *Legenden der Juden* from his German manuscript, plus **ten dictionaries and reference works** with more than 300,000 entries. Safran is an independent project and not affiliated with Sefaria.
+
+The **≠ Apparatus** pane is included in the official 2.7.0 release. It includes the Samaritanus / Tal–Florentin
+apparatus, independent of selected reading columns. Read remarks on one level,
+inspect morphology and source citations, and optionally include spelling variants.
+Hover or focus a quoted word for its full Samaritan Hebrew/English verse context. Westminster / OSHB is the MT comparison base;
+word-anchored verse correspondence and uncertain or different numbering remain
+explicit. The header also offers whole-chapter view, verse navigation, follow
+reading, saved font size and witness selection, plus the available source language
+(currently English). It also includes Tov/Kraft CATSS notes plus separately labelled CATSS reading-text alignment flags (38 Tanakh books), biblical DSS (ETCBC/Abegg: 36 books, 262 manuscript sigla), and the available Digital Kennicott book apparatuses. Hover source sigla for manuscript metadata and source citations for edition context. Securely located MT headings are clickable and mark the corresponding words in the reader.
 
 ## Why Safran?
 
@@ -40,7 +49,7 @@ Safran is a free desktop app for macOS, Windows and Linux that keeps your texts 
 | 📴 **Works offline** | Texts, links, dictionaries, maps and audio live on your disk. Nothing is sent anywhere. |
 | 🇩🇪 **German texts you won't find elsewhere** | More than 50 works: Zunz, Philippson, Mendelssohn's Biur, Herxheimer, Hertz, Hirsch, Rashi after Bamberger, the Kautzsch Apocrypha, Midrash Rabbah, Josephus, Graetz, the Schulchan Aruch (Lederer), Ginzberg's *Legenden der Juden* … ready on first start. |
 | 📚 **A dictionary shelf, not a single lookup** | Liddell & Scott, BDB, Gesenius, Jastrow, Levy, Krauss and Hamburger's Real-Encyclopädie: more than 300,000 entries, searchable by headword *and* full text, with abbreviations explained on hover and sources that open in the reader. |
-| 📜 **Manuscripts and ancient versions** | Aleppo Codex, the biblical Qumran scrolls and all 735 non-biblical ones with morphology, the Septuagint with clickable morphology and an LXX–MT comparison, Targum Onkelos, Pseudo-Jonathan and Neofiti. |
+| 📜 **Manuscripts and ancient versions** | The Samaritan Pentateuch (CACCHT / DT-UCPH) with Tal–Florentin readings applied to the Hebrew main text, the English parallel translation, red MT differences, word-linked original notes with small source citations, hover explanations for apparatus abbreviations/signs, and source morphology on unchanged forms, Aleppo Codex, the biblical Qumran scrolls and all 735 non-biblical ones with morphology, the Septuagint with clickable morphology and an LXX–MT comparison, Targum Onkelos, Pseudo-Jonathan and Neofiti. |
 | 🔎 **Search that knows grammar** | Full-text search across everything, all forms of a word by lemma (Hebrew and Greek), and a grammar search by stem, tense, person, gender and number. |
 | 🗺 **Built for study** | Verse-by-verse alignment, a second reading window, Bible map, outlines, Jewish calendar and a Hebrew reading of the whole Tanakh. |
 
@@ -117,6 +126,10 @@ And everything else:
 </tr>
 </table>
 
+**Print books side by side:** Open a book and select its Hebrew and German versions as columns. Under **⋯ → Export …**, choose the current section, a section/chapter range or **Whole book**, then export to PDF or Word. Versions are aligned verse by verse; footnotes, personal notes and links are optional. Print the resulting PDF normally.
+
+Text sizes follow **Display**: the base font and separate Hebrew, German and other language sizes. Set these to your preferred print sizes before exporting.
+
 <p align="center">
   <a href="screenshots/qumran-interlinear.png"><img src="screenshots/qumran-interlinear.png" alt="Isaiah 53:11 as an interlinear with Zunz and the Qumran scrolls 1Q8, 1QIsaa and 4Q58 under the Hebrew words; the plus or (light) of the scrolls after yir’e is marked" width="900"></a><br>
   <sub>Qumran scrolls in the interlinear, Isaiah 53:11: one line per scroll, differences from the Masoretic text marked – here the plus אור (“light”) in 1QIsaᵃ, 1Q8 and 4Q58.</sub>
@@ -159,7 +172,7 @@ Krauss's ***Talmudische Archäologie*** (vols. I–III, Leipzig 1910–1912) its
   <sub>Dictionary tab: one search across all dictionaries, here answered by Hamburger and Jastrow, with recent searches on the left and favourites on the right.</sub>
 </p>
 
-- **Smart lookup:** vowel points and final-letter forms are ignored, the prefixes ו ה ב כ ל מ ש are stripped, and entries that start with your word are listed too. Suggestions appear while typing.
+- **Smart lookup:** vowel points and final-letter forms are ignored, complete headwords are matched by default. Use `*` for word beginnings (for example `שיח*`); the “Remove first letter” button lets you shorten a query explicitly. Suggestions appear while typing.
 - **Full text:** tick *also in text* (*auch im Text*) to search inside the articles, not only the headwords. Hits are highlighted. Phrases in quotation marks and the wildcards `*` and `?` work too.
 - **From the text and back:** a word looked up from the text shows where it came from (*from Genesis 25:8*); a click returns to the verse.
 - **Choose dictionaries:** the 📚 button selects which dictionaries are searched. The choice is remembered.

@@ -7,7 +7,8 @@ const G = require('./gmorph.js');
 global.window = {};
 eval(fs.readFileSync(path.join(__dirname, 'lxx-morph.js'), 'utf8')); // eslint-disable-line no-eval
 const D = window.LXX_MORPH;
-const text = (title, vt) => JSON.parse(fs.readFileSync(path.join(__dirname, 'bundled', 'own', title, 'other', vt + '.json'), 'utf8')).text;
+const bundleEntries = require('./bundled/manifest.json').items;
+const text = (title, vt) => { const entry=bundleEntries.find(e=>e.title===title&&e.versionTitle===vt&&e.language==='Greek'); assert(entry, title+' · '+vt); return JSON.parse(fs.readFileSync(path.join(__dirname,'bundled',entry.rel),'utf8')).text; };
 const CATSS = 'Septuaginta (CATSS)', RAHLFS = 'Septuaginta (Rahlfs)';
 
 (async () => {

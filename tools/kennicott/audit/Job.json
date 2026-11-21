@@ -1,0 +1,72 @@
+{
+  "source": {
+    "url": "https://www.edition-digitalkennicott.unito.it/exist/apps/dike/api/document/029_job.xml/",
+    "book": "Job",
+    "sha256": "69562c54e8c69a8d7efaedc72aa656a98c4797a478f70b6c985d1675e11a3aea",
+    "license": "CC BY-NC-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "title": "The Digital Kennicott. A Digital Edition of Benjamin Kennicott's Vetus Testamentum Hebraicum",
+    "editors": "Sebastiano Crestani, Alberto Legnaioli",
+    "base": "Kennicott / Van der Hooght reference text; distinct from OSHB",
+    "mt": {
+      "rel": "own/Job/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "e9f5c966d8b5548c7a2c2de5984e75a5909d32ddcd99c6b361eb74cd7d617892",
+      "license": "CC BY 4.0"
+    }
+  },
+  "counts": {
+    "entries": 4509,
+    "readings": 7645,
+    "verses": 1052,
+    "witnesses": 721,
+    "baseVerses": 1070
+  },
+  "unlocated": [],
+  "unidentifiedWitnesses": [
+    "K147m",
+    "K150m",
+    "K157m",
+    "K160m",
+    "K163m",
+    "K180m",
+    "K198m",
+    "K201m",
+    "K204m",
+    "K223m",
+    "K224m",
+    "K226m",
+    "K228m",
+    "K248m",
+    "K250m",
+    "K251m",
+    "K277m",
+    "K301m",
+    "K476m",
+    "K48m",
+    "K588m",
+    "K590m",
+    "K601m",
+    "K94m"
+  ],
+  "apparatusRefsWithoutBase": [],
+  "baseRefsOutsideMT": [],
+  "unindexedEntries": [],
+  "mappedSourceVerses": 1056,
+  "unmappedSourceVerses": [
+    "Job 9:30",
+    "Job 17:10",
+    "Job 20:1",
+    "Job 20:22",
+    "Job 24:4",
+    "Job 27:15",
+    "Job 31:11",
+    "Job 33:21",
+    "Job 33:28",
+    "Job 37:8",
+    "Job 38:1",
+    "Job 38:12",
+    "Job 40:6",
+    "Job 40:26"
+  ],
+  "shiftedSourceVerses": {}
+}

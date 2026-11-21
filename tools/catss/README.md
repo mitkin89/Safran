@@ -1,0 +1,23 @@
+# Tov/Kraft · CATSS in Safran
+
+`build_tov.py` erzeugt einen separaten Textkritik-Apparat (`tov-data.js`), ohne vorhandene Lesetexte oder deren Manifest-Hashes zu verändern:
+
+```sh
+python3 -I tools/catss/build_tov.py
+```
+
+Die vier mitgelieferten, unveränderten Oxford-Dateien liegen verlustfrei komprimiert unter `tov-source/`. Ihr SHA-256 steht in `tov-audit.json`. Herkunft und Lizenz: [Oxford Text Archive 1111](https://llds.ling-phil.ox.ac.uk/llds/xmlui/handle/20.500.14106/1111), Tov/Kraft, CC BY-NC-SA 3.0. Die Dateien wurden über die dortigen Bitstream-Links `file01-1111.txt` bis `file04-1111.txt` bezogen. Die mitgelieferte historische `list-1111.txt` beschreibt andere Dateigrenzen; maßgeblich sind die tatsächlich in den Dateien enthaltenen Buchmarken.
+
+Der Konverter verwendet `catss.py` im reinen Lesemodus für dieselbe Unicode-Umsetzung, Gruppierung und Verszählung wie die vorhandenen CATSS-Texte. Ist eine entsprechende Lesefassung vorhanden, müssen vor einer Übernahme **alle Verse dieser Fassung** mit ihr übereinstimmen. Ein Originalapparat ohne identische Lesefassung bleibt separat und kann keine fremden Morphologiedaten übernehmen. Geprüfte Dateien erhalten ebenfalls SHA-256-Fingerprints. Originalspalten, Quellendatei und Zeilennummer jeder Anmerkung bleiben erhalten. Unbekannte Codes werden nicht eigenmächtig interpretiert.
+
+Umfang: 41 Fassungen in 38 Tanachbüchern, 15.033 Verse mit 66.365 Hinweisen. Richter A/B und Daniel/Theodotion bleiben getrennt. Die kurze Josua-A-Fassung wird ebenfalls als eigenständiger Originalapparat erhalten. Hosea wird jetzt aus dem tatsächlich vorhandenen Oxford-Buchabschnitt übernommen; da im Leser keine identische CATSS-Fassung existiert, erhält er keine fremde Morphologie. Psalmen, Sprüche und Hiob fehlen in diesen Oxford-Dateien; für sie werden ausschließlich die erhaltenen Ausrichtungsmarken der bereits eingebundenen CATSS-Lesetexte übernommen und als **CATSS-Lesetext** zitiert, nicht als vollständige Originalanmerkungen. Ihre unveränderten Versgruppen und Datei-Hashes bleiben nachprüfbar. Der fälschlich als `Esth` bezeichnete Abschnitt enthält Esra und wird ausdrücklich ausgeschlossen. Es werden weder fehlende Anmerkungen noch Übereinstimmungen ergänzt. Die Ausgabe ist kein vollständiger handschriftenkritischer Apparat.
+
+Die deutschen Code-Erklärungen folgen dem [CATSS-Quellenschlüssel](https://ccat.sas.upenn.edu/gopher/text/religion/biblical/parallel/00.ReadReParallel.txt). Spalte a ist die formale MT/LXX-Ausrichtung; Spalte b enthält eine Auswahl **erschlossener** hebräischer Lesarten und Hinweise zur Übersetzungstechnik. Plus/Minus bezeichnet zunächst das Verhältnis der ausgerichteten Texte und beweist keine abweichende hebräische Handschrift. Fragezeichen bleiben erhalten. Die ursprünglichen Spalten sind beim Überfahren der Quellenzeile sichtbar.
+
+Im Pane lässt sich LXX unabhängig vom Samaritanus einblenden. Die Kontextvorschau zeigt den vollständigen Vers als griechisch-hebräische CATSS-Wortgruppen; die betroffene griechische Gruppe ist hervorgehoben. Fehlende Gegenstücke erscheinen als Strich, Rückübersetzungen separat als „erschlossen“. Die Gruppen entsprechen unverändert dem eingebundenen CATSS-Lesetext. Ein Klick auf die griechische Gruppe verwendet den vorhandenen Morphologieindex ausschließlich bei identischer Fassung, Verswortzahl und passender Wortposition; sonst wird keine fremde Bestimmung übernommen. Die englische NETS-Übersetzung wird nicht verwendet.
+
+Prüfung: `node --test tests/tov.test.js`, `npm test`, `npm run test:smoke`.
+
+Die gemeinsame Anzeige ordnet Hinweise nach **MT-Wortpositionen**, nicht nach Zeugenblöcken. Dafür enthält der Apparat die vollständige formale hebräische CATSS-Wortfolge mit dem Quellbereich jeder Anmerkung sowie OSHB-Wörter je erschlossenem Vers (Fingerprints `mtSha256`). Die OSHB-MT-Anteile stehen unter CC BY 4.0; siehe die vorhandenen OSHB-Lizenzhinweise. Samaritans eigene Versgrenzen bleiben erhalten; ihre Wortfolge wird nur gegen die bereits ermittelten MT-Versbezüge ausgerichtet.
+
+`TextCrit.alignPositions` berücksichtigt alle optimalen Wortfolgen-Ausrichtungen und übernimmt nur eindeutig übereinstimmende Positionen bei ausreichenden exakten Wortankern. Gleich geschriebene Wörter werden nicht über einen bloßen Wortlaut-Schlüssel zusammengelegt. Nicht eindeutige Gruppen, Umstellungen ohne sichere Position und Gruppen über mehrere MT-Verse bleiben unter „Nicht sicher zugeordnet“ mit Originalbeleg sichtbar. Zusätze benötigen eine sichere Grenze zwischen MT-Wörtern. Überlappende Wortbereiche werden als gemeinsame Phrase dargestellt. Diese Positionshilfe ist keine neue textkritische Lesartenentscheidung.

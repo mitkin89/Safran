@@ -1,0 +1,54 @@
+{
+  "source": {
+    "url": "https://www.edition-digitalkennicott.unito.it/exist/apps/dike/api/document/008_1sam.xml/",
+    "book": "I Samuel",
+    "sha256": "67ba88a6fa1b22c36bd174996b3a480545703fcff39d369dc61d69f164ba5f0f",
+    "license": "CC BY-NC-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "title": "The Digital Kennicott. A Digital Edition of Benjamin Kennicott's Vetus Testamentum Hebraicum",
+    "editors": "Sebastiano Crestani, Alberto Legnaioli",
+    "base": "Kennicott / Van der Hooght reference text; distinct from OSHB",
+    "mt": {
+      "rel": "own/I Samuel/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "7a7542070c81e1cac84eea6720f28bed85082c429360fdb2179618c8c74f4a54",
+      "license": "CC BY 4.0"
+    }
+  },
+  "counts": {
+    "entries": 5282,
+    "readings": 7722,
+    "verses": 808,
+    "witnesses": 721,
+    "baseVerses": 811
+  },
+  "unlocated": [],
+  "unidentifiedWitnesses": [
+    "K151m",
+    "K154m",
+    "K162m",
+    "K168m",
+    "K172m",
+    "K176m",
+    "K178m",
+    "K180m",
+    "K225m",
+    "K227m",
+    "K246m",
+    "K250m",
+    "K277m",
+    "K300m",
+    "K30m",
+    "K375m",
+    "K531m",
+    "K571m",
+    "K602m",
+    "K663m",
+    "K93m"
+  ],
+  "apparatusRefsWithoutBase": [],
+  "baseRefsOutsideMT": [],
+  "unindexedEntries": [],
+  "mappedSourceVerses": 811,
+  "unmappedSourceVerses": [],
+  "shiftedSourceVerses": {}
+}

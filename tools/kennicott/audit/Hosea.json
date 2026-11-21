@@ -1,0 +1,44 @@
+{
+  "source": {
+    "url": "https://www.edition-digitalkennicott.unito.it/exist/apps/dike/api/document/015_hos.xml/",
+    "book": "Hosea",
+    "sha256": "2d41d6468066092bae5fcf5f1219afa4acfc78d3cfb301b0a6315bbd6ec96747",
+    "license": "CC BY-NC-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "title": "The Digital Kennicott. A Digital Edition of Benjamin Kennicott's Vetus Testamentum Hebraicum",
+    "editors": "Sebastiano Crestani, Alberto Legnaioli",
+    "base": "Kennicott / Van der Hooght reference text; distinct from OSHB",
+    "mt": {
+      "rel": "own/Hosea/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "0145d15c27cab0c62f03c0576d42ecbcf43a9548a7487f1cf40b7a568f371a70",
+      "license": "CC BY 4.0"
+    }
+  },
+  "counts": {
+    "entries": 1104,
+    "readings": 1804,
+    "verses": 196,
+    "witnesses": 721,
+    "baseVerses": 197
+  },
+  "unlocated": [],
+  "unidentifiedWitnesses": [
+    "K154m",
+    "K168m",
+    "K198m",
+    "K225m",
+    "K226m",
+    "K246m",
+    "K277m",
+    "K417m",
+    "K540m"
+  ],
+  "apparatusRefsWithoutBase": [],
+  "baseRefsOutsideMT": [],
+  "unindexedEntries": [],
+  "mappedSourceVerses": 196,
+  "unmappedSourceVerses": [
+    "Hosea 8:12"
+  ],
+  "shiftedSourceVerses": {}
+}

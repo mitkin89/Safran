@@ -8,7 +8,9 @@ const LK = require('./links');
 const TP = require('./topics');
 const DSL = require('./dsl');
 const PIL = require('./private-interlinear');
+const KennicottExternal = require('./kennicott-external.cjs');
 const { confirmTextUpdates } = require('./text-updates');
+const { SearchJobs, ownerOf, runSearchWorker, emptyResult } = require('./search-jobs');
 
 const T0 = Date.now(); // Startzeit des Hauptprozesses (für startup.log)
 const tMain = [['Hauptprozess gestartet', 0]]; const mkMain = n => tMain.push([n, Date.now() - T0]);
@@ -18,13 +20,19 @@ let toolsWin = null;
 let offlineWin = null;
 let cancelFlag = false;
 let dlCancel = false;
-let searchCancel = false;
+const searchJobs = new SearchJobs();
 
 app.setName('Sefaria');
 // Der Datenordner (Bibliothek, Notizen, Einstellungen) bleibt wie bisher, auch wenn die App jetzt „Safran“ heißt
 const keepUserData = app.getPath('userData');
 app.setName('Safran');
 app.setPath('userData', keepUserData);
+// A script launch on macOS otherwise bypasses Finder's single-instance behavior.
+// A second Chromium process must not open the same localStorage profile.
+const { claimSingleInstance, focusWindow } = require('./app-instance');
+const primaryInstance = claimSingleInstance(app, () => {
+  if (!focusWindow(offlineWin)) openOffline();
+});
 
 // ---------- Datei-Dialoge: zuletzt benutzten Ordner merken ----------
 // Seit Electron 43 öffnen Dialoge ohne defaultPath immer im Download-Ordner.
@@ -211,7 +219,7 @@ function openOffline() {
   offlineWin.webContents.setWindowOpenHandler(() => ({ action: 'deny' }));
   offlineWin.webContents.on('will-navigate', (e, url) => { if (!url.startsWith('file://')) e.preventDefault(); });
   offlineWin.webContents.on('will-frame-navigate', e => { if (!e.url.startsWith('file://')) e.preventDefault(); }); // auch das zweite Lesefenster (iframe) bleibt lokal
-  offlineWin.on('closed', () => { offlineWin = null; dlCancel = true; searchCancel = true; if (searchWorker) searchWorker.terminate(); });
+  offlineWin.on('closed', () => { offlineWin = null; dlCancel = true; searchJobs.cancelAll(); if (warming) { warming.terminate(); warming = null; } });
   offlineWin.webContents.once('did-start-loading', () => { tRenderStart = Date.now() - T0; mkMain('Seite beginnt zu laden'); });
   offlineWin.webContents.once('did-finish-load', () => mkMain('Seite geladen'));
   trackWinState(offlineWin);
@@ -306,6 +314,12 @@ ipcMain.handle('api:get', (_e, p) => request('GET', p));
 ipcMain.handle('api:post', (_e, p, b) => request('POST', p, b));
 ipcMain.handle('open:external', (_e, url) => {
   if (isSefaria(url)) return shell.openExternal(url);
+});
+ipcMain.handle('open:kennicott', async (_e, value) => {
+  const url = KennicottExternal.approved(value);
+  if (!url) return { opened: false };
+  await shell.openExternal(url);
+  return { opened: true };
 });
 
 // Update-Hinweis: neueste veröffentlichte Version auf GitHub abfragen (die App installiert nichts selbst)
@@ -430,6 +444,11 @@ function getLibrary() {
   if (!libraryP) libraryP = (async () => {
     mkMain('Bibliothek: Laden beginnt');
     const lib = await new OFF.Library(await libraryDir(), fetchBuffer).load();
+    if (lib.recovery) await dialog.showMessageBox({
+      type: 'warning', title: M('Bibliotheksindex wiederhergestellt', 'Library index recovered'),
+      message: M('Der Bibliotheksindex wurde aus seiner letzten gültigen Sicherung wiederhergestellt.', 'The library index was recovered from its last valid backup.'),
+      detail: lib.recovery.backup + '\n' + M('Eine vorhandene beschädigte Datei bleibt als .broken-Datei erhalten. Die Textdateien wurden nicht verändert.', 'An existing damaged index is retained as a .broken file. Text files have not been changed.'),
+    });
     mkMain('Bibliothek: Index gelesen (' + lib.list().length + ' Texte)');
     let impErr = '';
     try {
@@ -538,7 +557,6 @@ ipcMain.handle('off:library', async () => {
 
 ipcMain.handle('off:read', async (_e, rel) => (await getLibrary()).read(rel));
 
-let searchWorker = null;
 const cacheDirOf = lib => path.join(lib.dir, '.searchcache');
 let warming = null;
 function warmSearchCache(lib) {
@@ -547,38 +565,37 @@ function warmSearchCache(lib) {
     const { Worker } = require('worker_threads');
     const w = new Worker(path.join(__dirname, 'cacheWorker.js'), { workerData: { dir: lib.dir, entries: lib.list().filter(e => e.kind === 'he' || e.kind === 'de' || e.kind === 'en'), cacheDir: cacheDirOf(lib) } });
     warming = w;
-    const done = () => { if (warming === w) warming = null; };
+    const done = () => { if (warming === w) warming = null; Promise.resolve(w.terminate()).catch(() => {}); };
     w.on('message', done); w.on('error', done); w.on('exit', done);
     w.unref && w.unref();
   } catch { /* ohne Cache geht es auch */ }
 }
-ipcMain.handle('off:search', async (e, o) => {
-  searchCancel = false;
-  const lib = await getLibrary();
-  const str = x => String(x == null ? '' : x);
-  const params = {
-    query: str(o.query), extra: Array.isArray(o.extra) ? o.extra.slice(0, 2).map(str) : [], fuzzy: !!o.fuzzy,
-    distance: Number.isFinite(o.distance) ? o.distance : -1, ordered: !!o.ordered, prefix: !!o.prefix, exact: !!o.exact, wlc: !!o.wlc, lemma: !!o.lemma, countAll: !!o.countAll, parse: !!o.parse, partial: !!o.partial, gram: o.gram && typeof o.gram === 'object' ? Object.fromEntries(['pos', 'stem', 'tense', 'person', 'gender', 'number', 'state', 'suffix', 'article'].map(k => [k, String(o.gram[k] == null ? '' : o.gram[k]).slice(0, 3)])) : null,
-    limit: Math.min(5000, +o.limit || 1000), perFile: Math.min(500, +o.perFile || 25),
-  };
-  const entries = lib.entriesFor({ kinds: Array.isArray(o.kinds) ? o.kinds : [], category: str(o.category), categories: Array.isArray(o.categories) ? o.categories.map(str) : [], titles: Array.isArray(o.titles) ? o.titles.map(str) : [] });
-  const progress = p => { if (!e.sender.isDestroyed()) e.sender.send('off:searchProgress', p); };
-  const inline = () => require('./searchcore').searchFiles({ dir: lib.dir, entries, params, cacheDir: cacheDirOf(lib), onProgress: progress, isCancelled: () => searchCancel });
+ipcMain.handle('off:search', async (e, o = {}) => {
+  const job = searchJobs.begin(ownerOf(e), o.requestId);
   try {
-    const { Worker } = require('worker_threads');
-    return await new Promise((resolve, reject) => {
-      const w = new Worker(path.join(__dirname, 'searchWorker.js'), { workerData: { dir: lib.dir, entries, params, cacheDir: cacheDirOf(lib) } });
-      searchWorker = w;
-      let finished = false;
-      const timer = setInterval(() => { if (searchCancel) w.postMessage('cancel'); }, 100);
-      const end = fn => v => { if (finished) return; finished = true; clearInterval(timer); if (searchWorker === w) searchWorker = null; fn(v); };
-      w.on('message', m => { if (m.type === 'progress') progress(m.p); else if (m.type === 'done') end(resolve)(m.res); else if (m.type === 'error') end(reject)(new Error(m.error)); });
-      w.on('error', end(reject));
-      w.on('exit', code => end(reject)(new Error('Such-Prozess beendet (' + code + ')')));
-    });
-  } catch { return inline(); } // falls der Hintergrund-Thread nicht startet: direkt suchen
+    const lib = await getLibrary();
+    if (job.cancelled) return emptyResult();
+    const str = x => String(x == null ? '' : x);
+    const params = {
+      query: str(o.query), extra: Array.isArray(o.extra) ? o.extra.slice(0, 2).map(str) : [], fuzzy: !!o.fuzzy,
+      distance: Number.isFinite(o.distance) ? o.distance : -1, ordered: !!o.ordered, prefix: !!o.prefix, exact: !!o.exact, wlc: !!o.wlc, lemma: !!o.lemma, countAll: !!o.countAll, parse: !!o.parse, partial: !!o.partial, gram: o.gram && typeof o.gram === 'object' ? Object.fromEntries(['pos', 'stem', 'tense', 'person', 'gender', 'number', 'state', 'suffix', 'article'].map(k => [k, String(o.gram[k] == null ? '' : o.gram[k]).slice(0, 3)])) : null,
+      limit: Math.min(5000, +o.limit || 1000), perFile: Math.min(500, +o.perFile || 25),
+    };
+    const entries = lib.entriesFor({ kinds: Array.isArray(o.kinds) ? o.kinds : [], category: str(o.category), categories: Array.isArray(o.categories) ? o.categories.map(str) : [], titles: Array.isArray(o.titles) ? o.titles.map(str) : [] });
+    const progress = p => {
+      if (!searchJobs.current(job) || e.sender.isDestroyed()) return;
+      try { if (e.senderFrame) e.senderFrame.send('off:searchProgress', { ...p, requestId: job.requestId }); }
+      catch { searchJobs.cancel(job.owner, job.requestId); } // Lesefenster während der Suche geschlossen
+    };
+    try {
+      return await runSearchWorker({ dir: lib.dir, entries, params, cacheDir: cacheDirOf(lib) }, job, progress);
+    } catch (err) {
+      if (err.code !== 'WORKER_UNAVAILABLE') throw err;
+      return require('./searchcore').searchFiles({ dir: lib.dir, entries, params, cacheDir: cacheDirOf(lib), onProgress: progress, isCancelled: () => job.cancelled });
+    }
+  } finally { searchJobs.finish(job); }
 });
-ipcMain.on('off:cancelSearch', () => { searchCancel = true; });
+ipcMain.on('off:cancelSearch', (e, requestId) => { searchJobs.cancel(ownerOf(e), requestId); });
 
 
 // Eigene Texte: Dateien wählen (mehrere möglich) -> prüfen (Vorschau) -> speichern
@@ -675,6 +692,8 @@ ipcMain.handle('dict:add', async e => {
 ipcMain.handle('dict:order', async (_e, ids) => { try { await (await getDicts()).setOrder((Array.isArray(ids) ? ids : []).map(String).filter(x => /^[0-9a-f]{12}$/.test(x))); return {}; } catch (err) { return { error: err.message }; } });
 ipcMain.handle('dict:remove', async (_e, id) => { try { await (await getDicts()).remove(String(id)); return {}; } catch (err) { return { error: err.message }; } });
 ipcMain.handle('dict:lookup', async (_e, q, only, full) => { try { return { results: await (await getDicts()).search(String(q || '').slice(0, 100), { only: Array.isArray(only) ? only.filter(x => /^[0-9a-f]{12}$/.test(String(x))).map(String) : (/^[0-9a-f]{12}$/.test(String(only || '')) ? String(only) : ''), full: !!full }) }; } catch (err) { return { results: [], error: err.message }; } });
+
+ipcMain.handle('dict:syriacMentions', async (_e, queries, only) => { try { return { results: await (await getDicts()).syriacMentions((Array.isArray(queries)?queries:[]).slice(0,8).map(q=>String(q).slice(0,100)), { only: Array.isArray(only)?only.map(String).filter(id=>/^[0-9a-f]{12}$/.test(id)):'' }) }; } catch(err) { return {results:[],error:err.message}; } });
 
 ipcMain.handle('dict:heads', async (_e, id) => { try { return { list: /^[0-9a-f]{12}$/.test(String(id || '')) ? await (await getDicts()).headList(String(id)) : [] }; } catch (err) { return { list: [], error: err.message }; } });
 ipcMain.handle('dict:cites', async (_e, book, chap, v) => { try { return { list: await (await getDicts()).citesAt(String(book || '').slice(0, 120), String(chap || '').slice(0, 12), +v || 0) }; } catch (err) { return { list: [], error: err.message }; } });
@@ -1172,6 +1191,7 @@ ipcMain.handle('off:chooseDir', async e => {
       if (oldNotes !== newNotes) { try { await fs.access(newNotes); } catch { await fs.copyFile(oldNotes, newNotes); } }
     } catch {}
     await fs.writeFile(configFile(), JSON.stringify({ dir: r.filePaths[0] }));
+    searchJobs.cancelAll(); if (warming) warming.terminate();
     libraryP = null; dictsP = null; warming = null; invalidateReads();
   }
   return offState();
@@ -1183,8 +1203,8 @@ ipcMain.handle('off:reveal', async () => {
   return shell.openPath(lib.dir);
 });
 
-app.whenReady().then(() => { try { if (process.platform === 'darwin' && app.dock) app.dock.setIcon(path.join(__dirname, 'build', 'icon.png')); } catch { /* Symbol nur ein Zusatz */ } }).catch(() => {});
-app.whenReady().then(() => {
+if (primaryInstance) app.whenReady().then(() => { try { if (process.platform === 'darwin' && app.dock) app.dock.setIcon(path.join(__dirname, 'build', 'icon.png')); } catch { /* Symbol nur ein Zusatz */ } }).catch(() => {});
+if (primaryInstance) app.whenReady().then(() => {
   mkMain('Electron bereit');
   session.defaultSession.setUserAgent(cleanUA(session.defaultSession.getUserAgent()));
   buildMenu();

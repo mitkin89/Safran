@@ -49,11 +49,12 @@ const lib = { list: () => entries, read: async rel => docs[rel] };
   } finally { await fs.rm(dir, { recursive: true, force: true }); }
   const js = await fs.readFile(path.join(__dirname, 'library.js'), 'utf8');
   const html = await fs.readFile(path.join(__dirname, 'library.html'), 'utf8');
-  assert(js.includes("'Qumran', 'BuberRosenzweig'")); // vorhandene Farben nicht verschieben
-  assert(js.includes('O.interlinearRead()') && js.includes('O.interlinearImport()'));
+  const display = await fs.readFile(path.join(__dirname, 'library-interlinear.js'), 'utf8');
+  assert(display.includes("'Qumran', 'BuberRosenzweig'")); // vorhandene Farben nicht verschieben
+  assert(js.includes('O.interlinearRead()') && display.includes('O.interlinearImport()'));
   assert(html.includes('id="importInterlinear"'));
   // Tatsächlichen Loader mit künstlichem IPC prüfen: Cache, Ersetzen, vorhandene Fassungen.
-  const block = js.slice(js.indexOf("  let ilP = null, ilRevision"), js.indexOf('  // Jede deutsche Übersetzung'));
+  const block = js.slice(js.indexOf("  let ilP = null, ilRevision"), js.indexOf('  const IL_VT ='));
   assert(block.includes('const loadIL'));
   let local = { data: raw }, calls = 0;
   const button = {}, built = { Zunz: { synthetic: true } }, alerts = [];
@@ -62,8 +63,10 @@ const lib = { list: () => entries, read: async rel => docs[rel] };
     lazyScript: async () => built,
     O: { interlinearRead: async () => { calls++; return local; }, onInterlinearChanged() {}, interlinearImport: async () => ({ verses: 1 }) },
   };
+  ctx.wordCardsUI = ctx; // live adapter for shared rendering caches
   ctx.ilRefresh = () => ctx.testIL.loadIL();
-  vm.runInNewContext(block + '\nglobalThis.testIL = { loadIL, resetPrivateIL };', ctx);
+  const importer = display.slice(display.indexOf("  $('#importInterlinear').onclick"), display.indexOf('  // Jede deutsche Übersetzung'));
+  vm.runInNewContext(block + importer + '\nglobalThis.testIL = { loadIL, resetPrivateIL };', ctx);
   assert((await ctx.testIL.loadIL()).Zunz.synthetic);
   assert.equal(Object.keys((await ctx.testIL.loadIL()).BuberRosenzweig.Genesis).length, 2);
   assert.equal(calls, 1);

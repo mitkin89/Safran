@@ -46,6 +46,8 @@ function sectionsOf(text, sectionNames) {
       }
       kids.forEach(([c, i]) => walk(c, [...path, i]));
     } else if (node && typeof node === 'object') {
+      // Numbered verse dictionaries preserve source verse 0 without shifting later verses.
+      if(Object.keys(node).every(k=>/^\d+$/.test(k))&&Object.values(node).every(v=>typeof v==='string')) { out.push({path,label:path.length?pathLabel(path,sectionNames):'Text'}); return; }
       Object.keys(node).forEach(k => walk(node[k], [...path, k]));
     } else {
       out.push({ path, label: path.length ? pathLabel(path, sectionNames) : 'Text' });
@@ -156,6 +158,8 @@ function cleanHtml(s) {
     // einzige erlaubte Attributform: <sup data-fn="12"> (Fußnotenzeichen, nur Ziffern)
     // OSHB-Wörter: <span class="w" data-l="1254 a" data-m="HVqp3ms"> (Lemma-Nummer und Morphologiecode, nur Ziffern/Buchstaben)
     if (t === 'span') {
+      if (/^<span class="syw" data-si="[1-9][0-9]{0,6}">$/.test(m)) { spans++; return m; }
+      if (m === '<span class="mt-diff">') { spans++; return m; } // red MT differences from the source edition
       // Abkürzung mit Auflösung beim Überfahren: <span class="ab" data-t="Bereschit Rabba">BR.</span>
       const ab = m.match(/^<span class="ab" data-t="([^"<>&]{1,200})"(?: title="[^"<>&]{0,200}")?>$/);
       if (ab) { spans++; return `<span class="ab" data-t="${ab[1]}" title="${ab[1]}">`; }
@@ -165,10 +169,10 @@ function cleanHtml(s) {
       if (wq) { spans++; return `<span class="wq" data-l="${wq[1]}" data-m="${wq[2]}">`; }
       const gk = m.match(/^<span class="wg( wm)?" data-h="([\u05D0-\u05EA ]{0,120})"(?: data-f="([a-z]{1,8})")?(?: data-r="([\u05D0-\u05EA ]{0,120})")?>$/);
       if (gk) { spans++; return `<span class="wg${gk[1] || ''}" data-h="${gk[2]}"${gk[3] ? ` data-f="${gk[3]}"` : ''}${gk[4] ? ` data-r="${gk[4]}"` : ''}>`; }
-      const w = m.match(/^<span class="w" data-l="([0-9a-z\/+ ]{0,40}|bavli:[a-z0-9]{1,12}(?::[a-z0-9]{1,40}){1,6})" data-m="([A-Za-z0-9\/]{0,40})">$/);
+      const w = m.match(/^<span class="(w(?: tal-note(?:-ref)?)?)" data-l="([0-9a-z\/+ ]{0,40}|sp:[0-9]{6}|tfe?:[A-Za-z]{1,12}:[0-9]{1,3}:[0-9]{1,3}:[0-9]{1,3}|bavli:[a-z0-9]{1,12}(?::[a-z0-9]{1,40}){1,6})" data-m="([A-Za-z0-9\/]{0,40})">$/);
       if (!w) return '';
       spans++;
-      return `<span class="w" data-l="${w[1]}" data-m="${w[2]}">`;
+      return `<span class="${w[1]}" data-l="${w[2]}" data-m="${w[3]}">`;
     }
     const fn = t === 'sup' && m.match(/^<sup\s+data-fn="(\d{1,4})"\s*>$/);
     return fn ? `<sup data-fn="${fn[1]}">` : `<${t}>`;

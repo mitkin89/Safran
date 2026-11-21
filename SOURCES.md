@@ -12,6 +12,16 @@ The Bible cross-references in `xref.json` (Tanakh only, shown among the Sefaria 
 
 The Josephus links (Antiquities, Jewish War ↔ Bible, Maccabees and each other) come from the parallel-passage index of B. Niese's edition (Berlin 1885–1895, public domain); Niese's § numbers are mapped to Whiston's chapters and sections (Sefaria's structure) with the Perseus texts ([PerseusDL/canonical-greekLit](https://github.com/PerseusDL/canonical-greekLit), CC BY-SA 4.0). Converter: `tools/josephus/`. Winter/Wünsche, *Mechiltha* (Leipzig 1909): text transcribed from the page images on [archive.org](https://archive.org/details/MechilthaEinTannaitischerMidraschZuExodusVonAugustWnsche) (public domain) with Claude Opus and aligned sentence by sentence to the Sefaria segments of *Mekhilta DeRabbi Yishmael*. Graetz, *Geschichte der Juden*: text from [zeno.org](http://www.zeno.org/Geschichte/M/Graetz,+Heinrich/Geschichte+der+Juden) (public domain); the reversed Hebrew was turned around by `tools/graetz/build.py`. The links from Safran's own texts (`tools/ownlinks/`) are taken from the passage references in those texts. The Mishnah ↔ Talmud table (`bundled/mishnah_talmud.json`) is derived from Sefaria's links of the type *mishnah in talmud* (converter: `tools/mishnah_talmud/`).
 
+## SEDRA Syriac lexicon
+
+The offline SEDRA dictionary contains 35,892 verified lexical entries with multilingual glosses, explicit root relations and recorded vocalizations from **Sedra 5.0 (2026-10-24)**, edited by George A. Kiraz and James Bennett, **Beth Mardutho: The Syriac Institute**. Data: **CC BY-NC 4.0**, https://creativecommons.org/licenses/by-nc/4.0/ . Source: https://sedra.bethmardutho.org/releases/v5.0/ . Original resource partners and per-entry references remain credited; see [LICENSE-SEDRA.md](LICENSE-SEDRA.md).
+
+Changes: conversion to Safran's bundled dictionary format, plain-text gloss cleanup, recorded non-theoretical word forms as search aliases, recorded spelling lookup from Peshitta word popups in the selected dictionaries. Homonyms stay separate and ETCBC's contextual morphology is retained independently. No scans, library texts or generated forms are imported. Reproducible converter and pinned checksums: `tools/sedra/`.
+
+Syriac word cards additionally expose explicit root families and recorded forms grouped by SEDRA grammatical labels, with Western and Eastern vocalizations. The lazy structured index preserves original ids and sources; word-form counts are not passage frequencies.
+
+The etymology extension imports the 3,078 verified SEDRA origin records with language, source word, notes, bracket status and permanent etymology id; no missing source citations are invented. Original transliterations and the five published mapping schemes are preserved. Explicit SEDRA IV, CAL and Leiden input searches the selected dictionaries after case-sensitive conversion; it does not infer vowels.
+
 ## Hebrew Tanakh with morphology (OSHB)
 
 All 39 books are included as an additional Hebrew version “Westminster Leningrad Codex (OSHB, with morphology)” under `bundled/own/…/he/`. Every word carries a lemma (Strong number) and a morphology code; a click in the reader shows stem, tense/form, person, gender and number and looks the lemma up in the dictionary.
@@ -62,3 +72,7 @@ The interface is available in German and English (⋯ menu → Sprache). The Eng
 ## License of this project
 
 The source code of this app is released under the [MIT License](LICENSE).
+
+- **Biblical DSS text-critical adapter** — same ETCBC/Abegg source and **CC BY-NC 4.0** license as the Qumran texts above, with original character-level reconstruction/uncertainty/correction flags and fragment/line provenance. Source version 2.0.2, commit `0b7774a72b6d0e91712aa2156d2a1d354f1f5e6d`. Separate compressed extracts for 36 books, 262 manuscript sigla and source/OSHB fingerprints are documented in [tools/dss/README.md](tools/dss/README.md). Automatic MT grouping is an adaptation; source readings and existing bundled reading editions are not silently corrected.
+
+- **Digital Kennicott, Genesis apparatus** — *The Digital Kennicott. A Digital Edition of Benjamin Kennicott's Vetus Testamentum Hebraicum*, ed. Sebastiano Crestani and Alberto Legnaioli, Universities of Turin and Florence. [Original TEI](https://www.edition-digitalkennicott.unito.it/exist/apps/dike/api/document/001_gen.xml/), explicitly **CC BY-NC-SA 4.0** in its header. Safran preserves the original archive and derives a separate offline apparatus with source glossary, witness metadata and conservative MT positions. See `LICENSE-KENNICOTT.md` and `tools/kennicott/README.md`.

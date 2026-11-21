@@ -1,0 +1,37 @@
+{
+  "source": {
+    "url": "https://www.edition-digitalkennicott.unito.it/exist/apps/dike/api/document/023_zeph.xml/",
+    "book": "Zephaniah",
+    "sha256": "1328475d7ab825e22ef4fd810768e685eee6c375ea85a8d2f6f2301ef08fc179",
+    "license": "CC BY-NC-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "title": "The Digital Kennicott. A Digital Edition of Benjamin Kennicott's Vetus Testamentum Hebraicum",
+    "editors": "Sebastiano Crestani, Alberto Legnaioli",
+    "base": "Kennicott / Van der Hooght reference text; distinct from OSHB",
+    "mt": {
+      "rel": "own/Zephaniah/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "4989cc8bb392efbdc7583ffdc77101e2d6a065b54325cd9995746611c64e4856",
+      "license": "CC BY 4.0"
+    }
+  },
+  "counts": {
+    "entries": 327,
+    "readings": 508,
+    "verses": 53,
+    "witnesses": 721,
+    "baseVerses": 53
+  },
+  "unlocated": [],
+  "unidentifiedWitnesses": [
+    "K198m",
+    "K201m",
+    "K224m",
+    "K226m"
+  ],
+  "apparatusRefsWithoutBase": [],
+  "baseRefsOutsideMT": [],
+  "unindexedEntries": [],
+  "mappedSourceVerses": 53,
+  "unmappedSourceVerses": [],
+  "shiftedSourceVerses": {}
+}

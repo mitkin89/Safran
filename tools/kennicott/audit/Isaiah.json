@@ -1,0 +1,70 @@
+{
+  "source": {
+    "url": "https://www.edition-digitalkennicott.unito.it/exist/apps/dike/api/document/012_isa.xml/",
+    "book": "Isaiah",
+    "sha256": "be84de0bd039cb2c368a8f367aefeb82d17cd626e91e478d18cfc98f76cd04d6",
+    "license": "CC BY-NC-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-nc-sa/4.0/",
+    "title": "The Digital Kennicott. A Digital Edition of Benjamin Kennicott's Vetus Testamentum Hebraicum",
+    "editors": "Sebastiano Crestani, Alberto Legnaioli",
+    "base": "Kennicott / Van der Hooght reference text; distinct from OSHB",
+    "mt": {
+      "rel": "own/Isaiah/he/Westminster Leningrad Codex (OSHB, mit Morphologie).json",
+      "sha256": "7b2e14ab2b04e2fd5dd4bc1a238af827a5b889e93a51b129bc7f968e66cd3421",
+      "license": "CC BY 4.0"
+    }
+  },
+  "counts": {
+    "entries": 8415,
+    "readings": 13444,
+    "verses": 1289,
+    "witnesses": 721,
+    "baseVerses": 1291
+  },
+  "unlocated": [],
+  "unidentifiedWitnesses": [
+    "K145m",
+    "K150m",
+    "K151m",
+    "K154m",
+    "K155m",
+    "K158m",
+    "K168m",
+    "K172m",
+    "K173m",
+    "K178m",
+    "K198m",
+    "K201m",
+    "K223m",
+    "K224m",
+    "K226m",
+    "K227m",
+    "K228m",
+    "K242m",
+    "K249m",
+    "K252m",
+    "K277m",
+    "K279m",
+    "K300m",
+    "K30m",
+    "K320m",
+    "K330m",
+    "K490m",
+    "K506m",
+    "K531m",
+    "K587m",
+    "K602m",
+    "K89m"
+  ],
+  "apparatusRefsWithoutBase": [],
+  "baseRefsOutsideMT": [],
+  "unindexedEntries": [],
+  "mappedSourceVerses": 1287,
+  "unmappedSourceVerses": [
+    "Isaiah 3:19",
+    "Isaiah 3:23",
+    "Isaiah 36:12",
+    "Isaiah 42:20"
+  ],
+  "shiftedSourceVerses": {}
+}

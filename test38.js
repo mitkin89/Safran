@@ -2,9 +2,10 @@
 'use strict';
 const assert = require('assert'), fs = require('fs'), path = require('path'), vm = require('vm');
 const G = require('./gmorph'), Links = require('./links');
-const ui = fs.readFileSync(path.join(__dirname, 'library.js'), 'utf8'), main = fs.readFileSync(path.join(__dirname, 'main.js'), 'utf8');
+const ui = require('./tests/reader-source.cjs')() + fs.readFileSync(path.join(__dirname, 'library-word-popup.js'), 'utf8'), main = fs.readFileSync(path.join(__dirname, 'main.js'), 'utf8');
 const part = (s, a, b) => { const start = s.indexOf(a), end = s.indexOf(b, start); assert(start >= 0 && end > start); return s.slice(start, end); };
 const ctx = vm.createContext({ window: { GMorph: G } });
+ctx.host = ctx;
 vm.runInContext(fs.readFileSync(path.join(__dirname, 'lxx-morph.js'), 'utf8'), ctx);
 const D = ctx.window.LXX_MORPH, items = require('./bundled/manifest.json').items.filter(x => x.title === 'Exodus');
 const lxx = items.find(x => x.versionTitle === 'Septuaginta (CATSS)'), zunz = items.find(x => /Zunz/.test(x.versionTitle));

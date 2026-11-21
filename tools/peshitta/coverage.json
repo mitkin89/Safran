@@ -1,0 +1,422 @@
+{
+  "books": [
+    {
+      "title": "Genesis",
+      "rel": "own/Genesis/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "verses": 1533,
+      "words": 20080,
+      "annotated": 20080,
+      "unresolvedAnnotatedPassages": []
+    },
+    {
+      "title": "Exodus",
+      "rel": "own/Exodus/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "verses": 1213,
+      "words": 16337,
+      "annotated": 16337,
+      "unresolvedAnnotatedPassages": []
+    },
+    {
+      "title": "Leviticus",
+      "rel": "own/Leviticus/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "verses": 859,
+      "words": 11834,
+      "annotated": 11833,
+      "unresolvedAnnotatedPassages": [
+        [
+          11,
+          40,
+          1
+        ]
+      ]
+    },
+    {
+      "title": "Numbers",
+      "rel": "own/Numbers/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "verses": 1289,
+      "words": 16539,
+      "annotated": 16539,
+      "unresolvedAnnotatedPassages": []
+    },
+    {
+      "title": "Deuteronomy",
+      "rel": "own/Deuteronomy/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "verses": 959,
+      "words": 14136,
+      "annotated": 14132,
+      "unresolvedAnnotatedPassages": [
+        [
+          14,
+          16,
+          2
+        ],
+        [
+          14,
+          17,
+          2
+        ]
+      ]
+    },
+    {
+      "title": "Job",
+      "rel": "own/Job/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "verses": 1065,
+      "words": 9221,
+      "annotated": 0,
+      "unresolvedAnnotatedPassages": []
+    },
+    {
+      "title": "Joshua",
+      "rel": "own/Joshua/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "verses": 656,
+      "words": 10035,
+      "annotated": 10025,
+      "unresolvedAnnotatedPassages": [
+        [
+          21,
+          34,
+          7
+        ],
+        [
+          21,
+          37,
+          3
+        ]
+      ]
+    },
+    {
+      "title": "Judges",
+      "rel": "own/Judges/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "verses": 617,
+      "words": 9794,
+      "annotated": 9794,
+      "unresolvedAnnotatedPassages": []
+    },
+    {
+      "title": "I Samuel",
+      "rel": "own/I Samuel/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "verses": 809,
+      "words": 12953,
+      "annotated": 0,
+      "unresolvedAnnotatedPassages": []
+    },
+    {
+      "title": "II Samuel",
+      "rel": "own/II Samuel/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "verses": 693,
+      "words": 11106,
+      "annotated": 0,
+      "unresolvedAnnotatedPassages": []
+    },
+    {
+      "title": "Psalms",
+      "rel": "own/Psalms/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "verses": 2454,
+      "words": 20092,
+      "annotated": 3459,
+      "unresolvedAnnotatedPassages": []
+    },
+    {
+      "title": "I Kings",
+      "rel": "own/I Kings/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "verses": 816,
+      "words": 12884,
+      "annotated": 12883,
+      "unresolvedAnnotatedPassages": [
+        [
+          12,
+          32,
+          1
+        ]
+      ]
+    },
+    {
+      "title": "II Kings",
+      "rel": "own/II Kings/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "verses": 719,
+      "words": 12026,
+      "annotated": 12026,
+      "unresolvedAnnotatedPassages": []
+    },
+    {
+      "title": "Proverbs",
+      "rel": "own/Proverbs/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "verses": 914,
+      "words": 8058,
+      "annotated": 0,
+      "unresolvedAnnotatedPassages": []
+    },
+    {
+      "title": "Ecclesiastes",
+      "rel": "own/Ecclesiastes/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "verses": 222,
+      "words": 3020,
+      "annotated": 0,
+      "unresolvedAnnotatedPassages": []
+    },
+    {
+      "title": "Song of Songs",
+      "rel": "own/Song of Songs/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "verses": 117,
+      "words": 1312,
+      "annotated": 0,
+      "unresolvedAnnotatedPassages": []
+    },
+    {
+      "title": "Isaiah",
+      "rel": "own/Isaiah/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "verses": 1290,
+      "words": 17567,
+      "annotated": 0,
+      "unresolvedAnnotatedPassages": []
+    },
+    {
+      "title": "Jeremiah",
+      "rel": "own/Jeremiah/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "verses": 1366,
+      "words": 21776,
+      "annotated": 21735,
+      "unresolvedAnnotatedPassages": [
+        [
+          49,
+          7,
+          14
+        ],
+        [
+          49,
+          23,
+          13
+        ],
+        [
+          49,
+          28,
+          10
+        ],
+        [
+          51,
+          64,
+          4
+        ]
+      ]
+    },
+    {
+      "title": "Lamentations",
+      "rel": "own/Lamentations/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "verses": 154,
+      "words": 1755,
+      "annotated": 0,
+      "unresolvedAnnotatedPassages": []
+    },
+    {
+      "title": "Ezekiel",
+      "rel": "own/Ezekiel/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "verses": 1271,
+      "words": 18341,
+      "annotated": 18341,
+      "unresolvedAnnotatedPassages": []
+    },
+    {
+      "title": "Hosea",
+      "rel": "own/Hosea/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "verses": 197,
+      "words": 2580,
+      "annotated": 0,
+      "unresolvedAnnotatedPassages": []
+    },
+    {
+      "title": "Joel",
+      "rel": "own/Joel/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "verses": 73,
+      "words": 984,
+      "annotated": 0,
+      "unresolvedAnnotatedPassages": []
+    },
+    {
+      "title": "Amos",
+      "rel": "own/Amos/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "verses": 146,
+      "words": 2112,
+      "annotated": 0,
+      "unresolvedAnnotatedPassages": []
+    },
+    {
+      "title": "Obadiah",
+      "rel": "own/Obadiah/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "verses": 21,
+      "words": 299,
+      "annotated": 0,
+      "unresolvedAnnotatedPassages": []
+    },
+    {
+      "title": "Jonah",
+      "rel": "own/Jonah/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "verses": 48,
+      "words": 718,
+      "annotated": 718,
+      "unresolvedAnnotatedPassages": []
+    },
+    {
+      "title": "Micah",
+      "rel": "own/Micah/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "verses": 105,
+      "words": 1498,
+      "annotated": 0,
+      "unresolvedAnnotatedPassages": []
+    },
+    {
+      "title": "Nahum",
+      "rel": "own/Nahum/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "verses": 47,
+      "words": 590,
+      "annotated": 0,
+      "unresolvedAnnotatedPassages": []
+    },
+    {
+      "title": "Habakkuk",
+      "rel": "own/Habakkuk/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "verses": 56,
+      "words": 701,
+      "annotated": 0,
+      "unresolvedAnnotatedPassages": []
+    },
+    {
+      "title": "Zephaniah",
+      "rel": "own/Zephaniah/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "verses": 53,
+      "words": 810,
+      "annotated": 0,
+      "unresolvedAnnotatedPassages": []
+    },
+    {
+      "title": "Haggai",
+      "rel": "own/Haggai/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "verses": 38,
+      "words": 609,
+      "annotated": 0,
+      "unresolvedAnnotatedPassages": []
+    },
+    {
+      "title": "Zechariah",
+      "rel": "own/Zechariah/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "verses": 211,
+      "words": 3168,
+      "annotated": 3168,
+      "unresolvedAnnotatedPassages": []
+    },
+    {
+      "title": "Malachi",
+      "rel": "own/Malachi/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "verses": 55,
+      "words": 933,
+      "annotated": 0,
+      "unresolvedAnnotatedPassages": []
+    },
+    {
+      "title": "Daniel",
+      "rel": "own/Daniel/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "verses": 412,
+      "words": 6472,
+      "annotated": 6274,
+      "unresolvedAnnotatedPassages": [
+        [
+          3,
+          24,
+          26
+        ],
+        [
+          3,
+          25,
+          20
+        ],
+        [
+          3,
+          26,
+          27
+        ],
+        [
+          3,
+          27,
+          29
+        ],
+        [
+          3,
+          28,
+          30
+        ],
+        [
+          3,
+          29,
+          25
+        ],
+        [
+          3,
+          30,
+          9
+        ],
+        [
+          3,
+          31,
+          13
+        ],
+        [
+          3,
+          32,
+          8
+        ],
+        [
+          3,
+          33,
+          11
+        ]
+      ]
+    },
+    {
+      "title": "Ruth",
+      "rel": "own/Ruth/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "verses": 86,
+      "words": 1392,
+      "annotated": 0,
+      "unresolvedAnnotatedPassages": []
+    },
+    {
+      "title": "Esther",
+      "rel": "own/Esther/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "verses": 168,
+      "words": 2907,
+      "annotated": 0,
+      "unresolvedAnnotatedPassages": []
+    },
+    {
+      "title": "I Chronicles",
+      "rel": "own/I Chronicles/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "verses": 891,
+      "words": 11263,
+      "annotated": 0,
+      "unresolvedAnnotatedPassages": []
+    },
+    {
+      "title": "II Chronicles",
+      "rel": "own/II Chronicles/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "verses": 768,
+      "words": 13568,
+      "annotated": 0,
+      "unresolvedAnnotatedPassages": []
+    },
+    {
+      "title": "Ezra",
+      "rel": "own/Ezra/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "verses": 280,
+      "words": 3908,
+      "annotated": 0,
+      "unresolvedAnnotatedPassages": []
+    },
+    {
+      "title": "Nehemiah",
+      "rel": "own/Nehemiah/other/ETCBC Peshitta (Syriac, TF 0.2).json",
+      "verses": 405,
+      "words": 5496,
+      "annotated": 0,
+      "unresolvedAnnotatedPassages": []
+    }
+  ]
+}

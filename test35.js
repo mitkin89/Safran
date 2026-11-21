@@ -2,8 +2,9 @@
 'use strict';
 const assert = require('assert'), fs = require('fs'), path = require('path'), os = require('os'), zlib = require('zlib'), vm = require('vm');
 const GM = require('./gmorph'), DSL = require('./dsl');
-const ui = fs.readFileSync(path.join(__dirname, 'library.js'), 'utf8');
+const ui = require('./tests/reader-source.cjs')();
 const ctx = vm.createContext({ window: { GMorph: GM, OSHB_LEMMAS: { '1': ['אָב', 'father'] } } });
+ctx.host = ctx;
 vm.runInContext(fs.readFileSync(path.join(__dirname, 'lxx-morph.js'), 'utf8'), ctx);
 const D = ctx.window.LXX_MORPH;
 const part = (from, to) => ui.slice(ui.indexOf(from), ui.indexOf(to, ui.indexOf(from)));
@@ -18,7 +19,12 @@ Object.assign(ctx, { $, esc, I18N: { t: s => s }, portraitOf: () => null, heFix:
   renderDtabs() {}, dictNavButtons() {}, document: { documentElement: { dataset: { tab: 'dict' } } },
   openGForms: (...args) => calls.push(['greek', ...args]), openForms: (...args) => calls.push(['hebrew', ...args]),
 });
-vm.runInContext(part('  let lemByCons = null;', '  const dictGoHist ='), ctx);
+vm.runInContext(part('  let lemByCons = null;', '  // Eigene Wörterbuchinstanz'), ctx);
+const dictionaryUI = fs.readFileSync(path.join(__dirname, 'library-dictionary.js'), 'utf8');
+ctx.getSelection = () => ctx.dictSel; ctx.getSource = () => ctx.dictSrc;
+ctx.lsGet = () => []; ctx.lsSet = () => {};
+vm.runInContext(dictionaryUI.slice(dictionaryUI.indexOf('    let dictSedraId='), dictionaryUI.indexOf('    let dictOnly =')), ctx);
+vm.runInContext(dictionaryUI.slice(dictionaryUI.indexOf('  function dictCardButtons('), dictionaryUI.indexOf('  const dictGoHist =')), ctx);
 
 (async () => {
   const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'safran-grcard-'));
@@ -55,7 +61,7 @@ vm.runInContext(part('  let lemByCons = null;', '  const dictGoHist ='), ctx);
     assert($('#wcDict').innerHTML.includes('Liddell&amp;Scott') && $('#wcDict').innerHTML.includes('reckoning'));
     assert($('#wcDict').innerHTML.includes('class="wcDGo"') && !$('#fmHead .wdict').hidden);
     ctx.closeForms = () => {}; ctx.showTab = tab => calls.push(['tab', tab]);
-    vm.runInContext(part("  $('#wcBody').addEventListener('click', e => {", "  $('#wcBody').addEventListener('keydown'"), ctx);
+    vm.runInContext(part("  host.$('#wcBody').addEventListener('click', e => {", "  host.$('#wcBody').addEventListener('keydown'"), ctx);
     const lookup = ctx.dictLookup; let navigation;
     ctx.dictLookup = (...args) => (navigation = lookup(...args));
     handlers.get('#wcBody:click')({ target: { closest: s => s === '.wcDGo' ? { dataset: { id, name: source.name } } : null } });
