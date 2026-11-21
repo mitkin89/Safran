@@ -5,7 +5,7 @@ Input: page transcriptions (=== Blatt … / --- Text / --- Fußnoten, see tools/
 optional English translations of the footnotes in a parallel directory.
 Each Hebrew lemma (H:) is located in the MT (WLC/OSHB words) by its consonants, searching the
 given verse and its neighbours, because Field's verse numbers do not always follow the MT.
-Usage: python3 tools/hexapla/build.py Genesis <ocr-dir> [<ocr-en-dir>]
+Usage: python3 tools/hexapla/build.py Genesis tools/hexapla/field/genesis/ocr tools/hexapla/field/genesis/ocr-en
 """
 import html as H,json,pathlib,re,sys
 ROOT=pathlib.Path(__file__).resolve().parents[2]
