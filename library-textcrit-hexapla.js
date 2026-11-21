@@ -3,7 +3,7 @@
 // footnotes in Latin with an English translation (hexapla-data/<Book>.js, tools/hexapla/build.py).
 window.LibraryHexaplaTC=(()=>{
 'use strict';
-const BOOKS=/*BOOKS*/["Genesis"]/*END*/;
+const BOOKS=/*BOOKS*/["Deuteronomy", "Esther", "Exodus", "Ezra", "Genesis", "I Chronicles", "I Kings", "I Samuel", "II Chronicles", "II Kings", "II Samuel", "Joshua", "Judges", "Leviticus", "Nehemiah", "Numbers", "Ruth"]/*END*/;
 const SIGLA=/(Ο΄\.|Οἱ [Γγ]΄\.?|Οἱ λοιποί|Οἱ λ΄\.?|Ὁ Σύρος|Ὁ Ἑβραῖος|Ὁ Σαμαρειτικός|Τὸ Σαμαρειτικόν|Ἄλλος|Ἄλλως|[’'‘]?Α\.|Ἀ\.|Σ\.|Θ\.|Alia exempl\.|Aliter:)/g;
 function create(host){
   const esc=s=>host.esc(window.I18N?.textCrit?.(String(s))??s);

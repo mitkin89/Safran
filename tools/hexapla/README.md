@@ -1,6 +1,6 @@
-# Field, Origenis Hexaplorum quae supersunt I (1875) – Genesis, Transkription
+# Field, Origenis Hexaplorum quae supersunt I (1875) – Transkription
 
-Die Vorlage ist der Scan von archive.org (origenhexapla01unknuoft); er ist gemeinfrei. Genesis steht auf den Blättern 0119 bis 0186.
+Die Vorlage ist der Scan von archive.org (origenhexapla01unknuoft); er ist gemeinfrei. Band I (Genesis bis Ester) steht auf den Blättern 0119 bis 0924; die Transkriptionen liegen je Buch in `field/<buch>/ocr` und `field/<buch>/ocr-en`.
 
 Für jedes Blatt gibt es in `tiles/` diese Bilder:
 
@@ -73,3 +73,16 @@ Die Regeln dazu:
 
 - Arbeite Blatt für Blatt; lies dafür die sieben Bilder jedes Blatts.
 - Schreibe nur in `/home/claude/archive/hexapla/ocr/`. Keine Hilfsdateien anderswo, kein `rm`.
+
+## Aufbau für den Apparat
+
+```
+python3 tools/hexapla/split.py <ocr-ordner> <ocr-en-ordner>   # Blätter nach Kolumnentitel auf field/<buch>/ verteilen
+python3 tools/hexapla/build.py "I Kings" tools/hexapla/field/i-kings/ocr tools/hexapla/field/i-kings/ocr-en
+```
+
+`build.py` ordnet jedes Lemma (`H:`) über die Konsonanten einem Wortbereich des MT zu (bei Plene/Defektiv-Schreibung,
+Ketiv oder fehlenden Leerzeichen mit einem unscharfen Vergleich in den nächsten Versen). Fields zweite Zählung
+„(Hebr. 15)“, „(xiv. 1)“, „(5:2)“ gilt als MT-Vers, „(Gr. …)“ wird übergangen. Zeichenlisten am Kapitelende
+(`@ 9 (Zeichenliste)`) und Nachträge ohne Lemma werden ans Ende des jeweiligen Verses gesetzt. Nicht zugeordnete
+Lemmata stehen in `<Buch>-unresolved.json`.

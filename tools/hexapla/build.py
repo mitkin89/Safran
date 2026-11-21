@@ -32,7 +32,7 @@ def seq(want,ws):
 def locate(lemma,cands):
   lemma=re.sub(r'\([^)]*\)','',lemma)                       # (alia exempl. …), (… ק׳)
   if '׃' in lemma:lemma=lemma.split('׃')[0]   # lemma across a verse end: first verse
-  parts=[x for x in re.split(r'\s*(?:…|—|\.\s*\.\s*\.+|\.{2,})\s*',lemma) if cons(x)]
+  parts=[x for x in re.split(r'\s*(?:…|‥|—|\.\s*\.\s*\.+|\.\s\.|\.{2,})\s*',lemma) if cons(x)]
   words=lambda x:[w for w in (cons(y) for y in re.split(r'[\s\u05BE]+',x)) if w]
   if not parts:return None
   for ref in cands:
@@ -44,12 +44,57 @@ def locate(lemma,cands):
     b=seq(words(parts[-1]),ws[a[1]+1:])
     if b:return ref,a[0],a[1]+1+b[1]
     return ref,a[0],a[1]                                     # end lies in another verse: anchor the beginning
+  # fallback for plene/defective spelling, ketiv forms and missing word spaces in the transcription: compare the
+  # consonants without ו/י as one string against the verse, only in the nearest verses
+  M=lambda x:re.sub('[וי]','',x)
+  for ref in cands[:7]:
+    ws=MT.get(ref)
+    if not ws:continue
+    flat='';starts=[]
+    for w in ws:starts.append(len(flat));flat+=M(w)
+    def at(i):return max(k for k,st in enumerate(starts) if st<=i)
+    first=M(''.join(words(parts[0])));last=M(''.join(words(parts[-1])))
+    if len(first)<3:continue
+    i=-1
+    while True:
+      i=flat.find(first,i+1)
+      if i<0:break
+      k=at(i)
+      if i-starts[k]>2:continue
+      e=at(i+len(first)-1)
+      if len(parts)>1:
+        j=flat.find(last,i+len(first))
+        if j>=0 and len(last)>=2:e=at(j+len(last)-1)
+      return ref,k,e
+  return None
+ROM={'i':1,'v':5,'x':10,'l':50}
+def roman(r):
+  n=0;r=r.lower()
+  for i,ch in enumerate(r):
+    x=ROM[ch];n+=-x if i+1<len(r) and ROM[r[i+1]]>x else x
+  return n
+def alt_ref(c,v,paren):
+  """Field's second numbering in parentheses -> (chapter, verse, hebrew?) or None (Greek numbering is ignored)."""
+  p=paren.strip()
+  if p.startswith('Gr.'):return None
+  heb=p.startswith('Hebr.');p=re.sub(r'^(Hebr\.|v\.)\s*','',p).strip()
+  m=re.match(r'^(\d+):(\d+)$',p) or re.match(r'^([ivxl]+)\.\s*(\d+)$',p)
+  if m:return (int(m.group(1)) if m.group(1).isdigit() else roman(m.group(1)),int(m.group(2)),heb)
+  m=re.match(r'^(?:v\.\s*)?(\d+)$',p)
+  if m:return (c,int(m.group(1)),heb)
   return None
 def cands(c,v,alt):
-  # the given verse first, then all verses of the chapter and its neighbours by distance
-  near=[f'{c}:{v}']+([f'{c}:{alt}'] if alt else [])
-  rest=sorted((r for r in MT if abs(int(r.split(':')[0])-c)<=1),key=lambda r:abs((int(r.split(':')[0])-c)*40+int(r.split(':')[1])-v))
+  # the given verse first (Field's Hebrew numbering first if he gives one), then the chapter(s) and neighbours by distance
+  near=[f'{c}:{v}']
+  if alt:near=[f'{alt[0]}:{alt[1]}']+near if alt[2] else near+[f'{alt[0]}:{alt[1]}']
+  chs={c}|({alt[0]} if alt else set())
+  rest=sorted((r for r in MT if min(abs(int(r.split(':')[0])-k) for k in chs)<=1),key=lambda r:min(abs((int(r.split(':')[0])-k)*40+int(r.split(':')[1])-w) for k,w in [(c,v)]+([alt[:2]] if alt else [])))
   return [r for i,r in enumerate(near+rest) if r not in (near+rest)[:i]]
+def verse_end(c,v,alt):
+  for ref in ([f'{alt[0]}:{alt[1]}'] if alt and alt[2] else [])+[f'{c}:{v}']+([f'{alt[0]}:{alt[1]}'] if alt else []):
+    if MT.get(ref):return ref,len(MT[ref])-1
+  return None
+OBEL=str.maketrans({'∽':'÷','⁓':'÷','⌒':'÷'})
 def footnotes(text):
   """[n] lines (with CAP. separators) -> list of (section, n, text)"""
   out=[];sec=0;cur=None
@@ -71,17 +116,33 @@ for p in pages:
   for s,n,x in fn:
     if x.startswith('(Forts.)') and last and last in notes:notes[last]['la']+=' '+x[8:].strip();continue
     key=f'{leaf}.{s}.{n}';notes[key]={'la':x,'en':fen.get((s,n),'')};last=key
-  c=v=alt=None;sec=0;unit=None;cont=False
+  c=v=alt=None;sec=0;unit=None;cont=False;signs=False
+  def gap_unit(base_ref,pos,field):
+    u={'h':'','l':'','t':'','ref':base_ref,'s':pos,'e':pos,'gap':True,'leaf':leaf,'pg':pg,'sec':sec,'field':field}
+    (entries.setdefault(base_ref,[]) if base_ref else unresolved).append(u);return u
   for line in body.split('\n'):
-    line=line.rstrip()
+    line=line.rstrip().translate(OBEL)
     if not line.strip():continue
     if re.match(r'^\s*CAP\.',line):sec+=1;continue
-    m=re.match(r'^@ (\d+):(\d+)(?:[,–-][\d ,]+)?(?: \((\d+)\))?',line)
-    if m:
-      c,v,alt=int(m.group(1)),int(m.group(2)),(int(m.group(3)) if m.group(3) else None);unit=None
-      cont='Forts.' in line
+    if line.startswith('@ '):
+      m=re.match(r'^@ (\d+):(\d+)',line)
+      signs=bool(re.match(r'^@ (\d+) \(Zeichenliste',line))
+      if signs:c=int(re.match(r'^@ (\d+)',line).group(1));unit=None;continue
+      if not m:c=None;unit=None;continue
+      c,v=int(m.group(1)),int(m.group(2));alt=None
+      for par in re.findall(r'\(([^()]*)\)',line[m.end():]):
+        if par.startswith(('Forts','Nachtrag')):continue
+        alt=alt or alt_ref(c,v,par)
+      unit=None;cont='Forts.' in line
       continue
     if c is None:continue
+    if signs:
+      # Field's list of Aristarchian signs at the chapter end: "Cap. IX. 1. ÷ … ↙.^22 22. ÷ …" -> one entry per verse at its end
+      VL=r'\d+(?:,\s*\d+)*'
+      for vl,txt in re.findall(r'(?:^|\s)('+VL+r')\.\s+(.*?)(?=\s'+VL+r'\.\s|$)',re.sub(r'^\s*Cap\.\s*[IVXL]+\.\s*','',line)):
+        for vv in re.findall(r'\d+',vl):
+          ve=verse_end(c,int(vv),None);u=gap_unit(ve[0] if ve else None,ve[1] if ve else None,f'{c}:{vv}');u['t']=txt.strip();u['signs']=True
+      continue
     if line.startswith('H: '):
       lem=line[3:].strip().rstrip('.');loc=locate(lem,cands(c,v,alt))
       unit={'h':lem,'l':'','t':'','ref':loc[0] if loc else None,'s':loc[1] if loc else None,'e':loc[2] if loc else None,'leaf':leaf,'pg':pg,'sec':sec,'field':f'{c}:{v}'}
@@ -96,11 +157,12 @@ for p in pages:
       if base.get('gap'):unit['gap']=True
       (entries.setdefault(unit['ref'],[]) if unit['ref'] else unresolved).append(unit);cont=False
     if unit is None or not unit['t'] or line.startswith('Ο΄. ÷') or line.startswith('Ο΄. ※'):
-      # reading without own lemma (e.g. obelised LXX plus): placed after the preceding lemma
+      # reading without own lemma (obelised LXX plus, addendum to a verse): after the preceding lemma of the same
+      # verse, otherwise at the end of the verse
       if unit is None or unit['t']:
-        base=prev_end
-        unit={'h':'','l':'','t':'','ref':base['ref'] if base else None,'s':base['e'] if base else None,'e':base['e'] if base else None,'gap':True,'leaf':leaf,'pg':pg,'sec':sec,'field':f'{c}:{v}'}
-        (entries.setdefault(unit['ref'],[]) if unit['ref'] else unresolved).append(unit)
+        if prev_end and prev_end['field']==f'{c}:{v}' and prev_end['ref']:unit=gap_unit(prev_end['ref'],prev_end['e'],f'{c}:{v}')
+        else:
+          ve=verse_end(c,v,alt);unit=gap_unit(ve[0] if ve else None,ve[1] if ve else None,f'{c}:{v}')
     unit['t']=(unit['t']+' '+line.strip()).strip();unit_global=unit
 # footnote refs ^n -> keys
 for u in [x for L in entries.values() for x in L]+unresolved:
@@ -110,7 +172,7 @@ for u in [x for L in entries.values() for x in L]+unresolved:
     u['fn']=[k for n in re.findall(r'\^(\d+)',u['t']) for k in notes if k.startswith(u['leaf']+'.') and k.endswith('.'+n)][:3]
 used={k for L in list(entries.values())+[unresolved] for u in L for k in u['fn']}
 data={'book':book,'source':{'title':'Frederick Field, Origenis Hexaplorum quae supersunt, I (Oxford 1875)','url':'https://archive.org/details/origenhexapla01unknuoft','license':'public domain'},
-      'verses':{ref:[{k:u[k] for k in ('s','e','h','l','t','leaf','pg','fn','field','gap','cont') if k in u} for u in L] for ref,L in entries.items() if ref},
+      'verses':{ref:[{k:u[k] for k in ('s','e','h','l','t','leaf','pg','fn','field','gap','cont','signs') if k in u} for u in L] for ref,L in entries.items() if ref},
       'notes':{k:n for k,n in notes.items() if k in used}}
 out=ROOT/'hexapla-data';out.mkdir(exist_ok=True)
 (out/(book.replace(' ','_')+'.js')).write_text('// Field, Hexapla (1875) – Lemmata, Lesarten und Fußnoten; erzeugt von tools/hexapla/build.py\nwindow.HEXAPLA_DATA=window.HEXAPLA_DATA||{};window.HEXAPLA_DATA['+json.dumps(book)+']='+json.dumps(data,ensure_ascii=False,separators=(',',':'))+';\n')
