@@ -100,3 +100,9 @@ node --test tests/peshitta-tanakh.test.js
 is used exactly once, then writes `peshitta-alignment/<Book>.js` (loaded only
 when the book is opened) and the book list in `peshitta-alignment.js`.
 `tanakh-coverage.json` gives the remaining unlinked counts.
+
+A second, independent review covered 888 conspicuous verses (many unlinked
+words, far-shifted links, or passages the first reviewer marked as uncertain:
+Job 11, 22–24, 28, 30; Ezekiel 40–42; 1 Kings 6–7; the Chronicles); 380 of them
+were corrected and carry `"second": true`. Afterwards `ܐܝܬ` directly before a
+linked prepositional word (`ܐܝܬ ܠܗ` = לו) was grouped with it throughout.

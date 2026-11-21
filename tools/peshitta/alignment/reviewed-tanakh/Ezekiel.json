@@ -566,7 +566,8 @@
 "1:17/",
 "1:17/"
 ],
-"note": "Syriac adds 'to the place where their head turned they went after it and did not turn'."
+"note": "Syriac adds 'to the place where their head turned they went after it and did not turn'.",
+"second": true
 },
 "1:18": {
 "sy": [
@@ -755,13 +756,14 @@
 "1:22/2",
 "1:22/3",
 "1:22/4",
-"1:22/1",
+"1:22/6",
 "1:22/1",
 "1:22/6",
 "1:22/7",
 "1:22/8"
 ],
-"note": "Raqia omitted; Syriac 'stretched above the head'."
+"note": "Raqia omitted; Syriac 'stretched above the head ... like the likeness of the appearance of crystal'.",
+"second": true
 },
 "1:23": {
 "sy": [
@@ -1203,7 +1205,8 @@
 "2:4/14",
 "2:4/15"
 ],
-"note": "Word-for-word with reordering."
+"note": "Word-for-word with reordering.",
+"second": true
 },
 "2:5": {
 "sy": [
@@ -1633,7 +1636,8 @@
 "3:6/18",
 "3:6/19"
 ],
-"note": "'Deep of speech and heavy of tongue' and hemmah omitted; Syriac adds 'and also'."
+"note": "'Deep of speech and heavy of tongue' and hemmah omitted; Syriac adds 'and also'.",
+"second": true
 },
 "3:7": {
 "sy": [
@@ -1947,12 +1951,13 @@
 "3:15/16",
 "3:15/17",
 "3:15/18",
-"3:15/",
+"3:15/19",
 "3:15/19",
 "3:15/19",
 "3:15/20"
 ],
-"note": "Ketiv/qere clause 'and I sat where they sat' omitted."
+"note": "Ketiv/qere clause 'and I sat where they sat' omitted; kad + participle for mashmim.",
+"second": true
 },
 "3:16": {
 "sy": [
@@ -2656,7 +2661,8 @@
 "4:6/21",
 "4:6/22"
 ],
-"note": "Ketiv/qere both mapped; 'second' and repeated 'day for a year' omitted."
+"note": "Ketiv/qere both mapped; 'second' and repeated 'day for a year' omitted.",
+"second": true
 },
 "4:7": {
 "sy": [
@@ -3500,7 +3506,8 @@
 "5:11/25",
 "5:11/26"
 ],
-"note": "Oath particle omitted; diminish rendered 'drive away'; adds 'on you'."
+"note": "Oath particle omitted; diminish rendered 'drive away'; adds 'on you'.",
+"second": true
 },
 "5:12": {
 "sy": [
@@ -5794,7 +5801,7 @@
 "8:17/4,5",
 "8:17/6",
 "8:17/6",
-"8:17/",
+"8:17/6",
 "8:17/7",
 "8:17/8",
 "8:17/11",
@@ -5810,7 +5817,8 @@
 "8:17/23",
 "8:17/26,27"
 ],
-"note": "'Is it a small thing' rendered 'is it small'; zemorah rendered 'snort'."
+"note": "'Is it a small thing' with enclitic copula; me-asot omitted, plus 'this'; zemorah rendered 'snort'.",
+"second": true
 },
 "8:18": {
 "sy": [
@@ -6971,15 +6979,16 @@
 "10:17/",
 "10:17/",
 "10:17/",
-"10:17/",
+"10:17/5",
 "10:17/6",
 "10:17/7",
 "10:17/8",
-"10:17/",
-"10:17/",
+"10:17/9",
+"10:17/9",
 "10:17/9"
 ],
-"note": "Plus: repeats clause about cherubim lifting wings with wheels; 'them' omitted."
+"note": "Plus clause about cherubim lifting wings (from 10:16); 'with them' there renders otam read as ittam; ith hwat with bahem.",
+"second": true
 },
 "10:18": {
 "sy": [
@@ -8059,12 +8068,12 @@
 "12:2/7",
 "12:2/6",
 "12:2/8,9",
-"12:2/",
+"12:2/10",
 "12:2/10",
 "12:2/12",
 "12:2/13",
 "12:2/14",
-"12:2/",
+"12:2/15",
 "12:2/15",
 "12:2/17",
 "12:2/18",
@@ -10487,7 +10496,7 @@
 "14:16/3",
 "14:16/1",
 "14:16/2",
-"14:16/",
+"14:16/4",
 "14:16/4",
 "14:16/5",
 "14:16/6",
@@ -10572,7 +10581,7 @@
 "14:18/3",
 "14:18/1",
 "14:18/2",
-"14:18/",
+"14:18/4",
 "14:18/4",
 "14:18/5",
 "14:18/6",
@@ -10654,7 +10663,7 @@
 "14:20/1",
 "14:20/2,3",
 "14:20/4",
-"14:20/",
+"14:20/5",
 "14:20/5",
 "14:20/6",
 "14:20/7",
@@ -12102,7 +12111,7 @@
 "ܠܟܝ"
 ],
 "w": [
-"16:34/3",
+"16:34/1,2,3",
 "16:34/4",
 "16:34/5",
 "16:34/6",
@@ -12115,7 +12124,8 @@
 "16:34/14",
 "16:34/15"
 ],
-"note": "'None follows you' and final clause omitted."
+"note": "'There was in you the opposite' rendered 'you differed'; 'none follows you' and final clause omitted.",
+"second": true
 },
 "16:35": {
 "sy": [
@@ -12757,11 +12767,11 @@
 "16:52/7",
 "16:52/8",
 "16:52/10",
-"16:52/",
+"16:52/11",
 "16:52/11",
 "16:52/",
 "16:52/12",
-"16:52/",
+"16:52/13",
 "16:52/13",
 "16:52/14",
 "16:52/15",
@@ -12773,7 +12783,8 @@
 "16:52/",
 "16:52/"
 ],
-"note": "Adds comparative 'more'."
+"note": "Comparative 'more than' grouped with min; plus 'and they', final 'more than you'.",
+"second": true
 },
 "16:53": {
 "sy": [
@@ -13045,7 +13056,7 @@
 "16:61/5",
 "16:61/7",
 "16:61/8",
-"16:61/11",
+"16:61/10,11",
 "16:61/13",
 "16:61/14",
 "16:61/15",
@@ -13054,7 +13065,8 @@
 "16:61/18",
 "16:61/18"
 ],
-"note": "Word-for-word."
+"note": "Word-for-word; both mimmekh omitted.",
+"second": true
 },
 "16:62": {
 "sy": [
@@ -13680,7 +13692,8 @@
 "17:16/22",
 "17:16/23"
 ],
-"note": "Word-for-word in sense; oath particles omitted."
+"note": "Word-for-word in sense; oath particles omitted.",
+"second": true
 },
 "17:17": {
 "sy": [
@@ -14353,7 +14366,8 @@
 "18:11/13",
 "18:11/14"
 ],
-"note": "Shorter: 'and he did none of these' omitted."
+"note": "Shorter: 'and he did none of these' omitted.",
+"second": true
 },
 "18:12": {
 "sy": [
@@ -16224,7 +16238,8 @@
 "20:16/16",
 "20:16/15"
 ],
-"note": "Statutes clause omitted; plus 'greatly'."
+"note": "Statutes clause omitted; plus 'greatly'.",
+"second": true
 },
 "20:17": {
 "sy": [
@@ -17855,7 +17870,8 @@
 "21:17/11",
 "21:17/12"
 ],
-"note": "Second half of verse transferred to next verse."
+"note": "Second half of verse transferred to next verse.",
+"second": true
 },
 "21:18": {
 "sy": [
@@ -17888,7 +17904,8 @@
 "21:18/11",
 "21:18/12"
 ],
-"note": "Starts with end of MT 17 ('strike the thigh'); rod read as 'tribe'; 21:17/13-19 omitted."
+"note": "Starts with end of MT 17 ('strike the thigh'); rod read as 'tribe'; 21:17/13-19 omitted.",
+"second": true
 },
 "21:19": {
 "sy": [
@@ -21204,14 +21221,15 @@
 "w": [
 "24:4/1",
 "24:4/3",
-"24:4/2",
+"24:4/2,5",
 "24:4/6",
 "24:4/",
 "24:4/8",
 "24:4/",
 "24:4/10"
 ],
-"note": "Loose rendering; 'gather' as 'throw'; plus 'fat' and 'stripped'."
+"note": "Loose rendering; 'gather' as 'throw'; 'pieces' covers both netah words; plus 'fat' and 'stripped'; thigh and 'fill' omitted.",
+"second": true
 },
 "24:5": {
 "sy": [
@@ -21233,14 +21251,15 @@
 "24:5/2",
 "24:5/6",
 "24:5/7",
-"24:5/",
+"24:5/7",
 "24:5/5",
 "24:5/",
-"24:5/8",
+"24:5/8,9",
 "24:5/",
 "24:5/"
 ],
-"note": "Pile read as 'kindle'; boil clauses compressed."
+"note": "Pile read as 'kindle'; 'under the pot' = tahteha; 'burn' for the boil clause; final clause omitted.",
+"second": true
 },
 "24:6": {
 "sy": [
@@ -24071,7 +24090,8 @@
 "27:21/12",
 "27:21/"
 ],
-"note": "Arabia and Kedar clause omitted."
+"note": "Arabia and Kedar clause omitted.",
+"second": true
 },
 "27:22": {
 "sy": [
@@ -25703,7 +25723,8 @@
 "29:7/13",
 "29:7/16"
 ],
-"note": "'Shoulder' rendered 'hands'; 'make stand' as 'tremble'."
+"note": "'Shoulder' rendered 'hands'; 'make stand' as 'tremble'.",
+"second": true
 },
 "29:8": {
 "sy": [
@@ -26919,7 +26940,7 @@
 "30:21/10",
 "30:21/11",
 "30:21/12",
-"30:21/",
+"30:21/12",
 "30:21/13",
 "30:21/",
 "30:21/14",
@@ -26932,7 +26953,8 @@
 "30:21/18",
 "30:21/19"
 ],
-"note": "Infinitives rendered as negated clauses; plus repeated 'not'."
+"note": "Infinitives rendered as negated clauses ('that there be to it' = latet); plus repeated 'not', 'on it'; hinneh omitted.",
+"second": true
 },
 "30:22": {
 "sy": [
@@ -26977,7 +26999,8 @@
 "30:22/21",
 "30:22/21"
 ],
-"note": "'The broken one' omitted."
+"note": "'The broken one' omitted.",
+"second": true
 },
 "30:23": {
 "sy": [
@@ -29134,7 +29157,8 @@
 "33:5/12",
 "33:5/13"
 ],
-"note": "First half of verse omitted (homoioteleuton on nizhar); 'if' plus."
+"note": "First half of verse omitted (homoioteleuton on nizhar); 'if' plus.",
+"second": true
 },
 "33:6": {
 "sy": [
@@ -30882,7 +30906,8 @@
 "34:16/17",
 "34:16/18"
 ],
-"note": "'I will destroy' read as 'I will guard' (ashmir)."
+"note": "'I will destroy' read as 'I will guard' (ashmir).",
+"second": true
 },
 "34:17": {
 "sy": [
@@ -32853,7 +32878,8 @@
 "36:25/8",
 "36:25/9"
 ],
-"note": "Two cleansing verbs merged."
+"note": "Two cleansing verbs merged.",
+"second": true
 },
 "36:26": {
 "sy": [
@@ -33064,7 +33090,7 @@
 "w": [
 "36:32/8,9",
 "36:32/1",
-"36:32/",
+"36:32/1",
 "36:32/2",
 "36:32/4",
 "36:32/3",
@@ -33082,7 +33108,8 @@
 "36:32/13",
 "36:32/14"
 ],
-"note": "'Evil' and 'and do not die' plus; 'know' moved to front."
+"note": "'Evil' and 'and do not die' plus; 'know' moved to front; la hwa = lo.",
+"second": true
 },
 "36:33": {
 "sy": [
@@ -34517,7 +34544,8 @@
 "38:5/6",
 "38:5/7"
 ],
-"note": "Kullam moved to front."
+"note": "Kullam moved to front.",
+"second": true
 },
 "38:6": {
 "sy": [
@@ -34626,7 +34654,8 @@
 "38:8/26",
 "38:8/25"
 ],
-"note": "'Many days' rendered 'former days'; 'which had been always waste... brought out' omitted."
+"note": "'Many days' rendered 'former days'; 'which had been always waste... brought out' omitted.",
+"second": true
 },
 "38:9": {
 "sy": [
@@ -35663,7 +35692,8 @@
 "39:12/4,5",
 "39:12/7"
 ],
-"note": "Purpose clause rendered 'and the land shall be cleansed'."
+"note": "Purpose clause rendered 'and the land shall be cleansed'.",
+"second": true
 },
 "39:13": {
 "sy": [
@@ -35731,7 +35761,8 @@
 "39:14/11,12,13",
 "39:14/14"
 ],
-"note": "'Separate', 'passers' and 'search' omitted; time phrase moved to front."
+"note": "'Separate', 'passers' and 'search' omitted; time phrase moved to front.",
+"second": true
 },
 "39:15": {
 "sy": [
@@ -36366,15 +36397,16 @@
 "40:2/9",
 "40:2/11",
 "40:2/10",
-"40:2/",
-"40:2/",
+"40:2/12",
+"40:2/12",
 "40:2/12",
 "40:2/15",
 "40:2/13",
 "40:2/13",
 "40:2/14"
 ],
-"note": "Begins with end of MT v1; 'on the south' placed before 'like a city'."
+"note": "Begins with end of MT v1; 'on the south' placed before 'like a city'; ith hwa with alaw.",
+"second": true
 },
 "40:3": {
 "sy": [
@@ -36509,9 +36541,9 @@
 "40:5/1",
 "40:5/2",
 "40:5/5,6",
-"40:5/",
 "40:5/4",
-"40:5/",
+"40:5/4",
+"40:5/4",
 "40:5/9",
 "40:5/10",
 "40:5/7",
@@ -36519,8 +36551,8 @@
 "40:5/8",
 "40:5/11",
 "40:5/12",
-"40:5/",
-"40:5/",
+"40:5/12",
+"40:5/12",
 "40:5/14",
 "40:5/15",
 "40:5/17",
@@ -36531,7 +36563,8 @@
 "40:5/22",
 "40:5/23"
 ],
-"note": "'Outside' and 'by the cubit' omitted; copula plus."
+"note": "'Outside' and 'by the cubit' omitted; proleptic leh, demonstrative and copula grouped.",
+"second": true
 },
 "40:6": {
 "sy": [
@@ -36804,14 +36837,15 @@
 "40:14/4",
 "40:14/5",
 "40:14/6",
-"40:14/",
+"40:14/6",
 "40:14/9",
 "40:14/",
 "40:14/8",
 "40:14/",
 "40:14/"
 ],
-"note": "Obscure verse rendered freely: 'before the gate sixty cubits, and before the other outer gate sixty cubits'."
+"note": "Obscure verse rendered freely: 'before the gate sixty cubits, and before the other outer gate sixty cubits'.",
+"second": true
 },
 "40:15": {
 "sy": [
@@ -36828,7 +36862,8 @@
 "40:15/11",
 "40:15/12"
 ],
-"note": "Ketiv/qere clause on entrance and porch omitted."
+"note": "Ketiv/qere clause on entrance and porch omitted.",
+"second": true
 },
 "40:16": {
 "sy": [
@@ -36861,8 +36896,8 @@
 "40:16/",
 "40:16/3",
 "40:16/4",
-"40:16/5,6",
-"40:16/12",
+"40:16/5",
+"40:16/6",
 "40:16/8",
 "40:16/13",
 "40:16/14,15",
@@ -36871,7 +36906,8 @@
 "40:16/16",
 "40:16/16"
 ],
-"note": "'Narrow from outside' plus; palm trees omitted."
+"note": "Atumot rendered doubly ('splayed inside, narrow outside'); prostade = elehemah (as elsewhere for ayil), ve-khen la-elammot and palm trees omitted.",
+"second": true
 },
 "40:17": {
 "sy": [
@@ -36895,7 +36931,7 @@
 "40:17/4",
 "40:17/5",
 "40:17/6",
-"40:17/",
+"40:17/10,11",
 "40:17/10,11",
 "40:17/12",
 "40:17/13",
@@ -36904,7 +36940,8 @@
 "40:17/",
 "40:17/"
 ],
-"note": "Chambers and pavement rendered 'steps'; 'one above the other' plus."
+"note": "Chambers rendered 'steps'; pavement clause omitted; 'one above the other' plus; kad + participle for saviv saviv.",
+"second": true
 },
 "40:18": {
 "sy": [
@@ -36925,7 +36962,8 @@
 "40:18/6",
 "40:18/8"
 ],
-"note": "'Lower' omitted."
+"note": "'Lower' omitted.",
+"second": true
 },
 "40:19": {
 "sy": [
@@ -36952,7 +36990,8 @@
 "40:19/12",
 "40:19/13"
 ],
-"note": "'Lower', 'inner' and 'outside' omitted."
+"note": "'Lower', 'inner' and 'outside' omitted.",
+"second": true
 },
 "40:20": {
 "sy": [
@@ -37012,7 +37051,8 @@
 "40:21/20",
 "40:21/19"
 ],
-"note": "Ketiv/qere cells rendered 'its measure'; posts and porches omitted."
+"note": "Ketiv/qere cells rendered 'its measure'; posts and porches omitted.",
+"second": true
 },
 "40:22": {
 "sy": [
@@ -37044,10 +37084,11 @@
 "40:22/15",
 "40:22/16",
 "40:22/17,18",
-"40:22/",
+"40:22/19",
 "40:22/19"
 ],
-"note": "Ketiv/qere both mapped; palm trees omitted."
+"note": "Ketiv/qere both mapped; palm trees omitted; ith with lifnehem.",
+"second": true
 },
 "40:23": {
 "sy": [
@@ -37133,10 +37174,10 @@
 ],
 "w": [
 "40:25/1",
-"40:25/",
+"40:25/2",
 "40:25/2",
 "40:25/3,4",
-"40:25/",
+"40:25/5,6",
 "40:25/5,6",
 "40:25/7",
 "40:25/8",
@@ -37148,7 +37189,8 @@
 "40:25/13",
 "40:25/12"
 ],
-"note": "Ketiv/qere both mapped; final 'cubit' omitted."
+"note": "Ketiv/qere both mapped; final 'cubit' omitted; ith leh = lo, kad + participle = saviv saviv.",
+"second": true
 },
 "40:26": {
 "sy": [
@@ -37175,10 +37217,10 @@
 "40:26/3,4",
 "40:26/",
 "40:26/5,6",
-"40:26/",
+"40:26/7",
 "40:26/7",
 "40:26/8",
-"40:26/",
+"40:26/9",
 "40:26/9",
 "40:26/10",
 "40:26/11",
@@ -37187,7 +37229,8 @@
 "40:26/14",
 "40:26/15,16"
 ],
-"note": "Ketiv/qere both mapped; palm trees rendered 'palm leaves'."
+"note": "Ketiv/qere both mapped; ith grouped with lifnehem and lo; plus leh after 'ascend'.",
+"second": true
 },
 "40:27": {
 "sy": [
@@ -37216,7 +37259,8 @@
 "40:27/12",
 "40:27/13"
 ],
-"note": "Second 'toward the south' omitted."
+"note": "Second 'toward the south' omitted.",
+"second": true
 },
 "40:28": {
 "sy": [
@@ -37275,13 +37319,13 @@
 "40:29/5,6",
 "40:29/7",
 "40:29/8",
-"40:29/",
+"40:29/8",
 "40:29/7",
 "40:29/9",
-"40:29/",
+"40:29/10",
 "40:29/10",
 "40:29/11,12",
-"40:29/",
+"40:29/13,14",
 "40:29/13,14",
 "40:29/15",
 "40:29/16",
@@ -37290,7 +37334,8 @@
 "40:29/20",
 "40:29/18"
 ],
-"note": "Ketiv/qere both mapped; final 'cubits' omitted."
+"note": "Ketiv/qere both mapped; copulas (ennen, ith) and kad grouped; final 'cubits' omitted.",
+"second": true
 },
 "40:30": {
 "sy": [
@@ -37335,7 +37380,7 @@
 "40:31/2,3",
 "40:31/4",
 "40:31/5",
-"40:31/",
+"40:31/6,7,8",
 "40:31/6,7,8",
 "40:31/9,11,12",
 "40:31/10"
@@ -37392,10 +37437,10 @@
 "40:33/3,4",
 "40:33/5,6",
 "40:33/9",
-"40:33/",
+"40:33/10",
 "40:33/10",
 "40:33/11,12",
-"40:33/",
+"40:33/13,14",
 "40:33/13,14",
 "40:33/15",
 "40:33/16",
@@ -37404,7 +37449,8 @@
 "40:33/20",
 "40:33/19"
 ],
-"note": "Ketiv/qere both mapped; 'according to these measures' omitted."
+"note": "Ketiv/qere both mapped; 'according to these measures' omitted; ith leh = lo, kad + participle = saviv saviv.",
+"second": true
 },
 "40:34": {
 "sy": [
@@ -37425,15 +37471,16 @@
 "40:34/3",
 "40:34/4",
 "40:34/5",
-"40:34/",
+"40:34/6",
 "40:34/6,7,8",
 "40:34/9",
 "40:34/10",
 "40:34/11",
-"40:34/",
-"40:34/12,13,14"
+"40:34/13,14",
+"40:34/12"
 ],
-"note": "Ketiv/qere both mapped."
+"note": "Ketiv/qere both mapped; ith grouped with el; 'it has (leh) eight steps' = suffix of ma'alaw.",
+"second": true
 },
 "40:35": {
 "sy": [
@@ -37506,15 +37553,16 @@
 "40:37/3",
 "40:37/4",
 "40:37/5",
-"40:37/",
+"40:37/6",
 "40:37/6,7,8",
 "40:37/9",
 "40:37/10",
 "40:37/11",
-"40:37/",
-"40:37/12,13,14"
+"40:37/13,14",
+"40:37/12"
 ],
-"note": "Ketiv/qere both mapped."
+"note": "Ketiv/qere both mapped; ith grouped with el; 'it has (leh) eight steps' = suffix of ma'alaw.",
+"second": true
 },
 "40:38": {
 "sy": [
@@ -37598,7 +37646,7 @@
 "40:40/6",
 "40:40/7",
 "40:40/3",
-"40:40/",
+"40:40/3",
 "40:40/4",
 "40:40/4",
 "40:40/8",
@@ -37609,7 +37657,8 @@
 "40:40/16",
 "40:40/17"
 ],
-"note": "'For one going up' read as 'burnt offerings'."
+"note": "'For one going up' read as 'burnt offerings'; le-fetah and second ha-sha'ar omitted; l-bar men = mi-hutsah.",
+"second": true
 },
 "40:41": {
 "sy": [
@@ -37691,7 +37740,8 @@
 "40:42/24",
 "40:42/26"
 ],
-"note": "Height measure omitted."
+"note": "Height measure omitted.",
+"second": true
 },
 "40:43": {
 "sy": [
@@ -37711,7 +37761,7 @@
 "40:43/1",
 "40:43/2,3",
 "40:43/2,3",
-"40:43/",
+"40:43/6,7",
 "40:43/6,7",
 "40:43/8",
 "40:43/9",
@@ -37720,7 +37770,8 @@
 "40:43/10",
 "40:43/11"
 ],
-"note": "'Fastened in the house' omitted."
+"note": "'Fastened in the house' omitted; plus 'were placed'; kad + participle = saviv saviv.",
+"second": true
 },
 "40:44": {
 "sy": [
@@ -37865,12 +37916,13 @@
 "40:47/9",
 "40:47/10",
 "40:47/11",
-"40:47/",
-"40:47/",
+"40:47/12",
+"40:47/12",
 "40:47/12",
 "40:47/13"
 ],
-"note": "Copula plus."
+"note": "Word-for-word; ith hwa grouped with lifne.",
+"second": true
 },
 "40:48": {
 "sy": [
@@ -38225,7 +38277,8 @@
 "41:7/",
 "41:7/23"
 ],
-"note": "Obscure verse paraphrased; 'widened' and stair structure rendered freely."
+"note": "Obscure verse paraphrased; 'widened' and stair structure rendered freely.",
+"second": true
 },
 "41:8": {
 "sy": [
@@ -38262,7 +38315,8 @@
 "41:8/11",
 "41:8/12"
 ],
-"note": "Foundations and atzilah omitted; 'separated one from another' plus."
+"note": "Foundations and atzilah omitted; 'separated one from another' plus.",
+"second": true
 },
 "41:9": {
 "sy": [
@@ -38289,7 +38343,8 @@
 "41:9/",
 "41:9/"
 ],
-"note": "'Free space' clause replaced by 'and inside five cubits'."
+"note": "'Free space' clause replaced by 'and inside five cubits'.",
+"second": true
 },
 "41:10": {
 "sy": [
@@ -38343,7 +38398,8 @@
 "41:11/14",
 "41:11/15"
 ],
-"note": "North and south doors swapped; 'round about' omitted."
+"note": "North and south doors swapped; 'round about' omitted.",
+"second": true
 },
 "41:12": {
 "sy": [
@@ -38510,7 +38566,8 @@
 "41:16/14",
 "41:16/15"
 ],
-"note": "'Closed' and final window clause omitted; floor rendered 'its length'."
+"note": "'Closed' and final window clause omitted; floor rendered 'its length'.",
+"second": true
 },
 "41:17": {
 "sy": [
@@ -38535,8 +38592,8 @@
 "w": [
 "41:16/16",
 "41:16/17",
-"41:17/2",
-"41:17/2",
+"41:17/1,2",
+"41:17/1,2",
 "41:17/3",
 "41:17/5",
 "41:17/6",
@@ -38551,7 +38608,8 @@
 "41:17/13",
 "41:17/13"
 ],
-"note": "Begins with end of MT v16 ('windows covered')."
+"note": "Begins with end of MT v16 ('windows covered'); ve-ad omitted; inner/outer in reverse order.",
+"second": true
 },
 "41:18": {
 "sy": [
@@ -38607,7 +38665,8 @@
 "41:19/15",
 "41:19/16"
 ],
-"note": "Lion's face omitted."
+"note": "Lion's face omitted.",
+"second": true
 },
 "41:20": {
 "sy": [
@@ -38692,7 +38751,7 @@
 "41:22/7",
 "41:22/8",
 "41:22/9",
-"41:22/",
+"41:22/10",
 "41:22/10",
 "41:22/11",
 "41:22/12",
@@ -38715,11 +38774,12 @@
 ],
 "w": [
 "41:23/1",
-"41:23/",
+"41:23/1",
 "41:23/2",
 "41:23/"
 ],
-"note": "'Temple and sanctuary' rendered obscurely 'two, two doors for the leaves'."
+"note": "Distributive 'two two doors'; 'for the temple and the sanctuary' not rendered, 'for the marbeba' anticipates la-delatot of MT v24 (left as plus).",
+"second": true
 },
 "41:24": {
 "sy": [
@@ -38735,10 +38795,11 @@
 "41:24/8",
 "41:24/9",
 "41:24/10,11",
-"41:24/",
+"41:24/12",
 "41:24/12"
 ],
-"note": "First half (two leaves turning) omitted."
+"note": "First half (two leaves turning) omitted or absorbed in Syriac v23; 'the other marbeba' = la-aheret.",
+"second": true
 },
 "41:25": {
 "sy": [
@@ -38799,7 +38860,7 @@
 "41:26/1",
 "41:26/2",
 "41:26/3",
-"41:26/",
+"41:26/4",
 "41:26/4",
 "41:26/5",
 "41:26/6",
@@ -38807,10 +38868,11 @@
 "41:26/8",
 "41:26/9",
 "41:26/10",
-"41:26/",
+"41:26/11",
 "41:26/11"
 ],
-"note": "Word-for-word."
+"note": "ith grouped with mippo; 'overlaid with boards' for ve-ha-ubbim.",
+"second": true
 },
 "42:1": {
 "sy": [
@@ -38886,7 +38948,7 @@
 ],
 "w": [
 "42:3/1",
-"42:3/",
+"42:3/2",
 "42:3/3,4",
 "42:3/5",
 "42:3/6",
@@ -38897,11 +38959,12 @@
 "42:3/11",
 "42:3/12,13",
 "42:3/14",
-"42:3/",
+"42:3/15",
 "42:3/15",
 "42:3/15"
 ],
-"note": "'The twenty' rendered 'the gate'; galleries rendered 'one above another, three storeys'."
+"note": "'The twenty' read as 'the gate' (ha-she'arim); galleries rendered 'one above another, on three storeys'; plus 'of the building'.",
+"second": true
 },
 "42:4": {
 "sy": [
@@ -38932,11 +38995,12 @@
 "42:4/11",
 "42:4/10",
 "42:4/12",
-"42:4/",
-"42:4/",
+"42:4/12",
+"42:4/12",
 "42:4/13"
 ],
-"note": "'A way of one cubit' rendered 'length a hundred cubits'; 'inward' omitted."
+"note": "'A way of one cubit' rendered 'length a hundred cubits'; 'inward' omitted; 'door of the walkway' explicates suffix of pithehem.",
+"second": true
 },
 "42:5": {
 "sy": [
@@ -38961,7 +39025,8 @@
 "42:5/7",
 "42:5/6"
 ],
-"note": "'From the lower and middle of the building' omitted."
+"note": "'From the lower and middle of the building' omitted.",
+"second": true
 },
 "42:6": {
 "sy": [
@@ -39025,7 +39090,8 @@
 "42:7/13",
 "42:7/14"
 ],
-"note": "'Toward the outer court, facing the chambers' omitted."
+"note": "'Toward the outer court, facing the chambers' omitted.",
+"second": true
 },
 "42:8": {
 "sy": [
@@ -39075,7 +39141,8 @@
 "42:9/11",
 "42:9/12"
 ],
-"note": "Ketiv/qere both mapped; 'gate' plus."
+"note": "Ketiv/qere both mapped; 'gate' plus.",
+"second": true
 },
 "42:10": {
 "sy": [
@@ -39171,12 +39238,13 @@
 "42:12/10",
 "42:12/11",
 "42:12/13",
-"42:12/",
+"42:12/12",
 "42:12/14",
-"42:12/",
+"42:12/15",
 "42:12/15"
 ],
-"note": "Obscure hagginah rendered 'of the valley'; 'as' plus."
+"note": "Obscure hagginah rendered 'of the valley' (gay); 'as one comes' for be-vo'an.",
+"second": true
 },
 "42:13": {
 "sy": [
@@ -39222,7 +39290,7 @@
 "42:13/11",
 "42:13/11",
 "42:13/12",
-"42:13/13",
+"42:13/16",
 "42:13/14,15",
 "42:13/17",
 "42:13/18,19",
@@ -39238,10 +39306,11 @@
 "42:13/28",
 "42:13/30",
 "42:13/31",
-"42:13/",
+"42:13/32",
 "42:13/32"
 ],
-"note": "'Guilt offering' and 'there' omitted; 'holy' rendered 'place'."
+"note": "'Place where' = asher ... sham; ha-qodesh (13) and guilt offering omitted; enclitic hu with qadosh.",
+"second": true
 },
 "42:14": {
 "sy": [
@@ -39286,7 +39355,7 @@
 "42:14/9",
 "42:14/10",
 "42:14/11",
-"42:14/",
+"42:14/12",
 "42:14/12,13",
 "42:14/14",
 "42:14/15",
@@ -39300,7 +39369,8 @@
 "42:14/23,24",
 "42:14/25"
 ],
-"note": "Ketiv/qere both mapped; 'garments' rendered 'vessels'; 'offerings' plus."
+"note": "Ketiv/qere both mapped; 'garments' rendered 'vessels'; 'offerings' plus; hanon d- = asher.",
+"second": true
 },
 "42:15": {
 "sy": [
@@ -39352,7 +39422,8 @@
 "42:16/6,7,8",
 "42:16/9"
 ],
-"note": "Ketiv amot included; second 'with the measuring reed round about' omitted."
+"note": "Ketiv amot included; second 'with the measuring reed round about' omitted.",
+"second": true
 },
 "42:17": {
 "sy": [
@@ -39937,7 +40008,7 @@
 "43:13/9",
 "43:13/10",
 "43:13/12",
-"43:13/",
+"43:13/13,14",
 "43:13/13,14",
 "43:13/16",
 "43:13/15",
@@ -40083,7 +40154,7 @@
 "43:17/14",
 "43:17/15",
 "43:17/16",
-"43:17/",
+"43:17/17",
 "43:17/17",
 "43:17/19",
 "43:17/19",
@@ -40914,7 +40985,8 @@
 "44:11/21",
 "44:11/21"
 ],
-"note": "\"Whole burnt offerings\"; פקדות and ומשרתים את הבית not rendered."
+"note": "\"Whole burnt offerings\"; פקדות and ומשרתים את הבית not rendered.",
+"second": true
 },
 "44:12": {
 "sy": [
@@ -41216,7 +41288,7 @@
 "44:19/9",
 "44:19/10",
 "44:19/12",
-"44:19/13,15",
+"44:19/13,14,15",
 "44:19/16",
 "44:19/17",
 "44:19/18",
@@ -41230,7 +41302,8 @@
 "44:19/26,27",
 "44:19/28"
 ],
-"note": "Duplicated \"to the outer court\" rendered once."
+"note": "Duplicated 'to the outer court' rendered once; relative clause with hemmah in participle.",
+"second": true
 },
 "44:20": {
 "sy": [
@@ -41421,20 +41494,20 @@
 "44:25/3",
 "44:25/4",
 "44:25/5",
-"44:25/",
+"44:25/6",
 "44:25/6",
 "44:25/7",
 "44:25/8",
 "44:25/9",
-"44:25/",
 "44:25/10",
-"44:25/",
+"44:25/10",
 "44:25/11",
-"44:25/",
+"44:25/11",
+"44:25/12",
 "44:25/12",
 "44:25/",
 "44:25/13",
-"44:25/",
+"44:25/14",
 "44:25/14",
 "44:25/",
 "44:25/15,16",
@@ -41442,7 +41515,8 @@
 "44:25/18",
 "44:25/19"
 ],
-"note": "Plus \"or\" repeatedly and \"virgin\"."
+"note": "'Or' renders waw four times (once plus before 'brother'); d-la with le-tom'ah; plus 'virgin'.",
+"second": true
 },
 "44:26": {
 "sy": [
@@ -41901,7 +41975,8 @@
 "45:7/29,30",
 "45:7/27"
 ],
-"note": "Much abbreviated; directions given \"from east and from west ... from east to west\"; מזה ומזה not rendered."
+"note": "Much abbreviated; directions given \"from east and from west ... from east to west\"; מזה ומזה not rendered.",
+"second": true
 },
 "45:8": {
 "sy": [
@@ -42039,7 +42114,8 @@
 "45:11/10,11",
 "45:11/16"
 ],
-"note": "Free summary; \"one tenth\" for the homer measures; most of second half not rendered."
+"note": "Free summary; \"one tenth\" for the homer measures; most of second half not rendered.",
+"second": true
 },
 "45:12": {
 "sy": [
@@ -42136,7 +42212,8 @@
 "45:14/6",
 "45:14/"
 ],
-"note": "Free paraphrase of oil measure; final כי clause not rendered."
+"note": "Free paraphrase of oil measure; final כי clause not rendered.",
+"second": true
 },
 "45:15": {
 "sy": [
@@ -42251,7 +42328,8 @@
 "45:17/25,26",
 "45:17/27"
 ],
-"note": "\"New moons\" for בחגים ובחדשים; את not rendered."
+"note": "\"New moons\" for בחגים ובחדשים; את not rendered.",
+"second": true
 },
 "45:18": {
 "sy": [
@@ -43047,7 +43125,8 @@
 "46:12/23",
 "46:12/24"
 ],
-"note": "Plus \"which was shut\"; closing and going out transposed."
+"note": "Plus \"which was shut\"; closing and going out transposed.",
+"second": true
 },
 "46:13": {
 "sy": [
@@ -43383,7 +43462,8 @@
 "46:20/22",
 "46:20/24"
 ],
-"note": "האשם not rendered."
+"note": "האשם not rendered.",
+"second": true
 },
 "46:21": {
 "sy": [
@@ -43464,7 +43544,8 @@
 "46:23/2",
 "46:23/5"
 ],
-"note": "Much abbreviated."
+"note": "Much abbreviated.",
+"second": true
 },
 "46:24": {
 "sy": [
@@ -43830,7 +43911,8 @@
 "47:9/23",
 "47:9/"
 ],
-"note": "Abbreviated; \"much fish\" simplified, second half shortened."
+"note": "Abbreviated; \"much fish\" simplified, second half shortened.",
+"second": true
 },
 "47:10": {
 "sy": [
@@ -44519,7 +44601,8 @@
 "48:5/8",
 "48:6/9"
 ],
-"note": "Ephraim's portion skipped (homoioteleuton): Syriac jumps from Manasseh to Reuben of v. 6."
+"note": "Ephraim's portion skipped (homoioteleuton): Syriac jumps from Manasseh to Reuben of v. 6.",
+"second": true
 },
 "48:7": {
 "sy": [
@@ -45110,7 +45193,7 @@
 ],
 "w": [
 "48:21/1",
-"48:21/1",
+"48:21/",
 "48:21/2",
 "48:21/",
 "48:21/5",
@@ -45140,7 +45223,8 @@
 "48:21/34",
 "48:21/35,36"
 ],
-"note": "Abbreviated; מזה ומזה and some measurements not rendered."
+"note": "Abbreviated; מזה ומזה and some measurements not rendered; ܢܗܘܐ is an added copula (plus).",
+"second": true
 },
 "48:22": {
 "sy": [

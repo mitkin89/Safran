@@ -309,7 +309,7 @@
 "1:8/4",
 "1:8/6",
 "1:8/6",
-"1:8/",
+"1:8/7",
 "1:8/7",
 "1:8/7",
 "1:8/8",
@@ -323,7 +323,8 @@
 "1:8/19",
 "1:8/23"
 ],
-"note": "Plus 'but'; night/day reversed; 'that' for 'for then'."
+"note": "'But' for the conjunction of wehagita; night/day reversed; 'that' for 'for then'; 'your way' and second 'then' omitted.",
+"second": true
 },
 "1:9": {
 "sy": [
@@ -651,11 +652,12 @@
 "1:16/7",
 "1:16/7",
 "1:16/8",
-"1:16/9",
+"1:16/9,10",
 "1:16/12",
 "1:16/13"
 ],
-"note": "Plus 'sons of Reuben, Gad and Manasseh'."
+"note": "Plus 'sons of Reuben, Gad and Manasseh'; 'whither' for 'to all that'.",
+"second": true
 },
 "1:17": {
 "sy": [
@@ -858,7 +860,8 @@
 "2:3/18",
 "2:3/19"
 ],
-"note": "'Who entered your house' minus; plus 'at night'; 'our land' for 'all the land'."
+"note": "'Who entered your house' minus; plus 'at night'; 'our land' for 'all the land'.",
+"second": true
 },
 "2:4": {
 "sy": [
@@ -1135,7 +1138,8 @@
 "2:10/25",
 "2:10/26"
 ],
-"note": "'Beyond the Jordan' minus."
+"note": "'Beyond the Jordan' minus.",
+"second": true
 },
 "2:11": {
 "sy": [
@@ -3453,7 +3457,8 @@
 "5:1/37",
 "5:1/38"
 ],
-"note": "Ketiv/qere 'we/they passed' both; 'trembled' for 'melted'."
+"note": "Ketiv/qere 'we/they passed' both; 'trembled' for 'melted'.",
+"second": true
 },
 "5:2": {
 "sy": [
@@ -6289,7 +6294,7 @@
 "7:25/13",
 "7:25/11",
 "7:25/12",
-"7:25/",
+"7:25/10",
 "7:25/",
 "7:25/",
 "7:25/",
@@ -6297,7 +6302,8 @@
 "7:25/15",
 "7:25/16"
 ],
-"note": "Plus 'him and all he had'; final 'stoned them with stones' minus."
+"note": "Plus 'to him', 'and all he had'; resumptive 'him' linked to oto; final 'stoned them with stones' minus.",
+"second": true
 },
 "7:26": {
 "sy": [
@@ -6925,11 +6931,11 @@
 "8:14/9",
 "8:14/10",
 "8:14/11",
-"8:14/",
+"8:14/13",
 "8:14/14",
 "8:14/15",
-"8:14/",
-"8:14/18",
+"8:14/15",
+"8:14/17,18",
 "8:14/19",
 "8:14/20",
 "8:14/21",
@@ -6942,7 +6948,8 @@
 "8:14/25",
 "8:14/26"
 ],
-"note": "'The people' for 'he'; 'to battle at the appointed place' minus."
+"note": "hu apparently read as 'they were'; 'people of Ai' for 'his people'; 'the people' for second 'he'; 'to battle', 'at the appointed place' minus.",
+"second": true
 },
 "8:15": {
 "sy": [
@@ -8310,7 +8317,7 @@
 "9:13/3",
 "9:13/5",
 "9:13/5",
-"9:13/",
+"9:13/6",
 "9:13/6",
 "9:13/7",
 "9:13/8",
@@ -8327,10 +8334,11 @@
 "9:13/13",
 "9:13/15",
 "9:13/13",
-"9:13/",
+"9:13/13",
 "9:13/14"
 ],
-"note": "Plus 'new when we took them, and behold'."
+"note": "Circumstantial kad with 'new'; plus 'new when we took them, and behold'; copula grouped with 'great'.",
+"second": true
 },
 "9:14": {
 "sy": [
@@ -8607,15 +8615,15 @@
 "9:21/1",
 "9:21/3",
 "9:21/2",
-"9:21/",
+"9:21/2",
 "9:21/4",
-"9:21/",
-"9:21/",
-"9:21/",
-"9:21/",
-"9:21/",
-"9:21/",
-"9:21/",
+"9:21/5",
+"9:21/6",
+"9:21/7",
+"9:21/8",
+"9:21/9",
+"9:21/10",
+"9:21/11",
 "9:21/5",
 "9:21/6",
 "9:21/7",
@@ -8628,7 +8636,8 @@
 "9:21/14",
 "9:21/15"
 ],
-"note": "Plus duplicated clause 'and let them be hewers... for all the congregation'."
+"note": "'To the sons of Israel' for 'to them'; clause 'hewers of wood...' rendered twice (speech and narrative), both linked to the same MT words.",
+"second": true
 },
 "9:22": {
 "sy": [
@@ -9160,7 +9169,8 @@
 "10:6/26",
 "10:6/27"
 ],
-"note": "'Come up to us quickly and save us and help us' minus."
+"note": "'Come up to us quickly and save us and help us' minus.",
+"second": true
 },
 "10:7": {
 "sy": [
@@ -10973,7 +10983,8 @@
 "11:7/12",
 "11:7/13"
 ],
-"note": "'Against them' minus; word order shifted."
+"note": "'Against them' minus; word order shifted.",
+"second": true
 },
 "11:8": {
 "sy": [
@@ -11335,12 +11346,13 @@
 "11:16/10",
 "11:16/11,12",
 "11:16/13",
-"11:16/14",
+"11:16/16",
 "11:16/19,20",
 "11:16/",
 "11:16/22"
 ],
-"note": "'Land of the plain' for 'land of Goshen'; Shephelah, Arabah and 'Israel' minus."
+"note": "Goshen not rendered, 'land of the plain' takes up the Shephelah (same noun as for shefelato); Arabah and 'Israel' minus; plus 'all of them'.",
+"second": true
 },
 "11:17": {
 "sy": [
@@ -11446,7 +11458,7 @@
 "11:19/1",
 "11:19/2",
 "11:19/3",
-"11:19/",
+"11:19/4",
 "11:19/5",
 "11:19/6,7",
 "11:19/8",
@@ -11473,7 +11485,8 @@
 "11:19/16",
 "11:19/"
 ],
-"note": "Sense changed: no city 'remained' that was not 'delivered'; plus Hivites spared as servants and 'all these kingdoms'."
+"note": "Sense changed: no city 'remained' that was not 'delivered'; plus 'and they destroyed it', Hivites spared as servants, 'these kingdoms', 'Joshua'.",
+"second": true
 },
 "11:20": {
 "sy": [
@@ -11917,7 +11930,8 @@
 "12:6/15",
 "12:6/16"
 ],
-"note": "Syriac lacks \"and the sons of Israel\" and the second \"Moses servant of the LORD\"; relative \"whom Moses killed\"."
+"note": "Syriac lacks \"and the sons of Israel\" and the second \"Moses servant of the LORD\"; relative \"whom Moses killed\".",
+"second": true
 },
 "12:7": {
 "sy": [
@@ -12044,7 +12058,8 @@
 "12:9/8",
 "12:9/9"
 ],
-"note": "Plus heading \"these are the kings whom Joshua destroyed\"; \"king one of X\" order."
+"note": "Plus heading \"these are the kings whom Joshua destroyed\"; \"king one of X\" order.",
+"second": true
 },
 "12:10": {
 "sy": [
@@ -13402,7 +13417,8 @@
 "13:31/15",
 "13:31/16"
 ],
-"note": "Plus \"these cities and their villages Moses gave\"."
+"note": "Plus \"these cities and their villages Moses gave\".",
+"second": true
 },
 "13:32": {
 "sy": [
@@ -14001,12 +14017,12 @@
 "14:12/6",
 "14:12/7,8",
 "14:12/9",
-"14:12/",
+"14:12/10",
 "14:12/10",
 "14:12/11",
 "14:12/12,13",
 "14:12/14",
-"14:12/",
+"14:12/15",
 "14:12/15",
 "14:12/16",
 "14:12/18",
@@ -14014,7 +14030,7 @@
 "14:12/19",
 "14:12/20",
 "14:12/21",
-"14:12/",
+"14:12/21",
 "14:12/22",
 "14:12/23",
 "14:12/",
@@ -14026,7 +14042,8 @@
 "14:12/28",
 "14:12/29"
 ],
-"note": "Plus \"in it\" twice; Anakim as \"giants\"."
+"note": "Proleptic 'in it' grouped with 'on that day'; copula with 'great'; Anakim as 'giants'; plus 'there is', 'will be'.",
+"second": true
 },
 "14:13": {
 "sy": [
@@ -14335,7 +14352,8 @@
 "15:6/13",
 "15:6/14"
 ],
-"note": "Syriac lacks Beth-hoglah and Beth-arabah clauses; \"Leban\" for Eben-Bohan."
+"note": "Syriac lacks Beth-hoglah and Beth-arabah clauses; \"Leban\" for Eben-Bohan.",
+"second": true
 },
 "15:7": {
 "sy": [
@@ -14670,7 +14688,7 @@
 "15:13/2",
 "15:13/3",
 "15:13/4",
-"15:13/12",
+"15:13/",
 "15:13/5",
 "15:13/6",
 "15:13/7",
@@ -14681,7 +14699,7 @@
 "15:13/11",
 "15:13/",
 "15:13/",
-"15:13/",
+"15:13/12",
 "15:13/",
 "15:13/",
 "15:13/",
@@ -14700,7 +14718,8 @@
 "15:13/18",
 "15:13/19"
 ],
-"note": "Long plus: Caleb asks Joshua for Kiriath-arba; Joshua named as giver."
+"note": "Long plus: Caleb asks Joshua for Kiriath-arba; lihoshua is reflected in 'said to Joshua', Joshua as giver is a plus.",
+"second": true
 },
 "15:14": {
 "sy": [
@@ -14982,7 +15001,8 @@
 "15:21/12",
 "15:21/13"
 ],
-"note": "מקצה lacking; plus \"these are the names of the towns of the sons of Judah\"."
+"note": "מקצה lacking; plus \"these are the names of the towns of the sons of Judah\".",
+"second": true
 },
 "15:22": {
 "sy": [
@@ -15627,7 +15647,8 @@
 "15:60/8",
 "15:60/9"
 ],
-"note": "Rabbah moved to the front; Kiriath-jearim as Kiriath-naarin."
+"note": "Rabbah moved to the front; Kiriath-jearim as Kiriath-naarin.",
+"second": true
 },
 "15:61": {
 "sy": [
@@ -16259,15 +16280,15 @@
 "17:4/18",
 "17:4/19",
 "17:4/20",
-"17:4/",
-"17:4/",
+"17:4/21",
+"17:4/22",
 "17:4/23",
 "17:4/24",
 "17:4/24",
 "17:4/25",
-"17:4/",
-"17:4/",
-"17:4/",
+"17:4/27",
+"17:4/28",
+"17:4/29",
 "17:4/",
 "17:4/",
 "17:4/",
@@ -16279,12 +16300,13 @@
 "17:4/22",
 "17:4/",
 "17:4/26",
-"17:4/",
+"17:4/26",
 "17:4/27",
 "17:4/28",
 "17:4/29"
 ],
-"note": "Plus \"of Israel\" and a long repeated request; \"and now give us\" plus."
+"note": "Plus 'of Israel', 'and now give us...', 'Joshua'; the grant clause is rendered twice (first as speech in 1st person), both linked; double rendering of nachala.",
+"second": true
 },
 "17:5": {
 "sy": [
@@ -16381,7 +16403,8 @@
 "17:7/16",
 "17:7/17"
 ],
-"note": "Plus \"sons of\", \"border\"; Michmethath as Maacath; \"before Shechem and the border went\" lacking."
+"note": "Plus \"sons of\", \"border\"; Michmethath as Maacath; \"before Shechem and the border went\" lacking.",
+"second": true
 },
 "17:8": {
 "sy": [
@@ -16522,7 +16545,7 @@
 "w": [
 "17:11/1",
 "17:11/2",
-"17:11/",
+"17:11/3",
 "17:11/3",
 "17:11/5",
 "17:11/6",
@@ -16539,7 +16562,8 @@
 "17:11/24",
 "17:11/25"
 ],
-"note": "Asher and Dor with villages lacking; \"opposite Issachar\"; Napheth as \"corners\"."
+"note": "Asher and Dor with villages lacking; 'opposite' renders the preposition of beyissakhar; Napheth as 'corners'.",
+"second": true
 },
 "17:12": {
 "sy": [
@@ -16785,7 +16809,7 @@
 "17:17/11",
 "17:17/12",
 "17:17/13",
-"17:17/",
+"17:17/14",
 "17:17/14",
 "17:17/15",
 "17:17/16",
@@ -16821,11 +16845,11 @@
 "ܐܢܘܢ"
 ],
 "w": [
-"17:18/",
-"17:18/4",
+"17:18/8",
+"17:18/8",
 "17:18/2",
 "17:18/3",
-"17:18/",
+"17:18/4",
 "17:18/6",
 "17:18/",
 "17:18/9",
@@ -16844,7 +16868,8 @@
 "17:18/20,21",
 "17:18/22"
 ],
-"note": "Free rendering: \"choose the mountain... destroy Canaanites and Perizzites\"."
+"note": "Free: 'choose for yourselves' probably reflects uvereto (cf. baru lakhem); 'it suffices you' for yihye lakh; plus 'of the mountain', 'Perizzites', 'great and strong'.",
+"second": true
 },
 "18:1": {
 "sy": [
@@ -19439,7 +19464,8 @@
 "20:7/16",
 "20:7/17"
 ],
-"note": "Plus \"then ... these towns as house of refuge\"; Kedesh as Rekem."
+"note": "Plus \"then ... these towns as house of refuge\"; Kedesh as Rekem.",
+"second": true
 },
 "20:8": {
 "sy": [
@@ -19913,10 +19939,11 @@
 "21:9/5",
 "21:9/5",
 "21:9/6,7",
-"21:9/",
-"21:9/14"
+"21:9/9",
+"21:9/13,14"
 ],
-"note": "Recast as \"these are the names of the towns which they gave\"."
+"note": "Recast as 'these are the names of the towns which they gave ... towns by their names'; 'towns' rendered twice.",
+"second": true
 },
 "21:10": {
 "sy": [
@@ -20398,7 +20425,7 @@
 "21:27/7",
 "21:27/",
 "21:27/9",
-"21:27/",
+"21:27/10",
 "21:27/10",
 "21:27/11",
 "21:27/13,14",
@@ -20410,7 +20437,8 @@
 "21:27/23",
 "21:27/"
 ],
-"note": "Plus copula and \"their towns\"; Beeshterah as Astoreth."
+"note": "Plus copula and 'their towns', final 'and their fields'; 'house of rescue' = miqlat; Beeshterah as Astoreth.",
+"second": true
 },
 "21:28": {
 "sy": [
@@ -20523,7 +20551,7 @@
 "21:32/1",
 "21:32/2",
 "21:32/4",
-"21:32/",
+"21:32/5",
 "21:32/5",
 "21:32/6",
 "21:32/8",
@@ -20537,7 +20565,8 @@
 "21:32/22",
 "21:32/"
 ],
-"note": "Kedesh as Rekem; Hammoth-dor as Hemrud."
+"note": "Kedesh as Rekem; Hammoth-dor as Hemrud; 'house of rescue' = miqlat; plus final 'and their fields'.",
+"second": true
 },
 "21:33": {
 "sy": [
@@ -20581,7 +20610,8 @@
 "21:34/14",
 "21:34/16"
 ],
-"note": "Jokneam as Nekah; Kartah as Karthan; first part of verse lacking."
+"note": "Jokneam as Nekah; Kartah as Karthan; first part of verse lacking.",
+"second": true
 },
 "21:35": {
 "sy": [
@@ -20623,7 +20653,8 @@
 "21:36/8",
 "21:36/10"
 ],
-"note": "Bezer lacking; plus \"their towns were\"."
+"note": "Bezer lacking; plus \"their towns were\".",
+"second": true
 },
 "21:37": {
 "sy": [
@@ -20636,7 +20667,8 @@
 "21:37/10",
 "21:37/"
 ],
-"note": "Kedemoth and Mephaath lacking."
+"note": "Kedemoth and Mephaath lacking.",
+"second": true
 },
 "21:38": {
 "sy": [
@@ -20665,7 +20697,8 @@
 "21:38/13",
 "21:38/15"
 ],
-"note": "Word-for-word."
+"note": "Word-for-word.",
+"second": true
 },
 "21:39": {
 "sy": [
@@ -20686,7 +20719,8 @@
 "21:39/11",
 "21:39/"
 ],
-"note": "כל lacking; plus \"fields\"."
+"note": "כל lacking; plus \"fields\".",
+"second": true
 },
 "21:40": {
 "sy": [
@@ -21117,7 +21151,8 @@
 "22:5/29",
 "22:5/30"
 ],
-"note": "\"walk in all his ways\" lacking."
+"note": "\"walk in all his ways\" lacking.",
+"second": true
 },
 "22:6": {
 "sy": [
@@ -21680,7 +21715,7 @@
 "22:18/2",
 "22:18/3",
 "22:18/4",
-"22:18/",
+"22:18/4",
 "22:18/5",
 "22:18/11",
 "22:18/11",
@@ -21689,10 +21724,11 @@
 "22:18/",
 "22:18/14",
 "22:18/15",
-"22:18/",
+"22:18/16",
 "22:18/16"
 ],
-"note": "\"rebel today\" clause lacking; \"fear of the LORD\"; plus \"what\"."
+"note": "'Rebel today' clause lacking; 'from the fear of the LORD' for 'from after'; 'there will be wrath' for yiqtsof; plus 'what'.",
+"second": true
 },
 "22:19": {
 "sy": [
@@ -21737,7 +21773,7 @@
 "22:19/",
 "22:19/2",
 "22:19/3",
-"22:19/",
+"22:19/3",
 "22:19/4",
 "22:19/5",
 "22:19/6",
@@ -21745,20 +21781,20 @@
 "22:19/8,9",
 "22:19/10",
 "22:19/11",
-"22:19/12",
+"22:19/12,14",
 "22:19/13",
 "22:19/15",
 "22:19/16",
 "22:19/17",
 "22:19/18",
 "22:19/19",
-"22:19/",
+"22:19/19",
 "22:19/20",
 "22:19/21",
 "22:19/22",
 "22:19/23",
 "22:19/24",
-"22:19/",
+"22:19/25",
 "22:19/25",
 "22:19/26",
 "22:19/27",
@@ -21769,7 +21805,8 @@
 "22:19/31",
 "22:19/"
 ],
-"note": "\"unclean\" as \"smeared\"; \"do not despise his fear\"; plus \"because\"."
+"note": "'Unclean' as 'smeared' with copula; 'where' for asher...sham; 'the fear of the LORD' for baYHWH; 'because' for be- of bivnotkhem; plus 'of Israel'.",
+"second": true
 },
 "22:20": {
 "sy": [
@@ -21869,7 +21906,8 @@
 "22:21/",
 "22:21/"
 ],
-"note": "Plus \"Phinehas son of Eleazar the priest\", \"and said to them\"."
+"note": "Plus \"Phinehas son of Eleazar the priest\", \"and said to them\".",
+"second": true
 },
 "22:22": {
 "sy": [
@@ -21919,10 +21957,10 @@
 "22:22/11",
 "22:22/",
 "22:22/",
-"22:22/",
+"22:22/8",
 "22:22/12",
 "22:22/13",
-"22:22/",
+"22:22/13",
 "22:22/14",
 "22:22/15",
 "22:22/",
@@ -21934,7 +21972,8 @@
 "22:22/18",
 "22:22/19,20"
 ],
-"note": "Divine titles expanded; \"separate from him\" for rebellion; plus \"we did thus\"."
+"note": "Divine titles expanded; first 'he knows' appears as 'and us he knows'; 'separate from him' for rebellion; plus 'we did thus'.",
+"second": true
 },
 "22:23": {
 "sy": [
@@ -22015,7 +22054,7 @@
 "22:24/11",
 "22:24/12",
 "22:24/14",
-"22:24/",
+"22:24/15",
 "22:24/15",
 "22:24/16",
 "22:24/16",
@@ -22083,7 +22122,8 @@
 "22:25/21",
 "22:25/22,23"
 ],
-"note": "Order changed; plus \"behold\", \"henceforth\", \"God of Israel\"."
+"note": "Order changed; plus \"behold\", \"henceforth\", \"God of Israel\".",
+"second": true
 },
 "22:26": {
 "sy": [
@@ -22118,7 +22158,8 @@
 "22:26/10",
 "22:26/11"
 ],
-"note": "Plus \"because of this\", \"a place\"."
+"note": "Plus \"because of this\", \"a place\".",
+"second": true
 },
 "22:27": {
 "sy": [
@@ -22197,7 +22238,8 @@
 "22:27/24",
 "22:27/25"
 ],
-"note": "Long plus \"in the place the LORD chose to cause his name to dwell\"."
+"note": "Long plus \"in the place the LORD chose to cause his name to dwell\".",
+"second": true
 },
 "22:28": {
 "sy": [
@@ -22433,7 +22475,8 @@
 "22:31/32",
 "22:31/"
 ],
-"note": "Plus \"henceforth you\", \"that the hand ... be on them for wrath\"."
+"note": "Plus \"henceforth you\", \"that the hand ... be on them for wrath\".",
+"second": true
 },
 "22:32": {
 "sy": [
@@ -22594,7 +22637,8 @@
 "22:34/",
 "22:34/13"
 ],
-"note": "Plus \"Manasseh\", \"altar of witness which they made\"; \"the LORD alone is God\"."
+"note": "Plus \"Manasseh\", \"altar of witness which they made\"; \"the LORD alone is God\".",
+"second": true
 },
 "23:1": {
 "sy": [
@@ -22844,7 +22888,8 @@
 "23:6/",
 "23:6/15"
 ],
-"note": "Plus \"only\", \"servant of the LORD\", \"neither\"."
+"note": "Plus \"only\", \"servant of the LORD\", \"neither\".",
+"second": true
 },
 "23:7": {
 "sy": [
@@ -23237,7 +23282,8 @@
 "23:15/28,29",
 "23:15/30"
 ],
-"note": "\"curses\" for every bad thing; second \"the LORD your God\" lacking."
+"note": "\"curses\" for every bad thing; second \"the LORD your God\" lacking.",
+"second": true
 },
 "23:16": {
 "sy": [
@@ -23580,8 +23626,8 @@
 "24:7/3",
 "24:7/4",
 "24:7/5",
-"24:7/6,7",
-"24:7/8",
+"24:7/6",
+"24:7/7,8",
 "24:7/",
 "24:7/",
 "24:7/",
@@ -23592,7 +23638,7 @@
 "24:7/9",
 "24:7/11,12",
 "24:7/10",
-"24:7/",
+"24:7/10",
 "24:7/13",
 "24:7/13",
 "24:7/14",
@@ -23607,7 +23653,8 @@
 "24:7/22",
 "24:7/23"
 ],
-"note": "Long plus: the LORD divided the Red Sea and brought your fathers through."
+"note": "Long plus: the LORD divided the Red Sea and brought your fathers through, 'and I brought you to the wilderness'; 'the Egyptians' makes the suffix of alaw explicit.",
+"second": true
 },
 "24:8": {
 "sy": [
@@ -24096,7 +24143,8 @@
 "24:18/",
 "24:18/18"
 ],
-"note": "Repeated \"destroyed them\"; plus \"because he alone is God\"."
+"note": "Repeated \"destroyed them\"; plus \"because he alone is God\".",
+"second": true
 },
 "24:19": {
 "sy": [
@@ -24223,7 +24271,8 @@
 "24:21/",
 "24:21/9"
 ],
-"note": "Recast \"there shall be no other service for us, but the LORD\"."
+"note": "Recast \"there shall be no other service for us, but the LORD\".",
+"second": true
 },
 "24:22": {
 "sy": [

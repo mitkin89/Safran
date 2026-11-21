@@ -308,7 +308,8 @@
 "1:7/",
 "1:7/14"
 ],
-"note": "Negations \"neither ... nor\" repeated (plus) before each instrument."
+"note": "Negations \"neither ... nor\" repeated (plus) before each instrument.",
+"second": true
 },
 "1:8": {
 "sy": [
@@ -2266,7 +2267,8 @@
 "5:7/5",
 "5:7/6"
 ],
-"note": "Second half of verse (עתה יאכלם חדש את חלקיהם) missing in Syriac."
+"note": "Second half of verse (עתה יאכלם חדש את חלקיהם) missing in Syriac.",
+"second": true
 },
 "5:8": {
 "sy": [
@@ -5383,7 +5385,7 @@
 ],
 "w": [
 "12:3/1",
-"12:3/",
+"12:3/2",
 "12:3/2",
 "12:3/3",
 "12:3/4",

@@ -1224,7 +1224,7 @@
 "2:10/3",
 "2:10/3",
 "2:10/4",
-"2:10/",
+"2:10/5",
 "2:10/5",
 "2:10/6",
 "2:10/9",
@@ -1245,7 +1245,8 @@
 "2:10/",
 "2:10/22"
 ],
-"note": "'Also' omitted; plus 'nor did he blaspheme against God'."
+"note": "'Also' omitted; men renders the construct; plus 'nor did he blaspheme against God'.",
+"second": true
 },
 "2:11": {
 "sy": [
@@ -1767,7 +1768,7 @@
 "3:15/2",
 "3:15/3",
 "3:15/4",
-"3:15/",
+"3:15/5",
 "3:15/5",
 "3:15/6",
 "3:15/7",
@@ -5536,19 +5537,20 @@
 "ܐܢܐ"
 ],
 "w": [
-"9:27/",
-"9:27/",
+"9:27/1",
+"9:27/2",
 "9:27/3",
 "9:27/4",
-"9:27/1",
+"9:27/",
 "9:27/5",
 "9:27/6",
 "9:27/",
-"9:27/2",
+"9:27/",
 "9:27/7",
 "9:27/7"
 ],
-"note": "Free; plus 'with my bitterness', 'or'."
+"note": "im omri read as 'im + mrr ('with my bitterness'); later 'if', 'or', 'my words' are pluses.",
+"second": true
 },
 "9:28": {
 "sy": [
@@ -5605,10 +5607,11 @@
 "9:29/",
 "9:29/5",
 "9:29/6",
-"9:29/",
+"9:29/6",
 "9:29/"
 ],
-"note": "Plus 'lo, if', 'like', 'you ... me'; 'I' omitted."
+"note": "Plus 'lo, if', 'like', 'me'; participle + pronoun for iga' (2nd person); 'I' omitted.",
+"second": true
 },
 "9:30": {
 "sy": [
@@ -5961,14 +5964,15 @@
 "10:8/2",
 "10:8/2",
 "10:8/3",
-"10:8/",
-"10:8/",
+"10:8/4,5",
+"10:8/4,5",
 "10:8/",
 "10:8/",
 "10:8/",
 "10:8/6"
 ],
-"note": "Free: 'afterwards you wish to condemn me and sink me'."
+"note": "yahad saviv read as 'afterwards' (cf. LXX); plus 'you wish to condemn me'.",
+"second": true
 },
 "10:9": {
 "sy": [
@@ -6415,7 +6419,8 @@
 "11:3/6",
 "11:3/"
 ],
-"note": "Expanded: plus 'you speak, there is none to restrain you'."
+"note": "Expanded: plus 'you speak, there is none to restrain you'.",
+"second": true
 },
 "11:4": {
 "sy": [
@@ -6510,7 +6515,8 @@
 "11:6/12",
 "11:6/13"
 ],
-"note": "'Forgives' for 'exacts'; plus 'it has'."
+"note": "'Forgives' for 'exacts'; plus 'it has'.",
+"second": true
 },
 "11:7": {
 "sy": [
@@ -6532,16 +6538,17 @@
 "11:7/2",
 "11:7/3",
 "11:7/3",
-"11:7/",
+"11:7/3",
 "11:7/4",
 "11:7/5",
 "11:7/6",
 "11:7/7",
 "11:7/8",
 "11:7/8",
-"11:7/"
+"11:7/8"
 ],
-"note": "Plus 'to know', 'to reach'."
+"note": "'Are you able to know / to reach' paraphrases timtsa (grouped).",
+"second": true
 },
 "11:8": {
 "sy": [
@@ -6586,16 +6593,17 @@
 ],
 "w": [
 "11:9/1",
-"11:9/",
+"11:9/1",
 "11:9/2",
 "11:9/2",
 "11:9/3",
 "11:9/4",
-"11:9/",
+"11:9/4",
 "11:9/5",
 "11:9/6"
 ],
-"note": "Plus copulas."
+"note": "Enclitic copulas grouped with their predicate adjectives.",
+"second": true
 },
 "11:10": {
 "sy": [
@@ -6645,7 +6653,8 @@
 "11:11/8",
 "11:11/9"
 ],
-"note": "'When is the time' for 'men of vanity'; 'and he discerns'."
+"note": "'When is the time' for 'men of vanity'; 'and he discerns'.",
+"second": true
 },
 "11:12": {
 "sy": [
@@ -6716,7 +6725,8 @@
 "11:14/7",
 "11:14/8"
 ],
-"note": "Plus 'there were'."
+"note": "Plus 'there were'.",
+"second": true
 },
 "11:15": {
 "sy": [
@@ -6732,12 +6742,13 @@
 "11:15/1,2",
 "11:15/3",
 "11:15/4",
-"11:15/",
-"11:15/",
+"11:15/7",
+"11:15/7",
 "11:15/8",
 "11:15/9"
 ],
-"note": "'Your hands' for 'your face'; 'blameless... firm' not rendered."
+"note": "'Your hands' for 'your face'; 'from distress' renders mutsaq read as matsoq; 'without blemish' and 'you will be' not rendered.",
+"second": true
 },
 "11:16": {
 "sy": [
@@ -8888,11 +8899,11 @@
 ],
 "w": [
 "15:10/1",
-"15:10/",
+"15:10/5",
 "15:10/5",
 "15:10/2",
 "15:10/3",
-"15:10/",
+"15:10/5",
 "15:10/5",
 "15:10/4",
 "15:10/6",
@@ -9983,7 +9994,8 @@
 "16:21/2",
 "16:21/7"
 ],
-"note": "'Would that a son of man might reprove God as a man his friend'."
+"note": "'Would that a son of man might reprove God as a man his friend'.",
+"second": true
 },
 "16:22": {
 "sy": [
@@ -11608,13 +11620,14 @@
 "20:4/7",
 "20:4/8",
 "20:4/9",
-"20:4/",
-"20:4/",
-"20:4/",
-"20:4/",
-"20:4/"
+"20:4/5",
+"20:4/6",
+"20:4/7",
+"20:4/8",
+"20:4/9"
 ],
-"note": "Plus 'who made man upon the earth'."
+"note": "Doublet of the second colon ('who made man upon the earth', minni read as mi) linked to the same MT words.",
+"second": true
 },
 "20:5": {
 "sy": [
@@ -12967,7 +12980,8 @@
 "22:2/6",
 "22:2/7"
 ],
-"note": "Free: 'do you say with God, a man, that you are equal with him in wisdom'."
+"note": "Free: 'do you say with God, a man, that you are equal with him in wisdom'.",
+"second": true
 },
 "22:3": {
 "sy": [
@@ -12980,7 +12994,7 @@
 "ܕܚܠܬܟ"
 ],
 "w": [
-"22:3/1",
+"22:3/5",
 "22:3/6",
 "22:3/7,8",
 "22:3/8",
@@ -12988,7 +13002,8 @@
 "22:4/1",
 "22:4/1"
 ],
-"note": "Free; 'from your fear' renders 22:4 'from your fear'."
+"note": "First colon omitted; 'and what profit' renders we'im betsa; 'from your fear' renders 22:4/1.",
+"second": true
 },
 "22:4": {
 "sy": [
@@ -13097,7 +13112,8 @@
 "22:8/8",
 "22:8/"
 ],
-"note": "'Sows' for 'arm'; 'violent lord takes it from him'."
+"note": "'Sows' for 'arm'; 'violent lord takes it from him'.",
+"second": true
 },
 "22:9": {
 "sy": [
@@ -13232,12 +13248,13 @@
 "22:14/2,3",
 "22:14/4",
 "22:14/5",
-"22:14/",
+"22:14/6",
 "22:14/6",
 "22:14/7",
 "22:14/8"
 ],
-"note": "Plus 'for', 'upon'."
+"note": "Plus 'for'; separated preposition 'upon' belongs to 'vault'.",
+"second": true
 },
 "22:15": {
 "sy": [
@@ -13277,13 +13294,14 @@
 "22:16/5",
 "22:16/5",
 "22:16/2",
-"22:16/",
-"22:16/",
+"22:16/3",
+"22:16/4",
 "22:16/",
 "22:16/6",
 "22:16/7"
 ],
-"note": "Free; 'they did not remember him who established'."
+"note": "Free: 'at the river crossing they were held back'; 'and did not remember' stands for welo et; plus 'him who'.",
+"second": true
 },
 "22:17": {
 "sy": [
@@ -13501,7 +13519,8 @@
 "22:26/8",
 "22:26/9"
 ],
-"note": "'For then you will delight in Shaddai' omitted."
+"note": "'For then you will delight in Shaddai' omitted.",
+"second": true
 },
 "22:27": {
 "sy": [
@@ -13714,12 +13733,13 @@
 "23:6/3",
 "23:6/4",
 "23:6/5,6",
-"23:6/",
+"23:6/7",
 "23:6/",
 "23:6/8",
 "23:6/9"
 ],
-"note": "Plus 'his fear'; 'he' omitted."
+"note": "hu rendered/read as hwa; plus 'fear'.",
+"second": true
 },
 "23:7": {
 "sy": [
@@ -13740,13 +13760,14 @@
 "23:7/3",
 "23:7/3",
 "23:7/4",
-"23:7/",
-"23:7/",
+"23:7/6",
+"23:7/6",
 "23:7/5",
 "23:7/5",
 "23:7/7"
 ],
-"note": "Plus 'I would be innocent'; 'forever' omitted."
+"note": "'I would be victorious' renders lanetsach (ntsch = zka); 'in judgment' for 'from my judge'.",
+"second": true
 },
 "23:8": {
 "sy": [
@@ -13842,7 +13863,8 @@
 "23:11/4",
 "23:11/5"
 ],
-"note": "'And did not turn aside' omitted."
+"note": "'And did not turn aside' omitted.",
+"second": true
 },
 "23:12": {
 "sy": [
@@ -13859,19 +13881,20 @@
 "ܦܘܡܗ"
 ],
 "w": [
-"23:12/3",
-"23:12/4",
+"23:11/6",
+"23:11/7",
 "23:12/1",
 "23:12/2",
-"23:12/",
-"23:12/",
+"23:12/3",
+"23:12/4",
 "23:12/5",
 "23:12/5",
 "23:12/6",
 "23:12/7",
 "23:12/8"
 ],
-"note": "Plus 'nor changed'."
+"note": "Opening 'and I did not swerve' is MT 23:11 welo at; 'nor departed' renders welo amish; 'his will' for 'my portion'.",
+"second": true
 },
 "23:13": {
 "sy": [
@@ -13896,7 +13919,8 @@
 "23:13/6",
 "23:13/7"
 ],
-"note": "Plus 'of these'."
+"note": "Plus 'of these'.",
+"second": true
 },
 "23:14": {
 "sy": [
@@ -14097,7 +14121,8 @@
 "24:5/10",
 "24:5/11"
 ],
-"note": "'Behold', 'go forth', 'at their work', 'desert for him' omitted."
+"note": "'Behold', 'go forth', 'at their work', 'desert for him' omitted.",
+"second": true
 },
 "24:6": {
 "sy": [
@@ -14237,19 +14262,20 @@
 "24:11/1",
 "24:11/2",
 "24:11/3",
+"24:10/5",
 "24:11/",
-"24:11/",
-"24:11/",
-"24:11/",
-"24:11/",
-"24:11/",
-"24:11/",
-"24:11/",
+"24:10/6",
+"24:10/7",
+"24:10/7",
+"24:11/1",
+"24:11/3",
+"24:11/2",
 "24:11/4",
 "24:11/5",
 "24:11/6"
 ],
-"note": "Long plus describing hungry labourers."
+"note": "Doublets: 'hungry while carrying seah and measure' repeats MT 24:10b; 'at times they hunger at their meals' is a second rendering of 11a.",
+"second": true
 },
 "24:12": {
 "sy": [
@@ -14406,7 +14432,7 @@
 ],
 "w": [
 "24:17/1",
-"24:17/",
+"24:17/1",
 "24:17/3",
 "24:17/4",
 "24:17/5",
@@ -14417,7 +14443,8 @@
 "24:17/9",
 "24:17/9"
 ],
-"note": "Free: 'seek for themselves the shadow of death'."
+"note": "'Therefore' for ki; boqer read as 'seek'; 'together' omitted.",
+"second": true
 },
 "24:18": {
 "sy": [
@@ -14442,7 +14469,8 @@
 "24:18/11",
 "24:18/12"
 ],
-"note": "'He' and 'does not turn' omitted."
+"note": "'He' and 'does not turn' omitted.",
+"second": true
 },
 "24:19": {
 "sy": [
@@ -14489,7 +14517,7 @@
 "24:20/2",
 "24:20/2",
 "24:20/3",
-"24:20/",
+"24:20/3",
 "24:20/4",
 "24:20/",
 "24:20/5",
@@ -14500,7 +14528,8 @@
 "24:20/9",
 "24:20/10"
 ],
-"note": "Plus 'them', 'and the dead'."
+"note": "Object pronoun belongs to 'sweet to him'; plus 'and the dead'.",
+"second": true
 },
 "24:21": {
 "sy": [
@@ -15909,7 +15938,8 @@
 "28:13/7",
 "28:13/8"
 ],
-"note": "Plus 'except'; 'its treasure' for 'its value'."
+"note": "Plus 'except'; 'its treasure' for 'its value'.",
+"second": true
 },
 "28:14": {
 "sy": [
@@ -16003,11 +16033,12 @@
 "28:17/",
 "28:17/",
 "28:17/6,7",
-"28:17/",
-"28:17/",
-"28:17/"
+"28:17/5",
+"28:17/5",
+"28:17/5"
 ],
-"note": "Expanded list of precious stones; plus."
+"note": "Expanded list of precious things (plus); closing 'do not equal it' loosely for 'its exchange'.",
+"second": true
 },
 "28:18": {
 "sy": [
@@ -16040,20 +16071,20 @@
 ],
 "w": [
 "28:18/5",
-"28:18/",
+"28:18/5",
 "28:18/6",
 "28:18/7",
 "28:18/7",
 "28:18/7",
-"28:18/3",
-"28:18/4",
-"28:18/4",
-"28:18/1",
-"28:18/1",
-"28:18/2",
-"28:18/",
-"28:18/",
-"28:18/",
+"28:19/1",
+"28:19/2",
+"28:19/2",
+"28:19/3",
+"28:19/",
+"28:19/5",
+"28:19/6",
+"28:19/7",
+"28:19/8",
 "28:18/",
 "28:18/",
 "28:18/",
@@ -16066,7 +16097,8 @@
 "28:18/",
 "28:18/"
 ],
-"note": "Expanded: 'wisdom better than all things'; long plus."
+"note": "18b first; then 'X does not equal it, nor is it exchanged for emeralds and chalcedony' renders MT 28:19 (same verbs as vv. 16-17); 18a unrendered; closing 'wisdom is better than everything' is a plus (cf. Prov 8:11).",
+"second": true
 },
 "28:19": {
 "sy": [
@@ -16081,13 +16113,14 @@
 "w": [
 "28:19/3",
 "28:19/4",
-"28:19/",
+"28:19/3",
 "28:19/3",
 "28:19/1",
 "28:19/2",
 "28:19/2"
 ],
-"note": "'Corals of Cush'; 'pure gold' omitted."
+"note": "Second rendering of 19a ('pearls of Cush and topaz stones'); 19b is rendered in S 28:18.",
+"second": true
 },
 "28:20": {
 "sy": [
@@ -16126,7 +16159,7 @@
 ],
 "w": [
 "28:21/1",
-"28:21/",
+"28:21/1",
 "28:21/2",
 "28:21/2",
 "28:21/3",
@@ -16135,9 +16168,10 @@
 "28:21/5",
 "28:21/6",
 "28:21/7",
-"28:21/"
+"28:21/7"
 ],
-"note": "Plus copulas."
+"note": "Enclitic copulas grouped with their predicates.",
+"second": true
 },
 "28:22": {
 "sy": [
@@ -16179,7 +16213,8 @@
 "28:23/5",
 "28:23/7"
 ],
-"note": "Plus 'because' and copula."
+"note": "Plus 'because' and copula.",
+"second": true
 },
 "28:24": {
 "sy": [
@@ -16866,14 +16901,15 @@
 "30:1/7",
 "30:1/8",
 "30:1/9",
-"30:1/",
+"30:1/10",
 "30:1/10",
 "30:1/10",
 "30:1/11",
 "30:1/12",
 "30:1/13"
 ],
-"note": "Plus 'lo' and negation."
+"note": "Plus 'lo'; 'and did not reckon them' paraphrases 'disdained to set'.",
+"second": true
 },
 "30:2": {
 "sy": [
@@ -16897,10 +16933,11 @@
 "30:2/5",
 "30:2/6",
 "30:2/7",
-"30:2/",
+"30:2/8",
 "30:2/8"
 ],
-"note": "'Also' omitted; plus 'went', 'all'."
+"note": "'Also' omitted; plus 'went'; kalach rendered 'all strength'.",
+"second": true
 },
 "30:5": {
 "sy": [
@@ -16921,7 +16958,8 @@
 "30:6/1",
 "30:6/2"
 ],
-"note": "Free; 'by the strength of torrents' renders 30:6 'in the gullies of the wadis'; MT 30:3-4 no Syriac."
+"note": "Free; 'by the strength of torrents' renders 30:6 'in the gullies of the wadis'; MT 30:3-4 no Syriac.",
+"second": true
 },
 "30:6": {
 "sy": [
@@ -16951,7 +16989,8 @@
 "30:7/4",
 "30:7/5"
 ],
-"note": "'They bray', 'are gathered' omitted."
+"note": "'They bray', 'are gathered' omitted.",
+"second": true
 },
 "30:8": {
 "sy": [
@@ -16967,18 +17006,19 @@
 "ܐܪܥܐ"
 ],
 "w": [
-"30:8/7",
+"30:7/6",
 "30:8/1",
 "30:8/2",
 "30:8/3",
 "30:8/4",
-"30:8/5,6",
-"30:8/",
+"30:8/5",
+"30:8/6",
 "30:8/7",
 "30:8/8",
 "30:8/9"
 ],
-"note": "'Sons of fools with sons of the wicked'; plus 'there'."
+"note": "First verb renders yesuppachu of MT 30:7 (spch/schp); 'iniquity' for beli, shem read as sham 'there'.",
+"second": true
 },
 "30:9": {
 "sy": [
@@ -17060,11 +17100,12 @@
 "30:12/4",
 "30:12/6",
 "30:12/5",
-"30:12/7",
+"30:12/7,8",
 "30:12/9",
 "30:12/10"
 ],
-"note": "'Rabble' omitted; 'upon me' omitted."
+"note": "'Rabble' omitted; object suffix covers 'upon me'.",
+"second": true
 },
 "30:13": {
 "sy": [
@@ -17093,7 +17134,8 @@
 "30:13/",
 "30:13/6"
 ],
-"note": "Plus 'in vain', 'will be'."
+"note": "Plus 'in vain', 'will be'.",
+"second": true
 },
 "30:14": {
 "sy": [
@@ -17355,7 +17397,8 @@
 "30:25/8",
 "30:25/8"
 ],
-"note": "'If not' omitted; 'the evil' for 'the needy'."
+"note": "'If not' omitted; 'the evil' for 'the needy'.",
+"second": true
 },
 "30:26": {
 "sy": [
@@ -17663,15 +17706,16 @@
 "31:8/",
 "31:8/",
 "31:8/1",
-"31:8/",
+"31:8/2",
 "31:8/3",
 "31:8/",
-"31:8/5",
-"31:8/",
 "31:8/4",
-"31:8/"
+"31:8/",
+"31:8/5",
+"31:8/5"
 ],
-"note": "Free paraphrase: 'unless I sowed and then ate, planted and reared and harvested'; 'another' omitted."
+"note": "Free paraphrase in first person; we'acher read as 'then'; 'planted' for 'my offspring', 'reared and harvested' for 'be rooted (out)'.",
+"second": true
 },
 "31:9": {
 "sy": [
@@ -18082,14 +18126,15 @@
 "31:24/",
 "31:24/7",
 "31:24/",
+"31:24/6",
+"31:24/5",
+"31:24/5",
 "31:24/",
 "31:24/",
-"31:24/",
-"31:24/",
-"31:24/",
-"31:24/"
+"31:24/7"
 ],
-"note": "Syriac expands with 'precious stone' and a doublet about the 'enemy'."
+"note": "Expanded with 'precious stone'; doublet of the second colon ('refined gold ... my hope') linked to the same MT words.",
+"second": true
 },
 "31:25": {
 "sy": [
@@ -18361,7 +18406,8 @@
 "31:34/",
 "31:34/"
 ],
-"note": "Free expansion; 'contempt' not rendered; long Syriac plus at end."
+"note": "Free expansion; 'contempt' not rendered; long Syriac plus at end.",
+"second": true
 },
 "31:35": {
 "sy": [
@@ -18792,19 +18838,20 @@
 ],
 "w": [
 "32:9/1",
-"32:9/",
+"32:9/1",
 "32:9/",
 "32:9/2",
 "32:9/",
 "32:9/3",
-"32:9/",
+"32:9/4",
 "32:9/",
 "32:9/",
 "32:9/4",
 "32:9/5",
 "32:9/6"
 ],
-"note": "Syriac adds 'of days' and repeats the negation."
+"note": "Compound negation la hwa; plus 'of days'; negation repeated in second colon.",
+"second": true
 },
 "32:10": {
 "sy": [
@@ -19334,7 +19381,8 @@
 "33:9/",
 "33:9/"
 ],
-"note": "Syriac adds 'you said' and 'I am pure from iniquity'."
+"note": "Syriac adds 'you said' and 'I am pure from iniquity'.",
+"second": true
 },
 "33:10": {
 "sy": [
@@ -21227,7 +21275,7 @@
 "36:2/4",
 "36:2/5",
 "36:2/6",
-"36:2/",
+"36:2/7",
 "36:2/7",
 "36:2/8"
 ],
@@ -21641,17 +21689,18 @@
 "ܢܦܫܟ"
 ],
 "w": [
-"36:20/",
+"36:20/2",
 "36:20/2",
 "36:20/3",
-"36:20/",
+"36:20/4",
 "36:20/5",
 "36:20/6",
 "36:20/",
 "36:20/",
 "36:20/"
 ],
-"note": "Syriac expands 'and nations in exchange for your soul'."
+"note": "Free: 'from him who oppresses by night'; 'he will give' loosely for la'alot; plus 'and nations for your soul' (cf. Isa 43:4).",
+"second": true
 },
 "36:21": {
 "sy": [
@@ -22906,7 +22955,8 @@
 "38:18/7",
 "38:18/7"
 ],
-"note": "'as far as' omitted."
+"note": "'as far as' omitted.",
+"second": true
 },
 "38:19": {
 "sy": [
@@ -23051,7 +23101,8 @@
 "38:25/6",
 "38:25/7"
 ],
-"note": "Syriac 'there was lightning(?) and a voice'; first colon lost."
+"note": "Syriac 'there was lightning(?) and a voice'; first colon lost.",
+"second": true
 },
 "38:26": {
 "sy": [
@@ -23394,7 +23445,8 @@
 "38:40/",
 "38:40/"
 ],
-"note": "Syriac 'who multiplied the beasts in the desert' has no MT equivalent; MT 38:40 omitted."
+"note": "Syriac 'who multiplied the beasts in the desert' has no MT equivalent; MT 38:40 omitted.",
+"second": true
 },
 "38:41": {
 "sy": [
@@ -23499,7 +23551,8 @@
 "39:4/2",
 "39:4/1"
 ],
-"note": "Syriac abridged; 'in the open... return not' omitted."
+"note": "Syriac abridged; 'in the open... return not' omitted.",
+"second": true
 },
 "39:5": {
 "sy": [
@@ -24423,7 +24476,8 @@
 "40:16/3",
 "40:16/4"
 ],
-"note": "Second colon and 'behold' omitted."
+"note": "Second colon and 'behold' omitted.",
+"second": true
 },
 "40:17": {
 "sy": [

@@ -708,7 +708,8 @@
 "1:19/17",
 "1:19/18"
 ],
-"note": "\"Nathan the prophet and Benaiah son of Jehoiada\" plus."
+"note": "\"Nathan the prophet and Benaiah son of Jehoiada\" plus.",
+"second": true
 },
 "1:20": {
 "sy": [
@@ -2123,7 +2124,8 @@
 "2:3/25",
 "2:3/"
 ],
-"note": "\"You will succeed\" plus at end; \"there\" omitted."
+"note": "\"You will succeed\" plus at end; \"there\" omitted.",
+"second": true
 },
 "2:4": {
 "sy": [
@@ -2588,7 +2590,7 @@
 "2:14/1",
 "2:14/",
 "2:14/2",
-"2:14/",
+"2:14/3",
 "2:14/3",
 "2:14/",
 "2:14/4",
@@ -3810,13 +3812,14 @@
 "2:42/19",
 "2:42/20,21",
 "2:42/22",
-"2:42/23,24",
-"2:42/24,25",
+"2:42/23",
+"2:42/25",
 "2:42/26",
-"2:42/",
+"2:42/27",
 "2:42/27"
 ],
-"note": "\"From Jerusalem ... brook Kidron\" plus; \"hither and thither\" omitted; \"I heard\" rendered \"thus I will do\"."
+"note": "Plus 'from Jerusalem ... brook Kidron' (cf. v.37); 'hither and thither' and 'to me' omitted; 'I heard' paraphrased 'thus I will do'.",
+"second": true
 },
 "2:43": {
 "sy": [
@@ -4841,10 +4844,10 @@
 "w": [
 "3:22/1",
 "3:22/2",
-"3:22/",
+"3:22/3",
 "3:22/3",
 "3:22/4",
-"3:22/",
+"3:22/4",
 "3:22/5",
 "3:22/6",
 "3:22/",
@@ -4854,7 +4857,7 @@
 "3:22/10",
 "3:22/11",
 "3:22/12",
-"3:22/",
+"3:22/12",
 "3:22/13",
 "3:22/14",
 "3:22/",
@@ -4866,7 +4869,8 @@
 "3:22/19",
 "3:22/20"
 ],
-"note": "Copula and \"it is not so\" pluses."
+"note": "Demonstrative for the article and la-hwa for lo grouped; copula hu remains plus.",
+"second": true
 },
 "3:24": {
 "sy": [
@@ -5066,7 +5070,7 @@
 "3:28/13",
 "3:28/14,15",
 "3:28/16",
-"3:28/",
+"3:28/17",
 "3:28/17",
 "3:28/18",
 "3:28/19"
@@ -5920,7 +5924,8 @@
 "5:9/6",
 "5:9/7"
 ],
-"note": "\"Like the sand on the seashore\" omitted."
+"note": "\"Like the sand on the seashore\" omitted.",
+"second": true
 },
 "5:10": {
 "sy": [
@@ -6107,7 +6112,8 @@
 "5:14/12,13",
 "5:14/15"
 ],
-"note": "\"And he received gifts from all kings of the earth\" plus."
+"note": "\"And he received gifts from all kings of the earth\" plus.",
+"second": true
 },
 "5:15": {
 "sy": [
@@ -7278,8 +7284,8 @@
 "6:12/7",
 "6:12/8",
 "6:12/10",
-"6:12/11",
 "6:12/12",
+"6:12/11",
 "6:12/14",
 "6:12/15",
 "6:12/16",
@@ -7291,7 +7297,8 @@
 "6:12/24,25",
 "6:12/26"
 ],
-"note": "\"Judgments keep, commandments do\" rearranged."
+"note": "Verbs swapped ('keep my judgments, do my commandments'), mapped by meaning.",
+"second": true
 },
 "6:13": {
 "sy": [
@@ -7363,7 +7370,7 @@
 "6:15/6",
 "6:15/7",
 "6:15/8",
-"6:15/8",
+"6:15/8,9",
 "6:15/10",
 "6:15/11,12",
 "6:15/13",
@@ -7376,7 +7383,8 @@
 "6:15/20",
 "6:15/21"
 ],
-"note": "Word-for-word."
+"note": "Word-for-word; 'its foundations' covers 'floor of the house'.",
+"second": true
 },
 "6:16": {
 "sy": [
@@ -7485,7 +7493,8 @@
 "6:18/13",
 "6:18/"
 ],
-"note": "\"Overlaid\", \"was\", \"in it\" pluses; \"lilies\" for open flowers."
+"note": "\"Overlaid\", \"was\", \"in it\" pluses; \"lilies\" for open flowers.",
+"second": true
 },
 "6:19": {
 "sy": [
@@ -7804,7 +7813,8 @@
 "6:27/26",
 "6:27/27,28"
 ],
-"note": "Word-for-word."
+"note": "Word-for-word.",
+"second": true
 },
 "6:28": {
 "sy": [
@@ -7816,12 +7826,13 @@
 ],
 "w": [
 "6:28/1",
-"6:28/",
+"6:28/3",
 "6:28/2,3",
 "6:28/4",
 "6:28/"
 ],
-"note": "Proleptic pronoun and \"fine\" pluses."
+"note": "Proleptic pronoun grouped with its object; 'fine' plus.",
+"second": true
 },
 "6:29": {
 "sy": [
@@ -8625,7 +8636,8 @@
 "7:14/29",
 "7:14/30"
 ],
-"note": "Copula plus."
+"note": "Copula plus.",
+"second": true
 },
 "7:15": {
 "sy": [
@@ -8666,7 +8678,8 @@
 "7:15/18",
 "7:15/19"
 ],
-"note": "\"To it, and thus\" pluses."
+"note": "\"To it, and thus\" pluses.",
+"second": true
 },
 "7:16": {
 "sy": [
@@ -8789,11 +8802,12 @@
 "7:18/15",
 "7:18/16",
 "7:18/17",
-"7:18/18",
+"7:18/",
 "7:18/19",
 "7:18/20"
 ],
-"note": "Pomegranates rendered \"pillars\"."
+"note": "Pomegranates rendered 'pillars'; 'he did' not rendered, 'also' plus.",
+"second": true
 },
 "7:19": {
 "sy": [
@@ -8870,10 +8884,11 @@
 "7:20/17,18",
 "7:20/",
 "7:20/",
-"7:20/",
+"7:20/18",
 "7:20/19"
 ],
-"note": "Ketiv/qere assigned; \"two\", \"one ... thus the other capital\" pluses."
+"note": "Ketiv/qere assigned; 'capital' doubled; 'two', 'one', 'and thus' pluses.",
+"second": true
 },
 "7:21": {
 "sy": [
@@ -8916,7 +8931,8 @@
 "7:21/20",
 "7:21/21"
 ],
-"note": "Word-for-word."
+"note": "Word-for-word.",
+"second": true
 },
 "7:22": {
 "sy": [
@@ -9084,15 +9100,16 @@
 "7:25/17",
 "7:25/18",
 "7:25/19",
+"7:25/19",
+"7:25/19",
 "7:25/20",
-"7:25/",
-"7:25/",
-"7:25/",
+"7:25/20",
 "7:25/21,22",
 "7:25/23",
 "7:25/23"
 ],
-"note": "\"Above them\" doubled as plus."
+"note": "'Upon them' rendered twice (grouped); men l'el = milma'la.",
+"second": true
 },
 "7:26": {
 "sy": [
@@ -9174,10 +9191,11 @@
 "7:28/1,2",
 "7:28/3",
 "7:28/4",
-"7:28/",
+"7:28/5",
 "7:28/5"
 ],
-"note": "\"And panels between the frames\" omitted."
+"note": "'ith l- = lahem; 'and panels between the frames' omitted.",
+"second": true
 },
 "7:29": {
 "sy": [
@@ -9260,7 +9278,7 @@
 "7:30/",
 "7:30/",
 "7:30/10",
-"7:30/",
+"7:30/11",
 "7:30/11",
 "7:30/12",
 "7:30/13",
@@ -9269,7 +9287,8 @@
 "7:30/18",
 "7:30/18"
 ],
-"note": "\"Joined to them\" plus; \"beyond each\" omitted; \"wreaths\" rendered \"beautiful work\"."
+"note": "'Joined to them' plus; 'ith l- = lahem; 'beyond each' omitted; 'wreaths' rendered 'beautiful work'.",
+"second": true
 },
 "7:31": {
 "sy": [
@@ -9312,7 +9331,8 @@
 "7:31/19",
 "7:31/20"
 ],
-"note": "\"To the capital and upward\" and \"work of the base\" omitted."
+"note": "\"To the capital and upward\" and \"work of the base\" omitted.",
+"second": true
 },
 "7:32": {
 "sy": [
@@ -9471,7 +9491,8 @@
 "7:36/14",
 "7:36/14"
 ],
-"note": "Ketiv/qere assigned; \"according to the space of each, and wreaths\" omitted."
+"note": "Ketiv/qere assigned; \"according to the space of each, and wreaths\" omitted.",
+"second": true
 },
 "7:37": {
 "sy": [
@@ -9549,7 +9570,8 @@
 "7:38/19",
 "7:38/20"
 ],
-"note": "\"Was\", \"thus\" pluses; \"one laver\" omitted."
+"note": "\"Was\", \"thus\" pluses; \"one laver\" omitted.",
+"second": true
 },
 "7:39": {
 "sy": [
@@ -9779,10 +9801,10 @@
 "ܩܘܪܢܬܝܢܐ"
 ],
 "w": [
-"7:45/1,2",
-"7:45/3,4",
-"7:45/5,6",
-"7:45/7,8",
+"7:45/2",
+"7:45/4",
+"7:45/6",
+"7:45/8",
 "7:45/9",
 "7:45/",
 "7:45/12,13",
@@ -9794,7 +9816,8 @@
 "7:45/19",
 "7:45/20"
 ],
-"note": "\"Of service\" plus; ketiv/qere \"these\" omitted."
+"note": "'Of service' plus; ketiv/qere 'these' omitted; bare et left unassigned.",
+"second": true
 },
 "7:46": {
 "sy": [
@@ -9831,7 +9854,8 @@
 "7:46/9",
 "7:46/10"
 ],
-"note": "\"In the valley of Jericho by\" plus."
+"note": "\"In the valley of Jericho by\" plus.",
+"second": true
 },
 "7:47": {
 "sy": [
@@ -9893,13 +9917,14 @@
 "7:48/8",
 "7:48/10",
 "7:48/11",
-"7:48/12,13",
+"7:48/13",
 "7:48/18",
 "7:48/14,15",
 "7:48/16",
 "7:48/17"
 ],
-"note": "\"The king ... for the house of the LORD\" plus."
+"note": "'The king ... for the house of the LORD' plus; bare et left unassigned.",
+"second": true
 },
 "7:49": {
 "sy": [
@@ -9920,7 +9945,7 @@
 "ܕܕܗܒܐ"
 ],
 "w": [
-"7:49/1,2",
+"7:49/2",
 "7:49/9",
 "7:49/10",
 "7:49/3",
@@ -9936,7 +9961,8 @@
 "7:49/13",
 "7:49/14"
 ],
-"note": "Word-for-word, reordered."
+"note": "Word-for-word, reordered; bare et left unassigned.",
+"second": true
 },
 "7:50": {
 "sy": [
@@ -10024,7 +10050,8 @@
 "7:51/24",
 "7:51/25"
 ],
-"note": "Word-for-word."
+"note": "Word-for-word.",
+"second": true
 },
 "8:1": {
 "sy": [
@@ -12600,7 +12627,8 @@
 "8:64/35",
 "8:64/36"
 ],
-"note": "Word-for-word."
+"note": "Word-for-word.",
+"second": true
 },
 "8:65": {
 "sy": [
@@ -13315,7 +13343,8 @@
 "9:15/22",
 "9:15/24"
 ],
-"note": "Plus \"and he built\"; Millo moved after the wall."
+"note": "Plus \"and he built\"; Millo moved after the wall.",
+"second": true
 },
 "9:16": {
 "sy": [
@@ -19128,7 +19157,8 @@
 "13:29/",
 "13:29/17"
 ],
-"note": "Plus \"who dwelt in it\"; \"lament over him\"."
+"note": "Plus \"who dwelt in it\"; \"lament over him\".",
+"second": true
 },
 "13:30": {
 "sy": [
@@ -20379,7 +20409,8 @@
 "14:26/18,19",
 "14:26/20"
 ],
-"note": "\"And everything he took\" omitted."
+"note": "\"And everything he took\" omitted.",
+"second": true
 },
 "14:27": {
 "sy": [
@@ -20530,7 +20561,8 @@
 "14:31/16",
 "14:31/17"
 ],
-"note": "\"With his fathers\" and mother's name omitted after burial."
+"note": "\"With his fathers\" and mother's name omitted after burial.",
+"second": true
 },
 "15:1": {
 "sy": [
@@ -20765,7 +20797,8 @@
 "15:7/14",
 "15:7/15"
 ],
-"note": "Notice of war between Abijam and Jeroboam omitted."
+"note": "Notice of war between Abijam and Jeroboam omitted.",
+"second": true
 },
 "15:8": {
 "sy": [
@@ -24829,7 +24862,8 @@
 "18:25/12",
 "18:25/13"
 ],
-"note": "Minus \"call on the name of your god but put no fire\" (14-19)."
+"note": "Minus \"call on the name of your god but put no fire\" (14-19).",
+"second": true
 },
 "18:26": {
 "sy": [
@@ -24945,7 +24979,7 @@
 "18:27/18",
 "18:27/18",
 "18:27/19",
-"18:27/",
+"18:27/20",
 "18:27/20",
 "18:27/",
 "18:27/21",
@@ -25051,7 +25085,8 @@
 "18:29/",
 "18:29/"
 ],
-"note": "Large plus: Elijah tells the prophets to stop so he can offer (17-30)."
+"note": "Large plus: Elijah tells the prophets to stop so he can offer (17-30).",
+"second": true
 },
 "18:30": {
 "sy": [
@@ -25378,7 +25413,8 @@
 "18:38/15,16",
 "18:38/17"
 ],
-"note": "Word-for-word."
+"note": "Word-for-word.",
+"second": true
 },
 "18:39": {
 "sy": [
@@ -26799,7 +26835,8 @@
 "20:6/19,20",
 "20:6/"
 ],
-"note": "Minus \"but\"; \"their eyes\" for \"your eyes\"; plus \"and come\"."
+"note": "Minus \"but\"; \"their eyes\" for \"your eyes\"; plus \"and come\".",
+"second": true
 },
 "20:7": {
 "sy": [
@@ -27705,7 +27742,7 @@
 "20:28/17",
 "20:28/18",
 "20:28/19",
-"20:28/",
+"20:28/19",
 "20:28/20",
 "20:28/21",
 "20:28/23",
@@ -27716,10 +27753,11 @@
 "20:28/29",
 "20:28/30",
 "20:28/31,32",
-"20:28/",
+"20:28/32",
 "20:28/33"
 ],
-"note": "\"prophet of God\" for \"man of God\"; minus first \"said\"; \"Edomites\"."
+"note": "'Prophet of God' for 'man of God'; first 'said' omitted; plus 'Ahab', 'to him', copula; 'Edomites'.",
+"second": true
 },
 "20:29": {
 "sy": [
@@ -27870,7 +27908,8 @@
 "20:31/26",
 "20:31/28"
 ],
-"note": "Plus \"drew near\"; minus \"house\"; sackcloth on heads and cords on loins (swapped); \"our soul\"."
+"note": "Plus \"drew near\"; minus \"house\"; sackcloth on heads and cords on loins (swapped); \"our soul\".",
+"second": true
 },
 "20:32": {
 "sy": [
@@ -27950,10 +27989,10 @@
 "w": [
 "20:33/1",
 "20:33/2",
+"20:33/2",
 "20:33/",
-"20:33/",
-"20:33/",
-"20:33/",
+"20:33/1",
+"20:33/2",
 "20:33/3",
 "20:33/4",
 "20:33/5",
@@ -27970,7 +28009,8 @@
 "20:33/",
 "20:33/18,19"
 ],
-"note": "Obscure: \"the man was a diviner\" for \"the men divined\"; plus \"Barhadad, and the men moved\"."
+"note": "Double rendering of 'the men divined' ('the man was a diviner' / 'the men crept'); plus 'Barhadad', 'with him'.",
+"second": true
 },
 "20:34": {
 "sy": [
@@ -29153,7 +29193,8 @@
 "21:19/26",
 "21:19/28"
 ],
-"note": "Minus the second \"and you shall speak to him saying\"; plus \"behold\"."
+"note": "Minus the second \"and you shall speak to him saying\"; plus \"behold\".",
+"second": true
 },
 "21:20": {
 "sy": [

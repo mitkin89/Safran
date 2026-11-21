@@ -687,7 +687,7 @@
 "1:19/14",
 "1:19/15",
 "1:19/16",
-"1:19/",
+"1:19/17",
 "1:19/17"
 ],
 "note": "Plus existential \"there is\"."
@@ -1316,7 +1316,8 @@
 "2:1/23",
 "2:1/24"
 ],
-"note": "Plus messenger formula \"to the sons of Israel: thus says the LORD, I\" and \"land of\"."
+"note": "Plus messenger formula \"to the sons of Israel: thus says the LORD, I\" and \"land of\".",
+"second": true
 },
 "2:2": {
 "sy": [
@@ -2814,7 +2815,7 @@
 "3:19/",
 "3:19/9",
 "3:19/10",
-"3:19/",
+"3:19/11",
 "3:19/11",
 "3:19/",
 "3:19/12",
@@ -2824,8 +2825,8 @@
 "3:19/14",
 "3:19/",
 "3:19/15",
-"3:19/",
-"3:19/",
+"3:19/15",
+"3:19/15",
 "3:19/16",
 "3:19/17",
 "3:19/18",
@@ -2833,7 +2834,8 @@
 "3:19/19",
 "3:19/20"
 ],
-"note": "Expanded speech: \"between me and you\", \"the king said: pass from there\"."
+"note": "Expanded speech: plus 'to him', 'to say', 'between me and you', 'the king'; 'pass from there' paraphrases has.",
+"second": true
 },
 "3:20": {
 "sy": [
@@ -2879,7 +2881,7 @@
 "3:20/12",
 "3:20/13",
 "3:20/14",
-"3:20/",
+"3:20/15",
 "3:20/15",
 "3:20/",
 "3:20/16",
@@ -4905,7 +4907,8 @@
 "5:20/7",
 "5:20/8"
 ],
-"note": "Clauses reordered."
+"note": "Clauses reordered.",
+"second": true
 },
 "5:21": {
 "sy": [
@@ -5460,7 +5463,8 @@
 "6:6/4",
 "6:6/5"
 ],
-"note": "Minus \"and the sons of Israel cried to the LORD\" (rendered once in 6:7)."
+"note": "Minus \"and the sons of Israel cried to the LORD\" (rendered once in 6:7).",
+"second": true
 },
 "6:7": {
 "sy": [
@@ -7713,7 +7717,8 @@
 "7:19/14",
 "7:19/15,16"
 ],
-"note": "Minus \"only\" and end of MT verse (blowing and breaking)."
+"note": "Minus \"only\" and end of MT verse (blowing and breaking).",
+"second": true
 },
 "7:20": {
 "sy": [
@@ -7914,8 +7919,8 @@
 "7:24/15",
 "7:24/16",
 "7:24/17",
-"7:24/",
-"7:24/",
+"7:24/18",
+"7:24/18",
 "7:24/19",
 "7:24/20",
 "7:24/21",
@@ -7928,7 +7933,8 @@
 "7:24/29",
 "7:24/31"
 ],
-"note": "Plus \"on the bank of\"; minus \"for them\"."
+"note": "'Which is on the bank of' interprets we'et before the Jordan; minus 'for them'.",
+"second": true
 },
 "7:25": {
 "sy": [
@@ -11091,7 +11097,7 @@
 "9:49/9",
 "9:49/10",
 "9:49/",
-"9:49/13,14",
+"9:49/13",
 "9:49/15,16",
 "9:49/17",
 "9:49/18",
@@ -11107,7 +11113,8 @@
 "9:49/25",
 "9:49/26"
 ],
-"note": "\"Stronghold\" rendered \"town\"; minus \"also all the people\"."
+"note": "'Stronghold' rendered 'town'; plus 'a pile', 'who were', second 'with fire', 'between'; minus 'also all the people', 'upon the stronghold', 'over them'.",
+"second": true
 },
 "9:50": {
 "sy": [
@@ -12704,10 +12711,11 @@
 "11:18/22",
 "11:18/23",
 "11:18/24",
-"11:18/",
+"11:18/24",
 "11:18/25"
 ],
-"note": "Minus \"came from the east to the land of Moab\"."
+"note": "Minus 'came from the east to the land of Moab'; past copula grouped with 'border'.",
+"second": true
 },
 "11:19": {
 "sy": [
@@ -12816,7 +12824,8 @@
 "11:21/17",
 "11:21/18"
 ],
-"note": "\"God of Israel\" rendered \"our God\"; minus \"and they smote them\" and end of verse."
+"note": "\"God of Israel\" rendered \"our God\"; minus \"and they smote them\" and end of verse.",
+"second": true
 },
 "11:22": {
 "sy": [
@@ -17765,7 +17774,8 @@
 "16:24/17,18",
 "16:24/20"
 ],
-"note": "\"when they saw him\"; העם not rendered."
+"note": "\"when they saw him\"; העם not rendered.",
+"second": true
 },
 "16:25": {
 "sy": [
@@ -18699,7 +18709,8 @@
 "18:2/29",
 "18:2/30"
 ],
-"note": "מקצותם אנשים בני חיל not rendered; את before the first הארץ not rendered."
+"note": "מקצותם אנשים בני חיל not rendered; את before the first הארץ not rendered.",
+"second": true
 },
 "18:3": {
 "sy": [
@@ -19286,7 +19297,8 @@
 "18:17/27",
 "18:17/28"
 ],
-"note": "\"came there\" for באו שמה; את not rendered; ܗܢܘܢ plus."
+"note": "\"came there\" for באו שמה; את not rendered; ܗܢܘܢ plus.",
+"second": true
 },
 "18:18": {
 "sy": [
@@ -19532,7 +19544,7 @@
 "18:24/",
 "18:24/9",
 "18:24/10",
-"18:24/",
+"18:24/11",
 "18:24/11",
 "18:24/12",
 "18:24/15",
@@ -20196,7 +20208,7 @@
 "19:9/11",
 "19:9/12",
 "19:9/14",
-"19:9/",
+"19:9/14",
 "19:9/15",
 "19:9/22",
 "19:9/23",
@@ -20207,7 +20219,8 @@
 "19:9/29",
 "19:9/30"
 ],
-"note": "Shortened: \"behold the day has turned, lodge here\"; לערב לינו נא הנה חנות היום and לדרככם not rendered."
+"note": "Shortened: 'behold the day has turned (ܦܢܐ ܠܗ, ethical dative), lodge here'; לערב לינו נא הנה חנות היום and לדרככם not rendered.",
+"second": true
 },
 "19:10": {
 "sy": [
@@ -20469,7 +20482,7 @@
 "19:16/11",
 "19:16/",
 "19:16/12",
-"19:16/14",
+"19:16/13,14",
 "19:16/14",
 "19:16/15",
 "19:16/",
@@ -20482,7 +20495,8 @@
 "19:16/",
 "19:16/"
 ],
-"note": "Plus at end: \"were very evil in their deeds\"; והוא not rendered."
+"note": "והוא גר rendered by ܘܥܡܪ ܗܘܐ; copula ܗܘܐ and 'of Benjamin' plus; plus at end 'their deeds were very evil'.",
+"second": true
 },
 "19:17": {
 "sy": [
@@ -21672,7 +21686,8 @@
 "20:16/17",
 "20:16/18"
 ],
-"note": "Syriac lacks מכל העם הזה שבע מאות איש בחור; \"slings at a storm\" (ܠܥܠܥܠܐ) for \"at a hair\"."
+"note": "Syriac lacks מכל העם הזה שבע מאות איש בחור; \"slings at a storm\" (ܠܥܠܥܠܐ) for \"at a hair\".",
+"second": true
 },
 "20:17": {
 "sy": [
@@ -21830,7 +21845,8 @@
 "20:21/14",
 "20:21/14"
 ],
-"note": "Syriac lacks MT 20:20; plus \"they drew up against Israel ... who fought with them\" (the Syriac v.20 is empty)."
+"note": "Syriac lacks MT 20:20; plus \"they drew up against Israel ... who fought with them\" (the Syriac v.20 is empty).",
+"second": true
 },
 "20:22": {
 "sy": [

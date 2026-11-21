@@ -4940,12 +4940,12 @@
 "5:21/",
 "5:21/7",
 "5:21/8",
-"5:21/",
+"5:21/9",
 "5:21/9",
 "5:21/10",
 "5:21/11",
 "5:21/12",
-"5:21/",
+"5:21/13",
 "5:21/13",
 "5:21/14",
 "5:21/15"
@@ -5177,8 +5177,8 @@
 ],
 "w": [
 "5:28/4",
-"5:28/",
-"5:28/",
+"5:28/5,6",
+"5:28/5,6",
 "5:28/7",
 "5:28/8",
 "5:28/9",
@@ -5191,7 +5191,8 @@
 "5:28/15",
 "5:28/16"
 ],
-"note": "Opening 'they are fat, sleek' not rendered; 'evil ones' for 'needy'; uncertain mapping of 'passed over justice'."
+"note": "'They are fat, sleek' not rendered; 'passed over justice' stands for 'avru divre ra' (uncertain); plus negation; 'evil ones' for 'needy'.",
+"second": true
 },
 "5:29": {
 "sy": [
@@ -7384,7 +7385,8 @@
 "7:28/17",
 "7:28/17"
 ],
-"note": "First half of MT verse (say to them, this nation...) missing in Syriac."
+"note": "First half of MT verse (say to them, this nation...) missing in Syriac.",
+"second": true
 },
 "7:29": {
 "sy": [
@@ -7663,7 +7665,8 @@
 "8:1/24",
 "8:1/24"
 ],
-"note": "Ketiv/Qere both mapped; \"their princes/priests/prophets\" with suffixes."
+"note": "Ketiv/Qere both mapped; \"their princes/priests/prophets\" with suffixes.",
+"second": true
 },
 "8:2": {
 "sy": [
@@ -14203,7 +14206,8 @@
 "15:13/7",
 "15:13/8"
 ],
-"note": "\"Not for price\" not rendered; \"all your border\" moved forward."
+"note": "\"Not for price\" not rendered; \"all your border\" moved forward.",
+"second": true
 },
 "15:14": {
 "sy": [
@@ -18353,9 +18357,9 @@
 "20:10/10",
 "20:10/11",
 "20:10/",
-"20:10/",
-"20:10/",
-"20:10/",
+"20:10/12,13",
+"20:10/12,13",
+"20:10/12,13",
 "20:10/7",
 "20:10/8",
 "20:10/16",
@@ -18367,7 +18371,8 @@
 "20:10/19",
 "20:10/20"
 ],
-"note": "\"Gathering from around\" for terror on every side; plus \"they say with their mouth and hate me in their heart\"."
+"note": "'Gathering from around' for magor; 'hate me in their heart' paraphrases shomre tsal'i; plus 'they say', 'with their mouth'.",
+"second": true
 },
 "20:11": {
 "sy": [
@@ -21657,16 +21662,17 @@
 "23:33/12",
 "23:33/13",
 "23:33/14",
-"23:33/",
-"23:33/",
-"23:33/",
+"23:33/15",
+"23:33/16",
+"23:33/16",
 "23:33/17",
 "23:33/",
 "23:33/18,19",
 "23:33/20",
 "23:33/21"
 ],
-"note": "'What burden' replaced by 'this is the word of the LORD' (cf. LXX)."
+"note": "et-ma massa read as 'you: this is the word' (cf. LXX); plus 'to you', 'of the LORD'.",
+"second": true
 },
 "23:34": {
 "sy": [
@@ -21837,7 +21843,8 @@
 "23:38/18,19",
 "23:38/20"
 ],
-"note": "Lakhen and repeated massa YHWH omitted."
+"note": "Lakhen and repeated massa YHWH omitted.",
+"second": true
 },
 "23:39": {
 "sy": [
@@ -23611,10 +23618,10 @@
 "25:33/10",
 "25:33/11",
 "25:33/12",
-"25:33/",
-"25:33/",
-"25:33/",
-"25:33/",
+"25:33/11",
+"25:33/12",
+"25:33/11",
+"25:33/12",
 "25:33/",
 "25:33/13",
 "25:33/14",
@@ -23628,7 +23635,8 @@
 "25:33/20",
 "25:33/21"
 ],
-"note": "Yissafdu expanded 'not wail, dance or weep for them'; plus 'but'."
+"note": "lo yissafdu rendered threefold (wail, mourn, weep), grouped; plus 'for them', 'but'.",
+"second": true
 },
 "25:34": {
 "sy": [
@@ -27365,7 +27373,8 @@
 "29:25/23",
 "29:25/24,26"
 ],
-"note": "Lemor ya'an asher attah omitted."
+"note": "Lemor ya'an asher attah omitted.",
+"second": true
 },
 "29:26": {
 "sy": [
@@ -27999,9 +28008,9 @@
 "30:10/20",
 "30:10/21",
 "30:10/22",
-"30:10/",
+"30:10/22",
 "30:10/23",
-"30:10/",
+"30:10/23",
 "30:10/",
 "30:10/24",
 "30:10/",
@@ -28012,7 +28021,8 @@
 "30:10/",
 "30:10/"
 ],
-"note": "Plus 'and rest'; verse-opening repeated at end (plus)."
+"note": "Double rendering of sha'anan; la nehwe = en; plus 'to him'; verse opening repeated at end (plus).",
+"second": true
 },
 "30:11": {
 "sy": [
@@ -28324,7 +28334,8 @@
 "30:18/16,17",
 "30:18/18"
 ],
-"note": "Plus 'and I will make him as of old'; armon rendered 'temple'."
+"note": "Plus 'and I will make him as of old'; armon rendered 'temple'.",
+"second": true
 },
 "30:19": {
 "sy": [
@@ -32091,7 +32102,8 @@
 "33:7/",
 "33:7/"
 ],
-"note": "Plus \"and I will do good to them as at the beginning\"."
+"note": "Plus \"and I will do good to them as at the beginning\".",
+"second": true
 },
 "33:8": {
 "sy": [
@@ -33363,7 +33375,8 @@
 "34:11/12,13",
 "34:11/14"
 ],
-"note": "\"Enslaved the freedmen and made them slaves\"; maidservants not rendered."
+"note": "\"Enslaved the freedmen and made them slaves\"; maidservants not rendered.",
+"second": true
 },
 "34:12": {
 "sy": [
@@ -35010,7 +35023,8 @@
 "36:7/18",
 "36:7/19"
 ],
-"note": "Plus \"and the LORD will relent from the evil he spoke against them\"."
+"note": "Plus \"and the LORD will relent from the evil he spoke against them\".",
+"second": true
 },
 "36:8": {
 "sy": [
@@ -36746,7 +36760,8 @@
 "37:17/20",
 "37:17/21"
 ],
-"note": "Plus \"the king said: how did it come out?\"."
+"note": "Plus \"the king said: how did it come out?\".",
+"second": true
 },
 "37:18": {
 "sy": [
@@ -39780,7 +39795,8 @@
 "41:4/4",
 "41:4/6"
 ],
-"note": "Clauses reversed: \"no one heard\" placed first; \"after Gedaliah was killed\"."
+"note": "Clauses reversed: \"no one heard\" placed first; \"after Gedaliah was killed\".",
+"second": true
 },
 "41:5": {
 "sy": [
@@ -40084,7 +40100,8 @@
 "41:10/33",
 "41:10/34"
 ],
-"note": "King's daughters and \"all the people remaining in Mizpah\" not rendered."
+"note": "King's daughters and \"all the people remaining in Mizpah\" not rendered.",
+"second": true
 },
 "41:11": {
 "sy": [
@@ -40492,7 +40509,8 @@
 "42:2/24",
 "42:2/25"
 ],
-"note": "\"We ask of you\" for \"let our supplication fall\"; \"for all this remnant\" and \"the prophet\" not rendered."
+"note": "\"We ask of you\" for \"let our supplication fall\"; \"for all this remnant\" and \"the prophet\" not rendered.",
+"second": true
 },
 "42:3": {
 "sy": [
@@ -41490,12 +41508,13 @@
 "43:5/7",
 "43:5/8,9",
 "43:5/10",
-"43:5/",
+"43:5/10",
 "43:5/",
 "43:5/",
 "43:5/11"
 ],
-"note": "\"The remnant that remained of the house of Judah\"; return-from-the-nations clause not rendered."
+"note": "'The remnant that remained' for she'erit; plus 'of the house of'; return-from-the-nations clause not rendered.",
+"second": true
 },
 "43:6": {
 "sy": [
@@ -42180,7 +42199,8 @@
 "44:9/21",
 "44:9/22"
 ],
-"note": "\"Your evils and your wives' evils\" not rendered; \"their wives\" for נשיו."
+"note": "\"Your evils and your wives' evils\" not rendered; \"their wives\" for נשיו.",
+"second": true
 },
 "44:10": {
 "sy": [
@@ -42311,7 +42331,8 @@
 "44:12/30",
 "44:12/31"
 ],
-"note": "Condensed: \"shall die by sword, famine and pestilence\"; \"from small to great\" and repetitions not rendered."
+"note": "Condensed: \"shall die by sword, famine and pestilence\"; \"from small to great\" and repetitions not rendered.",
+"second": true
 },
 "44:13": {
 "sy": [
@@ -43537,7 +43558,8 @@
 "46:3/4",
 "46:3/5"
 ],
-"note": "Plus \"thus says the LORD mighty God of Israel\"."
+"note": "Plus \"thus says the LORD mighty God of Israel\".",
+"second": true
 },
 "46:4": {
 "sy": [
@@ -45863,7 +45885,8 @@
 "48:33/13",
 "48:33/15"
 ],
-"note": "Karmel taken as place; hedad shouts rendered 'yhy yhy' with pluses."
+"note": "Karmel taken as place; hedad shouts rendered 'yhy yhy' with pluses.",
+"second": true
 },
 "48:34": {
 "sy": [
@@ -45972,7 +45995,8 @@
 "48:36/17",
 "48:36/18"
 ],
-"note": "Second half on Kir-heres omitted; 'flutes' as 'harp'."
+"note": "Second half on Kir-heres omitted; 'flutes' as 'harp'.",
+"second": true
 },
 "48:37": {
 "sy": [
@@ -46285,7 +46309,8 @@
 "48:45/17",
 "48:45/18"
 ],
-"note": "First half (in the shadow of Heshbon...) omitted; mibbein read as 'from the city'."
+"note": "First half (in the shadow of Heshbon...) omitted; mibbein read as 'from the city'.",
+"second": true
 },
 "48:46": {
 "sy": [
@@ -46984,7 +47009,8 @@
 "49:16/18",
 "49:16/19"
 ],
-"note": "Syriac adds clause from Obadiah 3-4 'and he said in his heart... set your nest among the stars'."
+"note": "Syriac adds clause from Obadiah 3-4 'and he said in his heart... set your nest among the stars'.",
+"second": true
 },
 "49:17": {
 "sy": [
@@ -47404,7 +47430,8 @@
 "49:28/18,19",
 "49:28/20"
 ],
-"note": "Heading 'to Kedar and Hazor whom Nebuchadnezzar smote' not rendered."
+"note": "Heading 'to Kedar and Hazor whom Nebuchadnezzar smote' not rendered.",
+"second": true
 },
 "49:29": {
 "sy": [
@@ -49999,7 +50026,8 @@
 "51:12/14",
 "51:12/23"
 ],
-"note": "'Set up ambushes' replaced by 'sink her in waters'; parts compressed."
+"note": "'Set up ambushes' replaced by 'sink her in waters'; parts compressed.",
+"second": true
 },
 "51:13": {
 "sy": [
@@ -51125,9 +51153,9 @@
 "51:46/6",
 "51:46/7",
 "51:46/8",
-"51:46/",
 "51:46/9",
-"51:46/",
+"51:46/9",
+"51:46/9",
 "51:46/10",
 "51:46/11",
 "51:46/12",
@@ -51141,7 +51169,8 @@
 "51:46/17",
 "51:46/18"
 ],
-"note": "Syriac expands 'another report' and 'there shall be'."
+"note": "'In that year' with proleptic pronoun and demonstrative grouped; plus 'another', 'there shall be', 'shall arise'.",
+"second": true
 },
 "51:47": {
 "sy": [
@@ -51803,7 +51832,8 @@
 "51:64/16",
 "51:64/17"
 ],
-"note": "First part of MT 51:64 (thus shall Babylon sink...) omitted."
+"note": "First part of MT 51:64 (thus shall Babylon sink...) omitted.",
+"second": true
 },
 "52:1": {
 "sy": [
@@ -52432,7 +52462,8 @@
 "52:17/",
 "52:17/21"
 ],
-"note": "'Which were in the house of the Lord' (first) omitted; Syriac adds 'and carried it'."
+"note": "'Which were in the house of the Lord' (first) omitted; Syriac adds 'and carried it'.",
+"second": true
 },
 "52:18": {
 "sy": [
@@ -52461,7 +52492,8 @@
 "52:18/17",
 "52:18/18"
 ],
-"note": "Utensil names approximate."
+"note": "Utensil names approximate.",
+"second": true
 },
 "52:19": {
 "sy": [
@@ -52494,7 +52526,8 @@
 "52:19/22",
 "52:19/23"
 ],
-"note": "Syriac lists an extra utensil; utensil names approximate."
+"note": "Syriac lists an extra utensil; utensil names approximate.",
+"second": true
 },
 "52:20": {
 "sy": [
@@ -52594,7 +52627,8 @@
 "52:21/17",
 "52:21/17"
 ],
-"note": "Syriac adds 'these two', 'of them' and 'round about'."
+"note": "Syriac adds 'these two', 'of them' and 'round about'.",
+"second": true
 },
 "52:22": {
 "sy": [

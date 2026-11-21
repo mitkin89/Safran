@@ -378,7 +378,8 @@
 "1:9/15",
 "1:9/16"
 ],
-"note": "Adds \"that you spoke\" and \"this\"."
+"note": "Adds \"that you spoke\" and \"this\".",
+"second": true
 },
 "1:10": {
 "sy": [
@@ -475,7 +476,7 @@
 "1:11/",
 "1:11/16",
 "1:11/17",
-"1:11/21",
+"1:11/18,21",
 "1:11/22",
 "1:11/",
 "1:11/19",
@@ -492,7 +493,8 @@
 "1:11/32",
 "1:11/33"
 ],
-"note": "Adds \"to live in them\"."
+"note": "Adds 'to live in them'; ܘܠܐ covers וגם ... לא.",
+"second": true
 },
 "1:12": {
 "sy": [
@@ -545,7 +547,8 @@
 "1:12/19",
 "1:12/20"
 ],
-"note": "Adds \"also what you did not ask I give you\"."
+"note": "Adds \"also what you did not ask I give you\".",
+"second": true
 },
 "1:13": {
 "sy": [
@@ -588,7 +591,8 @@
 "1:13/",
 "1:13/12"
 ],
-"note": "Reads \"came to the great high place in Gibeon, east of Jerusalem\" instead of \"came from the high place ... to Jerusalem\"."
+"note": "Reads \"came to the great high place in Gibeon, east of Jerusalem\" instead of \"came from the high place ... to Jerusalem\".",
+"second": true
 },
 "1:14": {
 "sy": [
@@ -693,8 +697,8 @@
 "ܒܕܡ̈ܝܐ"
 ],
 "w": [
-"1:16/10",
-"1:16/10",
+"1:16/1,10",
+"1:16/1,10",
 "1:16/2",
 "1:16/4",
 "1:16/5",
@@ -709,7 +713,8 @@
 "1:16/9",
 "1:16/11"
 ],
-"note": "Kue rendered \"city of the Apulians\"."
+"note": "Kue rendered 'city of the Apulians'; ܘܙܒܢܝܢ ܗܘܘ freely covers ומוצא and יקחו.",
+"second": true
 },
 "1:17": {
 "sy": [
@@ -922,8 +927,8 @@
 "2:3/11",
 "2:3/12",
 "2:3/13",
-"2:3/",
-"2:3/",
+"2:3/14",
+"2:3/14",
 "2:3/15",
 "2:3/16",
 "2:3/",
@@ -942,7 +947,8 @@
 "2:3/",
 "2:3/27"
 ],
-"note": "Showbread \"row\" rendered \"to light lamps\"; adds \"decreed\"."
+"note": "ומערכת rendered 'to light lamps' (substitution, mapped to 14); adds 'to offer' and 'decreed'.",
+"second": true
 },
 "2:4": {
 "sy": [
@@ -979,7 +985,8 @@
 "2:4/9",
 "2:4/10"
 ],
-"note": "\"Above all gods\" rendered \"above all kings\"; adds \"good\"."
+"note": "\"Above all gods\" rendered \"above all kings\"; adds \"good\".",
+"second": true
 },
 "2:5": {
 "sy": [
@@ -1433,7 +1440,7 @@
 "2:13/",
 "2:13/21",
 "2:13/22,23",
-"2:13/",
+"2:13/23",
 "2:13/24",
 "2:13/25",
 "2:13/26",
@@ -1450,7 +1457,8 @@
 "2:13/34",
 "2:13/35"
 ],
-"note": "Adds \"a widow\" and \"from before the Lord\"; \"Tyrian\" rendered \"craftsman\"; engraving rendered \"keys for gates\"."
+"note": "Adds 'a widow' and 'from before the Lord'; 'Tyrian' rendered 'craftsman'; כל פתוח rendered 'keys for gates' (פתוח taken as פתח).",
+"second": true
 },
 "2:14": {
 "sy": [
@@ -1729,7 +1737,8 @@
 "3:3/16",
 "3:3/15"
 ],
-"note": "\"First measure\" rendered \"holy measure\"; adds \"height thirty cubits\"."
+"note": "\"First measure\" rendered \"holy measure\"; adds \"height thirty cubits\".",
+"second": true
 },
 "3:4": {
 "sy": [
@@ -1863,7 +1872,7 @@
 "3:7/",
 "3:7/",
 "3:7/",
-"3:7/5",
+"3:7/6",
 "3:7/7",
 "3:7/8",
 "3:7/",
@@ -1873,7 +1882,8 @@
 "3:7/10",
 "3:7/"
 ],
-"note": "Beams and doors rendered \"foundations and colonnades\"; cherubim rendered \"likeness of palms and lilies\"."
+"note": "ܐܣܘܗܝ 'its walls' = וקירותיו (not ספים), ܦܪܘܣܛܕܘܗܝ = ודלתותיו; beams/thresholds recast as 'from the front of the portico'; cherubim rendered 'palms and lilies'.",
+"second": true
 },
 "3:8": {
 "sy": [
@@ -1925,11 +1935,12 @@
 ],
 "w": [
 "3:9/",
-"3:9/",
+"3:9/6",
 "3:9/7",
 "3:9/8"
 ],
-"note": "\"Nails' weight\" omitted; \"upper chambers\" rendered \"the altar\"."
+"note": "Nails' weight omitted; העליות replaced by 'the altar' (substitution in the same slot).",
+"second": true
 },
 "3:10": {
 "sy": [
@@ -2427,7 +2438,8 @@
 "4:6/12",
 "4:6/13"
 ],
-"note": "Lily blossom and 3000 baths omitted; adds \"beautiful\"; then anticipates MT 4:6 (\"ten basins ... to carry the altar of burnt offering\")."
+"note": "Lily blossom and 3000 baths omitted; adds \"beautiful\"; then anticipates MT 4:6 (\"ten basins ... to carry the altar of burnt offering\").",
+"second": true
 },
 "4:6": {
 "sy": [
@@ -2692,7 +2704,8 @@
 "5:1/23",
 "5:1/24,25"
 ],
-"note": "Adds \"he gathered them ... and locked them\"."
+"note": "Adds \"he gathered them ... and locked them\".",
+"second": true
 },
 "5:2": {
 "sy": [
@@ -2732,7 +2745,7 @@
 "5:2/2",
 "5:2/2",
 "5:2/3",
-"5:2/",
+"5:2/8",
 "5:2/5",
 "5:2/6",
 "5:2/9",
@@ -2759,7 +2772,8 @@
 "5:2/24",
 "5:2/25"
 ],
-"note": "Adds \"and they came to King Solomon\"."
+"note": "Adds 'and they came to King Solomon'; כל transposed before 'elders'.",
+"second": true
 },
 "5:3": {
 "sy": [
@@ -2792,7 +2806,8 @@
 "5:3/9",
 "5:3/10"
 ],
-"note": "\"All the men of Israel\" omitted; adds \"in the month of Ab\"."
+"note": "\"All the men of Israel\" omitted; adds \"in the month of Ab\".",
+"second": true
 },
 "5:4": {
 "sy": [
@@ -3049,13 +3064,13 @@
 "5:10/",
 "5:10/8",
 "5:10/",
+"5:10/9",
+"5:10/9",
+"5:10/9",
 "5:10/",
-"5:10/9",
-"5:10/9",
 "5:10/",
 "5:10/",
 "5:10/10,11",
-"5:10/",
 "5:10/12",
 "5:10/13,14",
 "5:10/15",
@@ -3065,7 +3080,8 @@
 "5:10/",
 "5:10/17"
 ],
-"note": "Horeb rendered \"Mount Sinai\"; adds \"of stone\" and \"land of\"."
+"note": "Horeb rendered 'from Mount Sinai' (group); ܕܝܗܒ = אשר כרת, ܕܝܬܩܐ is an explicating plus; adds 'of stone', 'land of'.",
+"second": true
 },
 "5:11": {
 "sy": [
@@ -3300,7 +3316,8 @@
 "6:5/18",
 "6:5/19"
 ],
-"note": "Clause on choosing a man as prince (MT 6:5b) omitted."
+"note": "Clause on choosing a man as prince (MT 6:5b) omitted.",
+"second": true
 },
 "6:6": {
 "sy": [
@@ -3321,7 +3338,8 @@
 "6:6/10",
 "6:6/11"
 ],
-"note": "Choice of Jerusalem (MT 6:6a) omitted; adds \"king\"."
+"note": "Choice of Jerusalem (MT 6:6a) omitted; adds \"king\".",
+"second": true
 },
 "6:7": {
 "sy": [
@@ -3508,7 +3526,8 @@
 "6:11/",
 "6:11/"
 ],
-"note": "\"Set the ark\" rendered \"prepared a place for the ark\"; covenant \"given to our fathers when he brought them out of Egypt\"."
+"note": "\"Set the ark\" rendered \"prepared a place for the ark\"; covenant \"given to our fathers when he brought them out of Egypt\".",
+"second": true
 },
 "6:12": {
 "sy": [
@@ -3620,7 +3639,8 @@
 "6:13/29",
 "6:13/29"
 ],
-"note": "Laver rendered \"pillar\"; dimensions altered (breadth two cubits, height clause dropped); adds \"and all the people of Israel saw him\"."
+"note": "Laver rendered \"pillar\"; dimensions altered (breadth two cubits, height clause dropped); adds \"and all the people of Israel saw him\".",
+"second": true
 },
 "6:14": {
 "sy": [
@@ -3689,7 +3709,8 @@
 "6:14/16",
 "6:14/17"
 ],
-"note": "Expanded: \"you who dwell in heaven above and your will is done on earth below\"; adds \"perfectly\"."
+"note": "Expanded: \"you who dwell in heaven above and your will is done on earth below\"; adds \"perfectly\".",
+"second": true
 },
 "6:15": {
 "sy": [
@@ -3961,7 +3982,8 @@
 "6:20/14",
 "6:20/15"
 ],
-"note": "\"Your eyes open\" rendered \"be ready to hear the voice of the prayer of whoever comes and prays\"."
+"note": "\"Your eyes open\" rendered \"be ready to hear the voice of the prayer of whoever comes and prays\".",
+"second": true
 },
 "6:21": {
 "sy": [
@@ -4431,13 +4453,14 @@
 "6:30/16",
 "6:30/17",
 "6:30/19",
-"6:30/",
+"6:30/19",
 "6:30/18",
 "6:30/20,21",
 "6:30/",
 "6:30/22,23"
 ],
-"note": "\"Dwelling place\" omitted; adds \"their sins\"."
+"note": "'Dwelling place' omitted; adds 'their sins'; participle + enclitic ܐܢܬ = ידעת.",
+"second": true
 },
 "6:31": {
 "sy": [
@@ -4539,7 +4562,8 @@
 "6:32/21,22",
 "6:32/23"
 ],
-"note": "Adds \"that they hear of the goodness of your name\" and \"on that day\"."
+"note": "Adds \"that they hear of the goodness of your name\" and \"on that day\".",
+"second": true
 },
 "6:33": {
 "sy": [
@@ -4746,8 +4770,8 @@
 "ܘܐܥܘܠܢ"
 ],
 "w": [
-"6:37/",
-"6:37/",
+"6:37/9",
+"6:37/10",
 "6:37/8",
 "6:37/11",
 "6:37/12",
@@ -4756,7 +4780,8 @@
 "6:37/15",
 "6:37/16"
 ],
-"note": "\"Bring back to their heart\" omitted; adds \"and pray before you\"."
+"note": "'Bring back to their heart' omitted; ܘܢܨܠܘܢ ܩܕܡܝܟ = והתחננו אליך transposed before ושבו.",
+"second": true
 },
 "6:38": {
 "sy": [
@@ -5055,9 +5080,9 @@
 "7:3/9",
 "7:3/10",
 "7:3/11",
-"7:3/",
 "7:3/12",
-"7:3/",
+"7:3/12",
+"7:3/13",
 "7:3/13",
 "7:3/14",
 "7:3/15",
@@ -5072,7 +5097,8 @@
 "7:3/21,22",
 "7:3/23"
 ],
-"note": "Adds \"saying one to another\"; glory \"filled the house\" for \"upon the house\"."
+"note": "Adds 'saying one to another'; glory 'filled the house'; separated ܥܠ prepositions grouped with אפים / ארצה.",
+"second": true
 },
 "7:4": {
 "sy": [
@@ -5203,7 +5229,7 @@
 "7:6/21",
 "7:6/22,23",
 "7:6/22,23",
-"7:6/",
+"7:6/22,23",
 "7:6/",
 "7:6/",
 "7:6/25",
@@ -5211,7 +5237,8 @@
 "7:6/26",
 "7:6/27"
 ],
-"note": "Expanded: Levites \"praising before the Lord and saying ... good\"; \"which David the king made\" omitted; trumpets rendered \"horns, curved and straight\"."
+"note": "Expanded Levites' praise; 'which David the king made' and בידם omitted; מחצצרים = 'praising with horns' (adjectives 'curved and straight' plus).",
+"second": true
 },
 "7:7": {
 "sy": [
@@ -5276,7 +5303,8 @@
 "7:7/31",
 "7:7/"
 ],
-"note": "Adds \"was small\"."
+"note": "Adds \"was small\".",
+"second": true
 },
 "7:8": {
 "sy": [
@@ -5358,7 +5386,8 @@
 "7:9/",
 "7:9/"
 ],
-"note": "Recast: \"seven days of feast and seven days of the dedication of the house, fourteen days\"; eighth-day assembly omitted."
+"note": "Recast: \"seven days of feast and seven days of the dedication of the house, fourteen days\"; eighth-day assembly omitted.",
+"second": true
 },
 "7:10": {
 "sy": [
@@ -5425,7 +5454,8 @@
 "7:10/20",
 "7:10/21"
 ],
-"note": "Date \"23rd\" rendered \"full moon of Tishri\"; adds \"the people blessed the king\" and \"praising\"."
+"note": "Date \"23rd\" rendered \"full moon of Tishri\"; adds \"the people blessed the king\" and \"praising\".",
+"second": true
 },
 "7:11": {
 "sy": [
@@ -5464,7 +5494,7 @@
 "7:11/8",
 "7:11/10",
 "7:11/11,12,13",
-"7:11/11",
+"7:11/11,12,13",
 "7:11/14",
 "7:11/15",
 "7:11/16",
@@ -5474,7 +5504,8 @@
 "7:11/19",
 "7:11/19"
 ],
-"note": "Word-for-word with periphrasis."
+"note": "Word-for-word with periphrasis; plus 'and it came to pass when', 'king', 'to build'.",
+"second": true
 },
 "7:12": {
 "sy": [
@@ -5665,11 +5696,11 @@
 "7:16/5",
 "7:16/6",
 "7:16/7",
-"7:16/",
+"7:16/9",
 "7:16/8",
 "7:16/10,11",
 "7:16/12",
-"7:16/",
+"7:16/13",
 "7:16/",
 "7:16/14",
 "7:16/",
@@ -5677,7 +5708,8 @@
 "7:16/16",
 "7:16/17"
 ],
-"note": "\"My eyes and my heart\" rendered \"my good works and my will\"; \"sanctified\" omitted."
+"note": "שם rendered ܒܗ; 'my eyes' replaced by 'my (good) works', 'my heart' by 'my will'; 'sanctified' omitted.",
+"second": true
 },
 "7:17": {
 "sy": [
@@ -5765,7 +5797,8 @@
 "7:18/",
 "7:18/15"
 ],
-"note": "\"Ruler in Israel\" rendered \"sitting on the kingdom of Israel\"."
+"note": "\"Ruler in Israel\" rendered \"sitting on the kingdom of Israel\".",
+"second": true
 },
 "7:19": {
 "sy": [
@@ -6090,7 +6123,8 @@
 "8:5/8",
 "8:5/9"
 ],
-"note": "Minus \"fortified cities, walls, doors and bar\"."
+"note": "Minus \"fortified cities, walls, doors and bar\".",
+"second": true
 },
 "8:6": {
 "sy": [
@@ -6137,7 +6171,8 @@
 "8:6/27",
 "8:6/28"
 ],
-"note": "Minus Baalath."
+"note": "Minus Baalath.",
+"second": true
 },
 "8:7": {
 "sy": [
@@ -6527,7 +6562,8 @@
 "8:14/",
 "8:14/"
 ],
-"note": "Minus \"he appointed divisions\"; \"man of God\" replaced by \"king of Israel who stood in the kingdom before the Lord\"."
+"note": "Minus \"he appointed divisions\"; \"man of God\" replaced by \"king of Israel who stood in the kingdom before the Lord\".",
+"second": true
 },
 "8:15": {
 "sy": [
@@ -7138,7 +7174,8 @@
 "9:11/18",
 "9:11/19"
 ],
-"note": "Minus \"the king made of the algum wood\", \"harps\" and \"before\"."
+"note": "Minus \"the king made of the algum wood\", \"harps\" and \"before\".",
+"second": true
 },
 "9:12": {
 "sy": [
@@ -7171,13 +7208,13 @@
 "9:12/3",
 "9:12/4",
 "9:12/5",
-"9:12/6",
 "9:12/7",
-"9:12/8,9,10",
+"9:12/8,9",
+"9:12/9,10",
 "9:12/11",
 "9:12/11",
 "9:12/12",
-"9:12/13",
+"9:12/12,13",
 "9:12/",
 "9:12/",
 "9:12/",
@@ -7189,7 +7226,8 @@
 "9:12/19",
 "9:12/20"
 ],
-"note": "\"which she brought to the king\" replaced by \"which he gave her, all that was in her heart\"."
+"note": "ܟܘܠ = כל (not את); 'which she brought to the king' replaced by 'which he gave her, all that was in her heart'.",
+"second": true
 },
 "9:13": {
 "sy": [
@@ -7852,7 +7890,8 @@
 "10:2/2",
 "10:2/3"
 ],
-"note": "Only \"when Jeroboam heard\"; rest of verse absent."
+"note": "Only \"when Jeroboam heard\"; rest of verse absent.",
+"second": true
 },
 "10:3": {
 "sy": [
@@ -8043,7 +8082,8 @@
 "10:7/18",
 "10:7/"
 ],
-"note": "Plus \"good and labourers\" and \"of your life\"."
+"note": "Plus \"good and labourers\" and \"of your life\".",
+"second": true
 },
 "10:8": {
 "sy": [
@@ -8350,7 +8390,8 @@
 "10:14/",
 "10:14/17"
 ],
-"note": "\"I will make heavy\" rendered \"my father made heavy\"."
+"note": "\"I will make heavy\" rendered \"my father made heavy\".",
+"second": true
 },
 "10:15": {
 "sy": [
@@ -8676,7 +8717,7 @@
 "11:3/5",
 "11:3/6",
 "11:3/7",
-"11:3/",
+"11:3/12",
 "11:3/",
 "11:3/12",
 "11:3/8",
@@ -8688,7 +8729,8 @@
 "11:3/13",
 "11:3/"
 ],
-"note": "= MT 11:3; plus \"house of Benjamin\" and \"the rest of the people\"; minus \"in Judah\"."
+"note": "= MT 11:3; plus 'house of' and 'the rest of the people'; minus 'in Judah'; ܘܥܠ before Benjamin grouped with ובנימן.",
+"second": true
 },
 "10:24": {
 "sy": [
@@ -8741,7 +8783,8 @@
 "11:4/",
 "11:4/"
 ],
-"note": "= MT 11:4; minus \"with your brothers\" and \"to Jeroboam\"."
+"note": "= MT 11:4; minus \"with your brothers\" and \"to Jeroboam\".",
+"second": true
 },
 "10:25": {
 "sy": [
@@ -8776,7 +8819,8 @@
 "11:4/",
 "11:4/"
 ],
-"note": "Plus from 1 Kgs 12:25 (Jeroboam builds Shechem and Penuel), no MT Chronicles equivalent."
+"note": "Plus from 1 Kgs 12:25 (Jeroboam builds Shechem and Penuel), no MT Chronicles equivalent.",
+"second": true
 },
 "10:26": {
 "sy": [
@@ -8799,7 +8843,8 @@
 "11:4/",
 "11:4/"
 ],
-"note": "Plus from 1 Kgs 12:26."
+"note": "Plus from 1 Kgs 12:26.",
+"second": true
 },
 "10:27": {
 "sy": [
@@ -8852,7 +8897,8 @@
 "11:4/",
 "11:4/"
 ],
-"note": "Plus from 1 Kgs 12:27."
+"note": "Plus from 1 Kgs 12:27.",
+"second": true
 },
 "10:28": {
 "sy": [
@@ -8907,7 +8953,8 @@
 "11:4/",
 "11:4/"
 ],
-"note": "Plus from 1 Kgs 12:28 (golden calves)."
+"note": "Plus from 1 Kgs 12:28 (golden calves).",
+"second": true
 },
 "10:29": {
 "sy": [
@@ -8928,7 +8975,8 @@
 "11:4/",
 "11:4/"
 ],
-"note": "Plus from 1 Kgs 12:29."
+"note": "Plus from 1 Kgs 12:29.",
+"second": true
 },
 "10:30": {
 "sy": [
@@ -8957,7 +9005,8 @@
 "11:4/",
 "11:4/"
 ],
-"note": "Plus from 1 Kgs 12:30."
+"note": "Plus from 1 Kgs 12:30.",
+"second": true
 },
 "10:34": {
 "sy": [
@@ -8986,7 +9035,8 @@
 "11:4/",
 "11:4/"
 ],
-"note": "Plus from 1 Kgs 13:34."
+"note": "Plus from 1 Kgs 13:34.",
+"second": true
 },
 "11:1": {
 "sy": [
@@ -9007,7 +9057,8 @@
 "11:4/",
 "11:4/"
 ],
-"note": "Plus from 1 Kgs 14 (Abijah son of Jeroboam, Ahijah's oracle); no MT Chronicles equivalent."
+"note": "Plus from 1 Kgs 14 (Abijah son of Jeroboam, Ahijah's oracle); no MT Chronicles equivalent.",
+"second": true
 },
 "11:2": {
 "sy": [
@@ -9078,7 +9129,8 @@
 "11:4/",
 "11:4/"
 ],
-"note": "Plus from 1 Kgs 14 (Abijah son of Jeroboam, Ahijah's oracle); no MT Chronicles equivalent."
+"note": "Plus from 1 Kgs 14 (Abijah son of Jeroboam, Ahijah's oracle); no MT Chronicles equivalent.",
+"second": true
 },
 "11:3": {
 "sy": [
@@ -9103,7 +9155,8 @@
 "11:4/",
 "11:4/"
 ],
-"note": "Plus from 1 Kgs 14 (Abijah son of Jeroboam, Ahijah's oracle); no MT Chronicles equivalent."
+"note": "Plus from 1 Kgs 14 (Abijah son of Jeroboam, Ahijah's oracle); no MT Chronicles equivalent.",
+"second": true
 },
 "11:5": {
 "sy": [
@@ -9158,7 +9211,8 @@
 "11:4/",
 "11:4/"
 ],
-"note": "Plus from 1 Kgs 14 (Abijah son of Jeroboam, Ahijah's oracle); no MT Chronicles equivalent."
+"note": "Plus from 1 Kgs 14 (Abijah son of Jeroboam, Ahijah's oracle); no MT Chronicles equivalent.",
+"second": true
 },
 "11:6": {
 "sy": [
@@ -9213,7 +9267,8 @@
 "11:4/",
 "11:4/"
 ],
-"note": "Plus from 1 Kgs 14 (Abijah son of Jeroboam, Ahijah's oracle); no MT Chronicles equivalent."
+"note": "Plus from 1 Kgs 14 (Abijah son of Jeroboam, Ahijah's oracle); no MT Chronicles equivalent.",
+"second": true
 },
 "11:7": {
 "sy": [
@@ -9254,7 +9309,8 @@
 "11:4/",
 "11:4/"
 ],
-"note": "Plus from 1 Kgs 14 (Abijah son of Jeroboam, Ahijah's oracle); no MT Chronicles equivalent."
+"note": "Plus from 1 Kgs 14 (Abijah son of Jeroboam, Ahijah's oracle); no MT Chronicles equivalent.",
+"second": true
 },
 "11:8": {
 "sy": [
@@ -9303,7 +9359,8 @@
 "11:4/",
 "11:4/"
 ],
-"note": "Plus from 1 Kgs 14 (Abijah son of Jeroboam, Ahijah's oracle); no MT Chronicles equivalent."
+"note": "Plus from 1 Kgs 14 (Abijah son of Jeroboam, Ahijah's oracle); no MT Chronicles equivalent.",
+"second": true
 },
 "11:9": {
 "sy": [
@@ -9350,7 +9407,8 @@
 "11:4/",
 "11:4/"
 ],
-"note": "Plus from 1 Kgs 14 (Abijah son of Jeroboam, Ahijah's oracle); no MT Chronicles equivalent."
+"note": "Plus from 1 Kgs 14 (Abijah son of Jeroboam, Ahijah's oracle); no MT Chronicles equivalent.",
+"second": true
 },
 "12:13": {
 "sy": [
@@ -9458,7 +9516,8 @@
 "12:14/",
 "12:14/"
 ],
-"note": "Plus \"before the Lord\", \"the fear of\" and \"with all his heart\"."
+"note": "Plus \"before the Lord\", \"the fear of\" and \"with all his heart\".",
+"second": true
 },
 "12:15": {
 "sy": [
@@ -9513,7 +9572,8 @@
 "12:15/18",
 "12:15/"
 ],
-"note": "Source citation (Shemaiah, Iddo) replaced by \"doing evil before the Lord God of Israel\"."
+"note": "Source citation (Shemaiah, Iddo) replaced by \"doing evil before the Lord God of Israel\".",
+"second": true
 },
 "12:16": {
 "sy": [
@@ -9606,7 +9666,8 @@
 "13:2/10",
 "13:2/11"
 ],
-"note": "Micaiah rendered Maacah, Gibeah rendered Ramtha; minus the war clause."
+"note": "Micaiah rendered Maacah, Gibeah rendered Ramtha; minus the war clause.",
+"second": true
 },
 "13:3": {
 "sy": [
@@ -9649,7 +9710,7 @@
 "13:3/1",
 "13:3/2",
 "13:3/6",
-"13:3/",
+"13:3/7",
 "13:3/7",
 "13:3/8,9",
 "13:3/10",
@@ -9669,7 +9730,7 @@
 "13:3/",
 "13:3/",
 "13:3/",
-"13:3/15",
+"13:3/",
 "13:3/",
 "13:3/",
 "13:3/14",
@@ -9681,7 +9742,8 @@
 "13:3/22",
 "13:3/23"
 ],
-"note": "Plus \"until they agreed to go and make war with Jeroboam son of Nebat\" and \"gathered an army and came\"."
+"note": "ܥܒܕܝ ܩܪܒܐ together = מלחמה (of גבורי מלחמה); ܟܢܫ ܠܗ ܚܝܠܐ is plus (ܠܗ reflexive, not עמו); long plus 'until they agreed ... Jeroboam son of Nebat'.",
+"second": true
 },
 "13:4": {
 "sy": [
@@ -9857,7 +9919,8 @@
 "13:7/",
 "13:7/"
 ],
-"note": "Plus \"did not know what to say nor comfort the people about the yoke Solomon his father imposed\"; minus \"did not strengthen himself before them\"."
+"note": "Plus \"did not know what to say nor comfort the people about the yoke Solomon his father imposed\"; minus \"did not strengthen himself before them\".",
+"second": true
 },
 "13:8": {
 "sy": [
@@ -9932,7 +9995,8 @@
 "13:8/",
 "13:8/"
 ],
-"note": "Heavily paraphrased: \"you split off the kingdom of the house of David and serve dead gods; I stand over one tribe\"."
+"note": "Heavily paraphrased: \"you split off the kingdom of the house of David and serve dead gods; I stand over one tribe\".",
+"second": true
 },
 "13:9": {
 "sy": [
@@ -10129,7 +10193,8 @@
 "13:11/",
 "13:12/15"
 ],
-"note": "Plus \"the lamp-trimmer\" and \"went after dead gods and worshipped them and forsook\"."
+"note": "Plus \"the lamp-trimmer\" and \"went after dead gods and worshipped them and forsook\".",
+"second": true
 },
 "13:12": {
 "sy": [
@@ -10150,7 +10215,8 @@
 "13:12/20",
 "13:12/"
 ],
-"note": "Minus \"Behold God is with us... do not fight\"; first Syriac word of 12 (Lord) is at end of S 11."
+"note": "Minus \"Behold God is with us... do not fight\"; first Syriac word of 12 (Lord) is at end of S 11.",
+"second": true
 },
 "13:15": {
 "sy": [
@@ -10571,7 +10637,8 @@
 "14:4/",
 "14:4/"
 ],
-"note": "Plus \"and he had no enemy from all the lords of his border\"."
+"note": "Plus \"and he had no enemy from all the lords of his border\".",
+"second": true
 },
 "14:5": {
 "sy": [
@@ -10689,7 +10756,8 @@
 "14:6/",
 "14:6/25"
 ],
-"note": "\"Before us\" rendered \"quiet from war\"; minus \"and they built\"."
+"note": "\"Before us\" rendered \"quiet from war\"; minus \"and they built\".",
+"second": true
 },
 "14:7": {
 "sy": [
@@ -10913,7 +10981,8 @@
 "14:10/",
 "14:10/"
 ],
-"note": "Prayer expanded (\"then all inhabitants of the world will know\"); plus closing \"when Asa finished praying\"."
+"note": "Prayer expanded (\"then all inhabitants of the world will know\"); plus closing \"when Asa finished praying\".",
+"second": true
 },
 "14:11": {
 "sy": [
@@ -11184,7 +11253,8 @@
 "15:3/",
 "15:3/"
 ],
-"note": "Expanded: \"did not serve their God in truth... and were delivered into the hand of enemies\"."
+"note": "Expanded: \"did not serve their God in truth... and were delivered into the hand of enemies\".",
+"second": true
 },
 "15:4": {
 "sy": [
@@ -11274,7 +11344,8 @@
 "15:5/12",
 "15:5/13"
 ],
-"note": "Plus \"former, when we did not fear our God\"."
+"note": "Plus \"former, when we did not fear our God\".",
+"second": true
 },
 "15:6": {
 "sy": [
@@ -11301,10 +11372,10 @@
 ],
 "w": [
 "15:6/1",
-"15:6/",
+"15:6/2,3",
 "15:6/2",
 "15:6/3",
-"15:6/",
+"15:6/4,5",
 "15:6/4,5",
 "15:6/",
 "15:6/",
@@ -11321,7 +11392,8 @@
 "15:6/",
 "15:6/"
 ],
-"note": "\"God confounded them\" replaced by \"we forsook the Lord our God and would not hear his servants the prophets\"; plus \"between cities\"."
+"note": "ܒܟܠ ܥܡ ܘܥܡ = גוי בגוי, ܘܒܝܢܬ ܩܘܪܝܐ = ועיר בעיר (doublet 'between cities' plus); 'God confounded them' replaced by confession.",
+"second": true
 },
 "15:7": {
 "sy": [
@@ -11338,7 +11410,8 @@
 "15:7/8",
 "15:7/9"
 ],
-"note": "Minus \"be strong and let not your hands be weak\"; rendered \"he pays wages to those who work\"."
+"note": "Minus \"be strong and let not your hands be weak\"; rendered \"he pays wages to those who work\".",
+"second": true
 },
 "15:8": {
 "sy": [
@@ -11478,7 +11551,8 @@
 "15:9/19",
 "15:9/20"
 ],
-"note": "Plus \"and from the cities he took in the land of Ephraim\"."
+"note": "Plus \"and from the cities he took in the land of Ephraim\".",
+"second": true
 },
 "15:10": {
 "sy": [
@@ -11673,18 +11747,19 @@
 "15:15/10",
 "15:15/10",
 "15:15/11",
-"15:15/",
-"15:15/",
+"15:15/12",
+"15:15/12",
 "15:15/13",
 "15:15/14",
-"15:15/15,16",
+"15:15/15",
 "15:15/17",
 "15:15/18",
 "15:15/",
 "15:15/",
 "15:15/18"
 ],
-"note": "Swearing clause recast; \"rest round about\" rendered \"delivered them from all enemies of their borders\"."
+"note": "שבועה read as שמועה ('good report they heard'); נשבעו not rendered; בקשהו doubly rendered (ܒܥܐܘܗܝ and ܨܠܝܘ ܩܕܡܘܗܝ); יהוה not rendered; 'round about' = 'all enemies of their borders'.",
+"second": true
 },
 "15:16": {
 "sy": [
@@ -11942,7 +12017,7 @@
 ],
 "w": [
 "16:3/1",
-"16:3/",
+"16:3/2",
 "16:3/2",
 "16:3/3",
 "16:3/4",
@@ -12106,7 +12181,8 @@
 "16:6/20,21",
 "16:6/"
 ],
-"note": "Geba rendered \"Ramtha of Benjamin\"; plus \"king Asa\", \"city\"."
+"note": "Geba rendered \"Ramtha of Benjamin\"; plus \"king Asa\", \"city\".",
+"second": true
 },
 "16:7": {
 "sy": [
@@ -12218,7 +12294,8 @@
 "16:8/14",
 "16:8/15"
 ],
-"note": "Rhetorical question recast as prediction; Lubim rendered \"kings\"."
+"note": "Rhetorical question recast as prediction; Lubim rendered \"kings\".",
+"second": true
 },
 "16:9": {
 "sy": [
@@ -12324,7 +12401,8 @@
 "16:10/15",
 "16:10/16"
 ],
-"note": "Reason expanded (\"he spoke what he did not see and stirred the people\"); oppressed read as \"ran\"."
+"note": "Reason expanded (\"he spoke what he did not see and stirred the people\"); oppressed read as \"ran\".",
+"second": true
 },
 "16:11": {
 "sy": [
@@ -12375,20 +12453,21 @@
 "ܒܝܬܗ"
 ],
 "w": [
-"16:12/",
+"16:12/1",
 "16:12/2",
 "16:12/3",
 "16:12/4",
 "16:12/5",
 "16:12/6",
 "16:12/1",
-"16:12/",
+"16:12/7",
 "16:12/7",
 "16:12/",
 "16:12/",
 "16:12/"
 ],
-"note": "Plus \"fell in his house\"; minus \"until his disease was severe... physicians\"."
+"note": "ויחלא doubly rendered (ܐܬܟܬܫ, ܐܬܟܪܗ); ܡܢ ܪܓܠܘܗܝ = ברגליו; plus 'fell in his house'; second half absent.",
+"second": true
 },
 "16:13": {
 "sy": [
@@ -12446,7 +12525,8 @@
 "16:14/20",
 "16:14/21,22"
 ],
-"note": "Minus \"which he dug for himself\" and the perfumers' details."
+"note": "Minus \"which he dug for himself\" and the perfumers' details.",
+"second": true
 },
 "17:1": {
 "sy": [
@@ -13056,16 +13136,17 @@
 "17:17/",
 "17:17/6",
 "17:17/6",
-"17:17/",
+"17:17/6",
 "17:17/",
 "17:17/7",
 "17:17/8",
-"17:17/",
+"17:17/9",
 "17:17/9",
 "17:17/10",
 "17:17/11"
 ],
-"note": "Plus \"his name\" and \"men\"."
+"note": "Plus 'his name' and 'men'; ܡܫܡܫܝܢ ܗܘܘ periphrastic for ועמו; ܐܚܝܕܝ ܣܟܪܐ = ומגן.",
+"second": true
 },
 "17:18": {
 "sy": [
@@ -13258,7 +13339,8 @@
 "18:3/",
 "18:3/20"
 ],
-"note": "Plus \"my horses as your horses\" and \"I go\"."
+"note": "Plus \"my horses as your horses\" and \"I go\".",
+"second": true
 },
 "18:4": {
 "sy": [
@@ -13571,7 +13653,8 @@
 "18:10/",
 "18:10/"
 ],
-"note": "Aram rendered Edomites; plus \"until you destroy them\"."
+"note": "Aram rendered Edomites; plus \"until you destroy them\".",
+"second": true
 },
 "18:11": {
 "sy": [
@@ -13671,7 +13754,8 @@
 "18:12/",
 "18:12/23"
 ],
-"note": "Plus \"lying prophets are agreed to speak\"; minus \"please\"."
+"note": "Plus \"lying prophets are agreed to speak\"; minus \"please\".",
+"second": true
 },
 "18:13": {
 "sy": [
@@ -14431,7 +14515,8 @@
 "18:30/20",
 "18:30/21"
 ],
-"note": "Aram rendered Edomites; plus \"thirty-two\"."
+"note": "Aram rendered Edomites; plus \"thirty-two\".",
+"second": true
 },
 "18:31": {
 "sy": [
@@ -14724,11 +14809,12 @@
 "19:3/11",
 "19:3/12",
 "19:3/13",
-"19:3/",
+"19:3/14",
 "19:3/14",
 "19:3/"
 ],
-"note": "Burning the Asherot rendered \"you did not shed innocent blood in the land\"; plus \"I believe\"."
+"note": "Asherot clause replaced by 'you did not shed innocent blood'; plus 'I believe', 'in truth'; ܩܕܡ ܡܪܝܐ = האלהים.",
+"second": true
 },
 "19:4": {
 "sy": [
@@ -14832,7 +14918,7 @@
 "19:6/7",
 "19:6/6",
 "19:6/8,9",
-"19:6/",
+"19:6/9",
 "19:6/10",
 "19:6/10",
 "19:6/11",
@@ -14849,7 +14935,8 @@
 "19:6/14",
 "19:6/"
 ],
-"note": "Expanded: \"be strong and judge true judgment, and the Lord will be with you for ever\"."
+"note": "ܠܐ ܗܘܐ = לא; expanded: 'be strong and judge true judgment, and the Lord will be with you for ever'.",
+"second": true
 },
 "19:7": {
 "sy": [
@@ -14880,7 +14967,8 @@
 "19:7/16",
 "19:7/17"
 ],
-"note": "Minus \"now let the fear of the Lord be upon you\"."
+"note": "Minus \"now let the fear of the Lord be upon you\".",
+"second": true
 },
 "19:8": {
 "sy": [
@@ -15096,7 +15184,8 @@
 "19:11/25,26",
 "19:11/"
 ],
-"note": "Amariah unnamed; Zebadiah son of Ishmael rendered \"Zechariah son of Shemaiah\"; plus judging \"true judgment\"."
+"note": "Amariah unnamed; Zebadiah son of Ishmael rendered \"Zechariah son of Shemaiah\"; plus judging \"true judgment\".",
+"second": true
 },
 "20:1": {
 "sy": [
@@ -15216,7 +15305,7 @@
 "20:3/3",
 "20:3/5",
 "20:3/6",
-"20:3/",
+"20:3/7",
 "20:3/7",
 "20:3/8",
 "20:3/9",
@@ -15233,7 +15322,8 @@
 "20:3/",
 "20:3/"
 ],
-"note": "Plus \"and said to them: be strong, come, let us seek from the Lord our God\"."
+"note": "ܩܕܡ ܡܪܝܐ = ליהוה; plus 'and said to them: be strong, come, let us seek from the Lord our God'.",
+"second": true
 },
 "20:4": {
 "sy": [
@@ -15348,13 +15438,14 @@
 "20:6/",
 "20:6/16",
 "20:6/17",
-"20:6/",
-"20:6/",
-"20:6/",
-"20:6/",
+"20:6/18",
+"20:6/20",
+"20:6/20",
+"20:6/19",
 "20:6/"
 ],
-"note": "Minus \"none can withstand you\"; plus \"prayed\" and \"I stand before you and pray\"."
+"note": "ואין עמך להתיצב misread/recast as 'and I (ואני) stand before you'; plus 'prayed', 'thus', 'and pray'; הלא not rendered.",
+"second": true
 },
 "20:7": {
 "sy": [
@@ -15493,7 +15584,8 @@
 "20:9/",
 "20:9/22"
 ],
-"note": "Conditional read as \"no evil shall come upon us since the sanctuary is among us\"; plus \"pray in this house\"."
+"note": "Conditional read as \"no evil shall come upon us since the sanctuary is among us\"; plus \"pray in this house\".",
+"second": true
 },
 "20:10": {
 "sy": [
@@ -15537,18 +15629,19 @@
 "20:10/11",
 "20:10/12",
 "20:10/13",
-"20:10/",
+"20:10/14",
 "20:10/15",
 "20:10/15",
 "20:10/16",
 "20:10/14",
 "20:10/14",
+"20:10/18",
 "20:10/",
 "20:10/",
-"20:10/",
-"20:10/"
+"20:10/19"
 ],
-"note": "Seir rendered Gebal; minus \"they turned from them and did not destroy them\"; plus \"freed them from Egyptian bondage\"."
+"note": "Seir rendered Gebal; 'when they came' as 'because you brought them out'; 'they turned from them' recast as 'you removed (the bondage of the Egyptians) from them'; 'did not destroy them' minus.",
+"second": true
 },
 "20:11": {
 "sy": [
@@ -15617,14 +15710,14 @@
 "20:12/8",
 "20:12/",
 "20:12/9",
-"20:12/",
-"20:12/",
+"20:12/13",
+"20:12/14",
 "20:12/",
 "20:12/",
 "20:12/15",
 "20:12/16",
 "20:12/17",
-"20:12/",
+"20:12/17",
 "20:12/18",
 "20:12/19",
 "20:12/20",
@@ -15632,7 +15725,8 @@
 "20:12/21",
 "20:12/"
 ],
-"note": "Minus \"this great multitude coming against us\"; plus \"the sword of your judgment\"."
+"note": "ha-ba 'alenu read as imperative 'bring upon them' (plus 'the sword of your judgment'); participle + enclitic hnan = neda'; 'this great multitude' minus.",
+"second": true
 },
 "20:13": {
 "sy": [
@@ -15712,8 +15806,8 @@
 "20:14/15",
 "20:14/16",
 "20:14/",
-"20:14/",
-"20:14/",
+"20:14/17",
+"20:14/17",
 "20:14/17",
 "20:14/",
 "20:14/",
@@ -15722,7 +15816,8 @@
 "20:14/19",
 "20:14/"
 ],
-"note": "Jeiel rendered Jehoiada; plus \"the spirit of might\" and \"he stood\"."
+"note": "Jeiel rendered Jehoiada; 'from before the Lord' is the circumlocution for YHWH; plus 'of might', 'he was standing', 'of Israel'.",
+"second": true
 },
 "20:15": {
 "sy": [
@@ -15863,18 +15958,18 @@
 "20:17/",
 "20:17/",
 "20:17/3",
-"20:17/",
-"20:17/",
-"20:17/",
+"20:17/2",
+"20:17/4",
+"20:17/4",
 "20:17/5,6",
 "20:17/7",
 "20:17/9",
 "20:17/",
 "20:17/10",
 "20:17/11",
-"20:17/",
 "20:17/12",
-"20:17/",
+"20:17/12",
+"20:17/13",
 "20:17/13",
 "20:17/14",
 "20:17/15",
@@ -15889,7 +15984,8 @@
 "20:17/",
 "20:17/22"
 ],
-"note": "\"Not for you to fight\" recast as \"they come up to fight with you\"; plus \"at that hour\"."
+"note": "'Not for you to fight in this' recast: lakhem = 'with you', ba-zot = 'at that hour'; 'house of Judah' and 'inhabitants of Jerusalem' grouped with the names; plus 'they come up', 'Lord of lords'.",
+"second": true
 },
 "20:18": {
 "sy": [
@@ -16052,8 +16148,8 @@
 "ܕܝ̇ܨܝܢ"
 ],
 "w": [
-"20:21/",
-"20:21/",
+"20:21/4",
+"20:21/2",
 "20:21/3",
 "20:21/1",
 "20:21/",
@@ -16075,7 +16171,7 @@
 "20:21/14",
 "20:21/15",
 "20:21/16",
-"20:21/16",
+"20:21/",
 "20:21/17",
 "20:21/18",
 "20:22/",
@@ -16085,7 +16181,8 @@
 "20:22/2",
 "20:22/3"
 ],
-"note": "Plus \"and make war for us with our enemies\"; final clause \"heights began to praise, mountains to dance\" renders MT 22 \"when they began singing and praise\"."
+"note": "wa-ya'amed read as qal 'he stood (amid the people)'; plus 'come', 'and make war for us with our enemies', 'he is good'; final clause renders MT 22 'when they began with song and praise'.",
+"second": true
 },
 "20:24": {
 "sy": [
@@ -16181,13 +16278,13 @@
 "20:25/9",
 "20:25/10",
 "20:25/11",
-"20:25/",
+"20:25/11",
 "20:25/12",
 "20:25/13",
 "20:25/14",
 "20:25/15",
-"20:25/",
-"20:25/",
+"20:25/16,17",
+"20:25/16,17",
 "20:25/18",
 "20:25/",
 "20:25/",
@@ -16201,7 +16298,8 @@
 "20:25/26",
 "20:25/25"
 ],
-"note": "Corpses read as \"bridles of horses\"; minus \"beyond carrying\"."
+"note": "Corpses rendered 'bridles of horses' (grouped; 'horses' may echo rekhush); 'beyond carrying' paraphrased 'whatever they wished'; plus 'spoil', 'after'.",
+"second": true
 },
 "20:26": {
 "sy": [
@@ -16585,7 +16683,8 @@
 "20:35/",
 "20:35/"
 ],
-"note": "Plus \"evil more than all the kings of Israel\"."
+"note": "Plus \"evil more than all the kings of Israel\".",
+"second": true
 },
 "20:36": {
 "sy": [
@@ -17270,7 +17369,8 @@
 "21:15/",
 "21:15/"
 ],
-"note": "Expanded with \"you shall die... and perish... fall in torment\"."
+"note": "Expanded with \"you shall die... and perish... fall in torment\".",
+"second": true
 },
 "21:16": {
 "sy": [
@@ -17619,14 +17719,15 @@
 "22:3/7",
 "22:3/",
 "22:3/",
-"22:3/",
+"22:3/9",
 "22:3/",
 "22:3/1",
 "22:3/2",
-"22:3/",
+"22:3/11",
 "22:3/11"
 ],
-"note": "\"His mother was his counsellor\" rendered \"he was the son of Ahab's sister\"."
+"note": "'His mother was his counsellor' replaced by 'he was the son of Ahab's sister' (only hwa = hayetah linked); 'did much to sin' groups with le-harshia'.",
+"second": true
 },
 "22:4": {
 "sy": [
@@ -18417,7 +18518,7 @@
 "23:8/1",
 "23:8/2",
 "23:8/3",
-"23:8/",
+"23:8/4",
 "23:8/4",
 "23:8/5",
 "23:8/6,7",
@@ -18445,9 +18546,10 @@
 "23:8/22",
 "23:8/23",
 "23:8/",
-"23:8/24,25"
+"23:8/25"
 ],
-"note": "Negation lacking: \"because Jehoiada had released them from their watches\"."
+"note": "Negation lacking: 'because Jehoiada had released them from their watches'; 'of the house of' grouped with Judah; plus 'those who kept watch' twice.",
+"second": true
 },
 "23:9": {
 "sy": [
@@ -18503,15 +18605,16 @@
 "23:10/3",
 "23:10/4",
 "23:10/5",
-"23:10/8",
-"23:10/9",
+"23:10/11,12",
+"23:10/13",
 "23:10/14",
 "23:10/15",
 "23:10/16",
-"23:10/17,19",
-"23:10/18"
+"23:10/19",
+"23:10/17,18"
 ],
-"note": "Minus \"weapon in hand\" and \"right side to\"."
+"note": "Homoioteleuton between the two 'side of the house': Syriac has only 'to the left side of the house'; 'weapon in hand' minus.",
+"second": true
 },
 "23:11": {
 "sy": [
@@ -18929,7 +19032,8 @@
 "23:20/29",
 "23:20/30"
 ],
-"note": "Minus nobles and bringing the king down from the house of the Lord."
+"note": "Minus nobles and bringing the king down from the house of the Lord.",
+"second": true
 },
 "23:21": {
 "sy": [
@@ -19088,7 +19192,8 @@
 "24:4/",
 "24:4/"
 ],
-"note": "Plus \"in secret\" and \"to repair in it whatever was needed\"."
+"note": "Plus \"in secret\" and \"to repair in it whatever was needed\".",
+"second": true
 },
 "24:5": {
 "sy": [
@@ -19129,7 +19234,7 @@
 "24:5/6",
 "24:5/7",
 "24:5/8",
-"24:5/",
+"24:5/9",
 "24:5/9",
 "24:5/10",
 "24:5/11",
@@ -19141,7 +19246,7 @@
 "24:5/14",
 "24:5/16",
 "24:5/17",
-"24:5/",
+"24:5/18",
 "24:5/18",
 "24:5/19",
 "24:5/20",
@@ -19149,7 +19254,8 @@
 "24:5/22",
 "24:5/23"
 ],
-"note": "Jehoiada (not the king) gathers; plus \"gold\"; minus \"the Levites did not hasten\"."
+"note": "Jehoiada (not the king) gathers; plus 'cities', 'gold'; ayk d-kol = middei; minus 'the Levites did not hasten'.",
+"second": true
 },
 "24:6": {
 "sy": [
@@ -19253,7 +19359,8 @@
 "24:7/15",
 "24:7/15"
 ],
-"note": "\"Her sons broke in\" rendered \"she taught children of iniquity\"; Baals rendered \"idol worshippers\"."
+"note": "\"Her sons broke in\" rendered \"she taught children of iniquity\"; Baals rendered \"idol worshippers\".",
+"second": true
 },
 "24:8": {
 "sy": [
@@ -19378,14 +19485,15 @@
 "24:11/16",
 "24:11/17",
 "24:11/18",
-"24:11/",
+"24:11/18",
 "24:11/19",
 "24:11/20",
 "24:11/",
 "24:11/32",
 "24:11/33"
 ],
-"note": "Much abridged: minus bringing and emptying the chest daily."
+"note": "Much abridged, tail harmonised to 2 Kgs 12:11 ('counted and bound up the silver'); rab bayteh = paqid; bringing and emptying of the chest minus.",
+"second": true
 },
 "24:12": {
 "sy": [
@@ -19502,7 +19610,8 @@
 "24:16/",
 "24:16/"
 ],
-"note": "Expanded: \"may he be rewarded who did good\"; obscure closing plus."
+"note": "Expanded: \"may he be rewarded who did good\"; obscure closing plus.",
+"second": true
 },
 "24:17": {
 "sy": [
@@ -19613,7 +19722,8 @@
 "24:19/9",
 "24:19/10"
 ],
-"note": "\"To the Lord\" rendered \"from their ways\"; plus \"they did not hear\"."
+"note": "\"To the Lord\" rendered \"from their ways\"; plus \"they did not hear\".",
+"second": true
 },
 "24:20": {
 "sy": [
@@ -19754,13 +19864,14 @@
 "24:22/",
 "24:22/14",
 "24:22/14",
-"24:22/",
+"24:22/14",
 "24:22/15",
 "24:22/16",
 "24:22/17",
 "24:22/18"
 ],
-"note": "Plural \"his sons\" killed; plus \"the priest\"."
+"note": "Plural 'his sons' killed; plus 'the priest', 'after him', 'and his sons'; periphrastic hwaw belongs to 'while being killed'.",
+"second": true
 },
 "24:23": {
 "sy": [
@@ -19992,7 +20103,7 @@
 "24:27/1",
 "24:27/2,3",
 "24:27/",
-"24:27/",
+"24:27/4",
 "24:27/5",
 "24:27/",
 "24:27/",
@@ -20011,7 +20122,8 @@
 "24:27/17",
 "24:27/18"
 ],
-"note": "\"Burden\" and \"foundation\" recast as \"many men who conspired\" and \"the rest of the sins he did in the house of the Lord\"."
+"note": "ha-massa read as 'deceive' ('many men who conspired against him'); 'foundation' replaced by 'the rest of the sins he did' (left as plus).",
+"second": true
 },
 "25:1": {
 "sy": [
@@ -20438,7 +20550,8 @@
 "25:9/",
 "25:9/"
 ],
-"note": "'Man of God' as 'prophet of God'; plus 'folly' and 'double for what you gave'."
+"note": "'Man of God' as 'prophet of God'; plus 'folly' and 'double for what you gave'.",
+"second": true
 },
 "25:10": {
 "sy": [
@@ -20596,7 +20709,7 @@
 "25:13/2",
 "25:13/3,4",
 "25:13/5",
-"25:13/",
+"25:13/6",
 "25:13/6",
 "25:13/8",
 "25:13/9",
@@ -20616,7 +20729,8 @@
 "25:13/21",
 "25:13/22"
 ],
-"note": "'Cities of the peoples' replaces 'to Beth-horon'; plus 'of the cities'; 'with him' omitted."
+"note": "kad azal = mi-lekhet; 'cities of the peoples' replaces 'to Beth-horon'; plus 'of the cities'; 'with him' minus.",
+"second": true
 },
 "25:14": {
 "sy": [
@@ -20761,7 +20875,7 @@
 "25:16/4",
 "25:16/5",
 "25:16/6",
-"25:16/",
+"25:16/6",
 "25:16/7",
 "25:16/8",
 "25:16/13",
@@ -20776,14 +20890,15 @@
 "25:16/18",
 "25:16/",
 "25:16/19",
-"25:16/",
+"25:16/18",
 "25:16/",
 "25:16/20",
 "25:16/24",
 "25:16/25",
 "25:16/26"
 ],
-"note": "Free: 'worship of wood given to the king?'; 'cease, why be smitten' and 'I know' omitted; plus 'woe to you' and 'evil king'."
+"note": "ha-le-yo'ets read via 'ets 'wood' ('worship of wood'); melka is the cognate object 'counsel' (not 'king') with 'evil' plus; 'cease, why be smitten', 'I know', 'because you did this' minus; plus 'woe to you'.",
+"second": true
 },
 "25:17": {
 "sy": [
@@ -20959,7 +21074,8 @@
 "25:20/2",
 "25:20/3"
 ],
-"note": "Rest of verse (from God, to deliver them, Edom's gods) omitted."
+"note": "Rest of verse (from God, to deliver them, Edom's gods) omitted.",
+"second": true
 },
 "25:21": {
 "sy": [
@@ -20989,8 +21105,8 @@
 "25:21/",
 "25:21/5",
 "25:21/6",
-"25:21/",
-"25:21/",
+"25:21/5",
+"25:21/5",
 "25:21/11",
 "25:21/12",
 "25:21/",
@@ -21000,7 +21116,8 @@
 "25:21/14",
 "25:21/14"
 ],
-"note": "Plus 'went up', 'one another', 'city in the territory of the land'; 'he and Amaziah king of Judah' omitted."
+"note": "'One another' expresses the reciprocal hitpael; plus 'went up', 'city in the territory of the land'; 'he and Amaziah king of Judah' minus.",
+"second": true
 },
 "25:23": {
 "sy": [
@@ -21102,7 +21219,8 @@
 "25:24/20",
 "25:24/21"
 ],
-"note": "Plus verb 'took' and extra vessel lists; hostages omitted."
+"note": "Plus verb 'took' and extra vessel lists; hostages omitted.",
+"second": true
 },
 "25:25": {
 "sy": [
@@ -21440,7 +21558,8 @@
 "26:6/9,10",
 "26:6/12,13"
 ],
-"note": "'Gaza' for Jabneh; building of cities in Ashdod and Philistia omitted."
+"note": "'Gaza' for Jabneh; building of cities in Ashdod and Philistia omitted.",
+"second": true
 },
 "26:8": {
 "sy": [
@@ -21469,7 +21588,8 @@
 "26:8/",
 "26:8/"
 ],
-"note": "First half (Ammonite tribute) omitted; plus 'to make war'."
+"note": "First half (Ammonite tribute) omitted; plus 'to make war'.",
+"second": true
 },
 "26:9": {
 "sy": [
@@ -21569,7 +21689,8 @@
 "26:10/21",
 "26:10/"
 ],
-"note": "'In the cities that were his' for 'in the wilderness'; final clause 'he loved the soil' rendered 'his possessions were great'."
+"note": "'In the cities that were his' for 'in the wilderness'; final clause 'he loved the soil' rendered 'his possessions were great'.",
+"second": true
 },
 "26:11": {
 "sy": [
@@ -21585,12 +21706,13 @@
 "26:11/1",
 "26:11/2",
 "26:11/",
-"26:11/",
+"26:11/3",
 "26:11/3",
 "26:11/4",
 "26:11/5"
 ],
-"note": "Mustering details (scribe, officers, Hananiah) omitted."
+"note": "'Men, mighty of valour' expands hayil; mustering details (scribe, officer, Hananiah) minus.",
+"second": true
 },
 "26:12": {
 "sy": [
@@ -21602,12 +21724,13 @@
 ],
 "w": [
 "26:12/2",
-"26:12/7",
+"26:12/",
 "26:12/7",
 "26:12/7",
 "26:12/8,9"
 ],
-"note": "Number 32,600 for MT 2,600; heads of fathers omitted."
+"note": "Number 32,600 for MT 2,600 ('thirty' is plus; 'two thousand' = alpayim); heads of fathers minus.",
+"second": true
 },
 "26:13": {
 "sy": [
@@ -21654,7 +21777,8 @@
 "26:13/16",
 "26:13/17"
 ],
-"note": "Free restructuring: 300,000 wilderness-dwellers plus 7,500 sword-bearers who guarded the king daily."
+"note": "Free restructuring: 300,000 wilderness-dwellers plus 7,500 sword-bearers who guarded the king daily.",
+"second": true
 },
 "26:15": {
 "sy": [
@@ -21670,14 +21794,15 @@
 "w": [
 "26:15/15",
 "26:15/16",
-"26:15/",
-"26:15/",
+"26:15/17,18",
+"26:15/17,18",
 "26:15/22,23",
-"26:15/24",
-"26:15/24",
-"26:15/"
+"26:15/20",
+"26:15/20",
+"26:15/21"
 ],
-"note": "Engines (first half) omitted; plus 'in all the provinces' and 'to become rich'."
+"note": "Engines (first half) minus; 'far off' rendered 'in all the provinces'; hifli le-he'azer rendered 'did much to become rich' (he'azer read as he'asher); hazaq minus.",
+"second": true
 },
 "26:16": {
 "sy": [
@@ -21739,7 +21864,8 @@
 "26:17/3",
 "26:17/4"
 ],
-"note": "'Uzziah' for MT Azariah the priest; the eighty priests omitted."
+"note": "'Uzziah' for MT Azariah the priest; the eighty priests omitted.",
+"second": true
 },
 "26:18": {
 "sy": [
@@ -21766,15 +21892,16 @@
 "26:18/8",
 "26:18/9",
 "26:18/",
-"26:18/",
-"26:18/",
-"26:18/",
+"26:18/23",
+"26:18/25",
+"26:18/24",
 "26:18/10",
 "26:18/10",
 "26:18/",
 "26:18/"
 ],
-"note": "Heavily condensed: 'not yours, O king, the place; nor yours to offer spices on the altar'."
+"note": "Heavily condensed: 'not yours, O king, is the place'; 'nor is it fitting for you' tentatively = we-lo lekha le-khavod; rest minus.",
+"second": true
 },
 "26:19": {
 "sy": [
@@ -21847,7 +21974,8 @@
 "26:19/14",
 "26:19/15"
 ],
-"note": "Expanded narrative: king orders priests out; leprosy comes from the sanctuary onto his forehead while offering spices."
+"note": "Expanded narrative: king orders priests out; leprosy comes from the sanctuary onto his forehead while offering spices.",
+"second": true
 },
 "26:20": {
 "sy": [
@@ -21882,7 +22010,8 @@
 "26:20/19",
 "26:20/20"
 ],
-"note": "'Uzziah' for Azariah the priest; leprosy and expulsion clauses condensed."
+"note": "'Uzziah' for Azariah the priest; leprosy and expulsion clauses condensed.",
+"second": true
 },
 "26:21": {
 "sy": [
@@ -22724,7 +22853,8 @@
 "28:9/",
 "28:9/"
 ],
-"note": "Plus 'and you had no pity on them' for 'in a rage reaching to heaven'."
+"note": "Plus 'and you had no pity on them' for 'in a rage reaching to heaven'.",
+"second": true
 },
 "28:10": {
 "sy": [
@@ -22759,7 +22889,7 @@
 "28:10/",
 "28:10/",
 "28:10/13",
-"28:10/",
+"28:10/14",
 "28:10/15",
 "28:10/",
 "28:10/16",
@@ -22767,7 +22897,8 @@
 "28:10/17",
 "28:10/"
 ],
-"note": "Free: 'you strive that they be your slaves...; you know this sin you sinned before the Lord'; 'sons of Judah and Jerusalem' omitted."
+"note": "Free: 'you strive that they be your slaves'; 'immakhem' rendered 'you know'; plus 'this ... you sinned'; 'sons of Judah and Jerusalem' minus.",
+"second": true
 },
 "28:11": {
 "sy": [
@@ -22833,7 +22964,8 @@
 "28:12/10",
 "28:12/11"
 ],
-"note": "Names partly garbled (Yohana, Maqraya); Hezekiah, Amasa and 'against those coming' omitted."
+"note": "Names partly garbled (Yohana, Maqraya); Hezekiah, Amasa and 'against those coming' omitted.",
+"second": true
 },
 "28:13": {
 "sy": [
@@ -22873,11 +23005,11 @@
 "28:13/7",
 "28:13/8",
 "28:13/",
-"28:13/",
-"28:13/",
+"28:13/9",
 "28:13/",
 "28:13/10",
-"28:13/",
+"28:13/10",
+"28:13/11",
 "28:13/12",
 "28:13/13",
 "28:13/14",
@@ -22887,10 +23019,11 @@
 "28:13/18",
 "28:13/19",
 "28:13/20",
-"28:13/",
-"28:13/"
+"28:13/20",
+"28:13/20"
 ],
-"note": "'That we not sin again before the Lord our God' for 'guilt of the Lord upon us'."
+"note": "le-ashmat YHWH 'alenu rendered 'that we not sin again before the Lord our God' ('alenu read as elohenu); end of verse minus.",
+"second": true
 },
 "28:15": {
 "sy": [
@@ -22905,7 +23038,8 @@
 "28:15/7",
 "28:15/"
 ],
-"note": "Syriac condenses v. 14-15 to 'they returned all the captivity to Jerusalem'."
+"note": "Syriac condenses v. 14-15 to 'they returned all the captivity to Jerusalem'.",
+"second": true
 },
 "28:16": {
 "sy": [
@@ -22995,11 +23129,11 @@
 "28:18/1",
 "28:18/",
 "28:18/2",
-"28:18/",
+"28:18/3",
 "28:18/3",
 "28:18/4",
-"28:18/",
-"28:18/",
+"28:18/5",
+"28:18/5",
 "28:18/5",
 "28:18/6",
 "28:18/6",
@@ -23018,7 +23152,8 @@
 "28:18/21,22",
 "28:18/23,24"
 ],
-"note": "Plus 'came', 'city'; place names partly garbled; 'dwelt there' omitted."
+"note": "Separated 'al = be- of be-'are; 'and against the southern cities' = we-ha-negev; plus 'came', 'city'; 'dwelt there' minus.",
+"second": true
 },
 "28:19": {
 "sy": [
@@ -23125,7 +23260,7 @@
 "28:21/8",
 "28:21/9",
 "28:21/",
-"28:21/",
+"28:21/10",
 "28:21/10",
 "28:21/11",
 "28:21/12",
@@ -23135,7 +23270,8 @@
 "28:21/",
 "28:21/"
 ],
-"note": "Plundering expanded with vessels; plus 'in the time of his distress'."
+"note": "Plundering expanded with vessels; 'houses of the rich' = ha-sarim; plus 'in the time of his distress' (from v. 22).",
+"second": true
 },
 "28:22": {
 "sy": [
@@ -23192,7 +23328,7 @@
 "28:23/6",
 "28:23/",
 "28:23/11",
-"28:23/",
+"28:23/11",
 "28:23/8",
 "28:23/",
 "28:23/",
@@ -23211,7 +23347,8 @@
 "28:23/",
 "28:23/22"
 ],
-"note": "Free speech: 'you are my gods and lords; you I fear and to you I sacrifice'; 'Judah' for Israel."
+"note": "Free speech: 'you are my gods and lords; you I fear and to you I sacrifice'; atton ennon = hem; 'Judah' for Israel; 'who smote him' minus.",
+"second": true
 },
 "28:24": {
 "sy": [
@@ -23276,7 +23413,8 @@
 "28:24/",
 "28:24/22"
 ],
-"note": "Plus 'which were'; 'inner and outer' doors."
+"note": "Plus 'which were'; 'inner and outer' doors.",
+"second": true
 },
 "28:25": {
 "sy": [
@@ -23307,7 +23445,8 @@
 "28:25/8",
 "28:25/9"
 ],
-"note": "'Altars' for high places; 'to serve' for 'to burn incense'; provoking clause omitted."
+"note": "'Altars' for high places; 'to serve' for 'to burn incense'; provoking clause omitted.",
+"second": true
 },
 "28:26": {
 "sy": [
@@ -23622,7 +23761,8 @@
 "29:7/15",
 "29:7/16"
 ],
-"note": "Burnt-offering clause omitted; plus 'on the altar'."
+"note": "Burnt-offering clause omitted; plus 'on the altar'.",
+"second": true
 },
 "29:8": {
 "sy": [
@@ -23712,7 +23852,8 @@
 "29:9/",
 "29:9/"
 ],
-"note": "Syriac replaces 'for this' and vv. 10-19 with a short lament: 'now we strayed from the Lord and left the covenant ... he too left us'."
+"note": "Syriac replaces 'for this' and vv. 10-19 with a short lament: 'now we strayed from the Lord and left the covenant ... he too left us'.",
+"second": true
 },
 "29:20": {
 "sy": [
@@ -23819,11 +23960,12 @@
 "29:22/4",
 "29:22/5,6",
 "29:22/7",
-"29:22/",
+"29:22/8",
 "29:22/",
 "29:22/8"
 ],
-"note": "Rams and lambs omitted; plus 'on the horns of'; jussive forms."
+"note": "Rams and lambs minus; 'on (the horns of) the altar' = ha-mizbehah with 'horns' plus; jussive forms.",
+"second": true
 },
 "29:23": {
 "sy": [
@@ -23960,7 +24102,7 @@
 "29:25/",
 "29:25/",
 "29:25/",
-"29:25/",
+"29:25/19",
 "29:25/18",
 "29:25/",
 "29:25/",
@@ -23968,7 +24110,8 @@
 "29:25/20",
 "29:25/21"
 ],
-"note": "Instruments recast as 'praises'; Gad and Nathan as 'prophets of king David'; final clause paraphrased."
+"note": "Instruments and 'commandment' recast as 'praises' (so also ha-mitswah); Gad and Nathan as 'prophets of king David'; final clause paraphrased.",
+"second": true
 },
 "29:26": {
 "sy": [
@@ -24104,19 +24247,20 @@
 "29:29/1",
 "29:29/1",
 "29:29/2",
-"29:29/",
+"29:29/2",
 "29:29/3",
 "29:29/4",
-"29:29/",
-"29:29/",
+"29:29/3",
+"29:29/3",
 "29:29/5",
-"29:29/",
+"29:29/6",
 "29:29/6",
 "29:29/7",
 "29:29/",
 "29:29/8"
 ],
-"note": "Plus 'on his knees', 'fell'."
+"note": "'Offer burnt-offerings' = le-ha'alot; 'knelt on his knees' = kar'u; plus 'fell'.",
+"second": true
 },
 "29:30": {
 "sy": [
@@ -24495,7 +24639,8 @@
 "30:2/9",
 "30:2/10"
 ],
-"note": "Plus 'of Israel who were' and 'to the Lord God of Israel'."
+"note": "Plus 'of Israel who were' and 'to the Lord God of Israel'.",
+"second": true
 },
 "30:3": {
 "sy": [
@@ -24617,10 +24762,11 @@
 "30:5/20",
 "30:5/",
 "30:5/",
-"30:5/",
-"30:5/"
+"30:5/21",
+"30:5/20"
 ],
-"note": "Final clause rendered 'because their wealth was very great' for 'they had not kept it in great number as written'."
+"note": "Final clause 'because their wealth was very great': 'asu read as 'osher, negation and 'as written' minus; plus 'to do it'.",
+"second": true
 },
 "30:6": {
 "sy": [
@@ -24828,7 +24974,8 @@
 "30:9/23",
 "30:9/24"
 ],
-"note": "Free: 'since it was revealed upon you and your brothers and sons, he will give you mercy' for 'if you return, your brothers will find compassion'."
+"note": "Free: 'since it was revealed upon you and your brothers and sons, he will give you mercy' for 'if you return, your brothers will find compassion'.",
+"second": true
 },
 "30:10": {
 "sy": [
@@ -24922,7 +25069,8 @@
 "30:11/7",
 "30:11/8"
 ],
-"note": "Plus 'wicked', tribe of Ephraim, and 'the rest of these tribes'."
+"note": "Plus 'wicked', tribe of Ephraim, and 'the rest of these tribes'.",
+"second": true
 },
 "30:12": {
 "sy": [
@@ -25158,7 +25306,8 @@
 "30:17/14",
 "30:17/15"
 ],
-"note": "Plus 'stood for them'; positive 'whoever was clean' for 'not clean'."
+"note": "Plus 'stood for them'; positive 'whoever was clean' for 'not clean'.",
+"second": true
 },
 "30:18": {
 "sy": [
@@ -25200,11 +25349,11 @@
 "w": [
 "30:18/1",
 "30:18/2,4",
-"30:18/",
+"30:18/2,4",
 "30:18/3",
 "30:18/",
 "30:18/5",
-"30:18/",
+"30:18/5",
 "30:18/5",
 "30:18/6",
 "30:18/7",
@@ -25233,7 +25382,8 @@
 "30:18/",
 "30:18/"
 ],
-"note": "Plus 'these four tribes' and 'all the people of Israel'."
+"note": "Plus 'of Israel', 'these four tribes', 'to them' and 'all the people of Israel'.",
+"second": true
 },
 "30:19": {
 "sy": [
@@ -25647,7 +25797,7 @@
 "31:1/6",
 "31:1/7",
 "31:1/8",
-"31:1/",
+"31:1/9",
 "31:1/9",
 "31:1/10",
 "31:1/11",
@@ -25663,7 +25813,7 @@
 "31:1/22",
 "31:1/23",
 "31:1/24",
-"31:1/",
+"31:1/24",
 "31:1/26",
 "31:1/29",
 "31:1/",
@@ -25673,7 +25823,8 @@
 "31:1/",
 "31:1/32"
 ],
-"note": "Asherim rendered nmr' (?); plus 'they came and entered in peace'; 'until all destroyed' recast as 'until Israel returned'."
+"note": "Asherim rendered nmr'; plus 'they came and entered in peace'; 'until all destroyed' recast as 'until Israel returned'.",
+"second": true
 },
 "31:2": {
 "sy": [
@@ -25829,8 +25980,8 @@
 "31:5/2",
 "31:5/",
 "31:5/5",
-"31:5/17",
-"31:5/17",
+"31:5/3",
+"31:5/3",
 "31:5/6",
 "31:5/7",
 "31:5/8",
@@ -25843,11 +25994,12 @@
 "31:5/14",
 "31:5/14",
 "31:5/14",
-"31:5/",
-"31:5/",
+"31:5/17",
+"31:5/17",
 "31:5/16"
 ],
-"note": "Honey omitted; plus 'from their animals'."
+"note": "First 'they were bringing' stands for hirbu, the second for hevi'u; honey minus; plus 'from their animals'.",
+"second": true
 },
 "31:6": {
 "sy": [
@@ -25917,11 +26069,11 @@
 "31:6/14",
 "31:6/15",
 "31:6/16",
-"31:6/",
-"31:6/",
-"31:6/",
-"31:6/",
-"31:6/",
+"31:6/18",
+"31:6/18",
+"31:6/19",
+"31:6/20",
+"31:6/20",
 "31:6/",
 "31:6/",
 "31:6/",
@@ -25940,7 +26092,8 @@
 "31:6/",
 "31:6/"
 ],
-"note": "Syriac repeats the list of firstfruits from v. 5; cattle, sheep and heaps omitted."
+"note": "'They were bringing firstfruits upon firstfruits' = wa-yittenu 'aremot 'aremot (cf. v. 8); list of v. 5 repeated as plus; cattle and sheep minus.",
+"second": true
 },
 "31:7": {
 "sy": [
@@ -26006,7 +26159,8 @@
 "31:8/10",
 "31:8/12"
 ],
-"note": "Plus 'Hezekiah took and divided it to priests and Levites'; plus 'prayed'."
+"note": "Plus 'Hezekiah took and divided it to priests and Levites'; plus 'prayed'.",
+"second": true
 },
 "31:9": {
 "sy": [
@@ -26087,7 +26241,7 @@
 "31:10/7",
 "31:10/8",
 "31:10/",
-"31:10/",
+"31:10/9",
 "31:10/",
 "31:10/",
 "31:10/10",
@@ -26118,7 +26272,8 @@
 "31:10/",
 "31:10/"
 ],
-"note": "Speaker confused (said to Azariah); plus 'give the rest to the poor and needy' and 'to all Israel'."
+"note": "Speaker confused (said to Azariah); me-hahel rendered 'it is permitted' (root shra); plus 'give the rest to the poor and needy' and 'to all Israel'.",
+"second": true
 },
 "31:11": {
 "sy": [
@@ -26476,12 +26631,12 @@
 "31:19/3",
 "31:19/",
 "31:19/",
-"31:19/",
-"31:19/",
-"31:19/",
-"31:19/",
-"31:19/",
-"31:19/",
+"31:19/4",
+"31:19/5",
+"31:19/5",
+"31:19/5",
+"31:19/5",
+"31:19/5",
 "31:19/",
 "31:19/",
 "31:19/7",
@@ -26501,7 +26656,8 @@
 "31:19/20",
 "31:19/21"
 ],
-"note": "Plus 'their flesh was holy; they did not approach women and went about'; pasture fields omitted."
+"note": "bi-sde read as 'flesh' ('their flesh was holy') and migrash via garash ('did not approach women'); plus 'and went about'; 'their cities' minus.",
+"second": true
 },
 "31:20": {
 "sy": [
@@ -26622,7 +26778,8 @@
 "32:1/",
 "32:1/17"
 ],
-"note": "Plus 'which Hezekiah did'; 'said to their inhabitants: accept (my) right hand and come to me' for 'thought to break into them'."
+"note": "Plus 'which Hezekiah did'; 'said to their inhabitants: accept (my) right hand and come to me' for 'thought to break into them'.",
+"second": true
 },
 "32:2": {
 "sy": [
@@ -26770,7 +26927,8 @@
 "32:5/21",
 "32:5/"
 ],
-"note": "Jussive forms; 'filled up the trench which David made' for Millo; towers and 'broken' omitted; plus 'spears'."
+"note": "Jussive forms; 'filled up the trench which David made' for Millo; towers and 'broken' omitted; plus 'spears'.",
+"second": true
 },
 "32:6": {
 "sy": [
@@ -26963,14 +27121,15 @@
 "32:9/14",
 "32:9/19",
 "32:9/20",
-"32:9/",
+"32:9/21",
 "32:9/21",
 "32:9/22",
 "32:9/23",
 "32:9/24",
-"32:9/24"
+"32:9/"
 ],
-"note": "Plus 'Rabshakeh came'; 'against Hezekiah king of Judah' omitted."
+"note": "Plus 'Rabshakeh came', 'was encamped', 'to them'; 'against Hezekiah king of Judah' minus.",
+"second": true
 },
 "32:10": {
 "sy": [
@@ -27227,14 +27386,14 @@
 "32:15/5",
 "32:15/6",
 "32:15/7,8",
-"32:15/",
+"32:15/9",
 "32:15/9",
 "32:15/10",
 "32:15/11,12",
 "32:15/13",
 "32:15/14",
 "32:15/15",
-"32:15/",
+"32:15/17",
 "32:15/",
 "32:15/",
 "32:15/",
@@ -27258,7 +27417,8 @@
 "32:15/32",
 "32:15/32"
 ],
-"note": "Plus a first 'your God cannot save you'; 'their cities' for 'his people'."
+"note": "'No god of any nation' split: 'your God cannot save you from my hands' (eloah = 'your God', rest plus) and 'all nations and kingdoms could not save'; 'their cities' for 'his people'.",
+"second": true
 },
 "32:16": {
 "sy": [
@@ -27348,7 +27508,8 @@
 "32:17/24",
 "32:17/24"
 ],
-"note": "Plus 'to the people of Israel'; 'their/his cities' for 'people'."
+"note": "Plus 'to the people of Israel'; 'their/his cities' for 'people'.",
+"second": true
 },
 "32:18": {
 "sy": [
@@ -27424,7 +27585,8 @@
 "32:19/9",
 "32:19/10,11"
 ],
-"note": "Order inverted; plus 'who rules in Jerusalem, that he deliver them'."
+"note": "Order inverted; plus 'who rules in Jerusalem, that he deliver them'.",
+"second": true
 },
 "32:20": {
 "sy": [
@@ -27526,7 +27688,8 @@
 "32:21/24",
 "32:21/25"
 ],
-"note": "'Kings' for leaders; plus 'from before him', 'king of Assyria'; Ketiv/Qere of 'those who came forth' rendered once."
+"note": "'Kings' for leaders; plus 'from before him', 'king of Assyria'; Ketiv/Qere of 'those who came forth' rendered once.",
+"second": true
 },
 "32:22": {
 "sy": [
@@ -27609,10 +27772,10 @@
 "32:23/6",
 "32:23/7",
 "32:23/8",
-"32:23/",
+"32:23/9",
 "32:23/9",
 "32:23/10",
-"32:23/",
+"32:23/10",
 "32:23/11",
 "32:23/12",
 "32:23/13",
@@ -27620,7 +27783,8 @@
 "32:23/14",
 "32:23/15"
 ],
-"note": "Plus 'of the sons of Israel'; 'were giving'."
+"note": "Plus 'of the sons of Israel', 'were giving'; 'exalted above' = wa-yinnase le-'ene.",
+"second": true
 },
 "32:24": {
 "sy": [
@@ -27896,21 +28060,22 @@
 "ܒܠܒܗ"
 ],
 "w": [
+"32:31/7",
+"32:31/7",
 "32:31/",
 "32:31/",
+"32:31/9",
 "32:31/",
-"32:31/",
-"32:31/",
-"32:31/",
-"32:31/",
-"32:31/",
+"32:31/10",
+"32:31/10",
 "32:31/11",
 "32:31/15",
 "32:31/16",
 "32:31/",
 "32:31/17"
 ],
-"note": "Babylonian envoys and testing omitted; plus 'he followed the law of the Lord as it was given'."
+"note": "Babylonian envoys and testing minus; 'he sought the law of the Lord as it was given in the land' loosely reflects li-drosh ... asher hayah ba-arets.",
+"second": true
 },
 "32:32": {
 "sy": [
@@ -28124,7 +28289,8 @@
 "33:5/8",
 "33:5/9"
 ],
-"note": "Syriac lacks v. 4 and the first half of v. 5."
+"note": "Syriac lacks v. 4 and the first half of v. 5.",
+"second": true
 },
 "33:6": {
 "sy": [
@@ -28265,7 +28431,7 @@
 "w": [
 "33:8/1",
 "33:8/2",
-"33:8/",
+"33:8/2",
 "33:8/3",
 "33:8/5,6",
 "33:8/7",
@@ -28284,12 +28450,13 @@
 "33:8/21",
 "33:8/22",
 "33:8/23",
-"33:8/",
-"33:8/",
+"33:8/24",
+"33:8/24",
 "33:8/",
 "33:8/25"
 ],
-"note": "'Make Israel go out from this land'; 'by Moses' as 'which my servant Moses commanded them'."
+"note": "'Make Israel go out from this land'; be-yad Mosheh as 'which my servant Moses commanded them' ('my servant' plus).",
+"second": true
 },
 "33:9": {
 "sy": [
@@ -28631,16 +28798,17 @@
 "33:17/",
 "33:17/4",
 "33:17/",
-"33:17/",
+"33:17/5",
 "33:17/5",
 "33:17/",
 "33:17/",
 "33:17/6",
-"33:17/",
+"33:17/7",
 "33:17/7",
 "33:17/8"
 ],
-"note": "Recast as command: 'no more feasts and other sacrifices on high places shall you offer, but before the Lord your God'."
+"note": "Recast as command: 'no more feasts and other sacrifices on high places shall you offer, but before the Lord your God'; separated prepositions grouped.",
+"second": true
 },
 "33:18": {
 "sy": [
@@ -28876,7 +29044,7 @@
 "33:23/3",
 "33:23/4",
 "33:23/",
-"33:23/",
+"33:23/5",
 "33:23/",
 "33:23/6",
 "33:23/5",
@@ -28892,7 +29060,8 @@
 "33:23/11",
 "33:23/12"
 ],
-"note": "Plus 'his God'; repeats 'before the Lord his God'."
+"note": "ke-hikkana' rendered 'because he, Manasseh, had trembled'; plus 'his God' and repeated 'before the Lord his God'; 'his father' minus.",
+"second": true
 },
 "33:24": {
 "sy": [
@@ -29085,11 +29254,12 @@
 "34:3/21",
 "34:3/23",
 "34:3/22",
-"34:3/",
+"34:3/24",
 "34:3/",
 "34:3/"
 ],
-"note": "'To pray to the God' for 'to seek'; extended list of cult objects."
+"note": "'To pray to the God' for 'to seek'; extended list of cult objects (fourth item taken as massekhot, two more plus).",
+"second": true
 },
 "34:4": {
 "sy": [
@@ -29128,7 +29298,8 @@
 "34:4/20",
 "34:4/21"
 ],
-"note": "Altars of Baals and sun-pillars omitted; plus 'their dust', 'of men'."
+"note": "Altars of Baals and sun-pillars omitted; plus 'their dust', 'of men'.",
+"second": true
 },
 "34:5": {
 "sy": [
@@ -29165,7 +29336,8 @@
 "34:5/8,9",
 "34:5/10,11"
 ],
-"note": "Plus 'who served them; he took them out of their graves and brought'; 'on their altars' omitted."
+"note": "Plus 'who served them; he took them out of their graves and brought'; 'on their altars' omitted.",
+"second": true
 },
 "34:6": {
 "sy": [
@@ -29219,7 +29391,7 @@
 "34:7/3",
 "34:7/7",
 "34:7/6",
-"34:7/",
+"34:7/8",
 "34:7/8",
 "34:7/8",
 "34:7/",
@@ -29233,7 +29405,8 @@
 "34:7/",
 "34:7/16"
 ],
-"note": "Asherim and sun-pillars omitted; plus 'like dust and scattered them'."
+"note": "Asherim and sun-pillars minus; 'until he crushed them' = le-hedaq; plus 'like dust and scattered them', 'came'.",
+"second": true
 },
 "34:8": {
 "sy": [
@@ -29284,7 +29457,8 @@
 "34:8/25",
 "34:8/26"
 ],
-"note": "Joah omitted; plus 'said to them: go'; 'scribe of the city' for governor."
+"note": "Joah omitted; plus 'said to them: go'; 'scribe of the city' for governor.",
+"second": true
 },
 "34:9": {
 "sy": [
@@ -29617,7 +29791,7 @@
 "w": [
 "34:16/",
 "34:16/2",
-"34:16/",
+"34:16/4",
 "34:16/5,6",
 "34:16/",
 "34:16/",
@@ -29634,7 +29808,8 @@
 "34:16/18",
 "34:16/19"
 ],
-"note": "Plus 'Shaphan said to the king all that Hilkiah told him'."
+"note": "ha-sefer read as 'the scribe' (Shaphan the scribe); 'said to the king all that Hilkiah told him' for 'brought the book'.",
+"second": true
 },
 "34:17": {
 "sy": [
@@ -29808,13 +29983,13 @@
 "w": [
 "34:21/1",
 "34:21/2",
-"34:21/",
+"34:21/3",
 "34:21/4",
 "34:21/5",
 "34:21/6",
 "34:21/7",
 "34:21/8",
-"34:21/",
+"34:21/9",
 "34:21/9",
 "34:21/10",
 "34:21/11",
@@ -29837,13 +30012,14 @@
 "34:21/29",
 "34:21/30",
 "34:21/31",
-"34:21/",
+"34:21/32",
 "34:21/32",
 "34:21/",
 "34:21/33,34",
 "34:21/35"
 ],
-"note": "'Pray before' for 'seek'; 'people of Israel'."
+"note": "'Pray before' for 'seek'; 'people of Israel' for 'the remnant in Israel'; plus 'this', 'upon us'.",
+"second": true
 },
 "34:22": {
 "sy": [
@@ -29897,7 +30073,7 @@
 "34:22/17",
 "34:22/18",
 "34:22/18",
-"34:22/",
+"34:22/19",
 "34:22/19",
 "34:22/20",
 "34:22/21",
@@ -29906,7 +30082,8 @@
 "34:22/",
 "34:22/"
 ],
-"note": "Plus 'all whom the king sent'; 'in learning' for 'in the second quarter'; 'keeper of vessels'."
+"note": "Plus 'all (whom the king) sent' and 'according to the king's command'; 'in learning' for 'in the second quarter'; 'keeper of vessels'.",
+"second": true
 },
 "34:23": {
 "sy": [
@@ -30400,8 +30577,8 @@
 "34:33/5",
 "34:33/",
 "34:33/",
-"34:33/",
-"34:33/",
+"34:33/9",
+"34:33/9",
 "34:33/9",
 "34:33/10",
 "34:33/11",
@@ -30419,7 +30596,8 @@
 "34:33/26",
 "34:33/27"
 ],
-"note": "'Hateful works which the Lord destroyed from before the sons of Israel'; 'all his days' omitted."
+"note": "'Hateful works which the Lord destroyed from before the sons of Israel' for 'from all the lands that belonged to'; 'all his days' minus.",
+"second": true
 },
 "35:1": {
 "sy": [
@@ -31276,15 +31454,15 @@
 "35:21/2",
 "35:21/3",
 "35:21/4",
-"35:21/4",
-"35:21/5",
 "35:21/",
+"35:21/5",
+"35:21/6",
 "35:21/6",
 "35:21/7",
 "35:21/8",
 "35:21/9",
 "35:21/10",
-"35:21/",
+"35:21/10",
 "35:21/11",
 "35:21/12",
 "35:21/12",
@@ -31292,8 +31470,8 @@
 "35:21/",
 "35:21/",
 "35:21/14",
-"35:21/",
-"35:21/",
+"35:21/15",
+"35:21/15",
 "35:21/",
 "35:21/",
 "35:21/",
@@ -31310,7 +31488,8 @@
 "35:21/26",
 "35:21/27"
 ],
-"note": "Repetitive paraphrase; 'the Lord' for God; plus 'king of Judah' repeated."
+"note": "attah read as 'coming'; el (bet milhamti) apparently read as negation in the repeated 'not against you am I coming to fight'; plus 'king of Judah' repeated, 'to him', 'to you', 'from me'.",
+"second": true
 },
 "35:22": {
 "sy": [
@@ -31375,7 +31554,8 @@
 "35:22/19",
 "35:22/20"
 ],
-"note": "'Went' for 'disguised himself'; plus 'Josiah did not know that it was from the Lord'; 'Pharaoh the lame' for Necho."
+"note": "'Went' for 'disguised himself'; plus 'Josiah did not know that it was from the Lord'; 'Pharaoh the lame' for Necho.",
+"second": true
 },
 "35:23": {
 "sy": [
@@ -31641,7 +31821,8 @@
 "36:3/2",
 "36:3/3"
 ],
-"note": "'In Jerusalem' and the tribute clause omitted."
+"note": "'In Jerusalem' and the tribute clause omitted.",
+"second": true
 },
 "36:4": {
 "sy": [
@@ -31915,10 +32096,11 @@
 "36:10/13",
 "36:10/17",
 "36:10/18",
-"36:10/",
+"36:10/19",
 "36:10/19"
 ],
-"note": "'His uncle' for 'his brother'; plus 'against him', 'which were'."
+"note": "'His uncle' for 'his brother'; plus 'against him', 'of Babylon', 'which were'.",
+"second": true
 },
 "36:11": {
 "sy": [
@@ -32212,20 +32394,21 @@
 "36:17/13",
 "36:17/14",
 "36:17/15",
-"36:17/",
 "36:17/16",
-"36:17/",
+"36:17/16",
 "36:17/17",
-"36:17/",
-"36:17/",
-"36:17/",
-"36:17/",
-"36:17/",
+"36:17/17",
+"36:17/18",
+"36:17/18",
+"36:17/18",
+"36:17/18",
+"36:17/18",
 "36:17/19",
 "36:17/20",
 "36:17/21"
 ],
-"note": "Plus 'not even on sucklings of milk' for 'aged'; Ketiv/Qere Chaldeans rendered once."
+"note": "'Not even on sucklings of milk' stands in the slot of yashesh 'decrepit' (grouped, free); Ketiv/Qere Chaldeans rendered once.",
+"second": true
 },
 "36:18": {
 "sy": [
@@ -32498,7 +32681,7 @@
 "36:23/20",
 "36:23/21,22",
 "36:23/23",
-"36:23/",
+"36:23/24",
 "36:23/24",
 "36:23/25",
 "36:23/25",
@@ -32511,7 +32694,8 @@
 "36:23/",
 "36:23/"
 ],
-"note": "'Whoever wills, let him go up and come to me' for 'the Lord his God be with him; let him go up'."
+"note": "'Whoever wills, let him go up and come to me' for 'the Lord his God be with him; let him go up'.",
+"second": true
 }
 }
 }

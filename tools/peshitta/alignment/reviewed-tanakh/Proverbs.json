@@ -1107,10 +1107,11 @@
 "2:18/2",
 "2:18/",
 "2:18/5",
-"2:18/",
+"2:18/8",
 "2:18/8"
 ],
-"note": "Free: \"the thresholds of her house have strayed, and the steps of her paths\"; death/shades not rendered."
+"note": "Free (cf. LXX): 'she forgot the thresholds of her house and the ways of her paths'; ways+paths both for מעגלתיה; death/shades not rendered; 'thresholds' plus.",
+"second": true
 },
 "2:19": {
 "sy": [
@@ -1872,7 +1873,8 @@
 "3:28/8",
 "3:28/"
 ],
-"note": "Final clause \"when you have it\" moved forward; ketiv/qere re'akha."
+"note": "Final clause \"when you have it\" moved forward; ketiv/qere re'akha.",
+"second": true
 },
 "3:29": {
 "sy": [
@@ -3240,19 +3242,20 @@
 "6:3/4",
 "6:3/5",
 "6:3/6",
-"6:3/",
-"6:3/",
-"6:3/",
+"6:3/9",
+"6:3/9",
+"6:3/9",
 "6:3/7",
 "6:3/8",
 "6:3/9",
-"6:3/11,12",
+"6:3/12",
 "6:3/",
 "6:3/13",
 "6:3/",
 "6:3/"
 ],
-"note": "Expanded: \"on account of your friend you fell into the hands of your enemy... urge your friend for whom you stood surety\"."
+"note": "As LXX: רעך doubly rendered ('on account of your friend ... into the hands of your enemy'); ܓܪܓ = רהב only, לך התרפס minus; plus 'therefore', 'for whom you stood surety'.",
+"second": true
 },
 "6:4": {
 "sy": [
@@ -4904,14 +4907,15 @@
 "8:10/3",
 "8:10/4",
 "8:10/7",
-"8:10/",
+"8:10/7",
 "8:10/5",
-"8:10/",
+"8:10/6",
 "8:10/6",
 "8:10/6",
 "8:10/6"
 ],
-"note": "Plus \"for yourselves\" and \"better than\"."
+"note": "Ethical dative with נבחר; comparative ܛܒ ܡܢ for מ of מחרוץ.",
+"second": true
 },
 "8:11": {
 "sy": [
@@ -4941,16 +4945,17 @@
 "8:11/",
 "8:11/",
 "8:11/",
-"8:11/",
 "8:11/4",
 "8:11/4",
-"8:11/",
+"8:11/4",
+"8:11/4",
 "8:11/5,6",
 "8:11/7",
 "8:11/8",
 "8:11/9"
 ],
-"note": "Plus \"better than refined gold\" and \"good stones\"."
+"note": "Plus 'better than refined gold' (from 8:10/19); 'better than precious stones' all for מפנינים; copula plus.",
+"second": true
 },
 "8:12": {
 "sy": [
@@ -5854,7 +5859,7 @@
 "9:12/3",
 "9:12/3",
 "9:12/",
-"9:12/",
+"9:12/5",
 "9:12/5",
 "9:12/5",
 "9:12/6",
@@ -5891,7 +5896,8 @@
 "9:12/",
 "9:12/"
 ],
-"note": "Plus \"my son\", \"and your friends\"; long plus (LXX 9:12a-c) on chasing winds and birds."
+"note": "Plus 'my son', 'and for your friends', 'your evils'; long plus (LXX 9:12a-c) on chasing winds and birds.",
+"second": true
 },
 "9:13": {
 "sy": [
@@ -6046,15 +6052,15 @@
 "w": [
 "9:18/1",
 "9:18/2",
-"9:18/3",
-"9:18/4",
+"9:18/3,4",
 "9:18/5",
 "9:18/",
 "9:18/6",
 "9:18/7",
+"9:18/7",
+"9:18/8",
+"9:18/8",
 "9:18/",
-"9:18/8",
-"9:18/8",
 "9:18/",
 "9:18/",
 "9:18/",
@@ -6089,7 +6095,8 @@
 "9:18/",
 "9:18/"
 ],
-"note": "Rephaim as \"giants\"; long plus (LXX 9:18a-d) on strange waters."
+"note": "As LXX: 'giants (רפאים) perish with her (שם)'; first pass was shifted by one from here; 'in the depth of Sheol' = 6,7; 'all who meet her' = קראיה; long plus (LXX 9:18a-d) starts with ܐܠܐ.",
+"second": true
 },
 "10:1": {
 "sy": [
@@ -6323,7 +6330,8 @@
 "10:10/",
 "10:10/"
 ],
-"note": "Second half replaced by \"he who reproves openly makes peace\" (cf. LXX)."
+"note": "Second half replaced by \"he who reproves openly makes peace\" (cf. LXX).",
+"second": true
 },
 "10:11": {
 "sy": [
@@ -6672,7 +6680,8 @@
 "10:25/6",
 "10:25/7"
 ],
-"note": "Expanded: \"suddenly\", \"so shall perish\", \"his foundations are laid\"."
+"note": "Expanded: \"suddenly\", \"so shall perish\", \"his foundations are laid\".",
+"second": true
 },
 "10:26": {
 "sy": [
@@ -7203,7 +7212,8 @@
 "11:16/6",
 "11:16/7"
 ],
-"note": "Plus \"for a man\" and LXX doublet on throne of shame and sluggards; osher rendered \"knowledge\"."
+"note": "Plus \"for a man\" and LXX doublet on throne of shame and sluggards; osher rendered \"knowledge\".",
+"second": true
 },
 "11:17": {
 "sy": [
@@ -7404,14 +7414,15 @@
 "11:24/4",
 "11:24/3",
 "11:24/",
-"11:24/",
-"11:24/",
+"11:24/6",
+"11:24/6",
 "11:24/5",
 "11:24/8",
-"11:24/",
-"11:24/"
+"11:24/8",
+"11:24/8"
 ],
-"note": "Expanded paraphrase \"there is one who gathers what is not his\"."
+"note": "Expanded as LXX ('his own'); 'gathers what is not his' for חושך מישר (uncertain); 'it is little to him' for למחסור; עוד/אך free.",
+"second": true
 },
 "11:25": {
 "sy": [
@@ -7533,18 +7544,19 @@
 "11:29/3",
 "11:29/",
 "11:29/4",
+"11:29/1",
+"11:29/1",
+"11:29/2",
+"11:29/3",
 "11:29/",
-"11:29/",
-"11:29/",
-"11:29/",
-"11:29/",
-"11:29/",
+"11:29/4",
 "11:29/6",
 "11:29/",
 "11:29/5",
 "11:29/7,8"
 ],
-"note": "\"troubles\" rendered \"builds in vain\"; doublet plus."
+"note": "Doublet: first half rendered twice ('who builds his house ... leaves sighs to his sons' / 'who is not quiet in his house apportions winds to his sons'); both linked; 'to his sons' plus.",
+"second": true
 },
 "11:30": {
 "sy": [
@@ -8576,7 +8588,8 @@
 "13:12/8",
 "13:12/7"
 ],
-"note": "Plus \"better is a man who begins to help than\"; \"heart-sickness\" not rendered."
+"note": "Plus \"better is a man who begins to help than\"; \"heart-sickness\" not rendered.",
+"second": true
 },
 "13:13": {
 "sy": [
@@ -8629,7 +8642,8 @@
 "13:13/",
 "13:13/"
 ],
-"note": "Long plus (LXX 13:13a) on the deceitful man and the wise."
+"note": "Long plus (LXX 13:13a) on the deceitful man and the wise.",
+"second": true
 },
 "13:14": {
 "sy": [
@@ -8864,7 +8878,8 @@
 "13:23/6",
 "13:23/"
 ],
-"note": "S 13:22 includes an LXX-like rendering of 13:23 (\"many years... men perished utterly\")."
+"note": "S 13:22 includes an LXX-like rendering of 13:23 (\"many years... men perished utterly\").",
+"second": true
 },
 "13:24": {
 "sy": [
@@ -9075,17 +9090,18 @@
 "w": [
 "14:7/3",
 "14:7/4",
-"14:7/",
-"14:7/",
+"14:7/1",
+"14:7/1",
 "14:7/2",
 "14:7/",
 "14:7/",
-"14:7/",
-"14:7/8",
+"14:7/5",
+"14:7/6",
 "14:7/7",
-"14:7/"
+"14:7/8"
 ],
-"note": "Free: \"to a foolish man everything is a hindrance, but... lips of the wise\"; lekh and uval yada'ta not rendered."
+"note": "As LXX: לך read as כל ('everything is contrary to a foolish man'), ובל ידעת read as וכלי דעת ('weapons of knowledge'), שפתי דעת = 'lips of the wise'.",
+"second": true
 },
 "14:8": {
 "sy": [
@@ -9141,7 +9157,8 @@
 "14:9/5",
 "14:9/6"
 ],
-"note": "Plus on houses of the wicked and righteous; \"fools commit sins, the sons of the upright have favour\"."
+"note": "Plus on houses of the wicked and righteous; \"fools commit sins, the sons of the upright have favour\".",
+"second": true
 },
 "14:10": {
 "sy": [
@@ -9455,11 +9472,11 @@
 "14:22/2",
 "14:22/3",
 "14:22/4",
+"14:22/5",
+"14:22/6",
+"14:22/7",
 "14:22/",
-"14:22/",
-"14:22/",
-"14:22/",
-"14:22/",
+"14:22/8",
 "14:22/",
 "14:22/",
 "14:22/",
@@ -9474,7 +9491,8 @@
 "14:22/8",
 "14:22/"
 ],
-"note": "Expanded with LXX-type doublet; halo not rendered."
+"note": "LXX-type doublet: second half rendered twice ('the merciful and righteous do all good' / 'mercy and faith are with doers of good'), both linked; negative middle line plus; הלוא not rendered.",
+"second": true
 },
 "14:23": {
 "sy": [
@@ -9521,9 +9539,10 @@
 "14:23/6",
 "14:23/",
 "14:23/8",
-"14:23/"
+"14:23/8"
 ],
-"note": "Long plus on rest and the Lord healing pain."
+"note": "Plus 'one thing'; long plus (cf. LXX) on rest and the Lord healing pain; plus 'of the wicked'.",
+"second": true
 },
 "14:24": {
 "sy": [
@@ -9827,7 +9846,8 @@
 "14:35/",
 "14:35/7"
 ],
-"note": "Doublet of 14:32 inserted; \"wrath destroys even the wise\" (cf. LXX 15:1a)."
+"note": "Doublet of 14:32 inserted; \"wrath destroys even the wise\" (cf. LXX 15:1a).",
+"second": true
 },
 "15:1": {
 "sy": [
@@ -9921,7 +9941,8 @@
 "15:4/",
 "15:4/"
 ],
-"note": "Second half replaced by \"whoever eats of its fruit is satisfied\"."
+"note": "Second half replaced by \"whoever eats of its fruit is satisfied\".",
+"second": true
 },
 "15:5": {
 "sy": [
@@ -12679,7 +12700,8 @@
 "18:22/",
 "18:22/"
 ],
-"note": "Plus \"good\" wife and LXX 18:22a on him who casts out a good wife."
+"note": "Plus \"good\" wife and LXX 18:22a on him who casts out a good wife.",
+"second": true
 },
 "18:23": {
 "sy": [
@@ -13182,17 +13204,18 @@
 "ܡܘܣܦ"
 ],
 "w": [
-"19:19/",
-"19:19/1,2,3",
+"19:19/1,2",
+"19:19/3",
 "19:19/4",
 "19:19/5",
-"19:19/",
-"19:19/",
+"19:19/6,7",
+"19:19/8",
 "19:19/",
 "19:19/",
 "19:19/9,10"
 ],
-"note": "Ketiv/qere gedal; second half paraphrased."
+"note": "גדל read as גבר ('a wrathful man'); כי אם תציל paraphrased 'and as much as he ...'; plus 'to his burden'.",
+"second": true
 },
 "19:20": {
 "sy": [
@@ -15151,7 +15174,8 @@
 "22:10/",
 "22:10/"
 ],
-"note": "Plus (LXX 22:10b) \"for if he sits in the assembly he disgraces all\"."
+"note": "Plus (LXX 22:10b) \"for if he sits in the assembly he disgraces all\".",
+"second": true
 },
 "22:11": {
 "sy": [
@@ -15532,14 +15556,15 @@
 "w": [
 "22:26/1",
 "22:26/2",
-"22:26/",
+"22:26/2",
 "22:26/3,4,5",
 "22:26/",
 "22:26/",
 "22:26/",
 "22:26/"
 ],
-"note": "Plus \"for you will be ashamed before faces\"."
+"note": "'Do not give yourself to suretyship'; משאות not rendered; plus 'for you will be ashamed before faces' (cf. LXX).",
+"second": true
 },
 "22:27": {
 "sy": [
@@ -16384,7 +16409,8 @@
 "23:30/",
 "23:30/"
 ],
-"note": "Long plus \"be not drunk with wine but talk with righteous men\" (cf. LXX 23:31)."
+"note": "Long plus \"be not drunk with wine but talk with righteous men\" (cf. LXX 23:31).",
+"second": true
 },
 "23:31": {
 "sy": [
@@ -17711,7 +17737,8 @@
 "25:14/7",
 "25:14/8"
 ],
-"note": "Plus comparison particles."
+"note": "Plus comparison particles.",
+"second": true
 },
 "25:15": {
 "sy": [
@@ -17909,7 +17936,8 @@
 "25:20/",
 "25:20/"
 ],
-"note": "Expanded; plus moth simile (cf. LXX 25:20a)."
+"note": "Expanded; plus moth simile (cf. LXX 25:20a).",
+"second": true
 },
 "25:21": {
 "sy": [
@@ -18056,7 +18084,8 @@
 "25:25/8",
 "25:25/9"
 ],
-"note": "Plus comparison particles."
+"note": "Plus comparison particles.",
+"second": true
 },
 "25:26": {
 "sy": [
@@ -18086,12 +18115,13 @@
 "25:26/",
 "25:26/",
 "25:26/5",
-"25:26/",
+"25:26/6",
 "25:26/6",
 "25:26/7",
 "25:26/8"
 ],
-"note": "Plus comparison particles."
+"note": "Plus comparison particles, 'someone', 'of water'.",
+"second": true
 },
 "25:27": {
 "sy": [
@@ -18582,7 +18612,8 @@
 "26:17/2",
 "26:17/3"
 ],
-"note": "Reordered: \"who meddles in a quarrel not his own is like one who seizes a dog's ears\"."
+"note": "Reordered: \"who meddles in a quarrel not his own is like one who seizes a dog's ears\".",
+"second": true
 },
 "26:18": {
 "sy": [
@@ -18777,7 +18808,7 @@
 "26:25/7",
 "26:25/8",
 "26:25/9",
-"26:25/",
+"26:25/10",
 "26:25/10"
 ],
 "note": "Word-for-word."
@@ -19400,7 +19431,8 @@
 "27:21/",
 "27:21/"
 ],
-"note": "Plus (LXX 27:21a) on the hearts of the wicked and upright."
+"note": "Plus (LXX 27:21a) on the hearts of the wicked and upright.",
+"second": true
 },
 "27:22": {
 "sy": [
@@ -19427,7 +19459,7 @@
 "27:22/2",
 "27:22/3,4",
 "27:22/6",
-"27:22/",
+"27:22/7",
 "27:22/",
 "27:22/",
 "27:22/",
@@ -19439,7 +19471,8 @@
 "27:22/10",
 "27:22/12"
 ],
-"note": "\"in a mortar with a pestle\" rendered \"in the assembly\"; plus \"you will profit him nothing\"."
+"note": "As LXX 'in the midst of the assembly' for בתוך הריפות; mortar and pestle minus; plus 'you profit him nothing'; מעליו minus.",
+"second": true
 },
 "27:23": {
 "sy": [
@@ -19881,7 +19914,8 @@
 "28:13/",
 "28:13/"
 ],
-"note": "Plus 'son of man', 'his sins', 'from them', 'on him God'."
+"note": "Plus 'son of man', 'his sins', 'from them', 'on him God'.",
+"second": true
 },
 "28:14": {
 "sy": [
@@ -21684,7 +21718,7 @@
 "ܒܥܝܪܐ"
 ],
 "w": [
-"30:30/",
+"30:30/1",
 "30:30/1",
 "30:30/2",
 "30:30/",
@@ -21699,7 +21733,8 @@
 "30:30/7",
 "30:30/"
 ],
-"note": "Expanded: plus 'whelp', 'all', 'and does not fear', final 'beasts'."
+"note": "'Lion's whelp' for ליש; plus copula, 'all', 'and does not fear', final 'beasts'.",
+"second": true
 },
 "30:31": {
 "sy": [
@@ -21730,7 +21765,8 @@
 "30:31/7",
 "30:31/7"
 ],
-"note": "Free: 'cock strutting among hens, goat leading the flock, king speaking among the peoples'."
+"note": "Free: 'cock strutting among hens, goat leading the flock, king speaking among the peoples'.",
+"second": true
 },
 "30:32": {
 "sy": [
@@ -21746,16 +21782,17 @@
 ],
 "w": [
 "30:32/",
+"30:32/3",
 "30:32/2",
-"30:32/",
-"30:32/",
+"30:32/2",
 "30:32/",
 "30:32/5",
 "30:32/6",
 "30:32/7",
 "30:32/"
 ],
-"note": "Free rendering 'do not desire... do not put your hand to your mouth'; plus."
+"note": "Free: 'do not desire (exaltation) lest you be disgraced (נבלת), and do not stretch your hand to your mouth'; conditionals recast as prohibitions; final word plus.",
+"second": true
 },
 "30:33": {
 "sy": [

@@ -11131,7 +11131,8 @@
 "17:13/16",
 "17:13/17"
 ],
-"note": "Minus repeated first clause."
+"note": "Minus repeated first clause.",
+"second": true
 },
 "17:14": {
 "sy": [
@@ -13097,7 +13098,7 @@
 "22:1/2",
 "22:1/3",
 "22:1/4",
-"22:1/",
+"22:1/5",
 "22:1/5",
 "22:1/6",
 "22:1/7,8",
@@ -13575,7 +13576,7 @@
 "22:16/2",
 "22:16/3",
 "22:16/4",
-"22:16/",
+"22:16/5",
 "22:16/5",
 "22:16/6",
 "22:16/7,8",
@@ -17957,7 +17958,7 @@
 "29:8/6",
 "29:8/7",
 "29:8/7",
-"29:8/",
+"29:8/17",
 "29:8/8",
 "29:8/9",
 "29:8/20",
@@ -17970,7 +17971,8 @@
 "29:8/27",
 "29:8/28"
 ],
-"note": "Minus the thirsty man clause; plus \"starving\"."
+"note": "Thirsty-man clause dropped, but 'worn out' probably reflects 'ayef from it.",
+"second": true
 },
 "29:9": {
 "sy": [
@@ -19915,13 +19917,13 @@
 "31:3/2",
 "31:3/",
 "31:3/3",
-"31:3/",
+"31:3/3",
 "31:3/4",
 "31:3/5",
 "31:3/6",
 "31:3/",
 "31:3/7",
-"31:3/",
+"31:3/7",
 "31:3/8",
 "31:3/9",
 "31:3/10",
@@ -19936,7 +19938,8 @@
 "31:3/16",
 "31:3/18"
 ],
-"note": "Plus copulas 'they are' / 'are not'."
+"note": "la-hwaw grouped with lo; copulas 'they are' and 'also' plus.",
+"second": true
 },
 "31:4": {
 "sy": [
@@ -21401,7 +21404,8 @@
 "33:21/20",
 "33:21/20"
 ],
-"note": "שם read as 'name'; נהרים read as 'light'; plus 'and he will be ... to us'."
+"note": "שם read as 'name'; נהרים read as 'light'; plus 'and he will be ... to us'.",
+"second": true
 },
 "33:22": {
 "sy": [
@@ -22159,7 +22163,8 @@
 "35:2/",
 "35:2/"
 ],
-"note": "פרח תפרח not rendered; plus 'encouragement and comfort to the weak, that a saviour comes and saves them'."
+"note": "פרח תפרח not rendered; plus 'encouragement and comfort to the weak, that a saviour comes and saves them'.",
+"second": true
 },
 "35:3": {
 "sy": [
@@ -25525,10 +25530,11 @@
 "39:2/32",
 "39:2/34",
 "39:2/35",
-"39:2/",
+"39:2/36",
 "39:2/36"
 ],
-"note": "Ketiv/Qere נכתה both mapped; plus 'house of' before dominion."
+"note": "Ketiv/Qere both mapped; 'house of his dominion' grouped for memshalto.",
+"second": true
 },
 "39:3": {
 "sy": [
@@ -28389,7 +28395,7 @@
 ],
 "w": [
 "42:23/1",
-"42:23/",
+"42:23/2",
 "42:23/2",
 "42:23/3",
 "42:23/4",
@@ -28747,7 +28753,7 @@
 "43:8/5",
 "43:8/",
 "43:8/7",
-"43:8/",
+"43:8/8",
 "43:8/8",
 "43:8/6"
 ],
@@ -28783,7 +28789,7 @@
 "43:9/5",
 "43:9/6",
 "43:9/7",
-"43:9/",
+"43:9/8",
 "43:9/8",
 "43:9/9",
 "43:9/10",
@@ -29647,7 +29653,7 @@
 "44:9/7",
 "44:9/5",
 "44:9/5",
-"44:9/",
+"44:9/5",
 "44:9/8",
 "44:9/",
 "44:9/",
@@ -29662,7 +29668,8 @@
 "44:9/14",
 "44:9/15"
 ],
-"note": "Expanded: plus 'to make', 'craftsmen who made', 'and do not hear'."
+"note": "'Their works which they desired to make' paraphrases hamudehem; plus 'craftsmen who made', 'and do not hear'.",
+"second": true
 },
 "44:10": {
 "sy": [
@@ -29819,7 +29826,8 @@
 "44:14/13",
 "44:14/14"
 ],
-"note": "Heavily condensed; most tree names not rendered."
+"note": "Heavily condensed; most tree names not rendered.",
+"second": true
 },
 "44:15": {
 "sy": [
@@ -32686,7 +32694,7 @@
 "48:14/2",
 "48:14/3",
 "48:14/4",
-"48:14/",
+"48:14/5",
 "48:14/5",
 "48:14/6",
 "48:14/8",
@@ -40346,7 +40354,8 @@
 "60:20/12",
 "60:20/13"
 ],
-"note": "Homoioteleuton: skips from 19b to 20b ('because the LORD shall be your everlasting light'), omitting 19b-20a."
+"note": "Homoioteleuton: skips from 19b to 20b ('because the LORD shall be your everlasting light'), omitting 19b-20a.",
+"second": true
 },
 "60:20": {
 "sy": [
@@ -40359,7 +40368,8 @@
 "60:20/15",
 "60:20/16"
 ],
-"note": "Only the last clause of MT 20 remains here."
+"note": "Only the last clause of MT 20 remains here.",
+"second": true
 },
 "60:21": {
 "sy": [
@@ -42414,7 +42424,8 @@
 "65:4/",
 "65:4/"
 ],
-"note": "'lodge in caves'; long plus 'to loosen the law and defile the holy covenant, to provoke the LORD'."
+"note": "'lodge in caves'; long plus 'to loosen the law and defile the holy covenant, to provoke the LORD'.",
+"second": true
 },
 "65:5": {
 "sy": [
@@ -42568,7 +42579,7 @@
 "65:8/10",
 "65:8/11",
 "65:8/12",
-"65:8/",
+"65:8/13",
 "65:8/13",
 "65:8/14",
 "65:8/15",
@@ -43358,7 +43369,8 @@
 "66:3/22",
 "66:3/21"
 ],
-"note": "Comparisons made explicit with plus 'like him who'."
+"note": "Comparisons made explicit with plus 'like him who'.",
+"second": true
 },
 "66:4": {
 "sy": [

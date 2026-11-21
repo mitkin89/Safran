@@ -113,9 +113,9 @@
 "1:3/",
 "1:3/",
 "1:3/",
-"1:3/",
-"1:3/",
 "1:3/3",
+"1:3/3",
+"1:3/4",
 "1:3/4,5",
 "1:3/6",
 "1:3/7",
@@ -136,7 +136,8 @@
 "1:3/17",
 "1:3/18"
 ],
-"note": "Expanded: 'those men whom I asked'; 'many' added."
+"note": "Plus 'these men whom I asked'; הנשארים אשר נשארו = 'those men who escaped'; plus 'behold', copula, 'dwell', 'much', 'and behold'.",
+"second": true
 },
 "1:4": {
 "sy": [
@@ -316,7 +317,8 @@
 "1:7/14,15",
 "1:7/16"
 ],
-"note": "'we acted very corruptly' and 'judgments' omitted."
+"note": "'we acted very corruptly' and 'judgments' omitted.",
+"second": true
 },
 "1:8": {
 "sy": [
@@ -1674,13 +1676,14 @@
 "3:10/6",
 "3:10/7",
 "3:10/8",
-"3:10/1,2",
 "3:10/9,10",
+"3:10/11",
 "3:10/12",
 "3:10/13",
 "3:10/14"
 ],
-"note": "נגד rendered 'great'."
+"note": "Second 'and (at) the border repaired' belongs to ועל ידו החזיק (was linked to the first clause); נגד rendered 'great'.",
+"second": true
 },
 "3:11": {
 "sy": [
@@ -2414,7 +2417,8 @@
 "3:30/",
 "3:30/"
 ],
-"note": "Plus doublet 'after him repaired Binnui son of Henadad a second portion' (cf. 3:24); 'chamber' rendered 'house'."
+"note": "Plus doublet 'after him repaired Binnui son of Henadad a second portion' (cf. 3:24); 'chamber' rendered 'house'.",
+"second": true
 },
 "3:31": {
 "sy": [
@@ -2907,12 +2911,13 @@
 "4:6/11",
 "4:6/11",
 "4:6/12",
-"4:6/",
+"4:6/13",
 "4:6/13,14",
 "4:6/14",
 "4:6/15"
 ],
-"note": "Paraphrase: plus 'behold now ... they came to fight with you', plus 'these'; ויהי כאשר minus."
+"note": "ויהי כאשר minus; plus 'behold now ... they came to fight with you'; ܐܝܠܝܢ ܕ = אשר.",
+"second": true
 },
 "4:7": {
 "sy": [
@@ -2942,14 +2947,15 @@
 "4:7/",
 "4:7/",
 "4:7/8",
-"4:7/10",
+"4:7/9,10",
 "4:7/11",
 "4:7/12",
 "4:7/13",
 "4:7/14",
 "4:7/15"
 ],
-"note": "Plus 'they came ... to fight with you in their troops'; 'people' rendered 'army'; obscure 'lowest places / bare places' minus."
+"note": "Plus 'they came ... to fight with you in their troops'; 'I stationed the people' rendered 'they divided the army'; obscure 'lowest places / bare places' minus.",
+"second": true
 },
 "4:8": {
 "sy": [
@@ -3047,7 +3053,8 @@
 "4:9/17",
 "4:9/18,19"
 ],
-"note": "Plus 'the matter', 'went up', 'were working all of us'."
+"note": "Plus 'the matter', 'went up', 'were working all of us'.",
+"second": true
 },
 "4:10": {
 "sy": [
@@ -3523,7 +3530,7 @@
 "5:5/",
 "5:5/18",
 "5:5/",
-"5:5/",
+"5:5/19",
 "5:5/19",
 "5:5/20",
 "5:5/21",
@@ -3532,7 +3539,8 @@
 "5:5/",
 "5:5/23"
 ],
-"note": "Expansive paraphrase with pluses 'so also', 'slavegirls', 'possessions are given'; לאל read as 'God'."
+"note": "Expansive paraphrase with pluses 'and there are who say', 'so also', 'slavegirls', 'possessions are given'; ואין לאל ידנו rendered 'they do not raise their hands before God'.",
+"second": true
 },
 "5:6": {
 "sy": [
@@ -3582,7 +3590,8 @@
 "5:7/7",
 "5:7/8"
 ],
-"note": "Plus 'I stirred my spirit'; rest of MT verse (usury, assembly) is rendered within Syriac 5:8."
+"note": "Plus 'I stirred my spirit'; rest of MT verse (usury, assembly) is rendered within Syriac 5:8.",
+"second": true
 },
 "5:8": {
 "sy": [
@@ -3619,8 +3628,8 @@
 "ܦܬܓܡ"
 ],
 "w": [
-"5:8/1",
-"5:8/2",
+"5:7/9",
+"5:7/10",
 "5:8/3",
 "5:8/4",
 "5:8/4",
@@ -3629,7 +3638,7 @@
 "5:8/8",
 "5:8/9",
 "5:8/",
-"5:8/",
+"5:8/11",
 "5:7/12",
 "5:7/13",
 "5:7/15,16",
@@ -3639,19 +3648,20 @@
 "5:7/17",
 "5:7/18",
 "5:7/19",
-"5:8/",
-"5:8/",
+"5:8/1",
+"5:8/2",
 "5:8/12",
 "5:8/13",
 "5:8/14",
-"5:8/16",
+"5:8/15,16",
 "5:8/19",
 "5:8/20",
 "5:8/21",
 "5:8/",
 "5:8/22"
 ],
-"note": "Syriac 5:8 includes MT 5:7b (each to his brother ... I set against them an assembly, read as 'voice'); plus 'them and their sons'."
+"note": "Speech blocks of MT 5:7b and 5:8a transposed: first 'I said to them' = 5:7, second (after the assembly, read as 'voice') = 5:8; בנו apparently read as 'their sons'; כדי, ונמכרו לנו minus; plus 'therefore', 'to me'.",
+"second": true
 },
 "5:9": {
 "sy": [
@@ -3691,14 +3701,15 @@
 "5:9/12",
 "5:9/12",
 "5:9/13",
-"5:9/",
-"5:9/",
-"5:9/",
-"5:9/",
+"5:9/13",
+"5:9/13",
+"5:9/13",
+"5:9/13",
 "5:9/14",
-"5:9/"
+"5:9/15"
 ],
-"note": "Plus 'now', 'you are doing like servants'; 'our enemies' rendered 'around'."
+"note": "מחרפת paraphrased 'because you act like the deeds (of the nations)'; 'our enemies' rendered 'who are around us'; plus 'to them', 'now'.",
+"second": true
 },
 "5:10": {
 "sy": [
@@ -3729,7 +3740,8 @@
 "5:10/",
 "5:10/"
 ],
-"note": "Plus 'we sell' and 'to the poor among our people'."
+"note": "Plus 'we sell' and 'to the poor among our people'.",
+"second": true
 },
 "5:11": {
 "sy": [
@@ -3762,7 +3774,8 @@
 "5:11/",
 "5:11/"
 ],
-"note": "'Hundredth' minus; plus 'let us leave to the rest of the people'."
+"note": "'Hundredth' minus; plus 'let us leave to the rest of the people'.",
+"second": true
 },
 "5:12": {
 "sy": [
@@ -3809,7 +3822,8 @@
 "5:12/16",
 "5:12/17"
 ],
-"note": "'We will restore and not seek' minus; plus 'and I said to them, thus and not to do'."
+"note": "'We will restore and not seek' minus; plus 'and I said to them, thus and not to do'.",
+"second": true
 },
 "5:13": {
 "sy": [
@@ -3859,11 +3873,11 @@
 "5:13/5",
 "5:13/6",
 "5:13/7",
-"5:13/9",
+"5:13/8,9",
 "5:13/10",
 "5:13/11,12",
 "5:13/13",
-"5:13/",
+"5:13/15",
 "5:13/15",
 "5:13/16",
 "5:13/17",
@@ -3890,7 +3904,8 @@
 "5:13/32",
 "5:13/33"
 ],
-"note": "חצני minus; נער rendered 'children'; plus 'and all the people stood'."
+"note": "חצני minus; נערתי read as 'children' (plus 'small'); ܥܠ ܡܠܬܐ for את הדבר; plus 'and all the people stood', 'all'.",
+"second": true
 },
 "5:14": {
 "sy": [
@@ -3954,7 +3969,7 @@
 "5:14/",
 "5:14/24",
 "5:14/25",
-"5:14/",
+"5:14/23",
 "5:14/",
 "5:14/",
 "5:14/26",
@@ -3963,7 +3978,8 @@
 "5:14/",
 "5:14/"
 ],
-"note": "Paraphrase of the end: 'I was head to them, and did not take wine of any of them, nor burdened any of them'."
+"note": "End recast after Num 16:15/1 Sam 12:3: 'I was head to them and did not take the ass (ܚܡܪܐ, in the slot of לחם) of any of them, nor harmed any of them'.",
+"second": true
 },
 "5:15": {
 "sy": [
@@ -4032,7 +4048,8 @@
 "5:15/26",
 "5:15/27"
 ],
-"note": "Plus 'much for tribute', 'and they ruled over them and oppressed them'."
+"note": "Plus 'much for tribute', 'and they ruled over them and oppressed them'.",
+"second": true
 },
 "5:16": {
 "sy": [
@@ -4183,7 +4200,8 @@
 "5:18/30",
 "5:18/31"
 ],
-"note": "Opening paraphrased with plus 'the man who made bread for the workers'; 'for one day' minus."
+"note": "Opening paraphrased with plus 'the man who made bread for the workers'; 'for one day' minus.",
+"second": true
 },
 "5:19": {
 "sy": [
@@ -4680,12 +4698,13 @@
 "6:11/3",
 "6:11/4",
 "6:11/12",
+"6:11/12",
 "6:11/",
-"6:11/",
-"6:11/13",
+"6:11/8,13",
 "6:11/9,10"
 ],
-"note": "Compressed: 'far be it from me to flee and enter the temple'; 'who like me ... and live' minus."
+"note": "Compressed: 'far be it from me (= לא) to flee and enter the temple'; 'who like me ... and live' minus.",
+"second": true
 },
 "6:12": {
 "sy": [
@@ -4717,12 +4736,12 @@
 "6:12/1",
 "6:12/",
 "6:12/3",
-"6:12/",
+"6:12/3",
 "6:12/4",
 "6:12/5",
 "6:12/",
 "6:12/",
-"6:12/",
+"6:12/7",
 "6:12/7",
 "6:12/8",
 "6:12/9",
@@ -4736,7 +4755,8 @@
 "6:12/",
 "6:12/"
 ],
-"note": "Expanded: plus 'nor by a prophet', 'to kill me', 'and his companions ... sent him against me to kill me'."
+"note": "Expanded: plus 'against me', 'nor (was it) by a prophet (for הנבואה) said to me', 'to kill me', 'and his companions ... sent him against me to kill me'.",
+"second": true
 },
 "6:13": {
 "sy": [
@@ -9206,8 +9226,8 @@
 "ܒܓܘܗ̇"
 ],
 "w": [
-"9:36/",
-"9:36/",
+"9:36/1",
+"9:36/1",
 "9:36/2",
 "9:36/3",
 "9:36/4",
@@ -9221,11 +9241,12 @@
 "9:36/15",
 "9:36/",
 "9:36/16",
-"9:36/",
+"9:36/16",
 "9:36/17",
 "9:36/"
 ],
-"note": "הנה rendered 'therefore'; plus 'like', 'working', 'in its midst'."
+"note": "First הנה rendered 'therefore'; עבדים doubly rendered 'like servants working'; plus 'like', 'in its midst'.",
+"second": true
 },
 "9:37": {
 "sy": [
@@ -9316,9 +9337,9 @@
 "ܘܙܪܚܝܐ"
 ],
 "w": [
-"10:2/",
-"10:2/",
-"10:2/",
+"10:2/1",
+"10:2/2",
+"10:2/2",
 "10:2/",
 "10:2/3",
 "10:2/4",
@@ -9328,7 +9349,8 @@
 "10:2/",
 "10:2/7"
 ],
-"note": "Opening 'and on the sealed' rendered obscurely (plus); Tirshatha rendered 'elder'; plus 'head of the priests'."
+"note": "ועל read as וכל, החתומים rendered obscurely 'those who ... of us'; Tirshatha rendered 'elder'; plus 'head of the priests'; names differ.",
+"second": true
 },
 "10:3": {
 "sy": [
@@ -9875,15 +9897,15 @@
 "10:32/11",
 "10:32/12,13",
 "10:32/6",
-"10:32/",
+"10:32/7",
 "10:32/",
 "10:32/8",
 "10:32/9",
-"10:32/",
-"10:32/",
-"10:32/",
 "10:32/7",
-"10:32/",
+"10:32/11",
+"10:32/12",
+"10:32/21",
+"10:32/14",
 "10:32/14",
 "10:32/",
 "10:32/",
@@ -9896,11 +9918,12 @@
 "10:32/21",
 "10:32/",
 "10:32/",
-"10:32/19",
+"10:32/18,19",
 "10:32/20",
 "10:32/17"
 ],
-"note": "Free expansion: plus 'whoever hires a beast ... wage he shall not take', 'we shall not carry', 'because it is holy'; debt and seventh-year release reordered."
+"note": "Free expansion: שבר read as שכר ('whoever hires out a beast ... wage he shall not take', לא נקח doubled); משא rendered twice (burden on the sabbath / what they owe us); plus 'we shall not carry', 'because it is holy'; release clauses reordered.",
+"second": true
 },
 "10:33": {
 "sy": [
@@ -10011,7 +10034,8 @@
 "10:35/",
 "10:35/24"
 ],
-"note": "'Father's house ... to burn on the altar' (12-22) minus; plus 'Lord', 'book'."
+"note": "'Father's house ... to burn on the altar' (12-22) minus; plus 'Lord', 'book'.",
+"second": true
 },
 "10:36": {
 "sy": [
@@ -10943,7 +10967,8 @@
 "11:21/",
 "11:21/"
 ],
-"note": "Paraphrase: Nethinim as 'their servants', and 'each at his work and his plough' replaces Ophel/Ziha/Gishpa (plus)."
+"note": "Paraphrase: Nethinim as 'their servants', and 'each at his work and his plough' replaces Ophel/Ziha/Gishpa (plus).",
+"second": true
 },
 "11:22": {
 "sy": [
@@ -11057,7 +11082,7 @@
 "11:24/7",
 "11:24/",
 "11:24/8",
-"11:24/",
+"11:24/8",
 "11:24/",
 "11:24/",
 "11:24/",
@@ -11068,7 +11093,8 @@
 "11:24/11",
 "11:24/12"
 ],
-"note": "'At the king's hand' paraphrased 'he ruled over all whom the king said' (plus)."
+"note": "'At the king's hand' paraphrased 'he was ruler over all whom the king said' (relative clause plus).",
+"second": true
 },
 "11:25": {
 "sy": [
@@ -12235,10 +12261,11 @@
 "12:38/",
 "12:38/",
 "12:38/",
-"12:38/",
+"12:38/15",
 "12:38/16"
 ],
-"note": "Second thanksgiving rendered 'they gave thanks'; plus 'went up', 'stood', 'high wall above'; 'ovens' rendered 'great'."
+"note": "Second thanksgiving rendered 'they gave thanks'; למואל read 'from above'; plus 'went up', 'stood', 'high, above'; wall rendered twice; 'ovens' rendered 'great'.",
+"second": true
 },
 "12:39": {
 "sy": [
@@ -12467,7 +12494,7 @@
 "12:44/",
 "12:44/",
 "12:44/",
-"12:44/",
+"12:44/7",
 "12:44/7",
 "12:44/",
 "12:44/6",
@@ -12475,7 +12502,7 @@
 "12:44/12",
 "12:44/9",
 "12:44/10",
-"12:44/",
+"12:44/13",
 "12:44/14",
 "12:44/15",
 "12:44/15",
@@ -12492,7 +12519,8 @@
 "12:44/26",
 "12:44/26"
 ],
-"note": "Paraphrastic: plus 'who were giving from the treasuries to the king'; 'contributions' and 'fields' minus."
+"note": "Paraphrastic: plus 'who were giving ... to the king'; שדי read as שרי ('heads of the towns'); 'contributions' minus; plus 'book'.",
+"second": true
 },
 "12:45": {
 "sy": [
@@ -12735,7 +12763,8 @@
 "13:4/3",
 "13:4/4"
 ],
-"note": "Abbreviated: 'and Eliashib the priest came'; rest of MT verse (chamber, Tobiah) minus."
+"note": "Abbreviated: 'and Eliashib the priest came'; rest of MT verse (chamber, Tobiah) minus.",
+"second": true
 },
 "13:5": {
 "sy": [
@@ -13187,15 +13216,16 @@
 "13:16/4",
 "13:16/5",
 "13:16/",
+"13:16/7",
+"13:16/",
 "13:16/8",
-"13:16/",
-"13:16/",
 "13:16/9",
 "13:16/10",
 "13:16/11",
 "13:16/12"
 ],
-"note": "Tyrians minus; recast as prohibition: 'do not bring fish, do not sell, do not buy on the sabbath'."
+"note": "Tyrians minus; recast as prohibition: 'do not bring fish, do not buy (מכר), do not sell (ומכרים) on the sabbath'.",
+"second": true
 },
 "13:17": {
 "sy": [
@@ -13415,12 +13445,12 @@
 "13:21/5",
 "13:21/5",
 "13:21/6",
-"13:21/",
 "13:21/7",
-"13:21/",
-"13:21/",
-"13:21/",
-"13:21/",
+"13:21/7",
+"13:21/7",
+"13:21/7",
+"13:21/7",
+"13:21/7",
 "13:21/8",
 "13:21/9",
 "13:21/10",
@@ -13430,7 +13460,7 @@
 "13:21/13",
 "13:21/12",
 "13:21/14",
-"13:21/",
+"13:21/15",
 "13:21/15",
 "13:21/16",
 "13:21/17",
@@ -13438,7 +13468,8 @@
 "13:21/19",
 "13:21/20"
 ],
-"note": "'Lodge before the wall' paraphrased 'do not enter until day rises, at the gate of the wall'."
+"note": "'Lodge before the wall' paraphrased 'you do not enter until day rises, at the gate of the wall' (grouped on לנים); plus 'this matter'; proleptic ܡܢܗ ܡܢ.",
+"second": true
 },
 "13:22": {
 "sy": [
@@ -13826,7 +13857,8 @@
 "13:31/",
 "13:31/"
 ],
-"note": "Wood rendered 'holy things'; plus colophon 'finished the writing of the book of Ezra the scribe'."
+"note": "Wood rendered 'holy things'; plus colophon 'finished the writing of the book of Ezra the scribe'.",
+"second": true
 }
 }
 }

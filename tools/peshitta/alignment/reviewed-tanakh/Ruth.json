@@ -438,21 +438,22 @@
 "1:12/4",
 "1:12/",
 "1:12/5",
-"1:12/",
+"1:12/5",
 "1:12/6",
 "1:12/6",
 "1:12/7",
-"1:12/9",
-"1:12/",
+"1:12/8,9",
+"1:12/13",
 "1:12/10",
 "1:12/11",
 "1:12/12",
 "1:12/14",
 "1:12/16",
-"1:12/18",
+"1:12/17,18",
 "1:12/19"
 ],
-"note": "'go' and 'tonight' omitted."
+"note": "'go' and 'tonight' omitted; ethical dative; גם rendered 'again'; plus 'I'.",
+"second": true
 },
 "1:13": {
 "sy": [
@@ -498,10 +499,10 @@
 "1:13/14",
 "1:13/15",
 "1:13/16",
-"1:13/",
-"1:13/",
-"1:13/",
-"1:13/",
+"1:13/17",
+"1:13/15",
+"1:13/14",
+"1:13/17",
 "1:13/17",
 "1:13/18",
 "1:13/21",
@@ -509,7 +510,8 @@
 "1:13/19",
 "1:13/20"
 ],
-"note": "Syriac expands 'it is better for you, and to me more bitter than you'; second interrogative omitted."
+"note": "מר לי מאד מכם rendered twice: 'I am very bitter on your account, and to me it is more bitter than to you'; second interrogative omitted; plus 'and you'.",
+"second": true
 },
 "1:14": {
 "sy": [
@@ -1112,16 +1114,17 @@
 "w": [
 "2:7/1",
 "2:7/2",
-"2:7/",
+"2:7/2",
 "2:7/6",
 "2:7/7",
-"2:7/",
+"2:7/8,9",
 "2:7/10",
 "2:7/11",
 "2:7/12,13",
 "2:7/15"
 ],
-"note": "Syriac 'and she gleaned from morning until rest'; middle clauses abridged."
+"note": "Abridged: cognate object for אלקטה; 'and she gleaned' replaces ותבוא ותעמוד; sheaves, 'house', 'little' minus; שבתה = 'rest'.",
+"second": true
 },
 "2:8": {
 "sy": [
@@ -1159,16 +1162,17 @@
 "2:8/12",
 "2:8/12",
 "2:8/8",
-"2:8/10",
+"2:8/9,10",
 "2:8/",
 "2:8/",
+"2:8/14,15,16",
 "2:8/18",
-"2:8/",
 "2:8/17",
 "2:8/19",
 "2:8/20"
 ],
-"note": "Syriac paraphrases ('in a field not yours do not glean'); 'do not pass from here' omitted."
+"note": "Paraphrase: 'have you not heard in the proverb: in a field not yours do not glean'; 'stay' for 'do not pass from here', 'and lodge here with my girls' for וכה תדבקין (uncertain); plus 'therefore'.",
+"second": true
 },
 "2:9": {
 "sy": [
@@ -1433,7 +1437,7 @@
 "2:14/16",
 "2:14/17",
 "2:14/18",
-"2:14/",
+"2:14/19",
 "2:14/11",
 "2:14/12",
 "2:14/13",
@@ -1446,7 +1450,8 @@
 "2:14/21",
 "2:14/22"
 ],
-"note": "Syriac reorders the meal; adds 'threw pieces'."
+"note": "Meal reordered; קלי rendered twice (ܫܚܬܝܬܐ, ܦܪܝܟܬܐ); plus 'threw pieces ... and gave her'; 'with me' for הלם.",
+"second": true
 },
 "2:15": {
 "sy": [
@@ -1717,7 +1722,8 @@
 "2:21/18",
 "2:21/17"
 ],
-"note": "Syriac adds 'to her mother-in-law'."
+"note": "Syriac adds 'to her mother-in-law'.",
+"second": true
 },
 "2:22": {
 "sy": [
@@ -2020,7 +2026,8 @@
 "3:7/13",
 "3:7/13"
 ],
-"note": "Syriac expands 'in deep sleep' and 'the edge of his cloak'."
+"note": "Syriac expands 'in deep sleep' and 'the edge of his cloak'.",
+"second": true
 },
 "3:8": {
 "sy": [
@@ -2138,18 +2145,19 @@
 "3:10/6",
 "3:10/7",
 "3:10/8",
-"3:10/",
+"3:10/9",
 "3:10/9",
 "3:10/10",
 "3:10/11",
 "3:10/12",
 "3:10/13",
 "3:10/14",
-"3:10/17,18",
-"3:10/",
+"3:10/18",
+"3:10/17",
 "3:10/15,16"
 ],
-"note": "Syriac adds 'Boaz' and 'better'; rich/poor reversed."
+"note": "Plus 'to her', 'Boaz', 'because'; comparative ܛܒ ܡܢ; rich/poor reversed, joined by 'or'.",
+"second": true
 },
 "3:11": {
 "sy": [
@@ -2218,13 +2226,13 @@
 "3:12/1",
 "3:12/2,3",
 "3:12/7",
-"3:12/",
+"3:12/7",
 "3:12/6",
 "3:12/6",
 "3:12/8",
 "3:12/",
 "3:12/9",
-"3:12/",
+"3:12/9",
 "3:12/",
 "3:12/10",
 "3:12/10",
@@ -2233,7 +2241,8 @@
 "3:12/12",
 "3:12/12"
 ],
-"note": "Syriac expands 'another heir'."
+"note": "Enclitic pronouns grouped; second כי אם not rendered; plus 'but', 'another', 'who is'.",
+"second": true
 },
 "3:13": {
 "sy": [
@@ -2271,7 +2280,7 @@
 ],
 "w": [
 "3:13/",
-"3:13/",
+"3:13/1",
 "3:13/2",
 "3:13/1",
 "3:13/",
@@ -2287,7 +2296,7 @@
 "3:13/11",
 "3:13/12",
 "3:13/15",
-"3:13/",
+"3:13/15",
 "3:13/16",
 "3:13/",
 "3:13/",
@@ -2302,7 +2311,8 @@
 "3:13/18",
 "3:13/19"
 ],
-"note": "Syriac expands with an oath clause."
+"note": "'Stay today and lodge' for ליני הלילה; plus 'now', 'until dawn', oath clause expanded ('if he does not redeem you, I will'), 'and he said to her'.",
+"second": true
 },
 "3:14": {
 "sy": [
@@ -2336,7 +2346,7 @@
 "3:14/5",
 "3:14/6",
 "3:14/",
-"3:14/",
+"3:14/7,8",
 "3:14/7,8",
 "3:14/7,8",
 "3:14/10",
@@ -2351,7 +2361,8 @@
 "3:14/",
 "3:14/19"
 ],
-"note": "Ketiv/qere combined; Syriac adds 'in the morning'."
+"note": "Ketiv/qere combined; plus 'in the morning'; בטרם doubly rendered ('while dark, before'); 1st person 'that I came down to you' for 'that the woman came'.",
+"second": true
 },
 "3:15": {
 "sy": [
@@ -2392,7 +2403,8 @@
 "3:15/15",
 "3:15/16"
 ],
-"note": "Syriac 'spread your cloak'; feminine 'she came'."
+"note": "Syriac 'spread your cloak'; feminine 'she came'.",
+"second": true
 },
 "3:16": {
 "sy": [
@@ -2441,7 +2453,8 @@
 "3:16/14",
 "3:16/15"
 ],
-"note": "Syriac adds 'I am Ruth'."
+"note": "Syriac adds 'I am Ruth'.",
+"second": true
 },
 "3:17": {
 "sy": [
@@ -2572,7 +2585,8 @@
 "4:1/19",
 "4:1/"
 ],
-"note": "Syriac 'he said to him: who are you?' for peloni almoni; adds 'of the city'."
+"note": "Syriac 'he said to him: who are you?' for peloni almoni; adds 'of the city'.",
+"second": true
 },
 "4:2": {
 "sy": [
@@ -2677,14 +2691,14 @@
 "w": [
 "4:4/1",
 "4:4/2",
-"4:4/3",
-"4:4/4",
+"4:4/3,4",
+"4:4/3,4",
 "4:4/5",
 "4:4/",
 "4:4/6",
 "4:4/6",
 "4:4/7",
-"4:4/",
+"4:4/8",
 "4:4/8",
 "4:4/",
 "4:4/",
@@ -2693,13 +2707,13 @@
 "4:4/",
 "4:4/",
 "4:4/9",
-"4:4/",
+"4:4/10",
 "4:4/10",
 "4:4/11",
 "4:4/",
 "4:4/",
 "4:4/12",
-"4:4/",
+"4:4/12",
 "4:4/13",
 "4:4/13",
 "4:4/14",
@@ -2711,7 +2725,7 @@
 "4:4/19",
 "4:4/20,21",
 "4:4/22,23",
-"4:4/",
+"4:4/23",
 "4:4/24,25",
 "4:4/26",
 "4:4/27",
@@ -2719,7 +2733,8 @@
 "4:4/30",
 "4:4/29"
 ],
-"note": "Ketiv/qere combined; Syriac expands ('I myself have shown ... to say and to buy')."
+"note": "Ketiv/qere combined; אגלה אזנך = 'reveal and inform you'; plus 'I myself have shown ... to say and to buy', 'who sit', 'now'.",
+"second": true
 },
 "4:5": {
 "sy": [
@@ -2813,7 +2828,8 @@
 "4:6/19",
 "4:6/20"
 ],
-"note": "Ketiv/qere combined; Syriac adds 'because of my lack of faith(?)'."
+"note": "Ketiv/qere combined; Syriac adds 'because of my lack of faith(?)'.",
+"second": true
 },
 "4:7": {
 "sy": [
@@ -3044,7 +3060,7 @@
 "4:11/3",
 "4:11/4,5",
 "4:11/",
-"4:11/",
+"4:11/1",
 "4:11/7",
 "4:11/",
 "4:11/",
@@ -3052,13 +3068,13 @@
 "4:11/8",
 "4:11/9",
 "4:11/11",
-"4:11/",
-"4:11/",
+"4:11/12,13,14",
+"4:11/12,13,14",
 "4:11/15",
 "4:11/15",
 "4:11/16",
 "4:11/16",
-"4:11/",
+"4:11/17",
 "4:11/17",
 "4:11/19",
 "4:11/18",
@@ -3072,7 +3088,8 @@
 "4:11/28",
 "4:11/29"
 ],
-"note": "Syriac adds 'and blessed him and said'; 'who comes into your house' paraphrased."
+"note": "'Answered ... and said' for ויאמרו; plus 'of the town', 'and blessed him and said to him'; 'who comes into your house' paraphrased 'this (woman) before you'.",
+"second": true
 },
 "4:12": {
 "sy": [

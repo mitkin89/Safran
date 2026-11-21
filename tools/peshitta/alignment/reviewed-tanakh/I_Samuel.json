@@ -1011,7 +1011,7 @@
 "1:26/6",
 "1:26/7",
 "1:26/",
-"1:26/",
+"1:26/8",
 "1:26/8",
 "1:26/9",
 "1:26/9",
@@ -1021,7 +1021,8 @@
 "1:26/13",
 "1:26/14"
 ],
-"note": "\"Hannah said to Eli: I beseech you\"; pronouns duplicated."
+"note": "Plus 'Hannah ... to Eli'; 'I beseech you' for bi; demonstrative for the article grouped, copulas plus.",
+"second": true
 },
 "1:27": {
 "sy": [
@@ -1502,9 +1503,9 @@
 "w": [
 "2:13/",
 "2:13/",
-"2:13/14",
-"2:13/15",
-"2:13/16",
+"2:13/",
+"2:13/",
+"2:13/",
 "2:13/1",
 "2:13/2",
 "2:13/",
@@ -1528,7 +1529,8 @@
 "2:13/16",
 "2:13/17"
 ],
-"note": "Syriac opens with a plus \"they made themselves a three-pronged fork\" (from MT v.13 end); \"the custom of the priests they took from the people\"."
+"note": "Opening 'they made themselves a three-pronged fork' is an explanatory plus (the fork itself is rendered at the verse end); plus 'they took'.",
+"second": true
 },
 "2:14": {
 "sy": [
@@ -3110,7 +3112,8 @@
 "3:17/25",
 "3:17/"
 ],
-"note": "\"the LORD\" named as speaker (plus); נא not rendered."
+"note": "\"the LORD\" named as speaker (plus); נא not rendered.",
+"second": true
 },
 "3:18": {
 "sy": [
@@ -3220,13 +3223,14 @@
 ],
 "w": [
 "3:21/1",
-"3:21/",
+"3:21/1",
 "3:21/2",
 "3:21/3",
 "3:21/4",
 "3:21/11,12"
 ],
-"note": "Shortened: כי נגלה יהוה אל שמואל בשלו not rendered."
+"note": "Shortened: ki nigla YHWH el Shemuel be-Shilo not rendered; tub grouped with 'continued'.",
+"second": true
 },
 "4:1": {
 "sy": [
@@ -3660,7 +3664,8 @@
 "4:10/15",
 "4:10/16"
 ],
-"note": "Pluses \"with Israel\", \"in Israel\", \"on that day\"."
+"note": "Pluses \"with Israel\", \"in Israel\", \"on that day\".",
+"second": true
 },
 "4:11": {
 "sy": [
@@ -4582,7 +4587,8 @@
 "5:10/20",
 "5:10/21,22"
 ],
-"note": "Minus \"and when the ark came to Ekron\" (6-10, homoioteleuton)."
+"note": "Minus \"and when the ark came to Ekron\" (6-10, homoioteleuton).",
+"second": true
 },
 "5:11": {
 "sy": [
@@ -7119,7 +7125,8 @@
 "9:3/",
 "9:3/"
 ],
-"note": "Long plus: Saul arose, took a lad and went to seek his father's asses."
+"note": "Long plus: Saul arose, took a lad and went to seek his father's asses.",
+"second": true
 },
 "9:4": {
 "sy": [
@@ -9361,7 +9368,7 @@
 "11:3/13",
 "11:3/",
 "11:3/",
-"11:3/",
+"11:3/17",
 "11:3/17",
 "11:3/16",
 "11:3/14,15",
@@ -13091,7 +13098,8 @@
 "14:36/19",
 "14:36/20"
 ],
-"note": "Minus לילה and the priest's reply (21-26)."
+"note": "Minus לילה and the priest's reply (21-26).",
+"second": true
 },
 "14:37": {
 "sy": [
@@ -14871,7 +14879,8 @@
 "15:32/17",
 "15:32/18"
 ],
-"note": "Minus \"Agag came to him delicately\"; \"truly bitter is death\"."
+"note": "Minus \"Agag came to him delicately\"; \"truly bitter is death\".",
+"second": true
 },
 "15:33": {
 "sy": [
@@ -15551,7 +15560,8 @@
 "16:15/2",
 "16:15/3"
 ],
-"note": "Speech continues in S 16:16."
+"note": "Speech continues in S 16:16.",
+"second": true
 },
 "16:16": {
 "sy": [
@@ -15592,7 +15602,8 @@
 "16:16/19",
 "16:16/20"
 ],
-"note": "Minus \"an evil spirit of God terrifies you; let our lord speak\"."
+"note": "Minus \"an evil spirit of God terrifies you; let our lord speak\".",
+"second": true
 },
 "16:17": {
 "sy": [
@@ -16302,7 +16313,8 @@
 "17:13/20",
 "17:13/21"
 ],
-"note": "Minus \"went\" duplicate and \"three sons who went to battle\"."
+"note": "Minus \"went\" duplicate and \"three sons who went to battle\".",
+"second": true
 },
 "17:14": {
 "sy": [
@@ -16315,7 +16327,8 @@
 "17:14/2",
 "17:14/3"
 ],
-"note": "Minus \"and the three eldest went after Saul\"."
+"note": "Minus \"and the three eldest went after Saul\".",
+"second": true
 },
 "17:15": {
 "sy": [
@@ -17238,7 +17251,8 @@
 "17:39/24",
 "17:39/25"
 ],
-"note": "\"did not want to go\"; minus David's speech (12-22)."
+"note": "\"did not want to go\"; minus David's speech (12-22).",
+"second": true
 },
 "17:40": {
 "sy": [
@@ -21167,7 +21181,7 @@
 "20:29/4",
 "20:29/5",
 "20:29/6",
-"20:29/",
+"20:29/7",
 "20:29/7",
 "20:29/8",
 "20:29/9,10",
@@ -23721,7 +23735,7 @@
 "23:12/4",
 "23:12/5",
 "23:12/7,8",
-"23:12/",
+"23:12/8",
 "23:12/9",
 "23:12/10",
 "23:12/11",
@@ -23733,7 +23747,8 @@
 "23:12/",
 "23:12/"
 ],
-"note": "MT 23:11 has no counterpart (Syriac 23:11 empty); plus 'with me', 'you', and 'arise, go out from the city'."
+"note": "'And David said' omitted; 'the men with me' for 'my men'; plus 'you' and 'arise, go out from the city'.",
+"second": true
 },
 "23:13": {
 "sy": [
@@ -25448,7 +25463,8 @@
 "25:6/5",
 "25:6/6"
 ],
-"note": "Plus 'to him'; 'to the living' paraphrased; second 'peace' and 'all that you have peace' not rendered."
+"note": "Plus 'to him'; 'to the living' paraphrased; second 'peace' and 'all that you have peace' not rendered.",
+"second": true
 },
 "25:7": {
 "sy": [
@@ -25485,7 +25501,8 @@
 "25:7/20",
 "25:7/21"
 ],
-"note": "MT 7a ('and now I heard that they shear for you') not rendered; 'wilderness' for 'Carmel'."
+"note": "MT 7a ('and now I heard that they shear for you') not rendered; 'wilderness' for 'Carmel'.",
+"second": true
 },
 "25:8": {
 "sy": [
@@ -26175,13 +26192,13 @@
 "25:24/5",
 "25:24/5",
 "25:24/7",
-"25:24/6",
-"25:24/",
+"25:24/5,6",
+"25:24/7",
 "25:24/8",
 "25:24/9",
 "25:24/11",
 "25:24/12",
-"25:25/11",
+"25:25/7",
 "25:25/8",
 "25:25/10",
 "25:25/12",
@@ -26202,7 +26219,8 @@
 "25:25/28,29",
 "25:25/27"
 ],
-"note": "Syriac 24 covers MT 24-25; 'hear the words of your handmaid' and 'let not my lord set his heart' not rendered."
+"note": "Syriac 24 covers MT 24-25; bi ani adoni rendered twice; 'hear the words of your handmaid' and 'let not my lord set his heart' not rendered.",
+"second": true
 },
 "25:26": {
 "sy": [
@@ -26643,7 +26661,7 @@
 "25:36/3",
 "25:36/4",
 "25:36/5",
-"25:36/",
+"25:36/6",
 "25:36/6",
 "25:36/7",
 "25:36/8",
@@ -30731,7 +30749,8 @@
 "30:19/18",
 "30:19/19"
 ],
-"note": "List 'small, great, sons, daughters, spoil' not rendered."
+"note": "List 'small, great, sons, daughters, spoil' not rendered.",
+"second": true
 },
 "30:20": {
 "sy": [
