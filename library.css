@@ -1937,6 +1937,11 @@ body.il .cell[data-k="he"] .ilt.il-smr { direction: rtl; font-family: var(--he-f
 .smr-plus::before { content: "+"; opacity: .65; font-size: .7em; }
 .smr-transposed::after { content: "↔"; opacity: .65; font-size: .7em; }
 .smr-missing { opacity: .6; }
+/* Apparat: Hexapla (Field) */
+.tc-hx-sig { font-weight: 700; }
+.tc-hx-fn { cursor: help; color: var(--accent); font-size: .7em; }
+.tc-hx-sign { font-weight: 700; color: var(--accent); }
+.tc-hx-lat { color: var(--muted); font-size: .9em; }
 /* Apparat: Peschitta als Textzeuge */
 .tc-ps-sy { font-family: "Safran Syriac", sans-serif; font-size: 1.1em; }
 .tc-ps-long { display: inline; }

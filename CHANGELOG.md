@@ -2,6 +2,7 @@
 
 ### Unreleased
 
+- Apparatus witness „Hex“: Frederick Field's Hexapla (1875) for Genesis – Hebrew lemma located in the MT, LXX with hexaplaric signs (※ ÷), readings of Aquila, Symmachus, Theodotion and others, and Field's footnotes (Latin, with English translation) on hover; transcribed from the public-domain archive.org scan.
 - Apparatus, witness „Syr“ (pilot: Genesis, 626 entries): classified Peshitta readings against the MT – different reading, different interpretation, plus, minus, harmonisation (with parallel), translation technique, double translation, transposition, number, name, inner-Syriac error – with reconstructed Hebrew Vorlage (marked as reconstructed) and uncertain cases flagged; agreement with the LXX (Tov's retroversions) or the Samaritan text at the same MT position is shown as „= LXX/SMR“, other deviations there as „vgl.“.
 - Add the Peshitta as a fifth witness („Syr“) in the text-critical apparatus for the whole Tanakh: pluses (placed after the preceding MT word, long ones folded) and minuses against the MT, derived from the word-by-word alignment; the reasoning appears when hovering the source line.
 - Show Syriac comparison forms inside other selected dictionary articles from the Syriac word card, with full-word matching, pointing-insensitive lookup, highlighted original text and direct article navigation.
