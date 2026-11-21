@@ -1,10 +1,9 @@
 # MT–Peshitta word groups: Pentateuch
 
 The reader offers Syriac words, consonantal Hebrew transliteration and
-reciprocal highlighting for all five books. This is a draft alignment:
-most links are automatic, some verses have been inspected and edited by
-Codex, and unlinked words remain explicitly unlinked. Coverage is not an
-accuracy estimate or evidence for a textual variant.
+reciprocal highlighting for all five books. Every verse has been reviewed word by word (see below); unlinked words
+remain explicitly unlinked. A link is a reading aid, not evidence for a
+textual variant.
 
 ## Rebuild
 
@@ -27,11 +26,15 @@ are kept separate from the main lemma. A sequence alignment chooses
 supported anchors. There is no positional gap filling. Explicit relative
 and preposition morphemes and combined numerals can form word groups.
 
-`reviewed.json` records 18 verses inspected by Codex, including the precise
-word edits and their reasons. Each edit requires exact Hebrew and Syriac
-verse forms. This is not a claim that the whole corpus was manually or
-independently reviewed. Other suggestions remain labelled automatic.
-Unclear bird names in Deuteronomy 14:16–17 remain entirely unaligned.
+`reviewed.json` now holds a complete word-by-word review of all 5,846
+Pentateuch verses by Claude (November 2026), replacing the 18 earlier Codex
+verses. For every Syriac word it lists the MT word(s) it renders; `[]` marks
+Syriac pluses or words whose correspondence is uncertain, and MT words without
+a Syriac counterpart appear in no list. Each verse has a short English note on
+pluses, minuses and divergent readings. Ketiv and qere are both linked when the
+Syriac word renders either. The automatic proposals above served only as a
+starting point. Each review entry stores the exact Hebrew and Syriac verse
+forms, so a changed edition fails the build instead of shifting links.
 `pentateuch-coverage.json` gives structural counts and remaining gaps.
 
 The generated version-2 dataset contains all 5,846 MT verses, each with

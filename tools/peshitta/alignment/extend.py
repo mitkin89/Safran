@@ -138,13 +138,13 @@ def align(H,S,A,links):
    if want_he and want_he in partlex:ix.insert(0,h);used.add(h);evidence[j]+='+prefix'
  return result,evidence
 reviews=json.loads((HERE/'reviewed.json').read_text()) if (HERE/'reviewed.json').exists() else {}
-out={'version':2,'books':{}};report={'books':[],'method':'Automatic proposals; no gap filling or manual-review claim'}
+out={'version':2,'books':{}};report={'books':[],'method':'Automatic proposals, replaced verse by verse by the complete word-by-word review in reviewed.json'}
 inputs={f:sha((ROOT/f).read_bytes())for f in ['targum-il.js','targum-lex.js','oshb-lemmas.js','tools/peshitta/alignment/reviewed.json','tools/peshitta/alignment/extend.py']}
 for book in BOOKS:
  heE,heD,heSrc=load(book,lambda e:e['versionTitle'].startswith('Westminster'))
  syE,syD,sySrc=load(book,lambda e:e.get('language')=='Syriac')
  otE,otD,otSrc=load(book,lambda e:e['versionTitle'].startswith('Targum Onkelos'))
- data={'version':1,'book':book,'source':{'he':heSrc,'translation':sySrc,'onkelos':otSrc,'inputs':inputs,'method':'Onkelos-supported lexical anchors; automatic, unreviewed'},'verses':{}}
+ data={'version':1,'book':book,'source':{'he':heSrc,'translation':sySrc,'onkelos':otSrc,'inputs':inputs,'method':'Onkelos-supported lexical anchors as starting point; every verse reviewed word by word (reviewed.json)'},'verses':{}}
  stat={'book':book,'verses':0,'patracosy':0,'proposals':0,'syWords':0,'linkedSyriac':0,'unlinkedSyriac':0,'unlinkedMT':0,'emptyVerses':[],'referenceGroups':[]}
  for ci,chapter in enumerate(heD['text']):
   for vi,html0 in enumerate(chapter):
@@ -168,12 +168,12 @@ for book in BOOKS:
      j=int(j)-1
      if j<0 or j>=len(r['sy'])or any(i<1 or i>len(H)for i in ix):raise ValueError('Review index out of range')
      r['links'][j]=ix
-    r['review']={'by':'Codex','scope':'verse','note':review['note']}
+    r['review']={'by':review.get('by','Codex'),'scope':'verse','note':review['note']}
    if native!=[(c,v)]:stat['referenceGroups'].append({'mt':ref,'peshitta':[f'{a}:{b}'for a,b in native]})
    data['verses'][ref]=r;stat['verses']+=1;stat['syWords']+=len(r['sy']);stat['linkedSyriac']+=sum(bool(ix)for ix in r['links']);stat['unlinkedSyriac']+=sum(not ix for ix in r['links']);stat['unlinkedMT']+=len(H)-len({i for ix in r['links']for i in ix})
    if not any(r['links']):stat['emptyVerses'].append(ref)
  if book=='Genesis':data['source']['patracosy']={k:v for k,v in gen['source'].get('patracosy',gen['source']).items()if k in('repo','commit','files','method')}
  out['books'][book]=data;report['books'].append(stat)
-(ROOT/'peshitta-alignment-data.js').write_text('// Automatic word-group proposals; see tools/peshitta/alignment/README.md.\nwindow.PESHITTA_ALIGNMENT_DATA='+compact(out)+';\n')
+(ROOT/'peshitta-alignment-data.js').write_text('// MT–Peshitta word groups, reviewed word by word; see tools/peshitta/alignment/README.md.\nwindow.PESHITTA_ALIGNMENT_DATA='+compact(out)+';\n')
 (HERE/'pentateuch-coverage.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
 print(compact([{k:v for k,v in s.items()if k not in('referenceGroups','emptyVerses')}for s in report['books']]))

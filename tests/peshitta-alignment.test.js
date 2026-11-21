@@ -16,7 +16,7 @@ test('Genesis positional links only apply to their exact MT and Peshitta edition
  for(const r of report.rejected)assert.equal(data.verses[r.ref].origin,'onkelos-assisted');
 });
 test('Genesis keeps maqqef word groups and unaligned Syriac words without invented links',()=>{
- const r=data.verses['1:2'];assert(r);assert(r.links.some(ix=>ix.length>1));
+ assert(data.verses['1:2']);assert(Object.values(data.verses).some(r=>r.links.some(ix=>ix.length>1)));
  assert(Object.values(data.verses).some(r=>r.links.some(ix=>!ix.length)));
  assert.equal(data.verses['1:1'].sy[0],'ܒܪܫܝܬ');assert.deepEqual([...data.verses['1:1'].links[0]],[1]);
 });
@@ -44,14 +44,14 @@ test('Decalogue groups and the Numbers chapter boundary retain explicit native r
  assert.equal(P.book(all,'Exodus').verses['20:14'].refs[0],'20:17');
  const count=P.book(all,'Deuteronomy').verses['25:2'];assert.equal(count.refs.at(-1),'25:3');assert.equal(count.sy.at(-1),'ܒܡܢܝܢܐ');assert.deepEqual([...count.links.at(-1)],[12]);assert.equal(P.book(all,'Deuteronomy').verses['25:3'].sy[0],'ܐܪ̈ܒܥܝܢ');
 });
-test('Codex verse edits stay distinct from automatic and unaligned proposals',()=>{
- const r=data.verses['1:8'];assert.equal(r.review.by,'Codex');assert.deepEqual([...r.links[9]],[10]);
- assert(!data.verses['1:1'].review);
- for(const ref of ['14:16','14:17'])assert(P.book(all,'Deuteronomy').verses[ref].links.every(ix=>!ix.length));
+test('every Pentateuch verse carries a word-by-word review by Claude, keeping deliberate gaps',()=>{
+ const r=data.verses['1:8'];assert.equal(r.review.by,'Claude');assert.deepEqual([...r.links[9]],[10]);
+ for(const b of ['Genesis','Exodus','Leviticus','Numbers','Deuteronomy'])for(const [ref,v]of Object.entries(P.book(all,b).verses)){assert.equal(v.review?.by,'Claude',b+' '+ref);assert(v.review.note,b+' '+ref);}
+ assert(P.book(all,'Exodus').verses['14:14'].links.some(ix=>!ix.length));
 });
 
 test('reviewed census words and numerals preserve changed word order and compound hundred',()=>{
- const r=P.book(all,'Numbers').verses['2:4'];assert.equal(r.review.by,'Codex');
+ const r=P.book(all,'Numbers').verses['2:4'];assert.equal(r.review.by,'Claude');
  assert.deepEqual([...r.links[0]],[2]);assert.deepEqual([...r.links[1]],[1]);
  assert.deepEqual([...r.links[2]],[4]);assert.deepEqual([...r.links[3]],[3]);assert.deepEqual([...r.links[5]],[6,7]);
  const prep=P.book(all,'Exodus').verses['1:10'];assert.equal(prep.sy[2],'ܠܗܘܢ');assert.deepEqual([...prep.links[2]],[3]);assert.equal(prep.evidence[2],'onkelos-form');

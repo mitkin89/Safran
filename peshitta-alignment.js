@@ -13,7 +13,7 @@ function segments(data,ref,cell,doc){
  const [c,v]=ref.split(':').map(Number),html=doc.text[c-1]?.[v-1]||'',ids=r.ids||[...html.matchAll(/data-si="(\d+)"/g)].map(m=>m[1]);
  if(ids.length!==r.sy.length||r.refs&&r.refs.length!==r.sy.length)return null;
  if(ids.some((id,i)=>{const word=doc.syriacMorphology?.words?.[id];return !word||word[0]!==r.sy[i]||(r.refs?.[i]||ref)!==word[2]+':'+word[3];}))return null;
- return r.sy.map((w,i)=>[r.links[i],w,null,{id:ids[i],rel:doc.entry.rel,ref:r.refs?.[i]||ref,mtRef:ref,origin:r.origin||'patracosy',reviewed:!!r.review}]);
+ return r.sy.map((w,i)=>[r.links[i],w,null,{id:ids[i],rel:doc.entry.rel,ref:r.refs?.[i]||ref,mtRef:ref,origin:r.origin||'patracosy',reviewed:!!r.review,reviewedBy:r.review?.by||''}]);
 }
 function wordHtml(s,meta,esc){return `<span class="syw" data-si="${esc(meta.id)}" data-sy-rel="${esc(meta.rel)}" data-sy-ref="${esc(meta.ref)}" lang="syr" dir="rtl">${esc(s)}</span><small class="ps-translit" lang="he" dir="rtl">${esc(global.SyriacMorph.hebrew(s))}</small>`;}
 const api={book,prepare,verse,segments,wordHtml};if(typeof module==='object'&&module.exports)module.exports=api;else global.PeshittaAlignment=api;

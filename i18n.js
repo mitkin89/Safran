@@ -104,6 +104,7 @@
     "Für diesen Text nicht verfügbar": "Not available for this text",
     "Kurzbedeutung (Englisch) · STEPBible": "Short meaning (English) · STEPBible",
     "Am Text geprüft (Codex)": "Checked against the text (Codex)",
+    "Am Text geprüft (Claude)": "Checked against the text (Claude)",
     "Peschitta · automatische Vorschläge aus PaTraCoSy und mit Onkelos als Hilfe; einzelne Stellen am Text geprüft (Codex, siehe Tooltip). Ohne Zuordnung bedeutet keine nachgewiesene Auslassung oder Ergänzung.": "Peshitta · automatic proposals from PaTraCoSy and supported by Onkelos; selected passages checked against the text (Codex, see tooltip). Unaligned does not mean a confirmed omission or addition.",
 
     "Peschitta · Pentateuch (automatisch)": "Peshitta · Pentateuch (automatic)",

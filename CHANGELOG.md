@@ -4,6 +4,7 @@
 
 - Show Syriac comparison forms inside other selected dictionary articles from the Syriac word card, with full-word matching, pointing-insensitive lookup, highlighted original text and direct article navigation.
 - Remove Latin transliteration displays from Syriac word cards and their forms overview, and the input-script selector from the dictionary toolbar.
+- Review the Peshitta Pentateuch word by word against the MT: all 5,846 verses now carry checked links (unlinked Syriac words down from 17,759 to 3,103, unlinked MT words from 17,448 to 2,407), with notes on pluses, minuses and divergent readings; the reader labels them "Checked against the text (Claude)".
 
 ### New in 2.7.1
 

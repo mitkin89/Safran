@@ -6,9 +6,9 @@
       "patracosy": 1161,
       "proposals": 372,
       "syWords": 20080,
-      "linkedSyriac": 18547,
-      "unlinkedSyriac": 1533,
-      "unlinkedMT": 1817,
+      "linkedSyriac": 19435,
+      "unlinkedSyriac": 645,
+      "unlinkedMT": 573,
       "emptyVerses": [],
       "referenceGroups": []
     },
@@ -18,9 +18,9 @@
       "patracosy": 0,
       "proposals": 1210,
       "syWords": 16337,
-      "linkedSyriac": 12091,
-      "unlinkedSyriac": 4246,
-      "unlinkedMT": 4334,
+      "linkedSyriac": 15751,
+      "unlinkedSyriac": 586,
+      "unlinkedMT": 544,
       "emptyVerses": [],
       "referenceGroups": [
         {
@@ -100,9 +100,9 @@
       "patracosy": 0,
       "proposals": 859,
       "syWords": 11834,
-      "linkedSyriac": 8384,
-      "unlinkedSyriac": 3450,
-      "unlinkedMT": 3355,
+      "linkedSyriac": 11320,
+      "unlinkedSyriac": 514,
+      "unlinkedMT": 292,
       "emptyVerses": [],
       "referenceGroups": []
     },
@@ -112,9 +112,9 @@
       "patracosy": 0,
       "proposals": 1288,
       "syWords": 16539,
-      "linkedSyriac": 12113,
-      "unlinkedSyriac": 4426,
-      "unlinkedMT": 3968,
+      "linkedSyriac": 15784,
+      "unlinkedSyriac": 755,
+      "unlinkedMT": 450,
       "emptyVerses": [],
       "referenceGroups": [
         {
@@ -132,13 +132,10 @@
       "patracosy": 0,
       "proposals": 956,
       "syWords": 14136,
-      "linkedSyriac": 10032,
-      "unlinkedSyriac": 4104,
-      "unlinkedMT": 3974,
-      "emptyVerses": [
-        "14:16",
-        "14:17"
-      ],
+      "linkedSyriac": 13533,
+      "unlinkedSyriac": 603,
+      "unlinkedMT": 548,
+      "emptyVerses": [],
       "referenceGroups": [
         {
           "mt": "5:17",
@@ -237,5 +234,5 @@
       ]
     }
   ],
-  "method": "Automatic proposals; no gap filling or manual-review claim"
+  "method": "Automatic proposals, replaced verse by verse by the complete word-by-word review in reviewed.json"
 }
