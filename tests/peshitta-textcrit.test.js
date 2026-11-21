@@ -21,3 +21,11 @@ test('per-book data for the Writings and shifted native numbering',async()=>{
   assert(e.some(x=>/624 Wörter/.test(text(x))));assert(e.some(x=>/Peschitta-Zählung/.test(text(x))));
   assert.equal(await ps.load('Tobit'),null);
 });
+test('classified readings: typed entries, no duplicate generic entry, agreement badges',async()=>{
+  const d=await ps.load('Genesis');assert(d.readings['2:2']);
+  const e=ps.entries(d,[{ref:'Genesis 2:2',row:'2'}]);assert(e.some(x=>/andere Lesart/.test(text(x))&&x.syr==='ביום הששי'));
+  const f=ps.entries(d,[{ref:'Genesis 8:19',row:'19'}]);assert(!f.some(x=>/Peschitta-(Zusatz|Auslassung)/.test(text(x))));
+  const r=e.find(x=>x.syr==='ביום הששי');
+  const recs=[r,{anchor:{...r.anchor},cmp:'הששי',cmpWitness:'LXX'},{anchor:{...r.anchor},cmp:'השביעי',cmpWitness:'SMR'}];ps.agree(recs);
+  assert.match(r.html,/= LXX/);assert.match(r.html,/vgl\. SMR/);assert(!r.html.includes('<!--agree-->'));
+});

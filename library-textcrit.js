@@ -200,13 +200,13 @@ function create(host){
           if(anchor&&c.numbering==='mt'&&!readerRows.some(row=>anchor.ref===c.book+' '+c.chapter+':'+row))return;
           const notesHtml=g.notes.map(n=>'<section class="tc-note"><div class="tc-note-text"><span class="tc-witness-label">SMR</span> '+host.clean(n.html)+'</div><small class="tal-cite">'+esc(n.citation)+'</small></section>').join('');
           const fallback='<section class="tc-note"><div class="tc-note-text"><span class="tc-witness-label">SMR</span> <span class="tc-he" dir="rtl" lang="he">'+g.words.map(w=>word(w)).join(' ')+'</span></div><small class="tal-cite">Tal–Florentin, '+esc(ref)+' · rote Kennzeichnung; keine zugeordnete Anmerkung.</small></section>';
-          records.push({anchor,displayRef:displayBases[0]||ref,rows:readerRows,html:'<article class="tc-entry" data-witness="SMR" data-alignment="'+method+'" data-tc-ref="'+esc(ref)+'" data-tc-group="'+i+'">'+(notesHtml||fallback)+'</article>'});
+          records.push({anchor,displayRef:displayBases[0]||ref,rows:readerRows,cmp:g.words.map(w=>w[0]).join(' '),cmpWitness:'SMR',html:'<article class="tc-entry" data-witness="SMR" data-alignment="'+method+'" data-tc-ref="'+esc(ref)+'" data-tc-group="'+i+'">'+(notesHtml||fallback)+'</article>'});
         });
       }
       if(showTov)records.push(...tov.entries(tovQueries));
       if(showDss)records.push(...dss.entries(tovQueries,showSpelling));
       if(showKen)records.push(...ken.entries(tovQueries,whole));
-      if(showPs)records.push(...ps.entries(psData,tovQueries));
+      if(showPs){records.push(...ps.entries(psData,tovQueries));ps.agree(records);}
       const verses=new Map();
       for(const entry of records){const ref=entry.anchor?.ref||entry.displayRef;if(!verses.has(ref))verses.set(ref,[]);verses.get(ref).push(entry);}
       const coverage=new Map();

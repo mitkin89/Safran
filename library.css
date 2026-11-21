@@ -1940,6 +1940,9 @@ body.il .cell[data-k="he"] .ilt.il-smr { direction: rtl; font-family: var(--he-f
 /* Apparat: Peschitta als Textzeuge */
 .tc-ps-sy { font-family: "Safran Syriac", sans-serif; font-size: 1.1em; }
 .tc-ps-long { display: inline; }
+.tc-ps-agree { font: 600 .75em/1 var(--ui-font, system-ui, sans-serif); padding: .1em .35em; border-radius: 3px; background: color-mix(in srgb, var(--accent) 16%, transparent); white-space: nowrap; }
+.tc-ps-near { background: none; border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent); font-weight: 400; }
+.tc-ps-entry[data-ps-type=technik] .tc-ps-note, .tc-ps-entry[data-ps-type=technik] .tc-tov-tag { opacity: .75; }
 .tc-ps-long > summary { display: inline; cursor: pointer; list-style: none; }
 .tc-ps-long > summary::-webkit-details-marker { display: none; }
 .tc-ps-long[open] > summary { display: none; }

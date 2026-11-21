@@ -48,7 +48,7 @@ function create(host){
           const citation=n.origin==='bundled-CATSS'?'CATSS-Lesetext, '+ref+' · Gruppe '+n.group:'Tov/Kraft · CATSS, '+ref+' · '+n.file+':'+n.line;
           const sourceTitle=n.origin==='bundled-CATSS'?'Erhaltener Hinweis aus dem eingebundenen CATSS-Lesetext; keine vollständige Originalanmerkung. '+n.raw[0]:n.raw.join(' | ');
           const html='<article class="tc-entry tc-tov-entry" data-witness="'+esc(witness)+'"><div class="tc-note-text"><span class="tc-witness-label">'+esc(witness)+'</span> '+greek+(greek&&heb?' ↔ ':'')+heb+' <span class="tc-tov-codes">'+flags+'</span>'+detail+'</div><small class="tal-cite" tabindex="0" data-tc-tov="'+esc(key)+'" title="'+esc(sourceTitle)+'">'+esc(citation)+'</small></article>';
-          out.set(id,{anchor:anchor?{...anchor,ref}:null,displayRef:ref,rows:[row],html});
+          out.set(id,{anchor:anchor?{...anchor,ref}:null,displayRef:ref,rows:[row],html,cmp:reconstructed?columnText:null,cmpWitness:witness});
         });
       }
     }
