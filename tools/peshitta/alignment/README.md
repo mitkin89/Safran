@@ -1,4 +1,4 @@
-# MT–Peshitta word groups: Pentateuch
+# MT–Peshitta word groups: Tanakh
 
 The reader offers Syriac words, consonantal Hebrew transliteration and
 reciprocal highlighting for all five books. Every verse has been reviewed word by word (see below); unlinked words
@@ -78,3 +78,25 @@ The PaTraCoSy Genesis directory supplies no license. A GPL file elsewhere
 in that repository is not assumed to license these links. This derivative
 stores factual links with the reader's existing forms and credits the
 source; it does not redistribute the raw GIZA files or assign a new license.
+
+## Prophets and Writings
+
+The remaining 34 books (17,360 MT verses, 229,948 Syriac words) were aligned
+word by word by Claude in November 2026 without automatic proposals.
+`reviewed-tanakh/<Book>.json` stores, for every native Peshitta verse, the exact
+Syriac word forms, one target per word (`c:v/i,j` = MT verse and word numbers,
+`c:v/` = plus placed in that MT verse) and a short English note. Targets may
+cross verse and chapter boundaries, which covers the differing numbering in
+2 Chronicles 10–11, Daniel 3 (the additions 3:24–90 are pluses at MT 3:23),
+Psalm superscriptions, Jeremiah 48–49 and Chronicles. The same conventions as
+for the Pentateuch apply (object marker et, analytic verb forms, ketiv/qere).
+
+```
+python3 tools/peshitta/alignment/tanakh.py
+node --test tests/peshitta-tanakh.test.js
+```
+
+`tanakh.py` checks Syriac forms, MT word counts and that every native Syriac word
+is used exactly once, then writes `peshitta-alignment/<Book>.js` (loaded only
+when the book is opened) and the book list in `peshitta-alignment.js`.
+`tanakh-coverage.json` gives the remaining unlinked counts.

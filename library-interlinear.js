@@ -214,12 +214,12 @@ window.LibraryInterlinear = (() => {
       return results.every(r=>r.ok)?{data,warning:null}:{data:null,warning:'Samaritanus: '+results.find(r=>!r.ok).reason};
     }
     async function psPrepare(snapshot){
-      if(!['Genesis','Exodus','Leviticus','Numbers','Deuteronomy'].includes(snapshot?.group?.title))return {data:null};
+      if(!window.PeshittaAlignment.has(snapshot?.group?.title))return {data:null};
       const he=snapshot.loaded.filter(d=>d.entry.kind==='he'&&/^Westminster/.test(d.entry.versionTitle||''));
       const entry=snapshot.group.versions.find(e=>e.language==='Syriac'&&e.versionTitle==='ETCBC Peshitta (Syriac, TF 0.2)');
       if(!he.length||!entry)return {data:null};
       try{
-        const data=window.PeshittaAlignment.book(await loadPsIL(),snapshot.group.title),doc=snapshot.loaded.find(d=>d.entry.rel===entry.rel)||cache.get(entry.rel)||await O.read(entry.rel);
+        const data=window.PeshittaAlignment.book(await loadPsIL(snapshot.group.title),snapshot.group.title),doc=snapshot.loaded.find(d=>d.entry.rel===entry.rel)||cache.get(entry.rel)||await O.read(entry.rel);
         cache.set(entry.rel,doc);
         if(data&&he.every(d=>window.PeshittaAlignment.prepare(data,d,doc)))return {data,doc};
         return {data:null,warning:I18N.t('Peschitta: Textfassung weicht vom Quellstand der Zuordnung ab')};

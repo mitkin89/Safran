@@ -16,5 +16,10 @@ function segments(data,ref,cell,doc){
  return r.sy.map((w,i)=>[r.links[i],w,null,{id:ids[i],rel:doc.entry.rel,ref:r.refs?.[i]||ref,mtRef:ref,origin:r.origin||'patracosy',reviewed:!!r.review,reviewedBy:r.review?.by||''}]);
 }
 function wordHtml(s,meta,esc){return `<span class="syw" data-si="${esc(meta.id)}" data-sy-rel="${esc(meta.rel)}" data-sy-ref="${esc(meta.ref)}" lang="syr" dir="rtl">${esc(s)}</span><small class="ps-translit" lang="he" dir="rtl">${esc(global.SyriacMorph.hebrew(s))}</small>`;}
-const api={book,prepare,verse,segments,wordHtml};if(typeof module==='object'&&module.exports)module.exports=api;else global.PeshittaAlignment=api;
+// Bücher außerhalb der Tora liegen je Buch in peshitta-alignment/<Buch>.js (von tools/peshitta/alignment/tanakh.py erzeugt).
+const PENTATEUCH=['Genesis','Exodus','Leviticus','Numbers','Deuteronomy'];
+const BOOKS=/*BOOKS*/["Amos", "Daniel", "Ecclesiastes", "Esther", "Ezekiel", "Ezra", "Habakkuk", "Haggai", "Hosea", "II Chronicles", "II Kings", "II Samuel", "I Chronicles", "I Kings", "I Samuel", "Isaiah", "Jeremiah", "Job", "Joel", "Jonah", "Joshua", "Judges", "Lamentations", "Malachi", "Micah", "Nahum", "Nehemiah", "Obadiah", "Proverbs", "Psalms", "Ruth", "Song of Songs", "Zechariah", "Zephaniah"]/*END*/;
+function has(title){return PENTATEUCH.includes(title)||BOOKS.includes(title);}
+function file(title){return PENTATEUCH.includes(title)?'peshitta-alignment-data.js':'peshitta-alignment/'+String(title).replace(/ /g,'_')+'.js';}
+const api={book,prepare,verse,segments,wordHtml,has,file,PENTATEUCH,BOOKS};if(typeof module==='object'&&module.exports)module.exports=api;else global.PeshittaAlignment=api;
 })(typeof window==='object'?window:globalThis);

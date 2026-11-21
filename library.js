@@ -791,7 +791,13 @@
   let qIlP = null;
   const loadQIL = () => qIlP || (qIlP = wordCardsUI.lazyScript('qumran-il.js', () => window.QUMRAN_IL).catch(() => { qIlP = null; return null; }));
   let psIlP = null;
-  const loadPsIL = () => psIlP || (psIlP = wordCardsUI.lazyScript('peshitta-alignment-data.js', () => window.PESHITTA_ALIGNMENT_DATA).catch(e => { psIlP = null; throw e; }));
+  const psBookP = new Map();
+  const loadPsIL = title => {
+    const P = window.PeshittaAlignment;
+    if (!title || P.PENTATEUCH.includes(title)) return psIlP || (psIlP = wordCardsUI.lazyScript('peshitta-alignment-data.js', () => window.PESHITTA_ALIGNMENT_DATA).catch(e => { psIlP = null; throw e; }));
+    if (!psBookP.has(title)) psBookP.set(title, wordCardsUI.lazyScript(P.file(title), () => window.PESHITTA_ALIGNMENT_BOOKS?.[title]).then(d => ({ version: 2, books: { [title]: d } })).catch(e => { psBookP.delete(title); throw e; }));
+    return psBookP.get(title);
+  };
   let smrIlP = null;
   const loadSmrIL = () => smrIlP || (smrIlP = wordCardsUI.lazyScript('samaritan-il.js', () => window.SAMARITAN_IL).catch(e => { smrIlP = null; throw e; }));
   const qVer = g => (g && g.versions || []).some(x => x.versionTitle === 'Qumran-Rollen (ETCBC DSS)');
