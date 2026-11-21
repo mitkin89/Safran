@@ -32,7 +32,12 @@ verses. For every Syriac word it lists the MT word(s) it renders; `[]` marks
 Syriac pluses or words whose correspondence is uncertain, and MT words without
 a Syriac counterpart appear in no list. Each verse has a short English note on
 pluses, minuses and divergent readings. Ketiv and qere are both linked when the
-Syriac word renders either. The automatic proposals above served only as a
+Syriac word renders either. Afterwards, uniform rules were applied: bare
+object-marker et (Strong 853) is linked only to Syriac yat, to the l-object of
+the following word or to a Syriac word rendering et alone; enclitic subject
+pronouns and periphrastic hwa after a participle share the participle's MT
+word; mdm before a d-relative renders asher. 44 conspicuous verses received a
+second independent review. The automatic proposals above served only as a
 starting point. Each review entry stores the exact Hebrew and Syriac verse
 forms, so a changed edition fails the build instead of shifting links.
 `pentateuch-coverage.json` gives structural counts and remaining gaps.
