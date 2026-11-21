@@ -1,6 +1,11 @@
 // Interlinear: jede Zuordnung ergibt genau den Übersetzungsvers, Wortnummern liegen im Vers
 const assert = require('assert'), fs = require('fs'), path = require('path');
-global.window = {}; require('./interlin.js');
+global.window = {}; require('./interlin/index.js');
+// Die Zuordnung liegt je Buch in interlin/<Buch>.js; hier wie in der App wieder zu {Übersetzung: {Buch: …}} zusammengesetzt
+for (const b of window.INTERLIN_BOOKS) require('./interlin/' + b.replace(/ /g, '_') + '.js');
+assert.deepStrictEqual(Object.keys(window.INTERLIN_PARTS).sort(), [...window.INTERLIN_BOOKS].sort());
+window.INTERLIN = {}; window.INTERLIN_ORDER.forEach(t => { window.INTERLIN[t] = {}; });
+for (const b of window.INTERLIN_BOOKS) for (const [t, v] of Object.entries(window.INTERLIN_PARTS[b])) window.INTERLIN[t][b] = v;
 const ALL = window.INTERLIN, rd = (b, l, re) => { const d = path.join(__dirname, 'bundled', 'own', b, l); return JSON.parse(fs.readFileSync(path.join(d, fs.readdirSync(d).find(f => re.test(f))), 'utf8')).text; };
 const norm = s => s.replace(/<sup class="footnote-marker">.*?<\/sup><i class="footnote">.*?<\/i>/g, '').replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
 const PAT = { Mendelssohn: /Moses Mendelssohn/, Wolf: /^Wolf, Das Buch Samuel/, Zunz: /Zunz/, Breuer: /^(?:(?:(?:Raphael|Joseph) )?Breuer|Das Buch Jecheskel, übersetzt und erläutert von Dr\. Joseph Breuer,)/, Philippson: /Philippson/, Herxheimer: /ebräischen Texte/, Goldschmidt: /Übersetzung von Lazarus Goldschmidt, Berlin 1921/, Hirsch: /^(?:Die Psalmen|Der Pentateuch), übersetzt und erläutert von Samson Raphael Hirsch/, JuliusHirsch: /^Julius Hirsch, / , Umschrift: /^Umschrift \(ETCBC phono\)/ };

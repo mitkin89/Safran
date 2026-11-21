@@ -4,7 +4,7 @@ Eingabe: tools/interlinear/<zunz|breuer|philippson|herxheimer|goldschmidt|hirsch
     Kapitel:Vers <TAB> Wort[,Wort…]:deutscher Text | Wort:Text | -:Text
   (Segmente in deutscher Reihenfolge; Wort = laufende Nummer des Westminster-Worts im Vers; „-“ = ohne hebräisches Gegenstück)
 Prüft, dass die Segmente zusammen genau den Vers der Übersetzung ergeben und alle Nummern vorkommen können.
-Ausgabe: interlin.js (window.INTERLIN = {Übersetzung: {Buch: {"1:1": [[[1],"Text"], …]}}})
+Ausgabe: interlin/<Buch>.js (window.INTERLIN_PARTS[Buch] = {Übersetzung: {"1:1": [[[1],"Text"], …]}}) und interlin/index.js (Bücherliste)
 Aufruf: python3 tools/interlinear/build.py"""
 import json, glob, re, os, sys, hashlib
 R = os.path.join(os.path.dirname(__file__), '..', '..')
@@ -44,7 +44,17 @@ for name, (dirn, pat, label, *lng) in TR.items():
         res[k] = segs
     out[name][book] = res
 if bad: sys.exit('Fehler: %d' % bad)
-p = os.path.join(R, 'interlin.js')
-open(p, 'w', encoding='utf8').write('// Interlinear: Westminster-Wörter mit deutscher Wortzuordnung (Zunz, Breuer, Philippson, Herxheimer, Goldschmidt, Hirsch, Julius Hirsch, Wolf, Mendelssohn) – erzeugt von tools/interlinear/build.py\nwindow.INTERLIN=' + json.dumps(out, ensure_ascii=False, separators=(',', ':')) + ';\n')
+# Je Buch eine Datei interlin/<Buch>.js (die App lädt nur die gebrauchten Bücher; im Git ändern sich nur geänderte Bücher)
+D = os.path.join(R, 'interlin'); os.makedirs(D, exist_ok=True)
+books = sorted({b for v in out.values() for b in v})
+size = 0
+for b in books:
+    part = {n: v[b] for n, v in out.items() if b in v}
+    fp = os.path.join(D, b.replace(' ', '_') + '.js')
+    txt = '// Interlinear ' + b + ': Westminster-Wörter mit Wortzuordnung je Übersetzung – erzeugt von tools/interlinear/build.py\nwindow.INTERLIN_PARTS=window.INTERLIN_PARTS||{};window.INTERLIN_PARTS[' + json.dumps(b) + ']=' + json.dumps(part, ensure_ascii=False, separators=(',', ':')) + ';\n'
+    if not os.path.exists(fp) or open(fp, encoding='utf8').read() != txt: open(fp, 'w', encoding='utf8').write(txt)
+    size += len(txt.encode())
+p = os.path.join(D, 'index.js')
+open(p, 'w', encoding='utf8').write('// Bücher mit Interlinear-Zuordnung (interlin/<Buch>.js) – erzeugt von tools/interlinear/build.py\nwindow.INTERLIN_BOOKS=' + json.dumps(books, ensure_ascii=False) + ';window.INTERLIN_ORDER=' + json.dumps(list(out), ensure_ascii=False) + ';\n')
 open(os.path.join(R, 'interlin-sources.js'), 'w', encoding='utf8').write('// Quellstände der Wortzuordnungen; erzeugt von tools/interlinear/build.py\n(function(d){if(typeof module!=="undefined"&&module.exports)module.exports=d;else window.INTERLIN_SOURCES=d;})(' + json.dumps(sources, ensure_ascii=False, separators=(',', ':')) + ');\n')
-print('%s -> interlin.js (%d Bytes)' % ('; '.join('%s: %s %d Verse' % (n, ', '.join(b), sum(len(v) for v in b.values())) for n, b in out.items()), os.path.getsize(p)))
+print('%s -> interlin/ (%d Bücher, %d Bytes)' % ('; '.join('%s: %s %d Verse' % (n, ', '.join(b), sum(len(v) for v in b.values())) for n, b in out.items()), len(books), size))

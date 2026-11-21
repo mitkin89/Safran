@@ -335,7 +335,7 @@ window.LibraryLinks = (() => {
           d.textContent = ''; segs.forEach(([idx, w], k) => { if (k) d.append(' '); const sp = document.createElement('span'); sp.textContent = w; if (idx.some(i => set.has(i))) sp.className = 'pvhl'; d.append(sp); });
         });
       }, () => {});
-      host.loadIL().then(IL => {
+      host.loadIL(host.ilBooksOf([ref])).then(IL => {
         if (!IL || !box.isConnected || hovRef !== ref) return;
         parts.filter(p => !p.dataset.he).forEach(p => {
           const nm = host.ilName(p.dataset.vt), segs = nm && IL[nm] && IL[nm][m[1]] && IL[nm][m[1]][m[2] + ':' + m[3]]; if (!segs) return;
@@ -366,7 +366,7 @@ window.LibraryLinks = (() => {
       }
       if (!targets.size) return; // andere griechische Fassungen haben keine CATSS-Verknüpfung
       let IL;
-      try { [IL] = await Promise.all([host.loadIL(), host.wcTrCtxLoad([ref])]); } catch { return; }
+      try { [IL] = await Promise.all([host.loadIL(host.ilBooksOf([ref])), host.wcTrCtxLoad([ref])]); } catch { return; }
       if (!IL || !box.isConnected || hovRef !== ref) return;
       const words = host.wcVerseWords.get(ref) || [], set = new Set();
       for (const p of box.querySelectorAll('.pvp[data-vt]')) {

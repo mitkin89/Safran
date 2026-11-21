@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Wortkarte: Wie gibt eine wortgenau zugeordnete Übersetzung (interlin.js: Zunz, Breuer, Philippson, Herxheimer, Goldschmidt, Hirsch, Julius Hirsch, Mendelssohn) ein hebräisches Lemma wieder?
+"""Wortkarte: Wie gibt eine wortgenau zugeordnete Übersetzung (interlin/<Buch>.js: Zunz, Breuer, Philippson, Herxheimer, Goldschmidt, Hirsch, Julius Hirsch, Mendelssohn) ein hebräisches Lemma wieder?
 Je Vorkommen des Lemmas im Westminster-Text werden die deutschen Segmente gesammelt, die diesem Wort zugeordnet sind
 (nur Segmente, deren einziges Inhaltswort dieses Wort ist; את zählt nicht als Inhaltswort). Der Text wird bereinigt
 (Satzzeichen, „und“ und Artikel am Anfang weg, klein geschrieben) und nach einem einfachen Wortstamm gruppiert
@@ -19,8 +19,16 @@ Ausgabe: interlin-ren.js
 Aufruf: python3 -I tools/interlinear/renderings.py   (braucht node für forms.js)"""
 import json, glob, re, os, subprocess
 R = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..')
-s = open(os.path.join(R, 'interlin.js'), encoding='utf8').read()
-IL = json.loads(s[s.index('=') + 1:].strip().rstrip(';'))
+IL = {}  # aus interlin/<Buch>.js (tools/interlinear/build.py) zusammengesetzt: {Übersetzung: {Buch: {Vers: Segmente}}}
+for fp in sorted(glob.glob(os.path.join(R, 'interlin', '*.js'))):
+    if os.path.basename(fp) == 'index.js': continue
+    s = open(fp, encoding='utf8').read(); m = re.search(r'window\.INTERLIN_PARTS\[("(?:[^"\\]|\\.)*")\]=', s)
+    book = json.loads(m.group(1)); part = json.loads(s[m.end():].strip().rstrip(';'))
+    for n, v in part.items(): IL.setdefault(n, {})[book] = v
+_ix = open(os.path.join(R, 'interlin', 'index.js'), encoding='utf8').read()  # Reihenfolge der Übersetzungen wie in build.py (bestimmt das Ergebnis)
+_order = json.loads(re.search(r'window\.INTERLIN_ORDER=(\[.*?\]);', _ix).group(1))
+_books = json.loads(re.search(r'window\.INTERLIN_BOOKS=(\[.*?\]);', _ix).group(1))
+IL = {n: {b: IL[n][b] for b in _books if b in IL[n]} for n in _order if n in IL}
 BOOKS = ['Genesis', 'Exodus', 'Leviticus', 'Numbers', 'Deuteronomy', 'Joshua', 'Judges', 'I Samuel', 'II Samuel', 'I Kings', 'II Kings', 'Isaiah', 'Jeremiah', 'Ezekiel',
          'Hosea', 'Joel', 'Amos', 'Obadiah', 'Jonah', 'Micah', 'Nahum', 'Habakkuk', 'Zephaniah', 'Haggai', 'Zechariah', 'Malachi', 'Psalms', 'Proverbs', 'Job', 'Song of Songs',
          'Ruth', 'Lamentations', 'Ecclesiastes', 'Esther', 'Daniel', 'Ezra', 'Nehemiah', 'I Chronicles', 'II Chronicles']

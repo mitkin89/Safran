@@ -5,6 +5,7 @@
 - Show Syriac comparison forms inside other selected dictionary articles from the Syriac word card, with full-word matching, pointing-insensitive lookup, highlighted original text and direct article navigation.
 - Remove Latin transliteration displays from Syriac word cards and their forms overview, and the input-script selector from the dictionary toolbar.
 - Review the Peshitta Pentateuch word by word against the MT: all 5,846 verses now carry checked links (unlinked Syriac words down from 17,759 to 3,103, unlinked MT words from 17,448 to 2,407), with notes on pluses, minuses and divergent readings; the reader labels them "Checked against the text (Claude)".
+- Split the bundled interlinear alignment (formerly one 26 MB `interlin.js`) into one file per book under `interlin/`; the app loads only the books it needs, and a changed alignment now touches only that book's file in the repository. Word-card renderings are unchanged byte for byte.
 - Align the Peshitta of the Prophets and Writings word by word with the MT (34 books, 17,360 verses, 229,948 Syriac words), including verse shifts and pluses such as Daniel 3:24–90; each book's links load only when it is opened.
 - Show pluses and minuses against the MT in the interlinear view for the Septuagint (from Tov's CATSS alignment) and the Peshitta: additions appear after the preceding aligned word, marked with “+”, and runs of four or more words fold into a “+N” toggle; MT words a version does not render show “—” (the object marker et excepted). The Samaritan row folds long additions the same way.
 

@@ -758,23 +758,40 @@
 
   // Gemeinsame Interlinear-Quellen für Anzeige, Wortkarten und Vorschauen.
   // Die eigentliche Anzeige liegt in library-interlinear.js.
+  // Die mitgelieferte Zuordnung liegt je Buch in interlin/<Buch>.js (tools/interlinear/build.py) und wird erst geladen, wenn ein Buch gebraucht wird.
+  // loadIL(books) lädt die genannten Bücher (ohne Argument: alle); window.INTERLIN behält die Form {Übersetzung: {Buch: {"1:1": Segmente}}}.
   let ilP = null, ilRevision = 0, ilNotice = '';
   let ilPrivateRen = null;
-  const loadIL = () => ilP || (ilP = (async () => {
+  const ilBookP = new Map();
+  const ilFile = title => 'interlin/' + String(title).replace(/ /g, '_') + '.js';
+  const ilBooksOf = refs => (refs || []).map(r => /^(.*) \d+:\d+$/.exec(r)?.[1]).filter(Boolean);
+  function ilMerge(all, book, part) { for (const [tr, verses] of Object.entries(part || {})) if (tr !== 'BuberRosenzweig') (all[tr] || (all[tr] = {}))[book] = verses; }
+  const ilBase = () => ilP || (ilP = (async () => {
     const revision = ilRevision;
-    const [built] = await Promise.all([wordCardsUI.lazyScript('interlin.js', () => window.INTERLIN), wordCardsUI.lazyScript('interlin-sources.js', () => window.INTERLIN_SOURCES)]);
+    await Promise.all([wordCardsUI.lazyScript('interlin/index.js', () => window.INTERLIN_BOOKS), wordCardsUI.lazyScript('interlin-sources.js', () => window.INTERLIN_SOURCES)]);
     let local;
     try { local = await O.interlinearRead(); } catch (err) { local = { error: err.message }; }
-    if (revision !== ilRevision) return loadIL();
+    if (revision !== ilRevision) return ilBase();
     const message = local.error || (local.skipped || []).join('\n');
     if (message && message !== ilNotice) { ilNotice = message; alert(I18N.t('Private Interlinear-Zuordnung nicht geladen: {}', message)); }
-    const all = built || {};
-    delete all.BuberRosenzweig;
+    const all = {};
+    (window.INTERLIN_ORDER || []).forEach(tr => { all[tr] = {}; });
+    for (const [book, part] of Object.entries(window.INTERLIN_PARTS || {})) ilMerge(all, book, part);
     if (local.data && local.data.BuberRosenzweig) all.BuberRosenzweig = local.data.BuberRosenzweig;
     ilPrivateRen = local.renderings || null;
     window.INTERLIN = all;
     return all;
   })().catch(err => { ilP = null; throw err; }));
+  const loadIL = async books => {
+    await ilBase();
+    const avail = window.INTERLIN_BOOKS || [], want = books === undefined ? avail : [...new Set(books)].filter(b => avail.includes(b));
+    await Promise.all(want.map(b => ilBookP.get(b) || ilBookP.set(b, wordCardsUI.lazyScript(ilFile(b), () => window.INTERLIN_PARTS?.[b]).catch(err => { ilBookP.delete(b); throw err; })).get(b)));
+    const all = await ilBase();
+    want.forEach(b => ilMerge(all, b, window.INTERLIN_PARTS[b]));
+    return all;
+  };
+  // Sind die Zuordnungen für diese Stellen schon geladen? (Wortkarten zeichnen erst dann den Kontext)
+  const ilHas = refs => !!window.INTERLIN && ilBooksOf(refs).every(b => !(window.INTERLIN_BOOKS || []).includes(b) || !!window.INTERLIN_PARTS?.[b]);
   function resetPrivateIL() {
     ilRevision++; ilP = null; ilNotice = '';
     wordCardsUI.ilRenP = null; wordCardsUI.wcTrState = null; ilPrivateRen = null;
@@ -948,6 +965,7 @@
     get IL_VT() { return IL_VT; },
     get ilPrivateRen() { return ilPrivateRen; }, set ilPrivateRen(value) { ilPrivateRen = value; },
     get ilRevision() { return ilRevision; }, set ilRevision(value) { ilRevision = value; },
+    get ilHas() { return ilHas; }, get ilBooksOf() { return ilBooksOf; },
     get jumpTo() { return jumpTo; },
     get lemIdsFor() { return lemIdsFor; },
     get LK() { return linksUI.LK; },
@@ -1452,6 +1470,7 @@
     get ilLxxIndices() { return ilLxxIndices; },
     get ilName() { return ilName; },
     get ilTagCell() { return ilTagCell; },
+    get ilBooksOf() { return ilBooksOf; },
     get jumpTo() { return jumpTo; },
     get loadGM() { return loadGM; },
     get loadIL() { return loadIL; },

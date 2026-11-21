@@ -365,7 +365,7 @@ window.LibraryWordPopup = (() => {
     if (box.dataset.vt && !/^Westminster/.test(box.dataset.vt)) return;
     const v = verseOf(row.dataset.l), i = [...box.querySelectorAll('.w[data-m]')].indexOf(w) + 1, book = reader.view.group.title;
     if (v == null || i < 1) return;
-    loadIL().then(IL => {
+    loadIL([book]).then(IL => {
       const segs = IL && IL.Umschrift && IL.Umschrift[book] && IL.Umschrift[book][chap + ':' + v]; if (!segs || !pop.isConnected) return;
       const t = segs.filter(x => x[0].includes(i)).map(x => x[1].replace(/^\*/, '').replace(/-$/, '')).join(' '); if (!t) return;
       const e = document.createElement('div'); e.className = 'wphon'; e.lang = 'he-Latn'; e.textContent = t;

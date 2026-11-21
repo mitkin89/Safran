@@ -27,6 +27,7 @@ Object.assign(ctx, {
   consOf: s => s.replace(/[^\u05D0-\u05EA]/g, '').replace(/[ךםןףץ]/g, c => 'כמנפצ'['ךםןףץ'.indexOf(c)]),
   loadGM: async () => ctx.window.LXX_MORPH, hovRef: 'Genesis 31:25',
   loadIL: async () => ({ philippson: { Genesis: { '31:25': segments } } }),
+  ilBooksOf: refs => refs.map(r => /^(.*) \d+:\d+$/.exec(r)[1]),
   wcVerseWords: new Map([['Genesis 31:25', words]]), wcTrCtxLoad: async () => {},
   ilName: vt => vt === 'Philippson' ? 'philippson' : null,
   ilTagCell: (_, segs) => { tagged.splice(0); for (const [idx, text] of segs) tagged.push({ text, dataset: { ix: idx.join(',') }, classList: { add() { marks.push(text); } } }); },

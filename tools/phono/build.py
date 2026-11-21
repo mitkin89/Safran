@@ -4,7 +4,7 @@ Je Vers werden die BHSA-Wörter zu Schreibwörtern zusammengefasst (Wortteile oh
 und den Wörtern des Westminster-Textes (OSHB) zugeordnet: gleiche Konsonanten, sonst ähnliche (Ketiv/Qere: das vokalisierte Qere
 bekommt die Aussprache, das unvokalisierte Ketiv bleibt leer). Ergebnis:
   1. eine eigene Fassung je Buch: bundled/own/<Buch>/other/Umschrift (ETCBC phono).json (Kind „other“, lateinische Schrift)
-  2. die Wortzuordnung für das Interlinear: tools/interlinear/phono/<Buch>.txt (Format wie Zunz; build.py baut daraus interlin.js)
+  2. die Wortzuordnung für das Interlinear: tools/interlinear/phono/<Buch>.txt (Format wie Zunz; build.py baut daraus interlin/<Buch>.js)
 Aufruf: python3 -I tools/phono/build.py <phono-Ordner (Repo ETCBC/phono)> <bhsa-Ordner (Repo ETCBC/bhsa, tf/2021)> [Projektordner]"""
 import sys, os, re, json, glob, hashlib, difflib, bisect
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))

@@ -259,7 +259,7 @@ window.LibraryInterlinear = (() => {
       const bavliSection = getView() && getView().sections && getView().sections[getView().idx];
       const bavliPage = bavliSection && apChap(bavliSection);
       $('#bavliIlBtn').hidden = !(getView() && getView().group && getView().group.title === 'Berakhot' && /^(?:[2-9]|10)[ab]$/.test(bavliPage || ''));
-      const ALL = await loadIL(), title = getView() && getView().group ? getView().group.title : '';
+      const title = getView() && getView().group ? getView().group.title : '', ALL = await loadIL(title ? [title] : []);
       if (tok !== ilTok) return;
       const s0 = getView() && getView().sections && getView().sections[getView().idx], c0 = s0 && apChap(s0), names = ALL && title ? Object.keys(ALL).filter(n => ALL[n][title] && (!c0 || Object.keys(ALL[n][title]).some(k => k.startsWith(c0 + ':')))) : []; // nur Kapitel, für die eine Zuordnung vorliegt
       const lxx = !!(getView() && getView().group && ilLxxVer(getView().group)) && !!c0 && /^\d+$/.test(c0);
@@ -339,7 +339,7 @@ window.LibraryInterlinear = (() => {
       // Snapshot the chosen sources; render detached cells without changing the reader or chapter.
       const picks = ilPick.slice(), title = snapshot.group.title;
       if (!picks.length) return null;
-      const ALL = await loadIL(), names = picks.filter(n => ALL?.[n]?.[title]);
+      const ALL = await loadIL([title]), names = picks.filter(n => ALL?.[n]?.[title]);
       const checks = await ilSourceChecks(names, title, snapshot);
       const smr = picks.includes('Samaritan') ? await smrPrepare(snapshot) : {data:null,warning:null};
       const ps = picks.includes('Peshitta') ? await psPrepare(snapshot) : {data:null};

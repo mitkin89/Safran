@@ -57,17 +57,18 @@ const lib = { list: () => entries, read: async rel => docs[rel] };
   const block = js.slice(js.indexOf("  let ilP = null, ilRevision"), js.indexOf('  const IL_VT ='));
   assert(block.includes('const loadIL'));
   let local = { data: raw }, calls = 0;
-  const button = {}, built = { Zunz: { synthetic: true } }, alerts = [];
-  const ctx = { window: { INTERLIN: built }, $: () => button, $$: () => [],
+  const button = {}, alerts = [];
+  // mitgelieferte Zuordnung je Buch (interlin/<Buch>.js), hier künstlich
+  const ctx = { window: { INTERLIN_BOOKS: ['Genesis'], INTERLIN_ORDER: ['Zunz'], INTERLIN_PARTS: { Genesis: { Zunz: { synthetic: true } } } }, $: () => button, $$: () => [],
     ilRenP: null, wcTrState: null, I18N: { t: (s, x) => s.replace('{}', x) }, alert: x => alerts.push(x), ilPick: [], ilSave() {},
-    lazyScript: async () => built,
+    lazyScript: async (src, get) => get(),
     O: { interlinearRead: async () => { calls++; return local; }, onInterlinearChanged() {}, interlinearImport: async () => ({ verses: 1 }) },
   };
   ctx.wordCardsUI = ctx; // live adapter for shared rendering caches
   ctx.ilRefresh = () => ctx.testIL.loadIL();
   const importer = display.slice(display.indexOf("  $('#importInterlinear').onclick"), display.indexOf('  // Jede deutsche Übersetzung'));
   vm.runInNewContext(block + importer + '\nglobalThis.testIL = { loadIL, resetPrivateIL };', ctx);
-  assert((await ctx.testIL.loadIL()).Zunz.synthetic);
+  assert((await ctx.testIL.loadIL()).Zunz.Genesis.synthetic);
   assert.equal(Object.keys((await ctx.testIL.loadIL()).BuberRosenzweig.Genesis).length, 2);
   assert.equal(calls, 1);
   local = { data: wrap({ '1:2': verse('Gamma.') }) };
@@ -76,7 +77,7 @@ const lib = { list: () => entries, read: async rel => docs[rel] };
   assert(ctx.ilPick.includes('BuberRosenzweig'));
   local = { error: 'Synthetic read failure' };
   await ctx.testIL.resetPrivateIL();
-  assert(ctx.window.INTERLIN.Zunz.synthetic && !ctx.window.INTERLIN.BuberRosenzweig);
+  assert(ctx.window.INTERLIN.Zunz.Genesis.synthetic && !ctx.window.INTERLIN.BuberRosenzweig);
   assert(alerts.some(s => s.includes('Synthetic read failure')));
   const pkg = JSON.parse(await fs.readFile(path.join(__dirname, 'package.json'), 'utf8'));
   assert(pkg.build.files.includes('!private/**') && pkg.build.files.includes('!interlin-buber*'));

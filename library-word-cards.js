@@ -205,9 +205,9 @@ window.LibraryWordCards = (() => {
     const S = fmTrData, cur = fmTrCur(), D = S && S.src[cur], E = D && D.para && fmTrEntryDe(chip, D); if (!E) return;
     const { mdl, lemma } = fmCur, forms = mdl.forms, rs = fmCur.F.refs(fmCur.D, mdl, chip.dataset.i);
     const mine = new Set(String(chip.dataset.i).split(',').map(i => forms[+i]).filter(Boolean).map(f => f.key + '|' + (f.pre ? '-' : f.waw ? '+' : '') + f.f));
-    const part = rs.slice(0, lim), refs = part.map(r => r.book + ' ' + r.ch + ':' + r.v), ready = !!window.INTERLIN && refs.every(r => wcVerseWords.has(r));
+    const part = rs.slice(0, lim), refs = part.map(r => r.book + ' ' + r.ch + ':' + r.v), ready = host.ilHas(refs) && refs.every(r => wcVerseWords.has(r));
     const tr = document.createElement('tr'); tr.className = 'fmRefRow fmTrRow';
-    if (!ready) Promise.all([host.loadIL(), wcTrCtxLoad(refs)]).then(() => { if (tr.isConnected && chip.classList.contains('trsel') && window.INTERLIN) { tr.remove(); fmTrRefs(chip, lim); } }, () => {});
+    if (!ready) Promise.all([host.loadIL(host.ilBooksOf(refs)), wcTrCtxLoad(refs)]).then(() => { if (tr.isConnected && chip.classList.contains('trsel') && window.INTERLIN) { tr.remove(); fmTrRefs(chip, lim); } }, () => {});
     const rows = E.cores.map(x => `<span class="t" lang="de">${fmTrV(x)}</span><span class="b"><i style="width:${(x.c / E.n * 100).toFixed(1)}%"></i></span><small class="n">${wcNum(x.c)}</small><small class="p">${fmTrPct(x.c, E.n)}</small>`).join('');
     const restN = E.n - E.cores.reduce((a, x) => a + x.c, 0);
     const more = restN > 0 ? `<span class="t muted">${host.esc(I18N.t('{} weitere Wiedergaben', wcNum(E.k - E.cores.length)))}</span><span class="b"><i class="o" style="width:${(restN / E.n * 100).toFixed(1)}%"></i></span><small class="n">${wcNum(restN)}</small><small class="p">${fmTrPct(restN, E.n)}</small>` : '';
@@ -410,7 +410,7 @@ window.LibraryWordCards = (() => {
   const loadLxxRen = () => lxxRenP || (lxxRenP = lazyScript('lxx-ren.js', () => window.LXX_REN).catch(() => { lxxRenP = null; return null; }));
   const loadIlRen = () => ilRenP || (ilRenP = (async () => {
     const revision = host.ilRevision;
-    const [built] = await Promise.all([lazyScript('interlin-ren.js', () => window.INTERLIN_REN), host.loadIL()]);
+    const [built] = await Promise.all([lazyScript('interlin-ren.js', () => window.INTERLIN_REN), host.loadIL([])]);
     if (revision !== host.ilRevision) return loadIlRen();
     const all = built || { books: host.ilPrivateRen ? host.ilPrivateRen.books : [], tr: {} };
     all.tr = all.tr || {};
@@ -613,8 +613,8 @@ window.LibraryWordCards = (() => {
     const anyForm = cl => { fset(0); for (const s of formSets.values()) if (s.has(cl)) return true; return false; };
     const ctx = (items, key, withLabel) => {
       const lim = Math.min(items.length, S.refLim), part = items.slice(0, lim), refs = part.map(it => refOf(it.num));
-      if (refs.some(r => !wcVerseWords.has(r)) || (!window.INTERLIN && !S.ilFail)) { // Kontext nachladen, dann neu zeichnen
-        if (!S.loading) { S.loading = true; Promise.all([host.loadIL(), wcTrCtxLoad(refs)]).then(([IL]) => { S.loading = false; if (!IL) S.ilFail = true; if (wcTrState === S && S.open === key) wcTrRender(); }, () => { S.loading = false; S.ilFail = true; }); }
+      if (refs.some(r => !wcVerseWords.has(r)) || (!host.ilHas(refs) && !S.ilFail)) { // Kontext nachladen, dann neu zeichnen
+        if (!S.loading) { S.loading = true; Promise.all([host.loadIL(host.ilBooksOf(refs)), wcTrCtxLoad(refs)]).then(([IL]) => { S.loading = false; if (!IL) S.ilFail = true; if (wcTrState === S && S.open === key) wcTrRender(); }, () => { S.loading = false; S.ilFail = true; }); }
       }
       const occs = new Map(), used = new Map(), hs = withLabel ? new Map(ones.map(g => [g.g, hint(g)])) : null; let lb = null, html = '';
       part.forEach((it, j) => {
@@ -689,8 +689,8 @@ window.LibraryWordCards = (() => {
       const span = (Dx, t, other) => `<span lang="${other ? '' : Dx.lang}"${RTL(Dx.lang) && !other ? ' dir="rtl"' : ''}>${host.esc(t)}</span>`;
       const cx = p => {
         const lim = Math.min(p.refs.length, S.refLim), part = p.refs.slice(0, lim), refs = part.map(it => refOf(it.num));
-        if (refs.some(r => !wcVerseWords.has(r)) || ((de || deB) && !window.INTERLIN && !S.ilFail)) {
-          if (!S.loading) { S.loading = true; Promise.all([de || deB ? host.loadIL() : true, wcTrCtxLoad(refs)]).then(([IL]) => { S.loading = false; if (!IL) S.ilFail = true; if (wcTrState === S && S.open === p.key) wcTrRender(); }, () => { S.loading = false; S.ilFail = true; }); }
+        if (refs.some(r => !wcVerseWords.has(r)) || ((de || deB) && !host.ilHas(refs) && !S.ilFail)) {
+          if (!S.loading) { S.loading = true; Promise.all([de || deB ? host.loadIL(host.ilBooksOf(refs)) : true, wcTrCtxLoad(refs)]).then(([IL]) => { S.loading = false; if (!IL) S.ilFail = true; if (wcTrState === S && S.open === p.key) wcTrRender(); }, () => { S.loading = false; S.ilFail = true; }); }
         }
         const picker = (k, Dx) => { // das Vorkommen im Vers, das zu dieser Zeile gehört (wie in der einfachen Stellenliste)
           const sets = new Map(Dx.labels.map((L, i) => [i, new Set(L.forms.slice(1).map(f => String(f[0]).toLowerCase()))])), any = cl => { for (const s of sets.values()) if (s.has(cl)) return true; return false; };
