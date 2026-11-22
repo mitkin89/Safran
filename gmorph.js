@@ -165,7 +165,7 @@
   }
 
   // ---------- Bestimmung lesen ----------
-  const POS = { V: 'Verb', N: 'Nomen', E: 'Eigenname', A: 'Adjektiv', T: 'Artikel', P: 'Pronomen', R: 'Präposition', C: 'Konjunktion', D: 'Adverb', X: 'Partikel', I: 'Interjektion', M: 'Zahlwort' };
+  const POS = { V: 'Verb', N: 'Nomen', E: 'Eigenname', A: 'Adjektiv', T: 'Artikel', P: 'Pronomen', R: 'Präposition', C: 'Konjunktion', D: 'Adverb', X: 'Partikel', I: 'Interjektion', M: 'Zahlwort', Y: 'Transkription' };
   const TENSE = { pres: 'Präsens', imperf: 'Imperfekt', fut: 'Futur', aor: 'Aorist', perf: 'Perfekt', plup: 'Plusquamperfekt', futperf: 'Futur II' };
   const MOOD = { ind: 'Indikativ', subj: 'Konjunktiv', opt: 'Optativ', imperat: 'Imperativ', inf: 'Infinitiv', ptc: 'Partizip' };
   const VOICE = { act: 'Aktiv', mid: 'Medium', pass: 'Passiv', 'mid/pass': 'Medium/Passiv', 'act/pass': 'Aktiv/Passiv' };

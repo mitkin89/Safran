@@ -90,12 +90,24 @@ eine Klammerzählung gilt dort als hebräisch, außer sie liegt mehr als drei Ka
 
 ## Griechische Morphologie der Lesarten
 
-`morph.py` erzeugt `hexapla-morph.js` (Form → Lemma, Bestimmung, Kurzbedeutung) aus der LXX-Morphologie in Safran und,
-für Formen, die dort fehlen, aus Perseus Morpheus (CC BY-SA 3.0 US). Morpheus bauen:
+`morph.py` erzeugt `hexapla-morph.js` (Form → Lemma, Bestimmung, Kurzbedeutung) in vier Stufen:
+
+1. LXX-Morphologie in Safran (`lxx-morph.js`, Kushniryk, CC BY 4.0), auch nach Akzent-Ausgleich;
+2. Perseus Morpheus (CC BY-SA 3.0 US) für die übrigen Formen. Die 64-Bit-taugliche Fassung von
+   perseids-tools verwenden – der PerseusDL-Build erkennt auf 64 Bit fast keine Verben („Something wrong with
+   stemkeys“). Attische Lemmata (γιγνώσκω) werden auf die LXX-Schreibung gebracht, wenn es sie dort gibt;
+3. Regeln für die Reste: bewegliches ν (ἐπέστρεψε), Fields Zusammenschreibungen (καίγε, ἀναμέσον, ἱνατί),
+   Koine- und Itazismus-Schreibungen (λήψομαι/λήμψομαι, ει/ι), Eigennamen (Großbuchstabe → `E`),
+   transkribierte hebräische Wörter (Schlusskonsonant, den ein griechisches Wort nicht hat → `Y`);
+   Fields eigene Wörter (Ἑβρ., Σαμαρειτικόν, ἑξαπλῷ …) zählen nicht;
+4. `manual-morph.json`: die letzten ~860 Formen, von Claude bestimmt (2026), Transkriptionen mit dem
+   hebräischen Wort. `null` = kein Übersetzerwort (Hälften getrennter Wörter am Zeilenende, Fields lateinische
+   Anmerkungen zu Codex-Schreibungen); diese stehen in `open-forms.json`.
+
+Stand: 35.915 Formen, 260.197 Belege, alle bestimmt außer 181 Bruchstücken (0,1 %).
 
 ```
-git clone https://github.com/PerseusDL/morpheus && cd morpheus/src
-make CC="gcc -fcommon -w" && make install CC="gcc -fcommon -w"     # braucht flex
-cd ../stemlib/Greek && PATH=$PATH:../../bin MORPHLIB=.. make
-MORPHEUS=/pfad/zu/morpheus python3 tools/hexapla/morph.py
+git clone https://github.com/perseids-tools/morpheus && cd morpheus/src
+make clean && CFLAGS='-std=gnu89 -fcommon -w' make && make install     # braucht flex
+cd .. && MORPHEUS=$PWD python3 /pfad/zu/safran/tools/hexapla/morph.py   # Stemlib ist eingecheckt
 ```
