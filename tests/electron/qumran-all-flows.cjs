@@ -35,13 +35,16 @@ module.exports=async({docs,win,js,waitFor,book})=>{
  await choose('Psalms');await chapter(144);await verse(13);
  await waitFor("document.querySelector('#tcBody .tc-dss-entry[data-scroll=\"11Q5\"]')",'Psalm 145 mit Rollenbefund');
  await choose('Proverbs');await chapter(0);await verse(1);
- await waitFor("document.querySelector('#tcBody .tc-tov-entry .tal-cite')?.textContent.includes('CATSS-Lesetext')",'Sprüche: explizite Lesetext-Provenienz');
+ await waitFor("[...document.querySelectorAll('#tcBody .tc-tov-entry .tal-cite[data-tc-tov]')].some(n=>n.textContent.includes('CATSS-Lesetext'))",'Sprüche: explizite Lesetext-Provenienz');
  assert(await js("document.querySelector('#tcBody').textContent.includes('LXX-Zusatz')"));
  await js("{const a=document.querySelector('#tcBody [data-tc-tov]');a.focus({preventScroll:true});a.dispatchEvent(new FocusEvent('focusin',{bubbles:true}));}");
  await waitFor("document.querySelector('#tcHover')?.textContent.includes('CATSS-Lesetext interlinear')",'Erhaltene CATSS-Gruppen als Vorschau');
  await js("document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true}))");
  await choose('Hosea');await chapter(0);await verse(2);
- await waitFor("document.querySelector('#tcBody .tc-tov-entry .tal-cite')?.textContent.includes('Tov/Kraft')",'Hosea aus Originaldatei ohne falsche Lesefassung');
+ await waitFor("[...document.querySelectorAll('#tcBody .tc-tov-entry .tal-cite[data-tc-tov=\"Hos 1:2\"]')].some(n=>n.textContent.includes('Tov/Kraft'))",'Hosea aus Originaldatei ohne falsche Lesefassung');
+ const hoseaCites=await js("[...document.querySelectorAll('#tcBody .tc-tov-entry .tal-cite[data-tc-tov=\"Hos 1:2\"]')].map(n=>n.textContent)");
+ for(const line of [62112,62113])assert(hoseaCites.some(t=>t.includes('file03-1111.txt:'+line)),'Originalquelle und Zeile des Hosea-Hinweises bleiben sichtbar: '+line);
+ assert(hoseaCites.every(t=>!t.includes('CATSS-Lesetext')),'Originalhinweise erhalten kein Lesetext-Etikett');
  await choose('Esther');await chapter(0);await verse(1);
  await waitFor("document.querySelector('#tcPlace').textContent.includes('Esther 1:1')&&!document.querySelector('#tcBody').textContent.includes('Apparat wird geladen')",'Nicht überlieferte Abdeckung bleibt leer');
  assert(await js("!document.querySelector('#tcBody .tc-dss-entry,#tcBody .tc-tov-entry')"),'Keine falsch etikettierten Esther-Daten');
