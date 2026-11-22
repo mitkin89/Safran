@@ -103,7 +103,14 @@ IDs grouped by their word anchors. Westminster files are SHA-256 locked. Verse
 correspondence uses exact consonantal word matches within a chapter, reinforced
 by exact full verses at the same coordinate to avoid drift in repeated formulas
 (Numbers 7). It is a navigation aid, not a reconstructed reading or manually
-verified textual apparatus. Poorly anchored/displaced passages remain unresolved;
+verified textual apparatus. A second pass (`mapping: skeleton-coverage`) maps
+verses with long Samaritan pluses or plene spellings: the best exact-anchor MT
+verse must be covered in order by the Tal verse, compared on spelling skeletons
+(medial ו/י ignored), and must not already belong to another Tal verse. This cut
+unresolved Tal verses from 126 to 32. In the interlinear, an MT range is only
+extended across empty Tal verses; an unresolved neighbour keeps its own words.
+The red Tal marks are the edition's own and are not recomputed.
+Poorly anchored/displaced passages remain unresolved;
 the UI preserves Tal references and labels that status. `textcrit-core.js` keeps
 reference resolution and source-sign-based filtering independent of the pane.
 

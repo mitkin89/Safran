@@ -3,7 +3,7 @@
     "edition": "Tal–Florentin (2024)",
     "license": "CC BY-NC 4.0",
     "doi": "10.11647/OBP.0415",
-    "textcritSha256": "5e6f23741c74f535d4660bbeef298b4eb1db956299e5f1ab08b51ca491d33e74",
+    "textcritSha256": "0370bef9962e7a47d64e055a4cc99ff06511751ba531b2d62948146d88d72add",
     "books": {
       "Genesis": {
         "he": {
@@ -92,13 +92,13 @@
   },
   "counts": {
     "sourceWords": 82446,
-    "exact": 72187,
-    "spelling": 3646,
-    "context": 3214,
+    "exact": 72218,
+    "spelling": 3654,
+    "context": 3224,
     "division": 41,
     "transposed": 40,
-    "addition": 1683,
-    "unresolved": 1635
+    "addition": 1690,
+    "unresolved": 1579
   },
   "unresolved": [
     {
@@ -162,24 +162,12 @@
       "words": 3
     },
     {
-      "ref": "Genesis 10:18",
-      "words": 1
-    },
-    {
       "ref": "Genesis 10:19",
       "words": 13
     },
     {
-      "ref": "Genesis 11:12",
-      "words": 3
-    },
-    {
       "ref": "Genesis 11:14",
       "words": 3
-    },
-    {
-      "ref": "Genesis 11:16",
-      "words": 5
     },
     {
       "ref": "Genesis 11:17",
@@ -190,16 +178,8 @@
       "words": 3
     },
     {
-      "ref": "Genesis 11:20",
-      "words": 5
-    },
-    {
       "ref": "Genesis 11:22",
-      "words": 5
-    },
-    {
-      "ref": "Genesis 11:24",
-      "words": 2
+      "words": 3
     },
     {
       "ref": "Genesis 11:25",
@@ -370,10 +350,6 @@
       "words": 3
     },
     {
-      "ref": "Exodus 1:17",
-      "words": 5
-    },
-    {
       "ref": "Exodus 1:18",
       "words": 1
     },
@@ -522,10 +498,6 @@
       "words": 2
     },
     {
-      "ref": "Exodus 16:29",
-      "words": 2
-    },
-    {
       "ref": "Exodus 17:9",
       "words": 1
     },
@@ -598,10 +570,6 @@
       "words": 2
     },
     {
-      "ref": "Exodus 26:2",
-      "words": 1
-    },
-    {
       "ref": "Exodus 26:3",
       "words": 14
     },
@@ -631,10 +599,6 @@
     },
     {
       "ref": "Exodus 27:11",
-      "words": 1
-    },
-    {
-      "ref": "Exodus 27:18",
       "words": 1
     },
     {
@@ -747,10 +711,6 @@
     },
     {
       "ref": "Exodus 38:17",
-      "words": 1
-    },
-    {
-      "ref": "Exodus 39:20",
       "words": 1
     },
     {
@@ -870,10 +830,6 @@
       "words": 1
     },
     {
-      "ref": "Leviticus 15:2",
-      "words": 1
-    },
-    {
       "ref": "Leviticus 15:3",
       "words": 11
     },
@@ -952,10 +908,6 @@
     {
       "ref": "Numbers 21:16",
       "words": 4
-    },
-    {
-      "ref": "Numbers 21:21",
-      "words": 3
     },
     {
       "ref": "Numbers 21:22",
@@ -1046,14 +998,6 @@
       "words": 2
     },
     {
-      "ref": "Numbers 26:16",
-      "words": 3
-    },
-    {
-      "ref": "Numbers 26:35",
-      "words": 3
-    },
-    {
       "ref": "Numbers 26:40",
       "words": 1
     },
@@ -1094,10 +1038,6 @@
       "words": 1
     },
     {
-      "ref": "Numbers 31:19",
-      "words": 1
-    },
-    {
       "ref": "Numbers 31:47",
       "words": 2
     },
@@ -1119,10 +1059,6 @@
     },
     {
       "ref": "Numbers 32:38",
-      "words": 1
-    },
-    {
-      "ref": "Numbers 34:7",
       "words": 1
     },
     {
@@ -1154,10 +1090,6 @@
       "words": 1
     },
     {
-      "ref": "Deuteronomy 2:10",
-      "words": 1
-    },
-    {
       "ref": "Deuteronomy 2:25",
       "words": 2
     },
@@ -1175,7 +1107,7 @@
     },
     {
       "ref": "Deuteronomy 10:6",
-      "words": 7
+      "words": 4
     },
     {
       "ref": "Deuteronomy 10:7",
@@ -1222,20 +1154,12 @@
       "words": 4
     },
     {
-      "ref": "Deuteronomy 14:11",
-      "words": 1
-    },
-    {
       "ref": "Deuteronomy 14:12",
       "words": 4
     },
     {
       "ref": "Deuteronomy 14:13",
       "words": 2
-    },
-    {
-      "ref": "Deuteronomy 14:15",
-      "words": 3
     },
     {
       "ref": "Deuteronomy 14:16",
@@ -1286,10 +1210,6 @@
       "words": 6
     },
     {
-      "ref": "Deuteronomy 18:10",
-      "words": 2
-    },
-    {
       "ref": "Deuteronomy 18:12",
       "words": 1
     },
@@ -1304,10 +1224,6 @@
     {
       "ref": "Deuteronomy 22:21",
       "words": 2
-    },
-    {
-      "ref": "Deuteronomy 23:11",
-      "words": 4
     },
     {
       "ref": "Deuteronomy 23:12",
@@ -1342,16 +1258,8 @@
       "words": 2
     },
     {
-      "ref": "Deuteronomy 32:9",
-      "words": 1
-    },
-    {
       "ref": "Deuteronomy 32:10",
       "words": 10
-    },
-    {
-      "ref": "Deuteronomy 32:14",
-      "words": 1
     },
     {
       "ref": "Deuteronomy 32:15",

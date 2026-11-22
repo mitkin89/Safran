@@ -20,8 +20,10 @@ for(const book of books){
   const ref=refs[ri],verse=T.verses[ref],scope=ref.replace(/:\d+$/,''),num=+ref.split(':').at(-1);
   let targets=overrides[ref]?.slice()||verse.mtRefs.slice();
   if(targets.length&&!overrides[ref]){
-   const next=refs.slice(ri+1).find(r=>r.startsWith(scope+':')&&T.verses[r].words.length&&T.verses[r].mtRefs.length);
-   const end=next?T.verses[next].mtRefs[0]:null,start=targets[0];
+   // The range may only reach over empty Tal verses; an unresolved following verse keeps its own words.
+   const following=refs.slice(ri+1).find(r=>r.startsWith(scope+':')&&T.verses[r].words.length),next=following&&T.verses[following].mtRefs.length?following:null;
+   // Without a resolved neighbour the verse's own first and last targets bound the range.
+   const last=targets.at(-1),end=next?T.verses[next].mtRefs[0]:targets.length>1?last.replace(/:\d+$/,':'+(+last.split(':').at(-1)+1)):null,start=targets[0];
    if(end?.replace(/:\d+$/,'')===start.replace(/:\d+$/,'')){
     const first=+start.split(':').at(-1),last=+end.split(':').at(-1)-1;
     if(last>=first&&last-first<=5)targets=Array.from({length:last-first+1},(_,i)=>start.replace(/:\d+$/,':'+(first+i)));

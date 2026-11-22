@@ -47,8 +47,19 @@ def build(root,verses):
                 own=[cons(w) for w,mask,wid in verses[ref]['words']]
                 if own and own==mt_words.get(ref):candidates=[ref];total=n
                 resolved=bool(candidates) and total/max(n,1)>=.55
+                mapping='word-anchors'
+                if not resolved and own:
+                    # Second pass for long Samaritan pluses and plene spellings: one MT verse
+                    # (the best exact-anchor candidate) must be
+                    # covered by the Tal verse in order, comparing spelling skeletons.
+                    target=counts.most_common(1)[0][0] if counts else None
+                    tw=mt_words.get(target) or []
+                    if tw and not any(target in verses[r].get('mtRefs',[]) for r in refs if r!=ref):
+                        sk=lambda w:w[:1]+re.sub('[וי]','',w[1:-1])+w[-1:] if len(w)>2 else w
+                        m=sum(b.size for b in difflib.SequenceMatcher(None,[sk(w) for w in own],[sk(w) for w in tw],autojunk=False).get_matching_blocks())
+                        if m/len(tw)>=.7 or (m/len(tw)>=.5 and m/n>=.5):candidates=[target];resolved=True;mapping='skeleton-coverage'
                 verses[ref]['mtRefs']=candidates if resolved else []
-                verses[ref]['mapping']='word-anchors' if resolved else 'unresolved'
+                verses[ref]['mapping']=mapping if resolved else 'unresolved'
                 if not resolved:unknown.append(ref)
                 for r in verses[ref]['mtRefs']:index[r].append(ref)
     out={'schema':1,'base':{'id':'MT','title':'Westminster Leningrad Codex (OSHB)','sha256':locks},
