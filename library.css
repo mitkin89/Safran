@@ -1939,6 +1939,8 @@ body.il .cell[data-k="he"] .ilt.il-smr { direction: rtl; font-family: var(--he-f
 .smr-missing { opacity: .6; }
 /* Apparat: Hexapla (Field) */
 .tc-hx-sig { font-weight: 700; }
+.tc-hx-w { cursor: help; }
+.tc-hx-w:hover { text-decoration: underline dotted; text-underline-offset: 2px; }
 .tc-hx-fn { cursor: help; color: var(--accent); font-size: .7em; }
 .tc-hx-sign { font-weight: 700; color: var(--accent); }
 .tc-hx-lat { color: var(--muted); font-size: .9em; }

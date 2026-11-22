@@ -22,3 +22,11 @@ test('readings render sigla, hexaplaric signs and footnote tooltips without brea
   for(const m of html.matchAll(/title="([^"]*)"/g))assert(!m[1].includes('<'),'markup inside title');
   const f=hx.entries(d,[{ref:'Genesis 1:9',row:'9'}]);assert(f.some(x=>x.anchor.kind==='gap'));assert(f.some(x=>/Οἱ Γ΄/.test(x.html)));
 });
+test('Greek words of the readings carry a morphology tooltip (hexapla-morph.js)',async()=>{
+  vm.runInNewContext(fs.readFileSync(path.join(root,'gmorph.js'),'utf8'),box);
+  const hx=HX.create(host),d=await hx.load('Genesis');
+  assert(box.window.HEXAPLA_MORPH&&box.window.HEXAPLA_MORPH.F['ἐγένετο'],'morphology loaded');
+  const html=hx.entries(d,[{ref:'Genesis 1:3',row:'3'}]).map(x=>x.html).join('');
+  assert.match(html,/<span class="tc-hx-w" title="γίνομαι – Verb, Aorist/);
+  for(const m of html.matchAll(/title="([^"]*)"/g))assert(!m[1].includes('<'),'markup inside title');
+});

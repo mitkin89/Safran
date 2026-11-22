@@ -86,3 +86,15 @@ Ketiv oder fehlenden Leerzeichen mit einem unscharfen Vergleich in den nächsten
 „(Hebr. 15)“, „(xiv. 1)“, „(5:2)“ gilt als MT-Vers, „(Gr. …)“ wird übergangen. Zeichenlisten am Kapitelende
 (`@ 9 (Zeichenliste)`) und Nachträge ohne Lemma werden ans Ende des jeweiligen Verses gesetzt. Nicht zugeordnete
 Lemmata stehen in `<Buch>-unresolved.json`.
+
+## Griechische Morphologie der Lesarten
+
+`morph.py` erzeugt `hexapla-morph.js` (Form → Lemma, Bestimmung, Kurzbedeutung) aus der LXX-Morphologie in Safran und,
+für Formen, die dort fehlen, aus Perseus Morpheus (CC BY-SA 3.0 US). Morpheus bauen:
+
+```
+git clone https://github.com/PerseusDL/morpheus && cd morpheus/src
+make CC="gcc -fcommon -w" && make install CC="gcc -fcommon -w"     # braucht flex
+cd ../stemlib/Greek && PATH=$PATH:../../bin MORPHLIB=.. make
+MORPHEUS=/pfad/zu/morpheus python3 tools/hexapla/morph.py
+```

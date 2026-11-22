@@ -124,7 +124,7 @@
     "Hexapla (Field 1875)": "Hexapla (Field 1875)",
     "Asterisk: von Origenes nach dem Hebräischen ergänzt": "Asterisk: added by Origen according to the Hebrew",
     "Obelus: in der LXX ohne hebräisches Gegenstück": "Obelus: in the LXX without Hebrew counterpart",
-    "Hexapla: Frederick Field, Origenis Hexaplorum quae supersunt I (Oxford 1875), gemeinfrei; Scan archive.org. Transkription und englische Übersetzung der lateinischen Fußnoten: Claude, 2026. Fußnoten beim Überfahren der hochgestellten Zahl.": "Hexapla: Frederick Field, Origenis Hexaplorum quae supersunt I (Oxford 1875), public domain; scan archive.org. Transcription and English translation of the Latin footnotes: Claude, 2026. Hover the superscript number for the footnote.",
+    "Hexapla: Frederick Field, Origenis Hexaplorum quae supersunt I (Oxford 1875), gemeinfrei; Scan archive.org. Transkription und englische Übersetzung der lateinischen Fußnoten: Claude, 2026. Fußnoten beim Überfahren der hochgestellten Zahl. Griechische Wörter: Bestimmung beim Überfahren nach der LXX-Morphologie (Seth Kushniryk, CC BY 4.0) bzw. Perseus Morpheus (CC BY-SA 3.0 US).": "Hexapla: Frederick Field, Origenis Hexaplorum quae supersunt I (Oxford 1875), public domain; scan archive.org. Transcription and English translation of the Latin footnotes: Claude, 2026. Hover the superscript number for the footnote. Greek words: hover for the analysis from the LXX morphology (Seth Kushniryk, CC BY 4.0) or Perseus Morpheus (CC BY-SA 3.0 US).",
     "Hex · Hexapla (Field 1875)": "Hex · Hexapla (Field 1875)",
     "andere Lesart": "different reading",
     "Andere Konsonanten in der Vorlage oder Verlesung": "Different consonants in the Vorlage, or misreading",

@@ -11,10 +11,35 @@ function create(host){
   const cache=new Map();
   const file=book=>'hexapla-data/'+String(book).replace(/ /g,'_')+'.js';
   function available(book){return BOOKS.includes(book);}
+  let morph=null;
   function load(book){
     if(!available(book))return Promise.resolve(null);
-    if(!cache.has(book))cache.set(book,host.load(file(book),()=>window.HEXAPLA_DATA?.[book]).catch(e=>{cache.delete(book);throw e;}));
+    // Greek morphology of the readings (hexapla-morph.js): optional, the apparatus works without it
+    morph=morph||host.load('hexapla-morph.js',()=>window.HEXAPLA_MORPH).catch(()=>{morph=null;return null;});
+    if(!cache.has(book))cache.set(book,Promise.all([host.load(file(book),()=>window.HEXAPLA_DATA?.[book]),morph]).then(([d])=>d).catch(e=>{cache.delete(book);throw e;}));
     return cache.get(book);
+  }
+  // Greek word -> tooltip with lemma, analysis (German via GMorph.describe) and short gloss
+  const GWORD=/(<b class="tc-hx-sig">[^<]*<\/b>|<[^>]*>)|([\u0370-\u03FF\u1F00-\u1FFF][\u0370-\u03FF\u1F00-\u1FFF\u0300-\u036F]*[᾿’]?)/g;
+  function lookup(w){
+    const F=window.HEXAPLA_MORPH?.F;if(!F)return null;
+    const k=window.GMorph?.form?window.GMorph.form(w):w;
+    return F[k]||null;
+  }
+  function analyse(a){
+    const G=window.GMorph,t=window.I18N?.t?(x=>window.I18N.t(x)):(x=>x);
+    const seen=new Set();
+    return a.filter(([l,k])=>{const id=l+'|'+k;if(seen.has(id))return false;seen.add(id);return true;}).slice(0,4).map(([lemma,key,gloss])=>{
+      const d=G?.describe?G.describe(key,t):{pos:key,info:''};
+      return lemma+' – '+[d.pos,d.info].filter(Boolean).join(', ')+(gloss?' – '+gloss:'');
+    }).join('\n');
+  }
+  function words(h){
+    return h.replace(GWORD,(m,tag,w)=>{
+      if(tag)return tag;
+      const a=lookup(w);
+      return a?'<span class="tc-hx-w" title="'+raw(analyse(a))+'">'+w+'</span>':w;
+    });
   }
   const italic=s=>s.replace(/_([^_]+)_/g,'<i>$1</i>');
   function reading(data,u){
@@ -22,6 +47,7 @@ function create(host){
     let h=italic(raw(u.t)).replace(SIGLA,'<b class="tc-hx-sig">$1</b>')
       .replace(/※/g,'<span class="tc-hx-sign" title="'+esc('Asterisk: von Origenes nach dem Hebräischen ergänzt')+'">※</span>')
       .replace(/÷/g,'<span class="tc-hx-sign" title="'+esc('Obelus: in der LXX ohne hebräisches Gegenstück')+'">÷</span>');
+    h=words(h);
     return h.replace(/\^(\d+)/g,(m,n)=>{
       const key=(u.fn||[]).find(k=>k.endsWith('.'+n)),note=key&&data.notes[key];
       if(!note)return '<sup>'+n+'</sup>';
@@ -44,7 +70,7 @@ function create(host){
     }
     return [...out.values()];
   }
-  const credit=()=>'<p class="tc-credit">'+esc('Hexapla: Frederick Field, Origenis Hexaplorum quae supersunt I (Oxford 1875), gemeinfrei; Scan archive.org. Transkription und englische Übersetzung der lateinischen Fußnoten: Claude, 2026. Fußnoten beim Überfahren der hochgestellten Zahl.')+'</p>';
+  const credit=()=>'<p class="tc-credit">'+esc('Hexapla: Frederick Field, Origenis Hexaplorum quae supersunt I (Oxford 1875), gemeinfrei; Scan archive.org. Transkription und englische Übersetzung der lateinischen Fußnoten: Claude, 2026. Fußnoten beim Überfahren der hochgestellten Zahl. Griechische Wörter: Bestimmung beim Überfahren nach der LXX-Morphologie (Seth Kushniryk, CC BY 4.0) bzw. Perseus Morpheus (CC BY-SA 3.0 US).')+'</p>';
   return {available,load,entries,credit};
 }
 return {create,BOOKS};
