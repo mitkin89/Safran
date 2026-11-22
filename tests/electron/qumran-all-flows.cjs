@@ -21,12 +21,12 @@ module.exports=async({docs,win,js,waitFor,book})=>{
  await js("for(const id of ['tcSmr','tcKen']){document.getElementById(id).checked=false;document.getElementById(id).dispatchEvent(new Event('change',{bubbles:true}));}for(const id of ['tcTov','tcDss']){document.getElementById(id).checked=true;document.getElementById(id).dispatchEvent(new Event('change',{bubbles:true}));}if(document.querySelector('#textcritPanel').hidden)document.querySelector('#tcBtn').click()");
  await waitFor("[...document.querySelectorAll('#tcBody .tc-dss-entry[data-scroll=\"1Qisaa\"]')].some(e=>e.textContent.includes('אור')&&e.closest('.tc-locus').dataset.kind==='gap')",'Jesaja 53:11 אור an der MT-Lücke');
  assert(await js("document.querySelector('#tcBody .tc-tov-entry')!==null"),'DSS und LXX gemeinsam im Apparat');
- await js("{const e=[...document.querySelectorAll('#tcBody .tc-dss-entry[data-scroll=\"1Qisaa\"]')].find(e=>e.textContent.includes('אור')),a=e.querySelector('.tc-dss-token');a.focus({preventScroll:true});a.dispatchEvent(new FocusEvent('focusin',{bubbles:true}));}");
+ await js("{const e=[...document.querySelectorAll('#tcBody .tc-dss-entry[data-scroll=\"1Qisaa\"]')].find(e=>e.textContent.includes('אור')),a=e.querySelector('.tc-source');a.focus({preventScroll:true});a.dispatchEvent(new FocusEvent('focusin',{bubbles:true}));}");
  await waitFor("document.querySelector('#tcHover')?.textContent.includes('1Qisaa')",'Handschriftenkontext Jesaja');
  await js("document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true}))");
  await chapter(0);await verse(1);
  await waitFor("document.querySelector('#tcBody .tc-dss-entry[data-scroll=\"1Qisaa\"] .tc-dss-token')",'Jesaja 1:1 Nachträge');
- await js("{const a=document.querySelector('#tcBody .tc-dss-entry[data-scroll=\"1Qisaa\"] .tc-dss-token');a.focus({preventScroll:true});a.dispatchEvent(new FocusEvent('focusin',{bubbles:true}));}");
+ await js("{const a=document.querySelector('#tcBody .tc-dss-entry[data-scroll=\"1Qisaa\"] .tc-source');a.focus({preventScroll:true});a.dispatchEvent(new FocusEvent('focusin',{bubbles:true}));}");
  await waitFor("document.querySelector('#tcHover')?.textContent.includes('בי(ו)מי')",'Eingeklammertes Waw im echten Vorschau-Popup');
  await js("document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true}))");
  await choose('I Samuel');await chapter(0);await verse(24);
