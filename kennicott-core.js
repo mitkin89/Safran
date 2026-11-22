@@ -4,12 +4,16 @@
 const C=typeof module!=='undefined'&&module.exports?require('./textcrit-core'):window.TextCrit;
 const cons=s=>String(s).replace(/[^א-ת]/g,'');
 const skeleton=s=>cons(s).replace(/[וי]/g,'');
+const wholeVerse=lemma=>/^(?:tot(?:um|\.)? )?comm?(?:a|\.)$/i.test((lemma||[]).join(' '));
 function locate(entry,base=[],mt=[]){
   if(!base.length||!mt.length)return {anchor:null,method:'Grundtext in der TEI fehlt oder ist leer'};
   if(entry.refs.length!==1)return {anchor:null,method:'Versbereich'};
   let indices=[],method='Lemma der Edition';
   const lemma=entry.lemma;
-  if(lemma.length){
+  if(wholeVerse(lemma)){
+    // "Com." / "Tot. com." / "Totum comma": the edition's lemma is the whole verse.
+    indices=base.map((_,i)=>i);method='Ganzer Vers (Lemma der Edition)';
+  }else if(lemma.length){
     if(lemma.some(w=>!cons(w)||/[A-Za-z]/.test(w)))return {anchor:null,method:'Textumfang der Quelle'};
     const matches=[];
     for(let i=0;i<=base.length-lemma.length;i++)if(lemma.every((w,j)=>cons(w)===cons(base[i+j])))matches.push(i);
@@ -58,6 +62,6 @@ function locateMapped(data,entry){
   return {...result,anchor,referenceMethod:mapping.method};
 }
 const graphic=r=>r.terms.some(t=>/major|ornata|majusc|fin\. lin|constip|minuscul/i.test(t.text));
-const api={cons,locate,locateMapped,graphic};
+const api={cons,locate,locateMapped,graphic,wholeVerse};
 if(typeof module!=='undefined'&&module.exports)module.exports=api;else window.Kennicott=api;
 })();

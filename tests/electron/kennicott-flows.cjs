@@ -36,6 +36,12 @@ module.exports=async({win,js,waitFor,book})=>{
   await waitFor("document.querySelectorAll('#tcBody .tc-ken-entry').length>20",'Kennicott Kapitelapparat');
   assert(await js("document.querySelectorAll('#tcBody [data-ken-id=\"gen-app-4\"]').length===1"),'Keine doppelten Einträge in Kapitelansicht');
   if(process.env.SAFRAN_KEN_CAPTURE){await js("new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))");fs.writeFileSync(process.env.SAFRAN_KEN_CAPTURE,(await win.webContents.capturePage()).toPNG());}
+  // Gen 1:3: "Totum comma" is the whole verse, and the edition's lemma separator is not shown.
+  await js("document.querySelector('#rOut .row[data-l=\"3\"] .txt').click()");
+  await waitFor("document.querySelector('#tcBody [data-ken-id=\"gen-app-11\"]')",'Kennicott Gen 1:3');
+  assert(await js("document.querySelector('#tcBody [data-ken-id=\"gen-app-11\"]').closest('.tc-locus').dataset.kind==='word'"));
+  assert(await js("document.querySelector('#tcBody [data-ken-id=\"gen-app-11\"] .tc-ken-lemma').textContent.includes('Ganzer Vers')"));
+  assert(await js("!document.querySelector('#tcBody [data-ken-id=\"gen-app-12\"] .tc-ken-lemma').textContent.includes('―')"));
   await js("document.querySelector('#tcKen').checked=false;document.querySelector('#tcKen').dispatchEvent(new Event('change',{bubbles:true}))");
   await waitFor("!document.querySelector('#tcBody .tc-ken-entry')",'Kennicott-Filter');
   assert.equal(await js("localStorage.getItem('tcKen')"),'0');
