@@ -2,6 +2,8 @@
 
 ### New in 2.8.1
 
+- Show English LXX, Peshitta and Hexapla reading explanations and translated witness selection counts in the English interface.
+
 - Add the Aleppo text (MAM) as a word-by-word interlinear row under the Westminster text, marking differences and missing counterparts; identify passages lost from the Aleppo Codex.
 - Complete English interface labels, including reader tabs and window titles.
 - Simplify the Peshitta interlinear label and update apparatus documentation and screenshots.
