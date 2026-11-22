@@ -20,7 +20,7 @@ Das Offline-Wörterbuch enthält 35.892 geprüfte Lexeme mit mehrsprachigen Bede
 
 Syrische Wortkarten erschließen zusätzlich ausdrücklich erfasste Wurzelfamilien und Wortformen, gruppiert nach SEDRAs grammatischen Angaben, mit westlicher und östlicher Vokalisierung. Der bei Bedarf geladene Index bewahrt IDs und Quellen; Formenzahlen sind keine Häufigkeiten im Lesetext.
 
-Die Erweiterung übernimmt 3.078 geprüfte SEDRA-Herkunftsangaben mit Sprache, Ausgangswort, Anmerkungen, Klammerstatus und fester Herkunfts-ID; fehlende Quellenverweise werden nicht ergänzt. Originale Umschriften und die fünf veröffentlichten Zeichentabellen bleiben erhalten. Ausdrücklich gewählte SEDRA-IV-, CAL- und Leiden-Eingaben durchsuchen die ausgewählten Wörterbücher nach einer groß-/kleinschreibungsabhängigen Umsetzung; Vokale werden dabei nicht erschlossen.
+Die Erweiterung übernimmt 3.078 geprüfte SEDRA-Herkunftsangaben mit Sprache, Ausgangswort, Anmerkungen, Klammerstatus und fester Herkunfts-ID; fehlende Quellenverweise werden nicht ergänzt. Originale Umschriften und die fünf veröffentlichten Zeichentabellen bleiben erhalten.
 
 ## Hebräischer Tanach mit Morphologie (OSHB)
 
@@ -78,7 +78,7 @@ Karte der Orte eines Kapitels (🗺 in der Leseleiste, auch aus der Gliederung),
 
 ## Oberflächensprache
 
-Die Oberfläche gibt es auf Deutsch und Englisch (Menü ⋯ → Sprache). Die englischen Texte stehen in `i18n.js`: links der deutsche Originaltext, rechts die Übersetzung; `{}` und `{#}` (Zahl) sind Platzhalter. Neue Oberflächentexte im Code bleiben deutsch und bekommen dort einen Eintrag. `test10.js` prüft die Tabelle.
+Die Oberfläche gibt es auf Deutsch, Englisch und Hebräisch (Menü ⋯ → Sprache). Die hebräischen Texte stehen in `i18n-he.js`. Die englischen Texte stehen in `i18n.js`: links der deutsche Originaltext, rechts die Übersetzung; `{}` und `{#}` (Zahl) sind Platzhalter. Neue Oberflächentexte im Code bleiben deutsch und bekommen dort einen Eintrag. `test10.js` prüft die Tabelle.
 
 ## Lizenz dieses Projekts
 

@@ -16,31 +16,28 @@
   <a href="https://github.com/mitkin89/Safran/releases/latest"><img alt="Download Safran for macOS, Windows or Linux" src="https://img.shields.io/badge/%E2%AC%87%EF%B8%8F%20%20Download%20Safran-macOS%20%C2%B7%20Windows%20%C2%B7%20Linux-2ea44f?style=for-the-badge"></a>
 </p>
 
-<p align="center"><a href="https://www.youtube.com/watch?v=_htLzC7Q3Ug">▶ Overview video</a> &nbsp;·&nbsp; <a href="docs/releases/2.7.1.md"><b>New in 2.7.1</b></a> &nbsp;·&nbsp; <a href="#install">Install</a> &nbsp;·&nbsp; <b>English</b> &nbsp;·&nbsp; <a href="README.de.md">Deutsch</a></p>
+<p align="center"><a href="https://www.youtube.com/watch?v=_htLzC7Q3Ug">▶ Overview video</a> &nbsp;·&nbsp; <a href="docs/releases/2.8.0.md"><b>New in 2.8.0</b></a> &nbsp;·&nbsp; <a href="#install">Install</a> &nbsp;·&nbsp; <b>English</b> &nbsp;·&nbsp; <a href="README.de.md">Deutsch</a></p>
 
 <p align="center">
   <a href="screenshots/hero-interlinear.png"><img src="screenshots/hero-interlinear.png" alt="Safran: Genesis 1 as an interlinear – under every Hebrew word the German of Zunz (1838) and Goldschmidt (1921); a clicked word is highlighted in the Hebrew and in the running translation" width="900"></a><br>
   <sub>Genesis 1 as an interlinear: under every Hebrew word the German of Zunz (1838) and Goldschmidt (1921). A click on a word highlights its counterpart in the running translation.</sub>
 </p>
 
-<p align="center">
-  <a href="https://www.youtube.com/watch?v=_htLzC7Q3Ug"><img src="https://img.youtube.com/vi/_htLzC7Q3Ug/maxresdefault.jpg" alt="Watch the Safran overview video on YouTube" width="600"></a><br>
-  <sub>▶ Watch the overview video on YouTube</sub>
-</p>
-
 Safran is a free desktop app for macOS, Windows and Linux that keeps your texts on your own computer. Pick the books and languages you want from the [Sefaria](https://www.sefaria.org) library once, and read, search and annotate them afterwards without an internet connection. The **textual apparatus** compares the Masoretic text with seven witnesses: the Aleppo text, the Samaritan Pentateuch, the Qumran scrolls, the Septuagint, Field's Hexapla, the Peshitta and Kennicott's manuscripts. The **whole Tanakh word by word in German** (interlinear) and a **word card** show how Hebrew words are translated. On top of that, Safran ships **more than 50 German works** (translations, commentaries and reference works) that are hard to find anywhere else, among them Louis Ginzberg's *Legenden der Juden* from his German manuscript, plus **eleven dictionaries and reference works** with more than 300,000 entries. Safran is an independent project and not affiliated with Sefaria.
+
+**New in 2.8.0:** the Peshitta for all 39 books (reading text, interlinear and the Syr witness), Field's Hexapla, the Aleppo comparison (MA), classified LXX and Peshitta readings, the reading line and *Similar chapters* – see the [release notes](docs/releases/2.8.0.md) and the [overview video](https://www.youtube.com/watch?v=_htLzC7Q3Ug).
 
 ## Why Safran?
 
 | | |
 | --- | --- |
-| 🔡 **The whole Tanakh word by word in German** | The *Interlinear* button offers Zunz and Philippson across all 39 books; Goldschmidt and German Mendelssohn (Dessau 1815) for the Torah, S. R. Hirsch for the Torah and Psalms, Julius Hirsch for Isaiah, Wolf for both books of Samuel, and the Septuagint, the Targumim and the Qumran scrolls can stand below it. |
+| 🔡 **The whole Tanakh word by word in German** | The *Interlinear* button puts Zunz or Philippson (all 39 books) under every Hebrew word; Goldschmidt and Mendelssohn (Dessau 1815) cover the Torah, S. R. Hirsch the Torah and Psalms, Julius Hirsch Isaiah and the Twelve, Breuer ten further books, Wolf both books of Samuel. The Septuagint, the Targumim, the Qumran scrolls and the Peshitta can stand below. |
 | 🃏 **A word card for every Hebrew word** | *How is the word translated?* as a chart per translation, the complete paradigm as a table, and the renderings in the Septuagint, the Targumim and the Qumran scrolls. |
 | ✦ **Everything on this passage** | One panel (Cmd+I) collects commentaries, parallels, legends, Talmud & Midrash, halakhah, words, places and dictionary articles for a verse, a folio or a chapter. |
 | 📴 **Works offline** | Texts, links, dictionaries, maps and audio live on your disk. Nothing is sent anywhere. |
 | 🇩🇪 **German texts you won't find elsewhere** | More than 50 works: Zunz, Philippson, Mendelssohn's Biur, Herxheimer, Hertz, Hirsch, Rashi after Bamberger, the Kautzsch Apocrypha, Midrash Rabbah, Josephus, Graetz, the Schulchan Aruch (Lederer), Ginzberg's *Legenden der Juden* … ready on first start. |
 | 📚 **A dictionary shelf, not a single lookup** | Liddell & Scott, BDB, Gesenius, Jastrow, Levy, Krauss and Hamburger's Real-Encyclopädie: more than 300,000 entries, searchable by headword *and* full text, with abbreviations explained on hover and sources that open in the reader. |
-| 📜 **Manuscripts and ancient versions** | A [textual apparatus](#textual-apparatus) with seven witnesses. The Samaritan Pentateuch (CACCHT / DT-UCPH) with Tal–Florentin readings applied to the Hebrew main text, the English parallel translation, red MT differences, word-linked original notes with small source citations, hover explanations for apparatus abbreviations/signs, and source morphology on unchanged forms, Aleppo Codex, the biblical Qumran scrolls and all 735 non-biblical ones with morphology, the Septuagint with clickable morphology and an LXX–MT comparison, the Peshitta word by word, Field's Hexapla, Targum Onkelos, Pseudo-Jonathan and Neofiti. |
+| 📜 **Manuscripts and ancient versions** | A [textual apparatus](#textual-apparatus) with seven witnesses, plus reading texts: the Samaritan Pentateuch (Tal–Florentin) in Hebrew and English, the Aleppo Codex, the biblical and all 735 non-biblical Qumran scrolls, the Septuagint with an LXX–MT comparison, the Peshitta word by word, Field's Hexapla and three Targumim – with morphology at a click. |
 | 🔎 **Search that knows grammar** | Full-text search across everything, all forms of a word by lemma (Hebrew and Greek), and a grammar search by stem, tense, person, gender and number. |
 | 🗺 **Built for study** | Verse-by-verse alignment, a second reading window, Bible map, outlines, Jewish calendar and a Hebrew reading of the whole Tanakh. |
 
@@ -67,7 +64,7 @@ The interface comes in German, English and Hebrew. It starts in German or Englis
 
 <table>
 <tr>
-<td width="33%" valign="top"><b>🔡 Interlinear: Hebrew and German word by word</b><br>The <i>Interlinear</i> button puts a translation under every Hebrew word of the Westminster text. Tick the works you want in a small panel; several stand one below the other, each in its own colour. <b>Zunz</b> and <b>Philippson</b> cover all 39 books of the Tanakh, <b>Goldschmidt</b> and the <b>German Mendelssohn translation (Dessau 1815)</b> the Torah (all five books), <b>S. R. Hirsch</b> the Torah and Psalms and <b>Julius Hirsch</b> Isaiah and the twelve minor prophets, and <b>Wolf</b> both books of Samuel. The <b>Septuagint</b>, the Targumim <b>Onkelos, Pseudo-Jonathan and Neofiti</b> the <b>Qumran scrolls</b> and the <b>Peshitta</b> (all 39 books) can be added the same way; pluses and minuses of the scrolls, the Septuagint and the Peshitta are marked. A click on a word highlights its counterparts in all versions.</td>
+<td width="33%" valign="top"><b>🔡 Interlinear: Hebrew and German word by word</b><br>The <i>Interlinear</i> button puts a translation under every Hebrew word of the Westminster text. Tick the works you want in a small panel; several stand one below the other, each in its own colour. <b>Zunz</b> and <b>Philippson</b> cover all 39 books of the Tanakh, <b>Goldschmidt</b> and the <b>German Mendelssohn translation (Dessau 1815)</b> the Torah (all five books), <b>S. R. Hirsch</b> the Torah and Psalms and <b>Julius Hirsch</b> Isaiah and the twelve minor prophets, <b>Breuer</b> Joshua, Judges, Jeremiah, Ezekiel, Ezra, Nehemiah, Ruth, Song of Songs, Ecclesiastes and Lamentations, and <b>Wolf</b> both books of Samuel. The <b>Septuagint</b>, the Targumim <b>Onkelos, Pseudo-Jonathan and Neofiti</b>, the <b>Qumran scrolls</b> and the <b>Peshitta</b> (all 39 books) can be added the same way; pluses and minuses of the scrolls, the Septuagint and the Peshitta are marked. A click on a word highlights its counterparts in all versions.</td>
 <td width="33%" valign="top"><b>🃏 Word card</b><br>Click a Hebrew word and open its <i>Word card</i>. <b>“How is the word translated?”</b> shows a ring chart and a list of the renderings in each aligned translation, in the Septuagint and in the Targumim; every rendering opens its verses. <b>All forms (table)</b> is the complete paradigm, ordered as in a grammar book, with the usual rendering under each form. Below that: distribution in the Tanakh, the dictionaries, and the occurrences in the Septuagint, the Targumim and the Qumran scrolls. The card can be pinned beside the text.</td>
 <td width="33%" valign="top"><b>✦ Everything on this passage (Cmd+I)</b><br>One panel collects what Safran knows about a verse, a folio or a whole chapter: commentaries, parallels, legends (Ginzberg), Talmud & Midrash, halakhah, key words, places, topics, dictionary articles that cite the passage, and your notes. Its <b>statistics</b> show key words, rare words, roots, verb forms, word combinations and names, and <b>Similar chapters</b>: the chapters with the most similar vocabulary or the same rare phrases in the book or the whole Tanakh (Numbers 1 → Numbers 26, Psalm 18 → 2 Samuel 22), one click away from a side-by-side comparison.<br><br><b>Commentaries on the whole chapter (Cmd+K)</b><br>The commentary panel shows a chapter commentator by commentator, verse by verse; a click on a verse number narrows it to that verse.</td>
 </tr>
@@ -135,6 +132,11 @@ Text sizes follow **Display**: the base font and separate Hebrew, German and oth
 
 ## Textual apparatus
 
+<p align="center">
+  <a href="screenshots/apparatus.jpg"><img src="screenshots/apparatus.jpg" alt="Isaiah 53:9 as an interlinear with the Septuagint, the Qumran scrolls and the Peshitta; beside it the Apparatus pane with the reading line, the variant ויתנו of 1QIsaa, the LXX reading καὶ δώσω with its reconstructed Vorlage, and the Hexapla rows of the Three marked “follows the MT”" width="900"></a><br>
+  <sub>Isaiah 53:9: interlinear with LXX, Qumran and Peshitta, and the Apparatus pane – 1QIsaᵃ ויתנו, the LXX reading καὶ δώσω with its presumed Vorlage, and the Hexapla rows of Aquila, Symmachus and Theodotion.</sub>
+</p>
+
 The **≠ Apparatus** pane compares the Masoretic text (Westminster Leningrad Codex, OSHB) verse by verse with the manuscripts and ancient versions. It works for every passage of the Tanakh, needs no reading column of the witness, and can show a single verse or the whole chapter.
 
 | Siglum | Witness | Scope | Source and license |
@@ -142,19 +144,19 @@ The **≠ Apparatus** pane compares the Masoretic text (Westminster Leningrad Co
 | **MA** | Aleppo text against the Leningrad Codex: consonants, plene/defective, vowels, word division; accents on request | 39 books; * where the codex itself is lost | *Miqra according to the Masorah* (he.wikisource, CACCHT), CC BY-SA 4.0 |
 | **SMR** | Samaritan Pentateuch after Tal–Florentin (2024) with the original notes | Torah | DT-UCPH / CACCHT, CC BY-NC 4.0 |
 | **DSS** | biblical Qumran scrolls, every word with its siglum and reconstruction marks | 36 books, 262 sigla | ETCBC / Abegg, CC BY-NC 4.0 |
-| **LXX** | Septuagint: Tov/Kraft's CATSS notes and retroversions, plus classified readings (different reading, different interpretation, plus, minus, harmonisation, doublet, name, number, translation technique …) | Tanakh | CATSS, CC BY-NC-SA 3.0 |
+| **LXX** | Septuagint: Tov/Kraft's CATSS notes and retroversions, plus classified readings (different reading, different interpretation, plus, minus, harmonisation, doublet, name, number, translation technique …) | 38 books (Esther: reading text after Rahlfs) | CATSS, CC BY-NC-SA 3.0 |
 | **Hex** | Hexapla after Field (1875): the LXX with ※ and ÷, Aquila, Symmachus, Theodotion, Quinta …, as a synopsis with one row per translator; sigla explained on hover, Field's footnotes in place (English, Latin folded), morphology and word cards | 39 books | Field: public domain; morphology Perseus Morpheus (CC BY-SA 3.0 US), meanings LSJ (CC BY-SA) |
-| **Syr** | Peshitta: pluses and minuses from the word alignment, classified readings as for the LXX | 39 books | ETCBC Peshitta, CC BY-NC 4.0 |
+| **Syr** | Peshitta: pluses and minuses from Safran's own word alignment, and Safran's own classified readings (not the apparatus of the printed Leiden edition) | 39 books | ETCBC Peshitta, CC BY-NC 4.0 |
 | **Ken** | Kennicott (1776–1780): readings of the medieval manuscripts with catalogue cards | 39 books | Digital Kennicott, CC BY-NC-SA 4.0 |
 
 For Mishnah Berakhot the pane compares the manuscripts Kaufmann, Parma and Cambridge.
 
 - **Reading line:** above every MT word group a short line sums up the witnesses – which read the same, which differ only in spelling, and which have a plus or a minus, e.g. in Genesis 2:2, where SMR, LXX and Syr read “sixth day” for “seventh”.
-- **Context and grammar:** hover a witness label (SMR, 4Q7, LXX, Ken, Syr) for the verse in that witness with the word marked; click a word for its morphology and word card.
+- **Context and grammar:** hover a witness label (SMR, 4Q7, LXX, Ken, Syr) for the verse in that witness with the word marked; click a word for its morphology and word card (for the Peshitta where ETCBC morphology exists).
 - **Labels:** every Hexapla row says how it relates to the LXX row – *as LXX*, *different rendering*, *follows the MT*, *transliteration*, and, after review, *different Vorlage* or *different interpretation* with the presupposed Hebrew.
 - **Assessments:** the classification of LXX, Peshitta and Hexapla readings and the inferred Hebrew Vorlagen were made with Claude (2026) and reviewed. They are an aid, not a critical edition; uncertain cases are marked, and every entry keeps its source.
 
-Hexapla, Peshitta, Aleppo text, the classified LXX readings and the reading line are new since 2.7.1 and come with the next release ([changelog](CHANGELOG.md)).
+New in 2.8.0: the Peshitta (reading text, interlinear and the Syr witness), Field's Hexapla, the Aleppo comparison (MA), the classified LXX readings and the reading line – see the [release notes](docs/releases/2.8.0.md).
 
 ## Dictionaries
 
@@ -320,6 +322,8 @@ Berakhot 2a–10b also has a separate **William Davidson Edition – Safran-Morp
 
 Berakhot 2a–10b also offers an experimental **Wortzuordnung · Test** viewer for Goldschmidt and Pinner. Both versions of 2a–3b are manually aligned, with further checked passages and explicitly separate automatic/open proposals. [Review status](tools/bavli/interlinear/README.md).
 
+**Samaritan Pentateuch:** in Genesis to Deuteronomy, choose “Samaritanischer Pentateuch (Tal–Florentin)” and the English “The Samaritan Pentateuch, Florentin and Tal (2024)” under **Versions**. The 1,074 Tal readings from the DT-UCPH data are applied to the Hebrew main text. **Red** marks the MT differences of the printed edition in both languages and in the notes. The 3,459 footnotes and 790 endnotes keep their original reference and printed page. Unchanged words still offer the CACCHT word card with lexeme, morphology and transliteration; new or changed forms get no unchecked analysis. Both versions follow Tal's verse numbering. **CC BY-NC 4.0**; [sources and build](tools/samaritan/README.md).
+
 ## Sources and license
 
 <p align="center"><a href="https://www.sefaria.org"><img src="screenshots/powered-by-sefaria.png" alt="Powered by Sefaria" width="180"></a></p>
@@ -334,7 +338,8 @@ The source code is released under the [MIT License](LICENSE). Texts, dictionarie
 | ETCBC data (Qumran scrolls, Targumim, Peshitta, inscriptions), Tal–Florentin, SEDRA | **CC BY-NC 4.0** – non-commercial |
 | CATSS Septuagint ([LICENSE-CATSS.md](LICENSE-CATSS.md)) · Digital Kennicott ([LICENSE-KENNICOTT.md](LICENSE-KENNICOTT.md)) | **CC BY-NC-SA** 3.0 · 4.0 – non-commercial |
 | lxx-morph, STEPBible (glosses, verse numbering), OpenBible.info | CC BY 4.0 |
-| Field's Hexapla, Rahlfs, BDB, Pape and the historical German texts | public domain |
+| Field's Hexapla, Rahlfs, BDB, Gesenius, Jastrow, Levy, Krauss, Hamburger, Pape and the historical German texts | public domain |
+| Liddell & Scott (DSL file after Perseus) | no explicit license statement in the files, see [SOURCES.md](SOURCES.md) |
 | Sefaria texts | their own license per version; downloaded, not part of the app |
 
 **Some bundled data may only be used non-commercially** (the rows marked CC BY-NC and CC BY-NC-SA). The MIT license covers the code, not these data; anyone who redistributes or reuses Safran as a whole has to observe their terms.

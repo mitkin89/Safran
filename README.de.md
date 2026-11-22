@@ -16,25 +16,22 @@
   <a href="https://github.com/mitkin89/Safran/releases/latest"><img alt="Safran für macOS, Windows oder Linux herunterladen" src="https://img.shields.io/badge/%E2%AC%87%EF%B8%8F%20%20Safran%20herunterladen-macOS%20%C2%B7%20Windows%20%C2%B7%20Linux-2ea44f?style=for-the-badge"></a>
 </p>
 
-<p align="center"><a href="https://www.youtube.com/watch?v=_htLzC7Q3Ug">▶ Überblicksvideo</a> &nbsp;·&nbsp; <a href="docs/releases/2.7.1.md"><b>Neu in 2.7.1</b></a> (englisch) &nbsp;·&nbsp; <a href="#installation">Installation</a> &nbsp;·&nbsp; <a href="README.md">English</a> &nbsp;·&nbsp; <b>Deutsch</b></p>
+<p align="center"><a href="https://www.youtube.com/watch?v=_htLzC7Q3Ug">▶ Überblicksvideo</a> &nbsp;·&nbsp; <a href="docs/releases/2.8.0.md"><b>Neu in 2.8.0</b></a> (englisch) &nbsp;·&nbsp; <a href="#installation">Installation</a> &nbsp;·&nbsp; <a href="README.md">English</a> &nbsp;·&nbsp; <b>Deutsch</b></p>
 
 <p align="center">
   <a href="screenshots/hero-interlinear.png"><img src="screenshots/hero-interlinear.png" alt="Safran: Genesis 1 als Interlinear – unter jedem hebräischen Wort das Deutsch von Zunz (1838) und Goldschmidt (1921); ein angeklicktes Wort ist im Hebräischen und in der fortlaufenden Übersetzung hervorgehoben" width="900"></a><br>
   <sub>Genesis 1 als Interlinear: unter jedem hebräischen Wort das Deutsch von Zunz (1838) und Goldschmidt (1921). Ein Klick auf ein Wort hebt sein Gegenstück in der fortlaufenden Übersetzung hervor.</sub>
 </p>
 
-<p align="center">
-  <a href="https://www.youtube.com/watch?v=_htLzC7Q3Ug"><img src="https://img.youtube.com/vi/_htLzC7Q3Ug/maxresdefault.jpg" alt="Safran-Überblicksvideo auf YouTube ansehen" width="600"></a><br>
-  <sub>▶ Überblicksvideo auf YouTube ansehen</sub>
-</p>
-
 Safran ist eine kostenlose Desktop-App für macOS, Windows und Linux, die deine Texte auf dem eigenen Rechner hält. Du wählst einmal die Bücher und Sprachen aus der [Sefaria](https://www.sefaria.org)-Bibliothek und liest, durchsuchst und kommentierst sie danach ohne Internetverbindung. Der **textkritische Apparat** vergleicht den masoretischen Text mit sieben Zeugen: Aleppo-Text, Samaritanus, Qumran-Rollen, Septuaginta, Fields Hexapla, Peschitta und Kennicotts Handschriften. Der **ganze Tanach Wort für Wort auf Deutsch** (Interlinear) und die **Wortkarte** zeigen, wie hebräische Wörter übersetzt werden. Dazu bringt Safran **über 50 deutsche Werke** mit (Übersetzungen, Kommentare und Nachschlagewerke), die es sonst kaum gibt, darunter Louis Ginzbergs *Legenden der Juden* nach seinem deutschen Manuskript, und **elf Wörterbücher und Nachschlagewerke** mit über 300.000 Einträgen. Safran ist ein unabhängiges Projekt und nicht mit Sefaria verbunden.
+
+**Neu in 2.8.0:** die Peschitta zu allen 39 Büchern (Lesetext, Interlinear und Zeuge Syr), Fields Hexapla, der Aleppo-Vergleich (MA), eingeordnete LXX- und Peschitta-Lesarten, die Lesartenzeile und *Ähnliche Kapitel* – siehe [Versionshinweise](docs/releases/2.8.0.md) (englisch) und [Überblicksvideo](https://www.youtube.com/watch?v=_htLzC7Q3Ug).
 
 ## Warum Safran?
 
 | | |
 | --- | --- |
-| 🔡 **Der ganze Tanach Wort für Wort auf Deutsch** | Der Knopf *Interlinear* stellt das Deutsch von Zunz (alle 39 Bücher) unter jedes hebräische Wort; darunter können Goldschmidt zur Tora, S. R. Hirsch zur Tora und zu den Psalmen, Julius Hirsch zu Jesaja und den zwölf kleinen Propheten, Wolf zu beiden Samuelbüchern sowie Septuaginta, Targumim und Qumran-Rollen stehen. |
+| 🔡 **Der ganze Tanach Wort für Wort auf Deutsch** | Der Knopf *Interlinear* stellt Zunz oder Philippson (alle 39 Bücher) unter jedes hebräische Wort; Goldschmidt und Mendelssohn (Dessau 1815) decken die Tora ab, S. R. Hirsch Tora und Psalmen, Julius Hirsch Jesaja und die zwölf Propheten, Breuer zehn weitere Bücher, Wolf beide Samuelbücher. Darunter können Septuaginta, Targumim, Qumran-Rollen und Peschitta stehen. |
 | 🃏 **Eine Wortkarte zu jedem hebräischen Wort** | *Wie wird das Wort übersetzt?* als Diagramm je Übersetzung, das vollständige Paradigma als Tabelle und die Wiedergaben in Septuaginta, Targumim und Qumran-Rollen. |
 | ✦ **Alles zu dieser Stelle** | Ein Fenster (Cmd+I) sammelt Kommentare, Parallelstellen, Legenden, Talmud & Midrasch, Halacha, Wörter, Orte und Wörterbuchartikel zu einem Vers, einem Blatt oder einem Kapitel. |
 | 📴 **Funktioniert offline** | Texte, Verknüpfungen, Wörterbücher, Karten und Audio liegen auf deiner Festplatte. Nichts wird irgendwohin gesendet. |
@@ -67,7 +64,7 @@ Die Oberfläche gibt es auf Deutsch, Englisch und Hebräisch. Sie startet je nac
 
 <table>
 <tr>
-<td width="33%" valign="top"><b>🔡 Interlinear: Hebräisch und Deutsch Wort für Wort</b><br>Der Knopf <i>Interlinear</i> stellt eine Übersetzung unter jedes hebräische Wort des Westminster-Textes. In einem kleinen Feld kreuzt du die Werke an; mehrere stehen untereinander, jedes in seiner Farbe. <b>Zunz</b> deckt den ganzen Tanach ab (alle 39 Bücher), <b>Goldschmidt</b> die Tora (alle fünf Bücher), <b>S. R. Hirsch</b> die Tora und Psalmen, <b>Julius Hirsch</b> Jesaja und die zwölf kleinen Propheten, <b>Wolf</b> beide Samuelbücher. <b>Breuer</b> ist für Josua, Richter, Jeremia, Jecheskel, Esra, Nehemia, Ruth, Hohelied, Kohelet und Klagelieder zugeordnet. Genauso lassen sich die <b>Septuaginta</b>, die Targumim <b>Onkelos, Pseudo-Jonathan und Neofiti</b>, die <b>Qumran-Rollen</b> und die <b>Peschitta</b> (alle 39 Bücher) dazunehmen; Plus und Minus der Rollen, der Septuaginta und der Peschitta sind markiert. Ein Klick auf ein Wort hebt seine Gegenstücke in allen Fassungen hervor.</td>
+<td width="33%" valign="top"><b>🔡 Interlinear: Hebräisch und Deutsch Wort für Wort</b><br>Der Knopf <i>Interlinear</i> stellt eine Übersetzung unter jedes hebräische Wort des Westminster-Textes. In einem kleinen Feld kreuzt du die Werke an; mehrere stehen untereinander, jedes in seiner Farbe. <b>Zunz</b> und <b>Philippson</b> decken den ganzen Tanach ab (alle 39 Bücher), <b>Goldschmidt</b> und die <b>deutsche Mendelssohn-Übersetzung (Dessau 1815)</b> die Tora (alle fünf Bücher), <b>S. R. Hirsch</b> die Tora und Psalmen, <b>Julius Hirsch</b> Jesaja und die zwölf kleinen Propheten, <b>Wolf</b> beide Samuelbücher. <b>Breuer</b> ist für Josua, Richter, Jeremia, Jecheskel, Esra, Nehemia, Ruth, Hohelied, Kohelet und Klagelieder zugeordnet. Genauso lassen sich die <b>Septuaginta</b>, die Targumim <b>Onkelos, Pseudo-Jonathan und Neofiti</b>, die <b>Qumran-Rollen</b> und die <b>Peschitta</b> (alle 39 Bücher) dazunehmen; Plus und Minus der Rollen, der Septuaginta und der Peschitta sind markiert. Ein Klick auf ein Wort hebt seine Gegenstücke in allen Fassungen hervor.</td>
 <td width="33%" valign="top"><b>🃏 Wortkarte</b><br>Ein hebräisches Wort anklicken und seine <i>Wortkarte</i> öffnen. <b>„Wie wird das Wort übersetzt?“</b> zeigt als Ringdiagramm und Liste die Wiedergaben in jeder zugeordneten Übersetzung, in der Septuaginta und in den Targumim; jede Wiedergabe öffnet ihre Stellen. <b>Alle Formen (Tabelle)</b> ist das vollständige Paradigma, geordnet wie in einer Grammatik, mit der üblichen Wiedergabe unter jeder Form. Darunter: Verteilung im Tanach, die Wörterbücher und die Belege in Septuaginta, Targumim und Qumran-Rollen. Die Karte lässt sich neben dem Text anpinnen.</td>
 <td width="33%" valign="top"><b>✦ Alles zu dieser Stelle (Cmd+I)</b><br>Ein Fenster sammelt, was Safran zu einem Vers, einem Blatt oder einem ganzen Kapitel weiß: Kommentare, Parallelstellen, Legenden (Ginzberg), Talmud & Midrasch, Halacha, Leitwörter, Orte, Themen, Wörterbuchartikel, die die Stelle zitieren, und deine Notizen. Die <b>Statistik</b> zeigt Leitwörter, seltene Wörter, Wurzeln, Verbformen, Wortverbindungen und Namen, dazu <b>Ähnliche Kapitel</b>: die Kapitel mit dem ähnlichsten Wortschatz oder denselben seltenen Wendungen im Buch oder im ganzen Tanach (Numeri 1 → Numeri 26, Psalm 18 → 2 Samuel 22), mit einem Klick im Vergleich nebeneinander.<br><br><b>Kommentare zum ganzen Kapitel (Cmd+K)</b><br>Das Kommentarfenster zeigt ein Kapitel Kommentator für Kommentator, Vers für Vers; ein Klick auf eine Versnummer beschränkt es auf diesen Vers.</td>
 </tr>
@@ -135,6 +132,11 @@ Die Textschriftgrößen übernimmt der Export aus **Anzeige**: Grundschrift sowi
 
 ## Textkritischer Apparat
 
+<p align="center">
+  <a href="screenshots/apparatus.jpg"><img src="screenshots/apparatus.jpg" alt="Jesaja 53,9 als Interlinear mit Septuaginta, Qumran-Rollen und Peschitta; daneben das Apparat-Fenster mit Lesartenzeile, der Lesart ויתנו von 1QIsaa, der LXX-Lesart καὶ δώσω mit rekonstruierter Vorlage und den Hexapla-Zeilen der Drei mit „folgt dem MT“" width="900"></a><br>
+  <sub>Jesaja 53,9: Interlinear mit LXX, Qumran und Peschitta und das Apparat-Fenster – 1QIsaᵃ ויתנו, die LXX-Lesart καὶ δώσω mit vermuteter Vorlage und die Hexapla-Zeilen von Aquila, Symmachus und Theodotion.</sub>
+</p>
+
 Das Fenster **≠ Apparat** vergleicht den masoretischen Text (Westminster Leningrad Codex, OSHB) Vers für Vers mit den Handschriften und alten Übersetzungen. Es funktioniert an jeder Stelle des Tanach, braucht keine Lesespalte des Zeugen und zeigt einen einzelnen Vers oder das ganze Kapitel.
 
 | Sigle | Zeuge | Umfang | Quelle und Lizenz |
@@ -142,19 +144,19 @@ Das Fenster **≠ Apparat** vergleicht den masoretischen Text (Westminster Lenin
 | **MA** | Aleppo-Text gegen den Leningradensis: Konsonanten, plene/defektiv, Vokale, Worttrennung; Akzente auf Wunsch | 39 Bücher; * wo der Kodex selbst verloren ist | *Miqra al pi ha-Masora* (he.wikisource, CACCHT), CC BY-SA 4.0 |
 | **SMR** | Samaritanischer Pentateuch nach Tal–Florentin (2024) mit den Originalanmerkungen | Tora | DT-UCPH / CACCHT, CC BY-NC 4.0 |
 | **DSS** | biblische Qumran-Rollen, jedes Wort mit Sigle und Rekonstruktionszeichen | 36 Bücher, 262 Siglen | ETCBC / Abegg, CC BY-NC 4.0 |
-| **LXX** | Septuaginta: Tov/Krafts CATSS-Hinweise und Rückübersetzungen, dazu eingeordnete Lesarten (andere Lesart, andere Deutung, Plus, Minus, Harmonisierung, Doublette, Name, Zahl, Übersetzungstechnik …) | Tanach | CATSS, CC BY-NC-SA 3.0 |
+| **LXX** | Septuaginta: Tov/Krafts CATSS-Hinweise und Rückübersetzungen, dazu eingeordnete Lesarten (andere Lesart, andere Deutung, Plus, Minus, Harmonisierung, Doublette, Name, Zahl, Übersetzungstechnik …) | 38 Bücher (Ester: Lesetext nach Rahlfs) | CATSS, CC BY-NC-SA 3.0 |
 | **Hex** | Hexapla nach Field (1875): die LXX mit ※ und ÷, Aquila, Symmachus, Theodotion, Quinta …, als Synopse mit einer Zeile je Übersetzer; Siglen beim Überfahren erklärt, Fields Fußnoten an Ort und Stelle (Englisch, Latein eingeklappt), Morphologie und Wortkarten | 39 Bücher | Field: gemeinfrei; Morphologie Perseus Morpheus (CC BY-SA 3.0 US), Bedeutungen LSJ (CC BY-SA) |
-| **Syr** | Peschitta: Plus und Minus aus der Wortzuordnung, eingeordnete Lesarten wie bei der LXX | 39 Bücher | ETCBC-Peschitta, CC BY-NC 4.0 |
+| **Syr** | Peschitta: Plus und Minus aus Safrans eigener Wortzuordnung und eigene eingeordnete Lesarten (nicht der Apparat der gedruckten Leidener Ausgabe) | 39 Bücher | ETCBC-Peschitta, CC BY-NC 4.0 |
 | **Ken** | Kennicott (1776–1780): Lesarten der mittelalterlichen Handschriften mit Katalogkarten | 39 Bücher | Digital Kennicott, CC BY-NC-SA 4.0 |
 
 Für Mischna Berachot vergleicht das Fenster die Handschriften Kaufmann, Parma und Cambridge.
 
 - **Lesartenzeile:** über jeder MT-Wortgruppe fasst eine kurze Zeile die Zeugen zusammen – wer gleich liest, wer nur in der Schreibung abweicht, wer ein Plus oder Minus hat, etwa in Genesis 2,2, wo SMR, LXX und Syr „sechsten Tag“ statt „siebten“ lesen.
-- **Kontext und Grammatik:** beim Überfahren einer Zeugensigle (SMR, 4Q7, LXX, Ken, Syr) erscheint der Vers in diesem Zeugen mit markiertem Wort; ein Klick auf ein Wort öffnet Morphologie und Wortkarte.
+- **Kontext und Grammatik:** beim Überfahren einer Zeugensigle (SMR, 4Q7, LXX, Ken, Syr) erscheint der Vers in diesem Zeugen mit markiertem Wort; ein Klick auf ein Wort öffnet Morphologie und Wortkarte (bei der Peschitta, wo ETCBC-Morphologie vorliegt).
 - **Etiketten:** jede Hexapla-Zeile sagt, wie sie sich zur LXX-Zeile verhält – *wie LXX*, *andere Wiedergabe*, *folgt dem MT*, *Transkription* und, geprüft, *andere Vorlage* oder *andere Deutung* mit dem vorausgesetzten Hebräisch.
 - **Einordnungen:** die Einordnung der LXX-, Peschitta- und Hexapla-Lesarten und die erschlossenen hebräischen Vorlagen sind mit Claude (2026) erstellt und geprüft. Sie sind eine Hilfe, keine kritische Edition; unsichere Fälle sind markiert, und jeder Eintrag behält seine Quelle.
 
-Hexapla, Peschitta, Aleppo-Text, die eingeordneten LXX-Lesarten und die Lesartenzeile sind seit 2.7.1 neu und kommen mit der nächsten Version ([Änderungen](CHANGELOG.md), englisch).
+Neu in 2.8.0: die Peschitta (Lesetext, Interlinear und Zeuge Syr), Fields Hexapla, der Aleppo-Vergleich (MA), die eingeordneten LXX-Lesarten und die Lesartenzeile – siehe [Versionshinweise](docs/releases/2.8.0.md) (englisch).
 
 ## Wörterbücher
 
@@ -181,7 +183,7 @@ Krauss’ ***Talmudische Archäologie*** (Bd. I–III, Leipzig 1910–1912) selb
   <sub>Wörterbuch-Reiter: eine Suche in allen Wörterbüchern, hier mit Antworten aus Hamburger und Jastrow; links die letzten Suchen, rechts die Favoriten.</sub>
 </p>
 
-- **Kluges Nachschlagen:** Vokalzeichen und Endbuchstaben werden ignoriert, die Präfixe ו ה ב כ ל מ ש abgelöst, und Einträge, die mit deinem Wort beginnen, erscheinen mit. Beim Tippen kommen Vorschläge.
+- **Kluges Nachschlagen:** Vokalzeichen und Endbuchstaben werden ignoriert; standardmäßig zählen ganze Stichwörter. `*` sucht Wortanfänge (z. B. `שיח*`), und der Knopf „Ersten Buchstaben entfernen“ kürzt eine Anfrage gezielt. Beim Tippen kommen Vorschläge.
 - **Volltext:** mit dem Häkchen *auch im Text* wird im Artikeltext gesucht, nicht nur in den Stichwörtern. Treffer werden hervorgehoben. Auch Phrasen in Anführungszeichen und die Platzhalter `*` und `?` funktionieren.
 - **Vom Text und zurück:** ein aus dem Text nachgeschlagenes Wort zeigt, woher es kommt (*aus Genesis 25:8*); ein Klick führt zum Vers zurück.
 - **Wörterbücher wählen:** der Knopf 📚 legt fest, welche Wörterbücher durchsucht werden. Die Auswahl wird gemerkt.
@@ -205,6 +207,7 @@ Wenn ein Update eine andere Fassung eines bereits vorhandenen Textes mitliefert,
 | Philippson, *Die Israelitische Bibel*, Übersetzung **und** Kommentar | ganzer Tanach |
 | Herxheimer, *Die vier und zwanzig Bücher der Bibel* (1843), Übersetzung **und** Kommentar | ganzer Tanach |
 | Kautzsch, *Die Apokryphen und Pseudepigraphen des Alten Testaments* (1900) | Ben Sira, Jubiläen, Henoch, Tobit, Judith, Makkabäer, Weisheit Salomos u. a. |
+| Mendelssohn, *Die fünf Bücher Mose*, deutsche Übersetzung (Dessau 1815) | Tora; Interlinear |
 | Mendelssohn, *Netivot ha-Schalom* (Übersetzung, Taitsch und Biur) | Tora |
 | Raschi nach Bamberger · Hertz, Pentateuch-Kommentar | Raschi: Exodus bis Deuteronomium · Hertz: Exodus, Numeri, Deuteronomium |
 | Goldschmidt, Übersetzung der Tora (1921) | Tora |
@@ -311,6 +314,10 @@ Safran ist eine Electron-App; an jedem [Release](https://github.com/mitkin89/Saf
 
 ## Editionsnotizen
 
+Philippsons importierter Text ist um verschobene Verse, doppelte Blöcke, klare OCR-Fehler und Worttrennungen bereinigt. Wiederhergestellte Versenden stehen in Klammern; unsichere Lesungen und abweichende Übersetzungsentscheidungen bleiben in den [Prüf- und Korrekturlisten](tools/interlinear/philippson/PRUEFLISTE-TANACH.md) dokumentiert. Redaktionelle Zwischenüberschriften sind aus dem Verstext entfernt.
+
+Mendelssohns deutscher Pentateuch (Dessau 1815, lateinische Schrift) ist eine eigene Interlinear-Quelle neben Taitsch und Biur. Alle fünf Bücher / 5.846 Versfelder sind gegen Westminster zugeordnet, einschließlich gemeinsamer Ketiv/Qere-Segmente. Bestätigt verschobene Satzfortsetzungen stehen wieder in ihren Versen; der nichtbiblische Druckanhang ist getrennt erhalten. Offene OCR-Kandidaten und mögliche Auslassungen stehen unverändert in den [Prüf- und Korrekturlisten](tools/interlinear/mendelssohn/PRUEFLISTE-PENTATEUCH.md).
+
 Berachot 2a–10b gibt es außerdem als **William Davidson Edition – Safran-Morphologie** mit 10.786 hebräisch-aramäischen Wortannotationen. Ein Wortklick zeigt Lemma, Bestimmung, Alternativen und Quellenhinweise; die Formtabelle enthält ausschließlich Belege aus diesem Bereich. Grammatik- und Lemmasuche berücksichtigen diese Ausgabe. Offene Merkmale bleiben markiert, der Wortlaut einschließlich Vokalisation ist unverändert. Siehe [Methode und Prüfbericht](tools/bavli/PRUEFBERICHT.md).
 
 Berachot 2a–10b bietet außerdem **Wortzuordnung · Test** für Goldschmidt und Pinner. 2a–3b sind in beiden Fassungen von Hand zugeordnet; weitere geprüfte Stellen und klar gekennzeichnete Vorschläge sind enthalten. [Prüfstand](tools/bavli/interlinear/README.md).
@@ -331,7 +338,8 @@ Der Quellcode steht unter der [MIT-Lizenz](LICENSE). Texte, Wörterbücher, Kart
 | ETCBC-Daten (Qumran-Rollen, Targumim, Peschitta, Inschriften), Tal–Florentin, SEDRA | **CC BY-NC 4.0** – nicht kommerziell |
 | CATSS-Septuaginta ([LICENSE-CATSS.md](LICENSE-CATSS.md)) · Digital Kennicott ([LICENSE-KENNICOTT.md](LICENSE-KENNICOTT.md)) | **CC BY-NC-SA** 3.0 · 4.0 – nicht kommerziell |
 | lxx-morph, STEPBible (Glossen, Verszählung), OpenBible.info | CC BY 4.0 |
-| Fields Hexapla, Rahlfs, BDB, Pape und die historischen deutschen Texte | gemeinfrei |
+| Fields Hexapla, Rahlfs, BDB, Gesenius, Jastrow, Levy, Krauss, Hamburger, Pape und die historischen deutschen Texte | gemeinfrei |
+| Liddell & Scott (DSL-Datei nach Perseus) | keine ausdrückliche Lizenzangabe in den Dateien, siehe [SOURCES.de.md](SOURCES.de.md) |
 | Sefaria-Texte | eigene Lizenz je Fassung; werden heruntergeladen, nicht Teil der App |
 
 **Einige mitgelieferte Daten dürfen nur nicht kommerziell genutzt werden** (die Zeilen mit CC BY-NC und CC BY-NC-SA). Die MIT-Lizenz gilt für den Code, nicht für diese Daten; wer Safran als Ganzes weitergibt oder weiterverwendet, muss ihre Bedingungen beachten.

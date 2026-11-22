@@ -20,7 +20,7 @@ Changes: conversion to Safran's bundled dictionary format, plain-text gloss clea
 
 Syriac word cards additionally expose explicit root families and recorded forms grouped by SEDRA grammatical labels, with Western and Eastern vocalizations. The lazy structured index preserves original ids and sources; word-form counts are not passage frequencies.
 
-The etymology extension imports the 3,078 verified SEDRA origin records with language, source word, notes, bracket status and permanent etymology id; no missing source citations are invented. Original transliterations and the five published mapping schemes are preserved. Explicit SEDRA IV, CAL and Leiden input searches the selected dictionaries after case-sensitive conversion; it does not infer vowels.
+The etymology extension imports the 3,078 verified SEDRA origin records with language, source word, notes, bracket status and permanent etymology id; no missing source citations are invented. Original transliterations and the five published mapping schemes are preserved.
 
 ## Hebrew Tanakh with morphology (OSHB)
 
@@ -53,6 +53,8 @@ Source and license: Original work of the Open Scriptures Hebrew Bible, <https://
 - **Hexapla** – Frederick Field, *Origenis Hexaplorum quae supersunt* (Oxford 1875, 2 vols.), public domain, transcribed from the archive.org scans (`origenhexapla01unknuoft`, `origenhexapla02unknuoft`) with Claude; all 39 books, with Field's footnotes. Greek morphology: the LXX lemmas (lxx-morph, CC BY 4.0) and, for the remaining forms, [Morpheus](https://github.com/perseids-tools/morpheus) (Perseus, **CC BY-SA 3.0 US**), plus a manual list (`tools/hexapla/manual-morph.json`). Short meanings for lemmas outside the LXX from LSJ ([PerseusDL/lexica](https://github.com/PerseusDL/lexica), **CC BY-SA**). Build: `tools/hexapla/`.
 - **Aleppo witness (MA)** – the differences between the Aleppo text (see above, **CC BY-SA 4.0**) and the Westminster Leningrad Codex, computed chapter by chapter (`aleppo-diff/`, `tools/aleppo/compare.py`); passages where the Aleppo Codex itself is lost are marked *. The derived data stay under CC BY-SA 4.0.
 - **Assessments** – the classification of LXX, Peshitta and Hexapla readings, the inferred Hebrew Vorlagen (`tools/hexapla/vorlage.json`, `lxx-readings/`, `peshitta-readings/`) and the manual Greek morphology were made with Claude (2026) and reviewed. They are an aid, not a critical edition, and carry the license of the data they are derived from.
+- **Biblical DSS text-critical adapter** — same ETCBC/Abegg source and **CC BY-NC 4.0** license as the Qumran texts above, with original character-level reconstruction/uncertainty/correction flags and fragment/line provenance. Source version 2.0.2, commit `0b7774a72b6d0e91712aa2156d2a1d354f1f5e6d`. Separate compressed extracts for 36 books, 262 manuscript sigla and source/OSHB fingerprints are documented in [tools/dss/README.md](tools/dss/README.md). Automatic MT grouping is an adaptation; source readings and existing bundled reading editions are not silently corrected.
+- **Digital Kennicott, apparatus for all 39 books** — *The Digital Kennicott. A Digital Edition of Benjamin Kennicott's Vetus Testamentum Hebraicum*, ed. Sebastiano Crestani and Alberto Legnaioli, Universities of Turin and Florence. [Original TEI](https://www.edition-digitalkennicott.unito.it/), explicitly **CC BY-NC-SA 4.0** in its header. Safran preserves the original archive and derives a separate offline apparatus with source glossary, witness metadata and conservative MT positions. See `LICENSE-KENNICOTT.md` and `tools/kennicott/README.md`.
 - **Similar chapters** (`similar-chapters.js`) – computed from the OSHB lemmas (CC BY 4.0) by `tools/oshb/similar_chapters.py`.
 
 ## Bible map
@@ -76,12 +78,8 @@ Map of the places of a chapter (🗺 in the reading bar, also from the outline),
 
 ## Interface language
 
-The interface is available in German and English (⋯ menu → Sprache). The English strings live in `i18n.js`: German original on the left, translation on the right; `{}` and `{#}` (number) are placeholders. New interface strings in the code stay German and get an entry there. `test10.js` checks the table.
+The interface is available in German, English and Hebrew (⋯ menu → Sprache / Language). Hebrew strings live in `i18n-he.js`. The English strings live in `i18n.js`: German original on the left, translation on the right; `{}` and `{#}` (number) are placeholders. New interface strings in the code stay German and get an entry there. `test10.js` checks the table.
 
 ## License of this project
 
 The source code of this app is released under the [MIT License](LICENSE).
-
-- **Biblical DSS text-critical adapter** — same ETCBC/Abegg source and **CC BY-NC 4.0** license as the Qumran texts above, with original character-level reconstruction/uncertainty/correction flags and fragment/line provenance. Source version 2.0.2, commit `0b7774a72b6d0e91712aa2156d2a1d354f1f5e6d`. Separate compressed extracts for 36 books, 262 manuscript sigla and source/OSHB fingerprints are documented in [tools/dss/README.md](tools/dss/README.md). Automatic MT grouping is an adaptation; source readings and existing bundled reading editions are not silently corrected.
-
-- **Digital Kennicott, apparatus for all 39 books** — *The Digital Kennicott. A Digital Edition of Benjamin Kennicott's Vetus Testamentum Hebraicum*, ed. Sebastiano Crestani and Alberto Legnaioli, Universities of Turin and Florence. [Original TEI](https://www.edition-digitalkennicott.unito.it/exist/apps/dike/api/document/001_gen.xml/), explicitly **CC BY-NC-SA 4.0** in its header. Safran preserves the original archive and derives a separate offline apparatus with source glossary, witness metadata and conservative MT positions. See `LICENSE-KENNICOTT.md` and `tools/kennicott/README.md`.
