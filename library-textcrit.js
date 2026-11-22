@@ -32,7 +32,7 @@ function create(host){
   try{$('#tcTov').checked=localStorage.getItem('tcTov')!=='0';}catch{}
   try{$('#tcDss').checked=localStorage.getItem('tcDss')!=='0';}catch{}
   try{$('#tcKen').checked=localStorage.getItem('tcKen')!=='0';}catch{}
-  try{$('#tcPs').checked=localStorage.getItem('tcPs')!=='0';$('#tcPsTech').checked=localStorage.getItem('tcPsTech')==='1';$('#tcCompact').checked=localStorage.getItem('tcCompact')==='1';}catch{}
+  try{$('#tcPs').checked=localStorage.getItem('tcPs')!=='0';$('#tcPsTech').checked=localStorage.getItem('tcPsTech')==='1';$('#tcCompact').checked=localStorage.getItem('tcCompact')==='1';$('#tcTovTech').checked=localStorage.getItem('tcTovTech')==='1';}catch{}
   try{$('#tcHex').checked=localStorage.getItem('tcHex')!=='0';}catch{}
   for(const [id,key]of [['#tcMishnahParma','tcMP'],['#tcMishnahCambridge','tcMC']]){try{$(id).checked=localStorage.getItem(key)!=='0';}catch{}}
   const settings=$('#tcSettings');
@@ -153,13 +153,13 @@ function create(host){
       catch{if(token===generation)body.textContent=window.I18N.t('Apparat konnte nicht geladen werden.');}
       return;
     }
-    const contentKey=c?[key,whole,c.numbering,whole?'':c.row,$('#tcSmr').checked,$('#tcTov').checked,$('#tcDss').checked,$('#tcKen').checked,$('#tcPs').checked,$('#tcPsTech').checked,$('#tcHex').checked,$('#tcCompact').checked,$('#tcLang').value].join('|'):null;
+    const contentKey=c?[key,whole,c.numbering,whole?'':c.row,$('#tcSmr').checked,$('#tcTov').checked,$('#tcDss').checked,$('#tcKen').checked,$('#tcPs').checked,$('#tcPsTech').checked,$('#tcTovTech').checked,$('#tcHex').checked,$('#tcCompact').checked,$('#tcLang').value].join('|'):null;
     if(contentKey&&lastContentKey===contentKey){markCurrent(c);return;}
     lastContentKey=null;
     if(!c){body.innerHTML='<p class="muted">Der Apparatus-Apparat steht für den Tanach zur Verfügung.</p>';return;}
     body.innerHTML='<p class="muted">Apparat wird geladen …</p>';
     try{
-      const [[data,notes],,,psData,hxData]=await Promise.all([load(),dss.load(c.book),ken.load(c.book),ps.load(c.book).catch(()=>null),hx.load(c.book).catch(()=>null)]);if(token!==generation||panel.hidden)return;
+      const [[data,notes],,,psData,hxData]=await Promise.all([load(),dss.load(c.book),ken.load(c.book),ps.load(c.book).catch(()=>null),hx.load(c.book).catch(()=>null),tov.loadReadings(c.book).catch(()=>null)]);if(token!==generation||panel.hidden)return;
       previewData=data;
       const alignment=window.SAMARITAN_IL,smrIL=window.SamaritanInterlinear;
       const showSpelling=true;
@@ -205,7 +205,7 @@ function create(host){
           records.push({anchor,displayRef:displayBases[0]||ref,rows:readerRows,cmp,cmpWitness:'SMR',lz:cmp?{f:'SMR',w:'SMR',op:g.spelling?'orth':anchor?.kind==='gap'?'add':'var',rd:cmp}:null,html:'<article class="tc-entry" data-witness="SMR" data-alignment="'+method+'" data-tc-ref="'+esc(ref)+'" data-tc-group="'+i+'">'+(notesHtml||fallback)+'</article>'});
         });
       }
-      if(showTov)records.push(...tov.entries(tovQueries));
+      if(showTov)records.push(...tov.entries(tovQueries),...tov.readingEntries(tovQueries,mtWords).filter(r=>$('#tcTovTech').checked||!/data-lxx-type="technik"/.test(r.html)));
       if(showDss)records.push(...dss.entries(tovQueries,showSpelling));
       if(showKen)records.push(...ken.entries(tovQueries,whole));
       if(showHex)records.push(...hx.entries(hxData,tovQueries));
@@ -255,8 +255,8 @@ function create(host){
   });}
   $('#tcBtn').onclick=()=>toggle();$('#tcClose').onclick=()=>toggle(false);
   try{const view=localStorage.getItem('tcMishnahView');if(['interlinear','apparatus','tosefta'].includes(view))$('#tcMishnahView').value=view;}catch{}
-  ['#tcMishnahView','#tcMishnahParma','#tcMishnahCambridge','#tcNumbering','#tcSmr','#tcTov','#tcDss','#tcKen','#tcPs','#tcPsTech','#tcHex','#tcCompact','#tcLang'].forEach(s=>$(s).onchange=()=>{
-    try{localStorage.setItem('tcMishnahView',$('#tcMishnahView').value);localStorage.setItem('tcMP',$('#tcMishnahParma').checked?'1':'0');localStorage.setItem('tcMC',$('#tcMishnahCambridge').checked?'1':'0');localStorage.setItem('tcKen',$('#tcKen').checked?'1':'0');localStorage.setItem('tcPs',$('#tcPs').checked?'1':'0');localStorage.setItem('tcPsTech',$('#tcPsTech').checked?'1':'0');localStorage.setItem('tcCompact',$('#tcCompact').checked?'1':'0');localStorage.setItem('tcHex',$('#tcHex').checked?'1':'0');localStorage.setItem('tcDss',$('#tcDss').checked?'1':'0');localStorage.setItem('tcTov',$('#tcTov').checked?'1':'0');localStorage.setItem('tcSmr',$('#tcSmr').checked?'1':'0');}catch{}
+  ['#tcMishnahView','#tcMishnahParma','#tcMishnahCambridge','#tcNumbering','#tcSmr','#tcTov','#tcDss','#tcKen','#tcPs','#tcPsTech','#tcTovTech','#tcHex','#tcCompact','#tcLang'].forEach(s=>$(s).onchange=()=>{
+    try{localStorage.setItem('tcMishnahView',$('#tcMishnahView').value);localStorage.setItem('tcMP',$('#tcMishnahParma').checked?'1':'0');localStorage.setItem('tcMC',$('#tcMishnahCambridge').checked?'1':'0');localStorage.setItem('tcKen',$('#tcKen').checked?'1':'0');localStorage.setItem('tcPs',$('#tcPs').checked?'1':'0');localStorage.setItem('tcPsTech',$('#tcPsTech').checked?'1':'0');localStorage.setItem('tcCompact',$('#tcCompact').checked?'1':'0');localStorage.setItem('tcTovTech',$('#tcTovTech').checked?'1':'0');localStorage.setItem('tcHex',$('#tcHex').checked?'1':'0');localStorage.setItem('tcDss',$('#tcDss').checked?'1':'0');localStorage.setItem('tcTov',$('#tcTov').checked?'1':'0');localStorage.setItem('tcSmr',$('#tcSmr').checked?'1':'0');}catch{}
     render();
   });
   $('#rOut').addEventListener('click',e=>{

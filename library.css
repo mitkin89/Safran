@@ -2360,3 +2360,5 @@ html.split[data-tab=dict] body #dictPanel.pinp:is(.docked,.panel-sized) { right:
 .tc-lz-orth, .tc-lz-cite, .tc-lz-interp { color: var(--muted); }
 .tc-lz-part i { font-style: italic; color: var(--muted); }
 .tc-locus-detail > summary { cursor: pointer; color: var(--muted); font-size: .85em; }
+.tc-lxx-reading[data-lxx-type=technik] .tc-ps-note, .tc-lxx-reading[data-lxx-type=technik] .tc-tov-tag { opacity: .75; }
+.tc-lxx-gr { font-style: italic; }

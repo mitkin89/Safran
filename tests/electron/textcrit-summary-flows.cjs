@@ -17,9 +17,10 @@ module.exports=async({win,js,waitFor,book})=>{
   await js("document.querySelector('#rOut .row[data-l=\"2\"] .txt').click()");
   await waitFor("document.querySelector('#tcPlace').textContent.includes('Genesis 2:2') && document.querySelector('#tcBody .tc-lz')",'Lesartenzeile Gen 2:2');
   const line=await js("[...document.querySelectorAll('#tcBody .tc-lz-var')].map(n=>n.textContent.replace(/\\s+/g,' ').trim())");
-  assert(line.some(t=>/^הששי SMR Syr$/.test(t)),'הששי SMR Syr in einer Gruppe: '+JSON.stringify(line));
-  // CATSS kennt hier nur „Zahl abweichend“ ohne hebräischen Wortlaut: LXX steht daneben als ≠, nicht als Übereinstimmung
-  assert(await js("[...document.querySelectorAll('#tcBody .tc-lz-line')].some(l=>/הששי/.test(l.textContent)&&l.querySelector('.tc-lz-note')?.textContent.includes('LXX'))"),'LXX als abweichend ohne Wortlaut');
+  // Die bewertete LXX-Lesart (Zahl, Vorlage הששי) ersetzt den rohen CATSS-Hinweis und gruppiert mit SMR und Syr
+  assert(line.some(t=>/^הששי SMR LXX Syr$/.test(t)),'הששי SMR LXX Syr in einer Gruppe: '+JSON.stringify(line));
+  assert(await js("!![...document.querySelectorAll('#tcBody .tc-lxx-reading')].find(e=>e.dataset.lxxType==='zahl'&&e.textContent.includes('ἕκτῃ'))"),'Bewertete LXX-Lesart als eigener Eintrag');
+  assert(await js("![...document.querySelectorAll('#tcBody .tc-lz-line')].some(l=>/הששי/.test(l.textContent)&&l.querySelector('.tc-lz-note'))"),'Kein doppeltes ≠ LXX aus CATSS');
   assert(await js("!!document.querySelector('#tcBody .tc-lz-var .tc-lz-ret')"),'Erschlossene Vorlagen kursiv');
   await set('tcCompact',true);
   await waitFor("document.querySelector('#tcBody details.tc-locus-detail:not([open])')",'Kompaktansicht klappt Einzelbelege ein');
@@ -29,5 +30,5 @@ module.exports=async({win,js,waitFor,book})=>{
   }
   // Zeugenauswahl der folgenden Abläufe wiederherstellen
   for(const [i,id] of ids.entries())await set(id,before[i]);
-  console.log('Electron: Lesartenzeile gruppiert SMR und Syr, LXX ohne Wortlaut gesondert; Kompaktansicht.');
+  console.log('Electron: Lesartenzeile gruppiert SMR, LXX (bewertet) und Syr; Kompaktansicht.');
 };

@@ -3,6 +3,52 @@ window.LibraryTov=(()=>{
 'use strict';
 function create(host){
   const esc=s=>host.esc(window.I18N?.textCrit?.(String(s))??s);let data=null,pending=null;
+  // Classified LXX readings (lxx-readings/<code>.js, tools/lxx/readings/build.py; Claude, 2026) on the CATSS alignment
+  const RT={lesart:['andere Lesart','Andere Konsonanten in der Vorlage oder Verlesung'],deutung:['andere Deutung','Gleiche Konsonanten, anders vokalisiert, abgeleitet oder getrennt'],zusatz:['Zusatz','Erweiterung ohne erkennbare Parallele'],auslassung:['Auslassung','MT-Text ohne Wiedergabe in der LXX'],harmonisierung:['Angleichung','An eine Parallelstelle angeglichen'],technik:['Übersetzungstechnik','Bewusste Übersetzungsentscheidung, keine andere Vorlage'],doublette:['Doppelübersetzung','Dieselbe Stelle zweifach wiedergegeben'],umstellung:['Umstellung','Andere Wortfolge oder über die Versgrenze verschoben'],zahl:['Zahl','Abweichende Zahl oder abweichendes Datum'],name:['Name','Abweichende Namensform'],grfehler:['innergriechischer Fehler','Wahrscheinlich Abschreibfehler innerhalb der griechischen Überlieferung']};
+  const rpending=new Map();let rindex=null;
+  const raw=s=>host.esc(String(s));
+  const label=code=>code==='Jsha'?'LXX A (Josua)':code==='Jdga'?'LXX A':code==='Jdgb'?'LXX B':code==='DanTh'?'LXX Th':'LXX';
+  function loadReadings(book){
+    return host.load('lxx-readings/index.js',()=>window.LXX_READINGS_INDEX).then(ix=>{rindex=ix;
+      const codes=Object.keys(ix||{}).filter(c=>ix[c].book===book);
+      return Promise.all(codes.map(c=>{if(!rpending.has(c))rpending.set(c,host.load('lxx-readings/'+c+'.js',()=>window.LXX_READINGS?.[c]).catch(e=>{rpending.delete(c);throw e;}));return rpending.get(c);}));
+    });
+  }
+  const readings=(code,ref)=>window.LXX_READINGS?.[code]?.verses[ref.replace(/^.* /,'')];
+  const cons=s=>String(s).replace(/[^א-ת]/g,'').replace(/[ךםןףץ]/g,c=>'כמנפצ'['ךםןףץ'.indexOf(c)]);
+  function readingLz(r,w,op){
+    const base={f:'LXX',w:w+(r.sure?'':'?'),title:(RT[r.type]||[r.type])[0]},t=r.type;
+    if(t==='grfehler')return null;
+    if(t==='deutung'||t==='technik')return {...base,op:'interp'};
+    if(t==='auslassung'||op==='om')return {...base,op:'om'};
+    if(op==='add'||t==='zusatz')return {...base,op:'add',rd:r.vorlage||''};
+    return r.vorlage?{...base,op:'var',rd:r.vorlage,ret:true}:{...base,op:'note'};
+  }
+  // queries as for entries(); mtWords(ref) = the MT words the apparatus anchors to
+  function readingEntries(queries,mtWords){
+    const out=new Map();
+    for(const {ref,row} of queries){
+      for(const code of Object.keys(rindex||{}).filter(c=>ref.startsWith(rindex[c].book+' '))){
+        const v=readings(code,ref);if(!v)continue;  // 0 = classified, no significant deviation
+        const ui=(mtWords(ref)||[]).map(cons),same=ui.length===v.H.length&&ui.every((w,i)=>w===cons(v.H[i]));
+        const map=same?v.H.map((_,i)=>i):window.TextCrit.alignPositions(v.H,ui);
+        const at=i=>map[i-1];
+        v.r.forEach((r,k)=>{
+          const id=code+' '+ref+'|'+k,prev=out.get(id);if(prev){if(!prev.rows.includes(row))prev.rows.push(row);return;}
+          let anchor=null;
+          if(r.he.length){const p=r.he.map(at);if(p.every(Number.isInteger))anchor={kind:'word',start:Math.min(...p),end:Math.max(...p)};}
+          else{const p=r.a?at(r.a):-1;if(p===-1||Number.isInteger(p))anchor={kind:'gap',start:p,end:p};}
+          const [lab,title]=RT[r.type]||[r.type,''],w=label(code);
+          const greek=r.g?' <span class="tc-lxx-gr" lang="grc">'+raw(r.g)+'</span>':'';
+          const vorlage=r.vorlage?' <span class="tc-tov-reading">≈ <bdi lang="he" dir="rtl">'+raw(r.vorlage)+'</bdi> <abbr class="ab" title="'+esc('Erschlossene hebräische Vorlage; kein Handschriftenbeleg')+'">'+esc('erschlossen')+'</abbr></span>':'';
+          const note=' <span class="tc-ps-note">'+raw(r.note)+(r.parallel?' ('+esc('vgl.')+' '+raw(r.parallel)+')':'')+(r.sure?'':' <span class="muted">('+esc('unsicher')+')</span>')+'</span>';
+          const html='<article class="tc-entry tc-tov-entry tc-lxx-reading" data-witness="'+raw(w)+'" data-lxx-type="'+raw(r.type)+'"><div class="tc-note-text"><span class="tc-witness-label">'+raw(w)+'</span> <abbr class="ab tc-tov-tag tc-ps-'+raw(r.type)+'" title="'+esc(title)+'">'+esc(lab)+'</abbr>'+greek+vorlage+note+'</div><small class="tal-cite" tabindex="0" title="'+esc('Einordnung auf Grundlage der CATSS-Ausrichtung und Tovs Spalte b')+'">'+esc('LXX-Lesarten (Claude, 2026) · CATSS-Ausrichtung')+', '+raw(ref)+'</small></article>';
+          out.set(id,{anchor:anchor&&{...anchor,ref},displayRef:ref,rows:[row],html,cmp:r.vorlage||null,cmpWitness:r.vorlage?w:null,lz:anchor?readingLz(r,w,anchor.kind==='gap'?'add':r.he.length&&!r.g?'om':'var'):null});
+        });
+      }
+    }
+    return [...out.values()];
+  }
   const shortLabels={
     '--+':'LXX-Zusatz','---':'LXX-Auslassung','{x}':'Scheinbares Plus/Minus',
     '{d}':'Doublette','{!}':'Infinitivus absolutus','{t}':'Transliteration',
@@ -50,7 +96,7 @@ function create(host){
           const html='<article class="tc-entry tc-tov-entry" data-witness="'+esc(witness)+'"><div class="tc-note-text"><span class="tc-witness-label">'+esc(witness)+'</span> '+greek+(greek&&heb?' ↔ ':'')+heb+' <span class="tc-tov-codes">'+flags+'</span>'+detail+'</div><small class="tal-cite" tabindex="0" data-tc-tov="'+esc(key)+'" title="'+esc(sourceTitle)+'">'+esc(citation)+'</small></article>';
           const hebrew=/^[א-ת][א-ת ]*/.exec(columnText||'')?.[0].trim(),moved=n.codes.includes('{...}'),w=witness+(n.codes.includes('?')?'?':'');
           const lz=hebrew&&['=','=;','=:','=+'].includes(columnCode)?{op:'var',rd:hebrew,ret:true}:!moved&&n.codes.includes('---')?{op:'om'}:!moved&&n.codes.includes('--+')?{op:'add',rd:hebrew||''}:n.codes.some(c=>c==='=v'||c==='=@')?{op:'interp'}:n.codes.includes('=+')?{op:'note',title:'Zahl'}:null;
-          out.set(id,{anchor:anchor?{...anchor,ref}:null,displayRef:ref,rows:[row],html,cmp:reconstructed?columnText:null,cmpWitness:witness,lz:lz&&{f:'LXX',w,title:lz.ret?'Tov/Kraft':'',...lz}});
+          out.set(id,{anchor:anchor?{...anchor,ref}:null,displayRef:ref,rows:[row],html,cmp:reconstructed?columnText:null,cmpWitness:witness,lz:lz&&readings(code,ref)===undefined?{f:'LXX',w,title:lz.ret?'Tov/Kraft':'',...lz}:null});
         });
       }
     }
@@ -77,7 +123,7 @@ function create(host){
     const edition=data.editions[v.edition];if(edition.sourceOnly)return;const m=/ (\d+):(\d+)$/.exec(v.ref);
     host.openGreek?.(anchor,{text:v.text,group:n.g,start:n.start,ctx:{title:edition.book,vt:edition.versionTitle,ch:+m[1],v:+m[2]}});
   }
-  return {load,entries,mt,credit,preview,open};
+  return {load,entries,mt,credit,preview,open,loadReadings,readingEntries};
 }
 return {create};
 })();
