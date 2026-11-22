@@ -78,9 +78,10 @@ function create(host){
   function showPreview(anchor){
     hidePreview();
     const ref=anchor.dataset.tcRef,verse=previewData?.verses[ref];
-    if((!verse&&!anchor.dataset.tcTov&&!anchor.dataset.tcDss&&!anchor.dataset.tcKen&&!anchor.dataset.tcMishnah&&!anchor.dataset.tcCitation)||!anchor.isConnected||panel.hidden)return;
+    if((!verse&&!anchor.dataset.tcTov&&!anchor.dataset.tcHx&&!anchor.dataset.tcDss&&!anchor.dataset.tcKen&&!anchor.dataset.tcMishnah&&!anchor.dataset.tcCitation)||!anchor.isConnected||panel.hidden)return;
     hoverAnchor=anchor;hover=document.createElement('div');hover.id='tcHover';hover.setAttribute('role','tooltip');
-    hover.innerHTML=anchor.dataset.tcMishnah?mishnah.preview(anchor):anchor.dataset.tcKen?ken.preview(anchor):anchor.dataset.tcDss?dss.preview(anchor):anchor.dataset.tcTov?tov.preview(anchor):verse?'<b>SMR · '+esc(ref)+'</b><div class="tc-he" dir="rtl" lang="he">'+verse.words.map(w=>word(w,false)).join(' ')+'</div><p lang="en">'+english(verse.en)+'</p><small>Tal–Florentin · CC BY-NC 4.0</small>':'';
+    hover.innerHTML=anchor.dataset.tcHx?hx.preview(anchor):anchor.dataset.tcMishnah?mishnah.preview(anchor):anchor.dataset.tcKen?ken.preview(anchor):anchor.dataset.tcDss?dss.preview(anchor):anchor.dataset.tcTov?tov.preview(anchor):verse?'<b>SMR · '+esc(ref)+'</b><div class="tc-he" dir="rtl" lang="he">'+verse.words.map(w=>word(w,false)).join(' ')+'</div><p lang="en">'+english(verse.en)+'</p><small>Tal–Florentin · CC BY-NC 4.0</small>':'';
+    if(!hover.innerHTML.trim()){hover=null;hoverAnchor=null;return;}
     if(anchor.dataset.tcCitation)hover.insertAdjacentHTML('afterbegin','<div class="tc-source-citation-detail"><b title="'+esc(anchor.dataset.tcSourceDetail||'')+'">'+esc(anchor.dataset.tcCitation)+'</b></div>');
     document.body.appendChild(hover);anchor.setAttribute('aria-describedby','tcHover');
     const r=anchor.getBoundingClientRect(),h=hover.getBoundingClientRect();
@@ -264,7 +265,7 @@ function create(host){
     whole=false;selected=row.dataset.l;const rel=e.target.closest('.cell[data-rel]')?.dataset.rel;
     const doc=host.getView()?.loaded?.find(d=>d.entry.rel===rel);clickedTal=doc?!!doc.talWordNotes:null;render();
   });
-  body.addEventListener('click',e=>{const source=e.target.closest('.tc-source,[data-tc-mishnah]');if(source){showPreview(source);return;}const mt=e.target.closest('.tc-mt-jump');if(mt){hidePreview();const ref=mt.dataset.ref;host.markMt(ref,+mt.dataset.start,+mt.dataset.end,tov.mt(ref)||dss.mt(ref)||ken.mt(ref)||window.TextCrit.words(window.TEXTCRIT_DATA?.mt?.[ref]||''));return;}const qw=e.target.closest('.tc-dss-word');if(qw&&!String(window.getSelection())){hidePreview();host.openQumran(qw);return;}const greek=e.target.closest('.tc-tov-lemma');if(greek&&!String(window.getSelection())){hidePreview();tov.open(greek);return;}const jump=e.target.closest('.tc-jump');if(jump){host.selectRow(jump.dataset.row);return;}const w=e.target.closest('.w[data-l]');if(w&&!String(window.getSelection())){hidePreview();host.openWord(w);}});
+  body.addEventListener('click',e=>{const source=e.target.closest('.tc-source,[data-tc-mishnah],.tc-hx-w');if(source){if(source.matches('.tc-hx-w')&&hoverAnchor===source){hidePreview();return;}showPreview(source);return;}const fn=e.target.closest('.tc-hx-fn');if(fn){const d=fn.closest('.tc-hx-entry')?.querySelector('.tc-hx-note[data-hx-fn="'+fn.dataset.hxFn+'"]');if(d){d.open=!d.open;if(d.open)d.scrollIntoView({block:'nearest'});}return;}const mt=e.target.closest('.tc-mt-jump');if(mt){hidePreview();const ref=mt.dataset.ref;host.markMt(ref,+mt.dataset.start,+mt.dataset.end,tov.mt(ref)||dss.mt(ref)||ken.mt(ref)||window.TextCrit.words(window.TEXTCRIT_DATA?.mt?.[ref]||''));return;}const qw=e.target.closest('.tc-dss-word');if(qw&&!String(window.getSelection())){hidePreview();host.openQumran(qw);return;}const greek=e.target.closest('.tc-tov-lemma');if(greek&&!String(window.getSelection())){hidePreview();tov.open(greek);return;}const jump=e.target.closest('.tc-jump');if(jump){host.selectRow(jump.dataset.row);return;}const w=e.target.closest('.w[data-l]');if(w&&!String(window.getSelection())){hidePreview();host.openWord(w);}});
   body.addEventListener('pointerover',e=>{
     const target=e.target.closest('.tc-source,.tc-context-word,[data-tc-tov],[data-tc-dss],[data-tc-ken],[data-tc-mishnah]');if(!target||target.contains(e.relatedTarget))return;
     clearTimeout(hideTimer);clearTimeout(showTimer);showTimer=setTimeout(()=>showPreview(target),200);
@@ -281,7 +282,7 @@ function create(host){
       if(document.activeElement===target&&target.isConnected)showPreview(target);
     }));
   });
-  body.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.matches('.tc-tov-lemma,.tc-dss-word')){e.preventDefault();e.target.click();}});
+  body.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.matches('.tc-tov-lemma,.tc-dss-word,.tc-hx-w,.tc-hx-fn')){e.preventDefault();e.target.click();}});
   body.addEventListener('focusout',e=>{if(e.target.closest('.tc-source,.tc-context-word,[data-tc-tov],[data-tc-dss],[data-tc-ken],[data-tc-mishnah]'))hidePreview();});
   window.addEventListener('resize',hidePreview);
   document.addEventListener('scroll',e=>{if(!e.target.closest?.('#tcHover'))hidePreview();},true);

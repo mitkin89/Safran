@@ -27,6 +27,13 @@ test('Greek words of the readings carry a morphology tooltip (hexapla-morph.js)'
   const hx=HX.create(host),d=await hx.load('Genesis');
   assert(box.window.HEXAPLA_MORPH&&box.window.HEXAPLA_MORPH.F['ἐγένετο'],'morphology loaded');
   const html=hx.entries(d,[{ref:'Genesis 1:3',row:'3'}]).map(x=>x.html).join('');
-  assert.match(html,/<span class="tc-hx-w" title="γίνομαι – Verb, Aorist/);
+  assert.match(html,/<span class="tc-hx-w" tabindex="0" role="button" data-tc-hx="γίνομαι – Verb, Aorist/);
+  assert.doesNotMatch(html,/class="tc-hx-w" title=/,'morphology only on click');
+  assert.match(html,/class="tc-hx-sig" tabindex="0" title="Ο΄ = die Septuaginta/);
+  assert.match(html,/title="Ἀ\. = Aquila/);
+  assert.match(html,/<details class="tc-hx-note" data-hx-fn="9"><summary>Fußnote 9<\/summary><p lang="la">Philop/,'note without translation shows the Latin');
+  const g1=hx.entries(d,[{ref:'Genesis 1:1',row:'1'}]).map(x=>x.html).join('');
+  assert.match(g1,/<summary>Fußnote 1<\/summary><p lang="en">CAP\. I\. Hieron[^<]*For both/,'English first');
+  assert.match(g1,/<details class="tc-hx-la"><summary>Lateinischer Text \(Field\)<\/summary><p lang="la">CAP\. I\. Hieron[^<]*Nam et LXX/,'Latin folded');
   for(const m of html.matchAll(/title="([^"]*)"/g))assert(!m[1].includes('<'),'markup inside title');
 });

@@ -28,6 +28,24 @@ module.exports=async({win,js,waitFor,book})=>{
   if(process.env.SAFRAN_LZ_CAPTURE){
     await waitFor("document.querySelector('#tcBody .tc-lz')",'Lesartenzeile sichtbar');win.showInactive();win.webContents.invalidate();await new Promise(r=>setTimeout(r,800));console.log(await js("document.querySelector('#tcBody').innerText.slice(0,1500)"));fs.writeFileSync(process.env.SAFRAN_LZ_CAPTURE,(await win.webContents.capturePage()).toPNG());
   }
+  // Hexapla: Siglen erklärt, Morphologie erst beim Klick, Fußnoten aufklappbar (englisch, Latein eingeklappt)
+  await set('tcCompact',false);
+  await js("document.querySelector('#rOut .row[data-l=\"2\"] .txt').click()");
+  await waitFor("document.querySelector('#tcBody .tc-hx-entry .tc-hx-w')",'Hexapla Gen 2:2');
+  assert(await js("[...document.querySelectorAll('#tcBody .tc-hx-sig')].some(b=>b.title.startsWith('Ο΄ = die Septuaginta'))"),'Sigle erklärt');
+  assert(await js("[...document.querySelectorAll('#tcBody .tc-hx-w')].every(w=>!w.title)"),'keine Morphologie beim Überfahren');
+  await js("document.querySelector('#tcBody .tc-hx-w').click()");
+  await waitFor("document.querySelector('#tcHover')?.textContent.includes('–')",'Morphologie beim Klick');
+  await js("document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true}))");
+  const fn=await js("{const e=[...document.querySelectorAll('#tcBody .tc-hx-entry')].find(e=>e.querySelector('.tc-hx-note p[lang=en]'));e?e.querySelector('.tc-hx-fn').dataset.hxFn:null}");
+  if(fn){
+    await js(`[...document.querySelectorAll('#tcBody .tc-hx-entry')].find(e=>e.querySelector('.tc-hx-note p[lang=en]')).querySelector('.tc-hx-fn[data-hx-fn="${fn}"]').click()`);
+    assert(await js(`{const d=[...document.querySelectorAll('#tcBody .tc-hx-note[open]')][0];d&&d.querySelector(':scope>p').lang==='en'&&!d.querySelector('.tc-hx-la').open}`),'Fußnote offen, Englisch oben, Latein eingeklappt');
+  }
+  if(process.env.SAFRAN_HX_CAPTURE){console.log('Fußnote mit Englisch:',fn);await js("document.querySelector('#tcBody .tc-hx-note[open]')?.closest('.tc-hx-entry').scrollIntoView({block:'start'})");win.showInactive();win.webContents.invalidate();await new Promise(r=>setTimeout(r,800));fs.writeFileSync(process.env.SAFRAN_HX_CAPTURE,(await win.webContents.capturePage()).toPNG());}
+  // LXX: das griechische Wort zeigt beim Überfahren nichts, das LXX-Etikett den CATSS-Verskontext
+  assert(await js("[...document.querySelectorAll('#tcBody .tc-tov-lemma')].every(n=>!n.hasAttribute('data-tc-tov'))"),'kein Hover am griechischen Wort');
+  assert(await js("[...document.querySelectorAll('#tcBody .tc-tov-entry .tc-witness-label')].every(n=>n.hasAttribute('data-tc-tov'))"),'Hover am LXX-Etikett');
   // Zeugenauswahl der folgenden Abläufe wiederherstellen
   for(const [i,id] of ids.entries())await set(id,before[i]);
   console.log('Electron: Lesartenzeile gruppiert SMR, LXX (bewertet) und Syr; Kompaktansicht.');

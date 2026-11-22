@@ -8,10 +8,10 @@ module.exports=async({docs,win,js,waitFor,book})=>{
   await js("document.querySelector('#rOut .row[data-l=\"6\"] .txt').click()");
   await waitFor("document.querySelector('#tcBody .tc-tov-entry')?.textContent.includes('καὶ ἐγένετο')",'Tovs Plus und Rückübersetzung ohne ausgewählte LXX-Lesespalte');
   assert(await js("[...document.querySelectorAll('#tcBody abbr')].some(n=>n.textContent==='erschlossen'&&n.title.includes('=;')&&n.title.includes('Rückübersetzung'))"));
-  assert(await js("document.querySelector('#tcBody').textContent.includes('ויהי') && !document.querySelector('#tcBody details, #tcBody summary')"));
+  assert(await js("document.querySelector('#tcBody').textContent.includes('ויהי') && !document.querySelector('#tcBody .tc-tov-entry details, #tcBody .tc-tov-entry summary')"));
   assert(await js("[...document.querySelectorAll('#tcBody .tc-tov-tag')].some(n=>n.textContent==='LXX-Zusatz'&&n.title.startsWith('--+'))"));
   assert(await js("{const n=document.querySelector('#tcBody .tc-tov-reading');getComputedStyle(n).display==='inline'&&!n.querySelector('div')&&n.textContent.includes('ויהי')&&!n.textContent.includes('=;')&&n.getBoundingClientRect().height<getComputedStyle(n).fontSize.replace('px','')*2}"),'Compact inline reading with original code in the hover');
-  const target="document.querySelector('#tcBody .tc-tov-lemma')";
+  const target="document.querySelector('#tcBody .tc-tov-lemma').closest('.tc-entry').querySelector('.tc-witness-label')",lemma="document.querySelector('#tcBody .tc-tov-lemma')";
   await js(`${target}.scrollIntoView({block:'center'})`);
   await js("new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))");
   const point=await js(`{const r=${target}.getBoundingClientRect();({x:Math.round(r.left+r.width/2),y:Math.round(r.top+r.height/2)})}`);
@@ -20,7 +20,9 @@ module.exports=async({docs,win,js,waitFor,book})=>{
   assert(await js("document.querySelectorAll('#tcHover .tc-il-unit').length>5 && document.querySelector('#tcHover .tc-il-unit.active [lang=grc]')?.textContent==='καὶ ἐγένετο' && [...document.querySelectorAll('#tcHover .tc-il-he')].some(n=>n.textContent==='רקיע') && document.querySelector('#tcHover .tc-il-retro')?.textContent.includes('erschlossen')"),'Source-aligned Greek/Hebrew interlinear hover with highlighted group');
   assert(await js("document.querySelector('#tcHover').textContent.includes('Genesis 1:6') && !document.querySelector('#tcHover [lang=en]')"),'No NETS translation');
   if(process.env.SAFRAN_TOV_HOVER_CAPTURE){await js("new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))");fs.writeFileSync(process.env.SAFRAN_TOV_HOVER_CAPTURE,(await win.webContents.capturePage()).toPNG());}
-  await js(`${target}.click()`);
+  // The Greek word itself has no hover; clicking it opens the morphology.
+  assert(await js(`!${lemma}.hasAttribute('data-tc-tov')`));
+  await js(`${lemma}.click()`);
   await waitFor("[...document.querySelectorAll('#wpop .wseg')].some(n=>n.textContent.includes('Verb'))",'Echte LXX-Morphologie aus dem Apparat');
   await js("document.querySelector('#wpop .wx').click()");
   // Multiple witnesses coexist and retain independent filters.

@@ -42,7 +42,7 @@ function create(host){
           const greek=r.g?' <span class="tc-lxx-gr" lang="grc">'+raw(r.g)+'</span>':'';
           const vorlage=r.vorlage?' <span class="tc-tov-reading">≈ <bdi lang="he" dir="rtl">'+raw(r.vorlage)+'</bdi> <abbr class="ab" title="'+esc('Erschlossene hebräische Vorlage; kein Handschriftenbeleg')+'">'+esc('erschlossen')+'</abbr></span>':'';
           const note=' <span class="tc-ps-note">'+raw(r.note)+(r.parallel?' ('+esc('vgl.')+' '+raw(r.parallel)+')':'')+(r.sure?'':' <span class="muted">('+esc('unsicher')+')</span>')+'</span>';
-          const html='<article class="tc-entry tc-tov-entry tc-lxx-reading" data-witness="'+raw(w)+'" data-lxx-type="'+raw(r.type)+'"><div class="tc-note-text"><span class="tc-witness-label">'+raw(w)+'</span> <abbr class="ab tc-tov-tag tc-ps-'+raw(r.type)+'" title="'+esc(title)+'">'+esc(lab)+'</abbr>'+greek+vorlage+note+'</div><small class="tal-cite" tabindex="0" title="'+esc('Einordnung auf Grundlage der CATSS-Ausrichtung und Tovs Spalte b')+'">'+esc('LXX-Lesarten (Claude, 2026) · CATSS-Ausrichtung')+', '+raw(ref)+'</small></article>';
+          const html='<article class="tc-entry tc-tov-entry tc-lxx-reading" data-witness="'+raw(w)+'" data-lxx-type="'+raw(r.type)+'"><div class="tc-note-text"><span class="tc-witness-label" tabindex="0" data-tc-tov="'+raw(code+ref.slice(rindex[code].book.length))+'">'+raw(w)+'</span> <abbr class="ab tc-tov-tag tc-ps-'+raw(r.type)+'" title="'+esc(title)+'">'+esc(lab)+'</abbr>'+greek+vorlage+note+'</div><small class="tal-cite" tabindex="0" title="'+esc('Einordnung auf Grundlage der CATSS-Ausrichtung und Tovs Spalte b')+'">'+esc('LXX-Lesarten (Claude, 2026) · CATSS-Ausrichtung')+', '+raw(ref)+'</small></article>';
           out.set(id,{anchor:anchor&&{...anchor,ref},displayRef:ref,rows:[row],html,cmp:r.vorlage||null,cmpWitness:r.vorlage?w:null,lz:anchor?readingLz(r,w,anchor.kind==='gap'?'add':r.he.length&&!r.g?'om':'var'):null});
         });
       }
@@ -83,7 +83,7 @@ function create(host){
           const columnCode=n.b?n.codes.find(c=>c.startsWith('=')):null;
           const columnText=columnCode&&n.bText.startsWith(columnCode)?n.bText.slice(columnCode.length).trim():n.bText;
           const flags=n.codes.filter(c=>c!==columnCode||!columnText).map(badge).join(' ');
-          const greek=n.g?'<span class="tc-tov-lemma" lang="grc" tabindex="0" data-tc-tov="'+esc(key)+'" data-catss-apparatus="1" data-tc-note="'+i+'" data-h="'+esc(n.h)+'">'+esc(n.g)+'</span>':'';
+          const greek=n.g?'<span class="tc-tov-lemma" lang="grc" tabindex="0" data-tov-key="'+esc(key)+'" data-catss-apparatus="1" data-tc-note="'+i+'" data-h="'+esc(n.h)+'">'+esc(n.g)+'</span>':'';
           const heb=!anchor&&n.h?'<bdi lang="he" dir="rtl">'+esc(n.h)+'</bdi>':'';
           const reading=esc(columnText).replace(/[א-ת]+/g,s=>'<bdi dir="rtl" lang="he">'+s+'</bdi>');
           const reconstructed=columnCode==='='&&/^[א-ת]/.test(columnText);
@@ -93,7 +93,7 @@ function create(host){
           const witness=code==='Jsha'?'LXX A (Josua)':code==='Jdga'?'LXX A':code==='Jdgb'?'LXX B':code==='DanTh'?'LXX Th':'LXX';
           const citation=n.origin==='bundled-CATSS'?'CATSS-Lesetext, '+ref+' · Gruppe '+n.group:'Tov/Kraft · CATSS, '+ref+' · '+n.file+':'+n.line;
           const sourceTitle=n.origin==='bundled-CATSS'?'Erhaltener Hinweis aus dem eingebundenen CATSS-Lesetext; keine vollständige Originalanmerkung. '+n.raw[0]:n.raw.join(' | ');
-          const html='<article class="tc-entry tc-tov-entry" data-witness="'+esc(witness)+'"><div class="tc-note-text"><span class="tc-witness-label">'+esc(witness)+'</span> '+greek+(greek&&heb?' ↔ ':'')+heb+' <span class="tc-tov-codes">'+flags+'</span>'+detail+'</div><small class="tal-cite" tabindex="0" data-tc-tov="'+esc(key)+'" title="'+esc(sourceTitle)+'">'+esc(citation)+'</small></article>';
+          const html='<article class="tc-entry tc-tov-entry" data-witness="'+esc(witness)+'"><div class="tc-note-text"><span class="tc-witness-label" tabindex="0" data-tc-tov="'+esc(key)+'" data-tc-note="'+i+'">'+esc(witness)+'</span> '+greek+(greek&&heb?' ↔ ':'')+heb+' <span class="tc-tov-codes">'+flags+'</span>'+detail+'</div><small class="tal-cite" tabindex="0" data-tc-tov="'+esc(key)+'" title="'+esc(sourceTitle)+'">'+esc(citation)+'</small></article>';
           const hebrew=/^[א-ת][א-ת ]*/.exec(columnText||'')?.[0].trim(),moved=n.codes.includes('{...}'),w=witness+(n.codes.includes('?')?'?':'');
           const lz=hebrew&&['=','=;','=:','=+'].includes(columnCode)?{op:'var',rd:hebrew,ret:true}:!moved&&n.codes.includes('---')?{op:'om'}:!moved&&n.codes.includes('--+')?{op:'add',rd:hebrew||''}:n.codes.some(c=>c==='=v'||c==='=@')?{op:'interp'}:n.codes.includes('=+')?{op:'note',title:'Zahl'}:null;
           out.set(id,{anchor:anchor?{...anchor,ref}:null,displayRef:ref,rows:[row],html,cmp:reconstructed?columnText:null,cmpWitness:witness,lz:lz&&readings(code,ref)===undefined?{f:'LXX',w,title:lz.ret?'Tov/Kraft':'',...lz}:null});
@@ -118,7 +118,7 @@ function create(host){
 
   }
   function open(anchor){
-    const v=data?.verses[anchor.dataset.tcTov],n=v?.remarks[+anchor.dataset.tcNote];
+    const v=data?.verses[anchor.dataset.tcTov||anchor.dataset.tovKey],n=v?.remarks[+anchor.dataset.tcNote];
     if(!n)return;
     const edition=data.editions[v.edition];if(edition.sourceOnly)return;const m=/ (\d+):(\d+)$/.exec(v.ref);
     host.openGreek?.(anchor,{text:v.text,group:n.g,start:n.start,ctx:{title:edition.book,vt:edition.versionTitle,ch:+m[1],v:+m[2]}});
