@@ -34,6 +34,7 @@ def hebrew(tok):  # CATSS-Umschrift (nur Konsonanten) -> hebräische Buchstaben;
     return h[:-1] + FIN.get(h[-1], h[-1]) if h else ''
 TAGS = {'d': 'd', '!': 'i', 't': 't', 'p': 'v', 's': 's'}  # {d} Doublette, {!} Inf. abs., {t} Transliteration, {p} Präverb, {s} Komparativ
 def add_line(hcol, gcol, units):  # eine Ausrichtungszeile: hebräische Spalte, griechische Spalte
+    hcol = re.sub(r'(^|\s)\*+', r'\1', hcol)  # Ketiv (*) und Qere (**): beide Wortformen gehören zur Zeile (der MT führt beide)
     copies = [re.sub(r'^[a-z]?\^?', '', c).replace('^', '') for c in re.findall(r'\{\.\.([^}]*)\}', gcol)]  # {..pWORT}: Kopie des Wortes an der hebräischen Stelle
     tags = ''.join(TAGS[t] for t in re.findall(r'\{([d!tps])\??\}', hcol + ' ' + gcol) if t in TAGS)
     g = re.sub(r'\{[^}]*\}', ' ', gcol)
@@ -73,7 +74,7 @@ for fp in sorted(f for f in os.listdir(src) if re.fullmatch(r'file\d+-1111\.txt'
             m = re.match(r'~y(\d*)', ln)
             if m: vs = int(m.group(1)) if m.group(1) else vs + 1
             continue
-        if cur not in NAMES or ln.startswith('*') or len(ln) <= 30 or not ch or not vs: continue
+        if cur not in NAMES or len(ln) <= 30 or not ch or not vs: continue  # Zeilen mit * sind Ketiv/Qere, keine Kommentare
         add_line(ln[:30], ln[30:].strip(), books.setdefault(cur, {}).setdefault(ch, {}).setdefault(vs, []))
 PAR = {'20.Psalms.par': 'Ps', '23.Prov.par': 'Prv', '26.Job.par': 'Job'}  # in den Oxford-Dateien fehlend; CCAT-Fassung (Tab-getrennt, mit Versüberschriften „Ps 3:1“)
 for fn, key in PAR.items():
@@ -85,7 +86,7 @@ for fn, key in PAR.items():
         m = re.fullmatch(r'\S+ (\d+):(\d+)', ln.strip())
         if m:
             units = books.setdefault(key, {}).setdefault(int(m.group(1)), {}).setdefault(int(m.group(2)), []); continue
-        if units is None or '\t' not in ln or ln.startswith('*'): continue
+        if units is None or '\t' not in ln: continue
         h, g = ln.split('\t', 1)
         add_line(h, g.strip(), units)
 def verse_html(units, note=''):
@@ -102,7 +103,8 @@ if __name__ == '__main__' and proj and '--check' not in sys.argv:
     man = json.load(open(man_p)) if os.path.exists(man_p) else {'version': 1, 'items': []}
     meta = {}
     for it in json.load(open(os.path.join(proj, 'bundled', 'manifest.json')))['items']: meta.setdefault(it['title'], it)
-    man['items'] = [i for i in man['items'] if 'CATSS' not in i['versionTitle']]
+    rebuilt = {(NAMES[k], 'Septuaginta (CATSS%s)' % (', ' + VERS[k] if k in VERS else '')) for k in books}
+    man['items'] = [i for i in man['items'] if (i['title'], i['versionTitle']) not in rebuilt]  # nicht neu eingelesene Fassungen (z. B. Psalmen ohne .par-Datei) bleiben
     for k, d in books.items():
         title = NAMES[k]
         vt = 'Septuaginta (CATSS%s)' % (', ' + VERS[k] if k in VERS else '')

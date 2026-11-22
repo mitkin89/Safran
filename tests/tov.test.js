@@ -18,7 +18,7 @@ test('Tov apparatus preserves every imported original row and the licensed sourc
     if(n.raw.join(' ').includes('?'))assert(n.codes.includes('?'),v.ref);
     count++;
   }
-  assert.equal(count,66365);
+  assert.equal(count,66803); // einschließlich der Ketiv/Qere-Zeilen (*/**)
   assert.match(D.source.license,/BY-NC-SA 3.0/);
 });
 test('Greek contexts and word positions agree with the exact bundled CATSS witness, including A/B and Theodotion',()=>{

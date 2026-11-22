@@ -8,4 +8,6 @@ Klassifizierte Abweichungen der Septuaginta vom masoretischen Text für den Appa
 - **Format** `<Kürzel>.json`: `{code, book, verses:{"c:v":{H:[MT-Konsonanten], G:[griechische Gruppen], Gmt:[MT-Nummern je Gruppe], r:[{he, gr, type, vorlage, note, sure, parallel}]}}}`; `he`/`gr` 1-basiert.
 - **Bau:** `python3 tools/lxx/readings/build.py` schreibt `lxx-readings/<Kürzel>.js` (kompakt: Verse ohne Eintrag als 0) und `lxx-readings/index.js`.
 
-Grenzen: Zeugenhinweise in `note` („so auch SMR/4Q…“) stammen aus der Kenntnis der Bearbeiter und sind nicht an Editionen geprüft. An Ketiv/Qere-Stellen fehlen im CATSS-Lesetext griechische Wörter (Zeilen mit `*` werden beim Einlesen übergangen); dort konnten keine Lesarten erfasst werden.
+Ketiv/Qere: Die CATSS-Zeilen mit `*`/`**` wurden anfangs beim Einlesen übergangen; nach der Korrektur von `tools/catss/catss.py` wurden die 916 betroffenen Verse eigens nachgearbeitet. Folgt die LXX dem Ketiv mit Sinnunterschied, steht ein Eintrag „folgt dem Ketiv“; folgt sie dem Qere, gilt das als Übereinstimmung mit dem MT. Psalmen, Sprüche und Ijob stammen aus dem gebündelten Lesetext (keine Oxford-Quelle); dort fehlen die Ketiv/Qere-Wörter weiterhin.
+
+Zeugenhinweise in `note` („so auch SMR/4Q…“): siehe `tools/textcrit/witness-check` (Abgleich mit den Daten in Safran).

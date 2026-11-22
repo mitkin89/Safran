@@ -142,7 +142,7 @@ def build():
                     m = re.match(r'~y(\d*)', text)
                     if m: vs = int(m[1]) if m[1] else vs+1
                     continue
-                if code not in data['editions'] or text.startswith('*') or len(text) <= 30 or not ch or not vs: continue
+                if code not in data['editions'] or len(text) <= 30 or not ch or not vs: continue
                 h, g = text[:30].rstrip(), text[30:].strip()
                 k = f'{code} {ch}:{vs}'
                 line_units = []; codec['add_line'](h,g,line_units)
