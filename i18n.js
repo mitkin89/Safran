@@ -1217,6 +1217,8 @@
     "Warnung": "Warning",
     "{} Segmente · Kapitelmarken erkannt": "{} segments · chapter markers detected",
     "{} Segmente · Kapitelmarken nicht gefunden (alles in einem Kapitel ab Startkapitel)": "{} segments · no chapter markers found (everything in one chapter from the start chapter)",
+    "Alle {}": "All {}",
+    "{} ausgewählt": "{} selected",
   };
 
   const HTML = {

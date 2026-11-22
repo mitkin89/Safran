@@ -26,7 +26,7 @@ function create(host){
   function syncWitness(){
     const expanded=!$('#tcWitnessOptions').hidden,isMishnah=host.getView()?.group?.title==='Mishnah Berakhot',n=isMishnah?1+Number($('#tcMishnahParma').checked)+Number($('#tcMishnahCambridge').checked):Number($('#tcSmr').checked)+Number($('#tcTov').checked)+Number($('#tcDss').checked)+Number($('#tcKen').checked)+Number($('#tcPs').checked)+Number($('#tcHex').checked)+Number($('#tcMa').checked);
     $('#tcWitnessSummary').setAttribute('aria-expanded',String(expanded));
-    $('#tcWitnessSummary').innerHTML=(expanded?'▾':'▸')+' '+esc('Textzeugen')+' <span class="muted">'+esc(n===(isMishnah?3:7)?'Alle '+n:n?n+' ausgewählt':'Keine')+'</span>';
+    $('#tcWitnessSummary').innerHTML=(expanded?'▾':'▸')+' '+esc('Textzeugen')+' <span class="muted">'+esc(n===(isMishnah?3:7)?I18N.t('Alle {}',n):n?I18N.t('{} ausgewählt',n):I18N.t('Keine'))+'</span>';
   }
   try{$('#tcSmr').checked=localStorage.getItem('tcSmr')!=='0';}catch{}
   try{$('#tcTov').checked=localStorage.getItem('tcTov')!=='0';}catch{}

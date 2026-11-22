@@ -49,7 +49,7 @@ function create(host){
   function reading(r){
     const [label,title]=TYPES[r.type]||[r.type,''];
     const vorlage=r.vorlage?' <span class="tc-tov-reading">≈ <bdi lang="he" dir="rtl">'+raw(r.vorlage)+'</bdi> <abbr class="ab" title="'+esc('Erschlossene hebräische Vorlage; kein Handschriftenbeleg')+'">'+esc('erschlossen')+'</abbr></span>':'';
-    const note=' <span class="tc-ps-note">'+raw(r.note)+(r.parallel?' ('+esc('vgl.')+' '+raw(r.parallel)+')':'')+(r.sure?'':' <span class="muted">('+esc('unsicher')+')</span>')+'</span>';
+    const note=' <span class="tc-ps-note">'+raw(window.I18N?.lang==='en'&&r.en?r.en:r.note)+(r.parallel?' ('+esc('vgl.')+' '+raw(r.parallel)+')':'')+(r.sure?'':' <span class="muted">('+esc('unsicher')+')</span>')+'</span>';
     return {tag:tag(label,title,r.type),detail:vorlage+note};
   }
   const entry=(ref,v,native,body,type,marks)=>'<article class="tc-entry tc-ps-entry"'+(type?' data-ps-type="'+raw(type)+'"':'')+' data-witness="Syr"><div class="tc-note-text"><span class="tc-witness-label" title="'+esc('Peschitta')+'">Syr</span> '+body+'<!--agree--></div>'+cite(ref,v,native,marks)+'</article>';

@@ -117,7 +117,7 @@ function create(host){
     deutung:['andere Deutung','Gleiche oder fast gleiche Konsonanten, anders gelesen oder von einer anderen Wurzel her verstanden; von Claude geprüft'],
     asterisk:['Zusatz nach dem Hebräischen','※ Asterisk: von Origenes in die LXX-Spalte nach dem Hebräischen eingefügt'],
     obelus:['LXX-Plus','÷ Obelus: in der LXX ohne Gegenstück im Hebräischen']};
-  const typeTag=(t,vl)=>'<abbr class="ab tc-tov-tag tc-hx-type" data-hx-type="'+t+'" title="'+esc(HXTYPES[t][1])+(vl?.n?' · '+raw(vl.n):'')+'">'+esc(HXTYPES[t][0])+'</abbr>'+(vl?.he?' <span class="tc-tov-reading">≈ <bdi lang="he" dir="rtl">'+raw(vl.he)+'</bdi></span>':'');
+  const typeTag=(t,vl)=>'<abbr class="ab tc-tov-tag tc-hx-type" data-hx-type="'+t+'" title="'+esc(HXTYPES[t][1])+(vl?.n?' · '+raw(window.I18N?.lang==='en'&&vl.en?vl.en:vl.n):'')+'">'+esc(HXTYPES[t][0])+'</abbr>'+(vl?.he?' <span class="tc-tov-reading">≈ <bdi lang="he" dir="rtl">'+raw(vl.he)+'</bdi></span>':'');
   // Where an assessed LXX reading (not mere translation technique) covers the same MT words, a translator
   // that differs from the LXX there most likely renders the Hebrew: „folgt dem MT“.
   function agree(records){

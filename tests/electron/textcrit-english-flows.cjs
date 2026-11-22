@@ -11,6 +11,8 @@ module.exports=async({win,js,waitFor,book})=>{
  await waitFor("document.querySelector('#textcritPanel').textContent.includes('MT numbering')",'Übersetzte Zählung');
  const text=await js("document.querySelector('#textcritPanel').textContent");
  for(const german of ['Textkritik','MT-Zählung','Hinweise','Textzeugen','Auslassung','Lesartunterschied','Quelltext','Maschineller','Über Rasur','Wortvorkommen'])assert(!text.includes(german),'Keine deutsche UI: '+german);
+ assert(!/\bAlle \d|ausgewählt/.test(text),'Zeugenzahl auf Englisch');
+ assert(await js("[...document.querySelectorAll('#tcBody .tc-ps-note')].every(n=>!/„|\\b(statt|nicht|und)\\b/.test(n.textContent))"),'Lesart-Erläuterungen auf Englisch');
  assert(text.includes('Witnesses'));assert(text.includes('notes'));assert(text.includes('automated')||text.includes('Automated'));
  assert(await js("[...document.querySelectorAll('#dockTabs button[data-panel]')].every(b=>b.querySelector('.dock-tab-icon[aria-hidden=true]'))"),'Symbole in Panel-Tabs');
  await js("{const el=document.querySelector('#tcBody .tc-tov-entry .tc-source');el.focus();el.dispatchEvent(new FocusEvent('focusin',{bubbles:true}));}");
