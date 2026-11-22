@@ -213,6 +213,7 @@ function create(host){
       if(showDss)records.push(...dss.entries(tovQueries,showSpelling));
       if(showKen)records.push(...ken.entries(tovQueries,whole));
       if(showHex)records.push(...hx.entries(hxData,tovQueries));
+      if(showHex&&showTov)hx.agree(records);
       if(showPs){records.push(...ps.entries(psData,tovQueries).filter(r=>$('#tcPsTech').checked||!/data-ps-type="technik"/.test(r.html)));ps.agree(records);}
       const verses=new Map();
       for(const entry of records){const ref=entry.anchor?.ref||entry.displayRef;if(!verses.has(ref))verses.set(ref,[]);verses.get(ref).push(entry);}

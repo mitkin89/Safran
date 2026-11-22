@@ -39,6 +39,10 @@ test('Greek words of the readings carry a morphology tooltip (hexapla-morph.js)'
   assert.equal((g26.match(/class="tc-hx-row-sig"/g)||[]).length>=4,true,'Ο΄, Ἀ., Σ., Θ. rows');
   assert.match(g26,/class="tc-hx-same"/);
   assert.match(g26,/class="tc-hx-syn-toggle"/);
+  // row types against the LXX row
+  assert.match(g26,/data-hx-type="wiedergabe"/);
+  const g9=hx.entries(d,[{ref:'Genesis 1:9',row:'9'}]).map(x=>x.html).join('');
+  assert.match(g9,/συστήτω.*data-hx-type="wiedergabe"/s,'short readings also get a row and a type');
   assert.match(html,/data-hx-an="\[\[&quot;γίνομαι&quot;/,'analysis for the word card');
   const g1=hx.entries(d,[{ref:'Genesis 1:1',row:'1'}]).map(x=>x.html).join('');
   assert.match(g1,/<span class="tc-hx-note-n">1<\/span> <span lang="en">CAP\. I\. Hieron[^<]*For both/,'English first');

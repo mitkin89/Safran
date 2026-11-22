@@ -78,7 +78,7 @@ function create(host){
     }
     rows.at(-1).text=t.slice(rows.at(-1).hend);
     rows.forEach(r=>{r.head=t.slice(r.hstart,r.hend);r.tok=r.text.trim().split(/\s+/).filter(Boolean);});
-    if(rows.length<2||!/Ο΄/.test(rows[0].head)||rows[0].tok.length<4||rows.some(r=>!r.tok.length))return null;
+    if(rows.length<2||!/Ο΄/.test(rows[0].head)||rows[0].tok.length<1||rows.some(r=>!r.tok.length))return null;
     const base=rows[0].tok.map(norm);
     const row=(r,i)=>{
       let body;
@@ -89,11 +89,33 @@ function create(host){
         for(let x=a.length-1;x>=0;x--)for(let y=b.length-1;y>=0;y--)L[x][y]=a[x]&&a[x]===b[y]?L[x+1][y+1]+1:Math.max(L[x+1][y],L[x][y+1]);
         const same=new Array(b.length).fill(false);for(let x=0,y=0;x<a.length&&y<b.length;){if(a[x]&&a[x]===b[y]){same[y]=true;x++;y++;}else if(L[x+1][y]>=L[x][y+1])x++;else y++;}
         const parts=[];r.tok.forEach((w,k)=>{const p=parts.at(-1);if(p&&p.same===same[k])p.w.push(w);else parts.push({same:same[k],w:[w]});});
+        const words=r.tok.filter(w=>norm(w)),differ=r.tok.filter((w,k)=>norm(w)&&!same[k]);
+        const translit=differ.length&&differ.filter(w=>(lookup(w.replace(/[^\p{L}\p{M}’]/gu,''))||[])[0]?.[1]==='Y').length*2>=differ.length;
+        r.type=!words.length?'':!differ.length?'gleich':translit?'translit':'wiedergabe';
         body=parts.map(p=>p.same?'<span class="tc-hx-same"><span class="tc-hx-same-t">'+markup(data,u,p.w.join(' '))+'</span></span>':markup(data,u,p.w.join(' '))).join(' ');
       }
-      return '<span class="tc-hx-row-sig">'+markup(data,u,r.head)+'</span><span class="tc-hx-row" lang="grc">'+body+'</span>';
+      if(!i)r.type=/※/.test(r.text)?'asterisk':/÷/.test(r.text)?'obelus':'';
+      return '<span class="tc-hx-row-sig">'+markup(data,u,r.head)+'</span><span class="tc-hx-row" lang="grc">'+body+(r.type?' '+typeTag(r.type):'')+'</span>';
     };
     return '<div class="tc-hx-syn">'+rows.map(row).join('')+'</div><button type="button" class="tc-hx-syn-toggle" aria-pressed="false">'+esc('Volltext')+'</button>';
+  }
+  // Type of a translator row against the LXX row (machine; see agree() for the MT check)
+  const HXTYPES={gleich:['wie LXX','Gleicher Wortlaut wie die LXX-Zeile'],
+    wiedergabe:['andere Wiedergabe','Anderes griechisches Wort für denselben hebräischen Text (Wortwahl des Übersetzers), maschinell eingeordnet'],
+    mt:['folgt dem MT','Weicht dort von der LXX ab, wo die LXX selbst vom MT abweicht (bewertete LXX-Lesart): wohl Angleichung an den hebräischen Text; maschinell eingeordnet'],
+    translit:['Transkription','Hebräisches Wort in griechischen Buchstaben'],
+    asterisk:['Zusatz nach dem Hebräischen','※ Asterisk: von Origenes in die LXX-Spalte nach dem Hebräischen eingefügt'],
+    obelus:['LXX-Plus','÷ Obelus: in der LXX ohne Gegenstück im Hebräischen']};
+  const typeTag=t=>'<abbr class="ab tc-tov-tag tc-hx-type" data-hx-type="'+t+'" title="'+esc(HXTYPES[t][1])+'">'+esc(HXTYPES[t][0])+'</abbr>';
+  // Where an assessed LXX reading (not mere translation technique) covers the same MT words, a translator
+  // that differs from the LXX there most likely renders the Hebrew: „folgt dem MT“.
+  function agree(records){
+    const lxx=records.filter(r=>r.anchor&&/tc-lxx-reading/.test(r.html)&&!/data-lxx-type="(technik|grfehler)"/.test(r.html));
+    for(const r of records){
+      if(!r.anchor||!/tc-hx-entry/.test(r.html)||!r.html.includes('data-hx-type="wiedergabe"'))continue;
+      const a=r.anchor,hit=lxx.some(o=>o.anchor.ref===a.ref&&(a.kind==='gap'?o.anchor.kind==='gap'&&o.anchor.start===a.start:o.anchor.kind==='word'&&o.anchor.start<=a.end&&o.anchor.end>=a.start));
+      if(hit)r.html=r.html.split(typeTag('wiedergabe')).join(typeTag('mt'));
+    }
   }
   // Field's footnote as an inline note: English translation first, the Latin original folded inside.
   function inlineNote(note,n){
@@ -124,7 +146,7 @@ function create(host){
       return '<div class="wseg"><span class="wlem wgl" lang="grc">'+raw(lemma)+'</span> <span class="muted">'+raw(gloss||'')+'</span><br><b>'+raw(d.pos)+'</b>'+(d.info?' · '+raw(d.info):'')+'<div class="tc-hx-cards"><button type="button" class="wforms" data-gr-card="card" data-gr-lemma="'+raw(lemma)+'" data-gr-info="'+info+'">'+esc('Wortkarte')+'</button><button type="button" class="wforms" data-gr-card="forms" data-gr-lemma="'+raw(lemma)+'" data-gr-info="'+info+'">'+esc('Alle Formen (Tabelle)')+'</button><button type="button" class="wforms" data-gr-card="all" data-gr-lemma="'+raw(lemma)+'">'+esc('Alle Stellen')+'</button></div></div>';}).join('');
     return '<b lang="grc">'+raw(form)+'</b>'+rows+'<small>'+esc('Bestimmung maschinell; ein Wort kann mehrdeutig sein.')+'</small>';
   }
-  return {available,load,entries,credit,preview};
+  return {available,load,entries,credit,preview,agree};
 }
 return {create,BOOKS};
 })();
