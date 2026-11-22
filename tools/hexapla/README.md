@@ -104,6 +104,11 @@ eine Klammerzählung gilt dort als hebräisch, außer sie liegt mehr als drei Ka
    hebräischen Wort. `null` = kein Übersetzerwort (Hälften getrennter Wörter am Zeilenende, Fields lateinische
    Anmerkungen zu Codex-Schreibungen); diese stehen in `open-forms.json`.
 
+Bedeutungen: aus der LXX-Lemmaliste; für Lemmata, die dort fehlen (κένωμα, κολαφίζω …), die ersten ein bis zwei
+Übersetzungen aus LSJ (Perseus Digital Library, CC BY-SA, github.com/PerseusDL/lexica): `lsj_glosses.py` nach
+`morph.py` ausführen, dann `morph.py` noch einmal (Auszug in `lsj-glosses.json`). Rund 800 Lemmata bleiben ohne Bedeutung,
+meist Morpheus-Komposita mit unsauberer Grundform (διάεγείρω).
+
 Stand: 35.915 Formen, 260.197 Belege, alle bestimmt außer 181 Bruchstücken (0,1 %).
 
 ```

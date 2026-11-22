@@ -58,6 +58,8 @@ for e in LX['L']:
       a=lxx.setdefault(form(fm),[])
       if [lemma,key] not in [x[:2] for x in a]:a.append([lemma,key,gl])
 fold=lambda s:''.join(c for c in unicodedata.normalize('NFD',s) if unicodedata.category(c)[0]=='L').lower().replace('ς','σ')
+GFOLD={}
+for lem in gloss:GFOLD.setdefault(fold(lem),lem)
 lxx_fold={}
 for k,v in lxx.items():lxx_fold.setdefault(fold(k),[]).extend(x for x in v if x not in lxx_fold.get(fold(k),[]))
 
@@ -114,6 +116,7 @@ def lemma_fix(l):
   Attic γιγν/ττ become Koine γιν/σσ when that lemma is in the LXX"""
   d=unicodedata.normalize('NFD',l);head,tail=d[:2],d[2:]
   l=unicodedata.normalize('NFC',head+tail.replace('\u0313','').replace('\u0314',''))
+  if l not in gloss and fold(l) in GFOLD:return GFOLD[fold(l)]
   for a,b in (('γιγν','γιν'),('ττ','σσ'),('ρρ','ρσ')):
     if a in l and l.replace(a,b) in gloss:return l.replace(a,b)
   return l
@@ -151,6 +154,9 @@ JOINED={'καίγε':['καίγε','X','and indeed (καί γε)'],'ἀναμέ�
   'διατί':['διατί','D','why? (διὰ τί)'],'ἐξεναντίας':['ἐξεναντίας','D','opposite (ἐξ ἐναντίας)'],'ἐπέκεινα':['ἐπέκεινα','D','beyond'],
   'καθότι':['καθότι','C','because'],'καθά':['καθά','D','just as'],'καθάπερ':['καθάπερ','D','just as'],'ὑποκάτω':['ὑποκάτω','R','under'],
   'ἀπέναντι':['ἀπέναντι','R','opposite'],'ἐπάνωθεν':['ἐπάνωθεν','D','from above'],'τουτέστι':['τουτέστι','X','that is (τοῦτ’ ἔστι)'],'τουτέστιν':['τουτέστι','X','that is (τοῦτ’ ἔστι)']}
+# LSJ glosses (Perseus, CC BY-SA) for lemmas the LXX list does not gloss; tools/hexapla/lsj_glosses.py
+lf=ROOT/'tools/hexapla/lsj-glosses.json'
+LSJG=json.loads(lf.read_text(encoding='utf-8')) if lf.exists() else {}
 F={};src={'lxx':0,'lxx-fold':0,'morpheus':0,'nu':0,'joined':0,'spelling':0,'name':0,'translit':0,'manual':0,'fragment':0,'none':0}
 for k,n in forms.items():
   if k in JOINED:F[k]=[JOINED[k]];src['joined']+=n
@@ -189,7 +195,10 @@ for k in open_:
   if bare(k)[-1] not in 'αεηιουωνρςξψ' and k not in FUNC:F[k]=[[k,'Y','Hebrew transliteration']];src['translit']+=n;continue
   src['none']+=n
 (ROOT/'tools/hexapla/open-forms.json').write_text(json.dumps(sorted(((k,forms[k]) for k in forms if k not in F),key=lambda x:-x[1]),ensure_ascii=False,indent=0),encoding='utf-8')
-data={'v':1,'src':{'lxx':'LXX morphology, Seth Kushniryk, CC BY 4.0 (lxx-morph.js)','morpheus':'Perseus Morpheus, CC BY-SA 3.0 US (github.com/PerseusDL/morpheus)'},'F':F}
+data={'v':1,'src':{'lxx':'LXX morphology, Seth Kushniryk, CC BY 4.0 (lxx-morph.js)','lsj':'Glosses for lemmas outside the LXX: LSJ, Perseus Digital Library (CC BY-SA, github.com/PerseusDL/lexica)','morpheus':'Perseus Morpheus, CC BY-SA 3.0 US (github.com/PerseusDL/morpheus)'},'F':F}
+for a in F.values():
+  for e in a:
+    if not e[2] and e[1][0] not in 'EY':e[2]=LSJG.get(fold(e[0]),'')
 (ROOT/'hexapla-morph.js').write_text('// Griechische Morphologie der Hexapla-Lesarten (Field): Form -> [[Lemma, Schlüssel, Kurzbedeutung], …]; Schlüssel wie in lxx-morph.js.\n'
   '// Quellen: LXX-Morphologie (Seth Kushniryk, CC BY 4.0), für übrige Formen Perseus Morpheus (CC BY-SA 3.0 US). Erzeugt mit tools/hexapla/morph.py.\n'
   'window.HEXAPLA_MORPH='+json.dumps(data,ensure_ascii=False,separators=(',',':'))+';\n')

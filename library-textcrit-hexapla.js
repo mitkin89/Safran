@@ -116,7 +116,7 @@ function create(host){
     }
     return [...out.values()];
   }
-  const credit=()=>'<p class="tc-credit">'+esc('Hexapla: Frederick Field, Origenis Hexaplorum quae supersunt I–II (Oxford 1875), gemeinfrei; Scan archive.org. Transkription und englische Übersetzung der lateinischen Fußnoten: Claude, 2026. Fußnoten öffnen sich an der Fußnotenzahl (englisch, lateinisches Original eingeklappt). Siglen beim Überfahren erklärt. Griechische Wörter: Bestimmung und Wortkarte beim Anklicken nach der LXX-Morphologie (Seth Kushniryk, CC BY 4.0) bzw. Perseus Morpheus (CC BY-SA 3.0 US).')+'</p>';
+  const credit=()=>'<p class="tc-credit">'+esc('Hexapla: Frederick Field, Origenis Hexaplorum quae supersunt I–II (Oxford 1875), gemeinfrei; Scan archive.org. Transkription und englische Übersetzung der lateinischen Fußnoten: Claude, 2026. Fußnoten öffnen sich an der Fußnotenzahl (englisch, lateinisches Original eingeklappt). Siglen beim Überfahren erklärt. Griechische Wörter: Bestimmung und Wortkarte beim Anklicken nach der LXX-Morphologie (Seth Kushniryk, CC BY 4.0) bzw. Perseus Morpheus (CC BY-SA 3.0 US); Bedeutungen außerhalb der LXX aus LSJ (Perseus Digital Library, CC BY-SA).')+'</p>';
   function preview(anchor){
     let an=[];try{an=JSON.parse(anchor.dataset.hxAn||'[]');}catch{}
     const G=window.GMorph,t=window.I18N?.t?(x=>window.I18N.t(x)):(x=>x),form=anchor.textContent;
