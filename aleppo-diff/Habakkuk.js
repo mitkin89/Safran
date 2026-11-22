@@ -1,0 +1,2 @@
+// Leningrad (OSHB) gegen Aleppo-Text (MAM, CACCHT): Unterschiede je Wort; tools/aleppo/compare.py
+window.ALEPPO_DIFF=window.ALEPPO_DIFF||{};window.ALEPPO_DIFF["Habakkuk"]={"book":"Habakkuk","verses":{"1:1":[[0,0,"v","הַמַּשָׂא֙","הַמַּשָּׂא֙"]],"2:2":[[3,3,"p","כְּת֣וֹב","כְּתֹ֣ב"]],"2:5":[[3,3,"p","בּוֹגֵ֔ד","בֹּגֵ֔ד"]],"3:3":[[0,0,"v","אֱל֨וֹהַ֙","אֱל֙וֹהַּ֙"]],"3:16":[[4,4,"v","צָלֲל֣וּ","צָלְל֣וּ"]]}};

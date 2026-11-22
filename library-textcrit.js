@@ -6,7 +6,7 @@ function create(host){
   const torah=new Set(['Genesis','Exodus','Leviticus','Numbers','Deuteronomy']);
   const books=new Set([...torah,'Joshua','Judges','I Samuel','II Samuel','I Kings','II Kings','Isaiah','Jeremiah','Ezekiel','Hosea','Joel','Amos','Obadiah','Jonah','Micah','Nahum','Habakkuk','Zephaniah','Haggai','Zechariah','Malachi','Psalms','Proverbs','Job','Ruth','Song of Songs','Ecclesiastes','Lamentations','Esther','Daniel','Ezra','Nehemiah','I Chronicles','II Chronicles']);
   const mishnah=window.LibraryMishnahTextCrit.create(host);
-  const tov=window.LibraryTov.create(host),dss=window.LibraryQumran.create(host),ken=window.LibraryKennicott.create(host),ps=window.LibraryPeshittaTC.create(host),hx=window.LibraryHexaplaTC.create(host);
+  const tov=window.LibraryTov.create(host),dss=window.LibraryQumran.create(host),ken=window.LibraryKennicott.create(host),ps=window.LibraryPeshittaTC.create(host),hx=window.LibraryHexaplaTC.create(host),ma=window.LibraryAleppoTC.create(host);
   let key='',selected=null,clickedTal=null,generation=0,pending=null,previewData=null,hover=null,hoverAnchor=null,showTimer=null,hideTimer=null;
   let whole=false,follow=false,fontSize=14,lastContentKey=null,followTimer=null;
   try {follow=localStorage.getItem('tcFollow')==='1';fontSize=+localStorage.getItem('tcFs')||14;}catch{}
@@ -24,16 +24,16 @@ function create(host){
   syncFollow();
   try{$('#tcWitnessOptions').hidden=localStorage.getItem('tcWitnessExpanded')!=='1';}catch{}
   function syncWitness(){
-    const expanded=!$('#tcWitnessOptions').hidden,isMishnah=host.getView()?.group?.title==='Mishnah Berakhot',n=isMishnah?1+Number($('#tcMishnahParma').checked)+Number($('#tcMishnahCambridge').checked):Number($('#tcSmr').checked)+Number($('#tcTov').checked)+Number($('#tcDss').checked)+Number($('#tcKen').checked)+Number($('#tcPs').checked)+Number($('#tcHex').checked);
+    const expanded=!$('#tcWitnessOptions').hidden,isMishnah=host.getView()?.group?.title==='Mishnah Berakhot',n=isMishnah?1+Number($('#tcMishnahParma').checked)+Number($('#tcMishnahCambridge').checked):Number($('#tcSmr').checked)+Number($('#tcTov').checked)+Number($('#tcDss').checked)+Number($('#tcKen').checked)+Number($('#tcPs').checked)+Number($('#tcHex').checked)+Number($('#tcMa').checked);
     $('#tcWitnessSummary').setAttribute('aria-expanded',String(expanded));
-    $('#tcWitnessSummary').innerHTML=(expanded?'▾':'▸')+' '+esc('Textzeugen')+' <span class="muted">'+esc(n===(isMishnah?3:6)?'Alle '+n:n?n+' ausgewählt':'Keine')+'</span>';
+    $('#tcWitnessSummary').innerHTML=(expanded?'▾':'▸')+' '+esc('Textzeugen')+' <span class="muted">'+esc(n===(isMishnah?3:7)?'Alle '+n:n?n+' ausgewählt':'Keine')+'</span>';
   }
   try{$('#tcSmr').checked=localStorage.getItem('tcSmr')!=='0';}catch{}
   try{$('#tcTov').checked=localStorage.getItem('tcTov')!=='0';}catch{}
   try{$('#tcDss').checked=localStorage.getItem('tcDss')!=='0';}catch{}
   try{$('#tcKen').checked=localStorage.getItem('tcKen')!=='0';}catch{}
   try{$('#tcPs').checked=localStorage.getItem('tcPs')!=='0';$('#tcPsTech').checked=localStorage.getItem('tcPsTech')==='1';$('#tcCompact').checked=localStorage.getItem('tcCompact')==='1';$('#tcTovTech').checked=localStorage.getItem('tcTovTech')==='1';}catch{}
-  try{$('#tcHex').checked=localStorage.getItem('tcHex')!=='0';}catch{}
+  try{$('#tcHex').checked=localStorage.getItem('tcHex')!=='0';$('#tcMa').checked=localStorage.getItem('tcMa')!=='0';$('#tcMaAcc').checked=localStorage.getItem('tcMaAcc')==='1';}catch{}
   for(const [id,key]of [['#tcMishnahParma','tcMP'],['#tcMishnahCambridge','tcMC']]){try{$(id).checked=localStorage.getItem(key)!=='0';}catch{}}
   const settings=$('#tcSettings');
   document.addEventListener('pointerdown',e=>{if(settings.open&&!settings.contains(e.target))settings.open=false;});
@@ -157,17 +157,17 @@ function create(host){
       catch{if(token===generation)body.textContent=window.I18N.t('Apparat konnte nicht geladen werden.');}
       return;
     }
-    const contentKey=c?[key,whole,c.numbering,whole?'':c.row,$('#tcSmr').checked,$('#tcTov').checked,$('#tcDss').checked,$('#tcKen').checked,$('#tcPs').checked,$('#tcPsTech').checked,$('#tcTovTech').checked,$('#tcHex').checked,$('#tcCompact').checked,$('#tcLang').value].join('|'):null;
+    const contentKey=c?[key,whole,c.numbering,whole?'':c.row,$('#tcSmr').checked,$('#tcTov').checked,$('#tcDss').checked,$('#tcKen').checked,$('#tcPs').checked,$('#tcPsTech').checked,$('#tcTovTech').checked,$('#tcHex').checked,$('#tcMa').checked,$('#tcMaAcc').checked,$('#tcCompact').checked,$('#tcLang').value].join('|'):null;
     if(contentKey&&lastContentKey===contentKey){markCurrent(c);return;}
     lastContentKey=null;
     if(!c){body.innerHTML='<p class="muted">Der Apparatus-Apparat steht für den Tanach zur Verfügung.</p>';return;}
     body.innerHTML='<p class="muted">Apparat wird geladen …</p>';
     try{
-      const [[data,notes],,,psData,hxData]=await Promise.all([load(),dss.load(c.book),ken.load(c.book),ps.load(c.book).catch(()=>null),hx.load(c.book).catch(()=>null),tov.loadReadings(c.book).catch(()=>null)]);if(token!==generation||panel.hidden)return;
+      const [[data,notes],,,psData,hxData,maData]=await Promise.all([load(),dss.load(c.book),ken.load(c.book),ps.load(c.book).catch(()=>null),hx.load(c.book).catch(()=>null),ma.load(c.book).catch(()=>null),tov.loadReadings(c.book).catch(()=>null)]);if(token!==generation||panel.hidden)return;
       previewData=data;
       const alignment=window.SAMARITAN_IL,smrIL=window.SamaritanInterlinear;
       const showSpelling=true;
-      const showSmr=$('#tcSmr').checked&&torah.has(c.book),showTov=$('#tcTov').checked,showDss=$('#tcDss').checked,showKen=$('#tcKen').checked&&ken.available(c.book),showPs=$('#tcPs').checked&&!!psData,showHex=$('#tcHex').checked&&!!hxData;
+      const showSmr=$('#tcSmr').checked&&torah.has(c.book),showTov=$('#tcTov').checked,showDss=$('#tcDss').checked,showKen=$('#tcKen').checked&&ken.available(c.book),showPs=$('#tcPs').checked&&!!psData,showHex=$('#tcHex').checked&&!!hxData,showMa=$('#tcMa').checked&&!!maData;
       const tovQueries=[];
       const queries=whole?rows().map(r=>r.dataset.l):[c.row],refs=new Map(),unresolved=[];
       for(const row of queries){
@@ -175,7 +175,7 @@ function create(host){
         const extra=c.numbering==='mt'?(alignment.index[ref]||[]).filter(r=>smrIL.sourceMatches(alignment,data,r)):[];
         const sources=[...new Set([...resolved.refs,...extra])];
         if(!sources.length)unresolved.push(ref);
-        if(showTov||showDss||showKen||showPs||showHex){const bases=c.numbering==='tal'?[...new Set([...resolved.baseRefs,...smrIL.targetRefs(alignment,data,ref)])]:[ref];for(const base of bases)tovQueries.push({ref:base,row});}
+        if(showTov||showDss||showKen||showPs||showHex||showMa){const bases=c.numbering==='tal'?[...new Set([...resolved.baseRefs,...smrIL.targetRefs(alignment,data,ref)])]:[ref];for(const base of bases)tovQueries.push({ref:base,row});}
         for(const sourceRef of (showSmr?sources:[])){if(!refs.has(sourceRef))refs.set(sourceRef,[]);refs.get(sourceRef).push(row);}
       }
       let unresolvedHtml='';
@@ -214,6 +214,7 @@ function create(host){
       if(showKen)records.push(...ken.entries(tovQueries,whole));
       if(showHex)records.push(...hx.entries(hxData,tovQueries));
       if(showHex&&showTov)hx.agree(records);
+      if(showMa)records.push(...ma.entries(maData,tovQueries,$('#tcMaAcc').checked));
       if(showPs){records.push(...ps.entries(psData,tovQueries).filter(r=>$('#tcPsTech').checked||!/data-ps-type="technik"/.test(r.html)));ps.agree(records);}
       const verses=new Map();
       for(const entry of records){const ref=entry.anchor?.ref||entry.displayRef;if(!verses.has(ref))verses.set(ref,[]);verses.get(ref).push(entry);}
@@ -225,7 +226,7 @@ function create(host){
       const ordered=[...verses].sort(([a],[b])=>{const x=/ (\d+):(\d+)$/.exec(a),y=/ (\d+):(\d+)$/.exec(b);return +x[1]-y[1]||+x[2]-y[2];});
       const sections=ordered.map(([ref,entries])=>{
         const sourceOnly=entries.length>0&&entries.every(e=>e.sourceOnly),sourceWords=mtWords(ref),readerRows=[...new Set(entries.flatMap(e=>e.rows))];
-        const ORDER=['SMR','DSS','LXX','Hex','Syr','Kennicott'],rank=e=>{const w=/data-witness="([^"]*)"/.exec(e.html)?.[1]||'';const i=ORDER.findIndex(o=>w===o||w.startsWith(o+' '));return i<0?(/^LXX/.test(w)?2:ORDER.length):i;};
+        const ORDER=['MA','SMR','DSS','LXX','Hex','Syr','Kennicott'],rank=e=>{const w=/data-witness="([^"]*)"/.exec(e.html)?.[1]||'';const i=ORDER.findIndex(o=>w===o||w.startsWith(o+' '));return i<0?(/^LXX/.test(w)?2:ORDER.length):i;};
         const compact=$('#tcCompact').checked,loci=window.TextCrit.groupLoci(entries).map(g=>{
           g.entries=g.entries.map((e,i)=>[e,i]).sort((a,b)=>rank(a[0])-rank(b[0])||a[1]-b[1]).map(x=>x[0]);
           const lemma=g.kind==='word'?'<bdi lang="he" dir="rtl">'+esc(sourceWords.slice(g.start,g.end+1).join(' '))+'</bdi>':g.kind==='gap'?(g.start<0?'Zusatz vor dem ersten MT-Wort':'Zusatz nach <bdi lang="he" dir="rtl">'+esc(sourceWords[g.start])+'</bdi>'):'Nicht sicher zugeordnet';
@@ -234,8 +235,8 @@ function create(host){
         if(!readerRows.length)readerRows.push(...tovQueries.filter(q=>q.ref===ref).map(q=>q.row));
         return '<section class="tc-reader-verse tc-witness" data-rows="'+esc(readerRows.join(','))+'"><div class="tc-verse-summary">'+(sourceOnly?'<span>'+esc(ref)+' · Kennicott · MT-Bezug offen</span>':'<button class="tc-jump" type="button" data-row="'+esc(readerRows[0])+'">'+esc(ref)+' · MT</button>')+(entries.length?' <span class="tc-count">· '+entries.length+' Hinweise</span>':'')+(coverage.has(ref)?' · '+coverage.get(ref):'')+'</div>'+loci+'</section>';
       }).join('');
-      const empty=!showSmr&&!showTov&&!showDss&&!showKen&&!showPs&&!showHex?'SMR ist ausgeblendet. Wähle einen Zeugen oben aus.':'';
-      body.innerHTML=unresolvedHtml+notices.map(n=>'<p class="tc-status">'+esc(n)+'</p>').join('')+(sections||(empty?'<p class="muted">'+empty+'</p>':''))+(showTov?tov.credit():'')+(showDss?dss.credit():'')+(showKen?ken.credit():'')+(showPs?ps.credit():'')+(showHex?hx.credit():'')+(showSmr?'<p class="tc-credit">Samaritanus, Tal–Florentin · CC BY-NC 4.0. MT-Bezug wortlautbasiert; bei mehrdeutiger Wortposition bleibt die Zuordnung offen.</p>':'');
+      const empty=!showSmr&&!showTov&&!showDss&&!showKen&&!showPs&&!showHex&&!showMa?'SMR ist ausgeblendet. Wähle einen Zeugen oben aus.':'';
+      body.innerHTML=unresolvedHtml+notices.map(n=>'<p class="tc-status">'+esc(n)+'</p>').join('')+(sections||(empty?'<p class="muted">'+empty+'</p>':''))+(showTov?tov.credit():'')+(showDss?dss.credit():'')+(showKen?ken.credit():'')+(showPs?ps.credit():'')+(showHex?hx.credit():'')+(showMa?ma.credit():'')+(showSmr?'<p class="tc-credit">Samaritanus, Tal–Florentin · CC BY-NC 4.0. MT-Bezug wortlautbasiert; bei mehrdeutiger Wortposition bleibt die Zuordnung offen.</p>':'');
       body.querySelectorAll('.tc-entry[data-tc-group]').forEach(entry=>{
         const ref=entry.dataset.tcRef,g=renderedGroups.get(ref)[+entry.dataset.tcGroup];
         if(entry.dataset.alignment?.startsWith('samaritan-interlinear'))entry.querySelectorAll('.tal-cite').forEach(c=>c.title=(c.title?c.title+' · ':'')+'MT-Position aus dem quellengeprüften Samaritanus-Interlinear (maschinell)');
@@ -264,8 +265,8 @@ function create(host){
   });}
   $('#tcBtn').onclick=()=>toggle();$('#tcClose').onclick=()=>toggle(false);
   try{const view=localStorage.getItem('tcMishnahView');if(['interlinear','apparatus','tosefta'].includes(view))$('#tcMishnahView').value=view;}catch{}
-  ['#tcMishnahView','#tcMishnahParma','#tcMishnahCambridge','#tcNumbering','#tcSmr','#tcTov','#tcDss','#tcKen','#tcPs','#tcPsTech','#tcTovTech','#tcHex','#tcCompact','#tcLang'].forEach(s=>$(s).onchange=()=>{
-    try{localStorage.setItem('tcMishnahView',$('#tcMishnahView').value);localStorage.setItem('tcMP',$('#tcMishnahParma').checked?'1':'0');localStorage.setItem('tcMC',$('#tcMishnahCambridge').checked?'1':'0');localStorage.setItem('tcKen',$('#tcKen').checked?'1':'0');localStorage.setItem('tcPs',$('#tcPs').checked?'1':'0');localStorage.setItem('tcPsTech',$('#tcPsTech').checked?'1':'0');localStorage.setItem('tcCompact',$('#tcCompact').checked?'1':'0');localStorage.setItem('tcTovTech',$('#tcTovTech').checked?'1':'0');localStorage.setItem('tcHex',$('#tcHex').checked?'1':'0');localStorage.setItem('tcDss',$('#tcDss').checked?'1':'0');localStorage.setItem('tcTov',$('#tcTov').checked?'1':'0');localStorage.setItem('tcSmr',$('#tcSmr').checked?'1':'0');}catch{}
+  ['#tcMishnahView','#tcMishnahParma','#tcMishnahCambridge','#tcNumbering','#tcSmr','#tcTov','#tcDss','#tcKen','#tcPs','#tcPsTech','#tcTovTech','#tcHex','#tcMa','#tcMaAcc','#tcCompact','#tcLang'].forEach(s=>$(s).onchange=()=>{
+    try{localStorage.setItem('tcMishnahView',$('#tcMishnahView').value);localStorage.setItem('tcMP',$('#tcMishnahParma').checked?'1':'0');localStorage.setItem('tcMC',$('#tcMishnahCambridge').checked?'1':'0');localStorage.setItem('tcKen',$('#tcKen').checked?'1':'0');localStorage.setItem('tcPs',$('#tcPs').checked?'1':'0');localStorage.setItem('tcPsTech',$('#tcPsTech').checked?'1':'0');localStorage.setItem('tcCompact',$('#tcCompact').checked?'1':'0');localStorage.setItem('tcTovTech',$('#tcTovTech').checked?'1':'0');localStorage.setItem('tcHex',$('#tcHex').checked?'1':'0');localStorage.setItem('tcMa',$('#tcMa').checked?'1':'0');localStorage.setItem('tcMaAcc',$('#tcMaAcc').checked?'1':'0');localStorage.setItem('tcDss',$('#tcDss').checked?'1':'0');localStorage.setItem('tcTov',$('#tcTov').checked?'1':'0');localStorage.setItem('tcSmr',$('#tcSmr').checked?'1':'0');}catch{}
     render();
   });
   $('#rOut').addEventListener('click',e=>{

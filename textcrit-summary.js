@@ -7,7 +7,7 @@
 // Witnesses that are silent are never counted as agreeing with the MT.
 (function(){
 'use strict';
-const ORDER=['SMR','DSS','LXX','Hex','Syr','Ken'];
+const ORDER=['MA','SMR','DSS','LXX','Hex','Syr','Ken'];
 const OPS=['var','add','om','note','interp','orth','cite'];
 const cons=s=>String(s||'').normalize('NFKD').replace(/[^א-ת ]/g,'').replace(/[ךםןףץ]/g,c=>'כמנפצ'['ךםןףץ'.indexOf(c)]).replace(/\s+/g,' ').trim();
 const rank=f=>{const i=ORDER.indexOf(f);return i<0?ORDER.length:i;};
