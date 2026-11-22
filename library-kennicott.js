@@ -14,6 +14,7 @@ function create(host){
   }
   const labels={caret:'Auslassung',transp:'Umstellung',ras:'Rasur',prm:'Frühere Lesung',frt:'Vermutete frühere Lesung (unsicher)',nnc:'Jetzige Lesung',vdtr:'Unsichere Lesung','ord-num':'Wortvorkommen','sup-ras':'Über Rasur','fin-lin':'Am Zeilenende',eras:'Getilgt',bis:'Zweimal'};
   const extra={'major':'vergrößert','major ornata':'vergrößert und verziert','ornata':'verziert','majusc.':'Großbuchstaben','lit.':'Buchstabe(n)'};
+  const kcons=s=>String(s||'').replace(/[^א-ת]/g,'').replace(/[ךםןףץ]/g,c=>'כמנפצ'['ךםןףץ'.indexOf(c)]);
   const plain=n=>[n.text,...(n.children||[]).map(c=>plain(c)+c.tail)].join('').replace(/\s+/g,' ').trim();
   function node(n){
     if(!n)return '';
@@ -62,7 +63,8 @@ function create(host){
       const groups=new Map();for(const r of e.readings){if(!groups.has(r.group))groups.set(r.group,[]);groups.get(r.group).push(r);}
       const lemma=e.lemmaNode?'<span class="tc-ken-lemma">'+(e.lemmaNode.attrs.type==='reconstructed'?'<span class="muted">Erschlossenes Lemma: </span>':'')+node(e.lemmaNode)+' ] </span>':'';
       const html='<article class="tc-entry tc-ken-entry" data-witness="Kennicott" data-ken-id="'+id+'" data-alignment="'+esc(location.method)+'"><div class="tc-note-text"><span class="tc-witness-label" tabindex="0" data-tc-ken="'+id+'">Kennicott</span> '+lemma+[...groups.values()].map(rs=>'<span class="tc-ken-group">'+rs.map(r=>reading(r)).join(' ; ')+'</span>').join(' / ')+'</div><small class="tal-cite" tabindex="0" data-tc-ken="'+id+'" title="'+esc(location.method+(location.referenceMethod?' · '+location.referenceMethod:'')+' · Original-TEI: '+e.raw)+'">Digital Kennicott · '+esc(e.refs.join(' – '))+' · Eintrag '+esc(id.replace(/^.*-app-/,''))+(e.page?' · Seiten-ID '+esc(e.page):'')+'</small></article>';
-      out.set(id,{anchor:location.anchor,displayRef:ref,rows:row?[row]:[],sourceOnly:!!sourceOnly,html});
+      const lz=location.anchor?e.readings.map(r=>{const t=plain(r.nodes||{text:''}),he=(t.match(/[א-ת]+/g)||[]).join(' '),om=JSON.stringify(r.nodes||{}).includes('#caret');const mt=kcons((location.anchor.kind==='word'?(cache.get(location.anchor.ref.replace(/ \d+:\d+$/,''))?.mt[location.anchor.ref]||[]).slice(location.anchor.start,location.anchor.end+1):[]).join('')),fragment=he&&(he.split(' ').some(x=>x.length<2)||(mt&&mt.includes(kcons(he))));if(fragment)return null;return he?{f:'Ken',w:'Ken',op:location.anchor.kind==='gap'?'add':'var',rd:he,n:r.witnesses.length}:om?{f:'Ken',w:'Ken',op:'om',n:r.witnesses.length}:null;}).filter(Boolean):null;
+      out.set(id,{anchor:location.anchor,displayRef:ref,rows:row?[row]:[],sourceOnly:!!sourceOnly,html,lz});
     }
     return [...out.values()];
   }

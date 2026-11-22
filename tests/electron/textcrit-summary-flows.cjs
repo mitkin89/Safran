@@ -1,0 +1,33 @@
+'use strict';
+// Lesartenzeile: Zeugen derselben MT-Stelle nach Lesart gruppiert (textcrit-summary.js).
+const assert=require('node:assert/strict'),fs=require('node:fs');
+module.exports=async({win,js,waitFor,book})=>{
+  const set=(id,on)=>js(`{const c=document.querySelector('#${id}');if(c.checked!==${on}){c.checked=${on};c.dispatchEvent(new Event('change',{bubbles:true}));}}`);
+  await js("for(const id of ['#dictPanel','#cmtPanel'])if(!document.querySelector(id).hidden)document.querySelector(id.replace('Panel','Close')).click()");
+  await book('Genesis');
+  await waitFor("[...document.querySelectorAll('#verList input[data-rel]')].some(n=>n.dataset.rel.includes('Westminster'))",'MT-Fassung auswählbar');
+  await js("{const mt=[...document.querySelectorAll('#verList input[data-rel]')].find(n=>n.dataset.rel.includes('Westminster'));if(!mt.checked){mt.checked=true;mt.dispatchEvent(new Event('change',{bubbles:true}));}}");
+  await waitFor("document.querySelector('#rOut .w[data-l=\"b/7225\"]')",'MT geladen');
+  await js("document.querySelector('#rSection').value='1';document.querySelector('#rSection').dispatchEvent(new Event('change',{bubbles:true}))");
+  await waitFor("document.querySelector('#rOut .row[data-l=\"2\"]')",'Genesis 2');
+  if(await js("document.querySelector('#textcritPanel').hidden"))await js("document.querySelector('#tcBtn').click()");
+  const ids=['tcSmr','tcTov','tcDss','tcKen','tcPs','tcHex','tcCompact'],before=await js(`${JSON.stringify(ids)}.map(id=>document.querySelector('#'+id).checked)`);
+  for(const id of ids.slice(0,6))await set(id,true);
+  await set('tcCompact',false);
+  await js("document.querySelector('#rOut .row[data-l=\"2\"] .txt').click()");
+  await waitFor("document.querySelector('#tcPlace').textContent.includes('Genesis 2:2') && document.querySelector('#tcBody .tc-lz')",'Lesartenzeile Gen 2:2');
+  const line=await js("[...document.querySelectorAll('#tcBody .tc-lz-var')].map(n=>n.textContent.replace(/\\s+/g,' ').trim())");
+  assert(line.some(t=>/^הששי SMR Syr$/.test(t)),'הששי SMR Syr in einer Gruppe: '+JSON.stringify(line));
+  // CATSS kennt hier nur „Zahl abweichend“ ohne hebräischen Wortlaut: LXX steht daneben als ≠, nicht als Übereinstimmung
+  assert(await js("[...document.querySelectorAll('#tcBody .tc-lz-line')].some(l=>/הששי/.test(l.textContent)&&l.querySelector('.tc-lz-note')?.textContent.includes('LXX'))"),'LXX als abweichend ohne Wortlaut');
+  assert(await js("!!document.querySelector('#tcBody .tc-lz-var .tc-lz-ret')"),'Erschlossene Vorlagen kursiv');
+  await set('tcCompact',true);
+  await waitFor("document.querySelector('#tcBody details.tc-locus-detail:not([open])')",'Kompaktansicht klappt Einzelbelege ein');
+  assert(await js("document.querySelector('#tcBody .tc-lz') && [...document.querySelectorAll('#tcBody .tc-entry')].every(e=>e.closest('details.tc-locus-detail'))"));
+  if(process.env.SAFRAN_LZ_CAPTURE){
+    await waitFor("document.querySelector('#tcBody .tc-lz')",'Lesartenzeile sichtbar');win.showInactive();win.webContents.invalidate();await new Promise(r=>setTimeout(r,800));console.log(await js("document.querySelector('#tcBody').innerText.slice(0,1500)"));fs.writeFileSync(process.env.SAFRAN_LZ_CAPTURE,(await win.webContents.capturePage()).toPNG());
+  }
+  // Zeugenauswahl der folgenden Abläufe wiederherstellen
+  for(const [i,id] of ids.entries())await set(id,before[i]);
+  console.log('Electron: Lesartenzeile gruppiert SMR und Syr, LXX ohne Wortlaut gesondert; Kompaktansicht.');
+};

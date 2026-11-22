@@ -53,6 +53,18 @@ function create(host){
     return {tag:tag(label,title,r.type),detail:vorlage+note};
   }
   const entry=(ref,v,native,body,type)=>'<article class="tc-entry tc-ps-entry"'+(type?' data-ps-type="'+raw(type)+'"':'')+' data-witness="Syr"><div class="tc-note-text"><span class="tc-witness-label" title="'+esc('Peschitta')+'">Syr</span> '+body+'<!--agree--></div>'+cite(ref,v,native)+'</article>';
+  // Reading line (textcrit-summary.js): generic plus/minus, or the classified type
+  function lzOf(r,op){
+    const w=r&&!r.sure?'Syr?':'Syr',base={f:'Syr',w,title:r?(TYPES[r.type]||[r.type])[0]:''};
+    if(!r)return {...base,op};
+    const t=r.type;
+    if(t==='syrfehler')return null;
+    if(t==='deutung'||t==='technik')return {...base,op:'interp'};
+    if(t==='auslassung')return {...base,op:'om'};
+    if(op==='add'||t==='zusatz')return {...base,op:'add',rd:r.vorlage||''};
+    if(op==='om')return {...base,op:'om'};
+    return r.vorlage?{...base,op:'var',rd:r.vorlage,ret:true}:{...base,op:'note'};
+  }
   // queries: [{ref:'Book c:v',row}] as for the other witnesses
   function entries(data,queries){
     if(!data)return [];
@@ -61,7 +73,7 @@ function create(host){
       const m=/^(.*) (\d+:\d+)$/.exec(ref);if(!m||m[1]!==data.book)continue;
       const v=data.verses[m[2]];if(!v)continue;
       const R=(data.readings?.[m[2]]||[]).map(r=>({...r,used:false}));
-      const add=(id,anchor,html,syr)=>{const prev=out.get(id);if(prev){if(!prev.rows.includes(row))prev.rows.push(row);return;}out.set(id,{anchor:{...anchor,ref},displayRef:ref,rows:[row],html,syr:syr||null});};
+      const add=(id,anchor,html,syr,r,op)=>{const prev=out.get(id);if(prev){if(!prev.rows.includes(row))prev.rows.push(row);return;}out.set(id,{anchor:{...anchor,ref},displayRef:ref,rows:[row],html,syr:syr||null,lz:lzOf(r,op||(anchor.kind==='gap'?'add':'var'))});};
       // Words already covered by a classified reading of linked words get no second, generic entry
       const covSy=new Set(R.filter(r=>r.he.length&&r.sy.length).flatMap(r=>r.sy)),covHe=new Set(R.filter(r=>r.he.length&&r.sy.length).flatMap(r=>r.he));
       const afterLinked=j=>{let k=j-1;while(k>=0&&!v.links[k].length)k--;return k>=0?Math.max(...v.links[k])-1:-1;};
@@ -73,7 +85,7 @@ function create(host){
         const r=R.find(x=>!x.used&&!x.he.length&&x.sy.length&&x.sy.every(s=>s-1>=j&&s-1<=e));if(r)r.used=true;
         if(!r&&Array.from({length:e-j+1},(_,q)=>j+q+1).every(s=>covSy.has(s))){j=e+1;continue;}
         const x=r&&reading(r);
-        add(ref+'|+'+j,{kind:'gap',start:after,end:after},entry(ref,v,native,(x?x.tag:tag('Peschitta-Zusatz','Wörter der Peschitta ohne Gegenstück im MT'))+' '+syriac(v.sy.slice(j,e+1))+(x?x.detail:''),r?.type),r?.vorlage);
+        add(ref+'|+'+j,{kind:'gap',start:after,end:after},entry(ref,v,native,(x?x.tag:tag('Peschitta-Zusatz','Wörter der Peschitta ohne Gegenstück im MT'))+' '+syriac(v.sy.slice(j,e+1))+(x?x.detail:''),r?.type),r?.vorlage,r,'add');
         j=e+1;
       }
       // Minus: consecutive MT words the Peshitta does not render (the bare object marker et is not counted)
@@ -84,14 +96,14 @@ function create(host){
         const r=R.find(x=>!x.used&&!x.sy.length&&x.he.some(h=>h>=i&&h<=e));if(r)r.used=true;
         if(!r&&Array.from({length:e-i+1},(_,q)=>i+q).every(h=>covHe.has(h)||et(h))){i=e+1;continue;}
         const x=r&&reading(r);
-        add(ref+'|-'+i,{kind:'word',start:i-1,end:e-1},entry(ref,v,[],(x?x.tag:tag('Peschitta-Auslassung','MT-Wörter ohne Wiedergabe in der Peschitta'))+' <bdi lang="he" dir="rtl">'+raw(v.he.slice(i-1,e).join(' '))+'</bdi>'+(x?x.detail:''),r?.type),r?.vorlage);
+        add(ref+'|-'+i,{kind:'word',start:i-1,end:e-1},entry(ref,v,[],(x?x.tag:tag('Peschitta-Auslassung','MT-Wörter ohne Wiedergabe in der Peschitta'))+' <bdi lang="he" dir="rtl">'+raw(v.he.slice(i-1,e).join(' '))+'</bdi>'+(x?x.detail:''),r?.type),r?.vorlage,r,'om');
         i=e+1;
       }
       // Classified readings of linked words (and pluses/minuses not covered above)
       R.filter(r=>!r.used).forEach((r,k)=>{
         const x=reading(r),sy=r.sy.length?' '+syriac(r.sy.map(s=>v.sy[s-1])):'',he=r.he.length?r.he:null;
         const anchor=he?{kind:'word',start:Math.min(...he)-1,end:Math.max(...he)-1}:(()=>{const a=afterLinked(r.sy[0]-1);return {kind:'gap',start:a,end:a};})();
-        add(ref+'|r'+k,anchor,entry(ref,v,(r.sy||[]).map(s=>v.refs?.[s-1]).filter(Boolean),x.tag+sy+x.detail,r.type),r.vorlage);
+        add(ref+'|r'+k,anchor,entry(ref,v,(r.sy||[]).map(s=>v.refs?.[s-1]).filter(Boolean),x.tag+sy+x.detail,r.type),r.vorlage,r,anchor.kind==='gap'?'add':'var');
       });
     }
     return [...out.values()];

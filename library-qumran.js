@@ -77,7 +77,7 @@ function create(host){
           const status=orthography?'Schreibunterschied (wahrscheinlich)':r.status;
           const flags=labelFlags(r.token).filter(t=>t!==status);
           const h='<article class="tc-entry tc-dss-entry" data-witness="DSS" data-scroll="'+esc(s.scroll)+'" data-alignment="'+r.method+'"><div class="tc-note-text"><span class="tc-witness-label">'+esc(s.scroll)+'</span> '+tokenHtml(r.token,key,r.index,true,r.different)+' <span class="muted">'+esc(status)+(flags.length?' · '+esc(flags.join(' · ')):'')+'</span></div><small class="tal-cite" data-tc-dss="'+esc(key)+'" tabindex="0" title="ETCBC '+esc(data.source.version)+' · Quellknoten '+r.token.parts.map(p=>p.node).join(', ')+' · Zuordnung: '+(r.method==='interlinear'?'vorhandenes Interlinear (maschinell)':'Wortanker')+' · Originalnotation: '+esc(r.token.text)+'">'+esc(citation(s,r.token))+'</small></article>';
-          out.set(id,{anchor:r.anchor?{...r.anchor,ref}:null,displayRef:ref,rows:[row],html:h});
+          out.set(id,{anchor:r.anchor?{...r.anchor,ref}:null,displayRef:ref,rows:[row],html:h,lz:r.different&&r.anchor?{f:'DSS',w:s.scroll,op:orthography?'orth':r.anchor.kind==='gap'?'add':'var',rd:r.token.text}:null});
         }
       });
     }

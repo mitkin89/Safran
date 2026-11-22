@@ -5,6 +5,8 @@ module.exports=async({win,js,waitFor,book})=>{
   await js("document.querySelector('#tcTov').checked=false;document.querySelector('#tcTov').dispatchEvent(new Event('change',{bubbles:true}))");
   await js("document.querySelector('#tcDss').checked=false;document.querySelector('#tcDss').dispatchEvent(new Event('change',{bubbles:true}))");
   await js("document.querySelector('#tcKen').checked=false;document.querySelector('#tcKen').dispatchEvent(new Event('change',{bubbles:true}))");
+  // Peschitta und Hexapla kamen nach diesem Ablauf hinzu; er prüft SMR allein
+  for(const id of ['#tcPs','#tcHex'])await js(`document.querySelector('${id}').checked=false;document.querySelector('${id}').dispatchEvent(new Event('change',{bubbles:true}))`);
   await book('Genesis');
   await waitFor("[...document.querySelectorAll('#verList input[data-rel]')].some(n=>n.dataset.rel.includes('Westminster'))",'MT-Fassung auswählbar');
   await js("{const mt=[...document.querySelectorAll('#verList input[data-rel]')].find(n=>n.dataset.rel.includes('Westminster'));if(!mt.checked){mt.checked=true;mt.dispatchEvent(new Event('change',{bubbles:true}));}}");

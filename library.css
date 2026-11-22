@@ -2348,3 +2348,15 @@ html.split[data-tab=dict] body #dictPanel.pinp:is(.docked,.panel-sized) { right:
 /* Explicit transliteration input; normal dictionary queries stay unchanged. */
 .sc-etymologies bdi { font-size: 1.25em; }
 .sc-etymologies bdi[lang=heb] { font-family: "HeDict",var(--he-font); }
+
+/* Lesartenzeile (textcrit-summary.js) */
+.tc-lz { margin: 0 0 4px; padding: 4px 8px; background: color-mix(in srgb, var(--accent, #888) 7%, transparent); border-radius: 4px; line-height: 1.6; }
+.tc-lz-line + .tc-lz-line { margin-top: 2px; }
+.tc-lz-line bdi[lang="he"] { font-size: 1.15em; }
+.tc-lz-w { font-weight: 600; font-size: .92em; margin-inline-end: .25em; }
+.tc-lz-ret { font-style: italic; font-weight: 500; }
+.tc-lz-w sup { font-weight: 400; font-size: .75em; }
+.tc-lz-sep { color: var(--muted); margin: 0 .3em; }
+.tc-lz-orth, .tc-lz-cite, .tc-lz-interp { color: var(--muted); }
+.tc-lz-part i { font-style: italic; color: var(--muted); }
+.tc-locus-detail > summary { cursor: pointer; color: var(--muted); font-size: .85em; }

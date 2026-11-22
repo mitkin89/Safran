@@ -78,6 +78,10 @@ async function book(title,prefix='document'){await js(`{const d=${prefix};d.quer
   await require('./mishnah-textcrit-flows.cjs')({docs,win,js,waitFor,book});
   assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;
  }
+ if(process.env.SAFRAN_SMOKE_LZ==='1'){
+  await require('./textcrit-summary-flows.cjs')({win,js,waitFor,book});
+  assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;
+ }
  if(process.env.SAFRAN_SMOKE_APPARATUS==='1'){
   await require('./taamim-flows.cjs')({win,js,waitFor,book});
   await require('./textcrit-english-flows.cjs')({win,js,waitFor,book});
@@ -116,6 +120,7 @@ async function book(title,prefix='document'){await js(`{const d=${prefix};d.quer
  await require('./samaritan-flows.cjs')({docs,win,js,waitFor,book});
  await require('./textcrit-flows.cjs')({win,js,waitFor,book});
  await require('./textcrit-header-flows.cjs')({win,js,waitFor,book});
+ await require('./textcrit-summary-flows.cjs')({win,js,waitFor,book});
  await require('./tov-flows.cjs')({docs,win,js,waitFor,book});
  await require('./qumran-apparatus-flows.cjs')({win,js,waitFor,book});
  await require('./kennicott-flows.cjs')({win,js,waitFor,book});

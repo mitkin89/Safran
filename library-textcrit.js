@@ -32,7 +32,7 @@ function create(host){
   try{$('#tcTov').checked=localStorage.getItem('tcTov')!=='0';}catch{}
   try{$('#tcDss').checked=localStorage.getItem('tcDss')!=='0';}catch{}
   try{$('#tcKen').checked=localStorage.getItem('tcKen')!=='0';}catch{}
-  try{$('#tcPs').checked=localStorage.getItem('tcPs')!=='0';$('#tcPsTech').checked=localStorage.getItem('tcPsTech')==='1';}catch{}
+  try{$('#tcPs').checked=localStorage.getItem('tcPs')!=='0';$('#tcPsTech').checked=localStorage.getItem('tcPsTech')==='1';$('#tcCompact').checked=localStorage.getItem('tcCompact')==='1';}catch{}
   try{$('#tcHex').checked=localStorage.getItem('tcHex')!=='0';}catch{}
   for(const [id,key]of [['#tcMishnahParma','tcMP'],['#tcMishnahCambridge','tcMC']]){try{$(id).checked=localStorage.getItem(key)!=='0';}catch{}}
   const settings=$('#tcSettings');
@@ -153,7 +153,7 @@ function create(host){
       catch{if(token===generation)body.textContent=window.I18N.t('Apparat konnte nicht geladen werden.');}
       return;
     }
-    const contentKey=c?[key,whole,c.numbering,whole?'':c.row,$('#tcSmr').checked,$('#tcTov').checked,$('#tcDss').checked,$('#tcKen').checked,$('#tcPs').checked,$('#tcPsTech').checked,$('#tcHex').checked,$('#tcLang').value].join('|'):null;
+    const contentKey=c?[key,whole,c.numbering,whole?'':c.row,$('#tcSmr').checked,$('#tcTov').checked,$('#tcDss').checked,$('#tcKen').checked,$('#tcPs').checked,$('#tcPsTech').checked,$('#tcHex').checked,$('#tcCompact').checked,$('#tcLang').value].join('|'):null;
     if(contentKey&&lastContentKey===contentKey){markCurrent(c);return;}
     lastContentKey=null;
     if(!c){body.innerHTML='<p class="muted">Der Apparatus-Apparat steht für den Tanach zur Verfügung.</p>';return;}
@@ -201,7 +201,8 @@ function create(host){
           if(anchor&&c.numbering==='mt'&&!readerRows.some(row=>anchor.ref===c.book+' '+c.chapter+':'+row))return;
           const notesHtml=g.notes.map(n=>'<section class="tc-note"><div class="tc-note-text"><span class="tc-witness-label">SMR</span> '+host.clean(n.html)+'</div><small class="tal-cite">'+esc(n.citation)+'</small></section>').join('');
           const fallback='<section class="tc-note"><div class="tc-note-text"><span class="tc-witness-label">SMR</span> <span class="tc-he" dir="rtl" lang="he">'+g.words.map(w=>word(w)).join(' ')+'</span></div><small class="tal-cite">Tal–Florentin, '+esc(ref)+' · rote Kennzeichnung; keine zugeordnete Anmerkung.</small></section>';
-          records.push({anchor,displayRef:displayBases[0]||ref,rows:readerRows,cmp:g.words.map(w=>w[0]).join(' '),cmpWitness:'SMR',html:'<article class="tc-entry" data-witness="SMR" data-alignment="'+method+'" data-tc-ref="'+esc(ref)+'" data-tc-group="'+i+'">'+(notesHtml||fallback)+'</article>'});
+          const cmp=g.words.map(w=>w[0]).join(' ');
+          records.push({anchor,displayRef:displayBases[0]||ref,rows:readerRows,cmp,cmpWitness:'SMR',lz:cmp?{f:'SMR',w:'SMR',op:g.spelling?'orth':anchor?.kind==='gap'?'add':'var',rd:cmp}:null,html:'<article class="tc-entry" data-witness="SMR" data-alignment="'+method+'" data-tc-ref="'+esc(ref)+'" data-tc-group="'+i+'">'+(notesHtml||fallback)+'</article>'});
         });
       }
       if(showTov)records.push(...tov.entries(tovQueries));
@@ -219,9 +220,9 @@ function create(host){
       const ordered=[...verses].sort(([a],[b])=>{const x=/ (\d+):(\d+)$/.exec(a),y=/ (\d+):(\d+)$/.exec(b);return +x[1]-y[1]||+x[2]-y[2];});
       const sections=ordered.map(([ref,entries])=>{
         const sourceOnly=entries.length>0&&entries.every(e=>e.sourceOnly),sourceWords=mtWords(ref),readerRows=[...new Set(entries.flatMap(e=>e.rows))];
-        const loci=window.TextCrit.groupLoci(entries).map(g=>{
+        const compact=$('#tcCompact').checked,loci=window.TextCrit.groupLoci(entries).map(g=>{
           const lemma=g.kind==='word'?'<bdi lang="he" dir="rtl">'+esc(sourceWords.slice(g.start,g.end+1).join(' '))+'</bdi>':g.kind==='gap'?(g.start<0?'Zusatz vor dem ersten MT-Wort':'Zusatz nach <bdi lang="he" dir="rtl">'+esc(sourceWords[g.start])+'</bdi>'):'Nicht sicher zugeordnet';
-          return '<section class="tc-locus" data-kind="'+g.kind+'"'+(g.kind!=='unresolved'?' data-start="'+g.start+'" data-end="'+g.end+'"':'')+'><h4 class="tc-locus-title">'+(g.kind==='word'?'<button type="button" class="tc-mt-jump" data-ref="'+esc(ref)+'" data-start="'+g.start+'" data-end="'+g.end+'" title="Im MT markieren und anzeigen">'+lemma+'</button>':lemma)+'</h4><div class="tc-locus-readings">'+g.entries.map(e=>e.html).join('')+'</div></section>';
+          return '<section class="tc-locus" data-kind="'+g.kind+'"'+(g.kind!=='unresolved'?' data-start="'+g.start+'" data-end="'+g.end+'"':'')+'><h4 class="tc-locus-title">'+(g.kind==='word'?'<button type="button" class="tc-mt-jump" data-ref="'+esc(ref)+'" data-start="'+g.start+'" data-end="'+g.end+'" title="Im MT markieren und anzeigen">'+lemma+'</button>':lemma)+'</h4><div class="tc-locus-readings">'+(g.kind!=='unresolved'?window.TextCritSummary.render(g.entries,sourceWords,g,esc,window.I18N?.textCrit||(x=>x)):'')+(compact?'<details class="tc-locus-detail"><summary>'+esc('Einzelbelege')+' ('+g.entries.length+')</summary>'+g.entries.map(e=>e.html).join('')+'</details>':g.entries.map(e=>e.html).join(''))+'</div></section>';
         }).join('');
         if(!readerRows.length)readerRows.push(...tovQueries.filter(q=>q.ref===ref).map(q=>q.row));
         return '<section class="tc-reader-verse tc-witness" data-rows="'+esc(readerRows.join(','))+'"><div class="tc-verse-summary">'+(sourceOnly?'<span>'+esc(ref)+' · Kennicott · MT-Bezug offen</span>':'<button class="tc-jump" type="button" data-row="'+esc(readerRows[0])+'">'+esc(ref)+' · MT</button>')+(entries.length?' <span class="tc-count">· '+entries.length+' Hinweise</span>':'')+(coverage.has(ref)?' · '+coverage.get(ref):'')+'</div>'+loci+'</section>';
@@ -254,8 +255,8 @@ function create(host){
   });}
   $('#tcBtn').onclick=()=>toggle();$('#tcClose').onclick=()=>toggle(false);
   try{const view=localStorage.getItem('tcMishnahView');if(['interlinear','apparatus','tosefta'].includes(view))$('#tcMishnahView').value=view;}catch{}
-  ['#tcMishnahView','#tcMishnahParma','#tcMishnahCambridge','#tcNumbering','#tcSmr','#tcTov','#tcDss','#tcKen','#tcPs','#tcPsTech','#tcHex','#tcLang'].forEach(s=>$(s).onchange=()=>{
-    try{localStorage.setItem('tcMishnahView',$('#tcMishnahView').value);localStorage.setItem('tcMP',$('#tcMishnahParma').checked?'1':'0');localStorage.setItem('tcMC',$('#tcMishnahCambridge').checked?'1':'0');localStorage.setItem('tcKen',$('#tcKen').checked?'1':'0');localStorage.setItem('tcPs',$('#tcPs').checked?'1':'0');localStorage.setItem('tcPsTech',$('#tcPsTech').checked?'1':'0');localStorage.setItem('tcHex',$('#tcHex').checked?'1':'0');localStorage.setItem('tcDss',$('#tcDss').checked?'1':'0');localStorage.setItem('tcTov',$('#tcTov').checked?'1':'0');localStorage.setItem('tcSmr',$('#tcSmr').checked?'1':'0');}catch{}
+  ['#tcMishnahView','#tcMishnahParma','#tcMishnahCambridge','#tcNumbering','#tcSmr','#tcTov','#tcDss','#tcKen','#tcPs','#tcPsTech','#tcHex','#tcCompact','#tcLang'].forEach(s=>$(s).onchange=()=>{
+    try{localStorage.setItem('tcMishnahView',$('#tcMishnahView').value);localStorage.setItem('tcMP',$('#tcMishnahParma').checked?'1':'0');localStorage.setItem('tcMC',$('#tcMishnahCambridge').checked?'1':'0');localStorage.setItem('tcKen',$('#tcKen').checked?'1':'0');localStorage.setItem('tcPs',$('#tcPs').checked?'1':'0');localStorage.setItem('tcPsTech',$('#tcPsTech').checked?'1':'0');localStorage.setItem('tcCompact',$('#tcCompact').checked?'1':'0');localStorage.setItem('tcHex',$('#tcHex').checked?'1':'0');localStorage.setItem('tcDss',$('#tcDss').checked?'1':'0');localStorage.setItem('tcTov',$('#tcTov').checked?'1':'0');localStorage.setItem('tcSmr',$('#tcSmr').checked?'1':'0');}catch{}
     render();
   });
   $('#rOut').addEventListener('click',e=>{
