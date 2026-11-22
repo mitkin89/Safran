@@ -22,6 +22,7 @@ module.exports=async({win,js,waitFor,book})=>{
   if(process.env.SAFRAN_DSS_CAPTURE){await js("new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))");fs.writeFileSync(process.env.SAFRAN_DSS_CAPTURE,(await win.webContents.capturePage()).toPNG());}
   await js(`${target}.click()`);
   await waitFor("document.querySelector('#wpop')?.textContent.includes('Partikel')&&document.querySelector('#wpop')?.textContent.includes('4Q7')",'Vorhandene Abegg-Morphologie mit Quellenposition');
+  assert(await js("document.querySelector('#wpop .wseg.main').textContent.includes('tagsüber')"),'Bedeutung über das Westminster-Lemma');
   await js("document.querySelector('#wpop .wx').click();document.querySelector('#tcDss').checked=false;document.querySelector('#tcDss').dispatchEvent(new Event('change',{bubbles:true}))");
   await waitFor("!document.querySelector('#tcBody .tc-dss-entry, #tcBody .tc-dss-coverage')",'DSS separat ausblenden');
   await js("document.querySelector('#tcDss').checked=true;document.querySelector('#tcDss').dispatchEvent(new Event('change',{bubbles:true}));document.querySelector('#tcWhole').click()");

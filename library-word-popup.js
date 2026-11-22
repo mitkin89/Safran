@@ -2,7 +2,7 @@
 window.LibraryWordPopup = (() => {
   'use strict';
   function create({ $, $$, esc, O, reader, lazyScript, apChap, verseOf, loadIL,
-    openDict, matchSyriacAnalysis, canOpenCard, loadForms, openSForms, openForms, openGForms, openTForms, gSearchAll, jumpTo }) {
+    openDict, lemIdsFor, matchSyriacAnalysis, canOpenCard, loadForms, openSForms, openForms, openGForms, openTForms, gSearchAll, jumpTo }) {
   // OSHB-Texte: Klick auf ein Wort zeigt Lemma, Stamm, Zeit und Form; „Im Wörterbuch“ schlägt das Lemma nach
   let wpop = null;
   const closeWpop = () => { gTok++; if (wpop) { wpop.remove(); wpop = null; } $$('#rOut .syw.sel, #rOut .w.sel, #rOut .wt.sel, #rOut .wq.sel, #rOut .wg.sel, #bavliInterlinear .bil-heword.sel').forEach(x => x.classList.remove('sel')); gSel = null; try { CSS.highlights.delete('gsel'); } catch { /* ältere Engine */ } };
@@ -295,6 +295,23 @@ window.LibraryWordPopup = (() => {
     bavliDialog.onclick = ev => { const b = ev.target.closest('[data-ref]'); if (b) { bavliDialog.close(); const origin = document.getElementById('bavliInterlinear'); if (origin && origin.open) origin.close(); jumpTo(b.dataset.ref, false); } };
     if (!bavliDialog.open) bavliDialog.showModal();
   }
+  // Abegg's lemmas carry no meaning; take it from the Westminster lemma with the same consonants
+  // (OSHB / HebrewLexicon). Homographs keep up to three meanings side by side.
+  // Abegg part of speech -> OSHB part-of-speech letters (oshb-lemma-pos.js, tools/oshb/build_lemma_pos.py)
+  const Q_POS = { verb: ['V'], subs: ['N'], adjv: ['A'], numr: ['A'], nmpr: ['Np'], pron: ['P'], prps: ['P'], prde: ['P'], prin: ['P'], prep: ['R'], conj: ['C'], advb: ['D'], nega: ['T', 'D'], inrg: ['T', 'D'], intj: ['T', 'D'], art: ['T'], ptcl: ['R', 'C', 'D', 'T'] };
+  function qGloss(lem, sp) {
+    const LEM = window.OSHB_LEMMAS || {}, POS = window.OSHB_LEMMA_POS || {};
+    let ids = ((lemIdsFor && lemIdsFor(lem)) || []).filter(id => LEM[id]);
+    if (ids.length > 1) {
+      // Homographs: same part of speech as in the scroll, then the most frequent in the MT first.
+      const want = Q_POS[sp], same = want ? ids.filter(id => want.includes(POS[id]?.[0])) : [];
+      if (same.length) ids = same;
+      ids = ids.slice().sort((a, b) => (POS[b]?.[1] || 0) - (POS[a]?.[1] || 0));
+    }
+    const gl = [...new Set(ids.map(id => I18N.lang === 'de' && LEM[id][2] ? LEM[id][2] : LEM[id][1]))];
+    if (!gl.length) return '';
+    return ` <span class="muted" title="${esc(I18N.t('Bedeutung über das gleichlautende Westminster-Lemma (HebrewLexicon); bei gleich geschriebenen Wörtern mehrere'))}">${esc(gl.slice(0, 2).join(' / ') + (gl.length > 2 ? ' …' : ''))}</span>`;
+  }
   function showQumranWord(w) {
     const [sp, vs, vt, ps, gn, nu, st, sx] = w.dataset.m.split('.');
     const lem = w.dataset.l;
@@ -311,7 +328,7 @@ window.LibraryWordPopup = (() => {
     if (sx && /^[123]?[mfcb]?[sdp]?$/.test(sx)) parts.push(`Suffix: <b>${esc([sx[0] && /\d/.test(sx[0]) ? sx[0] + '.' : '', Q_GN[sx.replace(/\d/, '')[0]] || '', Q_NU[sx.slice(-1)] || ''].filter(Boolean).join(' '))}</b>`);
     wpop = document.createElement('div');
     wpop.id = 'wpop';
-    wpop.innerHTML = `<div class="wtop"><span dir="rtl" lang="he" class="wword">${esc(w.textContent)}</span><button class="wx" title="Schließen">✕</button></div><div class="wseg main"><span class="wlem" dir="rtl" lang="he">${esc(lem)}</span><br>${parts.join(' · ')}</div><button class="wdict" data-q="${esc(lem)}">Im Wörterbuch nachschlagen</button>`;
+    wpop.innerHTML = `<div class="wtop"><span dir="rtl" lang="he" class="wword">${esc(w.textContent)}</span><button class="wx" title="Schließen">✕</button></div><div class="wseg main"><span class="wlem" dir="rtl" lang="he">${esc(lem)}</span>${qGloss(lem, sp)}<br>${parts.join(' · ')}</div><button class="wdict" data-q="${esc(lem)}">Im Wörterbuch nachschlagen</button>`;
     if(w.dataset.dssSource){
       const source=document.createElement('p');source.className='muted';source.textContent=[w.dataset.dssStatus,w.dataset.dssSource].filter(Boolean).join(' · ');wpop.appendChild(source);
     }

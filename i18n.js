@@ -106,6 +106,7 @@
     "Am Text geprüft (Codex)": "Checked against the text (Codex)",
     "Am Text geprüft (Claude)": "Checked against the text (Claude)",
     "Fußnote aufklappen": "Expand footnote",
+    "Bedeutung über das gleichlautende Westminster-Lemma (HebrewLexicon); bei gleich geschriebenen Wörtern mehrere": "Meaning from the Westminster lemma with the same consonants (HebrewLexicon); several for homographs",
     "Die MT-Wörter dieses Eintrags haben in der Peschitta keine Wiedergabe.": "The MT words of this entry have no rendering in the Peshitta.",
     "Fußnote": "Footnote",
     "Lateinischer Text (Field)": "Latin text (Field)",

@@ -940,7 +940,7 @@
     reader: { cache, get view() { return view; }, get dictSel() { return dictSel; } },
     lazyScript: (...args) => wordCardsUI.lazyScript(...args),
     apChap: (...args) => apChap(...args), verseOf: (...args) => linksUI.verseOf(...args),
-    loadIL: (...args) => loadIL(...args), openDict, matchSyriacAnalysis:(...args)=>wordCardsUI.matchSyriacAnalysis(...args), canOpenCard:(...args)=>wordCardsUI.canOpenCard(...args),
+    loadIL: (...args) => loadIL(...args), openDict, lemIdsFor, matchSyriacAnalysis:(...args)=>wordCardsUI.matchSyriacAnalysis(...args), canOpenCard:(...args)=>wordCardsUI.canOpenCard(...args),
     loadForms: (...args) => wordCardsUI.loadForms(...args), openSForms: (...args) => wordCardsUI.openSForms(...args), openForms: (...args) => wordCardsUI.openForms(...args), openGForms: (...args) => wordCardsUI.openGForms(...args), openTForms: (...args) => wordCardsUI.openTForms(...args),
     gSearchAll: (...args) => wordCardsUI.gSearchAll(...args), jumpTo,
   });
@@ -3587,7 +3587,7 @@
       if (o) o.innerHTML = '<p class="muted">' + esc(I18N.t('Die Bibliothek konnte nicht geladen werden: {}', String(err && err.message || err))) + '</p>';
     } finally {
       // Große Nachschlagetabellen erst nach dem Start nachladen (nur bei Bedarf gebraucht: Targum-/Lemma-Hover, Parallelstellen, Höhen der Karte)
-      for (const src of ['oshb-lemmas.js', 'targum-lex.js', 'parallels.js', 'map/elev.js']) { const el = document.createElement('script'); el.src = src; el.async = false; document.body.appendChild(el); }
+      for (const src of ['oshb-lemmas.js', 'oshb-lemma-pos.js', 'targum-lex.js', 'parallels.js', 'map/elev.js']) { const el = document.createElement('script'); el.src = src; el.async = false; document.body.appendChild(el); }
     }
   })();
 })();
