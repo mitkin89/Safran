@@ -162,6 +162,8 @@
     "Peschitta (ETCBC) · Wortzuordnung zum MT": "Peshitta (ETCBC) · word alignment to the MT",
     "Peschitta: ETCBC / Peshitta Institute · CC BY-NC 4.0. Zusätze und Auslassungen ergeben sich aus der Wort-für-Wort-Zuordnung zum MT (Claude, 2026); kein kritischer Apparat der Peschitta-Handschriften. Begründung der Zuordnung beim Überfahren der Quellenzeile.": "Peshitta: ETCBC / Peshitta Institute · CC BY-NC 4.0. Pluses and minuses follow from the word-by-word alignment to the MT (Claude, 2026); not a critical apparatus of Peshitta manuscripts. Hover the source line for the reasoning.",
     "Syr · Peschitta (Wortzuordnung)": "Syr · Peshitta (word alignment)",
+    "Syr · auch Übersetzungstechnik": "Syr · also translation technique",
+    "Lesarten der Peschitta vom Typ Übersetzungstechnik": "Peshitta readings of the type translation technique",
     "Im MT vorhanden, in dieser Fassung ohne Wiedergabe": "Present in the MT, not rendered in this version",
     "Peschitta · automatische Wortgruppen (PaTraCoSy), nicht manuell geprüft. Ohne Zuordnung bedeutet keine nachgewiesene Auslassung oder Ergänzung.": "Peshitta · automatic word groups (PaTraCoSy), not manually reviewed. Unaligned does not mean a confirmed omission or addition.",
     "Prolog (griechisch)": "Prologue (Greek)",

@@ -32,7 +32,7 @@ function create(host){
   try{$('#tcTov').checked=localStorage.getItem('tcTov')!=='0';}catch{}
   try{$('#tcDss').checked=localStorage.getItem('tcDss')!=='0';}catch{}
   try{$('#tcKen').checked=localStorage.getItem('tcKen')!=='0';}catch{}
-  try{$('#tcPs').checked=localStorage.getItem('tcPs')!=='0';}catch{}
+  try{$('#tcPs').checked=localStorage.getItem('tcPs')!=='0';$('#tcPsTech').checked=localStorage.getItem('tcPsTech')==='1';}catch{}
   try{$('#tcHex').checked=localStorage.getItem('tcHex')!=='0';}catch{}
   for(const [id,key]of [['#tcMishnahParma','tcMP'],['#tcMishnahCambridge','tcMC']]){try{$(id).checked=localStorage.getItem(key)!=='0';}catch{}}
   const settings=$('#tcSettings');
@@ -153,7 +153,7 @@ function create(host){
       catch{if(token===generation)body.textContent=window.I18N.t('Apparat konnte nicht geladen werden.');}
       return;
     }
-    const contentKey=c?[key,whole,c.numbering,whole?'':c.row,$('#tcSmr').checked,$('#tcTov').checked,$('#tcDss').checked,$('#tcKen').checked,$('#tcPs').checked,$('#tcHex').checked,$('#tcLang').value].join('|'):null;
+    const contentKey=c?[key,whole,c.numbering,whole?'':c.row,$('#tcSmr').checked,$('#tcTov').checked,$('#tcDss').checked,$('#tcKen').checked,$('#tcPs').checked,$('#tcPsTech').checked,$('#tcHex').checked,$('#tcLang').value].join('|'):null;
     if(contentKey&&lastContentKey===contentKey){markCurrent(c);return;}
     lastContentKey=null;
     if(!c){body.innerHTML='<p class="muted">Der Apparatus-Apparat steht für den Tanach zur Verfügung.</p>';return;}
@@ -208,7 +208,7 @@ function create(host){
       if(showDss)records.push(...dss.entries(tovQueries,showSpelling));
       if(showKen)records.push(...ken.entries(tovQueries,whole));
       if(showHex)records.push(...hx.entries(hxData,tovQueries));
-      if(showPs){records.push(...ps.entries(psData,tovQueries));ps.agree(records);}
+      if(showPs){records.push(...ps.entries(psData,tovQueries).filter(r=>$('#tcPsTech').checked||!/data-ps-type="technik"/.test(r.html)));ps.agree(records);}
       const verses=new Map();
       for(const entry of records){const ref=entry.anchor?.ref||entry.displayRef;if(!verses.has(ref))verses.set(ref,[]);verses.get(ref).push(entry);}
       const coverage=new Map();
@@ -254,8 +254,8 @@ function create(host){
   });}
   $('#tcBtn').onclick=()=>toggle();$('#tcClose').onclick=()=>toggle(false);
   try{const view=localStorage.getItem('tcMishnahView');if(['interlinear','apparatus','tosefta'].includes(view))$('#tcMishnahView').value=view;}catch{}
-  ['#tcMishnahView','#tcMishnahParma','#tcMishnahCambridge','#tcNumbering','#tcSmr','#tcTov','#tcDss','#tcKen','#tcPs','#tcHex','#tcLang'].forEach(s=>$(s).onchange=()=>{
-    try{localStorage.setItem('tcMishnahView',$('#tcMishnahView').value);localStorage.setItem('tcMP',$('#tcMishnahParma').checked?'1':'0');localStorage.setItem('tcMC',$('#tcMishnahCambridge').checked?'1':'0');localStorage.setItem('tcKen',$('#tcKen').checked?'1':'0');localStorage.setItem('tcPs',$('#tcPs').checked?'1':'0');localStorage.setItem('tcHex',$('#tcHex').checked?'1':'0');localStorage.setItem('tcDss',$('#tcDss').checked?'1':'0');localStorage.setItem('tcTov',$('#tcTov').checked?'1':'0');localStorage.setItem('tcSmr',$('#tcSmr').checked?'1':'0');}catch{}
+  ['#tcMishnahView','#tcMishnahParma','#tcMishnahCambridge','#tcNumbering','#tcSmr','#tcTov','#tcDss','#tcKen','#tcPs','#tcPsTech','#tcHex','#tcLang'].forEach(s=>$(s).onchange=()=>{
+    try{localStorage.setItem('tcMishnahView',$('#tcMishnahView').value);localStorage.setItem('tcMP',$('#tcMishnahParma').checked?'1':'0');localStorage.setItem('tcMC',$('#tcMishnahCambridge').checked?'1':'0');localStorage.setItem('tcKen',$('#tcKen').checked?'1':'0');localStorage.setItem('tcPs',$('#tcPs').checked?'1':'0');localStorage.setItem('tcPsTech',$('#tcPsTech').checked?'1':'0');localStorage.setItem('tcHex',$('#tcHex').checked?'1':'0');localStorage.setItem('tcDss',$('#tcDss').checked?'1':'0');localStorage.setItem('tcTov',$('#tcTov').checked?'1':'0');localStorage.setItem('tcSmr',$('#tcSmr').checked?'1':'0');}catch{}
     render();
   });
   $('#rOut').addEventListener('click',e=>{

@@ -9,7 +9,7 @@ const text=e=>e.html.replace(/<[^>]+>/g,' ').replace(/\s+/g,' ');
 test('pluses anchor after the preceding linked MT word, long ones fold',async()=>{
   const d=await ps.load('Genesis'),e=ps.entries(d,[{ref:'Genesis 4:8',row:'8'}]);
   assert.equal(e.length,1);assert.deepEqual({k:e[0].anchor.kind,s:e[0].anchor.start},{k:'gap',s:4});assert.match(text(e[0]),/ܢܪܕܐ ܠܦܩܥܬܐ/);
-  const x=ps.entries(await ps.load('Exodus'),[{ref:'Exodus 2:22',row:'22'}]);assert.equal(x.length,1);assert.match(x[0].html,/<details class="tc-ps-long">/);assert.match(text(x[0]),/16 Wörter/);
+  const xs=ps.entries(await ps.load('Exodus'),[{ref:'Exodus 2:22',row:'22'}]),x=xs.filter(y=>y.anchor.kind==='gap');assert.equal(x.length,1);assert.match(x[0].html,/<details class="tc-ps-long">/);assert.match(text(x[0]),/16 Wörter/);
 });
 test('minuses group MT words without rendering and skip the object marker',async()=>{
   const e=ps.entries(await ps.load('Exodus'),[{ref:'Exodus 13:7',row:'7'}]);
