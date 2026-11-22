@@ -116,3 +116,18 @@ git clone https://github.com/perseids-tools/morpheus && cd morpheus/src
 make clean && CFLAGS='-std=gnu89 -fcommon -w' make && make install     # braucht flex
 cd .. && MORPHEUS=$PWD python3 /pfad/zu/safran/tools/hexapla/morph.py   # Stemlib ist eingecheckt
 ```
+
+## Andere Vorlage / andere Deutung
+
+Die Übersetzerzeilen (Ἀ., Σ., Θ., Οἱ λοιποί, Ε΄, Ϛ΄) bekommen im Apparat maschinelle Etiketten gegenüber der LXX-Zeile
+(wie LXX, andere Wiedergabe, folgt dem MT, Transkription). „Andere Vorlage“ und „andere Deutung“ sind geprüft:
+
+1. `vorlage_candidates.py` sucht Zeilen, in denen ein abweichendes griechisches Wort laut LXX-Gebrauch (`oshb-lxx.js`)
+   ein hebräisches Wort wiedergibt, das dem MT-Wort fast gleicht – ein verwechselbarer Buchstabe (ד/ר, ב/כ, ה/ח, ו/י,
+   ס/ש, א/ע …) oder zwei vertauschte Nachbarn. Ableitungen derselben Wurzel (חטא/חטאת) zählen nicht. 154 Kandidaten.
+2. Claude hat alle Kandidaten geprüft (`vorlage-review.jsonl`, Urteil je Zeile): 23 × andere Vorlage
+   (Jes 19:18 Σ. ἡλίου = החרס), 36 × andere Deutung derselben Konsonanten (Hos 11:7 ζυγόν = עֹל), der Rest ist
+   Wortwahl. Ergebnis in `vorlage.json`, für die App als `hexapla-vorlage.js`.
+
+Schlüssel: „Buch Kap:Vers#Einheit Siglen“ (Einheit = Index in `hexapla-data/<Buch>.js`). Wer `build.py` neu laufen
+lässt und dabei Einheiten verschiebt, muss `vorlage_candidates.py` neu laufen lassen und die Urteile übertragen.

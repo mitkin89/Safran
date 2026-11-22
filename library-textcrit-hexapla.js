@@ -14,12 +14,13 @@ function create(host){
   const cache=new Map();
   const file=book=>'hexapla-data/'+String(book).replace(/ /g,'_')+'.js';
   function available(book){return BOOKS.includes(book);}
-  let morph=null;
+  let morph=null,vorlage=null;
   function load(book){
     if(!available(book))return Promise.resolve(null);
     // Greek morphology of the readings (hexapla-morph.js): optional, the apparatus works without it
     morph=morph||host.load('hexapla-morph.js',()=>window.HEXAPLA_MORPH).catch(()=>{morph=null;return null;});
-    if(!cache.has(book))cache.set(book,Promise.all([host.load(file(book),()=>window.HEXAPLA_DATA?.[book]),morph]).then(([d])=>d).catch(e=>{cache.delete(book);throw e;}));
+    vorlage=vorlage||host.load('hexapla-vorlage.js',()=>window.HEXAPLA_VORLAGE).catch(()=>{vorlage=null;return null;});
+    if(!cache.has(book))cache.set(book,Promise.all([host.load(file(book),()=>window.HEXAPLA_DATA?.[book]),morph,vorlage]).then(([d])=>d).catch(e=>{cache.delete(book);throw e;}));
     return cache.get(book);
   }
   // Greek word -> tooltip with lemma, analysis (German via GMorph.describe) and short gloss
@@ -64,8 +65,9 @@ function create(host){
   // Synopsis: one row per translator under the LXX; words the same as in the LXX row are folded to „…“
   // (shown again with „Volltext“). Only for plain readings that start with Ο΄ and have at least two rows.
   const norm=t=>t.normalize('NFD').replace(/[^\p{L}]/gu,'').toLowerCase();
-  function synopsis(data,u){
-    const t=u.t;if(t.includes('_'))return null;
+  function synopsis(data,u,key){
+    // italic Latin (_…_) stays one token: its spaces become no-break spaces
+    const t=u.t.replace(/_[^_]+_/g,x=>x.replace(/ /g,'\u00a0'));
     const re=new RegExp(SIGLA.source,'g'),marks=[];let m;
     while((m=re.exec(t)))marks.push([m.index,m.index+m[0].length]);
     if(!marks.length||t.slice(0,marks[0][0]).trim())return null;
@@ -77,7 +79,7 @@ function create(host){
       rows.push({hstart:marks[i][0],hend:marks[i][1]});
     }
     rows.at(-1).text=t.slice(rows.at(-1).hend);
-    rows.forEach(r=>{r.head=t.slice(r.hstart,r.hend);r.tok=r.text.trim().split(/\s+/).filter(Boolean);});
+    rows.forEach(r=>{r.head=t.slice(r.hstart,r.hend);r.tok=r.text.trim().split(/[ \t\n]+/).filter(Boolean);});
     if(rows.length<2||!/Ο΄/.test(rows[0].head)||rows[0].tok.length<1||rows.some(r=>!r.tok.length))return null;
     const base=rows[0].tok.map(norm);
     const row=(r,i)=>{
@@ -95,6 +97,9 @@ function create(host){
         body=parts.map(p=>p.same?'<span class="tc-hx-same"><span class="tc-hx-same-t">'+markup(data,u,p.w.join(' '))+'</span></span>':markup(data,u,p.w.join(' '))).join(' ');
       }
       if(!i)r.type=/※/.test(r.text)?'asterisk':/÷/.test(r.text)?'obelus':'';
+      // reviewed: other Vorlage / other reading of the same consonants (hexapla-vorlage.js)
+      const vl=i&&key?window.HEXAPLA_VORLAGE?.[key+' '+r.head.replace(/\s+/g,' ').trim()]:null;
+      if(vl)return '<span class="tc-hx-row-sig">'+markup(data,u,r.head)+'</span><span class="tc-hx-row" lang="grc">'+body+' '+typeTag(vl.t,vl)+'</span>';
       return '<span class="tc-hx-row-sig">'+markup(data,u,r.head)+'</span><span class="tc-hx-row" lang="grc">'+body+(r.type?' '+typeTag(r.type):'')+'</span>';
     };
     return '<div class="tc-hx-syn">'+rows.map(row).join('')+'</div><button type="button" class="tc-hx-syn-toggle" aria-pressed="false">'+esc('Volltext')+'</button>';
@@ -104,9 +109,11 @@ function create(host){
     wiedergabe:['andere Wiedergabe','Anderes griechisches Wort für denselben hebräischen Text (Wortwahl des Übersetzers), maschinell eingeordnet'],
     mt:['folgt dem MT','Weicht dort von der LXX ab, wo die LXX selbst vom MT abweicht (bewertete LXX-Lesart): wohl Angleichung an den hebräischen Text; maschinell eingeordnet'],
     translit:['Transkription','Hebräisches Wort in griechischen Buchstaben'],
+    vorlage:['andere Vorlage','Setzt einen anderen hebräischen Konsonantentext voraus (meist ein verwechselbarer Buchstabe); von Claude geprüft'],
+    deutung:['andere Deutung','Gleiche oder fast gleiche Konsonanten, anders gelesen oder von einer anderen Wurzel her verstanden; von Claude geprüft'],
     asterisk:['Zusatz nach dem Hebräischen','※ Asterisk: von Origenes in die LXX-Spalte nach dem Hebräischen eingefügt'],
     obelus:['LXX-Plus','÷ Obelus: in der LXX ohne Gegenstück im Hebräischen']};
-  const typeTag=t=>'<abbr class="ab tc-tov-tag tc-hx-type" data-hx-type="'+t+'" title="'+esc(HXTYPES[t][1])+'">'+esc(HXTYPES[t][0])+'</abbr>';
+  const typeTag=(t,vl)=>'<abbr class="ab tc-tov-tag tc-hx-type" data-hx-type="'+t+'" title="'+esc(HXTYPES[t][1])+(vl?.n?' · '+raw(vl.n):'')+'">'+esc(HXTYPES[t][0])+'</abbr>'+(vl?.he?' <span class="tc-tov-reading">≈ <bdi lang="he" dir="rtl">'+raw(vl.he)+'</bdi></span>':'');
   // Where an assessed LXX reading (not mere translation technique) covers the same MT words, a translator
   // that differs from the LXX there most likely renders the Hebrew: „folgt dem MT“.
   function agree(records){
@@ -131,7 +138,7 @@ function create(host){
         const id=ref+'|'+i,prev=out.get(id);if(prev){if(!prev.rows.includes(row))prev.rows.push(row);return;}
         const anchor=u.s==null?null:u.gap?{kind:'gap',start:u.e,end:u.e,ref}:{kind:'word',start:u.s,end:u.e,ref};
         const cite='Field, Hexapla '+(data.vol===2?'II':'I')+', S. '+u.pg+(u.field&&u.field!==m[2]?' · Field '+u.field:'');
-        const html='<article class="tc-entry tc-hx-entry" data-witness="Hex"><div class="tc-note-text"><span class="tc-witness-label" title="'+esc('Hexapla (Field 1875)')+'">Hex</span> '+((syn=>syn?'<div class="tc-hx-read">'+syn+'</div>':'<span class="tc-hx-read" lang="grc">'+reading(data,u)+'</span>')(synopsis(data,u)))+(u.l?'<div class="tc-hx-foot"><button type="button" class="tc-hx-la-toggle tc-hx-lat-toggle" aria-expanded="false" title="'+esc('Fields lateinische Übersetzung des hebräischen Stichworts')+'">'+esc('Latein')+'</button><span class="tc-hx-lat" hidden title="'+raw(u.h)+'">'+italic(raw(u.l))+'</span></div>':'')+'</div>'+'<small class="tal-cite" tabindex="0" title="'+raw('Blatt '+u.leaf+(u.cont?' · Fortsetzung':''))+'">'+raw(cite)+'</small></article>';
+        const html='<article class="tc-entry tc-hx-entry" data-witness="Hex"><div class="tc-note-text"><span class="tc-witness-label" title="'+esc('Hexapla (Field 1875)')+'">Hex</span> '+((syn=>syn?'<div class="tc-hx-read">'+syn+'</div>':'<span class="tc-hx-read" lang="grc">'+reading(data,u)+'</span>')(synopsis(data,u,data.book+' '+m[2]+'#'+i)))+(u.l?'<div class="tc-hx-foot"><button type="button" class="tc-hx-la-toggle tc-hx-lat-toggle" aria-expanded="false" title="'+esc('Fields lateinische Übersetzung des hebräischen Stichworts')+'">'+esc('Latein')+'</button><span class="tc-hx-lat" hidden title="'+raw(u.h)+'">'+italic(raw(u.l))+'</span></div>':'')+'</div>'+'<small class="tal-cite" tabindex="0" title="'+raw('Blatt '+u.leaf+(u.cont?' · Fortsetzung':''))+'">'+raw(cite)+'</small></article>';
         const sig=[...new Set((u.t.match(SIGLA)||[]).map(x=>HEXSIG.find(([re])=>re.test(x))?.[1]).filter(Boolean))];
         out.set(id,{anchor,displayRef:ref,rows:[row],html,lz:sig.map(w=>({f:'Hex',w,op:'cite',title:'Hexapla (Field)'}))});
       });

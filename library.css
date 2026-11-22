@@ -1957,6 +1957,7 @@ body.il .cell[data-k="he"] .ilt.il-smr { direction: rtl; font-family: var(--he-f
 .tc-ken-count[aria-expanded=true]::after { content: ' ▾'; }
 .tc-hx-type { margin-left: .3em; font-size: .72em; vertical-align: .1em; }
 .tc-hx-type[data-hx-type=gleich] { opacity: .6; }
+.tc-hx-type[data-hx-type=vorlage], .tc-hx-type[data-hx-type=deutung] { background: color-mix(in srgb, var(--tc-witness, var(--accent)) 30%, transparent); font-weight: 600; }
 .tc-hx-type[data-hx-type=mt] { background: color-mix(in srgb, var(--accent) 22%, transparent); }
 .tc-hx-syn { display: grid; grid-template-columns: max-content 1fr; gap: .15em .6em; margin: .2em 0; }
 .tc-hx-row-sig { white-space: nowrap; }

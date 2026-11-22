@@ -43,6 +43,11 @@ test('Greek words of the readings carry a morphology tooltip (hexapla-morph.js)'
   assert.match(g26,/data-hx-type="wiedergabe"/);
   const g9=hx.entries(d,[{ref:'Genesis 1:9',row:'9'}]).map(x=>x.html).join('');
   assert.match(g9,/συστήτω.*data-hx-type="wiedergabe"/s,'short readings also get a row and a type');
+  // reviewed rows: Hos 11:7 ζυγόν = עֹל (other reading of the same consonants), Isa 19:18 Σ. ἡλίου = החרס
+  const hos=await hx.load('Hosea'),h=hx.entries(hos,[{ref:'Hosea 11:7',row:'7'}]).map(x=>x.html).join('');
+  assert.match(h,/ζυγὸν.*data-hx-type="deutung".*עֹל/s);
+  const isa=await hx.load('Isaiah'),j=hx.entries(isa,[{ref:'Isaiah 19:18',row:'18'}]).map(x=>x.html).join('');
+  assert.match(j,/ἡλίου.*data-hx-type="vorlage".*החרס/s);
   assert.match(html,/data-hx-an="\[\[&quot;γίνομαι&quot;/,'analysis for the word card');
   const g1=hx.entries(d,[{ref:'Genesis 1:1',row:'1'}]).map(x=>x.html).join('');
   assert.match(g1,/<span class="tc-hx-note-n">1<\/span> <span lang="en">CAP\. I\. Hieron[^<]*For both/,'English first');
