@@ -35,14 +35,21 @@ module.exports=async({win,js,waitFor,book})=>{
   assert(await js("[...document.querySelectorAll('#tcBody .tc-hx-sig')].some(b=>b.title.startsWith('Ο΄ = die Septuaginta'))"),'Sigle erklärt');
   assert(await js("[...document.querySelectorAll('#tcBody .tc-hx-w')].every(w=>!w.title)"),'keine Morphologie beim Überfahren');
   await js("document.querySelector('#tcBody .tc-hx-w').click()");
-  await waitFor("document.querySelector('#tcHover')?.textContent.includes('–')",'Morphologie beim Klick');
+  await waitFor("document.querySelector('#tcHover .wseg .wlem')",'Morphologie beim Klick');
   await js("document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true}))");
-  const fn=await js("{const e=[...document.querySelectorAll('#tcBody .tc-hx-entry')].find(e=>e.querySelector('.tc-hx-note p[lang=en]'));e?e.querySelector('.tc-hx-fn').dataset.hxFn:null}");
-  if(fn){
-    await js(`[...document.querySelectorAll('#tcBody .tc-hx-entry')].find(e=>e.querySelector('.tc-hx-note p[lang=en]')).querySelector('.tc-hx-fn[data-hx-fn="${fn}"]').click()`);
-    assert(await js(`{const d=[...document.querySelectorAll('#tcBody .tc-hx-note[open]')][0];d&&d.querySelector(':scope>p').lang==='en'&&!d.querySelector('.tc-hx-la').open}`),'Fußnote offen, Englisch oben, Latein eingeklappt');
-  }
-  if(process.env.SAFRAN_HX_CAPTURE){console.log('Fußnote mit Englisch:',fn);await js("document.querySelector('#tcBody .tc-hx-note[open]')?.closest('.tc-hx-entry').scrollIntoView({block:'start'})");win.showInactive();win.webContents.invalidate();await new Promise(r=>setTimeout(r,800));fs.writeFileSync(process.env.SAFRAN_HX_CAPTURE,(await win.webContents.capturePage()).toPNG());}
+  const fn=await js("{const n=[...document.querySelectorAll('#tcBody .tc-hx-note')].find(n=>n.querySelector(':scope>[lang=en]'));n?n.dataset.hxFn:null}");
+  assert(fn,'Fußnote mit Übersetzung in Gen 2:2');
+  await js(`[...document.querySelectorAll('#tcBody .tc-hx-note')].find(n=>n.querySelector(':scope>[lang=en]')).previousElementSibling.click()`);
+  assert(await js("{const d=[...document.querySelectorAll('#tcBody .tc-hx-note')].find(n=>!n.hidden);d&&d.previousElementSibling.matches('.tc-hx-fn')&&getComputedStyle(d).display==='inline'&&d.querySelector('.tc-hx-la').hidden&&!document.querySelector('#tcBody .tc-hx-notes')}"),'Fußnote inline an der Zahl, Englisch, Latein eingeklappt');
+  // Wortkarte für Aquila & Co. aus der Bestimmung
+  await js("document.querySelector('#tcBody .tc-hx-w').click()");
+  await waitFor("document.querySelector('#tcHover [data-gr-card=card]')",'Wortkarten-Knopf in der Bestimmung');
+  await js("document.querySelector('#tcHover [data-gr-card=card]').click()");
+  await waitFor("!document.querySelector('#formsPanel').hidden&&document.querySelector('#wcBody').textContent.length>20",'Griechische Wortkarte geöffnet');
+  if(process.env.SAFRAN_HX_CAPTURE){win.showInactive();win.webContents.invalidate();await new Promise(r=>setTimeout(r,600));fs.writeFileSync(process.env.SAFRAN_HX_CAPTURE.replace('.png','-card.png'),(await win.webContents.capturePage()).toPNG());}
+  await js("document.querySelector('#fmClose').click()");if(await js("document.querySelector('#textcritPanel').hidden"))await js("document.querySelector('#tcBtn').click()");
+  await waitFor("!document.querySelector('#textcritPanel').hidden&&document.querySelector('#tcBody .tc-hx-entry')",'Apparat wieder sichtbar');
+  if(process.env.SAFRAN_HX_CAPTURE){console.log('Fußnote mit Englisch:',fn);await js("{const n=[...document.querySelectorAll('#tcBody .tc-hx-note')].find(n=>n.querySelector(':scope>[lang=en]'));if(n.hidden)n.previousElementSibling.click();}");await js("[...document.querySelectorAll('#tcBody .tc-hx-note')].find(n=>!n.hidden)?.closest('.tc-hx-entry').scrollIntoView({block:'start'})");win.showInactive();win.webContents.invalidate();await new Promise(r=>setTimeout(r,800));fs.writeFileSync(process.env.SAFRAN_HX_CAPTURE,(await win.webContents.capturePage()).toPNG());}
   // LXX: das griechische Wort zeigt beim Überfahren nichts, das LXX-Etikett den CATSS-Verskontext
   assert(await js("[...document.querySelectorAll('#tcBody .tc-tov-lemma')].every(n=>!n.hasAttribute('data-tc-tov'))"),'kein Hover am griechischen Wort');
   assert(await js("[...document.querySelectorAll('#tcBody .tc-tov-entry .tc-witness-label')].every(n=>n.hasAttribute('data-tc-tov'))"),'Hover am LXX-Etikett');

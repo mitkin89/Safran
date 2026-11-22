@@ -31,9 +31,11 @@ test('Greek words of the readings carry a morphology tooltip (hexapla-morph.js)'
   assert.doesNotMatch(html,/class="tc-hx-w" title=/,'morphology only on click');
   assert.match(html,/class="tc-hx-sig" tabindex="0" title="Ο΄ = die Septuaginta/);
   assert.match(html,/title="Ἀ\. = Aquila/);
-  assert.match(html,/<details class="tc-hx-note" data-hx-fn="9"><summary>Fußnote 9<\/summary><p lang="la">Philop/,'note without translation shows the Latin');
+  assert.match(html,/data-hx-fn="9"[^>]*>9<\/sup><span class="tc-hx-note" data-hx-fn="9" role="note" hidden><span class="tc-hx-note-n">9<\/span> <span lang="la">Philop/,'inline note right after its number; Latin when there is no translation');
+  assert.doesNotMatch(html,/tc-hx-notes/,'no footnote block at the end');
+  assert.match(html,/data-hx-an="\[\[&quot;γίνομαι&quot;/,'analysis for the word card');
   const g1=hx.entries(d,[{ref:'Genesis 1:1',row:'1'}]).map(x=>x.html).join('');
-  assert.match(g1,/<summary>Fußnote 1<\/summary><p lang="en">CAP\. I\. Hieron[^<]*For both/,'English first');
-  assert.match(g1,/<details class="tc-hx-la"><summary>Lateinischer Text \(Field\)<\/summary><p lang="la">CAP\. I\. Hieron[^<]*Nam et LXX/,'Latin folded');
+  assert.match(g1,/<span class="tc-hx-note-n">1<\/span> <span lang="en">CAP\. I\. Hieron[^<]*For both/,'English first');
+  assert.match(g1,/<button type="button" class="tc-hx-la-toggle" aria-expanded="false">Latein<\/button><span class="tc-hx-la" lang="la" hidden> CAP\. I\. Hieron[^<]*Nam et LXX/,'Latin folded');
   for(const m of html.matchAll(/title="([^"]*)"/g))assert(!m[1].includes('<'),'markup inside title');
 });

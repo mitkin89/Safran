@@ -990,6 +990,7 @@
     openWord: w => wordPopupUI.openSamaritanWord(w),
     openQumran: w => wordPopupUI.openQumranWord(w),
     openGreek: (w, source) => wordPopupUI.openGreekApparatus(w, source),
+    openGreekCard: (lemma, info, mode) => mode === 'all' ? wordCardsUI.gSearchAll(lemma) : wordCardsUI.openGForms(lemma, info, mode),
     markMt: (ref, start, end, expected) => {
       const match = /^(.*) (\d+):(\d+)$/.exec(ref);
       if (!match || view?.group?.title !== match[1] || !expected.length) return;

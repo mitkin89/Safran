@@ -1943,11 +1943,16 @@ body.il .cell[data-k="he"] .ilt.il-smr { direction: rtl; font-family: var(--he-f
 .tc-hx-w:hover { text-decoration: underline dotted; text-underline-offset: 2px; }
 .tc-hx-sig[title] { cursor: help; }
 .tc-hx-fn { cursor: pointer; color: var(--accent); font-size: .7em; }
-.tc-hx-notes { margin-top: .25em; font: .85em/1.45 system-ui, sans-serif; }
-.tc-hx-note > summary, .tc-hx-la > summary { cursor: pointer; color: var(--muted); font-size: .9em; }
-.tc-hx-note > p { margin: .25em 0 .25em 1em; }
-.tc-hx-la { margin-left: 1em; }
-.tc-hx-la > p { margin: .2em 0 .2em 1em; color: var(--muted); }
+.tc-hx-fn[aria-expanded=true] { font-weight: 700; }
+.tc-hx-note { display: inline; font: .82em/1.5 system-ui, sans-serif; background: var(--chip); border-radius: 4px; padding: 1px 5px; margin: 0 2px; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.tc-hx-note[hidden] { display: none; }
+.tc-hx-note-n { font-weight: 700; color: var(--accent); }
+.tc-hx-la-toggle { font: inherit; font-size: .9em; color: var(--muted); background: none; border: 0; padding: 0 2px; cursor: pointer; text-decoration: underline dotted; }
+.tc-hx-la-toggle::before { content: '▸ '; }
+.tc-hx-la-toggle[aria-expanded=true]::before { content: '▾ '; }
+.tc-hx-la { color: var(--muted); }
+.tc-hx-la[hidden] { display: none; }
+.tc-hx-cards { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
 #tcBody .tc-witness-label[data-tc-tov] { cursor: help; }
 .tc-hx-sign { font-weight: 700; color: var(--accent); }
 .tc-hx-lat { color: var(--muted); font-size: .9em; }

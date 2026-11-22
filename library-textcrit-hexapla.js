@@ -29,6 +29,7 @@ function create(host){
     const k=window.GMorph?.form?window.GMorph.form(w):w;
     return F[k]||null;
   }
+  const distinct=a=>{const seen=new Set();return a.filter(([l,k])=>{const id=l+'|'+k;if(seen.has(id))return false;seen.add(id);return true;}).slice(0,4);};
   function analyse(a){
     const G=window.GMorph,t=window.I18N?.t?(x=>window.I18N.t(x)):(x=>x);
     const seen=new Set();
@@ -42,7 +43,7 @@ function create(host){
       if(tag)return tag;
       const a=lookup(w);
       // Morphology opens on click, not on hover (library-textcrit.js, data-tc-hx).
-      return a?'<span class="tc-hx-w" tabindex="0" role="button" data-tc-hx="'+raw(analyse(a))+'">'+w+'</span>':w;
+      return a?'<span class="tc-hx-w" tabindex="0" role="button" data-tc-hx="'+raw(analyse(a))+'" data-hx-an="'+raw(JSON.stringify(distinct(a)))+'">'+w+'</span>':w;
     });
   }
   const italic=s=>s.replace(/_([^_]+)_/g,'<i>$1</i>');
@@ -55,16 +56,14 @@ function create(host){
     return h.replace(/\^(\d+)/g,(m,n)=>{
       const key=(u.fn||[]).find(k=>k.endsWith('.'+n)),note=key&&data.notes[key];
       if(!note)return '<sup>'+n+'</sup>';
-      return '<sup class="tc-hx-fn" tabindex="0" role="button" data-hx-fn="'+raw(n)+'" title="'+esc('Fußnote aufklappen')+'">'+n+'</sup>';
+      // The footnote opens in place, right after its number (English first, Latin folded).
+      return '<sup class="tc-hx-fn" tabindex="0" role="button" aria-expanded="false" data-hx-fn="'+raw(n)+'" title="'+esc('Fußnote aufklappen')+'">'+n+'</sup>'+inlineNote(note,n);
     });
   }
-  // Field's footnotes, collapsed: English translation first, the Latin original folded inside.
-  function notes(data,u){
-    return (u.fn||[]).map(key=>{
-      const note=data.notes[key];if(!note)return '';
-      const n=key.split('.').at(-1),la=italic(raw(note.la)),en=note.en&&note.en!==note.la?italic(raw(note.en)):'';
-      return '<details class="tc-hx-note" data-hx-fn="'+raw(n)+'"><summary>'+esc('Fußnote')+' '+raw(n)+'</summary>'+(en?'<p lang="en">'+en+'</p><details class="tc-hx-la"><summary>'+esc('Lateinischer Text (Field)')+'</summary><p lang="la">'+la+'</p></details>':'<p lang="la">'+la+'</p>')+'</details>';
-    }).join('');
+  // Field's footnote as an inline note: English translation first, the Latin original folded inside.
+  function inlineNote(note,n){
+    const la=italic(raw(note.la)),en=note.en&&note.en!==note.la?italic(raw(note.en)):'';
+    return '<span class="tc-hx-note" data-hx-fn="'+raw(n)+'" role="note" hidden><span class="tc-hx-note-n">'+raw(n)+'</span> '+(en?'<span lang="en">'+en+'</span> <button type="button" class="tc-hx-la-toggle" aria-expanded="false">'+esc('Latein')+'</button><span class="tc-hx-la" lang="la" hidden> '+la+'</span>':'<span lang="la">'+la+'</span>')+'</span>';
   }
   function entries(data,queries){
     if(!data)return [];
@@ -75,17 +74,20 @@ function create(host){
         const id=ref+'|'+i,prev=out.get(id);if(prev){if(!prev.rows.includes(row))prev.rows.push(row);return;}
         const anchor=u.s==null?null:u.gap?{kind:'gap',start:u.e,end:u.e,ref}:{kind:'word',start:u.s,end:u.e,ref};
         const cite='Field, Hexapla '+(data.vol===2?'II':'I')+', S. '+u.pg+(u.field&&u.field!==m[2]?' · Field '+u.field:'');
-        const html='<article class="tc-entry tc-hx-entry" data-witness="Hex"><div class="tc-note-text"><span class="tc-witness-label" title="'+esc('Hexapla (Field 1875)')+'">Hex</span> '+(u.l?'<span class="tc-hx-lat" title="'+raw(u.h)+'">'+italic(raw(u.l))+'</span> ':'')+'<span class="tc-hx-read" lang="grc">'+reading(data,u)+'</span></div>'+((u.fn||[]).length?'<div class="tc-hx-notes">'+notes(data,u)+'</div>':'')+'<small class="tal-cite" tabindex="0" title="'+raw('Blatt '+u.leaf+(u.cont?' · Fortsetzung':''))+'">'+raw(cite)+'</small></article>';
+        const html='<article class="tc-entry tc-hx-entry" data-witness="Hex"><div class="tc-note-text"><span class="tc-witness-label" title="'+esc('Hexapla (Field 1875)')+'">Hex</span> '+(u.l?'<span class="tc-hx-lat" title="'+raw(u.h)+'">'+italic(raw(u.l))+'</span> ':'')+'<span class="tc-hx-read" lang="grc">'+reading(data,u)+'</span></div>'+'<small class="tal-cite" tabindex="0" title="'+raw('Blatt '+u.leaf+(u.cont?' · Fortsetzung':''))+'">'+raw(cite)+'</small></article>';
         const sig=[...new Set((u.t.match(SIGLA)||[]).map(x=>HEXSIG.find(([re])=>re.test(x))?.[1]).filter(Boolean))];
         out.set(id,{anchor,displayRef:ref,rows:[row],html,lz:sig.map(w=>({f:'Hex',w,op:'cite',title:'Hexapla (Field)'}))});
       });
     }
     return [...out.values()];
   }
-  const credit=()=>'<p class="tc-credit">'+esc('Hexapla: Frederick Field, Origenis Hexaplorum quae supersunt I–II (Oxford 1875), gemeinfrei; Scan archive.org. Transkription und englische Übersetzung der lateinischen Fußnoten: Claude, 2026. Fußnoten zum Aufklappen (englisch, lateinisches Original eingeklappt). Siglen beim Überfahren erklärt. Griechische Wörter: Bestimmung beim Anklicken nach der LXX-Morphologie (Seth Kushniryk, CC BY 4.0) bzw. Perseus Morpheus (CC BY-SA 3.0 US).')+'</p>';
+  const credit=()=>'<p class="tc-credit">'+esc('Hexapla: Frederick Field, Origenis Hexaplorum quae supersunt I–II (Oxford 1875), gemeinfrei; Scan archive.org. Transkription und englische Übersetzung der lateinischen Fußnoten: Claude, 2026. Fußnoten öffnen sich an der Fußnotenzahl (englisch, lateinisches Original eingeklappt). Siglen beim Überfahren erklärt. Griechische Wörter: Bestimmung und Wortkarte beim Anklicken nach der LXX-Morphologie (Seth Kushniryk, CC BY 4.0) bzw. Perseus Morpheus (CC BY-SA 3.0 US).')+'</p>';
   function preview(anchor){
-    const lines=String(anchor.dataset.tcHx||'').split('\n');
-    return '<b lang="grc">'+raw(anchor.textContent)+'</b>'+lines.map(l=>'<div>'+raw(l)+'</div>').join('')+'<small>'+esc('Bestimmung maschinell; ein Wort kann mehrdeutig sein.')+'</small>';
+    let an=[];try{an=JSON.parse(anchor.dataset.hxAn||'[]');}catch{}
+    const G=window.GMorph,t=window.I18N?.t?(x=>window.I18N.t(x)):(x=>x),form=anchor.textContent;
+    const rows=an.map(([lemma,key,gloss])=>{const d=G?.describe?G.describe(key,t):{pos:key,info:''};const info=raw(JSON.stringify({lemma,form,key}));
+      return '<div class="wseg"><span class="wlem wgl" lang="grc">'+raw(lemma)+'</span> <span class="muted">'+raw(gloss||'')+'</span><br><b>'+raw(d.pos)+'</b>'+(d.info?' · '+raw(d.info):'')+'<div class="tc-hx-cards"><button type="button" class="wforms" data-gr-card="card" data-gr-lemma="'+raw(lemma)+'" data-gr-info="'+info+'">'+esc('Wortkarte')+'</button><button type="button" class="wforms" data-gr-card="forms" data-gr-lemma="'+raw(lemma)+'" data-gr-info="'+info+'">'+esc('Alle Formen (Tabelle)')+'</button><button type="button" class="wforms" data-gr-card="all" data-gr-lemma="'+raw(lemma)+'">'+esc('Alle Stellen')+'</button></div></div>';}).join('');
+    return '<b lang="grc">'+raw(form)+'</b>'+rows+'<small>'+esc('Bestimmung maschinell; ein Wort kann mehrdeutig sein.')+'</small>';
   }
   return {available,load,entries,credit,preview};
 }
