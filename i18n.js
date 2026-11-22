@@ -181,7 +181,7 @@
     "Zuordnung mit Onkelos als Hilfe erschlossen (nicht Onkelos-Text)": "Alignment inferred with Onkelos as an aid (not the Onkelos text)",
     "Peschitta · automatische Vorschläge aus PaTraCoSy und mit Onkelos als Hilfe; einzelne Stellen am Text geprüft (Claude oder Codex, siehe Tooltip). Ohne Zuordnung bedeutet keine nachgewiesene Auslassung oder Ergänzung.": "Peshitta · automatic proposals from PaTraCoSy and supported by Onkelos; selected passages checked against the text (Claude or Codex, see tooltip). Unaligned does not mean a confirmed omission or addition.",
 
-    "Peschitta · Pentateuch (automatisch)": "Peshitta · Pentateuch (automatic)",
+    "Peschitta": "Peshitta",
     "PaTraCoSy und eigene Vorschläge mit Onkelos als Hilfe; teils am Text geprüft (siehe Tooltip). Hebräische Umschrift: nur Konsonanten.": "PaTraCoSy and additional proposals supported by Onkelos; partly checked against the text (see tooltip). Hebrew transliteration: consonants only.",
     "Automatischer Zuordnungsvorschlag, nicht manuell geprüft": "Automatic alignment proposal, not manually reviewed",
     "Peschitta · automatische Vorschläge aus PaTraCoSy und mit Onkelos als Hilfe, nicht manuell geprüft. Ohne Zuordnung bedeutet keine nachgewiesene Auslassung oder Ergänzung.": "Peshitta · automatic proposals from PaTraCoSy and supported by Onkelos, not manually reviewed. Unaligned does not mean a confirmed omission or addition.",
