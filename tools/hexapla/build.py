@@ -94,12 +94,27 @@ def verse_end(c,v,alt):
   for ref in ([f'{alt[0]}:{alt[1]}'] if alt and alt[2] else [])+[f'{c}:{v}']+([f'{alt[0]}:{alt[1]}'] if alt else []):
     if MT.get(ref):return ref,len(MT[ref])-1
   return None
+SEC=re.compile(r'^\s*(?:CAP\.|CAPUT\b|PSALM\.|PSALMUS\b|\[CAP\.)')
+VOL2={'Job','Psalms','Proverbs','Ecclesiastes','Song of Songs','Isaiah','Jeremiah','Lamentations','Ezekiel','Daniel','Hosea','Joel','Amos',
+      'Obadiah','Jonah','Micah','Nahum','Habakkuk','Zephaniah','Haggai','Zechariah','Malachi'}
+VOL=2 if book in VOL2 else 1
+def lxx_psalm(c,v):
+  """Field numbers the Psalms after the LXX/Vulgate: -> Hebrew psalm (verse kept, except where a psalm is split)"""
+  if c<=8 or c>=148:return c,v
+  if c==9:return (9,v) if v<=21 else (10,v-21)
+  if c<=112:return c+1,v
+  if c==113:return (114,v) if v<=8 else (115,v-8)
+  if c==114:return 116,v
+  if c==115:return 116,v+9
+  if c<=145:return c+1,v
+  if c==146:return 147,v
+  return 147,v+11                                             # 147 -> 147:12–20
 OBEL=str.maketrans({'∽':'÷','⁓':'÷','⌒':'÷'})
 def footnotes(text):
   """[n] lines (with CAP. separators) -> list of (section, n, text)"""
   out=[];sec=0;cur=None
   for line in text.split('\n'):
-    if re.match(r'^\s*CAP\.',line):sec+=1;continue
+    if SEC.match(line):sec+=1;continue
     m=re.match(r'^\[(\d+)\]\s*(.*)$',line)
     if m:cur=[sec,int(m.group(1)),m.group(2)];out.append(cur)
     elif cur and line.strip() and not line.startswith(('[Bogen','---','TOM.')):cur[2]+=' '+line.strip()
@@ -123,7 +138,7 @@ for p in pages:
   for line in body.split('\n'):
     line=line.rstrip().translate(OBEL)
     if not line.strip():continue
-    if re.match(r'^\s*CAP\.',line):sec+=1;continue
+    if SEC.match(line):sec+=1;continue
     if line.startswith('@ '):
       m=re.match(r'^@ (\d+):(\d+)',line)
       signs=bool(re.match(r'^@ (\d+) \(Zeichenliste',line))
@@ -133,6 +148,10 @@ for p in pages:
       for par in re.findall(r'\(([^()]*)\)',line[m.end():]):
         if par.startswith(('Forts','Nachtrag')):continue
         alt=alt or alt_ref(c,v,par)
+      # volume II: Field's second numbering in parentheses is the Hebrew one (the Greek is marked "Gr.")
+      # (a chapter far away is the Greek order, e.g. Jer 25:16 (32:2), and stays secondary)
+      if alt and VOL==2 and abs(alt[0]-c)<=3:alt=(alt[0],alt[1],True)
+      if book=='Psalms' and not alt:alt=lxx_psalm(c,v)+(True,)
       unit=None;cont='Forts.' in line
       continue
     if c is None:continue
@@ -171,7 +190,7 @@ for u in [x for L in entries.values() for x in L]+unresolved:
     # notes of a page with CAP. only in text/footnotes on one side: fall back to number match on the page
     u['fn']=[k for n in re.findall(r'\^(\d+)',u['t']) for k in notes if k.startswith(u['leaf']+'.') and k.endswith('.'+n)][:3]
 used={k for L in list(entries.values())+[unresolved] for u in L for k in u['fn']}
-data={'book':book,'source':{'title':'Frederick Field, Origenis Hexaplorum quae supersunt, I (Oxford 1875)','url':'https://archive.org/details/origenhexapla01unknuoft','license':'public domain'},
+data={'book':book,'vol':VOL,'source':{'title':'Frederick Field, Origenis Hexaplorum quae supersunt, '+('I' if VOL==1 else 'II')+' (Oxford 1875)','url':'https://archive.org/details/origenhexapla0'+str(VOL)+'unknuoft','license':'public domain'},
       'verses':{ref:[{k:u[k] for k in ('s','e','h','l','t','leaf','pg','fn','field','gap','cont','signs') if k in u} for u in L] for ref,L in entries.items() if ref},
       'notes':{k:n for k,n in notes.items() if k in used}}
 out=ROOT/'hexapla-data';out.mkdir(exist_ok=True)

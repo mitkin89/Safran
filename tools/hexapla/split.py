@@ -15,6 +15,12 @@ HEADS=[  # most specific first
   (r'APPENDIX AD PENTATEUCHUM',None),(r'\bGENESIS','Genesis'),(r'\bEXODUS','Exodus'),(r'\bLEVITICUS','Leviticus'),
   (r'\bNUMERI','Numbers'),(r'\bDEUTERONOMIUM','Deuteronomy'),(r'\bJOSUA','Joshua'),(r'\bJUDICES','Judges'),
   (r'\bRUTH','Ruth'),(r'\bESDRAS','Ezra'),(r'\bNEHEMIAS','Nehemiah'),(r'\bESTHER','Esther'),
+  # volume II
+  (r'CORRIGENDA|AUCTARIUM',None),(r'\bJOB','Job'),(r'\bPSALM','Psalms'),(r'\bPROVERBI','Proverbs'),(r'\bECCLESIAST','Ecclesiastes'),
+  (r'\bCANTIC','Song of Songs'),(r'\bJESAI','Isaiah'),(r'\bJEREMI','Jeremiah'),(r'\bTHRENI','Lamentations'),(r'\bEZECHIEL','Ezekiel'),
+  (r'\bDANIEL','Daniel'),(r'\bPROPHETAE XII',None),(r'\b(HOSEAS|OSEE)','Hosea'),(r'\bJOEL','Joel'),(r'\bAMOS','Amos'),(r'\b(OBADIAS|ABDIAS)','Obadiah'),
+  (r'\bJONAS','Jonah'),(r'\bMICH','Micah'),(r'\bNAHUM','Nahum'),(r'\bHABACUC','Habakkuk'),(r'\b(ZEPHANIAS|SOPHONIAS)','Zephaniah'),
+  (r'\b(HAGGAI|AGGAEUS)','Haggai'),(r'\bZACHARIAS','Zechariah'),(r'\bMALACHIAS','Malachi'),
 ]
 slug=lambda b:b.lower().replace(' ','-')
 book='?';seen={}

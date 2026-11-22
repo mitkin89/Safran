@@ -3,7 +3,7 @@
 // footnotes in Latin with an English translation (hexapla-data/<Book>.js, tools/hexapla/build.py).
 window.LibraryHexaplaTC=(()=>{
 'use strict';
-const BOOKS=/*BOOKS*/["Deuteronomy", "Esther", "Exodus", "Ezra", "Genesis", "I Chronicles", "I Kings", "I Samuel", "II Chronicles", "II Kings", "II Samuel", "Joshua", "Judges", "Leviticus", "Nehemiah", "Numbers", "Ruth"]/*END*/;
+const BOOKS=/*BOOKS*/["Amos", "Daniel", "Deuteronomy", "Ecclesiastes", "Esther", "Exodus", "Ezekiel", "Ezra", "Genesis", "Habakkuk", "Haggai", "Hosea", "I Chronicles", "I Kings", "I Samuel", "II Chronicles", "II Kings", "II Samuel", "Isaiah", "Jeremiah", "Job", "Joel", "Jonah", "Joshua", "Judges", "Lamentations", "Leviticus", "Malachi", "Micah", "Nahum", "Nehemiah", "Numbers", "Obadiah", "Proverbs", "Psalms", "Ruth", "Song of Songs", "Zechariah", "Zephaniah"]/*END*/;
 const SIGLA=/(Ο΄\.|Οἱ [Γγ]΄\.?|Οἱ λοιποί|Οἱ λ΄\.?|Ὁ Σύρος|Ὁ Ἑβραῖος|Ὁ Σαμαρειτικός|Τὸ Σαμαρειτικόν|Ἄλλος|Ἄλλως|[’'‘]?Α\.|Ἀ\.|Σ\.|Θ\.|Alia exempl\.|Aliter:)/g;
 function create(host){
   const esc=s=>host.esc(window.I18N?.textCrit?.(String(s))??s);
@@ -63,14 +63,14 @@ function create(host){
       (data.verses[m[2]]||[]).forEach((u,i)=>{
         const id=ref+'|'+i,prev=out.get(id);if(prev){if(!prev.rows.includes(row))prev.rows.push(row);return;}
         const anchor=u.s==null?null:u.gap?{kind:'gap',start:u.e,end:u.e,ref}:{kind:'word',start:u.s,end:u.e,ref};
-        const cite='Field, Hexapla I, S. '+u.pg+(u.field&&u.field!==m[2]?' · Field '+u.field:'');
+        const cite='Field, Hexapla '+(data.vol===2?'II':'I')+', S. '+u.pg+(u.field&&u.field!==m[2]?' · Field '+u.field:'');
         const html='<article class="tc-entry tc-hx-entry" data-witness="Hex"><div class="tc-note-text"><span class="tc-witness-label" title="'+esc('Hexapla (Field 1875)')+'">Hex</span> '+(u.l?'<span class="tc-hx-lat" title="'+raw(u.h)+'">'+italic(raw(u.l))+'</span> ':'')+'<span class="tc-hx-read" lang="grc">'+reading(data,u)+'</span></div><small class="tal-cite" tabindex="0" title="'+raw('Blatt '+u.leaf+(u.cont?' · Fortsetzung':''))+'">'+raw(cite)+'</small></article>';
         out.set(id,{anchor,displayRef:ref,rows:[row],html});
       });
     }
     return [...out.values()];
   }
-  const credit=()=>'<p class="tc-credit">'+esc('Hexapla: Frederick Field, Origenis Hexaplorum quae supersunt I (Oxford 1875), gemeinfrei; Scan archive.org. Transkription und englische Übersetzung der lateinischen Fußnoten: Claude, 2026. Fußnoten beim Überfahren der hochgestellten Zahl. Griechische Wörter: Bestimmung beim Überfahren nach der LXX-Morphologie (Seth Kushniryk, CC BY 4.0) bzw. Perseus Morpheus (CC BY-SA 3.0 US).')+'</p>';
+  const credit=()=>'<p class="tc-credit">'+esc('Hexapla: Frederick Field, Origenis Hexaplorum quae supersunt I–II (Oxford 1875), gemeinfrei; Scan archive.org. Transkription und englische Übersetzung der lateinischen Fußnoten: Claude, 2026. Fußnoten beim Überfahren der hochgestellten Zahl. Griechische Wörter: Bestimmung beim Überfahren nach der LXX-Morphologie (Seth Kushniryk, CC BY 4.0) bzw. Perseus Morpheus (CC BY-SA 3.0 US).')+'</p>';
   return {available,load,entries,credit};
 }
 return {create,BOOKS};

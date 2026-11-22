@@ -1,6 +1,6 @@
 # Field, Origenis Hexaplorum quae supersunt I (1875) – Transkription
 
-Die Vorlage ist der Scan von archive.org (origenhexapla01unknuoft); er ist gemeinfrei. Band I (Genesis bis Ester) steht auf den Blättern 0119 bis 0924; die Transkriptionen liegen je Buch in `field/<buch>/ocr` und `field/<buch>/ocr-en`.
+Die Vorlage ist der Scan von archive.org (origenhexapla01unknuoft); er ist gemeinfrei. Band I (Genesis bis Ester, origenhexapla01unknuoft) steht auf den Blättern 0119 bis 0924, Band II (Hiob bis Maleachi, origenhexapla02unknuoft) auf 0014 bis 1050; die Transkriptionen liegen je Buch in `field/<buch>/ocr` und `field/<buch>/ocr-en`.
 
 Für jedes Blatt gibt es in `tiles/` diese Bilder:
 
@@ -85,7 +85,8 @@ python3 tools/hexapla/build.py "I Kings" tools/hexapla/field/i-kings/ocr tools/h
 Ketiv oder fehlenden Leerzeichen mit einem unscharfen Vergleich in den nächsten Versen). Fields zweite Zählung
 „(Hebr. 15)“, „(xiv. 1)“, „(5:2)“ gilt als MT-Vers, „(Gr. …)“ wird übergangen. Zeichenlisten am Kapitelende
 (`@ 9 (Zeichenliste)`) und Nachträge ohne Lemma werden ans Ende des jeweiligen Verses gesetzt. Nicht zugeordnete
-Lemmata stehen in `<Buch>-unresolved.json`.
+Lemmata stehen in `<Buch>-unresolved.json`. Band II: Field zählt die Psalmen nach der LXX (Umrechnung `lxx_psalm`);
+eine Klammerzählung gilt dort als hebräisch, außer sie liegt mehr als drei Kapitel entfernt (griechische Ordnung in Jeremia).
 
 ## Griechische Morphologie der Lesarten
 
