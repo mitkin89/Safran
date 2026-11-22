@@ -1,6 +1,6 @@
 {
   "name": "safran",
-  "version": "2.7.1",
+  "version": "2.8.0",
   "description": "Safran – Sefaria-Texte offline lesen, durchsuchen, herunterladen und eigene Texte für den Upload prüfen",
   "main": "main.js",
   "desktopName": "safran.desktop",
@@ -37,7 +37,10 @@
       "icon": "build/icon.png"
     },
     "linux": {
-      "target": ["AppImage", "deb"],
+      "target": [
+        "AppImage",
+        "deb"
+      ],
       "category": "Education",
       "icon": "build/icon.png",
       "maintainer": "Safran <noreply@example.com>",
@@ -104,4 +107,3 @@
     "afterPack": "build/adhoc-sign.js"
   }
 }
-

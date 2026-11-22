@@ -41,6 +41,9 @@ module.exports=async({win,js,waitFor,book})=>{
   assert(fn,'Fußnote mit Übersetzung in Gen 2:2');
   await js(`[...document.querySelectorAll('#tcBody .tc-hx-note')].find(n=>n.querySelector(':scope>[lang=en]')).previousElementSibling.click()`);
   assert(await js("{const d=[...document.querySelectorAll('#tcBody .tc-hx-note')].find(n=>!n.hidden);d&&d.previousElementSibling.matches('.tc-hx-fn')&&getComputedStyle(d).display==='inline'&&d.querySelector('.tc-hx-la').hidden&&!document.querySelector('#tcBody .tc-hx-notes')}"),'Fußnote inline an der Zahl, Englisch, Latein eingeklappt');
+  // Opening the inline footnote scrolls it into view. Let the scroll event finish
+  // before opening a preview, since scrolling deliberately dismisses previews.
+  await js('new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))');
   // Wortkarte für Aquila & Co. aus der Bestimmung
   await js("document.querySelector('#tcBody .tc-hx-w').click()");
   await waitFor("document.querySelector('#tcHover [data-gr-card=card]')",'Wortkarten-Knopf in der Bestimmung');
