@@ -68,9 +68,14 @@ function locate(mapped,indices,targetLength,boundary=null){
   if(!Number.isInteger(before)||!Number.isInteger(after)||after!==before+1)return null;
   return {kind:'gap',start:before,end:before};
 }
+// An entry over WIDE or more MT words (a whole Hexapla clause, Kennicott "Com.") is a passage of its own:
+// it stays a separate locus and is not merged with the word groups it covers.
+const WIDE=4;
+const wide=e=>e.anchor?.kind==='word'&&e.anchor.end-e.anchor.start+1>=WIDE;
 function groupLoci(entries){
-  const groups=[],gaps=new Map();
-  const ordered=entries.filter(e=>e.anchor?.kind==='word').sort((a,b)=>a.anchor.start-b.anchor.start);
+  const groups=[],gaps=new Map(),spans=new Map();
+  for(const entry of entries.filter(wide)){const a=entry.anchor,k=a.start+'-'+a.end;if(!spans.has(k))spans.set(k,{...a,span:true,entries:[]});spans.get(k).entries.push(entry);}
+  const ordered=entries.filter(e=>e.anchor?.kind==='word'&&!wide(e)).sort((a,b)=>a.anchor.start-b.anchor.start);
   for(const entry of ordered){
     const a=entry.anchor,last=groups.at(-1);
     if(last&&a.start<=last.end){last.end=Math.max(last.end,a.end);last.entries.push(entry);}
@@ -80,6 +85,8 @@ function groupLoci(entries){
     const a=entry.anchor;if(!gaps.has(a.start))gaps.set(a.start,{...a,entries:[]});gaps.get(a.start).entries.push(entry);
   }
   groups.push(...gaps.values());groups.sort((a,b)=>(a.start*2+(a.kind==='word'?1:2))-(b.start*2+(b.kind==='word'?1:2)));
+  // passages first, longest first: they frame the word groups below
+  groups.unshift(...[...spans.values()].sort((a,b)=>a.start-b.start||b.end-a.end));
   const unresolved=entries.filter(e=>!e.anchor);if(unresolved.length)groups.push({kind:'unresolved',entries:unresolved});
   return groups;
 }

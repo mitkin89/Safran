@@ -4,7 +4,7 @@ const {ipcMain}=require('electron');
 module.exports=async({win,js,waitFor,book})=>{
   await book('Genesis');
   await js("document.querySelector('#rSection').value='0';document.querySelector('#rSection').dispatchEvent(new Event('change',{bubbles:true}));for(const id of ['tcSmr','tcTov','tcDss']){document.getElementById(id).checked=false;document.getElementById(id).dispatchEvent(new Event('change',{bubbles:true}));}document.querySelector('#tcKen').checked=true;document.querySelector('#tcKen').dispatchEvent(new Event('change',{bubbles:true}));if(document.querySelector('#textcritPanel').hidden)document.querySelector('#tcBtn').click();document.querySelector('#rOut .row[data-l=\"2\"] .txt').click()");
-  await waitFor("document.querySelector('#tcBody .tc-ken-entry')?.textContent.includes('Kennicott')",'Kennicott Genesis in echter Oberfläche');
+  await waitFor("document.querySelector('#tcBody .tc-ken-entry .tc-witness-label')?.textContent==='Ken'",'Kennicott Genesis in echter Oberfläche');
   assert(await js("[...document.querySelectorAll('#tcBody .tc-ken-entry')].some(e=>e.textContent.includes('תוהו')&&e.textContent.includes('K 9'))"));
   assert(await js("[...document.querySelectorAll('#tcBody .tc-ken-entry')].some(e=>e.textContent.includes('Auslassung')&&e.textContent.includes('K 665'))"));
   await js("{const el=document.querySelector('#tcBody [data-ken-id=\"gen-app-4\"] .tc-source');el.focus({preventScroll:true});el.dispatchEvent(new FocusEvent('focusin',{bubbles:true}));}");

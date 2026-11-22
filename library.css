@@ -1952,10 +1952,26 @@ body.il .cell[data-k="he"] .ilt.il-smr { direction: rtl; font-family: var(--he-f
 .tc-hx-la-toggle[aria-expanded=true]::before { content: '▾ '; }
 .tc-hx-la { color: var(--muted); }
 .tc-hx-la[hidden] { display: none; }
+.tc-ken-count { font: inherit; font-size: .85em; color: var(--tc-witness, var(--accent)); background: none; border: 0; padding: 0 2px; cursor: pointer; text-decoration: underline dotted; }
+.tc-ken-count::after { content: ' ▸'; }
+.tc-ken-count[aria-expanded=true]::after { content: ' ▾'; }
+.tc-hx-syn { display: grid; grid-template-columns: max-content 1fr; gap: .15em .6em; margin: .2em 0; }
+.tc-hx-row-sig { white-space: nowrap; }
+.tc-hx-syn:not(.full) .tc-hx-same-t { display: none; }
+.tc-hx-syn:not(.full) .tc-hx-same::before { content: '…'; color: var(--muted); }
+.tc-hx-syn.full .tc-hx-same { color: var(--muted); }
+.tc-hx-syn-toggle { font: .75em system-ui, sans-serif; color: var(--muted); background: none; border: 0; padding: 0; cursor: pointer; text-decoration: underline dotted; }
+.tc-locus-span > .tc-locus-title { font-size: .8em; opacity: .85; }
+.tc-span-label { display: block; font: .7em system-ui, sans-serif; color: var(--muted); letter-spacing: .04em; text-transform: uppercase; }
+#tcBody .tc-entry .tc-note-text { position: relative; padding-left: 4.6em; }
+#tcBody .tc-entry .tc-note-text > .tc-witness-label:first-child { position: absolute; left: 0; top: .25em; max-width: 4.4em; overflow: hidden; text-overflow: ellipsis; }
 .tc-hx-cards { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 4px; }
 #tcBody .tc-witness-label[data-tc-tov] { cursor: help; }
 .tc-hx-sign { font-weight: 700; color: var(--accent); }
 .tc-hx-lat { color: var(--muted); font-size: .9em; }
+.tc-hx-lat:not([hidden]) { display: block; }
+.tc-hx-foot { display: inline; margin-left: .8em; font-size: .9em; }
+.tc-hx-read > .tc-hx-syn-toggle, .tc-hx-foot .tc-hx-la-toggle { font-size: .75em; }
 /* Apparat: Peschitta als Textzeuge */
 .tc-ps-sy { font-family: "Safran Syriac", sans-serif; font-size: 1.1em; }
 .tc-ps-long { display: inline; }

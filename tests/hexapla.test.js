@@ -33,6 +33,12 @@ test('Greek words of the readings carry a morphology tooltip (hexapla-morph.js)'
   assert.match(html,/title="Ἀ\. = Aquila/);
   assert.match(html,/data-hx-fn="9"[^>]*>9<\/sup><span class="tc-hx-note" data-hx-fn="9" role="note" hidden><span class="tc-hx-note-n">9<\/span> <span lang="la">Philop/,'inline note right after its number; Latin when there is no translation');
   assert.doesNotMatch(html,/tc-hx-notes/,'no footnote block at the end');
+  // Synopsis: one row per translator, words as in the LXX row folded
+  const g26=hx.entries(d,[{ref:'Genesis 1:26',row:'26'}]).map(x=>x.html).join('');
+  assert.match(g26,/<div class="tc-hx-syn">/);
+  assert.equal((g26.match(/class="tc-hx-row-sig"/g)||[]).length>=4,true,'Ο΄, Ἀ., Σ., Θ. rows');
+  assert.match(g26,/class="tc-hx-same"/);
+  assert.match(g26,/class="tc-hx-syn-toggle"/);
   assert.match(html,/data-hx-an="\[\[&quot;γίνομαι&quot;/,'analysis for the word card');
   const g1=hx.entries(d,[{ref:'Genesis 1:1',row:'1'}]).map(x=>x.html).join('');
   assert.match(g1,/<span class="tc-hx-note-n">1<\/span> <span lang="en">CAP\. I\. Hieron[^<]*For both/,'English first');

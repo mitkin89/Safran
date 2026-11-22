@@ -47,9 +47,10 @@ function create(host){
     });
   }
   const italic=s=>s.replace(/_([^_]+)_/g,'<i>$1</i>');
-  function reading(data,u){
+  function reading(data,u){return markup(data,u,u.t);}
+  function markup(data,u,text){
     // markup on the escaped reading first; footnote tooltips are inserted last so their text stays untouched
-    let h=italic(raw(u.t)).replace(SIGLA,m=>{const t=SIGTITLE.find(([re])=>re.test(m));return '<b class="tc-hx-sig"'+(t?' tabindex="0" title="'+esc(t[1])+'"':'')+'>'+m+'</b>';})
+    let h=italic(raw(text)).replace(SIGLA,m=>{const t=SIGTITLE.find(([re])=>re.test(m));return '<b class="tc-hx-sig"'+(t?' tabindex="0" title="'+esc(t[1])+'"':'')+'>'+m+'</b>';})
       .replace(/※/g,'<span class="tc-hx-sign" title="'+esc('Asterisk: von Origenes nach dem Hebräischen ergänzt')+'">※</span>')
       .replace(/÷/g,'<span class="tc-hx-sign" title="'+esc('Obelus: in der LXX ohne hebräisches Gegenstück')+'">÷</span>');
     h=words(h);
@@ -59,6 +60,40 @@ function create(host){
       // The footnote opens in place, right after its number (English first, Latin folded).
       return '<sup class="tc-hx-fn" tabindex="0" role="button" aria-expanded="false" data-hx-fn="'+raw(n)+'" title="'+esc('Fußnote aufklappen')+'">'+n+'</sup>'+inlineNote(note,n);
     });
+  }
+  // Synopsis: one row per translator under the LXX; words the same as in the LXX row are folded to „…“
+  // (shown again with „Volltext“). Only for plain readings that start with Ο΄ and have at least two rows.
+  const norm=t=>t.normalize('NFD').replace(/[^\p{L}]/gu,'').toLowerCase();
+  function synopsis(data,u){
+    const t=u.t;if(t.includes('_'))return null;
+    const re=new RegExp(SIGLA.source,'g'),marks=[];let m;
+    while((m=re.exec(t)))marks.push([m.index,m.index+m[0].length]);
+    if(!marks.length||t.slice(0,marks[0][0]).trim())return null;
+    const rows=[];
+    for(let i=0;i<marks.length;i++){
+      const last=rows.at(-1),between=last?t.slice(last.hend,marks[i][0]):'';
+      if(last&&!between.trim()){last.hend=marks[i][1];continue;}       // Ο΄. Θ. – one row for several translators
+      if(last)last.text=between;
+      rows.push({hstart:marks[i][0],hend:marks[i][1]});
+    }
+    rows.at(-1).text=t.slice(rows.at(-1).hend);
+    rows.forEach(r=>{r.head=t.slice(r.hstart,r.hend);r.tok=r.text.trim().split(/\s+/).filter(Boolean);});
+    if(rows.length<2||!/Ο΄/.test(rows[0].head)||rows[0].tok.length<4||rows.some(r=>!r.tok.length))return null;
+    const base=rows[0].tok.map(norm);
+    const row=(r,i)=>{
+      let body;
+      if(!i)body=markup(data,u,r.tok.join(' '));
+      else{
+        // longest common subsequence with the LXX row
+        const a=base,b=r.tok.map(norm),L=Array.from({length:a.length+1},()=>new Array(b.length+1).fill(0));
+        for(let x=a.length-1;x>=0;x--)for(let y=b.length-1;y>=0;y--)L[x][y]=a[x]&&a[x]===b[y]?L[x+1][y+1]+1:Math.max(L[x+1][y],L[x][y+1]);
+        const same=new Array(b.length).fill(false);for(let x=0,y=0;x<a.length&&y<b.length;){if(a[x]&&a[x]===b[y]){same[y]=true;x++;y++;}else if(L[x+1][y]>=L[x][y+1])x++;else y++;}
+        const parts=[];r.tok.forEach((w,k)=>{const p=parts.at(-1);if(p&&p.same===same[k])p.w.push(w);else parts.push({same:same[k],w:[w]});});
+        body=parts.map(p=>p.same?'<span class="tc-hx-same"><span class="tc-hx-same-t">'+markup(data,u,p.w.join(' '))+'</span></span>':markup(data,u,p.w.join(' '))).join(' ');
+      }
+      return '<span class="tc-hx-row-sig">'+markup(data,u,r.head)+'</span><span class="tc-hx-row" lang="grc">'+body+'</span>';
+    };
+    return '<div class="tc-hx-syn">'+rows.map(row).join('')+'</div><button type="button" class="tc-hx-syn-toggle" aria-pressed="false">'+esc('Volltext')+'</button>';
   }
   // Field's footnote as an inline note: English translation first, the Latin original folded inside.
   function inlineNote(note,n){
@@ -74,7 +109,7 @@ function create(host){
         const id=ref+'|'+i,prev=out.get(id);if(prev){if(!prev.rows.includes(row))prev.rows.push(row);return;}
         const anchor=u.s==null?null:u.gap?{kind:'gap',start:u.e,end:u.e,ref}:{kind:'word',start:u.s,end:u.e,ref};
         const cite='Field, Hexapla '+(data.vol===2?'II':'I')+', S. '+u.pg+(u.field&&u.field!==m[2]?' · Field '+u.field:'');
-        const html='<article class="tc-entry tc-hx-entry" data-witness="Hex"><div class="tc-note-text"><span class="tc-witness-label" title="'+esc('Hexapla (Field 1875)')+'">Hex</span> '+(u.l?'<span class="tc-hx-lat" title="'+raw(u.h)+'">'+italic(raw(u.l))+'</span> ':'')+'<span class="tc-hx-read" lang="grc">'+reading(data,u)+'</span></div>'+'<small class="tal-cite" tabindex="0" title="'+raw('Blatt '+u.leaf+(u.cont?' · Fortsetzung':''))+'">'+raw(cite)+'</small></article>';
+        const html='<article class="tc-entry tc-hx-entry" data-witness="Hex"><div class="tc-note-text"><span class="tc-witness-label" title="'+esc('Hexapla (Field 1875)')+'">Hex</span> '+((syn=>syn?'<div class="tc-hx-read">'+syn+'</div>':'<span class="tc-hx-read" lang="grc">'+reading(data,u)+'</span>')(synopsis(data,u)))+(u.l?'<div class="tc-hx-foot"><button type="button" class="tc-hx-la-toggle tc-hx-lat-toggle" aria-expanded="false" title="'+esc('Fields lateinische Übersetzung des hebräischen Stichworts')+'">'+esc('Latein')+'</button><span class="tc-hx-lat" hidden title="'+raw(u.h)+'">'+italic(raw(u.l))+'</span></div>':'')+'</div>'+'<small class="tal-cite" tabindex="0" title="'+raw('Blatt '+u.leaf+(u.cont?' · Fortsetzung':''))+'">'+raw(cite)+'</small></article>';
         const sig=[...new Set((u.t.match(SIGLA)||[]).map(x=>HEXSIG.find(([re])=>re.test(x))?.[1]).filter(Boolean))];
         out.set(id,{anchor,displayRef:ref,rows:[row],html,lz:sig.map(w=>({f:'Hex',w,op:'cite',title:'Hexapla (Field)'}))});
       });

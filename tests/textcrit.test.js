@@ -50,7 +50,10 @@ test('Ambiguous repeated words stay unresolved; additions have their own MT boun
   assert.equal(C.locate([],[],0,0),null);
   assert.equal(C.locate(C.alignPositions(['אב','גד'],['דה','וז']),[0],2),null);
   assert.deepEqual(C.words('מִכָּל־מְלַאכְתּוֹ׃'),['מִכָּל','מְלַאכְתּוֹ']);
-  const groups=C.groupLoci([{anchor:{kind:'word',start:0,end:3}},{anchor:{kind:'gap',start:1,end:1}},{anchor:{kind:'word',start:2,end:4}},{anchor:null}]);
+  const groups=C.groupLoci([{anchor:{kind:'word',start:0,end:2}},{anchor:{kind:'gap',start:1,end:1}},{anchor:{kind:'word',start:2,end:4}},{anchor:null}]);
   assert.equal(groups[0].end,4);assert.equal(groups[0].entries.length,2);
   assert.equal(groups[1].kind,'gap');assert.equal(groups[2].kind,'unresolved');
+  // a passage of four or more words is its own locus, first, and does not swallow the word groups it covers
+  const w=C.groupLoci([{anchor:{kind:'word',start:1,end:1}},{anchor:{kind:'word',start:0,end:5}},{anchor:{kind:'word',start:4,end:4}}]);
+  assert.equal(w.length,3);assert(w[0].span);assert.equal(w[0].end,5);assert.deepEqual(w.slice(1).map(g=>g.start),[1,4]);
 });
