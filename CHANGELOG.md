@@ -1,5 +1,11 @@
 # Changelog
 
+### New in 2.8.1
+
+- Add the Aleppo text (MAM) as a word-by-word interlinear row under the Westminster text, marking differences and missing counterparts; identify passages lost from the Aleppo Codex.
+- Complete English interface labels, including reader tabs and window titles.
+- Simplify the Peshitta interlinear label and update apparatus documentation and screenshots.
+
 ### New in 2.8.0
 
 - Apparatus witness „Hex“: Frederick Field's Hexapla (1875) for all 39 books – Hebrew lemma located in the MT, LXX with hexaplaric signs (※ ÷), readings of Aquila, Symmachus, Theodotion and others, and Field's footnotes (Latin, with English translation) on hover; transcribed from the public-domain archive.org scan.
