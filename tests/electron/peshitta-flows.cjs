@@ -126,7 +126,7 @@ module.exports=async({profile,docs,win,js,waitFor,book})=>{
  await js("{const c=document.querySelector('#ilPop input[value=Peshitta]');c.checked=true;c.dispatchEvent(new Event('change',{bubbles:true}));}");
  await waitFor("document.querySelector('.ilt.il-ps .syw')",'Peschitta unter dem MT');
  assert.equal(await js("document.querySelector('.ilt.il-ps .ps-translit').textContent"),'ברשית');
- assert(await js("document.querySelector('.ps-notice').textContent.includes('automatic proposals')"));
+ assert(await js("!document.querySelector('.ps-notice')"),'kein Hinweistext über dem Interlinear');
  await js("document.querySelector('#ilBtn').click()");
  await js("document.querySelector('.ilt.il-ps .syw').scrollIntoView({block:'center'})");
  await js('new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))');

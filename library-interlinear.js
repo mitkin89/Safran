@@ -313,9 +313,6 @@ window.LibraryInterlinear = (() => {
       for (const n of use) if (IL_TG[n]) tgd[n] = await tgDoc(getView().group, n);
       if (tok !== ilTok) return;
       ilLegend(use);
-      if(use.includes('Peshitta')){
-        const notice=document.createElement('p');notice.className='ps-notice muted';notice.textContent=I18N.t('Peschitta · automatische Vorschläge aus PaTraCoSy und mit Onkelos als Hilfe; einzelne Stellen am Text geprüft (Claude oder Codex, siehe Tooltip). Ohne Zuordnung bedeutet keine nachgewiesene Auslassung oder Ergänzung.');$('#rOut').prepend(notice);
-      }
       for (const row of $$('#rOut .row[data-l]')) {
         const v = verseOf(row.dataset.l); if (v == null) continue;
         row.querySelectorAll('.cell[data-k="he"]').forEach(cell => {
