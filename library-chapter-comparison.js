@@ -44,6 +44,11 @@ function create({root,books,load,index,esc}){
     box.innerHTML=`<p class="muted">${t('Zwei vollständige Kapitel vergleichen – auch wenn im Überblick gerade ein Einzelvers ausgewählt ist.')}</p><div class="ccChoices">${['a','b'].map(side=>`<fieldset><legend>${side.toUpperCase()}</legend><label>${t('Buch')} <select data-cc-book="${side}">${options(s[side].book)}</select></label><label>${t('Kapitel')} <input type="number" min="1" step="1" value="${s[side].chapter}" data-cc-chapter="${side}"></label></fieldset>`).join('')}</div><div class="ccActions"><button type="button" class="ccRun">${t('Vergleichen')}</button><button type="button" class="ccSwap">⇄ ${t('A und B tauschen')}</button></div><div class="ccResult" aria-live="polite"></div>`;
     const ctx={box,s,token:0};contexts.set(box,ctx);run(ctx,initial,!initial);
   }
+  // Open the comparison with a given chapter B (from „Ähnliche Kapitel“)
+  function compareWith(box,b){
+    const ctx=contexts.get(box);if(!ctx)return;ctx.s.b={...ctx.s.b,...b};
+    box.querySelector('[data-cc-book=b]').value=b.book;box.querySelector('[data-cc-chapter=b]').value=b.chapter;run(ctx);
+  }
   function context(target){const box=target.closest('.apChapterCompare');return box&&contexts.get(box);}
   root.addEventListener('click',e=>{
     const ctx=context(e.target);if(!ctx)return;const {s,box}=ctx;
@@ -55,7 +60,7 @@ function create({root,books,load,index,esc}){
   });
   root.addEventListener('change',e=>{const ctx=context(e.target);if(!ctx)return;if(e.target.matches('[data-cc-book]'))ctx.box.querySelector('[data-cc-chapter='+e.target.dataset.ccBook+']').removeAttribute('max');});
   root.addEventListener('toggle',e=>{if(!e.target.matches('.ccRow'))return;const ctx=context(e.target);if(!ctx)return;const k=ctx.s.mode+'|'+e.target.dataset.ccKey;if(e.target.open)ctx.s.open.add(k);else ctx.s.open.delete(k);},true);
-  return {mount};
+  return {mount,compareWith};
 }
 return {create};
 })();

@@ -3157,6 +3157,26 @@
     books:()=>[...new Set(groups.filter(g=>linksUI.TANAKH_BOOKS.has(g.title)&&g.versions.some(v=>v.kind==='he'&&/^Westminster/.test(v.versionTitle||''))).map(g=>g.title))],
     load:async book=>{const entry=groups.find(g=>g.title===book&&g.versions.some(v=>v.kind==='he'&&/^Westminster/.test(v.versionTitle||'')))?.versions.find(v=>v.kind==='he'&&/^Westminster/.test(v.versionTitle||''));if(!entry)throw Error('MT missing');if(!chapterCompareDocs.has(entry.rel))chapterCompareDocs.set(entry.rel,Promise.resolve(cache.get(entry.rel)||O.read(entry.rel)).catch(e=>{chapterCompareDocs.delete(entry.rel);throw e;}));return chapterCompareDocs.get(entry.rel);}
   });
+  // ----- Ähnliche Kapitel (similar-chapters.js, tools/oshb/similar_chapters.py): Wortschatz oder gleiche Wendungen -----
+  const apSim={mode:'w',hideNear:true};
+  async function apSimilarMount(pane){
+    const box=pane.querySelector('.apSimilar');if(!box||!apCur?.c)return;
+    box.innerHTML='<p class="muted">'+esc(I18N.t('Lädt …'))+'</p>';
+    let D;try{D=await wordCardsUI.lazyScript('similar-chapters.js',()=>window.SIMILAR_CHAPTERS);}catch{D=null;}
+    const key=apCur.c.book+' '+apCur.c.chapter,rec=D?.c?.[key];
+    if(!box.isConnected)return;
+    if(!rec){box.innerHTML='<p class="muted">'+esc(I18N.t('Für dieses Kapitel liegen keine Vergleichsdaten vor (nur Tanach, Westminster-Text).'))+'</p>';return;}
+    const book=apComparison==='book',list=(rec[apSim.mode+(book?'b':'')]||[]).filter(([k])=>{if(!apSim.hideNear)return true;const [b,c]=[k.replace(/ \d+$/,''),+k.split(' ').at(-1)];return !(b===apCur.c.book&&Math.abs(c-apCur.c.chapter)===1);});
+    const LEM=window.OSHB_LEMMAS||{},max=Math.max(...list.map(x=>x[1]),1e-9);
+    const name=k=>{const b=k.replace(/ \d+$/,''),c=k.split(' ').at(-1);return (I18N.lang==='de'?(deNames(b).split(' / ')[0]||b):b)+' '+c;};
+    const rows=list.map(([k,score,what])=>{
+      const detail=apSim.mode==='w'?what.map(l=>{const x=LEM[l];return x?'<span class="apSimWord"><span lang="he" dir="rtl">'+esc(x[0])+'</span> <small>'+esc(I18N.lang==='de'&&x[2]?x[2]:x[1])+'</small></span>':'';}).join(''):what.map(p=>'<span class="apSimPhrase" lang="he" dir="rtl">'+esc(p)+'</span>').join('');
+      return '<div class="apSimRow"><button type="button" class="apSimCompare" data-sim="'+esc(k)+'" title="'+esc(I18N.t('Mit diesem Kapitel vergleichen'))+'"><b>'+esc(name(k))+'</b><i class="apBar"><b style="width:'+Math.max(3,Math.round(100*score/max))+'%"></b></i></button><button type="button" class="apSimOpen" data-sim-open="'+esc(k)+'" title="'+esc(I18N.t('Kapitel öffnen'))+'">↗</button><div class="apSimWhat">'+detail+'</div></div>';
+    }).join('');
+    box.innerHTML='<div class="apSimModes">'+[['w','Wortschatz','Gleiche typische Wörter (seltene zählen mehr, Funktionswörter nicht)'],['p','Wendungen','Gleiche Folgen von drei Wörtern, seltene Folgen zählen mehr']].map(([m,l,t])=>'<button type="button" data-sim-mode="'+m+'" aria-pressed="'+(apSim.mode===m)+'" class="'+(apSim.mode===m?'on':'')+'" title="'+esc(I18N.t(t))+'">'+esc(I18N.t(l))+'</button>').join('')+'<label><input type="checkbox" class="apSimNear"'+(apSim.hideNear?' checked':'')+'> '+esc(I18N.t('Nachbarkapitel ausblenden'))+'</label></div>'
+      +'<p class="muted apHow">'+esc(I18N.t(book?'Ähnlichste Kapitel im Buch {}.':'Ähnlichste Kapitel im gesamten Tanach.',apCur.c.book))+' '+esc(I18N.t('Klick: beide Kapitel vergleichen; ↗ öffnet das Kapitel.'))+'</p>'
+      +(rows||'<p class="muted">'+esc(I18N.t('Keine ähnlichen Kapitel gefunden.'))+'</p>');
+  }
   function apChapterCompareMount(pane){const box=pane.querySelector('.apChapterCompare');if(box&&apCur?.c)chapterCompare.mount(box,{book:apCur.c.book,chapter:apCur.c.chapter,scope:pane.dataset.scope});}
   function apVerseProfile(st){
     const metrics=[['words','Wörter',p=>p.words],['rare','Seltene Wörter',p=>p.rare[apComparison]],['comments','Erfasste Kommentare',p=>p.comments],['sources','Quellenarten',p=>p.sourceKinds]],ps=st.profile||[];
@@ -3187,6 +3207,7 @@
     const lead=st.comparisons[apComparison],rare=st.rareByCorpus[apComparison],vocabulary=st.vocabularyByCorpus[apComparison],sourceLabels=[[1,'Samaritanus','Tal','Anmerkungen von Tal–Florentin zum samaritanischen Text; auch sprachliche Hinweise.'],[2,'Septuaginta','Tov / CATSS','Hinweise von Tov/CATSS zur griechisch-hebräischen Zuordnung und Übersetzung.'],[4,'Qumran','Transkription','Transkriptionsmaterial zu diesem Vers; es kann rekonstruierte Teile enthalten.'],[8,'Kennicott','Anmerkungen','Erfasste Editionsanmerkungen; darunter auch Schreibweisen und Buchstabengestaltung.']];
     const panes = {
       chaptercompare:'<div class="apChapterCompare"></div>',
+      similar:'<div class="apSimilar"></div>',
       profile:apVerseProfile(st),
       lead:`<p class="muted apHow">${esc(I18N.t('Nach relativer Häufigkeit gegenüber dem übrigen Vergleichskorpus sortiert. Das ist ein statistischer Hinweis, keine Themenbestimmung.'))}</p><p class="apRateLegend muted">${esc(I18N.t('Balken: Vorkommen je 1.000 Wörter, für alle Zeilen gleich skaliert. Blau: Auswahl. Gold: übriges Vergleichskorpus.'))}</p>${!st.comparisonAvailable[apComparison]?`<p class="muted">${esc(I18N.t('Die Auswahl umfasst das gesamte Vergleichskorpus.'))}</p>`:lead.length?list(lead,'ratio'):`<p class="muted">${esc(I18N.t('Keine auffällig häufigen Wörter.'))}</p>`}`,
       rare:`<p class="muted apHow">${esc(apComparison==='book'?I18N.t('Selten: 1–19 Belege des Lemmas im Buch {}. Nach Buchhäufigkeit sortiert; Tanachzahlen bleiben sichtbar.',st.book):I18N.t('Selten: 1–19 Belege des Lemmas im gesamten Tanach. Nach Tanachhäufigkeit sortiert; Buchzahlen bleiben sichtbar.'))}</p><p class="apRateLegend muted">${esc(I18N.t('Balken: Vorkommen je 1.000 Wörter, für alle Zeilen gleich skaliert. Blau: Auswahl. Gold: übriges Vergleichskorpus.'))}</p>${!st.comparisonAvailable[apComparison]?`<p class="muted">${esc(I18N.t('Die Auswahl umfasst das gesamte Vergleichskorpus.'))}</p>`:''}${rare.length?list(rare,'rare',15):`<p class="muted">${esc(I18N.t('Keine seltenen Wörter in dieser Auswahl.'))}</p>`}`,
@@ -3207,9 +3228,10 @@
       ['names','Namen','♙','Personen und Orte im Text'],
       ['evidence','Quellen pro Vers','▤','Material der Textzeugen im Überblick'],
       ['profile','Versprofil','▥','Verteilung über die Verse sichtbar machen'],
+      ['similar','Ähnliche Kapitel','≈','Kapitel mit ähnlichem Wortschatz oder gleichen Wendungen'],
       ['chaptercompare','Kapitel vergleichen','⇄','Gemeinsamkeiten zweier Kapitel erkunden']
     ];
-    const groups=[['Wörter entdecken',['lead','rare','vocab']],['Sprache untersuchen',['roots','verbs','phrases','names']],['Text vergleichen',['evidence','profile','chaptercompare']]];
+    const groups=[['Wörter entdecken',['lead','rare','vocab']],['Sprache untersuchen',['roots','verbs','phrases','names']],['Text vergleichen',['similar','evidence','profile','chaptercompare']]];
     const choice=([k,label,icon,description])=>`<button type="button" data-seg="${k}" title="${esc(I18N.t(description))}" aria-pressed="${k==='lead'}"${k==='lead'?' class="on"':''}><span class="apChoiceIcon" aria-hidden="true">${icon}</span><span>${esc(I18N.t(label))}</span></button>`;
     return `<p class="apSum">${esc(scope === 'v' ? I18N.t('{} Wörter, {} verschiedene Wörter (Lemmata). {} % der Wörter kommen im Tanach mindestens 100-mal vor.', n(st.words), n(st.lemmas), st.common) : I18N.t('{} Wörter in {} Versen, {} verschiedene Wörter (Lemmata). {} % der Wörter kommen im Tanach mindestens 100-mal vor.', n(st.words), n(st.verses), n(st.lemmas), st.common))}</p>
       <div class="apSeg apExplorer" role="group" aria-label="${esc(I18N.t('Statistik'))}">${groups.map(([label,keys],i)=>`<div class="apChoiceGroup apChoiceGroup-${i}"><h5>${esc(I18N.t(label))}</h5><div class="apChoices">${keys.map(k=>choice(segs.find(s=>s[0]===k))).join('')}</div></div>`).join('')}</div>
@@ -3383,6 +3405,10 @@
     const sf = e.target.closest('a.lkSef'); if (sf) { e.preventDefault(); window.api.openExternal(sf.dataset.url); return; }
     const all = e.target.closest('.apAll'); if (all) { linksUI.hovApi && linksUI.hovApi.hide(); apShowAll(all.dataset.b); return; }
     const mb = e.target.closest('.apMoreB'); if (mb) { const m = mb.previousElementSibling; m.hidden = !m.hidden; mb.textContent = m.hidden ? I18N.t('+ {} weitere', (+mb.dataset.n).toLocaleString(I18N.loc)) : I18N.t('weniger'); return; }
+    const simMode=e.target.closest('[data-sim-mode]');if(simMode){apSim.mode=simMode.dataset.simMode;apSimilarMount(simMode.closest('.apScope'));return;}
+    const simNear=e.target.closest('.apSimNear');if(simNear){apSim.hideNear=simNear.checked;apSimilarMount(simNear.closest('.apScope'));return;}
+    const simOpen=e.target.closest('[data-sim-open]');if(simOpen){jumpTo(simOpen.dataset.simOpen.replace(/ (\d+)$/,' $1:1'));return;}
+    const sim=e.target.closest('[data-sim]');if(sim){const pane=sim.closest('.apScope'),k=sim.dataset.sim;pane.querySelector('.apSeg button[data-seg="chaptercompare"]').click();const box=pane.querySelector('.apChapterCompare');setTimeout(()=>chapterCompare.compareWith(box,{book:k.replace(/ \d+$/,''),chapter:+k.split(' ').at(-1)}),0);return;}
     const cmp=e.target.closest('button[data-compare]');if(cmp&&apCur){
       const scope=cmp.closest('.apScope'),key=scope.dataset.scope,tab=scope.querySelector('.apSeg button.on')?.dataset.seg;
       apComparison=cmp.dataset.compare;try{localStorage.setItem('passageComparison',apComparison);}catch{}
@@ -3391,7 +3417,7 @@
     const selection=e.target.closest('[data-ap-select]');if(selection){apSelectEntry(selection);return;}
     const statVerse=e.target.closest('[data-stat-verse]');if(statVerse){const profile=statVerse.closest('.apProfile');if(profile)profile.querySelectorAll('[data-stat-verse]').forEach(b=>b.classList.toggle('selected',b.dataset.statVerse===statVerse.dataset.statVerse));const row=$$('#rOut .row[data-l]').find(r=>r.dataset.l===statVerse.dataset.statVerse);if(row){setCmtRow(row.dataset.l);row.scrollIntoView({block:'center',behavior:'smooth'});row.classList.add('flash');setTimeout(()=>row.classList.remove('flash'),1200);}return;}
     { const sc = e.target.closest('.apScopeSw button'); if (sc) { const box = sc.closest('.apBox'); box.querySelectorAll('.apScopeSw button').forEach(b => b.classList.toggle('on', b === sc)); box.querySelectorAll('.apScope').forEach(p => { p.hidden = p.dataset.scope !== sc.dataset.scope; }); apMarkRefresh(); return; }
-      const sg = e.target.closest('.apScope .apSeg button'); if (sg) { const box = sg.closest('.apScope'); box.querySelectorAll('.apSeg button').forEach(b => { b.classList.toggle('on', b === sg); b.setAttribute('aria-pressed',String(b === sg)); }); box.querySelectorAll('.apPane').forEach(p => { p.hidden = p.dataset.seg !== sg.dataset.seg; }); box.querySelector('.apCompare').hidden=!['lead','rare','vocab','names','profile'].includes(sg.dataset.seg);apMarkRefresh();if(sg.dataset.seg==='chaptercompare')apChapterCompareMount(box);return; }
+      const sg = e.target.closest('.apScope .apSeg button'); if (sg) { const box = sg.closest('.apScope'); box.querySelectorAll('.apSeg button').forEach(b => { b.classList.toggle('on', b === sg); b.setAttribute('aria-pressed',String(b === sg)); }); box.querySelectorAll('.apPane').forEach(p => { p.hidden = p.dataset.seg !== sg.dataset.seg; }); box.querySelector('.apCompare').hidden=!['lead','rare','vocab','names','profile','similar'].includes(sg.dataset.seg);apMarkRefresh();if(sg.dataset.seg==='chaptercompare')apChapterCompareMount(box);if(sg.dataset.seg==='similar')apSimilarMount(box);return; }
       const cp = e.target.closest('.apCopy'); if (cp && apCur && apCur[cp.closest('.apScope').dataset.scope]) { const LEM = window.OSHB_LEMMAS || {}, L = I18N.lang; const txt = apCur[cp.closest('.apScope').dataset.scope].vocabularyByCorpus[apComparison].vocab.map(r => { const lem = LEM[r.w.lemma]; return [lem ? lem[0] : r.w.word, lem ? (L === 'de' && lem[2] ? lem[2] : lem[1]) : '', (apComparison==='book'?r.B:r.T) + '×'].join('\t'); }).join('\n'); try { navigator.clipboard.writeText(txt); cp.classList.add('ok'); setTimeout(() => cp.classList.remove('ok'), 1200); } catch { /* egal */ } return; } }
     const w = e.target.closest('.apW'); if (w) { apRemember();wordCardsUI.openForms(w.dataset.lemma, { lemma: w.dataset.lemma, word: w.dataset.word, m: w.dataset.m, l: w.dataset.l }, 'card'); return; }
     const de = e.target.closest('.apDE'); if (de) { openDict(de.dataset.q); return; }

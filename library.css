@@ -1955,6 +1955,16 @@ body.il .cell[data-k="he"] .ilt.il-smr { direction: rtl; font-family: var(--he-f
 .tc-ken-count { font: inherit; font-size: .85em; color: var(--tc-witness, var(--accent)); background: none; border: 0; padding: 0 2px; cursor: pointer; text-decoration: underline dotted; }
 .tc-ken-count::after { content: ' ▸'; }
 .tc-ken-count[aria-expanded=true]::after { content: ' ▾'; }
+.apSimModes { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin: 4px 0 8px; }
+.apSimModes button.on { background: var(--accent); color: var(--bg, #fff); }
+.apSimModes label { margin-left: auto; font-size: .85em; color: var(--muted); }
+.apSimRow { display: grid; grid-template-columns: 1fr auto; gap: 2px 8px; padding: 6px 0; border-bottom: 1px solid var(--line, rgba(127,127,127,.2)); }
+.apSimCompare { display: grid; grid-template-columns: minmax(8em, 12em) 1fr; align-items: center; gap: 10px; text-align: left; background: none; border: 0; padding: 0; cursor: pointer; font: inherit; color: inherit; }
+.apSimCompare .apBar { display: block; height: 8px; }
+.apSimOpen { background: none; border: 0; cursor: pointer; color: var(--muted); font-size: 1.1em; }
+.apSimWhat { grid-column: 1 / -1; display: flex; flex-wrap: wrap; gap: 4px 12px; font-size: .9em; }
+.apSimWord small { color: var(--muted); }
+.apSimPhrase { font-size: 1.05em; }
 .tc-hx-type { margin-left: .3em; font-size: .72em; vertical-align: .1em; }
 .tc-hx-type[data-hx-type=gleich] { opacity: .6; }
 .tc-hx-type[data-hx-type=vorlage], .tc-hx-type[data-hx-type=deutung] { background: color-mix(in srgb, var(--tc-witness, var(--accent)) 30%, transparent); font-weight: 600; }

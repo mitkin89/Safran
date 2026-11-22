@@ -50,6 +50,18 @@ module.exports=async({win,js,waitFor,book})=>{
  await js("new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))");fs.writeFileSync('/tmp/safran-mt-highlights.png',(await win.webContents.capturePage()).toPNG());
  await js("document.querySelector('#apBody [data-scope=c] .apSeg [data-seg=vocab]').click()");
  assert(await js("!document.querySelector('#rOut [data-passage-mark]')"),'Andere Statistikansicht entfernt Markierungen');
+ await js("document.querySelector('#apBody [data-scope=c] .apSeg [data-seg=similar]').click()");
+ // Ähnliche Kapitel: Genesis 1 – Wortschatz und Wendungen, Klick öffnet den Kapitelvergleich mit B
+ await js("document.querySelector('#apBody [data-scope=c] button[data-compare=tanakh]').click()");
+ await waitFor("document.querySelector('#apBody [data-scope=c] .apSeg [data-seg=similar].on')&&document.querySelector('#apBody [data-scope=c] .apSimRow')",'Ähnliche Kapitel im Tanach');
+ assert(await js("document.querySelector('#apBody [data-scope=c] .apSimRow .apSimWord')"),'typische gemeinsame Wörter');
+ if(process.env.SAFRAN_SIM_CAPTURE){await js("document.querySelector('#apBody [data-scope=c] .apSimilar').scrollIntoView({block:'start'})");win.showInactive();win.webContents.invalidate();await new Promise(r=>setTimeout(r,800));fs.writeFileSync(process.env.SAFRAN_SIM_CAPTURE,(await win.webContents.capturePage()).toPNG());}
+ await js("document.querySelector('#apBody [data-scope=c] [data-sim-mode=p]').click()");
+ await waitFor("document.querySelector('#apBody [data-scope=c] .apSimPhrase')",'gemeinsame Wendungen');
+ const simKey=await js("document.querySelector('#apBody [data-scope=c] [data-sim]').dataset.sim");
+ await js("document.querySelector('#apBody [data-scope=c] [data-sim]').click()");
+ await waitFor(`document.querySelector('#apBody [data-scope=c] [data-cc-chapter=b]')?.value==='${simKey.split(' ').at(-1)}'&&document.querySelector('#apBody [data-scope=c] .ccSummary')`,'Kapitelvergleich mit dem ähnlichen Kapitel');
+ await js("document.querySelector('#apBody [data-scope=c] button[data-compare=book]').click()");
  await js("document.querySelector('#apBody [data-scope=c] .apSeg [data-seg=rare]').click();document.querySelector('#rSection').value='1';document.querySelector('#rSection').dispatchEvent(new Event('change',{bubbles:true}))");
  await waitFor("document.querySelector('#rOut .w[data-l=\"7880\"]')&&document.querySelector('#apBody [data-scope=c] .apSeg [data-seg=lead].on')&&document.querySelector('#passageMarkStatus')?.dataset.mode==='lead'",'Kapitelwechsel markiert die neue Auswahl');
  await js("document.querySelector('#rSection').value='0';document.querySelector('#rSection').dispatchEvent(new Event('change',{bubbles:true}))");
