@@ -27,6 +27,11 @@ Safran ist eine kostenlose Desktop-App für macOS, Windows und Linux, die deine 
 
 **Neu in 2.8.0:** die Peschitta zu allen 39 Büchern (Lesetext, Interlinear und Zeuge Syr), Fields Hexapla, der Aleppo-Vergleich (MA), eingeordnete LXX- und Peschitta-Lesarten, die Lesartenzeile und *Ähnliche Kapitel* – siehe [Versionshinweise](docs/releases/2.8.0.md) (englisch) und [Überblicksvideo](https://www.youtube.com/watch?v=_htLzC7Q3Ug).
 
+<p align="center">
+  <a href="screenshots/apparatus.jpg"><img src="screenshots/apparatus.jpg" alt="Jesaja 53,9 als Interlinear mit Septuaginta, Qumran-Rollen und Peschitta; daneben das Apparat-Fenster mit Lesartenzeile, der Lesart ויתנו von 1QIsaa, der LXX-Lesart καὶ δώσω mit rekonstruierter Vorlage und den Hexapla-Zeilen der Drei mit „folgt dem MT“" width="900"></a><br>
+  <sub>Jesaja 53,9: Interlinear mit LXX, Qumran und Peschitta und das Apparat-Fenster – 1QIsaᵃ ויתנו, die LXX-Lesart καὶ δώσω mit vermuteter Vorlage und die Hexapla-Zeilen von Aquila, Symmachus und Theodotion.</sub>
+</p>
+
 ## Warum Safran?
 
 | | |
@@ -131,11 +136,6 @@ Die Textschriftgrößen übernimmt der Export aus **Anzeige**: Grundschrift sowi
 <p align="center"><a href="docs/FEATURES.md">Alle Funktionen, Tastenkürzel und das Menü Werkzeuge (englisch) →</a></p>
 
 ## Textkritischer Apparat
-
-<p align="center">
-  <a href="screenshots/apparatus.jpg"><img src="screenshots/apparatus.jpg" alt="Jesaja 53,9 als Interlinear mit Septuaginta, Qumran-Rollen und Peschitta; daneben das Apparat-Fenster mit Lesartenzeile, der Lesart ויתנו von 1QIsaa, der LXX-Lesart καὶ δώσω mit rekonstruierter Vorlage und den Hexapla-Zeilen der Drei mit „folgt dem MT“" width="900"></a><br>
-  <sub>Jesaja 53,9: Interlinear mit LXX, Qumran und Peschitta und das Apparat-Fenster – 1QIsaᵃ ויתנו, die LXX-Lesart καὶ δώσω mit vermuteter Vorlage und die Hexapla-Zeilen von Aquila, Symmachus und Theodotion.</sub>
-</p>
 
 Das Fenster **≠ Apparat** vergleicht den masoretischen Text (Westminster Leningrad Codex, OSHB) Vers für Vers mit den Handschriften und alten Übersetzungen. Es funktioniert an jeder Stelle des Tanach, braucht keine Lesespalte des Zeugen und zeigt einen einzelnen Vers oder das ganze Kapitel.
 

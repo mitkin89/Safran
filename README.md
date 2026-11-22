@@ -27,6 +27,11 @@ Safran is a free desktop app for macOS, Windows and Linux that keeps your texts 
 
 **New in 2.8.0:** the Peshitta for all 39 books (reading text, interlinear and the Syr witness), Field's Hexapla, the Aleppo comparison (MA), classified LXX and Peshitta readings, the reading line and *Similar chapters* – see the [release notes](docs/releases/2.8.0.md) and the [overview video](https://www.youtube.com/watch?v=_htLzC7Q3Ug).
 
+<p align="center">
+  <a href="screenshots/apparatus.jpg"><img src="screenshots/apparatus.jpg" alt="Isaiah 53:9 as an interlinear with the Septuagint, the Qumran scrolls and the Peshitta; beside it the Apparatus pane with the reading line, the variant ויתנו of 1QIsaa, the LXX reading καὶ δώσω with its reconstructed Vorlage, and the Hexapla rows of the Three marked “follows the MT”" width="900"></a><br>
+  <sub>Isaiah 53:9: interlinear with LXX, Qumran and Peshitta, and the Apparatus pane – 1QIsaᵃ ויתנו, the LXX reading καὶ δώσω with its presumed Vorlage, and the Hexapla rows of Aquila, Symmachus and Theodotion.</sub>
+</p>
+
 ## Why Safran?
 
 | | |
@@ -131,11 +136,6 @@ Text sizes follow **Display**: the base font and separate Hebrew, German and oth
 <p align="center"><a href="docs/FEATURES.md">All features, keyboard shortcuts and the Tools menu →</a></p>
 
 ## Textual apparatus
-
-<p align="center">
-  <a href="screenshots/apparatus.jpg"><img src="screenshots/apparatus.jpg" alt="Isaiah 53:9 as an interlinear with the Septuagint, the Qumran scrolls and the Peshitta; beside it the Apparatus pane with the reading line, the variant ויתנו of 1QIsaa, the LXX reading καὶ δώσω with its reconstructed Vorlage, and the Hexapla rows of the Three marked “follows the MT”" width="900"></a><br>
-  <sub>Isaiah 53:9: interlinear with LXX, Qumran and Peshitta, and the Apparatus pane – 1QIsaᵃ ויתנו, the LXX reading καὶ δώσω with its presumed Vorlage, and the Hexapla rows of Aquila, Symmachus and Theodotion.</sub>
-</p>
 
 The **≠ Apparatus** pane compares the Masoretic text (Westminster Leningrad Codex, OSHB) verse by verse with the manuscripts and ancient versions. It works for every passage of the Tanakh, needs no reading column of the witness, and can show a single verse or the whole chapter.
 
