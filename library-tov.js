@@ -42,7 +42,7 @@ function create(host){
           const greek=r.g?' <span class="tc-lxx-gr" lang="grc">'+raw(r.g)+'</span>':'';
           const vorlage=r.vorlage?' <span class="tc-tov-reading">≈ <bdi lang="he" dir="rtl">'+raw(r.vorlage)+'</bdi> <abbr class="ab" title="'+esc('Erschlossene hebräische Vorlage; kein Handschriftenbeleg')+'">'+esc('erschlossen')+'</abbr></span>':'';
           const note=' <span class="tc-ps-note">'+raw(r.note)+(r.parallel?' ('+esc('vgl.')+' '+raw(r.parallel)+')':'')+(r.sure?'':' <span class="muted">('+esc('unsicher')+')</span>')+'</span>';
-          const html='<article class="tc-entry tc-tov-entry tc-lxx-reading" data-witness="'+raw(w)+'" data-lxx-type="'+raw(r.type)+'"><div class="tc-note-text"><span class="tc-witness-label" tabindex="0" data-tc-tov="'+raw(code+ref.slice(rindex[code].book.length))+'">'+raw(w)+'</span> <abbr class="ab tc-tov-tag tc-ps-'+raw(r.type)+'" title="'+esc(title)+'">'+esc(lab)+'</abbr>'+greek+vorlage+note+'</div><small class="tal-cite" tabindex="0" title="'+esc('Einordnung auf Grundlage der CATSS-Ausrichtung und Tovs Spalte b')+'">'+esc('LXX-Lesarten (Claude, 2026) · CATSS-Ausrichtung')+', '+raw(ref)+'</small></article>';
+          const html='<article class="tc-entry tc-tov-entry tc-lxx-reading" data-witness="'+raw(w)+'" data-lxx-type="'+raw(r.type)+'"><div class="tc-note-text"><span class="tc-witness-label" tabindex="0" data-tc-tov="'+raw(code+ref.slice(rindex[code].book.length))+'"'+(r.g?' data-tc-g="'+raw(r.g)+'"':'')+'>'+raw(w)+'</span> <abbr class="ab tc-tov-tag tc-ps-'+raw(r.type)+'" title="'+esc(title)+'">'+esc(lab)+'</abbr>'+greek+vorlage+note+'</div><small class="tal-cite" tabindex="0" title="'+esc('Einordnung auf Grundlage der CATSS-Ausrichtung und Tovs Spalte b')+'">'+esc('LXX-Lesarten (Claude, 2026) · CATSS-Ausrichtung')+', '+raw(ref)+'</small></article>';
           out.set(id,{anchor:anchor&&{...anchor,ref},displayRef:ref,rows:[row],html,cmp:r.vorlage||null,cmpWitness:r.vorlage?w:null,lz:anchor?readingLz(r,w,anchor.kind==='gap'?'add':r.he.length&&!r.g?'om':'var'):null});
         });
       }
@@ -106,7 +106,14 @@ function create(host){
   const credit=()=>'<p class="tc-credit">CATSS · Tov/Kraft · CC BY-NC-SA 3.0. Plus/Minus bezeichnen die Ausrichtung zum MT; erschlossene Lesarten sind keine erhaltenen Handschriftenlesarten. Quellcode und Erklärung beim Überfahren; Originalbeleg über der Zeugensigle. Auszüge aus dem CATSS-Lesetext sind gesondert bezeichnet.</p>';
   function preview(anchor){
     const v=data?.verses[anchor.dataset.tcTov];if(!v)return '';
-    const note=anchor.dataset.tcNote==null?null:v.remarks[+anchor.dataset.tcNote];
+    let note=anchor.dataset.tcNote==null?null:v.remarks[+anchor.dataset.tcNote];
+    if(!note&&anchor.dataset.tcG){
+      // Assessed reading: find its Greek words in the CATSS verse text to mark them.
+      const norm=s=>s.normalize('NFD').replace(/[\u0300-\u036f᾿’]/g,'').toLowerCase(),want=window.GMorph.words(anchor.dataset.tcG).map(norm);
+      const all=v.pairs.flatMap(([g])=>window.GMorph.words(g).map(norm));
+      const at=all.findIndex((_,i)=>want.length&&want.every((w,j)=>all[i+j]===w));
+      if(at>=0)note={g:anchor.dataset.tcG,start:at};
+    }
     const count=note?window.GMorph.words(note.g).length:0;let position=0;
     const pairs=v.pairs.map(([g,h,flags,retro])=>{
       const length=window.GMorph.words(g).length,start=position;position+=length;

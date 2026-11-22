@@ -106,6 +106,7 @@
     "Am Text geprüft (Codex)": "Checked against the text (Codex)",
     "Am Text geprüft (Claude)": "Checked against the text (Claude)",
     "Fußnote aufklappen": "Expand footnote",
+    "Die MT-Wörter dieses Eintrags haben in der Peschitta keine Wiedergabe.": "The MT words of this entry have no rendering in the Peshitta.",
     "Fußnote": "Footnote",
     "Lateinischer Text (Field)": "Latin text (Field)",
     "Bestimmung maschinell; ein Wort kann mehrdeutig sein.": "Machine analysis; a word may be ambiguous.",

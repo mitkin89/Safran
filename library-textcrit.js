@@ -78,9 +78,10 @@ function create(host){
   function showPreview(anchor){
     hidePreview();
     const ref=anchor.dataset.tcRef,verse=previewData?.verses[ref];
-    if((!verse&&!anchor.dataset.tcTov&&!anchor.dataset.tcHx&&!anchor.dataset.tcDss&&!anchor.dataset.tcKen&&!anchor.dataset.tcMishnah&&!anchor.dataset.tcCitation)||!anchor.isConnected||panel.hidden)return;
+    if((!verse&&!anchor.dataset.tcTov&&!anchor.dataset.tcHx&&!anchor.dataset.tcPs&&!anchor.dataset.tcDss&&!anchor.dataset.tcKen&&!anchor.dataset.tcMishnah&&!anchor.dataset.tcCitation)||!anchor.isConnected||panel.hidden)return;
+    const marked=new Set((anchor.dataset.tcWords||'').split(',').filter(Boolean));
     hoverAnchor=anchor;hover=document.createElement('div');hover.id='tcHover';hover.setAttribute('role','tooltip');
-    hover.innerHTML=anchor.dataset.tcHx?hx.preview(anchor):anchor.dataset.tcMishnah?mishnah.preview(anchor):anchor.dataset.tcKen?ken.preview(anchor):anchor.dataset.tcDss?dss.preview(anchor):anchor.dataset.tcTov?tov.preview(anchor):verse?'<b>SMR · '+esc(ref)+'</b><div class="tc-he" dir="rtl" lang="he">'+verse.words.map(w=>word(w,false)).join(' ')+'</div><p lang="en">'+english(verse.en)+'</p><small>Tal–Florentin · CC BY-NC 4.0</small>':'';
+    hover.innerHTML=anchor.dataset.tcHx?hx.preview(anchor):anchor.dataset.tcPs?ps.preview(anchor):anchor.dataset.tcMishnah?mishnah.preview(anchor):anchor.dataset.tcKen?ken.preview(anchor):anchor.dataset.tcDss?dss.preview(anchor):anchor.dataset.tcTov?tov.preview(anchor):verse?'<b>SMR · '+esc(ref)+'</b><div class="tc-he" dir="rtl" lang="he">'+verse.words.map(w=>marked.has(String(w[2]))?'<span class="tc-dss-active">'+word(w,false)+'</span>':word(w,false)).join(' ')+'</div><p lang="en">'+english(verse.en)+'</p><small>Tal–Florentin · CC BY-NC 4.0</small>':'';
     if(!hover.innerHTML.trim()){hover=null;hoverAnchor=null;return;}
     if(anchor.dataset.tcCitation)hover.insertAdjacentHTML('afterbegin','<div class="tc-source-citation-detail"><b title="'+esc(anchor.dataset.tcSourceDetail||'')+'">'+esc(anchor.dataset.tcCitation)+'</b></div>');
     document.body.appendChild(hover);anchor.setAttribute('aria-describedby','tcHover');
@@ -234,6 +235,8 @@ function create(host){
         const ref=entry.dataset.tcRef,g=renderedGroups.get(ref)[+entry.dataset.tcGroup];
         if(entry.dataset.alignment?.startsWith('samaritan-interlinear'))entry.querySelectorAll('.tal-cite').forEach(c=>c.title=(c.title?c.title+' · ':'')+'MT-Position aus dem quellengeprüften Samaritanus-Interlinear (maschinell)');
         entry.querySelectorAll('.tc-note').forEach(note=>decorateNote(note,g.words,ref));
+        // The label preview marks this group's words in the Samaritan verse.
+        entry.querySelectorAll('.tal-cite').forEach(c=>c.dataset.tcWords=g.words.map(w=>w[2]).join(','));
       });
       body.querySelectorAll('.tal-cite').forEach(cite=>{
         const note=cite.closest('.tc-note')||cite.closest('.tc-entry'),label=note?.querySelector('.tc-witness-label');if(!label)return;
@@ -267,15 +270,15 @@ function create(host){
   });
   body.addEventListener('click',e=>{const source=e.target.closest('.tc-source,[data-tc-mishnah],.tc-hx-w');if(source){if(source.matches('.tc-hx-w')&&hoverAnchor===source){hidePreview();return;}showPreview(source);return;}const fn=e.target.closest('.tc-hx-fn');if(fn){const d=fn.closest('.tc-hx-entry')?.querySelector('.tc-hx-note[data-hx-fn="'+fn.dataset.hxFn+'"]');if(d){d.open=!d.open;if(d.open)d.scrollIntoView({block:'nearest'});}return;}const mt=e.target.closest('.tc-mt-jump');if(mt){hidePreview();const ref=mt.dataset.ref;host.markMt(ref,+mt.dataset.start,+mt.dataset.end,tov.mt(ref)||dss.mt(ref)||ken.mt(ref)||window.TextCrit.words(window.TEXTCRIT_DATA?.mt?.[ref]||''));return;}const qw=e.target.closest('.tc-dss-word');if(qw&&!String(window.getSelection())){hidePreview();host.openQumran(qw);return;}const greek=e.target.closest('.tc-tov-lemma');if(greek&&!String(window.getSelection())){hidePreview();tov.open(greek);return;}const jump=e.target.closest('.tc-jump');if(jump){host.selectRow(jump.dataset.row);return;}const w=e.target.closest('.w[data-l]');if(w&&!String(window.getSelection())){hidePreview();host.openWord(w);}});
   body.addEventListener('pointerover',e=>{
-    const target=e.target.closest('.tc-source,.tc-context-word,[data-tc-tov],[data-tc-dss],[data-tc-ken],[data-tc-mishnah]');if(!target||target.contains(e.relatedTarget))return;
+    const target=e.target.closest('.tc-source,.tc-dss-coverage-source,.tc-witness-label[data-tc-tov],[data-tc-ken]:not(.tc-ken-witness),[data-tc-mishnah]:not(.mci-word)');if(!target||target.contains(e.relatedTarget))return;
     clearTimeout(hideTimer);clearTimeout(showTimer);showTimer=setTimeout(()=>showPreview(target),200);
   });
   body.addEventListener('pointerout',e=>{
-    const target=e.target.closest('.tc-source,.tc-context-word,[data-tc-tov],[data-tc-dss],[data-tc-ken],[data-tc-mishnah]');if(!target||target.contains(e.relatedTarget))return;
+    const target=e.target.closest('.tc-source,.tc-dss-coverage-source,.tc-witness-label[data-tc-tov],[data-tc-ken]:not(.tc-ken-witness),[data-tc-mishnah]:not(.mci-word)');if(!target||target.contains(e.relatedTarget))return;
     clearTimeout(showTimer);hideTimer=setTimeout(hidePreview,120);
   });
   body.addEventListener('focusin',e=>{
-    const target=e.target.closest('.tc-source,.tc-context-word,[data-tc-tov],[data-tc-dss],[data-tc-ken],[data-tc-mishnah]');if(!target)return;
+    const target=e.target.closest('.tc-source,.tc-dss-coverage-source,.tc-witness-label[data-tc-tov],[data-tc-ken]:not(.tc-ken-witness),[data-tc-mishnah]:not(.mci-word)');if(!target)return;
     // Focusing a word can scroll it into view. Open after that scroll, so the
     // preview is not immediately dismissed by its own focus movement.
     requestAnimationFrame(()=>requestAnimationFrame(()=>{
@@ -283,7 +286,7 @@ function create(host){
     }));
   });
   body.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.matches('.tc-tov-lemma,.tc-dss-word,.tc-hx-w,.tc-hx-fn')){e.preventDefault();e.target.click();}});
-  body.addEventListener('focusout',e=>{if(e.target.closest('.tc-source,.tc-context-word,[data-tc-tov],[data-tc-dss],[data-tc-ken],[data-tc-mishnah]'))hidePreview();});
+  body.addEventListener('focusout',e=>{if(e.target.closest('.tc-source,.tc-dss-coverage-source,.tc-witness-label[data-tc-tov],[data-tc-ken]:not(.tc-ken-witness),[data-tc-mishnah]:not(.mci-word)'))hidePreview();});
   window.addEventListener('resize',hidePreview);
   document.addEventListener('scroll',e=>{if(!e.target.closest?.('#tcHover'))hidePreview();},true);
   document.addEventListener('keydown',e=>{if(e.key==='Escape'&&hover){hidePreview();e.preventDefault();e.stopImmediatePropagation();}},true);

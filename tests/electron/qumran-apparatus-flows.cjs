@@ -11,9 +11,13 @@ module.exports=async({win,js,waitFor,book})=>{
   assert(await js(`{const w=${target},g=w.closest('.tc-locus');g.dataset.kind==='word'&&g.querySelector('.tc-locus-title').textContent.replace(/[^א-ת]/g,'')==='יום'&&w.closest('.tc-dss-entry').dataset.scroll==='4Q7'}`),'Actual DSS reading is grouped under the correct MT word');
   assert(await js("document.querySelector('#tcBody').textContent.includes('Maschineller MT-Vergleich')&&document.querySelector('#tcBody .tc-dss-coverage')"));
   await js(`${target}.scrollIntoView({block:'center'})`);await js("new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))");
-  const point=await js(`{const r=${target}.getBoundingClientRect();({x:Math.round(r.left+r.width/2),y:Math.round(r.top+r.height/2)})}`);
+  // Hovering the scroll word shows nothing; the scroll label opens the fragment context with the word marked.
+  {const p=await js(`{const r=${target}.getBoundingClientRect();({x:Math.round(r.left+r.width/2),y:Math.round(r.top+r.height/2)})}`);win.webContents.sendInputEvent({type:'mouseMove',...p});await new Promise(r=>setTimeout(r,500));assert(!(await js("document.querySelector('#tcHover')")),'Kein Hover am Rollenwort');}
+  const label=`${target}.closest('.tc-dss-entry').querySelector('.tc-source')`;
+  const point=await js(`{const r=${label}.getBoundingClientRect();({x:Math.round(r.left+r.width/2),y:Math.round(r.top+r.height/2)})}`);
   win.webContents.sendInputEvent({type:'mouseMove',...point});
-  await waitFor("document.querySelector('#tcHover .tc-dss-context')?.textContent.includes('יומם')",'Originaler Rollen-Kontext bei echtem Hover');
+  await waitFor("document.querySelector('#tcHover .tc-dss-context')?.textContent.includes('יומם')",'Originaler Rollen-Kontext beim Überfahren der Sigle');
+  assert(await js("document.querySelector('#tcHover .tc-dss-active')?.textContent.includes('יומם')"),'Rollenwort im Kontext markiert');
   assert(await js("document.querySelector('#tcHover').textContent.includes('4Q7')&&document.querySelector('#tcHover').textContent.includes('moderne Rekonstruktion')&&document.querySelector('#tcHover .tc-dss-active')"));
   if(process.env.SAFRAN_DSS_CAPTURE){await js("new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))");fs.writeFileSync(process.env.SAFRAN_DSS_CAPTURE,(await win.webContents.capturePage()).toPNG());}
   await js(`${target}.click()`);

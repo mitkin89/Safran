@@ -71,7 +71,9 @@ function create(host){
   }
   function preview(anchor){
     const e=data?.entries[anchor.dataset.tcKen];if(!e)return '';
-    return '<b>Kennicott · '+esc(e.refs.join(' – '))+'</b><div class="tc-he" dir="rtl" lang="he">'+esc((data.base[e.refs[0]]||[]).join(' '))+'</div><small>Grundtext der Kennicott-Ausgabe, kein vollständiger Handschriftentext. Von Westminster / OSHB unabhängig.</small><p>'+node(e.lemmaNode)+(e.lemmaNode?' ] ':'')+e.readings.map(r=>reading(r,true)).join(' / ')+'</p><small>Digital Kennicott · Crestani / Legnaioli · CC BY-NC-SA 4.0. Quellensiglen und Zeichen: Erläuterung beim Überfahren.</small>';
+    // Mark the edition's lemma in its base text (whole verse for "Com.").
+    const at=new Set(window.Kennicott.locateMapped(data,e).baseIndices||[]);
+    return '<b>Kennicott · '+esc(e.refs.join(' – '))+'</b><div class="tc-he" dir="rtl" lang="he">'+(data.base[e.refs[0]]||[]).map((w,i)=>at.has(i)&&at.size<(data.base[e.refs[0]]||[]).length?'<span class="tc-dss-active">'+esc(w)+'</span>':esc(w)).join(' ')+'</div><small>Grundtext der Kennicott-Ausgabe, kein vollständiger Handschriftentext. Von Westminster / OSHB unabhängig.</small><p>'+node(e.lemmaNode)+(e.lemmaNode?' ] ':'')+e.readings.map(r=>reading(r,true)).join(' / ')+'</p><small>Digital Kennicott · Crestani / Legnaioli · CC BY-NC-SA 4.0. Quellensiglen und Zeichen: Erläuterung beim Überfahren.</small>';
   }
   const credit=()=>'<p class="tc-credit">Digital Kennicott · Crestani / Legnaioli, Universitäten Turin und Florenz · CC BY-NC-SA 4.0. Bezugstext: Kennicott / Van der Hooght; MT-Positionen maschinell abgeglichen. Frühere, jetzige und vermutete Lesungen bleiben getrennt; typographische Hinweise sind keine eigenständigen Wortvarianten. Vollständiger Editionskontext über der Zeugensigle.</p>';
   return {load,available,entries,preview,witnessCard,credit,mt:ref=>cache.get(ref.replace(/ \d+:\d+$/,''))?.mt[ref]};

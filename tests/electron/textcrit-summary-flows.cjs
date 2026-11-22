@@ -46,6 +46,17 @@ module.exports=async({win,js,waitFor,book})=>{
   // LXX: das griechische Wort zeigt beim Überfahren nichts, das LXX-Etikett den CATSS-Verskontext
   assert(await js("[...document.querySelectorAll('#tcBody .tc-tov-lemma')].every(n=>!n.hasAttribute('data-tc-tov'))"),'kein Hover am griechischen Wort');
   assert(await js("[...document.querySelectorAll('#tcBody .tc-tov-entry .tc-witness-label')].every(n=>n.hasAttribute('data-tc-tov'))"),'Hover am LXX-Etikett');
+  // Etikett-Vorschau markiert das Wort: bewertete LXX-Lesart (ἕκτῃ) und Peschitta-Lesart
+  const focus=sel=>js(`{const n=${sel};n.focus({preventScroll:true});n.dispatchEvent(new FocusEvent('focusin',{bubbles:true}));}`);
+  await focus("[...document.querySelectorAll('#tcBody .tc-lxx-reading')].find(e=>e.dataset.lxxType==='zahl').querySelector('.tc-source')");
+  await waitFor("document.querySelector('#tcHover .tc-il-unit.active')",'LXX-Etikett zeigt Verskontext');
+  assert(await js("document.querySelector('#tcHover .tc-il-unit.active [lang=grc]').textContent.includes('ἕκτῃ')"),'ἕκτῃ markiert');
+  await js("document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true}))");
+  await focus("[...document.querySelectorAll('#tcBody .tc-ps-entry')].find(e=>e.textContent.includes('ܫܬܝܬܝܐ')||e.querySelector('.tc-ps-sy')).querySelector('.tc-source')");
+  await waitFor("document.querySelector('#tcHover .tc-ps-sy')",'Peschitta-Etikett zeigt Verskontext');
+  assert(await js("!!document.querySelector('#tcHover .tc-ps-sy .tc-dss-active')"),'Syrisches Wort markiert');
+  if(process.env.SAFRAN_HX_CAPTURE){win.showInactive();win.webContents.invalidate();await new Promise(r=>setTimeout(r,600));fs.writeFileSync(process.env.SAFRAN_HX_CAPTURE.replace('.png','-ps.png'),(await win.webContents.capturePage()).toPNG());}
+  await js("document.dispatchEvent(new KeyboardEvent('keydown',{key:'Escape',bubbles:true}))");
   // Zeugenauswahl der folgenden Abläufe wiederherstellen
   for(const [i,id] of ids.entries())await set(id,before[i]);
   console.log('Electron: Lesartenzeile gruppiert SMR, LXX (bewertet) und Syr; Kompaktansicht.');

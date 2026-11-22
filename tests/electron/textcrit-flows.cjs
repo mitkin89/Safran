@@ -25,12 +25,15 @@ module.exports=async({win,js,waitFor,book})=>{
   assert(await js("!document.querySelector('#tcBody .tc-base, #tcBody details, #tcBody summary, #tcContext, #tcBody .tc-context') && document.querySelector('#tcBody').textContent.includes('ללכת')"),'Flat apparatus without repeated MT or inline context');
   await waitFor("[...document.querySelectorAll('#tcBody .tal-cite')].some(n=>n.textContent.includes('Genesis 28:10 (S. 184)'))",'Originalanmerkung direkt sichtbar');
   assert(await js("[...document.querySelectorAll('#tcBody .ab')].some(n=>n.textContent==='INF'&&n.title==='Infinitiv')"));
-  const target="[...document.querySelectorAll('#tcBody .tc-context-word.w')].find(n=>n.textContent==='ללכת')";
+  const target="[...document.querySelectorAll('#tcBody .tc-context-word.w')].find(n=>n.textContent==='ללכת')",label=`${target}.closest('.tc-note').querySelector('.tc-source')`;
   await js(`{const n=${target};n.scrollIntoView({block:'center'});}`);
+  // The quoted word itself shows nothing on hover; the witness label carries the context.
+  {const p=await js(`{const r=${target}.getBoundingClientRect();({x:Math.round(r.left+r.width/2),y:Math.round(r.top+r.height/2)})}`);win.webContents.sendInputEvent({type:'mouseMove',...p});await new Promise(r=>setTimeout(r,500));assert(!(await js("document.querySelector('#tcHover')")),'Kein Hover am Wort');}
   await js("new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)))");
-  const point=await js(`{const r=${target}.getBoundingClientRect();({x:Math.round(r.left+r.width/2),y:Math.round(r.top+r.height/2)})}`);
+  const point=await js(`{const r=${label}.getBoundingClientRect();({x:Math.round(r.left+r.width/2),y:Math.round(r.top+r.height/2)})}`);
   win.webContents.sendInputEvent({type:'mouseMove',...point});
-  await waitFor("document.querySelector('#tcHover[role=tooltip]')?.textContent.includes('to go')",'Zweisprachiger Kontext beim tatsächlichen Überfahren des Lemmas');
+  await waitFor("document.querySelector('#tcHover[role=tooltip]')?.textContent.includes('to go')",'Zweisprachiger Kontext beim Überfahren der Sigle');
+  assert(await js("[...document.querySelectorAll('#tcHover .tc-dss-active')].some(n=>n.textContent.includes('ללכת'))"),'Wort im Kontext markiert');
   assert(await js("document.querySelector('#tcHover .tc-he').textContent.includes('ויצא') && document.querySelector('#tcHover p .mt-diff')?.textContent==='to go' && document.querySelector('#tcHover .tc-he .mt-diff')?.textContent==='ללכת'"),'Hover preserves Hebrew and English red differences');
   if(process.env.SAFRAN_CRIT_CAPTURE){
     await js("new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)))");
@@ -43,7 +46,7 @@ module.exports=async({win,js,waitFor,book})=>{
   await js("document.querySelector('#wpop .wx').click()");
   // The hidden test window has no OS focus, so focus() sets activeElement
   // without dispatching focusin. Supply that browser event explicitly.
-  await js(`{const n=${target};n.focus({preventScroll:true});n.dispatchEvent(new FocusEvent('focusin',{bubbles:true}));}`);
+  await js(`{const n=${label};n.focus({preventScroll:true});n.dispatchEvent(new FocusEvent('focusin',{bubbles:true}));}`);
   await waitFor("document.querySelector('#tcHover')",'Kontext auch per Tastaturfokus');
   await js("document.querySelector('#tcPrev').click()");
   await waitFor("document.querySelector('#tcPlace').textContent.includes('Genesis 28:9') && !document.querySelector('#tcHover')",'Verswechsel entfernt die alte Kontextvorschau');

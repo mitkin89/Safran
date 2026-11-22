@@ -40,10 +40,10 @@ function create(host){
     if(words.length<=LONG)return span(text);
     return '<details class="tc-ps-long"><summary>'+span(words.slice(0,LONG).join(' ')+' …')+' <small>('+words.length+' '+esc('Wörter')+')</small></summary>'+span(text)+'</details>';
   }
-  function cite(ref,v,native){
+  function cite(ref,v,native,marks){
     const title=(v.review?.note||'')+(v.review?.by?' · '+v.review.by:'');
     const shifted=native.length&&native.some(r=>r!==ref.replace(/^.* /,''))?' · '+esc('Peschitta-Zählung')+' '+raw([...new Set(native)].join(', ')):'';
-    return '<small class="tal-cite" tabindex="0" title="'+raw(title)+'">'+esc('Peschitta (ETCBC) · Wortzuordnung zum MT')+', '+raw(ref)+shifted+'</small>';
+    return '<small class="tal-cite" tabindex="0" data-tc-ps="'+raw(ref)+'" data-tc-ps-sy="'+raw((marks||[]).join(','))+'" title="'+raw(title)+'">'+esc('Peschitta (ETCBC) · Wortzuordnung zum MT')+', '+raw(ref)+shifted+'</small>';
   }
   const tag=(label,title,type)=>'<abbr class="ab tc-tov-tag'+(type?' tc-ps-'+type:'')+'" title="'+esc(title)+'">'+esc(label)+'</abbr>';
   function reading(r){
@@ -52,7 +52,7 @@ function create(host){
     const note=' <span class="tc-ps-note">'+raw(r.note)+(r.parallel?' ('+esc('vgl.')+' '+raw(r.parallel)+')':'')+(r.sure?'':' <span class="muted">('+esc('unsicher')+')</span>')+'</span>';
     return {tag:tag(label,title,r.type),detail:vorlage+note};
   }
-  const entry=(ref,v,native,body,type)=>'<article class="tc-entry tc-ps-entry"'+(type?' data-ps-type="'+raw(type)+'"':'')+' data-witness="Syr"><div class="tc-note-text"><span class="tc-witness-label" title="'+esc('Peschitta')+'">Syr</span> '+body+'<!--agree--></div>'+cite(ref,v,native)+'</article>';
+  const entry=(ref,v,native,body,type,marks)=>'<article class="tc-entry tc-ps-entry"'+(type?' data-ps-type="'+raw(type)+'"':'')+' data-witness="Syr"><div class="tc-note-text"><span class="tc-witness-label" title="'+esc('Peschitta')+'">Syr</span> '+body+'<!--agree--></div>'+cite(ref,v,native,marks)+'</article>';
   // Reading line (textcrit-summary.js): generic plus/minus, or the classified type
   function lzOf(r,op){
     const w=r&&!r.sure?'Syr?':'Syr',base={f:'Syr',w,title:r?(TYPES[r.type]||[r.type])[0]:''};
@@ -71,7 +71,7 @@ function create(host){
     const out=new Map();
     for(const {ref,row} of queries){
       const m=/^(.*) (\d+:\d+)$/.exec(ref);if(!m||m[1]!==data.book)continue;
-      const v=data.verses[m[2]];if(!v)continue;
+      const v=data.verses[m[2]];if(!v)continue;seen.set(ref,v);
       const R=(data.readings?.[m[2]]||[]).map(r=>({...r,used:false}));
       const add=(id,anchor,html,syr,r,op)=>{const prev=out.get(id);if(prev){if(!prev.rows.includes(row))prev.rows.push(row);return;}out.set(id,{anchor:{...anchor,ref},displayRef:ref,rows:[row],html,syr:syr||null,lz:lzOf(r,op||(anchor.kind==='gap'?'add':'var'))});};
       // Words already covered by a classified reading of linked words get no second, generic entry
@@ -85,7 +85,7 @@ function create(host){
         const r=R.find(x=>!x.used&&!x.he.length&&x.sy.length&&x.sy.every(s=>s-1>=j&&s-1<=e));if(r)r.used=true;
         if(!r&&Array.from({length:e-j+1},(_,q)=>j+q+1).every(s=>covSy.has(s))){j=e+1;continue;}
         const x=r&&reading(r);
-        add(ref+'|+'+j,{kind:'gap',start:after,end:after},entry(ref,v,native,(x?x.tag:tag('Peschitta-Zusatz','Wörter der Peschitta ohne Gegenstück im MT'))+' '+syriac(v.sy.slice(j,e+1))+(x?x.detail:''),r?.type),r?.vorlage,r,'add');
+        add(ref+'|+'+j,{kind:'gap',start:after,end:after},entry(ref,v,native,(x?x.tag:tag('Peschitta-Zusatz','Wörter der Peschitta ohne Gegenstück im MT'))+' '+syriac(v.sy.slice(j,e+1))+(x?x.detail:''),r?.type,Array.from({length:e-j+1},(_,q)=>j+q)),r?.vorlage,r,'add');
         j=e+1;
       }
       // Minus: consecutive MT words the Peshitta does not render (the bare object marker et is not counted)
@@ -103,7 +103,7 @@ function create(host){
       R.filter(r=>!r.used).forEach((r,k)=>{
         const x=reading(r),sy=r.sy.length?' '+syriac(r.sy.map(s=>v.sy[s-1])):'',he=r.he.length?r.he:null;
         const anchor=he?{kind:'word',start:Math.min(...he)-1,end:Math.max(...he)-1}:(()=>{const a=afterLinked(r.sy[0]-1);return {kind:'gap',start:a,end:a};})();
-        add(ref+'|r'+k,anchor,entry(ref,v,(r.sy||[]).map(s=>v.refs?.[s-1]).filter(Boolean),x.tag+sy+x.detail,r.type),r.vorlage,r,anchor.kind==='gap'?'add':'var');
+        add(ref+'|r'+k,anchor,entry(ref,v,(r.sy||[]).map(s=>v.refs?.[s-1]).filter(Boolean),x.tag+sy+x.detail,r.type,(r.sy||[]).map(s=>s-1)),r.vorlage,r,anchor.kind==='gap'?'add':'var');
       });
     }
     return [...out.values()];
@@ -126,7 +126,14 @@ function create(host){
     }
   }
   const credit=()=>'<p class="tc-credit">'+esc('Peschitta: ETCBC / Peshitta Institute · CC BY-NC 4.0. Zusätze und Auslassungen ergeben sich aus der Wort-für-Wort-Zuordnung zum MT (Claude, 2026); kein kritischer Apparat der Peschitta-Handschriften. Begründung der Zuordnung beim Überfahren der Quellenzeile.')+(Object.keys(window.PESHITTA_READINGS||{}).length?' '+esc('Lesarten-Einordnung und erschlossene Vorlagen: Claude, 2026; Vermutungen sind als unsicher gekennzeichnet.'):'')+'</p>';
-  return {available,load,entries,agree,credit};
+  // Label preview: the Syriac verse with this entry's words marked.
+  const seen=new Map();
+  function preview(anchor){
+    const ref=anchor.dataset.tcPs,v=seen.get(ref);if(!v)return '';
+    const at=new Set(String(anchor.dataset.tcPsSy||'').split(',').filter(Boolean).map(Number));
+    return '<b>'+esc('Peschitta')+' · '+raw(ref)+'</b><div class="tc-ps-sy" lang="syr" dir="rtl">'+v.sy.map((w,i)=>at.has(i)?'<span class="tc-dss-active">'+raw(w)+'</span>':raw(w)).join(' ')+'</div>'+(at.size?'':'<small>'+esc('Die MT-Wörter dieses Eintrags haben in der Peschitta keine Wiedergabe.')+'</small>');
+  }
+  return {available,load,entries,agree,credit,preview};
 }
 return {create};
 })();
