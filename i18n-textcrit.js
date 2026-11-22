@@ -268,5 +268,6 @@
   "Geprüfte Zuordnung": "Reviewed alignment",
   "Wortgruppe (maschinell)": "Word group (automated)",
   "Wortzuordnung (maschinell)": "Word alignment (automated)",
-  "Wortdetails und Quelle anzeigen": "Show word details and source"
+  "Wortdetails und Quelle anzeigen": "Show word details and source",
+  "Oxford-Abschnitt Esth enthält Esra statt Esther; nicht als Esther-Apparat verwendet": "Oxford section Esth contains Ezra instead of Esther; not used as an Esther apparatus"
 });

@@ -2404,3 +2404,11 @@ html.split[data-tab=dict] body #dictPanel.pinp:is(.docked,.panel-sized) { right:
 .tc-locus-detail > summary { cursor: pointer; color: var(--muted); font-size: .85em; }
 .tc-lxx-reading[data-lxx-type=technik] .tc-ps-note, .tc-lxx-reading[data-lxx-type=technik] .tc-tov-tag { opacity: .75; }
 .tc-lxx-gr { font-style: italic; }
+/* Aleppo-Text (MAM) als Interlinear-Zeile: gleiche Wörter zurückhaltend, Abweichungen hervorgehoben */
+body.il .cell[data-k="he"] .ilt.il-ma { direction: rtl; font-family: var(--he-font, "SBL Hebrew", serif); font-size: .8em; line-height: 1.35; color: var(--muted); }
+.ilt.il-ma .il-ma-k, .ilt.il-ma .il-ma-w { color: var(--fg); font-weight: 700; background: color-mix(in srgb, var(--il6) 24%, transparent); border-radius: 3px; padding: 0 .12em; }
+.ilt.il-ma .il-ma-p { color: var(--fg); text-decoration: underline dotted; text-underline-offset: .25em; }
+.ilt.il-ma .il-ma-v { color: var(--fg); background: color-mix(in srgb, var(--il5) 22%, transparent); border-radius: 3px; padding: 0 .1em; }
+.ilt.il-ma .il-ma-a { color: var(--fg); border-bottom: 1px dashed var(--muted); }
+.ilt.il-ma .il-plus, .ilt.il-ma .il-minus { color: var(--fg); }
+.ilt.il-ma.il-ma-lost::after { content: "*"; margin-inline-start: .2em; opacity: .7; }

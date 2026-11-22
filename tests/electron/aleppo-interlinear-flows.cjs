@@ -1,0 +1,30 @@
+'use strict';
+// Aleppo-Text (MAM) als Interlinear-Zeile unter dem Westminster-Text: Zeile, Abweichungen, Verlustbereich, Englisch.
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
+module.exports=async({docs,win,js,waitFor,book})=>{
+ const root=path.resolve(__dirname,'../..'),manifest=require('../../bundled/manifest.json');
+ const put=e=>{const d=JSON.parse(fs.readFileSync(path.join(root,'bundled',e.rel)));docs.set(e.rel,{...d,entry:{...e,own:false},textHash:crypto.createHash('sha256').update(JSON.stringify(d.text)).digest('hex')});};
+ for(const title of ['Genesis','Isaiah'])for(const e of manifest.items.filter(e=>e.title===title&&/^(Westminster|Aleppo)/.test(e.versionTitle||'')))put(e);
+ await js("localStorage.setItem('uiLang','en');localStorage.setItem('interlinPick','[]')");
+ const loaded=new Promise(r=>win.webContents.once('did-finish-load',r));win.reload();await loaded;
+ await waitFor("document.querySelector('#rOut .cell')",'Leser');
+ await book('Isaiah');await waitFor("document.querySelector('#rOut .w')",'Jesaja');
+ await js("document.querySelector('#ilBtn').click()");
+ await waitFor("document.querySelector('#ilPop input[value=Aleppo]')",'Aleppo-Option im Interlinear');
+ assert(await js("document.querySelector('#ilPop input[value=Aleppo]').closest('label').textContent.includes('Aleppo text (MAM)')"),'Englische Bezeichnung');
+ await js("{const c=document.querySelector('#ilPop input[value=Aleppo]');c.checked=true;c.dispatchEvent(new Event('change',{bubbles:true}));}");
+ await waitFor("document.querySelector('.ilt.il-ma .ils')",'Aleppo-Zeile unter dem MT');
+ const n=await js("[...document.querySelectorAll('#rOut .row[data-l]')].find(r=>/\\b1$/.test(r.dataset.l))?.querySelectorAll('.ilt.il-ma .ils').length||0");
+ assert(n>10,'Jesaja 1,1 hat Wort für Wort eine Aleppo-Zeile ('+n+')');
+ assert(!(await js("Boolean(document.querySelector('.ilt.il-ma.il-ma-lost'))")),'Jesaja 1 liegt im erhaltenen Teil');
+ await js("document.querySelector('#rSection').value='35';document.querySelector('#rSection').dispatchEvent(new Event('change',{bubbles:true}))");
+ await waitFor("document.querySelector('.ilt.il-ma .ils[class*=il-ma-]')",'Jesaja 36: Abweichungen markiert');
+ const diff=await js("document.querySelector('.ilt.il-ma .ils[class*=il-ma-]').title");
+ assert(/^Aleppo text: /.test(diff),'Abweichung mit englischem Hinweis: '+diff);
+ await book('Genesis');await waitFor("document.querySelector('.ilt.il-ma.il-ma-lost')",'Genesis: Aleppo-Kodex verloren');
+ assert(/Aleppo Codex lost here/.test(await js("document.querySelector('.ilt.il-ma.il-ma-lost').title")));
+ await js('new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r)))');
+ assert.equal(await js("document.querySelector('#tabbar .tab.active span').textContent"),'Genesis · Chapter 1','Reiter auf Englisch');
+ assert.equal(await js('document.title'),'Genesis · Chapter 1','Fenstertitel auf Englisch');
+ await win.webContents.capturePage().then(i=>fs.writeFileSync('/tmp/safran-aleppo-il.png',i.toPNG()));
+};

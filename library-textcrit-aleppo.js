@@ -41,5 +41,5 @@ function create(host){
   const credit=()=>'<p class="tc-credit">'+esc('MA: Aleppo-Text nach „Miqra according to the Masorah“ (he.wikisource, CC BY-SA 4.0; Text-Fabric: CACCHT), maschinell mit dem Leningradensis (Westminster/OSHB) verglichen. Ketiv/Qere, Qamets qatan, Paseq, Meteg und die Vokalisierung des Gottesnamens zählen nicht. * = Aleppo-Kodex an dieser Stelle verloren, MAM folgt anderen tiberischen Handschriften.')+'</p>';
   return {available,load,entries,credit};
 }
-return {create,BOOKS};
+return {create,BOOKS,lost,KIND};
 })();

@@ -815,6 +815,9 @@
     if (!psBookP.has(title)) psBookP.set(title, wordCardsUI.lazyScript(P.file(title), () => window.PESHITTA_ALIGNMENT_BOOKS?.[title]).then(d => ({ version: 2, books: { [title]: d } })).catch(e => { psBookP.delete(title); throw e; }));
     return psBookP.get(title);
   };
+  const alIlP = new Map();
+  // Aleppo-Text (MAM) Wort für Wort unter dem Westminster-Text (tools/aleppo/interlinear.py)
+  const loadAlIL = title => { if (!alIlP.has(title)) alIlP.set(title, wordCardsUI.lazyScript('aleppo-il/' + title.replace(/ /g, '_') + '.js', () => window.ALEPPO_IL?.[title]).catch(e => { alIlP.delete(title); throw e; })); return alIlP.get(title); };
   let smrIlP = null;
   const loadSmrIL = () => smrIlP || (smrIlP = wordCardsUI.lazyScript('samaritan-il.js', () => window.SAMARITAN_IL).catch(e => { smrIlP = null; throw e; }));
   const qVer = g => (g && g.versions || []).some(x => x.versionTitle === 'Qumran-Rollen (ETCBC DSS)');
@@ -883,7 +886,8 @@
     consOf: s => consOf(s), apChap: s => apChap(s), verseOf: s => linksUI.verseOf(s),
     sources: { loadIL, resetPrivateIL, IL_TG, IL_QK, ilName,
       loadTgIL, tgVer, tgSegs, tgDoc, tgPlain, loadQIL, qVer,
-      ilLxxVer, ilLxxDoc, ilLxxSegs, loadSmrIL, loadPsIL },
+      ilLxxVer, ilLxxDoc, ilLxxSegs, loadSmrIL, loadPsIL, loadAlIL },
+    stripHe: t => { try { return displayUI.stripHe(t); } catch { return t; } },
   });
   function ilRefresh() { return interlinearUI.refresh(); }
   function ilTagCell(cell, segments) { return interlinearUI.tagCell(cell, segments); }

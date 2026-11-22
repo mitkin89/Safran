@@ -62,6 +62,10 @@ async function book(title,prefix='document'){await js(`{const d=${prefix};d.quer
   await require('./map-navigation-flows.cjs')({win,js,waitFor});
   assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;
  }
+ if(process.env.SAFRAN_SMOKE_ALEPPO_IL==='1'){
+  await require('./aleppo-interlinear-flows.cjs')({docs,win,js,waitFor,book});
+  assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;
+ }
  if(process.env.SAFRAN_SMOKE_PESHITTA==='1'){
   await require('./peshitta-flows.cjs')({profile,docs,win,js,waitFor,book});
   assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;

@@ -7,13 +7,13 @@ window.LibraryTabs = (() => {
     function updateTitle(name) {
       if (isPane2()) return;
       const base = 'Offline-Bibliothek', onRead = (document.documentElement.dataset.tab || 'read') === 'read';
-      document.title = onRead && name && name !== 'Neuer Tab' ? name : base;
+      document.title = onRead && name && name !== I18N.t('Neuer Tab') ? name : I18N.t(base);
     }
     function renderTabs() {
       $('#tabbar').innerHTML = state.tabs.map((t, i) => {
         const s = t.group && t.sections && t.sections[t.idx];
         if (s) t.label = s.label;
-        const name = t.group ? t.group.title + (t.label ? ' · ' + t.label : '') : t.sres ? I18N.t('Suche') + ': ' + t.sres.q : 'Neuer Tab';
+        const name = t.group ? t.group.title + (t.label ? ' · ' + I18N.tr(t.label) : '') : t.sres ? I18N.t('Suche') + ': ' + t.sres.q : I18N.t('Neuer Tab');
         if (i === state.tabIdx) updateTitle(t.group || t.sres ? name : ''); // erst hier: t.label ist oben gerade aktualisiert worden
         return `<div class="tab${i === state.tabIdx ? ' active' : ''}" data-i="${i}" title="${esc(name)}"><span>${esc(name)}</span><button data-x="${i}" title="Tab schließen">✕</button></div>`;
       }).join('') + '<button id="tabNew" title="Neuer Tab (Cmd+T)">＋</button>';
