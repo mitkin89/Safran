@@ -57,6 +57,17 @@ module.exports=async({win,js,waitFor})=>{
  assert.equal(await js("document.querySelectorAll('#sCatTree input:checked').length"),0,'Wortkarte startet ohne alte Werkfilter');
  if(process.env.SAFRAN_SMOKE_CONCORDANCE==='1')assert.equal(await js("document.querySelector('#sConcordanceMode').value"),'root','Wortfamilie bleibt in der ausführlichen Suche ausgewählt');
  await js("document.querySelector('#fmClose').click();document.querySelector('#sConcordance').checked=false;document.querySelector('#sConcordance').dispatchEvent(new Event('change'));document.querySelector('[data-tab=read]').click()");
+ await js(`{const jump=document.querySelector('#jump');jump.value='Genesis 1:22';jump.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true}));}`);
+ const fillWord = "[...document.querySelectorAll('#rOut .row.hit[data-l=\"22\"] .cell[data-mt] .w')].find(word=>word.textContent.replace(/[^א-ת]/g,'')==='ומלאו')";
+ await waitFor(fillWord,'Hebräisches Wort für die Wurzelsuche');
+ await js(fillWord + ".dispatchEvent(new MouseEvent('dblclick',{bubbles:true}))");
+ await waitFor("document.querySelector('#wcBody .wcAct .wcRoot[data-root=מלא]')",'Wurzelsuche im Wortkarten-Überblick');
+ await js("document.querySelector('#wcBody .wcRoot').click()");
+ await waitFor("document.documentElement.dataset.tab==='search' && document.querySelector('#sOut .ccRow') && document.querySelector('#sGo').textContent==='Suchen'",'Vollständige Wortfamiliensuche aus dem Überblick');
+ assert.equal(await js("document.querySelector('#sq').value"),'מלא');
+ assert.equal(await js("document.querySelector('#sConcordanceMode').value"),'root');
+ assert(await js("[...document.querySelectorAll('#sOut .ccRow mark')].some(word=>word.textContent.replace(/[^א-ת]/g,'')==='ומלאו')"));
+ await js("document.querySelector('#sConcordance').checked=false;document.querySelector('#sConcordance').dispatchEvent(new Event('change'));document.querySelector('[data-tab=read]').click()");
  if(process.env.SAFRAN_SMOKE_CONCORDANCE==='1'){
   await js("document.querySelector('[data-tab=search]').click();document.querySelector('#sq').value='ברא';document.querySelector('#sq').dispatchEvent(new Event('input'));document.querySelector('#sConcordance').checked=true;document.querySelector('#sConcordance').dispatchEvent(new Event('change'));document.querySelector('#sConcordanceMode').value='surface';document.querySelector('#sGo').click()");
   await waitFor("document.querySelector('#sOut .ccPeer[lang]') || (document.querySelector('#sOut .ccPeer') && document.querySelector('#sGo').textContent==='Suchen')",'Sprachübergreifende Zuordnungen');

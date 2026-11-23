@@ -73,6 +73,7 @@
     "Weitere Bedeutungen": "More meanings",
     "Keine Bedeutung erfasst.": "No meaning recorded.",
     "Wortfamilie": "Word family",
+    "Nach Wurzel suchen": "Search by root",
     "Verwandtschaft nach der ausdrücklich erfassten SEDRA-Wurzel.": "Related entries follow the explicitly recorded SEDRA root.",
     "Keine ausdrückliche Wurzelzuordnung erfasst.": "No explicit root relationship recorded.",
     "In SEDRA erfasste Wortformen; keine Häufigkeiten im Lesetext und keine erzeugten Paradigmen.": "Word forms recorded in SEDRA; not reading-text frequencies or generated paradigms.",

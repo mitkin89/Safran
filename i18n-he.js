@@ -200,6 +200,7 @@ window.I18N_HE = {
 "Wortkarte: Wörterbücher, Verteilung und Formen dieses Wortes": "כרטיס מילה: מילונים, תפוצה וצורות של המילה",
 "Startet die Suche nach diesem Wort im hebräischen Tanach (Treffer „Alle Formen“)": "מתחיל חיפוש של המילה בתנ״ך העברי (התאמה „כל הצורות“)",
 "Alle Stellen dieses Wortes": "כל המופעים של המילה",
+"Nach Wurzel suchen": "חיפוש לפי שורש",
 "Wörterbücher": "מילונים",
 "Verteilung im Tanach": "תפוצה בתנ״ך",
 "{} Belege in {} von 39 Büchern": "{} מופעים ב־{} מתוך 39 ספרים",

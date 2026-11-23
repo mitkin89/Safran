@@ -376,6 +376,15 @@ window.LibraryWordCards = (() => {
       <section class="wcSec" id="wcQum" hidden></section>
       <section class="wcSec" id="wcTg" hidden></section>
       <p class="fmNote">${host.esc(I18N.t(targum ? 'Belegte Wortformen und Bestimmungen aus dem ETCBC Targum Corpus (CC BY-NC 4.0): Onkelos, Neofiti 1 und Pseudo-Jonathan zum Pentateuch. Die Fassungen zählen getrennt; gleich geschriebene Lexeme bleiben getrennt.' : greek ? 'Belege und Formen nach der Septuaginta-Morphologie lxx-morph (Seth Kushniryk, CC BY 4.0), den Wörtern der mitgelieferten Septuaginta-Fassungen zugeordnet (Tanach: CATSS-Text in hebräischer Zählung; deuterokanonische Bücher: Rahlfs). Richter (A und B), Daniel (Septuaginta und Theodotion), Tobit, Susanna und Bel stehen in zwei Fassungen und zählen je für sich; Kurzbedeutungen englisch (STEPBible).' : 'Belege und Formen nach dem Westminster Leningrad Codex (OSHB); gezählt sind vokalisierte Wörter mit diesem Lemma. Die Suche „Alle Stellen“ geht über das Schriftbild des Lemmas und kann gleich geschriebene Wörter mitfinden.'))}</p>`;
+    if (!greek && !targum) {
+      const lemma = fmCur.lemma;
+      host.loadPassageStats().then(index => {
+        const root = index?.roots?.[lemma]?.root;
+        if (token !== wcToken || !root) return;
+        card.querySelector('.wcAct')?.insertAdjacentHTML('beforeend',
+          `<button type="button" class="wcRoot" data-root="${host.esc(root)}">${host.esc(I18N.t('Nach Wurzel suchen'))} <bdi lang="he">${host.esc(root)}</bdi></button>`);
+      }, () => {});
+    }
     wcDicts(token); if (greek) wcHeb(token); else if (!targum) { wcTrans(token); wcLxx(token); wcTgRen(token); wcQumran(token); wcTargum(token); }
   }
   // Belegstellen als Zeilen je Buch (wie in der Formentabelle)
@@ -1146,6 +1155,13 @@ window.LibraryWordCards = (() => {
     const rx = e.target.closest('.fmRX'); if (rx) { if (rx.closest('#wcBookRefs')) wcBookRefs(null); else wcFormRefs(null); return; }
     const mb = e.target.closest('.wcDMoreB'); if (mb) { const m = mb.previousElementSibling; m.hidden = !m.hidden; mb.textContent = m.hidden ? I18N.t('+ {} weitere', mb.dataset.n) : I18N.t('weniger'); return; }
     const al = e.target.closest('.fmAll'); if (al) { if (al.closest('#wcBookRefs')) wcBookRefs(host.$('#wcBookRefs').dataset.b, true); else wcFormRefs(host.$('#wcBody .wcForms .fmF.sel'), true); return; }
+    const rootButton = e.target.closest('.wcRoot');
+    if (rootButton) {
+      const lemma = fmCur.lemma;
+      closeForms();
+      host.openConcordance(rootButton.dataset.root, lemma);
+      return;
+    }
     if (e.target.closest('.wcAll')) { wcSearchAll(); return; }
     const gl = e.target.closest('.wcGL[data-gl]'); if (gl) { openGForms(gl.dataset.gl, null, 'card'); return; }
     const tq = e.target.closest('.wcTgL[data-q]'); if (tq) { host.openDict(tq.dataset.q); return; }
