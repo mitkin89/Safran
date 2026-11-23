@@ -3,7 +3,7 @@
 // bleiben beim Leser; aktuelle Buch-/Versionslisten werden über Getter bezogen.
 window.LibrarySearch = (() => {
   'use strict';
-  function create({ $, $$, esc, KIND_LABEL, shortVer, plainSnip, lsGet, lsSet, getGroups, getPreferredVersions, openOutlineRef }) {
+  function create({ $, $$, esc, KIND_LABEL, shortVer, plainSnip, lsGet, lsSet, getGroups, getPreferredVersions, outlineSearch }) {
     const O = window.offline;
     // ---------- Suche ----------
     let sResults = [];
@@ -16,14 +16,13 @@ window.LibrarySearch = (() => {
       const g = $('#sGo');
       g.textContent = I18N.t(sBusy() ? 'Abbrechen' : 'Suchen');
       g.classList.toggle('primary', !sBusy());
-      for (const id of ['sxGo', 'soGo']) {
-        $('#' + id).textContent = g.textContent;
-        $('#' + id).classList.toggle('primary', !sBusy());
-      }
+      $('#sxGo').textContent = g.textContent;
+      $('#sxGo').classList.toggle('primary', !sBusy());
     };
     function setSearchMode(mode) {
       if (searchMode === mode) return;
       if (sBusy()) void O.cancelSearch();
+      if (searchMode === 'outline') outlineSearch.cancel();
       searchId++;
       searchPending = false;
       searchMode = mode;
@@ -39,10 +38,6 @@ window.LibrarySearch = (() => {
       $('#sOut').replaceChildren();
       for (const id of ['sSumPanel', 'sChart', 'sGroupBtn', 'sReadBtn', 'sExport', 'sProgress']) $('#' + id).hidden = true;
       $('#sInfo').textContent = mode === 'text' ? I18N.t('Durchsucht alle heruntergeladenen Texte der gewählten Sprachen (auch Fußnoten).') : '';
-      if ($('#soInfo').dataset.pending) {
-        delete $('#soInfo').dataset.pending;
-        $('#soInfo').textContent = '';
-      }
       sSetBusy();
       if (mode === 'syntax') loadBhsaStatus();
     }
@@ -58,63 +53,6 @@ window.LibrarySearch = (() => {
         : (index + steps[event.key] * direction + modeTabs.length) % modeTabs.length;
       modeTabs[next].click();
       modeTabs[next].focus();
-    });
-    let outlinePage = null;
-    async function runOutlineSearch(options) {
-      if (sBusy()) return O.cancelSearch();
-      const info = $('#soInfo');
-      if (!options.query && options.kind !== 'mitzvot') {
-        info.textContent = I18N.t('Gib einen Suchbegriff oder eine Mizwa-Nummer ein.');
-        return;
-      }
-      const id = ++searchId;
-      searchPending = true;
-      sSetBusy();
-      info.dataset.pending = '1';
-      info.textContent = I18N.t('Suche läuft …');
-      let response;
-      try { response = await O.search({ outline: options }); }
-      catch { response = null; }
-      if (id !== searchId) return;
-      searchPending = false;
-      sSetBusy();
-      delete info.dataset.pending;
-      if (response?.cancelled) { info.textContent = I18N.t('– abgebrochen'); return; }
-      if (!response || response.error) { info.textContent = I18N.t('Die Suche ist fehlgeschlagen.'); return; }
-      const { results, total, previous, next } = response;
-      outlinePage = { options, results, previous, next };
-      const end = options.offset + results.length;
-      info.textContent = total ? I18N.t('Treffer {}–{} von {}', options.offset + 1, end, total) : I18N.t('Keine Treffer.');
-      const books = getGroups().map(g => g.title);
-      $('#soOut').innerHTML = results.map((result, i) => {
-        const { book, ref, text, section, number, description } = result;
-        const available = books.some(title => book === title || book.startsWith(title + ', '));
-        const head = [book, ref, number && I18N.t('Mizwa Nr. {}', number)].filter(Boolean).join(' · ');
-        return `<article class="soResult"><bdi>${esc(head)}</bdi>
-          ${section ? `<small class="muted" dir="auto">${esc(section)}</small>` : ''}
-          <div dir="auto">${esc(text)}</div>
-          ${description ? `<small class="muted" dir="auto">${esc(description)}</small>` : ''}
-          ${available ? `<button type="button" data-outline-hit="${i}">${esc(I18N.t('Im Lesen öffnen'))}</button>`
-            : `<small class="muted">${esc(I18N.t('Buch nicht in der lokalen Bibliothek'))}</small>`}</article>`;
-      }).join('');
-      $('#soPages').hidden = previous == null && next == null;
-      $('#soPrev').disabled = previous == null;
-      $('#soNext').disabled = next == null;
-    }
-    $('#soForm').addEventListener('submit', event => {
-      event.preventDefault();
-      runOutlineSearch({ query: $('#soQuery').value.trim(), kind: $('#soKind').value, lang: I18N.lang, offset: 0 });
-    });
-    for (const [button, direction] of [['#soPrev', 'previous'], ['#soNext', 'next']]) {
-      $(button).onclick = () => {
-        const offset = outlinePage?.[direction];
-        if (!sBusy() && offset != null) runOutlineSearch({ ...outlinePage.options, offset });
-      };
-    }
-    $('#soOut').addEventListener('click', async event => {
-      const button = event.target.closest('[data-outline-hit]');
-      const hit = button && outlinePage?.results[Number(button.dataset.outlineHit)];
-      if (hit && !await openOutlineRef(hit.target, event)) $('#soInfo').textContent = I18N.t('Die Stelle konnte nicht geöffnet werden.');
     });
     const S_KINDS = ['he', 'en', 'de', 'other'], S_LANGS = ['auto', 'he', 'de', 'en', 'other', 'all'], S_MODES = ['lemma', 'prefix', 'exact', 'part'];
     // gewählte Sprache -> Textarten; „Automatisch“ richtet sich nach der Schrift der Eingabe
@@ -558,11 +496,6 @@ window.LibrarySearch = (() => {
     $('#sq').addEventListener('keydown', e => { if (e.key === 'Enter' && !sBusy()) manualFind(); });
 
     return {
-      openOutlineSearch(kind) {
-        setSearchMode('outline');
-        $('#soKind').value = kind;
-        $('#soQuery').focus();
-      },
       run: runSearch,
       concordance(query, root) {
         sCats.clear(); sTitles.clear(); renderSCats();

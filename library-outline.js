@@ -1,6 +1,81 @@
 // LibraryOutline: eigener Zustand und explizite Anbindung an den Leser.
 window.LibraryOutline = (() => {
   'use strict';
+  function createSearch(root, { controls = root, esc, getGroups, openOutlineRef, onRun = () => {} }) {
+    const content = document.querySelector('#outlineSearchTemplate').content.cloneNode(true);
+    const fields = new Map([...content.querySelectorAll('[data-so]')].map(node => [node.dataset.so, node]));
+    const field = name => fields.get(name);
+    controls.append(field('form'));
+    root.append(content);
+    let page = null, searchId = 0, pending = false;
+    function setBusy(value) {
+      pending = value;
+      field('go').textContent = I18N.t(value ? 'Abbrechen' : 'Suchen');
+      field('go').classList.toggle('primary', !value);
+    }
+    const info = field('info');
+    function cancel() {
+      if (!pending) return;
+      window.offline.cancelSearch(root.id);
+      searchId++;
+      setBusy(false);
+      info.textContent = I18N.t('– abgebrochen');
+    }
+    async function runOutlineSearch(options) {
+      if (pending) return cancel();
+      onRun();
+      if (!options.query && options.kind !== 'mitzvot') {
+        info.textContent = I18N.t('Gib einen Suchbegriff oder eine Mizwa-Nummer ein.');
+        return;
+      }
+      const id = ++searchId;
+      setBusy(true);
+      info.textContent = I18N.t('Suche läuft …');
+      let response;
+      try { response = await window.offline.search({ outline: options }, root.id); }
+      catch { response = null; }
+      if (id !== searchId) return;
+      setBusy(false);
+      if (response?.cancelled) { info.textContent = I18N.t('– abgebrochen'); return; }
+      if (!response || response.error) { info.textContent = I18N.t('Die Suche ist fehlgeschlagen.'); return; }
+      const { results, total, previous, next } = response;
+      page = { options, results, previous, next };
+      const end = options.offset + results.length;
+      info.textContent = total ? I18N.t('Treffer {}–{} von {}', options.offset + 1, end, total) : I18N.t('Keine Treffer.');
+      const books = getGroups().map(g => g.title);
+      field('out').innerHTML = results.map((result, i) => {
+        const { book, ref, text, section, number, description } = result;
+        const available = books.some(title => book === title || book.startsWith(title + ', '));
+        const head = [book, ref, number && I18N.t('Mizwa Nr. {}', number)].filter(Boolean).join(' · ');
+        return `<article class="soResult"><bdi>${esc(head)}</bdi>
+          ${section ? `<small class="muted" dir="auto">${esc(section)}</small>` : ''}
+          <div dir="auto">${esc(text)}</div>
+          ${description ? `<small class="muted" dir="auto">${esc(description)}</small>` : ''}
+          ${available ? `<button type="button" data-outline-hit="${i}">${esc(I18N.t('Im Lesen öffnen'))}</button>`
+            : `<small class="muted">${esc(I18N.t('Buch nicht in der lokalen Bibliothek'))}</small>`}</article>`;
+      }).join('');
+      field('pages').hidden = previous == null && next == null;
+      field('prev').disabled = previous == null;
+      field('next').disabled = next == null;
+    }
+    field('form').addEventListener('submit', event => {
+      event.preventDefault();
+      runOutlineSearch({ query: field('query').value.trim(), kind: field('kind').value, lang: I18N.lang, offset: 0 });
+    });
+    for (const [button, direction] of [['prev', 'previous'], ['next', 'next']]) {
+      field(button).onclick = () => {
+        const offset = page?.[direction];
+        if (!pending && offset != null) runOutlineSearch({ ...page.options, offset });
+      };
+    }
+    field('out').addEventListener('click', async event => {
+      const button = event.target.closest('[data-outline-hit]');
+      const hit = button && page?.results[Number(button.dataset.outlineHit)];
+      if (hit && !await openOutlineRef(hit.target, event)) field('info').textContent = I18N.t('Die Stelle konnte nicht geöffnet werden.');
+    });
+    return { cancel, setKind(kind) { field('kind').value = kind; } };
+  }
+
   function create(host) {
   // ---------- Gliederung: Wochenabschnitte, Kapitel und Absätze (offen/geschlossen: פ ס) des gewählten Buches ----------
   const olOwnCache = new Map();
@@ -169,7 +244,7 @@ window.LibraryOutline = (() => {
   }
   function olToggle(w, open, silent, how) { w.hidden = !open; if (how) w.dataset.how = how; if (!silent) olChips(); const t = w.previousElementSibling && w.previousElementSibling.querySelector('.oltg'); if (t) { t.textContent = open ? '▾' : '▸'; t.setAttribute('aria-expanded', open ? 'true' : 'false'); } }
   function olMark(scroll) {
-    const pnl = host.$('#outlinePanel'); if (!pnl || pnl.hidden) return;
+    const pnl = host.$('#outlinePanel'); if (!pnl || pnl.hidden || host.$('#olBody').hidden) return;
     // Nach Klick im Panel: angeklickten Punkt auf dem Bildschirm festhalten, auch wenn andere Gruppen auf-/zuklappen
     const holdEl = window.__olHold && Date.now() < window.__olHold ? host.$$('#olBody .olc').find(x => x.dataset.r === window.__olClicked) : null;
     let holdBox = null, holdTop = 0; if (holdEl) { holdBox = holdEl.parentElement; while (holdBox && holdBox !== document.body && !(holdBox.scrollHeight > holdBox.clientHeight + 2 && /auto|scroll/.test(getComputedStyle(holdBox).overflowY))) holdBox = holdBox.parentElement; if (holdBox === document.body) holdBox = null; holdTop = holdEl.getBoundingClientRect().top; }
@@ -219,9 +294,39 @@ window.LibraryOutline = (() => {
   document.addEventListener('mousedown', e => { const p = host.$('#outlinePanel'); if (p.hidden || p.classList.contains('docked') || e.target.closest('#outlinePanel, #olBtn, #tpResize, #suggest, #audioBar')) return; p.hidden = true; });
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && !host.$('#outlinePanel').hidden) { host.$('#outlinePanel').hidden = true; e.stopPropagation(); } }, true);
   new MutationObserver(() => { host.$('#tpResize').hidden = host.$('#topicPanel').hidden && host.$('#outlinePanel').hidden; }).observe(host.$('#outlinePanel'), { attributes: true, attributeFilter: ['hidden'] });
-  const olSetMz = on => { try { localStorage.setItem('olMz', on ? '1' : '0'); } catch { /* ohne Speicher */ } renderOutline(); };
+  const olSearch = host.$('#olSearch');
+  const olSearchForm = host.$('#olSearchForm');
+  const showSearchResults = show => {
+    olSearch.hidden = !show;
+    host.$('#olBack').hidden = !show;
+    host.$('#olBody').hidden = show;
+    if (show) host.$('#outlinePanel').scrollTop = 0;
+    else olMark(true);
+  };
+  const panelSearch = createSearch(olSearch, {
+    controls: olSearchForm,
+    esc: host.esc,
+    getGroups: host.getGroups,
+    openOutlineRef: (ref, event) => host.jumpTo(ref, host.BG(event)),
+    onRun: () => showSearchResults(true),
+  });
+  olSearchForm.querySelector('[data-so="query"]').placeholder = I18N.t('Buchübergreifend suchen');
+  const returnToOutline = () => {
+    panelSearch.cancel();
+    showSearchResults(false);
+  };
+  host.$('#olBack').onclick = () => {
+    returnToOutline();
+    olSearchForm.querySelector('[data-so="query"]').focus();
+  };
+  const olSetMz = on => {
+    try { localStorage.setItem('olMz', on ? '1' : '0'); } catch { /* ohne Speicher */ }
+    panelSearch.setKind(on ? 'mitzvot' : 'outlines');
+    returnToOutline();
+    renderOutline();
+  };
   host.$('#olTabT').onclick = () => olSetMz(false); host.$('#olTabM').onclick = () => olSetMz(true);
-  host.$('#mapOl').onclick = () => { host.$('#mapPanel').hidden = true; host.$('#olBtn').click(); };
+  host.$('#mapOl').onclick = () => { returnToOutline(); host.$('#mapPanel').hidden = true; host.$('#olBtn').click(); };
   host.$('#olBody').addEventListener('keydown', e => { if ((e.key === 'Enter' || e.key === ' ') && e.target.closest && e.target.closest('.oltg, .olp')) { e.preventDefault(); e.target.click(); } });
   host.$('#olBody').addEventListener('click', e => {
     const mp = e.target.closest('.olmap'); if (mp) { const q = mp.closest('.olp'); e.stopPropagation(); window.__olLast = q.dataset.r; window.__mapOpenFor && window.__mapOpenFor(host.view.group.title, q.dataset.r, q.querySelector('.ref').textContent + ' ' + (q.querySelector('.tx, .he')?.firstChild?.textContent || '')); return; }
@@ -442,5 +547,5 @@ window.LibraryOutline = (() => {
       get tpSecKey() { return tpSecKey; }, set tpSecKey(value) { tpSecKey = value; },
     };
   }
-  return { create };
+  return { create, createSearch };
 })();

@@ -35,4 +35,11 @@ test('Produktions-Preload filtert Fortschritt und Abbruch nach Anfrage-ID',async
  const a=bridge.offline.search({query:'a'}),b=bridge.offline.search({query:'b'});const shown=[];bridge.offline.onSearchProgress(p=>shown.push(p.requestId));
  listeners['off:searchProgress']({}, {requestId:1});listeners['off:searchProgress']({}, {requestId:2});assert.deepEqual(shown,[2]);
  pending[0].resolve({});await a;bridge.offline.cancelSearch();assert.deepEqual(Array.from(sent[0]),['off:cancelSearch',2]);pending[1].resolve({});await b;bridge.offline.cancelSearch();assert.equal(sent.length,1);
+ const panel=bridge.offline.search({outline:{query:'Sabbat'}}, 'olSearch');
+ bridge.offline.cancelSearch('sOutline');
+ bridge.offline.cancelSearch();
+ assert.equal(sent.length,1);
+ bridge.offline.cancelSearch('olSearch');
+ assert.deepEqual(Array.from(sent[1]),['off:cancelSearch',3]);
+ pending[2].resolve({});await panel;
 });

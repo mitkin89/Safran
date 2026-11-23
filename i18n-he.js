@@ -20,6 +20,7 @@ window.I18N_HE = {
     "Nur Mizwot": "מצוות בלבד",
     "Suchbegriff oder Mizwa-Nummer": "מונח לחיפוש או מספר מצווה",
     "Suchbereich": "תחום חיפוש",
+    "Zur Gliederung": "חזרה לראשי הפרקים",
     "Buchübergreifend suchen": "חיפוש בכל הספרים",
     "Gib einen Suchbegriff oder eine Mizwa-Nummer ein.": "יש להזין מונח לחיפוש או מספר מצווה.",
     "Treffer {}–{} von {}": "תוצאות {}–{} מתוך {}",

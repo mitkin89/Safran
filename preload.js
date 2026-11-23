@@ -25,7 +25,7 @@ contextBridge.exposeInMainWorld('lib', {
   LANG_NAMES: sef.LANG_NAMES,
 });
 
-let searchSeq = 0, activeSearch = null;
+let searchSeq = 0, activeSearch = null, activeSearchScope;
 contextBridge.exposeInMainWorld('offline', {
   state: () => ipcRenderer.invoke('off:state'),
   catalogFetch: () => ipcRenderer.invoke('off:catalogFetch'),
@@ -40,8 +40,8 @@ contextBridge.exposeInMainWorld('offline', {
   read: rel => ipcRenderer.invoke('off:read', rel),
   bhsaStatus: () => ipcRenderer.invoke('off:bhsaStatus'),
   wordSyntax: (book, verse, position) => ipcRenderer.invoke('off:wordSyntax', book, verse, position),
-  search: o => { const requestId = ++searchSeq; activeSearch = requestId; return ipcRenderer.invoke('off:search', { ...o, requestId }).finally(() => { if (activeSearch === requestId) activeSearch = null; }); },
-  cancelSearch: () => { if (activeSearch != null) ipcRenderer.send('off:cancelSearch', activeSearch); },
+  search: (o, scope) => { const requestId = ++searchSeq; activeSearch = requestId; activeSearchScope = scope; return ipcRenderer.invoke('off:search', { ...o, requestId }).finally(() => { if (activeSearch === requestId) activeSearch = null; }); },
+  cancelSearch: scope => { if (activeSearch != null && scope === activeSearchScope) ipcRenderer.send('off:cancelSearch', activeSearch); },
   ownPick: () => ipcRenderer.invoke('off:ownPick'),
   interlinearRead: () => ipcRenderer.invoke('interlinear:read'),
   interlinearImport: () => ipcRenderer.invoke('interlinear:import'),

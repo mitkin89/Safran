@@ -314,11 +314,16 @@ body.dock-open #tab-read .layout { margin-right: calc(var(--dock-w, var(--cmt-w,
 #sBar #sGo { min-width: 96px; white-space: nowrap; }
 #sModes { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
 #sModes button[aria-selected="true"] { background: color-mix(in srgb, var(--accent) 20%, transparent); border-color: var(--accent); font-weight: 600; }
-#soForm { flex-wrap: wrap; }
-#soQuery { flex: 1 1 220px; min-width: 0; }
+[data-so="form"] { flex-wrap: wrap; }
+[data-so="query"] { flex: 1 1 220px; min-width: 0; }
 .soResult { display: grid; justify-items: start; gap: 4px; padding: 10px 0; border-bottom: 1px solid var(--line); }
+#olControls { position: sticky; top: -12px; z-index: 1; background: var(--bg); padding-bottom: 8px; }
+#olControls .lhead { position: static; }
+#olSearchForm [data-so="query"] { flex-basis: 100%; }
+#olSearch [data-so="info"] { margin: 6px 0; }
+#olBack { margin-top: 6px; }
 .soResult > bdi { font-weight: 600; }
-#soPages:not([hidden]) { margin-top: 12px; }
+[data-so="pages"]:not([hidden]) { margin-top: 12px; }
 .sxRoles { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(155px, 100%), 1fr)); gap: 8px 12px; max-width: 660px; }
 .sxRoles label { display: grid; gap: 5px; font-size: 13px; }
 .sxRoles input { box-sizing: border-box; min-width: 0; width: 100%; font-family: var(--he-font); }

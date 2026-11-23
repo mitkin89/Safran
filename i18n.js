@@ -436,6 +436,7 @@
     "Nur Mizwot": "Mitzvot only",
     "Suchbegriff oder Mizwa-Nummer": "Search term or mitzvah number",
     "Suchbereich": "Search scope",
+    "Zur Gliederung": "Back to outline",
     "Buchübergreifend suchen": "Search across books",
     "Gib einen Suchbegriff oder eine Mizwa-Nummer ein.": "Enter a search term or mitzvah number.",
     "Treffer {}–{} von {}": "Matches {}–{} of {}",

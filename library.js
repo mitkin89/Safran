@@ -1734,6 +1734,7 @@
     get BG() { return BG; },
     get ctxShow() { return ctxShow; },
     get esc() { return esc; },
+    getGroups: () => groups,
     get hovApi() { return linksUI.hovApi; }, set hovApi(value) { linksUI.hovApi = value; },
     get IS_PANE2() { return IS_PANE2; },
     get jumpTo() { return jumpTo; },
@@ -1897,13 +1898,13 @@
     if (onSearch) $$('#sOut details:not([open])').forEach(d => { if (hasQ(d.textContent, q)) { d.open = true; d.dataset.how = 'find'; } }); // zugeklappte „weitere Fassungen“ mit Treffer aufklappen
     else if (!onDict) $$('#rOut .note').forEach(n => { if (hasQ(n.textContent, q)) n.classList.add('fnd'); });
     // nur durchsuchen, was im aktuellen Reiter zu sehen ist (der Lesetext eines anderen Reiters ist bloß versteckt)
-    const roots = onSearch ? [$('#sOut')] : onDict ? [$('#dictOut')] : [$('#rOut')];
+    const roots = onSearch ? [$('#sOutline').hidden ? $('#sOut') : $('#sOutline [data-so=out]')] : onDict ? [$('#dictOut')] : [$('#rOut')];
     if (!onSearch && !onDict) {
     if (!$('#cmtPanel').hidden) roots.push($('#cmtBody')); // auch der Kommentar-Bereich wird durchsucht
     if (!$('#dictPanel').hidden) roots.push($('#dictOut')); // ebenso die Wörterbuch-Treffer
-    if (!$('#outlinePanel').hidden) roots.push($('#olBody')); // und die geöffnete Gliederung
+    if (!$('#outlinePanel').hidden) roots.push($('#olBody').hidden ? $('#olSearch [data-so=out]') : $('#olBody'));
     if (!$('#allPanel').hidden) roots.push($('#apBody')); // und die Seitenleiste „Alles zu dieser Stelle“
-    if (!$('#outlinePanel').hidden) $$('#olBody .olsubs[hidden]').forEach(w => { if (hasQ(w.textContent, q)) outlineUI.olToggle(w, true, true, 'find'); }); outlineUI.olChips(); // zugeklappte Unterpunkte mit Treffer aufklappen
+    if (!$('#outlinePanel').hidden && !$('#olBody').hidden) $$('#olBody .olsubs[hidden]').forEach(w => { if (hasQ(w.textContent, q)) outlineUI.olToggle(w, true, true, 'find'); }); outlineUI.olChips(); // zugeklappte Unterpunkte mit Treffer aufklappen
     }
     const ranges = [];
     // Textknoten je Absatz/Zelle sammeln und zusammenhängend durchsuchen, damit auch Wortfolgen über mehrere
@@ -2637,17 +2638,13 @@
     ctxShow(e, items);
   });
   const plainSnip = r => (r.parts ? r.parts.map(x => x.t).join('') : `${r.snippet.before}${r.snippet.hit}${r.snippet.after}`);
-  const searchUI = window.LibrarySearch.create({
-    $, $$, esc, KIND_LABEL, shortVer, plainSnip, lsGet, lsSet,
-    getGroups: () => groups, getPreferredVersions: () => prefVer,
-    openOutlineRef: (ref, event) => jumpTo(ref, BG(event)),
+  const outlineSearch = window.LibraryOutline.createSearch($('#sOutline'), {
+    esc, getGroups: () => groups, openOutlineRef: (ref, event) => jumpTo(ref, BG(event)),
   });
-  $('#olSearchAll').onclick = () => {
-    const mitzvot = !$('#olMzW').hidden && $('#olTabM').classList.contains('on');
-    $('#outlinePanel').hidden = true;
-    showTab('search');
-    searchUI.openOutlineSearch(mitzvot ? 'mitzvot' : 'outlines');
-  };
+  const searchUI = window.LibrarySearch.create({
+    $, $$, esc, KIND_LABEL, shortVer, plainSnip, lsGet, lsSet, outlineSearch,
+    getGroups: () => groups, getPreferredVersions: () => prefVer,
+  });
   // Gefundene Wörter im Vers markieren: Westminster-Wörter (span.w) exakt, übrige Texte als Textstelle
   function markHits(html, h) {
     if (html == null || !h || !h.words.size) return html;
