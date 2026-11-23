@@ -47,6 +47,8 @@ module.exports = function setup({profile, handlers}) {
     await js("document.querySelector('nav [data-tab=read]').click();document.querySelector('#olBtn').click()");
     await waitFor("!document.querySelector('#outlinePanel').hidden && document.querySelector('#olBody .olp')", 'Echte Genesis-Gliederung');
     assert(await js("document.querySelector('#olBody').textContent.includes('Weltschöpfung')"));
+    assert.equal(await js("Boolean(document.querySelector('#olSearchForm select'))"), false);
+    assert.equal(await js("Boolean(document.querySelector('#sOutline [data-so=kind]'))"), true);
     assert(await js(`(() => {
       const panel = document.querySelector('#outlinePanel');
       const form = panel.querySelector('#olSearchForm');
@@ -75,7 +77,7 @@ module.exports = function setup({profile, handlers}) {
     await waitFor("document.querySelector('#olSearch').textContent.includes('Mizwa Nr. 24')", 'Mizwa-Suche direkt im Gliederungspanel');
     assert.equal(await js("document.documentElement.dataset.tab"), 'read');
     assert.equal(await js("document.querySelector('#outlinePanel').hidden"), false);
-    assert.equal(await js("document.querySelector('#olSearchForm [data-so=kind]').value"), 'mitzvot');
+    assert.equal(await js("document.querySelector('#olTabM').classList.contains('on')"), true);
     assert(await js("document.querySelector('#rTitle').textContent.includes('Genesis')"));
     await js("document.querySelector('#olSearch [data-outline-hit]').click()");
     await waitFor("document.querySelector('#rTitle').textContent.includes('Exodus') && document.querySelector('#rOut .row.hit[data-l=\"29\"]')", 'Verssprung aus der Panelsuche');

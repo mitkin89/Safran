@@ -1,10 +1,11 @@
 // LibraryOutline: eigener Zustand und explizite Anbindung an den Leser.
 window.LibraryOutline = (() => {
   'use strict';
-  function createSearch(root, { controls = root, esc, getGroups, openOutlineRef, onRun = () => {} }) {
+  function createSearch(root, { controls = root, esc, getGroups, openOutlineRef, getKind, onRun = () => {} }) {
     const content = document.querySelector('#outlineSearchTemplate').content.cloneNode(true);
     const fields = new Map([...content.querySelectorAll('[data-so]')].map(node => [node.dataset.so, node]));
     const field = name => fields.get(name);
+    if (getKind) field('kind').remove();
     controls.append(field('form'));
     root.append(content);
     let page = null, searchId = 0, pending = false;
@@ -60,7 +61,8 @@ window.LibraryOutline = (() => {
     }
     field('form').addEventListener('submit', event => {
       event.preventDefault();
-      runOutlineSearch({ query: field('query').value.trim(), kind: field('kind').value, lang: I18N.lang, offset: 0 });
+      const kind = getKind ? getKind() : field('kind').value;
+      runOutlineSearch({ query: field('query').value.trim(), kind, lang: I18N.lang, offset: 0 });
     });
     for (const [button, direction] of [['prev', 'previous'], ['next', 'next']]) {
       field(button).onclick = () => {
@@ -73,7 +75,7 @@ window.LibraryOutline = (() => {
       const hit = button && page?.results[Number(button.dataset.outlineHit)];
       if (hit && !await openOutlineRef(hit.target, event)) field('info').textContent = I18N.t('Die Stelle konnte nicht geöffnet werden.');
     });
-    return { cancel, setKind(kind) { field('kind').value = kind; } };
+    return { cancel };
   }
 
   function create(host) {
@@ -307,6 +309,7 @@ window.LibraryOutline = (() => {
     controls: olSearchForm,
     esc: host.esc,
     getGroups: host.getGroups,
+    getKind: () => !host.$('#olMzW').hidden && olMz() ? 'mitzvot' : 'outlines',
     openOutlineRef: (ref, event) => host.jumpTo(ref, host.BG(event)),
     onRun: () => showSearchResults(true),
   });
@@ -321,7 +324,6 @@ window.LibraryOutline = (() => {
   };
   const olSetMz = on => {
     try { localStorage.setItem('olMz', on ? '1' : '0'); } catch { /* ohne Speicher */ }
-    panelSearch.setKind(on ? 'mitzvot' : 'outlines');
     returnToOutline();
     renderOutline();
   };
