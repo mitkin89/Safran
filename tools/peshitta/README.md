@@ -99,3 +99,33 @@ node --test tests/peshitta-automatic-context.test.js
 ```
 
 `context-batch-10000-summary.json` pins the input, earlier audit files, all bundled source files and the uncompressed audit by SHA-256. The leave-one-book-out check excludes the complete target book from both context and form evidence. Its structural rule agrees with 4,195 of 4,196 comparable source annotations, with one disagreement retained in the report. This measures agreement with existing annotation before the extra lexical/candidate gates. It does not independently certify the new assignments or all remaining positions. Reproducibility tests check all 10,000 decisions and every new runtime hit, including results beyond display limits.
+
+## Automatic bilateral-neighbor audit of 20,000 further positions
+
+`neighbor-batch-20000.jsonl.gz` records 20,000 additional native word positions. Every earlier decision, including all 10,000 positions in the preceding automatic audit, is excluded. This batch uses a separate automatic method, with 380 main-lemma assignments and 19,620 pending positions. It does not claim an individual linguistic review of the verses.
+
+The left adjacent word pair and the right adjacent word pair must each have matching annotated examples in two other original source books. These witnesses can occur in different verses, so the method does not claim a matching three-word phrase. Main lemma and part of speech must also agree for at least twelve same-form source occurrences in four other books. All available original same-form analyses must be unambiguous, including any known target-book annotations. The target must have that existing ETCBC candidate, exactly one SEDRA/UniMorph lexical candidate and a compatible, single NT lexical analysis. These lexical resources share SEDRA provenance, so their agreement supplies corroboration rather than independent semantic verification. Suffix analysis and full morphology are not transferred.
+
+```sh
+node tools/peshitta/neighbor-evidence-batch.cjs /path/to/lexical-evidence.jsonl /tmp/safran-neighbor-20000 20000
+node --test tests/peshitta-neighbor-evidence.test.js
+```
+
+The runtime subset is `peshitta-neighbor-review.json`, labelled separately as automatic neighboring-word matching. The summary pins source and exclusion files and the uncompressed audit by SHA-256. The structural rule agrees with all 8,016 comparable held-out original annotations when the entire target book is removed from form and pair-context evidence. This measures consistency with existing annotation, not an independent gold-standard assessment of the new assignments. Additional lexical/NT gates and known-source-conflict exclusions apply before publication. Tests replay all 20,000 outcomes, verify no overlap with earlier audits and check every new runtime hit at its exact native position.
+
+## Closing 20,000 main-lemma gaps with word-form and translation evidence
+
+`peshitta-main-lemma-review.json` adds exactly 20,000 previously unassigned main lemmas. This is an assignment batch, unlike the earlier 20,000-position audit. It reconsiders pending automatic proposals, while protecting all earlier published entries and individual review/exclusion records. Prefix/suffix morphology and complete analyses remain unassigned.
+
+The method intersects a word-form index and a translation-pair index of the original embedded ETCBC annotations. A proposed main lemma must occur with the exact normalized target form at least three times in two other books, and with the target Hebrew Strong lemma at least twelve times in four other books, across any attested Syriac forms. Exactly one candidate must satisfy both requirements. Unknown compound heads, known conflicting same-form/Hebrew anchors and proposals outside the original ETCBC candidate set are withheld. Only the main lemma is compared. Differences in prefix/suffix segmentation do not block an otherwise qualified head. This addresses the earlier over-restriction that required complete morpheme analyses to agree.
+
+All Hebrew anchors are reconstructed from the current edition-bound alignment files. They must be review-marked and one-to-one, with matching native Syriac IDs, spelling, verse references and Hebrew word strings. Alignment files include AI reviews. Their role is corroboration, not an independent scholarly gold standard. Earlier inferred Syriac lemmas never become evidence for new ones.
+
+```sh
+node tools/peshitta/main-lemma-batch.cjs /path/to/lexical-evidence.jsonl /tmp/safran-main-lemma-20000 20000
+node --test tests/peshitta-main-lemma.test.js
+```
+
+The immutable batch audit is `main-lemma-20000.jsonl.gz`, with target context, current alignment metadata, two original form witnesses and four original translation witnesses per entry. `main-lemma-20000-summary.json` pins all sources, alignment and Hebrew files, exclusions and the audit hash. Of 21,942 qualified candidates, the 20,000 with the strongest repeated source support were selected. The method's whole-book holdout agrees with 83,562 of 83,681 original main-lemma annotations, with all 119 disagreements retained. Known problematic form/Hebrew anchor families from this control do not occur in the selected assignments. This does not guarantee that every new assignment is correct, and the runtime label remains explicitly automatic.
+
+The regression rebuilds all 20,000 decisions from original sources and current alignments, checks every native text position through the concordance backend, and verifies a reduction from 98,301 to 78,301 open positions. The full morphological gap is not closed by a main-lemma assignment.

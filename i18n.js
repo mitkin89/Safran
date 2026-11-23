@@ -47,6 +47,8 @@
     "Safran (KI-Kontextprüfung mit ETCBC- und SEDRA-Belegen)": "Safran (AI context review with ETCBC and SEDRA attestations)",
     "ETCBC Syriac (Paralleltext)": "ETCBC Syriac (parallel text)",
     "ETCBC Syriac (automatischer Kontextabgleich)": "ETCBC Syriac (automated context matching)",
+    "ETCBC Syriac (automatischer Nachbarwortabgleich)": "ETCBC Syriac (automated neighboring-word matching)",
+    "ETCBC Syriac (automatischer Hauptlemma-Abgleich)": "ETCBC Syriac (automated main-lemma matching)",
     "ETCBC Syriac (automatischer Übersetzungsabgleich)": "ETCBC Syriac (automated translation alignment)",
     "Ein Wort in lokalen Werken; optional zugeordnete Bibeltexte in Hebräisch, Griechisch und Syrisch. Grundformen nur aus passenden Wortanalysen, sonst genaue Wortform. Ohne Fußnoten. Fassungen zählen getrennt.": "One word across local works; optionally aligned biblical texts in Hebrew, Greek and Syriac. Lemmas from matching annotations only; otherwise exact word forms. Excludes footnotes. Versions are counted separately.",
     "Bitte ein einzelnes Wort ohne Platzhalter eingeben.": "Enter a single word without wildcards.",

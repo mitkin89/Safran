@@ -108,7 +108,9 @@ test('Isaiah exposes contextual and parallel-text lemmas with their respective p
  assert.equal(matched?.basis, 'lemma');
  assert.equal(matched.analysisSource, 'ETCBC Syriac (automatischer Kontextabgleich)');
  assert.equal(matched.analysisReference, 'II Kings 21:12 · Jeremiah 35:17');
- assert(!inVerse(await find('ܟܠ'), 2, '2', 'ܟܠܗܘܢ'), 'the same local context in only one source book is insufficient');
+ const all = inVerse(await find('ܟܠ'), 2, '2', 'ܟܠܗܘܢ');
+ assert.equal(all?.analysisSource, 'ETCBC Syriac (automatischer Hauptlemma-Abgleich)', 'repeated form and Hebrew lemma-pair evidence can support the main lemma without assigning the suffix');
+ assert(all.analysisReference.startsWith('H:3605 · Genesis 2:2 · Exodus 4:19'));
 
  const edited = JSON.parse(await fs.readFile(path.join(bundle, entry.rel), 'utf8'));
  edited.text[0]['1'] += 'ܐ';

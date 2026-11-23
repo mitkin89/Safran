@@ -12,7 +12,8 @@ function syriacReview(book) {
       ...require('./peshitta-lemma-assignments.json').books];
     const catalog = new Map(reviews.map(review => [review.book, review]));
     const supplements = [require('./peshitta-nt-context-review.json'), require('./peshitta-lexical-context-review.json'),
-      require('./peshitta-corpus-dictionary-review.json'), require('./peshitta-automatic-context-review.json')].flatMap(source => source.books);
+      require('./peshitta-corpus-dictionary-review.json'), require('./peshitta-automatic-context-review.json'),
+      require('./peshitta-neighbor-review.json'), require('./peshitta-main-lemma-review.json')].flatMap(source => source.books);
     for (const supplement of supplements) {
       const review = catalog.get(supplement.book);
       if (review && supplement.textHash !== review.textHash) throw new Error('Peshitta review edition mismatch');
@@ -39,6 +40,16 @@ function syriacReview(book) {
     if (row.contextualSources) analysis = {
       lemmas, source: 'ETCBC Syriac (automatischer Kontextabgleich)',
       reference: row.contextualSources.map(({book, ref}) => `${book} ${ref}`).join(' · '),
+    };
+    if (row.neighborSources) analysis = {
+      lemmas, source: 'ETCBC Syriac (automatischer Nachbarwortabgleich)',
+      reference: [...new Set([...row.neighborSources.left, ...row.neighborSources.right]
+        .map(({book, ref}) => `${book} ${ref}`))].join(' · '),
+    };
+    if (row.mainLemmaSources) analysis = {
+      lemmas, source: 'ETCBC Syriac (automatischer Hauptlemma-Abgleich)',
+      reference: [row.mainLemmaSources.strong, ...new Set([...row.mainLemmaSources.form, ...row.mainLemmaSources.translation]
+        .map(({book, ref}) => `${book} ${ref}`))].join(' · '),
     };
     if (row.alignedSources) analysis = {
       lemmas, source: 'ETCBC Syriac (automatischer Übersetzungsabgleich)',
@@ -134,7 +145,7 @@ function analyses(e, d, html, p, ts, validHash, locate) {
   }
   return null;
 }
-async function search({ dir, entries, params, onProgress = () => {}, onOccurrence = null, isCancelled = () => false }) {
+async function search({ dir, entries, params, onProgress = () => {}, onOccurrence = null, onAnalysis = null, isCancelled = () => false }) {
   const qt = tokens(String(params.query || '').trim()), q = qt[0]?.key;
   const empty = { results: [], stats: [], dist: [], scanned: 0, total: 0, truncated: false, capped: false, cancelled: false, concordance: true, coverage: { annotated: 0, surface: 0 }, hitsByBasis: { lemma: 0, surface: 0, root: 0 }, errors: 0 };
   if (!q || String(params.query).length > 100 || qt.length !== 1 || /[*?]/.test(params.query)) return { ...empty, error: 'Bitte ein einzelnes Wort ohne Platzhalter eingeben.' };
@@ -168,6 +179,8 @@ async function search({ dir, entries, params, onProgress = () => {}, onOccurrenc
         if (lemma && /\p{L}/u.test(t.text)) {
           words++;
           if (aa?.lemmas.length) withLemma++;
+          if (onAnalysis && aa?.lemmas.length) onAnalysis({title: e.title, path: p, position: i + 1, form: t.text,
+            lemmas: aa.lemmas, analysisSource: aa.source, analysisReference: aa.reference || ''});
         }
         const root = family && roots[aa?.lemmaId];
         if (family) {
