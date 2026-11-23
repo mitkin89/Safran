@@ -70,7 +70,7 @@ function create(host){
     // Field puts single words of other translators into the LXX text in brackets: Ο΄. κατέναντι (Ἀ. ἐξ ἀνατολῆς)
     // Ἀσσυρίων. – the LXX row is the text without the bracket, the bracket becomes a row of its own.
     const inner=[],lead=new RegExp('^(?:'+SIGLA.source+'[ \u00a0]*)+');
-    const t=u.t.replace(/_[^_]+_/g,x=>x.replace(/ /g,'\u00a0')).replace(/\(([^()]*)\)/g,(m,c)=>{const s=c.trimStart();if(!lead.test(s))return m;const re2=new RegExp(SIGLA.source,'g'),cut=[];let x;while((x=re2.exec(s)))cut.push([x.index,x.index+x[0].length]);const rs=[];for(const [a,b] of cut){const l=rs.at(-1);if(l&&!s.slice(l.e,a).trim()){l.head+=' '+s.slice(a,b);l.e=b;continue;}if(l)l.text=s.slice(l.e,a);rs.push({head:s.slice(a,b),e:b});}rs.at(-1).text=s.slice(rs.at(-1).e);if(rs.some(r=>!r.text.trim()))return m;inner.push(...rs.map(r=>({head:r.head,text:r.text})));return '';}).replace(/ {2,}/g,' ').replace(/ ([.,·;])/g,'$1');
+    const t=u.t.replace(/_[^_]+_/g,x=>x.replace(/ /g,'\u00a0')).replace(/\(([^()]*)\)/g,(m,c,at,all)=>{const s=c.trimStart();const prev=(all.slice(0,at).match(/([\p{L}\p{M}’]+)[^\p{L}\p{M}]*$/u)||[])[1]||'';if(!lead.test(s))return m;const re2=new RegExp(SIGLA.source,'g'),cut=[];let x;while((x=re2.exec(s)))cut.push([x.index,x.index+x[0].length]);const rs=[];for(const [a,b] of cut){const l=rs.at(-1);if(l&&!s.slice(l.e,a).trim()){l.head+=' '+s.slice(a,b);l.e=b;continue;}if(l)l.text=s.slice(l.e,a);rs.push({head:s.slice(a,b),e:b});}rs.at(-1).text=s.slice(rs.at(-1).e);if(rs.some(r=>!r.text.trim()))return m;inner.push(...rs.map(r=>({head:r.head,text:r.text,for:prev})));return '';}).replace(/ {2,}/g,' ').replace(/ ([.,·;])/g,'$1');
     const re=new RegExp(SIGLA.source,'g'),marks=[];let m;
     while((m=re.exec(t)))marks.push([m.index,m.index+m[0].length]);
     if(!marks.length||t.slice(0,marks[0][0]).trim())return null;
@@ -103,8 +103,10 @@ function create(host){
       if(!i)r.type=/※/.test(r.text)?'asterisk':/÷/.test(r.text)?'obelus':'';
       // reviewed: other Vorlage / other reading of the same consonants (hexapla-vorlage.js)
       const vl=i&&key?window.HEXAPLA_VORLAGE?.[key+' '+r.head.replace(/\s+/g,' ').trim()]:null;
-      if(vl)return '<span class="tc-hx-row-sig">'+markup(data,u,r.head)+'</span><span class="tc-hx-row" lang="grc">'+body+' '+typeTag(vl.t,vl)+'</span>';
-      return '<span class="tc-hx-row-sig">'+markup(data,u,r.head)+'</span><span class="tc-hx-row" lang="grc">'+body+(r.type?' '+typeTag(r.type):'')+'</span>';
+      const forV=r.for?'<span class="tc-hx-for" title="'+esc('Field setzt diese Lesart in Klammern hinter dieses Wort der LXX')+'">'+esc('für')+' <span lang="grc">'+raw(r.for)+'</span>:</span> ':'';
+      if(vl)return '<span class="tc-hx-row-sig">'+markup(data,u,r.head)+'</span><span class="tc-hx-row" lang="grc">'+forV+body+' '+typeTag(vl.t,vl)+'</span>';
+      const forW=r.for?'<span class="tc-hx-for" title="'+esc('Field setzt diese Lesart in Klammern hinter dieses Wort der LXX')+'">'+esc('für')+' <span lang="grc">'+raw(r.for)+'</span>:</span> ':'';
+      return '<span class="tc-hx-row-sig">'+markup(data,u,r.head)+'</span><span class="tc-hx-row" lang="grc">'+forW+body+(r.type?' '+typeTag(r.type):'')+'</span>';
     };
     return '<div class="tc-hx-syn">'+rows.map(row).join('')+'</div><button type="button" class="tc-hx-syn-toggle" aria-pressed="false">'+esc('Volltext')+'</button>';
   }

@@ -46,7 +46,8 @@ test('Greek words of the readings carry a morphology tooltip (hexapla-morph.js)'
   // a bracketed reading inside the LXX text is a row of its own: Gen 2:14 Ο΄. κατέναντι (Ἀ. ἐξ ἀνατολῆς) Ἀσσυρίων.
   const g214=hx.entries(d,[{ref:'Genesis 2:14',row:'14'}]).map(x=>x.html).join('');
   assert.doesNotMatch(g214,/κατέναντι<\/span>\s*\(/,'no dangling bracket in the LXX row');
-  assert.match(g214,/tc-hx-row-sig">.{0,200}(’Α|Ἀ)\..{0,400}ἀνατολῆς/s);
+  assert.match(g214,/tc-hx-row-sig">.{0,200}(’Α|Ἀ)\..{0,1200}ἀνατολῆς/s);
+  assert.match(g214,/tc-hx-for"[^>]*>für <span lang="grc">κατέναντι<\/span>:<\/span>/,'the bracket row names the LXX word it stands for');
   // reviewed rows: Hos 11:7 ζυγόν = עֹל (other reading of the same consonants), Isa 19:18 Σ. ἡλίου = החרס
   const hos=await hx.load('Hosea'),h=hx.entries(hos,[{ref:'Hosea 11:7',row:'7'}]).map(x=>x.html).join('');
   assert.match(h,/ζυγὸν.*data-hx-type="deutung".*עֹל/s);

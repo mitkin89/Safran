@@ -2414,3 +2414,5 @@ body.il .cell[data-k="he"] .ilt.il-ma { direction: rtl; font-family: var(--he-fo
 .ilt.il-ma.il-ma-lost::after { content: "*"; margin-inline-start: .2em; opacity: .7; }
 .ilt.il-ma .wa { cursor: pointer; }
 .ilt.il-ma .wa:hover, .ilt.il-ma .wa.sel { color: var(--fg); text-decoration: underline; text-underline-offset: .25em; }
+.tc-hx-for { color: var(--muted); font-size: .85em; font-style: italic; }
+.tc-hx-for [lang="grc"] { font-style: normal; }

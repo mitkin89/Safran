@@ -269,5 +269,7 @@
   "Wortgruppe (maschinell)": "Word group (automated)",
   "Wortzuordnung (maschinell)": "Word alignment (automated)",
   "Wortdetails und Quelle anzeigen": "Show word details and source",
-  "Oxford-Abschnitt Esth enthält Esra statt Esther; nicht als Esther-Apparat verwendet": "Oxford section Esth contains Ezra instead of Esther; not used as an Esther apparatus"
+  "Oxford-Abschnitt Esth enthält Esra statt Esther; nicht als Esther-Apparat verwendet": "Oxford section Esth contains Ezra instead of Esther; not used as an Esther apparatus",
+  "Field setzt diese Lesart in Klammern hinter dieses Wort der LXX": "Field gives this reading in brackets after this LXX word",
+  "für": "for"
 });
