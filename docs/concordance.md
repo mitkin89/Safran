@@ -1,6 +1,6 @@
 # Werkübergreifende Konkordanz
 
-Unter **Suche → Werkübergreifende Konkordanz** ein einzelnes Wort eingeben. In der **Wortkarte → Konkordanz** erscheinen Belege mit Kontext und zugeordneten Entsprechungen direkt neben dem Lesetext. Über den Knopf zur Suche stehen der Werkfilter und der CSV-Export zur Verfügung.
+Unter **Suche → Werkübergreifende Konkordanz** ein einzelnes Wort eingeben. In der **Wortkarte → Konkordanz** erscheinen bis zu zwölf Belege als Vorschau mit Kontext und zugeordneten Entsprechungen direkt neben dem Lesetext. Über den Knopf zur Suche stehen die Gesamthäufigkeit, der Werkfilter und der CSV-Export zur Verfügung.
 
 - **Wortform:** ganze Wörter, unabhängig von Großschreibung und hebräischen, griechischen beziehungsweise syrischen Vokal-/Akzentzeichen. Lateinische Umlaute bleiben unterschieden. Keine Teilwortsuche und kein automatisches Abschneiden von Vorsilben.
 - **Grundform (wo belegt):** zusätzlich die eingegebene Grundform mit vorhandenen Wortanalysen vergleichen. Unterstützt Westminster/OSHB, passende Septuaginta-Fassungen, eingebettete OGA-Analysen bei Josephus/Philo und ETCBC-Peschitta-Analysen. Nicht passende oder fehlende Analysen werden nicht ergänzt. Solche Stellen bleiben nur über die Wortform auffindbar. Die Eingabe ist keine automatische Auflösung einer beliebigen flektierten Form in alle möglichen Lemmata.

@@ -15,6 +15,12 @@ module.exports=async({js,waitFor,book})=>{
  await js("{const q=document.querySelector('#tcsQ');q.value='Qardu';q.dispatchEvent(new Event('input',{bubbles:true}));}");
  await waitFor("document.querySelector('.tcs-hit[data-tcs-book=\"Genesis\"][data-tcs-ch=\"8\"][data-tcs-v=\"4\"]')",'Gen 8:4 gefunden');
  assert(await js("document.querySelector('.tcs-hit mark')"),'Suchwort markiert');
+ // A category works with an empty text query and keeps its attribution.
+ await js("{document.querySelector('#tcsQ').value='';const f=document.querySelector('#tcsTradition');f.value='targum';f.dispatchEvent(new Event('change',{bubbles:true}));}");
+ await waitFor("document.querySelector('.tcs-hit[data-tcs-book=Isaiah] .tc-tradition[data-tradition=targum]')",'Targum-Merkmal unabhängig vom Suchtext');
+ assert(await js("[...document.querySelectorAll('.tcs-hit')].every(row=>row.querySelector('[data-tradition=targum]'))"));
+ assert(await js("document.querySelector('.tcs-hit[data-tcs-book=Isaiah] .tc-tradition').title.includes('Mikraot Gedolot')"));
+ await js("document.querySelector('#tcsTradition').value=''");
  // filter: LXX and Syr together against the MT, Genesis only: Gen 2:2 („am sechsten Tag“)
  await js("{const q=document.querySelector('#tcsQ');q.value='';document.querySelector('#tcsBook').value='Genesis';document.querySelector('#tcsBoth').checked=true;document.querySelector('#tcsBoth').dispatchEvent(new Event('change',{bubbles:true}));}");
  await waitFor("document.querySelector('.tcs-hit[data-tcs-ch=\"2\"][data-tcs-v=\"2\"]')",'Gen 2:2 gemeinsam gegen den MT');
@@ -25,5 +31,7 @@ module.exports=async({js,waitFor,book})=>{
  await js("document.querySelector('.tcs-hit[data-tcs-ch=\"8\"][data-tcs-v=\"4\"]').click()");
  await waitFor("document.querySelector('#tcSearch').hidden&&!document.querySelector('#tcBody').hidden&&/Genesis 8:4/.test(document.querySelector('#tcPlace').textContent)",'Apparat zu Gen 8:4');
  await waitFor("document.querySelector('#tcBody .tc-entry')",'Apparat-Einträge zu Gen 8:4');
+ await js("{const f=document.querySelector('#tcPsTech');f.checked=true;f.dispatchEvent(new Event('change',{bubbles:true}));}");
+ await waitFor("document.querySelector('#tcBody [data-tradition=targum]')",'Targum-Merkmal im Versapparat');
  console.log('Electron: Lesarten-Suche im Apparat (Volltext, Filter, gemeinsam gegen den MT, Sprung zum Vers) bestanden.');
 };

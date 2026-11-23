@@ -102,9 +102,10 @@ function create(host){
       }
       if(!i)r.type=/※/.test(r.text)?'asterisk':/÷/.test(r.text)?'obelus':'';
       // reviewed: other Vorlage / other reading of the same consonants (hexapla-vorlage.js)
-      const vl=i&&key?window.HEXAPLA_VORLAGE?.[key+' '+r.head.replace(/\s+/g,' ').trim()]:null;
+      const vlKey=i&&key?key+' '+r.head.replace(/\s+/g,' ').trim():null;
+      const vl=vlKey?window.HEXAPLA_VORLAGE?.[vlKey]:null;
       const forV=r.for?'<span class="tc-hx-for" title="'+esc('Field setzt diese Lesart in Klammern hinter dieses Wort der LXX')+'">'+esc('für')+' <span lang="grc">'+raw(r.for)+'</span>:</span> ':'';
-      if(vl)return '<span class="tc-hx-row-sig">'+markup(data,u,r.head)+'</span><span class="tc-hx-row" lang="grc">'+forV+body+' '+typeTag(vl.t,vl)+'</span>';
+      if(vl)return '<span class="tc-hx-row-sig">'+markup(data,u,r.head)+'</span><span class="tc-hx-row" lang="grc">'+forV+body+' '+typeTag(vl.t,vl)+(window.TextCritTraditions?.badge(window.TextCritTraditions.tags('Hex','',vlKey,vl),raw)||'')+'</span>';
       const forW=r.for?'<span class="tc-hx-for" title="'+esc('Field setzt diese Lesart in Klammern hinter dieses Wort der LXX')+'">'+esc('für')+' <span lang="grc">'+raw(r.for)+'</span>:</span> ':'';
       return '<span class="tc-hx-row-sig">'+markup(data,u,r.head)+'</span><span class="tc-hx-row" lang="grc">'+forW+body+(r.type?' '+typeTag(r.type):'')+'</span>';
     };

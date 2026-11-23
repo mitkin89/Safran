@@ -49,21 +49,21 @@ window.LibraryWordCards = (() => {
     const token = wcToken;
     if (wcConcordance?.token === token) return;
     const state = wcConcordance = { token, query, results: [] };
-    box.innerHTML = '<p class="muted" role="status">' + t('Lädt …') + '</p>';
+    box.innerHTML = `<div class="wcCcTools"><span class="muted" role="status">${t('Bibliothek wird durchsucht …')}</span>
+      <button type="button" data-cc-search>${t('In der Suche öffnen')}</button></div>`;
     try {
       const result = await host.O.search({
-        query, kinds: ['he', 'other'], concordance: true, crossLanguage: true,
+        query, kinds: ['he', 'other'], concordance: true, concordancePreview: true, crossLanguage: true,
         lemma: true, limit: 12, perFile: 3,
       });
       if (token !== wcToken) return;
       if (!result || result.cancelled || result.error) throw new Error('Concordance unavailable');
       state.results = result.results;
-      const count = result.stats.reduce((sum, work) => sum + work.n, 0);
-      const summary = count
-        ? host.esc(I18N.t('{} Belege · {} Werke', wcNum(count), wcNum(result.stats.length)))
+      const summary = state.results.length
+        ? t('Konkordanz-Vorschau')
         : t('Keine Belege gefunden.');
       box.innerHTML = `<div class="wcCcTools"><span role="status">${summary}${result.errors ? ' · ' + host.esc(I18N.t('{} Dateien konnten nicht gelesen werden', result.errors)) : ''}</span>
-        <button type="button" data-cc-search>${t(count > result.results.length ? 'Weitere Belege in der Suche' : 'In der Suche öffnen')}</button></div>
+        <button type="button" data-cc-search>${t(state.results.length ? 'Weitere Belege in der Suche' : 'In der Suche öffnen')}</button></div>
         <p class="muted">${t('Belege zur Wortform und Grundform. Gleich geschriebene Lemmata können mit erscheinen.')}</p>
         ${state.results.map(wcConcordanceRow).join('')}`;
       wcFindSoon();

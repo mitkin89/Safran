@@ -43,3 +43,13 @@ test('real MT, CATSS and Peshitta links are bidirectional, source-specific and s
  for(const e of entries){const d=JSON.parse(await fs.readFile(path.join(root,'bundled',e.rel),'utf8'));if(e.language==='Syriac'||e.language==='Greek')d.text[0][0]+=' changed';const f=path.join(dir,e.rel);await fs.mkdir(path.dirname(f),{recursive:true});await fs.writeFile(f,JSON.stringify(d));}
  const r=await searchFiles({dir,entries,params:{query:'ברא',concordance:true,crossLanguage:true,limit:1}});assert.deepEqual(r.results[0].parallels,[],'edited translations must not inherit a different edition’s alignment');
 });
+
+test('word card preview stops after its result limit while full concordance counts both works', async t => {
+ const find = await fixture(t, [{ title: 'Genesis', text: [['שיח שיח שיח']] }, { title: 'Exodus', text: [['שיח']] }]);
+ const preview = await find({ concordancePreview: true, limit: 2 });
+ assert.equal(preview.results.length, 2);
+ assert.equal(preview.scanned, 1);
+ const full = await find({ limit: 2 });
+ assert.equal(full.scanned, 2);
+ assert.equal(full.stats.reduce((count, work) => count + work.n, 0), 4);
+});

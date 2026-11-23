@@ -87,11 +87,13 @@ async function search({ dir, entries, params, onProgress = () => {}, isCancelled
         shown++;
       }
       if (passage) h++;
+      if (params.concordancePreview && out.results.length >= limit) break;
       if (row % 100 === 0) await new Promise(r => setImmediate(r));
     }
     out.coverage[hasAnalysis ? 'annotated' : 'surface']++;
     if (o) { stats.set(e.title, (stats.get(e.title) || 0) + o); out.dist.push({ t: e.title, v: e.versionTitle || '', k: e.kind, h, o }); }
     out.scanned++; onProgress({ scanned: out.scanned, total: out.total, found: out.dist.reduce((n, x) => n + x.o, 0) });
+    if (params.concordancePreview && out.results.length >= limit) break;
     await new Promise(r => setImmediate(r));
   }
   out.stats = Order.sortTitles([...stats].map(([title, n]) => ({ title, n })), x => x.title);

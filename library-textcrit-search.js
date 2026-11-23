@@ -6,6 +6,7 @@ window.LibraryTextCritSearch=(()=>{
 const ORDER=['Genesis','Exodus','Leviticus','Numbers','Deuteronomy','Joshua','Judges','I Samuel','II Samuel','I Kings','II Kings','Isaiah','Jeremiah','Ezekiel','Hosea','Joel','Amos','Obadiah','Jonah','Micah','Nahum','Habakkuk','Zephaniah','Haggai','Zechariah','Malachi','Psalms','Proverbs','Job','Song of Songs','Ruth','Lamentations','Ecclesiastes','Esther','Daniel','Ezra','Nehemiah','I Chronicles','II Chronicles'];
 const TYPES={lesart:'andere Lesart',deutung:'andere Deutung',zusatz:'Zusatz',auslassung:'Auslassung',harmonisierung:'Angleichung',technik:'Übersetzungstechnik',doublette:'Doppelübersetzung',umstellung:'Umstellung',zahl:'Zahl',name:'Name',syrfehler:'innersyrischer Fehler',grfehler:'innergriechischer Fehler',vorlage:'andere Vorlage'};
 // substantive differences from the MT: everything except translation technique and inner-versional errors
+const traditions=window.TextCritTraditions;
 const NOT_SUBST=new Set(['technik','syrfehler','grfehler']);
 const fold=s=>String(s||'').normalize('NFD').replace(/[\u0591-\u05c7\u0300-\u036f\u0730-\u074a]/g,'').toLowerCase();
 function create(host){
@@ -21,17 +22,17 @@ function create(host){
       await Promise.all(Object.entries(ix||{}).map(async([code,info])=>{
         const d=await host.load('lxx-readings/'+code+'.js',()=>window.LXX_READINGS?.[code]).catch(()=>null);
         for(const [ref,v] of Object.entries(d?.verses||{})){if(!v||!v.r)continue;const [ch,vs]=ref.split(':').map(Number);
-          for(const r of v.r)out.push({w:'LXX',ed:code,book:info.book,ch,v:vs,type:r.type,note:r.note||'',en:r.en||'',vorlage:r.vorlage||'',g:r.g||'',he:r.he||[],sure:r.sure!==false});}
+          for(const r of v.r)out.push({tags:traditions.tags('LXX',code,ref,r),w:'LXX',ed:code,book:info.book,ch,v:vs,type:r.type,note:r.note||'',en:r.en||'',vorlage:r.vorlage||'',g:r.g||'',he:r.he||[],sure:r.sure!==false});}
       }));
       const books=window.PeshittaAlignment?.READINGS||[];
       await Promise.all(books.map(async book=>{
         const d=await host.load('peshitta-readings/'+book.replace(/ /g,'_')+'.js',()=>window.PESHITTA_READINGS?.[book]).catch(()=>null);
         for(const [ref,rs] of Object.entries(d||{})){if(!Array.isArray(rs))continue;const [ch,vs]=ref.split(':').map(Number);
-          for(const r of rs)out.push({w:'Syr',book,ch,v:vs,type:r.type,note:r.note||'',en:r.en||'',vorlage:r.vorlage||'',g:'',he:r.he||[],sure:r.sure!==false,parallel:r.parallel||''});}
+          for(const r of rs)out.push({tags:traditions.tags('Syr',book,ref,r),w:'Syr',book,ch,v:vs,type:r.type,note:r.note||'',en:r.en||'',vorlage:r.vorlage||'',g:'',he:r.he||[],sure:r.sure!==false,parallel:r.parallel||''});}
       }));
       const hx=await host.load('hexapla-vorlage.js',()=>window.HEXAPLA_VORLAGE).catch(()=>null);
       for(const [k,r] of Object.entries(hx||{})){const m=/^(.*) (\d+):(\d+)#\d+ (.*)$/.exec(k);if(!m)continue;
-        out.push({w:'Hex',book:m[1],ch:+m[2],v:+m[3],type:r.t,note:r.n||'',en:r.en||'',vorlage:r.he||'',g:'',he:[],sure:true,sig:m[4]});}
+        out.push({tags:traditions.tags('Hex','',k,r),w:'Hex',book:m[1],ch:+m[2],v:+m[3],type:r.t,note:r.n||'',en:r.en||'',vorlage:r.he||'',g:'',he:[],sure:true,sig:m[4]});}
       // LXX and Peshitta at the same MT words (or both without MT words, i.e. both pluses in the verse)
       const by=new Map();for(const r of out){if(r.w==='Hex'||NOT_SUBST.has(r.type))continue;const k=r.book+' '+r.ch+':'+r.v;(by.get(k)||by.set(k,[]).get(k)).push(r);}
       for(const rs of by.values()){const l=rs.filter(r=>r.w==='LXX'),s=rs.filter(r=>r.w==='Syr');
@@ -46,9 +47,11 @@ function create(host){
     const box=panel();if(box.dataset.ready)return;box.dataset.ready='1';
     const books=ORDER.map(b=>'<option value="'+raw(b)+'">'+raw(b)+'</option>').join('');
     const types=Object.entries(TYPES).map(([k,l])=>'<option value="'+k+'">'+esc(l)+'</option>').join('');
+    const groups=Object.entries(traditions.categories).map(([key,label])=>'<option value="'+key+'">'+esc(label)+'</option>').join('');
     box.innerHTML='<div class="tcs-form"><input id="tcsQ" type="search" placeholder="'+raw(t('In Erläuterungen suchen, z. B. Targum, Midrasch, Etrog'))+'" aria-label="'+raw(t('Lesarten durchsuchen'))+'">'+
       '<div class="tcs-filters"><label><input type="checkbox" data-w="LXX" checked> LXX</label><label><input type="checkbox" data-w="Syr" checked> Syr</label><label><input type="checkbox" data-w="Hex" checked> Hex</label>'+
       '<select id="tcsType" aria-label="'+raw(t('Art der Lesart'))+'"><option value="">'+esc('Alle Arten')+'</option>'+types+'</select>'+
+      '<select id="tcsTradition" aria-label="'+raw(t('Jüdische Auslegung'))+'"><option value="">'+esc('Alle Lesarten')+'</option><optgroup label="'+esc('Jüdische Auslegung')+'"><option value="any">'+esc('Alle Gruppen')+'</option>'+groups+'</optgroup></select>'+
       '<select id="tcsBook" aria-label="'+raw(t('Buch'))+'"><option value="">'+esc('Ganzer Tanach')+'</option>'+books+'</select>'+
       '<label title="'+raw(t('LXX und Peschitta weichen an denselben MT-Wörtern ab (nicht nur Übersetzungstechnik)'))+'"><input id="tcsBoth" type="checkbox"> '+esc('LXX und Syr gemeinsam gegen den MT')+'</label>'+
       '<label><input id="tcsSure" type="checkbox"> '+esc('nur sichere')+'</label></div></div><div id="tcsOut" aria-live="polite"></div>';
@@ -71,7 +74,8 @@ function create(host){
     let rs;try{rs=await load();}catch{out.innerHTML='<p class="muted">'+esc('Lesarten konnten nicht geladen werden.')+'</p>';return;}
     const q=fold($('#tcsQ').value).split(/\s+/).filter(Boolean),ws=new Set([...box.querySelectorAll('[data-w]:checked')].map(x=>x.dataset.w));
     const type=$('#tcsType').value,book=$('#tcsBook').value,both=$('#tcsBoth').checked,sure=$('#tcsSure').checked;
-    const hits=rs.filter(r=>ws.has(r.w)&&(!type||r.type===type)&&(!book||r.book===book)&&(!both||r.both)&&(!sure||r.sure)&&matches(r,q));
+    const tradition=$('#tcsTradition').value;
+    const hits=rs.filter(r=>ws.has(r.w)&&(!type||r.type===type)&&(!book||r.book===book)&&(!both||r.both)&&(!sure||r.sure)&&(!tradition||r.tags.some(tag=>tradition==='any'||tag.category===tradition))&&matches(r,q));
     const verses=new Set(hits.map(r=>r.book+' '+r.ch+':'+r.v)).size;
     const en=window.I18N?.lang==='en';
     const mark=s=>{let h=raw(s);for(const w of q){if(!/^[\p{L}\p{N}]+$/u.test(w))continue;h=h.replace(new RegExp('('+w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')','giu'),'<mark>$1</mark>');}return h;};
@@ -79,7 +83,7 @@ function create(host){
       '<span class="tcs-ref">'+raw(r.book+' '+r.ch+':'+r.v)+'</span> <span class="tc-witness-label" data-witness="'+r.w+'">'+raw(r.w==='Hex'&&r.sig?'Hex '+r.sig:r.w)+'</span> '+
       '<abbr class="ab tc-tov-tag">'+esc(TYPES[r.type]||r.type)+'</abbr>'+(r.both?' <span class="tcs-both" title="'+raw(t('LXX und Peschitta weichen an denselben MT-Wörtern ab (nicht nur Übersetzungstechnik)'))+'">LXX+Syr</span>':'')+
       (r.vorlage?' <bdi lang="he" dir="rtl">≈ '+raw(r.vorlage)+'</bdi>':'')+(r.g?' <span lang="grc">'+raw(r.g)+'</span>':'')+
-      '<span class="tcs-note">'+mark(en&&r.en?r.en:r.note)+(r.sure?'':' <span class="muted">('+esc('unsicher')+')</span>')+'</span></button>';
+      traditions.badge(r.tags,raw)+'<span class="tcs-note">'+mark(traditions.note(en&&r.en?r.en:r.note,r.tags))+(r.sure?'':' <span class="muted">('+esc('unsicher')+')</span>')+'</span></button>';
     out.innerHTML='<p class="tcs-count muted">'+raw(window.I18N?.t?window.I18N.t('{} Lesarten in {} Versen',hits.length,verses):hits.length+' Lesarten in '+verses+' Versen')+'</p>'+
       hits.slice(0,shown).map(row).join('')+(hits.length>shown?'<button type="button" class="tcs-more">'+esc('Weitere anzeigen')+'</button>':'');
   }

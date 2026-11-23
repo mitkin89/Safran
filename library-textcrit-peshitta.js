@@ -49,8 +49,10 @@ function create(host){
   function reading(r){
     const [label,title]=TYPES[r.type]||[r.type,''];
     const vorlage=r.vorlage?' <span class="tc-tov-reading">≈ <bdi lang="he" dir="rtl">'+raw(r.vorlage)+'</bdi> <abbr class="ab" title="'+esc('Erschlossene hebräische Vorlage; kein Handschriftenbeleg')+'">'+esc('erschlossen')+'</abbr></span>':'';
-    const note=' <span class="tc-ps-note">'+raw(window.I18N?.lang==='en'&&r.en?r.en:r.note)+(r.parallel?' ('+esc('vgl.')+' '+raw(r.parallel)+')':'')+(r.sure?'':' <span class="muted">('+esc('unsicher')+')</span>')+'</span>';
-    return {tag:tag(label,title,r.type),detail:vorlage+note};
+    const traditions=window.TextCritTraditions, tags=r.traditionTags||[];
+    const explanation=window.I18N?.lang==='en'&&r.en?r.en:r.note;
+    const note=' <span class="tc-ps-note">'+raw(traditions?.note(explanation,tags)??explanation)+(r.parallel?' ('+esc('vgl.')+' '+raw(r.parallel)+')':'')+(r.sure?'':' <span class="muted">('+esc('unsicher')+')</span>')+'</span>';
+    return {tag:tag(label,title,r.type),detail:vorlage+note+(traditions?.badge(tags,raw)||'')};
   }
   const entry=(ref,v,native,body,type,marks)=>'<article class="tc-entry tc-ps-entry"'+(type?' data-ps-type="'+raw(type)+'"':'')+' data-witness="Syr"><div class="tc-note-text"><span class="tc-witness-label" title="'+esc('Peschitta')+'">Syr</span> '+body+'<!--agree--></div>'+cite(ref,v,native,marks)+'</article>';
   // Reading line (textcrit-summary.js): generic plus/minus, or the classified type
@@ -72,7 +74,7 @@ function create(host){
     for(const {ref,row} of queries){
       const m=/^(.*) (\d+:\d+)$/.exec(ref);if(!m||m[1]!==data.book)continue;
       const v=data.verses[m[2]];if(!v)continue;seen.set(ref,v);
-      const R=(data.readings?.[m[2]]||[]).map(r=>({...r,used:false}));
+      const R=(data.readings?.[m[2]]||[]).map(r=>({...r,used:false,traditionTags:window.TextCritTraditions?.tags('Syr',data.book,m[2],r)}));
       const add=(id,anchor,html,syr,r,op)=>{const prev=out.get(id);if(prev){if(!prev.rows.includes(row))prev.rows.push(row);return;}out.set(id,{anchor:{...anchor,ref},displayRef:ref,rows:[row],html,syr:syr||null,lz:lzOf(r,op||(anchor.kind==='gap'?'add':'var'))});};
       // Words already covered by a classified reading of linked words get no second, generic entry
       const covSy=new Set(R.filter(r=>r.he.length&&r.sy.length).flatMap(r=>r.sy)),covHe=new Set(R.filter(r=>r.he.length&&r.sy.length).flatMap(r=>r.he));

@@ -2461,3 +2461,5 @@ body.il .cell[data-k="he"] .ilt.il-ma { direction: rtl; font-family: var(--he-fo
 .wcCcPeers { display: flex; flex-wrap: wrap; gap: 5px; margin: 6px 0 0 10px; }
 .wcCcPeer bdi[lang="syr"] { font-size: 1.65em; }
 .wcCcPeer bdi[lang="he"] { font-family: var(--he-font); }
+
+.tc-tradition { display: inline-block; margin-inline-start: .35em; padding: .12em .42em; border: 1px solid var(--line); border-radius: 5px; color: var(--muted); font: normal .82em system-ui, sans-serif; }
