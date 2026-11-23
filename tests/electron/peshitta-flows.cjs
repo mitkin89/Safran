@@ -7,7 +7,7 @@ module.exports=async({profile,docs,win,js,waitFor,book})=>{
  fs.mkdirSync(path.join(staging,'dict'),{recursive:true});fs.copyFileSync(path.join(root,'bundled/dict',sid+'.json.gz'),path.join(staging,'dict',sid+'.json.gz'));
  fs.writeFileSync(path.join(staging,'dict/manifest.json'),JSON.stringify({version:1,items:catalog.items.filter(x=>x.id===sid)}));
  const dictionary=new Dictionaries(path.join(profile,'dictionary-fixture'));await dictionary.importBundled(staging);
- const extra=await dictionary.add(Buffer.from('#NAME "Syriac companion"\n#INDEX_LANGUAGE "Syriac"\n\nܪܫܝܬ\n\t[m1]Another Syriac dictionary[/m]\nܟܬܒ\n\t[m1]Custom Syriac writing[/m]\nבראשית\n\t[m1]syr. ܪܫܝܬ — Anfang[/m]\n'),'syriac-companion.dsl');
+ const extra=await dictionary.add(Buffer.from('#NAME "Syriac companion"\n#INDEX_LANGUAGE "Syriac"\n\nܪܫܝܬ\n\t[m1]Another Syriac dictionary[/m]\nܟܬܒ\n\t[m1]Custom Syriac writing[/m]\nבראשית\n\t[m1]'+'Erläuterung '.repeat(30)+'syr. ܪܫܝܬ — Anfang[/m]\n'),'syriac-companion.dsl');
  const requests=[];
  ipcMain.removeHandler('dict:list');ipcMain.handle('dict:list',async()=>({list:await dictionary.list()}));
  ipcMain.removeHandler('dict:lookup');ipcMain.handle('dict:lookup',async(_e,q,only,full)=>{requests.push({q,only});return {results:await dictionary.search(q,{only,full})};});

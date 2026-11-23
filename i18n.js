@@ -1220,6 +1220,7 @@
     "Alle {}": "All {}",
     "{} ausgewählt": "{} selected",
     "Aleppo-Text; Analyse des entsprechenden Wortes im Leningradensis (OSHB)": "Aleppo text; analysis of the corresponding word in the Leningrad Codex (OSHB)",
+    "Syrische Form im Kopf des Artikels": "Syriac form in the head of the entry",
   };
 
   const HTML = {

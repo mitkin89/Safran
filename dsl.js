@@ -19,6 +19,14 @@ function decode(buf) {
 
 // ---------- Normalisieren (Stichwörter und Suchwort gleich behandeln) ----------
 const FINAL = { 'ך': 'כ', 'ם': 'מ', 'ן': 'נ', 'ף': 'פ', 'ץ': 'צ' };
+const SEDRA_ID = '7fab63c14df2';
+// Syrische Wörter im Kopf eines Artikels: die ersten 300 Zeichen des Textes, ohne Punktierung (norm)
+const SY_TOKEN = /[\u0710-\u072f][\u0710-\u074f\u0300-\u036f\u200c\u200d]*/gu;
+function syriacHead(html) {
+  const head = htmlText(html).replace(/\s+/g, ' ').trim().slice(0, 300), out = new Set();
+  for (const m of head.matchAll(SY_TOKEN)) { const w = norm(m[0]).replace(/[\u200c\u200d]/g, ''); if (w.length > 1) out.add(w); }
+  return [...out];
+}
 function norm(s) {
   return String(s || '')
     .normalize('NFD')
@@ -203,6 +211,14 @@ class Dictionaries {
     j.heads.forEach((hs, k) => (j.keys && j.keys[k] ? j.keys[k] : hs).forEach(h => { const n = norm(h); if (n) idx.push([n, k]); }));
     idx.sort((a, b) => a[0] < b[0] ? -1 : a[0] > b[0] ? 1 : a[1] - b[1]);
     j.idx = idx;
+    // Syrische Formen im Kopf eines Artikels (Levy: „(syr. ܐܒ) Ab …“, Gesenius: Etymologie) werden als eigene Stichwörter
+    // auffindbar; SEDRA selbst ist ein syrisches Wörterbuch und braucht das nicht.
+    if (id !== SEDRA_ID) {
+      const sy = [];
+      j.html.forEach((h, k) => { if (/[\u0710-\u072f]/u.test(h)) for (const w of syriacHead(h)) sy.push([w, k]); });
+      sy.sort((a, b) => a[0] < b[0] ? -1 : a[0] > b[0] ? 1 : a[1] - b[1]);
+      j.syIdx = sy;
+    }
     this.cache.set(id, j);
     return j;
   }
@@ -368,7 +384,7 @@ class Dictionaries {
         data.syriacIndex=index;
       }
       const hits=new Map();for(const q of wanted)for(const [k,n]of data.syriacIndex.get(q)||[]){const hit=hits.get(k)||{n:0,matched:[]};hit.n+=n;hit.matched.push(q);hits.set(k,hit);}
-      for(const [k,hit]of [...hits].sort((a,b)=>b[1].n-a[1].n||a[0]-b[0]).filter(([k])=>!data.heads[k].some(h=>wanted.has(key(h)))).slice(0,limit)){
+      for(const [k,hit]of [...hits].sort((a,b)=>b[1].n-a[1].n||a[0]-b[0]).filter(([k])=>!data.heads[k].some(h=>wanted.has(key(h)))&&!syriacHead(data.html[k]).some(h=>wanted.has(h))).slice(0,limit)){
         const html=String(data.html[k]).split(/(<[^>]+>)/).map(part=>part.startsWith('<')?part:part.replace(tokens,t=>wanted.has(key(t))?'<mark class="dhit">'+t+'</mark>':t)).join('');
         results.push({dictId:d.id,dict:d.name,k,head:data.heads[k].join(' · '),query:data.heads[k][0],html,kind:'syriac-mention',matched:hit.matched,n:hit.n});
       }
@@ -444,6 +460,11 @@ class Dictionaries {
       const add = (k, kind, note) => { if (seen.has(k)) return; seen.add(k); res.push({ dict: data.name, dictId: d.id, k, head: data.heads[k].join(' · '), html: data.html[k], kind, note }); };
       const exact = range(data.idx, q, true);
       for (const k of exact) add(k, 'exact', '');
+      if (data.syIdx && /^[\u0710-\u072f]+$/u.test(q)) for (const k of range(data.syIdx, q, true)) {
+        if (seen.has(k)) continue;
+        add(k, 'syriac-head', 'Syrische Form im Kopf des Artikels');
+        res[res.length - 1].html = String(data.html[k]).split(/(<[^>]+>)/).map(x => x.startsWith('<') ? x : x.replace(SY_TOKEN, t => norm(t).replace(/[\u200c\u200d]/g, '') === q ? '<mark class="dhit">' + t + '</mark>' : t)).join('');
+      }
     }
     // Reihenfolge der Wörterbücher bleibt maßgeblich; innerhalb eines Wörterbuchs kommen genaue Treffer zuerst
     const rank = new Map(); res.forEach(x => { if (!rank.has(x.dictId)) rank.set(x.dictId, rank.size); });
