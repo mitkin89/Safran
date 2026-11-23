@@ -27,4 +27,11 @@ module.exports=async({docs,win,js,waitFor,book})=>{
  assert.equal(await js("document.querySelector('#tabbar .tab.active span').textContent"),'Genesis · Chapter 1','Reiter auf Englisch');
  assert.equal(await js('document.title'),'Genesis · Chapter 1','Fenstertitel auf Englisch');
  await win.webContents.capturePage().then(i=>fs.writeFileSync('/tmp/safran-aleppo-il.png',i.toPNG()));
+ // Stelle in einem anderen Buch: „Zurück“ führt direkt zur vorigen Stelle, nicht an den Anfang des Zielbuchs
+ await js("{const j=document.querySelector('#jump');j.value='Isaiah 53:9';j.dispatchEvent(new KeyboardEvent('keydown',{key:'Enter',bubbles:true}));}");
+ await waitFor("document.title==='Isaiah · Chapter 53'",'Sprung nach Jesaja 53');
+ await js("document.querySelector('#navBack').click()");
+ await waitFor("document.title==='Genesis · Chapter 1'",'Zurück direkt nach Genesis 1 (nicht Jesaja 1)');
+ await js("document.querySelector('#navFwd').click()");
+ await waitFor("document.title==='Isaiah · Chapter 53'",'Vorwärts wieder nach Jesaja 53');
 };

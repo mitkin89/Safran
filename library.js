@@ -1189,7 +1189,19 @@
     $('#passDlg').close();
     openGroup(g, { sectionPath: JSON.parse(h.dataset.sk), rowLabel: h.dataset.row }, BG(e));
   });
+  // Eine Stelle in einem anderen Buch öffnet erst dessen Anfang und dann die Stelle: der Zwischenschritt kommt nicht in den Verlauf,
+  // damit „Zurück“ direkt zur vorigen Stelle führt (z. B. ↗ bei Ähnliche Kapitel: Jes 53 → Ps 51 → zurück zu Jes 53).
   async function jumpTo(q, inNewTab = false) {
+    const nav0 = view && view.nav, pos0 = nav0 ? nav0.pos : -1;
+    const ok = await jumpToRef(q, inNewTab);
+    const nav = view && view.nav;
+    if (nav && inNewTab !== 'bg') {
+      const base = nav === nav0 ? pos0 : -1, a = nav.stack[base + 1], b = nav.stack[base + 2];
+      if (nav.pos === base + 2 && a && b && a.key === b.key && a.sk !== b.sk) { nav.stack.splice(base + 1, 1); nav.pos--; navigationUI.updateNav(); }
+    }
+    return ok;
+  }
+  async function jumpToRef(q, inNewTab = false) {
     const q0 = q;
     // dreistufige Stelle „Titel 1:2:5“ (Band:Kapitel:Absatz, Buch:Kapitel:Abschnitt): Abschnitt [1, 2] öffnen, Zeile 5
     let tri = null;
