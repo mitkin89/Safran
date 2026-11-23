@@ -46,6 +46,9 @@ module.exports=async function setup({profile,docs,handlers}){
     searchRequests.push(params);
     const job=jobs.begin(ownerOf(e),params.requestId);
     try{
+      if(params.outline) return await runSearchWorker({
+        outline:params.outline,dirs:[path.join(profile,'outlines'),path.join(__dirname,'../../outlines')],
+      },job,()=>{});
       if(searchError)throw Error('Suchquelle nicht lesbar (Test)');
       if(holdSearch){e.senderFrame.send('off:searchProgress',{scanned:5,total:10,found:2,requestId:job.requestId});const gate=deferred();gates.push({job,...gate});job.stop=gate.resolve;await gate.promise;job.stop=null;}
       if(job.cancelled)return emptyResult();

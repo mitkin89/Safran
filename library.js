@@ -2640,7 +2640,14 @@
   const searchUI = window.LibrarySearch.create({
     $, $$, esc, KIND_LABEL, shortVer, plainSnip, lsGet, lsSet,
     getGroups: () => groups, getPreferredVersions: () => prefVer,
+    openOutlineRef: (ref, event) => jumpTo(ref, BG(event)),
   });
+  $('#olSearchAll').onclick = () => {
+    const mitzvot = !$('#olMzW').hidden && $('#olTabM').classList.contains('on');
+    $('#outlinePanel').hidden = true;
+    showTab('search');
+    searchUI.openOutlineSearch(mitzvot ? 'mitzvot' : 'outlines');
+  };
   // Gefundene Wörter im Vers markieren: Westminster-Wörter (span.w) exakt, übrige Texte als Textstelle
   function markHits(html, h) {
     if (html == null || !h || !h.words.size) return html;

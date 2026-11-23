@@ -49,7 +49,13 @@ module.exports = function setup({profile, handlers}) {
     assert(await js("document.querySelector('#olBody').textContent.includes('Weltschöpfung')"));
     await js("document.querySelector('#olBody .olp').click()");
     await waitFor("document.querySelector('#rOut .row[data-l=\"1\"]')", 'Navigation aus der Gliederung');
-    await js("document.querySelector('#olClose').click()");
+    await js("document.querySelector('#olTabM').click()");
+    await waitFor("document.querySelector('#olBody .olmz')", 'Mizwot im Gliederungspanel');
+    await js("document.querySelector('#olSearchAll').click()");
+    assert.equal(await js("document.activeElement.id"), 'soQuery');
+    assert.equal(await js("document.querySelector('#soKind').value"), 'mitzvot');
+    assert.equal(await js("document.querySelector('#sOutline').hidden"), false);
+    await js("document.querySelector('nav [data-tab=read]').click();document.querySelector('#olTabT').click()");
     await waitFor("!document.querySelector('#lkBtn').hidden", 'Lokale Verknüpfung');
     await js("document.querySelector('#lkFilter').value='';document.querySelector('#lkBtn').click()");
     await waitFor("document.querySelector('#lkBody a[data-ref=\"Exodus 1:1\"]')", 'Verknüpfung gerendert');

@@ -55,6 +55,11 @@ async function book(title,prefix='document'){await js(`{const d=${prefix};d.quer
  win.webContents.on('render-process-gone',(_e,d)=>{console.error(d);app.exit(1)});
  await win.loadFile(path.join(root,'library.html'));await waitFor("document.querySelectorAll('#tree .lib-item').length===4",'Start');
  await book('Genesis');await waitFor("document.querySelector('#rOut .w')",'Genesis');
+ if(process.env.SAFRAN_SMOKE_OUTLINES==='1'){
+  await require('./outline-search-flows.cjs')({js,waitFor,book});
+  await readerExtras({win,js,waitFor,book});
+  assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;
+ }
  if(process.env.SAFRAN_SMOKE_SYNTAX==='1'){await require('./syntax-flows.cjs')({js,waitFor});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}
 
  if(process.env.SAFRAN_SMOKE_QUMRAN_ALL==='1'){await require('./qumran-all-flows.cjs')({docs,win,js,waitFor,book});assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;}
@@ -98,7 +103,8 @@ async function book(title,prefix='document'){await js(`{const d=${prefix};d.quer
   assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;
  }
  if(process.env.SAFRAN_SMOKE_CONCORDANCE==='1'){
-  await require('./concordance-flows.cjs')({win,js,waitFor});
+  await require('./outline-search-flows.cjs')({js,waitFor,book});
+ await require('./concordance-flows.cjs')({win,js,waitFor});
   assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;
  }
  if(process.env.SAFRAN_SMOKE_LZ==='1'){

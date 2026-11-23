@@ -11,6 +11,8 @@ const PIL = require('./private-interlinear');
 const KennicottExternal = require('./kennicott-external.cjs');
 const { confirmTextUpdates } = require('./text-updates');
 const { SearchJobs, ownerOf, runSearchWorker, emptyResult } = require('./search-jobs');
+const { getOutline } = require('./outline-store');
+const outlineDirs = () => [path.join(app.getPath('userData'), 'outlines'), path.join(__dirname, 'outlines')];
 
 const T0 = Date.now(); // Startzeit des Hauptprozesses (für startup.log)
 const tMain = [['Hauptprozess gestartet', 0]]; const mkMain = n => tMain.push([n, Date.now() - T0]);
@@ -586,6 +588,9 @@ function warmSearchCache(lib) {
 ipcMain.handle('off:search', async (e, o = {}) => {
   const job = searchJobs.begin(ownerOf(e), o.requestId);
   try {
+    if (o.outline && typeof o.outline === 'object') {
+      return await runSearchWorker({ outline: o.outline, dirs: outlineDirs() }, job, () => {});
+    }
     const lib = await getLibrary();
     if (job.cancelled) return emptyResult();
     const str = x => String(x == null ? '' : x);
@@ -830,13 +835,7 @@ async function getTopics() {
   return topicStore;
 }
 // Eigene Gliederungen (Inhaltsübersichten) je Buch: outlines/<Buch>.json im Projekt oder im Benutzerordner
-ipcMain.handle('outline:get', async (_e, book) => {
-  const name = String(book || '').replace(/[^\p{L}\p{N} .'’-]/gu, '_').replace(/\.{2,}/g, '_'); if (!name) return null;
-  for (const dir of [path.join(app.getPath('userData'), 'outlines'), path.join(__dirname, 'outlines')]) {
-    try { const d = JSON.parse(await fs.readFile(path.join(dir, name + '.json'), 'utf8')); if (d && Array.isArray(d.sections)) return d; } catch { /* nächster Ort */ }
-  }
-  return null;
-});
+ipcMain.handle('outline:get', (_e, book) => getOutline(outlineDirs(), book));
 // Audio: eigener Ordner mit Versdateien „Genesis_001_001.mp3“ (Buch_Kapitel_Vers)
 const audioFile = () => path.join(app.getPath('userData'), 'audio-dir.txt');
 async function audioIndex() {

@@ -112,8 +112,9 @@
     <section id="tab-search" hidden>
       <div class="sleft">
       <div id="sModes" role="tablist" aria-label="Suchmodus">
-        <button id="sTextTab" type="button" role="tab" aria-controls="sText" aria-selected="true">Textsuche</button>
-        <button id="sSyntaxTab" type="button" role="tab" aria-controls="sSyntax" aria-selected="false" tabindex="-1">Klauselsuche (Tanach)</button>
+        <button id="sTextTab" data-mode="text" type="button" role="tab" aria-controls="sText" aria-selected="true">Textsuche</button>
+        <button id="sSyntaxTab" data-mode="syntax" type="button" role="tab" aria-controls="sSyntax" aria-selected="false" tabindex="-1">Klauselsuche (Tanach)</button>
+        <button id="sOutlineTab" data-mode="outline" type="button" role="tab" aria-controls="sOutline" aria-selected="false" tabindex="-1">Gliederung &amp; Mizwot</button>
       </div>
       <div id="sText" role="tabpanel" aria-labelledby="sTextTab">
       <div class="bar" id="sBar">
@@ -223,6 +224,23 @@
           </details>
           <p id="sxError" role="alert" hidden></p>
         </form>
+      </div>
+      <div id="sOutline" role="tabpanel" aria-labelledby="sOutlineTab" hidden>
+        <form id="soForm" class="bar">
+          <input id="soQuery" type="search" dir="auto" maxlength="256" aria-label="Suchbegriff oder Mizwa-Nummer" placeholder="Suchbegriff oder Mizwa-Nummer">
+          <select id="soKind" aria-label="Suchbereich">
+            <option value="all">Gliederung &amp; Mizwot</option>
+            <option value="outlines">Nur Gliederung</option>
+            <option value="mitzvot">Nur Mizwot</option>
+          </select>
+          <button id="soGo" class="primary" type="submit">Suchen</button>
+        </form>
+        <p id="soInfo" class="muted" role="status"></p>
+        <div id="soOut"></div>
+        <div id="soPages" class="bar" hidden>
+          <button id="soPrev" type="button">Vorherige Treffer</button>
+          <button id="soNext" type="button">Weitere Treffer</button>
+        </div>
       </div>
       <div id="sChart" hidden></div>
       <div id="sTools"><button id="sGroupBtn" type="button" hidden aria-pressed="true" title="Derselbe Vers in mehreren Fassungen erscheint nur einmal; die anderen Fassungen klappen darunter auf">⧉ Fassungen zusammenfassen</button> <button id="sReadBtn" type="button" hidden title="Alle Fundstellen wie beim Lesen untereinander in einem neuen Tab zeigen, nach Buch und Kapitel geordnet, mit den gewählten Versionen nebeneinander und einer Übersicht der Bücher">📖 Alle als Lesetext öffnen</button> <button id="sExport" type="button" hidden title="Alle angezeigten Treffer als CSV-Datei speichern">⤓ Treffer als CSV</button></div>
@@ -397,7 +415,7 @@
   </aside>
 
   <aside id="outlinePanel" hidden>
-    <div class="lhead"><b id="olTitle">Gliederung</b><button id="olClose" title="Schließen">✕</button></div>
+    <div class="lhead"><b id="olTitle">Gliederung</b><button id="olSearchAll" type="button">Buchübergreifend suchen</button><button id="olClose" title="Schließen">✕</button></div>
     <div id="olMzW" class="olTabs" hidden><button id="olTabT">Themen</button><button id="olTabM">613 Mizwot</button></div>
     <div id="olBody"></div>
   </aside>
