@@ -131,7 +131,7 @@
     if (calDate === real) calDate = null;
     const key = (calDate || real);
     if (!calData || calDay !== key) { try { calData = await O.calendar(calDate || undefined); calDay = key; } catch { calData = null; } }
-    if (!$('#ntCal')) return;
+    if (!box.isConnected) return;
     const nav = d => `<div class="calNav"><button type="button" data-cal="-7" title="${esc(I18N.t('Eine Woche zurück'))}">«</button><button type="button" data-cal="-1" title="${esc(I18N.t('Einen Tag zurück'))}">‹</button><input type="date" id="calPick" value="${esc(d)}"><button type="button" data-cal="1" title="${esc(I18N.t('Einen Tag vor'))}">›</button><button type="button" data-cal="7" title="${esc(I18N.t('Eine Woche vor'))}">»</button>${calDate ? `<button type="button" data-cal="0">${esc(I18N.t('Heute'))}</button>` : ''}</div>`;
     if (!calData || !calData.items || !calData.items.length) { box.innerHTML = calData && calData.error ? `<div class="calBox">${nav(key)}<p class="muted small">${esc(I18N.t('Kalender (hebcal.com) nicht erreichbar.'))}</p></div>` : ''; return; }
     const it = calData.items, t = calData.today;
@@ -240,6 +240,21 @@
     loadView, jumpTo,
   });
   function renderTabs() { return tabsUI.render(); }
+  // Shared welcome area for new tabs and empty inline search results.
+  function newTabHtml() {
+    return `<div class="newtab"><img class="logo" src="logo.png" alt="talmud.de" width="130"><p class="muted">Neuer Tab – Stelle oder Buch eingeben (z. B. <b>Gen. 1</b>, <b>Berakhot 2a</b>, <b>Mishnah Peah 6:6</b>) und Enter drücken, oder links ein Buch wählen.</p>
+        <input id="ntIn" placeholder="Gen. 1:1" autocomplete="off"><p id="ntMsg" class="muted"></p><div id="ntCal"></div></div>`;
+  }
+  function mountNewTab() {
+    const area=$('#rOut .newtab');if(!area)return;
+    renderNtCal();
+    const sg=$('#startGuide');
+    if(sg&&!entries.some(e=>!e.own)&&!area.querySelector('.startGuide')){
+      const c=sg.cloneNode(true);c.removeAttribute('id');c.hidden=false;c.classList.add('startGuide');area.appendChild(c);
+    }
+    const input=area.querySelector('#ntIn');
+    setTimeout(()=>{if(input?.isConnected){attachSuggest(input);input.focus();}},0);
+  }
   function showView() {
     navigationUI.saveSession();
     navigationUI.updateNav();
@@ -247,15 +262,10 @@
     $('#rEmpty').hidden = !none;
     $('#rMain').hidden = none;
     $('#stick').classList.toggle('emptytab', !none && !view.group);
-    if (!none && view.sres) { if (view.sres.html) $('#rOut').innerHTML = view.sres.html; else if (!view.sres.running) runSres(view); }
+    if (!none && view.sres) { if (view.sres.html) { $('#rOut').innerHTML = view.sres.html; mountNewTab(); } else if (!view.sres.running) runSres(view); }
     else if (!none && !view.group) {
-      $('#rOut').innerHTML = `<div class="newtab"><img class="logo" src="logo.png" alt="talmud.de" width="130"><p class="muted">Neuer Tab – Stelle oder Buch eingeben (z. B. <b>Gen. 1</b>, <b>Berakhot 2a</b>, <b>Mishnah Peah 6:6</b>) und Enter drücken, oder links ein Buch wählen.</p>
-        <input id="ntIn" placeholder="Gen. 1:1" autocomplete="off"><p id="ntMsg" class="muted"></p><div id="ntCal"></div></div>`;
-      renderNtCal();
-      // Noch keine Sefaria-Texte heruntergeladen: Kurzanleitung unter dem Eingabefeld
-      const sg = $('#startGuide');
-      if (sg && !entries.some(e => !e.own)) { const c = sg.cloneNode(true); c.removeAttribute('id'); c.hidden = false; c.classList.add('startGuide'); $('#rOut .newtab').appendChild(c); }
-      setTimeout(() => { const i = $('#ntIn'); if (i) { attachSuggest(i); i.focus(); } }, 0);
+      $('#rOut').innerHTML = newTabHtml();
+      mountNewTab();
     }
     outlineUI.olBtnRefresh(); if (!none && !view.group) $('#mapBtn').hidden = true;
     renderTabs();
@@ -1356,8 +1366,8 @@
     if (body == null) return;
     const books = res.stats.length, hits = res.results.length;
     const chips = res.stats.map(x => `<button class="chip" data-jb="${esc(x.title)}" title="${esc(I18N.t('Zu diesem Buch springen'))}">${esc(x.title)} (${x.n})</button>`).join(' ');
-    S.html = `<div class="sread sresv"><div class="sresHead" id="sresTop"><b>${esc(I18N.t('Suche'))}: <span dir="auto">${esc(S.q)}</span></b> · ${esc(I18N.t('{#} Verse in {#} Büchern', hits + (res.truncated ? '+' : ''), books))}${S.params.lemma ? ' · ' + esc(I18N.t('alle Formen des Wortes')) : ''} ${verSel}${res.truncated ? ` <button id="sresMore">${esc(I18N.t('Weitere laden'))}</button>` : ''}</div>${books > 1 ? `<div class="sresBooks">${chips}</div>` : ''}${body || `<p class="muted">${esc(I18N.t('Nichts gefunden.'))}</p>`}</div>`;
-    if (view === V) { $('#rOut').innerHTML = S.html; ['he', 'en', 'de'].forEach(k => $('#rOut').style.setProperty('--' + k + 'f', disp[k])); }
+    S.html = `<div class="sread sresv"><div class="sresHead" id="sresTop"><b>${esc(I18N.t('Suche'))}: <span dir="auto">${esc(S.q)}</span></b> · ${esc(I18N.t('{#} Verse in {#} Büchern', hits + (res.truncated ? '+' : ''), books))}${S.params.lemma ? ' · ' + esc(I18N.t('alle Formen des Wortes')) : ''} ${verSel}${res.truncated ? ` <button id="sresMore">${esc(I18N.t('Weitere laden'))}</button>` : ''}</div>${books > 1 ? `<div class="sresBooks">${chips}</div>` : ''}${body || `<p class="muted">${esc(I18N.t('Nichts gefunden.'))}</p>${newTabHtml()}`}</div>`;
+    if (view === V) { $('#rOut').innerHTML = S.html; mountNewTab(); ['he', 'en', 'de'].forEach(k => $('#rOut').style.setProperty('--' + k + 'f', disp[k])); }
   }
   // Klicks im Suchtab: Vers wählen (Kommentare, Verknüpfungen), Kapitel öffnen, weitere laden
   let cmtVirt = null; // Fundstelle, zu der das Kommentar-Panel im Suchtab gerade Kommentare zeigt
