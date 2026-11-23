@@ -1171,7 +1171,13 @@ window.LibraryWordCards = (() => {
     host.$('#wcBody').addEventListener('mouseover', e => { const [a, ref] = refOf(e); if (!a || !host.hovApi || ref === host.hovApi.current()) return; host.hovApi.start(a, ref, true, false, wcHovPick(a)); });
     host.$('#wcBody').addEventListener('mouseout', e => { const [a] = refOf(e); if (a && host.hovApi && !a.contains(e.relatedTarget)) host.hovApi.hide(); }); }
   { let z = 1; try { z = +localStorage.getItem('fmZoom') || 1; } catch { /* egal */ }
-    const apz = () => { z = Math.max(0.7, Math.min(2, Math.round(z * 20) / 20)); host.$('#wcBody').style.zoom = host.$('#fmBody').style.zoom = z; host.$('#fmHead').style.zoom = z; try { localStorage.setItem('fmZoom', String(z)); } catch { /* egal */ } };
+    const apz = () => {
+      z = Math.max(0.7, Math.min(2, Math.round(z * 20) / 20));
+      for (const selector of ['#fmHead', '#wcBody', '#fmBody', '#fmConcordanceBody']) {
+        host.$(selector).style.zoom = z;
+      }
+      try { localStorage.setItem('fmZoom', String(z)); } catch { /* egal */ }
+    };
     apz();
     host.$('#fmSm').onclick = () => { z -= 0.1; apz(); }; host.$('#fmBg').onclick = () => { z += 0.1; apz(); };
     host.$('#fmSm').ondblclick = host.$('#fmBg').ondblclick = () => { z = 1; apz(); }; }

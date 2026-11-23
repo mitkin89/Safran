@@ -38,6 +38,16 @@ module.exports=async({win,js,waitFor})=>{
  if(process.env.SAFRAN_SMOKE_CONCORDANCE==='1'){
   assert(await js("document.querySelector('#fmConcordanceBody [data-cc-peer]')"),'Sprachübergreifende Entsprechungen in der Wortkarte');
  }
+ // Measure rendered glyphs because CSS zoom leaves the computed font-size unchanged.
+ const textHeight = selector => js(`{const node=document.querySelector(${JSON.stringify(selector)}),range=document.createRange();range.selectNodeContents(node);range.getClientRects()[0].height}`);
+ const selectors = ['#fmConcordanceBody .ccContext mark'];
+ if(process.env.SAFRAN_SMOKE_CONCORDANCE==='1')selectors.push('#fmConcordanceBody .wcCcPeer bdi');
+ const beforeZoom = await Promise.all(selectors.map(textHeight));
+ await js("document.querySelector('#fmBg').click()");
+ const enlarged = await Promise.all(selectors.map(textHeight));
+ assert(enlarged.every((height, i) => height > beforeZoom[i]),'A+ vergrößert Beleg und Entsprechung');
+ await js("document.querySelector('#fmSm').click()");
+ assert.deepEqual(await Promise.all(selectors.map(textHeight)),beforeZoom,'A− stellt die vorige Schriftgröße wieder her');
  await js("document.querySelector('#fmConcordanceBody [data-cc-search]').click()");
  await waitFor("document.documentElement.dataset.tab==='search' && document.querySelector('#sConcordance').checked && document.querySelector('#sOut .ccRow') && document.querySelector('#sGo').textContent==='Suchen'",'Konkordanz aus der Wortkarte');
  assert.equal(await js("document.querySelectorAll('#sCatTree input:checked').length"),0,'Wortkarte startet ohne alte Werkfilter');
