@@ -317,8 +317,7 @@ body.dock-open #tab-read .layout { margin-right: calc(var(--dock-w, var(--cmt-w,
 [data-so="form"] { flex-wrap: wrap; }
 [data-so="query"] { flex: 1 1 220px; min-width: 0; }
 .soResult { display: grid; justify-items: start; gap: 4px; padding: 10px 0; border-bottom: 1px solid var(--line); }
-#olControls { position: sticky; top: -12px; z-index: 1; background: var(--bg); padding-bottom: 8px; }
-#olControls .lhead { position: static; }
+#olControls { padding-bottom: 8px; }
 #olSearchForm [data-so="query"] { flex-basis: 100%; }
 #olSearch [data-so="info"] { margin: 6px 0; }
 #olBack { margin-top: 6px; }

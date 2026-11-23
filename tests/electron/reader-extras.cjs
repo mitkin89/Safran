@@ -47,6 +47,18 @@ module.exports = function setup({profile, handlers}) {
     await js("document.querySelector('nav [data-tab=read]').click();document.querySelector('#olBtn').click()");
     await waitFor("!document.querySelector('#outlinePanel').hidden && document.querySelector('#olBody .olp')", 'Echte Genesis-Gliederung');
     assert(await js("document.querySelector('#olBody').textContent.includes('Weltschöpfung')"));
+    assert(await js(`(() => {
+      const panel = document.querySelector('#outlinePanel');
+      const form = panel.querySelector('#olSearchForm');
+      const heading = panel.querySelector('.lhead');
+      panel.scrollTop = 0;
+      const start = form.getBoundingClientRect().top;
+      panel.scrollTop = 240;
+      const scrolledAway = form.getBoundingClientRect().bottom <= heading.getBoundingClientRect().bottom;
+      const headingVisible = heading.getBoundingClientRect().top >= panel.getBoundingClientRect().top;
+      panel.scrollTop = 0;
+      return scrolledAway && headingVisible && form.getBoundingClientRect().top === start;
+    })()`), 'Suchfeld scrollt aus dem Panel, Kopfzeile bleibt sichtbar');
     await js("document.querySelector('#olBody .olp').click()");
     await waitFor("document.querySelector('#rOut .row[data-l=\"1\"]')", 'Navigation aus der Gliederung');
     await js(`{ const form = document.querySelector('#olSearchForm form');
