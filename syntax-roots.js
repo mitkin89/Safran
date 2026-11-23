@@ -12,4 +12,5 @@ function matches(key,word){
  const d=word&&Morph.decode(word.morph,word.lemma),id=d?.segs[d.main]?.lemma,f=id&&data()[id];
  return f?f.lang+':'+f.id===key:null;
 }
-module.exports={has,valid,matches};
+function describe(key){data();const f=Object.values(roots).find(f=>f.lang+':'+f.id===key);return f?{root:f.root,lang:f.lang,id:f.id}:null;}
+module.exports={has,valid,matches,describe};

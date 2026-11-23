@@ -101,7 +101,7 @@ function build(dir) {
       if (verse) verse[attr] = value;
     }
   }
-  for (const [feature, attr] of [['txt', 'txt'], ['rela', 'relation'], ['mother', 'mother']]) {
+  for (const [feature, attr] of [['txt', 'txt'], ['rela', 'relation'], ['mother', 'mother'],['kind','kind'],['typ','type']]) {
     for (const [id, value] of records(dir, feature)) {
       const clause = clauses.get(id);
       if (clause) clause[attr] = value;
@@ -171,10 +171,10 @@ function build(dir) {
       if (!positions.length) continue;
       result[verse.book][verse.ref][1].push([id, clause.txt, clause.relation === 'Resu',
         parent ? [parent.book, parent.ref] : null, positions, clause.relation || 'NA',
-        clause.motherClause || null]);
+        clause.motherClause || null,clause.kind||null,clause.type||null]);
     }
   }
-  return { version: source.format, revision: source.revision, patternVersion: 1, clauseParents: Object.fromEntries([...clauses].map(([id,c])=>[id,c.motherClause||null])), aligned, total: verses.size, books: result };
+  return { version: source.format, revision: source.revision, patternVersion: 1, clauseFeatures: ['kind','typ'], clauseParents: Object.fromEntries([...clauses].map(([id,c])=>[id,c.motherClause||null])), aligned, total: verses.size, books: result };
 }
 
 if (require.main === module) {

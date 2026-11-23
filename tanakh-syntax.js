@@ -95,7 +95,7 @@ function createMatcher(index, query, text, readWords, predicateMatches, clauseMa
       for (const group of [...subjects, ...objects.filter(valid), ...referents.filter(valid)]) {
         if (group.ref === key) group.indices.forEach(i => positions.add(i));
       }
-      evidence.push({ verb: verb.form, subjects: subjects.map(label),
+      evidence.push({ verb: verb.form, verbPosition:verbAt, subjects: subjects.map(label),
         objects: objects.filter(valid).map(label), referents: referents.filter(valid).map(label), ...(bhsa ? { bhsa } : {}) });
     }
     return positions.size ? { words, positions, evidence } : null;

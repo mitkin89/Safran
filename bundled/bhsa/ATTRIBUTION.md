@@ -5,3 +5,5 @@
 Source: [ETCBC BHSA, Text-Fabric 2021](https://github.com/ETCBC/bhsa/tree/4db00e2157915495e1a4d3d57e41223df24775da/tf/2021). The BHSA data and this derived index are licensed under [Creative Commons Attribution–NonCommercial 4.0 International](https://creativecommons.org/licenses/by-nc/4.0/).
 
 Safran extracts text domains, clause relation codes, resumption links and parent links (including unambiguously resolved word/phrase anchors), aligns them to its OSHB Westminster wording, omits unaligned passages, and compresses the resulting index. The package contains the derived index.
+
+The derived index also includes clause `kind` (VC/NC/WP) and `typ` from the same pinned 2021 revision. Their SHA-256 hashes are recorded and verified in `bhsa-source.js`; the generator uses only clause-node values, never phrase-node types.

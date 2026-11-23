@@ -2768,7 +2768,7 @@
   });
   $('#sOut').addEventListener('click', e => {
     const el = e.target.closest('.sres');
-    if (!el) return;
+    if (!el || e.target.closest('.sxExplain')) return;
     const r = searchUI.resultAt(+el.dataset.i, el.dataset.cp);
     const entry = entries.find(x => x.rel === r.rel);
     if (!entry) return;

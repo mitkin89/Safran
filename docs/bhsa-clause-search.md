@@ -19,7 +19,7 @@ Conditions apply to one predicate and its clause, preventing a subject of one ve
 
 **Related clause** introduces another context: a BHSA child or parent, or a later clause within the same verse. Parent/child links can cross verse boundaries. The BHSA mother feature may point to a word or phrase; Safran resolves that anchor only if all its slots belong to one unambiguous clause. The original relation code is shown in results; Attr is attributive, not a universal classification of every relative clause. Missing aligned targets cannot satisfy an exclusion.
 
-Example: an AND group containing a verb condition plus a related child clause whose AND group contains relation Attr and a Hifil verb. This searches source-annotated dependency structures. The editor supports up to 40 query nodes and six levels; it is not a complete Logos/Accordance syntax engine. Clause-type classification beyond the displayed BHSA relations is not provided.
+Example: an AND group containing a verb condition plus a related child clause whose AND group contains relation Attr and a Hifil verb. This searches source-annotated dependency structures. The editor supports up to 40 query nodes and six levels; it is not a complete Logos/Accordance syntax engine. Clause kinds and clause types are available as described below.
 
 Matched predicates and explicit constituents are highlighted. Evidence lists identify clause references, including related verses. Existing alignment exclusions still apply; zero matches are not proof that a construction is absent from the source corpus.
 
@@ -42,3 +42,15 @@ Under **Grammatik & Syntax → Gespeicherte Suchmuster**, name the current query
 Templates are stored locally and survive app restarts. Use **Auswahl exportieren** or **Alle exportieren** for a portable versioned JSON file, and **Importieren** to merge such a file. Imports are validated before writing; identical templates are skipped, conflicting names receive a numerical suffix, and existing queries are not overwritten. Re-importing the same file also recognizes templates renamed during a previous import. Unsupported formats and over-limit imports leave the saved collection unchanged. The collection supports up to 200 templates and a bounded JSON size.
 
 A missing local book or unavailable root-family ID blocks loading with a message instead of silently broadening the query. No text editions or search results are embedded in the file. These templates have their own JSON export; they are not currently included in the notes backup.
+
+### Clause kinds and types
+
+Add **Klauselart (BHSA)** or **Klauseltyp (BHSA)** in the advanced builder. Kind distinguishes VC (verbal), NC (nominal), and WP (without predication). Type offers all 42 values found on clause nodes in the pinned BHSA 2021 dataset, including nominal, adjective, participle, infinitive, ellipsis and verb-pattern types. Verbal-pattern codes remain visible as source codes. Definitions: [kind](https://etcbc.github.io/bhsa/features/kind/) and [typ](https://etcbc.github.io/bhsa/features/typ/).
+
+The bundled index derives these values from checksum-verified source files in the same revision as the existing clause links. Phrase and phrase-atom types are not imported as clause types. A pure kind/type query highlights the matched clause’s source words; nominal clauses can be returned without inventing a verb. A nominal BHSA classification may still contain OSHB verb forms such as nominally used participles: these are separate annotations and are shown as such. These classifications do not provide a general main/subordinate/conditional-clause taxonomy. Unaligned verses and ambiguous source positions remain excluded; unavailable features remain unknown under NOT.
+
+### Match explanations
+
+Expand **Warum dieser Treffer?** under a syntax result. The advanced search explains AND/OR/NOT, clause links, lexical and root-family conditions, morphology, and measured word gaps. It shows the relevant source words, verse references and clause excerpts. OR shows the successful alternatives; NOT shows its failed child condition. A missing or ambiguous head position is labeled as a constituent rather than an exact head. Related clauses display their own source references and excerpts.
+
+Simple clause searches also show their selected conditions and corresponding source groups or predicate words. Explanations are limited to five primary contexts per verse, three examples of each matching related-clause context, and a bounded explanation tree. Truncation is explicitly shown; match computation and total verse counts are unchanged by these display limits. Opening the explanation does not navigate away from the search.

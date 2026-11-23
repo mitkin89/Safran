@@ -69,7 +69,7 @@ function clauseMatcher(book, query, readWords, matchesPredicate) {
         clauses.filter(row => row[4].includes(i)).length === 1);
       if (!hits.length) continue;
       hits.forEach(i => positions.add(i));
-      evidence.push({ verb: query.verb ? hits.map(i => words[i].form).join(' · ') : '', bhsa: info(clause) });
+      evidence.push({ verb: query.verb ? hits.map(i => words[i].form).join(' · ') : '', verbPositions:hits, bhsa: info(clause) });
     }
     return positions.size ? { words, positions, evidence } : null;
   };

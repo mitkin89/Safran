@@ -1,7 +1,8 @@
 // Shared bounded query tree for the clause-search editor and worker.
 (function(){
 'use strict';
-const roles=['verb','subject','object','referent','domain','relation'];
+const Types=typeof module!=='undefined'&&module.exports?require('./syntax-types'):window.SyntaxTypes;
+const roles=['kind','clauseType','verb','subject','object','referent','domain','relation'];
 const relations=['Attr','Coor','Subj','Objc','Cmpl','Adju','Resu','NA'];
 function clean(input){
  let count=0;
@@ -16,8 +17,8 @@ function clean(input){
    return {op:'related',relation:n.relation,child:walk(n.child,depth+1)};
   }
   if(n.op!=='term'||!roles.includes(n.role))throw Error('term');
-  if(['domain','relation'].includes(n.role)){
-   if(!(n.role==='domain'?['N','D','Q']:relations).includes(n.value))throw Error('value');
+  if(['domain','relation','kind','clauseType'].includes(n.role)){
+   if(!(n.role==='domain'?['N','D','Q']:n.role==='relation'?relations:Object.keys(n.role==='kind'?Types.kinds:Types.types)).includes(n.value))throw Error('value');
    return {op:'term',role:n.role,value:n.value};
   }
   const mode=n.mode??'lemma';if(!['lemma','root'].includes(mode))throw Error('mode');

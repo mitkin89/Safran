@@ -224,7 +224,7 @@ async function searchFiles({ dir, entries, params, cacheDir = null, onProgress =
               const g=word&&gramOf(word.morph,word.lemma);if(!g)return null;
               if(Object.keys(gram).some(k=>k==='pos'?g.pos==='X':g[k]===undefined||g[k]==='x'))return null;
               return gramTest(gram,g);
-            },westminsterLemma,bhsaIndex.clauseParents,require('./syntax-roots').matches)
+            },westminsterLemma,bhsaIndex.clauseParents,require('./syntax-roots').matches,require('./syntax-roots').describe)
           : usesBhsa && !syntax.subjects.size && !syntax.objects.size
           ? BHSA.clauseMatcher(bhsa, { ...syntax.bhsa, verb: syntax.verb }, syntaxWords, word => {
             if (!G && !syntax.verb) return true;
@@ -251,7 +251,17 @@ async function searchFiles({ dir, entries, params, cacheDir = null, onProgress =
           const mm = { idx, toks: [...n.matchAll(/[\p{L}\p{N}]+/gu)].map(m => ({ w: m[0], s: m.index, e: m.index + m[0].length })) };
           const r = { rel: e.rel, title: e.title, heTitle: e.heTitle, versionTitle: e.versionTitle, kind: e.kind, path: p, loc: loc ? { path: loc.path, label: loc.label } : null, where: loc ? (loc.label ? `${loc.sectionLabel} · ${loc.label}` : loc.sectionLabel) : '' };
           r.snippet = { before: '', hit: '', after: '' }; r.parts = S.snippetParts(n, mm);
-          if (match) r.syntax = match.evidence;
+          if (match) {r.syntax = match.evidence;if(match.explanation)r.explanation=match.explanation;
+            else if(syntax){
+              const conditions=[],forms=role=>match.evidence.flatMap(e=>(e[role]||[]).map(w=>({...w,part:'constituent'})));
+              const ref=p.slice(0,2).map(i=>i+1).join(':');
+              if(syntax.verb||G)conditions.push({rule:{role:'verb',lemmas:syntax.verb?[syntax.verb]:[],gram:G||{}},words:[...new Set(match.evidence.flatMap(e=>e.verbPositions??(e.verbPosition===undefined?[]:[e.verbPosition])))].map(i=>({text:match.words[i].form,ref,indices:[i],morph:match.words[i].morph,lemmaId:match.words[i].lemma})),ref});
+              if(syntax.subjects.size)conditions.push({rule:{role:'subject',lemmas:[...syntax.subjects]},words:[...forms('subjects'),...forms('referents')],ref});
+              if(syntax.objects.size)conditions.push({rule:{role:'object',lemmas:[...syntax.objects]},words:forms('objects'),ref});
+              if(syntax.bhsa.domain)conditions.push({rule:{role:'domain',value:syntax.bhsa.domain},words:[],actual:syntax.bhsa.domain,ref});
+              if(syntax.bhsa.relation)conditions.push({rule:{role:'relation',value:syntax.bhsa.relation},words:[],actual:syntax.bhsa.relation,ref});
+              r.explanation={simple:true,conditions};
+            }}
           r.words = [...new Set(idx.map(i => mm.toks[i] && n.slice(mm.toks[i].s, mm.toks[i].e)).filter(Boolean))]; r.sub = false;
           results.push(r); shown++;
           if (results.length >= limit) truncated = true;

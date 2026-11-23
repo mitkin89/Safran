@@ -179,3 +179,6 @@ On Windows and Linux use Ctrl instead of Cmd.
 - **Roots in syntax conditions:** advanced verb, subject, object and referent conditions can select an attested lexical family instead of one lemma. Hebrew/Aramaic homonyms remain separate; morphology and position still apply to the same aligned head token. Missing family assignments remain unknown under NOT.
 
 - **Named grammar/syntax queries:** save, update, load and delete local query templates for word features, simple clauses and advanced trees, including book scope and root/position conditions. Loading restores an editable form without running a search. Versioned JSON export/import supports one or all templates, preserving existing entries on name conflicts and rejecting invalid imports atomically.
+
+- **Syntax match explanations:** expandable per-result reasons show Boolean conditions, source words, morphology, lexical/root constraints, measured word gaps and linked clause excerpts. Negative conditions retain three-valued annotation semantics. Explanation clicks leave the result list open.
+- **BHSA clause kinds/types:** the advanced builder can filter VC/NC/WP and all 42 clause-type values present in the pinned dataset. Nominal clauses without an annotated verb are searchable; source kind/type classifications remain distinct from OSHB word morphology.

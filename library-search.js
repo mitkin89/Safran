@@ -446,12 +446,12 @@ window.LibrarySearch = (() => {
         if(pair.clauseRef)labels.push(esc(I18N.t('Klausel {}',pair.clauseRef)));
         if (pair.bhsa) {
           const domains = { N: 'Erzählung', D: 'Erläuterung des Erzählers', Q: 'Direkte Rede' };
-          labels.push(['BHSA', domains[pair.bhsa.domain], pair.bhsa.resumes && 'Wiederaufnahme',pair.bhsa.relation]
+          labels.push(['BHSA', domains[pair.bhsa.domain], pair.bhsa.resumes && 'Wiederaufnahme',pair.bhsa.relation,pair.bhsa.kind,pair.bhsa.type]
             .filter(Boolean).map(name => esc(I18N.t(name))).join(' · '));
         }
         return `<div class="muted">${labels.join(' · ')}</div>`;
       }).join('');
-      return `<div class="sres${extra || ''}" data-i="${i}"><span class="t">${esc(r.title)}</span> <span class="muted">${esc(r.where)} · <span class="badge ${r.kind}">${KIND_LABEL[r.kind]}</span>${esc(shortVer(r.versionTitle))}</span><div class="snip" dir="${r.kind === 'he' ? 'rtl' : 'ltr'}">${r.parts ? r.parts.map(x => x.m ? `<mark>${esc(x.t)}</mark>` : esc(x.t)).join('') : `${esc(sn.before)}<mark>${esc(sn.hit)}</mark>${esc(sn.after)}`}</div>${roles}</div>`;
+      return `<div class="sres${extra || ''}" data-i="${i}"><span class="t">${esc(r.title)}</span> <span class="muted">${esc(r.where)} · <span class="badge ${r.kind}">${KIND_LABEL[r.kind]}</span>${esc(shortVer(r.versionTitle))}</span><div class="snip" dir="${r.kind === 'he' ? 'rtl' : 'ltr'}">${r.parts ? r.parts.map(x => x.m ? `<mark>${esc(x.t)}</mark>` : esc(x.t)).join('') : `${esc(sn.before)}<mark>${esc(sn.hit)}</mark>${esc(sn.after)}`}</div>${roles}${window.SyntaxExplanation.render(r.explanation,{esc,t:(...args)=>I18N.t(...args)})}</div>`;
     };
     const sKindOrder = () => (I18N.lang === 'de' ? ['de', 'en', 'he', 'other'] : I18N.lang === 'he' ? ['he', 'de', 'en', 'other'] : ['en', 'de', 'he', 'other']);
     function searchGroups() {

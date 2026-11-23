@@ -2531,3 +2531,15 @@ body.il .cell[data-k="he"] .ilt.il-ma { direction: rtl; font-family: var(--he-fo
 #sxSavedPatterns .bar { flex-wrap: wrap; gap: 8px; margin: 8px 0; align-items: end; }
 #sxSavedPatterns label { display: flex; flex-direction: column; gap: 3px; }
 #sxSavedPatterns select, #sxSavedPatterns input { max-width: 100%; width: min(25em, 60vw); }
+
+.sxExplain { margin: 8px 0; padding: 8px 10px; border: 1px solid var(--line); border-radius: 7px; cursor: default; }
+.sxExplain summary { cursor: pointer; color: var(--accent); }
+.sxExplain ul { list-style: none; padding-inline-start: 1em; margin: 6px 0; }
+.sxExplain li { margin: 8px 0; border-inline-start: 2px solid var(--line); padding-inline-start: 8px; }
+.sxExplain small { color: var(--muted); }
+.sxProofWord { display: block; margin: 4px 0; }
+.sxProofWord bdi { font-family: var(--he-font); font-size: 1.25em; }
+
+.sxExplain .pvhl { background: color-mix(in srgb, var(--accent) 28%, transparent); border-radius: 3px; box-shadow: 0 0 0 1px color-mix(in srgb, var(--accent) 55%, transparent); }
+
+.sxClauseText { font-family: var(--he-font); font-size: 1.3em; line-height: 1.65; margin: 4px 0 8px; }
