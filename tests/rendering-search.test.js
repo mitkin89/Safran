@@ -21,3 +21,20 @@ test('reverse renderings use grouped base forms, no substring or synonym matchin
  assert.deepEqual(find(index,'missing','sprechen'),[]);
  assert.deepEqual(find(index,'Zunz','*'),[]);
 });
+
+test('word-family renderings combine counts while preserving the source lemma of each cell',()=>{
+ const {familySources}=require('../rendering-search');
+ const entry=(gloss,count,form)=>({lang:'de',total:count,labels:[{forms:[gloss,[form,count]]}],
+   cells:[{g:0,code:'HV',n:count,refs:enc([1001])}],para:{}});
+ const a=entry('füllen',2,'füllt'), b=entry('Füllen',1,'gefüllt');
+ const merged=familySources([
+   ['4390',{src:{Zunz:a,Philippson:a}}],
+   ['4393',{src:{Zunz:b}}],
+ ]);
+ assert.equal(merged.Zunz.total,3);
+ assert.deepEqual(merged.Zunz.labels,[{forms:['füllen',['füllt',2],['gefüllt',1]]}]);
+ assert.deepEqual(merged.Zunz.cells.map(({g,lemma,n})=>[g,lemma,n]),[[0,'4390',2],[0,'4393',1]]);
+ assert.equal(merged.Zunz.byLemma['4393'],b);
+ assert.equal(merged.Philippson.total,2);
+ assert.equal(a.cells[0].lemma,undefined);
+});

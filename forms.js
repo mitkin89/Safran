@@ -113,6 +113,23 @@
   // Belegstellen einer Form: [{ book, ch, v, n }] (jeder Vers einmal, n = wie oft darin)
   function refs(data, mdl, i) {
     const idx = [];
+    if (mdl.members) {
+      const byVerse = new Map();
+      for (const k of String(i).split(',')) {
+        const form = mdl.forms[+k];
+        if (!form) continue;
+        for (let j = 0; j < form.r.length; j += 3) {
+          const verse = parseInt(form.r.slice(j, j + 3), 36);
+          const hit = byVerse.get(verse) || { n: 0, lemmas: new Map() };
+          hit.n++;
+          hit.lemmas.set(form.lemma, (hit.lemmas.get(form.lemma) || 0) + 1);
+          byVerse.set(verse, hit);
+        }
+      }
+      return [...byVerse].sort(([a], [b]) => a - b).map(([verse, hit]) => ({
+        ...locate(data, verse), n: hit.n, lemmas: [...hit.lemmas],
+      }));
+    }
     for (const k of String(i).split(',')) { const s = (mdl.forms[+k] || { r: '' }).r; for (let j = 0; j < s.length; j += 3) idx.push(parseInt(s.slice(j, j + 3), 36)); }
     idx.sort((a, b) => a - b);
     const out = [];
@@ -253,13 +270,35 @@
     return { lemma, forms, total: sum(items), sections };
   }
 
+  function familyModel(data, ids, t) {
+    const members = [...new Set(ids)].map(id => model(data, id, t)).filter(Boolean);
+    const forms = [], sections = [];
+    for (const member of members) {
+      const offset = forms.length;
+      forms.push(...member.forms.map(form => ({ ...form, lemma: member.lemma })));
+      for (const section of member.sections) {
+        const blocks = section.blocks.map(block => ({
+          ...block, tables: block.tables.map(table => ({
+            ...table, rows: table.rows.map(row => ({
+              ...row, cells: row.cells.map(cell => cell.map(chip => ({
+                ...chip, lemma: member.lemma, i: chip.i.split(',').map(i => offset + Number(i)).join(','),
+              }))),
+            })),
+          })),
+        }));
+        sections.push({ ...section, lemma: member.lemma, blocks });
+      }
+    }
+    return { members, forms, sections, total: members.reduce((n, member) => n + member.total, 0) };
+  }
+
   // ---------- HTML ----------
   const CAP = 24; // mehr Formen in einer Zelle klappen auf
   function render(mdl, o = {}) {
     const esc = o.esc || (s => String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c])));
     const t = o.t || (s => s);
     const cur = o.current || null; // { key, form }: die angeklickte Form hervorheben
-    const chip = x => `<button type="button" class="fmF${x.pre ? ' pre' : ''}${x.waw ? ' waw' : ''}${cur && cur.form === x.f && x.keys.includes(cur.key) ? ' cur' : ''}"${x.pre ? ` title="${esc(t('mit Vorsilbe (nicht abtrennbar), wie belegt'))}"` : x.waw ? ` title="${esc(t('Perfekt mit ו (in der OSHB nicht als wᵉqatal bestimmt), wie belegt'))}"` : ''} data-i="${x.i}"><span lang="he" dir="rtl">${esc(x.f)}</span><small>${x.n}</small></button>`;
+    const chip = x => `<button type="button" class="fmF${x.pre ? ' pre' : ''}${x.waw ? ' waw' : ''}${cur && (!cur.lemma || cur.lemma === x.lemma) && cur.form === x.f && x.keys.includes(cur.key) ? ' cur' : ''}"${x.pre ? ` title="${esc(t('mit Vorsilbe (nicht abtrennbar), wie belegt'))}"` : x.waw ? ` title="${esc(t('Perfekt mit ו (in der OSHB nicht als wᵉqatal bestimmt), wie belegt'))}"` : ''} data-i="${x.i}"><span lang="he" dir="rtl">${esc(x.f)}</span><small>${x.n}</small></button>`;
     const cell = a => {
       if (!a.length) return '<td class="fmE">–</td>';
       // vor der ersten Form mit ו (Perfekt) beginnt die Unterzeile „mit ו“
@@ -275,9 +314,10 @@
       if (tb.fold) return `<details class="fmFold"><summary>${esc(tb.title)} <small>${tb.n}×</small></summary>${tab}</details>`;
       return (tb.title ? `<div class="fmSub">${esc(tb.title)} <small>${tb.n}×</small></div>` : '') + tab;
     };
-    const gl = s => { const g = s.sk && o.gloss ? o.gloss(s.sk) : null; return g ? ` <span class="fmGl"${g.u ? ` title="${esc(t('Bedeutung unsicher: im Wörterbuch nicht eindeutig belegt'))}"` : ''}>„${esc(g.text)}“${g.u ? '<sup>?</sup>' : ''}</span>` : ''; };
-    const nav = mdl.sections.length > 1 ? `<div class="fmNav">${mdl.sections.map((s, i) => `<button type="button" data-sec="${i}">${esc(s.title)} <small>${s.n}×</small></button>`).join('')}</div>` : '';
-    const secs = mdl.sections.map((s, i) => `<details class="fmSec" data-sec="${i}" open><summary><b>${esc(s.title)}</b>${gl(s)} <small>${s.n}×</small></summary><div class="fmGrid${s.kind === 'verb' ? '' : ' one'}">${s.blocks.map(b => `<div class="fmBlk">${b.title ? `<h4>${esc(b.title)} <small>${b.n}×</small></h4>` : ''}${b.tables.map(table).join('')}</div>`).join('')}</div></details>`).join('');
+    const gl = s => { const g = s.sk && o.gloss ? o.gloss(s.sk, s.lemma) : null; return g ? ` <span class="fmGl"${g.u ? ` title="${esc(t('Bedeutung unsicher: im Wörterbuch nicht eindeutig belegt'))}"` : ''}>„${esc(g.text)}“${g.u ? '<sup>?</sup>' : ''}</span>` : ''; };
+    const heading = s => s.lemma && o.lemmaLabel ? o.lemmaLabel(s.lemma) + ' · ' + s.title : s.title;
+    const nav = mdl.sections.length > 1 ? `<div class="fmNav">${mdl.sections.map((s, i) => `<button type="button" data-sec="${i}">${esc(heading(s))} <small>${s.n}×</small></button>`).join('')}</div>` : '';
+    const secs = mdl.sections.map((s, i) => `<details class="fmSec" data-sec="${i}" open><summary><b>${esc(heading(s))}</b>${gl(s)} <small>${s.n}×</small></summary><div class="fmGrid${s.kind === 'verb' ? '' : ' one'}">${s.blocks.map(b => `<div class="fmBlk">${b.title ? `<h4>${esc(b.title)} <small>${b.n}×</small></h4>` : ''}${b.tables.map(table).join('')}</div>`).join('')}</div></details>`).join('');
     return nav + secs + `<p class="fmNote">${esc(t('Nur im Tanach belegte Formen (Westminster Leningrad Codex, OSHB), ohne Akzente; die Zahl nennt die Häufigkeit. Vorsilben wie ו, ב, כ, ל, מ, ש sind abgetrennt, wo das Wort dann für sich lesbar bleibt; Artikel, wajjiqtol/wᵉqatal und Infinitiv mit Präposition stehen wie belegt, ebenso das Perfekt mit ו, das die OSHB nicht als wᵉqatal bestimmt (Unterzeile „mit ו“). Unvokalisierte Ketiv-Formen fehlen.'))}</p>`;
   }
 
@@ -295,11 +335,11 @@
   // die k häufigsten Formen (gleiche Schreibung zusammengefasst): [{ f, n, i, pre }]
   function topForms(mdl, k = 8) {
     const m = new Map();
-    mdl.forms.forEach((x, i) => { const key = (x.pre ? '-' : x.waw ? '+' : '') + x.f, y = m.get(key); if (y) { y.n += x.n; y.i += ',' + i; } else m.set(key, { f: x.f, n: x.n, i: String(i), pre: !!x.pre }); });
+    mdl.forms.forEach((x, i) => { const key = (x.lemma || '') + '|' + (x.pre ? '-' : x.waw ? '+' : '') + x.f, y = m.get(key); if (y) { y.n += x.n; y.i += ',' + i; } else m.set(key, { f: x.f, n: x.n, i: String(i), pre: !!x.pre, lemma: x.lemma }); });
     const all = [...m.values()].sort((a, b) => b.n - a.n || (a.f < b.f ? -1 : 1));
     return { list: all.slice(0, k), kinds: all.length };
   }
 
-  const api = { build, analyze, model, render, refs, clean, parts, strip, keyOf, dist, refsIn, topForms };
+  const api = { build, analyze, model, familyModel, render, refs, clean, parts, strip, keyOf, dist, refsIn, topForms };
   if (typeof module !== 'undefined' && module.exports) module.exports = api; else window.Forms = api;
 })();
