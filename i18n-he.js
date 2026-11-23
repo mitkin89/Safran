@@ -7,7 +7,7 @@ window.I18N_HE = {
     "Übersetzung weicht vom Quellstand der Wortzuordnung ab": "התרגום שונה ממקור שיוך המילים",
     "Textfassung konnte nicht geprüft werden": "לא ניתן לאמת את גרסת הטקסט",
 
-    "Grammatik (Tanach / Bavli)": "דקדוק (תנ״ך / בבלי)",
+    "Grammatik (Tanach)": "דקדוק (תנ״ך)",
     "Alle Bücher": "כל הספרים",
     "Textsuche": "חיפוש טקסט",
     "Suchmodus": "מצב חיפוש",
@@ -55,7 +55,7 @@ window.I18N_HE = {
     "Subjekt": "נושא",
     "Mindestens ein hebräisches Lemma eingeben. Mehrere Subjekt- oder Objekt-Lemmata durch Kommas trennen. Die Grammatikfilter gelten für das Verb. Quelle: MACULA Hebrew (Westminster).": "יש להזין לפחות ערך מילוני עברי אחד. יש להפריד ערכי נושא או מושא בפסיקים. המסננים הדקדוקיים חלים על הפועל. מקור: MACULA Hebrew (וסטמינסטר).",
     "Gib ein hebräisches Verb-Lemma oder bis zu zwölf Subjekt- bzw. Objekt-Lemmata ein.": "יש להזין ערך מילוני עברי אחד של פועל או עד שנים עשר ערכי נושא או מושא.",
-    "Grammatik-Suche: Tanach (Westminster) und Berakhot 2a–10b": "חיפוש דקדוקי: תנ״ך (וסטמינסטר) וברכות ב ע״א–י ע״ב",
+    "Grammatik-Suche: Tanach (Westminster)": "חיפוש דקדוקי: תנ״ך (וסטמינסטר)",
     "Mehrdeutig: mehrere Analysen": "עמום: כמה ניתוחים אפשריים",
     "Teilweise bestimmt: Merkmale bleiben offen": "ניתוח חלקי: כמה מאפיינים אינם מוכרעים",
     "Noch nicht sicher bestimmt": "עדיין אין ניתוח מבוסס",

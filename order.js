@@ -28,6 +28,7 @@ const bookKey = title => {
   return t.replace(/,.*$/, '').trim();
 };
 function catRank(name, parent) {
+  if (!parent && name === 'Kommentare zum Tanach') return TOP.indexOf('Tanakh')+.5;
   if (!parent && name === 'Eigene Texte') return -1e6;
   if (SEF_RANK.has(name) && !SUB[parent]) return SEF_RANK.get(name) - 1e5; // Kategorien, die in der Sefaria-Liste stehen, zuerst in deren Reihenfolge
   if (!parent) { const i = TOP.indexOf(name); return i < 0 ? 1000 : i; }

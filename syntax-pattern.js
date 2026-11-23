@@ -23,10 +23,19 @@ function clean(input){
   const words=String(n.lemma??(Array.isArray(n.lemmas)?n.lemmas.join(' '):'')).trim().split(/[\s,]+/u).filter(Boolean);
   if(words.length>12||words.some(w=>! /^[\u0591-\u05C7א-ת]+$/u.test(w)||!/[א-ת]/u.test(w)))throw Error('lemma');
   const gram={};
-  for(const [k,allowed]of Object.entries({stem:'qNpPhHtoOraiG',tense:'pqiwvhjarsc',person:'123',gender:'mfbc',number:'spd'})){
-   const v=n.gram?.[k];if(v){if(n.role!=='verb'||typeof v!=='string'||v.length!==1||!allowed.includes(v))throw Error('grammar');gram[k]=v;}
+  const values={pos:['V','N','Nc','Np','Ng','A','P','R','C','D','T'],stem:[...'qNpPhHtoOraiG'],tense:[...'pqiwvhjarsc'],person:[...'123'],gender:[...'mfbc'],number:[...'spd'],state:[...'acd'],suffix:['0','1'],article:['0','1']};
+  for(const [k,allowed]of Object.entries(values)){
+   const v=n.gram?.[k];if(v){if(typeof v!=='string'||!allowed.includes(v))throw Error('grammar');gram[k]=v;}
   }
-  return {op:'term',role:n.role,lemmas:words.map(w=>w.replace(/[^א-ת]/g,'')),gram};
+  let position;
+  if(n.position){
+   const p=n.position;
+   if(!['verb','subject','object'].includes(n.role)||!['verb','subject','object'].includes(p.relative)||n.role===p.relative||!['before','after','either'].includes(p.order))throw Error('position');
+   const maxGap=p.maxGap??null;
+   if(maxGap!==null&&(!Number.isInteger(maxGap)||maxGap<0||maxGap>200))throw Error('gap');
+   position={relative:p.relative,order:p.order,maxGap};
+  }
+  return {op:'term',role:n.role,lemmas:words.map(w=>w.replace(/[^א-ת]/g,'')),gram,...(position?{position}:{})};
  }
  try{return walk(input,0);}catch{return null;}
 }

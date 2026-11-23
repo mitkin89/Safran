@@ -118,7 +118,7 @@ window.LibrarySearch = (() => {
       for (const g of getGroups()) {
         let n = root, p = '';
         n.count++;
-        for (const c of g.cats.slice(0, 3)) {
+        for (const c of window.SearchCategories.path(g.cats).slice(0, 3)) {
           p = p ? p + '/' + c : c;
           if (!n.children.has(c)) n.children.set(c, { name: c, path: p, children: new Map(), count: 0, titles: [] });
           n = n.children.get(c); n.count++;
@@ -127,7 +127,7 @@ window.LibrarySearch = (() => {
       }
       const covered = p => [...sCats].some(c => c !== p && (p === c || p.startsWith(c + '/')));
       const anySel = n => n.titles.some(t => sTitles.has(t)) || [...sCats].some(c => c.startsWith(n.path + '/')) || [...n.children.values()].some(anySel);
-      const hit = (t) => t.toLowerCase().includes(f);
+      const hit = (t) => (t+' '+I18N.t(t)).toLowerCase().includes(f);
       const show = (n, anc) => !f || anc || hit(n.name) || n.titles.some(hit) || [...n.children.values()].some(c => show(c, false));
       const node = (n, parentMatch) => {
         const m = !f || parentMatch || hit(n.name);
@@ -138,7 +138,7 @@ window.LibrarySearch = (() => {
           `<label class="t book"><input type="checkbox" data-st="${esc(t)}" ${cov || sCats.has(n.path) || sTitles.has(t) ? 'checked' : ''} > ${esc(t)}</label>`).join('');
         const part = !cov && !sCats.has(n.path) && anySel(n); // nur ein Teil darunter gewählt: Teilmarkierung (Strich) statt Häkchen, sonst würde alles darunter durchsucht
         const cb = `<input type="checkbox" data-sc="${esc(n.path)}" ${cov || sCats.has(n.path) ? 'checked' : ''} ${part ? 'data-part="1"' : ''}> `;
-        return `<details data-p="${esc(n.path)}" ${f || sOpen.has(n.path) ? 'open' : ''}><summary>${cb}<span class="catname">${esc(n.name)}</span> <small>(${n.count})</small></summary>${kids}${books}</details>`;
+        return `<details data-p="${esc(n.path)}" ${f || sOpen.has(n.path) ? 'open' : ''}><summary>${cb}<span class="catname">${esc(I18N.t(n.name))}</span> <small>(${n.count})</small></summary>${kids}${books}</details>`;
       };
       $('#sCatTree').innerHTML = SefOrder.sortCats([...root.children.keys()], '').map(k => node(root.children.get(k), false)).join('') || '<p class="muted">Nichts gefunden.</p>';
       $$('#sCatTree input[data-part]').forEach(i => { i.indeterminate = true; });
@@ -148,7 +148,7 @@ window.LibrarySearch = (() => {
     const sOpen = new Set(); // vom Nutzer aufgeklappte Kategorien in der Suchliste
     $('#sCatTree').addEventListener('toggle', e => { const d = e.target; if (d.dataset && d.dataset.p != null && !$('#sCatFilter').value.trim()) { if (d.open) sOpen.add(d.dataset.p); else sOpen.delete(d.dataset.p); } }, true);
     { let sct = null; $('#sCatFilter').addEventListener('input', () => { clearTimeout(sct); sct = setTimeout(renderSCats, 80); }); }
-    $('#sCatAll').onclick = () => { sTitles.clear(); sCats.clear(); getGroups().forEach(g => { if (g.cats[0]) sCats.add(g.cats[0]); }); renderSCats(); }; // alle Hauptkategorien anhaken; danach z. B. ein Buch anklicken = nur dieses
+    $('#sCatAll').onclick = () => { sTitles.clear(); sCats.clear(); getGroups().forEach(g => { const cats=window.SearchCategories.path(g.cats);if(cats[0])sCats.add(cats[0]); }); renderSCats(); }; // alle Hauptkategorien anhaken; danach z. B. ein Buch anklicken = nur dieses
     $('#sCatTree').addEventListener('change', e => {
       const d = e.target.dataset || {};
       // Ist eine übergeordnete Kategorie gewählt und man klickt etwas darunter, gilt nur dieser Eintrag (statt „alles darunter minus eins“)
@@ -549,7 +549,7 @@ window.LibrarySearch = (() => {
       selectBook(g) {
         setSearchMode('text');
         sCats.clear(); sTitles.clear(); sTitles.add(g.title);
-        let p = ''; for (const c of g.cats.slice(0, 3)) { p = p ? p + '/' + c : c; sOpen.add(p); }
+        let p = ''; for (const c of window.SearchCategories.path(g.cats).slice(0, 3)) { p = p ? p + '/' + c : c; sOpen.add(p); }
         renderSCats();
         const b = $('#sCatTree input[data-st]:checked'); if (b) b.scrollIntoView({ block: 'center' });
         $('#sq').focus(); $('#sq').select();

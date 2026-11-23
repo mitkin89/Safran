@@ -620,7 +620,7 @@ class Library {
   entriesFor({ kinds, category = '', categories = [], titles = [] }) {
     const cats = [...(category ? [category] : []), ...categories];
     const tset = new Set(titles);
-    const ok = e => (!cats.length && !tset.size) || tset.has(e.title) || cats.some(c => (e.categories.join('/') + '/').startsWith(c + '/'));
+    const ok = e => require('./search-categories').matches(e, cats, tset);
     return this.list().filter(e => kinds.includes(e.kind) && ok(e));
   }
   async search(opts) {

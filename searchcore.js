@@ -220,7 +220,11 @@ async function searchFiles({ dir, entries, params, cacheDir = null, onProgress =
         const bhsa = bhsaIndex?.books[e.title];
         const syntaxMatcher = !syntax ? null : syntax.pattern
           ? require('./syntax-pattern-matcher').create(TanakhSyntax.load(e.title), bhsa, d.text, syntax.pattern, syntaxWords,
-            (word,gram)=>!!word && gramTest({pos:'V',...gram},gramOf(word.morph,word.lemma)),westminsterLemma,bhsaIndex.clauseParents)
+            (word,gram)=>{
+              const g=word&&gramOf(word.morph,word.lemma);if(!g)return null;
+              if(Object.keys(gram).some(k=>k==='pos'?g.pos==='X':g[k]===undefined||g[k]==='x'))return null;
+              return gramTest(gram,g);
+            },westminsterLemma,bhsaIndex.clauseParents)
           : usesBhsa && !syntax.subjects.size && !syntax.objects.size
           ? BHSA.clauseMatcher(bhsa, { ...syntax.bhsa, verb: syntax.verb }, syntaxWords, word => {
             if (!G && !syntax.verb) return true;
