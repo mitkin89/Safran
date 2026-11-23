@@ -51,7 +51,7 @@ function create(host){
     box.innerHTML='<div class="tcs-form"><input id="tcsQ" type="search" placeholder="'+raw(t('In Erläuterungen suchen, z. B. Targum, Midrasch, Etrog'))+'" aria-label="'+raw(t('Lesarten durchsuchen'))+'">'+
       '<div class="tcs-filters"><label><input type="checkbox" data-w="LXX" checked> LXX</label><label><input type="checkbox" data-w="Syr" checked> Syr</label><label><input type="checkbox" data-w="Hex" checked> Hex</label>'+
       '<select id="tcsType" aria-label="'+raw(t('Art der Lesart'))+'"><option value="">'+esc('Alle Arten')+'</option>'+types+'</select>'+
-      '<select id="tcsTradition" aria-label="'+raw(t('Jüdische Auslegung'))+'"><option value="">'+esc('Alle Lesarten')+'</option><optgroup label="'+esc('Jüdische Auslegung')+'"><option value="any">'+esc('Alle Gruppen')+'</option>'+groups+'</optgroup></select>'+
+      '<select id="tcsTradition" aria-label="'+raw(t('Jüdische Auslegung'))+'" title="'+esc('Zeigt Lesarten mit redaktionell zugeordneten Auslegungstraditionen.')+'"><option value="">'+esc('Alle Lesarten')+'</option><optgroup label="'+esc('Jüdische Auslegung')+'"><option value="any">'+esc('Alle Gruppen')+'</option>'+groups+'</optgroup></select>'+
       '<select id="tcsBook" aria-label="'+raw(t('Buch'))+'"><option value="">'+esc('Ganzer Tanach')+'</option>'+books+'</select>'+
       '<label title="'+raw(t('LXX und Peschitta weichen an denselben MT-Wörtern ab (nicht nur Übersetzungstechnik)'))+'"><input id="tcsBoth" type="checkbox"> '+esc('LXX und Syr gemeinsam gegen den MT')+'</label>'+
       '<label><input id="tcsSure" type="checkbox"> '+esc('nur sichere')+'</label></div></div><div id="tcsOut" aria-live="polite"></div>';
@@ -90,6 +90,7 @@ function create(host){
   function toggle(on){
     const box=panel(),open=on??box.hidden;mount();
     box.hidden=!open;$('#tcBody').hidden=open;$('#tcSearchBtn').classList.toggle('on',open);$('#tcSearchBtn').setAttribute('aria-pressed',String(open));
+    host.onToggle?.();
     if(open){run();setTimeout(()=>$('#tcsQ').focus(),0);}else host.closed?.();
   }
   $('#tcSearchBtn').addEventListener('click',()=>toggle());

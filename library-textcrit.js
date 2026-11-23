@@ -6,20 +6,31 @@ function create(host){
   const torah=new Set(['Genesis','Exodus','Leviticus','Numbers','Deuteronomy']);
   const books=new Set([...torah,'Joshua','Judges','I Samuel','II Samuel','I Kings','II Kings','Isaiah','Jeremiah','Ezekiel','Hosea','Joel','Amos','Obadiah','Jonah','Micah','Nahum','Habakkuk','Zephaniah','Haggai','Zechariah','Malachi','Psalms','Proverbs','Job','Ruth','Song of Songs','Ecclesiastes','Lamentations','Esther','Daniel','Ezra','Nehemiah','I Chronicles','II Chronicles']);
   const mishnah=window.LibraryMishnahTextCrit.create(host);
-  const search=window.LibraryTextCritSearch.create({...host,closed:()=>{lastContentKey=null;render();},goVerse:async(book,ch,v)=>{search.toggle(false);await host.goVerse(book,ch,v);selected=String(v);render();}});
+  const search=window.LibraryTextCritSearch.create({...host,onToggle:()=>applyFont(),closed:()=>{lastContentKey=null;render();},goVerse:async(book,ch,v)=>{search.toggle(false);await host.goVerse(book,ch,v);selected=String(v);render();}});
   const tov=window.LibraryTov.create(host),dss=window.LibraryQumran.create(host),ken=window.LibraryKennicott.create(host),ps=window.LibraryPeshittaTC.create(host),hx=window.LibraryHexaplaTC.create(host),ma=window.LibraryAleppoTC.create(host);
   let key='',selected=null,clickedTal=null,generation=0,pending=null,previewData=null,hover=null,hoverAnchor=null,showTimer=null,hideTimer=null;
-  let whole=false,follow=false,fontSize=14,lastContentKey=null,followTimer=null;
-  try {follow=localStorage.getItem('tcFollow')==='1';fontSize=+localStorage.getItem('tcFs')||14;}catch{}
+  let whole=false,follow=false,fontSize=14,searchFontSize=14,lastContentKey=null,followTimer=null;
+  try {
+    follow=localStorage.getItem('tcFollow')==='1';
+    fontSize=+localStorage.getItem('tcFs')||14;
+    searchFontSize=+localStorage.getItem('tcSearchFs')||14;
+  }catch{}
   fontSize=Math.max(10,Math.min(28,fontSize));
+  searchFontSize=Math.max(10,Math.min(28,searchFontSize));
   const applyFont=()=>{
     document.documentElement.style.setProperty('--tc-fs',fontSize+'px');
-    $('#tcFsMinus').disabled=fontSize<=10;$('#tcFsPlus').disabled=fontSize>=28;
+    document.documentElement.style.setProperty('--tc-search-fs',searchFontSize+'px');
+    const activeSize=search.open?searchFontSize:fontSize;
+    $('#tcFsMinus').disabled=activeSize<=10;$('#tcFsPlus').disabled=activeSize>=28;
   };
   applyFont();
   for(const [id,step] of [['#tcFsMinus',-1],['#tcFsPlus',1]])$(id).onclick=()=>{
-    hidePreview();fontSize=Math.max(10,Math.min(28,fontSize+step));applyFont();
-    try{localStorage.setItem('tcFs',String(fontSize));}catch{}
+    hidePreview();
+    const searchOpen=search.open;
+    const size=Math.max(10,Math.min(28,(searchOpen?searchFontSize:fontSize)+step));
+    if(searchOpen)searchFontSize=size;else fontSize=size;
+    applyFont();
+    try{localStorage.setItem(searchOpen?'tcSearchFs':'tcFs',String(size));}catch{}
   };
   const syncFollow=()=>{$('#tcFollow').classList.toggle('on',follow);$('#tcFollow').setAttribute('aria-pressed',String(follow));};
   syncFollow();
