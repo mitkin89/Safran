@@ -162,3 +162,6 @@ On Windows and Linux use Ctrl instead of Cmd.
 | Alt+click | open a book in the second window |
 | Double-click a word | look it up in the dictionary |
 | Esc | close the topmost open panel, the find bar or the headword list; with commentary and dictionary as tabs: back from the dictionary to the commentary |
+
+- **Overview text size:** A− / A+ scales the overview, statistics, controls and Hebrew examples together (12–28, default 16); the setting is saved independently of the reader and other panels.
+- **Similar chapters by roots:** *Ähnliche Kapitel → Wurzeln* compares TF-IDF profiles of explicitly assigned Open Scriptures HebrewLexicon families, within the book or across all 929 Tanakh chapters. Rare roots weigh more; shared root examples appear below each hit. Language and lexicon family ID distinguish homonyms. Unassigned words are excluded; this is lexical similarity, not a claim of thematic equivalence.

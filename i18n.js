@@ -172,7 +172,13 @@
     "Klick: beide Kapitel vergleichen; ↗ öffnet das Kapitel.": "Click: compare both chapters; ↗ opens the chapter.",
     "Ähnlichste Kapitel im gesamten Tanach.": "Most similar chapters in the whole Tanakh.",
     "Ähnlichste Kapitel im Buch {}.": "Most similar chapters in the book {}.",
+    "Schrift verkleinern": "Decrease text size",
+    "Schrift vergrößern": "Increase text size",
     "Nachbarkapitel ausblenden": "Hide neighbouring chapters",
+    "Gemeinsame Lexikonwurzeln; seltene zählen mehr. Nur ausdrücklich zugeordnete Wurzeln werden berücksichtigt.": "Shared lexical roots; rarer roots count more. Only explicitly assigned roots are included.",
+    "Verglichen werden zugeordnete Lexikonwurzeln, keine Themen. Wörter ohne Wurzelzuordnung bleiben unberücksichtigt.": "Assigned lexical roots are compared, not topics. Words without a root assignment are excluded.",
+    "Kapitel mit gemeinsamen Wurzeln, ähnlichem Wortschatz oder gleichen Wendungen": "Chapters with shared roots, similar vocabulary or the same phrases",
+
     "Gleiche Folgen von drei Wörtern, seltene Folgen zählen mehr": "Same sequences of three words; rare sequences count more",
     "Gleiche typische Wörter (seltene zählen mehr, Funktionswörter nicht)": "Same characteristic words (rare words count more, function words not at all)",
     "Wendungen": "Phrases",

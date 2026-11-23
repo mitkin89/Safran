@@ -3251,11 +3251,12 @@
     const LEM=window.OSHB_LEMMAS||{},max=Math.max(...list.map(x=>x[1]),1e-9);
     const name=k=>{const b=k.replace(/ \d+$/,''),c=k.split(' ').at(-1);return (I18N.lang==='de'?(deNames(b).split(' / ')[0]||b):b)+' '+c;};
     const rows=list.map(([k,score,what])=>{
-      const detail=apSim.mode==='w'?what.map(l=>{const x=LEM[l];return x?'<span class="apSimWord"><span lang="he" dir="rtl">'+esc(x[0])+'</span> <small>'+esc(I18N.lang==='de'&&x[2]?x[2]:x[1])+'</small></span>':'';}).join(''):what.map(p=>'<span class="apSimPhrase" lang="he" dir="rtl">'+esc(p)+'</span>').join('');
+      const detail=apSim.mode==='r'?what.map(id=>'<span class="apSimWord" lang="he" dir="rtl">'+esc(D.roots[id]||'')+'</span>').join(''):apSim.mode==='w'?what.map(l=>{const x=LEM[l];return x?'<span class="apSimWord"><span lang="he" dir="rtl">'+esc(x[0])+'</span> <small>'+esc(I18N.lang==='de'&&x[2]?x[2]:x[1])+'</small></span>':'';}).join(''):what.map(p=>'<span class="apSimPhrase" lang="he" dir="rtl">'+esc(p)+'</span>').join('');
       return '<div class="apSimRow"><button type="button" class="apSimCompare" data-sim="'+esc(k)+'" title="'+esc(I18N.t('Mit diesem Kapitel vergleichen'))+'"><b>'+esc(name(k))+'</b><i class="apBar"><b style="width:'+Math.max(3,Math.round(100*score/max))+'%"></b></i></button><button type="button" class="apSimOpen" data-sim-open="'+esc(k)+'" title="'+esc(I18N.t('Kapitel öffnen'))+'">↗</button><div class="apSimWhat">'+detail+'</div></div>';
     }).join('');
-    box.innerHTML='<div class="apSimModes">'+[['w','Wortschatz','Gleiche typische Wörter (seltene zählen mehr, Funktionswörter nicht)'],['p','Wendungen','Gleiche Folgen von drei Wörtern, seltene Folgen zählen mehr']].map(([m,l,t])=>'<button type="button" data-sim-mode="'+m+'" aria-pressed="'+(apSim.mode===m)+'" class="'+(apSim.mode===m?'on':'')+'" title="'+esc(I18N.t(t))+'">'+esc(I18N.t(l))+'</button>').join('')+'<label><input type="checkbox" class="apSimNear"'+(apSim.hideNear?' checked':'')+'> '+esc(I18N.t('Nachbarkapitel ausblenden'))+'</label></div>'
+    box.innerHTML='<div class="apSimModes">'+[['r','Wurzeln','Gemeinsame Lexikonwurzeln; seltene zählen mehr. Nur ausdrücklich zugeordnete Wurzeln werden berücksichtigt.'],['w','Wortschatz','Gleiche typische Wörter (seltene zählen mehr, Funktionswörter nicht)'],['p','Wendungen','Gleiche Folgen von drei Wörtern, seltene Folgen zählen mehr']].map(([m,l,t])=>'<button type="button" data-sim-mode="'+m+'" aria-pressed="'+(apSim.mode===m)+'" class="'+(apSim.mode===m?'on':'')+'" title="'+esc(I18N.t(t))+'">'+esc(I18N.t(l))+'</button>').join('')+'<label><input type="checkbox" class="apSimNear"'+(apSim.hideNear?' checked':'')+'> '+esc(I18N.t('Nachbarkapitel ausblenden'))+'</label></div>'
       +'<p class="muted apHow">'+esc(I18N.t(book?'Ähnlichste Kapitel im Buch {}.':'Ähnlichste Kapitel im gesamten Tanach.',apCur.c.book))+' '+esc(I18N.t('Klick: beide Kapitel vergleichen; ↗ öffnet das Kapitel.'))+'</p>'
+      +(apSim.mode==='r'?'<p class="muted apHow">'+esc(I18N.t('Verglichen werden zugeordnete Lexikonwurzeln, keine Themen. Wörter ohne Wurzelzuordnung bleiben unberücksichtigt.'))+'</p>':'')
       +(rows||'<p class="muted">'+esc(I18N.t('Keine ähnlichen Kapitel gefunden.'))+'</p>');
   }
   function apChapterCompareMount(pane){const box=pane.querySelector('.apChapterCompare');if(box&&apCur?.c)chapterCompare.mount(box,{book:apCur.c.book,chapter:apCur.c.chapter,scope:pane.dataset.scope});}
@@ -3309,7 +3310,7 @@
       ['names','Namen','♙','Personen und Orte im Text'],
       ['evidence','Quellen pro Vers','▤','Material der Textzeugen im Überblick'],
       ['profile','Versprofil','▥','Verteilung über die Verse sichtbar machen'],
-      ['similar','Ähnliche Kapitel','≈','Kapitel mit ähnlichem Wortschatz oder gleichen Wendungen'],
+      ['similar','Ähnliche Kapitel','≈','Kapitel mit gemeinsamen Wurzeln, ähnlichem Wortschatz oder gleichen Wendungen'],
       ['chaptercompare','Kapitel vergleichen','⇄','Gemeinsamkeiten zweier Kapitel erkunden']
     ];
     const groups=[['Wörter entdecken',['lead','rare','vocab']],['Sprache untersuchen',['roots','verbs','phrases','names']],['Text vergleichen',['similar','evidence','profile','chaptercompare']]];
@@ -3479,6 +3480,19 @@
   }
   $('#apBtn').onclick = () => apToggle();
   $('#apClose').onclick = () => apToggle(false);
+  // Independent overview size, including Hebrew examples and nested controls.
+  {
+    let size=16;
+    try { const saved=Number(localStorage.getItem('apFs')); if(saved>0&&Number.isFinite(saved))size=saved; } catch {}
+    const apply=()=>{
+      size=Math.max(12,Math.min(28,size));
+      $('#allPanel').style.setProperty('--ap-scale',String(size/13));
+      $('#apFsMinus').disabled=size<=12;$('#apFsPlus').disabled=size>=28;
+    };
+    const change=step=>{size+=step;apply();try{localStorage.setItem('apFs',String(size));}catch{}};
+    $('#apFsMinus').onclick=()=>change(-1);$('#apFsPlus').onclick=()=>change(1);apply();
+  }
+
   $('#apWhole').onclick = () => { AP.whole = true; apRender(); };
   $('#apNav').addEventListener('click', e => { const b = e.target.closest('button[data-b]'); const box = b && $(`#apBody .apBox[data-b="${b.dataset.b}"]`); if (box && !box.hidden) box.scrollIntoView({ block: 'start', behavior: 'smooth' }); });
   $('#apBody').addEventListener('click', async e => {

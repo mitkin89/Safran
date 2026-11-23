@@ -55,6 +55,16 @@ module.exports=async({win,js,waitFor,book})=>{
  await js("document.querySelector('#apBody [data-scope=c] button[data-compare=tanakh]').click()");
  await waitFor("document.querySelector('#apBody [data-scope=c] .apSeg [data-seg=similar].on')&&document.querySelector('#apBody [data-scope=c] .apSimRow')",'Ähnliche Kapitel im Tanach');
  assert(await js("document.querySelector('#apBody [data-scope=c] .apSimRow .apSimWord')"),'typische gemeinsame Wörter');
+ await js("document.querySelector('#apBody [data-scope=c] [data-sim-mode=r]').click()");
+ await waitFor("document.querySelector('#apBody [data-scope=c] [data-sim-mode=r][aria-pressed=true]')&&document.querySelector('#apBody [data-scope=c] .apSimWord[lang=he]')",'gemeinsame Lexikonwurzeln');
+ const beforeSize=await js("parseFloat(getComputedStyle(document.querySelector('#apBody .apHow')).fontSize)");
+ await js("document.querySelector('#apFsPlus').click()");
+ assert(await js("parseFloat(getComputedStyle(document.querySelector('#apBody .apHow')).fontSize)")>beforeSize,'Hinweise werden mitvergrößert');
+ assert.equal(await js("localStorage.getItem('apFs')"),'17');
+ await js("document.querySelector('#apClose').click();document.querySelector('#apBtn').click()");
+ assert.equal(await js("localStorage.getItem('apFs')"),'17');
+ await js("document.querySelector('#apFsMinus').click()");
+ await js("document.querySelector('#apBody [data-scope=c] [data-sim-mode=w]').click()");
  if(process.env.SAFRAN_SIM_CAPTURE){await js("document.querySelector('#apBody [data-scope=c] .apSimilar').scrollIntoView({block:'start'})");win.showInactive();win.webContents.invalidate();await new Promise(r=>setTimeout(r,800));fs.writeFileSync(process.env.SAFRAN_SIM_CAPTURE,(await win.webContents.capturePage()).toPNG());}
  await js("document.querySelector('#apBody [data-scope=c] [data-sim-mode=p]').click()");
  await waitFor("document.querySelector('#apBody [data-scope=c] .apSimPhrase')",'gemeinsame Wendungen');
