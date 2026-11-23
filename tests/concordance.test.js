@@ -53,3 +53,20 @@ test('word card preview stops after its result limit while full concordance coun
  assert.equal(full.scanned, 2);
  assert.equal(full.stats.reduce((count, work) => count + work.n, 0), 4);
 });
+
+test('root scope uses explicit lexicon family IDs, excluding homonymous roots and plain surface hits', async t => {
+ const annotated = (id, word) => `<span class="w" data-l="${id}" data-m="HNcmsa">${word}</span>`;
+ const text = [[[
+  annotated('5265','נָסַע'), annotated('4550','מַסָּע'), annotated('4551b','מַסָּע'), annotated('0','נסע')
+ ].join(' ')]];
+ const find = await fixture(t, [
+  { title:'Genesis',versionTitle:'Westminster fixture',text },
+  { title:'Exodus',versionTitle:'Other edition',text }
+ ]);
+ const result = await find({ query:'נסע',concordanceRoot:'5265' });
+ assert.equal(result.total,1);
+ assert.deepEqual(result.results.map(r=>r.position),[1,2]);
+ assert(result.results.every(r=>r.basis==='root' && r.matchedLemma));
+ const homonym = await find({ query:'נסע',concordanceRoot:'4551b' });
+ assert.deepEqual(homonym.results.map(r=>r.position),[3]);
+});

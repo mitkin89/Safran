@@ -983,7 +983,8 @@
     get renderSearchSaved() { return renderSearchSaved; },
     get runSearch() { return runSearch; },
     get sEntApply() { return sEntApply; },
-    get openConcordance() { return q => { showTab('search'); return searchUI.concordance(q); }; },
+    get loadPassageStats() { return loadPassageStats; },
+    get openConcordance() { return (q, root) => { showTab('search'); return searchUI.concordance(q, root); }; },
     openConcordanceHit(hit, mode) {
       const entry = entries.find(e => e.rel === hit.rel);
       if (!entry || !hit.loc) return;

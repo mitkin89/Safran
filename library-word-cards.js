@@ -32,12 +32,12 @@ window.LibraryWordCards = (() => {
     host.$('#wcBody').hidden = fmTab !== 'card'; host.$('#fmBody').hidden = fmTab !== 'forms';
     host.$('#fmConcordance').disabled = !fmCur?.lem?.[0];
     host.$('#fmConcordanceBody').hidden = fmTab !== 'concordance';
-    if (fmTab === 'concordance') wcLoadConcordance();
+    if (fmTab === 'concordance') wcLoadConcordance(wcConcordance?.token === wcToken ? wcConcordance.mode : 'lemma');
     host.hovApi && host.hovApi.hide();
     wcFindSoon();
   }
   let wcConcordance;
-  async function wcLoadConcordance() {
+  async function wcLoadConcordance(mode = 'lemma') {
     const box = host.$('#fmConcordanceBody');
     const t = key => host.esc(I18N.t(key));
     const card = fmCur;
@@ -47,28 +47,40 @@ window.LibraryWordCards = (() => {
       return;
     }
     const token = wcToken;
-    if (wcConcordance?.token === token) return;
-    const state = wcConcordance = { token, query, results: [] };
+    if (wcConcordance?.token === token && wcConcordance.mode === mode) return;
+    const state = wcConcordance = { token, query, mode, results: [] };
+    const active = () => token === wcToken && wcConcordance === state;
     box.innerHTML = `<div class="wcCcTools"><span class="muted" role="status">${t('Bibliothek wird durchsucht …')}</span>
-      <button type="button" data-cc-search>${t('In der Suche öffnen')}</button></div>`;
+      ${mode === 'lemma' ? `<button type="button" data-cc-search>${t('In der Suche öffnen')}</button>` : ''}</div>`;
     try {
+      const stats = !card.greek && !card.syriac && !card.targum
+        ? await host.loadPassageStats().catch(() => null) : null;
+      if (!active()) return;
+      const family = stats?.roots?.[card.lemma];
+      const root = mode === 'root' && family ? card.lemma : '';
+      state.root = root;
+      if (root) state.query = family.root;
       const result = await host.O.search({
-        query, kinds: ['he', 'other'], concordance: true, concordancePreview: true, crossLanguage: true,
+        query: state.query, kinds: ['he', 'other'], concordance: true, concordanceRoot: root, concordancePreview: true, crossLanguage: true,
         lemma: true, limit: 12, perFile: 3,
       });
-      if (token !== wcToken) return;
+      if (!active()) return;
       if (!result || result.cancelled || result.error) throw new Error('Concordance unavailable');
       state.results = result.results;
       const summary = state.results.length
         ? t('Konkordanz-Vorschau')
         : t('Keine Belege gefunden.');
-      box.innerHTML = `<div class="wcCcTools"><span role="status">${summary}${result.errors ? ' · ' + host.esc(I18N.t('{} Dateien konnten nicht gelesen werden', result.errors)) : ''}</span>
+      const modes = family ? `<div class="wcCcModes" role="group" aria-label="${t('Suchumfang')}">
+        <button type="button" data-cc-mode="lemma" aria-pressed="${!root}">${t('Grundform')}</button>
+        <button type="button" data-cc-mode="root" aria-pressed="${!!root}">${t('Wortfamilie')} <bdi lang="he">${host.esc(family.root)}</bdi></button>
+        </div>` : '';
+      box.innerHTML = `${modes}<div class="wcCcTools"><span role="status">${summary}${result.errors ? ' · ' + host.esc(I18N.t('{} Dateien konnten nicht gelesen werden', result.errors)) : ''}</span>
         <button type="button" data-cc-search>${t(state.results.length ? 'Weitere Belege in der Suche' : 'In der Suche öffnen')}</button></div>
-        <p class="muted">${t('Belege zur Wortform und Grundform. Gleich geschriebene Lemmata können mit erscheinen.')}</p>
+        <p class="muted">${t(root ? 'Wortfamilie nach ausdrücklichen Wurzelverweisen im Open-Scriptures-Lexikon (Westminster).' : 'Belege zur Wortform und Grundform. Gleich geschriebene Lemmata können mit erscheinen.')}</p>
         ${state.results.map(wcConcordanceRow).join('')}`;
       wcFindSoon();
     } catch {
-      if (token !== wcToken) return;
+      if (!active()) return;
       box.innerHTML = `<p class="muted" role="status">${t('Die Suche ist fehlgeschlagen.')}</p><button type="button" data-cc-retry>${t('Erneut versuchen')}</button>`;
     }
   }
@@ -80,7 +92,7 @@ window.LibraryWordCards = (() => {
     const peers = (hit.parallels || []).map((peer, i) => `<button type="button" data-cc-hit="${index}" data-cc-peer="${i}" class="wcCcPeer">
       <bdi lang="${lang(peer)}">${esc(peer.snippet.hit)}</bdi><small>${address(peer)} · ${esc(peer.analysisSource)}</small></button>`).join('');
     return `<article class="wcCcHit"><button type="button" data-cc-hit="${index}">
-      <span>${address(hit)}</span><small>${esc(hit.versionTitle || '')}</small>
+      <span>${address(hit)}</span>${hit.matchedLemma ? ` · <bdi lang="he">${esc(hit.matchedLemma)}</bdi>` : ''}<small>${esc(hit.versionTitle || '')}</small>
       <span class="ccContext" dir="auto" lang="${lang(hit)}">${esc(before)}<mark>${esc(word)}</mark>${esc(after)}</span>
       </button>${peers ? '<div class="wcCcPeers">' + peers + '</div>' : ''}</article>`;
   }
@@ -1185,9 +1197,11 @@ window.LibraryWordCards = (() => {
     const ap = () => host.$('#formsPanel').classList.toggle('wide', wide); ap();
     host.$('#fmWide').onclick = () => { wide = !wide; const panel=host.$('#formsPanel');panel.classList.remove('panel-sized');ap();window.dispatchEvent(new CustomEvent('study-panel-width',{detail:wide?1040:560}));try { localStorage.removeItem('panelSize:formsPanel');localStorage.setItem('fmWide', wide ? '1' : '0'); } catch { /* egal */ } }; }
   host.$('#fmConcordanceBody').addEventListener('click', e => {
-    if (e.target.closest('[data-cc-retry]')) { wcConcordance = null; wcLoadConcordance(); return; }
+    if (e.target.closest('[data-cc-retry]')) { const mode = wcConcordance?.mode; wcConcordance = null; wcLoadConcordance(mode); return; }
     if (wcConcordance?.token !== wcToken) return;
-    if (e.target.closest('[data-cc-search]')) { host.openConcordance(wcConcordance.query); return; }
+    const mode = e.target.closest('[data-cc-mode]')?.dataset.ccMode;
+    if (mode) { wcLoadConcordance(mode); return; }
+    if (e.target.closest('[data-cc-search]')) { host.openConcordance(wcConcordance.query, wcConcordance.root); return; }
     const button = e.target.closest('[data-cc-hit]');
     if (!button) return;
     const hit = wcConcordance.results[+button.dataset.ccHit];

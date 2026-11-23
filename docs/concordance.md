@@ -2,6 +2,7 @@
 
 Unter **Suche → Werkübergreifende Konkordanz** ein einzelnes Wort eingeben. In der **Wortkarte → Konkordanz** erscheinen bis zu zwölf Belege als Vorschau mit Kontext und zugeordneten Entsprechungen direkt neben dem Lesetext. Über den Knopf zur Suche stehen die Gesamthäufigkeit, der Werkfilter und der CSV-Export zur Verfügung.
 
+- **Wortfamilie:** In hebräischen Wortkarten mit ausdrücklicher Zuordnung kannst du im Reiter Konkordanz zur Wortfamilie wechseln. Die Suche verwendet die Lexikon-ID und Sprache der Wurzel und zeigt Westminster-Belege mit ihrer jeweiligen Grundform. Die Option **Weitere Belege in der Suche** behält die Familie bei.
 - **Wortform:** ganze Wörter, unabhängig von Großschreibung und hebräischen, griechischen beziehungsweise syrischen Vokal-/Akzentzeichen. Lateinische Umlaute bleiben unterschieden. Keine Teilwortsuche und kein automatisches Abschneiden von Vorsilben.
 - **Grundform (wo belegt):** zusätzlich die eingegebene Grundform mit vorhandenen Wortanalysen vergleichen. Unterstützt Westminster/OSHB, passende Septuaginta-Fassungen, eingebettete OGA-Analysen bei Josephus/Philo und ETCBC-Peschitta-Analysen. Nicht passende oder fehlende Analysen werden nicht ergänzt. Solche Stellen bleiben nur über die Wortform auffindbar. Die Eingabe ist keine automatische Auflösung einer beliebigen flektierten Form in alle möglichen Lemmata.
 - Jedes Vorkommen erhält eine eigene Zeile mit Originalschreibweise, bis zu sieben Kontextwörtern auf jeder Seite, Werk, Fassung und ursprünglicher Stellenzählung. Anklicken öffnet die Fundstelle im Leser.

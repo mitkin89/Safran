@@ -38,9 +38,9 @@ function analyses(e, d, html, p, ts, validHash) {
   if ((/Westminster/.test(e.versionTitle || '') || /Safran-Morphologie/.test(e.versionTitle || '')) && e.kind === 'he') {
     const spans = [...html.matchAll(/<span class="w" data-l="([^"]*)" data-m="([^"]*)">(.*?)<\/span>/g)];
     if (sameTokens(spans.map(m => textOf(m[3])), ts)) return spans.map(m => {
-      let lemma = '';
-      try { const a = Morph.decode(m[2], m[1]), id = a?.segs[a.main]?.lemma; lemma = data().OSHB_LEMMAS?.[id]?.[0] || ''; } catch {}
-      return { lemmas: lemma ? [lemma] : [], source: /Westminster/.test(e.versionTitle) ? 'OSHB' : 'Safran' };
+      let lemma = '', id;
+      try { const a = Morph.decode(m[2], m[1]); id = a?.segs[a.main]?.lemma; lemma = data().OSHB_LEMMAS?.[id]?.[0] || ''; } catch {}
+      return { lemmaId: id, lemmas: lemma ? [lemma] : [], source: /Westminster/.test(e.versionTitle) ? 'OSHB' : 'Safran' };
     });
   }
   if (/^Septuaginta \(/.test(e.versionTitle || '') && p.length === 2) {
@@ -57,8 +57,12 @@ async function search({ dir, entries, params, onProgress = () => {}, isCancelled
   const empty = { results: [], stats: [], dist: [], scanned: 0, total: 0, truncated: false, capped: false, cancelled: false, concordance: true, coverage: { annotated: 0, surface: 0 }, errors: 0 };
   if (!q || String(params.query).length > 100 || qt.length !== 1 || /[*?]/.test(params.query)) return { ...empty, error: 'Bitte ein einzelnes Wort ohne Platzhalter eingeben.' };
   const limit = Math.max(1, Math.min(5000, Number(params.limit) || 1000)), perFile = Math.max(1, Math.min(500, Number(params.perFile) || 25));
-  const lemma = !!params.lemma, out = { ...empty, total: entries.length }, stats = new Map();
-  for (const e of Order.sortTitles(entries, x => x.title)) {
+  const roots = params.concordanceRoot ? require('./passage-stats-data').roots : null;
+  const family = roots?.[params.concordanceRoot];
+  if (roots && !family) return { ...empty, error: 'Keine Wurzelzuordnung für dieses Lemma.' };
+  const scan = family ? entries.filter(e => e.kind === 'he' && /^Westminster/.test(e.versionTitle || '')) : entries;
+  const lemma = !!params.lemma || !!family, out = { ...empty, total: scan.length }, stats = new Map();
+  for (const e of Order.sortTitles(scan, x => x.title)) {
     if (isCancelled()) break;
     let d;
     try { d = JSON.parse(await fs.readFile(path.join(dir, e.rel), 'utf8')); } catch { out.errors++; out.scanned++; continue; }
@@ -77,13 +81,14 @@ async function search({ dir, entries, params, onProgress = () => {}, isCancelled
       let passage = false;
       for (let i = 0; i < ts.length; i++) {
         const t = ts[i], aa = a?.[i], lemmaHit = aa?.lemmas.some(l => normalize(l) === q);
-        if (t.key !== q && !lemmaHit) continue;
+        const root = family && roots[aa?.lemmaId];
+        if (family ? root?.id !== family.id || root.lang !== family.lang : t.key !== q && !lemmaHit) continue;
         o++; passage = true;
         if (out.results.length >= limit) { out.truncated = true; continue; }
         if (shown >= perFile) { out.capped = true; continue; }
         locator ||= R.makeLocator(d.text, d.sectionNames);
         const loc = locator(p), before = text.slice(ts[Math.max(0, i - 7)].start, t.start), after = text.slice(t.end, ts[Math.min(ts.length - 1, i + 7)].end);
-        out.results.push({ rel: e.rel, title: e.title, heTitle: e.heTitle, versionTitle: e.versionTitle, kind: e.kind, language: e.language, path: p, loc: loc ? { path: loc.path, label: loc.label } : null, where: loc ? [loc.sectionLabel, loc.label].filter(Boolean).join(' · ') : '', snippet: { before, hit: t.text, after }, words: [t.text], sub: false, concordance: true, basis: lemmaHit ? 'lemma' : 'surface', analysisSource: lemmaHit ? aa.source : '', position: i + 1 });
+        out.results.push({ rel: e.rel, title: e.title, heTitle: e.heTitle, versionTitle: e.versionTitle, kind: e.kind, language: e.language, path: p, loc: loc ? { path: loc.path, label: loc.label } : null, where: loc ? [loc.sectionLabel, loc.label].filter(Boolean).join(' · ') : '', snippet: { before, hit: t.text, after }, words: [t.text], sub: false, concordance: true, basis: family ? 'root' : lemmaHit ? 'lemma' : 'surface', analysisSource: family || lemmaHit ? aa.source : '', ...(family ? { matchedLemma: aa.lemmas[0] || '' } : {}), position: i + 1 });
         shown++;
       }
       if (passage) h++;

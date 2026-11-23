@@ -2471,3 +2471,6 @@ body.il .cell[data-k="he"] .ilt.il-ma { direction: rtl; font-family: var(--he-fo
 .wcCcPeer bdi[lang="he"] { font-family: var(--he-font); }
 
 .tc-tradition { display: inline-block; margin-inline-start: .35em; padding: .12em .42em; border: 1px solid var(--line); border-radius: 5px; color: var(--muted); font: normal .82em system-ui, sans-serif; }
+
+.wcCcModes { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+.wcCcModes button[aria-pressed="true"] { border-color: var(--accent); color: var(--accent); }
