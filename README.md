@@ -149,7 +149,7 @@ The **≠ Apparatus** pane compares the Masoretic text (Westminster Leningrad Co
 | **Syr** | Peshitta: pluses and minuses from Safran's own word alignment, and Safran's own classified readings (not the apparatus of the printed Leiden edition) | 39 books | ETCBC Peshitta, CC BY-NC 4.0 |
 | **Ken** | Kennicott (1776–1780): readings of the medieval manuscripts with catalogue cards | 39 books | Digital Kennicott, CC BY-NC-SA 4.0 |
 
-Field's Hexapla is also available as an open dataset: [field-hexapla](https://github.com/mitkin89/field-hexapla), DOI [10.5281/zenodo.24464811](https://doi.org/10.5281/zenodo.24464811).
+Field's Hexapla is also available as an open dataset: [field-hexapla](https://github.com/mitkin89/field-hexapla), DOI [10.5281/zenodo.24464811](https://doi.org/10.5281/zenodo.24464811). The classified LXX and Peshitta readings and the MT–Peshitta word alignment likewise: [lxx-peshitta-apparatus](https://github.com/mitkin89/lxx-peshitta-apparatus), DOI [10.5281/zenodo.24465785](https://doi.org/10.5281/zenodo.24465785) (CC BY-NC-SA 4.0).
 
 For Mishnah Berakhot the pane compares the manuscripts Kaufmann, Parma and Cambridge.
 

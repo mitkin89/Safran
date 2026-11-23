@@ -149,7 +149,7 @@ Das Fenster **≠ Apparat** vergleicht den masoretischen Text (Westminster Lenin
 | **Syr** | Peschitta: Plus und Minus aus Safrans eigener Wortzuordnung und eigene eingeordnete Lesarten (nicht der Apparat der gedruckten Leidener Ausgabe) | 39 Bücher | ETCBC-Peschitta, CC BY-NC 4.0 |
 | **Ken** | Kennicott (1776–1780): Lesarten der mittelalterlichen Handschriften mit Katalogkarten | 39 Bücher | Digital Kennicott, CC BY-NC-SA 4.0 |
 
-Fields Hexapla gibt es auch als offenen Datensatz: [field-hexapla](https://github.com/mitkin89/field-hexapla), DOI [10.5281/zenodo.24464811](https://doi.org/10.5281/zenodo.24464811).
+Fields Hexapla gibt es auch als offenen Datensatz: [field-hexapla](https://github.com/mitkin89/field-hexapla), DOI [10.5281/zenodo.24464811](https://doi.org/10.5281/zenodo.24464811). Ebenso die eingeordneten LXX- und Peschitta-Lesarten und die Wortzuordnung MT–Peschitta: [lxx-peshitta-apparatus](https://github.com/mitkin89/lxx-peshitta-apparatus), DOI [10.5281/zenodo.24465785](https://doi.org/10.5281/zenodo.24465785) (CC BY-NC-SA 4.0).
 
 Für Mischna Berachot vergleicht das Fenster die Handschriften Kaufmann, Parma und Cambridge.
 
