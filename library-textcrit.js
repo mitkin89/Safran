@@ -294,7 +294,9 @@ function create(host){
   body.addEventListener('keydown',e=>{if(e.key==='Enter'&&e.target.matches('.tc-tov-lemma,.tc-dss-word,.tc-hx-w,.tc-hx-fn')){e.preventDefault();e.target.click();}});
   body.addEventListener('focusout',e=>{if(e.target.closest('.tc-source,.tc-dss-coverage-source,.tc-witness-label[data-tc-tov],[data-tc-ken]:not(.tc-ken-witness),[data-tc-mishnah]:not(.mci-word)'))hidePreview();});
   window.addEventListener('resize',hidePreview);
-  document.addEventListener('scroll',e=>{if(!e.target.closest?.('#tcHover'))hidePreview();},true);
+  document.addEventListener('scroll',e=>{if(!e.target.closest?.('#tcHover')&&!hoverAnchor?.matches?.('.tc-hx-w'))hidePreview();},true);
+  // Wortinfo der Hexapla (per Klick geöffnet): bleibt beim Scrollen offen, schließt mit Klick außerhalb
+  document.addEventListener('pointerdown',e=>{if(hover&&hoverAnchor?.matches?.('.tc-hx-w')&&!e.target.closest?.('#tcHover')&&!hoverAnchor.contains(e.target))hidePreview();},true);
   document.addEventListener('keydown',e=>{if(e.key==='Escape'&&hover){hidePreview();e.preventDefault();e.stopImmediatePropagation();}},true);
   function markCurrent(c){
     body.querySelectorAll('.tc-reader-verse').forEach(el=>el.classList.toggle('current',whole&&el.dataset.rows.split(',').includes(c.row)));

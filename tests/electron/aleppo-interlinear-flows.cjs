@@ -22,7 +22,12 @@ module.exports=async({docs,win,js,waitFor,book})=>{
  await waitFor("document.querySelector('#wpop .wa-note')&&document.querySelector('#wpop .wseg')",'Morphologie-Popup für ein Aleppo-Wort');
  assert(await js("document.querySelector('#wpop .wa-note').textContent.includes('Leningrad Codex')"));
  assert(await js("document.querySelector('#wpop .wforms')"),'Wortkarte erreichbar');
- await js("document.querySelector('#wpop .wx').click()");
+ // Scrollen schließt die Wortinfo nicht, ein Klick außerhalb schon
+ await js("{const s=document.querySelector('#rOut').closest('.rscroll')||document.scrollingElement;document.querySelectorAll('*').forEach(el=>{if(el.scrollHeight>el.clientHeight+50&&getComputedStyle(el).overflowY!=='visible')el.scrollTop+=200;});window.scrollBy(0,200);}");
+ await js('new Promise(r=>setTimeout(r,150))');
+ assert(await js("Boolean(document.querySelector('#wpop'))"),'Wortinfo bleibt beim Scrollen offen');
+ await js("{const t=document.querySelector('#rOut .lab');t.dispatchEvent(new PointerEvent('pointerdown',{bubbles:true}));}");
+ assert(await js("!document.querySelector('#wpop')"),'Klick außerhalb schließt die Wortinfo');
  await js("document.querySelector('#rSection').value='35';document.querySelector('#rSection').dispatchEvent(new Event('change',{bubbles:true}))");
  await waitFor("document.querySelector('.ilt.il-ma .ils[class*=il-ma-]')",'Jesaja 36: Abweichungen markiert');
  const diff=await js("document.querySelector('.ilt.il-ma .ils[class*=il-ma-]').title");

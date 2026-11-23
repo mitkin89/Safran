@@ -5,7 +5,7 @@ window.LibraryWordPopup = (() => {
     openDict, lemIdsFor, matchSyriacAnalysis, canOpenCard, loadForms, openSForms, openForms, openGForms, openTForms, gSearchAll, jumpTo }) {
   // OSHB-Texte: Klick auf ein Wort zeigt Lemma, Stamm, Zeit und Form; „Im Wörterbuch“ schlägt das Lemma nach
   let wpop = null;
-  const closeWpop = () => { gTok++; if (wpop) { wpop.remove(); wpop = null; } $$('#rOut .syw.sel, #rOut .w.sel, #rOut .wt.sel, #rOut .wq.sel, #rOut .wg.sel, #bavliInterlinear .bil-heword.sel').forEach(x => x.classList.remove('sel')); gSel = null; try { CSS.highlights.delete('gsel'); } catch { /* ältere Engine */ } };
+  const closeWpop = () => { gTok++; if (wpop) { wpop.remove(); wpop = null; } $$('#rOut .syw.sel, #rOut .w.sel, #rOut .wt.sel, #rOut .wq.sel, #rOut .wa.sel, #rOut .wg.sel, #bavliInterlinear .bil-heword.sel').forEach(x => x.classList.remove('sel')); gSel = null; try { CSS.highlights.delete('gsel'); } catch { /* ältere Engine */ } };
   // Septuaginta (CATSS): Klick auf eine griechische Wortgruppe zeigt die hebräischen Wörter, denen sie zugeordnet ist
   const GFLAG = { z: 'Zusatz der Septuaginta (kein hebräisches Gegenstück)', m: 'Minus der Septuaginta (hebräisches Wort ohne griechisches Gegenstück)', d: 'Doublette: ein hebräisches Wort ist doppelt übersetzt', i: 'Infinitivus absolutus im Hebräischen', t: 'Transliteriertes hebräisches Wort', v: 'Griechisches Präverb für eine hebräische Präposition', s: 'Komparativ/Superlativ (hebr. מ)', u: 'Gegenstück steht an anderer Stelle im Vers (Umstellung oder Verteilung)' };
   // x (optional, mit Morphologie): { rows: HTML der Wort-Bestimmungen, buttons: HTML, word, at: Element/Range zum Ausrichten, on: Klick-Behandlung }
@@ -470,6 +470,10 @@ window.LibraryWordPopup = (() => {
     closeWpop();return {context,query};
   }
 
+  // Die Wortinfo bleibt beim Scrollen offen und schließt erst mit einem Klick außerhalb der Karte (oder ✕ / Esc, siehe unten).
+  // Ein Klick auf ein anderes Wort öffnet dessen Karte (das übernimmt der Klick-Handler des Lesers).
+  const WORDS='.w[data-m],.wa[data-m],.wt[data-m],.wq[data-m],.wg,.syw[data-si],.smr-word,.cell[data-gt],.bil-heword';
+  document.addEventListener('pointerdown',e=>{if(wpop&&e.target.isConnected&&!e.target.closest('#wpop')&&!(e.target.closest('#rOut')&&e.target.closest(WORDS)))closeWpop();},true);
   // Escape belongs to the topmost word popup; do not let the same key reach pane handlers.
   window.addEventListener('keydown', e => {
     if(e.key!=='Escape'||e.defaultPrevented||e.isComposing)return;

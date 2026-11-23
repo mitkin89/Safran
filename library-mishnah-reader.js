@@ -84,7 +84,6 @@ function create(host){
  $('#rOut').addEventListener('focusout',e=>{if(e.target.closest('[data-tc-mishnah]'))timer=setTimeout(hide,180);});
  document.addEventListener('keydown',e=>{if(e.key==='Escape')hide();});
  document.addEventListener('pointerdown',e=>{if(hover&&!e.target.closest('#mishnahReaderHover,[data-tc-mishnah]'))hide();},true);
- addEventListener('scroll',e=>{if(hover&&!hover.contains(e.target))hide();},true);
  return {active,read,refresh,menu,choose,invalidate:()=>{generation++;hide();observer?.disconnect();}};
 }
 return {entries,create};

@@ -1159,7 +1159,6 @@ window.LibraryWordCards = (() => {
   host.$('#fmBody').addEventListener('mouseover', e => { const a = e.target.closest('.fmRL a[data-ref]'); if (!a || !host.hovApi || a.dataset.ref === host.hovApi.current()) return; host.hovApi.start(a, a.dataset.ref, true, false, wcHovPick(a)); });
   host.$('#fmBody').addEventListener('mouseout', e => { const a = e.target.closest('.fmRL a[data-ref]'); if (a && host.hovApi && !a.contains(e.relatedTarget)) host.hovApi.hide(); });
   host.$('#formsPanel').addEventListener('scroll', () => host.hovApi && host.hovApi.hide(), { passive: true });
-  window.addEventListener('scroll', e => { if (!e.target.closest || !e.target.closest('#wpop')) host.closeWpop(); }, { passive: true, capture: true });
 
     return {
       get canReopen(){return !!fmCur||fmHi>=0;},

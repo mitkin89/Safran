@@ -145,7 +145,7 @@
     "Anderes griechisches Wort für denselben hebräischen Text (Wortwahl des Übersetzers), maschinell eingeordnet": "Another Greek word for the same Hebrew text (the translator's choice), classified by machine",
     "Gleicher Wortlaut wie die LXX-Zeile": "Same wording as the LXX row",
     "LXX-Plus": "LXX plus",
-    "Zusatz nach dem Hebräischen": "addition after the Hebrew",
+    "Zusatz nach dem Hebräischen": "supplied from the Hebrew (asterisk)",
     "folgt dem MT": "follows the MT",
     "andere Wiedergabe": "different rendering",
     "wie LXX": "as LXX",
