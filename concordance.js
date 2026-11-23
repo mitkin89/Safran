@@ -3,8 +3,18 @@
 const fs = require('node:fs/promises'), path = require('node:path'), crypto = require('node:crypto');
 const R = require('./reader'), Order = require('./order'), Morph = require('./morph');
 const GM = require('./gmorph'), GC = require('./greek-corpus'), SY = require('./syriac-morph');
+const ruthReview = require('./peshitta-ruth-lemma-review.json');
+const ruthLemmas = new Map(ruthReview.entries.filter(row => row.parts || row.sedra || row.contextLemma).map(row => {
+  const lemmas = row.parts ? row.parts.map(([, lexeme]) => SY.lemma(lexeme)).filter(Boolean) : [row.contextLemma];
+  const analysis = row.sedra
+    ? { lemmas: [row.sedra.lemma], source: 'Safran (KI-Kontextprüfung mit SEDRA)', reference: `SEDRA #${row.sedra.id}` }
+    : { lemmas, source: ruthReview.source };
+  return [row.id, { ...row, analysis }];
+}));
 const normalize = s => String(s || '').normalize('NFD').replace(/([\p{Script=Hebrew}\p{Script=Greek}\p{Script=Syriac}])\p{M}*/gu, m => m.replace(/\p{M}/gu, '')).toLowerCase().replace(/ς/g, 'σ').normalize('NFC');
-const tokens = s => [...s.matchAll(/[\p{L}\p{M}\p{N}]+/gu)].map(m => ({ text: m[0], key: normalize(m[0]), start: m.index, end: m.index + m[0].length }));
+const tokens = s => [...s.matchAll(/[\p{L}\p{M}\p{N}]+/gu)]
+  .filter(m => /[\p{L}\p{N}]/u.test(m[0]))
+  .map(m => ({ text: m[0], key: normalize(m[0]), start: m.index, end: m.index + m[0].length }));
 const plain = html => String(html).replace(/&nbsp;|&#160;/g, ' ').replace(/&quot;/g, '"').replace(/&apos;/g, "'").replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&#(x[0-9a-f]+|\d+);/gi, (_, n) => {const c=n[0].toLowerCase()==='x'?parseInt(n.slice(1),16):Number(n);return c>0&&c<=0x10ffff?String.fromCodePoint(c):' ';});
 const textOf = html => plain(R.splitFootnotes(html).main.replace(/<br\s*\/?>(?=.)/gi, ' ').replace(/<small\b[^>]*>[\s\S]*?<\/small>/gi, ' ').replace(/<[^>]*>/g, '').replace(/\s+/g, ' ').trim());
 let tables;
@@ -19,6 +29,14 @@ function data() {
   return tables;
 }
 const sameTokens = (a, b) => a.length === b.length && a.every((x, i) => normalize(x) === b[i].key);
+function syriacWordSpans(html, ts) {
+  const spans = [...String(html || '').matchAll(/<span class="syw" data-si="([^"]+)">([^<]+)<\/span>/g)]
+    .map(([, id, form]) => ({ id, form, tokens: tokens(form) }))
+    .filter(span => span.tokens.length);
+  return spans.length === ts.length && spans.every((span, i) => span.tokens.length === 1 && span.tokens[0].key === ts[i].key)
+    ? spans
+    : null;
+}
 function analyses(e, d, html, p, ts, validHash) {
   // Never apply analyses to edited text or a different edition.
   if (d.greekMorphology && validHash) {
@@ -29,9 +47,16 @@ function analyses(e, d, html, p, ts, validHash) {
     }
   }
   if (d.syriacMorphology && validHash && p.length === 2) {
-    const spans = [...html.matchAll(/<span class="syw" data-si="([^"]+)">([^<]+)<\/span>/g)];
-    if (sameTokens(spans.map(m => m[2]), ts)) return spans.map(m => {
-      const a = SY.at(d, m[1], m[2], [p[0]], String(p[1] + 1));
+    const spans = syriacWordSpans(html, ts);
+    if (spans) return spans.map(({ id, form }) => {
+      const label = typeof p[1] === 'number' ? String(p[1] + 1) : p[1];
+      const a = SY.at(d, id, form, [p[0]], label);
+      if (a && !a.parts.length && e.title === ruthReview.book && d.textHash === ruthReview.textHash) {
+        const reviewed = ruthLemmas.get(a.id);
+        if (reviewed && reviewed.form === a.form && reviewed.chapter === a.chapter && reviewed.verse === a.verse) {
+          return reviewed.analysis;
+        }
+      }
       return { lemmas: a ? a.parts.map(x => SY.lemma(x.lex)).filter(Boolean) : [], source: 'ETCBC Syriac' };
     });
   }
@@ -60,8 +85,9 @@ async function search({ dir, entries, params, onProgress = () => {}, isCancelled
   const roots = params.concordanceRoot ? require('./passage-stats-data').roots : null;
   const family = roots?.[params.concordanceRoot];
   if (roots && !family) return { ...empty, error: 'Keine Wurzelzuordnung für dieses Lemma.' };
-  const scan = family ? entries.filter(e => e.kind === 'he' && /^Westminster/.test(e.versionTitle || '')) : entries;
-  const lemma = !!params.lemma || !!family, out = { ...empty, total: scan.length }, stats = new Map();
+  const exactLemma = family ? '' : params.concordanceLemma;
+  const scan = family || exactLemma ? entries.filter(e => e.kind === 'he' && /^Westminster/.test(e.versionTitle || '')) : entries;
+  const lemma = !!params.lemma || !!family || !!exactLemma, out = { ...empty, total: scan.length }, stats = new Map();
   for (const e of Order.sortTitles(scan, x => x.title)) {
     if (isCancelled()) break;
     let d;
@@ -82,13 +108,17 @@ async function search({ dir, entries, params, onProgress = () => {}, isCancelled
       for (let i = 0; i < ts.length; i++) {
         const t = ts[i], aa = a?.[i], lemmaHit = aa?.lemmas.some(l => normalize(l) === q);
         const root = family && roots[aa?.lemmaId];
-        if (family ? root?.id !== family.id || root.lang !== family.lang : t.key !== q && !lemmaHit) continue;
+        if (family) {
+          if (root?.id !== family.id || root.lang !== family.lang) continue;
+        } else if (exactLemma ? aa?.lemmaId !== exactLemma : t.key !== q && !lemmaHit) {
+          continue;
+        }
         o++; passage = true;
         if (out.results.length >= limit) { out.truncated = true; continue; }
         if (shown >= perFile) { out.capped = true; continue; }
         locator ||= R.makeLocator(d.text, d.sectionNames);
         const loc = locator(p), before = text.slice(ts[Math.max(0, i - 7)].start, t.start), after = text.slice(t.end, ts[Math.min(ts.length - 1, i + 7)].end);
-        out.results.push({ rel: e.rel, title: e.title, heTitle: e.heTitle, versionTitle: e.versionTitle, kind: e.kind, language: e.language, path: p, loc: loc ? { path: loc.path, label: loc.label } : null, where: loc ? [loc.sectionLabel, loc.label].filter(Boolean).join(' · ') : '', snippet: { before, hit: t.text, after }, words: [t.text], sub: false, concordance: true, basis: family ? 'root' : lemmaHit ? 'lemma' : 'surface', analysisSource: family || lemmaHit ? aa.source : '', ...(family ? { matchedLemma: aa.lemmas[0] || '' } : {}), position: i + 1 });
+        out.results.push({ rel: e.rel, title: e.title, heTitle: e.heTitle, versionTitle: e.versionTitle, kind: e.kind, language: e.language, path: p, loc: loc ? { path: loc.path, label: loc.label } : null, where: loc ? [loc.sectionLabel, loc.label].filter(Boolean).join(' · ') : '', snippet: { before, hit: t.text, after }, words: [t.text], sub: false, concordance: true, basis: family ? 'root' : exactLemma || lemmaHit ? 'lemma' : 'surface', analysisSource: family || exactLemma || lemmaHit ? aa.source : '', ...(lemmaHit && aa.reference ? { analysisReference: aa.reference } : {}), ...(family ? { matchedLemma: aa.lemmas[0] || '', matchedLemmaId: aa.lemmaId } : {}), position: i + 1 });
         shown++;
       }
       if (passage) h++;
@@ -106,4 +136,4 @@ async function search({ dir, entries, params, onProgress = () => {}, isCancelled
   out.crossLanguage=!!params.crossLanguage;
   out.cancelled = isCancelled(); return out;
 }
-module.exports = { search, normalize, tokens, textOf };
+module.exports = { search, normalize, tokens, textOf, syriacWordSpans };

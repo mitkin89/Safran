@@ -48,7 +48,8 @@ window.LibraryWordCards = (() => {
     }
     const token = wcToken;
     if (wcConcordance?.token === token && wcConcordance.mode === mode) return;
-    const state = wcConcordance = { token, query, mode, results: [] };
+    const exactLemma = !card.greek && !card.syriac && !card.targum ? card.lemma : '';
+    const state = wcConcordance = { token, query, mode, exactLemma, results: [] };
     const active = () => token === wcToken && wcConcordance === state;
     box.innerHTML = `<div class="wcCcTools"><span class="muted" role="status">${t('Bibliothek wird durchsucht …')}</span>
       ${mode === 'lemma' ? `<button type="button" data-cc-search>${t('In der Suche öffnen')}</button>` : ''}</div>`;
@@ -61,7 +62,7 @@ window.LibraryWordCards = (() => {
       state.root = root;
       if (root) state.query = family.root;
       const result = await host.O.search({
-        query: state.query, kinds: ['he', 'other'], concordance: true, concordanceRoot: root, concordancePreview: true, crossLanguage: true,
+        query: state.query, kinds: ['he', 'other'], concordance: true, concordanceRoot: root, concordanceLemma: exactLemma, concordancePreview: true, crossLanguage: true,
         lemma: true, limit: 12, perFile: 3,
       });
       if (!active()) return;
@@ -76,7 +77,7 @@ window.LibraryWordCards = (() => {
         </div>` : '';
       box.innerHTML = `${modes}<div class="wcCcTools"><span role="status">${summary}${result.errors ? ' · ' + host.esc(I18N.t('{} Dateien konnten nicht gelesen werden', result.errors)) : ''}</span>
         <button type="button" data-cc-search>${t(state.results.length ? 'Weitere Belege in der Suche' : 'In der Suche öffnen')}</button></div>
-        <p class="muted">${t(root ? 'Wortfamilie nach ausdrücklichen Wurzelverweisen im Open-Scriptures-Lexikon (Westminster).' : 'Belege zur Wortform und Grundform. Gleich geschriebene Lemmata können mit erscheinen.')}</p>
+        <p class="muted">${root ? t('Die Wortfamilie umfasst mehrere Lemmata mit derselben Lexikonwurzel. Unter „Grundform“ siehst du nur das ausgewählte Lemma.') : exactLemma ? host.esc(I18N.t('Belege für das ausgewählte Lemma (Strong {}).', exactLemma)) : t('Belege zur Wortform und Grundform. Gleich geschriebene Lemmata können mit erscheinen.')}</p>
         ${state.results.map(wcConcordanceRow).join('')}`;
       wcFindSoon();
     } catch {
@@ -89,10 +90,12 @@ window.LibraryWordCards = (() => {
     const lang = row => row.language === 'Syriac' ? 'syr' : row.kind === 'he' ? 'he' : 'grc';
     const address = row => esc([row.title, row.where].filter(Boolean).join(' · '));
     const { before, hit: word, after } = hit.snippet;
+    const lemma = window.OSHB_LEMMAS?.[hit.matchedLemmaId];
+    const gloss = lemma?.[I18N.lang === 'de' ? 2 : 1] || lemma?.[1];
     const peers = (hit.parallels || []).map((peer, i) => `<button type="button" data-cc-hit="${index}" data-cc-peer="${i}" class="wcCcPeer">
       <bdi lang="${lang(peer)}">${esc(peer.snippet.hit)}</bdi><small>${address(peer)} · ${esc(peer.analysisSource)}</small></button>`).join('');
     return `<article class="wcCcHit"><button type="button" data-cc-hit="${index}">
-      <span>${address(hit)}</span>${hit.matchedLemma ? ` · <bdi lang="he">${esc(hit.matchedLemma)}</bdi>` : ''}<small>${esc(hit.versionTitle || '')}</small>
+      <span>${address(hit)}</span>${hit.matchedLemma ? ` · <bdi lang="he">${esc(hit.matchedLemma)}</bdi>${gloss ? ' · ' + esc(gloss) : ''}` : ''}<small>${esc([hit.versionTitle, hit.analysisSource && I18N.t(hit.analysisSource), hit.analysisReference].filter(Boolean).join(' · '))}</small>
       <span class="ccContext" dir="auto" lang="${lang(hit)}">${esc(before)}<mark>${esc(word)}</mark>${esc(after)}</span>
       </button>${peers ? '<div class="wcCcPeers">' + peers + '</div>' : ''}</article>`;
   }
@@ -591,9 +594,10 @@ window.LibraryWordCards = (() => {
     if(!host.lemIdsFor(fmCur.lem?.[0]||'').includes(id)||!window.Forms.model(fmCur.D,id))return;
     const S=wcTrLive();
     fmHistSave();
-    const next={greek:false,lemma:id,info:null,tab:'card',scroll:0,book:'',chip:null,fchip:null,
+    const tab = fmTab === 'concordance' ? 'concordance' : 'card';
+    const next={greek:false,lemma:id,info:null,tab,scroll:0,book:'',chip:null,fchip:null,
       tr:S?{lemma:id,cur:S.cur,cmp:S.cmp||null,f:{},open:null,allRows:false,refLim:12}:null};
-    fmHistPush(next);openForms(id,null,'card',next);
+    fmHistPush(next);openForms(id,null,tab,next);
   }
   // ----- Stellen mit Kontext: Westminster-Wörter des Verses (Lemma, Bestimmung, Form) + Segmente der Fassung aus interlin.js -----
   const wcVerseWords = new Map(); // „Genesis 18:27“ -> [{lem, code, he}] (leer, wenn der Vers nicht zu lesen war)
@@ -1201,7 +1205,7 @@ window.LibraryWordCards = (() => {
     if (wcConcordance?.token !== wcToken) return;
     const mode = e.target.closest('[data-cc-mode]')?.dataset.ccMode;
     if (mode) { wcLoadConcordance(mode); return; }
-    if (e.target.closest('[data-cc-search]')) { host.openConcordance(wcConcordance.query, wcConcordance.root); return; }
+    if (e.target.closest('[data-cc-search]')) { host.openConcordance(wcConcordance.query, wcConcordance.root, wcConcordance.exactLemma); return; }
     const button = e.target.closest('[data-cc-hit]');
     if (!button) return;
     const hit = wcConcordance.results[+button.dataset.ccHit];

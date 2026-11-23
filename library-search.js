@@ -64,7 +64,7 @@ window.LibrarySearch = (() => {
       if (S_GREEK.test(v) || /[\u0710-\u072f]/u.test(v)) return ['other']; // griechische Eingabe: Septuaginta und andere griechische Texte
       return /\p{L}/u.test(v) ? ['en', 'de'] : S_KINDS.slice();
     }
-    let concordanceRoot = '';
+    let concordanceRoot = '', concordanceLemma = '';
     const isConcordance = () => $('#sConcordance').checked;
     const S_GREEK = /[\u0370-\u03FF\u1F00-\u1FFF]/;
     // Für welche Texte gilt die Treffer-Art? 'he' = hebräisch, 'gr' = griechische Eingabe in „Andere“/„Alle“ (Lemma-Suche in der Septuaginta), 'ot' = alles Übrige
@@ -91,7 +91,8 @@ window.LibrarySearch = (() => {
       if (sh.ph && !gram) p.push(I18N.t('"…" = genau diese Wortfolge'));
       if (fuzzy && !gram) p.push(I18N.t('ähnliche Schreibweise (Fuzzy)'));
       const rootMode = cc && $('#sConcordanceMode').value === 'root';
-      $('#sHint').textContent = rootMode ? I18N.t('Wortfamilie nach ausdrücklichen Wurzelverweisen im Open-Scriptures-Lexikon (Westminster).') : cc ? I18N.t('Ein Wort in lokalen Werken; optional zugeordnete Bibeltexte in Hebräisch, Griechisch und Syrisch. Grundformen nur aus passenden Wortanalysen, sonst genaue Wortform. Ohne Fußnoten. Fassungen zählen getrennt.') : p.join(' · ');
+      const exactLemma = cc && $('#sConcordanceMode').value === 'lemma' && concordanceLemma;
+      $('#sHint').textContent = rootMode ? I18N.t('Wortfamilie nach ausdrücklichen Wurzelverweisen im Open-Scriptures-Lexikon (Westminster).') : exactLemma ? I18N.t('Belege für das ausgewählte Lemma (Strong {}).', exactLemma) : cc ? I18N.t('Ein Wort in lokalen Werken; optional zugeordnete Bibeltexte in Hebräisch, Griechisch und Syrisch. Grundformen nur aus passenden Wortanalysen, sonst genaue Wortform. Ohne Fußnoten. Fassungen zählen getrennt.') : p.join(' · ');
       const act = +$('#sOrd').checked + +fuzzy + +!$('#sWlc').checked + +(d !== 10) + +!!gram; // was unter „Erweitert“ vom Standard abweicht
       $('#sAdvN').textContent = act ? ' ' + I18N.t('({#} aktiv)', act) : '';
     }
@@ -331,7 +332,7 @@ window.LibrarySearch = (() => {
         ...(!syntax ? { distance: +$('#sDist').value, ordered: $('#sOrd').checked, fuzzy: $('#sFuzzy').checked,
           ...sMatchParams(), wlc: $('#sWlc').checked } : {}),
         limit: 1000, perFile: onlyTitle ? 1000 : 25, countAll: !onlyTitle,
-        ...(cc ? { concordance: true, concordanceRoot: $('#sConcordanceMode').value === 'root' ? concordanceRoot : '', crossLanguage: $('#sConcordanceCross').checked, lemma: $('#sConcordanceMode').value === 'lemma', gram: null, fuzzy: false, prefix: false, exact: false, partial: false, wlc: false, countAll: true } : {}),
+        ...(cc ? { concordance: true, concordanceRoot: $('#sConcordanceMode').value === 'root' ? concordanceRoot : '', concordanceLemma: $('#sConcordanceMode').value === 'lemma' ? concordanceLemma : '', crossLanguage: $('#sConcordanceCross').checked, lemma: $('#sConcordanceMode').value === 'lemma', gram: null, fuzzy: false, prefix: false, exact: false, partial: false, wlc: false, countAll: true } : {}),
       };
       lastSearch = { ...sp };
       const fkey = JSON.stringify({ ...sp, titles, perFile: 0, limit: 0, countAll: 0 });
@@ -367,7 +368,7 @@ window.LibrarySearch = (() => {
     let sGroupOn = true; try { sGroupOn = localStorage.getItem('searchGroup') !== '0'; } catch { /* egal */ }
     const sresHtml = (r, i, extra) => {
       const sn = r.snippet;
-      if (r.concordance) return `<div class="sres ccRow" data-i="${i}"><div><b>${esc(r.title)}</b> <span class="muted">${esc(r.where)} · ${esc(shortVer(r.versionTitle))}</span></div><div class="ccContext" lang="${/[\u0710-\u072f]/u.test(sn.hit) ? 'syr' : /[\u05d0-\u05ea]/u.test(sn.hit) ? 'he' : ''}" dir="auto"><span>${esc(sn.before)}</span><mark>${esc(sn.hit)}</mark><span>${esc(sn.after)}</span></div><small class="muted">${esc(I18N.t(r.basis === 'root' ? 'Wortfamilie' : r.basis === 'lemma' ? 'Grundform' : 'Wortform'))}${r.matchedLemma ? ' · <bdi lang="he">' + esc(r.matchedLemma) + '</bdi>' : ''}${r.analysisSource ? ' · ' + esc(r.analysisSource) : ''}</small>${r.parallels ? `<div class="ccParallels"><small>${esc(I18N.t('Zugeordnete Entsprechungen'))}</small>${r.parallels.length ? r.parallels.map((p,j)=>`<div class="sres ccPeer" data-i="${i}" data-cp="${j}"><bdi lang="${p.language==='Syriac'?'syr':p.kind==='he'?'he':'grc'}" dir="auto">${esc(p.snippet.hit)}</bdi> <span>${esc(p.title)} · ${esc(p.where)}</span><small class="muted">${esc(p.analysisSource)} · ${esc(p.mtRef)}</small></div>`).join('') : `<span class="muted">${esc(I18N.t('Keine passende Wortzuordnung in den lokalen Quellen.'))}</span>`}</div>` : ''}</div>`;
+      if (r.concordance) return `<div class="sres ccRow" data-i="${i}"><div><b>${esc(r.title)}</b> <span class="muted">${esc(r.where)} · ${esc(shortVer(r.versionTitle))}</span></div><div class="ccContext" lang="${/[\u0710-\u072f]/u.test(sn.hit) ? 'syr' : /[\u05d0-\u05ea]/u.test(sn.hit) ? 'he' : ''}" dir="auto"><span>${esc(sn.before)}</span><mark>${esc(sn.hit)}</mark><span>${esc(sn.after)}</span></div><small class="muted">${esc(I18N.t(r.basis === 'root' ? 'Wortfamilie' : r.basis === 'lemma' ? 'Grundform' : 'Wortform'))}${r.matchedLemma ? ' · <bdi lang="he">' + esc(r.matchedLemma) + '</bdi>' : ''}${r.analysisSource ? ' · ' + esc([I18N.t(r.analysisSource), r.analysisReference].filter(Boolean).join(' · ')) : ''}</small>${r.parallels ? `<div class="ccParallels"><small>${esc(I18N.t('Zugeordnete Entsprechungen'))}</small>${r.parallels.length ? r.parallels.map((p,j)=>`<div class="sres ccPeer" data-i="${i}" data-cp="${j}"><bdi lang="${p.language==='Syriac'?'syr':p.kind==='he'?'he':'grc'}" dir="auto">${esc(p.snippet.hit)}</bdi> <span>${esc(p.title)} · ${esc(p.where)}</span><small class="muted">${esc(p.analysisSource)} · ${esc(p.mtRef)}</small></div>`).join('') : `<span class="muted">${esc(I18N.t('Keine passende Wortzuordnung in den lokalen Quellen.'))}</span>`}</div>` : ''}</div>`;
       const roles = (r.syntax || []).map(pair => {
         const parts = [[I18N.t('Verb'), pair.verb ? [{ text: pair.verb }] : []], [I18N.t('Subjekt'), pair.subjects],
           [I18N.t('Direktes Objekt'), pair.objects], [I18N.t('Gemeintes Subjekt'), pair.referents]];
@@ -418,7 +419,7 @@ window.LibrarySearch = (() => {
     $('#sSum').addEventListener('click', e => { const c = e.target.closest('.chip'); if (c && c.dataset.more) { sSumState.n += 100; renderSum(); return; } if (c) runSearch(c.dataset.t || 'restore', lastSearch?.syntax); });
     $('#sExport').onclick = async () => {
       const cc = !!sResults[0]?.concordance;
-      const csv = [cc ? 'Titel;Version;Sprache;Stelle;Kontext;Wortform;Trefferart;Quelle;Wortposition;Zugeordnete Entsprechungen' : 'Titel;Version;Sprache;Stelle;Text'].concat(sResults.map(r => [r.title, r.versionTitle, KIND_LABEL[r.kind], r.where, plainSnip(r), ...(cc ? [r.snippet.hit, r.basis, r.analysisSource, r.position, (r.parallels || []).map(p => [p.snippet.hit, p.title, p.where, p.analysisSource].join(' | ')).join(' / ')] : [])].map(x => '"' + String(x == null ? '' : x).replace(/"/g, '""') + '"').join(';')));
+      const csv = [cc ? 'Titel;Version;Sprache;Stelle;Kontext;Wortform;Trefferart;Quelle;Wortposition;Zugeordnete Entsprechungen' : 'Titel;Version;Sprache;Stelle;Text'].concat(sResults.map(r => [r.title, r.versionTitle, KIND_LABEL[r.kind], r.where, plainSnip(r), ...(cc ? [r.snippet.hit, r.basis, [r.analysisSource, r.analysisReference].filter(Boolean).join(' · '), r.position, (r.parallels || []).map(p => [p.snippet.hit, p.title, p.where, p.analysisSource].join(' | ')).join(' / ')] : [])].map(x => '"' + String(x == null ? '' : x).replace(/"/g, '""') + '"').join(';')));
       const r = await window.api.saveFile(`Suche – ${$('#sq').value.trim().slice(0, 40).replace(/[\\/:*?"<>|]/g, '_')}.csv`, '\ufeff' + csv.join('\r\n'));
       if (r && r.error) alert(r.error);
     };
@@ -440,7 +441,7 @@ window.LibrarySearch = (() => {
     const sEntTitle = e => (e && typeof e === 'object' ? [sLabel('#sLang', e.l), e.cc ? I18N.t('Werkübergreifende Konkordanz') + ' · ' + I18N.t(e.cm === 'root' ? 'Wortfamilie' : e.cm === 'lemma' ? 'Grundform' : 'Wortform') : sLabel('#sMode', e.m)].filter(Boolean).join(' · ') : '');
     const sEntNow = () => {
       const q = $('#sq').value.trim(), l = $('#sLang').value, m = $('#sMode').value;
-      if (isConcordance()) return { q, l, m, cc: true, cm: $('#sConcordanceMode').value, cx: $('#sConcordanceCross').checked, cr: $('#sConcordanceMode').value === 'root' ? concordanceRoot : '' };
+      if (isConcordance()) return { q, l, m, cc: true, cm: $('#sConcordanceMode').value, cx: $('#sConcordanceCross').checked, cr: $('#sConcordanceMode').value === 'root' ? concordanceRoot : '', cl: $('#sConcordanceMode').value === 'lemma' ? concordanceLemma : '' };
       return l === 'auto' && m === (sSlot() === 'ot' ? 'part' : 'lemma') ? q : { q, l, m };
     };
     function sRootScope(id) {
@@ -451,6 +452,7 @@ window.LibrarySearch = (() => {
     function sEntApply(e) {
       setSearchMode('text');
       sRootScope(e?.cc ? e.cr : '');
+      concordanceLemma = e?.cc ? e.cl || '' : '';
       $('#sConcordance').checked = !!e?.cc; $('#sConcordanceCross').checked = e?.cx !== false; $('#sConcordanceMode').value = e?.cm === 'root' && concordanceRoot ? 'root' : e?.cm === 'lemma' ? 'lemma' : 'surface'; // gespeicherte Suche wieder einstellen (alte Einträge: Standard)
       $('#sq').value = sEntQ(e);
       $('#sLang').value = e && typeof e === 'object' && S_LANGS.includes(e.l) ? e.l : 'auto';
@@ -475,7 +477,7 @@ window.LibrarySearch = (() => {
       const a = e.target.closest('a[data-i]');
       if (a) { syncSS(); const ent = (a.closest('#sFavL') ? sFavs : sRecent)[+a.dataset.i]; if (!sEntQ(ent)) return; sEntApply(ent); renderSearchSaved(); runSearch(); }
     });
-    $('#sq').addEventListener('input', () => { sRootScope(''); sRefresh(); renderSearchSaved(); }); // „Automatisch“: Sprache und Treffer-Art folgen der Schrift der Eingabe
+    $('#sq').addEventListener('input', () => { sRootScope(''); concordanceLemma = ''; sRefresh(); renderSearchSaved(); }); // „Automatisch“: Sprache und Treffer-Art folgen der Schrift der Eingabe
     $('#sConcordance').addEventListener('change', sRefresh);
     $('#sConcordanceMode').addEventListener('change', sRefresh);
     $('#sConcordanceCross').addEventListener('change', sRefresh);
@@ -497,9 +499,9 @@ window.LibrarySearch = (() => {
 
     return {
       run: runSearch,
-      concordance(query, root) {
+      concordance(query, root, lemma) {
         sCats.clear(); sTitles.clear(); renderSCats();
-        sEntApply({ q: query, l: 'auto', cc: true, cm: root ? 'root' : 'lemma', cr: root });
+        sEntApply({ q: query, l: 'auto', cc: true, cm: root ? 'root' : 'lemma', cr: root, cl: lemma });
         return runSearch();
       },
       renderCategories: renderSCats,

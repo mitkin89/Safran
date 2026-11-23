@@ -14,6 +14,7 @@ function add(book,kind,pattern){const item=manifest.items.find(e=>e.title===book
 add('Genesis','he',/^Westminster/);add('Isaiah','he',/^Westminster/);add('Genesis','de',/Zunz/);add('Exodus','de',/Zunz/);add('Exodus','he',/^Westminster/);
 if(process.env.SAFRAN_SMOKE_CONCORDANCE==='1')add('Genesis','other',/^Septuaginta \(CATSS\)/);
 if(process.env.SAFRAN_SMOKE_CONCORDANCE==='1'||process.env.SAFRAN_SMOKE_TCSEARCH==='1')add('Genesis','other',/^ETCBC Peshitta/);
+if(process.env.SAFRAN_SMOKE_CONCORDANCE==='1')add('Ruth','other',/^ETCBC Peshitta/);
 const raw=require(path.join(root,'tools/bavli/berakhot/source.json'));
 const bavli={title:'Berakhot',heTitle:'ברכות',language:'Hebrew',versionTitle:raw.versionTitle,sectionNames:['Daf','Line'],text:[[],[],...Object.values(raw.pages)]};
 const be={rel:'fixture/Berakhot/he.json',title:bavli.title,heTitle:bavli.heTitle,language:bavli.language,versionTitle:bavli.versionTitle,kind:'he',categories:['Talmud','Bavli','Seder Zeraim'],bytes:100000};docs.set(be.rel,{...bavli,entry:be,textHash:hash(bavli.text)});
@@ -53,7 +54,8 @@ async function book(title,prefix='document'){await js(`{const d=${prefix};d.quer
  win=new BrowserWindow({show:false,width:1250,height:900,webPreferences:{preload:path.join(__dirname,'preload.cjs'),contextIsolation:true,nodeIntegration:false,nodeIntegrationInSubFrames:true,sandbox:false}});
  const errors=[];win.webContents.on('console-message',event=>{if(event.level==='error'){errors.push(event.message);console.error('Renderer:',event.message)}});
  win.webContents.on('render-process-gone',(_e,d)=>{console.error(d);app.exit(1)});
- await win.loadFile(path.join(root,'library.html'));await waitFor("document.querySelectorAll('#tree .lib-item').length===4",'Start');
+ const expectedTitles=new Set([...docs.values()].map(doc=>doc.entry.title)).size;
+ await win.loadFile(path.join(root,'library.html'));await waitFor(`document.querySelectorAll('#tree .lib-item').length===${expectedTitles}`,'Start');
  await book('Genesis');await waitFor("document.querySelector('#rOut .w')",'Genesis');
  if(process.env.SAFRAN_SMOKE_OUTLINES==='1'){
   await require('./outline-search-flows.cjs')({js,waitFor,book});

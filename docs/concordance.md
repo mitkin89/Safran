@@ -4,7 +4,7 @@ Unter **Suche → Werkübergreifende Konkordanz** ein einzelnes Wort eingeben. I
 
 - **Wortfamilie:** In hebräischen Wortkarten mit ausdrücklicher Zuordnung kannst du im Reiter Konkordanz zur Wortfamilie wechseln. Die Suche verwendet die Lexikon-ID und Sprache der Wurzel und zeigt Westminster-Belege mit ihrer jeweiligen Grundform. Die Option **Weitere Belege in der Suche** behält die Familie bei.
 - **Wortform:** ganze Wörter, unabhängig von Großschreibung und hebräischen, griechischen beziehungsweise syrischen Vokal-/Akzentzeichen. Lateinische Umlaute bleiben unterschieden. Keine Teilwortsuche und kein automatisches Abschneiden von Vorsilben.
-- **Grundform (wo belegt):** zusätzlich die eingegebene Grundform mit vorhandenen Wortanalysen vergleichen. Unterstützt Westminster/OSHB, passende Septuaginta-Fassungen, eingebettete OGA-Analysen bei Josephus/Philo und ETCBC-Peschitta-Analysen. Nicht passende oder fehlende Analysen werden nicht ergänzt. Solche Stellen bleiben nur über die Wortform auffindbar. Die Eingabe ist keine automatische Auflösung einer beliebigen flektierten Form in alle möglichen Lemmata.
+- **Grundform (wo belegt):** zusätzlich die eingegebene Grundform mit vorhandenen Wortanalysen vergleichen. Unterstützt Westminster/OSHB, passende Septuaginta-Fassungen, eingebettete OGA-Analysen bei Josephus/Philo und ETCBC-Peschitta-Analysen. Stellen ohne passende Analyse bleiben über die Wortform auffindbar. Die Eingabe ist keine automatische Auflösung einer beliebigen flektierten Form in alle möglichen Lemmata.
 - Jedes Vorkommen erhält eine eigene Zeile mit Originalschreibweise, bis zu sieben Kontextwörtern auf jeder Seite, Werk, Fassung und ursprünglicher Stellenzählung. Anklicken öffnet die Fundstelle im Leser.
 - Häufigkeiten zählen alle durchsuchten Belege, auch bei begrenzter Anzeige. Verschiedene Fassungen zählen getrennt; Zahlen sind keine sprachübergreifenden Äquivalenzzählungen. Abbruch und unlesbare Dateien werden angezeigt.
 - Die Übersicht zeigt zunächst höchstens 25 Vorkommen je Quelldatei und insgesamt 1.000. Ein Werkfilter erhöht die Anzeige auf bis zu 500 je Datei. Es findet keine Hochrechnung statt.
@@ -12,6 +12,8 @@ Unter **Suche → Werkübergreifende Konkordanz** ein einzelnes Wort eingeben. I
 - CSV exportiert die **angezeigten** Belege mit Wortposition und Analysequelle. Suchverlauf und Favoriten bewahren den Konkordanzmodus.
 
 Griechische und syrische eingebettete Analysen werden nur bei passendem Quelltext-Hash und passenden Wortfolgen verwendet. OGA ist als Quelle gekennzeichnet und kann automatische Analysen enthalten. Eine gemeinsame Schreibweise kann verschiedene lexikalische Einträge vertreten; die Konkordanz behauptet keine Bedeutungsidentität und setzt eine Wortzuordnung nicht mit allgemeiner Bedeutungsidentität gleich.
+
+In Ruth hat Codex alle 1.392 Quellpositionen bis zum Kolophon geprüft. Der Pilot ergänzt 1.344 Lemma-Belege. 229 davon tragen den Quellenhinweis **Safran (KI-Kontextprüfung mit SEDRA)** und die SEDRA-Eintragsnummer. Die übrigen Zuordnungen sind als **Safran (KI-Kontextprüfung)** gekennzeichnet. Bei Wörterbuchzuordnungen und aus dem Kontext identifizierten Namen ist jeweils das Lemma erfasst. 19 Stellen bleiben offen. 29 Quellpositionen entfallen auf Satzzeichen, isolierte Vokalzeichen, Paratext oder einzelne Bestandteile des zweiteiligen Namens Bethlehem. Der Datensatz `peshitta-ruth-lemma-review.json` hält die Entscheidungen und konkurrierenden Analysen fest. Wörter ohne passende Analyse bleiben über die Wortform auffindbar.
 
 
 ## Sprachübergreifende Entsprechungen

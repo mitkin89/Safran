@@ -64,6 +64,13 @@ module.exports=async({win,js,waitFor})=>{
   await win.webContents.capturePage().then(i=>fs.writeFileSync('/tmp/safran-cross-concordance.png',i.toPNG()));
   await js("document.querySelector('#sOut .ccPeer').click()");
   await waitFor("document.documentElement.dataset.tab==='read' && document.querySelector('#rOut .row.hit')",'Zugeordneten Quelltext öffnen');
+  await js("document.querySelector('[data-tab=search]').click();document.querySelector('#sLang').value='other';document.querySelector('#sq').value='ܟܝܠ';document.querySelector('#sq').dispatchEvent(new Event('input'));document.querySelector('#sConcordanceMode').value='lemma';document.querySelector('#sGo').click()");
+  await waitFor("document.querySelector('#sOut').textContent.includes('SEDRA #1511') && document.querySelector('#sGo').textContent==='Suchen'",'SEDRA-Quelle in der Ruth-Konkordanz');
+  assert(await js("[...document.querySelectorAll('#sOut .ccRow')].some(row=>row.querySelector('mark')?.textContent==='ܘܐܟܝܠ' && row.textContent.includes('Safran (KI-Kontextprüfung mit SEDRA)'))"));
+  saved=undefined;
+  await js("document.querySelector('#sExport').click()");
+  for(let i=0;!saved&&i<20;i++)await new Promise(r=>setTimeout(r,25));
+  assert(saved?.content.includes('Safran (KI-Kontextprüfung mit SEDRA) · SEDRA #1511'));
  }
  ipcMain.removeHandler('file:save');
  console.log('Electron: Werkübergreifende Konkordanz, ganze Wörter, Zählung, Werkfilter, Originalstelle, CSV, Verlauf und OSHB-Grundformen bestanden.');

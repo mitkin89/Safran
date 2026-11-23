@@ -986,7 +986,7 @@
     get runSearch() { return runSearch; },
     get sEntApply() { return sEntApply; },
     get loadPassageStats() { return loadPassageStats; },
-    get openConcordance() { return (q, root) => { showTab('search'); return searchUI.concordance(q, root); }; },
+    get openConcordance() { return (q, root, lemma) => { showTab('search'); return searchUI.concordance(q, root, lemma); }; },
     openConcordanceHit(hit, mode) {
       const entry = entries.find(e => e.rel === hit.rel);
       if (!entry || !hit.loc) return;

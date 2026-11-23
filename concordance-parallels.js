@@ -50,7 +50,8 @@ async function attach({dir,entries,results,isCancelled=()=>false,alignmentRoot=_
    mt=[r.position];
   }else if(b.g&&r.rel===b.g.entry.rel&&r.path.length===2){gGroups=greekGroups(b.h,b.g,c,v);mt=gGroups.find(x=>x.positions.includes(r.position))?.ix||[];}
   else if(b.s&&r.rel===b.s.entry.rel&&r.path.length===2){
-   const word=[...String(b.s.text[c]?.[v]||'').matchAll(/data-si="([^"]+)"/g)][r.position-1]?.[1];
+   const html=b.s.text[c]?.[v];
+   const word=C.syriacWordSpans(html,C.tokens(C.textOf(html)))?.[r.position-1]?.id;
    if(!word)continue;
    for(const [ref,row]of Object.entries(b.sy.verses)){const j=row.ids?.indexOf(word);if(j>=0){[c,v]=ref.split(':').map(n=>+n-1);mt=row.links[j]||[];syRow=row;break;}}
   }else continue;
@@ -62,7 +63,7 @@ async function attach({dir,entries,results,isCancelled=()=>false,alignmentRoot=_
   if(b.s&&r.rel!==b.s.entry.rel){
    syRow=syRow||PA.verse(b.sy,ref,hw);if(!syRow)continue;
    const groups=new Map();syRow.links.forEach((ix,j)=>{if(!ix.some(i=>mt.includes(i)))return;const native=syRow.refs?.[j]||ref,record=b.s.syriacMorphology?.words?.[syRow.ids?.[j]];if(!record||record[0]!==syRow.sy[j]||record[2]+':'+record[3]!==native)return;const words=groups.get(native)||[];words.push(syRow.sy[j]);groups.set(native,words);});
-   for(const [native,words]of groups){const [sc,sv]=native.split(':').map(n=>+n-1),p=peer(b.s,sc,sv,words,syRow.review?'Peshitta · checked ('+syRow.review.by+')':'Peshitta · automatic alignment',mtRef);if(p)r.parallels.push(p);}
+   for(const [native,words]of groups){const [sc,sv]=native.split(':').map(n=>+n-1),verseKey=Array.isArray(b.s.text[sc])?sv:String(sv+1),p=peer(b.s,sc,verseKey,words,syRow.review?'Peshitta · checked ('+syRow.review.by+')':'Peshitta · automatic alignment',mtRef);if(p)r.parallels.push(p);}
   }
   await new Promise(resolve=>setImmediate(resolve));
  }
