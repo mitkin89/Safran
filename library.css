@@ -755,11 +755,11 @@ img.g, #rOut img.g, #cmtBody img.g, .sres img.g { display: inline; height: 1.35e
 @media (prefers-color-scheme: dark) { :root:not([data-theme=light]) img.g { filter: invert(1); } }
 
 /* Grammatik-Suche */
-#gramBox { margin: 0 0 8px; font-size: 12.5px; }
-#gramBox > summary { cursor: pointer; color: var(--muted); user-select: none; }
-#gramBox .gramRow { display: flex; flex-wrap: wrap; gap: 6px 12px; padding: 6px 0 2px; align-items: center; }
-#gramBox label { display: inline-flex; gap: 4px; align-items: center; white-space: nowrap; }
-#gramBox select { font-size: 12.5px; max-width: 150px; }
+.gram { margin: 0 0 8px; font-size: 12.5px; }
+.gram > summary { cursor: pointer; color: var(--muted); user-select: none; }
+.gram .gramRow { display: flex; flex-wrap: wrap; gap: 6px 12px; padding: 6px 0 2px; align-items: center; }
+.gram label { display: inline-flex; gap: 4px; align-items: center; white-space: nowrap; }
+.gram select, .gram input { font-size: 12.5px; max-width: 150px; }
 
 #wpop .wgh { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
 #wpop .wgh .wdict { font-family: var(--he-font); font-size: 1.15em; margin: 0; width: auto; padding: 3px 10px; }
