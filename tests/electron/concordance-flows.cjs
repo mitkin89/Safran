@@ -4,7 +4,7 @@ const {ipcMain}=require('electron');
 module.exports=async({win,js,waitFor})=>{
  let saved;
  ipcMain.removeHandler('file:save');ipcMain.handle('file:save',(_e,name,content)=>{saved={name,content};return {};});
- await js("document.querySelector('[data-tab=search]').click();document.querySelector('#sLang').value='auto';document.querySelector('#sq').value='Gott';document.querySelector('#sConcordance').checked=true;document.querySelector('#sConcordance').dispatchEvent(new Event('change'));document.querySelector('#sGo').click()");
+ await js("document.querySelector('[data-tab=search]').click();document.querySelector('#sTextTab').click();document.querySelector('#sLang').value='auto';document.querySelector('#sq').value='Gott';document.querySelector('#sConcordance').checked=true;document.querySelector('#sConcordance').dispatchEvent(new Event('change'));document.querySelector('#sGo').click()");
  await waitFor("document.querySelector('#sOut .ccRow') && document.querySelector('#sGo').textContent==='Suchen'",'Konkordanz über mehrere Werke');
  assert.equal(await js("document.querySelector('#sAdv').hidden"),true);
  assert(await js("[...document.querySelectorAll('#sOut .ccRow mark')].every(x=>x.textContent.toLowerCase()==='gott')"),'nur ganze Wörter');

@@ -57,7 +57,7 @@ module.exports=async function setup({profile,docs,handlers}){
 
   return async function run({js,waitFor}){
     const pane="document.querySelector('#pane2').contentDocument";
-    const search=async (doc='document')=>js(`{const d=${doc};d.querySelectorAll('dialog[open]').forEach(n=>n.close());d.querySelector('nav [data-tab=search]').click();d.querySelector('#sq').value='Gott';d.querySelector('#sq').dispatchEvent(new Event('input',{bubbles:true}));d.querySelector('#sLang').value='de';d.querySelector('#sLang').dispatchEvent(new Event('change',{bubbles:true}));d.querySelector('#sGo').click();}`);
+    const search=async (doc='document')=>js(`{const d=${doc};d.querySelectorAll('dialog[open]').forEach(n=>n.close());d.querySelector('nav [data-tab=search]').click();d.querySelector('#sTextTab').click();d.querySelector('#sq').value='Gott';d.querySelector('#sq').dispatchEvent(new Event('input',{bubbles:true}));d.querySelector('#sLang').value='de';d.querySelector('#sLang').dispatchEvent(new Event('change',{bubbles:true}));d.querySelector('#sGo').click();}`);
     await search();
     await waitFor("document.querySelector('#sOut .sres mark') && document.querySelector('#sGo').textContent==='Suchen'",'Echte Suchtreffer');
     const marked=await js("document.querySelector('#sOut .sres mark').textContent");
@@ -81,20 +81,27 @@ module.exports=async function setup({profile,docs,handlers}){
     console.log('Electron: Suchmodul mit Favoriten, Einzelbuch-Rücksprung und Suche im gelesenen Buch bestanden.');
     console.log('Electron: Echte Such-Worker, Treffermarkierung und Sprung zum Vers bestanden.');
 
+    await js("document.querySelector('#sSyntaxTab').click()");
+    await waitFor("!document.querySelector('#sxBhsa').hidden", 'Mitgelieferte BHSA-Filter');
     await js(`{
-      document.querySelector('#sAdv').open = true;
-      document.querySelector('#sSyntax').open = true;
+      document.querySelector('#sxFilters').open = true;
+      document.querySelector('#sxgStem').value = 'q';
       document.querySelector('#sxVerb').value = 'ברא';
       document.querySelector('#sxSubject').value = 'אלהים';
       document.querySelector('#sxGo').click();
     }`);
-    await waitFor("document.querySelector('#sOut .sres bdi') && document.querySelector('#sxGo').textContent==='Syntax suchen'",'Syntaktische Suche im Pentateuch');
-    assert.deepEqual(searchRequests.at(-1).syntax,{verb:'ברא',subject:'אלהים',object:'',referents:false});
+    await waitFor("document.querySelector('#sOut .sres bdi') && document.querySelector('#sxGo').textContent==='Suchen'",'Syntaktische Suche im Pentateuch');
+    assert.deepEqual(searchRequests.at(-1).syntax,{verb:'ברא',subject:'אלהים',object:'',referents:false,domain:'',relation:''});
+    assert.equal(searchRequests.at(-1).gram.stem, 'q');
     assert.deepEqual(await js("Array.from(document.querySelectorAll('#sOut .sres:first-child mark'), el => el.textContent)"),['ברא','אלהים']);
     assert((await js("document.querySelector('#sOut .sres').textContent")).includes('Subjekt'));
     console.log('Electron: Syntaktische Suche mit markiertem Verb und Subjekt bestanden.');
 
-    await js("document.querySelector('#sOut .sres').click()");
+    await js(`document.querySelector('#sOut .sres').click();
+      const stem = document.querySelector('#sxgStem');
+      stem.value = '';
+      stem.dispatchEvent(new Event('change', { bubbles: true }));
+      document.querySelector('#sxFilters').open = false;`);
     await waitFor("document.querySelector('#rOut .row[data-l=\"5\"] .cell[data-mt] .w')",'Westminster im Leser');
     await js(`document.querySelectorAll('#rOut .row[data-l="5"] .cell[data-mt] .w[data-m]')[5].click()`);
     await waitFor("document.querySelector('#wpop .macula-target') && document.querySelector('#rOut .macula-mark')",'MACULA-Satzrolle im Wort-Popup');

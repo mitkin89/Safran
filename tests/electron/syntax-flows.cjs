@@ -3,9 +3,32 @@
 const assert = require('node:assert/strict');
 
 module.exports = async function syntaxFlows({ js, waitFor }) {
-  await js("document.querySelector('nav [data-tab=search]').click();document.querySelector('#sAdv').open=true;document.querySelector('#sSyntax').open=true");
+  await js("document.querySelector('nav [data-tab=search]').click()");
+  assert.equal(await js("document.querySelector('#sSyntax').hidden"), true);
+  await js(`document.querySelector('#sq').value = 'Textsuche bleibt erhalten';
+    document.querySelector('#gStem').value = 'N';
+    document.querySelector('#sTextTab').dispatchEvent(new KeyboardEvent('keydown', { key: 'ArrowRight', bubbles: true }));`);
+  assert.equal(await js("document.activeElement.id"), 'sSyntaxTab');
+  assert.equal(await js("document.querySelector('#sText').hidden"), true);
+  assert.equal(await js("document.querySelector('#sxFilters').open"), false);
   await waitFor("!document.querySelector('#sxBhsa').hidden", 'BHSA-Filter verfügbar');
-  await js("for(const id of ['sxVerb','sxSubject','sxObject']) document.getElementById(id).value='';document.querySelector('#sxDomain').value='Q';document.querySelector('#sxGo').click()");
+  await js("document.querySelector('#sxExample').click()");
+  assert.equal(await js("document.querySelector('#sxSubject').value"), 'אלהים, יהוה');
+  assert.equal(await js("document.querySelector('#sxVerb').value"), 'אמר');
+  assert.equal(await js("document.querySelector('#sxgStem').value"), '');
+  await js("document.querySelector('#sxBook').value='Genesis';document.querySelector('#sxGo').click()");
+  await waitFor("document.querySelector('#sOut .sres')?.textContent.includes('Genesis')", 'Treffer für „Wo spricht Gott?“');
+  assert.deepEqual(await js(`[...document.querySelectorAll('#sOut .sres:first-child .snip mark')].map(w => w.textContent.replace(/[^א-ת]/g,''))`), ['ויאמר', 'אלהים']);
+  assert(await js("[...document.querySelectorAll('#sOut .sres .t')].every(el => el.textContent === 'Genesis')"));
+  await js("document.querySelector('#sTextTab').click()");
+  assert.equal(await js("document.querySelector('#sq').value"), 'Textsuche bleibt erhalten');
+  assert.equal(await js("document.querySelector('#gStem').value"), 'N');
+  assert.equal(await js("document.querySelector('#sOut').textContent"), '');
+  await js(`document.querySelector('#sSyntaxTab').click();
+    document.querySelector('#sxFilters').open = true;
+    for (const id of ['sxVerb','sxSubject','sxObject']) document.getElementById(id).value='';
+    document.querySelector('#sxDomain').value='Q';
+    document.querySelector('#sxGo').click();`);
   await waitFor("document.querySelector('#sOut .sres')?.textContent.includes('Direkte Rede')", 'BHSA-Direktrede in der Trefferliste');
   await js("document.querySelector('#sOut .sres').click()");
   await waitFor("document.querySelector('#rOut .row[data-l=\"3\"] .cell[data-mt] .w')", 'Genesis 1,3 im Leser');
@@ -29,5 +52,5 @@ module.exports = async function syntaxFlows({ js, waitFor }) {
     return Math.abs((r.top + r.bottom - top - innerHeight) / 2) < 36;
   })()`), 'Letzter Vers des Kapitels wird mittig angezeigt');
   assert.equal(await js("document.querySelector('#lkHover').hidden"), true, 'Vorschau schließt beim Sprung');
-  console.log('Electron: BHSA-Filter, genaue MACULA-Vorschau und zentrierter Sprung nach Jesaja 39,8 bestanden.');
+  console.log('Electron: Suchreiter, Beispiel mit markiertem Verb und Subjekt, BHSA-Filter, genaue MACULA-Vorschau und zentrierter Sprung nach Jesaja 39,8 bestanden.');
 };

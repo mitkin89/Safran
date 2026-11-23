@@ -425,6 +425,12 @@
     "Textfassung konnte nicht geprüft werden": "Text version could not be verified",
 
     "Grammatik (Tanach / Bavli)": "Grammar (Tanakh / Bavli)",
+    "Textsuche": "Text search",
+    "Suchmodus": "Search mode",
+    "Wo spricht Gott?": "Where does God speak?",
+    "Weitere Filter": "More filters",
+    "Hebräische Grundformen eingeben. Mehrere Subjekt- oder Objekt-Lemmata mit Kommas trennen.": "Enter Hebrew lemmas. Separate multiple subject or object lemmas with commas.",
+    "Die Grammatikfilter gelten für das Verb.": "Grammar filters apply to the verb.",
     "Klauselsuche (Tanach)": "Clause search (Tanakh)",
     "Textbereich": "Text domain",
     "Alle Textbereiche": "All text domains",

@@ -111,6 +111,11 @@
     <!-- SUCHE -->
     <section id="tab-search" hidden>
       <div class="sleft">
+      <div id="sModes" role="tablist" aria-label="Suchmodus">
+        <button id="sTextTab" type="button" role="tab" aria-controls="sText" aria-selected="true">Textsuche</button>
+        <button id="sSyntaxTab" type="button" role="tab" aria-controls="sSyntax" aria-selected="false" tabindex="-1">Klauselsuche (Tanach)</button>
+      </div>
+      <div id="sText" role="tabpanel" aria-labelledby="sTextTab">
       <div class="bar" id="sBar">
         <input id="sq" placeholder="Suchbegriff – mehrere Wörter oder &quot;genaue Wortfolge&quot;"><button id="sStar" type="button" title="Suche zu den Favoriten hinzufügen / entfernen">☆</button>
         <button id="sGo" class="primary">Suchen</button>
@@ -167,23 +172,6 @@
             <button id="gClear" type="button">Zurücksetzen</button>
           </div>
         </details>
-        <details id="sSyntax" class="gram">
-          <summary>Klauselsuche (Tanach)</summary>
-          <div class="gramRow">
-            <label>Verb-Lemma <input id="sxVerb" dir="rtl" placeholder="ברא" maxlength="128"></label>
-            <label>Subjekt-Lemma <input id="sxSubject" dir="rtl" placeholder="אלהים, יהוה" maxlength="256"></label>
-            <label>Objekt-Lemma <input id="sxObject" dir="rtl" maxlength="256"></label>
-            <label><input id="sxReferents" type="checkbox"> Gemeinte Subjekte einbeziehen</label>
-            <button id="sxGo" type="button">Syntax suchen</button>
-          </div>
-          <div class="gramRow" id="sxBhsa" hidden>
-            <label>Textbereich <select id="sxDomain"><option value="">Alle Textbereiche</option><option value="N">Erzählung</option><option value="D">Erläuterung des Erzählers</option><option value="Q">Direkte Rede</option></select></label>
-            <label><input id="sxResumption" type="checkbox"> Nur Wiederaufnahmen</label>
-          </div>
-          <p class="muted" id="sxBhsaStatus" aria-live="polite" hidden></p>
-          <p class="muted">Ein hebräisches Lemma eingeben oder einen BHSA-Filter wählen. Mehrere Subjekt- oder Objekt-Lemmata durch Kommas trennen. Die Grammatikfilter gelten für das Verb.</p>
-          <p id="sxError" role="alert" hidden></p>
-        </details>
         <details id="sHelp" class="help">
           <summary>Hilfe: mehrere Wörter, Wortfolge, Platzhalter und Fuzzy</summary>
           <p data-i18n="h12"><b>Mehrere Wörter:</b> Schreibe sie einfach hintereinander ins Suchfeld, beliebig viele. Gefunden werden Verse bzw. Absätze, in denen alle Wörter vorkommen und höchstens so weit auseinander stehen, wie unter „Erweitert“ bei „Abstand“ gewählt (Standard: höchstens 10 Wörter dazwischen). Mit „Reihenfolge einhalten“ müssen sie so aufeinander folgen wie eingegeben. Beispiel: <code>anf* gott erd*</code> findet „Am Anfang schuf Gott Himmel und Erde“. Gezählt wird nur innerhalb eines Verses, nicht über Verse hinweg.</p>
@@ -205,6 +193,36 @@
       <div id="sSaved" class="ssaved">
         <div class="dsv"><div class="dsvh"><b>Letzte Suchen</b><button id="sRecentClear" type="button" title="Liste leeren">✕</button></div><div id="sRecentL" class="dchips"></div></div>
         <div class="dsv"><div class="dsvh"><b>Favoriten</b></div><div id="sFavL" class="dchips"></div></div>
+      </div>
+      </div>
+      <div id="sSyntax" role="tabpanel" aria-labelledby="sSyntaxTab" hidden>
+        <form id="sxForm">
+          <div class="sxRoles">
+            <label>Subjekt-Lemma <input id="sxSubject" lang="he" dir="rtl" maxlength="256" aria-describedby="sxHint"></label>
+            <label>Verb-Lemma <input id="sxVerb" lang="he" dir="rtl" maxlength="128" aria-describedby="sxHint"></label>
+            <label>Objekt-Lemma <input id="sxObject" lang="he" dir="rtl" maxlength="256" aria-describedby="sxHint"></label>
+          </div>
+          <p class="muted" id="sxHint">Hebräische Grundformen eingeben. Mehrere Subjekt- oder Objekt-Lemmata mit Kommas trennen.</p>
+          <div class="bar sxActions">
+            <button id="sxGo" type="submit" class="primary">Suchen</button>
+            <button id="sxExample" type="button">Wo spricht Gott?</button>
+            <label>Buch <select id="sxBook"><option value="">Alle Bücher</option></select></label>
+          </div>
+          <details id="sxFilters" class="gram">
+            <summary>Weitere Filter<span id="sxFilterCount"></span></summary>
+            <div class="gramRow">
+              <label><input id="sxReferents" type="checkbox"> Gemeinte Subjekte einbeziehen</label>
+            </div>
+            <div class="gramRow" id="sxBhsa" hidden>
+              <label>Textbereich <select id="sxDomain"><option value="">Alle Textbereiche</option><option value="N">Erzählung</option><option value="D">Erläuterung des Erzählers</option><option value="Q">Direkte Rede</option></select></label>
+              <label><input id="sxResumption" type="checkbox"> Nur Wiederaufnahmen</label>
+            </div>
+            <p class="muted" id="sxBhsaStatus" aria-live="polite" hidden></p>
+            <div id="sxGrammar" class="gramRow"></div>
+            <p class="muted">Die Grammatikfilter gelten für das Verb.</p>
+          </details>
+          <p id="sxError" role="alert" hidden></p>
+        </form>
       </div>
       <div id="sChart" hidden></div>
       <div id="sTools"><button id="sGroupBtn" type="button" hidden aria-pressed="true" title="Derselbe Vers in mehreren Fassungen erscheint nur einmal; die anderen Fassungen klappen darunter auf">⧉ Fassungen zusammenfassen</button> <button id="sReadBtn" type="button" hidden title="Alle Fundstellen wie beim Lesen untereinander in einem neuen Tab zeigen, nach Buch und Kapitel geordnet, mit den gewählten Versionen nebeneinander und einer Übersicht der Bücher">📖 Alle als Lesetext öffnen</button> <button id="sExport" type="button" hidden title="Alle angezeigten Treffer als CSV-Datei speichern">⤓ Treffer als CSV</button></div>

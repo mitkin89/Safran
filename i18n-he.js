@@ -8,6 +8,13 @@ window.I18N_HE = {
     "Textfassung konnte nicht geprüft werden": "לא ניתן לאמת את גרסת הטקסט",
 
     "Grammatik (Tanach / Bavli)": "דקדוק (תנ״ך / בבלי)",
+    "Alle Bücher": "כל הספרים",
+    "Textsuche": "חיפוש טקסט",
+    "Suchmodus": "מצב חיפוש",
+    "Wo spricht Gott?": "היכן אלוהים מדבר?",
+    "Weitere Filter": "מסננים נוספים",
+    "Hebräische Grundformen eingeben. Mehrere Subjekt- oder Objekt-Lemmata mit Kommas trennen.": "יש להזין ערכים מילוניים בעברית. יש להפריד ערכי נושא או מושא בפסיקים.",
+    "Die Grammatikfilter gelten für das Verb.": "המסננים הדקדוקיים חלים על הפועל.",
     "Klauselsuche (Tanach)": "חיפוש תחבירי (תנ״ך)",
     "Textbereich": "תחום טקסט",
     "Alle Textbereiche": "כל תחומי הטקסט",

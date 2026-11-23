@@ -10,14 +10,47 @@ window.LibrarySearch = (() => {
     let fullCache = null; // Ergebnis der letzten Suche über alle Bücher
     let lastSearch = null; // Parameter der letzten Suche (für „Als Lesetext“ im eigenen Tab)
     // ----- Suchmaske: Sprache und Treffer-Art (zwei Auswahlfelder statt vieler Häkchen) -----
-    let sPending = 0; // laufende Suchen: solange heißt der Knopf „Abbrechen“
-    const sBusy = () => sPending > 0;
+    let searchMode = 'text', searchId = 0, searchPending = false;
+    const sBusy = () => searchPending;
     const sSetBusy = () => {
       const g = $('#sGo');
       g.textContent = I18N.t(sBusy() ? 'Abbrechen' : 'Suchen');
       g.classList.toggle('primary', !sBusy());
-      $('#sxGo').textContent = I18N.t(sBusy() ? 'Abbrechen' : 'Syntax suchen');
+      $('#sxGo').textContent = g.textContent;
+      $('#sxGo').classList.toggle('primary', !sBusy());
     };
+    function setSearchMode(mode) {
+      if (searchMode === mode) return;
+      if (sBusy()) void O.cancelSearch();
+      searchId++;
+      searchPending = false;
+      searchMode = mode;
+      const syntax = mode === 'syntax';
+      $('#sText').hidden = $('#sCatPanel').hidden = syntax;
+      $('#sSyntax').hidden = !syntax;
+      for (const tab of $$('#sModes [role="tab"]')) {
+        const active = tab.id === (syntax ? 'sSyntaxTab' : 'sTextTab');
+        tab.setAttribute('aria-selected', String(active));
+        tab.tabIndex = active ? 0 : -1;
+      }
+      sResults = [];
+      fullCache = lastSearch = null;
+      $('#sOut').replaceChildren();
+      for (const id of ['sSumPanel', 'sChart', 'sGroupBtn', 'sReadBtn', 'sExport', 'sProgress']) $('#' + id).hidden = true;
+      $('#sInfo').textContent = syntax ? '' : I18N.t('Durchsucht alle heruntergeladenen Texte der gewählten Sprachen (auch Fußnoten).');
+      sSetBusy();
+      if (syntax) loadBhsaStatus();
+    }
+    $('#sTextTab').onclick = () => setSearchMode('text');
+    $('#sSyntaxTab').onclick = () => setSearchMode('syntax');
+    $('#sModes').addEventListener('keydown', event => {
+      const { key, target } = event;
+      if (target.getAttribute('role') !== 'tab' || !['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(key)) return;
+      event.preventDefault();
+      const tab = $(key === 'Home' || (key !== 'End' && target.id === 'sSyntaxTab') ? '#sTextTab' : '#sSyntaxTab');
+      tab.click();
+      tab.focus();
+    });
     const S_KINDS = ['he', 'en', 'de', 'other'], S_LANGS = ['auto', 'he', 'de', 'en', 'other', 'all'], S_MODES = ['lemma', 'prefix', 'exact', 'part'];
     // gewählte Sprache -> Textarten; „Automatisch“ richtet sich nach der Schrift der Eingabe
     function sKinds() {
@@ -72,6 +105,7 @@ window.LibrarySearch = (() => {
     // Kategorien und einzelne Bücher für die Suche: ohne Häkchen wird überall gesucht
     const sCats = new Set(), sTitles = new Set();
     function renderSCats() {
+      renderSyntaxBooks();
       const f = $('#sCatFilter').value.trim().toLowerCase();
       const root = { name: '', path: '', children: new Map(), count: 0, titles: [] };
       for (const g of getGroups()) {
@@ -126,9 +160,14 @@ window.LibrarySearch = (() => {
 
     // Grammatik-Auswahl der Suche -> { pos, stem, … } oder null, wenn nichts gewählt ist
     const GRAM_IDS = { pos: 'gPos', stem: 'gStem', tense: 'gTense', person: 'gPerson', gender: 'gGender', number: 'gNumber', state: 'gState', suffix: 'gSuffix', article: 'gArticle' };
-    function gramParams() {
+    for (const id of Object.values(GRAM_IDS)) {
+      const label = $('#' + id).closest('label').cloneNode(true);
+      label.querySelector('select').id = 'sx' + id;
+      $('#sxGrammar').append(label);
+    }
+    function gramParams(prefix = '') {
       const g = {}; let any = false;
-      for (const [k, id] of Object.entries(GRAM_IDS)) { const el = $('#' + id); const v = el ? el.value : ''; g[k] = v; if (v) any = true; }
+      for (const [k, id] of Object.entries(GRAM_IDS)) { const el = $('#' + prefix + id); const v = el ? el.value : ''; g[k] = v; if (v) any = true; }
       return any ? g : null;
     }
     $('#gClear').onclick = () => { for (const id of Object.values(GRAM_IDS)) $('#' + id).value = ''; $('#gramBox').open = false; sRefresh(); };
@@ -200,7 +239,7 @@ window.LibrarySearch = (() => {
     }
     $('#sChart').addEventListener('wheel', e => { const w = e.target.closest && e.target.closest('.cwrap'); if (!w || !(e.ctrlKey || e.metaKey)) return; e.preventDefault(); distSetZoom(distZoom * (e.deltaY < 0 ? 1.15 : 1 / 1.15), e.clientX - w.getBoundingClientRect().left); }, { passive: false });
     $('#sChart').addEventListener('click', e => { const z = e.target.dataset && e.target.dataset.act; if (z === 'zin') return distSetZoom(distZoom * 1.4); if (z === 'zout') return distSetZoom(distZoom / 1.4); });
-    $('#sChart').addEventListener('click', e => { if (e.target.dataset && e.target.dataset.act === 'serall') { distSel = null; return renderDist($('#sChart')._res); } if (e.target.dataset && e.target.dataset.act === 'sernone') { distSel = new Set(); return renderDist($('#sChart')._res); } const b = e.target.closest('.bar'); if (b) runSearch(b.dataset.t); });
+    $('#sChart').addEventListener('click', e => { if (e.target.dataset && e.target.dataset.act === 'serall') { distSel = null; return renderDist($('#sChart')._res); } if (e.target.dataset && e.target.dataset.act === 'sernone') { distSel = new Set(); return renderDist($('#sChart')._res); } const b = e.target.closest('.bar'); if (b) runSearch(b.dataset.t, lastSearch?.syntax); });
     let sSumState = null; // zuletzt gezeigte Buchliste (für „… weitere anzeigen“)
     function renderSum() {
       const { res, onlyTitle, n } = sSumState;
@@ -209,21 +248,27 @@ window.LibrarySearch = (() => {
         : '';
       $('#sSumPanel').hidden = !$('#sSum').innerHTML.trim();
     }
-    let bhsaReady = false;
+    function renderSyntaxBooks() {
+      const select = $('#sxBook'), book = select.value;
+      const titles = new Set(getGroups().filter(g => g.versions.some(v => v.kind === 'he' &&
+        v.versionTitle === 'Westminster Leningrad Codex (OSHB, mit Morphologie)')).map(g => g.title));
+      select.replaceChildren(select.options[0], ...SefOrder.sortTitles([...titles], title => title).map(title => new Option(title, title)));
+      select.value = titles.has(book) ? book : '';
+    }
+    let bhsaStatusRequested = false;
     function loadBhsaStatus() {
-      if (bhsaReady || !O.bhsaStatus || !$('#sSyntax').open) return;
+      if (bhsaStatusRequested || !O.bhsaStatus) return;
+      bhsaStatusRequested = true;
       const bhsaStatus = $('#sxBhsaStatus');
       const show = status => {
-        bhsaReady = !!status.ready;
-        $('#sxBhsa').hidden = !bhsaReady;
+        $('#sxBhsa').hidden = !status.ready;
         bhsaStatus.hidden = false;
-        bhsaStatus.textContent = bhsaReady ? I18N.t('ETCBC BHSA · {} von {} Versen zugeordnet',
+        bhsaStatus.textContent = status.ready ? I18N.t('ETCBC BHSA · {} von {} Versen zugeordnet',
           status.aligned.toLocaleString(I18N.loc), status.total.toLocaleString(I18N.loc))
           : I18N.t('Die mitgelieferten BHSA-Daten konnten nicht gelesen werden.');
       };
       O.bhsaStatus().then(show, () => show({ ready: false }));
     }
-    $('#sSyntax').addEventListener('toggle', loadBhsaStatus);
     const syntaxParams = () => ({
       verb: $('#sxVerb').value.trim(), subject: $('#sxSubject').value.trim(),
       object: $('#sxObject').value.trim(), referents: $('#sxReferents').checked,
@@ -245,38 +290,55 @@ window.LibrarySearch = (() => {
       }
       return runSearch(null, syntax);
     }
-    $('#sxGo').onclick = runSyntaxSearch;
-    $('#sSyntax').addEventListener('keydown', event => {
-      if (event.key === 'Enter' && event.target.type === 'text') {
-        event.preventDefault();
-        if (!sBusy()) runSyntaxSearch();
-      }
+    $('#sxForm').addEventListener('submit', event => {
+      event.preventDefault();
+      runSyntaxSearch();
     });
-    $('#sSyntax').addEventListener('input', () => { $('#sxError').hidden = true; });
+    $('#sxForm').addEventListener('input', () => { $('#sxError').hidden = true; });
+    $('#sxFilters').addEventListener('change', () => {
+      const active = [...$$('#sxFilters select, #sxFilters input')].filter(input =>
+        input.type === 'checkbox' ? input.checked : input.value).length;
+      $('#sxFilterCount').textContent = active ? ' ' + I18N.t('({#} aktiv)', active) : '';
+    });
+    $('#sxExample').onclick = () => {
+      $('#sxObject').value = '';
+      $('#sxSubject').value = 'אלהים, יהוה';
+      $('#sxVerb').value = 'אמר';
+      $('#sxError').hidden = true;
+      $('#sxVerb').focus();
+    };
     async function runSearch(only, syntax = null) {
       const onlyTitle = typeof only === 'string' && only !== 'restore' ? only : null; // Klick auf einen Buchnamen: nur dieses Buch, mit allen Treffern
       const q = syntax ? '' : $('#sq').value.trim();
-      const cc = !syntax && isConcordance(), gram = cc ? null : gramParams();
+      const cc = !syntax && isConcordance(), gram = cc ? null : gramParams(syntax ? 'sx' : '');
       if (cc && (!/^[\p{L}\p{M}\p{N}]+$/u.test(q))) { $('#sInfo').textContent = I18N.t('Bitte ein einzelnes Wort ohne Platzhalter eingeben.'); return; }
       if (!q && !gram && !syntax) return;
       const kinds = gram || syntax ? ['he'] : cc && $('#sConcordanceCross').checked && /[\u05d0-\u05ea\u0710-\u072f\u0370-\u03ff\u1f00-\u1fff]/u.test(q) ? ['he','other'] : sKinds(); // Grammatik-Suche: nur hebräischer Westminster-Text
-      sPending++; sSetBusy();
+      const id = ++searchId;
+      searchPending = true;
+      sSetBusy();
       $('#sProgress').hidden = false; $('#sProgressBar').removeAttribute('value'); $('#sProgressLabel').textContent = I18N.t('Suche läuft …');
       $('#sInfo').textContent = 'Suche läuft …';
       $('#sOut').innerHTML = ''; $('#sSum').innerHTML = ''; $('#sSumPanel').hidden = true; $('#sExport').hidden = true; if (!only || typeof only !== 'string' || only === 'restore') $('#sChart').hidden = true;
+      const book = syntax ? $('#sxBook').value : '';
+      const titles = syntax ? (book ? [book] : []) : [...sTitles];
       const sp = {
-        query: q, extra: [], distance: +$('#sDist').value, ordered: $('#sOrd').checked, fuzzy: $('#sFuzzy').checked, kinds,
-        categories: onlyTitle ? [] : [...sCats], titles: onlyTitle ? [onlyTitle] : [...sTitles], ...sMatchParams(), wlc: $('#sWlc').checked, gram, syntax,
+        query: q, kinds, gram, syntax,
+        categories: onlyTitle || syntax ? [] : [...sCats], titles: onlyTitle ? [onlyTitle] : titles,
+        ...(!syntax ? { distance: +$('#sDist').value, ordered: $('#sOrd').checked, fuzzy: $('#sFuzzy').checked,
+          ...sMatchParams(), wlc: $('#sWlc').checked } : {}),
         limit: 1000, perFile: onlyTitle ? 1000 : 25, countAll: !onlyTitle,
         ...(cc ? { concordance: true, concordanceRoot: $('#sConcordanceMode').value === 'root' ? concordanceRoot : '', crossLanguage: $('#sConcordanceCross').checked, lemma: $('#sConcordanceMode').value === 'lemma', gram: null, fuzzy: false, prefix: false, exact: false, partial: false, wlc: false, countAll: true } : {}),
       };
       lastSearch = { ...sp };
-      const fkey = JSON.stringify({ ...sp, titles: 0, perFile: 0, limit: 0, countAll: 0 });
+      const fkey = JSON.stringify({ ...sp, titles, perFile: 0, limit: 0, countAll: 0 });
       let res;
       if (only === 'restore' && fullCache && fullCache.key === fkey) res = fullCache.res; // Rückkehr zu „alle Bücher“: gespeichertes Ergebnis, keine neue Suche
       else { try { res = await O.search(sp); } catch { res = null; } }
-      sPending--; sSetBusy();
-      if (!sBusy()) $('#sProgress').hidden = true;
+      if (id !== searchId) return;
+      searchPending = false;
+      sSetBusy();
+      $('#sProgress').hidden = true;
       if (res?.error) { $('#sInfo').textContent = I18N.t(res.error); return; }
       if (!res) { $('#sInfo').textContent = I18N.t('Die Suche ist fehlgeschlagen.'); return; }
       if (!onlyTitle && !res.cancelled) fullCache = { key: fkey, res };
@@ -384,6 +446,7 @@ window.LibrarySearch = (() => {
       if (!concordanceRoot && $('#sConcordanceMode').value === 'root') $('#sConcordanceMode').value = 'lemma';
     }
     function sEntApply(e) {
+      setSearchMode('text');
       sRootScope(e?.cc ? e.cr : '');
       $('#sConcordance').checked = !!e?.cc; $('#sConcordanceCross').checked = e?.cx !== false; $('#sConcordanceMode').value = e?.cm === 'root' && concordanceRoot ? 'root' : e?.cm === 'lemma' ? 'lemma' : 'surface'; // gespeicherte Suche wieder einstellen (alte Einträge: Standard)
       $('#sq').value = sEntQ(e);
@@ -442,6 +505,7 @@ window.LibrarySearch = (() => {
       resultAt: (i, cp) => cp == null ? sResults[i] : sResults[i]?.parallels?.[+cp],
       getLastSearch: () => lastSearch,
       selectBook(g) {
+        setSearchMode('text');
         sCats.clear(); sTitles.clear(); sTitles.add(g.title);
         let p = ''; for (const c of g.cats.slice(0, 3)) { p = p ? p + '/' + c : c; sOpen.add(p); }
         renderSCats();
