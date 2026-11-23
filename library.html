@@ -114,6 +114,9 @@
       <div class="bar" id="sBar">
         <input id="sq" placeholder="Suchbegriff – mehrere Wörter oder &quot;genaue Wortfolge&quot;"><button id="sStar" type="button" title="Suche zu den Favoriten hinzufügen / entfernen">☆</button>
         <button id="sGo" class="primary">Suchen</button>
+        <label><input type="checkbox" id="sConcordance"> Werkübergreifende Konkordanz</label>
+        <label id="sConcordanceCrossLabel" hidden><input type="checkbox" id="sConcordanceCross" checked> Sprachübergreifende Entsprechungen</label>
+        <select id="sConcordanceMode" aria-label="Konkordanz-Treffer" hidden><option value="surface">Wortform</option><option value="lemma">Grundform (wo belegt)</option></select>
       </div>
       <div class="bar" id="sOpts">
         <label title="„Automatisch“ richtet sich nach der Schrift der Eingabe: hebräische Buchstaben = hebräische Texte, sonst deutsche und englische">Sprache <select id="sLang">
@@ -393,9 +396,10 @@
   <aside id="formsPanel" hidden>
     <div class="lhead"><b>Wortkarte</b><span class="fmTools"><button id="fmBack" type="button" title="Zurück" disabled>←</button><button id="fmFwd" type="button" title="Vor" disabled>→</button><button id="fmSm" type="button" title="Schrift kleiner">A−</button><button id="fmBg" type="button" title="Schrift größer">A+</button><button id="fmWide" type="button" title="Breiter / schmaler">⇔</button><button id="fmClose" type="button" title="Schließen (Esc)">✕</button></span><div id="fmFind" hidden><input id="fmFindIn" type="text" placeholder="In der Wortkarte suchen …" autocomplete="off" spellcheck="false"><span id="fmFindN" class="muted" aria-live="polite"></span><button id="fmFindPrev" type="button" title="Vorheriger Treffer">▲</button><button id="fmFindNext" type="button" title="Nächster Treffer">▼</button><button id="fmFindX" type="button" title="Suche schließen (Esc)">✕</button></div></div>
     <div id="fmHead"></div>
-    <div id="fmTabs" role="tablist"><button type="button" data-t="card" role="tab">Überblick</button><button type="button" data-t="forms" role="tab">Alle Formen (Tabelle)</button></div>
+    <div id="fmTabs" role="tablist"><button type="button" data-t="card" role="tab">Überblick</button><button type="button" data-t="forms" role="tab">Alle Formen (Tabelle)</button><button id="fmConcordance" type="button" data-t="concordance" role="tab" aria-controls="fmConcordanceBody">Konkordanz</button></div>
     <div id="wcBody"></div>
     <div id="fmBody" hidden></div>
+    <div id="fmConcordanceBody" role="tabpanel" aria-labelledby="fmConcordance" hidden></div>
   </aside>
 
   <div id="audioBar" hidden><div class="auSeekRow"><span id="auCur" class="muted">0:00</span><input type="range" id="auSeek" min="0" max="1000" value="0" step="1" title="Vor- und zurückspulen"><span id="auDur" class="muted">0:00</span></div><div class="auCtl"><span id="auTitle"></span> <button id="auPrev" title="Vorheriger Vers">⏮</button><button id="auPlay" title="Pause / Weiter">⏸</button><button id="auNext" title="Nächster Vers">⏭</button><button id="auStop" title="Beenden">⏹</button> <select id="auSpeed" title="Geschwindigkeit"><option value="0.75">0,75×</option><option value="1" selected>1×</option><option value="1.25">1,25×</option><option value="1.5">1,5×</option></select></div></div>

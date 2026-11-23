@@ -1,5 +1,10 @@
 # Changelog
 
+### Unreleased
+
+- Link displayed MT, CATSS Septuagint and Peshitta occurrences bidirectionally through source-checked word alignments, with original numbering and alignment provenance. Keep aligned correspondences separate from occurrence counts.
+- Add a cross-work concordance over local texts: original-word contexts, occurrence counts by work, source navigation, CSV export and word-card entry point. Match word forms or recorded lemmas where compatible annotations are available; keep unannotated text and separate editions explicit.
+
 ### New in 2.8.1
 
 - Show English LXX, Peshitta and Hexapla reading explanations and translated witness selection counts in the English interface.

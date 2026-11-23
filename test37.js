@@ -124,7 +124,7 @@ vm.runInContext(dictionaryUI.slice(dictionaryUI.indexOf('  function dictCardButt
     // Aramäische Karten behalten beim Zurück/Vor ihre eigene Sprachidentität.
     ctx.fmHist = [{ lemma: 'tg:1a', info: { targum: true }, tab: 'forms', scroll: 0 }, { lemma: '1', greek: false }];
     ctx.fmHi = 1; ctx.fmCur = null; ctx.fmHistSave = () => {}; ctx.fmHistUI = () => {}; ctx.hovApi = null;
-    ctx.fmShowTab = tab => { ctx.fmTab = tab; };
+    ctx.fmShowTab = (tab = ctx.fmTab) => { ctx.fmTab = tab; };
     vm.runInContext(part('  function fmHistGo(d)', "  host.$('#fmBack').onclick"), ctx);
     ctx.fmHistGo(-1); await navigation; await dictionaryReady;
     assert.strictEqual(ctx.fmCur.lemma, 'tg:1a'); assert.strictEqual(ctx.fmTab, 'forms');

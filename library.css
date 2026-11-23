@@ -2431,3 +2431,33 @@ body.il .cell[data-k="he"] .ilt.il-ma { direction: rtl; font-family: var(--he-fo
 .tcs-note mark { background: color-mix(in srgb, #e5c07b 45%, transparent); color: inherit; }
 .tcs-both { font-size: .8em; border: 1px solid currentColor; border-radius: 3px; padding: 0 .25em; opacity: .8; }
 .tcs-more { margin-top: .6em; }
+
+/* Concordance: one original-source occurrence with surrounding words. */
+.ccRow .ccContext { font-size:1.15em; line-height:1.85; margin:.35em 0; overflow-wrap:anywhere; }
+.ccContext mark { margin-inline:.25em; font-weight:700; }
+.ccContext[lang="he"] { font-family:var(--he-font); font-size:1.35em; }
+
+#sOpts label[hidden], #sConcordanceMode[hidden] { display:none; }
+
+
+#sConcordanceCrossLabel[hidden] { display:none; }
+.ccParallels { margin:.45em 0 .2em; padding-inline-start:12px; border-inline-start:2px solid var(--border); }
+.ccParallels > small { display:block; color:var(--muted); }
+.ccPeer { margin:.2em 0; padding:.35em; border:0; background:color-mix(in srgb,var(--accent) 5%,transparent); }
+.ccPeer bdi { font-size:1.35em; margin-inline-end:.5em; }
+.ccPeer bdi[lang="he"] { font-family:var(--he-font); }
+.ccPeer small { display:block; }
+
+.ccPeer bdi[lang="syr"] { font-size:2.1em; line-height:1.5; }
+.ccContext[lang="syr"] { font-size:2em; }
+
+#fmTabs { flex-wrap: wrap; }
+.wcCcTools { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; }
+.wcCcHit { border-top: 1px solid var(--line); padding: 8px 0; }
+.wcCcHit button { text-align: start; max-width: 100%; overflow-wrap: anywhere; }
+.wcCcHit > button { display: block; width: 100%; background: transparent; }
+.wcCcHit small { display: block; color: var(--muted); }
+.wcCcHit .ccContext { display: block; text-align: start; }
+.wcCcPeers { display: flex; flex-wrap: wrap; gap: 5px; margin: 6px 0 0 10px; }
+.wcCcPeer bdi[lang="syr"] { font-size: 1.65em; }
+.wcCcPeer bdi[lang="he"] { font-family: var(--he-font); }

@@ -12,6 +12,7 @@ const docs=new Map();let oldTranslation=false,win;
 const hash=text=>crypto.createHash('sha256').update(JSON.stringify(text)).digest('hex');
 function add(book,kind,pattern){const item=manifest.items.find(e=>e.title===book&&e.kind===kind&&pattern.test(e.versionTitle));assert(item);const doc=JSON.parse(fs.readFileSync(path.join(root,'bundled',item.rel)));const entry={...item,own:false,bytes:Buffer.byteLength(JSON.stringify(doc))};docs.set(entry.rel,{...doc,entry,textHash:hash(doc.text)});}
 add('Genesis','he',/^Westminster/);add('Genesis','de',/Zunz/);add('Exodus','de',/Zunz/);add('Exodus','he',/^Westminster/);
+if(process.env.SAFRAN_SMOKE_CONCORDANCE==='1'){add('Genesis','other',/^Septuaginta \(CATSS\)/);add('Genesis','other',/^ETCBC Peshitta/);}
 const raw=require(path.join(root,'tools/bavli/berakhot/source.json'));
 const bavli={title:'Berakhot',heTitle:'ברכות',language:'Hebrew',versionTitle:raw.versionTitle,sectionNames:['Daf','Line'],text:[[],[],...Object.values(raw.pages)]};
 const be={rel:'fixture/Berakhot/he.json',title:bavli.title,heTitle:bavli.heTitle,language:bavli.language,versionTitle:bavli.versionTitle,kind:'he',categories:['Talmud','Bavli','Seder Zeraim'],bytes:100000};docs.set(be.rel,{...bavli,entry:be,textHash:hash(bavli.text)});
@@ -83,6 +84,10 @@ async function book(title,prefix='document'){await js(`{const d=${prefix};d.quer
   await require('./mishnah-textcrit-flows.cjs')({docs,win,js,waitFor,book});
   assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;
  }
+ if(process.env.SAFRAN_SMOKE_CONCORDANCE==='1'){
+  await require('./concordance-flows.cjs')({win,js,waitFor});
+  assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;
+ }
  if(process.env.SAFRAN_SMOKE_LZ==='1'){
   await require('./textcrit-summary-flows.cjs')({win,js,waitFor,book});
   assert.deepEqual(errors,[]);win.destroy();await fsp.rm(profile,{recursive:true,force:true});app.exit(0);return;
@@ -120,6 +125,7 @@ async function book(title,prefix='document'){await js(`{const d=${prefix};d.quer
  await js("document.querySelector('#pane2').contentDocument.querySelectorAll('#rOut .w')[1].click()");await waitFor("document.querySelector('#pane2').contentDocument.querySelector('#wpop .bvforms')",'Wortkarte im zweiten Fenster');
  console.log('Electron: Zweites Lesefenster mit eigenständiger Wortkarte bestanden.');
  await libraryFlows({js,waitFor});
+ await require('./concordance-flows.cjs')({win,js,waitFor});
  await dictionaryFlows({js,waitFor});
  await require('./comment-flows.cjs')({docs,win,js,waitFor,book});
  await require('./display-flows.cjs')({win,js,waitFor,book});

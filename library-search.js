@@ -25,9 +25,10 @@ window.LibrarySearch = (() => {
       if (l === 'all') return S_KINDS.slice();
       if (l !== 'auto') return [l];
       if (/[\u0590-\u05FF]/.test(v)) return ['he'];
-      if (S_GREEK.test(v)) return ['other']; // griechische Eingabe: Septuaginta und andere griechische Texte
+      if (S_GREEK.test(v) || /[\u0710-\u072f]/u.test(v)) return ['other']; // griechische Eingabe: Septuaginta und andere griechische Texte
       return /\p{L}/u.test(v) ? ['en', 'de'] : S_KINDS.slice();
     }
+    const isConcordance = () => $('#sConcordance').checked;
     const S_GREEK = /[\u0370-\u03FF\u1F00-\u1FFF]/;
     // Für welche Texte gilt die Treffer-Art? 'he' = hebräisch, 'gr' = griechische Eingabe in „Andere“/„Alle“ (Lemma-Suche in der Septuaginta), 'ot' = alles Übrige
     const sSlot = () => { const k = sKinds(); return k.includes('he') ? 'he' : k.includes('other') && S_GREEK.test($('#sq').value) ? 'gr' : 'ot'; };
@@ -39,6 +40,8 @@ window.LibrarySearch = (() => {
     // Suchfeld grob zerlegen (nur für die Hinweiszeile; die eigentliche Zerlegung macht der Suchkern)
     const sShape = v => { let ph = 0; const rest = v.replace(/(^|\s)["“„«»].+?["“”»«](?=\s|$)/gu, () => { ph++; return ' '; }); return { n: ph + rest.split(/\s+/).filter(w => /[\p{L}\p{N}]/u.test(w)).length, ph }; };
     function sRefresh() {
+      const cc = isConcordance();
+      $('#sConcordanceMode').hidden = !cc; $('#sConcordanceCrossLabel').hidden = !cc; $('#sMode').disabled = cc; $('#sMode').closest('label').hidden = cc; $('#sAdv').hidden = cc;
       const kinds = sKinds(), he = kinds.includes('he'), l = $('#sLang').value, v = $('#sq').value.trim(), gram = gramParams();
       const slot = sSlot();
       for (const o of $('#sMode').options) { const off = !sModeOk(o.value, slot); o.hidden = off; o.disabled = off; }
@@ -50,7 +53,7 @@ window.LibrarySearch = (() => {
       if (sh.n > 1 && !gram) p.push(I18N.t(d < 0 ? 'alle Wörter im selben Vers' : d === 0 ? 'alle Wörter direkt nebeneinander' : 'alle Wörter nah beieinander (höchstens {#} dazwischen)', d) + ($('#sOrd').checked ? ', ' + I18N.t('in dieser Reihenfolge') : ''));
       if (sh.ph && !gram) p.push(I18N.t('"…" = genau diese Wortfolge'));
       if (fuzzy && !gram) p.push(I18N.t('ähnliche Schreibweise (Fuzzy)'));
-      $('#sHint').textContent = p.join(' · ');
+      $('#sHint').textContent = cc ? I18N.t('Ein Wort in lokalen Werken; optional zugeordnete Bibeltexte in Hebräisch, Griechisch und Syrisch. Grundformen nur aus passenden Wortanalysen, sonst genaue Wortform. Ohne Fußnoten. Fassungen zählen getrennt.') : p.join(' · ');
       const act = +$('#sOrd').checked + +fuzzy + +!$('#sWlc').checked + +(d !== 10) + +!!gram; // was unter „Erweitert“ vom Standard abweicht
       $('#sAdvN').textContent = act ? ' ' + I18N.t('({#} aktiv)', act) : '';
     }
@@ -231,9 +234,10 @@ window.LibrarySearch = (() => {
     async function runSearch(only, syntax = null) {
       const onlyTitle = typeof only === 'string' && only !== 'restore' ? only : null; // Klick auf einen Buchnamen: nur dieses Buch, mit allen Treffern
       const q = syntax ? '' : $('#sq').value.trim();
-      const gram = gramParams();
+      const cc = !syntax && isConcordance(), gram = cc ? null : gramParams();
+      if (cc && (!/^[\p{L}\p{M}\p{N}]+$/u.test(q))) { $('#sInfo').textContent = I18N.t('Bitte ein einzelnes Wort ohne Platzhalter eingeben.'); return; }
       if (!q && !gram && !syntax) return;
-      const kinds = gram || syntax ? ['he'] : sKinds(); // Grammatik-Suche: nur hebräischer Westminster-Text
+      const kinds = gram || syntax ? ['he'] : cc && $('#sConcordanceCross').checked && /[\u05d0-\u05ea\u0710-\u072f\u0370-\u03ff\u1f00-\u1fff]/u.test(q) ? ['he','other'] : sKinds(); // Grammatik-Suche: nur hebräischer Westminster-Text
       sPending++; sSetBusy();
       $('#sProgress').hidden = false; $('#sProgressBar').removeAttribute('value'); $('#sProgressLabel').textContent = I18N.t('Suche läuft …');
       $('#sInfo').textContent = 'Suche läuft …';
@@ -242,6 +246,7 @@ window.LibrarySearch = (() => {
         query: q, extra: [], distance: +$('#sDist').value, ordered: $('#sOrd').checked, fuzzy: $('#sFuzzy').checked, kinds,
         categories: onlyTitle ? [] : [...sCats], titles: onlyTitle ? [onlyTitle] : [...sTitles], ...sMatchParams(), wlc: $('#sWlc').checked, gram, syntax,
         limit: 1000, perFile: onlyTitle ? 1000 : 25, countAll: !onlyTitle,
+        ...(cc ? { concordance: true, crossLanguage: $('#sConcordanceCross').checked, lemma: $('#sConcordanceMode').value === 'lemma', gram: null, fuzzy: false, prefix: false, exact: false, partial: false, wlc: false, countAll: true } : {}),
       };
       lastSearch = { ...sp };
       const fkey = JSON.stringify({ ...sp, titles: 0, perFile: 0, limit: 0, countAll: 0 });
@@ -250,23 +255,32 @@ window.LibrarySearch = (() => {
       else { try { res = await O.search(sp); } catch { res = null; } }
       sPending--; sSetBusy();
       if (!sBusy()) $('#sProgress').hidden = true;
+      if (res?.error) { $('#sInfo').textContent = I18N.t(res.error); return; }
       if (!res) { $('#sInfo').textContent = I18N.t('Die Suche ist fehlgeschlagen.'); return; }
       if (!onlyTitle && !res.cancelled) fullCache = { key: fkey, res };
       sResults = res.results;
+      $('#sOut').classList.toggle('concordance', !!res.concordance);
       const totalHits = res.stats.reduce((a, x) => a + x.n, 0);
       $('#sInfo').textContent = I18N.t('{#} Treffer in {#} {} ({#} von {#} Dateien durchsucht)', totalHits + (res.truncated ? '+' : ''), res.stats.length, res.stats.length === 1 ? 'Buch' : 'Büchern', res.scanned, res.total) + (res.cancelled ? ' ' + I18N.t('– abgebrochen') : '') + (res.truncated ? ' ' + I18N.t('– bei 1000 angezeigten Treffern gestoppt, bitte genauer suchen') : '') + (res.capped && !onlyTitle ? ' ' + I18N.t('– je Buch werden die ersten 25 gezeigt; ein Klick auf den Buchnamen oben zeigt alle') : '') + '.';
+      if (res.concordance) $('#sInfo').textContent = I18N.t('{} Vorkommen · {} · {} Belege angezeigt · {} von {} Dateien durchsucht', totalHits, I18N.t(res.stats.length === 1 ? '{} Werk' : '{} Werke', res.stats.length), sResults.length, res.scanned, res.total)
+        + (res.cancelled ? ' · ' + I18N.t('– abgebrochen') : '')
+        + (res.truncated || res.capped ? ' · ' + I18N.t('Anzeige begrenzt; Häufigkeiten zählen alle durchsuchten Stellen. Werk auswählen, um weitere Belege zu sehen.') : '')
+        + (sp.lemma ? ' · ' + I18N.t('{} Dateien mit Grundformen, {} ohne passende Wortanalysen', res.coverage.annotated, res.coverage.surface) : '')
+        + (res.crossLanguage ? ' · ' + I18N.t('Entsprechungen aus Wortzuordnungen; getrennt von den Vorkommenszahlen.') : '')
+        + (res.errors ? ' · ' + I18N.t('{} Dateien konnten nicht gelesen werden', res.errors) : '');
       sSumState = { res, onlyTitle, n: 40 };
       renderSum();
-      if (!onlyTitle) renderDist(res);
+      if (res.concordance) $('#sChart').hidden = true; else if (!onlyTitle) renderDist(res);
       $('#sExport').hidden = !sResults.length;
       $('#sReadBtn').hidden = !sResults.length;
-      $('#sGroupBtn').hidden = !sResults.length;
+      $('#sGroupBtn').hidden = !sResults.length || !!res.concordance;
       showSearchResults();
     }
     // Treffer pro Vers zusammenfassen: derselbe Vers in mehreren Fassungen erscheint einmal; die übrigen Fassungen klappen darunter auf
     let sGroupOn = true; try { sGroupOn = localStorage.getItem('searchGroup') !== '0'; } catch { /* egal */ }
     const sresHtml = (r, i, extra) => {
       const sn = r.snippet;
+      if (r.concordance) return `<div class="sres ccRow" data-i="${i}"><div><b>${esc(r.title)}</b> <span class="muted">${esc(r.where)} · ${esc(shortVer(r.versionTitle))}</span></div><div class="ccContext" lang="${/[\u0710-\u072f]/u.test(sn.hit) ? 'syr' : /[\u05d0-\u05ea]/u.test(sn.hit) ? 'he' : ''}" dir="auto"><span>${esc(sn.before)}</span><mark>${esc(sn.hit)}</mark><span>${esc(sn.after)}</span></div><small class="muted">${esc(I18N.t(r.basis === 'lemma' ? 'Grundform' : 'Wortform'))}${r.analysisSource ? ' · ' + esc(r.analysisSource) : ''}</small>${r.parallels ? `<div class="ccParallels"><small>${esc(I18N.t('Zugeordnete Entsprechungen'))}</small>${r.parallels.length ? r.parallels.map((p,j)=>`<div class="sres ccPeer" data-i="${i}" data-cp="${j}"><bdi lang="${p.language==='Syriac'?'syr':p.kind==='he'?'he':'grc'}" dir="auto">${esc(p.snippet.hit)}</bdi> <span>${esc(p.title)} · ${esc(p.where)}</span><small class="muted">${esc(p.analysisSource)} · ${esc(p.mtRef)}</small></div>`).join('') : `<span class="muted">${esc(I18N.t('Keine passende Wortzuordnung in den lokalen Quellen.'))}</span>`}</div>` : ''}</div>`;
       const roles = (r.syntax || []).map(pair => {
         const subjects = pair.subjects.map(subject => `<bdi lang="he">${esc(subject.text)}</bdi>${subject.ref ? ` (${esc(subject.ref)})` : ''}`).join(' · ');
         return `<div class="muted">${esc(I18N.t('Verb'))} <bdi lang="he">${esc(pair.verb)}</bdi> · ${esc(I18N.t('Subjekt'))} ${subjects}</div>`;
@@ -287,7 +301,7 @@ window.LibrarySearch = (() => {
     function renderSearchList() {
       $('#sOut').classList.remove('sread');
       const gb = $('#sGroupBtn'); if (gb) { gb.setAttribute('aria-pressed', sGroupOn ? 'true' : 'false'); gb.classList.toggle('on', sGroupOn); }
-      if (!sGroupOn) { $('#sOut').innerHTML = sResults.map((r, i) => sresHtml(r, i)).join(''); return; }
+      if (sResults[0]?.concordance || !sGroupOn) { $('#sOut').innerHTML = sResults.map((r, i) => sresHtml(r, i)).join(''); return; }
       const groups = searchGroups();
       const head = groups.length < sResults.length ? `<p class="muted sgsum">${esc(I18N.t('{#} Verse · {#} Fundstellen in verschiedenen Fassungen', groups.length, sResults.length))}</p>` : '';
       $('#sOut').innerHTML = head + groups.map(ix => {
@@ -308,7 +322,8 @@ window.LibrarySearch = (() => {
     function showSearchResults() { renderSearchList(); }
     $('#sSum').addEventListener('click', e => { const c = e.target.closest('.chip'); if (c && c.dataset.more) { sSumState.n += 100; renderSum(); return; } if (c) runSearch(c.dataset.t || 'restore', lastSearch?.syntax); });
     $('#sExport').onclick = async () => {
-      const csv = ['Titel;Version;Sprache;Stelle;Text'].concat(sResults.map(r => [r.title, r.versionTitle, KIND_LABEL[r.kind], r.where, plainSnip(r)].map(x => '"' + String(x == null ? '' : x).replace(/"/g, '""') + '"').join(';')));
+      const cc = !!sResults[0]?.concordance;
+      const csv = [cc ? 'Titel;Version;Sprache;Stelle;Kontext;Wortform;Trefferart;Quelle;Wortposition;Zugeordnete Entsprechungen' : 'Titel;Version;Sprache;Stelle;Text'].concat(sResults.map(r => [r.title, r.versionTitle, KIND_LABEL[r.kind], r.where, plainSnip(r), ...(cc ? [r.snippet.hit, r.basis, r.analysisSource, r.position, (r.parallels || []).map(p => [p.snippet.hit, p.title, p.where, p.analysisSource].join(' | ')).join(' / ')] : [])].map(x => '"' + String(x == null ? '' : x).replace(/"/g, '""') + '"').join(';')));
       const r = await window.api.saveFile(`Suche – ${$('#sq').value.trim().slice(0, 40).replace(/[\\/:*?"<>|]/g, '_')}.csv`, '\ufeff' + csv.join('\r\n'));
       if (r && r.error) alert(r.error);
     };
@@ -327,12 +342,14 @@ window.LibrarySearch = (() => {
     // oder { q, l: Sprache, m: Treffer-Art }, wenn etwas anderes eingestellt war.
     const sEntQ = e => (typeof e === 'string' ? e : e && typeof e.q === 'string' ? e.q : '');
     const sLabel = (sel, v) => { const o = [...$(sel).options].find(x => x.value === v); return o ? o.textContent.trim() : ''; };
-    const sEntTitle = e => (e && typeof e === 'object' ? [sLabel('#sLang', e.l), sLabel('#sMode', e.m)].filter(Boolean).join(' · ') : '');
+    const sEntTitle = e => (e && typeof e === 'object' ? [sLabel('#sLang', e.l), e.cc ? I18N.t('Werkübergreifende Konkordanz') + ' · ' + I18N.t(e.cm === 'lemma' ? 'Grundform' : 'Wortform') : sLabel('#sMode', e.m)].filter(Boolean).join(' · ') : '');
     const sEntNow = () => {
       const q = $('#sq').value.trim(), l = $('#sLang').value, m = $('#sMode').value;
+      if (isConcordance()) return { q, l, m, cc: true, cm: $('#sConcordanceMode').value, cx: $('#sConcordanceCross').checked };
       return l === 'auto' && m === (sSlot() === 'ot' ? 'part' : 'lemma') ? q : { q, l, m };
     };
-    function sEntApply(e) { // gespeicherte Suche wieder einstellen (alte Einträge: Standard)
+    function sEntApply(e) {
+      $('#sConcordance').checked = !!e?.cc; $('#sConcordanceCross').checked = e?.cx !== false; $('#sConcordanceMode').value = e?.cm === 'lemma' ? 'lemma' : 'surface'; // gespeicherte Suche wieder einstellen (alte Einträge: Standard)
       $('#sq').value = sEntQ(e);
       $('#sLang').value = e && typeof e === 'object' && S_LANGS.includes(e.l) ? e.l : 'auto';
       const slot = sSlot(), m = e && typeof e === 'object' ? e.m : '';
@@ -357,6 +374,9 @@ window.LibrarySearch = (() => {
       if (a) { syncSS(); const ent = (a.closest('#sFavL') ? sFavs : sRecent)[+a.dataset.i]; if (!sEntQ(ent)) return; sEntApply(ent); renderSearchSaved(); runSearch(); }
     });
     $('#sq').addEventListener('input', () => { sRefresh(); renderSearchSaved(); }); // „Automatisch“: Sprache und Treffer-Art folgen der Schrift der Eingabe
+    $('#sConcordance').addEventListener('change', sRefresh);
+    $('#sConcordanceMode').addEventListener('change', sRefresh);
+    $('#sConcordanceCross').addEventListener('change', sRefresh);
     $('#sLang').addEventListener('change', () => { sRefresh(); renderSearchSaved(); });
     $('#sMode').addEventListener('change', () => {
       const m = $('#sMode').value;
@@ -375,10 +395,15 @@ window.LibrarySearch = (() => {
 
     return {
       run: runSearch,
+      concordance(query) {
+        sCats.clear(); sTitles.clear(); renderSCats();
+        sEntApply({ q: query, l: 'auto', cc: true, cm: 'lemma' });
+        return runSearch();
+      },
       renderCategories: renderSCats,
       renderSaved: renderSearchSaved,
       apply: sEntApply,
-      resultAt: i => sResults[i],
+      resultAt: (i, cp) => cp == null ? sResults[i] : sResults[i]?.parallels?.[+cp],
       getLastSearch: () => lastSearch,
       selectBook(g) {
         sCats.clear(); sTitles.clear(); sTitles.add(g.title);

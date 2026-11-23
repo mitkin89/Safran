@@ -982,6 +982,14 @@
     get renderSearchSaved() { return renderSearchSaved; },
     get runSearch() { return runSearch; },
     get sEntApply() { return sEntApply; },
+    get openConcordance() { return q => { showTab('search'); return searchUI.concordance(q); }; },
+    openConcordanceHit(hit, mode) {
+      const entry = entries.find(e => e.rel === hit.rel);
+      if (!entry || !hit.loc) return;
+      return openGroup(groupsByKey.get(keyOf(entry)), {
+        rel: hit.rel, sectionPath: hit.loc.path, rowLabel: hit.loc.label,
+      }, mode);
+    },
     get showTab() { return showTab; },
   });
   // end-reader-module:word-cards
@@ -2678,7 +2686,7 @@
   $('#sOut').addEventListener('contextmenu', e => {
     const el = e.target.closest('.sres');
     if (!el || (window.getSelection() + '')) return; // bei markiertem Text das normale Menü lassen
-    const r = searchUI.resultAt(+el.dataset.i);
+    const r = searchUI.resultAt(+el.dataset.i, el.dataset.cp);
     const entry = r && entries.find(x => x.rel === r.rel);
     const g = entry && groupsByKey.get(keyOf(entry));
     if (!g) return;
@@ -2692,7 +2700,7 @@
   $('#sOut').addEventListener('click', e => {
     const el = e.target.closest('.sres');
     if (!el) return;
-    const r = searchUI.resultAt(+el.dataset.i);
+    const r = searchUI.resultAt(+el.dataset.i, el.dataset.cp);
     const entry = entries.find(x => x.rel === r.rel);
     if (!entry) return;
     { const tg = { rel: r.rel, sectionPath: r.loc && r.loc.path, rowLabel: r.loc ? r.loc.label : undefined }, gg = groupsByKey.get(keyOf(entry)); if (e.metaKey || e.ctrlKey) openGroupBg(gg, tg); else openGroup(gg, tg, false); }
