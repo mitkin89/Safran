@@ -12,7 +12,7 @@ function syriacReview(book) {
       ...require('./peshitta-lemma-assignments.json').books];
     const catalog = new Map(reviews.map(review => [review.book, review]));
     const supplements = [require('./peshitta-nt-context-review.json'), require('./peshitta-lexical-context-review.json'),
-      require('./peshitta-corpus-dictionary-review.json')].flatMap(source => source.books);
+      require('./peshitta-corpus-dictionary-review.json'), require('./peshitta-automatic-context-review.json')].flatMap(source => source.books);
     for (const supplement of supplements) {
       const review = catalog.get(supplement.book);
       if (review && supplement.textHash !== review.textHash) throw new Error('Peshitta review edition mismatch');

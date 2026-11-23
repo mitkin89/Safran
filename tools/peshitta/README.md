@@ -84,3 +84,18 @@ node --test tests/peshitta-context-batch.test.js tests/concordance.test.js
 ```
 
 The exporter validates frozen decisions, exact source IDs and editions, source noun analyses, dictionary agreement and lack of overlap with earlier assignments. It never approves a candidate itself. The regression searches every accepted native word position under the canonical lemma and checks the withheld position as well. Runtime provenance is labelled as an AI context review with ETCBC and SEDRA attestations. Original embedded morphology remains unchanged.
+
+## Automatic evidence audit of 10,000 additional positions
+
+`context-batch-10000.jsonl.gz` preserves 10,000 distinct positions and all outcomes. This batch is an automatic source-evidence audit, with 490 assignments and 9,510 pending positions. It is not an individual linguistic review of 10,000 verses. All earlier review records are excluded, including unresolved positions and explicit exclusions such as the components of Bethlehem in Ruth, along with the 121-position and 1,000-position reviews. The selection prioritizes strong and conflicting multi-book contexts, then single-book contexts and remaining positions in source order. The summary also records the larger candidate pool scanned to select the batch.
+
+An assignment requires the same normalized three-word context in at least two other originally annotated books. The main lemma and part of speech must agree across those contexts and every annotated occurrence of that form in the other books. Any additional conflict known in the target book also blocks transfer. The analysis must already be an ETCBC candidate, with supplementary SEDRA/UniMorph spelling evidence. This spelling evidence shares SEDRA provenance and does not establish the contextual meaning. Only the main lemma is transferred. No full morphology or new suffix analysis is assigned, and no earlier Safran transfers become source evidence.
+
+The runtime subset is `peshitta-automatic-context-review.json`. Its search provenance remains explicitly automatic. The compressed audit contains rejected and pending proposals as well as accepted ones. Each accepted entry retains its exact native ID, edition hash and two original contextual source locations.
+
+```sh
+node tools/peshitta/automatic-context-batch.cjs /path/to/lexical-evidence.jsonl /tmp/safran-auto-10000 10000
+node --test tests/peshitta-automatic-context.test.js
+```
+
+`context-batch-10000-summary.json` pins the input, earlier audit files, all bundled source files and the uncompressed audit by SHA-256. The leave-one-book-out check excludes the complete target book from both context and form evidence. Its structural rule agrees with 4,195 of 4,196 comparable source annotations, with one disagreement retained in the report. This measures agreement with existing annotation before the extra lexical/candidate gates. It does not independently certify the new assignments or all remaining positions. Reproducibility tests check all 10,000 decisions and every new runtime hit, including results beyond display limits.
