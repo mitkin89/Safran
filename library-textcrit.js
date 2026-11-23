@@ -6,6 +6,7 @@ function create(host){
   const torah=new Set(['Genesis','Exodus','Leviticus','Numbers','Deuteronomy']);
   const books=new Set([...torah,'Joshua','Judges','I Samuel','II Samuel','I Kings','II Kings','Isaiah','Jeremiah','Ezekiel','Hosea','Joel','Amos','Obadiah','Jonah','Micah','Nahum','Habakkuk','Zephaniah','Haggai','Zechariah','Malachi','Psalms','Proverbs','Job','Ruth','Song of Songs','Ecclesiastes','Lamentations','Esther','Daniel','Ezra','Nehemiah','I Chronicles','II Chronicles']);
   const mishnah=window.LibraryMishnahTextCrit.create(host);
+  const search=window.LibraryTextCritSearch.create({...host,closed:()=>{lastContentKey=null;render();},goVerse:async(book,ch,v)=>{search.toggle(false);await host.goVerse(book,ch,v);selected=String(v);render();}});
   const tov=window.LibraryTov.create(host),dss=window.LibraryQumran.create(host),ken=window.LibraryKennicott.create(host),ps=window.LibraryPeshittaTC.create(host),hx=window.LibraryHexaplaTC.create(host),ma=window.LibraryAleppoTC.create(host);
   let key='',selected=null,clickedTal=null,generation=0,pending=null,previewData=null,hover=null,hoverAnchor=null,showTimer=null,hideTimer=null;
   let whole=false,follow=false,fontSize=14,lastContentKey=null,followTimer=null;

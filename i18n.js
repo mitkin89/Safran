@@ -1221,6 +1221,17 @@
     "{} ausgewählt": "{} selected",
     "Aleppo-Text; Analyse des entsprechenden Wortes im Leningradensis (OSHB)": "Aleppo text; analysis of the corresponding word in the Leningrad Codex (OSHB)",
     "Syrische Form im Kopf des Artikels": "Syriac form in the head of the entry",
+    "Lesarten durchsuchen": "Search readings",
+    "In Erläuterungen suchen, z. B. Targum, Midrasch, Etrog": "Search the notes, e.g. Targum, Midrash, etrog",
+    "Art der Lesart": "Type of reading",
+    "Ganzer Tanach": "Whole Tanakh",
+    "LXX und Peschitta weichen an denselben MT-Wörtern ab (nicht nur Übersetzungstechnik)": "LXX and Peshitta differ at the same MT words (not just translation technique)",
+    "LXX und Syr gemeinsam gegen den MT": "LXX and Syr together against the MT",
+    "nur sichere": "certain only",
+    "Lesarten werden geladen …": "Loading readings …",
+    "Lesarten konnten nicht geladen werden.": "The readings could not be loaded.",
+    "Weitere anzeigen": "Show more",
+    "{} Lesarten in {} Versen": "{} readings in {} verses",
   };
 
   const HTML = {

@@ -988,6 +988,7 @@
 
   const textcritUI = window.LibraryTextCrit.create({
     $, esc, getView: () => view, getRow: () => cmtRow, withAnchor,
+    goVerse: async (book, ch, v) => { await jumpTo(book + ' ' + ch + ':' + v); setCmtRow(String(v)); },
     readingRow: () => readingRow($$('#rOut .row[data-l]').filter(r => /^\d+$/.test(r.dataset.l))),
     refreshFind: () => { if (!fb.hidden && fTerm) runFind(fTerm, true); },
     load: (...args) => wordCardsUI.lazyScript(...args), clean: html => R.cleanHtml(html),

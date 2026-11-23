@@ -2416,3 +2416,18 @@ body.il .cell[data-k="he"] .ilt.il-ma { direction: rtl; font-family: var(--he-fo
 .ilt.il-ma .wa:hover, .ilt.il-ma .wa.sel { color: var(--fg); text-decoration: underline; text-underline-offset: .25em; }
 .tc-hx-for { color: var(--muted); font-size: .85em; font-style: italic; }
 .tc-hx-for [lang="grc"] { font-style: normal; }
+/* Apparatus: Lesarten durchsuchen */
+#tcSearchBtn { margin-inline-start: auto; }
+#tcSearchBtn.on { background: var(--accent-bg, color-mix(in srgb, var(--accent, #5b9bd5) 25%, transparent)); }
+#tcSearch { padding: .4em .6em 1em; font-size: var(--tc-fs, 14px); }
+.tcs-form { position: sticky; top: 0; background: var(--bg); padding-bottom: .4em; z-index: 1; }
+#tcsQ { width: 100%; box-sizing: border-box; font-size: 1em; padding: .35em .5em; }
+.tcs-filters { display: flex; flex-wrap: wrap; gap: .35em .8em; align-items: center; margin-top: .4em; font-size: .9em; }
+.tcs-count { margin: .3em 0 .5em; }
+.tcs-hit { display: block; width: 100%; text-align: start; background: none; border: 0; border-bottom: 1px solid var(--line, rgba(127,127,127,.25)); padding: .45em .2em; color: inherit; font: inherit; cursor: pointer; }
+.tcs-hit:hover { background: color-mix(in srgb, var(--fg) 6%, transparent); }
+.tcs-ref { font-weight: 600; }
+.tcs-note { display: block; margin-top: .2em; }
+.tcs-note mark { background: color-mix(in srgb, #e5c07b 45%, transparent); color: inherit; }
+.tcs-both { font-size: .8em; border: 1px solid currentColor; border-radius: 3px; padding: 0 .25em; opacity: .8; }
+.tcs-more { margin-top: .6em; }
