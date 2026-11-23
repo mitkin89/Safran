@@ -1,0 +1,695 @@
+{
+  "books": [
+    {
+      "book": "Deuteronomy",
+      "textHash": "5a9faf4d7eaeeb86a7ba0e766020d2e02f04a6ac1616665bca28a70b8858800d",
+      "sample": [
+        {
+          "id": "70938",
+          "chapter": 14,
+          "verse": 16,
+          "form": "ܘܩܦܘܦܐ",
+          "status": "confirmed",
+          "note": "Erster Vogel der Aufzählung in 14,16; die Analyse im Korpus belegt dieselbe Vogelform.",
+          "proposed": [
+            {
+              "form": "ܘ",
+              "lexeme": "W",
+              "pos": "conj"
+            },
+            {
+              "form": "ܩܦܘܦܐ",
+              "lexeme": "QPWP",
+              "pos": "subs"
+            }
+          ]
+        },
+        {
+          "id": "70939",
+          "chapter": 14,
+          "verse": 16,
+          "form": "ܘܟܘܟܒܝ",
+          "status": "confirmed",
+          "note": "Zweiter Vogel der Aufzählung in 14,16.",
+          "proposed": [
+            {
+              "form": "ܘ",
+              "lexeme": "W",
+              "pos": "conj"
+            },
+            {
+              "form": "ܟܘܟܒܝ",
+              "lexeme": "KWKBJ",
+              "pos": "subs"
+            }
+          ]
+        },
+        {
+          "id": "70940",
+          "chapter": 14,
+          "verse": 17,
+          "form": "ܘܩܩܐ",
+          "status": "confirmed",
+          "note": "Erster Vogel der Aufzählung in 14,17.",
+          "proposed": [
+            {
+              "form": "ܘ",
+              "lexeme": "W",
+              "pos": "conj"
+            },
+            {
+              "form": "ܩܩܐ",
+              "lexeme": "QQ",
+              "pos": "subs"
+            }
+          ]
+        },
+        {
+          "id": "70941",
+          "chapter": 14,
+          "verse": 17,
+          "form": "ܘܫܪܩܪܩܐ",
+          "status": "confirmed",
+          "note": "Zweiter Vogel der Aufzählung in 14,17.",
+          "proposed": [
+            {
+              "form": "ܘ",
+              "lexeme": "W",
+              "pos": "conj"
+            },
+            {
+              "form": "ܫܪܩܪܩܐ",
+              "lexeme": "CRQRQ",
+              "pos": "subs"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "book": "Joshua",
+      "textHash": "f41fa8f9f48dad15fa9675c60a124fd241f948e3253777f7026698bff1a6b4d1",
+      "sample": [
+        {
+          "id": "96465",
+          "chapter": 21,
+          "verse": 34,
+          "form": "ܘܡܢ",
+          "status": "confirmed",
+          "note": "„Und aus“ ist die Präposition vor der Stammbezeichnung.",
+          "proposed": [
+            {
+              "form": "ܘ",
+              "lexeme": "W",
+              "pos": "conj"
+            },
+            {
+              "form": "ܡܢ",
+              "lexeme": "MN",
+              "pos": "prep"
+            }
+          ]
+        },
+        {
+          "id": "96466",
+          "chapter": 21,
+          "verse": 34,
+          "form": "ܫܒܛܐ",
+          "status": "confirmed",
+          "note": "„Stamm“ vor dem Stammesnamen Sebulon.",
+          "proposed": [
+            {
+              "form": "ܫܒܛܐ",
+              "lexeme": "CBV",
+              "pos": "subs"
+            }
+          ]
+        },
+        {
+          "id": "96467",
+          "chapter": 21,
+          "verse": 34,
+          "form": "ܕܙܒܘܠܘܢ",
+          "status": "confirmed",
+          "note": "Sebulon nach der Genitivpartikel.",
+          "proposed": [
+            {
+              "form": "ܕ",
+              "lexeme": "D",
+              "pos": "prep"
+            },
+            {
+              "form": "ܙܒܘܠܘܢ",
+              "lexeme": "ZBWLWN",
+              "pos": "subs"
+            }
+          ]
+        },
+        {
+          "id": "96468",
+          "chapter": 21,
+          "verse": 34,
+          "form": "ܢܟܚ",
+          "status": "confirmed",
+          "note": "Nakah in der Liste der Städte Sebulons.",
+          "proposed": [
+            {
+              "form": "ܢܟܚ",
+              "lexeme": "NKX",
+              "pos": "subs"
+            }
+          ]
+        },
+        {
+          "id": "96469",
+          "chapter": 21,
+          "verse": 34,
+          "form": "ܘܐܓܘܪ̈ܣܝܗ̇",
+          "status": "confirmed",
+          "note": "„Und ihre Weideflächen“, mit Nakah als femininer Bezugsgröße.",
+          "proposed": [
+            {
+              "form": "ܘ",
+              "lexeme": "W",
+              "pos": "conj"
+            },
+            {
+              "form": "ܐܓܘܪܣܝ",
+              "lexeme": ">GWRS",
+              "pos": "subs"
+            },
+            {
+              "form": "ܗ",
+              "lexeme": "H=",
+              "pos": "pron"
+            }
+          ]
+        },
+        {
+          "id": "96470",
+          "chapter": 21,
+          "verse": 34,
+          "form": "ܘܩܪܬܢ",
+          "status": "confirmed",
+          "note": "Kartan als zweiter Ortsname in der Liste.",
+          "proposed": [
+            {
+              "form": "ܘ",
+              "lexeme": "W",
+              "pos": "conj"
+            },
+            {
+              "form": "ܩܪܬܢ",
+              "lexeme": "QRTN",
+              "pos": "subs"
+            }
+          ]
+        },
+        {
+          "id": "96471",
+          "chapter": 21,
+          "verse": 34,
+          "form": "ܘܐܓܘܪ̈ܣܝܗ̇",
+          "status": "confirmed",
+          "note": "„Und ihre Weideflächen“, hier zu Kartan.",
+          "proposed": [
+            {
+              "form": "ܘ",
+              "lexeme": "W",
+              "pos": "conj"
+            },
+            {
+              "form": "ܐܓܘܪܣܝ",
+              "lexeme": ">GWRS",
+              "pos": "subs"
+            },
+            {
+              "form": "ܗ",
+              "lexeme": "H=",
+              "pos": "pron"
+            }
+          ]
+        },
+        {
+          "id": "96480",
+          "chapter": 21,
+          "verse": 37,
+          "form": "ܐܪܒܥ",
+          "status": "confirmed",
+          "note": "„Vier“ zählt die zuvor genannten Städte.",
+          "proposed": [
+            {
+              "form": "ܐܪܒܥ",
+              "lexeme": ">RB<",
+              "pos": "subs"
+            }
+          ]
+        },
+        {
+          "id": "96481",
+          "chapter": 21,
+          "verse": 37,
+          "form": "ܘܐܓܘܪ̈ܣܝܗܝܢ",
+          "status": "confirmed",
+          "note": "„Und ihre Weideflächen“, das Pluralsuffix bezieht sich auf die vier Städte.",
+          "proposed": [
+            {
+              "form": "ܘ",
+              "lexeme": "W",
+              "pos": "conj"
+            },
+            {
+              "form": "ܐܓܘܪܣܝ",
+              "lexeme": ">GWRS",
+              "pos": "subs"
+            },
+            {
+              "form": "ܗܝܢ",
+              "lexeme": "HJN",
+              "pos": "pron"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "book": "Jeremiah",
+      "textHash": "0253a0f366f2e21262316aa38f5c95a60c4b7a9606e1a9240575cacae6775203",
+      "sample": [
+        {
+          "id": "232202",
+          "chapter": 49,
+          "verse": 7,
+          "form": "ܡܪܝܐ",
+          "status": "confirmed",
+          "note": "Der Herr als Subjekt der prophetischen Redeformel.",
+          "proposed": [
+            {
+              "form": "ܡܪܝܐ",
+              "lexeme": "MRJ>",
+              "pos": "subs"
+            }
+          ]
+        },
+        {
+          "id": "232206",
+          "chapter": 49,
+          "verse": 7,
+          "form": "ܚܟܡܬܐ",
+          "status": "confirmed",
+          "note": "„Weisheit“ als Subjekt der negierten Existenzfrage.",
+          "proposed": [
+            {
+              "form": "ܚܟܡܬܐ",
+              "lexeme": "XKM>",
+              "pos": "subs"
+            }
+          ]
+        },
+        {
+          "id": "232207",
+          "chapter": 49,
+          "verse": 7,
+          "form": "ܒܬܝܡܢ",
+          "status": "confirmed",
+          "note": "Teman als Ortsname in der Frage nach der Weisheit, nach der Präposition „in“.",
+          "proposed": [
+            {
+              "form": "ܒ",
+              "lexeme": "B",
+              "pos": "prep"
+            },
+            {
+              "form": "ܬܝܡܢ",
+              "lexeme": "TJMN",
+              "pos": "subs"
+            }
+          ]
+        },
+        {
+          "id": "232208",
+          "chapter": 49,
+          "verse": 7,
+          "form": "ܐܒܕ",
+          "status": "confirmed",
+          "note": "„Ist verschwunden“, das Prädikat zum verlorenen Rat.",
+          "proposed": [
+            {
+              "form": "ܐܒܕ",
+              "lexeme": ">BD",
+              "pos": "verb"
+            }
+          ]
+        },
+        {
+          "id": "232209",
+          "chapter": 49,
+          "verse": 7,
+          "form": "ܡܠܟܐ",
+          "status": "confirmed",
+          "note": "„Rat“ parallel zu „Weisheit“, der den Verständigen abhandengekommen ist.",
+          "proposed": [
+            {
+              "form": "ܡܠܟܐ",
+              "lexeme": "MLK==",
+              "pos": "subs"
+            }
+          ]
+        },
+        {
+          "id": "232210",
+          "chapter": 49,
+          "verse": 7,
+          "form": "ܡܢ",
+          "status": "confirmed",
+          "note": "„Von“ bezeichnet die Personen, denen der Rat verloren ging.",
+          "proposed": [
+            {
+              "form": "ܡܢ",
+              "lexeme": "MN",
+              "pos": "prep"
+            }
+          ]
+        },
+        {
+          "id": "232211",
+          "chapter": 49,
+          "verse": 7,
+          "form": "ܣ̈ܟܘܠܬܢܐ",
+          "status": "confirmed",
+          "note": "Die Verständigen nach der Präposition „von“.",
+          "sedra": "2126"
+        },
+        {
+          "id": "232212",
+          "chapter": 49,
+          "verse": 7,
+          "form": "ܐܫܬܩܠܬ",
+          "status": "confirmed",
+          "note": "Passives „weggenommen“, bezogen auf ihre Weisheit.",
+          "proposed": [
+            {
+              "form": "ܐܫܬܩܠܬ",
+              "lexeme": "CQL",
+              "pos": "verb"
+            }
+          ]
+        },
+        {
+          "id": "232213",
+          "chapter": 49,
+          "verse": 7,
+          "form": "ܚܟܡܬܗܘܢ",
+          "status": "confirmed",
+          "note": "„Ihre Weisheit“, mit Possessivsuffix für die Verständigen.",
+          "proposed": [
+            {
+              "form": "ܚܟܡܬ",
+              "lexeme": "XKM>",
+              "pos": "subs"
+            },
+            {
+              "form": "ܗܘܢ",
+              "lexeme": "HWN",
+              "pos": "pron"
+            }
+          ]
+        },
+        {
+          "id": "232460",
+          "chapter": 49,
+          "verse": 23,
+          "form": "ܒܗܬܬ",
+          "status": "confirmed",
+          "note": "Feminines Prädikat „schämte sich“ mit Hamat als Subjekt.",
+          "proposed": [
+            {
+              "form": "ܒܗܬܬ",
+              "lexeme": "BHT",
+              "pos": "verb"
+            }
+          ]
+        },
+        {
+          "id": "232461",
+          "chapter": 49,
+          "verse": 23,
+          "form": "ܚܡܬ",
+          "status": "confirmed",
+          "note": "Stadtname Hamat parallel zu Arpad.",
+          "proposed": [
+            {
+              "form": "ܚܡܬ",
+              "lexeme": "XMT=",
+              "pos": "subs"
+            }
+          ]
+        },
+        {
+          "id": "232462",
+          "chapter": 49,
+          "verse": 23,
+          "form": "ܘܪܦܕ",
+          "status": "confirmed",
+          "note": "Arpad als zweiter Stadtname neben Hamat.",
+          "proposed": [
+            {
+              "form": "ܘ",
+              "lexeme": "W",
+              "pos": "conj"
+            },
+            {
+              "form": "ܪܦܕ",
+              "lexeme": "RPD",
+              "pos": "subs"
+            }
+          ]
+        },
+        {
+          "id": "232464",
+          "chapter": 49,
+          "verse": 23,
+          "form": "ܕܫܡܘܥܬܐ",
+          "status": "confirmed",
+          "note": "„Nachricht“ in „sie hörten eine schlechte Nachricht“, nach der Relativpartikel.",
+          "sedra": "6339",
+          "sedraQuery": "ܫܡܘܥܬܐ"
+        },
+        {
+          "id": "232465",
+          "chapter": 49,
+          "verse": 23,
+          "form": "ܒܝܫܬܐ",
+          "status": "confirmed",
+          "note": "Feminines Adjektiv „schlecht“, abhängig von der Nachricht.",
+          "proposed": [
+            {
+              "form": "ܒܝܫܬܐ",
+              "lexeme": "BJC",
+              "pos": "adjv"
+            }
+          ]
+        },
+        {
+          "id": "232467",
+          "chapter": 49,
+          "verse": 23,
+          "form": "ܘܐܬܬܒܪܘ",
+          "status": "confirmed",
+          "note": "„Und sie wurden erschüttert“ als Reaktion auf die schlechte Nachricht.",
+          "proposed": [
+            {
+              "form": "ܘ",
+              "lexeme": "W",
+              "pos": "conj"
+            },
+            {
+              "form": "ܐܬܬܒܪܘ",
+              "lexeme": "TBR",
+              "pos": "verb"
+            }
+          ]
+        },
+        {
+          "id": "232469",
+          "chapter": 49,
+          "verse": 23,
+          "form": "ܕܚܠܬܗ̇",
+          "status": "confirmed",
+          "note": "„Ihre Furcht“, mit ausdrücklich feminin markiertem Suffix.",
+          "proposed": [
+            {
+              "form": "ܕܚܠܬ",
+              "lexeme": "DXL>",
+              "pos": "subs"
+            },
+            {
+              "form": "ܗ",
+              "lexeme": "H=",
+              "pos": "pron"
+            }
+          ]
+        },
+        {
+          "id": "232470",
+          "chapter": 49,
+          "verse": 23,
+          "form": "ܘܢܝܚܐ",
+          "status": "confirmed",
+          "note": "„Und Ruhe“ ist Gegenstand des abschließenden negierten Verbs.",
+          "proposed": [
+            {
+              "form": "ܘ",
+              "lexeme": "W",
+              "pos": "conj"
+            },
+            {
+              "form": "ܢܝܚܐ",
+              "lexeme": "NJX",
+              "pos": "subs"
+            }
+          ]
+        },
+        {
+          "id": "232472",
+          "chapter": 49,
+          "verse": 23,
+          "form": "ܐܫܟܚܬ",
+          "status": "confirmed",
+          "note": "„Fand nicht“, negiertes Verb mit Ruhe als Objekt.",
+          "proposed": [
+            {
+              "form": "ܐܫܟܚܬ",
+              "lexeme": "CKX",
+              "pos": "verb"
+            }
+          ]
+        },
+        {
+          "id": "232515",
+          "chapter": 49,
+          "verse": 28,
+          "form": "ܩܘܡܘ",
+          "status": "confirmed",
+          "note": "„Steht auf“ als Imperativ vor „zieht hinauf“.",
+          "proposed": [
+            {
+              "form": "ܩܘܡܘ",
+              "lexeme": "QWM",
+              "pos": "verb"
+            }
+          ]
+        },
+        {
+          "id": "232517",
+          "chapter": 49,
+          "verse": 28,
+          "form": "ܥܠ",
+          "status": "confirmed",
+          "note": "„Gegen“ gibt das Ziel des Zuges an.",
+          "proposed": [
+            {
+              "form": "ܥܠ",
+              "lexeme": "<L",
+              "pos": "prep"
+            }
+          ]
+        },
+        {
+          "id": "232518",
+          "chapter": 49,
+          "verse": 28,
+          "form": "ܩܕܪ",
+          "status": "confirmed",
+          "note": "Kedar als Ziel des Zuges nach „gegen“.",
+          "sedra": "32783"
+        },
+        {
+          "id": "232519",
+          "chapter": 49,
+          "verse": 28,
+          "form": "ܘܒܘܙܘ",
+          "status": "confirmed",
+          "note": "Imperativ Plural „und plündert“ nach „zieht gegen Kedar“, mit den Leuten des Ostens als Objekt.",
+          "sedra": "358",
+          "sedraQuery": "ܒܙ"
+        },
+        {
+          "id": "232520",
+          "chapter": 49,
+          "verse": 28,
+          "form": "ܠܒܢ̈ܝ",
+          "status": "confirmed",
+          "note": "„Die Söhne“ in der Wendung „die Söhne des Ostens“.",
+          "proposed": [
+            {
+              "form": "ܠ",
+              "lexeme": "L",
+              "pos": "prep"
+            },
+            {
+              "form": "ܒܢܝ",
+              "lexeme": "BN",
+              "pos": "subs"
+            }
+          ]
+        },
+        {
+          "id": "232521",
+          "chapter": 49,
+          "verse": 28,
+          "form": "ܡܕܢܚܐ",
+          "status": "confirmed",
+          "note": "„Des Ostens“ bezeichnet die Herkunft der genannten Menschen.",
+          "proposed": [
+            {
+              "form": "ܡܕܢܚܐ",
+              "lexeme": "MDNX",
+              "pos": "subs"
+            }
+          ]
+        },
+        {
+          "id": "234295",
+          "chapter": 51,
+          "verse": 64,
+          "form": "ܠܗܪܟܐ",
+          "status": "confirmed",
+          "note": "„Bis hierher“ in der Schlussformel.",
+          "proposed": [
+            {
+              "form": "ܠ",
+              "lexeme": "L",
+              "pos": "prep"
+            },
+            {
+              "form": "ܗܪܟܐ",
+              "lexeme": "HRK>",
+              "pos": "advb"
+            }
+          ]
+        },
+        {
+          "id": "234297",
+          "chapter": 51,
+          "verse": 64,
+          "form": "ܕܐܪܡܝܐ",
+          "status": "confirmed",
+          "note": "Der Name Jeremia in der Schlussformel „die Worte Jeremias“.",
+          "proposed": [
+            {
+              "form": "ܕ",
+              "lexeme": "D",
+              "pos": "prep"
+            },
+            {
+              "form": "ܐܪܡܝܐ",
+              "lexeme": ">RMJ>",
+              "pos": "subs"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

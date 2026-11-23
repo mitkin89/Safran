@@ -3,7 +3,7 @@
 // bleiben beim Leser; aktuelle Buch-/Versionslisten werden über Getter bezogen.
 window.LibrarySearch = (() => {
   'use strict';
-  function create({ $, $$, esc, KIND_LABEL, shortVer, plainSnip, lsGet, lsSet, getGroups, getPreferredVersions, outlineSearch }) {
+  function create({ $, $$, esc, KIND_LABEL, shortVer, plainSnip, lsGet, lsSet, getGroups, getPreferredVersions, outlineSearch, concordanceCoverageHtml }) {
     const O = window.offline;
     // ---------- Suche ----------
     let sResults = [];
@@ -36,6 +36,7 @@ window.LibrarySearch = (() => {
       sResults = [];
       fullCache = lastSearch = null;
       $('#sOut').replaceChildren();
+      $('#sLemmaCoverage').replaceChildren();
       for (const id of ['sSumPanel', 'sChart', 'sGroupBtn', 'sReadBtn', 'sExport', 'sProgress']) $('#' + id).hidden = true;
       $('#sInfo').textContent = mode === 'text' ? I18N.t('Durchsucht alle heruntergeladenen Texte der gewählten Sprachen (auch Fußnoten).') : '';
       sSetBusy();
@@ -324,6 +325,7 @@ window.LibrarySearch = (() => {
       $('#sProgress').hidden = false; $('#sProgressBar').removeAttribute('value'); $('#sProgressLabel').textContent = I18N.t('Suche läuft …');
       $('#sInfo').textContent = 'Suche läuft …';
       $('#sOut').innerHTML = ''; $('#sSum').innerHTML = ''; $('#sSumPanel').hidden = true; $('#sExport').hidden = true; if (!only || typeof only !== 'string' || only === 'restore') $('#sChart').hidden = true;
+      $('#sLemmaCoverage').innerHTML = '';
       const book = syntax ? $('#sxBook').value : '';
       const titles = syntax ? (book ? [book] : []) : [...sTitles];
       const sp = {
@@ -353,9 +355,12 @@ window.LibrarySearch = (() => {
       if (res.concordance) $('#sInfo').textContent = I18N.t('{} Vorkommen · {} · {} Belege angezeigt · {} von {} Dateien durchsucht', totalHits, I18N.t(res.stats.length === 1 ? '{} Werk' : '{} Werke', res.stats.length), sResults.length, res.scanned, res.total)
         + (res.cancelled ? ' · ' + I18N.t('– abgebrochen') : '')
         + (res.truncated || res.capped ? ' · ' + I18N.t('Anzeige begrenzt; Häufigkeiten zählen alle durchsuchten Stellen. Werk auswählen, um weitere Belege zu sehen.') : '')
-        + (sp.lemma ? ' · ' + I18N.t('{} Dateien mit Grundformen, {} ohne passende Wortanalysen', res.coverage.annotated, res.coverage.surface) : '')
+        + (res.lemmaCoverage && !res.hitsByBasis.root && !sp.concordanceRoot
+          ? ' · ' + I18N.t('{} Lemmatreffer · {} Wortformtreffer', res.hitsByBasis.lemma.toLocaleString(I18N.loc), res.hitsByBasis.surface.toLocaleString(I18N.loc))
+          : '')
         + (res.crossLanguage ? ' · ' + I18N.t('Entsprechungen aus Wortzuordnungen; getrennt von den Vorkommenszahlen.') : '')
         + (res.errors ? ' · ' + I18N.t('{} Dateien konnten nicht gelesen werden', res.errors) : '');
+      if (res.concordance) $('#sLemmaCoverage').innerHTML = concordanceCoverageHtml(res);
       sSumState = { res, onlyTitle, n: 40 };
       renderSum();
       if (res.concordance) $('#sChart').hidden = true; else if (!onlyTitle) renderDist(res);

@@ -28,6 +28,9 @@ module.exports=async({win,js,waitFor})=>{
  await js("document.querySelector('#sq').value='אמר';document.querySelector('#sq').dispatchEvent(new Event('input'));document.querySelector('#sConcordanceMode').value='lemma';document.querySelector('#sGo').click()");
  await waitFor("document.querySelector('#sOut .ccRow') && document.querySelector('#sGo').textContent==='Suchen'",'Hebräische Grundformen');
  assert(await js("document.querySelector('#sOut').textContent.includes('OSHB')"));
+ assert(await js("document.querySelector('#sInfo').textContent.includes('Lemmatreffer') && document.querySelector('#sLemmaCoverage summary').textContent.includes('Wortstellen mit Lemma')"));
+ await js("document.querySelector('#sLemmaCoverage summary').click()");
+ assert(await js("document.querySelector('#sLemmaCoverage details').open && document.querySelector('#sLemmaCoverage tbody').textContent.includes('Westminster')"));
  await js("document.querySelector('#sConcordance').checked=false;document.querySelector('#sConcordance').dispatchEvent(new Event('change'));document.querySelector('[data-tab=read]').click()");
  await js("document.querySelector('#rOut .w').dispatchEvent(new MouseEvent('dblclick',{bubbles:true}))");
  await waitFor("!document.querySelector('#formsPanel').hidden && document.querySelector('#fmHead').textContent.trim().length>0",'Wortkarte');
@@ -35,6 +38,7 @@ module.exports=async({win,js,waitFor})=>{
  await js("document.querySelector('#fmConcordance').click()");
  await waitFor("document.querySelector('#fmConcordance[aria-selected=true]') && document.querySelector('#fmConcordanceBody .wcCcHit')",'Belege direkt in der Wortkarte');
  assert.equal(await js("document.documentElement.dataset.tab"),'read');
+ assert(await js("document.querySelector('#fmConcordanceBody .ccCoverage summary').textContent.includes('Fassungen geprüft') && document.querySelector('.wcCcHit small').textContent.includes('Grundform')"));
  if(process.env.SAFRAN_SMOKE_CONCORDANCE==='1'){
   assert(await js("document.querySelector('#fmConcordanceBody [data-cc-peer]')"),'Sprachübergreifende Entsprechungen in der Wortkarte');
  }
@@ -102,6 +106,9 @@ module.exports=async({win,js,waitFor})=>{
   await js("document.querySelector('#sExport').click()");
   for(let i=0;!saved&&i<20;i++)await new Promise(r=>setTimeout(r,25));
   assert(saved?.content.includes('Safran (KI-Kontextprüfung mit SEDRA) · SEDRA #1511'));
+  await js("document.querySelector('#sq').value='ܬܬܬܬܬܬܬܬ';document.querySelector('#sq').dispatchEvent(new Event('input'));document.querySelector('#sGo').click()");
+  await waitFor("document.querySelector('#sLemmaCoverage tbody') && document.querySelector('#sGo').textContent==='Suchen'",'Lemma-Abdeckung ohne Treffer');
+  assert(await js("!document.querySelector('#sOut .ccRow') && [...document.querySelectorAll('#sLemmaCoverage tbody tr')].some(row=>row.textContent.includes('Ruth')&&row.lastElementChild.textContent==='0')"));
  }
  ipcMain.removeHandler('file:save');
  console.log('Electron: Werkübergreifende Konkordanz, ganze Wörter, Zählung, Werkfilter, Originalstelle, CSV, Verlauf und OSHB-Grundformen bestanden.');

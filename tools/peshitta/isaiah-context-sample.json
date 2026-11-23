@@ -1,0 +1,6438 @@
+{
+  "book": "Isaiah",
+  "textHash": "0edf3dc1041da636a21ca83fc8f340b15288fa00296e1fd883db319f97f72733",
+  "method": "Safran (KI-Kontextprüfung)",
+  "seed": "safran-isaiah-pilot-v1",
+  "source": {
+    "etcbc": "ETCBC Syriac Corpus 0.92",
+    "sedra": "https://sedra.bethmardutho.org/releases/v5.0/",
+    "license": "CC BY-NC 4.0"
+  },
+  "words": 17567,
+  "candidates": 9386,
+  "sample": [
+    {
+      "id": "195491",
+      "chapter": 1,
+      "verse": 1,
+      "form": "ܚܙܘܐ",
+      "proposed": [
+        {
+          "form": "ܚܙܘܐ",
+          "lexeme": "XZW",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Überschrift: Vision, das vorangestellte Nomen zum Relativsatz „die er sah“."
+    },
+    {
+      "id": "195492",
+      "chapter": 1,
+      "verse": 1,
+      "form": "ܕܐܫܥܝܐ",
+      "proposed": [
+        {
+          "form": "ܕ",
+          "lexeme": "D",
+          "pos": "prep"
+        },
+        {
+          "form": "ܐܫܥܝܐ",
+          "lexeme": ">C<J>",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Vision des Jesaja“; Name nach der Genitivpartikel, auch in SEDRA #308."
+    },
+    {
+      "id": "195493",
+      "chapter": 1,
+      "verse": 1,
+      "form": "ܒܪ",
+      "proposed": [
+        {
+          "form": "ܒܪ",
+          "lexeme": "BR",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Patronymikon „Sohn des Amoz“."
+    },
+    {
+      "id": "195494",
+      "chapter": 1,
+      "verse": 1,
+      "form": "ܐܡܘܨ",
+      "proposed": [
+        {
+          "form": "ܐܡܘܨ",
+          "lexeme": ">MWY",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Name Amoz in der Vaterangabe; die hebräische und syrische Form stimmen überein."
+    },
+    {
+      "id": "195495",
+      "chapter": 1,
+      "verse": 1,
+      "form": "ܕܚܙܐ",
+      "proposed": [
+        {
+          "form": "ܕ",
+          "lexeme": "D",
+          "pos": "prep"
+        },
+        {
+          "form": "ܚܙܐ",
+          "lexeme": "XZJ",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Relativsatz mit „sehen“, passend zum Nomen „Vision“."
+    },
+    {
+      "id": "195496",
+      "chapter": 1,
+      "verse": 1,
+      "form": "ܥܠ",
+      "proposed": [
+        {
+          "form": "ܥܠ",
+          "lexeme": "<L",
+          "pos": "prep"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Thema der Vision: über Juda, parallel zu „über Jerusalem“."
+    },
+    {
+      "id": "195497",
+      "chapter": 1,
+      "verse": 1,
+      "form": "ܝܗܘܕܐ",
+      "proposed": [
+        {
+          "form": "ܝܗܘܕܐ",
+          "lexeme": "JHWD>",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Land Juda als Thema der Vision."
+    },
+    {
+      "id": "195498",
+      "chapter": 1,
+      "verse": 1,
+      "form": "ܘܥܠ",
+      "proposed": [
+        {
+          "form": "ܘ",
+          "lexeme": "W",
+          "pos": "conj"
+        },
+        {
+          "form": "ܥܠ",
+          "lexeme": "<L",
+          "pos": "prep"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Parallele Präpositionalgruppe „und über Jerusalem“."
+    },
+    {
+      "id": "195499",
+      "chapter": 1,
+      "verse": 1,
+      "form": "ܐܘܪܫܠܡ",
+      "proposed": [
+        {
+          "form": "ܐܘܪܫܠܡ",
+          "lexeme": ">WRCLM",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Jerusalem als zweites Thema nach Juda."
+    },
+    {
+      "id": "195500",
+      "chapter": 1,
+      "verse": 1,
+      "form": "ܒܝ̈ܘܡܝ",
+      "proposed": [
+        {
+          "form": "ܒ",
+          "lexeme": "B",
+          "pos": "prep"
+        },
+        {
+          "form": "ܝܘܡܝ",
+          "lexeme": "JWM",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Zeitangabe „in den Tagen“ vor der Königsliste."
+    },
+    {
+      "id": "195501",
+      "chapter": 1,
+      "verse": 1,
+      "form": "ܥܘܙܝܐ",
+      "proposed": [
+        {
+          "form": "ܥܘܙܝܐ",
+          "lexeme": "<WZJ>",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Usija ist der erste König der Liste nach „in den Tagen“."
+    },
+    {
+      "id": "195502",
+      "chapter": 1,
+      "verse": 1,
+      "form": "ܘܝܘܬܡ",
+      "proposed": [
+        {
+          "form": "ܘ",
+          "lexeme": "W",
+          "pos": "conj"
+        },
+        {
+          "form": "ܝܘܬܡ",
+          "lexeme": "JWTM",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Jotam ist der zweite König dieser Aufzählung."
+    },
+    {
+      "id": "195503",
+      "chapter": 1,
+      "verse": 1,
+      "form": "ܘܐܚܙ",
+      "proposed": [
+        {
+          "form": "ܘ",
+          "lexeme": "W",
+          "pos": "conj"
+        },
+        {
+          "form": "ܐܚܙ",
+          "lexeme": ">XZ",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Ahas in der Königsliste, zwischen Jotam und Hiskia."
+    },
+    {
+      "id": "195504",
+      "chapter": 1,
+      "verse": 1,
+      "form": "ܘܚܙܩܝܐ",
+      "proposed": [
+        {
+          "form": "ܘ",
+          "lexeme": "W",
+          "pos": "conj"
+        },
+        {
+          "form": "ܚܙܩܝܐ",
+          "lexeme": "XZQJ>",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Hiskia am Ende der Königsliste; im selben Buch auch als Name in Kapitel 36 belegt."
+    },
+    {
+      "id": "195505",
+      "chapter": 1,
+      "verse": 1,
+      "form": "ܡ̈ܠܟܐ",
+      "proposed": [
+        {
+          "form": "ܡܠܟܐ",
+          "lexeme": "MLK",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Plural „Könige“ fasst die vier Personennamen zusammen; von „Rat“ durch den Satz ausgeschlossen."
+    },
+    {
+      "id": "195506",
+      "chapter": 1,
+      "verse": 1,
+      "form": "ܕܝܗܘܕܐ",
+      "proposed": [
+        {
+          "form": "ܕ",
+          "lexeme": "D",
+          "pos": "prep"
+        },
+        {
+          "form": "ܝܗܘܕܐ",
+          "lexeme": "JHWD>",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Könige von Juda“; Ortsname nach der Genitivpartikel."
+    },
+    {
+      "id": "195507",
+      "chapter": 1,
+      "verse": 2,
+      "form": "ܫܡܥܘ",
+      "proposed": [
+        {
+          "form": "ܫܡܥܘ",
+          "lexeme": "CM<",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Imperativ Plural „hört“ an den Himmel."
+    },
+    {
+      "id": "195508",
+      "chapter": 1,
+      "verse": 2,
+      "form": "ܫܡܝܐ",
+      "proposed": [
+        {
+          "form": "ܫܡܝܐ",
+          "lexeme": "CMJ",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Himmel als Adressat von „hört“."
+    },
+    {
+      "id": "195509",
+      "chapter": 1,
+      "verse": 2,
+      "form": "ܘܨܘܬܝ",
+      "proposed": [
+        {
+          "form": "ܘ",
+          "lexeme": "W",
+          "pos": "conj"
+        },
+        {
+          "form": "ܨܘܬܝ",
+          "lexeme": "YWT",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Femininer Imperativ „und höre zu“ an die Erde. Der Pluralimperativ derselben Grundform steht in 1:10."
+    },
+    {
+      "id": "195510",
+      "chapter": 1,
+      "verse": 2,
+      "form": "ܐܪܥܐ",
+      "proposed": [
+        {
+          "form": "ܐܪܥܐ",
+          "lexeme": ">R<",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Erde als Adressatin des parallelen, femininen Imperativs."
+    },
+    {
+      "id": "195511",
+      "chapter": 1,
+      "verse": 2,
+      "form": "ܡܛܠ",
+      "proposed": [
+        {
+          "form": "ܡܛܠ",
+          "lexeme": "MVL",
+          "pos": "prep"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Leitet mit ܕ den Grund für den Höraufruf ein."
+    },
+    {
+      "id": "195512",
+      "chapter": 1,
+      "verse": 2,
+      "form": "ܕܡܪܝܐ",
+      "proposed": [
+        {
+          "form": "ܕ",
+          "lexeme": "D",
+          "pos": "prep"
+        },
+        {
+          "form": "ܡܪܝܐ",
+          "lexeme": "MRJ>",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Der Herr ist das Subjekt des folgenden Verbs „sprach“."
+    },
+    {
+      "id": "195513",
+      "chapter": 1,
+      "verse": 2,
+      "form": "ܡܠܠ",
+      "proposed": [
+        {
+          "form": "ܡܠܠ",
+          "lexeme": "MLL",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Der Herr hat gesprochen“; finites Verb, gefolgt von seiner Rede."
+    },
+    {
+      "id": "195514",
+      "chapter": 1,
+      "verse": 2,
+      "form": "ܒ̈ܢܝܐ",
+      "proposed": [
+        {
+          "form": "ܒܢܝܐ",
+          "lexeme": "BN",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Kinder“ als vorangestelltes Objekt von „ich habe großgezogen“."
+    },
+    {
+      "id": "195515",
+      "chapter": 1,
+      "verse": 2,
+      "form": "ܪܒܝܬ",
+      "proposed": [
+        {
+          "form": "ܪܒܝܬ",
+          "lexeme": "RBJ",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Erste Person „ich zog groß“ mit „Kinder“ als vorangestelltem Objekt."
+    },
+    {
+      "id": "195516",
+      "chapter": 1,
+      "verse": 2,
+      "form": "ܘܪܡܪܡ̇ܬ",
+      "proposed": [],
+      "status": "confirmed",
+      "note": "„Und ich zog sie empor“, parallel zu „ich zog groß“. SEDRA belegt die reduplizierte Stammbildung für „erhöhen“.",
+      "sedra": "14941",
+      "sedraQuery": "ܪܡܪܡ"
+    },
+    {
+      "id": "195517",
+      "chapter": 1,
+      "verse": 2,
+      "form": "ܘܗܢܘܢ",
+      "proposed": [
+        {
+          "form": "ܘ",
+          "lexeme": "W",
+          "pos": "conj"
+        },
+        {
+          "form": "ܗܢܘܢ",
+          "lexeme": "HNWN",
+          "pos": "pron"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Sie aber“ nimmt die vorher genannten Kinder als Subjekt auf."
+    },
+    {
+      "id": "195518",
+      "chapter": 1,
+      "verse": 2,
+      "form": "ܐܥܠܝܘ",
+      "proposed": [
+        {
+          "form": "ܐܥܠܝܘ",
+          "lexeme": "<LJ==",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Sie lehnten sich gegen mich auf“; die Präpositionalergänzung bezeichnet das Ziel der Auflehnung."
+    },
+    {
+      "id": "195519",
+      "chapter": 1,
+      "verse": 2,
+      "form": "ܒܝ",
+      "proposed": [
+        {
+          "form": "ܒ",
+          "lexeme": "B",
+          "pos": "prep"
+        },
+        {
+          "form": "ܝ",
+          "lexeme": "J",
+          "pos": "pron"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Präposition mit Suffix der ersten Person: „gegen mich“ nach „sie lehnten sich auf“."
+    },
+    {
+      "id": "195520",
+      "chapter": 1,
+      "verse": 3,
+      "form": "ܐܝܕܥ",
+      "proposed": [
+        {
+          "form": "ܐܝܕܥ",
+          "lexeme": "JD<",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Der Ochse „kennt“ seinen Besitzer, parallel zu „Israel kennt nicht“."
+    },
+    {
+      "id": "195521",
+      "chapter": 1,
+      "verse": 3,
+      "form": "ܬܘܪܐ",
+      "proposed": [
+        {
+          "form": "ܬܘܪܐ",
+          "lexeme": "TWR",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Der Ochse ist das Subjekt von „kennt“."
+    },
+    {
+      "id": "195522",
+      "chapter": 1,
+      "verse": 3,
+      "form": "ܩܢܝܗ",
+      "proposed": [],
+      "status": "confirmed",
+      "note": "„Seinen Besitzer“: substantiviertes Partizip von „erwerben/besitzen“ mit Possessivsuffix.",
+      "sedra": "2837",
+      "sedraQuery": "ܩܢܐ"
+    },
+    {
+      "id": "195523",
+      "chapter": 1,
+      "verse": 3,
+      "form": "ܘܚܡܪܐ",
+      "proposed": [
+        {
+          "form": "ܘ",
+          "lexeme": "W",
+          "pos": "conj"
+        },
+        {
+          "form": "ܚܡܪܐ",
+          "lexeme": "XMR",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Parallel zum Ochsen steht „und der Esel“ als zweites Subjekt."
+    },
+    {
+      "id": "195524",
+      "chapter": 1,
+      "verse": 3,
+      "form": "ܐܘܪܝܐ",
+      "proposed": [],
+      "status": "confirmed",
+      "note": "„Krippe“ oder „Stall“ im Satz über den Esel, mit „seines Herrn“ als nähere Bestimmung. SEDRA #60 führt diese Bedeutung; der gleich geschriebene Name Urija passt hier nicht.",
+      "sedra": "60"
+    },
+    {
+      "id": "195525",
+      "chapter": 1,
+      "verse": 3,
+      "form": "ܕܡܪܗ",
+      "proposed": [
+        {
+          "form": "ܕ",
+          "lexeme": "D",
+          "pos": "prep"
+        },
+        {
+          "form": "ܡܪ",
+          "lexeme": "MR>",
+          "pos": "subs"
+        },
+        {
+          "form": "ܗ",
+          "lexeme": "H",
+          "pos": "pron"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Seines Herrn“ nach „Krippe“; das Possessivsuffix verweist auf den Esel."
+    },
+    {
+      "id": "195526",
+      "chapter": 1,
+      "verse": 3,
+      "form": "ܘܐܝܣܪܝܠ",
+      "proposed": [
+        {
+          "form": "ܘ",
+          "lexeme": "W",
+          "pos": "conj"
+        },
+        {
+          "form": "ܐܝܣܪܝܠ",
+          "lexeme": ">JSRJL",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Und Israel“ ist das Subjekt des kontrastierenden negierten Satzes."
+    },
+    {
+      "id": "195527",
+      "chapter": 1,
+      "verse": 3,
+      "form": "ܠܐ",
+      "proposed": [
+        {
+          "form": "ܠܐ",
+          "lexeme": "L>",
+          "pos": "nega"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Negationspartikel vor „er kennt“."
+    },
+    {
+      "id": "195528",
+      "chapter": 1,
+      "verse": 3,
+      "form": "ܝܕܥ",
+      "proposed": [
+        {
+          "form": "ܝܕܥ",
+          "lexeme": "JD<",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Verb „kennen“ im negierten Satz mit Israel als Subjekt."
+    },
+    {
+      "id": "195529",
+      "chapter": 1,
+      "verse": 3,
+      "form": "ܘܥܡܝ",
+      "proposed": [
+        {
+          "form": "ܘ",
+          "lexeme": "W",
+          "pos": "conj"
+        },
+        {
+          "form": "ܥܡ",
+          "lexeme": "<M=",
+          "pos": "subs"
+        },
+        {
+          "form": "ܝ",
+          "lexeme": "J",
+          "pos": "pron"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Und mein Volk“ als Subjekt des zweiten negierten Satzes."
+    },
+    {
+      "id": "195530",
+      "chapter": 1,
+      "verse": 3,
+      "form": "ܠܐ",
+      "proposed": [
+        {
+          "form": "ܠܐ",
+          "lexeme": "L>",
+          "pos": "nega"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Negationspartikel vor „es hat verstanden“."
+    },
+    {
+      "id": "195531",
+      "chapter": 1,
+      "verse": 3,
+      "form": "ܐܣܬܟܠܘ",
+      "proposed": [
+        {
+          "form": "ܐܣܬܟܠܘ",
+          "lexeme": "SKL=",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Mein Volk hat nicht verstanden“ als Parallele zu „Israel kennt nicht“."
+    },
+    {
+      "id": "195532",
+      "chapter": 1,
+      "verse": 4,
+      "form": "ܘܝ",
+      "proposed": [
+        {
+          "form": "ܘܝ",
+          "lexeme": "WJ",
+          "pos": "intj"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Weheruf über das sündige Volk."
+    },
+    {
+      "id": "195533",
+      "chapter": 1,
+      "verse": 4,
+      "form": "ܠܥܡܐ",
+      "proposed": [
+        {
+          "form": "ܠ",
+          "lexeme": "L",
+          "pos": "prep"
+        },
+        {
+          "form": "ܥܡܐ",
+          "lexeme": "<M=",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Adresse des Weherufs: an das Volk."
+    },
+    {
+      "id": "195534",
+      "chapter": 1,
+      "verse": 4,
+      "form": "ܚܛܝܐ",
+      "proposed": [
+        {
+          "form": "ܚܛܝܐ",
+          "lexeme": "XVJ=",
+          "pos": "adjv"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Adjektiv „sündig“ zum Volk im Weheruf."
+    },
+    {
+      "id": "195535",
+      "chapter": 1,
+      "verse": 4,
+      "form": "ܥܡܐ",
+      "proposed": [
+        {
+          "form": "ܥܡܐ",
+          "lexeme": "<M=",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Volk, als zweite Anrede parallel zum ersten Volk."
+    },
+    {
+      "id": "195536",
+      "chapter": 1,
+      "verse": 4,
+      "form": "ܥܫܝܢ",
+      "proposed": [
+        {
+          "form": "ܥܫܝܢ",
+          "lexeme": "<CJN",
+          "pos": "adjv"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Adjektiv „schwer“ zum Volk, mit Schuld als Ergänzung; kein finites Verb."
+    },
+    {
+      "id": "195537",
+      "chapter": 1,
+      "verse": 4,
+      "form": "ܥܘܠܐ",
+      "proposed": [
+        {
+          "form": "ܥܘܠܐ",
+          "lexeme": "<WL=",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Substantiv „Schuld“ als Ergänzung zu „schwer“; die Bezeichnung „böse“ passt syntaktisch nicht."
+    },
+    {
+      "id": "195538",
+      "chapter": 1,
+      "verse": 4,
+      "form": "ܙܪܥܐ",
+      "proposed": [
+        {
+          "form": "ܙܪܥܐ",
+          "lexeme": "ZR<",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Nachkommenschaft parallel zu „Kinder“."
+    },
+    {
+      "id": "195539",
+      "chapter": 1,
+      "verse": 4,
+      "form": "ܡܒܐܫܐ",
+      "proposed": [
+        {
+          "form": "ܡܒܐܫܐ",
+          "lexeme": "B>C",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Kausativpartizip „die Böses tun“ zur Nachkommenschaft."
+    },
+    {
+      "id": "195540",
+      "chapter": 1,
+      "verse": 4,
+      "form": "ܒ̈ܢܝܐ",
+      "proposed": [
+        {
+          "form": "ܒܢܝܐ",
+          "lexeme": "BN",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Kinder“ parallel zur Nachkommenschaft, im Anschluss als verderblich beschrieben."
+    },
+    {
+      "id": "195541",
+      "chapter": 1,
+      "verse": 4,
+      "form": "ܡܚ̈ܒܠܐ",
+      "proposed": [
+        {
+          "form": "ܡܚܒܠܐ",
+          "lexeme": "XBL",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Paʿel-Partizip zu den Kindern, „die Verderben bringen“."
+    },
+    {
+      "id": "195542",
+      "chapter": 1,
+      "verse": 4,
+      "form": "ܫܒܩܬܘܢ",
+      "proposed": [
+        {
+          "form": "ܫܒܩܬܘܢ",
+          "lexeme": "CBQ",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Zweite Person Plural: Ihr habt den Herrn verlassen."
+    },
+    {
+      "id": "195543",
+      "chapter": 1,
+      "verse": 4,
+      "form": "ܠܡܪܝܐ",
+      "proposed": [
+        {
+          "form": "ܠ",
+          "lexeme": "L",
+          "pos": "prep"
+        },
+        {
+          "form": "ܡܪܝܐ",
+          "lexeme": "MRJ>",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Markiertes Objekt von „ihr habt verlassen“: den Herrn."
+    },
+    {
+      "id": "195544",
+      "chapter": 1,
+      "verse": 4,
+      "form": "ܘܐܪܓܙܬܘܢ",
+      "proposed": [
+        {
+          "form": "ܘ",
+          "lexeme": "W",
+          "pos": "conj"
+        },
+        {
+          "form": "ܐܪܓܙܬܘܢ",
+          "lexeme": "RGZ",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Zweite Person Plural im Kausativ: Ihr habt den Heiligen erzürnt."
+    },
+    {
+      "id": "195545",
+      "chapter": 1,
+      "verse": 4,
+      "form": "ܠܩܕܝܫܐ",
+      "proposed": [
+        {
+          "form": "ܠ",
+          "lexeme": "L",
+          "pos": "prep"
+        },
+        {
+          "form": "ܩܕܝܫܐ",
+          "lexeme": "QDJC",
+          "pos": "adjv"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Substantiviertes Adjektiv „den Heiligen“, zu Israel gehörig."
+    },
+    {
+      "id": "195546",
+      "chapter": 1,
+      "verse": 4,
+      "form": "ܕܐܝܣܪܝܠ",
+      "proposed": [
+        {
+          "form": "ܕ",
+          "lexeme": "D",
+          "pos": "prep"
+        },
+        {
+          "form": "ܐܝܣܪܝܠ",
+          "lexeme": ">JSRJL",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Name in der Bezeichnung „der Heilige Israels“."
+    },
+    {
+      "id": "195547",
+      "chapter": 1,
+      "verse": 4,
+      "form": "ܘܗܦܟܬܘܢ",
+      "proposed": [
+        {
+          "form": "ܘ",
+          "lexeme": "W",
+          "pos": "conj"
+        },
+        {
+          "form": "ܗܦܟܬܘܢ",
+          "lexeme": "HPK",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Zweite Person Plural: Ihr habt euch rückwärts gewandt."
+    },
+    {
+      "id": "195548",
+      "chapter": 1,
+      "verse": 4,
+      "form": "ܠܒܣܬܪܟܘܢ",
+      "proposed": [
+        {
+          "form": "ܠ",
+          "lexeme": "L",
+          "pos": "prep"
+        },
+        {
+          "form": "ܒܣܬܪ",
+          "lexeme": "BSTR",
+          "pos": "subs"
+        },
+        {
+          "form": "ܟܘܢ",
+          "lexeme": "KWN",
+          "pos": "pron"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Richtungsangabe „nach hinten“, mit Suffix der Angesprochenen."
+    },
+    {
+      "id": "195549",
+      "chapter": 1,
+      "verse": 5,
+      "form": "ܠܡܢܐ",
+      "proposed": [
+        {
+          "form": "ܠ",
+          "lexeme": "L",
+          "pos": "prep"
+        },
+        {
+          "form": "ܡܢܐ",
+          "lexeme": "MN>",
+          "pos": "pron"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Fragewort am Anfang: Warum noch weiter Schläge auf sich ziehen?"
+    },
+    {
+      "id": "195550",
+      "chapter": 1,
+      "verse": 5,
+      "form": "ܬܘܒ",
+      "proposed": [
+        {
+          "form": "ܬܘܒ",
+          "lexeme": "TWB",
+          "pos": "advb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Erneut oder weiterhin geschlagen werden."
+    },
+    {
+      "id": "195551",
+      "chapter": 1,
+      "verse": 5,
+      "form": "ܬܒܠܥܘܢ",
+      "proposed": [],
+      "status": "confirmed",
+      "note": "Zweite Person Plural „werdet ihr geschlagen werden?“. SEDRA führt das Erleiden von Schlägen ausdrücklich als Bedeutung.",
+      "sedra": "402",
+      "sedraQuery": "ܒܠܥ"
+    },
+    {
+      "id": "195552",
+      "chapter": 1,
+      "verse": 5,
+      "form": "ܘܬܘܣܦܘܢ",
+      "proposed": [
+        {
+          "form": "ܘ",
+          "lexeme": "W",
+          "pos": "conj"
+        },
+        {
+          "form": "ܬܘܣܦܘܢ",
+          "lexeme": "JSP",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Und ihr fahrt fort“, mit anschließendem Infinitiv."
+    },
+    {
+      "id": "195553",
+      "chapter": 1,
+      "verse": 5,
+      "form": "ܠܡܬܪܕܝܘ",
+      "proposed": [
+        {
+          "form": "ܠ",
+          "lexeme": "L",
+          "pos": "prep"
+        },
+        {
+          "form": "ܡܬܪܕܝܘ",
+          "lexeme": "RDJ",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Infinitiv mit ܠ, im Kontext „weiter gemaßregelt werden“."
+    },
+    {
+      "id": "195554",
+      "chapter": 1,
+      "verse": 5,
+      "form": "ܟܠ",
+      "proposed": [
+        {
+          "form": "ܟܠ",
+          "lexeme": "KL",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Totalitätsausdruck „der ganze Kopf“."
+    },
+    {
+      "id": "195555",
+      "chapter": 1,
+      "verse": 5,
+      "form": "ܪܝܫ",
+      "proposed": [
+        {
+          "form": "ܪܝܫ",
+          "lexeme": "RJC",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Kopf“, parallel zum Herzen im folgenden Satzglied."
+    },
+    {
+      "id": "195556",
+      "chapter": 1,
+      "verse": 5,
+      "form": "ܠܟܐܒܐ",
+      "proposed": [
+        {
+          "form": "ܠ",
+          "lexeme": "L",
+          "pos": "prep"
+        },
+        {
+          "form": "ܟܐܒܐ",
+          "lexeme": "K>B",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Zu Schmerz/Krankheit“, prädikative Ergänzung zu „der ganze Kopf“."
+    },
+    {
+      "id": "195557",
+      "chapter": 1,
+      "verse": 5,
+      "form": "ܘܟܠ",
+      "proposed": [
+        {
+          "form": "ܘ",
+          "lexeme": "W",
+          "pos": "conj"
+        },
+        {
+          "form": "ܟܠ",
+          "lexeme": "KL",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Paralleler Totalitätsausdruck „und das ganze Herz“."
+    },
+    {
+      "id": "195558",
+      "chapter": 1,
+      "verse": 5,
+      "form": "ܠܒܐ",
+      "proposed": [
+        {
+          "form": "ܠܒܐ",
+          "lexeme": "LB",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Herz“, parallel zum Kopf und mit der zweiten Krankheitsangabe."
+    },
+    {
+      "id": "195559",
+      "chapter": 1,
+      "verse": 5,
+      "form": "ܠܟܪܝܘܬܐ",
+      "proposed": [],
+      "status": "confirmed",
+      "note": "„Zu Leid/Bedrängnis“, prädikative Ergänzung zu „das ganze Herz“.",
+      "sedra": "1577",
+      "sedraQuery": "ܟܪܝܘܬܐ"
+    },
+    {
+      "id": "195560",
+      "chapter": 1,
+      "verse": 6,
+      "form": "ܡܢ",
+      "proposed": [
+        {
+          "form": "ܡܢ",
+          "lexeme": "MN",
+          "pos": "prep"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Ausgangspunkt der Spanne „von der Fußsohle bis zum Kopf“."
+    },
+    {
+      "id": "195561",
+      "chapter": 1,
+      "verse": 6,
+      "form": "ܦܣܬܐ",
+      "proposed": [
+        {
+          "form": "ܦܣܬܐ",
+          "lexeme": "PS>",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Sohle“, durch den folgenden Genitiv „des Fußes“ bestimmt."
+    },
+    {
+      "id": "195562",
+      "chapter": 1,
+      "verse": 6,
+      "form": "ܕܪܓܠܐ",
+      "proposed": [
+        {
+          "form": "ܕ",
+          "lexeme": "D",
+          "pos": "prep"
+        },
+        {
+          "form": "ܪܓܠܐ",
+          "lexeme": "RGL",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Des Fußes“, nähere Bestimmung der Sohle."
+    },
+    {
+      "id": "195563",
+      "chapter": 1,
+      "verse": 6,
+      "form": "ܘܥܕܡܐ",
+      "proposed": [
+        {
+          "form": "ܘ",
+          "lexeme": "W",
+          "pos": "conj"
+        },
+        {
+          "form": "ܥܕܡܐ",
+          "lexeme": "<DM>",
+          "pos": "prep"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Markiert den Endpunkt der Spanne: „und bis“."
+    },
+    {
+      "id": "195564",
+      "chapter": 1,
+      "verse": 6,
+      "form": "ܠܡܘܚܐ",
+      "proposed": [
+        {
+          "form": "ܠ",
+          "lexeme": "L",
+          "pos": "prep"
+        },
+        {
+          "form": "ܡܘܚܐ",
+          "lexeme": "MWX",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Bis zum Gehirn/Schädel“, Gegenpol zur Fußsohle."
+    },
+    {
+      "id": "195565",
+      "chapter": 1,
+      "verse": 6,
+      "form": "ܠܝܬ",
+      "proposed": [
+        {
+          "form": "ܠ",
+          "lexeme": "L>",
+          "pos": "nega"
+        },
+        {
+          "form": "ܝܬ",
+          "lexeme": ">JTJ",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Negative Existenzkonstruktion: Es gibt keine gesunde Stelle."
+    },
+    {
+      "id": "195566",
+      "chapter": 1,
+      "verse": 6,
+      "form": "ܒܗ",
+      "proposed": [],
+      "status": "open",
+      "note": "„An ihm/ihr“ in der Aussage über den verwundeten Leib. Die unmarkierte Schreibung unterscheidet die beiden Suffixanalysen nicht."
+    },
+    {
+      "id": "195567",
+      "chapter": 1,
+      "verse": 6,
+      "form": "ܕܘܟܬܐ",
+      "proposed": [
+        {
+          "form": "ܕܘܟܬܐ",
+          "lexeme": "DWK",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Stelle“ als das, was am Leib nicht unversehrt ist."
+    },
+    {
+      "id": "195568",
+      "chapter": 1,
+      "verse": 6,
+      "form": "ܕܫܪܝܪܐ",
+      "proposed": [
+        {
+          "form": "ܕ",
+          "lexeme": "D",
+          "pos": "prep"
+        },
+        {
+          "form": "ܫܪܝܪܐ",
+          "lexeme": "CRJR",
+          "pos": "adjv"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Adjektiv „gesund, unversehrt“, bezogen auf die Stelle."
+    },
+    {
+      "id": "195569",
+      "chapter": 1,
+      "verse": 6,
+      "form": "ܨܘ̈ܠܦܬܐ",
+      "proposed": [
+        {
+          "form": "ܨܘܠܦܬܐ",
+          "lexeme": "YWLP>",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Wunden“ als erster Posten in der Aufzählung."
+    },
+    {
+      "id": "195570",
+      "chapter": 1,
+      "verse": 6,
+      "form": "ܘܫܘ̈ܡܬܐ",
+      "proposed": [],
+      "status": "confirmed",
+      "note": "Zweiter Posten zwischen Wunden und Schlägen. Nach Abtrennung von „und“ passt der Plural zur SEDRA-Form für Wunden und Schwellungen.",
+      "sedra": "3148",
+      "sedraQuery": "ܫܘܡܬܐ"
+    },
+    {
+      "id": "195571",
+      "chapter": 1,
+      "verse": 6,
+      "form": "ܘܡܚ̈ܘܬܐ",
+      "proposed": [
+        {
+          "form": "ܘ",
+          "lexeme": "W",
+          "pos": "conj"
+        },
+        {
+          "form": "ܡܚܘܬܐ",
+          "lexeme": "MXW>",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Und Schläge/Wunden“ als dritter Posten."
+    },
+    {
+      "id": "195572",
+      "chapter": 1,
+      "verse": 6,
+      "form": "ܕܥܒ̈ܝܐ",
+      "proposed": [],
+      "status": "confirmed",
+      "note": "Adjektivische Bestimmung der aufgezählten Verletzungen „geschwollen“.",
+      "sedra": "13740",
+      "sedraQuery": "ܥܒܝܐ"
+    },
+    {
+      "id": "195573",
+      "chapter": 1,
+      "verse": 6,
+      "form": "ܠܐ",
+      "proposed": [
+        {
+          "form": "ܠܐ",
+          "lexeme": "L>",
+          "pos": "nega"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Negation beim ersten Infinitiv zur Wundversorgung."
+    },
+    {
+      "id": "195574",
+      "chapter": 1,
+      "verse": 6,
+      "form": "ܠܡܨܡܕ",
+      "proposed": [],
+      "status": "confirmed",
+      "note": "Erster der drei Infinitive zur Wundversorgung, „zusammenziehen, verbinden“.",
+      "sedra": "15615",
+      "sedraQuery": "ܨܡܕ"
+    },
+    {
+      "id": "195575",
+      "chapter": 1,
+      "verse": 6,
+      "form": "ܘܠܐ",
+      "proposed": [
+        {
+          "form": "ܘ",
+          "lexeme": "W",
+          "pos": "conj"
+        },
+        {
+          "form": "ܠܐ",
+          "lexeme": "L>",
+          "pos": "nega"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Koordinierte Negation vor dem zweiten Infinitiv; kein unpersönliches Verb."
+    },
+    {
+      "id": "195576",
+      "chapter": 1,
+      "verse": 6,
+      "form": "ܠܡܥܨܒ",
+      "proposed": [
+        {
+          "form": "ܠ",
+          "lexeme": "L",
+          "pos": "prep"
+        },
+        {
+          "form": "ܡܥܨܒ",
+          "lexeme": "<YB=",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Zweiter Infinitiv zur Wundversorgung, „verbinden“."
+    },
+    {
+      "id": "195577",
+      "chapter": 1,
+      "verse": 6,
+      "form": "ܐܦ",
+      "proposed": [
+        {
+          "form": "ܐܦ",
+          "lexeme": ">P",
+          "pos": "advb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Verstärkendes „auch“, unmittelbar vor der dritten Negation."
+    },
+    {
+      "id": "195578",
+      "chapter": 1,
+      "verse": 6,
+      "form": "ܠܐ",
+      "proposed": [
+        {
+          "form": "ܠܐ",
+          "lexeme": "L>",
+          "pos": "nega"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Negation beim dritten Infinitiv zur Wundversorgung."
+    },
+    {
+      "id": "195579",
+      "chapter": 1,
+      "verse": 6,
+      "form": "ܠܡܪܟܟܘ",
+      "proposed": [
+        {
+          "form": "ܠ",
+          "lexeme": "L",
+          "pos": "prep"
+        },
+        {
+          "form": "ܡܪܟܟܘ",
+          "lexeme": "RKK",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Dritter Infinitiv „weich machen“, mit Öl als Mittel."
+    },
+    {
+      "id": "195580",
+      "chapter": 1,
+      "verse": 6,
+      "form": "ܒܡܫܚܐ",
+      "proposed": [
+        {
+          "form": "ܒ",
+          "lexeme": "B",
+          "pos": "prep"
+        },
+        {
+          "form": "ܡܫܚܐ",
+          "lexeme": "MCX",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Mit Öl“, Instrument zur Behandlung der Wunden."
+    },
+    {
+      "id": "195581",
+      "chapter": 1,
+      "verse": 7,
+      "form": "ܐܪܥܟܘܢ",
+      "proposed": [
+        {
+          "form": "ܐܪܥ",
+          "lexeme": ">R<",
+          "pos": "subs"
+        },
+        {
+          "form": "ܟܘܢ",
+          "lexeme": "KWN",
+          "pos": "pron"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Euer Land“ als Satzthema; Suffix der zweiten Person Plural."
+    },
+    {
+      "id": "195582",
+      "chapter": 1,
+      "verse": 7,
+      "form": "ܚܪܒܐ",
+      "proposed": [
+        {
+          "form": "ܚܪܒܐ",
+          "lexeme": "XRB==",
+          "pos": "adjv"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Prädikatives Adjektiv „verödet“ zum Land."
+    },
+    {
+      "id": "195583",
+      "chapter": 1,
+      "verse": 7,
+      "form": "ܘܩܘܪ̈ܝܟܘܢ",
+      "proposed": [
+        {
+          "form": "ܘ",
+          "lexeme": "W",
+          "pos": "conj"
+        },
+        {
+          "form": "ܩܘܪܝ",
+          "lexeme": "QWRJ>",
+          "pos": "subs"
+        },
+        {
+          "form": "ܟܘܢ",
+          "lexeme": "KWN",
+          "pos": "pron"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Und eure Städte“ als Subjekt des Verbs „brennen“."
+    },
+    {
+      "id": "195584",
+      "chapter": 1,
+      "verse": 7,
+      "form": "ܝܩ̈ܕܢ",
+      "proposed": [
+        {
+          "form": "ܝܩܕܢ",
+          "lexeme": "JQD",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Prädikat „brennen“ zu den Städten, gefolgt von „im Feuer“."
+    },
+    {
+      "id": "195585",
+      "chapter": 1,
+      "verse": 7,
+      "form": "ܒܢܘܪܐ",
+      "proposed": [
+        {
+          "form": "ܒ",
+          "lexeme": "B",
+          "pos": "prep"
+        },
+        {
+          "form": "ܢܘܪܐ",
+          "lexeme": "NWR",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Im Feuer“, Ergänzung zu „brennen“."
+    },
+    {
+      "id": "195586",
+      "chapter": 1,
+      "verse": 7,
+      "form": "ܐܪܥܟܘܢ",
+      "proposed": [
+        {
+          "form": "ܐܪܥ",
+          "lexeme": ">R<",
+          "pos": "subs"
+        },
+        {
+          "form": "ܟܘܢ",
+          "lexeme": "KWN",
+          "pos": "pron"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Euer Land“ als vorangestelltes Thema dessen, was Fremde verzehren."
+    },
+    {
+      "id": "195587",
+      "chapter": 1,
+      "verse": 7,
+      "form": "ܠܘܩܒܠܟܘܢ",
+      "proposed": [
+        {
+          "form": "ܠܘܩܒܠ",
+          "lexeme": "LWQBL",
+          "pos": "prep"
+        },
+        {
+          "form": "ܟܘܢ",
+          "lexeme": "KWN",
+          "pos": "pron"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Vor euren Augen“, mit Suffix der Angesprochenen."
+    },
+    {
+      "id": "195588",
+      "chapter": 1,
+      "verse": 7,
+      "form": "ܐܟ̇ܠܝܢ",
+      "proposed": [
+        {
+          "form": "ܐܟܠܝܢ",
+          "lexeme": ">KL",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Verzehren“ mit den Fremden als Subjekt und dem Land als Objekt."
+    },
+    {
+      "id": "195589",
+      "chapter": 1,
+      "verse": 7,
+      "form": "ܠܗ̇",
+      "proposed": [
+        {
+          "form": "ܠ",
+          "lexeme": "L",
+          "pos": "prep"
+        },
+        {
+          "form": "ܗ",
+          "lexeme": "H=",
+          "pos": "pron"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Femininum im Objektausdruck zu „verzehren“, Rückverweis auf das Land."
+    },
+    {
+      "id": "195590",
+      "chapter": 1,
+      "verse": 7,
+      "form": "ܢܘܟܪ̈ܝܐ",
+      "proposed": [
+        {
+          "form": "ܢܘܟܪܝܐ",
+          "lexeme": "NWKRJ",
+          "pos": "adjv"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Substantiviertes Adjektiv „Fremde“ als Subjekt des Verzehrens."
+    },
+    {
+      "id": "195591",
+      "chapter": 1,
+      "verse": 7,
+      "form": "ܘܨ̇ܕܝܐ",
+      "proposed": [],
+      "status": "open",
+      "note": "Prädikation der Verwüstung über das Land. Der Korpusbeleg ist nominal, die Form hier kann auch partizipial sein."
+    },
+    {
+      "id": "195592",
+      "chapter": 1,
+      "verse": 7,
+      "form": "ܐܝܟ",
+      "proposed": [
+        {
+          "form": "ܐܝܟ",
+          "lexeme": ">JK",
+          "pos": "prep"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Vergleichspartikel „wie“ vor der Verwüstung durch Fremde."
+    },
+    {
+      "id": "195593",
+      "chapter": 1,
+      "verse": 7,
+      "form": "ܗܦܝܟܬܐ",
+      "proposed": [
+        {
+          "form": "ܗܦܝܟܬܐ",
+          "lexeme": "HPJK>",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Umsturz/Verwüstung“ nach der Vergleichspartikel."
+    },
+    {
+      "id": "195594",
+      "chapter": 1,
+      "verse": 7,
+      "form": "ܕܢܘܟܪ̈ܝܐ",
+      "proposed": [
+        {
+          "form": "ܕ",
+          "lexeme": "D",
+          "pos": "prep"
+        },
+        {
+          "form": "ܢܘܟܪܝܐ",
+          "lexeme": "NWKRJ",
+          "pos": "adjv"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Durch Fremde“ als nähere Bestimmung der Verwüstung."
+    },
+    {
+      "id": "195595",
+      "chapter": 1,
+      "verse": 8,
+      "form": "ܘܐܫܬܚܪܬ",
+      "proposed": [
+        {
+          "form": "ܘ",
+          "lexeme": "W",
+          "pos": "conj"
+        },
+        {
+          "form": "ܐܫܬܚܪܬ",
+          "lexeme": ">XR",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Und zurück blieb“, mit der Tochter Zion als femininem Subjekt."
+    },
+    {
+      "id": "195596",
+      "chapter": 1,
+      "verse": 8,
+      "form": "ܒܪܬ",
+      "proposed": [
+        {
+          "form": "ܒܪܬ",
+          "lexeme": "BR>",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Tochter“ im Konstruktus vor dem Namen Zion."
+    },
+    {
+      "id": "195597",
+      "chapter": 1,
+      "verse": 8,
+      "form": "ܨܗܝܘܢ",
+      "proposed": [
+        {
+          "form": "ܨܗܝܘܢ",
+          "lexeme": "YHJWN",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Ortsname Zion in der Personifikation „Tochter Zion“."
+    },
+    {
+      "id": "195598",
+      "chapter": 1,
+      "verse": 8,
+      "form": "ܐܝܟ",
+      "proposed": [
+        {
+          "form": "ܐܝܟ",
+          "lexeme": ">JK",
+          "pos": "prep"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Erste von drei Vergleichspartikeln, vor der Hütte im Weinberg."
+    },
+    {
+      "id": "195599",
+      "chapter": 1,
+      "verse": 8,
+      "form": "ܡܛܠܬܐ",
+      "proposed": [
+        {
+          "form": "ܡܛܠܬܐ",
+          "lexeme": "MVL>",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Schutzdach/Hütte“ im Weinberg, Bild für die zurückgebliebene Tochter Zion."
+    },
+    {
+      "id": "195600",
+      "chapter": 1,
+      "verse": 8,
+      "form": "ܒܟܪܡܐ",
+      "proposed": [
+        {
+          "form": "ܒ",
+          "lexeme": "B",
+          "pos": "prep"
+        },
+        {
+          "form": "ܟܪܡܐ",
+          "lexeme": "KRM",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Ortsbestimmung „im Weinberg“ zum ersten Vergleich."
+    },
+    {
+      "id": "195601",
+      "chapter": 1,
+      "verse": 8,
+      "form": "ܘܐܝܟ",
+      "proposed": [
+        {
+          "form": "ܘ",
+          "lexeme": "W",
+          "pos": "conj"
+        },
+        {
+          "form": "ܐܝܟ",
+          "lexeme": ">JK",
+          "pos": "prep"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Leitet den zweiten Vergleich ein: „und wie eine Hütte im Feld“."
+    },
+    {
+      "id": "195602",
+      "chapter": 1,
+      "verse": 8,
+      "form": "ܥܪܙܠܐ",
+      "proposed": [],
+      "status": "confirmed",
+      "note": "Zweiter Vergleich: eine aus Zweigen gebaute Hütte im Feld.",
+      "sedra": "5427"
+    },
+    {
+      "id": "195603",
+      "chapter": 1,
+      "verse": 8,
+      "form": "ܒܡܩܛܝܐ",
+      "proposed": [],
+      "status": "confirmed",
+      "note": "„Im Gurkenfeld“ als Ortsbestimmung zur Zweighütte.",
+      "sedra": "6102",
+      "sedraQuery": "ܡܩܛܝܐ"
+    },
+    {
+      "id": "195604",
+      "chapter": 1,
+      "verse": 8,
+      "form": "ܘܐܝܟ",
+      "proposed": [
+        {
+          "form": "ܘ",
+          "lexeme": "W",
+          "pos": "conj"
+        },
+        {
+          "form": "ܐܝܟ",
+          "lexeme": ">JK",
+          "pos": "prep"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Leitet den dritten Vergleich ein: „und wie eine belagerte Stadt“."
+    },
+    {
+      "id": "195605",
+      "chapter": 1,
+      "verse": 8,
+      "form": "ܡܕܝܢܬܐ",
+      "proposed": [
+        {
+          "form": "ܡܕܝܢܬܐ",
+          "lexeme": "MDJN>",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Eine eingeschlossene Stadt."
+    },
+    {
+      "id": "195606",
+      "chapter": 1,
+      "verse": 8,
+      "form": "ܚܒܝܫܬܐ",
+      "proposed": [
+        {
+          "form": "ܚܒܝܫܬܐ",
+          "lexeme": "XBC",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Feminines passives Partizip „belagert/eingeschlossen“ zur Stadt. Der SEDRA-Vorschlag „Kloster“ passt nicht."
+    },
+    {
+      "id": "195607",
+      "chapter": 1,
+      "verse": 9,
+      "form": "ܘܐܠܘ",
+      "proposed": [
+        {
+          "form": "ܘ",
+          "lexeme": "W",
+          "pos": "conj"
+        },
+        {
+          "form": "ܐܠܘ",
+          "lexeme": ">LW",
+          "pos": "conj"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Leitet die irreale Bedingung ein: „Und wenn nicht“."
+    },
+    {
+      "id": "195608",
+      "chapter": 1,
+      "verse": 9,
+      "form": "ܠܐ",
+      "proposed": [
+        {
+          "form": "ܠܐ",
+          "lexeme": "L>",
+          "pos": "nega"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Negiert die Bedingung, dass der Herr einen Rest ließ."
+    },
+    {
+      "id": "195609",
+      "chapter": 1,
+      "verse": 9,
+      "form": "ܡܪܝܐ",
+      "proposed": [
+        {
+          "form": "ܡܪܝܐ",
+          "lexeme": "MRJ>",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Der Herr“ als Subjekt von „übrig lassen“."
+    },
+    {
+      "id": "195610",
+      "chapter": 1,
+      "verse": 9,
+      "form": "ܨܒܐܘܬ",
+      "proposed": [
+        {
+          "form": "ܨܒܐܘܬ",
+          "lexeme": "YB>WT",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Sabaoth als Bestandteil des Gottesnamens."
+    },
+    {
+      "id": "195611",
+      "chapter": 1,
+      "verse": 9,
+      "form": "ܐܘܬܪ",
+      "proposed": [
+        {
+          "form": "ܐܘܬܪ",
+          "lexeme": "JTR",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Kausativ „übrig lassen“; Objekt ist der verbleibende Rest."
+    },
+    {
+      "id": "195612",
+      "chapter": 1,
+      "verse": 9,
+      "form": "ܠܢ",
+      "proposed": [
+        {
+          "form": "ܠ",
+          "lexeme": "L",
+          "pos": "prep"
+        },
+        {
+          "form": "ܢ",
+          "lexeme": "N",
+          "pos": "pron"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Empfänger „für uns“, Suffix der ersten Person Plural."
+    },
+    {
+      "id": "195613",
+      "chapter": 1,
+      "verse": 9,
+      "form": "ܣܪܝܕܐ",
+      "proposed": [
+        {
+          "form": "ܣܪܝܕܐ",
+          "lexeme": "SRJD",
+          "pos": "adjv"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Substantiviertes Adjektiv „Überlebender/Rest“, Objekt des Übriglassens."
+    },
+    {
+      "id": "195614",
+      "chapter": 1,
+      "verse": 9,
+      "form": "ܐܝܟ",
+      "proposed": [
+        {
+          "form": "ܐܝܟ",
+          "lexeme": ">JK",
+          "pos": "prep"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Vergleichspartikel „wie“ vor dem Städtenamen Sodom."
+    },
+    {
+      "id": "195615",
+      "chapter": 1,
+      "verse": 9,
+      "form": "ܣܕܘܡ",
+      "proposed": [
+        {
+          "form": "ܣܕܘܡ",
+          "lexeme": "SDWM",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Ortsname Sodom im ersten irrealen Vergleich."
+    },
+    {
+      "id": "195616",
+      "chapter": 1,
+      "verse": 9,
+      "form": "ܗܘ̇ܝܢ",
+      "proposed": [
+        {
+          "form": "ܗܘܝܢ",
+          "lexeme": "HWJ",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Erste Verbform des irrealen „wir wären geworden“."
+    },
+    {
+      "id": "195617",
+      "chapter": 1,
+      "verse": 9,
+      "form": "ܗܘܝܢ",
+      "proposed": [
+        {
+          "form": "ܗܘܝܢ",
+          "lexeme": "HWJ",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Vergangenheitskopula im ersten irrealen Vergleich."
+    },
+    {
+      "id": "195618",
+      "chapter": 1,
+      "verse": 9,
+      "form": "ܘܠܥܡܘܪܐ",
+      "proposed": [
+        {
+          "form": "ܘ",
+          "lexeme": "W",
+          "pos": "conj"
+        },
+        {
+          "form": "ܠ",
+          "lexeme": "L",
+          "pos": "prep"
+        },
+        {
+          "form": "ܥܡܘܪܐ",
+          "lexeme": "<MWR>",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Gomorra als Stadtname parallel zu Sodom."
+    },
+    {
+      "id": "195619",
+      "chapter": 1,
+      "verse": 9,
+      "form": "ܡܬܕܡܝܢ",
+      "proposed": [
+        {
+          "form": "ܡܬܕܡܝܢ",
+          "lexeme": "DMJ",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Reflexives Partizip „gleichen“ mit Gomorra als Vergleichsgröße."
+    },
+    {
+      "id": "195620",
+      "chapter": 1,
+      "verse": 9,
+      "form": "ܗܘܝܢ",
+      "proposed": [
+        {
+          "form": "ܗܘܝܢ",
+          "lexeme": "HWJ",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Vergangenheitskopula im zweiten irrealen Vergleich."
+    },
+    {
+      "id": "195621",
+      "chapter": 1,
+      "verse": 10,
+      "form": "ܫܡܥܘ",
+      "proposed": [
+        {
+          "form": "ܫܡܥܘ",
+          "lexeme": "CM<",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Imperativ der Mehrzahl „hört“, an die Herrscher Sodoms gerichtet."
+    },
+    {
+      "id": "195622",
+      "chapter": 1,
+      "verse": 10,
+      "form": "ܦܬܓܡܗ",
+      "proposed": [
+        {
+          "form": "ܦܬܓܡ",
+          "lexeme": "PTGM",
+          "pos": "subs"
+        },
+        {
+          "form": "ܗ",
+          "lexeme": "H",
+          "pos": "pron"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Sein Wort“, das der Herr spricht; das Suffix verweist auf den Herrn."
+    },
+    {
+      "id": "195623",
+      "chapter": 1,
+      "verse": 10,
+      "form": "ܕܡܪܝܐ",
+      "proposed": [
+        {
+          "form": "ܕ",
+          "lexeme": "D",
+          "pos": "prep"
+        },
+        {
+          "form": "ܡܪܝܐ",
+          "lexeme": "MRJ>",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Gottesbezeichnung in „das Wort des Herrn“."
+    },
+    {
+      "id": "195624",
+      "chapter": 1,
+      "verse": 10,
+      "form": "ܫ̈ܠܝܛܐ̈",
+      "proposed": [
+        {
+          "form": "ܫܠܝܛܐ",
+          "lexeme": "CLJV",
+          "pos": "adjv"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Substantiviertes Adjektiv „Herrscher“ als Anrede."
+    },
+    {
+      "id": "195625",
+      "chapter": 1,
+      "verse": 10,
+      "form": "ܕܣܕܘܡ",
+      "proposed": [
+        {
+          "form": "ܕ",
+          "lexeme": "D",
+          "pos": "prep"
+        },
+        {
+          "form": "ܣܕܘܡ",
+          "lexeme": "SDWM",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Ortsname Sodom als nähere Bestimmung der Herrscher."
+    },
+    {
+      "id": "195626",
+      "chapter": 1,
+      "verse": 10,
+      "form": "ܘܨܘܬܘ",
+      "proposed": [
+        {
+          "form": "ܘ",
+          "lexeme": "W",
+          "pos": "conj"
+        },
+        {
+          "form": "ܨܘܬܘ",
+          "lexeme": "YWT",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Zweiter Imperativ „und hört zu“; Objekt ist die Weisung."
+    },
+    {
+      "id": "195627",
+      "chapter": 1,
+      "verse": 10,
+      "form": "ܢܡܘܣܗ",
+      "proposed": [
+        {
+          "form": "ܢܡܘܣ",
+          "lexeme": "NMWS",
+          "pos": "subs"
+        },
+        {
+          "form": "ܗ",
+          "lexeme": "H",
+          "pos": "pron"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Seine Weisung“, das Objekt des zweiten Imperativs."
+    },
+    {
+      "id": "195628",
+      "chapter": 1,
+      "verse": 10,
+      "form": "ܕܐܠܗܢ",
+      "proposed": [
+        {
+          "form": "ܕ",
+          "lexeme": "D",
+          "pos": "prep"
+        },
+        {
+          "form": "ܐܠܗ",
+          "lexeme": ">LH",
+          "pos": "subs"
+        },
+        {
+          "form": "ܢ",
+          "lexeme": "N",
+          "pos": "pron"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Unseres Gottes“, mit Suffix erster Person Plural."
+    },
+    {
+      "id": "195629",
+      "chapter": 1,
+      "verse": 10,
+      "form": "ܥܡܐ",
+      "proposed": [
+        {
+          "form": "ܥܡܐ",
+          "lexeme": "<M=",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Volk“ als zweite Anrede, parallel zu den Herrschern."
+    },
+    {
+      "id": "195630",
+      "chapter": 1,
+      "verse": 10,
+      "form": "ܕܥܡܘܪܐ",
+      "proposed": [
+        {
+          "form": "ܕ",
+          "lexeme": "D",
+          "pos": "prep"
+        },
+        {
+          "form": "ܥܡܘܪܐ",
+          "lexeme": "<MWR>",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Stadtname Gomorra in der Anrede „Volk von Gomorra“."
+    },
+    {
+      "id": "195631",
+      "chapter": 1,
+      "verse": 11,
+      "form": "ܠܡܢܐ",
+      "proposed": [
+        {
+          "form": "ܠ",
+          "lexeme": "L",
+          "pos": "prep"
+        },
+        {
+          "form": "ܡܢܐ",
+          "lexeme": "MN>",
+          "pos": "pron"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Am Satzanfang „wozu“"
+    },
+    {
+      "id": "195632",
+      "chapter": 1,
+      "verse": 11,
+      "form": "ܗܘ̇ܝܢ",
+      "proposed": [
+        {
+          "form": "ܗܘܝܢ",
+          "lexeme": "HWJ",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Kopulaverb zur Vielzahl der Opfer"
+    },
+    {
+      "id": "195633",
+      "chapter": 1,
+      "verse": 11,
+      "form": "ܠܝ",
+      "proposed": [
+        {
+          "form": "ܠ",
+          "lexeme": "L",
+          "pos": "prep"
+        },
+        {
+          "form": "ܝ",
+          "lexeme": "J",
+          "pos": "pron"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Für mich“, aus der Sicht des Sprechers"
+    },
+    {
+      "id": "195634",
+      "chapter": 1,
+      "verse": 11,
+      "form": "ܣܘܓܐܐ",
+      "proposed": [
+        {
+          "form": "ܣܘܓܐܐ",
+          "lexeme": "SWG>",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Menge der Opfer als Satzthema"
+    },
+    {
+      "id": "195635",
+      "chapter": 1,
+      "verse": 11,
+      "form": "ܕܕܒܚܝ̈ܟܘܢ",
+      "proposed": [],
+      "status": "confirmed",
+      "note": "„Eurer Schlachtopfer“, zu „Menge“, mit Genitivpartikel und Possessivsuffix.",
+      "sedra": "640",
+      "sedraQuery": "ܕܒܚܐ"
+    },
+    {
+      "id": "195636",
+      "chapter": 1,
+      "verse": 11,
+      "form": "ܐܡ̇ܪ",
+      "proposed": [
+        {
+          "form": "ܐܡܪ",
+          "lexeme": ">MR",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Redeeinleitung „sagt“"
+    },
+    {
+      "id": "195637",
+      "chapter": 1,
+      "verse": 11,
+      "form": "ܡܪܝܐ",
+      "proposed": [
+        {
+          "form": "ܡܪܝܐ",
+          "lexeme": "MRJ>",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Subjekt der Redeeinleitung"
+    },
+    {
+      "id": "195638",
+      "chapter": 1,
+      "verse": 11,
+      "form": "ܣܒ̇ܥܬ",
+      "proposed": [
+        {
+          "form": "ܣܒܥܬ",
+          "lexeme": "SB<",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Erste Person „ich bin satt“"
+    },
+    {
+      "id": "195639",
+      "chapter": 1,
+      "verse": 11,
+      "form": "ܥ̈ܠܘܬܐ",
+      "proposed": [
+        {
+          "form": "ܥܠܘܬܐ",
+          "lexeme": "<L>=",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Brandopfer als erste Opfergabe"
+    },
+    {
+      "id": "195640",
+      "chapter": 1,
+      "verse": 11,
+      "form": "ܕܕܟܪ̈ܐ",
+      "proposed": [
+        {
+          "form": "ܕ",
+          "lexeme": "D",
+          "pos": "prep"
+        },
+        {
+          "form": "ܕܟܪܐ",
+          "lexeme": "DKR=",
+          "pos": "adjv"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Widder als Opfertiere"
+    },
+    {
+      "id": "195641",
+      "chapter": 1,
+      "verse": 11,
+      "form": "ܘܬܪܒܐ",
+      "proposed": [
+        {
+          "form": "ܘ",
+          "lexeme": "W",
+          "pos": "conj"
+        },
+        {
+          "form": "ܬܪܒܐ",
+          "lexeme": "TRB",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Fett als zweite Opfergabe"
+    },
+    {
+      "id": "195642",
+      "chapter": 1,
+      "verse": 11,
+      "form": "ܕܡ̈ܦܛܡܐ",
+      "proposed": [
+        {
+          "form": "ܕ",
+          "lexeme": "D",
+          "pos": "prep"
+        },
+        {
+          "form": "ܡܦܛܡܐ",
+          "lexeme": "PVM",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Gemästete Tiere als Herkunft des Fetts"
+    },
+    {
+      "id": "195643",
+      "chapter": 1,
+      "verse": 11,
+      "form": "ܘܕܡܐ",
+      "proposed": [
+        {
+          "form": "ܘ",
+          "lexeme": "W",
+          "pos": "conj"
+        },
+        {
+          "form": "ܕܡܐ",
+          "lexeme": "DM",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Blut als dritte Opfergabe"
+    },
+    {
+      "id": "195644",
+      "chapter": 1,
+      "verse": 11,
+      "form": "ܕܬܘܪ̈ܐ",
+      "proposed": [
+        {
+          "form": "ܕ",
+          "lexeme": "D",
+          "pos": "prep"
+        },
+        {
+          "form": "ܬܘܪܐ",
+          "lexeme": "TWR",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Rinder als erste Tiergruppe"
+    },
+    {
+      "id": "195645",
+      "chapter": 1,
+      "verse": 11,
+      "form": "ܘܕܐܡܪ̈ܐ",
+      "proposed": [
+        {
+          "form": "ܘ",
+          "lexeme": "W",
+          "pos": "conj"
+        },
+        {
+          "form": "ܕ",
+          "lexeme": "D",
+          "pos": "prep"
+        },
+        {
+          "form": "ܐܡܪܐ",
+          "lexeme": ">MR=",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Lämmer als zweite Tiergruppe"
+    },
+    {
+      "id": "195646",
+      "chapter": 1,
+      "verse": 11,
+      "form": "ܘܕܓܕ̈ܝܐ",
+      "proposed": [],
+      "status": "confirmed",
+      "note": "„Und von Zicklein“ als letztes Opfertier in der Aufzählung.",
+      "sedra": "513",
+      "sedraQuery": "ܓܕܝܐ"
+    },
+    {
+      "id": "195647",
+      "chapter": 1,
+      "verse": 11,
+      "form": "ܠܐ",
+      "proposed": [
+        {
+          "form": "ܠܐ",
+          "lexeme": "L>",
+          "pos": "nega"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Negation des Begehrens"
+    },
+    {
+      "id": "195648",
+      "chapter": 1,
+      "verse": 11,
+      "form": "ܨܒ̇ܝܬ",
+      "proposed": [
+        {
+          "form": "ܨܒܝܬ",
+          "lexeme": "YBJ",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Erste Person „mir gefällt es“"
+    },
+    {
+      "id": "195649",
+      "chapter": 1,
+      "verse": 12,
+      "form": "ܟܕ",
+      "proposed": [
+        {
+          "form": "ܟܕ",
+          "lexeme": "KD",
+          "pos": "conj"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Wenn“ als Einleitung der Frage nach dem Betreten der Höfe."
+    },
+    {
+      "id": "195650",
+      "chapter": 1,
+      "verse": 12,
+      "form": "ܬܐܬܘܢ",
+      "proposed": [],
+      "status": "confirmed",
+      "note": "Kommen der Opfernden",
+      "sedra": "316"
+    },
+    {
+      "id": "195651",
+      "chapter": 1,
+      "verse": 12,
+      "form": "ܠܡܚܙܐ",
+      "proposed": [
+        {
+          "form": "ܠ",
+          "lexeme": "L",
+          "pos": "prep"
+        },
+        {
+          "form": "ܡܚܙܐ",
+          "lexeme": "XZJ",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Infinitiv „sehen“ nach „ihr kommt“"
+    },
+    {
+      "id": "195652",
+      "chapter": 1,
+      "verse": 12,
+      "form": "ܐ̈ܦܝ",
+      "proposed": [
+        {
+          "form": "ܐܦ",
+          "lexeme": ">NP",
+          "pos": "subs"
+        },
+        {
+          "form": "ܝ",
+          "lexeme": "J",
+          "pos": "pron"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Mein Angesicht“ nach „ihr kommt, um zu sehen“."
+    },
+    {
+      "id": "195653",
+      "chapter": 1,
+      "verse": 12,
+      "form": "ܡܢܘ",
+      "proposed": [
+        {
+          "form": "ܡܢ",
+          "lexeme": "MN=",
+          "pos": "pron"
+        },
+        {
+          "form": "ܘ",
+          "lexeme": "HW",
+          "pos": "pron"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Frage nach dem Urheber als Person, „wer hat verlangt?“."
+    },
+    {
+      "id": "195654",
+      "chapter": 1,
+      "verse": 12,
+      "form": "ܒܥܐ",
+      "proposed": [
+        {
+          "form": "ܒܥܐ",
+          "lexeme": "B<J",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Verb „verlangen“"
+    },
+    {
+      "id": "195655",
+      "chapter": 1,
+      "verse": 12,
+      "form": "ܗܠܝܢ",
+      "proposed": [
+        {
+          "form": "ܗܠܝܢ",
+          "lexeme": "HLJN",
+          "pos": "pron"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Rückverweis „dies“ auf das zuvor Beschriebene"
+    },
+    {
+      "id": "195656",
+      "chapter": 1,
+      "verse": 12,
+      "form": "ܡܢ",
+      "proposed": [
+        {
+          "form": "ܡܢ",
+          "lexeme": "MN",
+          "pos": "prep"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Aus“, vor der Angabe der Hände"
+    },
+    {
+      "id": "195657",
+      "chapter": 1,
+      "verse": 12,
+      "form": "ܐ̈ܝܕܝܟܘܢ",
+      "proposed": [
+        {
+          "form": "ܐܝܕܝ",
+          "lexeme": "JD",
+          "pos": "subs"
+        },
+        {
+          "form": "ܟܘܢ",
+          "lexeme": "KWN",
+          "pos": "pron"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Eure Hände, mit Pluralsuffix"
+    },
+    {
+      "id": "195658",
+      "chapter": 1,
+      "verse": 12,
+      "form": "ܠܡܕܫ",
+      "proposed": [
+        {
+          "form": "ܠ",
+          "lexeme": "L",
+          "pos": "prep"
+        },
+        {
+          "form": "ܡܕܫ",
+          "lexeme": "DWC",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Das Zertreten als Infinitiv"
+    },
+    {
+      "id": "195659",
+      "chapter": 1,
+      "verse": 12,
+      "form": "ܕܪ̈ܝ",
+      "proposed": [],
+      "status": "open",
+      "note": "„Meine Höfe“ als Objekt des Zertretens; die nominale Lemmaform bleibt offen."
+    },
+    {
+      "id": "195660",
+      "chapter": 1,
+      "verse": 13,
+      "form": "ܠܐ",
+      "proposed": [
+        {
+          "form": "ܠܐ",
+          "lexeme": "L>",
+          "pos": "nega"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Negation der Aufforderung"
+    },
+    {
+      "id": "195661",
+      "chapter": 1,
+      "verse": 13,
+      "form": "ܬܘܣܦܘܢ",
+      "proposed": [
+        {
+          "form": "ܬܘܣܦܘܢ",
+          "lexeme": "JSP",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Fortsetzung des Handelns im Verbot"
+    },
+    {
+      "id": "195662",
+      "chapter": 1,
+      "verse": 13,
+      "form": "ܠܡܝܬܝܘ",
+      "proposed": [
+        {
+          "form": "ܠ",
+          "lexeme": "L",
+          "pos": "prep"
+        },
+        {
+          "form": "ܡܝܬܝܘ",
+          "lexeme": ">TJ",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Infinitiv „bringen“, mit Opfergaben als Objekt"
+    },
+    {
+      "id": "195663",
+      "chapter": 1,
+      "verse": 13,
+      "form": "ܠܝ",
+      "proposed": [
+        {
+          "form": "ܠ",
+          "lexeme": "L",
+          "pos": "prep"
+        },
+        {
+          "form": "ܝ",
+          "lexeme": "J",
+          "pos": "pron"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Empfänger der Opfergaben"
+    },
+    {
+      "id": "195664",
+      "chapter": 1,
+      "verse": 13,
+      "form": "ܩܘܪ̈ܒܢܐ",
+      "proposed": [
+        {
+          "form": "ܩܘܪܒܢܐ",
+          "lexeme": "QWRBN",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Opfergaben als Objekt des Bringens"
+    },
+    {
+      "id": "195665",
+      "chapter": 1,
+      "verse": 13,
+      "form": "ܣܪ̈ܝܩܐ",
+      "proposed": [],
+      "status": "open",
+      "note": "„Vergeblich/leer“ zu den Gaben; zwei gleichbedeutende Korpusschlüssel bleiben möglich."
+    },
+    {
+      "id": "195666",
+      "chapter": 1,
+      "verse": 13,
+      "form": "ܣܘܬܐ",
+      "proposed": [
+        {
+          "form": "ܣܘܬܐ",
+          "lexeme": "SWT",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Duft des Räucheropfers"
+    },
+    {
+      "id": "195667",
+      "chapter": 1,
+      "verse": 13,
+      "form": "ܡܣܠܝܐ",
+      "proposed": [
+        {
+          "form": "ܡܣܠܝܐ",
+          "lexeme": "SLJ",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Verabscheut“ über den Opferduft"
+    },
+    {
+      "id": "195668",
+      "chapter": 1,
+      "verse": 13,
+      "form": "ܗܝ",
+      "proposed": [],
+      "status": "open",
+      "note": "Kopula nach dem Prädikat des Räucheropfers; die konkurrierenden Partikel- und Pronominalanalysen bleiben zu prüfen."
+    },
+    {
+      "id": "195669",
+      "chapter": 1,
+      "verse": 13,
+      "form": "ܠܝ",
+      "proposed": [
+        {
+          "form": "ܠ",
+          "lexeme": "L",
+          "pos": "prep"
+        },
+        {
+          "form": "ܝ",
+          "lexeme": "J",
+          "pos": "pron"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Mir“, zur Bewertung des Opferdufts"
+    },
+    {
+      "id": "195670",
+      "chapter": 1,
+      "verse": 13,
+      "form": "ܒܪܝܫ",
+      "proposed": [
+        {
+          "form": "ܒ",
+          "lexeme": "B",
+          "pos": "prep"
+        },
+        {
+          "form": "ܪܝܫ",
+          "lexeme": "RJC",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Zu Beginn“, Teil der Zeitangabe"
+    },
+    {
+      "id": "195671",
+      "chapter": 1,
+      "verse": 13,
+      "form": "ܝܪ̈ܚܐ",
+      "proposed": [
+        {
+          "form": "ܝܪܚܐ",
+          "lexeme": "JRX",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Monate als Bestimmung des Beginns"
+    },
+    {
+      "id": "195672",
+      "chapter": 1,
+      "verse": 13,
+      "form": "ܘܒܫܒܬܐ",
+      "proposed": [],
+      "status": "confirmed",
+      "note": "Zweite Zeitangabe „und am Sabbat“",
+      "sedra": "3114"
+    },
+    {
+      "id": "195673",
+      "chapter": 1,
+      "verse": 13,
+      "form": "ܟܢ̇ܫܝܢ",
+      "proposed": [
+        {
+          "form": "ܟܢܫܝܢ",
+          "lexeme": "KNC",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Ihr versammelt“, mit Versammlung als Objekt"
+    },
+    {
+      "id": "195674",
+      "chapter": 1,
+      "verse": 13,
+      "form": "ܐܢܬܘܢ",
+      "proposed": [
+        {
+          "form": "ܐܢܬܘܢ",
+          "lexeme": ">NTWN",
+          "pos": "pron"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Explizites Subjekt „ihr“"
+    },
+    {
+      "id": "195675",
+      "chapter": 1,
+      "verse": 13,
+      "form": "ܟܢܘܫܝܐ",
+      "proposed": [
+        {
+          "form": "ܟܢܘܫܝܐ",
+          "lexeme": "KNWCJ",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Versammlung als Objekt des Versammelns"
+    },
+    {
+      "id": "195676",
+      "chapter": 1,
+      "verse": 13,
+      "form": "ܠܐ",
+      "proposed": [
+        {
+          "form": "ܠܐ",
+          "lexeme": "L>",
+          "pos": "nega"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Negation der folgenden Aussage"
+    },
+    {
+      "id": "195677",
+      "chapter": 1,
+      "verse": 13,
+      "form": "ܐܟ̇ܠ",
+      "proposed": [],
+      "status": "open",
+      "note": "Prädikat des Nicht-Ertragens; der häufige Korpusbeleg „essen“ genügt hier nicht."
+    },
+    {
+      "id": "195678",
+      "chapter": 1,
+      "verse": 13,
+      "form": "ܐܢܐ",
+      "proposed": [
+        {
+          "form": "ܐܢܐ",
+          "lexeme": ">N>",
+          "pos": "pron"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Sprecherpronomen „ich“"
+    },
+    {
+      "id": "195679",
+      "chapter": 1,
+      "verse": 13,
+      "form": "ܕܥܬܐ",
+      "proposed": [],
+      "status": "open",
+      "note": "Teil der Verbindung nach dem negierten Prädikat; genaue Bedeutung und Lemma bleiben offen."
+    },
+    {
+      "id": "195680",
+      "chapter": 1,
+      "verse": 13,
+      "form": "ܘܕܚܒܘܫܝܐ",
+      "proposed": [],
+      "status": "open",
+      "note": "Zweiter Teil dieser Verbindung; „Versammlung“ beziehungsweise „Einschließung“ ist anhand weiterer Quellen zu prüfen."
+    },
+    {
+      "id": "195681",
+      "chapter": 1,
+      "verse": 14,
+      "form": "ܪܝܫ",
+      "proposed": [
+        {
+          "form": "ܪܝܫ",
+          "lexeme": "RJC",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Beginn“ der Monate"
+    },
+    {
+      "id": "195682",
+      "chapter": 1,
+      "verse": 14,
+      "form": "ܝܪ̈ܚܝܟܘܢ",
+      "proposed": [
+        {
+          "form": "ܝܪܚܝ",
+          "lexeme": "JRX",
+          "pos": "subs"
+        },
+        {
+          "form": "ܟܘܢ",
+          "lexeme": "KWN",
+          "pos": "pron"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Eure Monate, mit Pluralsuffix"
+    },
+    {
+      "id": "195683",
+      "chapter": 1,
+      "verse": 14,
+      "form": "ܘܥܕ̈ܥܐܕܝܟܘܢ",
+      "proposed": [],
+      "status": "confirmed",
+      "note": "„Eure Feste“ parallel zu den Monatsanfängen.",
+      "sedra": "2217",
+      "sedraQuery": "ܥܕܥܕܐ"
+    },
+    {
+      "id": "195684",
+      "chapter": 1,
+      "verse": 14,
+      "form": "ܣܢܬ",
+      "proposed": [
+        {
+          "form": "ܣܢܬ",
+          "lexeme": "SNJ",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Feminines Prädikat „hasst“ zu „meine Seele“"
+    },
+    {
+      "id": "195685",
+      "chapter": 1,
+      "verse": 14,
+      "form": "ܢܦܫܝ",
+      "proposed": [
+        {
+          "form": "ܢܦܫ",
+          "lexeme": "NPC",
+          "pos": "subs"
+        },
+        {
+          "form": "ܝ",
+          "lexeme": "J",
+          "pos": "pron"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Meine Seele“ als Subjekt des Hassens"
+    },
+    {
+      "id": "195686",
+      "chapter": 1,
+      "verse": 14,
+      "form": "ܗܘܘ",
+      "proposed": [
+        {
+          "form": "ܗܘܘ",
+          "lexeme": "HWJ",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Kopula mit den Festen als Subjekt"
+    },
+    {
+      "id": "195687",
+      "chapter": 1,
+      "verse": 14,
+      "form": "ܥܠܝ",
+      "proposed": [
+        {
+          "form": "ܥܠ",
+          "lexeme": "<L",
+          "pos": "prep"
+        },
+        {
+          "form": "ܝ",
+          "lexeme": "J",
+          "pos": "pron"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Auf mir“, zum Bild der Last"
+    },
+    {
+      "id": "195688",
+      "chapter": 1,
+      "verse": 14,
+      "form": "ܠܐܝܩܪܬܐ",
+      "proposed": [],
+      "status": "confirmed",
+      "note": "„Als Gepäck/Last“, passend zum unmittelbar folgenden „tragen“.",
+      "sedra": "9635",
+      "sedraQuery": "ܐܝܩܪܬܐ"
+    },
+    {
+      "id": "195689",
+      "chapter": 1,
+      "verse": 14,
+      "form": "ܠܐ̇ܝܬ",
+      "proposed": [
+        {
+          "form": "ܠܐܝܬ",
+          "lexeme": "L>J",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Erste Person „ich bin müde“"
+    },
+    {
+      "id": "195690",
+      "chapter": 1,
+      "verse": 14,
+      "form": "ܠܡܫܩܠ",
+      "proposed": [
+        {
+          "form": "ܠ",
+          "lexeme": "L",
+          "pos": "prep"
+        },
+        {
+          "form": "ܡܫܩܠ",
+          "lexeme": "CQL",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Tragen der als Last beschriebenen Feste"
+    },
+    {
+      "id": "195691",
+      "chapter": 1,
+      "verse": 15,
+      "form": "ܟܕ",
+      "proposed": [
+        {
+          "form": "ܟܕ",
+          "lexeme": "KD",
+          "pos": "conj"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Temporale Einleitung zum Ausstrecken der Hände"
+    },
+    {
+      "id": "195692",
+      "chapter": 1,
+      "verse": 15,
+      "form": "ܬܦܪܣܘܢ",
+      "proposed": [],
+      "status": "confirmed",
+      "note": "„Ihr streckt aus“ mit den Händen als Objekt, SEDRA führt die Bedeutung „ausbreiten“.",
+      "sedra": "2599",
+      "sedraQuery": "ܦܪܣ"
+    },
+    {
+      "id": "195693",
+      "chapter": 1,
+      "verse": 15,
+      "form": "ܐ̈ܝܕܝܟܘܢ",
+      "proposed": [
+        {
+          "form": "ܐܝܕܝ",
+          "lexeme": "JD",
+          "pos": "subs"
+        },
+        {
+          "form": "ܟܘܢ",
+          "lexeme": "KWN",
+          "pos": "pron"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Eure Hände als Objekt des Ausstreckens"
+    },
+    {
+      "id": "195694",
+      "chapter": 1,
+      "verse": 15,
+      "form": "ܐܗܡܐ",
+      "proposed": [],
+      "status": "confirmed",
+      "note": "„Ich beachte nicht/wende ab“, mit meinen Augen als Objekt und „von euch“ als Ergänzung.",
+      "sedra": "800",
+      "sedraQuery": "ܗܡܐ"
+    },
+    {
+      "id": "195695",
+      "chapter": 1,
+      "verse": 15,
+      "form": "ܥܝ̈ܢܝ",
+      "proposed": [
+        {
+          "form": "ܥܝܢ",
+          "lexeme": "<JN",
+          "pos": "subs"
+        },
+        {
+          "form": "ܝ",
+          "lexeme": "J",
+          "pos": "pron"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Meine Augen“ als Objekt des Abwendens."
+    },
+    {
+      "id": "195696",
+      "chapter": 1,
+      "verse": 15,
+      "form": "ܡܢܟܘܢ",
+      "proposed": [
+        {
+          "form": "ܡܢ",
+          "lexeme": "MN",
+          "pos": "prep"
+        },
+        {
+          "form": "ܟܘܢ",
+          "lexeme": "KWN",
+          "pos": "pron"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Von euch“, Richtung der abgewandten Augen"
+    },
+    {
+      "id": "195697",
+      "chapter": 1,
+      "verse": 15,
+      "form": "ܘܐܦܢ",
+      "proposed": [],
+      "status": "confirmed",
+      "note": "Konzessive Einleitung „und selbst wenn“",
+      "sedra": "244"
+    },
+    {
+      "id": "195698",
+      "chapter": 1,
+      "verse": 15,
+      "form": "ܬܣܓܘܢ",
+      "proposed": [
+        {
+          "form": "ܬܣܓܘܢ",
+          "lexeme": "SGJ",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Gebete vermehren."
+    },
+    {
+      "id": "195699",
+      "chapter": 1,
+      "verse": 15,
+      "form": "ܨܠܘܬܐ",
+      "proposed": [
+        {
+          "form": "ܨܠܘܬܐ",
+          "lexeme": "YLW",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Gebet als Objekt des Vermehrens"
+    },
+    {
+      "id": "195700",
+      "chapter": 1,
+      "verse": 15,
+      "form": "ܠܐ",
+      "proposed": [
+        {
+          "form": "ܠܐ",
+          "lexeme": "L>",
+          "pos": "nega"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Negation des Hörens"
+    },
+    {
+      "id": "195701",
+      "chapter": 1,
+      "verse": 15,
+      "form": "ܫܡ̇ܥ",
+      "proposed": [
+        {
+          "form": "ܫܡܥ",
+          "lexeme": "CM<",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Hören“ in der Antwort auf die Gebete"
+    },
+    {
+      "id": "195702",
+      "chapter": 1,
+      "verse": 15,
+      "form": "ܐܢܐ",
+      "proposed": [
+        {
+          "form": "ܐܢܐ",
+          "lexeme": ">N>",
+          "pos": "pron"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Sprecherpronomen „ich“"
+    },
+    {
+      "id": "195703",
+      "chapter": 1,
+      "verse": 15,
+      "form": "ܐ̈ܝܕܝܟܘܢ",
+      "proposed": [
+        {
+          "form": "ܐܝܕܝ",
+          "lexeme": "JD",
+          "pos": "subs"
+        },
+        {
+          "form": "ܟܘܢ",
+          "lexeme": "KWN",
+          "pos": "pron"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Eure Hände als Subjekt der folgenden Prädikation"
+    },
+    {
+      "id": "195704",
+      "chapter": 1,
+      "verse": 15,
+      "form": "ܡ̈ܠܝܢ",
+      "proposed": [
+        {
+          "form": "ܡܠܝܢ",
+          "lexeme": "MLJ",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Voll“, bezogen auf die Hände"
+    },
+    {
+      "id": "195705",
+      "chapter": 1,
+      "verse": 15,
+      "form": "ܕܡܐ",
+      "proposed": [
+        {
+          "form": "ܕܡܐ",
+          "lexeme": "DM",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Blut als Ergänzung zu „voll“"
+    },
+    {
+      "id": "195706",
+      "chapter": 1,
+      "verse": 16,
+      "form": "ܣܚܘ",
+      "proposed": [
+        {
+          "form": "ܣܚܘ",
+          "lexeme": "SXJ",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Erster Imperativ „wascht euch“"
+    },
+    {
+      "id": "195707",
+      "chapter": 1,
+      "verse": 16,
+      "form": "ܘܐܬܕܟܘ",
+      "proposed": [
+        {
+          "form": "ܘ",
+          "lexeme": "W",
+          "pos": "conj"
+        },
+        {
+          "form": "ܐܬܕܟܘ",
+          "lexeme": "DKJ",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Und reinigt euch“, paralleler Imperativ"
+    },
+    {
+      "id": "195708",
+      "chapter": 1,
+      "verse": 16,
+      "form": "ܘܐܥܒܪܘ",
+      "proposed": [
+        {
+          "form": "ܘ",
+          "lexeme": "W",
+          "pos": "conj"
+        },
+        {
+          "form": "ܐܥܒܪܘ",
+          "lexeme": "<BR",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Und entfernt“, mit schlechten Taten als Objekt"
+    },
+    {
+      "id": "195709",
+      "chapter": 1,
+      "verse": 16,
+      "form": "ܒܝܫ̈ܬܐ",
+      "proposed": [
+        {
+          "form": "ܒܝܫܬܐ",
+          "lexeme": "BJC>",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Substantiviertes „das Böse“ als Objekt von „entfernt“"
+    },
+    {
+      "id": "195710",
+      "chapter": 1,
+      "verse": 16,
+      "form": "ܕܥ̇ܒ̈ܕܝܟܘܢ",
+      "proposed": [
+        {
+          "form": "ܕ",
+          "lexeme": "D",
+          "pos": "prep"
+        },
+        {
+          "form": "ܥܒܕܝ",
+          "lexeme": "<BD==",
+          "pos": "subs"
+        },
+        {
+          "form": "ܟܘܢ",
+          "lexeme": "KWN",
+          "pos": "pron"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Eurer Werke“, nicht „eurer Knechte“, nach „das Böse“"
+    },
+    {
+      "id": "195711",
+      "chapter": 1,
+      "verse": 16,
+      "form": "ܡܢ",
+      "proposed": [
+        {
+          "form": "ܡܢ",
+          "lexeme": "MN",
+          "pos": "prep"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Von“, Teil der Ortsangabe"
+    },
+    {
+      "id": "195712",
+      "chapter": 1,
+      "verse": 16,
+      "form": "ܩܕܡ",
+      "proposed": [
+        {
+          "form": "ܩܕܡ",
+          "lexeme": "QDM",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Vor“, unmittelbar vor „meinen Augen“"
+    },
+    {
+      "id": "195713",
+      "chapter": 1,
+      "verse": 16,
+      "form": "ܥܝ̈ܢܝ",
+      "proposed": [
+        {
+          "form": "ܥܝܢ",
+          "lexeme": "<JN",
+          "pos": "subs"
+        },
+        {
+          "form": "ܝ",
+          "lexeme": "J",
+          "pos": "pron"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Augen des Sprechers mit Suffix erster Person"
+    },
+    {
+      "id": "195714",
+      "chapter": 1,
+      "verse": 16,
+      "form": "ܫܠܘ",
+      "proposed": [
+        {
+          "form": "ܫܠܘ",
+          "lexeme": "CLJ",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Imperativ „hört auf“"
+    },
+    {
+      "id": "195715",
+      "chapter": 1,
+      "verse": 16,
+      "form": "ܡܢ",
+      "proposed": [
+        {
+          "form": "ܡܢ",
+          "lexeme": "MN",
+          "pos": "prep"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Leitet ein, womit sie aufhören sollen"
+    },
+    {
+      "id": "195716",
+      "chapter": 1,
+      "verse": 16,
+      "form": "ܒܝܫ̈ܬܐ",
+      "proposed": [
+        {
+          "form": "ܒܝܫܬܐ",
+          "lexeme": "BJC>",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Böses“ als Gegenstand der Unterlassung"
+    },
+    {
+      "id": "195717",
+      "chapter": 1,
+      "verse": 17,
+      "form": "ܘܐܝܠܦܘ",
+      "proposed": [
+        {
+          "form": "ܘ",
+          "lexeme": "W",
+          "pos": "conj"
+        },
+        {
+          "form": "ܐܝܠܦܘ",
+          "lexeme": "JLP",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Imperativ „und lernt“, vor dem Infinitiv des Tuns"
+    },
+    {
+      "id": "195718",
+      "chapter": 1,
+      "verse": 17,
+      "form": "ܠܡܛܐܒܘ",
+      "proposed": [
+        {
+          "form": "ܠ",
+          "lexeme": "L",
+          "pos": "prep"
+        },
+        {
+          "form": "ܡܛܐܒܘ",
+          "lexeme": "V>B",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Infinitiv „Gutes tun“"
+    },
+    {
+      "id": "195719",
+      "chapter": 1,
+      "verse": 17,
+      "form": "ܥܩܒܘ",
+      "proposed": [],
+      "status": "confirmed",
+      "note": "„Sucht/erforscht“, mit Recht als Objekt",
+      "sedra": "15519"
+    },
+    {
+      "id": "195720",
+      "chapter": 1,
+      "verse": 17,
+      "form": "ܕܝܢܐ",
+      "proposed": [
+        {
+          "form": "ܕܝܢܐ",
+          "lexeme": "DJN=",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Recht“ als Objekt, parallel zu den folgenden Gerichtsaufforderungen"
+    },
+    {
+      "id": "195721",
+      "chapter": 1,
+      "verse": 17,
+      "form": "ܘܐܛܐܒܘ",
+      "proposed": [
+        {
+          "form": "ܘ",
+          "lexeme": "W",
+          "pos": "conj"
+        },
+        {
+          "form": "ܐܛܐܒܘ",
+          "lexeme": "V>B",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Imperativ „tut Gutes“"
+    },
+    {
+      "id": "195722",
+      "chapter": 1,
+      "verse": 17,
+      "form": "ܠܛܠܝܡ̈ܐ",
+      "proposed": [
+        {
+          "form": "ܠ",
+          "lexeme": "L",
+          "pos": "prep"
+        },
+        {
+          "form": "ܛܠܝܡܐ",
+          "lexeme": "VLM",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Den Bedrängten“, Empfänger des guten Handelns"
+    },
+    {
+      "id": "195723",
+      "chapter": 1,
+      "verse": 17,
+      "form": "ܕܘܢܘ",
+      "proposed": [
+        {
+          "form": "ܕܘܢܘ",
+          "lexeme": "DWN",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Imperativ „verhelft zu Recht“"
+    },
+    {
+      "id": "195724",
+      "chapter": 1,
+      "verse": 17,
+      "form": "ܝܬ̈ܡܐ",
+      "proposed": [],
+      "status": "confirmed",
+      "note": "Substantiv „Waisen“, parallel zu den Witwen. SEDRA führt ausdrücklich auch „orphan“.",
+      "sedra": "1440",
+      "sedraQuery": "ܝܬܡܐ"
+    },
+    {
+      "id": "195725",
+      "chapter": 1,
+      "verse": 17,
+      "form": "ܘܕܘܢܘ",
+      "proposed": [
+        {
+          "form": "ܘ",
+          "lexeme": "W",
+          "pos": "conj"
+        },
+        {
+          "form": "ܕܘܢܘ",
+          "lexeme": "DWN",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Wiederholung von „verhelft zu Recht“"
+    },
+    {
+      "id": "195726",
+      "chapter": 1,
+      "verse": 17,
+      "form": "ܐܪ̈ܡܠܬܐ",
+      "proposed": [
+        {
+          "form": "ܐܪܡܠܬܐ",
+          "lexeme": ">RML>",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Witwen als zweiter Empfänger des Rechtsschutzes"
+    },
+    {
+      "id": "195727",
+      "chapter": 1,
+      "verse": 18,
+      "form": "ܘܬܘ",
+      "proposed": [
+        {
+          "form": "ܘ",
+          "lexeme": "W",
+          "pos": "conj"
+        },
+        {
+          "form": "ܬܘ",
+          "lexeme": ">TJ",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Und kommt“, Aufforderung vor „lasst uns sprechen“"
+    },
+    {
+      "id": "195728",
+      "chapter": 1,
+      "verse": 18,
+      "form": "ܢܡܠܠ",
+      "proposed": [
+        {
+          "form": "ܢܡܠܠ",
+          "lexeme": "MLL",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Lasst uns sprechen“, erste Person Plural"
+    },
+    {
+      "id": "195729",
+      "chapter": 1,
+      "verse": 18,
+      "form": "ܥܡ",
+      "proposed": [
+        {
+          "form": "ܥܡ",
+          "lexeme": "<M",
+          "pos": "prep"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Präposition „mit“ vor dem reziproken Ausdruck"
+    },
+    {
+      "id": "195730",
+      "chapter": 1,
+      "verse": 18,
+      "form": "ܚ̈ܕܕܐ",
+      "proposed": [],
+      "status": "confirmed",
+      "note": "„Miteinander“ in „lasst uns miteinander sprechen“, reziproker Ausdruck nach „mit“.",
+      "sedra": "952",
+      "sedraQuery": "ܚܕܕܐ"
+    },
+    {
+      "id": "195731",
+      "chapter": 1,
+      "verse": 18,
+      "form": "ܐܡ̇ܪ",
+      "proposed": [
+        {
+          "form": "ܐܡܪ",
+          "lexeme": ">MR",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Verb der Redeeinleitung"
+    },
+    {
+      "id": "195732",
+      "chapter": 1,
+      "verse": 18,
+      "form": "ܡܪܝܐ",
+      "proposed": [
+        {
+          "form": "ܡܪܝܐ",
+          "lexeme": "MRJ>",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Sprecher der Redeeinleitung"
+    },
+    {
+      "id": "195733",
+      "chapter": 1,
+      "verse": 18,
+      "form": "ܘܐܢ",
+      "proposed": [
+        {
+          "form": "ܘ",
+          "lexeme": "W",
+          "pos": "conj"
+        },
+        {
+          "form": "ܐܢ",
+          "lexeme": ">N",
+          "pos": "conj"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Erste Bedingung „und wenn“"
+    },
+    {
+      "id": "195734",
+      "chapter": 1,
+      "verse": 18,
+      "form": "ܢܗܘܘܢ",
+      "proposed": [
+        {
+          "form": "ܢܗܘܘܢ",
+          "lexeme": "HWJ",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Kopula zu „eure Sünden“"
+    },
+    {
+      "id": "195735",
+      "chapter": 1,
+      "verse": 18,
+      "form": "ܚ̈ܛܗܝܟܘܢ",
+      "proposed": [
+        {
+          "form": "ܚܛܗܝ",
+          "lexeme": "XVH",
+          "pos": "subs"
+        },
+        {
+          "form": "ܟܘܢ",
+          "lexeme": "KWN",
+          "pos": "pron"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Eure Sünden als Subjekt, mit Pluralsuffix"
+    },
+    {
+      "id": "195736",
+      "chapter": 1,
+      "verse": 18,
+      "form": "ܐܝܟ",
+      "proposed": [
+        {
+          "form": "ܐܝܟ",
+          "lexeme": ">JK",
+          "pos": "prep"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Einleitung des Scharlachvergleichs"
+    },
+    {
+      "id": "195737",
+      "chapter": 1,
+      "verse": 18,
+      "form": "ܙܚܘܪܝܬܐ",
+      "proposed": [
+        {
+          "form": "ܙܚܘܪܝܬܐ",
+          "lexeme": "ZXWRJ",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Scharlach als erste Farbe"
+    },
+    {
+      "id": "195738",
+      "chapter": 1,
+      "verse": 18,
+      "form": "ܐܝܟ",
+      "proposed": [
+        {
+          "form": "ܐܝܟ",
+          "lexeme": ">JK",
+          "pos": "prep"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Einleitung des Schneevergleichs"
+    },
+    {
+      "id": "195739",
+      "chapter": 1,
+      "verse": 18,
+      "form": "ܬܠܓܐ",
+      "proposed": [
+        {
+          "form": "ܬܠܓܐ",
+          "lexeme": "TLG",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Schnee als Vergleich für das Weißwerden"
+    },
+    {
+      "id": "195740",
+      "chapter": 1,
+      "verse": 18,
+      "form": "ܢܬܚܘܪܘܢ",
+      "proposed": [],
+      "status": "confirmed",
+      "note": "„Weiß werden“ nach dem Schneevergleich, in der Reflexivform.",
+      "sedra": "992",
+      "sedraQuery": "ܚܘܪ"
+    },
+    {
+      "id": "195741",
+      "chapter": 1,
+      "verse": 18,
+      "form": "ܘܐܢ",
+      "proposed": [
+        {
+          "form": "ܘ",
+          "lexeme": "W",
+          "pos": "conj"
+        },
+        {
+          "form": "ܐܢ",
+          "lexeme": ">N",
+          "pos": "conj"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Zweite Bedingung „und wenn“"
+    },
+    {
+      "id": "195742",
+      "chapter": 1,
+      "verse": 18,
+      "form": "ܢܣܡܩܘܢ",
+      "proposed": [],
+      "status": "confirmed",
+      "note": "„Rot werden“ als Prädikat zum Vergleich mit dem roten Farbstoff.",
+      "sedra": "2159",
+      "sedraQuery": "ܣܡܩ"
+    },
+    {
+      "id": "195743",
+      "chapter": 1,
+      "verse": 18,
+      "form": "ܐܝܟ",
+      "proposed": [
+        {
+          "form": "ܐܝܟ",
+          "lexeme": ">JK",
+          "pos": "prep"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Vergleichspartikel vor der Kermesschildlaus"
+    },
+    {
+      "id": "195744",
+      "chapter": 1,
+      "verse": 18,
+      "form": "ܬܘܠܥܬܐ",
+      "proposed": [],
+      "status": "confirmed",
+      "note": "Tiername im Bild der roten Farbstoffquelle",
+      "sedra": "14142"
+    },
+    {
+      "id": "195745",
+      "chapter": 1,
+      "verse": 18,
+      "form": "ܐܝܟ",
+      "proposed": [
+        {
+          "form": "ܐܝܟ",
+          "lexeme": ">JK",
+          "pos": "prep"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Vergleichspartikel vor Wolle"
+    },
+    {
+      "id": "195746",
+      "chapter": 1,
+      "verse": 18,
+      "form": "ܥܡܪܐ",
+      "proposed": [
+        {
+          "form": "ܥܡܪܐ",
+          "lexeme": "<MR=",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Wolle als Vergleich für die gereinigten Sünden"
+    },
+    {
+      "id": "195747",
+      "chapter": 1,
+      "verse": 18,
+      "form": "ܢܗܘܘܢ",
+      "proposed": [
+        {
+          "form": "ܢܗܘܘܢ",
+          "lexeme": "HWJ",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Kopulaverb am Ende des Vergleichs"
+    },
+    {
+      "id": "195748",
+      "chapter": 1,
+      "verse": 19,
+      "form": "ܘܐܢ",
+      "proposed": [
+        {
+          "form": "ܘ",
+          "lexeme": "W",
+          "pos": "conj"
+        },
+        {
+          "form": "ܐܢ",
+          "lexeme": ">N",
+          "pos": "conj"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Einleitung der positiven Bedingung"
+    },
+    {
+      "id": "195749",
+      "chapter": 1,
+      "verse": 19,
+      "form": "ܬܛܦܝܣܘܢ",
+      "proposed": [],
+      "status": "confirmed",
+      "note": "Ethpaʿal „sich überzeugen lassen, gehorchen“, parallel zu „ihr hört auf mich“.",
+      "sedra": "2506",
+      "sedraQuery": "ܐܬܛܦܝܣ"
+    },
+    {
+      "id": "195750",
+      "chapter": 1,
+      "verse": 19,
+      "form": "ܘܬܫܡܥܘܢܢܝ",
+      "proposed": [
+        {
+          "form": "ܘ",
+          "lexeme": "W",
+          "pos": "conj"
+        },
+        {
+          "form": "ܬܫܡܥܘܢ",
+          "lexeme": "CM<",
+          "pos": "verb"
+        },
+        {
+          "form": "ܢܝ",
+          "lexeme": "NJ",
+          "pos": "pron"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Und ihr hört auf mich“, mit Objektsuffix"
+    },
+    {
+      "id": "195751",
+      "chapter": 1,
+      "verse": 19,
+      "form": "ܛܘܒܗ̇",
+      "proposed": [
+        {
+          "form": "ܛܘܒ",
+          "lexeme": "VWB",
+          "pos": "subs"
+        },
+        {
+          "form": "ܗ",
+          "lexeme": "H=",
+          "pos": "pron"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Das Gute des Landes, mit Rückverweis auf das Land"
+    },
+    {
+      "id": "195752",
+      "chapter": 1,
+      "verse": 19,
+      "form": "ܕܐܪܥܐ",
+      "proposed": [
+        {
+          "form": "ܕ",
+          "lexeme": "D",
+          "pos": "prep"
+        },
+        {
+          "form": "ܐܪܥܐ",
+          "lexeme": ">R<",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Des Landes“ als Genitivergänzung"
+    },
+    {
+      "id": "195753",
+      "chapter": 1,
+      "verse": 19,
+      "form": "ܬܐܟܠܘܢ",
+      "proposed": [
+        {
+          "form": "ܬܐܟܠܘܢ",
+          "lexeme": ">KL",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Ihr werdet essen“, Folge des Gehorsams"
+    },
+    {
+      "id": "195754",
+      "chapter": 1,
+      "verse": 20,
+      "form": "ܘܐܢ",
+      "proposed": [
+        {
+          "form": "ܘ",
+          "lexeme": "W",
+          "pos": "conj"
+        },
+        {
+          "form": "ܐܢ",
+          "lexeme": ">N",
+          "pos": "conj"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Einleitung der negativen Bedingung"
+    },
+    {
+      "id": "195755",
+      "chapter": 1,
+      "verse": 20,
+      "form": "ܠܐ",
+      "proposed": [
+        {
+          "form": "ܠܐ",
+          "lexeme": "L>",
+          "pos": "nega"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Negation des Gehorsams"
+    },
+    {
+      "id": "195756",
+      "chapter": 1,
+      "verse": 20,
+      "form": "ܬܛܦܝܣܘܢ",
+      "proposed": [],
+      "status": "confirmed",
+      "note": "Dieselbe Verbalform wie in 1,19, hier mit Negation.",
+      "sedra": "2506",
+      "sedraQuery": "ܐܬܛܦܝܣ"
+    },
+    {
+      "id": "195757",
+      "chapter": 1,
+      "verse": 20,
+      "form": "ܘܬܬܚܪܘܢ",
+      "proposed": [],
+      "status": "confirmed",
+      "note": "Reflexives „euch widersetzen“, parallel zur Negation des Gehorsams.",
+      "sedra": "15008",
+      "sedraQuery": "ܚܪܐ"
+    },
+    {
+      "id": "195758",
+      "chapter": 1,
+      "verse": 20,
+      "form": "ܒܚܪܒܐ",
+      "proposed": [
+        {
+          "form": "ܒ",
+          "lexeme": "B",
+          "pos": "prep"
+        },
+        {
+          "form": "ܚܪܒܐ",
+          "lexeme": "XRB=",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Mittel „durch das Schwert“"
+    },
+    {
+      "id": "195759",
+      "chapter": 1,
+      "verse": 20,
+      "form": "ܬܬܐܟܠܘܢ",
+      "proposed": [
+        {
+          "form": "ܬܬܐܟܠܘܢ",
+          "lexeme": ">KL",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Passives „werdet verzehrt“, Gegenbild zum Essen in Vers 19"
+    },
+    {
+      "id": "195760",
+      "chapter": 1,
+      "verse": 20,
+      "form": "ܦܘܡܗ",
+      "proposed": [
+        {
+          "form": "ܦܘܡ",
+          "lexeme": "PWM",
+          "pos": "subs"
+        },
+        {
+          "form": "ܗ",
+          "lexeme": "H",
+          "pos": "pron"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Sein Mund“, Rückverweis auf den Herrn"
+    },
+    {
+      "id": "195761",
+      "chapter": 1,
+      "verse": 20,
+      "form": "ܕܡܪܝܐ",
+      "proposed": [
+        {
+          "form": "ܕ",
+          "lexeme": "D",
+          "pos": "prep"
+        },
+        {
+          "form": "ܡܪܝܐ",
+          "lexeme": "MRJ>",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Des Herrn“ als nähere Bestimmung des Mundes"
+    },
+    {
+      "id": "195762",
+      "chapter": 1,
+      "verse": 20,
+      "form": "ܡܠܠ",
+      "proposed": [
+        {
+          "form": "ܡܠܠ",
+          "lexeme": "MLL",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Hat gesprochen“, abschließende Redeformel"
+    },
+    {
+      "id": "196052",
+      "chapter": 2,
+      "verse": 13,
+      "form": "ܕܒܝܫܢ",
+      "proposed": [
+        {
+          "form": "ܕ",
+          "lexeme": "D",
+          "pos": "prep"
+        },
+        {
+          "form": "ܒܝܫܢ",
+          "lexeme": "BJCN",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Eichen des Baschan. Nach d- steht der Landschaftsname.",
+      "selection": "aligned-homographs"
+    },
+    {
+      "id": "196173",
+      "chapter": 3,
+      "verse": 3,
+      "form": "ܐ̈ܦܐ",
+      "proposed": [
+        {
+          "form": "ܐܦܐ",
+          "lexeme": ">NP",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Wörtlich „geehrt im Angesicht“. Das Nomen >NP steht in der festen Wendung.",
+      "selection": "aligned-homographs"
+    },
+    {
+      "id": "196466",
+      "chapter": 4,
+      "verse": 4,
+      "form": "ܕܕܝܢܐ",
+      "proposed": [
+        {
+          "form": "ܕ",
+          "lexeme": "D",
+          "pos": "prep"
+        },
+        {
+          "form": "ܕܝܢܐ",
+          "lexeme": "DJN=",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Mit dem Geist des Gerichts“. Das abstrakte Nomen bezeichnet das Gericht.",
+      "selection": "aligned-homographs"
+    },
+    {
+      "id": "196591",
+      "chapter": 5,
+      "verse": 7,
+      "form": "ܕܒܝܬ",
+      "proposed": [
+        {
+          "form": "ܕ",
+          "lexeme": "D",
+          "pos": "prep"
+        },
+        {
+          "form": "ܒܝܬ",
+          "lexeme": "BJT",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Das Haus Israel ist der genannte Weinberg. Die Form ist das Nomen Haus im Status constructus.",
+      "selection": "aligned-homographs"
+    },
+    {
+      "id": "196931",
+      "chapter": 6,
+      "verse": 2,
+      "form": "ܡܟܣܝܢ",
+      "proposed": [
+        {
+          "form": "ܡܟܣܝܢ",
+          "lexeme": "KSJ",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Die Serafim bedecken Gesicht und Füße."
+    },
+    {
+      "id": "196953",
+      "chapter": 6,
+      "verse": 4,
+      "form": "ܕܩ̇ܪܐ",
+      "proposed": [
+        {
+          "form": "ܕ",
+          "lexeme": "D",
+          "pos": "prep"
+        },
+        {
+          "form": "ܩܪܐ",
+          "lexeme": "QRJ",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Die Stimme des Rufenden."
+    },
+    {
+      "id": "196991",
+      "chapter": 6,
+      "verse": 7,
+      "form": "ܘܐܡܪ",
+      "proposed": [
+        {
+          "form": "ܘ",
+          "lexeme": "W",
+          "pos": "conj"
+        },
+        {
+          "form": "ܐܡܪ",
+          "lexeme": ">MR",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Der Seraf sagt zu Jesaja."
+    },
+    {
+      "id": "196995",
+      "chapter": 6,
+      "verse": 7,
+      "form": "ܗܕܐ",
+      "proposed": [
+        {
+          "form": "ܗܕܐ",
+          "lexeme": "HD>",
+          "pos": "pron"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Dieses“ berührt die Lippen, feminines Demonstrativpronomen."
+    },
+    {
+      "id": "197071",
+      "chapter": 6,
+      "verse": 12,
+      "form": "ܕܐܪܥܐ",
+      "proposed": [
+        {
+          "form": "ܕ",
+          "lexeme": "D",
+          "pos": "prep"
+        },
+        {
+          "form": "ܐܪܥܐ",
+          "lexeme": ">R<",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Inmitten des Landes."
+    },
+    {
+      "id": "197079",
+      "chapter": 6,
+      "verse": 13,
+      "form": "ܠܝܩܕܢܐ",
+      "proposed": [
+        {
+          "form": "ܠ",
+          "lexeme": "L",
+          "pos": "prep"
+        },
+        {
+          "form": "ܝܩܕܢܐ",
+          "lexeme": "JQDN",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Zum Verbrennen bestimmt."
+    },
+    {
+      "id": "197295",
+      "chapter": 7,
+      "verse": 16,
+      "form": "ܐܪܥܐ",
+      "proposed": [
+        {
+          "form": "ܐܪܥܐ",
+          "lexeme": ">R<",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Das Land der beiden Könige wird verlassen. Subjekt des Passivs ist das Land.",
+      "selection": "aligned-homographs"
+    },
+    {
+      "id": "197568",
+      "chapter": 8,
+      "verse": 12,
+      "form": "ܡܪܕܐ",
+      "proposed": [
+        {
+          "form": "ܡܪܕܐ",
+          "lexeme": "MRD=",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Die Anweisung betrifft das Wort für Aufruhr. Das nominale Lemma MRD= passt zur Rede.",
+      "selection": "aligned-homographs"
+    },
+    {
+      "id": "197727",
+      "chapter": 9,
+      "verse": 2,
+      "form": "ܐܝܟ",
+      "proposed": [
+        {
+          "form": "ܐܝܟ",
+          "lexeme": ">JK",
+          "pos": "prep"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Vergleich mit der Freude bei der Ernte."
+    },
+    {
+      "id": "197757",
+      "chapter": 9,
+      "verse": 4,
+      "form": "ܒܕܡܐ",
+      "proposed": [
+        {
+          "form": "ܒ",
+          "lexeme": "B",
+          "pos": "prep"
+        },
+        {
+          "form": "ܕܡܐ",
+          "lexeme": "DM",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Das Gewand ist mit Blut getränkt."
+    },
+    {
+      "id": "197877",
+      "chapter": 9,
+      "verse": 14,
+      "form": "ܘܢܒܝܐ",
+      "proposed": [
+        {
+          "form": "ܘ",
+          "lexeme": "W",
+          "pos": "conj"
+        },
+        {
+          "form": "ܢܒܝܐ",
+          "lexeme": "NBJ",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Der Prophet, der Falsches lehrt."
+    },
+    {
+      "id": "197892",
+      "chapter": 9,
+      "verse": 16,
+      "form": "ܢܚܕܐ",
+      "proposed": [
+        {
+          "form": "ܢܚܕܐ",
+          "lexeme": "XDJ",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Der Herr freut sich nicht über die jungen Männer."
+    },
+    {
+      "id": "197956",
+      "chapter": 9,
+      "verse": 19,
+      "form": "ܢܣܒܥܘܢ",
+      "proposed": [
+        {
+          "form": "ܢܣܒܥܘܢ",
+          "lexeme": "SB<",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Sie essen und werden nicht satt."
+    },
+    {
+      "id": "197967",
+      "chapter": 9,
+      "verse": 20,
+      "form": "ܝܗܘܕܐ",
+      "proposed": [
+        {
+          "form": "ܝܗܘܕܐ",
+          "lexeme": "JHWD>",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Ephraim und Manasse gemeinsam gegen Juda."
+    },
+    {
+      "id": "198150",
+      "chapter": 10,
+      "verse": 14,
+      "form": "ܐܪܥܐ",
+      "proposed": [
+        {
+          "form": "ܐܪܥܐ",
+          "lexeme": ">R<",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Der Vergleich mit dem Vogelnest endet mit „die ganze Erde“. Die Form ist ein Nomen.",
+      "selection": "aligned-homographs"
+    },
+    {
+      "id": "198558",
+      "chapter": 11,
+      "verse": 12,
+      "form": "ܐܬܐ",
+      "proposed": [
+        {
+          "form": "ܐܬܐ",
+          "lexeme": ">T",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Ein Zeichen oder Feldzeichen für die Völker aufrichten. Das Wort ist Objekt von ܢܫܩܘܠ.",
+      "selection": "aligned-homographs"
+    },
+    {
+      "id": "198665",
+      "chapter": 12,
+      "verse": 3,
+      "form": "ܕܦܘܪܩܢܐ",
+      "proposed": [
+        {
+          "form": "ܕ",
+          "lexeme": "D",
+          "pos": "prep"
+        },
+        {
+          "form": "ܦܘܪܩܢܐ",
+          "lexeme": "PWRQN",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Quelle der Rettung."
+    },
+    {
+      "id": "198666",
+      "chapter": 12,
+      "verse": 4,
+      "form": "ܘܬܐܡܪܘܢ",
+      "proposed": [
+        {
+          "form": "ܘ",
+          "lexeme": "W",
+          "pos": "conj"
+        },
+        {
+          "form": "ܬܐܡܪܘܢ",
+          "lexeme": ">MR",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Und ihr werdet sagen."
+    },
+    {
+      "id": "198676",
+      "chapter": 12,
+      "verse": 4,
+      "form": "ܐܬܕܟܪܘ",
+      "proposed": [
+        {
+          "form": "ܐܬܕܟܪܘ",
+          "lexeme": "DKR",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Gedenkt oder erinnert euch."
+    },
+    {
+      "id": "198710",
+      "chapter": 13,
+      "verse": 2,
+      "form": "ܐܬܐ",
+      "proposed": [
+        {
+          "form": "ܐܬܐ",
+          "lexeme": ">T",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Aufforderung, auf den Bergen ein Zeichen zu erheben.",
+      "selection": "aligned-homographs"
+    },
+    {
+      "id": "199046",
+      "chapter": 14,
+      "verse": 7,
+      "form": "ܐܪܥܐ",
+      "proposed": [
+        {
+          "form": "ܐܪܥܐ",
+          "lexeme": ">R<",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Die ganze Erde kommt zur Ruhe und jubelt.",
+      "selection": "aligned-homographs"
+    },
+    {
+      "id": "199424",
+      "chapter": 15,
+      "verse": 6,
+      "form": "ܕܡ̈ܝܐ",
+      "proposed": [
+        {
+          "form": "ܕ",
+          "lexeme": "D",
+          "pos": "prep"
+        },
+        {
+          "form": "ܡܝܐ",
+          "lexeme": "MJ",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Das Wasser von Nimrim ist versiegt. Der Plural und die Genitivkonstruktion stützen D+MJ.",
+      "selection": "aligned-homographs"
+    },
+    {
+      "id": "199611",
+      "chapter": 16,
+      "verse": 10,
+      "form": "ܚܕܘܬܐ",
+      "proposed": [
+        {
+          "form": "ܚܕܘܬܐ",
+          "lexeme": "XDW>",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Freude und Jubel weichen aus dem Weinland.",
+      "selection": "aligned-homographs"
+    },
+    {
+      "id": "199866",
+      "chapter": 17,
+      "verse": 14,
+      "form": "ܨܦܪܐ",
+      "proposed": [
+        {
+          "form": "ܨܦܪܐ",
+          "lexeme": "YPR",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Die Zeitangabe kontrastiert Abend und Morgen.",
+      "selection": "aligned-homographs"
+    },
+    {
+      "id": "199989",
+      "chapter": 18,
+      "verse": 7,
+      "form": "ܐܪܥܗ",
+      "proposed": [
+        {
+          "form": "ܐܪܥ",
+          "lexeme": ">R<",
+          "pos": "subs"
+        },
+        {
+          "form": "ܗ",
+          "lexeme": "H",
+          "pos": "pron"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Sein Land“ bezieht sich auf das zuvor bezeichnete Volk. Das Nomen ist mit Possessivsuffix verbunden.",
+      "selection": "aligned-homographs"
+    },
+    {
+      "id": "200082",
+      "chapter": 19,
+      "verse": 7,
+      "form": "ܕܡܙܕܪܥ",
+      "proposed": [
+        {
+          "form": "ܕ",
+          "lexeme": "D",
+          "pos": "prep"
+        },
+        {
+          "form": "ܡܙܕܪܥ",
+          "lexeme": "ZR<=",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Alles, was am Ufer gesät wird."
+    },
+    {
+      "id": "200089",
+      "chapter": 19,
+      "verse": 7,
+      "form": "ܢܫܬܟܚ",
+      "proposed": [
+        {
+          "form": "ܢܫܬܟܚ",
+          "lexeme": "CKX",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Die Saat am Fluss wird nicht mehr zu finden sein."
+    },
+    {
+      "id": "200125",
+      "chapter": 19,
+      "verse": 11,
+      "form": "ܬܐܡܪܘܢ",
+      "proposed": [
+        {
+          "form": "ܬܐܡܪܘܢ",
+          "lexeme": ">MR",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Wie könnt ihr zum Pharao sagen …?“"
+    },
+    {
+      "id": "200179",
+      "chapter": 19,
+      "verse": 16,
+      "form": "ܐܝܟ",
+      "proposed": [
+        {
+          "form": "ܐܝܟ",
+          "lexeme": ">JK",
+          "pos": "prep"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Ägypten wird sein wie Frauen."
+    },
+    {
+      "id": "200180",
+      "chapter": 19,
+      "verse": 16,
+      "form": "ܢܫ̈ܐ",
+      "proposed": [
+        {
+          "form": "ܢܫܐ",
+          "lexeme": "NC",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Vergleich mit Frauen, Plural."
+    },
+    {
+      "id": "200278",
+      "chapter": 19,
+      "verse": 22,
+      "form": "ܘܢܬܦܢܘܢ",
+      "proposed": [
+        {
+          "form": "ܘ",
+          "lexeme": "W",
+          "pos": "conj"
+        },
+        {
+          "form": "ܢܬܦܢܘܢ",
+          "lexeme": "PNJ",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Die Ägypter wenden sich dem Herrn zu."
+    },
+    {
+      "id": "200329",
+      "chapter": 20,
+      "verse": 1,
+      "form": "ܕܐܬܐ",
+      "proposed": [
+        {
+          "form": "ܕ",
+          "lexeme": "D",
+          "pos": "prep"
+        },
+        {
+          "form": "ܐܬܐ",
+          "lexeme": ">TJ",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Tartan kam nach Aschdod. Die Form steht als Verb nach der Relativpartikel.",
+      "selection": "aligned-homographs"
+    },
+    {
+      "id": "200487",
+      "chapter": 21,
+      "verse": 5,
+      "form": "ܪ̈ܘܪܒܢܐ̈",
+      "proposed": [
+        {
+          "form": "ܪܘܪܒܢܐ",
+          "lexeme": "RWRBN",
+          "pos": "subs"
+        }
+      ],
+      "status": "open",
+      "note": "Die Angesprochenen sind die Anführer. RWRBN und RWRB sind in dieser Form mit überlappender Bedeutung belegt.",
+      "selection": "aligned-homographs"
+    },
+    {
+      "id": "200911",
+      "chapter": 22,
+      "verse": 23,
+      "form": "ܠܒܝܬ",
+      "proposed": [
+        {
+          "form": "ܠ",
+          "lexeme": "L",
+          "pos": "prep"
+        },
+        {
+          "form": "ܒܝܬ",
+          "lexeme": "BJT",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Ehrenplatz für das Haus seines Vaters. Das Nomen „Haus“ steht nach l-.",
+      "selection": "aligned-homographs"
+    },
+    {
+      "id": "201113",
+      "chapter": 23,
+      "verse": 15,
+      "form": "ܨܘܪ",
+      "proposed": [
+        {
+          "form": "ܨܘܪ",
+          "lexeme": "YWR=",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Die Stadt Tyrus wird siebzig Jahre vergessen. Sie ist Subjekt der Aussage.",
+      "selection": "aligned-homographs"
+    },
+    {
+      "id": "201395",
+      "chapter": 24,
+      "verse": 20,
+      "form": "ܐܪܥܐ",
+      "proposed": [
+        {
+          "form": "ܐܪܥܐ",
+          "lexeme": ">R<",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Die Erde wankt wie ein Betrunkener.",
+      "selection": "aligned-homographs"
+    },
+    {
+      "id": "201445",
+      "chapter": 25,
+      "verse": 1,
+      "form": "ܡܪܝܐ",
+      "proposed": [
+        {
+          "form": "ܡܪܝܐ",
+          "lexeme": "MRJ>",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Der Herr wird direkt angeredet."
+    },
+    {
+      "id": "201526",
+      "chapter": 25,
+      "verse": 6,
+      "form": "ܫܡܝܢܐ",
+      "proposed": [
+        {
+          "form": "ܫܡܝܢܐ",
+          "lexeme": "CMN",
+          "pos": "verb"
+        }
+      ],
+      "status": "open",
+      "note": "An dieser Stelle nominaler oder adjektivischer Gebrauch in der Beschreibung des Mahls. Die verbale Analyse bleibt offen."
+    },
+    {
+      "id": "201562",
+      "chapter": 25,
+      "verse": 8,
+      "form": "ܡܛܠ",
+      "proposed": [
+        {
+          "form": "ܡܛܠ",
+          "lexeme": "MVL",
+          "pos": "prep"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Denn der Herr hat gesprochen."
+    },
+    {
+      "id": "201828",
+      "chapter": 26,
+      "verse": 20,
+      "form": "ܥܡܝ̈",
+      "proposed": [
+        {
+          "form": "ܥܡ",
+          "lexeme": "<M=",
+          "pos": "subs"
+        },
+        {
+          "form": "ܝ",
+          "lexeme": "J",
+          "pos": "pron"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Gott redet sein Volk an. Die Form ist „mein Volk“ in der Anrede.",
+      "selection": "aligned-homographs"
+    },
+    {
+      "id": "202025",
+      "chapter": 27,
+      "verse": 12,
+      "form": "ܒܢܝ̈",
+      "proposed": [
+        {
+          "form": "ܒܢܝ",
+          "lexeme": "BN",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Die angeredeten „Kinder Israels“ folgen auf das Verb der Sammlung.",
+      "selection": "aligned-homographs"
+    },
+    {
+      "id": "202249",
+      "chapter": 28,
+      "verse": 15,
+      "form": "ܩܝܡܐ",
+      "proposed": [
+        {
+          "form": "ܩܝܡܐ",
+          "lexeme": "QJM",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Die Sprecher haben einen Bund mit dem Tod geschlossen. QJM bezeichnet den Bund.",
+      "selection": "aligned-homographs"
+    },
+    {
+      "id": "202621",
+      "chapter": 29,
+      "verse": 12,
+      "form": "ܩܪܝ",
+      "proposed": [
+        {
+          "form": "ܩܪܝ",
+          "lexeme": "QRJ",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Die Bitte, aus dem gereichten Buch zu lesen, bestimmt die verbale Lesart.",
+      "selection": "aligned-homographs"
+    },
+    {
+      "id": "202905",
+      "chapter": 30,
+      "verse": 9,
+      "form": "ܒ̈ܢܝܐ",
+      "proposed": [
+        {
+          "form": "ܒܢܝܐ",
+          "lexeme": "BN",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Die Beschreibung bezeichnet rebellische und verlogene Kinder.",
+      "selection": "aligned-homographs"
+    },
+    {
+      "id": "203412",
+      "chapter": 31,
+      "verse": 6,
+      "form": "ܒܢ̈ܝ",
+      "proposed": [
+        {
+          "form": "ܒܢܝ",
+          "lexeme": "BN",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Kehrt um, Kinder Israels.“ Das Nomen gehört zur Anrede.",
+      "selection": "aligned-homographs"
+    },
+    {
+      "id": "203652",
+      "chapter": 32,
+      "verse": 18,
+      "form": "ܕܫܠܡܐ",
+      "proposed": [
+        {
+          "form": "ܕ",
+          "lexeme": "D",
+          "pos": "prep"
+        },
+        {
+          "form": "ܫܠܡܐ",
+          "lexeme": "CLM=",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Die Behausung des Volkes ist ein Ort des Friedens.",
+      "selection": "aligned-homographs"
+    },
+    {
+      "id": "203704",
+      "chapter": 33,
+      "verse": 2,
+      "form": "ܒܙܒܢܐ",
+      "proposed": [
+        {
+          "form": "ܒ",
+          "lexeme": "B",
+          "pos": "prep"
+        },
+        {
+          "form": "ܙܒܢܐ",
+          "lexeme": "ZBN",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Das Gebet bittet um Hilfe zur Zeit der Bedrängnis.",
+      "selection": "aligned-homographs"
+    },
+    {
+      "id": "203981",
+      "chapter": 34,
+      "verse": 1,
+      "form": "ܥܡܘܪ̈ܝܗ̇",
+      "proposed": [
+        {
+          "form": "ܥܡܘܪܝ",
+          "lexeme": "<MWR",
+          "pos": "subs"
+        },
+        {
+          "form": "ܗ",
+          "lexeme": "H=",
+          "pos": "pron"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Die Bewohner des Erdkreises, feminines Suffix."
+    },
+    {
+      "id": "204007",
+      "chapter": 34,
+      "verse": 4,
+      "form": "ܟܠ",
+      "proposed": [
+        {
+          "form": "ܟܠ",
+          "lexeme": "KL",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Die Gesamtheit der himmlischen Heerscharen."
+    },
+    {
+      "id": "204018",
+      "chapter": 34,
+      "verse": 4,
+      "form": "ܛܪܦܐ",
+      "proposed": [
+        {
+          "form": "ܛܪܦܐ",
+          "lexeme": "VRP=",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Das Blatt, das vom Weinstock fällt."
+    },
+    {
+      "id": "204069",
+      "chapter": 34,
+      "verse": 7,
+      "form": "ܕܡܗܘܢ",
+      "proposed": [
+        {
+          "form": "ܕܡ",
+          "lexeme": "DM",
+          "pos": "subs"
+        },
+        {
+          "form": "ܗܘܢ",
+          "lexeme": "HWN",
+          "pos": "pron"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Die Erde wird von ihrem Blut getränkt."
+    },
+    {
+      "id": "204102",
+      "chapter": 34,
+      "verse": 10,
+      "form": "ܐܢܫ",
+      "proposed": [
+        {
+          "form": "ܐܢܫ",
+          "lexeme": ">NC",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Niemand zieht hindurch; die Negation steht separat."
+    },
+    {
+      "id": "204173",
+      "chapter": 34,
+      "verse": 16,
+      "form": "ܡܢܗܝܢ",
+      "proposed": [
+        {
+          "form": "ܡܢ",
+          "lexeme": "MN",
+          "pos": "prep"
+        },
+        {
+          "form": "ܗܝܢ",
+          "lexeme": "HJN",
+          "pos": "pron"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Eine von ihnen“, femininer Plural."
+    },
+    {
+      "id": "204328",
+      "chapter": 35,
+      "verse": 10,
+      "form": "ܚܕܘܬܐ",
+      "proposed": [
+        {
+          "form": "ܚܕܘܬܐ",
+          "lexeme": "XDW>",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Ewige Freude über den Häuptern der Erlösten.",
+      "selection": "aligned-homographs"
+    },
+    {
+      "id": "204370",
+      "chapter": 36,
+      "verse": 2,
+      "form": "ܥܠܝܬܐ",
+      "proposed": [
+        {
+          "form": "ܥܠܝܬܐ",
+          "lexeme": "<LJ=",
+          "pos": "adjv"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Wasserleitung des oberen Teichs. Das attributive Adjektiv bestimmt den Teich.",
+      "selection": "aligned-homographs"
+    },
+    {
+      "id": "205192",
+      "chapter": 37,
+      "verse": 32,
+      "form": "ܥܒ̇ܕ",
+      "proposed": [
+        {
+          "form": "ܥܒܕ",
+          "lexeme": "<BD",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Der Eifer des Herrn wird „dies tun“. Das Wort regiert das Demonstrativum als Objekt.",
+      "selection": "aligned-homographs"
+    },
+    {
+      "id": "205310",
+      "chapter": 38,
+      "verse": 2,
+      "form": "ܩܕܡ",
+      "proposed": [
+        {
+          "form": "ܩܕܡ",
+          "lexeme": "QDM",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Hiskija betet vor dem Herrn. QDM steht in der Ortskonstruktion.",
+      "selection": "aligned-homographs"
+    },
+    {
+      "id": "205558",
+      "chapter": 39,
+      "verse": 1,
+      "form": "ܒܪ",
+      "proposed": [
+        {
+          "form": "ܒܪ",
+          "lexeme": "BR",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Sohn des Baladan."
+    },
+    {
+      "id": "205602",
+      "chapter": 39,
+      "verse": 3,
+      "form": "ܠܘܬ",
+      "proposed": [
+        {
+          "form": "ܠܘܬ",
+          "lexeme": "LWT",
+          "pos": "prep"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Jesaja kam zu Hiskia."
+    },
+    {
+      "id": "205639",
+      "chapter": 39,
+      "verse": 4,
+      "form": "ܚܘ̇ܝܬ",
+      "proposed": [
+        {
+          "form": "ܚܘܝܬ",
+          "lexeme": "XWJ",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Ich zeigte es ihnen."
+    },
+    {
+      "id": "205726",
+      "chapter": 40,
+      "verse": 4,
+      "form": "ܛܘܪ̈ܐ",
+      "proposed": [
+        {
+          "form": "ܛܘܪܐ",
+          "lexeme": "VWR",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Die Berge werden erniedrigt."
+    },
+    {
+      "id": "205757",
+      "chapter": 40,
+      "verse": 6,
+      "form": "ܐܝܟ",
+      "proposed": [
+        {
+          "form": "ܐܝܟ",
+          "lexeme": ">JK",
+          "pos": "prep"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Vergleich mit dem Gewächs des Feldes."
+    },
+    {
+      "id": "205887",
+      "chapter": 40,
+      "verse": 17,
+      "form": "ܥܡ̈ܡܐ",
+      "proposed": [
+        {
+          "form": "ܥܡܡܐ",
+          "lexeme": "<M=",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Alle Völker werden als gering erachtet."
+    },
+    {
+      "id": "205926",
+      "chapter": 40,
+      "verse": 20,
+      "form": "ܙܐ̇ܥ",
+      "proposed": [
+        {
+          "form": "ܙܐܥ",
+          "lexeme": "ZW<",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Das Bild soll sich nicht bewegen."
+    },
+    {
+      "id": "205980",
+      "chapter": 40,
+      "verse": 24,
+      "form": "ܐܝܟ",
+      "proposed": [
+        {
+          "form": "ܐܝܟ",
+          "lexeme": ">JK",
+          "pos": "prep"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Vergleich mit Spreu."
+    },
+    {
+      "id": "206017",
+      "chapter": 40,
+      "verse": 27,
+      "form": "ܐܘܪ̈ܚܬܝ",
+      "proposed": [
+        {
+          "form": "ܐܘܪܚܬ",
+          "lexeme": ">WRX",
+          "pos": "subs"
+        },
+        {
+          "form": "ܝ",
+          "lexeme": "J",
+          "pos": "pron"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Meine Wege, Plural mit Possessivsuffix."
+    },
+    {
+      "id": "206079",
+      "chapter": 41,
+      "verse": 1,
+      "form": "ܠܕܝܢܐ",
+      "proposed": [
+        {
+          "form": "ܠ",
+          "lexeme": "L",
+          "pos": "prep"
+        },
+        {
+          "form": "ܕܝܢܐ",
+          "lexeme": "DJN=",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Die Völker sollen gemeinsam zum Gericht herantreten.",
+      "selection": "aligned-homographs"
+    },
+    {
+      "id": "206493",
+      "chapter": 42,
+      "verse": 5,
+      "form": "ܐܪܥܐ",
+      "proposed": [
+        {
+          "form": "ܐܪܥܐ",
+          "lexeme": ">R<",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Der Schöpfer breitet Himmel und Erde aus. Die Erde ist Objekt des Verbs.",
+      "selection": "aligned-homographs"
+    },
+    {
+      "id": "206963",
+      "chapter": 43,
+      "verse": 16,
+      "form": "ܕܝܗܒ",
+      "proposed": [
+        {
+          "form": "ܕ",
+          "lexeme": "D",
+          "pos": "prep"
+        },
+        {
+          "form": "ܝܗܒ",
+          "lexeme": "JHB",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Gott wird als derjenige beschrieben, der einen Weg im Meer gibt.",
+      "selection": "aligned-homographs"
+    },
+    {
+      "id": "207436",
+      "chapter": 44,
+      "verse": 24,
+      "form": "ܐܪܥܐ",
+      "proposed": [
+        {
+          "form": "ܐܪܥܐ",
+          "lexeme": ">R<",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Gott hat Himmel und Erde ausgebreitet.",
+      "selection": "aligned-homographs"
+    },
+    {
+      "id": "207583",
+      "chapter": 45,
+      "verse": 8,
+      "form": "ܐܪܥܐ",
+      "proposed": [
+        {
+          "form": "ܐܪܥܐ",
+          "lexeme": ">R<",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Die Erde soll sich öffnen. Die nominale Lesart ist Subjekt.",
+      "selection": "aligned-homographs"
+    },
+    {
+      "id": "207884",
+      "chapter": 46,
+      "verse": 3,
+      "form": "ܕܒܝܬ",
+      "proposed": [
+        {
+          "form": "ܕ",
+          "lexeme": "D",
+          "pos": "prep"
+        },
+        {
+          "form": "ܒܝܬ",
+          "lexeme": "BJT",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Hört mich, Haus Jakob.“ Das Nomen ist Teil der Anrede.",
+      "selection": "aligned-homographs"
+    },
+    {
+      "id": "208101",
+      "chapter": 47,
+      "verse": 6,
+      "form": "ܪ̈ܚܡܐ",
+      "proposed": [
+        {
+          "form": "ܪܚܡܐ",
+          "lexeme": "RXM=",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Den Gefangenen wurde kein Erbarmen erwiesen.",
+      "selection": "aligned-homographs"
+    },
+    {
+      "id": "208375",
+      "chapter": 48,
+      "verse": 9,
+      "form": "ܫܡܝ",
+      "proposed": [
+        {
+          "form": "ܫܡ",
+          "lexeme": "CM",
+          "pos": "subs"
+        },
+        {
+          "form": "ܝ",
+          "lexeme": "J",
+          "pos": "pron"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Um meines Namens willen“ begründet den Aufschub des Zorns.",
+      "selection": "aligned-homographs"
+    },
+    {
+      "id": "208860",
+      "chapter": 49,
+      "verse": 22,
+      "form": "ܐܬܐ",
+      "proposed": [
+        {
+          "form": "ܐܬܐ",
+          "lexeme": ">T",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Gott erhebt ein Zeichen für die Völker. Das Wort steht als Objekt.",
+      "selection": "aligned-homographs"
+    },
+    {
+      "id": "209091",
+      "chapter": 50,
+      "verse": 10,
+      "form": "ܕܥܒܕܗ",
+      "proposed": [
+        {
+          "form": "ܕ",
+          "lexeme": "D",
+          "pos": "prep"
+        },
+        {
+          "form": "ܥܒܕ",
+          "lexeme": "<BD=",
+          "pos": "subs"
+        },
+        {
+          "form": "ܗ",
+          "lexeme": "H",
+          "pos": "pron"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Die Hörer sollen auf die Stimme seines Knechtes hören.",
+      "selection": "aligned-homographs"
+    },
+    {
+      "id": "209266",
+      "chapter": 51,
+      "verse": 10,
+      "form": "ܝܡܐ",
+      "proposed": [
+        {
+          "form": "ܝܡܐ",
+          "lexeme": "JM",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Gott hat das Meer und die Wasser der Tiefe ausgetrocknet.",
+      "selection": "aligned-homographs"
+    },
+    {
+      "id": "209541",
+      "chapter": 52,
+      "verse": 6,
+      "form": "ܥܡܝ",
+      "proposed": [
+        {
+          "form": "ܥܡ",
+          "lexeme": "<M=",
+          "pos": "subs"
+        },
+        {
+          "form": "ܝ",
+          "lexeme": "J",
+          "pos": "pron"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Mein Volk wird meinen Namen kennen.“ Das Nomen ist Subjekt.",
+      "selection": "aligned-homographs"
+    },
+    {
+      "id": "209752",
+      "chapter": 53,
+      "verse": 7,
+      "form": "ܐܝܟ",
+      "proposed": [
+        {
+          "form": "ܐܝܟ",
+          "lexeme": ">JK",
+          "pos": "prep"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Vergleichspartikel vor dem Lamm."
+    },
+    {
+      "id": "209763",
+      "chapter": 53,
+      "verse": 7,
+      "form": "ܦܬܚ",
+      "proposed": [
+        {
+          "form": "ܦܬܚ",
+          "lexeme": "PTX",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Er öffnete den Mund nicht."
+    },
+    {
+      "id": "209784",
+      "chapter": 53,
+      "verse": 9,
+      "form": "ܪܫܝܥܐ",
+      "proposed": [
+        {
+          "form": "ܪܫܝܥܐ",
+          "lexeme": "RCJ<",
+          "pos": "adjv"
+        }
+      ],
+      "status": "open",
+      "note": "Substantivischer Gebrauch für den Frevler. Die lexikalische Einordnung als Adjektiv bleibt offen."
+    },
+    {
+      "id": "209917",
+      "chapter": 54,
+      "verse": 5,
+      "form": "ܐܪܥܐ",
+      "proposed": [
+        {
+          "form": "ܐܪܥܐ",
+          "lexeme": ">R<",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Gott der ganzen Erde“ ist der Titel am Satzende.",
+      "selection": "aligned-homographs"
+    },
+    {
+      "id": "210083",
+      "chapter": 55,
+      "verse": 1,
+      "form": "ܙܠܘ",
+      "proposed": [
+        {
+          "form": "ܙܠܘ",
+          "lexeme": ">ZL",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Aufforderung, zu den Wassern zu gehen."
+    },
+    {
+      "id": "210097",
+      "chapter": 55,
+      "verse": 2,
+      "form": "ܠܡܢܐ",
+      "proposed": [
+        {
+          "form": "ܠ",
+          "lexeme": "L",
+          "pos": "prep"
+        },
+        {
+          "form": "ܡܢܐ",
+          "lexeme": "MN>",
+          "pos": "pron"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Frage „warum?“, Präposition plus Fragewort."
+    },
+    {
+      "id": "210113",
+      "chapter": 55,
+      "verse": 3,
+      "form": "ܨܠܘ",
+      "proposed": [
+        {
+          "form": "ܨܠܘ",
+          "lexeme": "YLJ",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Aufforderung, die Ohren zu neigen. ETCBC führt „sich neigen“ und „ausstrecken“ unter YLJ."
+    },
+    {
+      "id": "210120",
+      "chapter": 55,
+      "verse": 3,
+      "form": "ܘܐܩܝܡ",
+      "proposed": [
+        {
+          "form": "ܘ",
+          "lexeme": "W",
+          "pos": "conj"
+        },
+        {
+          "form": "ܐܩܝܡ",
+          "lexeme": "QWM",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Einen ewigen Bund aufrichten."
+    },
+    {
+      "id": "210161",
+      "chapter": 55,
+      "verse": 7,
+      "form": "ܘܓܒܪܐ",
+      "proposed": [
+        {
+          "form": "ܘ",
+          "lexeme": "W",
+          "pos": "conj"
+        },
+        {
+          "form": "ܓܒܪܐ",
+          "lexeme": "GBR",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Der ungerechte Mann soll seine Gedanken verlassen."
+    },
+    {
+      "id": "210211",
+      "chapter": 55,
+      "verse": 10,
+      "form": "ܠܐܪܥܐ",
+      "proposed": [
+        {
+          "form": "ܠ",
+          "lexeme": "L",
+          "pos": "prep"
+        },
+        {
+          "form": "ܐܪܥܐ",
+          "lexeme": ">R<",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Der Regen bewässert die Erde."
+    },
+    {
+      "id": "210359",
+      "chapter": 56,
+      "verse": 6,
+      "form": "ܥܒ̈ܕܐ",
+      "proposed": [
+        {
+          "form": "ܥܒܕܐ",
+          "lexeme": "<BD=",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Die Fremden sollen ihm als Diener dienen. Das Nomen steht als Prädikativ.",
+      "selection": "aligned-homographs"
+    },
+    {
+      "id": "210626",
+      "chapter": 57,
+      "verse": 13,
+      "form": "ܐܪܥܐ",
+      "proposed": [
+        {
+          "form": "ܐܪܥܐ",
+          "lexeme": ">R<",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Wer vertraut, wird das Land und den heiligen Berg erben.",
+      "selection": "aligned-homographs"
+    },
+    {
+      "id": "210901",
+      "chapter": 58,
+      "verse": 11,
+      "form": "ܕܡ̈ܝܐ",
+      "proposed": [
+        {
+          "form": "ܕ",
+          "lexeme": "D",
+          "pos": "prep"
+        },
+        {
+          "form": "ܡܝܐ",
+          "lexeme": "MJ",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Die Wasserquelle ist das Bild für die Wiederherstellung.",
+      "selection": "aligned-homographs"
+    },
+    {
+      "id": "211188",
+      "chapter": 59,
+      "verse": 17,
+      "form": "ܒܪܝܫܗ",
+      "proposed": [
+        {
+          "form": "ܒ",
+          "lexeme": "B",
+          "pos": "prep"
+        },
+        {
+          "form": "ܪܝܫ",
+          "lexeme": "RJC",
+          "pos": "subs"
+        },
+        {
+          "form": "ܗ",
+          "lexeme": "H",
+          "pos": "pron"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Der Helm des Heils ist auf seinem Haupt.",
+      "selection": "aligned-homographs"
+    },
+    {
+      "id": "211525",
+      "chapter": 60,
+      "verse": 21,
+      "form": "ܐܪܥܐ",
+      "proposed": [
+        {
+          "form": "ܐܪܥܐ",
+          "lexeme": ">R<",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Das gerechte Volk wird die Erde besitzen.",
+      "selection": "aligned-homographs"
+    },
+    {
+      "id": "211543",
+      "chapter": 61,
+      "verse": 1,
+      "form": "ܐܠܗܐ",
+      "proposed": [
+        {
+          "form": "ܐܠܗܐ",
+          "lexeme": ">LH",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Titel Gottes in der Einleitung des Verses."
+    },
+    {
+      "id": "211603",
+      "chapter": 61,
+      "verse": 5,
+      "form": "ܘܢܩܘܡܘܢ",
+      "proposed": [
+        {
+          "form": "ܘ",
+          "lexeme": "W",
+          "pos": "conj"
+        },
+        {
+          "form": "ܢܩܘܡܘܢ",
+          "lexeme": "QWM",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Fremde werden aufstehen und die Herden weiden."
+    },
+    {
+      "id": "211609",
+      "chapter": 61,
+      "verse": 5,
+      "form": "ܢܗܘܘܢ",
+      "proposed": [
+        {
+          "form": "ܢܗܘܘܢ",
+          "lexeme": "HWJ",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Sie werden als Acker- und Weinbauern tätig sein."
+    },
+    {
+      "id": "211660",
+      "chapter": 61,
+      "verse": 9,
+      "form": "ܒܥܡ̈ܡܐ",
+      "proposed": [
+        {
+          "form": "ܒ",
+          "lexeme": "B",
+          "pos": "prep"
+        },
+        {
+          "form": "ܥܡܡܐ",
+          "lexeme": "<M=",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Bekannt unter den Völkern."
+    },
+    {
+      "id": "211698",
+      "chapter": 61,
+      "verse": 11,
+      "form": "ܗܟܢܐ",
+      "proposed": [
+        {
+          "form": "ܗܟܢܐ",
+          "lexeme": "HKN>",
+          "pos": "advb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Korrelativ „so“ nach einem Vergleich."
+    },
+    {
+      "id": "211705",
+      "chapter": 61,
+      "verse": 11,
+      "form": "ܟܠܗܘܢ",
+      "proposed": [
+        {
+          "form": "ܟܠ",
+          "lexeme": "KL",
+          "pos": "subs"
+        },
+        {
+          "form": "ܗܘܢ",
+          "lexeme": "HWN",
+          "pos": "pron"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Vor allen Völkern, „alle“ mit pluralischem Suffix."
+    },
+    {
+      "id": "211796",
+      "chapter": 62,
+      "verse": 6,
+      "form": "ܩܕܡ",
+      "proposed": [
+        {
+          "form": "ܩܕܡ",
+          "lexeme": "QDM",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Die Wächter erinnern beständig vor dem Herrn.",
+      "selection": "aligned-homographs"
+    },
+    {
+      "id": "212065",
+      "chapter": 63,
+      "verse": 14,
+      "form": "ܫܡܐ",
+      "proposed": [
+        {
+          "form": "ܫܡܐ",
+          "lexeme": "CM",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Einen herrlichen Namen“ ist das Objekt des Verbs.",
+      "selection": "aligned-homographs"
+    },
+    {
+      "id": "212252",
+      "chapter": 64,
+      "verse": 8,
+      "form": "ܕܥܡܟ",
+      "proposed": [
+        {
+          "form": "ܕ",
+          "lexeme": "D",
+          "pos": "prep"
+        },
+        {
+          "form": "ܥܡ",
+          "lexeme": "<M=",
+          "pos": "subs"
+        },
+        {
+          "form": "ܟ",
+          "lexeme": "K",
+          "pos": "pron"
+        }
+      ],
+      "status": "confirmed",
+      "note": "„Wir alle sind dein Volk.“ Das Nomen bildet das nominale Prädikat.",
+      "selection": "aligned-homographs"
+    },
+    {
+      "id": "212298",
+      "chapter": 65,
+      "verse": 1,
+      "form": "ܩܪܐ",
+      "proposed": [
+        {
+          "form": "ܩܪܐ",
+          "lexeme": "QRJ",
+          "pos": "verb"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Ein Volk hat seinen Namen nicht angerufen. Der folgende Name ist Objekt.",
+      "selection": "aligned-homographs"
+    },
+    {
+      "id": "212862",
+      "chapter": 66,
+      "verse": 12,
+      "form": "ܢܗܪܐ",
+      "proposed": [
+        {
+          "form": "ܢܗܪܐ",
+          "lexeme": "NHR",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Wie ein Fluss."
+    },
+    {
+      "id": "212998",
+      "chapter": 66,
+      "verse": 20,
+      "form": "ܐܝܣܪܝܠ",
+      "proposed": [
+        {
+          "form": "ܐܝܣܪܝܠ",
+          "lexeme": ">JSRJL",
+          "pos": "subs"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Israel in „Kinder Israels“, nominale ETCBC-Klasse."
+    },
+    {
+      "id": "213011",
+      "chapter": 66,
+      "verse": 22,
+      "form": "ܐܝܟ",
+      "proposed": [
+        {
+          "form": "ܐܝܟ",
+          "lexeme": ">JK",
+          "pos": "prep"
+        }
+      ],
+      "status": "confirmed",
+      "note": "Vergleich mit Himmel und Erde."
+    }
+  ],
+  "expansion": {
+    "seed": "safran-isaiah-pilot-v2",
+    "chapters": [
+      6,
+      9,
+      19,
+      34,
+      40,
+      55,
+      61
+    ],
+    "perChapter": 6
+  },
+  "chaptersAdded": {
+    "seed": "safran-isaiah-chapter-v1",
+    "count": 53
+  },
+  "contiguousReview": {
+    "from": "1:1",
+    "through": "1:20",
+    "count": 272
+  }
+}

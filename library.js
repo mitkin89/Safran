@@ -958,6 +958,7 @@
 
   // reader-module:word-cards
   const wordCardsUI = window.LibraryWordCards.create({
+    concordanceCoverageHtml,
     syntaxSection: context => wordPopupUI.syntaxSection(context),
     get $() { return $; },
     get $$() { return $$; },
@@ -2642,9 +2643,33 @@
     esc, getGroups: () => groups, openOutlineRef: (ref, event) => jumpTo(ref, BG(event)),
   });
   const searchUI = window.LibrarySearch.create({
-    $, $$, esc, KIND_LABEL, shortVer, plainSnip, lsGet, lsSet, outlineSearch,
+    $, $$, esc, KIND_LABEL, shortVer, plainSnip, lsGet, lsSet, outlineSearch, concordanceCoverageHtml,
     getGroups: () => groups, getPreferredVersions: () => prefVer,
   });
+  function concordanceCoverageHtml(result, preview = false) {
+    const coverage = result.lemmaCoverage;
+    if (!coverage?.editions.length) return '';
+    const count = n => n.toLocaleString(I18N.loc);
+    const percent = new Intl.NumberFormat(I18N.loc, { style: 'percent', maximumFractionDigits: 1 });
+    const fraction = (part, whole) => {
+      if (!whole) return '';
+      const ratio = part / whole;
+      if (ratio > 0 && ratio < 0.001) return '< ' + percent.format(0.001);
+      if (ratio < 1 && ratio > 0.999) return '> ' + percent.format(0.999);
+      return percent.format(ratio);
+    };
+    const wording = row => I18N.t('{} von {} Wortstellen mit Lemma', count(row.withLemma), count(row.words))
+      + (row.words ? ' (' + fraction(row.withLemma, row.words) + ')' : '');
+    const rows = coverage.editions.map(row => `<tr><td>${esc(row.title)}</td><td>${esc(row.versionTitle || '–')}</td>
+      <td>${esc(wording(row))}</td><td>${count(row.hits)}</td></tr>`).join('');
+    const scope = preview
+      ? I18N.t('Vorschau: {} von {} Fassungen geprüft', count(coverage.editions.length), count(result.total))
+      : '';
+    return `<details class="ccCoverage"><summary>${esc(wording(coverage))}${scope ? ' · ' + esc(scope) : ''}</summary>
+      <div class="ccCoverageTable"><table><thead><tr><th scope="col">${esc(I18N.t('Werk'))}</th>
+      <th scope="col">${esc(I18N.t('Fassung'))}</th><th scope="col">${esc(I18N.t('Lemma-Abdeckung'))}</th>
+      <th scope="col">${esc(I18N.t('Treffer'))}</th></tr></thead><tbody>${rows}</tbody></table></div></details>`;
+  }
   // Gefundene Wörter im Vers markieren: Westminster-Wörter (span.w) exakt, übrige Texte als Textstelle
   function markHits(html, h) {
     if (html == null || !h || !h.words.size) return html;

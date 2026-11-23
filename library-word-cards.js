@@ -78,6 +78,7 @@ window.LibraryWordCards = (() => {
       box.innerHTML = `${modes}<div class="wcCcTools"><span role="status">${summary}${result.errors ? ' · ' + host.esc(I18N.t('{} Dateien konnten nicht gelesen werden', result.errors)) : ''}</span>
         <button type="button" data-cc-search>${t(state.results.length ? 'Weitere Belege in der Suche' : 'In der Suche öffnen')}</button></div>
         <p class="muted">${root ? t('Die Wortfamilie umfasst mehrere Lemmata mit derselben Lexikonwurzel. Unter „Grundform“ siehst du nur das ausgewählte Lemma.') : exactLemma ? host.esc(I18N.t('Belege für das ausgewählte Lemma (Strong {}).', exactLemma)) : t('Belege zur Wortform und Grundform. Gleich geschriebene Lemmata können mit erscheinen.')}</p>
+        ${host.concordanceCoverageHtml(result, true)}
         ${state.results.map(wcConcordanceRow).join('')}`;
       wcFindSoon();
     } catch {
@@ -95,7 +96,7 @@ window.LibraryWordCards = (() => {
     const peers = (hit.parallels || []).map((peer, i) => `<button type="button" data-cc-hit="${index}" data-cc-peer="${i}" class="wcCcPeer">
       <bdi lang="${lang(peer)}">${esc(peer.snippet.hit)}</bdi><small>${address(peer)} · ${esc(peer.analysisSource)}</small></button>`).join('');
     return `<article class="wcCcHit"><button type="button" data-cc-hit="${index}">
-      <span>${address(hit)}</span>${hit.matchedLemma ? ` · <bdi lang="he">${esc(hit.matchedLemma)}</bdi>${gloss ? ' · ' + esc(gloss) : ''}` : ''}<small>${esc([hit.versionTitle, hit.analysisSource && I18N.t(hit.analysisSource), hit.analysisReference].filter(Boolean).join(' · '))}</small>
+      <span>${address(hit)}</span>${hit.matchedLemma ? ` · <bdi lang="he">${esc(hit.matchedLemma)}</bdi>${gloss ? ' · ' + esc(gloss) : ''}` : ''}<small>${esc([hit.versionTitle, I18N.t(hit.basis === 'root' ? 'Wortfamilie' : hit.basis === 'lemma' ? 'Grundform' : 'Wortform'), hit.analysisSource && I18N.t(hit.analysisSource), hit.analysisReference].filter(Boolean).join(' · '))}</small>
       <span class="ccContext" dir="auto" lang="${lang(hit)}">${esc(before)}<mark>${esc(word)}</mark>${esc(after)}</span>
       </button>${peers ? '<div class="wcCcPeers">' + peers + '</div>' : ''}</article>`;
   }

@@ -23,3 +23,27 @@ node --test tests/peshitta.test.js
 ```
 
 The fetcher and builder verify Git blob SHA1 for every input. Build coverage is recorded in `coverage.json`. No Text-Fabric installation is required.
+
+## Isaiah concordance review
+
+Run the evidence audit and regenerate the subset used by the concordance from the same bundled editions:
+
+```sh
+node tools/peshitta/lemma-pilot.cjs Isaiah > /tmp/safran-isaiah-candidates.json
+node tools/peshitta/context-review.cjs /tmp/safran-isaiah-candidates.json tools/peshitta/isaiah-context-sample.json > /tmp/safran-isaiah-review.json
+node tools/peshitta/context-review.cjs /tmp/safran-isaiah-candidates.json tools/peshitta/isaiah-context-sample.json --accepted > /tmp/safran-isaiah-accepted.json
+```
+
+The audit keeps the native word IDs and verse numbering. The accepted subset contains individual contextual decisions and consonantally identical whole-verse parallels or shorter parallels corroborated by the same one-to-one Hebrew lemma alignment. The audit records other proposals, unresolved positions, and a leave-one-book-out comparison against the annotated ETCBC books. The benchmark measures agreement with existing annotation, and its results do not constitute an individual review of Isaiah.
+
+The `proposalChecks` counts cover each previously unaccepted proposal. The automatic check admits a proposal only when both immediate Syriac neighbors match in at least two source books, the one-to-one Hebrew alignment supports the same analysis, and every annotated occurrence of the same Syriac form agrees. Each admitted entry retains two source locations. Results based only on spelling, a dictionary, or weaker contextual evidence remain in the audit.
+
+## Books without embedded lemma data
+
+```sh
+node tools/peshitta/context-review.cjs --assign-missing /tmp/safran-peshitta-audits > /tmp/safran-peshitta-assignments.json
+```
+
+The batch excludes Ruth and Isaiah, which have their own reviews. It writes a report per book and a coverage summary. It also accepts a repeated translation alignment if the same Syriac form and one-to-one Hebrew lemma occur at least twelve times across at least four annotated books, with no conflicting same-form corpus analysis. These entries retain two source references and have a separate label in search. The batch never uses its own transferred analyses to generate other assignments.
+
+Use `--include-embedded-gaps` to include books with partial embedded morphology. This adds the individual reviews in `embedded-gap-context.json` and leaves existing source analyses in place. To use the repeated translation alignment for Isaiah, append `--include-repeated-alignment` to the individual-book audit and accepted export commands.

@@ -16,11 +16,15 @@ test('Greek source lemmas work across inflections but edited source falls back t
  const d={title:'The War of the Jews',kind:'other',language:'Greek',text:[['ἐποίησεν ποιεῖ']],greekMorphology:{version:1,work:'test',F:['ἐποίησεν','ποιεῖ'],L:['ποιέω'],T:['v3saia---'],E:[[0,0,0],[1,0,0]],P:{'1.1':'0.1'},locator:{'[0,"1"]':'1.1'}}};d.greekMorphology.textHash=hash(d);
  const bad=structuredClone(d);bad.title='Edited work';bad.text=[['ἐποίησεν ποιεῖ καλῶς']];const find=await fixture(t,[d,bad]);
  const r=await find({query:'ποιέω',lemma:true});assert.equal(r.results.length,2);assert(r.results.every(x=>x.basis==='lemma'&&x.analysisSource==='OGA'&&x.title===d.title));assert.deepEqual(r.coverage,{annotated:1,surface:1});
+ assert.deepEqual([r.lemmaCoverage.withLemma,r.lemmaCoverage.words],[2,5]);
+ assert.deepEqual(r.lemmaCoverage.editions.find(row=>row.title===bad.title),{title:bad.title,versionTitle:d.versionTitle||'Source',words:3,withLemma:0,hits:0});
  const surface=await find({query:'ποιει',lemma:false});assert.equal(surface.results.length,2);assert(surface.results.every(x=>x.snippet.hit==='ποιεῖ'));
 });
 test('Syriac consonantal lemma annotations require matching text and numbering',async t=>{
- const d={title:'Genesis',kind:'other',language:'Syriac',text:[['<span class="syw" data-si="1">ܡܪܚܦܐ</span>']],syriacMorphology:{version:1,fields:['lex'],analyses:[['RXP']],words:{'1':['ܡܪܚܦܐ',[0],1,1,[25]]}}};d.syriacMorphology.textHash=hash(d);
+ const d={title:'Genesis',kind:'other',language:'Syriac',text:[['<h2>ܚܕ</h2><span class="syw" data-si="1">ܡܪܚܦܐ</span><small>ܚܕ</small>']],syriacMorphology:{version:1,fields:['lex'],analyses:[['RXP'],['M']],words:{'1':['ܡܪܚܦܐ',[0,1],1,1,[25,26]]}}};d.syriacMorphology.textHash=hash(d);
  const find=await fixture(t,[d]);const r=await find({query:'ܪܚܦ',lemma:true});assert.equal(r.results.length,1);assert.equal(r.results[0].analysisSource,'ETCBC Syriac');assert.equal(r.results[0].snippet.hit,'ܡܪܚܦܐ');
+ assert.deepEqual([r.lemmaCoverage.withLemma,r.lemmaCoverage.words],[1,1],'one surface position despite two parts and excluded headings');
+ assert.deepEqual(r.hitsByBasis,{lemma:1,surface:0,root:0});
 });
 test('Ruth adds only reviewed lemma hits and preserves the Peshitta verse keys', async t => {
  const bundle = path.join(__dirname, '../bundled');
@@ -71,6 +75,77 @@ test('Ruth adds only reviewed lemma hits and preserves the Peshitta verse keys',
  assert(!(await findEdited({query: 'ܟܝܠ', lemma: true})).results.some(hit => hit.snippet.hit === 'ܘܐܟܝܠ'));
  assert(!(await findEdited({query: 'ܥܘܒܕ', lemma: true})).results.some(hit => hit.snippet.hit === 'ܠܥܘܒܪ'));
 });
+test('Isaiah exposes contextual and parallel-text lemmas with their respective provenance', async t => {
+ const bundle = path.join(__dirname, '../bundled');
+ const entry = require('../bundled/manifest.json').items.find(e => e.title === 'Isaiah' && e.versionTitle.startsWith('ETCBC Peshitta'));
+ const find = (query, lemma = true) => C.search({dir: bundle, entries: [entry], params: {query, lemma, perFile: 500}});
+ const inVerse = (result, chapter, verse, form) => result.results.find(hit =>
+   hit.loc.path[0] === chapter - 1 && hit.loc.label === verse && hit.snippet.hit === form);
+ const context = inVerse(await find('ܕܝܢ'), 4, '4', 'ܕܕܝܢܐ');
+ assert.equal(context?.basis, 'lemma');
+ assert.equal(context.analysisSource, 'Safran (KI-Kontextprüfung)');
+ const parallel = inVerse(await find('ܐܡܪ'), 36, '4', 'ܐܡܪܘ');
+ assert.equal(parallel?.basis, 'lemma');
+ assert.equal(parallel.analysisSource, 'ETCBC Syriac (Paralleltext)');
+ assert.equal(parallel.analysisReference, 'II Kings 18:19');
+ assert(!inVerse(await find('ܐܡܪ', false), 36, '4', 'ܐܡܪܘ'));
+ assert(!inVerse(await find('ܡܕܝܢܐ'), 1, '21', 'ܡܕܝܢܬܐ'), 'a candidate based on spelling alone stays out of the lemma index');
+ assert.equal(inVerse(await find('ܡܕܝܢܬܐ'), 1, '21', 'ܡܕܝܢܬܐ')?.basis, 'surface');
+ const killers = inVerse(await find('ܩܛܘܠ'), 1, '21', 'ܩܛܘ̈ܠܐ');
+ assert.equal(killers?.analysisSource, 'ETCBC Syriac (automatischer Übersetzungsabgleich)');
+ assert.equal(killers.analysisReference, 'Numbers 35:6 · Deuteronomy 4:42');
+ assert.equal(inVerse(await find('ܣܘܓܐ'), 1, '11', 'ܣܘܓܐܐ')?.basis, 'lemma');
+ const heed = await find('ܨܘܬ');
+ assert.equal(inVerse(heed, 1, '2', 'ܘܨܘܬܝ')?.basis, 'lemma');
+ assert.equal(inVerse(heed, 1, '10', 'ܘܨܘܬܘ')?.basis, 'lemma');
+ assert.equal(inVerse(await find('ܥܡܘܪܐ'), 1, '10', 'ܕܥܡܘܪܐ')?.basis, 'lemma');
+ assert(!inVerse(await find('ܥܡܘܪ'), 1, '10', 'ܕܥܡܘܪܐ'));
+ const stall = inVerse(await find('ܐܘܪܝܐ'), 1, '3', 'ܐܘܪܝܐ');
+ assert.equal(stall?.analysisReference, 'SEDRA #60');
+ const struck = inVerse(await find('ܒܠܥ'), 1, '5', 'ܬܒܠܥܘܢ');
+ assert.equal(struck?.analysisReference, 'SEDRA #402');
+ const matched = inVerse(await find('ܝܗܘܕܐ'), 2, '1', 'ܝܗܘܕܐ');
+ assert.equal(matched?.basis, 'lemma');
+ assert.equal(matched.analysisSource, 'ETCBC Syriac (automatischer Kontextabgleich)');
+ assert.equal(matched.analysisReference, 'II Kings 21:12 · Jeremiah 35:17');
+ assert(!inVerse(await find('ܟܠ'), 2, '2', 'ܟܠܗܘܢ'), 'the same local context in only one source book is insufficient');
+
+ const edited = JSON.parse(await fs.readFile(path.join(bundle, entry.rel), 'utf8'));
+ edited.text[0]['1'] += 'ܐ';
+ const findEdited = await fixture(t, [{...edited, kind: entry.kind}]);
+ assert(!inVerse(await findEdited({query: 'ܐܡܪ', lemma: true}), 36, '4', 'ܐܡܪܘ'));
+});
+test('New Peshitta books expose form-changing lemma hits with translation alignment provenance', async t => {
+ const bundle = path.join(__dirname, '../bundled');
+ const entry = require('../bundled/manifest.json').items.find(e =>
+   e.title === 'Song of Songs' && e.versionTitle.startsWith('ETCBC Peshitta'));
+ const find = lemma => C.search({dir: bundle, entries: [entry], params: {query: 'ܡܫܚ', lemma}});
+ const hit = result => result.results.find(row => row.loc.path[0] === 0 && row.loc.label === '3' && row.snippet.hit === 'ܡܫܚܐ');
+ const matched = hit(await find(true));
+ assert.equal(matched?.basis, 'lemma');
+ assert.equal(matched.analysisSource, 'ETCBC Syriac (automatischer Übersetzungsabgleich)');
+ assert.equal(matched.analysisReference, 'Genesis 28:18 · Exodus 27:20');
+ assert(!hit(await find(false)));
+
+ const edited = JSON.parse(await fs.readFile(path.join(bundle, entry.rel), 'utf8'));
+ edited.text[0][0] += 'ܐ';
+ const findEdited = await fixture(t, [{...edited, kind: entry.kind}]);
+ assert(!hit(await findEdited({query: 'ܡܫܚ', lemma: true})));
+});
+test('Peshitta review fills missing words alongside the embedded morphology', async () => {
+ const bundle = path.join(__dirname, '../bundled');
+ const entry = require('../bundled/manifest.json').items.find(e =>
+   e.title === 'Joshua' && e.versionTitle.startsWith('ETCBC Peshitta'));
+ const result = await C.search({dir: bundle, entries: [entry], params: {query: 'ܫܒܛ', lemma: true, perFile: 500}});
+ assert(result.results.some(hit => hit.analysisSource === 'ETCBC Syriac'));
+ assert(result.results.some(hit => hit.loc.path[0] === 20 && hit.loc.label === '34' && hit.analysisSource === 'Safran (KI-Kontextprüfung)'));
+ assert.equal(result.lemmaCoverage.withLemma, result.lemmaCoverage.words);
+ const jeremiah = require('../bundled/manifest.json').items.find(e =>
+   e.title === 'Jeremiah' && e.versionTitle.startsWith('ETCBC Peshitta'));
+ const news = await C.search({dir: bundle, entries: [jeremiah], params: {query: 'ܫܡܘܥܬܐ', lemma: true, perFile: 500}});
+ assert(news.results.some(hit => hit.loc.path[0] === 48 && hit.loc.label === '23' && hit.analysisReference === 'SEDRA #6339'));
+ assert.equal(news.lemmaCoverage.withLemma, news.lemmaCoverage.words);
+});
 test('Syriac punctuation does not shift verse positions or cross-language peers', async () => {
  const bundle = path.join(__dirname, '../bundled');
  const entries = require('../bundled/manifest.json').items.filter(e => e.title === 'Ruth' && /^(Westminster|ETCBC Peshitta)/.test(e.versionTitle));
@@ -106,10 +181,14 @@ test('real MT, CATSS and Peshitta links are bidirectional, source-specific and s
 });
 
 test('word card preview stops after its result limit while full concordance counts both works', async t => {
- const find = await fixture(t, [{ title: 'Genesis', text: [['שיח שיח שיח']] }, { title: 'Exodus', text: [['שיח']] }]);
- const preview = await find({ concordancePreview: true, limit: 2 });
+ const find = await fixture(t, [{ title: 'Genesis', text: [['שיח שיח שיח', 'אחר']] }, { title: 'Exodus', text: [['שיח']] }]);
+ const preview = await find({ concordancePreview: true, lemma: true, limit: 2 });
  assert.equal(preview.results.length, 2);
  assert.equal(preview.scanned, 1);
+ assert.deepEqual(preview.lemmaCoverage,{ words:4, withLemma:0, editions:[
+   {title:'Genesis',versionTitle:'Source',words:4,withLemma:0,hits:3},
+ ]});
+ assert.deepEqual(preview.hitsByBasis,{lemma:0,surface:3,root:0});
  const full = await find({ limit: 2 });
  assert.equal(full.scanned, 2);
  assert.equal(full.stats.reduce((count, work) => count + work.n, 0), 4);

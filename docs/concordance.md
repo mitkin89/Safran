@@ -11,9 +11,15 @@ Unter **Suche → Werkübergreifende Konkordanz** ein einzelnes Wort eingeben. I
 - Kategorien und Werkauswahl grenzen die lokalen Texte ein. Nicht heruntergeladene Werke sind nicht enthalten. Fußnoten und als `small` ausgezeichnete Zählungshinweise sind ausgeschlossen.
 - CSV exportiert die **angezeigten** Belege mit Wortposition und Analysequelle. Suchverlauf und Favoriten bewahren den Konkordanzmodus.
 
+In der Grundformsuche zeigt die Lemma-Abdeckung, an wie vielen Wortstellen eine nutzbare Grundform hinterlegt ist. Die Aufschlüsselung nach Werk und Fassung enthält auch Fassungen mit null Treffern. Eine Wortstelle mit mehreren analysierten Bestandteilen zählt einmal. In der Wortkarten-Vorschau bezieht sich die Abdeckung auf die vollständig geprüften Fassungen und gibt an, wie viele Fassungen für die Vorschau durchsucht wurden.
+
 Griechische und syrische eingebettete Analysen werden nur bei passendem Quelltext-Hash und passenden Wortfolgen verwendet. OGA ist als Quelle gekennzeichnet und kann automatische Analysen enthalten. Eine gemeinsame Schreibweise kann verschiedene lexikalische Einträge vertreten; die Konkordanz behauptet keine Bedeutungsidentität und setzt eine Wortzuordnung nicht mit allgemeiner Bedeutungsidentität gleich.
 
 In Ruth hat Codex alle 1.392 Quellpositionen bis zum Kolophon geprüft. Der Pilot ergänzt 1.344 Lemma-Belege. 229 davon tragen den Quellenhinweis **Safran (KI-Kontextprüfung mit SEDRA)** und die SEDRA-Eintragsnummer. Die übrigen Zuordnungen sind als **Safran (KI-Kontextprüfung)** gekennzeichnet. Bei Wörterbuchzuordnungen und aus dem Kontext identifizierten Namen ist jeweils das Lemma erfasst. 19 Stellen bleiben offen. 29 Quellpositionen entfallen auf Satzzeichen, isolierte Vokalzeichen, Paratext oder einzelne Bestandteile des zweiteiligen Namens Bethlehem. Der Datensatz `peshitta-ruth-lemma-review.json` hält die Entscheidungen und konkurrierenden Analysen fest. Wörter ohne passende Analyse bleiben über die Wortform auffindbar.
+
+Für Jesaja enthält `peshitta-isaiah-lemma-review.json` einzeln bestätigte Stellen, Übernahmen aus Paralleltexten und Zuordnungen aus einem automatischen Kontextabgleich. Bei letzterem müssen dieselben syrischen Nachbarwörter in mindestens zwei annotierten Büchern stehen und die hebräische Wortzuordnung sowie die Belege derselben syrischen Form übereinstimmen. Die Suche zeigt die jeweilige Methode und die Stellen im annotierten Vergleichstext. Schwächer belegte Vorschläge bleiben außerhalb der Lemmasuche.
+
+Neben Paralleltexten und Kontextabgleichen enthalten die Jesaja-Ergänzungen und `peshitta-lemma-assignments.json` Zuordnungen aus einem **automatischen Übersetzungsabgleich**. Dafür müssen mindestens zwölf Belege aus mindestens vier annotierten Büchern dieselbe syrische Form mit derselben hebräischen Grundform verbinden. Die Analyse muss mit allen Korpusbelegen derselben syrischen Form übereinstimmen. In der Suche stehen zwei der Quellenstellen beim jeweiligen Treffer. Ergänzungen für teilweise annotierte Bücher greifen an Wortstellen ohne eingebettete Analyse.
 
 
 ## Sprachübergreifende Entsprechungen
