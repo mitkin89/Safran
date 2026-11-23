@@ -2654,7 +2654,7 @@
   });
   const searchUI = window.LibrarySearch.create({
     $, $$, esc, KIND_LABEL, shortVer, plainSnip, lsGet, lsSet, outlineSearch, concordanceCoverageHtml,
-    getGroups: () => groups, getPreferredVersions: () => prefVer,
+    getGroups: () => groups, getPreferredVersions: () => prefVer, loadRootFamilies:()=>loadPassageStats(),
   });
   window.ConcordancePreview.attach($('#sOut'),{
     getHit:(i,peer)=>searchUI.resultAt(i,peer),getHover:()=>linksUI.hovApi,

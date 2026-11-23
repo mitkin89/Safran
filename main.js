@@ -346,7 +346,9 @@ ipcMain.handle('file:save', async (e, name, content) => {
 });
 
 ipcMain.handle('file:open', async (e, kind) => {
-  const filters = kind === 'json'
+  const filters = kind === 'syntax-patterns'
+    ? [{ name: 'Safran-Suchmuster (JSON)', extensions: ['json'] }]
+    : kind === 'json'
     ? [{ name: 'Notizsicherung (JSON)', extensions: ['json'] }]
     : kind === 'csv'
     ? [{ name: 'CSV / Text', extensions: ['csv', 'tsv', 'txt'] }]

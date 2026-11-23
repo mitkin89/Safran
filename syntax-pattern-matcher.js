@@ -1,6 +1,6 @@
 'use strict';
 const Pattern=require('./syntax-pattern');
-function create(index,book,text,pattern,readWords,grammarMatches,lemmaOf,parents={}){
+function create(index,book,text,pattern,readWords,grammarMatches,lemmaOf,parents={},rootMatches=()=>null){
  const verified=new Map(),cache=new Map(),refsById=new Map(),children=new Map();
  for(const [id,parent]of Object.entries(parents))if(parent){if(!children.has(parent))children.set(parent,new Set());children.get(parent).add(Number(id));}
  for(const [ref,entry]of Object.entries(book||{}))for(const row of entry[1]){
@@ -56,7 +56,7 @@ function create(index,book,text,pattern,readWords,grammarMatches,lemmaOf,parents
  function term(n,c){
   if(n.role==='domain')return c.row[1].at(-1)===n.value;
   if(n.role==='relation')return c.row[5]===undefined?null:c.row[5]===n.value;
-  const constrained=Object.keys(n.gram).length||n.position;
+  const constrained=n.mode==='root'||Object.keys(n.gram).length||n.position;
   // Keep the original lexical role matching when no token-level filter is set.
   if(n.role!=='verb'&&!constrained){
    if(!c.pair)return null;
@@ -67,7 +67,8 @@ function create(index,book,text,pattern,readWords,grammarMatches,lemmaOf,parents
   const own=heads(c,n.role),other=n.position?heads(c,n.position.relative):null;
   let unknown=!own.complete;
   for(const head of own.items){
-   if(n.lemmas.length&&!n.lemmas.includes(head.lemma))continue;
+   if(n.mode==='root'){const match=rootMatches(n.family,head.word);if(match===null){unknown=true;continue;}if(!match)continue;}
+   else if(n.lemmas.length&&!n.lemmas.includes(head.lemma))continue;
    const grammar=grammarMatches(head.word,n.role==='verb'?{...n.gram,pos:'V'}:n.gram);
    if(grammar===null){unknown=true;continue;}if(!grammar)continue;
    if(!other)return true;

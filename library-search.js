@@ -3,7 +3,7 @@
 // bleiben beim Leser; aktuelle Buch-/Versionslisten werden über Getter bezogen.
 window.LibrarySearch = (() => {
   'use strict';
-  function create({ $, $$, esc, KIND_LABEL, shortVer, plainSnip, lsGet, lsSet, getGroups, getPreferredVersions, outlineSearch, concordanceCoverageHtml }) {
+  function create({ $, $$, esc, KIND_LABEL, shortVer, plainSnip, lsGet, lsSet, getGroups, getPreferredVersions, outlineSearch, concordanceCoverageHtml, loadRootFamilies }) {
     const O = window.offline;
     // ---------- Suche ----------
     let sResults = [];
@@ -264,9 +264,9 @@ window.LibrarySearch = (() => {
       const word=$('#gBook'),wordBook=word.value;word.replaceChildren(...[...select.options].map(o=>o.cloneNode(true)));word.value=titles.has(wordBook)?wordBook:'';
       const advanced=$('#sxAdvancedBook'),saved=advanced.value;advanced.replaceChildren(...[...select.options].map(o=>o.cloneNode(true)));advanced.value=titles.has(saved)?saved:'';
     }
-    let bhsaStatusRequested = false;
+    let bhsaStatusRequested = false,bhsaStatusPromise;
     function loadBhsaStatus() {
-      if (bhsaStatusRequested || !O.bhsaStatus) return;
+      if (bhsaStatusRequested || !O.bhsaStatus) return bhsaStatusPromise;
       bhsaStatusRequested = true;
       const bhsaStatus = $('#sxBhsaStatus');
       const show = status => {
@@ -277,7 +277,7 @@ window.LibrarySearch = (() => {
           : I18N.t('Die mitgelieferten BHSA-Daten konnten nicht gelesen werden.');
         $('#sxAdvancedStatus').textContent=bhsaStatus.textContent;
       };
-      O.bhsaStatus().then(show, () => show({ ready: false }));
+      return bhsaStatusPromise=O.bhsaStatus().then(show, () => show({ ready: false }));
     }
     $('#sxKinds').addEventListener('click',event=>{
       const button=event.target.closest('[data-syntax-kind]');if(!button)return;
@@ -291,7 +291,7 @@ window.LibrarySearch = (() => {
       if(!valid){$('#gError').textContent=I18N.t('Wähle Wortmerkmale oder gib ein Wort bzw. Lemma ein.');return;}
       runSearch(null,{word:true});
     });
-    const syntaxBuilder=window.LibrarySyntaxBuilder.create({root:$('#sxBuilder'),esc,t:key=>I18N.t(key)});
+    const syntaxBuilder=window.LibrarySyntaxBuilder.create({root:$('#sxBuilder'),esc,t:key=>I18N.t(key),loadRoots:loadRootFamilies});
     $('#sxPatternExample').onclick=()=>syntaxBuilder.set({op:'all',children:[{op:'term',role:'verb'},
       {op:'related',relation:'child',child:{op:'all',children:[{op:'term',role:'relation',value:'Attr'},{op:'term',role:'verb',gram:{stem:'h'}}]}}]});
     $('#sxAdvanced').onchange=()=>{
@@ -304,11 +304,44 @@ window.LibrarySearch = (() => {
       object: $('#sxObject').value.trim(), referents: $('#sxReferents').checked,
       ...(!$('#sxBhsa').hidden ? { domain: $('#sxDomain').value, relation: $('#sxResumption').checked ? 'Resu' : '' } : {}),
     });
+    window.LibrarySyntaxPatterns.create({
+      root:$('#sxSavedPatterns'),esc,t:(...args)=>I18N.t(...args),storage:localStorage,files:window.api,
+      capture:()=>{
+        if(!$('#gForm').hidden)return {type:'word',book:$('#gBook').value,query:$('#gQuery').value,gram:gramParams()||{}};
+        if($('#sxAdvanced').checked){
+          if(!syntaxBuilder.valid())throw Error(syntaxBuilder.error()||'Ungültiges Suchmuster.');
+          return {type:'advanced',book:$('#sxAdvancedBook').value,pattern:syntaxBuilder.query()};
+        }
+        return {type:'clause',book:$('#sxBook').value,syntax:syntaxParams(),gram:gramParams('sx')||{}};
+      },
+      apply:async record=>{
+        const selector=record.type==='word'?'#gBook':record.type==='advanced'?'#sxAdvancedBook':'#sxBook';
+        if(record.book&&![...$(selector).options].some(o=>o.value===record.book))throw Error('Das Buch dieses Suchmusters ist nicht lokal vorhanden.');
+        if(record.type==='advanced'){
+          const pattern=window.SyntaxPattern.clean(record.pattern);
+          const roots=[];const walk=n=>{if(n.mode==='root')roots.push(n.family);n.children?.forEach(walk);if(n.child)walk(n.child);};walk(pattern);
+          if(roots.length){const data=await loadRootFamilies(),keys=new Set(Object.values(data.roots).map(f=>f.lang+':'+f.id));if(roots.some(id=>!keys.has(id)))throw Error('Eine Wortfamilie dieses Suchmusters ist nicht verfügbar.');}
+        }
+        if(record.type==='clause'&&(record.syntax.domain||record.syntax.relation)){
+          await loadBhsaStatus();if($('#sxBhsa').hidden)throw Error('Die mitgelieferten BHSA-Daten konnten nicht gelesen werden.');
+        }
+        if(sBusy()){void O.cancelSearch();searchId++;searchPending=false;sSetBusy();$('#sProgress').hidden=true;}
+        $('#sxKinds [data-syntax-kind="'+(record.type==='word'?'word':'clause')+'"]').click();
+        $(selector).value=record.book;
+        const setGram=(gram,prefix='')=>{for(const [key,id]of Object.entries(GRAM_IDS))$('#'+prefix+id).value=gram?.[key]||'';};
+        if(record.type==='word'){$('#gQuery').value=record.query;setGram(record.gram);$('#gError').hidden=true;return;}
+        $('#sxAdvanced').checked=record.type==='advanced';$('#sxAdvanced').onchange();
+        if(record.type==='advanced'){if(!syntaxBuilder.set(record.pattern))throw Error('Ungültiges Suchmuster.');return;}
+        const s=record.syntax;$('#sxVerb').value=s.verb;$('#sxSubject').value=s.subject;$('#sxObject').value=s.object;
+        $('#sxReferents').checked=s.referents;$('#sxDomain').value=s.domain;$('#sxResumption').checked=s.relation==='Resu';setGram(record.gram,'sx');
+        $('#sxFilters').dispatchEvent(new Event('change',{bubbles:true}));
+      },
+    });
     function runSyntaxSearch() {
       if (sBusy()) return O.cancelSearch();
       const syntax = syntaxParams();
       if(syntax.pattern){
-        if(!syntaxBuilder.valid()){$('#sxError').hidden=false;$('#sxError').textContent=I18N.t('Prüfe die Bedingungen: hebräische Lemmata, höchstens 40 Elemente und 6 Ebenen.');return;}
+        if(!syntaxBuilder.valid()){$('#sxError').hidden=false;$('#sxError').textContent=syntaxBuilder.error()||I18N.t('Prüfe die Bedingungen: hebräische Lemmata, höchstens 40 Elemente und 6 Ebenen.');return;}
         return runSearch(null,syntax);
       }
       const split = value => value.split(/[\s,]+/u).filter(Boolean);

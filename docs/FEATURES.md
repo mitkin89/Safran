@@ -175,3 +175,7 @@ On Windows and Linux use Ctrl instead of Cmd.
 
 - **Role features and positions in syntax queries:** lexical conditions can filter the unambiguously aligned head word of a subject, object or referent by morphology, as well as the verb. Explicit subject/verb/object heads can be constrained before/after another role, with a maximum number of intervening source words in the same verse. Missing or ambiguous head/feature annotations stay unknown under NOT.
 - **Search category separation:** Tanakh commentaries (Rishonim, Acharonim, modern commentary and the generic Commentary branch) have their own search category, *Kommentare zum Tanach*. Selecting *Tanakh* searches biblical texts and Targum without these commentaries. Source catalog paths and downloaded files remain unchanged.
+
+- **Roots in syntax conditions:** advanced verb, subject, object and referent conditions can select an attested lexical family instead of one lemma. Hebrew/Aramaic homonyms remain separate; morphology and position still apply to the same aligned head token. Missing family assignments remain unknown under NOT.
+
+- **Named grammar/syntax queries:** save, update, load and delete local query templates for word features, simple clauses and advanced trees, including book scope and root/position conditions. Loading restores an editable form without running a search. Versioned JSON export/import supports one or all templates, preserving existing entries on name conflicts and rejecting invalid imports atomically.

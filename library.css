@@ -2526,3 +2526,8 @@ body.il .cell[data-k="he"] .ilt.il-ma { direction: rtl; font-family: var(--he-fo
 #lkHover .concordancePreview[lang="syr"] { font-family: "Safran Syriac", sans-serif; font-size: 1.6em; }
 
 #lkHover .concordancePreview[lang="he"] { font-family: var(--he-font); }
+
+#sxSavedPatterns { margin: 8px 0 14px; padding: 8px 10px; border: 1px solid var(--line); border-radius: 8px; }
+#sxSavedPatterns .bar { flex-wrap: wrap; gap: 8px; margin: 8px 0; align-items: end; }
+#sxSavedPatterns label { display: flex; flex-direction: column; gap: 3px; }
+#sxSavedPatterns select, #sxSavedPatterns input { max-width: 100%; width: min(25em, 60vw); }

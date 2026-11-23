@@ -224,7 +224,7 @@ async function searchFiles({ dir, entries, params, cacheDir = null, onProgress =
               const g=word&&gramOf(word.morph,word.lemma);if(!g)return null;
               if(Object.keys(gram).some(k=>k==='pos'?g.pos==='X':g[k]===undefined||g[k]==='x'))return null;
               return gramTest(gram,g);
-            },westminsterLemma,bhsaIndex.clauseParents)
+            },westminsterLemma,bhsaIndex.clauseParents,require('./syntax-roots').matches)
           : usesBhsa && !syntax.subjects.size && !syntax.objects.size
           ? BHSA.clauseMatcher(bhsa, { ...syntax.bhsa, verb: syntax.verb }, syntaxWords, word => {
             if (!G && !syntax.verb) return true;

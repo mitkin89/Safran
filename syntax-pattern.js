@@ -20,6 +20,8 @@ function clean(input){
    if(!(n.role==='domain'?['N','D','Q']:relations).includes(n.value))throw Error('value');
    return {op:'term',role:n.role,value:n.value};
   }
+  const mode=n.mode??'lemma';if(!['lemma','root'].includes(mode))throw Error('mode');
+  if(mode==='root'&&(typeof n.family!=='string'||! /^(heb|arc):[a-zA-Z0-9._-]{1,32}$/.test(n.family)))throw Error('family');
   const words=String(n.lemma??(Array.isArray(n.lemmas)?n.lemmas.join(' '):'')).trim().split(/[\s,]+/u).filter(Boolean);
   if(words.length>12||words.some(w=>! /^[\u0591-\u05C7א-ת]+$/u.test(w)||!/[א-ת]/u.test(w)))throw Error('lemma');
   const gram={};
@@ -35,7 +37,7 @@ function clean(input){
    if(maxGap!==null&&(!Number.isInteger(maxGap)||maxGap<0||maxGap>200))throw Error('gap');
    position={relative:p.relative,order:p.order,maxGap};
   }
-  return {op:'term',role:n.role,lemmas:words.map(w=>w.replace(/[^א-ת]/g,'')),gram,...(position?{position}:{})};
+  return {op:'term',role:n.role,lemmas:mode==='root'?[]:words.map(w=>w.replace(/[^א-ת]/g,'')),gram,...(mode==='root'?{mode,family:n.family}:{}),...(position?{position}:{})};
  }
  try{return walk(input,0);}catch{return null;}
 }
