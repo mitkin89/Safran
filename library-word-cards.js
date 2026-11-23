@@ -149,6 +149,9 @@ window.LibraryWordCards = (() => {
     const gloss = sk => { const g = ST && ST[lemma] && ST[lemma][sk]; return g ? { text: I18N.lang === 'de' ? g[0] : g[1], u: !!g[2] } : null; };
     body.innerHTML = window.Forms.render(mdl, { esc: host.esc, t: s => I18N.t(s), current: cur, gloss });
     wcRender(token, cur);
+    info?.syntax?.then(context => {
+      if (context && token === wcToken) card.prepend(host.syntaxSection(context));
+    });
     fmTrInit(token);
     p.scrollTop = 0;
     if (rest) fmRestBase(rest);

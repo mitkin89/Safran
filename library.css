@@ -536,6 +536,11 @@ body.stack-split #dictPanel:not(.more) :is(#dictFullL, #dictNoteMode, #dictStar,
 #rOut .w:hover, #rOut .wt:hover, #rOut .wq:hover, #rOut .wg:hover { background: color-mix(in srgb, var(--accent) 18%, transparent); }
 #rOut .w.sel, #rOut .wt.sel, #rOut .wg.sel { background: color-mix(in srgb, var(--accent) 32%, transparent); }
 #wpop { position: fixed; z-index: 60; width: 300px; max-width: calc(100vw - 16px); max-height: calc(100vh - 16px); overflow-y: auto; background: var(--card); color: var(--fg); border: 1px solid var(--accent); border-radius: 8px; box-shadow: 0 6px 24px rgba(0,0,0,.25); padding: 8px 10px; font-size: 13px; line-height: 1.45; }
+#rOut .w.macula-mark { outline: 1px solid var(--accent); outline-offset: 1px; border-radius: 2px; }
+.macula-roles h4 { margin: 0 0 4px; }
+.macula-roles > div + div { margin-top: 3px; }
+.macula-roles small { color: var(--muted); font-weight: normal; }
+.macula-target { margin-inline-start: .35em; }
 #wpop .wtop { display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px; }
 #wpop .wword { font-family: "HeDict", serif; font-size: 22px; }
 #wpop .wx { border: 0; background: none; cursor: pointer; color: inherit; font-size: 14px; }

@@ -21,6 +21,7 @@ const handlers={
  'off:state':()=>({dir:profile,stats:{files:docs.size,titles:2,bytes:100000},catalog:null}),
  'off:library':()=>[...docs.values()].map(d=>d.entry),
  'off:read':(_e,rel)=>{const doc=structuredClone(docs.get(rel));if(!doc)throw Error(rel);if(oldTranslation&&doc.entry.title==='Genesis'&&doc.entry.kind==='de'){doc.text[0][0]+=' [abweichende Fassung]';doc.textHash=hash(doc.text);}return doc;},
+ 'off:wordSyntax':(_e,book,verse,position)=>require('../../tanakh-syntax').wordRoles(book,verse,position),
  'off:summary':()=>[], 'notes:list':()=>[], 'dict:list':()=>({list:[]}), 'dict:suggest':()=>({list:[]}), 'dict:syriacMentions':()=>({results:[]}),
  'interlinear:read':()=>({data:{},renderings:null}), 'links:status':()=>({ready:false,complete:false,done:[],total:0}), 'topics:status':()=>({ready:false}),
  'links:section':()=>[], 'links:texts':()=>({}), 'links:preview':()=>({missing:true}), 'topics:section':()=>[],

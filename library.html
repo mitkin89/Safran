@@ -168,13 +168,15 @@
           </div>
         </details>
         <details id="sSyntax" class="gram">
-          <summary>Syntaktische Suche (Pentateuch)</summary>
+          <summary>Klauselsuche (Tanach)</summary>
           <div class="gramRow">
             <label>Verb-Lemma <input id="sxVerb" dir="rtl" placeholder="ברא" maxlength="128"></label>
             <label>Subjekt-Lemma <input id="sxSubject" dir="rtl" placeholder="אלהים, יהוה" maxlength="256"></label>
+            <label>Objekt-Lemma <input id="sxObject" dir="rtl" maxlength="256"></label>
+            <label><input id="sxReferents" type="checkbox"> Gemeinte Subjekte einbeziehen</label>
             <button id="sxGo" type="button">Syntax suchen</button>
           </div>
-          <p class="muted">Mindestens ein hebräisches Lemma eingeben. Mehrere Subjekt-Lemmata durch Kommas trennen. Die Grammatikfilter gelten für das Verb. Quelle: MACULA Hebrew (Westminster).</p>
+          <p class="muted">Mindestens ein hebräisches Lemma eingeben. Mehrere Subjekt- oder Objekt-Lemmata durch Kommas trennen. Die Grammatikfilter gelten für das Verb. Quelle: MACULA Hebrew (Westminster).</p>
           <p id="sxError" role="alert" hidden></p>
         </details>
         <details id="sHelp" class="help">

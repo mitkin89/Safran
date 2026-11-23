@@ -52,3 +52,29 @@ test('syntax data refuses a modified verse and a non-Hebrew query', async t => {
   assert(result.results.some(r => key(r) === 'Genesis 1:21'));
   assert.equal((await search({ verb: 'create', subject: 'אלהים' })).results.length, 0);
 });
+
+test('MACULA indexes all 39 Westminster books, including Prophets and Writings', async () => {
+  const X = require('../tanakh-syntax');
+  const tanakh = manifest.items.filter(X.supports);
+  assert.equal(tanakh.length, 39);
+  for (const entry of tanakh) assert(Object.keys(X.load(entry.title).roles).length > 0, entry.title);
+  const result = await searchFiles({ dir: bundled, entries: tanakh.filter(e => ['Isaiah', 'Psalms'].includes(e.title)),
+    params: { syntax: { verb: 'אמר', subject: 'יהוה' } } });
+  assert(result.results.some(r => key(r) === 'Isaiah 1:11'));
+  assert(result.results.some(r => key(r) === 'Psalms 2:7'));
+});
+
+test('lemma filters combine within one clause and resolved subjects are opt-in', async () => {
+  const objects = await search({ verb: 'ברא', subject: 'אלהים', object: 'שמים' });
+  assert(objects.results.some(r => key(r) === 'Genesis 1:1' && r.syntax[0].objects.length));
+  const otherClause = await search({ verb: 'בדל', subject: 'אלהים', object: 'אור' });
+  assert(!otherClause.results.some(r => key(r) === 'Genesis 1:4'));
+  const query = { verb: 'קרא', subject: 'אלהים' };
+  const verse = async syntax => (await search(syntax)).results.find(r => key(r) === 'Genesis 1:5');
+  assert.equal((await verse(query)).syntax.length, 1);
+  const expanded = await verse({ ...query, referents: true });
+  assert.equal(expanded.syntax.length, 2);
+  assert.match(expanded.syntax[1].referents[0].text, /אֱלֹהִ/u);
+  const roles = require('../tanakh-syntax').wordRoles('Genesis', '1:5', 5);
+  assert.deepEqual(roles.roles[0].referents[0].indices, [1]);
+});

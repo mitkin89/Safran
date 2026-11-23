@@ -5,7 +5,7 @@ window.LibraryWordPopup = (() => {
     openDict, lemIdsFor, matchSyriacAnalysis, canOpenCard, loadForms, openSForms, openForms, openGForms, openTForms, gSearchAll, jumpTo }) {
   // OSHB-Texte: Klick auf ein Wort zeigt Lemma, Stamm, Zeit und Form; „Im Wörterbuch“ schlägt das Lemma nach
   let wpop = null;
-  const closeWpop = () => { gTok++; if (wpop) { wpop.remove(); wpop = null; } $$('#rOut .syw.sel, #rOut .w.sel, #rOut .wt.sel, #rOut .wq.sel, #rOut .wa.sel, #rOut .wg.sel, #bavliInterlinear .bil-heword.sel').forEach(x => x.classList.remove('sel')); gSel = null; try { CSS.highlights.delete('gsel'); } catch { /* ältere Engine */ } };
+  const closeWpop = () => { gTok++; if (wpop) { wpop.remove(); wpop = null; } $$('#rOut .syw.sel, #rOut .w.sel, #rOut .wt.sel, #rOut .wq.sel, #rOut .wa.sel, #rOut .wg.sel, #bavliInterlinear .bil-heword.sel').forEach(x => x.classList.remove('sel')); gSel = null; clearSyntaxMarks(); try { CSS.highlights.delete('gsel'); } catch { /* ältere Engine */ } };
   // Septuaginta (CATSS): Klick auf eine griechische Wortgruppe zeigt die hebräischen Wörter, denen sie zugeordnet ist
   const GFLAG = { z: 'Zusatz der Septuaginta (kein hebräisches Gegenstück)', m: 'Minus der Septuaginta (hebräisches Wort ohne griechisches Gegenstück)', d: 'Doublette: ein hebräisches Wort ist doppelt übersetzt', i: 'Infinitivus absolutus im Hebräischen', t: 'Transliteriertes hebräisches Wort', v: 'Griechisches Präverb für eine hebräische Präposition', s: 'Komparativ/Superlativ (hebr. מ)', u: 'Gegenstück steht an anderer Stelle im Vers (Umstellung oder Verteilung)' };
   // x (optional, mit Morphologie): { rows: HTML der Wort-Bestimmungen, buttons: HTML, word, at: Element/Range zum Ausrichten, on: Klick-Behandlung }
@@ -390,6 +390,71 @@ window.LibraryWordPopup = (() => {
       const top = pop.querySelector('.wtop'); if (top) top.after(e);
     }, () => {});
   }
+  const SYNTAX_ROLE = { s: 'Subjekt', v: 'Verb', o: 'Direktes Objekt', io: 'Indirektes Objekt', p: 'Prädikativ' };
+  const mtWords = cell => [...cell.querySelectorAll('.w[data-m]')];
+  const signature = words => words.map(word => word.textContent.replace(/[^א-ת]/gu, '')).join(' ');
+  const clearSyntaxMarks = () => $$('#rOut .macula-mark').forEach(word => word.classList.remove('macula-mark'));
+  function syntaxContext(w) {
+    const cell = w.closest('.cell[data-mt][data-rel]'), row = w.closest('.row[data-l]');
+    const view = reader.view, chapter = apChap(view?.sections?.[view.idx]), verse = row && verseOf(row.dataset.l);
+    const book = view?.group?.title;
+    if (!O.wordSyntax || !cell || !book || !/^\d+$/.test(chapter || '') || !verse) return null;
+    const words = mtWords(cell), position = words.indexOf(w);
+    if (position < 0) return null;
+    const ref = chapter + ':' + verse;
+    return O.wordSyntax(book, ref, position).then(data => data?.signature === signature(words)
+      ? { book, ref, rel: cell.dataset.rel, roles: data.roles } : null, () => null);
+  }
+
+  function markSyntax(context, targets) {
+    const view = reader.view;
+    const chapter = apChap(view?.sections?.[view.idx]);
+    if (context.book !== view?.group?.title) return;
+    for (const target of targets) {
+      const [c, v] = target.ref.split(':');
+      if (chapter !== c) continue;
+      const row = $$('#rOut .row[data-l]').find(node => node.dataset.l === v);
+      const cell = row && [...row.querySelectorAll('.cell[data-mt][data-rel]')].find(node => node.dataset.rel === context.rel);
+      if (!cell) continue;
+      const words = mtWords(cell);
+      if (signature(words) !== target.signature) continue;
+      for (const i of target.indices) words[i]?.classList.add('macula-mark');
+    }
+  }
+
+  function syntaxSection(context) {
+    const section = document.createElement('section');
+    section.className = 'wcSec macula-roles';
+    section.innerHTML = `<h4>${esc(I18N.t('Satzrolle'))} <small>MACULA Hebrew · <bdi>${esc(context.ref)}</bdi></small></h4>`;
+    for (const { role, group, referents } of context.roles) {
+      const line = document.createElement('div');
+      line.textContent = I18N.t(SYNTAX_ROLE[role]);
+      for (const target of group.filter(item => item.ref !== context.ref)) addSyntaxLink(line, context, target, false);
+      for (const target of referents) addSyntaxLink(line, context, target, true);
+      section.appendChild(line);
+    }
+    return section;
+  }
+
+  function addSyntaxLink(line, context, target, referent) {
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'macula-target';
+    const label = referent ? I18N.t('Gemeintes Subjekt') + ' ' : '';
+    button.innerHTML = `${esc(label)}<bdi lang="he">${esc(target.label)}</bdi> <bdi>${esc(target.ref)}</bdi>`;
+    button.addEventListener('click', async () => {
+      const view = reader.view, chapter = apChap(view?.sections?.[view.idx]);
+      if (view?.group?.title !== context.book || chapter !== target.ref.split(':')[0]
+          || !$$('#rOut .row[data-l]').some(row => row.dataset.l === target.ref.split(':')[1])) {
+        await jumpTo(context.book + ' ' + target.ref);
+      }
+      clearSyntaxMarks();
+      markSyntax(context, [target]);
+      $('#rOut .macula-mark')?.scrollIntoView({ block: 'nearest' });
+    });
+    line.append(' ', button);
+  }
+
   function showReaderWord(e,force=false) {
     if(force)closeWpop();
     // The interlinear controller opens Samaritan words with their own IDs.
@@ -432,12 +497,23 @@ window.LibraryWordPopup = (() => {
     if (mainSeg && mainSeg.lemma) loadForms().catch(() => {}); // Formen-Index schon laden, damit die Tabelle sofort da ist
     const wInfo = { lemma: mainSeg && mainSeg.lemma, word: w.textContent, m: w.dataset.m, l: w.dataset.l };
     if (w.classList.contains('wa')) wpop.querySelector('.wtop').insertAdjacentHTML('afterend', `<div class="muted wa-note">${esc(I18N.t('Aleppo-Text; Analyse des entsprechenden Wortes im Leningradensis (OSHB)'))}</div>`);
-    document.body.appendChild(wpop);
-    wPhono(w, wpop);
-    const r = w.getBoundingClientRect(), pw = wpop.offsetWidth, ph = wpop.offsetHeight;
-    let x = Math.max(8, Math.min(window.innerWidth - pw - 8, r.left + r.width / 2 - pw / 2));
-    let y = r.bottom + 6; if (y + ph > window.innerHeight - 8) y = Math.max(8, r.top - ph - 6);
-    wpop.style.left = x + 'px'; wpop.style.top = y + 'px';
+    const pop = wpop;
+    const place = () => {
+      const r = w.getBoundingClientRect(), pw = pop.offsetWidth, ph = pop.offsetHeight;
+      const x = Math.max(8, Math.min(window.innerWidth - pw - 8, r.left + r.width / 2 - pw / 2));
+      const y = r.bottom + ph + 6 > window.innerHeight - 8 ? Math.max(8, r.top - ph - 6) : r.bottom + 6;
+      pop.style.left = x + 'px'; pop.style.top = y + 'px';
+    };
+    document.body.appendChild(pop);
+    wPhono(w, pop);
+    place();
+    wInfo.syntax = syntaxContext(w);
+    wInfo.syntax?.then(context => {
+      if (!context || wpop !== pop || !w.isConnected) return;
+      pop.querySelector('.wtop').after(syntaxSection(context));
+      markSyntax(context, context.roles.flatMap(role => role.group.filter(item => item.ref === context.ref)));
+      place();
+    });
     wpop.ondblclick = ev => { // Doppelklick auf ein Wort im Popup schlägt es im Wörterbuch nach (das Lemma als Ganzes mit seinen Zeichen)
       if (ev.target.closest('button')) return;
       const lw = ev.target.closest('.wlem');
@@ -481,7 +557,7 @@ window.LibraryWordPopup = (() => {
     if(shown){e.preventDefault();e.stopImmediatePropagation();}
   },true);
 
-    return { openPreferred, openQumranWord(w) { gTok++; closeWpop(); return showQumranWord(w); }, openGreekApparatus(w,source) { return showGreekWord(w,w,null,source); }, openSamaritanWord(w) { gTok++; closeWpop(); return showSamaritanWord(w); }, close: closeWpop, loadGM, greekWordAt, decorateBavliReader, openBavliAnchor };
+    return { syntaxSection, openPreferred, openQumranWord(w) { gTok++; closeWpop(); return showQumranWord(w); }, openGreekApparatus(w,source) { return showGreekWord(w,w,null,source); }, openSamaritanWord(w) { gTok++; closeWpop(); return showSamaritanWord(w); }, close: closeWpop, loadGM, greekWordAt, decorateBavliReader, openBavliAnchor };
   }
   return { create };
 })();
