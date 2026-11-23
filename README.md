@@ -178,6 +178,8 @@ Open the *Dictionary* tab (*Wörterbuch*), press the 📖 button next to the com
 | **Hamburger**, Real-Encyclopädie für Bibel und Talmud (vol. 1; vol. 2, talmudic articles; supplement volumes I–VI) | 3,026 | footnotes inline, sources linked |
 | **SEDRA**, Syriac lexicon (Beth Mardutho) | 35,892 | Syriac word cards with root families, recorded forms and etymologies; lookup from the Peshitta |
 
+Both Levy dictionaries are also published as an open dataset: [levy-dictionaries](https://github.com/mitkin89/levy-dictionaries), DOI [10.5281/zenodo.24465108](https://doi.org/10.5281/zenodo.24465108).
+
 Krauss's ***Talmudische Archäologie*** (vols. I–III, Leipzig 1910–1912) itself is part of the library: the full text with all endnotes, figures and an outline. His citations are links, and the register above works as its index.
 
 <p align="center">

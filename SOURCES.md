@@ -57,6 +57,8 @@ Source and license: Original work of the Open Scriptures Hebrew Bible, <https://
 - **Digital Kennicott, apparatus for all 39 books** — *The Digital Kennicott. A Digital Edition of Benjamin Kennicott's Vetus Testamentum Hebraicum*, ed. Sebastiano Crestani and Alberto Legnaioli, Universities of Turin and Florence. [Original TEI](https://www.edition-digitalkennicott.unito.it/), explicitly **CC BY-NC-SA 4.0** in its header. Safran preserves the original archive and derives a separate offline apparatus with source glossary, witness metadata and conservative MT positions. See `LICENSE-KENNICOTT.md` and `tools/kennicott/README.md`.
 - **Similar chapters** (`similar-chapters.js`) – computed from the OSHB lemmas (CC BY 4.0) by `tools/oshb/similar_chapters.py`.
 
+- **Levy's dictionaries** – Jacob Levy, *Neuhebräisches und chaldäisches Wörterbuch über die Talmudim und Midraschim* (vols. 1–4, 2nd ed. Berlin/Vienna 1924, with the supplements of Fleischer and Goldschmidt) and *Chaldäisches Wörterbuch über die Targumim* (vols. 1–2), public domain; own transcription from page images in eScriptorium with Claude (2026), abbreviations and references marked by script (`tools/levy-talmud/`, `tools/levy-targum/`). Also published as a dataset of its own: [mitkin89/levy-dictionaries](https://github.com/mitkin89/levy-dictionaries), DOI [10.5281/zenodo.24465108](https://doi.org/10.5281/zenodo.24465108) (CC BY 4.0).
+
 ## Bible map
 
 Map of the places of a chapter (🗺 in the reading bar, also from the outline), with distance measurement, elevation profile, notes on places and routes. Sources:

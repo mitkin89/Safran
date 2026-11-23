@@ -178,6 +178,8 @@ Den Reiter *Wörterbuch* öffnen, den Knopf 📖 neben dem Kommentarfenster drü
 | **Hamburger**, Real-Encyclopädie für Bibel und Talmud (Bd. 1; Bd. 2, talmudische Artikel; Supplementbände I–VI) | 3.026 | Fußnoten im Text, Quellen verlinkt |
 | **SEDRA**, syrisches Lexikon (Beth Mardutho) | 35.892 | syrische Wortkarten mit Wurzelfamilien, belegten Formen und Etymologien; Nachschlagen aus der Peschitta |
 
+Beide Levy-Wörterbücher gibt es auch als offenen Datensatz: [levy-dictionaries](https://github.com/mitkin89/levy-dictionaries), DOI [10.5281/zenodo.24465108](https://doi.org/10.5281/zenodo.24465108).
+
 Krauss’ ***Talmudische Archäologie*** (Bd. I–III, Leipzig 1910–1912) selbst steht in der Bibliothek: der ganze Text mit allen Anmerkungen, Abbildungen und Gliederung. Seine Stellenangaben sind Links, und das Register oben dient als Index dazu.
 
 <p align="center">
