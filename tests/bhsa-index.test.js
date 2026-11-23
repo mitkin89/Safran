@@ -6,7 +6,7 @@ const fs = require('node:fs/promises');
 const os = require('node:os');
 const path = require('node:path');
 const BHSA = require('../bhsa-index');
-const { alignVerse } = require('../bhsa-build');
+const { alignVerse } = require('../tools/bhsa/build');
 const { format, revision } = require('../bhsa-source');
 const { searchFiles } = require('../searchcore');
 
@@ -44,4 +44,15 @@ test('word context and merged matching reject ambiguous or changed positions', (
   assert.equal(match('1:3', current, 0, [{ ref: '1:3', signature, indices: [2] }]), null);
   assert.equal(match('1:3', current.slice(1), 0, []), null);
   assert.deepEqual(BHSA.wordContext({ books }, 'Genesis', '1:3', 2).parent, ['Genesis', '1:2']);
+});
+
+test('bundled BHSA works without an installed index', async () => {
+  const index = await BHSA.readBundled();
+  assert.equal(Object.keys(index.books).length, 39);
+  assert.equal(index.aligned, 22077);
+  assert.equal(index.total, 23213);
+  assert.equal(BHSA.wordContext(index, 'Genesis', '1:3', 2).domain, 'Q');
+  const { results } = await searchFiles({ dir: bundled, entries: [entry], params: { syntax: { domain: 'Q' } } });
+  assert.deepEqual(results[0].path, [0, 2]);
+  assert.deepEqual(results[0].words, ['יהי', 'אור']);
 });

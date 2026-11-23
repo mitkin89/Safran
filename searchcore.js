@@ -188,8 +188,7 @@ async function searchFiles({ dir, entries, params, cacheDir = null, onProgress =
   const gramOn = !!G || syntaxOn;
   if ((syntaxOn && !syntax) || (!q && !gramOn)) return { results: [], scanned: 0, total: 0, truncated: false, capped: false, cancelled: false, stats: [] };
   const usesBhsa = syntax && (syntax.bhsa.domain || syntax.bhsa.relation);
-  if (usesBhsa && !params.bhsaFile) throw new Error('BHSA-Daten fehlen');
-  const bhsaIndex = usesBhsa ? await BHSA.readIndex(params.bhsaFile) : null;
+  const bhsaIndex = usesBhsa ? await (params.bhsaFile ? BHSA.readIndex(params.bhsaFile) : BHSA.readBundled()) : null;
   const terms = [query, ...extra].filter(t => String(t || '').trim());
   const advanced = multi || terms.length > 1 || fuzzy || exact || /[*?]/.test(query); // exact: genau dieses Wort (Wortvergleich, keine Vorsilben, keine anderen Formen)
   const words = multi

@@ -4,8 +4,6 @@ const assert = require('node:assert/strict');
 
 module.exports = async function syntaxFlows({ js, waitFor }) {
   await js("document.querySelector('nav [data-tab=search]').click();document.querySelector('#sAdv').open=true;document.querySelector('#sSyntax').open=true");
-  await waitFor("!document.querySelector('#sxBhsaInstall').hidden", 'Optionaler BHSA-Download');
-  await js("document.querySelector('#sxBhsaLoad').click()");
   await waitFor("!document.querySelector('#sxBhsa').hidden", 'BHSA-Filter verfügbar');
   await js("for(const id of ['sxVerb','sxSubject','sxObject']) document.getElementById(id).value='';document.querySelector('#sxDomain').value='Q';document.querySelector('#sxGo').click()");
   await waitFor("document.querySelector('#sOut .sres')?.textContent.includes('Direkte Rede')", 'BHSA-Direktrede in der Trefferliste');

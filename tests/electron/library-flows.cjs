@@ -9,7 +9,7 @@ const pause=ms=>new Promise(resolve=>setTimeout(resolve,ms));
 const deferred=()=>{let resolve;const promise=new Promise(r=>resolve=r);return {promise,resolve};};
 async function until(check,label){const end=Date.now()+20000;while(Date.now()<end){if(check())return;await pause(20);}throw Error('Zeitüberschreitung: '+label);}
 
-module.exports=async function setup({profile,docs,handlers,bhsaFile}){
+module.exports=async function setup({profile,docs,handlers}){
   const dir=path.join(profile,'flow-library'),searchDir=path.join(profile,'search');
   for(const [rel,doc] of docs){const file=path.join(searchDir,rel);await fs.mkdir(path.dirname(file),{recursive:true});await fs.writeFile(file,JSON.stringify(doc));}
   const entries=['UI Download A','UI Download B'].map(title=>({title,language:'English',versionTitle:'Testausgabe [de]',categories:['Test'],json_url:'https://example.invalid/sefaria-export/'+encodeURIComponent(title)+'/en/Testausgabe.json'}));
@@ -50,7 +50,7 @@ module.exports=async function setup({profile,docs,handlers,bhsaFile}){
       if(holdSearch){e.senderFrame.send('off:searchProgress',{scanned:5,total:10,found:2,requestId:job.requestId});const gate=deferred();gates.push({job,...gate});job.stop=gate.resolve;await gate.promise;job.stop=null;}
       if(job.cancelled)return emptyResult();
       const selected=[...docs.values()].map(d=>d.entry).filter(d=>(!params.kinds?.length||params.kinds.includes(d.kind))&&(!params.titles?.length||params.titles.includes(d.title)));
-      return await runSearchWorker({dir:searchDir,entries:selected,params:{...params,bhsaFile},cacheDir:null},job,p=>{if(jobs.current(job))e.senderFrame.send('off:searchProgress',{...p,requestId:job.requestId});});
+      return await runSearchWorker({dir:searchDir,entries:selected,params,cacheDir:null},job,p=>{if(jobs.current(job))e.senderFrame.send('off:searchProgress',{...p,requestId:job.requestId});});
     }finally{jobs.finish(job);}
   });
   ipcMain.on('off:cancelSearch',(e,id)=>jobs.cancel(ownerOf(e),id));

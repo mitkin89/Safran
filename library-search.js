@@ -209,28 +209,21 @@ window.LibrarySearch = (() => {
         : '';
       $('#sSumPanel').hidden = !$('#sSum').innerHTML.trim();
     }
-    const bhsaStatus = $('#sxBhsaStatus');
-    function showBhsa(status) {
-      $('#sxBhsa').hidden = !status.ready;
-      $('#sxBhsaInstall').hidden = !!status.ready;
-      bhsaStatus.hidden = !status.ready && !status.error;
-      bhsaStatus.textContent = status.ready ? I18N.t('ETCBC BHSA · {} von {} Versen zugeordnet',
-        status.aligned.toLocaleString(I18N.loc), status.total.toLocaleString(I18N.loc))
-        : status.error ? I18N.t('BHSA konnte nicht geladen werden.') + ' ' + status.error : '';
-    }
-    if (O.bhsaStatus) {
-      O.bhsaStatus().then(showBhsa, () => showBhsa({ ready: false }));
-      $('#sxBhsaLoad').onclick = async () => {
-        $('#sxBhsaLoad').disabled = true;
+    let bhsaReady = false;
+    function loadBhsaStatus() {
+      if (bhsaReady || !O.bhsaStatus || !$('#sSyntax').open) return;
+      const bhsaStatus = $('#sxBhsaStatus');
+      const show = status => {
+        bhsaReady = !!status.ready;
+        $('#sxBhsa').hidden = !bhsaReady;
         bhsaStatus.hidden = false;
-        bhsaStatus.textContent = I18N.t('BHSA wird geladen und abgeglichen …');
-        let status;
-        try { status = await O.bhsaInstall(); }
-        catch (err) { status = { ready: false, error: err.message }; }
-        showBhsa(status);
-        $('#sxBhsaLoad').disabled = false;
+        bhsaStatus.textContent = bhsaReady ? I18N.t('ETCBC BHSA · {} von {} Versen zugeordnet',
+          status.aligned.toLocaleString(I18N.loc), status.total.toLocaleString(I18N.loc))
+          : I18N.t('Die mitgelieferten BHSA-Daten konnten nicht gelesen werden.');
       };
+      O.bhsaStatus().then(show, () => show({ ready: false }));
     }
+    $('#sSyntax').addEventListener('toggle', loadBhsaStatus);
     const syntaxParams = () => ({
       verb: $('#sxVerb').value.trim(), subject: $('#sxSubject').value.trim(),
       object: $('#sxObject').value.trim(), referents: $('#sxReferents').checked,

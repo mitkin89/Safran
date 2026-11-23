@@ -1,7 +1,6 @@
 'use strict';
 
 const revision = '4db00e2157915495e1a4d3d57e41223df24775da';
-const url = 'https://raw.githubusercontent.com/ETCBC/bhsa/' + revision + '/tf/2021/';
 const hashes = {
   otype: 'bb5da974a3b1dd7ff9ddab54dfb533059442642ab830b832a49eea8670aaa920',
   oslots: 'c4efaeed8047d4e75834cc94856d79eacc7a146aea01c34d8be88497d8fa303b',
@@ -14,4 +13,4 @@ const hashes = {
   mother: '13d3340ed327aa7d739dfc5fc870d10de00308a8e5ed713fbe4c5eee717c5cfe',
 };
 
-module.exports = { revision, url, hashes, format: 1 };
+module.exports = { revision, hashes, format: 1 };

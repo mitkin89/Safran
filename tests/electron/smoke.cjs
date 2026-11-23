@@ -18,21 +18,17 @@ const raw=require(path.join(root,'tools/bavli/berakhot/source.json'));
 const bavli={title:'Berakhot',heTitle:'ברכות',language:'Hebrew',versionTitle:raw.versionTitle,sectionNames:['Daf','Line'],text:[[],[],...Object.values(raw.pages)]};
 const be={rel:'fixture/Berakhot/he.json',title:bavli.title,heTitle:bavli.heTitle,language:bavli.language,versionTitle:bavli.versionTitle,kind:'he',categories:['Talmud','Bavli','Seder Zeraim'],bytes:100000};docs.set(be.rel,{...bavli,entry:be,textHash:hash(bavli.text)});
 const BHSA = require('../../bhsa-index');
-const bhsaSource = require('../../bhsa-source');
-const bhsaFile = path.join(profile, 'bhsa-fixture.json');
-const bhsaFixture = { version: bhsaSource.format, revision: bhsaSource.revision, aligned: 1, total: 1, books: {
- Genesis: { '1:3': ['ויאמר אלהים יהי אור ויהי אור', [[1,'?N',false,null,[0,1]], [2,'?NQ',false,null,[2,3]], [3,'?N',false,null,[4,5]]]] },
-} };
-let bhsaReady = false;
 const handlers={
  'off:state':()=>({dir:profile,stats:{files:docs.size,titles:2,bytes:100000},catalog:null}),
  'off:library':()=>[...docs.values()].map(d=>d.entry),
  'off:read':(_e,rel)=>{const doc=structuredClone(docs.get(rel));if(!doc)throw Error(rel);if(oldTranslation&&doc.entry.title==='Genesis'&&doc.entry.kind==='de'){doc.text[0][0]+=' [abweichende Fassung]';doc.textHash=hash(doc.text);}return doc;},
- 'off:bhsaStatus':()=>({ready:bhsaReady,aligned:1,total:1}),
- 'off:bhsaInstall':async()=>{await fsp.writeFile(bhsaFile,JSON.stringify(bhsaFixture));bhsaReady=true;return {ready:true,aligned:1,total:1};},
- 'off:wordSyntax':(_e,book,verse,position)=>{
+ 'off:bhsaStatus':async()=>{
+   const {aligned,total}=await BHSA.readBundled();
+   return {ready:true,aligned,total};
+ },
+ 'off:wordSyntax':async(_e,book,verse,position)=>{
    const macula=require('../../tanakh-syntax').wordRoles(book,verse,position);
-   const bhsa=bhsaReady&&BHSA.wordContext(bhsaFixture,book,verse,position);
+   const bhsa=BHSA.wordContext(await BHSA.readBundled(),book,verse,position);
    return bhsa?{...macula,signature:bhsa.signature,bhsa}:macula;
  },
  'off:summary':()=>[], 'notes:list':()=>[], 'dict:list':()=>({list:[]}), 'dict:suggest':()=>({list:[]}), 'dict:syriacMentions':()=>({results:[]}),
@@ -52,7 +48,7 @@ async function waitFor(expression,label){const until=Date.now()+20000;while(Date
 async function book(title,prefix='document'){await js(`{const d=${prefix};d.querySelectorAll('dialog[open]').forEach(n=>n.close());const a=[...d.querySelectorAll('#tree .lib-item')].find(a=>a.dataset.key.endsWith('¦'+${JSON.stringify(title)}));if(!a)throw Error('Buch fehlt');a.click();}`);}
 (async()=>{
  await app.whenReady();app.dock?.hide();session.defaultSession.webRequest.onBeforeRequest({urls:['http://*/*','https://*/*']},(_details,cb)=>cb({cancel:true}));
- const libraryFlows=await require('./library-flows.cjs')({profile,docs,handlers,bhsaFile});
+ const libraryFlows=await require('./library-flows.cjs')({profile,docs,handlers});
  const dictionaryFlows=await require('./dictionary-flows.cjs')({profile});
  win=new BrowserWindow({show:false,width:1250,height:900,webPreferences:{preload:path.join(__dirname,'preload.cjs'),contextIsolation:true,nodeIntegration:false,nodeIntegrationInSubFrames:true,sandbox:false}});
  const errors=[];win.webContents.on('console-message',event=>{if(event.level==='error'){errors.push(event.message);console.error('Renderer:',event.message)}});

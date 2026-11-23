@@ -39,7 +39,6 @@ contextBridge.exposeInMainWorld('offline', {
   library: () => ipcRenderer.invoke('off:library'),
   read: rel => ipcRenderer.invoke('off:read', rel),
   bhsaStatus: () => ipcRenderer.invoke('off:bhsaStatus'),
-  bhsaInstall: () => ipcRenderer.invoke('off:bhsaInstall'),
   wordSyntax: (book, verse, position) => ipcRenderer.invoke('off:wordSyntax', book, verse, position),
   search: o => { const requestId = ++searchSeq; activeSearch = requestId; return ipcRenderer.invoke('off:search', { ...o, requestId }).finally(() => { if (activeSearch === requestId) activeSearch = null; }); },
   cancelSearch: () => { if (activeSearch != null) ipcRenderer.send('off:cancelSearch', activeSearch); },

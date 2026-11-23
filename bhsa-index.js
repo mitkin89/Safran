@@ -1,6 +1,9 @@
 'use strict';
 
 const fs = require('node:fs/promises');
+const path = require('node:path');
+const { promisify } = require('node:util');
+const gunzip = promisify(require('node:zlib').gunzip);
 const { format, revision } = require('./bhsa-source');
 
 const DOMAINS = new Set(['N', 'D', 'Q']);
@@ -13,11 +16,18 @@ function filters(query) {
 }
 
 async function readIndex(file) {
-  const index = JSON.parse(await fs.readFile(file, 'utf8'));
+  const buffer = await fs.readFile(file);
+  const contents = file.endsWith('.gz') ? await gunzip(buffer) : buffer;
+  const index = JSON.parse(contents.toString('utf8'));
   if (index.version !== format || index.revision !== revision || !index.books || !index.aligned) {
-    throw new Error('BHSA-Daten müssen neu geladen werden');
+    throw new Error('Ungültiger BHSA-Index');
   }
   return index;
+}
+
+let bundledPromise;
+function readBundled() {
+  return bundledPromise ||= readIndex(path.join(__dirname, 'bundled', 'bhsa', 'index.json.gz'));
 }
 
 const info = ([, text, resumes, parent]) => ({
@@ -76,4 +86,4 @@ function wordContext(index, book, key, position) {
   return data.domain || data.resumes ? { signature: entry[0], ...data } : null;
 }
 
-module.exports = { filters, readIndex, clauseFilter, clauseMatcher, wordContext };
+module.exports = { filters, readIndex, readBundled, clauseFilter, clauseMatcher, wordContext };

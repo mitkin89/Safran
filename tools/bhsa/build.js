@@ -3,9 +3,10 @@
 const { createHash } = require('node:crypto');
 const { readFileSync, writeFileSync } = require('node:fs');
 const path = require('node:path');
-const { isMainThread, parentPort, workerData } = require('node:worker_threads');
-const source = require('./bhsa-source');
-const { supports } = require('./tanakh-syntax');
+const { gzipSync } = require('node:zlib');
+const source = require('../../bhsa-source');
+const { supports } = require('../../tanakh-syntax');
+const root = path.resolve(__dirname, '../..');
 
 const BOOKS = {
   Genesis: 'Genesis', Exodus: 'Exodus', Leviticus: 'Leviticus', Numeri: 'Numbers', Deuteronomium: 'Deuteronomy',
@@ -107,8 +108,8 @@ function build(dir) {
     }
   }
 
-  const bundled = path.join(__dirname, 'bundled');
-  const books = new Map(require('./bundled/manifest.json').items.filter(supports).map(entry =>
+  const bundled = path.join(root, 'bundled');
+  const books = new Map(require('../../bundled/manifest.json').items.filter(supports).map(entry =>
     [entry.title, JSON.parse(readFileSync(path.join(bundled, entry.rel), 'utf8')).text]));
   const result = Object.fromEntries([...books.keys()].map(book => [book, {}]));
   const verseBySlot = new Uint32Array(wordForms.length), slotParts = [];
@@ -157,10 +158,13 @@ function build(dir) {
   return { version: source.format, revision: source.revision, aligned, total: verses.size, books: result };
 }
 
-if (!isMainThread && workerData?.bhsaBuild) {
-  const index = build(workerData.dir);
-  writeFileSync(workerData.output, JSON.stringify(index));
-  parentPort.postMessage({ aligned: index.aligned, total: index.total });
+if (require.main === module) {
+  const dir = process.argv[2];
+  if (!dir) throw new Error('Usage: node tools/bhsa/build.js /path/to/bhsa/tf/2021');
+  const index = build(dir);
+  writeFileSync(path.join(root, 'bundled', 'bhsa', 'index.json.gz'),
+    gzipSync(JSON.stringify(index), { level: 9 }));
+  console.log(`${Object.keys(index.books).length} books, ${index.aligned}/${index.total} verses aligned`);
 }
 
 module.exports = { build, alignVerse };
