@@ -8,6 +8,7 @@ window.I18N_HE = {
     "Textfassung konnte nicht geprüft werden": "לא ניתן לאמת את גרסת הטקסט",
 
     "Grammatik (Tanach)": "דקדוק (תנ״ך)",
+    "Grammatik & Syntax": "דקדוק ותחביר",
     "Alle Bücher": "כל הספרים",
     "Textsuche": "חיפוש טקסט",
     "Suchmodus": "מצב חיפוש",
