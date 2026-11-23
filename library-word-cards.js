@@ -421,19 +421,19 @@ window.LibraryWordCards = (() => {
   }
   // Belegstellen als Zeilen je Buch (wie in der Formentabelle)
   function wcRefLemmaAttrs(ref) {
-    if (ref.lemmas?.length === 1) return ` data-same-lemma="${host.esc(ref.lemmas[0][0])}"`;
+    if (ref.lemmas.length === 1) return ` data-same-lemma="${host.esc(ref.lemmas[0][0])}"`;
     return '';
   }
   function wcRefLemmas(ref) {
-    return ref.lemmas ? ` <small dir="auto">${ref.lemmas.map(([id, n]) =>
-      host.esc(wcLemmaLabel(id) + (n > 1 ? ' ×' + wcNum(n) : ''))).join(' · ')}</small>` : '';
+    return ` <small dir="auto">${ref.lemmas.map(([id, n]) =>
+      host.esc(wcLemmaLabel(id) + (n > 1 ? ' ×' + wcNum(n) : ''))).join(' · ')}</small>`;
   }
   function wcRefList(rs, head, all) {
     const CAP = 300, shown = all ? rs : rs.slice(0, CAP), n = rs.reduce((s, r) => s + r.n, 0);
     const lines = []; let lb = null;
     for (const r of shown) {
       if (r.book !== lb) { lines.push(`<b>${host.esc(fmBook(r.book))}</b> `); lb = r.book; } else lines[lines.length - 1] += ' ';
-      lines[lines.length - 1] += `<span class="fmR"><a data-ref="${host.esc((r.title || r.book) + ' ' + r.ch + ':' + r.v)}"${r.vt ? ` data-gvt="${host.esc(r.vt)}"` : ''}${wcRefLemmaAttrs(r)}>${r.ch}${I18N.lang === 'de' ? ',' : ':'}${r.v}</a>${r.n > 1 ? `<small>×${r.n}</small>` : ''}${wcRefLemmas(r)}</span>`;
+      lines[lines.length - 1] += `<span class="fmR"><a data-ref="${host.esc((r.title || r.book) + ' ' + r.ch + ':' + r.v)}"${r.vt ? ` data-gvt="${host.esc(r.vt)}"` : ''}${r.lemmas ? wcRefLemmaAttrs(r) : ''}>${r.ch}${I18N.lang === 'de' ? ',' : ':'}${r.v}</a>${r.n > 1 ? `<small>×${r.n}</small>` : ''}${r.lemmas ? wcRefLemmas(r) : ''}</span>`;
     }
     const more = rs.length > shown.length ? `<div><button type="button" class="fmAll">${host.esc(I18N.t('alle {} Verse zeigen', wcNum(rs.length)))}</button></div>` : '';
     return `<div class="wcRefBox"><div class="fmRH">${head}<span class="muted">${host.esc(I18N.t('{}× in {} Versen', wcNum(n), wcNum(rs.length)))}</span><button type="button" class="fmRX" title="Schließen">✕</button></div><div class="fmRL">${lines.map(l => `<div>${l}</div>`).join('')}${more}</div></div>`;
@@ -1327,7 +1327,7 @@ window.LibraryWordCards = (() => {
     const lines = []; let lb = null;
     for (const r of shown) {
       if (r.book !== lb) { lines.push(`<b>${host.esc(fmBook(r.book))}</b> `); lb = r.book; } else lines[lines.length - 1] += ' ';
-      lines[lines.length - 1] += `<span class="fmR"><a data-ref="${host.esc((r.title || r.book) + ' ' + r.ch + ':' + r.v)}"${r.vt ? ` data-gvt="${host.esc(r.vt)}"` : ''}${wcRefLemmaAttrs(r)}>${r.ch}${I18N.lang === 'de' ? ',' : ':'}${r.v}</a>${r.n > 1 ? `<small>×${r.n}</small>` : ''}${wcRefLemmas(r)}</span>`;
+      lines[lines.length - 1] += `<span class="fmR"><a data-ref="${host.esc((r.title || r.book) + ' ' + r.ch + ':' + r.v)}"${r.vt ? ` data-gvt="${host.esc(r.vt)}"` : ''}${r.lemmas ? wcRefLemmaAttrs(r) : ''}>${r.ch}${I18N.lang === 'de' ? ',' : ':'}${r.v}</a>${r.n > 1 ? `<small>×${r.n}</small>` : ''}${r.lemmas ? wcRefLemmas(r) : ''}</span>`;
     }
     const more = rs.length > shown.length ? `<div><button type="button" class="fmAll">${host.esc(I18N.t('alle {} Verse zeigen', rs.length.toLocaleString(I18N.loc)))}</button></div>` : '';
     const tr = document.createElement('tr'); tr.className = 'fmRefRow';
