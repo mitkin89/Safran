@@ -168,3 +168,7 @@ On Windows and Linux use Ctrl instead of Cmd.
 
 - **Advanced clause queries:** nested AND/OR/NOT groups combine explicit subject, verb, object, resolved referent and BHSA domain/relation conditions. Each group remains anchored to one predicate. Related-clause nodes follow source-backed parent/child links across verses or later clauses within one verse. Unknown role/target annotations remain unknown under NOT. See [BHSA clause search](bhsa-clause-search.md).
 - **Concordance previews in word cards:** hovering or focusing a result or aligned Greek/Syriac peer displays its full native verse and marks the exact source positions. Repeated words stay distinct; unverified position/text combinations do not receive a guessed highlight.
+
+- **Unified grammar and syntax tab:** *Grammatik & Syntax* contains *Wortmerkmale* (optional word/lemma plus all morphology filters) and *Klauseln & Beziehungen*. The text-search tab has no grammar filters; its searches ignore selections in the grammar tab. Both grammatical search types remain restricted to the Tanakh.
+
+- **Search concordance previews:** result rows and their aligned Greek/Syriac peers show the full native passage with exact source-position highlights on hover or keyboard focus, using the same preview as word cards. Enter/Space opens a focused result; scrolling or replacing the results closes the preview.

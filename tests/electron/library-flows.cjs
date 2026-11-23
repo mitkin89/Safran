@@ -84,7 +84,7 @@ module.exports=async function setup({profile,docs,handlers}){
     console.log('Electron: Suchmodul mit Favoriten, Einzelbuch-Rücksprung und Suche im gelesenen Buch bestanden.');
     console.log('Electron: Echte Such-Worker, Treffermarkierung und Sprung zum Vers bestanden.');
 
-    await js("document.querySelector('#sSyntaxTab').click()");
+    await js("document.querySelector('#sSyntaxTab').click();document.querySelector('[data-syntax-kind=clause]').click()");
     await waitFor("!document.querySelector('#sxBhsa').hidden", 'Mitgelieferte BHSA-Filter');
     await js(`{
       document.querySelector('#sxFilters').open = true;

@@ -2656,6 +2656,9 @@
     $, $$, esc, KIND_LABEL, shortVer, plainSnip, lsGet, lsSet, outlineSearch, concordanceCoverageHtml,
     getGroups: () => groups, getPreferredVersions: () => prefVer,
   });
+  window.ConcordancePreview.attach($('#sOut'),{
+    getHit:(i,peer)=>searchUI.resultAt(i,peer),getHover:()=>linksUI.hovApi,
+  });
   function concordanceCoverageHtml(result, preview = false) {
     const coverage = result.lemmaCoverage;
     if (!coverage?.editions.length) return '';

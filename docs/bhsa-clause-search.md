@@ -1,6 +1,6 @@
 # BHSA in Safran
 
-Open **Search → Clause search (Tanakh)**. Enter Hebrew lemmas in the subject, verb or object fields, or choose **Where does God speak?** to fill in an example. Choose a book to narrow the search. Verb morphology and BHSA options are under **More filters**. Safran includes the compressed BHSA clause index and loads it offline when needed.
+Open **Search → Grammatik & Syntax → Klauseln & Beziehungen**. For morphology alone, use **Wortmerkmale** in the same tab. Enter Hebrew lemmas in the subject, verb or object fields, or choose **Where does God speak?** to fill in an example. Choose a book to narrow the search. Verb morphology and BHSA options are under **More filters**. Safran includes the compressed BHSA clause index and loads it offline when needed.
 
 - **Text domain** uses the innermost [BHSA text domain](https://etcbc.github.io/bhsa/features/txt/). Choose narrative, narrator’s aside, or direct speech. These filters also work without a lemma.
 - **Resumptions only** uses the BHSA clause relation [`Resu`](https://etcbc.github.io/bhsa/features/rela/) and shows a link to the earlier passage in the word card when the parent reference is available.

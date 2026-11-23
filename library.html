@@ -113,7 +113,7 @@
       <div class="sleft">
       <div id="sModes" role="tablist" aria-label="Suchmodus">
         <button id="sTextTab" data-mode="text" type="button" role="tab" aria-controls="sText" aria-selected="true">Textsuche</button>
-        <button id="sSyntaxTab" data-mode="syntax" type="button" role="tab" aria-controls="sSyntax" aria-selected="false" tabindex="-1">Klauselsuche (Tanach)</button>
+        <button id="sSyntaxTab" data-mode="syntax" type="button" role="tab" aria-controls="sSyntax" aria-selected="false" tabindex="-1">Grammatik &amp; Syntax</button>
         <button id="sOutlineTab" data-mode="outline" type="button" role="tab" aria-controls="sOutline" aria-selected="false" tabindex="-1">Gliederung &amp; Mizwot</button>
       </div>
       <div id="sText" role="tabpanel" aria-labelledby="sTextTab">
@@ -158,21 +158,6 @@
           <label title="Findet auch ähnlich geschriebene Wörter (siehe Hilfe unten)"><input type="checkbox" id="sFuzzy"> Fuzzy (ähnliche Schreibweise)</label>
           <label title="Im Tanach wird hebräisch nur der Westminster-Text durchsucht (jeder Vers nur einmal, mit Morphologie)"><input type="checkbox" id="sWlc" checked> Tanach: nur Westminster</label>
         </div>
-        <details id="gramBox" class="gram">
-          <summary title="Sucht im Tanach (Westminster) nach grammatischen Merkmalen, auch ohne Suchwort. Mit Suchwort: nur Wörter, die dazu passen (Form oder Lemma).">Grammatik (Tanach)</summary>
-          <div class="gramRow">
-            <label>Wortart <select id="gPos"><option value="">–</option><option value="V">Verb</option><option value="Nc">Nomen</option><option value="Np">Eigenname</option><option value="Ng">Gentilizium</option><option value="A">Adjektiv / Zahl</option><option value="P">Pronomen</option><option value="R">Präposition</option><option value="C">Konjunktion</option><option value="D">Adverb</option><option value="T">Partikel</option></select></label>
-            <label>Stamm <select id="gStem"><option value="">–</option><option value="q">Qal / Pe‘al</option><option value="N">Nif‘al</option><option value="p">Pi‘el / Pa‘el</option><option value="P">Pu‘al / Itpa‘al</option><option value="h">Hif‘il</option><option value="H">Hof‘al</option><option value="t">Hitpa‘el</option><option value="o">Polel</option><option value="O">Polal</option><option value="r">Hitpolel</option><option value="a">Af‘el (aram.)</option><option value="i">Itpe‘el (aram.)</option><option value="G">Itaf‘al (aram.)</option></select></label>
-            <label>Zeitform <select id="gTense"><option value="">–</option><option value="p">Perfekt</option><option value="q">Perfekt consecutivum</option><option value="i">Imperfekt</option><option value="w">Wajjiqtol</option><option value="h">Kohortativ</option><option value="j">Jussiv</option><option value="v">Imperativ</option><option value="r">Partizip aktiv</option><option value="s">Partizip passiv</option><option value="a">Infinitiv absolutus</option><option value="c">Infinitiv constructus</option></select></label>
-            <label>Person <select id="gPerson"><option value="">–</option><option value="1">1.</option><option value="2">2.</option><option value="3">3.</option></select></label>
-            <label>Genus <select id="gGender"><option value="">–</option><option value="m">m.</option><option value="f">f.</option><option value="c">c.</option></select></label>
-            <label>Numerus <select id="gNumber"><option value="">–</option><option value="s">Singular</option><option value="p">Plural</option><option value="d">Dual</option></select></label>
-            <label>Status <select id="gState"><option value="">–</option><option value="a">absolut</option><option value="c">constructus</option><option value="d">bestimmt / Emphaticus</option></select></label>
-            <label>Suffix <select id="gSuffix"><option value="">–</option><option value="1">mit</option><option value="0">ohne</option></select></label>
-            <label>Artikel <select id="gArticle"><option value="">–</option><option value="1">mit</option><option value="0">ohne</option></select></label>
-            <button id="gClear" type="button">Zurücksetzen</button>
-          </div>
-        </details>
         <details id="sHelp" class="help">
           <summary>Hilfe: mehrere Wörter, Wortfolge, Platzhalter und Fuzzy</summary>
           <p data-i18n="h12"><b>Mehrere Wörter:</b> Schreibe sie einfach hintereinander ins Suchfeld, beliebig viele. Gefunden werden Verse bzw. Absätze, in denen alle Wörter vorkommen und höchstens so weit auseinander stehen, wie unter „Erweitert“ bei „Abstand“ gewählt (Standard: höchstens 10 Wörter dazwischen). Mit „Reihenfolge einhalten“ müssen sie so aufeinander folgen wie eingegeben. Beispiel: <code>anf* gott erd*</code> findet „Am Anfang schuf Gott Himmel und Erde“. Gezählt wird nur innerhalb eines Verses, nicht über Verse hinweg.</p>
@@ -197,6 +182,33 @@
       </div>
       </div>
       <div id="sSyntax" role="tabpanel" aria-labelledby="sSyntaxTab" hidden>
+        <div class="bar" id="sxKinds" role="group" aria-label="Suchart">
+          <button type="button" data-syntax-kind="word" aria-pressed="true" class="primary">Wortmerkmale</button>
+          <button type="button" data-syntax-kind="clause" aria-pressed="false">Klauseln &amp; Beziehungen</button>
+        </div>
+        <form id="gForm">
+          <div class="bar"><label>Wort oder Lemma (optional) <input id="gQuery" lang="he" dir="rtl" autocomplete="off"></label>
+          <label>Buch <select id="gBook"><option value="">Alle Bücher</option></select></label></div>
+        <fieldset id="gramBox" class="gram">
+          <legend>Wortmerkmale</legend>
+          <div class="gramRow">
+            <label>Wortart <select id="gPos"><option value="">–</option><option value="V">Verb</option><option value="Nc">Nomen</option><option value="Np">Eigenname</option><option value="Ng">Gentilizium</option><option value="A">Adjektiv / Zahl</option><option value="P">Pronomen</option><option value="R">Präposition</option><option value="C">Konjunktion</option><option value="D">Adverb</option><option value="T">Partikel</option></select></label>
+            <label>Stamm <select id="gStem"><option value="">–</option><option value="q">Qal / Pe‘al</option><option value="N">Nif‘al</option><option value="p">Pi‘el / Pa‘el</option><option value="P">Pu‘al / Itpa‘al</option><option value="h">Hif‘il</option><option value="H">Hof‘al</option><option value="t">Hitpa‘el</option><option value="o">Polel</option><option value="O">Polal</option><option value="r">Hitpolel</option><option value="a">Af‘el (aram.)</option><option value="i">Itpe‘el (aram.)</option><option value="G">Itaf‘al (aram.)</option></select></label>
+            <label>Zeitform <select id="gTense"><option value="">–</option><option value="p">Perfekt</option><option value="q">Perfekt consecutivum</option><option value="i">Imperfekt</option><option value="w">Wajjiqtol</option><option value="h">Kohortativ</option><option value="j">Jussiv</option><option value="v">Imperativ</option><option value="r">Partizip aktiv</option><option value="s">Partizip passiv</option><option value="a">Infinitiv absolutus</option><option value="c">Infinitiv constructus</option></select></label>
+            <label>Person <select id="gPerson"><option value="">–</option><option value="1">1.</option><option value="2">2.</option><option value="3">3.</option></select></label>
+            <label>Genus <select id="gGender"><option value="">–</option><option value="m">m.</option><option value="f">f.</option><option value="c">c.</option></select></label>
+            <label>Numerus <select id="gNumber"><option value="">–</option><option value="s">Singular</option><option value="p">Plural</option><option value="d">Dual</option></select></label>
+            <label>Status <select id="gState"><option value="">–</option><option value="a">absolut</option><option value="c">constructus</option><option value="d">bestimmt / Emphaticus</option></select></label>
+            <label>Suffix <select id="gSuffix"><option value="">–</option><option value="1">mit</option><option value="0">ohne</option></select></label>
+            <label>Artikel <select id="gArticle"><option value="">–</option><option value="1">mit</option><option value="0">ohne</option></select></label>
+            <button id="gClear" type="button">Zurücksetzen</button>
+          </div>
+        </fieldset>
+          <button id="gGo" class="primary" type="submit">Suchen</button>
+          <p id="gError" role="alert" hidden></p>
+          <p class="muted">Durchsucht die Wortmerkmale des Westminster-Tanach, auch ohne Klauselanalyse.</p>
+        </form>
+        <div id="sxClausePanel" hidden>
         <form id="sxForm">
           <label class="sxBuilderToggle"><input id="sxAdvanced" type="checkbox"> Erweiterter Suchaufbau (UND / ODER / NICHT)</label>
           <div id="sxSimple">
@@ -236,6 +248,7 @@
           </section>
           <p id="sxError" role="alert" hidden></p>
         </form>
+      </div>
       </div>
       <div id="sOutline" role="tabpanel" aria-labelledby="sOutlineTab" hidden>
       </div>

@@ -12,7 +12,7 @@ module.exports = async function syntaxFlows({ js, waitFor }) {
   assert.equal(await js("document.querySelector('#sText').hidden"), true);
   assert.equal(await js("document.querySelector('#sxFilters').open"), false);
   await waitFor("!document.querySelector('#sxBhsa').hidden", 'BHSA-Filter verfügbar');
-  await js("document.querySelector('#sxExample').click()");
+  await js("document.querySelector('[data-syntax-kind=clause]').click();document.querySelector('#sxExample').click()");
   assert.equal(await js("document.querySelector('#sxSubject').value"), 'אלהים, יהוה');
   assert.equal(await js("document.querySelector('#sxVerb').value"), 'אמר');
   assert.equal(await js("document.querySelector('#sxgStem').value"), '');

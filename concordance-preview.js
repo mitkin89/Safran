@@ -13,5 +13,23 @@ function render(hit,esc){
  const lang=hit.language==='Syriac'?'syr':hit.kind==='he'?'he':'grc',rtl=lang!=='grc';
  return `<div class="pvp concordancePreview" lang="${lang}" dir="${rtl?'rtl':'ltr'}">${html}</div>`;
 }
-const api={render};if(typeof module!=='undefined'&&module.exports)module.exports=api;else window.ConcordancePreview=api;
+function attach(root,{getHit,getHover}){
+ let anchor=null;
+ const selector='.ccPeer[data-cp], .ccRow[data-i]';
+ const hide=()=>{if(anchor){getHover()?.hide();anchor=null;}};
+ const start=e=>{
+  const a=e.target.closest(selector);if(!a||a===anchor)return;
+  const hit=getHit(+a.dataset.i,a.dataset.cp),hover=getHover();
+  if(!hit||!hover)return;
+  anchor=a;hover.start(a,[hit.title,hit.where].filter(Boolean).join(' · '),true,false,{concordance:hit});
+ };
+ const stop=e=>{const a=e.target.closest(selector);if(a&&a===anchor&&!a.contains(e.relatedTarget))hide();};
+ root.addEventListener('mouseover',start);root.addEventListener('focusin',start);
+ root.addEventListener('mouseout',stop);root.addEventListener('focusout',stop);
+ root.addEventListener('click',hide);
+ root.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){const a=e.target.closest(selector);if(a&&e.target===a){e.preventDefault();hide();a.click();}}});
+ root.ownerDocument.addEventListener('scroll',hide,true);
+ if(typeof MutationObserver!=='undefined')new MutationObserver(hide).observe(root,{childList:true});
+}
+const api={render,attach};if(typeof module!=='undefined'&&module.exports)module.exports=api;else window.ConcordancePreview=api;
 })();
