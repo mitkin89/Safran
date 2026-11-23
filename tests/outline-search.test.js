@@ -45,3 +45,25 @@ test('search includes headings, translated descriptions and subentries while res
   assert.equal((await search('אדם'))[0].text, 'אָדָם');
   assert.deepEqual(await search('Weltschöpfung'), []);
 });
+
+test('outline wildcards match whole words while plain terms still match word parts', async t => {
+  const dir = await fs.mkdtemp(path.join(os.tmpdir(), 'safran-outline-wildcards-'));
+  t.after(() => fs.rm(dir, { recursive: true, force: true }));
+  const items = [
+    { ref: '1', text_de: 'Aufbruch der Familie' },
+    { ref: '2', text_de: 'Verkauf des Grundstücks' },
+    { ref: '3', text_de: 'Beim Aufbau der Stadt' },
+    { ref: '4', text_de: 'Auf dem Weg' },
+    { ref: '5', text: 'בְּרֵאשִׁית' },
+    { ref: '6', text_de: 'Das Meer' },
+    { ref: '7', text_de: 'Das Maleratelier' },
+  ];
+  await fs.writeFile(path.join(dir, 'Genesis.json'), JSON.stringify({ book: 'Genesis', sections: [{ items }] }));
+  const refs = async query => (await searchOutlines([dir], { query, kind: 'outlines' })).results.map(hit => hit.ref);
+  assert.deepEqual(await refs('auf*'), ['1', '3', '4']);
+  assert.deepEqual(await refs('auf'), ['1', '2', '3', '4']);
+  assert.deepEqual(await refs('*auf'), ['2', '4']);
+  assert.deepEqual(await refs('auf* famili'), ['1']);
+  assert.deepEqual(await refs('m?er'), ['6']);
+  assert.deepEqual(await refs('ברא*'), ['5']);
+});

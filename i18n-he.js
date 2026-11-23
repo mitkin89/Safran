@@ -21,7 +21,7 @@ window.I18N_HE = {
     "Suchbegriff oder Mizwa-Nummer": "מונח לחיפוש או מספר מצווה",
     "Suchbereich": "תחום חיפוש",
     "Zur Gliederung": "חזרה לראשי הפרקים",
-    "Buchübergreifend suchen": "חיפוש בכל הספרים",
+    "Buchübergreifend suchen, z. B. auf*": "חיפוש בכל הספרים, למשל ברא*",
     "Gib einen Suchbegriff oder eine Mizwa-Nummer ein.": "יש להזין מונח לחיפוש או מספר מצווה.",
     "Treffer {}–{} von {}": "תוצאות {}–{} מתוך {}",
     "Mizwa Nr. {}": "מצווה מס׳ {}",

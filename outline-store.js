@@ -3,6 +3,7 @@
 const fs = require('node:fs/promises');
 const path = require('node:path');
 const { sortTitles } = require('./order');
+const { compileTerm } = require('./search');
 
 const fileKey = book => book.replace(/[^\p{L}\p{N} .'’-]/gu, '_').replace(/\.{2,}/g, '_');
 const PAGE_SIZE = 60;
@@ -87,9 +88,17 @@ async function searchOutlines(dirs, options, isCancelled = () => false) {
   const offset = Number.isSafeInteger(options.offset) ? Math.max(0, options.offset) : 0;
   const mitzvah = kind !== 'outlines' && /^#?\s*\d{1,3}$/.test(query) ? Number(query.replace(/^#/, '')) : null;
   const terms = fold(query).split(/\s+/u).filter(Boolean);
+  const plainTerms = [];
+  const wildcardTerms = [];
+  for (const term of terms) {
+    if (/^[\p{L}\p{N}*?]+$/u.test(term) && /[*?]/.test(term) && /[\p{L}\p{N}]/u.test(term)) {
+      wildcardTerms.push(compileTerm(term));
+    } else plainTerms.push(term);
+  }
+  const needles = [...plainTerms, ...wildcardTerms.map(term => term.literal)];
   const prefilter = {
     mitzvotOnly: kind === 'mitzvot' || mitzvah !== null,
-    needle: mitzvah === null && terms.find(term => /^[\p{L}\p{N}-]{3,}$/u.test(term)),
+    needle: mitzvah === null && needles.find(term => /^[\p{L}\p{N}-]{3,}$/u.test(term)),
   };
   const languages = [...new Set([lang, 'de', 'en', 'he'])];
   const results = [];
@@ -118,7 +127,10 @@ async function searchOutlines(dirs, options, isCancelled = () => false) {
           if (text === previous) return false;
           previous = text;
           const searchable = fold(text);
-          return terms.every(term => searchable.includes(term));
+          if (!needles.every(term => searchable.includes(term))) return false;
+          if (!wildcardTerms.length) return true;
+          const words = searchable.match(/[\p{L}\p{N}]+/gu) || [];
+          return wildcardTerms.every(term => words.some(term.test));
         });
         if (!matchedLang) continue;
       }

@@ -310,7 +310,7 @@ window.LibraryOutline = (() => {
     openOutlineRef: (ref, event) => host.jumpTo(ref, host.BG(event)),
     onRun: () => showSearchResults(true),
   });
-  olSearchForm.querySelector('[data-so="query"]').placeholder = I18N.t('Buchübergreifend suchen');
+  olSearchForm.querySelector('[data-so="query"]').placeholder = I18N.t('Buchübergreifend suchen, z. B. auf*');
   const returnToOutline = () => {
     panelSearch.cancel();
     showSearchResults(false);

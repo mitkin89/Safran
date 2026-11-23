@@ -23,14 +23,36 @@ function lev(a, b, max) { // Levenshtein-Abstand mit frühem Abbruch
 }
 const maxDist = len => (len <= 3 ? 0 : len <= 6 ? 1 : 2);
 
+function wildcardMatcher(pattern) {
+  const chars = [...pattern];
+  return word => {
+    const letters = [...word];
+    let wordIndex = 0, patternIndex = 0, lastStar = -1, starEnd = 0;
+    while (wordIndex < letters.length) {
+      const char = chars[patternIndex];
+      if (char === '*') {
+        lastStar = patternIndex++;
+        starEnd = wordIndex;
+      } else if (char === '?' || char === letters[wordIndex]) {
+        wordIndex++;
+        patternIndex++;
+      } else if (lastStar >= 0) {
+        patternIndex = lastStar + 1;
+        wordIndex = ++starEnd;
+      } else return false;
+    }
+    while (chars[patternIndex] === '*') patternIndex++;
+    return patternIndex === chars.length;
+  };
+}
+
 function compileTerm(raw, { fuzzy = false, prefix = false, partial = false } = {}) {
   const t = fold(R.normalize(raw)).trim();
   if (!t) return null;
   const wild = /[*?]/.test(t);
   let test, literal = '';
   if (wild) {
-    const re = new RegExp('^' + [...t].map(c => c === '*' ? '.*' : c === '?' ? '.' : c.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('') + '$', 'u');
-    test = w => re.test(w);
+    test = wildcardMatcher(t);
     literal = t.split(/[*?]+/).sort((a, b) => b.length - a.length)[0];
   } else if (fuzzy) {
     const m = maxDist([...t].length);
