@@ -35,3 +35,16 @@ test('editorial tags resolve to exactly one reading per source, independent of t
     assert(window.TextCritTraditions.categories[tag.category] && tag.author && tag.source);
   }
 });
+
+test('new aggadic and halakhic parallels retain precise source references', () => {
+  const window = {};
+  const context = vm.createContext({ window });
+  vm.runInContext(fs.readFileSync(path.join(__dirname, '../textcrit-traditions-data.js'), 'utf8'), context);
+  const additions = window.TEXTCRIT_TRADITIONS.filter(([, tag]) =>
+    ['aggada', 'halacha'].includes(tag.category) && tag.check === 'source-checked');
+  assert.equal(additions.length, 7);
+  for (const [, tag] of additions) {
+    assert.match(tag.url, /^https:\/\/www\.sefaria\.org\//);
+    assert(tag.de && tag.en && tag.source);
+  }
+});

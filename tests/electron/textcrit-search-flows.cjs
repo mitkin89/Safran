@@ -36,7 +36,7 @@ module.exports=async({js,waitFor,book})=>{
  await js("document.querySelector('#tcsTradition').value=''");
  // filter: LXX and Syr together against the MT, Genesis only: Gen 2:2 („am sechsten Tag“)
  await js("{const q=document.querySelector('#tcsQ');q.value='';document.querySelector('#tcsBook').value='Genesis';document.querySelector('#tcsBoth').checked=true;document.querySelector('#tcsBoth').dispatchEvent(new Event('change',{bubbles:true}));}");
- await waitFor("document.querySelector('.tcs-hit[data-tcs-ch=\"2\"][data-tcs-v=\"2\"]')",'Gen 2:2 gemeinsam gegen den MT');
+ await waitFor("document.querySelector('.tcs-hit[data-tcs-ch=\"2\"][data-tcs-v=\"2\"] .tcs-both') && [...document.querySelectorAll('.tcs-hit')].every(h=>h.dataset.tcsBook==='Genesis'&&h.querySelector('.tcs-both'))",'Gen 2:2 gemeinsam gegen den MT');
  assert(await js("[...document.querySelectorAll('.tcs-hit')].every(h=>h.dataset.tcsBook==='Genesis'&&h.querySelector('.tcs-both'))"));
  // click opens the verse and shows its apparatus
  await js("{document.querySelector('#tcsBook').value='';document.querySelector('#tcsBoth').checked=false;const q=document.querySelector('#tcsQ');q.value='Qardu';q.dispatchEvent(new Event('input',{bubbles:true}));}");

@@ -17,7 +17,9 @@ window.TextCritTraditions = (() => {
     const key = witness === 'Hex'
       ? [witness, ref]
       : [witness, edition, ref, reading.type, reading.he || [], reading.sy || [], reading.a || 0];
-    return index.get(JSON.stringify(key)) || [];
+    const base = index.get(JSON.stringify(key)) || [];
+    const exact = witness === 'LXX' ? index.get(JSON.stringify([...key, reading.g || ''])) || [] : [];
+    return base.concat(exact);
   }
   const translate = s => window.I18N?.textCrit?.(s) ?? s;
   function badge(list, escape) {
