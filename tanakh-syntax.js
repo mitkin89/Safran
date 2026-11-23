@@ -1,5 +1,6 @@
 'use strict';
 
+const { filters } = require('./bhsa-index');
 const VERSION = 'Westminster Leningrad Codex (OSHB, mit Morphologie)';
 const BOOKS = new Set(require('./bundled/manifest.json').items
   .filter(entry => entry.kind === 'he' && entry.versionTitle === VERSION)
@@ -18,11 +19,12 @@ function cleanQuery(query) {
   const split = value => String(value ?? '').trim().split(/[\s,]+/).filter(Boolean);
   const subjects = split(query?.subject), objects = split(query?.object);
   const words = [verb, ...subjects, ...objects].filter(Boolean);
-  if (!words.length || subjects.length > 12 || objects.length > 12
+  const bhsa = filters(query);
+  if ((!words.length && !bhsa.domain && !bhsa.relation) || subjects.length > 12 || objects.length > 12
       || words.some(w => !/^[\u0591-\u05C7א-ת]+$/u.test(w) || !/[א-ת]/u.test(w))) return null;
   const unpointed = w => w.replace(/[^א-ת]/g, '');
   return { verb: unpointed(verb), subjects: new Set(subjects.map(unpointed)),
-    objects: new Set(objects.map(unpointed)), referents: query.referents === true };
+    objects: new Set(objects.map(unpointed)), bhsa, referents: query.referents === true };
 }
 
 function wordRoles(book, key, position) {
@@ -47,7 +49,7 @@ function wordRoles(book, key, position) {
   return { signature: index.text[key], roles: [...byRole.values()] };
 }
 
-function createMatcher(index, query, text, readWords, predicateMatches) {
+function createMatcher(index, query, text, readWords, predicateMatches, clauseMatch = null) {
   const verified = new Map();
   function verse(key) {
     if (!verified.has(key)) {
@@ -69,7 +71,7 @@ function createMatcher(index, query, text, readWords, predicateMatches) {
     const evidence = [];
     const groups = refs => refs.map(([ref, indices]) => {
       const tokens = verse(ref);
-      return { ref, indices, forms: tokens && indices.map(i => tokens[i]?.form) };
+      return { ref, indices, signature: index.text[ref], forms: tokens && indices.map(i => tokens[i]?.form) };
     });
     const label = group => ({ text: group.forms.join(' '), ref: group.ref === key ? '' : group.ref });
     const valid = group => group.forms?.every(Boolean);
@@ -86,12 +88,14 @@ function createMatcher(index, query, text, readWords, predicateMatches) {
       const referents = groups(query.referents && (!query.subjects.size || referentMatch) ? resolvedRefs : []);
       if (!subjects.every(valid) || (query.objects.size && !objects.every(valid))
           || (referentMatch && !explicitMatch && !referents.every(valid))) continue;
+      const bhsa = clauseMatch?.(key, words, verbAt, [...subjects, ...objects]);
+      if (clauseMatch && !bhsa) continue;
       positions.add(verbAt);
       for (const group of [...subjects, ...objects.filter(valid), ...referents.filter(valid)]) {
         if (group.ref === key) group.indices.forEach(i => positions.add(i));
       }
       evidence.push({ verb: verb.form, subjects: subjects.map(label),
-        objects: objects.filter(valid).map(label), referents: referents.filter(valid).map(label) });
+        objects: objects.filter(valid).map(label), referents: referents.filter(valid).map(label), ...(bhsa ? { bhsa } : {}) });
     }
     return positions.size ? { words, positions, evidence } : null;
   };

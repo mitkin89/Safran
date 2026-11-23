@@ -20,7 +20,7 @@ Object.assign(ctx, { fmCur: { greek: true, lemma: 'ἀδελφός' }, fmTrData:
 });
 vm.runInContext(part(ui, '  function wcHovPick(a)', '  const WC_TR_PIC'), ctx);
 vm.runInContext(part(ui, '  function wcRefList(rs, head, all)', '  function wcBookRefs'), ctx);
-const anchor = { dataset: { gvt: reference.vt }, closest: s => ['.fmRL', '#wcBody'].includes(s) ? {} : null, getBoundingClientRect: () => ({ left: 400, right: 420, top: 200, bottom: 220 }) };
+const anchor = { isConnected: true, dataset: { gvt: reference.vt }, closest: s => ['.fmRL', '#wcBody'].includes(s) ? {} : null, getBoundingClientRect: () => ({ left: 400, right: 420, top: 200, bottom: 220 }) };
 const pick = ctx.wcHovPick(anchor);
 assert(new RegExp(pick.vt).test(reference.vt));
 assert(!new RegExp(pick.vt).test(reference.vt + ' alternative'));
@@ -44,8 +44,8 @@ const server = vm.createContext({ ipcMain: { handle: (_, fn) => { previewHandler
 vm.runInContext(part(main, "ipcMain.handle('links:preview'", '// Export eines Abschnitts'), server);
 let callback, requested, highlighted;
 const box = { style: {}, hidden: true, offsetWidth: 300, offsetHeight: 200, isConnected: true };
-Object.assign(ctx, { box, disp: {}, hov: box, hovRef: null, hovT: null, pvCache: new Map(),
-  setTimeout: fn => { callback = fn; return 1; }, hideHov: () => { ctx.hovRef = null; },
+Object.assign(ctx, { box, disp: {}, hov: box, hovRef: null, hovT: null, hovAnchor: null, hovRequest: 0, pvCache: new Map(),
+  setTimeout: fn => { callback = fn; return 1; }, hideHov: () => { ctx.hovRequest++; ctx.hovRef = null; ctx.hovAnchor = null; },
   LK: { preview: async (...args) => { requested = args; return previewHandler(null, ...args); } },
   R: { cleanHtml: s => s, splitFootnotes: s => ({ main: s }) }, stripHe: s => s,
   pvVer: s => `<i>${s}</i>`, pvMark() {}, pvMarkGreek: (...args) => { highlighted = args; },

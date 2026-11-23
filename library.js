@@ -692,6 +692,7 @@
   function layBtnRefresh() { const s = $('#layMode'); if (s) s.value = layoutMode; }
   layBtnRefresh();
   function renderSection(rowLabel, quiet) {
+    $('#rOut').classList.remove('syntax-jump');
     if (!IS_PANE2 && canSend() && view && p2Frame && !p2Frame.hidden && p2Frame.contentWindow) p2Frame.contentWindow.postMessage({ type: 'sync', idx: view.idx, title: view.group ? view.group.title : '' }, '*');
     const s = view.sections[view.idx];
     $('#rSection').value = String(view.idx);
@@ -947,6 +948,7 @@
     loadIL: (...args) => loadIL(...args), openDict, lemIdsFor, matchSyriacAnalysis:(...args)=>wordCardsUI.matchSyriacAnalysis(...args), canOpenCard:(...args)=>wordCardsUI.canOpenCard(...args),
     loadForms: (...args) => wordCardsUI.loadForms(...args), openSForms: (...args) => wordCardsUI.openSForms(...args), openForms: (...args) => wordCardsUI.openForms(...args), openGForms: (...args) => wordCardsUI.openGForms(...args), openTForms: (...args) => wordCardsUI.openTForms(...args),
     gSearchAll: (...args) => wordCardsUI.gSearchAll(...args), jumpTo,
+    getHover: () => linksUI.hovApi, jumpSyntax,
   });
   const closeWpop = () => wordPopupUI.close();
   const loadGM = () => wordPopupUI.loadGM();
@@ -1211,6 +1213,29 @@
       if (nav.pos === base + 2 && a && b && a.key === b.key && a.sk !== b.sk) { nav.stack.splice(base + 1, 1); nav.pos--; navigationUI.updateNav(); }
     }
     return ok;
+  }
+  async function jumpSyntax(book, ref, rel) {
+    const [chapter, verse] = ref.split(':').map(Number);
+    const group = groups.find(g => g.title === book && g.versions.some(version => version.rel === rel));
+    if (!group) return;
+    const rowLabel = String(verse);
+    const ix = view?.group === group && view.loaded.some(doc => doc.entry.rel === rel)
+      ? view.sections.findIndex(s => s.path.length === 1 && s.path[0] === chapter - 1) : -1;
+    if (ix < 0) await openGroup(group, { rel, sectionPath: [chapter - 1], rowLabel });
+    else {
+      view.idx = ix;
+      view.vf = null;
+      renderSection(rowLabel);
+    }
+    const out = $('#rOut'), row = $$('.row[data-l]', out).find(node => node.dataset.l === rowLabel);
+    if (!row || view.group !== group || apChap(view.sections[view.idx]) !== String(chapter)) return;
+    // Add scrolling space after the chapter, so even its last verse can be centred.
+    out.classList.add('syntax-jump');
+    await new Promise(resolve => requestAnimationFrame(resolve));
+    if (!row.isConnected) return;
+    const bounds = row.getBoundingClientRect();
+    const top = Math.max(0, ($('body > header')?.getBoundingClientRect().bottom || 0));
+    window.scrollBy(0, (bounds.top + bounds.bottom - top - window.innerHeight) / 2);
   }
   async function jumpToRef(q, inNewTab = false) {
     const q0 = q;

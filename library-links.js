@@ -308,8 +308,8 @@ window.LibraryLinks = (() => {
   let hovApi = null; // Vorschau-Blase auch für das Themenfenster
   // Hinweis zu einer umgerechneten Stellenangabe (data-oref = Angabe im Text, data-vt = ihre Zählung, data-sref = hebräische Zählung)
   const versNote = a => host.versNoteText(a.dataset.oref, a.dataset.sref, a.dataset.vt);
-  { let hov = null, hovT = null, hovRef = null; const pvCache = new Map();
-    const hideHov = () => { clearTimeout(hovT); hovRef = null; if (hov) hov.hidden = true; };
+  { let hov = null, hovT = null, hovRef = null, hovAnchor = null, hovRequest = 0; const pvCache = new Map();
+    const hideHov = () => { hovRequest++; clearTimeout(hovT); hovRef = null; hovAnchor = null; if (hov) hov.hidden = true; };
     // pick (Wortkarte): { vt, rtl } – die dort gewählte Fassung statt der üblichen zweiten Sprache (wcHovPick)
     // Wortkarte: in der Vorschau das Wort markieren – im Hebräischen (Westminster, über das Lemma) und, wo die Fassung wortgenau
     // zugeordnet ist (interlin.js), die zugehörigen deutschen Wörter
@@ -385,14 +385,31 @@ window.LibraryLinks = (() => {
         p.querySelectorAll('.ilx').forEach(x => { if (x.dataset.ix.split(',').some(i => set.has(+i))) x.classList.add('pvhl'); });
       }
     };
+    async function exactVerse(target) {
+      const [chapter, verse] = target.ref.split(':').map(Number);
+      const doc = target.document || await host.O.read(target.rel);
+      const text = doc?.text?.[chapter - 1]?.[verse - 1];
+      return typeof text === 'string' ? { parts: [{ items: [text], he: true, versionTitle: doc.versionTitle }] } : {};
+    }
+    function markExact(box, target) {
+      const words = [...box.querySelectorAll('.pvp[data-he] .w[data-m]')];
+      const signature = words.map(word => word.textContent.replace(/[^א-ת]/gu, '')).join(' ');
+      if (target.signature !== signature || !target.indices.every(i => words[i])) return false;
+      for (const i of target.indices) words[i].classList.add('pvhl');
+      return true;
+    }
     const startHov = (a, ref, quiet, below, pick) => {
-      hideHov(); hovRef = ref;
+      hideHov(); hovRef = ref; hovAnchor = a;
+      const request = hovRequest;
       hovT = setTimeout(async () => {
         const pref = { he: host.disp.pvHe || '', de: host.disp.pvDe || '', x: host.disp.pvX || '' };
         const ck = (pick && pick.vt ? ref + '\u0001' + pick.vt : ref) + '\u0002' + JSON.stringify(pref) + (pick && (pick.greek || pick.targum) ? '\u0003original' : '');
-        let r = pvCache.get(ck);
+        let r;
+        if (pick?.exact) {
+          try { r = await exactVerse(pick.exact); } catch { r = {}; }
+        } else r = pvCache.get(ck);
         if (!r) { try { r = await LK.preview(ref, pick && (pick.greek || pick.targum) ? ['other'] : ['he', I18N.lang === 'de' ? 'de' : 'en'], pick && pick.vt ? { vt: pick.vt, rtl: pick.rtl } : undefined, pref); } catch { r = {}; } pvCache.set(ck, r); if (pvCache.size > 200) pvCache.delete(pvCache.keys().next().value); }
-        if (hovRef !== ref) return; // Maus ist inzwischen woanders
+        if (request !== hovRequest || !a.isConnected) return; // Maus ist inzwischen woanders
         const none = !(r.parts && r.parts.length) && !(r.items && r.items.length);
         if (none && quiet) return; // Wörterbuch: ohne Text keine leere Blase
         if (!hov) { hov = document.createElement('div'); hov.id = 'lkHover'; document.body.appendChild(hov); }
@@ -402,7 +419,9 @@ window.LibraryLinks = (() => {
         const vn = (a && a.dataset && a.dataset.oref ? `<div class="vnote">${host.esc(versNote(a))}</div>` : '')
           // gewählte Fassung (Wortkarte) gibt es für dieses Buch nicht: sagen, statt stillschweigend eine andere zu zeigen
           + (pick && r.pickMiss ? `<div class="vnote">${host.esc(I18N.t('{} enthält dieses Buch nicht – stattdessen:', pick.label || ''))}</div>` : '');
-        hov.innerHTML = `<b>${host.esc(ref)}</b>${vn}${html}`; hov.hidden = false;
+        hov.innerHTML = `<b>${host.esc(ref)}</b>${vn}${html}`;
+        if (pick?.exact && !markExact(hov, pick.exact)) return;
+        hov.hidden = false;
         if (pick && pick.lem) pvMark(hov, ref, pick.lem);
         if (pick && pick.greek) pvMarkGreek(hov, ref, pick.greek);
         if (pick && pick.targum) hov.querySelectorAll('.wt[data-l]').forEach(w => { if (w.dataset.l === pick.targum) w.classList.add('pvhl'); });
@@ -416,7 +435,8 @@ window.LibraryLinks = (() => {
         }
       }, 350);
     };
-    hovApi = { start: startHov, hide: hideHov, current: () => hovRef };
+    hovApi = { start: startHov, hide: hideHov, current: () => hovRef,
+      hideWithin(node) { if (hovAnchor && node.contains(hovAnchor)) hideHov(); } };
     window.pvClear = () => pvCache.clear(); // nach Wechsel der bevorzugten Vorschau-Fassung
     host.$('#lkBody').addEventListener('mouseover', e => {
       const a = e.target.closest('a[data-ref]');

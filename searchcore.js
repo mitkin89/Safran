@@ -10,6 +10,7 @@ const Morph = require('./morph');
 const GMorph = require('./gmorph');
 const Bavli = require('./bavli-core');
 const TanakhSyntax = require('./tanakh-syntax');
+const BHSA = require('./bhsa-index');
 let bavliData = null;
 function bavliLemma(id) {
   if (!Bavli.own(id)) return '';
@@ -31,6 +32,12 @@ const letters = s => R.normalize(s).replace(/[^\p{L}]/gu, '');
 const isWlc = e => e.kind === 'he' && /Westminster/.test(e.versionTitle || '');
 const isMorph = e => isWlc(e) || (e.kind === 'he' && e.title === 'Berakhot' && /Safran-Morphologie/.test(e.versionTitle || ''));
 const SPAN = /<span class="w" data-l="([^"]*)" data-m="([^"]*)">(.*?)<\/span>/g;
+const syntaxWords = str => [...str.matchAll(SPAN)].map(m => ({ form: m[3], normalized: letters(m[3]), lemma: m[1], morph: m[2] }));
+function westminsterLemma(word) {
+  const decoded = Morph.decode(word.morph, word.lemma);
+  return letters(lemmas()[decoded?.segs[decoded.main]?.lemma]?.[0]);
+}
+
 // Westminster-Zeile -> zwei gleich lange Wortlisten: Wortformen und Lemmata (Wörterbuchform des Hauptwortes)
 function wlcTokens(str) {
   const L = lemmas(), forms = [], lems = [];
@@ -180,6 +187,9 @@ async function searchFiles({ dir, entries, params, cacheDir = null, onProgress =
   const syntaxOn = params.syntax != null, syntax = syntaxOn && TanakhSyntax.cleanQuery(params.syntax);
   const gramOn = !!G || syntaxOn;
   if ((syntaxOn && !syntax) || (!q && !gramOn)) return { results: [], scanned: 0, total: 0, truncated: false, capped: false, cancelled: false, stats: [] };
+  const usesBhsa = syntax && (syntax.bhsa.domain || syntax.bhsa.relation);
+  if (usesBhsa && !params.bhsaFile) throw new Error('BHSA-Daten fehlen');
+  const bhsaIndex = usesBhsa ? await BHSA.readIndex(params.bhsaFile) : null;
   const terms = [query, ...extra].filter(t => String(t || '').trim());
   const advanced = multi || terms.length > 1 || fuzzy || exact || /[*?]/.test(query); // exact: genau dieses Wort (Wortvergleich, keine Vorsilben, keine anderen Formen)
   const words = multi
@@ -207,14 +217,20 @@ async function searchFiles({ dir, entries, params, cacheDir = null, onProgress =
       try { d = JSON.parse(await fs.readFile(path.join(dir, e.rel), 'utf8')); } catch { /* überspringen */ }
       if (d) {
         let locator = null, shown = 0, hits = 0; const qL = q ? letters(query) : '';
-        const syntaxMatcher = syntax && TanakhSyntax.createMatcher(
-          TanakhSyntax.load(e.title), syntax, d.text,
-          str => [...str.matchAll(SPAN)].map(m => ({ form: m[3], normalized: letters(m[3]), lemma: m[1], morph: m[2] })),
-          word => !G || gramTest(G, gramOf(word.morph, word.lemma)),
-        );
+        const predicateMatches = word => !G || gramTest(G, gramOf(word.morph, word.lemma));
+        const bhsa = bhsaIndex?.books[e.title];
+        const syntaxMatcher = !syntax ? null : usesBhsa && !syntax.subjects.size && !syntax.objects.size
+          ? BHSA.clauseMatcher(bhsa, { ...syntax.bhsa, verb: syntax.verb }, syntaxWords, word => {
+            if (!G && !syntax.verb) return true;
+            const grammar = gramOf(word.morph, word.lemma);
+            return grammar?.pos === 'V' && (!G || gramTest(G, grammar)) &&
+              (!syntax.verb || westminsterLemma(word) === syntax.verb);
+          })
+          : TanakhSyntax.createMatcher(TanakhSyntax.load(e.title), syntax, d.text, syntaxWords, predicateMatches,
+            usesBhsa ? BHSA.clauseFilter(bhsa, syntax.bhsa) : null);
         R.walkStrings(d.text, [], (str, p) => {
           if (truncated || (syntaxMatcher && isCancelled())) return;
-          const match = syntaxMatcher && syntaxMatcher(p);
+          const match = syntaxMatcher && syntaxMatcher(p, str);
           if (syntaxMatcher && !match) return;
           const wg = match ? {
             n: match.words.map(w => w.normalized).join(' '),

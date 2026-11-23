@@ -556,7 +556,21 @@ ipcMain.handle('off:library', async () => {
 });
 
 ipcMain.handle('off:read', async (_e, rel) => (await getLibrary()).read(rel));
-ipcMain.handle('off:wordSyntax', (_e, book, verse, position) => require('./tanakh-syntax').wordRoles(book, verse, position));
+const BHSA = require('./bhsa-index');
+const { BhsaStore } = require('./bhsa-store');
+let bhsaStore;
+const getBhsa = () => bhsaStore ||= new BhsaStore(app.getPath('userData'), fetchBuffer);
+ipcMain.handle('off:bhsaStatus', () => getBhsa().status());
+ipcMain.handle('off:bhsaInstall', async () => {
+  try { return await getBhsa().install(); }
+  catch (err) { return { ready: false, error: err.message }; }
+});
+ipcMain.handle('off:wordSyntax', async (_e, book, verse, position) => {
+  const macula = require('./tanakh-syntax').wordRoles(book, verse, position);
+  const index = await getBhsa().get();
+  const bhsa = index && BHSA.wordContext(index, book, verse, position);
+  return bhsa ? { ...(macula?.signature === bhsa.signature ? macula : {}), signature: bhsa.signature, bhsa } : macula;
+});
 
 const cacheDirOf = lib => path.join(lib.dir, '.searchcache');
 let warming = null;
@@ -577,11 +591,13 @@ ipcMain.handle('off:search', async (e, o = {}) => {
     const lib = await getLibrary();
     if (job.cancelled) return emptyResult();
     const str = x => String(x == null ? '' : x);
+    const bhsa = BHSA.filters(o.syntax);
     const params = {
       concordance: !!o.concordance, concordancePreview: !!o.concordancePreview, concordanceRoot: /^\d{1,4}[a-z]?$/.test(str(o.concordanceRoot)) ? str(o.concordanceRoot) : '', crossLanguage: !!o.crossLanguage, query: str(o.query), extra: Array.isArray(o.extra) ? o.extra.slice(0, 2).map(str) : [], fuzzy: !!o.fuzzy,
       distance: Number.isFinite(o.distance) ? o.distance : -1, ordered: !!o.ordered, prefix: !!o.prefix, exact: !!o.exact, wlc: !!o.wlc, lemma: !!o.lemma, countAll: !!o.countAll, parse: !!o.parse, partial: !!o.partial, gram: o.gram && typeof o.gram === 'object' ? Object.fromEntries(['pos', 'stem', 'tense', 'person', 'gender', 'number', 'state', 'suffix', 'article'].map(k => [k, String(o.gram[k] == null ? '' : o.gram[k]).slice(0, 3)])) : null,
       syntax: o.syntax == null ? null : { verb: str(o.syntax.verb).slice(0, 128), subject: str(o.syntax.subject).slice(0, 256),
-        object: str(o.syntax.object).slice(0, 256), referents: o.syntax.referents === true },
+        object: str(o.syntax.object).slice(0, 256), referents: o.syntax.referents === true, ...bhsa },
+      bhsaFile: (bhsa.domain || bhsa.relation) ? getBhsa().file : null,
       limit: Math.min(5000, +o.limit || 1000), perFile: Math.min(500, +o.perFile || 25),
     };
     const entries = lib.entriesFor({ kinds: Array.isArray(o.kinds) ? o.kinds : [], category: str(o.category), categories: Array.isArray(o.categories) ? o.categories.map(str) : [], titles: Array.isArray(o.titles) ? o.titles.map(str) : [] });

@@ -2,10 +2,10 @@
 window.LibraryWordPopup = (() => {
   'use strict';
   function create({ $, $$, esc, O, reader, lazyScript, apChap, verseOf, loadIL,
-    openDict, lemIdsFor, matchSyriacAnalysis, canOpenCard, loadForms, openSForms, openForms, openGForms, openTForms, gSearchAll, jumpTo }) {
+    openDict, lemIdsFor, matchSyriacAnalysis, canOpenCard, loadForms, openSForms, openForms, openGForms, openTForms, gSearchAll, jumpTo, getHover, jumpSyntax }) {
   // OSHB-Texte: Klick auf ein Wort zeigt Lemma, Stamm, Zeit und Form; „Im Wörterbuch“ schlägt das Lemma nach
   let wpop = null;
-  const closeWpop = () => { gTok++; if (wpop) { wpop.remove(); wpop = null; } $$('#rOut .syw.sel, #rOut .w.sel, #rOut .wt.sel, #rOut .wq.sel, #rOut .wa.sel, #rOut .wg.sel, #bavliInterlinear .bil-heword.sel').forEach(x => x.classList.remove('sel')); gSel = null; clearSyntaxMarks(); try { CSS.highlights.delete('gsel'); } catch { /* ältere Engine */ } };
+  const closeWpop = () => { gTok++; if (wpop) { getHover?.()?.hideWithin(wpop); wpop.remove(); wpop = null; } $$('#rOut .syw.sel, #rOut .w.sel, #rOut .wt.sel, #rOut .wq.sel, #rOut .wa.sel, #rOut .wg.sel, #bavliInterlinear .bil-heword.sel').forEach(x => x.classList.remove('sel')); gSel = null; clearSyntaxMarks(); try { CSS.highlights.delete('gsel'); } catch { /* ältere Engine */ } };
   // Septuaginta (CATSS): Klick auf eine griechische Wortgruppe zeigt die hebräischen Wörter, denen sie zugeordnet ist
   const GFLAG = { z: 'Zusatz der Septuaginta (kein hebräisches Gegenstück)', m: 'Minus der Septuaginta (hebräisches Wort ohne griechisches Gegenstück)', d: 'Doublette: ein hebräisches Wort ist doppelt übersetzt', i: 'Infinitivus absolutus im Hebräischen', t: 'Transliteriertes hebräisches Wort', v: 'Griechisches Präverb für eine hebräische Präposition', s: 'Komparativ/Superlativ (hebr. מ)', u: 'Gegenstück steht an anderer Stelle im Vers (Umstellung oder Verteilung)' };
   // x (optional, mit Morphologie): { rows: HTML der Wort-Bestimmungen, buttons: HTML, word, at: Element/Range zum Ausrichten, on: Klick-Behandlung }
@@ -155,7 +155,7 @@ window.LibraryWordPopup = (() => {
     if (!toks || toks.length !== at.words.length) { if (w) showGreekUnit(w); return; } // Fassung ohne Bestimmung (oder Vers passt nicht zum Index): wie bisher nur das hebräische Gegenstück
     const t = s => I18N.t(s), idx = w ? at.grp : [at.i];
     const show = main => {
-      if (wpop) { wpop.remove(); wpop = null; }
+      if (wpop) { getHover?.()?.hideWithin(wpop); wpop.remove(); wpop = null; }
       gSel = { cell, i: main };
       const inf = k => (toks[k] ? GM.info(D, toks[k].id) : null);
       const hint = k => (toks[k].low ? `<span class="wlow" title="${esc(t('lxx-morph stuft diese Bestimmung als unsicher ein'))}">${esc(t('unsicher'))}</span>` : toks[k].guess ? `<span class="wlow" title="${esc(t('Das Wort ließ sich im Vers nicht zuordnen; die Bestimmung ist die häufigste dieser Wortform'))}">${esc(t('nach der Wortform'))}</span>` : '');
@@ -403,7 +403,7 @@ window.LibraryWordPopup = (() => {
     if (position < 0) return null;
     const ref = chapter + ':' + verse;
     return O.wordSyntax(book, ref, position).then(data => data?.signature === signature(words)
-      ? { book, ref, rel: cell.dataset.rel, roles: data.roles } : null, () => null);
+      ? { book, ref, rel: cell.dataset.rel, roles: data.roles || [], bhsa: data.bhsa } : null, () => null);
   }
 
   function markSyntax(context, targets) {
@@ -425,13 +425,31 @@ window.LibraryWordPopup = (() => {
   function syntaxSection(context) {
     const section = document.createElement('section');
     section.className = 'wcSec macula-roles';
-    section.innerHTML = `<h4>${esc(I18N.t('Satzrolle'))} <small>MACULA Hebrew · <bdi>${esc(context.ref)}</bdi></small></h4>`;
+    if (context.roles.length) section.innerHTML = `<h4>${esc(I18N.t('Satzrolle'))} <small>MACULA Hebrew · <bdi>${esc(context.ref)}</bdi></small></h4>`;
     for (const { role, group, referents } of context.roles) {
       const line = document.createElement('div');
       line.textContent = I18N.t(SYNTAX_ROLE[role]);
       for (const target of group.filter(item => item.ref !== context.ref)) addSyntaxLink(line, context, target, false);
       for (const target of referents) addSyntaxLink(line, context, target, true);
       section.appendChild(line);
+    }
+    if (context.bhsa) {
+      const { domain, depth, resumes, parent } = context.bhsa;
+      const names = { N: 'Erzählung', D: 'Erläuterung des Erzählers', Q: 'Direkte Rede' };
+      const labels = [names[domain], depth > 1 && 'Verschachtelte Rede', resumes && 'Wiederaufnahme'].filter(Boolean);
+      if (labels.length) {
+        const line = document.createElement('div');
+        line.className = 'bhsa-context';
+        line.innerHTML = `<small>ETCBC BHSA</small> · ${labels.map(label => esc(I18N.t(label))).join(' · ')}`;
+        if (parent) {
+          const button = document.createElement('button');
+          button.type = 'button';
+          button.textContent = parent.join(' ');
+          button.addEventListener('click', () => jumpTo(parent.join(' ')));
+          line.append(' ', button);
+        }
+        section.appendChild(line);
+      }
     }
     return section;
   }
@@ -442,15 +460,22 @@ window.LibraryWordPopup = (() => {
     button.className = 'macula-target';
     const label = referent ? I18N.t('Gemeintes Subjekt') + ' ' : '';
     button.innerHTML = `${esc(label)}<bdi lang="he">${esc(target.label)}</bdi> <bdi>${esc(target.ref)}</bdi>`;
+    if (referent) {
+      const show = () => getHover?.()?.start(button, context.book + ' ' + target.ref, true, false,
+        { exact: { ...target, rel: context.rel, document: reader.cache.get(context.rel) } });
+      const hide = () => getHover?.()?.hideWithin(button);
+      button.addEventListener('mouseenter', show);
+      button.addEventListener('focus', show);
+      button.addEventListener('mouseleave', hide);
+      button.addEventListener('blur', hide);
+    }
     button.addEventListener('click', async () => {
-      const view = reader.view, chapter = apChap(view?.sections?.[view.idx]);
-      if (view?.group?.title !== context.book || chapter !== target.ref.split(':')[0]
-          || !$$('#rOut .row[data-l]').some(row => row.dataset.l === target.ref.split(':')[1])) {
-        await jumpTo(context.book + ' ' + target.ref);
-      }
+      getHover?.()?.hideWithin(button);
+      if (wpop?.contains(button)) closeWpop();
+      if (jumpSyntax) await jumpSyntax(context.book, target.ref, context.rel);
+      else await jumpTo(context.book + ' ' + target.ref);
       clearSyntaxMarks();
       markSyntax(context, [target]);
-      $('#rOut .macula-mark')?.scrollIntoView({ block: 'nearest' });
     });
     line.append(' ', button);
   }

@@ -536,6 +536,7 @@ body.stack-split #dictPanel:not(.more) :is(#dictFullL, #dictNoteMode, #dictStar,
 #rOut .w:hover, #rOut .wt:hover, #rOut .wq:hover, #rOut .wg:hover { background: color-mix(in srgb, var(--accent) 18%, transparent); }
 #rOut .w.sel, #rOut .wt.sel, #rOut .wg.sel { background: color-mix(in srgb, var(--accent) 32%, transparent); }
 #wpop { position: fixed; z-index: 60; width: 300px; max-width: calc(100vw - 16px); max-height: calc(100vh - 16px); overflow-y: auto; background: var(--card); color: var(--fg); border: 1px solid var(--accent); border-radius: 8px; box-shadow: 0 6px 24px rgba(0,0,0,.25); padding: 8px 10px; font-size: 13px; line-height: 1.45; }
+#rOut.syntax-jump { padding-bottom: 50vh; }
 #rOut .w.macula-mark { outline: 1px solid var(--accent); outline-offset: 1px; border-radius: 2px; }
 .macula-roles h4 { margin: 0 0 4px; }
 .macula-roles > div + div { margin-top: 3px; }
@@ -762,6 +763,7 @@ img.g, #rOut img.g, #cmtBody img.g, .sres img.g { display: inline; height: 1.35e
 /* Grammatik-Suche */
 .gram { margin: 0 0 8px; font-size: 12.5px; }
 .gram > summary { cursor: pointer; color: var(--muted); user-select: none; }
+.gram .gramRow[hidden] { display: none; }
 .gram .gramRow { display: flex; flex-wrap: wrap; gap: 6px 12px; padding: 6px 0 2px; align-items: center; }
 .gram label { display: inline-flex; gap: 4px; align-items: center; white-space: nowrap; }
 .gram select, .gram input { font-size: 12.5px; max-width: 150px; }

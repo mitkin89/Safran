@@ -176,7 +176,16 @@
             <label><input id="sxReferents" type="checkbox"> Gemeinte Subjekte einbeziehen</label>
             <button id="sxGo" type="button">Syntax suchen</button>
           </div>
-          <p class="muted">Mindestens ein hebräisches Lemma eingeben. Mehrere Subjekt- oder Objekt-Lemmata durch Kommas trennen. Die Grammatikfilter gelten für das Verb. Quelle: MACULA Hebrew (Westminster).</p>
+          <div class="gramRow" id="sxBhsa" hidden>
+            <label>Textbereich <select id="sxDomain"><option value="">Alle Textbereiche</option><option value="N">Erzählung</option><option value="D">Erläuterung des Erzählers</option><option value="Q">Direkte Rede</option></select></label>
+            <label><input id="sxResumption" type="checkbox"> Nur Wiederaufnahmen</label>
+          </div>
+          <div class="gramRow" id="sxBhsaInstall" hidden>
+            <button id="sxBhsaLoad" type="button">BHSA-Daten laden</button>
+            <small class="muted">Textbereiche und Klauselbeziehungen · ca. 24 MB · CC BY-NC 4.0</small>
+          </div>
+          <p class="muted" id="sxBhsaStatus" aria-live="polite" hidden></p>
+          <p class="muted">Ein hebräisches Lemma eingeben oder einen BHSA-Filter wählen. Mehrere Subjekt- oder Objekt-Lemmata durch Kommas trennen. Die Grammatikfilter gelten für das Verb.</p>
           <p id="sxError" role="alert" hidden></p>
         </details>
         <details id="sHelp" class="help">
